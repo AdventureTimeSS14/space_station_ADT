@@ -75,7 +75,7 @@
   categories: [ HideSpawnMenu, Spawner ]
   components:
   - type: Sprite
-    sprite: /Textures/Effects/mobspawn.rsi
+    sprite: /Textures/ADT/Effects/mobspawn.rsi
     state: crab_BS
   - type: SpawnOnDespawn
     prototype: ADTMobBSCrab
@@ -87,7 +87,79 @@
   categories: [ HideSpawnMenu, Spawner ]
   components:
   - type: Sprite
-    sprite: /Textures/Effects/mobspawn.rsi
+    sprite: /Textures/ADT/Effects/mobspawn.rsi
     state: crab_BS
   - type: SpawnOnDespawn
     prototype: ADTMobBSCrabFriendly
+#BFUU
+- type: entity
+  id: ADTMobSpawnCopperCrab
+  parent: MobSpawnCrabQuartz
+  name: mobspawner copper crab
+  categories: [ HideSpawnMenu, Spawner ]
+  components:
+  - type: Sprite
+    sprite: /Textures/ADT/Effects/mobspawn.rsi
+    state: crab_copper
+  - type: SpawnOnDespawn
+    prototype: ADTMobCopperCrab
+
+- type: entity
+  id: MobSpawnCopperCrabFriendly
+  parent: MobSpawnCrabQuartz
+  name: mobspawner copper crab
+  categories: [ HideSpawnMenu, Spawner ]
+  components:
+  - type: Sprite
+    sprite: /Textures/ADT/Effects/mobspawn.rsi
+    state: crab_copper
+  - type: SpawnOnDespawn
+    prototype: ADTMobCopperCrabFriendly
+
+- type: entity
+  id: ADTMobSpawnLeadCrab
+  parent: MobSpawnCrabQuartz
+  name: mobspawner lead crab
+  categories: [ HideSpawnMenu, Spawner ]
+  components:
+  - type: Sprite
+    sprite: /Textures/ADT/Effects/mobspawn.rsi
+    state: crab_lead
+  - type: SpawnOnDespawn
+    prototype: ADTMobLeadCrab
+
+- type: entity
+  id: MobSpawnLeadCrabFriendly
+  parent: MobSpawnCrabQuartz
+  name: mobspawner BS crab
+  categories: [ HideSpawnMenu, Spawner ]
+  components:
+  - type: Sprite
+    sprite: /Textures/ADT/Effects/mobspawn.rsi
+    state: crab_lead
+  - type: SpawnOnDespawn
+    prototype: ADTMobLeadCrabFriendly
+
+- type: entity
+  id: ADTMobSpawnZincCrab
+  parent: MobSpawnCrabQuartz
+  name: mobspawner zinc crab
+  categories: [ HideSpawnMenu, Spawner ]
+  components:
+  - type: Sprite
+    sprite: /Textures/ADT/Effects/mobspawn.rsi
+    state: crab_zinc
+  - type: SpawnOnDespawn
+    prototype: ADTMobZincCrab
+
+- type: entity
+  id: MobSpawnZincCrabFriendly
+  parent: MobSpawnCrabQuartz
+  name: mobspawner zinc crab
+  categories: [ HideSpawnMenu, Spawner ]
+  components:
+  - type: Sprite
+    sprite: /Textures/ADT/Effects/mobspawn.rsi
+    state: crab_zinc
+  - type: SpawnOnDespawn
+    prototype: ADTMobZincCrabFriendly

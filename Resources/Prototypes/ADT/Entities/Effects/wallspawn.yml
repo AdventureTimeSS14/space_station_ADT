@@ -13,3 +13,51 @@
   components:
   - type: SpawnOnDespawn
     prototype: ADTMobBSCrab
+
+- type: entity
+  id: ADTWallSpawnAsteroidCopper
+  parent: WallSpawnAsteroid
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SpawnOnDespawn
+    prototype: ADTAsteroidRockCopper
+
+- type: entity
+  id: ADTWallSpawnAsteroidCopperCrab
+  parent: WallSpawnAsteroid
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SpawnOnDespawn
+    prototype: ADTMobCopperCrab
+
+- type: entity
+  id: ADTWallSpawnAsteroidLead
+  parent: WallSpawnAsteroid
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SpawnOnDespawn
+    prototype: ADTAsteroidRockLead
+
+- type: entity
+  id: ADTWallSpawnAsteroidLeadCrab
+  parent: WallSpawnAsteroid
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SpawnOnDespawn
+    prototype: ADTMobLeadCrab
+
+- type: entity
+  id: ADTWallSpawnAsteroidZinc
+  parent: WallSpawnAsteroid
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SpawnOnDespawn
+    prototype: ADTAsteroidRockZinc
+
+- type: entity
+  id: ADTWallSpawnAsteroidZincCrab
+  parent: WallSpawnAsteroid
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SpawnOnDespawn
+    prototype: ADTMobZincCrab

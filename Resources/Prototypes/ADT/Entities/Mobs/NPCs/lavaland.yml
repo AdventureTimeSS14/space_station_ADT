@@ -347,16 +347,14 @@
   description: A crab made half from the ashes of Lavaland storms, a quarter flesh, a quarter bluespace. Aggressive on look.
   components:
   - type: Sprite
-    sprite: ADT/Mobs/BS_crab.rsi
+    sprite: ADT/Mobs/Elemental/orecrab.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
-      state: bs_crab-alive
+      state: bs_crab
   - type: DamageStateVisuals
     states:
       Alive:
-        Base: bs_crab-alive
-      Dead:
-        Base: bs_crab-dead
+        Base: bs_crab
   - type: MovementSpeedModifier
     baseWalkSpeed : 3.5
     baseSprintSpeed : 4.0
