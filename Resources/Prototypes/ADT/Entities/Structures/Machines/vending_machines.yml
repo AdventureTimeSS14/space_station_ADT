@@ -341,8 +341,6 @@
     brokenState: broken
     normalState: normal-unshaded
     denyState: deny-unshaded
-  - type: Advertise
-    pack: ClothesMateAds
   - type: Speech
   - type: Tag
     tags:
