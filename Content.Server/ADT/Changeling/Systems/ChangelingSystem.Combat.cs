@@ -360,7 +360,7 @@ public sealed partial class ChangelingSystem
 
         var shard = Spawn("ADTThrowingStarChangeling", Transform(uid).Coordinates);
 
-        _damageableSystem.TryChangeDamage(uid, new DamageSpecifier(_proto.Index<DamageTypePrototype>("Blunt"), 20));
+        _damageableSystem.TryChangeDamage(uid, new DamageSpecifier(_proto.Index<DamageTypePrototype>("Blunt"), 10)); // 20 -> 10
         _handsSystem.TryPickupAnyHand(uid, shard);
 
         _audioSystem.PlayPvs(component.SoundFlesh, uid);
