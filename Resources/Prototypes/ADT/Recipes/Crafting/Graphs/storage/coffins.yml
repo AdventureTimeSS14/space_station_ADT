@@ -6,7 +6,7 @@
       edges:
         - to: zinccoffin
           steps:
-            - material: ADTSheetZinc1
+            - material: Zinc
               amount: 5
               doAfter: 5
 
