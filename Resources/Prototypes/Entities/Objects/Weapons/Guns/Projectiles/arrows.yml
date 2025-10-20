@@ -181,7 +181,7 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 30
+        Piercing: 35 # ADT-Tweak 30 -> 35
   - type: Construction
     graph: ImprovisedArrowCarp
     node: ImprovisedArrowCarp
