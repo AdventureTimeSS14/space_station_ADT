@@ -47,23 +47,25 @@
   - type: Sprite
     sprite: ADT/ADTGlobalEvents/WorldWar1/Objects/Weapons/Guns/Rifles/mosin.rsi  #ADT_Tweak
 #ADT_Tweak START
-  - type: AttachableHolder #ADT_Tweak
+  - type: AttachableHolder
     slots:
       rmc-aslot-barrel:
         startingAttachable: ADTMosinBayonet
         whitelist:
           tags:
           - ADTMosinBayonetAttachment
-  - type: AttachableHolderVisuals #ADT_Tweak
+  - type: AttachableHolderVisuals
     offsets:
       rmc-aslot-barrel: 0.59375, 0
       # rmc-aslot-barrel: 0.59375, -0.15625
-  - type: MeleeWeapon #ADT_Tweak
+  - type: RunAndGunSpreadModifier
+    modifyer: 2
+  - type: MeleeWeapon
     resetOnHandSelected: false
     attackRate: 1
     damage:
       types:
-        Blunt: 5
+        Blunt: 7
     soundHit:
       collection: GenericHit
   - type: AltFireMelee
@@ -93,17 +95,32 @@
       - CartridgeAntiMateriel
     capacity: 5
     proto: CartridgeAntiMateriel
+  # ADT-Tweak start
+  - type: RunAndGunSpreadModifier
+    modifyer: 7
+  - type: MeleeWeapon
+    resetOnHandSelected: false
+    attackRate: 0.65
+    damage:
+      types:
+        Blunt: 20
+    soundHit:
+      collection: GenericHit
+  - type: AltFireMelee
+  # ADT-Tweak end
   - type: SpeedModifiedOnWield
-    walkModifier: 0.25
-    sprintModifier: 0.25
-  - type: CursorOffsetRequiresWield
-  - type: EyeCursorOffset
-    maxOffset: 3
-    pvsIncrease: 0.3
+# ADT-Tweak start
+    walkModifier: 0.65 # 0.25 -> 0.65
+    sprintModifier: 0.80 # 0.25 -> 0.80
+#  - type: CursorOffsetRequiresWield
+#  - type: EyeCursorOffset
+#    maxOffset: 3
+#   pvsIncrease: 0.3
+# ADT-Tweak end
   - type: AttachableHolder # ADT-Tweak
     slots:
       rmc-aslot-rail:
-        locked: true
+        locked: false # ADT-Tweak true -> false 
         startingAttachable: ADTAttachmentHristovScope
         whitelist:
             tags:
@@ -114,7 +131,7 @@
 
 - type: entity
   name: musket
-  parent: [ BaseWeaponSniper, BaseGunWieldable, BaseMajorContraband ]
+  parent: [ BaseWeaponSniper, BaseGunWieldable, BaseMajorContraband, ADTBaseAttachableHolder ] # ADT-Tweak add ADTBaseAttachableHolder
   id: Musket
   description: This should've been in a museum long before you were born. Uses .60 anti-materiel ammo.
   components:
@@ -131,6 +148,26 @@
     availableModes:
     - SemiAuto
   - type: UseDelayOnShoot
+  # ADT-Tweak start
+  - type: AttachableHolder
+    slots:
+      rmc-aslot-barrel:
+        startingAttachable: ADTMosinBayonet
+        whitelist:
+          tags:
+          - ADTMosinBayonetAttachment
+  - type: RunAndGunSpreadModifier
+    modifyer: 7
+  - type: MeleeWeapon
+    resetOnHandSelected: false
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 9
+    soundHit:
+      collection: GenericHit
+  - type: AltFireMelee
+  # ADT-Tweak end
   - type: UseDelay
     delay: 8 #it's a musket
   - type: BallisticAmmoProvider
@@ -139,16 +176,18 @@
       - CartridgeAntiMateriel
     capacity: 1
     proto: CartridgeAntiMateriel
-  - type: MeleeWeapon
-    wideAnimationRotation: -135
-    damage:
-      types:
-        Piercing: 15 #you fucking stab em
-        Bloodloss: 2 #no way to apply bleed, triangular bayonet wounds are hard to fix(source:that one copypasta)
-    angle: 0
-    animation: WeaponArcThrust
-    soundHit:
-      path: /Audio/Weapons/bladeslice.ogg
+# ADT-Tweak start
+#  - type: MeleeWeapon
+#    wideAnimationRotation: -135
+#    damage:
+#      types:
+#        Piercing: 15 #you fucking stab em
+#       Bloodloss: 2 #no way to apply bleed, triangular bayonet wounds are hard to fix(source:that one copypasta)
+#    angle: 0
+#    animation: WeaponArcThrust
+#     soundHit:
+#      path: /Audio/Weapons/bladeslice.ogg
+# ADT-Tweak end
   - type: GunRequiresWield
 
 - type: entity
@@ -166,6 +205,19 @@
     - 0,0,1,0
     - 0,1,0,1
     storedRotation: 0
+  # ADT-Tweak start
+  - type: RunAndGunSpreadModifier
+    modifyer: 15
+  - type: MeleeWeapon
+    resetOnHandSelected: false
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 7
+    soundHit:
+      collection: GenericHit
+  - type: AltFireMelee
+  # ADT-Tweak end
   - type: Sprite
     sprite: Objects/Weapons/Guns/Snipers/flintlock.rsi
   - type: Clothing

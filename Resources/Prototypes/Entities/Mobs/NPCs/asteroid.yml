@@ -24,7 +24,7 @@
     - TemporaryBlindness
     - RadiationProtection
     - Adrenaline
-  - type: StandingState
+  #- type: StandingState # ADT-Tweak зачем им ползать
   - type: Tag
     tags:
     - DoorBumpOpener
