@@ -1,0 +1,49 @@
+- type: entity
+  id: ADTCoffinZinc
+  parent: CrateCoffin
+  name: zinc coffin
+  description: Die with money or without?
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Coffins/coffin_zinc.rsi
+    layers:
+    - state: base
+    - state: closed
+      map: ["enum.StorageVisualLayers.Door"]
+    - state: paper
+      map: ["enum.PaperLabelVisuals.Layer"]
+  - type: Icon
+    sprite: ADT/Structures/Furniture/Coffins/coffin_zinc.rsi
+    state: base
+  - type: Destructible
+    thresholds:
+    - trigger: # Excess damage, don't spawn entities
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+    - trigger:
+        !type:DamageTrigger
+        damage: 30
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ADTSheetZinc1:
+            min: 1
+            max: 4
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Construction
+    graph: CoffinZinc
+    node: zinccoffin
+    containers:
+    - entity_storage
+
+

@@ -28,6 +28,8 @@
      - state: mag-0
        map: ["enum.GunVisualLayers.Mag"]
   - type: AmmoCounter
+  - type: RunAndGunSpreadModifier
+    modifyer: 2
   - type: PointLight
     enabled: false
     radius: 2

@@ -1,0 +1,27 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "BS crab was made by firemix_(Discord),BFUU crabs was made by prazat911(Discord)",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "bs_crab",
+            "directions": 4
+        },
+        {
+            "name": "copper_crab",
+            "directions": 4
+        },
+        {
+            "name": "lead_crab",
+            "directions": 4
+        },
+        {
+            "name": "zinc_crab",
+            "directions": 4
+        }
+    ]
+}
