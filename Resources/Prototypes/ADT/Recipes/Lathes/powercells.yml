@@ -9,3 +9,51 @@
     Plastic: 500
     Copper: 1000
     Zinc: 1000
+
+- type: latheRecipe
+  id: ADTMegaCellSmallRecipe
+  result: ADTMegaCellSmallPrinted
+  completetime: 15
+  materials:
+    Steel: 500
+    Glass: 350
+    Gold: 200
+    Plastic: 300
+    Copper: 500
+    Zinc: 500
+
+- type: latheRecipe
+  id: ADTMegaCellMediumRecipe
+  result: ADTMegaCellMediumPrinted
+  completetime: 15
+  materials:
+    Steel: 1000
+    Glass: 600
+    Gold: 400
+    Plastic: 500
+    Copper: 600
+    Zinc: 600
+
+- type: latheRecipe
+  id: ADTMegaCellHighRecipe
+  result: ADTMegaCellHighPrinted
+  completetime: 15
+  materials:
+    Steel: 1500
+    Glass: 700
+    Gold: 500
+    Plastic: 700
+    Copper: 900
+    Zinc: 900
+
+- type: latheRecipe
+  id: ADTMegaCellHyperRecipe
+  result: ADTMegaCellHyperPrinted
+  completetime: 20
+  materials:
+    Steel: 1500
+    Glass: 800
+    Gold: 1000
+    Plastic: 800
+    Copper: 1500
+    Zinc: 1500

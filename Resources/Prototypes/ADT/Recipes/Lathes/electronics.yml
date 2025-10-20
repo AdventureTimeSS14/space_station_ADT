@@ -126,3 +126,15 @@
      Steel: 100
      Glass: 500
      Copper: 500
+
+- type: latheRecipe
+  parent: BaseGoldCircuitboardRecipe
+  id: ADTMegaCellRechargerCircuitboardRecipe
+  result: ADTMegaCellRechargerCircuitboard
+  completetime: 10
+  materials:
+    Steel: 200
+    Glass: 500
+    Gold: 300
+    Silver: 300
+    Copper: 900

@@ -126,3 +126,22 @@
   position: 4,2
   requiredTech:
   - Shuttlecraft
+
+- type: technology
+  id: ADTMegaCells
+  name: research-technology-megacells
+  icon:
+    sprite: ADT/Objects/Devices/megacells.rsi
+    state: hyp_megacell
+  discipline: Industrial
+  tier: 3
+  cost: 20000
+  recipeUnlocks:
+    - ADTMegaCellRechargerCircuitboardRecipe
+    - ADTMegaCellSmallRecipe
+    - ADTMegaCellMediumRecipe
+    - ADTMegaCellHighRecipe
+    - ADTMegaCellHyperRecipe
+  position: 0,-3
+  requiredTech:
+  - ADTAdvancedEnergy
