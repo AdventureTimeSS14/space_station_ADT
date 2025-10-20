@@ -355,6 +355,7 @@
     - ADTDurandPack
     - ADTPhazonPack
     - ADTMechEquipmentPack
+    - ADTIndustrialTobotics
     # ADT-tweak-end
   - type: MaterialStorage
     whitelist:

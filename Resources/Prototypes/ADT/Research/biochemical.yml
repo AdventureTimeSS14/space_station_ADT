@@ -58,7 +58,7 @@
   recipeUnlocks:
   - ADTMedicalAssemblerMachineCircuitBoard
   - ADTBlankMediPen
-  - ADTTourniquet1
+  - ADTTourniquet
   requiredTech:
   - ADTMedicalMODsuit
   position: 2,0
@@ -102,7 +102,7 @@
     sprite: Mobs/Silicon/chassis.rsi
     state: medical
   discipline: Biochemical
-  tier: 2 
+  tier: 2
   cost: 5000
   recipeUnlocks:
   # - BorgModuleAdvancedTreatment # В прототипах такого не найдено
@@ -156,6 +156,7 @@
   recipeUnlocks:
   - ADTMiniSyringe
   - ADTLauncherSyringe
+  - ADTTourniquet
   position: 1,-1
   requiredTech:
   - ADTIndustrialMedicine

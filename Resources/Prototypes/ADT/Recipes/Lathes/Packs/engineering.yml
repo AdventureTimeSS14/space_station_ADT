@@ -43,10 +43,18 @@
 
 - type: latheRecipePack
   id: ADTPowerPack
-  recipes: 
+  recipes:
   - ADTPowerCellHyperRecipe
 
 - type: latheRecipePack
   id: ADTIndustrialCharger
-  recipes: 
+  recipes:
   - ADTIndustrialChargerCircuitboard
+
+- type: latheRecipePack
+  id: ADTIndustrialTobotics
+  recipes:
+  - ADTBorgModuleRPD
+  - BorgModuleAdvancedTool
+  - BorgModuleConstruction
+  - BorgModuleRCD
