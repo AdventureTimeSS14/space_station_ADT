@@ -50,11 +50,3 @@
   id: ADTIndustrialCharger
   recipes:
   - ADTIndustrialChargerCircuitboard
-
-- type: latheRecipePack
-  id: ADTIndustrialTobotics
-  recipes:
-  - ADTBorgModuleRPD
-  - BorgModuleAdvancedTool
-  - BorgModuleConstruction
-  - BorgModuleRCD
