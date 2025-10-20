@@ -2,7 +2,7 @@
   id: ADT_Train
   mapName: 'Train'
   mapPath: /Maps/ADTMaps/ADTStations/adt_train.yml
-  minPlayers: 30
+  minPlayers: 35
   maxPlayers: 60
   stations:
     ADT_Train:

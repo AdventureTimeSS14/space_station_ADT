@@ -26,6 +26,7 @@
     - id: SpiderClownSpawn
     - id: SpiderSpawn
     - id: VentClog
+    - id: WormholesSpawn # ADT-Tweak Wormholes Spawns now correctly without admin abuse
 
 - type: entityTable
   id: BasicAntagEventsTable
@@ -43,10 +44,11 @@
     - id: WizardSpawn
     - id: LoneOpsSpawn  # ADT tweak - вернул лон опса в список... АНТАГОВ
     - id: Pirates # ADT tweak pirates
-    # - id: MorphSpawn #ADT tweak morph #TODO: Раскомментить после фикса
-    - id: PhantomSpawn # ADT tweak phantom
+    - id: MorphSpawn #ADT tweak morph
+#   - id: PhantomSpawn # ADT tweak phantom //// ADT-Tweak cut-out of broken Antag
     - id: VoxRaidersEvent # ADT tweak vox-raiders
     # - id: ZombieOutbreak
+    - id: IanHeroEvent #Basically he isn't Antag but there is change game for it
 
 - type: entity
   id: BaseStationEvent
