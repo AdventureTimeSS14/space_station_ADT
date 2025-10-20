@@ -305,7 +305,7 @@
   components:
     - type: Sprite
       sprite: Objects/Misc/module.rsi
-      state: charger_APC
+      state: engineering
     - type: MachineBoard
       prototype: ADTMegaCellRecharger
       stackRequirements:
