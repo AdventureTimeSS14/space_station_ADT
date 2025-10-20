@@ -40,16 +40,6 @@
     Gold: 50
 
 - type: latheRecipe
-  id: BorgModuleConstruction
-  result: BorgModuleConstruction
-  parent: ADTBorgModuleRPD
-
-- type: latheRecipe
-  id: BorgModuleRCD
-  result: BorgModuleRCD
-  parent: ADTBorgModuleRPD
-
-- type: latheRecipe
   id: ADTCustomLawCircuitBoard
   result: ADTCustomLawCircuitBoard
   completetime: 3
