@@ -1,14 +1,14 @@
 {
-  "version": 3,
+  "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Made by brainfood1183 (github), Gold and Coal Crab pallet swapped by Firewars763 (github)",
+  "copyright": "BS crab by firemix_ , BFUU crabs by prazat911",
   "size": {
     "x": 32,
     "y": 32
   },
     "states": [
         {
-            "name": "crab_quartz",
+            "name": "crab_zinc",
             "directions": 1,
             "delays": [
                 [
@@ -22,7 +22,7 @@
             ]
         },
         {
-            "name": "crab_silver",
+            "name": "crab_lead",
             "directions": 1,
             "delays": [
                 [
@@ -36,7 +36,7 @@
             ]
         },
         {
-            "name": "crab_gold",
+            "name": "crab_copper",
             "directions": 1,
             "delays": [
                 [
@@ -50,49 +50,7 @@
             ]
         },
         {
-            "name": "crab_uranium",
-            "directions": 1,
-            "delays": [
-                [
-                    0.6,
-                    0.3,
-                    0.3,
-                    0.3,
-                    0.3,
-                    0.3
-                ]
-            ]
-        },
-        {
-            "name": "crab_bananium",
-            "directions": 1,
-            "delays": [
-                [
-                    0.6,
-                    0.3,
-                    0.3,
-                    0.3,
-                    0.3,
-                    0.3
-                ]
-            ]
-        },
-        {
-            "name": "crab_iron",
-            "directions": 1,
-            "delays": [
-                [
-                    0.6,
-                    0.3,
-                    0.3,
-                    0.3,
-                    0.3,
-                    0.3
-                ]
-            ]
-        },
-        {
-            "name": "crab_coal",
+            "name": "crab_BS",
             "directions": 1,
             "delays": [
                 [
