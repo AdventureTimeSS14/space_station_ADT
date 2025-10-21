@@ -22,7 +22,7 @@
         - Opaque
         layer:
         - None
-  - type: StandingState
+  #- type: StandingState # ADT-Tweak зачем им ползать
   - type: Tag
     tags:
     - DoorBumpOpener

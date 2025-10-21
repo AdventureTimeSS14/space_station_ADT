@@ -376,6 +376,10 @@
       state: cockroach
   - type: Item
     size: Tiny
+  # ADT-Tweak start
+  - type: VentCrawler
+    allowInventory: false
+  # ADT-Tweak end
   - type: HTN
     constantlyReplan: false
     rootTask:
@@ -1487,7 +1491,10 @@
       methods: [ Touch ]
       effects:
       - !type:WashCreamPieReaction
-
+  # ADT-Tweak start
+  - type: VentCrawler
+    allowInventory: false
+  # ADT-Tweak end
 
 
 - type: entity

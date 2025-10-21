@@ -6,11 +6,14 @@
   description: You can't see it, but you can feel it.
   components:
   - type: Projectile
-    damage:
-      types:
-        Heat: 7
+  - type: StaminaDamageOnCollide
+    damage: 65
   - type: Ammo
     muzzleFlash: null
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Projectiles/mimebullet.rsi
+    layers:
+    - state: mime_bullet
   - type: Reflective
     reflective:
     - Energy
@@ -26,4 +29,4 @@
   - type: KnockdownOnCollide
   - type: BlurOnCollide
   - type: TimedDespawn
-    lifetime: 0.1
+    lifetime: 0.3
