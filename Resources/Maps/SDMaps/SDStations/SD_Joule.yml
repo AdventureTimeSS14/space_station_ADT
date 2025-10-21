@@ -108639,12 +108639,9 @@ entities:
         cell_slot: !type:ContainerSlot
           showEnts: False
           occludes: True
-          ent: null
         actions: !type:Container
           showEnts: False
           occludes: True
-          ents:
-          - 34
     - type: Physics
       canCollide: True
     - type: ActionsContainer
@@ -108672,12 +108669,9 @@ entities:
         cell_slot: !type:ContainerSlot
           showEnts: False
           occludes: True
-          ent: null
         actions: !type:Container
           showEnts: False
           occludes: True
-          ents:
-          - 36
     - type: Physics
       canCollide: True
     - type: ActionsContainer
@@ -108695,12 +108689,9 @@ entities:
         cell_slot: !type:ContainerSlot
           showEnts: False
           occludes: True
-          ent: null
         actions: !type:Container
           showEnts: False
           occludes: True
-          ents:
-          - 38
     - type: Physics
       canCollide: True
     - type: ActionsContainer
