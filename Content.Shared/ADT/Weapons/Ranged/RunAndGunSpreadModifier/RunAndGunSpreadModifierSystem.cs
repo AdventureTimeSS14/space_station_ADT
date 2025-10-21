@@ -12,33 +12,38 @@ public sealed class RunAndGunSpreadModifierSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-
         SubscribeLocalEvent<RunAndGunSpreadModifierComponent, GunShotEvent>(OnModifyAngle);
         SubscribeLocalEvent<RunAndGunBlockerComponent, AttemptShootEvent>(OnBlocker);
     }
+
     private void OnModifyAngle(Entity<RunAndGunSpreadModifierComponent> ent, ref GunShotEvent args)
     {
-        if (!TryComp<PhysicsComponent>(args.User, out var physics))
+        if (!TryComp<PhysicsComponent>(args.User, out var physics) || 
+            physics.LinearVelocity.LengthSquared() < 1f)
             return;
 
-        var vel = physics.LinearVelocity;
-        if (vel.LengthSquared() < 1f)
+        var dir = args.ToCoordinates.Position - args.FromCoordinates.Position;
+        var lenSq = dir.LengthSquared();
+        
+        if (lenSq < 0.0001f)
             return;
 
-        var mod = ent.Comp.Modifyer;
+        var invLen = 1f / MathF.Sqrt(lenSq);
+        dir *= invLen;
+
+        var spread = MathF.Abs(physics.LinearVelocity.X + physics.LinearVelocity.Y) * ent.Comp.Modifyer;
+        
         args.ToCoordinates = args.ToCoordinates.Offset(new Vector2(
-            _random.NextFloat(-vel.X * mod, vel.X * mod),
-            _random.NextFloat(-vel.Y * mod, vel.Y * mod)
+            dir.X * _random.NextFloat(0f, spread) - dir.Y * _random.NextFloat(-spread, spread),
+            dir.Y * _random.NextFloat(0f, spread) + dir.X * _random.NextFloat(-spread, spread)
         ));
     }
 
     private void OnBlocker(Entity<RunAndGunBlockerComponent> ent, ref AttemptShootEvent args)
     {
-        if (!args.Cancelled &&
-            TryComp<PhysicsComponent>(args.User, out var physics) &&
+        if (!args.Cancelled && 
+            TryComp<PhysicsComponent>(args.User, out var physics) && 
             physics.LinearVelocity.LengthSquared() > 0f)
-        {
             args.Cancelled = true;
-        }
     }
 }
