@@ -14,7 +14,10 @@
   - type: OreVein
     oreChance: 1.0
     currentOre: ADTOreCopper
+  - type: Icon
+    sprite: ADT/Structures/Walls/rock.rsi
   - type: Sprite
+    sprite: ADT/Structures/Walls/rock.rsi
     layers:
       - state: rock_copper
         map: [ "enum.MiningScannerVisualLayers.Overlay" ]
@@ -37,7 +40,10 @@
     - type: OreVein
       oreChance: 1.0
       currentOre: ADTOreCopper
+    - type: Icon
+      sprite: ADT/Structures/Walls/rock.rsi
     - type: Sprite
+      sprite: ADT/Structures/Walls/rock.rsi
       layers:
         - state: rock_copper
           map: [ "enum.MiningScannerVisualLayers.Overlay" ]
@@ -60,7 +66,10 @@
     - type: OreVein
       oreChance: 1.0
       currentOre: ADTOreCopper
+    - type: Icon
+      sprite: ADT/Structures/Walls/rock.rsi
     - type: Sprite
+      sprite: ADT/Structures/Walls/rock.rsi
       layers:
         - state: rock_copper
         - state: rock_asteroid
@@ -82,7 +91,10 @@
     - type: OreVein
       oreChance: 1.0
       currentOre: ADTOreCopper
+    - type: Icon
+      sprite: ADT/Structures/Walls/rock.rsi
     - type: Sprite
+      sprite: ADT/Structures/Walls/rock.rsi
       layers:
         - state: rock_copper
           map: [ "enum.MiningScannerVisualLayers.Overlay" ]
@@ -105,7 +117,10 @@
     - type: OreVein
       oreChance: 1.0
       currentOre: ADTOreCopper
+    - type: Icon
+      sprite: ADT/Structures/Walls/rock.rsi
     - type: Sprite
+      sprite: ADT/Structures/Walls/rock.rsi
       layers:
         - state: rock_copper
           map: [ "enum.MiningScannerVisualLayers.Overlay" ]
@@ -128,7 +143,10 @@
     - type: OreVein
       oreChance: 1.0
       currentOre: ADTOreCopper
+    - type: Icon
+      sprite: ADT/Structures/Walls/rock.rsi
     - type: Sprite
+      sprite: ADT/Structures/Walls/rock.rsi
       layers:
         - state: rock_copper
           map: [ "enum.MiningScannerVisualLayers.Overlay" ]
@@ -151,7 +169,10 @@
     - type: OreVein
       oreChance: 1.0
       currentOre: ADTOreCopper
+    - type: Icon
+      sprite: ADT/Structures/Walls/rock.rsi
     - type: Sprite
+      sprite: ADT/Structures/Walls/rock.rsi
       layers:
         - state: rock_copper
           map: [ "enum.MiningScannerVisualLayers.Overlay" ]
@@ -174,7 +195,10 @@
     - type: OreVein
       oreChance: 1.0
       currentOre: ADTOreCopper
+    - type: Icon
+      sprite: ADT/Structures/Walls/rock.rsi
     - type: Sprite
+      sprite: ADT/Structures/Walls/rock.rsi
       layers:
         - state: rock_copper
           map: [ "enum.MiningScannerVisualLayers.Overlay" ]
@@ -197,7 +221,10 @@
     - type: OreVein
       oreChance: 1.0
       currentOre: ADTOreCopper
+    - type: Icon
+      sprite: ADT/Structures/Walls/rock.rsi
     - type: Sprite
+      sprite: ADT/Structures/Walls/rock.rsi
       layers:
         - state: rock_copper
           map: [ "enum.MiningScannerVisualLayers.Overlay" ]
@@ -228,7 +255,10 @@
   - type: OreVein
     oreChance: 1.0
     currentOre: ADTOreZinc
+  - type: Icon
+    sprite: ADT/Structures/Walls/rock.rsi
   - type: Sprite
+    sprite: ADT/Structures/Walls/rock.rsi
     layers:
       - state: rock_zinc
         map: [ "enum.MiningScannerVisualLayers.Overlay" ]
@@ -251,7 +281,10 @@
     - type: OreVein
       oreChance: 1.0
       currentOre: ADTOreZinc
+    - type: Icon
+      sprite: ADT/Structures/Walls/rock.rsi
     - type: Sprite
+      sprite: ADT/Structures/Walls/rock.rsi
       layers:
         - state: rock_zinc
           map: [ "enum.MiningScannerVisualLayers.Overlay" ]
@@ -274,7 +307,10 @@
     - type: OreVein
       oreChance: 1.0
       currentOre: ADTOreZinc
+    - type: Icon
+      sprite: ADT/Structures/Walls/rock.rsi
     - type: Sprite
+      sprite: ADT/Structures/Walls/rock.rsi
       layers:
         - state: rock_zinc
         - state: rock_asteroid
@@ -296,7 +332,10 @@
     - type: OreVein
       oreChance: 1.0
       currentOre: ADTOreZinc
+    - type: Icon
+      sprite: ADT/Structures/Walls/rock.rsi
     - type: Sprite
+      sprite: ADT/Structures/Walls/rock.rsi
       layers:
         - state: rock_zinc
           map: [ "enum.MiningScannerVisualLayers.Overlay" ]
@@ -319,7 +358,10 @@
     - type: OreVein
       oreChance: 1.0
       currentOre: ADTOreZinc
+    - type: Icon
+      sprite: ADT/Structures/Walls/rock.rsi
     - type: Sprite
+      sprite: ADT/Structures/Walls/rock.rsi
       layers:
         - state: rock_zinc
           map: [ "enum.MiningScannerVisualLayers.Overlay" ]
@@ -342,7 +384,10 @@
     - type: OreVein
       oreChance: 1.0
       currentOre: ADTOreZinc
+    - type: Icon
+      sprite: ADT/Structures/Walls/rock.rsi
     - type: Sprite
+      sprite: ADT/Structures/Walls/rock.rsi
       layers:
         - state: rock_zinc
           map: [ "enum.MiningScannerVisualLayers.Overlay" ]
@@ -365,7 +410,10 @@
     - type: OreVein
       oreChance: 1.0
       currentOre: ADTOreZinc
+    - type: Icon
+      sprite: ADT/Structures/Walls/rock.rsi
     - type: Sprite
+      sprite: ADT/Structures/Walls/rock.rsi
       layers:
         - state: rock_zinc
           map: [ "enum.MiningScannerVisualLayers.Overlay" ]
@@ -388,7 +436,10 @@
     - type: OreVein
       oreChance: 1.0
       currentOre: ADTOreZinc
+    - type: Icon
+      sprite: ADT/Structures/Walls/rock.rsi
     - type: Sprite
+      sprite: ADT/Structures/Walls/rock.rsi
       layers:
         - state: rock_zinc
           map: [ "enum.MiningScannerVisualLayers.Overlay" ]
@@ -411,7 +462,10 @@
     - type: OreVein
       oreChance: 1.0
       currentOre: ADTOreZinc
+    - type: Icon
+      sprite: ADT/Structures/Walls/rock.rsi
     - type: Sprite
+      sprite: ADT/Structures/Walls/rock.rsi
       layers:
         - state: rock_zinc
           map: [ "enum.MiningScannerVisualLayers.Overlay" ]
@@ -440,6 +494,7 @@
       WallRockSand: ADTWallRockSandGibtonit
       WallRockSnow: ADTWallRockSnowGibtonit
   - type: Sprite
+    sprite: Structures/Walls/rock.rsi
     layers:
       - state: rock
       - map: [ "enum.EdgeLayer.South" ]
@@ -461,6 +516,7 @@
   suffix: Gibtonite
   components:
     - type: Sprite
+      sprite: Structures/Walls/rock.rsi
       layers:
         - state: rock_asteroid
         - map: [ "enum.EdgeLayer.South" ]
@@ -482,6 +538,7 @@
   suffix: Gibtonite
   components:
     - type: Sprite
+      sprite: Structures/Walls/rock.rsi
       layers:
         - state: rock_asteroid
         - map: [ "enum.EdgeLayer.South" ]
@@ -503,6 +560,7 @@
   suffix: Gibtonite
   components:
     - type: Sprite
+      sprite: Structures/Walls/rock.rsi
       layers:
         - state: rock_wall
         - map: [ "enum.EdgeLayer.South" ]
@@ -524,6 +582,7 @@
   suffix: Gibtonite
   components:
     - type: Sprite
+      sprite: Structures/Walls/rock.rsi
       layers:
         - state: rock_snow
         - map: [ "enum.EdgeLayer.South" ]
@@ -545,6 +604,7 @@
   suffix: Gibtonite
   components:
     - type: Sprite
+      sprite: Structures/Walls/rock.rsi
       layers:
         - state: rock_sand
         - map: [ "enum.EdgeLayer.South" ]
@@ -566,6 +626,7 @@
   suffix: Gibtonite
   components:
     - type: Sprite
+      sprite: Structures/Walls/rock.rsi
       layers:
         - state: rock_chromite
         - map: [ "enum.EdgeLayer.South" ]
@@ -587,6 +648,7 @@
   suffix: Gibtonite
   components:
     - type: Sprite
+      sprite: Structures/Walls/rock.rsi
       layers:
         - state: rock_andesite
         - map: [ "enum.EdgeLayer.South" ]

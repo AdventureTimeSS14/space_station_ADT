@@ -23,6 +23,8 @@
     - SemiAuto
     soundGunshot:
       path: /Audio/ADT/Weapons/Guns/Gunshots/50_deagle.ogg
+  - type: RunAndGunSpreadModifier
+    modifyer: 1
   - type: ItemSlots
     slots:
       gun_magazine:
@@ -60,6 +62,8 @@
     magState: mag
     steps: 4
     zeroVisible: true
+  - type: RunAndGunSpreadModifier
+    modifyer: 1
   - type: Item
     sprite: ADT/Objects/Weapons/Guns/Pistols/ecto_pistol.rsi
     size: Small

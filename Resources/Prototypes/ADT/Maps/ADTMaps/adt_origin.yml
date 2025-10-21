@@ -3,7 +3,7 @@
   mapName: 'Origin Station'
   mapPath: /Maps/ADTMaps/ADTStations/adt_origin.yml
   maxRandomOffset: 0
-  minPlayers: 50
+  minPlayers: 60
   stations:
     ADT_Origin:
       stationProto: StandardNanotrasenStation

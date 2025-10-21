@@ -1,0 +1,67 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "BS crab by firemix_ , BFUU crabs by prazat911",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+    "states": [
+        {
+            "name": "crab_zinc",
+            "directions": 1,
+            "delays": [
+                [
+                    0.6,
+                    0.3,
+                    0.3,
+                    0.3,
+                    0.3,
+                    0.3
+                ]
+            ]
+        },
+        {
+            "name": "crab_lead",
+            "directions": 1,
+            "delays": [
+                [
+                    0.6,
+                    0.3,
+                    0.3,
+                    0.3,
+                    0.3,
+                    0.3
+                ]
+            ]
+        },
+        {
+            "name": "crab_copper",
+            "directions": 1,
+            "delays": [
+                [
+                    0.6,
+                    0.3,
+                    0.3,
+                    0.3,
+                    0.3,
+                    0.3
+                ]
+            ]
+        },
+        {
+            "name": "crab_BS",
+            "directions": 1,
+            "delays": [
+                [
+                    0.6,
+                    0.3,
+                    0.3,
+                    0.3,
+                    0.3,
+                    0.3
+                ]
+            ]
+        }
+    ]
+}
