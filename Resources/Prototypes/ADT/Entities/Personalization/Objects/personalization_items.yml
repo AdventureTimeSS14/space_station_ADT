@@ -2018,20 +2018,20 @@
     state: plushie_anagiri
   - type: EmitSoundOnUse
     sound:
-      path: /Audio/Voice/Moth/moth_scream.ogg
+      path: /Audio/ADT/Items/TheManWhoSoldTheWorld/alert.ogg
   - type: EmitSoundOnLand
     sound:
-      path: /Audio/Voice/Moth/moth_scream.ogg
+      path: /Audio/ADT/Items/TheManWhoSoldTheWorld/alert.ogg
   - type: EmitSoundOnActivate
     sound:
-      path: /Audio/Voice/Moth/moth_scream.ogg
+      path: /Audio/ADT/Items/TheManWhoSoldTheWorld/alert.ogg
   - type: EmitSoundOnTrigger
     sound:
-      path: /Audio/Voice/Moth/moth_scream.ogg
+      path: /Audio/ADT/Items/TheManWhoSoldTheWorld/alert.ogg
   - type: MeleeWeapon
     wideAnimationRotation: 180
     soundHit:
-      path: /Audio/Voice/Moth/moth_scream.ogg
+      path: /Audio/ADT/Items/TheManWhoSoldTheWorld/alert.ogg
   - type: Food
     requiresSpecialDigestion: true
     useSound:
@@ -2045,6 +2045,8 @@
         reagents:
         - ReagentId: Fiber
           Quantity: 10
+  - type: Whistle
+    distance: 5
 
 #kringe
 - type: entity
@@ -2494,4 +2496,29 @@
     equipSound:
       path: /Audio/Items/belt_equip.ogg
     quickEquip: false
+
+#Domino_Frensis
+- type: entity
+  name: luxury pen
+  parent: LuxuryPen
+  id: ADTLuxuryPenDominoFrensis
+  description: A fancy and expensive pen that you only deserve to own if you're qualified to handle vast amounts of paperwork.
+  suffix: Personal, Domino_Frensis
+  components:
+  - type: Sprite
+    state: luxury_pen
+  - type: Item
+    heldPrefix: luxury_pen
+
+#Morulu
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieMorulu
+  name: Plushie Morulu
+  description: Plushie Morulu
+  suffix: Personal, k236v2
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_morulu
 #SPONSOR-ITEMS-END
