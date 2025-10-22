@@ -24,7 +24,7 @@ public sealed class RunAndGunSpreadModifierSystem : EntitySystem
 
         var dir = args.ToCoordinates.Position - args.FromCoordinates.Position;
         var lenSq = dir.LengthSquared();
-        
+
         if (lenSq < 0.0001f)
             return;
 
@@ -32,7 +32,7 @@ public sealed class RunAndGunSpreadModifierSystem : EntitySystem
         dir *= invLen;
 
         var spread = MathF.Abs(physics.LinearVelocity.X + physics.LinearVelocity.Y) * ent.Comp.Modifyer;
-        
+
         args.ToCoordinates = args.ToCoordinates.Offset(new Vector2(
             dir.X * _random.NextFloat(0f, spread) - dir.Y * _random.NextFloat(-spread, spread),
             dir.Y * _random.NextFloat(0f, spread) + dir.X * _random.NextFloat(-spread, spread)
@@ -41,7 +41,7 @@ public sealed class RunAndGunSpreadModifierSystem : EntitySystem
 
     private void OnBlocker(Entity<RunAndGunBlockerComponent> ent, ref AttemptShootEvent args)
     {
-        if (!args.Cancelled && 
+        if (!args.Cancelled &&
             TryComp<PhysicsComponent>(args.User, out var physics) && 
             physics.LinearVelocity.LengthSquared() > 0f)
             args.Cancelled = true;
