@@ -7,8 +7,17 @@ action-sundowner-shields-desc = Переключите защиту взрывн
 action-muscles = Мускулы
 action-muscles-desc = Nanomachines, son
 
-action-jump = Прыжок
-action-jump-desc = Прыгните в указанную точку.
+ent-CompActionJumpAbomination = Прыжок
+    .desc = Прыгните в указанную точку.
+
+ent-CompActionJump = Прыжок
+    .desc = Прыгните в указанную точку.
+
+ent-ActionJumpboots = Прыжок
+    .desc = Прыгните в указанную точку.
+
+ent-ActionMusclesJump = Прыжок
+    .desc = Прыгните в указанную точку.
 
 action-stealth = Хамелеон
 action-stealth-desc = Переключите собственную видимость. Звуки шагов в сделку не входили.

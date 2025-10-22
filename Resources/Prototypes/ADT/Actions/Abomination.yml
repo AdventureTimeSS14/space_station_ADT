@@ -35,8 +35,6 @@
 
 - type: entity
   id: CompActionJumpAbomination
-  name: action-jump
-  description: action-jump-desc
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
