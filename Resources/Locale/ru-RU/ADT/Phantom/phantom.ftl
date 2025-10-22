@@ -7,21 +7,6 @@ ent-KillPhantomImmunePersonObjective = Убить
 ent-PhantomKeepAliveObjective = Защить
     .desc = Мне нужно любыми способами защитить цель и убедиться, что она доберётся до ЦентКома живой.
 
-ent-PhantomMakeVesselObjective = Сделать сосудом.
-    .desc = Цель должна быть моим сосудом хотя бы до конца смены.
-
-ent-PhantomEscapeShuttleObjective = Выжить
-    .desc = Это ещё не конец...
-
-ent-PhantomStartNightmareObjective = Кошмар
-    .desc = Я стану их худшим кошмаром.
-
-ent-PhantomReincarnateObjective = Реинкарнация
-    .desc = Ещё возможно вернуться в этот мир... Нельзя упустить эту возможность.
-
-ent-PhantomTyranyObjective = Тирания
-    .desc = Я завладею этой станцией, неважно, какой ценой.
-
 phantom-haunt-fail-self = Вы уже следуете за {CAPITALIZE(THE($target))}.
 
 phantom-haunt-self = Вы начали следовать за {CAPITALIZE(THE($target))}.
@@ -135,7 +120,7 @@ phantom-oblivion-window-accept-button = Ок
 # Announcements
 phantom-announcer = Фантома
 phantom-nightmare-announcement =
-    Да настигнет вашу прогнившую реальность неописуемый ужас. Пусть придет беда в ваши мерзкие дома так же быстро, как их покинула надежда на лучшее будущее. Рвите и кромсайте их, мои слуги! Ибо настал час кошмаров! 
+    Да настигнет вашу прогнившую реальность неописуемый ужас. Пусть придет беда в ваши мерзкие дома так же быстро, как их покинула надежда на лучшее будущее. Рвите и кромсайте их, мои слуги! Ибо настал час кошмаров!
 phantom-tyrany-announcement =
     Больше нет нуждны скрываться... Узрите же лик вашего Хозяина! Падите ниц, моля о пощаде и тогда, возможно, вы познаете милосердие... Или сгиньте в пустоте как те, что были до вас!
 phantom-deathmatch-announcement =
