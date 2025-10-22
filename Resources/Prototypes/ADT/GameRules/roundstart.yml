@@ -16,6 +16,10 @@
   components:
   - type: HereticRule
   - type: AntagSelection
+  - type: AntagRandomObjectives
+    sets:
+    - groups: HereticObjectiveGroup
+    maxDifficulty: 7
 
 - type: entity
   parent: BaseHereticRule
@@ -238,8 +242,6 @@
         cost: 100
       - id: Pirates
         cost: 120
-      - id: PhantomSpawn
-        cost: 110
       - id: MorphSpawn
         cost: 130
       - id: NinjaSpawn
@@ -292,8 +294,6 @@
         cost: 110
       - id: Pirates
         cost: 130
-      - id: PhantomSpawn
-        cost: 120
       - id: MorphSpawn
         cost: 140
       - id: NinjaSpawn
@@ -311,8 +311,8 @@
   components:
   - type: DynamicRule
     maxEventsBeforeAntag: 10
-    maxChaos: 40
-    minChaos: 20
+    maxChaos: 60
+    minChaos: 30
     scheduledGameRules: !type:NestedSelector
       tableId: ExtendedGameRulesTable
     roundstartRules:
@@ -333,8 +333,6 @@
         cost: 110
       - id: Pirates
         cost: 130
-      - id: PhantomSpawn
-        cost: 120
       - id: MorphSpawn
         cost: 140
       - id: NinjaSpawn
@@ -351,7 +349,6 @@
   parent: BaseGameRule
   components:
   - type: GameRule
-    minPlayers: 30
   - type: DynamicRandomRule
 
 - type: entity
