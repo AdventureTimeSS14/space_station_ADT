@@ -64,10 +64,6 @@
   - type: AttachableHolderVisuals #ADT_Tweak
     offsets:
       rmc-aslot-underbarrel: 0.315, -0.209
-# ADT-Tweak start
-  - type: RunAndGunSpreadModifier
-    modifyer: 0.2
-# ADT-Tweak end
   - type: MeleeWeapon #ADT_Tweak
     attackRate: 1
     damage:
