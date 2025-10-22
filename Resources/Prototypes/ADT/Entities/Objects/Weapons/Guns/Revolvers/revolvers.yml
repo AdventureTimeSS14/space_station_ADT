@@ -34,7 +34,7 @@
   - type: Clothing
     sprite: ADT/Objects/Weapons/Guns/Revolvers/unica.rsi
   - type: RunAndGunSpreadModifier
-    modifyer: 1
+    modifyer: 0.1
   - type: Gun
     selectedMode: SemiAuto
     fireRate: 2.5

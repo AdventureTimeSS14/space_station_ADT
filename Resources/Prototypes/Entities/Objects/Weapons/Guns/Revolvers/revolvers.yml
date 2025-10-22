@@ -24,7 +24,7 @@
   - type: AmmoCounter
   # ADT-Tweak start
   - type: RunAndGunSpreadModifier
-    modifyer: 1
+    modifyer: 0.1
   - type: MeleeWeapon
     resetOnHandSelected: false
     attackRate: 1
