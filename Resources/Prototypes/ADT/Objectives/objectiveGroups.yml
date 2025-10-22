@@ -71,3 +71,10 @@
     TraitorObjectiveGroupKill: 1
     TraitorObjectiveGroupSocial: 0.5 #Involves helping/harming others without killing them or stealing their stuff
     TraitorObjectiveGroupNukieDisk: 0.01  #Corvax
+
+- type: weightedRandom
+  id: HereticObjectiveGroup
+  weights:
+    HereticKnowledgeObjective: 1
+    HereticSacrificeObjective: 1
+    HereticSacrificeHeadObjective: 1
