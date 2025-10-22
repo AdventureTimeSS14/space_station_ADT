@@ -2,7 +2,7 @@
   id: ADT_Fland
   mapName: 'Fland Installation'
   mapPath: /Maps/ADTMaps/ADTStations/adt_fland.yml
-  minPlayers: 35
+  minPlayers: 60
   stations:
     ADT_Fland:
       stationProto: StandardNanotrasenStation

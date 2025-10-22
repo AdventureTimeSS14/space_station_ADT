@@ -7,6 +7,7 @@
   materials:
     Steel: 100
     Plastic: 300
+    Copper: 100  #ADT-BFUU-Tweak
 
 - type: latheRecipe
   parent: BaseElectronicsRecipe
@@ -15,6 +16,7 @@
   materials:
     Steel: 50
     Plastic: 50
+    Copper: 60  #ADT-BFUU-Tweak
 
 - type: latheRecipe
   parent: BaseElectronicsRecipe
@@ -23,6 +25,7 @@
   materials:
      Steel: 50
      Glass: 250
+     Copper: 100  #ADT-BFUU-Tweak
 
 - type: latheRecipe
   parent: BaseElectronicsRecipe
@@ -32,6 +35,7 @@
   materials:
     Steel: 100
     Glass: 500
+    Copper: 200  #ADT-BFUU-Tweak
 
 - type: latheRecipe
   parent: BaseCircuitboardRecipe
@@ -41,6 +45,7 @@
     Steel: 100
     Glass: 500
     Gold: 100
+    Copper: 100  #ADT-BFUU-Tweak
 
 - type: latheRecipe
   parent: BaseCircuitboardRecipe
@@ -50,6 +55,7 @@
     Steel: 100
     Glass: 500
     Silver: 100
+    Copper: 10  #ADT-BFUU-Tweak
 
 - type: latheRecipe
   parent: BaseCircuitboardRecipe
@@ -59,3 +65,4 @@
     Steel: 100
     Glass: 500
     Bananium: 100
+    Copper: 100  #ADT-BFUU-Tweak

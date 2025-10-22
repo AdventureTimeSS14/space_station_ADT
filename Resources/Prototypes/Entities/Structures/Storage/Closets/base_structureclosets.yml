@@ -57,6 +57,7 @@
         - MachineLayer
   - type: EntityStorage
     # ADT Start
+    masksToRemove: 84
     closeSound:
       path: /Audio/ADT/Entities/closet_close.ogg
     openSound:

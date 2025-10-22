@@ -114,7 +114,7 @@
     sprite: Objects/Materials/Sheets/other.rsi
     state: generic_materials
   product: CrateMaterialBasicResource
-  cost: 1660
+  cost: 2300
   category: cargoproduct-category-name-materials
   group: market
 

@@ -8,6 +8,7 @@
   materials:
     Steel: 300
     Plastic: 200
+    Copper: 200  #ADT-BFUU-Tweak
 
 # Stackable part with no function
 - type: latheRecipe
@@ -18,6 +19,7 @@
   materials:
     Steel: 50
     Plastic: 50
+    Copper: 50  #ADT-BFUU-Tweak
 
 # ADT-Tweak-start revert wiz pr 37725
 - type: latheRecipe

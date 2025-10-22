@@ -12,6 +12,19 @@
   - type: Item
     size: Small
     sprite: Objects/Weapons/Guns/Shotguns/flaregun.rsi
+  # ADT-Tweak start
+  - type: MeleeWeapon
+    resetOnHandSelected: false
+    attackRate: 0.85
+    damage:
+      types:
+        Blunt: 5
+    soundHit:
+      collection: GenericHit
+  - type: AltFireMelee
+  - type: RunAndGunSpreadModifier
+    modifyer: 2
+  # ADT-Tweak end
   - type: ItemSlots
     slots:
       gun_chamber:
