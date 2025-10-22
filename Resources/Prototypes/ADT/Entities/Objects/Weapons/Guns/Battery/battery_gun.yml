@@ -49,6 +49,7 @@
   - type: Tag
     tags:
     - ADTBsoWeapon
+  - type: GunExecutionBlacklist
 
 - type: entity
   name: laser rifle

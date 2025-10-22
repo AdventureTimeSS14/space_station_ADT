@@ -282,6 +282,7 @@
     fireCost: 20 #ADT_Tweak 62.5 -> 20
   - type: StaticPrice
     price: 300
+  - type: GunExecutionBlacklist
 
 - type: entity
   name: laser rifle
@@ -719,6 +720,7 @@
     - Taser
     - Sidearm
     - ADTBsoWeapon #ADT tweak
+  - type: GunExecutionBlacklist
 
 - type: entity
   name: disabler
@@ -1025,7 +1027,7 @@
     node: start
   - type: StaticPrice
     price: 100
-
+  - type: GunExecutionBlacklist #ADT-tweak
 - type: entity
   name: experimental C.H.I.M.P. handcannon
   parent: [WeaponPistolCHIMP] #, BaseSyndicateContraband] # ADT Remove cringe

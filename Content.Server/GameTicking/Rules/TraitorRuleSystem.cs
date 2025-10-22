@@ -67,10 +67,11 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
             Log.Debug($"MakeTraitor {ToPrettyString(traitor)}  - failed, no Mind found");
             return false;
         }
-
+        var bloodBrother = _random.Prob(component.BloodBrotherChance);//ADT-tweak
         var briefing = "";
 
-        if (component.GiveCodewords)
+        if (component.GiveCodewords
+         && !bloodBrother) //ADT-tweak
         {
             Log.Debug($"MakeTraitor {ToPrettyString(traitor)} - added codewords flufftext to briefing");
             briefing = Loc.GetString("traitor-role-codewords-short", ("codewords", string.Join(", ", factionCodewords)));
@@ -80,7 +81,7 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
 
         // Uplink code will go here if applicable, but we still need the variable if there aren't any
         Note[]? code = null;
-        var bloodBrother = _random.Prob(component.BloodBrotherChance);//ADT-tweak
+
         if (component.GiveUplink
         && !bloodBrother)//ADT-tweak
         {
@@ -104,7 +105,8 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
         }
 
         string[]? codewords = null;
-        if (component.GiveCodewords)
+        if (component.GiveCodewords
+         && !bloodBrother) //ADT-tweak
         {
             Log.Debug($"MakeTraitor {ToPrettyString(traitor)} - set codewords from component");
             codewords = factionCodewords;
