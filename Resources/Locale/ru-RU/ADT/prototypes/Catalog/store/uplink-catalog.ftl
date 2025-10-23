@@ -272,3 +272,9 @@ uplink-acolyte-armor-desc = Есть у каждого уважающего се
 
 uplink-contraband-lighter-name = Подозрительная коробка с зажигалками или коробкой спичкек
 uplink-contraband-lighter-desc = Таинственный набор, в котором гарантированно будет зажигалка с брендом Syndicate. Не требует заправки топлива.
+
+uplink-sandevistan-implant-name = Сандевистан
+uplink-sandevistan-implant-desc = Данный имплант позволяет вам ускорить ваши реакцию и скорость.
+
+uplink-davids-jacket-valid-name = Куртка эджраннера
+uplink-davids-jacket-valid-desc = Ты на самой грани. Покажи им, что ты готов на всё. Имеет защиту от различного типа урона.

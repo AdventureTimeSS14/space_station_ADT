@@ -1,9 +1,10 @@
-using Content.Shared.ADT.Sandevistan;
-using Content.Shared.ADT.Trail;
 using Content.Shared.ADT.Abilities;
+using Content.Shared.ADT.Trail;
+using Content.Shared.ADT.Sandevistan;
 using Content.Shared.Actions;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
+using Content.Server.Emp;
 using Content.Shared.Jittering;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Systems;
@@ -41,6 +42,7 @@ public sealed class SandevistanSystem : EntitySystem
         SubscribeLocalEvent<SandevistanUserComponent, MeleeAttackEvent>(OnMeleeAttack);
         SubscribeLocalEvent<SandevistanUserComponent, MobStateChangedEvent>(OnMobStateChanged);
         SubscribeLocalEvent<SandevistanUserComponent, ComponentShutdown>(OnShutdown);
+        SubscribeLocalEvent<SandevistanUserComponent, EmpPulseEvent>(OnEmpPulse);
     }
 
     public override void Update(float frameTime)
@@ -103,6 +105,12 @@ public sealed class SandevistanSystem : EntitySystem
 
     private void OnToggle(Entity<SandevistanUserComponent> ent, ref ToggleSandevistanEvent args)
     {
+        if (_timing.CurTime < ent.Comp.EmpLastPulse + ent.Comp.EmpCooldown)
+        {
+            args.Handled = true;
+            return;
+        }
+
         args.Handled = true;
 
         if (ent.Comp.Active != null)
@@ -185,6 +193,19 @@ public sealed class SandevistanSystem : EntitySystem
         {
             RemComp(uid, comp.Trail);
             comp.Trail = null;
+        }
+    }
+
+    private void OnEmpPulse(Entity<SandevistanUserComponent> ent, ref EmpPulseEvent args)
+    {
+        ent.Comp.EmpLastPulse = _timing.CurTime;
+        var uid = ent.Owner;
+
+        if (ent.Comp.Active != null)
+        {
+            ent.Comp.CurrentLoad += ent.Comp.EmpOverload;
+            _damageable.TryChangeDamage(uid, ent.Comp.EmpDamage, ignoreResistances: true);
+            Disable(ent, ent.Comp);
         }
     }
 }

@@ -55,14 +55,14 @@ public sealed partial class SandevistanUserComponent : Component
     };
 
     [DataField]
-    public float StaminaDamage = 30f;
+    public float StaminaDamage = 25f;
 
     [DataField]
     public DamageSpecifier Damage = new()
     {
         DamageDict = new Dictionary<string, FixedPoint2>
         {
-            { "Blunt", 20 },
+            { "Blunt", 25 },
         },
     };
 
@@ -71,7 +71,7 @@ public sealed partial class SandevistanUserComponent : Component
     {
         DamageDict = new Dictionary<string, FixedPoint2>
         {
-            { "Blunt", 400 },
+            { "Cellular", 200 },
         },
     };
 
@@ -101,4 +101,22 @@ public sealed partial class SandevistanUserComponent : Component
 
     [ViewVariables(VVAccess.ReadWrite)]
     public int ColorAccumulator = 0;
+
+    [ViewVariables(VVAccess.ReadWrite)]
+    public TimeSpan EmpLastPulse = TimeSpan.Zero;
+
+    [ViewVariables(VVAccess.ReadOnly)]
+    public TimeSpan EmpCooldown = TimeSpan.FromSeconds(60f);
+
+    [ViewVariables(VVAccess.ReadWrite)]
+    public float EmpOverload = 8f;
+
+    [DataField]
+    public DamageSpecifier EmpDamage = new()
+    {
+        DamageDict = new Dictionary<string, FixedPoint2>
+        {
+            { "Shock", 50 },
+        },
+    };
 }
