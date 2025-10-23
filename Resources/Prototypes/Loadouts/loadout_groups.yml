@@ -1584,6 +1584,7 @@
   loadouts:
   - ParamedicWindbreaker
   - ParamedicWintercoat
+  - ADTDavidsjacket25hours # ADT-tweak
 
 - type: loadoutGroup
   id: ParamedicShoes
