@@ -128,10 +128,11 @@
   - type: SolutionContainerVisuals
     fillBaseName: syndie-
   - type: Slippery
-    staminaDamage: 50
+    staminaDamage: 100 #ADT-tweak 50 -> 100
     slipData:
       knockdownTime: 3
       launchForwardsMultiplier: 3
+      ignoreSlot: true #ADT-tweak
   - type: Item
     heldPrefix: syndie
   - type: FlavorProfile
@@ -221,8 +222,9 @@
   - type: SolutionContainerVisuals
     fillBaseName: omega-
   - type: Slippery
-    staminaDamage: 50
+    staminaDamage: 100 #ADT-tweak 50 -> 100
     slipData:
+      ignoreSlot: true #ADT-tweak
       knockdownTime: 5.0
       launchForwardsMultiplier: 3.0
   - type: Item
