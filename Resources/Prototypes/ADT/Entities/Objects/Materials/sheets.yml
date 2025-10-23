@@ -1,8 +1,6 @@
 - type: entity
   parent: SheetMetalBase
   id: ADTSheetLead
-  name: lead
-  suffix: Full
   components:
   - type: Material
   - type: PhysicalComposition
@@ -41,8 +39,6 @@
 - type: entity
   parent: ADTSheetLead
   id: ADTSheetLead10
-  name: lead
-  suffix: 10
   components:
   - type: Sprite
     state: lead
@@ -53,8 +49,6 @@
 - type: entity
   parent: ADTSheetLead
   id: ADTSheetLead1
-  name: lead
-  suffix: Single
   components:
   - type: Sprite
     state: lead
@@ -65,8 +59,6 @@
 - type: entity
   parent: IngotBase
   id: ADTSheetCopper
-  name: copper
-  suffix: Full
   components:
   - type: Material
   - type: PhysicalComposition
@@ -101,7 +93,6 @@
 - type: entity
   parent: ADTSheetCopper
   id: ADTSheetCopper10
-  name: copper
   suffix: 10
   components:
   - type: Sprite
@@ -113,8 +104,6 @@
 - type: entity
   parent: ADTSheetCopper
   id: ADTSheetCopper1
-  name: copper
-  suffix: Single
   components:
   - type: Sprite
     state: copper
@@ -174,8 +163,6 @@
 - type: entity
   parent: ADTSheetZinc
   id: ADTSheetZinc1
-  name: zinc
-  suffix: Single
   components:
   - type: Sprite
     state: zinc
@@ -186,8 +173,6 @@
 - type: entity
   parent: SheetMetalBase
   id: ADTSheetPlasteel
-  name: plasteel
-  suffix: Full
   components:
   - type: Material
   - type: PhysicalComposition
