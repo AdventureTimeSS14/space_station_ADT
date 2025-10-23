@@ -119,6 +119,9 @@
       Arachnid: Speak
   - type: SupermatterIgnore
   - type: GrabProtection
+  # ADT-Tweak start
+  - type: VentCrawler
+  # ADT-Tweak end
 
 - type: entity
   name: hunter

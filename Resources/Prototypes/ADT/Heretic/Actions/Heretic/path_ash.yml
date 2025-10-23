@@ -1,7 +1,5 @@
 - type: entity
   id: ActionHereticJaunt
-  name: action-heretic-ash-passage-name
-  description: action-heretic-ash-passage-desc
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -19,8 +17,6 @@
 
 - type: entity
   id: ActionHereticVolcanoBlast
-  name: action-heretic-ash-blast-name
-  description: action-heretic-ash-blast-desc
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -37,8 +33,6 @@
 
 - type: entity
   id: ActionHereticNightwatcherRebirth
-  name: Nightwatcher's Rebirth
-  description: Drains nearby heathens engulfed in flames of their life force.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -55,8 +49,6 @@
 
 - type: entity
   id: ActionHereticAscension1
-  name: Oath of Flame
-  description: Create a ring of fire around you.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -73,8 +65,6 @@
 
 - type: entity
   id: ActionHereticAscension2
-  name: Fire Cascade
-  description: Burn everything in a large distance.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
