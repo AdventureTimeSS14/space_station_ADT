@@ -22,7 +22,7 @@ public sealed class TrailOverlay : Overlay
 
     public TrailOverlay(IEntityManager entManager, IPrototypeManager protoMan, IGameTiming timing)
     {
-        ZIndex = (int) DrawDepth.Effects + 100; // Render after DogVision
+        ZIndex = (int) DrawDepth.Effects + 10;
 
         _entManager = entManager;
         _protoMan = protoMan;
@@ -45,7 +45,6 @@ public sealed class TrailOverlay : Overlay
         var xformQuery = _entManager.GetEntityQuery<TransformComponent>();
         var spriteQuery = _entManager.GetEntityQuery<SpriteComponent>();
 
-        // Force reset any global shaders before rendering trails
         handle.UseShader(null);
 
         var query = _entManager.EntityQueryEnumerator<TrailComponent, TransformComponent>();
