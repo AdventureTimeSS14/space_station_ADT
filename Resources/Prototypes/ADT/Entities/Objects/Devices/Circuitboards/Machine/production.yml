@@ -309,9 +309,9 @@
     - type: MachineBoard
       prototype: ADTMegaCellRecharger
       stackRequirements:
-        Manipulator: 2
-        Copper: 5
-        Gold: 3
+        Manipulator: 5
+        Copper: 10
+        Gold: 6
         Cable: 5
     - type: PhysicalComposition
       materialComposition:

@@ -133,8 +133,8 @@
   result: ADTMegaCellRechargerCircuitboard
   completetime: 10
   materials:
-    Steel: 200
-    Glass: 500
-    Gold: 300
-    Silver: 300
-    Copper: 900
+    Steel: 1500
+    Glass: 1000
+    Gold: 600
+    Silver: 600
+    Copper: 1000

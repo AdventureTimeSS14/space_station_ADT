@@ -26,6 +26,9 @@
   - type: PowerCellSlot
     cellSlotId: charger_slot
     # fitsInCharger is true i dont think this will ever affect anything negatively but it lets it function
+  - type: Charger
+    chargeRate: 100.0
+    slotId: charger_slot
   - type: ItemSlots
     slots:
       charger_slot:

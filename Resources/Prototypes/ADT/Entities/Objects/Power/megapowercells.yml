@@ -9,8 +9,8 @@
     pricePerJoule: 0.15
   - type: PowerCell
   - type: Explosive
-    explosionType: Default
-    maxIntensity: 600
+    explosionType: HardBomb
+    maxIntensity: 2500
     intensitySlope: 1.5
   - type: Sprite
     sprite: ADT/Objects/Devices/megacells.rsi
