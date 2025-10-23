@@ -21,7 +21,7 @@ namespace Content.Shared.ADT.BloodBrothers
 
         public int ConvertedCount = 0;
         [DataField]
-        public int MaxConvertedCount = 4;
+        public int MaxConvertedCount = 3;
     }
 }
 
