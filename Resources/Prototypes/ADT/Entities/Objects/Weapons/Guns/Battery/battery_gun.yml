@@ -326,21 +326,19 @@
   description: A self-defense weapon that... turns you into vulpkanin..
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Battery/disabler.rsi
+    sprite: ADT/Objects/Weapons/Guns/Rifles/vulpizator.rsi
     layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
-      - state: mag-unshaded-0
-        map: ["enum.GunVisualLayers.MagUnshaded"]
-        shader: unshaded
   - type: Clothing
-    sprite: Objects/Weapons/Guns/Battery/disabler.rsi
+    sprite: ADT/Objects/Weapons/Guns/Rifles/vulpizator.rsi
     quickEquip: false
     slots:
       - suitStorage
       - Belt
   - type: BasicEntityAmmoProvider
     proto: ADTProjectilePolyboltVulpkanin
+  - type: DNAGunLocker
 
 - type: entity
   name: ion carbine
