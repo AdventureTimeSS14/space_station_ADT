@@ -50,10 +50,3 @@
   id: ADTIndustrialCharger
   recipes:
   - ADTIndustrialChargerCircuitboard
-
-- type: latheRecipePack
-  id: ADTAdvancedThruster
-  recipes:
-  - ADTMachineMediumThrusterCircuitboard
-  - ADTMachineBigThrusterCircuitboard
-  - ADTMachineMediumLongThrusterCircuitboard
