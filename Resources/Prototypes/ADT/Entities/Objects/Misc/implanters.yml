@@ -201,3 +201,9 @@
 #     - type: Implanter
 #       implant: ADTGorlaxFriendlyFireImplant
 
+- type: entity
+  id: ADTSandevistanImplanter
+  parent: BaseImplantOnlyImplanterSyndi
+  components:
+    - type: Implanter
+      implant: ADTSandevistanImplant

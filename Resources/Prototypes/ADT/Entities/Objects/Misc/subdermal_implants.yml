@@ -308,3 +308,13 @@
 #   - type: FriendlyFire
 #     enabled: true
 #   - type: FriendlyFireToggleable
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: ADTSandevistanImplant
+  name: sandevistan
+  description: Scere
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: SubdermalImplant
+    - type: SandevistanImplant

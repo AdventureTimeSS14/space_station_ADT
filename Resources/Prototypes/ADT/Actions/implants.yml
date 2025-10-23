@@ -80,3 +80,19 @@
     useDelay: 1
   - type: InstantAction
     event: !type:ToggleCompStealthEvent
+
+- type: entity
+  id: ActionToggleSandevistan
+  name: Toggle Sandevistan
+  description: Enable or disable your improved reflexes provided by the Sandevistan.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    checkCanInteract: false
+    icon:
+      sprite: _Goobstation/Objects/Misc/sandevistan.rsi
+      state: icon
+    itemIconStyle: BigAction
+    useDelay: 3
+  - type: InstantAction
+    event: !type:ToggleSandevistanEvent
