@@ -921,6 +921,10 @@
   - type: MovementSpeedModifier
     baseWalkSpeed: 2.25
     baseSprintSpeed: 4.1
+  - type: Storage
+    grid:
+    - 0,0,6,3
+    clickInsert: false
 
 - type: entity
   id: ADTMechpaddyBattery

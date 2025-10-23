@@ -2,7 +2,7 @@
   id: ADT_Train
   mapName: 'Train'
   mapPath: /Maps/ADTMaps/ADTStations/adt_train.yml
-  minPlayers: 1
+  minPlayers: 30
   maxPlayers: 60
   stations:
     ADT_Train:
@@ -13,7 +13,7 @@
         - type: StationCargoShuttle
           path: /Maps/ADTMaps/Shuttles/genesis.yml
         - type: StationNameSetup
-          mapNameTemplate: '{0}TRAIN {1}'
+          mapNameTemplate: '{0}TRN {1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: '-'
@@ -75,6 +75,7 @@
             Quartermaster: [ 1, 1 ]
             SalvageSpecialist: [ 1, 3 ]
             CargoTechnician: [ 2, 4 ]
+            ADTMiner: [ 2, 3 ]
 
             # Civillian
             Passenger: [ -1, -1 ]

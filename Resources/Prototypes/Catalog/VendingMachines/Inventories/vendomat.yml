@@ -8,9 +8,11 @@
     CableApcStack: 2
     FlashlightLantern: 2
     PowerCellSmallPrinted: 3
-    MatterBinStockPart: 4
-    CapacitorStockPart: 4
-    MicroManipulatorStockPart: 4
+    MicroManipulatorStockPart: 12
   contrabandInventory:
     ProximitySensor: 1
     LeftArmBorg: 1
+# ADT-tweak start
+    ADTToyBlasterGunRed: 1
+    LightHeadBorg: 1
+# ADT-tweak end

@@ -99,9 +99,8 @@ public sealed class TurretControllableSystem : EntitySystem
         var entityes = EntityQueryEnumerator<TurretControllableComponent>();
         while (entityes.MoveNext(out var uid, out var comp))
         {
-            if (comp.User is not null && comp.Controller is not null && (!_mobStateSystem.IsAlive((EntityUid)comp.User) ||
-            TryComp<SleepingComponent>((EntityUid)comp.User, out var _) ||
-            TryComp<ForcedSleepingComponent>((EntityUid)comp.User, out var _))) Return(uid, comp); //тут мейби можно убрать проверку на ещё один компонент(нужно тестить)
+            if (comp.User is not null && comp.Controller is not null && (!_mobStateSystem.IsAlive((EntityUid)comp.User)
+            || TryComp<SleepingComponent>((EntityUid)comp.User, out var _))) Return(uid, comp); //тут мейби можно убрать проверку на ещё один компонент(нужно тестить)
         }
     }
 

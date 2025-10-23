@@ -288,6 +288,7 @@
     contents:
       - id: ADTUsedPlutoniumCore
       - id: ADTHyperNobliumTankFilled
+      - id: ADTHyperNobliumTankFilled
       - id: Screwdriver
       - id: Screwdriver
       - id: PillCanisterPotassiumIodide

@@ -5,6 +5,7 @@ using Content.Server.GameTicking;
 using Content.Server.Store.Components;
 using Content.Server.Store.Systems;
 using Content.Shared.Alert;
+using Content.Shared.Weapons.Melee.Events; // ADT-Tweak. Система нанесения урона бьющим ревенанта людям
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;
 using Content.Shared.Examine;
@@ -35,22 +36,20 @@ public sealed partial class RevenantSystem : EntitySystem
     [Dependency] private readonly AlertsSystem _alerts = default!;
     [Dependency] private readonly DamageableSystem _damage = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly GameTicker _ticker = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly PhysicsSystem _physics = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedEyeSystem _eye = default!;
-    [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
     [Dependency] private readonly SharedInteractionSystem _interact = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly StoreSystem _store = default!;
     [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly VisibilitySystem _visibility = default!;
+    [Dependency] private readonly TurfSystem _turf = default!;
     [Dependency] private readonly ExplosionSystem _explotions = default!;
 
-    [ValidatePrototypeId<EntityPrototype>]
-    private const string RevenantShopId = "ActionRevenantShop";
+    private static readonly EntProtoId RevenantShopId = "ActionRevenantShop";
 
     public override void Initialize()
     {
@@ -69,6 +68,8 @@ public sealed partial class RevenantSystem : EntitySystem
         SubscribeLocalEvent<RevenantComponent, EventHorizonAttemptConsumeEntityEvent>(OnSinguloConsumeAttempt);  // ADT
 
         SubscribeLocalEvent<RevenantComponent, GetVisMaskEvent>(OnRevenantGetVis);
+
+        SubscribeLocalEvent<RevenantComponent, MeleeHitEvent>(OnMeleeHit); // ADT-Tweak. Система нанесения урона бьющим ревенанта людям
 
         InitializeAbilities();
         InitializeInstantEffects(); // ADT Revenant instant effects
@@ -89,7 +90,7 @@ public sealed partial class RevenantSystem : EntitySystem
         _appearance.SetData(uid, RevenantVisuals.Harvesting, false);
         _appearance.SetData(uid, RevenantVisuals.Stunned, false);
 
-        if (_ticker.RunLevel == GameRunLevel.PostRound && TryComp<VisibilityComponent>(uid, out var visibility))
+        if (_gameTicker.RunLevel == GameRunLevel.PostRound && TryComp<VisibilityComponent>(uid, out var visibility))
         {
             _visibility.AddLayer((uid, visibility), (int) VisibilityFlags.Ghost, false);
             _visibility.RemoveLayer((uid, visibility), (int) VisibilityFlags.Normal, false);
@@ -135,6 +136,17 @@ public sealed partial class RevenantSystem : EntitySystem
         ChangeEssenceAmount(uid, essenceDamage, component);
     }
 
+    // ADT-Tweak start. Система нанесения урона бьющим ревенанта людям
+    private void OnMeleeHit(EntityUid uid, RevenantComponent component, MeleeHitEvent args)
+    {
+        if (!HasComp<CorporealComponent>(uid) || !Exists(args.User) || args.User == uid)
+            return;
+
+        var shockDamage = new DamageSpecifier { DamageDict = { ["Shock"] = 20f } };
+        _damage.TryChangeDamage(args.User, shockDamage);
+    }
+    // ADT-Tweak end. Система нанесения урона бьющим ревенанта людям
+
     public bool ChangeEssenceAmount(EntityUid uid, FixedPoint2 amount, RevenantComponent? component = null, bool allowDeath = true, bool regenCap = false)
     {
         if (!Resolve(uid, ref component))
@@ -156,7 +168,7 @@ public sealed partial class RevenantSystem : EntitySystem
 
         if (component.Essence <= 0)
         {
-            // ADT Revenant shield ability start
+            // ADT-Tweak-Start
             if (TryComp<RevenantShieldComponent>(uid, out var shield) && !shield.Used)
             {
                 shield.Used = true;
@@ -165,7 +177,7 @@ public sealed partial class RevenantSystem : EntitySystem
                 ChangeEssenceAmount(uid, 50, allowDeath: false);
                 return true;
             }
-            // ADT Revenant shield ability end
+            // ADT-Tweak-End
 
             Spawn(component.SpawnOnDeathPrototype, Transform(uid).Coordinates);
             QueueDel(uid);
@@ -181,7 +193,7 @@ public sealed partial class RevenantSystem : EntitySystem
             return false;
         }
 
-        var tileref = Transform(uid).Coordinates.GetTileRef();
+        var tileref = _turf.GetTileRef(Transform(uid).Coordinates);
         if (tileref != null)
         {
             if (_physics.GetEntitiesIntersectingBody(uid, (int) CollisionGroup.Impassable).Count > 0)
@@ -193,8 +205,8 @@ public sealed partial class RevenantSystem : EntitySystem
 
         ChangeEssenceAmount(uid, -abilityCost, component, false);
 
-        _statusEffects.TryAddStatusEffect<CorporealComponent>(uid, "Corporeal", TimeSpan.FromSeconds(debuffs.Y), false);
-        _stun.TryStun(uid, TimeSpan.FromSeconds(debuffs.X), false);
+        _status.TryAddStatusEffect<CorporealComponent>(uid, "Corporeal", TimeSpan.FromSeconds(debuffs.Y), false);
+        _stun.TryAddStunDuration(uid, TimeSpan.FromSeconds(debuffs.X));
 
         return true;
     }

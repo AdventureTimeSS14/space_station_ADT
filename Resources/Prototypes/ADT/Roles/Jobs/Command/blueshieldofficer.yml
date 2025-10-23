@@ -191,4 +191,15 @@
     gloves: ClothingHandsGlovesCombat
     id: ADTBlueshieldOfficerPDA
     pocket1: ADTBlueshieldVoucher
-    pocket2: HandheldCrewMonitor
+    pocket2: ADTHandheldCrewMonitorBlueshield
+
+- type: chameleonOutfit
+  id: ADTBlueShieldChameleonOutfit
+  job: ADTBlueShieldOfficer
+  hasMindShield: true
+  equipment:
+    eyes: ADTClothingEyesGlassesBlueshield
+    shoes: ClothingShoesBootsCombatFilled
+    belt: ADTClothingBeltMedicalSecurityFilled
+    gloves: ClothingHandsGlovesCombat
+    id: ADTBlueshieldOfficerPDA

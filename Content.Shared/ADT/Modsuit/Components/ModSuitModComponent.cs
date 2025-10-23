@@ -12,10 +12,10 @@ public sealed partial class ModSuitModComponent : Component
 {
     [DataField, AutoNetworkedField]
     public bool IsInstantlyActive = false;
-    [AutoNetworkedField]
-    public bool Inserted = false;
+
     [AutoNetworkedField]
     public bool Active = false;
+
     /// <summary>
     ///     Module  limit
     /// </summary>
@@ -29,24 +29,22 @@ public sealed partial class ModSuitModComponent : Component
     public float EnergyUsing = 0;
 
     /// <summary>
-    ///     The container that the clothing is stored in when not equipped.
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public List<string> Slots = new();
-
-    /// <summary>
     /// The components to add when activated.
     /// </summary>
     [DataField(required: true)]
-    public ComponentRegistry Components = new();
+    public Dictionary<string, ComponentRegistry> Components = new();
 
     /// <summary>
     /// The components to remove when deactivated.
     /// If this is null <see cref="Components"/> is reused.
     /// </summary>
     [DataField]
-    public ComponentRegistry? RemoveComponents;
+    public Dictionary<string, ComponentRegistry>? RemoveComponents;
+}
 
-    [AutoNetworkedField]
-    public TimeSpan Ejecttick;
+public enum ExamineColor
+{
+    Red,
+    Yellow,
+    Green
 }
