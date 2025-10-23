@@ -204,7 +204,7 @@ public sealed partial class PolymorphSystem : EntitySystem
     /// <param name="uid">The entity that will be transformed</param>
     /// <param name="configuration">Polymorph data</param>
     /// <returns></returns>
-        public EntityUid? PolymorphEntity(EntityUid uid, PolymorphConfiguration configuration)
+    public EntityUid? PolymorphEntity(EntityUid uid, PolymorphConfiguration configuration)
     {
         //ADT-Geras-Tweak-Start
         if (configuration.CanNotPolymorphInStorage && HasComp<InsideEntityStorageComponent>(uid))
@@ -353,7 +353,7 @@ public sealed partial class PolymorphSystem : EntitySystem
                 {
                     var originalAccentComp = EntityManager.GetComponent(uid, accentType);
                     var childAccentComp = (Component)_serialization.CreateCopy(originalAccentComp, notNullableOverride: true);
-            EntityManager.AddComponent(child, childAccentComp);
+                    EntityManager.AddComponent(child, childAccentComp);
                 }
             }
         }
@@ -397,6 +397,12 @@ public sealed partial class PolymorphSystem : EntitySystem
                     EntityManager.AddComponent(child, childQuirkComp);
                 }
             }
+        }
+
+        if (configuration.TransferBodycolor && TryComp<HumanoidAppearanceComponent>(uid, out var humanoidAppearance))
+        {
+            var childAppearance = EnsureComp<HumanoidAppearanceComponent>(child);
+            childAppearance.SkinColor = humanoidAppearance.SkinColor;
         }
         // ADT-Geras-Tweak-End
 
