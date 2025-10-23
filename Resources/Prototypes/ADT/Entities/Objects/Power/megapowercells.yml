@@ -10,7 +10,7 @@
   - type: PowerCell
   - type: Explosive
     explosionType: Default
-    maxIntensity: 400
+    maxIntensity: 600
     intensitySlope: 1.5
   - type: Sprite
     sprite: ADT/Objects/Devices/megacells.rsi
@@ -50,8 +50,8 @@
       state: o2
       shader: unshaded
   - type: Battery
-    maxCharge: 2800 
-    startingCharge: 2800
+    maxCharge: 5400 
+    startingCharge: 5400
   - type: Tag
     tags:
       - ADTMegaCell
@@ -70,7 +70,7 @@
         shader: unshaded
         visible: false
   - type: Battery
-    maxCharge: 2800 
+    maxCharge: 5400 
     startingCharge: 0
 
 - type: entity
@@ -88,8 +88,8 @@
       state: o2
       shader: unshaded
   - type: Battery
-    maxCharge: 4000
-    startingCharge: 4000
+    maxCharge: 10800
+    startingCharge: 10800
 
 - type: entity
   id: ADTMegaCellMediumPrinted
@@ -105,7 +105,7 @@
         shader: unshaded
         visible: false
   - type: Battery
-    maxCharge: 4000
+    maxCharge: 10800
     startingCharge: 0
 
 - type: entity
@@ -123,8 +123,8 @@
       state: o2
       shader: unshaded
   - type: Battery
-    maxCharge: 5200
-    startingCharge: 5200
+    maxCharge: 16200
+    startingCharge: 16200
 
 - type: entity
   id: ADTMegaCellHighPrinted
@@ -140,7 +140,7 @@
         shader: unshaded
         visible: false
   - type: Battery
-    maxCharge: 5200
+    maxCharge: 16200
     startingCharge: 0
 
 - type: entity
@@ -158,8 +158,8 @@
       state: o2
       shader: unshaded
   - type: Battery
-    maxCharge: 8000
-    startingCharge: 8000
+    maxCharge: 24300
+    startingCharge: 24300
 
 - type: entity
   id: ADTMegaCellHyperPrinted
@@ -175,5 +175,5 @@
         shader: unshaded
         visible: false
   - type: Battery
-    maxCharge: 8000
+    maxCharge: 24300
     startingCharge: 0
