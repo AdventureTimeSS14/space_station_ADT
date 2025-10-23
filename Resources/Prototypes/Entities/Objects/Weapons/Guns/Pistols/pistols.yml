@@ -109,7 +109,7 @@
             - CartridgePistol
   # ADT-Tweak start
   - type: RunAndGunSpreadModifier
-    modifyer: 1
+    modifyer: 0.1
   # ADT-Tweak end 
   - type: ContainerContainer
     containers:
@@ -161,7 +161,7 @@
       ballistic-ammo: !type:Container
   # ADT-Tweak start
   - type: RunAndGunSpreadModifier
-    modifyer: 1
+    modifyer: 0.1
   # ADT-Tweak end 
   - type: ProjectileBatteryAmmoProvider
     proto: BulletPistol
@@ -193,7 +193,7 @@
     boltClosed: null
   # ADT-Tweak start
   - type: RunAndGunSpreadModifier
-    modifyer: 1
+    modifyer: 0.1
   # ADT-Tweak end 
   - type: Gun
     fireRate: 4
@@ -235,6 +235,17 @@
         whitelist:
           tags:
           - ADTAttachmentLaserSight
+      rmc-aslot-barrel:
+        locked: true
+        startingAttachable: ADTAttachmentSuppressor
+        whitelist:
+            tags:
+            - ADTAttachmentSuppressor
+  - type: AttachableSilencer
+    sound: 
+      path: /Audio/Weapons/Guns/Gunshots/silenced.ogg
+      params: 
+        maxDistance: 6 
   - type: AttachableHolderVisuals
     offsets:
       rmc-aslot-underbarrel: 0.16, 0.035
@@ -255,7 +266,7 @@
       map: ["enum.GunVisualLayers.Mag"]
   # ADT-Tweak start
   - type: RunAndGunSpreadModifier
-    modifyer: 1
+    modifyer: 0.1
   # ADT-Tweak end 
   - type: Clothing
     sprite: Objects/Weapons/Guns/Pistols/mk58.rsi
@@ -308,7 +319,7 @@
     sprite: Objects/Weapons/Guns/Pistols/N1984.rsi
   # ADT-Tweak start
   - type: RunAndGunSpreadModifier
-    modifyer: 1
+    modifyer: 0.4
   # ADT-Tweak end 
   - type: Gun
     minAngle: 1
