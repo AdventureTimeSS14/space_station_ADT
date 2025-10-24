@@ -32,11 +32,11 @@
   name: Steal N DNAs.
   components:
   - type: Objective
-    difficulty: 1.5
+    difficulty: 2
     unique: true
     icon:
       sprite: ADT/Interface/ling-objectives.rsi
-      state: absorb_dna
+      state: absorbling
   - type: AbsorbChangelingCondition
     objectiveText: absorb-changeling-name
     descriptionText: absorb-changeling-desc
