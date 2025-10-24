@@ -42,10 +42,10 @@
   completetime: 15
   materials:
     Steel: 12000
-    Glass: 8400    
-    Copper: 6000   
-    Zinc: 1500   
-    Gold: 600    
+    Glass: 8400
+    Copper: 6000
+    Zinc: 1500
+    Gold: 600
     Silver: 600
     ADTBScrystal: 1200
 

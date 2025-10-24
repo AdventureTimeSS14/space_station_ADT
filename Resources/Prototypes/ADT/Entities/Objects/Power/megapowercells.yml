@@ -110,7 +110,7 @@
 
 - type: entity
   name: megacell high
-  description: A rechargeable standardized power cell. This premium brand stores up to 50% more energy than the competition.
+  description: damnation
   id: ADTMegaCellHigh
   suffix: Full
   parent: ADTBaseMegaCell
@@ -145,7 +145,7 @@
 
 - type: entity
   name: megacell hyper
-  description: A rechargeable standardized power cell. This iteration pushes the upper limits of portable power storage, boasting 66% more capacity than its predecessor.
+  description: damnation
   id: ADTMegaCellHyper
   suffix: Full
   parent: ADTBaseMegaCell
@@ -180,7 +180,7 @@
 
 - type: entity
   name: infinite power cell
-  description: A rechargeable standardized power cell. This iteration pushes the upper limits of portable power storage, boasting 66% more capacity than its predecessor.
+  description: damnation
   id: ADTMegaCellInfinite
   parent: ADTBaseMegaCell
   components:
