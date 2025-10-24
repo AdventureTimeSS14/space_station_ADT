@@ -292,6 +292,7 @@
     - ADTBluespaceHarvesterPack
     - ADTArcade
     - ADTIndustrialCharger
+    - ADTAdvancedThruster
     # ADT-tweak-end
   - type: EmagLatheRecipes
     emagDynamicPacks:

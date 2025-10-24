@@ -2,7 +2,7 @@
   id: ADT_Cluster
   mapName: 'Cluster'
   mapPath: /Maps/ADTMaps/ADTStations/adt_cluster.yml
-  minPlayers: 1
+  minPlayers: 20
   maxPlayers: 35
   stations:
     ADT_Cluster:

@@ -21,8 +21,21 @@
           !type:DamageTrigger
           damage: 150
         behaviors:
+          - !type:SpawnEntitiesBehavior
+            spawn:
+              ADTmarble1:
+                min: 4
+                max: 6
           - !type:DoActsBehavior
             acts: [ "Destruction" ]
+          - !type:PlaySoundBehavior
+            sound:
+              path: /Audio/Effects/break_stone.ogg
+              params:
+                volume: -2
+  - type: Construction
+    graph: MarbleStatueLady
+    node: marblestatueLady
 
 - type: entity
   parent: ADTmarblelady
@@ -35,6 +48,9 @@
   - type: Sprite
     sprite: ADT/Structures/Decoration/marble_structures/marblelady_flower.rsi
     state: marlady_flowers
+  - type: Construction
+    graph: MarbleStatueLadyFlower
+    node: marblestatueLadyFlower
 
 - type: entity
   parent: ADTmarblelady
@@ -58,7 +74,32 @@
   components:
   - type: Sprite
     sprite: ADT/Structures/Decoration/marble_structures/marble_stand.rsi
+    offset: "0.0,0.0"
     state: marstand
+    drawdepth: SmallObjects
+  - type: PlaceableSurface
+    isPlaceable: True
+  - type: Construction
+    graph: MarbleStand
+    node: marblestand
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 100
+        behaviors:
+          - !type:SpawnEntitiesBehavior
+            spawn:
+              ADTmarble1:
+                min: 3
+                max: 5
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+          - !type:PlaySoundBehavior
+            sound:
+              path: /Audio/Effects/break_stone.ogg
+              params:
+                volume: -2
 
 - type: entity
   parent: ADTmarblelady
@@ -70,7 +111,11 @@
   components:
   - type: Sprite
     sprite: ADT/Structures/Decoration/marble_structures/marbleman.rsi
+    offset: "0.0,0.0"
     state: marman
+  - type: Construction
+    graph: MarbleMan
+    node: marbleMan
 
 - type: entity
   parent: ADTmarblelady
@@ -82,7 +127,11 @@
   components:
   - type: Sprite
     sprite: ADT/Structures/Decoration/marble_structures/marblemandamage.rsi
+    offset: "0.0,0.0"
     state: marmandmg
+  - type: Construction
+    graph: MarbleManDamage
+    node: marbleManDamage
 
 - type: entity
   parent: ADTmarblelady
@@ -95,6 +144,9 @@
   - type: Sprite
     sprite: ADT/Structures/Decoration/marble_structures/peacemaker.rsi
     state: peacemaker
+  - type: Construction
+    graph: MarblePeacemaker
+    node: marblePeacemaker
 
 - type: entity
   parent: ADTmarblelady
@@ -107,6 +159,9 @@
   - type: Sprite
     sprite: ADT/Structures/Decoration/marble_structures/marble_knight.rsi
     state: marble_knight
+  - type: Construction
+    graph: MarbleKnight
+    node: marbleKnight
 
 - type: entity
   parent: ADTmarblelady
@@ -119,6 +174,9 @@
   - type: Sprite
     sprite: ADT/Structures/Decoration/marble_structures/marble_hunter.rsi
     state: marble_hunter
+  - type: Construction
+    graph: MarbleHunter
+    node: marbleHunter
 
 - type: entity
   parent: ADTmarblelady
@@ -131,6 +189,9 @@
   - type: Sprite
     sprite: ADT/Structures/Decoration/marble_structures/marble_machine.rsi
     state: marble_machine
+  - type: Construction
+    graph: MarbleMachine
+    node: marbleMachine
 
 - type: entity
   parent: ADTmarblelady
@@ -143,6 +204,9 @@
   - type: Sprite
     sprite: ADT/Structures/Decoration/marble_structures/marble_legionary.rsi
     state: marble_legionary
+  - type: Construction
+    graph: MarbleLegionary
+    node: marbleLegionary
 
 - type: entity
   parent: ADTmarblelady
@@ -155,6 +219,27 @@
   - type: Sprite
     sprite: ADT/Structures/Decoration/marble_structures/marble_bird.rsi
     state: marble_bird
+  - type: Construction
+    graph: MarbleBird
+    node: marbleBird
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 100
+        behaviors:
+          - !type:SpawnEntitiesBehavior
+            spawn:
+              ADTmarble1:
+                min: 3
+                max: 4
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+          - !type:PlaySoundBehavior
+            sound:
+              path: /Audio/Effects/break_stone.ogg
+              params:
+                volume: -2
 
 - type: entity
   parent: ADTmarblelady
@@ -167,6 +252,9 @@
   - type: Sprite
     sprite: ADT/Structures/Decoration/marble_structures/marble_cunning.rsi
     state: marble_cunning
+  - type: Construction
+    graph: MarbleCunning
+    node: marbleCunning
 
 - type: entity
   parent: ADTmarblelady
@@ -179,6 +267,27 @@
   - type: Sprite
     sprite: ADT/Structures/Decoration/marble_structures/marble_scientist.rsi
     state: marble_scientist
+  - type: Construction
+    graph: MarbleScientist
+    node: marbleScientist
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 100
+        behaviors:
+          - !type:SpawnEntitiesBehavior
+            spawn:
+              ADTmarble1:
+                min: 4
+                max: 5
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+          - !type:PlaySoundBehavior
+            sound:
+              path: /Audio/Effects/break_stone.ogg
+              params:
+                volume: -2
 
 - type: entity
   parent: ADTmarblelady
@@ -191,6 +300,27 @@
   - type: Sprite
     sprite: ADT/Structures/Decoration/marble_structures/marble_eye.rsi
     state: marble_eye
+  - type: Construction
+    graph: MarbleEye
+    node: marbleEye
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 100
+        behaviors:
+          - !type:SpawnEntitiesBehavior
+            spawn:
+              ADTmarble1:
+                min: 4
+                max: 5
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+          - !type:PlaySoundBehavior
+            sound:
+              path: /Audio/Effects/break_stone.ogg
+              params:
+                volume: -2
 
 - type: entity
   parent: ADTmarblelady
@@ -215,6 +345,27 @@
   - type: Sprite
     sprite: ADT/Structures/Decoration/marble_structures/marble_ancestor.rsi
     state: marble_ancestor
+  - type: Construction
+    graph: MarbleAncestor
+    node: marbleAncestor
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 100
+        behaviors:
+          - !type:SpawnEntitiesBehavior
+            spawn:
+              ADTmarble1:
+                min: 3
+                max: 5
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+          - !type:PlaySoundBehavior
+            sound:
+              path: /Audio/Effects/break_stone.ogg
+              params:
+                volume: -2
 
 - type: entity
   parent: ADTmarblelady
@@ -227,6 +378,10 @@
   - type: Sprite
     sprite: ADT/Structures/Decoration/marble_structures/marble_plafeim.rsi
     state: marble_plafeim
+  - type: Construction
+    graph: MarblePlafeim
+    node: marblePlafeim
+
 
 - type: entity
   parent: ADTmarblelady

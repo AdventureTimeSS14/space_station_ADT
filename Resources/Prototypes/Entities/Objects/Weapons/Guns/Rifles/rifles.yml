@@ -15,6 +15,10 @@
     - Back
     - suitStorage
   - type: AmmoCounter
+# ADT-Tweak start
+  - type: RunAndGunSpreadModifier
+    modifyer: 0.3
+# ADT-Tweak end
   - type: Gun
     fireRate: 5
     selectedMode: FullAuto
@@ -51,15 +55,17 @@
       gun_chamber: !type:ContainerSlot
   - type: StaticPrice
     price: 500
-  - type: MeleeWeapon #ADT_Tweak. Для ШТЫКОВОЙ
+  # ADT-Tweak start
+  - type: MeleeWeapon
     resetOnHandSelected: false
     attackRate: 1
     damage:
       types:
-        Blunt: 5
+        Blunt: 9 # 5 -> 9
     soundHit:
       collection: GenericHit
-  - type: AltFireMelee #ADT_Tweak
+  - type: AltFireMelee 
+  # ADT-Tweak end
 
 - type: entity
   name: AKMS

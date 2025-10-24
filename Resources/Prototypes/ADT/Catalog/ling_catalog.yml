@@ -5,7 +5,7 @@
   productAction: ActionArmBlade
   mindAction: false
   cost:
-    EvolutionPoints: 2
+    EvolutionPoints: 3
   categories:
   - ChangelingAbilities
   conditions:
@@ -20,7 +20,7 @@
   productAction: ActionLingArmor
   mindAction: false
   cost:
-    EvolutionPoints: 3
+    EvolutionPoints: 2
   categories:
   - ChangelingAbilities
   conditions:
@@ -155,7 +155,7 @@
   productAction: ActionLingDrugSting
   mindAction: false
   cost:
-    EvolutionPoints: 2
+    EvolutionPoints: 1
   categories:
   - ChangelingAbilities
   conditions:
