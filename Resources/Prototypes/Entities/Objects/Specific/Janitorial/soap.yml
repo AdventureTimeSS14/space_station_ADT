@@ -129,7 +129,7 @@
     fillBaseName: syndie-
   - type: Slippery
     staminaDamage: 100 #ADT-tweak 50 -> 100
-    ignoreSlot: true #ADT-tweak
+    ignoreSlots: true #ADT-tweak
     slipData:
       knockdownTime: 3
       launchForwardsMultiplier: 3
@@ -223,7 +223,7 @@
     fillBaseName: omega-
   - type: Slippery
     staminaDamage: 100 #ADT-tweak 50 -> 100
-    ignoreSlot: true #ADT-tweak
+    ignoreSlots: true #ADT-tweak
     slipData:
       knockdownTime: 5.0
       launchForwardsMultiplier: 3.0
