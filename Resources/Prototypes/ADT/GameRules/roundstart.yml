@@ -105,7 +105,7 @@
   - type: AntagRandomObjectives
     sets:
     - groups: ChangelingObjectiveGroups
-    maxDifficulty: 5
+    maxDifficulty: 8
 
 #Облегченное число агентов
 - type: entity
@@ -182,7 +182,7 @@
   - type: AntagRandomObjectives
     sets:
     - groups: ChangelingObjectiveGroups
-    maxDifficulty: 5
+    maxDifficulty: 8
 
 - type: entity
   parent: BaseHereticRule
