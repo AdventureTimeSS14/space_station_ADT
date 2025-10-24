@@ -7,6 +7,3 @@ namespace Content.Shared.ADT.Sandevistan;
 public sealed partial class SandevistanImplantComponent : Component
 {
 }
-
-
-

@@ -1,0 +1,69 @@
+- type: entity
+  id: ADTAutoSurgeon
+  parent: BaseImplanter
+  name: auto surgeon
+  description: A medical device used to safely install and remove implants.
+  components:
+    - type: Implanter
+      deimplantWhitelist:
+        - ADTSandevistanImplant
+        - ADTMantisDaggersImplant
+    - type: Tag
+      tags:
+        - Trash
+
+- type: entity
+  id: ADTBaseSyndicateAutoSurgeonOnlyImplanter
+  parent: [ADTAutoSurgeon, BaseSyndicateContraband]
+  name: syndicate auto surgeon
+  description: A compact disposable syringe exclusively designed for the injection of subdermal implants. Make sure to scrub it with soap or a rag to remove residual DNA after use!
+  abstract: true
+  components:
+    - type: Item
+      sprite: Objects/Specific/Medical/syndi_implanter.rsi
+      heldPrefix: implanter
+    - type: Sprite
+      sprite: Objects/Specific/Medical/syndi_implanter.rsi
+      state: implanter1
+      layers:
+        - state: implanter0
+          map: [ "implantFull" ]
+          visible: true
+        - state: implanter1
+          map: [ "implantOnly" ]
+    - type: GenericVisualizer
+      visuals:
+        enum.ImplanterVisuals.Full:
+          implantFull:
+            True: {visible: true}
+            False: {visible: false}
+        enum.ImplanterImplantOnlyVisuals.ImplantOnly:
+          implantOnly:
+            True: {state: broken}
+            False: {state: implanter1}
+    - type: Implanter
+      currentMode: Inject
+      implantOnly: true
+      implantTime: 20
+    - type: Tag
+      tags: []
+
+# Syndi autosurgeon
+
+- type: entity
+  id: ADTSandevistanAutoSurgeon
+  parent: ADTBaseSyndicateAutoSurgeonOnlyImplanter
+  name: sandevistan auto surgeon
+  description: A syndicate auto surgeon pre-loaded with a Sandevistan implant.
+  components:
+    - type: Implanter
+      implant: ADTSandevistanImplant
+
+- type: entity
+  id: ADTMantisDaggersAutoSurgeon
+  parent: ADTBaseSyndicateAutoSurgeonOnlyImplanter
+  name: mantis daggers auto surgeon
+  description: A syndicate auto surgeon pre-loaded with Mantis Daggers implant.
+  components:
+    - type: Implanter
+      implant: ADTMantisDaggersImplant

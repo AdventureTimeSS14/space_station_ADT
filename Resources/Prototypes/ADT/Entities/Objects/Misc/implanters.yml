@@ -1,3 +1,4 @@
+
 # Translators
 - type: entity
   id: GalacticCommonTranslatorImplanter
@@ -200,17 +201,3 @@
 #   components:
 #     - type: Implanter
 #       implant: ADTGorlaxFriendlyFireImplant
-
-- type: entity
-  id: ADTSandevistanImplanter
-  parent: BaseImplantOnlyImplanterSyndi
-  components:
-    - type: Implanter
-      implant: ADTSandevistanImplant
-
-- type: entity
-  id: ADTMantisDaggersImplanter
-  parent: BaseImplantOnlyImplanterSyndi
-  components:
-    - type: Implanter
-      implant: ADTMantisDaggersImplant

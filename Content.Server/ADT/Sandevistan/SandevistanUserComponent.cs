@@ -67,15 +67,6 @@ public sealed partial class SandevistanUserComponent : Component
     };
 
     [DataField]
-    public DamageSpecifier DeadDamage = new()
-    {
-        DamageDict = new Dictionary<string, FixedPoint2>
-        {
-            { "Cellular", 200 },
-        },
-    };
-
-    [DataField]
     public float MovementSpeedModifier = 2f;
 
     [DataField]
