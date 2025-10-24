@@ -37,7 +37,7 @@ public sealed partial class WarDeclaratorComponent : Component
     /// War declaration sound file path
     /// </summary>
     [DataField]
-    public SoundSpecifier Sound = new SoundPathSpecifier("/Audio/ADT/Announcements/announce_syndi.ogg"); //ADT tweak
+    public SoundSpecifier Sound = new SoundPathSpecifier("/Audio/Announcements/war.ogg");
 
     /// <summary>
     /// Fluent ID for the declaration sender title

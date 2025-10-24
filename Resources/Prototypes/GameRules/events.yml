@@ -451,7 +451,7 @@
   - type: StationEvent
     startAnnouncement: station-event-vent-creatures-start-announcement
     startAudio:
-      path: /Audio/ADT/Announcements/announce_dig.ogg #ADT-tweak
+      path: /Audio/Announcements/attention.ogg
     earliestStart: 30 # Corax-MRP # 20
     minimumPlayers: 15
     weight: 5
@@ -472,7 +472,7 @@
   - type: StationEvent
     startAnnouncement: station-event-vent-creatures-start-announcement
     startAudio:
-      path: /Audio/ADT/Announcements/announce_dig.ogg #ADT-tweak
+      path: /Audio/Announcements/attention.ogg
     earliestStart: 30 # Corax-MRP # 20
     minimumPlayers: 15
     weight: 5
@@ -493,7 +493,7 @@
   - type: StationEvent
     startAnnouncement: station-event-vent-creatures-start-announcement
     startAudio:
-      path: /Audio/ADT/Announcements/announce_dig.ogg #ADT-tweak
+      path: /Audio/Announcements/attention.ogg
     earliestStart: 30 # Corax-MRP # 20
     minimumPlayers: 15
     weight: 5
@@ -520,7 +520,7 @@
   - type: StationEvent
     startAnnouncement: station-event-vent-creatures-start-announcement
     startAudio:
-      path: /Audio/ADT/Announcements/announce_dig.ogg #ADT-tweak
+      path: /Audio/Announcements/attention.ogg
     earliestStart: 30 # Corax-MRP # 20
     minimumPlayers: 20
     weight: 1.5
@@ -681,7 +681,7 @@
   components:
   - type: StationEvent
     startAudio:
-      path: /Audio/ADT/Announcements/announce_dig.ogg #ADT-tweak
+      path: /Audio/Announcements/attention.ogg
     weight: 5
     minimumPlayers: 25
     reoccurrenceDelay: 20

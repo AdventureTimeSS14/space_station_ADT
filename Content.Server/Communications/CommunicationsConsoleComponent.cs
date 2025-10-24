@@ -66,7 +66,7 @@ namespace Content.Server.Communications
         /// Announce sound file path
         /// </summary>
         [DataField]
-        public SoundSpecifier Sound = new SoundPathSpecifier("/Audio/ADT/Announcements/announce_dig.ogg"); // ADT-Tweak: замена звука на ADT версию
+        public SoundSpecifier Sound = new SoundPathSpecifier("/Audio/Announcements/announce.ogg");
 
         /// <summary>
         /// Hides the sender identity (If they even have one).
