@@ -21,6 +21,7 @@
     Zinc: 1000
     Gold: 600
     Silver: 600
+    ADTBScrystal: 800
 
 - type: latheRecipe
   id: ADTMegaCellMediumRecipe
@@ -33,6 +34,7 @@
     Zinc: 1200
     Gold: 600
     Silver: 600
+    ADTBScrystal: 1000
 
 - type: latheRecipe
   id: ADTMegaCellHighRecipe
@@ -45,6 +47,7 @@
     Zinc: 1500   
     Gold: 600    
     Silver: 600
+    ADTBScrystal: 1200
 
 - type: latheRecipe
   id: ADTMegaCellHyperRecipe
@@ -57,3 +60,4 @@
     Zinc: 1700
     Gold: 600
     Silver: 600
+    ADTBScrystal: 1400

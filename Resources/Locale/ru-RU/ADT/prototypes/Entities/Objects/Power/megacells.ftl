@@ -22,3 +22,6 @@ ent-ADTMegaCellHyper = мегабатарея гипер ёмкости
 ent-ADTMegaCellHyperPrinted = { ent-ADTMegaCellHyper }
     .suffix = Пустой
     .desc = { ent-ADTMegaCellHyper.desc }
+ent-ADTMegaCellInfinite = квантовая мегабатарея
+    .desc = Абсолютная вершина энергетических технологий. Квантовая матрица внутри корпуса обеспечивает практически неисчерпаемый запас энергии, нарушая все известные законы термодинамики.
+    .suffix = Бесконечный
