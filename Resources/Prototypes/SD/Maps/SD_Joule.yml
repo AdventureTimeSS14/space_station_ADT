@@ -15,8 +15,8 @@
             prefixCreator: '-'
         - type: StationEmergencyShuttle
           emergencyShuttlePath: /Maps/Corvax/Shuttles/emergency_corvaxdelta.yml
-        - type: StationCargoShuttle
-          path: /Maps/ADTMaps/Shuttles/adt_cargo.yml
+        # - type: StationCargoShuttle
+        #   path: /Maps/ADTMaps/Shuttles/adt_cargo.yml
         - type: StationJobs
           availableJobs:
             Boxer: [ 2, 2 ]

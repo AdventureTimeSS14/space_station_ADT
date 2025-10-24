@@ -4,8 +4,8 @@ meta:
   engineVersion: 265.0.0
   forkId: ""
   forkVersion: ""
-  time: 10/16/2025 15:21:21
-  entityCount: 22443
+  time: 10/21/2025 07:28:35
+  entityCount: 22440
 maps:
 - 1
 grids:
@@ -21070,7 +21070,7 @@ entities:
       pos: -9.5,-19.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -259817.34
+      secondsUntilStateChange: -259883.58
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -21401,7 +21401,7 @@ entities:
       pos: -1.5,25.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -291495.1
+      secondsUntilStateChange: -291561.34
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -22311,7 +22311,7 @@ entities:
       pos: -34.5,-13.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -258886.78
+      secondsUntilStateChange: -258953.02
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -70317,7 +70317,7 @@ entities:
       pos: -1.5,-8.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -150129.36
+      secondsUntilStateChange: -150195.6
       state: Opening
   - uid: 9644
     components:
@@ -70326,7 +70326,7 @@ entities:
       pos: -1.5,-10.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -150129.83
+      secondsUntilStateChange: -150196.06
       state: Opening
 - proto: CurtainsGreenOpen
   entities:
@@ -70351,7 +70351,7 @@ entities:
       pos: -1.5,-14.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -150635.36
+      secondsUntilStateChange: -150701.6
       state: Opening
   - uid: 9648
     components:
@@ -70365,7 +70365,7 @@ entities:
       pos: -11.5,36.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -181842.62
+      secondsUntilStateChange: -181908.86
       state: Opening
   - uid: 9650
     components:
@@ -70374,7 +70374,7 @@ entities:
       pos: -12.5,36.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -181842.12
+      secondsUntilStateChange: -181908.36
       state: Opening
 - proto: CurtainsOrangeOpen
   entities:
@@ -108632,8 +108632,6 @@ entities:
     - type: Transform
       pos: 23.401356,14.688599
       parent: 2
-    - type: HandheldLight
-      toggleActionEntity: 34
     - type: ContainerContainer
       containers:
         cell_slot: !type:ContainerSlot
@@ -108643,8 +108641,7 @@ entities:
         actions: !type:Container
           showEnts: False
           occludes: True
-          ents:
-          - 34
+          ents: []
     - type: Physics
       canCollide: True
     - type: ActionsContainer
@@ -108665,8 +108662,6 @@ entities:
     - type: Transform
       pos: 20.369247,16.977448
       parent: 2
-    - type: HandheldLight
-      toggleActionEntity: 36
     - type: ContainerContainer
       containers:
         cell_slot: !type:ContainerSlot
@@ -108676,8 +108671,7 @@ entities:
         actions: !type:Container
           showEnts: False
           occludes: True
-          ents:
-          - 36
+          ents: []
     - type: Physics
       canCollide: True
     - type: ActionsContainer
@@ -108688,8 +108682,6 @@ entities:
     - type: Transform
       pos: -36.009712,47.24751
       parent: 2
-    - type: HandheldLight
-      toggleActionEntity: 38
     - type: ContainerContainer
       containers:
         cell_slot: !type:ContainerSlot
@@ -108699,8 +108691,7 @@ entities:
         actions: !type:Container
           showEnts: False
           occludes: True
-          ents:
-          - 38
+          ents: []
     - type: Physics
       canCollide: True
     - type: ActionsContainer
@@ -150106,7 +150097,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -251663.4
+      secondsUntilStateChange: -251729.64
       state: Opening
     - type: Airlock
       autoClose: False

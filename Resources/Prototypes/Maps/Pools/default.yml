@@ -36,10 +36,11 @@
   - ADT_Train
   - ADT_Silly
 
-
-
+# SD Maps
+  - SD_Joule
   - SD_Sievert
   - SD_Flicker
+
 # ADT Maps Выведенные на переработку
   # - ADT_Avrit требуется декорваксизация
   # - ADT_Alley до ремонта
