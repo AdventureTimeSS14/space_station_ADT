@@ -18,11 +18,15 @@ using Content.Shared.Speech.Muting;
 using System.Linq;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.ADT.Stealth.Components;
+using Content.Server.Medical;
+using Content.Shared.Heretic;
+using Content.Shared.ADT.BloodBrothers;
 
 namespace Content.Server.Changeling.EntitySystems;
 
 public sealed partial class ChangelingSystem
 {
+    [Dependency] private readonly VomitSystem _vomit = default!;
     private void InitializeUsefulAbilities()
     {
         SubscribeLocalEvent<ChangelingComponent, LingAbsorbActionEvent>(StartAbsorbing);
@@ -175,6 +179,26 @@ public sealed partial class ChangelingSystem
 
             EnsureComp<AbsorbedComponent>(target);
 
+            if (TryComp<HereticComponent>(target, out var heretic))
+            {
+                var selfMessage = Loc.GetString("changeling-dna-success-heretic", ("target", Identity.Entity(target, EntityManager)));
+                _popup.PopupEntity(selfMessage, uid, uid, PopupType.Medium);
+                if (TryComp<StoreComponent>(uid, out var store))
+                {
+                    _store.TryAddCurrency(new Dictionary<string, FixedPoint2> { { "EvolutionPoints", heretic.PathStage } }, uid, store);
+                    _store.UpdateUserInterface(uid, uid, store);
+                }
+            }
+            if (TryComp<BloodBrotherLeaderComponent>(target, out var bro))
+            {
+                var selfMessage = Loc.GetString("changeling-dna-success-bro", ("target", Identity.Entity(target, EntityManager)));
+                _popup.PopupEntity(selfMessage, uid, uid, PopupType.Medium);
+                if (TryComp<StoreComponent>(uid, out var store))
+                {
+                    _store.TryAddCurrency(new Dictionary<string, FixedPoint2> { { "EvolutionPoints", bro.ConvertedCount } }, uid, store);
+                    _store.UpdateUserInterface(uid, uid, store);
+                }
+            }
             if (HasComp<ChangelingComponent>(target)) // Если это был другой генокрад, получим моментально 5 очков эволюции
             {
                 var selfMessage = Loc.GetString("changeling-dna-success-ling", ("target", Identity.Entity(target, EntityManager)));
@@ -186,6 +210,11 @@ public sealed partial class ChangelingSystem
                     _store.UpdateUserInterface(uid, uid, store);
                     component.ChangelingsAbsorbed++;
                 }
+                //генокрадов убиваем, удаляем, заставляем блевать и спавним мерзость
+                _vomit.Vomit(target);
+                Spawn("MobAbomination", Transform(target).Coordinates);
+                QueueDel(target);
+                Dirty(uid, component);
             }
             else  // Если это не был генокрад, получаем возможность "сброса"
             {
