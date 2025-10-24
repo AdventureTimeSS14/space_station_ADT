@@ -108,9 +108,9 @@
     animationState: foam-dissolve
   - type: Slippery
   #ADT-tweak-start
+    ignoreSlot: true
     slipData:
       launchForwardsMultiplier: 2
-      ignoreSlot: true
   #ADT-tweak-end
   - type: StepTrigger
   # disabled until foam reagent duplication is fixed
