@@ -132,12 +132,12 @@ public sealed class SandevistanSystem : EntitySystem
         {
             var trail = AddComp<TrailComponent>(ent);
             trail.RenderedEntity = ent;
-            trail.LerpTime = 0.1f;
-            trail.LerpDelay = TimeSpan.FromSeconds(4);
-            trail.Lifetime = 10;
-            trail.Frequency = 0.07f;
-            trail.AlphaLerpAmount = 0.2f;
-            trail.MaxParticleAmount = 25;
+            trail.LerpTime = 0.05f;
+            trail.LerpDelay = TimeSpan.FromSeconds(1);
+            trail.Lifetime = 3;
+            trail.Frequency = 0.1f;
+            trail.AlphaLerpAmount = 0.3f;
+            trail.MaxParticleAmount = 15;
             ent.Comp.Trail = trail;
         }
 

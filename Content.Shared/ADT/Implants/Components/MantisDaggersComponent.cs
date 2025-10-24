@@ -46,15 +46,12 @@ public sealed partial class MantisDaggersComponent : Component
     [ViewVariables(VVAccess.ReadOnly)]
     public TimeSpan EmpCooldown = TimeSpan.FromSeconds(60f);
 
-    [ViewVariables(VVAccess.ReadWrite)]
-    public float EmpOverload = 8f;
-
     [DataField]
     public DamageSpecifier EmpDamage = new()
     {
         DamageDict = new Dictionary<string, FixedPoint2>
         {
-            { "Shock", 30 },
+            { "Shock", 25 },
         },
     };
 }
