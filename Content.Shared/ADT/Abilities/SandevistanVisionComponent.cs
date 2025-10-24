@@ -4,6 +4,6 @@ namespace Content.Shared.ADT.Abilities;
 [RegisterComponent]
 [NetworkedComponent]
 
-public sealed partial class DogVisionComponent : Component
+public sealed partial class SandevistanVisionComponent : Component
 {
 }

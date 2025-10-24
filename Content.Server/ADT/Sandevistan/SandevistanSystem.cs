@@ -71,7 +71,7 @@ public sealed class SandevistanSystem : EntitySystem
                 { 2, () => _stamina.TakeStaminaDamage(uid, comp.StaminaDamage * frameTime)},
                 { 3, () => _damageable.TryChangeDamage(uid, comp.Damage * frameTime, ignoreResistances: true)},
                 { 4, () => _stun.TryKnockdown(uid, comp.StatusEffectTime, true)},
-                { 6, () => _damageable.TryChangeDamage(uid, comp.DeadDamage * frameTime, ignoreResistances: true)},
+                { 6, () => _mobState.ChangeMobState(uid, MobState.Dead)},
             };
 
             var filteredStates = new List<int>();
@@ -100,8 +100,11 @@ public sealed class SandevistanSystem : EntitySystem
         }
     }
 
-    private void OnStartup(Entity<SandevistanUserComponent> ent, ref ComponentStartup args) =>
+    private void OnStartup(Entity<SandevistanUserComponent> ent, ref ComponentStartup args)
+    {
         ent.Comp.ActionUid = _actions.AddAction(ent, ent.Comp.ActionProto);
+        ent.Comp.EmpLastPulse = _timing.CurTime - ent.Comp.EmpCooldown;
+    }
 
     private void OnToggle(Entity<SandevistanUserComponent> ent, ref ToggleSandevistanEvent args)
     {
@@ -138,8 +141,8 @@ public sealed class SandevistanSystem : EntitySystem
             ent.Comp.Trail = trail;
         }
 
-        if (!HasComp<DogVisionComponent>(ent))
-            ent.Comp.Overlay = AddComp<DogVisionComponent>(ent);
+        if (!HasComp<SandevistanVisionComponent>(ent))
+            ent.Comp.Overlay = AddComp<SandevistanVisionComponent>(ent);
 
         var audio = _audio.PlayEntity(ent.Comp.StartSound, ent, ent);
         if (!audio.HasValue)
@@ -205,6 +208,8 @@ public sealed class SandevistanSystem : EntitySystem
         {
             ent.Comp.CurrentLoad += ent.Comp.EmpOverload;
             _damageable.TryChangeDamage(uid, ent.Comp.EmpDamage, ignoreResistances: true);
+            _jittering.DoJitter(uid, TimeSpan.FromSeconds(5f), true);
+            _stun.TryAddParalyzeDuration(uid, TimeSpan.FromSeconds(5f));
             Disable(ent, ent.Comp);
         }
     }

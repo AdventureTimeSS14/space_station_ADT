@@ -94,7 +94,7 @@ public sealed partial class SandevistanUserComponent : Component
     public EntityUid? RunningSound;
 
     [ViewVariables(VVAccess.ReadOnly)]
-    public DogVisionComponent? Overlay;
+    public SandevistanVisionComponent? Overlay;
 
     [ViewVariables(VVAccess.ReadOnly)]
     public TrailComponent? Trail;

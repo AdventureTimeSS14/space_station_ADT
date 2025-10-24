@@ -4,9 +4,9 @@ void fragment() {
     highp vec4 color = zTextureSpec(SCREEN_TEXTURE, UV);
 
     highp mat3 m = mat3(
-        vec3(0.625,0.375,0.000),
-        vec3(0.700,0.300,0.000),
-        vec3(0.000,0.300,0.700)
+        vec3(0.150, 0.150, 0.150),
+        vec3(0.350, 1.000, 0.350),
+        vec3(0.150, 0.050, 0.150)
     );
     highp vec3 result = color.rgb * m;
 

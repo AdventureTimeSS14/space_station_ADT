@@ -1,5 +1,4 @@
 using Content.Shared.Implants;
-using Content.Shared.Implants.Components;
 using Content.Shared.ADT.Sandevistan;
 
 namespace Content.Server.ADT.Sandevistan;
@@ -29,11 +28,10 @@ public sealed class SandevistanImplantSystem : EntitySystem
 
         if (TryComp<SandevistanUserComponent>(owner, out var user))
         {
-            var sys = EntitySystem.Get<SandevistanSystem>();
-            sys.Shutdown();
             RemComp<SandevistanUserComponent>(owner);
         }
     }
 }
+
 
 

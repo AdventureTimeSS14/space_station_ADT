@@ -6,6 +6,7 @@ using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
+using Content.Shared.FixedPoint;
 
 namespace Content.Shared.ADT.Implants;
 
@@ -38,4 +39,22 @@ public sealed partial class MantisDaggersComponent : Component
     public EntityUid? ActionEntity;
 
     public Container Container = new();
+
+    [ViewVariables(VVAccess.ReadWrite)]
+    public TimeSpan EmpLastPulse = TimeSpan.Zero;
+
+    [ViewVariables(VVAccess.ReadOnly)]
+    public TimeSpan EmpCooldown = TimeSpan.FromSeconds(60f);
+
+    [ViewVariables(VVAccess.ReadWrite)]
+    public float EmpOverload = 8f;
+
+    [DataField]
+    public DamageSpecifier EmpDamage = new()
+    {
+        DamageDict = new Dictionary<string, FixedPoint2>
+        {
+            { "Shock", 30 },
+        },
+    };
 }

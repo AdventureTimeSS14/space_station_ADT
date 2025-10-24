@@ -207,3 +207,10 @@
   components:
     - type: Implanter
       implant: ADTSandevistanImplant
+
+- type: entity
+  id: ADTMantisDaggersImplanter
+  parent: BaseImplantOnlyImplanterSyndi
+  components:
+    - type: Implanter
+      implant: ADTMantisDaggersImplant

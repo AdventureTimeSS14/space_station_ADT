@@ -10,6 +10,6 @@
   path: "/Textures/ADT/Shaders/seeing_static.swsl"
 
 - type: shader
-  id: DogVision
+  id: SandevistanVision
   kind: source
-  path: "/Textures/ADT/Shaders/dogvision.swsl"
+  path: "/Textures/ADT/Shaders/sandevistan_vision.swsl"
