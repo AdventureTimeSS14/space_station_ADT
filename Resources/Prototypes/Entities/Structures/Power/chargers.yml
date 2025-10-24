@@ -105,11 +105,11 @@
           tags:
           - PowerCell
           - PowerCellSmall
-# ADT-Tweak start
+# ADT-tweak-start
         blacklist:
           tags:
           - ADTMegaCell
-# ADT-Tweak end
+# ADT-tweak-end
 
 - type: entity
   parent: [ BaseItemRecharger, ConstructibleMachine ]

@@ -5,7 +5,7 @@
         "y": 32
     },
     "license": "CC-BY-SA-3.0",
-    "copyright": "Taken from tg station at commit c76efcfba42bfdbee733a48aa289a6483cbe926a",
+    "copyright": "Taken from tg station at commit c76efcfba42bfdbee733a48aa289a6483cbe926a and commit dfab3c542b13dc006b6e660e0be39be105d7beee.",
     "states": [
         {
             "name": "megacell"
