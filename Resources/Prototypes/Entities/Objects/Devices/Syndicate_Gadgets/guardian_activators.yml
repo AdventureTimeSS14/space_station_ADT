@@ -8,7 +8,7 @@
     sprite: Objects/Specific/Medical/hypospray.rsi
     state: combat_hypo
   - type: GuardianCreator
-    guardianProto: MobHoloparasiteGuardian
+    guardianProto: ADTMobHoloparasiteGuardianShield
 # Corvax-HiddenDesc-Start
   - type: HiddenDescription
     entries:

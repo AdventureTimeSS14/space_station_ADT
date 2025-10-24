@@ -1,0 +1,123 @@
+- type: entity
+  name: Holoparasite
+  id: ADTMobHoloparasiteGuardianEmp
+  parent: MobHoloparasiteGuardian
+  description: A mesmerising whirl of hard-light patterns weaves a marvelous, yet oddly familiar visage. It stands proud, tuning into its owner's life to sustain itself.
+  components:
+    - type: Sprite
+      layers:
+        - state: emp
+          map: [ "enum.DamageStateVisualLayers.Base" ]
+    - type: ActionsProvider
+      actions:
+      - ADTGuardianActionActivateEmpImplant
+    - type: TriggerImplantAction
+    - type: EmpOnTrigger
+      range: 5
+      energyConsumption: 50000
+      disableDuration: 20
+
+- type: entity
+  name: Holoparasite
+  id: ADTMobHoloparasiteGuardianMeat
+  parent: MobHoloparasiteGuardian
+  description: A mesmerising whirl of hard-light patterns weaves a marvelous, yet oddly familiar visage. It stands proud, tuning into its owner's life to sustain itself.
+  components:
+    - type: Sprite
+      layers:
+        - state: meat
+          map: [ "enum.DamageStateVisualLayers.Base" ]
+    - type: RechargeBasicEntityAmmo
+      rechargeCooldown: 0.75
+    - type: BasicEntityAmmoProvider
+      proto: Bola
+      capacity: 1
+      count: 1
+    - type: Gun
+      fireRate: 0.35
+      useKey: false
+      selectedMode: FullAuto
+      availableModes:
+        - FullAuto
+      soundGunshot: /Audio/Weapons/Xeno/alien_spitacid.ogg
+    - type: DamageOnShoot
+
+- type: entity
+  name: Holoparasite
+  id: ADTMobHoloparasiteGuardianShield
+  parent: MobHoloparasiteGuardian
+  description: A mesmerising whirl of hard-light patterns weaves a marvelous, yet oddly familiar visage. It stands proud, tuning into its owner's life to sustain itself.
+  components:
+    - type: Sprite
+      layers:
+        - state: meat
+          map: [ "enum.DamageStateVisualLayers.Base" ]
+    - type: Hands
+      hands:
+        - id: left
+    - type: Loadout
+      prototypes: [SyndicateLoneOperativeGearFull]
+
+- type: entity
+  name: Holoparasite
+  id: ADTMobHoloparasiteGuardianEmag
+  parent: MobHoloparasiteGuardian
+  description: A mesmerising whirl of hard-light patterns weaves a marvelous, yet oddly familiar visage. It stands proud, tuning into its owner's life to sustain itself.
+  components:
+    - type: Sprite
+      layers:
+        - state: meat
+          map: [ "enum.DamageStateVisualLayers.Base" ]
+    - type: NinjaGloves
+      abilities:
+      - components:
+        - type: EmagProvider
+
+- type: entity
+  parent: BaseImplantAction
+  id: ADTGuardianActionActivateEmpImplant
+  name: Activate EMP
+  description: Triggers a small EMP pulse around you
+  components:
+  - type: LimitedCharges
+    maxCharges: 100
+  - type: Action
+    checkCanInteract: false
+    useDelay: 5
+    itemIconStyle: BigAction
+    priority: -20
+    icon:
+      sprite: Objects/Weapons/Grenades/empgrenade.rsi
+      state: icon
+
+- type: entity
+  name: ballistic shield
+  parent: [ BaseShield, BaseSecurityContraband ]
+  id: ADTGuardianShield
+  description: A shield built for protecting against ballistics, but not much else.
+  components:
+    - type: Sprite
+      state: riot_bullet-icon
+    - type: Item
+      heldPrefix: riot_bullet
+    - type: Blocking
+      passiveBlockModifier:
+        coefficients:
+          Blunt: 0.5
+          Slash: 0.5 
+          Piercing: 0.5
+          Heat: 0.5
+      activeBlockModifier:
+        coefficients:
+          Blunt: 1.5
+          Slash: 1.5 
+          Piercing: 1
+          Heat: 1
+        flatReductions:
+          Piercing: 1
+    - type: Unremoveable
+
+- type: startingGear
+  id: ADTGuardianShield
+  equipment:
+    hand1: ADTGuardianShield

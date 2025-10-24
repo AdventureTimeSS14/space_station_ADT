@@ -94,6 +94,14 @@
     {
       "name": "tech_base",
       "directions": 4
+    },
+    {
+      "name": "emp",
+      "directions": 4
+    },
+    {
+      "name": "meat",
+      "directions": 4
     }
   ]
 }
