@@ -191,6 +191,9 @@
     - map: [ "enum.PowerCellVisualLayers.Unshaded" ]
       state: o2
       shader: unshaded
+  - type: StaticPrice
+    price: 25000
   - type: Battery
     maxCharge: 1000000
     startingCharge: 1000000
+    pricePerJoule: 0 # Без этого StaticPrice работать не будет, что уж!
