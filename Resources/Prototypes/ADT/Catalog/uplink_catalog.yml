@@ -318,6 +318,17 @@
       tags:
       - NukeOpsUplink
 
+- type: listing
+  id: ADTUplinkDavidsJacketValid
+  name: uplink-davids-jacket-valid-name
+  description: uplink-davids-jacket-valid-desc
+  icon: { sprite: ADT/Clothing/OuterClothing/Coats/david_jacket.rsi, state: icon }
+  productEntity: ADTClothingOuterDavidsJacketValid
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkWearables
+
 #UplinkChemicals
 
 - type: listing
@@ -547,6 +558,16 @@
   productEntity: ADTBoxSyndicateFilledEscapist
   cost:
     Telecrystal: 9
+  categories:
+    - UplinkImplants
+
+- type: listing
+  id: ADTUplinkSandevistanImplant
+  name: uplink-sandevistan-implant-name
+  description: uplink-sandevistan-implant-desc
+  productEntity: ADTSandevistanImplanter
+  cost:
+    Telecrystal: 15
   categories:
     - UplinkImplants
 

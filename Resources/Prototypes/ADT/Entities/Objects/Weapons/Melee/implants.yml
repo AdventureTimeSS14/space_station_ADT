@@ -27,6 +27,47 @@
   - type: Reflect
     reflectProb: .3
     spread: 90
+  - type: ComboWeapon
+    swapSound: /Audio/Effects/thudswoosh.ogg
+    availableMoves:
+      - actionsNeeds:
+          - OffensiveWideHit
+          - OffensiveWideHit
+          - OffensiveHit
+        comboEvent:
+          - !type:ComboDamageEffect
+            damage:
+              types:
+                Poison: 10
+          - !type:ComboAudioEffect
+            sound:
+              collection: GenericHit
+      - actionsNeeds:
+          - OffensiveWideHit
+          - OffensiveHit
+          - OffensiveWideHit
+          - OffensiveHit
+        comboEvent:
+          - !type:ComboStaminaDamageEffect
+            staminaDamage: 100
+          - !type:ComboAudioEffect
+            sound:
+              collection: GenericHit
+      - actionsNeeds:
+          - OffensiveHit
+          - OffensiveHit
+          - OffensiveWideHit
+        comboEvent:
+          - !type:ComboEffectToUserPuller
+            comboEvents:
+            - !type:ComboStopTargetGrabEffect
+            - !type:ComboAudioEffect
+              sound:
+                path: /Audio/Effects/hit_kick.ogg
+            - !type:ComboTrowTargetEffect
+              thrownSpeed: 8
+            - !type:ComboSlowdownEffect
+              time: 3
 
 - type: entity
   parent: ClothingHandsBase
