@@ -21,6 +21,7 @@
   - type: TimedDespawn
     lifetime: 15.0
   - type: SupermatterIgnore
+  - type: ProtectedFromStepTriggers # Ganimed-Tweak
 
   # Base
 - type: entity
@@ -45,6 +46,7 @@
   - type: Visibility
     layer: 505
   - type: SupermatterIgnore
+  - type: ProtectedFromStepTriggers # Ganimed-Tweak
 
       # Ling ents
 - type: entity
