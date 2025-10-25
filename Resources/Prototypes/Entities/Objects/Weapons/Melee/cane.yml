@@ -16,6 +16,12 @@
     damage:
       types:
         Blunt: 5
+  # ADT-Tweak-Start
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - belt
+  # ADT-Tweak-End
   - type: StaminaDamageOnHit
     damage: 5
   - type: Wieldable
@@ -36,6 +42,11 @@
   - type: Sprite
     sprite: Objects/Weapons/Melee/cane_blade.rsi
     state: icon
+  # ADT-Tweak-Start
+  - type: Reflect
+    reflectProb: 0.25
+    spread: 90
+  # ADT-Tweak-End
   - type: MeleeWeapon
     wideAnimationRotation: 65
     attackRate: 1.5
@@ -51,6 +62,27 @@
     tags:
       - CaneBlade
   - type: DisarmMalus
+  # ADT-Tweak-Start
+  - type: ComboWeapon
+    availableMoves:
+      - actionsNeeds:
+          - OffensiveWideHit
+          - OffensiveWideHit
+          - OffensiveHit
+        comboEvent:
+          - !type:ComboEffectToStanding
+            comboEvents:
+            - !type:ComboDamageEffect
+              damage:
+                types:
+                  Slash: 40
+            - !type:ComboFallEffect
+            - !type:ComboSpawnEffect
+              spawnOnTarget: ADTCaneCut
+            - !type:ComboAudioEffect
+              sound:
+                path: /Audio/Items/Defib/defib_failed.ogg
+      # ADT-Tweak-End
 
 - type: entity
   parent: Cane

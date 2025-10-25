@@ -49,7 +49,6 @@
     soundRack:
       path: /Audio/Weapons/Guns/Cock/lmg_cock.ogg
   - type: AmmoCounter
-  - type: RunAndGunBlocker # ADT-Tweak
   - type: ItemSlots
     slots:
       gun_magazine:
@@ -98,6 +97,9 @@
   - type: StaticPrice
     price: 10000
 # ADT TWEAK START
+  - type: GunRequiresWield
+  - type: RunAndGunSpreadModifier
+    modifyer: 0.7
   - type: AttachableHolder
     slots:
       rmc-aslot-rail:

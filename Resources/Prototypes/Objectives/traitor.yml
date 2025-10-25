@@ -58,6 +58,7 @@
     icon:
       sprite: Mobs/Ghosts/ghost_human.rsi
       state: icon
+  - type: CodeCondition # ADT-Tweak
   - type: ObjectiveBlacklistRequirement
     blacklist:
       components:

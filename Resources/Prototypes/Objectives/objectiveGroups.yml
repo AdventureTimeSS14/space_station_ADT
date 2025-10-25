@@ -29,7 +29,10 @@
   id: TraitorObjectiveGroupKill
   weights:
     KillRandomPersonObjective: 1
-    KillRandomHeadObjective: 0.25
+    # ADT-Tweak-Start
+    TeachLessonRandomPersonObjective: 1 # DeltaV teach a lesson objective
+    KillRandomHeadObjective: 0.4 # 0.25 -> 0.4
+    # ADT-Tweak-End
 
 - type: weightedRandom
   id: TraitorObjectiveGroupState
