@@ -46,6 +46,7 @@
     - id: Pirates # ADT tweak pirates
     - id: MorphSpawn #ADT tweak morph
     - id: VoxRaidersEvent # ADT tweak vox-raiders
+    - id: SuperHeroEvent # ADT tweak heros
     # - id: ZombieOutbreak
     - id: IanHeroEvent #Basically he isn't Antag but there is change game for it
 

@@ -59,7 +59,7 @@
       rmc-aslot-barrel: 0.59375, 0
       # rmc-aslot-barrel: 0.59375, -0.15625
   - type: RunAndGunSpreadModifier
-    modifyer: 2
+    modifyer: 0.2
   - type: MeleeWeapon
     resetOnHandSelected: false
     attackRate: 1
@@ -97,7 +97,7 @@
     proto: CartridgeAntiMateriel
   # ADT-Tweak start
   - type: RunAndGunSpreadModifier
-    modifyer: 7
+    modifyer: 3
   - type: MeleeWeapon
     resetOnHandSelected: false
     attackRate: 0.65
@@ -157,7 +157,7 @@
           tags:
           - ADTMosinBayonetAttachment
   - type: RunAndGunSpreadModifier
-    modifyer: 7
+    modifyer: 3
   - type: MeleeWeapon
     resetOnHandSelected: false
     attackRate: 1
@@ -207,7 +207,7 @@
     storedRotation: 0
   # ADT-Tweak start
   - type: RunAndGunSpreadModifier
-    modifyer: 15
+    modifyer: 3
   - type: MeleeWeapon
     resetOnHandSelected: false
     attackRate: 1

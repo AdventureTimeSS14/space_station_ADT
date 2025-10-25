@@ -83,7 +83,8 @@
     FireAxeStealObjective: 1                            #eng
     AmePartFlatpackStealObjective: 1
     ADTClothingMaskGasCEStealObjective: 1    # ADT Tweak: add gas mask CE
-    ExpeditionsCircuitboardStealObjective: 1            #sup
+    ADTClothingModsuitBackBlueShieldStealObjective: 1
+# ADT-Tweak до убирал ибо вызывало ошибки. "Corvax-StealTarget"  ExpeditionsCircuitboardStealObjective: 1            #sup
     CargoShuttleCircuitboardStealObjective: 1
     ClothingEyesHudBeerStealObjective: 1                #srv
     BibleStealObjective: 1
