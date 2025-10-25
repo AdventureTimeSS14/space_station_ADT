@@ -571,6 +571,28 @@
   categories:
     - UplinkImplants
 
+- type: listing
+  id: ADTUplinkMantisDaggersImplant
+  name: uplink-mantis-daggers-name
+  description: uplink-mantis-daggers-desc
+  productEntity: ADTMantisDaggersAutoSurgeon
+  discountDownTo:
+    Telecrystal: 5
+  cost:
+    Telecrystal: 7
+  categories:
+    - UplinkImplants
+
+- type: listing
+  id: ADTUplinkCyberpsychoBundle
+  name: uplink-cyberpsycho-bundle-name
+  description: uplink-cyberpsycho-bundle-desc
+  productEntity: ADTBoxSyndicateCyberpsycho
+  cost:
+    Telecrystal: 20
+  categories:
+    - UplinkImplants
+
 #UplinkAllies
 
 #UplinkPointless

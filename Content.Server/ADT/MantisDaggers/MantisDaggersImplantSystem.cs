@@ -22,9 +22,6 @@ public sealed class MantisDaggersImplantSystem : EntitySystem
             return;
 
         EnsureComp<MantisDaggersComponent>(owner);
-        var reflect = EnsureComp<ReflectComponent>(owner);
-        reflect.ReflectProb = 0.3f;
-        Dirty(owner, reflect);
     }
 
     private void OnRemoved(EntityUid uid, MantisDaggersImplantComponent comp, ref ImplantRemovedEvent args)
@@ -35,11 +32,6 @@ public sealed class MantisDaggersImplantSystem : EntitySystem
         if (TryComp<MantisDaggersComponent>(owner, out var user))
         {
             RemComp<MantisDaggersComponent>(owner);
-        }
-
-        if (TryComp<ReflectComponent>(owner, out var reflect))
-        {
-            RemComp<ReflectComponent>(owner);
         }
     }
 }

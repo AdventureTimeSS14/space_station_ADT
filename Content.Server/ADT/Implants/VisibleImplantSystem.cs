@@ -27,6 +27,7 @@ using Content.Shared.Stunnable;
 using Content.Shared.Jittering;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
+using Content.Shared.Weapons.Reflect;
 
 namespace Content.Server.ADT.Implants;
 
@@ -112,11 +113,17 @@ public sealed class VisibleImplantSystem : SharedVisibleImplantSystem
         {
             _appearance.SetData(uid, MantisDaggersVisuals.Active, true);
             _appearance.SetData(uid, MantisDaggersVisuals.Inactive, false);
+            var reflect = EnsureComp<ReflectComponent>(uid);
+            reflect.ReflectProb = 0.3f;
         }
         else
         {
             _appearance.SetData(uid, MantisDaggersVisuals.Active, false);
             _appearance.SetData(uid, MantisDaggersVisuals.Inactive, true);
+            if (TryComp<ReflectComponent>(uid, out var reflect))
+            {
+                RemComp<ReflectComponent>(uid);
+            }
         }
         comp.Active = !comp.Active;
         _audio.PlayEntity(comp.Sound, Filter.Pvs(uid), uid, true);

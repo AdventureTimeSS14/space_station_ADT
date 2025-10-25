@@ -4,6 +4,8 @@
   name: auto surgeon
   description: A medical device used to safely install and remove implants.
   components:
+    - type: Item
+      size: Normal
     - type: Implanter
       deimplantWhitelist:
         - ADTSandevistanImplant
