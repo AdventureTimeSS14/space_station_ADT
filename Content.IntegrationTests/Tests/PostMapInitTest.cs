@@ -108,16 +108,16 @@ private static readonly string[] GameMaps =
             "ADT_kilo",
             "ADT_Saltern",
             "ADT_Packed",
-            "ADT_Gemini", // Раскомментировано
+            "ADT_Gemini",
             "ADT_Aspid",
-            "ADT_Cluster_Legacy", // Раскомментировано
+            "ADT_Cluster_Legacy",
             "ADT_Meta",
             "ADT_Origin",
             "ADT_Centcomm",
-            "ADT_Gate", // Добавлено
-            "ADT_Reach", // Добавлено
-            "ADT_Silly", // Добавлено
-            "ADT_Train" // Добавлено
+            "ADT_Gate",
+            "ADT_Reach",
+            "ADT_Silly",
+            "ADT_Train"
             // ADT-End
         };
 
