@@ -255,7 +255,7 @@
     tags:
     - Wooden
   - type: StaticPrice
-    price: 25 # ADT-tweak
+    price: 40 # ADT-tweak
 
 - type: entity
   name: ritual chair
