@@ -9,3 +9,23 @@
       - id: EmpImplanter
       - id: FreedomImplanter
       - id: DnaScramblerImplanter
+
+- type: entity
+  parent: BoxCardboard
+  id: ADTBoxSyndicateCyberpsycho
+  name: cyberpsycho bundle
+  description: Have you realized that the flesh is weak? Then this bundle is for you!
+  components:
+  - type: Item
+    size: Huge
+    shape:
+    - 0,0,4,4
+  - type: Storage
+    maxItemSize: Huge
+    grid:
+    - 0,0,3,3
+  - type: StorageFill
+    contents:
+      - id: ADTSandevistanAutoSurgeon
+      - id: ADTMantisDaggersAutoSurgeon
+      - id: ADTClothingOuterDavidsJacketValid
