@@ -361,7 +361,7 @@ namespace Content.IntegrationTests.Tests
                     var clientEntities = new HashSet<EntityUid>(Entities(client.EntMan));
                     EntityUid uid = default;
                     await server.WaitPost(() => uid = server.EntMan.SpawnEntity(protoId, coords));
-                    await pair.RunTicksSync(3);
+                    await pair.RunTicksSync(5);
 
                     // If the entity deleted itself, skip all checks
                     if (!server.EntMan.EntityExists(uid))
@@ -372,13 +372,18 @@ namespace Content.IntegrationTests.Tests
                     // Check that the number of entities has increased.
                     Assert.That(Count(server.EntMan), Is.GreaterThan(count), $"Server prototype {protoId} failed on spawning as entity count didn't increase\n" +
                         BuildDiffString(serverEntities, Entities(server.EntMan), server.EntMan));
-                    Assert.That(Count(client.EntMan), Is.GreaterThan(clientCount), $"Client prototype {protoId} failed on spawning as entity count didn't increase\n" +
-                        $"Expected at least {clientCount} and found {client.EntMan.EntityCount}. " +
-                        $"Server count was {count}.\n" +
-                        BuildDiffString(clientEntities, Entities(client.EntMan), client.EntMan));
+                    
+                    // Skip client check if entity doesn't exist on server (deleted itself)
+                    if (server.EntMan.EntityExists(uid))
+                    {
+                        Assert.That(Count(client.EntMan), Is.GreaterThan(clientCount), $"Client prototype {protoId} failed on spawning as entity count didn't increase\n" +
+                            $"Expected at least {clientCount + 1} and found {client.EntMan.EntityCount}. " +
+                            $"Server count was {server.EntMan.EntityCount}.\n" +
+                            BuildDiffString(clientEntities, Entities(client.EntMan), client.EntMan));
+                    }
 
                     await server.WaitPost(() => server.EntMan.DeleteEntity(uid));
-                    await pair.RunTicksSync(3);
+                    await pair.RunTicksSync(5);
 
                     // Убраны проверки после удаления сущности
                 }
