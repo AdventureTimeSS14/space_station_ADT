@@ -42,7 +42,7 @@ public sealed partial class SandevistanUserComponent : Component
     public float LoadPerActiveSecond = 1f;
 
     [DataField]
-    public float LoadPerInactiveSecond = -0.25f;
+    public float LoadPerInactiveSecond = -0.5f;
 
     [DataField]
     public SortedDictionary<SandevistanState, FixedPoint2> Thresholds = new()
@@ -67,10 +67,10 @@ public sealed partial class SandevistanUserComponent : Component
     };
 
     [DataField]
-    public float MovementSpeedModifier = 2f;
+    public float MovementSpeedModifier = 2.4f;
 
     [DataField]
-    public float AttackSpeedModifier = 2f;
+    public float AttackSpeedModifier = 2.4f;
 
     [DataField]
     public SoundSpecifier? StartSound = new SoundPathSpecifier("/Audio/ADT/Misc/sande_start.ogg");

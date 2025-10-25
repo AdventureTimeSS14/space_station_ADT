@@ -41,3 +41,11 @@
       !type:RoleTimeRequirement
       role: JobParamedic
       time: 90000 #25 часов
+
+- type: loadout
+  id: ADTDavidsjacketParamedic
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTDavidsjacket25hours
+  equipment:
+    otherClothing: ADTClothingOuterDavidsJacket

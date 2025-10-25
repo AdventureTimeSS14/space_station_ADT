@@ -95,7 +95,7 @@ public sealed class SandevistanSystem : EntitySystem
             if (popup == -1)
                 continue;
 
-            _popup.PopupEntity(Loc.GetString("sandevistan-overload-" + popup), uid, uid);
+            _popup.PopupEntity(Loc.GetString("sandevistan-overload-" + popup), uid, PopupType.LargeCaution);
             comp.NextPopupTime = _timing.CurTime + comp.PopupDelay;
         }
     }
@@ -135,7 +135,7 @@ public sealed class SandevistanSystem : EntitySystem
             trail.LerpTime = 0.05f;
             trail.LerpDelay = TimeSpan.FromSeconds(1);
             trail.Lifetime = 3;
-            trail.Frequency = 0.1f;
+            trail.Frequency = 0.06f;
             trail.AlphaLerpAmount = 0.3f;
             trail.MaxParticleAmount = 15;
             ent.Comp.Trail = trail;
