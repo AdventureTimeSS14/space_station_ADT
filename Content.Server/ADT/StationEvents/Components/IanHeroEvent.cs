@@ -6,3 +6,4 @@ namespace Content.Server.ADT.StationEvents.Components;
 public sealed partial class IanHeroEventComponent : Component
 {  
 }
+

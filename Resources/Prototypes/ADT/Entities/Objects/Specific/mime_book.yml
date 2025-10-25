@@ -13,3 +13,8 @@
         - type: EnhancedMimePowers
     - type: UseDelay
       delay: 1
+    - type: SpawnItemsOnUse
+      items:
+      - id: Ash
+      sound: 
+        path: /Audio/Items/Lighters/lighter3.ogg

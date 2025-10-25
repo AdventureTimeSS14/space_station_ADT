@@ -933,3 +933,198 @@
       tags:
       - GhostOnlyWarp
     # Corvax-end
+
+# ADT Tweak Start
+- type: entity
+  parent: DefaultStationBeaconCommand
+  id: ADTDefaultStationBeaconCaptainToilet
+  suffix: Captain Toilet
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-captain-toilet
+
+- type: entity
+  parent: DefaultStationBeacon
+  id: ADTDefaultStationBeaconOldBar
+  suffix: Old Bar
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-old-bar
+
+- type: entity
+  parent: DefaultStationBeacon
+  id: ADTDefaultStationBeaconOldLibrary
+  suffix: Old Library
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-old-library
+
+- type: entity
+  parent: DefaultStationBeaconEngineering
+  id: ADTDefaultStationBeaconCell
+  suffix: Cell
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-cell
+
+- type: entity
+  parent: DefaultStationBeaconEngineering
+  id: ADTDefaultStationBeaconSuperMatter
+  suffix: Super Matter
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-supermatter
+
+- type: entity
+  parent: DefaultStationBeaconService
+  id: ADTDefaultStationBeaconBathhouse
+  suffix: Bathhouse
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-bathhouse
+
+- type: entity
+  parent: DefaultStationBeaconService
+  id: ADTDefaultStationBeaconRing
+  suffix: Ring
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-ring
+
+- type: entity
+  parent: DefaultStationBeaconCommand
+  id: ADTDefaultStationBeaconBSO
+  suffix: BSO
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-bso
+
+- type: entity
+  parent: DefaultStationBeaconSecurity
+  id: ADTDefaultStationBeaconShootingRange
+  suffix: Shooting Range
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-shooting-range
+
+- type: entity
+  parent: DefaultStationBeaconScience
+  id: ADTDefaultStationBeaconRecreationRoomRND
+  suffix: Recreation Room RND
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-recreation-room-rnd
+
+- type: entity
+  parent: DefaultStationBeaconSecurity
+  id: ADTDefaultStationBeaconRecreationRoomSecurity
+  suffix: Recreation Room Security
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-recreation-room-security
+
+- type: entity
+  parent: DefaultStationBeaconMedbay
+  id: ADTDefaultStationBeaconRecreationRoomMedbay
+  suffix: Recreation Room Medbay
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-recreation-room-medbay
+
+- type: entity
+  parent: DefaultStationBeaconEngineering
+  id: ADTDefaultStationBeaconStorageEng
+  suffix: Storage Eng
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-storage-eng
+
+- type: entity
+  parent: DefaultStationBeaconService
+  id: ADTDefaultStationBeaconSmokingRoom
+  suffix: Smoking Room
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-smoking-room
+
+- type: entity
+  parent: DefaultStationBeaconSalvage
+  id: ADTDefaultStationBeaconMine
+  suffix: Mine
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-mine
+
+- type: entity
+  parent: DefaultStationBeaconSecurity
+  id: ADTDefaultStationBeaconInterrogation
+  suffix: Interrogation
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-interrogation
+
+- type: entity
+  parent: DefaultStationBeaconSecurity
+  id: ADTDefaultStationBeaconSuitsSec
+  suffix: Suits Sec
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-suits-sec
+
+- type: entity
+  parent: DefaultStationBeaconMedbay
+  id: ADTDefaultStationBeaconCloning
+  suffix: Cloning
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-cloning
+
+- type: entity
+  parent: DefaultStationBeacon
+  id: ADTDefaultStationBeaconVirology
+  suffix: Virology
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-virology
+    color: "#198019"
+
+- type: entity
+  parent: DefaultStationBeaconSecurity
+  id: ADTDefaultStationBeaconDockingAreaSec
+  suffix: Docking Area Sec
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-docking-area-sec
+
+- type: entity
+  parent: DefaultStationBeaconSecurity
+  id: ADTDefaultStationBeaconExecution
+  suffix: Execution
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-execution
+
+- type: entity
+  parent: DefaultStationBeaconService
+  id: ADTDefaultStationBeaconCrematorium
+  suffix: Crematorium
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-crematorium
+
+- type: entity
+  parent: DefaultStationBeaconEngineering
+  id: ADTDefaultStationBeaconShuttleArea
+  suffix: Shuttle Area
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-shuttle-area
+
+- type: entity
+  parent: DefaultStationBeaconService
+  id: ADTDefaultStationBeaconPark
+  suffix: Park
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-park
+# ADT Tweak End
