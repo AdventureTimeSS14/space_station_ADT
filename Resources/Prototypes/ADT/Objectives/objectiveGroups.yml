@@ -63,6 +63,7 @@
   id: ChangelingObjectiveGroupAbsorbDna
   weights:
     DnaAbsorbObjective: 1
+    ChangelingAbsorbObjective: 1
 
 - type: weightedRandom
   id: BloodBrothersObjectiveGroups

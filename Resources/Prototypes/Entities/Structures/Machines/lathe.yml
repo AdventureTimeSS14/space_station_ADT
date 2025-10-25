@@ -228,6 +228,7 @@
     - ADTPhantomPack
     - ADTWeaponLauncherHydraPack
     - ADTPowerPack
+    - ADTMegaCellPack
     #ADT-tweak-end
     - ADTBluespaceCrystalTech #ADT Tweak
   - type: EmagLatheRecipes
@@ -293,6 +294,7 @@
     - ADTArcade
     - ADTIndustrialCharger
     - ADTAdvancedThruster
+    - ADTMegaCharger
     # ADT-tweak-end
   - type: EmagLatheRecipes
     emagDynamicPacks:

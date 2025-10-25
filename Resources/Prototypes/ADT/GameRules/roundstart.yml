@@ -105,7 +105,7 @@
   - type: AntagRandomObjectives
     sets:
     - groups: ChangelingObjectiveGroups
-    maxDifficulty: 5
+    maxDifficulty: 8
 
 #Облегченное число агентов
 - type: entity
@@ -182,7 +182,7 @@
   - type: AntagRandomObjectives
     sets:
     - groups: ChangelingObjectiveGroups
-    maxDifficulty: 5
+    maxDifficulty: 8
 
 - type: entity
   parent: BaseHereticRule
@@ -246,8 +246,6 @@
         cost: 130
       - id: NinjaSpawn
         cost: 140
-      - id: KingRatMigration
-        cost: 90
       - id: ParadoxCloneSpawn
         cost: 90
       - id: SleeperAgents
@@ -298,8 +296,6 @@
         cost: 140
       - id: NinjaSpawn
         cost: 150
-      - id: KingRatMigration
-        cost: 90
       - id: ParadoxCloneSpawn
         cost: 90
       - id: SleeperAgents
@@ -337,8 +333,6 @@
         cost: 140
       - id: NinjaSpawn
         cost: 150
-      - id: KingRatMigration
-        cost: 90
       - id: ParadoxCloneSpawn
         cost: 90
       - id: SleeperAgents

@@ -1,8 +1,6 @@
 # Basic
 - type: entity
   id: ActionChangelingEvolutionMenu
-  name: action-evolution-menu
-  description: action-evolution-menu-decs
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -15,8 +13,6 @@
 
 - type: entity
   id: ActionChangelingAbsorb
-  name: action-absorb-dna
-  description: action-absorb-dna-desc
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -36,8 +32,6 @@
 
 - type: entity
   id: ActionChangelingTransform
-  name: action-transform
-  description: action-transform-desc
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -52,8 +46,6 @@
 
 - type: entity
   id: ActionLingRegenerate
-  name: action-regenerate
-  description: action-regenerate-desc
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -71,8 +63,6 @@
 
 - type: entity
   id: ActionLingStingExtract
-  name: action-extract-dna-sting
-  description: action-extract-dna-sting-desc
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -93,8 +83,6 @@
 
 - type: entity
   id: ActionStasisDeath
-  name: action-stasis-death
-  description: action-stasis-death-desc
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -116,8 +104,6 @@
 # Combat
 - type: entity
   id: ActionLingResonant
-  name: action-resonant
-  description: action-resonant-desc
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -134,8 +120,6 @@
 
 - type: entity
   id: ActionLingAdrenaline
-  name: action-adrenaline
-  description: action-adrenaline-desc
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -151,8 +135,6 @@
 
 - type: entity
   id: ActionBoneShard
-  name: action-bone-shard
-  description: action-bone-shard-desc
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -168,8 +150,6 @@
 
 - type: entity
   id: ActionLingEMP
-  name: action-activate-dissonant-shriek
-  description: action-activate-dissonant-shriek-desc
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -185,8 +165,6 @@
 
 - type: entity
   id: ActionLingMuscles
-  name: action-lingmuscles
-  description: action-lingmuscles-desc
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -202,8 +180,6 @@
 
 - type: entity
   id: ActionLingBlindSting
-  name: action-blind-sting
-  description: action-blind-sting-desc
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -224,8 +200,6 @@
 
 - type: entity
   id: ActionArmBlade
-  name: action-toggle-arm-blade
-  description: action-toggle-arm-blade-desc
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -241,8 +215,6 @@
 
 - type: entity
   id: ActionLingArmor
-  name: action-toggle-chitinous-armor
-  description: action-toggle-chitinous-armor-desc
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -258,8 +230,6 @@
 
 - type: entity
   id: ActionArmShield
-  name: action-toggle-arm-shield
-  description: action-toggle-arm-shield-desc
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -276,8 +246,6 @@
 
 - type: entity
   id: ActionArmace
-  name: action-toggle-arm-hammer
-  description: action-toggle-arm-hammer-desc
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -294,8 +262,6 @@
 # Useful
 - type: entity
   id: ActionLingBiodegrade
-  name: action-biodegrade
-  description: action-biodegrade-desc
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -312,8 +278,6 @@
 
 - type: entity
   id: ActionLingDrugSting
-  name: action-drug-sting
-  description: action-drug-sting-desc
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -334,8 +298,6 @@
 
 - type: entity
   id: ActionLingMuteSting
-  name: action-mute-sting
-  description: action-mute-sting-desc
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -356,8 +318,6 @@
 
 - type: entity
   id: ActionLingLesserForm
-  name: action-lesser-form
-  description: action-lesser-form-desc
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -377,8 +337,6 @@
 
 - type: entity
   id: ActionLingLastResort
-  name: action-resort
-  description: action-resort-desc
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -395,8 +353,6 @@
 
 - type: entity
   id: ActionDigiCamo
-  name: action-digi-camo
-  description: action-digi-camo-desc
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -412,8 +368,6 @@
 
 - type: entity
   id: ActionLingInvisible
-  name: action-toggle-chameleon-skin
-  description: action-toggle-chameleon-skin-desc
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -429,8 +383,6 @@
 
 - type: entity
   id: ActionLingFleshmend
-  name: action-fleshmend
-  description: action-fleshmend-desc
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -446,8 +398,6 @@
 
 - type: entity
   id: ActionLingTransformSting
-  name: action-transform-sting
-  description: action-transform-sting-desc
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
