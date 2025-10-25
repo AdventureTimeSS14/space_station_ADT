@@ -45,3 +45,5 @@ trait-painnumbness-name = Онемевший
 trait-painnumbness-desc = У вас отсутствует какое-либо ощущение боли, вы не осознаете, насколько вам может быть больно.
 trait-uncloneable-name = Неклонируемость
 trait-uncloneable-desc = Вы не можете быть клонированы.
+trait-impaired-mobility-name = Нарушение подвижности
+trait-impaired-mobility-desc = Вам тяжело передвигаться без посторонней помощи.
