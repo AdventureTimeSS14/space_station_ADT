@@ -132,7 +132,7 @@
   traitGear: OffsetCane
   category: Disabilities
   components:
-    - type: ImpairedMobility
+  - type: ImpairedMobility
   # ADT Quirks start
   speciesBlacklist:
   - IPC
