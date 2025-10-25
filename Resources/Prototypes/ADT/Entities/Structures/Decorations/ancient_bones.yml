@@ -1,0 +1,155 @@
+- type: entity
+  id: ADTAncientAnimalScull
+  parent: BaseStructure
+  name: large skull
+  suffix: Lavaland
+  description: a large skull that belong to the unknown creature.
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: ADT/Structures/Decoration/Ancient_bones/scull_and_bones.rsi
+    state: scull
+    drawdepth: Mobs
+    offset: "0.0,0.5"
+
+- type: entity
+  id: ADTAncientAnimalLeftBone
+  parent: BaseStructure
+  name: large bone
+  suffix: Lavaland
+  description: a large bone that belong to the unknown creature.
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: ADT/Structures/Decoration/Ancient_bones/scull_and_bones.rsi
+    state: left_bone
+    drawdepth: LowFloors
+    offset: "0.0,0.5"
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+          
+- type: entity
+  id: ADTAncientAnimalRightBone
+  parent: BaseStructure
+  name: large bone
+  suffix: Lavaland
+  description: a large bone that belong to the unknown creature.
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: ADT/Structures/Decoration/Ancient_bones/scull_and_bones.rsi
+    state: right_bone
+    drawdepth: LowFloors
+    offset: "0.0,0.5"
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+
+- type: entity
+  id: ADTAncientAnimalLeftRib
+  parent: BaseStructure
+  name: large ribs
+  suffix: Lavaland
+  description: a large ribs that belong to the unknown creature.
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: ADT/Structures/Decoration/Ancient_bones/ribs.rsi
+    state: rib_left
+    drawdepth: Mobs
+    offset: "0.0,0.5"
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.200,-0.500,0.100,0.300"
+        density: 60
+        mask:
+        - MachineMask
+        layer:
+        - WallLayer
+
+- type: entity
+  id: ADTAncientAnimalRightRib
+  parent: BaseStructure
+  name: large ribs
+  suffix: Lavaland
+  description: a large ribs that belong to the unknown creature.
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: ADT/Structures/Decoration/Ancient_bones/ribs.rsi
+    state: rib_right
+    drawdepth: Mobs
+    offset: "0.0,0.5"
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.200,-0.500,0.100,0.300"
+        density: 60
+        mask:
+        - MachineMask
+        layer:
+        - WallLayer
+    
+- type: entity
+  id: ADTAncientAnimalLeftRibLarge
+  parent: BaseStructure
+  name: colossal rib
+  description: It's staggering to think that something this big could have lived, let alone died.
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: ADT/Structures/Decoration/Ancient_bones/ribs.rsi
+    state: large_rib_left
+    drawdepth: Mobs
+    offset: "0.0,0.5"
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.200,-0.400,0.000,0.300"
+        density: 60
+        mask:
+        - MachineMask
+        layer:
+        - WallLayer
+        
+- type: entity
+  id: ADTAncientAnimalRightRibLarge
+  parent: BaseStructure
+  name: colossal rib
+  description: It's staggering to think that something this big could have lived, let alone died.
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: ADT/Structures/Decoration/Ancient_bones/ribs.rsi
+    state: large_rib_right 
+    drawdepth: Mobs
+    offset: "0.0,0.5"
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.000,-0.400,0.200,0.300"
+        density: 60
+        mask:
+        - MachineMask
+        layer:
+        - WallLayer

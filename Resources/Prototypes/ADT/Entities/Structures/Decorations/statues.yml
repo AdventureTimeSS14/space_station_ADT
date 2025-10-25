@@ -35,3 +35,56 @@
         behaviors:
           - !type:DoActsBehavior
             acts: [ "Destruction" ]
+
+- type: entity
+  id: ADTDrakeStatue
+  parent: BaseStructure
+  name: old statue of a ash drake 
+  suffix: Lavaland
+  description: A majestic basalt sculpture of an ash dragon. Its eyes are six glowing gems.
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: ADT/Structures/Decoration/Statues/drake_statues.rsi
+    state: old_drake_statue
+    drawdepth: Mobs
+    offset: "0.0,0.5"
+
+- type: entity
+  id: ADTBrokeDrakeStatue
+  parent: BaseStructure
+  name: old broke statue of a ash drake 
+  suffix: Lavaland
+  description: A majestic basalt sculpture of an ash dragon. Cracks run down its surface and parts of it have fallen off.
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: ADT/Structures/Decoration/Statues/drake_statues.rsi
+    state: old_broken_drake_statue
+    drawdepth: Mobs
+    offset: "0.0,0.5"
+
+- type: entity
+  id: ADTKerberosStatue
+  parent: BaseStructure
+  name: kerberos station statue
+  description: Statue in honor of the Kerberos stations.
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: ADT/Structures/Decoration/Statues/kerberos_statue.rsi
+    state: kerberos_statue
+    drawdepth: Mobs
+    offset: "0.0,0.5"
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-1.20,-0.45,1.20,1.45"
+        density: 60
+        mask:
+        - MachineMask
+        layer:
+        - MidImpassable
+        - LowImpassable
