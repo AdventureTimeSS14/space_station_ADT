@@ -8,7 +8,7 @@
   - type: Sprite
     noRot: true
     sprite: ADT/Structures/Decoration/Ancient_bones/scull_and_bones.rsi
-    state: scull
+    state: skull
     drawdepth: Mobs
     offset: "0.0,0.5"
 
