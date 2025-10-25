@@ -27,6 +27,9 @@ using Content.Shared.Movement.Pulling.Systems;
 using Content.Server.Medical.SuitSensors;
 using Content.Shared.Medical.SuitSensor;
 using Robust.Server.Player;
+using Content.Shared.Changeling.Components;
+using Content.Shared.ADT.BloodBrothers;
+using Content.Shared.Revolutionary.Components;
 
 namespace Content.Server.Heretic.Ritual;
 
@@ -51,12 +54,6 @@ public partial class RitualSacrificeBehavior : RitualCustomBehavior
     [DataField]
     public float Max = 1;
 
-    /// <summary>
-    ///     Should we count only targets?
-    /// </summary>
-    [DataField]
-    public bool OnlyTargets = false;
-
     protected List<EntityUid> uids = new();
 
     public override bool Execute(RitualData args, out string? outstr)
@@ -72,7 +69,7 @@ public partial class RitualSacrificeBehavior : RitualCustomBehavior
         }
 
         var res = lookupSystem.GetEntitiesInRange(args.Platform, .75f);
-        if (res.Count == 0 || res == null)
+        if (res.Count == 0)
         {
             outstr = Loc.GetString("heretic-ritual-fail-sacrifice");
             return false;
@@ -81,15 +78,18 @@ public partial class RitualSacrificeBehavior : RitualCustomBehavior
         // get all the dead ones
         foreach (var look in res)
         {
-            if (!args.EntityManager.TryGetComponent<MobStateComponent>(look, out var mobstate) // only mobs
-            || !args.EntityManager.HasComponent<HumanoidAppearanceComponent>(look) // only humans
-            || OnlyTargets
-                && hereticComp.SacrificeTargets.All(x => x.Entity != args.EntityManager.GetNetEntity(look)) // only targets
-                && !args.EntityManager.HasComponent<HereticComponent>(look)) // or other heretics
+            if (!args.EntityManager.TryGetComponent<MobStateComponent>(look, out var mobstate) 
+                || !args.EntityManager.HasComponent<HumanoidAppearanceComponent>(look) 
+                || mobstate.CurrentState != Shared.Mobs.MobState.Dead)
                 continue;
 
-            if (mobstate.CurrentState == Shared.Mobs.MobState.Dead)
-                uids.Add(look);
+            var isTarget = hereticComp.SacrificeTargets.Any(x => x.Entity == args.EntityManager.GetNetEntity(look));
+            var isAntag = IsAntagonist(args.EntityManager, look);
+
+            if (!isTarget && !isAntag)
+                continue;
+
+            uids.Add(look);
         }
 
         if (uids.Count < Min)
@@ -100,6 +100,14 @@ public partial class RitualSacrificeBehavior : RitualCustomBehavior
 
         outstr = null;
         return true;
+    }
+
+    private bool IsAntagonist(IEntityManager entMan, EntityUid uid)
+    {
+        return entMan.HasComponent<HereticComponent>(uid)
+            || entMan.HasComponent<ChangelingComponent>(uid)
+            || entMan.HasComponent<BloodBrotherLeaderComponent>(uid)
+            || entMan.HasComponent<HeadRevolutionaryComponent>(uid);
     }
 
     public override void Finalize(RitualData args)
@@ -114,7 +122,14 @@ public partial class RitualSacrificeBehavior : RitualCustomBehavior
 
             var isCommand = args.EntityManager.HasComponent<CommandStaffComponent>(uids[i]);
             var knowledgeGain = isCommand ? 4f : 2f;
-
+            if (args.EntityManager.TryGetComponent<HereticComponent>(uids[i], out var heretic))
+                knowledgeGain += Math.Min(2, heretic.PathStage / 2 - 1);
+            if (args.EntityManager.HasComponent<ChangelingComponent>(uids[i]))
+                knowledgeGain += 2;
+            if (args.EntityManager.TryGetComponent<BloodBrotherLeaderComponent>(uids[i], out var bro))
+                knowledgeGain += bro.ConvertedCount / 2;
+            if (args.EntityManager.TryGetComponent<HeadRevolutionaryComponent>(uids[i], out var rev))
+                knowledgeGain += rev.ConvertedCount / 3;
             // Ganimed
             // start the sacrifing process -space
             if (args.EntityManager.TryGetComponent<TransformComponent>(uids[i], out var transform))

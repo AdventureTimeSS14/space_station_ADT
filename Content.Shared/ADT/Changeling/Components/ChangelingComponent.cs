@@ -106,7 +106,7 @@ public sealed partial class ChangelingComponent : Component
     /// The amount of evolution points the changeling gains when they absorb another changeling.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
-    public float AbsorbedChangelingPointsAmount = 5.0f;
+    public float AbsorbedChangelingPointsAmount = 6.0f;
 
     /// <summary>
     /// The amount of evolution points the changeling gains when they absorb somebody.
