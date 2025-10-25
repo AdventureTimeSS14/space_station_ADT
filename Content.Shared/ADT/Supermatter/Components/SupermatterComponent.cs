@@ -88,12 +88,12 @@ public sealed partial class SupermatterComponent : Component
 
     [DataField]
     public EntProtoId AnomalyPyroSpawnPrototype = "AnomalyPyroclastic";
-    
+
     [DataField]
     public EntProtoId HalfLifePortalPrototype = "ADTSupermatterHLRift";
 
     [DataField]
-    public EntProtoId CascadePortalPrototype = "ADTSupermatterCascadeRift";    
+    public EntProtoId CascadePortalPrototype = "ADTSupermatterCascadeRift";
 
     [DataField]
     public EntProtoId CollisionResultPrototype = "Ash";
@@ -193,12 +193,6 @@ public sealed partial class SupermatterComponent : Component
     /// </summary>
     [DataField]
     public float MoleHeatPenaltyThreshold;
-    
-    /// <summary>
-    /// Modifier to damage taken during supermatter reactions, soothing the supermatter when a psychologist is nearby
-    /// </summary>
-    [DataField]
-    public float PsyCoefficient;
 
     /// <summary>
     /// If > 0, Supermatter get damage. While >0 DelamType always been Cascade.

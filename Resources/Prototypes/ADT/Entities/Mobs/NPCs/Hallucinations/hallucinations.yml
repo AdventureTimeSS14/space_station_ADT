@@ -1,0 +1,116 @@
+- type: entity
+  parent: ADTBaseEntityHallucination
+  id: ADTRevHallucinationRevenant
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: Mobs/Ghosts/revenant.rsi
+    layers:
+    - state: stunned
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 0
+    baseSprintSpeed: 0
+  - type: AmbientSound
+    volume: -2
+    range: 15
+    sound:
+      path: /Audio/ADT/Phantom/Hallucinations/Creature4.ogg
+  - type: TimedDespawn
+    lifetime: 10.0
+
+- type: entity
+  parent: ADTBaseEntityHallucination
+  id: ADTPhantomHallucinationPhantom
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: ADT/Mobs/Phantom/phantom.rsi
+    layers:
+    - state: stunned
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 0
+    baseSprintSpeed: 0
+  - type: AmbientSound
+    volume: -2
+    range: 15
+    sound:
+      path: /Audio/ADT/Phantom/Hallucinations/Laugh.ogg
+  - type: TimedDespawn
+    lifetime: 10.0
+
+- type: entity
+  parent: ADTBaseEntityHallucination
+  id: ADTPhantomHallucinationMedical
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: ADT/Mobs/hallucinations.rsi
+    layers:
+    - state: medical
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2
+    baseSprintSpeed: 2
+  - type: AmbientSound
+    volume: -2
+    range: 15
+    sound:
+      path: /Audio/ADT/Phantom/Hallucinations/Laugh.ogg
+  - type: TimedDespawn
+    lifetime: 10.0
+  - type: PointLight
+    color: White
+    radius: 3
+    softness: 5
+    energy: -5
+
+- type: entity
+  parent: ADTBaseEntityHallucination
+  id: ADTPhantomHallucinationHellspawn
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: Mobs/Demons/hellspawn.rsi
+    layers:
+    - state: alive
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 1
+    baseSprintSpeed: 1
+  - type: AmbientSound
+    volume: -2
+    range: 15
+    sound:
+      path: /Audio/ADT/Phantom/Hallucinations/LargeThing.ogg
+  - type: TimedDespawn
+    lifetime: 35.0
+
+- type: entity
+  parent: ADTBaseEntityHallucination
+  id: ADTPhantomHallucinationPoltergeist
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: ADT/Mobs/poltergeist.rsi
+    layers:
+    - state: poltergeist
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3
+    baseSprintSpeed: 3
+  - type: AmbientSound
+    volume: -2
+    range: 15
+    sound:
+      path: /Audio/ADT/Phantom/Hallucinations/Percussive.ogg
+  - type: TimedDespawn
+    lifetime: 10.0
+  - type: MovementIgnoreGravity
+    gravityState: true
+  - type: PointLight
+    color: White
+    radius: 1
+    softness: 5
+    energy: -1
