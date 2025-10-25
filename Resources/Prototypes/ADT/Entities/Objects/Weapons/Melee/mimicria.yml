@@ -15,11 +15,11 @@
   - type: Spellbook
     learnTime: 0.01
     spellActions:
-      ADTActionTeatacles: -1
+      ADTActionTeatacles: 3
   - type: Item
     sprite: ADT/Objects/Weapons/Melee/mimicria_sword.rsi
     size: Huge
-  
+
 - type: entity
   id: ADTMimicriaTentacle
   name: tentacle

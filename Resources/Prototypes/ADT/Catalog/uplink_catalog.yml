@@ -29,15 +29,6 @@
     Telecrystal: 15
   categories:
   - UplinkWeaponry
-  conditions:
-    - !type:StoreWhitelistCondition
-      whitelist:
-        tags:
-          - NukeOpsUplink
-    - !type:BuyerWhitelistCondition
-      blacklist:
-        components:
-          - SurplusBundle
 
 - type: listing
   id: ADTUplinkXC67Bundle
@@ -177,10 +168,21 @@
   - UplinkAmmo
 
 - type: listing
+  id: ADTUplinkMagazineCaselessRifle
+  name: uplink-Caseless-box-rifle-name
+  description: uplink-Caseless-box-rifle-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Boxes/caseless_rifle.rsi, state: base }
+  productEntity: MagazineBoxCaselessRifle
+  cost:
+    Telecrystal: 1
+  categories:
+  - UplinkAmmo
+
+- type: listing
   id: ADTUplinkMagazineLightRifle
   name: uplink-LightRifle-magazine-name
   description: uplink-LightRifle-magazine-desc
-  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/LightRifle/light_rifle_mag.rsi, state: red }
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/LightRifle/light_rifle_mag.rsi, state: base }
   productEntity: MagazineLightRifle
   cost:
     Telecrystal: 2
@@ -191,7 +193,7 @@
   id: ADTUplinkC20AmmoBundle
   name: uplink-C20-ammo-bundle-name
   description: uplink-C20-ammo-bundle-desc
-  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/smg_mag.rsi, state: red }
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/smg_mag.rsi, state: red-icon }
   productEntity: ADTClothingBackpackDuffelSyndicateFilledC20Ammo
   cost:
     Telecrystal: 6
@@ -522,6 +524,20 @@
     whitelist:
     - Mime
 
+- type: listing
+  id: ADTuplinkMimeEnhancedBook
+  name: uplink-mime-enhanced-book-name
+  description: uplink-mime-enhanced-book-desc
+  productEntity: ADTMimeEnhancedBook
+  cost:
+    Telecrystal: 7
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Mime
+
 #UplinkImplants
 
 - type: listing
@@ -603,7 +619,13 @@
     Telecrystal: 15 #Tweak 20->15
   categories:
     - UplinkPointless
-
+  #ADT-tweak-start
+  conditions:
+    - !type:BuyerWhitelistCondition
+      blacklist:
+        components:
+          - SurplusBundle
+  #ADT-tweak-end
 
 - type: listing
   id: ADTUplinkOmnizinPizza
@@ -667,7 +689,7 @@
   description: uplink-thermal-desc
   productEntity: ClothingEyesGlassesThermal
   cost:
-    Telecrystal: 5
+    Telecrystal: 2
   categories:
     - UplinkWearables
 

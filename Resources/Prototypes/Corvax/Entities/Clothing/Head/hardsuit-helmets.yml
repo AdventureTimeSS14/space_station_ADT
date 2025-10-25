@@ -17,3 +17,17 @@
         Shock: 0.8 # ADT tweak from 0.1
         Cold: 0.8 # ADT tweak from 0.2
         Radiation: 0.2
+
+- type: entity
+  parent: ClothingHeadHelmetHardsuitSecurity
+  id: ClothingHeadHelmetHardsuitSecurityPilot
+  categories: [ HideSpawnMenu ]
+  name: security pilot hardsuit helmet
+  description: Armored hardsuit helmet for security needs.
+  components:
+  - type: Sprite
+    sprite: Corvax/Clothing/Head/hardsuits/security-pilot.rsi
+    layers:
+    - state: icon
+  - type: Clothing
+    sprite: Corvax/Clothing/Head/hardsuits/security-pilot.rsi

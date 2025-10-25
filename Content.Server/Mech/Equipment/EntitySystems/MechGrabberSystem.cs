@@ -10,7 +10,7 @@ using Content.Shared.Mech.Equipment.Components;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Wall;
 using Robust.Server.GameObjects;
-using Robust.Shared.Audio;
+using Content.Shared.Body.Events;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
@@ -89,7 +89,7 @@ public sealed class MechGrabberSystem : EntitySystem
         // ADT Mech start
         if (component.SlowMetabolism)
         {
-            var metabolicEvent = new ApplyMetabolicMultiplierEvent(toRemove, 0.4f, true);
+            var metabolicEvent = new ApplyMetabolicMultiplierEvent(0.4f);
             RaiseLocalEvent(toRemove, ref metabolicEvent);
         }
         // ADT Mech end
@@ -202,7 +202,7 @@ public sealed class MechGrabberSystem : EntitySystem
         // ADT Mech start
         if (component.SlowMetabolism && args.Target.HasValue)
         {
-            var metabolicEvent = new ApplyMetabolicMultiplierEvent(args.Target.Value, 0.4f, false);
+            var metabolicEvent = new ApplyMetabolicMultiplierEvent(0.4f);
             RaiseLocalEvent(args.Target.Value, ref metabolicEvent);
         }
         // ADT Mech end

@@ -17,12 +17,14 @@ using Content.Shared.StatusEffect;
 using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.Eye.Blinding.Systems;
 using Content.Shared.Damage.Components;
-using Content.Shared.Mobs.Components;
+using Content.Shared.Hands.EntitySystems;
+using Robust.Shared.Containers;
 
 namespace Content.Server.Changeling.EntitySystems;
 
 public sealed partial class ChangelingSystem
 {
+    [Dependency] private readonly SharedContainerSystem _сontainerSystem = default!;
     [Dependency] private readonly ISharedPlayerManager _player = default!;
 
     private void InitializeCombatAbilities()
@@ -89,7 +91,7 @@ public sealed partial class ChangelingSystem
             if (HasComp<ChangelingComponent>(ent))
                 continue;
 
-            _flashSystem.Flash(ent, uid, null, 6f * 1000f, 0.8f, false);
+            _flashSystem.Flash(ent, uid, null, TimeSpan.FromSeconds(10), 0.8f, false);
 
             if (!_mindSystem.TryGetMind(ent, out var _, out var mind))
                 continue;
@@ -122,7 +124,7 @@ public sealed partial class ChangelingSystem
         component.MusclesActive = !component.MusclesActive;
         _movementSpeedModifierSystem.RefreshMovementSpeedModifiers(uid);
         if (!component.MusclesActive)
-            _stun.TryParalyze(uid, TimeSpan.FromSeconds(4), true);
+            _stun.TryUpdateParalyzeDuration(uid, TimeSpan.FromSeconds(4));
 
     }
 
@@ -213,12 +215,11 @@ public sealed partial class ChangelingSystem
 
         if (!TryComp(uid, out HandsComponent? handsComponent))
             return;
-        if (handsComponent.ActiveHand == null)
+
+        if (handsComponent.ActiveHandId == null)
             return;
 
-        var handContainer = handsComponent.ActiveHand.Container;
-
-        if (handContainer == null)
+        if (!_сontainerSystem.TryGetContainer(uid, handsComponent.ActiveHandId, out var handContainer))
             return;
 
         if (component.LesserFormActive)
@@ -359,7 +360,7 @@ public sealed partial class ChangelingSystem
 
         var shard = Spawn("ADTThrowingStarChangeling", Transform(uid).Coordinates);
 
-        _damageableSystem.TryChangeDamage(uid, new DamageSpecifier(_proto.Index<DamageTypePrototype>("Blunt"), 20));
+        _damageableSystem.TryChangeDamage(uid, new DamageSpecifier(_proto.Index<DamageTypePrototype>("Blunt"), 10)); // 20 -> 10
         _handsSystem.TryPickupAnyHand(uid, shard);
 
         _audioSystem.PlayPvs(component.SoundFlesh, uid);

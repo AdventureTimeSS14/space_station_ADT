@@ -67,6 +67,14 @@
   - IPC
   quirk: true  # ADT Quirks
 
+# - type: trait
+#   id: Monochromacy
+#   name: trait-monochromacy-name
+#   description: trait-monochromacy-desc
+#   category: Disabilities
+#   components:
+#   - type: BlackAndWhiteOverlay
+
 - type: trait
   id: Muted
   name: trait-muted-name
@@ -104,3 +112,30 @@
   - type: PainNumbness
   cost: -2 # ADT Quirks; add by Prunt
   quirk: true # ADT Quirks; add by Prunt
+
+- type: trait
+  id: Hemophilia
+  name: trait-hemophilia-name
+  description: trait-hemophilia-desc
+  category: Disabilities
+  components:
+  - type: Hemophilia
+  speciesBlacklist: # ADT Quirks
+  - IPC
+  quirk: true
+  cost: -2 # ADT Quirks
+
+- type: trait
+  id: ImpairedMobility
+  name: trait-impaired-mobility-name
+  description: trait-impaired-mobility-desc
+  traitGear: OffsetCane
+  category: Disabilities
+  components:
+  - type: ImpairedMobility
+  # ADT Quirks start
+  speciesBlacklist:
+  - IPC
+  quirk: true
+  cost: -2
+  # ADT Quirks end

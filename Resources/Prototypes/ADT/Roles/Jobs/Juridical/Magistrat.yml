@@ -56,3 +56,11 @@
     - WeaponDisabler
     - Zipties
     - ADTtelescopicBaton
+
+- type: chameleonOutfit
+  id: MagistratChameleonOutfit
+  job: Magistrat
+  hasMindShield: true
+  equipment:
+    eyes: ClothingEyesGlassesCommand
+    ears: ClothingHeadsetMagistrat

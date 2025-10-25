@@ -172,9 +172,8 @@
   - type: IconSmooth
     key: walls
     mode: NoSprite
-  - type: PaintableAirlock
-    group: Standard
-    department: Civilian
+  - type: Paintable
+    group: AirlockStandard
   - type: StaticPrice
     price: 150
   - type: LightningTarget
@@ -234,10 +233,10 @@
   - type: Construction
     graph: Airlock
     node: glassAirlock
-  - type: PaintableAirlock
-    group: Glass
-  - type: RadiationBlocker #ADT 
-    resistance: 5 #ADT
+  - type: Paintable
+    group: AirlockGlass
+  - type: RadiationBlocker
+    resistance: 2
   - type: Tag
     tags:
       - GlassAirlock

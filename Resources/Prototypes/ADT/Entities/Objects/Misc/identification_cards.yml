@@ -186,10 +186,7 @@
   id: ADTPassagerRDIDCard
   components:
   - type: PresetIdCard
-    job: Passenger
-  - type: Access
-    groups:
-    - Research
+    job: ResearchDirector
 
 
 # USSP USSP

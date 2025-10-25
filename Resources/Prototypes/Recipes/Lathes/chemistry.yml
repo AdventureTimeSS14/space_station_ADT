@@ -91,6 +91,7 @@
   materials:
     Plastic: 100
     Steel: 250
+    Copper: 100  #ADT-BFUU-Tweak
 
 - type: latheRecipe
   id: BaseChemistryEmptyVial
@@ -108,3 +109,4 @@
     Steel: 200
     Plastic: 300
     Glass: 500
+    Copper: 10  #ADT-BFUU-Tweak

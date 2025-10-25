@@ -191,11 +191,6 @@
       - !type:GroupSelector
         children:
         - !type:EntSelector
-          id: CrateFoodPizzaLarge
-          weight: 1
-      - !type:GroupSelector
-        children:
-        - !type:EntSelector
           id: CrateFoodMRE
           weight: 1
       - !type:GroupSelector
@@ -212,11 +207,6 @@
         children:
         - !type:EntSelector
           id: CrateFoodSoftdrinks
-          weight: 1
-      - !type:GroupSelector
-        children:
-        - !type:EntSelector
-          id: CrateFoodSoftdrinksLarge
           weight: 1
         # Cargo - Fun
       - !type:GroupSelector

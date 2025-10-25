@@ -16,7 +16,7 @@
   - type: Appearance
   - type: TimerTriggerVisuals
     primingSound:
-      path: /Audio/Effects/countdown.ogg
+      path: /Audio/Effects/box_deploy.ogg
 
 - type: entity
   name: TritiumGrenades

@@ -89,3 +89,13 @@
     back:
     - Flash
     - ADTtelescopicBaton #ADT-CustomADTLoadout
+
+#ADT tweak start
+- type: chameleonOutfit
+  id: HeadOfPersonnelChameleonOutfit
+  job: HeadOfPersonnel
+  hasMindShield: true
+  equipment:
+    shoes: ClothingShoesColorBrown
+    gloves: ClothingHandsGlovesHop
+#ADT tweak end

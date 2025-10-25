@@ -30,4 +30,5 @@
         - Bottle
         - Syringe
         - Dropper
+        - ADTMedipen # ADT-Tweak
   - type: Dumpable

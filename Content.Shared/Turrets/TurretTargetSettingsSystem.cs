@@ -47,6 +47,8 @@ public sealed partial class TurretTargetSettingsSystem : EntitySystem
     {
         foreach (var exemption in exemptions)
             SetAccessLevelExemption(ent, exemption, enabled, false);
+
+        Dirty(ent);
     }
 
     /// <summary>

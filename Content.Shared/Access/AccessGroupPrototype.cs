@@ -1,4 +1,4 @@
-﻿using Content.Shared.Access.Components;
+using Content.Shared.Access.Components;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Access;

@@ -4,60 +4,69 @@
   name: "[color=red]Devour[/color]"
   description: Attempt to break a structure with your jaws or swallow a creature.
   components:
-  - type: EntityTargetAction
+  - type: Action
     icon: { sprite : ADT/Interface/Actions/morph.rsi, state: devour }
-    event: !type:MorphDevourActionEvent
     priority: 1
+  - type: TargetAction
+  - type: EntityTargetAction
+    event: !type:MorphDevourActionEvent
 
 - type: entity
   id: ActionMorphRemember
   name: "[color=red]Remember[/color]"
   description: Remember this entity to mimic in future.
   components:
-  - type: EntityTargetAction
+  - type: Action
     icon: { sprite : ADT/Interface/Actions/morph.rsi, state: remember }
-    event: !type:MorphMimicryRememberActionEvent
     priority: 2
+  - type: TargetAction
     checkCanAccess: false
+  - type: EntityTargetAction
+    event: !type:MorphMimicryRememberActionEvent
 
 - type: entity
   id: ActionMorphReplication
   name: "[color=red]Reproduce[/color]"
   description: Create a full copy of yourself.
   components:
-  - type: InstantAction
+  - type: Action
     icon: { sprite : ADT/Interface/Actions/morph.rsi, state: reproduce }
-    event: !type:MorphReproduceActionEvent
     priority: 3
     useDelay: 200
+  - type: InstantAction
+    event: !type:MorphReproduceActionEvent
 
 - type: entity
   id: ActionMorphMimicry
   name: "[color=red]Mimicry[/color]"
   description: Transform to an entity you've seen.
   components:
-  - type: InstantAction
+  - type: Action
     icon: { sprite : ADT/Interface/Actions/morph.rsi, state: mimicry }
-    event: !type:MorphOpenRadialMenuEvent
     priority: 4
+  - type: InstantAction
+    event: !type:MorphOpenRadialMenuEvent
 
 - type: entity
   id: ActionMorphAmbush
   name: "[color=red]Ambush[/color]"
   description: Get ready to attack
   components:
-  - type: InstantAction
+  - type: Action
     icon: { sprite : ADT/Interface/Actions/morph.rsi, state: ambush }
-    event: !type:MorphAmbushActionEvent
     priority: 5
     useDelay: 25
+  - type: InstantAction
+    event: !type:MorphAmbushActionEvent
 
 - type: entity
   id: ActionMorphVentOpen
   name: "[color=red]Axid[/color]"
   description: Open vent for a price
   components:
-  - type: EntityTargetAction
+  - type: Action
     icon: { sprite : ADT/Interface/Actions/morph.rsi, state: devour }
-    event: !type:MorphVentOpenActionEvent
     priority: 6
+  - type: TargetAction
+  - type: EntityTargetAction
+    event: !type:MorphVentOpenActionEvent

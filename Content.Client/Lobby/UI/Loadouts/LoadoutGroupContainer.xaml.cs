@@ -14,6 +14,14 @@ namespace Content.Client.Lobby.UI.Loadouts;
 [GenerateTypedNameReferences]
 public sealed partial class LoadoutGroupContainer : BoxContainer
 {
+    private const string ClosedGroupMark = "▶";
+    private const string OpenedGroupMark = "▼";
+
+    /// <summary>
+    /// A dictionary that stores open groups
+    /// </summary>
+    private Dictionary<string, bool> _openedGroups = new();
+
     private readonly LoadoutGroupPrototype _groupProto;
     private readonly SponsorsManager _sponsorsManager; // Ganimed sponsor
 
@@ -23,6 +31,7 @@ public sealed partial class LoadoutGroupContainer : BoxContainer
     public LoadoutGroupContainer(HumanoidCharacterProfile profile, RoleLoadout loadout, LoadoutGroupPrototype groupProto, ICommonSession session, IDependencyCollection collection, bool isSponsor)
     {
         RobustXamlLoader.Load(this);
+        IoCManager.InjectDependencies(this);
         _groupProto = groupProto;
 
         _sponsorsManager = collection.Resolve<SponsorsManager>(); // Ganimed sponsor

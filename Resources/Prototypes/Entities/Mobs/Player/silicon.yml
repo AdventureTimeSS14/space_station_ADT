@@ -81,17 +81,6 @@
     canShuttle: false
     title: comms-console-announcement-title-station-ai
     color: "#5ed7aa"
-    # ADT Start
-    sound:
-      path: /Audio/ADT/Announcements/intercept.ogg
-  - type: StationAiInfo
-  - type: CrewManifestViewer
-    ownerKey: enum.StationAiInfoUiKey.Key
-    # ADT End
-  - type: HolographicAvatar
-    layerData:
-    - sprite: Mobs/Silicon/station_ai.rsi
-      state: default
   - type: ShowJobIcons
   - type: ShowMindShieldIcons # ADT start
   - type: ShowCriminalRecordIcons
@@ -226,6 +215,7 @@
         acts: [ "Destruction" ]
   - type: ApcPowerReceiver
     powerLoad: 1000
+    needsPower: false
   - type: StationAiCore
   - type: StationAiVision
   - type: InteractionOutline
@@ -245,12 +235,6 @@
     messagePerceivedByOthers: petting-success-station-ai-others # Otherwise AI cannot tell its being pet as It's just a brain inside of the core, not the core itself.
     interactSuccessSound:
       path: /Audio/Ambience/Objects/periodic_beep.ogg
-  # - type: GenericVisualizer # ADT SAI Custom commented
-  #   visuals:
-  #     enum.StationAiVisualState.Key:
-  #       unshaded:
-  #         Empty: { state: "0" }
-  #         #Occupied: { state: ai }
   - type: Telephone
     compatibleRanges:
     - Grid
@@ -259,15 +243,16 @@
     listeningRange: 0
     speakerVolume: Speak
     unlistedNumber: true
-    requiresPower: false
   - type: Holopad
   - type: StationAiWhitelist
   - type: UserInterface
     interfaces:
-        enum.HolopadUiKey.AiRequestWindow:
-          type: HolopadBoundUserInterface
-        enum.HolopadUiKey.AiActionWindow:
-          type: HolopadBoundUserInterface
+      enum.HolopadUiKey.AiRequestWindow:
+        type: HolopadBoundUserInterface
+      enum.HolopadUiKey.AiActionWindow:
+        type: HolopadBoundUserInterface
+      enum.StationAiCustomizationUiKey.Key:
+        type: StationAiCustomizationBoundUserInterface
 
 # The job-ready version of an AI spawn.
 - type: entity
@@ -278,15 +263,6 @@
   - type: ContainerSpawnPoint
     containerId: station_ai_mind_slot
     job: StationAi
-  - type: Sprite
-    sprite: ADT/Mobs/Silicon/ai-screen.rsi  # ADT SAI Custom tweak
-    layers:
-    # ADT SAI Custom start
-    - state: empty
-      map: ["enum.StationAiVisualState.Key"]
-      shader: unshaded
-    - state: base
-    # ADT SAI Custom end
 
 # The actual brain inside the core
 - type: entity
@@ -364,6 +340,14 @@
   - type: StartingMindRole
     mindRole: "MindRoleSiliconBrain"
     silent: true
+  - type: StationAiCustomization
+    protoIds:
+      StationAiCoreIconography: StationAiIconAi
+      StationAiHolograms: StationAiHologramFemale
+  - type: HolographicAvatar
+    layerData:
+    - sprite: Mobs/Silicon/holograms.rsi
+      state: ai_female
   - type: NameIdentifier
     group: StationAi
 

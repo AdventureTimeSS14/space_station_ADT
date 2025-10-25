@@ -1,13 +1,10 @@
-using Content.Shared.EntityEffects;
-using Content.Server.Flash;
-using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server.EntityEffects.Effects;
+namespace Content.Shared.EntityEffects.Effects;
 
 [DataDefinition]
-public sealed partial class FlashReactionEffect : EntityEffect
+public sealed partial class FlashReactionEffect : EventEntityEffect<FlashReactionEffect>
 {
     /// <summary>
     ///     Flash range per unit of reagent.
@@ -28,11 +25,11 @@ public sealed partial class FlashReactionEffect : EntityEffect
     public float SlowTo = 0.5f;
 
     /// <summary>
-    ///     The time entities will be flashed in seconds.
+    ///     The time entities will be flashed.
     ///     The default is chosen to be better than the hand flash so it is worth using it for grenades etc.
     /// </summary>
     [DataField]
-    public float Duration = 4f;
+    public TimeSpan Duration = TimeSpan.FromSeconds(4);
 
     /// <summary>
     ///     The prototype ID used for the visual effect.
@@ -48,38 +45,4 @@ public sealed partial class FlashReactionEffect : EntityEffect
 
     protected override string? ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
         => Loc.GetString("reagent-effect-guidebook-flash-reaction-effect", ("chance", Probability));
-
-    public override void Effect(EntityEffectBaseArgs args)
-    {
-        var transform = args.EntityManager.GetComponent<TransformComponent>(args.TargetEntity);
-        var transformSystem = args.EntityManager.System<SharedTransformSystem>();
-
-        var range = 1f;
-
-        if (args is EntityEffectReagentArgs reagentArgs)
-            range = MathF.Max(0.1f, MathF.Min((float)(reagentArgs.Quantity * RangePerUnit), MaxRange));
-
-        if (range <= 0)
-            return;
-
-        args.EntityManager.System<FlashSystem>().FlashArea(
-            args.TargetEntity,
-            null,
-            range,
-            Duration * 1000,
-            slowTo: SlowTo,
-            sound: Sound);
-
-        if (FlashEffectPrototype == null)
-            return;
-
-        var uid = args.EntityManager.SpawnEntity(FlashEffectPrototype, transformSystem.GetMapCoordinates(transform));
-        transformSystem.AttachToGridOrMap(uid);
-
-        if (!args.EntityManager.TryGetComponent<PointLightComponent>(uid, out var pointLightComp))
-            return;
-        var pointLightSystem = args.EntityManager.System<SharedPointLightSystem>();
-        // PointLights with a radius lower than 1.1 are too small to be visible, so this is hardcoded
-        pointLightSystem.SetRadius(uid, MathF.Max(1.1f, range), pointLightComp);
-    }
 }

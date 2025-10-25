@@ -183,7 +183,7 @@
   - type: Icon
     sprite: Structures/Furniture/Altars/Gods/nanotrasen.rsi
     state: druid
-  - type: Prayable # ADT-Tweak 
+  - type: Prayable # ADT-Tweak
 ### Start ADT Tweak
   - type: Construction
     graph: AltarsGraph
@@ -206,19 +206,19 @@
         effectProto: ADTEffectKudzu
         powerCost: 3
         soundPath: /Audio/Voice/Diona/diona_scream.ogg
-      - requiredTag: ADTGoldOre
+      - requiredTag: OreGold
         requiredAmount: 5
         resultProto: MobSpawnGoldCrabFriendly
         effectProto: ADTEffectKudzu
         powerCost: 3
         soundPath: /Audio/Voice/Diona/diona_scream.ogg
-      - requiredTag: ADTSilverOre
+      - requiredTag: OreSilver
         requiredAmount: 5
         resultProto: MobSpawnSilverCrabFriendly
         effectProto: ADTEffectKudzu
         powerCost: 3
         soundPath: /Audio/Voice/Diona/diona_scream.ogg
-      - requiredTag: ADTUraniumOre
+      - requiredTag: OreUranium
         requiredAmount: 5
         resultProto: MobSpawnUraniumCrabFriendly
         effectProto: ADTEffectKudzu
@@ -239,6 +239,24 @@
       - requiredTag: ADTBSore
         requiredAmount: 5
         resultProto: MobSpawnBSCrabFriendly
+        effectProto: ADTEffectKudzu
+        powerCost: 3
+        soundPath: /Audio/Voice/Diona/diona_scream.ogg
+      - requiredTag: ADTCopperOre
+        requiredAmount: 5
+        resultProto: MobSpawnCopperCrabFriendly
+        effectProto: ADTEffectKudzu
+        powerCost: 3
+        soundPath: /Audio/Voice/Diona/diona_scream.ogg
+      - requiredTag: ADTLeadOre
+        requiredAmount: 5
+        resultProto: MobSpawnLeadCrabFriendly
+        effectProto: ADTEffectKudzu
+        powerCost: 3
+        soundPath: /Audio/Voice/Diona/diona_scream.ogg
+      - requiredTag: ADTZincOre
+        requiredAmount: 5
+        resultProto: MobSpawnZincCrabFriendly
         effectProto: ADTEffectKudzu
         powerCost: 3
         soundPath: /Audio/Voice/Diona/diona_scream.ogg
@@ -412,7 +430,7 @@
   - type: Icon
     sprite: Structures/Furniture/Altars/Gods/nanotrasen.rsi
     state: technology
-  - type: Prayable # ADT-Tweak 
+  - type: Prayable # ADT-Tweak
   - type: PointLight
     radius: 1.5
     energy: 1

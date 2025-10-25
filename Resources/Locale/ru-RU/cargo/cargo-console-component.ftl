@@ -24,15 +24,14 @@ cargo-console-menu-cargo-order-row-approve-button = Одобрить
 cargo-console-menu-cargo-order-row-cancel-button = Отменить
 cargo-console-menu-tab-title-orders = Заказы
 cargo-console-menu-tab-title-funds = Переводы
-cargo-console-menu-account-action-transfer-limit = [bold]Лимит переводов:[/bold] $ {$limit}
-cargo-console-menu-account-action-transfer-limit-unlimited-notifier = [color=red](Без лимита)[/color]
+cargo-console-menu-account-action-transfer-limit = [bold]Лимит перевода:[/bold] ${ $limit }
+cargo-console-menu-account-action-transfer-limit-unlimited-notifier = [color=gold](Безлимитно)[/color]
 cargo-console-menu-account-action-select = [bold]Действие аккаунта:[/bold]
-cargo-console-menu-account-action-amount = [bold]Количество:[/bold] $
-cargo-console-menu-account-action-button = Использовать
-cargo-console-menu-toggle-account-lock-button = Переключение лимита перевода
-cargo-console-menu-account-action-option-withdraw = Снять деньги
-cargo-console-menu-account-action-option-transfer = Перевести деньги в {$code}
-
+cargo-console-menu-account-action-amount = [bold]Сумма:[/bold] $
+cargo-console-menu-account-action-button = Перевести
+cargo-console-menu-toggle-account-lock-button = Переключить лимит перевода
+cargo-console-menu-account-action-option-withdraw = Обналичить
+cargo-console-menu-account-action-option-transfer = Перевести деньги на { $code }
 # Orders
 cargo-console-order-not-allowed = Доступ запрещён
 cargo-console-station-not-found = Нет доступной станции

@@ -243,6 +243,8 @@ namespace Content.Server.Voting.Managers
 
         private void SendSingleUpdate(VoteReg v, ICommonSession player)
         {
+            if (player.Channel.GetType().Name == "DummyChannel") //ADT tweak
+                return; //ADT tweak
             var msg = new MsgVoteData();
 
             msg.VoteId = v.Id;
@@ -318,6 +320,8 @@ namespace Content.Server.Voting.Managers
 
         private void SendUpdateCanCallVote(ICommonSession player)
         {
+            if (player.Channel.GetType().Name == "DummyChannel") //ADT tweak
+                return; //ADT tweak
             var msg = new MsgVoteCanCall();
             msg.CanCall = CanCallVote(player, null, out var isAdmin, out var timeSpan);
             msg.WhenCanCallVote = timeSpan;

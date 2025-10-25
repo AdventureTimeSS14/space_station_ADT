@@ -55,3 +55,211 @@
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: true
+
+- type: construction
+  id: ADTMarbleLady
+  graph: MarbleStatueLady
+  startNode: start
+  targetNode: marblestatueLady
+  category: construction-category-structures
+  placementMode: SnapgridCenter
+  objectType: Structure
+  canBuildInImpassable: false
+  canRotate: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: ADTMarbleLadyFlower
+  graph: MarbleStatueLadyFlower
+  startNode: start
+  targetNode: marblestatueLadyFlower
+  category: construction-category-structures
+  placementMode: SnapgridCenter
+  objectType: Structure
+  canBuildInImpassable: false
+  canRotate: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: ADTMarbleStand
+  graph: MarbleStand
+  startNode: start
+  targetNode: marblestand
+  category: construction-category-structures
+  placementMode: SnapgridCenter
+  objectType: Structure
+  canBuildInImpassable: false
+  canRotate: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: ADTMarbleMan
+  graph: MarbleMan
+  startNode: start
+  targetNode: marbleMan
+  category: construction-category-structures
+  placementMode: SnapgridCenter
+  objectType: Structure
+  canBuildInImpassable: false
+  canRotate: true
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: ADTMarbleManDamage
+  graph: MarbleManDamage
+  startNode: start
+  targetNode: marbleManDamage
+  category: construction-category-structures
+  placementMode: SnapgridCenter
+  objectType: Structure
+  canBuildInImpassable: false
+  canRotate: true
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: ADTMarblePeacemaker
+  graph: MarblePeacemaker
+  startNode: start
+  targetNode: marblePeacemaker
+  category: construction-category-structures
+  placementMode: SnapgridCenter
+  objectType: Structure
+  canBuildInImpassable: false
+  canRotate: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: ADTMarbleKnight
+  graph: MarbleKnight
+  startNode: start
+  targetNode: marbleKnight
+  category: construction-category-structures
+  placementMode: SnapgridCenter
+  objectType: Structure
+  canBuildInImpassable: false
+  canRotate: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: ADTMarbleHunter
+  graph: MarbleHunter
+  startNode: start
+  targetNode: marbleHunter
+  category: construction-category-structures
+  placementMode: SnapgridCenter
+  objectType: Structure
+  canBuildInImpassable: false
+  canRotate: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: ADTMarbleMachine
+  graph: MarbleMachine
+  startNode: start
+  targetNode: marbleMachine
+  category: construction-category-structures
+  placementMode: SnapgridCenter
+  objectType: Structure
+  canBuildInImpassable: false
+  canRotate: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: ADTMarbleLegionary
+  graph: MarbleLegionary
+  startNode: start
+  targetNode: marbleLegionary
+  category: construction-category-structures
+  placementMode: SnapgridCenter
+  objectType: Structure
+  canBuildInImpassable: false
+  canRotate: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: ADTMarbleBird
+  graph: MarbleBird
+  startNode: start
+  targetNode: marbleBird
+  category: construction-category-structures
+  placementMode: SnapgridCenter
+  objectType: Structure
+  canBuildInImpassable: false
+  canRotate: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: ADTMarbleCunning
+  graph: MarbleCunning
+  startNode: start
+  targetNode: marbleCunning
+  category: construction-category-structures
+  placementMode: SnapgridCenter
+  objectType: Structure
+  canBuildInImpassable: false
+  canRotate: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: ADTMarbleScientist
+  graph: MarbleScientist
+  startNode: start
+  targetNode: marbleScientist
+  category: construction-category-structures
+  placementMode: SnapgridCenter
+  objectType: Structure
+  canBuildInImpassable: false
+  canRotate: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: ADTMarbleEye
+  graph: MarbleEye
+  startNode: start
+  targetNode: marbleEye
+  category: construction-category-structures
+  placementMode: SnapgridCenter
+  objectType: Structure
+  canBuildInImpassable: false
+  canRotate: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: ADTMarbleAncestor
+  graph: MarbleAncestor
+  startNode: start
+  targetNode: marbleAncestor
+  category: construction-category-structures
+  placementMode: SnapgridCenter
+  objectType: Structure
+  canBuildInImpassable: false
+  canRotate: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: ADTMarblePlafeim
+  graph: MarblePlafeim
+  startNode: start
+  targetNode: marblePlafeim
+  category: construction-category-structures
+  placementMode: SnapgridCenter
+  objectType: Structure
+  canBuildInImpassable: false
+  canRotate: false
+  conditions:
+    - !type:TileNotBlocked

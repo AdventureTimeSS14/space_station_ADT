@@ -23,6 +23,14 @@
      - state: mag-0
        map: ["enum.GunVisualLayers.Mag"]
   - type: AmmoCounter
+  - type: RunAndGunSpreadModifier
+    modifyer: 0.2
+  - type: PointLight
+    enabled: false
+    radius: 2
+    energy: 2
+    color: white
+    netsync: false
   - type: Gun
     fireRate: 1.8
     projectileSpeed: 60
