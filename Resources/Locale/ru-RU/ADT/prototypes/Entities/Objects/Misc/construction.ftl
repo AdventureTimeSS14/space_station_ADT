@@ -1,2 +1,2 @@
-ent-ADTConstructionBarricade = строительная заграждение
-    .desc = Надень свой каску!
+ent-ADTConstructionBarricade = строительное заграждение
+    .desc = Надень свою каску!
