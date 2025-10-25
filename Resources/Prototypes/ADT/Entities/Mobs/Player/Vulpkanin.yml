@@ -3,3 +3,10 @@
   name: "Вульпканин"
   parent: BaseMobVulpkanin
   id: MobVulpkanin
+
+- type: entity
+  parent: MobVulpkanin
+  id: MobPinkVulpkanin
+  components:
+  - type: HumanoidAppearance
+    skinColor: "#FF1493"

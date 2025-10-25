@@ -107,7 +107,7 @@
     startAudio:
       path: /Audio/ADT/Announcements/announce_dig.ogg
     weight: 3
-    reoccurrenceDelay: 30
+    reoccurrenceDelay: 99999999999999 
     duration: 1
   - type: LoadMapRule
     mapPath: /Maps/ADTMaps/Shuttles/Ian.yml
@@ -123,7 +123,7 @@
     earliestStart: 20
     weight: 3
     minimumPlayers: 30
-    reoccurrenceDelay: 30
+    reoccurrenceDelay: 99999999999999
     duration: 1
   - type: LoadMapRule
     mapPath: /Maps/ADTMaps/Shuttles/superhero.yml
