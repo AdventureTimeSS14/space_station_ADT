@@ -93,6 +93,6 @@
       sprite: ADT/Interface/Actions/sandevistan.rsi
       state: icon
     itemIconStyle: BigAction
-    useDelay: 3
+    useDelay: 2
   - type: InstantAction
     event: !type:ToggleSandevistanEvent

@@ -35,39 +35,39 @@
           - OffensiveWideHit
           - OffensiveHit
         comboEvent:
+        - !type:ComboEffectToStanding
+          comboEvents:
           - !type:ComboDamageEffect
             damage:
               types:
-                Poison: 10
+                Slash: 40
+          - !type:ComboSpawnEffect
+            spawnOnTarget: ADTMantisDaggerCut
           - !type:ComboAudioEffect
             sound:
-              collection: GenericHit
+              collection: ADTMantisDaggerCutSound
       - actionsNeeds:
-          - OffensiveWideHit
-          - OffensiveHit
           - OffensiveWideHit
           - OffensiveHit
         comboEvent:
           - !type:ComboStaminaDamageEffect
-            staminaDamage: 100
+            staminaDamage: 20
+          - !type:ComboSlowdownEffect
+            time: 3
           - !type:ComboAudioEffect
             sound:
               collection: GenericHit
       - actionsNeeds:
           - OffensiveHit
           - OffensiveHit
-          - OffensiveWideHit
         comboEvent:
           - !type:ComboEffectToUserPuller
             comboEvents:
             - !type:ComboStopTargetGrabEffect
+            - !type:ComboFallEffect
             - !type:ComboAudioEffect
               sound:
                 path: /Audio/Effects/hit_kick.ogg
-            - !type:ComboTrowTargetEffect
-              thrownSpeed: 8
-            - !type:ComboSlowdownEffect
-              time: 3
 
 - type: entity
   parent: ClothingHandsBase
