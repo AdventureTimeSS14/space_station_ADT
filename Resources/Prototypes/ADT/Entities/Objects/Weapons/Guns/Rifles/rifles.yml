@@ -20,6 +20,8 @@
     steps: 4
     zeroVisible: true
   - type: AmmoCounter
+  - type: RunAndGunSpreadModifier
+    modifyer: 0.3
   - type: Gun
     fireRate: 3
     selectedMode: SemiAuto
@@ -53,7 +55,7 @@
 
 - type: entity
   name: AR-12
-  parent: [WeaponRifleLecter, ADTBaseMagneticGun]
+  parent: [WeaponRifleAk, ADTBaseMagneticGun]
   id: ADTWeaponRifleAR12
   description: AR-12
   components:
@@ -68,6 +70,8 @@
     sprite: ADT/Objects/Weapons/Guns/Rifles/ar12.rsi
   - type: Gun
     fireRate: 6
+  - type: RunAndGunSpreadModifier
+    modifyer: 0.3
   - type: ItemSlots
     slots:
       gun_magazine:
@@ -87,6 +91,25 @@
         whitelist:
           tags:
             - CartridgeLightRifle
+  - type: AttachableHolder
+    slots:
+      rmc-aslot-underbarrel:
+        whitelist:
+          tags:
+          - ADTAttachmentVerticalGrip
+          - ADTAttachmentLaserSight
+          - SurvivalKnifeAttachment
+      rmc-aslot-rail:
+        whitelist:
+            tags:
+            - ADTAttachmentMagneticHarness
+            - ADTAttachmentReflexSight
+            - ADTAttachmentT2Miniscope
+      rmc-aslot-barrel:
+        whitelist:
+            tags:
+            - ADTAttachmentSuppressor
+            - ADTAttachmentAntiLyingWarrior
   - type: AttachableHolderVisuals
     offsets:
       rmc-aslot-underbarrel: 0.25, -0.125
@@ -112,6 +135,8 @@
         map: ["enum.GunVisualLayers.Mag"]
   - type: Clothing
     sprite: ADT/Objects/Weapons/Guns/Rifles/tar60sf.rsi
+  - type: RunAndGunSpreadModifier
+    modifyer: 0.3
   - type: Gun
     fireRate: 5.5
   - type: AttachableHolderVisuals
@@ -135,6 +160,8 @@
         map: ["enum.GunVisualLayers.Mag"]
   - type: Clothing
     sprite: ADT/Objects/Weapons/Guns/Rifles/xc67.rsi
+  - type: RunAndGunSpreadModifier
+    modifyer: 0.3
   - type: Gun
     minAngle: 20.5
     maxAngle: 31

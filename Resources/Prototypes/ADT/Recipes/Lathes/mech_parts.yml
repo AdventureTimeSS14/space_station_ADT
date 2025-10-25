@@ -7,6 +7,9 @@
     Steel: 3000
     Glass: 1400
     Plasma: 500
+    Copper: 1000
+    Zinc: 500
+    Lead: 1000
 
 - type: latheRecipe
   id: ADTGygaxLArm
@@ -15,6 +18,9 @@
   materials:
     Steel: 1800
     Glass: 1100
+    Copper: 1000
+    Zinc: 800
+    Lead: 1100
 
 - type: latheRecipe
   id: ADTGygaxLLeg
@@ -23,6 +29,9 @@
   materials:
     Steel: 1800
     Glass: 1100
+    Copper: 1000
+    Zinc: 800
+    Lead: 1000
 
 - type: latheRecipe
   id: ADTGygaxRLeg
@@ -31,6 +40,9 @@
   materials:
     Steel: 1800
     Glass: 1100
+    Copper: 1000
+    Zinc: 800
+    Lead: 1000
 
 - type: latheRecipe
   id: ADTGygaxRArm
@@ -39,6 +51,9 @@
   materials:
     Steel: 1800
     Glass: 1100
+    Copper: 1000
+    Zinc: 800
+    Lead: 1100
 
 - type: latheRecipe
   id: ADTGygaxArmorPlates
@@ -47,6 +62,9 @@
   materials:
     Steel: 2000
     Plasteel: 1500
+    Copper: 1000
+    Zinc: 1000
+    Lead: 1500
 
 - type: latheRecipe
   id: ADTGygaxHead
@@ -56,6 +74,9 @@
     Steel: 600
     Glass: 400
     Plasma: 500
+    Copper: 1000
+    Zinc: 500
+    Lead: 800
 
 - type: latheRecipe
   id: ADTGygaxCentralElectronics
@@ -65,6 +86,7 @@
     Steel: 150
     Glass: 1000
     Gold: 450
+    Copper: 1000
 
 - type: latheRecipe
   id: ADTGygaxPeripheralsElectronics
@@ -74,6 +96,7 @@
     Steel: 150
     Glass: 1000
     Gold: 450
+    Copper: 1000
 
 # Одиссей
 - type: latheRecipe
@@ -84,6 +107,8 @@
     Steel: 2500
     Glass: 1200
     Plasma: 200
+    Copper: 1000
+    Zinc: 200
 
 - type: latheRecipe
   id: ADTOdysseusLArm
@@ -92,6 +117,8 @@
   materials:
     Steel: 1000
     Glass: 500
+    Copper: 1000
+    Zinc: 500
 
 - type: latheRecipe
   id: ADTOdysseusLLeg
@@ -100,6 +127,8 @@
   materials:
     Steel: 1000
     Glass: 500
+    Copper: 1000
+    Zinc: 500
 
 - type: latheRecipe
   id: ADTOdysseusRLeg
@@ -108,6 +137,8 @@
   materials:
     Steel: 1000
     Glass: 500
+    Copper: 1000
+    Zinc: 500
 
 - type: latheRecipe
   id: ADTOdysseusRArm
@@ -116,6 +147,8 @@
   materials:
     Steel: 1000
     Glass: 500
+    Copper: 1000
+    Zinc: 500
 
 # - type: latheRecipe
 #   id: ADTOdysseusArmorPlates
@@ -133,6 +166,8 @@
   materials:
     Steel: 500
     Glass: 300
+    Copper: 500
+    Zinc: 300
 
 - type: latheRecipe
   id: ADTOdysseusCentralElectronics
@@ -142,6 +177,7 @@
     Steel: 100
     Glass: 1000
     Gold: 300
+    Copper: 1000
 
 - type: latheRecipe
   id: ADTOdysseusPeripheralsElectronics
@@ -151,6 +187,7 @@
     Steel: 100
     Glass: 1000
     Gold: 300
+    Copper: 1000
 
 #Медиган
 
@@ -165,6 +202,8 @@
     Silver: 300
     Plasma: 600
     ADTBScrystal: 400
+    Copper: 1000
+    Zinc: 200
 
 #Кларк
 - type: latheRecipe
@@ -175,6 +214,8 @@
     Steel: 3000
     Silver: 1000
     Plasma: 1500
+    Copper: 1000
+    Zinc: 200
 
 - type: latheRecipe
   id: ADTClarkeLArm
@@ -183,6 +224,8 @@
   materials:
     Steel: 1000
     Glass: 500
+    Copper: 1000
+    Zinc: 300
 
 - type: latheRecipe
   id: ADTClarkeRArm
@@ -191,6 +234,8 @@
   materials:
     Steel: 1000
     Glass: 500
+    Copper: 1000
+    Zinc: 300
 
 - type: latheRecipe
   id: ADTClarkeLTread
@@ -199,6 +244,8 @@
   materials:
     Steel: 1000
     Glass: 500
+    Copper: 1000
+    Zinc: 500
 
 - type: latheRecipe
   id: ADTClarkeRTread
@@ -207,6 +254,8 @@
   materials:
     Steel: 1000
     Glass: 500
+    Copper: 1000
+    Zinc: 500
 
 - type: latheRecipe
   id: ADTClarkeHead
@@ -215,6 +264,8 @@
   materials:
     Steel: 1000
     Glass: 1000
+    Copper: 1000
+    Zinc: 1000
 
 - type: latheRecipe
   id: ADTClarkeCentralElectronics
@@ -224,6 +275,7 @@
     Steel: 100
     Glass: 1000
     Gold: 300
+    Copper: 1000
 
 - type: latheRecipe
   id: ADTClarkePeripheralsElectronics
@@ -233,6 +285,7 @@
     Steel: 100
     Glass: 1000
     Gold: 300
+    Copper: 1000
 
 #Дюранд
 - type: latheRecipe
@@ -244,6 +297,9 @@
     Glass: 1500
     Silver: 1500
     Plasteel: 3000
+    Copper: 3000
+    Zinc: 1500
+    Lead: 3000
 
 - type: latheRecipe
   id: ADTDurandLArm
@@ -253,6 +309,9 @@
     Steel: 1500
     Silver: 500
     Plasteel: 500
+    Copper: 1000
+    Zinc: 500
+    Lead: 900
 
 - type: latheRecipe
   id: ADTDurandLLeg
@@ -262,6 +321,9 @@
     Steel: 1500
     Silver: 500
     Plasteel: 500
+    Copper: 1000
+    Zinc: 500
+    Lead: 900
 
 - type: latheRecipe
   id: ADTDurandRLeg
@@ -271,6 +333,9 @@
     Steel: 1500
     Silver: 500
     Plasteel: 500
+    Copper: 1000
+    Zinc: 500
+    Lead: 900
 
 - type: latheRecipe
   id: ADTDurandRArm
@@ -280,6 +345,9 @@
     Steel: 1500
     Silver: 500
     Plasteel: 500
+    Copper: 1000
+    Zinc: 500
+    Lead: 900
 
 - type: latheRecipe
   id: ADTDurandArmorPlates
@@ -289,6 +357,9 @@
     Steel: 3000
     Plasteel: 4000
     Silver: 1000
+    Copper: 1000
+    Zinc: 1000
+    Lead: 2000
 
 - type: latheRecipe
   id: ADTDurandHead
@@ -299,6 +370,9 @@
     Glass: 1500
     Silver: 1000
     Plasteel: 500
+    Copper: 1000
+    Zinc: 1000
+    Lead: 1500
 
 - type: latheRecipe
   id: ADTDurandCentralElectronics
@@ -308,6 +382,7 @@
     Steel: 1000
     Glass: 1500
     Gold: 1000
+    Copper: 1000
 
 - type: latheRecipe
   id: ADTDurandPeripheralsElectronics
@@ -317,6 +392,7 @@
     Steel: 1000
     Glass: 1500
     Gold: 1000
+    Copper: 1000
 
 #Фазон
 - type: latheRecipe
@@ -327,6 +403,9 @@
     Steel: 3000
     Glass: 3000
     Plasma: 3000
+    Copper: 3000
+    Zinc: 2000
+    Lead: 1500
 
 - type: latheRecipe
   id: ADTPhazonLArm
@@ -336,6 +415,9 @@
     Steel: 2000
     Glass: 500
     Plasma: 500
+    Copper: 1000
+    Zinc: 1000
+    Lead: 1000
 
 - type: latheRecipe
   id: ADTPhazonLLeg
@@ -345,6 +427,9 @@
     Steel: 2000
     Glass: 500
     Plasma: 500
+    Copper: 1000
+    Zinc: 1000
+    Lead: 1000
 
 - type: latheRecipe
   id: ADTPhazonRLeg
@@ -354,6 +439,9 @@
     Steel: 2000
     Glass: 500
     Plasma: 500
+    Copper: 1000
+    Zinc: 1000
+    Lead: 1000
 
 - type: latheRecipe
   id: ADTPhazonRArm
@@ -363,6 +451,9 @@
     Steel: 2000
     Glass: 500
     Plasma: 500
+    Copper: 1000
+    Zinc: 1000
+    Lead: 1000
 
 - type: latheRecipe
   id: ADTPhazonArmorPlates
@@ -372,6 +463,9 @@
     Steel: 3000
     Plasteel: 4000
     Plasma: 1000
+    Copper: 1000
+    Zinc: 2000
+    Lead: 1500
 
 - type: latheRecipe
   id: ADTPhazonHead
@@ -381,6 +475,9 @@
     Steel: 1000
     Glass: 1500
     Plasma: 1000
+    Copper: 1000
+    Zinc: 1000
+    Lead: 2000
 
 - type: latheRecipe
   id: ADTPhazonCentralElectronics
@@ -391,6 +488,7 @@
     Glass: 1500
     Gold: 1000
     ADTBScrystal: 500
+    Copper: 1000
 
 - type: latheRecipe
   id: ADTPhazonPeripheralsElectronics
@@ -400,6 +498,7 @@
     Steel: 1000
     Glass: 1500
     Gold: 1000
+    Copper: 1000
 
 - type: latheRecipe
   id: ADTPhazonWeaponControlElectronics
@@ -409,6 +508,7 @@
     Steel: 1000
     Glass: 1500
     Gold: 1000
+    Copper: 1000
 
 #комплект модификации
 - type: latheRecipe
@@ -419,6 +519,7 @@
     Steel: 2000
     Glass: 2000
     Gold: 500
+    Copper: 1000
 
 #Оборудование
 
@@ -431,6 +532,7 @@
     Plastic: 550
     Glass: 200
     Silver: 100
+    Copper: 1000
 
 - type: latheRecipe
   id: MechEquipmentHumanSleeper
@@ -441,6 +543,7 @@
     Plastic: 750
     Glass: 300
     Silver: 300
+    Copper: 1000
 
 - type: latheRecipe
   id: ADTMechWeaponCutter
@@ -452,6 +555,8 @@
     Glass: 300
     Silver: 300
     Plasma: 600
+    Copper: 1000
+    Zinc: 500
 
 - type: latheRecipe
   id: MechEquipmentArmorRange
@@ -461,6 +566,8 @@
     Steel: 2050
     Plastic: 150
     Glass: 300
+    Copper: 1000
+    Zinc: 1000
 
 - type: latheRecipe
   id: MechEquipmentArmorMelee
@@ -470,6 +577,8 @@
     Steel: 2050
     Plastic: 150
     Glass: 300
+    Copper: 1000
+    Zinc: 1000
 
 - type: latheRecipe
   id: MechEquipmentDrill
@@ -479,6 +588,8 @@
     Steel: 2050
     Plastic: 150
     Glass: 300
+    Copper: 1000
+    Zinc: 1000
 
 - type: latheRecipe
   id: MechEquipmentDiamondDrill
@@ -489,6 +600,8 @@
     Plastic: 150
     Glass: 300
     Diamond: 500
+    Copper: 1000
+    Zinc: 1000
 
 # - type: latheRecipe
 #   id: MechEquipmentGravipult
@@ -510,6 +623,8 @@
     Steel: 2250
     Plastic: 1000
     Gold: 500
+    Copper: 1000
+    Lead: 1000
 
 - type: latheRecipe
   id: ADTMechGunPeacemakerDisabler
@@ -519,6 +634,8 @@
     Steel: 1750
     Plastic: 1000
     Gold: 500
+    Copper: 1000
+    Lead: 1000
 
 - type: latheRecipe
   id: ADTMechGunSolarisLaserCannon
@@ -529,6 +646,8 @@
     Plastic: 1500
     Gold: 500
     Plasma: 750
+    Copper: 1000
+    Lead: 1000
 
 - type: latheRecipe
   id: ADTMechGunTeslaCannon
@@ -539,82 +658,92 @@
     Plastic: 1500
     Silver: 500
     Plasma: 1000
+    Copper: 4000
+    Lead: 1000
 
 - type: latheRecipe
   id: ADTMechGunScattershot
   result: ADTMechGunScattershotCrate
   completetime: 4
   materials:
-    Steel: 4500
+    Lead: 4500
     Plastic: 3000
+    Copper: 1000
 
 - type: latheRecipe
   id: ADTMechGunUltraAC2
   result: ADTMechGunUltraAC2Crate
   completetime: 4
   materials:
-    Steel: 3000
+    Lead: 3000
     Plastic: 3000
+    Copper: 1000
 
 - type: latheRecipe
   id: ADTMechGunFNX99Hades
   result: ADTMechGunFNX99HadesCrate
   completetime: 4
   materials:
-    Steel: 6000
+    Lead: 6000
     Plastic: 3000
+    Copper: 1000
 
 - type: latheRecipe
   id: ADTMechGunMHAR21
   result: ADTMechGunMHAR21Crate
   completetime: 4
   materials:
-    Steel: 6000
+    Lead: 6000
     Plastic: 3000
     Gold: 1000
+    Copper: 1000
 
 - type: latheRecipe
   id: ADTMechGunSGL6
   result: ADTMechGunSGL6Crate
   completetime: 4
   materials:
-    Steel: 6000
+    Lead: 6000
     Plastic: 3000
     Gold: 1000
+    Copper: 1000
 
 - type: latheRecipe
   id: ADTMechGunBRM6
   result: ADTMechGunBRM6Crate
   completetime: 4
   materials:
-    Steel: 3000
+    Lead: 3000
     Plastic: 3000
     Gold: 500
+    Copper: 1000
 
 - type: latheRecipe
   id: ADTMechGunSRM8
   result: ADTMechGunSRM8Crate
   completetime: 4
   materials:
-    Steel: 27000
+    Lead: 27000
     Plastic: 9000
     Gold: 3000
     Plasma: 2000
+    Copper: 1000
 
 - type: latheRecipe
   id: ADTBoxAmmoAC2Ultra
   result: ADTBoxAmmoAC2Ultra
   completetime: 1
   materials:
-    Steel: 450
+    Lead: 450
     Plastic: 150
+    Copper: 200
 
 - type: latheRecipe
   id: ADTBoxAmmoScattershot
   result: ADTBoxAmmoScattershot
   completetime: 1
   materials:
-    Steel: 450
+    Lead: 450
     Plastic: 150
 
 - type: latheRecipe
@@ -622,7 +751,7 @@
   result: ADTBoxAmmoHades
   completetime: 1
   materials:
-    Steel: 450
+    Lead: 450
     Plastic: 150
     Plasma: 100
 
@@ -631,7 +760,7 @@
   result: ADTBoxAmmoSniper
   completetime: 1
   materials:
-    Steel: 550
+    Lead: 550
     Plastic: 150
 
 - type: latheRecipe
@@ -639,10 +768,11 @@
   result: ADTBoxAmmoGranade
   completetime: 1
   materials:
-    Steel: 1100
+    Lead: 1100
     Plastic: 450
     Plasma: 300
     Glass: 300
+    Copper: 1000
 
 - type: latheRecipe
   id: ADTBoxPlasmaBox
