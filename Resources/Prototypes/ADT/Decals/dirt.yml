@@ -3,7 +3,7 @@
   tags: ["station", "markings"]
   defaultCustomColor: true
   sprite:
-    sprite: ADT/Decals/markings.rsi
+    sprite: ADT/Decals/dirt.rsi
     state: dirt_box
 
 - type: decal
@@ -11,7 +11,7 @@
   tags: ["station", "markings"]
   defaultCustomColor: true
   sprite:
-    sprite: ADT/Decals/markings.rsi
+    sprite: ADT/Decals/dirt.rsi
     state: dirt_corner_ne
 
 - type: decal
@@ -19,7 +19,7 @@
   tags: ["station", "markings"]
   defaultCustomColor: true
   sprite:
-    sprite: ADT/Decals/markings.rsi
+    sprite: ADT/Decals/dirt.rsi
     state: dirt_corner_nw
 
 - type: decal
@@ -27,7 +27,7 @@
   tags: ["station", "markings"]
   defaultCustomColor: true
   sprite:
-    sprite: ADT/Decals/markings.rsi
+    sprite: ADT/Decals/dirt.rsi
     state: dirt_corner_se
 
 - type: decal
@@ -35,7 +35,7 @@
   tags: ["station", "markings"]
   defaultCustomColor: true
   sprite:
-    sprite: ADT/Decals/markings.rsi
+    sprite: ADT/Decals/dirt.rsi
     state: dirt_corner_sw
 
 - type: decal
@@ -43,7 +43,7 @@
   tags: ["station", "markings"]
   defaultCustomColor: true
   sprite:
-    sprite: ADT/Decals/markings.rsi
+    sprite: ADT/Decals/dirt.rsi
     state: dirt_corner_small_ne
 
 - type: decal
@@ -51,7 +51,7 @@
   tags: ["station", "markings"]
   defaultCustomColor: true
   sprite:
-    sprite: ADT/Decals/markings.rsi
+    sprite: ADT/Decals/dirt.rsi
     state: dirt_corner_small_nw
 
 - type: decal
@@ -59,7 +59,7 @@
   tags: ["station", "markings"]
   defaultCustomColor: true
   sprite:
-    sprite: ADT/Decals/markings.rsi
+    sprite: ADT/Decals/dirt.rsi
     state: dirt_corner_small_se
 
 - type: decal
@@ -67,7 +67,7 @@
   tags: ["station", "markings"]
   defaultCustomColor: true
   sprite:
-    sprite: ADT/Decals/markings.rsi
+    sprite: ADT/Decals/dirt.rsi
     state: dirt_corner_small_sw
 
 - type: decal
@@ -75,7 +75,7 @@
   tags: ["station", "markings"]
   defaultCustomColor: true
   sprite:
-    sprite: ADT/Decals/markings.rsi
+    sprite: ADT/Decals/dirt.rsi
     state: dirt_end
 
 - type: decal
@@ -83,7 +83,7 @@
   tags: ["station", "markings"]
   defaultCustomColor: true
   sprite:
-    sprite: ADT/Decals/markings.rsi
+    sprite: ADT/Decals/dirt.rsi
     state: dirt_end_e
 
 - type: decal
@@ -91,7 +91,7 @@
   tags: ["station", "markings"]
   defaultCustomColor: true
   sprite:
-    sprite: ADT/Decals/markings.rsi
+    sprite: ADT/Decals/dirt.rsi
     state: dirt_end_n
 
 - type: decal
@@ -99,7 +99,7 @@
   tags: ["station", "markings"]
   defaultCustomColor: true
   sprite:
-    sprite: ADT/Decals/markings.rsi
+    sprite: ADT/Decals/dirt.rsi
     state: dirt_end_w
 
 - type: decal
@@ -107,7 +107,7 @@
   tags: ["station", "markings"]
   defaultCustomColor: true
   sprite:
-    sprite: ADT/Decals/markings.rsi
+    sprite: ADT/Decals/dirt.rsi
     state: dirt_line_e
 
 - type: decal
@@ -115,7 +115,7 @@
   tags: ["station", "markings"]
   defaultCustomColor: true
   sprite:
-    sprite: ADT/Decals/markings.rsi
+    sprite: ADT/Decals/dirt.rsi
     state: dirt_line_n
 
 - type: decal
@@ -123,7 +123,7 @@
   tags: ["station", "markings"]
   defaultCustomColor: true
   sprite:
-    sprite: ADT/Decals/markings.rsi
+    sprite: ADT/Decals/dirt.rsi
     state: dirt_line_s
 
 - type: decal
@@ -131,5 +131,5 @@
   tags: ["station", "markings"]
   defaultCustomColor: true
   sprite:
-    sprite: ADT/Decals/markings.rsi
+    sprite: ADT/Decals/dirt.rsi
     state: dirt_line_w
