@@ -75800,8 +75800,6 @@ entities:
     - type: Transform
       pos: -58.53795,64.84835
       parent: 2
-    - type: HandheldLight
-      toggleActionEntity: 6
     - type: ContainerContainer
       containers:
         cell_slot: !type:ContainerSlot

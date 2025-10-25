@@ -51128,8 +51128,6 @@ entities:
     - type: Transform
       pos: 9.154065,-28.198956
       parent: 2
-    - type: HandheldLight
-      toggleActionEntity: 7
     - type: ContainerContainer
       containers:
         cell_slot: !type:ContainerSlot
@@ -51139,8 +51137,6 @@ entities:
         actions: !type:Container
           showEnts: False
           occludes: True
-          ents:
-          - 7
     - type: Physics
       canCollide: True
     - type: ActionsContainer
