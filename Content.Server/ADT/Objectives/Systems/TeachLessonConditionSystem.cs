@@ -1,10 +1,10 @@
-using Content.Server.ADT._Ganimed.Objectives.Components;
+using Content.Server.ADT.Objectives.Components;
 using Content.Server.Objectives.Components;
 using Content.Server.Objectives.Systems;
 using Content.Shared.Mind;
 using Content.Shared.Mobs;
 
-namespace Content.Server.ADT._Ganimed.Objectives.Systems;
+namespace Content.Server.ADT.Objectives.Systems;
 
 /// <summary>
 /// Handles teach a lesson condition logic, does not assign target.

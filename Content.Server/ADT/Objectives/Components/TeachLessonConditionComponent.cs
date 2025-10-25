@@ -1,7 +1,7 @@
-using Content.Server.ADT._Ganimed.Objectives.Systems;
+using Content.Server.ADT.Objectives.Systems;
 using Content.Server.Objectives.Components;
 
-namespace Content.Server.ADT._Ganimed.Objectives.Components;
+namespace Content.Server.ADT.Objectives.Components;
 
 /// <summary>
 /// Requires that a target dies once and only once.
