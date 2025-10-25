@@ -1,0 +1,124 @@
+- type: entity
+  parent: FoodBowlBase
+  id: FoodSoupBear
+  name: bear soup
+  description: A soup made with bear meat and vodka. The most stereotypically Russian thing one could imagine.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - beary
+  - type: Sprite
+    sprite: _Ganimed/Objects/Consumable/Food/bowl.rsi
+    layers:
+    - state: bowl
+    - state: bear
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 9
+        - ReagentId: Protein
+          Quantity: 5
+        - ReagentId: Vodka
+          Quantity: 2
+  - type: Tag
+    tags:
+    - Soup
+    - Meat
+
+- type: entity
+  parent: FoodBowlBase
+  id: FoodSoupSolyanka
+  name: solyanka soup
+  description: A traditional salty and sour Russian soup with a variety of some... peculiar kinds of meat.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - sour
+      - salty
+      - meaty
+  - type: Sprite
+    sprite: _Ganimed/Objects/Consumable/Food/bowl.rsi
+    layers:
+    - state: bowl
+    - state: solyanka
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+        - ReagentId: Vitamin
+          Quantity: 4
+        - ReagentId: Protein
+          Quantity: 6
+  - type: Tag
+    tags:
+    - Soup
+    - Meat
+
+- type: entity
+  parent: FoodBowlBase
+  id: FoodSoupOkroshka
+  name: okroshka with kvass
+  description: Looks like a salad with kvass and sour cream.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - summery
+      - egg
+      - potatoes
+  - type: Sprite
+    sprite: _Ganimed/Objects/Consumable/Food/bowl.rsi
+    layers:
+    - state: bowl
+    - state: okroshka
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 4
+        - ReagentId: Vitamin
+          Quantity: 4
+        - ReagentId: Kvass
+          Quantity: 7
+  - type: Tag
+    tags:
+    - Soup
+    - Meat
+
+- type: entity
+  parent: FoodBowlBase
+  id: FoodSaladOlivier
+  name: Olivier salad
+  description: My father never dreamed of so much mayonnaise!
+  components:
+  - type: FlavorProfile
+    flavors:
+      - holidays
+      - vegetables
+  - type: Sprite
+    sprite: _Ganimed/Objects/Consumable/Food/bowl.rsi
+    layers:
+    - state: bowl
+    - state: olivier
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+        - ReagentId: Vitamin
+          Quantity: 5
+        - ReagentId: Protein
+          Quantity: 5
+  - type: Tag
+    tags:
+    - Soup
+    - Meat

@@ -1,0 +1,19 @@
+- type: flavor
+  id: juicy
+  flavorType: Base
+  description: flavor-base-juicy
+
+- type: flavor
+  id: beary
+  flavorType: Base
+  description: flavor-base-bear
+
+- type: flavor
+  id: summery
+  flavorType: Complex
+  description: flavor-complex-summer
+
+- type: flavor
+  id: holidays
+  flavorType: Complex
+  description: flavor-complex-holidays

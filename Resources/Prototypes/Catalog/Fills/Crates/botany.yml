@@ -96,6 +96,8 @@
       - id: WatermelonSeeds
       - id: PeaSeeds
       - id: CherrySeeds
+      - id: ADTStrawberrySeeds # ADT Tweak
+      - id: CucumberSeeds # Ganimed-Edit
 
 - type: entity
   id: CrateHydroponicsTray
@@ -106,4 +108,3 @@
   - type: StorageFill
     contents:
     - id: HydroponicsTrayFlatpack
-    - id: ADTStrawberrySeeds # ADT Tweak

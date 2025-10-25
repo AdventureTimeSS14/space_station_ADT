@@ -1,0 +1,19 @@
+- type: entity
+  parent: SeedBase
+  name: packet of cucumber seeds
+  id: CucumberSeeds
+  components:
+    - type: Seed
+      seedId: cucumber
+    - type: Sprite
+      sprite: _Ganimed/Objects/Specific/Hydroponics/cucumber.rsi
+
+- type: entity
+  parent: SeedBase
+  name: packet of shashamber seeds
+  id: ShashamberSeeds
+  components:
+    - type: Seed
+      seedId: shashamber
+    - type: Sprite
+      sprite: _Ganimed/Objects/Specific/Hydroponics/shashamber.rsi

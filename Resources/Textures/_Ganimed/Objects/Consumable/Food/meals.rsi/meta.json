@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made by RedTerror",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "mashed_potatoes"
+    },
+    {
+      "name": "pickle"
+    },
+    {
+      "name": "pickle_slices"
+    }
+  ]
+}

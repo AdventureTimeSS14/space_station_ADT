@@ -1,0 +1,58 @@
+- type: entity
+  name: mashed potatoes with cutlets
+  parent: FoodMealBase
+  id: FoodMealMashedPotatoesCutlets
+  description: You hurry up, we have cutlets right now!
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Objects/Consumable/Food/meals.rsi
+    state: mashed_potatoes
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 11
+        - ReagentId: Protein
+          Quantity: 4
+  - type: FlavorProfile
+    flavors:
+      - meaty
+      - potatoes
+  - type: Tag
+    tags:
+    - Meat
+
+- type: entity
+  name: pickle
+  parent: FoodBase
+  id: FoodPickle
+  description: The very thing for both burgers and vodka.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Objects/Consumable/Food/meals.rsi
+    state: pickle
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 14
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 7
+        - ReagentId: Vitamin
+          Quantity: 1
+        - ReagentId: Saline
+          Quantity: 4
+  - type: FlavorProfile
+    flavors:
+      - salty
+      - juicy
+  - type: Tag
+    tags:
+    - Fruit
+    - Vegetable
+  - type: FoodSequenceElement
+    entries:
+      Burger: CucumberBurger
+      Taco: Cucumber

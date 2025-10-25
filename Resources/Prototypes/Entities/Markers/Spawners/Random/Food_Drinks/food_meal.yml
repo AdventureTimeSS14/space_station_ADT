@@ -72,6 +72,13 @@
       - ADTFoodSoupSawdust #ADT tweak
       - FoodMealCornInButter
       - FoodSoupStew
+      # Ganimed-food-start
+      - FoodMealMashedPotatoesCutlets
+      - FoodSaladOlivier
+      - FoodSoupOkroshka
+      - FoodSoupSolyanka
+      - FoodSoupBear
+      # Ganimed-food-end
     chance: 0.8
     offset: 0.0
     #rare

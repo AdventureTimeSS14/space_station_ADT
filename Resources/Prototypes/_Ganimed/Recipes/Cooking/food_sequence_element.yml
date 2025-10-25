@@ -1,0 +1,17 @@
+- type: foodSequenceElement
+  id: Cucumber
+  name: food-sequence-content-cucumber
+  sprites:
+  - sprite: _Ganimed/Objects/Consumable/Food/meals.rsi
+    state: pickle_slices
+  tags:
+  - Vegetable
+
+- type: foodSequenceElement
+  id: CucumberBurger
+  name: food-sequence-burger-content-cucumber
+  sprites:
+  - sprite: _Ganimed/Objects/Consumable/Food/meals.rsi
+    state: pickle_slices
+  tags:
+  - Vegetable
