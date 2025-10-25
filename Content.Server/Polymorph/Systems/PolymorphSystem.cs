@@ -320,7 +320,6 @@ public sealed partial class PolymorphSystem : EntitySystem
                 typeof(BarkAccentComponent),
                 typeof(BleatingAccentComponent),
                 typeof(DamagedSiliconAccentComponent),
-                typeof(DeutschAccentComponent),
                 typeof(FrenchAccentComponent),
                 typeof(GermanAccentComponent),
                 typeof(GrowlingAccentComponent),
