@@ -20,7 +20,7 @@ namespace Content.IntegrationTests.Tests
     {
         private static readonly ProtoId<EntityCategoryPrototype> SpawnerCategory = "Spawner";
 
-        [Test, NonParallelizable] // Goobstation edit - NonParallelizable
+        [Test]
         public async Task SpawnAndDeleteAllEntitiesOnDifferentMaps()
         {
             // This test dirties the pair as it simply deletes ALL entities when done. Overhead of restarting the round
@@ -34,33 +34,16 @@ namespace Content.IntegrationTests.Tests
             var prototypeMan = server.ResolveDependency<IPrototypeManager>();
             var mapSystem = entityMan.System<SharedMapSystem>();
 
-            // Goobstation edit start - moved this up and out of server.WaitPost
-            var protoIds = prototypeMan
-                .EnumeratePrototypes<EntityPrototype>()
-                .Where(p => !p.Abstract)
-                .Where(p => !pair.IsTestPrototype(p))
-                .Where(p => !p.Components.ContainsKey("MapGrid")) // This will smash stuff otherwise.
-                .Where(p => !p.Components.ContainsKey("MobReplacementRule")) // goob edit - fuck them mimics
-                .Where(p => !p.Components.ContainsKey("Supermatter")) // Goobstation - Supermatter eats everything, oh no!
-                .Where(p => !p.Components.ContainsKey("RoomFill")) // This comp can delete all entities, and spawn others
-                .Select(p => p.ID)
-                .ToList();
-            // Goobstation edit end
-
             await server.WaitPost(() =>
             {
-                /* Goobstation
                 var protoIds = prototypeMan
                     .EnumeratePrototypes<EntityPrototype>()
                     .Where(p => !p.Abstract)
                     .Where(p => !pair.IsTestPrototype(p))
                     .Where(p => !p.Components.ContainsKey("MapGrid")) // This will smash stuff otherwise.
-                    .Where(p => !p.Components.ContainsKey("MobReplacementRule")) // goob edit - fuck them mimics
-                    .Where(p => !p.Components.ContainsKey("Supermatter")) // Goobstation - Supermatter eats everything, oh no!
                     .Where(p => !p.Components.ContainsKey("RoomFill")) // This comp can delete all entities, and spawn others
                     .Select(p => p.ID)
                     .ToList();
-                    Goobstation */
 
                 foreach (var protoId in protoIds)
                 {
@@ -73,41 +56,7 @@ namespace Content.IntegrationTests.Tests
                 }
             });
 
-            // Goobstation Edit Start  (this test isn't even worth the effort tbh)
-            // Run up to 15 ticks, but stop early if memory usage exceeds 13 GB
-            // At the time of writing (2025-10-22) Wizden reaches at most like 9-10 GB on SpawnAndDirtyAllEntities
-            // Goob gets to about ~12GB, if we reach 16 GB on integrationtests we'll time out from GitHub
-            //
-            // This area on my local testing is where most of the memory builds up, so run it as long as we can within reason.
-            // i mean yeah you could run the test in batches of entities but its not really a stress test then is it.
-
-            const int maxTicks = 15; // (default wizden)
-            const long memoryLimitBytes = 13L * 1024 * 1024 * 1024; // 13 GB, depends on how close you wanna fly to the sun.
-
-            var warninglog = true; // if we stop caring about this test turn this off.
-
-            for (var tick = 0; tick < maxTicks; tick++)
-            {
-                await pair.RunTicksSync(1);
-
-                var memoryUsed = GC.GetTotalMemory(forceFullCollection: false);
-
-                // debug logging but tbh just use debugger
-                // await TestContext.Progress.WriteLineAsync($"[EntityTest SpawnAndDeleteAllEntitiesOnDifferentMaps] Memory usage = {memoryUsed / (1024 * 1024 * 1024.0):F2} GB at tick {tick + 1}");
-
-                if (memoryUsed < memoryLimitBytes)
-                    continue;
-                if (warninglog)
-                    await TestContext.Progress.WriteLineAsync(
-                        "Warning:\n"+
-                        $"[SpawnAndDeleteAllEntitiesOnDifferentMaps] Memory usage reached {memoryUsed / (1024 * 1024 * 1024.0):F2} GB at tick {tick + 1} out of {maxTicks} \n" +
-                        "Stopping early (limit: 13 GB)." +
-                        $"\nWe spawned a total of {protoIds.Count} entities and held on for {tick+1} ticks. We're probably fine."
-                    );
-
-                break; // stop ticking early
-            }
-            // Goobstation Edit End
+            await server.WaitRunTicks(450); // 15 seconds, enough to trigger most update loops
 
             await server.WaitPost(() =>
             {
@@ -128,9 +77,7 @@ namespace Content.IntegrationTests.Tests
                         entityMan.DeleteEntity(uid);
                 }
 
-                // goob edit - repalce is0 with atmost1.
-                // i can't believe you've done this.
-                Assert.That(entityMan.EntityCount, Is.AtMost(1));
+                Assert.That(entityMan.EntityCount, Is.Zero);
             });
 
             await pair.CleanReturnAsync();
@@ -157,7 +104,6 @@ namespace Content.IntegrationTests.Tests
                     .Where(p => !p.Abstract)
                     .Where(p => !pair.IsTestPrototype(p))
                     .Where(p => !p.Components.ContainsKey("MapGrid")) // This will smash stuff otherwise.
-                    .Where(p => !p.Components.ContainsKey("Supermatter")) // Goobstation - Supermatter eats everything, oh no!
                     .Where(p => !p.Components.ContainsKey("RoomFill")) // This comp can delete all entities, and spawn others
                     .Select(p => p.ID)
                     .ToList();
@@ -166,7 +112,7 @@ namespace Content.IntegrationTests.Tests
                     entityMan.SpawnEntity(protoId, map.GridCoords);
                 }
             });
-            await server.WaitRunTicks(15);
+            await server.WaitRunTicks(450); // 15 seconds, enough to trigger most update loops
             await server.WaitPost(() =>
             {
                 static IEnumerable<(EntityUid, TComp)> Query<TComp>(IEntityManager entityMan)
@@ -196,7 +142,7 @@ namespace Content.IntegrationTests.Tests
         ///     Variant of <see cref="SpawnAndDeleteAllEntitiesOnDifferentMaps"/> that also launches a client and dirties
         ///     all components on every entity.
         /// </summary>
-        [Test, NonParallelizable] // Goobstation edit - NonParallelizable
+        [Test]
         public async Task SpawnAndDirtyAllEntities()
         {
             // This test dirties the pair as it simply deletes ALL entities when done. Overhead of restarting the round
@@ -219,8 +165,6 @@ namespace Content.IntegrationTests.Tests
                 .Where(p => !p.Abstract)
                 .Where(p => !pair.IsTestPrototype(p))
                 .Where(p => !p.Components.ContainsKey("MapGrid")) // This will smash stuff otherwise.
-                .Where(p => !p.Components.ContainsKey("MobReplacementRule")) // goob edit - fuck them mimics
-                .Where(p => !p.Components.ContainsKey("Supermatter")) // Goobstation - Supermatter eats everything, oh no!
                 .Select(p => p.ID)
                 .ToList();
 
@@ -238,41 +182,7 @@ namespace Content.IntegrationTests.Tests
                 }
             });
 
-            // Goobstation Edit Start  (this test isn't even worth the effort tbh)
-            // Run up to 15 ticks, but stop early if memory usage exceeds 13 GB
-            // At the time of writing (2025-10-22) Wizden reaches at most like 9-10 GB on this test
-            // Goob gets to about 15GB, if we reach 16 GB on integrationtests we'll time out from github
-            //
-            // This area on my local testing is where most of the memory builds up, so run it as long as we can within reason.
-            // i mean yeah you could run the test in batches of entities but its not really a stress test then is it.
-
-            const int maxTicks = 15; // (default wizden)
-            const long memoryLimitBytes = 13L * 1024 * 1024 * 1024; // 13 GB
-
-            var warninglog = true; // if we stop caring about this test turn this off.
-
-            for (var tick = 0; tick < maxTicks; tick++)
-            {
-                await pair.RunTicksSync(1);
-
-                var memoryUsed = GC.GetTotalMemory(forceFullCollection: false);
-
-                // debug logging but tbh just use debugger
-                // await TestContext.Progress.WriteLineAsync($"[EntityTest SpawnAndDirtyAllEntities] Memory usage = {memoryUsed / (1024 * 1024 * 1024.0):F2} GB at tick {tick + 1}");
-
-                if (memoryUsed < memoryLimitBytes)
-                    continue;
-                if (warninglog)
-                    await TestContext.Progress.WriteLineAsync(
-                        "Warning:\n"+
-                        $"[SpawnAndDirtyAllEntities] Memory usage reached {memoryUsed / (1024 * 1024 * 1024.0):F2} GB at tick {tick + 1} out of {maxTicks}\n" +
-                        "Stopping early (limit: 13 GB)." +
-                        $"\nWe spawned and dirtied {protoIds.Count} entities and held on for {tick+1} ticks. We're probably fine."
-                    );
-
-                break; // stop ticking early
-            }
-            // Goobstation Edit End
+            await pair.RunTicksSync(15);
 
             // Make sure the client actually received the entities
             // 500 is completely arbitrary. Note that the client & sever entity counts aren't expected to match.
@@ -297,9 +207,7 @@ namespace Content.IntegrationTests.Tests
                         sEntMan.DeleteEntity(uid);
                 }
 
-                // goob edit - repalce is0 with atmost1.
-                // i can't believe you've done this.
-                Assert.That(sEntMan.EntityCount, Is.AtMost(1));
+                Assert.That(sEntMan.EntityCount, Is.Zero);
             });
 
             await pair.CleanReturnAsync();
@@ -362,16 +270,13 @@ namespace Content.IntegrationTests.Tests
             await pair.RunTicksSync(3);
 
             // We consider only non-audio entities, as some entities will just play sounds when they spawn.
-            int Count(IEntityManager ent) =>  ent.EntityCount - ent.Count<AudioComponent>();
-            IEnumerable<EntityUid> Entities(IEntityManager entMan) => entMan.GetEntities().Where(entMan.HasComponent<AudioComponent>);
+            int Count(IEntityManager ent) => ent.EntityCount - ent.Count<AudioComponent>();
+            IEnumerable<EntityUid> Entities(IEntityManager entMan) => entMan.GetEntities().Where(e => !entMan.HasComponent<AudioComponent>(e));
 
             await Assert.MultipleAsync(async () =>
             {
                 foreach (var protoId in protoIds)
                 {
-                    if (protoId == "LavalandHierophantTelepad") // TODO Lavaland Change: fix telepad
-                        continue;
-
                     var count = Count(server.EntMan);
                     var clientCount = Count(client.EntMan);
                     var serverEntities = new HashSet<EntityUid>(Entities(server.EntMan));
@@ -406,8 +311,8 @@ namespace Content.IntegrationTests.Tests
                     // Check that the number of entities has gone back to the original value.
                     Assert.That(Count(server.EntMan), Is.EqualTo(count), $"Server prototype {protoId} failed on deletion: count didn't reset properly\n" +
                         BuildDiffString(serverEntities, Entities(server.EntMan), server.EntMan));
-                    Assert.That(client.EntMan.EntityCount, Is.EqualTo(clientCount), $"Client prototype {protoId} failed on deletion: count didn't reset properly:\n" +
-                        $"Expected {clientCount} and found {client.EntMan.EntityCount}.\n" +
+                    Assert.That(Count(client.EntMan), Is.EqualTo(clientCount), $"Client prototype {protoId} failed on deletion: count didn't reset properly:\n" +
+                        $"Expected {clientCount} and found {Count(client.EntMan)}.\n" +
                         $"Server count was {count}.\n" +
                         BuildDiffString(clientEntities, Entities(client.EntMan), client.EntMan));
                 }
