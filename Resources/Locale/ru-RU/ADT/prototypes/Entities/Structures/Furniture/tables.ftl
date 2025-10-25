@@ -15,3 +15,11 @@ ent-ADTTableRoundWood = деревянный круглый столик
 
 ent-ADTTableRoundGlass = стеклянный круглый столик
     .desc = Круглый столик, сделанный из стекла.
+
+ent-ADTTableOktoberfest = стол для Октоберфеста
+    .suffix = { "Октоберфест" }
+    .desc = Стол, способный выдержать очень много выпивки и закусок.
+
+ent-ADTTableOktoberfestOrange = стол с оранжевой скатертью для Октоберфеста
+    .suffix = { "Октоберфест" }
+    .desc = { ent-ADTTableOktoberfest }

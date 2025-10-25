@@ -76,9 +76,6 @@
   description: A bag for storing chemistry products, such as pills, pill canisters, bottles, and syringes.
   suffix: Full
   components:
-  - type: Tag
-    tags:
-      - ADTCardPlay
   - type: Item
     size: Small
   - type: StorageFill
@@ -137,6 +134,9 @@
       - id: ADTFunCardQueenOfSpades
       - id: ADTFunCardBlackJoker
       - id: ADTFunCardRedJoker
+  - type: Tag
+    tags:
+      - ADTCardPlay
 
 - type: entity
   name: chemistry bag
@@ -185,7 +185,9 @@
       - id: ADTFunCardJackOfSpades
       - id: ADTFunCardKingOfSpades
       - id: ADTFunCardQueenOfSpades
-
+  - type: Tag
+    tags:
+      - ADTCardPlay
 
 #пики
 - type: entity

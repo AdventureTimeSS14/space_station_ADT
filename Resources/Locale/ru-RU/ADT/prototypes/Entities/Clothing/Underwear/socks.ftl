@@ -22,6 +22,13 @@ ent-ADTClothingUnderwearSocksThigh = высокие чулки
 ent-ADTClothingUnderwearSocksLaceThigh = кружевные чулки
     .desc = Красивые кружевные чулки.
 
+ent-ADTClothingUnderwearSocksHeart = носки с сердечками
+    .desc = Теплый и милый подарок для любимого.
+    .suffix = { "День Святого Валентина" }
+ent-ADTClothingUnderwearSocksStockingsHeart = длинные чулки с сердечками
+    .desc = Теплый и милый подарок для любимой.
+    .suffix = { "День Святого Валентина" }
+
 ent-ADTClothingUnderwearSocksRabbit = носки с кроликами
     .desc = Теплый и необычные носочки в виде кроликов.
 
@@ -78,6 +85,11 @@ ent-ADTClothingUnderwearSocksKneeCentcom = гольфы представител
     .desc = Гольфы для представителей ЦК.
 ent-ADTClothingUnderwearSocksThighCentcom = чулки представителей ЦентКом
     .desc = Чулки для представителей ЦК. Да... Даже некоторые из них носят чулки...
+
+ent-ADTClothingUnderwearSocksKneeCreepy = страшные гольфы
+    .desc = Гольфы, что точно подойдут для Хеллоуина.
+ent-ADTClothingUnderwearSocksThighCreepy = страшные чулки
+    .desc = Чулки, что точно подойдут для Хеллоуина.
 
 ent-ADTClothingUnderwearSocksCyan = голубые носки
     .desc = Обычные голубые носки.
