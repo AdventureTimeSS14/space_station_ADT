@@ -1,0 +1,136 @@
+- type: constructionGraph
+  id: ADTSteelDarkSingleStairs
+  start: start
+  graph:
+    - node: start
+      actions:
+        - !type:DestroyEntity {}
+      edges:
+        - to: adtsteeldarksinglestairs
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 1
+
+    - node: adtsteeldarksinglestairs
+      entity: ADTSteelDarkSingleStairs
+      
+- type: constructionGraph
+  id: ADTSteelSingleStairs
+  start: start
+  graph:
+    - node: start
+      actions:
+        - !type:DestroyEntity {}
+      edges:
+        - to: adtsteelsinglestairs
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 1
+
+    - node: adtsteelsinglestairs
+      entity: ADTSteelSingleStairs
+      
+- type: constructionGraph
+  id: ADTSteelWhiteSingleStairs
+  start: start
+  graph:
+    - node: start
+      actions:
+        - !type:DestroyEntity {}
+      edges:
+        - to: adtsteelwhitesinglestairs
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 1
+
+    - node: adtsteelwhitesinglestairs
+      entity: ADTSteelWhiteSingleStairs
+      
+- type: constructionGraph
+  id: ADTWoodBlackSingleStairs
+  start: start
+  graph:
+    - node: start
+      actions:
+        - !type:DestroyEntity {}
+      edges:
+        - to: adtwoodblacksinglestairs
+          steps:
+            - material: WoodPlank
+              amount: 2
+              doAfter: 1
+
+    - node: adtwoodblacksinglestairs
+      entity: ADTWoodBlackSingleStairs
+      
+- type: constructionGraph
+  id: ADTWoodDarkSingleStairs
+  start: start
+  graph:
+    - node: start
+      actions:
+        - !type:DestroyEntity {}
+      edges:
+        - to: adtwooddarksinglestairs
+          steps:
+            - material: WoodPlank
+              amount: 2
+              doAfter: 1
+
+    - node: adtwooddarksinglestairs
+      entity: ADTWoodDarkSingleStairs
+      
+- type: constructionGraph
+  id: ADTWoodSingleStairs
+  start: start
+  graph:
+    - node: start
+      actions:
+        - !type:DestroyEntity {}
+      edges:
+        - to: adtwoodsinglestairs
+          steps:
+            - material: WoodPlank
+              amount: 2
+              doAfter: 1
+
+    - node: adtwoodsinglestairs
+      entity: ADTWoodSingleStairs
+      
+- type: constructionGraph
+  id: ADTWoodLightSingleStairs
+  start: start
+  graph:
+    - node: start
+      actions:
+        - !type:DestroyEntity {}
+      edges:
+        - to: adtwoodlightsinglestairs
+          steps:
+            - material: WoodPlank
+              amount: 2
+              doAfter: 1
+
+    - node: adtwoodlightsinglestairs
+      entity: ADTWoodLightSingleStairs
+
+- type: constructionGraph
+  id: ADTWoodRedSingleStairs
+  start: start
+  graph:
+    - node: start
+      actions:
+        - !type:DestroyEntity {}
+      edges:
+        - to: adtwoodredsinglestairs
+          steps:
+            - material: WoodPlank
+              amount: 2
+              doAfter: 1
+
+    - node: adtwoodredsinglestairs
+      entity: ADTWoodRedSingleStairs
+      

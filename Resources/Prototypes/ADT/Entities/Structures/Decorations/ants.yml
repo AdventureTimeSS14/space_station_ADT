@@ -1,0 +1,43 @@
+- type: entity
+  id: ADTBaseAnts
+  parent: BaseStructureDynamic
+  name: ant hill
+  description: Best not to provoke them.
+  components:
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/ADT/Structures/Decoration/ants.rsi
+    state: ants_0
+
+- type: entity
+  id: ADTAnts1
+  parent: ADTBaseAnts
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/ADT/Structures/Decoration/ants.rsi
+    state: ants_1
+
+- type: entity
+  id: ADTAnts2
+  parent: ADTBaseAnts
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/ADT/Structures/Decoration/ants.rsi
+    state: ants_2
+
+- type: entity
+  id: ADTAnts3
+  parent: ADTBaseAnts
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/ADT/Structures/Decoration/ants.rsi
+    state: ants_3

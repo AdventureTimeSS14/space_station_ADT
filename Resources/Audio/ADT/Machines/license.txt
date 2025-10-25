@@ -8,3 +8,4 @@ medical-assembler.ogg taken from: https://github.com/new-frontiers-14/frontier-s
 minesweeaper_lost_boom.ogg taken from: https://zvukipro.com/games/2685-zvuki-iz-igry-saper.html
 tick.ogg taken from: https://zvukipro.com/games/2685-zvuki-iz-igry-saper.html
 win.ogg taken from: https://zvukipro.com/games/2685-zvuki-iz-igry-saper.html
+computerboot_pc.ogg taken from: https://github.com/Goob-Station/Goob-Station at PR https://github.com/Goob-Station/Goob-Station/pull/2959

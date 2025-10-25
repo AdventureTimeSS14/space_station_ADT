@@ -1,0 +1,467 @@
+- type: decal
+  id: ADTDash
+  tags: ["symbols"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Symbols/alphabet.rsi
+    state: dash
+
+- type: decal
+  id: ADTEngD
+  tags: ["symbols"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Symbols/alphabet.rsi
+    state: eng_d
+
+- type: decal
+  id: ADTEngBRusV
+  tags: ["symbols"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Symbols/alphabet.rsi
+    state: eng_b_rus_v
+
+- type: decal
+  id: ADTEngCRusS
+  tags: ["symbols"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Symbols/alphabet.rsi
+    state: eng_c_rus_s
+
+- type: decal
+  id: ADTEngF
+  tags: ["symbols"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Symbols/alphabet.rsi
+    state: eng_f
+
+- type: decal
+  id: ADTEngG
+  tags: ["symbols"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Symbols/alphabet.rsi
+    state: eng_g
+
+- type: decal
+  id: ADTEngHRusN
+  tags: ["symbols"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Symbols/alphabet.rsi
+    state: eng_h_rus_n
+
+- type: decal
+  id: ADTEngI
+  tags: ["symbols"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Symbols/alphabet.rsi
+    state: eng_i
+
+- type: decal
+  id: ADTEngJ
+  tags: ["symbols"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Symbols/alphabet.rsi
+    state: eng_j
+
+- type: decal
+  id: ADTEngL
+  tags: ["symbols"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Symbols/alphabet.rsi
+    state: eng_l
+
+- type: decal
+  id: ADTEngN
+  tags: ["symbols"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Symbols/alphabet.rsi
+    state: eng_n
+
+- type: decal
+  id: ADTEngPRusR
+  tags: ["symbols"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Symbols/alphabet.rsi
+    state: eng_p_rus_r
+
+- type: decal
+  id: ADTEngQ
+  tags: ["symbols"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Symbols/alphabet.rsi
+    state: eng_q
+
+- type: decal
+  id: ADTEngR
+  tags: ["symbols"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Symbols/alphabet.rsi
+    state: eng_r
+
+- type: decal
+  id: ADTEngRusA
+  tags: ["symbols"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Symbols/alphabet.rsi
+    state: eng_rus_a
+
+- type: decal
+  id: ADTEngRusE
+  tags: ["symbols"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Symbols/alphabet.rsi
+    state: eng_rus_e
+
+- type: decal
+  id: ADTEngRusK
+  tags: ["symbols"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Symbols/alphabet.rsi
+    state: eng_rus_k
+
+- type: decal
+  id: ADTEngRusM
+  tags: ["symbols"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Symbols/alphabet.rsi
+    state: eng_rus_m
+
+- type: decal
+  id: ADTEngRusO
+  tags: ["symbols"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Symbols/alphabet.rsi
+    state: eng_rus_o
+
+- type: decal
+  id: ADTEngRusT
+  tags: ["symbols"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Symbols/alphabet.rsi
+    state: eng_rus_t
+
+- type: decal
+  id: ADTEngS
+  tags: ["symbols"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Symbols/alphabet.rsi
+    state: eng_s
+
+- type: decal
+  id: ADTEngU
+  tags: ["symbols"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Symbols/alphabet.rsi
+    state: eng_u
+
+- type: decal
+  id: ADTEngV
+  tags: ["symbols"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Symbols/alphabet.rsi
+    state: eng_v
+
+- type: decal
+  id: ADTEngW
+  tags: ["symbols"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Symbols/alphabet.rsi
+    state: eng_w
+
+- type: decal
+  id: ADTEngXRusKh
+  tags: ["symbols"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Symbols/alphabet.rsi
+    state: eng_x_rus_kh
+
+- type: decal
+  id: ADTEngY
+  tags: ["symbols"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Symbols/alphabet.rsi
+    state: eng_y
+
+- type: decal
+  id: ADTEngZ
+  tags: ["symbols"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Symbols/alphabet.rsi
+    state: eng_z
+
+- type: decal
+  id: ADTExclamationMark
+  tags: ["symbols"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Symbols/alphabet.rsi
+    state: exclamation_mark
+
+- type: decal
+  id: ADTFullStop
+  tags: ["symbols"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Symbols/alphabet.rsi
+    state: full_stop
+
+- type: decal
+  id: ADTRusCh
+  tags: ["symbols"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Symbols/alphabet.rsi
+    state: rus_ch
+
+- type: decal
+  id: ADTRusD
+  tags: ["symbols"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Symbols/alphabet.rsi
+    state: rus_d
+
+- type: decal
+  id: ADTRusE
+  tags: ["symbols"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Symbols/alphabet.rsi
+    state: rus_e
+
+- type: decal
+  id: ADTRusF
+  tags: ["symbols"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Symbols/alphabet.rsi
+    state: rus_f
+
+- type: decal
+  id: ADTRusG
+  tags: ["symbols"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Symbols/alphabet.rsi
+    state: rus_g
+
+- type: decal
+  id: ADTRusHardSing
+  tags: ["symbols"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Symbols/alphabet.rsi
+    state: rus_hard_sign
+
+- type: decal
+  id: ADTRusI
+  tags: ["symbols"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Symbols/alphabet.rsi
+    state: rus_i
+
+- type: decal
+  id: ADTRusIo
+  tags: ["symbols"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Symbols/alphabet.rsi
+    state: rus_io
+
+- type: decal
+  id: ADTRusL
+  tags: ["symbols"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Symbols/alphabet.rsi
+    state: rus_l
+
+- type: decal
+  id: ADTRusP
+  tags: ["symbols"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Symbols/alphabet.rsi
+    state: rus_p
+
+- type: decal
+  id: ADTRusSch
+  tags: ["symbols"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Symbols/alphabet.rsi
+    state: rus_sch
+
+- type: decal
+  id: ADTRusSh
+  tags: ["symbols"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Symbols/alphabet.rsi
+    state: rus_sh
+
+- type: decal
+  id: ADTRusSoftSign
+  tags: ["symbols"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Symbols/alphabet.rsi
+    state: rus_soft_sign
+
+- type: decal
+  id: ADTRusTs
+  tags: ["symbols"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Symbols/alphabet.rsi
+    state: rus_ts
+
+- type: decal
+  id: ADTRusU
+  tags: ["symbols"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Symbols/alphabet.rsi
+    state: rus_u
+
+- type: decal
+  id: ADTRusY
+  tags: ["symbols"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Symbols/alphabet.rsi
+    state: rus_y
+
+- type: decal
+  id: ADTRusYa
+  tags: ["symbols"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Symbols/alphabet.rsi
+    state: rus_ya
+
+- type: decal
+  id: ADTRusYu
+  tags: ["symbols"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Symbols/alphabet.rsi
+    state: rus_yu
+
+- type: decal
+  id: ADTRusZ
+  tags: ["symbols"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Symbols/alphabet.rsi
+    state: rus_z
+
+- type: decal
+  id: ADTRusZh
+  tags: ["symbols"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Symbols/alphabet.rsi
+    state: rus_zh
+
+- type: decal
+  id: ADTRusB
+  tags: ["symbols"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Symbols/alphabet.rsi
+    state: rus_b
+    
+- type: decal
+  id: ADTRusJJ
+  tags: ["symbols"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Symbols/alphabet.rsi
+    state: rus_jj
+    
+- type: decal
+  id: ADTQuestionMark
+  tags: ["symbols"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: ADT/Decals/Symbols/alphabet.rsi
+    state: question_mark
