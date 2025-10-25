@@ -92,8 +92,6 @@ namespace Content.Server.Light.EntitySystems
 
         private void OnMapInit(Entity<HandheldLightComponent> ent, ref MapInitEvent args)
         {
-            if (string.IsNullOrEmpty(ent.Comp.ToggleActionPrototype))
-                return;
             var component = ent.Comp;
             _actionContainer.EnsureAction(ent, ref component.ToggleActionEntity, component.ToggleAction);
             _actions.AddAction(ent, ref component.SelfToggleActionEntity, component.ToggleAction);
