@@ -1,10 +1,14 @@
 using Content.Shared.Implants;
 using Content.Shared.ADT.Sandevistan;
+using Content.Shared.Humanoid;
+using Content.Server.Humanoid;
 
 namespace Content.Server.ADT.Sandevistan;
 
 public sealed class SandevistanImplantSystem : EntitySystem
 {
+    [Dependency] private readonly HumanoidAppearanceSystem _humanoidSystem = default!;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -19,6 +23,11 @@ public sealed class SandevistanImplantSystem : EntitySystem
             return;
 
         EnsureComp<SandevistanUserComponent>(owner);
+
+        if (!string.IsNullOrEmpty(comp.MarkingId) && TryComp<HumanoidAppearanceComponent>(owner, out _))
+        {
+            _humanoidSystem.AddMarking(owner, comp.MarkingId, comp.MarkingColor, sync: true, forced: comp.ForcedMarking);
+        }
     }
 
     private void OnRemoved(EntityUid uid, SandevistanImplantComponent comp, ref ImplantRemovedEvent args)
@@ -29,6 +38,10 @@ public sealed class SandevistanImplantSystem : EntitySystem
         if (TryComp<SandevistanUserComponent>(owner, out var user))
         {
             RemComp<SandevistanUserComponent>(owner);
+            if (!string.IsNullOrEmpty(comp.MarkingId) && TryComp<HumanoidAppearanceComponent>(owner, out _))
+            {
+                _humanoidSystem.RemoveMarking(owner, comp.MarkingId, sync: true);
+            }
         }
     }
 }

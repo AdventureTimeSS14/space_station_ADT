@@ -90,7 +90,7 @@
   - type: Action
     checkCanInteract: false
     icon:
-      sprite: ADT/Interface/Actions/muscles_implant.rsi
+      sprite: ADT/Interface/Actions/sandevistan.rsi
       state: icon
     itemIconStyle: BigAction
     useDelay: 3
