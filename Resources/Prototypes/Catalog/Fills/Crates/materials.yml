@@ -181,7 +181,7 @@
     - id: MaterialSiloMachineCircuitboard
     - id: SheetSteel1
       amount: 5
-    - id: MicroManipulatorStockPart
+    - id: MatterBinStockPart # ADT-Tweak revert wiz pr 37725
       amount: 4
     - id: CableApcStack1
       amount: 2

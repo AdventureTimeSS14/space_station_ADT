@@ -11,6 +11,8 @@
   - Igniter
   - ModularReceiver
   - MicroManipulatorStockPart
+  - MatterBinStockPart # ADT-Tweak revert wiz pr 37725
+  - CapacitorStockPart # ADT-Tweak revert wiz pr 37725
   - ConveyorBeltAssembly
 
 - type: latheRecipePack
