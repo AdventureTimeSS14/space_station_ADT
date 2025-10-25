@@ -565,7 +565,7 @@
   id: ADTUplinkSandevistanImplant
   name: uplink-sandevistan-implant-name
   description: uplink-sandevistan-implant-desc
-  productEntity: ADTSandevistanImplanter
+  productEntity: ADTSandevistanAutoSurgeon
   cost:
     Telecrystal: 15
   categories:
