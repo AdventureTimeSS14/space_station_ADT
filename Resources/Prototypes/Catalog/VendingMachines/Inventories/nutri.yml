@@ -1,6 +1,7 @@
 - type: vendingMachineInventory
   id: NutriMaxInventory
   startingInventory:
+    WateringCan: 2 # Ganimed
     HydroponicsToolSpade: 4
     HydroponicsToolMiniHoe: 4
     HydroponicsToolClippers: 4

@@ -1,0 +1,25 @@
+- type: entity
+  name: bluespace botanist bag
+  id: BotanistBagOfHolding
+  parent: BaseStorageItem
+  description: A durable bag for billionaire botanists, designed to carry large amounts of plants. When worn on the belt, it automatically pulls nearby plants into itself.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Objects/Specific/Hydroponics/plant_bag_bluespace.rsi
+    state: icon
+  - type: MagnetPickup
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - belt
+  - type: Storage
+    grid:
+    - 0,0,19,9
+    maxItemSize: Small
+    quickInsert: true
+    areaInsert: true
+    whitelist:
+      components:
+        - Produce
+        - Seed
+  - type: Dumpable
