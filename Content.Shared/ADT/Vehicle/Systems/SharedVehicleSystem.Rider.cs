@@ -17,7 +17,7 @@ public abstract partial class SharedVehicleSystem
         SubscribeLocalEvent<RiderComponent, VirtualItemDeletedEvent>(OnVirtualItemDeleted);
         SubscribeLocalEvent<RiderComponent, PullAttemptEvent>(OnPullAttempt);
         SubscribeLocalEvent<RiderComponent, ShotAttemptedEvent>(OnShootAttempt);
-        SubscribeLocalEvent<RiderComponent, AttackEvent>(OnHitAttempt);
+        SubscribeLocalEvent<RiderComponent, MeleeHitEvent>(OnHitAttempt);
     }
 
     private void OnRiderGetState(EntityUid uid, RiderComponent component, ref ComponentGetState args)
@@ -49,7 +49,7 @@ public abstract partial class SharedVehicleSystem
     {
         args.Cancel();
     }
-    private void OnHitAttempt(EntityUid uid, RiderComponent component, AttackEvent args)
+    private void OnHitAttempt(EntityUid uid, RiderComponent component, MeleeHitEvent args)
     {
         _stun.TryKnockdown(uid, TimeSpan.FromSeconds(4), refresh: false);
     }
