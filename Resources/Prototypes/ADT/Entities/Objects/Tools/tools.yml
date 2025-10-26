@@ -94,7 +94,7 @@
     maxCharges: 100
     lastCharges: 100
   - type: AutoRecharge
-    rechargeDuration: 10
+    rechargeDuration: 2
 - type: entity
   name: scalpel
   id: ADTSupermatterScalpel
