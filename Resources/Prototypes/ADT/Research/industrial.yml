@@ -111,7 +111,7 @@
   # Fuck you new RnD console
 
 - type: technology
-  id: ADTAdvancedEnergy
+  id: ADTEngineeringRobotics
   name: research-technology-engineering-robotics
   icon:
     sprite: Mobs/Silicon/chassis.rsi
