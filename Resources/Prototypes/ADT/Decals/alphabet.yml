@@ -447,7 +447,7 @@
   sprite:
     sprite: ADT/Decals/Symbols/alphabet.rsi
     state: rus_b
-    
+
 - type: decal
   id: ADTRusJJ
   tags: ["symbols"]
@@ -456,7 +456,7 @@
   sprite:
     sprite: ADT/Decals/Symbols/alphabet.rsi
     state: rus_jj
-    
+
 - type: decal
   id: ADTQuestionMark
   tags: ["symbols"]
