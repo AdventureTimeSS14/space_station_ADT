@@ -3,7 +3,7 @@
   parent: BaseStructure
   name: large skull
   suffix: Lavaland
-  description: a large skull that belong to the unknown creature.
+  description: a large skull that belongs to the unknown creature.
   components:
   - type: Sprite
     noRot: true
@@ -17,7 +17,7 @@
   parent: BaseStructure
   name: large bone
   suffix: Lavaland
-  description: a large bone that belong to the unknown creature.
+  description: a large bone that belongs to the unknown creature.
   components:
   - type: Sprite
     noRot: true
@@ -39,7 +39,7 @@
   parent: BaseStructure
   name: large bone
   suffix: Lavaland
-  description: a large bone that belong to the unknown creature.
+  description: a large bone that belongs to the unknown creature.
   components:
   - type: Sprite
     noRot: true
@@ -61,7 +61,7 @@
   parent: BaseStructure
   name: large ribs
   suffix: Lavaland
-  description: a large ribs that belong to the unknown creature.
+  description: a large bone that belongs to the unknown creature.
   components:
   - type: Sprite
     noRot: true
@@ -86,7 +86,7 @@
   parent: BaseStructure
   name: large ribs
   suffix: Lavaland
-  description: a large ribs that belong to the unknown creature.
+  description: a large bone that belongs to the unknown creature.
   components:
   - type: Sprite
     noRot: true
@@ -139,7 +139,7 @@
   - type: Sprite
     noRot: true
     sprite: ADT/Structures/Decoration/Ancient_bones/ribs.rsi
-    state: large_rib_right 
+    state: large_rib_right
     drawdepth: Mobs
     offset: "0.0,0.5"
   - type: Fixtures
