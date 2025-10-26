@@ -56,7 +56,6 @@
         acts: [ "Destruction" ]
   - type: Physics
     bodyType: Static
-    canCollide: false
   - type: Fixtures
     fixtures:
       slips:
