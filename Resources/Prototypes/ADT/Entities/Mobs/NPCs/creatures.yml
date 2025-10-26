@@ -550,7 +550,7 @@
         Base: shadow_of_cluwne
         BaseUnshaded: shadow_of_cluwne_glowing
       Critical:
-        Base: shadow_of_cluwne_dead
+        Base: shadow_of_cluwne_sleep
       Dead:
         Base: shadow_of_cluwne_dead
   - type: TTS
