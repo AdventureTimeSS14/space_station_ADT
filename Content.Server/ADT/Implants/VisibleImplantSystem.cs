@@ -114,7 +114,7 @@ public sealed class VisibleImplantSystem : SharedVisibleImplantSystem
             _appearance.SetData(uid, MantisDaggersVisuals.Active, true);
             _appearance.SetData(uid, MantisDaggersVisuals.Inactive, false);
             var reflect = EnsureComp<ReflectComponent>(uid);
-            reflect.ReflectProb = 0.3f;
+            reflect.ReflectProb = 0.5f;
         }
         else
         {

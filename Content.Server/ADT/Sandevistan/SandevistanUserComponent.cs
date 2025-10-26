@@ -47,22 +47,22 @@ public sealed partial class SandevistanUserComponent : Component
     [DataField]
     public SortedDictionary<SandevistanState, FixedPoint2> Thresholds = new()
     {
-        { SandevistanState.Warning, 3 },
-        { SandevistanState.Shaking, 6 },
-        { SandevistanState.Stamina, 8 },
-        { SandevistanState.Damage, 10 },
-        { SandevistanState.Death, 14 },
+        { SandevistanState.Warning, 6 },
+        { SandevistanState.Shaking, 12 },
+        { SandevistanState.Stamina, 18 },
+        { SandevistanState.Damage, 24 },
+        { SandevistanState.Death, 32 },
     };
 
     [DataField]
-    public float StaminaDamage = 25f;
+    public float StaminaDamage = 10f;
 
     [DataField]
     public DamageSpecifier Damage = new()
     {
         DamageDict = new Dictionary<string, FixedPoint2>
         {
-            { "Blunt", 25 },
+            { "Blunt", 10 },
         },
     };
 
