@@ -105,7 +105,7 @@
   recipeUnlocks:
     - ADTPowerCellHyperRecipe
     - ADTIndustrialChargerCircuitboard
-  position: -1,-1  # I have to move it
+  position: -1,-1  # ADT-Tweak I have to move it
   requiredTech:
   - AdvancedPowercells
   # Fuck you new RnD console
