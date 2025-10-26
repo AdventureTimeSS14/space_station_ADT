@@ -8,6 +8,7 @@
     Glass: 100
     Plastic: 50
     Gold: 50
+    Copper: 100
 
 - type: latheRecipe
   id: BubblishTranslator
@@ -17,6 +18,7 @@
     Steel: 500
     Plastic: 50
     Gold: 50
+    Copper: 100
 
 - type: latheRecipe
   id: NekomimeticTranslator
@@ -27,6 +29,7 @@
     Glass: 100
     Plastic: 50
     Gold: 50
+    Copper: 100
 
 - type: latheRecipe
   id: DraconicTranslator
@@ -37,6 +40,7 @@
     Glass: 100
     Plastic: 50
     Gold: 50
+    Copper: 100
 
 - type: latheRecipe
   id: SolCommonTranslator
@@ -47,6 +51,7 @@
     Glass: 100
     Plastic: 50
     Gold: 50
+    Copper: 100
 
 - type: latheRecipe
   id: VoxPidginTranslator
@@ -57,6 +62,7 @@
     Glass: 100
     Plastic: 50
     Gold: 50
+    Copper: 100
 
 - type: latheRecipe
   id: RootSpeakTranslator
@@ -67,6 +73,7 @@
     Glass: 100
     Plastic: 50
     Gold: 50
+    Copper: 100
 
 - type: latheRecipe
   id: MofficTranslator
@@ -77,6 +84,7 @@
     Glass: 100
     Plastic: 50
     Gold: 50
+    Copper: 100
 
 - type: latheRecipe
   id: GalacticCommonTranslatorImplanter
@@ -88,6 +96,7 @@
     Plastic: 100
     Gold: 50
     Silver: 50
+    Copper: 100
 
 #- type: latheRecipe
 #  id: XenoTranslator
@@ -110,6 +119,7 @@
     Plastic: 100
     Gold: 50
     Silver: 50
+    Copper: 100
 
 - type: latheRecipe
   id: NekomimeticTranslatorImplanter
@@ -121,6 +131,7 @@
     Plastic: 100
     Gold: 50
     Silver: 50
+    Copper: 100
 
 - type: latheRecipe
   id: DraconicTranslatorImplanter
@@ -132,6 +143,7 @@
     Plastic: 100
     Gold: 50
     Silver: 50
+    Copper: 100
 
 - type: latheRecipe
   id: CanilunztTranslatorImplanter
@@ -143,6 +155,7 @@
     Plastic: 100
     Gold: 50
     Silver: 50
+    Copper: 100
 
 - type: latheRecipe
   id: SolCommonTranslatorImplanter
@@ -154,6 +167,7 @@
     Plastic: 100
     Gold: 50
     Silver: 50
+    Copper: 100
 
 - type: latheRecipe
   id: RootSpeakTranslatorImplanter
@@ -165,6 +179,7 @@
     Plastic: 100
     Gold: 50
     Silver: 50
+    Copper: 100
 
 - type: latheRecipe
   id: MofficTranslatorImplanter
@@ -176,6 +191,7 @@
     Plastic: 100
     Gold: 50
     Silver: 50
+    Copper: 100
 
 - type: latheRecipe
   id: IPCTranslatorImplanter
@@ -187,6 +203,7 @@
     Plastic: 100
     Gold: 50
     Silver: 50
+    Copper: 300
 
 - type: latheRecipe
   id: BorgTranslatorImplanter
@@ -198,6 +215,7 @@
     Plastic: 100
     Gold: 50
     Silver: 50
+    Copper: 400
 
 - type: latheRecipe
   id: DwarfTranslatorImplanter
@@ -209,6 +227,7 @@
     Plastic: 100
     Gold: 50
     Silver: 50
+    Copper: 200
 
 - type: latheRecipe
   id: AnimalTranslator
@@ -220,6 +239,7 @@
     Gold: 50
     Plasma: 50
     Silver: 5
+    Copper: 200
 
 - type: latheRecipe
   id: SikTajTranslatorImplanter
@@ -231,6 +251,7 @@
     Plastic: 100
     Gold: 50
     Silver: 50
+    Copper: 100
 
 - type: latheRecipe
   id: NianTranslatorImplanter
@@ -242,6 +263,7 @@
     Plastic: 100
     Gold: 50
     Silver: 50
+    Copper: 200
 
 - type: latheRecipe
   id: FireTranslatorImplanter
@@ -253,6 +275,7 @@
     Plastic: 100
     Gold: 50
     Silver: 50
+    Copper: 100
 
 - type: latheRecipe
   id: DraskTranslatorImplanter
@@ -264,6 +287,7 @@
     Plastic: 100
     Gold: 50
     Silver: 50
+    Copper: 100
 
 - type: latheRecipe
   id: DraskTranslator
@@ -274,6 +298,7 @@
     Glass: 100
     Plastic: 50
     Gold: 50
+    Copper: 200
 
 - type: latheRecipe
   id: DwarfTranslator
@@ -284,6 +309,7 @@
     Glass: 100
     Plastic: 50
     Gold: 50
+    Copper: 200
 
 - type: latheRecipe
   id: IPCTranslator
@@ -294,6 +320,7 @@
     Glass: 100
     Plastic: 50
     Gold: 50
+    Copper: 300
 
 - type: latheRecipe
   id: UrsTranslatorImplanter
@@ -305,6 +332,7 @@
     Plastic: 100
     Gold: 50
     Silver: 50
+    Copper: 200
 
 - type: latheRecipe
   id: ArkaneTranslatorImplanter
@@ -316,6 +344,7 @@
     Plastic: 100
     Gold: 50
     Silver: 50
+    Copper: 200
 
 - type: latheRecipe
   id: CintaTajTranslatorImplanter
@@ -327,6 +356,7 @@
     Plastic: 100
     Gold: 50
     Silver: 50
+    Copper: 200
 
 - type: latheRecipe
   id: UrsTranslator
@@ -337,6 +367,7 @@
     Glass: 100
     Plastic: 50
     Gold: 50
+    Copper: 100
 
 - type: latheRecipe
   id: ArkaneTranslator
@@ -347,6 +378,7 @@
     Glass: 100
     Plastic: 50
     Gold: 50
+    Copper: 100
 
 - type: latheRecipe
   id: NianTranslator
@@ -357,6 +389,7 @@
     Glass: 100
     Plastic: 50
     Gold: 50
+    Copper: 100
 
 - type: latheRecipe
   id: FireTranslator
@@ -367,6 +400,7 @@
     Glass: 100
     Plastic: 50
     Gold: 50
+    Copper: 100
 
 - type: latheRecipe
   id: SikTajTranslator
@@ -377,6 +411,7 @@
     Glass: 100
     Plastic: 50
     Gold: 50
+    Copper: 100
 
 - type: latheRecipe
   id: CintaTajTranslator
@@ -387,6 +422,7 @@
     Glass: 100
     Plastic: 50
     Gold: 50
+    Copper: 100
 
 - type: latheRecipe
   id: VoxPidginTranslatorImplanter
@@ -398,6 +434,7 @@
     Plastic: 100
     Gold: 50
     Silver: 50
+    Copper: 100
 
 - type: latheRecipe
   id: ScratchesTranslator
@@ -408,6 +445,7 @@
     Glass: 100
     Plastic: 50
     Gold: 50
+    Copper: 100
 
 - type: latheRecipe
   id: ScratchesTranslatorImplanter
@@ -419,3 +457,4 @@
     Plastic: 100
     Gold: 50
     Silver: 50
+    Copper: 100

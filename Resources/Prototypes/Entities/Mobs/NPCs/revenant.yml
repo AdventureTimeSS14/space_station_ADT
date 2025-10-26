@@ -96,7 +96,3 @@
     - SlowImmune
     - KnockdownImmune
     - NoPaint #ADT tweak
-  - type: Electrified #ADT tweak
-    requirePower: false
-    shockDamage: 70
-    shockTime: 4

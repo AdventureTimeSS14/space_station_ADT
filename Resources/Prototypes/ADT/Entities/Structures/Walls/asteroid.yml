@@ -1,0 +1,664 @@
+- type: entity
+  id: ADTWallRockCopper
+  parent: WallRock
+  description: An ore vein rich with copper.
+  suffix: Copper
+  components:
+  - type: EntityRemap
+    mask:
+      AsteroidRock: ADTAsteroidRockCopper
+      WallRockBasalt: ADTWallRockBasaltCopper
+      WallRockChromite: ADTWallRockChromiteCopper
+      WallRockSand: ADTWallRockSandCopper
+      WallRockSnow: ADTWallRockSnowCopper
+  - type: OreVein
+    oreChance: 1.0
+    currentOre: ADTOreCopper
+  - type: Icon
+    sprite: ADT/Structures/Walls/rock.rsi
+  - type: Sprite
+    sprite: ADT/Structures/Walls/rock.rsi
+    layers:
+      - state: rock_copper
+        map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+      - state: rock
+      - map: [ "enum.EdgeLayer.South" ]
+        state: rock_south
+      - map: [ "enum.EdgeLayer.East" ]
+        state: rock_east
+      - map: [ "enum.EdgeLayer.North" ]
+        state: rock_north
+      - map: [ "enum.EdgeLayer.West" ]
+        state: rock_west
+
+- type: entity
+  id: ADTAsteroidRockCopper
+  parent: AsteroidRock
+  description: An ore vein rich with copper.
+  suffix: Copper
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: ADTOreCopper
+    - type: Icon
+      sprite: ADT/Structures/Walls/rock.rsi
+    - type: Sprite
+      sprite: ADT/Structures/Walls/rock.rsi
+      layers:
+        - state: rock_copper
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+        - state: rock_asteroid
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_asteroid_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_asteroid_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_asteroid_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_asteroid_west
+
+- type: entity
+  id: ADTMeteorRockCopper
+  parent: MeteorRock
+  description: An ore vein rich with copper.
+  suffix: Copper
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: ADTOreCopper
+    - type: Icon
+      sprite: ADT/Structures/Walls/rock.rsi
+    - type: Sprite
+      sprite: ADT/Structures/Walls/rock.rsi
+      layers:
+        - state: rock_copper
+        - state: rock_asteroid
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_asteroid_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_asteroid_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_asteroid_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_asteroid_west
+
+- type: entity
+  id: ADTIronRockCopper
+  parent: IronRock
+  description: An ore vein rich with copper.
+  suffix: Copper
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: ADTOreCopper
+    - type: Icon
+      sprite: ADT/Structures/Walls/rock.rsi
+    - type: Sprite
+      sprite: ADT/Structures/Walls/rock.rsi
+      layers:
+        - state: rock_copper
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+        - state: ironrock
+        - map: [ "enum.EdgeLayer.South" ]
+          state: ironrock_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: ironrock_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: ironrock_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: ironrock_west
+
+- type: entity
+  id: ADTWallRockBasaltCopper
+  parent: WallRockBasalt
+  description: An ore vein rich with copper.
+  suffix: Copper
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: ADTOreCopper
+    - type: Icon
+      sprite: ADT/Structures/Walls/rock.rsi
+    - type: Sprite
+      sprite: ADT/Structures/Walls/rock.rsi
+      layers:
+        - state: rock_copper
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+        - state: rock_wall
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_wall_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_wall_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_wall_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_wall_west
+
+- type: entity
+  id: ADTWallRockSnowCopper
+  parent: WallRockSnow
+  description: An ore vein rich with copper.
+  suffix: Copper
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: ADTOreCopper
+    - type: Icon
+      sprite: ADT/Structures/Walls/rock.rsi
+    - type: Sprite
+      sprite: ADT/Structures/Walls/rock.rsi
+      layers:
+        - state: rock_copper
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+        - state: rock_snow
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_snow_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_snow_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_snow_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_snow_west
+
+- type: entity
+  id: ADTWallRockSandCopper
+  parent: WallRockSand
+  description: An ore vein rich with quartz.
+  suffix: Copper
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: ADTOreCopper
+    - type: Icon
+      sprite: ADT/Structures/Walls/rock.rsi
+    - type: Sprite
+      sprite: ADT/Structures/Walls/rock.rsi
+      layers:
+        - state: rock_copper
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+        - state: rock_sand
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_sand_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_sand_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_sand_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_sand_west
+
+- type: entity
+  id: ADTWallRockChromiteCopper
+  parent: WallRockChromite
+  description: An ore vein rich with quartz.
+  suffix: Copper
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: ADTOreCopper
+    - type: Icon
+      sprite: ADT/Structures/Walls/rock.rsi
+    - type: Sprite
+      sprite: ADT/Structures/Walls/rock.rsi
+      layers:
+        - state: rock_copper
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+        - state: rock_chromite
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_chromite_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_chromite_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_chromite_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_chromite_west
+
+- type: entity
+  id: ADTWallRockAndesiteCopper
+  parent: WallRockAndesite
+  description: An ore vein rich with quartz.
+  suffix: Copper
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: ADTOreCopper
+    - type: Icon
+      sprite: ADT/Structures/Walls/rock.rsi
+    - type: Sprite
+      sprite: ADT/Structures/Walls/rock.rsi
+      layers:
+        - state: rock_copper
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+        - state: rock_andesite
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_andesite_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_andesite_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_andesite_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_andesite_west
+
+
+- type: entity
+  id: ADTWallRockZinc
+  parent: WallRock
+  description: An ore vein rich with zinc.
+  suffix: Zinc
+  components:
+  - type: EntityRemap
+    mask:
+      AsteroidRock: ADTAsteroidRockZinc
+      WallRockBasalt: ADTWallRockBasaltZinc
+      WallRockChromite: ADTWallRockChromiteZinc
+      WallRockSand: ADTWallRockSandZinc
+      WallRockSnow: ADTWallRockSnowZinc
+  - type: OreVein
+    oreChance: 1.0
+    currentOre: ADTOreZinc
+  - type: Icon
+    sprite: ADT/Structures/Walls/rock.rsi
+  - type: Sprite
+    sprite: ADT/Structures/Walls/rock.rsi
+    layers:
+      - state: rock_zinc
+        map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+      - state: rock
+      - map: [ "enum.EdgeLayer.South" ]
+        state: rock_south
+      - map: [ "enum.EdgeLayer.East" ]
+        state: rock_east
+      - map: [ "enum.EdgeLayer.North" ]
+        state: rock_north
+      - map: [ "enum.EdgeLayer.West" ]
+        state: rock_west
+
+- type: entity
+  id: ADTAsteroidRockZinc
+  parent: AsteroidRock
+  description: An ore vein rich with zinc.
+  suffix: Zinc
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: ADTOreZinc
+    - type: Icon
+      sprite: ADT/Structures/Walls/rock.rsi
+    - type: Sprite
+      sprite: ADT/Structures/Walls/rock.rsi
+      layers:
+        - state: rock_zinc
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+        - state: rock_asteroid
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_asteroid_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_asteroid_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_asteroid_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_asteroid_west
+
+- type: entity
+  id: ADTMeteorRockZinc
+  parent: MeteorRock
+  description: An ore vein rich with zinc.
+  suffix: Zinc
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: ADTOreZinc
+    - type: Icon
+      sprite: ADT/Structures/Walls/rock.rsi
+    - type: Sprite
+      sprite: ADT/Structures/Walls/rock.rsi
+      layers:
+        - state: rock_zinc
+        - state: rock_asteroid
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_asteroid_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_asteroid_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_asteroid_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_asteroid_west
+
+- type: entity
+  id: ADTIronRockZinc
+  parent: IronRock
+  description: An ore vein rich with zinc.
+  suffix: Zinc
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: ADTOreZinc
+    - type: Icon
+      sprite: ADT/Structures/Walls/rock.rsi
+    - type: Sprite
+      sprite: ADT/Structures/Walls/rock.rsi
+      layers:
+        - state: rock_zinc
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+        - state: ironrock
+        - map: [ "enum.EdgeLayer.South" ]
+          state: ironrock_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: ironrock_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: ironrock_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: ironrock_west
+
+- type: entity
+  id: ADTWallRockBasaltZinc
+  parent: WallRockBasalt
+  description: An ore vein rich with zinc.
+  suffix: Zinc
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: ADTOreZinc
+    - type: Icon
+      sprite: ADT/Structures/Walls/rock.rsi
+    - type: Sprite
+      sprite: ADT/Structures/Walls/rock.rsi
+      layers:
+        - state: rock_zinc
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+        - state: rock_wall
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_wall_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_wall_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_wall_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_wall_west
+
+- type: entity
+  id: ADTWallRockSnowZinc
+  parent: WallRockSnow
+  description: An ore vein rich with zinc.
+  suffix: Zinc
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: ADTOreZinc
+    - type: Icon
+      sprite: ADT/Structures/Walls/rock.rsi
+    - type: Sprite
+      sprite: ADT/Structures/Walls/rock.rsi
+      layers:
+        - state: rock_zinc
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+        - state: rock_snow
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_snow_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_snow_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_snow_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_snow_west
+
+- type: entity
+  id: ADTWallRockSandZinc
+  parent: WallRockSand
+  description: An ore vein rich with quartz.
+  suffix: Zinc
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: ADTOreZinc
+    - type: Icon
+      sprite: ADT/Structures/Walls/rock.rsi
+    - type: Sprite
+      sprite: ADT/Structures/Walls/rock.rsi
+      layers:
+        - state: rock_zinc
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+        - state: rock_sand
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_sand_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_sand_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_sand_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_sand_west
+
+- type: entity
+  id: ADTWallRockChromiteZinc
+  parent: WallRockChromite
+  description: An ore vein rich with quartz.
+  suffix: Zinc
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: ADTOreZinc
+    - type: Icon
+      sprite: ADT/Structures/Walls/rock.rsi
+    - type: Sprite
+      sprite: ADT/Structures/Walls/rock.rsi
+      layers:
+        - state: rock_zinc
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+        - state: rock_chromite
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_chromite_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_chromite_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_chromite_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_chromite_west
+
+- type: entity
+  id: ADTWallRockAndesiteZinc
+  parent: WallRockAndesite
+  description: An ore vein rich with quartz.
+  suffix: Zinc
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: ADTOreZinc
+    - type: Icon
+      sprite: ADT/Structures/Walls/rock.rsi
+    - type: Sprite
+      sprite: ADT/Structures/Walls/rock.rsi
+      layers:
+        - state: rock_zinc
+          map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+        - state: rock_andesite
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_andesite_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_andesite_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_andesite_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_andesite_west
+
+
+- type: entity
+  id: ADTWallRockGibtonit
+  parent: [WallRock, ADTAsteroidRockGibtonite]
+  description: An ore vein rich with Gibtonite.
+  suffix: Gibtonite
+  components:
+  - type: EntityRemap
+    mask:
+      AsteroidRock: ADTAsteroidRockGibtonit
+      WallRockBasalt: ADTWallRockBasaltGibtonit
+      WallRockChromite: ADTWallRockChromiteGibtonit
+      WallRockSand: ADTWallRockSandGibtonit
+      WallRockSnow: ADTWallRockSnowGibtonit
+  - type: Sprite
+    sprite: Structures/Walls/rock.rsi
+    layers:
+      - state: rock
+      - map: [ "enum.EdgeLayer.South" ]
+        state: rock_south
+      - map: [ "enum.EdgeLayer.East" ]
+        state: rock_east
+      - map: [ "enum.EdgeLayer.North" ]
+        state: rock_north
+      - map: [ "enum.EdgeLayer.West" ]
+        state: rock_west
+      - state: gibtonite_inactive
+        visible: false
+        map: [ "enum.MiningScannerVisualLayers.Overlay", "gib" ]
+
+- type: entity
+  id: ADTAsteroidRockGibtonit
+  parent: [AsteroidRock, ADTAsteroidRockGibtonite]
+  description: An ore vein rich with gibtonite.
+  suffix: Gibtonite
+  components:
+    - type: Sprite
+      sprite: Structures/Walls/rock.rsi
+      layers:
+        - state: rock_asteroid
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_asteroid_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_asteroid_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_asteroid_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_asteroid_west
+        - state: gibtonite_inactive
+          visible: false
+          map: [ "enum.MiningScannerVisualLayers.Overlay", "gib" ]
+
+- type: entity
+  id: ADTMeteorRockGibtonit
+  parent: [MeteorRock, ADTAsteroidRockGibtonite]
+  description: An ore vein rich with gibtonite.
+  suffix: Gibtonite
+  components:
+    - type: Sprite
+      sprite: Structures/Walls/rock.rsi
+      layers:
+        - state: rock_asteroid
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_asteroid_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_asteroid_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_asteroid_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_asteroid_west
+        - state: gibtonite_inactive
+          visible: false
+          map: [ "enum.MiningScannerVisualLayers.Overlay", "gib" ]
+
+- type: entity
+  id: ADTWallRockBasaltGibtonit
+  parent: [WallRockBasalt, ADTAsteroidRockGibtonite]
+  description: An ore vein rich with gibtonite.
+  suffix: Gibtonite
+  components:
+    - type: Sprite
+      sprite: Structures/Walls/rock.rsi
+      layers:
+        - state: rock_wall
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_wall_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_wall_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_wall_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_wall_west
+        - state: gibtonite_inactive
+          visible: false
+          map: [ "enum.MiningScannerVisualLayers.Overlay", "gib" ]
+
+- type: entity
+  id: ADTWallRockSnowGibtonit
+  parent: [WallRockSnow, ADTAsteroidRockGibtonite]
+  description: An ore vein rich with gibtonite.
+  suffix: Gibtonite
+  components:
+    - type: Sprite
+      sprite: Structures/Walls/rock.rsi
+      layers:
+        - state: rock_snow
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_snow_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_snow_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_snow_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_snow_west
+        - state: gibtonite_inactive
+          visible: false
+          map: [ "enum.MiningScannerVisualLayers.Overlay", "gib" ]
+
+- type: entity
+  id: ADTWallRockSandGibtonit
+  parent: [WallRockSand, ADTAsteroidRockGibtonite]
+  description: An ore vein rich with gibtonite.
+  suffix: Gibtonite
+  components:
+    - type: Sprite
+      sprite: Structures/Walls/rock.rsi
+      layers:
+        - state: rock_sand
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_sand_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_sand_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_sand_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_sand_west
+        - state: gibtonite_inactive
+          visible: false
+          map: [ "enum.MiningScannerVisualLayers.Overlay", "gib" ]
+
+- type: entity
+  id: ADTWallRockChromiteGibtonit
+  parent: [WallRockChromite, ADTAsteroidRockGibtonite]
+  description: An ore vein rich with gibtonite.
+  suffix: Gibtonite
+  components:
+    - type: Sprite
+      sprite: Structures/Walls/rock.rsi
+      layers:
+        - state: rock_chromite
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_chromite_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_chromite_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_chromite_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_chromite_west
+        - state: gibtonite_inactive
+          visible: false
+          map: [ "enum.MiningScannerVisualLayers.Overlay", "gib" ]
+
+- type: entity
+  id: ADTWallRockAndesiteGibtonit
+  parent: [WallRockAndesite, ADTAsteroidRockGibtonite]
+  description: An ore vein rich with gibtonite.
+  suffix: Gibtonite
+  components:
+    - type: Sprite
+      sprite: Structures/Walls/rock.rsi
+      layers:
+        - state: rock_andesite
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_andesite_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_andesite_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_andesite_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_andesite_west
+        - state: gibtonite_inactive
+          visible: false
+          map: [ "enum.MiningScannerVisualLayers.Overlay", "gib" ]

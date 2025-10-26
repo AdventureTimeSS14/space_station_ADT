@@ -65,7 +65,7 @@
   id: FillLockerWardenHarduit
   table: !type:AllSelector
     children:
-    - id: ClothingOuterHardsuitWarden
+  # - id: ClothingOuterHardsuitWarden ADT tweak
     - id: OxygenTankFilled
     - id: ClothingMaskBreath
 

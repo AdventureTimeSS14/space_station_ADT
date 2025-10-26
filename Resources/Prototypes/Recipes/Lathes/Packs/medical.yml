@@ -94,8 +94,6 @@
   - SyringeCryostasis
   - BluespaceBeaker
   - SyringeBluespace
-  - LauncherSyringe
-  - MiniSyringe
   - ADTBlankMediPen # ADT-Tweak
 
 - type: latheRecipePack

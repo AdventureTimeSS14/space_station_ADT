@@ -105,6 +105,12 @@
           tags:
           - PowerCell
           - PowerCellSmall
+# ADT-tweak-start
+        blacklist:
+          tags:
+          - ADTMegaCell
+# ADT-tweak-end
+
 - type: entity
   parent: [ BaseItemRecharger, ConstructibleMachine ]
   id: PowerCageRecharger
@@ -194,6 +200,7 @@
         blacklist:
           tags:
           - PotatoBattery
+          - ADTMegaCell # ADT-Tweak
           components: # ADT plasmacutters
           - BatteryRecharge # ADT plasmacutters
           - BatterySelfRecharger # ADT-tweak
