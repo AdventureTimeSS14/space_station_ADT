@@ -13,6 +13,9 @@
       "directions": 4
     },
     {
+      "name": "icon"
+    },
+    {
       "name": "thrust",
       "directions": 4
     },
