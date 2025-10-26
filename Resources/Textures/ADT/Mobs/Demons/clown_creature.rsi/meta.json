@@ -21,6 +21,10 @@
         "name": "shadow_of_cluwne_dead",
         "directions": 1
       },
+        {
+        "name": "shadow_of_cluwne_sleep",
+        "directions": 1
+      },
       {
         "name": "shadow_of_cluwne_glowing",
         "directions": 4
