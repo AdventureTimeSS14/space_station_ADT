@@ -140,6 +140,10 @@ public sealed class VisibleImplantSystem : SharedVisibleImplantSystem
 
         if (ent.Comp.Active)
         {
+            if (TryComp<ReflectComponent>(uid, out var reflect))
+            {
+                RemComp<ReflectComponent>(uid);
+            }
             _appearance.SetData(uid, MantisDaggersVisuals.Active, false);
             _appearance.SetData(uid, MantisDaggersVisuals.Inactive, true);
             ent.Comp.Active = false;

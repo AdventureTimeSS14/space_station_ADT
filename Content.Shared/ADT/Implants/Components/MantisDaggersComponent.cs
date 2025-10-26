@@ -51,7 +51,7 @@ public sealed partial class MantisDaggersComponent : Component
     {
         DamageDict = new Dictionary<string, FixedPoint2>
         {
-            { "Shock", 25 },
+            { "Shock", 12 },
         },
     };
 }
