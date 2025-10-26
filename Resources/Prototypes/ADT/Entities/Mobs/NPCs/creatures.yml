@@ -542,7 +542,7 @@
       - map: ["pocket2"]
       - map: ["enum.HumanoidVisualLayers.Tail"]
   - type: Icon # It will not have an icon in the adminspawn menu without this. Body parts seem fine for whatever reason.
-    sprite: ADT/Mobs/Demons/shadow_of_cluwne.rsi
+    sprite: ADT/Mobs/Demons/clown_creature.rsi
     state:  shadow_of_cluwne_icon
   - type: DamageStateVisuals
     states:
