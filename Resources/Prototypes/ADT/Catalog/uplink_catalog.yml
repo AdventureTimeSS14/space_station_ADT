@@ -567,8 +567,10 @@
   description: uplink-sandevistan-implant-desc
   icon: { sprite: ADT/Implants/sandevistan.rsi, state: icon}
   productEntity: ADTSandevistanAutoSurgeon
+  discountDownTo:
+    Telecrystal: 10
   cost:
-    Telecrystal: 15
+    Telecrystal: 12
   categories:
     - UplinkImplants
 
@@ -579,7 +581,7 @@
   productEntity: ADTMantisDaggersAutoSurgeon
   icon: { sprite: ADT/Implants/mantis_daggers.rsi, state: icon}
   discountDownTo:
-    Telecrystal: 5
+    Telecrystal: 4
   cost:
     Telecrystal: 7
   categories:

@@ -2,6 +2,7 @@ using Content.Shared.Implants;
 using Content.Shared.ADT.Sandevistan;
 using Content.Shared.Humanoid;
 using Content.Server.Humanoid;
+using Content.Shared.GrabProtection;
 
 namespace Content.Server.ADT.Sandevistan;
 
@@ -23,6 +24,7 @@ public sealed class SandevistanImplantSystem : EntitySystem
             return;
 
         EnsureComp<SandevistanUserComponent>(owner);
+        EnsureComp<GrabProtectionComponent>(owner);
 
         if (!string.IsNullOrEmpty(comp.MarkingId) && TryComp<HumanoidAppearanceComponent>(owner, out _))
         {
@@ -38,6 +40,7 @@ public sealed class SandevistanImplantSystem : EntitySystem
         if (TryComp<SandevistanUserComponent>(owner, out var user))
         {
             RemComp<SandevistanUserComponent>(owner);
+            RemComp<GrabProtectionComponent>(owner);
             if (!string.IsNullOrEmpty(comp.MarkingId) && TryComp<HumanoidAppearanceComponent>(owner, out _))
             {
                 _humanoidSystem.RemoveMarking(owner, comp.MarkingId, sync: true);
