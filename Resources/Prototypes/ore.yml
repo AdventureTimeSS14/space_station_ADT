@@ -110,6 +110,9 @@
     OreUranium: 1
     OreBananium: 0.5
     OreArtifactFragment: 0.5
+    ADTOreCopper: 0.5 #ADT-BFUU-Tweak-start
+    ADTOreZinc : 0.5
+    ADTOreLead : 0.5 #ADT-BFUU-Tweak-end
 
 - type: weightedRandomOre
   id: OreCrab

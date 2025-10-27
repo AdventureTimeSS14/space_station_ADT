@@ -23,7 +23,8 @@
       collection: Punch
     damage:
       types:
-        Blunt: 8
+        # Holy: 25 #ADT-tweak
+        Blunt: 8 #ADT-tweak кодекс цикатрикс, хы
   - type: Prayable
     bibleUserOnly: true
   - type: Summonable

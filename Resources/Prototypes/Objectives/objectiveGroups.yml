@@ -24,7 +24,6 @@
     HandTeleporterStealObjective: 0.5
 #    EnergyShotgunStealObjective: 0.5 # ADT objective
     ADTMobileDefibrillatorStealObjective: 1 # ADT Objective
-    ADTX01StealObjective: 0.5 # ADT Objective
 
 - type: weightedRandom
   id: TraitorObjectiveGroupKill
@@ -35,9 +34,9 @@
 - type: weightedRandom
   id: TraitorObjectiveGroupState
   weights:
-    EscapeShuttleObjective: 1
+    EscapeShuttleObjective: 0.6 #ADT-tweak
     DieObjective: 0.05
-    HijackShuttleObjective: 0.02 #Corvax-Hijack
+    HijackShuttleObjective: 0.01 #Corvax-Hijack //ADT-tweak
     ADTDoCascade: 0.02 # ADT Objective
 
 - type: weightedRandom
@@ -84,7 +83,8 @@
     FireAxeStealObjective: 1                            #eng
     AmePartFlatpackStealObjective: 1
     ADTClothingMaskGasCEStealObjective: 1    # ADT Tweak: add gas mask CE
-    ExpeditionsCircuitboardStealObjective: 1            #sup
+    ADTClothingModsuitBackBlueShieldStealObjective: 1
+# ADT-Tweak до убирал ибо вызывало ошибки. "Corvax-StealTarget"  ExpeditionsCircuitboardStealObjective: 1            #sup
     CargoShuttleCircuitboardStealObjective: 1
     ClothingEyesHudBeerStealObjective: 1                #srv
     BibleStealObjective: 1

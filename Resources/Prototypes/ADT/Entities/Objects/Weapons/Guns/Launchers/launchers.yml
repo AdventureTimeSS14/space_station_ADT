@@ -16,6 +16,7 @@
     - Back
     - suitStorage
   - type: AmmoCounter
+  - type: RunAndGunBlocker
   - type: Gun
     fireRate: 1
     projectileSpeed: 25
@@ -49,6 +50,7 @@
         map: ["enum.GunVisualLayers.Mag"]
   - type: Clothing
     sprite: Objects/Weapons/Guns/Launchers/rocket.rsi
+  - type: RunAndGunBlocker
   - type: Gun
     fireRate: 0.5
     projectileSpeed: 25
