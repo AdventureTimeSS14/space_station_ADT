@@ -1056,10 +1056,10 @@
   - type: Icon
     state: pda-musician
   - type: Instrument
-    allowPercussion: false
+    allowPercussion: true #ADT-tweak false>true
     handheld: true
     bank: 1
-    program: 2
+    program: 128 #ADT-tweak 2>128
 
 - type: entity
   parent: MusicianPDA

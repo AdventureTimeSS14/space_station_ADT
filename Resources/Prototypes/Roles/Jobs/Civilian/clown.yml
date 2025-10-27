@@ -34,10 +34,12 @@
 - type: startingGear
   id: ClownGear
   equipment:
-    mask: ClothingMaskClown
-    pocket1: BikeHorn
-    pocket2: ClownRecorder
+    #ADT-tweak-start
+    #mask: ClothingMaskClown
+    #pocket1: BikeHorn
+    #pocket2: ClownRecorder
     #id: ClownPDA # ADT: different PDAs in loadouts
+    #ADT-tweak-end
     ears: ClothingHeadsetService
   storage:
     back:
