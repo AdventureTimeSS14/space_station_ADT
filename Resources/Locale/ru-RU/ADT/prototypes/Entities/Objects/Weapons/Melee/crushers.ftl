@@ -1,4 +1,4 @@
-ent-WeaponKineticSpear = Протокинетическое копье
+ent-WeaponKineticSpear = Протокинетическое копьё
     .desc = Длинное оружие ближнего боя, что обменивает урон на длинну в 2 метра.
 
 ent-WeaponKineticHammer = Протокинетический молот
