@@ -1,0 +1,104 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from Tau Ceti",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "datadisk0"
+    },
+    {
+      "name": "datadisk0_world"
+    },
+    {
+      "name": "datadisk1"
+    },
+    {
+      "name": "datadisk1_world"
+    },
+    {
+      "name": "datadisk2"
+    },
+    {
+      "name": "datadisk2_world"
+    },
+    {
+      "name": "datadisk3"
+    },
+    {
+      "name": "datadisk3_world"
+    },
+    {
+      "name": "datadisk4"
+    },
+    {
+      "name": "datadisk4_world"
+    },
+    {
+      "name": "datadisk5"
+    },
+    {
+      "name": "datadisk5_world"
+    },
+    {
+      "name": "datadisk6"
+    },
+    {
+      "name": "datadisk6_world"
+    },
+    {
+      "name": "datadisk7"
+    },
+    {
+      "name": "datadisk7_world"
+    },
+    {
+      "name": "datadisk8"
+    },
+    {
+      "name": "datadisk8_world"
+    },
+    {
+      "name": "datadisk9",
+      "delays":[
+          [
+              0.1,
+              0.1,
+              0.1,
+              0.1
+          ]
+       ]
+    },
+    {
+      "name": "datadisk9_world"
+    },
+    {
+      "name": "holodisk",
+      "delays":[
+          [
+              0.1,
+              0.1,
+              0.1
+          ]
+      ]
+    },
+    {
+      "name": "holodisk_world"
+    },
+    {
+      "name": "nucleardisk"
+    },
+    {
+      "name": "nucleardisk_world"
+    },
+    {
+      "name": "syndidisk"
+    },
+    {
+      "name": "syndidisk_world"
+    }
+  ]
+}

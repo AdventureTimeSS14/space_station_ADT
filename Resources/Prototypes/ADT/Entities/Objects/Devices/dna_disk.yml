@@ -5,10 +5,7 @@
   description: Disk for transfering plant DNA.
   components:
     - type: Sprite
-      sprite: Objects/Misc/module.rsi
+      sprite: ADT/Objects/Devices/disks.rsi
       layers:
-        - state: datadisk_hydro
-          map: [ "enum.DamageStateVisualLayers.Base" ]
-        - state: datadisk_label
-        - state: datadisk_gene
+        - state: datadisk4_world
     - type: DnaDisk
