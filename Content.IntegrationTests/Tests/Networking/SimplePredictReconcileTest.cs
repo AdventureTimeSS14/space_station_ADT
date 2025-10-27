@@ -44,6 +44,11 @@ namespace Content.IntegrationTests.Tests.Networking
             var cGameStateManager = client.ResolveDependency<IClientGameStateManager>();
             var cfg = client.ResolveDependency<IConfigurationManager>();
             var log = cfg.GetCVar(CVars.NetLogging);
+            //ADT-tweak-start: R.A.T. shitfix: это надо решать с системе с кфг, но почему-то сервер не получает
+            cfg.SetCVar(CVars.NetBufferSize, 2);
+    
+            var log = cfg.GetCVar(CVars.NetLogging);
+            //ADT-tweak-end
             Assert.That(cfg.GetCVar(CVars.NetInterp), Is.True);
 
             EntityUid serverEnt = default;
