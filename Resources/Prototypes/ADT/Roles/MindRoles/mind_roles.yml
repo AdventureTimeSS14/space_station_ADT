@@ -30,3 +30,24 @@
     antagPrototype: Changeling
     exclusiveAntag: true
   - type: ChangelingRole
+
+- type: entity
+  parent: BaseMindRoleAntag
+  id: MindRoleBloodBrotherLeader
+  name: Blood brother lead role
+  components:
+  - type: MindRole
+    antagPrototype: BloodBrotherLeader
+    exclusiveAntag: true
+    roleType: TeamAntagonist
+    subtype: role-subtype-brother
+  - type: BloodBrotherRole
+
+- type: entity
+  parent: MindRoleHeadRevolutionary
+  id: MindRoleBloodBrother
+  name: Blood brother role
+  components:
+  - type: MindRole
+    antagPrototype: BloodBrother
+    subtype: role-subtype-brother-lead

@@ -12,7 +12,7 @@
   contrabandInventory:
     ClothingNeckStethoscope: 2
     Saw: 2
-    ADTTourniquet1: 3
+    ADTTourniquet1: 3 # ADT-Tweak: TourniquetUp
     DrinkChangelingStingCan: 2
   emaggedInventory:
     DrinkNukieCan: 2

@@ -292,6 +292,7 @@
     - ADTBluespaceHarvesterPack
     - ADTArcade
     - ADTIndustrialCharger
+    - ADTAdvancedThruster
     # ADT-tweak-end
   - type: EmagLatheRecipes
     emagDynamicPacks:
@@ -355,7 +356,6 @@
     - ADTDurandPack
     - ADTPhazonPack
     - ADTMechEquipmentPack
-    - ADTIndustrialTobotics
     # ADT-tweak-end
   - type: MaterialStorage
     whitelist:

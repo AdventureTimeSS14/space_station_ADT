@@ -13,12 +13,23 @@
         map: ["enum.GunVisualLayers.MagUnshaded"]
         shader: unshaded
   - type: Gun
-    fireRate: 1.5
+    fireRate: 1
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/taser.ogg
   - type: ProjectileBatteryAmmoProvider
     proto: ADTProjectileIonRifle
     fireCost: 125
+  - type: RunAndGunSpreadModifier
+    modifyer: 2
+  - type: MeleeWeapon
+    resetOnHandSelected: false
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 9
+    soundHit:
+      collection: GenericHit
+  - type: AltFireMelee
   - type: MagazineVisuals
     magState: mag
     steps: 5
@@ -193,6 +204,17 @@
     zeroVisible: false
   - type: Clothing
     sprite: ADT/Objects/Weapons/Guns/Battery/multifazpistol.rsi
+  - type: MeleeWeapon
+    resetOnHandSelected: false
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 9
+    soundHit:
+      collection: GenericHit
+  - type: AltFireMelee
+  - type: RunAndGunSpreadModifier
+    modifyer: 2
   - type: Gun
     fireRate: 3
     projectileSpeed: 60
@@ -334,12 +356,23 @@
         map: ["enum.GunVisualLayers.MagUnshaded"]
         shader: unshaded
   - type: Gun
-    fireRate: 1.5
+    fireRate: 1
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/taser.ogg
   - type: ProjectileBatteryAmmoProvider
     proto: ADTProjectileIonRifle
     fireCost: 150
+  - type: RunAndGunSpreadModifier
+    modifyer: 3
+  - type: MeleeWeapon
+    resetOnHandSelected: false
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 7
+    soundHit:
+      collection: GenericHit
+  - type: AltFireMelee
   - type: MagazineVisuals
     magState: mag
     steps: 5
@@ -389,7 +422,7 @@
         pitch: 2
   - type: HitscanBatteryAmmoProvider
     proto: RedLaserBlaster
-    fireCost: 62.5
+    fireCost: 125
   - type: StaticPrice
     price: 50
 

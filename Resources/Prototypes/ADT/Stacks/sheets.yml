@@ -1,0 +1,20 @@
+- type: stack
+  id: Copper
+  name: copper
+  icon: { sprite: /Textures/Objects/Materials/ingots.rsi, state: copper }
+  spawn: ADTSheetCopper1
+  maxCount: 30
+
+- type: stack
+  id: Zinc
+  name: zinc
+  icon: { sprite: /Textures/ADT/Objects/Materials/Sheets/metal.rsi, state: zinc }
+  spawn: ADTSheetZinc1
+  maxCount: 30
+
+- type: stack
+  id: Lead
+  name: lead
+  icon: { sprite: /Textures/ADT/Objects/Materials/Sheets/metal.rsi, state: lead }
+  spawn: ADTSheetLead1
+  maxCount: 30

@@ -326,20 +326,20 @@
 #   - SyringeBluespace
 #   # ADT Research Console Rework end
 
-- type: technology
-  id: LauncherSyringe
-  name: research-technology-launcher-syringe
-  icon:
-    sprite: Objects/Weapons/Guns/Cannons/syringe_gun.rsi
-    state: syringe_gun
-  discipline: CivilianServices
-  tier: 3
-  cost: 15000
-  recipeUnlocks:
-  - LauncherSyringe
-  - MiniSyringe
-  # ADT Research Console Rework start
-  position: 7,-1
-  requiredTech:
-  - ADTProtectionPseudoscience
-  # ADT Research Console Rework end
+# ADT Tweak start
+# - type: technology
+#   id: LauncherSyringe
+#   name: research-technology-launcher-syringe
+#   icon:
+#     sprite: Objects/Weapons/Guns/Cannons/syringe_gun.rsi
+#     state: syringe_gun
+#   discipline: CivilianServices
+#   tier: 3
+#   cost: 15000
+#   recipeUnlocks:
+#   - LauncherSyringe
+#   - MiniSyringe
+#   position: 7,-1
+#   requiredTech:
+#   - ADTProtectionPseudoscience
+# ADT Tweak end

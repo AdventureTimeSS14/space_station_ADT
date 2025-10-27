@@ -107,6 +107,7 @@
       - !type:PlaySoundBehavior
         sound:
           collection: GlassBreak
+      - !type:TriggerBehavior
     - trigger:
         !type:DamageTrigger
         damage: 500 # you have to really smack it for it to manually detonate. re-examine once defusal exists

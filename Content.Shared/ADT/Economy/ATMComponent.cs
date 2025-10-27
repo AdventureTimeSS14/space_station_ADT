@@ -30,6 +30,9 @@ public sealed partial class ATMComponent : Component
 
     [DataField("soundDeny")]
     public SoundSpecifier SoundDeny = new SoundPathSpecifier("/Audio/ADT/Machines/buzz-sigh.ogg");
+
+    [DataField("errorChance")]
+    public float ErrorChance = 0.25f;
 }
 
 

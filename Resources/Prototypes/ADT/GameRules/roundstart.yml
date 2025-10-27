@@ -227,10 +227,12 @@
       - id: Heretic
         cost: 30
         rerollChance: 0.5
+#      - id: BloodBrother Раскоментить ТОЛЬКО ПОСЛЕ РЕВОРКА
+#        cost: 20
       - id: Revolutionary
         cost: 45
-      - id: Zombie
-        cost: 60
+      # - id: Zombie вернуть после баффов
+      #   cost: 60
     midroundAntags:
       - id: DragonSpawn
         cost: 100
@@ -238,8 +240,8 @@
         cost: 120
       - id: PhantomSpawn
         cost: 110
-      # - id: MorphSpawn #TODO: Раскомментить после фикса
-      #   cost: 130
+      - id: MorphSpawn
+        cost: 130
       - id: NinjaSpawn
         cost: 140
       - id: KingRatMigration
@@ -276,6 +278,8 @@
         cost: 15
       - id: ChangelingGameRule
         cost: 25
+#      - id: BloodBrother Раскоментить ТОЛЬКО ПОСЛЕ РЕВОРКА
+#        cost: 25
       - id: Heretic
         cost: 30
         rerollChance: 0.5
@@ -290,8 +294,8 @@
         cost: 130
       - id: PhantomSpawn
         cost: 120
-      # - id: MorphSpawn #TODO: Раскомментить после фикса
-      #   cost: 140
+      - id: MorphSpawn
+        cost: 140
       - id: NinjaSpawn
         cost: 150
       - id: KingRatMigration
@@ -318,6 +322,8 @@
         cost: 10
       - id: TraitorDuoGameRule
         cost: 10
+#      - id: BloodBrother Раскоментить ТОЛЬКО ПОСЛЕ РЕВОРКА
+#        cost: 25
       - id: TraitorLightGameRule
         cost: 15
       - id: ChangelingGameRule
@@ -329,8 +335,8 @@
         cost: 130
       - id: PhantomSpawn
         cost: 120
-      # - id: MorphSpawn #TODO: Раскомментить после фикса
-      #   cost: 140
+      - id: MorphSpawn
+        cost: 140
       - id: NinjaSpawn
         cost: 150
       - id: KingRatMigration
@@ -347,3 +353,53 @@
   - type: GameRule
     minPlayers: 30
   - type: DynamicRandomRule
+
+- type: entity
+  parent: BaseTraitorRule
+  id: BloodBrother
+  components:
+  - type: GameRule
+    minPlayers: 20
+    delay:
+      min: 240
+      max: 420
+  - type: AntagSelection
+    selectionTime: IntraPlayerSpawn
+    definitions:
+    - prefRoles: [ BloodBrotherLeader ]
+      max: 4
+      playerRatio: 20
+      blacklist:
+        components:
+        - AntagImmune
+      lateJoinAdditional: true
+      mindRoles:
+      - MindRoleTraitor
+  - type: TraitorRule
+    bloodBrotherChance: 1
+  - type: AntagRandomObjectives
+    sets:
+    - groups: BloodBrothersObjectiveGroups
+    maxDifficulty: 12
+
+#этот геймрул сделан только для выдачи трейтора
+- type: entity
+  parent: BaseTraitorRule
+  id: TraitorOnly
+  components:
+  - type: GameRule
+    minPlayers: 5
+  - type: AntagSelection
+    selectionTime: IntraPlayerSpawn
+    definitions:
+    - prefRoles: [ Traitor ]
+      max: 1
+      playerRatio: 10
+      blacklist:
+        components:
+        - AntagImmune
+      lateJoinAdditional: true
+      mindRoles:
+      - MindRoleTraitor
+  - type: TraitorRule
+    bloodBrotherChance: 0

@@ -105,26 +105,7 @@
   recipeUnlocks:
     - ADTPowerCellHyperRecipe
     - ADTIndustrialChargerCircuitboard
-  position: -1,-1
-  requiredTech:
-  - AdvancedPowercells
-  # Fuck you new RnD console
-
-- type: technology
-  id: ADTIndustrial-Robotics
-  name: research-industrial-robotics
-  icon:
-    sprite: Mobs/Silicon/chassis.rsi
-    state: engineer
-  discipline: Industrial
-  tier: 2
-  cost: 10000
-  recipeUnlocks:
-    - ADTBorgModuleRPD
-    - BorgModuleRCD
-    - BorgModuleConstruction
-    - BorgModuleAdvancedTool
   position: 0,-2
   requiredTech:
-  - ADTIndustrialMODsuit
+  - AdvancedPowercells
   # Fuck you new RnD console
