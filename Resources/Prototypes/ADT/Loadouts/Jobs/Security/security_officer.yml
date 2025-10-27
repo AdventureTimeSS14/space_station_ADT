@@ -50,7 +50,7 @@
   id: ADTClothingUniformJumpsuitSecBlue
   equipment:
     jumpsuit: ClothingUniformJumpsuitSecBlue
-    
+
 - type: loadout
   id: ADTSecurityOfficerMogesBrown
   equipment:

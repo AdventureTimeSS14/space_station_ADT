@@ -19,22 +19,28 @@
   # - Train
 
 # ADT Maps Базовые Актуальные
-  - ADT_Bagel
-  - ADT_Barratry
-  - ADT_Box
-  - ADT_Cluster
-  - ADT_Cluster_Legacy
-  - ADT_Origin
-  - ADT_Gemini
+# Highpop 60+
   - ADT_Fland
+  - ADT_Kerberos
+  - ADT_Origin
+# Midpop 35 - 60
   - ADT_Marathon
   - ADT_Meta
-  - ADT_Saltern
+  - ADT_Barratry
+  - ADT_Box
+  - ADT_Train
+# Lowpop 20 - 35
+  - ADT_Bagel
   - ADT_Packed
+  - ADT_Saltern
   - ADT_Aspid
-  - ADT_Kerberos
+  - ADT_Cluster
+# Micropop 0 - 20
+  - ADT_Reach
+  - ADT_Silly
 
 # ADT Maps Выведенные на переработку
+  # - ADT_Gate пока минока не начнёт нормально работать
   # - ADT_Avrit требуется декорваксизация
   # - ADT_Alley до ремонта
   # - ADT_Astra в комментерии до ремапа
@@ -46,6 +52,8 @@
   # - ADT_Packed #В рамках уменьшения числа карт
   # - ADT_Train #В рамках уменьшения числа карт
   # - ADT_Delta Выведена из-за наличия Кербероса
+  # - ADT_Gemini Пока Кэш не доделает
+  # - ADT_Cluster_Legacy Пока Кэш не сделает
 
 # ADT Halloween (Не забудьте отключить обычные)
   # - ADT_TrainHalloween

@@ -339,7 +339,7 @@ ent-ADTClothingRomanShirt = красная римская туника
 ent-ADTClothingUniformJumpsuitGreenSuitLawyer = костюм члена "клуба ревизоров"
     .desc = Светло-зеленый костюм с золотыми элементами. Знаковый элемент "клуба ревизоров" - неформальной группы юристов, работающих в интересах NT и отметившихся выдающимся стажем работы и особыми заслугами в профессиональной среде.
 
-ent-ClothingUniformJumpsuitAtmosSyndie = костюм акробата
+ent-ClothingUniformJumpsuitAtmosSyndie = комбинезон атмосферного техника
     .desc = Я на работе. Я не могу бросить работу. Работа - это дыхание. Я проверяю качество воздуха.
 
 ent-ClothingUniformJumpsuitAtmosSyndieAdvanced = блюспейс костюм акробата

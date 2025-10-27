@@ -53,6 +53,17 @@
     toolWhitelist:
       tags:
         - Pickaxe #ADT plasmacutters end
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+        density: 2000
 
 - type: entity
   abstract: true
@@ -96,6 +107,7 @@
       - !type:PlaySoundBehavior
         sound:
           collection: GlassBreak
+      - !type:TriggerBehavior
     - trigger:
         !type:DamageTrigger
         damage: 500 # you have to really smack it for it to manually detonate. re-examine once defusal exists
@@ -378,6 +390,14 @@
           state: rock_asteroid_west
         # - state: rock_bananium #ADT tweak
         #   map: [ "enum.MiningScannerVisualLayers.Overlay" ] #ADT tweak
+
+- type: entity
+  id: AsteroidRockBananiumCrab
+  parent: AsteroidRockBananium
+  suffix: Bananium Crab
+  components:
+  - type: OreVein
+    currentOre: OreBananiumCrab
 
 - type: entity
   id: AsteroidRockSalt

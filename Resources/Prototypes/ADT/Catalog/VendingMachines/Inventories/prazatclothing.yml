@@ -46,6 +46,7 @@
     ADTClothingOuterWinterRussianCoat: 5
     ADTClothingBeltBlackSuspenders: 5
     ADTClothingBeltBrownSuspenders: 5
+    ClothingShoesBootsLaceup: 5
     ADTClothingFootLightShoes: 5
     ADTClothingFootWhiteSandals: 5
     ADTClothingFootBlackBoots: 5
@@ -62,5 +63,17 @@
     ADTClothingUnderwearSocksStockingsBlack: 2
     ADTClothingUnderwearSocksLaceThigh: 2
     ADTClothingUnderwearSocksRabbit: 2
+    ADTBoxCowUnderwearSet: 1
+  # Платья
+    ADTClothingUniformDressVintage: 1
+    ADTClothingUniformTangoDressBlack: 1
+    ADTClothingUniformTangoDressWhite: 1
+  # Купальники
+    ADTClothingUniformSwimBlack: 2
+    ADTClothingUniformSwimBlue: 1
+    ADTClothingUniformSwimDarkGreen: 1
+    ADTClothingUniformSwimGreen: 2
+    ADTClothingUniformSwimPurple: 2
+    ADTClothingUniformSwimRed: 1
   contrabandInventory:
     ADTClothingUniformJumpsuitAnarchyTshirt: 3

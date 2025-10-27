@@ -39,7 +39,7 @@
     joinSystem: true
   - type: DoAfter
   - type: Repairable 
-    fuelCost: 75 # ADT-tweak 25 to 75
+    fuelCost: 60 # ADT-Tweak 25 to 75 -> 60
     doAfterDelay: 30 # ADT-tweak 10 to 30
   - type: UserInterface
     interfaces:
@@ -114,14 +114,15 @@
         node: start
       - !type:DoActsBehavior
         acts: ["Destruction"]
-  - type: NpcFactionMember # ADT tweak stary
+  - type: NpcFactionMember # ADT-tweak-start
     factions:
     - NanoTrasen
   - type: MobThresholds
     thresholds:
       0: Alive
       1000: Critical
-  - type: MobState # ADT tweak end
+  - type: MobState
+  - type: GrabProtection # ADT-tweak-end
 
 - type: entity
   id: MechRipley

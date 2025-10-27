@@ -73,24 +73,25 @@
   cost: 10000
   recipeUnlocks:
     - ADTWeaponCutterAdv
-  position: 4,1
+  position: 5,1
   requiredTech:
-  - SalvageEquipment
+  - ADTSalvageWeapon
 
 - type: technology
-  id: ExperimentalPKA
-  name: research-technology-experimental-pka
+  id: ADTSalvageWeapon
+  name: research-technology-salvage-weapon
   icon:
-    sprite: ADT/Objects/Weapons/Guns/PKAs/experimental_pka.rsi
+    sprite: ADT/Objects/Weapons/Guns/Battery/cutter.rsi
     state: icon
   discipline: Industrial
   tier: 2
-  cost: 8500
+  cost: 7500
   recipeUnlocks:
-    - ADTWeaponExperimentalProtoKineticAcelleratorRecipe
-  position: 5,1
+    - ADTWeaponCutter
+  position: 4,1
   requiredTech:
-  - AdvSalvageWeapons
+  - SalvageEquipment
+  # Fuck you new RnD console
 
 - type: technology
   id: ADTAdvancedEnergy
@@ -108,3 +109,53 @@
   requiredTech:
   - AdvancedPowercells
   # Fuck you new RnD console
+
+- type: technology
+  id: ADTAdvancedThruster
+  name: research-technology-advanced-thruster
+  icon:
+    sprite: ADT/Structures/Machines/Thrusters/big_thruster.rsi
+    state: icon
+  discipline: Industrial
+  tier: 3
+  cost: 15000
+  recipeUnlocks:
+    - ADTMachineMediumThrusterCircuitboard
+    - ADTMachineBigThrusterCircuitboard
+    - ADTMachineMediumLongThrusterCircuitboard
+  position: 4,2
+  requiredTech:
+  - Shuttlecraft
+
+- type: technology
+  id: ADTMegaCells
+  name: research-technology-basemegacells
+  icon:
+    sprite: ADT/Objects/Devices/megacells.rsi
+    state: megacell
+  discipline: Industrial
+  tier: 3
+  cost: 25000
+  recipeUnlocks:
+    - ADTMegaCellRechargerCircuitboardRecipe
+    - ADTMegaCellSmallRecipe
+    - ADTMegaCellMediumRecipe
+  position: 0,-3
+  requiredTech:
+  - ADTAdvancedEnergy
+
+- type: technology
+  id: ADTMegaCellsAdvanced
+  name: research-technology-advancedmegacells
+  icon:
+    sprite: ADT/Objects/Devices/megacells.rsi
+    state: hyp_megacell
+  discipline: Industrial
+  tier: 3
+  cost: 35000
+  recipeUnlocks:
+    - ADTMegaCellHighRecipe
+    - ADTMegaCellHyperRecipe
+  position: 0,-4
+  requiredTech:
+  - ADTMegaCells

@@ -1,6 +1,7 @@
+using Content.Server.Codewords;
 using Content.Shared.Dataset;
 using Content.Shared.FixedPoint;
-﻿using Content.Shared.NPC.Prototypes;
+using Content.Shared.NPC.Prototypes;
 using Content.Shared.Random;
 using Content.Shared.Roles;
 using Robust.Shared.Audio;
@@ -18,16 +19,13 @@ public sealed partial class TraitorRuleComponent : Component
     public ProtoId<AntagPrototype> TraitorPrototypeId = "Traitor";
 
     [DataField]
+    public ProtoId<CodewordFactionPrototype> CodewordFactionPrototypeId = "Traitor";
+
+    [DataField]
     public ProtoId<NpcFactionPrototype> NanoTrasenFaction = "NanoTrasen";
 
     [DataField]
     public ProtoId<NpcFactionPrototype> SyndicateFaction = "Syndicate";
-
-    [DataField]
-    public ProtoId<LocalizedDatasetPrototype> CodewordAdjectives = "Adjectives";
-
-    [DataField]
-    public ProtoId<LocalizedDatasetPrototype> CodewordVerbs = "Verbs";
 
     [DataField]
     public ProtoId<LocalizedDatasetPrototype> ObjectiveIssuers = "TraitorCorporations";
@@ -37,6 +35,19 @@ public sealed partial class TraitorRuleComponent : Component
     /// </summary>
     [DataField]
     public bool GiveUplink = true;
+    //ADT-tweak-start
+    /// <summary>
+    /// Шанс на бразерс вместо трейтора
+    /// </summary>
+    // ADT-Tweak-Start
+    /// <summary>
+    /// Вероятность того, что предатель станет лидером кровных братьев вместо получения аплинка.
+    /// </summary>
+    [DataField]
+    public float BloodBrotherChance = 0f;
+    public ProtoId<NpcFactionPrototype> BloodBrotherFaction = "BloodBrotherFaction"; //ADT-tweak
+    public ProtoId<NpcFactionPrototype> BloodBrotherLeaderFaction = "BloodBrotherLeaderFaction"; //ADT-tweak
+    // ADT-Tweak-End
 
     /// <summary>
     /// Give this traitor the codewords.
@@ -51,7 +62,6 @@ public sealed partial class TraitorRuleComponent : Component
     public bool GiveBriefing = true;
 
     public int TotalTraitors => TraitorMinds.Count;
-    public string[] Codewords = new string[3];
 
     public enum SelectionState
     {
@@ -75,13 +85,7 @@ public sealed partial class TraitorRuleComponent : Component
     ///     Path to antagonist alert sound.
     /// </summary>
     [DataField]
-    public SoundSpecifier GreetSoundNotification = new SoundPathSpecifier("/Audio/Ambience/Antag/traitor_start.ogg");
-
-    /// <summary>
-    /// The amount of codewords that are selected.
-    /// </summary>
-    [DataField]
-    public int CodewordCount = 4;
+    public SoundSpecifier GreetSoundNotification = new SoundCollectionSpecifier("ADTTraitorStart"); // ADT-Tweak: изменена коллекция звуков приветствия
 
     /// <summary>
     /// The amount of TC traitors start with.

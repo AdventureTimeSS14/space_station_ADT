@@ -15,6 +15,10 @@
     - Back
     - suitStorage
   - type: AmmoCounter
+  # ADT-Tweak start
+  - type: RunAndGunSpreadModifier
+    modifyer: 0.4
+  # ADT-Tweak end
   - type: Gun
     minAngle: 2
     maxAngle: 16
@@ -79,6 +83,17 @@
     shotsPerBurst: 2
     availableModes:
     - Burst #ADT tweak end
+  # ADT-Tweak start
+  - type: MeleeWeapon
+    resetOnHandSelected: false
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 9
+    soundHit:
+      collection: GenericHit
+  - type: AltFireMelee
+  # ADT-Tweak end
   - type: MagazineVisuals
     magState: mag
     steps: 1
@@ -102,12 +117,25 @@
     sprite: Objects/Weapons/Guns/SMGs/c20r.rsi
   - type: Wieldable
     unwieldOnUse: false
+  # ADT-Tweak start
+  - type: MeleeWeapon
+    resetOnHandSelected: false
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 9
+    soundHit:
+      collection: GenericHit
+  - type: AltFireMelee
+  # ADT-Tweak end
   - type: GunWieldBonus
-    minAngle: -19
-    maxAngle: -16
+# ADT-Tweak-start
+    minAngle: -5 # ADT-Tweak -19 -> -5
+    maxAngle: -7 # ADT-Tweak -16 -> -7
+# ADT-Tweak-end
   - type: Gun
-    minAngle: 21
-    maxAngle: 32
+    minAngle: 6 # ADT-Tweak 21 -> 6
+    maxAngle: 16 # ADT-Tweak 32 -> 16
     shotsPerBurst: 5
     burstFireRate: 10 # ADT tweak
     burstCooldown: 0.2 # ADT tweak
@@ -143,6 +171,8 @@
       rmc-aslot-rail: -0.0325, -0.0325
       rmc-aslot-barrel: 0.75, 0
 # ADT TWEAK END
+  - type: StaticPrice
+    price: 5000
 
 - type: entity
   name: Drozd
@@ -164,19 +194,30 @@
     - type: GunWieldBonus
       minAngle: -19
       maxAngle: -16
+    # ADT-Tweak start
+    - type: MeleeWeapon
+      resetOnHandSelected: false
+      attackRate: 1
+      damage:
+        types:
+          Blunt: 9
+      soundHit:
+        collection: GenericHit
+    - type: AltFireMelee
+    # ADT-Tweak end
     - type: Gun
       minAngle: 21
       maxAngle: 32
       fireRate: 6 # ADT tweak
       burstFireRate: 8 # ADT nerf
-      selectedMode: FullAuto # ADT tweak
       soundGunshot:
         path: /Audio/Weapons/Guns/Gunshots/atreides.ogg
+      selectedMode: Burst
       availableModes:
         - Burst
         - FullAuto # ADT tweak
       shotsPerBurst: 3
-      burstCooldown: 0.25
+      burstCooldown: 0.375
     - type: ItemSlots
       slots:
         gun_magazine:
@@ -198,7 +239,7 @@
               - CartridgePistol
     - type: MagazineVisuals
       magState: mag
-      steps: 1
+      steps: 5
       zeroVisible: true
     - type: Appearance
   # ADT TWEAK START
@@ -250,10 +291,23 @@
     sprite: Objects/Weapons/Guns/SMGs/wt550.rsi
   - type: ChamberMagazineAmmoProvider
     boltClosed: null
+  # ADT-Tweak start
+  - type: MeleeWeapon
+    resetOnHandSelected: false
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 9
+    soundHit:
+      collection: GenericHit
+  - type: AltFireMelee
+  # ADT-Tweak end
   - type: Gun
     fireRate: 5.5
-    minAngle: 1
-    maxAngle: 6
+# ADT-Tweak start
+    minAngle: 6 # ADT-Tweak 1 -> 6
+    maxAngle: 15 # ADT-Tweak 6 -> 15
+# ADT-Tweak end
     angleIncrease: 1.5
     angleDecay: 6
     selectedMode: FullAuto

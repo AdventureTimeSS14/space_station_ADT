@@ -72,9 +72,7 @@ entities:
     - type: Transform
     - type: Map
       mapPaused: True
-    - type: PhysicsMap
     - type: GridTree
-    - type: MovedGrids
     - type: Broadphase
     - type: OccluderTree
     - type: Parallax
@@ -10980,13 +10978,13 @@ entities:
     - type: Transform
       pos: 4.5,-9.5
       parent: 2
-- proto: ADTMandarinSeeds
-  entities:
-  - uid: 23984
-    components:
-    - type: Transform
-      pos: 35.787304,-36.980854
-      parent: 2
+# - proto: ADTMandarinSeeds
+#   entities:
+#   - uid: 23984
+#     components:
+#     - type: Transform
+#       pos: 35.787304,-36.980854
+#       parent: 2
 - proto: ADTMedicalAssembler
   entities:
   - uid: 20863

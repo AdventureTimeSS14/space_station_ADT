@@ -337,15 +337,14 @@
     maxItemSize: Small
     grid:
     - 0,0,5,3
+    whitelist:
+      tags:
+        - ADTCardPlay
   - type: ContainerContainer
     containers:
       storagebase: !type:Container
   - type: StorageFill
     contents:
-    - id: ADTFunCardsBoxFull54
-      amount: 1
-    - id: d6Dice
-      amount: 2
     - id: ADTFunCasinoChip1stack
       amount: 4
     - id: ADTFunCasinoChip5stack
@@ -357,4 +356,6 @@
     - id: ADTFunCasinoChip100stack
       amount: 4
     - id: ADTFunDealerChip
+      amount: 1
+    - id: ADTFunCardsBoxFull54
       amount: 1

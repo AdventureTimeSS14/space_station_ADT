@@ -9,6 +9,7 @@
   recipes:
   - ADTMagazineMagnumIncendiary
   - ADTMagazineMagnumUranium
+  - ADTMagazineShotgunUranium
 
 - type: latheRecipePack
   id: ADTAttachmentPack
@@ -27,11 +28,6 @@
   - ADT40mmGrenadeEMPRecipe
   - ADT40mmGrenadeFlashRecipe
   - ADT40mmGrenadeSmokeRecipe
-
-- type: latheRecipePack
-  id: ADTWeaponExperimentalPKAPack
-  recipes:
-  - ADTWeaponExperimentalProtoKineticAcelleratorRecipe
 
 - type: latheRecipePack
   id: ADTMechEquipmentSecTechfabPack

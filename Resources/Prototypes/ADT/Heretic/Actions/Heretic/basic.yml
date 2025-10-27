@@ -1,63 +1,60 @@
 # actions
 - type: entity
   id: ActionHereticOpenStore
-  name: action-heretic-store-name
-  description: action-heretic-store-desc
   categories: [ HideSpawnMenu ]
   components:
-  - type: InstantAction
+  - type: Action
     itemIconStyle: NoItem
     icon:
       sprite: ADT/Heretic/abilities_heretic.rsi
       state: open_store
+  - type: InstantAction
     event: !type:EventHereticOpenStore {}
   - type: HereticAction
     requireMagicItem: false
 
 - type: entity
   id: ActionHereticMansusGrasp
-  name: action-heretic-grasp-name
-  description: action-heretic-grasp-desc
   categories: [ HideSpawnMenu ]
   components:
-  - type: InstantAction
+  - type: Action
     itemIconStyle: NoItem
     icon:
       sprite: ADT/Heretic/abilities_heretic.rsi
       state: mansus_grasp
+  - type: InstantAction
     event: !type:EventHereticMansusGrasp {}
   - type: HereticAction
     requireMagicItem: false
 
 - type: entity
   id: ActionHereticLivingHeart
-  name: action-heretic-heart-name
-  description: action-heretic-heart-desc
   categories: [ HideSpawnMenu ]
   components:
-  - type: InstantAction
+  - type: Action
     useDelay: 2
     itemIconStyle: NoItem
     icon:
       sprite: ADT/Heretic/abilities_heretic.rsi
       state: living_heart
+  - type: InstantAction
     event: !type:EventHereticLivingHeart {}
   - type: HereticAction
     requireMagicItem: false
 
 - type: entity
   id: ActionHereticMansusLink
-  name: Manse Link
-  description: Pierce through reality and connect minds to one another. Default key is +m
   categories: [ HideSpawnMenu ]
   components:
-  - type: EntityTargetAction
+  - type: Action
     useDelay: 10
     itemIconStyle: NoItem
     icon:
       sprite: ADT/Heretic/abilities_heretic.rsi
       state: mansus_link
+  - type: EntityTargetAction
     event: !type:EventHereticMansusLink {}
+  - type: TargetAction
   - type: HereticAction
     requireMagicItem: false
     messageLoc: heretic-speech-link

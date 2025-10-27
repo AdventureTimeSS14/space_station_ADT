@@ -1,0 +1,29 @@
+- type: entity
+  id: ADTSBBigBox
+  name: Combat Security cardboard box
+  parent: BigBox
+  description: Kept ya waiting, huh?
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: ADT/Structures/Storage/boxes/security.rsi
+    layers:
+    - state: cardboard
+      map: ["enum.StorageVisualLayers.Base"]
+    - state: cardboard_open
+      map: ["enum.StorageVisualLayers.Door"]
+
+- type: entity
+  id: ADTMedBigBox
+  name: medical cardboard box
+  parent: BigBox
+  description: Kept ya waiting, huh?
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: ADT/Structures/Storage/boxes/medical.rsi
+    layers:
+    - state: cardboard
+      map: ["enum.StorageVisualLayers.Base"]
+    - state: cardboard_open
+      map: ["enum.StorageVisualLayers.Door"]

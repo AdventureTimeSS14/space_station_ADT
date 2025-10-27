@@ -19,6 +19,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Content.Shared.Cargo.Components;
 using Content.Shared.Cargo;
+using Robust.Shared.Timing;
 
 namespace Content.Server.ADT.Economy;
 
@@ -37,6 +38,7 @@ public sealed class BankCardSystem : EntitySystem
     [Dependency] private readonly JobSystem _job = default!;
     [Dependency] private readonly GameTicker _gameTicker = default!;
     [Dependency] private readonly CartridgeLoaderSystem _cartridgeLoader = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
 
     private const int SalaryDelay = 2700;
 
@@ -79,7 +81,9 @@ public sealed class BankCardSystem : EntitySystem
                      _playerManager.TryGetSessionById(account.Mind.Value.Comp.UserId!.Value, out _) &&
                      !_mobState.IsDead(account.Mind.Value.Comp.CurrentEntity!.Value)))
         {
-            account.Balance += GetSalary(account.Mind);
+            var salary = GetSalary(account.Mind);
+            if (salary > 0)
+                TryChangeBalance(account.AccountId, salary);
         }
 
         _chatSystem.DispatchGlobalAnnouncement(Loc.GetString("salary-pay-announcement"),
@@ -220,6 +224,18 @@ public sealed class BankCardSystem : EntitySystem
         // }
 
         account.Balance += amount;
+
+        if (account.History == null)
+            account.History = new List<TransactionsHistory>();
+
+        account.History.Add(new TransactionsHistory(
+            amount,
+            _timing.CurTime,
+            amount > 0 ? Loc.GetString("bank-deposit") : Loc.GetString("bank-withdrawal"),
+            Loc.GetString("bank-system"),
+            null
+        ));
+
         if (account.CartridgeUid != null)
             _bankCartridge.UpdateUiState(account.CartridgeUid.Value);
 

@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made by discord:Minokaa",
+  "size": {
+    "x": 32,
+    "y": 36
+  },
+  "states": [
+    {
+      "name": "atm",
+      "delays": [
+        [0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1]
+      ]
+    },
+    {
+      "name": "atm_off"
+    }
+  ]
+}
+

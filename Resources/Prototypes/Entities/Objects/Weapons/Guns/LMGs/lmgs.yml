@@ -21,6 +21,17 @@
   - type: GunWieldBonus
     minAngle: -20
     maxAngle: -20
+  # ADT-Tweak start
+  - type: MeleeWeapon
+    resetOnHandSelected: false
+    attackRate: 0.75
+    damage:
+      types:
+        Blunt: 18
+    soundHit:
+      collection: GenericHit
+  - type: AltFireMelee
+  # ADT-Tweak end
   - type: Gun
     minAngle: 24
     maxAngle: 45
@@ -38,6 +49,7 @@
     soundRack:
       path: /Audio/Weapons/Guns/Cock/lmg_cock.ogg
   - type: AmmoCounter
+  - type: RunAndGunBlocker # ADT-Tweak
   - type: ItemSlots
     slots:
       gun_magazine:
@@ -83,6 +95,8 @@
     steps: 4
     zeroVisible: true
   - type: Appearance
+  - type: StaticPrice
+    price: 10000
 # ADT TWEAK START
   - type: AttachableHolder
     slots:

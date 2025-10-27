@@ -54,3 +54,13 @@
     back:
     - Flash
     - ADTtelescopicBaton #ADT-CustomADTLoadout
+
+#ADT tweak start
+- type: chameleonOutfit
+  id: ChiefEngineerChameleonOutfit
+  job: ChiefEngineer
+  hasMindShield: true
+  equipment:
+    eyes: ClothingEyesGlassesMeson
+    ears: ClothingHeadsetCE
+#ADT tweak end

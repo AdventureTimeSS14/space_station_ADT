@@ -186,10 +186,7 @@
   id: ADTPassagerRDIDCard
   components:
   - type: PresetIdCard
-    job: Passenger
-  - type: Access
-    groups:
-    - Research
+    job: ResearchDirector
 
 
 # USSP USSP
@@ -441,11 +438,11 @@
 
 - type: entity
   parent: SalvageIDCard
-  id: ADTExcavatorIDCard
-  name: excavator ID card
+  id: ADTMinerIDCard
+  name: miner ID card
   components:
   - type: IdCard
-    jobTitle: job-name-excavator
+    jobTitle: job-name-ADTMiner
 
 # Scientist
 

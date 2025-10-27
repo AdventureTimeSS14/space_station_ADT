@@ -20,7 +20,7 @@
       projectile:
         shape:
           !type:PhysShapeAabb
-          bounds: "-0.1,-0.1,0.1,0.1"
+          bounds: "-0.1,-0.3,0.1,-0.1"
         hard: false
         mask:
         - Impassable
@@ -181,7 +181,7 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 30
+        Piercing: 35 # ADT-Tweak 30 -> 35
   - type: Construction
     graph: ImprovisedArrowCarp
     node: ImprovisedArrowCarp

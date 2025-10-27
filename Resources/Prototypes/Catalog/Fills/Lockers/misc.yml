@@ -192,7 +192,13 @@
     - id: DeathPaintTwo
       prob: 0.05
     - id: ADTTonfaBlueprint
-      prob: 0.03
+      prob: 0.003
+    - id: ADTToyBlasterGunRed
+      prob: 0.013
+    - id: ADTToyBlasterGunBlue
+      prob: 0.011
+    - id: ADTToyBlasterGunGreen
+      prob: 0.008
     #ADT tweak end
 
 - type: entity

@@ -281,3 +281,71 @@
     sprite: Markers/jobs.rsi
     layers:
       - state: green
+
+- type: entity
+  id: ADTSpawnPointIanHero
+  name: ianhero spawn point
+  suffix: hero
+  parent: MarkerBase
+  components:
+  - type: GhostRole
+    name: ghost-role-information-ianhero-name
+    description: ghost-role-information-ianhero-description
+    rules: ghost-role-information-ianhero-rules
+    raffle:
+      settings: default
+    requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 54000 # 15h
+  - type: GhostRoleMobSpawner
+    prototype: ADTMobIanHero
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      
+- type: entity
+  id: ADTSpawnPointDrPolymorph
+  name: DrPolymorph spawn point
+  suffix: hero
+  parent: MarkerBase
+  components:
+  - type: GhostRole
+    name: ghost-role-information-DrPolymorph-name
+    description: ghost-role-information-DrPolymorph-description
+    rules: ghost-role-information-DrPolymorph-rules
+    raffle:
+      settings: default
+    requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 54000 # 15h
+  - type: GhostRoleMobSpawner
+    prototype: ADTMobDrPolymorph
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+
+- type: entity
+  id: ADTSpawnPointEvilBot
+  name: EvilBot spawn point
+  suffix: hero
+  parent: MarkerBase
+  components:
+  - type: GhostRole
+    name: ghost-role-information-EvilBot-name
+    description: ghost-role-information-EvilBot-description
+    rules: ghost-role-information-EvilBot-rules
+    raffle:
+      settings: default
+    requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 54000 # 15h
+  - type: GhostRoleMobSpawner
+    prototype: ADTMobEvilBot
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+
+

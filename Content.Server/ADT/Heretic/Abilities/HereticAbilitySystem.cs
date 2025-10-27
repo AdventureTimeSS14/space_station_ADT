@@ -8,7 +8,6 @@ using Content.Server.Polymorph.Systems;
 using Content.Server.Popups;
 using Content.Server.Store.Systems;
 using Content.Shared.Actions;
-using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
 using Content.Shared.DoAfter;
 using Content.Shared.Heretic;
@@ -50,7 +49,6 @@ public sealed partial class HereticAbilitySystem : EntitySystem
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly MobStateSystem _mobstate = default!;
     [Dependency] private readonly FlammableSystem _flammable = default!;
-    [Dependency] private readonly DamageableSystem _dmg = default!;
     [Dependency] private readonly SharedStaminaSystem _stam = default!;
     [Dependency] private readonly AtmosphereSystem _atmos = default!;
     [Dependency] private readonly SharedAudioSystem _aud = default!;
@@ -153,14 +151,15 @@ public sealed partial class HereticAbilitySystem : EntitySystem
 
         if (ent.Comp.MansusGrasp != EntityUid.Invalid)
         {
-            if(!TryComp<HandsComponent>(ent, out var handsComp))
+            if (!TryComp<HandsComponent>(ent, out var handsComp))
                 return;
-            foreach (var hand in handsComp.Hands.Values)
+
+            foreach (var hand in _hands.EnumerateHands((ent, handsComp)))
             {
-                if (hand.HeldEntity == null)
+                if (!_hands.TryGetHeldItem((ent, handsComp), hand, out var heldEntity))
                     continue;
-                if (HasComp<MansusGraspComponent>(hand.HeldEntity))
-                    QueueDel(hand.HeldEntity);
+                if (HasComp<MansusGraspComponent>(heldEntity))
+                    QueueDel(heldEntity);
             }
             ent.Comp.MansusGrasp = EntityUid.Invalid;
             return;
@@ -206,26 +205,35 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         if (!TryComp<MobStateComponent>(target, out var mobstate))
             return;
         var state = mobstate.CurrentState;
-
-        var xquery = GetEntityQuery<TransformComponent>();
-        var targetStation = _station.GetOwningStation(target);
-        var ownStation = _station.GetOwningStation(ent);
-
-        var isOnStation = targetStation != null && targetStation == ownStation;
-
-        var ang = Angle.Zero;
-        if (_mapMan.TryFindGridAt(_transform.GetMapCoordinates(Transform(ent)), out var grid, out var _))
-            ang = Transform(grid).LocalRotation;
-
-        var vector = _transform.GetWorldPosition((EntityUid) target, xquery) - _transform.GetWorldPosition(ent, xquery);
-        var direction = (vector.ToWorldAngle() - ang).GetDir();
-
-        var locdir = ContentLocalizationManager.FormatDirection(direction).ToLower();
         var locstate = state.ToString().ToLower();
 
-        if (isOnStation)
-            loc = Loc.GetString("heretic-livingheart-onstation", ("state", locstate), ("direction", locdir));
-        else loc = Loc.GetString("heretic-livingheart-offstation", ("state", locstate), ("direction", locdir));
+        var ourMapCoords = _transform.GetMapCoordinates(ent);
+        var targetMapCoords = _transform.GetMapCoordinates(target.Value);
+
+        if (_map.IsPaused(targetMapCoords.MapId))
+            loc = Loc.GetString("heretic-livingheart-unknown");
+        else if (targetMapCoords.MapId != ourMapCoords.MapId)
+            loc = Loc.GetString("heretic-livingheart-faraway", ("state", locstate));
+        else
+        {
+            var targetStation = _station.GetOwningStation(target);
+            var ownStation = _station.GetOwningStation(ent);
+
+            var isOnStation = targetStation != null && targetStation == ownStation;
+
+            var ang = Angle.Zero;
+            if (_mapMan.TryFindGridAt(_transform.GetMapCoordinates(Transform(ent)), out var grid, out var _))
+                ang = Transform(grid).LocalRotation;
+
+            var vector = targetMapCoords.Position - ourMapCoords.Position;
+            var direction = (vector.ToWorldAngle() - ang).GetDir();
+
+            var locdir = ContentLocalizationManager.FormatDirection(direction).ToLower();
+
+            loc = Loc.GetString(isOnStation ? "heretic-livingheart-onstation" : "heretic-livingheart-offstation",
+                ("state", locstate),
+                ("direction", locdir));
+        }
 
         _popup.PopupEntity(loc, ent, ent, PopupType.Medium);
         _aud.PlayPvs(new SoundPathSpecifier("/Audio/ADT/Heretic/heartbeat.ogg"), ent, AudioParams.Default.WithVolume(-3f));
@@ -267,6 +275,6 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         _tag.AddTag(ent, MansusLinkTag);
 
         // this "* 1000f" (divided by 1000 in FlashSystem) is gonna age like fine wine :clueless:
-        _flash.Flash(args.Target, null, null, 2f * 1000f, 0f, false, true, stunDuration: TimeSpan.FromSeconds(1f));
+        _flash.Flash(args.Target, null, null, TimeSpan.FromSeconds(2f), 0f, false, true, stunDuration: TimeSpan.FromSeconds(1f));
     }
 }

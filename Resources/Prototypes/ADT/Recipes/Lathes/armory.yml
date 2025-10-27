@@ -3,7 +3,7 @@
   result: ADTWeaponCutter
   completetime: 10
   materials:
-    Steel: 1100
+    Lead : 1100 #ADT-BFUU-Tweak
     Glass: 200
     Gold: 300
     Plasma: 800
@@ -14,29 +14,18 @@
   result: ADTWeaponCutterAdv
   completetime: 10
   materials:
-    Steel: 1700
+    Lead : 1700 #ADT-BFUU-Tweak
     Glass: 200
     Gold: 300
     Plasma: 900
     Diamond: 200
 
 - type: latheRecipe
-  id: ADTWeaponExperimentalProtoKineticAcelleratorRecipe
-  result: ADTWeaponExperimentalProtoKineticAcellerator
-  completetime: 10
-  materials:
-    Steel: 1500
-    Glass: 350
-    Gold: 500
-    Plasma: 300
-    Silver: 300
-
-- type: latheRecipe
   id: ADTAttachmentVerticalGripRecipe
   result: ADTAttachmentVerticalGrip
   completetime: 5
   materials:
-    Steel: 100
+    Lead : 100 #ADT-BFUU-Tweak
     Plastic: 500
 
 - type: latheRecipe
@@ -44,17 +33,18 @@
   result: ADTAttachmentLaserSight
   completetime: 8
   materials:
-    Steel: 500
+    Lead : 500 #ADT-BFUU-Tweak
     Plastic: 500
     Gold: 100
     Glass: 200
+    Copper: 200  #ADT-BFUU-Tweak
 
 - type: latheRecipe
   id: ADTAttachmentReflexSightRecipe
   result: ADTAttachmentReflexSight
   completetime: 8
   materials:
-    Steel: 300
+    Lead : 300 #ADT-BFUU-Tweak
     Plastic: 300
     Gold: 100
     Glass: 500
@@ -64,7 +54,7 @@
   result: ADTAttachmentT2Miniscope
   completetime: 10
   materials:
-    Steel: 500
+    Lead : 500 #ADT-BFUU-Tweak
     Plastic: 300
     Gold: 200
     Glass: 500
@@ -74,7 +64,7 @@
   result: ADTAttachmentM90UnderbarrelShotgun
   completetime: 10
   materials:
-    Steel: 1000
+    Lead : 1000 #ADT-BFUU-Tweak
     Plastic: 500
     Plasma: 100
 
@@ -83,7 +73,7 @@
   result: ADTAttachmentM90GrenadeLauncher
   completetime: 10
   materials:
-    Steel: 2500
+    Lead : 2500 #ADT-BFUU-Tweak
     Plastic: 1500
     Plasma: 500
 
@@ -93,7 +83,7 @@
   result: ADT40mmGrenadeBaton
   completetime: 5
   materials:
-    Steel: 300
+    Lead : 300 #ADT-BFUU-Tweak
     Plastic: 300
 
 - type: latheRecipe
@@ -101,16 +91,17 @@
   result: ADT40mmGrenadeEMP
   completetime: 5
   materials:
-    Steel: 300
+    Lead : 300 #ADT-BFUU-Tweak
     Plastic: 100
     Gold: 100
+    Copper: 1000  #ADT-BFUU-Tweak
 
 - type: latheRecipe
   id: ADT40mmGrenadeFlashRecipe
   result: ADT40mmGrenadeFlash
   completetime: 5
   materials:
-    Steel: 300
+    Lead : 300 #ADT-BFUU-Tweak
     Plastic: 200
 
 - type: latheRecipe
@@ -118,5 +109,5 @@
   result: ADT40mmGrenadeSmoke
   completetime: 5
   materials:
-    Steel: 300
+    Lead : 300 #ADT-BFUU-Tweak
     Plastic: 200

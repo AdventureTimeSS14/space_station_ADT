@@ -11,6 +11,9 @@
   - IngotSilver1
   - MaterialBananium1
   - MaterialDiamond
+  - SheetCopper #ADT-Tweak
+  - SheetZinc #ADT-Tweak
+  - SheetLead #ADT-Tweak
 
 - type: latheRecipePack
   id: RGlassSmelting

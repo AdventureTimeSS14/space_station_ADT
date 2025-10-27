@@ -23,7 +23,7 @@
     - AnomalyShadow
     - AnomalyTech
     - ADTAnomalyMonkey # ADT Tweak
-    #- AnomalySanta 
+    #- AnomalySanta
     rareChance: 0.3
     rarePrototypes:
     - RandomAnomalyInjectorSpawner
@@ -47,7 +47,11 @@
     - AnomalyRockGold
     - AnomalyRockQuartz
     - AnomalyRockUranium
-    - ADTAnomalyRockBS # ADT Tweak
+    - AnomalyRockBananium
+    - ADTAnomalyRockBS # ADT Tweak-start
+    - ADTAnomalyRockCopper
+    - ADTAnomalyRockLead
+    - ADTAnomalyRockZinc # ADT Tweak-end
     chance: 1
     offset: 0.15
 

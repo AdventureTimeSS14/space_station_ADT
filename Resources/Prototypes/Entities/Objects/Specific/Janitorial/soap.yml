@@ -128,8 +128,10 @@
   - type: SolutionContainerVisuals
     fillBaseName: syndie-
   - type: Slippery
+    staminaDamage: 100 #ADT-tweak 50 -> 100
+    ignoreSlots: true #ADT-tweak
     slipData:
-      paralyzeTime: 3
+      knockdownTime: 3
       launchForwardsMultiplier: 3
   - type: Item
     heldPrefix: syndie
@@ -142,6 +144,8 @@
   - type: Residue
     residueAdjective: residue-slippery
     residueColor: residue-red
+  - type: StaticPrice
+    price: 500
 
 - type: entity
   name: soaplet
@@ -154,9 +158,6 @@
     layers:
     - state: syndie-soaplet
   - type: Slippery
-    slipData:
-      paralyzeTime: 1.5 # these things are tiny
-      launchForwardsMultiplier: 1.5
   - type: StepTrigger
     intersectRatio: 0.04
   - type: Item
@@ -221,8 +222,10 @@
   - type: SolutionContainerVisuals
     fillBaseName: omega-
   - type: Slippery
+    staminaDamage: 100 #ADT-tweak 50 -> 100
+    ignoreSlots: true #ADT-tweak
     slipData:
-      paralyzeTime: 5.0
+      knockdownTime: 5.0
       launchForwardsMultiplier: 3.0
   - type: Item
     heldPrefix: omega

@@ -30,6 +30,11 @@
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
+  # ADT-Tweak-Start: добавляем SecurityStaff для детектива
+  - !type:AddComponentSpecial # goobstation
+    components:
+      - type: SecurityStaff
+  # ADT-Tweak-End
 
 - type: startingGear
   id: DetectiveGear
@@ -43,3 +48,13 @@
     - Flash
     - ForensicPad
     - ForensicScanner
+
+- type: chameleonOutfit
+  id: DetectiveChameleonOutfit
+  job: Detective
+  hasMindShield: true
+  equipment:
+    head: ClothingHeadHatFedoraBrown
+    mask: ClothingMaskGasSecurity
+    neck: ClothingNeckTieDet
+    gloves: ClothingHandsGlovesForensic

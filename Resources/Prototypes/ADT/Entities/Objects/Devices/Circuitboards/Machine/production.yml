@@ -9,8 +9,7 @@
     - type: MachineBoard
       prototype: ADTUniversalPipeDispenser
       stackRequirements:
-        MatterBin: 2
-        Manipulator: 2
+        Manipulator: 4
       tagRequirements:
         GlassBeaker:
           amount: 2
@@ -20,16 +19,13 @@
 # Ganimed-Book-Printer-Start
 - type: entity
   id: ADTBookPrinterMachineCircuitboard
-  categories: [ HideSpawnMenu ]
   parent: BaseMachineCircuitboard
   name: book printer machine board
   components:
   - type: MachineBoard
     prototype: ADTBookPrinter
     stackRequirements:
-      Capacitor: 2
       Manipulator: 2
-      MatterBin: 2
 # Ganimed-Book-Printer-End
 
 - type: entity
@@ -41,7 +37,6 @@
     - type: MachineBoard
       prototype: ADTBarmenKettle
       stackRequirements:
-        Capacitor: 2
         Glass: 1
 
 #Taken from [2670] Pull Request DeltaV
@@ -53,7 +48,6 @@
   - type: MachineBoard
     prototype: ADTAdvancedMicrowave
     stackRequirements:
-      Capacitor: 4
       Glass: 4
       Cable: 5
     tagRequirements:
@@ -94,9 +88,8 @@
       prototype: ADTCoffeeMachineBluespace
       stackRequirements:
         Steel: 5
-        MatterBin: 3
         Plasma: 5
-        Capacitor: 3
+        Manipulator: 3
         Glass: 5
       tagRequirements:
           GlassBeaker:
@@ -113,7 +106,6 @@
     - type: MachineBoard
       prototype: ADTChemistryColdplate
       stackRequirements:
-        Capacitor: 2
         Glass: 1
 
 #Corvax Next Advanced Service Machinery Start
@@ -145,8 +137,7 @@
     - type: MachineBoard
       prototype: ADTAdvancedKitchenReagentGrinder
       stackRequirements:
-        MatterBin: 2
-        Manipulator: 4
+        Manipulator: 6
         Plasma: 5
       tagRequirements:
         GlassBeaker:
@@ -167,7 +158,6 @@
       prototype: ADTMedicalAssembler
       stackRequirements:
         Manipulator: 1
-        Capacitor: 1
         Steel: 5
         Glass: 2
         Cable: 4
@@ -252,9 +242,7 @@
       Glass: 15
       Steel: 15
       CableHV: 5
-      Manipulator: 5
-      Capacitor: 5
-      MatterBin: 15
+      Manipulator: 20
       ADTBScrystalArt: 10
     tagRequirements:
       GlassBeaker:
@@ -262,3 +250,72 @@
         defaultPrototype: Beaker
   - type: Item
     size: Normal
+
+# движки
+
+- type: entity
+  id: ADTMachineMediumLongThrusterCircuitboard #1x3
+  parent: BaseMachineCircuitboard
+  name: medium long thruster board
+  components:
+  - type: Sprite
+    state: supply
+  - type: MachineBoard
+    prototype: ADTMediumLongThruster
+    stackRequirements:
+      Manipulator: 12
+      Steel: 15
+      ADTBScrystalArt: 6
+
+- type: entity
+  id: ADTMachineBigThrusterCircuitboard #3x3
+  parent: BaseMachineCircuitboard
+  name: big thruster board
+  components:
+  - type: Sprite
+    state: supply
+  - type: MachineBoard
+    prototype: ADTBigThruster
+    stackRequirements:
+      Manipulator: 36
+      Steel: 45
+      ADTBScrystalArt: 18
+
+- type: entity
+  id: ADTMachineMediumThrusterCircuitboard #2x2
+  parent: BaseMachineCircuitboard
+  name: medium thruster board
+  components:
+  - type: Sprite
+    state: supply
+  - type: MachineBoard
+    prototype: ADTMediumThruster
+    stackRequirements:
+      Manipulator: 16
+      Steel: 20
+      ADTBScrystalArt: 8
+
+#Зарядник мегабатареек
+
+- type: entity
+  id: ADTMegaCellRechargerCircuitboard
+  parent: BaseMachineCircuitboard
+  name: megacell recharger machine board
+  description: A machine printed circuit board for a megacell recharger.
+  components:
+    - type: Sprite
+      sprite: Objects/Misc/module.rsi
+      state: engineering
+    - type: MachineBoard
+      prototype: ADTMegaCellRecharger
+      stackRequirements:
+        Manipulator: 5
+        Copper: 10
+        Gold: 6
+        Cable: 5
+    - type: PhysicalComposition
+      materialComposition:
+        Steel: 30
+        Plastic: 30
+    - type: StaticPrice
+      price: 15

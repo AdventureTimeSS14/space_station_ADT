@@ -221,6 +221,8 @@
     - /Audio/Ambience/spookyspace2.ogg
     - /Audio/Ambience/ambispace2.ogg
     - /Audio/Lobby/title2.ogg
+    - /Audio/ADT/Ambience/Music/CM.ogg #ADT-Tweak
+    - /Audio/ADT/Ambience/Music/CL.ogg #ADT-Tweak
 
 - type: soundCollection
   id: AmbienceSpooky
@@ -314,10 +316,10 @@
   rules:
     # ADT-Sound-Update-Start
     - !type:NearbyAccessRule
-      count: 3
+      count: 5
       access:
         - Medical
-      range: 3
+      range: 4
     # ADT-Sound-Update-End
 
 - type: rules
