@@ -65,3 +65,18 @@ ent-ADTClothingAdmiralHat = капитанская треуголка
 
 ent-ADTClothingHeadHatChefRed = красный поварской колпак
     .desc = Прямиком из космо-Италии!
+
+ent-ADTClothingHeadHatDarkBenie = тёмная шапка
+    .desc = Обычная тёмная шапка. Смотреть здесь не на что.
+
+ent-ADTClothingHeadHatBlueBenie = синяя шапка
+    .desc = Обычная синяя шапка. Смотреть здесь не на что.
+
+ent-ADTClothingHeadHatGreenBenie = зелённая шапка
+    .desc = Обычная зелённая шапка. Смотреть здесь не на что.
+
+ent-ADTClothingHeadHatPurpleBenie = фиолетовая шапка
+    .desc = Обычная фиолетовая шапка. Смотреть здесь не на что.
+
+ent-ADTClothingHeadHatRedBenie = красная шапка
+    .desc = Обычная красная шапка. Смотреть здесь не на что.
