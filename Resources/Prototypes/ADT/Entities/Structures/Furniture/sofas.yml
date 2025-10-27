@@ -496,7 +496,7 @@
     node: adtsofaofficeblackrightcorner
 
 - type: entity
-  name: black sofa left corner
+  name: black office sofa left corner
   id: ADTSofaOfficeBlackLeftCorner
   parent: ADTSofaBase
   components:
