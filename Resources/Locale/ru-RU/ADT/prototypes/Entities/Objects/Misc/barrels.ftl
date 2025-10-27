@@ -5,4 +5,4 @@ ent-ADTBarrelPlanks = { ent-ADTBaseBarrel }
     .desc = { ent-ADTBaseBarrel.desc }
 
 ent-ADTBarrelFire = бочка с огнём
-    .desc = Идеально теплое для совершенно безработных!
+    .desc = Идеально тёплое место для совершенно безработных!
