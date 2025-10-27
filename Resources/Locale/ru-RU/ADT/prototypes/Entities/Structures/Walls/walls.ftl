@@ -57,7 +57,7 @@ ent-ADTDigitalBlueWallIndestructible = синяя цифровая стена
     .suffix = Неразрушимый
 
 ent-ADTRadiationUraniumWall = урановая стена
-    .desc = Вам кажется или эта стена, сделанная из чистого урана, светится?
+    .desc = Вам кажется, или эта стена, сделанная из чистого урана, светится?
     .suffix = Неразрушимый
 
 ent-ADTAbductorWall = инопланетная стена

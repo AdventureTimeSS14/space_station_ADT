@@ -11,11 +11,11 @@ ent-ADTAncientAnimalRightBone = большая кость
     .suffix = Лаваленд
 
 ent-ADTAncientAnimalLeftRib = большое ребро
-    .desc = Большие рёбра, принадлежавщие неизвестному существу.
+    .desc = Большие рёбра, принадлежавшие неизвестному существу.
     .suffix = Лаваленд
 
 ent-ADTAncientAnimalRightRib = большое ребро
-    .desc = Большие рёбра, принадлежавщие неизвестному существу.
+    .desc = Большие рёбра, принадлежавшие неизвестному существу.
     .suffix = Лаваленд
 
 ent-ADTAncientAnimalLeftRibLarge = огромное ребро
