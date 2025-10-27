@@ -21,11 +21,6 @@
 
 # Back
 - type: loadout
-  id: ADTClothingBackpackSatchelLeather
-  equipment:
-    back: ClothingBackpackSatchelLeather
-
-- type: loadout
   id: ADTClothingBackpackBlackLadySatchel
   equipment:
     back: ADTClothingBackpackBlackLadySatchel
