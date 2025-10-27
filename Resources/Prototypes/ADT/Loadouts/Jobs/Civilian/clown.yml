@@ -40,7 +40,7 @@
     jumpsuit: ADTClothingUniformJumpsuitClownAbyss
 
 - type: loadout
-  id: ClothingMaskClown
+  id: ADTClothingMaskClown
   equipment:
     mask: ClothingMaskClown
 
@@ -53,7 +53,7 @@
     mask: ADTClothingMaskClownAbyss
 
 - type: loadout
-  id: BikeHorn
+  id: ADTBikeHorn
   equipment:
     pocket1: BikeHorn
 
@@ -66,12 +66,12 @@
     pocket1: ADTBikeHornAbyss
 
 - type: loadout
-  id: ClownRecorder
+  id: ADTClownRecorder
   equipment:
     pocket2: ClownRecorder
 
 - type: loadout
-  id: ToyHammer
+  id: ADTToyHammer
   equipment:
     pocket2: ToyHammer
 
