@@ -611,12 +611,13 @@
     - state: icon-rcd
   - type: ItemBorgModule
     items:
-    # ADT-Tweak-start: EngborgModuleUpdate
     - RCDRecharging
+    ##- BorgFireExtinguisher   # ADT-tweak
     - BorgHandheldGPSBasic
+    ##- GasAnalyzer            # ADT-tweak
+    ##- HolofanProjectorBorg   # ADT-tweak
     - GeigerCounter
-    - WeaponGrapplingGun
-    # ADT-Tweak-end
+    - WeaponGrapplingGun       # ADT-tweak
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: rcd-module }
 
