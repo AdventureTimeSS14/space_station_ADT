@@ -12,7 +12,7 @@
 - type: latheRecipe
   id: ADTAdvancedPlantAnalyzer
   result: ADTAdvancedPlantAnalyzerEmpty
-  completetime: 2
+  completetime: 6
   materials:
     Glass: 500
     Steel: 500
@@ -23,8 +23,17 @@
 - type: latheRecipe
   id: ADTHydroponicsTrayAdvancedMachineCircuitboard
   result: ADTHydroponicsTrayAdvancedMachineCircuitboard
-  completetime: 2
+  completetime: 3
   materials:
     Glass: 1000
     Steel: 500
     Gold: 500
+
+- type: latheRecipe
+  id: ADTBotanicDNADisk
+  result: ADTBotanicDNADisk
+  completetime: 3
+  materials:
+    Steel: 400
+    Plastic: 100
+    Copper: 25

@@ -6,6 +6,7 @@
   - Mousetrap  # ADT Tweak
   - TrashBag  # ADT Tweak
   - ADTPlantAnalyzer # ADT Tweak
+  - ADTBotanicDNADisk # ADT-Tweak-Port-_Ganimed
   - Bucket
   - Ashtray
   - DrinkMug
@@ -42,6 +43,7 @@
   - SodaDispenserMachineCircuitboard
   - PrinterDocMachineCircuitboard # Corvax-Printer
   - ADTCoffeeMachineCircuitboard # ADT Tweak
+  - ADTBotanicDNACircuitboard # ADT-Tweak-Port-_Ganimed
 
 ## Dynamic
 

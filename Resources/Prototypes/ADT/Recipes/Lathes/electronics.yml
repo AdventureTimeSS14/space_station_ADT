@@ -138,3 +138,8 @@
     Gold: 600
     Silver: 600
     Copper: 1000
+
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: ADTBotanicDNACircuitboard
+  result: ADTBotanicDNACircuitboard

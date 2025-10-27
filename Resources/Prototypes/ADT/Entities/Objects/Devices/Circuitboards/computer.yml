@@ -37,3 +37,16 @@
   components:
     - type: ComputerBoard
       prototype: MinesweeperArcade
+
+## Seed DNA console
+
+- type: entity
+  parent: BaseComputerCircuitboard
+  id: ADTBotanicDNACircuitboard
+  name: seed DNA console Circuitboard
+  description: Circuitboard for Seed DNA console.
+  components:
+    - type: Sprite
+      state: cpu_service
+    - type: ComputerBoard
+      prototype: ADTComputerBotanicDNAManipulator
