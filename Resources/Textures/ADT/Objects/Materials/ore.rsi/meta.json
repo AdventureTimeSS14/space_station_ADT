@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA-3.0",
+  "copyright": "sprites by M1and1B and Unlumy",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+      {
+        "name": "copper"
+      },
+      {
+        "name": "copper-inhand-left",
+        "directions": 4
+      },
+      {
+        "name": "copper-inhand-right",
+        "directions": 4
+      },
+      {
+        "name": "zinc"
+      },
+      {
+        "name": "zinc-inhand-left",
+        "directions": 4
+      },
+      {
+        "name": "zinc-inhand-right",
+        "directions": 4
+      },
+      {
+        "name": "lead"
+      },
+      {
+        "name": "lead-inhand-right",
+        "directions": 4
+      },
+      {
+        "name": "lead-inhand-left",
+        "directions": 4
+      }
+  ]
+}

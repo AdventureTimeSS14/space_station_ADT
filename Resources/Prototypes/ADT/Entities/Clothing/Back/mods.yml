@@ -68,8 +68,8 @@
   - type: PowerCellDraw
     enabled: false
     drawRate: 1
-    useRate: 5
-    delay: 10
+    useRate: 1
+    delay: 50
   - type: PowerCellSlot
     cellSlotId: cell_slot
     fitsInCharger: false

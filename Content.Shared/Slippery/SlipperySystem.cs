@@ -95,7 +95,7 @@ public sealed class SlipperySystem : EntitySystem
         if (HasComp<KnockedDownComponent>(other) && !component.SlipData.SuperSlippery)
             return;
 
-        var attemptEv = new SlipAttemptEvent(uid);
+        var attemptEv = new SlipAttemptEvent(uid, targetSlots: component.IgnoreSlots ? SlotFlags.NONE : SlotFlags.FEET); //ADT-tweak: добавила игнор слотов
         RaiseLocalEvent(other, attemptEv);
         if (attemptEv.SlowOverSlippery)
             _speedModifier.AddModifiedEntity(other);
@@ -152,9 +152,10 @@ public sealed class SlipAttemptEvent : EntityEventArgs, IInventoryRelayEvent
 
     public SlotFlags TargetSlots { get; } = SlotFlags.FEET;
 
-    public SlipAttemptEvent(EntityUid? slipCausingEntity)
+    public SlipAttemptEvent(EntityUid? slipCausingEntity, SlotFlags targetSlots) //ADT-tweak: добавила argetSlots
     {
         SlipCausingEntity = slipCausingEntity;
+        TargetSlots = targetSlots; //ADT-tweak
     }
 }
 

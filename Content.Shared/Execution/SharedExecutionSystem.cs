@@ -15,6 +15,15 @@ using Content.Shared.Interaction.Events;
 using Content.Shared.Mind;
 using Robust.Shared.Player;
 using Robust.Shared.Audio.Systems;
+using Content.Shared.Weapons.Ranged.Components;
+using Content.Shared.Weapons.Ranged.Systems;
+using Content.Shared.Weapons.Ranged.Events;
+using Content.Shared.Weapons.Ranged;
+using Content.Shared.Projectiles;
+using Robust.Shared.Network;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Timing;
+using Content.Shared.ADT.Execution;
 
 namespace Content.Shared.Execution;
 
@@ -32,7 +41,16 @@ public sealed class SharedExecutionSystem : EntitySystem
     [Dependency] private readonly SharedCombatModeSystem _combat = default!;
     [Dependency] private readonly SharedExecutionSystem _execution = default!;
     [Dependency] private readonly SharedMeleeWeaponSystem _melee = default!;
+    //ADT-tweak-start
+    [Dependency] private readonly SharedGunSystem _gunSystem = default!;
+    [Dependency] private readonly INetManager _netManager = default!;
+    [Dependency] private readonly IComponentFactory _componentFactory = default!;
+    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private readonly SharedAppearanceSystem _appearanceSystem = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
 
+    private const float GunExecutionTime = 4.0f;
+    //ADT-tweak-end
     /// <inheritdoc/>
     public override void Initialize()
     {
@@ -42,6 +60,10 @@ public sealed class SharedExecutionSystem : EntitySystem
         SubscribeLocalEvent<ExecutionComponent, GetMeleeDamageEvent>(OnGetMeleeDamage);
         SubscribeLocalEvent<ExecutionComponent, SuicideByEnvironmentEvent>(OnSuicideByEnvironment);
         SubscribeLocalEvent<ExecutionComponent, ExecutionDoAfterEvent>(OnExecutionDoAfter);
+        //ADT-tweak-start
+        SubscribeLocalEvent<GunComponent, GetVerbsEvent<UtilityVerb>>(OnGetInteractionVerbsGun);
+        SubscribeLocalEvent<GunComponent, ExecutionDoAfterEvent>(OnDoafterGun);
+        //ADT-tweak-end
     }
 
     private void OnGetInteractionsVerbs(EntityUid uid, ExecutionComponent comp, GetVerbsEvent<UtilityVerb> args)
@@ -230,4 +252,154 @@ public sealed class SharedExecutionSystem : EntitySystem
             _execution.ShowExecutionExternalPopup(externalMsg, attacker, victim, entity);
         }
     }
+    //ADT-tweak-start
+    private bool CanExecuteWithGun(EntityUid weapon, EntityUid victim, EntityUid user)
+    {
+        if (!CanBeExecuted(victim, user))
+            return false;
+
+        // We must be able to actually fire the gun
+        if (!TryComp<GunComponent>(weapon, out var gun) && _gunSystem.CanShoot(gun!))
+            return false;
+
+        return true;
+    }
+    private void OnGetInteractionVerbsGun(EntityUid uid, GunComponent component, GetVerbsEvent<UtilityVerb> args)
+    {
+        if (args.Hands == null || args.Using == null || !args.CanAccess || !args.CanInteract)
+            return;
+
+        var attacker = args.User;
+        var weapon = args.Using!.Value;
+        var victim = args.Target;
+
+        if (HasComp<GunExecutionBlacklistComponent>(weapon))
+            return;
+
+        if (!CanExecuteWithGun(weapon, victim, attacker))
+            return;
+
+        UtilityVerb verb = new()
+        {
+            Act = () => TryStartGunExecutionDoafter(weapon, victim, attacker),
+            Impact = LogImpact.High,
+            Text = Loc.GetString("execution-verb-name"),
+            Message = Loc.GetString("execution-verb-message"),
+        };
+
+        args.Verbs.Add(verb);
+    }
+    private void TryStartGunExecutionDoafter(EntityUid weapon, EntityUid victim, EntityUid attacker)
+    {
+        if (!CanExecuteWithGun(weapon, victim, attacker))
+            return;
+
+        if (attacker == victim)
+        {
+            ShowExecutionInternalPopup("suicide-popup-gun-initial-internal", attacker, victim, weapon);
+            ShowExecutionExternalPopup("suicide-popup-gun-initial-external", attacker, victim, weapon);
+        }
+        else
+        {
+            ShowExecutionInternalPopup("execution-popup-gun-initial-internal", attacker, victim, weapon);
+            ShowExecutionExternalPopup("execution-popup-gun-initial-external", attacker, victim, weapon);
+        }
+
+        var doAfter =
+            new DoAfterArgs(EntityManager, attacker, GunExecutionTime, new ExecutionDoAfterEvent(), weapon, target: victim, used: weapon)
+            {
+                BreakOnMove = true,
+                BreakOnDamage = true,
+                NeedHand = true,
+            };
+
+        _doAfter.TryStartDoAfter(doAfter);
+    }
+
+    private void OnDoafterGun(EntityUid uid, GunComponent component, DoAfterEvent args)
+    {
+        if (args.Handled || args.Cancelled || args.Used == null || args.Target == null)
+            return;
+
+        if (!TryComp<GunComponent>(uid, out var guncomp))
+            return;
+
+        var attacker = args.User;
+        var victim = args.Target.Value;
+        var weapon = args.Used.Value;
+
+        if (!_execution.CanExecuteWithGun(weapon, victim, attacker))
+            return;
+
+        if (!TryComp<DamageableComponent>(victim, out var damageableComponent))
+            return;
+
+        if (!_timing.IsFirstTimePredicted)
+            return;
+
+        // Take some ammunition for the shot (one bullet)
+        var fromCoordinates = Transform(attacker).Coordinates;
+        var ev = new TakeAmmoEvent(1, new List<(EntityUid? Entity, IShootable Shootable)>(), fromCoordinates, attacker);
+        RaiseLocalEvent(weapon, ev);
+
+        // Check if there's any ammo left
+        if (ev.Ammo.Count <= 0)
+        {
+            _audio.PlayPredicted(component.SoundEmpty, uid, attacker);
+            ShowExecutionInternalPopup("execution-popup-gun-empty", attacker, victim, weapon);
+            ShowExecutionExternalPopup("execution-popup-gun-empty", attacker, victim, weapon);
+            return;
+        }
+
+        // Get some information from IShootable
+        var ammoUid = ev.Ammo[0].Entity;
+
+        switch (ev.Ammo[0].Shootable)
+        {
+            case CartridgeAmmoComponent cartridge:
+                {
+                    var prototype = _prototypeManager.Index<EntityPrototype>(cartridge.Prototype);
+
+                    prototype.TryGetComponent<ProjectileComponent>(out var projectileA, _componentFactory); // sloth forgive me
+                    // Expend the cartridge
+                    cartridge.Spent = true;
+                    _appearanceSystem.SetData(ammoUid!.Value, AmmoVisuals.Spent, true);
+                    Dirty(ammoUid.Value, cartridge);
+
+                    break;
+                }
+            case AmmoComponent newAmmo: // This stops revolvers from hitting the user while executing someone, somehow
+                TryComp<ProjectileComponent>(ammoUid, out var projectileB);
+                if (ammoUid != null)
+                    Del(ammoUid);
+                break;
+        }
+
+        var prev = _combat.IsInCombatMode(attacker);
+        _combat.SetInCombatMode(attacker, true);
+
+        if (attacker == victim)
+        {
+            ShowExecutionInternalPopup("suicide-popup-gun-complete-internal", attacker, victim, weapon);
+            ShowExecutionExternalPopup("suicide-popup-gun-complete-external", attacker, victim, weapon);
+            _suicide.ApplyLethalDamage((victim, damageableComponent), "Piercing");
+            _audio.PlayPredicted(component.SoundGunshot, uid, attacker);
+            if (!HasComp<RevolverAmmoProviderComponent>(weapon))
+            {
+                var suicideGhostEvent = new SuicideGhostEvent(victim);
+                RaiseLocalEvent(victim, suicideGhostEvent);
+            }
+        }
+        else
+        {
+            ShowExecutionInternalPopup("execution-popup-gun-complete-internal", attacker, victim, weapon);
+            ShowExecutionExternalPopup("execution-popup-gun-complete-external", attacker, victim, weapon);
+            _audio.PlayPredicted(component.SoundGunshot, uid, attacker);
+            _suicide.ApplyLethalDamage((victim, damageableComponent), "Piercing");
+        }
+
+        _combat.SetInCombatMode(attacker, prev);
+        args.Handled = true;
+    }
+    //ADT-tweak-end
 }

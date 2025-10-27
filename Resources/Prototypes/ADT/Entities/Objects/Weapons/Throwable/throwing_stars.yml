@@ -10,3 +10,12 @@
       map: ["base"]
   - type: TimedDespawn
     lifetime: 30
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Slash: 12
+        Piercing: 16
+  - type: StaminaDamageOnCollide
+    damage: 10
+  - type: StaminaDamageOnEmbed
+    damage: 15
