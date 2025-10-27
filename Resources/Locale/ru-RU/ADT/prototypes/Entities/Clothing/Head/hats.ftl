@@ -63,11 +63,5 @@ ent-ADTClothingHeadDrinkCap = питьевая кепка
 ent-ADTClothingAdmiralHat = капитанская треуголка
     .desc = Яррр! Поднять паруса!
 
-ent-ClothingHeadHatBeretCommand = берет командования
-    .desc = Берет с эмблемой командования. В нём вы чувствуете власть над окружающими.
-
-ent-ClothingHeadHatCommandSoft = кепка командования
-    .desc = Бейсболка расцветки командования.
-
 ent-ADTClothingHeadHatChefRed = красный поварской колпак
     .desc = Прямиком из космо-Италии!
