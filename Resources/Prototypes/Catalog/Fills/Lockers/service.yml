@@ -64,6 +64,17 @@
       children:
       - id: FoodCondimentPacketSalt
       - id: FoodCondimentPacketPepper
+        amount: 3
+      - id: FoodCondimentBottleEnzyme
+      # really, milk should go in the fridge. Unfortunately saltern only has freezers.
+      # yes, I'm using this as an excuse to not have to do extra work.
+      - id: DrinkMilkCarton
+        amount: 2
+      - id: DrinkSoyMilkCarton
+      - id: FoodContainerEgg #ADT-tweak
+    # ADT-WikiBooks-Start
+      - id: ADTBookSRPsrv
+    # ADT-WikiBooks-End
 
 - type: entity
   id: ClosetJanitorFilled

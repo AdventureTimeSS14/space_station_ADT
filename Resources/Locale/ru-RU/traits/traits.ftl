@@ -45,3 +45,5 @@ trait-painnumbness-name = Онемевший
 trait-painnumbness-desc = У вас отсутствует какое-либо ощущение боли, вы не осознаете, насколько вам может быть больно.
 trait-uncloneable-name = Неклонируемость
 trait-uncloneable-desc = Вы не можете быть клонированы.
+trait-hemophilia-name = Гемофилия
+trait-hemophilia-desc = Ваша кровь хуже сворачивается... "ЧУВАК У ТЕБЯ КРОВЬ ИДЁТ РЕКОЙ! НАЙДИ УЖЕ МАРЛЮ!!!"
