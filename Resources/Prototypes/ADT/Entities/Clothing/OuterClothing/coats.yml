@@ -436,7 +436,6 @@
     requiredSlot:
     - outerclothing
     slot: head
-
 - type: entity
   parent: ClothingOuterStorageBase
   id: ADTClothingCoatReligionLeader
@@ -447,6 +446,10 @@
     sprite: ADT/Clothing/OuterClothing/Coats/chaplain_leader.rsi
   - type: Clothing
     sprite: ADT/Clothing/OuterClothing/Coats/chaplain_leader.rsi
+  - type: ContainerContainer #R.A.T. shitfix: я не знаю почему, но тесты жаловались именно на эти два предмета, потому я добавила это
+    containers:
+      storagebase: !type:Container
+      toggleable-clothing: !type:ContainerSlot
   - type: ToggleableClothing
     clothingPrototype: ADTClothingHeadHatHoodChaplainLeader
     requiredSlot:
@@ -463,6 +466,10 @@
     sprite: ADT/Clothing/OuterClothing/Coats/clockwork_robe.rsi
   - type: Clothing
     sprite: ADT/Clothing/OuterClothing/Coats/clockwork_robe.rsi
+  - type: ContainerContainer #R.A.T. shitfix: я не знаю почему, но тесты жаловались именно на эти два предмета, потому я добавила это
+    containers:
+      storagebase: !type:Container
+      toggleable-clothing: !type:ContainerSlot
   - type: ToggleableClothing
     clothingPrototype: ADTClothingHeadHatClockworkHood
     requiredSlot:
