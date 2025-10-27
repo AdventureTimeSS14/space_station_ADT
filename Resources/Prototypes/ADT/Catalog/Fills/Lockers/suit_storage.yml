@@ -40,6 +40,7 @@
   - type: AccessReader
     access: [["Security"]]
 
+# Miner
 - type: entity
   id: SuitStorageMiner
   parent: SuitStorageBase
@@ -52,3 +53,24 @@
         - id: ClothingMaskGasExplorer
   - type: AccessReader
     access: [["Salvage"]]
+  
+# Paramed
+- type: entity
+  id: ADTSuitStorageParamed
+  parent: SuitStorageBase
+  suffix: Paramed
+  components:
+  - type: UserInterface
+    interfaces:
+      enum.SuitStorageUiKey.Key:
+        type: SuitStorageBoundUserInterface
+  - type: SuitStorage
+    options:
+    - ADTClothingModsuitBackMedical
+    - ClothingOuterHardsuitVoidParamed
+  - type: StorageFill
+    contents:
+        - id: OxygenTankFilled
+        - id: ClothingMaskBreath
+  - type: AccessReader
+    access: [["Medical"]]
