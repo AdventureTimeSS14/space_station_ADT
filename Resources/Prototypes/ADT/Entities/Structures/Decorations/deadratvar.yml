@@ -9,7 +9,6 @@
     sprite: /Textures/ADT/Structures/Decoration/deadratvar.rsi
     state: dead_ratvar
     drawdepth: OverMobs
-    size: Ginormous
   - type: AmbientSound
     volume: 2
     range: 20
