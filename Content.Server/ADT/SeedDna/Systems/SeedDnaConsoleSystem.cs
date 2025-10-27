@@ -68,20 +68,11 @@ public sealed class SeedDnaConsoleSystem : SharedSeedDnaConsoleSystem
 
     private void RewriteSeedData(EntityUid seed, SeedDataDto seedDataDto)
     {
-        var comp = EntityManager.GetComponent<SeedComponent>(seed);
-        var seedData = comp.Seed;
-
+        var seedData = EntityManager.GetComponent<SeedComponent>(seed).Seed;
         if (seedData == null)
         {
             seedData = new SeedData();
-            comp.Seed = seedData;
-        }
-
-        // Проверка, нужно ли создать копию
-        if (seedData.Immutable || !seedData.Unique)
-        {
-            seedData = seedData.Clone();
-            comp.Seed = seedData;
+            EntityManager.GetComponent<SeedComponent>(seed).Seed = seedData;
         }
 
         //@formatter:off

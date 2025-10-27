@@ -5,7 +5,7 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototy
 
 namespace Content.Server.Botany.Components
 {
-    [RegisterComponent, Access(typeof(BotanySystem), typeof(SeedDnaConsoleSystem))] // ADT-TWEAK-PORT-FROM-_Ganimed
+    [RegisterComponent, Access(typeof(BotanySystem), typeof(SeedDnaConsoleSystem))] // _Ganimed
     public sealed partial class SeedComponent : SharedSeedComponent
     {
         /// <summary>
