@@ -39,7 +39,7 @@
 - type: entity
   id: ADTDrakeStatue
   parent: BaseStructure
-  name: old statue of a ash drake 
+  name: old statue of an ash drake 
   suffix: Lavaland
   description: A majestic basalt sculpture of an ash dragon. Its eyes are six glowing gems.
   components:
@@ -53,7 +53,7 @@
 - type: entity
   id: ADTBrokeDrakeStatue
   parent: BaseStructure
-  name: old broke statue of a ash drake 
+  name: old broken statue of an ash drake
   suffix: Lavaland
   description: A majestic basalt sculpture of an ash dragon. Cracks run down its surface and parts of it have fallen off.
   components:
