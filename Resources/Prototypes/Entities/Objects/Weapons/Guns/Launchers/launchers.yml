@@ -19,6 +19,7 @@
     containers:
       ballistic-ammo: !type:Container
         ents: []
+  - type: GunExecutionBlacklist #ADT-tweak
 
 - type: entity
   name: china lake
@@ -85,7 +86,6 @@
     - Back
     - suitStorage
   - type: AmmoCounter
-  - type: RunAndGunBlocker # ADT-Tweak
   - type: Gun
     fireRate: 1
     selectedMode: SemiAuto
@@ -314,7 +314,6 @@
   components:
     - type: AmmoCounter
     - type: GrapplingGun
-    - type: RunAndGunBlocker # ADT-Tweak
     - type: Gun
       soundGunshot: /Audio/Weapons/Guns/Gunshots/harpoon.ogg
       fireRate: 0.5

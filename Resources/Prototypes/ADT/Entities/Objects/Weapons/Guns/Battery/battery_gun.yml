@@ -20,7 +20,7 @@
     proto: ADTProjectileIonRifle
     fireCost: 125
   - type: RunAndGunSpreadModifier
-    modifyer: 2
+    modifyer: 0.2
   - type: MeleeWeapon
     resetOnHandSelected: false
     attackRate: 1
@@ -49,6 +49,7 @@
   - type: Tag
     tags:
     - ADTBsoWeapon
+  - type: GunExecutionBlacklist
 
 - type: entity
   name: laser rifle
@@ -214,7 +215,7 @@
       collection: GenericHit
   - type: AltFireMelee
   - type: RunAndGunSpreadModifier
-    modifyer: 2
+    modifyer: 0.4
   - type: Gun
     fireRate: 3
     projectileSpeed: 60
@@ -325,21 +326,19 @@
   description: A self-defense weapon that... turns you into vulpkanin..
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Battery/disabler.rsi
+    sprite: ADT/Objects/Weapons/Guns/Rifles/vulpizator.rsi
     layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
-      - state: mag-unshaded-0
-        map: ["enum.GunVisualLayers.MagUnshaded"]
-        shader: unshaded
   - type: Clothing
-    sprite: Objects/Weapons/Guns/Battery/disabler.rsi
+    sprite: ADT/Objects/Weapons/Guns/Rifles/vulpizator.rsi
     quickEquip: false
     slots:
       - suitStorage
       - Belt
   - type: BasicEntityAmmoProvider
     proto: ADTProjectilePolyboltVulpkanin
+  - type: DNAGunLocker
 
 - type: entity
   name: ion carbine
@@ -363,7 +362,7 @@
     proto: ADTProjectileIonRifle
     fireCost: 150
   - type: RunAndGunSpreadModifier
-    modifyer: 3
+    modifyer: 0.4
   - type: MeleeWeapon
     resetOnHandSelected: false
     attackRate: 1

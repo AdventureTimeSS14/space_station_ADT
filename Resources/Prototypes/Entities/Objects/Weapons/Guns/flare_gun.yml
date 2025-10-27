@@ -23,7 +23,7 @@
       collection: GenericHit
   - type: AltFireMelee
   - type: RunAndGunSpreadModifier
-    modifyer: 2
+    modifyer: 0.1
   # ADT-Tweak end
   - type: ItemSlots
     slots:

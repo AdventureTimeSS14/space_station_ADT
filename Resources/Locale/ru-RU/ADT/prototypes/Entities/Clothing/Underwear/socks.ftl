@@ -109,7 +109,7 @@ ent-ADTClothingUnderwearSocksThighGreen = зелёные чулки
 
 ent-ADTClothingUnderwearSocksKneeHolyday= новогодние гольфы
     .desc = Обычные гольфы, что точно подойдут для празднования нового года.
-ent-ADTClothingUnderwearSocksThighHolyday = зелённые чулки
+ent-ADTClothingUnderwearSocksThighHolyday = новогодние чулки
     .desc = Обычные чулки, что точно подойдут для празднования нового года.
 
 ent-ADTClothingUnderwearSocksThighGrey = серые чулки
@@ -202,3 +202,6 @@ ent-ADTClothingUnderwearSocksThighPurple = фиолетовые чулки
 
 ent-ADTClothingUnderwearSocksCow = коровьи носки
     .desc = Милые коровьи носки. Му-у-у!
+
+ent-ADTClothingUnderwearSocksThighCreepy = жуткие чулки
+    .desc = Чулки для самых страшных на станции.
