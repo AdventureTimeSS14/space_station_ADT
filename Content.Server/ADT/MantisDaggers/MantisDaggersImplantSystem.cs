@@ -29,9 +29,14 @@ public sealed class MantisDaggersImplantSystem : EntitySystem
         if (args.Implanted is not { } owner)
             return;
 
-        if (TryComp<MantisDaggersComponent>(owner, out var user))
+        if (TryComp<MantisDaggersComponent>(owner, out var mantisComp))
         {
             RemComp<MantisDaggersComponent>(owner);
+
+            if (TryComp<ReflectComponent>(owner, out var reflectComp))
+            {
+                RemComp<ReflectComponent>(owner);
+            }
         }
     }
 }
