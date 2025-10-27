@@ -72,8 +72,8 @@ ent-ADTClothingHeadHatDarkBenie = тёмная шапка
 ent-ADTClothingHeadHatBlueBenie = синяя шапка
     .desc = Обычная синяя шапка. Смотреть здесь не на что.
 
-ent-ADTClothingHeadHatGreenBenie = зелённая шапка
-    .desc = Обычная зелённая шапка. Смотреть здесь не на что.
+ent-ADTClothingHeadHatGreenBenie = зелёная шапка
+    .desc = Обычная зелёная шапка. Смотреть здесь не на что.
 
 ent-ADTClothingHeadHatPurpleBenie = фиолетовая шапка
     .desc = Обычная фиолетовая шапка. Смотреть здесь не на что.
