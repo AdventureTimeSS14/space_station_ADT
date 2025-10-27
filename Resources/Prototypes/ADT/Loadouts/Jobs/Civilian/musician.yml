@@ -1,7 +1,7 @@
 # PDA
 
 - type: loadout
-  id: MusicianPDA
+  id: ADTMusicianPDA
   equipment:
     id: MusicianPDA
 

@@ -805,7 +805,7 @@
   minLimit: 1
   maxLimit: 1
   loadouts:
-  - ClothingMaskClown
+  - ADTClothingMaskClown
   - ADTClothingMaskClownAbyss
 
 - type: loadoutGroup
@@ -823,7 +823,7 @@
   minLimit: 1
   maxLimit: 1
   loadouts:
-  - BikeHorn
+  - ADTBikeHorn
   - ADTBikeHornAbyss
 
 - type: loadoutGroup
@@ -832,8 +832,8 @@
   minLimit: 1
   maxLimit: 1
   loadouts:
-  - ClownRecorder
-  - ToyHammer
+  - ADTClownRecorder
+  - ADTToyHammer
   - ADTToyHammerAbyss
 
 ## Музыкант
@@ -986,7 +986,7 @@
   minLimit: 1
   maxLimit: 1
   loadouts:
-  - MusicianPDA
+  - ADTMusicianPDA
   - ADTPerformerPDA
   - ADTConcertmasterPDA
   - ADTComposerPDA
