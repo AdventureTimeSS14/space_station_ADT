@@ -126,6 +126,8 @@
   requiredTech:
   - ADTIndustrialMODsuit
 
+
+- type: technology
   id: ADTAdvancedThruster
   name: research-technology-advanced-thruster
   icon:
