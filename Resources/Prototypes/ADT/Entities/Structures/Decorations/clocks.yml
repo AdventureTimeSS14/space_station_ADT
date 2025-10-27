@@ -11,7 +11,7 @@
     noRot: true
     sprite: /Textures/ADT/Structures/Decoration/clock.rsi
     state: clock
-    drawdepth: WallMountedItems
+    drawDepth: WallMountedItems
   - type: Fixtures
     fixtures:
       fix1:
