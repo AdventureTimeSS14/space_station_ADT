@@ -505,7 +505,7 @@
     sprite: ADT/Clothing/Uniforms/Jumpskirt/bartender_green.rsi
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpskirt/bartender_green.rsi
-=======
+
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ADTClothingUniformDressVintage
