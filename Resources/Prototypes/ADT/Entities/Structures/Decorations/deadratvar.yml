@@ -27,7 +27,9 @@
         mask:
         - LargeMobMask
         layer:
-        - MidImpassable, LowImpassable, BulletImpassable
+        - MidImpassable
+        - LowImpassable
+        - BulletImpassable
   - type: Repairable
     fuelCost: 10
     doAfterDelay: 5
