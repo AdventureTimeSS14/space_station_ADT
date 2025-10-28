@@ -69,6 +69,7 @@
   - type: Tag
     tags:
       - ADTJumpSuitSacrifice
+      - WhitelistChameleon
   #ADT-Tweak-End
 
 - type: entity

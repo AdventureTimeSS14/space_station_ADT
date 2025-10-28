@@ -1,0 +1,39 @@
+- type: entity
+  parent: PowerCellRecharger
+  id: ADTMegaCellRecharger
+  name: megacell recharger
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Power/megacharger.rsi
+    layers:
+    - map: ["enum.PowerChargerVisualLayers.Base"]
+      state: "empty"
+    - map: ["enum.PowerChargerVisualLayers.Light"]
+      state: "light-off"
+      shader: "unshaded"
+    - state: open
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+      visible: false
+  - type: Machine
+    board: ADTMegaCellRechargerCircuitboard
+  - type: WiresPanel
+  - type: GenericVisualizer
+    visuals:
+      enum.WiresVisuals.MaintenancePanelState:
+        enum.WiresVisualLayers.MaintenancePanel:
+          True: { visible: true }
+          False: { visible: false }
+  - type: PowerCellSlot
+    cellSlotId: charger_slot
+    # fitsInCharger is true i dont think this will ever affect anything negatively but it lets it function
+  - type: Charger
+    chargeRate: 100.0
+    slotId: charger_slot
+  - type: ItemSlots
+    slots:
+      charger_slot:
+        ejectOnInteract: true
+        name: power-cell-slot-component-slot-name-default
+        whitelist:
+          tags:
+          - ADTMegaCell

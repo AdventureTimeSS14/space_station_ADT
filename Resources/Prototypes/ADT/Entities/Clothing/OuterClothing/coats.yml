@@ -386,6 +386,16 @@
   - type: Clothing
     sprite: ADT/Clothing/OuterClothing/Coats/letterman_syndie.rsi
 
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ADTClothingOuterLettermanBlack
+  name: black letterman jacket
+  description: A black letterman jacket.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Coats/letterman_black.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Coats/letterman_black.rsi
 
 # Тренч деку
 
