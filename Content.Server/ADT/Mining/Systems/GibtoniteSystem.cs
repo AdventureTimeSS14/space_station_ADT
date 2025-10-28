@@ -39,6 +39,8 @@ public sealed class GibtoniteSystem : EntitySystem
 
     private void OnStartup(EntityUid uid, GibtoniteComponent comp, MapInitEvent args)
     {
+        if (!comp.Extracted && HasComp<GatherableComponent>(uid))
+            RemComp<GatherableComponent>(uid);
         RandomTimer(comp);
     }
 
