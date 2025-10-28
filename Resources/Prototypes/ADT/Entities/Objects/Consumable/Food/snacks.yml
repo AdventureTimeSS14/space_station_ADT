@@ -657,30 +657,30 @@
     state: eyes_3
 
 - type: entity
-  name: ADTCandy-OneeyeName
+  name: candy oneeye
   parent: ADTFoodSnackBlackCandies
   id: ADTFoodSnackCandyEyes1
-  description: ADTCandy-OneeyeDesc
+  description: candy oneeye
   suffix: Halloween
   components:
   - type: Sprite
     state: eyes_1
 
 - type: entity
-  name: ADTCandy-TwoeyeName
+  name: candy twoeye
   parent: ADTFoodSnackBlackCandies
   id: ADTFoodSnackCandyEyes2
-  description: ADTCandy-TwoeyeDesc
+  description: candy twoeye
   suffix: Halloween
   components:
   - type: Sprite
     state: eyes_2
 
 - type: entity
-  name: ADTCandy-ccornName
+  name: candy corn
   parent: ADTFoodSnackBlackCandies
-  id: ADTFoodSnackCandyСorn
-  description: ADTCandy-ccornDesc
+  id: ADTFoodSnackCandyCorn
+  description: candy corn
   suffix: Halloween
   components:
   - type: Sprite

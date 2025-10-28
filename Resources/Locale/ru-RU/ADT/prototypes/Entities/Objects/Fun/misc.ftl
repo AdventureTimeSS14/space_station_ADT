@@ -8,3 +8,7 @@ ent-ADTPaperShip = бумажный кораблик
 ent-UplinkLighterBox = коробка с контрабандными зажигалками или спичками.
     .desc = { ent-MysteryLighterBox.desc }
     .suffix = Uplink
+
+ent-ADTLethalCompanyAirHorn = велосипедный клаксон с баллоном
+    .suffix = Хеллоуин
+    .desc = Мощный гудок, который будет слышно по всей станции!

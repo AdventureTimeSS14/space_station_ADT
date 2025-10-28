@@ -208,3 +208,31 @@ ent-ADTPosterHalloweenSpiderWeb1 = паутина
 ent-ADTPosterHalloweenSpiderWeb2 = паутина
     .suffix = Хеллоуин
     .desc = Дом паука Аркадия.
+
+ent-ADTPosterHalloweenSpider = паучок
+    .suffix = Хеллоуин
+    .desc = Большой паук, который пришел украсть ваши сладости!
+
+ent-ADTPosterHappyHalloween = Счастливого Хеллоуина!
+    .suffix = Хеллоуин
+    .desc = Плакат в честь пугающего праздника - Хеллоуина.
+
+ent-ADTPosterHappyHalloween2 = Счастливого Хеллоуина!
+    .suffix = Хеллоуин
+    .desc = Плакат в честь пугающего праздника - Хеллоуина.
+
+ent-ADTPosterHappyHalloween3 = Счастливого Хеллоуина!
+    .suffix = Хеллоуин
+    .desc = Плакат в честь пугающего праздника - Хеллоуина.
+
+ent-ADTPosterTayarHalloween = Счастливого Хеллоуина!
+    .suffix = Хеллоуин
+    .desc = Плакат в честь пугающего праздника - Хеллоуина.
+
+ent-ADTPosterHalloweenSpooky = Тыква
+    .suffix = Хеллоуин
+    .desc = Постер с тыквой... стоп, она следит за мной?..
+
+ent-ADTPosterHalloweenYummy = Пасть
+    .suffix = Хеллоуин
+    .desc = Постер с жуткой пастью, но не переживайте, она вас не съест.. пока что..

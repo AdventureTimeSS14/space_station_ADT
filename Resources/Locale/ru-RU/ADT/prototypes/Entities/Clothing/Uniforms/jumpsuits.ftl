@@ -471,3 +471,9 @@ ent-ADTClothingJumpsuitDryadCoverings = подвязки дриады
 
 ent-ClothingUniformJumpsuitCommandGeneric = униформа командования
     .desc = Обычный комбинезон расцветки командования, не связанный с каким-либо конкретным отделом.
+
+ent-ADTClothingUniformSwimsuitWinth = фиолетовый купальник
+    .desc = Фиолетовый купальник.
+
+ent-ADTClothingJumpsuitRadioDemonSuit = комбинезон радио-демона
+    .desc = Улыбка, моя дорогая, – ценный инструмент. Она вдохновляет твоих друзей, не даёт врагам раскусить твои планы и гарантирует, что, что бы ни случилось, именно ТЫ держишь всё под контролем.

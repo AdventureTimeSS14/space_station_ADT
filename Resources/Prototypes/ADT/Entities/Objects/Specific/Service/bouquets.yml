@@ -128,9 +128,6 @@
   - type: Item
     size: Normal
     sprite: ADT/Objects/Specific/Service/liliac_bouquet.rsi
-  - type: DisarmMalus
-    graph: ADTObjectLiliacBouquet
-    node: done
 
 #Букеты ко Дню Святого Валентина
 - type: entity
@@ -222,5 +219,3 @@
     sprite: ADT/Objects/Specific/Service/love_yellow_bouquet.rsi
   - type: StaticPrice
     price: 10
-    size: Normal
-    sprite: ADT/Objects/Specific/Service/love_yellow_bouquet.rsi
