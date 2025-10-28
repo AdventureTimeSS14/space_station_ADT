@@ -446,6 +446,11 @@
     requiredSlot:
     - outerclothing
     slot: head
+  - type: ContainerContainer #R.A.T. shitfix: я не знаю почему, но тесты жаловались именно на эти два предмета, потому я добавила это
+    containers:
+      storagebase: !type:Container
+      toggleable-clothing: !type:ContainerSlot
+
 - type: entity
   parent: ClothingOuterStorageBase
   id: ADTClothingCoatReligionLeader
@@ -500,7 +505,10 @@
   - type: ToggleableClothing
     clothingPrototype: ADTClothingHeadHatWebHood
     slot: head
-
+  - type: ContainerContainer #R.A.T. shitfix: я не знаю почему, но тесты жаловались именно на эти два предмета, потому я добавила это
+    containers:
+      storagebase: !type:Container
+      toggleable-clothing: !type:ContainerSlot
 
 - type: entity
   parent: ClothingOuterStorageBase
@@ -516,3 +524,7 @@
   - type: ToggleableClothing
     clothingPrototype: ADTClothingHeadHatTechpriestHood
     slot: head
+  - type: ContainerContainer #R.A.T. shitfix: я не знаю почему, но тесты жаловались именно на эти два предмета, потому я добавила это
+    containers:
+      storagebase: !type:Container
+      toggleable-clothing: !type:ContainerSlot
