@@ -91,6 +91,23 @@
     tags:
     - UtilityBelt
     - WhitelistChameleon
+  # ADT Start
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/ADT/Items/Handling/toolbelt_pickup.ogg
+      params:
+        volume: -4
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/ADT/Items/Handling/toolbelt_drop.ogg
+      params:
+        volume: -4
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/ADT/Items/Handling/toolbelt_drop.ogg
+      params:
+        volume: -4
+  # ADT End
 
 - type: entity
   parent: ClothingBeltStorageBase
@@ -176,6 +193,23 @@
           - Wrench
     sprite: Clothing/Belt/belt_overlay.rsi
   - type: Appearance
+  # ADT Start
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/ADT/Items/Handling/toolbelt_pickup.ogg
+      params:
+        volume: -4
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/ADT/Items/Handling/toolbelt_drop.ogg
+      params:
+        volume: -4
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/ADT/Items/Handling/toolbelt_drop.ogg
+      params:
+        volume: -4
+  # ADT End
 
 - type: entity
   parent: ClothingBeltMilitaryWebbing # ADT Nukebuff
