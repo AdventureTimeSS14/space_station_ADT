@@ -2,10 +2,10 @@ meta:
   format: 7
   category: Map
   engineVersion: 265.0.0
-  forkId: ADT
-  forkVersion: bdf7f39be19ed7ad79f34700c950e7407e5487a9
-  time: 10/13/2025 01:28:33
-  entityCount: 8907
+  forkId: ""
+  forkVersion: ""
+  time: 10/28/2025 08:28:25
+  entityCount: 8910
 maps:
 - 1
 grids:
@@ -9622,8 +9622,6 @@ entities:
     - type: Transform
       pos: 19.5,-9.5
       parent: 2
-    - type: Physics
-      canCollide: True
 - proto: ADTKitchenElectricRange
   entities:
   - uid: 31
@@ -39475,8 +39473,8 @@ entities:
         - 0
         - 0
         - 0
-      open: True
       removedMasks: 20
+      open: True
     - type: PlaceableSurface
       isPlaceable: True
 - proto: LockerWallMedicalFilled
@@ -47738,6 +47736,13 @@ entities:
     - type: Transform
       pos: 3.5,-13.5
       parent: 2
+- proto: SpawnPointBorg
+  entities:
+  - uid: 8909
+    components:
+    - type: Transform
+      pos: 1.5,5.5
+      parent: 2
 - proto: SpawnPointBotanist
   entities:
   - uid: 5011
@@ -47795,6 +47800,13 @@ entities:
     - type: Transform
       pos: 10.5,-9.5
       parent: 2
+- proto: SpawnPointChemist
+  entities:
+  - uid: 8908
+    components:
+    - type: Transform
+      pos: 6.5,8.5
+      parent: 2
 - proto: SpawnPointChiefEngineer
   entities:
   - uid: 5020
@@ -47822,6 +47834,13 @@ entities:
     components:
     - type: Transform
       pos: -14.5,10.5
+      parent: 2
+- proto: SpawnPointHeadOfPersonnel
+  entities:
+  - uid: 8910
+    components:
+    - type: Transform
+      pos: 4.5,-4.5
       parent: 2
 - proto: SpawnPointHeadOfSecurity
   entities:
