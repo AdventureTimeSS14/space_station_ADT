@@ -34,10 +34,10 @@ public sealed class GibtoniteSystem : EntitySystem
 
         SubscribeLocalEvent<GibtoniteComponent, DamageChangedEvent>(OnDamageChanged);
         SubscribeLocalEvent<GibtoniteComponent, InteractUsingEvent>(OnItemInteract);
-        SubscribeLocalEvent<GibtoniteComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<GibtoniteComponent, MapInitEvent>(OnStartup);
     }
 
-    private void OnStartup(EntityUid uid, GibtoniteComponent comp, ComponentStartup args)
+    private void OnStartup(EntityUid uid, GibtoniteComponent comp, MapInitEvent args)
     {
         RandomTimer(comp);
     }

@@ -31,7 +31,12 @@ public abstract class BaseXATSystem<T> : EntitySystem where T : Component
     {
         SubscribeLocalEvent<T, XenoArchNodeRelayedEvent<TEvent>>((uid, component, args) =>
         {
-            var nodeComp = Comp<XenoArtifactNodeComponent>(uid);
+            // Проверяем существование сущности перед получением компонента
+            if (!EntityManager.EntityExists(uid))
+                return;
+
+            if (!TryComp<XenoArtifactNodeComponent>(uid, out var nodeComp))
+                return;
 
             if (!CanTrigger(args.Artifact, (uid, nodeComp)))
                 return;
@@ -48,11 +53,23 @@ public abstract class BaseXATSystem<T> : EntitySystem where T : Component
     /// <param name="node">Node from <see cref="artifact"/>.</param>
     protected bool CanTrigger(Entity<XenoArtifactComponent> artifact, Entity<XenoArtifactNodeComponent> node)
     {
+        // Проверяем существование обеих сущностей
+        if (!EntityManager.EntityExists(artifact.Owner) || !EntityManager.EntityExists(node.Owner))
+            return false;
+
+        // Проверяем компоненты
+        if (artifact.Comp == null || node.Comp == null)
+            return false;
+
         if (Timing.CurTime < artifact.Comp.NextUnlockTime)
             return false;
 
+        // Безопасно получаем индекс с проверкой
+        if (!XenoArtifact.TryGetIndex(artifact, node.Owner, out var nodeIndex))
+            return false;
+
         if (_unlockingQuery.TryComp(artifact, out var unlocking) &&
-            unlocking.TriggeredNodeIndexes.Contains(XenoArtifact.GetIndex(artifact, node)))
+            unlocking.TriggeredNodeIndexes.Contains(nodeIndex.Value))
             return false;
 
         if (!XenoArtifact.CanUnlockNode((node, node)))
@@ -68,6 +85,12 @@ public abstract class BaseXATSystem<T> : EntitySystem where T : Component
     {
         if (!Timing.IsFirstTimePredicted)
             return;
+
+        //ADT-tweak-start
+        // Дополнительная проверка существования перед триггером
+        if (!EntityManager.EntityExists(artifact.Owner) || !EntityManager.EntityExists(node.Owner))
+            return;
+        //ADT-tweak-end
 
         Log.Debug($"Activated trigger {typeof(T).Name} on node {ToPrettyString(node)} for {ToPrettyString(artifact)}");
         XenoArtifact.TriggerXenoArtifact(artifact, (node.Owner, node.Comp2));
