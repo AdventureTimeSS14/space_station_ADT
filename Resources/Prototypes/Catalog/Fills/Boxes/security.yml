@@ -22,7 +22,7 @@
   - type: StorageFill
     contents:
     - id: Zipties
-      amount: 15 # ADT-tweak 9 -> 15 #армор, зачем 30 то
+      amount: 11 # ADT-tweak 9 -> 11 #армор, зачем 30 то
   - type: Sprite
     layers:
     - state: box_security
