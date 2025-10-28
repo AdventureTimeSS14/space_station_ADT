@@ -88,8 +88,6 @@ ent-ADTClothingUnderwearSocksThighCentcom = чулки представител�
 
 ent-ADTClothingUnderwearSocksKneeCreepy = страшные гольфы
     .desc = Гольфы, что точно подойдут для Хеллоуина.
-ent-ADTClothingUnderwearSocksThighCreepy = страшные чулки
-    .desc = Чулки, что точно подойдут для Хеллоуина.
 
 ent-ADTClothingUnderwearSocksCyan = голубые носки
     .desc = Обычные голубые носки.
