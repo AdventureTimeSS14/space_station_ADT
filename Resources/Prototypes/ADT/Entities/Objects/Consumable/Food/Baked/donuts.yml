@@ -1,8 +1,8 @@
 - type: entity
-  name: ADTCandy-SpookyNAME
+  name: candy spooky
   parent: FoodDonutPlain
   id: ADTFoodDonutSpooky
-  description: ADTCandy-SpookyDESC
+  description: candy spooky
   suffix: Halloween
   components:
   - type: Sprite
@@ -14,10 +14,10 @@
     - ADTCandies
 
 - type: entity
-  name: ADTCandy-SpookyJellyName
+  name: candy spooky jelly
   parent: FoodDonutJellyPlain
   id: ADTFoodDonutJellySpooky
-  description: ADTCandy-SpookyJellyDesc
+  description: candy spooky jelly
   suffix: Halloween
   components:
   - type: Sprite

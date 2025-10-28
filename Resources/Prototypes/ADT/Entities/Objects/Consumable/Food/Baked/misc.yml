@@ -145,10 +145,10 @@
     - ADTMothFriendlyFood
 
 - type: entity
-  name: ADTCandy-pretzelName
+  name: pretzel vanilla
   parent: ADTFoodBakedBrezelVanilla
   id: ADTFoodBakedBrezelPumpkin
-  description: ADTCandy-pretzelDesc
+  description: pretzel vanilla
   suffix: Halloween
   components:
   - type: Sprite
@@ -156,10 +156,10 @@
     state: pretzelpump
 
 - type: entity
-  name: ADTCandy-muffinName
+  name: muffin pumpkin
   parent: FoodBakedBase
   id: ADTFoodBakedMuffinPumpkin
-  description: ADTCandy-muffinDesc
+  description: muffin pumpkin
   suffix: Halloween
   components:
   - type: Food

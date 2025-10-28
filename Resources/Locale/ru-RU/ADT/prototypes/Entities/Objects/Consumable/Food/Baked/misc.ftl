@@ -37,26 +37,38 @@ ent-ADTFoodSweetRoll = сладкий рулет
     .desc = Дай-ка угадаю, ты хотел пошутить про кражу сладкого рулета?
     .suffix = { "Пасха" }
 
-ent-ADTFoodCookieGhost = съедобный призрак
+ent-ADTFoodCookieGhost = печенье призрак
     .desc = Печенье в виде милого призрака, который вызывает лишь умиление.
     .suffix = { "Хеллоуин" }
 
-ent-ADTFoodCookieSpider = съедобный паук
+ent-ADTFoodCookieSpider = печенье паук
     .desc = Печенье в виде паука, который вряд ли вас укусит.. Если конечно вы не будите кусать его.
     .suffix = { "Хеллоуин" }
 
-ent-ADTFoodCookieBlackcat = съедобный кот
+ent-ADTFoodCookieBlackcat = печенье кот
     .desc = Печенье в виде черного кота, который не принесет неудачу.. у него ножек нет, чтобы перебегать дорогу.
     .suffix = { "Хеллоуин" }
 
-ent-ADTFoodCookieKnight = съедобный рыцарь
+ent-ADTFoodCookieKnight = печенье рыцарь
     .desc = Печенье в виде рыцаря, не содержит гвоздей.
     .suffix = { "Хеллоуин" }
 
-ent-ADTFoodCookiePumpkin = съедобная тыква
+ent-ADTFoodCookiePumpkin = кексик тыква
     .desc = Печенье в виде тыквы, символа Хеллоуина! 
     .suffix = { "Хеллоуин" }
 
-ent-ADTFoodCookieSkull = съедобный череп
+ent-ADTFoodCookieSkull = печенье череп
     .desc = Печенье в виде золотого черепа! 
+    .suffix = { "Хеллоуин" }
+
+ent-ADTFoodSnackCandyСorn = конфетная кукуруза
+    .desc = Сладкое подобие на кукурузу.
+    .suffix = { "Хеллоуин" }
+
+ent-ADTFoodDonutSpooky = пугающий пончик
+    .desc = Сладкий пончик в честь Хеллоуина. 
+    .suffix = { "Хеллоуин" }
+
+ent-ADTFoodDonutJellySpooky = пугающий желейный пончик
+    .desc = Сладкий пончик в честь Хеллоуина. Содержит мармеладных червячков... а может и не мармеладных.
     .suffix = { "Хеллоуин" }
