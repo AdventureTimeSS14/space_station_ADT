@@ -65,7 +65,7 @@ public abstract class BaseXATSystem<T> : EntitySystem where T : Component
             return false;
 
         // Безопасно получаем индекс с проверкой
-        if (!XenoArtifact.TryGetIndex(artifact, node.Owner, out var nodeIndex))
+        if (!XenoArtifact.TryGetIndex(artifact.Owner, node.Owner, out var nodeIndex)) //ADT-tweak: artifact -> artifact.Owner
             return false;
 
         if (_unlockingQuery.TryComp(artifact, out var unlocking) &&
