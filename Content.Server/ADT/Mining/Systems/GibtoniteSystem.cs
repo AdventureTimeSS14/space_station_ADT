@@ -39,9 +39,6 @@ public sealed class GibtoniteSystem : EntitySystem
 
     private void OnStartup(EntityUid uid, GibtoniteComponent comp, ComponentStartup args)
     {
-        if (TryComp<GatherableComponent>(uid, out _))
-            RemComp<GatherableComponent>(uid);
-
         RandomTimer(comp);
     }
 
