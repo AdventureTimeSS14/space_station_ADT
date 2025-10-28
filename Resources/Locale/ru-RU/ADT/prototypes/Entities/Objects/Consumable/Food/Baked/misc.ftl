@@ -61,10 +61,6 @@ ent-ADTFoodCookieSkull = печенье череп
     .desc = Печенье в виде золотого черепа! 
     .suffix = { "Хеллоуин" }
 
-ent-ADTFoodSnackCandyСorn = конфетная кукуруза
-    .desc = Сладкое подобие на кукурузу.
-    .suffix = { "Хеллоуин" }
-
 ent-ADTFoodDonutSpooky = пугающий пончик
     .desc = Сладкий пончик в честь Хеллоуина. 
     .suffix = { "Хеллоуин" }

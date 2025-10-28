@@ -679,7 +679,7 @@
 - type: entity
   name: candy corn
   parent: ADTFoodSnackBlackCandies
-  id: ADTFoodSnackCandyСorn
+  id: ADTFoodSnackCandyCorn
   description: candy corn
   suffix: Halloween
   components:
