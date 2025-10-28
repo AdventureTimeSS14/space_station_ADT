@@ -42,7 +42,7 @@ ent-ADTFoodCookieGhost = печенье призрак
     .suffix = { "Хеллоуин" }
 
 ent-ADTFoodCookieSpider = печенье паук
-    .desc = Печенье в виде паука, который вряд ли вас укусит.. Если конечно вы не будите кусать его.
+    .desc = Печенье в виде паука, который вряд ли вас укусит.. Если, конечно, вы не будите кусать его.
     .suffix = { "Хеллоуин" }
 
 ent-ADTFoodCookieBlackcat = печенье кот
@@ -50,7 +50,7 @@ ent-ADTFoodCookieBlackcat = печенье кот
     .suffix = { "Хеллоуин" }
 
 ent-ADTFoodCookieKnight = печенье рыцарь
-    .desc = Печенье в виде рыцаря, не содержит гвоздей.
+    .desc = Печенье в виде рыцаря. Не содержит гвоздей.
     .suffix = { "Хеллоуин" }
 
 ent-ADTFoodCookiePumpkin = кексик тыква
