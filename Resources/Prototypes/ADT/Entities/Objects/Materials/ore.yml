@@ -69,8 +69,6 @@
   - type: Gibtonite
     extracted: true
     elapsedTime: 0
-  - type: SliceableFood
-    slice: ADTGibtoniteShard
     count: 3
   - type: InteractionOutline
   - type: Fixtures

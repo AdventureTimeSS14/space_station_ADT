@@ -193,7 +193,16 @@ public sealed class GibtoniteSystem : EntitySystem
             if (!comp.Extracted)
                 return;
 
-            if (!_tag.HasTag(args.Used, PlasticKnife))
+            if (_tag.HasTag(args.Used, PlasticKnife))
+            {
+                for (var i = 0; i < 3; i++) // спаун 3 кусочков
+                {
+                    Spawn(comp.ShardPrototype, _transform.GetMapCoordinates(uid));
+                }
+
+                QueueDel(uid);
+            }
+            else
             {
                 comp.Active = true;
                 comp.ReactionTime = _timing.CurTime;
