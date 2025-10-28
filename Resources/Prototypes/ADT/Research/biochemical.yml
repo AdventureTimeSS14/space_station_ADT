@@ -106,7 +106,7 @@
   cost: 5000
   recipeUnlocks:
   # - BorgModuleAdvancedTreatment # В прототипах такого не найдено
-  - ADTHighVoltageDefibrillator # BorgModuleDefibrillator -> ADTHighVoltageDefibrillator. Заглушка, т.к нету BorgModuleDefibrillator
+  # - ADTHighVoltageDefibrillator # BorgModuleDefibrillator -> ADTHighVoltageDefibrillator. Заглушка, т.к нету BorgModuleDefibrillator
   - BorgModuleAdvancedChemical
   position: 3,-1
   requiredTech:
