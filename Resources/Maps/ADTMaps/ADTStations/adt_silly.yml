@@ -9615,13 +9615,6 @@ entities:
     - type: Transform
       pos: -8.639973,1.6110678
       parent: 8678
-- proto: ADTFloorBlastDoor
-  entities:
-  - uid: 30
-    components:
-    - type: Transform
-      pos: 19.5,-9.5
-      parent: 2
 - proto: ADTKitchenElectricRange
   entities:
   - uid: 31
