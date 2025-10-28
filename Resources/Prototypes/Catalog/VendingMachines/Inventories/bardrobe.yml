@@ -10,7 +10,17 @@
     ClothingOuterWinterBar: 2
     ClothingUniformJumpsuitBartender: 2
     ClothingUniformJumpskirtBartender: 2
-    ClothingUniformJumpsuitBartenderPurple: 2
+    #ADT-tweak-start
+    ADTClothingUniformJumpsuitBartenderRed: 2
+    ADTClothingUniformJumpsuitBartenderGreen: 2
+    ADTClothingOuterApronBarista: 2
+    ADTClothingUniformJumpskirtBartenderRed: 2
+    ADTClothingUniformJumpskirtBartenderGreen: 2
+    ADTClothingUniformJumpsuitBartenderVest: 2
+    ADTClothingUniformJumpsuitBartenderVestRed: 2
+    ADTClothingUniformJumpsuitBartenderVestGreen: 2
+    #ClothingUniformJumpsuitBartenderPurple: 2
+    #ADT-tweak-end
     ClothingShoesColorBlack: 2
     ClothingOuterArmorBasicSlim: 2
     ClothingOuterVest: 2
