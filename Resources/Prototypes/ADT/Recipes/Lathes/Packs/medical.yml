@@ -7,6 +7,7 @@
   - ADTPillPack
   - ADTPlasticBottle
   - ADTBaseChemistryEmptyVial
+  - ADTAutoSurgeon
 
 - type: latheRecipePack
   id: ADTAdvancedMedicalMiscPack

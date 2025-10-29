@@ -3,3 +3,6 @@ ent-ADTToolboxSyndicateFilledThief = набор вора
 
 ent-ADTBoxSyndicateFilledEscapist = набор для побега из тюрьмы
     .desc = Набор имплантов для попавших, либо боящихся попасть в неприятности агентов.
+
+ent-ADTBoxSyndicateCyberpsycho = набор киберпсиха
+    .desc = Вы поняли, что плоть слаба? Тогда этот набор для вас!
