@@ -17,7 +17,7 @@
   - type: AmmoCounter
 # ADT-Tweak start
   - type: RunAndGunSpreadModifier
-    modifyer: 3
+    modifyer: 0.3
 # ADT-Tweak end
   - type: Gun
     fireRate: 5

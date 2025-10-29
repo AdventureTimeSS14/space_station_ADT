@@ -138,7 +138,7 @@
       shader: unshaded
   # ADT-Tweak start
   - type: RunAndGunSpreadModifier
-    modifyer: 2
+    modifyer: 0.3
   - type: MeleeWeapon
     resetOnHandSelected: false
     attackRate: 1
@@ -179,7 +179,7 @@
         pitch: 2 #ADT Tweak Ends
   # ADT-Tweak start
   - type: RunAndGunSpreadModifier
-    modifyer: 3
+    modifyer: 0.4
   - type: MeleeWeapon
     resetOnHandSelected: false
     attackRate: 1
@@ -261,7 +261,7 @@
     sprite: Objects/Weapons/Guns/Battery/laser_gun.rsi
   # ADT-Tweak start
   - type: RunAndGunSpreadModifier
-    modifyer: 3
+    modifyer: 0.3
   - type: MeleeWeapon
     resetOnHandSelected: false
     attackRate: 1
@@ -282,6 +282,7 @@
     fireCost: 20 #ADT_Tweak 62.5 -> 20
   - type: StaticPrice
     price: 300
+  - type: GunExecutionBlacklist
 
 - type: entity
   name: laser rifle
@@ -296,7 +297,7 @@
     fireCost: 28.5 #ADT_Tweak 62.5 -> 28.5
   # ADT-Tweak start
   - type: RunAndGunSpreadModifier
-    modifyer: 3
+    modifyer: 0.3
   # ADT-Tweak end
   - type: MeleeWeapon #ADT_Tweak
     resetOnHandSelected: false
@@ -350,7 +351,7 @@
     sprite: Objects/Weapons/Guns/Battery/pulse_pistol.rsi
   # ADT-Tweak start
   - type: RunAndGunSpreadModifier
-    modifyer: 1
+    modifyer: 0.1
   - type: MeleeWeapon
     resetOnHandSelected: false
     attackRate: 1
@@ -396,7 +397,7 @@
   - type: Appearance
   # ADT-Tweak start
   - type: RunAndGunSpreadModifier
-    modifyer: 3
+    modifyer: 0.4
   - type: MeleeWeapon
     resetOnHandSelected: false
     attackRate: 1
@@ -464,7 +465,7 @@
   - type: Appearance
   # ADT-Tweak start
   - type: RunAndGunSpreadModifier
-    modifyer: 3
+    modifyer: 0.4
   - type: MeleeWeapon
     resetOnHandSelected: false
     attackRate: 1
@@ -528,7 +529,7 @@
       shader: unshaded
   # ADT-Tweak start
   - type: RunAndGunSpreadModifier
-    modifyer: 3
+    modifyer: 0.4
   - type: MeleeWeapon
     resetOnHandSelected: false
     attackRate: 1
@@ -585,7 +586,7 @@
     - type: MultiHandedItem
       # ADT-Tweak start
     - type: RunAndGunSpreadModifier
-      modifyer: 1
+      modifyer: 0.3
       # ADT-Tweak end
     - type: ClothingSpeedModifier
       walkModifier: 0.6
@@ -625,7 +626,7 @@
       shader: unshaded
   # ADT-Tweak start
   - type: RunAndGunSpreadModifier
-    modifyer: 3
+    modifyer: 0.3
   - type: MeleeWeapon
     resetOnHandSelected: false
     attackRate: 1
@@ -683,7 +684,7 @@
       shader: unshaded
   # ADT-Tweak start
   - type: RunAndGunSpreadModifier
-    modifyer: 1
+    modifyer: 0.2
   - type: MeleeWeapon
     resetOnHandSelected: false
     attackRate: 1
@@ -719,6 +720,7 @@
     - Taser
     - Sidearm
     - ADTBsoWeapon #ADT tweak
+  - type: GunExecutionBlacklist
 
 - type: entity
   name: disabler
@@ -736,7 +738,7 @@
         shader: unshaded
   # ADT-Tweak start
   - type: RunAndGunSpreadModifier
-    modifyer: 1
+    modifyer: 0.2
   - type: MeleeWeapon
     resetOnHandSelected: false
     attackRate: 1
@@ -791,7 +793,7 @@
       path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
   # ADT-Tweak start
   - type: RunAndGunSpreadModifier
-    modifyer: 2
+    modifyer: 0.4
   - type: MeleeWeapon
     resetOnHandSelected: false
     attackRate: 1
@@ -833,7 +835,7 @@
       shader: unshaded
   # ADT-Tweak start
   - type: RunAndGunSpreadModifier
-    modifyer: 1
+    modifyer: 0.2
   # ADT-Tweak end
   - type: Item
     heldPrefix: taser4
@@ -888,7 +890,7 @@
     sprite: Objects/Weapons/Guns/Battery/antiquelasergun.rsi
   # ADT-Tweak start
   - type: RunAndGunSpreadModifier
-    modifyer: 1
+    modifyer: 0.2
   - type: MeleeWeapon
     resetOnHandSelected: false
     attackRate: 1
@@ -952,7 +954,7 @@
     sprite: Objects/Weapons/Guns/Battery/advancedlasergun.rsi
   # ADT-Tweak start
   - type: RunAndGunSpreadModifier
-    modifyer: 1
+    modifyer: 0.3
   - type: MeleeWeapon
     resetOnHandSelected: false
     attackRate: 1
@@ -1025,7 +1027,7 @@
     node: start
   - type: StaticPrice
     price: 100
-
+  - type: GunExecutionBlacklist #ADT-tweak
 - type: entity
   name: experimental C.H.I.M.P. handcannon
   parent: [WeaponPistolCHIMP] #, BaseSyndicateContraband] # ADT Remove cringe
@@ -1058,7 +1060,7 @@
       map: ["enum.GunVisualLayers.Base"]
   # ADT-Tweak start
   - type: RunAndGunSpreadModifier
-    modifyer: 1
+    modifyer: 0.2
   # ADT-Tweak end
   - type: Gun
     fireRate: 1
@@ -1094,7 +1096,7 @@
   - type: Appearance
   # ADT-Tweak start
   - type: RunAndGunSpreadModifier
-    modifyer: 4
+    modifyer: 0.4
   - type: MeleeWeapon
     resetOnHandSelected: false
     attackRate: 1
@@ -1172,7 +1174,7 @@
     zeroVisible: false
   # ADT-Tweak start
   - type: RunAndGunSpreadModifier
-    modifyer: 2
+    modifyer: 0.3
   - type: MeleeWeapon
     resetOnHandSelected: false
     attackRate: 1

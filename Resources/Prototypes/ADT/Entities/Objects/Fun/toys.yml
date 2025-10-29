@@ -143,3 +143,15 @@
     tags:
     - Balloon
 
+- type: entity
+  parent: ToyHammer
+  id: ADTToyHammerAbyss
+  name: rubber hammer from abyss
+  description: A brightly colored hammer made of rubber.
+  components:
+    - type: Sprite
+      sprite: ADT/Objects/Fun/rubber_hammer_abyss.rsi
+      state: icon
+    - type: Item
+      size: Small
+      sprite: ADT/Objects/Fun/rubber_hammer_abyss.rsi

@@ -16,6 +16,10 @@
   components:
   - type: HereticRule
   - type: AntagSelection
+  - type: AntagRandomObjectives
+    sets:
+    - groups: HereticObjectiveGroup
+    maxDifficulty: 7
 
 - type: entity
   parent: BaseHereticRule
@@ -101,7 +105,7 @@
   - type: AntagRandomObjectives
     sets:
     - groups: ChangelingObjectiveGroups
-    maxDifficulty: 5
+    maxDifficulty: 8
 
 #Облегченное число агентов
 - type: entity
@@ -178,7 +182,7 @@
   - type: AntagRandomObjectives
     sets:
     - groups: ChangelingObjectiveGroups
-    maxDifficulty: 5
+    maxDifficulty: 8
 
 - type: entity
   parent: BaseHereticRule
@@ -227,8 +231,8 @@
       - id: Heretic
         cost: 30
         rerollChance: 0.5
-#      - id: BloodBrother Раскоментить ТОЛЬКО ПОСЛЕ РЕВОРКА
-#        cost: 20
+      - id: BloodBrother
+        cost: 20
       - id: Revolutionary
         cost: 45
       # - id: Zombie вернуть после баффов
@@ -238,14 +242,10 @@
         cost: 100
       - id: Pirates
         cost: 120
-      - id: PhantomSpawn
-        cost: 110
       - id: MorphSpawn
         cost: 130
       - id: NinjaSpawn
         cost: 140
-      - id: KingRatMigration
-        cost: 90
       - id: ParadoxCloneSpawn
         cost: 90
       - id: SleeperAgents
@@ -278,8 +278,8 @@
         cost: 15
       - id: ChangelingGameRule
         cost: 25
-#      - id: BloodBrother Раскоментить ТОЛЬКО ПОСЛЕ РЕВОРКА
-#        cost: 25
+      - id: BloodBrother
+        cost: 25
       - id: Heretic
         cost: 30
         rerollChance: 0.5
@@ -292,14 +292,10 @@
         cost: 110
       - id: Pirates
         cost: 130
-      - id: PhantomSpawn
-        cost: 120
       - id: MorphSpawn
         cost: 140
       - id: NinjaSpawn
         cost: 150
-      - id: KingRatMigration
-        cost: 90
       - id: ParadoxCloneSpawn
         cost: 90
       - id: SleeperAgents
@@ -311,8 +307,8 @@
   components:
   - type: DynamicRule
     maxEventsBeforeAntag: 10
-    maxChaos: 40
-    minChaos: 20
+    maxChaos: 60
+    minChaos: 30
     scheduledGameRules: !type:NestedSelector
       tableId: ExtendedGameRulesTable
     roundstartRules:
@@ -322,8 +318,8 @@
         cost: 10
       - id: TraitorDuoGameRule
         cost: 10
-#      - id: BloodBrother Раскоментить ТОЛЬКО ПОСЛЕ РЕВОРКА
-#        cost: 25
+      - id: BloodBrother
+        cost: 25
       - id: TraitorLightGameRule
         cost: 15
       - id: ChangelingGameRule
@@ -333,14 +329,10 @@
         cost: 110
       - id: Pirates
         cost: 130
-      - id: PhantomSpawn
-        cost: 120
       - id: MorphSpawn
         cost: 140
       - id: NinjaSpawn
         cost: 150
-      - id: KingRatMigration
-        cost: 90
       - id: ParadoxCloneSpawn
         cost: 90
       - id: SleeperAgents
@@ -351,7 +343,6 @@
   parent: BaseGameRule
   components:
   - type: GameRule
-    minPlayers: 30
   - type: DynamicRandomRule
 
 - type: entity
