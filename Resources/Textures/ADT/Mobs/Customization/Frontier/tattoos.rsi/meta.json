@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Doll and incision tattoos by Sha-Seng (Github)",
+  "copyright": "Doll and incision tattoos by Sha-Seng (Github), l_eyes_wide/r_eyes_wide sprited by orange6775 (discord)",
   "size": {
     "x": 32,
     "y": 32
@@ -41,6 +41,14 @@
     },
     {
       "name": "chest_cuthere",
+      "directions": 4
+    },
+    {
+      "name": "l_eyes_wide",
+      "directions": 4
+    },
+    {
+      "name": "r_eyes_wide",
       "directions": 4
     }
   ]
