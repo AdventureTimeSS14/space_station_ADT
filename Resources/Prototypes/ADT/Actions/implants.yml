@@ -70,3 +70,19 @@
     useDelay: 1
   - type: InstantAction
     event: !type:ToggleCompStealthEvent
+
+- type: entity
+  id: ActionToggleSandevistan
+  name: action-sandevistan-name
+  description: action-sandevistan-desc
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    checkCanInteract: false
+    icon:
+      sprite: ADT/Interface/Actions/sandevistan.rsi
+      state: icon
+    itemIconStyle: BigAction
+    useDelay: 2
+  - type: InstantAction
+    event: !type:ToggleSandevistanEvent

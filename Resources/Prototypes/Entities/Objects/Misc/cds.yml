@@ -17,3 +17,20 @@
       types:
         Slash: 1
   - type: ShuttleDestinationCoordinates
+  # ADT-Tweak-Start
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/ADT/Items/Handling/disk_pickup.ogg
+      params:
+        volume: -6
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/ADT/Items/Handling/disk_drop.ogg
+      params:
+        volume: -6
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/ADT/Items/Handling/disk_drop.ogg
+      params:
+        volume: -6
+  # ADT-Tweak-End
