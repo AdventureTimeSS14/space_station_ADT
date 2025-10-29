@@ -33,7 +33,7 @@
       200: Critical
       400: Dead
   - type: Gun
-    fireRate: 1
+    fireRate: 0.5
     selectedMode: SemiAuto
     showExamineText: false
     availableModes:
@@ -90,7 +90,7 @@
       100: Critical
       150: Dead
   - type: Gun
-    fireRate: 3
+    fireRate: 1
     selectedMode: SemiAuto
     showExamineText: false
     availableModes:

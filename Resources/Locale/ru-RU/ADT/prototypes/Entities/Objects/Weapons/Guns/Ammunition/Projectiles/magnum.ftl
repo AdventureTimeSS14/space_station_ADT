@@ -8,3 +8,5 @@ ent-ADTBulletMagnumLesserAP = пуля (.357 магнум бронебойная
     .desc = { ent-BaseBulletAP.desc }
 ent-ADTBulletMagnumUraniumLesser = пуля (.357 магнум урановая)
     .desc = { ent-BaseBulletUranium.desc }
+ent-ADTBulletMagnumHoly = пуля (.357 магнум святая)
+    .desc = Святой снаряд совершающий правосудие

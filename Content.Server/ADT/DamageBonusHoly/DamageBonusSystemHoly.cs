@@ -35,8 +35,7 @@ public sealed class DamageBonusHolySystem : EntitySystem
         {
             if (projectile.Damage.DamageDict.TryGetValue("Holy", out var holy))
             {
-                var damageX3 = holy * 3;
-                var damage = new DamageSpecifier(_proto.Index<DamageTypePrototype>("Holy"), damageX3);
+                var damage = new DamageSpecifier(_proto.Index<DamageTypePrototype>("Holy"), holy*4);
                 _damageableSystem.TryChangeDamage(args.Target, damage);
             }
         }
@@ -44,27 +43,20 @@ public sealed class DamageBonusHolySystem : EntitySystem
 
     private void OnMeleeHit(EntityUid uid, DamageBonusHolyComponent component, MeleeHitEvent args)
     {
-        foreach (var ent in args.HitEntities)
-        {
+        if (!TryComp<MeleeWeaponComponent>(uid, out var weapon))
+            return;
+        if (!weapon.Damage.DamageDict.TryGetValue("Holy", out var holy))
+            return;
+        if (!args.IsHit || !args.HitEntities.Any() || holy <= 0f)
+            return;
+        var damageTargets = args.HitEntities
+            .Where(e => HasComp<DamageBonusHolyComponent>(e))
+            .ToList();
 
-            if (TryComp<MeleeWeaponComponent>(uid, out var weapon))
-            {
-                if (weapon.Damage.DamageDict.TryGetValue("Holy", out var holy))
-                {
-                    if (!args.IsHit ||
-                        !args.HitEntities.Any() ||
-                        holy <= 0f)
-                    {
-                        return;
-                    }
-                    var time = TimeSpan.FromSeconds(2);
-                    _status.TryAddStatusEffect<KnockedDownComponent>(args.User, "KnockedDown", time, false);
-                    _status.TryAddStatusEffect<StunnedComponent>(args.User, "Stun", time, false);
-                    var damageX3 = holy * 3;
-                    var damage = new DamageSpecifier(_proto.Index<DamageTypePrototype>("Holy"), damageX3);
-                    _damageableSystem.TryChangeDamage(ent, damage);
-                }
-            }
+        foreach (var ent in damageTargets)
+        {
+            var damage = new DamageSpecifier(_proto.Index<DamageTypePrototype>("Holy"), holy * 4);
+            _damageableSystem.TryChangeDamage(ent, damage);
         }
     }
 }

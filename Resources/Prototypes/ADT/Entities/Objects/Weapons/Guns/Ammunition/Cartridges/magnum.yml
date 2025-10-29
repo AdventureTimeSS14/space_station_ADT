@@ -87,3 +87,16 @@
       - state: tip
         map: [ "enum.AmmoVisualLayers.Tip" ]
         color: "#65fe08"
+
+- type: entity
+  id: ADTCartridgeMagnumHoly
+  name: cartridge (.357 magnum holy)
+  parent: ADTBaseCartridgeMagnumLesser
+  components:
+  - type: CartridgeAmmo
+    proto: ADTBulletMagnumHoly
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Ammunition/Casings/holy_magnum.rsi
+    layers:
+      - state: base
+        map: [ "enum.AmmoVisualLayers.Base" ]

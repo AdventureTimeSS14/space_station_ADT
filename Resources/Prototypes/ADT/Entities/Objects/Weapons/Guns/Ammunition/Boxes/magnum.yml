@@ -86,3 +86,21 @@
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
     - state: piercing
+
+
+#HW
+- type: entity
+  id: ADTMagazineBoxMagnumHoly
+  parent: ADTBaseMagazineBoxMagnumLesser
+  name: ammunition box (.357 magnum holy)
+  components:
+  - type: BallisticAmmoProvider
+    proto: ADTCartridgeMagnumHoly
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Ammunition/Boxes/holy_magnum.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: piercing
