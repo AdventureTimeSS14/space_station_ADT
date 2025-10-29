@@ -114,7 +114,7 @@
 - type: entity
   parent: SheetOtherBase
   id: ADTSheetZinc
-  name: zinc
+  name: zinccc
   suffix: Full
   components:
   - type: Material
