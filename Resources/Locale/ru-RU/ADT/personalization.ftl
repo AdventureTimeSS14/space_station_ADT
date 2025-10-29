@@ -687,5 +687,5 @@ ent-ADTClothingOuterHardsuitParamedLemon = модернизированный п
     .suffix = { "Спонсорское, LemonLimeLord" }
 
 ent-ADTClothingHeadHelmetParamedLemon = шлем модернизированного пустотного скафандра
-    .desc = Гораздо удобнее в ношении, чем шлема для обычных моделей пустотных скафандров парамедика.
+    .desc = Гораздо удобнее в ношении, чем шлемы для обычных моделей пустотных скафандров парамедика.
     .suffix = { "Спонсорское, LemonLimeLord" }
