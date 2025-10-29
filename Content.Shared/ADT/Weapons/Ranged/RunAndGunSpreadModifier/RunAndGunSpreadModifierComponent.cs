@@ -8,5 +8,5 @@ namespace Content.Shared.ADT.Weapons.Ranged.RunAndGunSpreadModifier;
 public sealed partial class RunAndGunSpreadModifierComponent : Component
 {
     [DataField]
-    public int Modifyer = 1;
+    public float Modifyer = 1f;
 }

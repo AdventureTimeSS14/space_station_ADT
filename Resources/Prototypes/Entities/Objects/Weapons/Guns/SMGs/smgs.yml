@@ -17,7 +17,7 @@
   - type: AmmoCounter
   # ADT-Tweak start
   - type: RunAndGunSpreadModifier
-    modifyer: 2
+    modifyer: 0.4
   # ADT-Tweak end
   - type: Gun
     minAngle: 2
