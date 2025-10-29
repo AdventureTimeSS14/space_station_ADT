@@ -9,3 +9,11 @@ research-technology-industrial-medicine = Промышленная медици�
 research-technology-advanced-medical-care = Продвинутая медицина
 
 research-technology-crew-monitoring = Портативный монитор экипажа
+
+research-technology-chemistry-misc = Химические пренадлежности
+
+research-technology-cryo-pod = Криогеника
+
+research-technology-thermo = Термогеника
+
+research-technology-syringe-gun = Шприцемёт

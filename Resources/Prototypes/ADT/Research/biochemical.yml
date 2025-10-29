@@ -98,7 +98,7 @@
 
 - type: technology
   id: ADTCryoTech
-  name: ADT-research-technology-cryo-pod
+  name: research-technology-cryo-pod
   icon:
     sprite: Structures/Machines/Medical/cryopod.rsi
     state: pod-open
@@ -116,7 +116,7 @@
 
 - type: technology
   id: ADTThermoTech
-  name: ADT-research-technology-Thermo
+  name: research-technology-thermo
   icon:
     sprite: ADT/Objects/Specific/Medical/patch.rsi
     state: patch23
