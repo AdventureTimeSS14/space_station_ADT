@@ -271,7 +271,7 @@
       - !type:HealthChange
         damage:
           types:
-             Cold: 0.05 # slightly nips directly, other cold damage comes from the temp change
+             Cold: 0.05 # slightly nips directly, other cold damage comes from the temp change #ADT-Tweak 0.01 -> 0,05
              Heat: -3 # ghetto burn chem. i don't think anyone would use this intentionally but it's funny
       - !type:PopupMessage
         conditions:
