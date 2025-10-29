@@ -10,7 +10,6 @@
   categories: [ HideSpawnMenu ]
   parent: [BasePhantomObjective]
   id: KillPhantomImmunePersonObjective
-  description: phantom-kill-objective-desc
   components:
   - type: Objective
     difficulty: 1.75
@@ -27,7 +26,6 @@
   categories: [ HideSpawnMenu ]
   parent: [BasePhantomObjective]
   id: PhantomKeepAliveObjective
-  description: phantom-keep-alive-objective-desc
   components:
   - type: Objective
     difficulty: 1.75
