@@ -1624,6 +1624,7 @@
   loadouts:
   - ParamedicWindbreaker
   - ParamedicWintercoat
+  - ADTDavidsjacketParamedic # ADT-tweak
 
 - type: loadoutGroup
   id: ParamedicShoes
