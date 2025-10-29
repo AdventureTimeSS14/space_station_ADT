@@ -295,7 +295,7 @@
         conditions:
         - !type:Temperature
           min: 1 # not quite enough for cryo, but can speed it up if you wanna take the risk
-        amount: -50000
+        amount: -50000 #ADT-Tweak -10000 -> -50000
       - !type:MovespeedModifier
         conditions:
         - !type:ReagentThreshold
