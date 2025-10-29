@@ -1,7 +1,5 @@
 - type: entity
   id: ActionHereticFleshSurgery
-  name: action-heretic-flesh-surgery-name
-  description: action-heretic-flesh-surgery-desc
   components:
   - type: Action
     useDelay: 30

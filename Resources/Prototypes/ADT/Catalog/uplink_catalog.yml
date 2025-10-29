@@ -29,11 +29,6 @@
     Telecrystal: 15
   categories:
   - UplinkWeaponry
-  conditions:
-    - !type:BuyerWhitelistCondition
-      blacklist:
-        components:
-          - SurplusBundle
 
 - type: listing
   id: ADTUplinkXC67Bundle
@@ -323,6 +318,17 @@
       tags:
       - NukeOpsUplink
 
+- type: listing
+  id: ADTUplinkDavidsJacketValid
+  name: uplink-davids-jacket-valid-name
+  description: uplink-davids-jacket-valid-desc
+  icon: { sprite: ADT/Clothing/OuterClothing/Coats/david_jacket.rsi, state: icon }
+  productEntity: ADTClothingOuterDavidsJacketValid
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkWearables
+
 #UplinkChemicals
 
 - type: listing
@@ -555,6 +561,42 @@
   categories:
     - UplinkImplants
 
+- type: listing
+  id: ADTUplinkSandevistanImplant
+  name: uplink-sandevistan-implant-name
+  description: uplink-sandevistan-implant-desc
+  icon: { sprite: ADT/Implants/sandevistan.rsi, state: icon}
+  productEntity: ADTSandevistanAutoSurgeon
+  discountDownTo:
+    Telecrystal: 10
+  cost:
+    Telecrystal: 12
+  categories:
+    - UplinkImplants
+
+- type: listing
+  id: ADTUplinkMantisDaggersImplant
+  name: uplink-mantis-daggers-name
+  description: uplink-mantis-daggers-desc
+  productEntity: ADTMantisDaggersAutoSurgeon
+  icon: { sprite: ADT/Implants/mantis_daggers.rsi, state: icon}
+  discountDownTo:
+    Telecrystal: 4
+  cost:
+    Telecrystal: 7
+  categories:
+    - UplinkImplants
+
+- type: listing
+  id: ADTUplinkCyberpsychoBundle
+  name: uplink-cyberpsycho-bundle-name
+  description: uplink-cyberpsycho-bundle-desc
+  productEntity: ADTBoxSyndicateCyberpsycho
+  cost:
+    Telecrystal: 20
+  categories:
+    - UplinkImplants
+
 #UplinkAllies
 
 #UplinkPointless
@@ -624,7 +666,13 @@
     Telecrystal: 15 #Tweak 20->15
   categories:
     - UplinkPointless
-
+  #ADT-tweak-start
+  conditions:
+    - !type:BuyerWhitelistCondition
+      blacklist:
+        components:
+          - SurplusBundle
+  #ADT-tweak-end
 
 - type: listing
   id: ADTUplinkOmnizinPizza
@@ -688,7 +736,7 @@
   description: uplink-thermal-desc
   productEntity: ClothingEyesGlassesThermal
   cost:
-    Telecrystal: 5
+    Telecrystal: 2
   categories:
     - UplinkWearables
 

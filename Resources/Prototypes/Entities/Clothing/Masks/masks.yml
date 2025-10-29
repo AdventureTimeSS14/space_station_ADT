@@ -659,9 +659,9 @@
   description: Many people think this is what a real mime mask looks like.
   components:
   - type: Sprite
-    sprite: Clothing/Mask/sadmime.rsi
+    sprite: ADT/Clothing/Mask/sadmime.rsi #ADT-tweak
   - type: Clothing
-    sprite: Clothing/Mask/sadmime.rsi
+    sprite: ADT/Clothing/Mask/sadmime.rsi #ADT-tweak
 
 - type: entity
   parent: ClothingMaskMime
@@ -670,9 +670,9 @@
   description: Looks like it would scream if it wasn't a mask.
   components:
   - type: Sprite
-    sprite: Clothing/Mask/scaredmime.rsi
+    sprite: ADT/Clothing/Mask/scaredmime.rsi #ADT-tweak
   - type: Clothing
-    sprite: Clothing/Mask/scaredmime.rsi
+    sprite: ADT/Clothing/Mask/scaredmime.rsi #ADT-tweak
 
 - type: entity
   parent: [ClothingMaskMime, BaseSecurityContraband]

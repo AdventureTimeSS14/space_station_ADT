@@ -505,3 +505,13 @@
     sprite: ADT/Clothing/Mask/mfdoom.rsi
   - type: Clothing
     sprite: ADT/Clothing/Mask/mfdoom.rsi
+
+- type: entity
+  parent: ClothingMaskClown
+  id: ADTClothingMaskClownAbyss
+  name: clown mask from abyss
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Mask/clown_abyss.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Mask/clown_abyss.rsi
