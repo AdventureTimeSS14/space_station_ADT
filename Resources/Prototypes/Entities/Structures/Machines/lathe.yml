@@ -538,6 +538,10 @@
     #ADT-Tweak Start
     - ADTAdvancedMedicalMiscPack
     - ADTAdvancedMedicalCarePack
+    - ADTAdvancedMedical
+    - ADTCryoTech
+    - ADTThermoTech
+    - ADTChemDisp
     #ADT-Tweak End
   - type: Machine
     board: MedicalTechFabCircuitboard

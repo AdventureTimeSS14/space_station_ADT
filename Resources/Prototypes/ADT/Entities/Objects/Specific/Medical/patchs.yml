@@ -159,3 +159,59 @@
         reagents:
         - ReagentId: Honk
           Quantity: 6
+
+#Cryo, Thermo and Leporazine patches
+
+- type: entity
+  name: Cryo patch
+  parent: ADTBasePatch
+  id: ADTPatchCryo
+  description: Made specifically to make you cold. Even touching this makes you feel a breeze down your spine. Icy.
+  components:
+  - type: Sprite
+    layers:
+    - state: patch22
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 12
+        reagents:
+        - ReagentId: Fresium
+          Quantity: 12
+
+- type: entity
+  name: Thermo patch
+  parent: ADTBasePatch
+  id: ADTPatchThermo
+  description: Made specifically to make you hot. Even touching this makes you feel like your blood is boiling. Glows.
+  components:
+  - type: Sprite
+    layers:
+    - state: patch23
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 12
+        reagents:
+        - ReagentId: ADTThermolyne
+          Quantity: 12
+
+- type: entity
+  name: Leporazine Patch
+  parent: ADTBasePatch
+  id: ADTPatchLepo
+  description: Helps your body stabilize your body temperature.
+  components:
+  - type: Sprite
+    layers:
+    - state: patch21
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 8
+        reagents:
+        - ReagentId: Leporazine
+          Quantity: 8

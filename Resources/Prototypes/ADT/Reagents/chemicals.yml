@@ -72,3 +72,35 @@
   color: "#09590a"
   boilingPoint: 1500
   meltingPoint: 2500
+
+- type: reagent
+  id: ADTThermolyne
+  name: Thermolyne
+  group: Medicine
+  desc: Extremely hot reagent that reacts rapidly when in contact with anything non-metallic.
+  physicalDesc: reagent-physical-desc-burning
+  flavor: peppery
+  color: "#ff5f00"
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Cold: -10
+            Heat: -5
+      - !type:AdjustTemperature
+        conditions:
+        - !type:Temperature
+          max: 100
+        amount: 20000 # thermal energy, not temperature!
+      - !type:AdjustTemperature
+        conditions:
+        - !type:Temperature
+          min: 1
+        amount: 20000
+      - !type:PopupMessage
+        type: Local
+        visualType: Medium
+        messages: [ "leporazine-effect-temperature-adjusting" ]
+        probability: 0.2

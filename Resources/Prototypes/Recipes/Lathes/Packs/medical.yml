@@ -23,7 +23,6 @@
   recipes:
   - Jug
   - ChemistryEmptyBottle01
-  - ClothingEyesGlassesChemical
 
 - type: latheRecipePack
   id: SurgeryStatic
@@ -77,11 +76,7 @@
   recipes:
   - ElectrolysisUnitMachineCircuitboard
   - CentrifugeMachineCircuitboard
-  - ChemDispenserMachineCircuitboard
-  - ChemMasterMachineCircuitboard
-  - CondenserMachineCircuitBoard
-  - HotplateMachineCircuitboard
-  - ADTColdplateMachineCircuitboardCircuitboard  # ADT Tweak
+  - CondenserMachineCircuitBoard  # ADT Tweak
 
 ## Dynamic
 
@@ -90,8 +85,6 @@
   id: Chemistry
   recipes:
   - ChemicalPayload
-  - CryostasisBeaker
-  - SyringeCryostasis
   - BluespaceBeaker
   - SyringeBluespace
   - ADTBlankMediPen # ADT-Tweak
@@ -100,6 +93,6 @@
   id: MedicalBoards
   recipes:
   - StasisBedMachineCircuitboard
-  - CryoPodMachineCircuitboard
   - BiomassReclaimerMachineCircuitboard
   - ADTMedicalAssemblerMachineCircuitBoard # ADT-Tweak
+  

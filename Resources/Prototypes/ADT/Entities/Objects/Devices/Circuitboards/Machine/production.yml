@@ -294,3 +294,21 @@
       Manipulator: 16
       Steel: 20
       ADTBScrystalArt: 8
+
+- type: entity
+  id: ADTAdvancedMedicalBedCircuitboard
+  parent: BaseMachineCircuitboard
+  name: advanced medical bed board
+  description: A machine printed circuit board for a chem dispenser.
+  components:
+    - type: Sprite
+      state: medical
+    - type: MachineBoard
+      prototype: ADTAdvancedMedBed
+      stackRequirements:
+        Glass: 2
+        Steel: 8
+        Plasma: 2
+        ADTSheetCopper: 2
+        ADTSheetZinc: 1
+        
