@@ -259,7 +259,7 @@
         conditions:
         - !type:Temperature
           min: 1 #ADT-Tweak 160.15 -> 1
-        amount: -10000
+        amount: -10000 #ADT-Tweak -30000 -> -10000
     Extinguish:
       methods: [ Touch ]
       effects:
