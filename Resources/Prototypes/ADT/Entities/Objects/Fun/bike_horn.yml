@@ -1,0 +1,16 @@
+- type: entity
+  parent: BikeHorn
+  id: ADTBikeHornAbyss
+  name: bike horn from abyss
+  description: A horn off of a bicycle.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/bikehorn_abyss.rsi
+    state: icon
+  - type: Item
+    sprite: ADT/Objects/Fun/bikehorn_abyss.rsi
+    size: Tiny
+  - type: Clothing
+    sprite: ADT/Objects/Fun/bikehorn_abyss.rsi
+    slots: [Belt]
+    quickEquip: false

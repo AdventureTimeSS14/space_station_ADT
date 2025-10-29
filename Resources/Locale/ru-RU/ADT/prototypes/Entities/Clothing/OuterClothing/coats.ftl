@@ -82,6 +82,9 @@ ent-ADTClothingOuterLettermanNanoTrasen = корпоративно-синяя ж
 ent-ADTClothingOuterLettermanSyndie = кроваво-красная жилетка
     .desc = Кроваво-красная жилетка с огромной буквой "S" на спине. Ничего подозрительного.
 
+ent-ADTClothingOuterLettermanBlack = чёрная жилетка
+    .desc = Обычная чёрная жилетка.
+
 
 
 ent-ADTClothingOuterCoatDetectiveLoadoutOld = старый тренч
@@ -109,3 +112,9 @@ ent-ADTClothingOuterSpiderRobe = зловещая паучья роба
 
 ent-ADTClothingOuterTechpriestRobe = роба техно-жреца
     .desc = С мгновения того, как понял я слабость своей плоти, я был отвращён.
+
+ent-ADTClothingOuterDavidsJacket = куртка парамедика
+    .desc = Ярко-желтая сигнальная куртка, которую обожают парамедики конца XXI века.
+
+ent-ADTClothingOuterDavidsJacketValid = куртка эджраннера
+    .desc = Ты на самой грани. Покажи им, что ты готов на всё.
