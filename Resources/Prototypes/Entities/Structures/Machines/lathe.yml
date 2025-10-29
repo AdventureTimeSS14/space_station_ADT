@@ -290,6 +290,7 @@
     - MechBoards
     - ShuttleBoards
     # ADT-tweak-start
+    - ADTAdvancedMedical
     - ADTBluespaceHarvesterPack
     - ADTArcade
     - ADTIndustrialCharger
@@ -540,7 +541,6 @@
     #ADT-Tweak Start
     - ADTAdvancedMedicalMiscPack
     - ADTAdvancedMedicalCarePack
-    - ADTAdvancedMedical
     - ADTCryoTech
     - ADTThermoTech
     - ADTChemDisp

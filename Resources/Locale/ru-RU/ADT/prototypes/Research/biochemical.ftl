@@ -12,8 +12,6 @@ research-technology-crew-monitoring = Портативный монитор эк
 
 research-technology-chemistry-misc = Химические пренадлежности
 
-research-technology-cryo-pod = Криогеника
-
 research-technology-thermo = Термогеника
 
 research-technology-syringe-gun = Шприцемёт
