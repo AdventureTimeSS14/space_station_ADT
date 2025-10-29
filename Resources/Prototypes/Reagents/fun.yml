@@ -294,7 +294,7 @@
       - !type:AdjustTemperature
         conditions:
         - !type:Temperature
-          min: 1 # not quite enough for cryo, but can speed it up if you wanna take the risk
+          min: 1 # ADT-Tweak 160.15 -> 1
         amount: -50000 #ADT-Tweak -10000 -> -50000
       - !type:MovespeedModifier
         conditions:
