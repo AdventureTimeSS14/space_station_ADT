@@ -10,7 +10,7 @@ research-technology-advanced-medical-care = Продвинутая медици�
 
 research-technology-crew-monitoring = Портативный монитор экипажа
 
-research-technology-chemistry-misc = Химические пренадлежности
+research-technology-chemistry-misc = Химические принадлежности
 
 research-technology-thermo = Термогеника
 
