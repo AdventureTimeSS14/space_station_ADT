@@ -427,6 +427,16 @@
   - ADTClothingOuterWinterBlueshield
   - ADTClothingBlueshieldArmor
 
+- type: loadoutGroup
+  id: SD_Blueshield_Shoes
+  name: loadout-group-blueshield-shoes
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - SD_ClothingBlueshieldJackboots
+  - SD_ClothingBlueshieldCombatBoots
+  - SD_ClothingBlueshieldJordans
+
 # WARDEN
 
 - type: loadoutGroup

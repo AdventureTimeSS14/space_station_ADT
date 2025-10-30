@@ -34,3 +34,26 @@
   - type: Tag
     tags:
     - SD_Cartridge792
+
+- type: entity
+  parent: BaseCartridge
+  id: SD_CartridgeSmart
+  name: cartridge (9x21 smart)
+  description: A 9x21 smart bullet with a small charge of booster propellant at the bottom.
+  components:
+  - type: Tag
+    tags:
+    - Cartridge
+    - SD_CartridgeSmart
+  - type: CartridgeAmmo
+    deleteOnSpawn: true
+    proto: SD_BulletSmartPistol
+  - type: Sprite
+    sprite: SD/Objects/Weapons/Guns/Ammunition/Casings/smartgun.rsi/
+    layers:
+    - state: base
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+  - type: StaticPrice
+    price: 20

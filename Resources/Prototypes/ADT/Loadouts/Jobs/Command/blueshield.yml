@@ -78,3 +78,21 @@
   id: ADTClothingBlueshieldArmor
   equipment:
     outerClothing: ADTClothingBlueshieldArmor
+
+# Shoes
+
+- type: loadout
+  id: SD_ClothingBlueshieldJackboots
+  equipment:
+    shoes: ClothingShoesBootsJackFilled
+
+
+- type: loadout
+  id: SD_ClothingBlueshieldCombatBoots
+  equipment:
+    shoes: ClothingShoesBootsCombatFilled
+
+- type: loadout
+  id: SD_ClothingBlueshieldJordans
+  equipment:
+    shoes: SD_ClothingShoesJordansBlue

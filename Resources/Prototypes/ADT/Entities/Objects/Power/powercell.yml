@@ -5,8 +5,8 @@
   parent: BaseItem
   components:
   - type: Battery
-    maxCharge: 600
-    startingCharge: 600
+    maxCharge: 900
+    startingCharge: 900
   - type: Explosive
     explosionType: Default
     maxIntensity: 200

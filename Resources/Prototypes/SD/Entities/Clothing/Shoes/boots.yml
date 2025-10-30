@@ -8,3 +8,25 @@
     sprite: SD/Clothing/Shoes/tacticalmaid.rsi
   - type: Clothing
     sprite: SD/Clothing/Shoes/tacticalmaid.rsi
+
+- type: entity
+  parent: ClothingShoesBootsJack
+  id: SD_ClothingShoesJordansBlue
+  name: blue jordans
+  description: You got that swagger. You're the drippiest guy in the department. You also probably have an energy knife in one of those shoes.
+  components:
+  - type: Sprite
+    sprite: SD/Clothing/Shoes/jordans.rsi
+  - type: Clothing
+    sprite: SD/Clothing/Shoes/jordans.rsi
+
+- type: entity
+  parent: ClothingShoesBase
+  id: SD_ClothingShoesGlow
+  name: glowing shoes
+  description: You got some swag right there. Wait, how do they glow? What does "Pu-238" mean???
+  components:
+  - type: Sprite
+    sprite: SD/Clothing/Shoes/glow_shoes.rsi
+  - type: Clothing
+    sprite: SD/Clothing/Shoes/glow_shoes.rsi

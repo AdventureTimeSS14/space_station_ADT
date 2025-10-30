@@ -1,0 +1,10 @@
+- type: listing
+  id: SD_DispatchSpear
+  name: boobr-spear-name
+  description: boobr-spear-desc
+  icon: { sprite: /Textures/SD/Objects/Weapons/Melee/cburn_spear.rsi, state: icon }
+  productEntity: SD_CburnSpear
+  cost:
+    Productunit: 10
+  categories:
+  - ADTUplinkERTWeapon

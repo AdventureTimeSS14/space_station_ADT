@@ -1,0 +1,17 @@
+- type: latheRecipe
+  id: SmartpistolMagazine
+  result: SD_MagazineSmartPistol
+  completetime: 5
+  materials:
+    Plastic: 300
+    Steel: 250
+    Gold: 200
+
+- type: latheRecipe
+  id: SmartpistolAmmoBox
+  result: SD_MagazineBoxSmartPistol
+  completetime: 5
+  materials:
+    Plastic: 400
+    Steel: 750
+    Gold: 600

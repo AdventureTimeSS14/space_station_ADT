@@ -45,6 +45,7 @@
     kits:
     - WeaponSaberRevBlueshield
     - WeaponHalberdBlueshield # SD tweak
+    - SD_WeaponMK6SmartPistolBlueshield
     typeDropPlace: ThisPlace
     typeDrop: Rocket
 

@@ -186,7 +186,6 @@
   id: ADTBlueShieldOfficerGear
   equipment:
     eyes: ADTClothingEyesGlassesBlueshield
-    shoes: ClothingShoesBootsCombatFilled
     belt: ADTClothingBeltMedicalSecurityFilled
     gloves: ClothingHandsGlovesCombat
     id: ADTBlueshieldOfficerPDA

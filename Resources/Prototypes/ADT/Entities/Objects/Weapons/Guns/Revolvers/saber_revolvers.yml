@@ -35,7 +35,7 @@
     color: white
     netsync: false
   - type: Gun
-    fireRate: 1.8
+    fireRate: 2.5
     projectileSpeed: 60
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg

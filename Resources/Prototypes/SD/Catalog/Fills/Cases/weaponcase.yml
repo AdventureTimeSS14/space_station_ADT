@@ -1,0 +1,31 @@
+- type: entity
+  id: SD_BaseWeaponCaseNTBS2
+  name: weapon case
+  description: Weapon case, special designed for ERT.
+  parent: [ BaseStorageItem, BaseBagOpenClose ]
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Storage/weaponcase.rsi
+    layers:
+    - state: closed
+    - state: open
+      map: ["openLayer"]
+  - type: Appearance
+  - type: Item
+    sprite: ADT/Objects/Storage/weaponcase.rsi
+    size: Ginormous
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,1,0
+    - 0,1,0,1
+    - 3,0,9,1
+  - type: StorageFill
+    contents:
+     - id: SD_WeaponPistolMK6
+     - id: SD_EnergyDaggerNT
+     - id: SD_MagazineSmartPistol
+     - id: SD_MagazineSmartPistol
+     - id: SD_MagazineSmartPistol
+     - id: SD_MagazineBoxSmartPistol
+     - id: SD_MagazineBoxSmartPistol

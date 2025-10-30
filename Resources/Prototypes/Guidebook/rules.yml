@@ -6,6 +6,19 @@
   ruleEntry: true
   priority: 10
   text: "/ServerInfo/SpaceDream/Guidebook/ServerRules/MRPRuleset.xml"
+  children:
+  - SDRule0
+  - SDRule1
+  - SDRule2
+  - SDRule3
+  - SDRule4
+  - SDRule5
+  - SDRule6
+  - SDRule7
+  - SDRule8
+  - SDRule9
+  - SDRule10
+  - SDRule11
 
 - type: guideEntry # Default for forks and stuff. Should not be listed anywhere if the server is using a custom ruleset.
   id: DefaultRuleset
@@ -383,3 +396,89 @@
   name: guide-entry-rules-ban-durations
   ruleEntry: true
   text: "/ServerInfo/Guidebook/ServerRules/BanDurations.xml"
+
+# sd edit start
+
+- type: guideEntry
+  id: SDRule0
+  name: Правило 0
+  priority: 1
+  ruleEntry: true
+  text: "/ServerInfo/SpaceDream/Guidebook/ServerRules/SDRule0.xml"
+
+- type: guideEntry
+  id: SDRule1
+  name: Правило 1
+  priority: 2
+  ruleEntry: true
+  text: "/ServerInfo/SpaceDream/Guidebook/ServerRules/SDRule1.xml"
+
+- type: guideEntry
+  id: SDRule2
+  name: Правило 2
+  priority: 3
+  ruleEntry: true
+  text: "/ServerInfo/SpaceDream/Guidebook/ServerRules/SDRule2.xml"
+
+- type: guideEntry
+  id: SDRule3
+  name: Правило 3
+  priority: 4
+  ruleEntry: true
+  text: "/ServerInfo/SpaceDream/Guidebook/ServerRules/SDRule3.xml"
+
+- type: guideEntry
+  id: SDRule4
+  name: Правило 4
+  priority: 5
+  ruleEntry: true
+  text: "/ServerInfo/SpaceDream/Guidebook/ServerRules/SDRule4.xml"
+
+- type: guideEntry
+  id: SDRule5
+  name: Правило 5
+  priority: 6
+  ruleEntry: true
+  text: "/ServerInfo/SpaceDream/Guidebook/ServerRules/SDRule5.xml"
+
+- type: guideEntry
+  id: SDRule6
+  name: Правило 6
+  priority: 7
+  ruleEntry: true
+  text: "/ServerInfo/SpaceDream/Guidebook/ServerRules/SDRule6.xml"
+
+- type: guideEntry
+  id: SDRule7
+  name: Правило 7
+  priority: 8
+  ruleEntry: true
+  text: "/ServerInfo/SpaceDream/Guidebook/ServerRules/SDRule7.xml"
+
+- type: guideEntry
+  id: SDRule8
+  name: Правило 8
+  priority: 9
+  ruleEntry: true
+  text: "/ServerInfo/SpaceDream/Guidebook/ServerRules/SDRule8.xml"
+
+- type: guideEntry
+  id: SDRule9
+  name: Правило 9
+  priority: 10
+  ruleEntry: true
+  text: "/ServerInfo/SpaceDream/Guidebook/ServerRules/SDRule9.xml"
+
+- type: guideEntry
+  id: SDRule10
+  name: Правило 10
+  priority: 11
+  ruleEntry: true
+  text: "/ServerInfo/SpaceDream/Guidebook/ServerRules/SDRule10.xml"
+
+- type: guideEntry
+  id: SDRule11
+  name: Правило 10
+  priority: 12
+  ruleEntry: true
+  text: "/ServerInfo/SpaceDream/Guidebook/ServerRules/SDRule11.xml"

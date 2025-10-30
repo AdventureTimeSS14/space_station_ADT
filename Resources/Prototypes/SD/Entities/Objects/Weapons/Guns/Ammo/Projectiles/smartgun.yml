@@ -25,7 +25,25 @@
         Piercing: 25
         Radiation: 25
         Structural: 50
-    ignoreResistances: true
     ignoreReflect: true
   - type: StaminaDamageOnCollide
     damage: 35
+
+- type: entity
+  id: SD_BulletSmartPistol
+  name: bullet (9x21 smart)
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 19
+    ignoreReflect: true
+  - type: Sprite
+    sprite: SD/Objects/Weapons/Guns/Ammunition/Projectiles/smartgun.rsi
+    layers:
+    - state: smartgun
+      shader: unshaded
+  - type: HomingProjectile
+    homingSpeed: 720 # The missile always knows where it is.

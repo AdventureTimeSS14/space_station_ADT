@@ -47,13 +47,7 @@ public sealed class RequireProjectileTargetSystem : EntitySystem
                 }
                 // ADT Crawling abuse fix end
 
-                // ADT ALW Tweak
-                var weapon = projectile.Weapon;
-                var alwTarget = targeted.Target;
-                if (weapon.HasValue && HasComp<AntiLyingWarriorComponent>(weapon) && _mobState.IsDead(alwTarget))
-                    return;
             }
-            // ADT ALW Tweak
 
             // Prevents shooting out of while inside of crates
             var shooter = projectile.Shooter;
