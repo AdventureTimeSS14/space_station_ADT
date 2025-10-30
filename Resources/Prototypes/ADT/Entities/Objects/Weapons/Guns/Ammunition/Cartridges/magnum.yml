@@ -107,4 +107,4 @@
   parent: ADTCartridgeMagnumHoly
   components:
   - type: CartridgeAmmo
-    proto: ADTBulletMagnumsilver
+    proto: ADTBulletMagnumSilver
