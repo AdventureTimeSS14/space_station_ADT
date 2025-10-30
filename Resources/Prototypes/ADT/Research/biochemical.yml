@@ -187,7 +187,7 @@
   cost: 5000
   recipeUnlocks:
   - ADTModsuitPlateMedical
-  technologyPrerequisites:
+  requiredTech:
     - ADTModsuitBase
   position: 5,-1
   requiredTech:
