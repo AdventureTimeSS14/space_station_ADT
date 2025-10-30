@@ -1,7 +1,6 @@
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Projectiles;
-using Content.Shared.Throwing;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Prototypes;
 using Content.Shared.StatusEffect;
@@ -10,7 +9,6 @@ using Content.Shared.FixedPoint;
 using Content.Shared.Weapons.Melee;
 using Content.Server.ADT.DamageBonusHoly.Components;
 using System.Linq;
-using System.ComponentModel.DataAnnotations;
 using Content.Shared.ADT.Phantom;
 using Content.Shared.ADT.Phantom.Components;
 
@@ -18,6 +16,7 @@ namespace Content.Server.ADT.DamageBonusHoly;
 
 public sealed class DamageBonusHolySystem : EntitySystem
 {
+    private const string HolyDamageType = "Holy";
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
     [Dependency] private readonly StatusEffectsSystem _status = default!;
@@ -35,7 +34,7 @@ public sealed class DamageBonusHolySystem : EntitySystem
         {
             if (projectile.Damage.DamageDict.TryGetValue("Holy", out var holy))
             {
-                var damage = new DamageSpecifier(_proto.Index<DamageTypePrototype>("Holy"), holy*4);
+                var damage = new DamageSpecifier(_proto.Index<DamageTypePrototype>(HolyDamageType), holy*4);
                 _damageableSystem.TryChangeDamage(args.Target, damage);
             }
         }
@@ -55,7 +54,7 @@ public sealed class DamageBonusHolySystem : EntitySystem
 
         foreach (var ent in damageTargets)
         {
-            var damage = new DamageSpecifier(_proto.Index<DamageTypePrototype>("Holy"), holy * 4);
+            var damage = new DamageSpecifier(_proto.Index<DamageTypePrototype>(HolyDamageType), holy * 4);
             _damageableSystem.TryChangeDamage(ent, damage);
         }
     }

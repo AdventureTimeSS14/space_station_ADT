@@ -8,11 +8,11 @@
     },
     "states": [
         {
-            "name": "blody_eyes",
+            "name": "bloody_eyes",
             "directions": 4
         },
         {
-            "name": "blody_eyes_dead"
+            "name": "bloody_eyes_dead"
         },
         {
             "name": "bunch_demonic_eyes",

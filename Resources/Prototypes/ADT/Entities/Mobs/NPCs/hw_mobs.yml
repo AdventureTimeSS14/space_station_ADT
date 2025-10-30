@@ -30,7 +30,6 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      200: Critical
       400: Dead
   - type: Gun
     fireRate: 0.5
@@ -57,7 +56,7 @@
 
 - type: entity
   parent: [ SimpleMobBase, MobCombat ]
-  id: ADTBanchOfDemonicEyes
+  id: ADTBunchOfDemonicEyes
   components:
   - type: DamageBonusHoly
   - type: Sprite
@@ -122,7 +121,7 @@
     drawdepth: Mobs
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
-      state: blody_eyes
+      state: bloody_eyes
       sprite: ADT/Mobs/Demons/hw_small.rsi
   - type: MeleeWeapon
     soundHit:
@@ -150,11 +149,11 @@
   - type: DamageStateVisuals
     states:
       Alive:
-        Base: blody_eyes
+        Base: bloody_eyes
       Critical:
-        Base: blody_eyes_dead
+        Base: bloody_eyes_dead
       Dead:
-        Base: blody_eyes_dead
+        Base: bloody_eyes_dead
 
 
 - type: entity
@@ -271,8 +270,8 @@
       NavSmash: !type:Bool
         true
   - type: MovementSpeedModifier
-    baseWalkSpeed : 2
-    baseSprintSpeed : 4
+    baseWalkSpeed : 1.5
+    baseSprintSpeed : 3
   - type: MobThresholds
     thresholds:
       0: Alive
