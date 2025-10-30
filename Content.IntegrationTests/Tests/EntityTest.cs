@@ -60,19 +60,15 @@ namespace Content.IntegrationTests.Tests
                 }
             });
 
-<<<<<<< Updated upstream
             // ADT-Tweak-Start: Ограничение памяти для предотвращения таймаута GitHub Actions
             // Run up to 15 ticks, but stop early if memory usage exceeds 13 GB
             // По состоянию на 2025-10-22: Wizden достигает ~9-10 GB, ADT ~12GB
             // При достижении 16 GB происходит таймаут на GitHub
-=======
+
             // ADT-tweak Start (this test isn't even worth the effort tbh)
             // Run up to 15 ticks, but stop early if memory usage exceeds 13 GB
             // At the time of writing (2025-10-22) Wizden reaches at most like 9-10 GB on SpawnAndDirtyAllEntities
             // ADT gets to about ~12GB, if we reach 16 GB on integrationtests we'll time out from GitHub
->>>>>>> Stashed changes
-            //
-            // Эта область теста потребляет больше всего памяти
 
             const int maxTicks = 15; // (default wizden)
             const long memoryLimitBytes = 13L * 1024 * 1024 * 1024; // 13 GB, depends on how close you wanna fly to the sun.
@@ -100,11 +96,6 @@ namespace Content.IntegrationTests.Tests
 
                 break; // stop ticking early
             }
-<<<<<<< Updated upstream
-            // ADT-Tweak-End
-=======
-            // ADT-tweak End
->>>>>>> Stashed changes
 
             await server.WaitPost(() =>
             {
