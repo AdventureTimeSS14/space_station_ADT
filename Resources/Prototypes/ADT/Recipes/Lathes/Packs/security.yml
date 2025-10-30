@@ -3,7 +3,7 @@
   recipes:
   - ADTMagazineMagnum
   - ADTMagazineBoxMagnumSilver
-  - ADTCartridgeMagnumsilver
+  - ADTCartridgeMagnumSilver
   - ADTMagazineMagnumEmpty
 
 - type: latheRecipePack

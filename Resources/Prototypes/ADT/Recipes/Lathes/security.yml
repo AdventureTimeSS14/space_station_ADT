@@ -77,8 +77,8 @@
     Plastic: 240
 
 - type: latheRecipe
-  id: ADTCartridgeMagnumsilver
-  result: ADTCartridgeMagnumsilver
+  id: ADTCartridgeMagnumSilver
+  result: ADTCartridgeMagnumSilver
   completetime: 5
   materials:
     Lead : 10
