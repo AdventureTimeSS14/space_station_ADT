@@ -17,3 +17,11 @@
   - type: Flatpack
     entity: ADTChemistryColdplate
 
+- type: entity
+  parent: BaseFlatpack
+  id: ADTMachinePowerTransmissionLaserFlatpack
+  name: power transmision laser flatpack
+  description: A flatpack used for constructing a power transmission laser
+  components:
+  - type: Flatpack
+    entity: MachinePowerTransmissionLaser
