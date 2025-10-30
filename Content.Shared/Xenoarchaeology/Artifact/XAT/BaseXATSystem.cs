@@ -31,12 +31,14 @@ public abstract class BaseXATSystem<T> : EntitySystem where T : Component
     {
         SubscribeLocalEvent<T, XenoArchNodeRelayedEvent<TEvent>>((uid, component, args) =>
         {
-            // Проверяем существование сущности перед получением компонента
-            if (!EntityManager.EntityExists(uid))
-                return;
+        // ADT-Tweak-Start: Добавлены проверки существования сущности
+        // Проверяем существование сущности перед получением компонента
+        if (!EntityManager.EntityExists(uid))
+            return;
 
-            if (!TryComp<XenoArtifactNodeComponent>(uid, out var nodeComp))
-                return;
+        if (!TryComp<XenoArtifactNodeComponent>(uid, out var nodeComp))
+            return;
+        // ADT-Tweak-End
 
             if (!CanTrigger(args.Artifact, (uid, nodeComp)))
                 return;
