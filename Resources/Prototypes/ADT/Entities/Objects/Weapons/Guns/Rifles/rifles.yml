@@ -20,8 +20,8 @@
     steps: 4
     zeroVisible: true
   - type: AmmoCounter
-  - type: RunAndGunSpreadModifier
-    modifyer: 0.3
+  # - type: RunAndGunSpreadModifier
+  #   modifyer: 0.3
   - type: Gun
     fireRate: 3
     selectedMode: SemiAuto
