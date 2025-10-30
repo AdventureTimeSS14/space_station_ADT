@@ -382,7 +382,7 @@ namespace Content.IntegrationTests.Tests
                     await server.WaitPost(() => server.EntMan.DeleteEntity(uid));
                     await pair.RunTicksSync(5);
 
-                    // Убраны проверки после удаления сущности
+                    // ADT-Tweak: Убраны проверки после удаления сущности - они могут давать ложные срабатывания
                 }
             });
 
