@@ -67,7 +67,7 @@ namespace Content.Server.ADT.HWAnomCoreLootbox
         {
             if (!HasComp<ChaplainComponent>(uid))
             {
-                AddComp<ChaplainComponent>(uid);
+                EnsureComp<ChaplainComponent>(uid);
             }
         }
 
@@ -82,7 +82,7 @@ namespace Content.Server.ADT.HWAnomCoreLootbox
         {
             if (!HasComp<HemophiliaComponent>(uid))
             {
-                AddComp<HemophiliaComponent>(uid);
+                EnsureComp<HemophiliaComponent>(uid);
             }
         }
 
@@ -90,7 +90,7 @@ namespace Content.Server.ADT.HWAnomCoreLootbox
         {
             if (!HasComp<ParacusiaComponent>(uid))
             {
-                AddComp<ParacusiaComponent>(uid);
+                EnsureComp<ParacusiaComponent>(uid);
             }
         }
 
