@@ -48,8 +48,6 @@
     states:
       Alive:
         Base: bloody_army_soldier
-      Critical:
-        Base: bloody_army_soldier_dead
       Dead:
         Base: bloody_army_soldier_dead
 
@@ -86,7 +84,6 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      100: Critical
       150: Dead
   - type: Gun
     fireRate: 1
@@ -105,8 +102,6 @@
     states:
       Alive:
         Base: bunch_demonic_eyes
-      Critical:
-        Base: bunch_demonic_eyes_dead
       Dead:
         Base: bunch_demonic_eyes_dead
 
@@ -144,14 +139,11 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      50: Critical
       100: Dead
   - type: DamageStateVisuals
     states:
       Alive:
         Base: bloody_eyes
-      Critical:
-        Base: bloody_eyes_dead
       Dead:
         Base: bloody_eyes_dead
 
@@ -188,14 +180,11 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      25: Critical
       50: Dead
   - type: DamageStateVisuals
     states:
       Alive:
         Base: demonic_eye
-      Critical:
-        Base: demonic_eye_dead
       Dead:
         Base: demonic_eye_dead
 
@@ -232,14 +221,11 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      100: Critical
       150: Dead
   - type: DamageStateVisuals
     states:
       Alive:
         Base: dark_rattlesnake
-      Critical:
-        Base: dark_rattlesnake_dead
       Dead:
         Base: dark_rattlesnake_dead
 
@@ -275,13 +261,10 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      200: Critical
       350: Dead
   - type: DamageStateVisuals
     states:
       Alive:
         Base: demonic_mouth
-      Critical:
-        Base: demonic_mouth_dead
       Dead:
         Base: demonic_mouth_dead

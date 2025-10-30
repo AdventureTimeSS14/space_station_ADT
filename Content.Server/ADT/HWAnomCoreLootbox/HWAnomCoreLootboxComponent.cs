@@ -1,6 +1,3 @@
-using Content.Shared.Storage;
-using Robust.Shared.Audio;
-
 namespace Content.Server.ADT.HWAnomCoreLootbox
 {
     /// <summary>

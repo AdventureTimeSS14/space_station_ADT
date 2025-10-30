@@ -288,7 +288,7 @@
         maxRange: 4.5
       spawns:
       - ADTDemonicEye
-      - ADTBlodyEyes
+      - ADTBloodyEyes
       - ADTBunchOfDemonicEyes
       - ADTDemonicMouth
       - ADTDarkRattleSnake
@@ -299,6 +299,4 @@
         minRange: 1.5
         maxRange: 2.5
       spawns:
-      - ADTDemonicMouth
-      - ADTDarkRattleSnake
       - ADTBloodyArmySoldier

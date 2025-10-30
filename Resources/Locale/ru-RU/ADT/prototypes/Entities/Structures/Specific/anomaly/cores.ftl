@@ -6,8 +6,8 @@ ent-ADTAnomalyCoreMonkey = { ent-BaseAnomalyCore }
     .desc = { ent-BaseAnomalyCore.desc }
 
 ent-ADTAnomalyCoreHW = Странная книжка
-    .suffix = Хеллоуин
+    .suffix = Скверна
     .desc = Книга, которую выплюнула аномалия...А что если прочитать её?
 ent-ADTAnomalyCoreHWInert = { ent-ADTAnomalyCoreHW }
-    .suffix = Хеллоуин, Инертный
+    .suffix = Скверна, Инертный
     .desc = { ent-ADTAnomalyCoreHW.desc }
