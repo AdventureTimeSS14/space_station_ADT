@@ -24,4 +24,4 @@
   description: A flatpack used for constructing a power transmission laser
   components:
   - type: Flatpack
-    entity: MachinePowerTransmissionLaser
+    entity: ADTMachinePowerTransmissionLaser

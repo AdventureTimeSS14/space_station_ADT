@@ -1,8 +1,8 @@
-using Content.Shared.Power.PTL;
+using Content.Shared.ADT.Power.PTL;
 using Robust.Client.GameObjects;
 using Robust.Shared.Timing;
 
-namespace Content.Client.Power.PTL;
+namespace Content.Client.ADT.Power.PTL;
 
 public sealed partial class PTLVisualsSystem : EntitySystem
 {

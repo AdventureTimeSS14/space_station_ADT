@@ -3,7 +3,7 @@ using Content.Shared.Damage;
 using Content.Shared.Destructible.Thresholds;
 using Robust.Shared.GameStates;
 
-namespace Content.Shared.Power.PTL;
+namespace Content.Shared.ADT.Power.PTL;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class PowerTransmissionLaserComponent : Component

@@ -1,13 +1,5 @@
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-# SPDX-FileCopyrightText: 2025 McBosserson <mcbosserson@hotmail.com>
-# SPDX-FileCopyrightText: 2025 SoundingExpert <204983230+SoundingExpert@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 john git <113782077+whateverusername0@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 whateverusername0 <whateveremail>
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: entity
-  id: MachinePowerTransmissionLaser
+  id: ADTMachinePowerTransmissionLaser
   parent: [ BaseMachine ]
   name: power transmission laser
   description: Sends power over a giant laser beam to an NT power processing facility. Simply plug it in and come back tomorrow for a big stack of cash (that is if you have power running). Also don't step in front of the firing line please.
@@ -63,7 +55,7 @@
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
   - type: HitscanBatteryAmmoProvider
     examinable: false
-    proto: PTL
+    proto: ADTPTL
     fireCost: 1000
   - type: Physics
     bodyType: Static
@@ -98,7 +90,7 @@
         Heat: 5
 
 - type: hitscan
-  id: PTL
+  id: ADTPTL
   damage:
     types:
       Heat: 120

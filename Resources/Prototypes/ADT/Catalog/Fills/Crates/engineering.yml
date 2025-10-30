@@ -9,7 +9,7 @@
     - id: ADTRPD
 
 - type: entity
-  id: MachinePowerTransmissionLaserCrate
+  id: ADTMachinePowerTransmissionLaserCrate
   parent: CrateGenericSteel
   name: power transmission laser crate
   components:

@@ -9,7 +9,7 @@
   group: market
 
 - type: cargoProduct
-  id: CargoEngineeringPTL
+  id: ADTCargoEngineeringPTL
   icon:
     sprite: ADT/Structures/Machines/PTL/pt_laser.rsi
     state: base
