@@ -49,3 +49,11 @@
     Glass: 50
     Plastic: 50
 
+- type: latheRecipe
+  id: ADTAutoSurgeon
+  result: ADTAutoSurgeon
+  completetime: 2
+  materials:
+    Glass: 1000
+    Steel: 1000
+    Plastic: 1000

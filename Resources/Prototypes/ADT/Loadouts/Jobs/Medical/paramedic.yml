@@ -32,3 +32,20 @@
   id: ADTClothingJumpsuitParamedicField
   equipment:
     jumpsuit: ADTClothingJumpsuitParamedicFieldSuit
+
+- type: loadoutEffectGroup
+  id: ADTDavidsjacket25hours
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobParamedic
+      time: 90000 #25 часов
+
+- type: loadout
+  id: ADTDavidsjacketParamedic
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTDavidsjacket25hours
+  equipment:
+    otherClothing: ADTClothingOuterDavidsJacket
