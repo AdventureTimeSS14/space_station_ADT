@@ -115,7 +115,7 @@ namespace Content.IntegrationTests.Tests
                         entityMan.DeleteEntity(uid);
                 }
 
-                // Убрана проверка Assert.That(entityMan.EntityCount, ...)
+                // ADT-Tweak: Убрана проверка Assert.That(entityMan.EntityCount, ...) для предотвращения ложных срабатываний
             });
 
             await pair.CleanReturnAsync();
