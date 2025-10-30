@@ -104,3 +104,11 @@
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
     - state: piercing
+
+- type: entity
+  id: ADTMagazineBoxMagnumSilver
+  parent: ADTMagazineBoxMagnumHoly
+  name: ammunition box (.357 magnum silver)
+  components:
+  - type: BallisticAmmoProvider
+    proto: ADTCartridgeMagnumSilver

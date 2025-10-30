@@ -2,6 +2,8 @@
   id: ADTMagazineStaticPack
   recipes:
   - ADTMagazineMagnum
+  - ADTMagazineBoxMagnumSilver
+  - ADTCartridgeMagnumsilver
   - ADTMagazineMagnumEmpty
 
 - type: latheRecipePack
@@ -40,13 +42,13 @@
   - ADTMechGunTeslaCannon
   - ADTMechGunScattershot
   - ADTMechGunUltraAC2
-  - ADTMechGunFNX99Hades    
+  - ADTMechGunFNX99Hades
   # - ADTMechGunMHAR21       Вырезано ради баланса
-  - ADTMechGunSGL6          
-  - ADTMechGunBRM6          
-  # - ADTMechGunSRM8         Вырезано ради баланса   
+  - ADTMechGunSGL6
+  - ADTMechGunBRM6
+  # - ADTMechGunSRM8         Вырезано ради баланса
   - ADTBoxAmmoAC2Ultra
   - ADTBoxAmmoScattershot
-  - ADTBoxAmmoHades         
+  - ADTBoxAmmoHades
   # - ADTBoxAmmoSniper       Вырезано ради баланса
-  - ADTBoxAmmoGranade 
+  - ADTBoxAmmoGranade
