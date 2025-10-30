@@ -1,4 +1,4 @@
-using Content.Shared.Power.PTL;
+using Content.Shared.ADT.Power.PTL;
 using Content.Server.Flash;
 using Content.Server.Popups;
 using Content.Server.Power.Components;
@@ -24,7 +24,7 @@ using Robust.Shared.Timing;
 using System.Numerics;
 using System.Text;
 
-namespace Content.Server.Power.PTL;
+namespace Content.Server.ADT.Power.PTL;
 
 public sealed partial class PTLSystem : EntitySystem
 {
