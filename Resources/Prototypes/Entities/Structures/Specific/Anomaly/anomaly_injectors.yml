@@ -44,7 +44,7 @@
     injectionComponents:
       - type: Anomaly
         deleteEntity: false
-        MaxPointsPerSecond: 100
+        maxPointsPerSecond: 100
         corePrototype: AnomalyCorePyroclastic
         coreInertPrototype: AnomalyCorePyroclasticInert
         supercriticalSoundAtAnimationStart:
@@ -76,7 +76,7 @@
     injectionComponents:
       - type: Anomaly
         deleteEntity: false
-        MaxPointsPerSecond: 100
+        maxPointsPerSecond: 100
         corePrototype: AnomalyCoreElectricity
         coreInertPrototype: AnomalyCoreElectricityInert
         supercriticalSoundAtAnimationStart:
@@ -108,7 +108,7 @@
     injectionComponents:
       - type: Anomaly
         deleteEntity: false
-        MaxPointsPerSecond: 100
+        maxPointsPerSecond: 100
         corePrototype: AnomalyCoreShadow
         coreInertPrototype: AnomalyCoreShadowInert
         supercriticalSoundAtAnimationStart:
@@ -140,7 +140,7 @@
     injectionComponents:
       - type: Anomaly
         deleteEntity: false
-        MaxPointsPerSecond: 100
+        maxPointsPerSecond: 100
         corePrototype: AnomalyCoreIce
         coreInertPrototype: AnomalyCoreIceInert
         supercriticalSoundAtAnimationStart:
@@ -172,7 +172,7 @@
     injectionComponents:
       - type: Anomaly
         deleteEntity: false
-        MaxPointsPerSecond: 100
+        maxPointsPerSecond: 100
         corePrototype: AnomalyCoreFlora
         coreInertPrototype: AnomalyCoreFloraInert
         supercriticalSoundAtAnimationStart:
