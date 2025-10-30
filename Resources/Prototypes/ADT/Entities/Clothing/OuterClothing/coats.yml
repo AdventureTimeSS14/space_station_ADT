@@ -509,3 +509,32 @@
   - type: ToggleableClothing
     clothingPrototype: ADTClothingHeadHatTechpriestHood
     slot: head
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ADTClothingOuterDavidsJacket
+  name: EMT jacket
+  description: A bright yellow signal jacket, beloved by paramedics of the end of the 21st century.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Coats/david_jacket.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Coats/david_jacket.rsi
+
+- type: entity
+  parent: [ADTClothingOuterDavidsJacket, BaseMajorContraband]
+  id: ADTClothingOuterDavidsJacketValid
+  name: edgerunner jacket
+  description: You're right on the edge. Show 'em you got this.
+  components:
+  - type: Clothing
+    clothingVisuals:
+      outerClothing:
+      - state: valid-equipped-OUTERCLOTHING
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.7
+        Slash: 0.7
+        Piercing: 0.7
+        Heat: 0.8
