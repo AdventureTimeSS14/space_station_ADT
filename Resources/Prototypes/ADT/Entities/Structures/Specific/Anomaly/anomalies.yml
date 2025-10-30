@@ -263,8 +263,8 @@
     coreInertPrototype: ADTAnomalyCoreHWInert
     minPulseLength: 180
     maxPulseLength: 300
-    MinPointsPerSecond: 75
-    MaxPointsPerSecond: 140
+    minPoints: 75
+    maxPoints: 140
   - type: Sprite
     sprite: ADT/Structures/Specific/Anomalies/hw_anom.rsi
     layers:
