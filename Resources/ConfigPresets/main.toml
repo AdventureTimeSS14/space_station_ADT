@@ -36,7 +36,7 @@ enabled = true
 
 
 [game]
-hostname = "Space Dream [MRP][18+][RU]"
+hostname = "Helix [HRP][18+][RU]"
 maxplayers = 20
 soft_max_players = 20
 map_rotation = true
