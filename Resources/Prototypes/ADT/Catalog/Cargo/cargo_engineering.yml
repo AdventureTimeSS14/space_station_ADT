@@ -1,9 +1,19 @@
 - type: cargoProduct
-  id: EngineeringRPD
+  id: ADTEngineeringRPD
   icon:
     sprite: ADT/Objects/Tools/rpd.rsi
     state: icon
   product: ADTCrateRPD
   cost: 800
+  category: cargoproduct-category-name-engineering
+  group: market
+
+- type: cargoProduct
+  id: ADTCargoEngineeringPTL
+  icon:
+    sprite: ADT/Structures/Machines/PTL/pt_laser.rsi
+    state: base
+  product: ADTMachinePowerTransmissionLaserCrate
+  cost: 5000
   category: cargoproduct-category-name-engineering
   group: market
