@@ -108,7 +108,6 @@
     animationState: foam-dissolve
   - type: Slippery
   #ADT-tweak-start
-    ignoreSlots: true
     slipData:
       launchForwardsMultiplier: 2
   #ADT-tweak-end
