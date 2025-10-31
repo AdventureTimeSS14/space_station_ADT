@@ -477,3 +477,23 @@
     - type: Icon
       sprite: ADT/Objects/Consumable/Drinks/cocoa_drink.rsi
       state: icon
+
+- type: entity
+  parent: DrinkGlass
+  id: ADTBorgDrinkGlass
+  name: integrated drink container
+  description: An internal drink container installed into a cyborg. Rated for 30 units of any beverage.
+  components:
+  # Убираем все компоненты разрушения и урона, как в BorgBeaker
+  - type: Sprite
+    sprite: Objects/Consumable/Drinks/glass_clear.rsi
+    layers:
+      - state: icon
+        map: [ "enum.SolutionContainerLayers.Base" ]
+      - state: fill1
+        map: [ "enum.SolutionContainerLayers.Fill" ]
+        visible: false
+      - state: icon-front
+        map: [ "enum.SolutionContainerLayers.Overlay" ]
+  - type: Item
+    sprite: Objects/Consumable/Drinks/glass_clear.rsi
