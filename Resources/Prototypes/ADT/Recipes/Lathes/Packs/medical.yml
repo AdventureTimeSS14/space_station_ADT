@@ -34,7 +34,7 @@
   - ChemDispenserMachineCircuitboard
   - ChemMasterMachineCircuitboard
   - HotplateMachineCircuitboard
-  - ADTColdplateMachineCircuitboardCircuitboard
+  - ADTColdplateMachineCircuitboard
 
 - type: latheRecipePack
   id: ADTCryoTech
