@@ -89,7 +89,7 @@
   result: ADTAutoSurgeon
   completetime: 2
   materials:
-  Glass: 1000
-  Steel: 1000
-  Plastic: 1000
+    Glass: 1000
+    Steel: 1000
+    Plastic: 1000
   
