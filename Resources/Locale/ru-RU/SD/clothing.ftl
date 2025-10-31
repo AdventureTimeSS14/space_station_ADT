@@ -18,3 +18,12 @@ ent-SD_ClothingShoesGlow = светящиеся кроссовки
     .desc = S.W.A.G
 
 loadout-group-blueshield-shoes = ОСЩ, сапоги
+
+holster-insert-verb = Вставить в кобуру
+holster-eject-verb = Вытащить из кобуры
+
+ent-SD_ClothingBeltSmartgunHolster = пояс-кобура МК6
+    .desc = Кобура с поясом паттерна XM52 предназначенная для переноски пистолета MK6 и магазинов для него.
+
+ent-SD_ClothingBeltSmartgunHolsterFilled = { ent-SD_ClothingBeltSmartgunHolster }
+    .desc = { ent-SD_ClothingBeltSmartgunHolster.desc }

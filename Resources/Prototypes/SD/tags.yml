@@ -21,3 +21,6 @@
 
 - type: Tag
   id: SD_CartridgeSmart
+
+- type: Tag
+  id: SD_MK6Pistol

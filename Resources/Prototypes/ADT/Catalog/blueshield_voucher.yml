@@ -26,4 +26,4 @@
     sprite: SD/Objects/Weapons/Guns/smartgun.rsi
     state: icon
   content:
-  - SD_BaseWeaponCaseNTBS2
+  - SD_ClothingBeltSmartgunHolsterFilled
