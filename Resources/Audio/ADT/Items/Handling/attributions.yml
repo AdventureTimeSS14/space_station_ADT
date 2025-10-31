@@ -1,0 +1,10 @@
+- files:
+    - "card_pickup.ogg"
+    - "card_drop.ogg"
+    - "disk_pickup.ogg"
+    - "disk_drop.ogg"
+    - "toolbelt_pickup.ogg"
+    - "toolbelt_drop.ogg"
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from Paradise SS13"
+  source: "https://github.com/ss220-space/Paradise/tree/master220/sound/items/handling"
