@@ -2445,7 +2445,7 @@
     slots:
     - suitStorage
 
-#Farrellka и Melima
+#Farrellka и Melima (ныне Nelderiss)
 - type: entity
   parent: BasePlushie
   id: ADTPlushieDianaSaeros
