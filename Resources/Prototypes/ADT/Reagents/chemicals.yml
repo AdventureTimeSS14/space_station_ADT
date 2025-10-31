@@ -75,9 +75,9 @@
 
 - type: reagent
   id: ADTThermolyne
-  name: Thermolyne
+  name: reagent-name-thermolyne
   group: Medicine
-  desc: Extremely hot reagent that reacts rapidly when in contact with anything non-metallic.
+  desc: reagent-desc-thermolyne
   physicalDesc: reagent-physical-desc-burning
   flavor: peppery
   color: "#ff5f00"
