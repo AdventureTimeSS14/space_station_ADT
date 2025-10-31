@@ -647,7 +647,7 @@
 
 # Верхняя одежда
 - type: loadoutGroup
-  id: ADTCorrectionsOfficerOuterСlothing
+  id: ADTCorrectionsOfficerOuterClothing
   name: loadout-corrections-officer-outerclothing-adt
   minLimit: 1
   maxLimit: 1
