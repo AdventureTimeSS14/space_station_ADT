@@ -4,7 +4,7 @@ meta:
   engineVersion: 265.0.0
   forkId: ""
   forkVersion: ""
-  time: 10/28/2025 22:03:17
+  time: 10/31/2025 23:49:19
   entityCount: 8909
 maps:
 - 1
@@ -50260,8 +50260,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -0.5,-2.5
       parent: 6653
-    - type: ApcPowerReceiver
-      powerDisabled: True
 - proto: TegCirculator
   entities:
   - uid: 7380
