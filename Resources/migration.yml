@@ -816,3 +816,6 @@ BookSpaceLaw: ADTBookSpaceLaw
 # ADT 2025-08-27
 ADTIndustrialSMES: SMESAdvanced
 SpawnPointADTSecborg: null # На всякий случай лол
+
+#ADT 2025-10-31 ХЭППИ ХЕЛЛАВИН
+SpawnPointADTGuardOfficer: SpawnPointADTCorrectionsOfficer
