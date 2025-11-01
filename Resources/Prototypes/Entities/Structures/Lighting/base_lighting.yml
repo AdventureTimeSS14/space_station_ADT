@@ -33,9 +33,9 @@
     state: base
   - type: PointLight
     # ADT-Sound-Update-Start
-    color: "#FAFFFF" # 5000K color temp
+    color: "#fffcf8" # 5000K color temp
     energy: 0.9
-    radius: 7
+    radius: 8
     softness: 2.1
     # ADT-Sound-Update-End
     offset: "0, -0.5"
