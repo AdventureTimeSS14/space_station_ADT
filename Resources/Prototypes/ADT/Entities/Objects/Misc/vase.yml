@@ -41,7 +41,7 @@
     state: vase-2
 
 - type: entity
-  id: ADTVasePlant3 
+  id: ADTVasePlant3
   parent: ADTVaseBase
   components:
   - type: Sprite
