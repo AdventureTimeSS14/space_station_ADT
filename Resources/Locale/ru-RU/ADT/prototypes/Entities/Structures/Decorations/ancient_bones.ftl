@@ -6,7 +6,7 @@ ent-ADTAncientAnimalLeftBone = большая кость
     .desc = Большая кость, принадлежащая неизвестному существу.
     .suffix = Лаваленд
 
-ent-ADTAncientAnimalRightBone = большая кость
+ent-ADTAncientAnimalRightBone = большая правая кость
     .desc = Большая кость, принадлежащая неизвестному существу.
     .suffix = Лаваленд
 
