@@ -2,7 +2,7 @@ ent-ADTAncientAnimalScull = большой череп
     .desc = Большой череп, принадлежащий неизвестному существу.
     .suffix = Лаваленд
 
-ent-ADTAncientAnimalLeftBone = большая кость
+ent-ADTAncientAnimalLeftBone = большая левая кость
     .desc = Большая кость, принадлежащая неизвестному существу.
     .suffix = Лаваленд
 
