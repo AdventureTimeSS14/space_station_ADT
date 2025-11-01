@@ -1124,7 +1124,6 @@
   defaultCustomColor: true
   sprite:
     sprite: ADT/Decals/markings.rsi
-
     state: siding_thinplating_end_e
     
 - type: decal
