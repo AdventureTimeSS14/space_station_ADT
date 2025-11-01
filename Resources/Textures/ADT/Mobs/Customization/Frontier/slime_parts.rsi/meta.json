@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Sprited by Sha-Seng (Github), eyeglowwide resprited by orange6775 (discord)",
+  "copyright": "Sprited by Sha-Seng (Github), eyeglowwide/c_eyeglowbig/s_eyeglowbig resprited by orange6775 (discord)",
   "size": {
     "x": 32,
     "y": 32
@@ -73,6 +73,14 @@
     },
     {
       "name": "eyeglowwide",
+      "directions": 4
+    },
+    {
+      "name": "c_eyeglowbig",
+      "directions": 4
+    },
+    {
+      "name": "s_eyeglowbig",
       "directions": 4
     }
   ]

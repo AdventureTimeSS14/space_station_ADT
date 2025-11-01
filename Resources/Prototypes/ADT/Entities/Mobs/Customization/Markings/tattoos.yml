@@ -123,19 +123,3 @@
   sprites:
   - sprite: ADT/Mobs/Customization/Frontier/tattoos.rsi
     state: r_foot_doll
-
-- type: marking
-  id: ADTTattooEyesWide
-  bodyPart: Eyes
-  markingCategory: Head
-  speciesRestriction: [Human, Dwarf, SlimePerson, Reptilian, DemonSpecies, Felinid]
-  coloring:
-    default:
-      type:
-        !type:EyeColoring
-          negative: true
-  sprites:
-  - sprite: ADT/Mobs/Customization/Frontier/tattoos.rsi
-    state: l_eyes_wide
-  - sprite: ADT/Mobs/Customization/Frontier/tattoos.rsi
-    state: r_eyes_wide

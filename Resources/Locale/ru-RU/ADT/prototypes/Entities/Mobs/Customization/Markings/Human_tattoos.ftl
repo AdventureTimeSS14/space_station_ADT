@@ -2,11 +2,6 @@
 marking-HumanTattooSkullFace = Татуировка, лицо (Череп)
 marking-HumanTattooSkullFace-tattoo_skull_face = Татуировка, лицо (Череп)
 
-# Глаза
-marking-ADTTattooEyesWide = Широкие глаза
-marking-ADTTattooEyesWide-l_eyes_wide = Левый глаз
-marking-ADTTattooEyesWide-r_eyes_wide = Правый глаз
-
 # Туловища
 marking-HumanTattooChurchdomes = Татуировка, туловище (Церковные купола)
 marking-HumanTattooChurchdomes-tattoo_churchdomes = Татуировка, туловище (Церковные купола)
