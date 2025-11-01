@@ -444,3 +444,132 @@
   - type: Construction
     graph: ADTSeat
     node: adtsofabrownleftcorner
+
+#Офисный чёрный.
+##Стороны
+- type: entity
+  name: black office sofa left side
+  id: ADTSofaOfficeBlackLeftSide
+  parent: ADTSofaBase
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Sofas/black_office_sofa.rsi
+    state: sofa_left
+  - type: Construction
+    graph: ADTSeat
+    node: adtsofaofficeblackleft
+
+- type: entity
+  name: black office sofa right side
+  id: ADTSofaOfficeBlackRightSide
+  parent: ADTSofaBase
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Sofas/black_office_sofa.rsi
+    state: sofa_right
+  - type: Construction
+    graph: ADTSeat
+    node: adtsofaofficeblackright
+
+##Середина.
+- type: entity
+  name: black office sofa middle
+  id: ADTSofaOfficeBlackMiddle
+  parent: ADTSofaBase
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Sofas/black_office_sofa.rsi
+    state: sofa_middle
+  - type: Construction
+    graph: ADTSeat
+    node: adtsofaofficeblackmiddle
+
+##Углы
+- type: entity
+  name: black office sofa right corner
+  id: ADTSofaOfficeBlackRightCorner
+  parent: ADTSofaBase
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Sofas/black_office_sofa.rsi
+    state: sofa_rightcorner
+  - type: Construction
+    graph: ADTSeat
+    node: adtsofaofficeblackrightcorner
+
+- type: entity
+  name: black office sofa left corner
+  id: ADTSofaOfficeBlackLeftCorner
+  parent: ADTSofaBase
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Sofas/black_office_sofa.rsi
+    state: sofa_leftcorner
+  - type: Construction
+    graph: ADTSeat
+    node: adtsofaofficeblackleftcorner
+
+#Офисный белый.
+##Стороны
+- type: entity
+  name: white office sofa left side
+  id: ADTSofaOfficeWhiteLeftSide
+  parent: ADTSofaBase
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Sofas/white_office_sofa.rsi
+    state: sofa_left
+  - type: Construction
+    graph: ADTSeat
+    node: adtsofaofficewhiteleft
+
+- type: entity
+  name: white office sofa right side
+  id: ADTSofaOfficeWhiteRightSide
+  parent: ADTSofaBase
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Sofas/white_office_sofa.rsi
+    state: sofa_right
+  - type: Construction
+    graph: ADTSeat
+    node: adtsofaofficewhiteright
+
+##Середина.
+- type: entity
+  name: white office sofa middle
+  id: ADTSofaOfficeWhiteMiddle
+  parent: ADTSofaBase
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Sofas/white_office_sofa.rsi
+    state: sofa_middle
+  - type: Construction
+    graph: ADTSeat
+    node: adtsofaofficewhitemiddle
+
+##Углы
+- type: entity
+  name: white office sofa right corner
+  id: ADTSofaOfficeWhiteRightCorner
+  parent: ADTSofaBase
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Sofas/white_office_sofa.rsi
+    state: sofa_rightcorner
+  - type: Construction
+    graph: ADTSeat
+    node: adtsofaofficewhiterightcorner
+
+- type: entity
+  name: white office sofa left corner
+  id: ADTSofaOfficeWhiteLeftCorner
+  parent: ADTSofaBase
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Sofas/white_office_sofa.rsi
+    state: sofa_leftcorner
+  - type: Construction
+    graph: ADTSeat
+    node: adtsofaofficewhiteleftcorner
+
