@@ -250,3 +250,53 @@
         maxRange: 5
       spawns:
       - ADTMobSpawnZincCrab
+
+
+#Хеллоуин
+- type: entity
+  id: ADTAnomalyHW
+  parent: BaseAnomaly
+  suffix: HW
+  components:
+  - type: Anomaly
+    corePrototype: ADTAnomalyCoreHW
+    coreInertPrototype: ADTAnomalyCoreHWInert
+    minPulseLength: 180
+    maxPulseLength: 300
+    minPointsPerSecond: 75
+    maxPointsPerSecond: 140
+  - type: Sprite
+    sprite: ADT/Structures/Specific/Anomalies/hw_anom.rsi
+    layers:
+    - state: anom_base
+      map: ["enum.AnomalyVisualLayers.Base"]
+    - state: anom_pulse
+      map: ["enum.AnomalyVisualLayers.Animated"]
+      visible: false
+  - type: PointLight
+    radius: 2.0
+    energy: 7.5
+    color: "#8a1111"
+    castShadows: false
+  - type: EntitySpawnAnomaly
+    entries:
+    - settings:
+        spawnOnPulse: true
+        minAmount: 2
+        maxAmount: 4
+        minRange: 1.5
+        maxRange: 4.5
+      spawns:
+      - ADTDemonicEye
+      - ADTBloodyEyes
+      - ADTBunchOfDemonicEyes
+      - ADTDemonicMouth
+      - ADTDarkRattleSnake
+    - settings:
+        spawnOnShutdown: true
+        minAmount: 2
+        maxAmount: 2
+        minRange: 1.5
+        maxRange: 2.5
+      spawns:
+      - ADTBloodyArmySoldier

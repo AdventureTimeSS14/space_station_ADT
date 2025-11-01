@@ -538,8 +538,12 @@
     dynamicPacks:
     - Chemistry
     #ADT-Tweak Start
+    - ADTAdvancedMedical
     - ADTAdvancedMedicalMiscPack
     - ADTAdvancedMedicalCarePack
+    - ADTCryoTech
+    - ADTThermoTech
+    - ADTChemDisp
     #ADT-Tweak End
   - type: Machine
     board: MedicalTechFabCircuitboard

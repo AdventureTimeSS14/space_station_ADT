@@ -282,7 +282,7 @@
   - CommonSatchel
   - CommonDuffel
   #ADT-Tweak-Start
-  - ClothingBackpackSatchelLeather
+  - ADTClothingBackpackSatchelLeather
   - ADTClothingBackpackBlackLadySatchel
   - ADTClothingBackpackLeatherLadySatchel
   #ADT-Tweak-End
@@ -321,12 +321,10 @@
   name: loadout-group-bartender-jumpsuit
   loadouts:
   - BartenderJumpsuit
+  - BartenderJumpskirt
     #ADT-tweak-start
   - ADTClothingUniformJumpsuitBartenderRed
   - ADTClothingUniformJumpsuitBartenderGreen
-    #ADT-tweak-end
-  - BartenderJumpskirt
-    #ADT-tweak-start
   - ADTClothingUniformJumpskirtBartenderRed
   - ADTClothingUniformJumpskirtBartenderGreen
   - ADTClothingUniformJumpsuitBartenderVest
@@ -1626,6 +1624,7 @@
   loadouts:
   - ParamedicWindbreaker
   - ParamedicWintercoat
+  - ADTDavidsjacketParamedic # ADT-tweak
 
 - type: loadoutGroup
   id: ParamedicShoes
