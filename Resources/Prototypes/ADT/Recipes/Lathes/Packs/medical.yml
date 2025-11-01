@@ -22,7 +22,8 @@
   - ADTLauncherSyringe
   - ADTMiniSyringe
   - ADTTourniquet
-
+  - ADTPatchLepo
+  
 - type: latheRecipePack
   id: ADTAdvancedMedical
   recipes:
