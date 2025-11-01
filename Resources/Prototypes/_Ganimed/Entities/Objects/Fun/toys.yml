@@ -1,0 +1,244 @@
+- type: entity
+  abstract: true
+  parent: [ BasePlushie, BaseFoldable ]
+  id: BasePlushieToggleable
+  components:
+  - type: Appearance
+  - type: Foldable
+    canFoldInsideContainer: true
+    unfoldVerbText: fold-toggle-clothing-verb
+    foldVerbText: fold-toggle-clothing-verb
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieCaptain
+  name: NanoTrasen captain plushie
+  description: A plushie of a red-hair NanoTrasen worker. You can be sure it's a captain. A sense of terror is emanating from the plushie.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Objects/Fun/toys.rsi
+    state: mensk
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieHeadOfSecurity
+  name: head of security plushie
+  description: A cute toy of a NanoTrasen security officer styled as a head of security. One look is enough to get a sense of pride for the man.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Objects/Fun/toys.rsi
+    state: morgan
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieInternalAffairsAgent
+  name: internal affairs agent plushie
+  description: A toy of a NanoTrasen legal department agent. A grim reminder of what could have been.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Objects/Fun/toys.rsi
+    state: erhard
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieChiefMedicalOfficer
+  name: chief medical officer plushie
+  description: A cute toy that resembles a worker in NanoTrasen-issued chief medical officer suit. Unfortunately, won't organise your med workflow.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Objects/Fun/toys.rsi
+    state: mira
+  - type: Extractable
+    grindableSolutionName: food
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 10
+        - ReagentId: Tricordrazine
+          Quantity: 10
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieMedicalWorker
+  name: medical worker plushie
+  description: An adorable toy of a medical worker. A look to follow if you want to be a professional medic.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Objects/Fun/toys.rsi
+    state: calisto
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieParamedic
+  name: paramedic plushie
+  description: A stuffed toy that resembles an emergency medical technician. For some reason, you can't take off his glasses.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Objects/Fun/toys.rsi
+    state: andrew
+
+- type: entity
+  parent: BasePlushieToggleable
+  id: PlushieVirologist
+  name: virologist plushie
+  description: He didn't want such a fate for himself.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Objects/Fun/toys.rsi
+    layers:
+    - state: lazarus_1
+      map: ["unfoldedLayer"]
+      visible: false
+    - state: lazarus_2
+      map: ["foldedLayer"]
+      visible: true
+  - type: Foldable
+    folded: true # Folded by default
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieChemist
+  name: chemist plushie
+  description: A cute toy in a chemist uniform. Looks like it's bothered by your mere presence, but is actually unable to do a thing.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Objects/Fun/toys.rsi
+    state: ocion
+  - type: Extractable
+    grindableSolutionName: food
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 10
+        - ReagentId: Ephedrine
+          Quantity: 10
+
+- type: entity
+  parent: BasePlushieToggleable
+  id: PlushieBartenderSlime
+  name: slime bartender plushie
+  description: A cute toy of a slime bartender. Used as a key in a NanoTrasen interspecies communications project. May it offer you a drink in the trying times.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Objects/Fun/toys.rsi
+    layers:
+    - state: kiss_1
+      map: ["unfoldedLayer"]
+    - state: kiss_2
+      map: ["foldedLayer"]
+      visible: false
+  - type: Extractable
+    grindableSolutionName: food
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 10
+        - ReagentId: Slime
+          Quantity: 10
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieServiceWorker
+  name: service worker plushie
+  description: A cute toy of a bartender. It looks warm and comforting.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Objects/Fun/toys.rsi
+    state: ave
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieQuartermaster
+  name: quartermaster plushie
+  description: A cute toy of a 100% real NanoTrasen worker in a full-body suit and a quartermaster outfit. Rest assured of it's loyalty to the company.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Objects/Fun/toys.rsi
+    state: qm
+
+- type: entity
+  parent: PlushieLizard
+  id: PlushieLizardQM
+  name: lizardperson quartermaster plushie
+  description: A modification to the NanoTrasen-issued lizardperson plushie. Looks like it is wearing a quartermaster uniform. Say *"No"* to power positions racism.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Objects/Fun/toys.rsi
+    state: graff
+
+- type: entity
+  parent: BasePlushieToggleable
+  id: PlushieSalvageSpecialist
+  name: salvage specialist plushie
+  description: A NanoTrasen-issued plushie of a stylish salvage specialist design. As if the job itself wasn't cool enough.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Objects/Fun/toys.rsi
+    layers:
+    - state: suren_1
+      map: ["unfoldedLayer"]
+    - state: suren_2
+      map: ["foldedLayer"]
+      visible: false
+
+
+- type: entity
+  parent: PlushieLizard
+  id: PlushieLizardBex
+  name: lizard plushie
+  description: An adorable stuffed toy that resembles a lizardperson. Made by CentCom as a token initiative to combat speciesism in work environments. "Welcome your new colleagues as you do this plush, with open arms!"
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Objects/Fun/toys.rsi
+    state: bex
+  - type: Clothing
+    sprite: _Ganimed/Objects/Fun/toys.rsi
+    equippedPrefix: bex
+
+- type: entity
+  parent: PlushieLizard
+  id: PlushieLizardHart
+  name: lizard plushie
+  description: An adorable stuffed toy that resembles a lizardperson. Made by CentCom as a token initiative to combat speciesism in work environments. "Welcome your new colleagues as you do this plush, with open arms!"
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Objects/Fun/toys.rsi
+    state: hart
+  - type: Clothing
+    sprite: _Ganimed/Objects/Fun/toys.rsi
+    equippedPrefix: hart
+
+- type: entity
+  parent: PlushieLizard
+  id: PlushieLizardMetaku
+  name: lizard plushie
+  description: An adorable stuffed toy that resembles a lizardperson. Made by CentCom as a token initiative to combat speciesism in work environments. "Welcome your new colleagues as you do this plush, with open arms!"
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Objects/Fun/toys.rsi
+    state: metaku
+  - type: Clothing
+    sprite: _Ganimed/Objects/Fun/toys.rsi
+    equippedPrefix: metaku
+
+- type: entity
+  parent: PlushieLizard
+  id: PlushieLizardReesa
+  name: lizard plushie
+  description: An adorable stuffed toy that resembles a lizardperson. Made by CentCom as a token initiative to combat speciesism in work environments. "Welcome your new colleagues as you do this plush, with open arms!"
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Objects/Fun/toys.rsi
+    state: reesu
+  - type: Clothing
+    sprite: _Ganimed/Objects/Fun/toys.rsi
+    equippedPrefix: reesu

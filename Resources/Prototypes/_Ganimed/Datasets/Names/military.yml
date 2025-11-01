@@ -1,17 +1,18 @@
+# USSP faction
 - type: localizedDataset
-  id: NamesFirstUSSPMilitaryLeader #Ganimed-MRP
+  id: NamesFirstUSSPMilitaryLeader
   values:
-    prefix: names-first-usssp-military-leader-dataset-
-    count: 5 # Ganimed-MRP
+    prefix: names-first-ussp-military-leader-dataset-
+    count: 5
 
 - type: localizedDataset
-  id: NamesFirstUSSPMilitary #Ganimed-MRP
+  id: NamesFirstUSSPMilitary
   values:
-    prefix: names-first-usssp-military-dataset-
-    count: 5 # Ganimed-MRP 
+    prefix: names-first-ussp-military-dataset-
+    count: 5
 
 - type: localizedDataset
-  id: NamesLastUSSPMilitary #Ganimed-MRP
+  id: NamesLastUSSPMilitary
   values:
-    prefix: names-last-usssp-military-dataset-
-    count: 59 # Ganimed-MRP
+    prefix: names-last-ussp-military-dataset-
+    count: 59

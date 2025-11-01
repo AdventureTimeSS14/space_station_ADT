@@ -78,26 +78,26 @@ public sealed class SeedDnaConsoleWindowRow
             return this;
 
         var seedChemQuantityDto = _getterChemSeedValue!();
-        var dnaDickChemQuantityDto = _getterChemDnaDiskValue!();
+        var dnaDiskChemQuantityDto = _getterChemDnaDiskValue!();
 
-        container.AddChild(CreateTitleLabel($"  - {Loc.GetString("seed-dna-chemicalProp-Mix")}"));
+        container.AddChild(CreateTitleLabel($"  - {Loc.GetString("seed-dna-chemicalProp-Min")}"));
         container.AddChild(SetLabelValue(CreateValueLabel(), seedChemQuantityDto?.Min));
-        container.AddChild(SetLabelValue(CreateValueLabel(), dnaDickChemQuantityDto?.Min));
+        container.AddChild(SetLabelValue(CreateValueLabel(), dnaDiskChemQuantityDto?.Min));
         container.AddChild(new Control());
 
         container.AddChild(CreateTitleLabel($"  - {Loc.GetString("seed-dna-chemicalProp-Max")}"));
         container.AddChild(SetLabelValue(CreateValueLabel(), seedChemQuantityDto?.Max));
-        container.AddChild(SetLabelValue(CreateValueLabel(), dnaDickChemQuantityDto?.Max));
+        container.AddChild(SetLabelValue(CreateValueLabel(), dnaDiskChemQuantityDto?.Max));
         container.AddChild(new Control());
 
         container.AddChild(CreateTitleLabel($"  - {Loc.GetString("seed-dna-chemicalProp-PotencyDivisor")}"));
         container.AddChild(SetLabelValue(CreateValueLabel(), seedChemQuantityDto?.PotencyDivisor));
-        container.AddChild(SetLabelValue(CreateValueLabel(), dnaDickChemQuantityDto?.PotencyDivisor));
+        container.AddChild(SetLabelValue(CreateValueLabel(), dnaDiskChemQuantityDto?.PotencyDivisor));
         container.AddChild(new Control());
 
         container.AddChild(CreateTitleLabel($"  - {Loc.GetString("seed-dna-chemicalProp-Inherent")}"));
         container.AddChild(SetLabelValue(CreateValueLabel(), seedChemQuantityDto?.Inherent));
-        container.AddChild(SetLabelValue(CreateValueLabel(), dnaDickChemQuantityDto?.Inherent));
+        container.AddChild(SetLabelValue(CreateValueLabel(), dnaDiskChemQuantityDto?.Inherent));
         container.AddChild(new Control());
 
         return this;

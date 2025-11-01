@@ -73,6 +73,3 @@ ent-ClothingUnderPantsFemaleHeart = женские трусы с сердечк�
    .desc = Сделаны на 50% из любви.
 ent-ClothingUnderPantsFemaleMira = женские трусы с узором
    .desc = { ent-ClothingUnderPantsWhite.desc }
-
-ent-ClothingUnderCloth = тканевые обвязки
-   .desc = Сделаны на 50% из бинтов.

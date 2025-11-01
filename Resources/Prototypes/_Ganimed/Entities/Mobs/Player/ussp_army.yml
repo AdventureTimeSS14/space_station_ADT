@@ -21,7 +21,7 @@
       - NamesLastUSSPMilitary
     - type: AutoImplant
       implants:
-      - NeoRusskiyaTranslatorImplant      
+      - NeoRusskiyaTranslatorImplant
 
 - type: entity
   id: RandomHumanoidSpawnerUSSPOfficer
@@ -46,7 +46,7 @@
       - NamesLastUSSPMilitary
     - type: AutoImplant
       implants:
-      - NeoRusskiyaTranslatorImplant   
+      - NeoRusskiyaTranslatorImplant
       
 - type: entity
   id: RandomHumanoidSpawnerUSSPMedic
@@ -71,4 +71,4 @@
     - type: RandomMetadata
       nameSegments:
       - NamesFirstUSSPMilitary
-      - NamesLastUSSPMilitary      
+      - NamesLastUSSPMilitary

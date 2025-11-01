@@ -115,12 +115,12 @@
   description: A medium voltage power cable.
   components:
   - type: Sprite 
-#    color: Yellow #Ganimed-Tweak
-    sprite: _Ganimed/Structures/Power/Cables/mv_cable.rsi #Ganimed-resprite
+#    color: Yellow # Ganimed-Resprite
+    sprite: _Ganimed/Structures/Power/Cables/mv_cable.rsi # Ganimed-Resprite
     state: mvcable_0
   - type: Icon
-#    color: Yellow
-    sprite: _Ganimed/Structures/Power/Cables/mv_cable.rsi #Ganimed-resprite
+#    color: Yellow # Ganimed-Resprite
+    sprite: _Ganimed/Structures/Power/Cables/mv_cable.rsi # Ganimed-Resprite
     state: mvcable_4
   - type: NodeContainer
     nodes:
@@ -167,12 +167,12 @@
   description: A cable used to connect machines to an APC. #APCs aren't area defined anymore so need this cable to connect things to the APC. This description should be dynamic in future.
   components:
   - type: Sprite
-#    color: Green #Ganimed-Tweak
-    sprite: _Ganimed/Structures/Power/Cables/lv_cable.rsi #Ganimed-resprite
+#    color: Green # Ganimed-Resprite
+    sprite: _Ganimed/Structures/Power/Cables/lv_cable.rsi # Ganimed-Resprite
     state: lvcable_0
   - type: Icon
-#    color: Green
-    sprite: _Ganimed/Structures/Power/Cables/lv_cable.rsi #Ganimed-resprite
+#    color: Green # Ganimed-Resprite
+    sprite: _Ganimed/Structures/Power/Cables/lv_cable.rsi # Ganimed-Resprite
     state: lvcable_4
   - type: NodeContainer
     nodes:

@@ -1,5 +1,5 @@
 using System.Linq;
-using Content.Shared._Ganimed.Components; // Ganimed edit Incognito
+using Content.Shared._Ganimed.Traits.Assorted; // Ganimed edit Incognito
 using Content.Server.Antag.Components;
 using Content.Server.Chat.Managers;
 using Content.Server.GameTicking;

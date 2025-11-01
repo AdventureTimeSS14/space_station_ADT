@@ -1,0 +1,39 @@
+- type: entity
+  parent: Clothing
+  id: ClothingClothWraps
+  name: cloth wraps
+  description: A roll of treated canvas used as a substitute garment.
+  components:
+  - type: Item
+    size: Small
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Multiple/cloth_wraps.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Multiple/cloth_wraps.rsi
+    slots:
+    - gloves
+    - FEET
+    - UNDERWEART
+    - UNDERWEARB
+    - SOCKS
+  - type: Butcherable
+    butcheringType: Knife
+    spawned:
+    - id: MaterialCloth1
+      amount: 1
+  - type: Food
+    requiresSpecialDigestion: true
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 15
+  - type: Tag
+    tags:
+      - ClothMade
+      - ADTUnderwearB
+      - ADTUnderwearT
+      - ADTSocks

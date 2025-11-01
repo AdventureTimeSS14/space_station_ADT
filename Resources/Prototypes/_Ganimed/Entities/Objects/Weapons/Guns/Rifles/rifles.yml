@@ -1,8 +1,8 @@
 - type: entity
   name: ABZ-84
-  parent:  [BaseWeaponRifle, ADTBaseMagneticGun]
+  parent: [BaseWeaponRifle, ADTBaseMagneticGun]
   id: WeaponRifleABZ
-  description: Bobrovskyi-Zamyatin assault rifle model 2854. State-of-the-art rifle designed in USSP, "balanced" operating system and increased rate of fire. Uses .30 rifle ammo. 
+  description: Bobrovskyi-Zamyatin assault rifle model 2854. State-of-the-art rifle designed in USSP, "balanced" operating system and increased rate of fire. Uses .30 rifle ammo.
   components:
   - type: Sprite
     sprite: _Ganimed/Objects/Weapons/Guns/Rifles/abz.rsi

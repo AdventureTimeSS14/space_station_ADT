@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-NC-SA-4.0",
-  "copyright": "calisto, erhard, ave, graff, kiss_1, kiss_2, mensk, mira, morgan, qm, bex, lazarus sprites by Effin (Discord: thedusteffin). Metaku, hart, and reesu made by Bezzdna (Discord: bezdna8416). All sprites are made for Ganimed/Enterprise",
+  "copyright": "calisto, erhard, ave, graff, kiss_1, kiss_2, mensk, mira, morgan, qm, bex, lazarus sprites by Effin (Discord: thedusteffin). Metaku, hart, and reesu made by Bezdnaa (Discord: bezdna8416). All sprites are made for Ganimed/Enterprise",
   "size": {
     "x": 32,
     "y": 32
@@ -17,10 +17,19 @@
     {"name": "mira"},
     {"name": "morgan"},
     {"name": "qm"},
+    {"name": "ocion"},
+    {"name": "suren_1"},
+    {"name": "suren_2"},
+    {"name": "andrew"},
+    {"name": "lazarus_1"},
+    {"name": "lazarus_2"},
     {"name": "bex"},
-    {"name": "lazarus"},
     {"name": "metaku"},
     {"name": "hart"},
-    {"name": "reesu"}
+    {"name": "reesu"},
+    {"name": "bex-equipped-HELMET", "directions": 4},
+    {"name": "metaku-equipped-HELMET", "directions": 4},
+    {"name": "hart-equipped-HELMET", "directions": 4},
+    {"name": "reesu-equipped-HELMET", "directions": 4}
   ]
 }

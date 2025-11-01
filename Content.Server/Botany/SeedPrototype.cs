@@ -1,4 +1,4 @@
-using Content.Server._Ganimed.SeedDna.System;
+using Content.Server._Ganimed.SeedDna.System; // Ganimed edit: Seed DNA
 using Content.Server.Botany.Components;
 using Content.Server.Botany.Systems;
 using Content.Server.EntityEffects;

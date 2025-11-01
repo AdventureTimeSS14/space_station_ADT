@@ -132834,8 +132834,6 @@ entities:
   entities:
   - uid: 15725
     components:
-    - type: MetaData
-      desc: Обычно используется совместно с синей изолентой и какой-то матерью.
     - type: Transform
       pos: 2.570432,25.531143
       parent: 2

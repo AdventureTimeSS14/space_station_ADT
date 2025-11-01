@@ -339,7 +339,7 @@
 - type: entity
   name: medical fountain pen
   parent: Pen
-  id: PenMedica1CMO
+  id: PenMedicalCMO
   description: The fountain pen of a chief medical officer, elegance and cleanliness. It was created to make it even easier for you to encrypt your medical records in unreadable handwriting.
   components:
   - type: Sprite

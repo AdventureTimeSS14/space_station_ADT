@@ -8,7 +8,7 @@
       tier: 3
     - !type:JobRestrictedLoadoutEffect
       whitelistJobs: [ Detective, HeadOfSecurity, SecurityCadet, SecurityOfficer, Warden ]
-      
+
 - type: loadout
   id: AsukaShipKnifeloadout
   storage:

@@ -14,8 +14,8 @@
         - id: ClothingUniformJumpskirtOperative
         - id: ClothingHeadsetAltSyndicate
         - id: ClothingEyesHudSyndicate
-        - id: ClothingBeltAmmo #ganimed
-        - id: ClothingBeltShellShotgun #ganimed
+        - id: ClothingBeltAmmo # Ganimed-Edit
+        - id: ClothingBeltShellShotgun # Ganimed-Edit
 
 - type: entityTable
   id: FillLockerEmergencyStandard

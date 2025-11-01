@@ -60,7 +60,7 @@
   description: Total overhaul vastly different from the usual brigmedic uniform. It is generally a bad idea to be bright if you are on a battlefield.
   components:
   - type: Sprite
-    sprite: _Ganimed/Clothing/Uniforms/Jumpskirt/blackbrigmedic.rsi  
+    sprite: _Ganimed/Clothing/Uniforms/Jumpskirt/blackbrigmedic.rsi
   - type: Clothing
     sprite: _Ganimed/Clothing/Uniforms/Jumpskirt/blackbrigmedic.rsi
   - type: Tag
@@ -83,7 +83,7 @@
 
 - type: entity
   parent: ClothingUniformSkirtBase
-  id: ClothingUniformJumpskirtCoroner 
+  id: ClothingUniformJumpskirtCoroner
   name: coroner jumpskirt
   description: A special modification of the medical doctor uniform. Its wearer can be easily denoted as a trained post-mortem professional.
   components:

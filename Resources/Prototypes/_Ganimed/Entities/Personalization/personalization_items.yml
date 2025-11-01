@@ -5,9 +5,6 @@
   description: A stun baton for incapacitating people with. Actively harming with this is considered bad tone.
   suffix: Sponsor, Agzamov
   components:
-  - type: Tag # goob edit
-    tags:
-    - Stunbaton
   - type: Sprite
     sprite: _Ganimed/Personalization/agzamov_stunbaton.rsi
     layers:
@@ -30,7 +27,6 @@
   - type: StaminaDamageOnCollide
     damage: 25
     sound: /Audio/Weapons/egloves.ogg
-  - type: LandAtCursor # it deals stamina damage when thrown
   - type: Item
     size: Small
   - type: ItemToggleSize
@@ -40,7 +36,6 @@
     quickEquip: false
     slots:
     - Belt
-  - type: Appearance
   - type: GenericVisualizer
     visuals:
       enum.ToggleableVisuals.Enabled:
@@ -63,7 +58,7 @@
     color: "#FF3D3D"
     netsync: false
   - type: ItemTogglePointLight
-  
+
 - type: entity
   name: Ship knife
   parent: BaseKnife

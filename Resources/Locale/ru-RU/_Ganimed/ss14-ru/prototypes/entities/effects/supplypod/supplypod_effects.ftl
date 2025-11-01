@@ -17,16 +17,10 @@ ent-SupplyPodBluespaceFallingAnimation = { ent-BaseSupplyPodFallingAnimation }
 ent-SupplyPodCultFallingAnimation = { ent-BaseSupplyPodFallingAnimation }
     .desc = { ent-BaseSupplyPodFallingAnimation.desc }
 
-ent-SupplyPodGondolaFallingAnimation = { ent-BaseSupplyPodFallingAnimation }
-    .desc = { ent-BaseSupplyPodFallingAnimation.desc }
-
 ent-SupplyPodHonkFallingAnimation = { ent-BaseSupplyPodFallingAnimation }
     .desc = { ent-BaseSupplyPodFallingAnimation.desc }
 
 ent-SupplyPodNanoTrasenFallingAnimation = { ent-BaseSupplyPodFallingAnimation }
-    .desc = { ent-BaseSupplyPodFallingAnimation.desc }
-
-ent-SupplyPodOrangeFallingAnimation = { ent-BaseSupplyPodFallingAnimation }
     .desc = { ent-BaseSupplyPodFallingAnimation.desc }
 
 ent-SupplyPodSquadFallingAnimation = { ent-BaseSupplyPodFallingAnimation }
