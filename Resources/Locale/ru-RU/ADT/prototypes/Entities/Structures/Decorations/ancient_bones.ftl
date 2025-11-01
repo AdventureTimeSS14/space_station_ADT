@@ -18,7 +18,7 @@ ent-ADTAncientAnimalRightRib = большое ребро
     .desc = Большие рёбра, принадлежавшие неизвестному существу.
     .suffix = Лаваленд
 
-ent-ADTAncientAnimalLeftRibLarge = огромное ребро
+ent-ADTAncientAnimalLeftRibLarge = огромное левое ребро
     .desc = Ошеломляет мысль о том, что нечто столь крупное могло жить, не говоря уже о том, чтобы умереть.
     .suffix = Лаваленд
 
