@@ -19,25 +19,25 @@ public sealed partial class IpcScreenComponent : Component
     /// <summary>
     /// doafter time required to add a new slot
     /// </summary>
-    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    [DataField("addSlotTime"), ViewVariables(VVAccess.ReadWrite)]
     public TimeSpan AddSlotTime = TimeSpan.FromSeconds(0.5);
 
     /// <summary>
     /// doafter time required to remove a existing slot
     /// </summary>
-    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    [DataField("removeSlotTime"), ViewVariables(VVAccess.ReadWrite)]
     public TimeSpan RemoveSlotTime = TimeSpan.FromSeconds(0.5);
 
     /// <summary>
     /// doafter time required to change slot
     /// </summary>
-    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    [DataField("selectSlotTime"), ViewVariables(VVAccess.ReadWrite)]
     public TimeSpan SelectSlotTime = TimeSpan.FromSeconds(0.5);
 
     /// <summary>
     /// doafter time required to recolor slot
     /// </summary>
-    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    [DataField("changeSlotTime"), ViewVariables(VVAccess.ReadWrite)]
     public TimeSpan ChangeSlotTime = TimeSpan.FromSeconds(1);
 
     /// <summary>

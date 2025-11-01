@@ -1,7 +1,7 @@
 ﻿{
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "",
+    "copyright": "c_eyes_wide/s_eyes_wide sprited by orange6775 (discord)",
     "size": {
         "x": 32,
         "y": 32
@@ -18,6 +18,8 @@
         { "name": "eye_stripes_head", "directions": 4 },
         { "name": "star_head", "directions": 4 },
         { "name": "mane_head", "directions": 4 },
-        { "name": "raccoon-head", "directions": 4 }
+        { "name": "raccoon-head", "directions": 4 },
+        { "name": "c_eyes_wide", "directions": 4 },
+        { "name": "s_eyes_wide", "directions": 4 }
     ]
 }
