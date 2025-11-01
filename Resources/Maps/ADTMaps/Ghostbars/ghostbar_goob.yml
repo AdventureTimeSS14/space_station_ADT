@@ -1284,6 +1284,20 @@ entities:
       rot: 3.141592653589793 rad
       pos: -18.5,-9.5
       parent: 1
+- proto: ADTPosterHalloweenSpooky
+  entities:
+  - uid: 20
+    components:
+    - type: Transform
+      pos: -6.5,-2.5
+      parent: 1
+- proto: ADTPosterHalloweenYummy
+  entities:
+  - uid: 21
+    components:
+    - type: Transform
+      pos: -6.5,-5.5
+      parent: 1
 - proto: ADTPosterLegitGreatFood
   entities:
   - uid: 22
@@ -1298,6 +1312,14 @@ entities:
     components:
     - type: Transform
       pos: -6.5,2.5
+      parent: 1
+- proto: ADTPosterNewYear
+  entities:
+  - uid: 24
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -11.5,-0.5
       parent: 1
 - proto: ADTPosterNoGood
   entities:
@@ -1321,6 +1343,28 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 8.5,5.5
+      parent: 1
+- proto: ADTPosterTayarHalloween
+  entities:
+  - uid: 28
+    components:
+    - type: Transform
+      pos: -8.5,-5.5
+      parent: 1
+- proto: ADTVendingMachineHalloween
+  entities:
+  - uid: 29
+    components:
+    - type: Transform
+      pos: -7.5,-4.5
+      parent: 1
+    - type: Emagged
+- proto: ADTVendingMachineNewYear
+  entities:
+  - uid: 30
+    components:
+    - type: Transform
+      pos: -5.5,1.5
       parent: 1
 - proto: ADTVendingMachinePrazatClothing
   entities:

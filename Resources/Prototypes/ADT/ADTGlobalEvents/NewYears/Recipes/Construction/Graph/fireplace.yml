@@ -1,0 +1,56 @@
+#New Year
+- type: constructionGraph
+  id: ADTChristmasFireplace
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: christmasfireplace
+          completed:
+            - !type:SnapToGrid
+              southRotation: true
+          steps:
+            - material: Steel
+              amount: 15
+              doAfter: 5
+
+    - node: christmasfireplace
+      entity: ADTChristmasFireplace
+      edges:
+        - to: start
+          completed:
+          - !type:SpawnPrototype
+                prototype: SheetSteel1
+                amount: 15
+          - !type:DeleteEntity {}
+          steps:
+            - tool: Prying
+              doAfter: 5
+
+- type: constructionGraph
+  id: ADTChristmasFireplace2
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: christmasfireplace2
+          completed:
+            - !type:SnapToGrid
+              southRotation: true
+          steps:
+            - material: Steel
+              amount: 15
+              doAfter: 5
+
+    - node: christmasfireplace2
+      entity: ADTChristmasFireplace2
+      edges:
+        - to: start
+          completed:
+          - !type:SpawnPrototype
+                prototype: SheetSteel1
+                amount: 15
+          - !type:DeleteEntity {}
+          steps:
+            - tool: Prying
+              doAfter: 5
