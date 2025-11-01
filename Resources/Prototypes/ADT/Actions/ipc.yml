@@ -1,7 +1,5 @@
 - type: entity
   id: ActionIpcScreen
-  name: action-ipc-screen
-  description: action-ipc-screen-desc
   categories: [ HideSpawnMenu ]
   components:
   - type: Action

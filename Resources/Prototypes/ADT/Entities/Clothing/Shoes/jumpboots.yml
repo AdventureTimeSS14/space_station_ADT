@@ -20,8 +20,6 @@
   components:
   - type: Sprite
     sprite: ADT/Clothing/Shoes/Boots/jumpboots_syndie.rsi
-    layers:
-      - map: [ "enum.ToggleableVisuals.Layer" ]
   - type: Clothing
     sprite: ADT/Clothing/Shoes/Boots/jumpboots_syndie.rsi
   - type: Jumpboots

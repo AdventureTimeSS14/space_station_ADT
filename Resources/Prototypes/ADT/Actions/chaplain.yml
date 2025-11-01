@@ -1,7 +1,5 @@
 - type: entity
   id: ActionChaplainBeliever
-  name: action-chaplain-believer
-  description: action-chaplain-believer-desc
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -21,8 +19,6 @@
 
 - type: entity
   id: ActionChaplainTransfer
-  name: action-chaplain-transfer
-  description: action-chaplain-transfer-desc
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -42,8 +38,6 @@
 
 - type: entity
   id: ActionChaplainHolyWater
-  name: action-chaplain-holy-touch
-  description: action-chaplain-holy-touch-desc
   categories: [ HideSpawnMenu ]
   components:
   - type: Action

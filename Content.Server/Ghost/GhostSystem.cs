@@ -549,8 +549,31 @@ namespace Content.Server.Ghost
             return true;
         }
 
+        // ADT-tweak-start: Добавлена обработка ошибок при создании призрака
         public EntityUid? SpawnGhost(Entity<MindComponent?> mind, EntityCoordinates? spawnPosition = null,
             bool canReturn = false)
+        {
+            try
+            {
+                return SpawnGhostInternal(mind, spawnPosition, canReturn);
+            }
+            catch (Exception ex)
+            {
+                Log.Warning($"Failed to spawn ghost for mind {mind.Owner}: {ex.Message}");
+                
+                // Попытка трансфера без создания призрака
+                if (Resolve(mind, ref mind.Comp))
+                {
+                    _minds.TransferTo(mind.Owner, null, createGhost: false, mind: mind.Comp);
+                }
+                
+                return null;
+            }
+        }
+
+        private EntityUid? SpawnGhostInternal(Entity<MindComponent?> mind, EntityCoordinates? spawnPosition = null,
+            bool canReturn = false)
+        // ADT-tweak-end
         {
             if (!Resolve(mind, ref mind.Comp))
                 return null;

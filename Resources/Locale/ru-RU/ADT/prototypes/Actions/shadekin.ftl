@@ -1,2 +1,2 @@
-action-shadekin-teleport = Перенос
-action-shadekin-teleport-desc = Моментально переместитесь на небольшое расстояние.
+ent-ActionShadekinTeleport = Перенос
+    .desc = Моментально переместитесь на небольшое расстояние.

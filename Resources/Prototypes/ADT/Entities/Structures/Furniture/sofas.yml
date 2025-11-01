@@ -28,6 +28,8 @@
   - type: Strap
     position: Down
     rotation: 0 # sleep end
+  - type: StaticPrice
+    price: 50
 
 - type: entity
   name: sofa left side

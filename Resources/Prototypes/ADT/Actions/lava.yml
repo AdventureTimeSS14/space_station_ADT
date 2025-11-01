@@ -1,8 +1,6 @@
 # Игроки
 - type: entity
   id: ActionPumpCursedHeart
-  name: action-pump-heart
-  description: action-pump-heart-desc
   categories: [ HideSpawnMenu ]
   components:
   - type: Action

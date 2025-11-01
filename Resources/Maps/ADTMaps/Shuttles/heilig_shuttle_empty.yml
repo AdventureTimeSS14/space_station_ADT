@@ -442,7 +442,6 @@ entities:
       pos: 0.6467538,9.431922
       parent: 1
     - type: Blocking
-      blockingToggleActionEntity: 3
     - type: ActionsContainer
     - type: ContainerContainer
       containers:
@@ -455,7 +454,6 @@ entities:
       pos: 0.2873788,9.775672
       parent: 1
     - type: Blocking
-      blockingToggleActionEntity: 5
     - type: ActionsContainer
     - type: ContainerContainer
       containers:

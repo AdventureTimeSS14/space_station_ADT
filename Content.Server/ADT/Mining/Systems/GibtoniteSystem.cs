@@ -34,14 +34,13 @@ public sealed class GibtoniteSystem : EntitySystem
 
         SubscribeLocalEvent<GibtoniteComponent, DamageChangedEvent>(OnDamageChanged);
         SubscribeLocalEvent<GibtoniteComponent, InteractUsingEvent>(OnItemInteract);
-        SubscribeLocalEvent<GibtoniteComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<GibtoniteComponent, MapInitEvent>(OnStartup);
     }
 
-    private void OnStartup(EntityUid uid, GibtoniteComponent comp, ComponentStartup args)
+    private void OnStartup(EntityUid uid, GibtoniteComponent comp, MapInitEvent args)
     {
-        if (TryComp<GatherableComponent>(uid, out _))
+        if (!comp.Extracted && HasComp<GatherableComponent>(uid))
             RemComp<GatherableComponent>(uid);
-
         RandomTimer(comp);
     }
 
@@ -194,7 +193,16 @@ public sealed class GibtoniteSystem : EntitySystem
             if (!comp.Extracted)
                 return;
 
-            if (!_tag.HasTag(args.Used, PlasticKnife))
+            if (_tag.HasTag(args.Used, PlasticKnife))
+            {
+                for (var i = 0; i < 3; i++) // спаун 3 кусочков
+                {
+                    Spawn(comp.ShardPrototype, _transform.GetMapCoordinates(uid));
+                }
+
+                QueueDel(uid);
+            }
+            else
             {
                 comp.Active = true;
                 comp.ReactionTime = _timing.CurTime;
