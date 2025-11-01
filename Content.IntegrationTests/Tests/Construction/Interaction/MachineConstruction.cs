@@ -18,7 +18,7 @@ public sealed class MachineConstruction : InteractionTest
         ClientAssertPrototype(Unfinished, Target);
         await Interact(Wrench, Cable);
         AssertPrototype(MachineFrame);
-        await Interact(ProtolatheBoard, Manipulator1, Manipulator1, Manipulator1, Manipulator1, Beaker, Beaker, Screw);
+        await Interact(ProtolatheBoard, Bin1, Bin1, Manipulator1, Manipulator1, Beaker, Beaker, Screw); // ADT-Tweak revert wiz pr 37725
         AssertPrototype(Protolathe);
     }
 
@@ -36,7 +36,8 @@ public sealed class MachineConstruction : InteractionTest
             (Steel, 5),
             (Cable, 1),
             (Beaker, 2),
-            (Manipulator1, 4),
+            (Manipulator1, 2), // ADT-Tweak revert wiz pr 37725
+            (Bin1, 2), // ADT-Tweak revert wiz pr 37725
             (ProtolatheBoard, 1));
     }
 
@@ -51,7 +52,7 @@ public sealed class MachineConstruction : InteractionTest
         // Change it into an autolathe
         await InteractUsing("AutolatheMachineCircuitboard");
         AssertPrototype(MachineFrame);
-        await Interact(Manipulator1, Manipulator1, Manipulator1, Manipulator1, Glass, Screw);
+        await Interact(Bin1, Bin1, Bin1, Manipulator1, Glass, Screw); // ADT-Tweak revert wiz pr 37725
         AssertPrototype("Autolathe");
     }
 }
