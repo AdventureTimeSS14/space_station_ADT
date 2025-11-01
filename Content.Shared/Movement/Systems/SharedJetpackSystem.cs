@@ -58,6 +58,8 @@ public abstract class SharedJetpackSystem : EntitySystem
     //ADT tweak end
     private void OnMapInit(EntityUid uid, JetpackComponent component, MapInitEvent args)
     {
+        if (component.ToggleActionId != null && EntityManager.EntityExists(component.ToggleActionId.Value)) //ADT-tweak
+            return; //ADT-tweak
         _actionContainer.EnsureAction(uid, ref component.ToggleActionEntity, component.ToggleAction);
         Dirty(uid, component);
     }
