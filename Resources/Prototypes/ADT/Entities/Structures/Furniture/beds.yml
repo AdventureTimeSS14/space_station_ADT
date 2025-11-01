@@ -16,7 +16,7 @@
     buckleOffset: "0,-0.15"
 
 - type: entity
-  parent: Bed
+  parent: [ Bed, BaseMachinePowered, ConstructibleMachine ]
   id: ADTAdvancedMedBed
   name: advanced hospital bed
   description: Top-of-the-shelf hospital bed, made in a special way to get patients up faster.
@@ -34,6 +34,11 @@
         Piercing: -0.4
   - type: Construction
     graph: bed
+    - type: ApcPowerReceiver
+    powerLoad: 1000
+  - type: ExtensionCableReceiver
+  - type: Machine
+    board: ADTAdvancedMedicalBedCircuitboard
     node: medicalbed
   - type: GuideHelp
     guides:
