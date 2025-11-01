@@ -5,3 +5,7 @@ ent-ADTClothingBeltMilitaryWebbingCBURNFilled = { ent-ClothingBeltMilitaryWebbin
 ent-ADTClothingBeltMedicalSecurityERTFilled = { ent-ADTClothingBeltMedicalSecurity }
     .desc = { ent-ADTClothingBeltMedicalSecurity.desc }
     .suffix = { "Заполнен, ОБР" }
+
+ent-ClothingBeltSecurityLightbatonFilled = { ent-ClothingBeltSecurity }
+    .desc = { ent-ClothingBeltSecurity.desc }
+    .suffix = { "Заполнен, фонарь-дубинка" }

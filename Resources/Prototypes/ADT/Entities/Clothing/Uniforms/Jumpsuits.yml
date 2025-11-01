@@ -838,36 +838,48 @@
 # Униформа надзирателя
 - type: entity
   parent: ClothingUniformBase
-  id: ADTClothingUniformGuardOfficer
-  name: uniform guard officer
-  description: uniform guard officer
+  id: ADTClothingUniformCorrectionsOfficer
+  name: uniform corrections officer
+  description: uniform corrections officer
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Uniforms/Jumpsuit/guard_officer.rsi
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/corrections_officer.rsi
   - type: Clothing
-    sprite: ADT/Clothing/Uniforms/Jumpsuit/guard_officer.rsi
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/corrections_officer.rsi
 
 - type: entity
   parent: ClothingUniformBase
-  id: ADTClothingUniformGuardOfficerMaster
-  name: uniform guard officer master
-  description: uniform guard officer master
+  id: ADTClothingUniformCorrectionsOfficerLight
+  name: uniform corrections officer light
+  description: uniform corrections officer light
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Uniforms/Jumpsuit/guard_officer_master.rsi
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/corrections_officer_light.rsi
   - type: Clothing
-    sprite: ADT/Clothing/Uniforms/Jumpsuit/guard_officer_master.rsi
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/corrections_officer_light.rsi
 
 - type: entity
   parent: ClothingUniformBase
-  id: ADTClothingUniformGreyGuardOfficer
-  name: grey uniform guard officer
-  description: grey uniform guard officer
+  id: ADTClothingUniformCorrectionsOfficerGrey
+  name: grey uniform corrections officer
+  description: grey uniform corrections officer
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Uniforms/Jumpsuit/grey_guard_officer.rsi
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/corrections_officer_grey.rsi
   - type: Clothing
-    sprite: ADT/Clothing/Uniforms/Jumpsuit/grey_guard_officer.rsi
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/corrections_officer_grey.rsi
+
+#Кадет
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformSecurityCadetLight
+  name: uniform security cadet light
+  description: uniform security cadet light
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/sec_cadet_light.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/sec_cadet_light.rsi
 
 # ТСФ
 

@@ -14,7 +14,7 @@ job-description-senior-engineer = Обучайте новых инженеров
 
 job-description-senior-officer = Обучайте новых офицеров основам обыска и задержания, срокам заключения и правильному обращению с огнестрельным оружием.
 
-job-description-guard-officer = Помогайте смотрителю в обеспечении надлежащего ухода за арестантами.
+job-description-corrections-officer = Обеспечивайте порядок и безопасность брига, следите за заключёнными и помогайте Смотрителю.
 
 job-description-ADTbarber = Создайте самый модный hair look на станции!
 

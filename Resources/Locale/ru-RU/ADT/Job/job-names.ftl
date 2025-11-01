@@ -35,8 +35,8 @@ job-name-ADTSpaceSecPilot = пилот SPACE SEC
 job-name-ADTSpaceSecCommander = командир SPACE SEC
 job-name-ADTSpaceSecService = сотрудник SPACE SEC
 
-job-name-guard-officer = надзиратель
-ADTGuardOfficer = надзиратель
+job-name-corrections-officer = надзиратель СБ
+ADTCorrectionsOfficer = надзиратель СБ
 
 # Job titles
 cadet-space-sec = кадет SPACE SEC

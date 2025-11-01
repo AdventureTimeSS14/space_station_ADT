@@ -67,7 +67,7 @@
             ADTSeniorEngineer: [ 1, 1 ]
             ADTSeniorResearcher: [ 1, 1 ]
             ADTSeniorOfficer: [ 1, 1 ]
-            ADTGuardOfficer: [ 1, 1 ]
+            ADTCorrectionsOfficer: [ 1, 1 ]
             #silicon
             StationAi: [ 1, 1 ]
             Borg: [ 2, 3 ]

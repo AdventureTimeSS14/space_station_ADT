@@ -29,7 +29,7 @@
   id: JobTimePatrol
 
 - type: playTimeTracker
-  id: JobADTGuardOfficer
+  id: JobADTCorrectionsOfficer
 
 - type: playTimeTracker
   id: JobADTUSSPArmyOfficer
