@@ -62,7 +62,7 @@ language-Mouse-name = Животный мышиный
 language-Mouse-description = Милые пищащие звуки, которые мыши используют, чтобы выпрашивать еду.
 
 # These ones are half-assed because these creatures are almost never played as.
-language-Chicken-name = Животный куринный
+language-Chicken-name = Животный куриный
 language-Chicken-description = Набор звуков и жестов, издаваемых курицами с целью общения.
 
 language-Duck-name = Животный утиный
