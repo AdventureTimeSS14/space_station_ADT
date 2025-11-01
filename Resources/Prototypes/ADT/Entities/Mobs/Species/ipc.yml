@@ -168,6 +168,8 @@
       enum.StoreUiKey.Key:
         type: StoreBoundUserInterface
   - type: IpcScreen
+    selectSlotTime: 0
+    changeSlotTime: 0
 
 - type: entity
   save: false
