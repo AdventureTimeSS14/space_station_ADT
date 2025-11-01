@@ -34,7 +34,7 @@
         Piercing: -0.4
   - type: Construction
     graph: bed
-    - type: ApcPowerReceiver
+  - type: ApcPowerReceiver
     powerLoad: 1000
   - type: ExtensionCableReceiver
   - type: Machine
