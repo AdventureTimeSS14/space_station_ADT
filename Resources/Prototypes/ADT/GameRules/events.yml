@@ -28,27 +28,6 @@
   - type: PiratesRule
 
 - type: entity
-  parent: BaseGameRule
-  id: PhantomSpawn
-  components:
-  - type: PhantomRule
-  - type: GameRule
-    minPlayers: 1
-  - type: AntagSelection
-    selectionTime: PrePlayerSpawn
-    definitions:
-    - prefRoles: [ Phantom ]
-      spawnerPrototype: SpawnPointGhostPhantom
-      max: 1
-      components:
-      - type: NpcFactionMember
-        factions:
-        - Syndicate
-      mindRoles:
-      - MindRolePhantom
-  - type: AntagRandomSpawn
-
-- type: entity
   id: CentComRandomEvent
   parent: BaseGameRule
   components:
@@ -106,9 +85,10 @@
   - type: StationEvent
     startAudio:
       path: /Audio/Announcements/attention.ogg
-    weight: 10 # 10 default
-    reoccurrenceDelay: 30
+    weight: 2 # 10 default # Ganimed-Tweak
+    reoccurrenceDelay: 300
     duration: 1
+    maxOccurrences: 1 # Ganimed edit
   - type: LoadMapRule
     mapPath: /Maps/ADTMaps/Shuttles/Ian.yml
   - type: IanHeroEvent
@@ -121,10 +101,11 @@
     startAudio:
       path: /Audio/Announcements/attention.ogg
     earliestStart: 20
-    weight: 3
+    weight: 2 # Ganimed-Tweak
     minimumPlayers: 30
-    reoccurrenceDelay: 30
+    reoccurrenceDelay: 300
     duration: 1
+    maxOccurrences: 1
   - type: LoadMapRule
     mapPath: /Maps/ADTMaps/Shuttles/superhero.yml
   - type: HeroEvent
@@ -143,6 +124,7 @@
     minimumPlayers: 15
     earliestStart: 35
     reoccurrenceDelay: 60
+    maxOccurrences: 2 # Ganimed edit
   - type: RandomSpawnRule
     prototype: ADTEventJaunterPortal
     minCount: 100

@@ -128,7 +128,7 @@
   - type: SolutionContainerVisuals
     fillBaseName: syndie-
   - type: Slippery
-    staminaDamage: 50
+    staminaDamage: 100 #ADT-tweak 50 -> 100
     slipData:
       knockdownTime: 3
       launchForwardsMultiplier: 3
@@ -221,7 +221,7 @@
   - type: SolutionContainerVisuals
     fillBaseName: omega-
   - type: Slippery
-    staminaDamage: 50
+    staminaDamage: 50 #ADT-tweak 50 -> 100
     slipData:
       knockdownTime: 5.0
       launchForwardsMultiplier: 3.0

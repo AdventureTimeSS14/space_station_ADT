@@ -48,7 +48,13 @@
   # - ClothingNeckSolarisPin
   # - ClothingNeckWhiteListPin
   # # Corvax-Loadouts-End
-  #ADT end
+  - AcousticGuitarInstrument
+  - RockGuitar
+  - HarmonicaInstrument
+  - ADTModStorageVoucher
+  - ADTClothingGeorgeRibbonPin
+  - ADTClothingMaskPaperBlank
+  #ADT-tweak-end
   - TowelColorBlack
   - TowelColorDarkBlue
   - TowelColorDarkGreen
@@ -280,6 +286,11 @@
   - CommonBackpack
   - CommonSatchel
   - CommonDuffel
+  #ADT-Tweak-Start
+  - ADTClothingBackpackSatchelLeather
+  - ADTClothingBackpackBlackLadySatchel
+  - ADTClothingBackpackLeatherLadySatchel
+  #ADT-Tweak-End
 
 - type: loadoutGroup
   id: PassengerNeck
@@ -316,7 +327,16 @@
   loadouts:
   - BartenderJumpsuit
   - BartenderJumpskirt
-  - BartenderJumpsuitPurple
+    #ADT-tweak-start
+  - ADTClothingUniformJumpsuitBartenderRed
+  - ADTClothingUniformJumpsuitBartenderGreen
+  - ADTClothingUniformJumpskirtBartenderRed
+  - ADTClothingUniformJumpskirtBartenderGreen
+  - ADTClothingUniformJumpsuitBartenderVest
+  - ADTClothingUniformJumpsuitBartenderVestRed
+  - ADTClothingUniformJumpsuitBartenderVestGreen
+  #- BartenderJumpsuitPurple
+    #ADT-tweak-end
 
 - type: loadoutGroup
   id: BartenderOuterClothing
@@ -325,6 +345,7 @@
   loadouts:
   - BartenderVest
   - BartenderApron
+  - ADTClothingOuterApronBarista #ADT-tweak
   - BartenderWintercoat
 
 - type: loadoutGroup
@@ -333,6 +354,11 @@
   minLimit: 0
   loadouts:
   - ChefHead
+  # ADT-Tweak-Start
+  - ADTClothingHeadHatChefRed
+  - ADTHatSoftWhite
+  - ADTHatSoftRed
+  # ADT-Tweak-End
 
 - type: loadoutGroup
   id: ChefMask
@@ -355,6 +381,10 @@
   loadouts:
   - ChefApron
   - ChefJacket
+  # ADT-Tweak-Start
+  - ADTClothingOuterApronButcher
+  - ADTClothingOuterJacketChefRed
+  # ADT-Tweak-End
   - ChefWintercoat
 
 - type: loadoutGroup
@@ -437,6 +467,7 @@
   - ChaplainPlagueSuit
   - ChaplainNunRobe
   - ChaplainBlackHoodie
+  - ADTClothingOuterHoodieChaplainWhite #ADT-Tweak
   - ChaplainHoodie
   - ADTChaplainReligiousLeaderRobe # ADT Tweak
 
@@ -565,6 +596,7 @@
   - ClownSkirt
   - JesterSuit
   - JesterAltSuit
+  - ADTClothingUniformJumpsuitClownAbyss #ADT-tweak
 
 - type: loadoutGroup
   id: ClownBackpack
@@ -588,6 +620,7 @@
   loadouts:
   - ClownShoes
   - JesterShoes
+  - ADTClothingShoesClownAbyss #ADT-tweak
 
 - type: loadoutGroup
   id: SurvivalClown
@@ -667,6 +700,12 @@
   loadouts:
   - MusicianJumpsuit
   - MusicianJumpskirt
+  #ADT-tweak-start
+  - ADTClothingUniformJumpsuitTuxedo
+  - ADTClothingUniformJumpsuitTuxedoWhite
+  - ADTClothingUniformJumpsuitTuxedoRed
+  - ADTClothingUniformJumpsuitTuxedoHell
+  #ADT-tweak-end
 
 - type: loadoutGroup
   id: MusicianOuterClothing
@@ -827,6 +866,7 @@
   - SalvageSpecialistBackpack
   - SalvageSpecialistSatchel
   - SalvageSpecialistDuffel
+  - ADTClothingBackpackSatchelLeather # ADT tweak
 
 - type: loadoutGroup
   id: SalvageSpecialistOuterClothing
@@ -1589,6 +1629,7 @@
   loadouts:
   - ParamedicWindbreaker
   - ParamedicWintercoat
+  - ADTDavidsjacketParamedic # ADT-tweak
 
 - type: loadoutGroup
   id: ParamedicShoes
@@ -1657,6 +1698,7 @@
   loadouts:
   - BoxerShorts
   - BoxerShortsWithTop
+  - ADTClothingUniformJumpsuitGladiator #ADT-tweak
 
 - type: loadoutGroup
   id: BoxerGloves

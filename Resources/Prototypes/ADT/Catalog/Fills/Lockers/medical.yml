@@ -12,3 +12,26 @@
     - id: ClothingMaskSterile
     - id: ADTRubberStampPathologist
     - id: BriefcaseBrown
+
+- type: entity
+  id: ADTLockerParamedicFilledNoMod
+  suffix: Filled
+  parent: LockerParamedic
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingOuterCoatParamedicWB
+      - id: ClothingHeadHatParamedicsoft
+      - id: ADTClothingHeadHatsParamedicBeret 
+      - id: ADTHighVoltageDefibrillator 
+      - id: ClothingOuterWinterPara
+      - id: ClothingUniformJumpsuitParamedic
+      - id: ClothingUniformJumpskirtParamedic
+      - id: ClothingEyesHudMedical
+      - id: ClothingHandsGlovesLatex
+      - id: ClothingHeadsetMedical
+      - id: ClothingMaskSterile
+      - id: HandheldGPSBasic
+      - id: MedkitFilled
+        prob: 0.3
+      - id: ADTBookSRPmed
