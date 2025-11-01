@@ -18,7 +18,7 @@
     state: vase-0
 
 - type: entity
-  id: ADTVasePlant0 
+  id: ADTVasePlant0
   parent: ADTVaseBase
   name: empty vase
   description: It's a vase, but this one is empty.
