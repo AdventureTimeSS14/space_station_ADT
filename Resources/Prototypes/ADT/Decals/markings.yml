@@ -1126,6 +1126,7 @@
     sprite: ADT/Decals/markings.rsi
 
     state: siding_thinplating_end_e
+    
 - type: decal
   id: ADTSidingThinplatingEndN
   tags: ["station", "markings"]
