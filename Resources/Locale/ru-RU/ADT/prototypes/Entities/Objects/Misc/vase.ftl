@@ -2,7 +2,7 @@ ent-ADTVaseBase = ваза
     .desc = Это ваза. В ней цветы.
 
 ent-ADTVasePlant0 = пустая ваза
-    .desc = Это ваза, но эта ваза пустая.
+    .desc = Это ваза, но она пустая.
 
 ent-ADTVasePlant1 = { ent-ADTVaseBase }
     .desc = { ent-ADTVaseBase.desc }
