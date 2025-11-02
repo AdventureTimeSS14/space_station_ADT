@@ -157,7 +157,7 @@
       collection: TajaranMeows
     Mew:
       collection: TajaranMews
-    Growl:
+    CatGrowl:
       collection: TajaranGrowls
     Purr:
       collection: TajaranPurrs
@@ -212,7 +212,7 @@
       collection: TajaranMeows
     Mew:
       collection: TajaranMews
-    Growl:
+    CatGrowl:
       collection: TajaranGrowls
     Purr:
       collection: TajaranPurrs
@@ -573,7 +573,7 @@
       collection: FelinidMeows
     Mew:
       collection: FelinidMews
-    Growl:
+    CatGrowl:
       collection: FelinidGrowls
     Purr:
       collection: FelinidPurrs
@@ -626,7 +626,7 @@
       collection: FelinidMeows
     Mew:
       collection: FelinidMews
-    Growl:
+    CatGrowl:
       collection: FelinidGrowls
     Purr:
       collection: FelinidPurrs
