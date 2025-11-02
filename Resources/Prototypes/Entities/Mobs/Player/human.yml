@@ -127,9 +127,9 @@
     name: ghost-role-information-artificial-human-name
     description: ghost-role-information-artificial-human-description
     rules: ghost-role-information-artificial-human-rules
-  mindRoles:
-  - MindRoleGhostRoleFreeAgent
-  requirements:
-  - !type:OverallPlaytimeRequirement
-    time: 7200 # 2h
+    mindRoles:
+      - MindRoleGhostRoleFreeAgent
+    requirements:
+      - !type:OverallPlaytimeRequirement
+      time: 7200 # 2h
 #ADT Tweak End
