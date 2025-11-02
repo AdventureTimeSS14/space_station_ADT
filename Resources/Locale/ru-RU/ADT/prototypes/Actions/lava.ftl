@@ -1,2 +1,2 @@
-action-pump-heart = Сердцебиение
-action-pump-heart-desc = Контролируйте своё сердцебиение!
+ent-ActionPumpCursedHeart = Сердцебиение
+    .desc = Контролируйте своё сердцебиение!

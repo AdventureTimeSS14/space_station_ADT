@@ -10,7 +10,6 @@
   categories: [ HideSpawnMenu ]
   parent: [BasePhantomObjective]
   id: KillPhantomImmunePersonObjective
-  description: phantom-kill-objective-desc
   components:
   - type: Objective
     difficulty: 1.75
@@ -27,7 +26,6 @@
   categories: [ HideSpawnMenu ]
   parent: [BasePhantomObjective]
   id: PhantomKeepAliveObjective
-  description: phantom-keep-alive-objective-desc
   components:
   - type: Objective
     difficulty: 1.75
@@ -49,7 +47,6 @@
   categories: [ HideSpawnMenu ]
   parent: [BasePhantomObjective]
   id: PhantomMakeVesselObjective
-  description: phantom-make-vessel-objective-desc
   components:
   - type: Objective
     difficulty: 1.75
@@ -71,8 +68,6 @@
   categories: [ HideSpawnMenu ]
   parent: [BasePhantomObjective, BaseLivingObjective]
   id: PhantomEscapeShuttleObjective
-  name: phantom-escape-objective-name
-  description: phantom-escape-objective-desc
   components:
   - type: Objective
     difficulty: 1.3
@@ -85,8 +80,6 @@
   categories: [ HideSpawnMenu ]
   parent: BasePhantomObjective
   id: PhantomStartNightmareObjective
-  name: phantom-nightmare-objective-name
-  description: phantom-nightmare-objective-desc
   components:
   - type: Objective
     difficulty: 1.75
@@ -104,8 +97,6 @@
   categories: [ HideSpawnMenu ]
   parent: BasePhantomObjective
   id: PhantomReincarnateObjective
-  name: phantom-reincarnate-objective-name
-  description: phantom-reincarnate-objective-desc
   components:
   - type: Objective
     difficulty: 1.75
@@ -119,8 +110,6 @@
   categories: [ HideSpawnMenu ]
   parent: BasePhantomObjective
   id: PhantomTyranyObjective
-  name: phantom-tyrany-objective-name
-  description: phantom-tyrany-objective-desc
   components:
   - type: Objective
     difficulty: 1.75
