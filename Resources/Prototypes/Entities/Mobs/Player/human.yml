@@ -131,5 +131,5 @@
       - MindRoleGhostRoleFreeAgent
     requirements:
       - !type:OverallPlaytimeRequirement
-      time: 7200 # 2h
+        time: 7200 # 2h
 #ADT Tweak End
