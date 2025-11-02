@@ -119,36 +119,10 @@
   name: chat-emote-name-growl
   category: Vocal
   whitelist:
-    requireAll: true
-    components:
-    - Vocal
     tags:
     - ADTDogEmotes
-  icon: ADT/Interface/Emotes/Vocal/growl.png
-  chatMessages: [рычит]
-  chatTriggers:
-    - рычит
-    - рычит.
-    - рычит!
-    - ррр
-    - growl
-    - growls
-    - growls.
-    - growls!
-    - growling
-    - growled
-
-- type: emote
-  id: CatGrowl
-  name: chat-emote-name-growl
-  category: Vocal
-  whitelist:
-    requireAll: true
-    components:
-    - Vocal
-    tags:
     - ADTCatEmotes
-  icon: ADT/Interface/Emotes/Vocal/cat_growl.png
+  icon: ADT/Interface/Emotes/Vocal/growl.png
   chatMessages: [рычит]
   chatTriggers:
     - рычит
