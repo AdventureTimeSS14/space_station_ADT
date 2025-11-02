@@ -536,7 +536,6 @@
           - !type:OrganType
             type: Animal
             shouldHave: false
-          - !type:OrganType
 ### Start ADT-Tweak
           - !type:OrganType
             type: Felinid
