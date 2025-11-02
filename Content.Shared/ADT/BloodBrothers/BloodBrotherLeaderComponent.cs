@@ -5,7 +5,7 @@ using Robust.Shared.Audio;
 
 namespace Content.Shared.ADT.BloodBrothers
 {
-    [RegisterComponent, NetworkedComponent]
+    [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
     public sealed partial class BloodBrotherLeaderComponent : Component
     {
         /// <summary>
@@ -18,6 +18,7 @@ namespace Content.Shared.ADT.BloodBrothers
         /// </summary>
         [DataField]
         public SoundSpecifier StartSound = new SoundCollectionSpecifier("ADTTraitorStart");
+        [AutoNetworkedField]
 
         public int ConvertedCount = 0;
         [DataField]
