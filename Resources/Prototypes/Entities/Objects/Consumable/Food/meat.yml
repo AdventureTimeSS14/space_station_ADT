@@ -678,7 +678,11 @@
       food:
         reagents:
         - ReagentId: SulfuricAcid
-          Quantity: 20
+          Quantity: 3 # ADT-Tweak
+### Start ADT-Tweak
+        - ReagentId: ADTXenoProtein
+          Quantity: 15
+### End ADT-Tweak
   - type: SliceableFood
     count: 3
     slice: FoodMeatXenoCutlet
@@ -1863,7 +1867,11 @@
       food:
         reagents:
         - ReagentId: SulfuricAcid
-          Quantity: 20
+### Start ADT-Tweak
+          Quantity: 1
+        - ReagentId: ADTXenoProtein
+          Quantity: 5
+### End ADT-Tweak
   - type: Construction
     graph: XenoCutlet
     node: start

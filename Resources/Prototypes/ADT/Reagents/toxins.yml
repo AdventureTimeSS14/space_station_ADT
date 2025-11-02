@@ -92,3 +92,50 @@
           shouldHave: false
         walkSpeedModifier: 0.7
         sprintSpeedModifier: 0.7
+
+- type: reagent
+  id: ADTXenoProtein
+  name: reagent-name-xenoprotein
+  group: Foods
+  desc: reagent-desc-latrotoxin
+  physicalDesc: reagent-physical-desc-acidic
+  flavor: acid
+  color: "#5cb980"
+  metabolisms:
+    Food:
+      effects:
+      - !type:PopupMessage
+        conditions:
+          - !type:OrganType
+            type: Felinid
+            shouldHave: false
+        type: Local
+        visualType: MediumCaution
+        messages: [ "generic-reagent-effect-sick" ]
+        probability: 0.5
+      - !type:ChemVomit
+        probability: 0.1
+        conditions:
+          - !type:OrganType
+            type: Felinid
+            shouldHave: false
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Felinid
+          shouldHave: false
+        damage:
+          types:
+            Poison: 0.5
+      - !type:AdjustReagent
+        conditions:
+        - !type:OrganType
+          type: Felinid
+        reagent: Protein
+        amount: 0.5
+      - !type:AdjustReagent
+        conditions:
+        - !type:OrganType
+          type: Vox
+        reagent: Protein
+        amount: 0.25
