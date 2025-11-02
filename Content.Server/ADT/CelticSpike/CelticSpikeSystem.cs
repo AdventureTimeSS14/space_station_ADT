@@ -50,48 +50,68 @@ namespace Content.Server.ADT.CelticSpike
 
         private void AddImpaleVerb(EntityUid uid, CelticSpikeComponent component, GetVerbsEvent<AlternativeVerb> args)
         {
-            if (!args.CanInteract || !args.CanAccess)
-                return;
+            // if (!args.CanInteract || !args.CanAccess)
+            //     return;
 
-            if (component.ImpaledEntity != null)
-            {
-                return;
-            }
+            // if (component.ImpaledEntity != null)
+            // {
+            //     return;
+            // }
 
-            if (!HasComp<MobStateComponent>(args.Target))
-                return;
+            // if (!HasComp<MobStateComponent>(args.Target))
+            //     return;
 
-            AlternativeVerb verb = new()
-            {
-                Act = () =>
-                {
-                    StartImpaling(args.User, uid, args.Target, component);
-                },
-                Text = Loc.GetString("celtic-spike-verb-impale"),
-                Priority = 2
-            };
-            args.Verbs.Add(verb);
+            // // Prevent self-impalement
+            // if (args.User == args.Target)
+            //     return;
+
+            // AlternativeVerb verb = new()
+            // {
+            //     Act = () =>
+            //     {
+            //         StartImpaling(args.User, uid, args.Target);
+            //     },
+            //     Text = Loc.GetString("celtic-spike-verb-impale"),
+            //     Priority = 2
+            // };
+            // args.Verbs.Add(verb);
         }
 
         private void OnDragDrop(EntityUid uid, CelticSpikeComponent component, ref DragDropTargetEvent args)
         {
+            if (args.User == args.Dragged)
+            {
+                args.Handled = true;
+                _popup.PopupEntity(Loc.GetString("celtic-spike-deny-self"), uid, args.User);
+                return;
+            }
             if (!HasComp<MobStateComponent>(args.Dragged))
             {
                 args.Handled = true;
                 _popup.PopupEntity(Loc.GetString("celtic-spike-deny-not-mob"), uid, args.User);
             }
+
+            if (component.ImpaledEntity != null)
+                return;
+
+            StartImpaling(args.User, uid, args.Dragged);
+            component.ImpaledEntity = args.Dragged;
+            var msg = Loc.GetString("celtic-spike-impale-success", ("target", args.Dragged));
+
+            _popup.PopupEntity(msg, args.User);
+            _alerts.ClearAlertCategory(args.User, SharedBuckleSystem.BuckledAlertCategory);
         }
 
         private void OnStrapped(EntityUid uid, CelticSpikeComponent component, ref StrappedEvent args)
         {
-            if (component.ImpaledEntity != null)
-                return;
+            // if (component.ImpaledEntity != null)
+            //     return;
 
-            component.ImpaledEntity = args.Buckle.Owner;
-            var msg = Loc.GetString("celtic-spike-impale-success", ("target", args.Buckle.Owner));
-            _popup.PopupEntity(msg, args.Buckle.Owner);
+            // component.ImpaledEntity = args.Buckle.Owner;
+            // var msg = Loc.GetString("celtic-spike-impale-success", ("target", args.Buckle.Owner));
+            // _popup.PopupEntity(msg, args.Buckle.Owner);
 
-            _alerts.ClearAlertCategory(args.Buckle.Owner, SharedBuckleSystem.BuckledAlertCategory);
+            // _alerts.ClearAlertCategory(args.Buckle.Owner, SharedBuckleSystem.BuckledAlertCategory);
         }
 
         private void OnUnstrapped(EntityUid uid, CelticSpikeComponent component, ref UnstrappedEvent args)
@@ -100,7 +120,7 @@ namespace Content.Server.ADT.CelticSpike
                 component.ImpaledEntity = null;
         }
 
-        private void StartImpaling(EntityUid user, EntityUid spike, EntityUid target, CelticSpikeComponent component)
+        private void StartImpaling(EntityUid user, EntityUid spike, EntityUid target)
         {
             if (user == target)
             {
@@ -151,20 +171,6 @@ namespace Content.Server.ADT.CelticSpike
 
             var msg = Loc.GetString("celtic-spike-impale-success", ("target", args.Target.Value));
             _popup.PopupEntity(msg, args.Target.Value);
-        }
-
-        private void StartRemoving(EntityUid user, EntityUid spike, CelticSpikeComponent component)
-        {
-            if (component.ImpaledEntity == null)
-                return;
-
-            var doAfterEventArgs = new DoAfterArgs(EntityManager, user, TimeSpan.FromSeconds(3), new RemoveDoAfterEvent(), spike)
-            {
-                BreakOnMove = true,
-                BreakOnDamage = false
-            };
-
-            _doAfterSystem.TryStartDoAfter(doAfterEventArgs);
         }
 
         private void OnRemoveComplete(EntityUid uid, CelticSpikeComponent component, RemoveDoAfterEvent args)

@@ -9,6 +9,9 @@ using Content.Shared.Hands;
 using Content.Shared.Movement.Pulling.Events;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Climbing.Events;
+using Content.Shared.ADT.CelticSpike;
+using Robust.Shared.Random;
+using Content.Shared.Buckle.Components;
 
 namespace Content.Server.ADT.PickupHumans;
 
@@ -17,6 +20,7 @@ public sealed partial class PickupHumansSystem : SharedPickupHumansSystem
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
 
     public override void Initialize()
     {
@@ -133,4 +137,36 @@ public sealed partial class PickupHumansSystem : SharedPickupHumansSystem
         args.Cancel();
     }
     #endregion
+
+    // CelticSpike PickupHumans restriction
+    public override bool ShouldAllowPickup(EntityUid user, EntityUid target, PickupHumansComponent component)
+    {
+        if (SharedCelticSpikeSystem.IsEntityImpaled(target, EntityManager))
+        {
+            if (!TryComp<BuckleComponent>(target, out var buckle) || !buckle.Buckled || buckle.BuckledTo == null)
+            {
+                return false;
+            }
+
+            if (!TryComp<CelticSpikeComponent>(buckle.BuckledTo.Value, out var spikeComp))
+            {
+                return false;
+            }
+
+            if (!_random.Prob(spikeComp.PickupChance))
+            {
+                _popup.PopupEntity(Loc.GetString("celtic-spike-pickup-failed"), user, user);
+                _popup.PopupEntity(Loc.GetString("celtic-spike-pickup-failed-target"), target, target);
+                return false;
+            }
+            else
+            {
+                _popup.PopupEntity(Loc.GetString("celtic-spike-pickup-success"), user, user);
+                _popup.PopupEntity(Loc.GetString("celtic-spike-pickup-success-target"), target, target);
+                return true;
+            }
+        }
+
+        return true;
+    }
 }

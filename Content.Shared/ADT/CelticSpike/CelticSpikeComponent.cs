@@ -6,15 +6,21 @@ namespace Content.Shared.ADT.CelticSpike;
 public sealed partial class CelticSpikeComponent : Component
 {
     /// <summary>
-    /// The entity that is currently impaled on the spike
+    /// Энтити который находится на крюке
     /// </summary>
     [DataField("impaledEntity")]
     public EntityUid? ImpaledEntity;
 
     /// <summary>
-    /// Chance to successfully escape from the spike (0-1)
+    /// Шанс успешно сбежать с крюка
     /// </summary>
     [DataField]
     public float EscapeChance = 0.8f;
+
+    /// <summary>
+    /// Шанс успешно помочь кому то на крюке слезть с него
+    /// </summary>
+    [DataField]
+    public float PickupChance = 0.3f;
 
 }
