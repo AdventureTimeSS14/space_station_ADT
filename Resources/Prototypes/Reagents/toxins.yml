@@ -541,6 +541,7 @@
             type: Felinid
             shouldHave: false
 ### End ADT-Tweak
+          - !type:OrganType
             type: Vox
             shouldHave: false
         type: Local
