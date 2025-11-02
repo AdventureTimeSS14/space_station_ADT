@@ -60,16 +60,6 @@
   canBuildInImpassable: false
   conditions:
     - !type:TileNotBlocked
-
-- type: construction
-  id: ADTBlastFloor
-  graph: ADTBlastFloor
-  startNode: start
-  targetNode: adtblastfloor
-  category: construction-category-structures
-  objectType: Structure
-  placementMode: SnapgridCenter
-  canBuildInImpassable: true
   
 - type: construction
   id: ADTSteelDarkSingleStairs
