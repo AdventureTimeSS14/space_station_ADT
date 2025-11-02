@@ -1,5 +1,5 @@
 - type: cargoProduct
-  id: LivestockMonkeyCube
+  id: LivestockArtificialHumanCube
   icon:
     sprite: ADT/Objects/Misc/humancube.rsi
     state: box
