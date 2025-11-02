@@ -115,3 +115,21 @@
   - type: NpcFactionMember
     factions:
     - Wizard
+
+#ADT Tweak Start
+- type: entity
+  parent: MobHuman
+  id: MobArtificialHuman
+  name: Artificial human
+  components:
+  - type: GhostTakeoverAvailable
+  - type: GhostRole
+    name: ghost-role-information-artificial-human-name
+    description: ghost-role-information-artificial-human-description
+    rules: ghost-role-information-artificial-human-rules
+  mindRoles:
+  - MindRoleGhostRoleFreeAgent
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 7200 # 2h
+#ADT Tweak End
