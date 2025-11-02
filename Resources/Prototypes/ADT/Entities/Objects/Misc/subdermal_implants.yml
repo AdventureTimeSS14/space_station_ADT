@@ -308,3 +308,21 @@
 #   - type: FriendlyFire
 #     enabled: true
 #   - type: FriendlyFireToggleable
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: ADTSandevistanImplant
+  name: sandevistan
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: SubdermalImplant
+    - type: SandevistanImplant
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: ADTMantisDaggersImplant
+  name: mantis daggers
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: SubdermalImplant
+    - type: MantisDaggersImplant
