@@ -195,8 +195,10 @@
     sprintModifier: 0.85
   - type: FireProtection
     reduction: 0.5
-  - type: AshStormImmune
-
+  - type: ClothingGrantComponent
+    component:
+    - type: AshStormImmune
+    
 - type: entity
   parent: ADTClothingOuterModsuitBodyBase
   id: ADTClothingOuterModsuitBodySecurity
