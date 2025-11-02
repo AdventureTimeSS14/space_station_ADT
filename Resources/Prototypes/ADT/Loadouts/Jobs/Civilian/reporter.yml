@@ -1,0 +1,11 @@
+# PDA
+
+- type: loadout
+  id: ADTReporterPDA
+  equipment:
+    id: ReporterPDA
+
+- type: loadout
+  id: ADTJournalistPDA
+  equipment:
+    id: ADTJournalistPDA
