@@ -132,4 +132,6 @@
     requirements:
       - !type:OverallPlaytimeRequirement
         time: 7200 # 2h
+    raffle:
+      settings: default
 #ADT Tweak End
