@@ -536,11 +536,11 @@
           - !type:OrganType
             type: Animal
             shouldHave: false
-### Start ADT-Tweak
+#ADT-tweak-start
           - !type:OrganType
             type: Felinid
             shouldHave: false
-### End ADT-Tweak
+#ADT-tweak-end
           - !type:OrganType
             type: Vox
             shouldHave: false
@@ -551,11 +551,11 @@
       - !type:ChemVomit
         probability: 0.1
         conditions:
-### Start ADT-Tweak
+#ADT-tweak-start
           - !type:OrganType
             type: Felinid
             shouldHave: false
-### End ADT-Tweak
+#ADT-tweak-end
           - !type:OrganType
             type: Animal
             shouldHave: false
@@ -570,11 +570,11 @@
         - !type:OrganType
           type: Vox
           shouldHave: false
-### Start ADT-Tweak
+#ADT-tweak-start
         - !type:OrganType
           type: Felinid
           shouldHave: false
-### End ADT-Tweak
+#ADT-tweak-end
         damage:
           types:
             Poison: 1
@@ -582,10 +582,10 @@
         conditions:
         - !type:OrganType
           type: Animal
-### Start ADT-Tweak
+#ADT-tweak-start
         - !type:OrganType
           type: Felinid
-### End ADT-Tweak
+#ADT-tweak-end
         reagent: Protein
         amount: 0.5
       - !type:AdjustReagent
