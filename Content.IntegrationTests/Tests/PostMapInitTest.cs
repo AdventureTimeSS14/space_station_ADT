@@ -107,7 +107,6 @@ private static readonly string[] GameMaps =
             "ADT_Kerberos",
             "ADT_kilo",
             "ADT_Saltern",
-            "ADT_Packed",
             "ADT_Gemini",
             "ADT_Aspid",
             "ADT_Cluster_Legacy",
