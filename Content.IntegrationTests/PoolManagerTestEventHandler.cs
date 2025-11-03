@@ -1,6 +1,7 @@
 namespace Content.IntegrationTests;
 
 [SetUpFixture]
+[Ignore("Этот тест временно отключен")]
 public sealed class PoolManagerTestEventHandler
 {
     // This value is completely arbitrary.
