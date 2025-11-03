@@ -6,6 +6,7 @@ public sealed class PoolManagerTestEventHandler
     // This value is completely arbitrary.
     private static TimeSpan MaximumTotalTestingTimeLimit => TimeSpan.FromMinutes(60); // ADT-Tweak - увеличили с 20 до 60 минут
     private static TimeSpan HardStopTimeLimit => MaximumTotalTestingTimeLimit.Add(TimeSpan.FromMinutes(5)); // ADT-Tweak - увеличили с 1 до 5 минут
+
     private DateTime _startTime;
 
     [OneTimeSetUp]
@@ -13,25 +14,37 @@ public sealed class PoolManagerTestEventHandler
     {
         Console.WriteLine("Test Setup Started");
         _startTime = DateTime.Now;
-        PoolManager.Startup();
-        LogElapsedTime("Startup");
-
-        _ = Task.Delay(MaximumTotalTestingTimeLimit).ContinueWith(_ =>
+        try
         {
-            var elapsed = DateTime.Now - _startTime;
-            Console.WriteLine($"Maximum time exceeded: {elapsed.TotalSeconds}s");
-            TestContext.Error.WriteLine($"\n\n{nameof(PoolManagerTestEventHandler)}: ERROR: Tests are taking too long. Shutting down all tests.\n\n");
-            PoolManager.Shutdown();
-        });
+            LogElapsedTime("Before Startup");
+            PoolManager.Startup();
+            LogElapsedTime("After Startup");
 
-        // If ending it nicely doesn't work within a minute, we do something a bit meaner.
-        _ = Task.Delay(HardStopTimeLimit).ContinueWith(_ =>
+            _ = Task.Delay(MaximumTotalTestingTimeLimit).ContinueWith(_ =>
+            {
+                var elapsed = DateTime.Now - _startTime;
+                Console.WriteLine($"Maximum time exceeded: {elapsed.TotalSeconds}s");
+                TestContext.Error.WriteLine($"\n\n{nameof(PoolManagerTestEventHandler)}: ERROR: Tests are taking too long. Shutting down all tests.\n\n");
+                PoolManager.Shutdown();
+            });
+
+            _ = Task.Delay(HardStopTimeLimit).ContinueWith(_ =>
+            {
+                var elapsed = DateTime.Now - _startTime;
+                Console.WriteLine($"Hard stop triggered after: {elapsed.TotalSeconds}s");
+                var deathReport = PoolManager.DeathReport();
+                Environment.FailFast($"Tests took way too long;\nDeath Report:\n{deathReport}");
+            });
+
+            LogElapsedTime("After setting up delays");
+
+        }
+        catch (Exception ex)
         {
-            var elapsed = DateTime.Now - _startTime;
-            Console.WriteLine($"Hard stop triggered after: {elapsed.TotalSeconds}s");
-            var deathReport = PoolManager.DeathReport();
-            Environment.FailFast($"Tests took way too long;\nDeath Report:\n{deathReport}");
-        });
+            Console.WriteLine($"Error during setup: {ex.Message}");
+            TestContext.Error.WriteLine($"Error during setup: {ex.Message}");
+            throw;
+        }
 
         Console.WriteLine("Test Setup Ended");
     }
@@ -39,8 +52,20 @@ public sealed class PoolManagerTestEventHandler
     [OneTimeTearDown]
     public void TearDown()
     {
-        Console.WriteLine("Test TearDown Started");
-        PoolManager.Shutdown();
+        try
+        {
+            Console.WriteLine("Test TearDown Started");
+            LogElapsedTime("Before Shutdown");
+            PoolManager.Shutdown();
+            LogElapsedTime("After Shutdown");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error during tearDown: {ex.Message}");
+            TestContext.Error.WriteLine($"Error during tearDown: {ex.Message}");
+            throw;
+        }
+
         Console.WriteLine("Test TearDown Ended");
     }
 
