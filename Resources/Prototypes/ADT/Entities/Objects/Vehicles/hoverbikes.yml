@@ -18,8 +18,8 @@
   - type: MovementSpeedModifier
     acceleration: 1.2
     friction: 1.5
-    baseWalkSpeed: 3.5
-    baseSprintSpeed: 8
+    baseWalkSpeed: 1.5
+    baseSprintSpeed: 4
   - type: Sprite
     sprite: ADT/Objects/Vehicles/lavabike.rsi
     layers:
@@ -42,9 +42,9 @@
         startingItem: ADTVehicleLavabikeKey
         priority: 1
         insertSound:
-          path: /Audio/Effects/Vehicle/vehiclestartup.ogg
+          path: /Audio/Effects/RingtoneNotes/a.ogg
           params:
-            volume: -5
+            volume: 1
       bag:
         name: stored bag
         whitelist:
