@@ -4,8 +4,8 @@ meta:
   engineVersion: 265.0.0
   forkId: ""
   forkVersion: ""
-  time: 10/31/2025 16:12:17
-  entityCount: 13757
+  time: 10/31/2025 23:48:58
+  entityCount: 13753
 maps:
 - 1
 grids:
@@ -8403,7 +8403,7 @@ entities:
       pos: -6.5,-21.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -6399.7314
+      secondsUntilStateChange: -6027.8843
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -8731,7 +8731,7 @@ entities:
       pos: 42.5,23.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -17753.54
+      secondsUntilStateChange: -17381.691
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -8927,7 +8927,7 @@ entities:
       pos: 24.5,-21.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -11502.314
+      secondsUntilStateChange: -11130.468
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -42017,7 +42017,7 @@ entities:
       pos: 49.5,-19.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -43965.33
+      secondsUntilStateChange: -43593.48
       state: Closing
   - uid: 6232
     components:
@@ -60179,7 +60179,7 @@ entities:
       pos: 65.5,2.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -44465.496
+      secondsUntilStateChange: -44093.65
       state: Closing
   - uid: 8874
     components:
@@ -71224,6 +71224,13 @@ entities:
     components:
     - type: Transform
       pos: 25.5,7.5
+      parent: 2
+- proto: SpawnPointMusician
+  entities:
+  - uid: 13753
+    components:
+    - type: Transform
+      pos: 26.5,7.5
       parent: 2
 - proto: SpawnPointObserver
   entities:

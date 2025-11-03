@@ -1,0 +1,13 @@
+- type: entity
+  parent: BoxCardboard
+  name: artificial human cube box
+  id: ADTHumanCubeBox
+  description: Drymate brand arti-human cubes. Just add water!
+  components:
+  - type: StorageFill
+    contents:
+      - id: ADTHumanCubeWrapped
+        amount: 8
+  - type: Sprite
+    sprite: ADT/Objects/Misc/humancube.rsi
+    state: box

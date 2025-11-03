@@ -104,6 +104,7 @@
     weight: 2 # Ganimed-Tweak
     minimumPlayers: 30
     reoccurrenceDelay: 300
+    reoccurrenceDelay: 300
     duration: 1
     maxOccurrences: 1
   - type: LoadMapRule
