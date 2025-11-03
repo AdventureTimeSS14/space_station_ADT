@@ -829,3 +829,6 @@ ADTPoweredShuttleLightSodium: AlwaysPoweredWallLight
 
 # Ganimed 2025-07-10
 GhostBarSpawner: null
+
+# Ganimed 2025-11-03
+ADTDrinkBeerCanPack: null

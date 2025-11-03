@@ -2070,7 +2070,7 @@
   components:
     - type: StorageFill
       contents:
-        - id: ADTClothingOuterHardsuitKringe
+      #  - id: ADTClothingOuterHardsuitKringe
         - id: ADTClothingHandsKringeGloves
         - id: ADTClothingShoesBootsMagKringe
         - id: ADTClothingUniformJumpsuitKringeClothing
