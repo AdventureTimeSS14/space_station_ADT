@@ -1217,7 +1217,7 @@
   - type: Clothing
     sprite: ADT/Personalization/sirtalter_mining_uniform.rsi
 
-#Farrellka и Melima
+#Farrellka и Melima (ныне Nelderiss)
 - type: entity
   parent: ADTSponsorClothingUniformBase
   id: ADTClothingUniformMelimaDress
