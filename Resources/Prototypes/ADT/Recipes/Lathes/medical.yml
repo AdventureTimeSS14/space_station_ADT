@@ -48,6 +48,41 @@
   materials:
     Glass: 50
     Plastic: 50
+ 
+- type: latheRecipe
+  id: ADTAdvancedMedicalBedCircuitboard
+  result: ADTAdvancedMedicalBedCircuitboard
+  completetime: 15
+  materials:
+    Steel: 800
+    Copper: 200
+    Zinc: 50
+    Gold: 250
+    Silver: 400
+
+- type: latheRecipe
+  id: ADTPatchLepo
+  result: ADTPatchLepo
+  completetime: 0.5
+  materials:
+    Copper: 20
+    Glass: 20
+
+- type: latheRecipe
+  id: ADTPatchCryo
+  result: ADTPatchCryo
+  completetime: 0.5
+  materials:
+    Copper: 50
+    Glass: 100
+
+- type: latheRecipe
+  id: ADTPatchThermo
+  result: ADTPatchThermo
+  completetime: 0.5
+  materials:
+    Copper: 100
+    Glass: 50
 
 - type: latheRecipe
   id: ADTAutoSurgeon
@@ -57,3 +92,4 @@
     Glass: 1000
     Steel: 1000
     Plastic: 1000
+  

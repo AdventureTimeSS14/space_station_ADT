@@ -1,0 +1,18 @@
+﻿- type: palette
+  id: ADTTechDisk
+  name: TechDisk
+  colors:
+    red: "#f11f1f"
+    blue: "#2789cd"
+    light_blue: "#3abfe8"
+    vivid_orange: "#f1641f"
+    wisteria: "#9c8bdb"
+    purple: "#9052bc"
+    gray: "#808080"
+    plasma: "#FF2BC2"
+    gold: "#FFB400"
+    sapphire: "#2953BE"
+    amber: "#FF8800"
+    light_green: "#78D115"
+    olive: "#70A844"
+    black: "#343434"
