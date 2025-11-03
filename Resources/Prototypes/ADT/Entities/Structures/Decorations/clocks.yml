@@ -11,12 +11,6 @@
     noRot: true
     sprite: /Textures/ADT/Structures/Decoration/clock.rsi
     state: clock
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeCircle
-          radius: 0
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: Metallic
