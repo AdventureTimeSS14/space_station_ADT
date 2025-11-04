@@ -9,7 +9,7 @@ using Content.Shared.Hands;
 using Content.Shared.Movement.Pulling.Events;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Climbing.Events;
-using Content.Shared.ADT.CelticSpike;
+using Content.Shared.ADT.Spike;
 using Robust.Shared.Random;
 using Content.Shared.Buckle.Components;
 
@@ -141,14 +141,18 @@ public sealed partial class PickupHumansSystem : SharedPickupHumansSystem
     // CelticSpike PickupHumans restriction
     public override bool ShouldAllowPickup(EntityUid user, EntityUid target, PickupHumansComponent component)
     {
-        if (SharedCelticSpikeSystem.IsEntityImpaled(target, EntityManager))
+        // User cannot pickup anyone while impaled on a Celtic spike
+        if (SharedSpikeSystem.IsEntityImpaled(user, EntityManager))
+            return false;
+
+        if (SharedSpikeSystem.IsEntityImpaled(target, EntityManager))
         {
             if (!TryComp<BuckleComponent>(target, out var buckle) || !buckle.Buckled || buckle.BuckledTo == null)
             {
                 return false;
             }
 
-            if (!TryComp<CelticSpikeComponent>(buckle.BuckledTo.Value, out var spikeComp))
+            if (!TryComp<SpikeComponent>(buckle.BuckledTo.Value, out var spikeComp))
             {
                 return false;
             }

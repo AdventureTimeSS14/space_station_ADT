@@ -29,7 +29,7 @@ using Content.Shared.Cuffs.Components;
 using Content.Shared.Mech.Components;
 //ADT-Tweak-Haloween: Celtic Spike teleport restriction
 using Content.Shared.Buckle.Components;
-using Content.Shared.ADT.CelticSpike;
+using Content.Shared.ADT.Spike;
 //ADT-Tweak End
 using Content.Shared.Bed.Cryostorage;
 using Content.Shared.ADT.Components.PickupHumans;
@@ -161,7 +161,7 @@ public sealed partial class ShadekinSystem : EntitySystem
             return;
 
         // ADT-Tweak-Haloween: Block teleport when buckled to a Celtic spike
-        if (TryComp<BuckleComponent>(uid, out var buckle) && buckle.BuckledTo != null && HasComp<CelticSpikeComponent>(buckle.BuckledTo.Value))
+        if (TryComp<BuckleComponent>(uid, out var buckle) && buckle.BuckledTo != null && HasComp<SpikeComponent>(buckle.BuckledTo.Value))
             return;
         // ADT-Tweak-End
 
@@ -214,7 +214,7 @@ public sealed partial class ShadekinSystem : EntitySystem
             return;
 
         // ADT-Tweak-Haloween: Block random teleport when buckled to a Celtic spike
-        if (TryComp<BuckleComponent>(uid, out var buckle) && buckle.BuckledTo != null && HasComp<CelticSpikeComponent>(buckle.BuckledTo.Value))
+        if (TryComp<BuckleComponent>(uid, out var buckle) && buckle.BuckledTo != null && HasComp<SpikeComponent>(buckle.BuckledTo.Value))
         {
             comp.MaxedPowerAccumulator = 0f;
             return;
@@ -266,7 +266,7 @@ public sealed partial class ShadekinSystem : EntitySystem
     public void TeleportRandomlyNoComp(EntityUid uid, float range = 5f)
     {
         // ADT-Tweak-Haloween Block random teleport when buckled to a Celtic spike
-        if (TryComp<BuckleComponent>(uid, out var buckle) && buckle.BuckledTo != null && HasComp<CelticSpikeComponent>(buckle.BuckledTo.Value))
+        if (TryComp<BuckleComponent>(uid, out var buckle) && buckle.BuckledTo != null && HasComp<SpikeComponent>(buckle.BuckledTo.Value))
             return;
         // ADT-Tweak-End
 

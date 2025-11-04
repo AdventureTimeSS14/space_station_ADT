@@ -2,9 +2,9 @@ using Robust.Shared.Serialization;
 using Content.Shared.DoAfter;
 using Content.Shared.Buckle.Components;
 
-namespace Content.Shared.ADT.CelticSpike;
+namespace Content.Shared.ADT.Spike;
 
-public abstract partial class SharedCelticSpikeSystem : EntitySystem
+public abstract partial class SharedSpikeSystem : EntitySystem
 {
     public static bool IsEntityImpaled(EntityUid entity, IEntityManager entMan)
     {
@@ -14,7 +14,7 @@ public abstract partial class SharedCelticSpikeSystem : EntitySystem
         if (!buckle.Buckled || buckle.BuckledTo == null)
             return false;
 
-        return entMan.HasComponent<CelticSpikeComponent>(buckle.BuckledTo.Value);
+        return entMan.HasComponent<SpikeComponent>(buckle.BuckledTo.Value);
     }
 }
 

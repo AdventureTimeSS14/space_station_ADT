@@ -1,83 +1,54 @@
 using Content.Server.DoAfter;
 using Content.Shared.DoAfter;
-using Content.Shared.ADT.CelticSpike;
+using Content.Shared.ADT.Spike;
 using Content.Shared.DragDrop;
 using Content.Shared.Movement.Events;
-using Content.Shared.Verbs;
-using Content.Shared.ActionBlocker;
 using Content.Server.Popups;
 using Content.Shared.Mobs.Components;
 using Robust.Shared.Random;
 using Content.Shared.Buckle;
 using Content.Shared.Buckle.Components;
-using Content.Shared.Alert;
+using Content.Shared.Climbing.Events;
 
 
 
 namespace Content.Server.ADT.CelticSpike
 {
-    public sealed class CelticSpikeSystem : SharedCelticSpikeSystem
+    public sealed class SpikeSystem : SharedSpikeSystem
     {
         [Dependency] private readonly DoAfterSystem _doAfterSystem = default!;
-        [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
         [Dependency] private readonly PopupSystem _popup = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly SharedBuckleSystem _buckle = default!;
-        [Dependency] private readonly AlertsSystem _alerts = default!;
-
         private readonly HashSet<EntityUid> _escapeInProgress = new();
         private readonly HashSet<EntityUid> _escapeAuthorized = new();
+        private readonly Dictionary<EntityUid, DoAfterId> _escapeDoAfters = new();
+        private readonly HashSet<EntityUid> _buckleAuthorized = new();
 
         public override void Initialize()
         {
             base.Initialize();
 
-            SubscribeLocalEvent<CelticSpikeComponent, GetVerbsEvent<AlternativeVerb>>(AddImpaleVerb);
-            SubscribeLocalEvent<CelticSpikeComponent, DragDropTargetEvent>(OnDragDrop);
-            SubscribeLocalEvent<CelticSpikeComponent, ImpaleDoAfterEvent>(OnImpaleComplete);
-            SubscribeLocalEvent<CelticSpikeComponent, RemoveDoAfterEvent>(OnRemoveComplete);
-            SubscribeLocalEvent<CelticSpikeComponent, EscapeDoAfterEvent>(OnEscapeComplete);
-            SubscribeLocalEvent<CelticSpikeComponent, StrappedEvent>(OnStrapped);
-            SubscribeLocalEvent<CelticSpikeComponent, UnstrappedEvent>(OnUnstrapped);
-            SubscribeLocalEvent<CelticSpikeComponent, CanDropTargetEvent>(OnCanDropTarget);
-            SubscribeLocalEvent<CelticSpikeComponent, BuckleAttemptEvent>(OnBuckleAttempt);
+            SubscribeLocalEvent<SpikeComponent, DragDropTargetEvent>(OnDragDrop);
+            SubscribeLocalEvent<SpikeComponent, ImpaleDoAfterEvent>(OnImpaleComplete);
+            SubscribeLocalEvent<SpikeComponent, RemoveDoAfterEvent>(OnRemoveComplete);
+            SubscribeLocalEvent<SpikeComponent, EscapeDoAfterEvent>(OnEscapeComplete);
+            SubscribeLocalEvent<SpikeComponent, UnstrappedEvent>(OnUnstrapped);
+            SubscribeLocalEvent<SpikeComponent, CanDropTargetEvent>(OnCanDropTarget);
+            SubscribeLocalEvent<SpikeComponent, BuckleAttemptEvent>(OnBuckleAttempt);
+            SubscribeLocalEvent<SpikeComponent, StrapAttemptEvent>(OnStrapAttempt);
             SubscribeLocalEvent<BuckleComponent, UnbuckleAttemptEvent>(OnUnbuckleAttempt);
             SubscribeLocalEvent<BuckleComponent, MoveInputEvent>(OnMoveInput);
+            SubscribeLocalEvent<BuckleComponent, BuckleAttemptEvent>(OnBuckleAttemptWhileImpaled);
+            SubscribeLocalEvent<BuckleComponent, AttemptClimbEvent>(OnAttemptClimbWhileImpaled);
+            SubscribeLocalEvent<BuckleComponent, DragDropDraggedEvent>(OnDraggedWhileImpaled);
 
 
 
         }
 
-        private void AddImpaleVerb(EntityUid uid, CelticSpikeComponent component, GetVerbsEvent<AlternativeVerb> args)
-        {
-            // if (!args.CanInteract || !args.CanAccess)
-            //     return;
 
-            // if (component.ImpaledEntity != null)
-            // {
-            //     return;
-            // }
-
-            // if (!HasComp<MobStateComponent>(args.Target))
-            //     return;
-
-            // // Prevent self-impalement
-            // if (args.User == args.Target)
-            //     return;
-
-            // AlternativeVerb verb = new()
-            // {
-            //     Act = () =>
-            //     {
-            //         StartImpaling(args.User, uid, args.Target);
-            //     },
-            //     Text = Loc.GetString("celtic-spike-verb-impale"),
-            //     Priority = 2
-            // };
-            // args.Verbs.Add(verb);
-        }
-
-        private void OnDragDrop(EntityUid uid, CelticSpikeComponent component, ref DragDropTargetEvent args)
+        private void OnDragDrop(EntityUid uid, SpikeComponent component, ref DragDropTargetEvent args)
         {
             if (args.User == args.Dragged)
             {
@@ -92,32 +63,35 @@ namespace Content.Server.ADT.CelticSpike
             }
 
             if (component.ImpaledEntity != null)
+            {
+                args.Handled = true;
+                _popup.PopupEntity(Loc.GetString("celtic-spike-deny-occupied"), uid, args.User);
                 return;
+            }
+
+            if (TryComp<BuckleComponent>(args.Dragged, out var draggedBuckle) && draggedBuckle.Buckled)
+            {
+                args.Handled = true;
+                return;
+            }
 
             StartImpaling(args.User, uid, args.Dragged);
-            component.ImpaledEntity = args.Dragged;
-            var msg = Loc.GetString("celtic-spike-impale-success", ("target", args.Dragged));
-
-            _popup.PopupEntity(msg, args.User);
-            _alerts.ClearAlertCategory(args.User, SharedBuckleSystem.BuckledAlertCategory);
+            args.Handled = true;
         }
 
-        private void OnStrapped(EntityUid uid, CelticSpikeComponent component, ref StrappedEvent args)
-        {
-            // if (component.ImpaledEntity != null)
-            //     return;
 
-            // component.ImpaledEntity = args.Buckle.Owner;
-            // var msg = Loc.GetString("celtic-spike-impale-success", ("target", args.Buckle.Owner));
-            // _popup.PopupEntity(msg, args.Buckle.Owner);
-
-            // _alerts.ClearAlertCategory(args.Buckle.Owner, SharedBuckleSystem.BuckledAlertCategory);
-        }
-
-        private void OnUnstrapped(EntityUid uid, CelticSpikeComponent component, ref UnstrappedEvent args)
+        private void OnUnstrapped(EntityUid uid, SpikeComponent component, ref UnstrappedEvent args)
         {
             if (component.ImpaledEntity == args.Buckle.Owner)
+            {
                 component.ImpaledEntity = null;
+                if (_escapeDoAfters.TryGetValue(args.Buckle.Owner, out var id))
+                {
+                    _escapeDoAfters.Remove(args.Buckle.Owner);
+                    _escapeInProgress.Remove(args.Buckle.Owner);
+                    _doAfterSystem.Cancel(id);
+                }
+            }
         }
 
         private void StartImpaling(EntityUid user, EntityUid spike, EntityUid target)
@@ -139,13 +113,31 @@ namespace Content.Server.ADT.CelticSpike
 
 
 
-        private void OnBuckleAttempt(EntityUid uid, CelticSpikeComponent component, ref BuckleAttemptEvent args)
+        private void OnBuckleAttempt(EntityUid uid, SpikeComponent component, ref BuckleAttemptEvent args)
         {
             if (args.User == args.Buckle.Owner)
                 args.Cancelled = true;
         }
 
-        private void OnCanDropTarget(EntityUid uid, CelticSpikeComponent component, ref CanDropTargetEvent args)
+        private void OnStrapAttempt(EntityUid uid, SpikeComponent component, ref StrapAttemptEvent args)
+        {
+            if (_buckleAuthorized.Contains(args.Buckle.Owner))
+                return;
+
+            args.Cancelled = true;
+        }
+
+        private void OnBuckleAttemptWhileImpaled(EntityUid uid, BuckleComponent buckle, ref BuckleAttemptEvent args)
+        {
+
+            if (!buckle.Buckled || buckle.BuckledTo == null)
+                return;
+
+            if (HasComp<SpikeComponent>(buckle.BuckledTo.Value))
+                args.Cancelled = true;
+        }
+
+        private void OnCanDropTarget(EntityUid uid, SpikeComponent component, ref CanDropTargetEvent args)
         {
             if (args.User == args.Dragged)
             {
@@ -155,14 +147,17 @@ namespace Content.Server.ADT.CelticSpike
             }
         }
 
-        private void OnImpaleComplete(EntityUid uid, CelticSpikeComponent component, ImpaleDoAfterEvent args)
+        private void OnImpaleComplete(EntityUid uid, SpikeComponent component, ImpaleDoAfterEvent args)
         {
             if (args.Cancelled || args.Handled || args.Target == null)
                 return;
 
             args.Handled = true;
 
-            if (!_buckle.TryBuckle(args.Target.Value, args.User, uid))
+            _buckleAuthorized.Add(args.Target.Value);
+            var buckled = _buckle.TryBuckle(args.Target.Value, args.User, uid);
+            _buckleAuthorized.Remove(args.Target.Value);
+            if (!buckled)
             {
                 return;
             }
@@ -173,7 +168,7 @@ namespace Content.Server.ADT.CelticSpike
             _popup.PopupEntity(msg, args.Target.Value);
         }
 
-        private void OnRemoveComplete(EntityUid uid, CelticSpikeComponent component, RemoveDoAfterEvent args)
+        private void OnRemoveComplete(EntityUid uid, SpikeComponent component, RemoveDoAfterEvent args)
         {
             if (args.Cancelled || args.Handled || component.ImpaledEntity == null)
                 return;
@@ -189,9 +184,10 @@ namespace Content.Server.ADT.CelticSpike
             _popup.PopupEntity(msg, impaled);
         }
 
-        private void OnEscapeComplete(EntityUid uid, CelticSpikeComponent component, EscapeDoAfterEvent args)
+        private void OnEscapeComplete(EntityUid uid, SpikeComponent component, EscapeDoAfterEvent args)
         {
             _escapeInProgress.Remove(uid);
+            _escapeDoAfters.Remove(uid);
 
             if (args.Cancelled || args.Handled)
                 return;
@@ -220,7 +216,7 @@ namespace Content.Server.ADT.CelticSpike
 
         private void OnUnbuckleAttempt(EntityUid uid, BuckleComponent buckle, ref UnbuckleAttemptEvent args)
         {
-            if (HasComp<CelticSpikeComponent>(args.Strap.Owner))
+            if (HasComp<SpikeComponent>(args.Strap.Owner))
             {
                 if (!(args.User == uid && _escapeAuthorized.Contains(uid)))
                     args.Cancelled = true;
@@ -232,16 +228,14 @@ namespace Content.Server.ADT.CelticSpike
             if (!buckle.Buckled || buckle.BuckledTo == null)
                 return;
 
-            if (!TryComp<CelticSpikeComponent>(buckle.BuckledTo.Value, out var spikeComp))
+            if (!TryComp<SpikeComponent>(buckle.BuckledTo.Value, out var spikeComp))
                 return;
 
             if (!args.HasDirectionalMovement)
                 return;
 
-            if (_escapeInProgress.Contains(buckle.BuckledTo.Value))
+            if (_escapeInProgress.Contains(uid))
                 return;
-
-            _escapeInProgress.Add(buckle.BuckledTo.Value);
 
             var spike = buckle.BuckledTo.Value;
             var doAfterEventArgs = new DoAfterArgs(EntityManager, uid, TimeSpan.FromSeconds(5), new EscapeDoAfterEvent(), spike)
@@ -250,7 +244,36 @@ namespace Content.Server.ADT.CelticSpike
                 BreakOnDamage = true
             };
 
-            _doAfterSystem.TryStartDoAfter(doAfterEventArgs);
+            _escapeInProgress.Add(uid);
+            if (_doAfterSystem.TryStartDoAfter(doAfterEventArgs, out var id) && id != null)
+                _escapeDoAfters[uid] = id.Value;
+        }
+
+        private void OnAttemptClimbWhileImpaled(EntityUid uid, BuckleComponent buckle, ref AttemptClimbEvent args)
+        {
+            if (!buckle.Buckled || buckle.BuckledTo == null)
+                return;
+
+            if (!HasComp<SpikeComponent>(buckle.BuckledTo.Value))
+                return;
+
+            args.Cancelled = true;
+        }
+
+        private void OnDraggedWhileImpaled(EntityUid uid, BuckleComponent buckle, ref DragDropDraggedEvent args)
+        {
+            if (!buckle.Buckled || buckle.BuckledTo == null)
+                return;
+
+            if (!HasComp<SpikeComponent>(buckle.BuckledTo.Value))
+                return;
+
+            if (_escapeDoAfters.TryGetValue(uid, out var id))
+            {
+                _escapeDoAfters.Remove(uid);
+                _escapeInProgress.Remove(uid);
+                _doAfterSystem.Cancel(id);
+            }
         }
     }
 }

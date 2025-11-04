@@ -1,9 +1,9 @@
 using Robust.Shared.GameStates;
 
-namespace Content.Shared.ADT.CelticSpike;
+namespace Content.Shared.ADT.Spike;
 
 [RegisterComponent, NetworkedComponent]
-public sealed partial class CelticSpikeComponent : Component
+public sealed partial class SpikeComponent : Component
 {
     /// <summary>
     /// Энтити который находится на крюке

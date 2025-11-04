@@ -42,7 +42,7 @@
             max: 1
   - type: Transform
     noRot: true
-  - type: CelticSpike
+  - type: Spike
   - type: Strap
   - type: Anchorable
   - type: Pullable
