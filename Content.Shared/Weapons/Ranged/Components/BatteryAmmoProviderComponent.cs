@@ -15,4 +15,8 @@ public abstract partial class BatteryAmmoProviderComponent : AmmoProviderCompone
 
     [ViewVariables(VVAccess.ReadWrite)]
     public int Capacity;
+    //ADT-tweak-start
+    [DataField]
+    public bool Examinable;
+    //ADT-tweak-end
 }
