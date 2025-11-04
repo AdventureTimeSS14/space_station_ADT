@@ -114,7 +114,6 @@
 - type: entity
   parent: SheetOtherBase
   id: ADTSheetZinc
-  name: zinc
   suffix: Full
   components:
   - type: Material
@@ -151,7 +150,6 @@
 - type: entity
   parent: ADTSheetZinc
   id: ADTSheetZinc10
-  name: zinc
   suffix: 10
   components:
   - type: Sprite

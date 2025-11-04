@@ -1,0 +1,27 @@
+- type: entity
+  parent: [ Bed, BaseMachinePowered, ConstructibleMachine ]
+  id: ADTAdvancedMedBed
+  name: advanced hospital bed
+  description: Top-of-the-shelf hospital bed, made in a special way to get patients up faster.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/adv_bed.rsi
+    state: adv_bed
+  - type: HealOnBuckle
+    damage:
+      types:
+        Poison: -0.2
+        Cold: -0.8
+        Blunt: -0.4
+        Slash: -0.8
+        Piercing: -0.4
+  - type: Construction
+    graph: bed
+  - type: ApcPowerReceiver
+    powerLoad: 1000
+  - type: ExtensionCableReceiver
+  - type: Machine
+    board: ADTAdvancedMedicalBedCircuitboard
+  - type: GuideHelp
+    guides:
+    - MedicalDoctor
