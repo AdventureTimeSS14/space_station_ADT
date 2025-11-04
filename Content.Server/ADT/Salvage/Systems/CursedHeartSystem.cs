@@ -119,10 +119,10 @@ public sealed class CursedHeartSystem : EntitySystem
 
         if (comp.IsStopped)
         {
-            // Запуск сердца
+            // === ЗАПУСК СЕРДЦА ===
             comp.IsStopped = false;
 
-            // Восстанавливает оригинальный порог до крита
+            // Восстанавливает оригинальный порог крита
             if (comp.OriginalCritThreshold.HasValue)
             {
                 _mobThreshold.SetMobStateThreshold(uid, comp.OriginalCritThreshold.Value, MobState.Critical, thresholds);
@@ -134,18 +134,17 @@ public sealed class CursedHeartSystem : EntitySystem
         }
         else
         {
-            // Остановка сердца
+            // === ОСТАНОВКА СЕРДЦА ===
             comp.IsStopped = true;
 
-            // Сохраняет текущий порог крита, если он ещё не сохранён
+            // Сохраняет текущий порог крита и устанавливает новый
             if (!comp.OriginalCritThreshold.HasValue &&
                 _mobThreshold.TryGetThresholdForState(uid, MobState.Critical, out var currentCrit, thresholds))
             {
                 comp.OriginalCritThreshold = currentCrit;
             }
 
-            // Устанавливает новый порог крита = 75
-            _mobThreshold.SetMobStateThreshold(uid, FixedPoint2.New(75), MobState.Critical, thresholds);
+            _mobThreshold.SetMobStateThreshold(uid, FixedPoint2.New(60), MobState.Critical, thresholds);
 
             _popup.PopupEntity(Loc.GetString("popup-cursed-heart-stop"), uid, uid, PopupType.LargeCaution);
             _audio.PlayGlobal(new SoundPathSpecifier("/Audio/ADT/Heretic/heartbeat.ogg"), uid);
