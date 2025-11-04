@@ -350,7 +350,7 @@
   parent: ADTMobVastnessGod
   id: ADTMobDepravityGod
   name: Apostle of Depravity
-  description: An ancient evil that has long since lost its original form.
+  description: The creature is enormous and emits a strong heat, and beneath its robe is a fire that exudes hatred. Its body, composed of an unknown substance, pulsates with internal forces.
   components:
   - type: Sprite
     sprite: ADT/Mobs/Demons/Gods/depravity_god.rsi 
