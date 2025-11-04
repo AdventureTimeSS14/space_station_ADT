@@ -11,14 +11,18 @@ public sealed partial class CursedHeartComponent : Component
 {
     [AutoNetworkedField]
     public EntityUid? PumpActionEntity;
+    public EntityUid? ToggleActionEntity;
 
     public TimeSpan LastPump = TimeSpan.Zero;
 
     [DataField]
     public float MaxDelay = 5f;
+    [DataField]
+    public bool IsStopped = false;
 }
 
-public sealed partial class PumpHeartActionEvent : InstantActionEvent
+public sealed partial class PumpHeartActionEvent : InstantActionEvent;
+public sealed partial class ToggleHeartActionEvent : InstantActionEvent
 {
 
 }

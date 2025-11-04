@@ -23,6 +23,9 @@ using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+using Content.Shared.Body.Components;
+using Content.Shared.Humanoid;
+using Content.Shared.ADT.Silicon;
 
 namespace Content.Server.ADT.Salvage.Systems;
 
@@ -44,6 +47,7 @@ public sealed class CursedHeartSystem : EntitySystem
         SubscribeLocalEvent<CursedHeartComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<CursedHeartComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<CursedHeartComponent, PumpHeartActionEvent>(OnPump);
+        SubscribeLocalEvent<CursedHeartComponent, ToggleHeartActionEvent>(OnToggle);
 
         SubscribeLocalEvent<CursedHeartGrantComponent, UseInHandEvent>(OnUseInHand);
     }
@@ -57,6 +61,10 @@ public sealed class CursedHeartSystem : EntitySystem
         {
             if (_mobState.IsDead(uid))
                 continue;
+
+            if (comp.IsStopped)
+                continue;
+
             if (_timing.CurTime >= comp.LastPump + TimeSpan.FromSeconds(comp.MaxDelay))
             {
                 Damage(uid);
@@ -74,16 +82,20 @@ public sealed class CursedHeartSystem : EntitySystem
     private void OnMapInit(EntityUid uid, CursedHeartComponent comp, MapInitEvent args)
     {
         _actions.AddAction(uid, ref comp.PumpActionEntity, "ActionPumpCursedHeart");
+        _actions.AddAction(uid, ref comp.ToggleActionEntity, "ActionToggleCursedHeart");
     }
 
     private void OnShutdown(EntityUid uid, CursedHeartComponent comp, ComponentShutdown args)
     {
         _actions.RemoveAction(uid, comp.PumpActionEntity);
+        _actions.RemoveAction(uid, comp.ToggleActionEntity);
     }
 
     private void OnPump(EntityUid uid, CursedHeartComponent comp, PumpHeartActionEvent args)
     {
         if (args.Handled)
+            return;
+        if (comp.IsStopped)
             return;
         args.Handled = true;
         _audio.PlayGlobal(new SoundPathSpecifier("/Audio/ADT/Heretic/heartbeat.ogg"), uid);
@@ -92,8 +104,30 @@ public sealed class CursedHeartSystem : EntitySystem
         comp.LastPump = _timing.CurTime;
     }
 
+    private void OnToggle(EntityUid uid, CursedHeartComponent comp, ToggleHeartActionEvent args)
+    {
+        if (args.Handled)
+            return;
+        args.Handled = true;
+        if (comp.IsStopped)
+        {
+            comp.IsStopped = false;
+            _popup.PopupEntity(Loc.GetString("popup-cursed-heart-start"), uid, uid, PopupType.Large);
+            _audio.PlayGlobal(new SoundPathSpecifier("/Audio/ADT/Heretic/heartbeat.ogg"), uid);
+            return;
+        }
+        comp.IsStopped = true;
+        _popup.PopupEntity(Loc.GetString("popup-cursed-heart-stop"), uid, uid, PopupType.LargeCaution);
+        _audio.PlayGlobal(new SoundPathSpecifier("/Audio/ADT/Heretic/heartbeat.ogg"), uid);
+    }
+
     private void OnUseInHand(EntityUid uid, CursedHeartGrantComponent comp, UseInHandEvent args)
     {
+        if (!HasComp<BloodstreamComponent>(args.User) || !HasComp<HumanoidAppearanceComponent>(args.User) || HasComp<MobIpcComponent>(args.User))
+        {
+            _popup.PopupEntity(Loc.GetString("popup-cursed-heart-bloodstream"), args.User, args.User, PopupType.Medium);
+            return;
+        }
         _audio.PlayGlobal(new SoundPathSpecifier("/Audio/ADT/Heretic/heartbeat.ogg"), args.User);
         var heart = EnsureComp<CursedHeartComponent>(args.User);
         heart.LastPump = _timing.CurTime;
