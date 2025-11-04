@@ -53,19 +53,19 @@ namespace Content.Server.ADT.CelticSpike
             if (args.User == args.Dragged)
             {
                 args.Handled = true;
-                _popup.PopupEntity(Loc.GetString("celtic-spike-deny-self"), uid, args.User);
+                _popup.PopupEntity(Loc.GetString("spike-deny-self"), uid, args.User);
                 return;
             }
             if (!HasComp<MobStateComponent>(args.Dragged))
             {
                 args.Handled = true;
-                _popup.PopupEntity(Loc.GetString("celtic-spike-deny-not-mob"), uid, args.User);
+                _popup.PopupEntity(Loc.GetString("spike-deny-not-mob"), uid, args.User);
             }
 
             if (component.ImpaledEntity != null)
             {
                 args.Handled = true;
-                _popup.PopupEntity(Loc.GetString("celtic-spike-deny-occupied"), uid, args.User);
+                _popup.PopupEntity(Loc.GetString("spike-deny-occupied"), uid, args.User);
                 return;
             }
 
@@ -98,7 +98,7 @@ namespace Content.Server.ADT.CelticSpike
         {
             if (user == target)
             {
-                _popup.PopupEntity(Loc.GetString("celtic-spike-deny-self"), spike, user);
+                _popup.PopupEntity(Loc.GetString("spike-deny-self"), spike, user);
                 return;
             }
 
@@ -143,7 +143,7 @@ namespace Content.Server.ADT.CelticSpike
             {
                 args.CanDrop = false;
                 args.Handled = true;
-                _popup.PopupEntity(Loc.GetString("celtic-spike-deny-self"), uid, args.User);
+                _popup.PopupEntity(Loc.GetString("spike-deny-self"), uid, args.User);
             }
         }
 
@@ -164,7 +164,7 @@ namespace Content.Server.ADT.CelticSpike
 
             component.ImpaledEntity = args.Target.Value;
 
-            var msg = Loc.GetString("celtic-spike-impale-success", ("target", args.Target.Value));
+            var msg = Loc.GetString("spike-impale-success", ("target", args.Target.Value));
             _popup.PopupEntity(msg, args.Target.Value);
         }
 
@@ -180,7 +180,7 @@ namespace Content.Server.ADT.CelticSpike
 
             _buckle.TryUnbuckle(impaled, args.User);
 
-            var msg = Loc.GetString("celtic-spike-remove-success", ("target", impaled));
+            var msg = Loc.GetString("spike-remove-success", ("target", impaled));
             _popup.PopupEntity(msg, impaled);
         }
 
@@ -204,12 +204,12 @@ namespace Content.Server.ADT.CelticSpike
 
                 component.ImpaledEntity = null;
 
-                var msg = Loc.GetString("celtic-spike-escape-success");
+                var msg = Loc.GetString("spike-escape-success");
                 _popup.PopupEntity(msg, impaled);
             }
             else
             {
-                var msg = Loc.GetString("celtic-spike-escape-failure");
+                var msg = Loc.GetString("spike-escape-failure");
                 _popup.PopupEntity(msg, uid);
             }
         }

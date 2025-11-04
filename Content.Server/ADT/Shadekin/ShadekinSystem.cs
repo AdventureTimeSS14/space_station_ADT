@@ -27,10 +27,8 @@ using Content.Shared.Mobs.Systems;
 using Content.Server.Cuffs;
 using Content.Shared.Cuffs.Components;
 using Content.Shared.Mech.Components;
-//ADT-Tweak-Haloween: Celtic Spike teleport restriction
 using Content.Shared.Buckle.Components;
 using Content.Shared.ADT.Spike;
-//ADT-Tweak End
 using Content.Shared.Bed.Cryostorage;
 using Content.Shared.ADT.Components.PickupHumans;
 using Content.Shared.Construction.Components;
@@ -160,10 +158,9 @@ public sealed partial class ShadekinSystem : EntitySystem
         if (args.Handled)
             return;
 
-        // ADT-Tweak-Haloween: Block teleport when buckled to a Celtic spike
+        // SpikeSystem: Чтобы сумеречники не имели возможности слезть с крюка
         if (TryComp<BuckleComponent>(uid, out var buckle) && buckle.BuckledTo != null && HasComp<SpikeComponent>(buckle.BuckledTo.Value))
             return;
-        // ADT-Tweak-End
 
         if (HasComp<MechPilotComponent>(uid))
             return;
@@ -213,13 +210,12 @@ public sealed partial class ShadekinSystem : EntitySystem
         if (!Resolve(uid, ref comp))
             return;
 
-        // ADT-Tweak-Haloween: Block random teleport when buckled to a Celtic spike
+        // SpikeSystem: Чтобы сумеречники не имели возможности слезть с крюка
         if (TryComp<BuckleComponent>(uid, out var buckle) && buckle.BuckledTo != null && HasComp<SpikeComponent>(buckle.BuckledTo.Value))
         {
             comp.MaxedPowerAccumulator = 0f;
             return;
         }
-        // ADT-Tweak-End
 
         var coordsValid = false;
         var coords = Transform(uid).Coordinates;
@@ -265,10 +261,9 @@ public sealed partial class ShadekinSystem : EntitySystem
 
     public void TeleportRandomlyNoComp(EntityUid uid, float range = 5f)
     {
-        // ADT-Tweak-Haloween Block random teleport when buckled to a Celtic spike
+        // SpikeSystem: Чтобы сумеречники не имели возможности слезть с крюка
         if (TryComp<BuckleComponent>(uid, out var buckle) && buckle.BuckledTo != null && HasComp<SpikeComponent>(buckle.BuckledTo.Value))
             return;
-        // ADT-Tweak-End
 
         var coordsValid = false;
         var coords = Transform(uid).Coordinates;

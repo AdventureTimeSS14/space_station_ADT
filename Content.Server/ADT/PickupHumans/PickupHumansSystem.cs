@@ -138,10 +138,9 @@ public sealed partial class PickupHumansSystem : SharedPickupHumansSystem
     }
     #endregion
 
-    // CelticSpike PickupHumans restriction
+    // SpikeSystem: метод, позволяющий снять человека на крюке с некоторой вероятностью в SpikeComponent
     public override bool ShouldAllowPickup(EntityUid user, EntityUid target, PickupHumansComponent component)
     {
-        // User cannot pickup anyone while impaled on a Celtic spike
         if (SharedSpikeSystem.IsEntityImpaled(user, EntityManager))
             return false;
 
@@ -159,14 +158,14 @@ public sealed partial class PickupHumansSystem : SharedPickupHumansSystem
 
             if (!_random.Prob(spikeComp.PickupChance))
             {
-                _popup.PopupEntity(Loc.GetString("celtic-spike-pickup-failed"), user, user);
-                _popup.PopupEntity(Loc.GetString("celtic-spike-pickup-failed-target"), target, target);
+                _popup.PopupEntity(Loc.GetString("spike-pickup-failed"), user, user);
+                _popup.PopupEntity(Loc.GetString("spike-pickup-failed-target"), target, target);
                 return false;
             }
             else
             {
-                _popup.PopupEntity(Loc.GetString("celtic-spike-pickup-success"), user, user);
-                _popup.PopupEntity(Loc.GetString("celtic-spike-pickup-success-target"), target, target);
+                _popup.PopupEntity(Loc.GetString("spike-pickup-success"), user, user);
+                _popup.PopupEntity(Loc.GetString("spike-pickup-success-target"), target, target);
                 return true;
             }
         }
