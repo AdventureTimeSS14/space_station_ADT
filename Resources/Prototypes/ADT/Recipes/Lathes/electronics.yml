@@ -17,7 +17,7 @@
   completetime: 2
 
 - type: latheRecipe
-  id: ADTColdplateMachineCircuitboardCircuitboard
+  id: ADTColdplateMachineCircuitboard
   result: ADTColdplateMachineCircuitboard
   completetime: 4
   materials:

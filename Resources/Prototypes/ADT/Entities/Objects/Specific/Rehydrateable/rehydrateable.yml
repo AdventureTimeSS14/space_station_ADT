@@ -1,0 +1,12 @@
+- type: entity  
+  parent: RehydratableAnimalCube
+  id: ADTHumanCube
+  name: artificial human cube
+  components:
+  - type: Rehydratable
+    possibleSpawns:
+    - MobHuman
+  - type: Tag
+    tags:
+    - Meat
+    - MonkeyCube

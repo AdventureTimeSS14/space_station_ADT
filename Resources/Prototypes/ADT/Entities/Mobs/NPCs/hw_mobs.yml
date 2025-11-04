@@ -68,7 +68,7 @@
       collection: AlienClaw
     damage:
       types:
-        Brute: 50
+        Blunt: 50
   - type: NpcFactionMember
     factions:
     - SimpleHostile
@@ -123,7 +123,7 @@
       collection: AlienClaw
     damage:
       types:
-        Brute: 20
+        Blunt: 20
   - type: NpcFactionMember
     factions:
     - SimpleHostile
@@ -164,7 +164,7 @@
       collection: AlienClaw
     damage:
       types:
-        Brute: 10
+        Blunt: 10
   - type: NpcFactionMember
     factions:
     - SimpleHostile
@@ -205,7 +205,7 @@
       collection: AlienClaw
     damage:
       types:
-        Brute: 30
+        Slash: 30
   - type: NpcFactionMember
     factions:
     - SimpleHostile
@@ -245,7 +245,7 @@
       collection: AlienClaw
     damage:
       types:
-        Brute: 50
+        Slash: 50
   - type: NpcFactionMember
     factions:
     - SimpleHostile

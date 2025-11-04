@@ -7,7 +7,7 @@
     - type: VoiceMask
       voiceMaskName: "???"
       action: null
-      barkId: Mettaton
+      # barkId: Mettaton
     - type: HideLayerClothing
       slots:
       - Snout
