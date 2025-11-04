@@ -102,6 +102,14 @@ public sealed class CursedHeartSystem : EntitySystem
         if (comp.IsStopped)
             return;
         args.Handled = true;
+        if (_mobState.IsDead(uid))
+        {
+            _popup.PopupEntity(Loc.GetString("popup-cursed-heart-stop"), uid, uid, PopupType.Large); //Тож
+        }
+        if (_mobState.IsCritical(uid))
+        {
+            _popup.PopupEntity(Loc.GetString("popup-cursed-heart-start"), uid, uid, PopupType.Large); //Нормальной сделай
+        }
         _audio.PlayGlobal(new SoundPathSpecifier("/Audio/ADT/Heretic/heartbeat.ogg"), uid);
         _damage.TryChangeDamage(uid, new DamageSpecifier(_proto.Index<DamageGroupPrototype>("Brute"), -8), true, false);
         _bloodstream.TryModifyBloodLevel(uid, 17);
@@ -159,6 +167,9 @@ public sealed class CursedHeartSystem : EntitySystem
             return;
         }
         _bloodstream.TryModifyBloodLevel(args.User, -999);
+        _bloodstream.ChangeBloodReagent(args.User, "ADTCursedBlood");
+        _popup.PopupEntity(Loc.GetString("popup-cursed-heart-use"), args.User, args.User, PopupType.LargeCaution);
+        _damage.TryChangeDamage(args.User, new DamageSpecifier(_proto.Index<DamageTypePrototype>("Piercing"), 20), true, false);
         _audio.PlayGlobal(new SoundPathSpecifier("/Audio/ADT/Heretic/heartbeat.ogg"), args.User);
         var heart = EnsureComp<CursedHeartComponent>(args.User);
         heart.LastPump = _timing.CurTime;
