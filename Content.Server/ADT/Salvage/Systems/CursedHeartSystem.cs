@@ -26,6 +26,9 @@ using Robust.Shared.Timing;
 using Content.Shared.Body.Components;
 using Content.Shared.Humanoid;
 using Content.Shared.ADT.Silicon;
+using Content.Shared.FixedPoint;
+using Content.Shared.Mobs.Components;
+using Content.Shared.Mobs;
 
 namespace Content.Server.ADT.Salvage.Systems;
 
@@ -39,6 +42,7 @@ public sealed class CursedHeartSystem : EntitySystem
     [Dependency] private readonly BloodstreamSystem _bloodstream = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly MobThresholdSystem _mobThreshold = default!;
 
     public override void Initialize()
     {
@@ -109,20 +113,50 @@ public sealed class CursedHeartSystem : EntitySystem
         if (args.Handled)
             return;
         args.Handled = true;
+
+        if (!TryComp<MobThresholdsComponent>(uid, out var thresholds))
+            return;
+
         if (comp.IsStopped)
         {
+            // Запуск сердца
             comp.IsStopped = false;
+
+            // Восстанавливает оригинальный порог до крита
+            if (comp.OriginalCritThreshold.HasValue)
+            {
+                _mobThreshold.SetMobStateThreshold(uid, comp.OriginalCritThreshold.Value, MobState.Critical, thresholds);
+                comp.OriginalCritThreshold = null;
+            }
+
             _popup.PopupEntity(Loc.GetString("popup-cursed-heart-start"), uid, uid, PopupType.Large);
             _audio.PlayGlobal(new SoundPathSpecifier("/Audio/ADT/Heretic/heartbeat.ogg"), uid);
-            return;
         }
-        comp.IsStopped = true;
-        _popup.PopupEntity(Loc.GetString("popup-cursed-heart-stop"), uid, uid, PopupType.LargeCaution);
-        _audio.PlayGlobal(new SoundPathSpecifier("/Audio/ADT/Heretic/heartbeat.ogg"), uid);
+        else
+        {
+            // Остановка сердца
+            comp.IsStopped = true;
+
+            // Сохраняет текущий порог крита, если он ещё не сохранён
+            if (!comp.OriginalCritThreshold.HasValue &&
+                _mobThreshold.TryGetThresholdForState(uid, MobState.Critical, out var currentCrit, thresholds))
+            {
+                comp.OriginalCritThreshold = currentCrit;
+            }
+
+            // Устанавливает новый порог крита = 75
+            _mobThreshold.SetMobStateThreshold(uid, FixedPoint2.New(75), MobState.Critical, thresholds);
+
+            _popup.PopupEntity(Loc.GetString("popup-cursed-heart-stop"), uid, uid, PopupType.LargeCaution);
+            _audio.PlayGlobal(new SoundPathSpecifier("/Audio/ADT/Heretic/heartbeat.ogg"), uid);
+        }
+
+        _mobThreshold.VerifyThresholds(uid, thresholds);
     }
 
     private void OnUseInHand(EntityUid uid, CursedHeartGrantComponent comp, UseInHandEvent args)
     {
+        // Существа без кровотока, негуманоиды и КПБ не смогут использовать сердце
         if (!HasComp<BloodstreamComponent>(args.User) || !HasComp<HumanoidAppearanceComponent>(args.User) || HasComp<MobIpcComponent>(args.User))
         {
             _popup.PopupEntity(Loc.GetString("popup-cursed-heart-bloodstream"), args.User, args.User, PopupType.Medium);

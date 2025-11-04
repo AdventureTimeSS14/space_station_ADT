@@ -2,6 +2,7 @@ using Content.Shared.Actions;
 using Content.Shared.ADT.Salvage.Systems;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
+using Content.Shared.FixedPoint;
 
 namespace Content.Shared.ADT.Salvage.Components;
 
@@ -19,6 +20,8 @@ public sealed partial class CursedHeartComponent : Component
     public float MaxDelay = 5f;
     [DataField]
     public bool IsStopped = false;
+    [DataField]
+    public FixedPoint2? OriginalCritThreshold;
 }
 
 public sealed partial class PumpHeartActionEvent : InstantActionEvent;
