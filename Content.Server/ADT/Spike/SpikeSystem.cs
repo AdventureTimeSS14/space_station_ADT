@@ -4,11 +4,11 @@ using Content.Shared.ADT.Spike;
 using Content.Shared.DragDrop;
 using Content.Shared.Movement.Events;
 using Content.Server.Popups;
-using Content.Shared.Mobs.Components;
 using Robust.Shared.Random;
 using Content.Shared.Buckle;
 using Content.Shared.Buckle.Components;
 using Content.Shared.Climbing.Events;
+using Content.Shared.Humanoid;
 
 
 
@@ -56,11 +56,6 @@ namespace Content.Server.ADT.CelticSpike
                 _popup.PopupEntity(Loc.GetString("spike-deny-self"), uid, args.User);
                 return;
             }
-            if (!HasComp<MobStateComponent>(args.Dragged))
-            {
-                args.Handled = true;
-                _popup.PopupEntity(Loc.GetString("spike-deny-not-mob"), uid, args.User);
-            }
 
             if (component.ImpaledEntity != null)
             {
@@ -96,6 +91,12 @@ namespace Content.Server.ADT.CelticSpike
 
         private void StartImpaling(EntityUid user, EntityUid spike, EntityUid target)
         {
+            if (!HasComp<HumanoidAppearanceComponent>(target))
+            {
+                _popup.PopupEntity(Loc.GetString("spike-deny-not-mob"), spike, user);
+                return;
+            }
+
             if (user == target)
             {
                 _popup.PopupEntity(Loc.GetString("spike-deny-self"), spike, user);
