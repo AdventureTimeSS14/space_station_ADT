@@ -2,7 +2,6 @@
   id: SD_Sievert
   mapName: 'Sievert Station'
   mapPath: /Maps/SDMaps/SDStations/SD_Sievert.yml
-  maxRandomOffset: 0
   minPlayers: 5
   stations:
     SD_Sievert:
