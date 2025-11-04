@@ -122,7 +122,6 @@ public sealed class CursedHeartSystem : EntitySystem
             // === ЗАПУСК СЕРДЦА ===
             comp.IsStopped = false;
 
-            // Восстанавливает оригинальный порог крита
             if (comp.OriginalCritThreshold.HasValue)
             {
                 _mobThreshold.SetMobStateThreshold(uid, comp.OriginalCritThreshold.Value, MobState.Critical, thresholds);
@@ -137,13 +136,11 @@ public sealed class CursedHeartSystem : EntitySystem
             // === ОСТАНОВКА СЕРДЦА ===
             comp.IsStopped = true;
 
-            // Сохраняет текущий порог крита и устанавливает новый
             if (!comp.OriginalCritThreshold.HasValue &&
                 _mobThreshold.TryGetThresholdForState(uid, MobState.Critical, out var currentCrit, thresholds))
             {
                 comp.OriginalCritThreshold = currentCrit;
             }
-
             _mobThreshold.SetMobStateThreshold(uid, FixedPoint2.New(60), MobState.Critical, thresholds);
 
             _popup.PopupEntity(Loc.GetString("popup-cursed-heart-stop"), uid, uid, PopupType.LargeCaution);
@@ -155,7 +152,6 @@ public sealed class CursedHeartSystem : EntitySystem
 
     private void OnUseInHand(EntityUid uid, CursedHeartGrantComponent comp, UseInHandEvent args)
     {
-        // Существа без кровотока, негуманоиды и КПБ не смогут использовать сердце
         if (!HasComp<BloodstreamComponent>(args.User) || !HasComp<HumanoidAppearanceComponent>(args.User) || HasComp<MobIpcComponent>(args.User))
         {
             _popup.PopupEntity(Loc.GetString("popup-cursed-heart-bloodstream"), args.User, args.User, PopupType.Medium);
