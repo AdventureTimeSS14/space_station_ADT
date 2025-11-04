@@ -16,10 +16,10 @@ ent-SD_ArmorSmartGunCombatHarness = боевая обвязка смартган
 
 sd-shoot-harness-required = Вам нужна специальная экипировка для стрельбы из этого!
 
-ent-SD_MagazineBoxSmartPistol = коробка патронов (9х21 смарт)
-ent-SD_CartridgeSmart = патрон (9х21 смарт)
-    .desc = Патрон калибра 9х21 с ускорителями.
-ent-SD_MagazineSmartPistol = пистолетный магазин МК6 (9х21)
+ent-SD_MagazineBoxSmartPistol = коробка патронов (9х21мм смарт)
+ent-SD_CartridgeSmart = патрон (9х21мм смарт)
+    .desc = Патрон калибра 9х21мм с ускорителями.
+ent-SD_MagazineSmartPistol = пистолетный магазин МК6 (9х21мм смарт)
 
 ent-SD_WeaponPistolMK6 = МК-6 "гунгнир"
-    .desc = Прототип, ставший результатом сотрудничества Nanotrasen Small Arms Division и Scarborough Arms. Эта точная машина смерти напичкана комплексом донаводки и может направлять пули уже после того, как они покинули ствол.
+    .desc = Прототип, ставший результатом сотрудничества Nanotrasen Small Arms Division и Scarborough Arms. Эта точная машина смерти напичкана комплексом донаводки и может направлять пули уже после того, как они покинули ствол. Использует патроны калибра 9x21мм смарт.

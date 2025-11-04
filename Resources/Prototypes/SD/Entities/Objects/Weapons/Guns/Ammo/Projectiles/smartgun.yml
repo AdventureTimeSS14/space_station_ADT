@@ -31,14 +31,14 @@
 
 - type: entity
   id: SD_BulletSmartPistol
-  name: bullet (9x21 smart)
+  name: bullet (9x21mm smart)
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
     damage:
       types:
-        Piercing: 19
+        Piercing: 16
     ignoreReflect: true
   - type: Sprite
     sprite: SD/Objects/Weapons/Guns/Ammunition/Projectiles/smartgun.rsi
