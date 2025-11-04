@@ -661,14 +661,14 @@
   params:
     variation: 0.125
   sounds:
-    Scream: 
+    Scream:
       collection: MaleResomiScreams
     Laugh:
-      collection: ResomiLaughs 
+      collection: ResomiLaughs
     Cough:
       collection: ResomiCoughs
     Sneeze:
-      collection: ResomiSneeze 
+      collection: ResomiSneeze
     Honk:
       collection: BikeHorn
     Whistle:
@@ -690,7 +690,7 @@
     Scream:
       collection: FemaleResomiScreams
     Laugh:
-      collection: ResomiLaughs 
+      collection: ResomiLaughs
     Cough:
       collection: ResomiCoughs
     Sneeze:

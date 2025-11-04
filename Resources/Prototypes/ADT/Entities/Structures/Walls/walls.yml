@@ -358,16 +358,17 @@
   id: ADTRadiationUraniumWall
   name: uranium wall
   description: A wall made of pure uranium does it seem to you that it glows.
+  suffix: Indestructible
   components:
   - type: Sprite
-    sprite: ADT/Structures/Walls/radiation_uranium_wall.rsi
+    sprite: Structures/Walls/uranium.rsi
   - type: Icon
-    sprite: ADT/Structures/Walls/radiation_uranium_wall.rsi
+    sprite: Structures/Walls/uranium.rsi
   - type: IconSmooth
     key: walls
     base: uranium
   - type: RadiationSource
-    intensity: 4.5
+    intensity: 0.5
     
 - type: entity
   parent: BaseWall  
@@ -398,4 +399,49 @@
   - type: IconSmooth
     key: walls
     base: digital
+
+- type: entity
+  parent: BaseWall
+  id: ADTAbductorWall
+  name: abductor wall
+  description: It keeps the gray people inside and the cattle outside.
+  suffix: Indestructible
+  components:
+    - type: Sprite
+      sprite: ADT/Structures/Walls/abductor_wall.rsi
+    - type: Icon
+      sprite: ADT/Structures/Walls/abductor_wall.rsi
+    - type: IconSmooth
+      key: walls
+      base: state
+    - type: Tag
+      tags:
+        - Wall
+
+- type: entity
+  parent: WallShuttleDiagonal
+  id: ADTAbductorWallDiagonal
+  name: abductor wall
+  description: It keeps the gray people inside and the cattle outside.
+  suffix: Indestructible, diagonal
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components:
+  - type: Transform
+  - type: Tag
+    tags:
+    - Wall
+    - Diagonal
+  - type: Sprite
+    drawdepth: Walls
+    sprite: ADT/Structures/Walls/abductor_diagonal.rsi
+    state: state0
+  - type: IconSmooth
+    mode: Diagonal
+    key: walls
+  - type: Icon
+    sprite: ADT/Structures/Walls/abductor_diagonal.rsi
+    state: state0
     
