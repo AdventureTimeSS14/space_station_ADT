@@ -1,9 +1,9 @@
-reagent-name-liquiddarkmatter = Жидкая тёмная материя
+reagent-name-liquiddarkmatter = жидкая тёмная материя
 reagent-desc-liquiddarkmatter = Концентрированная гипотетическая и нестабильная смесь. Активируется без стабилизирующего агента при температуре выше 290 кельвинов.
-reagent-name-stabilizing-agent = Стабилизирующий агент
+reagent-name-stabilizing-agent = стабилизирующий агент
 reagent-desc-stabilizing-agent = Важный компонент в пиротехнике для создания гранат.
-reagent-name-sorium = Сорий
+reagent-name-sorium = сорий
 reagent-desc-sorium = Концентрированная гипотетическая и нестабильная смесь, которая так и тянет к себе... Активируется при смешивании с жидкой тёмной материей.
-reagent-name-cryostilane = Криосталин
+reagent-name-cryostilane = криосталин
 reagent-desc-cryostilane = Вещество, которое используется для быстрого охлаждения сосудов и экстренной дезинфекции. Не способен охладить ёмкость ниже температуры 183 кельвина.
 cryostilane-gas-created = В воздух выделяется ледяной газ!

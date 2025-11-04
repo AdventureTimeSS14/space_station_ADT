@@ -29,6 +29,7 @@
   storage:
     back:
     - EmergencyRollerBedSpawnFolded
+    - ADTtelescopicBaton # SD tweak
 
 - type: chameleonOutfit
   id: ParamedicChameleonOutfit
