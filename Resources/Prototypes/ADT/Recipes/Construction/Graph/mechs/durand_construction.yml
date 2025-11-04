@@ -90,7 +90,7 @@
           data: 13
 
       - tag: ADTMicroManipulatorStockPart
-        name: construction-graph-tag-capicator-stock-part
+        name: construction-graph-tag-manipulator-stock-part
         icon:
           sprite: "Objects/Misc/stock_parts.rsi"
           state: micro_mani
@@ -110,7 +110,7 @@
           data: 15
 
       - tag: ADTMicroManipulatorStockPart
-        name: construction-graph-tag-capicator-stock-part
+        name: construction-graph-tag-manipulator-stock-part
         icon:
           sprite: "Objects/Misc/stock_parts.rsi"
           state: micro_mani
