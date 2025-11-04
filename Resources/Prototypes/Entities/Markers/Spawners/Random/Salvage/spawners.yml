@@ -401,6 +401,24 @@
         weight: 0.25
       - id: NitrousOxideCanister
         weight: 0.25
+      # SD tweak-start
+      - id: ADTPluoxiumCanister
+        weight: 0.25
+      - id: ADTBZCanister
+        weight: 0.25
+      - id: ADTHydrogenCanister
+        weight: 0.1
+      - id: ADTNitriumCanister
+        weight: 0.01
+      - id: ADTHealiumCanister
+        weight: 0.01
+      - id: ADTZaukerCanister
+        weight: 0.001
+      - id: ADTHyperNobliumCanister
+        weight: 0.001
+      - id: ADTAntiNobliumCanister
+        weight: 0.0001
+      # SD tweak-end
 
 - type: entityTable
   id: SalvageMagnetMobTable

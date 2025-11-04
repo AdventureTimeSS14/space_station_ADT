@@ -158,8 +158,8 @@
     Gas:
       effects:
       - !type:MovespeedModifier
-        walkSpeedModifier: 1.35
-        sprintSpeedModifier: 1.35
+        walkSpeedModifier: 1.5 # SD-tweak
+        sprintSpeedModifier: 1.5 # SD-tweak
       - !type:GenericStatusEffect
         key: Stun
         time: 3
@@ -168,16 +168,27 @@
         key: KnockedDown
         time: 3
         type: Remove
+        # SD-tweak-start
+      - !type:GenericStatusEffect
+        key: StaminaModifier
+        component: StaminaModifier
+        time: 3
+        type: Add
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectForcedSleeping
+        time: 3
+        type: Remove
+        # SD-tweak-end
       - !type:HealthChange
         conditions:
           - !type:ReagentThreshold
             reagent: Nitrium
-            min: 10
+            min: 50 # SD-tweak
         scaleByQuantity: true
         ignoreResistances: true
         damage:
           types:
-            Poison: 0.05
+            Poison: 0.01
 
 - type: reagent
   id: Healium
@@ -191,15 +202,16 @@
   metabolisms:
     Gas:
       effects:
-      - !type:GenericStatusEffect
+      - !type:ModifyStatusEffect # SD-fix
         conditions:
         - !type:ReagentThreshold
           reagent: Healium
           min: 1
-        key: ForcedSleep
-        component: ForcedSleeping
-        refresh: false
+        effectProto: StatusEffectForcedSleeping # SD-fix
+        time: 1 # SD-fix
         type: Add
+      - !type:ModifyBleedAmount # SD-tweak
+        amount: -1 # SD-tweak
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold

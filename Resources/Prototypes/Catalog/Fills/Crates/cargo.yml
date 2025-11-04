@@ -114,6 +114,41 @@
     - id: WaterVaporCanister
       prob: 0.001
       orGroup: Canister
+    # SD tweak-start
+    - id: ADTBZCanister
+      prob: 0.001
+      orGroup: Canister
+    - id: ADTPluoxiumCanister
+      prob: 0.00095
+      orGroup: Canister
+    - id: ADTHydrogenCanister
+      prob: 0.001
+      orGroup: Canister
+    - id: ADTNitriumCanister
+      prob: 0.00085
+      orGroup: Canister
+    - id: ADTHealiumCanister
+      prob: 0.00095
+      orGroup: Canister
+    - id: ADTHyperNobliumCanister
+      prob: 0.00025
+      orGroup: Canister
+    - id: ADTProtoNitrateCanister
+      prob: 0.00075
+      orGroup: Canister
+    - id: ADTZaukerCanister
+      prob: 0.00025
+      orGroup: Canister
+    - id: ADTHalonCanister
+      prob: 0.00075
+      orGroup: Canister
+    - id: ADTHeliumCanister
+      prob: 0.001
+      orGroup: Canister
+    - id: ADTAntiNobliumCanister
+      prob: 0.0001
+      orGroup: Canister
+    # SD tweak-end
     #weapons
     - id: WeaponPulseCarbine
       prob: 0.0001
