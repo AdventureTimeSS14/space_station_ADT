@@ -10,6 +10,7 @@ public sealed partial class CursedHeartComponent : Component
 {
     [AutoNetworkedField]
     public EntityUid? PumpActionEntity;
+    [AutoNetworkedField]
     public EntityUid? ToggleActionEntity;
 
     public TimeSpan LastPump = TimeSpan.Zero;
