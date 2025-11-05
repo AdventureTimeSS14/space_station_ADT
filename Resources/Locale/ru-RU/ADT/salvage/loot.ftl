@@ -3,6 +3,4 @@ popup-cursed-heart-damage = Ваше сердце не бьётся!
 popup-cursed-heart-stop = Ваше сердце болезненно сжимается...
 popup-cursed-heart-start = Ваше сердце вновь начинает биться.
 popup-cursed-heart-bloodstream = Проклятое сердце отвергает ваше бескровное тело!
-popup-cursed-heart-dead = Тело Ы дёргается!
-popup-cursed-heart-crit = Безсознательное тело Ы дёргается!
 popup-vavilon-book-used = Ваше сознание было расширено.

@@ -102,14 +102,6 @@ public sealed class CursedHeartSystem : EntitySystem
         if (comp.IsStopped)
             return;
         args.Handled = true;
-        if (_mobState.IsDead(uid))
-        {
-            _popup.PopupEntity(Loc.GetString("popup-cursed-heart-stop"), uid, uid, PopupType.Large); //Тож
-        }
-        if (_mobState.IsCritical(uid))
-        {
-            _popup.PopupEntity(Loc.GetString("popup-cursed-heart-start"), uid, uid, PopupType.Large); //Нормальной сделай
-        }
         _audio.PlayGlobal(new SoundPathSpecifier("/Audio/ADT/Heretic/heartbeat.ogg"), uid);
         _damage.TryChangeDamage(uid, new DamageSpecifier(_proto.Index<DamageGroupPrototype>("Brute"), -8), true, false);
         _bloodstream.TryModifyBloodLevel(uid, 17);
