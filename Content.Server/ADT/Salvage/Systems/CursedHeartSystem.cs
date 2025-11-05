@@ -147,6 +147,11 @@ public sealed class CursedHeartSystem : EntitySystem
             _popup.PopupEntity(Loc.GetString("popup-cursed-heart-bloodstream"), args.User, args.User, PopupType.Medium);
             return;
         }
+        if (HasComp<CursedHeartComponent>(args.User))
+        {
+            _popup.PopupEntity(Loc.GetString("popup-cursed-heart-already-cursed"), args.User, args.User, PopupType.Medium);
+            return;
+        }
         _bloodstream.TryModifyBloodLevel(args.User, -999);
         _bloodstream.ChangeBloodReagent(args.User, "ADTCursedBlood");
         _popup.PopupEntity(Loc.GetString("popup-cursed-heart-use"), args.User, args.User, PopupType.LargeCaution);
