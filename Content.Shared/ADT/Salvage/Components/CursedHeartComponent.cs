@@ -23,7 +23,4 @@ public sealed partial class CursedHeartComponent : Component
 }
 
 public sealed partial class PumpHeartActionEvent : InstantActionEvent;
-public sealed partial class ToggleHeartActionEvent : InstantActionEvent
-{
-
-}
+public sealed partial class ToggleHeartActionEvent : InstantActionEvent;
