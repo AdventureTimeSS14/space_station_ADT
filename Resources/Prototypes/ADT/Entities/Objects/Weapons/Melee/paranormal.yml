@@ -2,6 +2,7 @@
   id: ADTBaseHolyWeapon
   abstract: true
   components:
+  - type: DamageBonusHoly #HW
   - type: ForTheWorthy
   - type: HolyDamage
 

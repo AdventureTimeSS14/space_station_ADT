@@ -93,11 +93,6 @@
   mapPath: /Maps/ADTMaps/Salvage/piece_debris_com.yml
   sizeString: salvage-map-wreck-size-medium
 
-- type: salvageMap
-  id: ADT_ParkWreck
-  mapPath: /Maps/ADTMaps/Salvage/parkwreck.yml
-  sizeString: salvage-map-wreck-size-medium
-
 # """Large""" maps
 
 - type: salvageMap

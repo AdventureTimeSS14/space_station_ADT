@@ -83,3 +83,30 @@
       types:
         Radiation: 15
         Piercing: 20
+
+#HW
+- type: entity
+  id: ADTBulletMagnumHoly
+  name: bullet (.357 magnum Holy)
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: DamageBonusHoly
+  - type: Projectile
+    damage:
+      types:
+        Holy: 35
+        Piercing: 10
+
+- type: entity
+  id: ADTBulletMagnumSilver
+  name: bullet (.357 magnum silver)
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: DamageBonusHoly
+  - type: Projectile
+    damage:
+      types:
+        Holy: 15
+        Piercing: 10

@@ -55,6 +55,11 @@
   equipment:
     neck: ADTGoldCross
 
+- type: loadout
+  id: ADTClothingOuterHoodieChaplainWhite
+  equipment:
+    outerClothing: ADTClothingOuterHoodieChaplainWhite
+
 # Я тут немного попоясничаю и добавлю святых книг для нашего святоши (QWERTY)
 - type: loadout
   id: ADTChaplainBible
