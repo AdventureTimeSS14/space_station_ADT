@@ -8,7 +8,7 @@
     - ADTBorgModuleSecurity
 
 - type: entity
-  id: ADTBorgModuleDetention
+  id: ADTBorgModuleDetention   ####
   parent: [ ADTBaseBorgModuleSecurity, BaseProviderBorgModule ]
   name: detentions module
   components:
@@ -18,12 +18,14 @@
     - state: icons-detentions
   - type: ItemBorgModule
     items:
-    - ADTInfCablecuffs
-    - ADTtelescopicBaton
+    - ADTInfCablecuffs5  #ADT-Tweak-Start: SBborgModuleUpdate
+    - ADTBorgStunbaton #ADT-Tweak-Start: SBborgModuleUpdate
+    - ADTWeaponDisablerBorg #ADT-Tweak-Start: SBborgModuleUpdate
     - ADTBorgflash
+    - ADTBorgFlashingLight #ADT-Tweak-Start: SBborgModuleUpdate
 
 - type: entity
-  id: ADTBorgModuleHarm
+  id: ADTBorgModuleCombat ####
   parent: [ ADTBaseBorgModuleSecurity, BaseProviderBorgModule ]
   name: harm module
   components:
@@ -36,19 +38,21 @@
     - Truncheon
     - ADTWeaponLaserCarbineBorg
 
-- type: entity
-  id: ADTBorgModuleDisabler
-  parent: [ ADTBaseBorgModuleSecurity, BaseProviderBorgModule ]
-  name: disabler module
-  components:
-  - type: Sprite
-    layers:
-    - state: security
-    - state: icons-disabler
-  - type: ItemBorgModule
-    items:
-    - ADTInfCablecuffs
-    - ADTWeaponDisablerBorg
+# ADT-Tweak-Start: SBborgModuleUpdate
+#- type: entity
+#  id: ADTBorgModuleDisabler
+#  parent: [ ADTBaseBorgModuleSecurity, BaseProviderBorgModule ]
+#  name: disabler module
+#  components:
+#  - type: Sprite
+#    layers:
+#    - state: security
+#    - state: icons-disabler
+#  - type: ItemBorgModule
+#    items:
+#    - ADTInfCablecuffs
+#    - ADTWeaponDisablerBorg
+# ADT-Tweak-End
 
 - type: entity
   id: ADTBorgModuleRPD
@@ -83,3 +87,79 @@
         - PKA
   - type: BorgModuleIcon
     icon: { sprite: Objects/Weapons/Guns/Basic/kinetic_accelerator.rsi, state: icon }
+
+# Borg Modules Update start
+
+# MED
+- type: entity
+  id: ADTBorgModuleChemical
+  parent: BorgModuleChemical
+  name: chemical cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: medical
+    - state: icon-chem
+  - type: ItemBorgModule
+    items:
+    - HandheldHealthAnalyzerUnpowered
+    - Syringe
+    - Syringe
+    - ADTBorgDrinkGlass
+    - ADTBorgDrinkGlass
+    - ADTBorgDrinkGlass
+
+- type: entity
+  id: ADTBorgModuleAdvancedChemical
+  parent: BorgModuleChemical
+  name: chemical cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: medical
+    - state: icon-chemist
+  - type: ItemBorgModule
+    items:
+    - HandheldHealthAnalyzerUnpowered
+    - BorgHypo
+    - BorgDropper
+    - BorgBeaker
+    - BorgBeaker
+    - HandLabeler
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: adv-chem-module }
+
+- type: entity
+  id: ADTBorgModuleRescue
+  parent: BorgModuleRescue
+  name: rescue cyborg module
+  components:
+  - type: ItemBorgModule
+    items:
+    - HandheldHealthAnalyzerUnpowered
+    - BorgFireExtinguisher
+    - BorgHandheldGPSBasic
+    - HandheldStationMapUnpowered
+    - WeaponGrapplingGun
+    - DefibrillatorOneHandedUnpowered
+
+# SEC
+
+- type: entity
+  id: ADTBorgModuleRifleLecter
+  parent: [ ADTBaseBorgModuleSecurity, BaseProviderBorgModule ]
+  name: lecter cyborg module
+  description: A module that comes with a L6C.
+  components:
+  - type: ItemBorgModule
+    items:
+    - ADTWeaponRifleLecterBorg
+  - type: Sprite
+    sprite: Objects/Specific/Robotics/borgmodule.rsi
+    layers:
+    - state: cargo
+    - state: icon-pka
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: adv-chem-module }
+
+# Borg Modules Update End

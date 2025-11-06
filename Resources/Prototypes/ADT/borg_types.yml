@@ -13,6 +13,7 @@
   defaultModules:
   - BorgModuleTool
   - ADTBorgModuleDetention
+  - ADTBorgModuleRifleLecter
 
   radioChannels:
   - Science
@@ -28,3 +29,6 @@
   # Pet
   petSuccessString: petting-success-generic-cyborg
   petFailureString: petting-failure-generic-cyborg
+  components:
+  - type: EyeProtection
+    protectionTime: 12

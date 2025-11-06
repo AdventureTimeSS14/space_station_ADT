@@ -1,0 +1,62 @@
+- type: entity
+  id: ADTBorgFlashingLight
+  parent: ClothingHeadHelmetBasic
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Helmets/justice.rsi
+    layers:
+      - state: icon
+      - state: icon-light
+        visible: false
+        shader: unshaded
+        map: [ "light" ]
+  - type: Appearance
+  - type: Clothing
+    sprite: Clothing/Head/Helmets/justice.rsi
+    equippedPrefix: off
+  - type: ItemToggle
+    predictable: false # issues between ToggleCellDraw and ItemToggleActiveSound
+    onUse: false
+    soundActivate:
+      path: /Audio/Items/flashlight_on.ogg
+    soundDeactivate:
+      path: /Audio/Items/flashlight_off.ogg
+    soundFailToActivate:
+      path: /Audio/Machines/button.ogg
+  - type: ItemToggleActiveSound
+    activeSound:
+      path: /Audio/Effects/Vehicle/policesiren.ogg
+      params:
+        volume: -4
+  - type: UseDelay
+    delay: 1.0
+  - type: ToggleClothing
+    action: ActionToggleJusticeHelm
+    mustEquip: false
+  - type: ItemTogglePointLight
+  - type: ToggleableVisuals
+    spriteLayer: light
+    clothingVisuals:
+      head:
+      - state: on-equipped-HELMET
+        shader: unshaded
+  - type: PointLight
+    enabled: false
+    radius: 1.4
+    energy: 1.4
+    color: red
+    netsync: false
+    mask: /Textures/Effects/LightMasks/double_cone.png
+  - type: RotatingLight
+    speed: 360
+  - type: ToggleCellDraw
+  - type: Construction
+    graph: HelmetJustice
+    node: helmet
+  - type: HideLayerClothing
+    layers:
+      Hair: HEAD
+  #ADT-Tweak-Start
+  - type: CoveredSlot
+    slots: [eyes]
+  #ADT-Tweak-End
