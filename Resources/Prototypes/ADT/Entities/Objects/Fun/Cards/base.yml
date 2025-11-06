@@ -24,7 +24,7 @@
       - CardDeck
   - type: OpenTriggeredStorageFill
     contents:
-    - id: CardDeckBase
+    - id: ADTCardDeckBase
       amount: 1
   - type: Appearance
   - type: StaticPrice # Frontier
