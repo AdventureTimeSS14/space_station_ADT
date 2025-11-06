@@ -485,3 +485,37 @@
     equipSound:
       path: /Audio/Items/belt_equip.ogg
     quickEquip: false
+
+#Zero clothing-start
+- type: entity
+  parent: [ClothingBeltBase, ClothingSlotBase]
+  id: ADTClothingBeltSheathZero
+  name: Zero's sabre sheath
+  description: An ornate sheath designed to hold a katana.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Belt/blade_zero.rsi
+    state: sheath
+  - type: Clothing
+    sprite: ADT/Clothing/Belt/blade_zero.rsi
+  - type: Item
+    size: Ginormous
+  - type: ItemSlots
+    slots:
+      item:
+        name: Sabre
+        insertVerbText: sheath-insert-verb
+        ejectVerbText: sheath-eject-verb
+        insertSound: /Audio/Items/sheath.ogg
+        ejectSound: /Audio/Items/unsheath.ogg
+        whitelist:
+          tags:
+          - ADTZeroKatana
+  - type: ItemMapper
+    mapLayers:
+      sheath-blade:
+        whitelist:
+          tags:
+          - ADTZeroKatana
+  - type: Appearance
+#Zero-items-end

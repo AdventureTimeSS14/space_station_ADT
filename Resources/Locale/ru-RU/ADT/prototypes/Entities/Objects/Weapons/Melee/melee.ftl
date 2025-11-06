@@ -118,3 +118,9 @@ ent-ADTbureaucratCane = трость тринадцатого совета
 
 ent-ADTTacticBat = тактическая бита
     .desc = Raise up your bat for the burning fight!
+
+ent-ADTZerosKatanaCosplay = Катана Зеро
+    .desc = Выполненная из неопасных материалов катана, что способна показать всем Ваш новый облик самурая
+
+ent-ADTZerosKatanaReal = Катана Зеро
+    .desc = Стальная катана истинного самурая! Загляните в близкое будущие, чтобы узнать все тонкости поведения врага

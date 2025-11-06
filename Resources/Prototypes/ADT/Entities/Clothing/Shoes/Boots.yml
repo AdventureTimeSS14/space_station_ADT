@@ -81,7 +81,7 @@
   - type: ClothingSlowOnDamageModifier
     modifier: 0.5
 
-# Боты деку, ага 
+# Боты деку, ага
 
 - type: entity
   parent: ClothingShoesBootsJack
@@ -93,7 +93,7 @@
     sprite: ADT/Clothing/Shoes/Boots/old_detective_boots.rsi
   - type: Clothing
     sprite: ADT/Clothing/Shoes/Boots/old_detective_boots.rsi
-    
+
 # Ковбойские боты СБ
 
 - type: entity
@@ -156,3 +156,17 @@
       collection: FootstepSpurs
       params:
         variation: 0.09
+
+#Zero clothing-start
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ADTClothingShoesZero
+  name: Zero sandals
+  description: Sandals of some guy
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Shoes/Boots/sandals_zero.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Shoes/Boots/sandals_zero.rsi
+
+#Zero clothing-end

@@ -14,9 +14,9 @@
     #ADTClothingOuterBlackCardigan: 2
     #ADTClothingUnderwearStockingsHeart: 2
 # Конец одежда на 14 февраля
-    ClothingBackpack: 5
-    ClothingBackpackDuffel: 5
-    ClothingBackpackSatchel: 3
+    ClothingBackpack: 3
+    ClothingBackpackDuffel: 3
+    ClothingBackpackSatchel: 2
 # ADT tweak gloves start
     ADTClothingHandsCatPawsWhite: 3
     ADTClothingHandsCatPawsBrown: 3
@@ -35,17 +35,17 @@
     ADTClothingUnderwearBottomBriefsWhite: 3
     ADTClothingUnderwearBottomBoxersAmerica: 2
     ADTClothingUnderwearBottomBoxersBoom: 2
-    ADTClothingUnderwearBottomPantiesComfyWhite: 4
-    ADTClothingUnderwearTopBraWhite: 4
-    ADTClothingUnderwearTopBraComfyWhite: 4
+    ADTClothingUnderwearBottomPantiesComfyWhite: 3
+    ADTClothingUnderwearTopBraWhite: 3
+    ADTClothingUnderwearTopBraComfyWhite: 3
 # конец белья
     ADTClothingNeckDarkGreyCloak: 1
     ADTClothingNeckGothicCloak: 1
 # ADT бельё/обмотки/плащи/носки конец
     ADTClothingSandals: 2
-    ClothingRandomSpawner: 8
-    ClothingUniformRandomShorts: 4
-    ClothingHeadHatBeret: 4
+    ClothingRandomSpawner: 4
+    ClothingUniformRandomShorts: 3
+    ClothingHeadHatBeret: 3
     ClothingHeadBandBlack: 2
     ClothingHeadBandBlue: 2
     ClothingHeadBandGreen: 2
@@ -53,8 +53,8 @@
     ClothingHeadBandSkull: 2
     ClothingHeadHatGreyFlatcap: 3
     ClothingHeadHatBrownFlatcap: 3
-    ClothingUniformJumpsuitColorGrey: 8
-    ClothingUniformJumpskirtColorGrey: 8
+    ClothingUniformJumpsuitColorGrey: 4
+    ClothingUniformJumpskirtColorGrey: 4
     ClothingUniformJumpsuitColorWhite: 3
     ClothingUniformJumpskirtColorWhite: 3
     ClothingUniformJumpsuitColorBlack: 3
@@ -159,7 +159,7 @@
     ADTClothingFootWrapsBrown: 2
     ADTClothingFootWrapsHighBrown: 2
     # ADT бельё/обмотки/плащи конец
-    ClothingShoesColorBlack: 8
+    ClothingShoesColorBlack: 4
     ClothingShoesColorBrown: 4
     ClothingShoesColorWhite: 3
     ClothingShoesColorBlue: 2
@@ -168,7 +168,7 @@
     ClothingShoesColorOrange: 2
     ClothingShoesColorRed: 2
     ClothingShoesColorPurple: 2
-    ClothingHeadHatGreysoft: 8
+    ClothingHeadHatGreysoft: 4
     ClothingHeadHatMimesoft: 3
     ClothingHeadHatBluesoft: 2
     ClothingHeadHatYellowsoft: 2
@@ -236,6 +236,12 @@
     ADTClothingOuterLeatherJacket: 1
     ADTClothingOuterBikerJacket: 1
 # ADT Кожанки, все распродали :c
+    #ADT-Tweak-Zero-Items-start
+    ADTClothingBeltSheathZeroCosplayFilled: 2
+    ADTClothingUniformKimanoZero: 2
+    ADTClothingShoesZero: 2
+    ADTClothingHeadZeroHairstyle: 4
+    #ADT-Tweak-Zero-Items-end
 
 # DO NOT ADD MORE, USE UNIFORM DYING
   contrabandInventory:
@@ -246,4 +252,6 @@
     ToyFigurineGreytider: 1
     ClothingBackpackSatchelSmugglerUnanchored: 1
     ClothingHeadHatSolidHeadband: 2
+    ADTClothingBeltSheathZeroFilled: 1 #ADT Zero items-start
+    ADTClothingUniformKimanoArmoredZero: 1 #ADT Zero items-end
   # DO NOT ADD MORE, USE UNIFORM DYING

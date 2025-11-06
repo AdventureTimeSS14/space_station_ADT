@@ -16,6 +16,7 @@ marking-ADTHumanHairPigtailtajaran = Косичка-таджаран
 marking-ADTHumanHairShavedside = Выбритая сторона
 marking-ADTHumanHairShorthaired = Коротко стриженные волосы
 marking-ADTHumanWomenbun = Женский пучок
+marking-ADTHumanZeroHairstyle = Зиро
 
 marking-ADTHumanHairBraidedExtension = Удлиненные косы
 marking-ADTHumanHairCometTail = Хвост кометы

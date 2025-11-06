@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Created by discord:prazat911",
+    "copyright": "Created by discord:prazat911, zero_hairstyle was created by dyscord: ryslan32 and modified for customisation by discord: firemix_",
     "size": {
         "x": 32,
         "y": 32
@@ -297,6 +297,10 @@
         },
         {
             "name": "tattoo_serpenttemptation",
+            "directions": 4
+        },
+        {
+            "name": "zero_hairstyle",
             "directions": 4
         }
     ]
