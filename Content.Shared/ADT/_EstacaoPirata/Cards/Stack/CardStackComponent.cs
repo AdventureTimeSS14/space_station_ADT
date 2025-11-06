@@ -4,7 +4,7 @@ using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared._EstacaoPirata.Cards.Stack;
+namespace Content.Shared.ADT._EstacaoPirata.Cards.Stack;
 
 /// <summary>
 /// This is used for holding the prototype ids of the cards in the stack or hand.
@@ -13,16 +13,16 @@ namespace Content.Shared._EstacaoPirata.Cards.Stack;
 
 public sealed partial class CardStackComponent : Component
 {
-    [DataField("content")]
+    [DataField]
     public List<EntProtoId> InitialContent = [];
 
-    [DataField("shuffleSound")]
+    [DataField]
     public SoundSpecifier ShuffleSound = new SoundCollectionSpecifier("cardFan");
 
-    [DataField("pickUpSound")]
+    [DataField]
     public SoundSpecifier PickUpSound = new SoundCollectionSpecifier("cardSlide");
 
-    [DataField("placeDownSound")]
+    [DataField]
     public SoundSpecifier PlaceDownSound = new SoundCollectionSpecifier("cardShove");
 
 

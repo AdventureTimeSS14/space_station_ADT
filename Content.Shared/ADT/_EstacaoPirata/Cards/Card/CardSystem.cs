@@ -1,6 +1,6 @@
-using Content.Shared._EstacaoPirata.Cards.Deck;
-using Content.Shared._EstacaoPirata.Cards.Hand;
-using Content.Shared._EstacaoPirata.Cards.Stack;
+using Content.Shared.ADT._EstacaoPirata.Cards.Deck;
+using Content.Shared.ADT._EstacaoPirata.Cards.Hand;
+using Content.Shared.ADT._EstacaoPirata.Cards.Stack;
 using Content.Shared.Examine;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
@@ -12,7 +12,7 @@ using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
-namespace Content.Shared._EstacaoPirata.Cards.Card;
+namespace Content.Shared.ADT._EstacaoPirata.Cards.Card;
 
 /// <summary>
 /// This handles...
@@ -70,9 +70,10 @@ public sealed class CardSystem : EntitySystem
         }
         else if (TryComp<CardComponent>(args.Using, out var usingCard))
         {
+            var pickup = _hands.IsHolding(args.User, args.Target);
             args.Verbs.Add(new AlternativeVerb()
             {
-                Act = () => _cardHand.TrySetupHandOfCards(args.User, args.Target, component, args.Using.Value, usingCard, false),
+                Act = () => _cardHand.TrySetupHandOfCards(args.User, args.Target, component, args.Using.Value, usingCard, pickup),
                 Text = Loc.GetString("card-verb-join"),
                 Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/refresh.svg.192dpi.png")),
                 Priority = 2
@@ -107,7 +108,7 @@ public sealed class CardSystem : EntitySystem
     {
         if (_net.IsClient)
             return;
-
+        bool pickup = _hands.IsHolding(user, first);
         EntityUid cardStack;
         bool? flip = null;
         if (HasComp<CardDeckComponent>(second))
@@ -131,6 +132,8 @@ public sealed class CardSystem : EntitySystem
         _cardStack.TransferNLastCardFromStacks(user, secondStack.Cards.Count, second, secondStack, cardStack, stack);
         if (flip != null)
             _cardStack.FlipAllCards(cardStack, stack, flip); //???
+        if(pickup)
+            _hands.TryPickupAnyHand(user, cardStack);
     }
 
     // Frontier: tries to spawn an entity with the same parent as another given entity.

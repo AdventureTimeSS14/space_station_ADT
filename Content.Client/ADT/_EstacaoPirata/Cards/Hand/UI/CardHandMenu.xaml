@@ -1,6 +1,6 @@
 <ui:RadialMenu xmlns="https://spacestation14.io"
                 xmlns:ui="clr-namespace:Content.Client.UserInterface.Controls"
-                xmlns:cardhand="Content.Client._EstacaoPirata.Cards.Hand.UI"
+                xmlns:cardhand="Content.Client.ADT._EstacaoPirata.Cards.Hand.UI"
                 BackButtonStyleClass="RadialMenuBackButton"
                 CloseButtonStyleClass="RadialMenuCloseButton"
                 VerticalExpand="True"
@@ -8,5 +8,5 @@
                 MinSize="450 450">
 
 
-    <ui:RadialContainer Name="Main" VerticalExpand="True" HorizontalExpand="True" Radius="64" ReserveSpaceForHiddenChildren="False"></ui:RadialContainer>
+    <ui:RadialContainer Name="Main" VerticalExpand="True" HorizontalExpand="True" InitialRadius="100" ReserveSpaceForHiddenChildren="False"></ui:RadialContainer>
 </ui:RadialMenu>

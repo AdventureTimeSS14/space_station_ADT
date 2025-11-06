@@ -1,5 +1,5 @@
-using Content.Shared._EstacaoPirata.Cards.Card;
-using Content.Shared._EstacaoPirata.Cards.Stack;
+using Content.Shared.ADT._EstacaoPirata.Cards.Card;
+using Content.Shared.ADT._EstacaoPirata.Cards.Stack;
 using Content.Shared.Audio;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
@@ -13,11 +13,10 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
 
-namespace Content.Shared._EstacaoPirata.Cards.Deck;
+namespace Content.Shared.ADT._EstacaoPirata.Cards.Deck;
 
 /// <summary>
-/// This handles card decks
-///
+///     This handles card decks
 /// </summary>
 public sealed class CardDeckSystem : EntitySystem
 {
@@ -28,7 +27,7 @@ public sealed class CardDeckSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
-    public readonly EntProtoId CardDeckBaseName = "CardDeckBase";
+    public readonly EntProtoId CardDeckBaseName = "ADTCardDeckBase";
 
     /// <inheritdoc/>
     public override void Initialize()
