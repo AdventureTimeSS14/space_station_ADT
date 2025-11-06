@@ -18,6 +18,7 @@ using Robust.Server.Audio;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
+using Content.Shared.SSDIndicator;
 
 namespace Content.Server.ADT.Salvage.Systems;
 
@@ -49,13 +50,16 @@ public sealed class CursedHeartSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        var query = EntityQueryEnumerator<CursedHeartComponent>();
-        while (query.MoveNext(out var uid, out var comp))
+        var query = EntityQueryEnumerator<CursedHeartComponent, SSDIndicatorComponent>();
+        while (query.MoveNext(out var uid, out var comp, out var ssd))
         {
             if (_mobState.IsDead(uid))
                 continue;
 
             if (comp.IsStopped)
+                continue;
+
+            if (ssd.IsSSD)
                 continue;
 
             if (_timing.CurTime >= comp.LastPump + TimeSpan.FromSeconds(comp.MaxDelay))
