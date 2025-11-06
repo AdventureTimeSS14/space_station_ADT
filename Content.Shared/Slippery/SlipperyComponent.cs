@@ -45,6 +45,14 @@ namespace Content.Shared.Slippery
         /// </summary>
         [DataField, AutoNetworkedField]
         public SlipperyEffectEntry SlipData = new();
+
+        //ADT-tweak-start
+        /// <summary>
+        /// Игнорирует ли эта хрень слоты
+        /// </summary>
+        [DataField, AutoNetworkedField]
+        public bool IgnoreSlots = true;
+        //ADT-tweak-end
     }
     /// <summary>
     /// Stores the data for slipperiness that way reagents and this component can use it.

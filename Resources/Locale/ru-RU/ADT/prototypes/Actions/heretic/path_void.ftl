@@ -1,8 +1,8 @@
-action-heretic-void-blast-name = Пусотный выстрел
-action-heretic-void-blast-desc = Выстрелите перед собой конусом льда.
+ent-ActionHereticVoidBlast = Пустотный выстрел
+    .desc = Выстрелите перед собой конусом льда.
 
-action-heretic-void-phase-name = Пустотный рывой
-action-heretic-void-phase-desc = Сделайте рывок сквозь пустоту, сбивая с ног всех вокруг.
+ent-ActionHereticVoidPhase = Пустотный рывок
+    .desc = Сделайте рывок сквозь пустоту, сбивая с ног всех вокруг.
 
-action-heretic-void-pull-name = Тяга к пустоте
-action-heretic-void-pull-desc = Притягивайте и повреждайте ближайших язычников.
+ent-ActionHereticVoidPull = Тяга к пустоте
+    .desc = Притягивайте и повреждайте ближайших язычников.

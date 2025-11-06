@@ -420,6 +420,7 @@
       - id: ClothingShoesSkates
       - id: RubberChicken
       #ADT tweak start
+      - id: ADTWeaponRevolverRussian
       - id: ADTToyBlasterGunGreen
         orGroup: Blaster
         prob: 0.33

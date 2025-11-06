@@ -1,4 +1,28 @@
 - type: factionIcon
+  id: BloodBrotherFaction
+  isShaded: true
+  priority: 11
+  showTo:
+    components:
+      - ShowAntagIcons
+      - BloodBrother
+  icon:
+    sprite: /Textures/ADT/Interface/Misc/job_icons.rsi
+    state: BloodBrother
+
+- type: factionIcon
+  id: BloodBrotherLeaderFaction
+  isShaded: true
+  priority: 11
+  showTo:
+    components:
+      - ShowAntagIcons
+      - BloodBrother
+  icon:
+    sprite: /Textures/ADT/Interface/Misc/job_icons.rsi
+    state: BloodBrotherLead
+
+- type: factionIcon
   id: PhantomVesselFaction
   priority: 11
   icon:
