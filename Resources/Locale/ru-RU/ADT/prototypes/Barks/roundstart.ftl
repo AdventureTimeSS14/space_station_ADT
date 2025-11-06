@@ -73,6 +73,4 @@ bark-minecrafticechime-name = Ветряной колокольчик (Minecraft
 bark-minecraftironxylophone-name = Вибрафон (Minecraft)
 bark-minecraftpling-name = Синтезатор (Minecraft)
 bark-minecraftxylobone-name = Ксилофон (Minecraft)
-bark-weh-name = weh
-bark-merp-name = merp
 bark-sam-name = TTS Сэм (Microsoft)
