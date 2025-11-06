@@ -48,9 +48,9 @@
   - type: Bloodstream
     bloodReagent: ResomiBlood
   - type: Temperature
-    heatDamageThreshold: 325
-    coldDamageThreshold: 230
-    currentTemperature: 310.15
+    heatDamageThreshold: 303 # 30°C - резоми перегреваются при более низкой температуре
+    coldDamageThreshold: 200 # -73°C - резоми устойчивы к холоду
+    currentTemperature: 300.15 # 27°C - пониженная базовая температура тела
     specificHeat: 42
     coldDamage:
       types:
@@ -60,11 +60,13 @@
         Heat : 1.5 #per second, scales with temperature & other constants
   - type: TemperatureSpeed
     thresholds:
-      260: 0.8
-      250: 0.6
-      230: 0.4
+      200: 0.9 # Замедление при более низких температурах
+      190: 0.7
+      180: 0.5
   - type: ThermalRegulator
-    normalBodyTemperature: 300.15
+    normalBodyTemperature: 300.15 # 27°C - нормальная температура тела резоми
+  - type: TemperatureProtection
+    coefficient: 0.6 # Резоми медленнее теряют температуру (как теплая куртка)
 
   # Fixtures
   - type: Fixtures
