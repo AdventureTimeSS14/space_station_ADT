@@ -5,4 +5,4 @@ reagent-comp-condition-heretic-or-ghoul = еретик или гуль
 
 reagent-physical-desc-eldritch = зловещий
 
-flavor-complex-eldritch = Аг'Хидж'Садж'Сиь
+flavor-complex-eldritch = Аг'хсй'сай'ш
