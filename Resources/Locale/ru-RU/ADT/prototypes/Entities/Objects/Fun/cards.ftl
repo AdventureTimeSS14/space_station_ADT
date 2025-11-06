@@ -45,7 +45,7 @@ card-sc-10-clubs = десятка треф
 card-sc-ace-clubs = туз треф
 card-sc-jack-clubs = валет треф
 card-sc-king-clubs = король треф
-card-sc-queen-clubs= дама треф
+card-sc-queen-clubs = дама треф
 
 card-sc-2-diamonds = двойка бубен
 card-sc-3-diamonds = тройка бубен
