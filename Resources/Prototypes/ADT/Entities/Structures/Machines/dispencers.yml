@@ -100,97 +100,97 @@
       Sulfur: 5
   - type: Appearance
 
-- type: entity
-  parent: EnergyChemDispenser
-  id: ADTSodaEnergyDispenser
-  name: soda dispenser
-  description: A beverage dispenser with a selection of soda and several other common beverages.
-  suffix: Empty
-  components:
-  - type: Rotatable
-  - type: Sprite
-    sprite: Structures/smalldispensers.rsi
-    drawdepth: SmallObjects
-    state: soda
-  - type: Transform
-    noRot: false
-  - type: Machine
-    board: SodaDispenserMachineCircuitboard
-  - type: GuideHelp
-    guides:
-    - Bartender
-    - Drinks
-  - type: EnergyReagentDispenser
-    energyBeakerSlot:
-      whitelistFailPopup: reagent-dispenser-component-cannot-put-entity-message
-      whitelist:
-        components:
-        - FitsInDispenser
-    reagents:
-      CoconutWater: 6
-      Coffee: 12
-      Cola: 12
-      Cream: 6
-      DrGibb: 40
-      EnergyDrink: 100
-      GreenTea: 9
-      Ice: 10
-      JuiceLime: 8
-      JuiceOrange: 8
-      LemonLime: 12
-      RootBeer: 8
-      SodaWater: 6
-      SpaceMountain: 5
-      SpaceUp: 8
-      Sugar: 8
-      Tea: 6
-      TonicWater: 5
-      JuiceWatermelon: 5
+# - type: entity
+#   parent: EnergyChemDispenser
+#   id: ADTSodaEnergyDispenser
+#   name: soda dispenser
+#   description: A beverage dispenser with a selection of soda and several other common beverages.
+#   suffix: Empty
+#   components:
+#   - type: Rotatable
+#   - type: Sprite
+#     sprite: Structures/smalldispensers.rsi
+#     drawdepth: SmallObjects
+#     state: soda
+#   - type: Transform
+#     noRot: false
+#   - type: Machine
+#     board: SodaDispenserMachineCircuitboard
+#   - type: GuideHelp
+#     guides:
+#     - Bartender
+#     - Drinks
+#   - type: EnergyReagentDispenser
+#     energyBeakerSlot:
+#       whitelistFailPopup: reagent-dispenser-component-cannot-put-entity-message
+#       whitelist:
+#         components:
+#         - FitsInDispenser
+#     reagents:
+#       CoconutWater: 6
+#       Coffee: 12
+#       Cola: 12
+#       Cream: 6
+#       DrGibb: 40
+#       EnergyDrink: 100
+#       GreenTea: 9
+#       Ice: 10
+#       JuiceLime: 8
+#       JuiceOrange: 8
+#       LemonLime: 12
+#       RootBeer: 8
+#       SodaWater: 6
+#       SpaceMountain: 5
+#       SpaceUp: 8
+#       Sugar: 8
+#       Tea: 6
+#       TonicWater: 5
+#       JuiceWatermelon: 5
 
-- type: entity
-  id: ADTBoozeEnergyDispenser
-  name: booze dispenser
-  suffix: Empty
-  description: A booze dispenser.
-  parent: EnergyChemDispenser
-  components:
-  - type: Rotatable
-  - type: Sprite
-    sprite: Structures/smalldispensers.rsi
-    drawdepth: SmallObjects
-    state: booze
-  - type: Storage
-    openOnActivate: false
-    whitelist:
-      tags:
-      - DrinkBottle
-      - ChemDispensable
-  - type: Transform
-    noRot: false
-  - type: Machine
-    board: BoozeDispenserMachineCircuitboard
-  - type: GuideHelp
-    guides:
-    - Bartender
-    - Drinks
-  - type: StealTarget
-    stealGroup: BoozeDispenser
-  - type: EnergyReagentDispenser
-    energyBeakerSlot:
-      whitelistFailPopup: reagent-dispenser-component-cannot-put-entity-message
-      whitelist:
-        components:
-        - FitsInDispenser
-    reagents:
-      Ale: 6
-      Beer: 6
-      Coffee: 12
-      Cognac: 6
-      Gin: 6
-      Mead: 6
-      Rum: 6
-      Tequila: 6
-      Vermouth: 6
-      Vodka: 6
-      Whiskey: 6
-      Wine: 6
+# - type: entity
+#   id: ADTBoozeEnergyDispenser
+#   name: booze dispenser
+#   suffix: Empty
+#   description: A booze dispenser.
+#   parent: EnergyChemDispenser
+#   components:
+#   - type: Rotatable
+#   - type: Sprite
+#     sprite: Structures/smalldispensers.rsi
+#     drawdepth: SmallObjects
+#     state: booze
+#   - type: Storage
+#     openOnActivate: false
+#     whitelist:
+#       tags:
+#       - DrinkBottle
+#       - ChemDispensable
+#   - type: Transform
+#     noRot: false
+#   - type: Machine
+#     board: BoozeDispenserMachineCircuitboard
+#   - type: GuideHelp
+#     guides:
+#     - Bartender
+#     - Drinks
+#   - type: StealTarget
+#     stealGroup: BoozeDispenser
+#   - type: EnergyReagentDispenser
+#     energyBeakerSlot:
+#       whitelistFailPopup: reagent-dispenser-component-cannot-put-entity-message
+#       whitelist:
+#         components:
+#         - FitsInDispenser
+#     reagents:
+#       Ale: 6
+#       Beer: 6
+#       Coffee: 12
+#       Cognac: 6
+#       Gin: 6
+#       Mead: 6
+#       Rum: 6
+#       Tequila: 6
+#       Vermouth: 6
+#       Vodka: 6
+#       Whiskey: 6
+#       Wine: 6
