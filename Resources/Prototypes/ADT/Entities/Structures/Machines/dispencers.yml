@@ -33,6 +33,17 @@
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: Metallic
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25, -0.4, 0.25, 0.4"
+        density: 190
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
   - type: Destructible
     thresholds:
     - trigger:
@@ -112,8 +123,6 @@
 #     sprite: Structures/smalldispensers.rsi
 #     drawdepth: SmallObjects
 #     state: soda
-#   - type: Transform
-#     noRot: false
 #   - type: Machine
 #     board: SodaDispenserMachineCircuitboard
 #   - type: GuideHelp
@@ -165,8 +174,6 @@
 #       tags:
 #       - DrinkBottle
 #       - ChemDispensable
-#   - type: Transform
-#     noRot: false
 #   - type: Machine
 #     board: BoozeDispenserMachineCircuitboard
 #   - type: GuideHelp
