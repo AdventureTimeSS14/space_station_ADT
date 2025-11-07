@@ -1,0 +1,364 @@
+# Forgotten god 
+- type: entity
+  abstract: true
+  id: ADTMobForgottenGodBase
+  name: The Forgotten God
+  description: Your mind begins to bubble and ooze as it tries to comprehend what it sees.
+  components:
+  - type: Sprite
+    sprite: ADT/Mobs/Demons/Gods/forgotten_god.rsi
+    drawdepth: Ghosts
+    scale: 1.5,1.5
+    layers:
+    - state: god_breathe
+      shader: unshaded
+
+- type: entity
+  parent: ADTMobForgottenGodBase
+  id: ADTMobForgottenGodSpawn
+  suffix: ДАЖЕ НЕ ТРОГАТЬ, Спавн
+  components:
+  - type: Sprite
+    layers:
+    - state: god_avakening
+      shader: unshaded
+  - type: TimedDespawn
+    lifetime: 4.25
+  - type: SpawnOnDespawn
+    prototype: ADTMobForgottenGod
+
+- type: entity
+  parent: [ADTMobForgottenGodBase, BaseMob]
+  id: ADTMobForgottenGod
+  suffix: ДАЖЕ НЕ ТРОГАТЬ
+  components:
+  - type: CargoSellBlacklist
+  - type: ContentEye
+    maxZoom: 2.0,2.0
+  - type: Fixtures
+    fixtures:
+      EventHorizonCollider:
+        shape:
+          !type:PhysShapeCircle
+            radius: 5
+        hard: false
+        restitution: 0.8
+        density: 99999
+        mask:
+        - SingularityLayer
+        layer:
+        - SingularityLayer
+      EventHorizonConsumer:
+        shape:
+          !type:PhysShapeCircle
+            radius: 5
+        hard: false
+        mask:
+        - SingularityLayer
+        layer:
+        - SingularityLayer
+  - type: Input
+    context: "ghost"
+  - type: MovementIgnoreGravity
+  - type: IntrinsicRadioReceiver
+  - type: ActiveRadio
+    channels:
+    - Binary
+    - Common
+    - Command
+    - CentCom
+    - Engineering
+    - Medical
+    - Science
+    - Security
+    - Service
+    - Supply
+    - Syndicate
+    globalReceive: true
+  - type: Physics
+    bodyType: Dynamic
+    bodyStatus: InAir
+  - type: CanMoveInAir
+  - type: WarpPoint
+    follow: true
+    location: Forgotten
+  - type: GravityWell
+    baseRadialAcceleration: 6
+    maxRange: 8
+  - type: RadiationSource
+    slope: 0.2
+    intensity: 2
+
+- type: entity
+  parent: ADTMobForgottenGodBase
+  id: ADTMobForgottenGodSpawnAnnounce
+  suffix: ДАЖЕ НЕ ТРОГАТЬ, Спавн с объявлением
+  components:
+  - type: Sprite
+    layers:
+    - state: god_avakening
+      shader: unshaded
+  - type: TimedDespawn
+    lifetime: 4.25
+  - type: SpawnOnDespawn
+    prototype: ADTMobForgottenGodAnnounce
+
+- type: entity
+  parent: [ADTMobForgottenGodBase, BaseMob]
+  id: ADTMobForgottenGodAnnounce
+  suffix: ДАЖЕ НЕ ТРОГАТЬ, Объявление
+  components:
+  - type: AnnounceOnSpawn
+    message: forgotten-has-risen
+    sender: narsie-has-risen-sender
+    sound:
+      path: /Audio/Misc/narsie_rises.ogg
+    color: red
+  - type: CargoSellBlacklist
+  - type: ContentEye
+    maxZoom: 2.0,2.0
+  - type: Fixtures
+    fixtures:
+      EventHorizonCollider:
+        shape:
+          !type:PhysShapeCircle
+            radius: 5
+        hard: false
+        restitution: 0.8
+        density: 99999
+        mask:
+        - SingularityLayer
+        layer:
+        - SingularityLayer
+      EventHorizonConsumer:
+        shape:
+          !type:PhysShapeCircle
+            radius: 5
+        hard: false
+        mask:
+        - SingularityLayer
+        layer:
+        - SingularityLayer
+  - type: Input
+    context: "ghost"
+  - type: MovementIgnoreGravity
+  # narnar hears all
+  - type: IntrinsicRadioReceiver
+  - type: ActiveRadio
+    channels:
+    - Binary
+    - Common
+    - Command
+    - CentCom
+    - Engineering
+    - Medical
+    - Science
+    - Security
+    - Service
+    - Supply
+    - Syndicate
+    globalReceive: true
+  - type: Physics
+    bodyType: Dynamic
+    bodyStatus: InAir
+  - type: CanMoveInAir
+  - type: WarpPoint
+    follow: true
+    location: Forgotten
+  - type: GravityWell
+    baseRadialAcceleration: 6
+    maxRange: 8
+  - type: RadiationSource
+    slope: 0.2
+    intensity: 1
+
+# Creator god
+
+- type: entity
+  abstract: true
+  id: ADTMobCreatorGodBase
+  name: The Creator
+  description: Your mind begins to bubble and ooze as it tries to comprehend what it sees.
+  components:
+  - type: Sprite
+    sprite: ADT/Mobs/Demons/Gods/creator_god.rsi
+    drawdepth: Ghosts
+    scale: 1.5,1.5
+    layers:
+    - state: creator
+      shader: unshaded
+
+- type: entity
+  parent: ADTMobCreatorGodBase
+  id: ADTMobCreatorGodSpawn
+  suffix: ДАЖЕ НЕ ТРОГАТЬ, Спавн
+  components:
+  - type: Sprite
+    sprite: ADT/Mobs/Demons/Gods/creator_god.rsi
+    layers:
+    - state: creator_avakening
+      shader: unshaded
+  - type: TimedDespawn
+    lifetime: 2.25
+  - type: SpawnOnDespawn
+    prototype: ADTMobCreatorGod
+
+- type: entity
+  parent: [ADTMobCreatorGodBase, BaseMob]
+  id: ADTMobCreatorGod
+  suffix: ДАЖЕ НЕ ТРОГАТЬ
+  components:
+  - type: CargoSellBlacklist
+  - type: ContentEye
+    maxZoom: 2.0,2.0
+  - type: Fixtures
+    fixtures:
+      EventHorizonCollider:
+        shape:
+          !type:PhysShapeCircle
+            radius: 5
+        hard: false
+        restitution: 0.8
+        density: 99999
+        mask:
+        - SingularityLayer
+        layer:
+        - SingularityLayer
+      EventHorizonConsumer:
+        shape:
+          !type:PhysShapeCircle
+            radius: 5
+        hard: false
+        mask:
+        - SingularityLayer
+        layer:
+        - SingularityLayer
+  - type: Input
+    context: "ghost"
+  - type: MovementIgnoreGravity
+  - type: IntrinsicRadioReceiver
+  - type: ActiveRadio
+    channels:
+    - Binary
+    - Common
+    - Command
+    - CentCom
+    - Engineering
+    - Medical
+    - Science
+    - Security
+    - Service
+    - Supply
+    - Syndicate
+    globalReceive: true
+  - type: Physics
+    bodyType: Dynamic
+    bodyStatus: InAir
+  - type: CanMoveInAir
+  - type: WarpPoint
+    follow: true
+    location: Creator
+
+# Vastness god
+
+- type: entity
+  parent: BaseMob
+  id: ADTMobVastnessGod
+  name: A Look at the Vastness of Space
+  description: It seems to be much deeper than you could have imagined. Goosebumps creep up your body, because he knows.
+  components:
+  - type: Sprite
+    sprite: ADT/Mobs/Demons/Gods/vastness_space.rsi # HOLY F#CK 512x256
+    drawdepth: Ghosts
+    scale: 1.5,1.5
+    layers:
+    - state: vastness
+      shader: unshaded
+  - type: CargoSellBlacklist
+  - type: ContentEye
+    maxZoom: 2.0,2.0
+  - type: Fixtures
+    fixtures:
+      EventHorizonCollider:
+        shape:
+          !type:PhysShapeCircle
+            radius: 5
+        hard: false
+        restitution: 0.8
+        density: 99999
+        mask:
+        - SingularityLayer
+        layer:
+        - SingularityLayer
+      EventHorizonConsumer:
+        shape:
+          !type:PhysShapeCircle
+            radius: 5
+        hard: false
+        mask:
+        - SingularityLayer
+        layer:
+        - SingularityLayer
+  - type: Input
+    context: "ghost"
+  - type: MovementIgnoreGravity
+  - type: IntrinsicRadioReceiver
+  - type: ActiveRadio
+    channels:
+    - Binary
+    - Common
+    - Command
+    - CentCom
+    - Engineering
+    - Medical
+    - Science
+    - Security
+    - Service
+    - Supply
+    - Syndicate
+    globalReceive: true
+  - type: Physics
+    bodyType: Dynamic
+    bodyStatus: InAir
+  - type: CanMoveInAir
+  - type: WarpPoint
+    follow: true
+    location: Vastness
+
+# Corrupted god
+
+- type: entity
+  parent: ADTMobVastnessGod
+  id: ADTMobCorruptedGod
+  name: Corrupted Deity
+  description: An ancient evil that has long since lost its original form.
+  components:
+  - type: Sprite
+    sprite: ADT/Mobs/Demons/Gods/corrupted_god.rsi 
+    drawdepth: Ghosts
+    scale: 1.5,1.5
+    layers:
+    - state: corrupted_god
+      shader: unshaded
+  - type: WarpPoint
+    follow: true
+    location: Corrupted God
+
+# Depravity god
+
+- type: entity
+  parent: ADTMobVastnessGod
+  id: ADTMobDepravityGod
+  name: Apostle of Depravity
+  description: The creature is enormous and emits a strong heat, and beneath its robe is a fire that exudes hatred. Its body, composed of an unknown substance, pulsates with internal forces.
+  components:
+  - type: Sprite
+    sprite: ADT/Mobs/Demons/Gods/depravity_god.rsi 
+    drawdepth: Ghosts
+    scale: 1,1
+    layers:
+    - state: depravity_god
+      shader: unshaded
+  - type: WarpPoint
+    follow: true
+    location: Apostle of Depravity
