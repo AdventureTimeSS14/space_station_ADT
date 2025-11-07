@@ -138,7 +138,7 @@ public sealed partial class PTLSystem : EntitySystem
         var evil = (float) (charge * ent.Comp1.EvilMultiplier);
 
         if (TryComp<RadiationSourceComponent>(ent, out var rad))
-            rad.Intensity = evil;
+            rad.Intensity = evil/8;
 
         _flash.FlashArea(ent, ent, evil/2, TimeSpan.FromMilliseconds(evil/2));
 
