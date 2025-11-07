@@ -1,0 +1,688 @@
+- type: entity
+  parent: ADTCardBase
+  id: ADTCardBaseSyndicate
+  name: card
+  categories: [ HideSpawnMenu ] # Frontier
+  components:
+    - type: Card
+      backSprite:
+      - sprite: ADT/Objects/Fun/cards.rsi
+        state: singlecard_down_syndicate
+
+- type: entity
+  parent: ADTCardBoxBase
+  id: ADTCardBoxSyndicate
+  name: syndicate deck box
+  components:
+  - type: Item
+    size: Small
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    layers:
+    - state: syndicate_box
+    - state: syndicate_box_open
+      map: [ "openLayer" ]
+      visible: false
+  - type: OpenTriggeredStorageFill
+    contents:
+    - id: ADTCardDeckSyndicate
+      amount: 1
+
+- type: entity
+  parent: ADTCardDeckBase
+  id: ADTCardDeckSyndicate
+  name: deck of cards
+  categories: [ HideSpawnMenu, DoNotMap ] # Frontier
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: deck_syndicate_full
+  - type: CardStack
+    initialContent:
+    # Clubs
+    - ADTCardScAceOfClubsSyndicate
+    - ADTCardSc2OfClubsSyndicate
+    - ADTCardSc3OfClubsSyndicate
+    - ADTCardSc4OfClubsSyndicate
+    - ADTCardSc5OfClubsSyndicate
+    - ADTCardSc6OfClubsSyndicate
+    - ADTCardSc7OfClubsSyndicate
+    - ADTCardSc8OfClubsSyndicate
+    - ADTCardSc9OfClubsSyndicate
+    - ADTCardSc10OfClubsSyndicate
+    - ADTCardScJackOfClubsSyndicate
+    - ADTCardScQueenOfClubsSyndicate
+    - ADTCardScKingOfClubsSyndicate
+    # Diamonds
+    - ADTCardScAceOfDiamondsSyndicate
+    - ADTCardSc2OfDiamondsSyndicate
+    - ADTCardSc3OfDiamondsSyndicate
+    - ADTCardSc4OfDiamondsSyndicate
+    - ADTCardSc5OfDiamondsSyndicate
+    - ADTCardSc6OfDiamondsSyndicate
+    - ADTCardSc7OfDiamondsSyndicate
+    - ADTCardSc8OfDiamondsSyndicate
+    - ADTCardSc9OfDiamondsSyndicate
+    - ADTCardSc10OfDiamondsSyndicate
+    - ADTCardScJackOfDiamondsSyndicate
+    - ADTCardScQueenOfDiamondsSyndicate
+    - ADTCardScKingOfDiamondsSyndicate
+    # Hearts
+    - ADTCardScAceOfHeartsSyndicate
+    - ADTCardSc2OfHeartsSyndicate
+    - ADTCardSc3OfHeartsSyndicate
+    - ADTCardSc4OfHeartsSyndicate
+    - ADTCardSc5OfHeartsSyndicate
+    - ADTCardSc6OfHeartsSyndicate
+    - ADTCardSc7OfHeartsSyndicate
+    - ADTCardSc8OfHeartsSyndicate
+    - ADTCardSc9OfHeartsSyndicate
+    - ADTCardSc10OfHeartsSyndicate
+    - ADTCardScJackOfHeartsSyndicate
+    - ADTCardScQueenOfHeartsSyndicate
+    - ADTCardScKingOfHeartsSyndicate
+    # Spades
+    - ADTCardScAceOfSpadesSyndicate
+    - ADTCardSc2OfSpadesSyndicate
+    - ADTCardSc3OfSpadesSyndicate
+    - ADTCardSc4OfSpadesSyndicate
+    - ADTCardSc5OfSpadesSyndicate
+    - ADTCardSc6OfSpadesSyndicate
+    - ADTCardSc7OfSpadesSyndicate
+    - ADTCardSc8OfSpadesSyndicate
+    - ADTCardSc9OfSpadesSyndicate
+    - ADTCardSc10OfSpadesSyndicate
+    - ADTCardScJackOfSpadesSyndicate
+    - ADTCardScQueenOfSpadesSyndicate
+    - ADTCardScKingOfSpadesSyndicate
+    # Joker
+    - ADTCardScJokerSyndicate
+
+# region Syndicate Cards
+
+- type: entity
+  parent: ADTCardBaseSyndicate
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc2OfClubsSyndicate
+  components:
+  - type: Card
+    name: card-sc-2-clubs
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_2_of_Clubs_syndicate
+
+- type: entity
+  parent: ADTCardBaseSyndicate
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc3OfClubsSyndicate
+  components:
+  - type: Card
+    name: card-sc-3-clubs
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_3_of_Clubs_syndicate
+
+- type: entity
+  parent: ADTCardBaseSyndicate
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc4OfClubsSyndicate
+  components:
+  - type: Card
+    name: card-sc-4-clubs
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_4_of_Clubs_syndicate
+
+- type: entity
+  parent: ADTCardBaseSyndicate
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc5OfClubsSyndicate
+  components:
+  - type: Card
+    name: card-sc-5-clubs
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_5_of_Clubs_syndicate
+
+- type: entity
+  parent: ADTCardBaseSyndicate
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc6OfClubsSyndicate
+  components:
+  - type: Card
+    name: card-sc-6-clubs
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_6_of_Clubs_syndicate
+
+- type: entity
+  parent: ADTCardBaseSyndicate
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc7OfClubsSyndicate
+  components:
+  - type: Card
+    name: card-sc-7-clubs
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_7_of_Clubs_syndicate
+
+- type: entity
+  parent: ADTCardBaseSyndicate
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc8OfClubsSyndicate
+  components:
+  - type: Card
+    name: card-sc-8-clubs
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_8_of_Clubs_syndicate
+
+- type: entity
+  parent: ADTCardBaseSyndicate
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc9OfClubsSyndicate
+  components:
+  - type: Card
+    name: card-sc-9-clubs
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_9_of_Clubs_syndicate
+
+- type: entity
+  parent: ADTCardBaseSyndicate
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc10OfClubsSyndicate
+  components:
+  - type: Card
+    name: card-sc-10-clubs
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_10_of_Clubs_syndicate
+
+- type: entity
+  parent: ADTCardBaseSyndicate
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScAceOfClubsSyndicate
+  components:
+  - type: Card
+    name: card-sc-ace-clubs
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_Ace_of_Clubs_syndicate
+
+- type: entity
+  parent: ADTCardBaseSyndicate
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScJackOfClubsSyndicate
+  components:
+  - type: Card
+    name: card-sc-jack-clubs
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_Jack_of_Clubs_syndicate
+
+- type: entity
+  parent: ADTCardBaseSyndicate
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScKingOfClubsSyndicate
+  components:
+  - type: Card
+    name: card-sc-king-clubs
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_King_of_Clubs_syndicate
+
+- type: entity
+  parent: ADTCardBaseSyndicate
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScQueenOfClubsSyndicate
+  components:
+  - type: Card
+    name: card-sc-queen-clubs
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_Queen_of_Clubs_syndicate
+
+- type: entity
+  parent: ADTCardBaseSyndicate
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScJackOfDiamondsSyndicate
+  components:
+  - type: Card
+    name: card-sc-jack-diamonds
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_Jack_of_Diamonds_syndicate
+
+- type: entity
+  parent: ADTCardBaseSyndicate
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScQueenOfDiamondsSyndicate
+  components:
+  - type: Card
+    name: card-sc-queen-diamonds
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_Queen_of_Diamonds_syndicate
+
+- type: entity
+  parent: ADTCardBaseSyndicate
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScKingOfDiamondsSyndicate
+  components:
+  - type: Card
+    name: card-sc-king-diamonds
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_King_of_Diamonds_syndicate
+
+- type: entity
+  parent: ADTCardBaseSyndicate
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScAceOfDiamondsSyndicate
+  components:
+  - type: Card
+    name: card-sc-ace-diamonds
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_Ace_of_Diamonds_syndicate
+
+- type: entity
+  parent: ADTCardBaseSyndicate
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc2OfDiamondsSyndicate
+  components:
+  - type: Card
+    name: card-sc-2-diamonds
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_2_of_Diamonds_syndicate
+
+- type: entity
+  parent: ADTCardBaseSyndicate
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc3OfDiamondsSyndicate
+  components:
+  - type: Card
+    name: card-sc-3-diamonds
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_3_of_Diamonds_syndicate
+
+- type: entity
+  parent: ADTCardBaseSyndicate
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc4OfDiamondsSyndicate
+  components:
+  - type: Card
+    name: card-sc-4-diamonds
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_4_of_Diamonds_syndicate
+
+- type: entity
+  parent: ADTCardBaseSyndicate
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc5OfDiamondsSyndicate
+  components:
+  - type: Card
+    name: card-sc-5-diamonds
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_5_of_Diamonds_syndicate
+
+- type: entity
+  parent: ADTCardBaseSyndicate
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc6OfDiamondsSyndicate
+  components:
+  - type: Card
+    name: card-sc-6-diamonds
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_6_of_Diamonds_syndicate
+
+- type: entity
+  parent: ADTCardBaseSyndicate
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc7OfDiamondsSyndicate
+  components:
+  - type: Card
+    name: card-sc-7-diamonds
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_7_of_Diamonds_syndicate
+
+- type: entity
+  parent: ADTCardBaseSyndicate
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc8OfDiamondsSyndicate
+  components:
+  - type: Card
+    name: card-sc-8-diamonds
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_8_of_Diamonds_syndicate
+
+- type: entity
+  parent: ADTCardBaseSyndicate
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc9OfDiamondsSyndicate
+  components:
+  - type: Card
+    name: card-sc-9-diamonds
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_9_of_Diamonds_syndicate
+
+- type: entity
+  parent: ADTCardBaseSyndicate
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc10OfDiamondsSyndicate
+  components:
+  - type: Card
+    name: card-sc-10-diamonds
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_10_of_Diamonds_syndicate
+
+
+- type: entity
+  parent: ADTCardBaseSyndicate
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc2OfHeartsSyndicate
+  components:
+  - type: Card
+    name: card-sc-2-hearts
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_2_of_Hearts_syndicate
+
+- type: entity
+  parent: ADTCardBaseSyndicate
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc3OfHeartsSyndicate
+  components:
+  - type: Card
+    name: card-sc-3-hearts
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_3_of_Hearts_syndicate
+
+- type: entity
+  parent: ADTCardBaseSyndicate
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc4OfHeartsSyndicate
+  components:
+  - type: Card
+    name: card-sc-4-hearts
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_4_of_Hearts_syndicate
+
+- type: entity
+  parent: ADTCardBaseSyndicate
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc5OfHeartsSyndicate
+  components:
+  - type: Card
+    name: card-sc-5-hearts
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_5_of_Hearts_syndicate
+
+- type: entity
+  parent: ADTCardBaseSyndicate
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc6OfHeartsSyndicate
+  components:
+  - type: Card
+    name: card-sc-6-hearts
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_6_of_Hearts_syndicate
+
+- type: entity
+  parent: ADTCardBaseSyndicate
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc7OfHeartsSyndicate
+  components:
+  - type: Card
+    name: card-sc-7-hearts
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_7_of_Hearts_syndicate
+
+- type: entity
+  parent: ADTCardBaseSyndicate
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc8OfHeartsSyndicate
+  components:
+  - type: Card
+    name: card-sc-8-hearts
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_8_of_Hearts_syndicate
+
+- type: entity
+  parent: ADTCardBaseSyndicate
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc9OfHeartsSyndicate
+  components:
+  - type: Card
+    name: card-sc-9-hearts
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_9_of_Hearts_syndicate
+
+- type: entity
+  parent: ADTCardBaseSyndicate
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc10OfHeartsSyndicate
+  components:
+  - type: Card
+    name: card-sc-10-hearts
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_10_of_Hearts_syndicate
+
+- type: entity
+  parent: ADTCardBaseSyndicate
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScKingOfHeartsSyndicate
+  components:
+  - type: Card
+    name: card-sc-king-hearts
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_King_of_Hearts_syndicate
+
+- type: entity
+  parent: ADTCardBaseSyndicate
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScQueenOfHeartsSyndicate
+  components:
+  - type: Card
+    name: card-sc-queen-hearts
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_Queen_of_Hearts_syndicate
+
+- type: entity
+  parent: ADTCardBaseSyndicate
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScJackOfHeartsSyndicate
+  components:
+  - type: Card
+    name: card-sc-jack-hearts
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_Jack_of_Hearts_syndicate
+
+- type: entity
+  parent: ADTCardBaseSyndicate
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScAceOfHeartsSyndicate
+  components:
+  - type: Card
+    name: card-sc-ace-hearts
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_Ace_of_Hearts_syndicate
+
+
+- type: entity
+  parent: ADTCardBaseSyndicate
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc2OfSpadesSyndicate
+  components:
+  - type: Card
+    name: card-sc-2-spades
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_2_of_Spades_syndicate
+
+- type: entity
+  parent: ADTCardBaseSyndicate
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc3OfSpadesSyndicate
+  components:
+  - type: Card
+    name: card-sc-3-spades
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_3_of_Spades_syndicate
+
+- type: entity
+  parent: ADTCardBaseSyndicate
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc4OfSpadesSyndicate
+  components:
+  - type: Card
+    name: card-sc-4-spades
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_4_of_Spades_syndicate
+
+- type: entity
+  parent: ADTCardBaseSyndicate
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc5OfSpadesSyndicate
+  components:
+  - type: Card
+    name: card-sc-5-spades
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_5_of_Spades_syndicate
+
+- type: entity
+  parent: ADTCardBaseSyndicate
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc6OfSpadesSyndicate
+  components:
+  - type: Card
+    name: card-sc-6-spades
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_6_of_Spades_syndicate
+
+- type: entity
+  parent: ADTCardBaseSyndicate
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc7OfSpadesSyndicate
+  components:
+  - type: Card
+    name: card-sc-7-spades
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_7_of_Spades_syndicate
+
+- type: entity
+  parent: ADTCardBaseSyndicate
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc8OfSpadesSyndicate
+  components:
+  - type: Card
+    name: card-sc-8-spades
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_8_of_Spades_syndicate
+
+- type: entity
+  parent: ADTCardBaseSyndicate
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc9OfSpadesSyndicate
+  components:
+  - type: Card
+    name: card-sc-9-spades
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_9_of_Spades_syndicate
+
+- type: entity
+  parent: ADTCardBaseSyndicate
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc10OfSpadesSyndicate
+  components:
+  - type: Card
+    name: card-sc-10-spades
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_10_of_Spades_syndicate
+
+- type: entity
+  parent: ADTCardBaseSyndicate
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScKingOfSpadesSyndicate
+  components:
+  - type: Card
+    name: card-sc-king-spades
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_King_of_Spades_syndicate
+
+- type: entity
+  parent: ADTCardBaseSyndicate
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScQueenOfSpadesSyndicate
+  components:
+  - type: Card
+    name: card-sc-queen-spades
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_Queen_of_Spades_syndicate
+
+- type: entity
+  parent: ADTCardBaseSyndicate
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScJackOfSpadesSyndicate
+  components:
+  - type: Card
+    name: card-sc-jack-spades
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_Jack_of_Spades_syndicate
+
+- type: entity
+  parent: ADTCardBaseSyndicate
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScAceOfSpadesSyndicate
+  components:
+  - type: Card
+    name: card-sc-ace-spades
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_Ace_of_Spades_syndicate
+
+- type: entity
+  parent: ADTCardBaseSyndicate
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScJokerSyndicate
+  components:
+  - type: Card
+    name: card-sc-joker
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: syndicate_joker
+
+# endregion Syndicate Cards
