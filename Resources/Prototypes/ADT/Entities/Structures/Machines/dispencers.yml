@@ -109,6 +109,7 @@
       Sodium: 5
       Sugar: 5
       Sulfur: 5
+  - type: Appearance
 
 - type: entity
   parent: EnergyChemDispenser
