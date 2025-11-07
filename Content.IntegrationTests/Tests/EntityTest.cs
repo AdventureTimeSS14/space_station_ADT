@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
 using System.Text;
-using Robust.Client.GameObjects;
 using Robust.Shared;
 using Robust.Shared.Audio.Components;
 using Robust.Shared.Configuration;
@@ -211,62 +210,18 @@ namespace Content.IntegrationTests.Tests
                 .Select(p => p.ID)
                 .ToList();
 
-            // DEBUG: Store spawned entities with their proto IDs
-            var spawnedEntities = new List<(string protoId, EntityUid uid)>();
-
             await server.WaitPost(() =>
             {
                 foreach (var protoId in protoIds)
                 {
-                    try
+                    mapSys.CreateMap(out var mapId);
+                    var grid = mapManager.CreateGridEntity(mapId);
+                    var ent = sEntMan.SpawnEntity(protoId, new EntityCoordinates(grid.Owner, 0.5f, 0.5f));
+                    foreach (var (_, component) in sEntMan.GetNetComponents(ent))
                     {
-                        mapSys.CreateMap(out var mapId);
-                        var grid = mapManager.CreateGridEntity(mapId);
-                        var ent = sEntMan.SpawnEntity(protoId, new EntityCoordinates(grid.Owner, 0.5f, 0.5f));
-                        
-                        spawnedEntities.Add((protoId, ent));
-                        
-                        foreach (var (_, component) in sEntMan.GetNetComponents(ent))
-                        {
-                            sEntMan.Dirty(ent, component);
-                        }
-                    }
-                    catch (Exception e)
-                    {
-                        Logger.ErrorS("EntityTest", $"Failed to spawn entity {protoId}: {e}");
-                        throw;
+                        sEntMan.Dirty(ent, component);
                     }
                 }
-                
-                // DEBUG: Check all sprites BEFORE running ticks
-                Logger.InfoS("EntityTest", $"Checking {spawnedEntities.Count} spawned entities for sprite issues...");
-                foreach (var (protoId, ent) in spawnedEntities)
-                {
-                    if (sEntMan.TryGetComponent<SpriteComponent>(ent, out var sprite))
-                    {
-                        try
-                        {
-                            // Try to access bounds - this will trigger the assert if there's a problem
-                            var bounds = sprite.Bounds;
-                        
-                            
-                            if (bounds == Box2.Empty)
-                            {
-                                Logger.WarningS("EntityTest", $"Entity {protoId} ({ent}) has empty bounds!");
-                            }
-                            
-                            if (!bounds.IsValid())
-                            {
-                                Logger.ErrorS("EntityTest", $"Entity {protoId} ({ent}) has INVALID bounds: {bounds}");
-                            }
-                        }
-                        catch (Exception e)
-                        {
-                            Logger.ErrorS("EntityTest", $"Entity {protoId} ({ent}) FAILED bounds check: {e.Message}\n{e.StackTrace}");
-                        }
-                    }
-                }
-                Logger.InfoS("EntityTest", "Sprite check complete, starting ticks...");
             });
 
             // ADT-tweak Start (this test isn't even worth the effort tbh)
@@ -284,43 +239,7 @@ namespace Content.IntegrationTests.Tests
 
             for (var tick = 0; tick < maxTicks; tick++)
             {
-                try
-                {
-                    Logger.InfoS("EntityTest", $"Running tick {tick + 1}/{maxTicks}...");
-                    await pair.RunTicksSync(1);
-                    Logger.InfoS("EntityTest", $"Tick {tick + 1} completed successfully");
-                }
-                catch (Exception e)
-                {
-                    Logger.ErrorS("EntityTest", $"CRASH on tick {tick + 1}!");
-                    Logger.ErrorS("EntityTest", $"Exception: {e.Message}\n{e.StackTrace}");
-                    
-                    // Try to find which entity caused the problem
-                    await server.WaitPost(() =>
-                    {
-                        Logger.ErrorS("EntityTest", "Checking all spawned entities for issues...");
-                        foreach (var (protoId, ent) in spawnedEntities)
-                        {
-                            if (!sEntMan.EntityExists(ent))
-                                continue;
-                                
-                            if (sEntMan.TryGetComponent<SpriteComponent>(ent, out var sprite))
-                            {
-                                try
-                                {
-                                    var bounds = sprite.Bounds;
-                                }
-                                catch (Exception ex)
-                                {
-                                    Logger.ErrorS("EntityTest", $"FOUND PROBLEM ENTITY: {protoId} ({ent})");
-                                    Logger.ErrorS("EntityTest", $"Error: {ex.Message}");
-                                }
-                            }
-                        }
-                    });
-                    
-                    throw;
-                }
+                await pair.RunTicksSync(1);
 
                 var memoryUsed = GC.GetTotalMemory(forceFullCollection: false);
 
