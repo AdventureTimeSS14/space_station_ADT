@@ -158,6 +158,8 @@ public sealed partial class PTLSystem : EntitySystem
 
     private void OnAfterInteractUsing(Entity<PowerTransmissionLaserComponent> ent, ref AfterInteractUsingEvent args)
     {
+        if (!args.CanReach || args.Handled)
+            return;
         var held = args.Used;
 
         if (_tag.HasTag(held, _tagScrewdriver))
@@ -172,6 +174,11 @@ public sealed partial class PTLSystem : EntitySystem
 
         if (_tag.HasTag(held, _tagMultitool))
         {
+            if (ent.Comp.SpesosHeld <= ent.Comp.MinSpesosEject)
+            {
+                Dirty(ent);
+                return;
+            }
             var stackPrototype = _protMan.Index<StackPrototype>(_stackCredits);
             _stack.Spawn((int) ent.Comp.SpesosHeld, stackPrototype, Transform(args.User).Coordinates);
             ent.Comp.SpesosHeld = 0;
