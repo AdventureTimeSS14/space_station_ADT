@@ -57,7 +57,7 @@
                                HorizontalExpand="True"
                                VerticalExpand="True"
                                Access="Public"
-                               Columns="3" />
+                               Columns="4" />
             </ScrollContainer>
             <ScrollContainer HScrollEnabled="False"
                              HorizontalExpand="True"

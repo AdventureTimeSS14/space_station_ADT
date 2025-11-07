@@ -816,8 +816,3 @@ BookSpaceLaw: ADTBookSpaceLaw
 # ADT 2025-08-27
 ADTIndustrialSMES: SMESAdvanced
 SpawnPointADTSecborg: null # На всякий случай лол
-
-# ADT 2025-11-07
-SodaDispenser: ADTSodaEnergyDispenser
-ChemDispenser: EnergyChemDispenser
-BoozeDispenser: ADTBoozeEnergyDispenser
