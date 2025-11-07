@@ -382,6 +382,8 @@
     - EmitterBolt
   - type: TimedDespawn
     lifetime: 3
+  - type: SupermatterFood
+    energy: 100
 
 - type: entity
   name: watcher bolt
