@@ -89,7 +89,7 @@
   parent: BaseSword
   id: ADTZerosKatanaCosplay
   description: Katana of some guy
-  suffix: Real
+  suffix: Cosplay
   components:
   - type: Sprite
     sprite: ADT/Objects/Weapons/Melee/katana_zero.rsi
@@ -102,7 +102,6 @@
     damage:
       types:
         Blunt: 1
-        Stamina: 1
   - type: Item
     storedSprite:
       state: storage
