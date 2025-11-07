@@ -27,7 +27,7 @@
   - type: RadiationSource
   - type: Appearance
   - type: PowerNetworkBattery
-    maxChargeRate: 500000000 # 50MJ
+    maxChargeRate: 500000000 # 500MJ
   - type: Battery
     startingCharge: 0
     maxCharge: 100000000 # 100MJ
