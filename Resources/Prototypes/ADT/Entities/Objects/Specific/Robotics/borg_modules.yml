@@ -18,7 +18,7 @@
     - state: icons-detentions
   - type: ItemBorgModule
     items:
-    - ADTInfCablecuffs5  #ADT-Tweak-Start: SBborgModuleUpdate
+    - ADTInfCablecuffs  #ADT-Tweak-Start: SBborgModuleUpdate
     - ADTBorgStunbaton #ADT-Tweak-Start: SBborgModuleUpdate
     - ADTWeaponDisablerBorg #ADT-Tweak-Start: SBborgModuleUpdate
     - ADTBorgflash
