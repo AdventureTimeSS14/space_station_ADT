@@ -382,8 +382,10 @@
     - EmitterBolt
   - type: TimedDespawn
     lifetime: 3
+  #ADT-Tweak
   - type: SupermatterFood
     energy: 100
+  #ADT-Tweak
 
 - type: entity
   name: watcher bolt
