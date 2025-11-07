@@ -1,0 +1,206 @@
+- type: entity
+  id: EnergyChemDispenser
+  parent: SmallConstructibleMachine
+  name: energy chemical dispenser
+  suffix: energy
+  description: A bluespace Chemical Dispenser that uses station energy to synthesize Reagents. The future is here and now.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Machines/dispenser.rsi
+    state: industrial
+    snapCardinals: true
+  - type: Transform
+    anchored: true
+    noRot: true
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25, -0.4, 0.25, 0.4"
+        density: 190
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: Battery
+    maxCharge: 1500
+    startingCharge: 0
+  - type: ApcPowerReceiverBattery
+    idleLoad: 65
+    batteryRechargeRate: 30
+    batteryRechargeEfficiency: 1.0
+  - type: ApcPowerReceiver
+    powerLoad: 65
+  - type: ExtensionCableReceiver
+  - type: Anchorable
+  - type: Pullable
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalGlassBreak
+      - !type:ChangeConstructionNodeBehavior
+        node: machineFrame
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: ContainerContainer
+    containers:
+      machine_board: !type:Container
+      machine_parts: !type:Container
+      energyBeakerSlot: !type:ContainerSlot
+      storagebase: !type:Container
+  - type: StaticPrice
+    price: 1000
+  - type: WiresPanel
+  - type: GuideHelp
+    guides:
+    - Chemicals
+    - Chemist
+  - type: StealTarget
+    stealGroup: ChemDispenser
+  - type: Machine
+    board: EnergyChemDispenserMachineCircuitboard
+  - type: ActivatableUI
+    key: enum.EnergyReagentDispenserUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.EnergyReagentDispenserUiKey.Key:
+        type: EnergyReagentDispenserBoundUserInterface
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+  - type: EnergyReagentDispenser
+    energyBeakerSlot:
+      whitelistFailPopup: reagent-dispenser-component-cannot-put-entity-message
+      whitelist:
+        components:
+        - FitsInDispenser
+    reagents:
+      Aluminium: 8
+      Carbon: 3
+      Chlorine: 12
+      Copper: 5
+      Ethanol: 8
+      Fluorine: 12
+      Hydrogen: 3
+      Iodine: 8
+      Iron: 5
+      Lithium: 12
+      Mercury: 12
+      Nitrogen: 3
+      Oxygen: 3
+      Phosphorus: 5
+      Potassium: 8
+      Radium: 15
+      Silicon: 3
+      Sodium: 5
+      Sugar: 5
+      Sulfur: 5
+
+- type: entity
+  parent: EnergyChemDispenser
+  id: ADTSodaEnergyDispenser
+  name: soda dispenser
+  description: A beverage dispenser with a selection of soda and several other common beverages.
+  suffix: Empty
+  components:
+  - type: Rotatable
+  - type: Sprite
+    sprite: Structures/smalldispensers.rsi
+    drawdepth: SmallObjects
+    state: soda
+  - type: Transform
+    noRot: false
+  - type: Machine
+    board: SodaDispenserMachineCircuitboard
+  - type: GuideHelp
+    guides:
+    - Bartender
+    - Drinks
+  - type: EnergyReagentDispenser
+    energyBeakerSlot:
+      whitelistFailPopup: reagent-dispenser-component-cannot-put-entity-message
+      whitelist:
+        components:
+        - FitsInDispenser
+    reagents:
+      CoconutWater: 6
+      Coffee: 12
+      Cola: 12
+      Cream: 6
+      DrGibb: 40
+      EnergyDrink: 100
+      GreenTea: 9
+      Ice: 10
+      JuiceLime: 8
+      JuiceOrange: 8
+      LemonLime: 12
+      RootBeer: 8
+      SodaWater: 6
+      SpaceMountain: 5
+      SpaceUp: 8
+      Sugar: 8
+      Tea: 6
+      TonicWater: 5
+      JuiceWatermelon: 5
+
+- type: entity
+  id: ADTBoozeEnergyDispenser
+  name: booze dispenser
+  suffix: Empty
+  description: A booze dispenser.
+  parent: EnergyChemDispenser
+  components:
+  - type: Rotatable
+  - type: Sprite
+    sprite: Structures/smalldispensers.rsi
+    drawdepth: SmallObjects
+    state: booze
+  - type: Storage
+    openOnActivate: false
+    whitelist:
+      tags:
+      - DrinkBottle
+      - ChemDispensable
+  - type: Transform
+    noRot: false
+  - type: Machine
+    board: BoozeDispenserMachineCircuitboard
+  - type: GuideHelp
+    guides:
+    - Bartender
+    - Drinks
+  - type: StealTarget
+    stealGroup: BoozeDispenser
+  - type: EnergyReagentDispenser
+    energyBeakerSlot:
+      whitelistFailPopup: reagent-dispenser-component-cannot-put-entity-message
+      whitelist:
+        components:
+        - FitsInDispenser
+    reagents:
+      Ale: 6
+      Beer: 6
+      Coffee: 12
+      Cognac: 6
+      Gin: 6
+      Mead: 6
+      Rum: 6
+      Tequila: 6
+      Vermouth: 6
+      Vodka: 6
+      Whiskey: 6
+      Wine: 6
