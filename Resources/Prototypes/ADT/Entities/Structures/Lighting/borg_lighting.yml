@@ -1,6 +1,9 @@
+#Justice Helmet (No Battery Version)
 - type: entity
-  id: ADTBorgFlashingLight
   parent: ClothingHeadHelmetBasic
+  id: ADTBorgFlashingLight
+  name: justice helm
+  description: Advanced security gear. Protects the station from ne'er-do-wells.
   components:
   - type: Sprite
     sprite: Clothing/Head/Helmets/justice.rsi
@@ -15,7 +18,7 @@
     sprite: Clothing/Head/Helmets/justice.rsi
     equippedPrefix: off
   - type: ItemToggle
-    predictable: false # issues between ToggleCellDraw and ItemToggleActiveSound
+    predictable: false
     onUse: false
     soundActivate:
       path: /Audio/Items/flashlight_on.ogg
@@ -49,7 +52,8 @@
     mask: /Textures/Effects/LightMasks/double_cone.png
   - type: RotatingLight
     speed: 360
-  - type: ToggleCellDraw
+  # Убраны компоненты, связанные с питанием:
+  # - PowerCellSlot, ContainerContainer, ItemSlots, PowerCellDraw, ToggleCellDraw
   - type: Construction
     graph: HelmetJustice
     node: helmet
