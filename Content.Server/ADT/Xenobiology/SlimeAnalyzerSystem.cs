@@ -15,7 +15,7 @@ using Robust.Shared.Timing;
 using Content.Shared.Interaction.Events;
 using Robust.Shared.Containers;
 
-namespace Content.Server.Medical;
+namespace Content.Server.ADT.Xenobiology.UI;
 
 public sealed class SlimeAnalyzerSystem : EntitySystem
 {

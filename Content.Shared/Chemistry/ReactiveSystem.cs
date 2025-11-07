@@ -41,6 +41,17 @@ public sealed class ReactiveSystem : EntitySystem
         if (reactive is { IsReactionsUnlimited: false, RemainingReactions: <= 0 }) // ADT-Tweak
             return;
 
+        // ADT-Tweak-Start
+        var beforeReact = new BeforeSolutionReactEvent();
+        RaiseLocalEvent(uid, ref beforeReact);
+
+        if (beforeReact.Cancelled)
+            return;
+        // ADT-Tweak-End
+
+        if (reactive.HasReacted) // ADT-Tweak
+            return;
+
         // custom event for bypassing reactivecomponent stuff
         var ev = new ReactionEntityEvent(method, proto, reagentQuantity, source);
         RaiseLocalEvent(uid, ref ev);
@@ -63,17 +74,6 @@ public sealed class ReactiveSystem : EntitySystem
                     continue;
 
                 if (!reactive.ReactiveGroups[key].Contains(method))
-                    continue;
-
-                // ADT-Tweak-Start
-                var beforeReact = new BeforeSolutionReactEvent();
-                RaiseLocalEvent(uid, ref beforeReact);
-
-                if (beforeReact.Cancelled)
-                    continue;
-                // ADT-Tweak-End
-
-                if (reactive.HasReacted) // ADT-Tweak
                     continue;
 
                 foreach (var effect in val.Effects)
@@ -126,12 +126,12 @@ public sealed class ReactiveSystem : EntitySystem
                 if (!reactive.IsReactionsUnlimited)
                     reactive.RemainingReactions -= 1;
 
-                if (reactive.BlockReactionOnUse && !reactive.IsReactionsUnlimited
-                && reactive.RemainingReactions == 0)
+                if (reactive.BlockReactionOnUse && reactive.RemainingReactions == 0
+                && !reactive.IsReactionsUnlimited)
                     reactive.HasReacted = true;
 
-                if (entry.DeleteEntity && !reactive.IsReactionsUnlimited
-                && reactive.RemainingReactions == 0)
+                if (entry.DeleteEntity && reactive.RemainingReactions == 0
+                && !reactive.IsReactionsUnlimited)
                     QueueDel(uid);
                 // ADT-Tweak-End
             }

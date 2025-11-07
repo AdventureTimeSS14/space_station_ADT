@@ -3,22 +3,18 @@ using Content.Shared.Interaction;
 using Content.Shared.Popups;
 using Content.Shared.ADT.RemoteEye.Components;
 using Content.Shared.Verbs;
-using Robust.Shared.Containers;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
-using Robust.Shared.Network;
 using Robust.Shared.Physics;
 
 namespace Content.Shared.ADT.RemoteEye.Systems;
 
 public abstract class SharedRemoteEyeSystem : EntitySystem
 {
-    [Dependency] private readonly INetManager _net = default!;
     [Dependency] protected readonly SharedMapSystem Maps = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedTransformSystem _xforms = default!;
     [Dependency] private readonly RemoteEyeVisionSystem _vision = default!;
-    [Dependency] private readonly SharedContainerSystem _containers = default!;
 
     private EntityQuery<BroadphaseComponent> _broadphaseQuery;
     private EntityQuery<MapGridComponent> _gridQuery;
@@ -31,9 +27,7 @@ public abstract class SharedRemoteEyeSystem : EntitySystem
         _gridQuery = GetEntityQuery<MapGridComponent>();
 
         SubscribeLocalEvent<RemoteEyeConsoleComponent, ActivateInWorldEvent>(OnConsoleActivate);
-
         SubscribeLocalEvent<RemoteEyeComponent, ReturnFromRemoteEyeEvent>(OnReturnAction);
-
         SubscribeLocalEvent<RemoteEyeOverlayComponent, AccessibleOverrideEvent>(OnEyeAccessible);
         SubscribeLocalEvent<RemoteEyeOverlayComponent, InRangeOverrideEvent>(OnEyeInRange);
         SubscribeLocalEvent<RemoteEyeOverlayComponent, MenuVisibilityEvent>(OnEyeMenu);
@@ -79,7 +73,6 @@ public abstract class SharedRemoteEyeSystem : EntitySystem
             return;
         }
 
-        // If console is occupied by someone else
         if (ent.Comp.OriginalEntity != null && ent.Comp.OriginalEntity != user)
         {
             _popup.PopupClient(Loc.GetString("remote-eye-console-occupied"), user, user);
@@ -87,7 +80,6 @@ public abstract class SharedRemoteEyeSystem : EntitySystem
             return;
         }
 
-        // Transfer to eye
         SetupEye(ent);
         TransferToEye((ent.Owner, ent.Comp), user);
         args.Handled = true;
@@ -154,9 +146,6 @@ public abstract class SharedRemoteEyeSystem : EntitySystem
     public virtual void ReturnFromEye(Entity<RemoteEyeConsoleComponent> console, EntityUid user) { }
 }
 
-/// <summary>
-/// Action event for returning from remote eye to original body.
-/// </summary>
 public sealed partial class ReturnFromRemoteEyeEvent : InstantActionEvent
 {
 }

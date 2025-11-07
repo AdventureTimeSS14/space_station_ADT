@@ -712,6 +712,9 @@
         components:
         - type: Food
           solution: extract
+          transferAmount: 5
+          delay: 1
+          forceFeedDelay: 1.5
       - !type:PopupMessage
         messages: [ "xeno-extract-gender-fluid-created" ]
       - !type:PlaySoundEffect

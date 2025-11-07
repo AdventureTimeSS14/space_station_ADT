@@ -28,6 +28,6 @@ public partial class XenobiologySystem
     private void BeforeSolutionReact(Entity<SlimeExtractComponent> extract, ref BeforeSolutionReactEvent args)
     {
         if (_solution.TryGetRefillableSolution(extract.Owner, out var soln, out _))
-            _solution.RemoveAllSolution((extract.Owner, soln));
+            _solution.RemoveAllSolution(soln.Value);
     }
 }
