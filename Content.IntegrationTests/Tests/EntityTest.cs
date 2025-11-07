@@ -248,11 +248,7 @@ namespace Content.IntegrationTests.Tests
                         {
                             // Try to access bounds - this will trigger the assert if there's a problem
                             var bounds = sprite.Bounds;
-                            
-                            if (sprite.Layers.Count == 0)
-                            {
-                                Logger.WarningS("EntityTest", $"Entity {protoId} ({ent}) has sprite with 0 layers!");
-                            }
+                        
                             
                             if (bounds == Box2.Empty)
                             {
