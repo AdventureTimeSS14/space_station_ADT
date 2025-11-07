@@ -333,14 +333,13 @@ public sealed partial class ChangelingSystem
     {
         if (args.Handled)
             return;
-
-        if (component.LesserFormActive)
-        {
-            var selfMessage = Loc.GetString("changeling-transform-fail-lesser-form");
-            _popup.PopupEntity(selfMessage, uid, uid);
-            return;
-        }
-
+// Закоментил для баффа
+//       if (component.LesserFormActive)
+//       {
+//           var selfMessage = Loc.GetString("changeling-transform-fail-lesser-form");
+//           _popup.PopupEntity(selfMessage, uid, uid);
+//           return;
+//      }
         component.StasisDeathActive = !component.StasisDeathActive;
 
         if (component.StasisDeathActive)
@@ -568,9 +567,9 @@ public sealed partial class ChangelingSystem
         var doAfter = new DoAfterArgs(EntityManager, uid, args.Duration, new BiodegradeDoAfterEvent(), uid, target: uid)
         {
             DistanceThreshold = 2,
-            BreakOnMove = true,
-            BreakOnWeightlessMove = true,
-            BreakOnDamage = true,
+            BreakOnMove = false, // true, -> false, Изменил на false чтобы дать смысл способности.
+            BreakOnWeightlessMove = false, // true, -> false,
+            BreakOnDamage = false, // true, -> false,
             AttemptFrequency = AttemptFrequency.StartAndEnd,
             RequireCanInteract = false
         };

@@ -10,10 +10,9 @@
   id: SheetCopper
   result: ADTSheetCopper1
   completetime: 0
-  miningPoints: 1
+  miningPoints: 2
   materials:
     RawCopper: 100
-    Coal: 30
 
 - type: latheRecipe
   id: SheetCopper30
@@ -21,16 +20,14 @@
   completetime: 2
   materials:
     RawCopper: 3000
-    Coal: 1000
 
 - type: latheRecipe
   id: SheetZinc
   result: ADTSheetZinc1
   completetime: 0
-  miningPoints: 1
+  miningPoints: 6
   materials:
     RawZinc: 100
-    Coal: 30
 
 - type: latheRecipe
   id: SheetZinc30
@@ -38,16 +35,14 @@
   completetime: 2
   materials:
     RawZinc: 3000
-    Coal: 1000
 
 - type: latheRecipe
   id: SheetLead
   result: ADTSheetLead1
   completetime: 0
-  miningPoints: 1
+  miningPoints: 4
   materials:
     RawLead: 100
-    Coal: 30
 
 - type: latheRecipe
   id: SheetLead30
@@ -55,4 +50,3 @@
   completetime: 2
   materials:
     RawLead: 3000
-    Coal: 1000

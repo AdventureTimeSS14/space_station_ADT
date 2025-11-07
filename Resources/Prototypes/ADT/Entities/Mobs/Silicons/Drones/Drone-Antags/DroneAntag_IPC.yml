@@ -58,7 +58,7 @@
     - type: Examiner
     # - type: Recyclable
     #   safe: false
-    - type: StandingState
+    #- type: StandingState
     - type: Alerts
     # - type: EyeProtection # You'll want this if your robot can't wear glasses, like an IPC.
     #   protectionTime: 12
@@ -276,7 +276,7 @@
           type: HumanoidMarkingModifierBoundUserInterface
         enum.StrippingUiKey.Key:
           type: StrippableBoundUserInterface
-    - type: StandingState
+    #- type: StandingState
     - type: CanEscapeInventory
     # - type: HumanoidAppearance
     #   species: IPC
@@ -438,8 +438,9 @@
   - type: NpcFactionMember
     factions:
       - DroneAntag
-  - type: NameIdentifier
-    group: ADTDroneAntagSoldier
+  # Временно убрано до добавления дронов, чтобы не рандомизировать имя у злобота
+  #- type: NameIdentifier
+  #  group: ADTDroneAntagSoldier
   - type: UnpoweredFlashlight
   - type: PointLight
     enabled: false
