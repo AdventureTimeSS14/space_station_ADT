@@ -10,7 +10,7 @@ public sealed partial class ObjectivePinpointerComponent : Component
 {
     /// <summary>
     /// Mind entity that owns this pinpointer, used to access objectives
-    /// </summary>S
+    /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public EntityUid? OwnerMind;
 }

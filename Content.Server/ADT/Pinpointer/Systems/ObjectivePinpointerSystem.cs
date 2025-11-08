@@ -4,6 +4,7 @@ using Content.Shared.Interaction;
 using Content.Shared.Mind;
 using Content.Shared.Objectives.Components;
 using Content.Shared.Pinpointer;
+using Content.Shared.ADT.Pinpointer;
 using Content.Shared.Verbs;
 using Robust.Server.GameObjects;
 using Robust.Shared.Player;

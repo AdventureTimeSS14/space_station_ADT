@@ -9,7 +9,7 @@ namespace Content.Client.ADT.Pinpointer.UI;
 public sealed class ObjectivePinpointerBoundUserInterface : BoundUserInterface
 {
     [ViewVariables]
-    private ObjectivePinpoSinterWindow? _window;
+    private ObjectivePinpointerWindow? _window;
 
     public ObjectivePinpointerBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
     {

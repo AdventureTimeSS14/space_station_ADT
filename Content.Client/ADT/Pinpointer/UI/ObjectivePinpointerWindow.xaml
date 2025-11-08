@@ -8,4 +8,4 @@
             <BoxContainer Name="TargetList" Orientation="Vertical" />
         </ScrollContainer>
     </BoxContainer>
-</DefaultWindow>S
+</DefaultWindow>
