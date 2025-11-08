@@ -1,0 +1,106 @@
+- type: entity
+  id: ADTMachinePowerTransmissionLaser
+  parent: [ BaseMachine ]
+  name: power transmission laser
+  description: Sends power over a giant laser beam to an NT power processing facility. Simply plug it in and come back tomorrow for a big stack of cash (that is if you have power running). Also don't step in front of the firing line please.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Rotatable
+  - type: PTLVisuals
+  - type: Sprite
+    sprite: ADT/Structures/Machines/PTL/pt_laser.rsi
+    layers:
+    - state: base
+      map: ["enum.PTLVisualLayers.Base"]
+    - state: unpowered
+      shader: unshaded
+      visible: true
+      map: ["enum.PTLVisualLayers.Unpowered"]
+    - state: charge-1
+      shader: unshaded
+      visible: false
+      map: ["enum.PTLVisualLayers.Charge"]
+  - type: Transform
+    anchored: true
+    noRot: false
+  - type: RadiationSource
+  - type: Appearance
+  - type: PowerNetworkBattery
+    maxChargeRate: 500000000 # 500MJ
+  - type: Battery
+    startingCharge: 0
+    maxCharge: 100000000 # 100MJ
+  - type: ExaminableBattery
+  - type: BatteryCharger
+    voltage: High
+    node: input
+  - type: NodeContainer
+    examinable: true
+    nodes:
+      input:
+        !type:CableDeviceNode
+        nodeGroupID: HVPower
+  - type: StationInfiniteBatteryTarget
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallicStrong
+  - type: BatterySensor
+  - type: Gun
+    showExamineText: false
+    fireRate: 10
+    selectedMode: SemiAuto
+    availableModes:
+      - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
+  - type: HitscanBatteryAmmoProvider
+    examinable: false
+    proto: ADTPTL
+    fireCost: 1000
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-1.5,-1.5,1.5,1.5"
+        density: 3125
+        mask:
+        - LargeMobMask
+        layer:
+        - WallLayer
+  - type: StationAiWhitelist
+  # ui todo
+  #- type: ActivatableUI
+  #  key: enum.PTLUiKey.Key
+  #- type: ActivatableUIRequiresPower
+  #- type: UserInterface
+  #  interfaces:
+  #    enum.PTLUiKey.Key:
+  #      type: PTLBoundUserInterface
+  - type: AmbientSound
+    range: 5
+    sound:
+      path: /Audio/Ambience/Objects/engine_hum.ogg
+  - type: PowerTransmissionLaser
+    active: false
+    baseBeamDamage:
+      types:
+        Heat: 5
+
+- type: hitscan
+  id: ADTPTL
+  damage:
+    types:
+      Heat: 120
+  muzzleFlash:
+    sprite: ADT/Structures/Machines/PTL/pt_beam.rsi
+    state: ptl_beam
+  travelFlash:
+    sprite: ADT/Structures/Machines/PTL/pt_beam.rsi
+    state: ptl_beam
+  impactFlash:
+    sprite: ADT/Structures/Machines/PTL/pt_beam.rsi
+    state: ptl_beam

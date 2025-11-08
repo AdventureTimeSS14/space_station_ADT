@@ -27,6 +27,21 @@ loadout-group-janitor-id-adt = Уборщик, ID
 loadout-group-botanist-id-adt = Ботаник, ID
 loadout-barber-jumpsuit-adt = Парикмахер, комбинезон
 loadout-barber-other-clothing-adt = Парикмахер, верхняя одежда
+loadout-group-clown-mask-adt = Клоун, маска
+loadout-group-clown-gloves-adt = Клоун, перчатки
+loadout-group-clown-pocket1-adt = Клоун, карман 1
+loadout-group-clown-pocket2-adt = Клоун, карман 2
+loadout-group-musician-id-adt = Музыкант, ID
+loadout-group-musician-gloves-adt = Музыкант, перчатки
+loadout-group-reporter-id-adt = Репортёр, ID
+loadout-group-bartender-gloves-adt = Бармен, перчатки
+loadout-group-boxer-id-adt = Боксёр, ID
+loadout-group-boxer-head-adt = Боксёр, голова
+loadout-group-service-worker-gloves-adt = Сервисный работник, перчатки
+loadout-group-service-worker-id-adt = Сервисный работник, ID
+loadout-group-service-worker-jumpsuit-adt = Сервисный работник, комбинезон
+loadout-group-chef-gloves-adt = Шеф-Повар, перчатки
+loadout-group-chef-neck-adt = Шеф-Повар, шея
 
 # Cargo
 loadout-group-quartermaster-id = Квартирмейстер, ID

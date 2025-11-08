@@ -1,7 +1,5 @@
 - type: entity
   id: ActionPhantomSelectStyle
-  name: action-phantom-style
-  description: action-phantom-style-desc
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -16,8 +14,6 @@
 
 - type: entity
   id: ActionPhantomHaunt
-  name: action-phantom-haunt
-  description: action-phantom-haunt-desc
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -53,8 +49,6 @@
 
 - type: entity
   id: ActionPhantomCycleVessels
-  name: action-phantom-cycle-vessels
-  description: action-phantom-cycle-vessels-desc
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -68,8 +62,6 @@
 
 - type: entity
   id: ActionPhantomHauntVessel
-  name: action-phantom-haunt-vessel
-  description: action-phantom-haunt-vessel-desc
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -85,8 +77,6 @@
 
 - type: entity
   id: ActionPhantomMakeVessel
-  name: action-phantom-make-vessel
-  description: action-phantom-make-vessel-desc
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -102,8 +92,6 @@
 
 - type: entity
   id: ActionPhantomParalysis
-  name: action-phantom-paralysis
-  description: action-phantom-paralysis-desc
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -124,8 +112,6 @@
 
 - type: entity
   id: ActionPhantomCorporeal
-  name: action-phantom-corporeal
-  description: action-phantom-corporeal-desc
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -139,8 +125,6 @@
 
 - type: entity
   id: ActionPhantomBreakdown
-  name: action-phantom-breakdown
-  description: action-phantom-breakdown-desc
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -158,8 +142,6 @@
 
 - type: entity
   id: ActionPhantomShieldBreak
-  name: action-phantom-shield-break
-  description: action-phantom-shield-break-desc
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -173,8 +155,6 @@
 
 - type: entity
   id: ActionPhantomClaws
-  name: action-phantom-claws
-  description: action-phantom-claws-desc
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -188,8 +168,6 @@
 
 - type: entity
   id: ActionPhantomInjury
-  name: action-phantom-injury
-  description: action-phantom-injury-desc
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -205,8 +183,6 @@
 
 - type: entity
   id: ActionPhantomStarvation
-  name: action-phantom-starvation
-  description: action-phantom-starvation-desc
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -224,8 +200,6 @@
 
 - type: entity
   id: ActionPhantomHeal
-  name: action-phantom-heal
-  description: action-phantom-heal-desc
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -241,8 +215,6 @@
 
 - type: entity
   id: ActionPhantomPuppeter
-  name: action-phantom-puppeter
-  description: action-phantom-puppeter-desc
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -258,8 +230,6 @@
 
 - type: entity
   id: ActionPhantomRepair
-  name: action-phantom-repair
-  description: action-phantom-repair-desc
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -277,8 +247,6 @@
 
 - type: entity
   id: ActionPhantomBlinding
-  name: action-phantom-blinding
-  description: action-phantom-blinding-desc
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -296,8 +264,6 @@
 
 - type: entity
   id: ActionPhantomPortal
-  name: action-phantom-portal
-  description: action-phantom-portal-desc
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -313,8 +279,6 @@
 
 - type: entity
   id: ActionPhantomHelpingHand
-  name: action-phantom-help-hand
-  description: action-phantom-help-hand-desc
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -330,8 +294,6 @@
 
 - type: entity
   id: ActionPhantomPsycho
-  name: action-phantom-psycho
-  description: action-phantom-psycho-desc
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -347,8 +309,6 @@
 
 - type: entity
   id: ActionPhantomControl
-  name: action-phantom-control
-  description: action-phantom-control-desc
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -364,8 +324,6 @@
 
 - type: entity
   id: ActionPhantomNightmare
-  name: action-phantom-nightmare
-  description: action-phantom-nightmare-desc
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -381,8 +339,6 @@
 
 - type: entity
   id: ActionPhantomTyrany
-  name: action-phantom-tyrany
-  description: action-phantom-tyrany-desc
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -398,8 +354,6 @@
 
 - type: entity
   id: ActionPhantomFreedom
-  name: action-phantom-freedom
-  description: action-phantom-freedom-desc
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -416,7 +370,6 @@
 - type: entity
   id: ActionPhantomOblivion
   name: "Все должны забыть"
-  description: action-phantom-oblivion-desc
   categories: [ HideSpawnMenu ]
   components:
   - type: Tag
@@ -435,7 +388,6 @@
 - type: entity
   id: ActionPhantomDeathmatch
   name: "Смертельная битва!"
-  description: action-phantom-deathmatch-desc
   categories: [ HideSpawnMenu ]
   components:
   - type: Tag
@@ -454,7 +406,6 @@
 - type: entity
   id: ActionPhantomHelpFin
   name: "Благославление"
-  description: action-phantom-help-final-desc
   categories: [ HideSpawnMenu ]
   components:
   - type: Tag
@@ -472,8 +423,6 @@
 
 - type: entity
   id: ActionPhantomPupHeal
-  name: action-phanton-heal-self
-  description: action-phantom-heal-self-desc
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -488,8 +437,6 @@
 
 - type: entity
   id: ActionPhantomPupClaws
-  name: action-phanton-claws-self
-  description: action-phantom-claws-self-desc
   categories: [ HideSpawnMenu ]
   components:
   - type: Action

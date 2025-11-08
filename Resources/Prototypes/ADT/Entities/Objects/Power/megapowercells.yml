@@ -12,6 +12,7 @@
     explosionType: HardBomb
     maxIntensity: 2500
     intensitySlope: 1.5
+    totalIntensity: 400
   - type: Sprite
     sprite: ADT/Objects/Devices/megacells.rsi
   - type: SolutionContainerManager
