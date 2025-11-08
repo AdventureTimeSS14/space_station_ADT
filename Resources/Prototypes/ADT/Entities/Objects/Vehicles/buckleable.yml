@@ -295,6 +295,11 @@
       southOverride: 0.1
       hornSound:
         path: /Audio/Effects/Vehicle/policesiren.ogg
+    - type: MovementSpeedModifier
+      acceleration: 1
+      friction: 1
+      baseWalkSpeed: 4.5
+      baseSprintSpeed: 6
     - type: Sprite
       sprite: Objects/Vehicles/syndicatesegway.rsi
       layers:

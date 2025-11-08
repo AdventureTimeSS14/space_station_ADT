@@ -97,19 +97,8 @@
                                 <BoxContainer HorizontalExpand="True" Visible="False" Name="BarksContainer">
                                     <Label Text="{Loc 'humanoid-profile-editor-bark-label'}" />
                                     <Control HorizontalExpand="True"/>
-                                    <OptionButton Name="BarkProtoButton" HorizontalAlignment="Right" />
+                                    <Button Name="BarkProtoButton" HorizontalAlignment="Right" MinWidth="150" />
 									<Button Name="BarkPlayButton" Text="{Loc 'humanoid-profile-editor-voice-play'}" MaxWidth="80" />
-                                </BoxContainer>
-                                <BoxContainer HorizontalExpand="True" Visible="False" Name="BarksPitchContainer">
-                                    <Label Text="{Loc 'humanoid-profile-editor-bark-pitch-label'}" />
-                                    <Control HorizontalExpand="True"/>
-                                    <LineEdit Name="PitchEdit" MinSize="40 0" HorizontalAlignment="Right" Margin="2 0 2 0" />
-                                </BoxContainer>
-                                <BoxContainer HorizontalExpand="True" Visible="False" Name="BarksDelayContainer">
-                                    <Label Text="{Loc 'humanoid-profile-editor-bark-delay-label'}" />
-                                    <Control HorizontalExpand="True"/>
-                                    <LineEdit Name="DelayVariationMinEdit" MinSize="40 0" HorizontalAlignment="Right" Margin="2 0 2 0" />
-                                    <LineEdit Name="DelayVariationMaxEdit" MinSize="40 0" HorizontalAlignment="Right" Margin="2 0 2 0" />
                                 </BoxContainer>
                                 <!-- ADT Barks End -->
 
