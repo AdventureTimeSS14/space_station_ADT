@@ -53,10 +53,14 @@
         - state: meat
           map: [ "enum.DamageStateVisualLayers.Base" ]
     - type: Hands
+      activeHandId: right
       hands:
-        - id: left
-    - type: Loadout
-      prototypes: [SyndicateLoneOperativeGearFull]
+        right:
+          location: Right
+      sortedHands:
+      - right
+    # - type: Loadout
+    #   prototypes: [SyndicateLoneOperativeGearFull]
 
 - type: entity
   name: Holoparasite
