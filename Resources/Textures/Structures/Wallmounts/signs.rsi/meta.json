@@ -119,6 +119,9 @@
             "name": "deathsposal"
         },
         {
+            "name": "detective"
+        },
+        {
             "name": "direction_atmos",
             "directions": 4
         },

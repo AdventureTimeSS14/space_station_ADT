@@ -55,3 +55,35 @@
   - Revolutionary
   - Heretic # goob edit - heretics
   - Ursus
+
+- type: npcFaction
+  id: BloodBrotherLeaderFaction
+  hostile:
+  - NanoTrasen
+  - SimpleHostile
+  - Xeno
+  - PetsNT
+  - Zombie
+  - Heretic # goob edit - heretics
+  - DroneAntag # ADT tweak
+  - Ursus # ADT tweak
+  - Dragon
+  - AllHostile
+  - Wizard
+  - Xenoborg
+
+- type: npcFaction
+  id: BloodBrotherFaction
+  hostile:
+  - NanoTrasen
+  - SimpleHostile
+  - Xeno
+  - PetsNT
+  - Zombie
+  - Heretic # goob edit - heretics
+  - DroneAntag # ADT tweak
+  - Ursus # ADT tweak
+  - Dragon
+  - AllHostile
+  - Wizard
+  - Xenoborg

@@ -21,7 +21,20 @@
     slots:
     - suitStorage
     - Belt
-  - type: AmmoCounter
+  # - type: AmmoCounter #ADT-tweak: для русской рулетки
+  # ADT-Tweak start
+  - type: RunAndGunSpreadModifier
+    modifyer: 0.1
+  - type: MeleeWeapon
+    resetOnHandSelected: false
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 7
+    soundHit:
+      collection: GenericHit
+  - type: AltFireMelee
+  # ADT-Tweak end
   - type: Gun
     selectedMode: SemiAuto
     fireRate: 1.5
@@ -78,6 +91,7 @@
   - type: Appearance
   - type: StaticPrice
     price: 1500
+  - type: AmmoCounter #ADT-tweak: единственный револьвер со счётчиком патронов
 
 - type: entity
   name: Inspector
@@ -160,6 +174,8 @@
       path: /Audio/Weapons/Guns/Gunshots/revolver.ogg
       params:
         volume: 2.25
+  - type: StaticPrice
+    price: 1500 # Botany can shit these out like candy, but let's see how it goes
 
 - type: entity
   parent: WeaponRevolverPython
@@ -214,4 +230,4 @@
     capacity: 5
     chambers: [ null, null, null, null, null ]
     ammoSlots: [ null, null, null, null, null ]
-    
+

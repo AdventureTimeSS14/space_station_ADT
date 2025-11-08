@@ -19,6 +19,7 @@
     containers:
       ballistic-ammo: !type:Container
         ents: []
+  - type: GunExecutionBlacklist #ADT-tweak
 
 - type: entity
   name: china lake
@@ -37,6 +38,18 @@
     - Back
     - suitStorage
   - type: AmmoCounter
+  - type: RunAndGunBlocker # ADT-Tweak
+  # ADT-Tweak start
+  - type: MeleeWeapon
+    resetOnHandSelected: false
+    attackRate: 0.75
+    damage:
+      types:
+        Blunt: 14
+    soundHit:
+      collection: GenericHit
+  - type: AltFireMelee
+  # ADT-Tweak end
   - type: Gun
     fireRate: 1
     selectedMode: SemiAuto
@@ -52,6 +65,9 @@
     proto: GrenadeFrag
     soundInsert:
       path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+  - type: GunRequiresWield
+  - type: StaticPrice
+    price: 10000
 
 - type: entity
   parent: [ BaseWeaponLauncher, BaseGunWieldable, BaseMajorContraband ]
@@ -77,6 +93,7 @@
     - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/grenade_launcher.ogg
+  - type: GunRequiresWield
   - type: ContainerContainer
     containers:
       revolver-ammo: !type:Container
@@ -108,6 +125,7 @@
         map: ["enum.GunVisualLayers.Mag"]
   - type: Clothing
     sprite: Objects/Weapons/Guns/Launchers/rocket.rsi
+  - type: RunAndGunBlocker # ADT-Tweak
   - type: Gun
     fireRate: 0.5
     soundGunshot:
@@ -180,8 +198,9 @@
       type: ContainerContainer
     - type: Clothing
       sprite: Objects/Weapons/Guns/Launchers/pirate_cannon.rsi
+    - type: RunAndGunBlocker # ADT-Tweak
     - type: Gun
-      fireRate: 1
+      fireRate: 0.2 # ADT-Tweak 1 -> 0.2
       soundGunshot:
         path: /Audio/Weapons/Guns/Gunshots/mateba.ogg
     - type: BallisticAmmoProvider
@@ -192,11 +211,6 @@
       proto: CannonBall
       soundInsert:
         path: /Audio/Weapons/Guns/Gunshots/grenade_launcher.ogg
-    #ADT-tweak-start
-    - type: UseDelayOnShoot
-    - type: UseDelay
-      delay: 6
-    #ADT-tweak-end
 
 - type: entity
   name: tether gun
@@ -223,7 +237,7 @@
           map: [ "unshaded" ]
           shader: unshaded
           visible: false
-    - type: ToggleableLightVisuals
+    - type: ToggleableVisuals
       spriteLayer: unshaded
       inhandVisuals:
         left:
@@ -271,7 +285,7 @@
           map: [ "unshaded" ]
           shader: unshaded
           visible: false
-        - type: ToggleableLightVisuals
+        - type: ToggleableVisuals
           spriteLayer: unshaded
           inhandVisuals:
             left:
@@ -343,7 +357,7 @@
           map: [ "unshaded" ]
           shader: unshaded
           visible: false
-    - type: ToggleableLightVisuals
+    - type: ToggleableVisuals
       spriteLayer: unshaded
       inhandVisuals:
         left:
@@ -385,7 +399,7 @@
           map: [ "unshaded" ]
           shader: unshaded
           visible: false
-    - type: ToggleableLightVisuals
+    - type: ToggleableVisuals
       spriteLayer: unshaded
       inhandVisuals:
         left:

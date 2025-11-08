@@ -56,7 +56,7 @@ public sealed class ForTheWorthySystem : EntitySystem
 
         _damageable.TryChangeDamage(target, damageSpec, origin: source);
 
-        _stun.TryParalyze(target, TimeSpan.FromSeconds(2), true);
+        _stun.TryUpdateParalyzeDuration(target, TimeSpan.FromSeconds(2));
 
         _jittering.DoJitter(target, TimeSpan.FromSeconds(2), true, 80, 8);
 

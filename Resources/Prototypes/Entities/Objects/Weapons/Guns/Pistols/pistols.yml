@@ -25,6 +25,17 @@
     slots:
     - suitStorage
     - Belt
+  # ADT-Tweak start
+  - type: MeleeWeapon
+    resetOnHandSelected: false
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 7
+    soundHit:
+      collection: GenericHit
+  - type: AltFireMelee
+  # ADT-Tweak end
   - type: Gun
     fireRate: 6
     selectedMode: SemiAuto
@@ -96,10 +107,14 @@
         whitelist:
           tags:
             - CartridgePistol
+  # - type: RunAndGunSpreadModifier
+  #   modifyer: 0.1
   - type: ContainerContainer
     containers:
       gun_magazine: !type:ContainerSlot
       gun_chamber: !type:ContainerSlot
+  - type: StaticPrice
+    price: 1000
 # ADT TWEAK START
   - type: AttachableHolder
     slots:
@@ -142,6 +157,8 @@
   - type: ContainerContainer
     containers:
       ballistic-ammo: !type:Container
+  # - type: RunAndGunSpreadModifier
+  #   modifyer: 0.1 
   - type: ProjectileBatteryAmmoProvider
     proto: BulletPistol
     fireCost: 100
@@ -170,6 +187,8 @@
     sprite: Objects/Weapons/Guns/Pistols/cobra.rsi
   - type: ChamberMagazineAmmoProvider
     boltClosed: null
+  # - type: RunAndGunSpreadModifier
+  #   modifyer: 0.1
   - type: Gun
     fireRate: 4
     soundGunshot:
@@ -201,6 +220,8 @@
     containers:
       gun_magazine: !type:ContainerSlot
       gun_chamber: !type:ContainerSlot
+  - type: StaticPrice
+    price: 1500
 # ADT TWEAK START
   - type: AttachableHolder
     slots:
@@ -208,6 +229,17 @@
         whitelist:
           tags:
           - ADTAttachmentLaserSight
+      rmc-aslot-barrel:
+        locked: true
+        startingAttachable: ADTAttachmentSuppressor
+        whitelist:
+            tags:
+            - ADTAttachmentSuppressor
+  - type: AttachableSilencer
+    sound: 
+      path: /Audio/Weapons/Guns/Gunshots/silenced.ogg
+      params: 
+        maxDistance: 6 
   - type: AttachableHolderVisuals
     offsets:
       rmc-aslot-underbarrel: 0.16, 0.035
@@ -226,6 +258,8 @@
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-0
       map: ["enum.GunVisualLayers.Mag"]
+  # - type: RunAndGunSpreadModifier
+  #   modifyer: 0.1
   - type: Clothing
     sprite: Objects/Weapons/Guns/Pistols/mk58.rsi
   - type: Gun
@@ -275,6 +309,8 @@
       map: ["enum.GunVisualLayers.Mag"]
   - type: Clothing
     sprite: Objects/Weapons/Guns/Pistols/N1984.rsi
+  # - type: RunAndGunSpreadModifier
+  #   modifyer: 0.4
   - type: Gun
     minAngle: 1
     maxAngle: 20

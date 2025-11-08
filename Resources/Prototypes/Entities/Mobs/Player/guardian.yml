@@ -149,6 +149,11 @@
     - type: HTN
       rootTask:
         task: SimpleHumanoidHostileCompound
+    # ADT Tweak start
+    - type: LanguageSpeaker
+      languages:
+        GalacticCommon: Speak
+    # ADT Tweak end
 
 # From Wizard deck of cards
 - type: entity
@@ -249,6 +254,9 @@
           Piercing: 4
         groups:
           Burn: 3
+      catchingFailDamage:
+        types:
+          Blunt: 1
     - type: MeleeWeapon
       angle: 30
       animation: WeaponArcFist
@@ -271,13 +279,13 @@
         task: SimpleHumanoidHostileCompound
 
 - type: entity
+  parent: BaseMentalAction
   id: ActionToggleGuardian
   name: Toggle Guardian
   description: Either manifests the guardian or recalls it back into your body
   components:
-  - type: InstantAction
+  - type: Action
     icon: Interface/Actions/manifest.png
-    event: !type:GuardianToggleActionEvent
     useDelay: 2
-    checkCanInteract: false
-    checkConsciousness: false
+  - type: InstantAction
+    event: !type:GuardianToggleActionEvent

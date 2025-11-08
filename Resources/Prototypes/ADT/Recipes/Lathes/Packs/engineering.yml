@@ -43,10 +43,30 @@
 
 - type: latheRecipePack
   id: ADTPowerPack
-  recipes: 
+  recipes:
   - ADTPowerCellHyperRecipe
 
 - type: latheRecipePack
   id: ADTIndustrialCharger
-  recipes: 
+  recipes:
   - ADTIndustrialChargerCircuitboard
+
+- type: latheRecipePack
+  id: ADTAdvancedThruster
+  recipes:
+  - ADTMachineMediumThrusterCircuitboard
+  - ADTMachineBigThrusterCircuitboard
+  - ADTMachineMediumLongThrusterCircuitboard
+
+- type: latheRecipePack
+  id: ADTMegaCellPack
+  recipes:
+  - ADTMegaCellSmallRecipe
+  - ADTMegaCellMediumRecipe
+  - ADTMegaCellHighRecipe
+  - ADTMegaCellHyperRecipe
+
+- type: latheRecipePack
+  id: ADTMegaCharger
+  recipes:
+  - ADTMegaCellRechargerCircuitboardRecipe

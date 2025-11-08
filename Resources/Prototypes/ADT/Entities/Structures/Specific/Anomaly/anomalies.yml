@@ -94,8 +94,209 @@
       - ADTWallSpawnAsteroidBSCrab
     - settings:
         spawnOnSuperCritical: true
-        minAmount: 6
-        maxAmount: 10
+        minAmount: 2
+        maxAmount: 4
         maxRange: 5
       spawns:
       - ADTMobSpawnBSCrab
+
+#BFUU
+- type: entity
+  id: ADTAnomalyRockCopper
+  parent: AnomalyRockBase
+  suffix: Rock, Copper
+  components:
+  - type: Sprite
+    color: "#c46333"
+  - type: PointLight
+    radius: 2.0
+    energy: 7.5
+    color: "#c46333"
+  - type: EntitySpawnAnomaly
+    entries:
+    - settings:
+        spawnOnPulse: true
+        minAmount: 8
+        maxAmount: 15
+        minRange: 4.5
+        maxRange: 7.5
+      spawns:
+      - WallSpawnAsteroid
+      - WallSpawnAsteroid
+      - ADTWallSpawnAsteroidCopper
+      - ADTWallSpawnAsteroidCopperCrab
+    - settings:
+        spawnOnPulse: true
+        maxAmount: 3
+        minRange: 2.5
+        maxRange: 4.5
+      spawns:
+      - CrystalOrange
+    - settings:
+        spawnOnSuperCritical: true
+        minAmount: 30
+        maxAmount: 40
+        minRange: 5
+        maxRange: 15
+      spawns:
+      - CrystalOrange
+      - WallSpawnAsteroid
+      - WallSpawnAsteroid
+      - ADTWallSpawnAsteroidCopperCrab
+    - settings:
+        spawnOnSuperCritical: true
+        minAmount: 2
+        maxAmount: 4
+        maxRange: 5
+      spawns:
+      - ADTMobSpawnCopperCrab
+
+- type: entity
+  id: ADTAnomalyRockLead
+  parent: AnomalyRockBase
+  suffix: Rock, Lead
+  components:
+  - type: Sprite
+    color: "#0d114a"
+  - type: PointLight
+    radius: 2.0
+    energy: 7.5
+    color: "#0d114a"
+  - type: EntitySpawnAnomaly
+    entries:
+    - settings:
+        spawnOnPulse: true
+        minAmount: 8
+        maxAmount: 15
+        minRange: 4.5
+        maxRange: 7.5
+      spawns:
+      - WallSpawnAsteroid
+      - WallSpawnAsteroid
+      - ADTWallSpawnAsteroidLead
+      - ADTWallSpawnAsteroidLeadCrab
+    - settings:
+        spawnOnPulse: true
+        maxAmount: 3
+        minRange: 2.5
+        maxRange: 4.5
+      spawns:
+      - CrystalBlue
+    - settings:
+        spawnOnSuperCritical: true
+        minAmount: 30
+        maxAmount: 40
+        minRange: 5
+        maxRange: 15
+      spawns:
+      - CrystalBlue
+      - WallSpawnAsteroid
+      - WallSpawnAsteroid
+      - ADTWallSpawnAsteroidLeadCrab
+    - settings:
+        spawnOnSuperCritical: true
+        minAmount: 2
+        maxAmount: 4
+        maxRange: 5
+      spawns:
+      - ADTMobSpawnLeadCrab
+
+- type: entity
+  id: ADTAnomalyRockZinc
+  parent: AnomalyRockBase
+  suffix: Rock, Zinc
+  components:
+  - type: Sprite
+    color: "#64c4a1"
+  - type: PointLight
+    radius: 2.0
+    energy: 7.5
+    color: "#64c4a1"
+  - type: EntitySpawnAnomaly
+    entries:
+    - settings:
+        spawnOnPulse: true
+        minAmount: 8
+        maxAmount: 15
+        minRange: 4.5
+        maxRange: 7.5
+      spawns:
+      - WallSpawnAsteroid
+      - WallSpawnAsteroid
+      - ADTWallSpawnAsteroidZinc
+      - ADTWallSpawnAsteroidZincCrab
+    - settings:
+        spawnOnPulse: true
+        maxAmount: 3
+        minRange: 2.5
+        maxRange: 4.5
+      spawns:
+      - CrystalGreen
+    - settings:
+        spawnOnSuperCritical: true
+        minAmount: 30
+        maxAmount: 40
+        minRange: 5
+        maxRange: 15
+      spawns:
+      - CrystalGreen
+      - WallSpawnAsteroid
+      - WallSpawnAsteroid
+      - ADTWallSpawnAsteroidZincCrab
+    - settings:
+        spawnOnSuperCritical: true
+        minAmount: 2
+        maxAmount: 4
+        maxRange: 5
+      spawns:
+      - ADTMobSpawnZincCrab
+
+
+#Хеллоуин
+- type: entity
+  id: ADTAnomalyHW
+  parent: BaseAnomaly
+  suffix: HW
+  components:
+  - type: Anomaly
+    corePrototype: ADTAnomalyCoreHW
+    coreInertPrototype: ADTAnomalyCoreHWInert
+    minPulseLength: 180
+    maxPulseLength: 300
+    minPointsPerSecond: 75
+    maxPointsPerSecond: 140
+  - type: Sprite
+    sprite: ADT/Structures/Specific/Anomalies/hw_anom.rsi
+    layers:
+    - state: anom_base
+      map: ["enum.AnomalyVisualLayers.Base"]
+    - state: anom_pulse
+      map: ["enum.AnomalyVisualLayers.Animated"]
+      visible: false
+  - type: PointLight
+    radius: 2.0
+    energy: 7.5
+    color: "#8a1111"
+    castShadows: false
+  - type: EntitySpawnAnomaly
+    entries:
+    - settings:
+        spawnOnPulse: true
+        minAmount: 2
+        maxAmount: 4
+        minRange: 1.5
+        maxRange: 4.5
+      spawns:
+      - ADTDemonicEye
+      - ADTBloodyEyes
+      - ADTBunchOfDemonicEyes
+      - ADTDemonicMouth
+      - ADTDarkRattleSnake
+    - settings:
+        spawnOnShutdown: true
+        minAmount: 2
+        maxAmount: 2
+        minRange: 1.5
+        maxRange: 2.5
+      spawns:
+      - ADTBloodyArmySoldier

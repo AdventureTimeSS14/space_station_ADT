@@ -19,6 +19,17 @@
   equipment:
     id: ADTStudentPDA
 
+# Back
+- type: loadout
+  id: ADTClothingBackpackBlackLadySatchel
+  equipment:
+    back: ADTClothingBackpackBlackLadySatchel
+
+- type: loadout
+  id: ADTClothingBackpackLeatherLadySatchel
+  equipment:
+    back: ADTClothingBackpackLeatherLadySatchel
+
 # Jumpsuit
 - type: loadout
   id: ADTClothingUniformJumpsuitTurtleneckPink

@@ -12,6 +12,7 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
 
 namespace Content.Server.ADT.Economy;
 
@@ -24,6 +25,7 @@ public sealed class ATMSystem : SharedATMSystem
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
     [Dependency] private readonly ContainerSystem _container = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
 
 
     public override void Initialize()
@@ -64,6 +66,15 @@ public sealed class ATMSystem : SharedATMSystem
         var stack = Comp<StackComponent>(args.Used);
         var bankCard = Comp<BankCardComponent>(component.CardSlot.Item.Value);
         var amount = stack.Count;
+
+        if (_random.Prob(component.ErrorChance))
+        {
+            Del(args.Used);
+            _stackSystem.Spawn(amount, _prototypeManager.Index<StackPrototype>(component.CreditStackPrototype), Transform(uid).Coordinates);
+            _audioSystem.PlayPvs(component.SoundWithdrawCurrency, uid);
+            _popupSystem.PopupEntity(Loc.GetString("atm-error"), uid);
+            return;
+        }
 
         _bankCardSystem.TryChangeBalance(bankCard.AccountId!.Value, amount);
         Del(args.Used);

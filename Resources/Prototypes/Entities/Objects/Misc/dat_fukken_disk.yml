@@ -8,7 +8,7 @@
   - type: SpecialRespawn
     prototype: NukeDisk
   - type: Sprite
-    sprite: Objects/Misc/nukedisk.rsi
+    sprite: ADT/Objects/Misc/nukedisk.rsi # ADT-Tweak Objects/Misc/nukedisk.rsi
     state: icon
   - type: StaticPrice
     price: 2000
@@ -27,6 +27,23 @@
   - type: StealTarget
     stealGroup: NukeDisk
   - type: SupermatterImmune #ADT-Tweak
+  # ADT-Tweak-Start
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/ADT/Items/Handling/disk_pickup.ogg
+      params:
+        volume: -6
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/ADT/Items/Handling/disk_drop.ogg
+      params:
+        volume: -6
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/ADT/Items/Handling/disk_drop.ogg
+      params:
+        volume: -6
+  # ADT-Tweak-End
 
 - type: entity
   name: nuclear authentication disk
@@ -36,10 +53,27 @@
   description: A nuclear auth disk, capable of arming a nuke if used along with a code. Note from nanotrasen reads "THIS IS YOUR MOST IMPORTANT POSESSION, SECURE DAT FUKKEN DISK!"
   components:
   - type: Sprite
-    sprite: Objects/Misc/nukedisk.rsi
+    sprite: ADT/Objects/Misc/nukedisk.rsi # ADT-Tweak Objects/Misc/nukedisk.rsi
     state: icon
   - type: StaticPrice
     price: 1 # it's worth even less than normal items. Perfection.
   - type: Tag
     tags:
     - FakeNukeDisk
+  # ADT-Tweak-Start
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/ADT/Items/Handling/disk_pickup.ogg
+      params:
+        volume: -6
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/ADT/Items/Handling/disk_drop.ogg
+      params:
+        volume: -6
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/ADT/Items/Handling/disk_drop.ogg
+      params:
+        volume: -6
+  # ADT-Tweak-End

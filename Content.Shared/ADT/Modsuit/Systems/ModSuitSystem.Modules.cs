@@ -1,11 +1,14 @@
 using Content.Shared.Examine;
 using Content.Shared.Interaction;
 using Content.Shared.PowerCell;
+using Robust.Shared.Containers;
 
 namespace Content.Shared.ADT.ModSuits;
 
 public sealed partial class ModSuitSystem
 {
+    [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
+
     private void InitializeModules()
     {
         SubscribeLocalEvent<ModSuitModComponent, BeforeRangedInteractEvent>(OnAfterInteract);
@@ -116,9 +119,9 @@ public sealed partial class ModSuitSystem
 
         if (TryComp<PowerCellDrawComponent>(suit, out var celldraw))
         {
-            suit.Comp.ModEnergyBaseUsing = (float)Math.Round(suit.Comp.ModEnergyBaseUsing + module.Comp.EnergyUsing, 3);
+            var energy = (float)Math.Round(suit.Comp.ModEnergyBaseUsing + module.Comp.EnergyUsing, 3);
             var attachedCount = GetAttachedToggleCount(suit);
-            celldraw.DrawRate = suit.Comp.ModEnergyBaseUsing * attachedCount;
+            celldraw.DrawRate = energy * attachedCount;
         }
     }
 
@@ -145,7 +148,6 @@ public sealed partial class ModSuitSystem
                     EntityManager.AddComponents(part, remComps);
             }
         }
-
 
         if (TryComp<PowerCellDrawComponent>(suit, out var celldraw))
         {

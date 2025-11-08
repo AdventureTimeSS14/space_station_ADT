@@ -96,6 +96,11 @@
         resultProto: BoxFolderCentCom
         soundPath: /Audio/Effects/kaching.ogg
         powerCost: 5
+      - requiredProto: MagazineBoxMagnum
+        resultProto: ADTMagazineBoxMagnumHoly
+        effectProto: ADTWeaponArcMantisSlash
+        soundPath: /Audio/Magic/blink.ogg
+        powerCost: 1
 ### End ADT Tweak
 
 - type: entity
@@ -170,6 +175,11 @@
         effectProto: BulletImpactEffectOrangeDisabler
         soundPath: /Audio/Magic/knock.ogg
         powerCost: 5
+      - requiredProto: MagazineBoxMagnum
+        resultProto: ADTMagazineBoxMagnumHoly
+        effectProto: ADTWeaponArcMantisSlash
+        soundPath: /Audio/Magic/blink.ogg
+        powerCost: 1
 ### End ADT Tweak
 
 - type: entity
@@ -183,7 +193,7 @@
   - type: Icon
     sprite: Structures/Furniture/Altars/Gods/nanotrasen.rsi
     state: druid
-  - type: Prayable # ADT-Tweak 
+  - type: Prayable # ADT-Tweak
 ### Start ADT Tweak
   - type: Construction
     graph: AltarsGraph
@@ -206,19 +216,19 @@
         effectProto: ADTEffectKudzu
         powerCost: 3
         soundPath: /Audio/Voice/Diona/diona_scream.ogg
-      - requiredTag: ADTGoldOre
+      - requiredTag: OreGold
         requiredAmount: 5
         resultProto: MobSpawnGoldCrabFriendly
         effectProto: ADTEffectKudzu
         powerCost: 3
         soundPath: /Audio/Voice/Diona/diona_scream.ogg
-      - requiredTag: ADTSilverOre
+      - requiredTag: OreSilver
         requiredAmount: 5
         resultProto: MobSpawnSilverCrabFriendly
         effectProto: ADTEffectKudzu
         powerCost: 3
         soundPath: /Audio/Voice/Diona/diona_scream.ogg
-      - requiredTag: ADTUraniumOre
+      - requiredTag: OreUranium
         requiredAmount: 5
         resultProto: MobSpawnUraniumCrabFriendly
         effectProto: ADTEffectKudzu
@@ -242,6 +252,24 @@
         effectProto: ADTEffectKudzu
         powerCost: 3
         soundPath: /Audio/Voice/Diona/diona_scream.ogg
+      - requiredTag: ADTCopperOre
+        requiredAmount: 5
+        resultProto: MobSpawnCopperCrabFriendly
+        effectProto: ADTEffectKudzu
+        powerCost: 3
+        soundPath: /Audio/Voice/Diona/diona_scream.ogg
+      - requiredTag: ADTLeadOre
+        requiredAmount: 5
+        resultProto: MobSpawnLeadCrabFriendly
+        effectProto: ADTEffectKudzu
+        powerCost: 3
+        soundPath: /Audio/Voice/Diona/diona_scream.ogg
+      - requiredTag: ADTZincOre
+        requiredAmount: 5
+        resultProto: MobSpawnZincCrabFriendly
+        effectProto: ADTEffectKudzu
+        powerCost: 3
+        soundPath: /Audio/Voice/Diona/diona_scream.ogg
       - requiredTag: Crowbar
         resultProto: Shovel
         effectProto: ADTEffectKudzu
@@ -252,6 +280,11 @@
         effectProto: ADTEffectKudzu
         powerCost: 2
         soundPath: /Audio/Magic/blink.ogg
+      - requiredProto: MagazineBoxMagnum
+        resultProto: ADTMagazineBoxMagnumHoly
+        effectProto: ADTWeaponArcMantisSlash
+        soundPath: /Audio/Magic/blink.ogg
+        powerCost: 1
 ### End ADT Tweak
 
 - type: entity
@@ -295,6 +328,11 @@
       - requiredTag: ADTJumpSuitSacrifice
         resultProto: ClothingUniformOveralls
         effectProto: ADTWeaponArcRedCrash
+        soundPath: /Audio/Magic/blink.ogg
+        powerCost: 1
+      - requiredProto: MagazineBoxMagnum
+        resultProto: ADTMagazineBoxMagnumHoly
+        effectProto: ADTWeaponArcMantisSlash
         soundPath: /Audio/Magic/blink.ogg
         powerCost: 1
 ### End ADT Tweak
@@ -344,6 +382,11 @@
         effectProto: BulletImpactEffectOrangeDisabler
         soundPath: /Audio/Effects/holy.ogg
         powerCost: 5
+      - requiredProto: MagazineBoxMagnum
+        resultProto: ADTMagazineBoxMagnumHoly
+        effectProto: ADTWeaponArcMantisSlash
+        soundPath: /Audio/Magic/blink.ogg
+        powerCost: 1
 ### End ADT Tweak
 
 - type: entity
@@ -396,6 +439,11 @@
         effectProto: ADTCultistBubble
         soundPath: /Audio/Magic/Eldritch/voidblink.ogg
         powerCost: 1
+      - requiredProto: MagazineBoxMagnum
+        resultProto: ADTMagazineBoxMagnumHoly
+        effectProto: ADTWeaponArcMantisSlash
+        soundPath: /Audio/Magic/blink.ogg
+        powerCost: 1
 ### End ADT Tweak
 
 - type: entity
@@ -412,7 +460,7 @@
   - type: Icon
     sprite: Structures/Furniture/Altars/Gods/nanotrasen.rsi
     state: technology
-  - type: Prayable # ADT-Tweak 
+  - type: Prayable # ADT-Tweak
   - type: PointLight
     radius: 1.5
     energy: 1
@@ -438,6 +486,11 @@
         effectProto: EffectRCDConstruct0
         soundPath: /Audio/Items/Mining/fultext_launch.ogg
         powerCost: 3
+      - requiredProto: MagazineBoxMagnum
+        resultProto: ADTMagazineBoxMagnumHoly
+        effectProto: ADTWeaponArcMantisSlash
+        soundPath: /Audio/Magic/blink.ogg
+        powerCost: 1
 ### End ADT Tweak
 
 - type: entity
@@ -494,6 +547,11 @@
         effectProto: ADTWeaponArcRedCrash
         soundPath: /Audio/Magic/blink.ogg
         powerCost: 3
+      - requiredProto: MagazineBoxMagnum
+        resultProto: ADTMagazineBoxMagnumHoly
+        effectProto: ADTWeaponArcMantisSlash
+        soundPath: /Audio/Magic/blink.ogg
+        powerCost: 1
 ### End ADT Tweak
 
 - type: entity
@@ -682,6 +740,11 @@
         effectProto: BulletImpactEffectOrangeDisabler
         soundPath: /Audio/Effects/hallelujah.ogg
         powerCost: 2
+      - requiredProto: MagazineBoxMagnum
+        resultProto: ADTMagazineBoxMagnumHoly
+        effectProto: ADTWeaponArcMantisSlash
+        soundPath: /Audio/Magic/blink.ogg
+        powerCost: 1
 ### End ADT Tweak
 
 - type: entity
@@ -720,6 +783,11 @@
         effectProto: BulletImpactEffectOrangeDisabler
         soundPath: /Audio/Magic/knock.ogg
         powerCost: 3
+      - requiredProto: MagazineBoxMagnum
+        resultProto: ADTMagazineBoxMagnumHoly
+        effectProto: ADTWeaponArcMantisSlash
+        soundPath: /Audio/Magic/blink.ogg
+        powerCost: 1
 ### End ADT Tweak
 
 - type: entity
@@ -758,4 +826,9 @@
         resultProto: MaterialBananium1
         powerCost: 0.1
         soundPath: /Audio/Items/bikehorn.ogg
+      - requiredProto: MagazineBoxMagnum
+        resultProto: ADTMagazineBoxMagnumHoly
+        effectProto: ADTWeaponArcMantisSlash
+        soundPath: /Audio/Magic/blink.ogg
+        powerCost: 1
 ### End ADT Tweak

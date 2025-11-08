@@ -49,14 +49,14 @@
 - type: entity
   id: ADTMagazineRifleAR12
   name: AR-12 magazine
-  parent: BaseMagazineRifle
+  parent: BaseMagazineLightRifle
   components:
   - type: Tag
     tags:
       - ADTMagazineRifleAR12
   - type: BallisticAmmoProvider
     capacity: 35
-    proto: CartridgeRifle
+    proto: CartridgeLightRifle
   - type: Sprite
     sprite: ADT/Objects/Weapons/Guns/Ammunition/Magazine/Rifle/ar12_mag.rsi
     layers:

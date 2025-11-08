@@ -21,3 +21,13 @@
     ears: ClothingHeadsetScience
     belt: ClothingBeltUtilityFilled
     pocket1: AnomalyLocatorEmpty
+  storage:
+    back:
+    - ADTHumanCubeWrapped #ADT-CustomADTLoadout
+
+- type: chameleonOutfit
+  id: ADTSeniorResearcherChameleonOutfit
+  job: ADTSeniorResearcher
+  hasMindShield: true
+  equipment:
+    ears: ClothingHeadsetScience

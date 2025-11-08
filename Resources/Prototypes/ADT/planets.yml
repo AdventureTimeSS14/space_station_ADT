@@ -6,6 +6,7 @@
   addedComponents:
   - type: RestrictedRange
     range: 250
+    texturepath: "/Textures/ADT/Effects/weather.rsi/ashfal_lvery_light.png"
   - type: SpawnInRange
     protosToSpawn:
       - LavaDungeonRoomMarker
@@ -75,6 +76,10 @@
   - OreDiamond
   - OreArtifactFragment
   - ADTOreBS
+  - OreCopper
+  - OreZinc
+  - OreLead
+  - OreGibtonit
 
 - type: planet
   id: GlacierSurface
@@ -104,3 +109,6 @@
   - OreDiamond
   - OreArtifactFragment
   - ADTOreBS
+  - OreCopper
+  - OreZinc
+  - OreLead

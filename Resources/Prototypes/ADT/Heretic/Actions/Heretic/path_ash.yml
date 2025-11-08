@@ -1,33 +1,31 @@
 - type: entity
   id: ActionHereticJaunt
-  name: action-heretic-ash-passage-name
-  description: action-heretic-ash-passage-desc
   categories: [ HideSpawnMenu ]
   components:
-  - type: InstantAction
+  - type: Action
     useDelay: 15
     itemIconStyle: NoItem
     icon:
       sprite: ADT/Heretic/abilities_heretic.rsi
       state: ashen_shift
-    event: !type:EventHereticAshenShift
     checkCanInteract: false
+  - type: InstantAction
+    event: !type:EventHereticAshenShift
   - type: HereticAction
     requireMagicItem: true
     messageLoc: heretic-speech-ash-jaunt
 
 - type: entity
   id: ActionHereticVolcanoBlast
-  name: action-heretic-ash-blast-name
-  description: action-heretic-ash-blast-desc
   categories: [ HideSpawnMenu ]
   components:
-  - type: InstantAction
+  - type: Action
     useDelay: 10
     itemIconStyle: NoItem
     icon:
       sprite: ADT/Heretic/abilities_heretic.rsi
       state: volcano_blast
+  - type: InstantAction
     event: !type:EventHereticVolcanoBlast
   - type: HereticAction
     requireMagicItem: true
@@ -35,16 +33,15 @@
 
 - type: entity
   id: ActionHereticNightwatcherRebirth
-  name: Nightwatcher's Rebirth
-  description: Drains nearby heathens engulfed in flames of their life force.
   categories: [ HideSpawnMenu ]
   components:
-  - type: InstantAction
+  - type: Action
     useDelay: 15
     itemIconStyle: NoItem
     icon:
       sprite: ADT/Heretic/abilities_heretic.rsi
       state: nightwatcher_rebirth
+  - type: InstantAction
     event: !type:EventHereticNightwatcherRebirth
   - type: HereticAction
     requireMagicItem: true
@@ -52,16 +49,15 @@
 
 - type: entity
   id: ActionHereticAscension1
-  name: Oath of Flame
-  description: Create a ring of fire around you.
   categories: [ HideSpawnMenu ]
   components:
-  - type: InstantAction
+  - type: Action
     useDelay: 90
     itemIconStyle: NoItem
     icon:
       sprite: ADT/Heretic/abilities_heretic.rsi
       state: ashlord_rite1
+  - type: InstantAction
     event: !type:EventHereticFlames
   - type: HereticAction
     requireMagicItem: true
@@ -69,16 +65,15 @@
 
 - type: entity
   id: ActionHereticAscension2
-  name: Fire Cascade
-  description: Burn everything in a large distance.
   categories: [ HideSpawnMenu ]
   components:
-  - type: InstantAction
+  - type: Action
     useDelay: 30
     itemIconStyle: NoItem
     icon:
       sprite: ADT/Heretic/abilities_heretic.rsi
       state: ashlord_rite2
+  - type: InstantAction
     event: !type:EventHereticCascade
   - type: HereticAction
     requireMagicItem: true

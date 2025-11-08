@@ -12,6 +12,8 @@
     - Energy
     reflectProb: 0.2
     spread: 90
+  - type: Paintable
+    group: CrateSteel
   - type: RadiationBlockingContainer
     resistance: 2.5
 
@@ -31,6 +33,8 @@
     - entity_storage
   - type: StaticPrice
     price: 100
+  - type: Paintable
+    group: CratePlastic
 
 - type: entity
   parent: CratePlastic
@@ -49,6 +53,8 @@
     node: done
     containers:
     - entity_storage
+  - type: Paintable
+    group: null
 
 - type: entity
   parent: CratePlastic
@@ -155,6 +161,15 @@
     damageModifierSet: Web
   - type: Destructible
     thresholds:
+    - trigger: # Excess damage, don't spawn entities
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WoodDestroy
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
     - trigger:
         !type:DamageTrigger
         damage: 50
@@ -393,6 +408,15 @@
     sprite: Structures/Storage/Crates/cage.rsi
   - type: Destructible
     thresholds:
+    - trigger: # Excess damage, don't spawn entities
+        !type:DamageTrigger
+        damage: 75
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalGlassBreak
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
     - trigger:
         !type:DamageTrigger
         damage: 15
@@ -451,6 +475,11 @@
         lid_overlay:
           True: { visible: false }
           False: { visible: true }
+        # ADT-Tweak-Start
+        open_overlay:
+          True: { visible: true }
+          False: { visible: false }
+        # ADT-Tweak-End
   - type: OverrideSell
   - type: Fixtures
     fixtures:
@@ -479,6 +508,11 @@
     - state: overlay-closed
       color: "#ad8c27"
       map: [ lid_overlay ]
+    # ADT-Tweak-Start
+    - state: overlay-open
+      color: "#ad8c27"
+      map: [ open_overlay ]
+    # ADT-Tweak-End
     - state: welded
       visible: false
       map: ["enum.WeldableLayers.BaseWelded"]
@@ -509,6 +543,11 @@
     - state: overlay-closed
       color: "#92c7e8"
       map: [ lid_overlay ]
+    # ADT-Tweak-Start
+    - state: overlay-open
+      color: "#92c7e8"
+      map: [ open_overlay ]
+    # ADT-Tweak-End
     - state: welded
       visible: false
       map: ["enum.WeldableLayers.BaseWelded"]
@@ -539,6 +578,11 @@
     - state: overlay-closed
       color: "#ba4bf0"
       map: [ lid_overlay ]
+    # ADT-Tweak-Start
+    - state: overlay-open
+      color: "#ba4bf0"
+      map: [ open_overlay ]
+    # ADT-Tweak-End
     - state: welded
       visible: false
       map: ["enum.WeldableLayers.BaseWelded"]
@@ -569,6 +613,11 @@
     - state: overlay-closed
       color: "#c12d30"
       map: [ lid_overlay ]
+    # ADT-Tweak-Start
+    - state: overlay-open
+      color: "#c12d30"
+      map: [ open_overlay ]
+    # ADT-Tweak-End
     - state: welded
       visible: false
       map: ["enum.WeldableLayers.BaseWelded"]
@@ -599,6 +648,11 @@
     - state: overlay-closed
       color: "#53b723"
       map: [ lid_overlay ]
+    # ADT-Tweak-Start
+    - state: overlay-open
+      color: "#53b723"
+      map: [ open_overlay ]
+    # ADT-Tweak-End
     - state: welded
       visible: false
       map: ["enum.WeldableLayers.BaseWelded"]
@@ -669,7 +723,7 @@
   parent: CrateGeneric
   id: CrateCoffin
   name: coffin
-  description: A comfy coffin, excelent place for the vampires and corpses.
+  description: A comfy coffin, excellent place for the vampires and corpses.
   components:
   - type: Sprite
     sprite: Structures/Storage/Crates/coffin.rsi
@@ -684,6 +738,15 @@
     state: base
   - type: Destructible
     thresholds:
+    - trigger: # Excess damage, don't spawn entities
+        !type:DamageTrigger
+        damage: 75
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WoodDestroy
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
     - trigger:
         !type:DamageTrigger
         damage: 15
@@ -726,6 +789,15 @@
     state: base
   - type: Destructible
     thresholds:
+    - trigger: # Excess damage, don't spawn entities
+        !type:DamageTrigger
+        damage: 400
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WoodDestroy
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
     - trigger:
         !type:DamageTrigger
         damage: 200 # discourage just beating the grave to break it open
@@ -804,6 +876,8 @@
       sprite: Structures/Storage/Crates/labels.rsi
       offset: "0.0,0.03125"
       map: ["enum.PaperLabelVisuals.Layer"]
+  - type: Paintable
+    group: null
 
 - type: entity
   parent: CrateBaseSecure
@@ -830,6 +904,8 @@
       map: ["enum.PaperLabelVisuals.Layer"]
   - type: AccessReader
     access: [["Janitor"]]
+  - type: Paintable
+    group: null
 
 - type: entity
   parent: CrateBaseWeldable

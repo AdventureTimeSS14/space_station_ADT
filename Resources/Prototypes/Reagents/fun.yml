@@ -258,8 +258,8 @@
       - !type:AdjustTemperature
         conditions:
         - !type:Temperature
-          min: 160.15
-        amount: -30000
+          min: 1 #ADT-Tweak 160.15 -> 1
+        amount: -10000 #ADT-Tweak -30000 -> -10000
     Extinguish:
       methods: [ Touch ]
       effects:
@@ -271,7 +271,7 @@
       - !type:HealthChange
         damage:
           types:
-             Cold: 0.01 # slightly nips directly, other cold damage comes from the temp change
+             Cold: 0.05 # slightly nips directly, other cold damage comes from the temp change #ADT-Tweak 0.01 -> 0,05
              Heat: -3 # ghetto burn chem. i don't think anyone would use this intentionally but it's funny
       - !type:PopupMessage
         conditions:
@@ -294,8 +294,8 @@
       - !type:AdjustTemperature
         conditions:
         - !type:Temperature
-          min: 160.15 # not quite enough for cryo, but can speed it up if you wanna take the risk
-        amount: -10000
+          min: 1 # ADT-Tweak 160.15 -> 1
+        amount: -50000 #ADT-Tweak -10000 -> -50000
       - !type:MovespeedModifier
         conditions:
         - !type:ReagentThreshold
@@ -335,6 +335,7 @@
       effects:
       - !type:Emote
         emote: Laugh
+        showInGuidebook: true
         probability: 0.3
       - !type:PopupMessage
         type: Local
@@ -357,6 +358,7 @@
       - !type:Emote
         emote: Weh
         showInChat: true
+        showInGuidebook: true
         force: true
         probability: 0.5
       - !type:Polymorph
@@ -389,6 +391,7 @@
       - !type:Emote
         emote: Hew
         showInChat: true
+        showInGuidebook: true
         force: true
         probability: 0.5
       - !type:Polymorph
@@ -401,6 +404,37 @@
           min: 50
       - !type:AdjustReagent
         reagent: JuiceThatMakesYouHew
+        amount: -20
+        conditions:
+        - !type:ReagentThreshold
+          min: 50
+
+- type: reagent
+  id: CorgiJuice
+  name: reagent-name-corgiessence
+  group: Toxins
+  desc: reagent-desc-corgiessence
+  physicalDesc: reagent-physical-desc-fluffy
+  flavor: dogfood
+  color: "#ed9715"
+  metabolisms:
+    Poison:
+      metabolismRate: 0.2
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 15
+        damage:
+          types:
+            Cellular: 0.5
+      - !type:Polymorph
+        prototype: SmartCorgiMorph
+        conditions:
+        - !type:ReagentThreshold
+          min: 50
+      - !type:AdjustReagent
+        reagent: CorgiJuice
         amount: -20
         conditions:
         - !type:ReagentThreshold

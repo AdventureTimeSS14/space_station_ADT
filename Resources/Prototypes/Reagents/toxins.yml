@@ -63,9 +63,8 @@
       - !type:MovespeedModifier
         walkSpeedModifier: 0.65
         sprintSpeedModifier: 0.65
-      - !type:GenericStatusEffect
-        key: Drowsiness
-        component: Drowsiness
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectDrowsiness
         time: 4
         type: Add
         refresh: false
@@ -382,9 +381,8 @@
   metabolisms:
     Poison:
       effects:
-      - !type:GenericStatusEffect
-        key: SeeingRainbows
-        component: SeeingRainbows
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectSeeingRainbow
         type: Add
         time: 10
         refresh: false
@@ -418,8 +416,9 @@
         damage:
           groups:
             Brute: 2
-            Toxin: 2
             Airloss: 2
+          types:
+            Poison: 2
       # Start ADT tweak
       - !type:HealthChange
         conditions:
@@ -537,6 +536,11 @@
           - !type:OrganType
             type: Animal
             shouldHave: false
+# ADT-Tweak-Start
+          - !type:OrganType
+            type: Felinid
+            shouldHave: false
+# ADT-Tweak-End
           - !type:OrganType
             type: Vox
             shouldHave: false
@@ -547,6 +551,11 @@
       - !type:ChemVomit
         probability: 0.1
         conditions:
+# ADT-Tweak-Start
+          - !type:OrganType
+            type: Felinid
+            shouldHave: false
+# ADT-Tweak-End
           - !type:OrganType
             type: Animal
             shouldHave: false
@@ -561,6 +570,11 @@
         - !type:OrganType
           type: Vox
           shouldHave: false
+# ADT-Tweak-Start
+        - !type:OrganType
+          type: Felinid
+          shouldHave: false
+# ADT-Tweak-End
         damage:
           types:
             Poison: 1
@@ -568,6 +582,10 @@
         conditions:
         - !type:OrganType
           type: Animal
+# ADT-Tweak-Start
+        - !type:OrganType
+          type: Felinid
+# ADT-Tweak-End
         reagent: Protein
         amount: 0.5
       - !type:AdjustReagent
@@ -630,6 +648,7 @@
       - !type:Emote
         emote: Honk
         showInChat: true
+        showInGuidebook: true
         force: true
         probability: 0.2
       - !type:HealthChange
