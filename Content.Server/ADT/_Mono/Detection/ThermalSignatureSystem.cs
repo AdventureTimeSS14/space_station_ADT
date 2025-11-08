@@ -37,12 +37,6 @@ public sealed class ThermalSignatureSystem : EntitySystem
         _sigQuery = GetEntityQuery<ThermalSignatureComponent>();
     }
 
-    private void OnGunShot(Entity<ThermalSignatureComponent> ent, ref GunShotEvent args)
-    {
-        if (_gunQuery.TryComp(ent, out var gun))
-            ent.Comp.StoredHeat += gun.ShootThermalSignature;
-    }
-
     private void OnMachineGetSignature(Entity<MachineThermalSignatureComponent> ent, ref GetThermalSignatureEvent args)
     {
         if (_power.IsPowered(ent.Owner))

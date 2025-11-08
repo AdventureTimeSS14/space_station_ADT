@@ -454,10 +454,6 @@ public sealed partial class FireControlSystem : EntitySystem
             }
         }
 
-        if (artilleryFired)
-        {
-            TriggerCombatMusic(server);
-        }
     }
 
     /// <summary>

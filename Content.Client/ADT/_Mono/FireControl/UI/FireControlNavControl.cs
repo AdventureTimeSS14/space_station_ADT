@@ -23,7 +23,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Client.ADT._Mono.FireControl.UI;
 
-public sealed class FireControlNavControl : ShuttleNavControl
+public sealed class FireControlNavControl 
 {
     private readonly SharedTransformSystem _transform;
     private readonly SharedPhysicsSystem _physics;
@@ -43,73 +43,6 @@ public sealed class FireControlNavControl : ShuttleNavControl
         _blips = EntManager.System<RadarBlipsSystem>();
         _physics = EntManager.System<SharedPhysicsSystem>();
         _transform = EntManager.System<SharedTransformSystem>();
-    }
-
-    protected override void MouseMove(GUIMouseMoveEventArgs args)
-    {
-        base.MouseMove(args);
-        if (_isMouseInside)
-            // Continuously update the cursor position for guided missiles
-            TryUpdateCursorPosition(_lastMousePos);
-    }
-
-    protected override void Draw(DrawingHandleScreen handle)
-    {
-        if (_coordinates == null || _rotation == null)
-            return;
-
-        var xformQuery = EntManager.GetEntityQuery<TransformComponent>();
-        if (!xformQuery.TryGetComponent(_coordinates.Value.EntityId, out var xform)
-            || xform.MapID == MapId.Nullspace)
-        {
-            return;
-        }
-
-        UseCircleMaskShader(handle); // Mono
-
-        base.Draw(handle);
-
-        var mapPos = _transform.ToMapCoordinates(_coordinates.Value);
-        var posMatrix = Matrix3Helpers.CreateTransform(_coordinates.Value.Position, _rotation.Value);
-        var ourEntRot = RotateWithEntity ? _transform.GetWorldRotation(xform) : _rotation.Value;
-        var ourEntMatrix = Matrix3Helpers.CreateTransform(_transform.GetWorldPosition(xform), ourEntRot);
-        var shuttleToWorld = Matrix3x2.Multiply(posMatrix, ourEntMatrix);
-        Matrix3x2.Invert(shuttleToWorld, out var worldToShuttle);
-        var shuttleToView = Matrix3x2.CreateScale(new Vector2(MinimapScale, -MinimapScale)) * Matrix3x2.CreateTranslation(MidPointVector);
-        var worldToView = worldToShuttle * shuttleToView;
-        Matrix3x2.Invert(worldToView, out var viewToWorld);
-
-        var blips = _blips.GetCurrentBlips();
-        var colors = new Dictionary<NetEntity, Color>();
-        foreach (var blip in blips)
-            colors[blip.NetUid] = blip.Color;
-
-        if (_controllables != null)
-        {
-            foreach (var controllable in _controllables)
-            {
-                var coords = EntManager.GetCoordinates(controllable.Coordinates);
-                var worldPos = _transform.ToMapCoordinates(coords).Position;
-
-                if (_selectedWeapons.Contains(controllable.NetEntity))
-                {
-                    var cursorViewPos = InverseScalePosition(_lastMousePos);
-                    cursorViewPos = ScalePosition(cursorViewPos);
-
-                    var cursorWorldPos = Vector2.Transform(cursorViewPos, viewToWorld);
-
-                    var direction = cursorWorldPos - worldPos;
-                    var ray = new CollisionRay(worldPos, direction.Normalized(), (int)CollisionGroup.Impassable);
-
-                    var results = _physics.IntersectRay(xform.MapID, ray, direction.Length(), ignoredEnt: _coordinates?.EntityId);
-
-                    if (!results.Any() && colors.TryGetValue(controllable.NetEntity, out var color))
-                        handle.DrawLine(Vector2.Transform(worldPos, worldToView), cursorViewPos, color.WithAlpha(0.3f));
-                }
-            }
-        }
-
-        ClearShader(handle);
     }
 
     public void UpdateControllables(EntityUid console, FireControllableEntry[] controllables)
