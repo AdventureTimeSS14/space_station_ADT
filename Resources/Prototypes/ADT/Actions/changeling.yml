@@ -127,8 +127,7 @@
       sprite: ADT/Changeling/Actions/actions_ling.rsi
       state: adrenaline
     itemIconStyle: BigAction
-    checkCanInteract: false
-    useDelay: 90
+    useDelay: 70
     priority: -45
   - type: InstantAction
     event: !type:AdrenalineActionEvent
