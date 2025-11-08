@@ -119,6 +119,10 @@ public sealed partial class ShipShieldsSystem : EntitySystem
         if (!TryComp<PhysicsComponent>(Transform(uid).GridUid, out var ourPhysics) || !TryComp<PhysicsComponent>(args.OtherEntity, out var theirPhysics))
             return;
 
+        // only handle ship weapons for now. engine update introduced physics regressions. Let's polish everything else and circle back yeah?
+        if (!HasComp<ShipWeaponProjectileComponent>(args.OtherEntity))
+            return;
+
         if (!TryComp<ProjectileComponent>(args.OtherEntity, out var projectile))
             return;
         if (projectile.Weapon is not null)
