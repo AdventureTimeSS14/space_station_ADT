@@ -132,23 +132,6 @@ public sealed partial class FireControlSystem : EntitySystem
         UpdateUi(uid, component);
     }
 
-    private void OnConsoleUIOpenAttempt(
-        EntityUid uid,
-        FireControlConsoleComponent component,
-        ActivatableUIOpenAttemptEvent args)
-    {
-        var shuttle = _transform.GetParentUid(uid);
-        var uiOpen = _crewedShuttle.AnyShuttleConsoleActiveByPlayer(shuttle, args.User);
-        var forceOne = HasComp<CrewedShuttleComponent>(shuttle) && !HasComp<AdvancedPilotComponent>(args.User);
-
-        // Crewed shuttles should not allow people to have both gunnery and shuttle consoles open.
-        if (uiOpen && forceOne)
-        {
-            args.Cancel();
-            _popup.PopupClient(Loc.GetString("shuttle-console-crewed"), args.User);
-        }
-    }
-
     private void UnregisterConsole(EntityUid console, FireControlConsoleComponent? component = null)
     {
         if (!Resolve(console, ref component))

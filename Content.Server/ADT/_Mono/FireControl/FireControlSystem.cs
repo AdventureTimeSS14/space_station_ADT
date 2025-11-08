@@ -756,17 +756,6 @@ public sealed partial class FireControlSystem : EntitySystem
         return true;
     }
 
-    /// <summary>
-    /// Triggers combat music for the grid that the console is on.
-    /// </summary>
-    private void TriggerCombatMusic(EntityUid consoleUid)
-    {
-        var gridUid = _xform.GetGrid(consoleUid);
-        if (gridUid == null)
-            return;
-
-        _combatMusic.TriggerCombatMusic(gridUid.Value);
-    }
 }
 
 public sealed class FireControllableStatusReportEvent : EntityEventArgs

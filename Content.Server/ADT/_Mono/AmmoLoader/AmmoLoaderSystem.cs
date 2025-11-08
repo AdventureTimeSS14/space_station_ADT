@@ -385,14 +385,6 @@ public sealed class AmmoLoaderSystem : EntitySystem
             return true;
         }
 
-        if (HasComp<CartridgeAmmoComponent>(ammoEntity))
-        {
-            _containers.Remove(ammoEntity, loader.Comp.Container);
-            _gun.AddBallisticAmmo(gunUid, artilleryAmmo, 1);
-            Del(ammoEntity);
-            return true;
-        }
-
         return false;
     }
 }

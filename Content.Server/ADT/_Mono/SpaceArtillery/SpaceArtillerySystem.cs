@@ -113,11 +113,6 @@ public sealed partial class SpaceArtillerySystem : EntitySystem
         }
 
         var parentGrid = xform.GridUid;
-        if (HasComp<SpaceArtilleryDisabledGridComponent>(parentGrid) || !xform.Anchored)
-        {
-            return;
-        }
-
         if (!_gun.TryGetGun(uid, out var gunUid, out var gun))
         {
             OnMalfunction(uid, component);
@@ -132,10 +127,6 @@ public sealed partial class SpaceArtillerySystem : EntitySystem
         // Create coordinates for the target and source positions
         var sourceCoordinates = xform.Coordinates;
         var targetCoordinates = new EntityCoordinates(xform.MapUid!.Value, targetSpot);
-
-        // We need to set the ShootCoordinates for the gun component
-        // This is important to ensure it uses the proper calculations in SharedGunSystem
-        gun.ShootCoordinates = targetCoordinates;
 
         // Call AttemptShoot with the correct signature that includes target coordinates
         // This will eventually call GunSystem.Shoot which correctly handles grid velocity

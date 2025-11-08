@@ -22,7 +22,6 @@ public sealed class ThermalSignatureSystem : EntitySystem
     private TimeSpan _updateAccumulator = TimeSpan.FromSeconds(0);
     private EntityQuery<MapGridComponent> _gridQuery;
     private EntityQuery<ThermalSignatureComponent> _sigQuery;
-    private EntityQuery<GunComponent> _gunQuery;
 
     public override void Initialize()
     {
@@ -33,12 +32,9 @@ public sealed class ThermalSignatureSystem : EntitySystem
         SubscribeLocalEvent<PassiveThermalSignatureComponent, GetThermalSignatureEvent>(OnPassiveGetSignature);
 
         SubscribeLocalEvent<ThermalSignatureComponent, GunShotEvent>(OnGunShot);
-        SubscribeLocalEvent<PowerSupplierComponent, GetThermalSignatureEvent>(OnPowerGetSignature);
-        SubscribeLocalEvent<ThrusterComponent, GetThermalSignatureEvent>(OnThrusterGetSignature);
 
         _gridQuery = GetEntityQuery<MapGridComponent>();
         _sigQuery = GetEntityQuery<ThermalSignatureComponent>();
-        _gunQuery = GetEntityQuery<GunComponent>();
     }
 
     private void OnGunShot(Entity<ThermalSignatureComponent> ent, ref GunShotEvent args)
@@ -56,17 +52,6 @@ public sealed class ThermalSignatureSystem : EntitySystem
     private void OnPassiveGetSignature(Entity<PassiveThermalSignatureComponent> ent, ref GetThermalSignatureEvent args)
     {
         args.Signature += ent.Comp.Signature;
-    }
-
-    private void OnPowerGetSignature(Entity<PowerSupplierComponent> ent, ref GetThermalSignatureEvent args)
-    {
-        args.Signature += ent.Comp.CurrentSupply * ent.Comp.HeatSignatureRatio;
-    }
-
-    private void OnThrusterGetSignature(Entity<ThrusterComponent> ent, ref GetThermalSignatureEvent args)
-    {
-        if (ent.Comp.Firing)
-            args.Signature += ent.Comp.Thrust * ent.Comp.HeatSignatureRatio;
     }
 
     public override void Update(float frameTime)
