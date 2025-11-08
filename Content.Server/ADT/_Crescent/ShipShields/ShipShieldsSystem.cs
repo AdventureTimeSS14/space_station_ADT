@@ -16,7 +16,7 @@ using Content.Shared.Projectiles;
 namespace Content.Server.ADT._Crescent.ShipShields;
 public sealed partial class ShipShieldsSystem : EntitySystem
 {
-    private const string ShipShieldPrototype = "ADTShipShield";
+    private const string ShipShieldPrototype = "ShipShield";
     private const float Padding = 50f;
     private const float CollisionThreshold = 50f;
     //private const float DeflectionSpread = 25f;
