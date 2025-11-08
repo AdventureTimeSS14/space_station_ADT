@@ -1,6 +1,6 @@
 using Content.Server.Power.Components;
 using Content.Server.Shuttles.Components;
-using Content.Shared.ADT_Mono.Detection;
+using Content.Shared.ADT._Mono.Detection;
 using Content.Shared.Power.EntitySystems;
 using Content.Shared.Shuttles.Components;
 using Content.Shared.Shuttles.Systems;
