@@ -3777,7 +3777,7 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 18.5,58.5
       parent: 2
-- proto: ADTFunCardsBoxFull54
+- proto: ADTCardBoxSyndicate
   entities:
   - uid: 10
     components:
