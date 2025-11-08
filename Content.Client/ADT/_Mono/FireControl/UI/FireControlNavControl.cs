@@ -9,7 +9,7 @@ using Content.Shared.Shuttles.Systems;
 using Content.Client.ADT._Mono.Radar;
 using Content.Shared.ADT._Mono.Detection;
 using Content.Shared.ADT._Mono.Radar;
-using Content.Shared._Crescent.ShipShields;
+using Content.Shared.ADT._Crescent.ShipShields;
 using Robust.Shared.Physics.Collision.Shapes;
 using Robust.Client.Graphics;
 using Robust.Client.UserInterface;
