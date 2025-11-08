@@ -6,7 +6,7 @@
     edges:
     - to: pumpkin_hat
       steps:
-      - tag: CarvedPumpkin
+      - tag: ADTCarvedPumpkin
         icon:
           sprite: Objects/Specific/Hydroponics/pumpkin.rsi
           state: carved
