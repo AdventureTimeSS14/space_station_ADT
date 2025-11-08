@@ -17,7 +17,6 @@ public sealed partial class FireControlSystem : EntitySystem
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
     [Dependency] private readonly ShuttleConsoleSystem _shuttleConsoleSystem = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
-    [Dependency] private readonly CrewedShuttleSystem _crewedShuttle = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedContainerSystem _containers = default!;
 

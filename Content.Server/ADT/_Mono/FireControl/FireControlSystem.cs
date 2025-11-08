@@ -28,7 +28,6 @@ public sealed partial class FireControlSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly PowerReceiverSystem _power = default!;
     [Dependency] private readonly RotateToFaceSystem _rotateToFace = default!;
-    [Dependency] private readonly CombatMusicSystem _combatMusic = default!;
 
     /// <summary>
     /// Dictionary of entities that have visualization enabled
