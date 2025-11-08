@@ -8,3 +8,5 @@ ent-ADTCartridgeMagnumLesserIncendiary = патрон (.357 магнум заж�
     .desc = { ent-ADTCartridgeMagnumLesser.desc }
 ent-ADTCartridgeMagnumLesserUranium = патрон (.357 магнум урановый)
     .desc = { ent-ADTCartridgeMagnumLesser.desc }
+ent-ADTCartridgeMagnumsilver = патрон (.357 магнум серебрянный)
+    .desc = Не так эффективно как патроны благословленные богом, но тоже пойдут
