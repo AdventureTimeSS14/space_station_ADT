@@ -14,7 +14,6 @@
       path: /Audio/Ambience/Objects/anomaly_generator.ogg
   - type: Sprite
     sprite: ADT/ADTGlobalEvents/ShipBattle/Structures/Shields/shield.rsi
-    snapCardinals: true
     layers:
     - state: control
     - state: control_on
@@ -28,7 +27,6 @@
         enum.PowerDeviceVisualLayers.Powered:
           True: { visible: true }
           False: { visible: false }
-    snapCardinals: true
   - type: Physics
     bodyType: Static
   - type: Transform
@@ -117,7 +115,6 @@
     shieldColor: "#FF9933"
   - type: Sprite
     sprite: ADT/ADTGlobalEvents/ShipBattle/Structures/Shields/fobshield.rsi
-    snapCardinals: true
     layers:
     - state: fobshield
     - state: fobshield_on
@@ -186,7 +183,6 @@
     shieldColor: "#FF0A70"
   - type: Sprite
     sprite: ADT/ADTGlobalEvents/ShipBattle/Structures/Shields/fobshield.rsi
-    snapCardinals: true
     layers:
     - state: fobshield
     - state: fobshield_on
@@ -262,7 +258,6 @@
     shieldColor: "#9933FF"
   - type: Sprite
     sprite: ADT/ADTGlobalEvents/ShipBattle/Structures/Shields/shield.rsi
-    snapCardinals: true
     layers:
     - state: control
     - state: control_on
@@ -330,7 +325,6 @@
     shieldColor: "#3399FF"
   - type: Sprite
     sprite: ADT/ADTGlobalEvents/ShipBattle/Structures/Shields/shield.rsi
-    snapCardinals: true
     layers:
     - state: control
     - state: control_on
