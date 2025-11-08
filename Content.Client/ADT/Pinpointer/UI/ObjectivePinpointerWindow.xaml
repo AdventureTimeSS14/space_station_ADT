@@ -1,0 +1,11 @@
+<DefaultWindow xmlns="https://spacestation14.io"
+               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+               MinSize="300 200"
+               SetSize="400 300">
+    <BoxContainer Orientation="Vertical" Margin="5">
+        <Label Text="{Loc 'objective-pinpointer-window-description'}" />
+        <ScrollContainer HorizontalExpand="True" VerticalExpand="True">
+            <BoxContainer Name="TargetList" Orientation="Vertical" />
+        </ScrollContainer>
+    </BoxContainer>
+</DefaultWindow>S
