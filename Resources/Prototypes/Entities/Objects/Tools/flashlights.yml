@@ -84,6 +84,7 @@
   - type: Tag
     tags:
       - SecBeltEquip
+      - Flashlight # ADT-Tweak
   - type: ItemSlots
     slots:
       cell_slot:

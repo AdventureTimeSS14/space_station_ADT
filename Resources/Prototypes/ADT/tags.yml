@@ -655,3 +655,6 @@
 
 - type: Tag
   id: ADTMicroManipulatorStockPart
+
+- type: Tag
+  id: ADTCarvedPumpkin
