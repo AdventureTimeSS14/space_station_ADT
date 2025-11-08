@@ -264,6 +264,7 @@
   - type: Item
     size: Normal
   - type: PacifismAllowedGun
+  - type: GunExecutionBlacklist #ADt-tweak
 
 - type: entity
   parent: FoamWeaponBase
@@ -304,6 +305,7 @@
   abstract: true
   components:
   - type: Sprite
+  - type: GunExecutionBlacklist #ADT-tweak
 
 - type: entity
   parent: ToyGunBase

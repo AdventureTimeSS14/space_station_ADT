@@ -654,4 +654,10 @@
   id: ADTFullRiotShieldSyndi
 
 - type: Tag
+  id: ADTMegaCell
+
+- type: Tag
   id: ADTSheet
+
+- type: Tag
+  id: ADTCarvedPumpkin

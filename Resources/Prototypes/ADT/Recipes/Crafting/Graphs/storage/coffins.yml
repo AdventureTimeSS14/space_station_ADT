@@ -1,0 +1,24 @@
+- type: constructionGraph
+  id: CoffinZinc
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: zinccoffin
+          steps:
+            - material: Zinc
+              amount: 5
+              doAfter: 5
+    - node: zinccoffin
+      entity: ADTCoffinZinc
+      edges:
+        - to: start
+          steps:
+            - tool: Screwing
+              doAfter: 5
+          completed:
+            - !type:SpawnPrototype
+              prototype: ADTSheetZinc1
+              amount: 5
+            - !type:EmptyAllContainers
+            - !type:DeleteEntity

@@ -1,8 +1,6 @@
 - type: entity
   parent: SheetMetalBase
   id: ADTSheetLead
-  name: lead
-  suffix: Full
   components:
   - type: Material
   - type: PhysicalComposition
@@ -16,6 +14,7 @@
     - lead_2
     - lead_3
   - type: Sprite
+    sprite: ADT/Objects/Materials/Sheets/metal.rsi
     state: lead_3
     layers:
     - state: lead_3
@@ -36,15 +35,10 @@
           Quantity: 8.8
         - ReagentId: Carbon
           Quantity: 0.9
-  - type: Tag
-    tags:
-      - ADTSheet
 
 - type: entity
   parent: ADTSheetLead
   id: ADTSheetLead10
-  name: lead
-  suffix: 10
   components:
   - type: Sprite
     state: lead
@@ -55,8 +49,6 @@
 - type: entity
   parent: ADTSheetLead
   id: ADTSheetLead1
-  name: lead
-  suffix: Single
   components:
   - type: Sprite
     state: lead
@@ -67,8 +59,6 @@
 - type: entity
   parent: IngotBase
   id: ADTSheetCopper
-  name: copper
-  suffix: Full
   components:
   - type: Material
   - type: PhysicalComposition
@@ -99,14 +89,10 @@
           Quantity: 8.8
         - ReagentId: Carbon
           Quantity: 0.9
-  - type: Tag
-    tags:
-      - ADTSheet
 
 - type: entity
   parent: ADTSheetCopper
   id: ADTSheetCopper10
-  name: copper
   suffix: 10
   components:
   - type: Sprite
@@ -118,8 +104,6 @@
 - type: entity
   parent: ADTSheetCopper
   id: ADTSheetCopper1
-  name: copper
-  suffix: Single
   components:
   - type: Sprite
     state: copper
@@ -130,7 +114,6 @@
 - type: entity
   parent: SheetOtherBase
   id: ADTSheetZinc
-  name: zinc
   suffix: Full
   components:
   - type: Material
@@ -145,6 +128,7 @@
     - zinc_2
     - zinc_3
   - type: Sprite
+    sprite: ADT/Objects/Materials/Sheets/metal.rsi
     state: zinc_3
     layers:
     - state: zinc_3
@@ -166,7 +150,6 @@
 - type: entity
   parent: ADTSheetZinc
   id: ADTSheetZinc10
-  name: zinc
   suffix: 10
   components:
   - type: Sprite
@@ -178,8 +161,6 @@
 - type: entity
   parent: ADTSheetZinc
   id: ADTSheetZinc1
-  name: zinc
-  suffix: Single
   components:
   - type: Sprite
     state: zinc
@@ -190,8 +171,6 @@
 - type: entity
   parent: SheetMetalBase
   id: ADTSheetPlasteel
-  name: plasteel
-  suffix: Full
   components:
   - type: Material
   - type: PhysicalComposition

@@ -107,6 +107,10 @@
     animationTime: 0.6
     animationState: foam-dissolve
   - type: Slippery
+  #ADT-tweak-start
+    slipData:
+      launchForwardsMultiplier: 2
+  #ADT-tweak-end
   - type: StepTrigger
   # disabled until foam reagent duplication is fixed
   #- type: ScoopableSolution

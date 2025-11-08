@@ -35,3 +35,30 @@
   id: ADTPizzaioloPDA
   equipment:
     id: ADTPizzaioloPDA
+
+- type: loadout
+  id: ADTConfectionerPDA
+  equipment:
+    id: ADTConfectionerPDA
+
+# Head
+- type: loadout
+  id: ADTClothingHeadHatChefRed
+  equipment:
+    head: ADTClothingHeadHatChefRed
+
+- type: loadout
+  id: ADTClothingNecChefShawl
+  equipment:
+    neck: ADTClothingNecChefShawl
+
+# Outer clothing
+- type: loadout
+  id: ADTClothingOuterApronButcher
+  equipment:
+    outerClothing: ADTClothingOuterApronButcher
+
+- type: loadout
+  id: ADTClothingOuterJacketChefRed
+  equipment:
+    outerClothing: ADTClothingOuterJacketChefRed

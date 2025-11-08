@@ -405,122 +405,122 @@
 # ADT tweak start other steal
 
 - type: latheRecipe
-  parent: BaseTileRecipe
+  parent: BaseSteelTileRecipe
   id: FloorTileItemClown
   result: FloorTileItemClown
 
 - type: latheRecipe
-  parent: BaseTileRecipe
+  parent: BaseSteelTileRecipe
   id: FloorTileItemMime
   result: FloorTileItemMime
 
 - type: latheRecipe
-  parent: BaseTileRecipe
+  parent: BaseSteelTileRecipe
   id: FloorTileItemKitchen
   result: FloorTileItemKitchen
 
 - type: latheRecipe
-  parent: BaseTileRecipe
+  parent: BaseSteelTileRecipe
   id: FloorTileItemLime
   result: FloorTileItemLime
 
 - type: latheRecipe
-  parent: BaseTileRecipe
+  parent: BaseSteelTileRecipe
   id: FloorTileItemFreezer
   result: FloorTileItemFreezer
 
 - type: latheRecipe
-  parent: BaseTileRecipe
+  parent: BaseSteelTileRecipe
   id: FloorTileItemMono
   result: FloorTileItemMono
 
 - type: latheRecipe
-  parent: BaseTileRecipe
+  parent: BaseSteelTileRecipe
   id: FloorTileItemArcadeRed
   result: FloorTileItemArcadeRed
 
 - type: latheRecipe
-  parent: BaseTileRecipe
+  parent: BaseSteelTileRecipe
   id: FloorTileItemArcadeBlue
   result: FloorTileItemArcadeBlue
 
 - type: latheRecipe
-  parent: BaseTileRecipe
+  parent: BaseSteelTileRecipe
   id: FloorTileItemArcadeBlue2
   result: FloorTileItemArcadeBlue2
 
 - type: latheRecipe
-  parent: BaseTileRecipe
+  parent: BaseSteelTileRecipe
   id: FloorTileItemLaundry
   result: FloorTileItemLaundry
 
 - type: latheRecipe
-  parent: BaseTileRecipe
+  parent: BaseSteelTileRecipe
   id: FloorTileItemElevatorShaft
   result: FloorTileItemElevatorShaft
 
 - type: latheRecipe
-  parent: BaseTileRecipe
+  parent: BaseSteelTileRecipe
   id: FloorTileItemMetalDiamond
   result: FloorTileItemMetalDiamond
 
 - type: latheRecipe
-  parent: BaseTileRecipe
+  parent: BaseSteelTileRecipe
   id: FloorTileItemMining
   result: FloorTileItemMining
 
 - type: latheRecipe
-  parent: BaseTileRecipe
+  parent: BaseSteelTileRecipe
   id: FloorTileItemMiningDark
   result: FloorTileItemMiningDark
 
 - type: latheRecipe
-  parent: BaseTileRecipe
+  parent: BaseSteelTileRecipe
   id: FloorTileItemMiningLight
   result: FloorTileItemMiningLight
 
 - type: latheRecipe
-  parent: BaseTileRecipe
+  parent: BaseSteelTileRecipe
   id: FloorTileItemRockVault
   result: FloorTileItemRockVault
 
 - type: latheRecipe
-  parent: BaseTileRecipe
+  parent: BaseSteelTileRecipe
   id: FloorTileItemBlue
   result: FloorTileItemBlue
 
 - type: latheRecipe
-  parent: BaseTileRecipe
+  parent: BaseSteelTileRecipe
   id: FloorTileItemHydro
   result: FloorTileItemHydro
 
 - type: latheRecipe
-  parent: BaseTileRecipe
-  id: FloorTileItemBar
+  parent: BaseSteelTileRecipe
+  id: FloorTileItemBar 
   result: FloorTileItemBar
 
 - type: latheRecipe
-  parent: BaseTileRecipe
+  parent: BaseSteelTileRecipe
   id: FloorTileItemShuttleBlue
   result: FloorTileItemShuttleBlue
 
 - type: latheRecipe
-  parent: BaseTileRecipe
+  parent: BaseSteelTileRecipe
   id: FloorTileItemShuttleGrey
   result: FloorTileItemShuttleGrey
 
 - type: latheRecipe
-  parent: BaseTileRecipe
+  parent: BaseSteelTileRecipe
   id: FloorTileItemShuttlePurple
   result: FloorTileItemShuttlePurple
 
 - type: latheRecipe
-  parent: BaseTileRecipe
+  parent: BaseSteelTileRecipe
   id: FloorTileItemShuttleBlack
   result: FloorTileItemShuttleBlack
 
 - type: latheRecipe
-  parent: BaseTileRecipe
+  parent: BaseSteelTileRecipe
   id: FloorTileItemShuttleRed
   result: FloorTileItemShuttleRed
 
