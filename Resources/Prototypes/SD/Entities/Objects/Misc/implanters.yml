@@ -5,3 +5,11 @@
   components:
   - type: Implanter
     implant: SindarinTranslatorImplant
+
+- type: entity
+  id: SD_BluespaceLifelineImplanter
+  suffix: Bluespace Lifeline
+  parent: BaseImplantOnlyImplanter
+  components:
+  - type: Implanter
+    implant: SD_BluespaceLifelineImplant

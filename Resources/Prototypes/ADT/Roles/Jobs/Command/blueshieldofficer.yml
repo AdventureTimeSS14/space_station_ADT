@@ -41,7 +41,7 @@
     - BlueShield
   special:
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant ]
+    implants: [ MindShieldImplant, SD_BluespaceLifelineImplant, DeathRattleImplanterCentcomm ] # sd-edit
   - !type:AddComponentSpecial
       components:
         - type: CantShoot
