@@ -59,8 +59,8 @@
           location: Right
       sortedHands:
       - right
-    # - type: Loadout
-    #   prototypes: [SyndicateLoneOperativeGearFull]
+    - type: Loadout
+      prototypes: [ADTShieldGuardianGear]
 
 - type: entity
   name: Holoparasite
@@ -122,6 +122,6 @@
     - type: Unremoveable
 
 - type: startingGear
-  id: ADTGuardianShield
-  equipment:
-    hand1: ADTGuardianShield
+  id: ADTShieldGuardianGear
+  inhand:
+    - ADTGuardianShield
