@@ -10,6 +10,7 @@
             <ItemList Name="OutfitList" SelectMode="Single" VerticalExpand="True"
                                SizeFlagsStretchRatio="0.9" />
             <Button Name="ConfirmButton" HorizontalExpand="True" />
+            <CheckBox  Name="ToggleSpecial" HorizontalExpand="True" /> <!-- Helix -->
         </BoxContainer>
     </BoxContainer>
 </DefaultWindow>
