@@ -112,55 +112,57 @@
   - type: Appearance
 
 
-- type: entity
-  id: ADTSodaEnergyDispenser
-  parent: EnergyChemDispenser
-  name: energy chemical dispenser
-  suffix: energy
-  description: A bluespace Chemical Dispenser that uses station energy to synthesize Reagents. The future is here and now.
-  placement:
-    mode: SnapgridCenter
-  components:
-  - type: Sprite
-    sprite: ADT/Structures/Machines/dispenser_soda.rsi #если делать на визардском спрайте, работать не будет
-    state: industrial
-    snapCardinals: true
-  - type: Transform
-    anchored: true
-    noRot: true
-  - type: EnergyReagentDispenser
-    energyBeakerSlot:
-      whitelistFailPopup: reagent-dispenser-component-cannot-put-entity-message
-      whitelist:
-        components:
-        - FitsInDispenser
-    reagents:
-      CoconutWater: 6
-      Coffee: 12
-      Cola: 12
-      Cream: 6
-      DrGibb: 40
-      EnergyDrink: 40
-      GreenTea: 9
-      Ice: 10
-      JuiceLime: 8
-      JuiceOrange: 8
-      LemonLime: 12
-      RootBeer: 8
-      SodaWater: 6
-      SpaceMountain: 5
-      SpaceUp: 8
-      Sugar: 8
-      Tea: 6
-      TonicWater: 5
-      JuiceWatermelon: 5
-  - type: Appearance
-  - type: Machine
-    board: SodaDispenserMachineCircuitboard
-  - type: GuideHelp
-    guides:
-    - Bartender
-    - Drinks
+#короче хрен его знает, но почему-то раздатчики на энергии не работают с поворотами, потому лучше не создавать раздатчики на энергии с поворотом куда-либо
+
+# - type: entity
+#   id: ADTSodaEnergyDispenser
+#   parent: EnergyChemDispenser
+#   name: energy chemical dispenser
+#   suffix: energy
+#   description: A bluespace Chemical Dispenser that uses station energy to synthesize Reagents. The future is here and now.
+#   placement:
+#     mode: SnapgridCenter
+#   components:
+#   - type: Sprite
+#     sprite: ADT/Structures/Machines/dispenser_soda.rsi
+#     state: industrial
+#     snapCardinals: true
+#   - type: Transform
+#     anchored: true
+#     noRot: true
+#   - type: EnergyReagentDispenser
+#     energyBeakerSlot:
+#       whitelistFailPopup: reagent-dispenser-component-cannot-put-entity-message
+#       whitelist:
+#         components:
+#         - FitsInDispenser
+#     reagents:
+#       CoconutWater: 6
+#       Coffee: 12
+#       Cola: 12
+#       Cream: 6
+#       DrGibb: 40
+#       EnergyDrink: 40
+#       GreenTea: 9
+#       Ice: 10
+#       JuiceLime: 8
+#       JuiceOrange: 8
+#       LemonLime: 12
+#       RootBeer: 8
+#       SodaWater: 6
+#       SpaceMountain: 5
+#       SpaceUp: 8
+#       Sugar: 8
+#       Tea: 6
+#       TonicWater: 5
+#       JuiceWatermelon: 5
+#   - type: Appearance
+#   - type: Machine
+#     board: SodaDispenserMachineCircuitboard
+#   - type: GuideHelp
+#     guides:
+#     - Bartender
+#     - Drinks
 
 # - type: entity
 #   id: ADTBoozeEnergyDispenser
@@ -171,7 +173,7 @@
 #   components:
 #   - type: Rotatable
 #   - type: Sprite
-#     sprite: Structures/smalldispensers.rsi #если делать на визардском спрайте, работать не будет
+#     sprite: Structures/smalldispensers.rsi
 #     drawdepth: SmallObjects
 #     state: booze
 #   - type: Storage
