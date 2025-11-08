@@ -20,4 +20,10 @@ public sealed partial class RadarConsoleWindow : FancyWindow,
     {
         RadarScreen.UpdateState(scc);
     }
+
+
+    public void SetConsole(EntityUid consoleEntity) /// ADT ShipBattle
+    {
+        RadarScreen.SetConsole(consoleEntity);
+    }
 }
