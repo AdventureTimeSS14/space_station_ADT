@@ -606,8 +606,7 @@ public enum SupermatterCrystalState : byte
 [Serializable, NetSerializable]
 public enum SupermatterVisuals : byte
 {
-    Crystal,
-    Psy
+    Crystal
 }
 
 [Serializable, NetSerializable]
