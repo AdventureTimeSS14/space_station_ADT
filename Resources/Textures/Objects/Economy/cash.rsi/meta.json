@@ -1,11 +1,11 @@
 {
-    "version": 1,
+    "version": 2,
     "size": {
         "x": 32,
         "y": 32
     },
     "license": "CC-BY-NC-SA-3.0",
-    "copyright": "Modified by EmoGarbage404 and taken from https://github.com/goonstation/goonstation at commit b951a2c12d967af1295a3e6d33a861e7e1f21299. cash_5k/10k/25k/50k/1M modified by whatston3, cash_100000 modified by Unkn0wnGh0st333.",
+    "copyright": "Modified by EmoGarbage404 and taken from https://github.com/goonstation/goonstation at commit b951a2c12d967af1295a3e6d33a861e7e1f21299. cash_5k/10k/25k/50k/1M modified by whatston3, cash_100000 modified by Unkn0wnGh0st333. New sprites for 1, 10, 100, 500, 1000, 1m by Skilets",
     "states": [
         {
             "name": "cash"
@@ -119,6 +119,12 @@
             "name": "cash_1000000",
             "delays": [
                 [
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
                     0.2,
                     0.2,
                     0.2,
