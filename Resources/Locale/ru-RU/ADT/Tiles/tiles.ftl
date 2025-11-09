@@ -13,6 +13,7 @@ adt-tiles-digital-red-floor = красный цифровой пол
 adt-tiles-digital-blue-floor = синий цифровой пол 
 adt-tiles-cult-fire-floor = огненный пол культа
 adt-tiles-cult-hell-floor = адский пол культа
+adt-tiles-cult-floor = пол культа
 adt-tiles-sepia-floor = пол цвета сепия
 
 adt-tiles-wood-large-broken = сломанный большой деревянный пол
