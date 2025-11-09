@@ -203,6 +203,7 @@ namespace Content.Server.ADT.Chemistry.EntitySystems
             }
             args.Handled = true;
             ent.Comp.Emagged = true;
+            UpdateUiState(ent);
         }
 
     }
