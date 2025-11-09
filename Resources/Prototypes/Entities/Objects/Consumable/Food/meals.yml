@@ -218,7 +218,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 40
+        maxVol: 40 #ADT-Tweak 10>40
         reagents:
         - ReagentId: Nutriment
           Quantity: 30 #ADT-Tweak 6>30
