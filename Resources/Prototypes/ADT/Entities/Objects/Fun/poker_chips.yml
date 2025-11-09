@@ -340,7 +340,6 @@
     whitelist:
       tags:
         - ADTCardPlay
-        - ADTCardBoxBlack
   - type: ContainerContainer
     containers:
       storagebase: !type:Container
