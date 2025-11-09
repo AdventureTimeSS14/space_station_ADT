@@ -1,7 +1,6 @@
 {
-    "copyright": "Made by discord: Cethet, for space station 14",
     "license": "CC-BY-SA-3.0",
-    "version": 1,
+    "copyright": "Made by discord: Cethet, for space station 14, Made by ledniky, (discord:726481288713732147)",
     "size": {
         "x": 32,
         "y": 32
@@ -9,6 +8,15 @@
     "states": [
         {
             "name": "state-info"
+        },
+        {
+            "name": "detention-module"
+        },
+        {
+            "name": "laser-module"
+        },
+        {
+            "name": "lecter-module"
         }
     ]
 }

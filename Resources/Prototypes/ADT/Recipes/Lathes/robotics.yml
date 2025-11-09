@@ -1,6 +1,6 @@
 - type: latheRecipe
-  id: ADTBorgModuleHarm
-  result: ADTBorgModuleHarm
+  id: ADTBorgModuleLaser
+  result: ADTBorgModuleLaser
   completetime: 3
   materials:
     Steel: 500
@@ -10,17 +10,17 @@
     Plasma: 500
     Copper: 400
 
-- type: latheRecipe
-  id: ADTBorgModuleDisabler
-  result: ADTBorgModuleDisabler
-  completetime: 3
-  materials:
-    Steel: 500
-    Glass: 500
-    Plastic: 250
-    Gold: 50
-    Plasma: 50
-    Copper: 500
+#- type: latheRecipe
+#  id: ADTBorgModuleDisabler         #not used
+#  result: ADTBorgModuleDisabler
+#  completetime: 3
+#  materials:
+#    Steel: 500
+#    Glass: 500
+#    Plastic: 250
+#    Gold: 50
+#    Plasma: 50
+#    Copper: 500
 
 - type: latheRecipe
   id: ADTBorgModuleDetention
@@ -31,6 +31,19 @@
     Glass: 500
     Plastic: 250
     Copper: 500
+
+- type: latheRecipe
+  id: ADTBorgModuleRifleLecter
+  result: ADTBorgModuleRifleLecter
+  completetime: 3
+  materials:
+    Steel: 700
+    Glass: 200
+    Plastic: 200
+    Gold: 50
+    Plasma: 500
+    Copper: 400
+    Lead : 400
 
 - type: latheRecipe
   id: ADTBorgModuleRPD
