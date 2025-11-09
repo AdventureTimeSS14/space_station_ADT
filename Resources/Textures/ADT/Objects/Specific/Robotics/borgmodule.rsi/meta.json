@@ -49,6 +49,9 @@
         {
             "name": "base-stripes-inhand-right",
             "directions": 4
+        },
+        {
+            "name": "tech_сombat_module"
         }
     ]
 }
