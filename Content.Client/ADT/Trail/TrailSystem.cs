@@ -39,7 +39,6 @@ public sealed class TrailSystem : EntitySystem
     {
         var (_, comp) = ent;
 
-        // АВТОМАТИЧЕСКОЕ УСТАНОВЛЕНИЕ RenderedEntity ЕСЛИ НУЖНО
         var renderedEntity = comp.UseOwnerAsRenderedEntity ? ent : comp.RenderedEntity;
 
         if (!comp.SpawnRemainingTrail || comp.TrailData.Count == 0 || comp.Frequency <= 0f || comp.Lifetime <= 0f)
@@ -53,7 +52,6 @@ public sealed class TrailSystem : EntitySystem
         EnsureComp<TimedDespawnComponent>(remainingTrail).Lifetime = comp.Lifetime;
         var trail = EnsureComp<TrailComponent>(remainingTrail);
 
-        // КОПИРУЕМ НОВУЮ ПЕРЕМЕННУЮ
         trail.UseOwnerAsRenderedEntity = comp.UseOwnerAsRenderedEntity;
 
         trail.SpawnRemainingTrail = false;
