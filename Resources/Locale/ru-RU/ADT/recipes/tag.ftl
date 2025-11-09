@@ -102,4 +102,6 @@ construction-graph-tag-capicator-stock-part = конденcатор
 construction-graph-voice-trigger = голосовой триггер
 construction-graph-tag-toy-blaster = игрушечный бластер
 construction-graph-tag-stunbaton = дубинка-шокер
+construction-graph-carved-pumpkin = вырезанная тыква
+construction-graph-flashlight = фонарик
 
