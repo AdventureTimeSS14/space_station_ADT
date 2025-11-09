@@ -5,9 +5,6 @@
   abstract: true
   description: It's like it's staring right through you.
   components:
-  - type: NpcFactionMember
-    factions:
-    - SimpleHostile
   # ADT-Tweak-comment-start
   # - type: HTN
   #   rootTask:
@@ -94,6 +91,9 @@
   id: MobWatcherLavaland
   parent: MobWatcherBase
   components:
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
   - type: Sprite
     layers:
     - map: [ "enum.DamageStateVisualLayers.Base" ]
@@ -112,6 +112,9 @@
   parent: MobWatcherBase
   name: icewing watcher
   components:
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
   - type: Sprite
     layers:
     - map: [ "enum.DamageStateVisualLayers.Base" ]
@@ -138,6 +141,9 @@
   parent: MobWatcherBase
   name: magmawing watcher
   components:
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
   - type: Sprite
     layers:
     - map: [ "enum.DamageStateVisualLayers.Base" ]
@@ -181,3 +187,14 @@
     energy: 1
   - type: RgbLightController
     layers: [ 1 ]
+  - type: GhostRole
+    allowMovement: true
+    allowSpeech: true
+    makeSentient: true
+    name: ghost-role-information-WatcherPride-name
+    description: ghost-role-information-WatcherPride-description
+    rules: ghost-role-information-WatcherPride-rules
+    raffle:
+      settings: short
+  - type: GhostTakeoverAvailable
+    
