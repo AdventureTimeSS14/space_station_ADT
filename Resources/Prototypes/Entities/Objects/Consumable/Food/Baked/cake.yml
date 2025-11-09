@@ -839,8 +839,14 @@
   description: Happy Birthday little clown...
   components:
   - type: Sprite
-    sprite: ADT/Objects/Consumable/Food/cake.rsi #ADT-Tweak
-    state: birthday
+    #ADT-Tweak-Start
+    sprite: ADT/Objects/Consumable/Food/cake.rsi
+    layers:
+    - state: birthday
+    - state: birthday-light
+      shader: unshaded
+      map: [ "flame" ]
+    #ADT-Tweak-End
   - type: SliceableFood
     slice: FoodCakeBirthdaySlice
   - type: Item
@@ -848,8 +854,18 @@
     inhandVisuals:
       left:
       - state: birthday-inhand-left
+      - state: birthday-light-inhand-left
+        shader: unshaded
+        map: [ "flame" ]
       right:
       - state: birthday-inhand-right
+      - state: birthday-light-inhand-right
+        shader: unshaded
+        map: [ "flame" ]
+  - type: PointLight
+    netsync: false
+    radius: 1.1
+    color: orange
     #ADT-Tweak-End
 
 - type: entity
