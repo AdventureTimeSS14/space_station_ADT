@@ -1,10 +1,8 @@
 using System.Text;
-using System.Text.RegularExpressions;
+using System.Text.RegularExpressions; //ADT-Tweak
 using Content.Server.Speech.Components;
 using Content.Shared.Speech;
-//ADT-Tweak-Start
-using System.Linq;
-//ADT-Tweak-End
+using System.Linq; //ADT-Tweak
 
 namespace Content.Server.Speech.EntitySystems
 {
@@ -651,8 +649,10 @@ namespace Content.Server.Speech.EntitySystems
                 if (toInsert.Length == 0)
                 {
                     msg.Append(s);
+                    //ADT-Tweak-Start
                 }
-                else //ADT-Tweak
+                else
+                //ADT-Tweak-End
                 {
                     msg.Append(s.Insert(s.Length - s.TrimStart().Length, toInsert.ToString()));
                 }
