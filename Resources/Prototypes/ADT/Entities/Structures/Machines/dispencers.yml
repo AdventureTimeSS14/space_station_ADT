@@ -138,41 +138,6 @@
     idleLoad: 150
     batteryRechargeRate: 60
     batteryRechargeEfficiency: 1.0
-  - type: EnergyReagentDispenser
-    energyBeakerSlot:
-      whitelistFailPopup: reagent-dispenser-component-cannot-put-entity-message
-      whitelist:
-        components:
-        - FitsInDispenser
-    reagents:
-      Aluminium: 8
-      Carbon: 3
-      Chlorine: 12
-      Copper: 5
-      Ethanol: 8
-      Fluorine: 12
-      Hydrogen: 3
-      Iodine: 8
-      Iron: 5
-      Lithium: 12
-      Mercury: 12
-      Nitrogen: 3
-      Oxygen: 3
-      Phosphorus: 5
-      Potassium: 8
-      Radium: 15
-      Silicon: 3
-      Sodium: 5
-      Sugar: 5
-      Sulfur: 5
-      Puncturase: 15
-      Pyrazine: 15
-      TranexamicAcid: 5
-      Epinephrine: 5
-      Aloxadone: 10
-      Cryoxadone: 5
-      Ephedrine: 10
-      ADTMorphine: 3
 
 #короче хрен его знает, но почему-то раздатчики на энергии не работают с поворотами, потому лучше не создавать раздатчики на энергии с поворотом куда-либо
 
