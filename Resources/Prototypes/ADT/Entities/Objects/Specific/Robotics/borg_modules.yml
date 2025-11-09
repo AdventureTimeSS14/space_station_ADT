@@ -6,33 +6,63 @@
   - type: Tag
     tags:
     - ADTBorgModuleSecurity
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Robotics/borgmodule.rsi
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: base-icon-inhand-left
+        color: "#FF9999"  # Светлый огненно-красный
+      - state: base-module-inhand-left
+        color: "#FF3333"  # Яркий огненный красный
+      - state: base-stripes-inhand-left
+        color: "#B30000"  # Насыщенный кроваво-красный
+      right:
+      - state: base-icon-inhand-right
+        color: "#FF9999"
+      - state: base-module-inhand-right
+        color: "#FF3333"
+      - state: base-stripes-inhand-right
+        color: "#B30000"
 
 - type: entity
-  id: ADTBorgModuleDetention   ####
-  parent: [ ADTBaseBorgModuleSecurity, BaseProviderBorgModule ]
+  id: ADTBorgModuleDetention
+  parent: [ BaseProviderBorgModule, ADTBaseBorgModuleSecurity ]
   name: detentions module
   components:
   - type: Sprite
     layers:
     - state: security
-    - state: icons-detentions
+    - state: icon-detentions
+  - type: BorgModuleIcon
+    icon: { sprite: ADT/Interface/Actions/actions_borg.rsi, state: detention-module }
   - type: ItemBorgModule
+    droppableItems:
+    - id: Handcuffs
+      whitelist:
+        tags:
+        - Handcuffs
+    - id: Handcuffs
+      whitelist:
+        tags:
+        - Handcuffs
     items:
-    - ADTInfCablecuffs  #ADT-Tweak-Start: SBborgModuleUpdate
-    - ADTBorgStunbaton #ADT-Tweak-Start: SBborgModuleUpdate
-    - ADTWeaponDisablerBorg #ADT-Tweak-Start: SBborgModuleUpdate
+    - ADTBorgStunbaton
+    - ADTWeaponDisablerBorg
+    - ADTBorgFlashingLight
     - ADTBorgflash
-    - ADTBorgFlashingLight #ADT-Tweak-Start: SBborgModuleUpdate
 
 - type: entity
-  id: ADTBorgModuleCombat ####
+  id: ADTBorgModuleLaser
   parent: [ ADTBaseBorgModuleSecurity, BaseProviderBorgModule ]
   name: harm module
   components:
   - type: Sprite
     layers:
     - state: security
-    - state: icons-harm
+    - state: icon-laser
+  - type: BorgModuleIcon
+    icon: { sprite: ADT/Interface/Actions/actions_borg.rsi, state: laser-module }
   - type: ItemBorgModule
     items:
     - Truncheon
@@ -155,11 +185,10 @@
     items:
     - ADTWeaponRifleLecterBorg
   - type: Sprite
-    sprite: Objects/Specific/Robotics/borgmodule.rsi
     layers:
-    - state: cargo
-    - state: icon-pka
+    - state: security
+    - state: icon-lecter
   - type: BorgModuleIcon
-    icon: { sprite: Interface/Actions/actions_borg.rsi, state: adv-chem-module }
+    icon: { sprite: ADT/Interface/Actions/actions_borg.rsi, state: lecter-module }
 
 # Borg Modules Update End  ADTWeaponRifleLecterBorg

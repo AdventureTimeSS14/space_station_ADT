@@ -58,7 +58,7 @@
   # Start ADT tweak
   # - ADTWeaponIonRifle
   # - ADTWeaponIonCarbine
-  - ADTBorgModuleHarm #ADT secborg
+  - ADTBorgModuleLaser #ADT secborg
   - ADTMechGunImmolatorLaser
   position: 2,-1
   requiredTech:
@@ -79,7 +79,7 @@
   - BoxShellTranquilizer
   - BoxBeanbag
   - WeaponDisabler
-  - ADTBorgModuleDisabler #ADT secborg
+  #- ADTBorgModuleDisabler #ADT secborg #not used
   - ADTBorgModuleDetention #ADT secborg
   # ADT Research Console Rework start
   position: 1,1
@@ -108,7 +108,7 @@
   - ADTMagazineShotgunUranium
   - ADTMagazineMagnumUranium
   - ADTSpeedLoaderMagnumLesserUranium
-  - ADTMagazineBoxMagnumLesserUranium 
+  - ADTMagazineBoxMagnumLesserUranium
   # ADT-Tweak end
   - MagazineBoxLightRifleUranium
   - MagazineBoxRifleUranium
@@ -332,3 +332,20 @@
   requiredTech:
   - BasicShuttleArmament
   # ADT Research Console Rework end
+
+- type: technology
+  id: CombatModulesBorg
+  name: research-technology-combat-modules-borg
+  icon:
+    sprite: Objects/Weapons/Melee/truncheon.rsi
+    state: icon
+  discipline: Arsenal
+  tier: 3
+  cost: 1500
+  recipeUnlocks:
+  - ADTBorgModuleRifleLecter
+  position: 3,1
+  requiredTech:
+  - AdvancedRiotControl
+  - ConcentratedLaserWeaponry
+  # End ADT tweak
