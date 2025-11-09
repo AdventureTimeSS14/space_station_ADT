@@ -12,11 +12,11 @@
     inhandVisuals:
       left:
       - state: base-icon-inhand-left
-        color: "#FF9999"  # Светлый огненно-красный
+        color: "#FF9999"
       - state: base-module-inhand-left
-        color: "#FF3333"  # Яркий огненный красный
+        color: "#FF3333"
       - state: base-stripes-inhand-left
-        color: "#B30000"  # Насыщенный кроваво-красный
+        color: "#B30000"
       right:
       - state: base-icon-inhand-right
         color: "#FF9999"

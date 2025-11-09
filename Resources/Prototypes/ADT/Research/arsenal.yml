@@ -79,7 +79,7 @@
   requiredTech:
   - ADTArsenalBasicModules
 
-# Кинетики 
+# Кинетики
 - type: technology
   id: KineticModifications
   name: research-technology-kinetic-modifications
@@ -96,3 +96,20 @@
   position: 0,2
   requiredTech:
   - SalvageWeapons
+
+#модули борга
+
+- type: technology
+  id: CombatModulesBorg
+  name: research-technology-shooter-modules-borg
+  icon:
+    sprite: ADT/Objects/Specific/Robotics/borgmodule.rsi
+    state: tech_сombat_module
+  discipline: Arsenal
+  tier: 3
+  cost: 15000
+  recipeUnlocks:
+  - ADTBorgModuleRifleLecter
+  position: 0,-4
+  requiredTech:
+  - ADTArsenalExtendedModules
