@@ -157,7 +157,6 @@
       params:
         variation: 0.09
 
-#Zero clothing-start
 - type: entity
   parent: ClothingShoesBaseButcherable
   id: ADTClothingShoesZero
@@ -168,5 +167,3 @@
     sprite: ADT/Clothing/Shoes/Boots/sandals_zero.rsi
   - type: Clothing
     sprite: ADT/Clothing/Shoes/Boots/sandals_zero.rsi
-
-#Zero clothing-end

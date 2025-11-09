@@ -83,7 +83,7 @@
   - type: Item
     sprite: ADT/Objects/Weapons/Melee/ussp_barzai_knife.rsi
 
-#Zero-items-start
+
 - type: entity
   name: Zero's Katana
   parent: BaseSword
@@ -136,4 +136,3 @@
     shape:
     - 0,0,0,3
   - type: DisarmMalus
-#Zero-items-end

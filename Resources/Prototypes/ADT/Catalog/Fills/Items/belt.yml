@@ -83,7 +83,7 @@
       - id: ADTSalineChemistryBottle
       - id: BruteAutoInjector
       - id: BurnAutoInjector
-#Zero-items-start
+
 - type: entity
   id: ADTClothingBeltSheathZeroFilled
   parent: ADTClothingBeltSheathZero
@@ -103,4 +103,4 @@
     containers:
       item:
       - ADTZerosKatanaCosplay
-#Zero-items-end
+

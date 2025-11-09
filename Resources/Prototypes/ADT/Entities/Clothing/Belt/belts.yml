@@ -486,7 +486,6 @@
       path: /Audio/Items/belt_equip.ogg
     quickEquip: false
 
-#Zero clothing-start
 - type: entity
   parent: [ClothingBeltBase, ClothingSlotBase]
   id: ADTClothingBeltSheathZero
@@ -518,4 +517,3 @@
           tags:
           - ADTZeroKatana
   - type: Appearance
-#Zero-items-end

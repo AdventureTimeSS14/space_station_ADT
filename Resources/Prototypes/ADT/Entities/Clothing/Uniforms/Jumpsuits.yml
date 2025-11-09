@@ -1377,7 +1377,6 @@
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpsuit/tuxedo_hell.rsi
 
-#Zero clothing-start
 - type: entity
   parent: ClothingUniformBase
   id: ADTClothingUniformKimanoZero
@@ -1403,4 +1402,3 @@
         Slash: 0.7
         Piercing: 0.6
         Heat: 0.6
-#Zero clothing-end
