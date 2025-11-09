@@ -1,3 +1,5 @@
+using Content.Shared.DoAfter;
+
 namespace Content.Server.ADT.HWAnomCoreLootbox
 {
     /// <summary>
@@ -6,7 +8,17 @@ namespace Content.Server.ADT.HWAnomCoreLootbox
     [RegisterComponent]
     public sealed partial class HWAnomCoreLootboxComponent : Component
     {
-        [DataField]
-        public float Duration = 10f;
+        [DataDefinition]
+        public partial struct HWAnomCoreLootboxSettings
+        {
+            [DataField]
+            public float Duration = 10f;
+            [DataField]
+            public float UseDelay;
+        }
+        [DataField, ViewVariables]
+        public HWAnomCoreLootboxSettings Settings = new();
+        [DataField, ViewVariables(VVAccess.ReadOnly)]
+        public DoAfterId? DoAfter;
     }
 }
