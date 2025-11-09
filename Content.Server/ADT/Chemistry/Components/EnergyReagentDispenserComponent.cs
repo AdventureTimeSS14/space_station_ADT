@@ -1,9 +1,7 @@
-using Content.Shared.Whitelist;
 using Content.Shared.Containers.ItemSlots;
 using Content.Server.ADT.Chemistry.EntitySystems;
 using Content.Shared.ADT.Chemistry;
 using Robust.Shared.Audio;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Server.ADT.Chemistry.Components
 {
@@ -20,13 +18,34 @@ namespace Content.Server.ADT.Chemistry.Components
         [DataField]
         public SoundSpecifier ClickSound = new SoundPathSpecifier("/Audio/Machines/machine_switch.ogg");
 
+        /// <summary>
+        /// текущая выдача. Не забивайте голову и не трогайте
+        /// </summary>
         [ViewVariables(VVAccess.ReadWrite)]
         public EnergyReagentDispenserDispenseAmount DispenseAmount = EnergyReagentDispenserDispenseAmount.U10;
 
+        /// <summary>
+        /// звук отсутствия энергии
+        /// </summary>
         [DataField, ViewVariables]
         public SoundSpecifier PowerSound = new SoundPathSpecifier("/Audio/Machines/buzz-sigh.ogg");
 
+        /// <summary>
+        /// Сами реагенты. Указываеть как (Айди): (цена)
+        /// </summary>
         [DataField]
         public Dictionary<string, float> Reagents = [];
+
+        /// <summary>
+        /// добавление реагентов при емагу
+        /// </summary>
+        [DataField]
+        public Dictionary<string, float>? ReagentsEmagged = [];
+
+        /// <summary>
+        /// при включении нельзя емагнуть
+        /// </summary>
+        [DataField]
+        public bool Emagged = false;
     }
 }

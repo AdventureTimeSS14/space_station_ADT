@@ -20,6 +20,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Utility;
 using Content.Server.Power.EntitySystems;
 using Content.Shared.Power.Components;
+using Content.Shared.Emag.Systems;
 
 namespace Content.Server.ADT.Chemistry.EntitySystems
 {
@@ -51,6 +52,7 @@ namespace Content.Server.ADT.Chemistry.EntitySystems
             SubscribeLocalEvent<EnergyReagentDispenserComponent, EnergyReagentDispenserDispenseReagentMessage>(OnDispenseReagentMessage);
             SubscribeLocalEvent<EnergyReagentDispenserComponent, EnergyReagentDispenserClearContainerSolutionMessage>(OnClearContainerSolutionMessage);
             SubscribeLocalEvent<EnergyReagentDispenserComponent, PowerChangedEvent>(OnPowerChanged);
+            SubscribeLocalEvent<EnergyReagentDispenserComponent, GotEmaggedEvent>(OnEmaged);
 
             SubscribeLocalEvent<EnergyReagentDispenserComponent, MapInitEvent>(OnMapInit, before: [typeof(ItemSlotsSystem)]);
         }
@@ -171,7 +173,7 @@ namespace Content.Server.ADT.Chemistry.EntitySystems
                 || !_solutionContainerSystem.TryGetFitsInDispenser(outputContainer, out var solution, out var soln))
                 return;
 
-            var refundedPower = soln.Sum(reagent => GetPowerCostForReagent(reagent.Reagent.Prototype, (int) reagent.Quantity, reagentDispenser));
+            var refundedPower = soln.Sum(reagent => GetPowerCostForReagent(reagent.Reagent.Prototype, (int)reagent.Quantity, reagentDispenser));
             if (refundedPower > 0)
                 _battery.AddCharge(reagentDispenser, refundedPower);
 
@@ -191,5 +193,17 @@ namespace Content.Server.ADT.Chemistry.EntitySystems
         }
         private void OnMapInit(Entity<EnergyReagentDispenserComponent> entity, ref MapInitEvent args) =>
             _itemSlotsSystem.AddItemSlot(entity.Owner, SharedEnergyReagentDispenser.OutputSlotName, entity.Comp.EnergyBeakerSlot);
+        private void OnEmaged(Entity<EnergyReagentDispenserComponent> ent, ref GotEmaggedEvent args)
+        {
+            if (ent.Comp.ReagentsEmagged == null || ent.Comp.Emagged)
+                return;
+            foreach (var (name, price) in ent.Comp.ReagentsEmagged)
+            {
+                ent.Comp.Reagents.Add(name, price);
+            }
+            args.Handled = true;
+            ent.Comp.Emagged = true;
+        }
+
     }
 }
