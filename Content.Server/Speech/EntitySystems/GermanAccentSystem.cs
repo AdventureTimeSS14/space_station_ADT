@@ -1,7 +1,7 @@
 using Content.Shared.Speech;
+//ADT-Tweak-Start
 using Content.Server.Speech.Components;
 using System.Text.RegularExpressions;
-//ADT-Tweak-Start
 using System.Linq;
 //ADT-Tweak-End
 
@@ -178,9 +178,7 @@ namespace Content.Server.Speech.EntitySystems //ADT-Tweak
         public override void Initialize()
         {
             base.Initialize();
-            //ADT-Tweak-End
 
-            //ADT-Tweak-Start
             _replacements.Add("зачем", "wozu");
             _replacements.Add("почему", "warum");
             _replacements.Add("как", "wie");
@@ -444,7 +442,9 @@ namespace Content.Server.Speech.EntitySystems //ADT-Tweak
             _replacements.Add("кадетика", "kadettchen");
             _replacements.Add("кадетику", "kadettchen");
             _replacements.Add("кадетиков", "kadettchen");
+            //ADT-Tweak-End
 
+            //ADT-Tweak-Start
             _replacements.Add("офицер", "offizier");
             _replacements.Add("офицеры", "offiziere");
             _replacements.Add("офицера", "offizier");
@@ -464,9 +464,7 @@ namespace Content.Server.Speech.EntitySystems //ADT-Tweak
             _replacements.Add("цк", "zentrales kommando");
 
             // Ругательства
-            //ADT-Tweak-End
 
-            //ADT-Tweak-Start
             _replacements.Add("урод", "monster");
             _replacements.Add("урода", "monster");
             _replacements.Add("уроды", "monster");
@@ -643,30 +641,30 @@ namespace Content.Server.Speech.EntitySystems //ADT-Tweak
                 //ADT-Tweak-Start
                 args.Message = Accentuate(message);
                 return;
-                //ADT-Tweak-End
             }
 
-            //ADT-Tweak-Start
             message = _replaceRegex.Replace(message, match =>
             {
                 string matchedText = match.Value;
                 string key = matchedText.ToLowerInvariant();
                 if (!_replacements.TryGetValue(key, out var baseRep))
                     return matchedText;
-                //ADT-Tweak-End
 
-                //ADT-Tweak-Start
                 bool allUpper = true;
                 bool restAreLower = true;
                 bool firstIsUpper = false;
 
                 if (matchedText.Length > 0)
+                //ADT-Tweak-End
                 {
+                    //ADT-Tweak-Start
                     firstIsUpper = Char.IsUpper(matchedText[0]);
                     allUpper = firstIsUpper;
 
                     for (int i = 1; i < matchedText.Length; i++)
+                    //ADT-Tweak-End
                     {
+                        //ADT-Tweak-Start
                         char c = matchedText[i];
                         if (Char.IsLetter(c))
                         {
@@ -680,10 +678,12 @@ namespace Content.Server.Speech.EntitySystems //ADT-Tweak
                             }
                         }
                     }
+                    //ADT-Tweak-End
                 }
 
-                bool titleCase = firstIsUpper && restAreLower;
+                bool titleCase = firstIsUpper && restAreLower; //ADT-Tweak
 
+                //ADT-Tweak-Start
                 string rep = baseRep;
                 if (allUpper)
                 {
