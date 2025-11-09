@@ -6,7 +6,7 @@
     FoodCondimentPacketColdsauce: 5
     FoodCondimentPacketHorseradish: 5
     FoodCondimentPacketHotsauce: 5
-    ADTFoodCondimentPacketMayo: 5 # ADT-Tweak
+    FoodCondimentPacketMayo: 5 # ADT-Tweak
     FoodCondimentPacketKetchup: 5
     FoodCondimentPacketMustard: 5
     FoodCondimentPacketPepper: 5

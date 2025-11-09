@@ -104,6 +104,9 @@
     size: Small
   - type: UseDelay
     delay: 0.5
+  - type: Tag
+    tags:
+    - ADTCardPlay
   - type: Card
     backSprite:
     - sprite: ADT/Objects/Fun/cards.rsi

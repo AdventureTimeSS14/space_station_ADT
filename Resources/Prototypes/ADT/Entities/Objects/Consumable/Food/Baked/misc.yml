@@ -28,10 +28,13 @@
 
 - type: entity
   parent: BaseFoodCondimentPacket
-  id: ADTFoodCondimentPacketMayo
+  id: FoodCondimentPacketMayo
   name: Mayo
   description: MAYONES YAY.
   components:
+  - type: Tag
+    tags:
+    - ADTFoodCondimentPacketMayo
   - type: SolutionContainerManager
     solutions:
       food:

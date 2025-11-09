@@ -45,6 +45,9 @@
   id: Defibrillator
   parent: [ BaseDefibrillator, PowerCellSlotMediumItem ]
   components:
+  - type: Tag
+    tags:
+    - Defibrillator
   - type: MultiHandedItem
   - type: ToggleCellDraw
   - type: PowerCellDraw
@@ -55,6 +58,9 @@
   parent: Defibrillator
   suffix: Empty
   components:
+  - type: Tag
+    tags:
+    - Defibrillator
   - type: ItemSlots
     slots:
       cell_slot:
@@ -87,6 +93,9 @@
   - type: ToggleCellDraw
   - type: PowerCellDraw
     useRate: 100
+  - type: Tag
+    tags:
+    - Defibrillator
   - type: Defibrillator
     zapHeal:
       types:
