@@ -8,7 +8,7 @@
     <BoxContainer Orientation="Horizontal">
         <BoxContainer Orientation="Vertical" MinWidth="170">
             <BoxContainer Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 0 0 5">
-                <Label Text="Battery: " StyleClasses="LabelSubText"/>
+                <Label Text="{Loc 'energy-reagent-dispenser-window-battery-label'}" StyleClasses="LabelSubText"/>
                 <Label Name="BatteryStatusLabel" StyleClasses="LabelSubText"/>
             </BoxContainer>
             <Label Text="{Loc 'reagent-dispenser-window-amount-to-dispense-label'}" HorizontalAlignment="Center" />

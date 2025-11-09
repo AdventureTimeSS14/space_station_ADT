@@ -50,7 +50,7 @@ namespace Content.Client.ADT.Chemistry.UI
             foreach (var card in inventory
                          .Select(item => new EnergyReagentCardControl(item)))
             {
-                card.OnPressed += OnDispenseReagentButtonPressed;
+                card.OnPressed += reagentId => OnDispenseReagentButtonPressed?.Invoke(reagentId);
                 ReagentList.Children.Add(card);
             }
         }
