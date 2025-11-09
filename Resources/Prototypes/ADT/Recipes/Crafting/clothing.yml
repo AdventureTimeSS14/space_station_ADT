@@ -1,0 +1,7 @@
+- type: construction
+  id: ADTPumpkinHat
+  graph: PumpkinHat
+  startNode: start
+  targetNode: pumpkin_hat
+  category: construction-category-clothing
+  objectType: Item
