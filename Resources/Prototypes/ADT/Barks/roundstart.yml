@@ -1,130 +1,156 @@
+# Standard barks
 - type: speechBark
   id: Human1
   name: bark-human1-name
   sound: /Audio/Voice/Talk/speak_1.ogg
+  category: standard
 
 - type: speechBark
   id: Human2
   name: bark-human2-name
   sound: /Audio/Voice/Talk/speak_2.ogg
+  category: standard
 
 - type: speechBark
   id: Human3
   name: bark-human3-name
   sound: /Audio/Voice/Talk/speak_3.ogg
+  category: standard
 
 - type: speechBark
   id: GuitarMutedLow
   name: bark-guitar-muted-low-name
   sound: /Audio/ADT/Voice/Vocal-Barks/Guitar-C2.ogg
+  category: standard
 
 - type: speechBark
   id: GuitarMutedMid
   name: bark-guitar-muted-mid-name
   sound: /Audio/ADT/Voice/Vocal-Barks/Guitar-C3.ogg
+  category: standard
 
 - type: speechBark
   id: MerpSound
   name: bark-merp-name
   sound: /Audio/ADT/Voice/Vocal-Barks/merp.ogg
+  category: standard
 
 - type: speechBark
   id: GuitarMutedHigh
   name: bark-guitar-muted-high-name
   sound: /Audio/ADT/Voice/Vocal-Barks/Guitar-C4.ogg
+  category: standard
 
 - type: speechBark
   id: BanjoMedium
   name: bark-banjo-mid-name
   sound: /Audio/ADT/Voice/Vocal-Barks/Banjo-Cn3.ogg
+  category: standard
 
 - type: speechBark
   id: BanjoHigh
   name: bark-banjo-high-name
   sound: /Audio/ADT/Voice/Vocal-Barks/Banjo-Cn4.ogg
+  category: standard
 
 - type: speechBark
   id: Synth1
   name: bark-synth-1-name
   sound: /Audio/ADT/Voice/Vocal-Barks/undertale-synth-1.ogg
+  category: standard
 
 - type: speechBark
   id: Synth2
   name: bark-synth-2-name
   sound: /Audio/ADT/Voice/Vocal-Barks/synth-2.ogg
+  category: standard
 
 - type: speechBark
   id: Synth3
   name: bark-synth-3-name
   sound: /Audio/ADT/Voice/Vocal-Barks/bloop.ogg
+  category: standard
 
 - type: speechBark
   id: Synth4
   name: bark-synth-4-name
   sound: /Audio/ADT/Voice/Vocal-Barks/undertale-synth-2.ogg
+  category: standard
 
 # UT Voices are neat
 - type: speechBark
   id: Chrip1
   name: bark-chrip-1-name
   sound: /Audio/ADT/Voice/Vocal-Barks/undertale-chrip-1.ogg
+  category: standard
 
 - type: speechBark
   id: Chrip2
   name: bark-chrip-2-name
   sound: /Audio/ADT/Voice/Vocal-Barks/undertale-chrip-2.ogg
+  category: standard
 
 - type: speechBark
   id: Flowey
   name: bark-flowey-name
   sound: /Audio/ADT/Voice/Vocal-Barks/undertale-flowey.ogg
+  category: undertale
 
 - type: speechBark
   id: Mettaton
   name: bark-mettaton-name
   sound:
     collection: ADTMettaton
+  category: undertale
 
 - type: speechBark
   id: Papyrus
   name: bark-papyrus-name
   sound: /Audio/ADT/Voice/Vocal-Barks/undertale-papyrus.ogg
+  category: undertale
 
 - type: speechBark
   id: Sans
   name: bark-sans-name
   sound: /Audio/ADT/Voice/Vocal-Barks/undertale-sans.ogg
+  category: undertale
 
 - type: speechBark
   id: Toriel
   name: bark-toriel-name
   sound: /Audio/ADT/Voice/Vocal-Barks/undertale-toriel.ogg
+  category: undertale
 
 - type: speechBark
   id: Alphys
   name: bark-alphys-name
   sound: /Audio/ADT/Voice/Vocal-Barks/undertale-alphy.ogg
+  category: undertale
 
 - type: speechBark
   id: Asgore
   name: bark-asgore-name
   sound: /Audio/ADT/Voice/Vocal-Barks/undertale-asgore.ogg
+  category: undertale
 
 - type: speechBark
   id: Undyne
   name: bark-undyne-name # @@@ QWERTY barks addont folder
   sound: /Audio/ADT/Voice/Vocal-Barks/undertale-undyne.ogg
+  category: undertale
 
 - type: speechBark
   id: UnderswapSans # U-hu. A bit different from normal sans @@@ QWERTY barks addont folder
   name: bark-underswap-sans-name
   sound: /Audio/ADT/Voice/Vocal-Barks/underswap-sans.ogg
+  category: undertale
 
 - type: speechBark
   id: Temmie
   name: bark-temmie-name
   sound:
     collection: ADTtemmie
+  category: undertale
 
 # UNY some new shit brah @@@ QWERTY barks addon folder
 
@@ -132,119 +158,142 @@
   id: Ace
   name: bark-ace-name
   sound: /Audio/ADT/Voice/Vocal-Barks/undertale-yellow-ace.ogg
+  category: undertale_yellow
 
 - type: speechBark
   id: Axis
   name: bark-axis-name
   sound: /Audio/ADT/Voice/Vocal-Barks/undertale-yellow-axis.ogg
+  category: undertale_yellow
 
 - type: speechBark
   id: Chujin
   name: bark-chujin-name
   sound: /Audio/ADT/Voice/Vocal-Barks/undertale-yellow-chujin.ogg
+  category: undertale_yellow
 
 - type: speechBark
   id: Ceroba
   name: bark-ceroba-name
   sound: /Audio/ADT/Voice/Vocal-Barks/undertale-yellow-ceroba.ogg
+  category: undertale_yellow
 
 - type: speechBark
   id: Dalv
   name: bark-davl-name
   sound: /Audio/ADT/Voice/Vocal-Barks/undertale-yellow-davl.ogg
+  category: undertale_yellow
 
 - type: speechBark
   id: Ed
   name: bark-ed-name
   sound: /Audio/ADT/Voice/Vocal-Barks/undertale-yellow-ed.ogg
+  category: undertale_yellow
 
 - type: speechBark
   id: Marlet
   name: bark-marlet-name
   sound: /Audio/ADT/Voice/Vocal-Barks/undertale-yellow-martlet.ogg
+  category: undertale_yellow
 
 - type: speechBark
   id: Moray
   name: bark-moray-name
   sound: /Audio/ADT/Voice/Vocal-Barks/undertale-yellow-moray.ogg
+  category: undertale_yellow
 
 - type: speechBark
   id: Starlo
   name: bark-starlo-name
   sound: /Audio/ADT/Voice/Vocal-Barks/undertale-yellow-starlo.ogg
    # Deltarune crap its going to happen now @@@ QWERTY barks addont folder
+  category: undertale_yellow
 
 - type: speechBark
   id: Susie
   name: bark-susie-name
   sound: /Audio/ADT/Voice/Vocal-Barks/deltarune-susie.ogg
+  category: deltarune
 
 - type: speechBark
   id: Spamton
   name: bark-spamton-name
   sound: /Audio/ADT/Voice/Vocal-Barks/deltarune-spamton.ogg
+  category: deltarune
 
 - type: speechBark
   id: Rudolph
   name: bark-rudolph-name
   sound: /Audio/ADT/Voice/Vocal-Barks/deltarune-rudolph.ogg
+  category: deltarune
 
 - type: speechBark
   id: RoxlsCaard
   name: bark-roxlscaard-name
   sound:
     collection: ADTRouxlsKaard
+  category: deltarune
 
 - type: speechBark
   id: MrAntTenna
   name: bark-tenna-name
   sound:
     collection: ADTMrAntTennaBark
+  category: deltarune
 
 - type: speechBark
   id: Ralsei
   name: bark-ralsei-name
   sound: /Audio/ADT/Voice/Vocal-Barks/deltarune-ralsei.ogg
+  category: deltarune
 
 - type: speechBark
   id: Queen
   name: bark-queen-name
   sound: /Audio/ADT/Voice/Vocal-Barks/deltarune-queen.ogg
+  category: deltarune
 
 - type: speechBark
   id: Noelle
   name: bark-noelle-name
   sound: /Audio/ADT/Voice/Vocal-Barks/deltarune-noelle.ogg
+  category: deltarune
 
 - type: speechBark
   id: Lancer
   name: bark-lancer-name
   sound: /Audio/ADT/Voice/Vocal-Barks/deltarune-lancer.ogg
+  category: deltarune
 
 - type: speechBark
   id: Jevil
   name: bark-jevil-name
   sound: /Audio/ADT/Voice/Vocal-Barks/deltarune-jevil.ogg
+  category: deltarune
 
 - type: speechBark
   id: Berdly
   name: bark-berdly-name
   sound: /Audio/ADT/Voice/Vocal-Barks/deltarune-berdly.ogg
+  category: deltarune
 
 - type: speechBark
   id: NoellesMom
   name: bark-noellesmom-name
   sound: /Audio/ADT/Voice/Vocal-Barks/deltarune-noellemom.ogg
+  category: deltarune
 
 - type: speechBark
   id: GersonBoom
   name: bark-gersonboom-name
   sound: /Audio/ADT/Voice/Vocal-Barks/deltarune-gerson.ogg
+  category: deltarune
 
 - type: speechBark
   id: Jackenstein
   name: bark-jackenstein-name
   sound: /Audio/ADT/Voice/Vocal-Barks/deltarune-jackenstein.ogg
+  category: deltarune
 ### Okay, thats only deltarune. Now its time for other fangames.
 ### Deltarune: Chapter Rewritten
 
@@ -252,16 +301,19 @@
   id: Charkis
   name: bark-charkis-name
   sound: /Audio/ADT/Voice/Vocal-Barks/deltaruneREwritten_charkis.ogg
+  category: deltarune_rewritten
 
 - type: speechBark
   id: Junkil
   name: bark-junkil-name
   sound: /Audio/ADT/Voice/Vocal-Barks/deltaruneREwritten_junkil.ogg
+  category: deltarune_rewritten
 
 - type: speechBark
   id: Scampton
   name: bark-scampton-name
   sound: /Audio/ADT/Voice/Vocal-Barks/deltaruneREwritten_scamton.ogg
+  category: deltarune_rewritten
 
 ### TS!Underswap
 
@@ -269,46 +321,55 @@
   id: TSUndAlphys
   name: bark-TSUAlphys-name
   sound: /Audio/ADT/Voice/Vocal-Barks/ts_underswap_alphys.ogg
+  category: underswap
 
 - type: speechBark
   id: Bugerpant
   name: bark-bugerpant-name
   sound: /Audio/ADT/Voice/Vocal-Barks/ts_underswap_bugerpant.ogg
+  category: underswap
 
 - type: speechBark
   id: CoffinK
   name: bark-CoffinK-name
   sound: /Audio/ADT/Voice/Vocal-Barks/ts_underswap_coffin_k.ogg
+  category: underswap
 
 - type: speechBark
   id: Crossbones
   name: bark-crossbones-name
   sound: /Audio/ADT/Voice/Vocal-Barks/ts_underswap_crossbones.ogg
+  category: underswap
 
 - type: speechBark
   id: Harry
   name: bark-harry-name
   sound: /Audio/ADT/Voice/Vocal-Barks/ts_underswap_harry.ogg
+  category: underswap
 
 - type: speechBark
   id: Larry
   name: bark-larry-name
   sound: /Audio/ADT/Voice/Vocal-Barks/ts_underswap_larry.ogg
+  category: underswap
 
 - type: speechBark
   id: Mettalot
   name: bark-mettalot-name
   sound: /Audio/ADT/Voice/Vocal-Barks/ts_underswap_mettalot.ogg
+  category: underswap
 
 - type: speechBark
   id: Moldrick
   name: bark-moldrick-name
   sound: /Audio/ADT/Voice/Vocal-Barks/ts_underswap_moldrick.ogg
+  category: underswap
 
 - type: speechBark
   id: SGTSplosion
   name: bark-splosion-name
   sound: /Audio/ADT/Voice/Vocal-Barks/ts_underswap_sgt_splosion.ogg
+  category: underswap
 
 ### Minecraft note blocks
 
@@ -316,70 +377,84 @@
   id: MinecraftBass
   name: bark-minecraftbass-name
   sound: /Audio/ADT/Voice/Vocal-Barks/minecraft_bass.ogg
+  category: minecraft
 
 - type: speechBark
   id: MinecraftBassAttack
   name: bark-minecraftbassattack-name
   sound: /Audio/ADT/Voice/Vocal-Barks/minecraft_bassattack.ogg
+  category: minecraft
 
 - type: speechBark
   id: MinecraftBell
   name: bark-minecraftbell-name
   sound: /Audio/ADT/Voice/Vocal-Barks/minecraft_bell.ogg
+  category: minecraft
 
 - type: speechBark
   id: MinecraftBit
   name: bark-minecraftbit-name
   sound: /Audio/ADT/Voice/Vocal-Barks/minecraft_bit.ogg
+  category: minecraft
 
 - type: speechBark
   id: MinecraftCowBell
   name: bark-minecraftcowbell-name
   sound: /Audio/ADT/Voice/Vocal-Barks/minecraft_cow_bell.ogg
+  category: minecraft
 
 - type: speechBark
   id: MinecraftDidgeridoo
   name: bark-minecraftdidgeridoo-name
   sound: /Audio/ADT/Voice/Vocal-Barks/minecraft_didgeridoo.ogg
+  category: minecraft
 
 - type: speechBark
   id: MinecraftFlute
   name: bark-minecraftflute-name
   sound: /Audio/ADT/Voice/Vocal-Barks/minecraft_flute.ogg
+  category: minecraft
 
 - type: speechBark
   id: MinecraftGuitar
   name: bark-minecraftguitar-name
   sound: /Audio/ADT/Voice/Vocal-Barks/minecraft_guitar.ogg
+  category: minecraft
 
 - type: speechBark
   id: MinecraftHarp
   name: bark-minecraftharp-name
   sound: /Audio/ADT/Voice/Vocal-Barks/minecraft_harp.ogg
+  category: minecraft
 
 - type: speechBark
   id: MinecraftIceChime
   name: bark-minecrafticechime-name
   sound: /Audio/ADT/Voice/Vocal-Barks/minecraft_icechime.ogg
+  category: minecraft
 
 - type: speechBark
   id: MinecraftIronXylophone
   name: bark-minecraftironxylophone-name
   sound: /Audio/ADT/Voice/Vocal-Barks/minecraft_iron_xylophone.ogg
+  category: minecraft
 
 - type: speechBark
   id: MinecraftPling
   name: bark-minecraftpling-name
   sound: /Audio/ADT/Voice/Vocal-Barks/minecraft_pling.ogg
+  category: minecraft
 
 - type: speechBark
   id: MinecraftXylobone
   name: bark-minecraftxylobone-name
   sound: /Audio/ADT/Voice/Vocal-Barks/minecraft_xylobone.ogg
+  category: minecraft
 ### THATS actual end for my addon and update /// QWERTY :)
 # Weh
 - type: speechBark
   id: Weh
   name: bark-weh-name
   sound: /Audio/ADT/Voice/Vocal-Barks/weh.ogg
+  category: standard
 

@@ -1,12 +1,17 @@
 using System.Linq;
+using System.Numerics;
+using Content.Client.ADT.Bark;
 using Content.Client.ADT.SpeechBarks;
+using Content.Client.UserInterface.Controls;
 using Content.Shared.ADT.SpeechBarks;
+using Robust.Client.UserInterface.Controls;
 
 namespace Content.Client.Lobby.UI;
 
 public sealed partial class HumanoidProfileEditor
 {
     private List<BarkPrototype> _barkList = new();
+    private FancyWindow? _barkWindow;
 
     private void InitializeBarks()
     {
@@ -16,41 +21,69 @@ public sealed partial class HumanoidProfileEditor
             .OrderBy(o => Loc.GetString(o.Name))
             .ToList();
 
-        BarkProtoButton.OnItemSelected += args =>
-        {
-            BarkProtoButton.SelectId(args.Id);
-            SetBarkProto(_barkList[args.Id].ID);
-            UpdateSaveButton();
-        };
-
-        PitchEdit.OnTextChanged += args =>
-        {
-            if (!float.TryParse(args.Text, out var newPitch))
-                return;
-
-            SetBarkPitch(newPitch);
-            UpdateSaveButton();
-        };
-
-        DelayVariationMinEdit.OnTextChanged += args =>
-        {
-            if (!float.TryParse(args.Text, out var newVar))
-                return;
-
-            SetBarkMinVariation(newVar);
-            UpdateSaveButton();
-        };
-
-        DelayVariationMaxEdit.OnTextChanged += args =>
-        {
-            if (!float.TryParse(args.Text, out var newVar))
-                return;
-
-            SetBarkMaxVariation(newVar);
-            UpdateSaveButton();
-        };
-
+        BarkProtoButton.OnPressed += _ => OpenBarkWindow();
         BarkPlayButton.OnPressed += _ => PlayPreviewBark();
+    }
+
+    private void OpenBarkWindow()
+    {
+        if (Profile is null)
+            return;
+
+        if (_barkWindow != null)
+        {
+            _barkWindow.Close();
+            _barkWindow = null;
+        }
+        
+        var barkTab = new BarkTab();
+        barkTab.SetSelectedBark(
+            Profile.Bark.Proto,
+            Profile.Bark.Pitch,
+            Profile.Bark.MinVar,
+            Profile.Bark.MaxVar);
+        
+        barkTab.OnBarkSelected += OnBarkSelected;
+        barkTab.OnPitchChanged += OnBarkPitchChanged;
+        barkTab.OnMinVarChanged += OnBarkMinVarChanged;
+        barkTab.OnMaxVarChanged += OnBarkMaxVarChanged;
+
+        _barkWindow = new FancyWindow
+        {
+            Title = Loc.GetString("humanoid-profile-editor-bark-window-title"),
+            MinSize = new Vector2(750, 600),
+        };
+        _barkWindow.ContentsContainer.AddChild(barkTab);
+        _barkWindow.OnClose += () =>
+        {
+            _barkWindow = null;
+        };
+        _barkWindow.OpenCentered();
+    }
+
+    private void OnBarkSelected(string barkId)
+    {
+        SetBarkProto(barkId);
+        UpdateBarkButtonText();
+        UpdateSaveButton();
+    }
+
+    private void OnBarkPitchChanged(float pitch)
+    {
+        SetBarkPitch(pitch);
+        UpdateSaveButton();
+    }
+
+    private void OnBarkMinVarChanged(float minVar)
+    {
+        SetBarkMinVariation(minVar);
+        UpdateSaveButton();
+    }
+
+    private void OnBarkMaxVarChanged(float maxVar)
+    {
+        SetBarkMaxVariation(maxVar);
+        UpdateSaveButton();
     }
 
     private void UpdateBarkVoicesControls()
@@ -58,29 +91,35 @@ public sealed partial class HumanoidProfileEditor
         if (Profile is null)
             return;
 
-        BarkProtoButton.Clear();
-
-        PitchEdit.Text = Profile.Bark.Pitch.ToString();
-        DelayVariationMinEdit.Text = Profile.Bark.MinVar.ToString();
-        DelayVariationMaxEdit.Text = Profile.Bark.MaxVar.ToString();
-
-        var firstVoiceChoiceId = 1;
-        for (var i = 0; i < _barkList.Count; i++)
+        UpdateBarkButtonText();
+        // Обновляем окно барков если оно открыто
+        if (_barkWindow != null && _barkWindow.ContentsContainer.ChildCount > 0)
         {
-            var voice = _barkList[i];
-
-            var name = Loc.GetString(voice.Name);
-            BarkProtoButton.AddItem(name, i);
-
-            if (firstVoiceChoiceId == 1)
-                firstVoiceChoiceId = i;
+            var barkTab = _barkWindow.ContentsContainer.GetChild(0) as BarkTab;
+            if (barkTab != null)
+            {
+                barkTab.SetSelectedBark(
+                    Profile.Bark.Proto,
+                    Profile.Bark.Pitch,
+                    Profile.Bark.MinVar,
+                    Profile.Bark.MaxVar);
+            }
         }
+    }
 
-        var voiceChoiceId = _barkList.FindIndex(x => x.ID == Profile.Bark.Proto);
-        if (!BarkProtoButton.TrySelectId(voiceChoiceId) &&
-            BarkProtoButton.TrySelectId(firstVoiceChoiceId))
+    private void UpdateBarkButtonText()
+    {
+        if (Profile is null)
+            return;
+
+        var bark = _barkList.FirstOrDefault(b => b.ID == Profile.Bark.Proto);
+        if (bark != null)
         {
-            SetBarkProto(_barkList[firstVoiceChoiceId].ID);
+            BarkProtoButton.Text = Loc.GetString(bark.Name);
+        }
+        else
+        {
+            BarkProtoButton.Text = Loc.GetString("humanoid-profile-editor-bark-none");
         }
     }
 
