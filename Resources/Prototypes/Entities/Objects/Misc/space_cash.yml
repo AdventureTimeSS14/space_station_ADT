@@ -35,7 +35,7 @@
     - cash_1000000
     layerFunction: Threshold
   - type: StackLayerThreshold
-    thresholds: [10, 100, 500, 1000, 5000, 10000, 25000, 50000, 100000, 1000000]
+    thresholds: [10, 100, 500, 1000, 1000000] # ADT-Sound-Update
   - type: Sprite
     sprite: Objects/Economy/cash.rsi
     state: cash
