@@ -13,7 +13,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      200: Critical
+      150: Critical
       400: Dead
     stateAlertDict:
       Alive: BorgHealth
@@ -34,7 +34,7 @@
             volume: 5
     - trigger:
         !type:DamageTrigger
-        damage: 1000
+        damage: 500
       behaviors:
       - !type:PlaySoundBehavior
         sound:
