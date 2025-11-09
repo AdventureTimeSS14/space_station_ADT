@@ -334,7 +334,7 @@
   - type: Item
     size: Normal
   - type: Storage
-    maxItemSize: Small
+    maxItemSize: Normal
     grid:
     - 0,0,5,3
     whitelist:
@@ -356,4 +356,6 @@
     - id: ADTFunCasinoChip100stack
       amount: 4
     - id: ADTFunDealerChip
+      amount: 1
+    - id: ADTCardBoxBlack
       amount: 1
