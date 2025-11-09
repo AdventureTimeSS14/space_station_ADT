@@ -1,8 +1,8 @@
+using System.Linq; //ADT-Tweak
 using System.Text;
 using System.Text.RegularExpressions; //ADT-Tweak
 using Content.Server.Speech.Components;
 using Content.Shared.Speech;
-using System.Linq; //ADT-Tweak
 
 namespace Content.Server.Speech.EntitySystems
 {
