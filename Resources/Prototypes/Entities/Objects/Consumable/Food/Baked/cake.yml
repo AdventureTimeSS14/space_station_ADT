@@ -75,8 +75,10 @@
   description: Stains your teeth.
   components:
   - type: Sprite
+    #ADT-Tweak-Start
     sprite: ADT/Objects/Consumable/Food/cake.rsi
     state: blueberry
+    #ADT-Tweak-End
   - type: SliceableFood
     slice: FoodCakeBlueberrySlice
   - type: Tag
@@ -86,9 +88,9 @@
   - type: Item
     inhandVisuals:
       left:
-      - state: blueberry-inhand-left
+      - state: blueberry-inhand-left #ADT-Tweak
       right:
-      - state: blueberry-inhand-right
+      - state: blueberry-inhand-right #ADT-Tweak
 
 - type: entity
   name: blueberry slice
@@ -170,7 +172,7 @@
   description: A favorite desert of a certain wascally wabbit.
   components:
   - type: Sprite
-    sprite: ADT/Objects/Consumable/Food/cake.rsi
+    sprite: ADT/Objects/Consumable/Food/cake.rsi #ADT-Tweak
     state: carrot
   - type: SliceableFood
     slice: FoodCakeCarrotSlice
@@ -192,9 +194,9 @@
   - type: Item
     inhandVisuals:
       left:
-      - state: carrot-inhand-left
+      - state: carrot-inhand-left #ADT-Tweak
       right:
-      - state: carrot-inhand-right
+      - state: carrot-inhand-right #ADT-Tweak
 
 - type: entity
   name: slice of carrot cake
@@ -337,8 +339,10 @@
   description: A cake with added orange.
   components:
   - type: Sprite
+    #ADT-Tweak-Start
     sprite: ADT/Objects/Consumable/Food/cake.rsi
     state: orange
+    #ADT-Tweak-End
   - type: SliceableFood
     slice: FoodCakeOrangeSlice
   - type: Tag
@@ -348,9 +352,9 @@
   - type: Item
     inhandVisuals:
       left:
-      - state: orange-inhand-left
+      - state: orange-inhand-left #ADT-Tweak
       right:
-      - state: orange-inhand-right
+      - state: orange-inhand-right #ADT-Tweak
 
 - type: entity
   name: slice of orange cake
@@ -386,8 +390,10 @@
   description: A cake with added lime.
   components:
   - type: Sprite
+    #ADT-Tweak-Start
     sprite: ADT/Objects/Consumable/Food/cake.rsi
     state: lime
+    #ADT-Tweak-End
   - type: SliceableFood
     slice: FoodCakeLimeSlice
   - type: Tag
@@ -397,9 +403,9 @@
   - type: Item
     inhandVisuals:
       left:
-      - state: lime-inhand-left
+      - state: lime-inhand-left #ADT-Tweak
       right:
-      - state: lime-inhand-right
+      - state: lime-inhand-right #ADT-Tweak
 
 - type: entity
   name: slice of lime cake
@@ -435,8 +441,10 @@
   description: A cake with added lemon.
   components:
   - type: Sprite
+    #ADT-Tweak-Start
     sprite: ADT/Objects/Consumable/Food/cake.rsi
     state: lemon
+    #ADT-Tweak-End
   - type: SliceableFood
     slice: FoodCakeLemonSlice
   - type: Tag
@@ -446,9 +454,9 @@
   - type: Item
     inhandVisuals:
       left:
-      - state: lemon-inhand-left
+      - state: lemon-inhand-left #ADT-Tweak
       right:
-      - state: lemon-inhand-right
+      - state: lemon-inhand-right #ADT-Tweak
 
 - type: entity
   name: slice of lemon cake
@@ -557,8 +565,10 @@
   description: A cake with added chocolate.
   components:
   - type: Sprite
+    #ADT-Tweak-Start
     sprite: ADT/Objects/Consumable/Food/cake.rsi
     state: chocolate
+    #ADT-Tweak-End
   - type: SliceableFood
     slice: FoodCakeChocolateSlice
   - type: SolutionContainerManager
@@ -575,9 +585,9 @@
   - type: Item
     inhandVisuals:
       left:
-      - state: chocolate-inhand-left
+      - state: chocolate-inhand-left #ADT-Tweak
       right:
-      - state: chocolate-inhand-right
+      - state: chocolate-inhand-right #ADT-Tweak
 
 - type: entity
   name: slice of chocolate cake
@@ -616,8 +626,10 @@
   description: A cake centred with apple.
   components:
   - type: Sprite
+    #ADT-Tweak-Start
     sprite: ADT/Objects/Consumable/Food/cake.rsi
     state: apple
+    #ADT-Tweak-End
   - type: SliceableFood
     slice: FoodCakeAppleSlice
   - type: Tag
@@ -627,9 +639,9 @@
   - type: Item
     inhandVisuals:
       left:
-      - state: apple-inhand-left
+      - state: apple-inhand-left #ADT-Tweak
       right:
-      - state: apple-inhand-right
+      - state: apple-inhand-right #ADT-Tweak
 
 - type: entity
   name: slice of apple cake
@@ -667,7 +679,7 @@
   description: A cake made of slimes. Probably not electrified.
   components:
   - type: Sprite
-    sprite: ADT/Objects/Consumable/Food/cake.rsi
+    sprite: ADT/Objects/Consumable/Food/cake.rsi #ADT-Tweak
     state: slime
   - type: SliceableFood
     slice: FoodCakeSlimeSlice
@@ -678,9 +690,9 @@
   - type: Item
     inhandVisuals:
       left:
-      - state: slime-inhand-left
+      - state: slime-inhand-left #ADT-Tweak
       right:
-      - state: slime-inhand-right
+      - state: slime-inhand-right #ADT-Tweak
 
 - type: entity
   name: slice of slime cake
@@ -716,8 +728,10 @@
   description: A hollow cake with real pumpkin.
   components:
   - type: Sprite
+    #ADT-Tweak-Start
     sprite: ADT/Objects/Consumable/Food/cake.rsi
     state: pumpkin
+    #ADT-Tweak-End
   - type: SliceableFood
     slice: FoodCakePumpkinSlice
   - type: SolutionContainerManager
@@ -736,9 +750,9 @@
   - type: Item
     inhandVisuals:
       left:
-      - state: pumpkin-inhand-left
+      - state: pumpkin-inhand-left #ADT-Tweak
       right:
-      - state: pumpkin-inhand-right
+      - state: pumpkin-inhand-right #ADT-Tweak
 
 - type: entity
   name: slice of pumpkin-spice cake
@@ -781,7 +795,7 @@
   description: A cake made of christmas.
   components:
   - type: Sprite
-    sprite: ADT/Objects/Consumable/Food/cake.rsi
+    sprite: ADT/Objects/Consumable/Food/cake.rsi #ADT-Tweak
     state: christmas
   - type: SliceableFood
     slice: FoodCakeChristmasSlice
@@ -792,9 +806,9 @@
   - type: Item
     inhandVisuals:
       left:
-      - state: christmas-inhand-left
+      - state: christmas-inhand-left #ADT-Tweak
       right:
-      - state: christmas-inhand-right
+      - state: christmas-inhand-right #ADT-Tweak
 
 - type: entity
   name: slice of christmas cake
@@ -825,16 +839,18 @@
   description: Happy Birthday little clown...
   components:
   - type: Sprite
-    sprite: ADT/Objects/Consumable/Food/cake.rsi
+    sprite: ADT/Objects/Consumable/Food/cake.rsi #ADT-Tweak
     state: birthday
   - type: SliceableFood
     slice: FoodCakeBirthdaySlice
   - type: Item
+    #ADT-Tweak-Start
     inhandVisuals:
       left:
       - state: birthday-inhand-left
       right:
       - state: birthday-inhand-right
+    #ADT-Tweak-End
 
 - type: entity
   name: slice of birthday cake
@@ -908,7 +924,7 @@
   description: A funny cake with a clown face on it.
   components:
   - type: Sprite
-    sprite: ADT/Objects/Consumable/Food/cake.rsi
+    sprite: ADT/Objects/Consumable/Food/cake.rsi #ADT-Tweak
     state: clown
   - type: SliceableFood
     slice: FoodCakeClownSlice
@@ -924,11 +940,13 @@
         - ReagentId: Sugar
           Quantity: 15
   - type: Item
+    #ADT-Tweak-Start
     inhandVisuals:
       left:
       - state: clown-inhand-left
       right:
       - state: clown-inhand-right
+    #ADT-Tweak-End
 
 - type: entity
   name: slice of clown cake
@@ -960,8 +978,10 @@
   description: A spaceman's trumpet frosted cake.
   components:
   - type: Sprite
+    #ADT-Tweak-Start
     sprite: ADT/Objects/Consumable/Food/cake.rsi
     state: spaceman
+    #ADT-Tweak-End
   - type: SliceableFood
     slice: FoodCakeSpacemanSlice
   - type: SolutionContainerManager
@@ -976,11 +996,13 @@
         - ReagentId: PolypyryliumOligomers
           Quantity: 15
   - type: Item
+    #ADT-Tweak-Start
     inhandVisuals:
       left:
       - state: spaceman-inhand-left
       right:
       - state: spaceman-inhand-right
+    #ADT-Tweak-End
 
 - type: entity
   name: slice of spaceman's cake
