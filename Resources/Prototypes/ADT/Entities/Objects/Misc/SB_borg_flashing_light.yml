@@ -40,8 +40,5 @@
     mask: /Textures/Effects/LightMasks/double_cone.png
   - type: RotatingLight
     speed: 360
-  - type: Construction
-    graph: HelmetJustice
-    node: helmet
   - type: CoveredSlot
     slots: [eyes]
