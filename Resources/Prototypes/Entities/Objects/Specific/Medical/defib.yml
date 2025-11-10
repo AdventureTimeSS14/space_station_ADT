@@ -45,6 +45,11 @@
   id: Defibrillator
   parent: [ BaseDefibrillator, PowerCellSlotMediumItem ]
   components:
+  # ADT-Tweak-Start
+  - type: Tag
+    tags:
+    - Defibrillator
+  # ADT-Tweak-End
   - type: MultiHandedItem
   - type: ToggleCellDraw
   - type: PowerCellDraw
@@ -55,6 +60,11 @@
   parent: Defibrillator
   suffix: Empty
   components:
+  # ADT-Tweak-Start
+  - type: Tag
+    tags:
+    - Defibrillator
+  # ADT-Tweak-End
   - type: ItemSlots
     slots:
       cell_slot:
@@ -87,6 +97,11 @@
   - type: ToggleCellDraw
   - type: PowerCellDraw
     useRate: 100
+  # ADT-Tweak-Start
+  - type: Tag
+    tags:
+    - Defibrillator
+  # ADT-Tweak-End 
   - type: Defibrillator
     zapHeal:
       types:
