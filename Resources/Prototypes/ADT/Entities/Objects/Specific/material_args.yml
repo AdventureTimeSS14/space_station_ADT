@@ -14,38 +14,6 @@
         path: /Audio/Items/Lighters/lighter3.ogg
     - type: AddComponentsOnUse
       components:
-        - type: Puller
-          grabStats:
-            None:
-              requiredHands: 1
-              doaftersToEscape: 0
-              movementSpeedModifier: 0.9
-              escapeAttemptTime: 0
-              setStageTime: 0
-            Soft:
-              requiredHands: 1
-              doaftersToEscape: 3
-              movementSpeedModifier: 0.8
-              escapeAttemptTime: 1.2
-              setStageTime: 0
-            Hard:
-              requiredHands: 1
-              doaftersToEscape: 4
-              movementSpeedModifier: 0.75
-              escapeAttemptTime: 1.2
-              setStageTime: 0.75
-            Choke:
-              requiredHands: 2
-              doaftersToEscape: 5
-              movementSpeedModifier: 0.7
-              escapeAttemptTime: 1.25
-              setStageTime: 1.25
-        - type: MeleeWeapon
-          attackRate: 2
-          animation: WeaponArcFist
-          damage:
-            types:
-              Blunt: 6
         - type: Combo
           availableMoves:
             - actionsNeeds:
@@ -66,26 +34,28 @@
                     collection: GenericHit
             - actionsNeeds:
                 - Hit
-                - Disarm
                 - Hit
               comboEvent:
+                - !type:ComboEffectToStuned
+                  comboEvents:
+                  - !type:ComboEffectSleep
+                    time: 5
                 - !type:ComboMoreDamageToDownedEffect
                   damage:
                     types:
-                      Blunt: 20
+                      Blunt: 15
                 - !type:ComboPopupEffect
                   localeText: combo-cqc-kick-end
                 - !type:ComboDamageEffect
                   damage:
                     types:
-                      Blunt: 15
+                      Blunt: 10
                 - !type:ComboAudioEffect
                   sound:
                     collection: GenericHit
                 - !type:ComboTrowTargetEffect
-                - !type:ComboStunEffect
-                  stunTime: 1
-                  dropItems: true
+                - !type:ComboStaminaDamageEffect
+                  staminaDamage: 55
             - actionsNeeds:
                 - Disarm
                 - Grab
@@ -94,14 +64,17 @@
                   localeText: combo-cqc-pressure-end
                 - !type:ComboStaminaDamageEffect
                   staminaDamage: 65
+                - !type:ComboHandsRetakeEffect
             - actionsNeeds:
                 - Grab
                 - Grab
               comboEvent:
                 - !type:ComboPopupEffect
                   localeText: combo-cqc-restain-end
-                - !type:ComboStunEffect
-                  stunTime: 4
+                - !type:ComboFallEffect
+                  dropItems: true
+                - !type:ComboStaminaDamageEffect
+                  staminaDamage: 65
             - actionsNeeds:
                 - Disarm
                 - Disarm
@@ -169,38 +142,6 @@
           includeExamine: false
         - type: CantShoot
           popup: combo-cantshoot
-        - type: Puller
-          grabStats:
-            None:
-              requiredHands: 1
-              doaftersToEscape: 0
-              movementSpeedModifier: 0.9
-              escapeAttemptTime: 0
-              setStageTime: 0
-            Soft:
-              requiredHands: 1
-              doaftersToEscape: 3
-              movementSpeedModifier: 0.8
-              escapeAttemptTime: 1.2
-              setStageTime: 0
-            Hard:
-              requiredHands: 1
-              doaftersToEscape: 4
-              movementSpeedModifier: 0.75
-              escapeAttemptTime: 1.2
-              setStageTime: 0.75
-            Choke:
-              requiredHands: 2
-              doaftersToEscape: 5
-              movementSpeedModifier: 0.7
-              escapeAttemptTime: 1.25
-              setStageTime: 1.25
-        - type: MeleeWeapon
-          attackRate: 2
-          animation: WeaponArcFist
-          damage:
-            types:
-              Blunt: 6
         - type: Combo
           availableMoves:
             - actionsNeeds:
@@ -350,6 +291,7 @@
                 - !type:ComboAudioEffect
                   sound:
                     collection: GenericHit
+
 - type: entity #TODO: когда визарды добавят области, добавьте повару свой стиль с привязкой к области
   id: ADTCqcManualWeak
   name: cqc manual for the smallest
@@ -366,11 +308,6 @@
         path: /Audio/Items/Lighters/lighter3.ogg
     - type: AddComponentsOnUse
       components:
-        - type: MeleeWeapon
-          animation: WeaponArcFist
-          damage:
-            types:
-              Blunt: 10
         - type: Combo
           availableMoves:
             - actionsNeeds:
