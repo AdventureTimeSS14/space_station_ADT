@@ -43,7 +43,7 @@
     Gold: 50
     Plasma: 500
     Copper: 400
-    Lead : 400
+    Lead: 400
 
 - type: latheRecipe
   id: ADTBorgModuleRPD
