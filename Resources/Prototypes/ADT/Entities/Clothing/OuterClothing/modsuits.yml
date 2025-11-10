@@ -202,7 +202,10 @@
     walkModifier: 0.9
     sprintModifier: 0.85
   - type: FireProtection
-    reduction: 0.8 # SD tweak 1 -> 0.8
+    reduction: 0.5
+  - type: ClothingGrantComponent
+    component:
+    - type: AshStormImmune
 
 - type: entity
   parent: ADTClothingOuterModsuitBodyBase
@@ -480,7 +483,7 @@
     damageCoefficient: 0.1
   - type: FireProtection
     reduction: 0.9
-    
+
 - type: entity
   parent: ADTClothingOuterModsuitBodyBase
   id: ADTClothingOuterModsuitBodyCMO

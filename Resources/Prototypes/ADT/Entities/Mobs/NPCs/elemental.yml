@@ -133,3 +133,145 @@
     interactSuccessSpawn: EffectHearts
     interactSuccessSound:
       path: /Audio/Voice/Arachnid/arachnid_chitter.ogg
+#BFUU crabs
+- type: entity
+  parent: MobOreCrab
+  id: ADTMobCopperCrab
+  description: An ore crab made from copper.
+  suffix: Copper
+  components:
+  - type: Sprite
+    sprite: ADT/Mobs/Elemental/orecrab.rsi
+    state: copper_crab
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 5
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 70
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ADTCopperOre1:
+            min: 1
+            max: 3
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+- type: entity
+  parent: MobOreCrab
+  id: ADTMobLeadCrab
+  description: An ore crab made from lead.
+  suffix: Lead
+  components:
+  - type: Sprite
+    sprite: ADT/Mobs/Elemental/orecrab.rsi
+    state: lead_crab
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 5
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 70
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ADTLeadOre1:
+            min: 1
+            max: 3
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+- type: entity
+  parent: MobOreCrab
+  id: ADTMobZincCrab
+  description: An ore crab made from zinc.
+  suffix: Zinc
+  components:
+  - type: Sprite
+    sprite: ADT/Mobs/Elemental/orecrab.rsi
+    state: zinc_crab
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 5
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 70
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ADTZincOre1:
+            min: 1
+            max: 3
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+- type: entity
+  id: ADTMobCopperCrabFriendly
+  parent: ADTMobCopperCrab
+  name: Copper crab
+  description: An ore crab made from copper.
+  components:
+  - type: NpcFactionMember
+    factions:
+      - PetsNT
+  - type: InteractionPopup
+    successChance: 0.5
+    interactSuccessString: petting-success-crab
+    interactFailureString: petting-failure-crab
+    interactSuccessSpawn: EffectHearts
+    interactSuccessSound:
+      path: /Audio/Voice/Arachnid/arachnid_chitter.ogg
+
+- type: entity
+  id: ADTMobLeadCrabFriendly
+  parent: ADTMobLeadCrab
+  name: Lead crab
+  description: An ore crab made from lead.
+  components:
+  - type: NpcFactionMember
+    factions:
+      - PetsNT
+  - type: InteractionPopup
+    successChance: 0.5
+    interactSuccessString: petting-success-crab
+    interactFailureString: petting-failure-crab
+    interactSuccessSpawn: EffectHearts
+    interactSuccessSound:
+      path: /Audio/Voice/Arachnid/arachnid_chitter.ogg
+
+- type: entity
+  id: ADTMobZincCrabFriendly
+  parent: ADTMobZincCrab
+  name: Zinc crab
+  description: An ore crab made from zinc.
+  components:
+  - type: NpcFactionMember
+    factions:
+      - PetsNT
+  - type: InteractionPopup
+    successChance: 0.5
+    interactSuccessString: petting-success-crab
+    interactFailureString: petting-failure-crab
+    interactSuccessSpawn: EffectHearts
+    interactSuccessSound:
+      path: /Audio/Voice/Arachnid/arachnid_chitter.ogg
+

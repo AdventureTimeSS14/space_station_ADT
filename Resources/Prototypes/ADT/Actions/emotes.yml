@@ -1,0 +1,35 @@
+- type: emote
+  id: Flip
+  name: chat-emote-name-flip
+  category: Hands
+  chatMessages: ["chat-emote-msg-flip"]
+  chatTriggers:
+  - сальто
+  - делает сальто
+  - делает сальто.
+  - делает сальто!
+  event: !type:AnimationFlipEmoteEvent
+
+- type: emote
+  id: Spin
+  name: chat-emote-name-spin
+  category: Hands
+  chatMessages: ["chat-emote-msg-spin"]
+  chatTriggers:
+  - крутиться
+  - крутится
+  - крутится.
+  - крутится!
+  event: !type:AnimationSpinEmoteEvent
+
+- type: emote
+  id: Jump
+  name: chat-emote-name-jump
+  category: Hands
+  chatMessages: ["chat-emote-msg-jump"]
+  chatTriggers:
+  - прыжок
+  - прыгает
+  - прыгает.
+  - прыгает!
+  event: !type:AnimationJumpEmoteEvent

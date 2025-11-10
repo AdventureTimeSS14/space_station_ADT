@@ -59,6 +59,10 @@
       map: ["enum.GunVisualLayers.Mag"]
   - type: Item
     size: Large
+  # ADT-Tweak start
+  - type: RunAndGunSpreadModifier
+    modifyer: 0.5
+  # ADT-Tweak end
   - type: Clothing
     sprite: Objects/Weapons/Guns/Shotguns/bulldog.rsi
     quickEquip: false
@@ -105,7 +109,7 @@
     attackRate: 1
     damage:
       types:
-        Blunt: 5
+        Blunt: 12 # ADT-Tweak 5 -> 12
     soundHit:
       collection: GenericHit
   - type: AltFireMelee #ADT_Tweak
@@ -150,8 +154,21 @@
   - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
   - type: Gun
     fireRate: 3
-  - type: GunSpreadModifier
-    spread: 0.6
+  # ADT-Tweak start
+  - type: RunAndGunSpreadModifier
+    modifyer: 0.5
+  - type: MeleeWeapon
+    resetOnHandSelected: false
+    attackRate: 0.85
+    damage:
+      types:
+        Blunt: 12
+    soundHit:
+      collection: GenericHit
+  - type: AltFireMelee
+  #- type: GunSpreadModifier
+  #  spread: 0.6
+  # ADT-Tweak end
   - type: BallisticAmmoProvider
     capacity: 2
   - type: Construction
@@ -179,6 +196,10 @@
     sprite: Objects/Weapons/Guns/Shotguns/enforcer.rsi
   - type: Clothing
     sprite: Objects/Weapons/Guns/Shotguns/enforcer.rsi
+  # ADT-Tweak start
+  - type: RunAndGunSpreadModifier
+    modifyer: 0.5
+  # ADT-Tweak end
   - type: Item
     sprite: Objects/Weapons/Guns/Shotguns/enforcer_inhands_64x.rsi
   - type: BallisticAmmoProvider
@@ -193,7 +214,7 @@
     attackRate: 1
     damage:
       types:
-        Blunt: 5
+        Blunt: 12 # ADT-Tweak 5 -> 12
     soundHit:
       collection: GenericHit
   - type: AltFireMelee #ADT_Tweak
@@ -247,10 +268,19 @@
   - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
   - type: Gun
     fireRate: 1.25
-    # ADT-Tweak-start: Corvax sound
-    soundGunshot:
-      path: /Audio/Corvax/Weapons/Guns/Gunshots/shotgun_alt.ogg
-    # ADT-Tweak-end
+  # ADT-Tweak start
+  - type: RunAndGunSpreadModifier
+    modifyer: 0.6
+  - type: MeleeWeapon
+    resetOnHandSelected: false
+    attackRate: 0.85
+    damage:
+      types:
+        Blunt: 12
+    soundHit:
+      collection: GenericHit
+  - type: AltFireMelee
+  # ADT-Tweak end
   - type: GunSpreadModifier
     spread: 0.6
   - type: Tag
@@ -272,6 +302,10 @@
   - type: Item
     size: Small
     sprite: ADT/Objects/Weapons/Guns/Shotguns/sawn.rsi # ADT tweak
+  # ADT-Tweak start
+  - type: RunAndGunSpreadModifier
+    modifyer: 0.6
+  # ADT-Tweak end
   - type: Gun
     fireRate: 3
     soundGunshot: # Corvax-Guns
@@ -312,6 +346,10 @@
     sprite: Objects/Weapons/Guns/Shotguns/hm_pistol.rsi
   - type: Clothing
     sprite: Objects/Weapons/Guns/Shotguns/hm_pistol.rsi
+  # ADT-Tweak start
+  - type: RunAndGunSpreadModifier
+    modifyer: 0.8
+  # ADT-Tweak end
   - type: Gun
     fireRate: 4
     soundGunshot: # Corvax-Guns
@@ -339,6 +377,19 @@
   - type: Sprite
     sprite: Objects/Weapons/Guns/Shotguns/blunderbuss.rsi
   - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
+  # ADT-Tweak start
+  - type: RunAndGunSpreadModifier
+    modifyer: 0.4
+  - type: MeleeWeapon
+    resetOnHandSelected: false
+    attackRate: 0.85
+    damage:
+      types:
+        Blunt: 12
+    soundHit:
+      collection: GenericHit
+  - type: AltFireMelee
+  # ADT-Tweak end
   - type: Gun
     fireRate: 2
   - type: BallisticAmmoProvider
@@ -362,6 +413,19 @@
     - 0,0,4,0
     sprite: Objects/Weapons/Guns/Shotguns/improvised_shotgun_inhands_64x.rsi
   - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
+  # ADT-Tweak start
+  - type: RunAndGunSpreadModifier
+    modifyer: 0.5
+  - type: MeleeWeapon
+    resetOnHandSelected: false
+    attackRate: 0.85
+    damage:
+      types:
+        Blunt: 12
+    soundHit:
+      collection: GenericHit
+  - type: AltFireMelee
+  # ADT-Tweak end
   - type: Gun
     fireRate: 4 #No reason to stifle the firerate since you have to manually reload every time anyways.
   - type: BallisticAmmoProvider

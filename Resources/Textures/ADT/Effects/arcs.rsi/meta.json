@@ -19,6 +19,22 @@
             ]
         },
         {
+            "name": "mantis-spec-attack",
+            "delays": [
+                [
+                    0.05,
+                    0.05,
+                    0.05,
+                    0.05,
+                    0.05,
+                    0.05,
+                    0.05,
+                    0.05,
+                    0.1
+                ]
+            ]
+        },
+        {
             "name": "attack-fist-mistal",
             "delays": [
                 [

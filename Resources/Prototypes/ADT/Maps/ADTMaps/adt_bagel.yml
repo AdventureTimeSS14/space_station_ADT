@@ -3,7 +3,7 @@
   mapName: 'Bagel Station'
   mapPath: /Maps/ADTMaps/ADTStations/adt_bagel.yml
   minPlayers: 20
-  maxPlayers: 50
+  maxPlayers: 35
   stations:
     ADT_Bagel:
       stationProto: StandardNanotrasenStation

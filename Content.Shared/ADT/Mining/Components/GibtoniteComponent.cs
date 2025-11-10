@@ -15,7 +15,7 @@ public sealed partial class GibtoniteComponent : Component
     /// </summary>
     [DataField]
     public bool Active = false;
-
+    
     /// <summary>
     /// Был ли гибтонит ударен. Можно подумать, что Active индентичная. Но нет, это нужно для добывания гибтонита.
     /// </summary>
@@ -61,6 +61,9 @@ public sealed partial class GibtoniteComponent : Component
     /// </summary>
     [DataField]
     public EntProtoId OrePrototype = "ADTGibtonite";
+
+    [DataField]
+    public EntProtoId ShardPrototype = "ADTGibtoniteShard";
 
     /// <summary>
     /// Значения для взрыва. Думаю по названиям переменных всё понятно... так ведь?

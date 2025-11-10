@@ -1,230 +1,273 @@
-ent-ADTFunCardsBox = коробка карт
-    .desc = Коробка для игральных карт.
-    .suffix = { "Пустая" }
+card-examined = Это {$target}.
+cards-verb-shuffle = Перетасовать
+card-verb-shuffle-success = Карты перетасованы
+cards-verb-draw = Вытянуть карту
+cards-verb-flip = Перевернуть карты
+card-verb-join = Совместить карты
+card-verb-organize-success = Карты перевернуты лицом { $facedown ->
+    [true]   вниз
+    *[false] вверх
+}
+cards-verb-organize-up = Перевернуть карты лицевой стороной вверх
+cards-verb-organize-down = Перевернуть карты рубашкой вверх
+cards-verb-pickcard = Выбрать карту
+card-stack-examine = { $count ->
+    [one] В этой стопке {$count} карт.
+    *[other] В этой стопке {$count} карт.
+}
 
-ent-ADTFunCardsBoxFull54 = коробка игральных карт для покера
-    .desc = Коробка с колодой из 54 карт.
-    .suffix = { "Полная" }
+cards-stackquantitychange-added = Карта добавлена (Всего карт: {$quantity})
+cards-stackquantitychange-removed = Карта убрана (Всего карт: {$quantity})
+cards-stackquantitychange-joined = Стопка была объединена (Всего карт: {$quantity})
+cards-stackquantitychange-split = Стопка была разделена (Всего карт: {$quantity})
+cards-stackquantitychange-unknown = Количество стопок изменено (Всего карт: {$quantity})
+cards-verb-convert-to-deck = Превратить в колоду
+cards-verb-split = Разделить пополам
 
-ent-ADTFunCardsBoxFull36 = коробка игральных карт
-    .desc = Коробка с колодой из 36 карт. Можно в дурака раскидаться или в 21.
-    .suffix = { "Полная" }
+card-base-name = карта
+card-deck-name = колода карт
 
-ent-ADTFunCardClubs2 = карта
-    .desc = Это игральная карта. Что скрывается на лицевой стороне?
-    .suffix = { "Карты" }
+ent-ADTCardStackBase = колода карт 
+ent-ADTCardDeckBase = { ent-ADTCardStackBase }
+ent-ADTCardDeckBlack = { ent-ADTCardStackBase }
+ent-ADTCardDeckNanotrasen = { ent-ADTCardStackBase }
+ent-ADTCardDeckSyndicate = { ent-ADTCardStackBase }
 
-ent-ADTFunCardClubs3 = { ent-ADTFunCardClubs2 }
-    .desc = { ent-ADTFunCardClubs2.desc }
-    .suffix = { "Карты" }
+card-sc-2-clubs = двойка треф
+card-sc-3-clubs = тройка треф
+card-sc-4-clubs = четвёрка треф
+card-sc-5-clubs = пятёрка треф
+card-sc-6-clubs = шестёрка треф
+card-sc-7-clubs = семёрка треф
+card-sc-8-clubs = восьмёрка треф
+card-sc-9-clubs = девятка треф
+card-sc-10-clubs = десятка треф
+card-sc-ace-clubs = туз треф
+card-sc-jack-clubs = валет треф
+card-sc-king-clubs = король треф
+card-sc-queen-clubs = дама треф
 
-ent-ADTFunCardClubs4 = { ent-ADTFunCardClubs2 }
-    .desc = { ent-ADTFunCardClubs2.desc }
-    .suffix = { "Карты" }
+card-sc-2-diamonds = двойка бубен
+card-sc-3-diamonds = тройка бубен
+card-sc-4-diamonds = четвёрка бубен
+card-sc-5-diamonds = пятёрка бубен
+card-sc-6-diamonds = шестёрка бубен
+card-sc-7-diamonds = семёрка бубен
+card-sc-8-diamonds = восьмёрка бубен
+card-sc-9-diamonds = девятка бубен
+card-sc-10-diamonds = десятка бубен
+card-sc-ace-diamonds = туз бубен
+card-sc-jack-diamonds = валет бубен
+card-sc-king-diamonds = король бубен
+card-sc-queen-diamonds = дама бубен
 
-ent-ADTFunCardClubs5 = { ent-ADTFunCardClubs2 }
-    .desc = { ent-ADTFunCardClubs2.desc }
-    .suffix = { "Карты" }
+card-sc-2-hearts = двойка червей
+card-sc-3-hearts = тройка червей
+card-sc-4-hearts = четвёрка червей
+card-sc-5-hearts = пятёрка червей
+card-sc-6-hearts = шестёрка червей
+card-sc-7-hearts = семёрка червей
+card-sc-8-hearts = восьмёрка червей
+card-sc-9-hearts = девятка червей
+card-sc-10-hearts = десятка червей
+card-sc-ace-hearts = туз червей
+card-sc-jack-hearts = валет червей
+card-sc-king-hearts = король червей
+card-sc-queen-hearts = дама червей
 
-ent-ADTFunCardClubs6 = { ent-ADTFunCardClubs2 }
-    .desc = { ent-ADTFunCardClubs2.desc }
-    .suffix = { "Карты" }
+card-sc-2-spades = двойка пик
+card-sc-3-spades = тройка пик
+card-sc-4-spades = четвёрка пик
+card-sc-5-spades = пятёрка пик
+card-sc-6-spades = шестёрка пик
+card-sc-7-spades = семёрка пик
+card-sc-8-spades = восьмёрка пик
+card-sc-9-spades = девятка пик
+card-sc-10-spades = десятка пик
+card-sc-ace-spades = туз пик
+card-sc-jack-spades = валет пик
+card-sc-king-spades = король пик
+card-sc-queen-spades = дама пик
 
-ent-ADTFunCardClubs7 = { ent-ADTFunCardClubs2 }
-    .desc = { ent-ADTFunCardClubs2.desc }
-    .suffix = { "Карты" }
+card-sc-joker = джокер
 
-ent-ADTFunCardClubs8 = { ent-ADTFunCardClubs2 }
-    .desc = { ent-ADTFunCardClubs2.desc }
-    .suffix = { "Карты" }
+container-sealed = На ней голографическая защитная пломба. При открытии пломба порвётся.
+container-unsealed = Прикреплённая к ней пломба порвана.
 
-ent-ADTFunCardClubs9 = { ent-ADTFunCardClubs2 }
-    .desc = { ent-ADTFunCardClubs2.desc }
-    .suffix = { "Карты" }
+ent-ADTCardBoxBlack = коробка чёрных игральных карт
+    .desc = Коробка с чёрной колодой карт. Сыграем? Ставлю на кон все свои средства.
 
-ent-ADTFunCardClubs10 = { ent-ADTFunCardClubs2 }
-    .desc = { ent-ADTFunCardClubs2.desc }
-    .suffix = { "Карты" }
+ent-ADTCardBoxNanotrasen = коробка корпоративных игральных карт
+    .desc = Коробка с корпоративной колодой карт. Сыграем? Ставлю на кон свою душу.
 
-ent-ADTFunCardAceOfClubs = { ent-ADTFunCardClubs2 }
-    .desc = { ent-ADTFunCardClubs2.desc }
-    .suffix = { "Карты" }
+ent-ADTCardBoxSyndicate = коробка подозрительных игральных карт
+    .desc = Коробка с подозрительной колодой карт. Сыграем? Ставлю на кон жизнь того паренька.
 
-ent-ADTFunCardJackOfClubs = { ent-ADTFunCardClubs2 }
-    .desc = { ent-ADTFunCardClubs2.desc }
-    .suffix = { "Карты" }
+ent-ADTCardHandBase = карты
 
-ent-ADTFunCardQueenOfClubs = { ent-ADTFunCardClubs2 }
-    .desc = { ent-ADTFunCardClubs2.desc }
-    .suffix = { "Карты" }
+ent-ADTCardBase = карта
 
-ent-ADTFunCardKingOfClubs = { ent-ADTFunCardClubs2 }
-    .desc = { ent-ADTFunCardClubs2.desc }
-    .suffix = { "Карты" }
+ent-ADTCardScAceOfClubsBlack = { ent-ADTCardBase }
+ent-ADTCardSc2OfClubsBlack = { ent-ADTCardBase }
+ent-ADTCardSc3OfClubsBlack = { ent-ADTCardBase }
+ent-ADTCardSc4OfClubsBlack = { ent-ADTCardBase }
+ent-ADTCardSc5OfClubsBlack = { ent-ADTCardBase }
+ent-ADTCardSc6OfClubsBlack = { ent-ADTCardBase }
+ent-ADTCardSc7OfClubsBlack = { ent-ADTCardBase }
+ent-ADTCardSc8OfClubsBlack = { ent-ADTCardBase }
+ent-ADTCardSc9OfClubsBlack = { ent-ADTCardBase }
+ent-ADTCardSc10OfClubsBlack = { ent-ADTCardBase }
+ent-ADTCardScJackOfClubsBlack = { ent-ADTCardBase }
+ent-ADTCardScQueenOfClubsBlack = { ent-ADTCardBase }
+ent-ADTCardScKingOfClubsBlack = { ent-ADTCardBase }
+ent-ADTCardScAceOfDiamondsBlack = { ent-ADTCardBase }
+ent-ADTCardSc2OfDiamondsBlack = { ent-ADTCardBase }
+ent-ADTCardSc3OfDiamondsBlack = { ent-ADTCardBase }
+ent-ADTCardSc4OfDiamondsBlack = { ent-ADTCardBase }
+ent-ADTCardSc5OfDiamondsBlack = { ent-ADTCardBase }
+ent-ADTCardSc6OfDiamondsBlack = { ent-ADTCardBase }
+ent-ADTCardSc7OfDiamondsBlack = { ent-ADTCardBase }
+ent-ADTCardSc8OfDiamondsBlack = { ent-ADTCardBase }
+ent-ADTCardSc9OfDiamondsBlack = { ent-ADTCardBase }
+ent-ADTCardSc10OfDiamondsBlack = { ent-ADTCardBase }
+ent-ADTCardScJackOfDiamondsBlack = { ent-ADTCardBase }
+ent-ADTCardScQueenOfDiamondsBlack = { ent-ADTCardBase }
+ent-ADTCardScKingOfDiamondsBlack = { ent-ADTCardBase }
+ent-ADTCardScAceOfHeartsBlack = { ent-ADTCardBase }
+ent-ADTCardSc2OfHeartsBlack = { ent-ADTCardBase }
+ent-ADTCardSc3OfHeartsBlack = { ent-ADTCardBase }
+ent-ADTCardSc4OfHeartsBlack = { ent-ADTCardBase }
+ent-ADTCardSc5OfHeartsBlack = { ent-ADTCardBase }
+ent-ADTCardSc6OfHeartsBlack = { ent-ADTCardBase }
+ent-ADTCardSc7OfHeartsBlack = { ent-ADTCardBase }
+ent-ADTCardSc8OfHeartsBlack = { ent-ADTCardBase }
+ent-ADTCardSc9OfHeartsBlack = { ent-ADTCardBase }
+ent-ADTCardSc10OfHeartsBlack = { ent-ADTCardBase }
+ent-ADTCardScJackOfHeartsBlack = { ent-ADTCardBase }
+ent-ADTCardScQueenOfHeartsBlack = { ent-ADTCardBase }
+ent-ADTCardScKingOfHeartsBlack = { ent-ADTCardBase }
+ent-ADTCardScAceOfSpadesBlack = { ent-ADTCardBase }
+ent-ADTCardSc2OfSpadesBlack = { ent-ADTCardBase }
+ent-ADTCardSc3OfSpadesBlack = { ent-ADTCardBase }
+ent-ADTCardSc4OfSpadesBlack = { ent-ADTCardBase }
+ent-ADTCardSc5OfSpadesBlack = { ent-ADTCardBase }
+ent-ADTCardSc6OfSpadesBlack = { ent-ADTCardBase }
+ent-ADTCardSc7OfSpadesBlack = { ent-ADTCardBase }
+ent-ADTCardSc8OfSpadesBlack = { ent-ADTCardBase }
+ent-ADTCardSc9OfSpadesBlack = { ent-ADTCardBase }
+ent-ADTCardSc10OfSpadesBlack = { ent-ADTCardBase }
+ent-ADTCardScJackOfSpadesBlack = { ent-ADTCardBase }
+ent-ADTCardScQueenOfSpadesBlack = { ent-ADTCardBase }
+ent-ADTCardScKingOfSpadesBlack = { ent-ADTCardBase }
+ent-ADTCardScJokerBlack = { ent-ADTCardBase }
 
-ent-ADTFunCardDimonds2 = карта
-    .desc = Это игральная карта. Что скрывается на лицевой стороне?
-    .suffix = { "Карты" }
+ent-ADTCardScAceOfClubsNanotrasen = { ent-ADTCardBase }
+ent-ADTCardSc2OfClubsNanotrasen = { ent-ADTCardBase }
+ent-ADTCardSc3OfClubsNanotrasen = { ent-ADTCardBase }
+ent-ADTCardSc4OfClubsNanotrasen = { ent-ADTCardBase }
+ent-ADTCardSc5OfClubsNanotrasen = { ent-ADTCardBase }
+ent-ADTCardSc6OfClubsNanotrasen = { ent-ADTCardBase }
+ent-ADTCardSc7OfClubsNanotrasen = { ent-ADTCardBase }
+ent-ADTCardSc8OfClubsNanotrasen = { ent-ADTCardBase }
+ent-ADTCardSc9OfClubsNanotrasen = { ent-ADTCardBase }
+ent-ADTCardSc10OfClubsNanotrasen = { ent-ADTCardBase }
+ent-ADTCardScJackOfClubsNanotrasen = { ent-ADTCardBase }
+ent-ADTCardScQueenOfClubsNanotrasen = { ent-ADTCardBase }
+ent-ADTCardScKingOfClubsNanotrasen = { ent-ADTCardBase }
+ent-ADTCardScAceOfDiamondsNanotrasen = { ent-ADTCardBase }
+ent-ADTCardSc2OfDiamondsNanotrasen = { ent-ADTCardBase }
+ent-ADTCardSc3OfDiamondsNanotrasen = { ent-ADTCardBase }
+ent-ADTCardSc4OfDiamondsNanotrasen = { ent-ADTCardBase }
+ent-ADTCardSc5OfDiamondsNanotrasen = { ent-ADTCardBase }
+ent-ADTCardSc6OfDiamondsNanotrasen = { ent-ADTCardBase }
+ent-ADTCardSc7OfDiamondsNanotrasen = { ent-ADTCardBase }
+ent-ADTCardSc8OfDiamondsNanotrasen = { ent-ADTCardBase }
+ent-ADTCardSc9OfDiamondsNanotrasen = { ent-ADTCardBase }
+ent-ADTCardSc10OfDiamondsNanotrasen = { ent-ADTCardBase }
+ent-ADTCardScJackOfDiamondsNanotrasen = { ent-ADTCardBase }
+ent-ADTCardScQueenOfDiamondsNanotrasen = { ent-ADTCardBase }
+ent-ADTCardScKingOfDiamondsNanotrasen = { ent-ADTCardBase }
+ent-ADTCardScAceOfHeartsNanotrasen = { ent-ADTCardBase }
+ent-ADTCardSc2OfHeartsNanotrasen = { ent-ADTCardBase }
+ent-ADTCardSc3OfHeartsNanotrasen = { ent-ADTCardBase }
+ent-ADTCardSc4OfHeartsNanotrasen = { ent-ADTCardBase }
+ent-ADTCardSc5OfHeartsNanotrasen = { ent-ADTCardBase }
+ent-ADTCardSc6OfHeartsNanotrasen = { ent-ADTCardBase }
+ent-ADTCardSc7OfHeartsNanotrasen = { ent-ADTCardBase }
+ent-ADTCardSc8OfHeartsNanotrasen = { ent-ADTCardBase }
+ent-ADTCardSc9OfHeartsNanotrasen = { ent-ADTCardBase }
+ent-ADTCardSc10OfHeartsNanotrasen = { ent-ADTCardBase }
+ent-ADTCardScJackOfHeartsNanotrasen = { ent-ADTCardBase }
+ent-ADTCardScQueenOfHeartsNanotrasen = { ent-ADTCardBase }
+ent-ADTCardScKingOfHeartsNanotrasen = { ent-ADTCardBase }
+ent-ADTCardScAceOfSpadesNanotrasen = { ent-ADTCardBase }
+ent-ADTCardSc2OfSpadesNanotrasen = { ent-ADTCardBase }
+ent-ADTCardSc3OfSpadesNanotrasen = { ent-ADTCardBase }
+ent-ADTCardSc4OfSpadesNanotrasen = { ent-ADTCardBase }
+ent-ADTCardSc5OfSpadesNanotrasen = { ent-ADTCardBase }
+ent-ADTCardSc6OfSpadesNanotrasen = { ent-ADTCardBase }
+ent-ADTCardSc7OfSpadesNanotrasen = { ent-ADTCardBase }
+ent-ADTCardSc8OfSpadesNanotrasen = { ent-ADTCardBase }
+ent-ADTCardSc9OfSpadesNanotrasen = { ent-ADTCardBase }
+ent-ADTCardSc10OfSpadesNanotrasen = { ent-ADTCardBase }
+ent-ADTCardScJackOfSpadesNanotrasen = { ent-ADTCardBase }
+ent-ADTCardScQueenOfSpadesNanotrasen = { ent-ADTCardBase }
+ent-ADTCardScKingOfSpadesNanotrasen = { ent-ADTCardBase }
+ent-ADTCardScJokerNanotrasen = { ent-ADTCardBase }
 
-ent-ADTFunCardDimonds3 = { ent-ADTFunCardClubs2 }
-    .desc = { ent-ADTFunCardClubs2.desc }
-    .suffix = { "Карты" }
-
-ent-ADTFunCardDimonds4 = { ent-ADTFunCardClubs2 }
-    .desc = { ent-ADTFunCardClubs2.desc }
-    .suffix = { "Карты" }
-
-ent-ADTFunCardDimonds5 = { ent-ADTFunCardClubs2 }
-    .desc = { ent-ADTFunCardClubs2.desc }
-    .suffix = { "Карты" }
-
-ent-ADTFunCardDimonds6 = { ent-ADTFunCardClubs2 }
-    .desc = { ent-ADTFunCardClubs2.desc }
-    .suffix = { "Карты" }
-
-ent-ADTFunCardDimonds7 = { ent-ADTFunCardClubs2 }
-    .desc = { ent-ADTFunCardClubs2.desc }
-    .suffix = { "Карты" }
-
-ent-ADTFunCardDimonds8 = { ent-ADTFunCardClubs2 }
-    .desc = { ent-ADTFunCardClubs2.desc }
-    .suffix = { "Карты" }
-
-ent-ADTFunCardDimonds9 = { ent-ADTFunCardClubs2 }
-    .desc = { ent-ADTFunCardClubs2.desc }
-    .suffix = { "Карты" }
-
-ent-ADTFunCardDimonds10 = { ent-ADTFunCardClubs2 }
-    .desc = { ent-ADTFunCardClubs2.desc }
-    .suffix = { "Карты" }
-
-ent-ADTFunCardAceOfDimonds = { ent-ADTFunCardClubs2 }
-    .desc = { ent-ADTFunCardClubs2.desc }
-    .suffix = { "Карты" }
-
-ent-ADTFunCardJackOfDimonds = { ent-ADTFunCardClubs2 }
-    .desc = { ent-ADTFunCardClubs2.desc }
-    .suffix = { "Карты" }
-
-ent-ADTFunCardQueenOfDimonds = { ent-ADTFunCardClubs2 }
-    .desc = { ent-ADTFunCardClubs2.desc }
-    .suffix = { "Карты" }
-
-ent-ADTFunCardKingOfDimonds = { ent-ADTFunCardClubs2 }
-    .desc = { ent-ADTFunCardClubs2.desc }
-    .suffix = { "Карты" }
-
-ent-ADTFunCardHearts2 = карта
-    .desc = Это игральная карта. Что скрывается на лицевой стороне?
-    .suffix = { "Карты" }
-
-ent-ADTFunCardHearts3 = { ent-ADTFunCardClubs2 }
-    .desc = { ent-ADTFunCardClubs2.desc }
-    .suffix = { "Карты" }
-
-ent-ADTFunCardHearts4 = { ent-ADTFunCardClubs2 }
-    .desc = { ent-ADTFunCardClubs2.desc }
-    .suffix = { "Карты" }
-
-ent-ADTFunCardHearts5 = { ent-ADTFunCardClubs2 }
-    .desc = { ent-ADTFunCardClubs2.desc }
-    .suffix = { "Карты" }
-
-ent-ADTFunCardHearts6 = { ent-ADTFunCardClubs2 }
-    .desc = { ent-ADTFunCardClubs2.desc }
-    .suffix = { "Карты" }
-
-ent-ADTFunCardHearts7 = { ent-ADTFunCardClubs2 }
-    .desc = { ent-ADTFunCardClubs2.desc }
-    .suffix = { "Карты" }
-
-ent-ADTFunCardHearts8 = { ent-ADTFunCardClubs2 }
-    .desc = { ent-ADTFunCardClubs2.desc }
-    .suffix = { "Карты" }
-
-ent-ADTFunCardHearts9 = { ent-ADTFunCardClubs2 }
-    .desc = { ent-ADTFunCardClubs2.desc }
-    .suffix = { "Карты" }
-
-ent-ADTFunCardHearts10 = { ent-ADTFunCardClubs2 }
-    .desc = { ent-ADTFunCardClubs2.desc }
-    .suffix = { "Карты" }
-
-ent-ADTFunCardAceOfHearts = { ent-ADTFunCardClubs2 }
-    .desc = { ent-ADTFunCardClubs2.desc }
-    .suffix = { "Карты" }
-
-ent-ADTFunCardJackOfHearts = { ent-ADTFunCardClubs2 }
-    .desc = { ent-ADTFunCardClubs2.desc }
-    .suffix = { "Карты" }
-
-ent-ADTFunCardQueenOfHearts = { ent-ADTFunCardClubs2 }
-    .desc = { ent-ADTFunCardClubs2.desc }
-    .suffix = { "Карты" }
-
-ent-ADTFunCardKingOfHearts = { ent-ADTFunCardClubs2 }
-    .desc = { ent-ADTFunCardClubs2.desc }
-    .suffix = { "Карты" }
-
-ent-ADTFunCardSpades2 = карта
-    .desc = Это игральная карта. Что скрывается на лицевой стороне?
-    .suffix = { "Карты" }
-
-ent-ADTFunCardSpades3 = { ent-ADTFunCardClubs2 }
-    .desc = { ent-ADTFunCardClubs2.desc }
-    .suffix = { "Карты" }
-
-ent-ADTFunCardSpades4 = { ent-ADTFunCardClubs2 }
-    .desc = { ent-ADTFunCardClubs2.desc }
-    .suffix = { "Карты" }
-
-ent-ADTFunCardSpades5 = { ent-ADTFunCardClubs2 }
-    .desc = { ent-ADTFunCardClubs2.desc }
-    .suffix = { "Карты" }
-
-ent-ADTFunCardSpades6 = { ent-ADTFunCardClubs2 }
-    .desc = { ent-ADTFunCardClubs2.desc }
-    .suffix = { "Карты" }
-
-ent-ADTFunCardSpades7 = { ent-ADTFunCardClubs2 }
-    .desc = { ent-ADTFunCardClubs2.desc }
-    .suffix = { "Карты" }
-
-ent-ADTFunCardSpades8 = { ent-ADTFunCardClubs2 }
-    .desc = { ent-ADTFunCardClubs2.desc }
-    .suffix = { "Карты" }
-
-ent-ADTFunCardSpades9 = { ent-ADTFunCardClubs2 }
-    .desc = { ent-ADTFunCardClubs2.desc }
-    .suffix = { "Карты" }
-
-ent-ADTFunCardSpades10 = { ent-ADTFunCardClubs2 }
-    .desc = { ent-ADTFunCardClubs2.desc }
-    .suffix = { "Карты" }
-
-ent-ADTFunCardAceOfSpades = { ent-ADTFunCardClubs2 }
-    .desc = { ent-ADTFunCardClubs2.desc }
-    .suffix = { "Карты" }
-
-ent-ADTFunCardJackOfSpades = { ent-ADTFunCardClubs2 }
-    .desc = { ent-ADTFunCardClubs2.desc }
-    .suffix = { "Карты" }
-
-ent-ADTFunCardQueenOfSpades = { ent-ADTFunCardClubs2 }
-    .desc = { ent-ADTFunCardClubs2.desc }
-    .suffix = { "Карты" }
-
-ent-ADTFunCardKingOfSpades = { ent-ADTFunCardClubs2 }
-    .desc = { ent-ADTFunCardClubs2.desc }
-    .suffix = { "Карты" }
-
-ent-ADTFunCardBlackJoker = { ent-ADTFunCardClubs2 }
-    .desc = { ent-ADTFunCardClubs2.desc }
-    .suffix = { "Карты" }
-
-ent-ADTFunCardRedJoker = { ent-ADTFunCardClubs2 }
-    .desc = { ent-ADTFunCardClubs2.desc }
-    .suffix = { "Карты" }
+ent-ADTCardScAceOfClubsSyndicate = { ent-ADTCardBase }
+ent-ADTCardSc2OfClubsSyndicate = { ent-ADTCardBase }
+ent-ADTCardSc3OfClubsSyndicate = { ent-ADTCardBase }
+ent-ADTCardSc4OfClubsSyndicate = { ent-ADTCardBase }
+ent-ADTCardSc5OfClubsSyndicate = { ent-ADTCardBase }
+ent-ADTCardSc6OfClubsSyndicate = { ent-ADTCardBase }
+ent-ADTCardSc7OfClubsSyndicate = { ent-ADTCardBase }
+ent-ADTCardSc8OfClubsSyndicate = { ent-ADTCardBase }
+ent-ADTCardSc9OfClubsSyndicate = { ent-ADTCardBase }
+ent-ADTCardSc10OfClubsSyndicate = { ent-ADTCardBase }
+ent-ADTCardScJackOfClubsSyndicate = { ent-ADTCardBase }
+ent-ADTCardScQueenOfClubsSyndicate = { ent-ADTCardBase }
+ent-ADTCardScKingOfClubsSyndicate = { ent-ADTCardBase }
+ent-ADTCardScAceOfDiamondsSyndicate = { ent-ADTCardBase }
+ent-ADTCardSc2OfDiamondsSyndicate = { ent-ADTCardBase }
+ent-ADTCardSc3OfDiamondsSyndicate = { ent-ADTCardBase }
+ent-ADTCardSc4OfDiamondsSyndicate = { ent-ADTCardBase }
+ent-ADTCardSc5OfDiamondsSyndicate = { ent-ADTCardBase }
+ent-ADTCardSc6OfDiamondsSyndicate = { ent-ADTCardBase }
+ent-ADTCardSc7OfDiamondsSyndicate = { ent-ADTCardBase }
+ent-ADTCardSc8OfDiamondsSyndicate = { ent-ADTCardBase }
+ent-ADTCardSc9OfDiamondsSyndicate = { ent-ADTCardBase }
+ent-ADTCardSc10OfDiamondsSyndicate = { ent-ADTCardBase }
+ent-ADTCardScJackOfDiamondsSyndicate = { ent-ADTCardBase }
+ent-ADTCardScQueenOfDiamondsSyndicate = { ent-ADTCardBase }
+ent-ADTCardScKingOfDiamondsSyndicate = { ent-ADTCardBase }
+ent-ADTCardScAceOfHeartsSyndicate = { ent-ADTCardBase }
+ent-ADTCardSc2OfHeartsSyndicate = { ent-ADTCardBase }
+ent-ADTCardSc3OfHeartsSyndicate = { ent-ADTCardBase }
+ent-ADTCardSc4OfHeartsSyndicate = { ent-ADTCardBase }
+ent-ADTCardSc5OfHeartsSyndicate = { ent-ADTCardBase }
+ent-ADTCardSc6OfHeartsSyndicate = { ent-ADTCardBase }
+ent-ADTCardSc7OfHeartsSyndicate = { ent-ADTCardBase }
+ent-ADTCardSc8OfHeartsSyndicate = { ent-ADTCardBase }
+ent-ADTCardSc9OfHeartsSyndicate = { ent-ADTCardBase }
+ent-ADTCardSc10OfHeartsSyndicate = { ent-ADTCardBase }
+ent-ADTCardScJackOfHeartsSyndicate = { ent-ADTCardBase }
+ent-ADTCardScQueenOfHeartsSyndicate = { ent-ADTCardBase }
+ent-ADTCardScKingOfHeartsSyndicate = { ent-ADTCardBase }
+ent-ADTCardScAceOfSpadesSyndicate = { ent-ADTCardBase }
+ent-ADTCardSc2OfSpadesSyndicate = { ent-ADTCardBase }
+ent-ADTCardSc3OfSpadesSyndicate = { ent-ADTCardBase }
+ent-ADTCardSc4OfSpadesSyndicate = { ent-ADTCardBase }
+ent-ADTCardSc5OfSpadesSyndicate = { ent-ADTCardBase }
+ent-ADTCardSc6OfSpadesSyndicate = { ent-ADTCardBase }
+ent-ADTCardSc7OfSpadesSyndicate = { ent-ADTCardBase }
+ent-ADTCardSc8OfSpadesSyndicate = { ent-ADTCardBase }
+ent-ADTCardSc9OfSpadesSyndicate = { ent-ADTCardBase }
+ent-ADTCardSc10OfSpadesSyndicate = { ent-ADTCardBase }
+ent-ADTCardScJackOfSpadesSyndicate = { ent-ADTCardBase }
+ent-ADTCardScQueenOfSpadesSyndicate = { ent-ADTCardBase }
+ent-ADTCardScKingOfSpadesSyndicate = { ent-ADTCardBase }
+ent-ADTCardScJokerSyndicate = { ent-ADTCardBase }
 
 ent-ADTFunCasinoChipBase = Фишка 1$
     .desc = Кусочек пластика для казино с цифрой "1" на нем.
