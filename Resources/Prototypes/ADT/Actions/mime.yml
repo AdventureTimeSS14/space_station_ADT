@@ -22,7 +22,7 @@
     icon:
       sprite: ADT/Interface/Actions/mime.rsi
       state: thhhh
-    useDelay: 30
+    useDelay: 12
   - type: TargetAction
     range: 1.5
   - type: EntityTargetAction

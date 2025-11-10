@@ -104,6 +104,11 @@
   name: BBQ sauce
   description: Hand wipes not included.
   components:
+  # ADT-Tweak-Start
+  - type: Tag
+    tags:
+    - FoodCondimentPacketBbq
+  # ADT-Tweak-End
   - type: SolutionContainerManager
     solutions:
       food:

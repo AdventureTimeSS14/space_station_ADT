@@ -10,3 +10,7 @@ ent-ADTMagazineBoxMagnumLesserUranium = коробка патронов (.357 м
     .desc = { ent-ADTBaseMagazineBoxMagnumLesser.desc }
 ent-ADTMagazineBoxMagnumLesserAP = коробка патронов (.357 магнум бронебойные)
     .desc = { ent-ADTBaseMagazineBoxMagnumLesser.desc }
+ent-ADTMagazineBoxMagnumHoly = коробка патронов (.357 магнум святые)
+    .desc = При виде этой коробки, полной святых патронов, как будто сам Господь шепчет Вам устроить очистку сего места от нечести и еретиков
+ent-ADTMagazineBoxMagnumSilver = коробка патронов (.357 магнум серебрянные)
+    .desc = Нанотрайзен, в кооперации с священниками, вывели рецепт более доступных пуль для борьбы с нечестью

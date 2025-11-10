@@ -13,6 +13,7 @@ using Content.Shared.Zombies;
 using Content.Server.ADT.Roles;
 using Content.Shared.ADT.BloodBrothers;
 using Robust.Shared.Prototypes;
+using Content.Shared.Roles;
 
 namespace Content.Server.ADT.BloodBrothers;
 
@@ -47,7 +48,11 @@ public sealed class BloodBrotherSystem : SharedBloodBrothersSystem
         {
             return;
         }
-
+        foreach(var antag in mind.MindRoles)
+        {
+            if (TryComp<MindRoleComponent>(antag, out var role) && role.Antag)
+                return;
+        }
         _npcFaction.AddFaction(ev.Target, BloodBrotherFaction);
         EnsureComp<BloodBrotherComponent>(ev.Target, out var brocomp);
         brocomp.Leader = uid;

@@ -49,3 +49,5 @@ ent-ADTClothingHeadHelmetHardsuitRaider = продвинутый шлем нал
     .desc = Если вы видите этот скафандр, то не исключено, что в вас уже летит шприц снотворного 
 ent-ADTClothingHeadHelmetHardsuitRaiderCommon = мусорный шлем налётчика
     .desc = Самодельный скафандр для великого ограбления
+ent-ADTClothingHeadHelmetHardsuitIanHero = шлем скафандра корги
+    .desc = Вам определённо хочется погладить его по голове

@@ -1,0 +1,53 @@
+# PDA
+
+- type: loadout
+  id: ADTMusicianPDA
+  equipment:
+    id: MusicianPDA
+
+- type: loadout
+  id: ADTPerformerPDA
+  equipment:
+    id: ADTPerformerPDA
+
+- type: loadout
+  id: ADTConcertmasterPDA
+  equipment:
+    id: ADTConcertmasterPDA
+
+- type: loadout
+  id: ADTComposerPDA
+  equipment:
+    id: ADTComposerPDA
+
+- type: loadout
+  id: ADTBardPDA
+  equipment:
+    id: ADTBardPDA
+
+- type: loadout
+  id: ADTDJPDA
+  equipment:
+    id: ADTDJPDA
+
+# Jumpsuit
+
+- type: loadout
+  id: ADTClothingUniformJumpsuitTuxedo
+  equipment:
+    jumpsuit: ADTClothingUniformJumpsuitTuxedo
+
+- type: loadout
+  id: ADTClothingUniformJumpsuitTuxedoWhite
+  equipment:
+    jumpsuit: ADTClothingUniformJumpsuitTuxedoWhite
+
+- type: loadout
+  id: ADTClothingUniformJumpsuitTuxedoRed
+  equipment:
+    jumpsuit: ADTClothingUniformJumpsuitTuxedoRed
+
+- type: loadout
+  id: ADTClothingUniformJumpsuitTuxedoHell
+  equipment:
+    jumpsuit: ADTClothingUniformJumpsuitTuxedoHell

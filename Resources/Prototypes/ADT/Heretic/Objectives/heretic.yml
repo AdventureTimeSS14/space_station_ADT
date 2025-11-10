@@ -4,7 +4,7 @@
   id: BaseHereticObjective
   components:
   - type: Objective
-    difficulty: 1.5
+    difficulty: 2
     issuer: objective-issuer-heretic
   - type: RoleRequirement
     roles:

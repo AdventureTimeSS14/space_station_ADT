@@ -23,3 +23,35 @@
     energy: 2.0
     color: "#FFFE42"
     castShadows: false
+
+- type: entity
+  parent: BaseAnomalyCore
+  id: ADTAnomalyCoreHW
+  suffix: HW
+  components:
+  - type: HWAnomCoreLootbox
+    settings:
+      useDelay: 3
+  - type: Sprite
+    sprite: ADT/Structures/Specific/Anomalies/Cores/hw_core.rsi
+  - type: PointLight
+    radius: 1.5
+    energy: 2.0
+    color: "#8a1111"
+    castShadows: false
+
+- type: entity
+  parent: BaseAnomalyInertCore
+  id: ADTAnomalyCoreHWInert
+  suffix: HW, Inert
+  components:
+  - type: HWAnomCoreLootbox
+    settings:
+      useDelay: 3
+  - type: Sprite
+    sprite: ADT/Structures/Specific/Anomalies/Cores/hw_core.rsi
+  - type: PointLight
+    radius: 1.5
+    energy: 2.0
+    color: "#8a1111"
+    castShadows: false

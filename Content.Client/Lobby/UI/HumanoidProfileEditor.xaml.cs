@@ -261,8 +261,6 @@ namespace Content.Client.Lobby.UI
             if (configurationManager.GetCVar(ADTCCVars.BarksEnabled))
             {
                 BarksContainer.Visible = true;
-                BarksPitchContainer.Visible = true;
-                BarksDelayContainer.Visible = true;
                 InitializeBarks();
             }
 
