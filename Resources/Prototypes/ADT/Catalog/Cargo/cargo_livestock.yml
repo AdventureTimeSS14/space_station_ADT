@@ -1,0 +1,9 @@
+- type: cargoProduct
+  id: LivestockArtificialHumanCube
+  icon:
+    sprite: ADT/Objects/Misc/humancube.rsi
+    state: box
+  product: ADTHumanCubeBox
+  cost: 7000
+  category: cargoproduct-category-name-livestock
+  group: market
