@@ -725,7 +725,7 @@
   - type: IdentityBlocker
 
 - type: entity
-  parent: ClothingMaskGas
+  parent: ClothingMaskBase # ADT-Tweak ClothingMaskGas -> ClothingMaskBase
   id: ClothingMaskWeldingGas
   name: welding gas mask
   description: A gas mask with built in welding goggles and face shield. Looks like a skull, clearly designed by a nerd.
@@ -735,6 +735,11 @@
     state: icon
   - type: Clothing
     sprite: Clothing/Mask/welding-gas.rsi
+  # ADT-Tweak-Start
+  - type: BreathMask
+  - type: IngestionBlocker
+  - type: IdentityBlocker
+  # ADT-Tweak-End
   - type: FlashImmunity
   - type: EyeProtection
   - type: PhysicalComposition
