@@ -10,6 +10,11 @@
   #   rootTask:
   #     task: SimpleRangedHostileCompound
   # ADT-Tweak-comment-end
+  # ADT-Tweak-comment-start
+  # - type: NpcFactionMember
+  #   factions:
+  #   - SimpleHostile
+  # ADT-Tweak-comment-end
   - type: Sprite
     drawdepth: Mobs
     sprite: Mobs/Aliens/Lavaland/watcher.rsi
@@ -91,9 +96,11 @@
   id: MobWatcherLavaland
   parent: MobWatcherBase
   components:
+  # ADT-Tweak-Start
   - type: NpcFactionMember
     factions:
     - SimpleHostile
+  # ADT-Tweak-end
   - type: Sprite
     layers:
     - map: [ "enum.DamageStateVisualLayers.Base" ]
@@ -112,9 +119,11 @@
   parent: MobWatcherBase
   name: icewing watcher
   components:
+  # ADT-Tweak-Start
   - type: NpcFactionMember
     factions:
     - SimpleHostile
+  # ADT-Tweak-end
   - type: Sprite
     layers:
     - map: [ "enum.DamageStateVisualLayers.Base" ]
@@ -141,9 +150,11 @@
   parent: MobWatcherBase
   name: magmawing watcher
   components:
+  # ADT-Tweak-Start
   - type: NpcFactionMember
     factions:
     - SimpleHostile
+  # ADT-Tweak-End
   - type: Sprite
     layers:
     - map: [ "enum.DamageStateVisualLayers.Base" ]
