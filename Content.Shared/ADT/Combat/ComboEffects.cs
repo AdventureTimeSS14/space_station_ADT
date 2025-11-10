@@ -22,7 +22,7 @@ using Robust.Shared.Timing;
 using Robust.Shared.Network;
 using Content.Shared.Bed.Sleep; // SD-edit
 using Content.Shared.Damage.Components; // SD-Edit
-using Content.Shared.StatusEffectNew;
+using Content.Shared.StatusEffectNew; // SD-Edit
 using Content.Shared.Mobs.Components;
 
 namespace Content.Shared.ADT.Combat;
@@ -222,7 +222,7 @@ public sealed partial class ComboMuteEffect : IComboEffect
 
     public void DoEffect(EntityUid user, EntityUid target, IEntityManager entMan)
     {
-        var status = entMan.System<Content.Shared.StatusEffect.StatusEffectsSystem>();
+        var status = entMan.System<Content.Shared.StatusEffect.StatusEffectsSystem>(); // sd tweak
         status.TryAddStatusEffect<MutedComponent>(target, "Muted", TimeSpan.FromSeconds(Time), false);
     }
 }
@@ -235,7 +235,7 @@ public sealed partial class ComboSlowdownEffect : IComboEffect
 
     public void DoEffect(EntityUid user, EntityUid target, IEntityManager entMan)
     {
-        var status = entMan.System<Content.Shared.StatusEffect.StatusEffectsSystem>();
+        var status = entMan.System<Content.Shared.StatusEffect.StatusEffectsSystem>(); // sd tweak
         status.TryAddStatusEffect<StunnedStatusEffectComponent>(target, "SlowedDown", TimeSpan.FromSeconds(Time), false);
     }
 }
@@ -269,7 +269,7 @@ public sealed partial class ComboFlashEffect : IComboEffect
     public float SlowDown;
     public void DoEffect(EntityUid user, EntityUid target, IEntityManager entMan)
     {
-        var status = entMan.System<Content.Shared.StatusEffect.StatusEffectsSystem>();
+        var status = entMan.System<Content.Shared.StatusEffect.StatusEffectsSystem>(); // sd tweak
         var blind = entMan.System<BlindableSystem>();
 
         status.TryAddStatusEffect<FlashedComponent>(target, "Flashed", TimeSpan.FromSeconds(Duration), true);
@@ -455,6 +455,9 @@ public sealed partial class ComboEffectSwapPostion : IComboEffect
 }
 
 /// sd edit start
+/// <summary>
+/// усыпляет цель на N времени
+/// <summary>
 [Serializable, NetSerializable]
 public sealed partial class ComboEffectSleep: IComboEffect
 {
@@ -468,3 +471,4 @@ public sealed partial class ComboEffectSleep: IComboEffect
             status.TryAddStatusEffectDuration(target, "StatusEffectForcedSleeping", out _, TimeSpan.FromSeconds(Time));
     }
 }
+/// sd edit end
