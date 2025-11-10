@@ -55,7 +55,7 @@
 - type: entity
   id: ADTBorgModuleLaser
   parent: [ ADTBaseBorgModuleSecurity, BaseProviderBorgModule ]
-  name: harm module
+  name: laser module
   components:
   - type: Sprite
     layers:
