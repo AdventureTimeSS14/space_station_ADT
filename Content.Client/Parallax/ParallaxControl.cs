@@ -19,7 +19,7 @@ public sealed class ParallaxControl : Control
     [Dependency] private readonly IParallaxManager _parallaxManager = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
 
-    private string _parallaxPrototype = "NesGreen";
+    private string _parallaxPrototype = "NesGreen"; // ADT-Tweak: Изменён стандартный параллакс на зелёный с планетой
 
     [ViewVariables(VVAccess.ReadWrite)] public Vector2 Offset { get; set; }
     [ViewVariables(VVAccess.ReadWrite)] public float SpeedX { get; set; } = 0.0f;
