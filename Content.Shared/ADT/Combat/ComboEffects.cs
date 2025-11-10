@@ -177,7 +177,7 @@ public sealed partial class ComboDropFromHandsEffect : IComboEffect
 }
 
 /// <summary>
-/// перебрасывает вещи из рук в руки
+/// забирает вещь из рук цели и передаёт её в пустую руку пользователя. SD tweak
 /// </summary>
 [Serializable, NetSerializable]
 public sealed partial class ComboHandsRetakeEffect : IComboEffect
