@@ -34,6 +34,7 @@
             - MobMask
           layer:
             - MobLayer
+    - type: FloorOcclusion
     - type: MovementSpeedModifier
       baseWalkSpeed: 3
       baseSprintSpeed: 4
