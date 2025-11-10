@@ -50,6 +50,7 @@ public abstract partial class SharedGunSystem
 
     private void OnBatteryExamine(EntityUid uid, BatteryAmmoProviderComponent component, ExaminedEvent args)
     {
+        if (component.Examinable) //ADT-tweak
         args.PushMarkup(Loc.GetString("gun-battery-examine", ("color", AmmoExamineColor), ("count", component.Shots)));
     }
 

@@ -43,6 +43,11 @@
         resultProto: ClothingUnderSocksCoder
         powerCost: 2
         soundPath: /Audio/Magic/blink.ogg
+      - requiredProto: MagazineBoxMagnum
+        resultProto: ADTMagazineBoxMagnumHoly
+        effectProto: ADTWeaponArcMantisSlash
+        soundPath: /Audio/Magic/blink.ogg
+        powerCost: 1
 
 - type: entity
   id: ADTAltarClockwork
@@ -82,4 +87,9 @@
         resultProto: ADTClothingCoatClockworkRobe
         effectProto: ADTCultistBubble
         soundPath: /Audio/Magic/Cults/ClockCult/steam_whoosh.ogg
+        powerCost: 1
+      - requiredProto: MagazineBoxMagnum
+        resultProto: ADTMagazineBoxMagnumHoly
+        effectProto: ADTWeaponArcMantisSlash
+        soundPath: /Audio/Magic/blink.ogg
         powerCost: 1

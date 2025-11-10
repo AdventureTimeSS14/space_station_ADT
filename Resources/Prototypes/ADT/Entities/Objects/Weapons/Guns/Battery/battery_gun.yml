@@ -19,8 +19,8 @@
   - type: ProjectileBatteryAmmoProvider
     proto: ADTProjectileIonRifle
     fireCost: 125
-  - type: RunAndGunSpreadModifier
-    modifyer: 0.2
+  # - type: RunAndGunSpreadModifier
+  #   modifyer: 0.2
   - type: MeleeWeapon
     resetOnHandSelected: false
     attackRate: 1
@@ -214,8 +214,8 @@
     soundHit:
       collection: GenericHit
   - type: AltFireMelee
-  - type: RunAndGunSpreadModifier
-    modifyer: 0.4
+  # - type: RunAndGunSpreadModifier
+  #   modifyer: 0.4
   - type: Gun
     fireRate: 3
     projectileSpeed: 60
@@ -361,8 +361,8 @@
   - type: ProjectileBatteryAmmoProvider
     proto: ADTProjectileIonRifle
     fireCost: 150
-  - type: RunAndGunSpreadModifier
-    modifyer: 0.4
+  # - type: RunAndGunSpreadModifier
+  #   modifyer: 0.4
   - type: MeleeWeapon
     resetOnHandSelected: false
     attackRate: 1

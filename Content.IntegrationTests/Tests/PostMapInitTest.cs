@@ -56,7 +56,7 @@ namespace Content.IntegrationTests.Tests
             "/Maps/ADTMaps/Shuttles/pirate.yml", //ADT edit
         };
 
-        private static readonly string[] GameMaps =
+private static readonly string[] GameMaps =
         {
             // Corvax-Start
             // "CorvaxAvrite", // ADT-Comment
@@ -108,12 +108,16 @@ namespace Content.IntegrationTests.Tests
             "ADT_kilo",
             "ADT_Saltern",
             "ADT_Packed",
-            // "ADT_Gemini",
+            "ADT_Gemini",
             "ADT_Aspid",
-            // "ADT_Cluster_Legacy",
+            "ADT_Cluster_Legacy",
             "ADT_Meta",
             "ADT_Origin",
-            "ADT_Centcomm"
+            "ADT_Centcomm",
+            "ADT_Gate",
+            "ADT_Reach",
+            "ADT_Silly",
+            "ADT_Train"
             // ADT-End
         };
 

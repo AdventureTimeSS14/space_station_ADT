@@ -22,8 +22,8 @@
     soundHit:
       collection: GenericHit
   - type: AltFireMelee
-  - type: RunAndGunSpreadModifier
-    modifyer: 0.1
+  # - type: RunAndGunSpreadModifier
+  #   modifyer: 0.1
   # ADT-Tweak end
   - type: ItemSlots
     slots:
