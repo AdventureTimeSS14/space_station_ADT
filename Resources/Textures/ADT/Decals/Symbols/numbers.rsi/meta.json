@@ -1,0 +1,41 @@
+{
+    "version": 1,
+    "license": "CC0-1.0",
+    "copyright": "taken from SS1984 https://github.com/ss220-space/Paradise. Modified by maksim21612 (discord)",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "number_0"
+        },
+        {
+            "name": "number_1"
+        },
+        {
+            "name": "number_2"
+        },
+        {
+            "name": "number_3"
+        },
+        {
+            "name": "number_4"
+        },
+        {
+            "name": "number_5"
+        },
+        {
+            "name": "number_6"
+        },
+        {
+            "name": "number_7"
+        },
+        {
+            "name": "number_8"
+        },
+        {
+            "name": "number_9"
+        }
+    ]
+}

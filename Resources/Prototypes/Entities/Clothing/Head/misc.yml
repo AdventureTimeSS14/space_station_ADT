@@ -85,6 +85,11 @@
     - HeadTop
     - HeadSide
     - FacialHair
+# ADT-Tweak-Start
+  - type: Construction
+    graph: PumpkinHat
+    node: pumpkin_hat
+# ADT-Tweak-End
 
 - type: entity
   parent: ClothingHeadBase

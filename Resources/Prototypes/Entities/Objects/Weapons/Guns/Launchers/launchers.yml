@@ -200,7 +200,7 @@
       sprite: Objects/Weapons/Guns/Launchers/pirate_cannon.rsi
     - type: RunAndGunBlocker # ADT-Tweak
     - type: Gun
-      fireRate: 1
+      fireRate: 0.2 # ADT-Tweak 1 -> 0.2
       soundGunshot:
         path: /Audio/Weapons/Guns/Gunshots/mateba.ogg
     - type: BallisticAmmoProvider
@@ -211,11 +211,6 @@
       proto: CannonBall
       soundInsert:
         path: /Audio/Weapons/Guns/Gunshots/grenade_launcher.ogg
-    #ADT-tweak-start
-    - type: UseDelayOnShoot
-    - type: UseDelay
-      delay: 6
-    #ADT-tweak-end
 
 - type: entity
   name: tether gun

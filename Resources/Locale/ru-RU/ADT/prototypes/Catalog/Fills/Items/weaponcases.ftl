@@ -85,3 +85,7 @@ ent-ADTWeaponCaseAmmoBulldogX4 = { ent-WeaponCaseNTM90 }
 ent-ADTWeaponCasePulsePistolet = { ent-WeaponCaseNTM90 }
     .desc = { ent-WeaponCaseNTM90.desc }
     .suffix = { "Импульсный пистолет" }
+
+ent-ADTMeleeWeaponCase = { ent-WeaponCaseNTM90 }
+    .desc = { ent-WeaponCaseNTM90.desc }
+    .suffix = { "Набор для ближнего боя" }
