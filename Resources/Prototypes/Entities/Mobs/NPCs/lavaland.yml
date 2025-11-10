@@ -198,14 +198,4 @@
     energy: 1
   - type: RgbLightController
     layers: [ 1 ]
-  - type: GhostRole
-    allowMovement: true
-    allowSpeech: true
-    makeSentient: true
-    name: ghost-role-information-WatcherPride-name
-    description: ghost-role-information-WatcherPride-description
-    rules: ghost-role-information-WatcherPride-rules
-    raffle:
-      settings: short
-  - type: GhostTakeoverAvailable
     
