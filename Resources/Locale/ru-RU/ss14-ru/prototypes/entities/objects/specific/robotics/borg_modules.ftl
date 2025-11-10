@@ -56,12 +56,6 @@ ent-BorgModuleCleaning = чистящий модуль киборга
     .desc = { ent-BaseBorgModule.desc }
 ent-BorgModuleAdvancedCleaning = продвинутый чистящий модуль киборга
     .desc = Продвинутый уборочный модуль, содержащий, ну... продвинутое уборочное снаряжение. Чего вы ещё ожидали?
-
-# ADT-Tweak-start
-#ent-BorgModuleDiagnosis = диагностический модуль киборга
-#    .desc = { ent-BaseBorgModule.desc }
-# ADT-Tweak-end
-
 ent-BorgModuleTopicals = модуль киборга наружных препаратов
     .desc = { ent-BaseBorgModuleMedical.desc }
 ent-BorgModuleRescue = спасательный модуль киборга
