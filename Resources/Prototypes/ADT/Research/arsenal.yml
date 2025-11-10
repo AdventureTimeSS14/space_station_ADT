@@ -104,7 +104,7 @@
   name: research-technology-shooter-modules-borg
   icon:
     sprite: ADT/Objects/Specific/Robotics/borgmodule.rsi
-    state: tech_сombat_module
+    state: tech_combat_module
   discipline: Arsenal
   tier: 3
   cost: 15000
