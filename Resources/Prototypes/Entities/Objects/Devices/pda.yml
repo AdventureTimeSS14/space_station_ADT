@@ -114,6 +114,7 @@
     - DoorBumpOpener
     - WhitelistChameleon
     - WhitelistChameleonPDA
+    - ADTPDA # ADT-Tweak
   - type: Input
     context: "human"
   - type: SentienceTarget # sentient PDA = pAI lite

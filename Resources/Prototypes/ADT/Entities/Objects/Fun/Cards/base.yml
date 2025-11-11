@@ -7,7 +7,7 @@
   - type: Item
     size: Small
     shape:
-    - 0,0,1,1
+    - 0,0,0,1
   - type: Sprite
     sprite: ADT/Objects/Fun/cards.rsi
     layers:
@@ -16,9 +16,9 @@
       map: [ "openLayer" ]
       visible: false
   - type: Storage
-    maxItemSize: Normal
+    maxItemSize: Small
     grid:
-    - 0,0,1,1
+    - 0,0,0,1
     whitelist:
       components:
       - CardDeck
@@ -48,6 +48,9 @@
       cardstack-container: !type:Container # Frontier
   - type: StaticPrice # Frontier
     price: 0.01 # Frontier
+  - type: Tag
+    tags:
+    - ADTCardPlay
 # End Frontier
 
 - type: entity
@@ -77,5 +80,5 @@
     sprite: ADT/Objects/Fun/cards.rsi
     state: deck_black_full
   - type: Item
-    size: Normal
+    size: Small
   - type: CardDeck
