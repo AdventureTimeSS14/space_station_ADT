@@ -83,7 +83,7 @@
       - NotekeeperCartridge
       - NanoTaskCartridge
       - NewsReaderCartridge
-      - NanoChatCartridge # DeltaV
+      - NanoChatCartridge # ADT-tweak: Наночат
       - ADTWalletCartridge # ADT-Economy
     cartridgeSlot:
       priority: -1
@@ -157,7 +157,7 @@
     - NanoTaskCartridge
     - NewsReaderCartridge
     - WantedListCartridge
-    - NanoChatCartridge # DeltaV
+    - NanoChatCartridge # ADT-tweak: Наночат
     - ADTWalletCartridge # ADT-Economy
     diskSpace: 8 # ADT tweak
 
@@ -174,7 +174,7 @@
       - NanoTaskCartridge
       - NewsReaderCartridge
       - MedTekCartridge
-      - NanoChatCartridge # DeltaV
+      - NanoChatCartridge # ADT-tweak: Наночат
       - ADTWalletCartridge # ADT-Economy
     diskSpace: 8 # ADT tweak
 
@@ -497,7 +497,7 @@
     - NanoTaskCartridge
     - NewsReaderCartridge
     - AstroNavCartridge
-    - NanoChatCartridge # DeltaV
+    - NanoChatCartridge # ADT-tweak: Наночат
 
 - type: entity
   parent: BasePDA
@@ -543,7 +543,7 @@
       - NanoTaskCartridge
       - NewsReaderCartridge
       - AstroNavCartridge
-      - NanoChatCartridge # DeltaV
+      - NanoChatCartridge # ADT-tweak: Наночат
       - ADTWalletCartridge # ADT-Economy
     diskSpace: 8 # ADT tweak
 
@@ -928,7 +928,7 @@
     - NewsReaderCartridge
     - WantedListCartridge
     - LogProbeCartridge
-    - NanoChatCartridge # DeltaV
+    - NanoChatCartridge # ADT-tweak: Наночат
     - ADTWalletCartridge # ADT-Economy
 
 - type: entity
@@ -1002,7 +1002,7 @@
       - WantedListCartridge
       - LogProbeCartridge
       - AstroNavCartridge
-      - NanoChatCartridge # DeltaV
+      - NanoChatCartridge # ADT-tweak: Наночат
 
 - type: entity
   parent: CentcomPDA
@@ -1030,7 +1030,7 @@
       - WantedListCartridge
       - MedTekCartridge
       - AstroNavCartridge
-      - NanoChatCartridge # DeltaV
+      - NanoChatCartridge # ADT-tweak: Наночат
   - type: Tag #  Ignore Chameleon tags
     tags:
     - DoorBumpOpener
@@ -1148,7 +1148,7 @@
     uiKey: enum.PdaUiKey.Key
     preinstalled:
       - NotekeeperCartridge
-      - NanoChatCartridge # DeltaV
+      - NanoChatCartridge # ADT-tweak: Наночат
       - NanoTaskCartridge
     diskSpace: 8 # ADT tweak
 
@@ -1183,7 +1183,7 @@
       - WantedListCartridge
       - LogProbeCartridge
       - AstroNavCartridge
-      - NanoChatCartridge # DeltaV
+      - NanoChatCartridge # ADT-tweak: Наночат
 
 - type: entity
   parent: ERTLeaderPDA
@@ -1364,7 +1364,7 @@
     - NewsReaderCartridge
     - WantedListCartridge
     - LogProbeCartridge
-    - NanoChatCartridge # DeltaV
+    - NanoChatCartridge # ADT-tweak: Наночат
     - ADTWalletCartridge # ADT-Economy
 
 - type: entity
@@ -1394,7 +1394,7 @@
     - NewsReaderCartridge
     - WantedListCartridge
     - MedTekCartridge
-    - NanoChatCartridge # DeltaV
+    - NanoChatCartridge # ADT-tweak: Наночат
     - ADTWalletCartridge # ADT-Economy
 
 - type: entity
@@ -1541,7 +1541,7 @@
       - NotekeeperCartridge
       - NanoTaskCartridge
       - MedTekCartridge
-      - NanoChatCartridge # DeltaV
+      - NanoChatCartridge # ADT-tweak: Наночат
     cartridgeSlot:
       priority: -1
       name: Cartridge
