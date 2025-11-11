@@ -69,11 +69,11 @@ namespace Content.Server.Chemistry.Components
         public int SelectedBottleForFill = -1;
 
         [DataField]
-        public List<ReagentId> SelectedReagentsForBottles = new();
+        public List<ReagentId> SelectedReagents = new();
 
         // ADT-Tweak: Reagent selection amounts tracking
         [DataField]
-        public Dictionary<ReagentId, int> SelectedReagentAmounts { get; set; } = new();
+        public Dictionary<ReagentId, float> SelectedReagentAmounts { get; set; } = new();
         // ADT-Tweak-End
     }
 }

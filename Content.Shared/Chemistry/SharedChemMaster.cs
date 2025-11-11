@@ -340,7 +340,7 @@ namespace Content.Shared.Chemistry
         int selectedBottleSlot,
         int selectedBottleForFill,
         List<ReagentId> selectedReagentsForBottles,
-        Dictionary<ReagentId, int> selectedReagentAmounts)
+        Dictionary<ReagentId, float> selectedReagentAmounts)
         //ADT-Tweak End
         : BoundUserInterfaceState
     {
@@ -379,7 +379,7 @@ namespace Content.Shared.Chemistry
         public readonly int SelectedBottleSlot = selectedBottleSlot;
         public readonly int SelectedBottleForFill = selectedBottleForFill;
         public readonly List<ReagentId> SelectedReagentsForBottles = selectedReagentsForBottles;
-        public readonly Dictionary<ReagentId, int> SelectedReagentAmounts = selectedReagentAmounts;
+        public readonly Dictionary<ReagentId, float> SelectedReagentAmounts = selectedReagentAmounts;
         //ADT-Tweak End
     }
 
