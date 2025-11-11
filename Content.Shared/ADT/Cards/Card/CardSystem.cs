@@ -1,6 +1,6 @@
-using Content.Shared.ADT._EstacaoPirata.Cards.Deck;
-using Content.Shared.ADT._EstacaoPirata.Cards.Hand;
-using Content.Shared.ADT._EstacaoPirata.Cards.Stack;
+using Content.Shared.ADT.Cards.Deck;
+using Content.Shared.ADT.Cards.Hand;
+using Content.Shared.ADT.Cards.Stack;
 using Content.Shared.Examine;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
@@ -12,7 +12,7 @@ using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
-namespace Content.Shared.ADT._EstacaoPirata.Cards.Card;
+namespace Content.Shared.ADT.Cards.Card;
 
 /// <summary>
 /// This handles...

@@ -4,7 +4,7 @@ using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared.ADT._EstacaoPirata.Cards.Stack;
+namespace Content.Shared.ADT.Cards.Stack;
 
 /// <summary>
 /// This is used for holding the prototype ids of the cards in the stack or hand.

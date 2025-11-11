@@ -6,10 +6,10 @@ using Robust.Client.Player;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
 using System.Numerics;
-using Content.Shared.ADT._EstacaoPirata.Cards.Card;
-using Content.Shared.ADT._EstacaoPirata.Cards.Stack;
+using Content.Shared.ADT.Cards.Card;
+using Content.Shared.ADT.Cards.Stack;
 
-namespace Content.Client.ADT._EstacaoPirata.Cards.Hand.UI;
+namespace Content.Client.ADT.Cards.Hand.UI;
 
 [GenerateTypedNameReferences]
 public sealed partial class CardHandMenu : RadialMenu

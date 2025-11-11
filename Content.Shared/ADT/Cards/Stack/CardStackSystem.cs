@@ -1,7 +1,7 @@
 using System.Linq;
-using Content.Shared.ADT._EstacaoPirata.Cards.Card;
-using Content.Shared.ADT._EstacaoPirata.Cards.Deck;
-using Content.Shared.ADT._EstacaoPirata.Cards.Hand;
+using Content.Shared.ADT.Cards.Card;
+using Content.Shared.ADT.Cards.Deck;
+using Content.Shared.ADT.Cards.Hand;
 using Content.Shared.Examine;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
@@ -14,7 +14,7 @@ using Robust.Shared.Network;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
 
-namespace Content.Shared.ADT._EstacaoPirata.Cards.Stack;
+namespace Content.Shared.ADT.Cards.Stack;
 
 /// <summary>
 /// This handles stack of cards.

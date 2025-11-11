@@ -1,9 +1,9 @@
-using Content.Shared.ADT._EstacaoPirata.Cards.Hand;
+using Content.Shared.ADT.Cards.Hand;
 using JetBrains.Annotations;
 using Robust.Client.Graphics;
 using Robust.Client.Input;
 
-namespace Content.Client.ADT._EstacaoPirata.Cards.Hand.UI;
+namespace Content.Client.ADT.Cards.Hand.UI;
 
 [UsedImplicitly]
 public sealed class CardHandMenuBoundUserInterface : BoundUserInterface
