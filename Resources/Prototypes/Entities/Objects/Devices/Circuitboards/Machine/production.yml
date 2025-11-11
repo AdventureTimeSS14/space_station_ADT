@@ -1078,6 +1078,7 @@
     - type: Tag
       tags:
       - MicrowaveMachineBoard
+      - VoxFood # ADT Tweak
 
 - type: entity
   id: SyndicateMicrowaveMachineCircuitboard
