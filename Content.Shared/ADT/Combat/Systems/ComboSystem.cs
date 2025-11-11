@@ -14,8 +14,9 @@ namespace Content.Shared.ADT.Combat;
 
 public abstract class SharedComboSystem : EntitySystem
 {
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly PullingSystem _pullingSystem = default!;
-
     public override void Initialize()
     {
         base.Initialize();
@@ -23,6 +24,7 @@ public abstract class SharedComboSystem : EntitySystem
         SubscribeLocalEvent<ComboComponent, DisarmAttemptEvent>(OnDisarmUsed);
         SubscribeLocalEvent<ComboComponent, MeleeHitEvent>(OnMeleeHit);
         SubscribeLocalEvent<ComboComponent, GrabStageChangedEvent>(OnGrab);
+        SubscribeLocalEvent<ComboComponent, CrawlingKeybindEvent>(ToggleCrawling);
 
         SubscribeLocalEvent<ComboComponent, ToggleCombatActionEvent>(OnCombatToggled);
     }
@@ -83,7 +85,6 @@ public abstract class SharedComboSystem : EntitySystem
             comboEvent.DoEffect(user, target, EntityManager);
         }
     }
-
     private bool TryDoCombo(EntityUid user, EntityUid target, ComboComponent comp)
     {
         var mainList = comp.CurrestActions;
@@ -104,7 +105,6 @@ public abstract class SharedComboSystem : EntitySystem
             _pullingSystem.TryStopPull(target, pulled, user);
         return true;
     }
-
     public static bool ContainsSubsequence<T>(List<T> mainList, List<T> subList)
     {
         if (subList.Count == 0)
@@ -128,26 +128,24 @@ public abstract class SharedComboSystem : EntitySystem
 
         return false;
     }
+    private void ToggleCrawling(EntityUid uid, ComboComponent comp, CrawlingKeybindEvent args)
+    {
+        var userCoords = uid.ToCoordinates();
+        var targetCoords = comp.Target.ToCoordinates();
+        var diff = userCoords.X - targetCoords.X + userCoords.Y - targetCoords.Y;
 
-    // private void ToggleCrawling(EntityUid uid, ComboComponent comp, CrawlingKeybindEvent args)
-    // {
-    //     var userCoords = uid.ToCoordinates();
-    //     var targetCoords = comp.Target.ToCoordinates();
-    //     var diff = userCoords.X - targetCoords.X + userCoords.Y - targetCoords.Y;
+        if (diff >= 4 || diff <= -4)
+            return;
 
-    //     if (diff >= 4 || diff <= -4)
-    //         return;
+        comp.CurrestActions.Add(CombatAction.Crawl);
 
-    //     comp.CurrestActions.Add(CombatAction.Crawl);
+        if (comp.CurrestActions.Count >= 5 && comp.CurrestActions != null)
+        {
+            comp.CurrestActions.RemoveAt(0);
+        }
 
-    //     if (comp.CurrestActions.Count >= 5 && comp.CurrestActions != null)
-    //     {
-    //         comp.CurrestActions.RemoveAt(0);
-    //     }
-
-    //     TryDoCombo(uid, comp.Target, comp);
-    // }
-
+        TryDoCombo(uid, comp.Target, comp);
+    }
     private void OnCombatToggled(EntityUid uid, ComboComponent comp, ToggleCombatActionEvent args)
     {
         if (!TryComp<CombatModeComponent>(uid, out var combat))

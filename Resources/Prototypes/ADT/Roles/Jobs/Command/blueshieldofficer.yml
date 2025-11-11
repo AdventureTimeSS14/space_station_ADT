@@ -97,7 +97,7 @@
                 - !type:ComboPopupEffect
                   localeText: combo-cqc-pressure-end
                 - !type:ComboStaminaDamageEffect
-                  staminaDamage: 65
+                  staminaDamage: 35
                 - !type:ComboHandsRetakeEffect
             - actionsNeeds:
                 - Grab
