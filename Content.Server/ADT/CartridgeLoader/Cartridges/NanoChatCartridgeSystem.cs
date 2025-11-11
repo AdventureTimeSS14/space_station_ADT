@@ -39,17 +39,6 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
         SubscribeLocalEvent<NanoChatCartridgeComponent, CartridgeMessageEvent>(OnMessage);
     }
 
-    private void UpdateClosed(Entity<NanoChatCartridgeComponent> ent)
-    {
-        if (!TryComp<CartridgeComponent>(ent, out var cartridge) ||
-            cartridge.LoaderUid is not { } pda ||
-            !TryComp<CartridgeLoaderComponent>(pda, out var loader) ||
-            !GetCardEntity(pda, out var card))
-        {
-            return;
-        }
-    }
-
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
