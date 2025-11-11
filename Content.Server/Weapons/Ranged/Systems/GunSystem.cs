@@ -71,15 +71,10 @@ public sealed partial class GunSystem : SharedGunSystem
     {
         userImpulse = true;
 
-        var spreadMod = 1f; // ADT Spread modifiers
-
         if (user != null)
         {
             var selfEvent = new SelfBeforeGunShotEvent(user.Value, (gunUid, gun), ammo);
             RaiseLocalEvent(user.Value, selfEvent);
-
-            spreadMod = selfEvent.SpreadModifier;   // ADT spread modifiers
-
             if (selfEvent.Cancelled)
             {
                 userImpulse = false;
@@ -91,7 +86,7 @@ public sealed partial class GunSystem : SharedGunSystem
         var toMap = TransformSystem.ToMapCoordinates(toCoordinates).Position;
         var mapDirection = toMap - fromMap.Position;
         var mapAngle = mapDirection.ToAngle();
-        var angle = GetRecoilAngle(Timing.CurTime, gun, mapDirection.ToAngle(), spreadMod); // ADT spread mod
+        var angle = GetRecoilAngle(Timing.CurTime, gun, mapDirection.ToAngle());
 
         // If applicable, this ensures the projectile is parented to grid on spawn, instead of the map.
         var fromEnt = MapManager.TryFindGridAt(fromMap, out var gridUid, out _)
@@ -396,7 +391,7 @@ public sealed partial class GunSystem : SharedGunSystem
         return angles;
     }
 
-    private Angle GetRecoilAngle(TimeSpan curTime, GunComponent component, Angle direction, float modifier) // ADT spread mod
+    private Angle GetRecoilAngle(TimeSpan curTime, GunComponent component, Angle direction)
     {
         var timeSinceLastFire = (curTime - component.LastFire).TotalSeconds;
         var newTheta = MathHelper.Clamp(component.CurrentAngle.Theta + component.AngleIncreaseModified.Theta - component.AngleDecayModified.Theta * timeSinceLastFire, component.MinAngleModified.Theta, component.MaxAngleModified.Theta);
@@ -405,7 +400,7 @@ public sealed partial class GunSystem : SharedGunSystem
 
         // Convert it so angle can go either side.
         var random = Random.NextFloat(-0.5f, 0.5f);
-        var spread = component.CurrentAngle.Theta * random * modifier;  // ADT spread mod
+        var spread = component.CurrentAngle.Theta * random;
         var angle = new Angle(direction.Theta + component.CurrentAngle.Theta * random);
         DebugTools.Assert(spread <= component.MaxAngleModified.Theta);
         return angle;

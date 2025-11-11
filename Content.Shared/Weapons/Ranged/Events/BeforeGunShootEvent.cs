@@ -11,7 +11,6 @@ public sealed partial class SelfBeforeGunShotEvent : CancellableEntityEventArgs,
     public readonly EntityUid Shooter;
     public readonly Entity<GunComponent> Gun;
     public readonly List<(EntityUid? Entity, IShootable Shootable)> Ammo;
-    public float SpreadModifier = 1f;   // ADT spread mod
     public SelfBeforeGunShotEvent(EntityUid shooter, Entity<GunComponent> gun, List<(EntityUid? Entity, IShootable Shootable)> ammo)
     {
         Shooter = shooter;
