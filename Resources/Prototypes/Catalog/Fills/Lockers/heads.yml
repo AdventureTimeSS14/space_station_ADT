@@ -22,6 +22,7 @@
     - id: ClothingHandsKnuckleDustersQM
     - id: MailTeleporterMachineCircuitboard
     - id: PrinterDocFlatpack # Corvax-Printer
+    - id: SlotMachineHighRollerFlatPack # ADT-Tweak: Gambling
     # # ADT-Economy-Start
     # - id: ADTCommandBudgetCard
     # - id: ADTCommandBudgetPinPaper
