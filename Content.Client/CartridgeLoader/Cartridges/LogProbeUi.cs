@@ -31,6 +31,6 @@ public sealed partial class LogProbeUi : UIFragment
         if (state is not LogProbeUiState cast)
             return;
 
-        _fragment?.UpdateState(cast); // DeltaV - just take the state
+        _fragment?.UpdateState(cast); // ADT-tweak: для получения стейта
     }
 }

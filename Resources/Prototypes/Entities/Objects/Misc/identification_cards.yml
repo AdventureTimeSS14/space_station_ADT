@@ -25,7 +25,7 @@
     - WhitelistChameleonIdCard
   - type: StealTarget
     stealGroup: IDCard
-  - type: NanoChatCard # DeltaV
+  - type: NanoChatCard # ADT-tweak: Наночат
   # ADT-Tweak-Start
   - type: MiningPoints
   - type: EmitSoundOnPickup
@@ -509,8 +509,8 @@
     heldPrefix: blue
   - type: PresetIdCard
     job: CentralCommandOfficial
-  - type: NanoChatCard # DeltaV
-    listNumber: false
+  - type: NanoChatCard # ADT-tweak: Наночат
+    listNumber: false # ADT-tweak # ADT-tweak
 
 - type: entity
   parent: IDCardStandard
@@ -525,8 +525,8 @@
     job: ERTLeader
   - type: Item
     heldPrefix: gold
-  - type: NanoChatCard # DeltaV
-    listNumber: false
+  - type: NanoChatCard # ADT-tweak: Наночат
+    listNumber: false # ADT-tweak
 
 # start adt tweak
 - type: entity
@@ -555,8 +555,8 @@
     - state: ert_engineer
   - type: PresetIdCard
     job: ERTEngineer
-  - type: NanoChatCard # DeltaV
-    listNumber: false
+  - type: NanoChatCard # ADT-tweak: Наночат
+    listNumber: false # ADT-tweak
 
 - type: entity
   parent: IDCardStandard
@@ -569,8 +569,8 @@
     - state: ert_janitor
   - type: PresetIdCard
     job: ERTJanitor
-  - type: NanoChatCard # DeltaV
-    listNumber: false
+  - type: NanoChatCard # ADT-tweak: Наночат
+    listNumber: false # ADT-tweak
 
 - type: entity
   parent: IDCardStandard
@@ -583,8 +583,8 @@
     - state: ert_medic
   - type: PresetIdCard
     job: ERTMedical
-  - type: NanoChatCard # DeltaV
-    listNumber: false
+  - type: NanoChatCard # ADT-tweak: Наночат
+    listNumber: false # ADT-tweak
 
 - type: entity
   parent: IDCardStandard
@@ -597,8 +597,8 @@
     - state: ert_security
   - type: PresetIdCard
     job: ERTSecurity
-  - type: NanoChatCard # DeltaV
-    listNumber: false
+  - type: NanoChatCard # ADT-tweak: Наночат
+    listNumber: false # ADT-tweak
 
 - type: entity
   parent: IDCardStandard
@@ -624,8 +624,8 @@
     heldPrefix: blue
   - type: PresetIdCard
     job: DeathSquad
-  - type: NanoChatCard # DeltaV
-    listNumber: false
+  - type: NanoChatCard # ADT-tweak: Наночат
+    listNumber: false # ADT-tweak
 
 - type: entity
   name: passenger ID card
@@ -887,8 +887,8 @@
     heldPrefix: blue
   - type: PresetIdCard
     job: CBURN
-  - type: NanoChatCard # DeltaV
-    listNumber: false
+  - type: NanoChatCard # ADT-tweak: Наночат
+    listNumber: false # ADT-tweak
 
 - type: entity
   parent: IDCardStandard
@@ -904,8 +904,8 @@
     jobTitle: job-title-cluwne
     jobIcon: JobIconCluwne
   - type: Unremoveable
-  - type: NanoChatCard # DeltaV
-    listNumber: false
+  - type: NanoChatCard # ADT-tweak: Наночат
+    listNumber: false # ADT-tweak
 
 - type: entity
   parent: EngineeringIDCard
@@ -1018,5 +1018,5 @@
     interfaces:
       enum.AgentIDCardUiKey.Key:
         type: AgentIDCardBoundUserInterface
-  - type: NanoChatCard # DeltaV
+  - type: NanoChatCard # ADT-tweak: Наночат
     notificationsMuted: true

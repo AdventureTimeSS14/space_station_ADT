@@ -1,5 +1,4 @@
 using Content.Shared.ADT.CartridgeLoader.Cartridges;
-
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.CartridgeLoader.Cartridges;
@@ -17,16 +16,18 @@ public sealed class LogProbeUiState : BoundUserInterfaceState
     /// </summary>
     public List<PulledAccessLog> PulledLogs;
 
+    //ADT-tweak-start: Дата наночата
     /// <summary>
-    /// DeltaV: The NanoChat data if a card was scanned, null otherwise
+    /// The NanoChat data if a card was scanned, null otherwise
     /// </summary>
     public NanoChatData? NanoChatData { get; }
+    //ADt-tweak-end
 
-    public LogProbeUiState(string entityName, List<PulledAccessLog> pulledLogs, NanoChatData? nanoChatData = null) // DeltaV - NanoChat support
+    public LogProbeUiState(string entityName, List<PulledAccessLog> pulledLogs, NanoChatData? nanoChatData = null) // ADT-tweak: добавлна дата наночата
     {
         EntityName = entityName;
         PulledLogs = pulledLogs;
-        NanoChatData = nanoChatData; // DeltaV
+        NanoChatData = nanoChatData; // ADT-tweak
     }
 }
 

@@ -9,7 +9,7 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Prototypes;
 using Content.Shared.Roles;
 using System.Diagnostics.CodeAnalysis;
-using Content.Shared.ADT.NanoChat; // DeltaV
+using Content.Shared.ADT.NanoChat;
 using Content.Server.Clothing.Systems;
 using Content.Server.Implants;
 using Content.Shared.Implants;
@@ -24,7 +24,7 @@ namespace Content.Server.Access.Systems
         [Dependency] private readonly IdCardSystem _cardSystem = default!;
         [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-        [Dependency] private readonly SharedNanoChatSystem _nanoChat = default!; // DeltaV
+        [Dependency] private readonly SharedNanoChatSystem _nanoChat = default!;
         [Dependency] private readonly ChameleonClothingSystem _chameleon = default!;
         [Dependency] private readonly ChameleonControllerSystem _chamController = default!;
 
@@ -38,8 +38,9 @@ namespace Content.Server.Access.Systems
             SubscribeLocalEvent<AgentIDCardComponent, AgentIDCardJobChangedMessage>(OnJobChanged);
             SubscribeLocalEvent<AgentIDCardComponent, AgentIDCardJobIconChangedMessage>(OnJobIconChanged);
             SubscribeLocalEvent<AgentIDCardComponent, InventoryRelayedEvent<ChameleonControllerOutfitSelectedEvent>>(OnChameleonControllerOutfitChangedItem);
-            SubscribeLocalEvent<AgentIDCardComponent, AgentIDCardNumberChangedMessage>(OnNumberChanged); // DeltaV
+            SubscribeLocalEvent<AgentIDCardComponent, AgentIDCardNumberChangedMessage>(OnNumberChanged); // ADT-tweak: наночат
         }
+        // ADT-tweak-start: наночат
         private void OnNumberChanged(Entity<AgentIDCardComponent> ent, ref AgentIDCardNumberChangedMessage args)
         {
             if (!TryComp<NanoChatCardComponent>(ent, out var comp))
@@ -48,6 +49,7 @@ namespace Content.Server.Access.Systems
             _nanoChat.SetNumber((ent, comp), args.Number);
             Dirty(ent, comp);
         }
+        // ADT-tweak-end
         private void OnChameleonControllerOutfitChangedItem(Entity<AgentIDCardComponent> ent, ref InventoryRelayedEvent<ChameleonControllerOutfitSelectedEvent> args)
         {
             if (!TryComp<IdCardComponent>(ent, out var idCardComp))
@@ -99,7 +101,7 @@ namespace Content.Server.Access.Systems
             access.Tags.UnionWith(targetAccess.Tags);
             var addedLength = access.Tags.Count - beforeLength;
 
-            // DeltaV - Copy NanoChat data if available
+            //ADT-tweak-start: Наночат
             if (TryComp<NanoChatCardComponent>(args.Target, out var targetNanoChat) &&
                 TryComp<NanoChatCardComponent>(uid, out var agentNanoChat))
             {
@@ -125,7 +127,6 @@ namespace Content.Server.Access.Systems
                     }
                 }
             }
-            // End DeltaV
 
             if (addedLength == 0)
             {
@@ -140,6 +141,7 @@ namespace Content.Server.Access.Systems
                 _popupSystem.PopupEntity(Loc.GetString("agent-id-new-1", ("card", args.Target)), args.Target.Value, args.User);
                 return;
             }
+            //ADT-tweak-end
 
             _popupSystem.PopupEntity(Loc.GetString("agent-id-new", ("number", addedLength), ("card", args.Target)), args.Target.Value, args.User);
             if (addedLength > 0)
@@ -154,7 +156,7 @@ namespace Content.Server.Access.Systems
             if (!TryComp<IdCardComponent>(uid, out var idCard))
                 return;
 
-            // DeltaV - Get current number if it exists
+            // ADT-tweak-start
             uint? currentNumber = null;
             if (TryComp<NanoChatCardComponent>(uid, out var comp))
                 currentNumber = comp.Number;
@@ -163,7 +165,8 @@ namespace Content.Server.Access.Systems
                 idCard.FullName ?? "",
                 idCard.LocalizedJobTitle ?? "",
                 idCard.JobIcon,
-                currentNumber); // DeltaV - Pass current number
+                currentNumber); 
+            // ADT-tweak-end
 
             _uiSystem.SetUiState(uid, AgentIDCardUiKey.Key, state);
         }

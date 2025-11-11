@@ -28,18 +28,18 @@ namespace Content.Shared.Access.Systems
         public string CurrentName { get; }
         public string CurrentJob { get; }
         public string CurrentJobIconId { get; }
-        public uint? CurrentNumber { get; } // DeltaV
+        public uint? CurrentNumber { get; } // ADT-tweak: Наночат
 
-        public AgentIDCardBoundUserInterfaceState(string currentName, string currentJob, string currentJobIconId, uint? currentNumber = null) // DeltaV - Added currentNumber
+        public AgentIDCardBoundUserInterfaceState(string currentName, string currentJob, string currentJobIconId, uint? currentNumber = null) // ADT-tweak: Добавлен текущий номер
         {
             CurrentName = currentName;
             CurrentJob = currentJob;
             CurrentJobIconId = currentJobIconId;
-            CurrentNumber = currentNumber; // DeltaV
+            CurrentNumber = currentNumber; // ADT-tweak: Наночат
         }
     }
 
-    // DeltaV - Add number change message
+    // ADT-tweak-start
     [Serializable, NetSerializable]
     public sealed class AgentIDCardNumberChangedMessage : BoundUserInterfaceMessage
     {
@@ -50,6 +50,7 @@ namespace Content.Shared.Access.Systems
             Number = number;
         }
     }
+    //ADT-tweak-end
 
     [Serializable, NetSerializable]
     public sealed class AgentIDCardNameChangedMessage : BoundUserInterfaceMessage
