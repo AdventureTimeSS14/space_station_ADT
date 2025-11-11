@@ -1,7 +1,7 @@
 using Content.Shared.Audio;
 using Content.Shared.CartridgeLoader;
-using Content.Shared._DeltaV.CartridgeLoader.Cartridges;
-using Content.Shared._DeltaV.NanoChat;
+using Content.Shared.ADT.CartridgeLoader.Cartridges;
+using Content.Shared.ADT.NanoChat;
 using Robust.Shared.Random;
 
 namespace Content.Server.CartridgeLoader.Cartridges;

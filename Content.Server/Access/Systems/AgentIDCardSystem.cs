@@ -9,7 +9,7 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Prototypes;
 using Content.Shared.Roles;
 using System.Diagnostics.CodeAnalysis;
-using Content.Shared._DeltaV.NanoChat; // DeltaV
+using Content.Shared.ADT.NanoChat; // DeltaV
 using Content.Server.Clothing.Systems;
 using Content.Server.Implants;
 using Content.Shared.Implants;

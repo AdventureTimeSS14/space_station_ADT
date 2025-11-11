@@ -4,15 +4,15 @@ using Content.Server.Administration.Logs;
 using Content.Server.Kitchen.Components;
 using Content.Server.NameIdentifier;
 using Content.Shared.Database;
-using Content.Shared._DeltaV.CartridgeLoader.Cartridges;
-using Content.Shared._DeltaV.NanoChat;
+using Content.Shared.ADT.CartridgeLoader.Cartridges;
+using Content.Shared.ADT.NanoChat;
 using Content.Shared.NameIdentifier;
 using Content.Shared.PDA;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
-namespace Content.Server._DeltaV.NanoChat;
+namespace Content.Server.ADT.NanoChat;
 
 /// <summary>
 ///     Handles NanoChat features that are specific to the server but not related to the cartridge itself.
