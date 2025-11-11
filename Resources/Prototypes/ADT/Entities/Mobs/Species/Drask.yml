@@ -48,6 +48,12 @@
     damage:
       types:
         Blunt: 10
+  - type: StaminaDamageOnHit
+    damage: 5
+  - type: ModifyRecoilByTag
+    modifiers:
+      ADTSmallGun: 2.25
+      ADTBigGun: 0.65
   - type: Bloodstream
     bloodRefreshAmount: 2
     bloodMaxVolume: 250
