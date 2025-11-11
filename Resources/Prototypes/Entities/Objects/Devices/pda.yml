@@ -1020,7 +1020,7 @@
   - type: CartridgeLoader
     uiKey: enum.PdaUiKey.Key
     notificationsEnabled: false
-    diskSpace: 10 # DeltaV
+    diskSpace: 10 # ADT tweak
     preinstalled:
       - CrewManifestCartridge
       - NotekeeperCartridge
@@ -1031,7 +1031,6 @@
       - MedTekCartridge
       - AstroNavCartridge
       - NanoChatCartridge # DeltaV
-    diskSpace: 8 # ADT tweak
   - type: Tag #  Ignore Chameleon tags
     tags:
     - DoorBumpOpener

@@ -8,7 +8,7 @@ namespace Content.Server.CartridgeLoader.Cartridges;
 
 public sealed partial class LogProbeCartridgeSystem
 {
-    [Dependency] private readonly RobustRandom _random = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
     private void InitializeNanoChat()
     {
         SubscribeLocalEvent<NanoChatRecipientUpdatedEvent>(OnRecipientUpdated);

@@ -53,12 +53,12 @@
                     <Control HorizontalExpand="True" VerticalExpand="True">
                         <TextureRect Name="BellIcon"
                                      StyleClasses="ButtonSquare"
-                                     TexturePath="/Textures/_DV/Interface/VerbIcons/bell.svg.png"
+                                     TexturePath="/Textures/ADT/Interface/VerbIcons/bell.svg.png"
                                      Stretch="KeepAspectCentered"
                                      MinSize="18 18" />
                         <TextureRect Name="BellMutedIcon"
                                      StyleClasses="ButtonSquare"
-                                     TexturePath="/Textures/_DV/Interface/VerbIcons/bell_muted.png"
+                                     TexturePath="/Textures/ADT/Interface/VerbIcons/bell_muted.png"
                                      Stretch="KeepAspectCentered"
                                      Visible="False"
                                      MinSize="18 18" />
@@ -88,7 +88,7 @@
                         ToolTip="{Loc nano-chat-list-number}"
                         ToggleMode="True">
                     <TextureRect StyleClasses="ButtonSquare"
-                                 TexturePath="/Textures/_DV/Interface/VerbIcons/hamburger_icon.svg.png"
+                                 TexturePath="/Textures/ADT/Interface/VerbIcons/hamburger_icon.svg.png"
                                  Stretch="KeepAspectCentered"
                                  MinSize="18 18" />
                 </Button>
