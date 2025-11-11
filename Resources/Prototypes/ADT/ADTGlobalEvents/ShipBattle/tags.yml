@@ -21,3 +21,9 @@
 
 - type: Tag
   id: ADTMechEquipmentShuttleGun
+
+- type: Tag
+  id: ADTCartridgeMachineGun
+
+- type: Tag
+  id: ADTCartridgeShell

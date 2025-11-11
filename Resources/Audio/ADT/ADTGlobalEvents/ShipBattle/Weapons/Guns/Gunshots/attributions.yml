@@ -22,3 +22,8 @@
   license: "CC-BY-SA-3.0"
   copyright: "upbeat.io and Highfleet"
   source: "https://uppbeat.io/sfx/tag/cannon"
+
+- files: ["uaf_57mm.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from UAF"
+  source: "https://fractalsoftworks.com/forum/index.php?topic=12709.0"
