@@ -75,6 +75,3 @@
         type: AttachmentStripBui
       enum.AttachmentUI.ChooseSlotKey:
         type: AttachmentChooseSlotBui
-  - type: Tag
-    tags:
-    - ADTBigGun

@@ -37,11 +37,6 @@
         ents: []
   - type: StaticPrice
     price: 500
-  # ADT Start
-  - type: Tag
-    tags:
-    - ADTBigGun
-  # ADT End
 
 - type: entity
   name: Kardashev-Mosin

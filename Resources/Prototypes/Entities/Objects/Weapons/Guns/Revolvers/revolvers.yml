@@ -50,11 +50,6 @@
   - type: StaticPrice
     price: 500
   - type: UniqueAction # ADT TWEAK
-  # ADT Start
-  - type: Tag
-    tags:
-    - ADTSmallGun
-  # ADT End
 
 - type: entity
   name: Deckard
@@ -219,4 +214,4 @@
     capacity: 5
     chambers: [ null, null, null, null, null ]
     ammoSlots: [ null, null, null, null, null ]
-
+    

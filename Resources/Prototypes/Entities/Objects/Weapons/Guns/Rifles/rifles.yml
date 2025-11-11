@@ -67,7 +67,7 @@
   description: A somewhat battered combat rifle of a design originating from old Earth. Favored by criminals, militias, and terrorists due to its famed reliability and easy-to-manufacture design. Feeds from .30 rifle magazines.
   components:
   - type: Sprite
-    sprite: ADT/Objects/Weapons/Guns/Rifles/ak.rsi #ADT_Tweak
+    sprite: ADT/Objects/Weapons/Guns/Rifles/ak.rsi #ADT_Tweak 
     layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
@@ -180,11 +180,6 @@
     steps: 1
     zeroVisible: true
   - type: Appearance
-  # ADT Start
-  - type: Tag
-    tags:
-    - ADTBigGun
-  # ADT End
 
 - type: entity
   name: Lecter
