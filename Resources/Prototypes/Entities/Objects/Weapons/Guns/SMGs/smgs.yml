@@ -57,6 +57,11 @@
       gun_chamber: !type:ContainerSlot
   - type: StaticPrice
     price: 500
+  # ADT Start
+  - type: Tag
+    tags:
+    - ADTSmallGun
+  # ADT End
 
 - type: entity
   name: Atreides

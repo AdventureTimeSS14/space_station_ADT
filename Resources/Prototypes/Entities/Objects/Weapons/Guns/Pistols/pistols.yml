@@ -67,6 +67,11 @@
   - type: Appearance
   - type: StaticPrice
     price: 500
+  # ADT Start
+  - type: Tag
+    tags:
+    - ADTSmallGun
+  # ADT End
 
 - type: entity
   name: viper

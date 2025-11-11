@@ -657,3 +657,9 @@
 
 - type: Tag
   id: ADTFullRiotShieldSyndi
+
+- type: Tag
+  id: ADTBigGun
+
+- type: Tag
+  id: ADTSmallGun

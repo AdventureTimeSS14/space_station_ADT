@@ -35,6 +35,9 @@
     slots:
     - suitStorage
     - Belt
+  - type: Tag
+    tags:
+    - ADTSmallGun
 
 - type: entity
   name: proto-kinetic repeater
@@ -173,7 +176,7 @@
     - Belt
 
 - type: entity
-  name: Experimental proto-kinetic accelerator 
+  name: Experimental proto-kinetic accelerator
   id: ADTWeaponExperimentalProtoKineticAcellerator
   parent: [WeaponProtoKineticAcceleratorBase, BaseCargoContraband]
   description: Upgraded version of PKA, customizable classic.
