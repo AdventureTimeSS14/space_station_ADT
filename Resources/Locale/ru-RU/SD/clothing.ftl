@@ -27,3 +27,24 @@ ent-SD_ClothingBeltSmartgunHolster = пояс-кобура МК6
 
 ent-SD_ClothingBeltSmartgunHolsterFilled = { ent-SD_ClothingBeltSmartgunHolster }
     .desc = { ent-SD_ClothingBeltSmartgunHolster.desc }
+
+ent-ClothingUniformJumpsuitNanotrasenRepresentative = форма младшего офицера
+    .desc = Это деловой костюм с идентификационными знаками младшего офицера флота НаноТрейзен.
+
+ent-ClothingUniformJumpsuitNavyGold = форма офицера флота
+    .desc = Пошитая золотом деловая форма офицера флота НаноТрейзен.
+
+ent-ClothingUniformJumpsuitDiplomat = форма дипломата
+    .desc = Форма дипломата НаноТрейзен. Защитит вас от проигрыша в переговорах.
+
+ent-ClothingEyesGlassesCentComm = солнцезащитные очки центрального командования
+    .desc = Солнцезащитные очки специально для работников ЦК. Ничего личного.
+
+ent-ClothingHeadHatBeretNavyOfficer = берет офицера флота
+    .desc = Стандартный берет офицеров флота НаноТрейзен.
+
+ent-ClothingHeadHatBeretEliteNavyOfficer = берет элитного офицера флота
+    .desc = Элитный берет особого офицера флота НаноТрейзен. Выдаётся за особые заслуги.
+
+ent-ClothingHeadHatBeretNavyCaptain = берет капитана флота
+    .desc = Белый берет для капитанов флота НаноТрейзен.
