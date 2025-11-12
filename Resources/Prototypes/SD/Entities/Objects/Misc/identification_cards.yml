@@ -10,3 +10,29 @@
     job: SD_JobSynthetic
   - type: Item
     heldPrefix: silver
+
+- type: entity
+  parent: IDCardStandard
+  id: SD_CentcomNavyOfficerIDCard
+  name: navy officer ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: centcom
+  - type: Item
+    heldPrefix: blue
+  - type: PresetIdCard
+    job: SD_NavyOfficer
+
+- type: entity
+  parent: IDCardStandard
+  id: SD_CentcomSpecopsOfficerIDCard
+  name: special operations officer ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: centcom
+  - type: Item
+    heldPrefix: blue
+  - type: PresetIdCard
+    job: SD_SpecialOperationsOfficer
