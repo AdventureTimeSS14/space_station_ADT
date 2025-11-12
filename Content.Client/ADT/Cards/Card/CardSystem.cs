@@ -1,9 +1,9 @@
 using System.Linq;
-using Content.Shared.ADT._EstacaoPirata.Cards.Card;
+using Content.Shared.ADT.Cards.Card;
 using Robust.Client.GameObjects;
 using Robust.Shared.Utility;
 
-namespace Content.Client.ADT._EstacaoPirata.Cards.Card;
+namespace Content.Client.ADT.Cards.Card;
 
 /// <summary>
 /// This handles...

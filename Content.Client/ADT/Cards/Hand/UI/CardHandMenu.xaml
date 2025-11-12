@@ -1,6 +1,6 @@
 <ui:RadialMenu xmlns="https://spacestation14.io"
                 xmlns:ui="clr-namespace:Content.Client.UserInterface.Controls"
-                xmlns:cardhand="Content.Client.ADT._EstacaoPirata.Cards.Hand.UI"
+                xmlns:cardhand="Content.Client.ADT.Cards.Hand.UI"
                 BackButtonStyleClass="RadialMenuBackButton"
                 CloseButtonStyleClass="RadialMenuCloseButton"
                 VerticalExpand="True"

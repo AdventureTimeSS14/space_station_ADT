@@ -1,10 +1,10 @@
 using System.Linq;
 using System.Numerics;
-using Content.Shared.ADT._EstacaoPirata.Cards.Deck;
-using Content.Shared.ADT._EstacaoPirata.Cards.Stack;
+using Content.Shared.ADT.Cards.Deck;
+using Content.Shared.ADT.Cards.Stack;
 using Robust.Client.GameObjects;
 
-namespace Content.Client.ADT._EstacaoPirata.Cards.Deck;
+namespace Content.Client.ADT.Cards.Deck;
 
 /// <summary>
 /// This handles...

@@ -2,7 +2,7 @@ using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
 
-namespace Content.Shared.ADT._EstacaoPirata.Cards.Card;
+namespace Content.Shared.ADT.Cards.Card;
 
 /// <summary>
 /// This is used for...

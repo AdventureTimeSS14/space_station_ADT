@@ -1,6 +1,6 @@
 using Robust.Shared.Serialization;
 
-namespace Content.Shared.ADT._EstacaoPirata.Cards.Hand;
+namespace Content.Shared.ADT.Cards.Hand;
 
 /// <summary>
 /// This is used for...

@@ -1,5 +1,5 @@
-using Content.Shared.ADT._EstacaoPirata.Cards.Card;
-using Content.Shared.ADT._EstacaoPirata.Cards.Stack;
+using Content.Shared.ADT.Cards.Card;
+using Content.Shared.ADT.Cards.Stack;
 using Content.Shared.Audio;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
@@ -13,7 +13,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
 
-namespace Content.Shared.ADT._EstacaoPirata.Cards.Deck;
+namespace Content.Shared.ADT.Cards.Deck;
 
 /// <summary>
 ///     This handles card decks

@@ -9,7 +9,7 @@ using Content.Shared.Storage.EntitySystems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
-namespace Content.Server.ADT._EstacaoPirata.OpenTriggeredStorageFill;
+namespace Content.Server.ADT.OpenTriggeredStorageFill;
 
 /// <summary>
 /// This handles...

@@ -1,6 +1,6 @@
 using Robust.Shared.Audio;
 
-namespace Content.Shared.ADT._EstacaoPirata.Cards.Deck;
+namespace Content.Shared.ADT.Cards.Deck;
 
 /// <summary>
 /// This is used for...

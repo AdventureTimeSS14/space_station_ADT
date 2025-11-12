@@ -1,5 +1,5 @@
-using Content.Shared.ADT._EstacaoPirata.Cards.Card;
-using Content.Shared.ADT._EstacaoPirata.Cards.Stack;
+using Content.Shared.ADT.Cards.Card;
+using Content.Shared.ADT.Cards.Stack;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
@@ -11,7 +11,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
-namespace Content.Shared.ADT._EstacaoPirata.Cards.Hand;
+namespace Content.Shared.ADT.Cards.Hand;
 
 /// <summary>
 /// This handles...
