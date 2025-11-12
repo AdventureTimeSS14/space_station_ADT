@@ -4,7 +4,11 @@
   description: Go to sleep.
   components:
   - type: InstantAction
-    checkCanInteract: false
-    icon: { sprite: Clothing/Head/Hats/pyjamasyndicateblack.rsi, state: icon }
-    useDelay: 90
     event: !type:UrsusSleepEvent
+  - type: Action
+    itemIconStyle: BigAction
+    checkCanInteract: false
+    useDelay: 90 # equip noise spam.
+    icon:
+      sprite: Clothing/Head/Hats/pyjamasyndicateblack.rsi
+      state: icon
