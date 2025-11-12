@@ -35,7 +35,7 @@
         doaftersToEscape: 2
         movementSpeedModifier: 0.85
         escapeAttemptTime: 1.5
-        setStageTime: 0.75
+        setStageTime: 0
       Choke:
         requiredHands: 2
         doaftersToEscape: 2
