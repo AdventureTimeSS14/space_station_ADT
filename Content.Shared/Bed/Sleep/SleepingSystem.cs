@@ -117,9 +117,16 @@ public sealed partial class SleepingSystem : EntitySystem
 
             _standing.Down(ent.Owner);  // ADT fix
 
-
             if (TryComp<SleepEmitSoundComponent>(ent, out var sleepSound))
             {
+                // ADT start
+                var ev = new SleepExamineAttemptEvent(ent.Owner);
+                RaiseLocalEvent(ent.Owner, ref ev);
+
+                if (ev.Cancelled)
+                    return;
+                // ADT end
+
                 var emitSound = EnsureComp<SpamEmitSoundComponent>(ent);
                 if (HasComp<SnoringComponent>(ent))
                 {
