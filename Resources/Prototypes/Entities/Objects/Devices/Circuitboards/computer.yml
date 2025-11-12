@@ -17,6 +17,23 @@
         Glass: 230
       chemicalComposition:
         Silicon: 20
+    # ADT Start
+    - type: Food
+      requiresSpecialDigestion: true
+    - type: FlavorProfile
+      flavors:
+      - cold
+    - type: SolutionContainerManager
+      solutions:
+        food:
+          maxVol: 5
+          reagents:
+          - ReagentId: Silicon
+            Quantity: 5
+    - type: Tag
+      tags:
+      - VoxFood
+    # ADT End
 
 - type: entity
   parent: BaseComputerCircuitboard
@@ -250,6 +267,7 @@
   - type: Tag
     tags:
     - SurveillanceCameraMonitorCircuitboard
+    - VoxFood # ADT Tweak
 
 - type: entity
   parent: BaseComputerCircuitboard
@@ -273,6 +291,7 @@
     - type: Tag
       tags:
         - ComputerTelevisionCircuitboard
+        - VoxFood # ADT Tweak
 
 - type: entity
   parent: BaseComputerCircuitboard
@@ -333,6 +352,7 @@
     - type: Tag
       tags:
       - HighRiskItem
+      - VoxFood # ADT Tweak
 
 - type: entity
   parent: BaseComputerCircuitboard
