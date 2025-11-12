@@ -1,5 +1,6 @@
 using System.Numerics;
 using Content.Shared.ADT._Mono.Radar;
+using Content.Shared.Projectiles;
 using Content.Shared.Shuttles.Components;
 
 namespace Content.Server.ADT._Mono.Radar;
@@ -36,6 +37,7 @@ public sealed partial class RadarBlipSystem : EntitySystem
             var radarXform = Transform(uid);
             var radarPosition = _xform.GetWorldPosition(uid);
             var radarGrid = _xform.GetGrid(uid);
+            var radarMapId = radarXform.MapID;
 
             var blipQuery = EntityQueryEnumerator<RadarBlipComponent, TransformComponent>();
 
@@ -43,6 +45,20 @@ public sealed partial class RadarBlipSystem : EntitySystem
             {
                 if (!blip.Enabled)
                     continue;
+
+                // Don't show radar blips for projectiles on different maps than the one they were fired from
+                if (TryComp<ProjectileComponent>(blipUid, out var projectile))
+                {
+                    // If the projectile is on a different map than the radar, don't show it
+                    if (blipXform.MapID != radarMapId)
+                        continue;
+
+                    // If we can determine the shooter and they're on a different map, don't show the blip
+                    if (projectile.Shooter != null &&
+                        TryComp<TransformComponent>(projectile.Shooter, out var shooterXform) &&
+                        shooterXform.MapID != blipXform.MapID)
+                        continue;
+                }
 
                 var blipPosition = _xform.GetWorldPosition(blipUid);
                 var distance = (blipPosition - radarPosition).Length();
