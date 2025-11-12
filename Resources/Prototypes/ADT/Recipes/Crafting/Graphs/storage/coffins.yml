@@ -9,14 +9,12 @@
             - material: Zinc
               amount: 5
               doAfter: 5
-
-
     - node: zinccoffin
       entity: ADTCoffinZinc
       edges:
         - to: start
           steps:
-            - tool: Prying
+            - tool: Screwing
               doAfter: 5
           completed:
             - !type:SpawnPrototype

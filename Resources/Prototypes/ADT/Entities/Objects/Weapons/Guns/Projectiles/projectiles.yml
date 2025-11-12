@@ -51,6 +51,9 @@
     soundHit:
       collection: WeakHit
     forceSound: true
+  - type: Reflective ## почему изначально не дописали ему дефлект - неясно
+    reflective:
+    - Energy
 
 - type: entity
   id: ADTBaseBulletRubber

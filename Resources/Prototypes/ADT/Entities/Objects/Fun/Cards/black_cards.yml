@@ -1,0 +1,706 @@
+- type: entity
+  parent: ADTCardBoxBase
+  id: ADTCardBoxBlack
+  name: black deck box
+  components:
+  - type: Item
+    size: Small
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    layers:
+    - state: black_box
+    - state: black_box_open
+      map: [ "openLayer" ]
+      visible: false
+  - type: OpenTriggeredStorageFill
+    contents:
+    - id: ADTCardDeckBlack
+      amount: 1
+
+- type: entity
+  parent: ADTCardDeckBase
+  id: ADTCardDeckBlack
+  name: deck of cards
+  categories: [ HideSpawnMenu, DoNotMap ] # Frontier
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: deck_black_full
+  - type: CardStack
+    initialContent:
+    # Clubs
+    - ADTCardScAceOfClubsBlack
+    - ADTCardSc2OfClubsBlack
+    - ADTCardSc3OfClubsBlack
+    - ADTCardSc4OfClubsBlack
+    - ADTCardSc5OfClubsBlack
+    - ADTCardSc6OfClubsBlack
+    - ADTCardSc7OfClubsBlack
+    - ADTCardSc8OfClubsBlack
+    - ADTCardSc9OfClubsBlack
+    - ADTCardSc10OfClubsBlack
+    - ADTCardScJackOfClubsBlack
+    - ADTCardScQueenOfClubsBlack
+    - ADTCardScKingOfClubsBlack
+    # Diamonds
+    - ADTCardScAceOfDiamondsBlack
+    - ADTCardSc2OfDiamondsBlack
+    - ADTCardSc3OfDiamondsBlack
+    - ADTCardSc4OfDiamondsBlack
+    - ADTCardSc5OfDiamondsBlack
+    - ADTCardSc6OfDiamondsBlack
+    - ADTCardSc7OfDiamondsBlack
+    - ADTCardSc8OfDiamondsBlack
+    - ADTCardSc9OfDiamondsBlack
+    - ADTCardSc10OfDiamondsBlack
+    - ADTCardScJackOfDiamondsBlack
+    - ADTCardScQueenOfDiamondsBlack
+    - ADTCardScKingOfDiamondsBlack
+    # Hearts
+    - ADTCardScAceOfHeartsBlack
+    - ADTCardSc2OfHeartsBlack
+    - ADTCardSc3OfHeartsBlack
+    - ADTCardSc4OfHeartsBlack
+    - ADTCardSc5OfHeartsBlack
+    - ADTCardSc6OfHeartsBlack
+    - ADTCardSc7OfHeartsBlack
+    - ADTCardSc8OfHeartsBlack
+    - ADTCardSc9OfHeartsBlack
+    - ADTCardSc10OfHeartsBlack
+    - ADTCardScJackOfHeartsBlack
+    - ADTCardScQueenOfHeartsBlack
+    - ADTCardScKingOfHeartsBlack
+    # Spades
+    - ADTCardScAceOfSpadesBlack
+    - ADTCardSc2OfSpadesBlack
+    - ADTCardSc3OfSpadesBlack
+    - ADTCardSc4OfSpadesBlack
+    - ADTCardSc5OfSpadesBlack
+    - ADTCardSc6OfSpadesBlack
+    - ADTCardSc7OfSpadesBlack
+    - ADTCardSc8OfSpadesBlack
+    - ADTCardSc9OfSpadesBlack
+    - ADTCardSc10OfSpadesBlack
+    - ADTCardScJackOfSpadesBlack
+    - ADTCardScQueenOfSpadesBlack
+    - ADTCardScKingOfSpadesBlack
+    # Joker
+    - ADTCardScJokerBlack
+
+- type: entity
+  parent: BaseItem
+  id: ADTCardBase
+  name: card
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: EmitSoundOnLand
+    sound:
+      collection: cardShove
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: singlecard_down_black
+  - type: Rotatable
+  - type: Item
+    size: Small
+  - type: UseDelay
+    delay: 0.5
+  - type: Tag
+    tags:
+    - ADTCardPlay
+  - type: Card
+    backSprite:
+    - sprite: ADT/Objects/Fun/cards.rsi
+      state: singlecard_down_black
+    flipped: true
+
+# region Black Cards
+
+- type: entity
+  parent: ADTCardBase
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc2OfClubsBlack
+  components:
+  - type: Card
+    name: card-sc-2-clubs
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_2_of_Clubs_black
+
+- type: entity
+  parent: ADTCardBase
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc3OfClubsBlack
+  components:
+  - type: Card
+    name: card-sc-3-clubs
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_3_of_Clubs_black
+
+- type: entity
+  parent: ADTCardBase
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc4OfClubsBlack
+  components:
+  - type: Card
+    name: card-sc-4-clubs
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_4_of_Clubs_black
+
+- type: entity
+  parent: ADTCardBase
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc5OfClubsBlack
+  components:
+  - type: Card
+    name: card-sc-5-clubs
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_5_of_Clubs_black
+
+- type: entity
+  parent: ADTCardBase
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc6OfClubsBlack
+  components:
+  - type: Card
+    name: card-sc-6-clubs
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_6_of_Clubs_black
+
+- type: entity
+  parent: ADTCardBase
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc7OfClubsBlack
+  components:
+  - type: Card
+    name: card-sc-7-clubs
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_7_of_Clubs_black
+
+- type: entity
+  parent: ADTCardBase
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc8OfClubsBlack
+  components:
+  - type: Card
+    name: card-sc-8-clubs
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_8_of_Clubs_black
+
+- type: entity
+  parent: ADTCardBase
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc9OfClubsBlack
+  components:
+  - type: Card
+    name: card-sc-9-clubs
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_9_of_Clubs_black
+
+- type: entity
+  parent: ADTCardBase
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc10OfClubsBlack
+  components:
+  - type: Card
+    name: card-sc-10-clubs
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_10_of_Clubs_black
+
+- type: entity
+  parent: ADTCardBase
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScAceOfClubsBlack
+  components:
+  - type: Card
+    name: card-sc-ace-clubs
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_Ace_of_Clubs_black
+
+
+- type: entity
+  parent: ADTCardBase
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScJackOfClubsBlack
+  components:
+  - type: Card
+    name: card-sc-jack-clubs
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_Jack_of_Clubs_black
+
+- type: entity
+  parent: ADTCardBase
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScKingOfClubsBlack
+  components:
+  - type: Card
+    name: card-sc-king-clubs
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_King_of_Clubs_black
+
+- type: entity
+  parent: ADTCardBase
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScQueenOfClubsBlack
+  components:
+  - type: Card
+    name: card-sc-queen-clubs
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_Queen_of_Clubs_black
+
+
+- type: entity
+  parent: ADTCardBase
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScJackOfDiamondsBlack
+  components:
+  - type: Card
+    name: card-sc-jack-diamonds
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_Jack_of_Diamonds_black
+
+- type: entity
+  parent: ADTCardBase
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScQueenOfDiamondsBlack
+  components:
+  - type: Card
+    name: card-sc-queen-diamonds
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_Queen_of_Diamonds_black
+
+- type: entity
+  parent: ADTCardBase
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScKingOfDiamondsBlack
+  components:
+  - type: Card
+    name: card-sc-king-diamonds
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_King_of_Diamonds_black
+
+- type: entity
+  parent: ADTCardBase
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScAceOfDiamondsBlack
+  components:
+  - type: Card
+    name: card-sc-ace-diamonds
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_Ace_of_Diamonds_black
+
+- type: entity
+  parent: ADTCardBase
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc2OfDiamondsBlack
+  components:
+  - type: Card
+    name: card-sc-2-diamonds
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_2_of_Diamonds_black
+
+- type: entity
+  parent: ADTCardBase
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc3OfDiamondsBlack
+  components:
+  - type: Card
+    name: card-sc-3-diamonds
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_3_of_Diamonds_black
+
+- type: entity
+  parent: ADTCardBase
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc4OfDiamondsBlack
+  components:
+  - type: Card
+    name: card-sc-4-diamonds
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_4_of_Diamonds_black
+
+- type: entity
+  parent: ADTCardBase
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc5OfDiamondsBlack
+  components:
+  - type: Card
+    name: card-sc-5-diamonds
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_5_of_Diamonds_black
+
+- type: entity
+  parent: ADTCardBase
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc6OfDiamondsBlack
+  components:
+  - type: Card
+    name: card-sc-6-diamonds
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_6_of_Diamonds_black
+
+- type: entity
+  parent: ADTCardBase
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc7OfDiamondsBlack
+  components:
+  - type: Card
+    name: card-sc-7-diamonds
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_7_of_Diamonds_black
+
+- type: entity
+  parent: ADTCardBase
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc8OfDiamondsBlack
+  components:
+  - type: Card
+    name: card-sc-8-diamonds
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_8_of_Diamonds_black
+
+- type: entity
+  parent: ADTCardBase
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc9OfDiamondsBlack
+  components:
+  - type: Card
+    name: card-sc-9-diamonds
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_9_of_Diamonds_black
+
+- type: entity
+  parent: ADTCardBase
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc10OfDiamondsBlack
+  components:
+  - type: Card
+    name: card-sc-10-diamonds
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_10_of_Diamonds_black
+
+
+- type: entity
+  parent: ADTCardBase
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc2OfHeartsBlack
+  components:
+  - type: Card
+    name: card-sc-2-hearts
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_2_of_Hearts_black
+
+- type: entity
+  parent: ADTCardBase
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc3OfHeartsBlack
+  components:
+  - type: Card
+    name: card-sc-3-hearts
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_3_of_Hearts_black
+
+- type: entity
+  parent: ADTCardBase
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc4OfHeartsBlack
+  components:
+  - type: Card
+    name: card-sc-4-hearts
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_4_of_Hearts_black
+
+- type: entity
+  parent: ADTCardBase
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc5OfHeartsBlack
+  components:
+  - type: Card
+    name: card-sc-5-hearts
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_5_of_Hearts_black
+
+- type: entity
+  parent: ADTCardBase
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc6OfHeartsBlack
+  components:
+  - type: Card
+    name: card-sc-6-hearts
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_6_of_Hearts_black
+
+- type: entity
+  parent: ADTCardBase
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc7OfHeartsBlack
+  components:
+  - type: Card
+    name: card-sc-7-hearts
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_7_of_Hearts_black
+
+- type: entity
+  parent: ADTCardBase
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc8OfHeartsBlack
+  components:
+  - type: Card
+    name: card-sc-8-hearts
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_8_of_Hearts_black
+
+- type: entity
+  parent: ADTCardBase
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc9OfHeartsBlack
+  components:
+  - type: Card
+    name: card-sc-9-hearts
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_9_of_Hearts_black
+
+- type: entity
+  parent: ADTCardBase
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc10OfHeartsBlack
+  components:
+  - type: Card
+    name: card-sc-10-hearts
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_10_of_Hearts_black
+
+- type: entity
+  parent: ADTCardBase
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScKingOfHeartsBlack
+  components:
+  - type: Card
+    name: card-sc-king-hearts
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_King_of_Hearts_black
+
+- type: entity
+  parent: ADTCardBase
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScQueenOfHeartsBlack
+  components:
+  - type: Card
+    name: card-sc-queen-hearts
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_Queen_of_Hearts_black
+
+- type: entity
+  parent: ADTCardBase
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScJackOfHeartsBlack
+  components:
+  - type: Card
+    name: card-sc-jack-hearts
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_Jack_of_Hearts_black
+
+- type: entity
+  parent: ADTCardBase
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScAceOfHeartsBlack
+  components:
+  - type: Card
+    name: card-sc-ace-hearts
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_Ace_of_Hearts_black
+
+
+- type: entity
+  parent: ADTCardBase
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc2OfSpadesBlack
+  components:
+  - type: Card
+    name: card-sc-2-spades
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_2_of_Spades_black
+
+- type: entity
+  parent: ADTCardBase
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc3OfSpadesBlack
+  components:
+  - type: Card
+    name: card-sc-3-spades
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_3_of_Spades_black
+
+- type: entity
+  parent: ADTCardBase
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc4OfSpadesBlack
+  components:
+  - type: Card
+    name: card-sc-4-spades
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_4_of_Spades_black
+
+- type: entity
+  parent: ADTCardBase
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc5OfSpadesBlack
+  components:
+  - type: Card
+    name: card-sc-5-spades
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_5_of_Spades_black
+
+- type: entity
+  parent: ADTCardBase
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc6OfSpadesBlack
+  components:
+  - type: Card
+    name: card-sc-6-spades
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_6_of_Spades_black
+
+- type: entity
+  parent: ADTCardBase
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc7OfSpadesBlack
+  components:
+  - type: Card
+    name: card-sc-7-spades
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_7_of_Spades_black
+
+- type: entity
+  parent: ADTCardBase
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc8OfSpadesBlack
+  components:
+  - type: Card
+    name: card-sc-8-spades
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_8_of_Spades_black
+
+- type: entity
+  parent: ADTCardBase
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc9OfSpadesBlack
+  components:
+  - type: Card
+    name: card-sc-9-spades
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_9_of_Spades_black
+
+
+- type: entity
+  parent: ADTCardBase
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc10OfSpadesBlack
+  components:
+  - type: Card
+    name: card-sc-10-spades
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_10_of_Spades_black
+
+- type: entity
+  parent: ADTCardBase
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScKingOfSpadesBlack
+  components:
+  - type: Card
+    name: card-sc-king-spades
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_King_of_Spades_black
+
+- type: entity
+  parent: ADTCardBase
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScQueenOfSpadesBlack
+  components:
+  - type: Card
+    name: card-sc-queen-spades
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_Queen_of_Spades_black
+
+- type: entity
+  parent: ADTCardBase
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScJackOfSpadesBlack
+  components:
+  - type: Card
+    name: card-sc-jack-spades
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_Jack_of_Spades_black
+
+- type: entity
+  parent: ADTCardBase
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScAceOfSpadesBlack
+  components:
+  - type: Card
+    name: card-sc-ace-spades
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_Ace_of_Spades_black
+
+- type: entity
+  parent: ADTCardBase
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScJokerBlack
+  components:
+  - type: Card
+    name: card-sc-joker
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: black_joker
+
+# endregion Black Cards

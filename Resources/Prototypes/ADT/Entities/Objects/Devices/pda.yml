@@ -16,6 +16,9 @@
       map: [ "enum.PdaVisualLayers.IdLight" ]
       shader: "unshaded"
       visible: false
+  - type: Tag
+    tags:
+    - ADTPDA
   - type: Icon
     sprite: ADT/Objects/Devices/pda.rsi
 
