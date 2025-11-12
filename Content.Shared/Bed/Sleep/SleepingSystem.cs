@@ -345,6 +345,9 @@ public sealed partial class SleepingSystem : EntitySystem
         // ADT start
         var ev = new WakingAttemptEvent(user);
         RaiseLocalEvent(ent.Owner, ref ev);
+
+        if (ev.Cancelled)
+            return false;
         // ADT end
 
         if (!force && _statusEffect.HasEffectComp<ForcedSleepingStatusEffectComponent>(ent))
