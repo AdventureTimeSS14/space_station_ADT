@@ -25,18 +25,24 @@
     - WhitelistChameleonIdCard
   - type: StealTarget
     stealGroup: IDCard
-  # ADT Start
+  # ADT-Tweak-Start
   - type: MiningPoints
   - type: EmitSoundOnPickup
     sound:
-      path: /Audio/ADT/Entities/id_pickup.ogg
+      path: /Audio/ADT/Items/Handling/card_pickup.ogg
+      params:
+        volume: -5
   - type: EmitSoundOnDrop
     sound:
-      path: /Audio/ADT/Entities/id_drop.ogg
+      path: /Audio/ADT/Items/Handling/card_drop.ogg
+      params:
+        volume: -5
   - type: EmitSoundOnLand
     sound:
-      path: /Audio/ADT/Entities/id_drop.ogg
-  # ADT End
+      path: /Audio/ADT/Items/Handling/card_drop.ogg
+      params:
+        volume: -5
+  # ADT-Tweak-End
 
 #IDs with layers
 
@@ -879,6 +885,7 @@
     - state: idcluwne
   - type: IdCard
     jobTitle: job-title-cluwne
+    jobIcon: JobIconCluwne
   - type: Unremoveable
 
 - type: entity
@@ -890,6 +897,10 @@
     layers:
     - state: default
     - state: idseniorengineer
+# ADT-Tweak-Start
+  - type: PresetIdCard
+    job: ADTSeniorEngineer
+# ADT-Tweak-End
 
 - type: entity
   parent: ResearchIDCard
@@ -900,6 +911,10 @@
     layers:
     - state: default
     - state: idseniorresearcher
+# ADT-Tweak-Start
+  - type: PresetIdCard
+    job: ADTSeniorResearcher
+# ADT-Tweak-End
 
 - type: entity
   parent: MedicalIDCard
@@ -910,6 +925,10 @@
     layers:
     - state: default
     - state: idseniorphysician
+# ADT-Tweak-Start
+  - type: PresetIdCard
+    job: ADTSeniorPhysician
+# ADT-Tweak-End
 
 - type: entity
   parent: SecurityIDCard
@@ -920,6 +939,10 @@
     layers:
     - state: default
     - state: idseniorofficer
+# ADT-Tweak-Start
+  - type: PresetIdCard
+    job: ADTSeniorOfficer
+# ADT-Tweak-End
 
 - type: entity
   parent: IDCardStandard

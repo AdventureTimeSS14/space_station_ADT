@@ -27,6 +27,47 @@
   - type: Reflect
     reflectProb: .3
     spread: 90
+  - type: ComboWeapon
+    swapSound: /Audio/Effects/thudswoosh.ogg
+    availableMoves:
+      - actionsNeeds:
+          - OffensiveWideHit
+          - OffensiveWideHit
+          - OffensiveHit
+        comboEvent:
+        - !type:ComboEffectToStanding
+          comboEvents:
+          - !type:ComboDamageEffect
+            damage:
+              types:
+                Slash: 40
+          - !type:ComboSpawnEffect
+            spawnOnTarget: ADTMantisDaggerCut
+          - !type:ComboAudioEffect
+            sound:
+              collection: ADTMantisDaggerCutSound
+      - actionsNeeds:
+          - OffensiveWideHit
+          - OffensiveHit
+        comboEvent:
+          - !type:ComboStaminaDamageEffect
+            staminaDamage: 20
+          - !type:ComboSlowdownEffect
+            time: 3
+          - !type:ComboAudioEffect
+            sound:
+              collection: GenericHit
+      - actionsNeeds:
+          - OffensiveHit
+          - OffensiveHit
+        comboEvent:
+          - !type:ComboEffectToUserPuller
+            comboEvents:
+            - !type:ComboStopTargetGrabEffect
+            - !type:ComboFallEffect
+            - !type:ComboAudioEffect
+              sound:
+                path: /Audio/Effects/hit_kick.ogg
 
 - type: entity
   parent: ClothingHandsBase

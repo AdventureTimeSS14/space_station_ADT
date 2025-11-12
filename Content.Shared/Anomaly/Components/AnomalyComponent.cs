@@ -135,6 +135,14 @@ public sealed partial class AnomalyComponent : Component
     /// </summary>
     [DataField]
     public SoundSpecifier? SupercriticalSoundAtAnimationStart;
+
+    /// <summary>
+    /// The length of the animation before it goes supercritical in seconds.
+    /// </summary>
+    ///
+    [DataField, AutoNetworkedField]
+    [ViewVariables(VVAccess.ReadWrite)]
+    public TimeSpan SupercriticalDuration = TimeSpan.FromSeconds(10f);
     #endregion
 
     /// <summary>
@@ -190,14 +198,14 @@ public sealed partial class AnomalyComponent : Component
     /// <summary>
     /// The minimum amount of research points generated per second
     /// </summary>
-    [DataField]
+    [DataField, ViewVariables(VVAccess.ReadWrite)] // ADT-Tweak: Expose for VV inspector
     public int MinPointsPerSecond = 10;
 
     /// <summary>
     /// The maximum amount of research points generated per second
     /// This doesn't include the point bonus for being unstable.
     /// </summary>
-    [DataField]
+    [DataField, ViewVariables(VVAccess.ReadWrite)] // ADT-Tweak: Expose for VV inspector
     public int MaxPointsPerSecond = 70;
 
     /// <summary>

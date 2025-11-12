@@ -30,6 +30,7 @@
   - SignallerAdvanced
   # - DeviceQuantumSpinInverter #ADT_Tweak - временно удалено до решения всех багов предмета
   - DeviceDesynchronizer
+  - ClothingBackpackHarmpack
 
 - type: latheRecipePack
   id: ScienceClothing
@@ -45,8 +46,9 @@
 - type: latheRecipePack
   id: PowerCells
   recipes:
-  # - PowerCellMicroreactor ADT tweak
+  # - PowerCellMicroreactor #ADT-tweak
   - PowerCellHigh
+  # - PowerCellHyper #ADT-tweak
 
 - type: latheRecipePack
   id: ScienceWeapons

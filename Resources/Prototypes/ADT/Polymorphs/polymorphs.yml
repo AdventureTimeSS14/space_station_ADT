@@ -5,9 +5,11 @@
     forced: true
     inventory: None
     transferName: true
-    transferDamage: true
+    transferDamage: false
     revertOnCrit: false
     revertOnDeath: true
+    duration: 420
+  
 
 #полиморфин.
 #человек и дворф

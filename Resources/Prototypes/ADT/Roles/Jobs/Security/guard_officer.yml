@@ -39,3 +39,11 @@
     back:
     - Flash
     - MagazinePistol
+
+- type: chameleonOutfit
+  id: ADTGuardOfficerChameleonOutfit
+  job: ADTGuardOfficer
+  hasMindShield: true
+  equipment:
+    eyes: ClothingEyesGlassesSecurity
+    ears: ClothingHeadsetSecurity

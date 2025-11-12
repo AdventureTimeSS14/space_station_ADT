@@ -28,6 +28,7 @@
   materials:
     Steel: 250
     Plastic: 250
+    Copper: 250
 
 - type: latheRecipe
   parent: BaseLightRecipe
@@ -106,7 +107,7 @@
 
 - type: latheRecipe
   id: ClothingHeadHatHardhatWhite
-  result: ClothingHeadHatHardhatWhite
+  result: ClothingHeadHatHardhatWhiteEmpty
   completetime: 2
   materials:
     Steel: 500
@@ -115,24 +116,24 @@
 - type: latheRecipe
   parent: ClothingHeadHatHardhatWhite
   id: ClothingHeadHatHardhatYellow
-  result: ClothingHeadHatHardhatYellow
+  result: ClothingHeadHatHardhatYellowEmpty
 
 - type: latheRecipe
   parent: ClothingHeadHatHardhatWhite
   id: ClothingHeadHatHardhatRed
-  result: ClothingHeadHatHardhatRed
+  result: ClothingHeadHatHardhatRedEmpty
 
 - type: latheRecipe
   parent: ClothingHeadHatHardhatWhite
   id: ClothingHeadHatHardhatOrange
-  result: ClothingHeadHatHardhatOrange
+  result: ClothingHeadHatHardhatOrangeEmpty
 
 - type: latheRecipe
   parent: ClothingHeadHatHardhatWhite
   id: ClothingHeadHatHardhatBlue
-  result: ClothingHeadHatHardhatBlue
+  result: ClothingHeadHatHardhatBlueEmpty
 
 - type: latheRecipe
   parent: ClothingHeadHatHardhatWhite
   id: ClothingHeadHatHardhatYellowDark
-  result: ClothingHeadHatHardhatYellowDark
+  result: ClothingHeadHatHardhatYellowDarkEmpty

@@ -1,8 +1,8 @@
 using Content.Server.Administration.Logs;
-using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
-using Content.Server.EntityEffects.Effects;
+using Content.Shared.EntityEffects.Effects;
 using Content.Server.Spreader;
+using Content.Shared.Body.Components;
 using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
@@ -82,12 +82,12 @@ public sealed class SmokeSystem : EntitySystem
 
     private void OnStartCollide(Entity<SmokeComponent> entity, ref StartCollideEvent args)
     {
-        if (_smokeAffectedQuery.HasComponent(args.OtherEntity))
-            return;
-        // ADT Tester fix start
+        // #ADT-tweak: Don't add components to terminating entities
         if (Deleted(args.OtherEntity) || Terminating(args.OtherEntity))
             return;
-        // ADT Tester fix end
+
+        if (_smokeAffectedQuery.HasComponent(args.OtherEntity))
+            return;
 
         var smokeAffected = AddComp<SmokeAffectedComponent>(args.OtherEntity);
         smokeAffected.SmokeEntity = entity;
@@ -96,6 +96,10 @@ public sealed class SmokeSystem : EntitySystem
 
     private void OnEndCollide(Entity<SmokeComponent> entity, ref EndCollideEvent args)
     {
+        // #ADT-tweak: Don't process terminating entities
+        if (Deleted(args.OtherEntity) || Terminating(args.OtherEntity))
+            return;
+
         // if we are already in smoke, make sure the thing we are exiting is the current smoke we are in.
         if (_smokeAffectedQuery.TryGetComponent(args.OtherEntity, out var smokeAffectedComponent))
         {
@@ -116,10 +120,9 @@ public sealed class SmokeSystem : EntitySystem
             if (!_smokeQuery.HasComponent(ent))
                 continue;
 
-            // ADT Tester fix start
+            // #ADT-tweak: Don't reattach to terminating smoke
             if (Deleted(ent) || Terminating(ent))
                 continue;
-            // ADT Tester fix end
 
             smokeAffectedComponent ??= EnsureComp<SmokeAffectedComponent>(args.OtherEntity);
             smokeAffectedComponent.SmokeEntity = ent;
@@ -297,7 +300,7 @@ public sealed class SmokeSystem : EntitySystem
         if (blockIngestion)
             return;
 
-        if (_blood.TryAddToChemicals(entity, transferSolution, bloodstream))
+        if (_blood.TryAddToChemicals((entity, bloodstream), transferSolution))
         {
             // Log solution addition by smoke
             _logger.Add(LogType.ForceFeed, LogImpact.Medium, $"{ToPrettyString(entity):target} ingested smoke {SharedSolutionContainerSystem.ToPrettyString(transferSolution)}");

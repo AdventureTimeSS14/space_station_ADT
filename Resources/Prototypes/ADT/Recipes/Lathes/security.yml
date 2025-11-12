@@ -3,21 +3,21 @@
   result: MagazineMagnumEmpty
   completetime: 5
   materials:
-    Steel: 25
+    Lead : 25
 
 - type: latheRecipe
   id: ADTMagazineMagnum
   result: MagazineMagnum
   completetime: 5
   materials:
-    Steel: 170
+    Lead : 170
 
 - type: latheRecipe
   id: ADTMagazineMagnumIncendiary
   result: ADTMagazineMagnumIncendiary
   completetime: 5
   materials:
-    Steel: 25
+    Lead : 25
     Plastic: 145
 
 - type: latheRecipe
@@ -25,9 +25,19 @@
   result: MagazineMagnumUranium
   completetime: 5
   materials:
-    Steel: 25
+    Lead : 25
     Plastic: 145
     Uranium: 125
+
+- type: latheRecipe
+  id: ADTMagazineShotgunUranium
+  result: MagazineShotgunUranium
+  completetime: 5
+  materials:
+    Steel: 50
+    Plastic: 190
+    Lead: 100
+    Uranium: 130
 
 - type: latheRecipe
   parent: BaseWeaponRecipeLong
@@ -54,7 +64,26 @@
   id: ADTMagazineBoxMagnumLesser
   result: ADTMagazineBoxMagnumLesser
   materials:
-    Steel: 240
+    Lead : 240
+
+#Silver for HW
+- type: latheRecipe
+  id: ADTMagazineBoxMagnumSilver
+  result: ADTMagazineBoxMagnumSilver
+  completetime: 5
+  materials:
+    Lead : 145
+    Silver: 145
+    Plastic: 240
+
+- type: latheRecipe
+  id: ADTCartridgeMagnumSilver
+  result: ADTCartridgeMagnumSilver
+  completetime: 5
+  materials:
+    Lead : 10
+    Silver: 20
+# Silver for HW end
 
 - type: latheRecipe
   parent: BaseAmmoRecipe
@@ -68,7 +97,7 @@
   id: ADTMagazineBoxMagnumLesserPractice
   result: ADTMagazineBoxMagnumLesserPractice
   materials:
-    Steel: 60
+    Lead : 60
 
 - type: latheRecipe
   parent: BaseAmmoRecipe
@@ -83,28 +112,28 @@
   id: ADTSpeedLoaderMagnumLesserEmpty
   result: ADTSpeedLoaderMagnumLesserEmpty
   materials:
-    Steel: 50
+    Lead : 50
 
 - type: latheRecipe
   parent: BaseAmmoRecipe
   id: ADTSpeedLoaderMagnumLesser
   result: ADTSpeedLoaderMagnumLesser
   materials:
-    Steel: 180
+    Lead : 180
 
 - type: latheRecipe
   parent: BaseAmmoRecipe
   id: ADTSpeedLoaderMagnumLesserPractice
   result: ADTSpeedLoaderMagnumLesserPractice
   materials:
-    Steel: 85
+    Lead : 85
 
 - type: latheRecipe
   parent: BaseAmmoRecipe
   id: ADTSpeedLoaderMagnumLesserUranium
   result: ADTSpeedLoaderMagnumLesserUranium
   materials:
-    Steel: 50
+    Lead : 50
     Plastic: 145
     Uranium: 105
 
@@ -113,7 +142,7 @@
   id: ADTSpeedLoaderMagnumLesserIncendiary
   result: ADTSpeedLoaderMagnumLesserIncendiary
   materials:
-    Steel: 50
+    Lead : 50
     Plastic: 140
 
 - type: latheRecipe
@@ -129,7 +158,7 @@
   result: GrenadeStinger
   completetime: 4
   materials:
-    Steel: 800
+    Lead : 800
     Plastic: 600
 
 - type: latheRecipe
@@ -140,3 +169,4 @@
     Steel: 6000
     Glass: 3000
     Plasteel: 3000
+    Copper: 800

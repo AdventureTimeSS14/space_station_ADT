@@ -228,6 +228,7 @@
     - ADTPhantomPack
     - ADTWeaponLauncherHydraPack
     - ADTPowerPack
+    - ADTMegaCellPack
     #ADT-tweak-end
     - ADTBluespaceCrystalTech #ADT Tweak
   - type: EmagLatheRecipes
@@ -292,6 +293,8 @@
     - ADTBluespaceHarvesterPack
     - ADTArcade
     - ADTIndustrialCharger
+    - ADTAdvancedThruster
+    - ADTMegaCharger
     # ADT-tweak-end
   - type: EmagLatheRecipes
     emagDynamicPacks:
@@ -535,8 +538,12 @@
     dynamicPacks:
     - Chemistry
     #ADT-Tweak Start
+    - ADTAdvancedMedical
     - ADTAdvancedMedicalMiscPack
     - ADTAdvancedMedicalCarePack
+    - ADTCryoTech
+    - ADTThermoTech
+    - ADTChemDisp
     #ADT-Tweak End
   - type: Machine
     board: MedicalTechFabCircuitboard
@@ -599,6 +606,7 @@
         - Sheet
         - RawMaterial
         - Ingot
+  - type: OreSiloClient
 
 - type: entity
   id: Biogenerator
@@ -770,3 +778,4 @@
         - Wooden
         - RawMaterial
         - Plastic
+  - type: OreSiloClient

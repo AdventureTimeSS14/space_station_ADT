@@ -20,12 +20,12 @@
   - type: GasTank
     outputPressure: 42.6
     air:
-      # 13 minutes of thrust
-      volume: 5
+      # 4 minutes of thrust
+      volume: 1.5
       temperature: 293.15
       moles:
-        - 1.025689525 # oxygen
-        - 1.025689525 # nitrogen
+        - 0.307706858 # oxygen
+        - 0.307706858 # nitrogen
   - type: StaticPrice
     price: 30
 

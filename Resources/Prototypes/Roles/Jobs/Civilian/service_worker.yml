@@ -22,8 +22,19 @@
   id: ServiceWorkerGear
   equipment:
     shoes: ClothingShoesColorBlack
-    id: ServiceWorkerPDA
+    #id: ServiceWorkerPDA # ADT: different PDAs in loadouts
     ears: ClothingHeadsetService
   #storage:
     #back:
     #- Stuff
+
+- type: chameleonOutfit
+  id: ServiceWorkerChameleonOutfit
+  job: ServiceWorker
+  equipment:
+    head: ClothingHeadHatBowlerHat
+    eyes: ClothingEyesGlassesSunglasses
+    mask: ClothingMaskGas
+    neck: ClothingNeckScarfStripedBrown
+    outerClothing: ClothingOuterVest
+    gloves: ClothingHandsGlovesColorBlack

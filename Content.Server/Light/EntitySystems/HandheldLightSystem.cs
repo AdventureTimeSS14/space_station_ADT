@@ -93,8 +93,21 @@ namespace Content.Server.Light.EntitySystems
         private void OnMapInit(Entity<HandheldLightComponent> ent, ref MapInitEvent args)
         {
             var component = ent.Comp;
-            _actionContainer.EnsureAction(ent, ref component.ToggleActionEntity, component.ToggleAction);
-            _actions.AddAction(ent, ref component.SelfToggleActionEntity, component.ToggleAction);
+            // ADT-tweak-start: Добавлена проверка на null и обработка исключений для предотвращения падения при загрузке карт
+            //метод полностью переписан, если будет что-то ломать откатывайте до версии визардов а потом чините тесты
+            if (component.ToggleAction != null)
+            {
+                try
+                {
+                    _actionContainer.EnsureAction(ent, ref component.ToggleActionEntity, component.ToggleAction);
+                    _actions.AddAction(ent, ref component.SelfToggleActionEntity, component.ToggleAction);
+                }
+                catch (Exception ex)
+                {
+                    Log.Warning($"Failed to create toggle action for handheld light {ToPrettyString(ent)}: {ex.Message}");
+                }
+            }
+            // ADT-tweak-end
         }
 
         private void OnShutdown(EntityUid uid, HandheldLightComponent component, ComponentShutdown args)

@@ -5,7 +5,6 @@
   abstract: true
   id: ADTPlayerSiliconBase # For player controlled silicons
   components:
-    - type: PassiveHolyHealing
     - type: Reactive
       groups:
         Acidic: [Touch]
@@ -35,6 +34,7 @@
             - MobMask
           layer:
             - MobLayer
+    - type: FloorOcclusion
     - type: MovementSpeedModifier
       baseWalkSpeed: 3
       baseSprintSpeed: 4
@@ -98,6 +98,7 @@
   abstract: true
   components:
     - type: StatusIcon
+    - type: SSDIndicator
     - type: MobState
       allowedStates:
         - Alive
@@ -281,7 +282,6 @@
     - type: Cuffable
     - type: AnimationPlayer
     - type: Buckle
-    - type: CriminalRecord # ADT-Beepsky
     - type: CreamPied
     - type: Stripping
     - type: Strippable

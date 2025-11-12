@@ -4,13 +4,11 @@
                       xmlns:customControls="clr-namespace:Content.Client.Administration.UI.CustomControls"
                       xmlns:adt="clr-namespace:Content.Client.ADT.Research.UI"
                       Title="{Loc 'research-console-menu-title'}"
-                      MinSize="1000 650"
-                      MaxSize="1360 950"
-                      SetSize="1260 850"> <!-- Corvax-Localization -->
+                      SetSize="1260 850">
     <BoxContainer Orientation="Vertical"
                   HorizontalExpand="True"
                   VerticalExpand="True">
-        <controls:StripeBack Name="StationNameContainer" MinSize="52 52">
+        <controls:StripeBack MinSize="52 52">
             <BoxContainer Name="DisciplinesContainer"
                         Orientation="Horizontal"
                         HorizontalAlignment="Stretch"
@@ -30,7 +28,10 @@
                 <!-- This is where we put all of the little graphics that display discipline tiers!-->
             </BoxContainer>
             <BoxContainer Orientation="Vertical" VerticalExpand="True" HorizontalAlignment="Right">
-                <Button Name="ServerButton" Text="{Loc 'research-console-menu-server-selection-button'}" MinHeight="40"/>
+                <Button Name="RecenterButton" Text="{Loc 'research-console-menu-recenter-button'}" StyleClasses="OpenBoth" MinHeight="40"/>
+            </BoxContainer>
+            <BoxContainer Orientation="Vertical" VerticalExpand="True" HorizontalAlignment="Right">
+                <Button Name="ServerButton" Text="{Loc 'research-console-menu-server-selection-button'}" StyleClasses="OpenBoth" MinHeight="40"/>
             </BoxContainer>
         </BoxContainer>
         <BoxContainer Orientation="Horizontal"
@@ -39,11 +40,11 @@
             <BoxContainer Orientation="Vertical"
                           VerticalExpand="True"
                           HorizontalExpand="True"
-                          SizeFlagsStretchRatio="3"
+                          SizeFlagsStretchRatio="5"
                           Margin="0 0 0 10">
                 <PanelContainer Name="ResearchesContainer" VerticalExpand="True" HorizontalExpand="True">
                     <PanelContainer.PanelOverride>
-                        <gfx:StyleBoxFlat BackgroundColor="#000000FF" />
+                        <gfx:StyleBoxFlat BackgroundColor="#000000FF" BorderColor="#25252a" BorderThickness="6"/>
                     </PanelContainer.PanelOverride>
                     <controls:ScaledAnimatedTextureRect Name="StaticSprite"
                         HorizontalExpand="True"
@@ -56,7 +57,6 @@
                             RectClipContent="True">
                         </adt:DraggablePanel>
                     </controls:ScaledAnimatedTextureRect>
-                    <Button Name="RecenterButton" Text="{Loc 'research-console-menu-recenter-button'}" MinHeight="40" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="5 -5"/>
                 </PanelContainer>
             </BoxContainer>
             <PanelContainer VerticalExpand="True" SizeFlagsStretchRatio="2">
@@ -67,8 +67,7 @@
                     Orientation="Vertical"
                     VerticalExpand="True"
                     HorizontalExpand="True"
-                    SizeFlagsStretchRatio="1"
-                    Margin="0"/>
+                    Margin="5"/>
             </PanelContainer>
         </BoxContainer>
     </BoxContainer>

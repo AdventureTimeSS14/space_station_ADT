@@ -14,7 +14,7 @@
   id: ReporterGear
   equipment:
     shoes: ClothingShoesColorWhite
-    id: ReporterPDA
+    #id: ReporterPDA # ADT: different PDAs in loadouts
     ears: ClothingHeadsetService
   # ADT start
     pocket1: ADTOldRadioMicrophone
@@ -27,3 +27,14 @@
     - ADTOldRadio
     - ADTOldRadio
   # ADT end
+
+- type: chameleonOutfit
+  id: ReporterChameleonOutfit
+  job: Reporter
+  equipment:
+    head: ClothingHeadHatFedoraGrey
+    eyes: ClothingEyesGlassesCheapSunglasses
+    mask: ClothingMaskBreath
+    outerClothing: ClothingOuterCoatTrench
+    neck: ClothingNeckTieRed
+    gloves: ClothingHandsGlovesFingerless

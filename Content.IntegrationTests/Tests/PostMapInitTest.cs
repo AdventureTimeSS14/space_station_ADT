@@ -48,8 +48,6 @@ namespace Content.IntegrationTests.Tests
         {
             "/Maps/centcomm.yml",
             "/Maps/bagel.yml", // Contains mime's rubber stamp --> Either fix this, remove the category, or remove this comment if intentional.
-            "/Maps/gate.yml", // Contains positronic brain and LSE-1200c "Perforator"
-            "/Maps/meta.yml", // Contains warden's rubber stamp
             "/Maps/reach.yml", // Contains handheld crew monitor
             "/Maps/Shuttles/ShuttleEvent/cruiser.yml", // Contains LSE-1200c "Perforator"
             "/Maps/Shuttles/ShuttleEvent/honki.yml", // Contains golden honker, clown's rubber stamp
@@ -58,7 +56,7 @@ namespace Content.IntegrationTests.Tests
             "/Maps/ADTMaps/Shuttles/pirate.yml", //ADT edit
         };
 
-        private static readonly string[] GameMaps =
+private static readonly string[] GameMaps =
         {
             // Corvax-Start
             // "CorvaxAvrite", // ADT-Comment
@@ -83,29 +81,22 @@ namespace Content.IntegrationTests.Tests
             "Dev",
             "TestTeg",
             "Fland",
-            "Meta",
             "Packed",
-            "Omega",
             "Bagel",
             "CentComm",
             "Box",
-            "Core",
             "Marathon",
             "MeteorArena",
             "Saltern",
             "Reach",
-            "Train",
             "Oasis",
-            "Gate",
             "Amber",
-            "Loop",
             "Elkridge",
             "Plasma",
-            "Convex",
-            "Relic",
             "dm01-entryway",
+            "Exo",
             // ADT-Start
-            "ADT_Avrit",
+            // "ADT_Avrit",
             "ADT_Bagel",
             "ADT_Barratry",
             "ADT_Box",
@@ -122,9 +113,15 @@ namespace Content.IntegrationTests.Tests
             "ADT_Cluster_Legacy",
             "ADT_Meta",
             "ADT_Origin",
-            "ADT_Centcomm"
+            "ADT_Centcomm",
+            "ADT_Gate",
+            "ADT_Reach",
+            "ADT_Silly",
+            "ADT_Train"
             // ADT-End
         };
+
+        private static readonly ProtoId<EntityCategoryPrototype> DoNotMapCategory = "DoNotMap";
 
         /// <summary>
         /// Asserts that specific files have been saved as grids and not maps.

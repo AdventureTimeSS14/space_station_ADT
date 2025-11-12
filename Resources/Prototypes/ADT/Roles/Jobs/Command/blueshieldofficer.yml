@@ -113,9 +113,6 @@
                   damage:
                     types:
                       Blunt: 15
-                - !type:ComboStunEffect
-                  stunTime: 2
-                  dropItems: false
                 - !type:ComboAudioEffect
                   sound:
                     collection: GenericHit
@@ -192,3 +189,14 @@
     id: ADTBlueshieldOfficerPDA
     pocket1: ADTBlueshieldVoucher
     pocket2: ADTHandheldCrewMonitorBlueshield
+
+- type: chameleonOutfit
+  id: ADTBlueShieldChameleonOutfit
+  job: ADTBlueShieldOfficer
+  hasMindShield: true
+  equipment:
+    eyes: ADTClothingEyesGlassesBlueshield
+    shoes: ClothingShoesBootsCombatFilled
+    belt: ADTClothingBeltMedicalSecurityFilled
+    gloves: ClothingHandsGlovesCombat
+    id: ADTBlueshieldOfficerPDA

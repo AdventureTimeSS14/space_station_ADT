@@ -91,13 +91,17 @@ construction-graph-tag-chess-red-wood-floor = красный шахматный 
 construction-graph-tag-galaxythistle = галакточертополох
 construction-graph-tag-poppy = мак
 construction-graph-tag-aloe = алоэ
-construction-graph-tag-ambrosia = амброзия
 
 # Платы
 construction-graph-door-electronics = микросхема шлюза
 construction-graph-intercom-electronics = плата интеркома
 
 # Другое
-construction-graph-tag-capicator-stock-part = конденсатор
+
+construction-graph-tag-capicator-stock-part = конденcатор
 construction-graph-voice-trigger = голосовой триггер
+construction-graph-tag-toy-blaster = игрушечный бластер
 construction-graph-tag-stunbaton = дубинка-шокер
+construction-graph-carved-pumpkin = вырезанная тыква
+construction-graph-flashlight = фонарик
+

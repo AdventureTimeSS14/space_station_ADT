@@ -277,7 +277,7 @@
       prob: 0.05
       orGroup: Pizza
     - id: KnifePlastic
-  
+
 - type: entity
   name: pizza box
   parent: FoodBoxPizzaFilled
@@ -372,6 +372,9 @@
     contents:
     - id: FoodDonkpocket
       amount: 6
+    - id: DonkcoLighter
+      amount: 1
+      prob: 0.10
 
 - type: entity
   parent: FoodBoxDonkpocket
@@ -530,6 +533,16 @@
     contents:
       - id: ToyMouse
         orGroup: GiftPool
+# ADT-tweak start
+      - id: ADTToyBlasterGunRed
+        orGroup: GiftPool
+      - id: ADTToyBlasterGunGreen
+        orGroup: GiftPool
+      - id: ADTToyBlasterGunBlue
+        orGroup: GiftPool
+      - id: ADTWeaponRevolverRussian
+        orGroup: GiftPool
+# ADT-tweak end
       - id: ToyAi
         orGroup: GiftPool
       - id: ToyNuke

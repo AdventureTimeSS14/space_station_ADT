@@ -21,3 +21,15 @@
   storage:
     back:
     - ADTClothingGeorgeRibbonPin
+
+- type: loadout
+  id: ADTClothingMaskPaperBlank
+  storage:
+    back:
+    - ADTClothingMaskPaperBlank
+    
+- type: loadout
+  id: ADTHandheldStationMapUnpowered
+  storage:
+    back:
+    - HandheldStationMapUnpowered

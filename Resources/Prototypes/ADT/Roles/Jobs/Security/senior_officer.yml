@@ -45,3 +45,14 @@
     ears: ClothingHeadsetSecurity
     pocket1: WeaponRevolverDeckard
     pocket2: SpeedLoaderMagnum
+  storage:
+    back:
+    - ADTHumanCubeWrapped #ADT-CustomADTLoadout
+
+- type: chameleonOutfit
+  id: ADTSeniorOfficerChameleonOutfit
+  job: ADTSeniorOfficer
+  hasMindShield: true
+  equipment:
+    eyes: ClothingEyesGlassesSecurity
+    ears: ClothingHeadsetSecurity

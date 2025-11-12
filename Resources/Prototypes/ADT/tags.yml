@@ -205,8 +205,6 @@
 - type: Tag
   id: ADTGlassSheet
 
-- type: Tag
-  id: ADTGoldOre
 
 - type: Tag
   id: ADTBSore
@@ -216,12 +214,6 @@
 
 - type: Tag
   id: ADTQuarzOre
-
-- type: Tag
-  id: ADTUraniumOre
-
-- type: Tag
-  id: ADTSilverOre
 
 - type: Tag
   id: ADTCoalOre
@@ -620,6 +612,9 @@
   id: ADTStamp
 
 - type: Tag
+  id: ADTToyBlaster
+
+- type: Tag
   id: ADTBadgeBronze
 
 - type: Tag
@@ -657,3 +652,21 @@
 
 - type: Tag
   id: ADTFullRiotShieldSyndi
+
+- type: Tag
+  id: ADTMegaCell
+
+- type: Tag
+  id: ADTSheet
+
+- type: Tag
+  id: ADTCarvedPumpkin
+
+- type: Tag
+  id: ADTPDA
+
+- type: Tag
+  id: ADTFoodCondimentPacketMayo
+
+- type: Tag
+  id: FoodCondimentPacketBbq
