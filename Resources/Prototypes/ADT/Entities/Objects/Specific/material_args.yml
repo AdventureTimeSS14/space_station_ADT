@@ -15,6 +15,7 @@
     - type: AddComponentsOnUse
       components:
         - type: Combo
+          allowNeckSnap: true
           availableMoves:
             - actionsNeeds:
                 - Grab

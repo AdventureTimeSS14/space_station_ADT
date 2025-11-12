@@ -50,6 +50,7 @@
             tags:
             - ADTBsoWeapon
         - type: Combo
+          allowNeckSnap: true
           availableMoves:
             - actionsNeeds:
                 - Grab
@@ -75,7 +76,7 @@
                   - !type:ComboEffectSleep
                     time: 5
                 - !type:ComboStaminaDamageEffect
-                  staminaDamage: 55
+                  staminaDamage: 35
                 - !type:ComboMoreDamageToDownedEffect
                   damage:
                     types:
