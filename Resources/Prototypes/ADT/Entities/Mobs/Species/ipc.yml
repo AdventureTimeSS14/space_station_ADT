@@ -170,6 +170,7 @@
   - type: IpcScreen
     selectSlotTime: 0
     changeSlotTime: 0
+  - type: AnimatedEmotes
 
 - type: entity
   save: false

@@ -689,3 +689,12 @@ ent-ADTClothingOuterHardsuitParamedLemon = модернизированный п
 ent-ADTClothingHeadHelmetParamedLemon = шлем модернизированного пустотного скафандра
     .desc = Гораздо удобнее в ношении, чем шлемы для обычных моделей пустотных скафандров парамедика.
     .suffix = { "Спонсорское, LemonLimeLord" }
+
+ent-ADTBibleContemplator = Том Созерцателя
+    .desc = Кажется, переплёт этой книги состоит из чьей-то чешуйчатой постоянно меняющейся кожи. Смотря на неё, вы четко осознаете, что, независимо от того, кто вы, вы не можете противиться желанию оставить свою роспись в этой книге.
+    .suffix = { "Именное, Levontiy, descente, LightSurvivor" }
+ghost-role-information-WatcherBible-name = Гордый наблюдатель
+ghost-role-information-WatcherBible-description = Играйте со своим хозяином в гляделки
+ghost-role-information-WatcherBible-rules = Вы - фамильяр. Защищайте своего хозяина
+ent-ADTMobWatcherBible = гордый наблюдатель
+    .desc = Любит играть в гляделки с экипажем
