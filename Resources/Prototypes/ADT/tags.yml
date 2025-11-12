@@ -658,3 +658,18 @@
 
 - type: Tag
   id: ADTSheet
+
+- type: Tag
+  id: ClothingShoesSkates
+
+- type: Tag
+  id: ADTBureaucraticBelt
+
+- type: Tag
+  id: ClothingBeltJanitor
+
+- type: Tag
+  id: ADTEftpos
+
+- type: Tag
+  id: SheetPaper
