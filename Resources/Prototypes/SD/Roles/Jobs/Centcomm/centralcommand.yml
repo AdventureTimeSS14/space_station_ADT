@@ -1,0 +1,94 @@
+- type: job
+  id: SD_NavyOfficer
+  name: job-name-navy-officer
+  description: job-description-navy-officer
+  playTimeTracker: SD_NavyOfficer
+  setPreference: false
+  startingGear: NavyOfficerGear
+  icon: "JobIconNanotrasen"
+  supervisors: job-supervisors-centcom
+  canBeAntag: false
+  accessGroups:
+  - AllAccess
+  access:
+  - CentralCommand
+  - BlueShield
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant, FreedomImplant, SD_BluespaceLifelineImplant, RadioImplantCentcomm ]
+
+- type: startingGear
+  id: NavyOfficerGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitNanotrasenRepresentative
+    shoes: ClothingShoesBootsLaceup
+    head: ClothingHeadHatBeretNavyOfficer
+    eyes: ClothingEyesGlassesCentComm
+    gloves: ADTShipBattleClothingHandsGlovesGunnerWhite
+    back: ClothingBackpackSatchelLeather
+    outerClothing: ClothingOuterArmourInvisible
+    id: SD_NavyOfficerPDA
+    ears: ClothingHeadsetAltCentCom
+    belt: ClothingBeltHolster
+  storage:
+    belt:
+    - WeaponPistolN1984
+    - MagazineMagnum
+    - MagazineMagnum
+    back:
+    - CrowbarRed
+    - WeaponDisabler
+    - ADTtelescopicBaton
+    - Flash
+
+- type: playTimeTracker
+  id: SD_NavyOfficer
+
+- type: playTimeTracker
+  id: SD_SpecialOperationsOfficer
+
+- type: job
+  id: SD_SpecialOperationsOfficer
+  name: job-name-specops-officer
+  description: job-description-specops-officer
+  playTimeTracker: SD_SpecialOperationsOfficer
+  setPreference: false
+  startingGear: SpecopsOfficerGear
+  icon: "JobIconNanotrasen"
+  supervisors: job-supervisors-centcom
+  canBeAntag: false
+  accessGroups:
+  - AllAccess
+  access:
+  - CentralCommand
+  - BlueShield
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant, FreedomImplant, SD_BluespaceLifelineImplant, RadioImplantCentcomm ]
+
+- type: startingGear
+  id: SpecopsOfficerGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitNavyGold
+    shoes: ClothingShoesBootsJackFilled
+    head: ClothingHeadHatBeretEliteNavyOfficer
+    eyes: ClothingEyesGlassesCentComm
+    gloves: ClothingHandsGlovesCombat
+    back: ClothingBackpackSatchelLeather
+    outerClothing: ClothingOuterArmourInvisible
+    id: SD_SpecopsOfficerPDA
+    ears: ClothingHeadsetAltCentCom
+    belt: ClothingBeltHolster
+    pocket1: EnergySword
+    pocket2: DoorRemoteAll
+  storage:
+    belt:
+    - WeaponRevolverMatebaAP
+    - SpeedLoaderMagnumAP
+    - SpeedLoaderMagnumAP
+    back:
+    - CrowbarRed
+    - WeaponDisabler
+    - NukeCodePaperStation
+    - ADTtelescopicBaton
+    - MindFlushingFlash

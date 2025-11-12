@@ -1,0 +1,33 @@
+- type: entity
+  parent: CentcomPDA
+  id: SD_NavyOfficerPDA
+  suffix: Navy Officer
+  components:
+  - type: Pda
+    id: SD_CentcomNavyOfficerIDCard
+  - type: Icon
+    state: pda-dso
+  - type: Appearance
+    appearanceDataInit:
+     enum.PdaVisuals.PdaType:
+       !type:String
+       pda-dso
+  - type: PdaBorderColor
+    borderColor: "#00842e"
+
+- type: entity
+  parent: CentcomPDA
+  id: SD_SpecopsOfficerPDA
+  suffix: Special Operations Officer
+  components:
+  - type: Pda
+    id: SD_CentcomSpecopsOfficerIDCard
+  - type: Icon
+    state: pda-dso
+  - type: Appearance
+    appearanceDataInit:
+     enum.PdaVisuals.PdaType:
+       !type:String
+       pda-dso
+  - type: PdaBorderColor
+    borderColor: "#00842e"
