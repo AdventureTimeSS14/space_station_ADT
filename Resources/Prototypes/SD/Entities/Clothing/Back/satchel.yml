@@ -18,3 +18,12 @@
         - id: ADTIconMaria
     - type: Tag
       tags: [] # ignore "WhitelistChameleon" tag
+
+- type: entity
+  parent: ClothingBackpackSatchel
+  id: ClothingBackpackSatchelCentcomm
+  name: centcomm satchel
+  description: An expensive dark green satchel. Smells like fax machines.
+  components:
+  - type: Sprite
+    sprite: SD/Clothing/Back/Satchels/nanorep.rsi

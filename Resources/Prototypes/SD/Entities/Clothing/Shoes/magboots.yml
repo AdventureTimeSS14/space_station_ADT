@@ -30,3 +30,35 @@
   - type: Action
     icon: { sprite: SD/Clothing/Shoes/Boots/atmos_magboots.rsi, state: icon }
     iconOn: SD/Clothing/Shoes/Boots/atmos_magboots.rsi/icon-on.png
+
+- type: entity
+  parent: ClothingShoesBootsMag
+  id: ClothingShoesBootsMagDeathsquad
+  name: deathsquad magboots
+  description: Them magboots of death.
+  components:
+  - type: Sprite
+    sprite: SD/Clothing/Shoes/Boots/deathsquad.rsi
+    state: icon
+  - type: Clothing
+    sprite: SD/Clothing/Shoes/Boots/deathsquad.rsi
+  - type: ClothingSpeedModifier
+    walkModifier: 1
+    sprintModifier: 1
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+  - type: StaticPrice
+    price: 450
+  - type: Magboots
+  - type: ToggleClothing
+    action: ActionToggleMagbootsDeathsquad
+
+- type: entity
+  id: ActionToggleMagbootsDeathsquad
+  parent: ActionToggleMagboots
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    icon: { sprite: SD/Clothing/Shoes/Boots/deathsquad.rsi, state: icon }
+    iconOn: SD/Clothing/Shoes/Boots/deathsquad.rsi

@@ -42,3 +42,28 @@
   - type: Tag
     tags:
     - SD_CombatHarness
+
+- type: entity
+  parent: [ClothingOuterBaseMedium, AllowSuitStorageClothing ]
+  id: ClothingOuterArmourInvisible # I'll be real, this is just invisible armor so it doesn't ruin how fucking AWESOME navy officers look. Bite me.
+  name: bluespace assisted armor
+  description: An armored vest that utilizes bluespace technology, bending light and becoming invisible to the naked eye when worn.
+  components:
+  - type: Sprite
+    sprite: SD/Clothing/OuterClothing/Vests/covert_armor.rsi
+  - type: Clothing
+    sprite: SD/Clothing/OuterClothing/Vests/covert_armor.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.35
+        Slash: 0.35
+        Piercing: 0.30
+        Heat: 0.35
+  - type: ExplosionResistance
+    damageCoefficient: 0.2
+  - type: StaminaResistance
+    damageCoefficient: 0.5
+  - type: TemperatureProtection
+    heatingCoefficient: 0.8 # Blame it on bluespace.
+    coolingCoefficient: 0.1

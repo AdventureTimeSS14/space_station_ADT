@@ -1,0 +1,47 @@
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatBeretEliteNavyOfficer
+  name: elite navy officer's beret
+  description: A navy blue beret with the silver shield of the Nanotrasen security forces.
+  components:
+  - type: Sprite
+    sprite: SD/Clothing/Head/Hats/navy_officer_beret.rsi
+  - type: Clothing
+    sprite: SD/Clothing/Head/Hats/navy_officer_beret.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+    - WhitelistChameleon # We do a little bit of trolling.
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
+        Radiation: 0.9
+        Caustic: 0.9
+  - type: ExplosionResistance
+    damageCoefficient: 0.75
+
+- type: entity
+  parent: ClothingHeadHatBeretEliteNavyOfficer
+  id: ClothingHeadHatBeretNavyOfficer
+  name: navy officer's beret
+  description: A black beret with the silver shield of the Nanotrasen security forces.
+  components:
+  - type: Sprite
+    sprite: SD/Clothing/Head/Hats/officer_beret.rsi
+  - type: Clothing
+    sprite: SD/Clothing/Head/Hats/officer_beret.rsi
+
+- type: entity
+  parent: ClothingHeadHatBeretEliteNavyOfficer
+  id: ClothingHeadHatBeretNavyCaptain
+  name: navy captain's beret
+  description: A starch white beret.
+  components:
+  - type: Sprite
+    sprite: SD/Clothing/Head/Hats/navy_captain_beret.rsi
+  - type: Clothing
+    sprite: SD/Clothing/Head/Hats/navy_captain_beret.rsi
