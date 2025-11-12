@@ -670,3 +670,6 @@
 
 - type: Tag
   id: FoodCondimentPacketBbq
+
+- type: Tag
+  id: VoxFood
