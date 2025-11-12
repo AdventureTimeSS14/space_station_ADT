@@ -1,4 +1,5 @@
 using Content.Shared.Actions;
+using Content.Shared.ADT.Sleeping;
 using Content.Shared.Buckle.Components;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Events;
@@ -17,6 +18,7 @@ using Content.Shared.Slippery;
 using Content.Shared.Sound;
 using Content.Shared.Sound.Components;
 using Content.Shared.Speech;
+using Content.Shared.Standing;
 using Content.Shared.StatusEffect;
 using Content.Shared.Stunnable;
 using Content.Shared.Traits.Assorted;
@@ -37,6 +39,7 @@ public sealed partial class SleepingSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedEmitSoundSystem _emitSound = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffectsSystem = default!;
+    [Dependency] private readonly StandingStateSystem _standing = default!; // ADT
 
     public static readonly EntProtoId SleepActionId = "ActionSleep";
     public static readonly EntProtoId WakeActionId = "ActionWake";
@@ -86,7 +89,7 @@ public sealed partial class SleepingSystem : EntitySystem
 
     private void OnWakeAction(Entity<MobStateComponent> ent, ref WakeActionEvent args)
     {
-        if (TryWakeWithCooldown(ent.Owner))
+        if (TryWakeWithCooldown(ent.Owner, user: ent.Owner))    // ADT - add user
             args.Handled = true;
     }
 
@@ -108,6 +111,9 @@ public sealed partial class SleepingSystem : EntitySystem
 
             EnsureComp<StunnedComponent>(ent);
             EnsureComp<KnockedDownComponent>(ent);
+
+            _standing.Down(ent.Owner);  // ADT fix
+
 
             if (TryComp<SleepEmitSoundComponent>(ent, out var sleepSound))
             {
@@ -175,6 +181,13 @@ public sealed partial class SleepingSystem : EntitySystem
     {
         if (args.IsInDetailsRange)
         {
+            // ADT start
+            var ev = new SleepExamineAttemptEvent(args.Examiner);
+            RaiseLocalEvent(ent.Owner, ref ev);
+
+            if (ev.Cancelled)
+                return;
+            // ADT end
             args.PushMarkup(Loc.GetString("sleep-examined", ("target", Identity.Entity(ent, EntityManager))));
         }
     }
@@ -306,8 +319,18 @@ public sealed partial class SleepingSystem : EntitySystem
         if (!Resolve(ent, ref ent.Comp, false))
             return false;
 
+        // ADT start
+        var ev = new WakingAttemptEvent(user);
+        RaiseLocalEvent(ent.Owner, ref ev);
+        // ADT end
+
         if (!force && HasComp<ForcedSleepingComponent>(ent))
         {
+            // ADT start
+            if (user == ent.Owner)
+                return false;
+            // ADT end
+
             if (user != null)
             {
                 _audio.PlayPredicted(ent.Comp.WakeAttemptSound, ent, user);
@@ -316,7 +339,7 @@ public sealed partial class SleepingSystem : EntitySystem
             return false;
         }
 
-        if (user != null)
+        if (user != null && user != ent.Owner)  // ADT - check user
         {
             _audio.PlayPredicted(ent.Comp.WakeAttemptSound, ent, user);
             _popupSystem.PopupClient(Loc.GetString("wake-other-success", ("target", Identity.Entity(ent, EntityManager))), ent, user);
