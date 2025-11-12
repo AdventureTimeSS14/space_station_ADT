@@ -78,7 +78,6 @@
   - type: Clothing
     sprite: Clothing/Eyes/Glasses/ninjavisor.rsi
   - type: NightVisionItem
-  - type: ItemToggle
   - type: Appearance
   - type: GenericVisualizer
     visuals:
@@ -98,7 +97,6 @@
   - type: Clothing
     sprite: ADT/Clothing/Eyes/Glasses/mgd_pnvhud.rsi
   - type: NightVisionItem
-  - type: ItemToggle
   - type: Appearance
   - type: GenericVisualizer
     visuals:
