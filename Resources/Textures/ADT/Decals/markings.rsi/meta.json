@@ -1,7 +1,7 @@
 {
-  "version": 1,
+  "version": 2,
   "license": "CC-BY-SA-3.0",
-  "copyright": "tgstation at 606005645d3a14c4439e5ce14785650121b22678 and modified by Lost Paradise MRP",
+  "copyright": "taken from SS1984 https://github.com/ss220-space/Paradise and tgstation at 606005645d3a14c4439e5ce14785650121b22678 and modified by Lost Paradise MRP",
   "size": {
     "x": 32,
     "y": 32
@@ -102,6 +102,414 @@
         },
         {
             "name": "warn_line_whitescale_w"
+        },
+        {
+            "name": "arrow_east"
+        },
+        {
+            "name": "arrow_north"
+        },
+        {
+            "name": "arrow_south"
+        },
+        {
+            "name": "arrow_west"
+        },
+        {
+            "name": "arrow_turn_east"
+        },
+        {
+            "name": "arrow_turn_north"
+        },
+        {
+            "name": "arrow_turn_south"
+        },
+        {
+            "name": "arrow_turn_west"
+        },
+        {
+            "name": "ast_warn_box"
+        },
+        {
+            "name": "ast_warn_full"
+        },
+        {
+            "name": "ast_warn_line_s"
+        },
+        {
+            "name": "ast_warn_line_n"
+        },
+        {
+            "name": "ast_warn_line_w"
+        },
+        {
+            "name": "ast_warn_line_e"
+        },
+        {
+            "name": "ast_warn_corner_ne"
+        },
+        {
+            "name": "ast_warn_corner_nw"
+        },
+        {
+            "name": "ast_warn_corner_se"
+        },
+        {
+            "name": "ast_warn_corner_sw"
+        },
+        {
+            "name": "ast_warn_corner_small_ne"
+        },
+        {
+            "name": "ast_warn_corner_small_nw"
+        },
+        {
+            "name": "ast_warn_corner_small_se"
+        },
+        {
+            "name": "ast_warn_corner_small_sw"
+        },
+        {
+            "name": "ast_warn_end"
+        },
+        {
+            "name": "ast_warn_end_e"
+        },
+        {
+            "name": "ast_warn_end_n"
+        },
+        {
+            "name": "ast_warn_end_w"
+        },
+        {
+            "name": "bamboo_box"
+        },
+        {
+            "name": "bamboo_corner_ne"
+        },
+        {
+            "name": "bamboo_corner_nw"
+        },
+        {
+            "name": "bamboo_corner_se"
+        },
+        {
+            "name": "bamboo_corner_sw"
+        },
+        {
+            "name": "bamboo_corner_small_ne"
+        },
+        {
+            "name": "bamboo_corner_small_nw"
+        },
+        {
+            "name": "bamboo_corner_small_se"
+        },
+        {
+            "name": "bamboo_corner_small_sw"
+        },
+        {
+            "name": "bamboo_end"
+        },
+        {
+            "name": "bamboo_end_e"
+        },
+        {
+            "name": "bamboo_end_n"
+        },
+        {
+            "name": "bamboo_end_w"
+        },
+        {
+            "name": "bamboo_line_e"
+        },
+        {
+            "name": "bamboo_line_n"
+        },
+        {
+            "name": "bamboo_line_s"
+        },
+        {
+            "name": "bamboo_line_w"
+        },
+        {
+            "name": "filled_marking_box"
+        },
+        {
+            "name": "filled_marking_corner_ne"
+        },
+        {
+            "name": "filled_marking_corner_nw"
+        },
+        {
+            "name": "filled_marking_corner_se"
+        },
+        {
+            "name": "filled_marking_corner_sw"
+        },
+        {
+            "name": "filled_marking_corner_small_ne"
+        },
+        {
+            "name": "filled_marking_corner_small_nw"
+        },
+        {
+            "name": "filled_marking_corner_small_se"
+        },
+        {
+            "name": "filled_marking_corner_small_sw"
+        },
+        {
+            "name": "filled_marking_round_corner_small_ne"
+        },
+        {
+            "name": "filled_marking_round_corner_small_nw"
+        },
+        {
+            "name": "filled_marking_round_corner_small_se"
+        },
+        {
+            "name": "filled_marking_round_corner_small_sw"
+        },
+        {
+            "name": "filled_marking_end"
+        },
+        {
+            "name": "filled_marking_end_e"
+        },
+        {
+            "name": "filled_marking_end_n"
+        },
+        {
+            "name": "filled_marking_end_w"
+        },
+        {
+            "name": "filled_marking_line_e"
+        },
+        {
+            "name": "filled_marking_line_n"
+        },
+        {
+            "name": "filled_marking_line_s"
+        },
+        {
+            "name": "filled_marking_line_w"
+        },
+        {
+            "name": "golden_stripes_box"
+        },
+        {
+            "name": "golden_stripes_corner_ne"
+        },
+        {
+            "name": "golden_stripes_corner_nw"
+        },
+        {
+            "name": "golden_stripes_corner_se"
+        },
+        {
+            "name": "golden_stripes_corner_sw"
+        },
+        {
+            "name": "golden_stripes_corner_small_ne"
+        },
+        {
+            "name": "golden_stripes_corner_small_nw"
+        },
+        {
+            "name": "golden_stripes_corner_small_se"
+        },
+        {
+            "name": "golden_stripes_corner_small_sw"
+        },
+        {
+            "name": "golden_stripes_end"
+        },
+        {
+            "name": "golden_stripes_end_e"
+        },
+        {
+            "name": "golden_stripes_end_n"
+        },
+        {
+            "name": "golden_stripes_end_w"
+        },
+        {
+            "name": "golden_stripes_line_e"
+        },
+        {
+            "name": "golden_stripes_line_n"
+        },
+        {
+            "name": "golden_stripes_line_s"
+        },
+        {
+            "name": "golden_stripes_line_w"
+        },
+        {
+            "name": "serial_strip_box"
+        },
+        {
+            "name": "serial_strip_corner_ne"
+        },
+        {
+            "name": "serial_strip_corner_nw"
+        },
+        {
+            "name": "serial_strip_corner_se"
+        },
+        {
+            "name": "serial_strip_corner_sw"
+        },
+        {
+            "name": "serial_strip_corner_small_ne"
+        },
+        {
+            "name": "serial_strip_corner_small_nw"
+        },
+        {
+            "name": "serial_strip_corner_small_se"
+        },
+        {
+            "name": "serial_strip_corner_small_sw"
+        },
+        {
+            "name": "serial_strip_end"
+        },
+        {
+            "name": "serial_strip_end_e"
+        },
+        {
+            "name": "serial_strip_end_n"
+        },
+        {
+            "name": "serial_strip_end_w"
+        },
+        {
+            "name": "serial_strip_line_e"
+        },
+        {
+            "name": "serial_strip_line_n"
+        },
+        {
+            "name": "serial_strip_line_s"
+        },
+        {
+            "name": "serial_strip_line_w"
+        },
+        {
+            "name": "siding_thinplating_box"
+        },
+        {
+            "name": "siding_thinplating_corner_ne"
+        },
+        {
+            "name": "siding_thinplating_corner_nw"
+        },
+        {
+            "name": "siding_thinplating_corner_se"
+        },
+        {
+            "name": "siding_thinplating_corner_sw"
+        },
+        {
+            "name": "siding_thinplating_corner_small_ne"
+        },
+        {
+            "name": "siding_thinplating_corner_small_nw"
+        },
+        {
+            "name": "siding_thinplating_corner_small_se"
+        },
+        {
+            "name": "siding_thinplating_corner_small_sw"
+        },
+        {
+            "name": "siding_thinplating_end"
+        },
+        {
+            "name": "siding_thinplating_end_e"
+        },
+        {
+            "name": "siding_thinplating_end_n"
+        },
+        {
+            "name": "siding_thinplating_end_w"
+        },
+        {
+            "name": "siding_thinplating_line_e"
+        },
+        {
+            "name": "siding_thinplating_line_n"
+        },
+        {
+            "name": "siding_thinplating_line_s"
+        },
+        {
+            "name": "siding_thinplating_line_w"
+        },
+        {
+            "name": "strip_white_box"
+        },
+        {
+            "name": "strip_white_corner_ne"
+        },
+        {
+            "name": "strip_white_corner_nw"
+        },
+        {
+            "name": "strip_white_corner_se"
+        },
+        {
+            "name": "strip_white_corner_sw"
+        },
+        {
+            "name": "strip_white_corner_small_ne"
+        },
+        {
+            "name": "strip_white_corner_small_nw"
+        },
+        {
+            "name": "strip_white_corner_small_se"
+        },
+        {
+            "name": "strip_white_corner_small_sw"
+        },
+        {
+            "name": "strip_white_round_corner_small_ne"
+        },
+        {
+            "name": "strip_white_round_corner_small_nw"
+        },
+        {
+            "name": "strip_white_round_corner_small_se"
+        },
+        {
+            "name": "strip_white_round_corner_small_sw"
+        },
+        {
+            "name": "strip_white_end"
+        },
+        {
+            "name": "strip_white_end_e"
+        },
+        {
+            "name": "strip_white_end_n"
+        },
+        {
+            "name": "strip_white_end_w"
+        },
+        {
+            "name": "strip_white_line_e"
+        },
+        {
+            "name": "strip_white_line_n"
+        },
+        {
+            "name": "strip_white_line_s"
+        },
+        {
+            "name": "strip_white_line_w"
         }
     ]
 }
