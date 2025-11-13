@@ -20,6 +20,12 @@ using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Movement.Pulling.Components;
 using Robust.Shared.Timing;
 using Robust.Shared.Network;
+using Content.Shared.Bed.Sleep; // SD-edit
+using Content.Shared.Damage.Components; // SD-Edit
+using Content.Shared.StatusEffectNew; // SD-Edit
+using Robust.Shared.Prototypes; // SD-Edit
+using Content.Shared.Mobs.Systems; // SD-Edit
+using Content.Shared.Mobs; // SD-Edit
 using Content.Shared.Mobs.Components;
 
 namespace Content.Shared.ADT.Combat;
@@ -174,24 +180,24 @@ public sealed partial class ComboDropFromHandsEffect : IComboEffect
 }
 
 /// <summary>
-/// перебрасывает вещи из рук в руки
+/// забирает вещь из рук цели и передаёт её в пустую руку пользователя. SD tweak
 /// </summary>
 [Serializable, NetSerializable]
-public sealed partial class ComboHamdsRetakeEffect : IComboEffect
+public sealed partial class ComboHandsRetakeEffect : IComboEffect
 {
     public void DoEffect(EntityUid user, EntityUid target, IEntityManager entMan)
     {
         var hands = entMan.System<SharedHandsSystem>();
-        var inventory = entMan.System<InventorySystem>();
-        if (!entMan.TryGetComponent<HandsComponent>(target, out var targetHand) || targetHand.ActiveHandId == null)
+
+        if (!hands.TryGetActiveItem(target, out var activeItem))
             return;
-        if (!entMan.TryGetComponent<HandsComponent>(user, out var userHand) || userHand.ActiveHandId == null)
+        if(!hands.TryDrop(target, activeItem.Value))
             return;
-        if (inventory.TryGetSlotContainer(target, targetHand.ActiveHandId, out var container, out var _))
+        if (!hands.TryGetEmptyHand(user, out var emptyHand))
             return;
-        if (container == null || container.ContainedEntity == null)
+        if(!hands.TryPickup(user, activeItem.Value, emptyHand))
             return;
-        hands.TryDropIntoContainer(user, target, container);
+        hands.SetActiveHand(user, emptyHand);
     }
 }
 
@@ -219,7 +225,7 @@ public sealed partial class ComboMuteEffect : IComboEffect
 
     public void DoEffect(EntityUid user, EntityUid target, IEntityManager entMan)
     {
-        var status = entMan.System<StatusEffectsSystem>();
+        var status = entMan.System<Content.Shared.StatusEffect.StatusEffectsSystem>(); // sd tweak
         status.TryAddStatusEffect<MutedComponent>(target, "Muted", TimeSpan.FromSeconds(Time), false);
     }
 }
@@ -232,7 +238,7 @@ public sealed partial class ComboSlowdownEffect : IComboEffect
 
     public void DoEffect(EntityUid user, EntityUid target, IEntityManager entMan)
     {
-        var status = entMan.System<StatusEffectsSystem>();
+        var status = entMan.System<Content.Shared.StatusEffect.StatusEffectsSystem>(); // sd tweak
         status.TryAddStatusEffect<StunnedStatusEffectComponent>(target, "SlowedDown", TimeSpan.FromSeconds(Time), false);
     }
 }
@@ -266,7 +272,7 @@ public sealed partial class ComboFlashEffect : IComboEffect
     public float SlowDown;
     public void DoEffect(EntityUid user, EntityUid target, IEntityManager entMan)
     {
-        var status = entMan.System<StatusEffectsSystem>();
+        var status = entMan.System<Content.Shared.StatusEffect.StatusEffectsSystem>(); // sd tweak
         var blind = entMan.System<BlindableSystem>();
 
         status.TryAddStatusEffect<FlashedComponent>(target, "Flashed", TimeSpan.FromSeconds(Duration), true);
@@ -451,3 +457,21 @@ public sealed partial class ComboEffectSwapPostion : IComboEffect
     }
 }
 
+/// sd edit start
+/// <summary>
+/// усыпляет цель на N времени
+/// <summary>
+[Serializable, NetSerializable]
+public sealed partial class ComboEffectSleep: IComboEffect
+{
+    [DataField]
+    public int Time;
+
+    public void DoEffect(EntityUid user, EntityUid target, IEntityManager entMan)
+    {
+        var status = entMan.System<Content.Shared.StatusEffectNew.StatusEffectsSystem>();
+
+            status.TryAddStatusEffectDuration(target, "StatusEffectForcedSleeping", out _, TimeSpan.FromSeconds(Time));
+    }
+}
+/// sd edit end
