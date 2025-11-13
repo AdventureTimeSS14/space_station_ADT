@@ -12,7 +12,6 @@
     slots:
     - Hair
 
-#Zero-clothing-start
 - type: entity
   parent: ClothingHeadBase
   id: ADTClothingHeadZeroHairstyle
@@ -26,4 +25,4 @@
   - type: HideLayerClothing
     slots:
     - Hair
-#Zero-clothing-end
+
