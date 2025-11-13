@@ -1,0 +1,55 @@
+- type: entity
+  name: lightbaton
+  parent: [FlashlightLantern, BaseSecurityContraband]
+  id: ADTLightbaton
+  description: A heavy and weighty flashlight, suitable for both a heavy blow to the back of a prisoner during morning rounds and for blinding sleeping prisoners during night rounds with the bright light of the flashlight.
+  components:
+  - type: Tag
+    tags:
+      - SecBeltEquip
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellMedium
+  - type: StaminaDamageOnHit
+    damage: 25
+    sound: /Audio/Weapons/egloves.ogg
+  - type: HandheldLight
+    addPrefix: false
+    wattage: 0.5
+  - type: ToggleableVisuals
+    inhandVisuals:
+      left:
+      - state: inhand-left-light
+        shader: unshaded
+      right:
+      - state: inhand-right-light
+        shader: unshaded
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Melee/stun_lightbaton.rsi
+    layers:
+      - state: icon
+      - state: icon-overlay
+        shader: unshaded
+        visible: false
+        map: [ "light" ]
+  - type: MeleeWeapon
+    angle: 60
+    wideAnimationRotation: -130
+    damage:
+      types:
+        Blunt: 10
+    bluntStaminaDamageFactor: 2.0
+    soundHit:
+      collection: MetalThud
+  - type: Item
+    sprite: ADT/Objects/Weapons/Melee/stun_lightbaton.rsi
+  - type: PointLight
+    enabled: false
+    radius: 8
+  - type: Clothing
+    sprite: ADT/Objects/Weapons/Melee/stun_lightbaton.rsi
+    quickEquip: false
+    slots:
+      - Belt

@@ -20,6 +20,11 @@
   description: A basic machine part used in the construction of a variety of devices.
   suffix: Rating 1
   components:
+    # ADT-Tweak-Start
+    - type: Tag
+      tags:
+      - ADTMicroManipulatorStockPart
+    # ADT-Tweak-End
     - type: Sprite
       state: micro_mani
     - type: Stack
