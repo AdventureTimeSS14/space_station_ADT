@@ -102,7 +102,7 @@
     - ADTClothingUniformJumpsuitBlueshield
     - ADTClothingUniformJumpsuitGreenSuitLawyer
     - ADTClothingUniformJumpsuitBarber
-    - ADTClothingUniformGuardOfficer
+    - ADTClothingUniformCorrectionsOfficer
     - ADTClothingUniformSquidGamePlayer
   # ADT-Tweak-End
   - type: GhostHearing
