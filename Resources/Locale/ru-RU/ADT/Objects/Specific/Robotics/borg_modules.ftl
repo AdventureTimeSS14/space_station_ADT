@@ -1,10 +1,12 @@
 ent-ADTBorgModuleDetention = модуль задержания киборга
     .desc = { ent-BaseBorgModule.desc }
-ent-ADTBorgModuleHarm = модуль вреда киборга
+ent-ADTBorgModuleLaser = лазерный модуль киборга
     .desc = { ent-BaseBorgModule.desc }
-ent-ADTBorgModuleDisabler = модуль дизаблера киборга
-    .desc = { ent-BaseBorgModule.desc }
+#ent-ADTBorgModuleDisabler = модуль дизаблера киборга
+#    .desc = { ent-BaseBorgModule.desc }                  #вырезано тк вырезан и сам модуль
 ent-ADTBorgModuleRPD = РРТ-модуль киборга
     .desc = { ent-BaseBorgModule.desc }
 ent-ADTBorgModulePKA = модуль протокинетического ускорителя киборга
+    .desc = { ent-BaseBorgModule.desc }
+ent-ADTBorgModuleRifleLecter = стрелковый модуль киборга
     .desc = { ent-BaseBorgModule.desc }

@@ -13,6 +13,7 @@
   defaultModules:
   - BorgModuleTool
   - ADTBorgModuleDetention
+  - ADTBorgModuleLaser #ADT-Tweak-Start: SBborgModuleUpdate
 
   radioChannels:
   - Science
