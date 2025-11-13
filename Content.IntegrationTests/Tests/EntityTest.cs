@@ -39,6 +39,7 @@ namespace Content.IntegrationTests.Tests
                 .EnumeratePrototypes<EntityPrototype>()
                 .Where(p => !p.Abstract)
                 .Where(p => !pair.IsTestPrototype(p))
+                .Where(p => !p.Components.ContainsKey("XenoArtifactNodeComponent")) // ADT-tweak 
                 .Where(p => !p.Components.ContainsKey("MapGrid")) // This will smash stuff otherwise.
                 .Where(p => !p.Components.ContainsKey("MobReplacementRule")) // ADT-tweak - fuck them mimics
                 .Where(p => !p.Components.ContainsKey("Supermatter")) // ADT-tweak - Supermatter eats everything, oh no!
@@ -205,6 +206,7 @@ namespace Content.IntegrationTests.Tests
                 .Where(p => !p.Abstract)
                 .Where(p => !pair.IsTestPrototype(p))
                 .Where(p => !p.Components.ContainsKey("MapGrid")) // This will smash stuff otherwise.
+                .Where(p => !p.Components.ContainsKey("XenoArtifactNodeComponent")) // ADT-tweak 
                 .Where(p => !p.Components.ContainsKey("MobReplacementRule")) // ADT-tweak - fuck them mimics
                 .Where(p => !p.Components.ContainsKey("Supermatter")) // ADT-tweak - Supermatter eats everything, oh no!
                 .Select(p => p.ID)

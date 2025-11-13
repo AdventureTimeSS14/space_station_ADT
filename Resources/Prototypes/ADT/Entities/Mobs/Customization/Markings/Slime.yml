@@ -73,6 +73,40 @@
   shader: unshaded
 
 - type: marking
+  id: ADTSlimeEyeglowWide
+  bodyPart: Eyes
+  markingCategory: Head
+  speciesRestriction: [SlimePerson]
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+          negative: false
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/slime_parts.rsi
+    state: eyeglowwide
+  - sprite: ADT/Mobs/Customization/Frontier/slime_parts.rsi
+    state: eyeglow
+  shader: unshaded
+
+- type: marking
+  id: ADTSlimeEyeglowBig
+  bodyPart: Eyes
+  markingCategory: Head
+  speciesRestriction: [SlimePerson]
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+          negative: false
+  sprites:
+  - sprite: ADT/Mobs/Customization/Frontier/slime_parts.rsi
+    state: c_eyeglowbig
+  - sprite: ADT/Mobs/Customization/Frontier/slime_parts.rsi
+    state: s_eyeglowbig
+  shader: unshaded
+
+- type: marking
   id: ADTSlimeLungs
   bodyPart: Chest
   markingCategory: Chest
