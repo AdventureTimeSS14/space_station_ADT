@@ -817,13 +817,15 @@
   name: uplink-cqc-name
   description: uplink-cqc-desc
   productEntity: ADTCqcManual
-  discountCategory: veryRareDiscounts
-  discountDownTo:
-    Telecrystal: 5
   cost:
-    Telecrystal: 10
+    Telecrystal: 15
   categories:
   - UplinkWeaponry
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink # im not limiting it from surplus since i wanna do a funny. Anyways. SD tweak
 
 - type: listing
   id: ADTUplinkModulesMod

@@ -9,12 +9,36 @@ using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Humanoid;
 using Content.Shared.ADT.Crawling;
 using Content.Shared.Coordinates;
+using Robust.Shared.Prototypes; // Helix-Edit
+using Robust.Shared.Audio; // Helix-Edit
+using Robust.Shared.Audio.Systems; // Helix-Edit
+using Content.Shared.Damage; // Helix-Edit
+using Content.Shared.Damage.Systems; // Helix-Edit
+using Content.Shared.Damage.Components; // Helix-Edit
+using Content.Shared.Mobs; // Helix-Edit
+using Content.Shared.Mobs.Components; // Helix-Edit
+using Content.Shared.Mobs.Systems; // Helix-Edit
+using Content.Shared.Standing; // Helix-Edit
+using Content.Shared.Damage.Prototypes; // Helix-Edit
+using Content.Shared.Popups; // Helix-Edit
+using Content.Shared.IdentityManagement; // Helix-Edit
+using Content.Shared.Administration.Logs; // Helix-Edit
 
 namespace Content.Shared.ADT.Combat;
 
 public abstract class SharedComboSystem : EntitySystem
 {
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly PullingSystem _pullingSystem = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!; // Helix-Edit
+    [Dependency] private readonly DamageableSystem _damageable = default!; // Helix-Edit
+    [Dependency] private readonly IPrototypeManager _proto = default!; // Helix-Edit
+    [Dependency] private readonly SharedAudioSystem _audio = default!; // Helix-Edit
+    [Dependency] private readonly MobThresholdSystem _mobThreshold = default!; // Helix-Edit
+    [Dependency] private readonly StandingStateSystem _standing = default!; // Helix-Edit
+    [Dependency] private readonly SharedPopupSystem _popup = default!; // Helix-Edit
+    [Dependency] private readonly IEntityManager _entManager = default!; // Helix-Edit
 
     public override void Initialize()
     {
@@ -23,6 +47,7 @@ public abstract class SharedComboSystem : EntitySystem
         SubscribeLocalEvent<ComboComponent, DisarmAttemptEvent>(OnDisarmUsed);
         SubscribeLocalEvent<ComboComponent, MeleeHitEvent>(OnMeleeHit);
         SubscribeLocalEvent<ComboComponent, GrabStageChangedEvent>(OnGrab);
+        SubscribeLocalEvent<ComboComponent, CrawlingKeybindEvent>(ToggleCrawling);
 
         SubscribeLocalEvent<ComboComponent, ToggleCombatActionEvent>(OnCombatToggled);
     }
@@ -44,6 +69,7 @@ public abstract class SharedComboSystem : EntitySystem
 
     private void OnMeleeHit(EntityUid uid, ComboComponent comp, MeleeHitEvent args)
     {
+
         if (!args.IsHit || !args.HitEntities.Any())
             return;
         if (!HasComp<HumanoidAppearanceComponent>(args.HitEntities[0]))
@@ -55,6 +81,35 @@ public abstract class SharedComboSystem : EntitySystem
             comp.CurrestActions.RemoveAt(0);
         }
         comp.Target = args.HitEntities[0];
+
+        // Helix-Edit start
+        var user = uid;
+        var target = args.HitEntities[0];
+
+        if ( comp.allowNeckSnap && _standing.IsDown(target) &&
+            !_mobState.IsDead(target) &&
+            !HasComp<GodmodeComponent>(target) &&
+            TryComp<PullerComponent>(user, out var puller) &&
+            puller.Stage == GrabStage.Choke &&
+            puller.Pulling == target &&
+            _mobThreshold.TryGetDeadThreshold(target, out var damageToKill) &&
+            damageToKill != null
+            && TryComp(target, out StaminaComponent? stamina) && stamina.Critical) // проверка условий для перелома шеи
+            {
+                if (comp.CurrestActions != null)
+                {
+                    comp.CurrestActions.RemoveAt(0); // мы очищаем комбо список чтобы не было конфликтов, прежде чем сделать попап.
+                }
+                var blunt = new DamageSpecifier(_proto.Index<DamageTypePrototype>("Blunt"), damageToKill.Value);
+                _damageable.TryChangeDamage(target, blunt, true);
+                _audio.PlayPvs("/Audio/SD/Effects/crack1.ogg", target);
+                _popup.PopupPredicted(Loc.GetString("cqc-necksnap-popup", ("user", Identity.Entity(user, _entManager)), ("target", target)), target, target, PopupType.LargeCaution);
+                if (TryComp<PullableComponent>(target, out var pulled))
+                {
+                    _pullingSystem.TryStopPull(target, pulled, user); // освобождаем от граба гнилой труп
+                }
+            }
+        // Helix-Edit end
         TryDoCombo(uid, args.HitEntities[0], comp);
     }
 
@@ -83,13 +138,13 @@ public abstract class SharedComboSystem : EntitySystem
             comboEvent.DoEffect(user, target, EntityManager);
         }
     }
-
     private bool TryDoCombo(EntityUid user, EntityUid target, ComboComponent comp)
     {
         var mainList = comp.CurrestActions;
         if (mainList == null)
             return false;
         var isComboCompleted = false;
+        var StopGrab = false;
         foreach (var combo in comp.AvailableMoves)
         {
             var subList = combo.ActionsNeeds;
@@ -97,14 +152,17 @@ public abstract class SharedComboSystem : EntitySystem
                 continue;
             UseEventOnTarget(user, target, combo);
             isComboCompleted = true;
+            if (combo.StopGrab)
+                StopGrab = true;
         }
         if (isComboCompleted)
             comp.CurrestActions.Clear();
-        if (TryComp<PullableComponent>(target, out var pulled) && isComboCompleted)
+        if (TryComp<PullableComponent>(target, out var pulled) && isComboCompleted && StopGrab)
+        {
             _pullingSystem.TryStopPull(target, pulled, user);
+        }
         return true;
     }
-
     public static bool ContainsSubsequence<T>(List<T> mainList, List<T> subList)
     {
         if (subList.Count == 0)
@@ -128,26 +186,24 @@ public abstract class SharedComboSystem : EntitySystem
 
         return false;
     }
+    private void ToggleCrawling(EntityUid uid, ComboComponent comp, CrawlingKeybindEvent args)
+    {
+        var userCoords = uid.ToCoordinates();
+        var targetCoords = comp.Target.ToCoordinates();
+        var diff = userCoords.X - targetCoords.X + userCoords.Y - targetCoords.Y;
 
-    // private void ToggleCrawling(EntityUid uid, ComboComponent comp, CrawlingKeybindEvent args)
-    // {
-    //     var userCoords = uid.ToCoordinates();
-    //     var targetCoords = comp.Target.ToCoordinates();
-    //     var diff = userCoords.X - targetCoords.X + userCoords.Y - targetCoords.Y;
+        if (diff >= 4 || diff <= -4)
+            return;
 
-    //     if (diff >= 4 || diff <= -4)
-    //         return;
+        comp.CurrestActions.Add(CombatAction.Crawl);
 
-    //     comp.CurrestActions.Add(CombatAction.Crawl);
+        if (comp.CurrestActions.Count >= 5 && comp.CurrestActions != null)
+        {
+            comp.CurrestActions.RemoveAt(0);
+        }
 
-    //     if (comp.CurrestActions.Count >= 5 && comp.CurrestActions != null)
-    //     {
-    //         comp.CurrestActions.RemoveAt(0);
-    //     }
-
-    //     TryDoCombo(uid, comp.Target, comp);
-    // }
-
+        TryDoCombo(uid, comp.Target, comp);
+    }
     private void OnCombatToggled(EntityUid uid, ComboComponent comp, ToggleCombatActionEvent args)
     {
         if (!TryComp<CombatModeComponent>(uid, out var combat))
