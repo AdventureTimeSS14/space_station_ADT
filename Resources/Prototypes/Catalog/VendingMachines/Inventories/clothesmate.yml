@@ -236,12 +236,6 @@
     ADTClothingOuterLeatherJacket: 1
     ADTClothingOuterBikerJacket: 1
 # ADT Кожанки, все распродали :c
-    # ADT-Tweak-start
-    ADTClothingBeltSheathZeroCosplayFilled: 2
-    ADTClothingUniformKimanoZero: 2
-    ADTClothingShoesZero: 2
-    ADTClothingHeadZeroHairstyle: 4
-    # ADT-Tweak-end
 
 # DO NOT ADD MORE, USE UNIFORM DYING
   contrabandInventory:
@@ -252,8 +246,4 @@
     ToyFigurineGreytider: 1
     ClothingBackpackSatchelSmugglerUnanchored: 1
     ClothingHeadHatSolidHeadband: 2
-    # ADT-Tweak-start
-    ADTClothingBeltSheathZeroFilled: 1
-    ADTClothingUniformKimanoArmoredZero: 1
-    # ADT-Tweak-end
   # DO NOT ADD MORE, USE UNIFORM DYING

@@ -544,13 +544,13 @@
   sprites:
     - sprite: ADT/Mobs/Customization/Hair/hair.rsi
       state: shorttail
-#Zero-start
+
 - type: marking
   id: ADTHumanZeroHairstyle
-  bodyPart: FacialHair
-  markingCategory: FacialHair
-  speciesRestriction: [Human, Felinid]
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Human, Dwarf, Felinid, DemonSpecies]
   sprites:
   - sprite: ADT/Mobs/Customization/Human/custom.rsi
     state: zero_hairstyle
-#Zero-end
+
