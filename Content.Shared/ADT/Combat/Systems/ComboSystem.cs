@@ -153,7 +153,7 @@ public abstract class SharedComboSystem : EntitySystem
             UseEventOnTarget(user, target, combo);
             isComboCompleted = true;
             if (combo.StopGrab)
-                StopGrab = True;
+                StopGrab = true;
         }
         if (isComboCompleted)
             comp.CurrestActions.Clear();
