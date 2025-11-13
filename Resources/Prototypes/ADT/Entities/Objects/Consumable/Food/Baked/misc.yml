@@ -25,3 +25,24 @@
     - ADTMothFriendlyFood
   - type: Item
     size: Small
+
+- type: entity
+  parent: BaseFoodCondimentPacket
+  id: FoodCondimentPacketMayo
+  name: Mayo
+  description: MAYONES YAY.
+  components:
+  - type: Tag
+    tags:
+    - ADTFoodCondimentPacketMayo
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Mayo
+          Quantity: 10
+  - type: Appearance
+  - type: SolutionContainerVisuals
+    maxFillLevels: 2
+    fillBaseName: packet-trans-

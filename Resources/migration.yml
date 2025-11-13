@@ -820,3 +820,9 @@ SpawnPointADTSecborg: null # На всякий случай лол
 # ADT 2025-10-15
 Tourniquet1: ADTTourniquet1
 Tourniquet: ADTTourniquet
+ 
+#ADT 2025-10-31 ХЭППИ ХЕЛЛАВИН
+SpawnPointADTGuardOfficer: SpawnPointADTCorrectionsOfficer
+ADTClothingHeadHatsGuardOfficer: ADTClothingHeadHatsCorrectionsOfficerCap
+ADTClothingUniformGuardOfficer: ADTClothingUniformCorrectionsOfficer
+

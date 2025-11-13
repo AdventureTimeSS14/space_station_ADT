@@ -11,6 +11,13 @@ namespace Content.Shared.ADT.Trail;
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class TrailComponent : Component
 {
+
+    /// <summary>
+    /// If true, automatically using id of a parent into RenderedEntity
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool UseOwnerAsRenderedEntity = false;
+
     /// <summary>
     /// How many particles to spawn each cycle. If it is less than one, no particles will spawn.
     /// Values above one wouldn't work with line trails currently.
@@ -202,19 +209,12 @@ public sealed class TrailData(
     TimeSpan spawnTime)
 {
     public Vector2 Position = position;
-
     public float Velocity = velocity;
-
     public MapId MapId = mapId;
-
     public Vector2 Direction = direction;
-
     public Angle Angle = angle;
-
     public Color Color = color;
-
     public float Scale = scale;
-
     public TimeSpan SpawnTime = spawnTime;
 }
 
@@ -251,7 +251,6 @@ public abstract partial class GetShaderParam : IGetShaderData
 }
 
 // Add more data if needed
-
 public sealed partial class GetShaderLocalPositionData : IGetShaderData;
 
 public sealed partial class GetShaderFloatParam : GetShaderParam;
