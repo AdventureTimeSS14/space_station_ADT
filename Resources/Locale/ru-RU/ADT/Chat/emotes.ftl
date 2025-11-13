@@ -27,7 +27,12 @@ chat-emote-msg-coo = воркует
 chat-emote-msg-pop = чпокает
 chat-emote-msg-bubbles = булькает
 
+# Shadekin
 chat-emote-msg-wurble = урчит
 chat-emote-msg-purse = поджимает уши
 chat-emote-name-wurble = Урчать
 chat-emote-name-purse = Поджать уши
+
+# Moth
+chat-emote-msg-flap-wings = хлопает крыльями
+chat-emote-name-flap-wings = Хлопать крыльями
