@@ -144,6 +144,7 @@ public abstract class SharedComboSystem : EntitySystem
         if (mainList == null)
             return false;
         var isComboCompleted = false;
+        var StopGrab = false;
         foreach (var combo in comp.AvailableMoves)
         {
             var subList = combo.ActionsNeeds;
@@ -151,9 +152,15 @@ public abstract class SharedComboSystem : EntitySystem
                 continue;
             UseEventOnTarget(user, target, combo);
             isComboCompleted = true;
+            if (combo.StopGrab)
+                StopGrab = True;
         }
         if (isComboCompleted)
             comp.CurrestActions.Clear();
+        if (TryComp<PullableComponent>(target, out var pulled) && isComboCompleted && StopGrab)
+        {
+            _pullingSystem.TryStopPull(target, pulled, user);
+        }
         return true;
     }
     public static bool ContainsSubsequence<T>(List<T> mainList, List<T> subList)

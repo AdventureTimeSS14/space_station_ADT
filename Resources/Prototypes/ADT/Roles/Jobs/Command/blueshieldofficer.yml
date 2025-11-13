@@ -103,6 +103,7 @@
             - actionsNeeds:
                 - Grab
                 - Grab
+              stopGrab: false
               comboEvent:
                 - !type:ComboPopupEffect
                   localeText: combo-cqc-restain-end

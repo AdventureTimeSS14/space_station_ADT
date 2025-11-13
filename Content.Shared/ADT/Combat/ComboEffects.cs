@@ -474,33 +474,4 @@ public sealed partial class ComboEffectSleep: IComboEffect
             status.TryAddStatusEffectDuration(target, "StatusEffectForcedSleeping", out _, TimeSpan.FromSeconds(Time));
     }
 }
-/// <summary>
-/// Моментально убивает цель при выполнении условий. Почему не сделал через кондишены как здоровый человек? Потому что я их рот ебал.
-/// <summary>
-public sealed partial class ComboEffectSnapNeck: IComboEffect
-{
-    public void DoEffect(EntityUid user, EntityUid target, IEntityManager entMan)
-    {
-        var down = entMan.System<StandingStateSystem>();
-        var damageable = entMan.System<DamageableSystem>();
-        var threshold = entMan.System<MobThresholdSystem>();
-        var state = entMan.System<MobStateSystem>();
-
-        if (down.IsDown(target) &&
-            !state.IsDead(target) &&
-            !entMan.HasComponent<GodmodeComponent>(target) &&
-            entMan.TryGetComponent<PullerComponent>(user, out PullerComponent? puller) &&
-            (int)puller.Stage == 2 &&
-            puller.Pulling == target &&
-            threshold.TryGetDeadThreshold(target, out var damageToKill) &&
-            damageToKill != null)
-        {
-            var blunt = new DamageSpecifier();
-            blunt.DamageDict.Add("Blunt", damageToKill.Value);
-            damageable.TryChangeDamage(target, blunt, true);
-        }
-
-
-    }
-}
 /// sd edit end
