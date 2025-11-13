@@ -104,3 +104,23 @@
       item:
       - ADTZerosKatanaCosplay
 
+#Надзиратель
+- type: entityTable
+  id: BeltSecurityLigthbatonEntityTable
+  table: !type:AllSelector
+    children:
+    - id: ADTLightbaton
+    - id: Handcuffs
+    - id: Handcuffs
+    - id: HoloprojectorSecurity
+    - id: RadioHandheldSecurity
+
+- type: entity
+  id: ClothingBeltSecurityLightbatonFilled
+  parent: ClothingBeltSecurity
+  suffix: Filled, Lightbaton
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:NestedSelector
+        tableId: BeltSecurityLigthbatonEntityTable

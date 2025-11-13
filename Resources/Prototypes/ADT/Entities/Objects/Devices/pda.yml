@@ -284,26 +284,26 @@
 # КПК надзирателя
 - type: entity
   parent: ADTBaseSecurityPDA
-  id: ADTGuardOfficerPDA
-  name: guard officer PDA
+  id: ADTCorrectionsOfficerPDA
+  name: corrections officer PDA
   description: It smells like ink and the case is prematurely closed due to the death of a suspect at work.
   components:
   - type: Pda
-    id: ADTGuardOfficerIDCard
+    id: ADTCorrectionsOfficerIDCard
   - type: PdaBorderColor
     borderColor: "#774705"
   - type: Icon
-    state: pda-guardofficer
+    state: pda-correctionsofficer
   - type: Appearance
     appearanceDataInit:
      enum.PdaVisuals.PdaType:
       !type:String
-      pda-guardofficer
+      pda-correctionsofficer
   - type: Sprite
     sprite: ADT/Objects/Devices/pda.rsi
     layers:
     - map: [ "enum.PdaVisualLayers.Base" ]
-      state: "pda-guardofficer"
+      state: "pda-correctionsofficer"
     - state: "light_overlay"
       map: [ "enum.PdaVisualLayers.Flashlight" ]
       shader: "unshaded"

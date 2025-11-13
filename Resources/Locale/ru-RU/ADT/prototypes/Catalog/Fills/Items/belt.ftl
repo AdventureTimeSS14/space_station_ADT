@@ -12,3 +12,6 @@ ent-ADTClothingBeltSheathZeroFilled = Ножны катаны
 ent-ADTClothingBeltSheathZeroCosplayFilled = { ent-ADTClothingBeltSheathZeroFilled }
     .desc = { ent-ADTClothingBeltSheathZeroFilled.desc }
     .suffix = { "Заполнены, Косплей катана" }
+ent-ClothingBeltSecurityLightbatonFilled = { ent-ClothingBeltSecurity }
+    .desc = { ent-ClothingBeltSecurity.desc }
+    .suffix = { "Заполнен, фонарь-дубинка" }

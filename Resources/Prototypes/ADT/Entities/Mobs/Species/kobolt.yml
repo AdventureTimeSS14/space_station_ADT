@@ -127,6 +127,8 @@
         movementSpeedModifier: 0.7
         escapeAttemptTime: 1.25
         setStageTime: 1.25
+  - type: Thieving
+    stealthy: false
 
 - type: entity
   parent: BaseSpeciesDummy

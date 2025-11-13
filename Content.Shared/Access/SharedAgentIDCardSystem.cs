@@ -28,14 +28,29 @@ namespace Content.Shared.Access.Systems
         public string CurrentName { get; }
         public string CurrentJob { get; }
         public string CurrentJobIconId { get; }
+        public uint? CurrentNumber { get; } // ADT-tweak: Наночат
 
-        public AgentIDCardBoundUserInterfaceState(string currentName, string currentJob, string currentJobIconId)
+        public AgentIDCardBoundUserInterfaceState(string currentName, string currentJob, string currentJobIconId, uint? currentNumber = null) // ADT-tweak: Добавлен текущий номер
         {
             CurrentName = currentName;
             CurrentJob = currentJob;
             CurrentJobIconId = currentJobIconId;
+            CurrentNumber = currentNumber; // ADT-tweak: Наночат
         }
     }
+
+    // ADT-tweak-start
+    [Serializable, NetSerializable]
+    public sealed class AgentIDCardNumberChangedMessage : BoundUserInterfaceMessage
+    {
+        public uint Number { get; }
+
+        public AgentIDCardNumberChangedMessage(uint number)
+        {
+            Number = number;
+        }
+    }
+    //ADT-tweak-end
 
     [Serializable, NetSerializable]
     public sealed class AgentIDCardNameChangedMessage : BoundUserInterfaceMessage
