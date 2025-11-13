@@ -529,6 +529,38 @@
       storagebase: !type:Container
       toggleable-clothing: !type:ContainerSlot
 
+# Пальто СБ
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ADTClothingOuterCoatSecurity
+  name: security coat
+  description: Warm and formal security coat.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Coats/sec_coat.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Coats/sec_coat.rsi
+  - type: Armor 
+    modifiers:
+      coefficients:
+        Blunt: 0.70
+        Slash: 0.70
+        Piercing: 0.70 
+        Heat: 0.80
+  - type: ExplosionResistance
+    damageCoefficient: 0.90
+
+# Пальто надзирателя
+- type: entity
+  parent: ADTClothingOuterCoatSecurity
+  id: ADTClothingOuterCoatCorrectionsOfficerGrey
+  name: grey corrections officer coat
+  description: Warm and formal corrections officer's coat.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Coats/corrections_officer_coat_grey.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Coats/corrections_officer_coat_grey.rsi
 - type: entity
   parent: ClothingOuterStorageBase
   id: ADTClothingOuterDavidsJacket

@@ -119,16 +119,16 @@
       - state: seniorofficer
 
 - type: entity
-  id: SpawnPointADTGuardOfficer
+  id: SpawnPointADTCorrectionsOfficer
   parent: ADTSpawnPointJobBase
-  name: spawn job guard oficcer
+  name: spawn job corrections oficcer
   components:
     - type: SpawnPoint
-      job_id: ADTGuardOfficer
+      job_id: ADTCorrectionsOfficer
     - type: Sprite
       layers:
       - state: green
-      - state: guardofficer
+      - state: correctionsofficer
 
 - type: entity
   id: SpawnPointADTBarber

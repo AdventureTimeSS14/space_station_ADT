@@ -26,7 +26,10 @@
     ClothingShoesBootsWinterSec: 2
     ClothingHeadHelmetJustice: 1
     #ADT Clothing 
+    ADTClothingOuterCoatSecurity: 1
     ADTClothingKadet: 4
+    ADTClothingUniformSecurityCadetLight: 2
+    ADTClothingUniformJumpskirtSecurityCadetLight: 2
     ADTClothingHeadHelmetSecCap: 2
     ADTClothingHeadHelmetSecUshanka: 2
     ADTClothingShoesKirzaBoots: 1
