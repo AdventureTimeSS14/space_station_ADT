@@ -28,27 +28,6 @@
   - type: PiratesRule
 
 - type: entity
-  parent: BaseGameRule
-  id: PhantomSpawn
-  components:
-  - type: PhantomRule
-  - type: GameRule
-    minPlayers: 1
-  - type: AntagSelection
-    selectionTime: PrePlayerSpawn
-    definitions:
-    - prefRoles: [ Phantom ]
-      spawnerPrototype: SpawnPointGhostPhantom
-      max: 1
-      components:
-      - type: NpcFactionMember
-        factions:
-        - Syndicate
-      mindRoles:
-      - MindRolePhantom
-  - type: AntagRandomSpawn
-
-- type: entity
   id: CentComRandomEvent
   parent: BaseGameRule
   components:
@@ -107,7 +86,7 @@
     startAudio:
       path: /Audio/ADT/Announcements/announce_dig.ogg
     weight: 3
-    reoccurrenceDelay: 30
+    reoccurrenceDelay: 300
     duration: 1
   - type: LoadMapRule
     mapPath: /Maps/ADTMaps/Shuttles/Ian.yml
@@ -123,7 +102,7 @@
     earliestStart: 20
     weight: 3
     minimumPlayers: 30
-    reoccurrenceDelay: 30
+    reoccurrenceDelay: 300
     duration: 1
   - type: LoadMapRule
     mapPath: /Maps/ADTMaps/Shuttles/superhero.yml

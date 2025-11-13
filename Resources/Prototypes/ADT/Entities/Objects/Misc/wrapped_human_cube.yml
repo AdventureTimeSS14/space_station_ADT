@@ -1,0 +1,15 @@
+- type: entity
+  parent: BaseWrappedCube
+  name: human cube
+  id: ADTHumanCubeWrapped
+  description: Unwrap this to get an artificial human cube.
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: ADTHumanCube
+  - type: Sprite
+    sprite: Objects/Misc/monkeycube.rsi
+    state: wrapper
+  - type: Tag
+    tags:
+    - MonkeyCube

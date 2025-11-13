@@ -171,6 +171,56 @@
             - material: Steel
               amount: 2
               doAfter: 1
+        - to: adtsofaofficeblackleft
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 1
+        - to: adtsofaofficeblackright
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 1
+        - to: adtsofaofficeblackmiddle
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 1
+        - to: adtsofaofficeblackleftcorner
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 1
+        - to: adtsofaofficeblackrightcorner
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 1
+        - to: adtsofaofficewhiteleft
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 1
+        - to: adtsofaofficewhiteright
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 1
+        - to: adtsofaofficewhitemiddle
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 1
+        - to: adtsofaofficewhiteleftcorner
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 1
+        - to: adtsofaofficewhiterightcorner
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 1
         - to: adtarmchairblack
           steps:
             - material: Steel
@@ -662,6 +712,130 @@
             - tool: Screwing
               doAfter: 2
 
+# Sofa-office-black
+
+    - node: adtsofaofficeblackleft
+      entity: ADTSofaOfficeBlackLeftSide
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 2
+          steps:
+            - tool: Screwing
+              doAfter: 2
+
+    - node: adtsofaofficeblackright
+      entity: ADTSofaOfficeBlackRightSide
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 2
+          steps:
+            - tool: Screwing
+              doAfter: 2
+
+    - node: adtsofaofficeblackmiddle
+      entity: ADTSofaOfficeBlackMiddle
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 2
+          steps:
+            - tool: Screwing
+              doAfter: 2
+
+    - node: adtsofaofficeblackleftcorner
+      entity: ADTSofaOfficeBlackLeftCorner
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 2
+          steps:
+            - tool: Screwing
+              doAfter: 2
+
+    - node: adtsofaofficeblackrightcorner
+      entity: ADTSofaOfficeBlackRightCorner
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 2
+          steps:
+            - tool: Screwing
+              doAfter: 2
+
+# Sofa-office-white
+
+    - node: adtsofaofficewhiteleft
+      entity: ADTSofaOfficeWhiteLeftSide
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 2
+          steps:
+            - tool: Screwing
+              doAfter: 2
+
+    - node: adtsofaofficewhiteright
+      entity: ADTSofaOfficeWhiteRightSide
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 2
+          steps:
+            - tool: Screwing
+              doAfter: 2
+
+    - node: adtsofaofficewhitemiddle
+      entity: ADTSofaOfficeWhiteMiddle
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 2
+          steps:
+            - tool: Screwing
+              doAfter: 2
+
+    - node: adtsofaofficewhiteleftcorner
+      entity: ADTSofaOfficeWhiteLeftCorner
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 2
+          steps:
+            - tool: Screwing
+              doAfter: 2
+
+    - node: adtsofaofficewhiterightcorner
+      entity: ADTSofaOfficeWhiteRightCorner
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 2
+          steps:
+            - tool: Screwing
+              doAfter: 2
+ 
     - node: adtarmchairblack
       entity: ADTArmchairBlack
       edges:

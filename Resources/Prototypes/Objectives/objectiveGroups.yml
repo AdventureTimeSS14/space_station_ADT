@@ -29,7 +29,10 @@
   id: TraitorObjectiveGroupKill
   weights:
     KillRandomPersonObjective: 1
-    KillRandomHeadObjective: 0.25
+    # ADT-Tweak-Start
+    TeachLessonRandomPersonObjective: 1 # DeltaV teach a lesson objective
+    KillRandomHeadObjective: 0.4 # 0.25 -> 0.4
+    # ADT-Tweak-End
 
 - type: weightedRandom
   id: TraitorObjectiveGroupState
@@ -83,7 +86,6 @@
     FireAxeStealObjective: 1                            #eng
     AmePartFlatpackStealObjective: 1
     ADTClothingMaskGasCEStealObjective: 1    # ADT Tweak: add gas mask CE
-    ADTClothingModsuitBackBlueShieldStealObjective: 1
 # ADT-Tweak до убирал ибо вызывало ошибки. "Corvax-StealTarget"  ExpeditionsCircuitboardStealObjective: 1            #sup
     CargoShuttleCircuitboardStealObjective: 1
     ClothingEyesHudBeerStealObjective: 1                #srv

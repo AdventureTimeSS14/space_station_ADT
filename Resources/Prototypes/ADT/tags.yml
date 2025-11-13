@@ -652,3 +652,24 @@
 
 - type: Tag
   id: ADTFullRiotShieldSyndi
+
+- type: Tag
+  id: ADTMegaCell
+
+- type: Tag
+  id: ADTSheet
+
+- type: Tag
+  id: ADTCarvedPumpkin
+
+- type: Tag
+  id: ADTPDA
+
+- type: Tag
+  id: ADTFoodCondimentPacketMayo
+
+- type: Tag
+  id: FoodCondimentPacketBbq
+
+- type: Tag
+  id: VoxFood

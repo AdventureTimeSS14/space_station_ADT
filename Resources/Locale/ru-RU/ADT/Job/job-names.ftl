@@ -35,8 +35,8 @@ job-name-ADTSpaceSecPilot = пилот SPACE SEC
 job-name-ADTSpaceSecCommander = командир SPACE SEC
 job-name-ADTSpaceSecService = сотрудник SPACE SEC
 
-job-name-guard-officer = надзиратель
-ADTGuardOfficer = надзиратель
+job-name-corrections-officer = надзиратель СБ
+ADTCorrectionsOfficer = надзиратель СБ
 
 # Job titles
 cadet-space-sec = кадет SPACE SEC
@@ -98,9 +98,27 @@ job-name-clergyman = священнослужитель
 job-name-tourist = турист
 job-name-student = студент
 job-name-mixologist = миксолог
+job-name-tavernkeep = трактирщик
+job-name-barista = бариста
 job-name-baker = пекарь
 job-name-butcher = мясник
 job-name-pizzaiolo = пиццайоло
+job-name-confectioner = кондитер
+job-name-waiter = официант
+job-name-performer = исполнитель
+job-name-concertmaster = концертмейстер
+job-name-composer = композитор
+job-name-bard = бард
+job-name-dj = диджей
+job-name-journalist = журналист
+job-name-karateka = каратист
+job-name-kickboxer = кикбоксер
+job-name-savatist = саватист
+job-name-hand-to-hand-combat-master = мастер рукопашного боя
+job-name-mma-fighter = боец ММА
+job-name-judoist = дзюдоист
+job-name-coach = тренер
+job-name-gladiator = гладиатор
 
 # Security
 

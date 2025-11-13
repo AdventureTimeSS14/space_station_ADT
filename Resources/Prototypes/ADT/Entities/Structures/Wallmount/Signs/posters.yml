@@ -706,3 +706,17 @@
   - type: Sprite
     sprite: ADT/Structures/Wallmounts/goob_posters.rsi
     state: goob_poster2_contraband
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPoster2984
+  name: The big monkey is watching you!
+  description: The poster is based on the book "2984" by the famous writer Yorwell George. The book tells about the distant future, when the monkeys have taken over the world and rule it, turning people into their slaves. And now stop reading this nonsense and bring your master a banana.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/poster_2984.rsi
+    state: antiutopia
+  - type: PointLight
+    radius: 3
+    energy: 2
+    color: "#283849"

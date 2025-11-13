@@ -119,11 +119,9 @@
   name: chat-emote-name-growl
   category: Vocal
   whitelist:
-    requireAll: true
-    components:
-    - Vocal
     tags:
     - ADTDogEmotes
+    - ADTCatEmotes
   icon: ADT/Interface/Emotes/Vocal/growl.png
   chatMessages: [рычит]
   chatTriggers:

@@ -12,6 +12,7 @@
     - type: Tag
       tags:
       - FirelockElectronics
+      - VoxFood # ADT Tweak
     - type: StaticPrice
       price: 14
     - type: PhysicalComposition
