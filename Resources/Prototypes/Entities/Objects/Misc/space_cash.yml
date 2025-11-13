@@ -25,13 +25,11 @@
     - cash_100
     - cash_500
     - cash_1000
-    # ADT-Sound-Update-Start
-    # - cash_5000
-    # - cash_10000
-    # - cash_25000
-    # - cash_50000
-    # - cash_100000
-    # ADT-Sound-Update-End
+    - cash_5000
+    - cash_10000
+    - cash_25000
+    - cash_50000
+    - cash_100000
     - cash_1000000
     layerFunction: Threshold
   - type: StackLayerThreshold
@@ -178,7 +176,7 @@
   components:
   - type: Icon
     sprite: Objects/Economy/cash.rsi
-    state: cash_1000 # ADT-Sound-Update
+    state: cash_5000
   - type: Stack
     count: 5000
 
@@ -189,7 +187,7 @@
   components:
   - type: Icon
     sprite: Objects/Economy/cash.rsi
-    state: cash_1000 # ADT-Sound-Update
+    state: cash_10000
   - type: Stack
     count: 10000
 
@@ -200,7 +198,7 @@
   components:
   - type: Icon
     sprite: Objects/Economy/cash.rsi
-    state: cash_1000 # ADT-Sound-Update
+    state: cash_10000
   - type: Stack
     count: 20000
 
@@ -211,7 +209,7 @@
   components:
   - type: Icon
     sprite: Objects/Economy/cash.rsi
-    state: cash_1000 # ADT-Sound-Update
+    state: cash_25000
   - type: Stack
     count: 30000
 
