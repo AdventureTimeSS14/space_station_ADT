@@ -215,7 +215,7 @@ public sealed partial class ChangelingSystem : EntitySystem
 
     private void OnMobState(EntityUid uid, ChangelingComponent component, MobStateChangedEvent args)
     {
-        if (args.NewMobState == MobState.Dead)
+        if (args.NewMobState == MobState.Critical)
         {
             RemoveActions(uid, component);
             return;
@@ -615,9 +615,6 @@ public sealed partial class ChangelingSystem : EntitySystem
 
     private void RemoveActions(EntityUid uid, ChangelingComponent component)
     {
-        RemoveBladeEntity(uid, component);
-        RemoveShieldEntity(uid, component);
-        RemoveArmaceEntity(uid, component);
         RemCompDeferred<StealthComponent>(uid);
         RemCompDeferred<StealthOnMoveComponent>(uid);
         RemCompDeferred<DigitalCamouflageComponent>(uid);
@@ -625,12 +622,5 @@ public sealed partial class ChangelingSystem : EntitySystem
         component.DigitalCamouflageActive = false;
         component.MusclesActive = false;
         _movementSpeedModifierSystem.RefreshMovementSpeedModifiers(uid);
-
-        if (component.LingArmorActive)
-        {
-            _inventorySystem.TryUnequip(uid, "head", true, true, false);
-            _inventorySystem.TryUnequip(uid, "outerClothing", true, true, false);
-            component.ChemicalsPerSecond += component.LingArmorRegenCost;
-        }
     }
 }
