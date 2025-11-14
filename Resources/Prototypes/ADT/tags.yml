@@ -188,12 +188,6 @@
   id: ADTPenguinToy
 
 - type: Tag
-  id: ADTGoldCandle
-
-- type: Tag
-  id: ADTSilverCandle
-
-- type: Tag
   id: ADTArmorSacrafice
 
 - type: Tag
@@ -675,6 +669,9 @@
   id: SheetPaper
 
 - type: Tag
+  id: ADTMicroManipulatorStockPart
+
+- type: Tag
   id: ADTCarvedPumpkin
 
 - type: Tag
@@ -685,3 +682,6 @@
 
 - type: Tag
   id: FoodCondimentPacketBbq
+
+- type: Tag
+  id: VoxFood

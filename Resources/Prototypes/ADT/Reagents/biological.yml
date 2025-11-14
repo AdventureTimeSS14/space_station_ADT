@@ -9,8 +9,8 @@
   color: "#2e0f24"
   recognizable: true
   physicalDesc: reagent-physical-desc-ferrous
-  slipData:
-    requiredSlipSpeed: 3.5
+ # slipData:
+ #   requiredSlipSpeed: 3.5
 
 # Кровь унатхов
 

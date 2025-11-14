@@ -488,3 +488,41 @@
   - type: Tag
     tags:
     - ADTBureaucraticBelt
+
+- type: entity
+  id: ADTClothingChemdisBelt
+  parent: ClothingBeltStorageBase
+  name: chemdis belt 4000
+  description: Compactt version of chemical dispencer, based on old versions of it.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Belt/chemdis.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Belt/chemdis.rsi
+    slots: [belt]
+    equipSound:
+      path: /Audio/Items/belt_equip.ogg
+    quickEquip: false
+  - type: ReagentDispenser
+    beakerSlot:
+      whitelistFailPopup: reagent-dispenser-component-cannot-put-entity-message
+      whitelist:
+        components:
+        - FitsInDispenser
+      priority: 9
+  - type: Storage
+    maxItemSize: Large
+    grid:
+    - 0,0,9,5
+    openOnActivate: false
+    whitelist:
+      tags:
+      - ChemDispensable
+  - type: ActivatableUI
+    key: enum.ReagentDispenserUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.ReagentDispenserUiKey.Key:
+        type: ReagentDispenserBoundUserInterface
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
