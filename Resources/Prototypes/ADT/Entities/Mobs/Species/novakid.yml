@@ -161,6 +161,18 @@
     - DoorBumpOpener
     - AnomalyHost
     - ChangelingBlacklist
+  - type: SlimeHair
+    changeHairSound: /Audio/ADT/Novakid/novakid_laugh01.ogg
+  - type: UserInterface
+    interfaces:
+      enum.HumanoidMarkingModifierKey.Key:
+        type: HumanoidMarkingModifierBoundUserInterface
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
+      enum.SlimeHairUiKey.Key:
+        type: SlimeHairBoundUserInterface
+      enum.StoreUiKey.Key: # Чтобы не ломался генокрад
+        type: StoreBoundUserInterface # Чтобы не ломался генокрад
 
 - type: entity
   save: false

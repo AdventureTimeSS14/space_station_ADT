@@ -22,37 +22,37 @@ public sealed partial class SlimeHairComponent : Component
     /// <summary>
     /// doafter time required to add a new slot
     /// </summary>
-    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    [DataField("addSlotTime"), ViewVariables(VVAccess.ReadWrite)]
     public TimeSpan AddSlotTime = TimeSpan.FromSeconds(2);
 
     /// <summary>
     /// doafter time required to remove a existing slot
     /// </summary>
-    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    [DataField("removeSlotTime"), ViewVariables(VVAccess.ReadWrite)]
     public TimeSpan RemoveSlotTime = TimeSpan.FromSeconds(2);
 
     /// <summary>
     /// doafter time required to change slot
     /// </summary>
-    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    [DataField("selectSlotTime"), ViewVariables(VVAccess.ReadWrite)]
     public TimeSpan SelectSlotTime = TimeSpan.FromSeconds(2);
 
     /// <summary>
     /// doafter time required to recolor slot
     /// </summary>
-    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    [DataField("changeSlotTime"), ViewVariables(VVAccess.ReadWrite)]
     public TimeSpan ChangeSlotTime = TimeSpan.FromSeconds(1);
 
     /// <summary>
     /// doafter time required to change voice
     /// </summary>
-    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    [DataField("changeVoiceTime"), ViewVariables(VVAccess.ReadWrite)]
     public TimeSpan ChangeVoiceTime = TimeSpan.FromSeconds(2);
 
     /// <summary>
     /// Sound emitted when slots are changed
     /// </summary>
-    [DataField]
+    [DataField("changeHairSound"), ViewVariables(VVAccess.ReadWrite)]
     public SoundSpecifier ChangeHairSound = new SoundPathSpecifier("/Audio/ADT/slime-hair.ogg")
     {
         Params = AudioParams.Default.WithVolume(-1f),
