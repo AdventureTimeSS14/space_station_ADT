@@ -20,7 +20,7 @@ namespace Content.Shared.ADT.SlotMachine
         [Dependency] private readonly INetManager _net = default!;
         [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
         [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-        [Dependency] private readonly SharedChatSystem _chatSystem = default!;
+        // [Dependency] private readonly SharedChatSystem _chatSystem = default!; раскомментить после апстрима
         [Dependency] private readonly SharedPowerReceiverSystem _power = default!;
         [Dependency] private readonly SharedStackSystem _stackSystem = default!;
         [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
@@ -55,7 +55,6 @@ namespace Content.Shared.ADT.SlotMachine
              {
                  BreakOnMove = false,
                  BreakOnDamage = false,
-                 MultiplyDelay = false,
              };
 
             _stackSystem.SetCount(stack.Owner, stack.Count - comp.SpinCost, stack);
@@ -125,7 +124,7 @@ namespace Content.Shared.ADT.SlotMachine
                     _audio.PlayPredicted(comp.GodPotWinSound, uid, args.User);
                     var coordinates = Transform(uid).Coordinates;
                     EntityManager.SpawnEntity(comp.GodPotPrize, coordinates);
-                    _chatSystem.TrySendInGameICMessage(uid, Loc.GetString("slotmachine-win-godpot"), InGameICChatType.Speak, hideChat: false, hideLog: true, checkRadioPrefix: false);
+                    // _chatSystem.TrySendInGameICMessage(uid, Loc.GetString("slotmachine-win-godpot"), InGameICChatType.Speak, hideChat: false, hideLog: true, checkRadioPrefix: false); раскомментить после апстрима
                     return;
                 }
             }
@@ -137,7 +136,7 @@ namespace Content.Shared.ADT.SlotMachine
             // Add money to the stack and play a message
             _stackSystem.SetCount(stack.Owner, stack.Count + prize, stack);
             Dirty(stack.Owner, stack);
-            _chatSystem.TrySendInGameICMessage(uid, msg, InGameICChatType.Speak, hideChat: false, hideLog: true, checkRadioPrefix: false);
+            // _chatSystem.TrySendInGameICMessage(uid, msg, InGameICChatType.Speak, hideChat: false, hideLog: true, checkRadioPrefix: false); раскомментить после апстрима
         }
     }
 }
