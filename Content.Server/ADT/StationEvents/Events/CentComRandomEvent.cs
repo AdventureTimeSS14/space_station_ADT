@@ -73,12 +73,11 @@ public sealed class CentComRandomEvent : StationEventSystem<CentComRandomEventCo
     {
         return id switch
         {
-            3 => Loc.GetString(baseEvent, ("word", Loc.GetString($"centcom-random-event-word-{RobustRandom.Next(1, 22)}"))),
-            2 or 8 => Loc.GetString(baseEvent, ("clothing", Loc.GetString($"centcom-random-event-clothing-{RobustRandom.Next(1, 13)}"))),
-            9 => Loc.GetString(baseEvent, ("generator", Loc.GetString($"centcom-random-event-generator-{RobustRandom.Next(1, 7)}"))),
-            12 => Loc.GetString(baseEvent, ("plant", Loc.GetString($"centcom-random-event-plant-{RobustRandom.Next(1, 4)}"))),
-            14 => Loc.GetString(baseEvent, ("mode", Loc.GetString($"centcom-random-event-mode-{RobustRandom.Next(1, 5)}"))),
-            16 => Loc.GetString(baseEvent, ("movement", Loc.GetString($"centcom-random-event-movement-{RobustRandom.Next(1, 4)}"))),
+            3 => Loc.GetString(baseEvent, ("generator", Loc.GetString($"centcom-random-event-generator-{RobustRandom.Next(1, 8)}"))),
+            4 => Loc.GetString(baseEvent, ("plant", Loc.GetString($"centcom-random-event-plant-{RobustRandom.Next(1, 3)}"))),
+            6 => Loc.GetString(baseEvent, ("language", Loc.GetString($"centcom-random-event-language-{RobustRandom.Next(1, 15)}"))),
+            7 => Loc.GetString(baseEvent, ("words", Loc.GetString($"centcom-random-event-words-{RobustRandom.Next(1, 5)}"))),
+            8 => Loc.GetString(baseEvent, ("race", Loc.GetString($"centcom-random-event-race-{RobustRandom.Next(1, 18)}"))),
             _ => Loc.GetString(baseEvent),
         };
     }
