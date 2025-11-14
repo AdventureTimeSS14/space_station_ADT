@@ -1,6 +1,5 @@
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.ADT.SlimeHair;
-using Robust.Client.GameObjects;
 using Robust.Client.UserInterface;
 
 namespace Content.Client.ADT.SlimeHair;
@@ -30,6 +29,8 @@ public sealed class SlimeHairBoundUserInterface : BoundUserInterface
             args => ChangeColor(SlimeHairCategory.FacialHair, args.marking, args.slot);
         _window.OnFacialHairSlotAdded += delegate () { AddSlot(SlimeHairCategory.FacialHair); };
         _window.OnFacialHairSlotRemoved += args => RemoveSlot(SlimeHairCategory.FacialHair, args);
+
+        _window.OnVoiceChanged += voiceId => ChangeVoice(voiceId);
     }
 
     private void SelectHair(SlimeHairCategory category, string marking, int slot)
@@ -50,6 +51,11 @@ public sealed class SlimeHairBoundUserInterface : BoundUserInterface
     private void AddSlot(SlimeHairCategory category)
     {
         SendMessage(new SlimeHairAddSlotMessage(category));
+    }
+
+    private void ChangeVoice(string voiceId)
+    {
+        SendMessage(new SlimeHairChangeVoiceMessage(voiceId));
     }
 
     protected override void UpdateState(BoundUserInterfaceState state)

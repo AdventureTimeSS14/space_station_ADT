@@ -2,6 +2,7 @@ using Content.Shared.DoAfter;
 using Content.Shared.Humanoid.Markings;
 using Robust.Shared.Serialization;
 using Content.Shared.Actions;
+using Content.Shared.Humanoid;
 
 namespace Content.Shared.ADT.SlimeHair;
 
@@ -86,11 +87,24 @@ public sealed class SlimeHairAddSlotMessage : BoundUserInterfaceMessage
 }
 
 [Serializable, NetSerializable]
+public sealed class SlimeHairChangeVoiceMessage : BoundUserInterfaceMessage
+{
+    public SlimeHairChangeVoiceMessage(string voice)
+    {
+        Voice = voice;
+    }
+
+    public string Voice { get; }
+}
+
+[Serializable, NetSerializable]
 public sealed class SlimeHairUiState : BoundUserInterfaceState
 {
-    public SlimeHairUiState(string species, List<Marking> hair, int hairSlotTotal, List<Marking> facialHair, int facialHairSlotTotal)
+    public SlimeHairUiState(string species, Sex sex, string voice, List<Marking> hair, int hairSlotTotal, List<Marking> facialHair, int facialHairSlotTotal)
     {
         Species = species;
+        Sex = sex;
+        Voice = voice;
         Hair = hair;
         HairSlotTotal = hairSlotTotal;
         FacialHair = facialHair;
@@ -100,6 +114,8 @@ public sealed class SlimeHairUiState : BoundUserInterfaceState
     public NetEntity Target;
 
     public string Species;
+    public Sex Sex;
+    public string Voice;
 
     public List<Marking> Hair;
     public int HairSlotTotal;
@@ -140,6 +156,13 @@ public sealed partial class SlimeHairChangeColorDoAfterEvent : DoAfterEvent
     public SlimeHairCategory Category;
     public int Slot;
     public List<Color> Colors = new List<Color>();
+}
+
+[Serializable, NetSerializable]
+public sealed partial class SlimeHairChangeVoiceDoAfterEvent : DoAfterEvent
+{
+    public override DoAfterEvent Clone() => this;
+    public string Voice = string.Empty;
 }
 
 public sealed partial class SlimeHairActionEvent : InstantActionEvent

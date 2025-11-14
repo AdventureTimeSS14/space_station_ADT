@@ -44,6 +44,12 @@ public sealed partial class SlimeHairComponent : Component
     public TimeSpan ChangeSlotTime = TimeSpan.FromSeconds(1);
 
     /// <summary>
+    /// doafter time required to change voice
+    /// </summary>
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    public TimeSpan ChangeVoiceTime = TimeSpan.FromSeconds(2);
+
+    /// <summary>
     /// Sound emitted when slots are changed
     /// </summary>
     [DataField]
