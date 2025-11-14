@@ -4,5 +4,4 @@
   id: SheetifierStatic
   recipes:
   - MaterialSheetMeat
-  - SheetPaper
   - MaterialClothCotton
