@@ -107,6 +107,7 @@ public sealed partial class SlimeHairSystem : EntitySystem
 
         _humanoid.SetMarkingId(uid, category, args.Slot, args.Marking);
 
+        _audio.PlayPvs(component.ChangeHairSound, uid);
         UpdateInterface(uid, component);
     }
 
