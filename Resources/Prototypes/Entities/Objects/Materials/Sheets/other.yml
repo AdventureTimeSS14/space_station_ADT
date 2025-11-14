@@ -76,7 +76,7 @@
   # ADT-Tweak-Start
   - type: Tag
     tags:
-    - SheetPaper
+    - ADTSheetPaper
   # ADT-Tweak-End
 
 - type: entity

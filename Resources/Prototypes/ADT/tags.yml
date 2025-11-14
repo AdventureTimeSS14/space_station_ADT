@@ -666,7 +666,7 @@
   id: ADTEftpos
 
 - type: Tag
-  id: SheetPaper
+  id: ADTSheetPaper
 
 - type: Tag
   id: ADTMicroManipulatorStockPart
