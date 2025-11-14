@@ -43,7 +43,7 @@ public sealed partial class IpcScreenComponent : Component
     /// <summary>
     /// doafter time required to change voice
     /// </summary>
-    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    [DataField("changeVoiceTime"), ViewVariables(VVAccess.ReadWrite)]
     public TimeSpan ChangeVoiceTime = TimeSpan.FromSeconds(2);
 
     /// <summary>
