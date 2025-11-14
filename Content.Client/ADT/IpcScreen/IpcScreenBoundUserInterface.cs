@@ -1,6 +1,5 @@
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.ADT.IpcScreen;
-using Robust.Client.GameObjects;
 using Robust.Client.UserInterface;
 
 namespace Content.Client.ADT.IpcScreen;
@@ -25,6 +24,7 @@ public sealed class IpcScreenBoundUserInterface : BoundUserInterface
             args => ChangeColor(IpcScreenCategory.FacialHair, args.marking, args.slot);
         _window.OnFacialHairSlotAdded += delegate () { AddSlot(IpcScreenCategory.FacialHair); };
         _window.OnFacialHairSlotRemoved += args => RemoveSlot(IpcScreenCategory.FacialHair, args);
+        _window.OnVoiceChanged += voiceId => ChangeVoice(voiceId);
     }
 
     private void SelectHair(IpcScreenCategory category, string marking, int slot)
@@ -45,6 +45,11 @@ public sealed class IpcScreenBoundUserInterface : BoundUserInterface
     private void AddSlot(IpcScreenCategory category)
     {
         SendMessage(new IpcScreenAddSlotMessage(category));
+    }
+
+    private void ChangeVoice(string voiceId)
+    {
+        SendMessage(new IpcScreenChangeVoiceMessage(voiceId));
     }
 
     protected override void UpdateState(BoundUserInterfaceState state)

@@ -4,5 +4,9 @@
                MinSize="400 200">
     <BoxContainer>
         <humanoid:SingleMarkingPicker Name="FacialHairPicker" Category="FacialHair" />
+        <BoxContainer Orientation="Vertical" Margin="5">
+            <Label Text="{Loc 'humanoid-profile-editor-voice-label'}" />
+            <OptionButton Name="VoiceButton" />
+        </BoxContainer>
     </BoxContainer>
 </DefaultWindow>

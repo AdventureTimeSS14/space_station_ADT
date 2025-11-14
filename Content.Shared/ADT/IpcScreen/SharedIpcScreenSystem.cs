@@ -2,6 +2,7 @@ using Content.Shared.DoAfter;
 using Content.Shared.Humanoid.Markings;
 using Robust.Shared.Serialization;
 using Content.Shared.Actions;
+using Content.Shared.Humanoid;
 
 namespace Content.Shared.ADT.IpcScreen;
 
@@ -85,11 +86,24 @@ public sealed class IpcScreenAddSlotMessage : BoundUserInterfaceMessage
 }
 
 [Serializable, NetSerializable]
+public sealed class IpcScreenChangeVoiceMessage : BoundUserInterfaceMessage
+{
+    public IpcScreenChangeVoiceMessage(string voice)
+    {
+        Voice = voice;
+    }
+
+    public string Voice { get; }
+}
+
+[Serializable, NetSerializable]
 public sealed class IpcScreenUiState : BoundUserInterfaceState
 {
-    public IpcScreenUiState(string species, List<Marking> facialHair, int facialHairSlotTotal)
+    public IpcScreenUiState(string species, Sex sex, string voice, List<Marking> facialHair, int facialHairSlotTotal)
     {
         Species = species;
+        Sex = sex;
+        Voice = voice;
         FacialHair = facialHair;
         FacialHairSlotTotal = facialHairSlotTotal;
     }
@@ -97,6 +111,8 @@ public sealed class IpcScreenUiState : BoundUserInterfaceState
     public NetEntity Target;
 
     public string Species;
+    public Sex Sex;
+    public string Voice;
 
     public List<Marking> FacialHair;
     public int FacialHairSlotTotal;
@@ -134,6 +150,13 @@ public sealed partial class IpcScreenChangeColorDoAfterEvent : DoAfterEvent
     public IpcScreenCategory Category;
     public int Slot;
     public List<Color> Colors = new List<Color>();
+}
+
+[Serializable, NetSerializable]
+public sealed partial class IpcScreenChangeVoiceDoAfterEvent : DoAfterEvent
+{
+    public override DoAfterEvent Clone() => this;
+    public string Voice = string.Empty;
 }
 
 public sealed partial class IpcScreenActionEvent : InstantActionEvent

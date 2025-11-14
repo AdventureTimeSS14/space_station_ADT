@@ -10,6 +10,10 @@ using Content.Shared.ADT.IpcScreen;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
 using Content.Server.Actions;
+using Content.Shared.Corvax.TTS;
+using Content.Server.Corvax.TTS;
+using Robust.Shared.Prototypes;
+using Content.Shared.Preferences;
 
 namespace Content.Server.ADT.IpcScreen;
 
@@ -21,6 +25,8 @@ public sealed partial class IpcScreenSystem : EntitySystem
     [Dependency] private readonly HumanoidAppearanceSystem _humanoid = default!;
     [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
     [Dependency] private readonly ActionsSystem _action = default!;
+    [Dependency] private readonly TTSSystem _tts = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!;
 
     public override void Initialize()
     {
@@ -34,6 +40,7 @@ public sealed partial class IpcScreenSystem : EntitySystem
             subs.Event<IpcScreenChangeColorMessage>(OnTryIpcScreenChangeColor);
             subs.Event<IpcScreenAddSlotMessage>(OnTryIpcScreenAddSlot);
             subs.Event<IpcScreenRemoveSlotMessage>(OnTryIpcScreenRemoveSlot);
+            subs.Event<IpcScreenChangeVoiceMessage>(OnTryIpcScreenChangeVoice);
         });
 
         SubscribeLocalEvent<IpcScreenComponent, MapInitEvent>(OnMapInit);
@@ -43,6 +50,7 @@ public sealed partial class IpcScreenSystem : EntitySystem
         SubscribeLocalEvent<IpcScreenComponent, IpcScreenChangeColorDoAfterEvent>(OnChangeColorDoAfter);
         SubscribeLocalEvent<IpcScreenComponent, IpcScreenRemoveSlotDoAfterEvent>(OnRemoveSlotDoAfter);
         SubscribeLocalEvent<IpcScreenComponent, IpcScreenAddSlotDoAfterEvent>(OnAddSlotDoAfter);
+        SubscribeLocalEvent<IpcScreenComponent, IpcScreenChangeVoiceDoAfterEvent>(OnChangeVoiceDoAfter);
 
         InitializeIpcScreenAbilities();
 
@@ -249,6 +257,47 @@ public sealed partial class IpcScreenSystem : EntitySystem
 
     }
 
+    private void OnTryIpcScreenChangeVoice(EntityUid uid, IpcScreenComponent component, IpcScreenChangeVoiceMessage message)
+    {
+        if (component.Target is not { } target)
+            return;
+
+        _doAfterSystem.Cancel(component.DoAfter);
+        component.DoAfter = null;
+
+        var doAfter = new IpcScreenChangeVoiceDoAfterEvent()
+        {
+            Voice = message.Voice,
+        };
+
+        _doAfterSystem.TryStartDoAfter(new DoAfterArgs(EntityManager, component.Owner, component.ChangeVoiceTime, doAfter, uid, target: target, used: uid)
+        {
+            DistanceThreshold = SharedInteractionSystem.InteractionRange,
+            BreakOnDamage = true,
+        }, out var doAfterId);
+
+        component.DoAfter = doAfterId;
+    }
+
+    private void OnChangeVoiceDoAfter(EntityUid uid, IpcScreenComponent component, IpcScreenChangeVoiceDoAfterEvent args)
+    {
+        if (args.Handled || args.Target == null || args.Cancelled)
+            return;
+
+        if (component.Target != args.Target)
+            return;
+
+        if (!TryComp<HumanoidAppearanceComponent>(args.Target.Value, out var humanoid))
+            return;
+
+        if (!_proto.TryIndex<TTSVoicePrototype>(args.Voice, out var proto) || !HumanoidCharacterProfile.CanHaveVoice(proto, humanoid.Sex))
+            return;
+
+        _humanoid.SetTTSVoice(args.Target.Value, args.Voice, humanoid);
+
+        UpdateInterface(uid, component);
+    }
+
     private void UpdateInterface(EntityUid uid, IpcScreenComponent component)
     {
         if (!TryComp<HumanoidAppearanceComponent>(uid, out var humanoid))
@@ -264,6 +313,8 @@ public sealed partial class IpcScreenSystem : EntitySystem
 
         var state = new IpcScreenUiState(
             humanoid.Species,
+            humanoid.Sex,
+            humanoid.Voice,
             facialHair,
             humanoid.MarkingSet.PointsLeft(MarkingCategories.FacialHair) + facialHair.Count);
 
