@@ -631,6 +631,7 @@ public sealed partial class ChangelingSystem : EntitySystem
             _inventorySystem.TryUnequip(uid, "head", true, true, false);
             _inventorySystem.TryUnequip(uid, "outerClothing", true, true, false);
             component.ChemicalsPerSecond += component.LingArmorRegenCost;
+            component.LingArmorActive = false;
         }
     }
 }
