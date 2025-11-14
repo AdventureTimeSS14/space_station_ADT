@@ -92,6 +92,10 @@
     containers:
     - machine_parts
     - machine_board
+  - type: ContainerContainer
+    containers:
+      machine_parts: !type:Container
+      machine_board: !type:Container
 
 - type: entity
   id: ADTBigThruster
@@ -167,6 +171,10 @@
     containers:
     - machine_parts
     - machine_board
+  - type: ContainerContainer
+    containers:
+      machine_parts: !type:Container
+      machine_board: !type:Container
 
 - type: entity
   id: ADTMediumLongThruster
@@ -220,3 +228,7 @@
     containers:
     - machine_parts
     - machine_board
+  - type: ContainerContainer
+    containers:
+      machine_parts: !type:Container
+      machine_board: !type:Container

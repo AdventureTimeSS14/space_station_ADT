@@ -24,6 +24,9 @@
   - type: Item
     sprite: ADT/Objects/Weapons/Guns/PKAs/kinetic_pistol.rsi
     size: Small
+    shape:
+    - 0,0,1,0
+    - 0,1,0,1
   - type: BasicEntityAmmoProvider
     proto: ADTBulletKineticPistol
     capacity: 1
@@ -49,7 +52,7 @@
       visible: false
       map: [ "empty-icon" ]
   - type: UpgradeableGun
-    maxUpgradeCount: 2
+    maxUpgradeCount: 3 # Tweak 2 > 3
     whitelist:
       tags:
       - PKAUpgrade
@@ -102,7 +105,7 @@
       visible: false
       map: [ "empty-icon" ]
   - type: UpgradeableGun
-    maxUpgradeCount: 2 # Tweak 1 > 2
+    maxUpgradeCount: 3 # Tweak 1 > 3
     whitelist:
       tags:
       - PKAUpgrade

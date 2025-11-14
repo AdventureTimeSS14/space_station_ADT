@@ -16,3 +16,11 @@ ent-ADTSuitStorageBlueshield = хранилище скафандра
 ent-ADTLockerPathologistFilled = шкаф патологоанатома
     .suffix = Заполненный
     .desc = { ent-LockerBaseSecure.desc }
+
+ent-ADTSuitStorageParamed = хранилище скафандра
+    .suffix = Парамед
+    .desc = { ent-SuitStorageBase.desc }
+
+ent-SuitStorageBrigmedic = хранилище скафандра
+    .suffix = Бригмедик
+    .desc = { ent-SuitStorageBase.desc }

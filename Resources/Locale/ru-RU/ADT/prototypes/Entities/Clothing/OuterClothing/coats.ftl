@@ -18,6 +18,12 @@ ent-ADTClothingOuterApronPathologist = фартук патологоанатом
 ent-ADTClothingKadet = шинель кадета службы безопасности
     .desc = Легкобронированная кожаная шинель, предназначенная для повседневного ношения кадетами службы безопасности. Имеет логотип компании NanoTrasen Security.
 
+ent-ADTClothingOuterCoatSecurity = пальто службы безопасности
+    .desc = Плотное лёгкобронированное пальто Службы Безопасности, из-за своей дороговизны в производстве изготавливается в малых партиях.
+
+ent-ADTClothingOuterCoatCorrectionsOfficerGrey = серое пальто надзирателя СБ
+    .desc = Серое плотное лёгкобронированное пальто надзирателя Службы Безопасности, демонстрирующее его опыт всем заключённым. Одним своим видом оно говорит: «Пытаться сбежать — бесполезно».
+
 ent-ADTClothingOuterGraySweatshirtTop = серая толстовка-топка
     .desc = Стильная белая толстовка-топка. Производства компании "Modeling Agency Dar-Vaxed".
 
@@ -82,6 +88,9 @@ ent-ADTClothingOuterLettermanNanoTrasen = корпоративно-синяя ж
 ent-ADTClothingOuterLettermanSyndie = кроваво-красная жилетка
     .desc = Кроваво-красная жилетка с огромной буквой "S" на спине. Ничего подозрительного.
 
+ent-ADTClothingOuterLettermanBlack = чёрная жилетка
+    .desc = Обычная чёрная жилетка.
+
 
 
 ent-ADTClothingOuterCoatDetectiveLoadoutOld = старый тренч
@@ -109,3 +118,9 @@ ent-ADTClothingOuterSpiderRobe = зловещая паучья роба
 
 ent-ADTClothingOuterTechpriestRobe = роба техно-жреца
     .desc = С мгновения того, как понял я слабость своей плоти, я был отвращён.
+
+ent-ADTClothingOuterDavidsJacket = куртка парамедика
+    .desc = Ярко-желтая сигнальная куртка, которую обожают парамедики конца XXI века.
+
+ent-ADTClothingOuterDavidsJacketValid = куртка эджраннера
+    .desc = Ты на самой грани. Покажи им, что ты готов на всё.

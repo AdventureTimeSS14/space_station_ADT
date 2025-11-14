@@ -303,6 +303,58 @@
 
 - type: entity
   parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitBlackPants
+  name: black pants
+  description: black pants
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/black_pants.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/black_pants.rsi
+  - type: StaticPrice
+    price: 40
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitWhitePants
+  name: white pants
+  description: white pants
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/white_pants.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/white_pants.rsi
+  - type: StaticPrice
+    price: 40
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitBlackShorts
+  name: black shorts
+  description: black shorts
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/black_shorts.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/black_shorts.rsi
+  - type: StaticPrice
+    price: 40
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitWhiteShorts
+  name: white shorts
+  description: white shorts
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/white_shorts.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/white_shorts.rsi
+  - type: StaticPrice
+    price: 40
+
+- type: entity
+  parent: ClothingUniformBase
   id: ADTClothingUniformJumpsuitDenim
   name: denim jumpsuit
   description: denim jumpsuit
@@ -402,6 +454,19 @@
     sprite: ADT/Clothing/Uniforms/Jumpsuit/red_shirt.rsi
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpsuit/red_shirt.rsi #спрайты от prazat911
+  - type: StaticPrice
+    price: 45
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitWhiteShirt
+  name: white shirt
+  description: An usual white shirt. Made by company "Modeling Agency Dar-Vaxed".
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/white_shirt.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/white_shirt.rsi #спрайты от prazat911, респрайт от orange6775
   - type: StaticPrice
     price: 45
 
@@ -773,36 +838,48 @@
 # Униформа надзирателя
 - type: entity
   parent: ClothingUniformBase
-  id: ADTClothingUniformGuardOfficer
-  name: uniform guard officer
-  description: uniform guard officer
+  id: ADTClothingUniformCorrectionsOfficer
+  name: uniform corrections officer
+  description: uniform corrections officer
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Uniforms/Jumpsuit/guard_officer.rsi
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/corrections_officer.rsi
   - type: Clothing
-    sprite: ADT/Clothing/Uniforms/Jumpsuit/guard_officer.rsi
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/corrections_officer.rsi
 
 - type: entity
   parent: ClothingUniformBase
-  id: ADTClothingUniformGuardOfficerMaster
-  name: uniform guard officer master
-  description: uniform guard officer master
+  id: ADTClothingUniformCorrectionsOfficerLight
+  name: uniform corrections officer light
+  description: uniform corrections officer light
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Uniforms/Jumpsuit/guard_officer_master.rsi
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/corrections_officer_light.rsi
   - type: Clothing
-    sprite: ADT/Clothing/Uniforms/Jumpsuit/guard_officer_master.rsi
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/corrections_officer_light.rsi
 
 - type: entity
   parent: ClothingUniformBase
-  id: ADTClothingUniformGreyGuardOfficer
-  name: grey uniform guard officer
-  description: grey uniform guard officer
+  id: ADTClothingUniformCorrectionsOfficerGrey
+  name: grey uniform corrections officer
+  description: grey uniform corrections officer
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Uniforms/Jumpsuit/grey_guard_officer.rsi
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/corrections_officer_grey.rsi
   - type: Clothing
-    sprite: ADT/Clothing/Uniforms/Jumpsuit/grey_guard_officer.rsi
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/corrections_officer_grey.rsi
+
+#Кадет
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformSecurityCadetLight
+  name: uniform security cadet light
+  description: uniform security cadet light
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/sec_cadet_light.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/sec_cadet_light.rsi
 
 # ТСФ
 
@@ -1191,3 +1268,123 @@
     sprite: ADT/Clothing/Uniforms/Jumpsuit/dryad.rsi
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpsuit/dryad.rsi
+
+# Клоун
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitClownAbyss
+  name: clown suit from abyss
+  description: HONK!
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/clown_abyss.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/clown_abyss.rsi
+  - type: Tag
+    tags:
+    - ClownSuit
+    - WhitelistChameleon
+
+# Бармен
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitBartenderRed
+  name: red bartender's uniform
+  description: A nice and tidy uniform. Shame about the bar though.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/bartender_red.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/bartender_red.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitBartenderGreen
+  name: green bartender's uniform
+  description: A nice and tidy uniform. Shame about the bar though.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/bartender_green.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/bartender_green.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitBartenderVest
+  name: bartender's uniform with vest
+  description: A nice and tidy uniform. Shame about the bar though.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/bartender_vest.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/bartender_vest.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitBartenderVestRed
+  name: red bartender's uniform with vest
+  description: A nice and tidy uniform. Shame about the bar though.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/bartender_vest_red.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/bartender_vest_red.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitBartenderVestGreen
+  name: green bartender's uniform with vest
+  description: A nice and tidy uniform. Shame about the bar though.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/bartender_vest_green.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/bartender_vest_green.rsi
+
+# Смокинги
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitTuxedo
+  name: tuxedo
+  description: A tuxedo.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/tuxedo.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/tuxedo.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitTuxedoWhite
+  name: white tuxedo
+  description: A white tuxedo.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/tuxedo_white.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/tuxedo_white.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitTuxedoRed
+  name: red tuxedo
+  description: A red tuxedo.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/tuxedo_red.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/tuxedo_red.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitTuxedoHell
+  name: hell tuxedo
+  description: A hell tuxedo.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/tuxedo_hell.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/tuxedo_hell.rsi

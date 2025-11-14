@@ -258,6 +258,7 @@
   - SecurityOfficerWintercoat
   - ADTSeniorOfficerArmor
   - ADTArmorVestHidden
+  - ADTCoatSecurity
 
 # SENIOR PHYSICIAN
 
@@ -603,32 +604,62 @@
   loadouts:
   - ADTChefCqc
 
-## GUARD OFFICER (НАДЗИРАТЕЛЬ)
-
-# Голова
-
-  #head
 - type: loadoutGroup
-  id: ADTGuardOfficerHead
-  name: loadout-guardofficer-head-adt
+  id: ADTChefGloves
+  name: loadout-group-chef-gloves-adt
   minLimit: 0
   maxLimit: 1
   loadouts:
-  - ADTHeadHatGuardOfficer
-  - ADTHeadHatGuardGreyOfficer
-  - ADTHeadHatGuardOfficerMaster
+  - ADTWhiteGloves
+  - ADTRedGloves
 
+- type: loadoutGroup
+  id: ADTChefNeck
+  name: loadout-group-chef-neck-adt
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - ADTClothingNecChefShawl
+
+## CORRECTIONS OFFICER (НАДЗИРАТЕЛЬ)
+
+# Голова
+- type: loadoutGroup
+  id: ADTCorrectionsOfficerHead
+  name: loadout-corrections-officer-head-adt
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - ADTHeadHatCorrectionsOfficer
+  - ADTHeadHatCorrectionsOfficerGrey
 
 # Униформа
 - type: loadoutGroup
-  id: ADTGuardOfficerJumpsuit
-  name: loadout-guardofficer-jumpsuit-adt
+  id: ADTCorrectionsOfficerJumpsuit
+  name: loadout-corrections-officer-jumpsuit-adt
   minLimit: 1
   maxLimit: 1
   loadouts:
-  - ADTUniformJumpsuitGuardOfficer
-  - ADTUniformJumpsuitGreyGuardOfficer
-  - ADTUniformJumpsuitGuardOfficerMaster
+  - ADTJumpsuitCorrectionsOfficer
+  - ADTJumpsuitCorrectionsOfficerGrey
+  - ADTJumpsuitCorrectionsOfficerLight
+  - ADTJumpskirtCorrectionsOfficer
+
+# Верхняя одежда
+- type: loadoutGroup
+  id: ADTCorrectionsOfficerOuterClothing
+  name: loadout-corrections-officer-outerclothing-adt
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ADTCoatSecurity
+  - ADTCoatCorrectionsOfficerGrey
+  - ArmorVest
+  - ArmorVestSlim
+  - SecurityOfficerWintercoat
+  - ADTArmorVestHidden
+
+# ПОЯСА КАКИЕ-ТО
 
 - type: loadoutGroup
   id: ADTChaplainBelt
@@ -780,6 +811,98 @@
   loadouts:
   - ADTClothingOuterApronBarberLoadOut
 
+## Клоун
+
+- type: loadoutGroup
+  id: ADTClownMask
+  name: loadout-group-clown-mask-adt
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ADTClothingMaskClown
+  - ADTClothingMaskClownAbyss
+
+- type: loadoutGroup
+  id: ADTClownGloves
+  name: loadout-group-clown-gloves-adt
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - ADTWhiteGloves
+  - ADTRedGloves
+
+- type: loadoutGroup
+  id: ADTClownPocket1
+  name: loadout-group-clown-pocket1-adt
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ADTBikeHorn
+  - ADTBikeHornAbyss
+
+- type: loadoutGroup
+  id: ADTClownPocket2
+  name: loadout-group-clown-pocket2-adt
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ADTClownRecorder
+  - ADTToyHammer
+  - ADTToyHammerAbyss
+
+## Музыкант
+
+- type: loadoutGroup
+  id: ADTMusicianGloves
+  name: loadout-group-musician-gloves-adt
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - ADTBlackGloves
+  - ADTWhiteGloves
+  - ADTRedGloves
+
+## Бармен
+
+- type: loadoutGroup
+  id: ADTBartenderGloves
+  name: loadout-group-bartender-gloves-adt
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - ADTBlackGloves
+  - ADTWhiteGloves
+  - ADTRedGloves
+  - ADTBrownGloves
+
+## Сервисный работник
+
+- type: loadoutGroup
+  id: ADTServiceWorkerGloves
+  name: loadout-group-service-worker-gloves-adt
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - ADTBlackGloves
+  - ADTWhiteGloves
+
+- type: loadoutGroup
+  id: ADTServiceWorkerJumpsuit
+  name: loadout-group-service-worker-jumpsuit-adt
+  loadouts:
+  - BartenderJumpsuit
+  - BartenderJumpskirt
+  - ADTClothingUniformJumpsuitTuxedo
+
+# Боксёр
+
+- type: loadoutGroup
+  id: ADTBoxerHead
+  name: loadout-group-boxer-head-adt
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - ADTClothingHeadHatGladiator
 
 # Alts PDA start
 - type: loadoutGroup
@@ -801,6 +924,8 @@
   loadouts:
   - BartenderPDA
   - ADTMixologistPDA
+  - ADTTavernkeepPDA
+  - ADTBaristaPDA
 
 - type: loadoutGroup
   id: ADTChefPDA
@@ -812,6 +937,16 @@
   - ADTBakerPDA
   - ADTButcherPDA
   - ADTPizzaioloPDA
+  - ADTConfectionerPDA
+
+- type: loadoutGroup
+  id: ADTServiceWorkerPDA
+  name: loadout-group-service-worker-id-adt
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ADTServiceWorkerPDA
+  - ADTWaiterPDA
 
 - type: loadoutGroup
   id: ADTMedicalInternPDA
@@ -858,6 +993,44 @@
   - ClownPDA
   - ADTJesterPDA
   - ADTFoolPDA
+
+- type: loadoutGroup
+  id: ADTMusicianPDA
+  name: loadout-group-musician-id-adt
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ADTMusicianPDA
+  - ADTPerformerPDA
+  - ADTConcertmasterPDA
+  - ADTComposerPDA
+  - ADTBardPDA
+  - ADTDJPDA
+
+- type: loadoutGroup
+  id: ADTReporterPDA
+  name: loadout-group-reporter-id-adt
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ADTReporterPDA
+  - ADTJournalistPDA
+
+- type: loadoutGroup
+  id: ADTBoxerPDA
+  name: loadout-group-boxer-id-adt
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ADTBoxerPDA
+  - ADTKaratekaPDA
+  - ADTKickboxerPDA
+  - ADTSavatistPDA
+  - ADTHandToHandCombatMasterPDA
+  - ADTMMAFighterPDA
+  - ADTJudoistPDA
+  - ADTCoachPDA
+  - ADTGladiatorPDA
 
 - type: loadoutGroup
   id: ADTDetectivePDA

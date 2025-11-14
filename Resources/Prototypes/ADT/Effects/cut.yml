@@ -14,3 +14,39 @@
   - type: Tag
     tags:
       - HideContextMenu
+
+- type: entity
+  id: ADTMantisDaggerCut
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    snapCardinals: true
+    noRot: true
+    drawdepth: Effects
+    sprite: ADT/Effects/arcs.rsi
+    state: mantis-spec-attack
+  - type: EmitSoundOnSpawn
+    sound: /Audio/Weapons/bladeslice.ogg
+  - type: AnimationPlayer
+  - type: TimedDespawn
+    lifetime: 0.45
+    
+- type: entity
+  id: ADTCaneCut
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    snapCardinals: false
+    noRot: true
+    drawdepth: Effects
+    sprite: ADT/Effects/arcs.rsi
+    state: attack-fist-mistal
+  - type: AnimationPlayer
+  - type: EmitSoundOnSpawn
+    sound: 
+      path: /Audio/Effects/metal_slam2.ogg
+  - type: TimedDespawn
+    lifetime: 0.9
+  - type: Tag
+    tags:
+      - HideContextMenu

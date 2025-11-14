@@ -18,6 +18,9 @@ public sealed partial class BarkPrototype : IPrototype
     [DataField]
     public string Name = "Default";
 
+    [DataField]
+    public string Category = "Standard_barks";
+
     [DataField(required: true)]
     public SoundSpecifier Sound { get; private set; } = default!;
 }
