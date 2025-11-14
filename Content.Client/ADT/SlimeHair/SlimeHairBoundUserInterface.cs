@@ -1,5 +1,5 @@
-using Content.Shared.Humanoid.Markings;
 using Content.Shared.ADT.SlimeHair;
+using Content.Shared.Humanoid.Markings;
 using Robust.Client.UserInterface;
 
 namespace Content.Client.ADT.SlimeHair;

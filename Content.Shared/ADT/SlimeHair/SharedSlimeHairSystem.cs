@@ -1,8 +1,8 @@
+using Content.Shared.Actions;
 using Content.Shared.DoAfter;
+using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Markings;
 using Robust.Shared.Serialization;
-using Content.Shared.Actions;
-using Content.Shared.Humanoid;
 
 namespace Content.Shared.ADT.SlimeHair;
 
