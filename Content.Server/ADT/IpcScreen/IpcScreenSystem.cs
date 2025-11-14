@@ -1,5 +1,4 @@
 using Content.Server.Actions;
-using Content.Server.Corvax.TTS;
 using Content.Server.DoAfter;
 using Content.Server.Humanoid;
 using Content.Shared.ADT.IpcScreen;
@@ -25,7 +24,6 @@ public sealed partial class IpcScreenSystem : EntitySystem
     [Dependency] private readonly HumanoidAppearanceSystem _humanoid = default!;
     [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
     [Dependency] private readonly ActionsSystem _action = default!;
-    [Dependency] private readonly TTSSystem _tts = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
 
     public override void Initialize()
