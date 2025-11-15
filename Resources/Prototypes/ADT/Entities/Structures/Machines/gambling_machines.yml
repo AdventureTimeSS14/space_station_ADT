@@ -76,14 +76,6 @@
         whitelist:
           components:
           - Cash
-  - type: LanguageSpeaker # Einstein Engines - Languages
-  - type: LanguageKnowledge # Einstein Engines - Languages
-    speaks:
-    - TauCetiBasic
-    - RobotTalk
-    understands:
-    - TauCetiBasic
-    - RobotTalk
   - type: SlotMachine
   - type: DoAfter
 
@@ -95,7 +87,7 @@
   components:
   - type: Sprite
     noRot: true
-    sprite: _Goobstation/Structures/Machines/slotmachines/slotmachine.rsi
+    sprite: ADT/Structures/Machines/slotmachines/slotmachine.rsi
     layers:
       - state: slotmachine
       - state: slotmachine_spin
@@ -128,7 +120,7 @@
   components:
   - type: Sprite
     noRot: true
-    sprite: _Goobstation/Structures/Machines/slotmachines/slotmachinehighroller.rsi
+    sprite: ADT/Structures/Machines/slotmachines/slotmachinehighroller.rsi
     layers:
       - state: slotmachine
       - state: slotmachine_spin
