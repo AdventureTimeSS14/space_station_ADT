@@ -52,10 +52,6 @@
     weight: 0.125
   - type: StaticPrice
     price: 100
-  - type: CollectiveMind
-    defaultChannel: Binary
-    channels:
-    - Binary
   - type: Vocalizer
     minVocalizeInterval: 8m
     maxVocalizeInterval: 10m
@@ -136,7 +132,7 @@
   - type: GenericVisualizer # I have NO idea how this works
     visuals:
       enum.SlotMachineVisuals.Spinning:
-        slotmachine_spin:
+        slotmachine_spin_h:
           True: { visible: true }
           False: { visible: false }
   - type: Appearance
