@@ -266,7 +266,6 @@ public sealed partial class FireControlSystem : EntitySystem
             }
         }
     }
-}
 
     /// <summary>
     /// Checks all controllables on a grid and unregisters any that don't belong.
@@ -317,6 +316,7 @@ public sealed partial class FireControlSystem : EntitySystem
             }
         }
     }
+}
 
 public sealed class FireControllableStatusReportEvent : EntityEventArgs
 {
