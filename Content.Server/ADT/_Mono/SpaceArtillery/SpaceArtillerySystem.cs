@@ -110,10 +110,6 @@ public sealed partial class SpaceArtillerySystem : EntitySystem
         var sourceCoordinates = xform.Coordinates;
         var targetCoordinates = new EntityCoordinates(xform.MapUid!.Value, targetSpot);
 
-        // We need to set the ShootCoordinates for the gun component
-        // This is important to ensure it uses the proper calculations in SharedGunSystem
-        gun.ShootCoordinates = targetCoordinates;
-        
         // Call AttemptShoot with the correct signature that includes target coordinates
         // This will eventually call GunSystem.Shoot which correctly handles grid velocity
         _gun.AttemptShoot(uid, gunUid, gun, targetCoordinates);
