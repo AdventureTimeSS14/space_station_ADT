@@ -85,7 +85,7 @@
   parent: ClothingOuterStorageBase
   id: ADTClothingOuterEggman
   name: robotnik suit
-  description: You felling, a massterplan borns inside of you.
+  description: You feel a masterplan taking shape inside of you.
   components:
   - type: Sprite
     sprite: ADT/Clothing/OuterClothing/Misc/eggman.rsi
