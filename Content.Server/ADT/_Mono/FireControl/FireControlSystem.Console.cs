@@ -34,17 +34,42 @@ public sealed partial class FireControlSystem : EntitySystem
 
     private void OnRefreshServer(EntityUid uid, FireControlConsoleComponent component, FireControlConsoleRefreshServerMessage args)
     {
+        // First, clean up any invalid server references across all grids
+        CleanupInvalidServerReferences();
+
+        // Get the console's grid to force server reconnection on it
+        var consoleGrid = _xform.GetGrid(uid);
+        if (consoleGrid != null)
+        {
+            // Force all servers on this grid to attempt reconnection
+            ForceServerReconnectionOnGrid((EntityUid)consoleGrid);
+        }
+
+        // Check if the current connected server is still valid
+        if (component.ConnectedServer != null)
+        {
+            if (!Exists(component.ConnectedServer) || !TryComp<FireControlServerComponent>(component.ConnectedServer, out _))
+            {
+                // Server no longer exists, clear the connection
+                component.ConnectedServer = null;
+            }
+        }
+
+        // Try to register console if not connected or if connection was cleared
         if (component.ConnectedServer == null)
         {
             TryRegisterConsole(uid, component);
         }
 
+        // Refresh controllables if we have a valid server connection
         if (component.ConnectedServer != null &&
             TryComp<FireControlServerComponent>(component.ConnectedServer, out var server) &&
             server.ConnectedGrid != null)
         {
             RefreshControllables((EntityUid)server.ConnectedGrid);
         }
+        // Always update UI to reflect current state
+        UpdateUi(uid, component);
     }
 
     private void OnFire(EntityUid uid, FireControlConsoleComponent component, FireControlConsoleFireMessage args)
@@ -69,10 +94,15 @@ public sealed partial class FireControlSystem : EntitySystem
         if (!Resolve(console, ref component))
             return;
 
-        if (component.ConnectedServer == null || !TryComp<FireControlServerComponent>(component.ConnectedServer, out var server))
+        if (component.ConnectedServer == null)
             return;
 
-        server.Consoles.Remove(console);
+        // Check if server still exists before trying to unregister
+        if (Exists(component.ConnectedServer) && TryComp<FireControlServerComponent>(component.ConnectedServer, out var server))
+        {
+            server.Consoles.Remove(console);
+        }
+
         component.ConnectedServer = null;
         UpdateUi(console, component);
     }
@@ -81,9 +111,18 @@ public sealed partial class FireControlSystem : EntitySystem
         if (!Resolve(console, ref consoleComponent))
             return false;
 
+        // Clear any existing invalid connection first
+        if (consoleComponent.ConnectedServer != null)
+        {
+            if (!Exists(consoleComponent.ConnectedServer) || !TryComp<FireControlServerComponent>(consoleComponent.ConnectedServer, out _))
+            {
+                consoleComponent.ConnectedServer = null;
+            }
+        }
+
         var gridServer = TryGetGridServer(console);
 
-        if (gridServer.ServerComponent == null)
+        if (gridServer.ServerUid == null || gridServer.ServerComponent == null)
             return false;
 
         if (gridServer.ServerComponent.Consoles.Add(console))
