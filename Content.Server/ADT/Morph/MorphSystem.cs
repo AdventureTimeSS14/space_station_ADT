@@ -200,7 +200,7 @@ public sealed class MorphSystem : SharedMorphSystem
     }
     private void OnAmbushAttack(Entity<MorphAmbushComponent> ent, ref MeleeHitEvent args)
     {
-        _standing.Down(args.HitEntities[0]);
+        _stun.TryKnockdown(args.HitEntities[0], TimeSpan.FromSeconds(ent.Comp.StunTimeInteract), false);
         AmbushBreak(ent);
     }
     public void AmbushBreak(EntityUid uid)
@@ -224,7 +224,7 @@ public sealed class MorphSystem : SharedMorphSystem
     {
         if (args.User == null)
             return;
-        _stun.TryKnockdown(args.User.Value, TimeSpan.FromSeconds(component.StunTimeInteract), false);
+        _stun.TryUpdateStunDuration(args.User.Value, TimeSpan.FromSeconds(component.StunTimeInteract)); //при интеракции станим, при ударе морфом клокдауним
         _damageable.TryChangeDamage(args.User, component.DamageOnTouch);
         AmbushBreak(uid);
     }
