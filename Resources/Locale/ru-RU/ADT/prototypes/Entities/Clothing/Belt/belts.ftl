@@ -60,3 +60,5 @@ ent-ADTBureaucraticBelt = бюрократический пояс
 
 ent-ADTClothingBeltSheathZero = { ent-ADTClothingBeltSheathZeroFilled }
     .desc = { ent-ADTClothingBeltSheathZeroFilled.desc }
+ent-ADTClothingChemdisBelt = химразпояс 4000
+    .desc = Крайне компактная версия утаревшего ныне химического раздатчика, сделанная для переноски химикатов в кувшинах.

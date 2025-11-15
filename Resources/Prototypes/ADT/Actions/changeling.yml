@@ -207,8 +207,6 @@
       sprite: ADT/Changeling/Actions/actions_ling.rsi
       state: armblade
     itemIconStyle: BigAction
-    checkCanInteract: false
-    checkConsciousness: false
     useDelay: 1
     priority: -50
   - type: InstantAction
@@ -259,8 +257,6 @@
       sprite: ADT/Changeling/Actions/actions_ling.rsi
       state: armhammer
     itemIconStyle: BigAction
-    checkCanInteract: false
-    checkConsciousness: false
     useDelay: 1
     priority: -51
   - type: InstantAction
