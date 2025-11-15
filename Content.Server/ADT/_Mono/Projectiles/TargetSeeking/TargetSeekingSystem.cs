@@ -19,6 +19,7 @@ public sealed class TargetSeekingSystem : EntitySystem
     {
         base.Initialize();
         SubscribeLocalEvent<TargetSeekingComponent, ProjectileHitEvent>(OnProjectileHit);
+        SubscribeLocalEvent<TargetSeekingComponent, EntParentChangedMessage>(OnParentChanged);
     }
 
     /// <summary>
@@ -34,6 +35,30 @@ public sealed class TargetSeekingSystem : EntitySystem
 
         // Reset the target since we've hit something
         component.CurrentTarget = null;
+    }
+
+    /// <summary>
+    /// Called when a target-seeking projectile changes parent (e.g., enters a grid).
+    /// </summary>
+    private void OnParentChanged(EntityUid uid, TargetSeekingComponent component, EntParentChangedMessage args)
+    {
+        // Check if the projectile has entered a grid
+        if (args.Transform.GridUid == null)
+            return;
+
+        // Get the shooter's grid to compare
+        if (!TryComp<ProjectileComponent>(uid, out var projectile) ||
+            !TryComp<TransformComponent>(projectile.Shooter, out var shooterTransform))
+            return;
+
+        var shooterGridUid = shooterTransform.GridUid;
+        var currentGridUid = args.Transform.GridUid;
+
+        // If we've entered a different grid than the shooter's grid, disable seeking
+        if (currentGridUid != shooterGridUid)
+        {
+            component.SeekingDisabled = true;
+        }
     }
 
     public override void Update(float frameTime)
@@ -61,6 +86,10 @@ public sealed class TargetSeekingSystem : EntitySystem
 
             // Apply velocity in the direction the projectile is facing
             _physics.SetLinearVelocity(uid, _transform.GetWorldRotation(xform).ToWorldVec() * seekingComp.CurrentSpeed);
+
+            // Skip seeking behavior if disabled (e.g., after entering an enemy grid)
+            if (seekingComp.SeekingDisabled)
+                continue;
 
             // If we have a target, track it using the selected algorithm
             if (seekingComp.CurrentTarget.HasValue)

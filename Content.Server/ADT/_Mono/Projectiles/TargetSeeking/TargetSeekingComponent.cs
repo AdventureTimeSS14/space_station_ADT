@@ -77,6 +77,11 @@ public sealed partial class TargetSeekingComponent : Component
     /// Previous position of the target, used for velocity calculation.
     /// </summary>
     public Vector2 PreviousTargetPosition;
+
+    /// <summary>
+    /// Whether seeking has been disabled (e.g., after entering an enemy grid).
+    /// </summary>
+    public bool SeekingDisabled;
 }
 
 /// <summary>
