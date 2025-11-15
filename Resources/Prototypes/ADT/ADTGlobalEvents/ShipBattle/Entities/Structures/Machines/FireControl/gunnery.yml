@@ -8,8 +8,8 @@
     sprite: Structures/Machines/telecomms.rsi
     snapCardinals: true
     layers:
-    - state: icon
-    - state: unlit
+    - state: telecom-nopower
+    - state: telecom-on
       shader: unshaded
       map: ["enum.PowerDeviceVisualLayers.Powered"]
   - type: FireControlServer
