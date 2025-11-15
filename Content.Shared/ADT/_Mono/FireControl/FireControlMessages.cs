@@ -48,6 +48,28 @@ public sealed class FireControlConsoleFireMessage : BoundUserInterfaceMessage
     }
 }
 
+/// <summary>
+/// Event raised when a fire control console wants to fire weapons at specific coordinates.
+/// Used for tracking cursor position.
+/// </summary>
+public sealed class FireControlConsoleFireEvent : EntityEventArgs
+{
+    /// <summary>
+    /// The coordinates of the cursor/firing position
+    /// </summary>
+    public NetCoordinates Coordinates;
+
+    /// <summary>
+    /// The weapons selected to fire
+    /// </summary>
+    public List<NetEntity> Selected;
+
+    public FireControlConsoleFireEvent(NetCoordinates coordinates, List<NetEntity> selected)
+    {
+        Coordinates = coordinates;
+        Selected = selected;
+    }
+}
 
 [Serializable, NetSerializable]
 public struct FireControllableEntry

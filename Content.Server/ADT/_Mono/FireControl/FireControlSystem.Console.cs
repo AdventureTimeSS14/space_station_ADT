@@ -51,8 +51,12 @@ public sealed partial class FireControlSystem : EntitySystem
     {
         if (component.ConnectedServer == null || !TryComp<FireControlServerComponent>(component.ConnectedServer, out var server))
             return;
-
+        // Fire the actual weapons
         FireWeapons((EntityUid)component.ConnectedServer, args.Selected, args.Coordinates, server);
+
+        // Raise an event to track the cursor position even when not firing
+        var fireEvent = new FireControlConsoleFireEvent(args.Coordinates, args.Selected);
+        RaiseLocalEvent(uid, fireEvent);
     }
 
     public void OnUIOpened(EntityUid uid, FireControlConsoleComponent component, BoundUIOpenedEvent args)

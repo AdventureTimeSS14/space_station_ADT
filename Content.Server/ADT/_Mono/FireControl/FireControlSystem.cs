@@ -27,6 +27,7 @@ public sealed partial class FireControlSystem : EntitySystem
         SubscribeLocalEvent<FireControllableComponent, ComponentShutdown>(OnControllableShutdown);
 
         InitializeConsole();
+        InitializeTargetGuided();
     }
 
     private void OnPowerChanged(EntityUid uid, FireControlServerComponent component, PowerChangedEvent args)

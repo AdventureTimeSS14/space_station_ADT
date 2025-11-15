@@ -56,6 +56,10 @@ public sealed class FireControlNavControl : BaseShuttleControl
     public bool ShowIFF { get; set; } = true;
     public bool RotateWithEntity { get; set; } = true;
 
+    // Add a limit to how often we update the cursor position to prevent network spam
+    private float _lastCursorUpdateTime = 0f;
+    private const float CursorUpdateInterval = 0.1f; // 10 updates per second
+
     public FireControlNavControl() : base(64f, 512f, 512f)
     {
         IoCManager.InjectDependencies(this);
@@ -74,6 +78,9 @@ public sealed class FireControlNavControl : BaseShuttleControl
         if (_isMouseInside)
         {
             _lastMousePos = args.RelativePosition;
+
+            // Continuously update the cursor position for guided missiles
+            TryUpdateCursorPosition(_lastMousePos);
         }
     }
 
@@ -479,4 +486,30 @@ public sealed class FireControlNavControl : BaseShuttleControl
     {
         _selectedWeapons = selectedWeapons;
     }
+
+    private void TryUpdateCursorPosition(Vector2 relativePosition)
+    {
+        var currentTime = IoCManager.Resolve<IGameTiming>().CurTime.TotalSeconds;
+        if (currentTime - _lastCursorUpdateTime < CursorUpdateInterval)
+            return;
+
+        _lastCursorUpdateTime = (float)currentTime;
+
+        // Convert mouse position to world coordinates for missile tracking
+        if (_coordinates == null || _rotation == null || OnRadarClick == null)
+            return;
+
+        var a = InverseScalePosition(relativePosition);
+        var relativeWorldPos = new Vector2(a.X, -a.Y);
+        relativeWorldPos = _rotation.Value.RotateVec(relativeWorldPos);
+        var coords = _coordinates.Value.Offset(relativeWorldPos);
+
+        // This will update the server of our cursor position without triggering actual firing
+        OnRadarClick?.Invoke(coords);
+    }
+
+    /// <summary>
+    /// Returns true if the mouse button is currently pressed down
+    /// </summary>
+    public bool IsMouseDown() => _isMouseDown;
 }
