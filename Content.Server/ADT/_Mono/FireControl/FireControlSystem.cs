@@ -10,6 +10,7 @@ using Content.Shared.Physics;
 using System.Numerics;
 using Content.Server.Power.EntitySystems;
 using Robust.Shared.Timing;
+using Content.Shared.Interaction;
 
 namespace Content.Server.ADT._Mono.FireControl;
 
@@ -20,6 +21,7 @@ public sealed partial class FireControlSystem : EntitySystem
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly PowerReceiverSystem _power = default!;
+    [Dependency] private readonly RotateToFaceSystem _rotateToFace = default!;
 
     /// <summary>
     /// Dictionary of entities that have visualization enabled
@@ -233,31 +235,36 @@ public sealed partial class FireControlSystem : EntitySystem
         foreach (var weapon in weapons)
         {
             var localWeapon = GetEntity(weapon);
-            if (!component.Controlled.Contains(localWeapon))
+            if (!Exists(localWeapon) || !component.Controlled.Contains(localWeapon))
                 continue;
 
             if (!TryComp<GunComponent>(localWeapon, out var gun))
                 continue;
 
-            // Check if the weapon is still on the same grid as the GCS server
-            var weaponGrid = _xform.GetGrid(localWeapon);
-            if (weaponGrid != component.ConnectedGrid)
+            if (TryComp<TransformComponent>(localWeapon, out var weaponXform))
             {
                 // Weapon is no longer on the same grid as GCS - unregister it and skip firing
-                if (TryComp<FireControllableComponent>(localWeapon, out var controllableComp))
+                var currentMapCoords = _xform.GetMapCoordinates(localWeapon, weaponXform);
+                var destinationMapCoords = targetCoords.ToMap(EntityManager, _xform);
+
+                if (destinationMapCoords.MapId == currentMapCoords.MapId && currentMapCoords.MapId != MapId.Nullspace)
                 {
-                    Unregister(localWeapon, controllableComp);
+                    var diff = destinationMapCoords.Position - currentMapCoords.Position;
+                    if (diff.LengthSquared() > 0.01f)
+                    {
+                        var goalAngle = Angle.FromWorldVec(diff);
+                        _rotateToFace.TryRotateTo(localWeapon, goalAngle, 0f, Angle.FromDegrees(1), float.MaxValue, weaponXform);
+                    }
                 }
-                continue;
             }
 
-            var weaponXform = Transform(localWeapon);
+            var weaponX = Transform(localWeapon);
             var targetPos = targetCoords.ToMap(EntityManager, _xform);
 
-            if (targetPos.MapId != weaponXform.MapID)
+            if (targetPos.MapId != weaponX.MapID)
                 continue;
 
-            var weaponPos = _xform.GetWorldPosition(weaponXform);
+            var weaponPos = _xform.GetWorldPosition(weaponX);
 
             // Get direction to target
             var direction = (targetPos.Position - weaponPos);
@@ -268,7 +275,7 @@ public sealed partial class FireControlSystem : EntitySystem
             direction = Vector2.Normalize(direction);
 
             // Check for obstacles in the firing direction
-            if (!CanFireInDirection(localWeapon, weaponPos, direction, targetPos.Position, weaponXform.MapID))
+            if (!CanFireInDirection(localWeapon, weaponPos, direction, targetPos.Position, weaponX.MapID))
                 continue;
 
             // If we can fire, fire the weapon
