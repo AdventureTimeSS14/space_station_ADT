@@ -96,7 +96,7 @@ public sealed class FireControlVisualizerSystem : EntitySystem
                 var position = _transformSystem.GetWorldPosition(transform);
 
                 // Draw a small circle at the weapon position
-                handle.DrawCircle(position, 0.3f, Color.Yellow, true);
+                handle.DrawCircle(position, 0.2f, Color.Yellow, true);
 
                 // Draw rays for each direction
                 foreach (var (angle, canFire) in data.Directions)
@@ -106,7 +106,7 @@ public sealed class FireControlVisualizerSystem : EntitySystem
 
                     // Calculate end point (25 units length)
                     var direction = new Vector2((float)Math.Cos(radians), (float)Math.Sin(radians));
-                    var endPoint = position + direction * 25f;
+                    var endPoint = position + direction * 50f;
 
                     // Choose color based on whether firing is possible
                     var color = canFire ? Color.Green : Color.Red;

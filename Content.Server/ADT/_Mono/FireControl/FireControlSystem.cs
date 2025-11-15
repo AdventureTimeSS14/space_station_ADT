@@ -451,7 +451,7 @@ public sealed partial class FireControlSystem : EntitySystem
     /// <param name="maxDistance">Maximum raycast distance in meters</param>
     /// <param name="rayCount">Number of rays to cast around the entity</param>
     /// <returns>Dictionary mapping directions (angles in degrees) to whether they're clear for firing</returns>
-    public Dictionary<float, bool> CheckAllDirections(EntityUid weapon, float maxDistance = 25f, int rayCount = 32)
+    public Dictionary<float, bool> CheckAllDirections(EntityUid weapon, float maxDistance = 50f, int rayCount = 128)
     {
         var directions = new Dictionary<float, bool>();
 
