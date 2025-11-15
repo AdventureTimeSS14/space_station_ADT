@@ -26,3 +26,38 @@
       lifetime: 60
     - type: PointLight
       color: "#FB00FF"
+
+- type: entity
+  id: ADTShipRailgunProjectile
+  name: 280mm slug
+  parent: BaseBulletTrigger
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Structural: 2500
+        Blunt: 10000
+        Heat: 10000
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
+    layers:
+    - state: omnilaser
+  - type: Ammo
+    muzzleFlash: null
+  - type: ShipWeaponProjectile
+  - type: RadarBlip
+    scale: 3
+    requireNoGrid: true
+    shape: triangle
+  - type: TimedDespawn
+    lifetime: 60
+  - type: PointLight
+    color: "#19AFFF"
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Cryo
+    maxIntensity: 700
+    intensitySlope: 10
+    totalIntensity: 600
+    maxTileBreak: 5

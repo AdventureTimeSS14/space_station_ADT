@@ -75,6 +75,26 @@ public sealed partial class RadarBlipSystem : EntitySystem
                     // For free-floating blips without a grid, use world position with null grid
                     blips.Add((null, blipPosition, blip.Scale, blip.RadarColor, blip.Shape));
                 }
+                else if (blip.VisibleFromOtherGrids)
+                {
+                    // For blips that should be visible from other grids, add them regardless of grid
+                    // If on a grid, use grid-relative coordinates
+                    if (blipGrid != null)
+                    {
+                        // Local position relative to grid
+                        var gridMatrix = _xform.GetWorldMatrix(blipGrid.Value);
+                        Matrix3x2.Invert(gridMatrix, out var invGridMatrix);
+                        var localPos = Vector2.Transform(blipPosition, invGridMatrix);
+
+                        // Add grid-relative blip with grid entity ID
+                        blips.Add((GetNetEntity(blipGrid.Value), localPos, blip.Scale, blip.RadarColor, blip.Shape));
+                    }
+                    else
+                    {
+                        // Fallback to world position with null grid
+                        blips.Add((null, blipPosition, blip.Scale, blip.RadarColor, blip.Shape));
+                    }
+                }
                 else
                 {
                     // If we're requiring grid, make sure they're on the same grid
