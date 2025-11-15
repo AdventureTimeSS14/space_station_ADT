@@ -19,20 +19,6 @@ public sealed class TargetSeekingSystem : EntitySystem
     {
         base.Initialize();
         SubscribeLocalEvent<TargetSeekingComponent, ProjectileHitEvent>(OnProjectileHit);
-        SubscribeLocalEvent<TargetSeekingComponent, ComponentInit>(OnComponentInit);
-    }
-
-    /// <summary>
-    /// Initialize the target seeking component with information about its origin grid.
-    /// </summary>
-    private void OnComponentInit(EntityUid uid, TargetSeekingComponent component, ComponentInit args)
-    {
-        if (TryComp<ProjectileComponent>(uid, out var projectile) &&
-            projectile.Shooter.HasValue &&
-            TryComp<TransformComponent>(projectile.Shooter.Value, out var shooterTransform))
-        {
-            component.OriginGridUid = shooterTransform.GridUid;
-        }
     }
 
     /// <summary>
@@ -103,86 +89,72 @@ public sealed class TargetSeekingSystem : EntitySystem
     {
         var closestDistance = float.MaxValue;
         EntityUid? bestTarget = null;
-        TransformComponent? bestTargetXform = null;
 
         // Look for shuttles to target
         var shuttleQuery = EntityQueryEnumerator<ShuttleConsoleComponent, TransformComponent>();
 
         while (shuttleQuery.MoveNext(out var targetUid, out _, out var targetXform))
         {
-            EntityUid effectiveTargetToConsider;
-            TransformComponent currentCandidateXform;
+            // If this entity has a grid UID, use that as our actual target
+            // This targets the ship grid rather than just the console
+            var actualTarget = targetXform.GridUid ?? targetUid;
 
-            if (targetXform.GridUid.HasValue)
-            {
-                effectiveTargetToConsider = targetXform.GridUid.Value;
-                if (!TryComp<TransformComponent>(effectiveTargetToConsider, out var gridXform))
-                {
-                    continue;
-                }
-                currentCandidateXform = gridXform;
-            }
-            else
-            {
-                effectiveTargetToConsider = targetUid;
-                currentCandidateXform = targetXform;
-            }
-
-            if (component.OriginGridUid.HasValue &&
-                effectiveTargetToConsider == component.OriginGridUid.Value)
-            {
-                continue;
-            }
-
-            var targetPos = _transform.ToMapCoordinates(currentCandidateXform.Coordinates).Position;
+            // Get angle to the target
+            var targetPos = _transform.ToMapCoordinates(targetXform.Coordinates).Position;
             var sourcePos = _transform.ToMapCoordinates(transform.Coordinates).Position;
             var angleToTarget = (targetPos - sourcePos).ToWorldAngle();
 
+            // Get current direction of the projectile
             var currentRotation = _transform.GetWorldRotation(transform);
 
+            // Check if target is within field of view
             var angleDifference = Angle.ShortestDistance(currentRotation, angleToTarget).Degrees;
             if (MathF.Abs((float)angleDifference) > component.FieldOfView / 2)
             {
-                continue;
+                continue; // Target is outside our field of view
             }
 
+            // Calculate distance to target
             var distance = Vector2.Distance(sourcePos, targetPos);
 
+            // Skip if target is out of range
             if (distance > component.DetectionRange)
             {
                 continue;
             }
 
+            // Skip if the target is our own launcher (don't target our own ship)
+            if (TryComp<ProjectileComponent>(uid, out var projectile) &&
+                TryComp<TransformComponent>(projectile.Shooter, out var shooterTransform))
+            {
+                var shooterGridUid = shooterTransform.GridUid;
+
+                // If the shooter is on the same grid as this potential target, skip it
+                if (targetXform.GridUid.HasValue && shooterGridUid == targetXform.GridUid)
+                {
+                    continue;
+                }
+            }
+
+            // If this is closer than our previous best target, update
             if (closestDistance > distance)
             {
                 closestDistance = distance;
-                bestTarget = effectiveTargetToConsider;
-                bestTargetXform = currentCandidateXform;
+                bestTarget = actualTarget;
             }
         }
 
-        if (bestTarget.HasValue && bestTargetXform != null)
+        // Set our new target
+        if (bestTarget.HasValue)
         {
             component.CurrentTarget = bestTarget;
-            component.PreviousTargetPosition = _transform.ToMapCoordinates(bestTargetXform.Coordinates).Position;
-            component.PreviousDistance = closestDistance;
-        }
-        else if (bestTarget.HasValue && bestTargetXform == null)
-        {
-            if (TryComp<TransformComponent>(bestTarget.Value, out var recoveredXform))
+
+            // Initialize tracking data
+            if (TryComp<TransformComponent>(bestTarget, out var targetXform))
             {
-                component.CurrentTarget = bestTarget;
-                component.PreviousTargetPosition = _transform.ToMapCoordinates(recoveredXform.Coordinates).Position;
+                component.PreviousTargetPosition = _transform.ToMapCoordinates(targetXform.Coordinates).Position;
                 component.PreviousDistance = closestDistance;
             }
-            else
-            {
-                component.CurrentTarget = null;
-            }
-        }
-        else
-        {
-            component.CurrentTarget = null;
         }
     }
 
