@@ -61,3 +61,47 @@
     intensitySlope: 10
     totalIntensity: 600
     maxTileBreak: 5
+
+# ASM-302
+
+- type: entity
+  id: ADTShipMissileASM302
+  name: ASM-302 missile
+  parent: BaseBulletTrigger
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Structural: 500
+        Blunt: 125
+        Heat: 30
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+    - state: frag
+  - type: Ammo
+    muzzleFlash: null
+  - type: ShipWeaponProjectile
+  - type: RadarBlip
+    scale: 1
+    requireNoGrid: true
+    shape: triangle
+  - type: TimedDespawn
+    lifetime: 15
+  - type: PointLight
+    radius: 3.5
+    color: orange
+    energy: 0.5
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+    totalIntensity: 65
+    intensitySlope: 5
+    maxIntensity: 25
+  - type: TargetSeeking
+    acceleration: 20
+    detectionRange: 800
+    scanArc: 65
+    launchSpeed: 60
+    maxSpeed: 140

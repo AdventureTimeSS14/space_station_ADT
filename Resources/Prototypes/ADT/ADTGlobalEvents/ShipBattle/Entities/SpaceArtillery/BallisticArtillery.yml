@@ -230,6 +230,68 @@
   - type: ShipGunType
     shipType: Ballistic
 
+# Launcher
+
+- type: entity
+  id: ADTWeaponTurretVanyk
+  name: ASM-302 pod
+  parent: ADTBallisticArtillery
+  description: A basic guided missile pod. Can be remotely activated, or linked up to a GCS.
+  components:
+  - type: StaticPrice
+    price: 2250
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/ShipBattle/Objects/ShuttleWeapons/vanyk.rsi
+    layers:
+    - state: space_artillery
+  - type: Appearance
+  - type: AmmoCounter
+  - type: Battery
+    maxCharge: 40000
+    startingCharge: 40000
+  - type: ExaminableBattery
+  - type: WirelessNetworkConnection
+    range: 500
+  - type: Gun
+    fireRate: 1
+    projectileSpeed: 80
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/rocket_launcher.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/EmptyAlarm/smg_empty_alarm.ogg
+  - type: SpaceArtillery
+    powerChargeRate: 250
+    powerUsePassive: 200
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 350
+  - type: Actions
+  - type: ProjectileBatteryAmmoProvider
+    proto: ADTShipMissileASM302
+    fireCost: 300
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1200
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 800
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+  - type: RadarBlip
+    radarColor: "#FCBA03"
+    scale: 1
+  - type: ShipGunType
+    shipType: Missile
+
 # Base
 
 - type: entity
