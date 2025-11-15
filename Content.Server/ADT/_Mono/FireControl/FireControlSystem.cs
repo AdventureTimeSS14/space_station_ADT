@@ -150,8 +150,7 @@ public sealed partial class FireControlSystem : EntitySystem
         // Clear the server's state
         component.Controlled.Clear();
         component.Consoles.Clear();
-        component.ConnectedGrid = null;
-        component.UsedProcessingPower = 0;
+        component.ConnectedGrid = null; 
     }
 
     public void RefreshControllables(EntityUid grid, FireControlGridComponent? component = null)
