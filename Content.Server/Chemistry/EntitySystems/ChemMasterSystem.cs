@@ -808,6 +808,13 @@ namespace Content.Server.Chemistry.EntitySystems
                 UpdateSelectedReagentAmountsAfterWithdrawal(chemMaster, withdrawnAmountsDict, bufferSolution);
 
                 // Create pills with proportional reagent distribution
+                // Calculate per-pill amounts for each reagent to avoid rounding errors from multiple SplitSolution calls
+                var perPillAmounts = new Dictionary<ReagentId, FixedPoint2>();
+                foreach (var (reagent, totalAmount) in proportionalAmounts)
+                {
+                    perPillAmounts[reagent] = totalAmount / actualPillsToCreate;
+                }
+
                 var pillIndex = 0;
 
                 foreach (var (container, startSlot) in availableSlots)
@@ -833,9 +840,14 @@ namespace Content.Server.Chemistry.EntitySystems
                         if (!hasItemSolution || itemSolution is null)
                             continue;
 
-                        // Split the withdrawal solution proportionally for this pill
-                        // Each pill gets message.Dosage amount with proportional reagent distribution
-                        var pillSolution = withdrawalSolution.SplitSolution(message.Dosage);
+                        // Create a new solution for this pill with exact proportional amounts
+                        var pillSolution = new Solution();
+                        foreach (var (reagent, amountPerPill) in perPillAmounts)
+                        {
+                            pillSolution.AddReagent(reagent, amountPerPill);
+                        }
+                        pillSolution.Temperature = withdrawalSolution.Temperature;
+
                         _solutionContainerSystem.TryAddSolution(itemSolution.Value, pillSolution);
 
                         var pill = EnsureComp<PillComponent>(item);
@@ -885,6 +897,13 @@ namespace Content.Server.Chemistry.EntitySystems
                 if (!WithdrawSelectedReagentsFromBuffer(chemMaster, totalNeeded, user, out var withdrawal))
                     return;
 
+                // Calculate per-pill amounts for each reagent to avoid rounding errors
+                var perPillReagents = new Dictionary<ReagentId, FixedPoint2>();
+                foreach (var (reagent, quantity) in withdrawal.Contents)
+                {
+                    perPillReagents[reagent] = quantity / actualPillsToCreate;
+                }
+
                 // Create pills that fit in canisters
                 var pillIndex = 0;
 
@@ -911,7 +930,15 @@ namespace Content.Server.Chemistry.EntitySystems
                         if (!hasItemSolution || itemSolution is null)
                             continue;
 
-                        _solutionContainerSystem.TryAddSolution(itemSolution.Value, withdrawal.SplitSolution(message.Dosage));
+                        // Create a new solution for this pill with exact proportional amounts
+                        var pillSolution = new Solution();
+                        foreach (var (reagent, amountPerPill) in perPillReagents)
+                        {
+                            pillSolution.AddReagent(reagent, amountPerPill);
+                        }
+                        pillSolution.Temperature = withdrawal.Temperature;
+
+                        _solutionContainerSystem.TryAddSolution(itemSolution.Value, pillSolution);
 
                         var pill = EnsureComp<PillComponent>(item);
                         pill.PillType = chemMaster.Comp.PillType;
@@ -958,10 +985,6 @@ namespace Content.Server.Chemistry.EntitySystems
             // Use reagent amounts if available, otherwise fall back to selected reagents
             if (chemMaster.Comp.SelectedReagentAmounts.Count > 0)
             {
-                // Create bottles using exact reagent amounts
-                if (!WithdrawReagentAmountsFromBuffer(chemMaster, chemMaster.Comp.SelectedReagentAmounts, user, out var withdrawal))
-                    return;
-
                 // Calculate total volume for dosage calculation
                 var totalVolume = FixedPoint2.Zero;
                 foreach (var amount in chemMaster.Comp.SelectedReagentAmounts.Values)
@@ -970,13 +993,17 @@ namespace Content.Server.Chemistry.EntitySystems
                 }
 
                 // Calculate how many bottles we can create based on available volume and dosage
-                var possibleBottles = (int)(totalVolume / message.Dosage);
-                var bottlesToCreate = Math.Min(possibleBottles, (int)message.Number);
+                var bottlesToCreate = (int)message.Number;
+                if (message.Dosage * message.Number > totalVolume)
+                {
+                    var possibleBottles = (int)(totalVolume / message.Dosage);
+                    bottlesToCreate = Math.Min(possibleBottles, (int)message.Number);
+                }
 
                 if (bottlesToCreate == 0)
                     return;
 
-                // ADT-Tweak Start: Bottle buttons reagent transfer
+                // ADT-Tweak Start: Find available empty bottles FIRST, before withdrawing reagents
                 // Build a list of eligible target bottles in slot order.
                 // Preference: EMPTY bottles only (do not touch previously-filled bottles).
                 var targets = new List<EntityUid>(capacity: bottlesToCreate);
@@ -994,17 +1021,101 @@ namespace Content.Server.Chemistry.EntitySystems
                         targets.Add(ent.Value);
                 }
 
-                // If there are fewer empty bottles than requested, only fill what we can.
-                if (targets.Count == 0)
+                // Only create bottles that can fit in available slots
+                var actualBottlesToCreate = Math.Min(bottlesToCreate, targets.Count);
+
+                if (actualBottlesToCreate == 0)
                 {
                     _popupSystem.PopupCursor(Loc.GetString("chem-master-bottles-created",
                         ("created", 0), ("requested", (int)message.Number)), user);
                     return;
                 }
 
-                var actualCount = Math.Min(bottlesToCreate, targets.Count);
+                // Calculate total amount needed based on message.Number and message.Dosage
+                // This is the exact amount that will be removed from buffer and selected reagents
+                // Even if we can't create all bottles due to slot limitations, we remove based on requested amount
+                var totalNeeded = FixedPoint2.New((int)message.Number * message.Dosage);
 
-                for (int i = 0; i < actualCount; i++)
+                // Calculate total selected reagent amount to determine proportions
+                var totalSelectedAmount = FixedPoint2.Zero;
+                foreach (var amount in chemMaster.Comp.SelectedReagentAmounts.Values)
+                {
+                    totalSelectedAmount += FixedPoint2.New(amount);
+                }
+
+                if (totalSelectedAmount <= 0)
+                    return;
+
+                // Calculate proportional amounts for each reagent based on their percentage in selected amounts
+                // This distributes totalNeeded proportionally among all selected reagents
+                var proportionalAmounts = new Dictionary<ReagentId, FixedPoint2>();
+                var totalCalculated = FixedPoint2.Zero;
+
+                foreach (var (reagent, selectedAmount) in chemMaster.Comp.SelectedReagentAmounts)
+                {
+                    // Calculate percentage: selectedAmount / totalSelectedAmount
+                    var percentage = FixedPoint2.New(selectedAmount) / totalSelectedAmount;
+                    // Calculate proportional amount: totalNeeded * percentage
+                    var proportionalAmount = totalNeeded * percentage;
+                    proportionalAmounts[reagent] = proportionalAmount;
+                    totalCalculated += proportionalAmount;
+                }
+
+                // Rounding adjustment: if there's a small difference due to rounding, adjust the last reagent
+                var difference = totalNeeded - totalCalculated;
+                if (difference != FixedPoint2.Zero && proportionalAmounts.Count > 0)
+                {
+                    var lastReagent = proportionalAmounts.Keys.Last();
+                    proportionalAmounts[lastReagent] += difference;
+                }
+
+                // Withdraw proportional amounts from buffer
+                if (!_solutionContainerSystem.TryGetSolution(chemMaster.Owner, SharedChemMaster.BufferSolutionName, out _, out var bufferSolution))
+                    return;
+
+                if (bufferSolution.Volume == 0)
+                {
+                    _popupSystem.PopupCursor(Loc.GetString("chem-master-window-buffer-empty-text"), user);
+                    return;
+                }
+
+                // Check if all reagents are available in sufficient quantities
+                foreach (var (reagent, neededAmount) in proportionalAmounts)
+                {
+                    var available = bufferSolution.GetReagentQuantity(reagent);
+                    if (available < neededAmount)
+                    {
+                        _popupSystem.PopupCursor(Loc.GetString("chem-master-window-buffer-low-text"), user);
+                        return;
+                    }
+                }
+
+                // Create a solution with proportional reagent amounts
+                var withdrawalSolution = new Solution();
+                var withdrawnAmountsDict = new Dictionary<ReagentId, float>();
+
+                foreach (var (reagent, neededAmount) in proportionalAmounts)
+                {
+                    // Remove reagent from buffer - this returns the actual amount removed
+                    var actualAmount = bufferSolution.RemoveReagent(reagent, neededAmount, preserveOrder: true);
+                    withdrawalSolution.AddReagent(reagent, actualAmount);
+
+                    // Store the actual amount withdrawn (not the requested amount) for updating SelectedReagentAmounts
+                    withdrawnAmountsDict[reagent] = (int)actualAmount;
+                }
+
+                // Update selected reagent amounts after withdrawal - use actual amounts withdrawn
+                UpdateSelectedReagentAmountsAfterWithdrawal(chemMaster, withdrawnAmountsDict, bufferSolution);
+
+                // Create bottles with proportional reagent distribution
+                // Calculate per-bottle amounts for each reagent to avoid rounding errors from multiple SplitSolution calls
+                var perBottleAmounts = new Dictionary<ReagentId, FixedPoint2>();
+                foreach (var (reagent, totalAmount) in proportionalAmounts)
+                {
+                    perBottleAmounts[reagent] = totalAmount / actualBottlesToCreate;
+                }
+
+                for (int i = 0; i < actualBottlesToCreate; i++)
                 {
                     var bottle = targets[i];
                     if (!_solutionContainerSystem.TryGetSolution(bottle, SharedChemMaster.BottleSolutionName, out var soln, out var solution))
@@ -1015,8 +1126,14 @@ namespace Content.Server.Chemistry.EntitySystems
 
                     _labelSystem.Label(bottle, message.Label);
 
-                    // Split the withdrawal solution for this bottle
-                    var bottleSolution = withdrawal.SplitSolution(message.Dosage);
+                    // Create a new solution for this bottle with exact proportional amounts
+                    var bottleSolution = new Solution();
+                    foreach (var (reagent, amountPerBottle) in perBottleAmounts)
+                    {
+                        bottleSolution.AddReagent(reagent, amountPerBottle);
+                    }
+                    bottleSolution.Temperature = withdrawalSolution.Temperature;
+
                     _solutionContainerSystem.TryAddSolution(soln.Value, bottleSolution);
 
                     // Log bottle fill by a user
@@ -1025,16 +1142,15 @@ namespace Content.Server.Chemistry.EntitySystems
                 }
 
                 // Show message if fewer bottles were created than requested
-                if (actualCount < (int)message.Number)
+                if (actualBottlesToCreate < (int)message.Number)
                 {
                     _popupSystem.PopupCursor(Loc.GetString("chem-master-bottles-created",
-                        ("created", actualCount), ("requested", (int)message.Number)), user);
+                        ("created", actualBottlesToCreate), ("requested", (int)message.Number)), user);
                 }
             }
             else
             {
-                // Fall back to original logic if no reagent amounts are selected
-                // ADT-Tweak Start: Bottle buttons reagent transfer
+                // ADT-Tweak Start: Find available empty bottles FIRST, before withdrawing reagents
                 // Build a list of eligible target bottles in slot order.
                 // Preference: EMPTY bottles only (do not touch previously-filled bottles).
                 var targets = new List<EntityUid>(capacity: (int)message.Number);
@@ -1052,21 +1168,30 @@ namespace Content.Server.Chemistry.EntitySystems
                         targets.Add(ent.Value);
                 }
 
-                // If there are fewer empty bottles than requested, only fill what we can.
-                if (targets.Count == 0)
+                // Only create bottles that can fit in available slots
+                var actualBottlesToCreate = Math.Min((int)message.Number, targets.Count);
+
+                if (actualBottlesToCreate == 0)
                 {
                     _popupSystem.PopupCursor(Loc.GetString("chem-master-bottles-created",
                         ("created", 0), ("requested", (int)message.Number)), user);
                     return;
                 }
 
-                var actualCount = (uint)Math.Min((int)message.Number, targets.Count);
-                var needed = message.Dosage * actualCount;
+                // Calculate total reagent volume needed based on actual bottles we can create
+                var needed = message.Dosage * actualBottlesToCreate;
 
                 if (!WithdrawSelectedReagentsFromBuffer(chemMaster, needed, user, out var withdrawal))
                     return;
 
-                for (int i = 0; i < actualCount; i++)
+                // Calculate per-bottle amounts for each reagent to avoid rounding errors
+                var perBottleReagents = new Dictionary<ReagentId, FixedPoint2>();
+                foreach (var (reagent, quantity) in withdrawal.Contents)
+                {
+                    perBottleReagents[reagent] = quantity / actualBottlesToCreate;
+                }
+
+                for (int i = 0; i < actualBottlesToCreate; i++)
                 {
                     var bottle = targets[i];
                     if (!_solutionContainerSystem.TryGetSolution(bottle, SharedChemMaster.BottleSolutionName, out var soln, out var solution))
@@ -1076,7 +1201,16 @@ namespace Content.Server.Chemistry.EntitySystems
                         continue;
 
                     _labelSystem.Label(bottle, message.Label);
-                    _solutionContainerSystem.TryAddSolution(soln.Value, withdrawal.SplitSolution(message.Dosage));
+
+                    // Create a new solution for this bottle with exact proportional amounts
+                    var bottleSolution = new Solution();
+                    foreach (var (reagent, amountPerBottle) in perBottleReagents)
+                    {
+                        bottleSolution.AddReagent(reagent, amountPerBottle);
+                    }
+                    bottleSolution.Temperature = withdrawal.Temperature;
+
+                    _solutionContainerSystem.TryAddSolution(soln.Value, bottleSolution);
 
                     // Log bottle fill by a user
                     _adminLogger.Add(LogType.Action, LogImpact.Low,
@@ -1084,10 +1218,10 @@ namespace Content.Server.Chemistry.EntitySystems
                 }
 
                 // Show message if fewer bottles were created than requested
-                if (actualCount < message.Number)
+                if (actualBottlesToCreate < (int)message.Number)
                 {
                     _popupSystem.PopupCursor(Loc.GetString("chem-master-bottles-created",
-                        ("created", (int)actualCount), ("requested", (int)message.Number)), user);
+                        ("created", actualBottlesToCreate), ("requested", (int)message.Number)), user);
                 }
             }
 

@@ -96,73 +96,6 @@
         <BoxContainer Orientation="Vertical" Margin="5 5 7 5" MinSize="300 0">
             <!-- Output TabContainer with vertical orientation -->
             <TabContainer Name="OutputTabs" Margin="0 0 0 0" HorizontalExpand="True" VerticalExpand="True">
-                <!-- Pills Tab -->
-                <BoxContainer Orientation="Vertical" HorizontalExpand="True" Margin="5" SeparationOverride="10">
-                    <!-- Pills Creation Section (Left Side) -->
-                    <BoxContainer Orientation="Vertical" HorizontalExpand="True" Margin="0 0 0 0">
-
-                         <!-- Section Header -->
-                        <BoxContainer Orientation="Horizontal" Margin="0 0 0 8">
-                            <Label Text="{Loc 'chem-master-window-pill-storage-label'}"
-                                   StyleClasses="LabelHeadingBigger"
-                                   HorizontalAlignment="Center"
-                                   HorizontalExpand="True"
-                                   Margin="0 0 0 4" />
-
-                        </BoxContainer>
-
-                        <!-- Main Content Card -->
-                        <PanelContainer VerticalExpand="True" HorizontalAlignment = "Center" Margin="8 0">
-                            <PanelContainer.PanelOverride>
-                                <gfx:StyleBoxFlat BackgroundColor="#1B1B1E" BorderColor="#4A90E2" BorderThickness="2" />
-                            </PanelContainer.PanelOverride>
-
-                            <BoxContainer Orientation="Vertical" Margin="20 15" HorizontalExpand="True" SeparationOverride="15">
-                                <!-- Pills Type Section -->
-                                <BoxContainer Orientation="Horizontal" HorizontalAlignment="Center">
-                                    <Label Text="{Loc 'chem-master-window-pill-type-label'}"/>
-                                    <GridContainer Name="Grid" Columns="10">
-                                        <!-- Pills type buttons are generated in the code -->
-                                    </GridContainer>
-                                </BoxContainer>
-
-                                <!-- Pills Creation Controls -->
-                                <BoxContainer Orientation="Horizontal" HorizontalAlignment="Center">
-                                    <BoxContainer Orientation="Horizontal" HorizontalExpand="True" SeparationOverride="12">
-                                        <Label Text="{Loc 'chem-master-window-number-label'}" Margin="5 0 0 0" StyleClasses="LabelSecondaryColor" HorizontalAlignment = "Left" />
-                                        <SpinBox MinSize="100 0" Name="PillNumber" Access="Public" Value="0" HorizontalAlignment = "Left"/>
-                                        <Label Text="{Loc 'chem-master-window-dose-label'}" Margin="5 0 0 0" StyleClasses="LabelSecondaryColor" HorizontalAlignment = "Left" />
-                                        <SpinBox MinSize="100 0" Name="PillDosage" Access="Public" Value="1" />
-                                    </BoxContainer>
-                                    <Button MinSize="95 0" Name="CreatePillButton" Access="Public"
-                                            Text="{Loc 'chem-master-window-create-button'}"
-                                            StyleClasses="ButtonColorBlue"
-                                            Margin="10 0 0 0" />
-                                </BoxContainer>
-                            </BoxContainer>
-                        </PanelContainer>
-                    </BoxContainer>
-
-                    <BoxContainer Orientation="Vertical">
-
-
-                        <!-- ADT-Tweak: Pill Container Storage Grid (Right Side) -->
-                        <PanelContainer VerticalExpand="True" Margin="8 0" HorizontalAlignment="Center" MinSize="300 0">
-                            <PanelContainer.PanelOverride>
-                                <gfx:StyleBoxFlat BackgroundColor="#1B1B1E" BorderColor="#4A90E2" BorderThickness="2" />
-                            </PanelContainer.PanelOverride>
-
-                            <BoxContainer Orientation="Vertical" Margin="8 8 8 8" HorizontalAlignment="Center">
-                                <!-- Pill Container Storage Grid -->
-                                <GridContainer Name="PillContainerStorageGrid" Columns="12" Margin="8" HorizontalAlignment="Center" VerticalExpand="True">
-                                    <!-- Will be populated in code: choose button, 10 pill buttons, eject button per row -->
-                                </GridContainer>
-                            </BoxContainer>
-                        </PanelContainer>
-                    </BoxContainer>
-
-                </BoxContainer>
-
                 <!-- Bottles Tab -->
                 <BoxContainer Orientation="Vertical" HorizontalExpand="True" Margin="5" SeparationOverride="10">
                     <!-- Enhanced Bottle Creation Section -->
@@ -231,6 +164,88 @@
                             </PanelContainer>
                         </BoxContainer>
                     </PanelContainer>
+                </BoxContainer>
+
+                <!-- Pills Tab -->
+                <BoxContainer Orientation="Vertical" HorizontalExpand="True" Margin="5" SeparationOverride="10">
+                    <!-- Pills Creation Section (Left Side) -->
+
+
+
+
+                    <BoxContainer Orientation="Horizontal" HorizontalExpand="True" VerticalExpand="True">
+                        <!-- Left side Control -->
+                        <PanelContainer VerticalExpand="True" MinWidth="200">
+                            <PanelContainer.PanelOverride>
+                                <gfx:StyleBoxFlat BackgroundColor="#1B1B1E" />
+                            </PanelContainer.PanelOverride>
+                        </PanelContainer>
+
+                        <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True" Margin="0 0 0 0">
+
+                         <!-- Section Header -->
+                        <BoxContainer Orientation="Horizontal" Margin="0 0 0 8">
+                            <Label Text="{Loc 'chem-master-window-pill-storage-label'}"
+                                   StyleClasses="LabelHeadingBigger"
+                                   HorizontalAlignment="Center"
+                                   HorizontalExpand="True"
+                                   Margin="0 0 0 4" />
+
+                        </BoxContainer>
+
+                        <!-- Main Content Card -->
+                        <PanelContainer VerticalExpand="True" HorizontalAlignment = "Stretch" HorizontalExpand="True" Margin="20 10 20 10">
+                            <PanelContainer.PanelOverride>
+                                <gfx:StyleBoxFlat BackgroundColor="#1B1B1E" BorderColor="#4A90E2" BorderThickness="2" />
+                            </PanelContainer.PanelOverride>
+
+                            <BoxContainer Orientation="Vertical" Margin="20 15" HorizontalExpand="True" SeparationOverride="15">
+                                <!-- Pills Type Section -->
+                                <BoxContainer Orientation="Horizontal" HorizontalAlignment="Center">
+                                    <Label Text="{Loc 'chem-master-window-pill-type-label'}"/>
+                                    <GridContainer Name="Grid" Columns="10">
+                                        <!-- Pills type buttons are generated in the code -->
+                                    </GridContainer>
+                                </BoxContainer>
+
+                                <!-- Pills Creation Controls -->
+                                <BoxContainer Orientation="Horizontal" HorizontalAlignment="Center">
+                                    <BoxContainer Orientation="Horizontal" HorizontalExpand="True" SeparationOverride="12">
+                                        <Label Text="{Loc 'chem-master-window-number-label'}" Margin="5 0 0 0" StyleClasses="LabelSecondaryColor" HorizontalAlignment = "Left" />
+                                        <SpinBox MinSize="100 0" Name="PillNumber" Access="Public" Value="0" HorizontalAlignment = "Left"/>
+                                        <Label Text="{Loc 'chem-master-window-dose-label'}" Margin="5 0 0 0" StyleClasses="LabelSecondaryColor" HorizontalAlignment = "Left" />
+                                        <SpinBox MinSize="100 0" Name="PillDosage" Access="Public" Value="1" />
+                                    </BoxContainer>
+                                    <Button MinSize="95 0" Name="CreatePillButton" Access="Public"
+                                            Text="{Loc 'chem-master-window-create-button'}"
+                                            StyleClasses="ButtonColorBlue"
+                                            Margin="10 0 0 0" />
+                                </BoxContainer>
+                            </BoxContainer>
+                        </PanelContainer>
+
+                        <!-- ADT-Tweak: Pill Container Storage Grid (Right Side) -->
+                        <PanelContainer VerticalExpand="True" Margin="20 10 20 10" HorizontalAlignment="Stretch" HorizontalExpand = "True">
+                            <PanelContainer.PanelOverride>
+                                <gfx:StyleBoxFlat BackgroundColor="#1B1B1E" BorderColor="#4A90E2" BorderThickness="2" />
+                            </PanelContainer.PanelOverride>
+
+                            <BoxContainer Orientation="Vertical" Margin="8 8 8 8" HorizontalAlignment="Stretch" HorizontalExpand="True">
+                                <!-- Pill Container Storage Grid -->
+                                <GridContainer Name="PillContainerStorageGrid" Columns="12" Margin="8" HorizontalAlignment="Center" VerticalExpand="True" HorizontalExpand="True">
+                                    <!-- Will be populated in code: choose button, 10 pill buttons, eject button per row -->
+                                </GridContainer>
+                            </BoxContainer>
+                        </PanelContainer>
+                        </BoxContainer>
+
+                        <!-- Right side Control -->
+                        <PanelContainer VerticalExpand="True" MinWidth="200">
+                            <PanelContainer.PanelOverride>
+                                <gfx:StyleBoxFlat BackgroundColor="#1B1B1E" />
+                            </PanelContainer.PanelOverride>
+                        </PanelContainer>
+                    </BoxContainer>
                 </BoxContainer>
             </TabContainer>
         </BoxContainer>

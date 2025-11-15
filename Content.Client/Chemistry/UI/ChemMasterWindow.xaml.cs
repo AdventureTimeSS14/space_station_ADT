@@ -51,7 +51,7 @@ namespace Content.Client.Chemistry.UI
         public event Action? OnTransferFromBottlePressed;
 
         // UI State
-        public bool IsOutputTab => OutputTabs.CurrentTab == 1; // True for bottles tab, false for pills tab
+        public bool IsOutputTab => OutputTabs.CurrentTab == 0; // True for bottles tab, false for pills tab
         private bool _deleteMode = false;
 
         // ADT-Tweak: Pill container buttons (3 containers × 10 slots each = 30 buttons)
@@ -236,10 +236,10 @@ namespace Content.Client.Chemistry.UI
                 {
                     Text = $"Выбрать",
                     StyleClasses = { StyleBase.ButtonOpenBoth },
-                    MinSize = new Vector2(60, 30),
-                    MaxSize = new Vector2(90, 30),
+                    MinSize = new Vector2(105, 30),
+                    MaxSize = new Vector2(105, 30),
                     ToggleMode = true,
-                    HorizontalAlignment = HAlignment.Center
+                    HorizontalExpand = true
                 };
 
                 var chooseIndex = containerRow;
@@ -273,9 +273,10 @@ namespace Content.Client.Chemistry.UI
                 {
                     Text = $"Извлечь",
                     StyleClasses = { StyleBase.ButtonCaution },
-                    MinSize = new Vector2(60, 30),
-                    MaxSize = new Vector2(90, 30),
-                    HorizontalAlignment = HAlignment.Center
+                    MinSize = new Vector2(105, 30),
+                    MaxSize = new Vector2(105, 30),
+                    HorizontalExpand = true,
+                    HorizontalAlignment = HAlignment.Stretch
                 };
 
                 var ejectIndex = containerRow;
@@ -291,8 +292,8 @@ namespace Content.Client.Chemistry.UI
             Tabs.SetTabTitle(0, Loc.GetString("chem-master-window-buffer-text"));
 
             // Set titles for the new output tabs
-            OutputTabs.SetTabTitle(0, Loc.GetString("chem-master-window-pills-tab"));
-            OutputTabs.SetTabTitle(1, Loc.GetString("chem-master-window-bottles-tab"));
+            OutputTabs.SetTabTitle(0, Loc.GetString("chem-master-window-bottles-tab"));
+            OutputTabs.SetTabTitle(1, Loc.GetString("chem-master-window-pills-tab"));
             //ADT-Tweak Start
 
             SortMethod.AddItem(
@@ -634,7 +635,7 @@ namespace Content.Client.Chemistry.UI
         {
             var reagentTransferButton = new ReagentButton(text, id, isBuffer);
             reagentTransferButton.OnPressed += args
-                => OnReagentButtonPressed?.Invoke(args, reagentTransferButton, _transferAmount, OutputTabs.CurrentTab == 1);  //ADT-Tweak
+                => OnReagentButtonPressed?.Invoke(args, reagentTransferButton, _transferAmount, OutputTabs.CurrentTab == 0);  //ADT-Tweak
             return reagentTransferButton;
         }
         /// <summary>
@@ -717,6 +718,42 @@ namespace Content.Client.Chemistry.UI
         }
 
         //ADT-Tweak Start
+        /// <summary>
+        /// Calculate mixed color based on reagent percentages, similar to how beakers display color
+        /// </summary>
+        private Color GetMixedReagentColor(List<ReagentQuantity> reagents)
+        {
+            if (reagents == null || !reagents.Any())
+                return Color.White;
+
+            Color mixColor = default;
+            var runningTotalQuantity = FixedPoint2.Zero;
+            bool first = true;
+
+            foreach (var reagent in reagents)
+            {
+                runningTotalQuantity += reagent.Quantity;
+
+                if (!_prototypeManager.TryIndex(reagent.Reagent.Prototype, out ReagentPrototype? proto))
+                {
+                    continue;
+                }
+
+                if (first)
+                {
+                    first = false;
+                    mixColor = proto.SubstanceColor;
+                    continue;
+                }
+
+                // Calculate interpolation value based on the ratio of current reagent to running total
+                var interpolateValue = reagent.Quantity.Float() / runningTotalQuantity.Float();
+                mixColor = Color.InterpolateBetween(mixColor, proto.SubstanceColor, interpolateValue);
+            }
+
+            return mixColor;
+        }
+
         private void UpdateBottleStorage(ChemMasterBoundUserInterfaceState state)
         {
             for (int i = 0; i < BottleStorageButtons.Length; i++)
@@ -728,9 +765,8 @@ namespace Content.Client.Chemistry.UI
                     button.Text = $"{info.CurrentVolume}/{info.MaxVolume}";
                     if (info.Reagents != null && info.Reagents.Any())
                     {
-                        var reagent = info.Reagents.First();
-                        _prototypeManager.TryIndex(reagent.Reagent.Prototype, out ReagentPrototype? proto);
-                        button.Modulate = proto?.SubstanceColor ?? Color.White;
+                        // Calculate mixed color based on reagent percentages
+                        button.Modulate = GetMixedReagentColor(info.Reagents);
                     }
                     else
                     {
@@ -793,11 +829,11 @@ namespace Content.Client.Chemistry.UI
             // Check if bottle has reagents
             if (bottleInfo.Reagents == null || !bottleInfo.Reagents.Any())
             {
-                BottleContentsInfo.Children.Add(new Label { Text = Loc.GetString("chem-master-window-bottle-empty-text") });
+                BottleContentsInfo.Children.Add(new Label { Text = Loc.GetString("chem-master-window-bottle-storage-empty") });
                 return;
             }
 
-            // Reagents
+            // Reagents - using simple rows
             int rowCount = 0;
             foreach (var reagent in bottleInfo.Reagents)
             {
@@ -805,9 +841,77 @@ namespace Content.Client.Chemistry.UI
                 var name = proto?.LocalizedName ?? Loc.GetString("chem-master-window-unknown-reagent-text");
                 var reagentColor = proto?.SubstanceColor ?? default(Color);
 
-                var row = BuildReagentRow(reagentColor, rowCount++, name, reagent.Reagent, reagent.Quantity, false, true);
+                var row = BuildSimpleReagentRow(reagentColor, rowCount++, name, reagent.Quantity);
                 BottleContentsInfo.AddChild(row);
             }
+        }
+
+        /// <summary>
+        /// Build a simplified reagent row for bottle contents display with only name, quantity, and color control
+        /// </summary>
+        private Control BuildSimpleReagentRow(Color reagentColor, int rowCount, string name, FixedPoint2 quantity)
+        {
+            // Colors for alternating rows
+            var rowColor1 = Color.FromHex("#1B1B1E");
+            var rowColor2 = Color.FromHex("#202025");
+            var currentRowColor = (rowCount % 2 == 1) ? rowColor1 : rowColor2;
+
+            // Use row color as fallback if reagent has no color
+            if (reagentColor == default(Color))
+            {
+                reagentColor = currentRowColor;
+            }
+
+            // Create the row container
+            var rowContainer = new BoxContainer
+            {
+                Orientation = LayoutOrientation.Horizontal
+            };
+
+            // Stats container with name and quantity
+            var statsContainer = new BoxContainer
+            {
+                MinWidth = 130,
+                Orientation = LayoutOrientation.Horizontal,
+                HorizontalExpand = true,
+                Children =
+                {
+                    new Label
+                    {
+                        Text = $"{name}: ",
+                        HorizontalAlignment = HAlignment.Left
+                    },
+                    new Label
+                    {
+                        Text = $"{quantity}u",
+                        StyleClasses = { StyleNano.StyleClassLabelSecondaryColor },
+                        HorizontalAlignment = HAlignment.Left
+                    }
+                }
+            };
+
+            // Color panel for reagent color
+            var colorPanel = new PanelContainer
+            {
+                Name = "colorPanel",
+                VerticalExpand = true,
+                MinWidth = 4,
+                PanelOverride = new StyleBoxFlat
+                {
+                    BackgroundColor = reagentColor
+                },
+                Margin = new Thickness(0, 1)
+            };
+
+            rowContainer.AddChild(statsContainer);
+            rowContainer.AddChild(colorPanel);
+
+            // Wrap in panel container for striped row background
+            return new PanelContainer
+            {
+                PanelOverride = new StyleBoxFlat(currentRowColor),
+                Children = { rowContainer }
+            };
         }
         //ADT-Tweak End
 
