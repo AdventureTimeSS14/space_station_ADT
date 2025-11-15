@@ -7,7 +7,7 @@ ent-ADTClothingBeltMedicalSecurityERTFilled = { ent-ADTClothingBeltMedicalSecuri
     .suffix = { "Заполнен, ОБР" }
 
 ent-ADTClothingBeltSheathZeroFilled = Ножны катаны
-    .desc = Ножны катаны Зеро
+    .desc = Ножны катаны Змея
     .suffix = { "Заполнены, Настоящая катана" }
 ent-ADTClothingBeltSheathZeroCosplayFilled = { ent-ADTClothingBeltSheathZeroFilled }
     .desc = { ent-ADTClothingBeltSheathZeroFilled.desc }

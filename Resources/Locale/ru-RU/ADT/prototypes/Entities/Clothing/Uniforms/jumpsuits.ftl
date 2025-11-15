@@ -387,8 +387,8 @@ ent-ADTClothingUniformJumpsuitTuxedoRed = красный смокинг
 ent-ADTClothingUniformJumpsuitTuxedoHell = адский смокинг
     .desc = Стильный и опрятный смокинг с галстуком и красной рубашкой. Демонесса в комплект не входит.
 
-ent-ADTClothingUniformKimanoZero = Кимоно Зеро
+ent-ADTClothingUniformKimanoZero = Кимоно Змея
     .desc = Стильное кимоно, свободное и удобное.
 
-ent-ADTClothingUniformKimanoArmoredZero = Кимоно Зеро
+ent-ADTClothingUniformKimanoArmoredZero = Кимоно Змея
     .desc = Стильное кимоно, свободное и удобное, так ещё и с почти незаметными вшитыми бронепластинами 3 класса... Удачи выполнить заказ и получить Хронус
