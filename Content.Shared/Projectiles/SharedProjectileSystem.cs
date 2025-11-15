@@ -6,7 +6,10 @@ using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Inventory;
 using Content.Shared.Mobs.Components;
+using Content.Shared.Projectiles;
+using Content.Shared.Tag;
 using Content.Shared.Throwing; 
+using Content.Shared.Weapons.Ranged.Components;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
@@ -30,6 +33,7 @@ public abstract partial class SharedProjectileSystem : EntitySystem
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly TagSystem _tag = default!;
 
     public override void Initialize()
     {
@@ -203,7 +207,26 @@ public abstract partial class SharedProjectileSystem : EntitySystem
         if (component.IgnoreShooter && (args.OtherEntity == component.Shooter || args.OtherEntity == component.Weapon))
         {
             args.Cancelled = true;
+            return;
         }
+
+
+        // Check if target and projectile are on different maps/z-levels
+        var projectileXform = Transform(uid);
+        var targetXform = Transform(args.OtherEntity);
+        if (projectileXform.MapID != targetXform.MapID)
+        {
+            args.Cancelled = true;
+            return;
+        }
+
+        // Define the tag constant
+        const string GunCanAimShooterTag = "GunCanAimShooter";
+
+        if ((component.Shooter == args.OtherEntity || component.Weapon == args.OtherEntity) &&
+            component.Weapon != null && _tag.HasTag(component.Weapon.Value, GunCanAimShooterTag) &&
+            TryComp(uid, out TargetedProjectileComponent? targeted) && targeted.Target == args.OtherEntity)
+            return;
     }
 
     public void SetShooter(EntityUid id, ProjectileComponent component, EntityUid shooterId)
@@ -216,7 +239,7 @@ public abstract partial class SharedProjectileSystem : EntitySystem
     }
 
     [Serializable, NetSerializable]
-    private sealed partial class RemoveEmbeddedProjectileEvent : DoAfterEvent
+    public sealed partial class RemoveEmbeddedProjectileEvent : DoAfterEvent
     {
         public override DoAfterEvent Clone() => this;
     }
