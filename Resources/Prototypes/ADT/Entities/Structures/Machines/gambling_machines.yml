@@ -87,7 +87,7 @@
   components:
   - type: Sprite
     noRot: true
-    sprite: ADT/Structures/Machines/slotmachines/slotmachine.rsi
+    sprite: ADT/Structures/Machines/SlotMachines/slotmachine.rsi
     layers:
       - state: slotmachine
       - state: slotmachine_spin
@@ -120,12 +120,12 @@
   components:
   - type: Sprite
     noRot: true
-    sprite: ADT/Structures/Machines/slotmachines/slotmachinehighroller.rsi
+    sprite: ADT/Structures/Machines/SlotMachines/slotmachine.rsi
     layers:
-      - state: slotmachine
-      - state: slotmachine_spin
+      - state: slotmachine_h
+      - state: slotmachine_spin_h
         visible: false
-        map: ["slotmachine_spin"]
+        map: ["slotmachine_spin_h"]
       - state: panel
         map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: WiresPanel

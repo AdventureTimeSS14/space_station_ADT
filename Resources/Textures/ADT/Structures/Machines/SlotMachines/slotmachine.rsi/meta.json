@@ -8,6 +8,22 @@
     },
   "states": [
     {
+        "name": "slotmachine_h"
+    },
+    {
+        "name": "slotmachine_spin_h",
+        "delays":
+        [
+            [
+                0.1,
+                0.1,
+                0.1,
+                0.1,
+                0.1
+            ]
+        ]
+    },
+    {
         "name": "slotmachine"
     },
     {
