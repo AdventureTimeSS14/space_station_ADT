@@ -10,3 +10,7 @@
     ClothingHeadBandSkull: 2
     ClothingHeadsetRobotics: 2
     ClothingOuterWinterRobo: 2
+  # ADT-tweak-start
+  emaggedInventory:
+    ADTClothingOuterEggman: 1
+  # ADT-tweak-end
