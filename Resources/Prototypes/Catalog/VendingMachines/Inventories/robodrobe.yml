@@ -11,6 +11,6 @@
     ClothingHeadsetRobotics: 2
     ClothingOuterWinterRobo: 2
   # ADT-tweak-start
-  emaggedInventory:
+  contrabandInventory:
     ADTClothingOuterEggman: 1
   # ADT-tweak-end
