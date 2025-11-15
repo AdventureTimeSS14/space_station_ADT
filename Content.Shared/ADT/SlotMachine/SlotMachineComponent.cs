@@ -53,7 +53,7 @@ public sealed partial class SlotMachineComponent : Component
     #endregion
 
     [DataField, AutoNetworkedField]
-    public EntProtoId GodPotPrize = "WeaponShotgunHeavy"; // Это надо как-то отредактировать, ребята. Дробовик какой-то.
+    public EntProtoId GodPotPrize = "WeaponShotgunDoubleBarreled"; 
 
     #region Prize Amounts
 
