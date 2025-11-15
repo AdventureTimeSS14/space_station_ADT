@@ -136,7 +136,7 @@ public sealed partial class GunComponent : Component
     /// <summary>
     /// Where the gun is being requested to shoot.
     /// </summary>
-    [ViewVariables(VVAccess.ReadWrite)]
+    [ViewVariables]
     public EntityCoordinates? ShootCoordinates = null;
 
     /// <summary>
