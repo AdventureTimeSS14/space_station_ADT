@@ -161,7 +161,7 @@
   - type: StorageFill
     contents:
     - id: Flare
-    - id: CableApcStack
+    - id: CableMVStack10
     - id: WelderMini
     - id: PowerCellMedium
   - type: Sprite
@@ -185,7 +185,7 @@
   - type: StorageFill
     contents:
     - id: Flare
-    - id: CableApcStack
+    - id: CableMVStack10
     - id: WelderMini
     - id: PowerCellMedium
   - type: Tag
@@ -202,7 +202,7 @@
   - type: StorageFill
     contents:
     - id: Flare
-    - id: CableApcStack
+    - id: CableMVStack10
     - id: WelderMini
     - id: PowerCellHigh
   - type: Sprite
@@ -220,7 +220,7 @@
   - type: StorageFill
     contents:
     - id: Flare
-    - id: CableApcStack
+    - id: CableMVStack10
     - id: WelderMini
     - id: PowerCellHigh
   - type: Sprite
@@ -238,7 +238,7 @@
   - type: StorageFill
     contents:
     - id: Flare
-    - id: CableApcStack
+    - id: CableMVStack10
     - id: WelderMini
     - id: PowerCellMedium
   - type: Sprite
@@ -256,7 +256,7 @@
   - type: StorageFill
     contents:
     - id: Flare
-    - id: CableApcStack
+    - id: CableMVStack10
     - id: WelderMini
     - id: PowerCellHigh
   - type: Sprite
