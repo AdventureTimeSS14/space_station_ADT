@@ -399,6 +399,12 @@
     sprintModifier: 1
   - type: FireProtection
     reduction: 0.7
+  # ADT-Tweak-Start
+  - type: ModifyGrabStageTime
+    modifiers:
+      Hard: 2.25
+      Choke: 2
+  # ADT-Tweak-End
 
 - type: entity
   parent: ADTClothingOuterModsuitBodySyndicate
@@ -436,6 +442,12 @@
     damageCoefficient: 0.1
   - type: FireProtection
     reduction: 1
+  # ADT-Tweak-Start
+  - type: ModifyGrabStageTime
+    modifiers:
+      Hard: 1.5
+      Choke: 2
+  # ADT-Tweak-End
 
 - type: entity
   parent: ADTClothingOuterModsuitBodySyndicate
@@ -475,6 +487,12 @@
     reduction: 0.9
   - type: ClothingGrantComponent
     component:
+  # ADT-Tweak-Start
+  - type: ModifyGrabStageTime
+    modifiers:
+      Hard: 2.25
+      Choke: 2
+  # ADT-Tweak-End
 
 - type: entity
   parent: ADTClothingOuterModsuitBodyBase
