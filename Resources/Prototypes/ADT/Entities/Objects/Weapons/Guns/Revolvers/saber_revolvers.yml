@@ -112,6 +112,7 @@
     - ADTBsoWeapon
     - Sidearm
   - type: RMCMagneticItem
+    magnetizeToSlots: pocket1
   - type: DNAGunLocker
   - type: Clothing
     sprite: ADT/Objects/Weapons/Guns/Revolvers/mateba.rsi
