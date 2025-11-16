@@ -1,15 +1,18 @@
-using System.Linq;
+using Content.Server.Actions;
 using Content.Server.DoAfter;
 using Content.Server.Humanoid;
-using Content.Shared.UserInterface;
+using Content.Shared.ADT.SlimeHair;
+using Content.Shared.Corvax.TTS;
 using Content.Shared.DoAfter;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.Interaction;
-using Content.Shared.ADT.SlimeHair;
+using Content.Shared.Preferences;
+using Content.Shared.UserInterface;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
-using Content.Server.Actions;
+using Robust.Shared.Prototypes;
+using System.Linq;
 
 namespace Content.Server.ADT.SlimeHair;
 
@@ -26,6 +29,7 @@ public sealed partial class SlimeHairSystem : EntitySystem
     [Dependency] private readonly HumanoidAppearanceSystem _humanoid = default!;
     [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
     [Dependency] private readonly ActionsSystem _action = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!;
 
     public override void Initialize()
     {
@@ -39,6 +43,7 @@ public sealed partial class SlimeHairSystem : EntitySystem
             subs.Event<SlimeHairChangeColorMessage>(OnTrySlimeHairChangeColor);
             subs.Event<SlimeHairAddSlotMessage>(OnTrySlimeHairAddSlot);
             subs.Event<SlimeHairRemoveSlotMessage>(OnTrySlimeHairRemoveSlot);
+            subs.Event<SlimeHairChangeVoiceMessage>(OnTrySlimeHairChangeVoice);
         });
 
         SubscribeLocalEvent<SlimeHairComponent, MapInitEvent>(OnMapInit);
@@ -48,6 +53,7 @@ public sealed partial class SlimeHairSystem : EntitySystem
         SubscribeLocalEvent<SlimeHairComponent, SlimeHairChangeColorDoAfterEvent>(OnChangeColorDoAfter);
         SubscribeLocalEvent<SlimeHairComponent, SlimeHairRemoveSlotDoAfterEvent>(OnRemoveSlotDoAfter);
         SubscribeLocalEvent<SlimeHairComponent, SlimeHairAddSlotDoAfterEvent>(OnAddSlotDoAfter);
+        SubscribeLocalEvent<SlimeHairComponent, SlimeHairChangeVoiceDoAfterEvent>(OnChangeVoiceDoAfter);
 
         InitializeSlimeAbilities();
 
@@ -266,6 +272,47 @@ public sealed partial class SlimeHairSystem : EntitySystem
 
     }
 
+    private void OnTrySlimeHairChangeVoice(EntityUid uid, SlimeHairComponent component, SlimeHairChangeVoiceMessage message)
+    {
+        if (component.Target is not { } target)
+            return;
+
+        _doAfterSystem.Cancel(component.DoAfter);
+        component.DoAfter = null;
+
+        var doAfter = new SlimeHairChangeVoiceDoAfterEvent()
+        {
+            Voice = message.Voice,
+        };
+
+        _doAfterSystem.TryStartDoAfter(new DoAfterArgs(EntityManager, component.Owner, component.ChangeVoiceTime, doAfter, uid, target: target, used: uid)
+        {
+            DistanceThreshold = SharedInteractionSystem.InteractionRange,
+            BreakOnDamage = true,
+        }, out var doAfterId);
+
+        component.DoAfter = doAfterId;
+    }
+
+    private void OnChangeVoiceDoAfter(EntityUid uid, SlimeHairComponent component, SlimeHairChangeVoiceDoAfterEvent args)
+    {
+        if (args.Handled || args.Target == null || args.Cancelled)
+            return;
+
+        if (component.Target != args.Target)
+            return;
+
+        if (!TryComp<HumanoidAppearanceComponent>(args.Target.Value, out var humanoid))
+            return;
+
+        if (!_proto.TryIndex<TTSVoicePrototype>(args.Voice, out var proto) || !HumanoidCharacterProfile.CanHaveVoice(proto, humanoid.Sex))
+            return;
+
+        _humanoid.SetTTSVoice(args.Target.Value, args.Voice, humanoid);
+
+        UpdateInterface(uid, component);
+    }
+
     private void UpdateInterface(EntityUid uid, SlimeHairComponent component)
     {
         if (!TryComp<HumanoidAppearanceComponent>(uid, out var humanoid))
@@ -281,6 +328,8 @@ public sealed partial class SlimeHairSystem : EntitySystem
 
         var state = new SlimeHairUiState(
             humanoid.Species,
+            humanoid.Sex,
+            humanoid.Voice,
             hair,
             humanoid.MarkingSet.PointsLeft(MarkingCategories.Hair) + hair.Count,
             facialHair,

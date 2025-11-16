@@ -1,6 +1,6 @@
 using Content.Shared.DoAfter;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Audio;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.ADT.IpcScreen;
 
@@ -41,9 +41,15 @@ public sealed partial class IpcScreenComponent : Component
     public TimeSpan ChangeSlotTime = TimeSpan.FromSeconds(1);
 
     /// <summary>
+    /// doafter time required to change voice
+    /// </summary>
+    [DataField("changeVoiceTime"), ViewVariables(VVAccess.ReadWrite)]
+    public TimeSpan ChangeVoiceTime = TimeSpan.FromSeconds(2);
+
+    /// <summary>
     /// Sound emitted when slots are changed
     /// </summary>
-    [DataField]
+    [DataField("changeHairSound"), ViewVariables(VVAccess.ReadWrite)]
     public SoundSpecifier ChangeHairSound = new SoundPathSpecifier("/Audio/Machines/beep.ogg")
     {
         Params = AudioParams.Default.WithVolume(-1f),
