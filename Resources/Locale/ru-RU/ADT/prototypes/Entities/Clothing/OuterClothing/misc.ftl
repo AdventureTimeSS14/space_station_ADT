@@ -12,3 +12,5 @@ ent-ADTClothingOuterApronButcher = фартук
     .suffix = Мясницкий
 ent-ADTClothingOuterJacketChefRed = красный жакет шеф-повара
     .desc = Красный фартук-жакет, используемый первоклассным кондитером... Наверное?
+ent-ADTClothingOuterEggman = костюм роботника
+    .desc = Ты опоздал, кадет! Теперь я сертифицированный робототехник.
