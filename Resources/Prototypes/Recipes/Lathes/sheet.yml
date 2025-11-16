@@ -253,7 +253,7 @@
     Meaterial: 200
 
 - type: latheRecipe
-  id: SheetPaper
+  id: ADTSheetPaper
   result: SheetPaper1
   completetime: 1
   materials:

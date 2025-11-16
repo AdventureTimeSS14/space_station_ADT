@@ -73,6 +73,11 @@
     state: paper
   - type: Stack
     count: 1
+  # ADT-Tweak-Start
+  - type: Tag
+    tags:
+    - ADTSheetPaper
+  # ADT-Tweak-End
 
 - type: entity
   parent: SheetOtherBase
