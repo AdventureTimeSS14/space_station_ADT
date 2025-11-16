@@ -41,3 +41,6 @@ ent-ADTClothingShoesJackbootsCowboyWhite = подкованные белые к�
     .desc = { ent-ADTClothingShoesJackbootsCowboyBrown.desc }
 ent-ADTClothingShoesJackbootsCowboyFancy = подкованные модные ковбойские ботинки
     .desc = { ent-ADTClothingShoesJackbootsCowboyBrown.desc }
+
+ent-ADTClothingShoesZero = Сандали Змея
+    .desc = Очень удобные сандалии, подходят для бега. Разбежавшись, вы чувствуете дежавю и ваша рука тянется к несуществующим ножнам.

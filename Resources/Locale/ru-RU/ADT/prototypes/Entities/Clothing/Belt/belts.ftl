@@ -58,5 +58,7 @@ ent-ADTClothingRPSTacticalUSSP = тактический РПС
 ent-ADTBureaucraticBelt = бюрократический пояс
     .desc = Стильный и прочный аксессуар, разработанный для профессионалов, с удобным отделением для печатей, папок и бумаги, обеспечивающий организованное хранение в движении.
 
+ent-ADTClothingBeltSheathZero = { ent-ADTClothingBeltSheathZeroFilled }
+    .desc = { ent-ADTClothingBeltSheathZeroFilled.desc }
 ent-ADTClothingChemdisBelt = химразпояс 4000
     .desc = Крайне компактная версия утаревшего ныне химического раздатчика, сделанная для переноски химикатов в кувшинах.
