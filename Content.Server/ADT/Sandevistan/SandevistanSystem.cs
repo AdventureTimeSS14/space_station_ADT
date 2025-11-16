@@ -95,7 +95,7 @@ public sealed class SandevistanSystem : EntitySystem
             if (popup == -1)
                 continue;
 
-            _popup.PopupEntity(Loc.GetString("sandevistan-overload-" + popup), uid, PopupType.LargeCaution);
+            _popup.PopupCursor(Loc.GetString("sandevistan-overload-" + popup), uid, PopupType.LargeCaution);
             comp.NextPopupTime = _timing.CurTime + comp.PopupDelay;
         }
     }
