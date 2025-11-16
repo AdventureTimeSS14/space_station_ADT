@@ -1,8 +1,8 @@
+using Content.Server.ADT.BlueShield.Components;
 using Content.Server.AlertLevel;
 using Content.Shared.ADT.CantShoot;
-using Content.Shared.Weapons.Reflect;
 
-namespace Content.Server.ADT.BlueShield;
+namespace Content.Server.ADT.BlueShield.Systems;
 
 public sealed class BlueShieldShootingSystem : EntitySystem
 {
@@ -19,11 +19,11 @@ public sealed class BlueShieldShootingSystem : EntitySystem
             var query = EntityQueryEnumerator<CantShootComponent>();
             while (query.MoveNext(out var uid, out _))
             {
-                // Делаем так, чтобы спящие карпы не подвергались этой системе
-                if (TryComp<ReflectComponent>(uid, out var comp) && comp.ReflectProb == 1)
-                    return;
-                // Удаляем с сущности CantShootComponent
-                RemComp<CantShootComponent>(uid);
+                // Если находим офицера синего щита, то убираем CantShootComponent
+                if (HasComp<BlueShieldComponent>(uid))
+                {
+                    RemComp<CantShootComponent>(uid);
+                }
             }
         }
     }
