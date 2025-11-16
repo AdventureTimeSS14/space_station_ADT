@@ -21,7 +21,7 @@ public sealed class BlueShieldShootingSystem : EntitySystem
             {
                 // Делаем так, чтобы спящие карпы не подвергались этой системе
                 if (TryComp<ReflectComponent>(uid, out var comp) && comp.ReflectProb == 1)
-                    return;
+                    continue;
                 // Удаляем с сущности CantShootComponent
                 RemComp<CantShootComponent>(uid);
             }
