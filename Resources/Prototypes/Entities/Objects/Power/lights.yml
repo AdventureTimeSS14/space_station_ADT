@@ -122,7 +122,7 @@
   components:
   - type: LightBulb
     bulb: Bulb
-    color: "#FAFFFF" # ADT-Sound-Update
+    color: "#fffcf8" # ADT-Sound-Update
     lightEnergy: 1.0
     lightRadius: 5 # ADT-Sound-Update
     lightSoftness: 1.1
@@ -158,7 +158,7 @@
   components:
   - type: LightBulb
     bulb: Bulb
-    color: "#ba473f"
+    color: "#ba473fe2" # ADT-Sound-Update
     lightEnergy: 0.5
     lightRadius: 5
     lightSoftness: 3
@@ -175,7 +175,7 @@
   components:
   - type: LightBulb
     bulb: Bulb
-    color: "#ff9833" # 2200k color temp
+    color: "#fcc489" # ADT-Sound-Update
     lightEnergy: 1
     lightRadius: 6
     lightSoftness: 3
@@ -192,7 +192,7 @@
   components:
   - type: LightBulb
     bulb: Bulb
-    color: "#FFD1A3" # 4000K color temp
+    color: "#ffd5b9" # ADT-Sound-Update
     lightEnergy: 0.3 # old incandescents just arent as bright
     lightRadius: 6
     lightSoftness: 1.1
@@ -216,7 +216,7 @@
   components:
   - type: LightBulb
     bulb: Bulb
-    color: "#CCFF60"
+    color: "#dbff8f" # ADT-Sound-Update
     lightEnergy: 0.45
     lightRadius: 1.5
     lightSoftness: 3
@@ -288,7 +288,7 @@
   id: ExteriorLightTube
   components:
   - type: LightBulb
-    color: "#B4FCF0"
+    color: "#c9fdf5" # ADT-Sound-Update
     lightEnergy: 4.5
     lightRadius: 12
     lightSoftness: 0.5
@@ -302,7 +302,7 @@
   id: SodiumLightTube
   components:
   - type: LightBulb
-    color: "#FFAF38"
+    color: "#fac16a" # ADT-Sound-Update
     lightEnergy: 4
     lightRadius: 10
     lightSoftness: 0.5
@@ -317,9 +317,11 @@
   abstract: true
   components:
   - type: LightBulb
-    lightEnergy: 3
-    lightRadius: 8
-    lightSoftness: 0.5
+    # ADT-Sound-Update
+    lightEnergy: 2.4
+    lightRadius: 7.5
+    lightSoftness: 0.8
+    # ADT-Sound-Update
     BurningTemperature: 350
     PowerUse: 60
 
@@ -344,7 +346,7 @@
   id: LightTubeCrystalBlue
   components:
   - type: LightBulb
-    color: "#39a1ff"
+    color: "#91c8f8" # ADT-Sound-Update
   - type: Construction
     graph: BlueLight
     node: icon
@@ -359,7 +361,7 @@
   id: LightTubeCrystalYellow
   components:
   - type: LightBulb
-    color: "#ffde46"
+    color: "#f4f764" # ADT-Sound-Update
   - type: Construction
     graph: YellowLight
     node: icon
@@ -374,7 +376,7 @@
   id: LightTubeCrystalPink
   components:
   - type: LightBulb
-    color: "#ff66cc"
+    color: "#f8b8e3" # ADT-Sound-Update
   - type: Construction
     graph: PinkLight
     node: icon
@@ -389,7 +391,7 @@
   id: LightTubeCrystalOrange
   components:
   - type: LightBulb
-    color: "#ff8227"
+    color: "#ff924e" # ADT-Sound-Update
   - type: Construction
     graph: OrangeLight
     node: icon
@@ -422,7 +424,7 @@
   id: LightTubeCrystalRed
   components:
   - type: LightBulb
-    color: "#fb4747"
+    color: "#fa3c3c" # ADT-Sound-Update
   - type: Construction
     graph: RedLight
     node: icon
@@ -437,7 +439,7 @@
   id: LightTubeCrystalGreen
   components:
   - type: LightBulb
-    color: "#52ff39"
+    color: "#6ffb4f" # ADT-Sound-Update
   - type: Construction
     graph: GreenLight
     node: icon
@@ -456,9 +458,11 @@
   components:
   - type: LightBulb
     color: "#47f8ff"
-    lightEnergy: 1
-    lightRadius: 6
-    lightSoftness: 0.5
+    # ADT-Sound-Update-Start
+    lightEnergy: 0.9
+    lightRadius: 5
+    lightSoftness: 0.6
+    # ADT-Sound-Update-End
     BurningTemperature: 350
     PowerUse: 60
     bulb: Bulb
@@ -469,7 +473,7 @@
   id: LightBulbCrystalCyan
   components:
   - type: LightBulb
-    color: "#47f8ff"
+    color: "#92f2f5" # ADT-Sound-Update
   - type: Construction
     graph: CyanLightBulb
     node: icon
@@ -484,7 +488,7 @@
   id: LightBulbCrystalBlue
   components:
   - type: LightBulb
-    color: "#39a1ff"
+    color: "#91c8f8" # ADT-Sound-Update
   - type: Construction
     graph: BlueLightBulb
     node: icon
@@ -499,7 +503,7 @@
   id: LightBulbCrystalYellow
   components:
   - type: LightBulb
-    color: "#ffde46"
+    color: "#f4f764" # ADT-Sound-Update
   - type: Construction
     graph: YellowLightBulb
     node: icon
@@ -514,7 +518,7 @@
   id: LightBulbCrystalPink
   components:
   - type: LightBulb
-    color: "#ff66cc"
+    color: "#f8b8e3" # ADT-Sound-Update
   - type: Construction
     graph: PinkLightBulb
     node: icon
@@ -529,7 +533,7 @@
   id: LightBulbCrystalOrange
   components:
   - type: LightBulb
-    color: "#ff8227"
+    color: "#ff924e" # ADT-Sound-Update
   - type: Construction
     graph: OrangeLightBulb
     node: icon
@@ -562,7 +566,7 @@
   id: LightBulbCrystalRed
   components:
   - type: LightBulb
-    color: "#fb4747"
+    color: "#fa3c3c" # ADT-Sound-Update
   - type: Construction
     graph: RedLightBulb
     node: icon
@@ -577,7 +581,7 @@
   id: LightBulbCrystalGreen
   components:
   - type: LightBulb
-    color: "#52ff39"
+    color: "#6ffb4f" # ADT-Sound-Update
   - type: Construction
     graph: GreenLightBulb
     node: icon

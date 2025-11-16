@@ -12,18 +12,11 @@ public sealed class SupermatterVisualizerSystem : VisualizerSystem<SupermatterVi
             return;
 
         var crystalLayer = args.Sprite.LayerMapGet(SupermatterVisuals.Crystal);
-        var psyLayer = args.Sprite.LayerMapGet(SupermatterVisuals.Psy);
 
         if (AppearanceSystem.TryGetData(uid, SupermatterVisuals.Crystal, out SupermatterCrystalState crystalState, args.Component) &&
             component.CrystalVisuals.TryGetValue(crystalState, out var crystalData))
         {
             args.Sprite.LayerSetState(crystalLayer, crystalData.State);
-        }
-
-        if (AppearanceSystem.TryGetData(uid, SupermatterVisuals.Psy, out float psyState, args.Component))
-        {
-            var color = new Color(1f, 1f, 1f, psyState);
-            args.Sprite.LayerSetColor(psyLayer, color);
         }
     }
 }

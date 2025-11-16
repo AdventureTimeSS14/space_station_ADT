@@ -17,6 +17,12 @@
     path: /Audio/ADT/Jukebox/space_asshole_mono_jukebox.ogg
 
 - type: jukebox
+  id: phoenixright
+  name: Noriyuki Iwadare - Corner the Culprit
+  path:
+    path: /Audio/ADT/Lobby/Pursuit_Corner_the_Culprit_2004.ogg
+
+- type: jukebox
   id: HotlineDaisuke
   name: Hotline Miami - Daisuke
   path:
@@ -71,6 +77,12 @@
     path: /Audio/ADT/Jukebox/lateraligator.ogg
 
 - type: jukebox
+  id: SCMJ
+  name: Smooth Criminal - Michael Jackson
+  path:
+    path: /Audio/ADT/Jukebox/SCMJ.ogg
+
+- type: jukebox
   id: ESCPMidnightRoom
   name: < e s c p > - Midnight Room
   path:
@@ -107,10 +119,28 @@
     path: /Audio/ADT/Jukebox/HM_Paris.ogg
 
 - type: jukebox
+  id: Oh_Its_You
+  name: Oh Its You - Pascal Michael Stiefel
+  path:
+    path: /Audio/ADT/Lobby/Oh_Its_You.ogg
+
+- type: jukebox
   id: Hotline2Sexualizer
   name: Hotline Miami 2 - Sexualizer
   path:
     path: /Audio/ADT/Jukebox/HM2_Sexualizer.ogg
+
+- type: jukebox
+  id: EOFTTS
+  name: Eye Of The Tiger - Survivor
+  path:
+    path: /Audio/ADT/Jukebox/EOFTTS.ogg
+
+- type: jukebox
+  id: EWTRTWTFF
+  name: Everybody Wants To Rule The World - Tears For Fears
+  path:
+    path: /Audio/ADT/Jukebox/EWTRTWTFF.ogg
 
 - type: jukebox
   id: TheFallOfTheCorporation
@@ -198,6 +228,7 @@
 #   name: Alex Productions - Christmas Countdown
 #   path:
 #     path: /Audio/ADT/Jukebox/NewYear/alex-productions-christmas-countdown-deck-the-halls.ogg
+
 
 # - type: jukebox
 #   id: AlexProductionsChristmasIsComing
