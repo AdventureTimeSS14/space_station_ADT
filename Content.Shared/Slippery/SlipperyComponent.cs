@@ -51,7 +51,7 @@ namespace Content.Shared.Slippery
         /// Игнорирует ли эта хрень слоты
         /// </summary>
         [DataField, AutoNetworkedField]
-        public bool IgnoreSlots = true;
+        public bool IgnoreSlots = false;
         //ADT-tweak-end
     }
     /// <summary>

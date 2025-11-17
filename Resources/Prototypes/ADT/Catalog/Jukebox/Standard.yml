@@ -124,6 +124,12 @@
   path:
     path: /Audio/ADT/Jukebox/Waiting_for_the_meeting.ogg
 
+- type: jukebox
+  id: WereFinallyLanding
+  name: Home - We're Finally Landing
+  path:
+    path: /Audio/ADT/Lobby/Home_-_Were_Finally_Landing.ogg
+
 # START 9 МАЯ
 # - type: jukebox
 #   id: may_day-pobedy
