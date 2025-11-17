@@ -698,3 +698,11 @@ ghost-role-information-WatcherBible-description = Играйте со своим
 ghost-role-information-WatcherBible-rules = Вы - фамильяр. Защищайте своего хозяина
 ent-ADTMobWatcherBible = гордый наблюдатель
     .desc = Любит играть в гляделки с экипажем
+
+ent-ADTClothingUniformSensors = датчики
+    .desc = Только датчики, ничего лишнего.
+    .suffix = { "Именное, Syrel" }
+
+ent-ADTClothingHeadFeatherHairpin = заколка в виде перьев
+    .desc = Украшение для волос в виде вороньих перьев. Надежно крепится к прическе с длинным хвостом.
+    .suffix = { "Именное, kiwi_fruit" }
