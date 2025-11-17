@@ -826,3 +826,6 @@ SpawnPointADTGuardOfficer: SpawnPointADTCorrectionsOfficer
 ADTClothingHeadHatsGuardOfficer: ADTClothingHeadHatsCorrectionsOfficerCap
 ADTClothingUniformGuardOfficer: ADTClothingUniformCorrectionsOfficer
 
+# ADT 2025-11-08
+ChemDispenser: EnergyChemDispenser
+ChemDispenserEmpty: EnergyChemDispenser
