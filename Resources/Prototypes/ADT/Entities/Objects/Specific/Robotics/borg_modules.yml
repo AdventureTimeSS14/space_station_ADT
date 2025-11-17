@@ -79,7 +79,7 @@
       whitelist:
         tags:
         - PKA
-    items:        
+    items:
     - WeaponGrapplingGun
     - BorgHandheldGPSBasic
     - HandHeldMassScannerBorg
