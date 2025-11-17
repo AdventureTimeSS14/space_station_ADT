@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "copyright": "Cards, Decks and Hands Sprites were originally from Paradise Station (https://github.com/ParadiseSS13/Paradise) and modified by VictorJob. Boxes are from VictorJob.",
+  "copyright": "Cards, Decks and Hands Sprites were originally from Paradise Station (https://github.com/ParadiseSS13/Paradise) and modified by VictorJob. Boxes are from VictorJob. All Uno cards sprited by orange6775 (discord)",
   "license": "CC-BY-SA-3.0",
   "size": {
     "x": 32,
@@ -179,7 +179,6 @@
     {"name": "black_box_open"},
     {"name": "nanotrasen_box"},
     {"name": "nanotrasen_box_open"},
-
     {"name": "sc_0_red_uno"},
     {"name": "sc_1_red_uno"},
     {"name": "sc_2_red_uno"},
@@ -193,7 +192,6 @@
     {"name": "sc_skip_red_uno"},
     {"name": "sc_reverse_red_uno"},
     {"name": "sc_draw_two_red_uno"},
-
     {"name": "sc_0_blue_uno"},
     {"name": "sc_1_blue_uno"},
     {"name": "sc_2_blue_uno"},
@@ -207,7 +205,6 @@
     {"name": "sc_skip_blue_uno"},
     {"name": "sc_reverse_blue_uno"},
     {"name": "sc_draw_two_blue_uno"},
-
     {"name": "sc_0_yellow_uno"},
     {"name": "sc_1_yellow_uno"},
     {"name": "sc_2_yellow_uno"},
@@ -221,7 +218,6 @@
     {"name": "sc_skip_yellow_uno"},
     {"name": "sc_reverse_yellow_uno"},
     {"name": "sc_draw_two_yellow_uno"},
-
     {"name": "sc_0_green_uno"},
     {"name": "sc_1_green_uno"},
     {"name": "sc_2_green_uno"},
@@ -235,10 +231,8 @@
     {"name": "sc_skip_green_uno"},
     {"name": "sc_reverse_green_uno"},
     {"name": "sc_draw_two_green_uno"},
-
     {"name": "sc_wild_uno"},
     {"name": "sc_wild_draw_four_uno"},
-
     {"name": "uno_box"},
     {"name": "uno_box_open"}
   ]

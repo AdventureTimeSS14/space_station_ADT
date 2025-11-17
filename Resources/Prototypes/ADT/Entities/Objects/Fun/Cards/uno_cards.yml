@@ -160,7 +160,7 @@
 # region Uno Cards
 
 - type: entity
-  parent: ADTCardBase
+  parent: ADTCardBaseUno
   categories: [ HideSpawnMenu ]
   id: ADTCardScRed0Uno
   components:
@@ -171,7 +171,7 @@
     state: sc_0_red_uno
 
 - type: entity
-  parent: ADTCardBase
+  parent: ADTCardBaseUno
   categories: [ HideSpawnMenu ]
   id: ADTCardScRed1Uno
   components:
@@ -182,7 +182,7 @@
     state: sc_1_red_uno
 
 - type: entity
-  parent: ADTCardBase
+  parent: ADTCardBaseUno
   categories: [ HideSpawnMenu ]
   id: ADTCardScRed2Uno
   components:
@@ -193,7 +193,7 @@
     state: sc_2_red_uno
 
 - type: entity
-  parent: ADTCardBase
+  parent: ADTCardBaseUno
   categories: [ HideSpawnMenu ]
   id: ADTCardScRed3Uno
   components:
@@ -204,7 +204,7 @@
     state: sc_3_red_uno
 
 - type: entity
-  parent: ADTCardBase
+  parent: ADTCardBaseUno
   categories: [ HideSpawnMenu ]
   id: ADTCardScRed4Uno
   components:
@@ -215,7 +215,7 @@
     state: sc_4_red_uno
 
 - type: entity
-  parent: ADTCardBase
+  parent: ADTCardBaseUno
   categories: [ HideSpawnMenu ]
   id: ADTCardScRed5Uno
   components:
@@ -226,7 +226,7 @@
     state: sc_5_red_uno
 
 - type: entity
-  parent: ADTCardBase
+  parent: ADTCardBaseUno
   categories: [ HideSpawnMenu ]
   id: ADTCardScRed6Uno
   components:
@@ -237,7 +237,7 @@
     state: sc_6_red_uno
 
 - type: entity
-  parent: ADTCardBase
+  parent: ADTCardBaseUno
   categories: [ HideSpawnMenu ]
   id: ADTCardScRed7Uno
   components:
@@ -248,7 +248,7 @@
     state: sc_7_red_uno
 
 - type: entity
-  parent: ADTCardBase
+  parent: ADTCardBaseUno
   categories: [ HideSpawnMenu ]
   id: ADTCardScRed8Uno
   components:
@@ -259,7 +259,7 @@
     state: sc_8_red_uno
 
 - type: entity
-  parent: ADTCardBase
+  parent: ADTCardBaseUno
   categories: [ HideSpawnMenu ]
   id: ADTCardScRed9Uno
   components:
@@ -270,7 +270,7 @@
     state: sc_9_red_uno
 
 - type: entity
-  parent: ADTCardBase
+  parent: ADTCardBaseUno
   categories: [ HideSpawnMenu ]
   id: ADTCardScRedSkipUno
   components:
@@ -281,7 +281,7 @@
     state: sc_skip_red_uno
 
 - type: entity
-  parent: ADTCardBase
+  parent: ADTCardBaseUno
   categories: [ HideSpawnMenu ]
   id: ADTCardScRedReverseUno
   components:
@@ -292,7 +292,7 @@
     state: sc_reverse_red_uno
 
 - type: entity
-  parent: ADTCardBase
+  parent: ADTCardBaseUno
   categories: [ HideSpawnMenu ]
   id: ADTCardScRedDrawTwoUno
   components:
@@ -303,7 +303,7 @@
     state: sc_draw_two_red_uno
 
 - type: entity
-  parent: ADTCardBase
+  parent: ADTCardBaseUno
   categories: [ HideSpawnMenu ]
   id: ADTCardScBlue0Uno
   components:
@@ -314,7 +314,7 @@
     state: sc_0_blue_uno
 
 - type: entity
-  parent: ADTCardBase
+  parent: ADTCardBaseUno
   categories: [ HideSpawnMenu ]
   id: ADTCardScBlue1Uno
   components:
@@ -325,7 +325,7 @@
     state: sc_1_blue_uno
 
 - type: entity
-  parent: ADTCardBase
+  parent: ADTCardBaseUno
   categories: [ HideSpawnMenu ]
   id: ADTCardScBlue2Uno
   components:
@@ -336,7 +336,7 @@
     state: sc_2_blue_uno
 
 - type: entity
-  parent: ADTCardBase
+  parent: ADTCardBaseUno
   categories: [ HideSpawnMenu ]
   id: ADTCardScBlue3Uno
   components:
@@ -347,7 +347,7 @@
     state: sc_3_blue_uno
 
 - type: entity
-  parent: ADTCardBase
+  parent: ADTCardBaseUno
   categories: [ HideSpawnMenu ]
   id: ADTCardScBlue4Uno
   components:
@@ -358,7 +358,7 @@
     state: sc_4_blue_uno
 
 - type: entity
-  parent: ADTCardBase
+  parent: ADTCardBaseUno
   categories: [ HideSpawnMenu ]
   id: ADTCardScBlue5Uno
   components:
@@ -369,7 +369,7 @@
     state: sc_5_blue_uno
 
 - type: entity
-  parent: ADTCardBase
+  parent: ADTCardBaseUno
   categories: [ HideSpawnMenu ]
   id: ADTCardScBlue6Uno
   components:
@@ -380,7 +380,7 @@
     state: sc_6_blue_uno
 
 - type: entity
-  parent: ADTCardBase
+  parent: ADTCardBaseUno
   categories: [ HideSpawnMenu ]
   id: ADTCardScBlue7Uno
   components:
@@ -391,7 +391,7 @@
     state: sc_7_blue_uno
 
 - type: entity
-  parent: ADTCardBase
+  parent: ADTCardBaseUno
   categories: [ HideSpawnMenu ]
   id: ADTCardScBlue8Uno
   components:
@@ -402,7 +402,7 @@
     state: sc_8_blue_uno
 
 - type: entity
-  parent: ADTCardBase
+  parent: ADTCardBaseUno
   categories: [ HideSpawnMenu ]
   id: ADTCardScBlue9Uno
   components:
@@ -413,7 +413,7 @@
     state: sc_9_blue_uno
 
 - type: entity
-  parent: ADTCardBase
+  parent: ADTCardBaseUno
   categories: [ HideSpawnMenu ]
   id: ADTCardScBlueSkipUno
   components:
@@ -424,7 +424,7 @@
     state: sc_skip_blue_uno
 
 - type: entity
-  parent: ADTCardBase
+  parent: ADTCardBaseUno
   categories: [ HideSpawnMenu ]
   id: ADTCardScBlueReverseUno
   components:
@@ -435,7 +435,7 @@
     state: sc_reverse_blue_uno
 
 - type: entity
-  parent: ADTCardBase
+  parent: ADTCardBaseUno
   categories: [ HideSpawnMenu ]
   id: ADTCardScBlueDrawTwoUno
   components:
@@ -446,7 +446,7 @@
     state: sc_draw_two_blue_uno
 
 - type: entity
-  parent: ADTCardBase
+  parent: ADTCardBaseUno
   categories: [ HideSpawnMenu ]
   id: ADTCardScYellow0Uno
   components:
@@ -457,7 +457,7 @@
     state: sc_0_yellow_uno
 
 - type: entity
-  parent: ADTCardBase
+  parent: ADTCardBaseUno
   categories: [ HideSpawnMenu ]
   id: ADTCardScYellow1Uno
   components:
@@ -468,7 +468,7 @@
     state: sc_1_yellow_uno
 
 - type: entity
-  parent: ADTCardBase
+  parent: ADTCardBaseUno
   categories: [ HideSpawnMenu ]
   id: ADTCardScYellow2Uno
   components:
@@ -479,7 +479,7 @@
     state: sc_2_yellow_uno
 
 - type: entity
-  parent: ADTCardBase
+  parent: ADTCardBaseUno
   categories: [ HideSpawnMenu ]
   id: ADTCardScYellow3Uno
   components:
@@ -490,7 +490,7 @@
     state: sc_3_yellow_uno
 
 - type: entity
-  parent: ADTCardBase
+  parent: ADTCardBaseUno
   categories: [ HideSpawnMenu ]
   id: ADTCardScYellow4Uno
   components:
@@ -501,7 +501,7 @@
     state: sc_4_yellow_uno
 
 - type: entity
-  parent: ADTCardBase
+  parent: ADTCardBaseUno
   categories: [ HideSpawnMenu ]
   id: ADTCardScYellow5Uno
   components:
@@ -512,7 +512,7 @@
     state: sc_5_yellow_uno
 
 - type: entity
-  parent: ADTCardBase
+  parent: ADTCardBaseUno
   categories: [ HideSpawnMenu ]
   id: ADTCardScYellow6Uno
   components:
@@ -523,7 +523,7 @@
     state: sc_6_yellow_uno
 
 - type: entity
-  parent: ADTCardBase
+  parent: ADTCardBaseUno
   categories: [ HideSpawnMenu ]
   id: ADTCardScYellow7Uno
   components:
@@ -534,7 +534,7 @@
     state: sc_7_yellow_uno
 
 - type: entity
-  parent: ADTCardBase
+  parent: ADTCardBaseUno
   categories: [ HideSpawnMenu ]
   id: ADTCardScYellow8Uno
   components:
@@ -545,7 +545,7 @@
     state: sc_8_yellow_uno
 
 - type: entity
-  parent: ADTCardBase
+  parent: ADTCardBaseUno
   categories: [ HideSpawnMenu ]
   id: ADTCardScYellow9Uno
   components:
@@ -556,7 +556,7 @@
     state: sc_9_yellow_uno
 
 - type: entity
-  parent: ADTCardBase
+  parent: ADTCardBaseUno
   categories: [ HideSpawnMenu ]
   id: ADTCardScYellowSkipUno
   components:
@@ -567,7 +567,7 @@
     state: sc_skip_yellow_uno
 
 - type: entity
-  parent: ADTCardBase
+  parent: ADTCardBaseUno
   categories: [ HideSpawnMenu ]
   id: ADTCardScYellowReverseUno
   components:
@@ -578,7 +578,7 @@
     state: sc_reverse_yellow_uno
 
 - type: entity
-  parent: ADTCardBase
+  parent: ADTCardBaseUno
   categories: [ HideSpawnMenu ]
   id: ADTCardScYellowDrawTwoUno
   components:
@@ -589,7 +589,7 @@
     state: sc_draw_two_yellow_uno
 
 - type: entity
-  parent: ADTCardBase
+  parent: ADTCardBaseUno
   categories: [ HideSpawnMenu ]
   id: ADTCardScGreen0Uno
   components:
@@ -600,7 +600,7 @@
     state: sc_0_green_uno
 
 - type: entity
-  parent: ADTCardBase
+  parent: ADTCardBaseUno
   categories: [ HideSpawnMenu ]
   id: ADTCardScGreen1Uno
   components:
@@ -611,7 +611,7 @@
     state: sc_1_green_uno
 
 - type: entity
-  parent: ADTCardBase
+  parent: ADTCardBaseUno
   categories: [ HideSpawnMenu ]
   id: ADTCardScGreen2Uno
   components:
@@ -622,7 +622,7 @@
     state: sc_2_green_uno
 
 - type: entity
-  parent: ADTCardBase
+  parent: ADTCardBaseUno
   categories: [ HideSpawnMenu ]
   id: ADTCardScGreen3Uno
   components:
@@ -633,7 +633,7 @@
     state: sc_3_green_uno
 
 - type: entity
-  parent: ADTCardBase
+  parent: ADTCardBaseUno
   categories: [ HideSpawnMenu ]
   id: ADTCardScGreen4Uno
   components:
@@ -644,7 +644,7 @@
     state: sc_4_green_uno
 
 - type: entity
-  parent: ADTCardBase
+  parent: ADTCardBaseUno
   categories: [ HideSpawnMenu ]
   id: ADTCardScGreen5Uno
   components:
@@ -655,7 +655,7 @@
     state: sc_5_green_uno
 
 - type: entity
-  parent: ADTCardBase
+  parent: ADTCardBaseUno
   categories: [ HideSpawnMenu ]
   id: ADTCardScGreen6Uno
   components:
@@ -666,7 +666,7 @@
     state: sc_6_green_uno
 
 - type: entity
-  parent: ADTCardBase
+  parent: ADTCardBaseUno
   categories: [ HideSpawnMenu ]
   id: ADTCardScGreen7Uno
   components:
@@ -677,7 +677,7 @@
     state: sc_7_green_uno
 
 - type: entity
-  parent: ADTCardBase
+  parent: ADTCardBaseUno
   categories: [ HideSpawnMenu ]
   id: ADTCardScGreen8Uno
   components:
@@ -688,7 +688,7 @@
     state: sc_8_green_uno
 
 - type: entity
-  parent: ADTCardBase
+  parent: ADTCardBaseUno
   categories: [ HideSpawnMenu ]
   id: ADTCardScGreen9Uno
   components:
@@ -699,7 +699,7 @@
     state: sc_9_green_uno
 
 - type: entity
-  parent: ADTCardBase
+  parent: ADTCardBaseUno
   categories: [ HideSpawnMenu ]
   id: ADTCardScGreenSkipUno
   components:
@@ -710,7 +710,7 @@
     state: sc_skip_green_uno
 
 - type: entity
-  parent: ADTCardBase
+  parent: ADTCardBaseUno
   categories: [ HideSpawnMenu ]
   id: ADTCardScGreenReverseUno
   components:
@@ -721,7 +721,7 @@
     state: sc_reverse_green_uno
 
 - type: entity
-  parent: ADTCardBase
+  parent: ADTCardBaseUno
   categories: [ HideSpawnMenu ]
   id: ADTCardScGreenDrawTwoUno
   components:
@@ -732,7 +732,7 @@
     state: sc_draw_two_green_uno
 
 - type: entity
-  parent: ADTCardBase
+  parent: ADTCardBaseUno
   categories: [ HideSpawnMenu ]
   id: ADTCardScWildUno
   components:
@@ -743,7 +743,7 @@
     state: sc_wild_uno
 
 - type: entity
-  parent: ADTCardBase
+  parent: ADTCardBaseUno
   categories: [ HideSpawnMenu ]
   id: ADTCardScWildDrawFourUno
   components:
