@@ -1388,3 +1388,29 @@
     sprite: ADT/Clothing/Uniforms/Jumpsuit/tuxedo_hell.rsi
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpsuit/tuxedo_hell.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformKimanoZero
+  name: Kimano
+  description: Kimano of some guy
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/kimono_zero.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/kimono_zero.rsi
+
+- type: entity
+  parent: ADTClothingUniformKimanoZero
+  id: ADTClothingUniformKimanoArmoredZero
+  name: Kimano
+  suffix: Armored
+  description: Armored kimano of some guy
+  components:
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.7
+        Slash: 0.7
+        Piercing: 0.6
+        Heat: 0.6
