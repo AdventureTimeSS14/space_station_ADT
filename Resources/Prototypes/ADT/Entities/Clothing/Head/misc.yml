@@ -14,6 +14,20 @@
 
 - type: entity
   parent: ClothingHeadBase
+  id: ADTClothingHeadZeroHairstyle
+  name: Zero's hairstyle
+  description: The hairstyle of Zero
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Misc/zero_hairstyle.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Misc/zero_hairstyle.rsi
+  - type: HideLayerClothing
+    slots:
+    - Hair
+
+- type: entity
+  parent: ClothingHeadBase
   id: ADTClothingHeadRobotnikHead
   name: robotnik head
   description: PRRROMOTION
