@@ -485,6 +485,9 @@
     equipSound:
       path: /Audio/Items/belt_equip.ogg
     quickEquip: false
+  - type: Tag
+    tags:
+    - ADTBureaucraticBelt
 
 - type: entity
   parent: [ClothingBeltBase, ClothingSlotBase]
