@@ -3,3 +3,6 @@ ent-ADTClothingHeadTetoWig = парик Тето
 
 ent-ADTClothingHeadZeroHairstyle = парик Змея
     .desc = Парик, сделанный для фанатов довольно популярного самурая-киллера.
+
+ent-ADTClothingHeadRobotnikHead = шляпа роботника
+    .desc = В ней хранится мастерплан.
