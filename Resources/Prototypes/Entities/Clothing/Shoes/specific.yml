@@ -359,3 +359,8 @@
       collection: FootstepSkates
       params:
         variation: 0.08
+  # ADT-Tweak-Start
+  - type: Tag
+    tags:
+    - ClothingShoesSkates
+  # ADT-Tweak-End
