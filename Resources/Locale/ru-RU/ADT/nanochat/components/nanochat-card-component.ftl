@@ -1,6 +1,6 @@
 # Examine
-nanochat-card-examine-no-number = Карте НаноМакс еще не присвоен номер...
-nanochat-card-examine-number = Карта НаноМакс показывает #{$number}.
+nanochat-card-examine-no-number = Карте НаноЧат еще не присвоен номер...
+nanochat-card-examine-number = Карта НаноЧат показывает #{$number}.
 
 # Microwave interactions
 nanochat-card-microwave-erased = Карта {$card} издает тихий звуковой сигнал, и вся история сообщений исчезает в эфире!

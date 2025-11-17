@@ -1,6 +1,6 @@
 
-nano-chat-program-name = НаноМакс
-nano-chat-title = НаноМакс
+nano-chat-program-name = НаноЧат
+nano-chat-title = НаноЧат
 nano-chat-new-chat = Новый чат
 nano-chat-contacts = КОНТАКТЫ
 nano-chat-no-chats = Нет активных чатов
@@ -29,9 +29,9 @@ nano-chat-job-placeholder = Введите название профессии (
 nano-chat-cancel = Отменить
 nano-chat-create = Создать
 
-log-probe-scan-nanochat = Отсканированы НаноМакс логи {$card}
+log-probe-scan-nanochat = Отсканированы НаноЧат логи {$card}
 log-probe-header-access = Сканер логов доступов
-log-probe-header-nanochat = Сканер логов НаноМакс
+log-probe-header-nanochat = Сканер логов НаноЧат
 log-probe-label-message = Сообщение
 log-probe-card-number = Карта: {$number}
 log-probe-recipients = {$count} Получатели
