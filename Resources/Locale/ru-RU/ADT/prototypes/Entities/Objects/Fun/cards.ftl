@@ -132,7 +132,7 @@ card-sc-8-yellow = жёлтая восемь
 card-sc-9-yellow = жёлтая девять
 card-sc-skip-yellow = жёлтая "пропустить ход"
 card-sc-reverse-yellow = жёлтая "реверс"
-card-sc-draw-two-yellow = желтая "+2"
+card-sc-draw-two-yellow = жёлтая "+2"
 
 card-sc-0-green = зелёная ноль
 card-sc-1-green = зелёная один
@@ -146,7 +146,7 @@ card-sc-8-green = зелёная восемь
 card-sc-9-green = зелёная девять
 card-sc-skip-green = зелёная "пропустить ход"
 card-sc-reverse-green = зелёная "реверс"
-card-sc-draw-two-green = зеленая "+2"
+card-sc-draw-two-green = зелёная "+2"
 
 card-sc-wild = закажи цвет
 card-sc-wild-draw-four = закажи цвет "+4"
