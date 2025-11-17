@@ -24,7 +24,7 @@
     accent: zombieMoth
   - type: Speech
     speechVerb: Moth
-    allowedEmotes: ['Chitter', 'Squeak', 'Buzz']
+    allowedEmotes: ['Chitter', 'Squeak', 'Buzz', 'FlapWings']
   - type: TypingIndicator
     proto: moth
   - type: Butcherable
@@ -46,6 +46,8 @@
       Male: MaleMoth
       Female: FemaleMoth
       Unsexed: MaleMoth
+  - type: BodyEmotes
+    soundsId: MothBodyEmotes
   - type: MovementSpeedModifier
     weightlessAcceleration: 1.5 # Move around more easily in space.
     weightlessFriction: 1

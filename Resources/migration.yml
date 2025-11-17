@@ -817,6 +817,15 @@ BookSpaceLaw: ADTBookSpaceLaw
 ADTIndustrialSMES: SMESAdvanced
 SpawnPointADTSecborg: null # На всякий случай лол
 
+#ADT 2025-10-31 ХЭППИ ХЕЛЛАВИН
+SpawnPointADTGuardOfficer: SpawnPointADTCorrectionsOfficer
+ADTClothingHeadHatsGuardOfficer: ADTClothingHeadHatsCorrectionsOfficerCap
+ADTClothingUniformGuardOfficer: ADTClothingUniformCorrectionsOfficer
+
+# ADT 2025-11-08
+ChemDispenser: EnergyChemDispenser
+ChemDispenserEmpty: EnergyChemDispenser
+
 #Ganimed 2025-06-01
 ADTIconAdventureTime: null
 
