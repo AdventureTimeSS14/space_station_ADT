@@ -2,6 +2,8 @@
   parent: [ SimpleMobBase, MobCombat ]
   id: ADTBloodyArmySoldier
   components:
+  - type: Physics
+  - type: GrabProtection
   - type: DamageBonusHoly
   - type: Sprite
     drawdepth: Mobs
@@ -56,6 +58,7 @@
   parent: [ SimpleMobBase, MobCombat ]
   id: ADTBunchOfDemonicEyes
   components:
+  - type: GrabProtection
   - type: DamageBonusHoly
   - type: Sprite
     drawdepth: Mobs
@@ -111,6 +114,7 @@
   parent: [ SimpleMobBase, MobCombat ]
   id: ADTBloodyEyes
   components:
+  - type: GrabProtection
   - type: DamageBonusHoly
   - type: Sprite
     drawdepth: Mobs
@@ -152,6 +156,7 @@
   parent: [ SimpleMobBase, MobCombat ]
   id: ADTDemonicEye
   components:
+  - type: GrabProtection
   - type: DamageBonusHoly
   - type: Sprite
     drawdepth: Mobs
@@ -193,6 +198,8 @@
   parent: [ SimpleMobBase, MobCombat ]
   id: ADTDarkRattleSnake
   components:
+  - type: Physics
+  - type: GrabProtection
   - type: DamageBonusHoly
   - type: Sprite
     drawdepth: Mobs
@@ -233,6 +240,8 @@
   parent: [ SimpleMobBase, MobCombat ]
   id: ADTDemonicMouth
   components:
+  - type: Physics
+  - type: GrabProtection
   - type: DamageBonusHoly
   - type: Sprite
     drawdepth: Mobs
