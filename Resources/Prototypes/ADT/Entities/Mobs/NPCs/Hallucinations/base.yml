@@ -1,0 +1,26 @@
+# Base
+- type: entity
+  parent: BaseMob
+  id: ADTBaseEntityHallucination
+  name: "???"
+  description: "???"
+  suffix: DO NOT MAP
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 15
+        mask:
+          - MobMask
+        layer:
+          - None
+  - type: HTN
+    rootTask:
+      task: IdleCompound
+  - type: TimedDespawn
+    lifetime: 15.0
+  - type: SupermatterIgnore
