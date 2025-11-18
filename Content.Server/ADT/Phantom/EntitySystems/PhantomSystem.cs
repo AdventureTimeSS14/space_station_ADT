@@ -188,10 +188,6 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
         SubscribeLocalEvent<PhantomComponent, StopHauntAlertEvent>(OnStopHauntAlertClick);
 
         // IDK why the fuck this is not working in another file
-        SubscribeLocalEvent<HolyDamageComponent, ProjectileHitEvent>(OnProjectileHit);
-        SubscribeLocalEvent<HolyDamageComponent, ThrowDoHitEvent>(OnThrowHit);
-
-        SubscribeLocalEvent<HolyDamageComponent, MeleeHitEvent>(OnMeleeHit);
     }
 
     public ProtoId<DamageGroupPrototype> BruteDamageGroup = "Brute";
@@ -217,7 +213,7 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
         SelectStyle(uid, component, component.CurrentStyle, true);
 
         if (TryComp<EyeComponent>(uid, out var eyeComponent))
-            _eye.SetVisibilityMask(uid, eyeComponent.VisibilityMask | (int) VisibilityFlags.PhantomVessel, eyeComponent);
+            _eye.SetVisibilityMask(uid, eyeComponent.VisibilityMask | (int)VisibilityFlags.PhantomVessel, eyeComponent);
 
         component.HelpingHand = ContainerSystem.EnsureContainer<Container>(uid, "HelpingHand");
     }
@@ -236,7 +232,7 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
                 QueueDel(action.Value);
         }
         if (TryComp<EyeComponent>(uid, out var eyeComponent))
-            _eye.SetVisibilityMask(uid, eyeComponent.VisibilityMask | ~(int) VisibilityFlags.PhantomVessel, eyeComponent);
+            _eye.SetVisibilityMask(uid, eyeComponent.VisibilityMask | ~(int)VisibilityFlags.PhantomVessel, eyeComponent);
     }
 
     public override void Update(float frameTime)
@@ -685,12 +681,12 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
         {
             var fixture = fixtures.Fixtures.First();
 
-            _physicsSystem.SetCollisionMask(uid, fixture.Key, fixture.Value, (int) (CollisionGroup.SmallMobMask | CollisionGroup.GhostImpassable), fixtures);
-            _physicsSystem.SetCollisionLayer(uid, fixture.Key, fixture.Value, (int) CollisionGroup.SmallMobLayer, fixtures);
+            _physicsSystem.SetCollisionMask(uid, fixture.Key, fixture.Value, (int)(CollisionGroup.SmallMobMask | CollisionGroup.GhostImpassable), fixtures);
+            _physicsSystem.SetCollisionLayer(uid, fixture.Key, fixture.Value, (int)CollisionGroup.SmallMobLayer, fixtures);
         }
         var visibility = EnsureComp<VisibilityComponent>(uid);
 
-        _visibility.SetLayer((uid, visibility), (int) VisibilityFlags.Normal, false);
+        _visibility.SetLayer((uid, visibility), (int)VisibilityFlags.Normal, false);
         _visibility.RefreshVisibility(uid);
 
         component.IsCorporeal = true;
@@ -1238,7 +1234,7 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
         {
             var portal = Spawn(component.PortalPrototype, coordinates);
             EnsureComp<PhantomPortalComponent>(portal);
-            _visibility.SetLayer((portal, EnsureComp<VisibilityComponent>(portal)), (int) VisibilityFlags.PhantomVessel);
+            _visibility.SetLayer((portal, EnsureComp<VisibilityComponent>(portal)), (int)VisibilityFlags.PhantomVessel);
             _visibility.RefreshVisibility(portal);
             component.Portal1 = portal;
             _audio.PlayPvs(component.PortalSound, portal);
@@ -1258,7 +1254,7 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
             }
 
             var portal = Spawn(component.PortalPrototype, coordinates);
-            _visibility.SetLayer((portal, EnsureComp<VisibilityComponent>(portal)), (int) VisibilityFlags.PhantomVessel);
+            _visibility.SetLayer((portal, EnsureComp<VisibilityComponent>(portal)), (int)VisibilityFlags.PhantomVessel);
             _visibility.RefreshVisibility(portal);
             var firstPortalComp = EnsureComp<PhantomPortalComponent>(component.Portal1);
             var secondPortalComp = EnsureComp<PhantomPortalComponent>(portal);
@@ -1683,7 +1679,7 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
     private void OnLevelChanged(EntityUid uid, PhantomComponent component, ref RefreshPhantomLevelEvent args)
     {
         SelectStyle(uid, component, component.CurrentStyle, true);
-        _alerts.ShowAlert(uid, _proto.Index(component.VesselCountAlert), (short) Math.Clamp(component.Vessels.Count, 0, 10));
+        _alerts.ShowAlert(uid, _proto.Index(component.VesselCountAlert), (short)Math.Clamp(component.Vessels.Count, 0, 10));
     }
 
     private void MakeVesselDoAfter(EntityUid uid, PhantomComponent component, MakeVesselDoAfterEvent args)
@@ -1922,12 +1918,12 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
                 {
                     var fixture = fixtures.Fixtures.First();
 
-                    _physicsSystem.SetCollisionMask(uid, fixture.Key, fixture.Value, (int) CollisionGroup.GhostImpassable, fixtures);
+                    _physicsSystem.SetCollisionMask(uid, fixture.Key, fixture.Value, (int)CollisionGroup.GhostImpassable, fixtures);
                     _physicsSystem.SetCollisionLayer(uid, fixture.Key, fixture.Value, 0, fixtures);
                 }
                 var visibility = EnsureComp<VisibilityComponent>(uid);
 
-                _visibility.SetLayer((uid, visibility), (int) VisibilityFlags.Ghost, false);
+                _visibility.SetLayer((uid, visibility), (int)VisibilityFlags.Ghost, false);
                 _visibility.RefreshVisibility(uid);
 
                 if (component.Vessels.Count >= 2)
@@ -2025,8 +2021,8 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
         if (regenCap)
             FixedPoint2.Min(component.Essence, component.EssenceRegenCap);
 
-        _alerts.ShowAlert(uid, _proto.Index(component.EssenceCountAlert), (short) Math.Clamp(Math.Round(component.Essence.Float() / 10f), 0, 16));
-        _alerts.ShowAlert(uid, _proto.Index(component.VesselCountAlert), (short) Math.Clamp(component.Vessels.Count, 0, 10));
+        _alerts.ShowAlert(uid, _proto.Index(component.EssenceCountAlert), (short)Math.Clamp(Math.Round(component.Essence.Float() / 10f), 0, 16));
+        _alerts.ShowAlert(uid, _proto.Index(component.VesselCountAlert), (short)Math.Clamp(component.Vessels.Count, 0, 10));
 
         if (component.Essence <= 0)
         {
@@ -2474,18 +2470,18 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
         {
             var fixture = fixtures.Fixtures.First();
 
-            _physicsSystem.SetCollisionMask(uid, fixture.Key, fixture.Value, (int) (CollisionGroup.SmallMobMask | CollisionGroup.GhostImpassable), fixtures);
-            _physicsSystem.SetCollisionLayer(uid, fixture.Key, fixture.Value, (int) CollisionGroup.SmallMobLayer, fixtures);
+            _physicsSystem.SetCollisionMask(uid, fixture.Key, fixture.Value, (int)(CollisionGroup.SmallMobMask | CollisionGroup.GhostImpassable), fixtures);
+            _physicsSystem.SetCollisionLayer(uid, fixture.Key, fixture.Value, (int)CollisionGroup.SmallMobLayer, fixtures);
         }
         var visibility = EnsureComp<VisibilityComponent>(uid);
 
-        _visibility.SetLayer((uid, visibility), (int) VisibilityFlags.Normal, false);
+        _visibility.SetLayer((uid, visibility), (int)VisibilityFlags.Normal, false);
         _visibility.RefreshVisibility(uid);
 
         component.IsCorporeal = true;
 
         var weapon = EnsureComp<MeleeWeaponComponent>(uid);
-        weapon.Damage = new DamageSpecifier(_proto.Index(BruteDamageGroup), (FixedPoint2) 20);
+        weapon.Damage = new DamageSpecifier(_proto.Index(BruteDamageGroup), (FixedPoint2)20);
 
         EnsureComp<CombatModeComponent>(uid);
 
@@ -2646,115 +2642,6 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
             RaiseLocalEvent(uid, ref ev);
             QueueDel(uid);
             _audio.PlayGlobal(component.HelpSong, session);
-        }
-    }
-    #endregion
-
-    #region Holy Damage
-    private void OnProjectileHit(EntityUid uid, HolyDamageComponent component, ref ProjectileHitEvent args)
-    {
-        if (TryComp<PhantomHolderComponent>(args.Target, out var holder))
-        {
-            var damage = new DamageSpecifier(_proto.Index<DamageTypePrototype>("Blunt"), component.Damage);
-            _damageableSystem.TryChangeDamage(holder.Phantom, damage);
-            StopHaunt(holder.Phantom, args.Target);
-        }
-
-        if (HasComp<VesselComponent>(args.Target))
-        {
-            if (HasComp<PhantomPuppetComponent>(args.Target))
-            {
-                var damage = new DamageSpecifier(_proto.Index<DamageTypePrototype>("Heat"), component.DamageToPuppet);
-                _damageableSystem.TryChangeDamage(args.Target, damage);
-            }
-            else
-            {
-                var damage = new DamageSpecifier(_proto.Index<DamageTypePrototype>("Heat"), component.DamageToVessel);
-                _damageableSystem.TryChangeDamage(args.Target, damage);
-            }
-        }
-        if (TryComp<HereticComponent>(args.Target, out var heretic) && heretic.PathStage > 3)
-        {
-            var damage = new DamageSpecifier(_proto.Index<DamageTypePrototype>("Heat"), component.Damage);
-            _damageableSystem.TryChangeDamage(args.Target, damage);
-        }
-    }
-
-    private void OnThrowHit(EntityUid uid, HolyDamageComponent component, ThrowDoHitEvent args)
-    {
-        if (TryComp<PhantomHolderComponent>(args.Target, out var holder))
-        {
-            var damage = new DamageSpecifier(_proto.Index<DamageTypePrototype>("Blunt"), component.Damage);
-            _damageableSystem.TryChangeDamage(holder.Phantom, damage);
-            StopHaunt(holder.Phantom, args.Target);
-        }
-
-        if (HasComp<VesselComponent>(args.Target))
-        {
-            if (HasComp<PhantomPuppetComponent>(args.Target))
-            {
-                var damage = new DamageSpecifier(_proto.Index<DamageTypePrototype>("Heat"), component.DamageToPuppet);
-                _damageableSystem.TryChangeDamage(args.Target, damage);
-            }
-            else
-            {
-                var damage = new DamageSpecifier(_proto.Index<DamageTypePrototype>("Heat"), component.DamageToVessel);
-                _damageableSystem.TryChangeDamage(args.Target, damage);
-            }
-        }
-        if (TryComp<HereticComponent>(args.Target, out var heretic) && heretic.PathStage > 3)
-        {
-            var damage = new DamageSpecifier(_proto.Index<DamageTypePrototype>("Heat"), component.Damage);
-            _damageableSystem.TryChangeDamage(args.Target, damage);
-        }
-    }
-
-    private void OnMeleeHit(EntityUid uid, HolyDamageComponent component, MeleeHitEvent args)
-    {
-        if (!args.IsHit ||
-            !args.HitEntities.Any() ||
-            component.Damage <= 0f)
-        {
-            return;
-        }
-
-        foreach (var ent in args.HitEntities)
-        {
-            if (HasComp<RevenantComponent>(ent) || HasComp<PhantomComponent>(ent))
-            {
-                var damage = new DamageSpecifier(_proto.Index<DamageTypePrototype>("Blunt"), component.Damage);
-                _damageableSystem.TryChangeDamage(ent, damage);
-
-                var time = TimeSpan.FromSeconds(2);
-                _status.TryAddStatusEffect<KnockedDownComponent>(args.User, "KnockedDown", time, false);
-                _status.TryAddStatusEffect<StunnedComponent>(args.User, "Stun", time, false);
-            }
-            if (TryComp<PhantomHolderComponent>(ent, out var holder))
-            {
-                var damage = new DamageSpecifier(_proto.Index<DamageTypePrototype>("Blunt"), component.Damage);
-                _damageableSystem.TryChangeDamage(holder.Phantom, damage);
-                StopHaunt(holder.Phantom, ent);
-            }
-
-            if (TryComp<HereticComponent>(ent, out var heretic) && heretic.PathStage > 3)
-            {
-                var damage = new DamageSpecifier(_proto.Index<DamageTypePrototype>("Heat"), component.Damage);
-                _damageableSystem.TryChangeDamage(ent, damage);
-            }
-
-            if (HasComp<VesselComponent>(ent))
-            {
-                if (HasComp<PhantomPuppetComponent>(ent))
-                {
-                    var damage = new DamageSpecifier(_proto.Index<DamageTypePrototype>("Heat"), component.DamageToPuppet);
-                    _damageableSystem.TryChangeDamage(ent, damage);
-                }
-                else
-                {
-                    var damage = new DamageSpecifier(_proto.Index<DamageTypePrototype>("Heat"), component.DamageToVessel);
-                    _damageableSystem.TryChangeDamage(ent, damage);
-                }
-            }
         }
     }
     #endregion

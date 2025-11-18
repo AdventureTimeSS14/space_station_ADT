@@ -2085,8 +2085,17 @@
   suffix: Personal, Couatl
   components:
   - type: Sprite
-    sprite: ADT/Personalization/toys.rsi
-    state: plushie_azil
+    sprite: ADT/Personalization/plushie_azil.rsi
+    state: icon
+  - type: Clothing
+    quickEquip: false
+    sprite: ADT/Personalization/plushie_azil.rsi
+    slots:
+    - HEAD
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+        offset: "0, 0.04"
   - type: EmitSoundOnUse
     sound:
       path: /Audio/Voice/Reptilian/reptilian_scream.ogg
@@ -2122,14 +2131,15 @@
   - type: Gun
     fireRate: 2
   - type: RevolverAmmoProvider
-    capacity: 6
-    chambers: [ True, True, True, True, True, True ]
-    ammoSlots: [ null, null, null, null, null, null ]
+    capacity: 5
+    chambers: [ True, True, True, True, True ]
+    ammoSlots: [ null, null, null, null, null ]
   - type: Appearance
   - type: StaticPrice
     price: 1500
   - type: Clothing
     sprite: ADT/Personalization/couatl_argument.rsi
+  - type: AmmoCounter #ADT-tweak: единственный револьвер со счётчиком патронов
 
 #kugooergooer
 - type: entity
@@ -2521,4 +2531,80 @@
   - type: Sprite
     sprite: ADT/Personalization/toys.rsi
     state: plushie_morulu
+
+#Levontiy
+- type: entity
+  parent: Bible
+  name: ADTBibleContemplator-name
+  description: ADTBibleContemplator-desc
+  id: ADTBibleContemplator
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/contemplator_tome.rsi
+    layers:
+    - state: "watcher_tome"
+      shader: "unshaded"
+  - type: Icon
+    sprite: ADT/Objects/Misc/contemplator_tome.rsi
+    state: icon
+  - type: Paper
+    contentSize: 12000
+  - type: PointLight
+    enabled: false
+    radius: 1.5
+    softness: 5
+    autoRot: true
+    color: "#9932CC"
+  - type: UnpoweredFlashlight
+    toggleFlashlightSound: /Audio/Effects/eye_close.ogg
+  - type: Item
+    size: Small
+    sprite: ADT/Objects/Misc/contemplator_tome.rsi  
+  - type: Wieldable
+    useDelayOnWield: false
+  - type: Clothing
+    sprite: ADT/Objects/Misc/contemplator_tome.rsi
+    quickEquip: false
+    slots: [belt]
+  - type: Summonable
+    specialItem: SpawnADTMobWatcherBible
+  - type: PaperVisuals
+    backgroundImagePath: "/Textures/Interface/Paper/paper_background_book.svg.96dpi.png"
+    backgroundPatchMargin: 23.0, 16.0, 14.0, 15.0
+    contentMargin: 20.0, 20.0, 20.0, 20.0
+  - type: ActivatableUI
+    key: enum.PaperUiKey.Key
+    requiresComplex: false
+  - type: UserInterface
+    interfaces:
+      enum.PaperUiKey.Key:
+        type: PaperBoundUserInterface
+  
+  
+- type: entity
+  parent: MobWatcherPride
+  id: ADTMobWatcherBible
+  name: MobWatcherBible-name
+  description: MobWatcherBible-desc
+  components:
+  - type: GhostRole
+    allowMovement: true
+    allowSpeech: true
+    makeSentient: true
+    name: ghost-role-information-WatcherBible-name
+    description: ghost-role-information-WatcherBible-description
+    rules: ghost-role-information-WatcherBible-rules
+    raffle:
+      settings: short
+  - type: GhostTakeoverAvailable
+  - type: TTS
+    voice: shadow_fiend_dota_2
+
+- type: entity
+  parent: SpawnMobWatcherPride
+  id: SpawnADTMobWatcherBible
+  components:
+  - type: ConditionalSpawner
+    prototypes:
+    - ADTMobWatcherBible
 #SPONSOR-ITEMS-END
