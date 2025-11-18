@@ -465,7 +465,7 @@
     - BorgChassis
   chatMessages: ["chat-emote-msg-chirps"]
   chatTriggers:
-    - щебечет
+    - стрекочет
 
 - type: emote
   id: Coos
