@@ -466,7 +466,6 @@
   chatMessages: ["chat-emote-msg-chirps"]
   chatTriggers:
     - щебечет
-    - чирикает
 
 - type: emote
   id: Coos
