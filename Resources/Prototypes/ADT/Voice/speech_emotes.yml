@@ -465,7 +465,6 @@
     - BorgChassis
   chatMessages: ["chat-emote-msg-chirps"]
   chatTriggers:
-    - chirps
     - щебечет
     - чирикает
 
@@ -486,6 +485,7 @@
   chatMessages: ["chat-emote-msg-coos"]
   chatTriggers:
     - coos
+    - воркует
     - курлычет
 
 # Moth
