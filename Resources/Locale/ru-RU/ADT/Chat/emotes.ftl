@@ -34,9 +34,9 @@ chat-emote-name-wurble = Урчать
 chat-emote-name-purse = Поджать уши
 
 # Resomi
-chat-emote-name-chirps = стрекочет
+chat-emote-name-chirps = трелит
 chat-emote-name-coos = воркует
-chat-emote-msg-chirps = стрекочет
+chat-emote-msg-chirps = трелит
 chat-emote-msg-coos = воркует
 
 # Moth
