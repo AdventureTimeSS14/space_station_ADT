@@ -501,6 +501,9 @@
   id: ADTVoxEmotes
 
 - type: Tag
+  id: ADTResomiEmotes
+
+- type: Tag
   id: ADTSlimeEmotes
 
 - type: Tag

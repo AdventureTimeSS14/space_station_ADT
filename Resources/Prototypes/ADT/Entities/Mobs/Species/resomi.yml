@@ -5,6 +5,10 @@
   id: BaseMobResomi
   abstract: true
   components:
+  # Tags
+  - type: Tag
+    tags:
+    - ADTResomiEmotes
   # Visuals
   - type: Icon
     sprite: ADT/Mobs/Species/Resomi/parts.rsi
@@ -48,9 +52,9 @@
   - type: Bloodstream
     bloodReagent: ResomiBlood
   - type: Temperature
-    heatDamageThreshold: 303 # 30°C - резоми перегреваются при более низкой температуре
-    coldDamageThreshold: 200 # -73°C - резоми устойчивы к холоду
-    currentTemperature: 300.15 # 27°C - пониженная базовая температура тела
+    heatDamageThreshold: 308 # 35°C 
+    coldDamageThreshold: 210 # -63°C
+    currentTemperature: 296.15 # 23°C 
     specificHeat: 42
     coldDamage:
       types:
@@ -60,13 +64,15 @@
         Heat : 1.5 #per second, scales with temperature & other constants
   - type: TemperatureSpeed
     thresholds:
-      200: 0.9 # Замедление при более низких температурах
-      190: 0.7
-      180: 0.5
+      220: 0.9 # При 220K (-53°C) скорость снижается до 90%
+      210: 0.8 # При 210K (-63°C) скорость снижается до 80%
+      200: 0.7 # При 200K (-73°C) скорость снижается до 70% 
   - type: ThermalRegulator
-    normalBodyTemperature: 300.15 # 27°C - нормальная температура тела резоми
+    normalBodyTemperature: 296.15 # 23°C - целевая температура тела резоми 
+    thermalRegulationTemperatureThreshold: 6  # Диапазон активации: 276K-306K (17°C до 29°C)
   - type: TemperatureProtection
-    coefficient: 0.6 # Резоми медленнее теряют температуру (как теплая куртка)
+    heatingCoefficient: 1.2  # На 20% быстрее нагреваются
+    coolingCoefficient: 0.8  # На 20% медленнее охлаждаются
 
   # Fixtures
   - type: Fixtures
@@ -143,17 +149,27 @@
       Male: MaleResomi
       Female: FemaleResomi
       Unsexed: MaleResomi
+  - type: InteractionPopup
+    successChance: 1
+    interactSuccessString: petting-success-resomi
+    messagePerceivedByOthers: petting-success-resomi-others
   - type: LanguageSpeaker
     languages:
       GalacticCommon: Speak
       Scratches: Speak
   - type: SizeAttributeWhitelist
     tall: true
-    tallscale: 1.05
+    tallscale: 1.1
     short: true
-    shortscale: 0.95
+    shortscale: 0.9
   - type: Hands
-    handDisplacement:
+    inHandItemScale: 0.85, 0.85
+    leftHandDisplacement:
+      sizeMaps:
+        32:
+          sprite: ADT/Mobs/Species/Resomi/displacement.rsi
+          state: inHand
+    rightHandDisplacement:
       sizeMaps:
         32:
           sprite: ADT/Mobs/Species/Resomi/displacement.rsi
@@ -230,7 +246,13 @@
   - type: HumanoidAppearance
     species: Resomi
   - type: Hands
-    handDisplacement:
+    inHandItemScale: 0.85, 0.85
+    leftHandDisplacement:
+      sizeMaps:
+        32:
+          sprite: ADT/Mobs/Species/Resomi/displacement.rsi
+          state: inHand
+    rightHandDisplacement:
       sizeMaps:
         32:
           sprite: ADT/Mobs/Species/Resomi/displacement.rsi

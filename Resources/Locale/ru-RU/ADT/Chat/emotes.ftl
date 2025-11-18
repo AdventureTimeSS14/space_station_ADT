@@ -31,3 +31,10 @@ chat-emote-msg-wurble = урчит
 chat-emote-msg-purse = поджимает уши
 chat-emote-name-wurble = Урчать
 chat-emote-name-purse = Поджать уши
+
+# Resomi
+chat-emote-name-chirps = щебечет
+chat-emote-name-coos = воркует
+chat-emote-msg-chirps = щебечет
+chat-emote-msg-coos = воркует
+
