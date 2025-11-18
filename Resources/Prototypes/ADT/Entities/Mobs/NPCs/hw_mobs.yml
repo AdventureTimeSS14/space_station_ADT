@@ -16,7 +16,7 @@
       collection: Punch
     damage:
       types:
-        Blunt: 50
+        Blunt: 25
   - type: NpcFactionMember
     factions:
     - SimpleHostile
@@ -71,7 +71,7 @@
       collection: AlienClaw
     damage:
       types:
-        Blunt: 50
+        Blunt: 20
   - type: NpcFactionMember
     factions:
     - SimpleHostile
@@ -127,7 +127,7 @@
       collection: AlienClaw
     damage:
       types:
-        Blunt: 20
+        Blunt: 10
   - type: NpcFactionMember
     factions:
     - SimpleHostile
@@ -169,7 +169,7 @@
       collection: AlienClaw
     damage:
       types:
-        Blunt: 10
+        Blunt: 5
   - type: NpcFactionMember
     factions:
     - SimpleHostile
@@ -212,7 +212,7 @@
       collection: AlienClaw
     damage:
       types:
-        Slash: 30
+        Slash: 20
   - type: NpcFactionMember
     factions:
     - SimpleHostile
@@ -254,7 +254,7 @@
       collection: AlienClaw
     damage:
       types:
-        Slash: 50
+        Slash: 20
   - type: NpcFactionMember
     factions:
     - SimpleHostile
