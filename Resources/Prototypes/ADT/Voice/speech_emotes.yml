@@ -486,7 +486,7 @@
   chatMessages: ["chat-emote-msg-coos"]
   chatTriggers:
     - coos
-    - воркует
+    - курлычет
 
 # Moth
 
