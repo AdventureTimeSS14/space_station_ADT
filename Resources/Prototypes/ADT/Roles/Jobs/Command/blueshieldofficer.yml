@@ -44,6 +44,7 @@
     implants: [ MindShieldImplant ]
   - !type:AddComponentSpecial
       components:
+        - type: BlueShield
         - type: CantShoot
           popup: combo-cantshoot
           whitelist:
