@@ -488,3 +488,34 @@
     - coos
     - воркует
 
+# Moth
+
+- type: emote
+  id: FlapWings
+  name: chat-emote-name-flap-wings
+  category: Hands
+  available: false
+  icon:
+    sprite: Clothing/Neck/Cloaks/moth.rsi
+    state: icon
+  blacklist:
+    components:
+      - BorgChassis
+  chatMessages: [chat-emote-msg-flap-wings]
+  chatTriggers:
+    - хлопает крыльями
+    - хлопает крылышками
+    - машет крыльями
+    - машет крылышками
+    - взмахивает крыльями
+    - взмахивает крылышками
+    - размахивает крыльями
+    - размахивает крылышками
+    - взмахнул крыльями
+    - взмахнула крыльями
+    - хлопает своими крыльями
+    - хлопает своими крылышками
+    - машет своими крыльями
+    - машет своими крылышками
+    - взмахивает своими крыльями
+    - взмахивает своими крылышками

@@ -149,6 +149,11 @@
     - type: HTN
       rootTask:
         task: SimpleHumanoidHostileCompound
+    # ADT Tweak start
+    - type: LanguageSpeaker
+      languages:
+        GalacticCommon: Speak
+    # ADT Tweak end
 
 # From Wizard deck of cards
 - type: entity
