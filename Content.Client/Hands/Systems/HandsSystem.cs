@@ -1,6 +1,5 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
-using System.Numerics;
 using Content.Client.DisplacementMap;
 using Content.Client.Examine;
 using Content.Client.Strip;
@@ -318,11 +317,13 @@ namespace Content.Client.Hands.Systems
 
                 _sprite.LayerSetData((ent, sprite), index, layerData);
 
+                // ADT-Tweak start
                 // Apply in-hand item scale if defined
                 if (handComp.InHandItemScale is { } scale)
                 {
                     _sprite.LayerSetScale((ent, sprite), index, scale);
                 }
+                // ADT-Tweak end
 
                 // Add displacement maps
                 var displacement = hand.Value.Location switch
