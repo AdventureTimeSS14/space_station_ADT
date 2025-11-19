@@ -41,7 +41,7 @@ public sealed class ShadekinTintSystem : EntitySystem
         if (_player.LocalPlayer?.ControlledEntity != uid)
             return;
 
-        _overlay.AddOverlay(_tintOverlay);
+        // _overlay.AddOverlay(_tintOverlay);
     }
 
     private void OnShutdown(EntityUid uid, ShadekinComponent component, ComponentShutdown args)
@@ -49,22 +49,22 @@ public sealed class ShadekinTintSystem : EntitySystem
         if (_player.LocalPlayer?.ControlledEntity != uid)
             return;
 
-        _overlay.RemoveOverlay(_tintOverlay);
+        // _overlay.RemoveOverlay(_tintOverlay);
     }
 
     private void OnPlayerAttached(EntityUid uid, ShadekinComponent component, PlayerAttachedEvent args)
     {
-        _overlay.AddOverlay(_tintOverlay);
+        // _overlay.AddOverlay(_tintOverlay);
     }
 
     private void OnPlayerDetached(EntityUid uid, ShadekinComponent component, PlayerDetachedEvent args)
     {
-        _overlay.RemoveOverlay(_tintOverlay);
+        // _overlay.RemoveOverlay(_tintOverlay);
     }
 
     private void OnRoundRestart(RoundRestartCleanupEvent args)
     {
-        _overlay.RemoveOverlay(_tintOverlay);
+        // _overlay.RemoveOverlay(_tintOverlay);
     }
 
 
@@ -98,22 +98,22 @@ public sealed class ShadekinTintSystem : EntitySystem
             comp.TintColor = new Vector3(0f, 0f, 0f);
             comp.TintIntensity = 0f;
         }
-        UpdateShader(comp.TintColor, comp.TintIntensity);
+        // UpdateShader(comp.TintColor, comp.TintIntensity);
     }
 
 
-    private void UpdateShader(Vector3? color, float? intensity)
-    {
-        while (_overlay.HasOverlay<ColorTintOverlay>())
-        {
-            _overlay.RemoveOverlay(_tintOverlay);
-        }
+    // private void UpdateShader(Vector3? color, float? intensity)
+    // {
+    //     while (_overlay.HasOverlay<ColorTintOverlay>())
+    //     {
+    //         _overlay.RemoveOverlay(_tintOverlay);
+    //     }
 
-        if (color != null)
-            _tintOverlay.TintColor = color;
-        if (intensity != null)
-            _tintOverlay.TintAmount = intensity;
+    //     if (color != null)
+    //         _tintOverlay.TintColor = color;
+    //     if (intensity != null)
+    //         _tintOverlay.TintAmount = intensity;
 
-        _overlay.AddOverlay(_tintOverlay);
-    }
+    //     _overlay.AddOverlay(_tintOverlay);
+    // }
 }
