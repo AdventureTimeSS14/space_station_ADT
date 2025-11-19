@@ -36,8 +36,6 @@ chat-emote-name-purse = Поджать уши
 # Resomi
 chat-emote-name-chirps = трелит
 chat-emote-name-coos = воркует
-chat-emote-msg-chirps = трелит
-chat-emote-msg-coos = воркует
 
 # Moth
 chat-emote-msg-flap-wings = хлопает крыльями

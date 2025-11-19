@@ -463,7 +463,7 @@
   blacklist:
     components:
     - BorgChassis
-  chatMessages: ["chat-emote-msg-chirps"]
+  chatMessages: [трелит]
   chatTriggers:
     - трелит
 
@@ -481,7 +481,7 @@
   blacklist:
     components:
     - BorgChassis
-  chatMessages: ["chat-emote-msg-coos"]
+  chatMessages: [воркует]
   chatTriggers:
     - coos
     - курлычет

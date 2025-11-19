@@ -64,9 +64,9 @@
         Heat : 1.5 #per second, scales with temperature & other constants
   - type: TemperatureSpeed
     thresholds:
-      220: 0.9 # При 220K (-53°C) скорость снижается до 90%
-      210: 0.8 # При 210K (-63°C) скорость снижается до 80%
-      200: 0.7 # При 200K (-73°C) скорость снижается до 70% 
+      220: 0.8 # При 220K (-53°C) скорость снижается до 80%
+      210: 0.7 # При 210K (-63°C) скорость снижается до 70%
+      200: 0.6 # При 200K (-73°C) скорость снижается до 60% 
   - type: ThermalRegulator
     normalBodyTemperature: 296.15 # 23°C - целевая температура тела резоми 
     thermalRegulationTemperatureThreshold: 6  # Диапазон активации: 276K-306K (17°C до 29°C)
