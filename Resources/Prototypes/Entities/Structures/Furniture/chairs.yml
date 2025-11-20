@@ -22,6 +22,7 @@
         - TableMask
   - type: Sprite
     sprite: Structures/Furniture/chairs.rsi
+    drawdepth: ThinPipe
     noRot: true
   - type: Strap
     position: Stand
