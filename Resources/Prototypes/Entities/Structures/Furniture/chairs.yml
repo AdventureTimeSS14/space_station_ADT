@@ -22,6 +22,7 @@
         - TableMask
   - type: Sprite
     sprite: Structures/Furniture/chairs.rsi
+    drawdepth: ThinPipe # ADT-Tweak: Исправлено отображение стульев - слой стульев теперь отображается ниже персонажа 
     noRot: true
   - type: Strap
     position: Stand
