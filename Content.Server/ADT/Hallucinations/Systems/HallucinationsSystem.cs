@@ -1,4 +1,3 @@
-using Robust.Shared.Audio.Systems;
 using Content.Shared.Humanoid;
 using Content.Shared.StatusEffect;
 using Robust.Shared.Timing;
@@ -7,11 +6,8 @@ using Content.Shared.ADT.Hallucinations;
 using Robust.Server.GameObjects;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
-using Content.Server.Chat;
 using Content.Server.Chat.Systems;
-using Content.Shared.Speech;
 using Content.Shared.Administration.Logs;
-using Content.Shared.Eye;
 
 namespace Content.Server.ADT.Hallucinations;
 
@@ -25,7 +21,6 @@ public sealed partial class HallucinationsSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly StatusEffectsSystem _status = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
 
     public static string HallucinatingKey = "Hallucinations";
@@ -39,7 +34,6 @@ public sealed partial class HallucinationsSystem : EntitySystem
         SubscribeLocalEvent<HallucinationsDiseaseComponent, MapInitEvent>(OnHallucinationsDiseaseInit);
         SubscribeLocalEvent<HallucinationsDiseaseComponent, ComponentShutdown>(OnHallucinationsDiseaseShutdown);
         SubscribeLocalEvent<HallucinationsDiseaseComponent, EntitySpokeEvent>(OnEntitySpoke);
-
     }
 
     private void OnHallucinationsInit(EntityUid uid, HallucinationsComponent component, MapInitEvent args)
@@ -50,7 +44,6 @@ public sealed partial class HallucinationsSystem : EntitySystem
         UpdatePreset(component);
         _eye.SetVisibilityMask(uid, eye.VisibilityMask | component.Layer, eye);
 
-        //_eye.SetVisibilityMask(uid, eye.VisibilityMask | component.Layer, eye);
         _adminLogger.Add(LogType.Action, LogImpact.Medium,
         $"{ToPrettyString(uid):player} began to hallucinate.");
     }
@@ -60,10 +53,10 @@ public sealed partial class HallucinationsSystem : EntitySystem
         component.Layer = (ushort)(_random.Next(4, 32) << 1);
         if (!_entityManager.TryGetComponent<EyeComponent>(uid, out var eye))
             return;
-        _eye.SetVisibilityMask(uid, eye.VisibilityMask | component.Layer, eye);
 
-        //_eye.SetVisibilityMask(uid, eye.VisibilityMask | component.Layer, eye);
+        _eye.SetVisibilityMask(uid, eye.VisibilityMask | component.Layer, eye);
         _adminLogger.Add(LogType.Action, LogImpact.Medium,
+
         $"{ToPrettyString(uid):player} began to hallucinate.");
     }
 
@@ -71,6 +64,7 @@ public sealed partial class HallucinationsSystem : EntitySystem
     {
         if (component.Proto == null)
             return;
+
         var preset = component.Proto;
 
         component.Spawns = preset.Entities;
@@ -81,13 +75,13 @@ public sealed partial class HallucinationsSystem : EntitySystem
         component.MaxSpawns = preset.MaxSpawns;
         component.IncreaseChance = preset.IncreaseChance;
     }
+
     private void OnHallucinationsShutdown(EntityUid uid, HallucinationsComponent component, ComponentShutdown args)
     {
         if (!_entityManager.TryGetComponent<EyeComponent>(uid, out var eye))
             return;
-        _eye.SetVisibilityMask(uid, eye.VisibilityMask & ~(ushort)component.Layer, eye);
 
-        //_eye.SetVisibilityMask(uid, eye.VisibilityMask & ~component.Layer, eye);
+        _eye.SetVisibilityMask(uid, eye.VisibilityMask & ~component.Layer, eye);
         _adminLogger.Add(LogType.Action, LogImpact.Medium,
         $"{ToPrettyString(uid):player} stopped hallucinating.");
     }
@@ -96,15 +90,14 @@ public sealed partial class HallucinationsSystem : EntitySystem
     {
         if (!_entityManager.TryGetComponent<EyeComponent>(uid, out var eye))
             return;
-        _eye.SetVisibilityMask(uid, eye.VisibilityMask & ~(ushort)component.Layer, eye);
 
-        //_eye.SetVisibilityMask(uid, eye.VisibilityMask & ~component.Layer, eye);
+        _eye.SetVisibilityMask(uid, eye.VisibilityMask & ~(ushort)component.Layer, eye);
         _adminLogger.Add(LogType.Action, LogImpact.Medium,
         $"{ToPrettyString(uid):player} stopped hallucinating.");
     }
 
     /// <summary>
-    ///     Attempts to start hallucinations for target
+    /// Attempts to start hallucinations for target
     /// </summary>
     /// <param name="target">The target.</param>
     /// <param name="key">Status effect key.</param>
@@ -115,8 +108,10 @@ public sealed partial class HallucinationsSystem : EntitySystem
     {
         if (proto == null)
             return false;
+
         if (!_proto.TryIndex<HallucinationsPrototype>(proto, out var prototype))
             return false;
+
         if (!_status.TryAddStatusEffect<HallucinationsComponent>(target, key, time, refresh))
             return false;
 
@@ -137,6 +132,7 @@ public sealed partial class HallucinationsSystem : EntitySystem
     {
         if (proto == null)
             return false;
+
         if (!_proto.TryIndex<HallucinationsPrototype>(proto, out var prototype))
             return false;
 
@@ -165,9 +161,11 @@ public sealed partial class HallucinationsSystem : EntitySystem
         {
             if (!HasComp<HumanoidAppearanceComponent>(ent))
                 continue;
+
             StartEpidemicHallucinations(ent, component.Proto.ID);
         }
     }
+
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
@@ -177,6 +175,7 @@ public sealed partial class HallucinationsSystem : EntitySystem
         {
             if (_timing.CurTime < stat.NextSecond)
                 continue;
+
             var rate = stat.SpawnRate;
             stat.NextSecond = _timing.CurTime + TimeSpan.FromSeconds(rate);
 
@@ -197,29 +196,26 @@ public sealed partial class HallucinationsSystem : EntitySystem
 
                 if (stat.SpawnedCount >= stat.MaxSpawns)
                     continue;
+
                 stat.SpawnedCount = stat.SpawnedCount += 1;
 
                 var hallucination = Spawn(stat.Spawns[_random.Next(0, stat.Spawns.Count - 1)], newCoords);
                 EnsureComp<VisibilityComponent>(hallucination, out var visibility);
-                _visibilitySystem.SetLayer((hallucination, visibility), (ushort)stat.Layer, false);
+                _visibilitySystem.SetLayer((hallucination, visibility), stat.Layer, false);
                 _visibilitySystem.RefreshVisibility(hallucination, visibilityComponent: visibility);
-
-                //_visibilitySystem.SetLayer((hallucination, visibility), (ushort) stat.Layer, false);
-                //_visibilitySystem.RefreshVisibility(hallucination, visibilityComponent: visibility);
             }
 
             var uidnewCoords = Transform(uid).MapPosition.Offset(_random.NextVector2(stat.Range));
+
             if (stat.SpawnedCount >= stat.MaxSpawns)
                 continue;
+
             stat.SpawnedCount = stat.SpawnedCount += 1;
 
             var uidhallucination = Spawn(stat.Spawns[_random.Next(0, stat.Spawns.Count - 1)], uidnewCoords);
             EnsureComp<VisibilityComponent>(uidhallucination, out var uidvisibility);
-            _visibilitySystem.SetLayer((uidhallucination, uidvisibility), (ushort)stat.Layer, false);
+            _visibilitySystem.SetLayer((uidhallucination, uidvisibility), stat.Layer, false);
             _visibilitySystem.RefreshVisibility(uidhallucination, visibilityComponent: uidvisibility);
-
-            //_visibilitySystem.SetLayer((uidhallucination, uidvisibility), (ushort) stat.Layer, false);
-            //_visibilitySystem.RefreshVisibility(uidhallucination, visibilityComponent: uidvisibility);
 
         }
 
@@ -234,6 +230,7 @@ public sealed partial class HallucinationsSystem : EntitySystem
 
             if (_timing.CurTime < stat.NextSecond)
                 continue;
+
             var rate = stat.SpawnRate;
             stat.NextSecond = _timing.CurTime + TimeSpan.FromSeconds(rate);
 
@@ -253,31 +250,26 @@ public sealed partial class HallucinationsSystem : EntitySystem
 
                 if (stat.SpawnedCount >= stat.MaxSpawns)
                     continue;
+
                 stat.SpawnedCount = stat.SpawnedCount += 1;
 
                 var hallucination = Spawn(stat.Spawns[_random.Next(0, stat.Spawns.Count - 1)], newCoords);
                 EnsureComp<VisibilityComponent>(hallucination, out var visibility);
-                _visibilitySystem.SetLayer((hallucination, visibility), (ushort)stat.Layer, false);
+                _visibilitySystem.SetLayer((hallucination, visibility), stat.Layer, false);
                 _visibilitySystem.RefreshVisibility(hallucination, visibilityComponent: visibility);
-
-                //_visibilitySystem.SetLayer((hallucination, visibility), (ushort)stat.Layer, false);
-                //_visibilitySystem.RefreshVisibility(hallucination, visibilityComponent: visibility);
             }
 
             var uidnewCoords = Transform(uid).MapPosition.Offset(_random.NextVector2(stat.Range));
+
             if (stat.SpawnedCount >= stat.MaxSpawns)
                 continue;
+
             stat.SpawnedCount = stat.SpawnedCount += 1;
 
             var uidhallucination = Spawn(stat.Spawns[_random.Next(0, stat.Spawns.Count - 1)], uidnewCoords);
             EnsureComp<VisibilityComponent>(uidhallucination, out var uidvisibility);
-            _visibilitySystem.SetLayer((uidhallucination, uidvisibility), (ushort)stat.Layer, false);
+            _visibilitySystem.SetLayer((uidhallucination, uidvisibility), stat.Layer, false);
             _visibilitySystem.RefreshVisibility(uidhallucination, visibilityComponent: uidvisibility);
-
-            //_visibilitySystem.SetLayer((uidhallucination, uidvisibility), (ushort) stat.Layer, false);
-            //_visibilitySystem.RefreshVisibility(uidhallucination, visibilityComponent: uidvisibility);
-
         }
     }
-
 }
