@@ -55,11 +55,11 @@
         escapeAttemptTime: 1.5
         setStageTime: 1.25
   - type: MobState
-  # - type: MobThresholds
-  #   thresholds:
-  #     0: Alive
-  #     80: Critical
-  #     140: Dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      80: Critical
+      160: Dead
   # - type: SlowOnDamage
   #   speedModifierThresholds:
   #     42: 0.7
