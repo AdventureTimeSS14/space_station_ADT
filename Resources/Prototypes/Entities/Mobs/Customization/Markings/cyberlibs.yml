@@ -901,7 +901,7 @@
         !type:SimpleColoring
           color: "#FFFFFF"
   sprites:
-    - sprite: Corvax/Mobs/Customization/Cyberlimbs/nanotrasen.rsi
+    - sprite: Corvax/Mobs/Customization/Cyberlimbs/nanotrasen.rsi #ADT-Tweak xion.rsi -> nanotrasen.rsi
       state: torso
 
 # Xion
