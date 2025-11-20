@@ -22,7 +22,7 @@
         - TableMask
   - type: Sprite
     sprite: Structures/Furniture/chairs.rsi
-    drawdepth: ThinPipe
+    drawdepth: Objects #ADT-Tweak
     noRot: true
   - type: Strap
     position: Stand
