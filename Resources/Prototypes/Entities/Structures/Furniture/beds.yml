@@ -22,6 +22,7 @@
         - TableMask
   - type: Sprite
     sprite: Structures/Furniture/furniture.rsi
+    drawdepth: ThinPipe # ADT-Tweak
     state: bed
     noRot: true
   - type: Strap
