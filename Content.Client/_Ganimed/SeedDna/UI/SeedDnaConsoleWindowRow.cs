@@ -149,7 +149,11 @@ public sealed class SeedDnaConsoleWindowRow
 
         var action = () =>
         {
-            setter(getter());
+            var value = getter();
+            if (value == null)
+                return;
+
+            setter(value);
             SetLabelValue(setupLabel, getupLabel.Text);
             _extractButton!.Disabled = true;
             _replaceButton!.Disabled = true;
