@@ -92,7 +92,8 @@ namespace Content.Client.RoundEnd
             return roundEndSummaryTab;
         }
 
-        // Everything inside this region is heavily edited for goob.
+        //ADT-tweak-start
+        //всё в этом регионе сильно модифицировано
         private BoxContainer MakePlayerManifestTab(RoundEndMessageEvent.RoundEndPlayerInfo[] playersInfo)
         {
             var playerManifestTab = new BoxContainer
@@ -160,16 +161,16 @@ namespace Content.Client.RoundEnd
                     VerticalExpand = true,
                 };
 
-                if (playerInfo.PlayerNetEntity != null)
-                {
-                    hBox.AddChild(new SpriteView(playerInfo.PlayerNetEntity.Value, _entityManager)
-                        {
-                            OverrideDirection = Direction.South,
-                            VerticalAlignment = VAlignment.Center,
-                            SetSize = new Vector2(32, 32),
-                            VerticalExpand = true,
-                        });
-                }
+                // if (playerInfo.PlayerNetEntity != null)
+                // {
+                //     hBox.AddChild(new SpriteView(playerInfo.PlayerNetEntity.Value, _entityManager)
+                //         {
+                //             OverrideDirection = Direction.South,
+                //             VerticalAlignment = VAlignment.Center,
+                //             SetSize = new Vector2(32, 32),
+                //             VerticalExpand = true,
+                //         });
+                // }
 
                 if (playerInfo.PlayerICName != null)
                 {
@@ -331,5 +332,5 @@ namespace Content.Client.RoundEnd
             return playerManifestTab;
         }
     }
-
+    //ADT-tweak-end
 }
