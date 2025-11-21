@@ -1,7 +1,5 @@
 - type: hallucinationsPack
-  id: Supermatter
+  id: SupermatterPack
   entities:
-  - ADTHallucinationMobSpider
-  - ADTHallucinationMobSlime
-  - ADTHallucinationMobBehonker
-  - ADTHallucinationRod
+  - ADTSMHallucinationDarkmatter
+  - ADTSMHallucinationCrystallBeing
