@@ -68,6 +68,8 @@ namespace Content.Client.Chemistry.UI
             _window.OnSelectReagentAmount += (reagent, amount) => SendMessage(new ChemMasterSelectReagentAmountMessage(reagent, amount));
             _window.OnRemoveReagentAmount += (reagent, amount) => SendMessage(new ChemMasterRemoveReagentAmountMessage(reagent, amount));
             _window.OnClearReagentAmount += reagent => SendMessage(new ChemMasterClearReagentAmountMessage(reagent));
+            // ADT-Tweak: Transfer reagent from bottle to buffer
+            _window.OnTransferReagentFromBottle += (reagent, amount) => SendMessage(new ChemMasterReagentAmountButtonMessage(reagent, amount, false, false));
             //ADT-Tweak-End
         }
 

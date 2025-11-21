@@ -14,6 +14,7 @@ using System.Numerics;
 using System.Threading.Tasks;
 using Content.Shared.FixedPoint;
 using Robust.Client.Graphics;
+using Robust.Client.ResourceManagement;
 using static Robust.Client.UserInterface.Controls.BoxContainer;
 using Content.Shared.Mobs;
 
@@ -49,6 +50,7 @@ namespace Content.Client.Chemistry.UI
         public event Action<int>? OnPillCanisterSelected;
         public event Action<int>? OnPillCanisterEjected;
         public event Action? OnTransferFromBottlePressed;
+        public event Action<ReagentId, int>? OnTransferReagentFromBottle; // ADT-Tweak: Transfer reagent from bottle to buffer
 
         // UI State
         public bool IsOutputTab => OutputTabs.CurrentTab == 0; // True for bottles tab, false for pills tab
@@ -66,7 +68,7 @@ namespace Content.Client.Chemistry.UI
 
         // Configuration Constants
         private const string TransferringAmountColor = "#ffffff";
-        private const int MaxAmountButtons = 24;
+        private const int MaxAmountButtons = 16;
         private const int BottleStorageSlots = 20;
         private const int PillContainerSlots = 30;
         private const int PillCanistersCount = 3;
@@ -88,6 +90,8 @@ namespace Content.Client.Chemistry.UI
         private int _transferAmount = 50;
         private Label? _selectedReagentLabel = null;
         private int _selectedBottleIndex = -1;
+        private bool _labelLineEditFocused = false; // ADT-Tweak: Track if label field is being edited
+        private Dictionary<ReagentId, float>? _lastSelectedReagentAmounts = null; // ADT-Tweak: Track selected reagents for label updates
 
         /// <summary>
         /// Create and initialize the chem master UI client-side. Creates the basic layout,
@@ -154,6 +158,12 @@ namespace Content.Client.Chemistry.UI
             PillDosage.IsValid = x => x >= 0 && x <= MaxPillDosage;
             BottleNumber.IsValid = x => x >= 0 && x <= AbsoluteMaxBottles;
             BottleDosage.IsValid = x => x >= 0 && x <= MaxBottleDosage;
+
+            // ADT-Tweak: Update label when dosage or number changes
+            PillDosage.ValueChanged += _ => UpdateLabelFromState();
+            PillNumber.ValueChanged += _ => UpdateLabelFromState();
+            BottleDosage.ValueChanged += _ => UpdateLabelFromState();
+            BottleNumber.ValueChanged += _ => UpdateLabelFromState();
 
             // ADT-Tweak Start - Bottle storage buttons with per-slot eject (eject on the right)
             BottleStorageButtons = new Button[20];
@@ -235,7 +245,7 @@ namespace Content.Client.Chemistry.UI
                 var chooseButton = new Button
                 {
                     Text = $"Выбрать",
-                    StyleClasses = { StyleBase.ButtonOpenBoth },
+                    StyleClasses = { StyleBase.ButtonCaution },
                     MinSize = new Vector2(105, 30),
                     MaxSize = new Vector2(105, 30),
                     ToggleMode = true,
@@ -288,12 +298,17 @@ namespace Content.Client.Chemistry.UI
 
             // Ensure label length is within the character limit.
             LabelLineEdit.IsValid = s => s.Length <= SharedChemMaster.LabelMaxLength;
+            // ADT-Tweak: Track focus to prevent overwriting user input
+            LabelLineEdit.OnFocusEnter += _ => _labelLineEditFocused = true;
+            LabelLineEdit.OnFocusExit += _ => _labelLineEditFocused = false;
 
             Tabs.SetTabTitle(0, Loc.GetString("chem-master-window-buffer-text"));
 
             // Set titles for the new output tabs
             OutputTabs.SetTabTitle(0, Loc.GetString("chem-master-window-bottles-tab"));
             OutputTabs.SetTabTitle(1, Loc.GetString("chem-master-window-pills-tab"));
+            // ADT-Tweak: Update label when switching between bottles and pills tabs
+            OutputTabs.OnTabChanged += _ => UpdateLabelFromState();
             //ADT-Tweak Start
 
             SortMethod.AddItem(
@@ -307,6 +322,10 @@ namespace Content.Client.Chemistry.UI
             SortMethod.AddItem(
                 Loc.GetString("chem-master-window-sort-method-Time-text"),
                 (int)ReagentSortMethod.Time);
+
+            // Set minimum size for sort method button
+            SortMethod.MinSize = new Vector2(300, 29);
+            SortMethod.HorizontalAlignment = HAlignment.Stretch;
 
             SortMethod.OnItemSelected += HandleChildPressed;
 
@@ -355,7 +374,7 @@ namespace Content.Client.Chemistry.UI
         {
             if (!int.TryParse(AmountLineEdit.Text, out var amount))
             {
-                ShowWarningMessage(Loc.GetString("chem-master-window-amount-too-much"));
+                ShowWarningMessage(Loc.GetString("chem-master-window-amount-empty"));
                 return;
             }
 
@@ -365,13 +384,19 @@ namespace Content.Client.Chemistry.UI
                 return;
             }
 
-            if (_amounts.Any(a => amount == a))
+            if (amount <= 0)
             {
-                ShowWarningMessage(Loc.GetString("chem-master-window-amount-too-much"));
+                ShowWarningMessage(Loc.GetString("chem-master-window-amount-invalid"));
                 return;
             }
 
-            if (_amounts.Count >= MaxAmountButtons)  // Limit maximum number of templates to 28
+            if (_amounts.Any(a => amount == a))
+            {
+                ShowWarningMessage(Loc.GetString("chem-master-window-amount-duplicate"));
+                return;
+            }
+
+            if (_amounts.Count >= MaxAmountButtons)  // Limit maximum number of templates to 16
             {
                 ShowWarningMessage(Loc.GetString("chem-master-window-amount-limit-reached"));
                 return;
@@ -566,7 +591,15 @@ namespace Content.Client.Chemistry.UI
                     {
                         var isSelected = _lastState.SelectedPillCanisterForCreation == i;
                         chooseButton.Pressed = isSelected;
+
+                        // Change background color using Modulate
                         chooseButton.Modulate = isSelected ? Color.LimeGreen : Color.Green;
+
+                        // Keep text color always white by overriding Label's modulate
+                        if (chooseButton.Label != null)
+                        {
+                            chooseButton.Label.ModulateSelfOverride = Color.White;
+                        }
                     }
                 }
             }
@@ -675,8 +708,20 @@ namespace Content.Client.Chemistry.UI
             // Сначала применяем метод сортировки, затем строим панели
             HandleSortMethodChange(castState.SortMethod);   // ADT-Tweak
             UpdatePanelInfo(castState);
-            if (castState.UpdateLabel)
+
+            // ADT-Tweak: Check if selected reagents changed or UpdateLabel flag is set
+            bool selectedReagentsChanged = _lastSelectedReagentAmounts == null ||
+                !_lastSelectedReagentAmounts.SequenceEqual(castState.SelectedReagentAmounts ?? new Dictionary<ReagentId, float>());
+
+            if (selectedReagentsChanged)
+                _lastSelectedReagentAmounts = castState.SelectedReagentAmounts != null
+                    ? new Dictionary<ReagentId, float>(castState.SelectedReagentAmounts)
+                    : null;
+
+            // ADT-Tweak: Update label if field is not being edited and either UpdateLabel flag is set or reagents changed
+            if (!_labelLineEditFocused && (castState.UpdateLabel || selectedReagentsChanged))
                 LabelLine = GenerateLabel(castState);
+
             SetAmountText(castState.TransferringAmount.ToString(), false);  // ADT-Tweak
 
             // ADT-Tweak-Start: compare list contents instead of references
@@ -813,15 +858,14 @@ namespace Content.Client.Chemistry.UI
                 return;
             }
 
-            // Header
+            // Header - only show volume info
             var headerHBox = new BoxContainer
             {
                 Orientation = LayoutOrientation.Horizontal
             };
-            headerHBox.AddChild(new Label { Text = $"{bottleInfo.DisplayName}: " });
             headerHBox.AddChild(new Label
             {
-                Text = $"{bottleInfo.CurrentVolume}/{bottleInfo.MaxVolume}",
+                Text = $"бутылочка: {bottleInfo.CurrentVolume}/{bottleInfo.MaxVolume}u",
                 StyleClasses = { StyleNano.StyleClassLabelSecondaryColor }
             });
             BottleContentsInfo.AddChild(headerHBox);
@@ -841,15 +885,15 @@ namespace Content.Client.Chemistry.UI
                 var name = proto?.LocalizedName ?? Loc.GetString("chem-master-window-unknown-reagent-text");
                 var reagentColor = proto?.SubstanceColor ?? default(Color);
 
-                var row = BuildSimpleReagentRow(reagentColor, rowCount++, name, reagent.Quantity);
+                var row = BuildSimpleReagentRow(reagentColor, rowCount++, name, reagent.Quantity, reagent.Reagent);
                 BottleContentsInfo.AddChild(row);
             }
         }
 
         /// <summary>
-        /// Build a simplified reagent row for bottle contents display with only name, quantity, and color control
+        /// Build a simplified reagent row for bottle contents display with only name, quantity, color control, and transfer button
         /// </summary>
-        private Control BuildSimpleReagentRow(Color reagentColor, int rowCount, string name, FixedPoint2 quantity)
+        private Control BuildSimpleReagentRow(Color reagentColor, int rowCount, string name, FixedPoint2 quantity, ReagentId reagentId)
         {
             // Colors for alternating rows
             var rowColor1 = Color.FromHex("#1B1B1E");
@@ -903,8 +947,26 @@ namespace Content.Client.Chemistry.UI
                 Margin = new Thickness(0, 1)
             };
 
+            var transferButton = new Button
+            {
+                Text = "↑",
+                MinWidth = 30,
+                MaxWidth = 30,
+                StyleClasses = { StyleBase.ButtonOpenLeft }
+            };
+            // Make button text bold
+            if (transferButton.Label != null)
+            {
+                var resCache = IoCManager.Resolve<IResourceCache>();
+                var boldFont = resCache.NotoStack(variation: "Bold", size: 12);
+                transferButton.Label.FontOverride = boldFont;
+            }
+            transferButton.OnPressed += _ => OnTransferReagentFromBottle?.Invoke(reagentId, _transferAmount);
+
+
             rowContainer.AddChild(statsContainer);
             rowContainer.AddChild(colorPanel);
+            rowContainer.AddChild(transferButton);
 
             // Wrap in panel container for striped row background
             return new PanelContainer
@@ -1052,18 +1114,97 @@ namespace Content.Client.Chemistry.UI
             state.BufferCurrentVolume ?? 0;
 
         /// <summary>
-        /// Generate a product label based on reagents in the buffer.
+        /// Generate a product label based on selected reagents, dosage, and count.
+        /// Uses the same calculation logic as server-side bottle/pill creation.
         /// </summary>
         /// <param name="state">State data sent by the server.</param>
         private string GenerateLabel(ChemMasterBoundUserInterfaceState state)
         {
-            if (CurrentStateBufferVolume(state) == 0)   // ADT-Tweak
+            // Check if we have selected reagents
+            if (state.SelectedReagentAmounts == null || state.SelectedReagentAmounts.Count == 0)
                 return "";
 
-            var buffer = state.BufferReagents;    // ADT-Tweak
-            var reagent = buffer.OrderByDescending(r => r.Quantity).First().Reagent;  // ADT-Tweak
-            _prototypeManager.TryIndex(reagent.Prototype, out ReagentPrototype? proto);
-            return proto?.LocalizedName ?? "";
+            // Determine if we're on bottles or pills tab
+            bool isBottles = IsOutputTab;
+            uint dosage = isBottles ? (uint)BottleDosage.Value : (uint)PillDosage.Value;
+
+            if (dosage == 0)
+                return "";
+
+            // Calculate total selected amount
+            FixedPoint2 totalSelectedAmount = FixedPoint2.Zero;
+            foreach (var amount in state.SelectedReagentAmounts.Values)
+            {
+                totalSelectedAmount += FixedPoint2.New(amount);
+            }
+
+            if (totalSelectedAmount <= 0)
+                return "";
+
+            // Scale selected amounts to match dosage (same logic as server)
+            // scale = dosage / totalSelected (for one unit, totalNeeded = dosage)
+            var scale = FixedPoint2.New(dosage) / totalSelectedAmount;
+
+            // Calculate amount per unit for each reagent
+            var reagentAmounts = new Dictionary<ReagentId, FixedPoint2>();
+            var totalForWithdrawal = FixedPoint2.Zero;
+            var reagentList = state.SelectedReagentAmounts.ToList();
+
+            // Calculate for all reagents except the last
+            for (int i = 0; i < reagentList.Count - 1; i++)
+            {
+                var (reagentId, selectedAmount) = reagentList[i];
+                var scaledAmount = FixedPoint2.New(selectedAmount) * scale;
+                reagentAmounts[reagentId] = scaledAmount;
+                totalForWithdrawal += scaledAmount;
+            }
+
+            // For the last reagent, use remaining to ensure exact dosage
+            if (reagentList.Count > 0)
+            {
+                var lastReagent = reagentList[reagentList.Count - 1].Key;
+                var remaining = FixedPoint2.New(dosage) - totalForWithdrawal;
+                reagentAmounts[lastReagent] = remaining;
+            }
+
+            // Format the label
+            return FormatReagentLabelPreview(reagentAmounts);
+        }
+
+        /// <summary>
+        /// Formats reagent amounts for label preview.
+        /// Format: "{reagent1}: {amount1} u. / {reagent2}: {amount2} u. / ..."
+        /// </summary>
+        private string FormatReagentLabelPreview(Dictionary<ReagentId, FixedPoint2> reagents)
+        {
+            var parts = new List<string>();
+
+            foreach (var (reagentId, amount) in reagents)
+            {
+                // Try to get reagent prototype for the name
+                if (_prototypeManager.TryIndex<ReagentPrototype>(reagentId.Prototype, out var reagentProto))
+                {
+                    var reagentName = Loc.GetString(reagentProto.LocalizedName);
+                    parts.Add($"{reagentName}: {amount:F1} u.");
+                }
+            }
+
+            return string.Join(" / ", parts);
+        }
+
+        /// <summary>
+        /// Updates the label field from current state if not being edited.
+        /// </summary>
+        private void UpdateLabelFromState()
+        {
+            if (_lastState != null && !_labelLineEditFocused)
+            {
+                var newLabel = GenerateLabel(_lastState);
+                if (!string.IsNullOrEmpty(newLabel))
+                {
+                    LabelLine = newLabel;
+                }
+            }
         }
 
         /// <summary>

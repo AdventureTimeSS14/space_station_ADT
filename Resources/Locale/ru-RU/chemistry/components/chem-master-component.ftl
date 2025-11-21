@@ -56,6 +56,9 @@ chem-master-window-eject-container-button = ⏏
 chem-master-window-pills-tab = Таблетки
 chem-master-window-bottles-tab = Бутылочки
 chem-master-window-amount-too-much = Попробуйте меньшее количество!
+chem-master-window-amount-invalid = Только не отрицательное число!
+chem-master-window-amount-empty = Поле для шаблона пустое!
+chem-master-window-amount-duplicate = Такой шаблон уже есть!
 chem-master-window-amount-limit-reached = Слишком много кнопок!
 chem-master-window-choose-reagent-button = Выбрать
 chem-master-window-no-reagent-selected-text = Реагент не выбран.
@@ -66,3 +69,5 @@ chem-master-pills-created = Создано { $created } из { $requested } та
 chem-master-bottles-created = Создано { $created } из { $requested } бутылочек
 chem-master-window-no-bottle-selected-text = Бутылочка не выбрана!
 chem-master-window-current-text-label = Этикетка:
+
+
