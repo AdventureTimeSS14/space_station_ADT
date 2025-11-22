@@ -1,6 +1,5 @@
 using Content.Shared.Actions;
-using Content.Shared.ADT.Salvage.Systems;
-using Robust.Shared.Audio;
+using Content.Shared.FixedPoint;
 using Robust.Shared.GameStates;
 
 namespace Content.Shared.ADT.Salvage.Components;
@@ -11,14 +10,18 @@ public sealed partial class CursedHeartComponent : Component
 {
     [AutoNetworkedField]
     public EntityUid? PumpActionEntity;
+    [AutoNetworkedField]
+    public EntityUid? ToggleActionEntity;
 
     public TimeSpan LastPump = TimeSpan.Zero;
 
     [DataField]
     public float MaxDelay = 5f;
+    [DataField]
+    public bool IsStopped = false;
+    [DataField]
+    public FixedPoint2? OriginalCritThreshold;
 }
 
-public sealed partial class PumpHeartActionEvent : InstantActionEvent
-{
-
-}
+public sealed partial class PumpHeartActionEvent : InstantActionEvent;
+public sealed partial class ToggleHeartActionEvent : InstantActionEvent;
