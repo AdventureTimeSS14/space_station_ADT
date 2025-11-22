@@ -4,7 +4,7 @@
     HandheldHealthAnalyzer: 5
     Brutepack: 30
     Ointment: 30
-    Tourniquet: 30
+    ADTTourniquet1: 30 # ADT-Tweak: TourniquetUp
     Bloodpack: 20
     ChemistryBottleEpinephrine: 10
     Syringe: 10
