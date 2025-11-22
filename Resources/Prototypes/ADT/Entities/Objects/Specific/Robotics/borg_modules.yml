@@ -56,12 +56,18 @@
   name: RPD cyborg module
   components:
   - type: Sprite
+    sprite: ADT/Objects/Specific/Robotics/borgmodule.rsi
     layers:
     - state: engineering
-    - state: icon-rcd
+    - state: icon-rpd
   - type: ItemBorgModule
     items:
     - ADTRPDRecharging
+    - GasAnalyzer
+    - HolofanProjectorBorg
+    - PowerDrill
+  - type: BorgModuleIcon
+    icon: { sprite: ADT/Interface/Actions/actions_borg.rsi, state: rpd-module }
 
 - type: entity
   id: ADTBorgModulePKA
