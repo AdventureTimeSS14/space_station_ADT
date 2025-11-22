@@ -12,3 +12,33 @@
         reagents:
         - ReagentId: Romerol
           Quantity: 30
+
+- type: entity
+  id: ChemistryBottlePolymorphine
+  suffix: Polymorphine
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: reagent-name-ADTPolymorphine
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: ADTPolymorphine
+          Quantity: 30
+
+- type: entity
+  id: ChemistryBottleChaoticPolymorphine
+  suffix: ChaoticPolymorphine
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: reagent-name-ADTChaoticPolymorphine
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: ADTChaoticPolymorphine
+          Quantity: 30
