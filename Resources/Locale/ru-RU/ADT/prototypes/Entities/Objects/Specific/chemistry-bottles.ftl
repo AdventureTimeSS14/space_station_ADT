@@ -2,10 +2,10 @@ ent-ChemistryBottleRomerol = { ent-BaseChemistryBottleFilled }
     .suffix = ромерол
     .desc = { ent-BaseChemistryBottleFilled.desc }
 
-ent-ChemistryBottlePolymorphine = { ent-BaseChemistryBottleFilled }
+ent-ADTChemistryBottlePolymorphine = { ent-BaseChemistryBottleFilled }
     .suffix = полиморфин
     .desc = { ent-BaseChemistryBottleFilled.desc }
 
-ent-ChemistryBottleChaoticPolymorphine = { ent-BaseChemistryBottleFilled }
+ent-ADTChemistryBottleChaoticPolymorphine = { ent-BaseChemistryBottleFilled }
     .suffix = нестабильный полиморфин
     .desc = { ent-BaseChemistryBottleFilled.desc }
