@@ -327,12 +327,11 @@
     autoRecharge: true
     autoRechargeRate: 2
   - type: InjectorsBlocker  # ADT
-  # ADT Grab start
-  - type: ModifyGrabStageTime
-    modifiers:
-      Hard: 1.2
-      Choke: 1.2
-  # ADT Grab end
+  # ADT-Tweak-Start
+  - type: ClothingGrantComponent
+    component:
+    - type: GrabProtection
+  # ADT-Tweak-End
   - type: Item
     size: Normal
 
