@@ -90,7 +90,6 @@
         whitelist:
           tags:
           - Bottle
-          - BoxCardboard # ADT-Tweak
   - type: SolutionContainerManager
     solutions:
       buffer: {}

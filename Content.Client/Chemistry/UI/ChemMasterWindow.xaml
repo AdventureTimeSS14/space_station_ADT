@@ -2,14 +2,14 @@
                  xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
                  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                  xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
-                 MinSize="947 945"
+                 MinSize="1017 945"
                  Title="{Loc 'chem-master-bound-user-interface-title'}"
                  VerticalAlignment="Top">
     <BoxContainer Orientation="Vertical" VerticalExpand="true" >
         <TabContainer Name="Tabs" Margin="5 5 7 5" HorizontalExpand="True">
-            <BoxContainer Orientation="Horizontal" HorizontalExpand="True" Margin="5" SeparationOverride="10">
+            <BoxContainer Orientation="Horizontal" HorizontalExpand="True" Margin="5" SeparationOverride="10" >
                 <!-- Left side: Buffer section and info -->
-                <BoxContainer Orientation="Vertical" HorizontalExpand="True" Margin="0 0 5 0">
+                <BoxContainer Orientation="Vertical" HorizontalExpand="True" Margin="0 0 5 0" >
                     <!-- Buffer -->
                     <BoxContainer Orientation="Horizontal">
                         <Control HorizontalExpand="True" />
@@ -41,7 +41,7 @@
                 </BoxContainer>
 
                 <!-- Right side: Input container info -->
-                <BoxContainer Orientation="Vertical" Margin="0 0 0 0" MinSize="300 0">
+                <BoxContainer Orientation="Vertical" Margin="0 0 0 0" MinSize="347 0">
                     <!-- Input container info -->
                     <BoxContainer Orientation="Horizontal">
                         <Label Text="{Loc 'chem-master-window-container-label'}" />
@@ -87,11 +87,10 @@
                                     VerticalAlignment="Center" HorizontalAlignment="Right" SetSize="19 19"/>
                     </BoxContainer>
                 </BoxContainer>
-                <!-- ADT-Tweak-NewChemMasterUI End -->
             </BoxContainer>
         </TabContainer>
 
-        <!-- ADT-Tweak NewChemMasterUI - Output container moved outside main tabs -->
+        <!-- Output container moved outside main tabs -->
         <BoxContainer Orientation="Vertical" Margin="5 5 7 5" MinSize="300 0">
             <!-- Output TabContainer with vertical orientation -->
             <TabContainer Name="OutputTabs" Margin="0 0 0 0" HorizontalExpand="True" VerticalExpand="True">
@@ -169,12 +168,9 @@
                 <BoxContainer Orientation="Vertical" HorizontalExpand="True" Margin="5" SeparationOverride="10">
                     <!-- Pills Creation Section (Left Side) -->
 
-
-
-
                     <BoxContainer Orientation="Horizontal" HorizontalExpand="True" VerticalExpand="True">
                         <!-- Left side Control -->
-                        <PanelContainer VerticalExpand="True" MinWidth="100">
+                        <PanelContainer VerticalExpand="True" MinWidth="145">
                             <PanelContainer.PanelOverride>
                                 <gfx:StyleBoxFlat BackgroundColor="#1B1B1E" />
                             </PanelContainer.PanelOverride>
@@ -239,7 +235,7 @@
                         </BoxContainer>
 
                         <!-- Right side Control -->
-                        <PanelContainer VerticalExpand="True" MinWidth="100">
+                        <PanelContainer VerticalExpand="True" MinWidth="145">
                             <PanelContainer.PanelOverride>
                                 <gfx:StyleBoxFlat BackgroundColor="#1B1B1E" />
                             </PanelContainer.PanelOverride>

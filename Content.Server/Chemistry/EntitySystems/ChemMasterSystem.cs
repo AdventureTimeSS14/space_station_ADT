@@ -51,11 +51,6 @@ namespace Content.Server.Chemistry.EntitySystems
 
         private static readonly EntProtoId PillPrototypeId = "Pill";
 
-        [ValidatePrototypeId<EntityPrototype>]
-        private const string PillCanisterPrototypeId = "PillCanister";  //ADT-Tweak
-
-        // Prevent recursion while repacking bottle slots after insert/remove.
-        private readonly HashSet<EntityUid> _packing = new();
         // Suppress UI churn during input-slot bottle relocation.
         private readonly HashSet<EntityUid> _relocating = new();
 
@@ -74,10 +69,10 @@ namespace Content.Server.Chemistry.EntitySystems
             SubscribeLocalEvent<ChemMasterComponent, ChemMasterReagentAmountButtonMessage>(OnReagentButtonMessage);
             SubscribeLocalEvent<ChemMasterComponent, ChemMasterCreatePillsMessage>(OnCreatePillsMessage);
             SubscribeLocalEvent<ChemMasterComponent, ChemMasterOutputToBottleMessage>(OnOutputToBottleMessage);
+             // ADT-Tweak Start: Subscriptions for all buttons
             SubscribeLocalEvent<ChemMasterComponent, ChemMasterSortMethodUpdated>(OnSortMethodUpdated);
             SubscribeLocalEvent<ChemMasterComponent, ChemMasterTransferringAmountUpdated>(OnTransferringAmountUpdated);
             SubscribeLocalEvent<ChemMasterComponent, ChemMasterAmountsUpdated>(OnAmountsUpdated);
-            // ADT-Tweak Start
             SubscribeLocalEvent<ChemMasterComponent, ChemMasterSelectBottleSlotMessage>(OnSelectBottleSlotMessage);
             SubscribeLocalEvent<ChemMasterComponent, ChemMasterChooseReagentMessage>(OnChooseReagentMessage);
             SubscribeLocalEvent<ChemMasterComponent, ChemMasterClearReagentSelectionMessage>(OnClearReagentSelectionMessage);
@@ -161,7 +156,6 @@ namespace Content.Server.Chemistry.EntitySystems
                     chemMaster.SelectedBottleForFill = -1;
                 }
             }
-            // ADT-Tweak End
 
             // Initialize stored pill containers list with correct size if needed (3 containers)
             if (chemMaster.StoredPillContainers.Count != 3)
@@ -171,7 +165,7 @@ namespace Content.Server.Chemistry.EntitySystems
                     chemMaster.StoredPillContainers.Add(null);
             }
 
-            // Initialize stored bottles list with correct size if needed (legacy support)
+            // Initialize stored bottles list with correct size if needed
             if (chemMaster.StoredBottles.Count != 20)
             {
                 chemMaster.StoredBottles.Clear();
@@ -180,15 +174,14 @@ namespace Content.Server.Chemistry.EntitySystems
             }
             //ADT-Tweak End
 
-            var container = _itemSlotsSystem.GetItemOrNull(owner, SharedChemMaster.InputSlotName);
-
+            var container = _itemSlotsSystem.GetItemOrNull(owner, SharedChemMaster.InputSlotName); //ADT-Tweak
             var bufferReagents = bufferSolution.Contents;
             var bufferCurrentVolume = bufferSolution.Volume;
 
-            // ADT-Tweak: Pill container storage
+            // ADT-Tweak Start: Pill container storage
             var storedPillContainersInfo = new List<ContainerInfo?>();
             var pillContainers = new List<List<bool>>();
-            var pillTypes = new List<List<uint>>(); // ADT-Tweak: Pill types for each slot in each container
+            var pillTypes = new List<List<uint>>();
             chemMaster.StoredPillContainers.Clear();
 
             for (int i = 0; i < 3; i++)
@@ -256,7 +249,7 @@ namespace Content.Server.Chemistry.EntitySystems
                 }
             }
 
-            // ADT-Tweak: Legacy bottle storage
+            // ADT-Tweak Start: Bottle container storage
             var storedBottlesInfo = new List<ContainerInfo?>();
             chemMaster.StoredBottles.Clear();
 
@@ -287,8 +280,9 @@ namespace Content.Server.Chemistry.EntitySystems
                     chemMaster.StoredBottles.Add(null);
                 }
             }
+            // ADT-Tweak End
 
-            // ADT-Tweak Start
+            // ADT-Tweak Start: Updated Constructor
             var state = new ChemMasterBoundUserInterfaceState(
                 chemMaster.Mode,
                 BuildInputContainerInfo(container),
@@ -303,7 +297,7 @@ namespace Content.Server.Chemistry.EntitySystems
                 chemMaster.Amounts,
                 storedPillContainersInfo,
                 pillContainers,
-                pillTypes, // ADT-Tweak: Include pill types information
+                pillTypes,
                 chemMaster.SelectedPillContainerSlot,
                 chemMaster.SelectedPillContainerForFill,
                 chemMaster.SelectedPillCanisterForCreation,
@@ -329,6 +323,17 @@ namespace Content.Server.Chemistry.EntitySystems
             ClickSound(chemMaster);
         }
 
+        // ADT-Tweak Start: Cutted.
+        // private void OnCycleSortingTypeMessage(Entity<ChemMasterComponent> chemMaster, ref ChemMasterSortingTypeCycleMessage message)
+        // {
+        //     chemMaster.Comp.SortingType++;
+        //     if (chemMaster.Comp.SortingType > ChemMasterSortingType.Latest)
+        //         chemMaster.Comp.SortingType = ChemMasterSortingType.None;
+        //     UpdateUiState(chemMaster);
+        //     ClickSound(chemMaster);
+        // }
+        // ADT-Tweak End
+
         private void OnSetPillTypeMessage(Entity<ChemMasterComponent> chemMaster, ref ChemMasterSetPillTypeMessage message)
         {
             // Ensure valid pill type. There are 20 pills selectable, 0-19.
@@ -342,6 +347,12 @@ namespace Content.Server.Chemistry.EntitySystems
 
         private void OnReagentButtonMessage(Entity<ChemMasterComponent> chemMaster, ref ChemMasterReagentAmountButtonMessage message)
         {
+            // ADT-Tweak Start: Cutted
+            // // Ensure the amount corresponds to one of the reagent amount buttons.
+            // if (!Enum.IsDefined(typeof(ChemMasterReagentAmount), message.Amount))
+            //     return;
+            // ADT-Tweak End
+
             switch (chemMaster.Comp.Mode)
             {
                 case ChemMasterMode.Transfer:
@@ -461,9 +472,7 @@ namespace Content.Server.Chemistry.EntitySystems
             UpdateUiState(chemMaster);
         }
 
-        /// <summary>
-        /// Checks if the given storage entity is one of our pill containers.
-        /// </summary>
+        // Checks if the given storage entity is one of our pill containers.
         private bool IsPillContainerStorage(Entity<ChemMasterComponent> chemMaster, EntityUid? storageEntity)
         {
             if (storageEntity == null)
@@ -481,10 +490,7 @@ namespace Content.Server.Chemistry.EntitySystems
             return false;
         }
 
-        /// <summary>
-        /// Finds available empty bottles for filling across all bottle slots.
-        /// Returns the list of available empty bottles.
-        /// </summary>
+        // Finds available empty bottles for filling across all bottle slots
         private List<EntityUid> FindAvailableBottlesForFilling(Entity<ChemMasterComponent> chemMaster, int requestedBottles, uint dosage)
         {
             var targets = new List<EntityUid>(capacity: requestedBottles);
@@ -507,10 +513,7 @@ namespace Content.Server.Chemistry.EntitySystems
             return targets;
         }
 
-        /// <summary>
-        /// Finds available empty slots for pill creation, either in the selected canister or all canisters.
-        /// Returns the total available slots and a list of (container, startSlot) pairs for filling.
-        /// </summary>
+        /// Finds available empty slots for pill creation, either in the selected canister or all canisters. Returns a list of (container, startSlot) pairs for filling
         private (int totalAvailableSlots, List<(EntityUid container, int startSlot)> availableSlots) FindAvailablePillSlotsForCreation(Entity<ChemMasterComponent> chemMaster, int requestedPills)
         {
             var availableSlots = new List<(EntityUid, int)>();
@@ -572,89 +575,13 @@ namespace Content.Server.Chemistry.EntitySystems
             return (totalAvailableSlots, availableSlots);
         }
 
-        /// <summary>
-        /// Finds the first empty slot in any pill canister, prioritizing the selected canister.
-        /// Returns the container and slot index, or null if no empty slots found.
-        /// Kept for backward compatibility.
-        /// </summary>
-        private (EntityUid container, int slotIndex)? FindEmptyPillSlotPrioritizingSelected(Entity<ChemMasterComponent> chemMaster)
-        {
-            // First, try to use the selected pill canister if one is selected
-            if (chemMaster.Comp.SelectedPillCanisterForCreation >= 0 && chemMaster.Comp.SelectedPillCanisterForCreation < 3)
-            {
-                var selectedContainerIndex = chemMaster.Comp.SelectedPillCanisterForCreation;
-                var slotId = "pillContainerSlot" + selectedContainerIndex;
 
-                if (_itemSlotsSystem.TryGetSlot(chemMaster.Owner, slotId, out var slot) && slot.Item.HasValue)
-                {
-                    var pillContainer = slot.Item.Value;
-
-                    if (TryComp(pillContainer, out StorageComponent? storage))
-                    {
-                        var currentPillCount = storage.Container.ContainedEntities.Count;
-                        var maxPills = 10; // Standard pill canister capacity
-
-                        // Check if there's an empty slot in the selected container
-                        for (int slotIndex = 0; slotIndex < maxPills; slotIndex++)
-                        {
-                            if (slotIndex >= currentPillCount)
-                            {
-                                // Found an empty slot in the selected container
-                                return (pillContainer, slotIndex);
-                            }
-                        }
-                    }
-                }
-            }
-
-            // If no selected canister or selected canister is full, fall back to any available slot
-            return FindFirstEmptyPillSlot(chemMaster);
-        }
-
-        /// <summary>
-        /// Finds the first empty slot in any pill canister.
-        /// Returns the container and slot index, or null if no empty slots found.
-        /// </summary>
-        private (EntityUid container, int slotIndex)? FindFirstEmptyPillSlot(Entity<ChemMasterComponent> chemMaster)
-        {
-            // Check all 3 pill container slots
-            for (int containerIndex = 0; containerIndex < 3; containerIndex++)
-            {
-                var slotId = "pillContainerSlot" + containerIndex;
-
-                if (_itemSlotsSystem.TryGetSlot(chemMaster.Owner, slotId, out var slot) && slot.Item.HasValue)
-                {
-                    var pillContainer = slot.Item.Value;
-
-                    if (TryComp(pillContainer, out StorageComponent? storage))
-                    {
-                        var currentPillCount = storage.Container.ContainedEntities.Count;
-                        var maxPills = 10; // Standard pill canister capacity
-
-                        // Check if there's an empty slot in this container
-                        for (int slotIndex = 0; slotIndex < maxPills; slotIndex++)
-                        {
-                            if (slotIndex >= currentPillCount)
-                            {
-                                // Found an empty slot
-                                return (pillContainer, slotIndex);
-                            }
-                        }
-                    }
-                }
-            }
-
-            // No empty slots found in any pill canister
-            return null;
-        }
-        // ADT-Tweak End
-
-        // ADT-Tweak-Start: Additional logic for second (pill) buffer
+        // ADT-Tweak-Start: Transferring reagents
         private void TransferReagents(Entity<ChemMasterComponent> chemMaster, ReagentId id, FixedPoint2 amount, bool fromBuffer, bool isOutput)
         {
-            EntityUid? container = null;
-            Entity<SolutionComponent>? containerSoln = null;
-            Solution? containerSolution = null;
+            EntityUid? container;
+            Entity<SolutionComponent>? containerSoln;
+            Solution? containerSolution;
 
             // When transferring from buffer to output bottle (filling bottle)
             if (chemMaster.Comp.SelectedBottleForFill >= 0 && chemMaster.Comp.StoredBottles[chemMaster.Comp.SelectedBottleForFill] is { } fillBottle && fromBuffer && isOutput)
@@ -692,23 +619,20 @@ namespace Content.Server.Chemistry.EntitySystems
             if (fromBuffer) // Buffer to container
             {
                 var solution = bufferSolution;
-                // ADT-Tweak Start
                 var available = solution.GetReagentQuantity(id);
+
                 if (amount == int.MaxValue) amount = available; // Transfer all
                 amount = FixedPoint2.Min(amount, available, containerSolution.AvailableVolume);
-                // ADT-Tweak End
                 amount = solution.RemoveReagent(id, amount, preserveOrder: true);
                 _solutionContainerSystem.TryAddReagent(containerSoln.Value, id, amount, out _);
             }
             else // Container to buffer
             {
-                // ADT-Tweak Start
                 var available = containerSolution.GetReagentQuantity(id);
                 if (amount == int.MaxValue) amount = available; // Transfer all
                 amount = FixedPoint2.Min(amount, available);
-                if (bufferSolution.MaxVolume.Value > 0)    //ADT-Tweak - chemicalbuffer if no limit
+                if (bufferSolution.MaxVolume.Value > 0)
                     amount = FixedPoint2.Min(amount, available, bufferSolution.AvailableVolume);
-                // ADT-Tweak End
                 _solutionContainerSystem.RemoveReagent(containerSoln.Value, id, amount);
 
                 var solution = bufferSolution;
@@ -719,6 +643,7 @@ namespace Content.Server.Chemistry.EntitySystems
         }
         // ADT-Tweak-End
 
+        // ADT-Tweak Start: discard reagents from buffer
         private void DiscardReagents(Entity<ChemMasterComponent> chemMaster, ReagentId id, FixedPoint2 amount, bool fromBuffer, bool isOutput)
         {
             if (fromBuffer)
@@ -727,18 +652,16 @@ namespace Content.Server.Chemistry.EntitySystems
                     return;
 
                 var solution = bufferSolution;
-                // ADT-Tweak Start
                 var available = solution.GetReagentQuantity(id);
                 if (amount == int.MaxValue) amount = available; // Discard all
                 amount = FixedPoint2.Min(amount, available);
-                // ADT-Tweak End
                 solution.RemoveReagent(id, amount, preserveOrder: true);
             }
             else
             {
                 // ADT-Tweak Start
-                EntityUid? container = null;
-                Entity<SolutionComponent>? containerSoln = null;
+                EntityUid? container;
+                Entity<SolutionComponent>? containerSoln;
 
                 if (chemMaster.Comp.SelectedBottleForFill >= 0 && chemMaster.Comp.StoredBottles[chemMaster.Comp.SelectedBottleForFill] is { } bottle)
                 {
@@ -760,12 +683,13 @@ namespace Content.Server.Chemistry.EntitySystems
                 var available = sol.GetReagentQuantity(id);
                 if (amount == int.MaxValue) amount = available; // Discard all
                 amount = FixedPoint2.Min(amount, available);
-                // ADT-Tweak End
+
                 _solutionContainerSystem.RemoveReagent(containerSoln.Value, id, amount);
             }
 
             UpdateUiState(chemMaster, updateLabel: fromBuffer);
         }
+        // ADT-Tweak End
 
         private void OnCreatePillsMessage(Entity<ChemMasterComponent> chemMaster, ref ChemMasterCreatePillsMessage message)
         {
@@ -779,7 +703,7 @@ namespace Content.Server.Chemistry.EntitySystems
             if (message.Label.Length > SharedChemMaster.LabelMaxLength)
                 return;
 
-            // Use reagent amounts if available, otherwise fall back to selected reagents
+            // ADT-Tweak Start: Use reagent amounts if available, otherwise fall back to selected reagents
             if (chemMaster.Comp.SelectedReagentAmounts.Count > 0)
             {
                 // Calculate total volume for dosage calculation
@@ -815,11 +739,8 @@ namespace Content.Server.Chemistry.EntitySystems
                     return;
                 }
 
-                // Calculate total amount needed based on actualPillsToCreate and message.Dosage
-                // This is the exact amount that will be removed from buffer and distributed among pills
-                var totalNeeded = FixedPoint2.New((int)actualPillsToCreate * message.Dosage);
+                var totalNeeded = FixedPoint2.New(actualPillsToCreate * message.Dosage);
 
-                // Calculate total selected reagent amount to determine proportions
                 var totalSelectedAmount = FixedPoint2.Zero;
                 foreach (var amount in chemMaster.Comp.SelectedReagentAmounts.Values)
                 {
@@ -829,11 +750,8 @@ namespace Content.Server.Chemistry.EntitySystems
                 if (totalSelectedAmount <= 0)
                     return;
 
-                // Scale selected amounts to match totalNeeded
-                // scale = totalNeeded / totalSelected
                 var scale = totalNeeded / totalSelectedAmount;
 
-                // Calculate amount to withdraw for each reagent and amount per pill
                 var perPillAmounts = new Dictionary<ReagentId, FixedPoint2>();
                 var proportionalAmounts = new Dictionary<ReagentId, FixedPoint2>();
                 var totalForWithdrawal = FixedPoint2.Zero;
@@ -885,19 +803,15 @@ namespace Content.Server.Chemistry.EntitySystems
 
                 foreach (var (reagent, neededAmount) in proportionalAmounts)
                 {
-                    // Remove reagent from buffer - this returns the actual amount removed
                     var actualAmount = bufferSolution.RemoveReagent(reagent, neededAmount, preserveOrder: true);
                     withdrawalSolution.AddReagent(reagent, actualAmount);
 
-                    // Store the actual amount withdrawn (not the requested amount) for updating SelectedReagentAmounts
                     withdrawnAmountsDict[reagent] = (int)actualAmount;
                 }
 
                 // Update selected reagent amounts after withdrawal - use actual amounts withdrawn
                 UpdateSelectedReagentAmountsAfterWithdrawal(chemMaster, withdrawnAmountsDict, bufferSolution);
 
-                // Use perPillAmounts calculated earlier - each pill gets exact dosage distributed proportionally
-                // Track how much we've actually distributed to handle rounding errors
                 var distributedPillAmounts = new Dictionary<ReagentId, FixedPoint2>();
                 foreach (var reagent in proportionalAmounts.Keys)
                 {
@@ -930,7 +844,7 @@ namespace Content.Server.Chemistry.EntitySystems
                             continue;
 
                         // For the last pill, add any remaining amount due to rounding
-                        bool isLastPill = (pillIndex == actualPillsToCreate - 1);
+                        bool isLastPill = pillIndex == actualPillsToCreate - 1;
 
                         // Create a new solution for this pill with exact proportional amounts
                         var pillSolution = new Solution();
@@ -981,7 +895,6 @@ namespace Content.Server.Chemistry.EntitySystems
             else
             {
                 // Fall back to original logic if no reagent amounts are selected
-                // Find available slots first
                 var (totalAvailableSlots, availableSlots) = FindAvailablePillSlotsForCreation(chemMaster, (int)message.Number);
 
                 // Only create pills that can fit in available slots
@@ -1041,7 +954,7 @@ namespace Content.Server.Chemistry.EntitySystems
                             continue;
 
                         // For the last pill, add any remaining amount due to rounding
-                        bool isLastPill = (pillIndex == actualPillsToCreate - 1);
+                        bool isLastPill = pillIndex == actualPillsToCreate - 1;
 
                         // Create a new solution for this pill with exact proportional amounts
                         var pillSolution = new Solution();
@@ -1090,6 +1003,7 @@ namespace Content.Server.Chemistry.EntitySystems
                         ("created", actualPillsToCreate), ("requested", (int)message.Number)), user);
                 }
             }
+            // ADT-Tweak-End
 
             UpdateUiState(chemMaster);
             ClickSound(chemMaster);
@@ -1107,7 +1021,7 @@ namespace Content.Server.Chemistry.EntitySystems
             if (message.Label.Length > SharedChemMaster.LabelMaxLength)
                 return;
 
-            // Use reagent amounts if available, otherwise fall back to selected reagents
+            // ADT-Tweak Start: Use reagent amounts if available, otherwise fall back to selected reagents
             if (chemMaster.Comp.SelectedReagentAmounts.Count > 0)
             {
                 // Calculate total volume for dosage calculation
@@ -1128,7 +1042,7 @@ namespace Content.Server.Chemistry.EntitySystems
                 if (bottlesToCreate == 0)
                     return;
 
-                // ADT-Tweak Start: Find available empty bottles using the same logic as pills
+                // Find available empty bottles using the same logic as pills
                 // If a specific bottle is selected, only fill that one. Otherwise, fill all empty bottles.
                 var targets = FindAvailableBottlesForFilling(chemMaster, bottlesToCreate, message.Dosage);
 
@@ -1144,7 +1058,7 @@ namespace Content.Server.Chemistry.EntitySystems
 
                 // Calculate total amount needed based on actualBottlesToCreate and message.Dosage
                 // This is the exact amount that will be removed from buffer and distributed among bottles
-                var totalNeeded = FixedPoint2.New((int)actualBottlesToCreate * message.Dosage);
+                var totalNeeded = FixedPoint2.New(actualBottlesToCreate * message.Dosage);
 
                 // Calculate total selected reagent amount to determine proportions
                 var totalSelectedAmount = FixedPoint2.Zero;
@@ -1157,7 +1071,6 @@ namespace Content.Server.Chemistry.EntitySystems
                     return;
 
                 // Scale selected amounts to match totalNeeded
-                // scale = totalNeeded / totalSelected
                 var scale = totalNeeded / totalSelectedAmount;
 
                 // Calculate amount to withdraw for each reagent and amount per bottle
@@ -1243,7 +1156,7 @@ namespace Content.Server.Chemistry.EntitySystems
                     // Create a new solution for this bottle with exact proportional amounts
                     var bottleSolution = new Solution();
                     // For the last bottle, add any remaining amount due to rounding
-                    bool isLastBottle = (i == actualBottlesToCreate - 1);
+                    bool isLastBottle = i == actualBottlesToCreate - 1;
 
                     // Track actual amounts added for label
                     var actualAmountsInBottle = new Dictionary<ReagentId, FixedPoint2>();
@@ -1286,7 +1199,7 @@ namespace Content.Server.Chemistry.EntitySystems
             }
             else
             {
-                // ADT-Tweak Start: Find available empty bottles using the same logic as pills
+                // Find available empty bottles using the same logic as pills
                 // If a specific bottle is selected, only fill that one. Otherwise, fill all empty bottles.
                 var targets = FindAvailableBottlesForFilling(chemMaster, (int)message.Number, message.Dosage);
 
@@ -1374,39 +1287,9 @@ namespace Content.Server.Chemistry.EntitySystems
                         ("created", actualBottlesToCreate), ("requested", (int)message.Number)), user);
                 }
             }
-
+            // ADT-Tweak End
             UpdateUiState(chemMaster);
             ClickSound(chemMaster);
-        }
-        // ADT-Tweak End
-
-        private bool WithdrawFromBuffer(
-            Entity<ChemMasterComponent> chemMaster,
-            FixedPoint2 neededVolume, EntityUid? user,
-            [NotNullWhen(returnValue: true)] out Solution? outputSolution)
-        {
-            outputSolution = null;
-
-            if (!_solutionContainerSystem.TryGetSolution(chemMaster.Owner, SharedChemMaster.BufferSolutionName, out _, out var solution))
-                return false;
-
-            if (solution.Volume == 0)
-            {
-                if (user.HasValue)
-                    _popupSystem.PopupCursor(Loc.GetString("chem-master-window-buffer-empty-text"), user.Value);
-                return false;
-            }
-
-            // ReSharper disable once InvertIf
-            if (neededVolume > solution.Volume)
-            {
-                if (user.HasValue)
-                    _popupSystem.PopupCursor(Loc.GetString("chem-master-window-buffer-low-text"), user.Value);
-                return false;
-            }
-
-            outputSolution = solution.SplitSolution(neededVolume);
-            return true;
         }
 
         private bool WithdrawSelectedReagentsFromBuffer(
@@ -1429,7 +1312,7 @@ namespace Content.Server.Chemistry.EntitySystems
             // Get selected reagents for creation
             var selectedReagents = chemMaster.Comp.SelectedReagents;
 
-            // Check if any reagents are selected
+            // ADT-Tweak Start: Check if any reagents are selected
             if (selectedReagents.Count == 0)
             {
                 if (user.HasValue)
@@ -1484,54 +1367,10 @@ namespace Content.Server.Chemistry.EntitySystems
             }
 
             return true;
+            // ADT-Tweak End
         }
 
-        private bool WithdrawReagentAmountsFromBuffer(
-            Entity<ChemMasterComponent> chemMaster,
-            Dictionary<ReagentId, float> reagentAmounts, EntityUid? user,
-            [NotNullWhen(returnValue: true)] out Solution? outputSolution)
-        {
-            outputSolution = null;
-
-            if (!_solutionContainerSystem.TryGetSolution(chemMaster.Owner, SharedChemMaster.BufferSolutionName, out _, out var solution))
-                return false;
-
-            if (solution.Volume == 0)
-            {
-                if (user.HasValue)
-                    _popupSystem.PopupCursor(Loc.GetString("chem-master-window-buffer-empty-text"), user.Value);
-                return false;
-            }
-
-            // Check if all requested reagents are available in sufficient quantities
-            var totalNeededVolume = FixedPoint2.Zero;
-            foreach (var (reagent, amount) in reagentAmounts)
-            {
-                var available = solution.GetReagentQuantity(reagent);
-                if (available < amount)
-                {
-                    if (user.HasValue)
-                        _popupSystem.PopupCursor(Loc.GetString("chem-master-window-buffer-low-text"), user.Value);
-                    return false;
-                }
-                totalNeededVolume += amount;
-            }
-
-            // Create a new solution with the exact reagent amounts
-            outputSolution = new Solution();
-
-            foreach (var (reagent, amount) in reagentAmounts)
-            {
-                var actualAmount = solution.RemoveReagent(reagent, FixedPoint2.New(amount), preserveOrder: true);
-                outputSolution.AddReagent(reagent, actualAmount);
-            }
-
-            // Update selected reagent amounts after withdrawal
-            UpdateSelectedReagentAmountsAfterWithdrawal(chemMaster, reagentAmounts, solution);
-
-            return true;
-        }
-
+        // ADT-Tweak Start: Update Selected Reagents or clamp it
         private void UpdateSelectedReagentAmountsAfterWithdrawal(
             Entity<ChemMasterComponent> chemMaster,
             Dictionary<ReagentId, float> withdrawnAmounts,
@@ -1581,10 +1420,6 @@ namespace Content.Server.Chemistry.EntitySystems
             chemMaster.SelectedReagentAmounts = updatedAmounts;
         }
 
-        /// <summary>
-        /// Formats a label for a bottle/pill showing its reagent composition
-        /// Format: "{reagent1}: {amount1} u. / {reagent2}: {amount2} u. / ..."
-        /// </summary>
         private string FormatReagentLabel(Dictionary<ReagentId, FixedPoint2> reagents, string baseLabel = "")
         {
             var parts = new List<string>();
@@ -1595,13 +1430,12 @@ namespace Content.Server.Chemistry.EntitySystems
                 if (_prototypeManager.TryIndex<ReagentPrototype>(reagentId.Prototype, out var reagentProto))
                 {
                     var reagentName = Loc.GetString(reagentProto.LocalizedName);
-                    parts.Add($"{reagentName}: {amount:F1} u.");
+                    parts.Add($"{reagentName}:{amount:F0}u");
                 }
             }
 
-            var compositionLabel = string.Join(" / ", parts);
+            var compositionLabel = string.Join("/", parts);
 
-            // If base label is provided and not empty, prepend it
             if (!string.IsNullOrWhiteSpace(baseLabel))
             {
                 return $"{baseLabel} ({compositionLabel})";
@@ -1609,6 +1443,7 @@ namespace Content.Server.Chemistry.EntitySystems
 
             return compositionLabel;
         }
+        // ADT-Tweak End
 
         private void ClickSound(Entity<ChemMasterComponent> chemMaster)
         {
@@ -1629,7 +1464,7 @@ namespace Content.Server.Chemistry.EntitySystems
             return BuildContainerInfo(Name(container.Value), solution);
         }
 
-        // ADT-Tweak-Start
+        // ADT-Tweak-Start: Update sorting methods, build Container info for UI update and Input solution
         private static ContainerInfo BuildContainerInfo(string name, Solution solution) =>
             new(name, solution.Volume, solution.MaxVolume)
             {
@@ -1652,7 +1487,7 @@ namespace Content.Server.Chemistry.EntitySystems
         }
         // ADT-Tweak End
 
-        // ADT-Tweak Start: Bottle buttons reagent transfer
+        // ADT-Tweak Start: Bottle buttons reagent transferring
         private void OnSelectBottleSlotMessage(Entity<ChemMasterComponent> chemMaster, ref ChemMasterSelectBottleSlotMessage message)
         {
             if (message.Slot < 0 || message.Slot >= chemMaster.Comp.StoredBottles.Count)
@@ -1723,10 +1558,12 @@ namespace Content.Server.Chemistry.EntitySystems
             }
             UpdateUiState(chemMaster);
         }
+        // ADT-Tweak End
 
+        // ADT-Tweak Start: Initializing containers
         private void OnMapInit(EntityUid uid, ChemMasterComponent component, MapInitEvent args)
         {
-            // ADT-Tweak: Pill container slots (3 slots for pill containers)
+            // Pill container slots (3 slots for pill containers, 3x10 grid)
             for (int i = 0; i < 3; i++)
             {
                 var slotId = "pillContainerSlot" + i;
@@ -1737,7 +1574,7 @@ namespace Content.Server.Chemistry.EntitySystems
                 _itemSlotsSystem.AddItemSlot(uid, slotId, slot);
             }
 
-            // ADT-Tweak: Legacy bottle slots (20 slots for bottles)
+            // Bottle container slots (20 slots for bottles, 4x5 grid)
             for (int i = 0; i < 20; i++)
             {
                 var slotId = "bottleSlot" + i;
@@ -1789,8 +1626,7 @@ namespace Content.Server.Chemistry.EntitySystems
             var slotIndex = message.Slot % 10;
 
             if (containerIndex < chemMaster.Comp.StoredPillContainers.Count &&
-                chemMaster.Comp.StoredPillContainers[containerIndex] is { } pillContainer &&
-                pillContainer != null)
+                chemMaster.Comp.StoredPillContainers[containerIndex] is { } pillContainer)
             {
                 // Try to eject a pill from the specific slot
                 if (TryComp(pillContainer, out StorageComponent? storage) &&
@@ -1821,8 +1657,7 @@ namespace Content.Server.Chemistry.EntitySystems
                 var containerIndex = slot / 10;
 
                 if (containerIndex < chemMaster.Comp.StoredPillContainers.Count &&
-                    chemMaster.Comp.StoredPillContainers[containerIndex] is { } pillContainer &&
-                    pillContainer != null)
+                    chemMaster.Comp.StoredPillContainers[containerIndex] is { } pillContainer)
                 {
                     if (TryComp(pillContainer, out StorageComponent? storage) &&
                         storage.Container.ContainedEntities.Count > (slot % 10))
@@ -1868,6 +1703,7 @@ namespace Content.Server.Chemistry.EntitySystems
                 UpdateUiState(chemMaster);
             }
         }
+        // ADT-Tweak End
 
         // ADT-Tweak: Reagent amount selection handlers
         private void OnSelectReagentAmountMessage(Entity<ChemMasterComponent> chemMaster, ref ChemMasterSelectReagentAmountMessage message)
@@ -2027,7 +1863,6 @@ namespace Content.Server.Chemistry.EntitySystems
             UpdateUiState(chemMaster, updateLabel: true);
             ClickSound(chemMaster);
         }
-
         // ADT-Tweak End
     }
 }

@@ -29,7 +29,8 @@ namespace Content.Server.Chemistry.Components
         [DataField("clickSound"), ViewVariables(VVAccess.ReadWrite)]
         public SoundSpecifier ClickSound = new SoundPathSpecifier("/Audio/Machines/machine_switch.ogg");
 
-        // ADT-Tweak-Start: метод сортировки, количество переноса и пресеты количеств
+        // ADT-Tweak-Start
+
         [DataField]
         public int SortMethod;
 
@@ -39,10 +40,10 @@ namespace Content.Server.Chemistry.Components
         [DataField]
         public List<int> Amounts = new()
         {
-            1, 5, 10, 15, 20, 25, 30, 50
+            1, 5, 10, 15, 20, 30, 50, 100
         };
 
-        // ADT-Tweak: Pill container storage - 3 containers with 10 slots each (3x10 grid)
+        // Pill container storage - 3 containers with 10 slots each (3x10 grid)
         [DataField]
         public List<EntityUid?> StoredPillContainers = new();
 
@@ -58,7 +59,7 @@ namespace Content.Server.Chemistry.Components
         [DataField]
         public ReagentId? SelectedReagent = null;
 
-        // ADT-Tweak: Legacy bottle storage
+        // Bottle container storage - 4x5 grid
         [DataField]
         public List<EntityUid?> StoredBottles = new();
 
@@ -71,7 +72,7 @@ namespace Content.Server.Chemistry.Components
         [DataField]
         public List<ReagentId> SelectedReagents = new();
 
-        // ADT-Tweak: Reagent selection amounts tracking
+        // Reagent selection amounts tracking
         [DataField]
         public Dictionary<ReagentId, float> SelectedReagentAmounts { get; set; } = new();
         // ADT-Tweak-End

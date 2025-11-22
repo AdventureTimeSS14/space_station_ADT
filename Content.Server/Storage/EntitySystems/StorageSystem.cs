@@ -17,15 +17,16 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using System.Linq;
-using Content.Shared.Administration.Components;
 
 namespace Content.Server.Storage.EntitySystems;
 
 public sealed partial class StorageSystem : SharedStorageSystem
 {
     [Dependency] private readonly IPrototypeManager _prototype = default!;
+    // ADT-TWeak Start
     [Dependency] private readonly ItemSlotsSystem _itemSlotsSystem = default!;
     [Dependency] private readonly TagSystem _tag = default!;
+    // ADT-TWeak End
 
     public override void Initialize()
     {
@@ -48,6 +49,7 @@ public sealed partial class StorageSystem : SharedStorageSystem
         RaiseNetworkEvent(new PickupAnimationEvent(GetNetEntity(uid), GetNetCoordinates(initialCoordinates), GetNetCoordinates(finalCoordinates), initialRotation), filter);
     }
 
+    // ADT-TWeak Start: Transfer from bottle-packages
     protected override void AddTransferVerbs(EntityUid uid, StorageComponent component, GetVerbsEvent<UtilityVerb> args)
     {
         base.AddTransferVerbs(uid, component, args);
@@ -92,7 +94,8 @@ public sealed partial class StorageSystem : SharedStorageSystem
                     }
                 }
             }
-            nextEntity:;
+        nextEntity:;
         }
     }
+    // ADT-TWeak End
 }

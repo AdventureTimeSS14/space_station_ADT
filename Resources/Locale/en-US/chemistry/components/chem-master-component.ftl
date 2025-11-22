@@ -33,5 +33,3 @@ chem-master-window-sort-type-none = Sort by: Oldest First
 chem-master-window-sort-type-alphabetical = Sort by: Alphabetical
 chem-master-window-sort-type-quantity = Sort by: Quantity
 chem-master-window-sort-type-latest = Sort by: Recent First
-chem-master-window-no-reagent-selected-text = No reagent selected.
-chem-master-window-selected-reagent-not-found-text = Selected reagent not found in buffer.
