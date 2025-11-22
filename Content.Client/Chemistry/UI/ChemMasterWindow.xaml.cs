@@ -827,14 +827,16 @@ namespace Content.Client.Chemistry.UI
                 return;
             }
 
-            // Header - only show volume info
+             // Header - only show volume info
             var headerHBox = new BoxContainer
             {
                 Orientation = LayoutOrientation.Horizontal
             };
             headerHBox.AddChild(new Label
             {
-                Text = $"бутылочка: {bottleInfo.CurrentVolume}/{bottleInfo.MaxVolume}u",
+                Text = Loc.GetString("chem-master-window-bottle-label",
+                    ("current", bottleInfo.CurrentVolume),
+                    ("max", bottleInfo.MaxVolume)),
                 StyleClasses = { StyleNano.StyleClassLabelSecondaryColor }
             });
             BottleContentsInfo.AddChild(headerHBox);
@@ -1367,12 +1369,13 @@ namespace Content.Client.Chemistry.UI
                     var currentState = state ?? _lastState;
 
                     // Initialize text
-                    selectedLabel.Text = "Пусто";
+                    selectedLabel.Text = Loc.GetString("chem-master-window-reagent-empty");
 
                     // Use the existing TryGetSelectedAmount method which handles comparison properly
                     if (TryGetSelectedAmount(reagent, currentState, out var selectedAmount))
                     {
-                        selectedLabel.Text = $"Выбрано {selectedAmount}u";
+                        selectedLabel.Text = Loc.GetString("chem-master-window-reagent-selected",
+                            ("amount", selectedAmount));
                     }
 
                     leftContainer.AddChild(selectedLabel);
@@ -1392,7 +1395,7 @@ namespace Content.Client.Chemistry.UI
                     // Select button
                     var selectButton = new Button()
                     {
-                        Text = "Выбрать",
+                        Text = Loc.GetString("chem-master-window-select-button"),
                         StyleClasses = { StyleBase.ButtonSquare },
                         MinSize = new Vector2(60, 0)
                     };
@@ -1419,7 +1422,7 @@ namespace Content.Client.Chemistry.UI
                     // Remove button
                     var removeButton = new Button()
                     {
-                        Text = "Убрать",
+                        Text = Loc.GetString("chem-master-window-remove-button"),
                         StyleClasses = { StyleBase.ButtonSquare },
                         MinSize = new Vector2(60, 0)
                     };

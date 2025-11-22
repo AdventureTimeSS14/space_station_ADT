@@ -69,5 +69,8 @@ chem-master-pills-created = Создано { $created } из { $requested } та
 chem-master-bottles-created = Создано { $created } из { $requested } бутылочек
 chem-master-window-no-bottle-selected-text = Бутылочка не выбрана!
 chem-master-window-current-text-label = Этикетка:
-
-
+chem-master-window-bottle-label = бутылочка: {$current}/{$max}u
+chem-master-window-reagent-empty = Пусто
+chem-master-window-reagent-selected = Выбрано {$amount}u
+chem-master-window-select-button = Выбрать
+chem-master-window-remove-button = Убрать
