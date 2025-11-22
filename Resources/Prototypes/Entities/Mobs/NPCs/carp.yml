@@ -184,11 +184,6 @@
       makeSentient: true
       name: ghost-role-information-sentient-carp-name
       description: ghost-role-information-sentient-carp-description
-      # ADT-Tweak-start
-      requirements:
-      - !type:OverallPlaytimeRequirement
-        time: 7200 # 2h
-      # ADT-Tweak-end
       rules: ghost-role-information-space-dragon-summoned-carp-rules
       mindRoles:
       - MindRoleGhostRoleTeamAntagonistFlock

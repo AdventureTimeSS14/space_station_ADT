@@ -677,8 +677,12 @@
     solutions:
       food:
         reagents:
-        - ReagentId: SulfuricAcid
-          Quantity: 20
+        # ADT-Tweak-Start
+        - ReagentId: FerrochromicAcid
+          Quantity: 6
+        - ReagentId: Siderlac
+          Quantity: 4
+        # ADT-Tweak-End
   - type: SliceableFood
     count: 3
     slice: FoodMeatXenoCutlet
@@ -1862,8 +1866,12 @@
     solutions:
       food:
         reagents:
-        - ReagentId: SulfuricAcid
-          Quantity: 20
+        # ADT-Tweak-Start
+        - ReagentId: FerrochromicAcid
+          Quantity: 2
+        - ReagentId: Siderlac
+          Quantity: 1
+        # ADT-Tweak-End
   - type: Construction
     graph: XenoCutlet
     node: start
@@ -2240,6 +2248,10 @@
           Quantity: 1
         - ReagentId: Protein
           Quantity: 1
+        # ADT-Tweak-Start
+        - ReagentId: Siderlac
+          Quantity: 3
+        # ADT-Tweak-End
   - type: Construction
     graph: XenoCutlet
     node: xeno cutlet
