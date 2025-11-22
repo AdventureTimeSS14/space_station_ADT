@@ -149,6 +149,11 @@
           Quantity: 3
         - ReagentId: CocoaPowder
           Quantity: 1
+  #ADT-Tweak-Start
+  - type: SliceableFood
+    count: 4
+    slice: ADTFoodSnackChocolateBarChunk
+  #ADT-Tweak-End
 
 - type: entity
   name: energy bar

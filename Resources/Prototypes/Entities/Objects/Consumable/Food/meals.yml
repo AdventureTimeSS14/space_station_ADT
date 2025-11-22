@@ -218,12 +218,12 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 10
+        maxVol: 40 #ADT-Tweak 10>40
         reagents:
         - ReagentId: Nutriment
-          Quantity: 6
+          Quantity: 30 #ADT-Tweak 6>30
         - ReagentId: Vitamin
-          Quantity: 2
+          Quantity: 5 #ADT-Tweak 2>5
   - type: Tag
     tags:
     - Fruit
@@ -420,6 +420,11 @@
   id: FoodMealOmelette
   description: Cheesy.
   components:
+  #ADT-Tweak-Start
+  - type: Food
+    trash: 
+    - FoodPlateSmall
+  #ADT-Tweak-End
   - type: FlavorProfile
     flavors:
       - egg
