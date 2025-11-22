@@ -37,7 +37,6 @@ chem-master-window-sort-type-latest = Сорт. по: Сначала новые
 
 ## ADT-Tweak NewChemMasterUI
 chem-master-window-buffer-text-label = Буфер для реагентов
-chem-master-current-text-label = Метка для этикеровщика:
 chem-master-window-amount-placeholder = Кол-во переносимого вещества:
 chem-master-window-delete-as-frequent-label = Удалить шаблон
 chem-master-window-save-as-frequent-label = Добавить шаблон
