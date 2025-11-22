@@ -705,6 +705,12 @@
       collection: ResomiCoughs
     Sneeze:
       collection: ResomiSneeze
+    Hiss:
+      collection: ResomiHiss
+    Chirps:
+      collection: ResomiChirps
+    Coos:
+      collection: ResomiCoos
     Honk:
       collection: BikeHorn
     Whistle:
@@ -731,6 +737,12 @@
       collection: ResomiCoughs
     Sneeze:
       collection: ResomiSneeze
+    Hiss:
+      collection: ResomiHiss
+    Chirps:
+      collection: ResomiChirps
+    Coos:
+      collection: ResomiCoos
     Honk:
       collection: BikeHorn
     Whistle:

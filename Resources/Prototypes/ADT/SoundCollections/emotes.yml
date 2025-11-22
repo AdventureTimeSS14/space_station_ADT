@@ -240,6 +240,21 @@
   files:
     - /Audio/ADT/Voice/Resomi/resomi_cough.ogg
 
+- type: soundCollection
+  id: ResomiHiss
+  files:
+    - /Audio/ADT/Voice/Resomi/resomi_hiss.ogg
+
+- type: soundCollection
+  id: ResomiCoos
+  files:
+    - /Audio/ADT/Voice/Resomi/resomi_coos.ogg
+
+- type: soundCollection
+  id: ResomiChirps
+  files:
+    - /Audio/ADT/Voice/Resomi/resomi_chirps.ogg
+
 # Other
 - type: soundCollection
   id: HumanSpits
