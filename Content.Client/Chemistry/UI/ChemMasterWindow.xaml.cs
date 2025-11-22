@@ -245,7 +245,7 @@ namespace Content.Client.Chemistry.UI
                 // Choose button for this row
                 var chooseButton = new Button
                 {
-                    Text = "Выбрать",
+                    Text = Loc.GetString("chem-master-window-pill-canister-choose-button"),
                     StyleClasses = { StyleBase.ButtonCaution },
                     MinSize = new Vector2(105, 30),
                     MaxSize = new Vector2(105, 30),
@@ -280,7 +280,7 @@ namespace Content.Client.Chemistry.UI
 
                 var ejectButton = new Button
                 {
-                    Text = "Извлечь",
+                    Text = Loc.GetString("chem-master-window-pill-canister-eject-button"),
                     StyleClasses = { StyleBase.ButtonCaution },
                     MinSize = new Vector2(105, 30),
                     MaxSize = new Vector2(105, 30),
