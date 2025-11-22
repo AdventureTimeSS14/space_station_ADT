@@ -26,6 +26,7 @@
           - FitsInDispenser
   - type: ChemMaster
     pillDosageLimit: 20
+    bottleDosageLimit: 30
   - type: Physics
     bodyType: Static
   - type: Fixtures
@@ -89,7 +90,6 @@
         whitelist:
           tags:
           - Bottle
-          - PillCanister
   - type: SolutionContainerManager
     solutions:
       buffer: {}
