@@ -3251,6 +3251,11 @@
         Slash: 6
         Piercing: 6
         Structural: 15
+  # ADT Tweak start
+  - type: LanguageSpeaker
+    languages:
+      GalacticCommon: Speak
+  # ADT Tweak end
 
 - type: entity
   name: space cat

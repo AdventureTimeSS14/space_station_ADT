@@ -3,3 +3,13 @@
   name: "Вульпканин"
   parent: BaseMobVulpkanin
   id: MobVulpkanin
+
+- type: entity
+  parent: MobVulpkanin
+  id: ADTMobRandomVulpkanin
+  components:
+  - type: RandomHumanoidAppearance
+    randomizeName: false
+  - type: Loadout
+    prototypes: [ADTRoleMobEvilBotGear]
+
