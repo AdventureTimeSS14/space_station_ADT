@@ -84,9 +84,9 @@
   defaultModules:
   - BorgModuleTool
   - BorgModuleMining
-  - BorgModuleTraversal
+  #- BorgModuleTraversal #ADT tweak: MineBorgModulesUpdate
   - BorgModuleAppraisal
-  - ADTBorgModulePKA # ADT tweak
+  - ADTBorgModuleSalvage #ADT tweak: MineBorgModulesUpdate
 
   radioChannels:
   - Supply
