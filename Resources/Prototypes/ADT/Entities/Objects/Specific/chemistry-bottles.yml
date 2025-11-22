@@ -14,7 +14,7 @@
           Quantity: 30
 
 - type: entity
-  id: ChemistryBottlePolymorphine
+  id: ADTChemistryBottlePolymorphine
   suffix: Polymorphine
   parent: BaseChemistryBottleFilled
   components:
@@ -29,7 +29,7 @@
           Quantity: 30
 
 - type: entity
-  id: ChemistryBottleChaoticPolymorphine
+  id: ADTChemistryBottleChaoticPolymorphine
   suffix: ChaoticPolymorphine
   parent: BaseChemistryBottleFilled
   components:
