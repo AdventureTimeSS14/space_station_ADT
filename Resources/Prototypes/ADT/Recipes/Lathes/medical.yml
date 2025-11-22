@@ -101,3 +101,13 @@
   materials:
     Glass: 50
     Plastic: 300
+- type: latheRecipe
+  id: EnergyChemDispenserMachineCircuitboard
+  result: EnergyChemDispenserMachineCircuitboard
+  completetime: 2
+  materials:
+    Steel: 800
+    Copper: 200
+    Zinc: 50
+    Gold: 250
+    Silver: 400

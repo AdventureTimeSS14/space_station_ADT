@@ -80,3 +80,23 @@
     sprite: ADT/Clothing/OuterClothing/Misc/chef_red.rsi
   - type: Clothing
     sprite: ADT/Clothing/OuterClothing/Misc/chef_red.rsi
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ADTClothingOuterEggman
+  name: robotnik suit
+  description: You feel a masterplan taking shape inside of you.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Misc/eggman.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Misc/eggman.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ADTClothingHeadRobotnikHead
+    requiredSlot:
+    - outerclothing
+    slot: head
+  - type: ContainerContainer #R.A.T. shitfix: я не знаю почему, но тесты жаловались именно на эти два предмета, потому я добавила это
+    containers:
+      storagebase: !type:Container
+      toggleable-clothing: !type:ContainerSlot

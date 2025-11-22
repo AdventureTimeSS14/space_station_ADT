@@ -84,6 +84,15 @@
           Quantity: 2
         - ReagentId: Carbon #steel-reinforced
           Quantity: 1
+  # ADT Tweak Start: IPC
+  - type: Healing # cables can be used to heal IPC
+    damageContainers:
+      - ADTSiliconDamageContainer
+    damage:
+      types:
+        Shock: -10
+        Caustic: -10
+    # ADT Tweak End
 
 - type: entity
   parent: CableHVStack

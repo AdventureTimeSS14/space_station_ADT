@@ -5,13 +5,15 @@
   abstract: true
   description: It's like it's staring right through you.
   components:
-  - type: NpcFactionMember
-    factions:
-    - SimpleHostile
   # ADT-Tweak-comment-start
   # - type: HTN
   #   rootTask:
   #     task: SimpleRangedHostileCompound
+  # ADT-Tweak-comment-end
+  # ADT-Tweak-comment-start
+  # - type: NpcFactionMember
+  #   factions:
+  #   - SimpleHostile
   # ADT-Tweak-comment-end
   - type: Sprite
     drawdepth: Mobs
@@ -94,6 +96,11 @@
   id: MobWatcherLavaland
   parent: MobWatcherBase
   components:
+  # ADT-Tweak-Start
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
+  # ADT-Tweak-end
   - type: Sprite
     layers:
     - map: [ "enum.DamageStateVisualLayers.Base" ]
@@ -112,6 +119,11 @@
   parent: MobWatcherBase
   name: icewing watcher
   components:
+  # ADT-Tweak-Start
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
+  # ADT-Tweak-end
   - type: Sprite
     layers:
     - map: [ "enum.DamageStateVisualLayers.Base" ]
@@ -138,6 +150,11 @@
   parent: MobWatcherBase
   name: magmawing watcher
   components:
+  # ADT-Tweak-Start
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
+  # ADT-Tweak-End
   - type: Sprite
     layers:
     - map: [ "enum.DamageStateVisualLayers.Base" ]
@@ -181,3 +198,4 @@
     energy: 1
   - type: RgbLightController
     layers: [ 1 ]
+    

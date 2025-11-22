@@ -106,25 +106,25 @@
           key: "enum.MechAssemblyVisuals.State"
           data: 14
 
-      # - tag: CapacitorStockPart
-      #   name: construction-graph-tag-capicator-stock-part
-      #   icon:
-      #     sprite: "Objects/Misc/stock_parts.rsi"
-      #     state: capacitor
-      #   completed:
-      #   - !type:VisualizerDataInt
-      #     key: "enum.MechAssemblyVisuals.State"
-      #     data: 15
+      - tag: ADTMicroManipulatorStockPart
+        name: construction-graph-tag-manipulator-stock-part
+        icon:
+          sprite: "Objects/Misc/stock_parts.rsi"
+          state: micro_mani
+        completed:
+        - !type:VisualizerDataInt
+          key: "enum.MechAssemblyVisuals.State"
+          data: 15
 
-      # - tag: CapacitorStockPart
-      #   name: construction-graph-tag-capicator-stock-part
-      #   icon:
-      #     sprite: "Objects/Misc/stock_parts.rsi"
-      #     state: capacitor
-      #   completed:
-      #   - !type:VisualizerDataInt
-      #     key: "enum.MechAssemblyVisuals.State"
-      #     data: 16
+      - tag: ADTMicroManipulatorStockPart
+        name: construction-graph-tag-manipulator-stock-part
+        icon:
+          sprite: "Objects/Misc/stock_parts.rsi"
+          state: micro_mani
+        completed:
+        - !type:VisualizerDataInt
+          key: "enum.MechAssemblyVisuals.State"
+          data: 16
 
       - tool: Screwing
         doAfter: 1
