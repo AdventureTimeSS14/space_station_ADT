@@ -34,9 +34,9 @@ public sealed partial class SlimeHairSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<SlimeHairComponent, ActivatableUIOpenAttemptEvent>(OnOpenUIAttempt);
+        SubscribeLocalEvent<MidroundCustomizationComponent, ActivatableUIOpenAttemptEvent>(OnOpenUIAttempt);
 
-        Subs.BuiEvents<SlimeHairComponent>(SlimeHairUiKey.Key, subs =>
+        Subs.BuiEvents<MidroundCustomizationComponent>(SlimeHairUiKey.Key, subs =>
         {
             subs.Event<BoundUIClosedEvent>(OnUIClosed);
             subs.Event<SlimeHairSelectMessage>(OnSlimeHairSelect);
@@ -46,26 +46,26 @@ public sealed partial class SlimeHairSystem : EntitySystem
             subs.Event<SlimeHairChangeVoiceMessage>(OnTrySlimeHairChangeVoice);
         });
 
-        SubscribeLocalEvent<SlimeHairComponent, MapInitEvent>(OnMapInit);
-        SubscribeLocalEvent<SlimeHairComponent, ComponentShutdown>(OnShutdown);
+        SubscribeLocalEvent<MidroundCustomizationComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<MidroundCustomizationComponent, ComponentShutdown>(OnShutdown);
 
-        SubscribeLocalEvent<SlimeHairComponent, SlimeHairSelectDoAfterEvent>(OnSelectSlotDoAfter);
-        SubscribeLocalEvent<SlimeHairComponent, SlimeHairChangeColorDoAfterEvent>(OnChangeColorDoAfter);
-        SubscribeLocalEvent<SlimeHairComponent, SlimeHairRemoveSlotDoAfterEvent>(OnRemoveSlotDoAfter);
-        SubscribeLocalEvent<SlimeHairComponent, SlimeHairAddSlotDoAfterEvent>(OnAddSlotDoAfter);
-        SubscribeLocalEvent<SlimeHairComponent, SlimeHairChangeVoiceDoAfterEvent>(OnChangeVoiceDoAfter);
+        SubscribeLocalEvent<MidroundCustomizationComponent, SlimeHairSelectDoAfterEvent>(OnSelectSlotDoAfter);
+        SubscribeLocalEvent<MidroundCustomizationComponent, SlimeHairChangeColorDoAfterEvent>(OnChangeColorDoAfter);
+        SubscribeLocalEvent<MidroundCustomizationComponent, SlimeHairRemoveSlotDoAfterEvent>(OnRemoveSlotDoAfter);
+        SubscribeLocalEvent<MidroundCustomizationComponent, SlimeHairAddSlotDoAfterEvent>(OnAddSlotDoAfter);
+        SubscribeLocalEvent<MidroundCustomizationComponent, SlimeHairChangeVoiceDoAfterEvent>(OnChangeVoiceDoAfter);
 
         InitializeSlimeAbilities();
 
     }
 
-    private void OnOpenUIAttempt(EntityUid uid, SlimeHairComponent mirror, ActivatableUIOpenAttemptEvent args)
+    private void OnOpenUIAttempt(EntityUid uid, MidroundCustomizationComponent mirror, ActivatableUIOpenAttemptEvent args)
     {
         if (!HasComp<HumanoidAppearanceComponent>(uid))
             args.Cancel();
     }
 
-    private void OnSlimeHairSelect(EntityUid uid, SlimeHairComponent component, SlimeHairSelectMessage message)
+    private void OnSlimeHairSelect(EntityUid uid, MidroundCustomizationComponent component, SlimeHairSelectMessage message)
     {
         if (component.Target is not { } target)
             return;
@@ -89,7 +89,7 @@ public sealed partial class SlimeHairSystem : EntitySystem
         component.DoAfter = doAfterId;
     }
 
-    private void OnSelectSlotDoAfter(EntityUid uid, SlimeHairComponent component, SlimeHairSelectDoAfterEvent args)
+    private void OnSelectSlotDoAfter(EntityUid uid, MidroundCustomizationComponent component, SlimeHairSelectDoAfterEvent args)
     {
         if (args.Handled || args.Target == null || args.Cancelled)
             return;
@@ -116,7 +116,7 @@ public sealed partial class SlimeHairSystem : EntitySystem
         UpdateInterface(uid, component);
     }
 
-    private void OnTrySlimeHairChangeColor(EntityUid uid, SlimeHairComponent component, SlimeHairChangeColorMessage message)
+    private void OnTrySlimeHairChangeColor(EntityUid uid, MidroundCustomizationComponent component, SlimeHairChangeColorMessage message)
     {
         if (component.Target is not { } target)
             return;
@@ -138,7 +138,7 @@ public sealed partial class SlimeHairSystem : EntitySystem
 
         component.DoAfter = doAfterId;
     }
-    private void OnChangeColorDoAfter(EntityUid uid, SlimeHairComponent component, SlimeHairChangeColorDoAfterEvent args)
+    private void OnChangeColorDoAfter(EntityUid uid, MidroundCustomizationComponent component, SlimeHairChangeColorDoAfterEvent args)
     {
         if (args.Handled || args.Target == null || args.Cancelled)
             return;
@@ -166,7 +166,7 @@ public sealed partial class SlimeHairSystem : EntitySystem
         // UpdateInterface(uid, component.Target, message.Session);
     }
 
-    private void OnTrySlimeHairRemoveSlot(EntityUid uid, SlimeHairComponent component, SlimeHairRemoveSlotMessage message)
+    private void OnTrySlimeHairRemoveSlot(EntityUid uid, MidroundCustomizationComponent component, SlimeHairRemoveSlotMessage message)
     {
         if (component.Target is not { } target)
             return;
@@ -189,7 +189,7 @@ public sealed partial class SlimeHairSystem : EntitySystem
         component.DoAfter = doAfterId;
     }
 
-    private void OnRemoveSlotDoAfter(EntityUid uid, SlimeHairComponent component, SlimeHairRemoveSlotDoAfterEvent args)
+    private void OnRemoveSlotDoAfter(EntityUid uid, MidroundCustomizationComponent component, SlimeHairRemoveSlotDoAfterEvent args)
     {
         if (args.Handled || args.Target == null || args.Cancelled)
             return;
@@ -217,7 +217,7 @@ public sealed partial class SlimeHairSystem : EntitySystem
         UpdateInterface(uid, component);
     }
 
-    private void OnTrySlimeHairAddSlot(EntityUid uid, SlimeHairComponent component, SlimeHairAddSlotMessage message)
+    private void OnTrySlimeHairAddSlot(EntityUid uid, MidroundCustomizationComponent component, SlimeHairAddSlotMessage message)
     {
         if (component.Target == null)
             return;
@@ -241,7 +241,8 @@ public sealed partial class SlimeHairSystem : EntitySystem
         component.DoAfter = doAfterId;
         _audio.PlayPvs(component.ChangeHairSound, uid);
     }
-    private void OnAddSlotDoAfter(EntityUid uid, SlimeHairComponent component, SlimeHairAddSlotDoAfterEvent args)
+
+    private void OnAddSlotDoAfter(EntityUid uid, MidroundCustomizationComponent component, SlimeHairAddSlotDoAfterEvent args)
     {
         if (args.Handled || args.Target == null || args.Cancelled || !TryComp(component.Target, out HumanoidAppearanceComponent? humanoid))
             return;
@@ -272,7 +273,7 @@ public sealed partial class SlimeHairSystem : EntitySystem
 
     }
 
-    private void OnTrySlimeHairChangeVoice(EntityUid uid, SlimeHairComponent component, SlimeHairChangeVoiceMessage message)
+    private void OnTrySlimeHairChangeVoice(EntityUid uid, MidroundCustomizationComponent component, SlimeHairChangeVoiceMessage message)
     {
         if (component.Target is not { } target)
             return;
@@ -294,7 +295,7 @@ public sealed partial class SlimeHairSystem : EntitySystem
         component.DoAfter = doAfterId;
     }
 
-    private void OnChangeVoiceDoAfter(EntityUid uid, SlimeHairComponent component, SlimeHairChangeVoiceDoAfterEvent args)
+    private void OnChangeVoiceDoAfter(EntityUid uid, MidroundCustomizationComponent component, SlimeHairChangeVoiceDoAfterEvent args)
     {
         if (args.Handled || args.Target == null || args.Cancelled)
             return;
@@ -313,7 +314,7 @@ public sealed partial class SlimeHairSystem : EntitySystem
         UpdateInterface(uid, component);
     }
 
-    private void UpdateInterface(EntityUid uid, SlimeHairComponent component)
+    private void UpdateInterface(EntityUid uid, MidroundCustomizationComponent component)
     {
         if (!TryComp<HumanoidAppearanceComponent>(uid, out var humanoid))
             return;
@@ -339,16 +340,16 @@ public sealed partial class SlimeHairSystem : EntitySystem
         _uiSystem.SetUiState(uid, SlimeHairUiKey.Key, state);
     }
 
-    private void OnUIClosed(Entity<SlimeHairComponent> ent, ref BoundUIClosedEvent args)
+    private void OnUIClosed(Entity<MidroundCustomizationComponent> ent, ref BoundUIClosedEvent args)
     {
         ent.Comp.Target = null;
     }
 
-    private void OnMapInit(EntityUid uid, SlimeHairComponent component, MapInitEvent args)
+    private void OnMapInit(EntityUid uid, MidroundCustomizationComponent component, MapInitEvent args)
     {
         _action.AddAction(uid, ref component.ActionEntity, component.Action);
     }
-    private void OnShutdown(EntityUid uid, SlimeHairComponent component, ComponentShutdown args)
+    private void OnShutdown(EntityUid uid, MidroundCustomizationComponent component, ComponentShutdown args)
     {
         _action.RemoveAction(uid, component.ActionEntity);
     }

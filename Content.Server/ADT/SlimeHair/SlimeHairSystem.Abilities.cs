@@ -10,10 +10,10 @@ public sealed partial class SlimeHairSystem
 {
     private void InitializeSlimeAbilities()
     {
-        SubscribeLocalEvent<SlimeHairComponent, SlimeHairActionEvent>(SlimeHairAction);
+        SubscribeLocalEvent<MidroundCustomizationComponent, SlimeHairActionEvent>(SlimeHairAction);
     }
 
-    private void SlimeHairAction(EntityUid uid, SlimeHairComponent comp, SlimeHairActionEvent args)
+    private void SlimeHairAction(EntityUid uid, MidroundCustomizationComponent comp, SlimeHairActionEvent args)
     {
         if (args.Handled)
             return;

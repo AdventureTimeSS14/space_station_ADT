@@ -8,7 +8,7 @@ namespace Content.Server.ADT.SlimeHair;
 /// Allows humanoids to change their appearance mid-round.
 /// </summary>
 [RegisterComponent]
-public sealed partial class SlimeHairComponent : Component
+public sealed partial class MidroundCustomizationComponent : Component
 {
     [DataField]
     public DoAfterId? DoAfter;
