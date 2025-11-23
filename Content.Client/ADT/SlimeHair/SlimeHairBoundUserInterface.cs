@@ -19,43 +19,12 @@ public sealed class SlimeHairBoundUserInterface : BoundUserInterface
 
         _window = this.CreateWindow<SlimeHairWindow>();
 
-        _window.OnHairSelected += tuple => SelectHair(SlimeHairCategory.Hair, tuple.id, tuple.slot);
-        _window.OnHairColorChanged += args => ChangeColor(SlimeHairCategory.Hair, args.marking, args.slot);
-        _window.OnHairSlotAdded += delegate () { AddSlot(SlimeHairCategory.Hair); };
-        _window.OnHairSlotRemoved += args => RemoveSlot(SlimeHairCategory.Hair, args);
+        _window.OnSlotMarkingSelected += args => SendMessage(new MidroundCustomizationMarkingSelectMessage(args.Category, args.Id, args.Slot));
+        _window.OnSlotColorChanged += args => SendMessage(new MidroundCustomizationChangeColorMessage(args.Category, args.Colors, args.Slot));
+        _window.OnSlotAdded += args => SendMessage(new MidroundCustomizationAddSlotMessage(args));
+        _window.OnSlotRemoved += args => SendMessage(new MidroundCustomizationRemoveSlotMessage(args.Category, args.Slot));
 
-        _window.OnFacialHairSelected += tuple => SelectHair(SlimeHairCategory.FacialHair, tuple.id, tuple.slot);
-        _window.OnFacialHairColorChanged +=
-            args => ChangeColor(SlimeHairCategory.FacialHair, args.marking, args.slot);
-        _window.OnFacialHairSlotAdded += delegate () { AddSlot(SlimeHairCategory.FacialHair); };
-        _window.OnFacialHairSlotRemoved += args => RemoveSlot(SlimeHairCategory.FacialHair, args);
-
-        _window.OnVoiceChanged += voiceId => ChangeVoice(voiceId);
-    }
-
-    private void SelectHair(SlimeHairCategory category, string marking, int slot)
-    {
-        SendMessage(new SlimeHairSelectMessage(category, marking, slot));
-    }
-
-    private void ChangeColor(SlimeHairCategory category, Marking marking, int slot)
-    {
-        SendMessage(new SlimeHairChangeColorMessage(category, new(marking.MarkingColors), slot));
-    }
-
-    private void RemoveSlot(SlimeHairCategory category, int slot)
-    {
-        SendMessage(new SlimeHairRemoveSlotMessage(category, slot));
-    }
-
-    private void AddSlot(SlimeHairCategory category)
-    {
-        SendMessage(new SlimeHairAddSlotMessage(category));
-    }
-
-    private void ChangeVoice(string voiceId)
-    {
-        SendMessage(new SlimeHairChangeVoiceMessage(voiceId));
+        _window.OnVoiceChanged += voiceId => SendMessage(new MidroundCustomizationChangeVoiceMessage(voiceId, voiceId));
     }
 
     protected override void UpdateState(BoundUserInterfaceState state)

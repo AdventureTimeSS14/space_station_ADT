@@ -152,7 +152,7 @@ public sealed partial class SingleMarkingPicker : BoxContainer
         };
     }
 
-    public void UpdateData(List<Marking> markings, string species, int totalPoints)
+    public void UpdateData(List<Marking> markings, string species, int totalPoints, bool allowColors = true) // ADT tweak
     {
         _markings = markings;
         _species = species;
@@ -167,7 +167,7 @@ public sealed partial class SingleMarkingPicker : BoxContainer
         }
 
         PopulateList(Search.Text);
-        PopulateColors();
+        PopulateColors(allowColors); // ADT tweak
         PopulateSlotSelector();
     }
 
@@ -217,8 +217,17 @@ public sealed partial class SingleMarkingPicker : BoxContainer
         }
     }
 
-    private void PopulateColors()
+    private void PopulateColors(bool allowed = true)    // ADT tweak
     {
+        // ADT start
+        if (!allowed)
+        {
+            ColorSelectorContainer.DisposeAllChildren();
+            ColorSelectorContainer.RemoveAllChildren();
+            return;
+        }
+        // ADT end
+
         if (_markings == null
             || _markings.Count == 0
             || !_markingManager.TryGetMarking(_markings[Slot], out var proto))

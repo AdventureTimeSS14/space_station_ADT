@@ -1,4 +1,5 @@
 using Content.Client.Corvax.Sponsors;
+using Content.Client.Humanoid;
 using Content.Shared.ADT.SlimeHair;
 using Content.Shared.Corvax.TTS;
 using Content.Shared.Humanoid;
@@ -16,15 +17,10 @@ namespace Content.Client.ADT.SlimeHair;
 [GenerateTypedNameReferences]
 public sealed partial class SlimeHairWindow : DefaultWindow
 {
-    public Action<(int slot, string id)>? OnHairSelected;
-    public Action<(int slot, Marking marking)>? OnHairColorChanged;
-    public Action<int>? OnHairSlotRemoved;
-    public Action? OnHairSlotAdded;
-
-    public Action<(int slot, string id)>? OnFacialHairSelected;
-    public Action<(int slot, Marking marking)>? OnFacialHairColorChanged;
-    public Action<int>? OnFacialHairSlotRemoved;
-    public Action? OnFacialHairSlotAdded;
+    public Action<(MarkingCategories Category, int Slot, string Id)>? OnSlotMarkingSelected;
+    public Action<(MarkingCategories Category, int Slot, List<Color> Colors)>? OnSlotColorChanged;
+    public Action<(MarkingCategories Category, int Slot)>? OnSlotRemoved;
+    public Action<MarkingCategories>? OnSlotAdded;
 
     public Action<string>? OnVoiceChanged;
 
@@ -36,16 +32,6 @@ public sealed partial class SlimeHairWindow : DefaultWindow
     public SlimeHairWindow()
     {
         RobustXamlLoader.Load(this);
-
-        HairPicker.OnMarkingSelect += args => OnHairSelected!(args);
-        HairPicker.OnColorChanged += args => OnHairColorChanged!(args);
-        HairPicker.OnSlotRemove += args => OnHairSlotRemoved!(args);
-        HairPicker.OnSlotAdd += delegate { OnHairSlotAdded!(); };
-
-        FacialHairPicker.OnMarkingSelect += args => OnFacialHairSelected!(args);
-        FacialHairPicker.OnColorChanged += args => OnFacialHairColorChanged!(args);
-        FacialHairPicker.OnSlotRemove += args => OnFacialHairSlotRemoved!(args);
-        FacialHairPicker.OnSlotAdd += delegate { OnFacialHairSlotAdded!(); };
 
         VoiceButton.OnItemSelected += args =>
         {
@@ -62,15 +48,22 @@ public sealed partial class SlimeHairWindow : DefaultWindow
 
     public void UpdateState(SlimeHairUiState state)
     {
-        HairPicker.UpdateData(state.Hair, state.Species, state.HairSlotTotal);
-        FacialHairPicker.UpdateData(state.FacialHair, state.Species, state.FacialHairSlotTotal);
-
-        UpdateVoice(state.Sex, state.Voice);
-
-        if (!HairPicker.Visible && !FacialHairPicker.Visible)
+        foreach (var item in state.SlotsTotal)
         {
-            AddChild(new Label { Text = Loc.GetString("magic-mirror-component-activate-user-has-no-hair") });
+            var picker = new SingleMarkingPicker();
+            picker.UpdateData(state.Markings[item.Key], state.Species, item.Value, state.AllowColorChanges);
+
+            picker.OnMarkingSelect += args => OnSlotMarkingSelected?.Invoke((item.Key, args.slot, args.id));
+            picker.OnColorChanged += args => OnSlotColorChanged?.Invoke((item.Key, args.slot, args.marking.MarkingColors.ToList()));
+            picker.OnSlotRemove += args => OnSlotRemoved?.Invoke((item.Key, args));
+            picker.OnSlotAdd += () => OnSlotAdded?.Invoke(item.Key);
+            MarkingsContainer.AddChild(picker);
         }
+
+        UpdateVoice(state.Sex, state.TTS);
+
+        if (state.SlotsTotal.Count <= 0)
+            AddChild(new Label { Text = Loc.GetString("magic-mirror-component-activate-user-has-no-hair") });
     }
 
     private void UpdateVoice(Sex sex, string currentVoice)
