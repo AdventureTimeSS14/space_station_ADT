@@ -34,8 +34,8 @@ public sealed class SlimeHairUiState : BoundUserInterfaceState
     public Dictionary<MarkingCategories, int> SlotsTotal = new();
     public bool AllowColorChanges;
 
-    public string TTS;
-    public string Bark;
+    public string? TTS;
+    public string? Bark;
 }
 
 [Serializable, NetSerializable]

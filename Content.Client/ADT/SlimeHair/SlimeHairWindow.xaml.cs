@@ -48,10 +48,17 @@ public sealed partial class SlimeHairWindow : DefaultWindow
 
     public void UpdateState(SlimeHairUiState state)
     {
-        foreach (var item in state.SlotsTotal)
+        MarkingsContainer.RemoveAllChildren();
+        foreach (var item in state.Markings)
         {
-            var picker = new SingleMarkingPicker();
-            picker.UpdateData(state.Markings[item.Key], state.Species, item.Value, state.AllowColorChanges);
+            var picker = new SingleMarkingPicker()
+            {
+                Category = item.Key,
+                Margin = new(2, 0),
+                MinWidth = 325,
+                MaxWidth = 650
+            };
+            picker.UpdateData(item.Value, state.Species, state.SlotsTotal[item.Key], state.AllowColorChanges);
 
             picker.OnMarkingSelect += args => OnSlotMarkingSelected?.Invoke((item.Key, args.slot, args.id));
             picker.OnColorChanged += args => OnSlotColorChanged?.Invoke((item.Key, args.slot, args.marking.MarkingColors.ToList()));
@@ -60,7 +67,13 @@ public sealed partial class SlimeHairWindow : DefaultWindow
             MarkingsContainer.AddChild(picker);
         }
 
-        UpdateVoice(state.Sex, state.TTS);
+        if (state.TTS != null && state.Bark != null)
+        {
+            UpdateVoice(state.Sex, state.TTS);
+            VoiceContainer.Visible = true;
+        }
+        else
+            VoiceContainer.Visible = false;
 
         if (state.SlotsTotal.Count <= 0)
             AddChild(new Label { Text = Loc.GetString("magic-mirror-component-activate-user-has-no-hair") });
