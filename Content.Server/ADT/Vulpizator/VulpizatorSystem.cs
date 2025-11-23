@@ -1,9 +1,7 @@
 using Content.Server.Antag;
 using Content.Shared.Mindshield.Components;
 using Content.Server.Polymorph.Components;
-using Content.Shared.Projectiles;
 using Content.Server.Roles;
-using Content.Shared.Tag;
 using Robust.Shared.Physics.Events;
 
 namespace Content.Server.Vulpizator.System;
