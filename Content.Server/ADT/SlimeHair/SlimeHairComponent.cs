@@ -14,12 +14,6 @@ public sealed partial class MidroundCustomizationComponent : Component
     public DoAfterId? DoAfter;
 
     /// <summary>
-    /// Magic mirror target, used for validating UI messages.
-    /// </summary>
-    [DataField]
-    public EntityUid? Target;
-
-    /// <summary>
     /// doafter time required to add a new slot
     /// </summary>
     [DataField("addSlotTime"), ViewVariables(VVAccess.ReadWrite)]

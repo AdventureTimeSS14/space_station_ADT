@@ -38,7 +38,6 @@ public sealed partial class SlimeHairSystem : EntitySystem
 
         Subs.BuiEvents<MidroundCustomizationComponent>(SlimeHairUiKey.Key, subs =>
         {
-            subs.Event<BoundUIClosedEvent>(OnUIClosed);
             subs.Event<SlimeHairSelectMessage>(OnSlimeHairSelect);
             subs.Event<SlimeHairChangeColorMessage>(OnTrySlimeHairChangeColor);
             subs.Event<SlimeHairAddSlotMessage>(OnTrySlimeHairAddSlot);
@@ -67,9 +66,6 @@ public sealed partial class SlimeHairSystem : EntitySystem
 
     private void OnSlimeHairSelect(EntityUid uid, MidroundCustomizationComponent component, SlimeHairSelectMessage message)
     {
-        if (component.Target is not { } target)
-            return;
-
         _doAfterSystem.Cancel(component.DoAfter);
         component.DoAfter = null;
 
@@ -80,7 +76,7 @@ public sealed partial class SlimeHairSystem : EntitySystem
             Marking = message.Marking,
         };
 
-        _doAfterSystem.TryStartDoAfter(new DoAfterArgs(EntityManager, component.Owner, component.SelectSlotTime, doAfter, uid, target: target, used: uid)
+        _doAfterSystem.TryStartDoAfter(new DoAfterArgs(EntityManager, uid, component.SelectSlotTime, doAfter, uid, target: uid, used: uid)
         {
             DistanceThreshold = SharedInteractionSystem.InteractionRange,
             BreakOnDamage = true,
@@ -92,9 +88,6 @@ public sealed partial class SlimeHairSystem : EntitySystem
     private void OnSelectSlotDoAfter(EntityUid uid, MidroundCustomizationComponent component, SlimeHairSelectDoAfterEvent args)
     {
         if (args.Handled || args.Target == null || args.Cancelled)
-            return;
-
-        if (component.Target != args.Target)
             return;
 
         MarkingCategories category;
@@ -118,9 +111,6 @@ public sealed partial class SlimeHairSystem : EntitySystem
 
     private void OnTrySlimeHairChangeColor(EntityUid uid, MidroundCustomizationComponent component, SlimeHairChangeColorMessage message)
     {
-        if (component.Target is not { } target)
-            return;
-
         _doAfterSystem.Cancel(component.DoAfter);
         component.DoAfter = null;
 
@@ -131,19 +121,17 @@ public sealed partial class SlimeHairSystem : EntitySystem
             Colors = message.Colors,
         };
 
-        _doAfterSystem.TryStartDoAfter(new DoAfterArgs(EntityManager, component.Owner, component.ChangeSlotTime, doAfter, uid, target: target, used: uid)
+        _doAfterSystem.TryStartDoAfter(new DoAfterArgs(EntityManager, uid, component.ChangeSlotTime, doAfter, uid, target: uid, used: uid)
         {
             BreakOnDamage = true,
         }, out var doAfterId);
 
         component.DoAfter = doAfterId;
     }
+
     private void OnChangeColorDoAfter(EntityUid uid, MidroundCustomizationComponent component, SlimeHairChangeColorDoAfterEvent args)
     {
         if (args.Handled || args.Target == null || args.Cancelled)
-            return;
-
-        if (component.Target != args.Target)
             return;
 
         MarkingCategories category;
@@ -168,9 +156,6 @@ public sealed partial class SlimeHairSystem : EntitySystem
 
     private void OnTrySlimeHairRemoveSlot(EntityUid uid, MidroundCustomizationComponent component, SlimeHairRemoveSlotMessage message)
     {
-        if (component.Target is not { } target)
-            return;
-
         _doAfterSystem.Cancel(component.DoAfter);
         component.DoAfter = null;
 
@@ -180,7 +165,7 @@ public sealed partial class SlimeHairSystem : EntitySystem
             Slot = message.Slot,
         };
 
-        _doAfterSystem.TryStartDoAfter(new DoAfterArgs(EntityManager, component.Owner, component.RemoveSlotTime, doAfter, uid, target: target, used: uid)
+        _doAfterSystem.TryStartDoAfter(new DoAfterArgs(EntityManager, uid, component.RemoveSlotTime, doAfter, uid, target: uid, used: uid)
         {
             DistanceThreshold = SharedInteractionSystem.InteractionRange,
             BreakOnDamage = true,
@@ -192,9 +177,6 @@ public sealed partial class SlimeHairSystem : EntitySystem
     private void OnRemoveSlotDoAfter(EntityUid uid, MidroundCustomizationComponent component, SlimeHairRemoveSlotDoAfterEvent args)
     {
         if (args.Handled || args.Target == null || args.Cancelled)
-            return;
-
-        if (component.Target != args.Target)
             return;
 
         MarkingCategories category;
@@ -211,7 +193,7 @@ public sealed partial class SlimeHairSystem : EntitySystem
                 return;
         }
 
-        _humanoid.RemoveMarking(component.Target.Value, category, args.Slot);
+        _humanoid.RemoveMarking(uid, category, args.Slot);
 
         _audio.PlayPvs(component.ChangeHairSound, uid);
         UpdateInterface(uid, component);
@@ -219,9 +201,6 @@ public sealed partial class SlimeHairSystem : EntitySystem
 
     private void OnTrySlimeHairAddSlot(EntityUid uid, MidroundCustomizationComponent component, SlimeHairAddSlotMessage message)
     {
-        if (component.Target == null)
-            return;
-
         if (message.Actor == null)
             return;
 
@@ -233,7 +212,7 @@ public sealed partial class SlimeHairSystem : EntitySystem
             Category = message.Category,
         };
 
-        _doAfterSystem.TryStartDoAfter(new DoAfterArgs(EntityManager, message.Actor, component.AddSlotTime, doAfter, uid, target: component.Target.Value, used: uid)
+        _doAfterSystem.TryStartDoAfter(new DoAfterArgs(EntityManager, message.Actor, component.AddSlotTime, doAfter, uid, target: uid, used: uid)
         {
             BreakOnDamage = true,
         }, out var doAfterId);
@@ -244,7 +223,7 @@ public sealed partial class SlimeHairSystem : EntitySystem
 
     private void OnAddSlotDoAfter(EntityUid uid, MidroundCustomizationComponent component, SlimeHairAddSlotDoAfterEvent args)
     {
-        if (args.Handled || args.Target == null || args.Cancelled || !TryComp(component.Target, out HumanoidAppearanceComponent? humanoid))
+        if (args.Handled || args.Target == null || args.Cancelled || !TryComp(uid, out HumanoidAppearanceComponent? humanoid))
             return;
 
         MarkingCategories category;
@@ -275,9 +254,6 @@ public sealed partial class SlimeHairSystem : EntitySystem
 
     private void OnTrySlimeHairChangeVoice(EntityUid uid, MidroundCustomizationComponent component, SlimeHairChangeVoiceMessage message)
     {
-        if (component.Target is not { } target)
-            return;
-
         _doAfterSystem.Cancel(component.DoAfter);
         component.DoAfter = null;
 
@@ -286,7 +262,7 @@ public sealed partial class SlimeHairSystem : EntitySystem
             Voice = message.Voice,
         };
 
-        _doAfterSystem.TryStartDoAfter(new DoAfterArgs(EntityManager, component.Owner, component.ChangeVoiceTime, doAfter, uid, target: target, used: uid)
+        _doAfterSystem.TryStartDoAfter(new DoAfterArgs(EntityManager, uid, component.ChangeVoiceTime, doAfter, uid, target: uid, used: uid)
         {
             DistanceThreshold = SharedInteractionSystem.InteractionRange,
             BreakOnDamage = true,
@@ -300,7 +276,7 @@ public sealed partial class SlimeHairSystem : EntitySystem
         if (args.Handled || args.Target == null || args.Cancelled)
             return;
 
-        if (component.Target != args.Target)
+        if (args.Target)
             return;
 
         if (!TryComp<HumanoidAppearanceComponent>(args.Target.Value, out var humanoid))
@@ -336,19 +312,14 @@ public sealed partial class SlimeHairSystem : EntitySystem
             facialHair,
             humanoid.MarkingSet.PointsLeft(MarkingCategories.FacialHair) + facialHair.Count);
 
-        component.Target = uid;
         _uiSystem.SetUiState(uid, SlimeHairUiKey.Key, state);
-    }
-
-    private void OnUIClosed(Entity<MidroundCustomizationComponent> ent, ref BoundUIClosedEvent args)
-    {
-        ent.Comp.Target = null;
     }
 
     private void OnMapInit(EntityUid uid, MidroundCustomizationComponent component, MapInitEvent args)
     {
         _action.AddAction(uid, ref component.ActionEntity, component.Action);
     }
+
     private void OnShutdown(EntityUid uid, MidroundCustomizationComponent component, ComponentShutdown args)
     {
         _action.RemoveAction(uid, component.ActionEntity);
