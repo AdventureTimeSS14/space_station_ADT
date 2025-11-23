@@ -1,4 +1,5 @@
 using Content.Shared.DoAfter;
+using Content.Shared.Humanoid.Markings;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
@@ -10,49 +11,58 @@ namespace Content.Server.ADT.SlimeHair;
 [RegisterComponent]
 public sealed partial class MidroundCustomizationComponent : Component
 {
+    #region DoAfter Settings
     [DataField]
     public DoAfterId? DoAfter;
 
     /// <summary>
     /// doafter time required to add a new slot
     /// </summary>
-    [DataField("addSlotTime"), ViewVariables(VVAccess.ReadWrite)]
+    [DataField]
     public TimeSpan AddSlotTime = TimeSpan.FromSeconds(2);
 
     /// <summary>
     /// doafter time required to remove a existing slot
     /// </summary>
-    [DataField("removeSlotTime"), ViewVariables(VVAccess.ReadWrite)]
+    [DataField]
     public TimeSpan RemoveSlotTime = TimeSpan.FromSeconds(2);
 
     /// <summary>
     /// doafter time required to change slot
     /// </summary>
-    [DataField("selectSlotTime"), ViewVariables(VVAccess.ReadWrite)]
+    [DataField,]
     public TimeSpan SelectSlotTime = TimeSpan.FromSeconds(2);
 
     /// <summary>
     /// doafter time required to recolor slot
     /// </summary>
-    [DataField("changeSlotTime"), ViewVariables(VVAccess.ReadWrite)]
+    [DataField]
     public TimeSpan ChangeSlotTime = TimeSpan.FromSeconds(1);
 
     /// <summary>
     /// doafter time required to change voice
     /// </summary>
-    [DataField("changeVoiceTime"), ViewVariables(VVAccess.ReadWrite)]
+    [DataField]
     public TimeSpan ChangeVoiceTime = TimeSpan.FromSeconds(2);
+    #endregion
+
+    [DataField]
+    public List<MarkingCategories> CustomizableCategories = new()
+    {
+        MarkingCategories.Hair,
+        MarkingCategories.FacialHair,
+    };
 
     /// <summary>
     /// Sound emitted when slots are changed
     /// </summary>
-    [DataField("changeHairSound"), ViewVariables(VVAccess.ReadWrite)]
+    [DataField]
     public SoundSpecifier ChangeHairSound = new SoundPathSpecifier("/Audio/ADT/slime-hair.ogg")
     {
         Params = AudioParams.Default.WithVolume(-1f),
     };
 
-    [DataField("hairAction")]
+    [DataField]
     public EntProtoId Action = "ActionSlimeHair";
 
     [DataField, AutoNetworkedField]

@@ -231,14 +231,12 @@ public sealed partial class SlimeHairSystem : EntitySystem
         if (!TryComp<HumanoidAppearanceComponent>(uid, out var humanoid))
             return;
 
-        var list = new List<MarkingCategories> { MarkingCategories.Hair, MarkingCategories.FacialHair };
-
         var markingDict = new Dictionary<MarkingCategories, List<Marking>>();
         var slotsDict = new Dictionary<MarkingCategories, int>();
-        foreach (var category in list)
+        foreach (var category in component.CustomizableCategories)
         {
             markingDict[category] = new();
-            slotsDict[category] = humanoid.MarkingSet.PointsLeft(MarkingCategories.Hair);
+            slotsDict[category] = humanoid.MarkingSet.PointsLeft(category);
 
             if (humanoid.MarkingSet.TryGetCategory(category, out var markings))
                 markingDict[category] = markings.ToList();
