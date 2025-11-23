@@ -27,11 +27,6 @@ using Content.Shared.Whitelist;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Utility;
-using System.Linq;
-using Content.Shared.Containers.ItemSlots;
-using Robust.Shared.GameObjects;
-using Content.Shared.Whitelist;
-using Content.Shared.Destructible;
 using Content.Shared.ADT.Traits;
 
 namespace Content.Shared.Nutrition.EntitySystems;

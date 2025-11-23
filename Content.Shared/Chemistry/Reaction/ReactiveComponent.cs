@@ -22,6 +22,32 @@ public sealed partial class ReactiveComponent : Component
     /// </summary>
     [DataField("reactions", true, serverOnly: true)]
     public List<ReactiveReagentEffectEntry>? Reactions;
+
+    // ADT-Tweak-Start
+    /// <summary>
+    /// How many times can this component react, if not unlimited?
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    public int RemainingReactions = 1;
+
+    /// <summary>
+    /// Can this reaction activate unlimited times?
+    /// </summary>
+    [DataField(serverOnly: true)]
+    public bool IsReactionsUnlimited = true;
+
+    /// <summary>
+    /// Will this reaction only react with one unit?
+    /// </summary>
+    [DataField(serverOnly: true)]
+    public bool OneUnitReaction;
+
+    [DataField(serverOnly: true)]
+    public bool BlockReactionOnUse = false;
+
+    [ViewVariables(VVAccess.ReadWrite)]
+    public bool HasReacted = false;
+    // ADT-Tweak-End
 }
 
 [DataDefinition]
@@ -39,4 +65,9 @@ public sealed partial class ReactiveReagentEffectEntry
     [DataField("groups", readOnly: true, serverOnly: true,
         customTypeSerializer:typeof(PrototypeIdDictionarySerializer<HashSet<ReactionMethod>, ReactiveGroupPrototype>))]
     public Dictionary<string, HashSet<ReactionMethod>>? ReactiveGroups { get; private set; }
+
+    // ADT-Tweak-Start
+    [DataField("deleteEntity")]
+    public bool DeleteEntity = false;
+    // ADT-Tweak-End
 }

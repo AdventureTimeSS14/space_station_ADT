@@ -612,4 +612,21 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
 
         return Loc.GetString("identity-age-old");
     }
+
+    // ADT-Tweak-Start
+    public void SwapSex(EntityUid uid, HumanoidAppearanceComponent? humanoid = null)
+    {
+        if (!Resolve(uid, ref humanoid)
+            || humanoid.Sex == Sex.Unsexed)
+            return;
+
+        if (humanoid.Sex == Sex.Male)
+        {
+            SetSex(uid, Sex.Female);
+            return;
+        }
+
+        SetSex(uid, Sex.Male);
+    }
+    // ADT-Tweak-End
 }

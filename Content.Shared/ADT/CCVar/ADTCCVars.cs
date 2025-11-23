@@ -274,5 +274,8 @@ public sealed class ADTCCVars
 
     public static readonly CVarDef<bool> BookPrinterUploadCooldownEnabled =
         CVarDef.Create("bookprinter.upload_cooldown_enabled", true, CVar.SERVERONLY | CVar.ARCHIVE);
+
+    public static readonly CVarDef<float> BreedingInterval =
+        CVarDef.Create("xenobiology.breeding.interval", 1f, CVar.REPLICATED | CVar.SERVER);
 }
 

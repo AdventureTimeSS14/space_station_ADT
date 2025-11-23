@@ -1,0 +1,43 @@
+- type: entity
+  id: Chronofield
+  name: chronofield
+  description: ZA WARUDO!
+  components:
+  - type: TimedDespawn
+    lifetime: 10
+  - type: Sprite
+    color: "#FFFFFF80"
+    offset: 0, 0.5
+    noRot: true
+    layers:
+      - shader: unshaded
+        sprite: ADT/Effects/effects160x160.rsi
+        state: time
+  - type: AnimationPlayer
+  - type: FreezeContacts
+  - type: GravPulseOnMapInit
+    maxRange: 2
+    baseRadialAcceleration: 0.01
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape: !type:PhysShapeCircle
+          radius: 2
+        hard: false
+        layer:
+        - Opaque
+        - Impassable
+        - MidImpassable
+        - HighImpassable
+        - LowImpassable
+        - BulletImpassable
+
+- type: entity
+  id: XenoExtractChronofield
+  parent: Chronofield
+  name: sepia chronofield
+  components:
+  - type: TimedDespawn
+    lifetime: 15

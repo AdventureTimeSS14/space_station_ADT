@@ -37,3 +37,15 @@
   components:
     - type: ComputerBoard
       prototype: MinesweeperArcade
+
+- type: entity
+  id: ADTXenobiologyBountyComputerCircuitboard
+  parent: BaseComputerCircuitboard
+  name: xenobiological bounty console board
+  description: A computer printed circuit board for a xenobiological bounty console.
+  components:
+  - type: Sprite
+    state: cpu_science
+  - type: ComputerBoard
+    prototype: ADTComputerScienceXenobiologyBounty
+  - type: StaticPrice
