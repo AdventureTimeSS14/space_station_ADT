@@ -38,11 +38,11 @@ public sealed partial class SlimeHairSystem : EntitySystem
 
         Subs.BuiEvents<MidroundCustomizationComponent>(SlimeHairUiKey.Key, subs =>
         {
-            subs.Event<SlimeHairSelectMessage>(OnSlimeHairSelect);
-            subs.Event<SlimeHairChangeColorMessage>(OnTrySlimeHairChangeColor);
-            subs.Event<SlimeHairAddSlotMessage>(OnTrySlimeHairAddSlot);
-            subs.Event<SlimeHairRemoveSlotMessage>(OnTrySlimeHairRemoveSlot);
-            subs.Event<SlimeHairChangeVoiceMessage>(OnTrySlimeHairChangeVoice);
+            subs.Event<MidroundCustomizationMarkingSelectMessage>(OnSlimeHairSelect);
+            subs.Event<MidroundCustomizationChangeColorMessage>(OnTrySlimeHairChangeColor);
+            subs.Event<MidroundCustomizationAddSlotMessage>(OnTrySlimeHairAddSlot);
+            subs.Event<MidroundCustomizationRemoveSlotMessage>(OnTrySlimeHairRemoveSlot);
+            subs.Event<MidroundCustomizationChangeVoiceMessage>(OnTrySlimeHairChangeVoice);
         });
 
         SubscribeLocalEvent<MidroundCustomizationComponent, MapInitEvent>(OnMapInit);
@@ -64,7 +64,7 @@ public sealed partial class SlimeHairSystem : EntitySystem
             args.Cancel();
     }
 
-    private void OnSlimeHairSelect(EntityUid uid, MidroundCustomizationComponent component, SlimeHairSelectMessage message)
+    private void OnSlimeHairSelect(EntityUid uid, MidroundCustomizationComponent component, MidroundCustomizationMarkingSelectMessage message)
     {
         _doAfterSystem.Cancel(component.DoAfter);
         component.DoAfter = null;
@@ -90,26 +90,11 @@ public sealed partial class SlimeHairSystem : EntitySystem
         if (args.Handled || args.Target == null || args.Cancelled)
             return;
 
-        MarkingCategories category;
-
-        switch (args.Category)
-        {
-            case SlimeHairCategory.Hair:
-                category = MarkingCategories.Hair;
-                break;
-            case SlimeHairCategory.FacialHair:
-                category = MarkingCategories.FacialHair;
-                break;
-            default:
-                return;
-        }
-
-        _humanoid.SetMarkingId(uid, category, args.Slot, args.Marking);
-
+        _humanoid.SetMarkingId(uid, args.Category, args.Slot, args.Marking);
         UpdateInterface(uid, component);
     }
 
-    private void OnTrySlimeHairChangeColor(EntityUid uid, MidroundCustomizationComponent component, SlimeHairChangeColorMessage message)
+    private void OnTrySlimeHairChangeColor(EntityUid uid, MidroundCustomizationComponent component, MidroundCustomizationChangeColorMessage message)
     {
         _doAfterSystem.Cancel(component.DoAfter);
         component.DoAfter = null;
@@ -134,27 +119,14 @@ public sealed partial class SlimeHairSystem : EntitySystem
         if (args.Handled || args.Target == null || args.Cancelled)
             return;
 
-        MarkingCategories category;
-        switch (args.Category)
-        {
-            case SlimeHairCategory.Hair:
-                category = MarkingCategories.Hair;
-                break;
-            case SlimeHairCategory.FacialHair:
-                category = MarkingCategories.FacialHair;
-                break;
-            default:
-                return;
-        }
-
-        _humanoid.SetMarkingColor(uid, category, args.Slot, args.Colors);
+        _humanoid.SetMarkingColor(uid, args.Category, args.Slot, args.Colors);
 
         // using this makes the UI feel like total ass
         // que
         // UpdateInterface(uid, component.Target, message.Session);
     }
 
-    private void OnTrySlimeHairRemoveSlot(EntityUid uid, MidroundCustomizationComponent component, SlimeHairRemoveSlotMessage message)
+    private void OnTrySlimeHairRemoveSlot(EntityUid uid, MidroundCustomizationComponent component, MidroundCustomizationRemoveSlotMessage message)
     {
         _doAfterSystem.Cancel(component.DoAfter);
         component.DoAfter = null;
@@ -179,31 +151,14 @@ public sealed partial class SlimeHairSystem : EntitySystem
         if (args.Handled || args.Target == null || args.Cancelled)
             return;
 
-        MarkingCategories category;
-
-        switch (args.Category)
-        {
-            case SlimeHairCategory.Hair:
-                category = MarkingCategories.Hair;
-                break;
-            case SlimeHairCategory.FacialHair:
-                category = MarkingCategories.FacialHair;
-                break;
-            default:
-                return;
-        }
-
-        _humanoid.RemoveMarking(uid, category, args.Slot);
+        _humanoid.RemoveMarking(uid, args.Category, args.Slot);
 
         _audio.PlayPvs(component.ChangeHairSound, uid);
         UpdateInterface(uid, component);
     }
 
-    private void OnTrySlimeHairAddSlot(EntityUid uid, MidroundCustomizationComponent component, SlimeHairAddSlotMessage message)
+    private void OnTrySlimeHairAddSlot(EntityUid uid, MidroundCustomizationComponent component, MidroundCustomizationAddSlotMessage message)
     {
-        if (message.Actor == null)
-            return;
-
         _doAfterSystem.Cancel(component.DoAfter);
         component.DoAfter = null;
 
@@ -226,21 +181,7 @@ public sealed partial class SlimeHairSystem : EntitySystem
         if (args.Handled || args.Target == null || args.Cancelled || !TryComp(uid, out HumanoidAppearanceComponent? humanoid))
             return;
 
-        MarkingCategories category;
-
-        switch (args.Category)
-        {
-            case SlimeHairCategory.Hair:
-                category = MarkingCategories.Hair;
-                break;
-            case SlimeHairCategory.FacialHair:
-                category = MarkingCategories.FacialHair;
-                break;
-            default:
-                return;
-        }
-
-        var marking = _markings.MarkingsByCategoryAndSpecies(category, humanoid.Species).Keys.FirstOrDefault();
+        var marking = _markings.MarkingsByCategoryAndSpecies(args.Category, humanoid.Species).Keys.FirstOrDefault();
 
         if (string.IsNullOrEmpty(marking))
             return;
@@ -252,14 +193,14 @@ public sealed partial class SlimeHairSystem : EntitySystem
 
     }
 
-    private void OnTrySlimeHairChangeVoice(EntityUid uid, MidroundCustomizationComponent component, SlimeHairChangeVoiceMessage message)
+    private void OnTrySlimeHairChangeVoice(EntityUid uid, MidroundCustomizationComponent component, MidroundCustomizationChangeVoiceMessage message)
     {
         _doAfterSystem.Cancel(component.DoAfter);
         component.DoAfter = null;
 
         var doAfter = new SlimeHairChangeVoiceDoAfterEvent()
         {
-            Voice = message.Voice,
+            Voice = message.TTS,
         };
 
         _doAfterSystem.TryStartDoAfter(new DoAfterArgs(EntityManager, uid, component.ChangeVoiceTime, doAfter, uid, target: uid, used: uid)
@@ -274,9 +215,6 @@ public sealed partial class SlimeHairSystem : EntitySystem
     private void OnChangeVoiceDoAfter(EntityUid uid, MidroundCustomizationComponent component, SlimeHairChangeVoiceDoAfterEvent args)
     {
         if (args.Handled || args.Target == null || args.Cancelled)
-            return;
-
-        if (args.Target)
             return;
 
         if (!TryComp<HumanoidAppearanceComponent>(args.Target.Value, out var humanoid))
@@ -295,22 +233,26 @@ public sealed partial class SlimeHairSystem : EntitySystem
         if (!TryComp<HumanoidAppearanceComponent>(uid, out var humanoid))
             return;
 
-        var hair = humanoid.MarkingSet.TryGetCategory(MarkingCategories.Hair, out var hairMarkings)
-            ? new List<Marking>(hairMarkings)
-            : new();
+        var list = new List<MarkingCategories> { MarkingCategories.Hair, MarkingCategories.FacialHair };
 
-        var facialHair = humanoid.MarkingSet.TryGetCategory(MarkingCategories.FacialHair, out var facialHairMarkings)
-            ? new List<Marking>(facialHairMarkings)
-            : new();
+        var markingDict = new Dictionary<MarkingCategories, List<Marking>>();
+        var slotsDict = new Dictionary<MarkingCategories, int>();
+        foreach (var category in list)
+        {
+            if (humanoid.MarkingSet.TryGetCategory(category, out var markings))
+                markingDict[category] = markings.ToList();
+
+            slotsDict[category] = humanoid.MarkingSet.PointsLeft(MarkingCategories.Hair);
+        }
 
         var state = new SlimeHairUiState(
             humanoid.Species,
             humanoid.Sex,
+            true,
             humanoid.Voice,
-            hair,
-            humanoid.MarkingSet.PointsLeft(MarkingCategories.Hair) + hair.Count,
-            facialHair,
-            humanoid.MarkingSet.PointsLeft(MarkingCategories.FacialHair) + facialHair.Count);
+            humanoid.Bark.Proto,
+            markingDict,
+            slotsDict);
 
         _uiSystem.SetUiState(uid, SlimeHairUiKey.Key, state);
     }
