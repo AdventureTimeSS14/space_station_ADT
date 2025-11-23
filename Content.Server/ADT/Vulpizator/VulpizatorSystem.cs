@@ -9,7 +9,7 @@ namespace Content.Server.Vulpizator.System;
 public sealed class VulpizatorSystem : EntitySystem
 {
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
-    public const string _vulpa = "MobVulpkanin";
+    public const string _vulpa = "ADTMobRandomVulpkanin";
 
     public override void Initialize()
     {
