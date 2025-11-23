@@ -76,7 +76,7 @@ public sealed class MidroundCustomizationChangeColorMessage : GenericMidroundCus
 [Serializable, NetSerializable]
 public sealed class MidroundCustomizationRemoveSlotMessage : GenericMidroundCustomizationMessage
 {
-    public MidroundCustomizationRemoveSlotMessage(MarkingCategories category, List<Color> colors, int slot) : base(category, slot)
+    public MidroundCustomizationRemoveSlotMessage(MarkingCategories category, int slot) : base(category, slot)
     {
     }
 }

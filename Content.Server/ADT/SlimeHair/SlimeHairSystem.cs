@@ -188,9 +188,7 @@ public sealed partial class SlimeHairSystem : EntitySystem
 
         _audio.PlayPvs(component.ChangeHairSound, uid);
         _humanoid.AddMarking(uid, marking, Color.Black);
-
         UpdateInterface(uid, component);
-
     }
 
     private void OnTrySlimeHairChangeVoice(EntityUid uid, MidroundCustomizationComponent component, MidroundCustomizationChangeVoiceMessage message)
@@ -239,10 +237,11 @@ public sealed partial class SlimeHairSystem : EntitySystem
         var slotsDict = new Dictionary<MarkingCategories, int>();
         foreach (var category in list)
         {
+            markingDict[category] = new();
+            slotsDict[category] = humanoid.MarkingSet.PointsLeft(MarkingCategories.Hair);
+
             if (humanoid.MarkingSet.TryGetCategory(category, out var markings))
                 markingDict[category] = markings.ToList();
-
-            slotsDict[category] = humanoid.MarkingSet.PointsLeft(MarkingCategories.Hair);
         }
 
         var state = new SlimeHairUiState(
