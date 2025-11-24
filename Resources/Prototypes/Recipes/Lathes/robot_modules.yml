@@ -60,10 +60,12 @@
 
 # Medical Modules
 
-- type: latheRecipe
-  parent: BaseGoldBorgModuleRecipe
-  id: BorgModuleAdvancedChemical
-  result: BorgModuleAdvancedChemical
+# ADT-Tweak-Start: "MedborgModuleUpdate"
+#- type: latheRecipe
+#  parent: BaseGoldBorgModuleRecipe
+#  id: BorgModuleAdvancedChemical
+#  result: BorgModuleAdvancedChemical
+# ADT-Tweak-End
 
 # Science Modules
 
