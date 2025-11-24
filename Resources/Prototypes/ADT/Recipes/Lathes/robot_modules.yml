@@ -20,5 +20,5 @@
 
 - type: latheRecipe
   parent: BaseGoldBorgModuleRecipe
-  id: BorgModuleTopicals
+  id: ADTBorgModuleTopicals
   result: BorgModuleTopicals
