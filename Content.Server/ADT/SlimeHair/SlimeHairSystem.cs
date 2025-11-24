@@ -93,6 +93,7 @@ public sealed partial class SlimeHairSystem : EntitySystem
         if (!TryComp<HumanoidAppearanceComponent>(uid, out var humanoid))
             return;
 
+        _audio.PlayPvs(component.ChangeHairSound, uid);
         _humanoid.SetMarkingId(uid, args.Category, args.Slot, args.Marking, force: false, defaultColor: component.DefaultSkinColoring ? humanoid.SkinColor : Color.Gray);
         UpdateInterface(uid, component);
     }
@@ -176,7 +177,6 @@ public sealed partial class SlimeHairSystem : EntitySystem
         }, out var doAfterId);
 
         component.DoAfter = doAfterId;
-        _audio.PlayPvs(component.ChangeHairSound, uid);
     }
 
     private void OnAddSlotDoAfter(EntityUid uid, MidroundCustomizationComponent component, SlimeHairAddSlotDoAfterEvent args)
@@ -224,6 +224,7 @@ public sealed partial class SlimeHairSystem : EntitySystem
         if (!_proto.TryIndex<TTSVoicePrototype>(args.Voice, out var proto) || !HumanoidCharacterProfile.CanHaveVoice(proto, humanoid.Sex))
             return;
 
+        _audio.PlayPvs(component.ChangeHairSound, uid);
         _humanoid.SetTTSVoice(args.Target.Value, args.Voice, humanoid);
 
         UpdateInterface(uid, component);
