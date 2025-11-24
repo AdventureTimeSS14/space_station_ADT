@@ -1,0 +1,113 @@
+# Base
+- type: entity
+  parent: ADTBaseEntityHallucination
+  id: ADTBaseLingHallucination
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      95: Dead
+  - type: Visibility
+    layer: 505
+
+# Hallucinations
+- type: entity
+  parent: ADTBaseLingHallucination
+  id: ADTHallucinationMobSpider
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base", "movement"]
+      state: tarantula
+      sprite: Mobs/Animals/spider.rsi
+  - type: SpriteMovement
+    movementLayers:
+      movement:
+        state: tarantula-moving
+    noMovementLayers:
+      movement:
+        state: tarantula
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2.0
+    baseSprintSpeed: 3.7
+  - type: AmbientSound
+    volume: -2
+    range: 15
+    sound:
+      path: /Audio/ADT/ling-drug-mob.ogg
+  - type: TimedDespawn
+    lifetime: 45.0
+
+- type: entity
+  parent: ADTBaseLingHallucination
+  id: ADTHallucinationMobSlime
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: Mobs/Aliens/slimes.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: blue_adult_slime
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2.0
+    baseSprintSpeed: 3.7
+  - type: AmbientSound
+    volume: -2
+    range: 15
+    sound:
+      path: /Audio/ADT/ling-drug-mob.ogg
+  - type: TimedDespawn
+    lifetime: 45.0
+
+- type: entity
+  parent: ADTBaseLingHallucination
+  id: ADTHallucinationMobBehonker
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Mobs/Demons/behonker.rsi
+    layers:
+      - map: [ "enum.DamageStateVisualLayers.Base" ]
+        state: alive
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: alive
+      Dead:
+        Base: dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3
+    baseSprintSpeed: 5
+    weightlessModifier: 1.5
+  - type: AmbientSound
+    volume: -2
+    range: 15
+    sound:
+      path: /Audio/ADT/ling-drug-mob.ogg
+  - type: TimedDespawn
+    lifetime: 45.0
+
+- type: entity
+  parent: ADTBaseLingHallucination
+  id: ADTHallucinationRod
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Fun/immovable_rod.rsi
+    state: icon
+    noRot: false
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 30
+    baseSprintSpeed: 50
+    weightlessModifier: 15
+  - type: AmbientSound
+    volume: -2
+    range: 15
+    sound:
+      path: /Audio/ADT/ling-drug-mob.ogg
+  - type: TimedDespawn
+    lifetime: 25.0

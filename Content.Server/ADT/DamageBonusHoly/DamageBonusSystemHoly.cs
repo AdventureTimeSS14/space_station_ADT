@@ -36,7 +36,7 @@ public sealed class DamageBonusHolySystem : EntitySystem
             {
                 if (projectile.Damage.DamageDict.TryGetValue("Holy", out var holy))
                 {
-                    var damage = new DamageSpecifier(_proto.Index<DamageTypePrototype>(HolyDamageType), holy*4);
+                    var damage = new DamageSpecifier(_proto.Index<DamageTypePrototype>("Heat"), holy*4);
                     _damageableSystem.TryChangeDamage(args.Target, damage);
                 }
             }
@@ -57,7 +57,7 @@ public sealed class DamageBonusHolySystem : EntitySystem
 
         foreach (var ent in damageTargets)
         {
-            var damage = new DamageSpecifier(_proto.Index<DamageTypePrototype>(HolyDamageType), holy * 4);
+            var damage = new DamageSpecifier(_proto.Index<DamageTypePrototype>("Heat"), holy * 4);
             _damageableSystem.TryChangeDamage(ent, damage);
         }
     }

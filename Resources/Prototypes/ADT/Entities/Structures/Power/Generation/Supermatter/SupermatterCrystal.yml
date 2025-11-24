@@ -83,8 +83,6 @@
     layers:
       - state: supermatter
         map: ["enum.SupermatterVisuals.Crystal"]
-      - state: supermatter-psy
-        map: ["enum.SupermatterVisuals.Psy"]
         color: "#ffffff00"
   - type: SupermatterVisuals
     crystal:
@@ -136,8 +134,6 @@
     layers:
       - state: supermatter
         map: ["enum.SupermatterVisuals.Crystal"]
-      - state: supermatter-psy
-        map: ["enum.SupermatterVisuals.Psy"]
         color: "#ffffff00"
   - type: SupermatterVisuals
     crystal:
