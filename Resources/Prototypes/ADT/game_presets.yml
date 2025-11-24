@@ -114,6 +114,7 @@
   alias:
     - dynamicrandom
   name: dynamic-random-title
+  minPlayers: 30
   description: dynamic-random-description
   showInVote: true
   rules:
