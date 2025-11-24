@@ -6,5 +6,5 @@ ent-ADTBorgModuleDisabler = модуль дизаблера киборга
     .desc = { ent-BaseBorgModule.desc }
 ent-ADTBorgModuleRPD = РРТ-модуль киборга
     .desc = { ent-BaseBorgModule.desc }
-ent-ADTBorgModulePKA = модуль протокинетического ускорителя киборга
+ent-ADTBorgModuleSalvage = утилизаторский модуль киборга
     .desc = { ent-BaseBorgModule.desc }

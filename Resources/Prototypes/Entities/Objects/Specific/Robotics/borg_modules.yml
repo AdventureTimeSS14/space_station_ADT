@@ -507,6 +507,8 @@
     # - Shovel ADT tweak
     - MineralScannerUnpowered
     - BorgOreBag
+    - BorgHandheldGPSBasic #ADT tweak: MineBorgModulesUpdate
+    - HandheldStationMapUnpowered #ADT tweak: MineBorgModulesUpdate
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: mining-module }
 
@@ -526,26 +528,33 @@
     - Shovel
     - AdvancedMineralScannerUnpowered
     - OreBagOfHolding
+    - BorgHandheldGPSBasic #ADT tweak: MineBorgModulesUpdate
+    - HandheldStationMapUnpowered #ADT tweak: MineBorgModulesUpdate
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: adv-mining-module }
 
-- type: entity
-  id: BorgModuleTraversal
-  parent: [ BaseBorgModuleCargo, BaseProviderBorgModule ]
-  name: traversal cyborg module
-  components:
-  - type: Sprite
-    layers:
-    - state: cargo
-    - state: icon-grappling-gun
-  - type: ItemBorgModule
-    items:
-    - WeaponGrapplingGun
-    - BorgFireExtinguisher
-    - BorgHandheldGPSBasic
-    - HandHeldMassScannerBorg
-  - type: BorgModuleIcon
-    icon: { sprite: Interface/Actions/actions_borg.rsi, state: grappling-module }
+#ADT tweak-Start: MineBorgModulesUpdate
+
+#- type: entity
+#  id: BorgModuleTraversal
+#  parent: [ BaseBorgModuleCargo, BaseProviderBorgModule ]
+#  name: traversal cyborg module
+#  components:
+#  - type: Sprite
+#    layers:
+#    - state: cargo
+#    - state: icon-grappling-gun
+#  - type: ItemBorgModule
+#    items:
+#    - WeaponGrapplingGun
+#    - BorgFireExtinguisher
+#    - BorgHandheldGPSBasic
+#    - HandHeldMassScannerBorg
+#    - RadioHandheld
+#  - type: BorgModuleIcon
+#    icon: { sprite: Interface/Actions/actions_borg.rsi, state: grappling-module }
+
+#ADT tweak-End: MineBorgModulesUpdate
 
 # engineering modules
 - type: entity
