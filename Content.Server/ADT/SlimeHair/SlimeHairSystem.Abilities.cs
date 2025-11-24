@@ -18,11 +18,7 @@ public sealed partial class SlimeHairSystem
         if (args.Handled)
             return;
 
-        if (!TryComp<ActorComponent>(uid, out var actor))
-            return;
-
-        _uiSystem.TryOpenUi(uid, SlimeHairUiKey.Key, actor.Owner);
-
+        _uiSystem.TryToggleUi(uid, SlimeHairUiKey.Key, uid);
         UpdateInterface(uid, comp);
 
         args.Handled = true;
