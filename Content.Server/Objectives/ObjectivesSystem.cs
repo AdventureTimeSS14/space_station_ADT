@@ -11,6 +11,8 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using System.Linq;
 using System.Text;
+using Content.Shared.ADT.CCVar;
+using Content.Shared.ADT.ManifestListings;
 using Content.Server.Objectives.Commands;
 using Content.Shared.CCVar;
 using Content.Shared.Prototypes;
@@ -150,6 +152,13 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
             var totalObjectives = 0;
             var agentSummary = new StringBuilder();
             agentSummary.AppendLine(Loc.GetString("objectives-with-objectives", ("custody", custody), ("title", title), ("agent", agent)));
+
+            // Goobstation start
+            var ev = new PrependObjectivesSummaryTextEvent();
+            RaiseLocalEvent(mindId, ref ev);
+            if (ev.Text != string.Empty)
+                agentSummary.AppendLine(ev.Text);
+            // Goobstation end
 
             foreach (var objectiveGroup in objectives.GroupBy(o => Comp<ObjectiveComponent>(o).LocIssuer))
             {

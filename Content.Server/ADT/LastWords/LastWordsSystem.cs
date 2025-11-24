@@ -4,7 +4,7 @@ using Content.Shared.Mind;
 using Content.Shared.Mobs.Components;
 using Content.Shared.ADT.LastWords;
 
-namespace Content.Goobstation.Server.LastWords;
+namespace Content.Server.ADT.LastWords;
 
 public sealed class LastWordsSystem : EntitySystem
 {

@@ -9,6 +9,7 @@ using Content.Server.Stack;
 using Content.Server.Store.Components;
 using Content.Shared.Actions;
 using Content.Shared.Database;
+using Content.Shared.ADT.ManifestListings;
 using Content.Shared.FixedPoint;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Heretic;
@@ -172,8 +173,16 @@ public sealed partial class StoreSystem
             }
         }
 
-        if (!IsOnStartingMap(uid, component))
-            DisableRefund(uid, component);
+        // Goobstation start
+        if (_mind.TryGetMind(buyer, out var mindId, out _))
+        {
+            var ev = new ListingPurchasedEvent(buyer, uid, listing);
+            RaiseLocalEvent(mindId, ref ev);
+        }
+        // Goobstation end
+
+        // if (!IsOnStartingMap(uid, component)) // Goob edit
+        //     component.RefundAllowed = false;
 
         //subtract the cash
         foreach (var (currency, amount) in cost)
