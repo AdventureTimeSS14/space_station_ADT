@@ -1,5 +1,5 @@
-using Content.Shared.EatToGrow;
-using Content.Server.Nutrition.Components;
+using Content.Shared.ADT.EatToGrow;
+using Content.Shared.Nutrition.Components;
 using Content.Shared.Mobs; // mobstate changed event
 using Content.Shared.Nutrition; // before fully eaten event
 using Robust.Server.GameObjects;
@@ -7,7 +7,7 @@ using Robust.Shared.Physics;
 using Robust.Shared.Physics.Collision.Shapes;
 using Robust.Shared.Physics.Systems;
 using System.Numerics; // using for vectors
-namespace Content.Server.EatToGrow;
+namespace Content.ADT.Server.EatToGrow;
 
 
 public sealed class EatToGrowSystem : EntitySystem

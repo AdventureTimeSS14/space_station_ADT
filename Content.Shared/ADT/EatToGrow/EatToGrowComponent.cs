@@ -1,7 +1,7 @@
 using Content.Shared.Damage;
 using Robust.Shared.GameStates;
 
-namespace Content.Shared.EatToGrow;
+namespace Content.Shared.ADT.EatToGrow;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class EatToGrowComponent : Component
 {

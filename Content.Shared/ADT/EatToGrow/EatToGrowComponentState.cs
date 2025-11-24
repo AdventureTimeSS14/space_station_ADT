@@ -1,7 +1,7 @@
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared.EatToGrow;
+namespace Content.Shared.ADT.EatToGrow;
 
 [Serializable, NetSerializable]
 public sealed class EatToGrowComponentState : ComponentState
