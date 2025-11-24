@@ -87,4 +87,4 @@ public sealed class EatToGrowSystem : EntitySystem
         comp.CurrentScale = 1f;
         comp.TimesGrown = 0;
     }
-};
+}
