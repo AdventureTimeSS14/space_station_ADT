@@ -689,6 +689,7 @@
 
 # medical modules
 # ADT-Tweak-Start "MedborgModuleUpdate":
+# ADT-Tweak-Start
 #- type: entity
 #  id: BorgModuleDiagnosis # todo: reuse when med refractor is finished
 #  parent: [ BaseBorgModuleMedical, BaseProviderBorgModule ]
