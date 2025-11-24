@@ -1,0 +1,757 @@
+- type: entity
+  parent: ADTCardBoxBase
+  id: ADTCardBoxUno
+  name: uno deck box
+  components:
+  - type: Item
+    size: Small
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    layers:
+    - state: uno_box
+    - state: uno_box_open
+      map: [ "openLayer" ]
+      visible: false
+  - type: OpenTriggeredStorageFill
+    contents:
+    - id: ADTCardDeckUno
+      amount: 1
+
+- type: entity
+  parent: ADTCardDeckBase
+  id: ADTCardDeckUno
+  name: deck of cards
+  categories: [ HideSpawnMenu, DoNotMap ]
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: deck_black_full
+  - type: CardStack
+    initialContent:
+    # Red
+    - ADTCardScRed0Uno
+    - ADTCardScRed1Uno
+    - ADTCardScRed1Uno
+    - ADTCardScRed2Uno
+    - ADTCardScRed2Uno
+    - ADTCardScRed3Uno
+    - ADTCardScRed3Uno
+    - ADTCardScRed4Uno
+    - ADTCardScRed4Uno
+    - ADTCardScRed5Uno
+    - ADTCardScRed5Uno
+    - ADTCardScRed6Uno
+    - ADTCardScRed6Uno
+    - ADTCardScRed7Uno
+    - ADTCardScRed7Uno
+    - ADTCardScRed8Uno
+    - ADTCardScRed8Uno
+    - ADTCardScRed9Uno
+    - ADTCardScRed9Uno
+    - ADTCardScRedSkipUno
+    - ADTCardScRedSkipUno
+    - ADTCardScRedReverseUno
+    - ADTCardScRedReverseUno
+    - ADTCardScRedDrawTwoUno
+    - ADTCardScRedDrawTwoUno
+    # Blue
+    - ADTCardScBlue0Uno
+    - ADTCardScBlue1Uno
+    - ADTCardScBlue1Uno
+    - ADTCardScBlue2Uno
+    - ADTCardScBlue2Uno
+    - ADTCardScBlue3Uno
+    - ADTCardScBlue3Uno
+    - ADTCardScBlue4Uno
+    - ADTCardScBlue4Uno
+    - ADTCardScBlue5Uno
+    - ADTCardScBlue5Uno
+    - ADTCardScBlue6Uno
+    - ADTCardScBlue6Uno
+    - ADTCardScBlue7Uno
+    - ADTCardScBlue7Uno
+    - ADTCardScBlue8Uno
+    - ADTCardScBlue8Uno
+    - ADTCardScBlue9Uno
+    - ADTCardScBlue9Uno
+    - ADTCardScBlueSkipUno
+    - ADTCardScBlueSkipUno
+    - ADTCardScBlueReverseUno
+    - ADTCardScBlueReverseUno
+    - ADTCardScBlueDrawTwoUno
+    - ADTCardScBlueDrawTwoUno
+    # Yellow
+    - ADTCardScYellow0Uno
+    - ADTCardScYellow1Uno
+    - ADTCardScYellow1Uno
+    - ADTCardScYellow2Uno
+    - ADTCardScYellow2Uno
+    - ADTCardScYellow3Uno
+    - ADTCardScYellow3Uno
+    - ADTCardScYellow4Uno
+    - ADTCardScYellow4Uno
+    - ADTCardScYellow5Uno
+    - ADTCardScYellow5Uno
+    - ADTCardScYellow6Uno
+    - ADTCardScYellow6Uno
+    - ADTCardScYellow7Uno
+    - ADTCardScYellow7Uno
+    - ADTCardScYellow8Uno
+    - ADTCardScYellow8Uno
+    - ADTCardScYellow9Uno
+    - ADTCardScYellow9Uno
+    - ADTCardScYellowSkipUno
+    - ADTCardScYellowSkipUno
+    - ADTCardScYellowReverseUno
+    - ADTCardScYellowReverseUno
+    - ADTCardScYellowDrawTwoUno
+    - ADTCardScYellowDrawTwoUno
+    # Green
+    - ADTCardScGreen0Uno
+    - ADTCardScGreen1Uno
+    - ADTCardScGreen1Uno
+    - ADTCardScGreen2Uno
+    - ADTCardScGreen2Uno
+    - ADTCardScGreen3Uno
+    - ADTCardScGreen3Uno
+    - ADTCardScGreen4Uno
+    - ADTCardScGreen4Uno
+    - ADTCardScGreen5Uno
+    - ADTCardScGreen5Uno
+    - ADTCardScGreen6Uno
+    - ADTCardScGreen6Uno
+    - ADTCardScGreen7Uno
+    - ADTCardScGreen7Uno
+    - ADTCardScGreen8Uno
+    - ADTCardScGreen8Uno
+    - ADTCardScGreen9Uno
+    - ADTCardScGreen9Uno
+    - ADTCardScGreenSkipUno
+    - ADTCardScGreenSkipUno
+    - ADTCardScGreenReverseUno
+    - ADTCardScGreenReverseUno
+    - ADTCardScGreenDrawTwoUno
+    - ADTCardScGreenDrawTwoUno
+    # Other
+    - ADTCardScWildUno
+    - ADTCardScWildUno
+    - ADTCardScWildUno
+    - ADTCardScWildUno
+    - ADTCardScWildDrawFourUno
+    - ADTCardScWildDrawFourUno
+    - ADTCardScWildDrawFourUno
+    - ADTCardScWildDrawFourUno
+
+- type: entity
+  parent: ADTCardBase
+  id: ADTCardBaseUno
+  name: card
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: singlecard_down_uno
+  - type: Card
+    backSprite:
+    - sprite: ADT/Objects/Fun/cards.rsi
+      state: singlecard_down_uno
+    flipped: true
+
+# region Uno Cards
+
+- type: entity
+  parent: ADTCardBaseUno
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScRed0Uno
+  components:
+  - type: Card
+    name: card-sc-0-red
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_0_red_uno
+
+- type: entity
+  parent: ADTCardBaseUno
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScRed1Uno
+  components:
+  - type: Card
+    name: card-sc-1-red
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_1_red_uno
+
+- type: entity
+  parent: ADTCardBaseUno
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScRed2Uno
+  components:
+  - type: Card
+    name: card-sc-2-red
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_2_red_uno
+
+- type: entity
+  parent: ADTCardBaseUno
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScRed3Uno
+  components:
+  - type: Card
+    name: card-sc-3-red
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_3_red_uno
+
+- type: entity
+  parent: ADTCardBaseUno
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScRed4Uno
+  components:
+  - type: Card
+    name: card-sc-4-red
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_4_red_uno
+
+- type: entity
+  parent: ADTCardBaseUno
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScRed5Uno
+  components:
+  - type: Card
+    name: card-sc-5-red
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_5_red_uno
+
+- type: entity
+  parent: ADTCardBaseUno
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScRed6Uno
+  components:
+  - type: Card
+    name: card-sc-6-red
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_6_red_uno
+
+- type: entity
+  parent: ADTCardBaseUno
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScRed7Uno
+  components:
+  - type: Card
+    name: card-sc-7-red
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_7_red_uno
+
+- type: entity
+  parent: ADTCardBaseUno
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScRed8Uno
+  components:
+  - type: Card
+    name: card-sc-8-red
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_8_red_uno
+
+- type: entity
+  parent: ADTCardBaseUno
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScRed9Uno
+  components:
+  - type: Card
+    name: card-sc-9-red
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_9_red_uno
+
+- type: entity
+  parent: ADTCardBaseUno
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScRedSkipUno
+  components:
+  - type: Card
+    name: card-sc-skip-red
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_skip_red_uno
+
+- type: entity
+  parent: ADTCardBaseUno
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScRedReverseUno
+  components:
+  - type: Card
+    name: card-sc-reverse-red
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_reverse_red_uno
+
+- type: entity
+  parent: ADTCardBaseUno
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScRedDrawTwoUno
+  components:
+  - type: Card
+    name: card-sc-draw-two-red
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_draw_two_red_uno
+
+- type: entity
+  parent: ADTCardBaseUno
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScBlue0Uno
+  components:
+  - type: Card
+    name: card-sc-0-blue
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_0_blue_uno
+
+- type: entity
+  parent: ADTCardBaseUno
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScBlue1Uno
+  components:
+  - type: Card
+    name: card-sc-1-blue
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_1_blue_uno
+
+- type: entity
+  parent: ADTCardBaseUno
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScBlue2Uno
+  components:
+  - type: Card
+    name: card-sc-2-blue
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_2_blue_uno
+
+- type: entity
+  parent: ADTCardBaseUno
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScBlue3Uno
+  components:
+  - type: Card
+    name: card-sc-3-blue
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_3_blue_uno
+
+- type: entity
+  parent: ADTCardBaseUno
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScBlue4Uno
+  components:
+  - type: Card
+    name: card-sc-4-blue
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_4_blue_uno
+
+- type: entity
+  parent: ADTCardBaseUno
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScBlue5Uno
+  components:
+  - type: Card
+    name: card-sc-5-blue
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_5_blue_uno
+
+- type: entity
+  parent: ADTCardBaseUno
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScBlue6Uno
+  components:
+  - type: Card
+    name: card-sc-6-blue
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_6_blue_uno
+
+- type: entity
+  parent: ADTCardBaseUno
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScBlue7Uno
+  components:
+  - type: Card
+    name: card-sc-7-blue
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_7_blue_uno
+
+- type: entity
+  parent: ADTCardBaseUno
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScBlue8Uno
+  components:
+  - type: Card
+    name: card-sc-8-blue
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_8_blue_uno
+
+- type: entity
+  parent: ADTCardBaseUno
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScBlue9Uno
+  components:
+  - type: Card
+    name: card-sc-9-blue
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_9_blue_uno
+
+- type: entity
+  parent: ADTCardBaseUno
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScBlueSkipUno
+  components:
+  - type: Card
+    name: card-sc-skip-blue
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_skip_blue_uno
+
+- type: entity
+  parent: ADTCardBaseUno
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScBlueReverseUno
+  components:
+  - type: Card
+    name: card-sc-reverse-blue
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_reverse_blue_uno
+
+- type: entity
+  parent: ADTCardBaseUno
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScBlueDrawTwoUno
+  components:
+  - type: Card
+    name: card-sc-draw-two-blue
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_draw_two_blue_uno
+
+- type: entity
+  parent: ADTCardBaseUno
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScYellow0Uno
+  components:
+  - type: Card
+    name: card-sc-0-yellow
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_0_yellow_uno
+
+- type: entity
+  parent: ADTCardBaseUno
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScYellow1Uno
+  components:
+  - type: Card
+    name: card-sc-1-yellow
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_1_yellow_uno
+
+- type: entity
+  parent: ADTCardBaseUno
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScYellow2Uno
+  components:
+  - type: Card
+    name: card-sc-2-yellow
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_2_yellow_uno
+
+- type: entity
+  parent: ADTCardBaseUno
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScYellow3Uno
+  components:
+  - type: Card
+    name: card-sc-3-yellow
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_3_yellow_uno
+
+- type: entity
+  parent: ADTCardBaseUno
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScYellow4Uno
+  components:
+  - type: Card
+    name: card-sc-4-yellow
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_4_yellow_uno
+
+- type: entity
+  parent: ADTCardBaseUno
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScYellow5Uno
+  components:
+  - type: Card
+    name: card-sc-5-yellow
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_5_yellow_uno
+
+- type: entity
+  parent: ADTCardBaseUno
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScYellow6Uno
+  components:
+  - type: Card
+    name: card-sc-6-yellow
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_6_yellow_uno
+
+- type: entity
+  parent: ADTCardBaseUno
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScYellow7Uno
+  components:
+  - type: Card
+    name: card-sc-7-yellow
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_7_yellow_uno
+
+- type: entity
+  parent: ADTCardBaseUno
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScYellow8Uno
+  components:
+  - type: Card
+    name: card-sc-8-yellow
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_8_yellow_uno
+
+- type: entity
+  parent: ADTCardBaseUno
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScYellow9Uno
+  components:
+  - type: Card
+    name: card-sc-9-yellow
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_9_yellow_uno
+
+- type: entity
+  parent: ADTCardBaseUno
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScYellowSkipUno
+  components:
+  - type: Card
+    name: card-sc-skip-yellow
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_skip_yellow_uno
+
+- type: entity
+  parent: ADTCardBaseUno
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScYellowReverseUno
+  components:
+  - type: Card
+    name: card-sc-reverse-yellow
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_reverse_yellow_uno
+
+- type: entity
+  parent: ADTCardBaseUno
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScYellowDrawTwoUno
+  components:
+  - type: Card
+    name: card-sc-draw-two-yellow
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_draw_two_yellow_uno
+
+- type: entity
+  parent: ADTCardBaseUno
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScGreen0Uno
+  components:
+  - type: Card
+    name: card-sc-0-green
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_0_green_uno
+
+- type: entity
+  parent: ADTCardBaseUno
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScGreen1Uno
+  components:
+  - type: Card
+    name: card-sc-1-green
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_1_green_uno
+
+- type: entity
+  parent: ADTCardBaseUno
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScGreen2Uno
+  components:
+  - type: Card
+    name: card-sc-2-green
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_2_green_uno
+
+- type: entity
+  parent: ADTCardBaseUno
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScGreen3Uno
+  components:
+  - type: Card
+    name: card-sc-3-green
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_3_green_uno
+
+- type: entity
+  parent: ADTCardBaseUno
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScGreen4Uno
+  components:
+  - type: Card
+    name: card-sc-4-green
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_4_green_uno
+
+- type: entity
+  parent: ADTCardBaseUno
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScGreen5Uno
+  components:
+  - type: Card
+    name: card-sc-5-green
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_5_green_uno
+
+- type: entity
+  parent: ADTCardBaseUno
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScGreen6Uno
+  components:
+  - type: Card
+    name: card-sc-6-green
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_6_green_uno
+
+- type: entity
+  parent: ADTCardBaseUno
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScGreen7Uno
+  components:
+  - type: Card
+    name: card-sc-7-green
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_7_green_uno
+
+- type: entity
+  parent: ADTCardBaseUno
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScGreen8Uno
+  components:
+  - type: Card
+    name: card-sc-8-green
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_8_green_uno
+
+- type: entity
+  parent: ADTCardBaseUno
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScGreen9Uno
+  components:
+  - type: Card
+    name: card-sc-9-green
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_9_green_uno
+
+- type: entity
+  parent: ADTCardBaseUno
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScGreenSkipUno
+  components:
+  - type: Card
+    name: card-sc-skip-green
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_skip_green_uno
+
+- type: entity
+  parent: ADTCardBaseUno
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScGreenReverseUno
+  components:
+  - type: Card
+    name: card-sc-reverse-green
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_reverse_green_uno
+
+- type: entity
+  parent: ADTCardBaseUno
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScGreenDrawTwoUno
+  components:
+  - type: Card
+    name: card-sc-draw-two-green
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_draw_two_green_uno
+
+- type: entity
+  parent: ADTCardBaseUno
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScWildUno
+  components:
+  - type: Card
+    name: card-sc-wild
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_wild_uno
+
+- type: entity
+  parent: ADTCardBaseUno
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScWildDrawFourUno
+  components:
+  - type: Card
+    name: card-sc-wild-draw-four
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_wild_draw_four_uno
+
+# endregion Uno Cards
+

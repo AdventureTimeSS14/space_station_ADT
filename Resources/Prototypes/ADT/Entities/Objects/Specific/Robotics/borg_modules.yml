@@ -56,17 +56,23 @@
   name: RPD cyborg module
   components:
   - type: Sprite
+    sprite: ADT/Objects/Specific/Robotics/borgmodule.rsi
     layers:
     - state: engineering
-    - state: icon-rcd
+    - state: icon-rpd
   - type: ItemBorgModule
     items:
     - ADTRPDRecharging
+    - GasAnalyzer
+    - HolofanProjectorBorg
+    - PowerDrill
+  - type: BorgModuleIcon
+    icon: { sprite: ADT/Interface/Actions/actions_borg.rsi, state: rpd-module }
 
 - type: entity
-  id: ADTBorgModulePKA
+  id: ADTBorgModuleSalvage
   parent: [ BaseBorgModuleCargo, BaseProviderBorgModule ]
-  name: proto kinetic accelerator cyborg module
+  name: salvage cyborg module
   components:
   - type: Sprite
     sprite: Objects/Specific/Robotics/borgmodule.rsi
@@ -74,15 +80,18 @@
     - state: cargo
     - state: icon-pka
   - type: ItemBorgModule
-    items:
-    - WeaponProtoKineticAccelerator
     droppableItems:
     - id: WeaponProtoKineticAccelerator
       whitelist:
         tags:
         - PKA
+    items:
+    - WeaponGrapplingGun
+    - BorgHandheldGPSBasic
+    - HandHeldMassScannerBorg
+    - MaterialBag
   - type: BorgModuleIcon
-    icon: { sprite: Objects/Weapons/Guns/Basic/kinetic_accelerator.rsi, state: icon }
+    icon: { sprite: ADT/Interface/Actions/actions_borg.rsi, state: salvage-module }
 
 # Borg Modules Update start
 
