@@ -167,9 +167,14 @@
         type: StrippableBoundUserInterface
       enum.StoreUiKey.Key:
         type: StoreBoundUserInterface
-  - type: IpcScreen
+  - type: MidroundCustomization
+    action: ActionIpcScreen
     selectSlotTime: 0
     changeSlotTime: 0
+    changeMarkingSound:
+      path: /Audio/Machines/beep.ogg
+    customizableCategories:
+    - FacialHair
   - type: AnimatedEmotes
 
 - type: entity

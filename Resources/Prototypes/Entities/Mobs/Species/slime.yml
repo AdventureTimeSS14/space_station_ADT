@@ -136,7 +136,12 @@
     languages:
       GalacticCommon: Speak
       Bubblish: Speak
-  - type: SlimeHair # ADT-SlimeHair
+  - type: MidroundCustomization # ADT-SlimeHair
+    customizableCategories:
+    - Hair
+    - FacialHair
+    - HeadTop
+    - Tail
   - type: SizeAttributeWhitelist # Frontier
     tall: true
     tallscale: 1.05

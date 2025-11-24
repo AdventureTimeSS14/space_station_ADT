@@ -161,8 +161,10 @@
     - DoorBumpOpener
     - AnomalyHost
     - ChangelingBlacklist
-  - type: SlimeHair
-    changeHairSound: /Audio/ADT/Novakid/novakid_laugh01.ogg
+  - type: MidroundCustomization
+    customizableCategories:
+    - Hair
+    changeMarkingSound: /Audio/ADT/Novakid/novakid_laugh01.ogg
   - type: UserInterface
     interfaces:
       enum.HumanoidMarkingModifierKey.Key:

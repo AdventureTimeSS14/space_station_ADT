@@ -9,4 +9,4 @@
     itemIconStyle: BigAction
     useDelay: 1
   - type: InstantAction
-    event: !type:IpcScreenActionEvent
+    event: !type:SlimeHairActionEvent
