@@ -219,14 +219,7 @@ public sealed partial class SingleMarkingPicker : BoxContainer
 
     private void PopulateColors(bool allowed = true)    // ADT tweak
     {
-        // ADT start
-        if (!allowed)
-        {
-            ColorSelectorContainer.DisposeAllChildren();
-            ColorSelectorContainer.RemoveAllChildren();
-            return;
-        }
-        // ADT end
+        ColorScroll.Visible = allowed;  // ADT tweak
 
         if (_markings == null
             || _markings.Count == 0

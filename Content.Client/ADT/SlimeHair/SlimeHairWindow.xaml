@@ -3,14 +3,14 @@
                Title="{Loc 'slime-hair-window-title'}"
                MinSize="700 600">
     <ScrollContainer HorizontalExpand="True" VerticalExpand="True" HScrollEnabled="False">
-        <BoxContainer Name="VoiceContainer" Orientation="Vertical" Margin="6">
+        <BoxContainer Name="VoiceContainer" Orientation="Vertical" Margin="8">
             <BoxContainer Orientation="Vertical" Margin="4" >
                 <Label Text="{Loc 'humanoid-profile-editor-voice-label'}" />
                 <OptionButton Name="VoiceButton" />
             </BoxContainer>
 
-            <ScrollContainer HorizontalExpand="True" VerticalExpand="True" HScrollEnabled="True">
-                <BoxContainer Name="MarkingsContainer" VerticalExpand="True" HorizontalExpand="True" Orientation="Horizontal" Margin="4 4 4 -80"/>
+            <ScrollContainer HorizontalExpand="True" VerticalExpand="True" VScrollEnabled="False" HScrollEnabled="True">
+                <BoxContainer Name="MarkingsContainer" VerticalExpand="True" HorizontalExpand="True" Orientation="Horizontal" Margin="4"/>
             </ScrollContainer>
         </BoxContainer>
     </ScrollContainer>

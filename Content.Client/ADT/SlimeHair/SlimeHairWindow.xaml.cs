@@ -58,6 +58,7 @@ public sealed partial class SlimeHairWindow : DefaultWindow
                 MinWidth = 325,
                 MaxWidth = 650
             };
+            picker.ColorSelectorContainer.Orientation = BoxContainer.LayoutOrientation.Vertical;
             picker.UpdateData(item.Value, state.Species, state.SlotsTotal[item.Key], state.AllowColorChanges);
 
             picker.OnMarkingSelect += args => OnSlotMarkingSelected?.Invoke((item.Key, args.slot, args.id));
