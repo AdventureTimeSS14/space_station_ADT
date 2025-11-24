@@ -687,8 +687,8 @@
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: adv-cleaning-module }
 
-# ADT-Tweak-Start "MedborgModuleUpdate":
 # medical modules
+# ADT-Tweak-Start "MedborgModuleUpdate":
 #- type: entity
 #  id: BorgModuleDiagnosis # todo: reuse when med refractor is finished
 #  parent: [ BaseBorgModuleMedical, BaseProviderBorgModule ]
