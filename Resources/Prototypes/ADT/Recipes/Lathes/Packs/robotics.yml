@@ -1,9 +1,10 @@
 - type: latheRecipePack
   id: ADTSecBorgPack
   recipes:
-  - ADTBorgModuleDisabler #ADT secborg
+  #- ADTBorgModuleDisabler #ADT secborg   #not used
   - ADTBorgModuleDetention #ADT secborg
-  - ADTBorgModuleHarm
+  - ADTBorgModuleLaser
+  - ADTBorgModuleRifleLecter
 
 - type: latheRecipePack
   id: ADTModsuitPack

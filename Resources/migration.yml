@@ -825,3 +825,6 @@ ADTClothingUniformGuardOfficer: ADTClothingUniformCorrectionsOfficer
 # ADT 2025-11-08
 ChemDispenser: EnergyChemDispenser
 ChemDispenserEmpty: EnergyChemDispenser
+
+# ADT 2025-11-10
+ADTBorgModuleDisabler: ADTBorgModuleDetention
