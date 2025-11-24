@@ -24,7 +24,7 @@
       - Trash
   - type: Ammo
   - type: Sprite
-    sprite: Objects/Fun/Foam/foam_crossbow.rsi/foam_dart # ADT-Tweak
+    sprite: Objects/Fun/Foam/foam_dart.rsi # ADT-Tweak
     layers:
       - state: foamdart
   - type: EmbeddableProjectile
