@@ -144,7 +144,7 @@
   # - ADTHighVoltageDefibrillator # BorgModuleDefibrillator -> ADTHighVoltageDefibrillator. Заглушка, т.к нету BorgModuleDefibrillator
   # закомментил строчку выше тк дефиб уже есть в другом исследовании # ADT-Tweak "MedborgModuleUpdate"
   # ADT-Tweak-Start: "MedborgModuleUpdate"   # новые модули сделал отдельно в папке ADT
-  - ADTBorgModuleTopicals
+  - BorgModuleTopicals
   - ADTBorgModuleRescue
   - ADTBorgModuleAdvancedChemical # позже сделаю отдельное исследование, а пока просто сделаю крафт подороже тк мне лень
   - ADTBorgModuleChemical
