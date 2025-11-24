@@ -127,6 +127,7 @@
     short: true
     shortscale: 0.98
     shortDensity: 0.7
+  - type: UrsusSleep
 
 - type: entity
   save: false

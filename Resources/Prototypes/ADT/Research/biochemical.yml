@@ -12,6 +12,7 @@
   - ChemMasterMachineCircuitboard
   - HotplateMachineCircuitboard
   - ADTColdplateMachineCircuitboard
+  - EnergyChemDispenserMachineCircuitboard
   position: 3,2
 
 - type: technology
@@ -195,7 +196,8 @@
   cost: 5000
   recipeUnlocks:
   - ADTModsuitPlateMedical
+  technologyPrerequisites:
+    - ADTModsuitBase
   position: 5,-1
   requiredTech:
-  - ADTIndustrialMedicine
-  - ADTModsuitBase
+  - ADTAdvancedMedicalCare

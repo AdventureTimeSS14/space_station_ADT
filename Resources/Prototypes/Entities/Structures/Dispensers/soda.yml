@@ -32,24 +32,15 @@
   components:
   - type: StorageFill
     contents:
-    # ADT-Tweak-Start
-    - id: ADTDrinkCoconutWaterCanister
-    - id: ADTDrinkCoffeeCanister
-    - id: ADTDrinkColaCanister
-    - id: ADTDrinkCreamCanister
-    - id: ADTDrinkDrGibbCanister
-    - id: ADTDrinkEnergyDrinkCanister
-    - id: ADTDrinkGreenTeaCanister
-    - id: ADTDrinkIceCanister
-    - id: ADTDrinkJuiceLimeCanister
-    - id: ADTDrinkJuiceOrangeCanister
-    - id: ADTDrinkLemonLimeCanister
-    - id: ADTDrinkRootBeerCanister
-    - id: ADTDrinkSodaWaterCanister
-    - id: ADTDrinkSpaceMountainWindCanister
-    - id: ADTDrinkSpaceUpCanister
-    - id: ADTDrinkSugarCanister
-    - id: ADTDrinkTeaCanister
-    - id: ADTDrinkTonicWaterCanister
-    - id: ADTDrinkJuiceWatermelonCanister
-    # ADT-Tweak-End
+    - id: DrinkAleBottleFullGrowler
+    - id: DrinkBeerGrowler
+    - id: DrinkCoffeeLiqueurBottleFull
+    - id: DrinkCognacBottleFull
+    - id: DrinkGinBottleFull
+    - id: DrinkMeadJug
+    - id: DrinkRumBottleFull
+    - id: DrinkTequilaBottleFull
+    - id: DrinkVermouthBottleFull
+    - id: DrinkVodkaBottleFull
+    - id: DrinkWhiskeyBottleFull
+    - id: DrinkWineBottleFull
