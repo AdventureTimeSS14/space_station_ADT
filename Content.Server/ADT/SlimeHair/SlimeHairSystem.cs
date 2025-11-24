@@ -90,7 +90,10 @@ public sealed partial class SlimeHairSystem : EntitySystem
         if (args.Handled || args.Target == null || args.Cancelled)
             return;
 
-        _humanoid.SetMarkingId(uid, args.Category, args.Slot, args.Marking);
+        if (!TryComp<HumanoidAppearanceComponent>(uid, out var humanoid))
+            return;
+
+        _humanoid.SetMarkingId(uid, args.Category, args.Slot, args.Marking, force: false, defaultColor: component.DefaultSkinColoring ? humanoid.SkinColor : Color.Gray);
         UpdateInterface(uid, component);
     }
 
@@ -119,7 +122,7 @@ public sealed partial class SlimeHairSystem : EntitySystem
         if (args.Handled || args.Target == null || args.Cancelled)
             return;
 
-        _humanoid.SetMarkingColor(uid, args.Category, args.Slot, args.Colors);
+        _humanoid.SetMarkingColor(uid, args.Category, args.Slot, args.Colors, force: false);
 
         // using this makes the UI feel like total ass
         // que
@@ -187,7 +190,7 @@ public sealed partial class SlimeHairSystem : EntitySystem
             return;
 
         _audio.PlayPvs(component.ChangeHairSound, uid);
-        _humanoid.AddMarking(uid, marking, Color.Black);
+        _humanoid.AddMarking(uid, marking, component.DefaultSkinColoring ? humanoid.SkinColor : Color.Gray);
         UpdateInterface(uid, component);
     }
 

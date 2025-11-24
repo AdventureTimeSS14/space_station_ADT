@@ -53,6 +53,9 @@ public sealed partial class MidroundCustomizationComponent : Component
         MarkingCategories.FacialHair,
     };
 
+    [DataField]
+    public bool DefaultSkinColoring = true;
+
     /// <summary>
     /// Sound emitted when slots are changed
     /// </summary>
