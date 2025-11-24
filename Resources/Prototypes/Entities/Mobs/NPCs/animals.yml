@@ -660,7 +660,8 @@
           32:
             sprite: Mobs/Animals/mothroach/displacement.rsi
             state: neck
-  - type: EatToGrow # ADT-Tweak Eat To Grow System
+# ADT-Tweak-Start-Port-Goob-EatToGrowSystem
+  - type: EatToGrow
     growth: 0.05
     maxGrowth: 2
 
