@@ -19,13 +19,9 @@ using Robust.Shared.Prototypes;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 // ADT-Tweak-Start
-using System.Collections.Generic;
 using Content.Shared.Whitelist;
 using Content.Shared.Tag;
-using Content.Server.Chemistry.Containers.EntitySystems;
 using Content.Shared.Labels.EntitySystems;
-using Content.Shared.Storage.Events;
-using Content.Shared.Storage.Components;
 // ADT-Tweak-End
 
 namespace Content.Server.Chemistry.EntitySystems
@@ -76,8 +72,6 @@ namespace Content.Server.Chemistry.EntitySystems
             SubscribeLocalEvent<ChemMasterComponent, ChemMasterSelectBottleSlotMessage>(OnSelectBottleSlotMessage);
             SubscribeLocalEvent<ChemMasterComponent, ChemMasterChooseReagentMessage>(OnChooseReagentMessage);
             SubscribeLocalEvent<ChemMasterComponent, ChemMasterClearReagentSelectionMessage>(OnClearReagentSelectionMessage);
-            SubscribeLocalEvent<ChemMasterComponent, ChemMasterReagentToggledOnMessage>(OnReagentToggledOnMessage);
-            SubscribeLocalEvent<ChemMasterComponent, ChemMasterReagentToggledOffMessage>(OnReagentToggledOffMessage);
             SubscribeLocalEvent<ChemMasterComponent, ChemMasterToggleBottleFillMessage>(OnToggleBottleFillMessage);
             SubscribeLocalEvent<ChemMasterComponent, ChemMasterRowEjectMessage>(OnRowEjectMessage);
             SubscribeLocalEvent<ChemMasterComponent, ChemMasterSelectPillContainerSlotMessage>(OnSelectPillContainerSlotMessage);
@@ -323,7 +317,7 @@ namespace Content.Server.Chemistry.EntitySystems
             ClickSound(chemMaster);
         }
 
-        // ADT-Tweak Start: Cutted.
+        // ADT-Tweak Start: Cutted
         // private void OnCycleSortingTypeMessage(Entity<ChemMasterComponent> chemMaster, ref ChemMasterSortingTypeCycleMessage message)
         // {
         //     chemMaster.Comp.SortingType++;
@@ -1508,21 +1502,6 @@ namespace Content.Server.Chemistry.EntitySystems
         private void OnClearReagentSelectionMessage(Entity<ChemMasterComponent> chemMaster, ref ChemMasterClearReagentSelectionMessage message)
         {
             chemMaster.Comp.SelectedReagent = null;
-            UpdateUiState(chemMaster);
-        }
-
-        private void OnReagentToggledOnMessage(Entity<ChemMasterComponent> chemMaster, ref ChemMasterReagentToggledOnMessage message)
-        {
-            if (!chemMaster.Comp.SelectedReagents.Contains(message.Reagent))
-            {
-                chemMaster.Comp.SelectedReagents.Add(message.Reagent);
-            }
-            UpdateUiState(chemMaster);
-        }
-
-        private void OnReagentToggledOffMessage(Entity<ChemMasterComponent> chemMaster, ref ChemMasterReagentToggledOffMessage message)
-        {
-            chemMaster.Comp.SelectedReagents.Remove(message.Reagent);
             UpdateUiState(chemMaster);
         }
 

@@ -156,28 +156,6 @@ namespace Content.Shared.Chemistry
         }
     }
 
-    [Serializable, NetSerializable]
-    public sealed class ChemMasterReagentToggledOnMessage : BoundUserInterfaceMessage
-    {
-        public readonly ReagentId Reagent;
-
-        public ChemMasterReagentToggledOnMessage(ReagentId reagent)
-        {
-            Reagent = reagent;
-        }
-    }
-
-    [Serializable, NetSerializable]
-    public sealed class ChemMasterReagentToggledOffMessage : BoundUserInterfaceMessage
-    {
-        public readonly ReagentId Reagent;
-
-        public ChemMasterReagentToggledOffMessage(ReagentId reagent)
-        {
-            Reagent = reagent;
-        }
-    }
-
     // Pill container messages
     [Serializable, NetSerializable]
     public sealed class ChemMasterSelectPillContainerSlotMessage : BoundUserInterfaceMessage
