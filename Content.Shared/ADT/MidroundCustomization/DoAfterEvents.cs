@@ -2,7 +2,7 @@ using Content.Shared.DoAfter;
 using Content.Shared.Humanoid.Markings;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared.ADT.SlimeHair;
+namespace Content.Shared.ADT.MidroundCustomization;
 
 [Serializable, NetSerializable]
 public sealed partial class SlimeHairRemoveSlotDoAfterEvent : DoAfterEvent

@@ -171,8 +171,8 @@
         type: HumanoidMarkingModifierBoundUserInterface
       enum.StrippingUiKey.Key:
         type: StrippableBoundUserInterface
-      enum.SlimeHairUiKey.Key:
-        type: SlimeHairBoundUserInterface
+      enum.MidroundCustomizationUiKey.Key:
+        type: MidroundCustomizationBoundUserInterface
       enum.StoreUiKey.Key: # Чтобы не ломался генокрад
         type: StoreBoundUserInterface # Чтобы не ломался генокрад
 

@@ -1,6 +1,6 @@
 using Content.Client.Corvax.Sponsors;
 using Content.Client.Humanoid;
-using Content.Shared.ADT.SlimeHair;
+using Content.Shared.ADT.MidroundCustomization;
 using Content.Shared.Corvax.TTS;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Markings;
@@ -12,10 +12,10 @@ using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Prototypes;
 using System.Linq;
 
-namespace Content.Client.ADT.SlimeHair;
+namespace Content.Client.ADT.MidroundCustomization;
 
 [GenerateTypedNameReferences]
-public sealed partial class SlimeHairWindow : DefaultWindow
+public sealed partial class MidroundCustomizationWindow : DefaultWindow
 {
     public Action<(MarkingCategories Category, int Slot, string Id)>? OnSlotMarkingSelected;
     public Action<(MarkingCategories Category, int Slot, List<Color> Colors)>? OnSlotColorChanged;
@@ -29,7 +29,7 @@ public sealed partial class SlimeHairWindow : DefaultWindow
 
     private List<TTSVoicePrototype> _voiceList = new();
 
-    public SlimeHairWindow()
+    public MidroundCustomizationWindow()
     {
         RobustXamlLoader.Load(this);
 
@@ -46,7 +46,7 @@ public sealed partial class SlimeHairWindow : DefaultWindow
             .ToList();
     }
 
-    public void UpdateState(SlimeHairUiState state)
+    public void UpdateState(MidroundCustomizationUiState state)
     {
         MarkingsContainer.RemoveAllChildren();
         foreach (var item in state.Markings)

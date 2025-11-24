@@ -42,8 +42,8 @@
       enum.StrippingUiKey.Key:
         type: StrippableBoundUserInterface
     # ADT-SlimeHair-Start
-      enum.SlimeHairUiKey.Key:
-        type: SlimeHairBoundUserInterface
+      enum.MidroundCustomizationUiKey.Key:
+        type: MidroundCustomizationBoundUserInterface
     # ADT-SlimeHair-End
       enum.StoreUiKey.Key:                # Чтобы не ломался генокрад
         type: StoreBoundUserInterface               # Чтобы не ломался генокрад

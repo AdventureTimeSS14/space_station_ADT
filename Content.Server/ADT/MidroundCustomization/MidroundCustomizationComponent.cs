@@ -3,7 +3,7 @@ using Content.Shared.Humanoid.Markings;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server.ADT.SlimeHair;
+namespace Content.Server.ADT.MidroundCustomization;
 
 /// <summary>
 /// Allows humanoids to change their appearance mid-round.

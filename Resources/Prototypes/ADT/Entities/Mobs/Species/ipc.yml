@@ -157,8 +157,8 @@
   - type: OfferItem
   - type: UserInterface
     interfaces:
-      enum.IpcScreenUiKey.Key:
-        type: IpcScreenBoundUserInterface
+      enum.MidroundCustomizationUiKey.Key:
+        type: MidroundCustomizationBoundUserInterface
       enum.VoiceMaskUIKey.Key:
         type: VoiceMaskBoundUserInterface
       enum.HumanoidMarkingModifierKey.Key:

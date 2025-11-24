@@ -2,18 +2,18 @@ using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Markings;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared.ADT.SlimeHair;
+namespace Content.Shared.ADT.MidroundCustomization;
 
 [Serializable, NetSerializable]
-public enum SlimeHairUiKey : byte
+public enum MidroundCustomizationUiKey : byte
 {
     Key
 }
 
 [Serializable, NetSerializable]
-public sealed class SlimeHairUiState : BoundUserInterfaceState
+public sealed class MidroundCustomizationUiState : BoundUserInterfaceState
 {
-    public SlimeHairUiState(string species, Sex sex, bool allowColors, string tts, string bark,
+    public MidroundCustomizationUiState(string species, Sex sex, bool allowColors, string tts, string bark,
                             Dictionary<MarkingCategories, List<Marking>> markings, Dictionary<MarkingCategories, int> slotsTotal)
     {
         Species = species;

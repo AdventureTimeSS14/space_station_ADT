@@ -1,7 +1,7 @@
 using Content.Server.Actions;
 using Content.Server.DoAfter;
 using Content.Server.Humanoid;
-using Content.Shared.ADT.SlimeHair;
+using Content.Shared.ADT.MidroundCustomization;
 using Content.Shared.Corvax.TTS;
 using Content.Shared.DoAfter;
 using Content.Shared.Humanoid;
@@ -14,14 +14,14 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
 using System.Linq;
 
-namespace Content.Server.ADT.SlimeHair;
+namespace Content.Server.ADT.MidroundCustomization;
 
 /// <summary>
 /// Allows humanoids to change their appearance mid-round.
 /// </summary>
 
 // TODO: Исправить проблему с генокрадом
-public sealed partial class SlimeHairSystem : EntitySystem
+public sealed partial class MidroundCustomizationSystem : EntitySystem
 {
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly DoAfterSystem _doAfterSystem = default!;
@@ -36,7 +36,7 @@ public sealed partial class SlimeHairSystem : EntitySystem
         base.Initialize();
         SubscribeLocalEvent<MidroundCustomizationComponent, ActivatableUIOpenAttemptEvent>(OnOpenUIAttempt);
 
-        Subs.BuiEvents<MidroundCustomizationComponent>(SlimeHairUiKey.Key, subs =>
+        Subs.BuiEvents<MidroundCustomizationComponent>(MidroundCustomizationUiKey.Key, subs =>
         {
             subs.Event<MidroundCustomizationMarkingSelectMessage>(OnSlimeHairSelect);
             subs.Event<MidroundCustomizationChangeColorMessage>(OnTrySlimeHairChangeColor);
@@ -54,7 +54,7 @@ public sealed partial class SlimeHairSystem : EntitySystem
         SubscribeLocalEvent<MidroundCustomizationComponent, SlimeHairAddSlotDoAfterEvent>(OnAddSlotDoAfter);
         SubscribeLocalEvent<MidroundCustomizationComponent, SlimeHairChangeVoiceDoAfterEvent>(OnChangeVoiceDoAfter);
 
-        InitializeSlimeAbilities();
+        InitializeAbilities();
 
     }
 
@@ -246,7 +246,7 @@ public sealed partial class SlimeHairSystem : EntitySystem
                 markingDict[category] = markings.ToList();
         }
 
-        var state = new SlimeHairUiState(
+        var state = new MidroundCustomizationUiState(
             humanoid.Species,
             humanoid.Sex,
             true,
@@ -255,7 +255,7 @@ public sealed partial class SlimeHairSystem : EntitySystem
             markingDict,
             slotsDict);
 
-        _uiSystem.SetUiState(uid, SlimeHairUiKey.Key, state);
+        _uiSystem.SetUiState(uid, MidroundCustomizationUiKey.Key, state);
     }
 
     private void OnMapInit(EntityUid uid, MidroundCustomizationComponent component, MapInitEvent args)

@@ -1,15 +1,14 @@
-using Content.Shared.ADT.SlimeHair;
-using Content.Shared.Humanoid.Markings;
+using Content.Shared.ADT.MidroundCustomization;
 using Robust.Client.UserInterface;
 
-namespace Content.Client.ADT.SlimeHair;
+namespace Content.Client.ADT.MidroundCustomization;
 
-public sealed class SlimeHairBoundUserInterface : BoundUserInterface
+public sealed class MidroundCustomizationBoundUserInterface : BoundUserInterface
 {
     [ViewVariables]
-    private SlimeHairWindow? _window;
+    private MidroundCustomizationWindow? _window;
 
-    public SlimeHairBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
+    public MidroundCustomizationBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
     {
     }
 
@@ -17,7 +16,7 @@ public sealed class SlimeHairBoundUserInterface : BoundUserInterface
     {
         base.Open();
 
-        _window = this.CreateWindow<SlimeHairWindow>();
+        _window = this.CreateWindow<MidroundCustomizationWindow>();
 
         _window.OnSlotMarkingSelected += args => SendMessage(new MidroundCustomizationMarkingSelectMessage(args.Category, args.Id, args.Slot));
         _window.OnSlotColorChanged += args => SendMessage(new MidroundCustomizationChangeColorMessage(args.Category, args.Colors, args.Slot));
@@ -31,7 +30,7 @@ public sealed class SlimeHairBoundUserInterface : BoundUserInterface
     {
         base.UpdateState(state);
 
-        if (state is not SlimeHairUiState data || _window == null)
+        if (state is not MidroundCustomizationUiState data || _window == null)
         {
             return;
         }
