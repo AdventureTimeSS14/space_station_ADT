@@ -60,7 +60,7 @@ public sealed partial class MidroundCustomizationComponent : Component
     /// Sound emitted when slots are changed
     /// </summary>
     [DataField]
-    public SoundSpecifier ChangeHairSound = new SoundPathSpecifier("/Audio/ADT/slime-hair.ogg")
+    public SoundSpecifier ChangeMarkingSound = new SoundPathSpecifier("/Audio/ADT/slime-hair.ogg")
     {
         Params = AudioParams.Default.WithVolume(-1f),
     };
