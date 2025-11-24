@@ -24,11 +24,9 @@ using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
-// Goob Station - End of Round Screen
 using Content.Shared.Damage;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
-
 using System.Text.RegularExpressions;
 using System.IO;
 using System.Net.Http;
@@ -604,7 +602,7 @@ namespace Content.Server.GameTicking
 
                 var roles = _roles.MindGetAllRoleInfo(mindId);
 
-                #region Goob Station
+                // ADT-tweak-start
 
                 var lastWords = "";
                 var mobState = MobState.Invalid;
@@ -622,7 +620,7 @@ namespace Content.Server.GameTicking
                         damagePerGroup = damageableComp.DamagePerGroup;
                 }
 
-                #endregion
+                // ADT-tweak-end
 
                 var playerEndRoundInfo = new RoundEndMessageEvent.RoundEndPlayerInfo()
                 {
@@ -641,10 +639,11 @@ namespace Content.Server.GameTicking
                     AntagPrototypes = roles.Where(role => role.Antagonist).Select(role => role.Prototype).ToArray(),
                     Observer = observer,
                     Connected = connected,
-                    // Goob Station - End of Round Screen
+                    // ADT-tweak-start: manifest
                     LastWords = lastWords,
                     EntMobState = mobState,
                     DamagePerGroup = damagePerGroup
+                    // ADT-tweak-end
                 };
                 listOfPlayerInfo.Add(playerEndRoundInfo);
             }

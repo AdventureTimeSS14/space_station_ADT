@@ -138,12 +138,13 @@ public sealed partial class MindComponent : Component
     [DataField]
     public LocId? Subtype;
 
-    // Goob Station
+    // ADT-tweak-start
     /// <summary>
     ///     The last mob entity this mind was in.
     ///     Can be null.
     /// </summary>
     [DataField, AutoNetworkedField]
     public EntityUid? LastMob { get; set; }
+    // ADT-tweak-end
 
 }

@@ -13,7 +13,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Utility;
 using System.Diagnostics.CodeAnalysis;
 using Content.Shared.Tag;
-using Content.Shared.Mobs.Components; // Goob Station
+using Content.Shared.Mobs.Components;
 
 namespace Content.Server.Mind;
 
@@ -201,8 +201,10 @@ public sealed class MindSystem : SharedMindSystem
                 alreadyAttached = true;
             }
 
-            if (HasComp<MobStateComponent>(entity.Value))// Goob Station
+            //ADT-tweak-start
+            if (HasComp<MobStateComponent>(entity.Value))
                 mind.LastMob = entity.Value;
+            //ADT-tweak-end
         }
         else if (createGhost)
         {

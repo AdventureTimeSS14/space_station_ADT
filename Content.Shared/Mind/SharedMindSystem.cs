@@ -14,7 +14,6 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Objectives.Systems;
 using Content.Shared.Players;
 using Content.Shared.Speech;
-
 using Content.Shared.Whitelist;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
@@ -38,7 +37,7 @@ public abstract partial class SharedMindSystem : EntitySystem
     [ViewVariables]
     protected readonly Dictionary<NetUserId, EntityUid> UserMinds = new();
 
-    private readonly EntProtoId _mindProto = "MindBase";
+    private readonly EntProtoId _mindProto = "MindBase"; // ADT-tweak
 
     public override void Initialize()
     {

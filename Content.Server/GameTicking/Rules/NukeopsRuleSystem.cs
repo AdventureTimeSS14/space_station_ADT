@@ -102,7 +102,8 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
             args.AddLine(text);
         }
 
-        /* Goob edit - nukie objective
+        // ADT-tweak-start
+        /*
         args.AddLine(Loc.GetString($"{component.LocalePrefix}list-start"));
 
         var antags = _antag.GetAntagIdentifiers(uid);
@@ -111,6 +112,7 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
         {
             args.AddLine(Loc.GetString($"{component.LocalePrefix}list-name-user", ("name", name), ("user", sessionData.UserName)));
         } */
+        //ADT-tweak-end
     }
 
     private void OnNukeExploded(NukeExplodedEvent ev)

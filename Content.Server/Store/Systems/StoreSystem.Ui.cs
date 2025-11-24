@@ -173,17 +173,16 @@ public sealed partial class StoreSystem
             }
         }
 
-        // Goobstation start
+        // ADT-tweak-start
         if (_mind.TryGetMind(buyer, out var mindId, out _))
         {
             var ev = new ListingPurchasedEvent(buyer, uid, listing);
             RaiseLocalEvent(mindId, ref ev);
         }
-        // Goobstation end
 
-        // if (!IsOnStartingMap(uid, component)) // Goob edit
+        // if (!IsOnStartingMap(uid, component))
         //     component.RefundAllowed = false;
-
+        // ADT-tweak-end
         //subtract the cash
         foreach (var (currency, amount) in cost)
         {

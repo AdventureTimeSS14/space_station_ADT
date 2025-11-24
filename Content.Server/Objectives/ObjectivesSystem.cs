@@ -153,12 +153,12 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
             var agentSummary = new StringBuilder();
             agentSummary.AppendLine(Loc.GetString("objectives-with-objectives", ("custody", custody), ("title", title), ("agent", agent)));
 
-            // Goobstation start
+            // ADT-tweak-start
             var ev = new PrependObjectivesSummaryTextEvent();
             RaiseLocalEvent(mindId, ref ev);
             if (ev.Text != string.Empty)
                 agentSummary.AppendLine(ev.Text);
-            // Goobstation end
+            // ADT-tweak-end
 
             foreach (var objectiveGroup in objectives.GroupBy(o => Comp<ObjectiveComponent>(o).LocIssuer))
             {
