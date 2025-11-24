@@ -130,7 +130,7 @@ public sealed class WeatherSystem : SharedWeatherSystem
         if (!Timing.IsFirstTimePredicted)
             return true;
 
-+        // ADT-Tweak-Start: (P4A) Исправление звука погоды в лобби (PORT from DeltaV-Station/Delta-v#2978)
++        // ADT-Tweak-Start: (P4A) Исправление звука погоды в лобби (PORT from DeltaV-Station/Delta-v (2978)
         if (_playerManager.LocalEntity is not { } ent)
              return false;
  
