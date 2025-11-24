@@ -1,9 +1,7 @@
 using Content.Server.Antag;
 using Content.Shared.Mindshield.Components;
 using Content.Server.Polymorph.Components;
-using Content.Shared.Projectiles;
 using Content.Server.Roles;
-using Content.Shared.Tag;
 using Robust.Shared.Physics.Events;
 
 namespace Content.Server.Vulpizator.System;
@@ -11,7 +9,7 @@ namespace Content.Server.Vulpizator.System;
 public sealed class VulpizatorSystem : EntitySystem
 {
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
-    public const string _vulpa = "MobVulpkanin";
+    public const string _vulpa = "ADTMobRandomVulpkanin";
 
     public override void Initialize()
     {

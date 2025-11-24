@@ -85,7 +85,7 @@
   - type: StationEvent
     startAudio:
       path: /Audio/ADT/Announcements/announce_dig.ogg
-    weight: 3
+    weight: 1
     reoccurrenceDelay: 300
     duration: 1
   - type: LoadMapRule
@@ -98,9 +98,9 @@
   components:
   - type: StationEvent
     startAudio:
-      path: /Audio/Announcements/attention.ogg
+      path: /Audio/ADT/Announcements/announce_dig.ogg
     earliestStart: 20
-    weight: 3
+    weight: 1
     minimumPlayers: 30
     reoccurrenceDelay: 300
     duration: 1

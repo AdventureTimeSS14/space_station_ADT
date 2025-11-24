@@ -41,6 +41,7 @@
   - BorgModuleAdvancedTool
   - BorgModuleAdvancedChemical
   - BorgModuleAdvancedMining
+  - ADTBorgModuleRPD # ADT-Tweak
 
 - type: latheRecipePack
   id: MechParts

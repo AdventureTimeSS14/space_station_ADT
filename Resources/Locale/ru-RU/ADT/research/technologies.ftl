@@ -7,6 +7,8 @@ research-technology-crystal-manipulation = Манипуляция кристал
 
 research-technology-advanced-energy = Продвинутая энергия
 
+research-technology-engineering-robotics = Инженерная робототехника
+
 research-technology-basemegacells = Мегабатареи
 
 research-technology-advancedmegacells = Сверхэффективные мегабатареи

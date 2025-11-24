@@ -1,7 +1,7 @@
 {
-    "version": 1,
+    "copyright": "Made by discord: Cethet, for space station 14, (detention-module, lecter-module, rpd-module, salvage-module) Made by ledniky(discord:726481288713732147)",
     "license": "CC-BY-SA-3.0",
-    "copyright": "Made by discord: Cethet, for space station 14, Made by ledniky, (discord:726481288713732147)",
+    "version": 3,
     "size": {
         "x": 32,
         "y": 32
@@ -18,6 +18,12 @@
         },
         {
             "name": "lecter-module"
+        },
+        {
+            "name": "rpd-module"
+        },
+        {
+            "name": "salvage-module"
         }
     ]
 }

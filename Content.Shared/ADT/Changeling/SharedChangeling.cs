@@ -52,10 +52,10 @@ public sealed partial class LingRegenerateActionEvent : BaseInstantChangelingAct
     {
         DamageDict = new()
         {
-            {"Blunt", -50},
-            {"Piercing", -50},
-            {"Slash", -50},
-            {"Heat", -30},
+            {"Blunt", -70},
+            {"Piercing", -70},
+            {"Slash", -70},
+            {"Heat", -50},
             {"Cold", -30},
             {"Burn", -30}
         },
