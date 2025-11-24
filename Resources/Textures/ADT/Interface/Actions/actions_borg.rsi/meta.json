@@ -1,7 +1,7 @@
 {
     "copyright": "Made by discord: Cethet, for space station 14, salvage-module by ledniky, (discord:726481288713732147)",
     "license": "CC-BY-SA-3.0",
-    "version": 1,
+    "version": 2,
     "size": {
         "x": 32,
         "y": 32
@@ -9,6 +9,9 @@
     "states": [
         {
             "name": "state-info"
+        },
+        {
+            "name": "rpd-module"
         },
         {
             "name": "salvage-module"

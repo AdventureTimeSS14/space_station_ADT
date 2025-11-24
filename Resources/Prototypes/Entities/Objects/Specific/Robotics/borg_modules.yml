@@ -462,6 +462,7 @@
     - state: icon-tools
   - type: ItemBorgModule
     items:
+    - HandheldStationMapUnpowered # ADT-tweak
     - Crowbar
     - Wrench
     - Screwdriver
@@ -620,11 +621,12 @@
   - type: ItemBorgModule
     items:
     - RCDRecharging
-    - BorgFireExtinguisher
+    ##- BorgFireExtinguisher   # ADT-tweak
     - BorgHandheldGPSBasic
-    - GasAnalyzer
-    - HolofanProjectorBorg
+    ##- GasAnalyzer            # ADT-tweak
+    ##- HolofanProjectorBorg   # ADT-tweak
     - GeigerCounter
+    - WeaponGrapplingGun       # ADT-tweak
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: rcd-module }
 
