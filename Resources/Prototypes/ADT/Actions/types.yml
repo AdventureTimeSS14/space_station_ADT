@@ -65,7 +65,9 @@
     checkCanAccess: false
     range: 0
     useDelay: 6.5
-    icon: { sprite: Clothing/Neck/Cloaks/moth.rsi, state: icon }
+    icon:
+      sprite: Clothing/Neck/Cloaks/moth.rs
+      state: icon
     itemIconStyle: NoItem
     sound: !type:SoundPathSpecifier
       path: /Audio/ADT/Voice/Moth/moth_flapwings.ogg
