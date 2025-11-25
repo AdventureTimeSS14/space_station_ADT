@@ -1,3 +1,4 @@
+using Content.Shared.Emoting;
 using Content.Shared.Actions;
 using Content.Shared.Gravity;
 using Content.Shared.Movement.Components;
@@ -43,6 +44,12 @@ public sealed class DashActionSystem : EntitySystem
         }
 
         _throwing.TryThrow(args.Performer, vec, speed, null, 0, null, false, false, false);
+
+        if (args.Emote != null && TryComp<AnimatedEmotesComponent>(args.Performer, out var emotes))
+        {
+            emotes.Emote = args.Emote;
+            Dirty(args.Performer, emotes);
+        }
 
         args.Handled = true;
     }
