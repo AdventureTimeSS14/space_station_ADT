@@ -50,8 +50,8 @@
           whitelist:
             tags:
             - ADTBsoWeapon
+        - type: Necksnap
         - type: Combo
-          allowNeckSnap: true
           availableMoves:
             - actionsNeeds:
                 - Grab
