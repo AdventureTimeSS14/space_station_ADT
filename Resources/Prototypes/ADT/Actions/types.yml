@@ -62,7 +62,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
-    useDelay: 6.5
+    useDelay: 12
     icon:
       sprite: Clothing/Neck/Cloaks/moth.rsi
       state: icon
