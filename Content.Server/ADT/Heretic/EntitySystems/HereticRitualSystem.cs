@@ -215,7 +215,7 @@ public sealed partial class HereticRitualSystem : EntitySystem
             return;
 
         var ritual = h.ChosenRitual != null ? GetRitual(h.ChosenRitual).LocName : null;
-        var name = ritual != null ? Loc.GetString(ritual) : "None";
+        var name = ritual != null ? Loc.GetString(ritual) : "Неизвестный";
         args.PushMarkup(Loc.GetString("heretic-ritualrune-examine", ("rit", name)));
     }
 }
