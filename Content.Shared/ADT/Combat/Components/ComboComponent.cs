@@ -12,5 +12,5 @@ public sealed partial class ComboComponent : Component
     public EntityUid Target = default;
 
     [DataField("allowNeckSnap")]
-    public bool allowNeckSnap = false; // делаю так, ибо через комбо это НЕРЕАЛЬНО сделать. Проще сделать переменную которя разрешает тому или иному комбо перелом шеи.
+    public bool AllowNeckSnap = false; // делаю так, ибо через комбо это НЕРЕАЛЬНО сделать. Проще сделать переменную которя разрешает тому или иному комбо перелом шеи.
 }

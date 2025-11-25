@@ -81,7 +81,7 @@ public abstract class SharedComboSystem : EntitySystem
         var user = uid;
         var target = args.HitEntities[0];
 
-        if ( comp.allowNeckSnap && _standing.IsDown(target) &&
+        if ( comp.AllowNeckSnap && _standing.IsDown(target) &&
             !_mobState.IsDead(target) &&
             !HasComp<GodmodeComponent>(target) &&
             TryComp<PullerComponent>(user, out var puller) &&
@@ -140,7 +140,7 @@ public abstract class SharedComboSystem : EntitySystem
         if (mainList == null)
             return false;
         var isComboCompleted = false;
-        var StopGrab = false;
+        var stopGrab = false;
         foreach (var combo in comp.AvailableMoves)
         {
             var subList = combo.ActionsNeeds;
@@ -149,11 +149,11 @@ public abstract class SharedComboSystem : EntitySystem
             UseEventOnTarget(user, target, combo);
             isComboCompleted = true;
             if (combo.StopGrab)
-                StopGrab = true;
+                stopGrab = true;
         }
         if (isComboCompleted)
             comp.CurrestActions.Clear();
-        if (TryComp<PullableComponent>(target, out var pulled) && isComboCompleted && StopGrab)
+        if (TryComp<PullableComponent>(target, out var pulled) && isComboCompleted && stopGrab)
             _pullingSystem.TryStopPull(target, pulled, user);
         return true;
     }
