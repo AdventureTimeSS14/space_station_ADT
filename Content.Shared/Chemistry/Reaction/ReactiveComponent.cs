@@ -67,7 +67,7 @@ public sealed partial class ReactiveReagentEffectEntry
     public Dictionary<string, HashSet<ReactionMethod>>? ReactiveGroups { get; private set; }
 
     // ADT-Tweak-Start
-    [DataField("deleteEntity")]
+    [DataField]
     public bool DeleteEntity = false;
     // ADT-Tweak-End
 }

@@ -22,6 +22,7 @@ using Robust.Shared.Utility;
 using YamlDotNet.RepresentationModel;
 using Content.Shared.ADT.SpeechBarks;
 using Content.Shared.ADT.Language;
+using Robust.Shared.Enums;
 
 namespace Content.Shared.Humanoid;
 
@@ -616,17 +617,34 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
     // ADT-Tweak-Start
     public void SwapSex(EntityUid uid, HumanoidAppearanceComponent? humanoid = null)
     {
-        if (!Resolve(uid, ref humanoid)
-            || humanoid.Sex == Sex.Unsexed)
+        if (!Resolve(uid, ref humanoid) || humanoid.Sex == Sex.Unsexed)
             return;
 
-        if (humanoid.Sex == Sex.Male)
+        var newSex = humanoid.Sex;
+        var newGender = humanoid.Gender;
+        switch (humanoid.Sex)
         {
-            SetSex(uid, Sex.Female);
-            return;
+            case Sex.Unsexed:
+            default: break;
+            case Sex.Male: newGender = Gender.Female; newSex = Sex.Female; break;
+            case Sex.Female: newGender = Gender.Male; newSex = Sex.Male; break;
         }
 
-        SetSex(uid, Sex.Male);
+        SetSex(uid, newSex);
+        SetGender(uid, newGender);
+    }
+
+    public void SetGender(EntityUid uid, Gender gender, bool sync = true, HumanoidAppearanceComponent? humanoid = null)
+    {
+        if (!Resolve(uid, ref humanoid) || humanoid.Gender == gender)
+            return;
+
+        humanoid.Gender = gender;
+
+        if (sync)
+        {
+            Dirty(uid, humanoid);
+        }
     }
     // ADT-Tweak-End
 }

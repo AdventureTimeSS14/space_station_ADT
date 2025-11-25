@@ -1,5 +1,5 @@
 slime-analyzer-title = Анализатор слаймов
-slime-analyzer-no-data = Данные о сламе отсутствуют
+slime-analyzer-no-data = Данные о слайме отсутствуют
 slime-analyzer-scanning = СКАНИРОВАНИЕ
 
 slime-analyzer-hunger = Голод:

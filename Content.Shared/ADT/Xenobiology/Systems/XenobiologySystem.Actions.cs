@@ -3,7 +3,6 @@ using Content.Shared.DoAfter;
 using Content.Shared.Examine;
 using Content.Shared.Humanoid;
 using Content.Shared.Mobs;
-using Content.Shared.Nutrition.Components;
 using Content.Shared.Popups;
 using Robust.Shared.Containers;
 
@@ -52,8 +51,10 @@ public sealed partial class XenobiologySystem
         }
     }
 
-    private void OnComponentInit(Entity<SlimeComponent> slime, ref ComponentStartup args) =>
+    private void OnComponentInit(Entity<SlimeComponent> slime, ref ComponentStartup args)
+    {
         slime.Comp.Stomach = _containerSystem.EnsureContainer<Container>(slime, "Stomach");
+    }
 
     private void OnExamined(Entity<SlimeComponent> slime, ref ExaminedEvent args)
     {

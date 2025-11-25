@@ -159,7 +159,6 @@ public sealed partial class XenobiologySystem
         return true;
     }
 
-
     #endregion
 
 }
