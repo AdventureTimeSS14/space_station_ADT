@@ -54,4 +54,11 @@ public sealed partial class SalvageMagnetDataComponent : Component
     /// </summary>
     [DataField]
     public bool Announced;
+
+    public TimeSpan SmallTargetTime = TimeSpan.FromMinutes(2);
+    public TimeSpan OreTargetTime = TimeSpan.FromMinutes(3);
+    public TimeSpan MediumTargetTime = TimeSpan.FromMinutes(4);
+
+    public TimeSpan BigTargetTime = TimeSpan.FromMinutes(6);
+
 }

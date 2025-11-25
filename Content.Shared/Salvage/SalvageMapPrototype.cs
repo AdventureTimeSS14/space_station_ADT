@@ -18,4 +18,10 @@ public sealed partial class SalvageMapPrototype : IPrototype
     /// </summary>
     [DataField(required: true)]
     public LocId SizeString;
+
+    /// <summary>
+    /// Size tag for choose the time after choosing of asteroid. Using: sizeTag: SmallMagnetTargets
+    /// </summary>
+    [DataField(required: true)]
+    public string? SizeTag;
 }

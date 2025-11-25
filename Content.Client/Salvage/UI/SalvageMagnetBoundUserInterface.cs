@@ -39,7 +39,6 @@ public sealed class SalvageMagnetBoundUserInterface : BoundUserInterface
         _window.NextOffer = current.NextOffer;
         _window.Progression = current.EndTime ?? TimeSpan.Zero;
         _window.Claimed = current.EndTime != null;
-        _window.Cooldown = current.Cooldown;
         _window.ProgressionCooldown = current.Duration;
 
         for (var i = 0; i < current.Offers.Count; i++)

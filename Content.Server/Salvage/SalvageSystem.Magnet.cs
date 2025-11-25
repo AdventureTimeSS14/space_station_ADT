@@ -6,6 +6,7 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Procedural;
 using Content.Shared.Radio;
 using Content.Shared.Salvage.Magnet;
+using Content.Shared.Tag;
 using Robust.Shared.Exceptions;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
@@ -15,6 +16,7 @@ namespace Content.Server.Salvage;
 public sealed partial class SalvageSystem
 {
     [Dependency] private readonly IRuntimeLog _runtimeLog = default!;
+    [Dependency] private readonly TagSystem _tag = default!;
 
     private static readonly ProtoId<RadioChannelPrototype> MagnetChannel = "Supply";
 
@@ -92,41 +94,6 @@ public sealed partial class SalvageSystem
         }
     }
 
-    private void UpdateMagnet()
-    {
-        var dataQuery = EntityQueryEnumerator<SalvageMagnetDataComponent>();
-        var curTime = _timing.CurTime;
-
-        while (dataQuery.MoveNext(out var uid, out var magnetData))
-        {
-            // Magnet currently active.
-            if (magnetData.EndTime != null)
-            {
-                if (magnetData.EndTime.Value < curTime)
-                {
-                    EndMagnet((uid, magnetData));
-                }
-                else if (!magnetData.Announced && (magnetData.EndTime.Value - curTime).TotalSeconds < 31)
-                {
-                    var magnet = GetMagnet((uid, magnetData));
-
-                    if (magnet != null)
-                    {
-                        Report(magnet.Value.Owner, MagnetChannel,
-                            "salvage-system-announcement-losing",
-                            ("timeLeft", (magnetData.EndTime.Value - curTime).Seconds));
-                    }
-
-                    magnetData.Announced = true;
-                }
-            }
-            if (magnetData.NextOffer < curTime)
-            {
-                CreateMagnetOffers((uid, magnetData));
-            }
-        }
-    }
-
     /// <summary>
     /// Ends the magnet attachment and deletes the relevant grids.
     /// </summary>
@@ -179,7 +146,7 @@ public sealed partial class SalvageSystem
             // Go and cleanup the active ents.
             foreach (var ent in data.Comp.ActiveEntities)
             {
-                Del(ent);
+                QueueDel(ent);
             }
 
             foreach (var entity in _detachEnts)
@@ -286,12 +253,6 @@ public sealed partial class SalvageSystem
         var salvMap = _mapSystem.CreateMap();
         var salvMapXform = Transform(salvMap);
 
-        // Set values while awaiting asteroid dungeon if relevant so we can't double-take offers.
-        data.Comp.ActiveSeed = seed;
-        data.Comp.EndTime = _timing.CurTime + data.Comp.ActiveTime;
-        data.Comp.NextOffer = data.Comp.EndTime.Value;
-        UpdateMagnetUIs(data);
-
         switch (offering)
         {
             case AsteroidOffering asteroid:
@@ -305,7 +266,6 @@ public sealed partial class SalvageSystem
                 break;
             case SalvageOffering wreck:
                 var salvageProto = wreck.SalvageMap;
-
                 if (!_loader.TryLoadGrid(salvMapXform.MapID, salvageProto.MapPath, out _))
                 {
                     Report(magnet, MagnetChannel, "salvage-system-announcement-spawn-debris-disintegrated");
@@ -317,7 +277,6 @@ public sealed partial class SalvageSystem
             default:
                 throw new ArgumentOutOfRangeException();
         }
-
         Box2? bounds = null;
 
         if (salvMapXform.ChildCount == 0)
@@ -330,6 +289,58 @@ public sealed partial class SalvageSystem
 
         while (mapChildren.MoveNext(out var mapChild))
         {
+            switch (offering)
+            {
+                case SalvageOffering wreck:
+                    var salvageProto = wreck.SalvageMap;
+                    if (salvageProto.SizeTag!=null)
+                        if (salvageProto.SizeTag=="SmallMagnetTargets")
+                        {
+                            data.Comp.ActiveTime = _timing.CurTime + data.Comp.SmallTargetTime;
+                            break;
+                        }
+                        else if (salvageProto.SizeTag=="MediumMagnetTargets")
+                        {
+                            data.Comp.ActiveTime = _timing.CurTime + data.Comp.MediumTargetTime;
+                            break;
+                        }
+                        else if (salvageProto.SizeTag=="BigMagnetTargets")
+                        {
+                            data.Comp.ActiveTime = _timing.CurTime + data.Comp.BigTargetTime;
+                            break;
+                        }
+                    else
+                        return;
+                    break;
+                case AsteroidOffering asteroid:
+                    var asteroidProto = _prototypeManager.Index<DungeonConfigPrototype>(asteroid.Id);
+                    if (asteroidProto.SizeTag!=null)
+                        if (asteroidProto.SizeTag=="OreMagnetTargets")
+                        {
+                            data.Comp.ActiveTime = _timing.CurTime + data.Comp.OreTargetTime;
+                            break;
+                        }
+                    break;
+                case DebrisOffering debris:
+                    var debrisProto = _prototypeManager.Index<DungeonConfigPrototype>(debris.Id);
+                    if (debrisProto.SizeTag!=null)
+                        if (debrisProto.SizeTag=="SmallMagnetTargets")
+                        {
+                            data.Comp.ActiveTime = _timing.CurTime + data.Comp.SmallTargetTime;
+                            break;
+                        }
+                        else if (debrisProto.SizeTag=="MediumMagnetTargets")
+                        {
+                            data.Comp.ActiveTime = _timing.CurTime + data.Comp.MediumTargetTime;
+                            break;
+                        }
+                        else if (debrisProto.SizeTag=="BigMagnetTargets")
+                        {
+                            data.Comp.ActiveTime = _timing.CurTime + data.Comp.BigTargetTime;
+                            break;
+                        }
+                    break;
+            }
             // If something went awry in dungen.
             if (!_gridQuery.TryGetComponent(mapChild, out var childGrid))
                 continue;
@@ -343,7 +354,12 @@ public sealed partial class SalvageSystem
                 _metaData.SetEntityName(mapChild, Loc.GetString("salvage-asteroid-name"));
                 _gravity.EnableGravity(mapChild);
             }
+            // Set values while awaiting asteroid dungeon if relevant so we can't double-take offers.
         }
+        data.Comp.ActiveSeed = seed;
+        data.Comp.EndTime = data.Comp.ActiveTime;
+        data.Comp.NextOffer = data.Comp.EndTime.Value;
+        UpdateMagnetUIs(data);
 
         var magnetXform = _xformQuery.GetComponent(magnet.Owner);
         var magnetGridUid = magnetXform.GridUid;
@@ -454,6 +470,40 @@ public sealed partial class SalvageSystem
         angle = Angle.Zero;
         coords = MapCoordinates.Nullspace;
         return false;
+    }
+    private void UpdateMagnet()
+    {
+        var dataQuery = EntityQueryEnumerator<SalvageMagnetDataComponent>();
+        var curTime = _timing.CurTime;
+
+        while (dataQuery.MoveNext(out var uid, out var magnetData))
+        {
+            // Magnet currently active.
+            if (magnetData.EndTime != null)
+            {
+                if (magnetData.EndTime.Value < curTime)
+                {
+                    EndMagnet((uid, magnetData));
+                }
+                else if (!magnetData.Announced && (magnetData.EndTime.Value - curTime).TotalSeconds < 31)
+                {
+                    var magnet = GetMagnet((uid, magnetData));
+
+                    if (magnet != null)
+                    {
+                        Report(magnet.Value.Owner, MagnetChannel,
+                            "salvage-system-announcement-losing",
+                            ("timeLeft", (magnetData.EndTime.Value - curTime).Seconds));
+                    }
+
+                    magnetData.Announced = true;
+                }
+            }
+            if (magnetData.NextOffer < curTime)
+            {
+                CreateMagnetOffers((uid, magnetData));
+            }
+        }
     }
 }
 

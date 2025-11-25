@@ -47,4 +47,9 @@ public sealed partial class DungeonConfigPrototype : DungeonConfig, IPrototype
 {
     [IdDataField]
     public string ID { get; private set; } = default!;
+    /// <summary>
+    /// Size tag for choose the time after choosing of asteroid. Using: sizeTag: SmallMagnetTargets
+    /// </summary>
+    [DataField(required: true)]
+    public string? SizeTag;
 }
