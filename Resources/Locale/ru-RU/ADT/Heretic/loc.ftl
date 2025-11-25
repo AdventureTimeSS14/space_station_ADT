@@ -4,4 +4,3 @@ heretic-ritualrune-examine = Выбранный ритуал: [color=yellow]{$ri
 
 heretic-knowledge-gain = Вы что-то изучили
 heretic-knowledge-loss = Вы потеряли знание
-heretic-ritual-unknown = Неизвестный
