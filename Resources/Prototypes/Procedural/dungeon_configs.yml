@@ -106,7 +106,7 @@
 
 - type: dungeonConfig
   id: LavaBrig
-  sizeTag: MediumMagnetTargets
+  sizeTag: MediumMagnetTargets #ADT-Tweak-MagnetUpdate
   layers:
   - !type:PrefabDunGen
     roomWhitelist:

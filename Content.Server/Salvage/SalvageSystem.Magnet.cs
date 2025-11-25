@@ -144,6 +144,7 @@ public sealed partial class SalvageSystem
             // Go and cleanup the active ents.
             foreach (var ent in data.Comp.ActiveEntities)
             {
+                // ADT-Tweak - более безопасный способ удаления
                 QueueDel(ent);
             }
 
@@ -287,58 +288,63 @@ public sealed partial class SalvageSystem
 
         while (mapChildren.MoveNext(out var mapChild))
         {
+            // ADT-Tweak-Start
             switch (offering)
             {
                 case SalvageOffering wreck:
                     var salvageProto = wreck.SalvageMap;
-                    if (salvageProto.SizeTag!=null)
-                        if (salvageProto.SizeTag=="SmallMagnetTargets")
-                        {
-                            data.Comp.ActiveTime = _timing.CurTime + data.Comp.SmallTargetTime;
-                            break;
-                        }
-                        else if (salvageProto.SizeTag=="MediumMagnetTargets")
-                        {
-                            data.Comp.ActiveTime = _timing.CurTime + data.Comp.MediumTargetTime;
-                            break;
-                        }
-                        else if (salvageProto.SizeTag=="BigMagnetTargets")
-                        {
-                            data.Comp.ActiveTime = _timing.CurTime + data.Comp.BigTargetTime;
-                            break;
-                        }
+                    if (salvageProto.SizeTag==null)
+                        return;
+                    if (salvageProto.SizeTag=="SmallMagnetTargets")
+                    {
+                        data.Comp.ActiveTime = _timing.CurTime + data.Comp.SmallTargetTime;
+                        break;
+                    }
+                    else if (salvageProto.SizeTag=="MediumMagnetTargets")
+                    {
+                        data.Comp.ActiveTime = _timing.CurTime + data.Comp.MediumTargetTime;
+                        break;
+                    }
+                    else if (salvageProto.SizeTag=="BigMagnetTargets")
+                    {
+                        data.Comp.ActiveTime = _timing.CurTime + data.Comp.BigTargetTime;
+                        break;
+                    }
                     else
                         return;
                     break;
                 case AsteroidOffering asteroid:
                     var asteroidProto = _prototypeManager.Index<DungeonConfigPrototype>(asteroid.Id);
-                    if (asteroidProto.SizeTag!=null)
-                        if (asteroidProto.SizeTag=="OreMagnetTargets")
-                        {
-                            data.Comp.ActiveTime = _timing.CurTime + data.Comp.OreTargetTime;
-                            break;
-                        }
+                    if (asteroidProto.SizeTag==null)
+                        return;
+                    if (asteroidProto.SizeTag=="OreMagnetTargets")
+                    {
+                        data.Comp.ActiveTime = _timing.CurTime + data.Comp.OreTargetTime;
+                        break;
+                    }
                     break;
                 case DebrisOffering debris:
                     var debrisProto = _prototypeManager.Index<DungeonConfigPrototype>(debris.Id);
-                    if (debrisProto.SizeTag!=null)
-                        if (debrisProto.SizeTag=="SmallMagnetTargets")
-                        {
-                            data.Comp.ActiveTime = _timing.CurTime + data.Comp.SmallTargetTime;
-                            break;
-                        }
-                        else if (debrisProto.SizeTag=="MediumMagnetTargets")
-                        {
-                            data.Comp.ActiveTime = _timing.CurTime + data.Comp.MediumTargetTime;
-                            break;
-                        }
-                        else if (debrisProto.SizeTag=="BigMagnetTargets")
-                        {
-                            data.Comp.ActiveTime = _timing.CurTime + data.Comp.BigTargetTime;
-                            break;
-                        }
+                    if (debrisProto.SizeTag==null)
+                        return;
+                    if (debrisProto.SizeTag=="SmallMagnetTargets")
+                    {
+                        data.Comp.ActiveTime = _timing.CurTime + data.Comp.SmallTargetTime;
+                        break;
+                    }
+                    else if (debrisProto.SizeTag=="MediumMagnetTargets")
+                    {
+                        data.Comp.ActiveTime = _timing.CurTime + data.Comp.MediumTargetTime;
+                        break;
+                    }
+                    else if (debrisProto.SizeTag=="BigMagnetTargets")
+                    {
+                        data.Comp.ActiveTime = _timing.CurTime + data.Comp.BigTargetTime;
+                        break;
+                    }
                     break;
             }
+            // ADT-Tweak-End
             // If something went awry in dungen.
             if (!_gridQuery.TryGetComponent(mapChild, out var childGrid))
                 continue;
@@ -354,10 +360,12 @@ public sealed partial class SalvageSystem
             }
             // Set values while awaiting asteroid dungeon if relevant so we can't double-take offers.
         }
+        // ADT-Tweak-Start
         data.Comp.ActiveSeed = seed;
         data.Comp.EndTime = data.Comp.ActiveTime;
         data.Comp.NextOffer = data.Comp.EndTime.Value;
         UpdateMagnetUIs(data);
+        // ADT-Tweak-End
 
         var magnetXform = _xformQuery.GetComponent(magnet.Owner);
         var magnetGridUid = magnetXform.GridUid;
