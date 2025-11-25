@@ -458,7 +458,7 @@ public sealed partial class ComboEffectSwapPostion : IComboEffect
 
 /// <summary>
 /// усыпляет цель на N времени
-/// <summary>
+/// </summary>
 [Serializable, NetSerializable]
 public sealed partial class ComboEffectSleep: IComboEffect
 {
