@@ -421,6 +421,16 @@
     - sprite: ADT/Mobs/Customization/Tajaran/tajaran_hairs.rsi #Спрайты от moroz_3
       state: eyebrows
 
+- type: marking
+  id: ADTTajaranEyeGlow
+  bodyPart: LLeg
+  markingCategory: Head
+  speciesRestriction: [TajaranSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_head.rsi
+      state: eyesglow
+  shader: unshaded
+
 #Морда.
 - type: marking
   id: Head4

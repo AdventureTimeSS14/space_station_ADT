@@ -2,6 +2,8 @@
   parent: [ SimpleMobBase, MobCombat ]
   id: ADTBloodyArmySoldier
   components:
+  - type: Physics
+  - type: GrabProtection
   - type: DamageBonusHoly
   - type: Sprite
     drawdepth: Mobs
@@ -14,7 +16,7 @@
       collection: Punch
     damage:
       types:
-        Blunt: 50
+        Blunt: 25
   - type: NpcFactionMember
     factions:
     - SimpleHostile
@@ -56,6 +58,7 @@
   parent: [ SimpleMobBase, MobCombat ]
   id: ADTBunchOfDemonicEyes
   components:
+  - type: GrabProtection
   - type: DamageBonusHoly
   - type: Sprite
     drawdepth: Mobs
@@ -68,7 +71,7 @@
       collection: AlienClaw
     damage:
       types:
-        Blunt: 50
+        Blunt: 20
   - type: NpcFactionMember
     factions:
     - SimpleHostile
@@ -111,6 +114,7 @@
   parent: [ SimpleMobBase, MobCombat ]
   id: ADTBloodyEyes
   components:
+  - type: GrabProtection
   - type: DamageBonusHoly
   - type: Sprite
     drawdepth: Mobs
@@ -123,7 +127,7 @@
       collection: AlienClaw
     damage:
       types:
-        Blunt: 20
+        Blunt: 10
   - type: NpcFactionMember
     factions:
     - SimpleHostile
@@ -152,6 +156,7 @@
   parent: [ SimpleMobBase, MobCombat ]
   id: ADTDemonicEye
   components:
+  - type: GrabProtection
   - type: DamageBonusHoly
   - type: Sprite
     drawdepth: Mobs
@@ -164,7 +169,7 @@
       collection: AlienClaw
     damage:
       types:
-        Blunt: 10
+        Blunt: 5
   - type: NpcFactionMember
     factions:
     - SimpleHostile
@@ -193,6 +198,8 @@
   parent: [ SimpleMobBase, MobCombat ]
   id: ADTDarkRattleSnake
   components:
+  - type: Physics
+  - type: GrabProtection
   - type: DamageBonusHoly
   - type: Sprite
     drawdepth: Mobs
@@ -205,7 +212,7 @@
       collection: AlienClaw
     damage:
       types:
-        Slash: 30
+        Slash: 20
   - type: NpcFactionMember
     factions:
     - SimpleHostile
@@ -233,6 +240,8 @@
   parent: [ SimpleMobBase, MobCombat ]
   id: ADTDemonicMouth
   components:
+  - type: Physics
+  - type: GrabProtection
   - type: DamageBonusHoly
   - type: Sprite
     drawdepth: Mobs
@@ -245,7 +254,7 @@
       collection: AlienClaw
     damage:
       types:
-        Slash: 50
+        Slash: 20
   - type: NpcFactionMember
     factions:
     - SimpleHostile
