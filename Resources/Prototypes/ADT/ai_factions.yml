@@ -17,6 +17,13 @@
   - PetsNT
   - Zombie
   - Revolutionary
+  - Heretic # goob edit - heretics
+  - AllHostile
+  - Wizard
+  - DroneAntag
+  - Xeno
+  - Xenoborg
+  - SimpleHostile
 
 - type: npcFaction
   id: DroneAntag

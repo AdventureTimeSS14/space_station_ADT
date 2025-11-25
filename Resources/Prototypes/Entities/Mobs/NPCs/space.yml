@@ -8,9 +8,9 @@
   - type: HTN
     rootTask:
       task: SimpleHostileCompound
-  - type: NpcFactionMember
-    factions:
-    - SimpleHostile
+#  - type: NpcFactionMember  
+#    factions:
+#    - SimpleHostile
   - type: Sprite
     drawdepth: Mobs
     sprite: Mobs/Animals/bear.rsi
@@ -256,6 +256,9 @@
         reagents:
         - ReagentId: ChloralHydrate
           Quantity: 15
+  - type: NpcFactionMember
+    factions:
+    - ADTSpaceMobs
   - type: SolutionRegeneration
     solution: melee
     generated:
@@ -337,6 +340,11 @@
         - id: ClothingShoesSnakeskinBoots
           amount: 1
           prob: 0.3
+  # Start ADT tweak
+        - type: NpcFactionMember
+          factions:
+          - ADTSpaceMobs
+  # End ADT tweak
     - type: Bloodstream
       bloodMaxVolume: 200
       bloodReagent: Cryoxadone

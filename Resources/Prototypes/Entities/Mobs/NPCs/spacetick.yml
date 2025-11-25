@@ -12,7 +12,7 @@
       task: SimpleHostileCompound
   - type: NpcFactionMember
     factions:
-    - SimpleHostile
+    - ADTSpaceMobs # ADT-Tweak SimpleHostile
   - type: Sprite
     drawdepth: Mobs
     layers:
