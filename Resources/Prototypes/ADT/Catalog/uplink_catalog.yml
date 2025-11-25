@@ -568,7 +568,7 @@
   icon: { sprite: ADT/Implants/sandevistan.rsi, state: icon}
   productEntity: ADTSandevistanAutoSurgeon
   discountDownTo:
-    Telecrystal: 10
+    Telecrystal: 8
   cost:
     Telecrystal: 12
   categories:
@@ -593,7 +593,7 @@
   description: uplink-cyberpsycho-bundle-desc
   productEntity: ADTBoxSyndicateCyberpsycho
   cost:
-    Telecrystal: 20
+    Telecrystal: 16
   categories:
     - UplinkImplants
 
