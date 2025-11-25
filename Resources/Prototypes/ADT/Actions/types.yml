@@ -61,7 +61,7 @@
   description: Sharply flap your wings, dashing to the side!
   categories: [ HideSpawnMenu ]
   components:
-  - type: WorldTargetAction
+  - type: Action
     checkCanAccess: false
     range: 0
     useDelay: 6.5
