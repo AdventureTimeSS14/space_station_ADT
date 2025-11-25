@@ -62,8 +62,6 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
-    checkCanAccess: false
-    range: 0
     useDelay: 6.5
     icon:
       sprite: Clothing/Neck/Cloaks/moth.rsi
@@ -73,4 +71,8 @@
       path: /Audio/ADT/Voice/Moth/moth_flapwings.ogg
       params:
         volume: 6.5
+  - type: TargetAction
+    checkCanAccess: false
+    range: 0
+  - type: WorldTargetAction
     event: !type:DashActionEvent
