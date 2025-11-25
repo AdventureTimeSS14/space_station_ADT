@@ -4,5 +4,5 @@ smart-fridge-component-try-eject-access-denied = В доступе отказа�
 smart-fridge-component-search-filter = Поиск...
 smart-fridge-component-title = Умный холодильник
 smart-fridge-list-item = { $item } [{ $amount }]
-smart-fridge-request-generic = Все распроданно.
+smart-fridge-request-generic = Все распродано.
 smart-fridge-request-chemistry = Заказывайте пополнение у химиков!
