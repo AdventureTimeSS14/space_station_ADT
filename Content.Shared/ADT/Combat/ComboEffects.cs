@@ -19,11 +19,7 @@ using Content.Shared.Movement.Pulling.Components;
 using Robust.Shared.Timing;
 using Robust.Shared.Network;
 using Content.Shared.Mobs.Components;
-using Content.Shared.Damage.Components;
 using Content.Shared.StatusEffectNew;
-using Robust.Shared.Prototypes;
-using Content.Shared.Mobs.Systems;
-using Content.Shared.Mobs;
 
 namespace Content.Shared.ADT.Combat;
 
