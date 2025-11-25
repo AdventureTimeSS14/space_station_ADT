@@ -25,7 +25,6 @@ public abstract class SharedNecksnapSystem : EntitySystem
     [Dependency] private readonly StandingStateSystem _standing = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly IEntityManager _entManager = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly PullingSystem _pullingSystem = default!;
 
     public override void Initialize()
@@ -41,8 +40,6 @@ public abstract class SharedNecksnapSystem : EntitySystem
 
         var user = args.User;
         var target = args.HitEntities[0];
-        Logger.Info($"User:{user}. Target: {target}");
-        Logger.Info($"Standing: {_standing.IsDown(target)}. IsDead: {_mobState.IsDead(target)}");
 
         if (_standing.IsDown(target) &&
              !_mobState.IsDead(target) &&
