@@ -10,4 +10,7 @@ public sealed partial class ComboComponent : Component
     public EntityUid TargetEntity;
     public List<CombatAction> CurrestActions { get; private set; } = new List<CombatAction>();
     public EntityUid Target = default;
+
+    [DataField("allowNeckSnap")]
+    public bool allowNeckSnap = false; // делаю так, ибо через комбо это НЕРЕАЛЬНО сделать. Проще сделать переменную которя разрешает тому или иному комбо перелом шеи.
 }

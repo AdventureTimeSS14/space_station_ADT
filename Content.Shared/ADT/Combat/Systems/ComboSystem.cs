@@ -9,12 +9,34 @@ using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Humanoid;
 using Content.Shared.ADT.Crawling;
 using Content.Shared.Coordinates;
-
+using Robust.Shared.Prototypes;
+using Robust.Shared.Audio;
+using Robust.Shared.Audio.Systems;
+using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
+using Content.Shared.Damage.Components;
+using Content.Shared.Mobs;
+using Content.Shared.Mobs.Components;
+using Content.Shared.Mobs.Systems;
+using Content.Shared.Standing;
+using Content.Shared.Damage.Prototypes;
+using Content.Shared.Popups;
+using Content.Shared.IdentityManagement;
 namespace Content.Shared.ADT.Combat;
 
 public abstract class SharedComboSystem : EntitySystem
 {
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly PullingSystem _pullingSystem = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private readonly DamageableSystem _damageable = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly MobThresholdSystem _mobThreshold = default!;
+    [Dependency] private readonly StandingStateSystem _standing = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly IEntityManager _entManager = default!;
 
     public override void Initialize()
     {
@@ -55,6 +77,34 @@ public abstract class SharedComboSystem : EntitySystem
             comp.CurrestActions.RemoveAt(0);
         }
         comp.Target = args.HitEntities[0];
+
+        var user = uid;
+        var target = args.HitEntities[0];
+
+        if ( comp.allowNeckSnap && _standing.IsDown(target) &&
+            !_mobState.IsDead(target) &&
+            !HasComp<GodmodeComponent>(target) &&
+            TryComp<PullerComponent>(user, out var puller) &&
+            puller.Stage == GrabStage.Choke &&
+            puller.Pulling == target &&
+            _mobThreshold.TryGetDeadThreshold(target, out var damageToKill) &&
+            damageToKill != null
+            && TryComp(target, out StaminaComponent? stamina) && stamina.Critical) // проверка условий для перелома шеи
+        {
+            if (comp.CurrestActions != null)
+            {
+                comp.CurrestActions.RemoveAt(0); // мы очищаем комбо список чтобы не было конфликтов, прежде чем сделать попап.
+            }
+            var blunt = new DamageSpecifier(_proto.Index<DamageTypePrototype>("Blunt"), damageToKill.Value);
+            _damageable.TryChangeDamage(target, blunt, true);
+            _audio.PlayPvs("/Audio/ADT/Effects/crack1.ogg", target);
+            _popup.PopupPredicted(Loc.GetString("cqc-necksnap-popup", ("user", Identity.Entity(user, _entManager)), ("target", target)), target, target, PopupType.LargeCaution);
+            if (TryComp<PullableComponent>(target, out var pulled))
+            {
+                _pullingSystem.TryStopPull(target, pulled, user); // освобождаем от граба гнилой труп
+            }
+        }
+
         TryDoCombo(uid, args.HitEntities[0], comp);
     }
 
@@ -90,6 +140,7 @@ public abstract class SharedComboSystem : EntitySystem
         if (mainList == null)
             return false;
         var isComboCompleted = false;
+        var StopGrab = false;
         foreach (var combo in comp.AvailableMoves)
         {
             var subList = combo.ActionsNeeds;
@@ -97,10 +148,12 @@ public abstract class SharedComboSystem : EntitySystem
                 continue;
             UseEventOnTarget(user, target, combo);
             isComboCompleted = true;
+            if (combo.StopGrab)
+                StopGrab = true;
         }
         if (isComboCompleted)
             comp.CurrestActions.Clear();
-        if (TryComp<PullableComponent>(target, out var pulled) && isComboCompleted)
+        if (TryComp<PullableComponent>(target, out var pulled) && isComboCompleted && StopGrab)
             _pullingSystem.TryStopPull(target, pulled, user);
         return true;
     }
