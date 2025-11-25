@@ -42,7 +42,7 @@ public sealed class NukeOpsTest
     {
         await using var pair = await PoolManager.GetServerClient(new PoolSettings
         {
-            Dirty = true,
+            Dirty = false, // ADT-tweak: чиним тесты
             DummyTicker = false,
             Connected = true,
             InLobby = true
