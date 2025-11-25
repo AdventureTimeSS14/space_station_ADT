@@ -42,13 +42,9 @@ namespace Content.Server.Chemistry.EntitySystems
         [Dependency] private readonly StorageSystem _storageSystem = default!;
         [Dependency] private readonly LabelSystem _labelSystem = default!;
         [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-        [Dependency] private readonly IEntityManager _entityManager = default!; //ADT-Tweak
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!; //ADT-Tweak
 
         private static readonly EntProtoId PillPrototypeId = "Pill";
-
-        // Suppress UI churn during input-slot bottle relocation.
-        private readonly HashSet<EntityUid> _relocating = new();
 
         public override void Initialize()
         {
@@ -56,33 +52,60 @@ namespace Content.Server.Chemistry.EntitySystems
 
             SubscribeLocalEvent<ChemMasterComponent, ComponentStartup>(SubscribeUpdateUiState);
             SubscribeLocalEvent<ChemMasterComponent, SolutionContainerChangedEvent>(SubscribeUpdateUiState);
-            SubscribeLocalEvent<ChemMasterComponent, EntInsertedIntoContainerMessage>(OnContainerInserted); //ADT-Tweak
-            SubscribeLocalEvent<ChemMasterComponent, EntRemovedFromContainerMessage>(OnContainerRemoved);   //ADT-Tweak
+            // ADT-Tweak Start: Cutted
+            // SubscribeLocalEvent<ChemMasterComponent, EntInsertedIntoContainerMessage>(SubscribeUpdateUiState);
+            // SubscribeLocalEvent<ChemMasterComponent, EntRemovedFromContainerMessage>(SubscribeUpdateUiState);
+            // ADT-Tweak End
             SubscribeLocalEvent<ChemMasterComponent, BoundUIOpenedEvent>(SubscribeUpdateUiState);
 
+            // ADT-Tweak Start: Bottle/Pill Containers now updates individually and separately from UI window.
+            SubscribeLocalEvent<ChemMasterComponent, EntInsertedIntoContainerMessage>(OnContainerInserted);
+            SubscribeLocalEvent<ChemMasterComponent, EntRemovedFromContainerMessage>(OnContainerRemoved);
+            // ADT-Tweak End
+
             SubscribeLocalEvent<ChemMasterComponent, ChemMasterSetModeMessage>(OnSetModeMessage);
+            // SubscribeLocalEvent<ChemMasterComponent, ChemMasterSortingTypeCycleMessage>(OnCycleSortingTypeMessage); // ADT-Tweak: Cutted
             SubscribeLocalEvent<ChemMasterComponent, ChemMasterSetPillTypeMessage>(OnSetPillTypeMessage);
             SubscribeLocalEvent<ChemMasterComponent, ChemMasterReagentAmountButtonMessage>(OnReagentButtonMessage);
             SubscribeLocalEvent<ChemMasterComponent, ChemMasterCreatePillsMessage>(OnCreatePillsMessage);
             SubscribeLocalEvent<ChemMasterComponent, ChemMasterOutputToBottleMessage>(OnOutputToBottleMessage);
-             // ADT-Tweak Start: Subscriptions for all buttons
+
+            // ADT-Tweak Start: Subscriptions for all buttons
+            // Handle client sort dropdown/button interactions.
             SubscribeLocalEvent<ChemMasterComponent, ChemMasterSortMethodUpdated>(OnSortMethodUpdated);
+            // Update the currently selected transfer amount coming from the UI.
             SubscribeLocalEvent<ChemMasterComponent, ChemMasterTransferringAmountUpdated>(OnTransferringAmountUpdated);
+            // Sync the list of custom amount buttons the player configured.
             SubscribeLocalEvent<ChemMasterComponent, ChemMasterAmountsUpdated>(OnAmountsUpdated);
+            // Track which output bottle slot the player highlighted for context actions.
             SubscribeLocalEvent<ChemMasterComponent, ChemMasterSelectBottleSlotMessage>(OnSelectBottleSlotMessage);
+            // Handle choosing a reagent to operate on.
             SubscribeLocalEvent<ChemMasterComponent, ChemMasterChooseReagentMessage>(OnChooseReagentMessage);
+            // Clear all currently selected reagents when the user requests it.
             SubscribeLocalEvent<ChemMasterComponent, ChemMasterClearReagentSelectionMessage>(OnClearReagentSelectionMessage);
+            // Toggle whether a given bottle slot should receive automatic fills.
             SubscribeLocalEvent<ChemMasterComponent, ChemMasterToggleBottleFillMessage>(OnToggleBottleFillMessage);
+            // Process eject-all actions for an entire bottle row at once.
             SubscribeLocalEvent<ChemMasterComponent, ChemMasterRowEjectMessage>(OnRowEjectMessage);
+            // Remember which pill container slot is being targeted for edits.
             SubscribeLocalEvent<ChemMasterComponent, ChemMasterSelectPillContainerSlotMessage>(OnSelectPillContainerSlotMessage);
+            // Automatically fills pill container slots.
             SubscribeLocalEvent<ChemMasterComponent, ChemMasterTogglePillContainerFillMessage>(OnTogglePillContainerFillMessage);
+            // Eject a single pill slot contents back into the world.
             SubscribeLocalEvent<ChemMasterComponent, ChemMasterPillContainerSlotEjectMessage>(OnPillContainerSlotEjectMessage);
+            // Eject an entire pill container row in one action.
             SubscribeLocalEvent<ChemMasterComponent, ChemMasterPillContainerRowEjectMessage>(OnPillContainerRowEjectMessage);
+            // Decide which pill canister incoming pills should spawn into.
             SubscribeLocalEvent<ChemMasterComponent, ChemMasterSelectPillCanisterForCreationMessage>(OnSelectPillCanisterForCreationMessage);
+            // Track per-reagent amount selections for batch editing.
             SubscribeLocalEvent<ChemMasterComponent, ChemMasterSelectReagentAmountMessage>(OnSelectReagentAmountMessage);
+            // Decrease/remove a stored reagent amount selection.
             SubscribeLocalEvent<ChemMasterComponent, ChemMasterRemoveReagentAmountMessage>(OnRemoveReagentAmountMessage);
+            // Reset all tracked reagent amount selections in one go.
             SubscribeLocalEvent<ChemMasterComponent, ChemMasterClearReagentAmountMessage>(OnClearReagentAmountMessage);
+            // Respond to input/output slot button presses (insert/eject).
             SubscribeLocalEvent<ChemMasterComponent, ItemSlotButtonPressedEvent>(OnItemSlotButtonPressed);
+            // Initialize when spawned in the world.
             SubscribeLocalEvent<ChemMasterComponent, MapInitEvent>(OnMapInit);
             // ADT-Tweak End
         }
@@ -97,6 +120,7 @@ namespace Content.Server.Chemistry.EntitySystems
         private void SubscribeUpdateUiState<T>(Entity<ChemMasterComponent> ent, ref T ev) =>
             UpdateUiState(ent);
         // ADT-Tweak End
+
         private void UpdateUiState(Entity<ChemMasterComponent> ent, bool updateLabel = false)
         {
             var (owner, chemMaster) = ent;
@@ -182,7 +206,7 @@ namespace Content.Server.Chemistry.EntitySystems
             {
                 var slotId = "pillContainerSlot" + i;
 
-                if (_itemSlotsSystem.TryGetSlot(chemMaster.Owner, slotId, out var slot) && slot.Item.HasValue)
+                if (_itemSlotsSystem.TryGetSlot(owner, slotId, out var slot) && slot.Item.HasValue)
                 {
                     var pillContainer = slot.Item.Value;
 
@@ -251,7 +275,7 @@ namespace Content.Server.Chemistry.EntitySystems
             {
                 var slotId = "bottleSlot" + i;
 
-                if (_itemSlotsSystem.TryGetSlot(chemMaster.Owner, slotId, out var slot) && slot.Item.HasValue)
+                if (_itemSlotsSystem.TryGetSlot(owner, slotId, out var slot) && slot.Item.HasValue)
                 {
                     var bottle = slot.Item.Value;
 
@@ -391,40 +415,34 @@ namespace Content.Server.Chemistry.EntitySystems
                 {
                     // Ensure the bottle is not still inside the input slot before relocating it.
                     // Capture the ejected entity and use it for insertion to avoid timing issues.
-                    var owner = chemMaster.Owner;
-                    var addedGuard = _relocating.Add(owner);
+                    var owner = chemMaster;
 
-                    try
+
+
+                    _itemSlotsSystem.TryEject(owner, SharedChemMaster.OutputSlotName, null, out var ejected, excludeUserAudio: true);
+                    var moving = ejected ?? entity;
+
+                    for (int row = 0; row < 4; row++)
                     {
-                        _itemSlotsSystem.TryEject(owner, SharedChemMaster.OutputSlotName, null, out var ejected, excludeUserAudio: true);
-                        var moving = ejected ?? entity;
-
-                        for (int row = 0; row < 4; row++)
+                        for (int col = 0; col < 5; col++)
                         {
-                            for (int col = 0; col < 5; col++)
-                            {
-                                var i = row * 5 + col;
-                                var slotId = "bottleSlot" + i;
+                            var i = row * 5 + col;
+                            var slotId = "bottleSlot" + i;
 
-                                // Use the machine UID explicitly to query slots.
-                                if (_itemSlotsSystem.TryGetSlot(owner, slotId, out var slot) && !slot.HasItem)
+                            // Use the machine UID explicitly to query slots.
+                            if (_itemSlotsSystem.TryGetSlot(owner, slotId, out var slot) && !slot.HasItem)
+                            {
+                                if (_itemSlotsSystem.TryInsert(owner, slotId, moving, null))
                                 {
-                                    if (_itemSlotsSystem.TryInsert(owner, slotId, moving, null))
-                                    {
-                                        // Bottle moved successfully: pack into row-major order, update UI, and play feedback.
-                                        UpdateUiState(chemMaster);
-                                        ClickSound(chemMaster);
-                                        return;
-                                    }
+                                    // Bottle moved successfully: pack into row-major order, update UI, and play feedback.
+                                    UpdateUiState(chemMaster);
+                                    ClickSound(chemMaster);
+                                    return;
                                 }
                             }
                         }
                     }
-                    finally
-                    {
-                        if (addedGuard)
-                            _relocating.Remove(owner);
-                    }
+
                 }
 
                 // Non-bottle container (e.g. beaker) or relocation failed: refresh to show the correct input container state.
@@ -447,18 +465,15 @@ namespace Content.Server.Chemistry.EntitySystems
             }
 
             // Skip transient removal updates during controlled relocation from input slot.
-            if (_relocating.Contains(chemMaster.Owner))
-                return;
-            var owner = chemMaster.Owner;
+            var owner = chemMaster;
             // Determine which slot triggered the removal by container ID.
             // Only repack if the removal came from one of the bottle grid slots (bottleSlot0..19).
             var containerId = args.Container?.ID;
             var removedFromBottleSlot = containerId != null && containerId.StartsWith("bottleSlot");
 
-            if (removedFromBottleSlot)
+            if (removedFromBottleSlot && containerId != null)
             {
-                var removeId = "bottleSlot" + containerId;
-                if (_itemSlotsSystem.TryGetSlot(owner, removeId, out var slot) && slot.Item.HasValue)
+                if (_itemSlotsSystem.TryGetSlot(owner, containerId, out var slot) && slot.Item.HasValue)
                     _itemSlotsSystem.TryEject(owner, slot, null, out _, excludeUserAudio: true);
             }
 
@@ -519,7 +534,7 @@ namespace Content.Server.Chemistry.EntitySystems
                 var selectedContainerIndex = chemMaster.Comp.SelectedPillCanisterForCreation;
                 var slotId = "pillContainerSlot" + selectedContainerIndex;
 
-                if (_itemSlotsSystem.TryGetSlot(chemMaster.Owner, slotId, out var slot) && slot.Item.HasValue)
+                if (_itemSlotsSystem.TryGetSlot(chemMaster, slotId, out var slot) && slot.Item.HasValue)
                 {
                     var pillContainer = slot.Item.Value;
 
@@ -544,7 +559,7 @@ namespace Content.Server.Chemistry.EntitySystems
                 {
                     var slotId = "pillContainerSlot" + containerIndex;
 
-                    if (_itemSlotsSystem.TryGetSlot(chemMaster.Owner, slotId, out var slot) && slot.Item.HasValue)
+                    if (_itemSlotsSystem.TryGetSlot(chemMaster, slotId, out var slot) && slot.Item.HasValue)
                     {
                         var pillContainer = slot.Item.Value;
 
@@ -591,8 +606,17 @@ namespace Content.Server.Chemistry.EntitySystems
                 if (!_solutionContainerSystem.TryGetSolution(container.Value, SharedChemMaster.BottleSolutionName, out containerSoln, out containerSolution))
                     return;
             }
-            // When transferring from SelectedBottleForFill (legacy support)
-            else if (chemMaster.Comp.SelectedBottleForFill >= 0 && chemMaster.Comp.StoredBottles[chemMaster.Comp.SelectedBottleForFill] is { } slotBottle)
+            // When transferring from input container, always use input slot (ignore selected bottle)
+            else if (!fromBuffer)
+            {
+                container = _itemSlotsSystem.GetItemOrNull(chemMaster, SharedChemMaster.InputSlotName);
+                if (container is null ||
+                    !_solutionContainerSystem.TryGetFitsInDispenser(container.Value, out var containerEntity, out containerSolution))
+                    return;
+                containerSoln = containerEntity;
+            }
+            // When transferring from SelectedBottleForFill (legacy support) - only if fromBuffer is true
+            else if (fromBuffer && chemMaster.Comp.SelectedBottleForFill >= 0 && chemMaster.Comp.StoredBottles[chemMaster.Comp.SelectedBottleForFill] is { } slotBottle)
             {
                 container = slotBottle;
                 if (!_solutionContainerSystem.TryGetSolution(container.Value, SharedChemMaster.BottleSolutionName, out containerSoln, out containerSolution))
@@ -607,7 +631,7 @@ namespace Content.Server.Chemistry.EntitySystems
                 containerSoln = containerEntity;
             }
 
-            if (!_solutionContainerSystem.TryGetSolution(chemMaster.Owner, SharedChemMaster.BufferSolutionName, out _, out var bufferSolution))
+            if (!_solutionContainerSystem.TryGetSolution((EntityUid)chemMaster, SharedChemMaster.BufferSolutionName, out _, out var bufferSolution))
                 return;
 
             if (fromBuffer) // Buffer to container
@@ -642,7 +666,7 @@ namespace Content.Server.Chemistry.EntitySystems
         {
             if (fromBuffer)
             {
-                if (!_solutionContainerSystem.TryGetSolution(chemMaster.Owner, SharedChemMaster.BufferSolutionName, out var bufferEntity, out var bufferSolution))
+                if (!_solutionContainerSystem.TryGetSolution((EntityUid)chemMaster, SharedChemMaster.BufferSolutionName, out var bufferEntity, out var bufferSolution))
                     return;
 
                 var solution = bufferSolution;
@@ -771,7 +795,7 @@ namespace Content.Server.Chemistry.EntitySystems
                 }
 
                 // Withdraw proportional amounts from buffer
-                if (!_solutionContainerSystem.TryGetSolution(chemMaster.Owner, SharedChemMaster.BufferSolutionName, out _, out var bufferSolution))
+                if (!_solutionContainerSystem.TryGetSolution((EntityUid)chemMaster, SharedChemMaster.BufferSolutionName, out _, out var bufferSolution))
                     return;
 
                 if (bufferSolution.Volume == 0)
@@ -1093,7 +1117,7 @@ namespace Content.Server.Chemistry.EntitySystems
                 }
 
                 // Withdraw proportional amounts from buffer
-                if (!_solutionContainerSystem.TryGetSolution(chemMaster.Owner, SharedChemMaster.BufferSolutionName, out _, out var bufferSolution))
+                if (!_solutionContainerSystem.TryGetSolution((EntityUid)chemMaster, SharedChemMaster.BufferSolutionName, out _, out var bufferSolution))
                     return;
 
                 if (bufferSolution.Volume == 0)
@@ -1293,7 +1317,7 @@ namespace Content.Server.Chemistry.EntitySystems
         {
             outputSolution = null;
 
-            if (!_solutionContainerSystem.TryGetSolution(chemMaster.Owner, SharedChemMaster.BufferSolutionName, out _, out var solution))
+            if (!_solutionContainerSystem.TryGetSolution((EntityUid)chemMaster, SharedChemMaster.BufferSolutionName, out _, out var solution))
                 return false;
 
             if (solution.Volume == 0)
@@ -1532,8 +1556,8 @@ namespace Content.Server.Chemistry.EntitySystems
                 if (slot >= chemMaster.Comp.StoredBottles.Count)
                     continue;
                 var slotName = $"bottleSlot{slot}";
-                if (_itemSlotsSystem.TryGetSlot(chemMaster.Owner, slotName, out var itemSlot))
-                    _itemSlotsSystem.TryEject(chemMaster.Owner, itemSlot, message.Actor, out _, excludeUserAudio: true);
+                if (_itemSlotsSystem.TryGetSlot((EntityUid)chemMaster, slotName, out var itemSlot))
+                    _itemSlotsSystem.TryEject((EntityUid)chemMaster, itemSlot, message.Actor, out _, excludeUserAudio: true);
             }
             UpdateUiState(chemMaster);
         }
@@ -1674,9 +1698,9 @@ namespace Content.Server.Chemistry.EntitySystems
             if (message.SlotId.StartsWith("pillContainerSlot") && int.TryParse(message.SlotId.Replace("pillContainerSlot", ""), out int canisterIndex) && canisterIndex >= 0 && canisterIndex < 3)
             {
                 var slotId = $"pillContainerSlot{canisterIndex}";
-                if (_itemSlotsSystem.TryGetSlot(chemMaster.Owner, slotId, out var slot) && slot.Item.HasValue)
+                if (_itemSlotsSystem.TryGetSlot(chemMaster, slotId, out var slot) && slot.Item.HasValue)
                 {
-                    _itemSlotsSystem.TryEject(chemMaster.Owner, slot, message.Actor, out _, excludeUserAudio: true);
+                    _itemSlotsSystem.TryEject((EntityUid)chemMaster, slot, message.Actor, out _, excludeUserAudio: true);
                 }
 
                 UpdateUiState(chemMaster);
@@ -1688,7 +1712,7 @@ namespace Content.Server.Chemistry.EntitySystems
         private void OnSelectReagentAmountMessage(Entity<ChemMasterComponent> chemMaster, ref ChemMasterSelectReagentAmountMessage message)
         {
             // Validate: check if the user is trying to select more than available in buffer
-            if (!_solutionContainerSystem.TryGetSolution(chemMaster.Owner, SharedChemMaster.BufferSolutionName, out _, out var bufferSolution))
+            if (!_solutionContainerSystem.TryGetSolution((EntityUid)chemMaster, SharedChemMaster.BufferSolutionName, out _, out var bufferSolution))
                 return;
 
             var availableInBuffer = bufferSolution.GetReagentQuantity(message.Reagent);

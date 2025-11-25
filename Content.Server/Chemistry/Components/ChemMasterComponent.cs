@@ -40,7 +40,7 @@ namespace Content.Server.Chemistry.Components
         [DataField]
         public List<int> Amounts = new()
         {
-            1, 5, 10, 15, 20, 30, 50, 100
+            1, 5, 10, 15, 20, 30, 50, 100, 200, 300, 500, 1000
         };
 
         // Pill container storage - 3 containers with 10 slots each (3x10 grid)

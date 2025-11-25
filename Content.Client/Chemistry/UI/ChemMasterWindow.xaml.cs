@@ -54,7 +54,7 @@ namespace Content.Client.Chemistry.UI
         public event Action<ReagentId, int>? OnTransferReagentFromBottle;
 
         // UI State
-        public bool IsOutputTab => OutputTabs.CurrentTab == 0; // True for bottles tab, false for pills tab
+        public bool IsOutputTab => Tabs.CurrentTab == 1; // True for output tab (Выход), false for buffer tab
         private bool _deleteMode = false;
 
         // Pill container buttons (3 containers × 10 slots each = 30 buttons)
@@ -69,7 +69,7 @@ namespace Content.Client.Chemistry.UI
 
         // Configuration Constants
         private const string TransferringAmountColor = "#ffffff";
-        private const int MaxAmountButtons = 16;
+        private const int MaxAmountButtons = 20;
         private const string PillsRsiPath = "/Textures/Objects/Specific/Chemistry/pills.rsi";
 
         // Dosage and quantity limits
@@ -308,11 +308,11 @@ namespace Content.Client.Chemistry.UI
 
             // Tabs.SetTabTitle(1, Loc.GetString("chem-master-window-output-tab")); // ADT-Tweak: Cutted
 
-            // Set titles for the new output tabs
-            OutputTabs.SetTabTitle(0, Loc.GetString("chem-master-window-bottles-tab"));
-            OutputTabs.SetTabTitle(1, Loc.GetString("chem-master-window-pills-tab"));
-            // Update label when switching between bottles and pills tabs
-            OutputTabs.OnTabChanged += _ => UpdateLabelFromState();
+            // Set titles for the main tabs
+            Tabs.SetTabTitle(0, Loc.GetString("chem-master-window-buffer-tab"));
+            Tabs.SetTabTitle(1, Loc.GetString("chem-master-window-output-tab"));
+            // Update label when switching between tabs
+            Tabs.OnTabChanged += _ => UpdateLabelFromState();
 
             SortMethod.AddItem(
                 Loc.GetString("chem-master-window-sort-method-Amount-text"),
@@ -345,7 +345,7 @@ namespace Content.Client.Chemistry.UI
         {
             var reagentTransferButton = new ReagentButton(text, id, isBuffer);
             reagentTransferButton.OnPressed += args
-                => OnReagentButtonPressed?.Invoke(args, reagentTransferButton, _transferAmount, OutputTabs.CurrentTab == 0);  //ADT-Tweak:
+                => OnReagentButtonPressed?.Invoke(args, reagentTransferButton, _transferAmount, IsOutputTab);  //ADT-Tweak:
             return reagentTransferButton;
         }
 
@@ -950,6 +950,11 @@ namespace Content.Client.Chemistry.UI
             {
                 _prototypeManager.TryIndex(reagent.Reagent.Prototype, out ReagentPrototype? proto);
                 var name = proto?.LocalizedName ?? Loc.GetString("chem-master-window-unknown-reagent-text");
+                // ADT-Tweak: Abbreviate name if it's longer than 17 characters
+                if (name.Length > 17)
+                {
+                    name = AbbreviateReagentName(name);
+                }
                 var reagentColor = proto?.SubstanceColor ?? default(Color);
 
                 var row = BuildSimpleReagentRow(reagentColor, rowCount++, name, reagent.Quantity, reagent.Reagent);
@@ -1188,9 +1193,10 @@ namespace Content.Client.Chemistry.UI
             if (state.SelectedReagentAmounts == null || state.SelectedReagentAmounts.Count == 0)
                 return "";
 
-            // Determine if we're on bottles or pills tab
-            bool isBottles = IsOutputTab;
-            uint dosage = isBottles ? (uint)BottleDosage.Value : (uint)PillDosage.Value;
+            // Determine if we're on output tab (Выход) - use bottles dosage by default
+            // Note: Both bottles and pills interfaces are now in the same tab
+            bool isOutputTab = IsOutputTab;
+            uint dosage = isOutputTab ? (uint)BottleDosage.Value : (uint)PillDosage.Value;
 
             if (dosage == 0)
                 return "";
@@ -1238,7 +1244,12 @@ namespace Content.Client.Chemistry.UI
                 // Try to get reagent prototype for the name
                 if (_prototypeManager.TryIndex<ReagentPrototype>(reagentId.Prototype, out var reagentProto))
                 {
-                    var reagentName = Loc.GetString(reagentProto.LocalizedName);
+                    var reagentName = reagentProto.LocalizedName;
+                    // ADT-Tweak: Abbreviate name if it's longer than 17 characters
+                    if (reagentName.Length > 17)
+                    {
+                        reagentName = AbbreviateReagentName(reagentName);
+                    }
                     parts.Add($"{reagentName}:{amount:F0}u");
                 }
             }
@@ -1369,6 +1380,11 @@ namespace Content.Client.Chemistry.UI
                 _prototypeManager.TryIndex(reagentId.Prototype, out ReagentPrototype? proto);
 
                 var name = proto?.LocalizedName ?? Loc.GetString("chem-master-window-unknown-reagent-text");
+                // ADT-Tweak: Abbreviate name if it's longer than 17 characters
+                if (name.Length > 17)
+                {
+                    name = AbbreviateReagentName(name);
+                }
                 var reagentColor = proto?.SubstanceColor ?? default;
 
                 var row = BuildReagentRow(
@@ -1383,6 +1399,52 @@ namespace Content.Client.Chemistry.UI
                 BufferInfo.Children.Add(row);
             }
             // ADT-Tweak End
+        }
+
+
+        ///ADT-Tweak: Abbreviates reagent name by shortening all words except the last one to 3 letters with a period.
+        // Automatically applied when reagent name length exceeds 17 characters.
+        private string AbbreviateReagentName(string fullName)
+        {
+            if (string.IsNullOrWhiteSpace(fullName))
+                return fullName;
+
+            var words = fullName.Split(new[] { ' ', '\t', '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries);
+
+            if (words.Length == 0)
+                return fullName;
+
+            // If there's only one word, remove 5 characters from the end
+            if (words.Length == 1)
+            {
+                var word = words[0];
+                if (word.Length > 5)
+                    return word.Substring(0, word.Length - 5);
+                return word;
+            }
+
+            var abbreviatedWords = new List<string>();
+
+            // Abbreviate all words except the last one
+            for (int i = 0; i < words.Length - 1; i++)
+            {
+                var word = words[i];
+                if (word.Length <= 3)
+                {
+                    // Word is 3 characters or less, don't modify it
+                    abbreviatedWords.Add(word);
+                }
+                else
+                {
+                    // Take first 3 characters and add dot
+                    abbreviatedWords.Add(word.Substring(0, 3) + ".");
+                }
+            }
+
+            // Last word stays as is
+            abbreviatedWords.Add(words[words.Length - 1]);
+
+            return string.Join(" ", abbreviatedWords);
         }
 
         private void BuildContainerUI(Control control, ContainerInfo? info, bool addReagentButtons)
@@ -1431,6 +1493,11 @@ namespace Content.Client.Chemistry.UI
                 {
                     _prototypeManager.TryIndex(reagent.Reagent.Prototype, out ReagentPrototype? proto);
                     var name = proto?.LocalizedName ?? Loc.GetString("chem-master-window-unknown-reagent-text");
+                    // ADT-Tweak: Abbreviate name if it's longer than 17 characters
+                    if (name.Length > 17)
+                    {
+                        name = AbbreviateReagentName(name);
+                    }
                     var reagentColor = proto?.SubstanceColor ?? default(Color);
 
                     control.Children.Add(BuildReagentRow(reagentColor, rowCount++, name, reagent.Reagent, reagent.Quantity, false, addReagentButtons));
@@ -1547,9 +1614,6 @@ namespace Content.Client.Chemistry.UI
 
                     rowContainer.AddChild(leftContainer);
 
-                    // Add color panel after selected label
-                    rowContainer.AddChild(colorPanel);
-
                     // Buttons container
                     var buttonsContainer = new BoxContainer
                     {
@@ -1557,12 +1621,12 @@ namespace Content.Client.Chemistry.UI
                         VerticalExpand = true
                     };
 
-                    // Select button
+                    // Select button (green with checkmark)
                     var selectButton = new Button()
                     {
-                        Text = Loc.GetString("chem-master-window-select-button"),
-                        StyleClasses = { StyleBase.ButtonSquare },
-                        MinSize = new Vector2(60, 0)
+                        Text = "✓",
+                        StyleClasses = { StyleNano.StyleClassButtonColorGreen, StyleBase.ButtonSquare },
+                        MinSize = new Vector2(30, 0)
                     };
 
                     selectButton.OnPressed += _ =>
@@ -1584,12 +1648,12 @@ namespace Content.Client.Chemistry.UI
 
                     buttonsContainer.AddChild(selectButton);
 
-                    // Remove button
+                    // Remove button (red with cross)
                     var removeButton = new Button()
                     {
-                        Text = Loc.GetString("chem-master-window-remove-button"),
-                        StyleClasses = { StyleBase.ButtonSquare },
-                        MinSize = new Vector2(60, 0)
+                        Text = "✗",
+                        StyleClasses = { StyleNano.StyleClassButtonColorRed, StyleBase.ButtonSquare },
+                        MinSize = new Vector2(30, 0)
                     };
 
                     removeButton.OnPressed += _ =>
@@ -1611,6 +1675,9 @@ namespace Content.Client.Chemistry.UI
                     buttonsContainer.AddChild(removeButton);
 
                     rowContainer.AddChild(buttonsContainer);
+
+                    // Add color panel after buttons
+                    rowContainer.AddChild(colorPanel);
                 }
                 else
                 {
