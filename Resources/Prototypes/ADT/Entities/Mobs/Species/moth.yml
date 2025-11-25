@@ -151,7 +151,7 @@
     short: true
     shortscale: 0.85
   - type: DashAction # Goobstation - dark souls moths
-    actionProto: ActionDashMoth
+    actionProto: ADTActionDashMoth
 
 - type: entity
   parent: BaseSpeciesDummy

@@ -2,7 +2,7 @@ using Content.Shared.Actions;
 using Content.Shared.Chat.Prototypes;
 using Robust.Shared.Prototypes;
 
-namespace Content.ADT.Shared.Dash;
+namespace Content.Shared.ADT.Dash;
 
 [RegisterComponent]
 public sealed partial class DashActionComponent : Component

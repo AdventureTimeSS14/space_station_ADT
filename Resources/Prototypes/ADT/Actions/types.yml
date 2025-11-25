@@ -56,7 +56,7 @@
       event: !type:MorphIntoGeras
 
 - type: entity
-  id: ActionDashMoth
+  id: ADTActionDashMoth
   name: Wing dash
   description: Sharply flap your wings, dashing to the side!
   categories: [ HideSpawnMenu ]

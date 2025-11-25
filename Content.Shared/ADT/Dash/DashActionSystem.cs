@@ -3,7 +3,7 @@ using Content.Shared.Gravity;
 using Content.Shared.Movement.Components;
 using Content.Shared.Throwing;
 
-namespace Content.ADT.Shared.Dash;
+namespace Content.Shared.ADT.Dash;
 
 public sealed class DashActionSystem : EntitySystem
 {
