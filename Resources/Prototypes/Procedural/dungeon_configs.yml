@@ -298,7 +298,6 @@
 # Basic
 - type: entityTable
   id: BaseClutter
-  sizeTag: MediumMagnetTargets
   table: !type:GroupSelector
     children:
     - id: PottedPlantRandom
