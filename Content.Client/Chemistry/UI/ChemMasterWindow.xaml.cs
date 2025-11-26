@@ -42,7 +42,6 @@ namespace Content.Client.Chemistry.UI
         public event Action<ReagentId, int>? OnSelectReagentAmount;
         public event Action<ReagentId, int>? OnRemoveReagentAmount;
         public event Action<ReagentId>? OnClearReagentAmount;
-        public event Action<int>? OnBottleSlotSelected;
         public event Action<int>? OnToggleBottleFillPressed;
         public event Action<int>? OnBottleSlotEjectPressed;
         public event Action<int>? OnRowEjectPressed;
@@ -248,7 +247,7 @@ namespace Content.Client.Chemistry.UI
                 var chooseButton = new Button
                 {
                     Text = Loc.GetString("chem-master-window-pill-canister-choose-button"),
-                    StyleClasses = { StyleBase.ButtonCaution },
+                    StyleClasses = { StyleNano.StyleClassButtonColorGreen },
                     MinSize = new Vector2(105, 30),
                     MaxSize = new Vector2(105, 30),
                     ToggleMode = true,
@@ -267,20 +266,22 @@ namespace Content.Client.Chemistry.UI
                     var mainButton = new Button
                     {
                         StyleClasses = { StyleBase.ButtonSquare },
-                        ToggleMode = false,
+                        ToggleMode = true,
                         Margin = new Thickness(2),
                         MinSize = new Vector2(28, 28),
                         MaxSize = new Vector2(28, 28),
                         Disabled = true
                     };
 
+                    var slotIndex = i;
+                    mainButton.OnPressed += _ => OnPillContainerSlotSelected?.Invoke(slotIndex);
                     PillContainerStorageButtons[i] = mainButton;
                     PillContainerStorageGrid.AddChild(mainButton);
                 }
 
                 var ejectButton = new Button
                 {
-                    Text = Loc.GetString("chem-master-window-pill-canister-eject-button"),
+                    Text = Loc.GetString("chem-master-window-eject-row-button"),
                     StyleClasses = { StyleBase.ButtonCaution },
                     MinSize = new Vector2(105, 30),
                     MaxSize = new Vector2(105, 30),
@@ -303,8 +304,6 @@ namespace Content.Client.Chemistry.UI
             // Track focus to prevent overwriting user input
             LabelLineEdit.OnFocusEnter += _ => _labelLineEditFocused = true;
             LabelLineEdit.OnFocusExit += _ => _labelLineEditFocused = false;
-
-            Tabs.SetTabTitle(0, Loc.GetString("chem-master-window-buffer-text-label"));
 
             // Tabs.SetTabTitle(1, Loc.GetString("chem-master-window-output-tab")); // ADT-Tweak: Cutted
 
@@ -615,7 +614,14 @@ namespace Content.Client.Chemistry.UI
                         chooseButton.Pressed = isSelected;
 
                         // Change background color using Modulate
-                        chooseButton.Modulate = isSelected ? Color.LimeGreen : Color.Green;
+                        if (isSelected)
+                        {
+                            chooseButton.Modulate = Color.LimeGreen;
+                        }
+                        else
+                        {
+                            chooseButton.Modulate = Color.White; // Reset to default (no modulation)
+                        }
 
                         // Keep text color always white by overriding Label's modulate
                         if (chooseButton.Label != null)
@@ -789,6 +795,7 @@ namespace Content.Client.Chemistry.UI
 
             UpdateBottleStorage(castState);
             UpdatePillContainerStorage(castState);
+            UpdatePillContainerContents(castState);
             UpdatePillCanisterButtonStates();
             // ADT-Tweak-End
         }
@@ -885,11 +892,11 @@ namespace Content.Client.Chemistry.UI
                     // Enable toggle mode when bottle is present
                     button.ToggleMode = true;
 
-                    button.Pressed = state.SelectedBottleSlot == i || state.SelectedBottleForFill == i;
+                    button.Pressed = state.SelectedBottleForFill == i;
                 }
                 else
                 {
-                    button.Text = Loc.GetString("chem-master-window-bottle-storage-empty");
+                    button.Text = Loc.GetString("chem-master-window-storage-empty");
                     button.Modulate = Color.Gray;
                     button.Pressed = false;
                     // Disable toggle mode when slot is empty
@@ -940,7 +947,7 @@ namespace Content.Client.Chemistry.UI
             // Check if bottle has reagents
             if (bottleInfo.Reagents == null || !bottleInfo.Reagents.Any())
             {
-                BottleContentsInfo.Children.Add(new Label { Text = Loc.GetString("chem-master-window-bottle-storage-empty") });
+                BottleContentsInfo.Children.Add(new Label { Text = Loc.GetString("chem-master-window-storage-empty") });
                 return;
             }
 
@@ -964,7 +971,7 @@ namespace Content.Client.Chemistry.UI
         // ADT-Tweak End
 
         // ADT-Tweak Start: Build a simplified reagent row for bottle contents display with only name, quantity, color control, and transfer button
-        private Control BuildSimpleReagentRow(Color reagentColor, int rowCount, string name, FixedPoint2 quantity, ReagentId reagentId)
+        private Control BuildSimpleReagentRow(Color reagentColor, int rowCount, string name, FixedPoint2 quantity, ReagentId reagentId, bool addTransferButton = true)
         {
             // Colors for alternating rows
             var rowColor1 = Color.FromHex("#1B1B1E");
@@ -1018,26 +1025,29 @@ namespace Content.Client.Chemistry.UI
                 Margin = new Thickness(0, 1)
             };
 
-            var transferButton = new Button
-            {
-                Text = "↑",
-                MinWidth = 30,
-                MaxWidth = 30,
-                StyleClasses = { StyleBase.ButtonOpenLeft }
-            };
-            // Make button text bold
-            if (transferButton.Label != null)
-            {
-                var resCache = IoCManager.Resolve<IResourceCache>();
-                var boldFont = resCache.NotoStack(variation: "Bold", size: 12);
-                transferButton.Label.FontOverride = boldFont;
-            }
-            transferButton.OnPressed += _ => OnTransferReagentFromBottle?.Invoke(reagentId, _transferAmount);
-
-
             rowContainer.AddChild(statsContainer);
             rowContainer.AddChild(colorPanel);
-            rowContainer.AddChild(transferButton);
+
+            // Add transfer button only if requested (not for pills)
+            if (addTransferButton)
+            {
+                var transferButton = new Button
+                {
+                    Text = "↑",
+                    MinWidth = 30,
+                    MaxWidth = 30,
+                    StyleClasses = { StyleBase.ButtonOpenLeft }
+                };
+                // Make button text bold
+                if (transferButton.Label != null)
+                {
+                    var resCache = IoCManager.Resolve<IResourceCache>();
+                    var boldFont = resCache.NotoStack(variation: "Bold", size: 12);
+                    transferButton.Label.FontOverride = boldFont;
+                }
+                transferButton.OnPressed += _ => OnTransferReagentFromBottle?.Invoke(reagentId, _transferAmount);
+                rowContainer.AddChild(transferButton);
+            }
 
             // Wrap in panel container for striped row background
             return new PanelContainer
@@ -1151,6 +1161,8 @@ namespace Content.Client.Chemistry.UI
 
                         // Enable toggle mode when container is present
                         button.Disabled = false;
+                        // Update pressed state based on selection
+                        button.Pressed = state.SelectedPillContainerSlot == i;
                     }
                     else
                     {
@@ -1158,7 +1170,7 @@ namespace Content.Client.Chemistry.UI
                         button.Children.Clear();
                         button.Modulate = Color.LightGray;
                         button.Disabled = true;
-
+                        button.Pressed = false;
                     }
                 }
                 else
@@ -1167,6 +1179,62 @@ namespace Content.Client.Chemistry.UI
                     button.Modulate = Color.LightGray;
                     button.Disabled = true;
                 }
+            }
+        }
+
+        private void UpdatePillContainerContents(ChemMasterBoundUserInterfaceState state)
+        {
+            PillContainerContentsInfo.Children.Clear();
+
+            if (state.SelectedPillContainerSlot < 0 || state.SelectedPillContainerSlot >= PillContainerStorageButtons.Length)
+            {
+                PillContainerContentsInfo.Children.Add(new Label { Text = Loc.GetString("chem-master-window-no-pill-selected-text") });
+                return;
+            }
+
+            var pillInfo = state.SelectedPillContainerInfo;
+            if (pillInfo == null)
+            {
+                PillContainerContentsInfo.Children.Add(new Label { Text = Loc.GetString("chem-master-window-no-pill-selected-text") });
+                return;
+            }
+
+            // Header - only show volume info (same as bottles)
+            var headerHBox = new BoxContainer
+            {
+                Orientation = LayoutOrientation.Horizontal
+            };
+            headerHBox.AddChild(new Label
+            {
+                Text = Loc.GetString("chem-master-window-pill-label",
+                    ("current", pillInfo.CurrentVolume),
+                    ("max", pillInfo.MaxVolume)),
+                StyleClasses = { StyleNano.StyleClassLabelSecondaryColor }
+            });
+            PillContainerContentsInfo.AddChild(headerHBox);
+
+            // Check if pill has reagents (same as bottles)
+            if (pillInfo.Reagents == null || !pillInfo.Reagents.Any())
+            {
+                PillContainerContentsInfo.Children.Add(new Label { Text = Loc.GetString("chem-master-window-storage-empty") });
+                return;
+            }
+
+            // Reagents - using simple rows (same as bottles)
+            int rowCount = 0;
+            foreach (var reagent in pillInfo.Reagents)
+            {
+                _prototypeManager.TryIndex(reagent.Reagent.Prototype, out ReagentPrototype? proto);
+                var name = proto?.LocalizedName ?? Loc.GetString("chem-master-window-unknown-reagent-text");
+                // ADT-Tweak: Abbreviate name if it's longer than 17 characters
+                if (name.Length > 17)
+                {
+                    name = AbbreviateReagentName(name);
+                }
+                var reagentColor = proto?.SubstanceColor ?? default(Color);
+
+                var row = BuildSimpleReagentRow(reagentColor, rowCount++, name, reagent.Quantity, reagent.Reagent, addTransferButton: false);
+                PillContainerContentsInfo.AddChild(row);
             }
         }
         // ADT-Tweak End
@@ -1509,6 +1577,67 @@ namespace Content.Client.Chemistry.UI
         /// </summary>
         private Control BuildReagentRow(Color reagentColor, int rowCount, string name, ReagentId reagent, FixedPoint2 quantity, bool isBuffer, bool addReagentButtons, ChemMasterBoundUserInterfaceState? state = null)
         {
+            // ADT-Tweak Start: Create select and remove buttons at the beginning
+            Button? selectButton = null;
+            Button? removeButton = null;
+            Control? buttonsSpacing = null;
+
+            if (isBuffer && reagent != default)
+            {
+                // Select button (green with checkmark)
+                selectButton = new Button()
+                {
+                    Text = "✓",
+                    StyleClasses = { StyleNano.StyleClassButtonColorGreen, StyleBase.ButtonSquare },
+                    MinSize = new Vector2(30, 0)
+                };
+
+                selectButton.OnPressed += _ =>
+                {
+                    // Ensure we use the most up-to-date transfer amount
+                    // If user entered a new value in AmountLineEdit but didn't press Enter,
+                    // try to parse it and use it
+                    var amountToUse = _transferAmount;
+                    if (!string.IsNullOrWhiteSpace(AmountLineEdit.Text) &&
+                        int.TryParse(AmountLineEdit.Text, out var parsedAmount) &&
+                        parsedAmount > 0)
+                    {
+                        amountToUse = parsedAmount;
+                        SetAmountText(AmountLineEdit.Text, true);
+                        amountToUse = _transferAmount;
+                    }
+                    OnSelectReagentAmount?.Invoke(reagent, amountToUse);
+                };
+
+                // Remove button (red with cross)
+                removeButton = new Button()
+                {
+                    Text = "✗",
+                    StyleClasses = { StyleNano.StyleClassButtonColorRed, StyleBase.ButtonSquare },
+                    MinSize = new Vector2(30, 0)
+                };
+
+                removeButton.OnPressed += _ =>
+                {
+                    // Ensure we use the most up-to-date transfer amount
+                    var amountToUse = _transferAmount;
+                    if (!string.IsNullOrWhiteSpace(AmountLineEdit.Text) &&
+                        int.TryParse(AmountLineEdit.Text, out var parsedAmount) &&
+                        parsedAmount > 0)
+                    {
+                        amountToUse = parsedAmount;
+                        // Update _transferAmount and validate
+                        SetAmountText(AmountLineEdit.Text, true);
+                        amountToUse = _transferAmount; // Use the validated amount
+                    }
+                    OnRemoveReagentAmount?.Invoke(reagent, amountToUse);
+                };
+
+                // Spacing after remove button
+                buttonsSpacing = new Control { MinSize = new Vector2(15, 0) };
+            }
+            // ADT-Tweak End
+
             //Colors rows and sets fallback for reagentcolor to the same as background, this will hide colorPanel for entities hopefully
             var rowColor1 = Color.FromHex("#1B1B1E");
             var rowColor2 = Color.FromHex("#202025");
@@ -1550,6 +1679,16 @@ namespace Content.Client.Chemistry.UI
 
             // Padding
             var padding = new Control { HorizontalExpand = true };
+
+            // Add select and remove buttons at the very beginning if they exist
+            if (selectButton != null)
+                rowContainer.AddChild(selectButton);
+
+            if (removeButton != null)
+                rowContainer.AddChild(removeButton);
+
+            if (buttonsSpacing != null)
+                rowContainer.AddChild(buttonsSpacing);
 
             rowContainer.AddChild(statsContainer);
             rowContainer.AddChild(padding);
@@ -1600,81 +1739,20 @@ namespace Content.Client.Chemistry.UI
                     // Check if this reagent has a selected amount
                     var currentState = state ?? _lastState;
 
-                    // Initialize text
-                    selectedLabel.Text = Loc.GetString("chem-master-window-reagent-empty");
 
                     // Use the existing TryGetSelectedAmount method which handles comparison properly
                     if (TryGetSelectedAmount(reagent, currentState, out var selectedAmount))
                     {
+                        var roundedAmount = Math.Round(selectedAmount, 2);
                         selectedLabel.Text = Loc.GetString("chem-master-window-reagent-selected",
-                            ("amount", selectedAmount));
+                            ("amount", roundedAmount));
                     }
 
                     leftContainer.AddChild(selectedLabel);
 
                     rowContainer.AddChild(leftContainer);
 
-                    // Buttons container
-                    var buttonsContainer = new BoxContainer
-                    {
-                        Orientation = LayoutOrientation.Horizontal,
-                        VerticalExpand = true
-                    };
-
-                    // Select button (green with checkmark)
-                    var selectButton = new Button()
-                    {
-                        Text = "✓",
-                        StyleClasses = { StyleNano.StyleClassButtonColorGreen, StyleBase.ButtonSquare },
-                        MinSize = new Vector2(30, 0)
-                    };
-
-                    selectButton.OnPressed += _ =>
-                    {
-                        // Ensure we use the most up-to-date transfer amount
-                        // If user entered a new value in AmountLineEdit but didn't press Enter,
-                        // try to parse it and use it
-                        var amountToUse = _transferAmount;
-                        if (!string.IsNullOrWhiteSpace(AmountLineEdit.Text) &&
-                            int.TryParse(AmountLineEdit.Text, out var parsedAmount) &&
-                            parsedAmount > 0)
-                        {
-                            amountToUse = parsedAmount;
-                            SetAmountText(AmountLineEdit.Text, true);
-                            amountToUse = _transferAmount;
-                        }
-                        OnSelectReagentAmount?.Invoke(reagent, amountToUse);
-                    };
-
-                    buttonsContainer.AddChild(selectButton);
-
-                    // Remove button (red with cross)
-                    var removeButton = new Button()
-                    {
-                        Text = "✗",
-                        StyleClasses = { StyleNano.StyleClassButtonColorRed, StyleBase.ButtonSquare },
-                        MinSize = new Vector2(30, 0)
-                    };
-
-                    removeButton.OnPressed += _ =>
-                    {
-                        // Ensure we use the most up-to-date transfer amount
-                        var amountToUse = _transferAmount;
-                        if (!string.IsNullOrWhiteSpace(AmountLineEdit.Text) &&
-                            int.TryParse(AmountLineEdit.Text, out var parsedAmount) &&
-                            parsedAmount > 0)
-                        {
-                            amountToUse = parsedAmount;
-                            // Update _transferAmount and validate
-                            SetAmountText(AmountLineEdit.Text, true);
-                            amountToUse = _transferAmount; // Use the validated amount
-                        }
-                        OnRemoveReagentAmount?.Invoke(reagent, amountToUse);
-                    };
-
-                    buttonsContainer.AddChild(removeButton);
-
-                    rowContainer.AddChild(buttonsContainer);
+                    // Buttons are already added at the beginning of rowContainer, so we don't need to add them here
 
                     // Add color panel after buttons
                     rowContainer.AddChild(colorPanel);

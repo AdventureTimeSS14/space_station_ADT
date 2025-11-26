@@ -64,9 +64,6 @@ namespace Content.Server.Chemistry.Components
         public List<EntityUid?> StoredBottles = new();
 
         [DataField]
-        public int SelectedBottleSlot = -1;
-
-        [DataField]
         public int SelectedBottleForFill = -1;
 
         [DataField]

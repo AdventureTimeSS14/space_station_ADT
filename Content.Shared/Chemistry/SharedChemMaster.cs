@@ -108,17 +108,6 @@ namespace Content.Shared.Chemistry
 
     //Bottle buttons reagent transfer
     [Serializable, NetSerializable]
-    public sealed class ChemMasterSelectBottleSlotMessage : BoundUserInterfaceMessage
-    {
-        public readonly int Slot;
-
-        public ChemMasterSelectBottleSlotMessage(int slot)
-        {
-            Slot = slot;
-        }
-    }
-
-    [Serializable, NetSerializable]
     public sealed class ChemMasterChooseReagentMessage : BoundUserInterfaceMessage
     {
         public ReagentId Reagent;
@@ -315,9 +304,9 @@ namespace Content.Shared.Chemistry
         int selectedPillContainerForFill,
         int selectedPillCanisterForCreation,
         ReagentId? selectedReagent,
+        ContainerInfo? selectedPillContainerInfo,
         // Bottle container storage
         List<ContainerInfo?> storedBottles,
-        int selectedBottleSlot,
         int selectedBottleForFill,
         List<ReagentId> selectedReagentsForBottles,
         Dictionary<ReagentId, float> selectedReagentAmounts)
@@ -351,9 +340,9 @@ namespace Content.Shared.Chemistry
         public readonly int SelectedPillContainerForFill = selectedPillContainerForFill;
         public readonly int SelectedPillCanisterForCreation = selectedPillCanisterForCreation;
         public readonly ReagentId? SelectedReagent = selectedReagent;
+        public readonly ContainerInfo? SelectedPillContainerInfo = selectedPillContainerInfo;
         // Bottle container storage
         public readonly List<ContainerInfo?> StoredBottles = storedBottles;
-        public readonly int SelectedBottleSlot = selectedBottleSlot;
         public readonly int SelectedBottleForFill = selectedBottleForFill;
         public readonly List<ReagentId> SelectedReagentsForBottles = selectedReagentsForBottles;
         public readonly Dictionary<ReagentId, float> SelectedReagentAmounts = selectedReagentAmounts;
