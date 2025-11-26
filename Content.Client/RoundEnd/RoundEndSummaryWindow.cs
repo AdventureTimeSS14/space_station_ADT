@@ -235,11 +235,11 @@ namespace Content.Client.RoundEnd
                     var totalDamage = playerInfo.DamagePerGroup.Values.Sum(static v => (decimal) v);
                     var severityAdj = totalDamage switch
                     {
-                        >= 1000 => "catastrophic",
-                        >= 750 => "devastating",
-                        >= 500 => "agonizing",
-                        >= 300 => "painful",
-                        >= 200 => "brutal",
+                        >= 1000 => Loc.GetString("1000-death-round-end"),
+                        >= 750 => Loc.GetString("750-death-round-end"),
+                        >= 500 => Loc.GetString("500-death-round-end"),
+                        >= 300 => Loc.GetString("300-death-round-end"),
+                        >= 200 => Loc.GetString("200-death-round-end"),
                         _ => "tragic"
                     };
 
