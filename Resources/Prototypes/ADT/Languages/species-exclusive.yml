@@ -18,8 +18,6 @@
   # Spoken by the Slime race.
 - type: language
   id: Bubblish
-  roundstart: true
-  onlyUnderstand: true
   uiColor: "#61daff"
   parent: BaseVocalLanguage
   speech: !type:Generic
