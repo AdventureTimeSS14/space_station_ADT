@@ -358,6 +358,7 @@
     - ADTDurandPack
     - ADTPhazonPack
     - ADTMechEquipmentPack
+    - ADTBorgModules
     # ADT-tweak-end
   - type: MaterialStorage
     whitelist:

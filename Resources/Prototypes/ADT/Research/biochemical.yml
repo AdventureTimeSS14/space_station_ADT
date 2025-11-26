@@ -137,10 +137,18 @@
     sprite: Mobs/Silicon/chassis.rsi
     state: medical
   discipline: Biochemical
-  tier: 2 
+  tier: 2
   cost: 5000
   recipeUnlocks:
-  - BorgModuleAdvancedChemical
+  # - BorgModuleAdvancedTreatment # В прототипах такого не найдено
+  # - ADTHighVoltageDefibrillator # BorgModuleDefibrillator -> ADTHighVoltageDefibrillator. Заглушка, т.к нету BorgModuleDefibrillator
+  # закомментил строчку выше тк дефиб уже есть в другом исследовании # ADT-Tweak "MedborgModuleUpdate"
+  # ADT-Tweak-Start: "MedborgModuleUpdate"   # новые модули сделал отдельно в папке ADT
+  - BorgModuleTopicals
+  - ADTBorgModuleRescue
+  - ADTBorgModuleAdvancedChemical # позже сделаю отдельное исследование, а пока просто сделаю крафт подороже тк мне лень
+  - ADTBorgModuleChemical
+  # ADT-Tweak-end
   position: 6,0
   requiredTech:
   - ADTMedicalMODsuit
