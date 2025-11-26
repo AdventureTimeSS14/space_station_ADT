@@ -44,6 +44,8 @@
   - GalacticCommon
   - RobotTalk
   - BorgTalk
+  uniqueLanguages:
+  - RobotTalk
   maxLanguages: 6
 
 # The lack of a layer means that
