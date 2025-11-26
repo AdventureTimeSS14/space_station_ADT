@@ -12,24 +12,25 @@ namespace Content.Server.ADT.AlertAccessLevel;
 
 public sealed class AlertAccessLevel : SharedAlertAccessLevel
 {
-    private static ProtoId<DepartmentPrototype> _department = "Security";
+    private static ProtoId<DepartmentPrototype> _secdepartment = "Security";
+    private static ProtoId<DepartmentPrototype> _engdepartment = "Engineering";
     private static ProtoId<AccessLevelPrototype> _extended = "ADTExtended";
+    private static List<string> _noSecAccessCode = ["purple", "blue", "green", "yellow"]; //он отвечает за то, когда у сб доступа не будет
+    private static List<string> _engieAccessCode = ["yellow"]; //когда у инжей есть доступы
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<AlertLevelChangedEvent>(AccessUdate);
+        SubscribeLocalEvent<AlertLevelChangedEvent>(AccessUpdate);
     }
-    private void AccessUdate(AlertLevelChangedEvent args)
+    private void AccessUpdate(AlertLevelChangedEvent args)
     {
-        ///
-        /// во все коды кроме зелёного, синего и фиолетового вылаёт сбшникам дополнительные доступы
-        ///
-        if (args.AlertLevel != "green" && args.AlertLevel != "blue" && args.AlertLevel != "purple")
+        #region sec
+        if (!_noSecAccessCode.Contains(args.AlertLevel))
         {
             var query = EntityQueryEnumerator<IdCardComponent>();
             while (query.MoveNext(out var uid, out var card))
             {
-                if (card.JobDepartments.Contains(_department) && TryComp<AccessComponent>(uid, out var id))
+                if (card.JobDepartments.Contains(_secdepartment) && TryComp<AccessComponent>(uid, out var id))
                 {
                     AddAccess(uid, id, _extended);
                 }
@@ -40,11 +41,37 @@ public sealed class AlertAccessLevel : SharedAlertAccessLevel
             var query = EntityQueryEnumerator<IdCardComponent>();
             while (query.MoveNext(out var uid, out var card))
             {
-                if (card.JobDepartments.Contains(_department) && TryComp<AccessComponent>(uid, out var id))
+                if (card.JobDepartments.Contains(_secdepartment) && TryComp<AccessComponent>(uid, out var id))
                 {
                     RemoveAccess(uid, id, _extended);
                 }
             }
         }
+        #endregion
+
+        #region engie
+        if (_engieAccessCode.Contains(args.AlertLevel))
+        {
+            var query = EntityQueryEnumerator<IdCardComponent>();
+            while (query.MoveNext(out var uid, out var card))
+            {
+                if (card.JobDepartments.Contains(_engdepartment) && TryComp<AccessComponent>(uid, out var id))
+                {
+                    AddAccess(uid, id, _extended);
+                }
+            }
+        }
+        else
+        {
+            var query = EntityQueryEnumerator<IdCardComponent>();
+            while (query.MoveNext(out var uid, out var card))
+            {
+                if (card.JobDepartments.Contains(_engdepartment) && TryComp<AccessComponent>(uid, out var id))
+                {
+                    RemoveAccess(uid, id, _extended);
+                }
+            }
+        }
+        #endregion
     }
 }
