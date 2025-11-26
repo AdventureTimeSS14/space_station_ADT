@@ -11,6 +11,12 @@ using Robust.Client.UserInterface.CustomControls;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Prototypes;
 using System.Linq;
+using Content.Client.ADT.SpeechBarks;
+using System.Numerics;
+using Content.Client.ADT.Bark;
+using Content.Client.UserInterface.Controls;
+using Content.Shared.ADT.SpeechBarks;
+using Robust.Shared.GameObjects;
 
 namespace Content.Client.ADT.MidroundCustomization;
 
@@ -23,27 +29,108 @@ public sealed partial class MidroundCustomizationWindow : DefaultWindow
     public Action<MarkingCategories>? OnSlotAdded;
 
     public Action<string>? OnVoiceChanged;
+    public Action<string>? OnBarkProtoChanged;
+    public Action<float>? OnBarkPitchChanged;
+    public Action<float>? OnBarkMinVarChanged;
+    public Action<float>? OnBarkMaxVarChanged;
+
+    private SpeechBarksSystem _barkSystem;
 
     private readonly IPrototypeManager _prototypeManager = IoCManager.Resolve<IPrototypeManager>();
     private readonly SponsorsManager _sponsorsManager = IoCManager.Resolve<SponsorsManager>();
 
+    [Dependency] private readonly IEntityManager _entityManager = default!;
+
     private List<TTSVoicePrototype> _voiceList = new();
+
+    private FancyWindow? _barkWindow;
+    private string _currentBarkProto = "";
+    private float _currentBarkPitch = 1f;
+    private float _currentBarkMinVar = 0.1f;
+    private float _currentBarkMaxVar = 0.5f;
 
     public MidroundCustomizationWindow()
     {
+        IoCManager.InjectDependencies(this);
+
+        _barkSystem = _entityManager.System<SpeechBarksSystem>();
+
         RobustXamlLoader.Load(this);
 
         VoiceButton.OnItemSelected += args =>
         {
             VoiceButton.SelectId(args.Id);
-            OnVoiceChanged?.Invoke(_voiceList[args.Id].ID);
+            if (OnVoiceChanged != null)
+                OnVoiceChanged.Invoke(_voiceList[args.Id].ID);
         };
+
+        BarkProtoButton.OnPressed += _ => OpenBarkWindow();
+        BarkPlayButton.OnPressed += _ => PlayPreviewBark();
 
         _voiceList = _prototypeManager
             .EnumeratePrototypes<TTSVoicePrototype>()
             .Where(o => o.RoundStart)
             .OrderBy(o => Loc.GetString(o.Name))
             .ToList();
+    }
+
+    private void OpenBarkWindow()
+    {
+        if (_barkWindow != null)
+        {
+            _barkWindow.Close();
+            _barkWindow = null;
+        }
+
+        var barkTab = new BarkTab();
+        barkTab.SetSelectedBark(_currentBarkProto, _currentBarkPitch, _currentBarkMinVar, _currentBarkMaxVar);
+
+        barkTab.OnBarkSelected += id =>
+        {
+            if (OnBarkProtoChanged != null)
+                OnBarkProtoChanged.Invoke(id);
+            UpdateBarkButtonText(id);
+        };
+        barkTab.OnPitchChanged += pitch =>
+        {
+            if (OnBarkPitchChanged != null)
+                OnBarkPitchChanged.Invoke(pitch);
+        };
+        barkTab.OnMinVarChanged += minVar =>
+        {
+            if (OnBarkMinVarChanged != null)
+                OnBarkMinVarChanged.Invoke(minVar);
+        };
+        barkTab.OnMaxVarChanged += maxVar =>
+        {
+            if (OnBarkMaxVarChanged != null)
+                OnBarkMaxVarChanged.Invoke(maxVar);
+        };
+
+        _barkWindow = new FancyWindow
+        {
+            Title = Loc.GetString("humanoid-profile-editor-bark-window-title"),
+            MinSize = new Vector2(750, 600),
+        };
+        _barkWindow.ContentsContainer.AddChild(barkTab);
+        _barkWindow.OnClose += () =>
+        {
+            _barkWindow = null;
+        };
+        _barkWindow.OpenCentered();
+    }
+
+    private void UpdateBarkButtonText(string proto)
+    {
+        if (!_prototypeManager.TryIndex<BarkPrototype>(proto, out var bark))
+            return;
+
+        BarkProtoButton.Text = Loc.GetString(bark.Name);
+    }
+
+    private void PlayPreviewBark()
+    {
+        _barkSystem.PlayDataPreview(_currentBarkProto, _currentBarkPitch, _currentBarkMinVar, _currentBarkMaxVar);
     }
 
     public void UpdateState(MidroundCustomizationUiState state)
@@ -61,20 +148,42 @@ public sealed partial class MidroundCustomizationWindow : DefaultWindow
             picker.ColorSelectorContainer.Orientation = BoxContainer.LayoutOrientation.Vertical;
             picker.UpdateData(item.Value, state.Species, state.SlotsTotal[item.Key], state.AllowColorChanges);
 
-            picker.OnMarkingSelect += args => OnSlotMarkingSelected?.Invoke((item.Key, args.slot, args.id));
-            picker.OnColorChanged += args => OnSlotColorChanged?.Invoke((item.Key, args.slot, args.marking.MarkingColors.ToList()));
-            picker.OnSlotRemove += args => OnSlotRemoved?.Invoke((item.Key, args));
-            picker.OnSlotAdd += () => OnSlotAdded?.Invoke(item.Key);
+            picker.OnMarkingSelect += args =>
+            {
+                if (OnSlotMarkingSelected != null)
+                    OnSlotMarkingSelected.Invoke((item.Key, args.slot, args.id));
+            };
+            picker.OnColorChanged += args =>
+            {
+                if (OnSlotColorChanged != null)
+                    OnSlotColorChanged.Invoke((item.Key, args.slot, args.marking.MarkingColors.ToList()));
+            };
+            picker.OnSlotRemove += args =>
+            {
+                if (OnSlotRemoved != null)
+                    OnSlotRemoved.Invoke((item.Key, args));
+            };
+            picker.OnSlotAdd += () =>
+            {
+                if (OnSlotAdded != null)
+                    OnSlotAdded.Invoke(item.Key);
+            };
             MarkingsContainer.AddChild(picker);
         }
 
-        if (state.TTS != null && state.Bark != null)
+        if (state.TTS != null)
         {
             UpdateVoice(state.Sex, state.TTS);
             VoiceContainer.Visible = true;
         }
         else
             VoiceContainer.Visible = false;
+
+        _currentBarkProto = state.BarkProto;
+        _currentBarkPitch = state.BarkPitch;
+        _currentBarkMinVar = state.BarkMinVar;
+        _currentBarkMaxVar = state.BarkMaxVar;
+        UpdateBarkButtonText(state.BarkProto);
 
         if (state.SlotsTotal.Count <= 0)
             AddChild(new Label { Text = Loc.GetString("magic-mirror-component-activate-user-has-no-hair") });
@@ -109,7 +218,8 @@ public sealed partial class MidroundCustomizationWindow : DefaultWindow
         if (!VoiceButton.TrySelectId(voiceChoiceId) &&
             VoiceButton.TrySelectId(firstVoiceChoiceId))
         {
-            OnVoiceChanged?.Invoke(_voiceList[firstVoiceChoiceId].ID);
+            if (OnVoiceChanged != null)
+                OnVoiceChanged.Invoke(_voiceList[firstVoiceChoiceId].ID);
         }
     }
 }

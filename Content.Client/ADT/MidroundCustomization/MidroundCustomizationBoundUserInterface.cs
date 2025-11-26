@@ -24,6 +24,10 @@ public sealed class MidroundCustomizationBoundUserInterface : BoundUserInterface
         _window.OnSlotRemoved += args => SendMessage(new MidroundCustomizationRemoveSlotMessage(args.Category, args.Slot));
 
         _window.OnVoiceChanged += voiceId => SendMessage(new MidroundCustomizationChangeVoiceMessage(voiceId, voiceId));
+        _window.OnBarkProtoChanged += proto => SendMessage(new MidroundCustomizationChangeBarkProtoMessage(proto));
+        _window.OnBarkPitchChanged += pitch => SendMessage(new MidroundCustomizationChangeBarkPitchMessage(pitch));
+        _window.OnBarkMinVarChanged += minVar => SendMessage(new MidroundCustomizationChangeBarkMinVarMessage(minVar));
+        _window.OnBarkMaxVarChanged += maxVar => SendMessage(new MidroundCustomizationChangeBarkMaxVarMessage(maxVar));
     }
 
     protected override void UpdateState(BoundUserInterfaceState state)

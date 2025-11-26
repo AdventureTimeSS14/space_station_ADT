@@ -13,7 +13,8 @@ public enum MidroundCustomizationUiKey : byte
 [Serializable, NetSerializable]
 public sealed class MidroundCustomizationUiState : BoundUserInterfaceState
 {
-    public MidroundCustomizationUiState(string species, Sex sex, bool allowColors, string tts, string bark,
+    public MidroundCustomizationUiState(string species, Sex sex, bool allowColors, string tts,
+                            string barkProto, float barkPitch, float barkMinVar, float barkMaxVar,
                             Dictionary<MarkingCategories, List<Marking>> markings, Dictionary<MarkingCategories, int> slotsTotal)
     {
         Species = species;
@@ -24,7 +25,10 @@ public sealed class MidroundCustomizationUiState : BoundUserInterfaceState
         AllowColorChanges = allowColors;
 
         TTS = tts;
-        Bark = bark;
+        BarkProto = barkProto;
+        BarkPitch = barkPitch;
+        BarkMinVar = barkMinVar;
+        BarkMaxVar = barkMaxVar;
     }
 
     public string Species;
@@ -35,7 +39,10 @@ public sealed class MidroundCustomizationUiState : BoundUserInterfaceState
     public bool AllowColorChanges;
 
     public string? TTS;
-    public string? Bark;
+    public string BarkProto;
+    public float BarkPitch;
+    public float BarkMinVar;
+    public float BarkMaxVar;
 }
 
 [Serializable, NetSerializable]
@@ -103,4 +110,48 @@ public sealed class MidroundCustomizationChangeVoiceMessage : BoundUserInterface
 
     public string TTS { get; }
     public string Bark { get; }
+}
+
+[Serializable, NetSerializable]
+public sealed class MidroundCustomizationChangeBarkProtoMessage : BoundUserInterfaceMessage
+{
+    public MidroundCustomizationChangeBarkProtoMessage(string proto)
+    {
+        Proto = proto;
+    }
+
+    public string Proto { get; }
+}
+
+[Serializable, NetSerializable]
+public sealed class MidroundCustomizationChangeBarkPitchMessage : BoundUserInterfaceMessage
+{
+    public MidroundCustomizationChangeBarkPitchMessage(float pitch)
+    {
+        Pitch = pitch;
+    }
+
+    public float Pitch { get; }
+}
+
+[Serializable, NetSerializable]
+public sealed class MidroundCustomizationChangeBarkMinVarMessage : BoundUserInterfaceMessage
+{
+    public MidroundCustomizationChangeBarkMinVarMessage(float minVar)
+    {
+        MinVar = minVar;
+    }
+
+    public float MinVar { get; }
+}
+
+[Serializable, NetSerializable]
+public sealed class MidroundCustomizationChangeBarkMaxVarMessage : BoundUserInterfaceMessage
+{
+    public MidroundCustomizationChangeBarkMaxVarMessage(float maxVar)
+    {
+        MaxVar = maxVar;
+    }
+
+    public float MaxVar { get; }
 }

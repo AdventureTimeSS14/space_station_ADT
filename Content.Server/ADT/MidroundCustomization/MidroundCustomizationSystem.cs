@@ -13,6 +13,7 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
 using System.Linq;
+using Content.Shared.ADT.SpeechBarks;
 
 namespace Content.Server.ADT.MidroundCustomization;
 
@@ -43,6 +44,10 @@ public sealed partial class MidroundCustomizationSystem : EntitySystem
             subs.Event<MidroundCustomizationAddSlotMessage>(OnTrySlimeHairAddSlot);
             subs.Event<MidroundCustomizationRemoveSlotMessage>(OnTrySlimeHairRemoveSlot);
             subs.Event<MidroundCustomizationChangeVoiceMessage>(OnTrySlimeHairChangeVoice);
+            subs.Event<MidroundCustomizationChangeBarkProtoMessage>(OnTryChangeBarkProto);
+            subs.Event<MidroundCustomizationChangeBarkPitchMessage>(OnTryChangeBarkPitch);
+            subs.Event<MidroundCustomizationChangeBarkMinVarMessage>(OnTryChangeBarkMinVar);
+            subs.Event<MidroundCustomizationChangeBarkMaxVarMessage>(OnTryChangeBarkMaxVar);
         });
 
         SubscribeLocalEvent<MidroundCustomizationComponent, MapInitEvent>(OnMapInit);
@@ -53,6 +58,10 @@ public sealed partial class MidroundCustomizationSystem : EntitySystem
         SubscribeLocalEvent<MidroundCustomizationComponent, SlimeHairRemoveSlotDoAfterEvent>(OnRemoveSlotDoAfter);
         SubscribeLocalEvent<MidroundCustomizationComponent, SlimeHairAddSlotDoAfterEvent>(OnAddSlotDoAfter);
         SubscribeLocalEvent<MidroundCustomizationComponent, SlimeHairChangeVoiceDoAfterEvent>(OnChangeVoiceDoAfter);
+        SubscribeLocalEvent<MidroundCustomizationComponent, SlimeHairChangeBarkProtoDoAfterEvent>(OnChangeBarkProtoDoAfter);
+        SubscribeLocalEvent<MidroundCustomizationComponent, SlimeHairChangeBarkPitchDoAfterEvent>(OnChangeBarkPitchDoAfter);
+        SubscribeLocalEvent<MidroundCustomizationComponent, SlimeHairChangeBarkMinVarDoAfterEvent>(OnChangeBarkMinVarDoAfter);
+        SubscribeLocalEvent<MidroundCustomizationComponent, SlimeHairChangeBarkMaxVarDoAfterEvent>(OnChangeBarkMaxVarDoAfter);
 
         InitializeAbilities();
 
@@ -230,6 +239,145 @@ public sealed partial class MidroundCustomizationSystem : EntitySystem
         UpdateInterface(uid, component);
     }
 
+    private void OnTryChangeBarkProto(EntityUid uid, MidroundCustomizationComponent component, MidroundCustomizationChangeBarkProtoMessage message)
+    {
+        _doAfterSystem.Cancel(component.DoAfter);
+        component.DoAfter = null;
+
+        var doAfter = new SlimeHairChangeBarkProtoDoAfterEvent()
+        {
+            Proto = message.Proto,
+        };
+
+        _doAfterSystem.TryStartDoAfter(new DoAfterArgs(EntityManager, uid, component.ChangeVoiceTime, doAfter, uid, target: uid, used: uid)
+        {
+            DistanceThreshold = SharedInteractionSystem.InteractionRange,
+            BreakOnDamage = true,
+        }, out var doAfterId);
+
+        component.DoAfter = doAfterId;
+    }
+
+    private void OnChangeBarkProtoDoAfter(EntityUid uid, MidroundCustomizationComponent component, SlimeHairChangeBarkProtoDoAfterEvent args)
+    {
+        if (args.Handled || args.Target == null || args.Cancelled)
+            return;
+
+        if (!TryComp<HumanoidAppearanceComponent>(args.Target.Value, out var humanoid))
+            return;
+
+        if (!_proto.TryIndex<BarkPrototype>(args.Proto, out _))
+            return;
+
+        _audio.PlayPvs(component.ChangeMarkingSound, uid);
+        var newData = humanoid.Bark.WithProto(args.Proto);
+        _humanoid.SetBarkData(args.Target.Value, newData, humanoid);
+
+        UpdateInterface(uid, component);
+    }
+
+    private void OnTryChangeBarkPitch(EntityUid uid, MidroundCustomizationComponent component, MidroundCustomizationChangeBarkPitchMessage message)
+    {
+        _doAfterSystem.Cancel(component.DoAfter);
+        component.DoAfter = null;
+
+        var doAfter = new SlimeHairChangeBarkPitchDoAfterEvent()
+        {
+            Pitch = message.Pitch,
+        };
+
+        _doAfterSystem.TryStartDoAfter(new DoAfterArgs(EntityManager, uid, component.ChangeVoiceTime, doAfter, uid, target: uid, used: uid)
+        {
+            DistanceThreshold = SharedInteractionSystem.InteractionRange,
+            BreakOnDamage = true,
+        }, out var doAfterId);
+
+        component.DoAfter = doAfterId;
+    }
+
+    private void OnChangeBarkPitchDoAfter(EntityUid uid, MidroundCustomizationComponent component, SlimeHairChangeBarkPitchDoAfterEvent args)
+    {
+        if (args.Handled || args.Target == null || args.Cancelled)
+            return;
+
+        if (!TryComp<HumanoidAppearanceComponent>(args.Target.Value, out var humanoid))
+            return;
+
+        _audio.PlayPvs(component.ChangeMarkingSound, uid);
+        var newData = humanoid.Bark.WithPitch(args.Pitch);
+        _humanoid.SetBarkData(args.Target.Value, newData, humanoid);
+
+        UpdateInterface(uid, component);
+    }
+
+    private void OnTryChangeBarkMinVar(EntityUid uid, MidroundCustomizationComponent component, MidroundCustomizationChangeBarkMinVarMessage message)
+    {
+        _doAfterSystem.Cancel(component.DoAfter);
+        component.DoAfter = null;
+
+        var doAfter = new SlimeHairChangeBarkMinVarDoAfterEvent()
+        {
+            MinVar = message.MinVar,
+        };
+
+        _doAfterSystem.TryStartDoAfter(new DoAfterArgs(EntityManager, uid, component.ChangeVoiceTime, doAfter, uid, target: uid, used: uid)
+        {
+            DistanceThreshold = SharedInteractionSystem.InteractionRange,
+            BreakOnDamage = true,
+        }, out var doAfterId);
+
+        component.DoAfter = doAfterId;
+    }
+
+    private void OnChangeBarkMinVarDoAfter(EntityUid uid, MidroundCustomizationComponent component, SlimeHairChangeBarkMinVarDoAfterEvent args)
+    {
+        if (args.Handled || args.Target == null || args.Cancelled)
+            return;
+
+        if (!TryComp<HumanoidAppearanceComponent>(args.Target.Value, out var humanoid))
+            return;
+
+        _audio.PlayPvs(component.ChangeMarkingSound, uid);
+        var newData = humanoid.Bark.WithMinVar(args.MinVar);
+        _humanoid.SetBarkData(args.Target.Value, newData, humanoid);
+
+        UpdateInterface(uid, component);
+    }
+
+    private void OnTryChangeBarkMaxVar(EntityUid uid, MidroundCustomizationComponent component, MidroundCustomizationChangeBarkMaxVarMessage message)
+    {
+        _doAfterSystem.Cancel(component.DoAfter);
+        component.DoAfter = null;
+
+        var doAfter = new SlimeHairChangeBarkMaxVarDoAfterEvent()
+        {
+            MaxVar = message.MaxVar,
+        };
+
+        _doAfterSystem.TryStartDoAfter(new DoAfterArgs(EntityManager, uid, component.ChangeVoiceTime, doAfter, uid, target: uid, used: uid)
+        {
+            DistanceThreshold = SharedInteractionSystem.InteractionRange,
+            BreakOnDamage = true,
+        }, out var doAfterId);
+
+        component.DoAfter = doAfterId;
+    }
+
+    private void OnChangeBarkMaxVarDoAfter(EntityUid uid, MidroundCustomizationComponent component, SlimeHairChangeBarkMaxVarDoAfterEvent args)
+    {
+        if (args.Handled || args.Target == null || args.Cancelled)
+            return;
+
+        if (!TryComp<HumanoidAppearanceComponent>(args.Target.Value, out var humanoid))
+            return;
+
+        _audio.PlayPvs(component.ChangeMarkingSound, uid);
+        var newData = humanoid.Bark.WithMaxVar(args.MaxVar);
+        _humanoid.SetBarkData(args.Target.Value, newData, humanoid);
+
+        UpdateInterface(uid, component);
+    }
+
     private void UpdateInterface(EntityUid uid, MidroundCustomizationComponent component)
     {
         if (!TryComp<HumanoidAppearanceComponent>(uid, out var humanoid))
@@ -252,6 +400,9 @@ public sealed partial class MidroundCustomizationSystem : EntitySystem
             true,
             humanoid.Voice,
             humanoid.Bark.Proto,
+            humanoid.Bark.Pitch,
+            humanoid.Bark.MinVar,
+            humanoid.Bark.MaxVar,
             markingDict,
             slotsDict);
 

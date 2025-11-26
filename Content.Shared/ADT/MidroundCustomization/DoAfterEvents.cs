@@ -44,3 +44,31 @@ public sealed partial class SlimeHairChangeVoiceDoAfterEvent : DoAfterEvent
     public override DoAfterEvent Clone() => this;
     public string Voice = string.Empty;
 }
+
+[Serializable, NetSerializable]
+public sealed partial class SlimeHairChangeBarkProtoDoAfterEvent : DoAfterEvent
+{
+    public override DoAfterEvent Clone() => this;
+    public string Proto = string.Empty;
+}
+
+[Serializable, NetSerializable]
+public sealed partial class SlimeHairChangeBarkPitchDoAfterEvent : DoAfterEvent
+{
+    public override DoAfterEvent Clone() => this;
+    public float Pitch;
+}
+
+[Serializable, NetSerializable]
+public sealed partial class SlimeHairChangeBarkMinVarDoAfterEvent : DoAfterEvent
+{
+    public override DoAfterEvent Clone() => this;
+    public float MinVar;
+}
+
+[Serializable, NetSerializable]
+public sealed partial class SlimeHairChangeBarkMaxVarDoAfterEvent : DoAfterEvent
+{
+    public override DoAfterEvent Clone() => this;
+    public float MaxVar;
+}

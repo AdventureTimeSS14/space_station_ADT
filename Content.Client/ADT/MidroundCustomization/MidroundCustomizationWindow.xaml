@@ -7,6 +7,10 @@
             <BoxContainer Orientation="Vertical" Margin="4" >
                 <Label Text="{Loc 'humanoid-profile-editor-voice-label'}" />
                 <OptionButton Name="VoiceButton" />
+                <BoxContainer Orientation="Horizontal" Margin="0 4 0 0">
+                    <Button Name="BarkProtoButton" Text="{Loc 'humanoid-profile-editor-bark-button'}" HorizontalExpand="True" />
+                    <Button Name="BarkPlayButton" Text="{Loc 'humanoid-profile-editor-voice-play'}" MaxWidth="80" />
+                </BoxContainer>
             </BoxContainer>
 
             <ScrollContainer HorizontalExpand="True" VerticalExpand="True" VScrollEnabled="False" HScrollEnabled="True">
