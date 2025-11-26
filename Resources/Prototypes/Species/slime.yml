@@ -27,8 +27,6 @@
   defaultLanguages:
   - GalacticCommon
   - Bubblish
-  uniqueLanguages:
-  - Bubblish
   # ADT end
 
 - type: speciesBaseSprites
