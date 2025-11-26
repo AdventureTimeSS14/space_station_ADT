@@ -83,13 +83,13 @@
                 </BoxContainer>
             </BoxContainer>
 
-            <!-- Output Tab (Выход) -->
+            <!-- Output Tab -->
             <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True" Margin="5" SeparationOverride="10">
                 <!-- Bottles Section -->
                 <BoxContainer Orientation="Vertical" SeparationOverride="10">
 
                     <!-- Main Content Card -->
-                    <PanelContainer VerticalExpand="False" HorizontalExpand="True" Margin="8 0">
+                    <PanelContainer VerticalExpand="False" HorizontalExpand="True" Margin="8 8 8 0">
                         <PanelContainer.PanelOverride>
                             <gfx:StyleBoxFlat BackgroundColor="#1B1B1E" BorderColor="#3d4059" BorderThickness="2" />
                         </PanelContainer.PanelOverride>
@@ -198,7 +198,7 @@
                     </PanelContainer>
 
                     <!-- Pill Container Storage Grid -->
-                    <PanelContainer VerticalExpand="True" Margin="8 0 8 0" HorizontalAlignment="Stretch" HorizontalExpand="True" MinSize="626 138">
+                    <PanelContainer VerticalExpand="True" Margin="8 0 8 6" HorizontalAlignment="Stretch" HorizontalExpand="True" MinSize="626 138">
                         <PanelContainer.PanelOverride>
                             <gfx:StyleBoxFlat BackgroundColor="#1B1B1E" BorderColor="#3d4059" BorderThickness="2" />
                         </PanelContainer.PanelOverride>
