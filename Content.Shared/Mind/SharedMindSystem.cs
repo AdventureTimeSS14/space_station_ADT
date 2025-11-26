@@ -20,6 +20,7 @@ using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
+using Content.Shared.ADT.LastWords;
 
 namespace Content.Shared.Mind;
 
@@ -37,7 +38,6 @@ public abstract partial class SharedMindSystem : EntitySystem
     [ViewVariables]
     protected readonly Dictionary<NetUserId, EntityUid> UserMinds = new();
 
-    private readonly EntProtoId _mindProto = "MindBase"; // ADT-tweak
 
     public override void Initialize()
     {
@@ -220,9 +220,10 @@ public abstract partial class SharedMindSystem : EntitySystem
 
     public Entity<MindComponent> CreateMind(NetUserId? userId, string? name = null)
     {
-        var mindId = Spawn(_mindProto, MapCoordinates.Nullspace); //ADT-tweak: добавила _mindProto вместо null
+        var mindId = Spawn(null, MapCoordinates.Nullspace);
         _metadata.SetEntityName(mindId, name == null ? "mind" : $"mind ({name})");
         var mind = EnsureComp<MindComponent>(mindId);
+        EnsureComp<LastWordsComponent>(mindId); //ADT-tweak: последние слова
         mind.CharacterName = name;
         SetUserId(mindId, userId, mind);
 
