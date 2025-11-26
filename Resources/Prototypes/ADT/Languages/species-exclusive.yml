@@ -15,6 +15,35 @@
     sound:
       path: /Audio/Voice/Diona/diona_scream.ogg
 
+  # Spoken by the Slime race.
+- type: language
+  id: Bubblish
+  roundstart: true
+  onlyUnderstand: true
+  uiColor: "#61daff"
+  parent: BaseVocalLanguage
+  speech: !type:Generic
+    obfuscateSyllables: true
+    color: "#61daff"
+    whisperColor: "#5f9db0"
+    replacement:
+    - блоб
+    - плоп
+    - поп
+    - боп
+    - буп
+    - блюп
+    - бульп
+    - бульк
+    - бламп
+    - блимпаф
+    - блюмп
+    - блабл-бламп
+    - блампи-бламп
+    - блюм-бламп
+    font: Airfool
+    fontSize: 14
+
 # Spoken by the Novakid race.
 - type: language
   id: Fire
