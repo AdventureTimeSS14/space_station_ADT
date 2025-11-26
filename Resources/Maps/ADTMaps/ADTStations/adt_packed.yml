@@ -86100,8 +86100,6 @@ entities:
       pos: 25.5,74.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 11803
   - uid: 13598
@@ -86110,8 +86108,6 @@ entities:
       pos: 29.5,74.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 11803
 - proto: WeaponEnergyTurretAIControlPanel

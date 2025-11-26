@@ -12821,8 +12821,6 @@ entities:
       pos: 11.5,16.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 62
 - proto: AirTankFilled
@@ -33215,8 +33213,6 @@ entities:
       pos: 21.5,-13.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 60
   - uid: 2905
@@ -33307,8 +33303,6 @@ entities:
       pos: 9.5,16.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 62
   - uid: 2916
@@ -33318,8 +33312,6 @@ entities:
       pos: 11.5,15.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 62
   - uid: 2917
@@ -33338,8 +33330,6 @@ entities:
       pos: 11.5,20.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 62
   - uid: 2919
@@ -41656,8 +41646,6 @@ entities:
       pos: 19.5,-12.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 60
     - type: AtmosPipeColor
@@ -41999,8 +41987,6 @@ entities:
       pos: 11.5,17.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 62
     - type: AtmosPipeColor
@@ -42014,8 +42000,6 @@ entities:
       pos: 12.5,16.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 62
     - type: AtmosPipeColor
@@ -42027,8 +42011,6 @@ entities:
       pos: 28.5,-0.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 58
     - type: AtmosPipeColor
@@ -42347,8 +42329,6 @@ entities:
       pos: 18.5,-14.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 60
     - type: AtmosPipeColor
