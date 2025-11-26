@@ -17,6 +17,7 @@ using Content.Client.ADT.Bark;
 using Content.Client.UserInterface.Controls;
 using Content.Shared.ADT.SpeechBarks;
 using Robust.Shared.GameObjects;
+using Content.Client.Corvax.TTS;
 
 namespace Content.Client.ADT.MidroundCustomization;
 
@@ -36,6 +37,8 @@ public sealed partial class MidroundCustomizationWindow : DefaultWindow
 
     private SpeechBarksSystem _barkSystem;
 
+    private TTSSystem _ttsSystem;
+
     private readonly IPrototypeManager _prototypeManager = IoCManager.Resolve<IPrototypeManager>();
     private readonly SponsorsManager _sponsorsManager = IoCManager.Resolve<SponsorsManager>();
 
@@ -49,20 +52,26 @@ public sealed partial class MidroundCustomizationWindow : DefaultWindow
     private float _currentBarkMinVar = 0.1f;
     private float _currentBarkMaxVar = 0.5f;
 
+    private string _currentVoice = "";
+
     public MidroundCustomizationWindow()
     {
         IoCManager.InjectDependencies(this);
 
         _barkSystem = _entityManager.System<SpeechBarksSystem>();
+        _ttsSystem = _entityManager.System<TTSSystem>();
 
         RobustXamlLoader.Load(this);
 
         VoiceButton.OnItemSelected += args =>
         {
             VoiceButton.SelectId(args.Id);
+            _currentVoice = _voiceList[args.Id].ID;
             if (OnVoiceChanged != null)
-                OnVoiceChanged.Invoke(_voiceList[args.Id].ID);
+                OnVoiceChanged.Invoke(_currentVoice);
         };
+
+        VoicePlayButton.OnPressed += _ => PlayPreviewTTS();
 
         BarkProtoButton.OnPressed += _ => OpenBarkWindow();
         BarkPlayButton.OnPressed += _ => PlayPreviewBark();
@@ -133,6 +142,11 @@ public sealed partial class MidroundCustomizationWindow : DefaultWindow
         _barkSystem.PlayDataPreview(_currentBarkProto, _currentBarkPitch, _currentBarkMinVar, _currentBarkMaxVar);
     }
 
+    private void PlayPreviewTTS()
+    {
+        _ttsSystem.RequestPreviewTTS(_currentVoice);
+    }
+
     public void UpdateState(MidroundCustomizationUiState state)
     {
         MarkingsContainer.RemoveAllChildren();
@@ -173,6 +187,7 @@ public sealed partial class MidroundCustomizationWindow : DefaultWindow
 
         if (state.TTS != null)
         {
+            _currentVoice = state.TTS;
             UpdateVoice(state.Sex, state.TTS);
             VoiceContainer.Visible = true;
         }
@@ -220,6 +235,7 @@ public sealed partial class MidroundCustomizationWindow : DefaultWindow
         {
             if (OnVoiceChanged != null)
                 OnVoiceChanged.Invoke(_voiceList[firstVoiceChoiceId].ID);
+            _currentVoice = _voiceList[firstVoiceChoiceId].ID;
         }
     }
 }
