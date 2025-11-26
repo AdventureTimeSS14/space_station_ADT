@@ -150,8 +150,7 @@ public sealed partial class BarkTab : Control
         if (float.TryParse(args.Text, out var pitch))
         {
             _currentPitch = pitch;
-            if (OnPitchChanged != null)
-                OnPitchChanged.Invoke(pitch);
+            OnPitchChanged?.Invoke(pitch);
         }
     }
 
@@ -160,8 +159,7 @@ public sealed partial class BarkTab : Control
         if (float.TryParse(args.Text, out var minVar))
         {
             _currentMinVar = minVar;
-            if (OnMinVarChanged != null)
-                OnMinVarChanged.Invoke(minVar);
+            OnMinVarChanged?.Invoke(minVar);
         }
     }
 
@@ -170,8 +168,7 @@ public sealed partial class BarkTab : Control
         if (float.TryParse(args.Text, out var maxVar))
         {
             _currentMaxVar = maxVar;
-            if (OnMaxVarChanged != null)
-                OnMaxVarChanged.Invoke(maxVar);
+            OnMaxVarChanged?.Invoke(maxVar);
         }
     }
 
@@ -227,8 +224,7 @@ public sealed partial class BarkTab : Control
     private void OnBarkButtonPressed(string barkId)
     {
         _currentBarkId = barkId;
-        if (OnBarkSelected != null)
-            OnBarkSelected.Invoke(barkId);
+        OnBarkSelected?.Invoke(barkId);
         UpdateBarkButtons();
         _barkSystem.PlayDataPreview(barkId, _currentPitch, _currentMinVar, _currentMaxVar);
     }
