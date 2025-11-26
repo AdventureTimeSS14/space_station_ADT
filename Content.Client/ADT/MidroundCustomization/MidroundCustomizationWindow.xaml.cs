@@ -67,8 +67,7 @@ public sealed partial class MidroundCustomizationWindow : DefaultWindow
         {
             VoiceButton.SelectId(args.Id);
             _currentVoice = _voiceList[args.Id].ID;
-            if (OnVoiceChanged != null)
-                OnVoiceChanged.Invoke(_currentVoice);
+            OnVoiceChanged?.Invoke(_currentVoice);
         };
 
         VoicePlayButton.OnPressed += _ => PlayPreviewTTS();
@@ -96,24 +95,20 @@ public sealed partial class MidroundCustomizationWindow : DefaultWindow
 
         barkTab.OnBarkSelected += id =>
         {
-            if (OnBarkProtoChanged != null)
-                OnBarkProtoChanged.Invoke(id);
+            OnBarkProtoChanged?.Invoke(id);
             UpdateBarkButtonText(id);
         };
         barkTab.OnPitchChanged += pitch =>
         {
-            if (OnBarkPitchChanged != null)
-                OnBarkPitchChanged.Invoke(pitch);
+            OnBarkPitchChanged?.Invoke(pitch);
         };
         barkTab.OnMinVarChanged += minVar =>
         {
-            if (OnBarkMinVarChanged != null)
-                OnBarkMinVarChanged.Invoke(minVar);
+            OnBarkMinVarChanged?.Invoke(minVar);
         };
         barkTab.OnMaxVarChanged += maxVar =>
         {
-            if (OnBarkMaxVarChanged != null)
-                OnBarkMaxVarChanged.Invoke(maxVar);
+            OnBarkMaxVarChanged?.Invoke(maxVar);
         };
 
         _barkWindow = new FancyWindow
@@ -164,23 +159,19 @@ public sealed partial class MidroundCustomizationWindow : DefaultWindow
 
             picker.OnMarkingSelect += args =>
             {
-                if (OnSlotMarkingSelected != null)
-                    OnSlotMarkingSelected.Invoke((item.Key, args.slot, args.id));
+                OnSlotMarkingSelected?.Invoke((item.Key, args.slot, args.id));
             };
             picker.OnColorChanged += args =>
             {
-                if (OnSlotColorChanged != null)
-                    OnSlotColorChanged.Invoke((item.Key, args.slot, args.marking.MarkingColors.ToList()));
+                OnSlotColorChanged?.Invoke((item.Key, args.slot, args.marking.MarkingColors.ToList()));
             };
             picker.OnSlotRemove += args =>
             {
-                if (OnSlotRemoved != null)
-                    OnSlotRemoved.Invoke((item.Key, args));
+                OnSlotRemoved?.Invoke((item.Key, args));
             };
             picker.OnSlotAdd += () =>
             {
-                if (OnSlotAdded != null)
-                    OnSlotAdded.Invoke(item.Key);
+                OnSlotAdded?.Invoke(item.Key);
             };
             MarkingsContainer.AddChild(picker);
         }
@@ -233,8 +224,7 @@ public sealed partial class MidroundCustomizationWindow : DefaultWindow
         if (!VoiceButton.TrySelectId(voiceChoiceId) &&
             VoiceButton.TrySelectId(firstVoiceChoiceId))
         {
-            if (OnVoiceChanged != null)
-                OnVoiceChanged.Invoke(_voiceList[firstVoiceChoiceId].ID);
+            OnVoiceChanged?.Invoke(_voiceList[firstVoiceChoiceId].ID);
             _currentVoice = _voiceList[firstVoiceChoiceId].ID;
         }
     }
