@@ -46,6 +46,7 @@
   - BorgTalk
   uniqueLanguages:
   - RobotTalk
+  - Bubblish
   maxLanguages: 6
 
 # The lack of a layer means that
