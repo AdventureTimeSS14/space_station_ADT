@@ -248,14 +248,14 @@ namespace Content.Client.RoundEnd
                         .First();
                     var typeAdj = highestDamage.Key switch
                     {
-                        "Burn" => "fiery",
-                        "Brute" => "crushing",
-                        "Toxin" => "poisonous",
-                        "Airloss" => "suffocating",
-                        "Genetic" => "twisted",
-                        "Metaphysical" => "otherworldly",
-                        "Electronic" => "shocking",
-                        _ => "mysterious",
+                        "Burn" => Loc.GetString("burn-death-round-end"),
+                        "Brute" => Loc.GetString("brute-death-round-end"),
+                        "Toxin" => Loc.GetString("toxin-death-round-end"),
+                        "Airloss" => Loc.GetString("airloss-death-round-end"),
+                        "Genetic" => Loc.GetString("genetic-death-round-end"),
+                        "Metaphysical" => Loc.GetString("metaphysical-death-round-end"),
+                        "Electronic" => Loc.GetString("electronic-death-round-end"),
+                        _ => Loc.GetString("mysterious-death-round-end"),
                     };
 
                     deathLabel.SetMarkup(
