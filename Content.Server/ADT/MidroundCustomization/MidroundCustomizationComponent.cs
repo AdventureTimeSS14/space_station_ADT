@@ -30,7 +30,7 @@ public sealed partial class MidroundCustomizationComponent : Component
     /// <summary>
     /// doafter time required to change slot
     /// </summary>
-    [DataField,]
+    [DataField]
     public TimeSpan SelectSlotTime = TimeSpan.FromSeconds(2);
 
     /// <summary>

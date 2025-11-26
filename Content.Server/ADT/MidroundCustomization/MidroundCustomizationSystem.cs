@@ -2,6 +2,7 @@ using Content.Server.Actions;
 using Content.Server.DoAfter;
 using Content.Server.Humanoid;
 using Content.Shared.ADT.MidroundCustomization;
+using Content.Shared.ADT.SpeechBarks;
 using Content.Shared.Corvax.TTS;
 using Content.Shared.DoAfter;
 using Content.Shared.Humanoid;
@@ -13,7 +14,6 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
 using System.Linq;
-using Content.Shared.ADT.SpeechBarks;
 
 namespace Content.Server.ADT.MidroundCustomization;
 
