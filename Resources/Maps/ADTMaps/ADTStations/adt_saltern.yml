@@ -9609,8 +9609,6 @@ entities:
       pos: 14.5,4.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 120
   - uid: 12383
@@ -9718,8 +9716,6 @@ entities:
       pos: 5.5,21.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 157
   - uid: 12651
@@ -39309,8 +39305,6 @@ entities:
       pos: 2.5,15.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 121
       - 157
@@ -39320,8 +39314,6 @@ entities:
       pos: 3.5,15.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 121
       - 157
@@ -39331,8 +39323,6 @@ entities:
       pos: 4.5,15.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 121
       - 157
@@ -39660,8 +39650,6 @@ entities:
       pos: 6.5,17.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 157
   - uid: 7427
@@ -39899,8 +39887,6 @@ entities:
       pos: 3.5,22.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 157
   - uid: 12649
@@ -51946,8 +51932,6 @@ entities:
       pos: 9.5,20.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 157
     - type: AtmosPipeColor
@@ -52371,8 +52355,6 @@ entities:
       pos: 8.5,17.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 157
     - type: AtmosPipeColor
@@ -52654,8 +52636,6 @@ entities:
     - type: AtmosPipeColor
       color: '#0055CCFF'
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 157
   - uid: 12741
@@ -52810,8 +52790,6 @@ entities:
     - type: AtmosPipeColor
       color: '#990000FF'
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 157
   - uid: 6998
@@ -53072,8 +53050,6 @@ entities:
       pos: 9.5,17.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 157
     - type: AtmosPipeColor
@@ -53234,8 +53210,6 @@ entities:
       pos: 7.5,19.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 157
     - type: AtmosPipeColor
