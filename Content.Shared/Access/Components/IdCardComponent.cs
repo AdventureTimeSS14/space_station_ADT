@@ -9,7 +9,7 @@ namespace Content.Shared.Access.Components;
 
 [RegisterComponent, NetworkedComponent]
 [AutoGenerateComponentState]
-[Access(typeof(SharedIdCardSystem), typeof(SharedPdaSystem), typeof(SharedAgentIdCardSystem), Other = AccessPermissions.ReadWrite)]
+// [Access(typeof(SharedIdCardSystem), typeof(SharedPdaSystem), typeof(SharedAgentIdCardSystem), Other = AccessPermissions.ReadWrite)] //ADT-tweak: вынесла в комменты доступы
 public sealed partial class IdCardComponent : Component
 {
     [DataField]
