@@ -260,6 +260,7 @@
   - type: NpcFactionMember
     factions:
     - ADTSpaceMobs
+  # End ADT tweak
   - type: SolutionRegeneration
     solution: melee
     generated:
