@@ -1,0 +1,9 @@
+- type: entity
+  parent: SurveillanceCameraScience
+  id: ADTSurveillanceCameraXenobio
+  name: camera
+  description: Security camera for monitoring xenobiology areas.
+  suffix: General
+  components:
+  - type: RemoteEyeCamera
+    range: 15.0

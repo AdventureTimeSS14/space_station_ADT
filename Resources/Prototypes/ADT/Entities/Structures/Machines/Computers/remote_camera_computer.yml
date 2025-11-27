@@ -1,0 +1,20 @@
+- type: entity
+  parent: BaseComputer
+  id: ADTXenobioCameraConsole
+  name: xenobiology camera console
+  description: Console for monitoring xenobiology cameras.
+  components:
+  - type: Sprite
+    sprite: Structures/Machines/computers.rsi
+    layers:
+    - map: ["computerLayerBody"]
+      state: computer
+    - map: ["computerLayerKeyboard"]
+      state: generic_keyboard
+    - map: ["computerLayerScreen"]
+      state: xenobiology
+    - map: ["computerLayerKeys"]
+      state: tech_key
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      state: generic_panel_open
+  - type: RemoteEyeConsole

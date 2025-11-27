@@ -126,6 +126,9 @@ public sealed partial record PolymorphConfiguration
     [DataField(serverOnly: true)]
     public bool TransferHumanoidAppearance;
 
+    [DataField(serverOnly: true)]
+    public bool TransferBodycolor;
+
     /// <summary>
     /// Whether or not the entity transfers its inventory and equipment between forms.
     /// </summary>

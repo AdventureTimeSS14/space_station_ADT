@@ -38,12 +38,29 @@ public sealed class ReactiveSystem : EntitySystem
         if (!TryComp(uid, out ReactiveComponent? reactive))
             return;
 
+        if (reactive is { IsReactionsUnlimited: false, RemainingReactions: <= 0 }) // ADT-Tweak
+            return;
+
+        // ADT-Tweak-Start
+        var beforeReact = new BeforeSolutionReactEvent();
+        RaiseLocalEvent(uid, ref beforeReact);
+
+        if (beforeReact.Cancelled)
+            return;
+        // ADT-Tweak-End
+
+        if (reactive.HasReacted) // ADT-Tweak
+            return;
+
         // custom event for bypassing reactivecomponent stuff
         var ev = new ReactionEntityEvent(method, proto, reagentQuantity, source);
         RaiseLocalEvent(uid, ref ev);
 
         // If we have a source solution, use the reagent quantity we have left. Otherwise, use the reaction volume specified.
         var args = new EntityEffectReagentArgs(uid, EntityManager, null, source, source?.GetReagentQuantity(reagentQuantity.Reagent) ?? reagentQuantity.Quantity, proto, method, 1f);
+
+        if (reactive.OneUnitReaction) // ADT-Tweak
+            args.Quantity = 1;
 
         // First, check if the reagent wants to apply any effects.
         if (proto.ReactiveEffects != null && reactive.ReactiveGroups != null)
@@ -101,6 +118,22 @@ public sealed class ReactiveSystem : EntitySystem
 
                     effect.Effect(args);
                 }
+
+                // ADT-Tweak-Start
+                var afterReact = new SolutionReactedEvent();
+                RaiseLocalEvent(uid, ref afterReact);
+
+                if (!reactive.IsReactionsUnlimited)
+                    reactive.RemainingReactions -= 1;
+
+                if (reactive.BlockReactionOnUse && reactive.RemainingReactions == 0
+                && !reactive.IsReactionsUnlimited)
+                    reactive.HasReacted = true;
+
+                if (entry.DeleteEntity && reactive.RemainingReactions == 0
+                && !reactive.IsReactionsUnlimited)
+                    QueueDel(uid);
+                // ADT-Tweak-End
             }
         }
     }
