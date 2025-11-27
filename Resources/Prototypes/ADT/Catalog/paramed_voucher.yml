@@ -1,0 +1,19 @@
+- type: thiefBackpackSet
+  id: ADTMedicalMODParamed
+  name: paramedic-voucher-MOD-name
+  description: paramedic-voucher-MOD-description
+  sprite:
+    sprite: ADT/Clothing/Back/Modsuit/medical.rsi
+    state: icon
+  content:
+  - ADTClothingModsuitBackMedical
+
+- type: thiefBackpackSet
+  id: ADTVoidSuitParamed
+  name: paramedic-voucher-voidsuit-name
+  description: paramedic-voucher-voidsuit-description
+  sprite:
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/paramedic_hardsuit.rsi
+    state: icon
+  content:
+  - ClothingOuterHardsuitVoidParamed
