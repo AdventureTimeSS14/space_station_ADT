@@ -149,7 +149,7 @@ public sealed partial class HumanoidAppearanceSystem : SharedHumanoidAppearanceS
     /// <param name="index">Index of the marking</param>
     /// <param name="markingId">The marking ID to use</param>
     /// <param name="humanoid">Humanoid component of the entity</param>
-    public void SetMarkingId(EntityUid uid, MarkingCategories category, int index, string markingId, HumanoidAppearanceComponent? humanoid = null)
+    public void SetMarkingId(EntityUid uid, MarkingCategories category, int index, string markingId, HumanoidAppearanceComponent? humanoid = null, bool force = true, Color? defaultColor = null) // ADT tweak - added force and default color params
     {
         if (index < 0
             || !_markingManager.MarkingsByCategory(category).TryGetValue(markingId, out var markingPrototype)
@@ -163,6 +163,22 @@ public sealed partial class HumanoidAppearanceSystem : SharedHumanoidAppearanceS
         var marking = markingPrototype.AsMarking();
         for (var i = 0; i < marking.MarkingColors.Count && i < markings[index].MarkingColors.Count; i++)
         {
+            // ADT tweak start
+            if (markingPrototype.ForcedColoring && !force)
+                continue;
+
+            if (markingPrototype.FollowSkinColor && !force)
+            {
+                marking.SetColor(i, humanoid.SkinColor);
+                continue;
+            }
+            if (defaultColor != null && !force)
+            {
+                marking.SetColor(i, (Color)defaultColor);
+                continue;
+            }
+            // ADT tweak end
+
             marking.SetColor(i, markings[index].MarkingColors[i]);
         }
 
@@ -179,7 +195,7 @@ public sealed partial class HumanoidAppearanceSystem : SharedHumanoidAppearanceS
     /// <param name="colors">The marking colors to use</param>
     /// <param name="humanoid">Humanoid component of the entity</param>
     public void SetMarkingColor(EntityUid uid, MarkingCategories category, int index, List<Color> colors,
-        HumanoidAppearanceComponent? humanoid = null)
+        HumanoidAppearanceComponent? humanoid = null, bool force = true)    // ADT tweak - added force param
     {
         if (index < 0
             || !Resolve(uid, ref humanoid)
@@ -191,6 +207,17 @@ public sealed partial class HumanoidAppearanceSystem : SharedHumanoidAppearanceS
 
         for (var i = 0; i < markings[index].MarkingColors.Count && i < colors.Count; i++)
         {
+            // ADT tweak start
+            if (!force)
+            {
+                if (!_markingManager.MarkingsByCategory(category).TryGetValue(markings[index].MarkingId, out var markingPrototype))
+                    continue;
+
+                if (markingPrototype.ForcedColoring)
+                    continue;
+            }
+            // ADT tweak end
+
             markings[index].SetColor(i, colors[i]);
         }
 
