@@ -63,7 +63,7 @@ hos-voucher-bat-description =
     совершенная модель телескопической дубинки. Обладает повышенным уроном и может отбрасывать людей.
 
 paramedic-voucher-voidsuit-name = Пустотный скафандр
-paramedic-voucher-voidsuit-description = Спецализированный скафандр для парамедиков NanoTrasen, позволяющие быстро и легко найти пострадавшего!
+paramedic-voucher-voidsuit-description = Специализированный скафандр для парамедиков NanoTrasen, позволяющий быстро и легко найти пострадавшего!
 
 paramedic-voucher-MOD-name = Медицинский МОД
 paramedic-voucher-MOD-description = Стандартизированное МОД устройство медицинского класса, для обеспечения большего функционала сотрудникам медицинского отдела.
