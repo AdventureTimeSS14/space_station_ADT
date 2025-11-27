@@ -72,6 +72,7 @@
     typeDropPlace: ThisPlace
     typeDrop: Rocket
 
+# ADT (P4A)
 - type: entity
   parent: BaseItem
   id: ADTParamedicMODVoucher
