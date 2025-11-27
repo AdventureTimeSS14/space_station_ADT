@@ -11,7 +11,7 @@
   - Ursus # ADT tweak
   - AllHostile
   - Wizard
-  - SimpleHostile # ADT tweak
+  - SimpleHostile # ADT-Tweak
 
 - type: npcFaction
   id: NanoTrasen
