@@ -6,11 +6,11 @@
   components:
   - type: StorageFill
     contents:
-    - id: ADTClothingModsuitBackBlueShield
+    #- id: ADTClothingModsuitBackBlueShield
     - id: MedkitCombatFilled
     - id: MedkitBruteFilled
     - id: WeaponDisabler
-    # - id: ADTUnderwearBoxBlueshield
+    #- id: ADTUnderwearBoxBlueshield
     - id: ADTClothingHeadsetAltBlueshield
     - id: ADTClothingHeadHatBeretBlueshield
     - id: ADTClothingNeckCloakBlueshield
@@ -19,7 +19,15 @@
     - id: ClothingShoesBootsJack
     - id: ADTClothingUniformJumpskirtTurtleneckBlueshield
     - id: ADTClothingUniformJumpsuitTurtleneckBlueshield
-    # - id: ADTCqcManualWeak
+    #- id: ADTCqcManualWeak
+  - type: UserInterface
+    interfaces:
+      enum.SuitStorageUiKey.Key:
+        type: SuitStorageBoundUserInterface
+  - type: SuitStorage
+    options:
+    - ADTClothingModsuitBackBlueShield
+    - ADTBlueshieldSuit
 
 - type: entity
   id: ADTLockerBlueshieldFilled

@@ -135,6 +135,16 @@
           tableId: FillLockerAtmospherics
         - !type:NestedSelector
           tableId: FillAtmosphericsHardsuit
+  #ADT-Tweak-Start
+  - type: UserInterface
+    interfaces:
+      enum.SuitStorageUiKey.Key:
+        type: SuitStorageBoundUserInterface
+  - type: SuitStorage
+    options:
+    - ADTClothingModsuitBackAtmos
+    - ClothingOuterHardsuitAtmos
+  #ADT-Tweak-End
 
 - type: entity
   id: LockerAtmosphericsFilled
@@ -171,7 +181,7 @@
   id: FillAtmosphericsHardsuit
   table: !type:AllSelector
     children:
-    - id: ClothingOuterHardsuitAtmos
+    #- id: ClothingOuterHardsuitAtmos #ADT-Tweak
     - id: OxygenTankFilled
     - id: ClothingMaskBreath
 
@@ -188,6 +198,16 @@
           tableId: FillLockerEngineer
         - !type:NestedSelector
           tableId: FillEngineerHardsuit
+  #ADT-Tweak-Start
+  - type: UserInterface
+    interfaces:
+      enum.SuitStorageUiKey.Key:
+        type: SuitStorageBoundUserInterface
+  - type: SuitStorage
+    options:
+    - ADTClothingModsuitBackEngineering
+    - ClothingOuterHardsuitEngineering
+  #ADT-Tweak-End
 
 - type: entity
   id: LockerEngineerFilled
@@ -217,7 +237,7 @@
   id: FillEngineerHardsuit
   table: !type:AllSelector
     children:
-    - id: ClothingOuterHardsuitEngineering
+    #- id: ClothingOuterHardsuitEngineering #ADT-Tweak
     - id: OxygenTankFilled
     - id: ClothingShoesBootsMag
     - id: ClothingMaskBreath
