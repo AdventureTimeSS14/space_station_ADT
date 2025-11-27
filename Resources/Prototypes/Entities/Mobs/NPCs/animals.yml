@@ -523,6 +523,10 @@
     speechVerb: Moth
     speechSounds: Squeak
     allowedEmotes: ['Chitter', 'Squeak']
+    # ADT-Tweak Moth Roll start
+  - type: DashAction
+    actionProto: ADTActionDashMoth
+    # ADT-Tweak Moth Roll end
   - type: FaxableObject
     insertingState: inserting_mothroach
   - type: MothAccent

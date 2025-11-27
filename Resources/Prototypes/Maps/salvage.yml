@@ -210,4 +210,8 @@
   id: OutpostArm
   mapPath: /Maps/Salvage/outpost-arm.yml
   sizeString: salvage-map-wreck-size-large
+<<<<<<< HEAD
   sizeTag: BigMagnetTargets # ADT-Tweak: MagnetUpdate
+=======
+  sizeTag: BigMagnetTargets #ADT-Tweak-MagnetUpdate
+>>>>>>> a5ec82e0376bcad2130271552985f44b4a2cc530
