@@ -13,7 +13,7 @@ metaphysical-death-round-end = волшебной
 electronic-death-round-end = глазосверкательной
 mysterious-death-round-end = загадочной
 
-brutal-damage-death-round-end = брутальной
+hurt-damage-death-round-end = больноватой
 breakable-damage-death-round-end = разрушительной
 agony-damage-death-round-end = в агониях
 painful-damage-death-round-end = полной боли

@@ -239,7 +239,7 @@ namespace Content.Client.RoundEnd
                         >= 750 => Loc.GetString("painful-damage-death-round-end"),
                         >= 500 => Loc.GetString("agony-damage-death-round-end"),
                         >= 300 => Loc.GetString("breakable-damage-death-round-end"),
-                        >= 200 => Loc.GetString("brutal-damage-death-round-end"),
+                        >= 200 => Loc.GetString("hurt-damage-death-round-end"),
                         _ => Loc.GetString("unknown-damage-death-round-end")
                     };
 
