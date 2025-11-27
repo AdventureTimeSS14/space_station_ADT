@@ -256,6 +256,7 @@
         reagents:
         - ReagentId: ChloralHydrate
           Quantity: 15
+  # Start ADT tweak
   - type: NpcFactionMember
     factions:
     - ADTSpaceMobs
