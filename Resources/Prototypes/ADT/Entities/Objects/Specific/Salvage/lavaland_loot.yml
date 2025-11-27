@@ -1,6 +1,6 @@
 - type: entity
   id: ADTCursedHeart
-  parent: BaseHumanOrgan
+  parent: BaseItem
   name: heart
   description: "I feel bad for the heartless bastard who lost this."
   components:
@@ -10,6 +10,10 @@
   - type: Item
     size: Small
   - type: CursedHeartGrant
+  - type: Tag
+    tags:
+    - Meat
+    - Organ
 
 - type: entity
   id: ADTVavilonBook
