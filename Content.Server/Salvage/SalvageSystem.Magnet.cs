@@ -91,7 +91,40 @@ public sealed partial class SalvageSystem
             }
         }
     }
+    private void UpdateMagnet()
+    {
+        var dataQuery = EntityQueryEnumerator<SalvageMagnetDataComponent>();
+        var curTime = _timing.CurTime;
 
+        while (dataQuery.MoveNext(out var uid, out var magnetData))
+        {
+            // Magnet currently active.
+            if (magnetData.EndTime != null)
+            {
+                if (magnetData.EndTime.Value < curTime)
+                {
+                    EndMagnet((uid, magnetData));
+                }
+                else if (!magnetData.Announced && (magnetData.EndTime.Value - curTime).TotalSeconds < 31)
+                {
+                    var magnet = GetMagnet((uid, magnetData));
+
+                    if (magnet != null)
+                    {
+                        Report(magnet.Value.Owner, MagnetChannel,
+                            "salvage-system-announcement-losing",
+                            ("timeLeft", (magnetData.EndTime.Value - curTime).Seconds));
+                    }
+
+                    magnetData.Announced = true;
+                }
+            }
+            if (magnetData.NextOffer < curTime)
+            {
+                CreateMagnetOffers((uid, magnetData));
+            }
+        }
+    }
     /// <summary>
     /// Ends the magnet attachment and deletes the relevant grids.
     /// </summary>
@@ -295,53 +328,25 @@ public sealed partial class SalvageSystem
                     var salvageProto = wreck.SalvageMap;
                     if (salvageProto.SizeTag==null)
                         return;
-                    if (salvageProto.SizeTag=="SmallMagnetTargets")
-                    {
-                        data.Comp.ActiveTime = _timing.CurTime + data.Comp.SmallTargetTime;
-                        break;
-                    }
-                    else if (salvageProto.SizeTag=="MediumMagnetTargets")
-                    {
-                        data.Comp.ActiveTime = _timing.CurTime + data.Comp.MediumTargetTime;
-                        break;
-                    }
-                    else if (salvageProto.SizeTag=="BigMagnetTargets")
-                    {
-                        data.Comp.ActiveTime = _timing.CurTime + data.Comp.BigTargetTime;
-                        break;
-                    }
-                    else
-                        return;
+                    data.Comp.ActiveTime = _timing.CurTime + data.Comp.sizeAndTime[salvageProto.SizeTag];
                     break;
+
                 case AsteroidOffering asteroid:
                     var asteroidProto = _prototypeManager.Index<DungeonConfigPrototype>(asteroid.Id);
                     if (asteroidProto.SizeTag==null)
                         return;
-                    if (asteroidProto.SizeTag=="OreMagnetTargets")
-                    {
-                        data.Comp.ActiveTime = _timing.CurTime + data.Comp.OreTargetTime;
-                        break;
-                    }
+                    data.Comp.ActiveTime = _timing.CurTime + data.Comp.sizeAndTime[asteroidProto.SizeTag];
                     break;
+
                 case DebrisOffering debris:
                     var debrisProto = _prototypeManager.Index<DungeonConfigPrototype>(debris.Id);
                     if (debrisProto.SizeTag==null)
                         return;
-                    if (debrisProto.SizeTag=="SmallMagnetTargets")
-                    {
-                        data.Comp.ActiveTime = _timing.CurTime + data.Comp.SmallTargetTime;
-                        break;
-                    }
-                    else if (debrisProto.SizeTag=="MediumMagnetTargets")
-                    {
-                        data.Comp.ActiveTime = _timing.CurTime + data.Comp.MediumTargetTime;
-                        break;
-                    }
-                    else if (debrisProto.SizeTag=="BigMagnetTargets")
-                    {
-                        data.Comp.ActiveTime = _timing.CurTime + data.Comp.BigTargetTime;
-                        break;
-                    }
+                    data.Comp.ActiveTime = _timing.CurTime + data.Comp.sizeAndTime[debrisProto.SizeTag];
+                    break;
+
+                default:
+                    data.Comp.ActiveTime = _timing.CurTime + data.Comp.sizeAndTime["ErrorTime"];
                     break;
             }
             // ADT-Tweak-End
@@ -476,40 +481,6 @@ public sealed partial class SalvageSystem
         angle = Angle.Zero;
         coords = MapCoordinates.Nullspace;
         return false;
-    }
-    private void UpdateMagnet()
-    {
-        var dataQuery = EntityQueryEnumerator<SalvageMagnetDataComponent>();
-        var curTime = _timing.CurTime;
-
-        while (dataQuery.MoveNext(out var uid, out var magnetData))
-        {
-            // Magnet currently active.
-            if (magnetData.EndTime != null)
-            {
-                if (magnetData.EndTime.Value < curTime)
-                {
-                    EndMagnet((uid, magnetData));
-                }
-                else if (!magnetData.Announced && (magnetData.EndTime.Value - curTime).TotalSeconds < 31)
-                {
-                    var magnet = GetMagnet((uid, magnetData));
-
-                    if (magnet != null)
-                    {
-                        Report(magnet.Value.Owner, MagnetChannel,
-                            "salvage-system-announcement-losing",
-                            ("timeLeft", (magnetData.EndTime.Value - curTime).Seconds));
-                    }
-
-                    magnetData.Announced = true;
-                }
-            }
-            if (magnetData.NextOffer < curTime)
-            {
-                CreateMagnetOffers((uid, magnetData));
-            }
-        }
     }
 }
 

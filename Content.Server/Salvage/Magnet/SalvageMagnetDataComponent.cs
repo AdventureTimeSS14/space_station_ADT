@@ -57,28 +57,14 @@ public sealed partial class SalvageMagnetDataComponent : Component
 
     // ADT-Tweak-Start: Настраиваемое время для разных размеров фрагментов магнита
 
-    /// <summary>
-    /// Время активности для маленьких целей магнита.
-    /// </summary>
     [DataField]
-     public TimeSpan SmallTargetTime = TimeSpan.FromMinutes(2);
-
-    /// <summary>
-    /// Время активности для рудных целей магнита.
-    /// </summary>
-    [DataField]
-     public TimeSpan OreTargetTime = TimeSpan.FromMinutes(3);
-
-    /// <summary>
-    /// Время активности для средних целей магнита.
-    /// </summary>
-    [DataField]
-     public TimeSpan MediumTargetTime = TimeSpan.FromMinutes(4);
-
-    /// <summary>
-    /// Время активности для больших целей магнита.
-    /// </summary>
-    [DataField]
-     public TimeSpan BigTargetTime = TimeSpan.FromMinutes(6);
+    public Dictionary<string, TimeSpan> sizeAndTime=new Dictionary<string, TimeSpan>
+    {
+        {"SmallMagnetTargets",TimeSpan.FromMinutes(2)},
+        {"OreMagnetTargets",TimeSpan.FromMinutes(3)},
+        {"MediumMagnetTargets",TimeSpan.FromMinutes(4)},
+        {"BigMagnetTargets",TimeSpan.FromMinutes(6)},
+        {"ErrorTime",TimeSpan.FromMinutes(6)}
+    };
     // ADT-Tweak-End
 }

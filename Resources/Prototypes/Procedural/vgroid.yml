@@ -9,7 +9,7 @@
 
 - type: dungeonConfig
   id: VGRoid
-  sizeTag: MediumMagnetTargets
+  sizeTag: MediumMagnetTargets # ADT-Tweak: MagnetUpdate
   layers:
     - !type:PrototypeDunGen
       proto: VGRoidBlob
@@ -100,7 +100,7 @@
 # Configs
 - type: dungeonConfig
   id: VGRoidBlob
-  sizeTag: MediumMagnetTargets
+  sizeTag: MediumMagnetTargets # ADT-Tweak: MagnetUpdate
   layers:
   - !type:NoiseDistanceDunGen
     size: 272, 272
@@ -119,7 +119,7 @@
 
 - type: dungeonConfig
   id: VGRoidSmaller
-  sizeTag: MediumMagnetTargets
+  sizeTag: MediumMagnetTargets # ADT-Tweak: MagnetUpdate
   minOffset: 40
   maxOffset: 60
   layers:
@@ -139,7 +139,7 @@
 
 - type: dungeonConfig
   id: VGRoidExterior
-  sizeTag: MediumMagnetTargets
+  sizeTag: MediumMagnetTargets # ADT-Tweak: MagnetUpdate
   reserveTiles: true
   layers:
   - !type:PrototypeDunGen
@@ -150,7 +150,7 @@
 
 - type: dungeonConfig
   id: VGRoidExteriorDungeons
-  sizeTag: MediumMagnetTargets
+  sizeTag: MediumMagnetTargets # ADT-Tweak: MagnetUpdate
   reserveTiles: true
   minCount: 2
   maxCount: 3
@@ -197,7 +197,7 @@
 
 - type: dungeonConfig
   id: VGRoidSmallPaths
-  sizeTag: MediumMagnetTargets
+  sizeTag: MediumMagnetTargets # ADT-Tweak: MagnetUpdate
   reserveTiles: true
   layers:
   - !type:ReplaceTileDunGen
@@ -231,7 +231,7 @@
 # Fill with rocks.
 - type: dungeonConfig
   id: VGRoidFill
-  sizeTag: MediumMagnetTargets
+  sizeTag: MediumMagnetTargets # ADT-Tweak: MagnetUpdate
   layers:
   - !type:FillGridDunGen
     entity: IronRock

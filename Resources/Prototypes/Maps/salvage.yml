@@ -6,85 +6,73 @@
   id: Small1
   mapPath: /Maps/Salvage/small-1.yml
   sizeString: salvage-map-wreck-size-small
-  sizeTag: SmallMagnetTargets #ADT-Tweak-MagnetUpdate
-
+  sizeTag: SmallMagnetTargets # ADT-Tweak: MagnetUpdate
 
 - type: salvageMap
   id: Small2
   mapPath: /Maps/Salvage/small-2.yml
   sizeString: salvage-map-wreck-size-small
-  sizeTag: SmallMagnetTargets #ADT-Tweak-MagnetUpdate
-
+  sizeTag: SmallMagnetTargets # ADT-Tweak: MagnetUpdate
 
 - type: salvageMap
   id: SmallShip1
   mapPath: /Maps/Salvage/small-ship-1.yml
   sizeString: salvage-map-wreck-size-small
-  sizeTag: SmallMagnetTargets #ADT-Tweak-MagnetUpdate
-
+  sizeTag: SmallMagnetTargets # ADT-Tweak: MagnetUpdate
 
 - type: salvageMap
   id: Small3
   mapPath: /Maps/Salvage/small-3.yml
   sizeString: salvage-map-wreck-size-small
-  sizeTag: SmallMagnetTargets #ADT-Tweak-MagnetUpdate
-
+  sizeTag: SmallMagnetTargets # ADT-Tweak: MagnetUpdate
 
 - type: salvageMap
   id: SmallAISurveyDrone
   mapPath: /Maps/Salvage/small-ai-survey-drone.yml
   sizeString: salvage-map-wreck-size-small
-  sizeTag: SmallMagnetTargets #ADT-Tweak-MagnetUpdate
-
+  sizeTag: SmallMagnetTargets # ADT-Tweak: MagnetUpdate
 
 - type: salvageMap
   id: Small4
   mapPath: /Maps/Salvage/small-4.yml
   sizeString: salvage-map-wreck-size-small
-  sizeTag: SmallMagnetTargets #ADT-Tweak-MagnetUpdate
-
+  sizeTag: SmallMagnetTargets # ADT-Tweak: MagnetUpdate
 
 - type: salvageMap
   id: SmallCargo
   mapPath: /Maps/Salvage/small-cargo.yml
   sizeString: salvage-map-wreck-size-small
-  sizeTag: SmallMagnetTargets #ADT-Tweak-MagnetUpdate
-
+  sizeTag: SmallMagnetTargets # ADT-Tweak: MagnetUpdate
 
 - type: salvageMap
   id: SmallChapel
   mapPath: /Maps/Salvage/small-chapel.yml
   sizeString: salvage-map-wreck-size-small
-  sizeTag: SmallMagnetTargets #ADT-Tweak-MagnetUpdate
-
+  sizeTag: SmallMagnetTargets # ADT-Tweak: MagnetUpdate
 
 - type: salvageMap
   id: SmallChef
   mapPath: /Maps/Salvage/small-chef.yml
   sizeString: salvage-map-wreck-size-small
-  sizeTag: SmallMagnetTargets #ADT-Tweak-MagnetUpdate
-
+  sizeTag: SmallMagnetTargets # ADT-Tweak: MagnetUpdate
 
 - type: salvageMap
   id: SmallParty
   mapPath: /Maps/Salvage/small-party.yml
   sizeString: salvage-map-wreck-size-small
-  sizeTag: SmallMagnetTargets #ADT-Tweak-MagnetUpdate
-
+  sizeTag: SmallMagnetTargets # ADT-Tweak: MagnetUpdate
 
 - type: salvageMap
   id: SmallSyndicate
   mapPath: /Maps/Salvage/small-syndicate.yml
   sizeString: salvage-map-wreck-size-small
-  sizeTag: SmallMagnetTargets #ADT-Tweak-MagnetUpdate
-
+  sizeTag: SmallMagnetTargets # ADT-Tweak: MagnetUpdate
 
 - type: salvageMap
   id: SmallTesla
   mapPath: /Maps/Salvage/small-tesla.yml
   sizeString: salvage-map-wreck-size-small
-  sizeTag: SmallMagnetTargets #ADT-Tweak-MagnetUpdate
-
+  sizeTag: SmallMagnetTargets # ADT-Tweak: MagnetUpdate
 
 # Small - Asteroids
 
@@ -92,8 +80,7 @@
   id: SmallA1
   mapPath: /Maps/Salvage/small-a-1.yml
   sizeString: salvage-map-wreck-size-small
-  sizeTag: SmallMagnetTargets #ADT-Tweak-MagnetUpdate
-
+  sizeTag: SmallMagnetTargets # ADT-Tweak: MagnetUpdate
 
 # "Medium"-class maps - Max size square: 15x15, indicated size: 7.5
 
@@ -101,105 +88,91 @@
   id: Medium1
   mapPath: /Maps/Salvage/medium-1.yml
   sizeString: salvage-map-wreck-size-medium
-  sizeTag: MediumMagnetTargets #ADT-Tweak-MagnetUpdate
+  sizeTag: MediumMagnetTargets # ADT-Tweak: MagnetUpdate
 
 - type: salvageMap
   id: MediumVault1
   mapPath: /Maps/Salvage/medium-vault-1.yml
   sizeString: salvage-map-wreck-size-medium
-  sizeTag: MediumMagnetTargets #ADT-Tweak-MagnetUpdate
-
+  sizeTag: MediumMagnetTargets # ADT-Tweak: MagnetUpdate
 
 - type: salvageMap
   id: MediumOrchestra
   mapPath: /Maps/Salvage/medium-silent-orchestra.yml
   sizeString: salvage-map-wreck-size-medium
-  sizeTag: MediumMagnetTargets #ADT-Tweak-MagnetUpdate
-
+  sizeTag: MediumMagnetTargets # ADT-Tweak: MagnetUpdate
 
 - type: salvageMap
   id: MediumLibraryWreck
   mapPath: /Maps/Salvage/medium-library.yml
   sizeString: salvage-map-wreck-size-medium
-  sizeTag: MediumMagnetTargets #ADT-Tweak-MagnetUpdate
-
+  sizeTag: MediumMagnetTargets # ADT-Tweak: MagnetUpdate
 
 - type: salvageMap
   id: MediumCargoWreck
   mapPath: /Maps/Salvage/cargo-1.yml
   sizeString: salvage-map-wreck-size-medium
-  sizeTag: MediumMagnetTargets #ADT-Tweak-MagnetUpdate
-
+  sizeTag: MediumMagnetTargets # ADT-Tweak: MagnetUpdate
 
 - type: salvageMap
   id: MediumPirateWreck
   mapPath: /Maps/Salvage/medium-pirate.yml
   sizeString: salvage-map-wreck-size-medium
-  sizeTag: MediumMagnetTargets #ADT-Tweak-MagnetUpdate
-
+  sizeTag: MediumMagnetTargets # ADT-Tweak: MagnetUpdate
 
 - type: salvageMap
   id: TickColony
   mapPath: /Maps/Salvage/tick-colony.yml
   sizeString: salvage-map-wreck-size-medium
-  sizeTag: MediumMagnetTargets #ADT-Tweak-MagnetUpdate
-
+  sizeTag: MediumMagnetTargets # ADT-Tweak: MagnetUpdate
 
 - type: salvageMap
   id: CargoDock
   mapPath: /Maps/Salvage/medium-dock.yml
   sizeString: salvage-map-wreck-size-medium
-  sizeTag: MediumMagnetTargets #ADT-Tweak-MagnetUpdate
-
+  sizeTag: MediumMagnetTargets # ADT-Tweak: MagnetUpdate
 
 - type: salvageMap
   id: SpaceWaffleHome
   sizeString: salvage-map-wreck-size-medium
   mapPath: /Maps/Salvage/wh-salvage.yml
-  sizeTag: MediumMagnetTargets #ADT-Tweak-MagnetUpdate
-
+  sizeTag: MediumMagnetTargets # ADT-Tweak: MagnetUpdate
 
 - type: salvageMap
   id: MediumShuttleWreck
   mapPath: /Maps/Salvage/medium-ruined-emergency-shuttle.yml
   sizeString: salvage-map-wreck-size-medium
-  sizeTag: MediumMagnetTargets #ADT-Tweak-MagnetUpdate
-
+  sizeTag: MediumMagnetTargets # ADT-Tweak: MagnetUpdate
 
 - type: salvageMap
   id: MediumPetHospital
   mapPath: /Maps/Salvage/medium-pet-hospital.yml
   sizeString: salvage-map-wreck-size-medium
-  sizeTag: MediumMagnetTargets #ADT-Tweak-MagnetUpdate
-
+  sizeTag: MediumMagnetTargets # ADT-Tweak: MagnetUpdate
 
 - type: salvageMap
   id: MediumCrashedShuttle
   mapPath: /Maps/Salvage/medium-crashed-shuttle.yml
   sizeString: salvage-map-wreck-size-medium
-  sizeTag: MediumMagnetTargets #ADT-Tweak-MagnetUpdate
-
+  sizeTag: MediumMagnetTargets # ADT-Tweak: MagnetUpdate
 
 - type: salvageMap
   id: Meatball
   mapPath: /Maps/Salvage/meatball.yml
   sizeString: salvage-map-wreck-size-medium
-  sizeTag: MediumMagnetTargets #ADT-Tweak-MagnetUpdate
-
+  sizeTag: MediumMagnetTargets # ADT-Tweak: MagnetUpdate
 
 - type: salvageMap
   id: VeganMeatball
   mapPath: /Maps/Salvage/vegan-meatball.yml
   sizeString: salvage-map-wreck-size-medium
-  sizeTag: MediumMagnetTargets #ADT-Tweak-MagnetUpdate
-
+  sizeTag: MediumMagnetTargets # ADT-Tweak: MagnetUpdate
 
 - type: salvageMap
   id: MediumHaulingShuttleWreck
   mapPath: /Maps/Salvage/hauling-shuttle.yml
   sizeString: salvage-map-wreck-size-medium
-  sizeTag: MediumMagnetTargets #ADT-Tweak-MagnetUpdate
-
+  sizeTag: MediumMagnetTargets # ADT-Tweak: MagnetUpdate
 
 # """Large""" maps
 
@@ -207,40 +180,34 @@
   id: StationStation
   mapPath: /Maps/Salvage/stationstation.yml
   sizeString: salvage-map-wreck-size-large
-  sizeTag: BigMagnetTargets #ADT-Tweak-MagnetUpdate
-
+  sizeTag: BigMagnetTargets # ADT-Tweak: MagnetUpdate
 
 - type: salvageMap
   id: AsteroidBase
   mapPath: /Maps/Salvage/asteroid-base.yml
   sizeString: salvage-map-wreck-size-large
-  sizeTag: BigMagnetTargets #ADT-Tweak-MagnetUpdate
-
+  sizeTag: BigMagnetTargets # ADT-Tweak: MagnetUpdate
 
 - type: salvageMap
   id: RuinCargoBase
   mapPath: /Maps/Salvage/ruin-cargo-salvage.yml
   sizeString: salvage-map-wreck-size-large
-  sizeTag: BigMagnetTargets #ADT-Tweak-MagnetUpdate
-
+  sizeTag: BigMagnetTargets # ADT-Tweak: MagnetUpdate
 
 - type: salvageMap
   id: SecurityChunk
   mapPath: /Maps/Salvage/security-chunk.yml
   sizeString: salvage-map-wreck-size-large
-  sizeTag: BigMagnetTargets #ADT-Tweak-MagnetUpdate
-
+  sizeTag: BigMagnetTargets # ADT-Tweak: MagnetUpdate
 
 - type: salvageMap
   id: EngineeringChunk
   mapPath: /Maps/Salvage/engineering-chunk.yml
   sizeString: salvage-map-wreck-size-large
-  sizeTag: BigMagnetTargets #ADT-Tweak-MagnetUpdate
-
+  sizeTag: BigMagnetTargets # ADT-Tweak: MagnetUpdate
 
 - type: salvageMap
   id: OutpostArm
   mapPath: /Maps/Salvage/outpost-arm.yml
   sizeString: salvage-map-wreck-size-large
-  sizeTag: BigMagnetTargets #ADT-Tweak-MagnetUpdate
-
+  sizeTag: BigMagnetTargets # ADT-Tweak: MagnetUpdate

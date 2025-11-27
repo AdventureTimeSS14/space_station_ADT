@@ -24,6 +24,6 @@ public sealed partial class SalvageMapPrototype : IPrototype
     /// Size tag for choose the time after choosing of asteroid. Using: sizeTag: SmallMagnetTargets
     /// </summary>
     [DataField(required: true)]
-    public string SizeTag= default!;
+    public string SizeTag = default!;
     // ADT-Tweak-End
 }
