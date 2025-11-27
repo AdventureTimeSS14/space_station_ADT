@@ -13,9 +13,9 @@ metaphysical-death-round-end = волшебной
 electronic-death-round-end = глазосверкательной
 mysterious-death-round-end = загадочной
 
-200-damage-death-round-end = брутальной
-300-damage-death-round-end = разрушительной
-500-damage-death-round-end = в агониях
-750-damage-death-round-end = полной боли
-1000-damage-death-round-end = брутальной
+brutal-damage-death-round-end = брутальной
+breakable-damage-death-round-end = разрушительной
+agony-damage-death-round-end = в агониях
+painful-damage-death-round-end = полной боли
+brutal-damage-death-round-end = брутальной
 unknown-damage-death-round-end = трагичной
