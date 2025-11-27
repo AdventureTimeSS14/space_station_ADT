@@ -8,7 +8,7 @@
   - type: HTN
     rootTask:
       task: SimpleHostileCompound
-#  - type: NpcFactionMember  
+#  - type: NpcFactionMember  ADT-Tweak
 #    factions:
 #    - SimpleHostile
   - type: Sprite
@@ -341,9 +341,9 @@
           amount: 1
           prob: 0.3
   # Start ADT tweak
-        - type: NpcFactionMember
-          factions:
-          - ADTSpaceMobs
+    - type: NpcFactionMember
+      factions:
+        - ADTSpaceMobs
   # End ADT tweak
     - type: Bloodstream
       bloodMaxVolume: 200
