@@ -137,4 +137,14 @@ public sealed partial class MindComponent : Component
     public bool PreventGhostingSendMessage = true;
     [DataField]
     public LocId? Subtype;
+
+    // ADT-tweak-start
+    /// <summary>
+    ///     The last mob entity this mind was in.
+    ///     Can be null.
+    /// </summary>
+    [DataField]
+    public EntityUid? LastMob { get; set; }
+    // ADT-tweak-end
+
 }
