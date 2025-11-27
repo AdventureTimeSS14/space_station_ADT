@@ -58,13 +58,13 @@ public sealed partial class SalvageMagnetDataComponent : Component
     // ADT-Tweak-Start: Настраиваемое время для разных размеров фрагментов магнита
 
     [DataField]
-    public Dictionary<string, TimeSpan> sizeAndTime=new Dictionary<string, TimeSpan>
+    public Dictionary<string, TimeSpan> sizeAndTime = new Dictionary<string, TimeSpan>
     {
-        {"SmallMagnetTargets",TimeSpan.FromMinutes(2)},
-        {"OreMagnetTargets",TimeSpan.FromMinutes(3)},
-        {"MediumMagnetTargets",TimeSpan.FromMinutes(4)},
-        {"BigMagnetTargets",TimeSpan.FromMinutes(6)},
-        {"ErrorTime",TimeSpan.FromMinutes(6)}
+        {"SmallMagnetTargets", TimeSpan.FromMinutes(2)},
+        {"OreMagnetTargets", TimeSpan.FromMinutes(3)},
+        {"MediumMagnetTargets", TimeSpan.FromMinutes(4)},
+        {"BigMagnetTargets", TimeSpan.FromMinutes(6)},
+        {"ErrorTime", TimeSpan.FromMinutes(6)}
     };
     // ADT-Tweak-End
 }
