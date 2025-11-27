@@ -8,9 +8,11 @@
   - type: HTN
     rootTask:
       task: SimpleHostileCompound
-#  - type: NpcFactionMember  ADT-Tweak
+# ADT-Tweak Start
+#  - type: NpcFactionMember
 #    factions:
 #    - SimpleHostile
+# ADT-Tweak End
   - type: Sprite
     drawdepth: Mobs
     sprite: Mobs/Animals/bear.rsi
@@ -249,7 +251,7 @@
       types:
         Piercing: 6
         Poison: 4
-  #ADT Start
+  # ADT-Tweak Start
   - type: SolutionContainerManager
     solutions:
       melee:
@@ -270,7 +272,7 @@
   - type: MeleeChemicalInjector
     solution: melee
     transferAmount: 2
-  #ADT End
+  # ADT-Tweak End
   - type: ReplacementAccent
     accent: xeno
   - type: InteractionPopup
@@ -342,11 +344,11 @@
         - id: ClothingShoesSnakeskinBoots
           amount: 1
           prob: 0.3
-  # Start ADT tweak
+  # ADT-Tweak Start
     - type: NpcFactionMember
       factions:
         - ADTSpaceMobs
-  # End ADT tweak
+  # ADT-Tweak End
     - type: Bloodstream
       bloodMaxVolume: 200
       bloodReagent: Cryoxadone
