@@ -280,7 +280,7 @@
     - MedicalBoardsStatic
     - EngineeringBoardsStatic
     - CircuitFloorsStatic
-    - ElectronicsStatic
+    - ElectronicsStatic # ADT-Tweak
     dynamicPacks:
     - EngineeringBoards
     - CargoBoards
