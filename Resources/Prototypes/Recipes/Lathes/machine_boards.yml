@@ -194,10 +194,10 @@
   id: ChemMasterMachineCircuitboard
   result: ChemMasterMachineCircuitboard
 
-- type: latheRecipe
-  parent: [ BaseGoldCircuitboardRecipe, BaseMedicalMachineRecipeCategory ]
-  id: ChemDispenserMachineCircuitboard
-  result: ChemDispenserMachineCircuitboard
+#- type: latheRecipe
+#  parent: [ BaseGoldCircuitboardRecipe, BaseMedicalMachineRecipeCategory ]
+#  id: ChemDispenserMachineCircuitboard
+#  result: ChemDispenserMachineCircuitboard
 
 # Treatment
 - type: latheRecipe
