@@ -194,10 +194,12 @@
   id: ChemMasterMachineCircuitboard
   result: ChemMasterMachineCircuitboard
 
+# ADT-Tweak-Start
 #- type: latheRecipe
 #  parent: [ BaseGoldCircuitboardRecipe, BaseMedicalMachineRecipeCategory ]
 #  id: ChemDispenserMachineCircuitboard
 #  result: ChemDispenserMachineCircuitboard
+# ADT-Tweak-End
 
 # Treatment
 - type: latheRecipe
