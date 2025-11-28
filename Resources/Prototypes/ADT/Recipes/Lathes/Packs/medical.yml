@@ -40,7 +40,6 @@
   - ChemMasterMachineCircuitboard
   - HotplateMachineCircuitboard
   - ADTColdplateMachineCircuitboard
-  - HotplateMachineCircuitboard
 
 - type: latheRecipePack
   id: ADTCryoTech
