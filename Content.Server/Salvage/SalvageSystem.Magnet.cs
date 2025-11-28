@@ -137,7 +137,7 @@ public sealed partial class SalvageSystem
 
             while (query.MoveNext(out var salvUid, out var salvMob, out var salvMobState))
             {
-                if (data.Comp.ActiveEntities.Contains(salvMob.LinkedEntity) && _mobState.IsDead(salvUid, salvMobState))
+                if (data.Comp.ActiveEntities.Contains(salvMob.LinkedEntity) && _mobState.IsDead(salvUid, salvMobState))//ADT-Tweak Magnet Update
                 {
                     QueueDel(salvUid);
                 }
@@ -433,7 +433,7 @@ public sealed partial class SalvageSystem
             }
         }
 
-        Report(magnet.Owner, MagnetChannel, "salvage-system-announcement-arrived", ("timeLeft", data.Comp.ActiveTime.Seconds));
+        Report(magnet.Owner, MagnetChannel, "salvage-system-announcement-arrived", ("timeLeft", (data.Comp.ActiveTime-_timing.CurTime).TotalSeconds));
         _mapSystem.DeleteMap(salvMapXform.MapID);
 
         data.Comp.Announced = false;
