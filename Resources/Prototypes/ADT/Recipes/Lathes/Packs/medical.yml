@@ -6,7 +6,6 @@
   - ADTPillCanister
   - ADTPillPack
   - ADTPlasticBottle
-  - ADTBaseChemistryEmptyVial
   - ADTAutoSurgeon
 
 - type: latheRecipePack
@@ -30,17 +29,22 @@
   - ADTAdvancedMedicalBedCircuitboard
 
 - type: latheRecipePack
+  id: ADTCryoPodMachineCircuitboard
+  recipes:
+  - CryoPodMachineCircuitboard
+
+- type: latheRecipePack
   id: ADTChemDisp
   recipes:
-  - ChemDispenserMachineCircuitboard
+#  - ChemDispenserMachineCircuitboard
   - ChemMasterMachineCircuitboard
   - HotplateMachineCircuitboard
   - ADTColdplateMachineCircuitboard
+  - HotplateMachineCircuitboard
 
 - type: latheRecipePack
   id: ADTCryoTech
   recipes:
-  - CryoPodMachineCircuitboard
   - ADTPatchCryo
   - CryostasisBeaker
   - SyringeCryostasis
