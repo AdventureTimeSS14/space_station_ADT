@@ -82,4 +82,12 @@
   - Hydroponics
   - Atmospherics
   - IAA
-  - Magistrate # ADT-Roles
+  - Magistrate
+
+#
+# Расширенный доступ должен работать ТОЛЬКО и ИСКЛЮЧИТЕЛЬНО на шлюзы, выдаётся автоматически всем СБшникам в ЯК и выше
+# обязательно используйте этот комментарий
+#
+- type: accessLevel
+  id: ADTExtended
+  name: id-card-access-level-extended

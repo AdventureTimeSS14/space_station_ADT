@@ -45,6 +45,9 @@ public sealed partial class CombatMove
 
     [DataField]
     public List<IComboEffect> ComboEvent = new List<IComboEffect> { };
+
+    [DataField]
+    public bool StopGrab = true;
 }
 
 [DataDefinition]
