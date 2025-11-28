@@ -137,7 +137,7 @@ public sealed partial class SalvageSystem
 
             while (query.MoveNext(out var salvUid, out var salvMob, out var salvMobState))
             {
-                if (data.Comp.ActiveEntities.Contains(salvMob.LinkedEntity) && _mobState.IsAlive(salvUid, salvMobState))
+                if (data.Comp.ActiveEntities.Contains(salvMob.LinkedEntity) && _mobState.IsDead(salvUid, salvMobState))
                 {
                     QueueDel(salvUid);
                 }
@@ -178,7 +178,7 @@ public sealed partial class SalvageSystem
             foreach (var ent in data.Comp.ActiveEntities)
             {
                 // ADT-Tweak - более безопасный способ удаления
-                QueueDel(ent);
+                Del(ent);
             }
 
             foreach (var entity in _detachEnts)
@@ -433,7 +433,7 @@ public sealed partial class SalvageSystem
             }
         }
 
-        Report(magnet.Owner, MagnetChannel, "salvage-system-announcement-arrived", ("timeLeft", data.Comp.ActiveTime.TotalSeconds));
+        Report(magnet.Owner, MagnetChannel, "salvage-system-announcement-arrived", ("timeLeft", data.Comp.ActiveTime.Seconds));
         _mapSystem.DeleteMap(salvMapXform.MapID);
 
         data.Comp.Announced = false;
