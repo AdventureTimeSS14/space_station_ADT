@@ -4,8 +4,8 @@ meta:
   engineVersion: 265.0.0
   forkId: ""
   forkVersion: ""
-  time: 11/10/2025 17:30:06
-  entityCount: 12854
+  time: 11/28/2025 18:33:02
+  entityCount: 12856
 maps:
 - 1
 grids:
@@ -827,7 +827,7 @@ entities:
             2: 61440
           8,5:
             0: 272
-            4: 17472
+            3: 17472
           8,6:
             0: 65521
           8,7:
@@ -870,10 +870,10 @@ entities:
             0: 53759
           11,2:
             0: 4319
-            3: 49152
+            4: 49152
           11,3:
             0: 61457
-            3: 204
+            4: 204
           11,-1:
             0: 30583
           11,4:
@@ -885,9 +885,9 @@ entities:
             0: 28791
           12,2:
             0: 119
-            3: 28672
+            4: 28672
           12,3:
-            3: 119
+            4: 119
             0: 28672
           12,-1:
             0: 29311
@@ -1300,7 +1300,7 @@ entities:
             0: 55
           9,5:
             5: 4368
-            3: 17472
+            4: 17472
           9,6:
             0: 26464
           9,7:
@@ -1309,12 +1309,12 @@ entities:
           9,8:
             2: 238
           10,5:
-            3: 4368
+            4: 4368
             6: 17472
           10,6:
             2: 3840
           11,5:
-            3: 21840
+            4: 21840
           11,6:
             2: 3856
           12,5:
@@ -1508,7 +1508,7 @@ entities:
           temperature: 293.15
           moles:
           - 0
-          - 0
+          - 6666.982
           - 0
           - 0
           - 0
@@ -1531,7 +1531,7 @@ entities:
           temperature: 293.15
           moles:
           - 0
-          - 6666.982
+          - 0
           - 0
           - 0
           - 0
@@ -31511,18 +31511,6 @@ entities:
     - type: Transform
       pos: -14.417481,-12.248009
       parent: 2
-- proto: ChemDispenser
-  entities:
-  - uid: 4345
-    components:
-    - type: Transform
-      pos: 19.5,1.5
-      parent: 2
-  - uid: 4368
-    components:
-    - type: Transform
-      pos: 18.5,1.5
-      parent: 2
 - proto: ChemistryHotplate
   entities:
   - uid: 4398
@@ -37910,6 +37898,18 @@ entities:
       parent: 5359
     - type: Physics
       canCollide: False
+- proto: EnergyChemDispenser
+  entities:
+  - uid: 4345
+    components:
+    - type: Transform
+      pos: 19.5,1.5
+      parent: 2
+  - uid: 4368
+    components:
+    - type: Transform
+      pos: 18.5,1.5
+      parent: 2
 - proto: ExosuitFabricator
   entities:
   - uid: 5361
@@ -69049,7 +69049,7 @@ entities:
     - type: Transform
       pos: -4.5,-12.5
       parent: 2
-- proto: SpawnPointADTGuardOfficer
+- proto: SpawnPointADTCorrectionsOfficer
   entities:
   - uid: 583
     components:
@@ -69074,6 +69074,18 @@ entities:
     components:
     - type: Transform
       pos: 15.5,-15.5
+      parent: 2
+- proto: SpawnPointAtmos
+  entities:
+  - uid: 12797
+    components:
+    - type: Transform
+      pos: 31.5,12.5
+      parent: 2
+  - uid: 12798
+    components:
+    - type: Transform
+      pos: 32.5,12.5
       parent: 2
 - proto: SpawnPointBartender
   entities:
