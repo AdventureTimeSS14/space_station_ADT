@@ -16,7 +16,7 @@ using Robust.Shared.Replays;
 using Robust.Shared.Utility;
 using Content.Server.ADT.Language;  // ADT Languages
 using Content.Shared.ADT.Language;  // ADT Languages
-using Content.Shared.ADT.Loudspeaker.Events; // ADT radio
+using Content.Shared.ADT.Loudspeaker.Events; // ADT-Tweak: loudspeaker integration
 
 namespace Content.Server.Radio.EntitySystems;
 
