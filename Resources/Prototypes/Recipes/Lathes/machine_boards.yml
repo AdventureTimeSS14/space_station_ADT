@@ -194,7 +194,7 @@
   id: ChemMasterMachineCircuitboard
   result: ChemMasterMachineCircuitboard
 
-# ADT-Tweak-Start
+# ADT-Tweak-Start закоментил крафт раздатчика из за замены на энергораздатчики.
 #- type: latheRecipe
 #  parent: [ BaseGoldCircuitboardRecipe, BaseMedicalMachineRecipeCategory ]
 #  id: ChemDispenserMachineCircuitboard
