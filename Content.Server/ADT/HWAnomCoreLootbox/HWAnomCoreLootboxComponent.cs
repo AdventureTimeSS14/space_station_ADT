@@ -23,6 +23,6 @@ namespace Content.Server.ADT.HWAnomCoreLootbox
         public DoAfterId? DoAfter;
 
         [DataField, ViewVariables(VVAccess.ReadWrite)]
-        public SoundSpecifier DoAfterSound = new SoundPathSpecifier("Resources/Audio/ADT/Entities/paper_drop.ogg");
+        public SoundSpecifier DoAfterSound = new SoundPathSpecifier("/Audio/ADT/Entities/paper_drop.ogg");
     }
 }
