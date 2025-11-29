@@ -325,7 +325,7 @@
   icon: { sprite: ADT/Clothing/OuterClothing/Coats/david_jacket.rsi, state: icon }
   productEntity: ADTClothingOuterDavidsJacketValid
   cost:
-    Telecrystal: 2
+    Telecrystal: 1
   categories:
   - UplinkWearables
 
@@ -568,9 +568,9 @@
   icon: { sprite: ADT/Implants/sandevistan.rsi, state: icon}
   productEntity: ADTSandevistanAutoSurgeon
   discountDownTo:
-    Telecrystal: 10
-  cost:
     Telecrystal: 12
+  cost:
+    Telecrystal: 14
   categories:
     - UplinkImplants
 
@@ -581,9 +581,9 @@
   productEntity: ADTMantisDaggersAutoSurgeon
   icon: { sprite: ADT/Implants/mantis_daggers.rsi, state: icon}
   discountDownTo:
-    Telecrystal: 4
+    Telecrystal: 6
   cost:
-    Telecrystal: 7
+    Telecrystal: 10
   categories:
     - UplinkImplants
 
@@ -818,7 +818,7 @@
   description: uplink-cqc-desc
   productEntity: ADTCqcManual
   cost:
-    Telecrystal: 15
+    Telecrystal: 13
   categories:
   - UplinkWeaponry
   conditions:
