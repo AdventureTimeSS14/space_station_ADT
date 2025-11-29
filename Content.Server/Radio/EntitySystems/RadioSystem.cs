@@ -160,7 +160,7 @@ public sealed class RadioSystem : EntitySystem
         var wrappedMessage = Loc.GetString("chat-radio-message-wrap",   // ADT Languages tweak - remove bold
             ("color", channel.Color),
             ("fontType", gen.Font ?? speech.FontId),    // ADT Languages tweak speech.FontId -> gen.Font ?? speech.FontId
-            ("fontSize", loudSpeakFont ?? speech.FontSize), // goob edit - "loudSpeakFont"
+            ("fontSize", loudSpeakFont ?? speech.FontSize), // ADT-Tweak: loudspeaker font size override
             ("verb", Loc.GetString(_random.Pick(verbStrings))), // ADT Languages speech.SpeechVerbStrings -> verbStrings
             ("defaultFont", speech.FontId), // ADT Languages
             ("defaultSize", speech.FontSize),   // ADT Languages
