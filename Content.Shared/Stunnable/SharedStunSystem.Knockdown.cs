@@ -134,14 +134,16 @@ public abstract partial class SharedStunSystem
     /// </summary>
     /// <param name="entity">Entity we want to edit the data field of.</param>
     /// <param name="autoStand">What we want to set the data field to.</param>
-    public void SetAutoStand(Entity<KnockedDownComponent?> entity, bool autoStand = false)
-    {
-        if (!Resolve(entity, ref entity.Comp, false))
-            return;
+    //ADT-tweak-start
+    // public void SetAutoStand(Entity<KnockedDownComponent?> entity, bool autoStand = false)
+    // {
+    //     if (!Resolve(entity, ref entity.Comp, false))
+    //         return;
 
-        entity.Comp.AutoStand = autoStand;
-        DirtyField(entity, entity.Comp, nameof(KnockedDownComponent.AutoStand));
-    }
+    //     entity.Comp.AutoStand = autoStand;
+    //     DirtyField(entity, entity.Comp, nameof(KnockedDownComponent.AutoStand));
+    // }
+    //ADT-tweak-end
 
     /// <summary>
     /// Cancels the DoAfter of an entity with the <see cref="KnockedDownComponent"/> who is trying to stand.
@@ -269,22 +271,22 @@ public abstract partial class SharedStunSystem
         }
 
         var stand = !entity.Comp2.DoAfterId.HasValue;
-        SetAutoStand((entity, entity.Comp2), stand);
+        // SetAutoStand((entity, entity.Comp2), stand);
         //ADT tweak start
-        else if (_standingState.IsDown(playerEnt) && !HasComp<StunnedComponent>(playerEnt) && TryStanding(playerEnt, DoDoAfter: false))
+        if (_standingState.IsDown(entity.Owner) && !HasComp<StunnedComponent>(entity) && TryStanding(entity.Owner, DoDoAfter: false))
         {
-            ForceStandUp(playerEnt);
+            ForceStandUp(entity.Owner);
             return;
         }
         //ADT tweak end
-        var stand = !component.DoAfterId.HasValue;
+        // var stand = !component.DoAfterId.HasValue;
         // SetAutoStand(playerEnt, stand); //ADT-tweak
 
         if (!stand || !TryStanding((entity, entity.Comp2)))
             CancelKnockdownDoAfter((entity, entity.Comp2));
     }
 
-    public bool TryStanding(Entity<KnockedDownComponent?> entity)
+    public bool TryStanding(Entity<KnockedDownComponent?> entity, bool DoDoAfter = true) //ADT-tweak: добавлен бул дудуафтер
     {
         // If we aren't knocked down or can't be knocked down, then we did technically succeed in standing up
         if (!Resolve(entity, ref entity.Comp, false))
@@ -293,7 +295,6 @@ public abstract partial class SharedStunSystem
         if (!KnockdownOver((entity, entity.Comp)))
             return false;
         if (!DoDoAfter) return true; //ADT-tweak: если без дуафтера, то его не делаем
-        var ev = new GetStandUpTimeEvent(entity.Comp2.StandTime);
 
         if (!_crawlerQuery.TryComp(entity, out var crawler) || !_cfgManager.GetCVar(CCVars.MovementCrawling))
         {
