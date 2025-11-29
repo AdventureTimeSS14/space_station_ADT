@@ -5,6 +5,10 @@
   id: BaseMobResomi
   abstract: true
   components:
+  # Tags
+  - type: Tag
+    tags:
+    - ADTResomiEmotes
   # Visuals
   - type: Icon
     sprite: ADT/Mobs/Species/Resomi/parts.rsi
@@ -48,9 +52,9 @@
   - type: Bloodstream
     bloodReagent: ResomiBlood
   - type: Temperature
-    heatDamageThreshold: 325
-    coldDamageThreshold: 230
-    currentTemperature: 310.15
+    heatDamageThreshold: 308 # 35°C 
+    coldDamageThreshold: 210 # -63°C
+    currentTemperature: 296.15 # 23°C 
     specificHeat: 42
     coldDamage:
       types:
@@ -60,11 +64,15 @@
         Heat : 1.5 #per second, scales with temperature & other constants
   - type: TemperatureSpeed
     thresholds:
-      260: 0.8
-      250: 0.6
-      230: 0.4
+      220: 0.8 # При 220K (-53°C) скорость снижается до 80%
+      210: 0.7 # При 210K (-63°C) скорость снижается до 70%
+      200: 0.6 # При 200K (-73°C) скорость снижается до 60% 
   - type: ThermalRegulator
-    normalBodyTemperature: 300.15
+    normalBodyTemperature: 296.15 # 23°C - целевая температура тела резоми 
+    thermalRegulationTemperatureThreshold: 6  # Диапазон активации: 276K-306K (17°C до 29°C)
+  - type: TemperatureProtection
+    heatingCoefficient: 1.2  # На 20% быстрее нагреваются
+    coolingCoefficient: 0.8  # На 20% медленнее охлаждаются
 
   # Fixtures
   - type: Fixtures
@@ -92,31 +100,6 @@
         Slash: 5
   - type: Puller
     needsHands: false
-    grabStats:
-      None:
-        requiredHands: 0
-        doaftersToEscape: 0
-        movementSpeedModifier: 0.95
-        escapeAttemptTime: 0
-        setStageTime: 0
-      Soft:
-        requiredHands: 0
-        doaftersToEscape: 1
-        movementSpeedModifier: 0.8
-        escapeAttemptTime: 1
-        setStageTime: 0
-      Hard:
-        requiredHands: 1
-        doaftersToEscape: 2
-        movementSpeedModifier: 0.65
-        escapeAttemptTime: 0.75
-        setStageTime: 1
-      Choke:
-        requiredHands: 2
-        doaftersToEscape: 2
-        movementSpeedModifier: 0.5
-        escapeAttemptTime: 1
-        setStageTime: 2
 
   # Resomi
   - type: WeaponsUseInability
@@ -141,17 +124,27 @@
       Male: MaleResomi
       Female: FemaleResomi
       Unsexed: MaleResomi
+  - type: InteractionPopup
+    successChance: 1
+    interactSuccessString: petting-success-resomi
+    messagePerceivedByOthers: petting-success-resomi-others
   - type: LanguageSpeaker
     languages:
       GalacticCommon: Speak
       Scratches: Speak
   - type: SizeAttributeWhitelist
     tall: true
-    tallscale: 1.05
+    tallscale: 1.1
     short: true
-    shortscale: 0.95
+    shortscale: 0.9
   - type: Hands
-    handDisplacement:
+    inHandItemScale: 0.85, 0.85
+    leftHandDisplacement:
+      sizeMaps:
+        32:
+          sprite: ADT/Mobs/Species/Resomi/displacement.rsi
+          state: inHand
+    rightHandDisplacement:
       sizeMaps:
         32:
           sprite: ADT/Mobs/Species/Resomi/displacement.rsi
@@ -228,7 +221,13 @@
   - type: HumanoidAppearance
     species: Resomi
   - type: Hands
-    handDisplacement:
+    inHandItemScale: 0.85, 0.85
+    leftHandDisplacement:
+      sizeMaps:
+        32:
+          sprite: ADT/Mobs/Species/Resomi/displacement.rsi
+          state: inHand
+    rightHandDisplacement:
       sizeMaps:
         32:
           sprite: ADT/Mobs/Species/Resomi/displacement.rsi
