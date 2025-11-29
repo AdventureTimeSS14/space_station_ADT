@@ -516,7 +516,7 @@
           - Warden
           - Captain
           - ADTSeniorOfficer
-          - ADTGuardOfficer
+          - ADTCorrectionsOfficer
       - label: corvax-hidden-desc-EnergyShield-cargo
         jobRequired:
           - SalvageSpecialist
@@ -549,6 +549,7 @@
           - Detective
           - SecurityCadet
           - SecurityOfficer
+          - ADTCorrectionsOfficer
           - Warden
       - label: corvax-hidden-desc-EnergyShield-cargo
         jobRequired:

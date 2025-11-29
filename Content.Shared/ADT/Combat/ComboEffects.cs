@@ -4,9 +4,7 @@ using Content.Shared.Damage;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Popups;
 using Content.Shared.Damage.Systems;
-using Content.Shared.Standing;
 using Content.Shared.Stunnable;
-using Content.Shared.Inventory;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Coordinates;
 using Content.Shared.Hands.Components;
@@ -20,13 +18,8 @@ using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Movement.Pulling.Components;
 using Robust.Shared.Timing;
 using Robust.Shared.Network;
-using Content.Shared.Bed.Sleep; // SD-edit
-using Content.Shared.Damage.Components; // SD-Edit
-using Content.Shared.StatusEffectNew; // SD-Edit
-using Robust.Shared.Prototypes; // SD-Edit
-using Content.Shared.Mobs.Systems; // SD-Edit
-using Content.Shared.Mobs; // SD-Edit
 using Content.Shared.Mobs.Components;
+using Content.Shared.StatusEffectNew;
 
 namespace Content.Shared.ADT.Combat;
 
@@ -180,7 +173,7 @@ public sealed partial class ComboDropFromHandsEffect : IComboEffect
 }
 
 /// <summary>
-/// забирает вещь из рук цели и передаёт её в пустую руку пользователя. SD tweak
+/// передаёт вещь из активной руки цели в свободную руку пользователя.
 /// </summary>
 [Serializable, NetSerializable]
 public sealed partial class ComboHandsRetakeEffect : IComboEffect
@@ -225,7 +218,7 @@ public sealed partial class ComboMuteEffect : IComboEffect
 
     public void DoEffect(EntityUid user, EntityUid target, IEntityManager entMan)
     {
-        var status = entMan.System<Content.Shared.StatusEffect.StatusEffectsSystem>(); // sd tweak
+        var status = entMan.System<Content.Shared.StatusEffect.StatusEffectsSystem>(); // я меняю системы эффектов ибо я две сразу использую. новая система эффектов для сна тупо лучше. смотрите ниже
         status.TryAddStatusEffect<MutedComponent>(target, "Muted", TimeSpan.FromSeconds(Time), false);
     }
 }
@@ -238,7 +231,7 @@ public sealed partial class ComboSlowdownEffect : IComboEffect
 
     public void DoEffect(EntityUid user, EntityUid target, IEntityManager entMan)
     {
-        var status = entMan.System<Content.Shared.StatusEffect.StatusEffectsSystem>(); // sd tweak
+        var status = entMan.System<Content.Shared.StatusEffect.StatusEffectsSystem>();
         status.TryAddStatusEffect<StunnedStatusEffectComponent>(target, "SlowedDown", TimeSpan.FromSeconds(Time), false);
     }
 }
@@ -272,7 +265,7 @@ public sealed partial class ComboFlashEffect : IComboEffect
     public float SlowDown;
     public void DoEffect(EntityUid user, EntityUid target, IEntityManager entMan)
     {
-        var status = entMan.System<Content.Shared.StatusEffect.StatusEffectsSystem>(); // sd tweak
+        var status = entMan.System<Content.Shared.StatusEffect.StatusEffectsSystem>();
         var blind = entMan.System<BlindableSystem>();
 
         status.TryAddStatusEffect<FlashedComponent>(target, "Flashed", TimeSpan.FromSeconds(Duration), true);
@@ -457,10 +450,9 @@ public sealed partial class ComboEffectSwapPostion : IComboEffect
     }
 }
 
-/// sd edit start
 /// <summary>
 /// усыпляет цель на N времени
-/// <summary>
+/// </summary>
 [Serializable, NetSerializable]
 public sealed partial class ComboEffectSleep: IComboEffect
 {
@@ -471,7 +463,7 @@ public sealed partial class ComboEffectSleep: IComboEffect
     {
         var status = entMan.System<Content.Shared.StatusEffectNew.StatusEffectsSystem>();
 
-            status.TryAddStatusEffectDuration(target, "StatusEffectForcedSleeping", out _, TimeSpan.FromSeconds(Time));
+        status.TryAddStatusEffectDuration(target, "StatusEffectForcedSleeping", out _, TimeSpan.FromSeconds(Time));
     }
 }
-/// sd edit end
+

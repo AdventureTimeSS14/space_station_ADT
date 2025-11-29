@@ -10,16 +10,15 @@
     - type: SpawnItemsOnUse
       items:
       - id: Ash
-      sound: 
+      sound:
         path: /Audio/Items/Lighters/lighter3.ogg
     - type: AddComponentsOnUse
       components:
+        - type: Necksnap
         - type: Combo
-          allowNeckSnap: true
           availableMoves:
             - actionsNeeds:
                 - Grab
-                - Disarm # SD-Tweak
                 - Hit
               comboEvent:
                 - !type:ComboPopupEffect
@@ -56,7 +55,7 @@
                     collection: GenericHit
                 - !type:ComboTrowTargetEffect
                 - !type:ComboStaminaDamageEffect
-                  staminaDamage: 35
+                  staminaDamage: 25
             - actionsNeeds:
                 - Disarm
                 - Grab
@@ -76,7 +75,7 @@
                 - !type:ComboFallEffect
                   dropItems: true
                 - !type:ComboStaminaDamageEffect
-                  staminaDamage: 65
+                  staminaDamage: 55
             - actionsNeeds:
                 - Disarm
                 - Disarm
@@ -135,7 +134,7 @@
     - type: SpawnItemsOnUse
       items:
       - id: Ash
-      sound: 
+      sound:
         path: /Audio/Items/Lighters/lighter3.ogg
     - type: AddComponentsOnUse
       components:
@@ -153,10 +152,9 @@
                 - !type:ComboPopupEffect
                   localeText: combo-backhit-end
                 - !type:ComboStopGrabEffect
-                - !type:ComboFallEffect
+                - !type:ComboStunEffect
+                  stunTime: 4
                   dropItems: false
-                - !type:ComboStaminaDamageEffect
-                  staminaDamage: 45 #SD-tweak - removed instastun
                 - !type:ComboSpeechEffect
                   speech: speech-carp-backhit
                 - !type:ComboAudioEffect
@@ -205,7 +203,6 @@
             - actionsNeeds:
                 - Grab
                 - Hit
-                - Grab #SD-tweak
               comboEvent:
                 - !type:ComboStopGrabEffect
                 - !type:ComboPopupEffect
@@ -215,7 +212,7 @@
                     types:
                       Blunt: 5
                 - !type:ComboStunEffect
-                  stunTime: 3
+                  stunTime: 4
                   dropItems: false
                 - !type:ComboSpeechEffect
                   speech: speech-carp-stomach
@@ -225,7 +222,6 @@
             - actionsNeeds:
                 - Disarm
                 - Disarm
-                - Disarm #SD-tweak
               comboEvent:
                 - !type:ComboPopupEffect
                   localeText: combo-wrench-end
@@ -249,7 +245,7 @@
                   - !type:ComboTrowOnUserEffect
                   - !type:ComboStopTargetGrabEffect
                   - !type:ComboStunEffect
-                    stunTime: 2
+                    stunTime: 1
                     dropItems: false
                   - !type:ComboSpeechEffect
                     speech: speech-carp-throw
@@ -266,7 +262,7 @@
     - type: SpawnItemsOnUse
       items:
       - id: Ash
-      sound: 
+      sound:
         path: /Audio/Items/Lighters/lighter3.ogg
     - type: AddComponentsOnUse
       components:
@@ -290,101 +286,6 @@
                 - !type:ComboFallEffect
                   dropItems: false
                 - !type:ComboStopGrabEffect
-                - !type:ComboAudioEffect
-                  sound:
-                    collection: GenericHit
-
-- type: entity #TODO: когда визарды добавят области, добавьте повару свой стиль с привязкой к области
-  id: ADTCqcManualWeak
-  name: cqc manual for the smallest
-  description: A one-off manual teaching the user Mideast Combat Tactics at a basic level.
-  parent: BaseItem
-  components:
-    - type: Sprite
-      sprite: ADT/Objects/Specific/material_art_book.rsi
-      state: cqc
-    - type: SpawnItemsOnUse
-      items:
-      - id: Ash
-      sound: 
-        path: /Audio/Items/Lighters/lighter3.ogg
-    - type: AddComponentsOnUse
-      components:
-        - type: Combo
-          availableMoves:
-            - actionsNeeds:
-                - Grab
-                - Hit
-              comboEvent:
-                - !type:ComboPopupEffect
-                  localeText: combo-slam-end
-                - !type:ComboDamageEffect
-                  damage:
-                    types:
-                      Blunt: 10
-                - !type:ComboFallEffect
-                  dropItems: false
-                - !type:ComboStopGrabEffect
-                - !type:ComboAudioEffect
-                  sound:
-                    collection: GenericHit
-            - actionsNeeds:
-                - Hit
-                - Disarm
-                - Hit
-              comboEvent:
-                - !type:ComboPopupEffect
-                  localeText: combo-cqc-kick-end
-                - !type:ComboDamageEffect
-                  damage:
-                    types:
-                      Blunt: 15
-                - !type:ComboFallEffect
-                  dropItems: false
-                - !type:ComboAudioEffect
-                  sound:
-                    collection: GenericHit
-            - actionsNeeds:
-                - Disarm
-                - Grab
-              comboEvent:
-                - !type:ComboPopupEffect
-                  localeText: combo-cqc-pressure-end
-                - !type:ComboStaminaDamageEffect
-                  staminaDamage: 65
-            - actionsNeeds:
-                - Grab
-                - Grab
-              comboEvent:
-                - !type:ComboPopupEffect
-                  localeText: combo-cqc-restain-end
-                - !type:ComboStunEffect
-                  stunTime: 2
-            - actionsNeeds:
-                - Disarm
-                - Disarm
-                - Hit
-              comboEvent:
-                - !type:ComboPopupEffect
-                  localeText: combo-cqc-consecutive-end
-                - !type:ComboMoreDamageToDownedEffect
-                  damage:
-                    types:
-                      Blunt: 15
-                - !type:ComboFallEffect
-                - !type:ComboStaminaDamageEffect
-                  staminaDamage: 60
-                - !type:ComboAudioEffect
-                  sound:
-                    collection: GenericHit
-            - actionsNeeds:
-                - Grab
-                - Disarm
-              comboEvent:
-                - !type:ComboPopupEffect
-                  localeText: combo-leg-sweep-end
-                - !type:ComboFallEffect
-                  dropItems: false
                 - !type:ComboAudioEffect
                   sound:
                     collection: GenericHit

@@ -1,5 +1,6 @@
 - type: dungeonConfig
   id: ChunkDebris
+  sizeTag: MediumMagnetTargets #ADT-Tweak-MagnetUpdate
   # Floor generation
   layers:
     - !type:NoiseDunGen
@@ -41,6 +42,7 @@
 
 - type: dungeonConfig
   id: ChunkDebrisSmall
+  sizeTag: SmallMagnetTargets #ADT-Tweak-MagnetUpdate
   # Floor generation
   layers:
   - !type:NoiseDunGen

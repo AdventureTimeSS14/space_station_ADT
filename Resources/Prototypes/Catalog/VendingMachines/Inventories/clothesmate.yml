@@ -14,9 +14,9 @@
     #ADTClothingOuterBlackCardigan: 2
     #ADTClothingUnderwearStockingsHeart: 2
 # Конец одежда на 14 февраля
-    ClothingBackpack: 5
-    ClothingBackpackDuffel: 5
-    ClothingBackpackSatchel: 3
+    ClothingBackpack: 3 # ADT-Tweak: уменьшено с 5 до 3 для баланса
+    ClothingBackpackDuffel: 3 # ADT-Tweak: уменьшено с 5 до 3 для баланса
+    ClothingBackpackSatchel: 2 # ADT-Tweak: уменьшено с 3 до 2 для баланса
 # ADT tweak gloves start
     ADTClothingHandsCatPawsWhite: 3
     ADTClothingHandsCatPawsBrown: 3
@@ -35,17 +35,17 @@
     ADTClothingUnderwearBottomBriefsWhite: 3
     ADTClothingUnderwearBottomBoxersAmerica: 2
     ADTClothingUnderwearBottomBoxersBoom: 2
-    ADTClothingUnderwearBottomPantiesComfyWhite: 4
-    ADTClothingUnderwearTopBraWhite: 4
-    ADTClothingUnderwearTopBraComfyWhite: 4
+    ADTClothingUnderwearBottomPantiesComfyWhite: 3 # ADT-Tweak: уменьшено с 4 до 3 для баланса
+    ADTClothingUnderwearTopBraWhite: 3 # ADT-Tweak: уменьшено с 4 до 3 для баланса
+    ADTClothingUnderwearTopBraComfyWhite: 3 # ADT-Tweak: уменьшено с 4 до 3 для баланса
 # конец белья
     ADTClothingNeckDarkGreyCloak: 1
     ADTClothingNeckGothicCloak: 1
 # ADT бельё/обмотки/плащи/носки конец
     ADTClothingSandals: 2
-    ClothingRandomSpawner: 8
-    ClothingUniformRandomShorts: 4
-    ClothingHeadHatBeret: 4
+    ClothingRandomSpawner: 4 # ADT-Tweak: уменьшено с 8 до 4 для баланса
+    ClothingUniformRandomShorts: 3 # ADT-Tweak: уменьшено с 4 до 3 для баланса
+    ClothingHeadHatBeret: 3 # ADT-Tweak: уменьшено с 4 до 3 для баланса
     ClothingHeadBandBlack: 2
     ClothingHeadBandBlue: 2
     ClothingHeadBandGreen: 2
@@ -53,8 +53,8 @@
     ClothingHeadBandSkull: 2
     ClothingHeadHatGreyFlatcap: 3
     ClothingHeadHatBrownFlatcap: 3
-    ClothingUniformJumpsuitColorGrey: 8
-    ClothingUniformJumpskirtColorGrey: 8
+    ClothingUniformJumpsuitColorGrey: 4 # ADT-Tweak: уменьшено с 8 до 4 для баланса
+    ClothingUniformJumpskirtColorGrey: 4 # ADT-Tweak: уменьшено с 8 до 4 для баланса
     ClothingUniformJumpsuitColorWhite: 3
     ClothingUniformJumpskirtColorWhite: 3
     ClothingUniformJumpsuitColorBlack: 3
@@ -159,7 +159,7 @@
     ADTClothingFootWrapsBrown: 2
     ADTClothingFootWrapsHighBrown: 2
     # ADT бельё/обмотки/плащи конец
-    ClothingShoesColorBlack: 8
+    ClothingShoesColorBlack: 4  # ADT-Tweak: уменьшено с 8 до 4 для баланса
     ClothingShoesColorBrown: 4
     ClothingShoesColorWhite: 3
     ClothingShoesColorBlue: 2
@@ -168,7 +168,7 @@
     ClothingShoesColorOrange: 2
     ClothingShoesColorRed: 2
     ClothingShoesColorPurple: 2
-    ClothingHeadHatGreysoft: 8
+    ClothingHeadHatGreysoft: 4 # ADT-Tweak: уменьшено с 8 до 4 для баланса
     ClothingHeadHatMimesoft: 3
     ClothingHeadHatBluesoft: 2
     ClothingHeadHatYellowsoft: 2

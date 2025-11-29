@@ -11,6 +11,4 @@ public sealed partial class ComboComponent : Component
     public List<CombatAction> CurrestActions { get; private set; } = new List<CombatAction>();
     public EntityUid Target = default;
 
-    [DataField("allowNeckSnap")]
-    public bool allowNeckSnap = false;
 }

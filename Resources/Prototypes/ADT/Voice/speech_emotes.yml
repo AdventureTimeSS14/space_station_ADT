@@ -59,6 +59,7 @@
     tags:
     - ADTCatEmotes
     - ADTVoxEmotes
+    - ADTResomiEmotes
   icon: ADT/Interface/Emotes/Vocal/hiss.png
   chatMessages: [шипит]
   chatTriggers:
@@ -446,3 +447,73 @@
     - прижала ушки
     - прижал уши
     - прижала уши
+
+# Resomi
+- type: emote
+  id: Chirps
+  name: chat-emote-name-chirps
+  icon: ADT/Interface/Emotes/Vocal/chirps_resomi.png
+  category: Vocal
+  whitelist:
+    requireAll: true
+    components:
+    - Vocal
+    tags:
+    - ADTResomiEmotes
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: [трелит]
+  chatTriggers:
+    - трелит
+
+- type: emote
+  id: Coos
+  name: chat-emote-name-coos
+  icon: ADT/Interface/Emotes/Vocal/coos_resomi.png
+  category: Vocal
+  whitelist:
+    requireAll: true
+    components:
+    - Vocal
+    tags:
+    - ADTResomiEmotes
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: [воркует]
+  chatTriggers:
+    - coos
+    - курлычет
+
+# Moth
+
+- type: emote
+  id: FlapWings
+  name: chat-emote-name-flap-wings
+  category: Hands
+  available: false
+  icon:
+    sprite: Clothing/Neck/Cloaks/moth.rsi
+    state: icon
+  blacklist:
+    components:
+      - BorgChassis
+  chatMessages: [chat-emote-msg-flap-wings]
+  chatTriggers:
+    - хлопает крыльями
+    - хлопает крылышками
+    - машет крыльями
+    - машет крылышками
+    - взмахивает крыльями
+    - взмахивает крылышками
+    - размахивает крыльями
+    - размахивает крылышками
+    - взмахнул крыльями
+    - взмахнула крыльями
+    - хлопает своими крыльями
+    - хлопает своими крылышками
+    - машет своими крыльями
+    - машет своими крылышками
+    - взмахивает своими крыльями
+    - взмахивает своими крылышками

@@ -245,11 +245,9 @@ public abstract partial class SharedStunSystem
             return;
         }
         //ADT tweak start
-        else if (_standingState.IsDown(playerEnt) && !HasComp<StunnedComponent>(playerEnt) && TryStanding(playerEnt))
+        else if (_standingState.IsDown(playerEnt) && !HasComp<StunnedComponent>(playerEnt) && TryStanding(playerEnt, DoDoAfter: false))
         {
             ForceStandUp(playerEnt);
-            RemComp<KnockedDownComponent>(playerEnt);
-            _standingState.Stand(playerEnt);
             return;
         }
         //ADT tweak end
@@ -260,7 +258,7 @@ public abstract partial class SharedStunSystem
             CancelKnockdownDoAfter((playerEnt, component));
     }
 
-    public bool TryStanding(Entity<KnockedDownComponent?, StandingStateComponent?> entity)
+    public bool TryStanding(Entity<KnockedDownComponent?, StandingStateComponent?> entity, bool DoDoAfter = true) //ADT-tweak: добавилу бул дуафтер
     {
         // If we aren't knocked down or can't be knocked down, then we did technically succeed in standing up
         if (!Resolve(entity, ref entity.Comp1, ref entity.Comp2, false))
@@ -268,7 +266,7 @@ public abstract partial class SharedStunSystem
 
         if (!TryStand((entity.Owner, entity.Comp1)))
             return false;
-
+        if (!DoDoAfter) return true; //ADT-tweak: если без дуафтера, то его не делаем
         var ev = new GetStandUpTimeEvent(entity.Comp2.StandTime);
         RaiseLocalEvent(entity, ref ev);
 
@@ -361,6 +359,7 @@ public abstract partial class SharedStunSystem
         CancelKnockdownDoAfter(entity);
         // Remove Component
         RemComp<KnockedDownComponent>(entity);
+        _standingState.Stand(entity); //ADT-tweak: укращение дуафтера
 
         _adminLogger.Add(LogType.Stamina, LogImpact.Medium, $"{ToPrettyString(entity):user} has force stood up from knockdown.");
     }

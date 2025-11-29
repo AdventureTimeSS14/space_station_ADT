@@ -38,7 +38,7 @@
     - Back
     - suitStorage
   - type: AmmoCounter
-  - type: RunAndGunBlocker # ADT-Tweak
+  # - type: RunAndGunSpreadModifier #ADT-tweak # SD-Tweak
   # ADT-Tweak start
   - type: MeleeWeapon
     resetOnHandSelected: false
@@ -125,7 +125,7 @@
         map: ["enum.GunVisualLayers.Mag"]
   - type: Clothing
     sprite: Objects/Weapons/Guns/Launchers/rocket.rsi
-  - type: RunAndGunBlocker # ADT-Tweak
+  - type: RunAndGunSpreadModifier #ADT-tweak
   - type: Gun
     fireRate: 0.5
     soundGunshot:
@@ -198,7 +198,7 @@
       type: ContainerContainer
     - type: Clothing
       sprite: Objects/Weapons/Guns/Launchers/pirate_cannon.rsi
-    - type: RunAndGunBlocker # ADT-Tweak
+    # - type: RunAndGunSpreadModifier #ADT-tweak #SD-tweak
     - type: Gun
       fireRate: 0.2 # ADT-Tweak 1 -> 0.2
       soundGunshot:

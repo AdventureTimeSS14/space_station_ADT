@@ -41,16 +41,17 @@
     - BlueShield
   special:
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, SD_BluespaceLifelineImplant, DeathRattleImplanterCentcomm ] # sd-edit
+    implants: [ MindShieldImplant ]
   - !type:AddComponentSpecial
       components:
+        - type: BlueShield
         - type: CantShoot
           popup: combo-cantshoot
           whitelist:
             tags:
             - ADTBsoWeapon
+        - type: Necksnap
         - type: Combo
-          allowNeckSnap: true
           availableMoves:
             - actionsNeeds:
                 - Grab
@@ -75,8 +76,6 @@
                   comboEvents:
                   - !type:ComboEffectSleep
                     time: 5
-                - !type:ComboStaminaDamageEffect
-                  staminaDamage: 35
                 - !type:ComboMoreDamageToDownedEffect
                   damage:
                     types:
@@ -91,6 +90,8 @@
                   sound:
                     collection: GenericHit
                 - !type:ComboTrowTargetEffect
+                - !type:ComboStaminaDamageEffect
+                  staminaDamage: 25
             - actionsNeeds:
                 - Disarm
                 - Grab
@@ -110,7 +111,7 @@
                 - !type:ComboFallEffect
                   dropItems: true
                 - !type:ComboStaminaDamageEffect
-                  staminaDamage: 65
+                  staminaDamage: 55
             - actionsNeeds:
                 - Disarm
                 - Disarm
@@ -161,6 +162,7 @@
   id: ADTBlueShieldOfficerGear
   equipment:
     eyes: ADTClothingEyesGlassesBlueshield
+    shoes: ClothingShoesBootsCombatFilled
     belt: ADTClothingBeltMedicalSecurityFilled
     gloves: ClothingHandsGlovesCombat
     id: ADTBlueshieldOfficerPDA

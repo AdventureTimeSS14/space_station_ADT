@@ -14,6 +14,7 @@
     - type: Tag
       tags:
       - RipleyCentralControlModule
+      - VoxFood # ADT Tweak
     - type: GuideHelp
       guides:
       - Robotics
@@ -30,6 +31,7 @@
     - type: Tag
       tags:
       - RipleyPeripheralsControlModule
+      - VoxFood # ADT Tweak
     - type: GuideHelp
       guides:
       - Robotics
@@ -50,6 +52,7 @@
     - type: Tag
       tags:
       - HonkerCentralControlModule
+      - VoxFood # ADT Tweak
     - type: GuideHelp
       guides:
       - Robotics
@@ -66,6 +69,7 @@
     - type: Tag
       tags:
       - HonkerPeripheralsControlModule
+      - VoxFood # ADT Tweak
     - type: GuideHelp
       guides:
       - Robotics
@@ -82,6 +86,7 @@
     - type: Tag
       tags:
       - HonkerTargetingControlModule
+      - VoxFood # ADT Tweak
     - type: GuideHelp
       guides:
       - Robotics
@@ -102,6 +107,7 @@
     - type: Tag
       tags:
       - HamtrCentralControlModule
+      - VoxFood # ADT Tweak
     - type: GuideHelp
       guides:
       - Robotics
@@ -118,6 +124,7 @@
     - type: Tag
       tags:
       - HamtrPeripheralsControlModule
+      - VoxFood # ADT Tweak
     - type: GuideHelp
       guides:
       - Robotics

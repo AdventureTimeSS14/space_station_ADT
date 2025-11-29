@@ -83,9 +83,6 @@
     layers:
       - state: supermatter
         map: ["enum.SupermatterVisuals.Crystal"]
-      - state: supermatter-psy
-        map: ["enum.SupermatterVisuals.Psy"]
-        color: "#ffffff00"
   - type: SupermatterVisuals
     crystal:
       Normal: { state: supermatter }
@@ -136,61 +133,12 @@
     layers:
       - state: supermatter
         map: ["enum.SupermatterVisuals.Crystal"]
-      - state: supermatter-psy
-        map: ["enum.SupermatterVisuals.Psy"]
-        color: "#ffffff00"
   - type: SupermatterVisuals
     crystal:
       Normal: { state: supermatter }
       Glow: { state: supermatter-glow }
       GlowEmergency: { state: supermatter-glow-emergency }
       GlowDelam: { state: supermatter-glow-delam }
-
-## Cascade
-- type: entity
-  id: CascadeSupermatter
-  parent: BaseStructure
-  name: Supermatter
-  description: "Write here something cool pls"
-  placement:
-    mode: SnapgridCenter
-  components:
-    - type: PointLight
-      enabled: true
-      radius: 15
-      energy: 7
-    - type: RadiationSource
-      intensity: 10
-    - type: Sprite
-      drawdepth: WallMountedItems
-      sprite: ADT/Structures/Power/Supermatter/Cascade.rsi
-      state: cascade
-    - type: Icon
-      sprite: ADT/Structures/Power/Supermatter/Cascade.rsi
-      state: cascade
-
-## Trash
-- type: entity
-  id: SupermatterTrash
-  parent: BaseStructureDynamic
-  name:
-  description:
-  placement:
-    mode: SnapgridCenter
-  components:
-    - type: PointLight
-      enabled: true
-      radius: 10
-      energy: 5
-    - type: RadiationSource
-      intensity: 5
-    - type: Sprite
-      drawdepth: WallMountedItems
-      sprite: ADT/Structures/Power/Supermatter/Destroyed.rsi
-      state: destroyed
-    - type: Icon
-      sprite: ADT/Structures/Power/Supermatter/Destroyed.rsi
-      state: destroyed
 
 ## Lighting
 - type: entity

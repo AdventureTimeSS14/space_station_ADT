@@ -202,11 +202,10 @@
   groups:
   - Inventory # Corvax-Loadouts
   - GroupTankHarness
-  - ADTGuardOfficerHead
+  - ADTCorrectionsOfficerHead
   - SecurityOfficerNeckADT # ADT-Loadouts
-  - ADTGuardOfficerJumpsuit
-  - ADTSeniorOfficerOuterClothing
-  - SecurityBelt
+  - ADTCorrectionsOfficerJumpsuit
+  - ADTCorrectionsOfficerOuterClothing
   - SecurityBackpack
   - SecurityShoes
   - SurvivalSecurity

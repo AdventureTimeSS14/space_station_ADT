@@ -336,7 +336,7 @@
   - type: Storage
     maxItemSize: Normal
     grid:
-    - 0,0,8,4
+    - 0,0,5,3
     whitelist:
       tags:
         - ADTCardPlay
