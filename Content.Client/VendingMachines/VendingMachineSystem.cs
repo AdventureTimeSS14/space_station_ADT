@@ -22,7 +22,28 @@ public sealed class VendingMachineSystem : SharedVendingMachineSystem
 
     private void OnVendingAfterState(EntityUid uid, VendingMachineComponent component, ref AfterAutoHandleStateEvent args)
     {
-        if (_uiSystem.TryGetOpenUi<VendingMachineBoundUserInterface>(uid, VendingMachineUiKey.Key, out var bui))
+        if (args.Current is not VendingMachineComponentState state)
+            return;
+
+        var uid = entity.Owner;
+        var component = entity.Comp;
+
+        component.Contraband = state.Contraband;
+        component.EjectEnd = state.EjectEnd;
+        component.DenyEnd = state.DenyEnd;
+        component.DispenseOnHitEnd = state.DispenseOnHitEnd;
+        component.Broken = state.Broken;
+
+        // If all we did was update amounts then we can leave BUI buttons in place.
+        var fullUiUpdate = !component.Inventory.Keys.SequenceEqual(state.Inventory.Keys) ||
+                           !component.EmaggedInventory.Keys.SequenceEqual(state.EmaggedInventory.Keys) ||
+                           !component.ContrabandInventory.Keys.SequenceEqual(state.ContrabandInventory.Keys);
+
+        component.Inventory.Clear();
+        component.EmaggedInventory.Clear();
+        component.ContrabandInventory.Clear();
+
+        foreach (var entry in state.Inventory)
         {
             bui.Refresh();
         }

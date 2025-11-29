@@ -29,6 +29,9 @@
             "name": "armory"
         },
         {
+            "name": "arrivals"
+        },
+        {
             "name": "barbershop"
         },
         {
@@ -163,6 +166,10 @@
         },
         {
             "name": "direction_evac",
+            "directions": 4
+        },
+        {
+            "name": "direction_evac_glow",
             "directions": 4
         },
         {

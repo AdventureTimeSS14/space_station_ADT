@@ -8,7 +8,6 @@
   - vvread
   - vvwrite
   - vvinvoke
-  - scale
   - spin
 
 - Flags: DEBUG
@@ -17,7 +16,6 @@
   - inrangeunoccluded
   - lsgrid
   - lsmap
-  - listplayers
   - loc
   - mem
   - netaudit
@@ -72,7 +70,6 @@
   - pvs_override_info
   - merge_grids
 
-
 - Flags: MAPPING
   Commands:
   - addmap
@@ -92,16 +89,14 @@
 
 - Flags: ADMIN
   Commands:
-  - listplayers
   - tp
   - tpto
   - command-executor # ADT-Tweak
 
-- Flags: FUN
+- Flags: PII
   Commands:
-  - tippy
-  - tip
   - echo-chat-panel # ADT-Tweak
+  - listplayers
 
 - Flags: SERVER
   Commands:

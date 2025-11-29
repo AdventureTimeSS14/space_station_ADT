@@ -28,6 +28,7 @@
     children:
     - id: FlashlightSeclite
     - id: WeaponDisabler
+    - id: WeaponTaser
     - id: ClothingBeltSecurityFilled
     - id: Flash
     - id: ClothingEyesGlassesSecurity
@@ -86,6 +87,7 @@
     - id: FlashlightSeclite
       prob: 0.8
     - id: WeaponDisabler
+    - id: WeaponTaser
     - id: ClothingUniformJumpsuitSecGrey
       prob: 0.3
     - id: ClothingHeadHelmetBasic

@@ -1,6 +1,5 @@
 using Content.Shared.Actions;
 using Content.Shared.Coordinates;
-using Content.Shared.Damage;
 using Content.Shared.Hands;
 using Content.Shared.Interaction;
 using Content.Shared.Item;
@@ -15,6 +14,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Toolshed.TypeParsers;
 using System.Diagnostics.CodeAnalysis;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Stunnable;
 
 namespace Content.Shared.Polymorph.Systems;

@@ -16,7 +16,7 @@
   #ADT-Tweak End
 
 - type: microwaveMealRecipe
-  id: RecipeBakedVulpkanin
+  id: RecipeBakedCorvaxVulpkanin
   name: baked vulpkanin recipe
   result: FoodBakedVulpkaninPlate
   time: 15

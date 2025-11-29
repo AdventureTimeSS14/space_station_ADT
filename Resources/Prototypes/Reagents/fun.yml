@@ -42,7 +42,7 @@
       # Hail the madman logic, if it has CARP, means it helps against CARPs
       - !type:AdjustReagent
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: CarpoToxin
           min: 1
         reagent: CarpoToxin
@@ -60,8 +60,8 @@
       effects:
       - !type:SatiateHunger
         conditions:
-        - !type:OrganType
-          type: Moth
+        - !type:MetabolizerTypeCondition
+          type: [ Moth ]
 
 - type: reagent
   id: BuzzochloricBees
@@ -69,6 +69,7 @@
   group: Toxins
   desc: reagent-desc-buzzochloric-bees
   physicalDesc: reagent-physical-desc-buzzy
+  contrabandSeverity: Minor
   flavor: bee
   color: "#FFD35D"
   tileReactions:
@@ -95,11 +96,11 @@
         - "buzzochloricbees-effect-squeaky-clean"
         probability: 0.1
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           max: 0
           reagent: Histamine
-        - !type:HasTag
-          invert: true
+        - !type:TagCondition
+          inverted: true
           tag: Bee
       - !type:PopupMessage
         type: Local
@@ -112,11 +113,11 @@
           - "buzzochloricbees-effect-squeaky-clean"
         probability: 0.05
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           min: 0.01
           reagent: Histamine
-        - !type:HasTag
-          invert: true
+        - !type:TagCondition
+          inverted: true
           tag: Bee
       - !type:PopupMessage
         type: Local
@@ -128,10 +129,10 @@
           - "buzzochloricbees-effect-licoxide-buzzes"
         probability: 0.05
         conditions:
-        - !type:HasTag
-          invert: true
+        - !type:TagCondition
+          inverted: true
           tag: Bee
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           min: 0.01
           reagent: Licoxide
       - !type:PopupMessage
@@ -141,10 +142,10 @@
           - "buzzochloricbees-effect-fiber-soft"
         probability: 0.05
         conditions:
-        - !type:HasTag
-          invert: true
+        - !type:TagCondition
+          inverted: true
           tag: Bee
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           min: 0.01
           reagent: Fiber
       - !type:HealthChange
@@ -153,8 +154,8 @@
             Poison: 2
             Piercing: 2
         conditions:
-        - !type:HasTag
-          invert: true
+        - !type:TagCondition
+          inverted: true
           tag: Bee
 
 - type: reagent
@@ -179,6 +180,7 @@
   group: Toxins
   desc: reagent-desc-licoxide
   physicalDesc: reagent-physical-desc-electric
+  contrabandSeverity: Minor
   flavor: shocking
   color: "#FDD023"
   metabolisms:
@@ -202,11 +204,10 @@
       methods: [ Touch ]
       effects:
       - !type:HealthChange
-        scaleByQuantity: true
         ignoreResistances: false
         damage:
           types:
-            Slash: 0.5
+            Slash: 0.25
       - !type:Emote
         emote: Scream
         probability: 0.7
@@ -235,6 +236,8 @@
     requiredSlipSpeed: 3.5
   desc: reagent-desc-fresium
   physicalDesc: reagent-physical-desc-frosty
+  allowedDepartments:
+  - Medical
   flavor: cold
   color: "#b3f1ff"
   boilingPoint: 50.0
@@ -250,7 +253,6 @@
       methods: [ Touch ]
       effects:
       - !type:HealthChange
-        scaleByQuantity: true
         ignoreResistances: false
         damage:
           types:
@@ -263,7 +265,7 @@
     Extinguish:
       methods: [ Touch ]
       effects:
-      - !type:ExtinguishReaction # cold
+      - !type:Extinguish # cold
   metabolisms:
     Poison:
       metabolismRate : 0.45
@@ -275,7 +277,7 @@
              Heat: -3 # ghetto burn chem. i don't think anyone would use this intentionally but it's funny
       - !type:PopupMessage
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Fresium
           max: 35
         type: Local
@@ -284,7 +286,7 @@
         probability: 0.05
       - !type:PopupMessage
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Fresium
           max: 35
         type: Local
@@ -298,21 +300,21 @@
         amount: -50000 #ADT-Tweak -10000 -> -50000
       - !type:MovespeedModifier
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Fresium
           max: 40 # slows when less than 40
         walkSpeedModifier: 0.6
         sprintSpeedModifier: 0.6
-      - !type:MovespeedModifier
+      - !type:MovementSpeedModifier
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Fresium
           min: 40 # your legs stop working when above 40
         walkSpeedModifier: 0.00
         sprintSpeedModifier: 0.00
       - !type:PopupMessage
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Fresium
           min: 40
         type: Local
@@ -364,16 +366,18 @@
       - !type:Polymorph
         prototype: ArtifactLizard # Does the same thing as the original YML I made for this reagent.
         conditions:
-        - !type:OrganType
-          type: Animal
-          shouldHave: false
-        - !type:ReagentThreshold
+        - !type:MetabolizerTypeCondition
+          type: [Animal]
+          inverted: true
+        - !type:ReagentCondition
+          reagent: JuiceThatMakesYouWeh
           min: 50
       - !type:AdjustReagent
         reagent: JuiceThatMakesYouWeh
         amount: -20
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: JuiceThatMakesYouWeh
           min: 50
 
 - type: reagent
@@ -397,16 +401,18 @@
       - !type:Polymorph
         prototype: ArtifactLizard
         conditions:
-        - !type:OrganType
-          type: Animal
-          shouldHave: false
-        - !type:ReagentThreshold
+        - !type:MetabolizerTypeCondition
+          type: [ Animal ]
+          inverted: true
+        - !type:ReagentCondition
+          reagent: JuiceThatMakesYouHew
           min: 50
       - !type:AdjustReagent
         reagent: JuiceThatMakesYouHew
         amount: -20
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: JuiceThatMakesYouHew
           min: 50
 
 - type: reagent
@@ -423,7 +429,8 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: CorgiJuice
           min: 15
         damage:
           types:
@@ -431,11 +438,123 @@
       - !type:Polymorph
         prototype: SmartCorgiMorph
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: CorgiJuice
           min: 50
       - !type:AdjustReagent
         reagent: CorgiJuice
         amount: -20
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: CorgiJuice
           min: 50
+
+- type: reagent
+  id: Felinase
+  name: reagent-name-catessence
+  group: Toxins
+  desc: reagent-desc-catessence
+  physicalDesc: reagent-physical-desc-milky
+  flavor: cannedtuna
+  color: "#d8bed8"
+  metabolisms:
+    Poison:
+      metabolismRate: 0.2
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentCondition
+          reagent: Felinase
+          min: 25
+        damage:
+          types:
+            Radiation: 0.5
+      - !type:AdjustReagent
+        reagent: Felinase
+        amount: -15
+        conditions:
+        - !type:ReagentCondition
+          reagent: Felinase
+          min: 40
+      - !type:ModifyStatusEffect
+        conditions:
+        - !type:ReagentCondition
+          reagent: Felinase
+          min: 25
+        effectProto: StatusEffectOwO
+        time: 25.0
+        type: Add
+      - !type:Emote
+        conditions:
+        - !type:ReagentCondition
+          reagent: Felinase
+          min: 25
+        emote: Cough
+        showInChat: true
+        showInGuidebook: true
+        force: true
+        probability: 0.05
+      - !type:PopupMessage
+        conditions:
+        - !type:ReagentCondition
+          reagent: Felinase
+          min: 25
+        type: Local
+        visualType: Small
+        messages: [ "capsaicin-effect-light-burn" ]
+        probability: 0.05
+
+- type: reagent
+  id: Caninase
+  name: reagent-name-canidessence
+  group: Toxins
+  desc: reagent-desc-canidessence
+  physicalDesc: reagent-physical-desc-bubbly
+  flavor: dogfood
+  color: "#b87333"
+  metabolisms:
+    Poison:
+      metabolismRate: 0.2
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentCondition
+          reagent: Caninase
+          min: 25
+        damage:
+          types:
+            Radiation: 0.5
+      - !type:AdjustReagent
+        reagent: Caninase
+        amount: -15
+        conditions:
+        - !type:ReagentCondition
+          reagent: Caninase
+          min: 40
+      - !type:ModifyStatusEffect
+        conditions:
+        - !type:ReagentCondition
+          reagent: Caninase
+          min: 25
+        effectProto: StatusEffectBark
+        time: 25.0
+        type: Add
+      - !type:Emote
+        conditions:
+        - !type:ReagentCondition
+          reagent: Caninase
+          min: 25
+        emote: Cough
+        showInChat: true
+        showInGuidebook: true
+        force: true
+        probability: 0.05
+      - !type:PopupMessage
+        conditions:
+        - !type:ReagentCondition
+          reagent: Caninase
+          min: 25
+        type: Local
+        visualType: Small
+        messages: [ "capsaicin-effect-light-burn" ]
+        probability: 0.05

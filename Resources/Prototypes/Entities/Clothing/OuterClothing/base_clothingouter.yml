@@ -146,6 +146,9 @@
       flatReductions:
         Heat: 10 # the average lightbulb only does around four damage!
     slots: OUTERCLOTHING
+  - type: HideLayerClothing
+    slots:
+    - Tail
   #ADT-Tweak-Start
   - type: CoveredSlot
     slots: [innerclothing, gloves, feet, underwearb, underweart, socks]
@@ -179,6 +182,9 @@
       flatReductions:
         Heat: 10 # the average lightbulb only does around four damage!
     slots: OUTERCLOTHING
+  - type: HideLayerClothing
+    slots:
+    - Tail
   #ADT-Tweak-Start
   - type: CoveredSlot
     slots: [innerclothing, gloves, feet, underwearb, underweart, socks]

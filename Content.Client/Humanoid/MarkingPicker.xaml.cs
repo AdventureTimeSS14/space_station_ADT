@@ -12,6 +12,7 @@ using Robust.Client.Utility;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using static Robust.Client.UserInterface.Controls.BoxContainer;
+using static Content.Client.Corvax.SponsorOnlyHelpers; // Corvax-Sponsors
 
 namespace Content.Client.Humanoid;
 
@@ -231,6 +232,10 @@ public sealed partial class MarkingPicker : Control
             }
 
             var item = CMarkingsUnused.AddItem($"{GetMarkingName(marking)}", _sprite.Frame0(marking.Sprites[0]));
+            // Corvax-Sponsors-Start
+            if (marking.SponsorOnly)
+                item.Text += GetSponsorOnlySuffix();
+            // Corvax-Sponsors-End
             item.Metadata = marking;
             // Corvax-Sponsors-Start
             if (marking.SponsorOnly)
@@ -416,7 +421,7 @@ public sealed partial class MarkingPicker : Control
 
         var stateNames = GetMarkingStateNames(prototype);
         _currentMarkingColors.Clear();
-        CMarkingColors.DisposeAllChildren();
+        CMarkingColors.RemoveAllChildren();
         List<ColorSelectorSliders> colorSliders = new();
         for (int i = 0; i < prototype.Sprites.Count; i++)
         {

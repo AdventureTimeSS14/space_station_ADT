@@ -1,6 +1,7 @@
 using System.Numerics;
 using Content.Shared.Damage;
 using Content.Shared.Whitelist;
+using Content.Shared.Throwing;
 using Robust.Shared.GameStates;
 
 namespace Content.Shared.Weapons.Melee.Components;
@@ -29,7 +30,7 @@ public sealed partial class MeleeThrowOnHitComponent : Component
     /// Whether or not anchorable entities should be unanchored when hit.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public bool UnanchorOnHit;
+    public ThrowingUnanchorStrength UnanchorOnHit = ThrowingUnanchorStrength.None;
 
     /// <summary>
     /// How long should this stun the target, if applicable?

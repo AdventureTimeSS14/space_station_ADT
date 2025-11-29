@@ -19,7 +19,6 @@
     baseSprintSpeed : 4
   - type: StatusEffects
     allowed:
-    - Stutter
     - Electrocution
     - TemporaryBlindness
     - Pacified
@@ -95,7 +94,6 @@
     baseDecayRate: 0.04
   - type: StatusEffects
     allowed:
-    - Stutter
     - Electrocution
     - TemporaryBlindness
     - Pacified

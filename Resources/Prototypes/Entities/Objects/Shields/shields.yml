@@ -204,6 +204,58 @@
 #ADT tweak end
 
 - type: entity
+  name: cardboard shield
+  parent: BaseShield
+  id: CardShield
+  description: A shield made of cardboard. Won't protect you from much.
+  components:
+    - type: Sprite
+      state: cardshield-icon
+    - type: Item
+      heldPrefix: cardshield
+    - type: Blocking
+      passiveBlockModifier:
+        coefficients:
+          Blunt: 1
+          Slash: 2
+          Piercing: 0.6
+          Heat: 3
+      activeBlockModifier:
+        coefficients:
+          Blunt: 0.9
+          Slash: 1.8
+          Piercing: 0.5
+          Heat: 2.5
+        flatReductions:
+          Blunt: 0.5
+    - type: Construction
+      graph: CardShield
+      node: cardShield
+    - type: Destructible
+      thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 25
+        behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+      - trigger:
+          !type:DamageTrigger
+          damage: 10 #Very very weak shield
+        behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+        - !type:PlaySoundBehavior
+          sound: /Audio/Items/Toys/ToyFall2.ogg
+        - !type:SpawnEntitiesBehavior
+          spawn:
+            MaterialCardboard:
+              min: 2
+              max: 4
+    - type: StaticPrice
+      price: 20
+
+- type: entity
   name: makeshift shield
   parent: BaseShield
   id: MakeshiftShield
@@ -499,28 +551,6 @@
                   max: 1
     - type: StaticPrice
       price: 350
-# Corvax-HiddenDesc-Start
-    - type: HiddenDescription
-      entries:
-      - label: corvax-hidden-desc-EnergyShield-syndicate
-        whitelistMind:
-          mindRoles:
-          - TraitorRole
-          - NukeopsRole
-      - label: corvax-hidden-desc-EnergyShield-security
-        jobRequired:
-          - HeadOfSecurity
-          - Detective
-          - SecurityCadet
-          - SecurityOfficer
-          - Warden
-          - Captain
-          - ADTSeniorOfficer
-          - ADTCorrectionsOfficer
-      - label: corvax-hidden-desc-EnergyShield-cargo
-        jobRequired:
-          - SalvageSpecialist
-# Corvax-HiddenDesc-End
 
 - type: entity
   name: broken energy shield
@@ -535,26 +565,6 @@
       sprite: Objects/Weapons/Melee/e_shield.rsi
       size: Small
       heldPrefix: eshield
-# Corvax-HiddenDesc-Start
-    - type: HiddenDescription
-      entries:
-      - label: corvax-hidden-desc-EnergyShield-syndicate
-        whitelistMind:
-          mindRoles:
-          - TraitorRole
-          - NukeopsRole
-      - label: corvax-hidden-desc-EnergyShield-security
-        jobRequired:
-          - HeadOfSecurity
-          - Detective
-          - SecurityCadet
-          - SecurityOfficer
-          - ADTCorrectionsOfficer
-          - Warden
-      - label: corvax-hidden-desc-EnergyShield-cargo
-        jobRequired:
-          - SalvageSpecialist
-# Corvax-HiddenDesc-End
 
 - type: entity
   name: telescopic shield

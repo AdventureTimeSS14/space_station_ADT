@@ -8,7 +8,7 @@
       stripTime: 6
       uiWindowPos: 2,1
       strippingWindowPos: 2,4
-      displayName: ID
+      displayName: Back
     - name: id
       slotTexture: id
       fullTextureName: template_small
@@ -33,6 +33,8 @@
       strippingWindowPos: 1,1
       displayName: Mask
     # ADT-Tweak-Start
+
+    # Corvax aghost-MLG start
     - name: eyes
       slotTexture: glasses
       slotFlags: EYES
@@ -40,6 +42,7 @@
       uiWindowPos: 0,3
       strippingWindowPos: 0,0
       displayName: Eyes
+    # Corvax aghost-MLG end
     - name: jumpsuit
       slotTexture: uniform
       slotFlags: INNERCLOTHING

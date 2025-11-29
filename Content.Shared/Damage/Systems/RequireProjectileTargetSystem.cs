@@ -1,13 +1,14 @@
+using Content.Shared.Damage.Components;
 using Content.Shared.Projectiles;
-using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Standing;
-using Robust.Shared.Physics.Events;
+using Content.Shared.Weapons.Ranged.Components;
 using Robust.Shared.Containers;
 using Content.Shared.ADT.Crawling; // ADT Anti-Lying-Warrior
 using Content.Shared.Mobs.Systems; // ADT Anti-Lying-Warrior
 using Content.Shared.ADT.Crawling.Components; // ADT Anti-Lying-Warrior
+using Robust.Shared.Physics.Events;
 
-namespace Content.Shared.Damage.Components;
+namespace Content.Shared.Damage.Systems;
 
 public sealed class RequireProjectileTargetSystem : EntitySystem
 {

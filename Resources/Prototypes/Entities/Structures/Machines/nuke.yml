@@ -95,7 +95,7 @@
         components:
         - NukeDisk
     alertLevelOnActivate: delta
-    alertLevelOnDeactivate: green
+    alertLevelOnDeactivate: red # Corvax-Announcements
   - type: InteractionOutline
   - type: ActivatableUI
     key: enum.NukeUiKey.Key

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
 using Content.Server.Administration.Systems;
 using Content.Server.GameTicking;
 using Content.Server.Maps;
@@ -44,19 +45,46 @@ namespace Content.IntegrationTests.Tests
             AdminTestArenaSystem.ArenaMapPath
         };
 
+        /// <summary>
+        /// A dictionary linking maps to collections of entity prototype ids that should be exempt from "DoNotMap" restrictions.
+        /// </summary>
+        /// <remarks>
+        /// This declares that the listed entity prototypes are allowed to be present on the map
+        /// despite being categorized as "DoNotMap", while any unlisted prototypes will still
+        /// cause the test to fail.
+        /// </remarks>
+        private static readonly Dictionary<string, HashSet<EntProtoId>> DoNotMapWhitelistSpecific = new()
+        {
+            {"/Maps/bagel.yml", ["RubberStampMime"]},
+            {"/Maps/reach.yml", ["HandheldCrewMonitor"]},
+            {"/Maps/Shuttles/ShuttleEvent/honki.yml", ["GoldenBikeHorn", "RubberStampClown"]},
+            {"/Maps/Shuttles/ShuttleEvent/syndie_evacpod.yml", ["RubberStampSyndicate"]},
+            {"/Maps/Shuttles/ShuttleEvent/cruiser.yml", ["ShuttleGunPerforator"]},
+            {"/Maps/Shuttles/ShuttleEvent/instigator.yml", ["ShuttleGunFriendship"]},
+        };
+
+        /// <summary>
+        /// Maps listed here are given blanket freedom to contain "DoNotMap" entities. Use sparingly.
+        /// </summary>
+        /// <remarks>
+        /// It is also possible to whitelist entire directories here. For example, adding
+        /// "/Maps/Shuttles/**" will whitelist all shuttle maps.
+        /// </remarks>
         private static readonly string[] DoNotMapWhitelist =
         {
             "/Maps/centcomm.yml",
-            "/Maps/bagel.yml", // Contains mime's rubber stamp --> Either fix this, remove the category, or remove this comment if intentional.
-            "/Maps/reach.yml", // Contains handheld crew monitor
-            "/Maps/Shuttles/ShuttleEvent/cruiser.yml", // Contains LSE-1200c "Perforator"
-            "/Maps/Shuttles/ShuttleEvent/honki.yml", // Contains golden honker, clown's rubber stamp
-            "/Maps/Shuttles/ShuttleEvent/instigator.yml", // Contains EXP-320g "Friendship"
-            "/Maps/Shuttles/ShuttleEvent/syndie_evacpod.yml", // Contains syndicate rubber stamp
-            "/Maps/ADTMaps/Shuttles/pirate.yml", //ADT edit
+            "/Maps/Shuttles/AdminSpawn/**" // admin gaming
+            "/Maps/ADTMaps/Shuttles/pirate.yml", //ADT-tweak
         };
 
-private static readonly string[] GameMaps =
+        /// <summary>
+        /// Converts the above globs into regex so your eyes dont bleed trying to add filepaths.
+        /// </summary>
+        private static readonly Regex[] DoNotMapWhiteListRegexes = DoNotMapWhitelist
+            .Select(glob => new Regex(GlobToRegex(glob), RegexOptions.IgnoreCase | RegexOptions.Compiled))
+            .ToArray();
+
+        private static readonly string[] GameMaps =
         {
             // Corvax-Start
             // "CorvaxAvrite", // ADT-Comment
@@ -291,6 +319,14 @@ private static readonly string[] GameMaps =
             await pair.CleanReturnAsync();
         }
 
+        private bool IsWhitelistedForMap(EntProtoId protoId, ResPath map)
+        {
+            if (!DoNotMapWhitelistSpecific.TryGetValue(map.ToString(), out var allowedProtos))
+                return false;
+
+            return allowedProtos.Contains(protoId);
+        }
+
         /// <summary>
         /// Check that maps do not have any entities that belong to the DoNotMap entity category ADT-Tweak - тест отключен в связи с тм, что сильно мешает
         /// </summary>
@@ -377,7 +413,7 @@ private static readonly string[] GameMaps =
                 MapId mapId;
                 try
                 {
-                    var opts = DeserializationOptions.Default with {InitializeMaps = true};
+                    var opts = DeserializationOptions.Default with { InitializeMaps = true };
                     ticker.LoadGameMap(protoManager.Index<GameMapPrototype>(mapProto), out mapId, opts);
                 }
                 catch (Exception ex)
@@ -597,6 +633,21 @@ private static readonly string[] GameMaps =
 
             await server.WaitRunTicks(1);
             await pair.CleanReturnAsync();
+        }
+
+        /// <summary>
+        /// Lets us the convert the filepaths to regex without eyeglaze trying to add new paths.
+        /// </summary>
+        private static string GlobToRegex(string glob)
+        {
+            var regex = Regex.Escape(glob)
+                .Replace(@"\*\*", "**") // replace **
+                .Replace(@"\*", "*")    // replace *
+                .Replace("**", ".*")    // ** → match across folders
+                .Replace("*", @"[^/]*") // * → match within a single folder
+                .Replace(@"\?", ".");   // ? → any single character
+
+            return $"^{regex}$";
         }
     }
 }

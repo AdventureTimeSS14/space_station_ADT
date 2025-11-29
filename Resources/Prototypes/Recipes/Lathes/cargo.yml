@@ -14,3 +14,10 @@
   materials:
     Steel: 500
     Copper: 100  #ADT-BFUU-Tweak
+
+- type: latheRecipe
+  id: UtilityKnife
+  result: UtilityKnife
+  completetime: 2
+  materials:
+    Steel: 100

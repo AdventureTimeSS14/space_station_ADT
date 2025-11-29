@@ -28,9 +28,9 @@ public sealed partial class AdminVerbSystem
     private static readonly EntProtoId DefaultNukeOpRule = "LoneOpsSpawn";
     private static readonly EntProtoId DefaultRevsRule = "Revolutionary";
     private static readonly EntProtoId DefaultThiefRule = "Thief";
-    private static readonly ProtoId<StartingGearPrototype> PirateGearId = "PirateGear";
-
+    private static readonly EntProtoId DefaultChangelingRule = "Changeling";
     private static readonly EntProtoId ParadoxCloneRuleId = "ParadoxCloneSpawn";
+    private static readonly ProtoId<StartingGearPrototype> PirateGearId = "PirateGear";
     // ADT-Changeling-Tweak-Start
     private readonly EntProtoId DefaultChangelingRule = "ChangelingGameRule";
     // ADT-Changeling-Tweak-End
@@ -63,7 +63,7 @@ public sealed partial class AdminVerbSystem
                 _antag.ForceMakeAntag<TraitorRuleComponent>(targetPlayer, DefaultTraitorRule);
             },
             Impact = LogImpact.High,
-            Message = string.Join(": ", traitorName,  Loc.GetString("admin-verb-make-traitor")),
+            Message = string.Join(": ", traitorName, Loc.GetString("admin-verb-make-traitor")),
         };
         args.Verbs.Add(traitor);
 

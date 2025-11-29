@@ -11,7 +11,7 @@
             <RichTextLabel Name="LawLabel"/>
             <!-- ADT Start-->
             <BoxContainer Name="LawAnnouncementButtons" Orientation="Horizontal" HorizontalExpand="True" Margin="0 5 0 0">
-                <Label Text="{Loc laws-ui-state-law}" StyleClasses="StatusFieldTitle"/>
+                <Label Text="{Loc laws-ui-state-law}" StyleClasses="highlight"/>
                 <Control Margin="5 0 0 0" />
                 <ScrollContainer HorizontalExpand="True" VScrollEnabled="False">
                     <BoxContainer Orientation="Horizontal" HorizontalExpand="True"/>

@@ -155,7 +155,7 @@ doc-text-printer-Report-study-object =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
     ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Бланк документа[/head]
     ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]Station XX-000 КОД[/bold]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]:СТАНЦИЯ: КОД[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
                         ОТЧЁТ ОБ ИЗУЧЕНИИ ОБЪЕКТА
@@ -175,7 +175,7 @@ doc-text-printer-experiment-report =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
     ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Бланк документа[/head]
     ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]Station XX-000 НИО[/bold]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]:СТАНЦИЯ: НИО[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
                         ОТЧЁТ ОБ ЭКСПЕРИМЕНТЕ
@@ -203,7 +203,7 @@ doc-text-printer-disposal-report =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
     ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Бланк документа[/head]
     ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]Station XX-000 СНБ[/bold]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]:СТАНЦИЯ: СНБ[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
                             ОТЧЁТ ОБ УТИЛИЗАЦИИ
@@ -221,7 +221,7 @@ doc-text-printer-application-appointment-interim =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
     ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Бланк документа[/head]
     ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]Station XX-000 КОМ[/bold]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]:СТАНЦИЯ: КОМ[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
                     ЗАЯВЛЕНИЕ О НАЗНАЧЕНИИ НА ВРИО
@@ -240,7 +240,7 @@ doc-text-printer-application-employment =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
     ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Бланк документа[/head]
     ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]Station XX-000 ПД-КОМ[/bold]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]S:СТАНЦИЯ: ПД-КОМ[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
                         ЗАЯВЛЕНИЕ О ТРУДОУСТРОЙСТВЕ
@@ -257,7 +257,7 @@ doc-text-printer-letter-resignation =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
     ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Бланк документа[/head]
     ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]Station XX-000 ПД-КОМ[/bold]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]:СТАНЦИЯ: ПД-КОМ[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
                         ЗАЯВЛЕНИЕ ОБ УВОЛЬНЕНИИ
@@ -274,7 +274,7 @@ doc-text-printer-application-access =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
     ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Бланк документа[/head]
     ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]Station XX-000 ПД-КОМ[/bold]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]:СТАНЦИЯ: ПД-КОМ[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
                     ЗАЯВЛЕНИЕ НА ПОЛУЧЕНИЕ ДОСТУПА
@@ -293,7 +293,7 @@ doc-text-printer-application-equipment =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
     ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Бланк документа[/head]
     ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]Station XX-000 ПД-КОМ[/bold]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]:СТАНЦИЯ: ПД-КОМ[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
                     ЗАЯВЛЕНИЕ НА ПОЛУЧЕНИЕ СНАРЯЖЕНИЯ
@@ -312,7 +312,7 @@ doc-text-printer-appeal =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
     ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Бланк документа[/head]
     ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]Station XX-000 ПД-КОМ[/bold]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]:СТАНЦИЯ: ПД-КОМ[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
                             ОБРАЩЕНИЕ
@@ -332,7 +332,7 @@ doc-text-printer-evacuation-shuttle-request =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
     ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Бланк документа[/head]
     ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]Station XX-000 КОМ-ЦК[/bold]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]:СТАНЦИЯ: КОМ-ЦК[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
                     ЗАПРОС ЭВАКУАЦИОННОГО ШАТТЛА
@@ -350,7 +350,7 @@ doc-text-printer-shuttle-registration-request =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
     ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Бланк документа[/head]
     ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]Station XX-000 КОМ-ЦК[/bold]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]:СТАНЦИЯ: КОМ-ЦК[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
                         ЗАПРОС РЕГИСТРАЦИИ ШАТТЛА
@@ -374,7 +374,7 @@ doc-text-printer-request-call-members-central-committee-dso =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
     ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Бланк документа[/head]
     ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]Station XX-000 КОМ-ЦК[/bold]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]:СТАНЦИЯ: КОМ-ЦК[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
                     ЗАПРОС НА ВЫЗОВ ЧЛЕНОВ ЦК, ДСО
@@ -393,7 +393,7 @@ doc-text-printer-request-to-establish-threat-level =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
     ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Бланк документа[/head]
     ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]Station XX-000 КОМ-ЦК[/bold]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]:СТАНЦИЯ: КОМ-ЦК[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
                     ЗАПРОС УСТАНОВЛЕНИЯ УРОВНЯ УГРОЗЫ
@@ -412,7 +412,7 @@ doc-text-printer-request-change-salary =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
     ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Бланк документа[/head]
     ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]Station XX-000 КОМ-ЦК[/bold]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]:СТАНЦИЯ: КОМ-ЦК[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
             ЗАПРОС НА ИЗМЕНЕНИЕ ЗАРАБОТНОЙ ПЛАТЫ
@@ -430,7 +430,7 @@ doc-text-printer-request-for-non-listed-employment =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
     ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Бланк документа[/head]
     ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]Station XX-000 КОМ-ЦК[/bold]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]:СТАНЦИЯ: КОМ-ЦК[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
             ЗАПРОС ВНЕПЕРЕЧНЕВОГО ТРУДОУСТРОЙСТВА
@@ -456,7 +456,7 @@ doc-text-printer-request-for-promotion =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
     ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Бланк документа[/head]
     ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]Station XX-000 КОМ-ЦК[/bold]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]:СТАНЦИЯ: КОМ-ЦК[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
                 ЗАПРОС ПОВЫШЕНИЯ
@@ -478,7 +478,7 @@ doc-text-printer-request-documents =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
     ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Бланк документа[/head]
     ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]Station XX-000 ЮР-КОД[/bold]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]:СТАНЦИЯ: ЮР-КОД[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
             ЗАПРОС ПРЕДОСТАВЛЕНИЯ ДОКУМЕНТОВ
@@ -495,7 +495,7 @@ doc-text-printer-request-euthanasia =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
     ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Бланк документа[/head]
     ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]Station XX-000 ПД-МЕД[/bold]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]:СТАНЦИЯ: ПД-МЕД[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
                     ЗАПРОС НА ПРОВЕДЕНИЕ ЭВТАНАЗИИ
@@ -512,7 +512,7 @@ doc-text-printer-request-construction-work =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
     ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Бланк документа[/head]
     ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]Station XX-000 КОД-ИНЖ[/bold]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]:СТАНЦИЯ: КОД-ИНЖ[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
         ЗАПРОС НА ПРОВЕДЕНИЕ СТРОИТЕЛЬНЫХ РАБОТ
@@ -530,7 +530,7 @@ doc-text-printer-request-modernization =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
     ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Бланк документа[/head]
     ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]Station XX-000 КОД-НИО[/bold]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]:СТАНЦИЯ: КОД-НИО[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
                 ЗАПРОС НА ПРОВЕДЕНИЕ МОДЕРНИЗАЦИИ
@@ -548,7 +548,7 @@ doc-text-printer-complaint-violation-labor-rules =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
     ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Бланк документа[/head]
     ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]Station XX-000 ПД-ЮР[/bold]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]:СТАНЦИЯ: ПД-ЮР[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
             ЖАЛОБА НА НАРУШЕНИЕ ТРУДОВОГО ПОРЯДКА
@@ -566,7 +566,7 @@ doc-text-printer-complaint-offense =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
     ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Бланк документа[/head]
     ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]Station XX-000 ПД-СБ[/bold]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]:СТАНЦИЯ: ПД-СБ[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
                         ЖАЛОБА НА ПРАВОНАРУШЕНИЕ
@@ -584,7 +584,7 @@ doc-text-printer-permission-equipment =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
     ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Бланк документа[/head]
     ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]Station XX-000 КОМ[/bold]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]:СТАНЦИЯ: КОМ[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
         РАЗРЕШЕНИЕ НА ИСПОЛЬЗОВАНИЕ СНАРЯЖЕНИЯ
@@ -601,7 +601,7 @@ doc-text-printer-permission-to-travel-in-case-of-threat =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
     ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Бланк документа[/head]
     ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]Station XX-000 КОМ[/bold]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]:СТАНЦИЯ: КОМ[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
             РАЗРЕШЕНИЕ НА ПЕРЕДВИЖЕНИЕ ПРИ УГРОЗЕ
@@ -621,7 +621,7 @@ doc-text-printer-search-permission =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
     ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Бланк документа[/head]
     ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]Station XX-000 СБ[/bold]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]:СТАНЦИЯ: СБ[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
                         РАЗРЕШЕНИЕ НА ОБЫСК
@@ -639,7 +639,7 @@ doc-text-printer-permission-to-carry-weapons =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
     ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Бланк документа[/head]
     ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]Station XX-000 СБ[/bold]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]:СТАНЦИЯ: СБ[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
                     РАЗРЕШЕНИЕ НА НОШЕНИЕ ОРУЖИЯ
@@ -661,7 +661,7 @@ doc-text-printer-prescription-drug-authorization =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
     ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Бланк документа[/head]
     ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]Station XX-000 МЕД-ПД[/bold]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]:СТАНЦИЯ: МЕД-ПД[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
                 РАЗРЕШЕНИЕ НА РЕЦЕПТУРНЫЙ ПРЕПАРАТ
@@ -681,7 +681,7 @@ doc-text-printer-permission-dispose-body =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
     ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Бланк документа[/head]
     ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]Station XX-000 МЕД[/bold]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]:СТАНЦИЯ: МЕД[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
                     РАЗРЕШЕНИЕ НА УТИЛИЗАЦИЮ ТЕЛА
@@ -699,7 +699,7 @@ doc-text-printer-construction-permit =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
     ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Бланк документа[/head]
     ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]Station XX-000 ИНЖ-КОД[/bold]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]:СТАНЦИЯ: ИНЖ-КОД[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
                         РАЗРЕШЕНИЕ НА СТРОИТЕЛЬСТВО
@@ -717,7 +717,7 @@ doc-text-printer-permission-to-extend-marriage =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
     ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Бланк документа[/head]
     ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]Station XX-000 ПД-СРВ[/bold]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]:СТАНЦИЯ: ПД-СРВ[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
                 РАЗРЕШЕНИЕ НА РАСШИРЕНИЕ БРАКА
@@ -740,7 +740,7 @@ doc-text-printer-order-dismissal =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
     ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Бланк документа[/head]
     ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]Station XX-000 КОМ[/bold]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]:СТАНЦИЯ: КОМ[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
                             ПРИКАЗ ОБ УВОЛЬНЕНИИ
@@ -757,7 +757,7 @@ doc-text-printer-order-deprivation-access =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
     ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Бланк документа[/head]
     ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]Station XX-000 КОМ[/bold]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]:СТАНЦИЯ: КОМ[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
                         ПРИКАЗ О ЛИШЕНИИ ДОСТУПА
@@ -774,7 +774,7 @@ doc-text-printer-order-encouragement =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
     ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Бланк документа[/head]
     ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]Station XX-000 КОМ[/bold]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]:СТАНЦИЯ: КОМ[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
                             ПРИКАЗ О ПООЩРЕНИИ
@@ -791,7 +791,7 @@ doc-text-printer-order-parole-prisoner =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
     ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Бланк документа[/head]
     ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]Station XX-000 СБ[/bold]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]:СТАНЦИЯ: СБ[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
                     ПРИКАЗ ОБ УДО ЗАКЛЮЧЕННОГО
@@ -808,7 +808,7 @@ doc-text-printer-order-recognizing-rentience-creature =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
     ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Бланк документа[/head]
     ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]Station XX-000 НИО[/bold]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]:СТАНЦИЯ: НИО[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
             ПРИКАЗ О ПРИЗНАНИИ РАЗУМНОСТИ СУЩЕСТВА
@@ -829,7 +829,7 @@ doc-text-printer-order-medical-intervention =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
     ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Бланк документа[/head]
     ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]Station XX-000 КОД-МЕД[/bold]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]:СТАНЦИЯ: КОД-МЕД[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
     РАСПОРЯЖЕНИЕ О МЕДИЦИНСКОМ ВМЕШАТЕЛЬСТВЕ
@@ -847,7 +847,7 @@ doc-text-printer-product-manufacturing-order =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
     ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Бланк документа[/head]
     ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]Station XX-000 КОД-КОД[/bold]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]:СТАНЦИЯ: КОД-КОД[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
                     ЗАКАЗ НА ПРОИЗВОДСТВО ПРОДУКТА
@@ -867,7 +867,7 @@ doc-text-printer-order-purchase-resources-equipment =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
     ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Бланк документа[/head]
     ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]Station XX-000 КОД-СНБ[/bold]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]:СТАНЦИЯ: КОД-СНБ[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
             ЗАКАЗ НА ЗАКУПКУ РЕСУРСОВ, СНАРЯЖЕНИЯ
@@ -888,7 +888,7 @@ doc-text-printer-ordering-special-equipment =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
     ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Бланк документа[/head]
     ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]Station XX-000 КОМ-ЦК[/bold]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]:СТАНЦИЯ: КОМ-ЦК[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
                     ЗАКАЗ СПЕЦИАЛЬНОГО СНАРЯЖЕНИЯ
@@ -908,7 +908,7 @@ doc-text-printer-order-purchase-weapons =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
     ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Бланк документа[/head]
     ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]Station XX-000 СБ-СНБ[/bold]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]:СТАНЦИЯ: СБ-СНБ[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
                     ЗАКАЗ НА ЗАКУПКУ ВООРУЖЕНИЯ
@@ -926,7 +926,7 @@ doc-text-printer-certificate =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
     ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Бланк документа[/head]
     ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]Station XX-000 КОМ-ПД[/bold]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]:СТАНЦИЯ: КОМ-ПД[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
                                         ГРАМОТА
@@ -943,7 +943,7 @@ doc-text-printer-certificate-advanced-training =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
     ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Бланк документа[/head]
     ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]Station XX-000 КОМ[/bold]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]:СТАНЦИЯ: КОМ[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
     СВИДЕТЕЛЬСТВО О ПОВЫШЕНИИ КВАЛИФИКАЦИИ
@@ -959,7 +959,7 @@ doc-text-printer-certificate-offense =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
     ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Бланк документа[/head]
     ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]Station XX-000 ПД-СБ[/bold]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]:СТАНЦИЯ: ПД-СБ[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
                 СВИДЕТЕЛЬСТВО О ПРАВОНАРУШЕНИИ
@@ -984,7 +984,7 @@ doc-text-printer-death-certificate =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
     ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Бланк документа[/head]
     ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]Station XX-000 МЕД[/bold]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]:СТАНЦИЯ: МЕД[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
                             СВИДЕТЕЛЬСТВО О СМЕРТИ
@@ -1006,7 +1006,7 @@ doc-text-printer-marriage-certificate =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
     ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Бланк документа[/head]
     ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]Station XX-000 СРВ-ПД[/bold]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]:СТАНЦИЯ: СРВ-ПД[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
                 СВИДЕТЕЛЬСТВО О ЗАКЛЮЧЕНИИ БРАКА
@@ -1027,7 +1027,7 @@ doc-text-printer-divorce-certificate =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
     ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Бланк документа[/head]
     ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]Station XX-000 СРВ-ПД[/bold]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]:СТАНЦИЯ: СРВ-ПД[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
                 СВИДЕТЕЛЬСТВО О РАСТОРЖЕНИИ БРАКА
@@ -1050,7 +1050,7 @@ doc-text-printer-closing-indictment =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
     ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Бланк документа[/head]
     ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]Station XX-000 СБ[/bold]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]:СТАНЦИЯ: СБ[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
                         ОБВИНИТЕЛЬНОЕ ЗАКЛЮЧЕНИЕ
@@ -1095,7 +1095,7 @@ doc-text-printer-judgment =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
     ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Бланк документа[/head]
     ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]Station XX-000 ЮР[/bold]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]:СТАНЦИЯ: ЮР[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
                     СУДЕБНОЕ РЕШЕНИЕ
@@ -1127,7 +1127,7 @@ doc-text-printer-statement-health =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
     ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Бланк документа[/head]
     ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]Station XX-000 МЕД-ПД[/bold]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]:СТАНЦИЯ: МЕД-ПД[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
                     ЗАКЛЮЧЕНИЕ О СОСТОЯНИИ ЗДОРОВЬЯ
@@ -1153,7 +1153,7 @@ doc-text-printer-decision-to-start-trial =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
     ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Бланк документа[/head]
     ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]Station XX-000 ЮР[/bold]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]:СТАНЦИЯ: ЮР[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
             РЕШЕНИЕ О НАЧАЛЕ СУДЕБНОГО ПРОЦЕССА
@@ -1171,7 +1171,7 @@ doc-text-printer-error-loading-form-header =
     ⠀[color=#B50F1D] ███░██████░███[/color]
     ⠀[color=#B50F1D] █░░░██░░░░░░░█[/color]    [head=3]Бланк документа[/head]
     ⠀[color=#B50F1D] █░░░░████░░░░█[/color]             [head=3]Syndicate[/head]
-    ⠀[color=#B50F1D] █░░░░░░░██░░░█[/color]   [bold]Station XX-000 СИН[/bold]
+    ⠀[color=#B50F1D] █░░░░░░░██░░░█[/color]   [bold]:СТАНЦИЯ: СИН[/bold]
     ⠀[color=#B50F1D] ███░██████░███[/color]
     =============================================
                         НАИМЕНОВАНИЕ ДОКУМЕНТА
@@ -1186,7 +1186,7 @@ doc-text-printer-notice-of-liquidation =
     ⠀[color=#B50F1D] ███░██████░███[/color]
     ⠀[color=#B50F1D] █░░░██░░░░░░░█[/color]    [head=3]Бланк документа[/head]
     ⠀[color=#B50F1D] █░░░░████░░░░█[/color]             [head=3]Syndicate[/head]
-    ⠀[color=#B50F1D] █░░░░░░░██░░░█[/color]   [bold]Station XX-000 СИН-ПД[/bold]
+    ⠀[color=#B50F1D] █░░░░░░░██░░░█[/color]   [bold]:СТАНЦИЯ: СИН-ПД[/bold]
     ⠀[color=#B50F1D] ███░██████░███[/color]
     =============================================
                         УВЕДОМЛЕНИЕ О ЛИКВИДАЦИИ
@@ -1203,7 +1203,7 @@ doc-text-printer-business-deal =
     ⠀[color=#B50F1D] ███░██████░███[/color]
     ⠀[color=#B50F1D] █░░░██░░░░░░░█[/color]    [head=3]Бланк документа[/head]
     ⠀[color=#B50F1D] █░░░░████░░░░█[/color]             [head=3]Syndicate[/head]
-    ⠀[color=#B50F1D] █░░░░░░░██░░░█[/color]   [bold]Station XX-000 СИН-КОМ[/bold]
+    ⠀[color=#B50F1D] █░░░░░░░██░░░█[/color]   [bold]:СТАНЦИЯ: СИН-КОМ[/bold]
     ⠀[color=#B50F1D] ███░██████░███[/color]
     =============================================
                                 ДЕЛОВАЯ СДЕЛКА
@@ -1221,7 +1221,7 @@ doc-text-printer-note-beginning-military-actions =
     ⠀[color=#B50F1D] ███░██████░███[/color]
     ⠀[color=#B50F1D] █░░░██░░░░░░░█[/color]    [head=3]Бланк документа[/head]
     ⠀[color=#B50F1D] █░░░░████░░░░█[/color]             [head=3]Syndicate[/head]
-    ⠀[color=#B50F1D] █░░░░░░░██░░░█[/color]   [bold]Station XX-000 СИН[/bold]
+    ⠀[color=#B50F1D] █░░░░░░░██░░░█[/color]   [bold]:СТАНЦИЯ: СИН[/bold]
     ⠀[color=#B50F1D] ███░██████░███[/color]
     =============================================
                     НОТА О НАЧАЛЕ ВОЕННЫХ ДЕЙСТВИЙ
@@ -1238,7 +1238,7 @@ doc-text-printer-report-accomplishment-goals =
     ⠀[color=#B50F1D] ███░██████░███[/color]
     ⠀[color=#B50F1D] █░░░██░░░░░░░█[/color]    [head=3]Бланк документа[/head]
     ⠀[color=#B50F1D] █░░░░████░░░░█[/color]             [head=3]Syndicate[/head]
-    ⠀[color=#B50F1D] █░░░░░░░██░░░█[/color]   [bold]Station XX-000 ПД-СИН[/bold]
+    ⠀[color=#B50F1D] █░░░░░░░██░░░█[/color]   [bold]:СТАНЦИЯ: ПД-СИН[/bold]
     ⠀[color=#B50F1D] ███░██████░███[/color]
     =============================================
                         ОТЧЁТ О ВЫПОЛНЕНИИ ЦЕЛЕЙ

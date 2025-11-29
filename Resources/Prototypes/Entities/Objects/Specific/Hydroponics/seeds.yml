@@ -543,19 +543,6 @@
       seedId: gatfruit
     - type: Sprite
       sprite: Objects/Specific/Hydroponics/gatfruit.rsi
-# Corvax-HiddenDesc-Start
-    - type: HiddenDescription
-      entries:
-      - label: corvax-hidden-desc-Gatfruit-syndicate
-        whitelistMind:
-          mindRoles:
-          - TraitorRole
-          - NukeopsRole
-      - label: corvax-hidden-desc-Gatfruit-botanist
-        jobRequired:
-          - Botanist
-          - Borg
-# Corvax-HiddenDesc-End
 
 - type: entity
   parent: SeedBase
@@ -785,3 +772,13 @@
       seedId: anomalyBerry
     - type: Sprite
       sprite: Objects/Specific/Hydroponics/anomaly_berry.rsi
+
+- type: entity
+  parent: SeedBase
+  name: packet of bloonion seeds
+  id: BloonionSeeds
+  components:
+  - type: Seed
+    seedId: bloonion
+  - type: Sprite
+    sprite: Objects/Specific/Hydroponics/bloonion.rsi
