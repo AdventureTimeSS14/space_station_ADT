@@ -8,7 +8,7 @@
   - type: Clothing
     sprite: ADT/Clothing/Ears/Headsets/blueshield.rsi
 
-#ADT-TWEAK-START
+# ADT-Tweak-Start
 
 - type: entity
   abstract: true
@@ -19,4 +19,4 @@
     canToggle: true
     affectRadio: true
 
-#ADT-TWEAK-CLOSE
+# ADT-Tweak-end
