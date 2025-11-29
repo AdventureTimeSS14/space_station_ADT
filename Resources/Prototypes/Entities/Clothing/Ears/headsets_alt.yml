@@ -11,7 +11,7 @@
     equippedPrefix: alt
 
 - type: entity
-  parent: ClothingHeadsetAltLoudspeaker 
+  parent: ClothingHeadsetAltLoudspeaker # ADT-Tweak: добавлен громкоговоритель
   id: ClothingHeadsetAltCargo
   name: quartermaster's over-ear headset
   components:
