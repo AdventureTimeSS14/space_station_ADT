@@ -301,3 +301,59 @@
           Quantity: 8
         - ReagentId: Vitamin
           Quantity: 8
+
+- type: entity
+  name: raw smoked sausage
+  parent: FoodMeatBase
+  id: ADTFoodMeatSmokedSausage
+  description: A large tube of meat.
+  components:
+  - type: Tag
+    tags:
+    - Raw
+    - Meat
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/meat.rsi
+    state: smoked-sausage
+  - type: SliceableFood
+    slice: ADTFoodMeatSmokedSausageSlice
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5
+        - ReagentId: Protein
+          Quantity: 5
+        - ReagentId: Fat
+          Quantity: 5
+        - ReagentId: Hotsauce
+          Quantity: 5
+
+- type: entity
+  name: pepperoni
+  parent: FoodMeatBase
+  id: ADTFoodMeatSmokedSausageSlice
+  description: A slice of pepperoni.
+  components:
+  - type: Tag
+    tags:
+    - Raw
+    - Cutlet
+    - Meat
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/meat.rsi
+    state: smoked-sausage-slice
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 1
+        - ReagentId: Protein
+          Quantity: 1
+        - ReagentId: Fat
+          Quantity: 1
+        - ReagentId: Hotsauce
+          Quantity: 1

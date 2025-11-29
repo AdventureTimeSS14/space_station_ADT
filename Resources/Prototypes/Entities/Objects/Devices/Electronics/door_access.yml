@@ -30,7 +30,7 @@
   suffix: Bar, Locked
   components:
   - type: AccessReader
-    access: [["Bar"]]
+    access: [["Bar"], ["ADTExtended"]] #ADT-tweak: добавлен расширенный доступ
 
 - type: entity
   parent: DoorElectronics
@@ -38,7 +38,7 @@
   suffix: Bar, Locked
   components:
   - type: AccessReader
-    access: [["Bar"], ["Kitchen"]]
+    access: [["Bar"], ["Kitchen"], ["ADTExtended"]] #ADT-tweak: добавлен расширенный доступ
 
 - type: entity
   parent: DoorElectronics
@@ -46,7 +46,7 @@
   suffix: Hydroponics, Locked
   components:
   - type: AccessReader
-    access: [["Hydroponics"]]
+    access: [["Hydroponics"], ["ADTExtended"]] #ADT-tweak: добавлен расширенный доступ
 
 - type: entity
   parent: DoorElectronics
@@ -54,7 +54,7 @@
   suffix: Chapel, Locked
   components:
   - type: AccessReader
-    access: [["Chapel"]]
+    access: [["Chapel"], ["ADTExtended"]] #ADT-tweak: добавлен расширенный доступ
 
 - type: entity
   parent: DoorElectronics
@@ -62,7 +62,7 @@
   suffix: Theatre, Locked
   components:
   - type: AccessReader
-    access: [["Theatre"]]
+    access: [["Theatre"], ["ADTExtended"]] #ADT-tweak: добавлен расширенный доступ
 
 - type: entity
   parent: DoorElectronics
@@ -70,7 +70,7 @@
   suffix: Kitchen, Locked
   components:
   - type: AccessReader
-    access: [["Kitchen"]]
+    access: [["Kitchen"], ["ADTExtended"]] #ADT-tweak: добавлен расширенный доступ
 
 - type: entity
   parent: DoorElectronics
@@ -78,7 +78,7 @@
   suffix: Kitchen/Hydroponics, Locked
   components:
   - type: AccessReader
-    access: [["Kitchen"], ["Hydroponics"]]
+    access: [["Kitchen"], ["Hydroponics"], ["ADTExtended"]] #ADT-tweak: добавлен расширенный доступ
 
 - type: entity
   parent: DoorElectronics
@@ -86,7 +86,7 @@
   suffix: Janitor, Locked
   components:
   - type: AccessReader
-    access: [["Janitor"]]
+    access: [["Janitor"], ["ADTExtended"]] #ADT-tweak: добавлен расширенный доступ
 
 - type: entity
   parent: DoorElectronics
@@ -94,7 +94,7 @@
   suffix: Lawyer, Locked
   components:
   - type: AccessReader
-    access: [["Lawyer"]]
+    access: [["Lawyer"], ["ADTExtended"]] #ADT-tweak: добавлен расширенный доступ
 
 - type: entity
   parent: DoorElectronics
@@ -102,7 +102,7 @@
   suffix: Service, Locked
   components:
   - type: AccessReader
-    access: [["Service"]]
+    access: [["Service"], ["ADTExtended"]] #ADT-tweak: добавлен расширенный доступ
 
 - type: entity
   parent: DoorElectronics
@@ -110,7 +110,7 @@
   suffix: Service, Theatre, Locked
   components:
   - type: AccessReader
-    access: [["Service"], ["Theatre"]]
+    access: [["Service"], ["Theatre"], ["ADTExtended"]] #ADT-tweak: добавлен расширенный доступ
 
 # Cargo
 - type: entity
@@ -135,7 +135,7 @@
   suffix: Cargo, Locked
   components:
   - type: AccessReader
-    access: [["Cargo"]]
+    access: [["Cargo"], ["ADTExtended"]] #ADT-tweak: добавлен расширенный доступ
 
 # Engineering
 - type: entity
@@ -160,7 +160,7 @@
   suffix: Engineering, Locked
   components:
   - type: AccessReader
-    access: [["Engineering"]]
+    access: [["Engineering"], ["ADTExtended"]] #ADT-tweak: добавлен расширенный доступ
 
 # Science
 - type: entity
@@ -169,7 +169,7 @@
   suffix: Morgue, Locked
   components:
   - type: AccessReader
-    access: [["Medical"], ["Detective"], ["Chapel"]]
+    access: [["Medical"], ["Detective"], ["Chapel"], ["ADTExtended"]] #ADT-tweak: добавлен расширенный доступ
 
 - type: entity
   parent: DoorElectronics
@@ -185,7 +185,7 @@
   suffix: Medical/Science, Locked
   components:
   - type: AccessReader
-    access: [["Research"], ["Medical"]]
+    access: [["Research"], ["Medical"], ["ADTExtended"]] #ADT-tweak: добавлен расширенный доступ
 
 - type: entity
   parent: DoorElectronics
@@ -193,7 +193,7 @@
   suffix: Research, Locked
   components:
   - type: AccessReader
-    access: [["Research"]]
+    access: [["Research"], ["ADTExtended"]] #ADT-tweak: добавлен расширенный доступ
 
 # Security
 - type: entity
@@ -267,7 +267,7 @@
   suffix: Medical, Locked
   components:
   - type: AccessReader
-    access: [["Medical"]]
+    access: [["Medical"], ["ADTExtended"]] #ADT-tweak: добавлен расширенный доступ
 
 # Syndicate
 - type: entity
@@ -301,7 +301,7 @@
   suffix: External, Locked
   components:
   - type: AccessReader
-    access: [["External"]]
+    access: [["External"], ["ADTExtended"]] #ADT-tweak: добавлен расширенный доступ
 
 - type: entity
   parent: DoorElectronics

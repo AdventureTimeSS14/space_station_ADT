@@ -1,3 +1,4 @@
+using System.Numerics;
 using Content.Shared.DisplacementMap;
 using Content.Shared.Hands.EntitySystems;
 using Robust.Shared.GameStates;
@@ -93,6 +94,14 @@ public sealed partial class HandsComponent : Component
     /// </summary>
     [DataField]
     public DisplacementData? RightHandDisplacement;
+
+    // ADT-Tweak start
+    /// <summary>
+    ///     Scale multiplier applied to all items held in hands. Useful for smaller species like resomi.
+    /// </summary>
+    [DataField]
+    public Vector2? InHandItemScale;
+    // ADT-Tweak end
 
     /// <summary>
     /// If false, hands cannot be stripped, and they do not show up in the stripping menu.

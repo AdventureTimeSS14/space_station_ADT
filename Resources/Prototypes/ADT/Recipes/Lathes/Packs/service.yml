@@ -94,6 +94,14 @@
   - BoxFolderGrey
   - BoxFolderBlack
   - BoxFolderGreen
+  - Radio
+  - Pen
+  - ClothingBeltJanitor
+  - ADTBureaucraticBelt
+  - SheetPaper
+  - Paper
+  - ADTOldRadio
+  - ADTEftpos
 
 - type: latheRecipePack
   id: ADTServiceHydroponics
