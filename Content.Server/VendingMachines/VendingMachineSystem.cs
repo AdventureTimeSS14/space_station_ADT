@@ -3,7 +3,6 @@ using System.Numerics;
 using Content.Server.Advertise;
 using Content.Server.Advertise.EntitySystems;
 using Content.Server.Cargo.Systems;
-using Content.Server.Emp;
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Server.Stack;
@@ -16,7 +15,9 @@ using Content.Shared.Actions;
 using Content.Server.Vocalization.Systems;
 using Content.Shared.Cargo;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Destructible;
+using Content.Shared.Emp;
 using Content.Shared.DoAfter;
 using Content.Shared.Advertise.Components;
 using Content.Shared.Emag.Systems;
@@ -37,7 +38,6 @@ using Robust.Shared.Audio;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
-using Robust.Shared.Timing;
 
 namespace Content.Server.VendingMachines
 {
@@ -69,20 +69,11 @@ namespace Content.Server.VendingMachines
             SubscribeLocalEvent<VendingMachineComponent, BreakageEventArgs>(OnBreak);
             SubscribeLocalEvent<VendingMachineComponent, DamageChangedEvent>(OnDamage); //ADT-Economy
             SubscribeLocalEvent<VendingMachineComponent, PriceCalculationEvent>(OnVendingPrice);
-            SubscribeLocalEvent<VendingMachineComponent, EmpPulseEvent>(OnEmpPulse);
             SubscribeLocalEvent<VendingMachineComponent, TryVocalizeEvent>(OnTryVocalize);
 
             SubscribeLocalEvent<VendingMachineComponent, ActivatableUIOpenAttemptEvent>(OnActivatableUIOpenAttempt);
-
-            Subs.BuiEvents<VendingMachineComponent>(VendingMachineUiKey.Key, subs =>
-            {
-                subs.Event<VendingMachineEjectMessage>(OnInventoryEjectMessage);
-                subs.Event<VendingMachineEjectCountMessage>(OnInventoryEjectCountMessage);  // ADT vending eject count
-            });
-
             SubscribeLocalEvent<VendingMachineComponent, VendingMachineSelfDispenseEvent>(OnSelfDispense);
 
-            SubscribeLocalEvent<VendingMachineComponent, RestockDoAfterEvent>(OnDoAfter);
 
             //ADT-Economy-Start
             SubscribeLocalEvent<VendingMachineComponent, InteractUsingEvent>(OnInteractUsing);
@@ -153,11 +144,20 @@ namespace Content.Server.VendingMachines
         private void OnBreak(EntityUid uid, VendingMachineComponent vendComponent, BreakageEventArgs eventArgs)
         {
             vendComponent.Broken = true;
-            TryUpdateVisualState(uid, vendComponent);
+            Dirty(uid, vendComponent);
+            TryUpdateVisualState((uid, vendComponent));
         }
 
         private void OnDamage(EntityUid uid, VendingMachineComponent component, DamageChangedEvent args) //ADT-Economy
         {
+            if (!args.DamageIncreased && component.Broken)
+            {
+                component.Broken = false;
+                Dirty(uid, component);
+                TryUpdateVisualState((uid, component));
+                return;
+            }
+
             if (component.Broken || component.DispenseOnHitCoolingDown ||
                 component.DispenseOnHitChance == null || args.DamageDelta == null)
                 return;
@@ -179,85 +179,6 @@ namespace Content.Server.VendingMachines
             args.Handled = true;
             EjectRandom(uid, throwItem: true, forceEject: false, component);
         }
-
-        private void OnDoAfter(EntityUid uid, VendingMachineComponent component, DoAfterEvent args)
-        {
-            if (args.Handled || args.Cancelled || args.Args.Used == null)
-                return;
-
-            if (!TryComp<VendingMachineRestockComponent>(args.Args.Used, out var restockComponent))
-            {
-                Log.Error($"{ToPrettyString(args.Args.User)} tried to restock {ToPrettyString(uid)} with {ToPrettyString(args.Args.Used.Value)} which did not have a VendingMachineRestockComponent.");
-                return;
-            }
-
-            TryRestockInventory(uid, component);
-
-            Popup.PopupEntity(Loc.GetString("vending-machine-restock-done-self", ("target", uid)), args.Args.User, args.Args.User, PopupType.Medium);
-            var othersFilter = Filter.PvsExcept(args.Args.User);
-            Popup.PopupEntity(Loc.GetString("vending-machine-restock-done-others", ("user", Identity.Entity(args.User, EntityManager)), ("target", uid)), args.Args.User, othersFilter, true, PopupType.Medium);
-
-            Audio.PlayPvs(restockComponent.SoundRestockDone, uid, AudioParams.Default.WithVolume(-2f).WithVariation(0.2f));
-
-            Del(args.Args.Used.Value);
-
-            args.Handled = true;
-        }
-
-        //ADT-Economy-Start
-        private void OnInteractUsing(EntityUid uid, VendingMachineComponent component, InteractUsingEvent args)
-        {
-            if (args.Handled)
-                return;
-
-            if (component.Broken || !this.IsPowered(uid, EntityManager))
-                return;
-
-            if (!TryComp<CurrencyComponent>(args.Used, out var currency) ||
-                !currency.Price.Keys.Contains(component.CurrencyType))
-                return;
-
-            var stack = Comp<StackComponent>(args.Used);
-            component.Credits += stack.Count;
-            Del(args.Used);
-            UpdateVendingMachineInterfaceState(uid, component);
-            Audio.PlayPvs(component.SoundInsertCurrency, uid);
-            args.Handled = true;
-        }
-
-        protected override int GetEntryPrice(EntityPrototype proto)
-        {
-            var price = (int)_pricing.GetEstimatedPrice(proto);
-            return price > 0 ? price : 25;
-        }
-
-        private int GetPrice(VendingMachineInventoryEntry entry, VendingMachineComponent comp, int count)
-        {
-            return (int)(entry.Price * count * comp.PriceMultiplier);
-        }
-
-        private void OnWithdrawMessage(EntityUid uid, VendingMachineComponent component, VendingMachineWithdrawMessage args)
-        {
-            _stackSystem.Spawn(component.Credits, PrototypeManager.Index(component.CreditStackPrototype),
-                Transform(uid).Coordinates);
-            component.Credits = 0;
-            Audio.PlayPvs(component.SoundWithdrawCurrency, uid);
-
-            UpdateVendingMachineInterfaceState(uid, component);
-        }
-
-        private void OnInventoryEjectCountMessage(EntityUid uid, VendingMachineComponent component, VendingMachineEjectCountMessage args)
-        {
-            if (!this.IsPowered(uid, EntityManager))
-                return;
-
-            if (args.Actor is not { Valid: true } entity || Deleted(entity))
-                return;
-
-            AuthorizedVend(uid, entity, args.Entry.Type, args.Entry.ID, component, args.Count);
-        }
-
-        //ADT-Economy-End
 
         /// <summary>
         /// Sets the <see cref="VendingMachineComponent.CanShoot"/> property of the vending machine.
@@ -603,23 +524,12 @@ namespace Content.Server.VendingMachines
             var disabled = EntityQueryEnumerator<EmpDisabledComponent, VendingMachineComponent>();
             while (disabled.MoveNext(out var uid, out _, out var comp))
             {
-                if (comp.NextEmpEject < _timing.CurTime)
+                if (comp.NextEmpEject < Timing.CurTime)
                 {
                     EjectRandom(uid, true, false, comp);
                     comp.NextEmpEject += TimeSpan.FromSeconds(5 * comp.EjectDelay);
                 }
             }
-        }
-
-        public void TryRestockInventory(EntityUid uid, VendingMachineComponent? vendComponent = null)
-        {
-            if (!Resolve(uid, ref vendComponent))
-                return;
-
-            RestockInventoryFromPrototype(uid, vendComponent);
-
-            Dirty(uid, vendComponent);
-            TryUpdateVisualState(uid, vendComponent);
         }
 
         private void OnPriceCalculation(EntityUid uid, VendingMachineRestockComponent component, ref PriceCalculationEvent args)
@@ -644,16 +554,6 @@ namespace Content.Server.VendingMachines
             }
 
             args.Price += priceSets.Max();
-        }
-
-        private void OnEmpPulse(EntityUid uid, VendingMachineComponent component, ref EmpPulseEvent args)
-        {
-            if (!component.Broken && this.IsPowered(uid, EntityManager))
-            {
-                args.Affected = true;
-                args.Disabled = true;
-                component.NextEmpEject = _timing.CurTime;
-            }
         }
 
         private void OnTryVocalize(Entity<VendingMachineComponent> ent, ref TryVocalizeEvent args)

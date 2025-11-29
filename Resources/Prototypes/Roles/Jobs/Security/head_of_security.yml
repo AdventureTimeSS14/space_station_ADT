@@ -6,14 +6,17 @@
   requirements:
     - !type:RoleTimeRequirement
       role: JobWarden
-      time: 54000 #15 hrs # ADT-RoleTime
-#    - !type:RoleTimeRequirement
-#      role: JobSecurityOfficer
-#      time: 36000 #10 hrs
+      time: 10h # Corvax-RoleTime 1
+    #- !type:RoleTimeRequirement
+    #  role: JobDetective
+    #  time: 1h # knowing how to use the tools is important
+    #- !type:RoleTimeRequirement
+    #  role: JobSecurityOfficer
+    #  time: 5h
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 198000 #55 hrs # ADT-RoleTime
-    - !type:SpeciesRequirement
+      time: 50h # Corvax-RoleTime 10
+    - !type:TraitsRequirement #Corvax-TraitsRequirement
       inverted: true
       species:
       - Resomi
@@ -32,7 +35,6 @@
   - Security
   - Armory
   - Maintenance
-  - Service
   - External
   - Detective
   - Cryogenics

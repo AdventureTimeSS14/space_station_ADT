@@ -78,8 +78,32 @@ public static class ClientPackaging
             new[] { "Content.Client", "Content.Shared", "Content.Shared.Database" },
             cancel: cancel);
 
-        await RobustClientPackaging.WriteClientResources(contentDir, pass, cancel); // ADT-Tweak
+        await WriteClientResources(
+            contentDir,
+            inputPass,
+            SharedPackaging.AdditionalIgnoredResources,
+            cancel);
 
         inputPass.InjectFinished();
     }
+
+    // Corvax-Secrets-Start
+    public static IReadOnlySet<string> ContentClientIgnoredResources { get; } = new HashSet<string>
+    {
+        "CorvaxSecretsServer"
+    };
+
+    private static async Task WriteClientResources(
+        string contentDir,
+        AssetPass pass,
+        IReadOnlySet<string> additionalIgnoredResources,
+        CancellationToken cancel = default)
+    {
+        var ignoreSet = RobustClientPackaging.ClientIgnoredResources
+            .Union(RobustSharedPackaging.SharedIgnoredResources)
+            .Union(ContentClientIgnoredResources).Union(additionalIgnoredResources).ToHashSet();
+
+        await RobustSharedPackaging.DoResourceCopy(Path.Combine(contentDir, "Resources"), pass, ignoreSet, cancel: cancel);
+    }
+    // Corvax-Secrets-End
 }

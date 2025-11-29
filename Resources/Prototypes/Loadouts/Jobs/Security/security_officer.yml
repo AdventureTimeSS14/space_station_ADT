@@ -6,22 +6,12 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobWarden
-      time: 72000 #20 hrs # Corvax-RoleTime
+      time: 20h # Corvax-RoleTime
   - !type:JobRequirementLoadoutEffect
     requirement:
       !type:DepartmentTimeRequirement
       department: Security
-      time: 216000 # 60 hrs
-
-#Security Star
-- type: loadoutEffectGroup
-  id: SecurityStarWorthy
-  effects:
-    - !type:JobRequirementLoadoutEffect
-      requirement:
-        !type:DepartmentTimeRequirement
-        department: Security
-        time: 360000 #100 hrs
+      time: 60h
 
 # Head
 - type: loadout
@@ -135,12 +125,10 @@
   equipment:
     id: SecurityPDA
 
-# Misc
 - type: loadout
-  id: SecStar
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: SecurityStarWorthy
-  storage:
-    back:
-    - Dinkystar
+  id: SeniorOfficerPDA
+  # effects: Corvax-MentorRoles
+  # - !type:GroupLoadoutEffect
+  #   proto: SeniorOfficer
+  equipment:
+    id: SeniorOfficerPDA

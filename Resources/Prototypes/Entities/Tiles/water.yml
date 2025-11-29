@@ -79,4 +79,4 @@
         - Catwalk
   - type: TileEntityEffect
     effects:
-    - !type:ExtinguishReaction
+    - !type:Extinguish

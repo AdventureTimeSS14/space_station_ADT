@@ -12,6 +12,7 @@
   - type: Tag
     tags:
     - Sheet
+    - ConstructionMaterial
     - NoPaint #ADT tweak
   - type: Damageable
     damageContainer: Inorganic
@@ -140,16 +141,6 @@
     count: 1
 
 - type: entity
-  parent: SheetPlasma
-  id: SheetPlasmaLingering0
-  name: plasma
-  suffix: 0, Lingering
-  components:
-  - type: Stack
-    lingering: true
-    count: 0
-
-- type: entity
   parent: SheetOtherBase
   id: SheetPlastic
   name: plastic
@@ -159,6 +150,7 @@
     tags:
     - Plastic
     - Sheet
+    - ConstructionMaterial
     - NoPaint #ADT tweak
   - type: Material
   - type: PhysicalComposition
@@ -226,7 +218,7 @@
       - Sheet
 ### End ADT Tweak
   - type: Material
-  - type: Food
+  - type: Edible
     transferAmount: 10
   - type: BadFood
   - type: PhysicalComposition

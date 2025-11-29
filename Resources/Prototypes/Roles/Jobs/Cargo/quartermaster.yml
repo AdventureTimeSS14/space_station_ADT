@@ -9,10 +9,10 @@
 #      time: 21600 #6 hrs
     - !type:RoleTimeRequirement
       role: JobSalvageSpecialist
-      time: 36000 #10 hrs # Corvax-RoleTime
+      time: 10h # Corvax-RoleTime 2.5
     - !type:DepartmentTimeRequirement
       department: Cargo
-      time: 36000 #10 hours
+      time: 10h
     - !type:OverallPlaytimeRequirement
       time: 144000 #40 hrs
       #ADT tweak start
@@ -48,7 +48,8 @@
   equipment:
     id: QuartermasterPDA
     # ears: ClothingHeadsetQM # ADT tweak
-    belt: BoxFolderClipboard
+    ears: ClothingHeadsetQM
+    belt: BoxFolderClipboardThreePapers
     pocket1: AppraisalTool
   storage:
     back:

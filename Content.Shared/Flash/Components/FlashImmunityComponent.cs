@@ -16,6 +16,11 @@ public sealed partial class FlashImmunityComponent : Component
     [DataField, AutoNetworkedField]
     public bool Enabled = true;
 
+    /// <summary>
+    /// Should the flash protection be shown when examining the entity?
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool ShowInExamine = true;
     // ADT-Tweak-Start
     [DataField]
     public bool IncludeExamine = true;

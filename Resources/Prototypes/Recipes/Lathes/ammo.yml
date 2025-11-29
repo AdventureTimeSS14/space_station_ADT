@@ -96,6 +96,14 @@
     Plastic: 500
     Uranium: 500
 
+# .25 Caseless
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazinePistolCaselessRifle
+  result: MagazinePistolCaselessRifle
+  materials:
+    Steel: 145
+
 # .30 Rifle
 - type: latheRecipe
   parent: BaseEmptyAmmoRecipe
@@ -508,6 +516,14 @@
     Lead: 80
     Copper: 60  #ADT-BFUU-Tweak-end
     Plastic: 80
+
+# .60 anti-materiel
+- type: latheRecipe
+  parent: BaseAmmoBoxRecipe
+  id: MagazineBoxAntiMateriel
+  result: MagazineBoxAntiMateriel
+  materials:
+    Steel: 200
 
 # Encampment ammo
 - type: latheRecipe

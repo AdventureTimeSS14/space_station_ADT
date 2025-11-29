@@ -1,8 +1,9 @@
 using Content.Server.Power.Components;
-using Content.Server.Emp;
-using Content.Server.PowerCell;
 using Content.Shared.Examine;
+using Content.Server.PowerCell;
 using Content.Shared.Power;
+using Content.Shared.Power.Components;
+using Content.Shared.Power.EntitySystems;
 using Content.Shared.PowerCell.Components;
 using Content.Shared.Emp;
 using JetBrains.Annotations;
@@ -19,7 +20,7 @@ using Content.Server.Explosion.EntitySystems;
 namespace Content.Server.Power.EntitySystems;
 
 [UsedImplicitly]
-internal sealed class ChargerSystem : EntitySystem
+public sealed class ChargerSystem : SharedChargerSystem
 {
     [Dependency] private readonly ContainerSystem _container = default!;
     [Dependency] private readonly PowerCellSystem _powerCell = default!;
@@ -30,6 +31,8 @@ internal sealed class ChargerSystem : EntitySystem
     [Dependency] private readonly ExplosionSystem _explosion = default!; // ADT-Tweak
     public override void Initialize()
     {
+        base.Initialize();
+
         SubscribeLocalEvent<ChargerComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<ChargerComponent, PowerChangedEvent>(OnPowerChanged);
         SubscribeLocalEvent<ChargerComponent, EntInsertedIntoContainerMessage>(OnInserted);
@@ -37,8 +40,6 @@ internal sealed class ChargerSystem : EntitySystem
         SubscribeLocalEvent<ChargerComponent, ContainerIsInsertingAttemptEvent>(OnInsertAttempt);
         SubscribeLocalEvent<ChargerComponent, InsertIntoEntityStorageAttemptEvent>(OnEntityStorageInsertAttempt);
         SubscribeLocalEvent<ChargerComponent, ExaminedEvent>(OnChargerExamine);
-
-        SubscribeLocalEvent<ChargerComponent, EmpPulseEvent>(OnEmpPulse);
     }
 
     private void OnStartup(EntityUid uid, ChargerComponent component, ComponentStartup args)
@@ -212,12 +213,6 @@ internal sealed class ChargerSystem : EntitySystem
         }
     }
 
-    private void OnEmpPulse(EntityUid uid, ChargerComponent component, ref EmpPulseEvent args)
-    {
-        args.Affected = true;
-        args.Disabled = true;
-    }
-
     private CellChargerStatus GetStatus(EntityUid uid, ChargerComponent component)
     {
         if (!component.Portable)
@@ -244,7 +239,7 @@ internal sealed class ChargerSystem : EntitySystem
         if (!SearchForBattery(container.ContainedEntities[0], out var heldEnt, out var heldBattery))
             return CellChargerStatus.Off;
 
-        if (_battery.IsFull(heldEnt.Value, heldBattery))
+        if (_battery.IsFull((heldEnt.Value, heldBattery)))
             return CellChargerStatus.Charged;
 
         return CellChargerStatus.Charging;
@@ -264,7 +259,7 @@ internal sealed class ChargerSystem : EntitySystem
         if (!SearchForBattery(targetEntity, out var batteryUid, out var heldBattery))
             return;
 
-        _battery.SetCharge(batteryUid.Value, heldBattery.CurrentCharge + component.ChargeRate * frameTime, heldBattery);
+        _battery.SetCharge((batteryUid.Value, heldBattery), heldBattery.CurrentCharge + component.ChargeRate * frameTime);
         UpdateStatus(uid, component);
 
         // ADT-Tweak-Start

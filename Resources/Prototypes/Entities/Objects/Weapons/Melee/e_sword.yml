@@ -72,29 +72,6 @@
   - type: Reflect
   - type: IgnitionSource
     temperature: 700
-# Corvax-HiddenDesc-Start
-  - type: HiddenDescription
-    entries:
-    - label: corvax-hidden-desc-EnergySword-syndicate
-      whitelistMind:
-        mindRoles:
-        - TraitorRole
-        - NukeopsRole
-    - label: corvax-hidden-desc-EnergySword-security
-      jobRequired:
-        - HeadOfSecurity
-        - Detective
-        - SecurityCadet
-        - SecurityOfficer
-        - Warden
-        - Captain
-    - label: corvax-hidden-desc-EnergySword-cargo
-      jobRequired:
-        - SalvageSpecialist
-# Corvax-HiddenDesc-End
-  - type: Tag #ADT tweak
-    tags:
-      - NoPaint
 
 - type: entity
   name: energy sword
@@ -176,13 +153,13 @@
   - type: PointLight
     enabled: false
     radius: 1.5
-    energy: 1.5
+    energy: 2.7
     color: white
     netsync: false
 
 - type: entity
   name: pen
-  parent: BaseMeleeWeaponEnergy
+  parent: [BaseMeleeWeaponEnergy, SelectableLock]
   id: EnergyDagger
   suffix: E-Dagger
   description: 'A dark ink pen.'
@@ -235,7 +212,7 @@
   - type: PointLight
     enabled: false
     radius: 1.5
-    energy: 1.5
+    energy: 2.7
     color: white
     netsync: false
   - type: MeleeWeapon
@@ -245,24 +222,19 @@
     damage:
       types:
         Blunt: 1
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Items/pen_click.ogg
+      params:
+        volume: -4
+        maxDistance: 2
+  - type: UseDelay
+    delay: 1.5
+  - type: ItemToggleRequiresLock #  TODO: FIX THIS VERB IS COOKED
+    lockedPopup: null
   - type: Tag
     tags:
     - Write
-# Corvax-HiddenDesc-Start
-  - type: HiddenDescription
-    entries:
-    - label: corvax-hidden-desc-EnergyDagger-syndicate
-      whitelistMind:
-        mindRoles:
-        - TraitorRole
-        - NukeopsRole
-    - label: corvax-hidden-desc-EnergyDagger-research
-      jobRequired:
-        - ResearchAssistant
-        - ResearchDirector
-        - Scientist
-        - Borg
-# Corvax-HiddenDesc-End
 
 - type: entity
   parent: [BaseItem, BaseSyndicateContraband]
@@ -305,22 +277,6 @@
         map: [ "blade" ]
   - type: Item
     sprite: Objects/Weapons/Melee/e_cutlass.rsi
-  # Corvax-HiddenDesc-Start
-  - type: HiddenDescription
-    entries:
-    #- label: corvax-hidden-desc-EnergyCutlass-pirate #У нас нету в игре PirateRole, грусть
-    - label: corvax-hidden-desc-EnergyCutlass-security
-      jobRequired:
-      - HeadOfSecurity
-      - Detective
-      - SecurityCadet
-      - SecurityOfficer
-      - Warden
-      - Captain
-    - label: corvax-hidden-desc-EnergyCutlass-cargo
-      jobRequired:
-      - SalvageSpecialist
-  # Corvax-HiddenDesc-End
 
 - type: entity
   name: double-bladed energy sword
@@ -386,26 +342,6 @@
   - type: Reflect
     reflectProb: .75
     spread: 75
-  # Corvax-HiddenDesc-Start
-  - type: HiddenDescription
-    entries:
-    - label: corvax-hidden-desc-EnergySword-syndicate
-      whitelistMind:
-        mindRoles:
-        - TraitorRole
-        - NukeopsRole
-    - label: corvax-hidden-desc-EnergySword-security
-      jobRequired:
-      - HeadOfSecurity
-      - Detective
-      - SecurityCadet
-      - SecurityOfficer
-      - Warden
-      - Captain
-    - label: corvax-hidden-desc-EnergySword-cargo
-      jobRequired:
-      - SalvageSpecialist
-  # Corvax-HiddenDesc-End
 
 # Item will look weird in handslot. Will need to adjust handstorage visuals in a future PR
 - type: entity
@@ -461,10 +397,17 @@
     spread: 75
 
 # Borgs
+
 - type: entity
-  suffix: One-Handed, For Borgs
+  parent: EnergySword
+  id: CyborgEnergySword
+  suffix: For Borgs
+  description: A very loud & dangerous sword with a beam made of pure, concentrated plasma. Specially designed for syndicate cyborgs.
+
+- type: entity
   parent: EnergySwordDouble
   id: CyborgEnergySwordDouble # why is this invalid if ID is BorgEnergySwordDouble
+  suffix: One-Handed, For Borgs
   description: Syndicate Command Interns thought that having one blade on the energy sword was not enough. Specially designed for syndicate cyborgs.
   components: # could add energy-draining like the L6C
   - type: Wieldable

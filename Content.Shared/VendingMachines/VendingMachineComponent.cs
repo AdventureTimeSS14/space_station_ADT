@@ -51,6 +51,7 @@ namespace Content.Shared.VendingMachines
 
         public string? NextItemToEject;
 
+        [DataField]
         public bool Broken;
 
         /// <summary>
@@ -126,6 +127,12 @@ namespace Content.Shared.VendingMachines
         /// </summary>
         [DataField("nextEmpEject", customTypeSerializer: typeof(TimeOffsetSerializer))]
         public TimeSpan NextEmpEject = TimeSpan.Zero;
+
+        /// <summary>
+        /// Audio entity used during restock in case the doafter gets canceled.
+        /// </summary>
+        [DataField]
+        public EntityUid? RestockStream;
 
         #region Client Visuals
         /// <summary>
@@ -207,14 +214,16 @@ namespace Content.Shared.VendingMachines
         //ADT-Economy-End
     }
 
-    [Serializable, NetSerializable]
-    public sealed class VendingMachineInventoryEntry
+    [Serializable, NetSerializable, DataDefinition]
+    public sealed partial class VendingMachineInventoryEntry
     {
-        [ViewVariables(VVAccess.ReadWrite)]
+        [DataField]
         public InventoryType Type;
-        [ViewVariables(VVAccess.ReadWrite)]
+
+        [DataField]
         public string ID;
-        [ViewVariables(VVAccess.ReadWrite)]
+
+        [DataField]
         public uint Amount;
         //ADT-Economy-Start
         [ViewVariables(VVAccess.ReadWrite)]
@@ -287,4 +296,24 @@ namespace Content.Shared.VendingMachines
     {
 
     };
+
+    [Serializable, NetSerializable]
+    public sealed class VendingMachineComponentState : ComponentState
+    {
+        public Dictionary<string, VendingMachineInventoryEntry> Inventory = new();
+
+        public Dictionary<string, VendingMachineInventoryEntry> EmaggedInventory = new();
+
+        public Dictionary<string, VendingMachineInventoryEntry> ContrabandInventory = new();
+
+        public bool Contraband;
+
+        public TimeSpan? EjectEnd;
+
+        public TimeSpan? DenyEnd;
+
+        public TimeSpan? DispenseOnHitEnd;
+
+        public bool Broken;
+    }
 }

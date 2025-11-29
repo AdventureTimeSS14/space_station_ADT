@@ -12,8 +12,6 @@
         - DoorElectronics
         - VoxFood # ADT Tweak
     - type: DoorElectronics
-    - type: StaticPrice
-      price: 55
     - type: AccessReader
     - type: ActivatableUI
       key: enum.DoorElectronicsConfigurationUiKey.Key

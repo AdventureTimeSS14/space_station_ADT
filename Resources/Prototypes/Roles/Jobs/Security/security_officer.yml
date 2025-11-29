@@ -6,7 +6,7 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 54000 #15 hrs # ADT-RoleTime
+      time: 10h # Corvax-RoleTime
   # ADT Restrict Start
     - !type:SpeciesRequirement
       inverted: true
@@ -23,9 +23,10 @@
   - Security
   - Brig
   - Maintenance
-  - Service
   - External
   - Cryogenics
+  - GenpopEnter
+  - GenpopLeave
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]

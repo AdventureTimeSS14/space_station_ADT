@@ -159,6 +159,8 @@
   - FlashPayload
   - ExplosivePayload
   - ChemicalPayload
+  - CableDetStack1
+  - EmptyDetonator
   # ADT Research Console Rework start
   position: 2,-3
   requiredTech:

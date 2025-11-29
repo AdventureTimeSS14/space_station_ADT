@@ -4,9 +4,9 @@
   categories: [ HideSpawnMenu ]
   parent: BaseBullet
   components:
+    #ADT tweak start
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
-    #ADT tweak start
     layers:
     - state: rubber
     #ADT tweak end
@@ -26,12 +26,6 @@
   categories: [ HideSpawnMenu ]
   parent: BaseBullet
   components:
-  - type: Sprite
-    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
-    #ADT tweak start
-    layers:
-    - state: buckshot
-    #ADT tweak end
   - type: Projectile
     deleteOnCollide: false
     damage:
@@ -46,12 +40,6 @@
   categories: [ HideSpawnMenu ]
   parent: BaseBulletIncendiary
   components:
-  - type: Sprite
-  #ADT tweak start
-    sprite: ADT/Objects/Weapons/Guns/Projectiles/shotgun-ammo.rsi
-    layers:
-    - state: buckshot-incendiary
-  #ADT tweak end
   - type: Projectile
     deleteOnCollide: false
     damage:
@@ -70,9 +58,6 @@
   categories: [ HideSpawnMenu ]
   parent: BaseBullet
   components:
-  - type: Sprite
-    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
-    state: buckshot
   - type: Projectile
     deleteOnCollide: false
     damage:

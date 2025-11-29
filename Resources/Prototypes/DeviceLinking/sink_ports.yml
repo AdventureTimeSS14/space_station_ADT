@@ -45,8 +45,8 @@
 
 - type: sinkPort
   id: Trigger
-  name: signal-port-name-trigger
-  description: signal-port-description-trigger
+  name: signal-port-name-trigger-receiver
+  description: signal-port-description-trigger-receiver
 
 # (Откат PR - https://github.com/space-wizards/space-station-14/pull/32423) 
 #- type: sinkPort

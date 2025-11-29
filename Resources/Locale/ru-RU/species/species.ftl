@@ -10,4 +10,8 @@ species-name-arachnid = Арахнид
 species-name-skeleton = Скелет
 species-name-vox = Вокс
 species-name-gingerbread = вкуснейшая выпечка
+species-name-vulpkanin = Вульпканин
+
+## Misc species things
+
 snail-hurt-by-salt-popup = Солевой раствор жжёт как кислота!
