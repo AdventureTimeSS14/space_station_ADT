@@ -156,21 +156,21 @@
 
 - type: jukebox
   id: TidalTempestPresent
-  name: Tidal Tempest Zone Present (US) - Sonic The Hedgehog CD
+  name: Sonic The Hedgehog CD - Tidal Tempest Zone Present (US)
   path:
     path: /Audio/ADT/Lobby/Tidal_Tempest_Zone_Present_US_Sonic_The_Hedgehog_CD.ogg
 
 - type: jukebox
   id: MetallicMadnessBadFuture
-  name: Metallic Madness Bad Future [JP EU] - Sonic CD (Credit to DiabolosPheonix)
+  name: Sonic CD - Metallic Madness Bad Future [JP EU] (Credit to DiabolosPheonix)
   path:
-    path: /Audio/ADT/Lobby/Sonic CD Metallic Madness Bad Future [JP EU]HD.ogg
+    path: /Audio/ADT/Lobby/Sonic_CD_Metallic_Madness_Bad_Future_[JP_EU].ogg
 
 - type: jukebox
   id: MetallicMadnessBadFutureRemix
   name: Sonic CD - Metallic Madness Bad Future JP Remix (Credit to "Kamex" find his channel on YouTube) # Если что разрешения он не давал. Так что будьте готовы это убрать или скажите мне.
   path:
-    path:  /Audio/ADT/Lobby/Kamex_Sonic_CD-Metallic_Madness_Bad_Future_JP_Remix.ogg
+    path: /Audio/ADT/Lobby/Kamex_Sonic_CD-Metallic_Madness_Bad_Future_JP_Remix.ogg
 
 - type: jukebox
   id: MetallicMadnessAct2
