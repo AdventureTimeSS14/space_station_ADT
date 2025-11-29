@@ -178,7 +178,7 @@ public sealed partial class SalvageSystem
             foreach (var ent in data.Comp.ActiveEntities)
             {
                 // ADT-Tweak - более безопасный способ удаления
-                Del(ent);
+                Del(ent); //ADT-Tweak Magnet Update
             }
 
             foreach (var entity in _detachEnts)
@@ -433,7 +433,7 @@ public sealed partial class SalvageSystem
             }
         }
 
-        Report(magnet.Owner, MagnetChannel, "salvage-system-announcement-arrived", ("timeLeft", (data.Comp.ActiveTime-_timing.CurTime).TotalSeconds));
+        Report(magnet.Owner, MagnetChannel, "salvage-system-announcement-arrived", ("timeLeft", (data.Comp.ActiveTime-_timing.CurTime).TotalSeconds)); //ADT Tweak Magnet Update
         _mapSystem.DeleteMap(salvMapXform.MapID);
 
         data.Comp.Announced = false;
