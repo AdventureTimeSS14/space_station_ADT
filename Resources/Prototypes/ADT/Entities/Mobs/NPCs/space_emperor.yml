@@ -19,6 +19,8 @@
         Base: crit
       Dead:
         Base: dead
+  - type: TTS
+    voice: eleazarfig
   - type: UnpoweredFlashlight
     toggleAction: ActionToggleLightEmperor
     toggleFlashlightSound: /Audio/Effects/eye_close.ogg
