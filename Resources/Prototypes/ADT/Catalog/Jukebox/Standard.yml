@@ -155,6 +155,72 @@
     path: /Audio/ADT/Jukebox/Waiting_for_the_meeting.ogg
 
 - type: jukebox
+  id: TidalTempestPresent
+  name: Tidal Tempest Zone Present (US) - Sonic The Hedgehog CD
+  path:
+    path: /Audio/ADT/Lobby/Tidal_Tempest_Zone_Present_US_Sonic_The_Hedgehog_CD.ogg
+
+- type: jukebox
+  id: MetallicMadnessBadFuture
+  name: Metallic Madness Bad Future [JP EU] - Sonic CD (Credit to DiabolosPheonix)
+  path:
+    path: /Audio/ADT/Lobby/Sonic CD Metallic Madness Bad Future [JP EU]HD.ogg
+
+- type: jukebox
+  id: MetallicMadnessBadFutureRemix
+  name: Sonic CD - Metallic Madness Bad Future JP Remix (Credit to "Kamex" find his channel on YouTube) # Если что разрешения он не давал. Так что будьте готовы это убрать или скажите мне.
+  path:
+    path:  /Audio/ADT/Lobby/Kamex_Sonic_CD-Metallic_Madness_Bad_Future_JP_Remix.ogg
+
+- type: jukebox
+  id: MetallicMadnessAct2
+  name: Sonic Mania - Metallic Madness Act 2 (Credit to Tee Lopes, Naofumi Hataya)
+  path:
+    path: /Audio/ADT/Lobby/Sonic_Mania-Metallic_Madness_Act_2.ogg
+
+- type: jukebox
+  id: CollisionChaosGood
+  name: Sonic the Hedgehog CD - Collision Chaos Good Future (Credit to Naofumi Hataya; Masafumi Ogata)
+  path:
+    path: /Audio/ADT/Lobby/Sonic_The_Hedgehog_CD_Naofumi_Hataya_Masafumi_Ogata-Collision_Chaos_Good_Future.ogg
+
+- type: jukebox
+  id: MetallicMadnessPresent
+  name: Sonic the Hedgehog CD - Metallic Madness Present (Credit to Naofumi Hataya; Masafumi Ogata)
+  path:
+    path: /Audio/ADT/Lobby/Sonic_The_Hedgehog_CD_Naofumi_Hataya_Masafumi_Ogata-Metallic_Madness_Present.ogg
+
+- type: jukebox
+  id: PalmtreePanicPast
+  name: Sonic the Hedgehog CD - PalmtreePanicPast (Credit to Naofumi Hataya; Masafumi Ogata)
+  path:
+    path: /Audio/ADT/Lobby/Sonic_The_Hedgehog_CD_Naofumi_Hataya_Masafumi_Ogata-Palmtree_Panic_Past.ogg
+
+- type: jukebox
+  id: QuartzQuadrantPast
+  name: Sonic the Hedgehog CD - QuartzQuadrantPast (Credit to Naofumi Hataya; Masafumi Ogata)
+  path:
+    path: /Audio/ADT/Lobby/Sonic_The_Hedgehog_CD_Naofumi_Hataya_Masafumi_Ogata-Quartz_Quadrant_Past.ogg
+
+- type: jukebox
+  id: SuperSonicRacing
+  name: Sonic R. - Super Sonic Racing (Credit to Richard Jacques; Sega )
+  path:
+    path: /Audio/ADT/Lobby/Super_Sonic_Racing.ogg
+
+- type: jukebox
+  id: TidalTempestZoneUSRemix
+  name: Sonic the Hedgehog CD - Tidal Tempest Zone Present US Remix (Credit to MegaBaz on YouTube)
+  path:
+    path: /Audio/ADT/Lobby/Tidal_Tempest_Zone_Present_US_Sonic_The_Hedgehog_CD.ogg
+
+- type: jukebox
+  id: TidalTempestJPRemix
+  name: Sonic the Hedgehog CD - Tidal Tempest JP Remix (Credit to MegaBaz on YouTube)
+  path:
+    path: /Audio/ADT/Lobby/Tidal_Tempest_Sonic_CD_JP.ogg
+
+- type: jukebox
   id: WereFinallyLanding
   name: Home - We're Finally Landing
   path:
