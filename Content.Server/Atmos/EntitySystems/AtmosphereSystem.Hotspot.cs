@@ -132,12 +132,7 @@ public sealed partial class AtmosphereSystem
                     cleanable: true);
             }
 
-            if (tile.Air.Temperature > Atmospherics.FireMinimumTemperatureToSpread) //R.A.T. shitfix: следующие 5 строчек возможно не должны быть тут, потом проверить потом а ещё в этом файле в целом ужас
-            if (tile.ExcitedGroup != null) //ADT-Gas
-                ExcitedGroupResetCooldowns(tile.ExcitedGroup);
-
-            if ((tile.Hotspot.Temperature < Atmospherics.FireMinimumTemperatureToExist) || (tile.Hotspot.Volume <= 1f)
-                || tile.Air == null || tile.Air.GetMoles(Gas.Oxygen) < 0.5f || (tile.Air.GetMoles(Gas.Plasma) < 0.5f && tile.Air.GetMoles(Gas.Tritium) < 0.5f && tile.Air.GetMoles(Gas.Hydrogen) < 0.5f && tile.Air.GetMoles(Gas.HyperNoblium) > 5f)) //ADT-Gas
+            if (tile.Air.Temperature > Atmospherics.FireMinimumTemperatureToSpread)
             {
                 var radiatedTemperature = tile.Air.Temperature * Atmospherics.FireSpreadRadiosityScale;
                 foreach (var otherTile in tile.AdjacentTiles)
@@ -213,12 +208,16 @@ public sealed partial class AtmosphereSystem
 
         var plasma = tile.Air.GetMoles(Gas.Plasma);
         var tritium = tile.Air.GetMoles(Gas.Tritium);
+        //ADT-Tweak-start
+        var hydrogen = tile.Air.GetMoles(Gas.Hydrogen);
+        var hypernoblium = tile.Air.GetMoles(Gas.HyperNoblium);
+        //ADT-Tweak-end
 
         if (tile.Hotspot.Valid)
         {
             if (soh)
             {
-                if (plasma > 0.5f || tritium > 0.5f)
+                if (plasma > 0.5f && hypernoblium < 5f || tritium > 0.5f && hypernoblium < 5f || hydrogen > 0.5f && hypernoblium < 5f) //ADT-Gas
                 {
                     tile.Hotspot.Temperature = MathF.Max(tile.Hotspot.Temperature, exposedTemperature);
                     tile.Hotspot.Volume = MathF.Max(tile.Hotspot.Volume, exposedVolume);
@@ -228,7 +227,7 @@ public sealed partial class AtmosphereSystem
             return;
         }
 
-        if (exposedTemperature > Atmospherics.PlasmaMinimumBurnTemperature && (plasma > 0.5f || tritium > 0.5f))
+        if ((exposedTemperature > Atmospherics.PlasmaMinimumBurnTemperature) && (plasma > 0.5f && hypernoblium < 5f || tritium > 0.5f && hypernoblium < 5f || hydrogen > 0.5f && hypernoblium < 5f)) //ADT-Gas
         {
             if (sparkSourceUid.HasValue)
             {
@@ -262,7 +261,7 @@ public sealed partial class AtmosphereSystem
 
         // Determine if the tile has become a full-blown fire if the volume of the fire has effectively reached
         // the volume of the tile's air.
-        tile.Hotspot.Bypassing = tile.Hotspot.SkippedFirstProcess && tile.Hotspot.Volume > tile.Air.Volume * 0.95f;
+        tile.Hotspot.Bypassing = tile.Hotspot.SkippedFirstProcess && tile.Hotspot.Volume > tile.Air.Volume * 0.95f; //ADT-Gas
 
         // If the tile is effectively a full fire, use the tile's air for reactions, don't bother partitioning.
         if (tile.Hotspot.Bypassing)
