@@ -2,7 +2,7 @@
   id: ADT_Barratry
   mapName: 'Barratry'
   mapPath: /Maps/ADTMaps/ADTStations/adt_barratry.yml
-  minPlayers: 30
+  minPlayers: 35
   maxPlayers: 60
   stations:
     ADT_Barratry:
@@ -58,7 +58,7 @@
             SecurityCadet: [ 2, 4 ]
             Brigmedic: [ 1, 1 ] #ADT-Roles
             ADTSeniorOfficer: [ 1, 1 ] # ADT-Roles
-            ADTGuardOfficer: [ 1, 1 ] # ADT-Roles
+            ADTCorrectionsOfficer: [ 1, 1 ] # ADT-Roles
             #supply
             Quartermaster: [ 1, 1 ]
             SalvageSpecialist: [ 3, 3 ]

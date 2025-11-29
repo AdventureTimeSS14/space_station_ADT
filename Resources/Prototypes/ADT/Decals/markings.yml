@@ -253,3 +253,1091 @@
   sprite:
     sprite: ADT/Decals/markings.rsi
     state: box_whitescale
+
+- type: decal
+  id: ADTArrowEast
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: arrow_east
+
+- type: decal
+  id: ADTArrowsNorth
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: arrow_north
+
+- type: decal
+  id: ADTArrowSouth
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: arrow_south
+
+- type: decal
+  id: ADTArrowWest
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: arrow_west
+
+- type: decal
+  id: ADTArrowTurnEast
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: arrow_turn_east
+
+- type: decal
+  id: ADTArrowsTurnNorth
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: arrow_turn_north
+
+- type: decal
+  id: ADTArrowTurnSouth
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: arrow_turn_south
+
+- type: decal
+  id: ADTArrowTurnWest
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: arrow_turn_west
+
+- type: decal
+  id: ADTAstWarnBox
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: ast_warn_box
+
+- type: decal
+  id: ADTAstWarnFull
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: ast_warn_full
+
+- type: decal
+  id: ADTAstWarnLineS
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: ast_warn_line_s
+
+- type: decal
+  id: ADTAstWarnLineN
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: ast_warn_line_n
+
+- type: decal
+  id: ADTAstWarnLineW
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: ast_warn_line_w
+
+- type: decal
+  id: ADTAstWarnLineE
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: ast_warn_line_e
+
+- type: decal
+  id: ADTAstWarnCornerNe
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: ast_warn_corner_ne
+
+- type: decal
+  id: ADTAstWarnCornerNw
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: ast_warn_corner_nw
+
+- type: decal
+  id: ADTAstWarnCornerSe
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: ast_warn_corner_se
+
+- type: decal
+  id: ADTAstWarnCornerSw
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: ast_warn_corner_sw
+
+- type: decal
+  id: ADTAstWarnCornerSmallNe
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: ast_warn_corner_small_ne
+
+- type: decal
+  id: ADTAstWarnCornerSmallNw
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: ast_warn_corner_small_nw
+
+- type: decal
+  id: ADTAstWarnCornerSmallSe
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: ast_warn_corner_small_se
+
+- type: decal
+  id: ADTAstWarnCornerSmallSw
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: ast_warn_corner_small_sw
+
+- type: decal
+  id: ADTAstWarnEnd
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: ast_warn_end
+
+- type: decal
+  id: ADTAstWarnEndE
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: ast_warn_end_e
+
+- type: decal
+  id: ADTAstWarnEndN
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: ast_warn_end_n
+
+- type: decal
+  id: ADTAstWarnEndW
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: ast_warn_end_w
+
+- type: decal
+  id: ADTBambooBox
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: bamboo_box
+
+- type: decal
+  id: ADTBambooCornerNe
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: bamboo_corner_ne
+
+- type: decal
+  id: ADTBambooCornerNw
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: bamboo_corner_nw
+
+- type: decal
+  id: ADTBambooCornerSe
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: bamboo_corner_se
+
+- type: decal
+  id: ADTBambooCornerSw
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: bamboo_corner_sw
+
+- type: decal
+  id: ADTBambooCornerSmallNe
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: bamboo_corner_small_ne
+
+- type: decal
+  id: ADTBambooCornerSmallNw
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: bamboo_corner_small_nw
+
+- type: decal
+  id: ADTBambooCornerSmallSe
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: bamboo_corner_small_se
+
+- type: decal
+  id: ADTBambooCornerSmallSw
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: bamboo_corner_small_sw
+
+- type: decal
+  id: ADTBambooEnd
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: bamboo_end
+
+- type: decal
+  id: ADTBambooEndE
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: bamboo_end_e
+
+- type: decal
+  id: ADTBambooEndN
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: bamboo_end_n
+
+- type: decal
+  id: ADTBambooEndW
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: bamboo_end_w
+
+- type: decal
+  id: ADTBambooLineE
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: bamboo_line_e
+
+- type: decal
+  id: ADTBambooLineN
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: bamboo_line_n
+
+- type: decal
+  id: ADTBambooLineS
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: bamboo_line_s
+
+- type: decal
+  id: ADTBambooLineW
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: bamboo_line_w
+
+- type: decal
+  id: ADTFilledMarkingBox
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: filled_marking_box
+
+- type: decal
+  id: ADTFilledMarkingCornerNe
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: filled_marking_corner_ne
+
+- type: decal
+  id: ADTFilledMarkingCornerNw
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: filled_marking_corner_nw
+
+- type: decal
+  id: ADTFilledMarkingCornerSe
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: filled_marking_corner_se
+
+- type: decal
+  id: ADTFilledMarkingCornerSw
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: filled_marking_corner_sw
+
+- type: decal
+  id: ADTFilledMarkingCornerSmallNe
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: filled_marking_corner_small_ne
+
+- type: decal
+  id: ADTFilledMarkingCornerSmallNw
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: filled_marking_corner_small_nw
+
+- type: decal
+  id: ADTFilledMarkingCornerSmallSe
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: filled_marking_corner_small_se
+
+- type: decal
+  id: ADTFilledMarkingCornerSmallSw
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: filled_marking_corner_small_sw
+
+- type: decal
+  id: ADTFilledMarkingRoundCornerSmallNe
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: filled_marking_round_corner_small_ne
+
+- type: decal
+  id: ADTFilledMarkingRoundCornerSmallNw
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: filled_marking_round_corner_small_nw
+
+- type: decal
+  id: ADTFilledMarkingRoundCornerSmallSe
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: filled_marking_round_corner_small_se
+
+- type: decal
+  id: ADTFilledMarkingRoundCornerSmallSw
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: filled_marking_round_corner_small_sw
+
+- type: decal
+  id: ADTFilledMarkingEnd
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: filled_marking_end
+
+- type: decal
+  id: ADTFilledMarkingEndE
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: filled_marking_end_e
+
+- type: decal
+  id: ADTFilledMarkingEndN
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: filled_marking_end_n
+
+- type: decal
+  id: ADTFilledMarkingEndW
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: filled_marking_end_w
+
+- type: decal
+  id: ADTFilledMarkingLineE
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: filled_marking_line_e
+
+- type: decal
+  id: ADTFilledMarkingLineN
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: filled_marking_line_n
+
+- type: decal
+  id: ADTFilledMarkingLineS
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: filled_marking_line_s
+
+- type: decal
+  id: ADTFilledMarkingLineW
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: filled_marking_line_w
+
+- type: decal
+  id: ADTGoldenStripesBox
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: golden_stripes_box
+
+- type: decal
+  id: ADTGoldenStripesCornerNe
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: golden_stripes_corner_ne
+
+- type: decal
+  id: ADTGoldenStripesCornerNw
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: golden_stripes_corner_nw
+
+- type: decal
+  id: ADTGoldenStripesCornerSe
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: golden_stripes_corner_se
+
+- type: decal
+  id: ADTGoldenStripesCornerSw
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: golden_stripes_corner_sw
+
+- type: decal
+  id: ADTGoldenStripesCornerSmallNe
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: golden_stripes_corner_small_ne
+
+- type: decal
+  id: ADTGoldenStripesCornerSmallNw
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: golden_stripes_corner_small_nw
+
+- type: decal
+  id: ADTGoldenStripesCornerSmallSe
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: golden_stripes_corner_small_se
+
+- type: decal
+  id: ADTGoldenStripesCornerSmallSw
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: golden_stripes_corner_small_sw
+
+- type: decal
+  id: ADTGoldenStripesEnd
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: golden_stripes_end
+
+- type: decal
+  id: ADTGoldenStripesEndE
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: golden_stripes_end_e
+
+- type: decal
+  id: ADTGoldenStripesEndN
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: golden_stripes_end_n
+
+- type: decal
+  id: ADTGoldenStripesEndW
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: golden_stripes_end_w
+
+- type: decal
+  id: ADTGoldenStripesLineE
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: golden_stripes_line_e
+
+- type: decal
+  id: ADTGoldenStripesLineN
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: golden_stripes_line_n
+
+- type: decal
+  id: ADTGoldenStripesLineS
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: golden_stripes_line_s
+
+- type: decal
+  id: ADTGoldenStripesLineW
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: golden_stripes_line_w
+
+- type: decal
+  id: ADTSerialStripBox
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: serial_strip_box
+
+- type: decal
+  id: ADTSerialStripCornerNe
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: serial_strip_corner_ne
+
+- type: decal
+  id: ADTSerialStripCornerNw
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: serial_strip_corner_nw
+
+- type: decal
+  id: ADTSerialStripCornerSe
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: serial_strip_corner_se
+
+- type: decal
+  id: ADTSerialStripCornerSw
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: serial_strip_corner_sw
+
+- type: decal
+  id: ADTSerialStripCornerSmallNe
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: serial_strip_corner_small_ne
+
+- type: decal
+  id: ADTSerialStripCornerSmallNw
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: serial_strip_corner_small_nw
+
+- type: decal
+  id: ADTSerialStripCornerSmallSe
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: serial_strip_corner_small_se
+
+- type: decal
+  id: ADTSerialStripCornerSmallSw
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: serial_strip_corner_small_sw
+
+- type: decal
+  id: ADTSerialStripEnd
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: serial_strip_end
+
+- type: decal
+  id: ADTSerialStripEndE
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: serial_strip_end_e
+
+- type: decal
+  id: ADTSerialStripEndN
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: serial_strip_end_n
+
+- type: decal
+  id: ADTSerialStripEndW
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: serial_strip_end_w
+
+- type: decal
+  id: ADTSerialStripLineE
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: serial_strip_line_e
+
+- type: decal
+  id: ADTSerialStripLineN
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: serial_strip_line_n
+
+- type: decal
+  id: ADTSerialStripLineS
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: serial_strip_line_s
+
+- type: decal
+  id: ADTSerialStripLineW
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: serial_strip_line_w
+
+- type: decal
+  id: ADTSidingThinplatingBox
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: siding_thinplating_box
+
+- type: decal
+  id: ADTSidingThinplatingCornerNe
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: siding_thinplating_corner_ne
+
+- type: decal
+  id: ADTSidingThinplatingCornerNw
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: siding_thinplating_corner_nw
+
+- type: decal
+  id: ADTSidingThinplatingCornerSe
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: siding_thinplating_corner_se
+
+- type: decal
+  id: ADTSidingThinplatingCornerSw
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: siding_thinplating_corner_sw
+
+- type: decal
+  id: ADTSidingThinplatingCornerSmallNe
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: siding_thinplating_corner_small_ne
+
+- type: decal
+  id: ADTSidingThinplatingCornerSmallNw
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: siding_thinplating_corner_small_nw
+
+- type: decal
+  id: ADTSidingThinplatingCornerSmallSe
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: siding_thinplating_corner_small_se
+
+- type: decal
+  id: ADTSidingThinplatingCornerSmallSw
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: siding_thinplating_corner_small_sw
+
+- type: decal
+  id: ADTSidingThinplatingEnd
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: siding_thinplating_end
+
+- type: decal
+  id: ADTSidingThinplatingEndE
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: siding_thinplating_end_e
+    
+- type: decal
+  id: ADTSidingThinplatingEndN
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: siding_thinplating_end_n
+
+- type: decal
+  id: ADTSidingThinplatingEndW
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: siding_thinplating_end_w
+
+- type: decal
+  id: ADTSidingThinplatingLineE
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: siding_thinplating_line_e
+
+- type: decal
+  id: ADTSidingThinplatingLineN
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: siding_thinplating_line_n
+
+- type: decal
+  id: ADTSidingThinplatingLineS
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: siding_thinplating_line_s
+
+- type: decal
+  id: ADTSidingThinplatingLineW
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: siding_thinplating_line_w
+
+- type: decal
+  id: ADTStripWhiteBox
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: strip_white_box
+
+- type: decal
+  id: ADTStripWhiteCornerNe
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: strip_white_corner_ne
+
+- type: decal
+  id: ADTStripWhiteCornerNw
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: strip_white_corner_nw
+
+- type: decal
+  id: ADTStripWhiteCornerSe
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: strip_white_corner_se
+
+- type: decal
+  id: ADTStripWhiteCornerSw
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: strip_white_corner_sw
+
+- type: decal
+  id: ADTStripWhiteCornerSmallNe
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: strip_white_corner_small_ne
+
+- type: decal
+  id: ADTStripWhiteCornerSmallNw
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: strip_white_corner_small_nw
+
+- type: decal
+  id: ADTStripWhiteCornerSmallSe
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: strip_white_corner_small_se
+
+- type: decal
+  id: ADTStripWhiteCornerSmallSw
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: strip_white_corner_small_sw
+
+- type: decal
+  id: ADTStripWhiteRoundCornerSmallNe
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: strip_white_round_corner_small_ne
+
+- type: decal
+  id: ADTStripWhiteRoundCornerSmallNw
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: strip_white_round_corner_small_nw
+
+- type: decal
+  id: ADTStripWhiteRoundCornerSmallSe
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: strip_white_round_corner_small_se
+
+- type: decal
+  id: ADTStripWhiteRoundCornerSmallSw
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: strip_white_round_corner_small_sw
+
+- type: decal
+  id: ADTStripWhiteEnd
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: strip_white_end
+
+- type: decal
+  id: ADTStripWhiteEndE
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: strip_white_end_e
+
+- type: decal
+  id: ADTStripWhiteEndN
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: strip_white_end_n
+
+- type: decal
+  id: ADTStripWhiteEndW
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: strip_white_end_w
+
+- type: decal
+  id: ADTStripWhiteLineE
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: strip_white_line_e
+
+- type: decal
+  id: ADTStripWhiteLineN
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: strip_white_line_n
+
+- type: decal
+  id: ADTStripWhiteLineS
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: strip_white_line_s
+
+- type: decal
+  id: ADTStripWhiteLineW
+  tags: ["station", "markings"]
+  defaultCustomColor: true
+  sprite:
+    sprite: ADT/Decals/markings.rsi
+    state: strip_white_line_w

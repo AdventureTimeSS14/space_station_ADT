@@ -158,21 +158,43 @@
     Gas:
       effects:
       - !type:MovespeedModifier
+        conditions:
+          - !type:ReagentThreshold
+            reagent: Nitrium
+            min: 3
+        statusLifetime: 15
         walkSpeedModifier: 1.35
         sprintSpeedModifier: 1.35
       - !type:GenericStatusEffect
+        conditions:
+          - !type:ReagentThreshold
+            reagent: Nitrium
+            min: 6
         key: Stun
         time: 3
         type: Remove
       - !type:GenericStatusEffect
+        conditions:
+          - !type:ReagentThreshold
+            reagent: Nitrium
+            min: 6
         key: KnockedDown
         time: 3
+        type: Remove
+      - !type:GenericStatusEffect
+        conditions:
+          - !type:ReagentThreshold
+            reagent: Nitrium
+            min: 6
+        key: ForcedSleep
+        component: ForcedSleeping
+        time: 15
         type: Remove
       - !type:HealthChange
         conditions:
           - !type:ReagentThreshold
             reagent: Nitrium
-            min: 10
+            min: 9
         scaleByQuantity: true
         ignoreResistances: true
         damage:

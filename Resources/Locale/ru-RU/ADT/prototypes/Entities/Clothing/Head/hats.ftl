@@ -33,14 +33,11 @@ ent-ADTClothingHeadHatsBeretArmy = армейский берет
     .desc = Потрёпанный на службе военный берет. Имеет золотую нашивку сбоку.
     .suffix = { "Новая Мекка" }
 
-ent-ADTClothingHeadHatsGuardOfficer = кепка надзирателя
-    .desc = Такая же кепка, как и у других сотрудников службы безопасности, но оранжевого цвета.
+ent-ADTClothingHeadHatsCorrectionsOfficerCap = кепка надзирателя СБ
+    .desc = Лёгкая кепка тюремного надзирателя, показывающая ваш резкий нрав. В ней вы ощущаете себя тем, кто всегда готов сорваться и догнать убегающего зека.
 
-ent-ADTClothingHeadHatsGuardOfficerMaster = фуражка надзирателя
-    .desc = Фуражка тюремного надзирателя, которая выдается сотрудникам с опытом работы.
-
-ent-ADTClothingHeadGreyHatsGuardOfficer = серая фуражка надзирателя
-    .desc = Серая фуражка тюремного надзирателя, которая выдается сотрудникам с чуть меньшим опытом работы.
+ent-ADTClothingHeadHatsCorrectionsOfficerCapGrey = серая фуражка надзирателя СБ
+    .desc = Серая фуражка надзирателя Службы Безопасности, само её нахождение в ваших руках, говорит либо о том, что вы очень опытный Надзиратель СБ, либо являетесь кем-то более опытный в бою, чем он сам.
 
 ent-ADTClothingHeadCapIlisium = фуражка
     .suffix = Иллизиум
@@ -62,3 +59,21 @@ ent-ADTClothingHeadDrinkCap = питьевая кепка
 
 ent-ADTClothingAdmiralHat = капитанская треуголка
     .desc = Яррр! Поднять паруса!
+
+ent-ADTClothingHeadHatChefRed = красный поварской колпак
+    .desc = Прямиком из космо-Италии!
+
+ent-ADTClothingHeadHatDarkBenie = тёмная шапка
+    .desc = Обычная тёмная шапка. Смотреть здесь не на что.
+
+ent-ADTClothingHeadHatBlueBenie = синяя шапка
+    .desc = Обычная синяя шапка. Смотреть здесь не на что.
+
+ent-ADTClothingHeadHatGreenBenie = зелёная шапка
+    .desc = Обычная зелёная шапка. Смотреть здесь не на что.
+
+ent-ADTClothingHeadHatPurpleBenie = фиолетовая шапка
+    .desc = Обычная фиолетовая шапка. Смотреть здесь не на что.
+
+ent-ADTClothingHeadHatRedBenie = красная шапка
+    .desc = Обычная красная шапка. Смотреть здесь не на что.

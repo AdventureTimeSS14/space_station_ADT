@@ -7,14 +7,6 @@
       role: JobChef
       time: 36000 #10 часов
 
-- type: loadout
-  id: ADTChefCqc
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: ADTMasterChef
-  equipment:
-    pocket1: ADTCqcManualWeak
-
 # PDA
 - type: loadout
   id: ChefPDA
@@ -35,3 +27,30 @@
   id: ADTPizzaioloPDA
   equipment:
     id: ADTPizzaioloPDA
+
+- type: loadout
+  id: ADTConfectionerPDA
+  equipment:
+    id: ADTConfectionerPDA
+
+# Head
+- type: loadout
+  id: ADTClothingHeadHatChefRed
+  equipment:
+    head: ADTClothingHeadHatChefRed
+
+- type: loadout
+  id: ADTClothingNecChefShawl
+  equipment:
+    neck: ADTClothingNecChefShawl
+
+# Outer clothing
+- type: loadout
+  id: ADTClothingOuterApronButcher
+  equipment:
+    outerClothing: ADTClothingOuterApronButcher
+
+- type: loadout
+  id: ADTClothingOuterJacketChefRed
+  equipment:
+    outerClothing: ADTClothingOuterJacketChefRed

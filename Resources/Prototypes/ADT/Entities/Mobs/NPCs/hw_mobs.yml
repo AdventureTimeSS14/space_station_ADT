@@ -1,0 +1,279 @@
+- type: entity
+  parent: [ SimpleMobBase, MobCombat ]
+  id: ADTBloodyArmySoldier
+  components:
+  - type: Physics
+  - type: GrabProtection
+  - type: DamageBonusHoly
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: bloody_army_soldier
+      sprite: ADT/Mobs/Demons/hw_big.rsi
+  - type: MeleeWeapon
+    soundHit:
+      collection: Punch
+    damage:
+      types:
+        Blunt: 25
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
+  - type: HTN
+    rootTask:
+      task: SimpleRangedHostileCompound
+    blackboard:
+      NavSmash: !type:Bool
+        true
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 2
+    baseSprintSpeed : 4
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      400: Dead
+  - type: Gun
+    fireRate: 0.5
+    selectedMode: SemiAuto
+    showExamineText: false
+    availableModes:
+    - SemiAuto
+    soundGunshot: null
+  - type: RechargeBasicEntityAmmo
+    showExamineText: false
+    rechargeCooldown: 1
+    rechargeSound: null
+  - type: BasicEntityAmmoProvider
+    proto: BulletLaserHeavySpread
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: bloody_army_soldier
+      Dead:
+        Base: bloody_army_soldier_dead
+
+
+- type: entity
+  parent: [ SimpleMobBase, MobCombat ]
+  id: ADTBunchOfDemonicEyes
+  components:
+  - type: GrabProtection
+  - type: DamageBonusHoly
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: bunch_demonic_eyes
+      sprite: ADT/Mobs/Demons/hw_small.rsi
+  - type: MeleeWeapon
+    soundHit:
+      collection: AlienClaw
+    damage:
+      types:
+        Blunt: 20
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
+  - type: HTN
+    rootTask:
+      task: SimpleRangedHostileCompound
+    blackboard:
+      NavSmash: !type:Bool
+        true
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 2
+    baseSprintSpeed : 4
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      150: Dead
+  - type: Gun
+    fireRate: 1
+    selectedMode: SemiAuto
+    showExamineText: false
+    availableModes:
+    - SemiAuto
+    soundGunshot: null
+  - type: RechargeBasicEntityAmmo
+    showExamineText: false
+    rechargeCooldown: 3
+    rechargeSound: null
+  - type: BasicEntityAmmoProvider
+    proto: BulletLaser
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: bunch_demonic_eyes
+      Dead:
+        Base: bunch_demonic_eyes_dead
+
+
+
+- type: entity
+  parent: [ SimpleMobBase, MobCombat ]
+  id: ADTBloodyEyes
+  components:
+  - type: GrabProtection
+  - type: DamageBonusHoly
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: bloody_eyes
+      sprite: ADT/Mobs/Demons/hw_small.rsi
+  - type: MeleeWeapon
+    soundHit:
+      collection: AlienClaw
+    damage:
+      types:
+        Blunt: 10
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
+  - type: HTN
+    rootTask:
+      task: SimpleRangedHostileCompound
+    blackboard:
+      NavSmash: !type:Bool
+        true
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 2
+    baseSprintSpeed : 4
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: Dead
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: bloody_eyes
+      Dead:
+        Base: bloody_eyes_dead
+
+
+- type: entity
+  parent: [ SimpleMobBase, MobCombat ]
+  id: ADTDemonicEye
+  components:
+  - type: GrabProtection
+  - type: DamageBonusHoly
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: demonic_eye
+      sprite: ADT/Mobs/Demons/hw_small.rsi
+  - type: MeleeWeapon
+    soundHit:
+      collection: AlienClaw
+    damage:
+      types:
+        Blunt: 5
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
+  - type: HTN
+    rootTask:
+      task: SimpleRangedHostileCompound
+    blackboard:
+      NavSmash: !type:Bool
+        true
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 3
+    baseSprintSpeed : 6
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      50: Dead
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: demonic_eye
+      Dead:
+        Base: demonic_eye_dead
+
+
+- type: entity
+  parent: [ SimpleMobBase, MobCombat ]
+  id: ADTDarkRattleSnake
+  components:
+  - type: Physics
+  - type: GrabProtection
+  - type: DamageBonusHoly
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: dark_rattlesnake
+      sprite: ADT/Mobs/Demons/hw_big.rsi
+  - type: MeleeWeapon
+    soundHit:
+      collection: AlienClaw
+    damage:
+      types:
+        Slash: 20
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
+  - type: HTN
+    rootTask:
+      task: SimpleRangedHostileCompound
+    blackboard:
+      NavSmash: !type:Bool
+        true
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 4
+    baseSprintSpeed : 8
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      150: Dead
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: dark_rattlesnake
+      Dead:
+        Base: dark_rattlesnake_dead
+
+- type: entity
+  parent: [ SimpleMobBase, MobCombat ]
+  id: ADTDemonicMouth
+  components:
+  - type: Physics
+  - type: GrabProtection
+  - type: DamageBonusHoly
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: demonic_mouth
+      sprite: ADT/Mobs/Demons/hw_big.rsi
+  - type: MeleeWeapon
+    soundHit:
+      collection: AlienClaw
+    damage:
+      types:
+        Slash: 20
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
+  - type: HTN
+    rootTask:
+      task: SimpleRangedHostileCompound
+    blackboard:
+      NavSmash: !type:Bool
+        true
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 1.5
+    baseSprintSpeed : 3
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      350: Dead
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: demonic_mouth
+      Dead:
+        Base: demonic_mouth_dead

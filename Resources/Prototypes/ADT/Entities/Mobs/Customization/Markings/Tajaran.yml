@@ -397,6 +397,22 @@
       state: mane_head
 
 - type: marking
+  id: HeadEyesWide
+  bodyPart: Eyes
+  markingCategory: Head
+  speciesRestriction: [TajaranSpecies]
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+          negative: false
+  sprites:
+  - sprite: ADT/Mobs/Customization/Tajaran/tajaran_head.rsi
+    state: c_eyes_wide
+  - sprite: ADT/Mobs/Customization/Tajaran/tajaran_head.rsi
+    state: s_eyes_wide
+
+- type: marking
   id: HairEyebrows
   bodyPart: Head
   markingCategory: Head
@@ -404,6 +420,16 @@
   sprites:
     - sprite: ADT/Mobs/Customization/Tajaran/tajaran_hairs.rsi #Спрайты от moroz_3
       state: eyebrows
+
+- type: marking
+  id: ADTTajaranEyeGlow
+  bodyPart: LLeg
+  markingCategory: Head
+  speciesRestriction: [TajaranSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_head.rsi
+      state: eyesglow
+  shader: unshaded
 
 #Морда.
 - type: marking

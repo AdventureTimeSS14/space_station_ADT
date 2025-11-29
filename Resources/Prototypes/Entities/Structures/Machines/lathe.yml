@@ -112,7 +112,6 @@
         - Sheet
         - RawMaterial
         - Ingot
-        - ADTSheet #ADT-Tweak
   - type: StationAiWhitelist #ADT-Tweak
   - type: OreSiloClient
   - type: Lathe
@@ -195,7 +194,6 @@
         - Ingot
         - PhantomEctoplasm
         - ADTBSCrystal #ADT Tweak
-        - ADTSheet #ADT-Tweak
   - type: OreSiloClient
   - type: Lathe
     idleState: icon
@@ -230,6 +228,7 @@
     - ADTPhantomPack
     - ADTWeaponLauncherHydraPack
     - ADTPowerPack
+    - ADTMegaCellPack
     #ADT-tweak-end
     - ADTBluespaceCrystalTech #ADT Tweak
   - type: EmagLatheRecipes
@@ -295,6 +294,7 @@
     - ADTArcade
     - ADTIndustrialCharger
     - ADTAdvancedThruster
+    - ADTMegaCharger
     # ADT-tweak-end
   - type: EmagLatheRecipes
     emagDynamicPacks:
@@ -306,7 +306,6 @@
         - RawMaterial
         - Ingot
         - ADTBSCrystal #ADT Tweak
-        - ADTSheet #ADT-Tweak
   - type: OreSiloClient
   - type: RequireProjectileTarget
 
@@ -359,6 +358,7 @@
     - ADTDurandPack
     - ADTPhazonPack
     - ADTMechEquipmentPack
+    - ADTBorgModules
     # ADT-tweak-end
   - type: MaterialStorage
     whitelist:
@@ -367,7 +367,6 @@
       - RawMaterial
       - Ingot
       - ADTBSCrystal #ADT Tweak
-      - ADTSheet #ADT-Tweak
   - type: OreSiloClient
   - type: GuideHelp
     guides:
@@ -408,7 +407,6 @@
       tags:
         - Sheet
         - RawMaterial
-        - ADTSheet #ADT-Tweak
   - type: Lathe
     idleState: icon
     runningState: building
@@ -469,7 +467,6 @@
         - Sheet
         - RawMaterial
         - Ingot
-        - ADTSheet #ADT-Tweak
   - type: OreSiloClient
   - type: LatheAnnouncing
     channels: [Security]
@@ -506,7 +503,6 @@
           - Sheet
           - RawMaterial
           - Ingot
-          - ADTSheet #ADT-Tweak
     - type: OreSiloClient
 
 - type: entity
@@ -546,8 +542,12 @@
     dynamicPacks:
     - Chemistry
     #ADT-Tweak Start
+    - ADTAdvancedMedical
     - ADTAdvancedMedicalMiscPack
     - ADTAdvancedMedicalCarePack
+    - ADTCryoTech
+    - ADTThermoTech
+    - ADTChemDisp
     #ADT-Tweak End
   - type: Machine
     board: MedicalTechFabCircuitboard

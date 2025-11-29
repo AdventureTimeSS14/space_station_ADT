@@ -133,6 +133,15 @@
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_tail.rsi
       state: tail_m_wagging
 
+- type: marking
+  id: ADTVulpTailFluffyAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: []
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_tail.rsi
+      state: fluffy_wagging
+
 #- type: marking
 #  id: ADTVulpkanintail3
 #  bodyPart: Tail

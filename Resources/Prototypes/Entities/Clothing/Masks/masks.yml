@@ -664,9 +664,9 @@
   description: Many people think this is what a real mime mask looks like.
   components:
   - type: Sprite
-    sprite: Clothing/Mask/sadmime.rsi
+    sprite: ADT/Clothing/Mask/sadmime.rsi #ADT-tweak
   - type: Clothing
-    sprite: Clothing/Mask/sadmime.rsi
+    sprite: ADT/Clothing/Mask/sadmime.rsi #ADT-tweak
 
 - type: entity
   parent: ClothingMaskMime
@@ -675,9 +675,9 @@
   description: Looks like it would scream if it wasn't a mask.
   components:
   - type: Sprite
-    sprite: Clothing/Mask/scaredmime.rsi
+    sprite: ADT/Clothing/Mask/scaredmime.rsi #ADT-tweak
   - type: Clothing
-    sprite: Clothing/Mask/scaredmime.rsi
+    sprite: ADT/Clothing/Mask/scaredmime.rsi #ADT-tweak
 
 - type: entity
   parent: [ClothingMaskMime, BaseSecurityContraband]
@@ -730,7 +730,7 @@
   - type: IdentityBlocker
 
 - type: entity
-  parent: ClothingMaskGas
+  parent: ClothingMaskBase # ADT-Tweak ClothingMaskGas -> ClothingMaskBase
   id: ClothingMaskWeldingGas
   name: welding gas mask
   description: A gas mask with built in welding goggles and face shield. Looks like a skull, clearly designed by a nerd.
@@ -740,6 +740,11 @@
     state: icon
   - type: Clothing
     sprite: Clothing/Mask/welding-gas.rsi
+  # ADT-Tweak-Start
+  - type: BreathMask
+  - type: IngestionBlocker
+  - type: IdentityBlocker
+  # ADT-Tweak-End
   - type: FlashImmunity
   - type: EyeProtection
   - type: PhysicalComposition

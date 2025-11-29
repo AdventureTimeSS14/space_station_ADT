@@ -1,7 +1,5 @@
 - type: entity
   id: ActionToggleMantisDaggers
-  name: action-mantis-daggers
-  description: action-mantis-daggers-desc
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -9,14 +7,11 @@
       sprite: ADT/Interface/Actions/mantis_daggers.rsi
       state: icon
     itemIconStyle: BigAction
-    useDelay: 1
   - type: InstantAction
     event: !type:ToggleMantisDaggersEvent
 
 - type: entity
   id: ActionToggleSundownerShields
-  name: action-sundowner-shields
-  description: action-sundowner-shields-desc
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -34,8 +29,6 @@
 
 - type: entity
   id: ActionToggleMuscles
-  name: action-muscles
-  description: action-muscles-desc
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -49,8 +42,6 @@
 
 - type: entity
   id: ActionMusclesJump
-  name: action-jump
-  description: action-jump-desc
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -68,8 +59,6 @@
 
 - type: entity
   id: ActionToggleCompStealth
-  name: action-stealth
-  description: action-stealth-desc
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -80,3 +69,17 @@
     useDelay: 1
   - type: InstantAction
     event: !type:ToggleCompStealthEvent
+
+- type: entity
+  id: ActionToggleSandevistan
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    checkCanInteract: false
+    icon:
+      sprite: ADT/Interface/Actions/sandevistan.rsi
+      state: icon
+    itemIconStyle: BigAction
+    useDelay: 2
+  - type: InstantAction
+    event: !type:ToggleSandevistanEvent

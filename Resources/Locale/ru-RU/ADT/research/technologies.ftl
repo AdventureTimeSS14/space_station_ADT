@@ -5,5 +5,10 @@ research-technology-compact-technologies = Технологии сжатия м�
 
 research-technology-crystal-manipulation = Манипуляция кристаллами
 
-research-technology-advanced-energy = Продвинутая энергия 
+research-technology-advanced-energy = Продвинутая энергия
 
+research-technology-engineering-robotics = Инженерная робототехника
+
+research-technology-basemegacells = Мегабатареи
+
+research-technology-advancedmegacells = Сверхэффективные мегабатареи

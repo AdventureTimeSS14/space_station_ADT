@@ -64,12 +64,13 @@
     canCreateVacuum: false
   - type: OnUseTimerTrigger
     beepSound:
-      path: "/Audio/Effects/beep1.ogg"
+# ADT-Tweak start
+      path: "/Audio/Effects/box_deploy.ogg" #  path: "/Audio/Effects/beep1.ogg"; -> "/Audio/Effects/box_deploy.ogg"
       params:
         volume: 5
-    initialBeepDelay: 0
-    beepInterval: 2 # 2 beeps total (at 0 and 2)
-
+  #    initialBeepDelay: 0
+  #    beepInterval: 2 # 2 beeps total (at 0 and 2)
+  # ADT-Tweak-end
 - type: entity
   name: flashbang
   description: Eeeeeeeeeeeeeeeeeeeeee.

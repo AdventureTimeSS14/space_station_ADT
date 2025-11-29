@@ -467,9 +467,6 @@
   minLimit: 0
   loadouts:
   - JanitorHead
-  #SD Tweak start
-  - SDJanitorTacticalJanimaidHead
-  #SD Tweak end
 
 - type: loadoutGroup
   id: JanitorJumpsuit
@@ -482,9 +479,6 @@
   - ADTJanitorJumpsuitJanimaidmini
   - ADTJanitorJumpsuitJanimaidElegant
   # ADT-Loadouts-End
-  #SD Tweak start
-  - SDJanitorTacticalJanimaidSkirt
-  #SD Tweak end
   # ADT tweak start
   - ADTClothingUniformJumpsuitTurtleneckPurple
   - ADTClothingUniformJumpskirtTurtleneckPurple
@@ -500,9 +494,6 @@
   - ADTOrangeGloves
   - ADTPurpleGloves
   # ADT tweak end
-  #SD Tweak start
-  - SDJanitorTacticalJanimaidGloves
-  #SD Tweak end
 
 - type: loadoutGroup
   id: JanitorOuterClothing
@@ -510,20 +501,6 @@
   minLimit: 0
   loadouts:
   - JanitorWintercoat
-
-- type: loadoutGroup
-  id: JanitorShoes
-  name: loadout-group-janitor-shoes
-  loadouts:
-  - JanitorGaloshes
-  - SDJanitorTacticalJanimaidShoes
-
-- type: loadoutGroup
-  id: JanitorBelt
-  name: loadout-group-janitor-belt
-  loadouts:
-  - JanitorBeltie
-  - SDJanitorTacticalJanimaidBelt
 
 - type: loadoutGroup
   id: JanitorPlunger
@@ -1259,7 +1236,6 @@
   loadouts:
   - WardenCoat
   - WardenArmoredWinterCoat
-  - SDWardenArmoredWinterCoatOld # SD-Edit
 
 - type: loadoutGroup
   id: SecurityHead

@@ -89,6 +89,7 @@
   - BartenderHead
   - BartenderJumpsuit
   - CommonBackpack
+  - ADTBartenderGloves #ADT-tweak
   - BartenderOuterClothing
   - Glasses
   - ADTBartenderPDA # ADT tweak
@@ -106,9 +107,11 @@
   groups:
   - Inventory # Corvax-Loadouts
   - GroupTankHarness
-  - BartenderJumpsuit
+  - ADTServiceWorkerJumpsuit #ADT-tweak
   - CommonBackpack
+  - ADTServiceWorkerGloves #ADT-tweak
   - Glasses
+  - ADTServiceWorkerPDA # ADT tweak
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom
@@ -124,13 +127,16 @@
   - Inventory # Corvax-Loadouts
   - GroupTankHarness
   - ChefHead
+  - ADTChefNeck # ADT-Tweak
   - ChefMask
   - ChefJumpsuit
   - CommonBackpack
+  - ADTChefGloves # ADT-Tweak
   - ChefOuterClothing
   - Glasses
-  - ADTChefPocket1 #ADT tweak
-  - ADTChefPDA # ADT tweak
+  # ADT-Tweak-Start
+  - ADTChefPDA
+  # ADT-Tweak-End
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom
@@ -257,11 +263,15 @@
   - Inventory # Corvax-Loadouts
   - GroupTankHarness
   - ClownHead
+  - ADTClownMask #ADT-tweak
   - ClownJumpsuit
   - ClownBackpack
   - ClownOuterClothing
+  - ADTClownGloves #ADT-tweak
   - ClownShoes
   - Glasses
+  - ADTClownPocket1 #ADT-tweak
+  - ADTClownPocket2 #ADT-tweak
   - ADTClownPDA # ADT tweak
   # ADT underwear tweak start
   - ADTTop
@@ -299,8 +309,10 @@
   - GroupTankHarness
   - MusicianJumpsuit
   - CommonBackpack
+  - ADTMusicianGloves # ADT-tweak
   - MusicianOuterClothing
   - Glasses
+  - ADTMusicianPDA # ADT-tweak
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom
@@ -774,6 +786,7 @@
   - ReporterJumpsuit
   - CommonBackpack
   - Glasses
+  - ADTReporterPDA #ADT-tweak
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom
@@ -805,11 +818,13 @@
   id: JobBoxer
   groups:
   - Inventory # Corvax-Loadouts
+  - ADTBoxerHead #ADT-tweak
   - GroupTankHarness
   - BoxerJumpsuit
   - BoxerGloves
   - CommonBackpack
   - Glasses
+  - ADTBoxerPDA #ADT-tweak
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom

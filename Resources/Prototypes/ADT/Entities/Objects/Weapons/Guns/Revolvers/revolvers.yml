@@ -33,6 +33,21 @@
     sprite: ADT/Objects/Weapons/Guns/Revolvers/unica.rsi
   - type: Clothing
     sprite: ADT/Objects/Weapons/Guns/Revolvers/unica.rsi
+  - type: RunAndGunSpreadModifier
+    modifyer: 0.1
+  - type: RevolverAmmoProvider
+    whitelist:
+      tags:
+        - CartridgeMagnum
+        - SpeedLoaderMagnum
+    proto: CartridgeMagnum
+    capacity: 6
+    chambers: [ True, True, True, True, True, True ]
+    ammoSlots: [ null, null, null, null, null, null ]
+    soundEject:
+      path: /Audio/Weapons/Guns/MagOut/revolver_magout.ogg
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/revolver_magin.ogg
   - type: Gun
     selectedMode: SemiAuto
     fireRate: 2.5
@@ -47,3 +62,27 @@
     price: 3500
   - type: StealTarget
     stealGroup: ADTHosWeapon
+
+- type: entity
+  name: russian revolver
+  parent: BaseWeaponRevolver
+  id: ADTWeaponRevolverRussian
+  description: A rooty tooty point and shooty.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Revolvers/russian.rsi
+  - type: RevolverAmmoProvider
+    whitelist:
+      tags:
+        - CartridgeCap
+        - SpeedLoaderCap
+    proto: CartridgeCap
+    capacity: 6
+    chambers: [ True, True, True, True, True, True ]
+    ammoSlots: [ null, null, null, null, null, null ]
+    soundEject:
+      path: /Audio/Weapons/Guns/MagOut/revolver_magout.ogg
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/revolver_magin.ogg
+  - type: StaticPrice
+    price: 500

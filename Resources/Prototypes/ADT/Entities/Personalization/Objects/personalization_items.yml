@@ -187,6 +187,17 @@
     - Back
     - suitStorage
   - type: ChamberMagazineAmmoProvider
+  - type: RunAndGunSpreadModifier
+    modifyer: 0.4
+  - type: MeleeWeapon
+    resetOnHandSelected: false
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 9
+    soundHit:
+      collection: GenericHit
+  - type: AltFireMelee
   - type: ItemSlots
     slots:
       gun_magazine:
@@ -2007,20 +2018,20 @@
     state: plushie_anagiri
   - type: EmitSoundOnUse
     sound:
-      path: /Audio/Voice/Moth/moth_scream.ogg
+      path: /Audio/ADT/Items/TheManWhoSoldTheWorld/alert.ogg
   - type: EmitSoundOnLand
     sound:
-      path: /Audio/Voice/Moth/moth_scream.ogg
+      path: /Audio/ADT/Items/TheManWhoSoldTheWorld/alert.ogg
   - type: EmitSoundOnActivate
     sound:
-      path: /Audio/Voice/Moth/moth_scream.ogg
+      path: /Audio/ADT/Items/TheManWhoSoldTheWorld/alert.ogg
   - type: EmitSoundOnTrigger
     sound:
-      path: /Audio/Voice/Moth/moth_scream.ogg
+      path: /Audio/ADT/Items/TheManWhoSoldTheWorld/alert.ogg
   - type: MeleeWeapon
     wideAnimationRotation: 180
     soundHit:
-      path: /Audio/Voice/Moth/moth_scream.ogg
+      path: /Audio/ADT/Items/TheManWhoSoldTheWorld/alert.ogg
   - type: Food
     requiresSpecialDigestion: true
     useSound:
@@ -2034,6 +2045,8 @@
         reagents:
         - ReagentId: Fiber
           Quantity: 10
+  - type: Whistle
+    distance: 5
 
 #kringe
 - type: entity
@@ -2072,8 +2085,17 @@
   suffix: Personal, Couatl
   components:
   - type: Sprite
-    sprite: ADT/Personalization/toys.rsi
-    state: plushie_azil
+    sprite: ADT/Personalization/plushie_azil.rsi
+    state: icon
+  - type: Clothing
+    quickEquip: false
+    sprite: ADT/Personalization/plushie_azil.rsi
+    slots:
+    - HEAD
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+        offset: "0, 0.04"
   - type: EmitSoundOnUse
     sound:
       path: /Audio/Voice/Reptilian/reptilian_scream.ogg
@@ -2109,14 +2131,15 @@
   - type: Gun
     fireRate: 2
   - type: RevolverAmmoProvider
-    capacity: 6
-    chambers: [ True, True, True, True, True, True ]
-    ammoSlots: [ null, null, null, null, null, null ]
+    capacity: 5
+    chambers: [ True, True, True, True, True ]
+    ammoSlots: [ null, null, null, null, null ]
   - type: Appearance
   - type: StaticPrice
     price: 1500
   - type: Clothing
     sprite: ADT/Personalization/couatl_argument.rsi
+  - type: AmmoCounter #ADT-tweak: единственный револьвер со счётчиком патронов
 
 #kugooergooer
 - type: entity
@@ -2432,7 +2455,7 @@
     slots:
     - suitStorage
 
-#Farrellka и Melima
+#Farrellka и Melima (ныне Nelderiss)
 - type: entity
   parent: BasePlushie
   id: ADTPlushieDianaSaeros
@@ -2483,4 +2506,145 @@
     equipSound:
       path: /Audio/Items/belt_equip.ogg
     quickEquip: false
+
+#Domino_Frensis
+- type: entity
+  name: luxury pen
+  parent: LuxuryPen
+  id: ADTLuxuryPenDominoFrensis
+  description: A fancy and expensive pen that you only deserve to own if you're qualified to handle vast amounts of paperwork.
+  suffix: Personal, Domino_Frensis
+  components:
+  - type: Sprite
+    state: luxury_pen
+  - type: Item
+    heldPrefix: luxury_pen
+
+#Morulu
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieMorulu
+  name: Plushie Morulu
+  description: Plushie Morulu
+  suffix: Personal, k236v2
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_morulu
+
+#Levontiy
+- type: entity
+  parent: Bible
+  name: ADTBibleContemplator-name
+  description: ADTBibleContemplator-desc
+  id: ADTBibleContemplator
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/contemplator_tome.rsi
+    layers:
+    - state: "watcher_tome"
+      shader: "unshaded"
+  - type: Icon
+    sprite: ADT/Objects/Misc/contemplator_tome.rsi
+    state: icon
+  - type: Paper
+    contentSize: 12000
+  - type: PointLight
+    enabled: false
+    radius: 1.5
+    softness: 5
+    autoRot: true
+    color: "#9932CC"
+  - type: UnpoweredFlashlight
+    toggleFlashlightSound: /Audio/Effects/eye_close.ogg
+  - type: Item
+    size: Small
+    sprite: ADT/Objects/Misc/contemplator_tome.rsi  
+  - type: Wieldable
+    useDelayOnWield: false
+  - type: Clothing
+    sprite: ADT/Objects/Misc/contemplator_tome.rsi
+    quickEquip: false
+    slots: [belt]
+  - type: Summonable
+    specialItem: SpawnADTMobWatcherBible
+  - type: PaperVisuals
+    backgroundImagePath: "/Textures/Interface/Paper/paper_background_book.svg.96dpi.png"
+    backgroundPatchMargin: 23.0, 16.0, 14.0, 15.0
+    contentMargin: 20.0, 20.0, 20.0, 20.0
+  - type: ActivatableUI
+    key: enum.PaperUiKey.Key
+    requiresComplex: false
+  - type: UserInterface
+    interfaces:
+      enum.PaperUiKey.Key:
+        type: PaperBoundUserInterface
+  
+  
+- type: entity
+  parent: MobWatcherPride
+  id: ADTMobWatcherBible
+  name: MobWatcherBible-name
+  description: MobWatcherBible-desc
+  components:
+  - type: GhostRole
+    allowMovement: true
+    allowSpeech: true
+    makeSentient: true
+    name: ghost-role-information-WatcherBible-name
+    description: ghost-role-information-WatcherBible-description
+    rules: ghost-role-information-WatcherBible-rules
+    raffle:
+      settings: short
+  - type: GhostTakeoverAvailable
+  - type: TTS
+    voice: shadow_fiend_dota_2
+
+- type: entity
+  parent: SpawnMobWatcherPride
+  id: SpawnADTMobWatcherBible
+  components:
+  - type: ConditionalSpawner
+    prototypes:
+    - ADTMobWatcherBible
+
+#Glude
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieGlide
+  name: Plushie Glide
+  description: Plushie Glide
+  suffix: Personal, Glide
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/plushie_glide.rsi
+    state: icon
+  - type: Clothing
+    quickEquip: false
+    sprite: ADT/Personalization/plushie_glide.rsi
+    slots:
+    - HEAD
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+        offset: "0, 0.04"
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Voice/Slime/slime_squish.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Voice/Slime/slime_squish.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Voice/Slime/slime_squish.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Voice/Slime/slime_squish.ogg
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      path: /Audio/Voice/Slime/slime_squish.ogg
+  - type: FoodSequenceElement
+    entries:
+      CottonBurger: SlimePlushie
 #SPONSOR-ITEMS-END

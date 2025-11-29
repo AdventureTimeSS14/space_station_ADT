@@ -261,8 +261,6 @@ namespace Content.Client.Lobby.UI
             if (configurationManager.GetCVar(ADTCCVars.BarksEnabled))
             {
                 BarksContainer.Visible = true;
-                BarksPitchContainer.Visible = true;
-                BarksDelayContainer.Visible = true;
                 InitializeBarks();
             }
 
@@ -332,7 +330,9 @@ namespace Content.Client.Lobby.UI
             };
 
             RgbSkinColorContainer.AddChild(_rgbSkinColorSelector = new ColorSelectorSliders());
-            _rgbSkinColorSelector.SelectorType = ColorSelectorSliders.ColorSelectorType.Hsv; // defaults color selector to HSV
+            // ADT-Tweak-Start
+            // _rgbSkinColorSelector.SelectorType = ColorSelectorSliders.ColorSelectorType.Hsv; // defaults color selector to HSV
+            // ADT-Tweak-End
             _rgbSkinColorSelector.OnColorChanged += _ =>
             {
                 OnSkinColorOnValueChanged();

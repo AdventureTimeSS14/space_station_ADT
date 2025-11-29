@@ -22,6 +22,13 @@ using Content.Shared.Interaction.Components;
 using Robust.Shared.Timing;
 using Robust.Shared.Prototypes;
 using Content.Shared.Damage.Prototypes;
+using Content.Server.Emp;
+using Content.Shared.Stunnable;
+using Content.Shared.Jittering;
+using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
+using Content.Shared.Weapons.Reflect;
+using Content.Shared.ADT.CantShoot;
 
 namespace Content.Server.ADT.Implants;
 
@@ -35,11 +42,14 @@ public sealed class VisibleImplantSystem : SharedVisibleImplantSystem
     [Dependency] private readonly ExplosionSystem _explosion = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly SharedActionsSystem _action = default!;
+    [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly StealthSystem _stealth = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly SharedJitteringSystem _jittering = default!;
+    [Dependency] private readonly DamageableSystem _damageable = default!;
 
     public override void Initialize()
     {
@@ -47,6 +57,7 @@ public sealed class VisibleImplantSystem : SharedVisibleImplantSystem
         SubscribeLocalEvent<MantisDaggersComponent, MapInitEvent>(InitDaggers);
         SubscribeLocalEvent<MantisDaggersComponent, ComponentShutdown>(ShutdownDaggers);
         SubscribeLocalEvent<MantisDaggersComponent, ToggleMantisDaggersEvent>(OnToggleDaggers);
+        SubscribeLocalEvent<MantisDaggersComponent, EmpPulseEvent>(OnEmpPulse);
 
         SubscribeLocalEvent<MistralFistsComponent, MapInitEvent>(InitFists);
         SubscribeLocalEvent<MistralFistsComponent, ComponentShutdown>(ShutdownFists);
@@ -71,6 +82,7 @@ public sealed class VisibleImplantSystem : SharedVisibleImplantSystem
     #region Daggers
     private void InitDaggers(EntityUid uid, MantisDaggersComponent comp, MapInitEvent args)
     {
+        comp.EmpLastPulse = _timing.CurTime - comp.EmpCooldown;
         _action.AddAction(uid, ref comp.ActionEntity, "ActionToggleMantisDaggers");
         comp.Container = _container.EnsureContainer<Container>(uid, "MantisDaggersContainer");
         comp.InnateWeapon = Spawn("ADTMantisDaggers", Transform(uid).Coordinates);
@@ -87,6 +99,12 @@ public sealed class VisibleImplantSystem : SharedVisibleImplantSystem
 
     private void OnToggleDaggers(EntityUid uid, MantisDaggersComponent comp, ToggleMantisDaggersEvent args)
     {
+        if (_timing.CurTime < comp.EmpLastPulse + comp.EmpCooldown)
+        {
+            args.Handled = true;
+            return;
+        }
+
         if (args.Handled)
             return;
 
@@ -95,17 +113,55 @@ public sealed class VisibleImplantSystem : SharedVisibleImplantSystem
 
         if (!comp.Active)
         {
+            var cantshoot = EnsureComp<CantShootComponent>(uid);
+            cantshoot.Popup = "mantis-daggers-cantshoot";
             _appearance.SetData(uid, MantisDaggersVisuals.Active, true);
             _appearance.SetData(uid, MantisDaggersVisuals.Inactive, false);
+            var reflect = EnsureComp<ReflectComponent>(uid);
+            reflect.ReflectProb = 0.3f;
+            _action.SetCooldown(comp.ActionEntity, TimeSpan.FromSeconds(2));
         }
         else
         {
             _appearance.SetData(uid, MantisDaggersVisuals.Active, false);
             _appearance.SetData(uid, MantisDaggersVisuals.Inactive, true);
+            _action.SetCooldown(comp.ActionEntity, TimeSpan.FromSeconds(1));
+            if (TryComp<ReflectComponent>(uid, out var reflect))
+            {
+                RemComp<ReflectComponent>(uid);
+            }
+            if (TryComp<CantShootComponent>(uid, out var cantshoot))
+            {
+                RemComp<CantShootComponent>(uid);
+            }
         }
         comp.Active = !comp.Active;
         _audio.PlayEntity(comp.Sound, Filter.Pvs(uid), uid, true);
         Dirty(uid, comp);
+    }
+
+    private void OnEmpPulse(Entity<MantisDaggersComponent> ent, ref EmpPulseEvent args)
+    {
+        ent.Comp.EmpLastPulse = _timing.CurTime;
+        var uid = ent.Owner;
+
+        _damageable.TryChangeDamage(uid, ent.Comp.EmpDamage, ignoreResistances: true);
+
+        if (ent.Comp.Active)
+        {
+            if (TryComp<ReflectComponent>(uid, out var reflect))
+            {
+                RemComp<ReflectComponent>(uid);
+            }
+            _appearance.SetData(uid, MantisDaggersVisuals.Active, false);
+            _appearance.SetData(uid, MantisDaggersVisuals.Inactive, true);
+            _stun.TryAddParalyzeDuration(uid, TimeSpan.FromSeconds(3f));
+            _jittering.DoJitter(uid, TimeSpan.FromSeconds(30f), true);
+            Spawn("EffectSparks", Transform(uid).Coordinates);
+            ent.Comp.Active = false;
+            _audio.PlayEntity(ent.Comp.Sound, Filter.Pvs(uid), uid, true);
+            Dirty(uid, ent.Comp);
+        }
     }
     #endregion
 

@@ -334,9 +334,9 @@
   - type: Item
     size: Normal
   - type: Storage
-    maxItemSize: Huge
+    maxItemSize: Normal
     grid:
-    - 0,0,8,4
+    - 0,0,5,3
     whitelist:
       tags:
         - ADTCardPlay
@@ -357,5 +357,5 @@
       amount: 4
     - id: ADTFunDealerChip
       amount: 1
-    # - id: ADTFunCardsBoxFull54
-    #   amount: 1
+    - id: ADTCardBoxBlack
+      amount: 1

@@ -67,6 +67,11 @@ marking-HeadRacoon = Окрас енота
 marking-HeadRacoon-raccoon-head = Окрас
 marking-HeadMane = Грива
 marking-HeadMane-mane_head = Грива
+marking-HeadEyesWide = Широкие глаза
+marking-HeadEyesWide-c_eyes_wide = Центральный
+marking-HeadEyesWide-s_eyes_wide = Боковой
+marking-ADTTajaranEyeGlow = Светящиеся глаза
+marking-ADTTajaranEyeGlow-eyesglow = Светящиеся глаза
 
 marking-Head4 = Морда (ушки)
 marking-Head4-muzzleinears = Морда и ушки

@@ -65,10 +65,10 @@ public sealed partial class PullerComponent : Component
     [DataField]
     public Dictionary<GrabStage, GrabStageStats> GrabStats = new()
     {
-        {GrabStage.None, new() { RequiredHands = 1, DoaftersToEscape = 0, MovementSpeedModifier = 0.95f, EscapeAttemptTime = 0f, SetStageTime = 0f }},
-        {GrabStage.Soft, new() { RequiredHands = 1, DoaftersToEscape = 1, MovementSpeedModifier = 0.9f, EscapeAttemptTime = 1f, SetStageTime = 0f }},
-        {GrabStage.Hard, new() { RequiredHands = 1, DoaftersToEscape = 2, MovementSpeedModifier = 0.8f, EscapeAttemptTime = 1.25f, SetStageTime = 0.75f }},
-        {GrabStage.Choke, new() { RequiredHands = 2, DoaftersToEscape = 2, MovementSpeedModifier = 0.65f, EscapeAttemptTime = 1.5f, SetStageTime = 1.25f }}
+        {GrabStage.None, new() { RequiredHands = 1, DoaftersToEscape = 0, MovementSpeedModifier = 0.9f, EscapeAttemptTime = 0f, SetStageTime = 0f }},
+        {GrabStage.Soft, new() { RequiredHands = 1, DoaftersToEscape = 0, MovementSpeedModifier = 0.9f, EscapeAttemptTime = 0f, SetStageTime = 0f }},
+        {GrabStage.Hard, new() { RequiredHands = 1, DoaftersToEscape = 0, MovementSpeedModifier = 0.8f, EscapeAttemptTime = 0f, SetStageTime = 0f }},
+        {GrabStage.Choke, new() { RequiredHands = 2, DoaftersToEscape = 2, MovementSpeedModifier = 0.75f, EscapeAttemptTime = 1f, SetStageTime = 1f }}
     };
 
     /// <summary>

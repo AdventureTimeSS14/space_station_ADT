@@ -2,8 +2,8 @@
   id: ADT_Marathon
   mapName: 'Marathon Station'
   mapPath: /Maps/ADTMaps/ADTStations/adt_marathon.yml
-  minPlayers: 25
-  maxPlayers: 90
+  minPlayers: 35
+  maxPlayers: 60
   stations:
     ADT_Marathon:
       stationProto: StandardNanotrasenStation
@@ -60,7 +60,7 @@
             SecurityCadet: [ 4, 4 ]
             Brigmedic: [ 1, 1 ] #ADT-Roles
             ADTSeniorOfficer: [ 1, 1 ] # ADT-Roles
-            ADTGuardOfficer: [ 1, 1 ] # ADT-Roles
+            ADTCorrectionsOfficer: [ 1, 1 ] # ADT-Roles
             #Lawyer: [ 2, 2 ] # Corvax-IAA
             #supply
             Quartermaster: [ 1, 1 ]

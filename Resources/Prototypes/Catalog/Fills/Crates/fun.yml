@@ -421,6 +421,7 @@
       - id: RubberChicken
       - id: RubberPig # SD tweak, Corvax tweak
       #ADT tweak start
+      - id: ADTWeaponRevolverRussian
       - id: ADTToyBlasterGunGreen
         orGroup: Blaster
         prob: 0.33

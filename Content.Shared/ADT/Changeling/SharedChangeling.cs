@@ -52,10 +52,10 @@ public sealed partial class LingRegenerateActionEvent : BaseInstantChangelingAct
     {
         DamageDict = new()
         {
-            {"Blunt", -50},
-            {"Piercing", -50},
-            {"Slash", -50},
-            {"Heat", -30},
+            {"Blunt", -70},
+            {"Piercing", -70},
+            {"Slash", -70},
+            {"Heat", -50},
             {"Cold", -30},
             {"Burn", -30}
         },
@@ -176,7 +176,7 @@ public sealed partial class LastResortActionEvent : BaseInstantChangelingActionE
 public sealed partial class LingBiodegradeActionEvent : BaseInstantChangelingActionEvent
 {
     [DataField]
-    public float Duration = 10f;
+    public float Duration = 5f; // 10f -> 5f
 }
 
 public sealed partial class LingResonantShriekEvent : BaseInstantChangelingActionEvent

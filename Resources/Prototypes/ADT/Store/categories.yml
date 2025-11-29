@@ -5,14 +5,19 @@
   priority: 1
 
 - type: storeCategory
-  id: ADTUplinkERTMisc
-  name: Прочее
+  id: ADTUplinkERTAmmo
+  name: Боеприпасы
   priority: 2
 
 - type: storeCategory
   id: ADTUplinkERTAttachments
   name: Оруж. обвесы
   priority: 3
+
+- type: storeCategory
+  id: ADTUplinkERTMisc
+  name: Прочее
+  priority: 4
 
 - type: storeCategory
   id: ChangelingAbilities

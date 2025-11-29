@@ -20,11 +20,9 @@
 
 # ADT Maps Базовые Актуальные
   - ADT_Bagel
-  - ADT_Barratry
   - ADT_Box
   - ADT_Cluster
   - ADT_Origin
-  - ADT_Gemini
   - ADT_Fland
   - ADT_Marathon
   - ADT_Meta
@@ -37,9 +35,8 @@
   - ADT_Silly
 
 
-
-  - SD_Sievert
-  - SD_Flicker
+- SD_Sievert
+- SD_Flicker
 # ADT Maps Выведенные на переработку
   # - ADT_Avrit требуется декорваксизация
   # - ADT_Alley до ремонта

@@ -170,16 +170,16 @@
 
 - type: entity
   parent: IDCardStandard
-  id: ADTGuardOfficerIDCard
-  name: guard officer ID card
+  id: ADTCorrectionsOfficerIDCard
+  name: corrections officer ID card
   components:
   - type: Sprite
     sprite: ADT/Objects/Misc/id_cards.rsi
     layers:
     - state: default
-    - state: id-guardofficer
+    - state: id-correctionsofficer
   - type: PresetIdCard
-    job: ADTGuardOfficer
+    job: ADTCorrectionsOfficer
 
 - type: entity
   parent: PassengerIDCard
@@ -268,6 +268,22 @@
   - type: IdCard
     jobTitle: job-name-mixologist
 
+- type: entity
+  parent: BartenderIDCard
+  id: ADTTavernkeepIDCard
+  name: tavernkeep ID card
+  components:
+  - type: IdCard
+    jobTitle: job-name-tavernkeep
+
+- type: entity
+  parent: BartenderIDCard
+  id: ADTBaristaIDCard
+  name: barista ID card
+  components:
+  - type: IdCard
+    jobTitle: job-name-barista
+
 # Chef
 
 - type: entity
@@ -293,6 +309,24 @@
   components:
   - type: IdCard
     jobTitle: job-name-pizzaiolo
+
+- type: entity
+  parent: ChefIDCard
+  id: ADTConfectionerIDCard
+  name: confectioner ID card
+  components:
+  - type: IdCard
+    jobTitle: job-name-confectioner
+
+# Service Worker
+
+- type: entity
+  parent: ServiceWorkerIDCard
+  id: ADTWaiterIDCard
+  name: waiter ID card
+  components:
+  - type: IdCard
+    jobTitle: job-name-waiter
 
 # Medical Intern
 
@@ -453,6 +487,124 @@
   components:
   - type: IdCard
     jobTitle: job-name-fool
+
+# Musician
+
+- type: entity
+  parent: MusicianIDCard
+  id: ADTPerformerIDCard
+  name: performer ID card
+  components:
+  - type: IdCard
+    jobTitle: job-name-performer
+
+- type: entity
+  parent: MusicianIDCard
+  id: ADTConcertmasterIDCard
+  name: concertmaster ID card
+  components:
+  - type: IdCard
+    jobTitle: job-name-concertmaster
+
+- type: entity
+  parent: MusicianIDCard
+  id: ADTComposerIDCard
+  name: composer ID card
+  components:
+  - type: IdCard
+    jobTitle: job-name-composer
+
+- type: entity
+  parent: MusicianIDCard
+  id: ADTBardIDCard
+  name: bard ID card
+  components:
+  - type: IdCard
+    jobTitle: job-name-bard
+
+- type: entity
+  parent: MusicianIDCard
+  id: ADTDJIDCard
+  name: DJ ID card
+  components:
+  - type: IdCard
+    jobTitle: job-name-dj
+
+# Reporter
+
+- type: entity
+  parent: ReporterIDCard
+  id: ADTJournalistIDCard
+  name: journalist ID card
+  components:
+  - type: IdCard
+    jobTitle: job-name-journalist
+
+# Boxer
+
+- type: entity
+  parent: BoxerIDCard
+  id: ADTKaratekaIDCard
+  name: karateka ID card
+  components:
+  - type: IdCard
+    jobTitle: job-name-karateka
+
+- type: entity
+  parent: BoxerIDCard
+  id: ADTKickboxerIDCard
+  name: kickboxer ID card
+  components:
+  - type: IdCard
+    jobTitle: job-name-kickboxer
+
+- type: entity
+  parent: BoxerIDCard
+  id: ADTSavatistIDCard
+  name: savatist ID card
+  components:
+  - type: IdCard
+    jobTitle: job-name-savatist
+
+- type: entity
+  parent: BoxerIDCard
+  id: ADTHandToHandCombatMasterIDCard
+  name: hand-to-hand combat master ID card
+  components:
+  - type: IdCard
+    jobTitle: job-name-hand-to-hand-combat-master
+
+- type: entity
+  parent: BoxerIDCard
+  id: ADTMMAFighterIDCard
+  name: MMA fighter ID card
+  components:
+  - type: IdCard
+    jobTitle: job-name-mma-fighter
+
+- type: entity
+  parent: BoxerIDCard
+  id: ADTJudoistIDCard
+  name: judoist ID card
+  components:
+  - type: IdCard
+    jobTitle: job-name-judoist
+
+- type: entity
+  parent: BoxerIDCard
+  id: ADTCoachIDCard
+  name: coach ID card
+  components:
+  - type: IdCard
+    jobTitle: job-name-coach
+
+- type: entity
+  parent: BoxerIDCard
+  id: ADTGladiatorIDCard
+  name: gladiator ID card
+  components:
+  - type: IdCard
+    jobTitle: job-name-gladiator
 
 # Detective
 

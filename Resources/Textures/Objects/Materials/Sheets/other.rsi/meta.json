@@ -139,23 +139,6 @@
     },
     {
       "name": "generic_materials"
-    },
-    {
-      "name": "zinc"
-    },
-    {
-      "name": "zinc_2"
-    },
-    {
-      "name": "zinc_3"
-    },
-    {
-      "name": "zinc-inhand-left",
-      "directions": 4
-    },
-    {
-      "name": "zinc-inhand-right",
-      "directions": 4
     }
   ]
 }

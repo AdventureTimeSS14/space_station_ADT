@@ -3,7 +3,7 @@
   mapName: 'Bagel Station'
   mapPath: /Maps/ADTMaps/ADTStations/adt_bagel.yml
   minPlayers: 20
-  maxPlayers: 50
+  maxPlayers: 35
   stations:
     ADT_Bagel:
       stationProto: StandardNanotrasenStation
@@ -59,8 +59,7 @@
             SecurityCadet: [ 4, 4 ]
             Brigmedic: [ 1, 1 ] #ADT-Roles
             ADTSeniorOfficer: [ 1, 1 ] # ADT-Roles
-            ADTGuardOfficer: [ 1, 1 ] # ADT-Roles
-            Pilot: [1, 1]
+            ADTCorrectionsOfficer: [ 1, 1 ] # ADT-Roles
             #supply
             Quartermaster: [ 1, 1 ]
             SalvageSpecialist: [ 3, 3 ]

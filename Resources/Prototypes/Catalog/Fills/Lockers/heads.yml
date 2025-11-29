@@ -198,6 +198,7 @@
     - id: RubberStampCE
     - id: MetalFoamGrenade
     # Start-ADT Tweak
+    - id: ADTMachinePowerTransmissionLaserFlatpack # Goobstation - Engi printing money pr
     - id: OxygenTankFilled
     - id: NitrogenTankFilled
     - id: ADTHyperNobCore ## ADT-Tweak

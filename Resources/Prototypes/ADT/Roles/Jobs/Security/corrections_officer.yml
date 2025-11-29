@@ -1,0 +1,50 @@
+- type: job
+  id: ADTCorrectionsOfficer
+  name: job-name-corrections-officer
+  description: job-description-corrections-officer
+  playTimeTracker: JobADTGuardOfficer
+  requirements:
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 108000 #30 hrs
+    - !type:SpeciesRequirement
+      inverted: true
+      species:
+      - Resomi
+      - Vox
+      - Shadekin
+  startingGear: CorrectionsOfficerGear
+  icon: "JobIconADTCorrectionsOfficer"
+  supervisors: job-supervisors-hos
+  canBeAntag: false
+  access:
+  - Security
+  - Brig
+  - Maintenance
+  - Service
+  - External
+  - Cryogenics
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant ]
+
+- type: startingGear
+  id: CorrectionsOfficerGear
+  equipment:
+    eyes: ClothingEyesGlassesSecurity
+    ears: ClothingHeadsetSecurity
+    belt: ClothingBeltSecurityLightbatonFilled
+    pocket1: WeaponPistolMk58
+    id: ADTCorrectionsOfficerPDA
+  storage:
+    back:
+    - Flash
+    - MagazinePistol
+
+- type: chameleonOutfit
+  id: ADTCorrectionsOfficerChameleonOutfit
+  job: ADTCorrectionsOfficer
+  hasMindShield: true
+  equipment:
+    eyes: ClothingEyesGlassesSecurity
+    ears: ClothingHeadsetSecurity

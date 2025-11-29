@@ -2,8 +2,8 @@
   id: ADT_Packed
   mapName: 'Packed'
   mapPath: /Maps/ADTMaps/ADTStations/adt_packed.yml
-  minPlayers: 1
-  maxPlayers: 40
+  minPlayers: 20
+  maxPlayers: 35
   stations:
     ADT_Packed:
       stationProto: StandardNanotrasenStation
@@ -57,7 +57,7 @@
             SecurityCadet: [ 2, 2 ]
             Brigmedic: [ 1, 1 ] #ADT-Roles
             ADTSeniorOfficer: [ 1, 1 ] # ADT-Roles
-            ADTGuardOfficer: [ 1, 1 ] # ADT-Roles
+            ADTCorrectionsOfficer: [ 1, 1 ] # ADT-Roles
             #Lawyer: [ 1, 1 ] # Corvax-IAA
             #supply
             Quartermaster: [ 1, 1 ]
