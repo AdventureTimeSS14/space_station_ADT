@@ -141,7 +141,7 @@
     sprite: Clothing/Ears/Headsets/syndicate.rsi
 
 - type: entity
-  parent: ClothingHeadsetAltLoudspeaker
+  parent: ClothingHeadsetAltLoudspeaker # ADT-Tweak: добавлен громкоговоритель
   id: ClothingHeadsetAltFreelancer
   name: freelancer's over-ear headset
   components:
