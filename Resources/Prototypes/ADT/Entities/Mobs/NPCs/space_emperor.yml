@@ -113,16 +113,10 @@
     damageModifierSet: ADTDragonDamageSet
   - type: Stamina
     critThreshold: 350
-# ADT-Tweak-end
-  - type: StatusEffects # Overwriting basesimplemob to remove flash, getting flashed as dragon just feelsbad
+  - type: StatusEffects
     allowed:
     - Stutter
-    # - Electrocution # ADT-Tweak - ъуъ
-    # - ForcedSleep # ADT-Tweak - WHY THE FUCK CAN A DRAGON BE PUT TO SLEEP???
-    # - TemporaryBlindness # ADT-Tweak - WHY THE FUCK CAN A DRAGON BE BLINDED???
-    # - Pacified # ADT-Tweak - это чудище не обосрется от пакса
     - RadiationProtection
-    # - Drowsiness # ADT-Tweak - НЕ СПАТЬ
     - Adrenaline #ADT-Medicine
   - type: Metabolizer
     solutionOnBody: false
@@ -136,12 +130,12 @@
     - id: FoodMeatDragon
       amount: 2
   - type: InteractionPopup
-    successChance: 0.25 # It's no goose, but you better smell like carp.
+    successChance: 0.25
     interactSuccessString: petting-success-dragon
     interactFailureString: petting-failure-dragon
     interactFailureSound:
       path: /Audio/Animals/space_dragon_roar.ogg
-    soundPerceivedByOthers: false # A 75% chance for a loud roar would get old fast.
+    soundPerceivedByOthers: false
   - type: MeleeWeapon
     altDisarm: false
     soundHit:
