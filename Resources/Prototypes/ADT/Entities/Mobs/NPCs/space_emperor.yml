@@ -146,7 +146,7 @@
     altDisarm: false
     soundHit:
       path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
-    radamage:
+    damage:
       groups:
         Brute: 12
   - type: Devourer
