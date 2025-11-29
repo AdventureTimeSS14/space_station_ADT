@@ -5,4 +5,4 @@ ent-ActionToggleLightEmperor = Поднять усики
 
 ghost-role-information-space-emperor-name = Космический император
 ghost-role-information-space-emperor-description = Вид дружелюбных космических левиафанов, питающихся космической пылью. Любят возить на себе кого-то
-ghost-role-information-space-emperor-rules = Вы - неантагонист. Запрещено вести себя агрессивно по отношению к экипажу, не имея на то причин
+ghost-role-information-space-emperor-rules = Вы не антагонист. Запрещено вести себя агрессивно по отношению к экипажу, не имея на то причин
