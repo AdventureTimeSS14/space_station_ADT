@@ -230,7 +230,7 @@ public sealed class BankCardSystem : EntitySystem
 
         account.History.Add(new TransactionsHistory(
             amount,
-            _timing.CurTime,
+            _gameTicker.RoundDuration(), // SD fix
             amount > 0 ? Loc.GetString("bank-deposit") : Loc.GetString("bank-withdrawal"),
             Loc.GetString("bank-system"),
             null

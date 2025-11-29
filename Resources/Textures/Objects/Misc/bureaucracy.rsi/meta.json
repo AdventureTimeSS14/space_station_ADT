@@ -233,6 +233,9 @@
         },
         {
             "name": "paper_stamp-dv"
+        },
+        {
+        "name": "paper_stamp-signature"
         }
     ]
 }

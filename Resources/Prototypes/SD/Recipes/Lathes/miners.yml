@@ -1,0 +1,12 @@
+- type: latheRecipe
+  id: SDPointsMinerFlatpack
+  result: SDPointsMinerFlatpack
+  completetime: 30
+  materials:
+    Steel: 3000
+    ADTBScrystal: 100
+    Plasma: 200
+    Diamond: 200
+    Silver: 300
+    Gold: 300
+    Glass: 300

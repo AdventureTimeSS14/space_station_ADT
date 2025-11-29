@@ -1,0 +1,40 @@
+- type: entity
+  parent: BaseItem
+  id: SD_MagazineBoxSmartPistol
+  name: ammunition box (9x21 smart)
+  components:
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - SD_CartridgeSmart
+    proto: SD_CartridgeSmart
+    capacity: 60
+  - type: Item
+    size: Small
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: SD/Objects/Weapons/Guns/Ammunition/Boxes/smartpistol.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 3
+    zeroVisible: false
+  - type: Appearance
+  # ADT Start
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/ADT/Entities/ammobox_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/ADT/Entities/ammobox_drop.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/ADT/Entities/ammobox_drop.ogg
+  # ADT End

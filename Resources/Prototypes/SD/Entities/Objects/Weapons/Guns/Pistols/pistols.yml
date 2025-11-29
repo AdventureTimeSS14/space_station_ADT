@@ -1,0 +1,61 @@
+- type: entity
+  name: mk6 "gungnir"
+  parent: BaseWeaponPistol
+  id: SD_WeaponPistolMK6
+  description: A prototype born from cooperation of Nanotrasen Small Division and Scarborough Arms Manufacturing. This is a precision crafted pistol, some may even say - a masterpiece. It is a complex killing machine, capable of aiming bullets AFTER they left the barrel. Uses 9x21mm smart pistol cartridges.
+  components:
+  - type: Sprite
+    sprite: SD/Objects/Weapons/Guns/smartgun.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: SD/Objects/Weapons/Guns/smartgun.rsi
+  - type: Gun
+    lockOnTargetBurst: true
+    fireRate: 7
+    projectileSpeed: 30 # for gods sake its gonna KILL ITSELF IF YOU GIVE IT MORE VELOCITY PLEASE DO NOT ADD ANY SPEED FUCKING HELL
+    minAngle: 12
+    maxAngle: 18
+    burstCooldown: 0.5
+    shotsPerBurst: 3
+    burstFireRate: 25
+    availableModes:
+    - SemiAuto
+    - Burst
+    soundGunshot:
+      path: /Audio/SD/Weapons/Guns/Gunshots/Smartpistol_Fire_1.ogg
+    selectedMode: Burst
+  - type: SmartGun
+    requiresWield: true
+  - type: DNAGunLocker
+  - type: Wieldable
+    unwieldOnUse: false
+  - type: LaserPointer
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: SD_MagazineSmartPistol
+        insertSound: /Audio/Weapons/Guns/MagIn/smg_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/smg_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - SD_MagazineSmartPistol
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: SD_CartridgeSmart
+        priority: 1
+        whitelist:
+          tags:
+            - SD_CartridgeSmart
+  - type: RMCMagneticItem
+  - type: Tag
+    tags:
+    - Sidearm
+    - ADTBsoWeapon
+    - SD_MK6Pistol

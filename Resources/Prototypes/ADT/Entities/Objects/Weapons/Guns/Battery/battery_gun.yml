@@ -237,8 +237,8 @@
     - proto: ADTBulletIon
       fireCost: 90
   - type: Battery
-    maxCharge: 900
-    startingCharge: 900
+    maxCharge: 600 #sd-tweak
+    startingCharge: 600 #sd-tweak: a bit of rebalancing
   - type: Tag
     tags:
     - HighRiskItem
@@ -247,7 +247,12 @@
   - type: StaticPrice
     price: 7500
   - type: Item
-    size: Normal
+    size: Small #sd-tweak: why?
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 30
+    autoRechargePause: true
+    autoRechargePauseTime: 15 #sd-tweak: add recharge
 
 - type: entity
   name: Miniature Energy Crossbow

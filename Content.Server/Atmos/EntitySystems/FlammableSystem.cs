@@ -357,7 +357,7 @@ namespace Content.Server.Atmos.EntitySystems
 
                 var extinguished = new IgnitedEvent();
                 RaiseLocalEvent(uid, ref extinguished);
-            
+
                 //ADT bonfire
                 var ev = new OnFireChangedEvent(flammable.OnFire);
                 RaiseLocalEvent(uid, ref ev);
@@ -445,9 +445,18 @@ namespace Content.Server.Atmos.EntitySystems
             _timer -= UpdateTime;
 
             // TODO: This needs cleanup to take off the crust from TemperatureComponent and shit.
+            //SD Tweak (test) begin. remove toProcess and foreach if crushes.
+            var toProcess = new List<(EntityUid uid, FlammableComponent flammable)>();
+            //
             var query = EntityQueryEnumerator<FlammableComponent, TransformComponent>();
             while (query.MoveNext(out var uid, out var flammable, out _))
             {
+                toProcess.Add((uid, flammable));
+            }
+            //SD Tweak (test) remove if crushes
+            foreach (var (uid, flammable) in toProcess)
+            {
+            //SD Tweak (test) end. remove \uparrow if crushes
                 // Slowly dry ourselves off if wet.
                 if (flammable.FireStacks < 0)
                 {

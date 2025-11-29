@@ -18,3 +18,12 @@
   content:
   - SD_BSOHalberd
 
+- type: thiefBackpackSet
+  id: SD_WeaponMK6SmartPistolBlueshield # SD Tweak - add BSO halberd
+  name: blueshield-voucher-smartpistol-name
+  description: blueshield-voucher-smartpistol-description
+  sprite:
+    sprite: SD/Objects/Weapons/Guns/smartgun.rsi
+    state: icon
+  content:
+  - SD_ClothingBeltSmartgunHolsterFilled

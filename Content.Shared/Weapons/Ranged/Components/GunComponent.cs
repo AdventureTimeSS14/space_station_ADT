@@ -265,6 +265,13 @@ public sealed partial class GunComponent : Component
     /// </summary>
     [DataField]
     public Vector2 DefaultDirection = new Vector2(0, -1);
+
+    /// <summary>
+    /// Goobstation
+    /// Whether the system won't change gun target when we stop aiming at it while firing in burst mode.
+    /// </summary>
+    [DataField]
+    public bool LockOnTargetBurst;
 }
 
 [Flags]

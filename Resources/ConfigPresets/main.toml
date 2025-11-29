@@ -36,7 +36,7 @@ enabled = true
 
 
 [game]
-hostname = "Space Dream [MRP][18+][RU]"
+hostname = "Helix [HRP][18+][RU]"
 maxplayers = 20
 soft_max_players = 20
 map_rotation = true
@@ -126,3 +126,7 @@ hub_urls = "https://hub.spacestation14.com/"
 # You should probably never EVER need to touch this, but if you need a custom auth server,
 # (the auth server being the one which manages Space Station 14 accounts), you change it here.
 # server = https://auth.spacestation14.com/
+
+[netres]
+
+limit = 15

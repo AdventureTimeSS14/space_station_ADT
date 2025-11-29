@@ -1,0 +1,39 @@
+- type: entity
+  parent: ClothingEyesHudOmni
+  id: ClothingEyesGlassesCentComm
+  suffix: DO NOT MAP
+  name: central command shades
+  description: A pair of shades designed for central command personnel. It's nothing personal.
+  components:
+  - type: Sprite
+    sprite: SD/Clothing/Eyes/Glasses/centcommglasses.rsi
+  - type: Clothing
+    sprite: SD/Clothing/Eyes/Glasses/centcommglasses.rsi
+  - type: FlashImmunity
+  - type: EyeProtection
+    protectionTime: 5
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+  - type: IdentityBlocker
+    coverage: EYES
+
+- type: entity
+  parent: ClothingEyesHudOmni
+  id: ClothingEyesGlassesDeathSquad
+  suffix: DO NOT MAP
+  name: central commander shades
+  description: A pair of shades designed for special operations.
+  components:
+  - type: Sprite
+    sprite: SD/Clothing/Eyes/Glasses/deathsquad.rsi
+  - type: Clothing
+    sprite: SD/Clothing/Eyes/Glasses/deathsquad.rsi
+  - type: FlashImmunity
+  - type: EyeProtection
+    protectionTime: 5
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+  - type: IdentityBlocker
+    coverage: EYES

@@ -60,6 +60,10 @@ private static readonly string[] GameMaps =
         {
             // SD-Start
             "SD_Flicker",
+            "SD_Joule",
+            "SD_Sievert",
+            "SD_Lumen",
+            "SD_Pascal",
             // SD-End
 
             // Corvax-Start

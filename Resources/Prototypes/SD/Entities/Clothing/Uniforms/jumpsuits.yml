@@ -1,0 +1,57 @@
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitNavyGold
+  name: navy officer's jumpsuit
+  description: A suit worn by high-ranking Central Command members. The rest is classified.
+  components:
+  - type: Sprite
+    sprite: SD/Clothing/Uniform/Jumpsuit/navy_gold.rsi
+  - type: Clothing
+    sprite: SD/Clothing/Uniform/Jumpsuit/navy_gold.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
+
+- type: entity
+  parent: ClothingUniformJumpsuitNavyGold
+  id: ClothingUniformJumpsuitSpecOps
+  name: special operations officer's jumpsuit
+  description: A suit worn by high-ranking spec ops officers. The rest is classified.
+  components:
+  - type: Sprite
+    sprite: SD/Clothing/Uniform/Jumpsuit/specialoperations.rsi
+  - type: Clothing
+    sprite: SD/Clothing/Uniform/Jumpsuit/specialoperations.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.8
+        Heat: 0.8
+
+- type: entity
+  parent: ClothingUniformJumpsuitNavyGold
+  id: ClothingUniformJumpsuitDiplomat
+  name: diplomat's jumpsuit
+  description: A suit worn by diplomacy focused Central Command workers.
+  components:
+  - type: Sprite
+    sprite: SD/Clothing/Uniform/Jumpsuit/diplomat.rsi
+  - type: Clothing
+    sprite: SD/Clothing/Uniform/Jumpsuit/diplomat.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitNanotrasenRepresentative
+  name: nanotrasen representative suit
+  description: A black suit worn by officials.
+  components:
+  - type: Sprite
+    sprite: SD/Clothing/Uniform/Jumpsuit/nanotrasen_representative.rsi
+  - type: Clothing
+    sprite: SD/Clothing/Uniform/Jumpsuit/nanotrasen_representative.rsi

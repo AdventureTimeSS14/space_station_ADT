@@ -46,3 +46,94 @@
     pryPowered: true # SD tweak
   - type: UseDelay
     delay: 1
+
+
+- type: entity
+  parent: EnergyDaggerLoud
+  id: SD_EnergyDaggerNT
+  name: phoron blade
+  description: Also known as "Legally distinct energy dagger". A cheap to produce knife-sized energy dagger, given to some NT personnel as a self-defense weapon.
+  components:
+  - type: Sprite
+    sprite: SD/Objects/Weapons/Melee/e_daggerntr.rsi
+    layers:
+      - state: edagger
+      - state: edagger_blade
+        color: "#FFFFFF"
+        visible: false
+        shader: unshaded
+        map: [ "blade" ]
+  - type: Item
+    size: Tiny
+    sprite: SD/Objects/Weapons/Melee/e_daggerntr.rsi
+  - type: Tag
+    tags:
+      - Sidearm
+
+- type: entity
+  name: dispatch spear
+  parent: [BaseItem, BaseCentcommContraband] # Before you ask why I didn't parent the spear, it's because I don't want this to be able to have reagants applied.
+  id: SD_CburnSpear
+  description: A spear used by Nanotrasen's CBURN agents. Effective at incinerating organic targets.
+  components:
+  - type: Sprite
+    sprite: SD/Objects/Weapons/Melee/cburn_spear.rsi
+    state: icon
+  - type: Tag
+    tags:
+    - Spear
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PolygonShape
+          vertices:
+          - -0.08,-0.06
+          - -0.06,-0.08
+          - 0.40,0.30
+          - 0.30,0.40
+        density: 20
+        mask:
+        - ItemMask
+        restitution: 0.3
+        friction: 0.2
+  - type: MeleeWeapon
+    angle: 0
+    attackRate: 0.9
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Heat: 20
+        Piercing: 10
+    animation: WeaponArcThrust
+  - type: IgniteOnMeleeHit
+    fireStacks: 4
+  - type: LandAtCursor
+  - type: DamageOtherOnHit # Let the spears SOAR!!
+    damage:
+      types:
+        Piercing: 30
+        Heat: 15
+  - type: UseDelay
+  - type: Item
+    size: Large
+  - type: Wieldable
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Heat: 10
+  - type: Clothing
+    sprite: SD/Objects/Weapons/Melee/cburn_spear.rsi
+    quickEquip: false
+    slots:
+    - suitStorage
+  - type: DisarmMalus
+    malus: 0.45
+  - type: Appearance
+  - type: EmbeddableProjectile
+    offset: 0.3,0.0
+    removalTime: 0.0
+  - type: StaticPrice
+    price: 800
+  - type: Tool
+    qualities:
+    - Prying

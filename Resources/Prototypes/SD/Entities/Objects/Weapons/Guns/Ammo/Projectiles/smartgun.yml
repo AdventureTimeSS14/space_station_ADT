@@ -1,0 +1,49 @@
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseBullet
+  id: SD_Bullet792
+  name: bullet (7.92x115 HYPER)
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 20
+    ignoreReflect: true
+  - type: StaminaDamageOnCollide
+    damage: 15
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseBullet
+  id: SD_Bullet792Radiation
+  name: bullet (7.92x115 HYPER RAD)
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 25
+        Radiation: 25
+        Structural: 50
+    ignoreReflect: true
+  - type: StaminaDamageOnCollide
+    damage: 35
+
+- type: entity
+  id: SD_BulletSmartPistol
+  name: bullet (9x21mm smart)
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 16
+    ignoreReflect: true
+  - type: Sprite
+    sprite: SD/Objects/Weapons/Guns/Ammunition/Projectiles/smartgun.rsi
+    layers:
+    - state: smartgun
+      shader: unshaded
+  - type: HomingProjectile
+    homingSpeed: 720 # The missile always knows where it is.

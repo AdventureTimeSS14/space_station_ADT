@@ -716,9 +716,16 @@
   description: uplink-invisible-cloak-desc
   productEntity: ADTClothingNeckInvisibleCloak
   cost:
-    Telecrystal: 5
+    Telecrystal: 10
   categories:
     - UplinkWearables
+    - UplinkContractor
+
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink # SD-Tweak
 
 - type: listing
   id: ADTUplinkNightVision
@@ -729,6 +736,7 @@
     Telecrystal: 2
   categories:
     - UplinkWearables
+    - UplinkContractor
 
 - type: listing
   id: ADTUplinkThermalVision
@@ -795,7 +803,7 @@
   discountDownTo:
     Telecrystal: 10
   cost:
-    Telecrystal: 17
+    Telecrystal: 15
   categories:
   - UplinkWeaponry
   conditions:
@@ -809,18 +817,15 @@
   name: uplink-cqc-name
   description: uplink-cqc-desc
   productEntity: ADTCqcManual
-  discountCategory: usualDiscounts
-  discountDownTo:
-    Telecrystal: 10
   cost:
-    Telecrystal: 13
+    Telecrystal: 15
   categories:
   - UplinkWeaponry
   conditions:
   - !type:StoreWhitelistCondition
     whitelist:
       tags:
-      - NukeOpsUplink # Бана в сюрплюсах не будет. Если тритор получил сикуси - тритор радуется
+      - NukeOpsUplink # im not limiting it from surplus since i wanna do a funny. Anyways. SD tweak
 
 - type: listing
   id: ADTUplinkModulesMod

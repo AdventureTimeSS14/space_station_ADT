@@ -2,7 +2,6 @@
   id: SD_Joule
   mapName: 'Joule Station'
   mapPath: /Maps/SDMaps/SDStations/SD_Joule.yml
-  maxRandomOffset: 0
   minPlayers: 5 #
   stations:
     SD_Joule:
@@ -15,8 +14,8 @@
             prefixCreator: '-'
         - type: StationEmergencyShuttle
           emergencyShuttlePath: /Maps/Corvax/Shuttles/emergency_corvaxdelta.yml
-        - type: StationCargoShuttle
-          path: /Maps/ADTMaps/Shuttles/adt_cargo.yml
+        # - type: StationCargoShuttle
+        #   path: /Maps/ADTMaps/Shuttles/adt_cargo.yml
         - type: StationJobs
           availableJobs:
             Boxer: [ 2, 2 ]

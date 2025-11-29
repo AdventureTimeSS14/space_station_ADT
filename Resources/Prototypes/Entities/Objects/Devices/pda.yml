@@ -110,7 +110,7 @@
         type: InstrumentBoundUserInterface
       enum.HealthAnalyzerUiKey.Key:
         type: HealthAnalyzerBoundUserInterface
-      enum.GasAnalyzerUiKey.Key: # SD Elf Atmos
+      enum.GasAnalyzerUiKey.Key: # SD tweak
         type: GasAnalyzerBoundUserInterface
   - type: Tag
     tags:
@@ -182,7 +182,7 @@
       - ADTWalletCartridge # ADT-Economy
     diskSpace: 8 # ADT tweak
 
-- type: entity # SD Elf Atmos
+- type: entity
   parent: BasePDA
   id: BaseEngineerPDA
   abstract: true
@@ -192,8 +192,9 @@
     preinstalled:
       - CrewManifestCartridge
       - NotekeeperCartridge
+      - NanoTaskCartridge # SD fix
       - NewsReaderCartridge
-      - AtmoTechCartridge
+      - AtmoTechCartridge # SD add
       - ADTWalletCartridge # ADT-Economy
     diskSpace: 8 # ADT tweak
 
@@ -1251,16 +1252,17 @@
   components:
   - type: Pda
     id: ERTEngineerIDCard
-  - type: CartridgeLoader # SD Elf Atmos
+  - type: CartridgeLoader
     uiKey: enum.PdaUiKey.Key
     preinstalled:
       - CrewManifestCartridge
       - NotekeeperCartridge
+      - NanoTaskCartridge # SD fix
       - NewsReaderCartridge
       - MedTekCartridge
       - WantedListCartridge
       - AstroNavCartridge
-      - AtmoTechCartridge
+      - AtmoTechCartridge # SD tweak
       - ADTWalletCartridge # ADT-Economy
     diskSpace: 8 # ADT tweak
 

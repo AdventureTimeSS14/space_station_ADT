@@ -19,3 +19,66 @@
     sprite: SD/Clothing/Belt/tacticalmaid.rsi
   - type: Clothing
     sprite: SD/Clothing/Belt/tacticalmaid.rsi
+
+- type: entity
+  parent: [ClothingBeltBase, ClothingSlotBase, ClothingBeltStorageBase]
+  id: SD_ClothingBeltSmartgunHolster
+  name: smartgun holster
+  description: XM52 pattern holster for the MK-6 smartgun model.
+  components:
+  - type: Sprite
+    sprite: SD/Clothing/Belt/smartgun_holster.rsi
+    state: icon
+  - type: Clothing
+    sprite: SD/Clothing/Belt/smartgun_holster.rsi
+  - type: Item
+    size: Ginormous
+  - type: ItemSlots
+    slots:
+      pistol:
+        name: Smartgun
+        insertVerbText: holster-insert-verb
+        ejectVerbText: holster-eject-verb
+        whitelist:
+          tags:
+          - SD_MK6Pistol
+        priority: 1
+  - type: ItemMapper
+    mapLayers:
+      overlay:
+        whitelist:
+          tags:
+          - SD_MK6Pistol
+    sprite: SD/Clothing/Belt/smartgun_holster.rsi
+  - type: Appearance
+  - type: ContainerContainer
+    containers:
+      pistol: !type:ContainerSlot
+      storagebase: !type:Container
+
+- type: entity
+  parent: SD_ClothingBeltSmartgunHolster # простит меня господь за насёр в тот же файл
+  id: SD_ClothingBeltSmartgunHolsterFilled
+  suffix: Filled
+  name: smartgun holster
+  description: XM52 pattern holster for the MK-6 smartgun model.
+  components:
+  - type: ItemSlots
+    slots:
+      pistol:
+        name: Smartgun
+        insertVerbText: holster-insert-verb
+        ejectVerbText: holster-eject-verb
+        whitelist:
+          tags:
+          - SD_MK6Pistol
+        startingItem: SD_WeaponPistolMK6
+        priority: 1
+  - type: StorageFill
+    contents:
+     - id: SD_EnergyDaggerNT
+     - id: SD_MagazineSmartPistol
+     - id: SD_MagazineSmartPistol
+     - id: SD_MagazineSmartPistol
+     - id: SD_MagazineBoxSmartPistol
+     - id: SD_MagazineBoxSmartPistol

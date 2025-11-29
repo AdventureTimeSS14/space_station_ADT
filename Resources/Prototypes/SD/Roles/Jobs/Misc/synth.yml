@@ -27,13 +27,15 @@
       angle: 30
       animation: WeaponArcFist
       attackRate: 1
+      clickDamageModifier: 1
       damage:
         types:
-          Blunt: 35
+          Blunt: 30
+          Structural: 30
     - type: MobThresholds
       thresholds:
         0: Alive
-        150: Dead
+        125: Dead
       allowRevives: true
     - type: MobState
       allowedStates:
@@ -62,34 +64,32 @@
       damageModifierSet: SD_Synth
     - type: FireProtection
       reduction: 0.15
-    - type: AddComponentsOnUse
-      components:
-        - type: Puller
-          grabStats:
-            None:
-              requiredHands: 1
-              doaftersToEscape: 0
-              movementSpeedModifier: 0.9
-              escapeAttemptTime: 0
-              setStageTime: 0
-            Soft:
-              requiredHands: 1
-              doaftersToEscape: 4
-              movementSpeedModifier: 0.8
-              escapeAttemptTime: 1.5
-              setStageTime: 0
-            Hard:
-              requiredHands: 1
-              doaftersToEscape: 6
-              movementSpeedModifier: 0.75
-              escapeAttemptTime: 1.5
-              setStageTime: 0.75
-            Choke:
-              requiredHands: 2
-              doaftersToEscape: 7
-              movementSpeedModifier: 0.7
-              escapeAttemptTime: 1.5
-              setStageTime: 1.25
+    - type: Puller
+      grabStats:
+        None:
+          requiredHands: 1
+          doaftersToEscape: 2
+          movementSpeedModifier: 0.9
+          escapeAttemptTime: 0
+          setStageTime: 0
+        Soft:
+          requiredHands: 1
+          doaftersToEscape: 4
+          movementSpeedModifier: 0.7
+          escapeAttemptTime: 1.2
+          setStageTime: 0
+        Hard:
+          requiredHands: 1
+          doaftersToEscape: 6
+          movementSpeedModifier: 0.65
+          escapeAttemptTime: 1.2
+          setStageTime: 0.2
+        Choke:
+          requiredHands: 2
+          doaftersToEscape: 8
+          movementSpeedModifier: 0.55
+          escapeAttemptTime: 1.25
+          setStageTime: 1.25
     - type: Synth
       addComponents:
       - type: EyeProtection
@@ -102,6 +102,7 @@
       - type: ShowHealthBars
       - type: ShowHealthIcons
       - type: ShowJobIcons
+      - type: FlashImmunity
       removeComponents:
       - type: Hunger
       - type: Thirst
@@ -112,7 +113,7 @@
       - type: Dna
       - type: InjectableSolution
       - type: PassiveDamage
-      - type: Muted
+      - type: BloodCough
 
 - type: jobIcon
   parent: JobIcon

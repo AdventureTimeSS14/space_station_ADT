@@ -1,0 +1,11 @@
+- type: entity
+  name: lifeline marker
+  id: SD_LifelineMarker
+  parent: MarkerBase
+  suffix: Lifeline
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: SD/Effects/bluespace_lifeline.rsi
+        state: bluespace_lifeline

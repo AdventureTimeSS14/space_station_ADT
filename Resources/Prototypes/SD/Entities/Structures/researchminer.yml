@@ -1,0 +1,85 @@
+- type: entity
+  id: SDPointsMiner
+  name: points miner
+  parent: [BaseMachinePowered]
+  description: A very loud machine that uses bluespace blockchain technology to generate points when powered.
+  components:
+  - type: ApcPowerReceiver
+    powerLoad: 30000
+  - type: ItemMiner
+    interval: 90
+    amount: 1
+    proto: ResearchDisk10000
+    itemSlotId: tc_slot
+  - type: Sprite
+    noRot: true
+    sprite: SD/Structures/Machines/researchminer.rsi
+    layers:
+    - map: ["computerLayerBody"]
+      state: icon
+    - map: ["enum.PowerDeviceVisualLayers.Powered"]
+      visible: false
+      state: unshaded
+      shader: unshaded
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.PowerDeviceVisuals.Powered:
+        enum.PowerDeviceVisualLayers.Powered:
+          True: { visible: True }
+          False: { visible: False }
+  - type: ItemSlots
+    slots:
+      tc_slot:
+        name: Disk
+        insertSound:
+          path: /Audio/Effects/pop.ogg
+        ejectSound:
+          path: /Audio/Effects/pop.ogg
+        whitelist:
+          tags:
+          - ResearchDisk
+  - type: ContainerContainer
+    containers:
+      tc_slot: !type:ContainerSlot
+        showEnts: False
+        occludes: True
+        ent: null
+  - type: Transform
+    anchored: true
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.40,-0.40,0.40,0.40"
+        density: 90
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: PointLight
+    radius: 0.8
+    energy: 0.5
+    color: "#8301F5"
+  - type: PassiveHeatProducer
+    energyPerSecond: 15000
+
+- type: entity
+  parent: BaseFlatpack
+  id: SDPointsMinerFlatpack
+  name: research miner flatpack
+  description: A flatpack used for constructing a research miner machine.
+  components:
+  - type: Flatpack
+    entity: SDPointsMiner
+

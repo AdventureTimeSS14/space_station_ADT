@@ -1,0 +1,83 @@
+- type: Tag
+  id: SD_MagazineSmartGun
+
+- type: entity
+  id: SD_MagazineSmartGun
+  parent: BaseItem
+  name: "MK64 drum magazine (7.92x115mm HYPER)"
+  components:
+  - type: Tag
+    tags:
+    - SD_MagazineSmartGun
+  - type: Item
+    size: Normal
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+      - SD_Cartridge792
+    proto: SD_Cartridge792mm
+    capacity: 100
+  - type: Sprite
+    sprite: SD/Objects/Weapons/Guns/Ammunition/Magazines/magazine_smart_gun.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  id: SD_MagazineSmartGunRad
+  parent: BaseItem
+  name: "MK64 drum magazine (7.92x115mm HYPER RAD)"
+  components:
+  - type: Tag
+    tags:
+    - SD_MagazineSmartGun
+  - type: Item
+    size: Normal
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+      - SD_Cartridge792
+    proto: SD_Cartridge792mmRad
+    capacity: 100
+  - type: Sprite
+    sprite: SD/Objects/Weapons/Guns/Ammunition/Magazines/magazine_smart_gun_deplated.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  id: SD_MagazineSmartPistol
+  name: "magazine (9x21 smart)"
+  parent: BaseItem
+  components:
+  - type: Tag
+    tags:
+      - SD_MagazineSmartPistol
+  - type: Item
+    size: Small
+  - type: BallisticAmmoProvider
+    proto: SD_CartridgeSmart
+    mayTransfer: true
+    capacity: 20
+    whitelist:
+      tags:
+        - SD_CartridgeSmart
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: SD/Objects/Weapons/Guns/Ammunition/Magazines/smartgun_mag.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 2
+    zeroVisible: false
+  - type: Appearance

@@ -27,3 +27,26 @@
     state: bat_on
   content:
   - ADTTacticBat
+
+
+# sd-tweak start
+
+- type: thiefBackpackSet
+  id: WeaponHoSCQC
+  name: hos-voucher-cqc
+  description: hos-voucher-cqc-description
+  sprite:
+    sprite: ADT/Objects/Specific/material_art_book.rsi
+    state: cqc
+  content:
+  - ADTCqcManual
+
+- type: thiefBackpackSet
+  id: WeaponHoSEnergyShotgun
+  name: hos-voucher-shotgun
+  description: hos-voucher-shotgun-description
+  sprite:
+    sprite: Objects/Weapons/Guns/Battery/energy_shotgun.rsi
+    state: base
+  content:
+  - WeaponEnergyShotgun

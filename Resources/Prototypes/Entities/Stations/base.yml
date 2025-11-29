@@ -67,28 +67,28 @@
         # ADT Trade Station End
         # Spawn last
         # ADT-Mining-Start
-        # ruins: !type:GridSpawnGroup
-        #   hide: true
-        #   nameGrid: true
-        #   minCount: 0 #ADT tweak, moved to magnet
-        #   maxCount: 0 #ADT tweak, moved to magnet
-        #   stationGrid: false
-        #   paths:
-        #   - /Maps/Ruins/abandoned_outpost.yml
-        #   - /Maps/Ruins/atmos_interchange.yml
-        #   - /Maps/Ruins/chunked_tcomms.yml
-        #   - /Maps/Ruins/biodome_satellite.yml
-        #   - /Maps/Ruins/derelict.yml
-        #   - /Maps/Ruins/djstation.yml
-        #   - /Maps/Ruins/empty_flagship.yml
-        #   - /Maps/Ruins/hydro_outpost.yml
-        #   - /Maps/Ruins/old_ai_sat.yml
-        #   - /Maps/Ruins/ruined_prison_ship.yml
-        #   - /Maps/Ruins/syndicate_dropship.yml
-        #   - /Maps/Ruins/whiteship_ancient.yml
-        #   - /Maps/Ruins/whiteship_bluespacejumper.yml
-        #   - /Maps/Ruins/wrecklaimer.yml
-        #   - /Maps/Ruins/displaced_telescience.yml
+        ruins: !type:GridSpawnGroup
+          hide: true
+          nameGrid: true
+          minCount: 1
+          maxCount: 3
+          stationGrid: false
+          paths:
+           - /Maps/Ruins/abandoned_outpost.yml
+           - /Maps/Ruins/atmos_interchange.yml
+           - /Maps/Ruins/chunked_tcomms.yml
+           - /Maps/Ruins/biodome_satellite.yml
+           - /Maps/Ruins/derelict.yml
+           - /Maps/Ruins/djstation.yml
+           - /Maps/Ruins/empty_flagship.yml
+           - /Maps/Ruins/hydro_outpost.yml
+           - /Maps/Ruins/ruined_prison_ship.yml
+           - /Maps/Ruins/syndicate_dropship.yml
+           - /Maps/Ruins/whiteship_ancient.yml
+           - /Maps/Ruins/whiteship_bluespacejumper.yml
+           - /Maps/Ruins/wrecklaimer.yml
+           - /Maps/Ruins/displaced_telescience.yml
+           - /Maps/ADTMaps/Ruins/syndi_base.yml
         # wrecks: !type:DungeonSpawnGroup
         #   minimumDistance: 150
         #   maximumDistance: 300
@@ -108,20 +108,20 @@
         #   - ChunkDebrisSmall
         #   - ChunkDebrisSmall
         #   - ChunkDebris
-        # vgroid: !type:DungeonSpawnGroup
-        #   minimumDistance: 300
-        #   maximumDistance: 350
-        #   nameDataset: NamesBorer
-        #   stationGrid: false
-        #   addComponents:
-        #   - type: Gravity
-        #     enabled: true
-        #     inherent: true
-        #   - type: IFF
-        #     flags: HideLabel
-        #     color: "#d67e27"
-        #   protos:
-        #   - VGRoid
+        vgroid: !type:DungeonSpawnGroup
+          minimumDistance: 600
+          maximumDistance: 1200
+          nameDataset: NamesBorer
+          stationGrid: false
+          addComponents:
+          - type: Gravity
+            enabled: true
+            inherent: true
+          - type: IFF
+            flags: HideLabel
+            color: "#d67e27"
+          protos:
+          - VGRoid
         salvage: !type:GridSpawnGroup
           nameGrid: false
           paths:
@@ -147,7 +147,7 @@
   abstract: true
   components:
     - type: StationCentcomm
-      map: "/Maps/ADTMaps/ADTStations/adt_centcomm.yml" #ADT_Centcomm
+      map: "/Maps/SDMaps/SD_Centcomm.yml" #SD_Centcomm
 
 - type: entity
   id: BaseStationEvacuation

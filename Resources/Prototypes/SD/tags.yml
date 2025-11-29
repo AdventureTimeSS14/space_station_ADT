@@ -12,3 +12,15 @@
 
 - type: Tag
   id: MedicalPatch
+
+- type: Tag
+  id: ResearchDisk
+
+- type: Tag
+  id: SD_MagazineSmartPistol
+
+- type: Tag
+  id: SD_CartridgeSmart
+
+- type: Tag
+  id: SD_MK6Pistol

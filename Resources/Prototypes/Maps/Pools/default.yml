@@ -34,9 +34,11 @@
   - ADT_Train
   - ADT_Silly
 
+  # SD Maps
+  # - SD_Joule : temporarily out
+  - SD_Sievert
+  - SD_Flicker
 
-- SD_Sievert
-- SD_Flicker
 # ADT Maps Выведенные на переработку
   # - ADT_Avrit требуется декорваксизация
   # - ADT_Alley до ремонта
@@ -51,6 +53,7 @@
   # - ADT_Delta Выведена из-за наличия Кербероса
   # - ADT_Gemini Пока Кэш не доделает
   # - ADT_Cluster_Legacy Пока Кэш не сделает
+  # - ADT_Barratry Выведена по просьбе Жабича
 
 # ADT Halloween (Не забудьте отключить обычные)
   # - ADT_TrainHalloween
