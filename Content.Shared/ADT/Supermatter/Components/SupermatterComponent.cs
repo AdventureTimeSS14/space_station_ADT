@@ -78,9 +78,6 @@ public sealed partial class SupermatterComponent : Component
     public EntProtoId KudzuPrototype = "SupermatterKudzu";
 
     [DataField]
-    public EntProtoId SupermatterCascadePrototype = "CascadeSupermatter";
-
-    [DataField]
     public EntProtoId AnomalyBluespaceSpawnPrototype = "AnomalyBluespace";
 
     [DataField]
@@ -475,10 +472,10 @@ public sealed partial class SupermatterComponent : Component
 
 public enum DelamType : int
 {
-    Explosion = 0,
-    Singularity = 1,
-    Tesla = 2,
-    Cascade = 3
+    Cascade = 0,
+    Tesla = 1,
+    Singularity = 2,
+    Explosion = 3
 }
 
 [Serializable, NetSerializable]
