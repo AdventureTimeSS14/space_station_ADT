@@ -7,3 +7,16 @@
     sprite: ADT/Clothing/Ears/Headsets/blueshield.rsi
   - type: Clothing
     sprite: ADT/Clothing/Ears/Headsets/blueshield.rsi
+
+#ADT-TWEAK-START
+
+- type: entity
+  abstract: true
+  parent: ClothingHeadsetAlt
+  id: ClothingHeadsetAltLoudspeaker
+  components:
+  - type: Loudspeaker
+    canToggle: true
+    affectRadio: true
+
+#ADT-TWEAK-CLOSE

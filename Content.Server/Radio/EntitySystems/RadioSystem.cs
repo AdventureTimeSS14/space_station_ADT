@@ -16,6 +16,7 @@ using Robust.Shared.Replays;
 using Robust.Shared.Utility;
 using Content.Server.ADT.Language;  // ADT Languages
 using Content.Shared.ADT.Language;  // ADT Languages
+using Content.Shared.ADT.Loudspeaker.Events; // ADT radio
 
 namespace Content.Server.Radio.EntitySystems;
 
@@ -106,6 +107,28 @@ public sealed class RadioSystem : EntitySystem
         else
             speech = _chat.GetSpeechVerb(messageSource, message);
 
+        // --- Loudspeaker begin ---
+        int? loudSpeakFont = null;
+
+        var getLoudspeakerEv = new GetLoudspeakerEvent();
+        RaiseLocalEvent(messageSource, ref getLoudspeakerEv);
+
+        if (getLoudspeakerEv.Loudspeakers != null)
+        {
+            foreach (var loudspeaker in getLoudspeakerEv.Loudspeakers)
+            {
+                var loudSpeakerEv = new GetLoudspeakerDataEvent();
+                RaiseLocalEvent(loudspeaker, ref loudSpeakerEv);
+
+                if (loudSpeakerEv.IsActive && loudSpeakerEv.AffectRadio)
+                {
+                    loudSpeakFont = loudSpeakerEv.FontSize;
+                    break;
+                }
+            }
+        }
+// --- Loudspeaker end ---
+
         var content = escapeMarkup
             ? FormattedMessage.EscapeText(message)
             : message;
@@ -137,7 +160,7 @@ public sealed class RadioSystem : EntitySystem
         var wrappedMessage = Loc.GetString("chat-radio-message-wrap",   // ADT Languages tweak - remove bold
             ("color", channel.Color),
             ("fontType", gen.Font ?? speech.FontId),    // ADT Languages tweak speech.FontId -> gen.Font ?? speech.FontId
-            ("fontSize", gen.FontSize ?? speech.FontSize),  // ADT Languages tweak speech.FontSize -> gen.FontSize ?? speech.FontSize
+            ("fontSize", loudSpeakFont ?? speech.FontSize), // goob edit - "loudSpeakFont"
             ("verb", Loc.GetString(_random.Pick(verbStrings))), // ADT Languages speech.SpeechVerbStrings -> verbStrings
             ("defaultFont", speech.FontId), // ADT Languages
             ("defaultSize", speech.FontSize),   // ADT Languages
