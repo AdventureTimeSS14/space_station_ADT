@@ -32,6 +32,7 @@
   components:
   - type: StorageFill
     contents:
+    # ADT-Tweak-Start Вернул на места бутылки. Ничего не менял
     - id: DrinkCoconutWaterJug
     - id: DrinkCoffeeJug
     - id: DrinkColaBottleFull
@@ -51,3 +52,4 @@
     - id: DrinkTeaJug
     - id: DrinkTonicWaterBottleFull 
     - id: DrinkWaterMelonJuiceJug
+    # ADT-Tweak-End
