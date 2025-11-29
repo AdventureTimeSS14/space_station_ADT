@@ -209,12 +209,6 @@
     path: /Audio/ADT/Lobby/Super_Sonic_Racing.ogg
 
 - type: jukebox
-  id: TidalTempestZoneUSRemix
-  name: Sonic the Hedgehog CD - Tidal Tempest Zone Present US Remix (Credit to MegaBaz on YouTube)
-  path:
-    path: /Audio/ADT/Lobby/Tidal_Tempest_Zone_Present_US_Sonic_The_Hedgehog_CD.ogg
-
-- type: jukebox
   id: TidalTempestJPRemix
   name: Sonic the Hedgehog CD - Tidal Tempest JP Remix (Credit to MegaBaz on YouTube)
   path:
