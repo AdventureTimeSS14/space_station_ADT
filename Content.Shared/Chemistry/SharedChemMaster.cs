@@ -292,6 +292,8 @@ namespace Content.Shared.Chemistry
         uint selectedPillType,
         uint pillDosageLimit,
         uint bottleDosageLimit,
+        uint maxPills,
+        uint maxBottles,
         bool updateLabel,
         int sortMethod,
         int transferringAmount,
@@ -324,6 +326,8 @@ namespace Content.Shared.Chemistry
 
         public readonly uint PillDosageLimit = pillDosageLimit;
         public readonly uint BottleDosageLimit = bottleDosageLimit;
+        public readonly uint MaxPills = maxPills;
+        public readonly uint MaxBottles = maxBottles;
 
         public readonly bool UpdateLabel = updateLabel;
 

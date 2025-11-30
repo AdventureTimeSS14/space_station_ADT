@@ -22,9 +22,16 @@ namespace Content.Server.Chemistry.Components
         [DataField("pillDosageLimit", required: true), ViewVariables(VVAccess.ReadWrite)]
         public uint PillDosageLimit;
 
-        // ADT-Tweak-Start: лимит дозировки для бутылочек
+        // ADT-Tweak-Start: dosage limit for bottles, maximum number of tablets and bottles
         [DataField("bottleDosageLimit", required: true), ViewVariables(VVAccess.ReadWrite)]
         public uint BottleDosageLimit;
+
+        //
+        [DataField("maxPills", required: true), ViewVariables(VVAccess.ReadWrite)]
+        public uint MaxPills = 30;
+
+        [DataField("maxBottles", required: true), ViewVariables(VVAccess.ReadWrite)]
+        public uint MaxBottles = 20;
         // ADT-Tweak-End
         [DataField("clickSound"), ViewVariables(VVAccess.ReadWrite)]
         public SoundSpecifier ClickSound = new SoundPathSpecifier("/Audio/Machines/machine_switch.ogg");

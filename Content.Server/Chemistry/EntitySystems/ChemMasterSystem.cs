@@ -157,16 +157,11 @@ namespace Content.Server.Chemistry.EntitySystems
                 chemMaster.SelectedReagentAmounts[reagentId] = newAmount;
             }
 
-            // Reset bottle selection if the selected bottle no longer exists or is no longer empty
+            // Reset bottle selection if the selected bottle no longer exists in the slot
             if (chemMaster.SelectedBottleForFill >= 0 && chemMaster.SelectedBottleForFill < 20)
             {
-                // Will be populated during UI update below
                 var slotId = "bottleSlot" + chemMaster.SelectedBottleForFill;
-                if (_itemSlotsSystem.TryGetSlot(owner, slotId, out var bottleSlot) && bottleSlot.Item.HasValue)
-                {
-                    var bottle = bottleSlot.Item.Value;
-                }
-                else
+                if (!_itemSlotsSystem.TryGetSlot(owner, slotId, out var bottleSlot) || !bottleSlot.Item.HasValue)
                 {
                     // Bottle no longer exists in the slot
                     chemMaster.SelectedBottleForFill = -1;
@@ -336,6 +331,8 @@ namespace Content.Server.Chemistry.EntitySystems
                 chemMaster.PillType,
                 chemMaster.PillDosageLimit,
                 chemMaster.BottleDosageLimit,
+                chemMaster.MaxPills,
+                chemMaster.MaxBottles,
                 updateLabel,
                 chemMaster.SortMethod,
                 chemMaster.TransferringAmount,
@@ -1135,18 +1132,29 @@ namespace Content.Server.Chemistry.EntitySystems
                 // If a specific bottle is selected, only fill that one. Otherwise, fill all empty bottles.
                 var targets = FindAvailableBottlesForFilling(chemMaster, bottlesToCreate, message.Dosage);
 
-                // Only create bottles that can fit in available slots
-                var actualBottlesToCreate = Math.Min(bottlesToCreate, targets.Count);
+                // Filter targets to only bottles that can actually fit the dosage
+                var validTargets = new List<EntityUid>();
+                foreach (var bottle in targets)
+                {
+                    if (_solutionContainerSystem.TryGetSolution(bottle, SharedChemMaster.BottleSolutionName, out _, out var solution))
+                    {
+                        if (message.Dosage <= solution.AvailableVolume)
+                        {
+                            validTargets.Add(bottle);
+                        }
+                    }
+                }
 
-                if (actualBottlesToCreate == 0)
+                if (validTargets.Count == 0)
                 {
                     _popupSystem.PopupCursor(Loc.GetString("chem-master-bottles-created",
                         ("created", 0), ("requested", (int)message.Number)), user);
                     return;
                 }
 
-                // Calculate total amount needed based on actualBottlesToCreate and message.Dosage
+                // Calculate total amount needed based on validTargets count and message.Dosage
                 // This is the exact amount that will be removed from buffer and distributed among bottles
+                var actualBottlesToCreate = validTargets.Count;
                 var totalNeeded = FixedPoint2.New(actualBottlesToCreate * message.Dosage);
 
                 // Calculate total selected reagent amount to determine proportions
@@ -1233,19 +1241,16 @@ namespace Content.Server.Chemistry.EntitySystems
                     distributedAmounts[reagent] = FixedPoint2.Zero;
                 }
 
-                for (int i = 0; i < actualBottlesToCreate; i++)
+                for (int i = 0; i < validTargets.Count; i++)
                 {
-                    var bottle = targets[i];
+                    var bottle = validTargets[i];
                     if (!_solutionContainerSystem.TryGetSolution(bottle, SharedChemMaster.BottleSolutionName, out var soln, out var solution))
-                        continue;
-
-                    if (message.Dosage > solution.AvailableVolume)
                         continue;
 
                     // Create a new solution for this bottle with exact proportional amounts
                     var bottleSolution = new Solution();
                     // For the last bottle, add any remaining amount due to rounding
-                    bool isLastBottle = i == actualBottlesToCreate - 1;
+                    bool isLastBottle = i == validTargets.Count - 1;
 
                     // Track actual amounts added for label
                     var actualAmountsInBottle = new Dictionary<ReagentId, FixedPoint2>();
@@ -1280,10 +1285,10 @@ namespace Content.Server.Chemistry.EntitySystems
                 }
 
                 // Show message if fewer bottles were created than requested
-                if (actualBottlesToCreate < (int)message.Number)
+                if (validTargets.Count < (int)message.Number)
                 {
                     _popupSystem.PopupCursor(Loc.GetString("chem-master-bottles-created",
-                        ("created", actualBottlesToCreate), ("requested", (int)message.Number)), user);
+                        ("created", validTargets.Count), ("requested", (int)message.Number)), user);
                 }
             }
             else
@@ -1292,17 +1297,28 @@ namespace Content.Server.Chemistry.EntitySystems
                 // If a specific bottle is selected, only fill that one. Otherwise, fill all empty bottles.
                 var targets = FindAvailableBottlesForFilling(chemMaster, (int)message.Number, message.Dosage);
 
-                // Only create bottles that can fit in available slots
-                var actualBottlesToCreate = Math.Min((int)message.Number, targets.Count);
+                // Filter targets to only bottles that can actually fit the dosage
+                var validTargets = new List<EntityUid>();
+                foreach (var bottle in targets)
+                {
+                    if (_solutionContainerSystem.TryGetSolution(bottle, SharedChemMaster.BottleSolutionName, out _, out var solution))
+                    {
+                        if (message.Dosage <= solution.AvailableVolume)
+                        {
+                            validTargets.Add(bottle);
+                        }
+                    }
+                }
 
-                if (actualBottlesToCreate == 0)
+                if (validTargets.Count == 0)
                 {
                     _popupSystem.PopupCursor(Loc.GetString("chem-master-bottles-created",
                         ("created", 0), ("requested", (int)message.Number)), user);
                     return;
                 }
 
-                // Calculate total reagent volume needed based on actual bottles we can create
+                // Calculate total reagent volume needed based on valid bottles we can actually fill
+                var actualBottlesToCreate = validTargets.Count;
                 var needed = message.Dosage * actualBottlesToCreate;
 
                 if (!WithdrawSelectedReagentsFromBuffer(chemMaster, needed, user, out var withdrawal))
@@ -1322,19 +1338,16 @@ namespace Content.Server.Chemistry.EntitySystems
                     distributedReagents[reagent] = FixedPoint2.Zero;
                 }
 
-                for (int i = 0; i < actualBottlesToCreate; i++)
+                for (int i = 0; i < validTargets.Count; i++)
                 {
-                    var bottle = targets[i];
+                    var bottle = validTargets[i];
                     if (!_solutionContainerSystem.TryGetSolution(bottle, SharedChemMaster.BottleSolutionName, out var soln, out var solution))
-                        continue;
-
-                    if (message.Dosage > solution.AvailableVolume)
                         continue;
 
                     // Create a new solution for this bottle with exact proportional amounts
                     var bottleSolution = new Solution();
                     // For the last bottle, add any remaining amount due to rounding
-                    bool isLastBottle = (i == actualBottlesToCreate - 1);
+                    bool isLastBottle = (i == validTargets.Count - 1);
 
                     // Track actual amounts added for label
                     var actualAmountsInBottle = new Dictionary<ReagentId, FixedPoint2>();
@@ -1370,10 +1383,10 @@ namespace Content.Server.Chemistry.EntitySystems
                 }
 
                 // Show message if fewer bottles were created than requested
-                if (actualBottlesToCreate < (int)message.Number)
+                if (validTargets.Count < (int)message.Number)
                 {
                     _popupSystem.PopupCursor(Loc.GetString("chem-master-bottles-created",
-                        ("created", actualBottlesToCreate), ("requested", (int)message.Number)), user);
+                        ("created", validTargets.Count), ("requested", (int)message.Number)), user);
                 }
             }
             // ADT-Tweak End

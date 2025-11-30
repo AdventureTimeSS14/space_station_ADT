@@ -73,12 +73,6 @@ namespace Content.Client.Chemistry.UI
         private const int MaxAmountButtons = 20;
         private const string PillsRsiPath = "/Textures/Objects/Specific/Chemistry/pills.rsi";
 
-        // Dosage and quantity limits
-        private const int MaxPillDosage = 20;
-        private const int MaxBottleDosage = 30;
-        private const int AbsoluteMaxPills = 30;
-        private const int AbsoluteMaxBottles = 20;
-
         // State
         private List<int> _amounts = new();
         private ReagentSortMethod _currentSortMethod = ReagentSortMethod.Alphabetical;
@@ -153,11 +147,11 @@ namespace Content.Client.Chemistry.UI
             //ADT-Tweak Start:
             BottleNumber.InitDefaultButtons();
 
-            // Set simple static validation for SpinBoxes
-            PillNumber.IsValid = x => x >= 0 && x <= AbsoluteMaxPills;
-            PillDosage.IsValid = x => x >= 0 && x <= MaxPillDosage;
-            BottleNumber.IsValid = x => x >= 0 && x <= AbsoluteMaxBottles;
-            BottleDosage.IsValid = x => x >= 0 && x <= MaxBottleDosage;
+            // Initial validation - will be updated when state is received
+            PillNumber.IsValid = x => x >= 0;
+            PillDosage.IsValid = x => x >= 0;
+            BottleNumber.IsValid = x => x >= 0;
+            BottleDosage.IsValid = x => x >= 0;
 
             // Update label when dosage or number changes
             PillDosage.ValueChanged += _ => UpdateLabelFromState();
@@ -527,9 +521,9 @@ namespace Content.Client.Chemistry.UI
         {
             var totalAmount = GetTotalSelectedReagentAmount();
 
-            if (totalAmount == 0)
+            if (totalAmount == 0 || _lastState == null)
             {
-                // No reagents selected - set to 0
+                // No reagents selected or no state - set to 0
                 PillNumber.Value = 0;
                 PillDosage.Value = 0;
                 BottleNumber.Value = 0;
@@ -537,30 +531,36 @@ namespace Content.Client.Chemistry.UI
                 return;
             }
 
-            // Update pills: if less than 20 units, make 1 pill with that dosage
-            // if 20 or more, make pills with max dosage (20) and calculate number
-            if (totalAmount < MaxPillDosage)
+            // Get limits from state
+            var maxPillDosage = (int)_lastState.PillDosageLimit;
+            var maxBottleDosage = (int)_lastState.BottleDosageLimit;
+            var maxPills = (int)_lastState.MaxPills;
+            var maxBottles = (int)_lastState.MaxBottles;
+
+            // Update pills: if less than max dosage, make 1 pill with that dosage
+            // if max dosage or more, make pills with max dosage and calculate number
+            if (totalAmount < maxPillDosage)
             {
                 PillNumber.Value = 1;
                 PillDosage.Value = (int)totalAmount;
             }
             else
             {
-                PillDosage.Value = MaxPillDosage;
-                PillNumber.Value = (int)Math.Min(totalAmount / MaxPillDosage, AbsoluteMaxPills);
+                PillDosage.Value = maxPillDosage;
+                PillNumber.Value = (int)Math.Min(totalAmount / maxPillDosage, maxPills);
             }
 
-            // Update bottles: if less than 30 units, make 1 bottle with that dosage
-            // if 30 or more, make bottles with max dosage (30) and calculate number
-            if (totalAmount < MaxBottleDosage)
+            // Update bottles: if less than max dosage, make 1 bottle with that dosage
+            // if max dosage or more, make bottles with max dosage and calculate number
+            if (totalAmount < maxBottleDosage)
             {
                 BottleNumber.Value = 1;
                 BottleDosage.Value = (int)totalAmount;
             }
             else
             {
-                BottleDosage.Value = MaxBottleDosage;
-                BottleNumber.Value = (int)Math.Min(totalAmount / MaxBottleDosage, AbsoluteMaxBottles);
+                BottleDosage.Value = maxBottleDosage;
+                BottleNumber.Value = (int)Math.Min(totalAmount / maxBottleDosage, maxBottles);
             }
         }
 
@@ -738,6 +738,12 @@ namespace Content.Client.Chemistry.UI
             _lastState = castState;
             HandleSortMethodChange(castState.SortMethod);
             UpdatePanelInfo(castState);
+
+            // Update SpinBox validation based on state limits
+            PillDosage.IsValid = x => x >= 0 && x <= (int)castState.PillDosageLimit;
+            BottleDosage.IsValid = x => x >= 0 && x <= (int)castState.BottleDosageLimit;
+            PillNumber.IsValid = x => x >= 0 && x <= (int)castState.MaxPills;
+            BottleNumber.IsValid = x => x >= 0 && x <= (int)castState.MaxBottles;
 
             // ADT-Tweak Start: Cutted
             // BufferCurrentVolume.Text = $" {castState.BufferCurrentVolume?.Int() ?? 0}u";
