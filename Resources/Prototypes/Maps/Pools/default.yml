@@ -38,6 +38,8 @@
   # - SD_Joule : temporarily out
   - SD_Sievert
   - SD_Flicker
+  - SD_Lumen
+  - SD_Pascal
 
 # ADT Maps Выведенные на переработку
   # - ADT_Avrit требуется декорваксизация
