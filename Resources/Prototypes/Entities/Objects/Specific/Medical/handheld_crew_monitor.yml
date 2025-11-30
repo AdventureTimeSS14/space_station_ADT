@@ -8,16 +8,20 @@
   components:
   - type: Item
     heldPrefix: scanner
+    # ADT-Tweak-Start
     storedSprite:
       state: icon-storage
       sprite: Objects/Specific/Medical/handheldcrewmonitor.rsi
+    # ADT-Tweak-End
   - type: Sprite
     sprite: Objects/Specific/Medical/handheldcrewmonitor.rsi
+    # ADT-Tweak-Start
     layers:
       - state: icon
       - state: scanner
         shader: unshaded
     state: icon
+    # ADT-Tweak-End
   - type: ActivatableUI
     key: enum.CrewMonitoringUIKey.Key
   - type: UserInterface
