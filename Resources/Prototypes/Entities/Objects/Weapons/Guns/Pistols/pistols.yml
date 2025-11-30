@@ -313,8 +313,8 @@
   #   modifyer: 0.4
   - type: Gun
     minAngle: 1
-    maxAngle: 20
-    angleIncrease: 8
+    maxAngle: 10 # SD-tweak
+    angleIncrease: 5 # SD-tweak
     angleDecay: 9
     fireRate: 4
     availableModes:

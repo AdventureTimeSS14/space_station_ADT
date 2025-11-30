@@ -16,8 +16,8 @@
     - suitStorage
   - type: AmmoCounter
   # ADT-Tweak start
-  - type: RunAndGunSpreadModifier
-    modifyer: 0.4
+  # - type: RunAndGunSpreadModifier # SD-Tweak: fuck immobility
+  #  modifyer: 0.4
   # ADT-Tweak end
   - type: Gun
     minAngle: 2
@@ -305,8 +305,8 @@
   - type: Gun
     fireRate: 5.5
 # ADT-Tweak start
-    minAngle: 6 # ADT-Tweak 1 -> 6
-    maxAngle: 15 # ADT-Tweak 6 -> 15
+    minAngle: 1 # ADT-Tweak 1 -> 6
+    maxAngle: 6 # ADT-Tweak 6 -> 15 # SD-tweak: return my fucking WT550 to its previous state
 # ADT-Tweak end
     angleIncrease: 1.5
     angleDecay: 6

@@ -23,8 +23,8 @@
     - Belt
   # - type: AmmoCounter #ADT-tweak: для русской рулетки
   # ADT-Tweak start
-  - type: RunAndGunSpreadModifier
-    modifyer: 0.1
+  #- type: RunAndGunSpreadModifier # SD-tweak
+  #  modifyer: 0.1 # SD-tweak
   - type: MeleeWeapon
     resetOnHandSelected: false
     attackRate: 1

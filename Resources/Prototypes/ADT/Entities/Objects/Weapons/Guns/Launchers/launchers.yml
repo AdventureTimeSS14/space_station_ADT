@@ -16,7 +16,7 @@
     - Back
     - suitStorage
   - type: AmmoCounter
-  - type: RunAndGunBlocker
+  # - type: RunAndGunBlocker # SD-Tweak: fuck immobility
   - type: Gun
     fireRate: 1
     projectileSpeed: 25
