@@ -9,6 +9,15 @@
 
 - type: entity
   parent: BaseFlatpack
+  id: ADTEnergyChemDispenserFlatpack
+  name: chem dispenser flatpack
+  description: A flatpack used for constructing a chem dispenser.
+  components:
+  - type: Flatpack
+    entity: EnergyChemDispenser
+
+- type: entity
+  parent: BaseFlatpack
   id: ADTChemMasterFlatpack
   name: chem master flatpack
   description: A flatpack used for constructing a chem dispenser.
