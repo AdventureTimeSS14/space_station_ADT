@@ -76,26 +76,24 @@ public sealed partial class StorageSystem : SharedStorageSystem
             if (!_tag.HasTag(entity, "Bottle"))
                 continue;
 
-            // Try to insert into ChemMaster bottle slots
-            for (int row = 0; row < 4; row++)
-            {
-                for (int col = 0; col < 5; col++)
-                {
-                    var i = row * 5 + col;
-                    var slotId = "bottleSlot" + i;
-
-                    if (_itemSlotsSystem.TryGetSlot(target, slotId, out var slot) && !slot.HasItem)
-                    {
-                        if (_itemSlotsSystem.TryInsert(target, slotId, entity, user))
-                        {
-                            // Success, break to next entity
-                            goto nextEntity;
-                        }
-                    }
-                }
-            }
-        nextEntity:;
+            TryInsertBottleIntoChemMaster(entity, target, user, targetComp);
         }
+    }
+
+    private bool TryInsertBottleIntoChemMaster(EntityUid entity, EntityUid target, EntityUid? user, ChemMasterComponent targetComp)
+    {
+        for (uint slotIndex = 0; slotIndex < targetComp.MaxBottles; slotIndex++)
+        {
+            var slotId = $"bottleSlot{slotIndex}";
+
+            if (_itemSlotsSystem.TryGetSlot(target, slotId, out var slot) && !slot.HasItem)
+            {
+                if (_itemSlotsSystem.TryInsert(target, slotId, entity, user))
+                    return true;
+            }
+        }
+
+        return false;
     }
     // ADT-TWeak End
 }
