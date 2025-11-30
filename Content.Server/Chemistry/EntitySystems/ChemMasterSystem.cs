@@ -9,6 +9,7 @@ using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Database;
 using Content.Shared.FixedPoint;
+using Content.Shared.Labels.EntitySystems;
 using Content.Shared.Storage;
 using JetBrains.Annotations;
 using Robust.Server.Audio;
@@ -21,7 +22,6 @@ using System.Linq;
 // ADT-Tweak-Start
 using Content.Shared.Whitelist;
 using Content.Shared.Tag;
-using Content.Shared.Labels.EntitySystems;
 // ADT-Tweak-End
 
 namespace Content.Server.Chemistry.EntitySystems
