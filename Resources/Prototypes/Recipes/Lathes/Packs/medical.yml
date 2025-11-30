@@ -23,6 +23,7 @@
   recipes:
   - Jug
   - ChemistryEmptyBottle01
+  - BoxBottle # ADT-Tweak
 ##  - ClothingEyesGlassesChemical
 
 - type: latheRecipePack
