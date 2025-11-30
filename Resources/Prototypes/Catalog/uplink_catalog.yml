@@ -1248,7 +1248,7 @@
   productEntity: ReinforcementRadioSyndicateNukeops
   icon: { sprite: Objects/Devices/communication.rsi, state: old-radio-nukeop }
   cost:
-    Telecrystal: 16 #ADT_Tweak - подкрепление стоит дешево, но поступает без своего аплинка
+    Telecrystal: 30 #ADT_Tweak - подкрепление стоит дешево, но поступает без своего аплинка # Helix-tweak: Вы чё блять охуели с ебаниной своей совсем??
   categories:
   - UplinkAllies
   conditions:

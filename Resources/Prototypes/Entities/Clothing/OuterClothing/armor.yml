@@ -327,10 +327,10 @@
     autoRecharge: true
     autoRechargeRate: 2
   - type: InjectorsBlocker  # ADT
-  # ADT-Tweak-Start
-  - type: ClothingGrantComponent
-    component:
-    - type: GrabProtection
+  # ADT-Tweak-Start # Helix-Tweak: Fuck you
+#  - type: ClothingGrantComponent
+#    component:
+#    - type: GrabProtection
   # ADT-Tweak-End
   - type: Item
     size: Normal
