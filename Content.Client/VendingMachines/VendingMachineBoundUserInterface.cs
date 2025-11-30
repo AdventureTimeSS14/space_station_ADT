@@ -1,3 +1,4 @@
+using Content.Client.ADT.VendingMachines.UI;
 using Content.Client.UserInterface.Controls;
 using Content.Client.VendingMachines.UI;
 using Content.Shared.VendingMachines;
@@ -10,7 +11,7 @@ namespace Content.Client.VendingMachines
     public sealed class VendingMachineBoundUserInterface : BoundUserInterface
     {
         [ViewVariables]
-        private VendingMachineMenu? _menu;
+        private FancyVendingMachineMenu? _menu; // ADT-tweak - новое меню
 
         [ViewVariables]
         private List<VendingMachineInventoryEntry> _cachedInventory = new();
@@ -23,16 +24,18 @@ namespace Content.Client.VendingMachines
         {
             base.Open();
 
-            _menu = new VendingMachineMenu();
+            _menu = new();  // ADT-tweak - новое меню
             var component = EntMan.GetComponent<VendingMachineComponent>(Owner); //ADT-Economy
             var system = EntMan.System<VendingMachineSystem>(); //ADT-Economy
             _cachedInventory = system.GetAllInventory(Owner, component); //ADT-Economy
             _menu.Title = EntMan.GetComponent<MetaDataComponent>(Owner).EntityName;
 
-            _menu.OnClose += Close; //ADT-Economy
-            _menu.OnItemCountSelected += OnItemSelected;    // ADT vending eject count
-            _menu.OnWithdraw += SendMessage; //ADT-Economy
-            _menu.Populate(Owner, _cachedInventory, component.PriceMultiplier, component.Credits); //ADT-Economy-Tweak
+            // ADT-tweak-start
+            _menu.OnClose += Close;
+            _menu.OnItemSelected += OnItemSelected;
+            _menu.OnWithdraw += () => SendMessage(new VendingMachineWithdrawMessage());
+            _menu.Populate(Owner, _cachedInventory, component.PriceMultiplier, component.Credits);
+            // ADT-tweak-end
 
             _menu.OpenCentered();
         }
@@ -62,9 +65,9 @@ namespace Content.Client.VendingMachines
             _menu?.Populate(Owner, _cachedInventory, newState.PriceMultiplier, newState.Credits); //ADT-Economy-Tweak
         }
 
-        private void OnItemSelected(VendingMachineInventoryEntry entry, VendingMachineItem item)
+        private void OnItemSelected(VendingMachineInventoryEntry entry)
         {
-            SendPredictedMessage(new VendingMachineEjectCountMessage(entry, item.Count.SelectedId + 1));
+            SendPredictedMessage(new VendingMachineEjectCountMessage(entry, 1));
         }
 
         // END-ADT-TWEAK
@@ -97,7 +100,7 @@ namespace Content.Client.VendingMachines
             if (_menu == null)
                 return;
 
-            _menu.OnItemCountSelected -= OnItemSelected;    // ADT vending eject count
+            _menu.OnItemSelected -= OnItemSelected;    // ADT vending eject count
             _menu.OnClose -= Close;
             _menu.Dispose();
         }
