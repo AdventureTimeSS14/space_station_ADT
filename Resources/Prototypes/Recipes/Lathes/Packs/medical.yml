@@ -101,5 +101,12 @@
   - StasisBedMachineCircuitboard
   - BiomassReclaimerMachineCircuitboard
 ##- CryoPodMachineCircuitboard
-  - ADTMedicalAssemblerMachineCircuitBoard # ADT-Tweak
-  - EnergyChemDispenserMachineCircuitboard # ADT-Tweak
+  # ADT-Tweak-Start
+  - ADTMedicalAssemblerMachineCircuitBoard
+  - EnergyChemDispenserMachineCircuitboard
+  - ChemMasterMachineCircuitboard
+  - HotplateMachineCircuitboard
+  - CloningPodMachineCircuitboard
+  - CloningConsoleComputerCircuitboard
+  - MedicalScannerMachineCircuitboard
+  # ADT-Tweak-End
