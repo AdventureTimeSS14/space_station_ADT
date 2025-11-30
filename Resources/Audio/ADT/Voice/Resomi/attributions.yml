@@ -12,3 +12,18 @@
   license: "CC-BY-NC-SA-3.0"
   copyright: "Taken from the Corvax Next. Made by github user: https://github.com/pofitlo-Git with permission"
   source: "https://github.com/space-syndicate/space-station-14-next/pull/116"
+
+- files: ["resomi_hiss"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "Taken from the Pixabay site. Made by user: Yacob_l"
+  source: "https://pixabay.com/sound-effects/owls-hiss-56831"
+
+- files: ["resomi_chirps"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "Taken from the FreeSound site. Made by user: qubodup"
+  source: "https://freesound.org/people/qubodup/sounds/812027"
+
+- files: ["resomi_coos"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "Taken from the Pixabay site. Made by user: Kuzu420"
+  source: "https://pixabay.com/sound-effects/small-creature-270041"

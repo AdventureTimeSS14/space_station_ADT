@@ -1,6 +1,7 @@
 # Setups
 - type: dungeonConfig
   id: Experiment
+  sizeTag: MediumMagnetTargets #ADT-Tweak-MagnetUpdate
   layers:
   - !type:PrefabDunGen
     roomWhitelist:
@@ -77,6 +78,7 @@
 
 - type: dungeonConfig
   id: Haunted
+  sizeTag: MediumMagnetTargets #ADT-Tweak-MagnetUpdate
   layers:
   - !type:PrefabDunGen
     presets:
@@ -104,6 +106,7 @@
 
 - type: dungeonConfig
   id: LavaBrig
+  sizeTag: MediumMagnetTargets #ADT-Tweak-MagnetUpdate
   layers:
   - !type:PrefabDunGen
     roomWhitelist:
@@ -180,6 +183,7 @@
 
 - type: dungeonConfig
   id: Mineshaft
+  sizeTag: MediumMagnetTargets #ADT-Tweak-MagnetUpdate
   layers:
   - !type:PrefabDunGen
     roomWhitelist:
@@ -236,6 +240,7 @@
 
 - type: dungeonConfig
   id: SnowyLabs
+  sizeTag: MediumMagnetTargets #ADT-Tweak-MagnetUpdate
   layers:
   - !type:PrefabDunGen
     roomWhitelist:

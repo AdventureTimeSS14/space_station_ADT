@@ -17,6 +17,12 @@
     path: /Audio/ADT/Jukebox/space_asshole_mono_jukebox.ogg
 
 - type: jukebox
+  id: phoenixright
+  name: Noriyuki Iwadare - Corner the Culprit
+  path:
+    path: /Audio/ADT/Lobby/Pursuit_Corner_the_Culprit_2004.ogg
+
+- type: jukebox
   id: HotlineDaisuke
   name: Hotline Miami - Daisuke
   path:
@@ -71,6 +77,12 @@
     path: /Audio/ADT/Jukebox/lateraligator.ogg
 
 - type: jukebox
+  id: SCMJ
+  name: Smooth Criminal - Michael Jackson
+  path:
+    path: /Audio/ADT/Jukebox/SCMJ.ogg
+
+- type: jukebox
   id: ESCPMidnightRoom
   name: < e s c p > - Midnight Room
   path:
@@ -107,10 +119,28 @@
     path: /Audio/ADT/Jukebox/HM_Paris.ogg
 
 - type: jukebox
+  id: Oh_Its_You
+  name: Oh Its You - Pascal Michael Stiefel
+  path:
+    path: /Audio/ADT/Lobby/Oh_Its_You.ogg
+
+- type: jukebox
   id: Hotline2Sexualizer
   name: Hotline Miami 2 - Sexualizer
   path:
     path: /Audio/ADT/Jukebox/HM2_Sexualizer.ogg
+
+- type: jukebox
+  id: EOFTTS
+  name: Eye Of The Tiger - Survivor
+  path:
+    path: /Audio/ADT/Jukebox/EOFTTS.ogg
+
+- type: jukebox
+  id: EWTRTWTFF
+  name: Everybody Wants To Rule The World - Tears For Fears
+  path:
+    path: /Audio/ADT/Jukebox/EWTRTWTFF.ogg
 
 - type: jukebox
   id: TheFallOfTheCorporation
@@ -123,6 +153,72 @@
   name: Conjurerq - Waiting for the meeting
   path:
     path: /Audio/ADT/Jukebox/Waiting_for_the_meeting.ogg
+
+- type: jukebox
+  id: TidalTempestPresent
+  name: Spencer Nilsen, David Young - Tidal Tempest Zone Present (Sonic CD)
+  path:
+    path: /Audio/ADT/Lobby/Tidal_Tempest_Zone_Present_US_Sonic_The_Hedgehog_CD.ogg
+
+- type: jukebox
+  id: MetallicMadnessBadFuture
+  name: DiabolosPheonix - Metallic Madness Bad Future [JP EU] (Sonic CD)
+  path:
+    path: /Audio/ADT/Lobby/Sonic_CD_Metallic_Madness_Bad_Future_[JP_EU].ogg
+
+- type: jukebox
+  id: MetallicMadnessBadFutureRemix
+  name: Kamex - Metallic Madness Bad Future JP Remix (Sonic CD) # Если что разрешения он не давал. Так что будьте готовы это убрать или скажите мне. (Визарды дали разрешение без лицензии добавлять, если не будет доёбов)
+  path:
+    path: /Audio/ADT/Lobby/Kamex_Sonic_CD-Metallic_Madness_Bad_Future_JP_Remix.ogg
+
+- type: jukebox
+  id: MetallicMadnessAct2
+  name: Tee Lopes, Naofumi Hataya - Metallic Madness Act 2 (Sonic Mania)
+  path:
+    path: /Audio/ADT/Lobby/Sonic_Mania-Metallic_Madness_Act_2.ogg
+
+- type: jukebox
+  id: CollisionChaosGood
+  name: Naofumi Hataya; Masafumi Ogata - Collision Chaos Good Future (Sonic the Hedgehog CD)
+  path:
+    path: /Audio/ADT/Lobby/Sonic_The_Hedgehog_CD_Naofumi_Hataya_Masafumi_Ogata-Collision_Chaos_Good_Future.ogg
+
+- type: jukebox
+  id: MetallicMadnessPresent
+  name: Naofumi Hataya; Masafumi Ogata - Metallic Madness Present (Sonic the Hedgehog CD)
+  path:
+    path: /Audio/ADT/Lobby/Sonic_The_Hedgehog_CD_Naofumi_Hataya_Masafumi_Ogata-Metallic_Madness_Present.ogg
+
+- type: jukebox
+  id: PalmtreePanicPast
+  name: Naofumi Hataya; Masafumi Ogata - PalmtreePanicPast (Sonic the Hedgehog CD)
+  path:
+    path: /Audio/ADT/Lobby/Sonic_The_Hedgehog_CD_Naofumi_Hataya_Masafumi_Ogata-Palmtree_Panic_Past.ogg
+
+- type: jukebox
+  id: QuartzQuadrantPast
+  name: Naofumi Hataya; Masafumi Ogata - QuartzQuadrantPast (Sonic the Hedgehog CD)
+  path:
+    path: /Audio/ADT/Lobby/Sonic_The_Hedgehog_CD_Naofumi_Hataya_Masafumi_Ogata-Quartz_Quadrant_Past.ogg
+
+- type: jukebox
+  id: SuperSonicRacing
+  name: Richard Jacques - Super Sonic Racing (Sonic R.; Sega)
+  path:
+    path: /Audio/ADT/Lobby/Super_Sonic_Racing.ogg
+
+- type: jukebox
+  id: TidalTempestJPRemix
+  name: MegaBaz - Tidal Tempest JP Remix (Sonic the Hedgehog CD)
+  path:
+    path: /Audio/ADT/Lobby/Tidal_Tempest_Sonic_CD_JP.ogg
+
+- type: jukebox
+  id: WereFinallyLanding
+  name: Home - We're Finally Landing
+  path:
+    path: /Audio/ADT/Lobby/Home_-_Were_Finally_Landing.ogg
 
 # START 9 МАЯ
 # - type: jukebox
@@ -192,6 +288,7 @@
 #   name: Alex Productions - Christmas Countdown
 #   path:
 #     path: /Audio/ADT/Jukebox/NewYear/alex-productions-christmas-countdown-deck-the-halls.ogg
+
 
 # - type: jukebox
 #   id: AlexProductionsChristmasIsComing
