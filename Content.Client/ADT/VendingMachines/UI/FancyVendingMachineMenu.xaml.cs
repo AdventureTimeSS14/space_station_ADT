@@ -28,6 +28,11 @@ public sealed partial class FancyVendingMachineMenu : FancyWindow
 
     private double _priceMultiplier = 1;
 
+    public Color ButtonBorderColor = Color.FromHex("#4972A1");
+    public Color ButtonBaseColor = Color.FromHex("#141F2F");
+    public Color ButtonHoveredColor = Color.FromHex("#4972A1");
+    public Color ButtonDisabledColor = Color.FromHex("#3f3f3fff");
+
     public FancyVendingMachineMenu()
     {
         RobustXamlLoader.Load(this);
@@ -66,6 +71,14 @@ public sealed partial class FancyVendingMachineMenu : FancyWindow
     {
         _cachedItems.Clear();
         _priceMultiplier = _entityManager.GetComponentOrNull<VendingMachineComponent>(entityUid)?.AllForFree ?? true ? 0 : priceMultiplier;
+
+        if (_entityManager.TryGetComponent<VendingMachineComponent>(entityUid, out var comp))
+        {
+            ButtonBaseColor = comp.UiButtonBaseColor;
+            ButtonBorderColor = comp.UiButtonBorderColor;
+            ButtonHoveredColor = comp.UiButtonHoveredColor;
+            ButtonDisabledColor = comp.UiButtonDisabledColor;
+        }
 
         CreditsLabel.Text = Loc.GetString("vending-ui-credits-amount", ("credits", credits));
         WithdrawButton.Disabled = credits == 0;
@@ -116,6 +129,8 @@ public sealed partial class FancyVendingMachineMenu : FancyWindow
         {
             var price = (int)(item.Entry.Price * _priceMultiplier);
             var listItem = new FancyVendingMachineItem(item.Entry.ID, item.Name, (int)item.Entry.Amount, price);
+            listItem.SetColoring(ButtonBaseColor, ButtonBorderColor, ButtonHoveredColor, ButtonDisabledColor);
+
             listItem.BuyPressed += () => OnItemSelected?.Invoke(item.Entry);
 
             VendingContents.AddChild(listItem);

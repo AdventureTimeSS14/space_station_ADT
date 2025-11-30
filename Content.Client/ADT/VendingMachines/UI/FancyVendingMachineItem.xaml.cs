@@ -27,4 +27,13 @@ public sealed partial class FancyVendingMachineItem : BoxContainer
         var priceText = price <= 0 ? Loc.GetString("vending-machine-ui-price-free") : Loc.GetString("vending-machine-ui-price", ("price", price));
         CostLabel.SetMarkup(priceText);
     }
+
+    public void SetColoring(Color baseColor, Color border, Color hover, Color disabled)
+    {
+        BuyButton.Color = baseColor;
+        BuyButton.BorderColor = border;
+        BuyButton.HoveredColor = hover;
+        BuyButton.DisabledColor = disabled;
+        BuyButton.UpdateColor();
+    }
 }
