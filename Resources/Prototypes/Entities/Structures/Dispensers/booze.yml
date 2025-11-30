@@ -34,17 +34,17 @@
   components:
   - type: StorageFill
     contents:
-    # ADT-Tweak-Start
-    - id: ADTDrinkAleCanister
-    - id: ADTDrinkBeerCanister
-    - id: ADTDrinkCoffeeLiqueurCanister
-    - id: ADTDrinkCognacCanister
-    - id: ADTDrinkGinCanister
-    - id: ADTDrinkMeadCanister
-    - id: ADTDrinkRumCanister
-    - id: ADTDrinkTequilaCanister
-    - id: ADTDrinkVermouthCanister
-    - id: ADTDrinkVodkaCanister
-    - id: ADTDrinkWhiskeyCanister
-    - id: ADTDrinkWineCanister
+    # ADT-Tweak-Start Вернул на места бутылки. Ничего не менял
+    - id: DrinkAleBottleFullGrowler
+    - id: DrinkBeerGrowler
+    - id: DrinkCoffeeLiqueurBottleFull
+    - id: DrinkCognacBottleFull
+    - id: DrinkGinBottleFull
+    - id: DrinkMeadJug
+    - id: DrinkRumBottleFull
+    - id: DrinkTequilaBottleFull
+    - id: DrinkVermouthBottleFull
+    - id: DrinkVodkaBottleFull
+    - id: DrinkWhiskeyBottleFull
+    - id: DrinkWineBottleFull
     # ADT-Tweak-End

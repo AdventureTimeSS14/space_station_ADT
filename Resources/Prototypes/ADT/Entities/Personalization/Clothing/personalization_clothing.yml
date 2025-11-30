@@ -733,6 +733,18 @@
           - ADTSyrelBattleAxe
   - type: Appearance
 
+- type: entity
+  parent: ADTSponsorClothingUniformBase
+  id: ADTClothingUniformSensors
+  name: sensors
+  description: sensors
+  suffix: Sponsor, Syrel
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/syrel_sensors.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/syrel_sensors.rsi
+
 #cherreshnia (она же Ума)
 - type: entity
   parent: ADTSponsorClothingUniformBase
@@ -1146,6 +1158,18 @@
   - type: Clothing
     sprite: ADT/Personalization/kiwi_jumpskirt.rsi
 
+- type: entity
+  parent: ADTSponsorClothingHeadBase
+  id: ADTClothingHeadFeatherHairpin
+  name: feather hairpin
+  suffix: Personal, kiwi_fruit
+  description: feather hairpin
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/feather_hairpin.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/feather_hairpin.rsi
+
 #Sir_talter
 - type: entity
   parent: [ClothingOuterArmorBasic, BadgeOnClothing]
@@ -1349,3 +1373,51 @@
     # - CorgiWearable
     - HelmetEVA
     # - WhitelistChameleon
+
+#luckyrat
+- type: entity
+  parent: ADTSponsorClothingUniformBase
+  id: ADTClothingUniformLuckyrat
+  name: captain of bar suit
+  description: captain of bar suit
+  suffix: Personal, luckyrat
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/luckyrat/luckyrat_uniform.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/luckyrat/luckyrat_uniform.rsi
+
+- type: entity
+  parent: ADTSponsorClothingNeckBase
+  id: ADTClothingNeckLuckyratCloak
+  name: captain of bar cloak
+  description: captain of bar cloak
+  suffix: Personal, luckyrat
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/luckyrat/luckyrat_cloak.rsi
+
+- type: entity
+  parent: ADTSponsorClothingHeadBase
+  id: ADTClothingHeadHatsLuckyrat
+  name: captain of bar cylinder
+  description: captain of bar cylinder
+  suffix: Personal, luckyrat
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/luckyrat/luckyrat_hat.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/luckyrat/luckyrat_hat.rsi
+
+- type: entity
+  parent: ADTSponsorClothingShoesBase
+  id: ADTClothingShoesLuckyrat
+  name: captain of bar shoes
+  description: captain of bar shoes
+  suffix: Personal, luckyrat
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/luckyrat/luckyrat_boots.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/luckyrat/luckyrat_boots.rsi
+  - type: Matchbox

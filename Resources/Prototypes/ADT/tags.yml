@@ -188,12 +188,6 @@
   id: ADTPenguinToy
 
 - type: Tag
-  id: ADTGoldCandle
-
-- type: Tag
-  id: ADTSilverCandle
-
-- type: Tag
   id: ADTArmorSacrafice
 
 - type: Tag
@@ -501,6 +495,9 @@
   id: ADTVoxEmotes
 
 - type: Tag
+  id: ADTResomiEmotes
+
+- type: Tag
   id: ADTSlimeEmotes
 
 - type: Tag
@@ -660,6 +657,24 @@
   id: ADTSheet
 
 - type: Tag
+  id: ClothingShoesSkates
+
+- type: Tag
+  id: ADTBureaucraticBelt
+
+- type: Tag
+  id: ClothingBeltJanitor
+
+- type: Tag
+  id: ADTEftpos
+
+- type: Tag
+  id: ADTSheetPaper
+
+- type: Tag
+  id: ADTMicroManipulatorStockPart
+
+- type: Tag
   id: ADTCarvedPumpkin
 
 - type: Tag
@@ -670,6 +685,9 @@
 
 - type: Tag
   id: FoodCondimentPacketBbq
+
+- type: Tag
+  id: ADTZeroKatana
 
 - type: Tag
   id: VoxFood

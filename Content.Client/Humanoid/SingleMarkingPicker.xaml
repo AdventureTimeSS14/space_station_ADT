@@ -13,13 +13,13 @@
 
     <!-- Item list -->
     <BoxContainer Name="MarkingSelectorContainer" Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True">
-        <ScrollContainer MinHeight="500" VerticalExpand="True" HorizontalExpand="True">
+        <ScrollContainer VerticalExpand="True" HorizontalExpand="True">  <!-- ADT tweak - removed MinHeight="500" -->
             <ItemList Name="MarkingList" VerticalExpand="True" />
         </ScrollContainer>
 
         <!-- Color sliders -->
-        <ScrollContainer MinHeight="200" HorizontalExpand="True">
-            <BoxContainer Name="ColorSelectorContainer" HorizontalExpand="True" />
+        <ScrollContainer Name="ColorScroll" MinHeight="200" HorizontalExpand="True">    <!-- ADT tweak - name added -->
+            <BoxContainer Name="ColorSelectorContainer" HorizontalExpand="True" Access="Public" />  <!-- ADT tweak - public access -->
         </ScrollContainer>
     </BoxContainer>
 </BoxContainer>

@@ -112,7 +112,7 @@
         - !type:SnapToGrid
           southRotation: true
         steps:
-        - tag: MicroManipulatorStockPart
+        - tag: ADTMicroManipulatorStockPart
           name: construction-graph-tag-micro-manipulator
           icon:
             sprite: Objects/Misc/stock_parts.rsi
