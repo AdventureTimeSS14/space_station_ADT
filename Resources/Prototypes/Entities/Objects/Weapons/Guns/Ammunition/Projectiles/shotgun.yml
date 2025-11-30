@@ -15,6 +15,7 @@
       types:
         Piercing: 40
         Structural: 25 #ADT tweak 15 -> 25
+      armorPenetration: 0.25
 
 
 - type: entity
@@ -53,6 +54,7 @@
       types:
         Piercing: 10
         Structural: 15
+      armorPenetration: -0.25
 
 
 - type: entity
@@ -249,6 +251,7 @@
       types:
         Radiation: 5
         Piercing: 5
+      armorPenetration: 0.25
 
 - type: entity
   id: PelletShotgunUraniumSpread

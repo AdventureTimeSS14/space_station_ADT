@@ -32,6 +32,7 @@
         Piercing: 39 #ADT tweak
         # Blunt: 3 ADT tweak
         # Heat: 32 ADT tweak
+      armorPenetration: -0.25
 
 - type: entity
   id: BulletMagnumAP

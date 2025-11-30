@@ -87,6 +87,7 @@
     damage:
       types:
         Slash: 17 #cmon, it has to be at least BETTER than the rest.
+      armorPenetration: 0.25
     soundHit:
         path: /Audio/Weapons/bladeslice.ogg
   - type: Reflect
@@ -123,6 +124,7 @@
     damage:
       types:
         Slash: 15
+      armorPenetration: 0.25
     soundHit:
         path: /Audio/Weapons/bladeslice.ogg
   - type: Item
@@ -151,6 +153,7 @@
     damage:
       types:
         Slash: 30
+      armorPenetration: 0.25
   - type: Item
     storedSprite:
       state: storage
@@ -186,6 +189,7 @@
     damage:
       types:
         Slash: 20
+      armorPenetration: 0.25
     soundHit:
         path: /Audio/Weapons/bladeslice.ogg
   - type: Item

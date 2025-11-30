@@ -43,6 +43,7 @@
         Slash: 15
         Heat: 15
         Structural: 20
+      armorPenetration: 0.25
   - type: MeleeWeapon
     wideAnimationRotation: -135
     attackRate: 1
@@ -141,6 +142,7 @@
         types:
             Slash: 10
             Heat: 10
+        armorPenetration: 0.25
     deactivatedSecret: true
   - type: ItemToggleActiveSound
     activeSound:
@@ -211,6 +213,7 @@
       types:
         Slash: 10
         Heat: 10
+      armorPenetration: 0.25
   - type: ComponentToggler
     components:
     - type: Sharp
@@ -350,6 +353,7 @@
             Slash: 12
             Heat: 12
             Structural: 15
+        armorPenetration: 0.25
   - type: ItemToggleActiveSound
     activeSound:
       path: /Audio/Weapons/ebladehum.ogg

@@ -8,6 +8,7 @@
     damage:
       types:
         Piercing: 19
+      armorPenetration: 0.35
 
 - type: entity
   id: BulletLightRiflePractice
@@ -44,3 +45,4 @@
       types:
         Radiation: 9
         Piercing: 10
+      armorPenetration: 0.4

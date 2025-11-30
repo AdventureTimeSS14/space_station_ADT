@@ -710,7 +710,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
             RaiseLocalEvent(entity, attackedEvent);
             var modifiedDamage = DamageSpecifier.ApplyModifierSets(damage + hitEvent.BonusDamage + attackedEvent.BonusDamage, hitEvent.ModifiersList);
 
-            var damageResult = Damageable.TryChangeDamage(entity, modifiedDamage, origin: user, ignoreResistances: resistanceBypass);
+            var damageResult = Damageable.TryChangeDamage(entity, modifiedDamage, origin:user);
 
             if (damageResult != null && damageResult.GetTotal() > FixedPoint2.Zero)
             {

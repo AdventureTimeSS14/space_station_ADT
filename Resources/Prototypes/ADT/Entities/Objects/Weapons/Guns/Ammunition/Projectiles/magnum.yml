@@ -37,6 +37,7 @@
     damage:
       types:
         Piercing: 35
+      armorPenetration: -0.25
 
 - type: entity
   id: ADTBulletMagnumLesserPractice

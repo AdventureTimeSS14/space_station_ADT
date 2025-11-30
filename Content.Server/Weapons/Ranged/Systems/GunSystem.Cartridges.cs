@@ -25,6 +25,14 @@ public sealed partial class GunSystem
             return;
 
         _damageExamine.AddDamageExamine(args.Message, Damageable.ApplyUniversalAllModifiers(damageSpec), Loc.GetString("damage-projectile"));
+
+        // Goobstation - partial armor penetration
+        var ap = GetProjectilePenetration(component.Prototype);
+        if (ap == 0)
+            return;
+
+        var abs = Math.Abs(ap);
+        args.Message.AddMarkupPermissive("\n" + Loc.GetString("armor-penetration", ("arg", ap/abs), ("abs", abs)));
     }
 
     private DamageSpecifier? GetProjectileDamage(string proto)
@@ -57,4 +65,16 @@ public sealed partial class GunSystem
             args.PushMarkup(Loc.GetString("gun-cartridge-unspent"));
         }
     }
+    // Goobstation start - partial armor penetration
+    private int GetProjectilePenetration(string proto)
+    {
+        if (!ProtoManager.TryIndex<EntityPrototype>(proto, out var entityProto)
+            || !entityProto.Components.TryGetValue(Factory.GetComponentName<ProjectileComponent>(), out var projectile))
+            return 0;
+
+        var p = (ProjectileComponent) projectile.Component;
+
+        return p.IgnoreResistances ? 100 : (int)Math.Round(p.Damage.ArmorPenetration * 100);
+    }
+    // Goobstation end
 }

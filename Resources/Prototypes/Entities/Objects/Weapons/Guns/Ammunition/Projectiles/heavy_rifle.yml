@@ -8,6 +8,7 @@
     damage:
       types:
         Piercing: 19
+      armorPenetration: 0.25
 
 - type: entity
   id: BulletMinigun

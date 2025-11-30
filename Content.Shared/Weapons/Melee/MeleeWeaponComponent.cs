@@ -172,6 +172,7 @@ public sealed partial class MeleeWeaponComponent : Component
     [DataField]
     public int ShovesToDisarm = 3;
     // ADT Disarm tweak end
+
 }
 
 /// <summary>

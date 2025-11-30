@@ -15,6 +15,7 @@
     damage:
       types:
         Slash: 17.5
+      armorPenetration: 0.25
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
   - type: Item

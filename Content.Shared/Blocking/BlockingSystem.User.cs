@@ -53,7 +53,7 @@ public sealed partial class BlockingSystem
 
             var blockFraction = blocking.IsBlocking ? blocking.ActiveBlockFraction : blocking.PassiveBlockFraction;
             blockFraction = Math.Clamp(blockFraction, 0, 1);
-            _damageable.TryChangeDamage(component.BlockingItem, blockFraction * args.OriginalDamage);
+            _damageable.TryChangeDamage(component.BlockingItem, blockFraction * args.OriginalDamage); // Helix-edit
 
             var modify = new DamageModifierSet();
             foreach (var key in dmgComp.Damage.DamageDict.Keys)
@@ -78,7 +78,7 @@ public sealed partial class BlockingSystem
             return;
         }
 
-        args.Damage = DamageSpecifier.ApplyModifierSet(args.Damage, modifier);
+        args.Damage = DamageSpecifier.ApplyModifierSet(args.Damage, DamageSpecifier.PenetrateArmor(modifier, args.OriginalDamage.ArmorPenetration));
     }
 
     private void OnEntityTerminating(EntityUid uid, BlockingUserComponent component, ref EntityTerminatingEvent args)

@@ -38,6 +38,14 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
             return;
 
         _damageExamine.AddDamageExamine(args.Message, Damageable.ApplyUniversalAllModifiers(damageSpec), Loc.GetString("damage-melee"));
+
+        // Goobstation - partial armor penetration
+        var ap = component.ResistanceBypass ? 100 : (int)Math.Round(damageSpec.ArmorPenetration * 100);
+        if (ap == 0)
+            return;
+
+        var abs = Math.Abs(ap);
+        args.Message.AddMarkupPermissive("\n" + Loc.GetString("armor-penetration", ("arg", ap/abs), ("abs", abs)));
     }
 
     protected override bool ArcRaySuccessful(EntityUid targetUid,
