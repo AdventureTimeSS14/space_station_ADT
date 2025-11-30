@@ -141,11 +141,11 @@
     - map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
       state: glow
       shader: unshaded
-  # Start ADT tweak
+  # ADT-Tweak-Start
   - type: NpcFactionMember
     factions:
     - ADTSpaceMobs
-  # End ADT tweak
+  # ADT-Tweak-End
   - type: MeleeWeapon
     soundHit:
         path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
@@ -251,7 +251,7 @@
       types:
         Piercing: 6
         Poison: 4
-  # ADT-Tweak Start
+  # ADT-Tweak-Start
   - type: SolutionContainerManager
     solutions:
       melee:
@@ -270,7 +270,7 @@
   - type: MeleeChemicalInjector
     solution: melee
     transferAmount: 2
-  # ADT-Tweak End
+  # ADT-Tweak-End
   - type: ReplacementAccent
     accent: xeno
   - type: InteractionPopup
@@ -342,11 +342,11 @@
         - id: ClothingShoesSnakeskinBoots
           amount: 1
           prob: 0.3
-  # ADT-Tweak Start
+  # ADT-Tweak-Start
     - type: NpcFactionMember
       factions:
         - ADTSpaceMobs
-  # ADT-Tweak End
+  # ADT-Tweak-End
     - type: Bloodstream
       bloodMaxVolume: 200
       bloodReagent: Cryoxadone
@@ -396,7 +396,7 @@
     - type: StealthOnMove
       passiveVisibilityRate: -0.25
       movementVisibilityRate: 0.25
-    - type: SupermatterIgnore # ADT tweak
+    - type: SupermatterIgnore # ADT-tweak
 
 - type: entity
   id: MobCobraSpaceSalvage
@@ -551,7 +551,7 @@
         visualType: Large
         messages: [ "snail-hurt-by-salt-popup" ]
         probability: 0.66
-  - type: SupermatterIgnore # ADT tweak
+  - type: SupermatterIgnore # ADT-tweak
 
 - type: entity
   parent: MobSnail
