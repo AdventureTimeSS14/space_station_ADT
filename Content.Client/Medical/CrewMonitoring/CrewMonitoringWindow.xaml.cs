@@ -134,7 +134,7 @@ public sealed partial class CrewMonitoringWindow : FancyWindow
                 Margin = new Thickness(10, 0),
                 HorizontalExpand = true,
             };
-            helpLabel.SetMessage("crew-monitoring-user-interface-need-help");
+            helpLabel.SetMessage(Loc.GetString("crew-monitoring-user-interface-need-help"));
             helpLabel.StyleClasses.Add(StyleNano.StyleClassTooltipActionDescription);
             SensorsTable.AddChild(helpLabel);
 
