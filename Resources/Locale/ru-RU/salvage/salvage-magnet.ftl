@@ -19,6 +19,10 @@ salvage-magnet-resources =
         [OreArtifactFragment] Фрагменты артефактов
         [OreBananium] Бананиум
         [OreSalt] Соль
+        [ADTOreBS] Блюспейс руда
+        [ADTOreCopper] Медная руда
+        [ADTOreZinc] Цинковая руда
+        [ADTOreLead] Свинцовая руда
        *[other] { $resource }
     }
 salvage-magnet-resources-count =
