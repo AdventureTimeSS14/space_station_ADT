@@ -7,7 +7,7 @@
 - type: hudTheme
   id: SS14DetectiveTheme
   name: ui-options-hud-theme-detective
-  path: Detective
+  path: /Textures/ADT/Interface/detective/
   order: 8
 
 - type: hudTheme
