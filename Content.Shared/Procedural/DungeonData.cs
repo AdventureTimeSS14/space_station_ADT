@@ -1,3 +1,4 @@
+// ADT Tweak start : возращение астероидов
 using System.Linq;
 using Content.Shared.Maps;
 using Content.Shared.Storage;
@@ -103,3 +104,4 @@ public enum DungeonDataKey : byte
     // Whitelists
     Rooms,
 }
+// ADT Tweak end : возращение астероидов
