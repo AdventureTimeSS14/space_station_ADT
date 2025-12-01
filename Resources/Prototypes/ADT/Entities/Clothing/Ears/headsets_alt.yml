@@ -8,8 +8,6 @@
   - type: Clothing
     sprite: ADT/Clothing/Ears/Headsets/blueshield.rsi
 
-# ADT-Tweak-Start
-
 - type: entity
   abstract: true
   parent: ClothingHeadsetAlt
@@ -18,5 +16,3 @@
   - type: Loudspeaker
     canToggle: true
     affectRadio: true
-
-# ADT-Tweak-end

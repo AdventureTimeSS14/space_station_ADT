@@ -107,7 +107,7 @@ public sealed class RadioSystem : EntitySystem
         else
             speech = _chat.GetSpeechVerb(messageSource, message);
 
-        // --- Loudspeaker begin ---
+        // ADT-tweak-start
         int? loudSpeakFont = null;
 
         var getLoudspeakerEv = new GetLoudspeakerEvent();
@@ -127,7 +127,7 @@ public sealed class RadioSystem : EntitySystem
                 }
             }
         }
-// --- Loudspeaker end ---
+// ADT-Tweak-end
 
         var content = escapeMarkup
             ? FormattedMessage.EscapeText(message)

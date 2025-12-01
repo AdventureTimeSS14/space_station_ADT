@@ -27,7 +27,7 @@
     sprite: Clothing/Ears/Headsets/cargo.rsi
 
 - type: entity
-  parent: ADTClothingHeadsetAltLoudspeaker
+  parent: ADTClothingHeadsetAltLoudspeaker # ADT-Tweak: добавлен громкоговоритель
   id: ClothingHeadsetAltCentCom
   name: CentComm over-ear headset
   components:
@@ -42,7 +42,7 @@
     sprite: Clothing/Ears/Headsets/centcom.rsi
 
 - type: entity
-  parent: [ADTClothingHeadsetAltLoudspeaker, BaseCommandContraband]
+  parent: [ADTClothingHeadsetAltLoudspeaker, BaseCommandContraband] # ADT-Tweak: добавлен громкоговоритель
   id: ClothingHeadsetAltCommand
   name: command over-ear headset
   components:
@@ -56,7 +56,7 @@
     sprite: Clothing/Ears/Headsets/command.rsi
 
 - type: entity
-  parent: [ADTClothingHeadsetAltLoudspeaker, BaseCommandContraband]
+  parent: [ADTClothingHeadsetAltLoudspeaker, BaseCommandContraband] # ADT-Tweak: добавлен громкоговоритель
   id: ClothingHeadsetAltEngineering
   name: chief engineer's over-ear headset
   components:
@@ -72,7 +72,7 @@
     sprite: Clothing/Ears/Headsets/engineering.rsi
 
 - type: entity
-  parent: [ADTClothingHeadsetAltLoudspeaker, BaseCommandContraband]
+  parent: [ADTClothingHeadsetAltLoudspeaker, BaseCommandContraband] # ADT-Tweak: добавлен громкоговоритель
   id: ClothingHeadsetAltMedical
   name: chief medical officer's over-ear headset
   components:
@@ -90,7 +90,7 @@
     stealGroup: ClothingHeadsetAltMedical
 
 - type: entity
-  parent: [ADTClothingHeadsetAltLoudspeaker, BaseCommandContraband]
+  parent: [ADTClothingHeadsetAltLoudspeaker, BaseCommandContraband] # ADT-Tweak: добавлен громкоговоритель
   id: ClothingHeadsetAltSecurity
   name: head of security's over-ear headset
   components:
@@ -107,7 +107,7 @@
     sprite: Clothing/Ears/Headsets/security.rsi
 
 - type: entity
-  parent: [ADTClothingHeadsetAltLoudspeaker, BaseCommandContraband]
+  parent: [ADTClothingHeadsetAltLoudspeaker, BaseCommandContraband] # ADT-Tweak: добавлен громкоговоритель
   id: ClothingHeadsetAltScience
   name: research director's over-ear headset
   components:
@@ -158,7 +158,7 @@
       sprite: Clothing/Ears/Headsets/freelance.rsi
 
 - type: entity
-  parent: [ADTClothingHeadsetAltLoudspeaker, BaseMagicalContraband]
+  parent: [ADTClothingHeadsetAltLoudspeaker, BaseMagicalContraband] # ADT-Tweak: добавлен громкоговоритель
   id: ClothingHeadsetAltWizard
   name: wizard's over-ear headset
   components:
