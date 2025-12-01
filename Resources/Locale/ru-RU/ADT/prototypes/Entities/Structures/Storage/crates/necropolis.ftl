@@ -7,7 +7,7 @@ ent-ADTCrateNecropolisHeart = { ent-ADTCrateNecropolis }
 
 ent-ADTCrateNecropolisVavilon = { ent-ADTCrateNecropolis }
     .desc = { ent-ADTCrateNecropolis.desc }
-    .suffix = Книга вавилона, Лаваленд
+    .suffix = Вавилонская книга, Лаваленд
 
 ent-ADTCrateNecropolisVampirismCrystal = { ent-ADTCrateNecropolis }
     .desc = { ent-ADTCrateNecropolis.desc }
