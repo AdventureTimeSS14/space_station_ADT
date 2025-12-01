@@ -1,4 +1,5 @@
 using Robust.Shared.Prototypes;
+using Content.Shared.ADT.Procedural;
 
 namespace Content.Shared.Procedural;
 

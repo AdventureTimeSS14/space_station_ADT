@@ -6,7 +6,7 @@ using Content.Shared.Whitelist;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
-namespace Content.Shared.Procedural;
+namespace Content.Shared.ADT.Procedural;
 
 /// <summary>
 /// Used to set dungeon values for all layers.
