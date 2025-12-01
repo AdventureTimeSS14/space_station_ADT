@@ -279,7 +279,7 @@ namespace Content.Shared.Preferences
             // Corvax-TTS-Start
             var voiceId = random.Pick(prototypeManager
                 .EnumeratePrototypes<TTSVoicePrototype>()
-                .Where(o => CanHaveVoice(o, sex)).ToArray()
+                .Where(o => CanHaveVoice(o, sex, species)).ToArray() // ADT-Tweak
             ).ID;
             // Corvax-TTS-End
 
@@ -721,7 +721,7 @@ namespace Content.Shared.Preferences
 
             // Corvax-TTS-Start
             prototypeManager.TryIndex<TTSVoicePrototype>(Voice, out var voice);
-            if (voice is null || !CanHaveVoice(voice, Sex))
+            if (voice is null || !CanHaveVoice(voice, Sex, Species)) // ADT-Tweak
                 Voice = SharedHumanoidAppearanceSystem.DefaultSexVoice[sex];
             // Corvax-TTS-End
 
@@ -811,8 +811,16 @@ namespace Content.Shared.Preferences
 
         // Corvax-TTS-Start
         // SHOULD BE NOT PUBLIC, BUT....
-        public static bool CanHaveVoice(TTSVoicePrototype voice, Sex sex)
+        public static bool CanHaveVoice(TTSVoicePrototype voice, Sex sex, ProtoId<SpeciesPrototype> species)
         {
+            // ADT-Tweak-Start
+            if (voice.SpeciesBlacklist.Contains(species))
+                return false;
+
+            if (voice.SpeciesWhitelist.Count > 0 && !voice.SpeciesWhitelist.Contains(species))
+                return false;
+            // ADT-Tweak-End
+
             return voice.RoundStart && sex == Sex.Unsexed || (voice.Sex == sex || voice.Sex == Sex.Unsexed);
         }
         // Corvax-TTS-End
