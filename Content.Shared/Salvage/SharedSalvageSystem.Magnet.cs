@@ -17,9 +17,9 @@ public abstract partial class SharedSalvageSystem
 
     private readonly Dictionary<ISalvageMagnetOffering, float> _offeringWeights = new()
     {
-        { new AsteroidOffering(), 4.5f },  //ADT Tweak- returning of asteroid offering:3 BFUU
-        { new DebrisOffering(), 3.5f },
-        { new SalvageOffering(), 2.0f },
+        { new AsteroidOffering(), 2.5f },  //ADT Tweak- returning of asteroid offering:3 BFUU
+        { new DebrisOffering(), 4f },
+        { new SalvageOffering(), 3.5f },
     };
 
     private readonly List<ProtoId<DungeonConfigPrototype>> _asteroidConfigs = new() //ADT Tweak- returning of asteroid offering:3 BFUU

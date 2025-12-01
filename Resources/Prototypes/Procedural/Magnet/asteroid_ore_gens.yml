@@ -13,9 +13,9 @@
     OreBananium: 0.10
     #ADT Tweak start
     ADTOreBS: 0.10
-    ADTOreCopper: 0.10
-    ADTOreZinc: 0.10
-    ADTOreLead: 0.10
+    ADTOreCopper: 1.0
+    ADTOreZinc: 1.0
+    ADTOreLead: 0.5
     #ADT Tweak end
 
 - type: oreDunGen
