@@ -66,7 +66,8 @@ public sealed partial class CrewMonitoringWindow : FancyWindow
             TryToScrollToFocus();
     }
 
-    public void ShowSensors(List<SuitSensorStatus> sensors, EntityUid monitor, EntityCoordinates? monitorCoords, bool isEmagged) // ADT-Tweak
+    // ADT-Tweak-start (P4A) Обновление мониторинга. Категория "Нужна помощь"
+    public void ShowSensors(List<SuitSensorStatus> sensors, EntityUid monitor, EntityCoordinates? monitorCoords, bool isEmagged)
     {
         ClearOutDatedData();
 
@@ -78,7 +79,7 @@ public sealed partial class CrewMonitoringWindow : FancyWindow
         }
 
         NoServerLabel.Visible = false;
-        // ADT-Tweak-Start
+
         if (!isEmagged)
         {
             sensors = sensors.Where(s => s.Mode != SuitSensorMode.SensorOff).ToList();
@@ -97,7 +98,6 @@ public sealed partial class CrewMonitoringWindow : FancyWindow
                 }
             }
         }
-        // ADT-Tweak-End
 
         // Collect one status per user, using the sensor with the most data available.
         Dictionary<NetEntity, SuitSensorStatus> uniqueSensorsMap = new();
@@ -117,31 +117,46 @@ public sealed partial class CrewMonitoringWindow : FancyWindow
         }
         var uniqueSensors = uniqueSensorsMap.Values.ToList();
 
-        // Order sensor data
-        var orderedSensors = uniqueSensors.OrderBy(n => n.Name).OrderBy(j => j.Job);
+        // Отделяем критических и мертвых
+        var needsHelpSensors = uniqueSensors.Where(s => !s.IsAlive || (s.DamagePercentage != null && s.DamagePercentage.Value >= 0.8f)).ToList();
+        var otherSensors = uniqueSensors.Except(needsHelpSensors).ToList();
+
+        // Сначала добавляем департамент "Требуется помощь", если есть такие
+        if (needsHelpSensors.Any())
+        {
+            if (SensorsTable.ChildCount > 0)
+            {
+                SensorsTable.AddChild(new Control() { SetHeight = 20 });
+            }
+
+            var helpLabel = new RichTextLabel()
+            {
+                Margin = new Thickness(10, 0),
+                HorizontalExpand = true,
+            };
+            helpLabel.SetMessage("crew-monitoring-user-interface-need-help");
+            helpLabel.StyleClasses.Add(StyleNano.StyleClassTooltipActionDescription);
+            SensorsTable.AddChild(helpLabel);
+
+            PopulateDepartmentList(needsHelpSensors);
+        }
+        var orderedSensors = otherSensors.OrderBy(n => n.Name).OrderBy(j => j.Job);
         var assignedSensors = new HashSet<SuitSensorStatus>();
-        var departments = uniqueSensors.SelectMany(d => d.JobDepartments).Distinct().OrderBy(n => n);
+        var departments = otherSensors.SelectMany(d => d.JobDepartments).Distinct().OrderBy(n => n);
 
         // Create department labels and populate lists
         foreach (var department in departments)
         {
             var departmentSensors = orderedSensors.Where(d => d.JobDepartments.Contains(department));
 
-            if (departmentSensors == null || !departmentSensors.Any())
+            if (!departmentSensors.Any())
                 continue;
 
             foreach (var sensor in departmentSensors)
                 assignedSensors.Add(sensor);
 
             if (SensorsTable.ChildCount > 0)
-            {
-                var spacer = new Control()
-                {
-                    SetHeight = 20,
-                };
-
-                SensorsTable.AddChild(spacer);
-            }
+                SensorsTable.AddChild(new Control() { SetHeight = 20 });
 
             var deparmentLabel = new RichTextLabel()
             {
@@ -157,17 +172,12 @@ public sealed partial class CrewMonitoringWindow : FancyWindow
             PopulateDepartmentList(departmentSensors);
         }
 
-        // Account for any non-station users
+        // Любые оставшиеся пользователи без департамента
         var remainingSensors = orderedSensors.Except(assignedSensors);
 
         if (remainingSensors.Any())
         {
-            var spacer = new Control()
-            {
-                SetHeight = 20,
-            };
-
-            SensorsTable.AddChild(spacer);
+            SensorsTable.AddChild(new Control() { SetHeight = 20 });
 
             var deparmentLabel = new RichTextLabel()
             {
@@ -183,12 +193,13 @@ public sealed partial class CrewMonitoringWindow : FancyWindow
             PopulateDepartmentList(remainingSensors);
         }
 
-        // Show monitor on nav map
+        // Показываем монитор на карте
         if (monitorCoords != null && _blipTexture != null)
         {
             NavMap.TrackedEntities[_entManager.GetNetEntity(monitor)] = new NavMapBlip(monitorCoords.Value, _blipTexture, Color.Cyan, true, false);
         }
     }
+    // ADT-Tweak-end (P4A)
 
     private void PopulateDepartmentList(IEnumerable<SuitSensorStatus> departmentSensors)
     {
