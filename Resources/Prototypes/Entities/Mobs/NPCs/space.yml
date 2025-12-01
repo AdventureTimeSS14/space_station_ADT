@@ -8,11 +8,11 @@
   - type: HTN
     rootTask:
       task: SimpleHostileCompound
-# ADT-Tweak Start
+# ADT-tweak-start
 #  - type: NpcFactionMember
 #    factions:
 #    - SimpleHostile
-# ADT-Tweak End
+# ADT-tweak-end
   - type: Sprite
     drawdepth: Mobs
     sprite: Mobs/Animals/bear.rsi
@@ -141,11 +141,11 @@
     - map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
       state: glow
       shader: unshaded
-  # ADT-Tweak-Start
+  # ADT-tweak-start
   - type: NpcFactionMember
     factions:
     - ADTSpaceMobs
-  # ADT-Tweak-End
+  # ADT-tweak-end
   - type: MeleeWeapon
     soundHit:
         path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
@@ -251,7 +251,7 @@
       types:
         Piercing: 6
         Poison: 4
-  # ADT-Tweak-Start
+  # ADT-tweak-start
   - type: SolutionContainerManager
     solutions:
       melee:
@@ -270,7 +270,7 @@
   - type: MeleeChemicalInjector
     solution: melee
     transferAmount: 2
-  # ADT-Tweak-End
+  # ADT-tweak-end
   - type: ReplacementAccent
     accent: xeno
   - type: InteractionPopup
@@ -342,11 +342,11 @@
         - id: ClothingShoesSnakeskinBoots
           amount: 1
           prob: 0.3
-  # ADT-Tweak-Start
+  # ADT-tweak-start
     - type: NpcFactionMember
       factions:
         - ADTSpaceMobs
-  # ADT-Tweak-End
+  # ADT-tweak-end
     - type: Bloodstream
       bloodMaxVolume: 200
       bloodReagent: Cryoxadone

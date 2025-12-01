@@ -4,7 +4,7 @@
   parent: SimpleSpaceMobBase
   description: It's a space tick, watch out for its nasty bite. CentComm reports that 90 percent of cargo leg amputations are due to space tick bites.
   components:
-  - type: VentCrawler # ADT tweak
+  - type: VentCrawler # ADT-tweak
   - type: InputMover
   - type: MobMover
   - type: HTN
@@ -12,7 +12,7 @@
       task: SimpleHostileCompound
   - type: NpcFactionMember
     factions:
-    - ADTSpaceMobs # ADT-Tweak: SimpleHostile
+    - ADTSpaceMobs # ADT-tweak: SimpleHostile
   - type: Sprite
     drawdepth: Mobs
     layers:
