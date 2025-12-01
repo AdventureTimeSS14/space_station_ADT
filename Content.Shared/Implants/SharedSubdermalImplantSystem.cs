@@ -197,18 +197,3 @@ public readonly record struct ImplantRemovedEvent
     }
 }
 
-// ADT Start
-[ByRefEvent]
-public readonly struct ImplantRemovedEvent
-{
-    public readonly EntityUid Implant;
-    public readonly EntityUid? Implanted;
-
-    public ImplantRemovedEvent(EntityUid implant, EntityUid? implanted)
-    {
-        Implant = implant;
-        Implanted = implanted;
-    }
-}
-
-// ADT End

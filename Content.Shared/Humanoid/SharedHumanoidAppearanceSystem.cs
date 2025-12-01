@@ -43,10 +43,9 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
     [Dependency] private readonly ISerializationManager _serManager = default!;
     [Dependency] private readonly MarkingManager _markingManager = default!;
     [Dependency] private readonly GrammarSystem _grammarSystem = default!;
-    [Dependency] private readonly SharedIdentitySystem _identity = default!;
     [Dependency] private readonly SharedLanguageSystem _language = default!;
     [Dependency] private readonly IdentitySystem _identity = default!;
-    private ISharedSponsorsManager? _sponsors;
+    // private ISharedSponsorsManager? _sponsors; // ADT-Tweak. Ломает тесты и в коде не используется, кроме корваксного
 
     public static readonly ProtoId<SpeciesPrototype> DefaultSpecies = "Human";
     // Corvax-TTS-Start

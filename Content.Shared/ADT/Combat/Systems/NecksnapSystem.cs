@@ -10,6 +10,7 @@ using Content.Shared.Popups;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Systems;
+using Content.Shared.Damage.Systems;
 
 using Content.Shared.Weapons.Melee.Events;
 

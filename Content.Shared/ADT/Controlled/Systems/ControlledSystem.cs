@@ -12,6 +12,8 @@ using Content.Shared.Movement.Events;
 using Content.Shared.Mobs;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Interaction.Events;
+using Content.Shared.Damage.Systems;
+using Content.Shared.Damage.Components;
 
 namespace Content.Shared.ADT.Controlled;
 

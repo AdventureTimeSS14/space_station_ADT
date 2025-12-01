@@ -1,5 +1,6 @@
 using Robust.Shared.Prototypes;
 using Content.Shared.ADT.Atmos.Miasma;
+using Content.Shared.EntityEffects;
 
 namespace Content.Shared.EntityEffects.Effects;
 

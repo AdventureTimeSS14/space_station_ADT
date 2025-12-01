@@ -1,5 +1,4 @@
 using System.Collections.Frozen;
-using Content.Server.Popups;
 using Content.Shared.Chat;
 using Content.Shared.Chat.Prototypes;
 using Content.Shared.Speech;

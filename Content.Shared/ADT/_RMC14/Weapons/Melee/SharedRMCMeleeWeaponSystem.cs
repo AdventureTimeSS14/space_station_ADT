@@ -3,6 +3,7 @@ using Content.Shared.Interaction.Events;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Timing;
+using Content.Shared.Damage.Systems;
 
 namespace Content.Shared._RMC14.Weapons.Melee;
 
