@@ -1,6 +1,6 @@
 using Content.Shared.Destructible.Thresholds;
 using Content.Shared.Procedural;
-using Content.Shared.ADT.Procedural;
+using Content.Shared.ADT.Procedural;// ADT-Tweak: DungeonData support for asteroid ore generation
 using Content.Shared.Procedural.DungeonLayers;
 using Content.Shared.Random;
 using Content.Shared.Random.Helpers;
