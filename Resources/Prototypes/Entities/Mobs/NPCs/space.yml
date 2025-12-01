@@ -86,11 +86,11 @@
     - map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
       state: glow
       shader: unshaded
-  # Start ADT tweak
+  # ADT-tweak-start
   - type: NpcFactionMember
     factions:
     - ADTSpaceMobs
-  # End ADT tweak
+  # ADT-tweak-end
   - type: DamageStateVisuals
     states:
       Alive:
