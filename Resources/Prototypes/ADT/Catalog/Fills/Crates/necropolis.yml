@@ -17,26 +17,6 @@
       - id: ADTVavilonBook
 
 - type: entity
-  id: ADTCrateNecropolisCultArmor
-  parent: ADTCrateNecropolis
-  suffix: Cult Armor
-  components:
-  - type: StorageFill
-    contents:
-      - id: ClothingOuterArmorCult
-      - id: MirrorShield
-
-- type: entity
-  id: ADTCrateNecropolisCultRobe
-  parent: ADTCrateNecropolis
-  suffix: Cult Robe
-  components:
-  - type: StorageFill
-    contents:
-      - id: ClothingOuterRobesCult
-      - id: BedsheetCult
-
-- type: entity
   id: ADTCrateNecropolisVampirismCrystal
   parent: ADTCrateNecropolis
   suffix: Vampirism Crystal
@@ -44,15 +24,6 @@
   - type: StorageFill
     contents:
       - id: ADTVampirismCrystal
-
-- type: entity
-  id: ADTCrateNecropolisCursedKatana
-  parent: ADTCrateNecropolis
-  suffix: Vavilon
-  components:
-  - type: StorageFill
-    contents:
-      - id: ADTKatanacursedShard
 
 - type: entity
   id: ADTCrateNecropolisVehicleLavabike
@@ -64,15 +35,6 @@
       - id: ADTVehicleLavabike
 
 - type: entity
-  id: ADTCrateNecropolisTrapAncientGoliath
-  parent: ADTCrateNecropolis
-  suffix: AncientGoliath
-  components:
-  - type: StorageFill
-    contents:
-      - id: MobAncientGoliath
-
-- type: entity
   id: ADTCrateNecropolisMjollnir
   parent: ADTCrateNecropolis
   suffix: Mjollnir
@@ -80,15 +42,6 @@
   - type: StorageFill
     contents:
       - id: Mjollnir
-
-- type: entity
-  id: ADTCrateNecropolisRGBStaff
-  parent: ADTCrateNecropolis
-  suffix: RGBStaff
-  components:
-  - type: StorageFill
-    contents:
-      - id: RGBStaff
 
 - type: entity
   id: ADTCrateNecropolisStaffHealingWeak
@@ -100,72 +53,60 @@
       - id: ADTWeaponStaffHealingWeak
 
 - type: entity
-  id: ADTCrateNecropolisNeckMantleMag
+  id: ADTCrateNecropolisMicroreactor
   parent: ADTCrateNecropolis
-  suffix: MantleMag
+  suffix: Microreactor
   components:
   - type: StorageFill
     contents:
-      - id: ADTClothingNeckMantleMag
-
-
-- type: entity
-  id: ADTCrateNecropolisMimicry
-  parent: ADTCrateNecropolis
-  suffix: Mimicry
-  components:
-  - type: StorageFill
-    contents:
-      - id: ADTWeaponSworldMimicry
-      - id: ADTClothingFootMimicry
-      - id: ADTClothingEyesGlassesMimicry
-      - id: ADTClothingUniformMimicry
+      - id: PowerCellMicroreactor
 
 - type: entity
-  id: ADTCrateNecropolisDragonPet
+  id: ADTCrateNecropolisExperimentalProtoKinetic
   parent: ADTCrateNecropolis
-  suffix: DragonPet
+  suffix: ExperimentalProtoKinetic
   components:
   - type: StorageFill
     contents:
-      - id: ADTMobDragonPet
-      - id: ADTMobDragonPet
-      - id: ADTMobDragonPet
+      - id: ADTWeaponExperimentalProtoKineticAcellerator
 
 - type: entity
-  id: ADTCrateNecropolisHyperEutacticBlade
+  id: ADTCrateNecropolisAdvancedEquipment
   parent: ADTCrateNecropolis
-  suffix: HyperEutacticBlade
+  suffix: AdvancedEquipment
   components:
   - type: StorageFill
     contents:
-      - id: HyperEutacticBlade
+      - id: ADTWeaponCutterAdv
+      - id: AdvancedMineralScanner
+      - id: OreBagOfHolding
 
 - type: entity
-  id: ADTCrateNecropolisBorgDerelict
+  id: ADTCrateNecropolisArmorMinerLight
   parent: ADTCrateNecropolis
-  suffix: BorgDerelict
+  suffix: ArmorMinerLight
   components:
   - type: StorageFill
     contents:
-      - id: PlayerBorgDerelictGhostRole
+      - id: ADTClothingOuterArmorMinerLight
 
 - type: entity
-  id: ADTCrateNecropolisHereticBladeBlade
+  id: ADTCrateNecropolisModsuitMods
   parent: ADTCrateNecropolis
-  suffix: Brass
+  suffix: ModsuitMods
   components:
   - type: StorageFill
     contents:
-      - id: HereticBladeBlade
+      - id: ADTModsuitModAntigrav
+      - id: ADTModsuitModNightVision
+      - id: ADTModsuitModJump
+      - id: ADTModsuitModDrill
 
 - type: entity
-  id: ADTCrateNecropolisBones
+  id: ADTCrateNecropolisSuperSynthesizer
   parent: ADTCrateNecropolis
-  suffix: Brass
+  suffix: SuperSynthesizer
   components:
   - type: StorageFill
     contents:
-      - id: ADTMobCarpPirate
-      - id: ADTMobCarpPirate
-      - id: MaterialBones
+      - id: SuperSynthesizerInstrument

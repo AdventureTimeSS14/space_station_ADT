@@ -14,21 +14,16 @@
     offset: 0
     prototypes:
       - ADTCrateNecropolisHeart
-      - ADTCrateNecropolisCultRobe
-      - ADTCrateNecropolisCultArmor
-      - ADTCrateNecropolisRGBStaff
-      - ADTCrateNecropolisNeckMantleMag
-      - ADTCrateNecropolisDragonPet
-      - ADTCrateNecropolisHereticBladeBlade
-      - ADTCrateNecropolisBones
+      - ADTCrateNecropolisVampirismCrystal
+      - ADTCrateNecropolisMjollnir
+      - ADTCrateNecropolisMicroreactor
+      - ADTCrateNecropolisModsuitMods
+      - ADTCrateNecropolisSuperSynthesizer
     rarePrototypes:
       - ADTCrateNecropolisVavilon
-      - ADTCrateNecropolisCursedKatana #krisa, why there was shard but not crate with shard??? # chort evo znaet, illumi
-      - ADTCrateNecropolisVampirismCrystal
       - ADTCrateNecropolisVehicleLavabike
-      - ADTCrateNecropolisTrapAncientGoliath
-      - ADTCrateNecropolisMjollnir
       - ADTCrateNecropolisStaffHealingWeak
-      - ADTCrateNecropolisMimicry
-      - ADTCrateNecropolisBorgDerelict
+      - ADTCrateNecropolisExperimentalProtoKinetic
+      - ADTCrateNecropolisAdvancedEquipment
+      - ADTCrateNecropolisArmorMinerLight
     chance: 1
