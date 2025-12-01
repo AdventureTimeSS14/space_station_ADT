@@ -1,7 +1,7 @@
-ent-EnergyChemDispenser = раздатчик химикатов 3000
+ent-EnergyChemDispenser = энерго-раздатчик химикатов 3000
     .desc = Машина для раздачи реагентов, что получает реагенты через блюспейс.
 
-ent-EnergyChemDispenserBuffed = раздатчик химикатов 30 000
+ent-EnergyChemDispenserBuffed = энерго-раздатчик химикатов 30 000
     .desc = Продвинутый раздатчик реагентов, что имеет КУДА больше энергии и позволяет почти не заботиться о энергии.
 
 ent-ADTSodaEnergyDispenser = раздатчик безалкоголя 3000
