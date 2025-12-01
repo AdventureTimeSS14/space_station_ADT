@@ -14,3 +14,70 @@
     disabledFore: "#5A5A5A"
     _itemstatus_content_margin_right: "#06060604"
     _itemstatus_content_margin_left: "#06060604"
+    _itemstatus_patch_margin: "#07060505"
+
+- type: uiTheme
+  id: SS14DetectiveTheme
+  path: /Textures/ADT/Interface/detective/
+  colors:
+    whiteText: "#f2c09d"
+    slotSelectedGold: "#e6b812"
+    slotColor: "#2c2d2e"
+    slotOutline: "#40312c"
+    slotText: "#333850"
+    nanoGold: "#A88B5E"
+    goodGreenFore: "#31843E"
+    concerningOrangeFore: "#A5762F"
+    dangerousRedFore: "#BB3232"
+    disabledFore: "#5A5A5A"
+    _itemstatus_content_margin_right: "#06060604"
+    _itemstatus_content_margin_left: "#06060604"
+    _itemstatus_patch_margin: "#07060505"
+
+- type: uiTheme
+  id: SS14CosmicCultTheme
+  path: /Textures/ADT/Interface/CosmicCult/
+  colors:
+    whiteText: "#FFF5EE"
+    slotSelectedGold: "#e6b812"
+    slotColor: "#0f1215"
+    slotOutline: "#333850"
+    slotText: "#333850"
+    nanoGold: "#A88B5E"
+    goodGreenFore: "#31843E"
+    concerningOrangeFore: "#A5762F"
+    dangerousRedFore: "#BB3232"
+    disabledFore: "#5A5A5A"
+    _itemstatus_content_margin_right: "#06060604"
+    _itemstatus_content_margin_left: "#06060604"
+    _itemstatus_patch_margin: "#07060505"
+
+- type: uiTheme
+  id: SS14XenomorphTheme
+  path: /Textures/ADT/Interface/Xenomorph/
+  colors:
+    whiteText: "#FFF5EE"
+    slotSelectedGold: "#E99613"
+    slotColor: "#0f1215"
+    slotOutline: "#333850"
+    slotText: "#333850"
+    nanoGold: "#A88B5E"
+    goodGreenFore: "#31843E"
+    concerningOrangeFore: "#A5762F"
+    dangerousRedFore: "#BB3232"
+    disabledFore: "#5A5A5A"
+
+- type: uiTheme
+  id: SS14TrasenknoxTheme
+  path: /Textures/ADT/Interface/Trasenknox/
+  colors:
+    whiteText: "#FFF5EE"
+    slotSelectedGold: "#E99613"
+    slotColor: "#0f1215"
+    slotOutline: "#00ff40"
+    slotText: "#2e2c0d"
+    nanoGold: "#A88B5E"
+    goodGreenFore: "#00ff26"
+    concerningOrangeFore: "#A5762F"
+    dangerousRedFore: "#BB3232"
+    disabledFore: "#5A5A5A"

@@ -1,5 +1,29 @@
 - type: hudTheme
-  id: ADTSS14OperativeTheme
+  id: SS14OperativeTheme
   name: ui-options-hud-theme-operative
   path: /Textures/ADT/Interface/Operative/
   order: 7
+
+- type: hudTheme
+  id: SS14DetectiveTheme
+  name: ui-options-hud-theme-detective
+  path: Detective
+  order: 8
+
+- type: hudTheme
+  id: SS14CosmicCultTheme
+  name: ui-options-hud-theme-coscult
+  path: /Textures/ADT/Interface/CosmicCult/
+  order: 9
+
+- type: hudTheme
+  id: SS14XenomorphTheme
+  name: ui-options-hud-theme-xeno
+  path: /Textures/ADT/Interface/Xenomorph/
+  order: 10
+
+- type: hudTheme
+  id: SS14TrasenknoxTheme
+  name: ui-options-hud-theme-trasenknox
+  path: /Textures/ADT/Interface/Trasenknox/
+  order: 11
