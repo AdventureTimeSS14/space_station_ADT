@@ -2,7 +2,7 @@
   id: ADTCorrectionsOfficer
   name: job-name-corrections-officer
   description: job-description-corrections-officer
-  playTimeTracker: JobADTGuardOfficer
+  playTimeTracker: JobADTCorrectionsOfficer
   requirements:
     - !type:DepartmentTimeRequirement
       department: Security
