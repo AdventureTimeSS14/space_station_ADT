@@ -19,7 +19,7 @@ ent-ADTCrateNecropolisVehicleLavabike = { ent-ADTCrateNecropolis }
 
 ent-ADTCrateNecropolisMjollnir = { ent-ADTCrateNecropolis }
     .desc = { ent-ADTCrateNecropolis.desc }
-    .suffix = Мьелльнир, Лаваленд
+    .suffix = Мьёльнир, Лаваленд
 
 ent-ADTCrateNecropolisStaffHealingWeak = { ent-ADTCrateNecropolis }
     .desc = { ent-ADTCrateNecropolis.desc }
