@@ -48,7 +48,7 @@
   materials:
     Glass: 50
     Plastic: 50
- 
+
 - type: latheRecipe
   id: ADTAdvancedMedicalBedCircuitboard
   result: ADTAdvancedMedicalBedCircuitboard
@@ -93,6 +93,14 @@
     Steel: 1000
     Plastic: 1000
 
+  # ADT-Tweak: Bottle box recipe
+- type: latheRecipe
+  id: BoxBottle
+  result: BoxBottle
+  completetime: 2
+  materials:
+    Glass: 50
+    Plastic: 300
 - type: latheRecipe
   id: EnergyChemDispenserMachineCircuitboard
   result: EnergyChemDispenserMachineCircuitboard
