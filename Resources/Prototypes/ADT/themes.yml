@@ -18,7 +18,7 @@
 
 - type: uiTheme
   id: SS14DetectiveTheme
-  path: /Textures/ADT/Interface/detective/
+  path: /Textures/ADT/Interface/Detective/
   colors:
     whiteText: "#f2c09d"
     slotSelectedGold: "#e6b812"
