@@ -11,12 +11,12 @@
     OreUranium: 0.20
     OreArtifactFragment: 0.10
     OreBananium: 0.10
-    #ADT Tweak start
+    #ADT-Tweak-Start
     ADTOreBS: 0.10
     ADTOreCopper: 1.0
     ADTOreZinc: 1.0
     ADTOreLead: 0.5
-    #ADT Tweak end
+    #ADT-Tweak-End
 
 - type: oreDunGen
   id: OreIron
