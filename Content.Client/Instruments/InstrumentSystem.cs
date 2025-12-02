@@ -166,23 +166,7 @@ public sealed partial class InstrumentSystem : SharedInstrumentSystem
         instrument.Renderer.TrackingEntity = uid;
 
         instrument.Renderer.FilteredChannels.SetAll(false);
-        
-        //ADT-HotFix-start
-        // В теории должно помочь. Желательно убрать, после обнаружения причины ошибки.
-        if (instrument.Renderer.FilteredChannels.Length == instrument.FilteredChannels.Length)
-        {
-            instrument.Renderer.FilteredChannels.Or(instrument.FilteredChannels);
-        }
-        else
-        {
-            var minLength = Math.Min(instrument.Renderer.FilteredChannels.Length, instrument.FilteredChannels.Length);
-            for (int i = 0; i < minLength; i++)
-            {
-                if (instrument.FilteredChannels[i])
-                    instrument.Renderer.FilteredChannels[i] = true;
-            }
-        }
-        //ADT-HotFix-end
+        instrument.Renderer.FilteredChannels.Or(instrument.FilteredChannels);
 
         instrument.Renderer.DisablePercussionChannel = !instrument.AllowPercussion;
         instrument.Renderer.DisableProgramChangeEvent = !instrument.AllowProgramChange;
