@@ -6,9 +6,17 @@
   components:
   - type: CrewMonitoringConsole
     departments: [Security]
+  - type: Item
+    heldPrefix: scanner
+    storedSprite:
+      state: icon-storage
+      sprite: ADT/Objects/Specific/Medical/brigmedic_handheldcrewmonitor.rsi
   - type: Sprite
     sprite: ADT/Objects/Specific/Medical/brigmedic_handheldcrewmonitor.rsi
-    state: scanner
+    layers:
+      - state: icon
+      - state: scanner
+        shader: unshaded
 
 - type: entity
   id: ADTHandheldCrewMonitorBlueshield
@@ -18,6 +26,15 @@
   components:
   - type: CrewMonitoringConsole
     departments: [Security, Command, CentralCommand]
+  - type: Item
+    heldPrefix: scanner
+    storedSprite:
+      state: icon-storage
+      sprite: ADT/Objects/Specific/Medical/blueshield_handheldcrewmonitor.rsi
   - type: Sprite
     sprite: ADT/Objects/Specific/Medical/blueshield_handheldcrewmonitor.rsi
-    state: scanner
+    state: icon
+    layers:
+      - state: icon
+      - state: scanner
+        shader: unshaded
