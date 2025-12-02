@@ -2681,11 +2681,6 @@ entities:
     - type: Transform
       pos: 39.5,4.5
       parent: 1
-    - type: DeviceNetwork
-      configurators:
-      - invalid
-      deviceLists:
-      - 88
     - type: AtmosPipeColor
       color: '#0055CCFF'
   - uid: 37
@@ -2694,11 +2689,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 45.5,-0.5
       parent: 1
-    - type: DeviceNetwork
-      configurators:
-      - invalid
-      deviceLists:
-      - 88
     - type: AtmosPipeColor
       color: '#0055CCFF'
   - uid: 40
@@ -2706,11 +2696,6 @@ entities:
     - type: Transform
       pos: 43.5,5.5
       parent: 1
-    - type: DeviceNetwork
-      configurators:
-      - invalid
-      deviceLists:
-      - 88
     - type: AtmosPipeColor
       color: '#0055CCFF'
   - uid: 124
@@ -2784,11 +2769,6 @@ entities:
       parent: 1
     - type: AtmosPipeColor
       color: '#0055CCFF'
-    - type: DeviceNetwork
-      configurators:
-      - invalid
-      deviceLists:
-      - 562
 - proto: GasVentScrubber
   entities:
   - uid: 38
@@ -2797,11 +2777,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: 40.5,5.5
       parent: 1
-    - type: DeviceNetwork
-      configurators:
-      - invalid
-      deviceLists:
-      - 88
     - type: AtmosPipeColor
       color: '#990000FF'
   - uid: 39
@@ -2810,11 +2785,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: 44.5,5.5
       parent: 1
-    - type: DeviceNetwork
-      configurators:
-      - invalid
-      deviceLists:
-      - 88
     - type: AtmosPipeColor
       color: '#990000FF'
   - uid: 41
@@ -2823,11 +2793,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 43.5,1.5
       parent: 1
-    - type: DeviceNetwork
-      configurators:
-      - invalid
-      deviceLists:
-      - 88
     - type: AtmosPipeColor
       color: '#990000FF'
   - uid: 115
@@ -2879,11 +2844,6 @@ entities:
       parent: 1
     - type: AtmosPipeColor
       color: '#990000FF'
-    - type: DeviceNetwork
-      configurators:
-      - invalid
-      deviceLists:
-      - 562
   - uid: 477
     components:
     - type: Transform
