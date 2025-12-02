@@ -20,30 +20,6 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.07
-#ADT - tweak start
-#- type: reagent
-#  id: BadTouch
-#  name: reagent-name-badTouch
-#  parent: BaseAlcohol
-#  desc: reagent-desc-badTouch
-#  physicalDesc: reagent-physical-desc-bubbly
-#  flavor: alcohol
-#  color: "#3cc44a"
-#  metamorphicSprite:
-#    sprite: Corvax/Objects/Consumable/Drinks/badTouch.rsi
-#    state: icon_empty
-#  metamorphicMaxFillLevels: 6
-#  metamorphicFillBaseName: fill-
-#  metamorphicChangeColor: false
-#  metabolisms:
-#    Drink:
-#      effects:
-#      - !type:SatiateThirst
-#        factor: 2
-#      - !type:AdjustReagent
-#        reagent: Ethanol
-#        amount: 0.15
-#ADT - tweak end
 - type: reagent
   id: Boyarsky
   name: reagent-name-boyarsky

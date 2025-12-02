@@ -63,7 +63,7 @@
 #- type: reaction
 #  id: BadTouch
 #  reactants:
-#    Vodka: 
+#    Vodka:
 #      amount: 1
 #    LemonLime:
 #      amount: 1
