@@ -48,7 +48,7 @@ public sealed class SmartFridgeSystem : EntitySystem
             });
     }
 
-//ADT-Tweak-Start
+    //ADT-Tweak-Start
     private void OnGetTransferVerb(Entity<SmartFridgeComponent> ent, ref GetVerbsEvent<UtilityVerb> args)
     {
         if (!args.CanAccess || !args.CanInteract || args.Hands == null || args.Using == null)
@@ -78,7 +78,7 @@ public sealed class SmartFridgeSystem : EntitySystem
         var entities = source.Comp.Container.ContainedEntities.ToArray();
         DoInsert(target, user, entities, true);
     }
-//ADT-Tweak-End
+    //ADT-Tweak-End
 
     private bool DoInsert(Entity<SmartFridgeComponent> ent, EntityUid user, IEnumerable<EntityUid> usedItems, bool playSound)
     {
@@ -131,6 +131,13 @@ public sealed class SmartFridgeSystem : EntitySystem
         if (ent.Comp.ContainedEntries.TryGetValue(key, out var contained))
         {
             contained.Remove(GetNetEntity(args.Entity));
+            //ADT-Tweak-Start
+            if (contained.Count == 0)
+            {
+                ent.Comp.ContainedEntries.Remove(key);
+                ent.Comp.Entries.Remove(key);
+            }
+            //ADT-Tweak-End
         }
 
         Dirty(ent);
@@ -161,19 +168,44 @@ public sealed class SmartFridgeSystem : EntitySystem
             return;
         }
 
+        //ADT-Tweak-Start
+        bool dispensed = false;
+        var toRemove = new List<NetEntity>();
+
         foreach (var item in contained)
         {
-            if (!_container.TryRemoveFromContainer(GetEntity(item)))
+            var entity = GetEntity(item);
+            if (!_container.TryRemoveFromContainer(entity))
+            {
+                toRemove.Add(item);
                 continue;
+            }
 
             _audio.PlayPredicted(ent.Comp.SoundVend, ent, args.Actor);
             contained.Remove(item);
+            dispensed = true;
             Dirty(ent);
-            return;
+            break;
         }
 
-        _audio.PlayPredicted(ent.Comp.SoundDeny, ent, args.Actor);
-        _popup.PopupPredicted(Loc.GetString("smart-fridge-component-try-eject-out-of-stock"), ent, args.Actor);
+        foreach (var item in toRemove)
+        {
+            contained.Remove(item);
+        }
+
+        if (!dispensed)
+        {
+            _audio.PlayPredicted(ent.Comp.SoundDeny, ent, args.Actor);
+            _popup.PopupPredicted(Loc.GetString("smart-fridge-component-try-eject-out-of-stock"), ent, args.Actor);
+        }
+
+        if (contained.Count == 0)
+        {
+            ent.Comp.ContainedEntries.Remove(args.Entry);
+            ent.Comp.Entries.Remove(args.Entry);
+            Dirty(ent);
+        }
+        //ADT-Tweak-End
     }
 
     private void OnGetDumpableVerb(Entity<SmartFridgeComponent> ent, ref GetDumpableVerbEvent args)
