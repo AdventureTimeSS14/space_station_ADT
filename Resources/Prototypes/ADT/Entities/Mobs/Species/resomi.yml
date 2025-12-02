@@ -9,6 +9,10 @@
   - type: Tag
     tags:
     - ADTResomiEmotes
+    - CanPilot
+    - FootstepSound
+    - DoorBumpOpener
+#   - AnomalyHost Будет в комменте до тех пор, пока не появится нормальный спрайт
   # Visuals
   - type: Icon
     sprite: ADT/Mobs/Species/Resomi/parts.rsi
