@@ -42,6 +42,7 @@
   - ClothingBackpackHolding
   - ClothingBackpackSatchelHolding
   - ClothingBackpackDuffelHolding
+  - BotanistBagOfHolding #ADT-Tweak
 
 - type: latheRecipePack
   id: PowerCells

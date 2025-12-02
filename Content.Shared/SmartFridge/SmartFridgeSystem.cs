@@ -3,13 +3,19 @@ using Content.Shared.Access.Systems;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
+using Content.Shared.Lock; //ADT-Tweak
 using Content.Shared.Popups;
 using Content.Shared.Storage.Components;
+using Content.Shared.Verbs;//ADT-Tweak
 using Content.Shared.Whitelist;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Timing;
+//ADT-Tweak-Start
+using Content.Shared.Storage;
+using System.Linq;
+//ADT-Tweak-End
 
 namespace Content.Shared.SmartFridge;
 
@@ -33,12 +39,46 @@ public sealed class SmartFridgeSystem : EntitySystem
         SubscribeLocalEvent<SmartFridgeComponent, GetDumpableVerbEvent>(OnGetDumpableVerb);
         SubscribeLocalEvent<SmartFridgeComponent, DumpEvent>(OnDump);
 
+        SubscribeLocalEvent<SmartFridgeComponent, GetVerbsEvent<UtilityVerb>>(OnGetTransferVerb); //ADT-Tweak
+
         Subs.BuiEvents<SmartFridgeComponent>(SmartFridgeUiKey.Key,
             sub =>
             {
                 sub.Event<SmartFridgeDispenseItemMessage>(OnDispenseItem);
             });
     }
+
+//ADT-Tweak-Start
+    private void OnGetTransferVerb(Entity<SmartFridgeComponent> ent, ref GetVerbsEvent<UtilityVerb> args)
+    {
+        if (!args.CanAccess || !args.CanInteract || args.Hands == null || args.Using == null)
+            return;
+
+        if (!TryComp<StorageComponent>(args.Using, out var sourceStorage))
+            return;
+
+        if (TryComp<LockComponent>(args.Using.Value, out var sourceLock) && sourceLock.Locked)
+            return;
+
+        var sourceUid = args.Using.Value;
+        var userUid = args.User;
+
+        UtilityVerb verb = new()
+        {
+            Text = Loc.GetString("storage-component-transfer-verb"),
+            IconEntity = GetNetEntity(args.Using),
+            Act = () => TransferFromStorage(ent, (sourceUid, sourceStorage), userUid)
+        };
+
+        args.Verbs.Add(verb);
+    }
+
+    private void TransferFromStorage(Entity<SmartFridgeComponent> target, Entity<StorageComponent> source, EntityUid user)
+    {
+        var entities = source.Comp.Container.ContainedEntities.ToArray();
+        DoInsert(target, user, entities, true);
+    }
+//ADT-Tweak-End
 
     private bool DoInsert(Entity<SmartFridgeComponent> ent, EntityUid user, IEnumerable<EntityUid> usedItems, bool playSound)
     {
