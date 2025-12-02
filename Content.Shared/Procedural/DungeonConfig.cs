@@ -1,10 +1,18 @@
 using Robust.Shared.Prototypes;
+using Content.Shared.ADT.Procedural;
 
 namespace Content.Shared.Procedural;
 
 [Virtual, DataDefinition]
 public partial class DungeonConfig
 {
+    // ADT-Tweak-Start: DungeonData support for asteroid ore generation
+    /// <summary>
+    /// Shared dungeon configuration data used across all layers.
+    /// </summary>
+    [DataField]
+    public DungeonData Data = DungeonData.Empty;
+    // ADT-Tweak-End
     /// <summary>
     /// The secret sauce, procedural generation layers that get run.
     /// </summary>
