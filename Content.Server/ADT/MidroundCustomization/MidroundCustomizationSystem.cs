@@ -230,7 +230,7 @@ public sealed partial class MidroundCustomizationSystem : EntitySystem
         if (!TryComp<HumanoidAppearanceComponent>(args.Target.Value, out var humanoid))
             return;
 
-        if (!_proto.TryIndex<TTSVoicePrototype>(args.Voice, out var proto) || !HumanoidCharacterProfile.CanHaveVoice(proto, humanoid.Sex))
+        if (!_proto.TryIndex<TTSVoicePrototype>(args.Voice, out var proto) || !HumanoidCharacterProfile.CanHaveVoice(proto, humanoid.Sex, humanoid.Species))
             return;
 
         _audio.PlayPvs(component.ChangeMarkingSound, uid);
