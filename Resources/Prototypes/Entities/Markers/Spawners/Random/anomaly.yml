@@ -24,7 +24,7 @@
     - AnomalyTech
     - ADTAnomalyMonkey # ADT Tweak-start
     - ADTAnomalyHW # ADT Tweak-end
-    #- AnomalySanta
+    - AnomalySanta # Helix-tweak
     rareChance: 0.3
     rarePrototypes:
     - RandomAnomalyInjectorSpawner
@@ -78,5 +78,5 @@
     - AnomalyTrapGravity
     - AnomalyTrapTech
     - AnomalyTrapRock
-    #- AnomalyTrapSanta
+    - AnomalyTrapSanta
     chance: 1

@@ -299,8 +299,8 @@
     clothingVisuals:
       head:
       - state: equipped-head
-      - state: equipped-head-unshaded
-        shader: unshaded
+    #  - state: equipped-head-unshaded
+    #    shader: unshaded
   - type: Armor
     modifiers:
       coefficients:
@@ -330,8 +330,8 @@
     clothingVisuals:
       head:
       - state: equipped-head
-      - state: equipped-head-unshaded
-        shader: unshaded
+   #   - state: equipped-head-unshaded
+   #     shader: unshaded
   - type: Armor
     modifiers:
       coefficients:
@@ -361,8 +361,8 @@
     clothingVisuals:
       head:
       - state: equipped-head
-      - state: equipped-head-unshaded
-        shader: unshaded
+    #  - state: equipped-head-unshaded
+    #    shader: unshaded
   - type: Armor
     modifiers:
       coefficients:

@@ -303,3 +303,23 @@
   name: The Prodigy - Breathe
   path:
     path: /Audio/SD/Jukebox/tpbreathe.ogg
+
+- type: jukebox
+  id: santaiscoming
+  name: JSchlatt - Santa Claus is coming to town.
+  path:
+    path: /Audio/SD/Lobby/santaclausiscoming.ogg
+
+
+- type: jukebox
+  id: lastxmas
+  name: Wham! - Last Christmas
+  path:
+    path: /Audio/SD/Lobby/last-christmas.ogg
+
+
+- type: jukebox
+  id: alliwantforchristmas
+  name: Mariah Carey - All I want for christmas
+  path:
+    path: /Audio/SD/Lobby/alliwantforchristmas.ogg

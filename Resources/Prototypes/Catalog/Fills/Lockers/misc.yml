@@ -200,6 +200,13 @@
     - id: ADTToyBlasterGunGreen
       prob: 0.008
     #ADT tweak end
+    # Helix
+    - id: PresentRandom
+      prob: 0.1
+    - id: PresentRandomUnsafe
+      prob: 0.08
+    - id: PresentRandomInsane
+      prob: 0.02
 
 - type: entity
   id: ClosetMaintenanceFilledRandom
