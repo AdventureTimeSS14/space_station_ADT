@@ -98,6 +98,7 @@ public sealed class ChasmSystem : EntitySystem
             return;
 
         //ADT-Tweak-Start
+        //StartFalling(uid, component, args.Tripper);
         var tripper = args.Tripper;
 
         if (HasComp<MindContainerComponent>(tripper))
@@ -128,12 +129,17 @@ public sealed class ChasmSystem : EntitySystem
         //ADT-Tweak-End
     }
 
-    public void StartFalling(EntityUid chasm, ChasmComponent component, EntityUid tripper)
+    public void StartFalling(EntityUid chasm, ChasmComponent component, EntityUid tripper) //ADT-Tweak
     {
         var falling = AddComp<ChasmFallingComponent>(tripper);
 
         falling.NextDeletionTime = _timing.CurTime + falling.DeletionTime;
         _blocker.UpdateCanMove(tripper);
+
+        //ADT-Tweak-Start
+        //if (playSound)
+        //    _audio.PlayPredicted(component.FallingSound, chasm, tripper);
+        //ADT-Tweak-End
     }
 
     private void OnStepTriggerAttempt(EntityUid uid, ChasmComponent component, ref StepTriggerAttemptEvent args)

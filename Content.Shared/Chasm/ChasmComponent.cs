@@ -9,4 +9,11 @@ namespace Content.Shared.Chasm;
 [NetworkedComponent, RegisterComponent, Access(typeof(ChasmSystem))]
 public sealed partial class ChasmComponent : Component
 {
+    //ADT-Tweak-Start
+    /// <summary>
+    ///     Sound that should be played when an entity falls into the chasm
+    /// </summary>
+    //[DataField("fallingSound")]
+    //public SoundSpecifier FallingSound = new SoundPathSpecifier("/Audio/Effects/falling.ogg");
+    //ADT-Tweak-End
 }
