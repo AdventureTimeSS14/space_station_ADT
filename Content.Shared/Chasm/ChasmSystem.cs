@@ -11,9 +11,6 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Timing;
 //ADT-Tweak-Start
 using Content.Shared.ADT.Chasm;
-using Content.Shared.Popups;
-using Content.Shared.IdentityManagement;
-using Robust.Shared.Player;
 //ADT-Tweak-End
 
 namespace Content.Shared.Chasm;
@@ -27,11 +24,7 @@ public sealed class ChasmSystem : EntitySystem
     [Dependency] private readonly ActionBlockerSystem _blocker = default!;
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
-    //ADT-Tweak-Start
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly SharedTransformSystem _xform = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    //ADT-Tweak-End
+    [Dependency] private readonly SharedTransformSystem _xform = default!; //ADT-Tweak
 
     public override void Initialize()
     {
@@ -103,13 +96,24 @@ public sealed class ChasmSystem : EntitySystem
 
         if (HasComp<MindContainerComponent>(tripper))
         {
-            var pending = EnsureComp<ChasmPendingFallComponent>(tripper);
-            pending.NextFallTime = _timing.CurTime + TimeSpan.FromSeconds(1);
-            pending.ChasmUid = uid;
-            var selfMessage = Loc.GetString("popup-chasm-fall-self");
-            _popup.PopupEntity(selfMessage, tripper, tripper, PopupType.LargeCaution);
-            var othersMessage = Loc.GetString("popup-chasm-fall-others", ("entity", Identity.Entity(tripper, EntityManager)));
-            _popup.PopupEntity(othersMessage, tripper, Filter.PvsExcept(tripper), true, PopupType.MediumCaution);
+            if (TryComp<ChasmPendingFallComponent>(tripper, out var existingPending))
+            {
+                if (existingPending.ChasmUid != uid)
+                {
+                    StartFalling(uid, component, tripper);
+                    RemComp<ChasmPendingFallComponent>(tripper);
+                }
+                else
+                {
+                    existingPending.NextFallTime = _timing.CurTime + TimeSpan.FromSeconds(1);
+                }
+            }
+            else
+            {
+                var pending = AddComp<ChasmPendingFallComponent>(tripper);
+                pending.NextFallTime = _timing.CurTime + TimeSpan.FromSeconds(1);
+                pending.ChasmUid = uid;
+            }
         }
         else
         {
@@ -118,15 +122,12 @@ public sealed class ChasmSystem : EntitySystem
         //ADT-Tweak-End
     }
 
-    public void StartFalling(EntityUid chasm, ChasmComponent component, EntityUid tripper, bool playSound = true)
+    public void StartFalling(EntityUid chasm, ChasmComponent component, EntityUid tripper)
     {
         var falling = AddComp<ChasmFallingComponent>(tripper);
 
         falling.NextDeletionTime = _timing.CurTime + falling.DeletionTime;
         _blocker.UpdateCanMove(tripper);
-
-        if (playSound)
-            _audio.PlayPredicted(component.FallingSound, chasm, tripper);
     }
 
     private void OnStepTriggerAttempt(EntityUid uid, ChasmComponent component, ref StepTriggerAttemptEvent args)

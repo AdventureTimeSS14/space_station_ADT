@@ -2,6 +2,7 @@ using Content.Shared.Chasm;
 using Robust.Client.Animations;
 using Robust.Client.GameObjects;
 using Robust.Shared.Animations;
+using Robust.Shared.Random;
 
 namespace Content.Client.Chasm;
 
@@ -12,6 +13,7 @@ public sealed class ChasmFallingVisualsSystem : EntitySystem
 {
     [Dependency] private readonly AnimationPlayerSystem _anim = default!;
     [Dependency] private readonly SpriteSystem _sprite = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
 
     private readonly string _chasmFallAnimationKey = "chasm_fall";
 
@@ -60,6 +62,9 @@ public sealed class ChasmFallingVisualsSystem : EntitySystem
     {
         var length = component.AnimationTime;
 
+        var direction = _random.Prob(0.5f) ? 1 : -1;
+        var totalRotation = _random.NextFloat(360f, 720f) * direction;
+
         return new Animation()
         {
             Length = length,
@@ -75,6 +80,17 @@ public sealed class ChasmFallingVisualsSystem : EntitySystem
                         new AnimationTrackProperty.KeyFrame(component.AnimationScale, length.Seconds),
                     },
                     InterpolationMode = AnimationInterpolationMode.Cubic
+                },
+                new AnimationTrackComponentProperty()
+                {
+                    ComponentType = typeof(SpriteComponent),
+                    Property = nameof(SpriteComponent.Rotation),
+                    KeyFrames =
+                    {
+                        new AnimationTrackProperty.KeyFrame(Angle.Zero, 0.0f),
+                        new AnimationTrackProperty.KeyFrame(Angle.FromDegrees(totalRotation), length.Seconds),
+                    },
+                    InterpolationMode = AnimationInterpolationMode.Linear
                 }
             }
         };
