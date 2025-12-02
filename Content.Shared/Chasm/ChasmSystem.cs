@@ -1,13 +1,17 @@
 ﻿using Content.Shared.ActionBlocker;
 using Content.Shared.ADT.Salvage.Components;
-using Content.Shared.Buckle.Components;
-using Content.Shared.Mind.Components; //ADT-Tweak
+//ADT-Tweak-Start
+//using Content.Shared.Buckle.Components;
+using Content.Shared.Mind.Components;
+//ADT-Tweak-End
 using Content.Shared.Movement.Events;
 using Content.Shared.StepTrigger.Systems;
+//ADT-Tweak-Start
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
+//ADT-Tweak-End
 using Robust.Shared.Network;
-using Robust.Shared.Physics.Components;
+//using Robust.Shared.Physics.Components; ADT-Tweak
 using Robust.Shared.Timing;
 //ADT-Tweak-Start
 using Content.Shared.ADT.Chasm;
@@ -23,8 +27,10 @@ public sealed class ChasmSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly ActionBlockerSystem _blocker = default!;
     [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedTransformSystem _xform = default!; //ADT-Tweak
+    //ADT-Tweak-Start
+    //[Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly SharedTransformSystem _xform = default!;
+    //ADT-Tweak-End
 
     public override void Initialize()
     {
