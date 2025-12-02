@@ -12,5 +12,6 @@ public sealed partial class ChasmPendingFallComponent : Component
     [DataField("nextFallTime", customTypeSerializer: typeof(TimeOffsetSerializer))]
     public TimeSpan NextFallTime = TimeSpan.Zero;
 
+    [DataField("chasmUid")]
     public EntityUid ChasmUid;
 }
