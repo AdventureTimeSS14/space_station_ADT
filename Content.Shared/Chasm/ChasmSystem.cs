@@ -9,6 +9,12 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Timing;
+//ADT-Tweak-Start
+using Content.Shared.ADT.Chasm;
+using Content.Shared.Popups;
+using Content.Shared.IdentityManagement;
+using Robust.Shared.Player;
+//ADT-Tweak-End
 
 namespace Content.Shared.Chasm;
 
@@ -24,6 +30,7 @@ public sealed class ChasmSystem : EntitySystem
     //ADT-Tweak-Start
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly SharedTransformSystem _xform = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
     //ADT-Tweak-End
 
     public override void Initialize()
@@ -99,6 +106,10 @@ public sealed class ChasmSystem : EntitySystem
             var pending = EnsureComp<ChasmPendingFallComponent>(tripper);
             pending.NextFallTime = _timing.CurTime + TimeSpan.FromSeconds(1);
             pending.ChasmUid = uid;
+            var selfMessage = Loc.GetString("popup-chasm-fall-self");
+            _popup.PopupEntity(selfMessage, tripper, tripper, PopupType.LargeCaution);
+            var othersMessage = Loc.GetString("popup-chasm-fall-others", ("entity", Identity.Entity(tripper, EntityManager)));
+            _popup.PopupEntity(othersMessage, tripper, Filter.PvsExcept(tripper), true, PopupType.MediumCaution);
         }
         else
         {

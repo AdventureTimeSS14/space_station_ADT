@@ -1,7 +1,7 @@
 ﻿using Robust.Shared.GameStates;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
-namespace Content.Shared.Chasm;
+namespace Content.Shared.ADT.Chasm;
 
 /// <summary>
 ///     Added to entities with MindContainerComponent that are pending fall into a chasm after a delay.
