@@ -186,7 +186,7 @@
 - type: entity
   id: ADTSpawnPointSpaceEmperor
   name: ADTSpawnPointSpaceEmperor
-  parent: MarkerBase
+  parent: BaseAntagSpawner
   components:
   - type: GhostRole
     name: ghost-role-information-space-emperor-name
