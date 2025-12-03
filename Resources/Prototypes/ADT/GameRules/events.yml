@@ -126,3 +126,21 @@
     prototype: ADTEventJaunterPortal
     minCount: 100
     maxCount: 300
+
+- type: entity
+  parent: BaseGameRule
+  id: SpaceEmperorSpawn
+  components:
+  - type: StationEvent
+    weight: 6.5
+    earliestStart: 10
+    reoccurrenceDelay: 75
+    duration: null
+  - type: SpaceSpawnRule
+    spawnDistance: 0
+  - type: AntagSelection
+    definitions:
+    - spawnerPrototype: ADTSpawnPointSpaceEmperor
+      min: 1
+      max: 1
+      pickPlayer: false
