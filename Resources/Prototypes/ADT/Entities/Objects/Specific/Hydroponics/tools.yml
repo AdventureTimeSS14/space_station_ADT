@@ -68,6 +68,8 @@
     solutions:
       bucket:
         maxVol: 750
+  - type: Item
+    size: Normal
     sprite: ADT/Objects/Specific/Hydroponics/watering_can_advanced.rsi
   - type: PhysicalComposition
     materialComposition:
