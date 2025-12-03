@@ -131,13 +131,6 @@ public sealed class SmartFridgeSystem : EntitySystem
         if (ent.Comp.ContainedEntries.TryGetValue(key, out var contained))
         {
             contained.Remove(GetNetEntity(args.Entity));
-            //ADT-Tweak-Start
-            if (contained.Count == 0)
-            {
-                ent.Comp.ContainedEntries.Remove(key);
-                ent.Comp.Entries.Remove(key);
-            }
-            //ADT-Tweak-End
         }
 
         Dirty(ent);
@@ -197,10 +190,6 @@ public sealed class SmartFridgeSystem : EntitySystem
         {
             _audio.PlayPredicted(ent.Comp.SoundDeny, ent, args.Actor);
             _popup.PopupPredicted(Loc.GetString("smart-fridge-component-try-eject-out-of-stock"), ent, args.Actor);
-        }
-
-        if (contained.Count == 0)
-        {
             ent.Comp.ContainedEntries.Remove(args.Entry);
             ent.Comp.Entries.Remove(args.Entry);
             Dirty(ent);
