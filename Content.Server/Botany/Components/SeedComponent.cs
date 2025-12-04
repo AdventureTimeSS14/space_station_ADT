@@ -1,4 +1,4 @@
-using Content.Server._Ganimed.SeedDna.System; // Ganimed edit: Seed DNA
+using Content.Server._Ganimed.SeedDna.Systems; // Ganimed edit: Seed DNA
 using Content.Server.Botany.Systems;
 using Content.Shared.Botany.Components;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;

@@ -2,7 +2,7 @@ using Content.Shared._Ganimed.SeedDna.Components;
 using Content.Shared.Containers.ItemSlots;
 using JetBrains.Annotations;
 
-namespace Content.Shared._Ganimed.SeedDna.System;
+namespace Content.Shared._Ganimed.SeedDna.Systems;
 
 [UsedImplicitly]
 public abstract class SharedSeedDnaConsoleSystem : EntitySystem
