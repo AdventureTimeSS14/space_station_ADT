@@ -117,7 +117,7 @@
   id: Hemophilia
   name: trait-hemophilia-name
   description: trait-hemophilia-desc
-  category: Disabilities
+  category: Quirks # ADT Disabilities -> Quirks
   components:
   - type: Hemophilia
   speciesBlacklist: # ADT Quirks

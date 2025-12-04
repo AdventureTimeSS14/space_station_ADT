@@ -221,7 +221,7 @@
   - type: SolutionContainerVisuals
     fillBaseName: omega-
   - type: Slippery
-    staminaDamage: 50 #ADT-tweak 50 -> 100
+    staminaDamage: 50
     slipData:
       knockdownTime: 5.0
       launchForwardsMultiplier: 3.0

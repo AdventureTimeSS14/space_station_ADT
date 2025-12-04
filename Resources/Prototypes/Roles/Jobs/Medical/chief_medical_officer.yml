@@ -52,7 +52,6 @@
     back:
     - Flash
     - ADTtelescopicBaton #ADT-CustomADTLoadout
-
 - type: chameleonOutfit
   id: ChiefMedicalOfficerChameleonOutfit
   job: ChiefMedicalOfficer

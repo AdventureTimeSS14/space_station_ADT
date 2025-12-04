@@ -50,6 +50,9 @@
     ears: ClothingHeadsetSecurity
     pocket1: WeaponRevolverDeckard
     pocket2: SpeedLoaderMagnum
+  # storage:
+  #   back:
+  #   - ADTHumanCubeWrapped #ADT-CustomADTLoadout # Ganimed-Remove
 
 - type: chameleonOutfit
   id: ADTSeniorOfficerChameleonOutfit

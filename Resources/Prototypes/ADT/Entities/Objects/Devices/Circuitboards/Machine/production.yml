@@ -295,6 +295,21 @@
       Steel: 20
       ADTBScrystalArt: 8
 
+- type: entity
+  id: ADTAdvancedMedicalBedCircuitboard
+  parent: BaseMachineCircuitboard
+  name: advanced medical bed board
+  description: A machine printed circuit board for a chem dispenser.
+  components:
+    - type: Sprite
+      state: medical
+    - type: MachineBoard
+      prototype: ADTAdvancedMedBed
+      stackRequirements:
+        Glass: 2
+        Steel: 8
+        Plasma: 2
+        
 #Зарядник мегабатареек
 
 - type: entity
@@ -319,3 +334,22 @@
         Plastic: 30
     - type: StaticPrice
       price: 15
+
+- type: entity
+  id: EnergyChemDispenserMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: energy chem dispenser machine board
+  description: A machine printed circuit board for an energy chem dispenser.
+  components:
+    - type: Sprite
+      state: medical
+    - type: MachineBoard
+      prototype: EnergyChemDispenser
+      stackRequirements:
+        Manipulator: 1
+        Glass: 1
+        Steel: 3
+      tagRequirements:
+        GlassBeaker:
+          amount: 2
+          defaultPrototype: Beaker

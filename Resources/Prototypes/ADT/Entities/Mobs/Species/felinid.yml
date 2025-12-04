@@ -8,6 +8,7 @@
   - type: HumanoidAppearance
     species: Felinid
   - type: Hunger
+    baseDecayRate: 0.024
   - type: Thirst
   - type: Respirator
     damage:

@@ -83,6 +83,9 @@
   id: TajaranGrowls
   files:
   - /Audio/ADT/Felinid/cat_growl1.ogg
+  - /Audio/ADT/Felinid/cat_growl2.ogg
+  - /Audio/ADT/Felinid/cat_growl3.ogg
+  - /Audio/ADT/Felinid/cat_growl4.ogg
 
 - type: soundCollection
   id: TajaranPurrs
@@ -202,6 +205,9 @@
   id: FelinidGrowls
   files:
   - /Audio/ADT/Felinid/cat_growl1.ogg
+  - /Audio/ADT/Felinid/cat_growl2.ogg
+  - /Audio/ADT/Felinid/cat_growl3.ogg
+  - /Audio/ADT/Felinid/cat_growl4.ogg
 
 - type: soundCollection
   id: FelinidPurrs

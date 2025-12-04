@@ -1,0 +1,39 @@
+
+nano-chat-program-name = НаноЧат
+nano-chat-title = НаноЧат
+nano-chat-new-chat = Новый чат
+nano-chat-contacts = КОНТАКТЫ
+nano-chat-no-chats = Нет активных чатов
+nano-chat-select-chat = Выберите чат, чтобы начать
+nano-chat-message-placeholder = Начните ввод...
+nano-chat-send = Отправить
+nano-chat-delete = Удалить
+nano-chat-loading = Загрузка...
+nano-chat-message-too-long = Сообщение слишком длинное ({$current} из {$max} максимальных символов)
+nano-chat-max-recipients = Максимум чатов достигнут
+nano-chat-new-message-title = Сообщение от {$sender}
+nano-chat-new-message-body = {$message}
+nano-chat-toggle-mute = Заглушить оповещения
+nano-chat-delivery-failed = Не удалось отправить
+nano-chat-look-up-no-server = Не удалось найти телекоммуникационный сервер
+nano-chat-look-up = Поиск номеров
+nano-chat-list-number = Список номеров
+
+nano-chat-new-title = Создать новый чат
+nano-chat-number-label = Пользователь
+nano-chat-name-label = Имя
+nano-chat-job-label = Название профессии
+nano-chat-number-placeholder = Введите номер
+nano-chat-name-placeholder = Введите имя
+nano-chat-job-placeholder = Введите название профессии (опционально)
+nano-chat-cancel = Отменить
+nano-chat-create = Создать
+
+log-probe-scan-nanochat = Отсканированы НаноЧат логи {$card}
+log-probe-header-access = Сканер логов доступов
+log-probe-header-nanochat = Сканер логов НаноЧат
+log-probe-label-message = Сообщение
+log-probe-card-number = Карта: {$number}
+log-probe-recipients = {$count} Получатели
+log-probe-recipient-list = Известные Получатели:
+log-probe-message-format = {$sender} → {$recipient}: {$content}

@@ -27,6 +27,9 @@
     id: SeniorPhysicianPDA
     ears: ClothingHeadsetMedical
     eyes: ADTClothingEyesGlassesMedChem
+  # storage:
+  #   back:
+  #   - ADTHumanCubeWrapped #ADT-CustomADTLoadout # Ganimed-Remove
 
 - type: chameleonOutfit
   id: ADTSeniorPhysicianChameleonOutfit

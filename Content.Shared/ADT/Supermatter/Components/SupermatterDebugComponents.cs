@@ -10,10 +10,6 @@ public sealed partial class SupermatterIgnoreComponent : Component
 {
 }
 
-[RegisterComponent]
-public sealed partial class SupermatterSootherComponent : Component
-{
-}
 
 /// <summary>
 /// Immune for hallucination

@@ -258,8 +258,8 @@
       - !type:AdjustTemperature
         conditions:
         - !type:Temperature
-          min: 160.15
-        amount: -30000
+          min: 1 #ADT-Tweak 160.15 -> 1
+        amount: -10000 #ADT-Tweak -30000 -> -10000
     Extinguish:
       methods: [ Touch ]
       effects:
@@ -271,7 +271,7 @@
       - !type:HealthChange
         damage:
           types:
-             Cold: 0.01 # slightly nips directly, other cold damage comes from the temp change
+             Cold: 0.05 # slightly nips directly, other cold damage comes from the temp change #ADT-Tweak 0.01 -> 0,05
              Heat: -3 # ghetto burn chem. i don't think anyone would use this intentionally but it's funny
       - !type:PopupMessage
         conditions:
@@ -294,8 +294,8 @@
       - !type:AdjustTemperature
         conditions:
         - !type:Temperature
-          min: 160.15 # not quite enough for cryo, but can speed it up if you wanna take the risk
-        amount: -10000
+          min: 1 # ADT-Tweak 160.15 -> 1
+        amount: -50000 #ADT-Tweak -10000 -> -50000
       - !type:MovespeedModifier
         conditions:
         - !type:ReagentThreshold

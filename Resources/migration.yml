@@ -817,6 +817,15 @@ BookSpaceLaw: ADTBookSpaceLaw
 ADTIndustrialSMES: SMESAdvanced
 SpawnPointADTSecborg: null # На всякий случай лол
 
+#ADT 2025-10-31 ХЭППИ ХЕЛЛАВИН
+SpawnPointADTGuardOfficer: SpawnPointADTCorrectionsOfficer
+ADTClothingHeadHatsGuardOfficer: ADTClothingHeadHatsCorrectionsOfficerCap
+ADTClothingUniformGuardOfficer: ADTClothingUniformCorrectionsOfficer
+
+# ADT 2025-11-08
+# ChemDispenser: EnergyChemDispenser # Ganimed-Remove
+# ChemDispenserEmpty: EnergyChemDispenser # Ganimed-Remove
+
 #Ganimed 2025-06-01
 ADTIconAdventureTime: null
 
@@ -829,3 +838,6 @@ ADTPoweredShuttleLightSodium: AlwaysPoweredWallLight
 
 # Ganimed 2025-07-10
 GhostBarSpawner: null
+
+# Ganimed 2025-11-03
+ADTDrinkBeerCanPack: null
