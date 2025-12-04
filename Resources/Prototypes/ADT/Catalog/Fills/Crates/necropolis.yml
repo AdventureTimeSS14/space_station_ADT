@@ -26,6 +26,15 @@
       - id: ADTVampirismCrystal
 
 - type: entity
+  id: ADTCrateNecropolisCursedKatana
+  parent: ADTCrateNecropolis
+  suffix: Vavilon
+  components:
+  - type: StorageFill
+    contents:
+      - id: ADTKatanacursedShard
+
+- type: entity
   id: ADTCrateNecropolisVehicleLavabike
   parent: ADTCrateNecropolis
   suffix: Lavabike
@@ -60,15 +69,6 @@
   - type: StorageFill
     contents:
       - id: PowerCellMicroreactor
-
-- type: entity
-  id: ADTCrateNecropolisExperimentalProtoKinetic
-  parent: ADTCrateNecropolis
-  suffix: ExperimentalProtoKinetic
-  components:
-  - type: StorageFill
-    contents:
-      - id: ADTWeaponExperimentalProtoKineticAcellerator
 
 - type: entity
   id: ADTCrateNecropolisAdvancedEquipment

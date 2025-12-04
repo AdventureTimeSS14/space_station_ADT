@@ -17,6 +17,10 @@ ent-ADTCrateNecropolisVehicleLavabike = { ent-ADTCrateNecropolis }
     .desc = { ent-ADTCrateNecropolis.desc }
     .suffix = Лавацикл, Лаваленд
 
+ent-ADTCrateNecropolisCursedKatana = { ent-ADTCrateNecropolis }
+    .desc = { ent-ADTCrateNecropolis.desc }
+    .suffix = Странный осколок, Лаваленд
+
 ent-ADTCrateNecropolisMjollnir = { ent-ADTCrateNecropolis }
     .desc = { ent-ADTCrateNecropolis.desc }
     .suffix = Мьёльнир, Лаваленд
@@ -28,10 +32,6 @@ ent-ADTCrateNecropolisStaffHealingWeak = { ent-ADTCrateNecropolis }
 ent-ADTCrateNecropolisMicroreactor = { ent-ADTCrateNecropolis }
     .desc = { ent-ADTCrateNecropolis.desc }
     .suffix = Микрореакторная батарея, Лаваленд
-
-ent-ADTCrateNecropolisExperimentalProtoKinetic = { ent-ADTCrateNecropolis }
-    .desc = { ent-ADTCrateNecropolis.desc }
-    .suffix = Экспериментальный ПКА, Лаваленд
 
 ent-ADTCrateNecropolisAdvancedEquipment = { ent-ADTCrateNecropolis }
     .desc = { ent-ADTCrateNecropolis.desc }

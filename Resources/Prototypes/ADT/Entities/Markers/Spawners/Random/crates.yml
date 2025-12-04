@@ -19,11 +19,11 @@
       - ADTCrateNecropolisMicroreactor
       - ADTCrateNecropolisModsuitMods
       - ADTCrateNecropolisSuperSynthesizer
+      - ADTCrateNecropolisCursedKatana
     rarePrototypes:
       - ADTCrateNecropolisVavilon
       - ADTCrateNecropolisVehicleLavabike
       - ADTCrateNecropolisStaffHealingWeak
-      - ADTCrateNecropolisExperimentalProtoKinetic
       - ADTCrateNecropolisAdvancedEquipment
       - ADTCrateNecropolisArmorMinerLight
     chance: 1
