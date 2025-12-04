@@ -3,10 +3,10 @@ using System.Numerics;
 using System.Threading.Tasks;
 using Content.Server.Salvage.Magnet;
 using Content.Shared.Mobs.Components;
+using Content.Shared.Mind.Components;//ADT-Tweak
 using Content.Shared.Procedural;
 using Content.Shared.Radio;
 using Content.Shared.Salvage.Magnet;
-using Content.Shared.Mind.Components;//ADT-Tweak
 using Robust.Shared.Exceptions;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
