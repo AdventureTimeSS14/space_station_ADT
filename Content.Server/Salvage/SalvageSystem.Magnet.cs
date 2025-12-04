@@ -6,6 +6,7 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Procedural;
 using Content.Shared.Radio;
 using Content.Shared.Salvage.Magnet;
+using Content.Shared.Mind.Components;//ADT-Tweak
 using Robust.Shared.Exceptions;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
@@ -15,7 +16,6 @@ namespace Content.Server.Salvage;
 public sealed partial class SalvageSystem
 {
     [Dependency] private readonly IRuntimeLog _runtimeLog = default!;
-
     private static readonly ProtoId<RadioChannelPrototype> MagnetChannel = "Supply";
 
     private EntityQuery<SalvageMobRestrictionsComponent> _salvMobQuery;
@@ -137,7 +137,7 @@ public sealed partial class SalvageSystem
 
             while (query.MoveNext(out var salvUid, out var salvMob, out var salvMobState))
             {
-                if (data.Comp.ActiveEntities.Contains(salvMob.LinkedEntity) && _mobState.IsDead(salvUid, salvMobState))//ADT-Tweak Magnet Update
+                if (data.Comp.ActiveEntities.Contains(salvMob.LinkedEntity) && !HasComp<MindContainerComponent>(salvUid))//ADT-Tweak Magnet Update
                 {
                     QueueDel(salvUid);
                 }
