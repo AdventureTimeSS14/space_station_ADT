@@ -45,7 +45,7 @@
     back:
     - Flash
     - ADTtelescopicBaton #ADT-CustomADTLoadoutStart
-    - ADTHumanCubeWrapped #ADT-CustomADTLoadoutEnd
+    # - ADTHumanCubeWrapped #ADT-CustomADTLoadoutEnd # Ganimed-Remove
 
 - type: chameleonOutfit
   id: ResearchDirectorChameleonOutfit
