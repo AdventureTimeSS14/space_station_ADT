@@ -19,7 +19,7 @@ public abstract class SharedWeaknessSystem : EntitySystem
         _statusEffectsSystem.TryRemoveTime(uid, WeaknessKey, TimeSpan.FromSeconds(timeRemoved));
     }
 
-    public void DoRemoveWeakness(EntityUid uid, double timeRemoved)
+    public void DoRemoveWeakness(EntityUid uid)
     {
         _statusEffectsSystem.TryRemoveStatusEffect(uid, WeaknessKey);
     }
