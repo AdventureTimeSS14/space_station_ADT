@@ -1,0 +1,205 @@
+- type: entity
+  parent: [ SimpleSpaceMobBase, FlyingMobBase ]
+  id: ADTMobSpaceEmperor
+  name: ADTMobSpaceEmperor-name
+  description: ADTMobSpaceEmperor-desc
+  components:
+  - type: Sprite
+    drawdepth: HighFloorObjects
+    sprite: ADT/Mobs/Aliens/space_emperor.rsi
+    noRot: true
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: alive
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: alive
+      Critical:
+        Base: crit
+      Dead:
+        Base: dead
+  - type: TTS
+    voice: eleazarfig
+  - type: UnpoweredFlashlight
+    toggleAction: ActionToggleLightEmperor
+    toggleFlashlightSound: /Audio/Effects/eye_close.ogg
+  - type: PointLight
+    color: "#1E90FF"
+    enabled: false
+    radius: 2.5
+    softness: 5
+    autoRot: true
+  - type: Strap
+    position: Stand
+    buckleOffset: "0, 0.5"
+  - type: Bloodstream
+    bloodMaxVolume: 250
+    bloodReagent: Cryoxadone
+  - type: GhostRole
+    allowMovement: true
+    allowSpeech: true
+    makeSentient: true
+    name: ghost-role-information-space-emperor-name
+    description: ghost-role-information-space-emperor-description
+    rules: ghost-role-information-space-emperor-rules
+    raffle:
+      settings: default
+  - type: RadarConsole
+    followEntity: false
+  - type: GhostTakeoverAvailable
+  - type: IntrinsicUI
+    uis:
+      enum.RadarConsoleUiKey.Key:
+        toggleAction: ActionStationAiRadar
+  - type: HTN
+    rootTask:
+      task: XenoCompound
+    blackboard:
+      NavInteract: !type:Bool
+        true
+      NavPry: !type:Bool
+        true
+      NavSmash: !type:Bool
+        true
+  - type: Speech
+    speechVerb: LargeMob
+  - type: CombatMode
+  - type: MobMover
+  - type: InputMover
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3.5 
+    baseSprintSpeed: 5.5 
+    weightlessModifier: 1.
+  - type: Appearance
+  - type: Physics
+    bodyType: KinematicController
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.40
+        density: 200
+        mask:
+        - FlyingMobMask
+        layer:
+        - FlyingMobLayer
+  - type: MobState
+  - type: MobStateActions
+    actions:
+      Critical:
+      - ActionCritSuccumb
+      - ActionCritLastWords
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      450: Critical
+      500: Dead
+  - type: ExplosionResistance
+    damageCoefficient: 0.2
+  - type: Flammable
+    fireSpread: false
+    canResistFire: true
+    alwaysCombustible: false
+    canExtinguish: true
+    resisting: false
+    damage:
+      types: {}
+  - type: Temperature
+    heatDamageThreshold: 800
+    coldDamageThreshold: -800
+  - type: FlashImmunity
+  - type: EyeProtection
+  - type: Damageable
+    damageModifierSet: ADTDragonDamageSet
+  - type: Stamina
+    critThreshold: 350
+  - type: StatusEffects
+    allowed:
+    - Stutter
+    - RadiationProtection
+    - Adrenaline #ADT-Medicine
+  - type: Metabolizer
+    solutionOnBody: false
+    updateInterval: 0.25
+    metabolizerTypes: [ Dragon ]
+    groups:
+    - id: Medicine
+    - id: Poison
+  - type: Butcherable
+    spawned:
+    - id: FoodMeatDragon
+      amount: 2
+  - type: InteractionPopup
+    successChance: 0.25
+    interactSuccessString: petting-success-dragon
+    interactFailureString: petting-failure-dragon
+    interactFailureSound:
+      path: /Audio/Animals/space_dragon_roar.ogg
+    soundPerceivedByOthers: false
+  - type: MeleeWeapon
+    altDisarm: false
+    soundHit:
+      path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
+    damage:
+      groups:
+        Brute: 12
+  - type: Devourer
+    foodPreferenceWhitelist:
+      components:
+      - HumanoidAppearance
+    stomachStorageWhitelist:
+      components:
+      - MobState
+    chemical: Ichor
+    healRate: 7.5
+    whitelist:
+      components:
+      - MobState
+      - Door
+      tags:
+      - Wall
+  - type: Tag
+    tags:
+    - CannotSuicide
+    - DoorBumpOpener
+    - StunImmune
+  - type: Puller
+    needsHands: false
+  - type: ThermalVision
+    color: "#1E90FF"
+  - type: MesonVision
+    color: "#1E90FF"
+
+- type: entity
+  parent: BaseToggleAction
+  id: ActionToggleLightEmperor
+  name: Toggle Light
+  description: Turn the light on and off.
+  components:
+  - type: Action
+    useDelay: 1
+    icon: { sprite: ADT/Interface/Actions/space_emperor.rsi, state: light-off }
+    iconOn: { sprite: ADT/Interface/Actions/space_emperor.rsi, state: light-on }
+
+- type: entity
+  id: ADTSpawnPointSpaceEmperor
+  name: ADTSpawnPointSpaceEmperor
+  parent: BaseAntagSpawner
+  components:
+  - type: GhostRole
+    name: ghost-role-information-space-emperor-name
+    description: ghost-role-information-space-emperor-description
+    rules: ghost-role-information-space-emperor-rules
+    raffle:
+      settings: default
+    requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 5000 
+  - type: GhostRoleMobSpawner
+    prototype: ADTMobSpaceEmperor
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green

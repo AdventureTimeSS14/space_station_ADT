@@ -4,7 +4,7 @@ meta:
   engineVersion: 265.0.0
   forkId: ""
   forkVersion: ""
-  time: 11/28/2025 18:33:02
+  time: 12/02/2025 10:34:27
   entityCount: 12856
 maps:
 - 1
@@ -827,7 +827,7 @@ entities:
             2: 61440
           8,5:
             0: 272
-            3: 17472
+            4: 17472
           8,6:
             0: 65521
           8,7:
@@ -870,10 +870,10 @@ entities:
             0: 53759
           11,2:
             0: 4319
-            4: 49152
+            3: 49152
           11,3:
             0: 61457
-            4: 204
+            3: 204
           11,-1:
             0: 30583
           11,4:
@@ -885,9 +885,9 @@ entities:
             0: 28791
           12,2:
             0: 119
-            4: 28672
+            3: 28672
           12,3:
-            4: 119
+            3: 119
             0: 28672
           12,-1:
             0: 29311
@@ -1300,7 +1300,7 @@ entities:
             0: 55
           9,5:
             5: 4368
-            4: 17472
+            3: 17472
           9,6:
             0: 26464
           9,7:
@@ -1309,12 +1309,12 @@ entities:
           9,8:
             2: 238
           10,5:
-            4: 4368
+            3: 4368
             6: 17472
           10,6:
             2: 3840
           11,5:
-            4: 21840
+            3: 21840
           11,6:
             2: 3856
           12,5:
@@ -1508,7 +1508,7 @@ entities:
           temperature: 293.15
           moles:
           - 0
-          - 6666.982
+          - 0
           - 0
           - 0
           - 0
@@ -1531,7 +1531,7 @@ entities:
           temperature: 293.15
           moles:
           - 0
-          - 0
+          - 6666.982
           - 0
           - 0
           - 0
@@ -6680,6 +6680,11 @@ entities:
     - type: Transform
       pos: -11.509008,-21.208147
       parent: 2
+  - uid: 12797
+    components:
+    - type: Transform
+      pos: 50.47724,4.615463
+      parent: 2
 - proto: ADTSheetZinc
   entities:
   - uid: 9015
@@ -6691,6 +6696,13 @@ entities:
     components:
     - type: Transform
       pos: -11.308044,-22.348331
+      parent: 2
+- proto: ADTSheetZinc10
+  entities:
+  - uid: 12798
+    components:
+    - type: Transform
+      pos: 48.929058,5.618413
       parent: 2
 - proto: ADTSofaBlueLeftSide
   entities:
@@ -59961,16 +59973,6 @@ entities:
     - type: Transform
       pos: 35.51282,30.603409
       parent: 2
-  - uid: 11795
-    components:
-    - type: Transform
-      pos: 50.599293,4.435127
-      parent: 2
-  - uid: 11910
-    components:
-    - type: Transform
-      pos: 50.459496,4.6361537
-      parent: 2
 - proto: PartRodMetal1
   entities:
   - uid: 8055
@@ -69077,15 +69079,15 @@ entities:
       parent: 2
 - proto: SpawnPointAtmos
   entities:
-  - uid: 12797
+  - uid: 11795
     components:
     - type: Transform
-      pos: 31.5,12.5
+      pos: 32.5,13.5
       parent: 2
-  - uid: 12798
+  - uid: 11910
     components:
     - type: Transform
-      pos: 32.5,12.5
+      pos: 31.5,13.5
       parent: 2
 - proto: SpawnPointBartender
   entities:

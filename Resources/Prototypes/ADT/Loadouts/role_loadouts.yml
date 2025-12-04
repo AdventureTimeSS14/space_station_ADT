@@ -197,7 +197,7 @@
   # ADT underwear tweak end
 
 - type: roleLoadout
-  id: JobADTGuardOfficer
+  id: JobADTCorrectionsOfficer
   groups:
   - Inventory # Corvax-Loadouts
   - GroupTankHarness
