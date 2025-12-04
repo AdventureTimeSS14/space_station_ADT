@@ -16,6 +16,7 @@
   - type: StatusEffects
     allowed:
     - Stutter
+    - Weakness #ADT-Weakness-Tweak
     - Electrocution
   - type: Repairable
     doAfterDelay: 8
