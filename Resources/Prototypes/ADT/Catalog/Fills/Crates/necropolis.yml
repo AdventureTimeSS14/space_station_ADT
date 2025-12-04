@@ -28,7 +28,7 @@
 - type: entity
   id: ADTCrateNecropolisCursedKatana
   parent: ADTCrateNecropolis
-  suffix: Vavilon
+  suffix: CursedKatanaShard
   components:
   - type: StorageFill
     contents:

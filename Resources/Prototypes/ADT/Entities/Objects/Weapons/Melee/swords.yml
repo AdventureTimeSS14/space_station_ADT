@@ -20,7 +20,6 @@
     damage:
       types:
         Slash: 7
-      types:
         Structural: 30
     soundHit:
         path: /Audio/Weapons/bladeslice.ogg
