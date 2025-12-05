@@ -22,7 +22,7 @@
 #дамские сумочки
 
 - type: entity
-  parent: ClothingBackpack
+  parent: ClothingBackpackSatchel
   id: ADTClothingBackpackBlackLadySatchel
   name: black lady satchel
   description: Satchel for storage. Wow, whats there? A stolen hearts?

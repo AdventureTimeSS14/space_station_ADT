@@ -10,5 +10,5 @@ public sealed class DiscordAuthCCVars : CVars
     /// Enables or disables authorization via Discord.
     /// </summary>
     public static readonly CVarDef<bool> DiscordAuthEnable =
-        CVarDef.Create("discord.auth_enable", false, CVar.SERVER | CVar.ARCHIVE);
+        CVarDef.Create("discord.auth_enable", false, CVar.SERVERONLY | CVar.ARCHIVE);
 }

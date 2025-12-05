@@ -5,7 +5,6 @@
   id: BaseMob
   abstract: true
   components:
-  - type: PassiveHolyHealing
   - type: Sprite
     noRot: true
     drawdepth: Mobs
@@ -47,7 +46,7 @@
   - type: RequireProjectileTarget
     active: False
   - type: StunVisuals
-  # ADT tweak start
+  # ADT-tweak-start
   - type: CanEscapeMech
   - type: LanguageSpeaker
     languages:
@@ -65,8 +64,9 @@
         - ClothMade
         - Mouse
         - Candle
-  # ADT tweak end
-
+  - type: AnimatedEmotes
+  # ADT-tweak-end
+ 
 - type: entity
   save: false
   id: MobPolymorphable

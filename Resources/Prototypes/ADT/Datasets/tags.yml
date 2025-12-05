@@ -12,7 +12,7 @@
   - Banana
   - BananaPeel
   - BaseballBat
-  - BBQsauce
+  - FoodCondimentPacketBbq
   - Bedsheet
   - Beer
   - BikeHorn
@@ -86,7 +86,7 @@
   - Liver
   - Lungs
   - Mask
-  - Mayo
+  - ADTFoodCondimentPacketMayo
   - Meat
   - SpaceCash
   - Medkit
@@ -115,3 +115,4 @@
   - Wrench
   - ADTTeaPack
   - ADTYupiPack
+  - ADTPDA

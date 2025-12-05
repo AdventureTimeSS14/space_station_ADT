@@ -37,7 +37,7 @@ public sealed partial class SupermatterSystem
 {
     /// <summary>
     /// Logging the first launch of supermatter
-    /// <summary>    
+    /// <summary>
     private bool CheckFirstPower(EntityUid uid, SupermatterComponent sm, GasMixture mix)
     {
         if (sm.Power > 0 && !sm.HasBeenPowered)
@@ -119,8 +119,8 @@ public sealed partial class SupermatterSystem
                 sm.PowerlossDynamicScaling = Math.Clamp(sm.PowerlossDynamicScaling + hydrogenpowerloss, 0f, 1f);
             }
 
-            // Same scaling as before, but now if SM Power > 7000 - stop this shit pls.
-            else if (co2 > h2 && sm.Power > _config.GetCVar(ADTCCVars.SupermatterSeverePowerPenaltyThreshold))
+            // Same scaling as before, but now if SM Power > 5000 - stop this shit pls.
+            else if (co2 > h2 && sm.Power > _config.GetCVar(ADTCCVars.SupermatterPowerPenaltyThreshold))
             {
                 var co2powerloss = Math.Clamp(gasComposition.GetMoles(Gas.CarbonDioxide) - sm.PowerlossDynamicScaling, -0.02f, 0.02f);
                 sm.PowerlossDynamicScaling = Math.Clamp(sm.PowerlossDynamicScaling + co2powerloss, 0f, 1f);
@@ -164,7 +164,7 @@ public sealed partial class SupermatterSystem
             rad.Slope = Math.Clamp(rad.Intensity / 15, 0.2f, 1f);
         }
 
-        var energy = sm.Power * _config.GetCVar(ADTCCVars.SupermatterReactionPowerModifier) * (1f - sm.PsyCoefficient * 0.2f) * 2 * frameTime;
+        var energy = sm.Power * _config.GetCVar(ADTCCVars.SupermatterReactionPowerModifier) * 1.6f * frameTime;
         var gasReleased = sm.GasStorage.Clone();
 
         gasReleased.Temperature += energy * sm.HeatModifier / _config.GetCVar(ADTCCVars.SupermatterThermalReleaseModifier);
@@ -239,7 +239,7 @@ public sealed partial class SupermatterSystem
 
         if (moles < _config.GetCVar(ADTCCVars.SupermatterMolePenaltyThreshold))
         {
-            sm.HeatHealing = Math.Min(absorbedGas.Temperature - (tempThreshold + 45f * sm.PsyCoefficient), 0f) / 150f;
+            sm.HeatHealing = Math.Min(absorbedGas.Temperature - (tempThreshold + 45f), 0f) / 150f;
             totalDamage += sm.HeatHealing;
         }
         else
@@ -309,6 +309,13 @@ public sealed partial class SupermatterSystem
             return DelamType.Cascade;
         }
 
+        // Tesla Delam
+        if (sm.Power >= _config.GetCVar(ADTCCVars.SupermatterSeverePowerPenaltyThreshold))
+        {
+            _alert.SetLevel(stationId, sm.AlertCodeDeltaId, true, true, true, false);
+            return DelamType.Tesla;
+        }
+
         // Singularity Delam
         var mix = _atmosphere.GetContainingMixture(uid, true, true);
 
@@ -322,13 +329,6 @@ public sealed partial class SupermatterSystem
                 _alert.SetLevel(stationId, sm.AlertCodeDeltaId, true, true, true, false);
                 return DelamType.Singularity;
             }
-        }
-
-        // Tesla Delam
-        if (sm.Power >= _config.GetCVar(ADTCCVars.SupermatterSeverePowerPenaltyThreshold))
-        {
-            _alert.SetLevel(stationId, sm.AlertCodeDeltaId, true, true, true, false);
-            return DelamType.Tesla;
         }
 
         // Base explosion
@@ -400,7 +400,6 @@ public sealed partial class SupermatterSystem
         {
             case DelamType.Cascade:
                 QueueDel(uid);
-                Spawn(sm.SupermatterCascadePrototype, xform.Coordinates);
                 Spawn(sm.KudzuPrototype, xform.Coordinates);
                 _roundEnd.EndRound(sm.RestartDelay);
                 break;

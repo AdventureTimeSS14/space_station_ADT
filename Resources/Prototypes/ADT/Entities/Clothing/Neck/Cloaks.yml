@@ -91,6 +91,13 @@
   name: Invisible Cloak
   description: Cloak that hides a owner, acquiring the colors and contours of the environment using nanotechnology. Also, it provides some protection against external influences, but the downside of such properties is slow down. # Ya chitayu \\\ QWERTY Shenanigans
   components:
+  - type: ChameleonClothing
+    slot: [NECK]
+    default: ADTClothingNeckInvisibleCloak
+  - type: UserInterface
+    interfaces:
+      enum.ChameleonUiKey.Key:
+        type: ChameleonBoundUserInterface
   - type: Sprite
     sprite: ADT/Clothing/Neck/Cloaks/invisible_cloak.rsi
   - type: ThermalCloak
@@ -111,8 +118,6 @@
       path: /Audio/ADT/Effects/Cloak/cloak_scout_off.ogg
       params:
         variation: 0.09
-  - type: ToggleClothing
-    action: ADTActionToggleCloak
   - type: ClothingSpeedModifier
     walkModifier: 0.90
     sprintModifier: 0.90

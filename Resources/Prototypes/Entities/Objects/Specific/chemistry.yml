@@ -420,6 +420,7 @@
   - type: Injector
     delay: 6
     injectOnly: false
+    restrainedMultiplier: 2 # ADT-Tweak(P4A) Ускорение Шприцов на койках и каталках
   - type: ExaminableSolution
     solution: injector
   - type: Spillable

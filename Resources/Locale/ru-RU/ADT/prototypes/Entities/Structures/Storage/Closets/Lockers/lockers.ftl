@@ -32,3 +32,11 @@ ent-ADTMODSuitStorageCCC = хранилище MOD
 ent-ADTMODSuitStorageCentcom = хранилище MOD
     .suffix = Центком
     .desc = { ent-SuitStorageBase.desc }
+
+ent-ADTSuitStorageParamed = хранилище скафандра
+    .suffix = Парамед
+    .desc = { ent-SuitStorageBase.desc }
+
+ent-SuitStorageBrigmedic = хранилище скафандра
+    .suffix = Бригмедик
+    .desc = { ent-SuitStorageBase.desc }

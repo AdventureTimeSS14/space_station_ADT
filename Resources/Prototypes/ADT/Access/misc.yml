@@ -1,7 +1,7 @@
-- type: accessGroup 
+- type: accessGroup
   id: ADTOverallAccess #ADT-group-roles - все возможные доступы в игре
   tags:
-  - CentralCommand 
+  - CentralCommand
   - EmergencyShuttleRepealAll
   - Captain
   - HeadOfPersonnel
@@ -87,7 +87,7 @@
 - type: accessGroup
   id: ADTAccessCentComm  #ADT-group-roles
   tags:
-  - CentralCommand 
+  - CentralCommand
   - EmergencyShuttleRepealAll
   - Captain
   - HeadOfPersonnel
@@ -122,3 +122,11 @@
   - IAA
   - BlueShield # ADT-Roles
   - Magistrate # ADT-Roles
+
+#
+# Расширенный доступ должен работать ТОЛЬКО и ИСКЛЮЧИТЕЛЬНО на шлюзы, выдаётся автоматически всем СБшникам в ЯК и выше
+# обязательно используйте этот комментарий
+#
+- type: accessLevel
+  id: ADTExtended
+  name: id-card-access-level-extended

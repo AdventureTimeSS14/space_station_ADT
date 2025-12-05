@@ -16,6 +16,9 @@
       map: [ "enum.PdaVisualLayers.IdLight" ]
       shader: "unshaded"
       visible: false
+  - type: Tag
+    tags:
+    - ADTPDA
   - type: Icon
     sprite: ADT/Objects/Devices/pda.rsi
 
@@ -32,6 +35,7 @@
       - NanoTaskCartridge
       - NewsReaderCartridge
       - MedTekCartridge
+      - NanoChatCartridge # ADT-tweak: Наночат
       - ADTWalletCartridge # ADT-Economy
     diskSpace: 8 # ADT tweak
 
@@ -46,6 +50,7 @@
     - NotekeeperCartridge
     - NanoTaskCartridge
     - NewsReaderCartridge
+    - NanoChatCartridge # ADT-tweak: Наночат
     - WantedListCartridge
     - ADTWalletCartridge # ADT-Economy
     diskSpace: 8 # ADT tweak
@@ -289,26 +294,26 @@
 # КПК надзирателя
 - type: entity
   parent: ADTBaseSecurityPDA
-  id: ADTGuardOfficerPDA
-  name: guard officer PDA
+  id: ADTCorrectionsOfficerPDA
+  name: corrections officer PDA
   description: It smells like ink and the case is prematurely closed due to the death of a suspect at work.
   components:
   - type: Pda
-    id: ADTGuardOfficerIDCard
+    id: ADTCorrectionsOfficerIDCard
   - type: PdaBorderColor
     borderColor: "#774705"
   - type: Icon
-    state: pda-guardofficer
+    state: pda-correctionsofficer
   - type: Appearance
     appearanceDataInit:
      enum.PdaVisuals.PdaType:
       !type:String
-      pda-guardofficer
+      pda-correctionsofficer
   - type: Sprite
     sprite: ADT/Objects/Devices/pda.rsi
     layers:
     - map: [ "enum.PdaVisualLayers.Base" ]
-      state: "pda-guardofficer"
+      state: "pda-correctionsofficer"
     - state: "light_overlay"
       map: [ "enum.PdaVisualLayers.Flashlight" ]
       shader: "unshaded"
@@ -393,6 +398,24 @@
   - type: Pda
     id: ADTMixologistIDCard
 
+- type: entity
+  parent: BartenderPDA
+  id: ADTTavernkeepPDA
+  name: tavernkeep PDA
+  description: The Tavernkeep is a unique NPC vendor who only accepts-... ROLLBACK, WRONG GAME!
+  components:
+  - type: Pda
+    id: ADTTavernkeepIDCard
+
+- type: entity
+  parent: BartenderPDA
+  id: ADTBaristaPDA
+  name: barista PDA
+  description: The position is for those who want to legally poison Xenos.
+  components:
+  - type: Pda
+    id: ADTBaristaIDCard
+
 # Chef
 
 - type: entity
@@ -421,6 +444,26 @@
   components:
   - type: Pda
     id: ADTPizzaioloIDCard
+
+- type: entity
+  parent: ChefPDA
+  id: ADTConfectionerPDA
+  name: confectioner PDA
+  description: The cake is a lie.
+  components:
+  - type: Pda
+    id: ADTConfectionerIDCard
+
+# Service Worker
+
+- type: entity
+  parent: ServiceWorkerPDA
+  id: ADTWaiterPDA
+  name: waiter PDA
+  description: The waiter! There's a fly floating in my soup!
+  components:
+  - type: Pda
+    id: ADTWaiterIDCard
 
 # Medical Intern
 
@@ -591,6 +634,124 @@
   components:
   - type: Pda
     id: ADTFoolIDCard
+
+# Musician
+
+- type: entity
+  parent: MusicianPDA
+  id: ADTPerformerPDA
+  name: performer PDA
+  components:
+  - type: Pda
+    id: ADTPerformerIDCard
+
+- type: entity
+  parent: MusicianPDA
+  id: ADTConcertmasterPDA
+  name: concertmaster PDA
+  components:
+  - type: Pda
+    id: ADTConcertmasterIDCard
+
+- type: entity
+  parent: MusicianPDA
+  id: ADTComposerPDA
+  name: composer PDA
+  components:
+  - type: Pda
+    id: ADTComposerIDCard
+
+- type: entity
+  parent: MusicianPDA
+  id: ADTBardPDA
+  name: bard PDA
+  components:
+  - type: Pda
+    id: ADTBardIDCard
+
+- type: entity
+  parent: MusicianPDA
+  id: ADTDJPDA
+  name: DJ PDA
+  components:
+  - type: Pda
+    id: ADTDJIDCard
+
+# Reporter
+
+- type: entity
+  parent: ReporterPDA
+  id: ADTJournalistPDA
+  name: journalist PDA
+  components:
+  - type: Pda
+    id: ADTJournalistIDCard
+
+# Boxer
+
+- type: entity
+  parent: BoxerPDA
+  id: ADTKaratekaPDA
+  name: karateka PDA
+  components:
+  - type: Pda
+    id: ADTKaratekaIDCard
+
+- type: entity
+  parent: BoxerPDA
+  id: ADTKickboxerPDA
+  name: kickboxer PDA
+  components:
+  - type: Pda
+    id: ADTKickboxerIDCard
+
+- type: entity
+  parent: BoxerPDA
+  id: ADTSavatistPDA
+  name: savatist PDA
+  components:
+  - type: Pda
+    id: ADTSavatistIDCard
+
+- type: entity
+  parent: BoxerPDA
+  id: ADTHandToHandCombatMasterPDA
+  name: hand-to-hand combat master PDA
+  components:
+  - type: Pda
+    id: ADTHandToHandCombatMasterIDCard
+
+- type: entity
+  parent: BoxerPDA
+  id: ADTMMAFighterPDA
+  name: MMA fighter PDA
+  components:
+  - type: Pda
+    id: ADTMMAFighterIDCard
+
+- type: entity
+  parent: BoxerPDA
+  id: ADTJudoistPDA
+  name: judoist PDA
+  components:
+  - type: Pda
+    id: ADTJudoistIDCard
+
+- type: entity
+  parent: BoxerPDA
+  id: ADTCoachPDA
+  name: coach PDA
+  components:
+  - type: Pda
+    id: ADTCoachIDCard
+
+- type: entity
+  parent: BoxerPDA
+  id: ADTGladiatorPDA
+  name: gladiator PDA
+  components:
+  - type: Pda
+    id: ADTGladiatorIDCard
 
 # Janitor
 

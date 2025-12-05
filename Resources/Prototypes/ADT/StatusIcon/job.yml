@@ -40,11 +40,11 @@
 
 - type: jobIcon
   parent: JobIcon
-  id: JobIconADTGuardOfficer
+  id: JobIconADTCorrectionsOfficer
   icon:
     sprite: /Textures/ADT/Interface/Misc/job_icons.rsi
-    state: GuardOfficer
-  jobName: job-name-guard-officer
+    state: ADTCorrectionsofficer
+  jobName: job-name-corrections-officer
 
 - type: jobIcon
   parent: JobIcon

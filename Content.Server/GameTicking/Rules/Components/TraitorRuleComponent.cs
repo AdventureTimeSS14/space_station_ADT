@@ -44,7 +44,7 @@ public sealed partial class TraitorRuleComponent : Component
     /// Вероятность того, что предатель станет лидером кровных братьев вместо получения аплинка.
     /// </summary>
     [DataField]
-    public float BloodBrotherChance = 0.2f;
+    public float BloodBrotherChance = 0f;
     public ProtoId<NpcFactionPrototype> BloodBrotherFaction = "BloodBrotherFaction"; //ADT-tweak
     public ProtoId<NpcFactionPrototype> BloodBrotherLeaderFaction = "BloodBrotherLeaderFaction"; //ADT-tweak
     // ADT-Tweak-End

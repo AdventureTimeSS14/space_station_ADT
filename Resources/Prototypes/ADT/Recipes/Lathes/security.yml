@@ -30,6 +30,16 @@
     Uranium: 125
 
 - type: latheRecipe
+  id: ADTMagazineShotgunUranium
+  result: MagazineShotgunUranium
+  completetime: 5
+  materials:
+    Steel: 50
+    Plastic: 190
+    Lead: 100
+    Uranium: 130
+
+- type: latheRecipe
   parent: BaseWeaponRecipeLong
   id: ADTWeaponIonRifle
   result: ADTWeaponIonRifle
@@ -55,6 +65,25 @@
   result: ADTMagazineBoxMagnumLesser
   materials:
     Lead : 240
+
+#Silver for HW
+- type: latheRecipe
+  id: ADTMagazineBoxMagnumSilver
+  result: ADTMagazineBoxMagnumSilver
+  completetime: 5
+  materials:
+    Lead : 145
+    Silver: 145
+    Plastic: 240
+
+- type: latheRecipe
+  id: ADTCartridgeMagnumSilver
+  result: ADTCartridgeMagnumSilver
+  completetime: 5
+  materials:
+    Lead : 10
+    Silver: 20
+# Silver for HW end
 
 - type: latheRecipe
   parent: BaseAmmoRecipe

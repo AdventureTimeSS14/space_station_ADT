@@ -1,8 +1,10 @@
+#region weapon
+
 - type: listing
   id: ADTBoberM90
   name: boobr-m90-name
   description: boobr-m90-desc
-  icon: { sprite: /Textures/Objects/Weapons/Guns/Rifles/carbine.rsi, state: base }
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Rifles/carbine.rsi, state: icon }
   productEntity: WeaponCaseNTM90
   cost:
     Productunit: 18
@@ -20,72 +22,6 @@
 #   categories:
 #   - ADTUplinkERTAttachments
 
-- type: listing
-  id: ADTBoberM90UnderbarrelShotgun
-  name: boobr-m90-shotgun-name
-  description: boobr-m90-shotgun-desc
-  icon: { sprite: /Textures/Objects/Weapons/Guns/Rifles/carbine.rsi, state: base }
-  productEntity: WeaponCaseNTM90UnderBarrelShotGunAttachment
-  cost:
-    Productunit: 5
-  categories:
-  - ADTUplinkERTAttachments
-
-- type: listing
-  id: ADTBoberWeaponAttachments
-  name: boobr-weapon-attachments-name
-  description: boobr-weapon-attachments-desc
-  icon: { sprite: /Textures/ADT/Objects/Weapons/Guns/Attachments/under.rsi, state: tech_basic }
-  productEntity: WeaponCaseNTGunsModules
-  cost:
-    Productunit: 3
-  categories:
-  - ADTUplinkERTAttachments
-
-- type: listing
-  id: ADTBoberAntilyingAttachment
-  abstract: true # Убран на доработку
-  name: boobr-weapon-attachments-antilying-name
-  description: boobr-weapon-attachments-antilying-desc
-  icon: { sprite: /Textures/ADT/Objects/Weapons/Guns/Attachments/barrel.rsi, state: antilying }
-  productEntity: ADTAttachmentAntiLyingWarrior
-  cost:
-    Productunit: 4
-  categories:
-  - ADTUplinkERTAttachments
-
-- type: listing
-  id: ADTBoberSuppressorAttachment
-  name: boobr-weapon-attachments-suppressor-name
-  description: boobr-weapon-attachments-suppressor-desc
-  icon: { sprite: /Textures/ADT/Objects/Weapons/Guns/Attachments/barrel.rsi, state: suppressor }
-  productEntity: ADTAttachmentSuppressor
-  cost:
-    Productunit: 3
-  categories:
-  - ADTUplinkERTAttachments
-
-- type: listing
-  id: ADTBoberMagneticHarnessAttachment
-  name: boobr-weapon-attachments-magneticharness-name
-  description: boobr-weapon-attachments-magneticharness-description
-  icon: { sprite: /Textures/ADT/Objects/Weapons/Guns/Attachments/rail.rsi, state: magnetic }
-  productEntity: ADTAttachmentMagneticHarness
-  cost:
-    Productunit: 4
-  categories:
-  - ADTUplinkERTAttachments
-
-- type: listing
-  id: ADTBoberLecter
-  name: boobr-lecter-name
-  description: boobr-lecter-desc
-  icon: { sprite: /Textures/Objects/Weapons/Guns/Rifles/lecter.rsi, state: icon }
-  productEntity: WeaponCaseNTLecter
-  cost:
-    Productunit: 18
-  categories:
-  - ADTUplinkERTWeapon
 
 - type: listing
   id: ADTBoberPulse
@@ -124,7 +60,7 @@
   id: ADTBoberDisabler
   name: boobr-disabler-name
   description: boobr-disabler-desc
-  icon: { sprite: Objects/Weapons/Guns/Battery/disabler.rsi, state: base }
+  icon: { sprite: Objects/Weapons/Guns/Battery/disabler.rsi, state: icon }
   productEntity: WeaponCaseNTDisabler
   cost:
     Productunit: 5
@@ -143,10 +79,32 @@
   - ADTUplinkERTWeapon
 
 - type: listing
+  id: ADTBoberMeleeWeaponCase
+  name: bober-melee-weapon-case-name
+  description: bober-melee-weapon-case-desc
+  icon: { sprite: Objects/Weapons/Melee/truncheon.rsi, state: icon }
+  productEntity: ADTMeleeWeaponCase
+  cost:
+    Productunit: 16
+  categories:
+  - ADTUplinkERTWeapon
+
+- type: listing
+  id: ADTPulsePistol
+  name: pulse-pistol-name
+  description: pulse-pistol-desc
+  icon: { sprite: Objects/Weapons/Guns/Battery/pulse_pistol.rsi, state: icon }
+  productEntity: ADTWeaponCasePulsePistolet
+  cost:
+    Productunit: 8
+  categories:
+  - ADTUplinkERTWeapon
+
+- type: listing
   id: ADTBoberIonRifle
   name: boobr-ion-name
   description: boobr-ion-desc
-  icon: { sprite: ADT/Objects/Weapons/Guns/Battery/ion_rifle.rsi, state: base }
+  icon: { sprite: ADT/Objects/Weapons/Guns/Battery/ion_rifle.rsi, state: icon }
   productEntity: WeaponCaseNTIonRifle
   cost:
     Productunit: 8
@@ -157,7 +115,7 @@
   id: ADTBoberDrozd
   name: boobr-drozd-name
   description: boobr-drozd-desc
-  icon: { sprite: Objects/Weapons/Guns/SMGs/drozd.rsi, state: base }
+  icon: { sprite: Objects/Weapons/Guns/SMGs/drozd.rsi, state: icon }
   productEntity: WeaponCaseNTDrozd
   cost:
     Productunit: 14
@@ -168,7 +126,7 @@
   id: ADTBoberBulldog
   name: boobr-bulldog-name
   description: boobr-bulldog-desc
-  icon: { sprite: Objects/Weapons/Guns/Shotguns/bulldog.rsi, state: base }
+  icon: { sprite: Objects/Weapons/Guns/Shotguns/bulldog.rsi, state: icon }
   productEntity: WeaponCaseBulldog
   cost:
     Productunit: 20
@@ -186,7 +144,266 @@
   categories:
   - ADTUplinkERTWeapon
 
-# misc
+#region ammo
+
+- type: listing
+  id: ADTBoberAmmoBulldog
+  name: boobr-bulldog-ammo-name
+  description: boobr-bulldog-ammo-desc
+  icon: { sprite: Objects/Weapons/Guns/Ammunition/Magazine/Shotgun/m12.rsi, state: pellets }
+  productEntity: MagazineShotgun
+  cost:
+    Productunit: 1
+  categories:
+  - ADTUplinkERTAmmo
+
+- type: listing
+  id: ADTBoberAmmoIncendiaryBulldog
+  name: boobr-bulldog-ammo-incendiary-name
+  description: boobr-bulldog-ammo-incendiary-desc
+  icon: { sprite: Objects/Weapons/Guns/Ammunition/Magazine/Shotgun/m12.rsi, state: base }
+  productEntity: MagazineShotgunIncendiary
+  cost:
+    Productunit: 1
+  categories:
+  - ADTUplinkERTAmmo
+
+- type: listing
+  id: ADTBoberAmmoSlugBulldog
+  name: boobr-bulldog-ammo-slug-name
+  description: boobr-bulldog-ammo-slug-desc
+  icon: { sprite: Objects/Weapons/Guns/Ammunition/Magazine/Shotgun/m12.rsi, state: slug }
+  productEntity: MagazineShotgunSlug
+  cost:
+    Productunit: 1
+  categories:
+  - ADTUplinkERTAmmo
+
+- type: listing
+  id: ADTBoberAmmoBeanbagBulldog
+  name: boobr-bulldog-ammo-beanbag-name
+  description: boobr-bulldog-ammo-beanbag-desc
+  icon: { sprite: Objects/Weapons/Guns/Ammunition/Magazine/Shotgun/m12.rsi, state: beanbag }
+  productEntity: MagazineShotgunBeanbag
+  cost:
+    Productunit: 1
+  categories:
+  - ADTUplinkERTAmmo
+
+- type: listing
+  id: ADTBoberAmmoUraniumBulldog
+  name: boobr-bulldog-ammo-uranium-name
+  description: boobr-bulldog-ammo-uranium-desc
+  icon: { sprite: Objects/Weapons/Guns/Ammunition/Magazine/Shotgun/m12.rsi, state: uranium }
+  productEntity: MagazineShotgunUranium
+  cost:
+    Productunit: 1
+  categories:
+  - ADTUplinkERTAmmo
+
+- type: listing
+  id: ADTBoberAmmoDesertEagle
+  name: boobr-desert-eagle-ammo-name
+  description: boobr-desert-eagle-ammo-desc
+  icon: { sprite: ADT/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/pistol_magnum_mag.rsi, state: red-icon }
+  productEntity: MagazineMagnum
+  cost:
+    Productunit: 1
+  categories:
+  - ADTUplinkERTAmmo
+
+- type: listing
+  id: ADTBoberAmmoMateba
+  name: boobr-mateba-ammo-name
+  description: boobr-mateba-ammo-desc
+  icon: { sprite: Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/magnum_speed_loader.rsi, state: icon }
+  productEntity: SpeedLoaderMagnum
+  cost:
+    Productunit: 1
+  categories:
+  - ADTUplinkERTAmmo
+
+- type: listing
+  id: ADTBoberAmmoDrozd
+  name: boobr-drozd-ammo-name
+  description: boobr-drozd-ammo-desc
+  icon: { sprite: Objects/Weapons/Guns/Ammunition/Magazine/Pistol/smg_mag.rsi, state: red-icon }
+  productEntity: MagazinePistolSubMachineGun
+  cost:
+    Productunit: 2
+  categories:
+  - ADTUplinkERTAmmo
+
+- type: listing
+  id: ADTBoberAmmoM90
+  name: boobr-M90-ammo-name
+  description: boobr-M90-ammo-desc
+  icon: { sprite: Objects/Weapons/Guns/Ammunition/Magazine/Rifle/rifle_mag.rsi, state: icon }
+  productEntity: MagazineRifle
+  cost:
+    Productunit: 2
+  categories:
+  - ADTUplinkERTAmmo
+
+
+- type: listing
+  id: ADTBoberAmmoBulldogX4
+  name: boobr-bulldog-ammo-x4-name
+  description: boobr-bulldog-ammo-x4-desc
+  icon: { sprite: ADT/Objects/Storage/weaponcase.rsi, state: closed }
+  productEntity: ADTWeaponCaseAmmoBulldogX4
+  cost:
+    Productunit: 3
+  categories:
+  - ADTUplinkERTAmmo
+
+- type: listing
+  id: ADTBoberAmmoAR12
+  name: boobr-ar12-ammo-name
+  description: boobr-ar12-ammo-desc
+  icon: { sprite: ADT/Objects/Weapons/Guns/Ammunition/Magazine/Rifle/ar12_mag.rsi, state: icon }
+  productEntity: ADTMagazineRifleAR12
+  cost:
+    Productunit: 3
+  categories:
+  - ADTUplinkERTAmmo
+
+- type: listing
+  id: ADTBoberAmmoM90Magazine
+  name: boobr-M90-ammo-case-name
+  description: boobr-M90-ammo-case-desc
+  icon: { sprite: ADT/Objects/Storage/weaponcase.rsi, state: closed }
+  productEntity: ADTWeaponCaseM90Magazine
+  cost:
+    Productunit: 4
+  categories:
+  - ADTUplinkERTAmmo
+
+- type: listing
+  id: ADTBoberAmmoDrozdMagazine
+  name: boobr-drozd-ammo-case-name
+  description: boobr-drozd-ammo-case-desc
+  icon: { sprite: ADT/Objects/Storage/weaponcase.rsi, state: closed }
+  productEntity: ADTWeaponCaseDrozdMagazine
+  cost:
+    Productunit: 4
+  categories:
+  - ADTUplinkERTAmmo
+
+- type: listing
+  id: ADTBoberAmmoMiscPistolet
+  name: boobr-pistolet-misc-ammo-name
+  description: boobr-pistolet-misc-ammo-desc
+  icon: { sprite: ADT/Objects/Storage/weaponcase.rsi, state: closed }
+  productEntity: ADTWeaponCasePistolet
+  cost:
+    Productunit: 5
+  categories:
+  - ADTUplinkERTAmmo
+
+- type: listing
+  id: ADTBoberAmmoAR12Magazine
+  name: boobr-AR12-ammo-case-name
+  description: boobr-AR12-ammo-case-desc
+  icon: { sprite: ADT/Objects/Storage/weaponcase.rsi, state: closed }
+  productEntity: ADTWeaponCaseAR12Magazine
+  cost:
+    Productunit: 6
+  categories:
+  - ADTUplinkERTAmmo
+
+- type: listing
+  id: ADTBoberAmmoMiscBulldog
+  name: boobr-bulldog-misc-ammo-name
+  description: boobr-bulldog-misc-ammo-desc
+  icon: { sprite: ADT/Objects/Storage/weaponcase.rsi, state: closed }
+  productEntity: ADTWeaponCaseShotgunAmmo
+  cost:
+    Productunit: 7
+  categories:
+  - ADTUplinkERTAmmo
+
+- type: listing
+  id: ADTBoberAutomatAmmoMiscMagazine
+  name: boobr-automat-misc-ammo-case-name
+  description: boobr-automat-misc-ammo-case-desc
+  icon: { sprite: ADT/Objects/Storage/weaponcase.rsi, state: closed }
+  productEntity: ADTWeaponCaseMagazine
+  cost:
+    Productunit: 8
+  categories:
+  - ADTUplinkERTAmmo
+
+#region attachments
+
+- type: listing
+  id: ADTBoberCombatKnife
+  name: boobr-combat-knife-name
+  description: boobr-combat-knife-desc
+  icon: { sprite: Objects/Weapons/Melee/combat_knife.rsi, state: icon }
+  productEntity: CombatKnife
+  cost:
+    Productunit: 1
+  categories:
+  - ADTUplinkERTAttachments
+
+- type: listing
+  id: ADTBoberSuppressorAttachment
+  name: boobr-weapon-attachments-suppressor-name
+  description: boobr-weapon-attachments-suppressor-desc
+  icon: { sprite: /Textures/ADT/Objects/Weapons/Guns/Attachments/barrel.rsi, state: suppressor }
+  productEntity: ADTAttachmentSuppressor
+  cost:
+    Productunit: 2
+  categories:
+  - ADTUplinkERTAttachments
+
+- type: listing
+  id: ADTBoberWeaponAttachments
+  name: boobr-weapon-attachments-name
+  description: boobr-weapon-attachments-desc
+  icon: { sprite: ADT/Objects/Storage/weaponcase.rsi, state: closed }
+  productEntity: WeaponCaseNTGunsModules
+  cost:
+    Productunit: 3
+  categories:
+  - ADTUplinkERTAttachments
+
+- type: listing
+  id: ADTBoberAntilyingAttachment
+  abstract: true # Убран на доработку
+  name: boobr-weapon-attachments-antilying-name
+  description: boobr-weapon-attachments-antilying-desc
+  icon: { sprite: /Textures/ADT/Objects/Weapons/Guns/Attachments/barrel.rsi, state: antilying }
+  productEntity: ADTAttachmentAntiLyingWarrior
+  cost:
+    Productunit: 4
+  categories:
+  - ADTUplinkERTAttachments
+
+- type: listing
+  id: ADTBoberMagneticHarnessAttachment
+  name: boobr-weapon-attachments-magneticharness-name
+  description: boobr-weapon-attachments-magneticharness-description
+  icon: { sprite: /Textures/ADT/Objects/Weapons/Guns/Attachments/rail.rsi, state: magnetic }
+  productEntity: ADTAttachmentMagneticHarness
+  cost:
+    Productunit: 4
+  categories:
+  - ADTUplinkERTAttachments
+
+- type: listing
+  id: ADTBoberM90UnderbarrelShotgun
+  name: boobr-m90-shotgun-name
+  description: boobr-m90-shotgun-desc
+  icon: { sprite: ADT/Objects/Weapons/Guns/Attachments/under.rsi, state: masterkey }
+  productEntity: WeaponCaseNTM90UnderBarrelShotGunAttachment
+  cost:
+    Productunit: 5
+  categories:
+  - ADTUplinkERTAttachments
+
+#region misc
 
 - type: listing
   id: ADTBoberShieldPunch
@@ -214,7 +431,7 @@
   description:  boobr-mag-boots-desc
   productEntity: ADTClothingShoesBootsMagERT
   cost:
-    Productunit: 2
+    Productunit: 3
   categories:
   - ADTUplinkERTMisc
 
@@ -224,7 +441,7 @@
   description: boobr-JawsOfLife-desc
   productEntity: JawsOfLife
   cost:
-    Productunit: 4
+    Productunit: 2
   categories:
   - ADTUplinkERTMisc
 
@@ -234,15 +451,105 @@
   description: boobr-grenade-desc
   productEntity: GrenadeShrapnel
   cost:
-    Productunit: 2
+    Productunit: 3
   categories:
   - ADTUplinkERTMisc
 
 - type: listing
   id: ADTBoberc4
   name: boobr-c4-name
-  productEntity: C4
   description: boobr-c4-desc
+  productEntity: C4
+  cost:
+    Productunit: 1
+  categories:
+  - ADTUplinkERTMisc
+
+- type: listing
+  id: ADTBoberSmokeGrenade
+  name: boobr-smoke-grenade-name
+  description: boobr-smoke-grenade-desc
+  productEntity: SmokeGrenade
+  cost:
+    Productunit: 1
+  categories:
+  - ADTUplinkERTMisc
+
+- type: listing
+  id: ADTBoberGrenadeFlashBang
+  name: boobr-grenade-flash-bang-name
+  description: boobr-grenade-flash-bang-desc
+  productEntity: GrenadeFlashBang
+  cost:
+    Productunit: 1
+  categories:
+  - ADTUplinkERTMisc
+
+- type: listing
+  id: ADTBoberClusterBangFull
+  name: boobr-cluster-bang-grenade-name
+  description: boobr-cluster-bang-grenade-desc
+  productEntity: ClusterBangFull
+  cost:
+    Productunit: 2
+  categories:
+  - ADTUplinkERTMisc
+
+- type: listing
+  id: ADTBoberClusterGrenade
+  name: boobr-cluster-grenade-name
+  description: boobr-cluster-grenade-desc
+  productEntity: ClusterGrenade
+  cost:
+    Productunit: 4
+  categories:
+  - ADTUplinkERTMisc
+
+- type: listing
+  id: ADTBoberGrenadeStinger
+  name: boobr-grenade-stinger-name
+  description: boobr-grenade-stinger-desc
+  productEntity: GrenadeStinger
+  cost:
+    Productunit: 1
+  categories:
+  - ADTUplinkERTMisc
+
+- type: listing
+  id: ADTBoberGrenadeIncendiary
+  name: boobr-incendiary-grenade-name
+  description: boobr-incendiary-grenade-desc
+  productEntity: GrenadeIncendiary
+  cost:
+    Productunit: 2
+  categories:
+  - ADTUplinkERTMisc
+
+- type: listing
+  id: ADTBoberMetalFoamGrenade
+  name: boobr-metal-foam-grenade-name
+  description: boobr-metal-foam-grenade-desc
+  productEntity: MetalFoamGrenade
+  cost:
+    Productunit: 1
+  categories:
+  - ADTUplinkERTMisc
+
+- type: listing
+  id: ADTBoberEmpGrenade
+  name: boobr-emp-grenade-name
+  description: boobr-emp-grenade-desc
+  productEntity: EmpGrenade
+  cost:
+    Productunit: 3
+  categories:
+  - ADTUplinkERTMisc
+
+- type: listing
+  id: ADTBoberCleanerGrenade
+  name: boobr-clean-grenade-name
+  description: boobr-clean-grenade-desc
+  productEntity: CleanerGrenade
   cost:
     Productunit: 1
   categories:
@@ -250,9 +557,9 @@
 
 - type: listing
   id: ADTBoberJetPack
-  name: boobr-jetpack-name
-  productEntity: JetpackBlackFilled
-  description:  boobr-jetpack-desc
+  name: boobr-jetpack-mini-name
+  description: boobr-jetpack-mini-desc
+  productEntity: JetpackMiniFilled
   cost:
     Productunit: 2
   categories:
@@ -261,18 +568,38 @@
 - type: listing
   id: ADTBoberGrapplingGun
   name: boobr-grappling-gun-name
-  productEntity: WeaponGrapplingGun
   description:  boobr-grappling-gun-desc
+  productEntity: WeaponGrapplingGun
   cost:
     Productunit: 1
   categories:
   - ADTUplinkERTMisc
 
 - type: listing
+  id: ADTBoberClothingBeltAssault
+  name: boobr-clothing-belt-assault-name
+  description: boobr-clothing-belt-assault-desc
+  productEntity: ClothingBeltAssault
+  cost:
+    Productunit: 5
+  categories:
+  - ADTUplinkERTMisc
+
+- type: listing
+  id: ADTBoberClothingBeltChiefEngineerFilled
+  name: boobr-clothing-belt-chief-engineer-filled-name
+  description: boobr-clothing-belt-chief-engineer-filled-desc
+  productEntity: ClothingBeltChiefEngineerFilled
+  cost:
+    Productunit: 5
+  categories:
+  - ADTUplinkERTMisc
+
+- type: listing
   id: ADTBoberMediKit
   name: boobr-medikit-name
+  description: boobr-medikit-desc
   productEntity: MedkitAdvancedFilled
-  description:  boobr-medikit-desc
   cost:
     Productunit: 2
   categories:
@@ -294,7 +621,7 @@
   description:  boobr-holo-projector-desc
   productEntity: ADTAdvancedHoloprojectorField
   cost:
-    Productunit: 4
+    Productunit: 5
   categories:
   - ADTUplinkERTMisc
 

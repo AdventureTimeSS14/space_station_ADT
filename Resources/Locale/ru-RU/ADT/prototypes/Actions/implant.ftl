@@ -1,14 +1,19 @@
-action-mantis-daggers = Клинки богомола
-action-mantis-daggers-desc = Переключает клинки богомола между скрытым и активным состоянием. Верните мне мой 2077.
+ent-ActionToggleMantisDaggers = Клинки богомола
+    .desc = Переключает клинки богомола между скрытым и активным состоянием. Верните мне мой 2077.
 
-action-sundowner-shields = Защита
-action-sundowner-shields-desc = Переключите защиту взрывными пластинами.
+mantis-daggers-cantshoot = Ваши клинки богомола не позволяют вам использовать { $used }!
 
-action-muscles = Мускулы
-action-muscles-desc = Nanomachines, son
+ent-ActionToggleSundownerShields = Защита
+    .desc = Переключите защиту взрывными пластинами.
 
-action-jump = Прыжок
-action-jump-desc = Прыгните в указанную точку.
+ent-ActionToggleMuscles = Мускулы
+    .desc = Nanomachines, son
 
-action-stealth = Хамелеон
-action-stealth-desc = Переключите собственную видимость. Звуки шагов в сделку не входили.
+ent-ActionMusclesJump = Прыжок
+    .desc = Прыгните в указанную точку.
+
+ent-ActionToggleCompStealth = Хамелеон
+    .desc = Переключите собственную видимость. Звуки шагов в сделку не входили.
+
+ent-ActionToggleSandevistan = Сандевистан
+    .desc = Переключить имплант Сандевистан. И помните: "Киберпсихи не становится известными по тому, как они живут. Киберпсихи прославляются за то, как они умирают."

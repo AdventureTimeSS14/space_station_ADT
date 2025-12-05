@@ -1,7 +1,7 @@
 {
-  "version": 1,
+  "version": 2,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Made by Tamioki", 
+  "copyright": "Made by Tamioki. equipped-BELT made by armorkillerd",
   "size": {
     "x": 32,
     "y": 32
@@ -12,6 +12,10 @@
     },
     {
       "name": "cane"
+    },
+    {
+      "name": "equipped-BELT",
+      "directions": 4
     },
     {
       "name": "inhand-left",

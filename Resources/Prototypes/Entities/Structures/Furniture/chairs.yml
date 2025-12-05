@@ -22,6 +22,7 @@
         - TableMask
   - type: Sprite
     sprite: Structures/Furniture/chairs.rsi
+    drawdepth: HighFloorObjects # ADT-Tweak: Исправлено отображение стульев - слой стульев теперь отображается ниже персонажа 
     noRot: true
   - type: Strap
     position: Stand
@@ -48,7 +49,7 @@
         sound:
           collection: MetalBreak
   - type: StaticPrice
-    price: 10 # ADT-tweak
+    price: 40 # ADT-tweak
 
 #Starts unanchored, cannot be rotated while anchored
 - type: entity
@@ -255,7 +256,7 @@
     tags:
     - Wooden
   - type: StaticPrice
-    price: 25 # ADT-tweak
+    price: 40 # ADT-tweak
 
 - type: entity
   name: ritual chair

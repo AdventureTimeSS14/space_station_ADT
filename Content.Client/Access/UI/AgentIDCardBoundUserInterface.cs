@@ -26,6 +26,13 @@ namespace Content.Client.Access.UI
             _window.OnNameChanged += OnNameChanged;
             _window.OnJobChanged += OnJobChanged;
             _window.OnJobIconChanged += OnJobIconChanged;
+            // ADT-tweak-start: Наночат
+            _window.OnNumberChanged += OnNumberChanged;
+        }
+        private void OnNumberChanged(uint newNumber)
+        {
+            SendMessage(new AgentIDCardNumberChangedMessage(newNumber));
+        // ADT-tweak-end
         }
 
         private void OnNameChanged(string newName)
@@ -56,6 +63,7 @@ namespace Content.Client.Access.UI
             _window.SetCurrentName(cast.CurrentName);
             _window.SetCurrentJob(cast.CurrentJob);
             _window.SetAllowedIcons(cast.CurrentJobIconId);
+            _window.SetCurrentNumber(cast.CurrentNumber); // ADT-tweak: Наночат
         }
     }
 }

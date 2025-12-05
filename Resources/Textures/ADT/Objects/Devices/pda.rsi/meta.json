@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Sprites exclusively for AdventureTime! pda-blueshield made by Tamioki. Ghost by illumination6753 (Discord). pathologist upgraded by discord:prazat911, tsf and kmt by not_so_big_chungus",
+  "copyright": "Sprites exclusively for AdventureTime! Corrections Officer, Blueshield made by Tamioki. Ghost by illumination6753 (Discord). pathologist upgraded by discord:prazat911, tsf and kmt by not_so_big_chungus",
   "size": {
     "x": 32,
     "y": 32
@@ -61,7 +61,7 @@
             "name": "pda-tradertsf"
         },
         {
-            "name": "pda-guardofficer"
+            "name": "pda-correctionsofficer"
         },
         {
             "name": "pda-kmt"

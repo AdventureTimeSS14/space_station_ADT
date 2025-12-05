@@ -505,6 +505,54 @@
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpskirt/teto.rsi
 
+# Corrections Officer
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ADTClothingUniformJumpskirtCorrectionsOfficer
+  name: skirt-uniform corrections officer
+  description: skirt-uniform corrections officer
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/corrections_officer.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/corrections_officer.rsi
+
+# Cadet
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ADTClothingUniformJumpskirtSecurityCadetLight
+  name: skirt-uniform security cadet light
+  description: skirt-uniform security cadet light
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/sec_cadet_light.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/sec_cadet_light.rsi
+
+# Бармен
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ADTClothingUniformJumpskirtBartenderRed
+  name: bartender's uniform
+  description: A nice and tidy uniform. Shame about the bar though.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/bartender_red.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/bartender_red.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ADTClothingUniformJumpskirtBartenderGreen
+  name: bartender's uniform
+  description: A nice and tidy uniform. Shame about the bar though.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/bartender_green.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/bartender_green.rsi
+
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ADTClothingUniformDressVintage
