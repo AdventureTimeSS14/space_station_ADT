@@ -50,6 +50,7 @@
       guides:
       - SingularityTeslaEngine
       - Power
+    - type: SupermatterFood # ADT-Tweak
 
 - type: entity
   name: anti particles
@@ -81,3 +82,7 @@
   - type: SinguloFood
     energy: -10
     energyFactor: 0.97
+# ADT-Tweak-Start
+  - type: SupermatterFood
+    energy: -250
+# ADT-Tweak-End
