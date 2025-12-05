@@ -21,6 +21,9 @@ JobADTSeniorEngineer = бригадир
 job-name-senior-officer = офицер-инструктор
 JobADTSeniorOfficer = офицер-инструктор
 
+job-name-ADTCentcomConsultant = консультант Центком
+JobADTCentcomConsultant = консультант Центком
+
 job-name-ADTBlueShieldOfficer = офицер синий щит
 JobADTBlueShieldOfficer = офицер синий щит
 

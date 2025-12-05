@@ -70,6 +70,18 @@
         - state: blueshield
 
 - type: entity
+  id: SpawnADTCentcomConsultant
+  parent: ADTSpawnPointJobBase
+  name: ADTCentcomConsultant
+  components:
+    - type: SpawnPoint
+      job_id: ADTCentcomConsultant
+    - type: Sprite
+      layers:
+        - state: green
+        - state: consultant_cc
+
+- type: entity
   id: SpawnPointSeniorEngineer
   parent: SpawnPointJobBase
   name: seniorengineer

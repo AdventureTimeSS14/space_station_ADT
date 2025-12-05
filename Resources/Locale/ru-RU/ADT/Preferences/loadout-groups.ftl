@@ -121,3 +121,14 @@ loadout-group-lawyer-backpack = Магистрат, рюкзак
 # Command
 loadout-captain-ears-adt = Капитан, ухо
 loadout-HoP-ears-adt = Глава персонала, ухо
+
+# Consultant Centcom
+loadout-ccc-ears-adt = консультант Центком, ухо
+loadout-group-ccc-jumpsuit = консультант Центком, комбинезон
+loadout-group-ccc-head = консультант Центком, голова
+loadout-group-ccc-neck = консультант Центком, шея
+loadout-group-ccc-back = консультант Центком, спина
+loadout-group-ccc-outer-clothing = консультант Центком, верхняя одежда
+loadout-group-ccc-shoes = консультант Центком, обувь
+loadout-group-ccc-hands = консультант Центком, перчатки
+loadout-group-ccc-socks = консультант Центком, носки

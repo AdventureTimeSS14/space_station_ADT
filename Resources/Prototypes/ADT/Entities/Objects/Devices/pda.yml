@@ -179,6 +179,14 @@
         visible: false
 
 - type: entity
+  parent: CentcomPDA
+  id: ADTCentcomConsultantPDA
+  name: Centcom consultant PDA
+  components:
+    - type: Pda
+      id: ADTCentcomConsultantIDCard
+
+- type: entity
   parent: ADTBasePDA
   id: ADTGhostPDA
   name: ghost PDA

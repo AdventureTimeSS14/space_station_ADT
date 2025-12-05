@@ -566,6 +566,55 @@
     reduction: 0.6
 
 - type: entity
+  parent: ADTClothingOuterModsuitBodySyndicateCommander
+  id: ADTClothingOuterModsuitBodyCentcom
+  name: Corporate MOD chestplate
+  description: A chestplate for a MODsuit.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Modsuit/centcomm.rsi
+  - type: Clothing
+    equipDelay: 3
+    unequipDelay: 3
+    sprite: ADT/Clothing/OuterClothing/Modsuit/centcomm.rsi
+    slots: [ OUTERCLOTHING ]
+    equipSound: /Audio/Mecha/mechmove03.ogg
+    unequipSound: /Audio/Mecha/mechmove03.ogg
+
+- type: entity
+  parent: ADTClothingOuterModsuitBodyBase
+  id: ADTClothingOuterModsuitBodyCCC
+  name: Corporate MOD chestplate
+  description: A chestplate for a MODsuit.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Modsuit/centcomm.rsi
+  - type: Clothing
+    equipDelay: 3
+    unequipDelay: 3
+    sprite: ADT/Clothing/OuterClothing/Modsuit/centcomm.rsi
+    slots: [ OUTERCLOTHING ]
+    equipSound: /Audio/Mecha/mechmove03.ogg
+    unequipSound: /Audio/Mecha/mechmove03.ogg
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.6
+        Heat: 0.7
+        Piercing: 0.55
+        Caustic: 0.7
+  - type: StaminaResistance
+    damageCoefficient: 0.8
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.9
+  - type: ExplosionResistance
+    damageCoefficient: 0.6
+  - type: FireProtection
+    reduction: 0.7
+
+- type: entity
   parent: ADTClothingOuterModsuitBodyBase
   id: ADTClothingOuterModsuitBodyWard
   name: warden MOD chestplate

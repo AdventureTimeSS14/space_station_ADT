@@ -130,3 +130,18 @@
       collection: AlienClaw
 # ADT End Paws
 #endregion Paws
+
+# Medical
+- type: entity
+  parent: ClothingHandsButcherable
+  id: ClothingHandsGlovesLatexBlack
+  name: black latex gloves
+  description: Thin black sterile latex gloves. Basic PPE for any doctor.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Hands/Gloves/latex_black.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Hands/Gloves/latex_black.rsi
+  - type: Fiber
+    fiberMaterial: fibers-latex
+  - type: FingerprintMask

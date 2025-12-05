@@ -1,4 +1,4 @@
-# Blueshield
+# Blueshield второй удалён в связи с его НЕ КАНОНИЧНОСТЬЮ, и убогостью спрайта.
 - type: entity
   parent: ClothingNeckBase
   id: ADTClothingNeckCloakBlueshield
@@ -7,15 +7,6 @@
   components:
   - type: Sprite
     sprite: ADT/Clothing/Neck/Cloaks/blueshield_neck.rsi
-
-- type: entity
-  parent: ClothingNeckBase
-  id: ADTClothingNeckCloakSecondBlueshield
-  name: blueshield cloak
-  description: A blue cape with an armored shoulder pad, especially for the protection of station heads.
-  components:
-  - type: Sprite
-    sprite: ADT/Clothing/Neck/Cloaks/blueshield_cloak.rsi
 
 - type: entity
   parent: ClothingNeckBase

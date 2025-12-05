@@ -19,6 +19,33 @@
   - type: AccessReader
     access: [["BlueShield"]]
 
+#Corporate MOD
+- type: entity
+  id: ADTMODSuitStorageCentcom
+  parent: SuitStorageBase
+  suffix: Centcom
+  components:
+  - type: StorageFill
+    contents:
+        - id: OxygenTankFilled
+        - id: ClothingMaskGasCentcom
+        - id: ADTClothingModsuitBackCentcom
+  - type: AccessReader
+    access: [["CentralCommand"]]
+
+- type: entity
+  id: ADTMODSuitStorageCCC
+  parent: SuitStorageBase
+  suffix: Consultant
+  components:
+  - type: StorageFill
+    contents:
+        - id: OxygenTankFilled
+        - id: ClothingMaskGasCentcom
+        - id: ADTClothingModsuitBackCCC
+  - type: AccessReader
+    access: [["CentralCommand"]]
+
 #Brigmedic hardsuit
 - type: entity
   id: SuitStorageBrigmedic

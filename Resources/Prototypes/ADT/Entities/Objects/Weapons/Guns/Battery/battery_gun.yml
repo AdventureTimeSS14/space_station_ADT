@@ -446,3 +446,44 @@
   - type: Tag
     tags:
     - ADTToyBlaster
+
+- type: entity
+  name: CC-7 "Arbiter"
+  parent: [BaseWeaponBattery, ADTBaseMagneticGun]
+  id: ADTWeaponBlasterCC7Arbiter
+  description: Arbiter
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Battery/cc-7_arbiter.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-unshaded-0
+        map: ["enum.GunVisualLayers.MagUnshaded"]
+        shader: unshaded
+  - type: Gun
+    fireRate: 2
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
+  - type: ProjectileBatteryAmmoProvider
+    proto: ADTBulletYellowLaser
+    fireCost: 125
+  - type: MagazineVisuals
+    sprite: ADT/Objects/Weapons/Guns/Battery/cc-7_arbiter.rsi
+    magState: mag
+    steps: 13
+    zeroVisible: true
+  - type: Clothing
+    sprite: ADT/Objects/Weapons/Guns/Battery/cc-7_arbiter.rsi
+    quickEquip: false
+    slots:
+    - suitStorage
+    - Belt
+  - type: Item
+    size: Small
+    shape:
+    - 0,0,1,0
+    - 0,1,0,1
+  - type: Battery
+    maxCharge: 1625
+    startingCharge: 1625

@@ -1,14 +1,4 @@
 - type: entity
-  parent: BaseFigurine
-  id: ADTToyFigurineBlueshieldOfficer
-  name: blueshield officer figure
-  description: A figurine depicting the blueshield officer, austere and blue, stands guard over the station government. I guess.
-  components:
-  - type: Sprite
-    sprite: ADT/Objects/Fun/figurines.rsi
-    state: blueshield
-
-- type: entity
   parent: BaseItem
   id: ADTBaseFigurine
   name: figurine
@@ -29,6 +19,16 @@
   #   stealGroup: Figurines
 
 - type: entity
+  parent: BaseFigurine
+  id: ADTToyFigurineBlueshieldOfficer
+  name: blueshield officer figure
+  description: A figurine depicting the blueshield officer, austere and blue, stands guard over the station government. I guess.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/figurines.rsi
+    state: blueshield
+
+- type: entity
   parent: ADTBaseFigurine
   id: ToyFigurineBrigmedic
   name: brigmedic figure
@@ -36,3 +36,46 @@
   components:
   - type: Sprite
     state: brigmedic
+
+- type: entity
+  parent: ADTBaseFigurine
+  id: ToyFigurineCCC
+  name: Centcom consultant figure
+  description: A figurine of a sharply dressed consultant to the central command, monitoring the heads of the station, trying not to fire each of them in order to seize power.
+  components:
+  - type: Sprite
+    state: consultant
+
+- type: entity
+  parent: ADTBaseFigurine
+  id: ToyFigurineCentcomOfficial
+  name: Centcom official figure
+  description: A figurine of a Centcom official, glowering at you and condemning you for your poor performance. You better hope his SHARP-HEAD WARHEAD isn't used on your station this time.
+  components:
+  - type: Sprite
+    state: centcom_official
+  - type: UseDelay
+    delay: 180.0
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Machines/Nuke/nuke_alarm.ogg
+      params:
+        volume: -5
+        maxDistance: 10
+
+- type: entity
+  parent: ADTBaseFigurine
+  id: ToyFigurineCentcomIntern
+  name: Centcom intern figure
+  description: The figurine of the Centcom intern, looking at him, you are clearly sure that the name is Richard Richardson, and it is he who is interfering with your work with his senseless notifications.
+  components:
+  - type: Sprite
+    state: intern_cc
+  - type: UseDelay
+    delay: 280.0
+  - type: EmitSoundOnUse
+    sound:
+      collection: InternCentcomQuotes
+      params:
+        volume: 5
+        maxDistance: 50

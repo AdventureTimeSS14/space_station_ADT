@@ -244,7 +244,16 @@
   - type: Clothing
     sprite: ADT/Clothing/Head/Hats/trader.rsi
 
-
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadHatConsultantCentcomCap
+  name: Centcom consultant's cap
+  description: A strict cap, indicating your status as a strict overseer of order among the station's heads.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/ccc_cap.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/ccc_cap.rsi
 
 # Sh4zik hats??? Woah.
 

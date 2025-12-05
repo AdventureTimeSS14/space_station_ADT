@@ -45,3 +45,41 @@
     steps: 1
     zeroVisible: true
   - type: Appearance
+
+- type: entity
+  name: R-22 "Rodent"
+  parent: [BaseWeaponPistol, ADTBaseAttachableHolder]
+  id: ADTWeaponSubMachineGunR22Rodent
+  description: R-22 "Rodent"
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/SMGs/rodent-r22.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: ADT/Objects/Weapons/Guns/SMGs/rodent-r22.rsi
+  - type: MagazineVisuals
+    magState: mag
+    steps: 6
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazinePistolHighCapacity
+        insertSound: /Audio/Weapons/Guns/MagIn/smg_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/smg_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazinePistolHighCapacity
+  - type: Gun
+    fireRate: 20
+    selectedMode: Burst
+    shotsPerBurst: 3
+    availableModes:
+    - Burst
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/gun_sentry.ogg

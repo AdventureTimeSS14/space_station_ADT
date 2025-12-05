@@ -53,3 +53,15 @@ ent-WeaponCaseNTM90UnderBarrelShotGunAttachment = { ent-WeaponCaseNTM90 }
 ent-WeaponCaseNTGunsModules = { ent-WeaponCaseNTM90 }
     .desc = { ent-WeaponCaseNTM90.desc }.
     .suffix = { "Оружейные модули" }
+
+ent-ADTBaseWeaponCaseNTCC7Arbiter = оружейный кейс
+    .desc = { ent-ADTBaseWeaponCaseNT.desc }
+    .suffix = CC-7 "Арбитр"
+
+ent-ADTBaseWeaponCaseNTR22Rodent = оружейный кейс
+    .desc = { ent-ADTBaseWeaponCaseNT.desc }
+    .suffix = R-22 "Грызун"
+
+ent-ADTBaseWeaponCaseNTCentcomStockdegen = оружейный кейс
+    .desc = { ent-ADTBaseWeaponCaseNT.desc }
+    .suffix = Теневая трость Центком 

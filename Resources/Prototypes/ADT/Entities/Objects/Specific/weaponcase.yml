@@ -1,0 +1,130 @@
+- type: entity
+  id: ADTBaseWeaponCaseNTBS
+  name: weapon case
+  description: Weapon case, special designed for ERT.
+  parent: [ BaseStorageItem, BaseBagOpenClose ]
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Storage/weaponcase.rsi
+    layers:
+    - state: closed
+    - state: open
+      map: ["openLayer"]
+  - type: Appearance
+  - type: Item
+    sprite: ADT/Objects/Storage/weaponcase.rsi
+    size: Ginormous
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,1,0
+    - 0,1,0,1
+    - 3,0,6,1
+  - type: StorageFill
+    contents:
+     - id: ADTWeaponSaberRevBlueshield
+     - id: ADTPowerCellLasgunRevolver
+     - id: ADTPowerCellLasgunRevolver
+     - id: ADTPowerCellLasgunRevolver
+
+- type: entity
+  id: ADTBaseWeaponCaseNT
+  name: weapon case
+  description: Weapon case, special designed for sophisticated and expensive weapons.
+  parent: [ BaseStorageItem, BaseBagOpenClose ]
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Storage/weaponcase_yellow.rsi
+    layers:
+    - state: closed
+    - state: open
+      map: ["openLayer"]
+  - type: Appearance
+  - type: Item
+    sprite: ADT/Objects/Storage/weaponcase_yellow.rsi
+    size: Ginormous
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,6,1
+
+- type: entity
+  id: ADTBaseWeaponCaseNTCC7Arbiter
+  suffix: CC-7 "Arbiter"
+  name: weapon case
+  description: Weapon case, special designed for sophisticated and expensive weapons.
+  parent: [ ADTBaseWeaponCaseNT ]
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Storage/weaponcase_yellow.rsi
+    layers:
+    - state: closed
+    - state: open
+      map: ["openLayer"]
+  - type: Appearance
+  - type: Item
+    sprite: ADT/Objects/Storage/weaponcase_yellow.rsi
+    size: Ginormous
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,1,1
+  - type: StorageFill
+    contents:
+     - id: ADTWeaponBlasterCC7Arbiter
+
+- type: entity
+  id: ADTBaseWeaponCaseNTR22Rodent
+  suffix: R-22 "Rodent"
+  name: weapon case
+  description: Weapon case, special designed for sophisticated and expensive weapons.
+  parent: [ ADTBaseWeaponCaseNT ]
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Storage/weaponcase_yellow.rsi
+    layers:
+    - state: closed
+    - state: open
+      map: ["openLayer"]
+  - type: Appearance
+  - type: Item
+    sprite: ADT/Objects/Storage/weaponcase_yellow.rsi
+    size: Ginormous
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,1,0
+    - 0,1,0,1
+    - 3,0,6,1
+  - type: StorageFill
+    contents:
+     - id: ADTWeaponSubMachineGunR22Rodent
+     - id: MagazinePistolHighCapacity
+     - id: MagazinePistolHighCapacity
+     - id: MagazinePistolHighCapacity
+     - id: MagazinePistolHighCapacity
+
+- type: entity
+  id: ADTBaseWeaponCaseNTCentcomStockdegen
+  suffix: Stockdegen
+  name: weapon case
+  description: Weapon case, special designed for sophisticated and expensive weapons.
+  parent: [ ADTBaseWeaponCaseNT ]
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Storage/weaponcase_yellow.rsi
+    layers:
+    - state: closed
+    - state: open
+      map: ["openLayer"]
+  - type: Appearance
+  - type: Item
+    sprite: ADT/Objects/Storage/weaponcase_yellow.rsi
+    size: Ginormous
+  - type: Storage
+    maxItemSize: Large
+    grid:
+    - 0,0,3,1
+  - type: StorageFill
+    contents:
+     - id: ADTCCCStockdegen

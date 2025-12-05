@@ -8,6 +8,16 @@
   - type: Sprite
     sprite: ADT/Clothing/Back/blueshield_satchel.rsi
 
+#ЦК
+- type: entity
+  parent: ClothingBackpackSatchelSecurity
+  id: ADTClothingBackpackSatchelCentcom
+  name: Centcom's satchel
+  description: The most expensive backpack you've ever seen.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Back/centcom_satchel.rsi
+
 # Med
 
 - type: entity

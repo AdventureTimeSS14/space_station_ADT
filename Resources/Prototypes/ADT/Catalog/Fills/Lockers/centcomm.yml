@@ -14,7 +14,6 @@
     - id: ADTClothingHeadsetAltBlueshield
     - id: ADTClothingHeadHatBeretBlueshield
     - id: ADTClothingNeckCloakBlueshield
-    - id: ADTClothingNeckCloakSecondBlueshield
     - id: ADTClothingOuterWinterBlueshield
     - id: ClothingShoesBootsJack
     - id: ADTClothingUniformJumpskirtTurtleneckBlueshield
@@ -35,9 +34,61 @@
     - id: ADTClothingHeadsetAltBlueshield
     - id: ADTClothingHeadHatBeretBlueshield
     - id: ADTClothingNeckCloakBlueshield
-    - id: ADTClothingNeckCloakSecondBlueshield
     - id: ADTClothingOuterWinterBlueshield
     - id: ClothingShoesBootsJack
     - id: ADTClothingUniformJumpskirtTurtleneckBlueshield
     - id: ADTClothingUniformJumpsuitTurtleneckBlueshield
     # - id: ADTCqcManualWeak
+
+# Centcom Consultant
+- type: entity
+  id: ADTLockerCCCFilledMOD
+  suffix: Filled, MOD
+  parent: LockerCentComm
+  components:
+  - type: StorageFill
+    contents:
+    - id: ADTClothingUniformJumpskirtCCCFormal 
+    - id: ADTClothingUniformJumpsuitCCCFormal
+    - id: ADTClothingUniformJumpskirtCCC
+    - id: ADTClothingUniformJumpsuitConsultantCentcom
+    - id: ADTBriefcaseCentcomm
+    - id: ClothingOuterWinterCentcom
+    - id: ClothingNeckCloakCentcom
+    - id: ClothingShoesBootsLaceup
+    - id: ClothingMaskGasCentcom
+    - id: ClothingEyesGlassesCommand
+    - id: ClothingHeadsetAltCentCom
+    - id: ClothingHeadsetCentCom
+    - id: BoxFolderCentCom
+    - id: ADTCigarCase
+    - id: CentCommFlippo
+    - id: ADTClothingModsuitBackCCC
+    - id: ADTCCCVoucher
+    - id: RubberStampCCC
+    - id: WeaponDisabler
+
+- type: entity
+  id: ADTLockerCCCFilled
+  suffix: Filled
+  parent: LockerCentComm
+  components:
+  - type: StorageFill
+    contents:
+    - id: ADTClothingUniformJumpskirtCCCFormal 
+    - id: ADTClothingUniformJumpsuitCCCFormal
+    - id: ADTClothingUniformJumpskirtCCC
+    - id: ADTClothingUniformJumpsuitConsultantCentcom
+    - id: ADTBriefcaseCentcomm
+    - id: ClothingOuterWinterCentcom
+    - id: ClothingNeckCloakCentcom
+    - id: ClothingShoesBootsLaceup
+    - id: ClothingEyesGlassesCommand
+    - id: ClothingHeadsetAltCentCom
+    - id: ClothingHeadsetCentCom
+    - id: BoxFolderCentCom
+    - id: ADTCigarCase
+    - id: CentCommFlippo
+    - id: ADTCCCVoucher
+    - id: RubberStampCCC
+    - id: WeaponDisabler

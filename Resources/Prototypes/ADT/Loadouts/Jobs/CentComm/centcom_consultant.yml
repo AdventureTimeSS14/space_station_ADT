@@ -1,0 +1,96 @@
+# Head
+- type: loadout
+  id: ADTConsultantCentcomCap
+  equipment:
+    head: ADTClothingHeadHatConsultantCentcomCap
+
+- type: loadout
+  id: Centcomcap
+  equipment:
+    head: ClothingHeadHatCentcomcap
+
+# Jumpsuit
+- type: loadout
+  id: CentcomOfficer
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCentcomOfficer
+
+- type: loadout
+  id: ADTJumpskirtTurtleneckGreen
+  equipment:
+    jumpsuit: ADTClothingUniformJumpskirtTurtleneckGreen
+
+- type: loadout
+  id: ADTJumpsuitССС
+  equipment:
+    jumpsuit: ADTClothingUniformJumpsuitConsultantCentcom
+
+- type: loadout
+  id: ADTJumpskirtCCC
+  equipment:
+    jumpsuit: ADTClothingUniformJumpskirtCCC
+
+- type: loadout
+  id: ADTJumpsuitCCCFormal
+  equipment:
+    jumpsuit: ADTClothingUniformJumpsuitCCCFormal
+
+- type: loadout
+  id: ADTJumpskirtCCCFormal
+  equipment:
+    jumpsuit: ADTClothingUniformJumpskirtCCCFormal
+
+# Neck
+- type: loadout
+  id: ScarfStripedCentcom
+  equipment:
+    neck: ClothingNeckScarfStripedCentcom
+
+# Back
+- type: loadout
+  id: CentcomBackpack
+  equipment:
+    back: ADTClothingCentcomBackpackFilled
+
+- type: loadout
+  id: SatchelCentcom
+  equipment:
+    back: ADTClothingBackpackSatchelCentcomFilled
+
+- type: loadout
+  id: DuffelCentcom
+  equipment:
+    back: ADTClothingBackpackDuffelCentcomFilled
+
+# Ears
+- type: loadout
+  id: HeadsetAltCentCom
+  equipment:
+    ears: ClothingHeadsetAltCentCom
+
+- type: loadout
+  id: HeadsetCentCom
+  equipment:
+    ears: ClothingHeadsetCentCom
+
+# OuterClothing
+- type: loadout
+  id: CoatCentCom
+  equipment:
+    outerClothing: ADTClothingOuterCoatCentCom
+
+- type: loadout
+  id: CoatCCC
+  equipment:
+    outerClothing: ADTClothingOuterCoatCCC
+
+# Shoes
+- type: loadout
+  id: BootsJack
+  equipment:
+    shoes: ClothingShoesBootsJack
+
+- type: loadout
+  id: BootsLaceup
+  equipment:
+    shoes: ClothingShoesBootsLaceup

@@ -20,6 +20,16 @@
       - id: SpaceCash500
 
 - type: entity
+  parent: ADTClothingBackpackSatchelCentcom
+  id: ADTClothingBackpackSatchelCentcomFilled
+  components:
+  - type: StorageFill
+    contents:
+    # - id: BoxSurvival
+      - id: Flash
+      - id: ADTSpaceLaw
+
+- type: entity
   parent: ClothingBackpackSatchelBrigmedic
   id: ClothingBackpackSatchelBrigmedicFilled
   components:

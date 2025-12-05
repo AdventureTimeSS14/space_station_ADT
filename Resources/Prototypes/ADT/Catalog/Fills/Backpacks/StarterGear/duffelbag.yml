@@ -34,6 +34,17 @@
 
 - type: entity
   categories: [ HideSpawnMenu ]
+  parent: ADTClothingBackpackDuffelCentcom
+  id: ADTClothingBackpackDuffelCentcomFilled
+  components:
+  - type: StorageFill
+    contents:
+    # - id: BoxSurvival
+      - id: Flash
+      - id: ADTSpaceLaw
+
+- type: entity
+  categories: [ HideSpawnMenu ]
   parent: ClothingBackpackDuffelSecurity
   id: ADTClothingBackpackDuffelSeniorSecurityFilled
   components:

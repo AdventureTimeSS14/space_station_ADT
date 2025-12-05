@@ -118,3 +118,6 @@ ent-ADTbureaucratCane = трость тринадцатого совета
 
 ent-ADTTacticBat = тактическая бита
     .desc = Raise up your bat for the burning fight!
+
+ent-ADTCCCStockdegen = теневая трость
+    .desc = Визуально дорогая и роскошная трость, скрывающая в себе предельно острое лезвие сравнимое с катаной, утаённое в ножнах, которыми является основание трости.

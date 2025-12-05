@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Sprites exclusively for AdventureTime! Blueshield made by Tamioki. Ghost by illumination6753 (Discord). pathologist upgraded by discord:prazat911, tsf and kmt by not_so_big_chungus",
+  "copyright": "Sprites exclusively for AdventureTime! pda-blueshield made by Tamioki. Ghost by illumination6753 (Discord). pathologist upgraded by discord:prazat911, tsf and kmt by not_so_big_chungus",
   "size": {
     "x": 32,
     "y": 32
@@ -39,17 +39,6 @@
                     0.9,
                     0.9,
                     0.9
-                ]
-            ]
-        },
-        {
-            "name": "pda-centcom",
-            "delays": [
-                [
-                    1.2,
-                    1.2,
-                    1.2,
-                    1.2
                 ]
             ]
         },

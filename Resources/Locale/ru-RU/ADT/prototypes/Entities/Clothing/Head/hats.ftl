@@ -46,6 +46,9 @@ ent-ADTClothingHeadCapIlisium = фуражка
     .suffix = Иллизиум
     .desc = Тёмная фуражка офицера Иллизиума.
 
+ent-ADTClothingHeadHatConsultantCentcomCap = фуражка консультанта Центком
+    .desc = Строгая фуражка, всем своим видом показывающая ваш статус блюстителя порядка среди командования станции, удерживающего их в ежовых рукавицах.
+
 ent-ADTClothingHeadHatsInvestigatorCap = фуражка следователя Службы Безопасности
     .desc = Слава NanoTrasen!
     .suffix = { "" }

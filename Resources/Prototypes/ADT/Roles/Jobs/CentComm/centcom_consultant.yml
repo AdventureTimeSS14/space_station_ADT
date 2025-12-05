@@ -1,0 +1,208 @@
+- type: job
+  id: ADTCentcomConsultant
+  name: job-name-ADTCentcomConsultant
+  description: job-description-ADTCentcomConsultant
+  playTimeTracker: JobADTCentcomConsultant
+  requirements:
+    - !type:RoleTimeRequirement
+      role: JobCaptain
+      time: 18000 #5 hrs
+    - !type:RoleTimeRequirement
+      role: JobHeadOfSecurity
+      time: 18000 #5 hrs
+    - !type:RoleTimeRequirement
+      role: JobChiefMedicalOfficer
+      time: 18000 #5 hrs
+    - !type:RoleTimeRequirement
+      role: JobHeadOfPersonnel
+      time: 36000 #10 hrs
+    - !type:RoleTimeRequirement
+      role: JobChiefEngineer
+      time: 36000 #10 hrs
+    - !type:RoleTimeRequirement
+      role: JobQuartermaster
+      time: 36000 #10 hrs
+    - !type:RoleTimeRequirement
+      role: JobResearchDirector
+      time: 36000 #10 hrs
+    - !type:RoleTimeRequirement
+      role: JobIAA
+      time: 36000 #10 hrs
+    - !type:RoleTimeRequirement
+      role: JobADTBlueShieldOfficer
+      time: 18000 #5 hrs
+    - !type:DepartmentTimeRequirement
+      department: Command
+      time: 594000 # 165 hrs
+    - !type:AgeRequirement
+      requiredAge: 21
+    - !type:SpeciesRequirement
+      inverted: true
+      species:
+      - Resomi
+      - Vox
+  weight: 15
+  startingGear: ADTCentcomConsultantGear
+  icon: "JobIconADTCentcomConsultant"
+  supervisors: job-supervisors-centcom
+  canBeAntag: false
+  accessGroups:
+    - ADTAccessCentComm
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant ]
+  - !type:AddComponentSpecial
+      components:
+        - type: CantShoot
+          popup: combo-cantshoot
+          whitelist:
+            tags:
+            - ADTBsoWeapon
+        - type: Puller
+          grabStats:
+            None:
+              requiredHands: 1
+              doaftersToEscape: 0
+              movementSpeedModifier: 0.9
+              escapeAttemptTime: 0
+              setStageTime: 0
+            Soft:
+              requiredHands: 1
+              doaftersToEscape: 3
+              movementSpeedModifier: 0.8
+              escapeAttemptTime: 1.2
+              setStageTime: 0
+            Hard:
+              requiredHands: 1
+              doaftersToEscape: 4
+              movementSpeedModifier: 0.75
+              escapeAttemptTime: 1.2
+              setStageTime: 0.75
+            Choke:
+              requiredHands: 2
+              doaftersToEscape: 5
+              movementSpeedModifier: 0.7
+              escapeAttemptTime: 1.25
+              setStageTime: 1.25
+        - type: MeleeWeapon
+          attackRate: 2
+          animation: WeaponArcFist
+          damage:
+            types:
+              Blunt: 6
+        - type: Combo
+          availableMoves:
+            - actionsNeeds:
+                - Grab
+                - Hit
+              comboEvent:
+                - !type:ComboPopupEffect
+                  localeText: combo-slam-end
+                - !type:ComboDamageEffect
+                  damage:
+                    types:
+                      Blunt: 10
+                - !type:ComboFallEffect
+                - !type:ComboStopGrabEffect
+                - !type:ComboAudioEffect
+                  sound:
+                    collection: GenericHit
+            - actionsNeeds:
+                - Hit
+                - Disarm
+                - Hit
+              comboEvent:
+                - !type:ComboMoreDamageToDownedEffect
+                  damage:
+                    types:
+                      Blunt: 20
+                - !type:ComboPopupEffect
+                  localeText: combo-cqc-kick-end
+                - !type:ComboDamageEffect
+                  damage:
+                    types:
+                      Blunt: 15
+                - !type:ComboStunEffect
+                  stunTime: 2
+                  dropItems: false
+                - !type:ComboAudioEffect
+                  sound:
+                    collection: GenericHit
+                - !type:ComboTrowTargetEffect
+            - actionsNeeds:
+                - Disarm
+                - Grab
+              comboEvent:
+                - !type:ComboPopupEffect
+                  localeText: combo-cqc-pressure-end
+                - !type:ComboStaminaDamageEffect
+                  staminaDamage: 65
+            - actionsNeeds:
+                - Grab
+                - Grab
+              comboEvent:
+                - !type:ComboPopupEffect
+                  localeText: combo-cqc-restain-end
+                - !type:ComboStunEffect
+                  stunTime: 4
+            - actionsNeeds:
+                - Disarm
+                - Disarm
+                - Hit
+              comboEvent:
+                - !type:ComboPopupEffect
+                  localeText: combo-cqc-consecutive-end
+                - !type:ComboMoreDamageToDownedEffect
+                  damage:
+                    types:
+                      Blunt: 25
+                - !type:ComboFallEffect
+                - !type:ComboStaminaDamageEffect
+                  staminaDamage: 60
+                - !type:ComboAudioEffect
+                  sound:
+                    collection: GenericHit
+            - actionsNeeds:
+                - Grab
+                - Disarm
+              comboEvent:
+                - !type:ComboPopupEffect
+                  localeText: combo-leg-sweep-end
+                - !type:ComboFallEffect
+                - !type:ComboStopGrabEffect
+                - !type:ComboAudioEffect
+                  sound:
+                    collection: GenericHit
+            - actionsNeeds:
+                - Crawl
+                - Crawl
+              comboEvent:
+                - !type:ComboEffectToUserPuller
+                  comboEvents:
+                  - !type:ComboDamageEffect
+                    damage:
+                      types:
+                        Blunt: 10
+                  - !type:ComboTrowOnUserEffect
+                  - !type:ComboStopTargetGrabEffect
+                  - !type:ComboStunEffect
+                    stunTime: 1
+                    dropItems: false
+                  - !type:ComboPopupEffect
+                    localeText: combo-leg-sweep-end
+
+- type: startingGear
+  id: ADTCentcomConsultantGear
+  equipment:
+    eyes: ClothingEyesGlassesSunglasses
+    belt: BoxFolderCentComClipboard
+    id: ADTCentcomConsultantPDA
+
+- type: chameleonOutfit
+  id: ADTADTCentcomConsultantOutfit
+  job: ADTCentcomConsultant
+  hasMindShield: true
+  equipment:
+    eyes: ClothingEyesGlassesSunglasses
+    belt: BoxFolderCentComClipboard
+    id: ADTCentcomConsultantPDA

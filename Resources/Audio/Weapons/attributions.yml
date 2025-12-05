@@ -33,6 +33,11 @@
   copyright: "User Nimfar11 on GitHub."
   source: "https://github.com/Nimfar11"
 
+- files: ["bladeslice2"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from Isolation music YT chanel"
+  source: "https://www.youtube.com/watch?v=EgRvVq8mStE"
+
 - files: ["ebladehum.ogg", "eblademiss.ogg"]
   license: "CC0-1.0"
   copyright: "User gyzhor on freesound.org. Modified by Darkenson on github."

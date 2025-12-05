@@ -7,3 +7,12 @@
   - Magistrat
   - IAA
   - Lawyer
+
+- type: department
+  id: CentcomSpecialists 
+  name: department-CentcomSpecialists
+  description: department-CentcomSpecialists-description
+  color: "#2681a5"
+  roles:
+  - ADTCentcomConsultant
+  - ADTBlueShieldOfficer

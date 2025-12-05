@@ -13,6 +13,9 @@ ent-ADTGuardOfficerIDCard = ID карта надзирателя
 ent-ADTBlueShieldOfficerIDCard = ID карта офицера синего щита
     .desc = Блестящая карта офицера Синего Щита.
 
+ent-ADTCentcomConsultantIDCard = ID карта консультанта Центком
+    .desc = Золотая версия карты для представителей Центрального Командования.
+
 ent-ADTBrigMedicIDCard = ID карта бригмедика
     .desc = ID карта бриг медика
 
