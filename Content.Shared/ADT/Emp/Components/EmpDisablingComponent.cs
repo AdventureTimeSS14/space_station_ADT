@@ -1,4 +1,4 @@
-namespace Content.Server.ADT.EMPProtaction;
+namespace Content.Shared.ADT.EMP;
 
 [RegisterComponent]
 public sealed partial class EmpDisablingComponent : Component

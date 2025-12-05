@@ -1,4 +1,6 @@
-namespace Content.Server.Emp;
+using Content.Server.Emp;
+
+namespace Content.Server.ADT.EMP;
 
 /// <summary>
 /// Upon being triggered will EMP area around it.

@@ -1,12 +1,16 @@
+using Content.Server.ADT.EMP;
 using Content.Server.Power.EntitySystems;
 using Content.Server.Radio;
 using Content.Server.SurveillanceCamera;
 using Content.Shared.Emp;
+using Content.Shared.Projectiles;
 
 namespace Content.Server.Emp;
 
 public sealed class EmpSystem : SharedEmpSystem
 {
+    [Dependency] private readonly ChargerSystem _charger = default!;    // ADT-Tweak
+
     public override void Initialize()
     {
         base.Initialize();
@@ -16,7 +20,7 @@ public sealed class EmpSystem : SharedEmpSystem
         SubscribeLocalEvent<EmpDisabledComponent, ApcToggleMainBreakerAttemptEvent>(OnApcToggleMainBreaker);
         SubscribeLocalEvent<EmpDisabledComponent, SurveillanceCameraSetActiveAttemptEvent>(OnCameraSetActive);
 
-        SubscribeLocalEvent<EmpOnCollideComponent, ProjectileHitEvent>(OnProjectileHit); ///ADT ion
+        SubscribeLocalEvent<EmpOnCollideComponent, ProjectileHitEvent>(OnProjectileHit); // ADT-Tweak
     }
 
     private void OnRadioSendAttempt(EntityUid uid, EmpDisabledComponent component, ref RadioSendAttemptEvent args)
@@ -39,14 +43,13 @@ public sealed class EmpSystem : SharedEmpSystem
         args.Cancelled = true;
     }
 
-    ///ADT ion start
+    // ADT-Tweak-Start
     private void OnProjectileHit(EntityUid uid, EmpOnCollideComponent component, ref ProjectileHitEvent args)
     {
-        TryEmpEffects(args.Target, component.EnergyConsumption, component.DisableDuration);
-        if (!TryComp<InventoryComponent>(args.Target, out var inventory))
-            return;
-        if (_charger.SearchForBattery(args.Target, out var batteryEnt, out var batteryComp))
-            TryEmpEffects(batteryEnt.Value, component.EnergyConsumption, component.DisableDuration);
+        TryEmpEffects(args.Target, component.EnergyConsumption, TimeSpan.FromSeconds(component.DisableDuration));
+
+        if (_charger.SearchForBattery(args.Target, out var batteryEnt, out _))
+            TryEmpEffects(batteryEnt.Value, component.EnergyConsumption, TimeSpan.FromSeconds(component.DisableDuration));
     }
-    ///ADT ion end
+    // ADT-Tweak-End
 }

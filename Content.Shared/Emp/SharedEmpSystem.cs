@@ -9,7 +9,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Emp;
 
-public abstract class SharedEmpSystem : EntitySystem
+public abstract partial class SharedEmpSystem : EntitySystem    // ADT-Tweak - partial class
 {
     [Dependency] protected readonly IGameTiming Timing = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
@@ -26,6 +26,8 @@ public abstract class SharedEmpSystem : EntitySystem
         SubscribeLocalEvent<EmpDisabledComponent, ExaminedEvent>(OnExamine);
         SubscribeLocalEvent<EmpDisabledComponent, ComponentRemove>(OnRemove);
         SubscribeLocalEvent<EmpDisabledComponent, RejuvenateEvent>(OnRejuvenate);
+
+        InitializeADT();    // ADT-Tweak
     }
 
     public static readonly EntProtoId EmpPulseEffectPrototype = "EffectEmpPulse";
