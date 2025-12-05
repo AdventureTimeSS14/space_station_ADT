@@ -290,6 +290,8 @@ namespace Content.Server.Database
                 profile.CharacterName,
                 profile.FlavorText,
                 profile.Species,
+                profile.OOCNotes,
+                profile.HeadshotUrl,
                 voice, // Corvax-TTS
                 profile.Age,
                 sex,
@@ -330,6 +332,10 @@ namespace Content.Server.Database
 
             profile.CharacterName = humanoid.Name;
             profile.FlavorText = humanoid.FlavorText;
+            //ADT-tweak-start
+            profile.OOCNotes = humanoid.OOCNotes;
+            profile.HeadshotUrl = humanoid.HeadshotUrl;
+            //ADT-tweak-end
             profile.Species = humanoid.Species;
             profile.Voice = humanoid.Voice; // Corvax-TTS
             profile.Age = humanoid.Age;

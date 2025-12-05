@@ -47,6 +47,10 @@
     # ADT-SlimeHair-End
       enum.StoreUiKey.Key:                # Чтобы не ломался генокрад
         type: StoreBoundUserInterface               # Чтобы не ломался генокрад
+    #ADT-tweak-start
+      enum.CharecterFlavorUiKey.Key:
+        type: CharecterFlavorBoundUserInterface
+    #ADT-tweak-end
   # to prevent bag open/honk spam
   - type: UseDelay
     delay: 0.5

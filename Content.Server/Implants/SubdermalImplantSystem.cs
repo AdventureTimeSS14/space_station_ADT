@@ -27,6 +27,7 @@ using Content.Shared.DetailExaminable;
 using Content.Shared.Store.Components;
 using Robust.Shared.Collections;
 using Robust.Shared.Map.Components;
+using Content.Shared.ADT.CharecterFlavor;
 
 namespace Content.Server.Implants;
 
@@ -222,6 +223,7 @@ public sealed class SubdermalImplantSystem : SharedSubdermalImplantSystem
             _forensicsSystem.RandomizeFingerprint(ent);
 
             RemComp<DetailExaminableComponent>(ent); // remove MRP+ custom description if one exists
+            RemComp<CharecterFlavorComponent>(ent); //ADT-tweak: удаляем флавор вместе с прочим
             _identity.QueueIdentityUpdate(ent); // manually queue identity update since we don't raise the event
             _popup.PopupEntity(Loc.GetString("scramble-implant-activated-popup"), ent, ent);
         }

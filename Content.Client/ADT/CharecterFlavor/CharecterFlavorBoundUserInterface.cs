@@ -22,7 +22,6 @@ public sealed class CharecterFlavorBoundUserInterface : BoundUserInterface
         _window = this.CreateWindow<CharecterFlavorWindow>();
         _window.OpenCentered();
         _window.SetEntity(Owner);
-        
     }
 
 }

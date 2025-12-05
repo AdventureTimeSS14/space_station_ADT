@@ -9,7 +9,8 @@ namespace Content.Client.FlavorText
     public sealed partial class FlavorText : Control
     {
         public Action<string>? OnFlavorTextChanged;
-
+        public Action<string>? OnOOCNotesChanged;
+        public Action<string>? OnHeadshotUrlChanged;
         public FlavorText()
         {
             RobustXamlLoader.Load(this);
@@ -23,6 +24,14 @@ namespace Content.Client.FlavorText
         public void FlavorTextChanged()
         {
             OnFlavorTextChanged?.Invoke(Rope.Collapse(CFlavorTextInput.TextRope).Trim());
+        }
+        public void OOCNotesChanged()
+        {
+            OnOOCNotesChanged?.Invoke(Rope.Collapse(COOCTextInput.TextRope).Trim());
+        }
+        public void HeadshotUrlChanged()
+        {
+            OnHeadshotUrlChanged?.Invoke(Rope.Collapse(CFlavorTextInput.TextRope).Trim());
         }
     }
 }

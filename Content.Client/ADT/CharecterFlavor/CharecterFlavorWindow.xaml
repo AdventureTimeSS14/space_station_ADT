@@ -19,10 +19,10 @@
 
             <!-- Заголовок -->
             <BoxContainer Orientation="Horizontal" Margin="0 0 0 10">
-                <ui:Label Text="Lolcat"
-                          StyleClasses="LabelHeading"
+                    <ui:RichTextLabel Name="LabelName"
+                          Text="{Loc 'flavor-interface-lable'}"
                           HorizontalExpand="True"
-                          Name="Lolcat"/>
+                          Margin="8"/>
             </BoxContainer>
 
             <!-- ВЕРХНИЙ РЯД -->
@@ -69,7 +69,8 @@
                                          VScrollEnabled="True"
                                          HScrollEnabled="False">
                             <ui:RichTextLabel Name="FlavorTextLabel"
-                                              Text="я не буду убивать я не буду убивать я не буду убивать я не буду убивать я не буду убивать я не буду убивать я не буду убивать я не буду убивать я не буду убивать "
+                                              MaxSize="600, 1000"
+                                              Text="no desc?"
                                               HorizontalExpand="True"
                                               Margin="8"/>
                         </ScrollContainer>
@@ -84,18 +85,23 @@
                           SeparationOverride="10"
                           Margin="0 10 0 0">
 
-                <!-- Headshot -->
-                <PanelContainer SetSize="300 300">
+                <!-- Headshot-->
+                <PanelContainer SetSize="300 300" Name="HeadshotContainer" Access="Public">
                     <PanelContainer.PanelOverride>
                         <gfx:StyleBoxFlat BackgroundColor="#2d2d2d"/>
                     </PanelContainer.PanelOverride>
 
                     <BoxContainer Orientation="Vertical" Margin="8">
-                        <ui:Label Text="{Loc 'flavor-interface-headshot'}"
+                        <ui:RichTextLabel
+                                  Name="HeadshotLable"
+                                  Text="{Loc 'flavor-interface-headshot'}"
+                                  MaxSize = "280 280"
+                                  Access="Public"
                                   HorizontalAlignment="Center"
                                   Margin="5 5 5 5"/>
 
                         <TextureRect Name="HeadshotImage"
+                                     Access="Public"
                                      VerticalExpand="True"
                                      HorizontalExpand="True"
                                      Stretch="KeepAspectCentered"/>
@@ -103,7 +109,7 @@
                 </PanelContainer>
 
                 <!-- OOC NOTES -->
-                <PanelContainer HorizontalExpand="True">
+                <PanelContainer HorizontalExpand="True" MaxSize="370 10000" HorizontalAlignment="Right" MinSize="370, 0">
                     <PanelContainer.PanelOverride>
                         <gfx:StyleBoxFlat BackgroundColor="#2d2d2d"/>
                     </PanelContainer.PanelOverride>

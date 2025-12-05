@@ -195,6 +195,10 @@
         type: StoreBoundUserInterface
       enum.HereticLivingHeartKey.Key: # goob edit - heretics
         type: LivingHeartMenuBoundUserInterface
+      #ADT-tweak-start
+      enum.CharecterFlavorUiKey.Key:
+        type: CharecterFlavorBoundUserInterface
+      #ADT-tweak-end
   - type: Puller
   - type: Speech
     speechSounds: Alto

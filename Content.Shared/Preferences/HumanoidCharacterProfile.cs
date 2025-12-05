@@ -74,6 +74,18 @@ namespace Content.Shared.Preferences
         /// </summary>
         [DataField]
         public string FlavorText { get; set; } = string.Empty;
+        //ADT-tweak-start
+        /// <summary>
+        /// ООС заметки у персонажа 
+        /// </summary>
+        [DataField]
+        public string OOCNotes { get; set; } = string.Empty;
+        /// <summary>
+        /// ссылка на хэдшот персонажа 
+        /// </summary>
+        [DataField]
+        public string HeadshotUrl { get; set; } = string.Empty;
+        //ADT-tweak-end
 
         /// <summary>
         /// Associated <see cref="SpeciesPrototype"/> for this profile.
@@ -143,6 +155,10 @@ namespace Content.Shared.Preferences
 
         public HumanoidCharacterProfile(
             string name,
+            //ADT-tweak-start
+            string headshotUrl,
+            string oocNotes,
+            //ADT-tweak-end
             string flavortext,
             string species,
             string voice, // Corvax-TTS
@@ -163,6 +179,8 @@ namespace Content.Shared.Preferences
         {
             Name = name;
             FlavorText = flavortext;
+            OOCNotes = oocNotes;
+            HeadshotUrl = headshotUrl;
             Species = species;
             Voice = voice; // Corvax-TTS
             Age = age;
@@ -201,6 +219,10 @@ namespace Content.Shared.Preferences
                 other.FlavorText,
                 other.Species,
                 other.Voice,
+                //ADT-tweak-start
+                other.OOCNotes,
+                other.HeadshotUrl,
+                //ADT-tweak-end
                 other.Age,
                 other.Sex,
                 other.Gender,
@@ -319,7 +341,16 @@ namespace Content.Shared.Preferences
         {
             return new(this) { FlavorText = flavorText };
         }
-
+        //ADT-tweak-start: ООС заметки и ЮРЛ 
+        public HumanoidCharacterProfile WithOOCNotes(string oocNotes)
+        {
+            return new(this) { OOCNotes = oocNotes };
+        }
+        public HumanoidCharacterProfile WithHeadshotUrl(string headshotUrl)
+        {
+            return new(this) { HeadshotUrl = headshotUrl };
+        }
+        //ADT-tweak-end
         public HumanoidCharacterProfile WithAge(int age)
         {
             return new(this) { Age = age };
@@ -558,9 +589,11 @@ namespace Content.Shared.Preferences
             if (!_languages.SequenceEqual(other._languages)) return false;  // ADT Languages
             if (!Loadouts.SequenceEqual(other.Loadouts)) return false;
             if (FlavorText != other.FlavorText) return false;
-            // ADT Barks start
+            // ADT-tweak-start
+            if (OOCNotes != other.OOCNotes) return false;
+            if (HeadshotUrl != other.HeadshotUrl) return false;
             if (!Bark.MemberwiseEquals(other.Bark)) return false;
-            // ADT Barks end
+            // ADT-tweak-end
             return Appearance.MemberwiseEquals(other.Appearance);
         }
 
@@ -650,6 +683,21 @@ namespace Content.Shared.Preferences
                 flavortext = FormattedMessage.RemoveMarkupOrThrow(FlavorText);
             }
 
+            //ADT-tweak-start
+            string oocNotes = OOCNotes; // Initialize with the property value
+            if (oocNotes.Length > maxFlavorTextLength)
+            {
+                oocNotes = FormattedMessage.RemoveMarkupOrThrow(oocNotes)[..maxFlavorTextLength];
+            }
+            else
+            {
+                oocNotes = FormattedMessage.RemoveMarkupOrThrow(oocNotes);
+            }
+
+
+            //максимальная длина ООЦ заметок не больше чем длина флавора
+            //ADT-tweak-end
+
             var appearance = HumanoidCharacterAppearance.EnsureValid(Appearance, Species, Sex, sponsorPrototypes);
 
             var prefsUnavailableMode = PreferenceUnavailable switch
@@ -698,6 +746,7 @@ namespace Content.Shared.Preferences
 
             Name = name;
             FlavorText = flavortext;
+            OOCNotes = oocNotes;
             Age = age;
             Sex = sex;
             Gender = gender;
@@ -853,6 +902,10 @@ namespace Content.Shared.Preferences
             hashCode.Add(_traitPreferences);
             hashCode.Add(_loadouts);
             hashCode.Add(Name);
+            //ADT-tweak-start
+            hashCode.Add(OOCNotes);
+            hashCode.Add(HeadshotUrl);
+            //ADT-tweak-end
             hashCode.Add(FlavorText);
             hashCode.Add(Species);
             hashCode.Add(Age);
