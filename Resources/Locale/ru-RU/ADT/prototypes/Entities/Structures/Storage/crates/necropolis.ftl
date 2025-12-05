@@ -29,9 +29,9 @@ ent-ADTCrateNecropolisStaffHealingWeak = { ent-ADTCrateNecropolis }
     .desc = { ent-ADTCrateNecropolis.desc }
     .suffix = Посох исцеления, Лаваленд
 
-ent-ADTCrateNecropolisMicroreactor = { ent-ADTCrateNecropolis }
+ent-ADTCrateNecropolisMegaCellMedium = { ent-ADTCrateNecropolis }
     .desc = { ent-ADTCrateNecropolis.desc }
-    .suffix = Микрореакторная батарея, Лаваленд
+    .suffix = Мегабатарея средней ёмкости, Лаваленд
 
 ent-ADTCrateNecropolisAdvancedEquipment = { ent-ADTCrateNecropolis }
     .desc = { ent-ADTCrateNecropolis.desc }

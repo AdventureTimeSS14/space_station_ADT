@@ -62,13 +62,13 @@
       - id: ADTWeaponStaffHealingWeak
 
 - type: entity
-  id: ADTCrateNecropolisMicroreactor
+  id: ADTCrateNecropolisMegaCellMedium
   parent: ADTCrateNecropolis
-  suffix: Microreactor
+  suffix: MegaCellMedium
   components:
   - type: StorageFill
     contents:
-      - id: PowerCellMicroreactor
+      - id: ADTMegaCellMedium
 
 - type: entity
   id: ADTCrateNecropolisAdvancedEquipment
