@@ -45,6 +45,10 @@ public abstract class SharedBedSystem : EntitySystem
 
     private void OnStrapped(Entity<HealOnBuckleComponent> bed, ref StrappedEvent args)
     {
+        // ADT-Tweak: Start (P4A) Сущности с компонентом IgnoreHealOnBuckleComponent больше не лечаться через мебель
+        if (HasComp<IgnoreHealOnBuckleComponent>(args.Buckle))
+            return;
+        // ADT-Tweak: End (P4A)
         EnsureComp<HealOnBuckleHealingComponent>(bed);
         bed.Comp.NextHealTime = Timing.CurTime + TimeSpan.FromSeconds(bed.Comp.HealTime);
         _actionsSystem.AddAction(args.Buckle, ref bed.Comp.SleepAction, SleepingSystem.SleepActionId, bed);
