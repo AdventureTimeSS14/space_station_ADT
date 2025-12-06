@@ -1536,6 +1536,13 @@ namespace Content.Client.Lobby.UI
             if (_flavorTextEdit != null)
             {
                 _flavorTextEdit.TextRope = new Rope.Leaf(Profile?.FlavorText ?? "");
+                // ADT-Tweak-start
+                if (_flavorText == null)
+                    return;
+
+                _flavorText.COOCTextInput.TextRope = new Rope.Leaf(Profile?.OOCNotes ?? "");
+                _flavorText.CHeadshotUrlInput.Text = Profile?.HeadshotUrl ?? "";
+                // ADT-Tweak-end
             }
         }
 

@@ -2,31 +2,31 @@
 <Control Name="CFlavorText" xmlns="https://spacestation14.io"
          xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
          xmlns:ui="clr-namespace:Robust.Client.UserInterface.Controls;assembly=Robust.Client">
-    
-    <BoxContainer Orientation="Vertical" 
-                  HorizontalExpand="True" 
+
+    <BoxContainer Orientation="Vertical"
+                  HorizontalExpand="True"
                   VerticalExpand="True"
                   SeparationOverride="10">
-        
+
         <!-- Flavor Text Section -->
         <PanelContainer HorizontalExpand="True" VerticalExpand="True">
             <PanelContainer.PanelOverride>
                 <gfx:StyleBoxFlat BackgroundColor="#2d2d2d"/>
             </PanelContainer.PanelOverride>
-            
+
             <BoxContainer Orientation="Vertical" Margin="10">
                 <ui:Label Text="{Loc 'flavor-interface-flavor-text-title'}"
                           Margin="0 0 0 8"
                           StyleClasses="LabelHeading"/>
-                
-                <TextEdit Name="CFlavorTextInput" 
-                          Access="Public" 
-                          MinSize="220 100" 
-                          HorizontalExpand="True" 
+
+                <TextEdit Name="CFlavorTextInput"
+                          Access="Public"
+                          MinSize="220 100"
+                          HorizontalExpand="True"
                           VerticalExpand="True"/>
             </BoxContainer>
         </PanelContainer>
-        
+
         <!-- OOC Notes Section -->
         <PanelContainer HorizontalExpand="True" VerticalExpand="True">
             <PanelContainer.PanelOverride>
@@ -37,14 +37,14 @@
                           Margin="0 0 0 8"
                           StyleClasses="LabelHeading"/>
 
-                <TextEdit Name="COOCTextInput" 
-                          Access="Public" 
-                          MinSize="220 100" 
-                          HorizontalExpand="True" 
+                <TextEdit Name="COOCTextInput"
+                          Access="Public"
+                          MinSize="220 100"
+                          HorizontalExpand="True"
                           VerticalExpand="True"/>
             </BoxContainer>
         </PanelContainer>
-        
+
         <!-- Headshot URL Section -->
         <PanelContainer HorizontalExpand="True">
             <PanelContainer.PanelOverride>
@@ -56,10 +56,10 @@
                           StyleClasses="LabelHeading"/>
                 <ui:Label Text="{Loc 'flavor-interface-headshot-url-desc'}"
                           Margin="0 0 0 18"/>
-                <ui:LineEdit Name="CHeadshotUrlInput" 
-                             Access="Public" 
+                <ui:LineEdit Name="CHeadshotUrlInput"
+                             Access="Public"
                              HorizontalExpand="True"
-                             Text="Вставьте сюда ссылку"
+                             PlaceHolder="Вставьте сюда ссылку"
                              MinSize="0 30"/>
             </BoxContainer>
         </PanelContainer>
