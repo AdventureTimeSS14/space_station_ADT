@@ -76,12 +76,12 @@ namespace Content.Shared.Preferences
         public string FlavorText { get; set; } = string.Empty;
         //ADT-tweak-start
         /// <summary>
-        /// ООС заметки у персонажа 
+        /// ООС заметки у персонажа
         /// </summary>
         [DataField]
         public string OOCNotes { get; set; } = string.Empty;
         /// <summary>
-        /// ссылка на хэдшот персонажа 
+        /// ссылка на хэдшот персонажа
         /// </summary>
         [DataField]
         public string HeadshotUrl { get; set; } = string.Empty;
@@ -155,10 +155,6 @@ namespace Content.Shared.Preferences
 
         public HumanoidCharacterProfile(
             string name,
-            //ADT-tweak-start
-            string headshotUrl,
-            string oocNotes,
-            //ADT-tweak-end
             string flavortext,
             string species,
             string voice, // Corvax-TTS
@@ -172,15 +168,16 @@ namespace Content.Shared.Preferences
             HashSet<ProtoId<AntagPrototype>> antagPreferences,
             HashSet<ProtoId<TraitPrototype>> traitPreferences,
             Dictionary<string, RoleLoadout> loadouts,
-            // ADT start
+            //ADT-tweak-start
             BarkData bark,
-            HashSet<ProtoId<LanguagePrototype>> languages)
-            // ADT end
+            HashSet<ProtoId<LanguagePrototype>> languages,
+            string oocNotes,
+            string headshotUrl
+            )
+            //ADT-tweak-end
         {
             Name = name;
             FlavorText = flavortext;
-            OOCNotes = oocNotes;
-            HeadshotUrl = headshotUrl;
             Species = species;
             Voice = voice; // Corvax-TTS
             Age = age;
@@ -196,6 +193,8 @@ namespace Content.Shared.Preferences
             // ADT start
             Bark = bark;
             _languages = languages;
+            OOCNotes = oocNotes;
+            HeadshotUrl = headshotUrl;
             // ADT end
 
             var hasHighPrority = false;
@@ -219,10 +218,6 @@ namespace Content.Shared.Preferences
                 other.FlavorText,
                 other.Species,
                 other.Voice,
-                //ADT-tweak-start
-                other.OOCNotes,
-                other.HeadshotUrl,
-                //ADT-tweak-end
                 other.Age,
                 other.Sex,
                 other.Gender,
@@ -235,7 +230,10 @@ namespace Content.Shared.Preferences
                 new Dictionary<string, RoleLoadout>(other.Loadouts),
                 // ADT start
                 other.Bark,
-                other._languages)
+                other._languages,
+                other.OOCNotes,
+                other.HeadshotUrl
+                )
                 // ADT end
         {
         }
@@ -341,7 +339,7 @@ namespace Content.Shared.Preferences
         {
             return new(this) { FlavorText = flavorText };
         }
-        //ADT-tweak-start: ООС заметки и ЮРЛ 
+        //ADT-tweak-start: ООС заметки и ЮРЛ
         public HumanoidCharacterProfile WithOOCNotes(string oocNotes)
         {
             return new(this) { OOCNotes = oocNotes };
