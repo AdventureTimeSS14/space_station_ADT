@@ -1,6 +1,7 @@
+using Content.Server.ADT.SeedDna.Systems; //ADT-Tweak
 using Content.Server.Botany.Components;
 using Content.Server.Botany.Systems;
-using Content.Server.EntityEffects;
+using Content.Server.EntityEffects; //ADT-Tweak
 using Content.Shared.Atmos;
 using Content.Shared.Database;
 using Content.Shared.Random;
@@ -11,10 +12,10 @@ using Robust.Shared.Utility;
 
 namespace Content.Server.Botany;
 
-[Prototype]
+[Prototype("seed")] //ADT-Tweak
 public sealed partial class SeedPrototype : SeedData, IPrototype
 {
-    [IdDataField] public string ID { get; private set; } = default!;
+    [IdDataField] public string ID { get; private init; } = default!; //ADT-Tweak
 }
 
 public enum HarvestType : byte
@@ -81,7 +82,7 @@ public partial struct SeedChemQuantity
 
 // TODO reduce the number of friends to a reasonable level. Requires ECS-ing things like plant holder component.
 [Virtual, DataDefinition]
-[Access(typeof(BotanySystem), typeof(PlantHolderSystem), typeof(SeedExtractorSystem), typeof(PlantHolderComponent), typeof(EntityEffectSystem), typeof(MutationSystem))]
+[Access(typeof(BotanySystem), typeof(PlantHolderSystem), typeof(SeedExtractorSystem), typeof(PlantHolderComponent), typeof(EntityEffectSystem), typeof(MutationSystem), typeof(SeedDnaConsoleSystem))] //ADT-Tweak
 public partial class SeedData
 {
     #region Tracking
@@ -130,8 +131,10 @@ public partial class SeedData
     /// <summary>
     ///     The entity prototype this seed spawns when it gets harvested.
     /// </summary>
+    //ADT-Tweak-Start
     [DataField]
     public List<EntProtoId> ProductPrototypes = new();
+    //ADT-Tweak-End
 
     [DataField] public Dictionary<string, SeedChemQuantity> Chemicals = new();
 
@@ -240,8 +243,10 @@ public partial class SeedData
     /// <summary>
     ///     The seed prototypes this seed may mutate into when prompted to.
     /// </summary>
+    //ADT-Tweak-Start
     [DataField]
     public List<ProtoId<SeedPrototype>> MutationPrototypes = new();
+    //ADT-Tweak-End
 
     /// <summary>
     ///  Log impact for when the seed is planted.
@@ -267,8 +272,10 @@ public partial class SeedData
             Mysterious = Mysterious,
 
             PacketPrototype = PacketPrototype,
+            //ADT-Tweak-Start
             ProductPrototypes = new List<EntProtoId>(ProductPrototypes),
             MutationPrototypes = new List<ProtoId<SeedPrototype>>(MutationPrototypes),
+            //ADT-Tweak-End
             Chemicals = new Dictionary<string, SeedChemQuantity>(Chemicals),
             ConsumeGasses = new Dictionary<Gas, float>(ConsumeGasses),
             ExudeGasses = new Dictionary<Gas, float>(ExudeGasses),
@@ -327,8 +334,10 @@ public partial class SeedData
             Mysterious = other.Mysterious,
 
             PacketPrototype = other.PacketPrototype,
+            //ADT-Tweak-Start
             ProductPrototypes = new List<EntProtoId>(other.ProductPrototypes),
             MutationPrototypes = new List<ProtoId<SeedPrototype>>(other.MutationPrototypes),
+            //ADT-Tweak-End
 
             Chemicals = new Dictionary<string, SeedChemQuantity>(Chemicals),
             ConsumeGasses = new Dictionary<Gas, float>(ConsumeGasses),

@@ -1,9 +1,11 @@
 ent-ADTWateringCan = лейка
     .desc = лейка для поливки растений.
     .suffix = { "" }
+
 ent-ADTAdvancedWateringCan = блюспейс лейка
     .desc = блюспейс лейка для поливки растений.
     .suffix = { "" }
+
 ent-ADTBotanistBagOfHolding = блюспейс сумка для растений
     .desc = Прочная сумка для ботаников-миллиардеров, для переноски больших объёмов растений.
     .suffix = { "" }

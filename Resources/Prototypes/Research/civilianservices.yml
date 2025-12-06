@@ -13,7 +13,10 @@
   - SeedExtractorMachineCircuitboard
   - HydroponicsTrayMachineCircuitboard
   - ReagentGrinderIndustrialMachineCircuitboard
-  - ADTAdvancedWateringCan #ADT-Tweak
+  #ADT-Tweak-Start
+  - ADTBotanicalSeedDNAManipulatorCircuitboard
+  - ADTAdvancedWateringCan
+  #ADT-Tweak-End
   # ADT Research Console Rework start
   position: 2,-1
   requiredTech:
