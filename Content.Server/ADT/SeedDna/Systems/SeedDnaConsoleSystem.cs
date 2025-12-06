@@ -2,12 +2,12 @@ using Content.Server.Botany;
 using Content.Server.Botany.Components;
 using Content.Shared.ADT.SeedDna;
 using Content.Shared.ADT.SeedDna.Components;
-using Content.Shared.ADT.SeedDna.System;
+using Content.Shared.ADT.SeedDna.Systems;
 using JetBrains.Annotations;
 using Robust.Server.GameObjects;
 using Robust.Shared.Containers;
 
-namespace Content.Server.ADT.SeedDna.System;
+namespace Content.Server.ADT.SeedDna.Systems;
 
 [UsedImplicitly]
 public sealed class SeedDnaConsoleSystem : SharedSeedDnaConsoleSystem
@@ -68,21 +68,12 @@ public sealed class SeedDnaConsoleSystem : SharedSeedDnaConsoleSystem
 
     private void RewriteSeedData(EntityUid seed, SeedDataDto seedDataDto)
     {
-        var comp = EntityManager.GetComponent<SeedComponent>(seed);
-        var seedData = comp.Seed;
+        var seedComponent = EntityManager.GetComponent<SeedComponent>(seed);
+        var originalSeedData = seedComponent.Seed;
 
-        if (seedData == null)
-        {
-            seedData = new SeedData();
-            comp.Seed = seedData;
-        }
-
-        // Проверка, нужно ли создать копию
-        if (seedData.Immutable || !seedData.Unique)
-        {
-            seedData = seedData.Clone();
-            comp.Seed = seedData;
-        }
+        // Clone the original seed to preserve appearance data like PlantRsi
+        var seedData = originalSeedData?.Clone() ?? new SeedData();
+        seedComponent.Seed = seedData;
 
         //@formatter:off
         if (seedDataDto.ConsumeGasses != null) seedData.ConsumeGasses = seedDataDto.ConsumeGasses;
@@ -111,6 +102,13 @@ public sealed class SeedDnaConsoleSystem : SharedSeedDnaConsoleSystem
 
         if (seedDataDto.Chemicals != null)
         {
+            // Clear old chemicals first
+            seedData.Chemicals.Clear();
+
+            // Add new chemicals in order, removing older ones if total exceeds 100u
+            const float MaxProduceVolume = 100f;
+            float currentVolume = 0f;
+
             foreach (var (key, value) in seedDataDto.Chemicals)
             {
                 var seedChemQuantity = new SeedChemQuantity
@@ -120,7 +118,34 @@ public sealed class SeedDnaConsoleSystem : SharedSeedDnaConsoleSystem
                     PotencyDivisor = value.PotencyDivisor,
                     Inherent = value.Inherent,
                 };
+
+                float chemVolume = value.Max;
+
+                // Check if adding this chemical would exceed the limit
+                if (currentVolume + chemVolume > MaxProduceVolume)
+                {
+                    // Calculate how much volume needs to be freed
+                    float volumeNeeded = currentVolume + chemVolume - MaxProduceVolume;
+
+                    // Remove the oldest chemicals to make room for the new one
+                    var chemicalKeys = seedData.Chemicals.Keys.ToList();
+                    int keyIndex = 0;
+                    while (volumeNeeded > 0 && keyIndex < chemicalKeys.Count)
+                    {
+                        var oldKey = chemicalKeys[keyIndex];
+                        var oldChem = seedData.Chemicals[oldKey];
+                        float chemMax = oldChem.Max;
+
+                        currentVolume -= chemMax;
+                        volumeNeeded -= chemMax;
+                        seedData.Chemicals.Remove(oldKey);
+
+                        keyIndex++;
+                    }
+                }
+
                 seedData.Chemicals[key] = seedChemQuantity;
+                currentVolume += chemVolume;
             }
         }
     }

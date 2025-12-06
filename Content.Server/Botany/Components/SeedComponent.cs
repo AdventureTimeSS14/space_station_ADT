@@ -1,4 +1,4 @@
-using Content.Server.ADT.SeedDna.System; // ADT Tweak
+using Content.Server.ADT.SeedDna.Systems; // ADT Tweak
 using Content.Server.Botany.Systems;
 using Content.Shared.Botany.Components;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;

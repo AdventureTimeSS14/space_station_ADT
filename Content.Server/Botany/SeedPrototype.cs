@@ -1,4 +1,4 @@
-using Content.Server.ADT.SeedDna.System; // ADT tweak
+using Content.Server.ADT.SeedDna.Systems; // ADT tweak
 using Content.Server.Botany.Components;
 using Content.Server.Botany.Systems;
 using Content.Shared.Atmos;
