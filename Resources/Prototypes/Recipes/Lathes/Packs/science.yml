@@ -99,6 +99,7 @@
   - AnomalyVesselCircuitboard
   - AnomalyVesselExperimentalCircuitboard
   - AnomalySynchronizerCircuitboard
+  - BotanicDNACircuitboard # ADT tweak
   - APECircuitboard
   - ArtifactAnalyzerMachineCircuitboard
   - ArtifactCrusherMachineCircuitboard

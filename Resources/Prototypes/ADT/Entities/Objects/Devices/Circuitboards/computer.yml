@@ -37,3 +37,14 @@
   components:
     - type: ComputerBoard
       prototype: MinesweeperArcade
+
+- type: entity
+  parent: BaseComputerCircuitboard
+  id: BotanicDNACircuitboard
+  name: печатная плата манипулятора ДНК семян
+  description: Печатная плата для производства манипулятора ДНК семян.
+  components:
+    - type: Sprite
+      state: cpu_service
+    - type: ComputerBoard
+      prototype: ComputerBotanicDNAManipulator

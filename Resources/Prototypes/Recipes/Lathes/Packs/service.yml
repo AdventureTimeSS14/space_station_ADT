@@ -3,10 +3,13 @@
 - type: latheRecipePack
   id: ServiceStatic
   recipes:
-  - ADTWateringCan #ADT-Tweak
-  - Mousetrap  # ADT Tweak
-  - TrashBag  # ADT Tweak
-  - ADTPlantAnalyzer # ADT Tweak
+  #ADT-Tweak-Start
+  - ADTWateringCan 
+  - Mousetrap
+  - TrashBag
+  - ADTPlantAnalyzer
+  - BotanicDNADisk
+  #ADT-Tweak-End
   - Bucket
   - Ashtray
   - DrinkMug

@@ -56,3 +56,11 @@
     Steel: 1450
     Glass: 1100
     Silver: 1050
+
+- type: latheRecipe
+  id: BotanicDNADisk
+  result: BotanicDNADisk
+  completetime: 4
+  materials:
+    Steel: 500
+    Plastic: 100
