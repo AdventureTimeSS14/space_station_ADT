@@ -6,6 +6,7 @@
   sprites: MobNovakidSprites
   defaultSkinTone: "#34a223"
   markingLimits: MobNovakidMarkingLimits
+  dollPrototype: MobNovakidDummy
   shortDesc: species-short-desc-novakid
   skinColoration: Hues
   maleFirstNames: firstNovakid
