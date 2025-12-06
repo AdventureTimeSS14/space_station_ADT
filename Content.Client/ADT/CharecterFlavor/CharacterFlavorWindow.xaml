@@ -140,10 +140,10 @@
                         <gfx:StyleBoxFlat BackgroundColor="#1a1a1a"/>
                     </PanelContainer.PanelOverride>
 
-                    <BoxContainer Orientation="Vertical" Margin="8">
+                    <BoxContainer Orientation="Vertical" Margin="8" SetWidth="250">
                         <ui:RichTextLabel Name="CustomSpeciesTitle"
                                   Text="{Loc 'flavor-interface-no-custom-species'}"
-                                  StyleClasses="LabelHeading0"
+                                  StyleClasses="LabelHeading"
                                   Margin="8 0"/>
 
                         <ScrollContainer VerticalExpand="True"
@@ -151,6 +151,7 @@
                                          VScrollEnabled="True"
                                          HScrollEnabled="False">
                             <ui:RichTextLabel Name="CustomSpeciesLabel"
+                                              MinSize="250 10"
                                               MaxSize="250 10000"
                                               Text="{Loc 'flavor-interface-no-custom-species-desc'}"
                                               HorizontalExpand="True"
