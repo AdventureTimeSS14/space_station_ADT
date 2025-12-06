@@ -175,8 +175,6 @@
         type: MidroundCustomizationBoundUserInterface
       enum.StoreUiKey.Key: # Чтобы не ломался генокрад
         type: StoreBoundUserInterface # Чтобы не ломался генокрад
-      enum.CharecterFlavorUiKey.Key:
-        type: CharecterFlavorBoundUserInterface
 
 - type: entity
   save: false
