@@ -428,3 +428,45 @@
     soundHit:
         path: /Audio/Weapons/bladeslice.ogg
   - type: Item
+
+- type: entity
+  name: bone longsword
+  parent: BaseSword
+  id: ADTBoneLongsword
+  description: A handmade single-edged bone longsword with a fairly wide blade. Its handle is wrapped in a cloth band. How grotesque.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Melee/bone_longsword.rsi
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    attackRate: 0.6
+    damage:
+      types:
+        Slash: 17
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+
+- type: entity
+  name: bone battleaxe
+  parent: BaseSword
+  id: ADTBoneBattleaxe
+  description: A handmade single-edged bone longsword with a fairly wide blade. Its handle is wrapped in a cloth band. How grotesque.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Melee/bone_battleaxe.rsi
+  - type: UseDelay
+    delay: 1
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    attackRate: 0.6
+    damage:
+      types:
+        Slash: 10
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 15
+        Structural: 15
+  - type: Wieldable
