@@ -4,6 +4,7 @@
   roundStart: true
   prototype: MobResomi
   sprites: MobResomiSprites
+  shortDesc: Резоми (Ре-зо-ми) - маленькие прямоходящие раптороподобные существа с четырьмя ушами. Резоми расселены в сотнях систем на территории огромного структурно-административного объединения, называемого Государством.
   defaultSkinTone: "#faf7f7"
   markingLimits: MobResomiMarkingLimits
   maleFirstNames: names_resomi_male

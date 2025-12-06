@@ -12,6 +12,7 @@
   femaleFirstNames: NamesReptilianFemale
   naming: FirstDashFirst
   # ADT start
+  shortDesc: Унатхи (прост. — унати, унатх) — это вид чешуйчатых гуманоидов родом с тропической планеты Могес, расположенной в звездной системе Узулу, управляемой монархическим государством «Великая Империя Кхси’Ра».
   description: "/ServerInfo/ADT/SpeciesDescriptions/Unath.xml"
   pros:
   - Могут таскать объекты хвостом.

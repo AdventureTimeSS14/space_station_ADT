@@ -8,6 +8,7 @@
   markingLimits: MobShadekinMarkingLimits
   dollPrototype: MobShadekinDummy
   skinColoration: Hues
+  shortDesc: Сумеречники (ед. число — Сумеречник) — крайне малочисленная раса, которую можно спутать с млекопитающими из-за их внешности. По виду большинство из них похожи на псовых с двумя парами ушей. И, несмотря на знакомую внешность, Сумеречники являются существами, склонными к изоляции, что не позволяет изучить необычные явления, связанные с их расой.
   maleFirstNames: names_shadekin_male_first
   femaleFirstNames: names_shadekin_female_first
   maleLastNames: names_shadekin_male_last
