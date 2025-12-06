@@ -11,7 +11,7 @@ public sealed partial class SeedDnaConsoleWindow : DefaultWindow
 {
     [Dependency] private readonly ILocalizationManager _localizationManager = default!;
 
-    private readonly List<SeedDnaConsoleWindowRow> _allRows = [];
+    private readonly List<SeedDnaConsoleWindowRow> _allRows = new();
 
     private readonly SeedDnaConsoleBoundUserInterface _owner;
 
@@ -121,12 +121,35 @@ public sealed partial class SeedDnaConsoleWindow : DefaultWindow
     }
 
     /// <summary>
+    /// Без локализации сервер просто падает. ЭТО УЖАС
+    /// </summary>
+    private string GetOrPlaceholder(string key)
+    {
+        if (_localizationManager.TryGetString(key, out var localized))
+            return localized;
+
+        return "???";
+    }
+
+    /// <summary>
     /// Получаем DTO данные
     /// </summary>
     private void SetupDataDto(SeedDnaConsoleBoundUserInterfaceState state)
     {
-        _seedDataDto = state.SeedData;
+        _seedDataDto = state.SeedData ?? new SeedDataDto();
         _dnaDiskDataDto = state.DnaDiskData ?? new SeedDataDto();
+
+        EnsureDtoCollectionsInitialized(_seedDataDto);
+        EnsureDtoCollectionsInitialized(_dnaDiskDataDto);
+    }
+
+    private void EnsureDtoCollectionsInitialized(SeedDataDto dto)
+    {
+        if (dto == null) return;
+
+        dto.Chemicals ??= new Dictionary<string, SeedChemQuantityDto>();
+        dto.ConsumeGasses ??= new Dictionary<Gas, float>();
+        dto.ExudeGasses ??= new Dictionary<Gas, float>();
     }
 
     /// <summary>
@@ -149,7 +172,7 @@ public sealed partial class SeedDnaConsoleWindow : DefaultWindow
         // Chemicals
         if (_seedDataDto?.Chemicals?.Count > 0 || _dnaDiskDataDto?.Chemicals?.Count > 0)
         {
-            List<string> processed = [];
+            List<string> processed = new List<string>();
 
             if (_seedDataDto?.Chemicals != null)
             {
@@ -157,9 +180,7 @@ public sealed partial class SeedDnaConsoleWindow : DefaultWindow
                 {
                     processed.Add(chemicalName);
 
-                    var title = chemicalName;
-                    if (_localizationManager.TryGetString($"seed-dna-chemical-{chemicalName}", out var v1))
-                        title = v1;
+                    var title = GetOrPlaceholder($"reagent-name-{chemicalName.ToLower()}");
 
                     AppendRow(SeedDnaConsoleWindowRow.Create(
                         title: title,
@@ -193,9 +214,7 @@ public sealed partial class SeedDnaConsoleWindow : DefaultWindow
                     if (processed.Remove(chemicalName))
                         continue;
 
-                    var title = chemicalName;
-                    if (_localizationManager.TryGetString($"seed-dna-chemical-{chemicalName}", out var v1))
-                        title = v1;
+                    var title = GetOrPlaceholder($"reagent-name-{chemicalName.ToLower()}");
 
                     AppendRow(SeedDnaConsoleWindowRow.Create(
                         title: title,
@@ -228,9 +247,7 @@ public sealed partial class SeedDnaConsoleWindow : DefaultWindow
         {
             foreach (var gas in Enum.GetValues<Gas>())
             {
-                var gasLoc = gas.ToString();
-                if (_localizationManager.TryGetString($"seed-dna-gas-", out var v1))
-                    gasLoc = v1;
+                var gasLoc = GetOrPlaceholder($"seed-dna-gas-{gas}"); // Локализация изначально неправильная. По этому будет ??? Когда-нибудь починить.
 
                 AppendRow(SeedDnaConsoleWindowRow.Create(
                     title: Loc.GetString("seed-dna-row-consume-gas", ("gas", gasLoc)),
@@ -273,9 +290,7 @@ public sealed partial class SeedDnaConsoleWindow : DefaultWindow
         {
             foreach (var gas in Enum.GetValues<Gas>())
             {
-                var gasLoc = gas.ToString();
-                if (_localizationManager.TryGetString($"seed-dna-gas-", out var v1))
-                    gasLoc = v1;
+                var gasLoc = GetOrPlaceholder($"seed-dna-gas-{gas}");
 
                 AppendRow(SeedDnaConsoleWindowRow.Create(
                     title: Loc.GetString("seed-dna-row-exude-gas", ("gas", gasLoc)),
@@ -559,7 +574,7 @@ public sealed partial class SeedDnaConsoleWindow : DefaultWindow
     /// </summary>
     private void UpdateButtonsAll(SeedDnaConsoleBoundUserInterfaceState state)
     {
-        if (state is not { IsSeedsPresent: true, IsDnaDiskPresent: true })
+        if (!state.IsSeedsPresent || !state.IsDnaDiskPresent)
             return;
 
         if (state.SeedData != null)
