@@ -1,4 +1,5 @@
 using Content.Shared.DoAfter;
+using Robust.Shared.Audio;
 
 namespace Content.Server.ADT.HWAnomCoreLootbox
 {
@@ -20,5 +21,8 @@ namespace Content.Server.ADT.HWAnomCoreLootbox
         public HWAnomCoreLootboxSettings Settings = new();
         [DataField, ViewVariables(VVAccess.ReadOnly)]
         public DoAfterId? DoAfter;
+
+        [DataField, ViewVariables(VVAccess.ReadWrite)]
+        public SoundSpecifier DoAfterSound = new SoundPathSpecifier("/Audio/ADT/Entities/paper_drop.ogg");
     }
 }
