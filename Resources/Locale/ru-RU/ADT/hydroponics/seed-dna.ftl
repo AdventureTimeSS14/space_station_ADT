@@ -35,7 +35,7 @@ seed-dna-row-Maturation = Скорость созревания
 seed-dna-row-Production = Скорость роста
 seed-dna-row-HarvestRepeat = Количество сборов урожая
 seed-dna-row-Potency = Потенция
-seed-dna-row-Seedless = Безсемянность
+seed-dna-row-Seedless = Бессемянность
 seed-dna-row-Viable = Жизнеспособность
 seed-dna-row-Ligneous = Светящийся
 seed-dna-row-CanScream = Может издавать крик
@@ -48,7 +48,7 @@ seed-dna-row-CanScream = Может издавать крик
 seed-dna-chemicalProp-Min = Минимальное значение
 seed-dna-chemicalProp-Max = Максимальное значение
 seed-dna-chemicalProp-PotencyDivisor = Делитель потенции
-seed-dna-chemicalProp-Inherent = Врожденный
+seed-dna-chemicalProp-Inherent = Врождённый
 
 # Локализация газов — заполнить по необходимости
 # seed-dna-gas-??? = ???

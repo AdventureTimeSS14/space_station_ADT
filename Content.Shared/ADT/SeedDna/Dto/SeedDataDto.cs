@@ -1,6 +1,6 @@
-using System.Diagnostics.CodeAnalysis;
 using Content.Shared.Atmos;
 using Robust.Shared.Serialization;
+using System.Diagnostics.CodeAnalysis;
 
 // ReSharper disable once CheckNamespace
 namespace Content.Shared.ADT.SeedDna;
