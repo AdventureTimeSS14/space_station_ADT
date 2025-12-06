@@ -6,6 +6,8 @@ using Content.Shared.Damage;
 using Content.Shared.FixedPoint;
 using Content.Shared.Speech;
 using Robust.Shared.Random;
+using Robust.Shared.Audio.Systems;
+using Robust.Shared.Audio;
 
 namespace Content.Server.Speech.EntitySystems;
 
@@ -14,6 +16,7 @@ public sealed class DamagedSiliconAccentSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly PowerCellSystem _powerCell = default!;
     [Dependency] private readonly DestructibleSystem _destructibleSystem = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
 
     public override void Initialize()
     {
@@ -25,37 +28,69 @@ public sealed class DamagedSiliconAccentSystem : EntitySystem
     {
         var uid = ent.Owner;
 
+        // Берем оригинальное сообщение в отдельную переменную
+        var originalMessage = args.Message ?? "";
+        var message = originalMessage;
+
+        bool messageChanged = false;
+
+        // Коррупция от заряда
         if (ent.Comp.EnableChargeCorruption)
         {
-            var currentChargeLevel = 0.0f;
-            if (ent.Comp.OverrideChargeLevel.HasValue)
-            {
-                currentChargeLevel = ent.Comp.OverrideChargeLevel.Value;
-            }
-            else if (_powerCell.TryGetBatteryFromSlot(uid, out var battery))
-            {
+            float currentChargeLevel = ent.Comp.OverrideChargeLevel ?? 0f;
+            if (_powerCell.TryGetBatteryFromSlot(uid, out var battery))
                 currentChargeLevel = battery.CurrentCharge / battery.MaxCharge;
-            }
+
             currentChargeLevel = Math.Clamp(currentChargeLevel, 0.0f, 1.0f);
-            // Corrupt due to low power (drops characters on longer messages)
-            args.Message = CorruptPower(args.Message, currentChargeLevel, ent.Comp);
+
+            var corrupted = CorruptPower(message, currentChargeLevel, ent.Comp);
+            if (corrupted != message)
+            {
+                message = corrupted;
+                messageChanged = true;
+            }
         }
 
+        // Коррупция от урона
         if (ent.Comp.EnableDamageCorruption)
         {
-            var damage = FixedPoint2.Zero;
-            if (ent.Comp.OverrideTotalDamage.HasValue)
-            {
-                damage = ent.Comp.OverrideTotalDamage.Value;
-            }
-            else if (TryComp<DamageableComponent>(uid, out var damageable))
-            {
+            FixedPoint2 damage = ent.Comp.OverrideTotalDamage ?? FixedPoint2.Zero;
+            if (TryComp<DamageableComponent>(uid, out var damageable))
                 damage = damageable.TotalDamage;
+
+            var corrupted = CorruptDamage(message, damage, ent);
+            if (corrupted != message)
+            {
+                message = corrupted;
+                messageChanged = true;
             }
-            // Corrupt due to damage (drop, repeat, replace with symbols)
-            args.Message = CorruptDamage(args.Message, damage, ent);
         }
+
+        // Если после коррукции сообщение пустое, добавим точку
+        if (string.IsNullOrWhiteSpace(message))
+        {
+            message = ".";
+            messageChanged = true;
+        }
+
+        args.Message = message;
+
+        // Проигрываем глитч-звук только если сообщение реально изменилось
+        if (messageChanged)
+            PlayAccentSound(ent.Comp, uid);
     }
+
+
+    private void PlayAccentSound(DamagedSiliconAccentComponent comp, EntityUid uid)
+    {
+        if (comp.SpeechGlitchSounds.Length == 0)
+            return;
+
+        var sound = _random.Pick(comp.SpeechGlitchSounds);
+        _audio.PlayPvs(sound, uid, comp.SpeechGlitchAudioParams);
+    }
+
+
 
     public string CorruptPower(string message, float chargeLevel, DamagedSiliconAccentComponent comp)
     {
