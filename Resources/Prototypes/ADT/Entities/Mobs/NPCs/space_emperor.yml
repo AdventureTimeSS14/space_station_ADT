@@ -118,6 +118,7 @@
   - type: StatusEffects
     allowed:
     - Stutter
+    - Weakness
     - RadiationProtection
     - Adrenaline #ADT-Medicine
   - type: Metabolizer

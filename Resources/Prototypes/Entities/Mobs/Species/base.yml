@@ -125,6 +125,7 @@
   - type: StatusEffects
     allowed:
     - Stutter
+    - Weakness #ADT-Weakness-Tweak
     - Electrocution
     - Drunk
     - SlurredSpeech
