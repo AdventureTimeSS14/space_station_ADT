@@ -1,9 +1,10 @@
 using Robust.Shared.GameStates;
+using Robust.Shared.Serialization;
 
 namespace Content.Shared.ADT.CharecterFlavor;
 
 [RegisterComponent, AutoGenerateComponentState, NetworkedComponent]
-public sealed partial class CharecterFlavorComponent : Component
+public sealed partial class CharacterFlavorComponent : Component
 {
     /// <summary>
     /// основной текст флавора, описание персонажа
@@ -20,11 +21,17 @@ public sealed partial class CharecterFlavorComponent : Component
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
     public string HeadshotUrl = "https://i.pinimg.com/736x/0e/04/5a/0e045a8c7792396c13ec332817b7f4be.jpg";
-    /// <summary>
-    /// используется для передачи на клиент битов картинки
-    /// можно сделать лучше конечно, но слишком запарно
-    /// </summary>
+}
 
-    [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
-    public byte[] HeadshotBytes;
+[Serializable, NetSerializable]
+public sealed partial class SetHeadshotUiMessage : EntityEventArgs
+{
+    public readonly NetEntity Target;
+    public readonly byte[] Image;
+
+    public SetHeadshotUiMessage(NetEntity target, byte[] image)
+    {
+        Target = target;
+        Image = image;
+    }
 }

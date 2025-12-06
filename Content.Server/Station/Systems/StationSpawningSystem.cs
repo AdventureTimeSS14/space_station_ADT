@@ -141,7 +141,7 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
             {
                 //ADT-tweak-start: Реворк флаворов
                 // AddComp<DetailExaminableComponent>(entity.Value).Content = profile.FlavorText;
-                var flavor = AddComp<CharecterFlavorComponent>(entity.Value);
+                var flavor = AddComp<CharacterFlavorComponent>(entity.Value);
                 flavor.FlavorText = profile.FlavorText;
                 flavor.OOCNotes = profile.OOCNotes;
                 flavor.HeadshotUrl = profile.HeadshotUrl;

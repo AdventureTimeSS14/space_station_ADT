@@ -699,9 +699,9 @@ public sealed partial class PolymorphSystem : EntitySystem
         //     var newDesc = EnsureComp<DetailExaminableComponent>(newEntityUid);
         //     newDesc.Content = desc.Content;
         // }
-        if (TryComp<CharecterFlavorComponent>(source, out var flavor))
+        if (TryComp<CharacterFlavorComponent>(source, out var flavor))
         {
-            var newDesc = EnsureComp<CharecterFlavorComponent>(newEntityUid);
+            var newDesc = EnsureComp<CharacterFlavorComponent>(newEntityUid);
             newDesc.FlavorText = flavor.FlavorText;
             newDesc.OOCNotes = flavor.OOCNotes;
             newDesc.HeadshotUrl = flavor.HeadshotUrl;
