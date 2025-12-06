@@ -42,7 +42,10 @@ public sealed partial class CharacterFlavorWindow : FancyWindow
             HeadshotImage.TexturePath = "/Textures/ADT/Interface/headshot-loading.png";
             HeadshotLoadingLabel.Visible = true;
         }
-
+        else
+        {
+            HeadshotContainer.SetSize = new Vector2(0, 0);
+        }
         Title = metaData.EntityName;
         FlavorTextLabel.Text = flavor.FlavorText;
         OOCNotesLabel.Text = flavor.OOCNotes;

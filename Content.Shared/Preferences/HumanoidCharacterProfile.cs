@@ -1,5 +1,6 @@
 using System.Linq;
 using System.Text.RegularExpressions;
+using Content.Shared.ADT.CCVar;
 using Content.Shared.ADT.Language;
 using Content.Shared.ADT.SpeechBarks;
 using Content.Shared.CCVar;
@@ -692,7 +693,11 @@ namespace Content.Shared.Preferences
                 oocNotes = FormattedMessage.RemoveMarkupOrThrow(oocNotes);
             }
 
-
+            string headshoturl = HeadshotUrl;
+            if (headshoturl.Length > 500 || !HeadshotUrl.Contains(configManager.GetCVar(ADTCCVars.HeadshotUrl))) //чутка хардкод, но это просто чтобы не засирали ссылкками на что угодно
+            {
+                headshoturl = string.Empty;
+            }
             //максимальная длина ООЦ заметок не больше чем длина флавора
             //ADT-tweak-end
 
@@ -744,7 +749,10 @@ namespace Content.Shared.Preferences
 
             Name = name;
             FlavorText = flavortext;
+            //ADT-tweak-start
             OOCNotes = oocNotes;
+            HeadshotUrl = headshoturl;
+            //ADT-tweak-end
             Age = age;
             Sex = sex;
             Gender = gender;
