@@ -290,8 +290,6 @@ namespace Content.Server.Database
                 profile.CharacterName,
                 profile.FlavorText,
                 profile.Species,
-                profile.OOCNotes,
-                profile.HeadshotUrl,
                 voice, // Corvax-TTS
                 profile.Age,
                 sex,
@@ -314,7 +312,9 @@ namespace Content.Server.Database
                 loadouts,
                 // ADT start
                 new BarkData(profile.BarkProto, profile.BarkPitch, profile.LowBarkVar, profile.HighBarkVar),
-                languages.ToHashSet()
+                languages.ToHashSet(),
+                profile.OOCNotes,
+                profile.HeadshotUrl
                 // ADT end
             );
         }
@@ -332,10 +332,6 @@ namespace Content.Server.Database
 
             profile.CharacterName = humanoid.Name;
             profile.FlavorText = humanoid.FlavorText;
-            //ADT-tweak-start
-            profile.OOCNotes = humanoid.OOCNotes;
-            profile.HeadshotUrl = humanoid.HeadshotUrl;
-            //ADT-tweak-end
             profile.Species = humanoid.Species;
             profile.Voice = humanoid.Voice; // Corvax-TTS
             profile.Age = humanoid.Age;
@@ -418,6 +414,9 @@ namespace Content.Server.Database
                 humanoid.Languages
                         .Select(l => new Language {LanguageName = l.ToString()})
             );
+
+            profile.OOCNotes = humanoid.OOCNotes;
+            profile.HeadshotUrl = humanoid.HeadshotUrl;
             // ADT end
 
             return profile;
@@ -1650,7 +1649,7 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
 
             return true;
         }
-        
+
         protected async Task<List<BookPrinterEntry>> GetBookPrinterEntriesImpl(DbGuard db)
         {
             return await db.DbContext.BookPrinterEntry
