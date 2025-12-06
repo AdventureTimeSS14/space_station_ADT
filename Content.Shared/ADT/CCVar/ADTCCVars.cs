@@ -13,7 +13,7 @@ public sealed class ADTCCVars
     * Barks
     */
     public static readonly CVarDef<string> HeadshotUrl =
-        CVarDef.Create("ic.headshot_url", "https://media.discordapp.net/attachments/1446603657255850085/", CVar.SERVER | CVar.REPLICATED);
+        CVarDef.Create("ic.headshot_url", "https://i.pinimg.com", CVar.SERVER | CVar.REPLICATED);
 
     public static readonly CVarDef<bool> BarksEnabled =
         CVarDef.Create("barks.enabled", true, CVar.SERVER | CVar.REPLICATED | CVar.ARCHIVE);
