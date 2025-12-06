@@ -58,8 +58,8 @@
     Silver: 1050
 
 - type: latheRecipe
-  id: BotanicDNADisk
-  result: BotanicDNADisk
+  id: BotanicalSeedDNADisk
+  result: BotanicalSeedDNADisk
   completetime: 4
   materials:
     Steel: 500

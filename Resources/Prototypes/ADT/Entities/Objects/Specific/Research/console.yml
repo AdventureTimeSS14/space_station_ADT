@@ -1,12 +1,12 @@
 - type: entity
-  parent: BaseComputer
-  id: ComputerBotanicDNAManipulator
-  name: "Манипулятор ДНК семян"
-  description: "На панели редкое количество разных семян. Видимо, кто-то плохо убирает за собой аппарат."
+  parent: BaseComputerAiAccess
+  id: ComputerBotanicalSeedDNAManipulator
+  name: plant seed DNA manipulator computer
+  description: There are seeds scattered on the panel. Apparently, someone doesn't clean up after themselves.
   components:
   - type: SeedDnaConsole
     seedSlot:
-      name: "Семена"
+      name: seed-dna-slot-component-slot-name-seeds
       ejectSound: /Audio/Machines/id_swipe.ogg
       insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
       ejectOnBreak: true
@@ -15,7 +15,7 @@
         components:
         - Seed
     dnaDiskSlot:
-      name: "ДНК Диск"
+      name: seed-dna-slot-component-slot-name-disk
       ejectSound: /Audio/Machines/id_swipe.ogg
       insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
       ejectOnBreak: true
@@ -36,15 +36,15 @@
     - map: [ "computerLayerBody" ]
       state: computer
     - map: [ "computerLayerKeyboard" ]
-      state: generic_keyboard
+      state: id_key_off
     - map: [ "computerLayerScreen" ]
-      state: id
+      state: dna
     - map: [ "computerLayerKeys" ]
       state: id_key
     - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
       state: generic_panel_open
   - type: Computer
-    board: BotanicDNACircuitboard
+    board: BotanicalSeedDNAManipulatorCircuitboard
   - type: PointLight
     radius: 1.5
     energy: 1.6
