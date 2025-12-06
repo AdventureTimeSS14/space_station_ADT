@@ -1,8 +1,8 @@
-using Content.Shared._Ganimed.SeedDna;
+using Content.Shared.ADT.SeedDna;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 
-namespace Content.Client._Ganimed.SeedDna.UI;
+namespace Content.Client.ADT.SeedDna.UI;
 
 public sealed class SeedDnaConsoleWindowRow
 {
