@@ -55,7 +55,7 @@ public sealed partial class CharacterFlavorWindow : FancyWindow
         }
         else
         {
-            HeadshotContainer.SetSize = new Vector2(0, 0);
+            HeadshotContainer.Visible = false;
         }
         Title = metaData.EntityName;
         FlavorTextLabel.Text = flavor.FlavorText;
@@ -71,6 +71,7 @@ public sealed partial class CharacterFlavorWindow : FancyWindow
             HeadshotImage.Texture = headshot;
             HeadshotImage.ModulateSelfOverride = null;
             HeadshotLoadingLabel.Visible = false;
+            HeadshotContainer.Visible = true;
         }
         else
             HeadshotContainer.Visible = false;

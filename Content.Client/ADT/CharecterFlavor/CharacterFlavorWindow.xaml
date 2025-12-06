@@ -51,7 +51,7 @@
                 </PanelContainer>
 
                 <!-- FLAVOR TEXT -->
-                <PanelContainer VerticalExpand="True" SetHeight="300" HorizontalExpand="True">
+                <PanelContainer VerticalExpand="True" HorizontalExpand="True">
                     <PanelContainer.PanelOverride>
                         <gfx:StyleBoxFlat BackgroundColor="#1a1a1a"/>
                     </PanelContainer.PanelOverride>
@@ -149,8 +149,6 @@
                                          VScrollEnabled="True"
                                          HScrollEnabled="False">
                             <ui:RichTextLabel Name="CustomSpeciesLabel"
-                                              MinSize="250 10"
-                                              MaxSize="250 10000"
                                               Text="{Loc 'flavor-interface-no-custom-species-desc'}"
                                               HorizontalExpand="True"
                                               VerticalAlignment="Top"
