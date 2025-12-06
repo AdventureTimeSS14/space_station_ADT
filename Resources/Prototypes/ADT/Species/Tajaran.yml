@@ -7,7 +7,7 @@
   markingLimits: MobTajaranMarkingLimits
   dollPrototype: MobTajaranDummy
   skinColoration: Hues
-  shortDesc: Таяран — вид гуманоидных всеядных млекопитающих, имеющих внешнее сходство с земными кошачьими. Таяран происходят с Адомая, планеты с разнообразным климатом, одной из пары землеподобных планет, обращающихся на орбите парных звёзд С’рандарр и Месса.
+  shortDesc: species-short-desc-tajaran
   maleFirstNames: firstMaleTajaran
   femaleFirstNames: firstFemaleTajaran
   maleLastNames: TajaranLast

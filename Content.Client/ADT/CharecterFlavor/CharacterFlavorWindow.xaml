@@ -66,7 +66,6 @@
                                          VScrollEnabled="True"
                                          HScrollEnabled="False">
                             <ui:RichTextLabel Name="FlavorTextLabel"
-                                              Text="no desc?"
                                               HorizontalExpand="True"
                                               VerticalAlignment="Top"
                                               HorizontalAlignment="Left"
@@ -125,7 +124,6 @@
                                          HScrollEnabled="False">
                             <ui:RichTextLabel Name="OOCNotesLabel"
                                               MaxSize="370 10000"
-                                              Text="Выходит, тут ничего нету?"
                                               VerticalAlignment="Top"
                                               HorizontalAlignment="Left"
                                               HorizontalExpand="True"

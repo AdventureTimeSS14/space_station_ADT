@@ -6,8 +6,7 @@
   sprites: MobNovakidSprites
   defaultSkinTone: "#34a223"
   markingLimits: MobNovakidMarkingLimits
-  shortDesc: Новакиды Новакиды (ед. число — Новакид)- представители не органической формы жизни, внешне они выглядят как источаящая слабое свечение гуманоидную оболочка наполненная внутри газом, ближе к границам оболочки цвет, определяемый составом новакида, становится насыщенней. В центре головы у новакидов находится металлическое устройство, которое сами новакиды нарекают "Метка"/"Клеймо". В их понимании метка - их отличительный знак.
-  dollPrototype: MobNovakidDummy
+  shortDesc: species-short-desc-novakid
   skinColoration: Hues
   maleFirstNames: firstNovakid
   femaleFirstNames: firstNovakid

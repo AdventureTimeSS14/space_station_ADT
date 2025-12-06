@@ -9,7 +9,7 @@
   dollPrototype: MobUrsusDummy
   skinColoration: Hues
   maleFirstNames: firstMaleUrs
-  shortDesc: Урс - это вид гуманоидных существ, внешне напоминающих земных медведей. Урсы происходят с планеты Люпин. (Lupin-3KORche87l). Система звезды Бенеташ (Алькаид или Eta Ursae Majoris, η UMa), что находится «на конце ручки» астеризма Большой Ковш.
+  shortDesc: species-short-desc-urs
   femaleFirstNames: firstFemaleUrs
   maleLastNames: LastMaleUrs
   femaleLastNames: LastFemaleUrs

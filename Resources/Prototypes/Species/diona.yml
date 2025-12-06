@@ -14,7 +14,7 @@
   femaleLastNames: NamesDionaLast # Corvax-LastnameGender
   naming: TheFirstofLast
   # ADT start
-  shortDesc: Дионы (ед. число — Диона) — это группа медлительных существ, которые представляют собой скопления отдельных, более мелких, организмов, демонстрирующих высокую степень структурной гибкости и могут принимать различные формы в попытке слиться с разумными обществами.
+  shortDesc: species-short-desc-diona
   description: "/ServerInfo/ADT/SpeciesDescriptions/Diona.xml"
   pros:
   - Не получают негативных эффектов от кудзу.

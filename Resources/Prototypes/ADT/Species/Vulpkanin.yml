@@ -7,7 +7,7 @@
   markingLimits: MobVulpkaninMarkingLimits
   dollPrototype: MobVulpkaninDummy
   skinColoration: Hues
-  shortDesc: Вульпканин (Вульп-ка-нин) — вид гуманоидных псовых организмов. Вид вульпканинов происходит из двойной системы Ваззенда, планеты Алтам. В ходе истории общество Вульпканинов разделилась на три фракции Хиррсарри, Карискрон и Аикхаль.
+  shortDesc: species-short-desc-vulpakin
   maleFirstNames: firstMaleVulp # ADT-LastnameGender
   femaleFirstNames: firstFemaleVulp # ADT-LastnameGender
   maleLastNames: VulpLast # ADT-LastnameGender
