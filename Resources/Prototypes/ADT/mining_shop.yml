@@ -47,8 +47,10 @@
   - id: ADTShelterCapsuleLuxury
     price: 3500
   - id: ADTShelterCapsuleBar
+    price: 7500
+  - id: ADTShelterCapsuleLivingRoom
     price: 10000
-    
+
 - type: miningShopSection
   id: Medicine
   name: Медицина

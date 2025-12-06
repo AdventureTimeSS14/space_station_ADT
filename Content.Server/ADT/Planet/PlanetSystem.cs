@@ -35,7 +35,7 @@ public sealed class PlanetSystem : EntitySystem
         var planet = _proto.Index(id);
 
         var map = _map.CreateMap(out _, runMapInit: runMapInit);
-        _biome.EnsurePlanet(map, _proto.Index(planet.Biome), mapLight: planet.MapLight);
+        _biome.EnsurePlanet(map, _proto.Index(planet.Biome), mapLight: planet.MapLight, dayCycle: planet.DayCycle);
 
         // add each marker layer
         var biome = Comp<BiomeComponent>(map);
@@ -44,7 +44,7 @@ public sealed class PlanetSystem : EntitySystem
             _biome.AddMarkerLayer(map, biome, layer);
         }
 
-        if (planet.AddedComponents is {} added)
+        if (planet.AddedComponents is { } added)
             EntityManager.AddComponents(map, added);
 
         _atmos.SetMapAtmosphere(map, false, planet.Atmosphere);

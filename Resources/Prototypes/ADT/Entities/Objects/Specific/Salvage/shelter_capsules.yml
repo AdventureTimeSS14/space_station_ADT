@@ -39,6 +39,15 @@
   - type: ShelterCapsule
     room: EliteBarShelter
 
+- type: entity
+  parent: ADTBaseShelterCapsule
+  id: ADTShelterCapsuleLivingRoom
+  name: luxury living room capsule
+  description: A luxury living room in a capsule. Cozy!
+  components:
+  - type: ShelterCapsule
+    room: LivingRoomShelter
+
 # Dungeon room prototypes
 
 - type: dungeonRoom
@@ -59,5 +68,12 @@
   id: EliteBarShelter
   size: 11,11
   atlas: /Maps/ADTMaps/Nonstation/shelters.yml
-  offset: 12,-2
+  offset: 36,-2
+  ignoreTile: FloorShuttleOrange
+
+- type: dungeonRoom
+  id: LivingRoomShelter
+  size: 11,11
+  atlas: /Maps/ADTMaps/Nonstation/shelters.yml
+  offset: 24,-2
   ignoreTile: FloorShuttleOrange
