@@ -22,6 +22,7 @@ public sealed class CharacterFlavorUiController : UIController, IOnStateEntered<
 
     public void OpenMenu(EntityUid target)
     {
+        _window?.Close();
         _window = UIManager.CreateWindow<CharacterFlavorWindow>();
         _window.SetEntity(target);
         _window.OpenCentered();
