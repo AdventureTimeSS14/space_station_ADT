@@ -80,7 +80,7 @@ public sealed class SeedDnaConsoleWindowRow
         var seedChemQuantityDto = _getterChemSeedValue!();
         var dnaDiskChemQuantityDto = _getterChemDnaDiskValue!();
 
-        container.AddChild(CreateTitleLabel($"  - {Loc.GetString("seed-dna-chemicalProp-Mix")}"));
+        container.AddChild(CreateTitleLabel($"  - {Loc.GetString("seed-dna-chemicalProp-Min")}"));
         container.AddChild(SetLabelValue(CreateValueLabel(), seedChemQuantityDto?.Min));
         container.AddChild(SetLabelValue(CreateValueLabel(), dnaDiskChemQuantityDto?.Min));
         container.AddChild(new Control());
