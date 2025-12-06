@@ -4,13 +4,8 @@
                       xmlns:customControls="clr-namespace:Content.Client.Administration.UI.CustomControls"
                       xmlns:ui="clr-namespace:Robust.Client.UserInterface.Controls;assembly=Robust.Client"
                       Title="{Loc 'flavor-interface-lable'}"
-                      MinSize="800 600"
-                      SetSize="1000 700">
-
-    <PanelContainer>
-        <PanelContainer.PanelOverride>
-            <gfx:StyleBoxFlat BackgroundColor="#1a1a1a"/>
-        </PanelContainer.PanelOverride>
+                      MinSize="800 752"
+                      SetSize="1000 752">
 
         <BoxContainer Orientation="Vertical"
                       Margin="10"
@@ -33,20 +28,21 @@
                           MinSize="0 300">
 
                 <!-- Character Preview -->
-                <PanelContainer SetSize="300 300">
+                <PanelContainer VerticalExpand="True" SetWidth="300">
                     <PanelContainer.PanelOverride>
-                        <gfx:StyleBoxFlat BackgroundColor="#2d2d2d"/>
+                        <gfx:StyleBoxFlat BackgroundColor="#1a1a1a"/>
                     </PanelContainer.PanelOverride>
 
                     <BoxContainer Orientation="Vertical" Margin="8">
                         <ui:Label Text="{Loc 'flavor-interface-preview'}"
                                   HorizontalAlignment="Center"
+                                  StyleClasses="LabelHeading"
                                   Margin="0 0 0 5"/>
 
                         <SpriteView Name="CharecterView"
                                     Margin="10 0 0 0"
                                     VerticalAlignment="Center"
-                                    HorizontalAlignment="Right"
+                                    HorizontalAlignment="Center"
                                     OverrideDirection="South"
                                     SetSize="250 250"
                                     MaxSize="250 250"
@@ -55,23 +51,25 @@
                 </PanelContainer>
 
                 <!-- FLAVOR TEXT -->
-                <PanelContainer HorizontalExpand="True">
+                <PanelContainer VerticalExpand="True" SetHeight="300" HorizontalExpand="True">
                     <PanelContainer.PanelOverride>
-                        <gfx:StyleBoxFlat BackgroundColor="#2d2d2d"/>
+                        <gfx:StyleBoxFlat BackgroundColor="#1a1a1a"/>
                     </PanelContainer.PanelOverride>
 
                     <BoxContainer Orientation="Vertical" Margin="8">
                         <ui:Label Text="{Loc 'flavor-interface-flavor-text-title'}"
-                                  Margin="0 0 0 5"/>
+                                  StyleClasses="LabelHeading"
+                                  Margin="8 0"/>
 
                         <ScrollContainer VerticalExpand="True"
                                          HorizontalExpand="True"
                                          VScrollEnabled="True"
                                          HScrollEnabled="False">
                             <ui:RichTextLabel Name="FlavorTextLabel"
-                                              MaxSize="600, 1000"
                                               Text="no desc?"
                                               HorizontalExpand="True"
+                                              VerticalAlignment="Top"
+                                              HorizontalAlignment="Left"
                                               Margin="8"/>
                         </ScrollContainer>
                     </BoxContainer>
@@ -82,41 +80,44 @@
             <BoxContainer Orientation="Horizontal"
                           HorizontalExpand="True"
                           MinSize="0 300"
+                          VerticalExpand="True"
                           SeparationOverride="10"
                           Margin="0 10 0 0">
 
                 <!-- Headshot-->
-                <PanelContainer SetSize="300 300" Name="HeadshotContainer" Access="Public">
+                <PanelContainer VerticalExpand="True" SetWidth="300" Name="HeadshotContainer" Access="Public">
                     <PanelContainer.PanelOverride>
-                        <gfx:StyleBoxFlat BackgroundColor="#2d2d2d"/>
+                        <gfx:StyleBoxFlat BackgroundColor="#1a1a1a"/>
                     </PanelContainer.PanelOverride>
 
                     <BoxContainer Orientation="Vertical" Margin="8">
-                        <ui:RichTextLabel
-                                  Name="HeadshotLable"
-                                  Text="{Loc 'flavor-interface-headshot'}"
-                                  MaxSize = "280 280"
-                                  Access="Public"
+                        <ui:Label Text="{Loc 'flavor-interface-headshot'}"
                                   HorizontalAlignment="Center"
+                                  StyleClasses="LabelHeading"
                                   Margin="5 5 5 5"/>
 
                         <TextureRect Name="HeadshotImage"
                                      Access="Public"
                                      VerticalExpand="True"
                                      HorizontalExpand="True"
-                                     Stretch="KeepAspectCentered"/>
+                                     Stretch="KeepAspectCentered">
+                            <RichTextLabel Name="HeadshotLoadingLabel"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"/>
+                        </TextureRect>
                     </BoxContainer>
                 </PanelContainer>
 
                 <!-- OOC NOTES -->
-                <PanelContainer HorizontalExpand="True" MaxSize="370 10000" HorizontalAlignment="Right" MinSize="370, 0">
+                <PanelContainer HorizontalExpand="True" VerticalExpand="True" SizeFlagsStretchRatio="3" >
                     <PanelContainer.PanelOverride>
-                        <gfx:StyleBoxFlat BackgroundColor="#2d2d2d"/>
+                        <gfx:StyleBoxFlat BackgroundColor="#1a1a1a"/>
                     </PanelContainer.PanelOverride>
 
                     <BoxContainer Orientation="Vertical" Margin="8">
                         <ui:Label Text="{Loc 'flavor-interface-OOC-notes'}"
-                                  Margin="0 0 0 5"/>
+                                  StyleClasses="LabelHeading"
+                                  Margin="8 0"/>
 
                         <ScrollContainer VerticalExpand="True"
                                          HorizontalExpand="True"
@@ -125,6 +126,8 @@
                             <ui:RichTextLabel Name="OOCNotesLabel"
                                               MaxSize="370 10000"
                                               Text="Выходит, тут ничего нету?"
+                                              VerticalAlignment="Top"
+                                              HorizontalAlignment="Left"
                                               HorizontalExpand="True"
                                               Margin="8"/>
                         </ScrollContainer>
@@ -132,14 +135,15 @@
                 </PanelContainer>
 
                 <!-- NO CUSTOM SPECIES -->
-                <PanelContainer MinSize="250 0">
+                <PanelContainer HorizontalExpand="True" VerticalExpand="True" SizeFlagsStretchRatio="1" >
                     <PanelContainer.PanelOverride>
-                        <gfx:StyleBoxFlat BackgroundColor="#2d2d2d"/>
+                        <gfx:StyleBoxFlat BackgroundColor="#1a1a1a"/>
                     </PanelContainer.PanelOverride>
 
                     <BoxContainer Orientation="Vertical" Margin="8">
                         <ui:Label Text="{Loc 'flavor-interface-no-custom-species'}"
-                                  Margin="0 0 0 5"/>
+                                  StyleClasses="LabelHeading"
+                                  Margin="8 0"/>
 
                         <ScrollContainer VerticalExpand="True"
                                          HorizontalExpand="True"
@@ -149,11 +153,12 @@
                                               MaxSize="270 10000"
                                               Text="{Loc 'flavor-interface-no-custom-species-desc'}"
                                               HorizontalExpand="True"
+                                              VerticalAlignment="Top"
+                                              HorizontalAlignment="Left"
                                               Margin="8"/>
                         </ScrollContainer>
                     </BoxContainer>
                 </PanelContainer>
             </BoxContainer>
         </BoxContainer>
-    </PanelContainer>
 </controls:FancyWindow>
