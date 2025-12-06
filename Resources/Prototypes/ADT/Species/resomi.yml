@@ -4,6 +4,7 @@
   roundStart: true
   prototype: MobResomi
   sprites: MobResomiSprites
+  shortDesc: species-short-desc-resomi
   defaultSkinTone: "#faf7f7"
   markingLimits: MobResomiMarkingLimits
   maleFirstNames: names_resomi_male

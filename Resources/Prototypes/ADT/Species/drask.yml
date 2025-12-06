@@ -8,6 +8,7 @@
   markingLimits: MobDraskMarkingLimits
   dollPrototype: MobDraskDummy
   skinColoration: Hues
+  shortDesc: species-short-desc-drask
   maleFirstNames: Draskfrist
   femaleFirstNames: Draskfrist
   maleLastNames: Draskfrist
