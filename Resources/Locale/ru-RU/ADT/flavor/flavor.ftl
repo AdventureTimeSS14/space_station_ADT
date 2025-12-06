@@ -9,3 +9,4 @@ flavor-interface-flavor-text-title = Описание персонажа
 flavor-interface-custom-species = Описание расы
 flavor-interface-no-custom-species = Особая раса отсутствует
 flavor-interface-no-custom-species-desc = Абсолютно обычный бороздитель космоса.
+headshot-loading = [bold]Загрузка...[/bold]
