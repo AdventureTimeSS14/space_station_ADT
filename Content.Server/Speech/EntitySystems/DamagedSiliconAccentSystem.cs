@@ -24,6 +24,7 @@ public sealed class DamagedSiliconAccentSystem : EntitySystem
         SubscribeLocalEvent<DamagedSiliconAccentComponent, AccentGetEvent>(OnAccent, after: [typeof(ReplacementAccentSystem)]);
     }
 
+    // ADT-Tweak (P4A)-start: Изменение акцента для КПБ
     private void OnAccent(Entity<DamagedSiliconAccentComponent> ent, ref AccentGetEvent args)
     {
         var uid = ent.Owner;
@@ -33,8 +34,6 @@ public sealed class DamagedSiliconAccentSystem : EntitySystem
         var message = originalMessage;
 
         bool messageChanged = false;
-
-        // Коррупция от заряда
         if (ent.Comp.EnableChargeCorruption)
         {
             float currentChargeLevel = ent.Comp.OverrideChargeLevel ?? 0f;
@@ -51,7 +50,6 @@ public sealed class DamagedSiliconAccentSystem : EntitySystem
             }
         }
 
-        // Коррупция от урона
         if (ent.Comp.EnableDamageCorruption)
         {
             FixedPoint2 damage = ent.Comp.OverrideTotalDamage ?? FixedPoint2.Zero;
@@ -66,16 +64,8 @@ public sealed class DamagedSiliconAccentSystem : EntitySystem
             }
         }
 
-        // Если после коррукции сообщение пустое, добавим точку
-        if (string.IsNullOrWhiteSpace(message))
-        {
-            message = ".";
-            messageChanged = true;
-        }
-
         args.Message = message;
 
-        // Проигрываем глитч-звук только если сообщение реально изменилось
         if (messageChanged)
             PlayAccentSound(ent.Comp, uid);
     }
@@ -89,7 +79,7 @@ public sealed class DamagedSiliconAccentSystem : EntitySystem
         var sound = _random.Pick(comp.SpeechGlitchSounds);
         _audio.PlayPvs(sound, uid, comp.SpeechGlitchAudioParams);
     }
-
+    // ADT-Tweak (P4A)-end
 
 
     public string CorruptPower(string message, float chargeLevel, DamagedSiliconAccentComponent comp)

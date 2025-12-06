@@ -79,7 +79,7 @@ public sealed partial class DamagedSiliconAccentComponent : Component
     /// </summary>
     [DataField]
     public float ProbToCorruptDotFromPower = 0.6f;
-
+    // ADT-Tweak (P4A)-start: Изменение акцентов Синтетиков
     [DataField]
     public SoundPathSpecifier[] SpeechGlitchSounds { get; set; } = new[]
     {
@@ -93,6 +93,6 @@ public sealed partial class DamagedSiliconAccentComponent : Component
 
     [ViewVariables(VVAccess.ReadWrite)]
     public AudioParams SpeechGlitchAudioParams => AudioParams.Default.WithVolume(SpeechGlitchVolume);
-
+    // ADT-Tweak (P4A)-end
 
 }
