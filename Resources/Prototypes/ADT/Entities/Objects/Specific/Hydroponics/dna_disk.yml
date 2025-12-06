@@ -1,6 +1,6 @@
 - type: entity
   parent: BaseItem
-  id: BotanicalSeedDNADisk
+  id: ADTBotanicalSeedDNADisk
   name: plant seed DNA disk
   description: This data disk stores information about genetic modifications and mutations in plant seeds.
   components:

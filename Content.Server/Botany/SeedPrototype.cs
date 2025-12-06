@@ -1,7 +1,7 @@
-using Content.Server.ADT.SeedDna.Systems; // ADT tweak
+using Content.Server.ADT.SeedDna.Systems; //ADT-Tweak
 using Content.Server.Botany.Components;
 using Content.Server.Botany.Systems;
-using Content.Server.EntityEffects; // ADT tweak
+using Content.Server.EntityEffects; //ADT-Tweak
 using Content.Shared.Atmos;
 using Content.Shared.Database;
 using Content.Shared.Random;
@@ -12,10 +12,10 @@ using Robust.Shared.Utility;
 
 namespace Content.Server.Botany;
 
-[Prototype("seed")] // ADT tweak
+[Prototype("seed")] //ADT-Tweak
 public sealed partial class SeedPrototype : SeedData, IPrototype
 {
-    [IdDataField] public string ID { get; private init; } = default!; // ADT tweak
+    [IdDataField] public string ID { get; private init; } = default!; //ADT-Tweak
 }
 
 public enum HarvestType : byte
@@ -82,7 +82,7 @@ public partial struct SeedChemQuantity
 
 // TODO reduce the number of friends to a reasonable level. Requires ECS-ing things like plant holder component.
 [Virtual, DataDefinition]
-[Access(typeof(BotanySystem), typeof(PlantHolderSystem), typeof(SeedExtractorSystem), typeof(PlantHolderComponent), typeof(EntityEffectSystem), typeof(MutationSystem), typeof(SeedDnaConsoleSystem))] // ADT tweak
+[Access(typeof(BotanySystem), typeof(PlantHolderSystem), typeof(SeedExtractorSystem), typeof(PlantHolderComponent), typeof(EntityEffectSystem), typeof(MutationSystem), typeof(SeedDnaConsoleSystem))] //ADT-Tweak
 public partial class SeedData
 {
     #region Tracking

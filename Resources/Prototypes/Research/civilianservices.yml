@@ -14,7 +14,7 @@
   - HydroponicsTrayMachineCircuitboard
   - ReagentGrinderIndustrialMachineCircuitboard
   #ADT-Tweak-Start
-  - BotanicalSeedDNAManipulatorCircuitboard
+  - ADTBotanicalSeedDNAManipulatorCircuitboard
   - ADTAdvancedWateringCan
   #ADT-Tweak-End
   # ADT Research Console Rework start

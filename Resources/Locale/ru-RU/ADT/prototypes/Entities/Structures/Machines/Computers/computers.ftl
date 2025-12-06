@@ -27,5 +27,5 @@ ent-MinesweeperArcadeFilled = { ent-MinesweeperArcade }
     .desc = { ent-MinesweeperArcade.desc }
     .suffix = Заполненный
 
-ent-ComputerBotanicalSeedDNAManipulator = консоль манипулятора ДНК семян
+ent-ADTComputerBotanicalSeedDNAManipulator = консоль манипулятора ДНК семян
     .desc = Идеальный девайс для начинающего генного инженера вроде вас. На панели рассыпано редкое количество разных семян. Видимо, кто-то плохо убирал за собой.
