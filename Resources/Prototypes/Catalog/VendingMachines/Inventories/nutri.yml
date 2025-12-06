@@ -21,7 +21,7 @@
     # ADT tweak Start
     ADTPlantAnalyzer: 1
     ADTSoilPacked: 2
-    ADTBotanicalSeedDNADisk: 20
+    ADTBotanicalSeedDNADisk: 10
     # ADT tweak End
   contrabandInventory:
     ChemistryBottleUnstableMutagen: 1
