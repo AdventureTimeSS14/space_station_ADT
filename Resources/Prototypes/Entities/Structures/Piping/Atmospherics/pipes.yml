@@ -76,7 +76,7 @@
       VentCrawlerTube: !type:Container
   # ADT-PipePressureDamage-Start
   - type: OverpressurePipeDamage
-    limitPressure: 10000
+    limitPressure: 15000
   # ADT-PipePressureDamage-End
 
 - type: entity

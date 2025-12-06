@@ -32,8 +32,10 @@ namespace Content.Server.Atmos.Piping.Unary.EntitySystems
             if (!_nodeContainer.TryGetNode(uid, vent.InletName, out PipeNode? inlet))
                 return;
 
-            var inletAir = inlet.Air.RemoveRatio(1f);
-            var envAir = environment.RemoveRatio(1f);
+            var ammount = 1f * vent.Multiplier; // ADT-Tweak
+
+            var inletAir = inlet.Air.RemoveRatio(ammount); // ADT-Tweak
+            var envAir = environment.RemoveRatio(ammount); // ADT-Tweak
 
             var mergeAir = new GasMixture(inletAir.Volume + envAir.Volume);
             _atmosphereSystem.Merge(mergeAir, inletAir);
