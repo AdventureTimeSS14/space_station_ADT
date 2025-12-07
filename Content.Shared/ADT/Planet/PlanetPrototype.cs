@@ -46,4 +46,10 @@ public sealed partial class PlanetPrototype : IPrototype
     /// </summary>
     [DataField]
     public List<ProtoId<BiomeMarkerLayerPrototype>> BiomeMarkerLayers = new();
+
+    /// <summary>
+    /// Whether to enable the day/night cycle with LightCycleComponent and SunShadowCycleComponent.
+    /// </summary>
+    [DataField]
+    public bool DayCycle = true;
 }
