@@ -12,6 +12,11 @@
       context: "human"
     - type: InputMover
     - type: ZombieImmune
+      # (P4A)-Start
+    - type: IgnoreHealOnBuckle # Никакого лечение через Кровати/Регенеративные кровати для Синтетиков
+    - type: IgnoreCryopods  # Никакого применения химии через Криокамеры
+    - type: DamagedSiliconAccent # Теперь Синтетики также будут получать акцент "Поврежденного киборга" при получении травм
+      # (P4A)-End
     - type: MobMover
     - type: DamageOnHighSpeedImpact
       damage:
@@ -211,11 +216,7 @@
       canResistFire: true
       damage:
         types:
-          Heat: 0.75 #per second, scales with number of fire 'stacks'
-    # - type: Barotrauma # Not particularly modifiable. In the future, some response to pressure changes would be nice.
-    #   damage:
-    #     types:
-    #       Blunt: 0.28 #per second, scales with pressure and other constants.
+          Heat: 0.75
     - type: Temperature
       heatDamageThreshold: 320
       coldDamageThreshold: 255
