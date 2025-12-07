@@ -5,6 +5,7 @@ using Content.Shared.Corvax.TTS;
 using Content.Shared.Preferences;
 using Robust.Client.UserInterface;
 using Robust.Client.GameObjects;
+using Robust.Client.UserInterface.Controls;
 
 namespace Content.Client.Lobby.UI;
 
@@ -27,6 +28,9 @@ public sealed partial class HumanoidProfileEditor
         };
 
         VoicePlayButton.OnPressed += _ => PlayPreviewTTS();
+        
+        // ADT-Tweak: Add handler for opening TTS selection window
+        VoiceButton.OnPressed += _ => OpenADTTTSWindow();
     }
 
     private void UpdateTTSVoicesControls()

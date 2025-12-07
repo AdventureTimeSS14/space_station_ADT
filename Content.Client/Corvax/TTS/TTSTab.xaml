@@ -1,0 +1,36 @@
+<Control xmlns="https://spacestation14.io" xmlns:graphics="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client">
+    <BoxContainer Orientation="Vertical" HorizontalExpand="True">
+        <BoxContainer Orientation="Horizontal" HorizontalExpand="True" Margin="5">
+            <LineEdit Name="SearchEdit" MinWidth="400" PlaceHolder="{Loc 'humanoid-profile-editor-tts-placeholder'}"/>
+            <Label Name="ResultsLabel" MinWidth="100" HorizontalExpand="True" HorizontalAlignment="Right"/>
+        </BoxContainer>
+        
+        <BoxContainer Orientation="Horizontal" HorizontalExpand="True" VerticalExpand="True" Margin="0 5 0 0">
+            <!-- Левая панель с категориями -->
+            <PanelContainer HorizontalExpand="False" VerticalExpand="True" MinSize="190 300" Margin="0 0 5 0">
+                <PanelContainer.PanelOverride>
+                    <graphics:StyleBoxFlat BackgroundColor="#1A1A1A" />
+                </PanelContainer.PanelOverride>
+                <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True" Margin="5">
+                    <Label Text="{Loc 'humanoid-profile-editor-tts-categories'}" StyleClasses="LabelHeading" HorizontalAlignment="Center" Margin="0 0 0 5"/>
+                    <ScrollContainer VerticalExpand="True" HorizontalExpand="True">
+                        <BoxContainer Name="CategoriesContainer" Orientation="Vertical" HorizontalExpand="True"/>
+                    </ScrollContainer>
+                </BoxContainer>
+            </PanelContainer>
+
+            <!-- Правая панель с голосами -->
+            <PanelContainer HorizontalExpand="True" VerticalExpand="True" MinSize="420 320">
+                <PanelContainer.PanelOverride>
+                    <graphics:StyleBoxFlat BackgroundColor="#1A1A1A" />
+                </PanelContainer.PanelOverride>
+                <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True" Margin="5">
+                    <Label Name="SelectedCategoryLabel" Text="" StyleClasses="LabelHeading" HorizontalAlignment="Center" Margin="0 0 0 5"/>
+                    <ScrollContainer VerticalExpand="True" HorizontalExpand="True">
+                        <BoxContainer Name="VoicesGrid" Orientation="Vertical" HorizontalExpand="True"/>
+                    </ScrollContainer>
+                </BoxContainer>
+            </PanelContainer>
+        </BoxContainer>
+    </BoxContainer>
+</Control>

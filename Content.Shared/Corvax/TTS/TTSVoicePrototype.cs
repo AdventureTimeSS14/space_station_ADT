@@ -34,4 +34,12 @@ public sealed class TTSVoicePrototype : IPrototype
 
     [DataField("sponsorOnly")]
     public bool SponsorOnly { get; } = false;
+
+    // ADT-Tweak start
+    /// <summary>
+    /// Voice category for grouping in UI
+    /// </summary>
+    [DataField("category")]
+    public string Category { get; } = "Other";
+    // ADT-Tweak end 
 }

@@ -4,13 +4,15 @@
   sex: Male
   speaker: papich
   id: papich
+  category: Youtubers
 
 - type: ttsVoice
   name: Бэбэй
-  description: Голос популярного стримера Бэбэя
+  description: Голос популярного стримера Бэбэея
   sex: Male
   speaker: bebey
   id: bebey
+  category: Youtubers
 
 - type: ttsVoice
   name: Дмитрий Пучков
@@ -18,6 +20,7 @@
   sex: Male
   speaker: puchkow
   id: puchkow
+  category: Youtubers
 
 - type: ttsVoice
   name: Мориарти
@@ -25,6 +28,7 @@
   sex: Male
   speaker: moriarti
   id: moriarti
+  category: Youtubers
 
 - type: ttsVoice
   name: Шарлотта
@@ -32,6 +36,7 @@
   sex: Female
   speaker: charlotte
   id: charlotte
+  category: Vtubers
 
 - type: ttsVoice
   name: Планя
@@ -39,6 +44,7 @@
   sex: Female
   speaker: planya
   id: planya
+  category: Vtubers
 
 - type: ttsVoice
   name: Мана
@@ -46,6 +52,7 @@
   sex: Female
   speaker: mana
   id: mana
+  category: Vtubers
 
 - type: ttsVoice
   name: Амина
@@ -53,6 +60,7 @@
   sex: Female
   speaker: amina
   id: amina
+  category: Vtubers
 
 - type: ttsVoice
   name: Джо Байден
@@ -60,6 +68,7 @@
   sex: Male
   speaker: biden
   id: biden
+  category: Special
 
 - type: ttsVoice
   name: Барак Обама
@@ -67,6 +76,7 @@
   sex: Male
   speaker: obama
   id: obama
+  category: Special
 
 - type: ttsVoice
   name: Дональд Трамп
@@ -74,6 +84,7 @@
   sex: Male
   speaker: trump
   id: trump
+  category: Special
 
 - type: ttsVoice
   name: Добакин
@@ -81,6 +92,7 @@
   sex: Male
   speaker: dbkn
   id: dbkn
+  category: Special
 
 - type: ttsVoice
   name: Хреноид
@@ -88,6 +100,7 @@
   sex: Male
   speaker: xrenoid
   id: xrenoid
+  category: Special
 
 - type: ttsVoice
   name: Валтос
@@ -95,6 +108,7 @@
   sex: Female
   speaker: valtos
   id: valtos
+  category: Special
 
 - type: ttsVoice
   name: Уоллес Брин
@@ -102,6 +116,7 @@
   sex: Male
   speaker: briman
   id: briman
+  category: Half-Life 
 
 - type: ttsVoice
   name: Отец Григорий
@@ -109,6 +124,7 @@
   sex: Male
   speaker: father_grigori
   id: father_grigori
+  category: Half-Life 
 
 - type: ttsVoice
   name: Доктор Кляйнер
@@ -116,6 +132,7 @@
   sex: Male
   speaker: kleiner
   id: kleiner
+  category: Half-Life
 
 - type: ttsVoice
   name: Джудит Моссман
@@ -123,6 +140,7 @@
   sex: Female
   speaker: mossman
   id: mossman
+  category: Half-Life 
 
 - type: ttsVoice
   name: Илай Вэнс
@@ -130,6 +148,7 @@
   sex: Male
   speaker: vance
   id: vance
+  category: Half-Life 
 
 - type: ttsVoice
   name: Аликс Вэнс
@@ -137,6 +156,7 @@
   sex: Female
   speaker: alyx
   id: alyx
+  category: Half-Life 
 
 - type: ttsVoice
   name: G-Man
@@ -144,6 +164,7 @@
   sex: Male
   speaker: gman
   id: gman
+  category: Half-Life 
 
 - type: ttsVoice
   name: Барни Калхун
@@ -151,6 +172,7 @@
   sex: Male
   speaker: barni
   id: barni
+  category: Half-Life 
 
 - type: ttsVoice
   name: Неко-Арк
@@ -158,6 +180,7 @@
   sex: Female
   speaker: neco
   id: neco
+  category: Special
 
 - type: ttsVoice
   name: Неко-Арк 2
@@ -165,6 +188,7 @@
   sex: Female
   speaker: neco_arc_2
   id: neco_arc_2
+  category: Special
 
 - type: ttsVoice
   name: Злая Неко-Арк
@@ -172,6 +196,7 @@
   sex: Female
   speaker: angry_neco_arc
   id: angry_neco_arc
+  category: Special
 
 - type: ttsVoice
   name: Сквидвард
@@ -179,6 +204,7 @@
   sex: Male
   speaker: squidward
   id: squidward
+  category: Special
 
 - type: ttsVoice
   name: SentryBot
@@ -186,6 +212,7 @@
   sex: Male
   speaker: sentrybot
   id: sentrybot
+  category: Fallout
 
 - type: ttsVoice
   name: Мойра Браун
@@ -193,6 +220,7 @@
   sex: Female
   speaker: moira_brown
   id: moira_brown
+  category: Fallout
 
 - type: ttsVoice
   name: Робер МакКриди
@@ -200,6 +228,7 @@
   sex: Male
   speaker: robert_maccready
   id: robert_maccready
+  category: Fallout
 
 - type: ttsVoice
   name: Тридогнайт
@@ -207,6 +236,7 @@
   sex: Male
   speaker: threedog
   id: threedog
+  category: Fallout
 
 - type: ttsVoice
   name: Тридогнайт Радио
@@ -214,6 +244,7 @@
   sex: Male
   speaker: threedog_radio
   id: threedog_radio
+  category: Fallout
 
 - type: ttsVoice
   name: Мистер Помощник
@@ -221,6 +252,7 @@
   sex: Male
   speaker: mister_handy_fl3
   id: mister_handy_fl3
+  category: Fallout
 
 - type: ttsVoice
   name: Мистер Храбрец
@@ -228,6 +260,7 @@
   sex: Male
   speaker: mister_gutsy_fl3
   id: mister_gutsy_fl3
+  category: Fallout
 
 - type: ttsVoice
   name: Джерико
@@ -235,6 +268,7 @@
   sex: Male
   speaker: jericho_fl3
   id: jericho_fl3
+  category: Fallout
 
 - type: ttsVoice
   name: Старейшина Лайонс
@@ -242,6 +276,7 @@
   sex: Male
   speaker: elder_lyons_fl3
   id: elder_lyons_fl3
+  category: Fallout
 
 - type: ttsVoice
   name: Сара Лайонс
@@ -249,6 +284,7 @@
   sex: Female
   speaker: sarah_lyons_fl3
   id: sarah_lyons_fl3
+  category: Fallout
 
 - type: ttsVoice
   name: Колин Мориарти
@@ -256,6 +292,7 @@
   sex: Male
   speaker: colin_moriarty_fl3
   id: colin_moriarty_fl3
+  category: Fallout
 
 - type: ttsVoice
   name: Полина Морозова
@@ -263,6 +300,7 @@
   sex: Female
   speaker: polina
   id: polina
+  category: Tiny_Bunny
 
 - type: ttsVoice
   name: Рома Пятифанов
@@ -270,6 +308,7 @@
   sex: Male
   speaker: romka
   id: romka
+  category: Tiny_Bunny
 
 - type: ttsVoice
   name: Борис Петров
@@ -277,6 +316,7 @@
   sex: Male
   speaker: boris_petrov_father_tb
   id: boris_petrov_father_tb
+  category: Tiny_Bunny
 
 - type: ttsVoice
   name: Карина Петрова
@@ -284,6 +324,7 @@
   sex: Female
   speaker: karina_petrova_tb
   id: karina_petrova_tb
+  category: Tiny_Bunny
 
 - type: ttsVoice
   name: Катя Смирнова
@@ -291,6 +332,7 @@
   sex: Female
   speaker: kate_smirnova_tb
   id: kate_smirnova_tb
+  category: Tiny_Bunny
 
 - type: ttsVoice
   name: Семён Бабурин
@@ -298,6 +340,7 @@
   sex: Male
   speaker: semen_baburin_tb
   id: semen_baburin_tb
+  category: Tiny_Bunny
 
 - type: ttsVoice
   name: Лейтенант Тихонов
@@ -305,6 +348,7 @@
   sex: Male
   speaker: tihonov_tb
   id: tihonov_tb
+  category: Tiny_Bunny
 
 - type: ttsVoice
   name: Цицерон
@@ -312,6 +356,7 @@
   sex: Male
   speaker: cicero
   id: cicero
+  category: Skyrim
 
 - type: ttsVoice
   name: Шеогорат
@@ -319,6 +364,7 @@
   sex: Male
   speaker: sheogorath
   id: sheogorath
+  category: Skyrim
 
 - type: ttsVoice
   name: Кодлак Белая Грива
@@ -326,6 +372,7 @@
   sex: Male
   speaker: kodlakwhitemane
   id: kodlakwhitemane
+  category: Skyrim
 
 - type: ttsVoice
   name: Каджит
@@ -333,6 +380,7 @@
   sex: Male
   speaker: khajiit
   id: khajiit
+  category: Skyrim
 
 - type: ttsVoice
   name: Эленвен
@@ -340,6 +388,7 @@
   sex: Female
   speaker: elenwen
   id: elenwen
+  category: Skyrim
 
 - type: ttsVoice
   name: Тит Мид II
@@ -347,6 +396,7 @@
   sex: Male
   speaker: emperor
   id: emperor
+  category: Skyrim
 
 - type: ttsVoice
   name: Стражник
@@ -354,6 +404,7 @@
   sex: Male
   speaker: guard
   id: guard
+  category: Skyrim
 
 - type: ttsVoice
   name: Ворожея
@@ -361,6 +412,7 @@
   sex: Male
   speaker: hagraven
   id: hagraven
+  category: Skyrim
 
 - type: ttsVoice
   name: Хермеус Мора
@@ -368,6 +420,7 @@
   sex: Male
   speaker: hermaeus_mora
   id: hermaeus_mora
+  category: Skyrim
 
 - type: ttsVoice
   name: Норд
@@ -375,6 +428,7 @@
   sex: Male
   speaker: nord
   id: nord
+  category: Skyrim
 
 - type: ttsVoice
   name: Ульфрик Буревестник
@@ -382,6 +436,7 @@
   sex: Male
   speaker: ulfric
   id: ulfric
+  category: Skyrim
 
 - type: ttsVoice
   name: Астрид
@@ -389,6 +444,7 @@
   sex: Female
   speaker: astrid
   id: astrid
+  category: Skyrim
 
 - type: ttsVoice
   name: Мавен Чёрный Вереск
@@ -396,6 +452,7 @@
   sex: Female
   speaker: maven
   id: maven
+  category: Skyrim
 
 - type: ttsVoice
   name: Назир
@@ -403,6 +460,7 @@
   sex: Male
   speaker: nazir
   id: nazir
+  category: Skyrim
 
 - type: ttsVoice
   name: Женщина командир
@@ -410,6 +468,7 @@
   sex: Female
   speaker: female_commander
   id: female_commander
+  category: Skyrim
 
 - type: ttsVoice
   name: Лорд Харкон
@@ -417,6 +476,7 @@
   sex: Male
   speaker: lord_harkon
   id: lord_harkon
+  category: Skyrim
 
 - type: ttsVoice
   name: Серана
@@ -424,6 +484,7 @@
   sex: Female
   speaker: serana
   id: serana
+  category: Skyrim
 
 - type: ttsVoice
   name: GLaDOS
@@ -431,6 +492,7 @@
   sex: Female
   speaker: glados
   id: glados
+  category: Portal
 
 - type: ttsVoice
   name: Модуль Приключений
@@ -438,6 +500,7 @@
   sex: Male
   speaker: adventure_core
   id: adventure_core
+  category: Portal
 
 - type: ttsVoice
   name: Модуль Фактов
@@ -445,6 +508,7 @@
   sex: Male
   speaker: fact_core
   id: fact_core
+  category: Portal
 
 - type: ttsVoice
   name: Модуль Космоса
@@ -452,6 +516,7 @@
   sex: Male
   speaker: space_core
   id: space_core
+  category: Portal
 
 - type: ttsVoice
   name: Турель
@@ -459,6 +524,7 @@
   sex: Female
   speaker: turret_floor
   id: turret_floor
+  category: Portal
 
 - type: ttsVoice
   name: Геральт из Ривии
@@ -466,6 +532,7 @@
   sex: Male
   speaker: geralt
   id: geralt
+  category: The_Witcher
 
 - type: ttsVoice
   name: Цирилла
@@ -473,6 +540,7 @@
   sex: Female
   speaker: cirilla
   id: cirilla
+  category: The_Witcher
 
 - type: ttsVoice
   name: Керис ан Крайт
@@ -480,6 +548,7 @@
   sex: Female
   speaker: cerys
   id: cerys
+  category: The_Witcher
 
 - type: ttsVoice
   name: Ламберт
@@ -487,6 +556,7 @@
   sex: Male
   speaker: lambert
   id: lambert
+  category: The_Witcher
 
 - type: ttsVoice
   name: Трисс
@@ -494,6 +564,7 @@
   sex: Female
   speaker: triss
   id: triss
+  category: The_Witcher
 
 - type: ttsVoice
   name: Ковир Ноблеман
@@ -501,6 +572,7 @@
   sex: Male
   speaker: kovir_nobleman
   id: kovir_nobleman
+  category: The_Witcher
 
 - type: ttsVoice
   name: Золтан Хивай
@@ -508,6 +580,7 @@
   sex: Male
   speaker: zoltan_chivay
   id: zoltan_chivay
+  category: The_Witcher
 
 - type: ttsVoice
   name: Азир
@@ -515,6 +588,7 @@
   sex: Male
   speaker: azir
   id: azir
+  category: League_of_Legends
 
 - type: ttsVoice
   name: Экко
@@ -522,6 +596,7 @@
   sex: Male
   speaker: ekko
   id: ekko
+  category: League_of_Legends
 
 - type: ttsVoice
   name: Твич
@@ -529,6 +604,7 @@
   sex: Male
   speaker: twitch
   id: twitch
+  category: League_of_Legends
 
 - type: ttsVoice
   name: Зиггс
@@ -536,6 +612,7 @@
   sex: Male
   speaker: ziggs
   id: ziggs
+  category: League_of_Legends
 
 - type: ttsVoice
   name: Кэйтлин
@@ -543,6 +620,7 @@
   sex: Female
   speaker: caitlyn
   id: caitlyn
+  category: League_of_Legends
 
 - type: ttsVoice
   name: Артас Менетил
@@ -550,6 +628,7 @@
   sex: Male
   speaker: arthas
   id: arthas
+  category: Warcraft
 
 - type: ttsVoice
   name: Иллидан Ярость Бури
@@ -557,6 +636,7 @@
   sex: Male
   speaker: illidan
   id: illidan
+  category: Warcraft
 
 - type: ttsVoice
   name: Рексар
@@ -564,6 +644,7 @@
   sex: Male
   speaker: rexxar
   id: rexxar
+  category: Warcraft
 
 - type: ttsVoice
   name: Вол'джин
@@ -571,6 +652,7 @@
   sex: Male
   speaker: voljin
   id: voljin
+  category: Warcraft
 
 - type: ttsVoice
   name: Бандит
@@ -578,6 +660,7 @@
   sex: Male
   speaker: bandit
   id: bandit
+  category: Stalker
 
 - type: ttsVoice
   name: Лесник
@@ -585,6 +668,7 @@
   sex: Male
   speaker: forester
   id: forester
+  category: Stalker
 
 - type: ttsVoice
   name: Сидорович
@@ -592,6 +676,7 @@
   sex: Male
   speaker: sidorovich
   id: sidorovich
+  category: Stalker
 
 - type: ttsVoice
   name: Стрелок
@@ -599,6 +684,7 @@
   sex: Male
   speaker: strelok
   id: strelok
+  category: Stalker
 
 - type: ttsVoice
   name: Трэйсер
@@ -606,6 +692,7 @@
   sex: Female
   speaker: tracer
   id: tracer
+  category: Special
 
 - type: ttsVoice
   name: Солдат
@@ -613,6 +700,7 @@
   sex: Male
   speaker: soldier
   id: soldier
+  category: Team_Fortress
 
 - type: ttsVoice
   name: Инженер
@@ -620,6 +708,7 @@
   sex: Male
   speaker: engineer
   id: engineer
+  category: Team_Fortress
 
 - type: ttsVoice
   name: Хэви
@@ -627,6 +716,7 @@
   sex: Male
   speaker: heavy
   id: heavy
+  category: Team_Fortress
 
 - type: ttsVoice
   name: Медик
@@ -634,6 +724,7 @@
   sex: Male
   speaker: medic
   id: medic
+  category: Team_Fortress
 
 - type: ttsVoice
   name: Подрывник
@@ -641,6 +732,7 @@
   sex: Male
   speaker: demoman
   id: demoman
+  category: Team_Fortress
 
 - type: ttsVoice
   name: Снайпер
@@ -648,6 +740,7 @@
   sex: Male
   speaker: sniper
   id: sniper
+  category: Team_Fortress
 
 - type: ttsVoice
   name: Шпион
@@ -655,6 +748,7 @@
   sex: Male
   speaker: spy
   id: spy
+  category: Team_Fortress
 
 - type: ttsVoice
   name: Каратель
@@ -662,6 +756,7 @@
   sex: Male
   speaker: punisher
   id: punisher
+  category: Special
 
 - type: ttsVoice
   name: Джонни Сильверхенд
@@ -669,6 +764,7 @@
   sex: Male
   speaker: johnny
   id: johnny
+  category: Cyberpunk_2077
 
 - type: ttsVoice
   name: Панам Палмер
@@ -676,6 +772,7 @@
   sex: Female
   speaker: panam
   id: panam
+  category: Cyberpunk_2077
 
 - type: ttsVoice
   name: Ви
@@ -683,6 +780,7 @@
   sex: Female
   speaker: v_female
   id: v_female
+  category: Cyberpunk_2077
 
 - type: ttsVoice
   name: Джуди Альварес
@@ -690,6 +788,7 @@
   sex: Female
   speaker: judy
   id: judy
+  category: Cyberpunk_2077
 
 - type: ttsVoice
   name: Митч Андерсон
@@ -697,6 +796,7 @@
   sex: Male
   speaker: mitch
   id: mitch
+  category: Cyberpunk_2077
 
 - type: ttsVoice
   name: Скиппи
@@ -704,6 +804,7 @@
   sex: Male
   speaker: skippy
   id: skippy
+  category: Cyberpunk_2077
 
 - type: ttsVoice
   name: Джеки Уэллс
@@ -711,6 +812,7 @@
   sex: Male
   speaker: jackie
   id: jackie
+  category: Cyberpunk_2077
 
 - type: ttsVoice
   name: Майко Маэда
@@ -718,6 +820,7 @@
   sex: Female
   speaker: maiko
   id: maiko
+  category: Cyberpunk_2077
 
 - type: ttsVoice
   name: Брендан
@@ -725,6 +828,7 @@
   sex: Male
   speaker: brendan
   id: brendan
+  category: Cyberpunk_2077
 
 - type: ttsVoice
   name: Нэнси Хартли
@@ -732,6 +836,7 @@
   sex: Female
   speaker: nancy_hartley
   id: nancy_hartley
+  category: Cyberpunk_2077
 
 - type: ttsVoice
   name: Освальд Форрест
@@ -739,6 +844,7 @@
   sex: Male
   speaker: oswald_forrest
   id: oswald_forrest
+  category: Cyberpunk_2077
 
 - type: ttsVoice
   name: Стив Санчес
@@ -746,6 +852,7 @@
   sex: Male
   speaker: steve
   id: steve
+  category: Cyberpunk_2077
 
 - type: ttsVoice
   name: Сержант Дорнан
@@ -753,6 +860,7 @@
   sex: Male
   speaker: dornan
   id: dornan
+  category: Fallout
 
 - type: ttsVoice
   name: Офицер Анклава
@@ -760,6 +868,7 @@
   sex: Male
   speaker: officer_enclave
   id: officer_enclave
+  category: Fallout
 
 - type: ttsVoice
   name: Дик Ричардсон
@@ -767,6 +876,7 @@
   sex: Male
   speaker: richardson
   id: richardson
+  category: Fallout
 
 - type: ttsVoice
   name: Бутч Харрис
@@ -774,6 +884,7 @@
   sex: Male
   speaker: butch
   id: butch
+  category: Fallout
 
 - type: ttsVoice
   name: Маркус
@@ -781,6 +892,7 @@
   sex: Male
   speaker: marcus
   id: marcus
+  category: Fallout
 
 - type: ttsVoice
   name: Сулик
@@ -788,6 +900,7 @@
   sex: Male
   speaker: sulik
   id: sulik
+  category: Fallout
 
 - type: ttsVoice
   name: Майрон
@@ -795,6 +908,7 @@
   sex: Male
   speaker: myron
   id: myron
+  category: Fallout
 
 - type: ttsVoice
   name: Добрая Талия
@@ -802,6 +916,7 @@
   sex: Female
   speaker: good_thalya
   id: good_thalya
+  category: Special
 
 - type: ttsVoice
   name: Злая Талия
@@ -809,6 +924,7 @@
   sex: Female
   speaker: evil_thalya
   id: evil_thalya
+  category: Special
 
 - type: ttsVoice
   name: Рассказчик
@@ -816,6 +932,7 @@
   sex: Male
   speaker: narrator_d3
   id: narrator_d3
+  category: Special
 
 - type: ttsVoice
   name: Чувак
@@ -823,6 +940,7 @@
   sex: Male
   speaker: dude
   id: dude
+  category: Special
 
 - type: ttsVoice
   name: Андуин Ринн
@@ -830,6 +948,7 @@
   sex: Male
   speaker: anduin
   id: anduin
+  category: Hearthstone
 
 - type: ttsVoice
   name: Бру'кан
@@ -837,6 +956,7 @@
   sex: Male
   speaker: brukan
   id: brukan
+  category: Hearthstone
 
 - type: ttsVoice
   name: Гаррош Адский Крик
@@ -844,6 +964,7 @@
   sex: Male
   speaker: garrosh
   id: garrosh
+  category: Hearthstone
 
 - type: ttsVoice
   name: Джайна Праудмур
@@ -851,6 +972,7 @@
   sex: Female
   speaker: jaina
   id: jaina
+  category: Hearthstone
 
 - type: ttsVoice
   name: Утер Светоносный
@@ -858,6 +980,7 @@
   sex: Male
   speaker: uther_hs
   id: uther_hs
+  category: Hearthstone
 
 - type: ttsVoice
   name: Адъютант
@@ -865,6 +988,7 @@
   sex: Female
   speaker: adjutant
   id: adjutant
+  category: StarCraft
 
 - type: ttsVoice
   name: Ариэль Хэнсон
@@ -872,6 +996,7 @@
   sex: Female
   speaker: hanson
   id: hanson
+  category: StarCraft
 
 - type: ttsVoice
   name: Бралик
@@ -879,6 +1004,7 @@
   sex: Male
   speaker: bralik
   id: bralik
+  category: StarCraft
 
 - type: ttsVoice
   name: Мэтт Хорнер
@@ -886,6 +1012,7 @@
   sex: Male
   speaker: horner
   id: horner
+  category: StarCraft
 
 - type: ttsVoice
   name: Габриэль Тош
@@ -893,6 +1020,7 @@
   sex: Male
   speaker: tosh
   id: tosh
+  category: StarCraft
 
 - type: ttsVoice
   name: Тайкус Финдли
@@ -900,6 +1028,7 @@
   sex: Male
   speaker: tychus
   id: tychus
+  category: StarCraft
 
 - type: ttsVoice
   name: Амит Таккар
@@ -907,6 +1036,7 @@
   sex: Male
   speaker: amitkakkar
   id: amitkakkar
+  category: Hogwarts_Legacy
 
 - type: ttsVoice
   name: Элеазар Фиг
@@ -914,6 +1044,7 @@
   sex: Male
   speaker: eleazarfig
   id: eleazarfig
+  category: Hogwarts_Legacy
 
 - type: ttsVoice
   name: Эрни Ларк
@@ -921,6 +1052,7 @@
   sex: Male
   speaker: ernielark
   id: ernielark
+  category: Hogwarts_Legacy
 
 - type: ttsVoice
   name: Игнатия Уайлдсмит
@@ -928,6 +1060,7 @@
   sex: Female
   speaker: ignatiaflootravel
   id: ignatiaflootravel
+  category: Hogwarts_Legacy
 
 - type: ttsVoice
   name: Лодгок
@@ -935,6 +1068,7 @@
   sex: Male
   speaker: lodgok
   id: lodgok
+  category: Hogwarts_Legacy
 
 - type: ttsVoice
   name: Финеас Найджелус Блэк
@@ -942,6 +1076,7 @@
   sex: Male
   speaker: phineasblack
   id: phineasblack
+  category: Hogwarts_Legacy
 
 - type: ttsVoice
   name: Ранрок
@@ -949,6 +1084,7 @@
   sex: Male
   speaker: ranrak
   id: ranrak
+  category: Hogwarts_Legacy
 
 - type: ttsVoice
   name: Виктор Руквуд
@@ -956,6 +1092,7 @@
   sex: Male
   speaker: victorrookwood
   id: victorrookwood
+  category: Hogwarts_Legacy
 
 - type: ttsVoice
   name: Зенобия Ноук
@@ -963,6 +1100,7 @@
   sex: Female
   speaker: zenobianoke
   id: zenobianoke
+  category: Hogwarts_Legacy
 
 - type: ttsVoice
   name: Глэдвин Мун
@@ -970,6 +1108,7 @@
   sex: Male
   speaker: gladwinmoon
   id: gladwinmoon
+  category: Hogwarts_Legacy
 
 - type: ttsVoice
   name: Матильда Уизли
@@ -977,6 +1116,7 @@
   sex: Female
   speaker: matildaweasley
   id: matildaweasley
+  category: Hogwarts_Legacy
 
 - type: ttsVoice
   name: Натсай Онай
@@ -984,6 +1124,7 @@
   sex: Female
   speaker: natsaionai
   id: natsaionai
+  category: Hogwarts_Legacy
 
 - type: ttsVoice
   name: Оминис Мракс
@@ -991,6 +1132,7 @@
   sex: Male
   speaker: ominisgaunt
   id: ominisgaunt
+  category: Hogwarts_Legacy
 
 - type: ttsVoice
   name: Поппи Добринг
@@ -998,6 +1140,7 @@
   sex: Female
   speaker: poppysweeting
   id: poppysweeting
+  category: Hogwarts_Legacy
 
 - type: ttsVoice
   name: Гоблин В
@@ -1005,6 +1148,7 @@
   sex: Male
   speaker: generic_goblin_c
   id: generic_goblin_c
+  category: Hogwarts_Legacy
 
 - type: ttsVoice
   name: Дина Гекат
@@ -1012,6 +1156,7 @@
   sex: Female
   speaker: dinah_hecat
   id: dinah_hecat
+  category: Hogwarts_Legacy
 
 - type: ttsVoice
   name: Эзоп Шарп
@@ -1019,6 +1164,7 @@
   sex: Male
   speaker: aesop_sharp
   id: aesop_sharp
+  category: Hogwarts_Legacy
 
 - type: ttsVoice
   name: Абрахам Ронен
@@ -1026,6 +1172,7 @@
   sex: Male
   speaker: abraham_ronen
   id: abraham_ronen
+  category: Hogwarts_Legacy
 
 - type: ttsVoice
   name: Саманта Дейл
@@ -1033,6 +1180,7 @@
   sex: Female
   speaker: samantha_dale
   id: samantha_dale
+  category: Hogwarts_Legacy
 
 - type: ttsVoice
   name: Сирона Райан
@@ -1040,6 +1188,7 @@
   sex: Female
   speaker: sirona_ryan
   id: sirona_ryan
+  category: Hogwarts_Legacy
 
 - type: ttsVoice
   name: Софрония Франклин
@@ -1047,6 +1196,7 @@
   sex: Female
   speaker: sophronia_franklin
   id: sophronia_franklin
+  category: Hogwarts_Legacy
 
 - type: ttsVoice
   name: Abaddon
@@ -1054,6 +1204,7 @@
   sex: Male
   speaker: abaddon_dota_2
   id: abaddon_dota_2
+  category: Dota
 
 - type: ttsVoice
   name: Achemist
@@ -1061,6 +1212,7 @@
   sex: Male
   speaker: alchemist_dota_2
   id: alchemist_dota_2
+  category: Dota
 
 - type: ttsVoice
   name: Anti-Mage
@@ -1068,6 +1220,7 @@
   sex: Male
   speaker: anti-mage_dota_2
   id: anti-mage_dota_2
+  category: Dota
 
 - type: ttsVoice
   name: Arc Warden
@@ -1075,6 +1228,7 @@
   sex: Male
   speaker: arc_warden_dota_2
   id: arc_warden_dota_2
+  category: Dota
 
 - type: ttsVoice
   name: Batrider
@@ -1082,6 +1236,7 @@
   sex: Male
   speaker: batrider_dota_2
   id: batrider_dota_2
+  category: Dota
 
 - type: ttsVoice
   name: Bloodseeker
@@ -1089,6 +1244,7 @@
   sex: Male
   speaker: bloodseeker_dota_2
   id: bloodseeker_dota_2
+  category: Dota
 
 - type: ttsVoice
   name: Bounty Hunter
@@ -1096,6 +1252,7 @@
   sex: Male
   speaker: bounty_hunter_dota_2
   id: bounty_hunter_dota_2
+  category: Dota
 
 - type: ttsVoice
   name: Bristleback
@@ -1103,6 +1260,7 @@
   sex: Male
   speaker: bristleback_dota_2
   id: bristleback_dota_2
+  category: Dota
 
 - type: ttsVoice
   name: Broodmother
@@ -1110,6 +1268,7 @@
   sex: Female
   speaker: broodmother_dota_2
   id: broodmother_dota_2
+  category: Dota
 
 - type: ttsVoice
   name: Centaur Warrunner
@@ -1117,6 +1276,7 @@
   sex: Male
   speaker: centaur_warrunner_dota_2
   id: centaur_warrunner_dota_2
+  category: Dota
 
 - type: ttsVoice
   name: Clinkz
@@ -1124,6 +1284,7 @@
   sex: Male
   speaker: clinkz_dota_2
   id: clinkz_dota_2
+  category: Dota
 
 - type: ttsVoice
   name: Clockwerk
@@ -1131,6 +1292,7 @@
   sex: Male
   speaker: clockwerk_dota_2
   id: clockwerk_dota_2
+  category: Dota
 
 - type: ttsVoice
   name: Crystal Maiden
@@ -1138,6 +1300,7 @@
   sex: Female
   speaker: crystal_maiden_dota_2
   id: crystal_maiden_dota_2
+  category: Dota
 
 - type: ttsVoice
   name: Dazzle
@@ -1145,6 +1308,7 @@
   sex: Male
   speaker: dazzle_dota_2
   id: dazzle_dota_2
+  category: Dota
 
 - type: ttsVoice
   name: Disruptor
@@ -1152,6 +1316,7 @@
   sex: Male
   speaker: disruptor_dota_2
   id: disruptor_dota_2
+  category: Dota
 
 - type: ttsVoice
   name: Doom
@@ -1159,6 +1324,7 @@
   sex: Male
   speaker: doom_dota_2
   id: doom_dota_2
+  category: Dota
 
 - type: ttsVoice
   name: Dragon Knight
@@ -1166,6 +1332,7 @@
   sex: Male
   speaker: dragon_knight_dota_2
   id: dragon_knight_dota_2
+  category: Dota
 
 - type: ttsVoice
   name: Dragon Knight Dragon
@@ -1173,6 +1340,7 @@
   sex: Male
   speaker: dragon_knight_dragon_dota_2
   id: dragon_knight_dragon_dota_2
+  category: Dota
 
 - type: ttsVoice
   name: Drow Ranger
@@ -1180,6 +1348,7 @@
   sex: Female
   speaker: drow_ranger_dota_2
   id: drow_ranger_dota_2
+  category: Dota
 
 - type: ttsVoice
   name: Earthshaker
@@ -1187,6 +1356,7 @@
   sex: Male
   speaker: earthshaker_dota_2
   id: earthshaker_dota_2
+  category: Dota
 
 - type: ttsVoice
   name: Ember Spirit
@@ -1194,6 +1364,7 @@
   sex: Male
   speaker: ember_spirit_dota_2
   id: ember_spirit_dota_2
+  category: Dota
 
 - type: ttsVoice
   name: Enigma
@@ -1201,6 +1372,7 @@
   sex: Male
   speaker: enigma_dota_2
   id: enigma_dota_2
+  category: Dota
 
 - type: ttsVoice
   name: Gyrocopter
@@ -1208,6 +1380,7 @@
   sex: Male
   speaker: gyrocopter_dota_2
   id: gyrocopter_dota_2
+  category: Dota
 
 - type: ttsVoice
   name: Huskar
@@ -1215,6 +1388,7 @@
   sex: Male
   speaker: huskar_dota_2
   id: huskar_dota_2
+  category: Dota
 
 - type: ttsVoice
   name: Invoker
@@ -1222,6 +1396,7 @@
   sex: Male
   speaker: invoker_dota_2
   id: invoker_dota_2
+  category: Dota
 
 - type: ttsVoice
   name: Juggernaut
@@ -1229,6 +1404,7 @@
   sex: Male
   speaker: juggernaut_dota_2
   id: juggernaut_dota_2
+  category: Dota
 
 - type: ttsVoice
   name: Keeper Of The Light
@@ -1236,6 +1412,7 @@
   sex: Male
   speaker: keeper_of_the_light_dota_2
   id: keeper_of_the_light_dota_2
+  category: Dota
 
 - type: ttsVoice
   name: Kunkka
@@ -1243,6 +1420,7 @@
   sex: Male
   speaker: kunkka_dota_2
   id: kunkka_dota_2
+  category: Dota
 
 - type: ttsVoice
   name: Legion Commander
@@ -1250,6 +1428,7 @@
   sex: Female
   speaker: legion_commander_dota_2
   id: legion_commander_dota_2
+  category: Dota
 
 - type: ttsVoice
   name: Lich
@@ -1257,6 +1436,7 @@
   sex: Male
   speaker: lich_dota_2
   id: lich_dota_2
+  category: Dota
 
 - type: ttsVoice
   name: Lina
@@ -1264,6 +1444,7 @@
   sex: Female
   speaker: lina_dota_2
   id: lina_dota_2
+  category: Dota
 
 - type: ttsVoice
   name: Luna
@@ -1271,6 +1452,7 @@
   sex: Female
   speaker: luna_dota_2
   id: luna_dota_2
+  category: Dota
 
 - type: ttsVoice
   name: Lycan
@@ -1278,6 +1460,7 @@
   sex: Male
   speaker: lycan_dota_2
   id: lycan_dota_2
+  category: Dota
 
 - type: ttsVoice
   name: Lycan Wolf
@@ -1285,6 +1468,7 @@
   sex: Male
   speaker: lycan_wolf_dota_2
   id: lycan_wolf_dota_2
+  category: Dota
 
 - type: ttsVoice
   name: Meepo
@@ -1292,6 +1476,7 @@
   sex: Male
   speaker: meepo_dota_2
   id: meepo_dota_2
+  category: Dota
 
 - type: ttsVoice
   name: Mirana
@@ -1299,6 +1484,7 @@
   sex: Female
   speaker: mirana_dota_2
   id: mirana_dota_2
+  category: Dota
 
 - type: ttsVoice
   name: Monkey King Crown
@@ -1306,6 +1492,7 @@
   sex: Male
   speaker: monkey_king_crown_dota_2
   id: monkey_king_crown_dota_2
+  category: Dota
 
 - type: ttsVoice
   name: Monkey King
@@ -1313,6 +1500,7 @@
   sex: Male
   speaker: monkey_king_dota_2
   id: monkey_king_dota_2
+  category: Dota
 
 - type: ttsVoice
   name: Necrophos
@@ -1320,6 +1508,7 @@
   sex: Male
   speaker: necrophos_dota_2
   id: necrophos_dota_2
+  category: Dota
 
 - type: ttsVoice
   name: Nyx Assassin
@@ -1327,6 +1516,7 @@
   sex: Male
   speaker: nyx_assassin_dota_2
   id: nyx_assassin_dota_2
+  category: Dota
 
 - type: ttsVoice
   name: Omniknight
@@ -1334,6 +1524,7 @@
   sex: Male
   speaker: omniknight_dota_2
   id: omniknight_dota_2
+  category: Dota
 
 - type: ttsVoice
   name: Outworld Destroyer
@@ -1341,6 +1532,7 @@
   sex: Male
   speaker: outworld_destroyer_dota_2
   id: outworld_destroyer_dota_2
+  category: Dota
 
 - type: ttsVoice
   name: Phantom Assassin Arcana
@@ -1348,6 +1540,7 @@
   sex: Female
   speaker: phantom_assassin_arcana_dota_2
   id: phantom_assassin_arcana_dota_2
+  category: Dota
 
 - type: ttsVoice
   name: Phantom Assassin
@@ -1355,6 +1548,7 @@
   sex: Female
   speaker: phantom_assassin_dota_2
   id: phantom_assassin_dota_2
+  category: Dota
 
 - type: ttsVoice
   name: Phantom Lancer
@@ -1362,6 +1556,7 @@
   sex: Male
   speaker: phantom_lancer_dota_2
   id: phantom_lancer_dota_2
+  category: Dota
 
 - type: ttsVoice
   name: Pudge
@@ -1369,6 +1564,7 @@
   sex: Male
   speaker: pudge_dota_2
   id: pudge_dota_2
+  category: Dota
 
 - type: ttsVoice
   name: Queen Of Pain
@@ -1376,6 +1572,7 @@
   sex: Female
   speaker: queen_of_pain_dota_2
   id: queen_of_pain_dota_2
+  category: Dota
 
 - type: ttsVoice
   name: Razor
@@ -1383,6 +1580,7 @@
   sex: Male
   speaker: razor_dota_2
   id: razor_dota_2
+  category: Dota
 
 - type: ttsVoice
   name: Riki
@@ -1390,6 +1588,7 @@
   sex: Male
   speaker: riki_dota_2
   id: riki_dota_2
+  category: Dota
 
 - type: ttsVoice
   name: Rubick
@@ -1397,6 +1596,7 @@
   sex: Male
   speaker: rubick_dota_2
   id: rubick_dota_2
+  category: Dota
 
 - type: ttsVoice
   name: Sand King
@@ -1404,6 +1604,7 @@
   sex: Male
   speaker: sand_king_dota_2
   id: sand_king_dota_2
+  category: Dota
 
 - type: ttsVoice
   name: Shadow Fiend
@@ -1411,6 +1612,7 @@
   sex: Male
   speaker: shadow_fiend_dota_2
   id: shadow_fiend_dota_2
+  category: Dota
 
 - type: ttsVoice
   name: Shadow Shaman
@@ -1418,6 +1620,7 @@
   sex: Male
   speaker: shadow_shaman_dota_2
   id: shadow_shaman_dota_2
+  category: Dota
 
 - type: ttsVoice
   name: Skywrath Mage
@@ -1425,6 +1628,7 @@
   sex: Male
   speaker: skywrath_mage_dota_2
   id: skywrath_mage_dota_2
+  category: Dota
 
 - type: ttsVoice
   name: Slardar
@@ -1432,6 +1636,7 @@
   sex: Male
   speaker: slardar_dota_2
   id: slardar_dota_2
+  category: Dota
 
 - type: ttsVoice
   name: Slark
@@ -1439,6 +1644,7 @@
   sex: Male
   speaker: slark_dota_2
   id: slark_dota_2
+  category: Dota
 
 - type: ttsVoice
   name: Spirit Breaker
@@ -1446,6 +1652,7 @@
   sex: Male
   speaker: spirit_breaker_dota_2
   id: spirit_breaker_dota_2
+  category: Dota
 
 - type: ttsVoice
   name: Storm Spirit
@@ -1453,6 +1660,7 @@
   sex: Male
   speaker: storm_spirit_dota_2
   id: storm_spirit_dota_2
+  category: Dota
 
 - type: ttsVoice
   name: Sven
@@ -1460,6 +1668,7 @@
   sex: Male
   speaker: sven_dota_2
   id: sven_dota_2
+  category: Dota
 
 - type: ttsVoice
   name: Templar Assassin
@@ -1467,6 +1676,7 @@
   sex: Female
   speaker: templar_assassin_dota_2
   id: templar_assassin_dota_2
+  category: Dota
 
 - type: ttsVoice
   name: Tidehunter
@@ -1474,6 +1684,7 @@
   sex: Male
   speaker: tidehunter_dota_2
   id: tidehunter_dota_2
+  category: Dota
 
 - type: ttsVoice
   name: Treant Protector
@@ -1481,6 +1692,7 @@
   sex: Male
   speaker: treant_protector_dota_2
   id: treant_protector_dota_2
+  category: Dota
 
 - type: ttsVoice
   name: Underlord
@@ -1488,6 +1700,7 @@
   sex: Male
   speaker: underlord_dota_2
   id: underlord_dota_2
+  category: Dota
 
 - type: ttsVoice
   name: Ursa
@@ -1495,6 +1708,7 @@
   sex: Male
   speaker: ursa_dota_2
   id: ursa_dota_2
+  category: Dota
 
 - type: ttsVoice
   name: Winter Wyvern
@@ -1502,6 +1716,7 @@
   sex: Female
   speaker: winter_wyvern_dota_2
   id: winter_wyvern_dota_2
+  category: Dota
 
 - type: ttsVoice
   name: Witch Doctor
@@ -1509,6 +1724,7 @@
   sex: Male
   speaker: witch_doctor_dota_2
   id: witch_doctor_dota_2
+  category: Dota
 
 - type: ttsVoice
   name: Wraith King
@@ -1516,6 +1732,7 @@
   sex: Male
   speaker: wraith_king_dota_2
   id: wraith_king_dota_2
+  category: Dota
 
 - type: ttsVoice
   name: Zeus
@@ -1523,6 +1740,7 @@
   sex: Male
   speaker: zeus_dota_2
   id: zeus_dota_2
+  category: Dota
 
 - type: ttsVoice
   name: PlayBoyzTV
@@ -1530,6 +1748,7 @@
   sex: Male
   speaker: playboyztv
   id: playboyztv
+  category: Youtubers
 
 - type: ttsVoice
   name: Джон Генри Эдем | Fallout 3
@@ -1537,6 +1756,7 @@
   sex: Male
   speaker: john_henry_eden_fl3
   id: john_henry_eden_fl3
+  category: Fallout
 
 - type: ttsVoice
   name: Супер-мутант | Fallout 3
@@ -1544,6 +1764,7 @@
   sex: Male
   speaker: super_mutant_fl3
   id: super_mutant_fl3
+  category: Fallout
 
 - type: ttsVoice
   name: Весемир | The Witcher 3
@@ -1551,6 +1772,7 @@
   sex: Male
   speaker: vesemir
   id: vesemir
+  category: The_Witcher
 
 - type: ttsVoice
   name: Гильом де Лонфаль | The Witcher 3
@@ -1558,6 +1780,7 @@
   sex: Male
   speaker: guillaume_de_launfal
   id: guillaume_de_launfal
+  category: The_Witcher
 
 - type: ttsVoice
   name: Филиппа Эйльхарт | The Witcher 3
@@ -1565,6 +1788,7 @@
   sex: Female
   speaker: philippa_eilhart
   id: philippa_eilhart
+  category: The_Witcher
 
 - type: ttsVoice
   name: Эвальд Борсоди | The Witcher 3
@@ -1572,6 +1796,7 @@
   sex: Male
   speaker: ewald_borsodi
   id: ewald_borsodi
+  category: The_Witcher
 
 - type: ttsVoice
   name: Лютик | The Witcher 3
@@ -1579,6 +1804,7 @@
   sex: Male
   speaker: dandelion
   id: dandelion
+  category: The_Witcher
 
 - type: ttsVoice
   name: Шани | The Witcher 3
@@ -1586,6 +1812,7 @@
   sex: Female
   speaker: shani
   id: shani
+  category: The_Witcher
 
 - type: ttsVoice
   name: Эверетт Клоптон | Hogwarts Legacy
@@ -1593,6 +1820,7 @@
   sex: Male
   speaker: everett_clopton
   id: everett_clopton
+  category: Hogwarts_Legacy
 
 - type: ttsVoice
   name: Гоблин | Hogwarts Legacy
@@ -1600,6 +1828,7 @@
   sex: Male
   speaker: generic_goblin_b
   id: generic_goblin_b
+  category: Hogwarts_Legacy
 
 - type: ttsVoice
   name: Домовой эльф | Hogwarts Legacy
@@ -1607,6 +1836,7 @@
   sex: Male
   speaker: sanctuary_house_elf
   id: sanctuary_house_elf
+  category: Hogwarts_Legacy
 
 - type: ttsVoice
   name: Мита | MiSide
@@ -1614,6 +1844,7 @@
   sex: Female
   speaker: mita
   id: mita
+  category: MiSide
 
 - type: ttsVoice
   name: Сонная Мита | MiSide
@@ -1621,6 +1852,7 @@
   sex: Female
   speaker: mitadream
   id: mitadream
+  category: MiSide
 
 - type: ttsVoice
   name: Мита Призрак | MiSide
@@ -1628,6 +1860,7 @@
   sex: Female
   speaker: mitaghost 
   id: mitaghost
+  category: MiSide
 
 - type: ttsVoice
   name: Коротковолосая Мита | MiSide
@@ -1635,6 +1868,7 @@
   sex: Female
   speaker: mitashorthairs
   id: mitashorthairs
+  category: MiSide
 
 - type: ttsVoice
   name: Добрая Мита | MiSide
@@ -1642,3 +1876,4 @@
   sex: Female
   speaker: mitakind
   id: mitakind
+  category: MiSide
