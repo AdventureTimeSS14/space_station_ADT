@@ -8,6 +8,7 @@
   dollPrototype: MobDwarfDummy
   skinColoration: HumanToned
   # ADT start
+  shortDesc: species-short-desc-dwarf
   pros:
   - Не получают вреда от алкоголя.
   - Лечат механические травмы, пока в организме имеется алкоголь.

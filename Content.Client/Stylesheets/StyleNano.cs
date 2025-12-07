@@ -150,6 +150,7 @@ namespace Content.Client.Stylesheets
 
         //Background
         public const string StyleClassBackgroundBaseDark = "PanelBackgroundBaseDark";
+        public const string StyleClassBackgroundBaseLight = "PanelBackgroundBaseLight"; // ADT-tweak: cool manifest
 
         //Buttons
         public const string StyleClassCrossButtonRed = "CrossButtonRed";
@@ -1593,6 +1594,12 @@ namespace Content.Client.Stylesheets
                 Element<PanelContainer>().Class("PanelBackgroundBaseDark")
                     .Prop("panel", new StyleBoxTexture(BaseButtonOpenBoth) { Padding = default })
                     .Prop(Control.StylePropertyModulateSelf, Color.FromHex("#1F1F23")),
+
+                // ADT-tweak-start: Cool manifest
+                Element<PanelContainer>().Class("PanelBackgroundBaseLight")
+                    .Prop("panel", new StyleBoxTexture(BaseButtonOpenBoth) { Padding = default })
+                    .Prop(Control.StylePropertyModulateSelf, Color.FromHex("#2d2d39")),
+                // ADT-tweak-end
 
                 Element<PanelContainer>().Class("PanelBackgroundLight")
                     .Prop("panel", new StyleBoxTexture(BaseButtonOpenBoth) { Padding = default })

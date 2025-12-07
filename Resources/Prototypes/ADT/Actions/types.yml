@@ -38,3 +38,41 @@
       state: icon
   - type: InstantAction
     event: !type:ToggleModMenuActionEvent
+
+- type: entity
+  id: ADTActionMorphGeras
+  name: Morph into Geras
+  description: Morphs you into a Geras - a miniature version of you which allows you to move fast, at the cost of your inventory.
+  components:
+    - type: Action
+      itemIconStyle: BigAction
+      useDelay: 60 # prevent spam
+      priority: -20
+      checkCanInteract: true
+      icon:
+        sprite: Mobs/Aliens/slimes.rsi
+        state: blue_adult_slime
+    - type: InstantAction
+      event: !type:MorphIntoGeras
+
+- type: entity
+  id: ADTActionDashMoth
+  name: Wing dash
+  description: Sharply flap your wings, dashing to the side!
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 12
+    icon:
+      sprite: Clothing/Neck/Cloaks/moth.rsi
+      state: icon
+    itemIconStyle: NoItem
+    sound: !type:SoundPathSpecifier
+      path: /Audio/ADT/Voice/Moth/moth_flapwings.ogg
+      params:
+        volume: 6.5
+  - type: TargetAction
+    checkCanAccess: false
+    range: 0
+  - type: WorldTargetAction
+    event: !type:DashActionEvent

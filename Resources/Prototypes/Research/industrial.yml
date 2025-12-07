@@ -254,7 +254,7 @@
   - ClothingBackpackHolding
   - ClothingBackpackSatchelHolding
   - ClothingBackpackDuffelHolding
-  - BotanistBagOfHolding # Ganimed-Edit
+  - ADTBotanistBagOfHolding #ADT-Tweak
 # ADT Research Console Rework start
   position: 2,-3
   requiredTech:

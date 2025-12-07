@@ -1,0 +1,7 @@
+- type: ghostbarMap
+  id: GhostbarMapGoob
+  path: "Maps/ADTMaps/Ghostbars/ghostbar_goob.yml"
+
+- type: ghostbarMap
+  id: GhostbarMapCalm
+  path: "Maps/ADTMaps/Ghostbars/calm_ghostly_bar.yml"

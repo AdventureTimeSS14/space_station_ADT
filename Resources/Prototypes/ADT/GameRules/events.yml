@@ -5,7 +5,7 @@
   - type: StationEvent
     startAnnouncement: station-event-vent-creatures-start-announcement
     startAudio:
-      path: /Audio/Announcements/attention.ogg
+      path: /Audio/ADT/Announcements/announce_dig.ogg
     earliestStart: 20
     minimumPlayers: 15
     weight: 5
@@ -84,11 +84,10 @@
   components:
   - type: StationEvent
     startAudio:
-      path: /Audio/Announcements/attention.ogg
-    weight: 2 # 10 default # Ganimed-Tweak
+      path: /Audio/ADT/Announcements/announce_dig.ogg
+    weight: 1
     reoccurrenceDelay: 300
     duration: 1
-    maxOccurrences: 1 # Ganimed edit
   - type: LoadMapRule
     mapPath: /Maps/ADTMaps/Shuttles/Ian.yml
   - type: IanHeroEvent
@@ -99,13 +98,12 @@
   components:
   - type: StationEvent
     startAudio:
-      path: /Audio/Announcements/attention.ogg
+      path: /Audio/ADT/Announcements/announce_dig.ogg
     earliestStart: 20
-    weight: 2 # Ganimed-Tweak
+    weight: 1
     minimumPlayers: 30
     reoccurrenceDelay: 300
     duration: 1
-    maxOccurrences: 1
   - type: LoadMapRule
     mapPath: /Maps/ADTMaps/Shuttles/superhero.yml
   - type: HeroEvent
@@ -118,14 +116,31 @@
   - type: StationEvent
     startAnnouncement: station-event-wormholes-spawn-announcement
     startAudio:
-      path: /Audio/Announcements/attention.ogg
+      path: /Audio/ADT/Announcements/announce_dig.ogg
     weight: 8
     duration: 10
     minimumPlayers: 15
     earliestStart: 35
     reoccurrenceDelay: 60
-    maxOccurrences: 2 # Ganimed edit
   - type: RandomSpawnRule
     prototype: ADTEventJaunterPortal
     minCount: 100
     maxCount: 300
+
+- type: entity
+  parent: BaseGameRule
+  id: SpaceEmperorSpawn
+  components:
+  - type: StationEvent
+    weight: 6.5
+    earliestStart: 10
+    reoccurrenceDelay: 75
+    duration: null
+  - type: SpaceSpawnRule
+    spawnDistance: 0
+  - type: AntagSelection
+    definitions:
+    - spawnerPrototype: ADTSpawnPointSpaceEmperor
+      min: 1
+      max: 1
+      pickPlayer: false

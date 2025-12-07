@@ -4,7 +4,6 @@ using Content.Shared.Weather;
 using Robust.Client.Audio;
 using Robust.Client.GameObjects;
 using Robust.Client.Player;
-using Robust.Client.State; // Ganimed edit
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.GameStates;
 using Robust.Shared.Map;
@@ -20,7 +19,7 @@ public sealed class WeatherSystem : SharedWeatherSystem
     [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly MapSystem _mapSystem = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly IStateManager _stateManager = default!; // Ganimed edit
+
     public override void Initialize()
     {
         base.Initialize();
@@ -33,21 +32,8 @@ public sealed class WeatherSystem : SharedWeatherSystem
 
         var ent = _playerManager.LocalEntity;
 
-        // Ganimed edit start
-        if (!IsInGameState())
-        {
-            weather.Stream = _audio.Stop(weather.Stream);
-            return;
-        }
-        // Ganimed edit end
-
         if (ent == null)
-        // Ganimed edit start
-        {
-            weather.Stream = _audio.Stop(weather.Stream);
             return;
-        }
-        // Ganimed edit end
 
         var mapUid = Transform(uid).MapUid;
         var entXform = Transform(ent.Value);
@@ -144,27 +130,25 @@ public sealed class WeatherSystem : SharedWeatherSystem
         if (!Timing.IsFirstTimePredicted)
             return true;
 
-        // Ganimed edit start
-        if (!IsInGameState())
+        // ADT-Tweak-Start: (P4A) Исправление звука погоды в лобби (PORT from DeltaV-Station/Delta-v (2978)
+        if (_playerManager.LocalEntity is not { } ent)
+            return false;
+ 
+        var map = Transform(uid).MapUid;
+        var entMap = Transform(ent).MapUid;
+ 
+        if (map == null || entMap != map)
         {
             weather.Stream = _audio.Stop(weather.Stream);
-            return true;
+            return false;
         }
-        // Ganimed edit end
+        // ADT-Tweak-End
 
         // TODO: Fades (properly)
         weather.Stream = _audio.Stop(weather.Stream);
         weather.Stream = _audio.PlayGlobal(weatherProto.Sound, Filter.Local(), true)?.Entity;
         return true;
     }
-    // Ganimed edit start
-    private bool IsInGameState()
-    {
-        var currentState = _stateManager.CurrentState;
-        return currentState?.GetType().Name != "LobbyState" &&
-               _playerManager.LocalEntity != null;
-    }
-    // Ganimed edit end
 
     private void OnWeatherHandleState(EntityUid uid, WeatherComponent component, ref ComponentHandleState args)
     {

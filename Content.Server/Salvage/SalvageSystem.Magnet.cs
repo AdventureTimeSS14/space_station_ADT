@@ -3,6 +3,7 @@ using System.Numerics;
 using System.Threading.Tasks;
 using Content.Server.Salvage.Magnet;
 using Content.Shared.Mobs.Components;
+using Content.Shared.Mind.Components;//ADT-Tweak
 using Content.Shared.Procedural;
 using Content.Shared.Radio;
 using Content.Shared.Salvage.Magnet;
@@ -15,7 +16,6 @@ namespace Content.Server.Salvage;
 public sealed partial class SalvageSystem
 {
     [Dependency] private readonly IRuntimeLog _runtimeLog = default!;
-
     private static readonly ProtoId<RadioChannelPrototype> MagnetChannel = "Supply";
 
     private EntityQuery<SalvageMobRestrictionsComponent> _salvMobQuery;
@@ -91,7 +91,6 @@ public sealed partial class SalvageSystem
             }
         }
     }
-
     private void UpdateMagnet()
     {
         var dataQuery = EntityQueryEnumerator<SalvageMagnetDataComponent>();
@@ -126,7 +125,6 @@ public sealed partial class SalvageSystem
             }
         }
     }
-
     /// <summary>
     /// Ends the magnet attachment and deletes the relevant grids.
     /// </summary>
@@ -139,7 +137,7 @@ public sealed partial class SalvageSystem
 
             while (query.MoveNext(out var salvUid, out var salvMob, out var salvMobState))
             {
-                if (data.Comp.ActiveEntities.Contains(salvMob.LinkedEntity) && _mobState.IsAlive(salvUid, salvMobState))
+                if (data.Comp.ActiveEntities.Contains(salvMob.LinkedEntity) && !HasComp<MindContainerComponent>(salvUid))//ADT-Tweak Magnet Update
                 {
                     QueueDel(salvUid);
                 }
@@ -179,7 +177,8 @@ public sealed partial class SalvageSystem
             // Go and cleanup the active ents.
             foreach (var ent in data.Comp.ActiveEntities)
             {
-                Del(ent);
+                // ADT-Tweak - более безопасный способ удаления
+                Del(ent); //ADT-Tweak Magnet Update
             }
 
             foreach (var entity in _detachEnts)
@@ -286,12 +285,6 @@ public sealed partial class SalvageSystem
         var salvMap = _mapSystem.CreateMap();
         var salvMapXform = Transform(salvMap);
 
-        // Set values while awaiting asteroid dungeon if relevant so we can't double-take offers.
-        data.Comp.ActiveSeed = seed;
-        data.Comp.EndTime = _timing.CurTime + data.Comp.ActiveTime;
-        data.Comp.NextOffer = data.Comp.EndTime.Value;
-        UpdateMagnetUIs(data);
-
         switch (offering)
         {
             case AsteroidOffering asteroid:
@@ -305,7 +298,6 @@ public sealed partial class SalvageSystem
                 break;
             case SalvageOffering wreck:
                 var salvageProto = wreck.SalvageMap;
-
                 if (!_loader.TryLoadGrid(salvMapXform.MapID, salvageProto.MapPath, out _))
                 {
                     Report(magnet, MagnetChannel, "salvage-system-announcement-spawn-debris-disintegrated");
@@ -317,7 +309,6 @@ public sealed partial class SalvageSystem
             default:
                 throw new ArgumentOutOfRangeException();
         }
-
         Box2? bounds = null;
 
         if (salvMapXform.ChildCount == 0)
@@ -330,6 +321,35 @@ public sealed partial class SalvageSystem
 
         while (mapChildren.MoveNext(out var mapChild))
         {
+            // ADT-Tweak-Start
+            switch (offering)
+            {
+                case SalvageOffering wreck:
+                    var salvageProto = wreck.SalvageMap;
+                    if (salvageProto.SizeTag == null)
+                        return;
+                    data.Comp.ActiveTime = _timing.CurTime + data.Comp.sizeAndTime[salvageProto.SizeTag];
+                    break;
+
+                case AsteroidOffering asteroid:
+                    var asteroidProto = _prototypeManager.Index<DungeonConfigPrototype>(asteroid.Id);
+                    if (asteroidProto.SizeTag == null)
+                        return;
+                    data.Comp.ActiveTime = _timing.CurTime + data.Comp.sizeAndTime[asteroidProto.SizeTag];
+                    break;
+
+                case DebrisOffering debris:
+                    var debrisProto = _prototypeManager.Index<DungeonConfigPrototype>(debris.Id);
+                    if (debrisProto.SizeTag == null)
+                        return;
+                    data.Comp.ActiveTime = _timing.CurTime + data.Comp.sizeAndTime[debrisProto.SizeTag];
+                    break;
+
+                default:
+                    data.Comp.ActiveTime = _timing.CurTime + data.Comp.sizeAndTime["ErrorTime"];
+                    break;
+            }
+            // ADT-Tweak-End
             // If something went awry in dungen.
             if (!_gridQuery.TryGetComponent(mapChild, out var childGrid))
                 continue;
@@ -343,7 +363,14 @@ public sealed partial class SalvageSystem
                 _metaData.SetEntityName(mapChild, Loc.GetString("salvage-asteroid-name"));
                 _gravity.EnableGravity(mapChild);
             }
+            // Set values while awaiting asteroid dungeon if relevant so we can't double-take offers.
         }
+        // ADT-Tweak-Start
+        data.Comp.ActiveSeed = seed;
+        data.Comp.EndTime = data.Comp.ActiveTime;
+        data.Comp.NextOffer = data.Comp.EndTime.Value;
+        UpdateMagnetUIs(data);
+        // ADT-Tweak-End
 
         var magnetXform = _xformQuery.GetComponent(magnet.Owner);
         var magnetGridUid = magnetXform.GridUid;
@@ -406,7 +433,7 @@ public sealed partial class SalvageSystem
             }
         }
 
-        Report(magnet.Owner, MagnetChannel, "salvage-system-announcement-arrived", ("timeLeft", data.Comp.ActiveTime.TotalSeconds));
+        Report(magnet.Owner, MagnetChannel, "salvage-system-announcement-arrived", ("timeLeft", (data.Comp.ActiveTime-_timing.CurTime).TotalSeconds)); //ADT Tweak Magnet Update
         _mapSystem.DeleteMap(salvMapXform.MapID);
 
         data.Comp.Announced = false;

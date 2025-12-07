@@ -9,6 +9,7 @@
   markingLimits: MobIPCMarkingLimits
   dollPrototype: MobIPCDummy
   skinColoration: Hues
+  shortDesc: species-short-desc-ipc
   sponsorOnly: false
   minAge: 1
   maxAge: 55
@@ -45,7 +46,9 @@
   - RobotTalk
   - BorgTalk
   uniqueLanguages:
-  - BorgTalk
+  - RobotTalk
+  - Bubblish
+  - RootSpeak
   maxLanguages: 6
 
 # The lack of a layer means that

@@ -1,8 +1,9 @@
 combo-slam-end = { CAPITALIZE($user) } вбивает { $target } в пол!
-combo-cqc-kick-end = { CAPITALIZE($user) } совершает удар ногой в грудь { $target }!
-combo-cqc-pressure-end = { CAPITALIZE($user) } наносит удар в горло { $target }!
+combo-cqc-kick-end = { CAPITALIZE($user) } бьёт { $target } ногой!
+combo-cqc-pressure-end = { CAPITALIZE($user) } перехватывает руку { $target }!
 combo-cqc-restain-end = { CAPITALIZE($user) } сдавливает горло { $target }!
 combo-cqc-consecutive-end = { CAPITALIZE($user) } наносит серию ударов по { $target }!
+cqc-necksnap-popup = { CAPITALIZE($user) } ломает шею { $target }!
 combo-cantshoot = Ваш путь не позволяет использовать { $used }!
 combo-backhit-end = { CAPITALIZE($user) } пинает { $target } в спину!
 combo-elbow-end = { CAPITALIZE($user) } наносит тяжёлый удар по спине { $target }!

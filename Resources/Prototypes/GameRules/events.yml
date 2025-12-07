@@ -27,6 +27,7 @@
     - id: SpiderSpawn
     - id: VentClog
     - id: WormholesSpawn # ADT-Tweak Wormholes Spawns now correctly without admin abuse
+    - id: SpaceEmperorSpawn # ADT Tweak
 
 - type: entityTable
   id: BasicAntagEventsTable
@@ -47,8 +48,7 @@
     - id: MorphSpawn #ADT tweak morph
     - id: VoxRaidersEvent # ADT tweak vox-raiders
     - id: SuperHeroEvent # ADT tweak heros
-    # - id: ZombieOutbreak
-    - id: IanHeroEvent #Basically he isn't Antag but there is change game for it
+    # - id: IanHeroEvent # ADT tweak heros
 
 - type: entity
   id: BaseStationEvent

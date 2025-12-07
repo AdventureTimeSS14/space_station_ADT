@@ -27,7 +27,7 @@
     - нах
     - вах
 
-# Spoken by arachnids and spiders.
+# Spoken by moths.
 - type: language
   id: Arachnid
   roundstart: true
@@ -396,7 +396,7 @@
     - "'eirr"
     - ghh
 
-# Spoken by moths of the Nian race.
+# Spoken by the Nian race.
 - type: language
   id: Nian
   roundstart: true
@@ -467,34 +467,10 @@
     - дис
     - ее
 
-# IPC
-- type: language
-  id: RobotTalk
-  roundstart: true
-  uiColor: "#5773ff"
-  parent: BaseVocalLanguage
-  speech: !type:Generic
-    obfuscateSyllables: true
-    color: "#5773ff"
-    whisperColor: "#7c8acc"
-    replacement:
-    - "бип"
-    - "буп"
-    - "пип"
-    - "пу"
-    - "и-и"
-    - "м-м"
-    verbs:
-      chat-speech-verb-suffix-exclamation-strong: [ громко констатирует, громко сообщает ]
-      chat-speech-verb-suffix-exclamation: [ громко констатирует, громко сообщает ]
-      Default: [ констатирует, сообщает, chat-speech-verb-robotic-1, chat-speech-verb-electricity-2 ]
-    font: Pixelizer
-    fontSize: 15
-
 # Borgs
 - type: language
   id: BorgTalk
-  roundstart: false # Ganimed-Tweak
+  roundstart: true
   uiColor: "#9faffc"
   parent: BaseVocalLanguage
   speech: !type:Generic
@@ -507,7 +483,7 @@
     verbs:
       chat-speech-verb-suffix-exclamation-strong: [ громко констатирует, громко сообщает ]
       chat-speech-verb-suffix-exclamation: [ громко констатирует, громко сообщает ]
-      Default: [ констатирует, сообщает, chat-speech-verb-robotic-1, chat-speech-verb-robotic-2, chat-speech-verb-robotic-3 ]
+      Default: [ констатирует, сообщает, докладывает ]
     font: Pixelizer
     fontSize: 14
 
@@ -543,7 +519,7 @@
 # Spoken by the Ursus race.
 - type: language
   id: Urs
-  roundstart: false # Ganimed-Tweak
+  roundstart: true
   uiColor: "#b36b00"
   parent: BaseVocalLanguage
   speech: !type:Generic
@@ -578,7 +554,7 @@
 # Spoken by the Arkane race.
 - type: language
   id: Arkane
-  roundstart: false # Ganimed-Tweak
+  roundstart: true
   uiColor: "#e478ff"
   parent: BaseVocalLanguage
   speech: !type:Generic
@@ -632,7 +608,7 @@
     - дрг
     - эйе
 
-# Spoken by the Lizards and Tajarans.
+# Spoken by the Dwarf race.
 - type: language
   id: CintaTaj
   roundstart: true
@@ -846,7 +822,7 @@
     - ниф
     - ви
     verbs:
-      Default: [ хонкает, chat-speech-verb-cluwne-1 ]
+      Default: [ хонкает ]
 
   # Resomi language
 - type: language
@@ -873,34 +849,27 @@
     whisperColor: "#d1f069"
     replacement:
     - ja
-    - si
     - ne
     - in
     - er
     - sie
     - ber
     - flu
-    - cos
     - en
     - hi
     - ge
     - im
     - i
-    - e
-    - y
     - und
     - mir
     - ka
-    - di
-    - los
+    - die
+    - zah
     - den
-    - idad
+    - ble
     - ie
     - vi
-    - il
-    - erra
     - aus
     - das
-    - sol
+    - son
     - mal
-    - ale

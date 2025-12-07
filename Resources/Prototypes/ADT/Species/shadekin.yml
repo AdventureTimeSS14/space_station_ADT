@@ -8,6 +8,7 @@
   markingLimits: MobShadekinMarkingLimits
   dollPrototype: MobShadekinDummy
   skinColoration: Hues
+  shortDesc: species-short-desc-shadekin
   maleFirstNames: names_shadekin_male_first
   femaleFirstNames: names_shadekin_female_first
   maleLastNames: names_shadekin_male_last

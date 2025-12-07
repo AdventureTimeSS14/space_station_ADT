@@ -42,14 +42,11 @@
       enum.StrippingUiKey.Key:
         type: StrippableBoundUserInterface
     # ADT-SlimeHair-Start
-      enum.SlimeHairUiKey.Key:
-        type: SlimeHairBoundUserInterface
+      enum.MidroundCustomizationUiKey.Key:
+        type: MidroundCustomizationBoundUserInterface
     # ADT-SlimeHair-End
       enum.StoreUiKey.Key:                # Чтобы не ломался генокрад
         type: StoreBoundUserInterface               # Чтобы не ломался генокрад
-    # Ganimed-Fix
-      enum.HereticLivingHeartKey.Key:
-        type: LivingHeartMenuBoundUserInterface
   # to prevent bag open/honk spam
   - type: UseDelay
     delay: 0.5
@@ -139,16 +136,17 @@
     languages:
       GalacticCommon: Speak
       Bubblish: Speak
-  - type: SlimeHair # ADT-SlimeHair
-  # Ganimed-Tweak-Start
-  - type: Sprite
-    scale: 0.95, 0.95
-  # Ganimed-Tweak-End
+  - type: MidroundCustomization # ADT-SlimeHair
+    customizableCategories:
+    - Hair
+    - FacialHair
+    - HeadTop
+    - Tail
   - type: SizeAttributeWhitelist # Frontier
     tall: true
-    tallscale: 1 # Ganimed-Tweak
+    tallscale: 1.05
     short: true
-    shortscale: 0.9 # Ganimed-Tweak
+    shortscale: 0.95
   #End ADT tweak
 
 - type: entity

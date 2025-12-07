@@ -157,8 +157,8 @@
   - type: OfferItem
   - type: UserInterface
     interfaces:
-      enum.IpcScreenUiKey.Key:
-        type: IpcScreenBoundUserInterface
+      enum.MidroundCustomizationUiKey.Key:
+        type: MidroundCustomizationBoundUserInterface
       enum.VoiceMaskUIKey.Key:
         type: VoiceMaskBoundUserInterface
       enum.HumanoidMarkingModifierKey.Key:
@@ -167,11 +167,14 @@
         type: StrippableBoundUserInterface
       enum.StoreUiKey.Key:
         type: StoreBoundUserInterface
-      enum.HereticLivingHeartKey.Key:
-        type: LivingHeartMenuBoundUserInterface
-  - type: IpcScreen
+  - type: MidroundCustomization
+    action: ActionIpcScreen
     selectSlotTime: 0
     changeSlotTime: 0
+    changeMarkingSound:
+      path: /Audio/Machines/beep.ogg
+    customizableCategories:
+    - FacialHair
   - type: AnimatedEmotes
 
 - type: entity

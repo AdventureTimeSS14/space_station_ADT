@@ -3,7 +3,7 @@
 - type: latheRecipePack
   id: ServiceStatic
   recipes:
-  - WateringCan # Ganimed
+  - ADTWateringCan #ADT-Tweak
   - Mousetrap  # ADT Tweak
   - TrashBag  # ADT Tweak
   - ADTPlantAnalyzer # ADT Tweak
@@ -54,7 +54,7 @@
   - ClothingBackpackWaterTank
   - MegaSprayBottle
   - ADTBluespaceTrashCan # ADT tweak
-  - AdvWateringCan  # Ganimed
+  - ADTAdvancedWateringCan #ADT-Tweak
 
 - type: latheRecipePack
   id: Instruments
@@ -75,10 +75,9 @@
   - ReagentGrinderIndustrialMachineCircuitboard
   - JukeboxCircuitBoard
   - DawInstrumentMachineCircuitboard
-  - CloningPodMachineCircuitboard #ADT tweak
-  - CloningConsoleComputerCircuitboard #ADT tweak
-  - MedicalScannerMachineCircuitboard #ADT tweak
-  - ADTAdvancedMicrowaveMachineCircuitBoard #ADT tweak
-  - ADTCoffeeMachineBluespaceCircuitboard #ADT tweak
-  - ADTAdvancedReagentGrinderMachineCircuitboard #ADT tweak
-  - ADTHydroponicsTrayAdvancedMachineCircuitboard #ADT tweak
+  # ADT-Tweak-Start
+  - ADTAdvancedMicrowaveMachineCircuitBoard
+  - ADTCoffeeMachineBluespaceCircuitboard
+  - ADTAdvancedReagentGrinderMachineCircuitboard
+  - ADTHydroponicsTrayAdvancedMachineCircuitboard
+  # ADT-Tweak-End

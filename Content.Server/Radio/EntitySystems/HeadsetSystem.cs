@@ -5,13 +5,14 @@ using Content.Shared.Inventory.Events;
 using Content.Shared.Radio;
 using Content.Shared.Radio.Components;
 using Content.Shared.Radio.EntitySystems;
-using Content.Shared.Verbs; // Ganimed edit
 using Robust.Shared.Network;
 using Robust.Shared.Player;
-using Robust.Shared.Utility; // Ganimed edit
 using Content.Server.ADT.Language;  // ADT Languages
-using Content.Shared.Popups; // Ganimed edit
-using Robust.Shared.GameObjects; // Ganimed edit
+using Content.Server.Popups; // ADT Radio Block
+using Content.Shared.Cuffs.Components; // ADT Radio Block
+using Content.Shared.StatusEffectNew.Components; // ADT Radio Block
+using Content.Shared.Stunnable; // ADT Radio Block
+using Robust.Shared.Localization; // ADT Radio Block
 
 namespace Content.Server.Radio.EntitySystems;
 
@@ -20,7 +21,8 @@ public sealed class HeadsetSystem : SharedHeadsetSystem
     [Dependency] private readonly INetManager _netMan = default!;
     [Dependency] private readonly RadioSystem _radio = default!;
     [Dependency] private readonly LanguageSystem _language = default!;  // ADT Languages
-    [Dependency] private readonly SharedPopupSystem _popup = default!; // Ganimed edit
+    [Dependency] private readonly PopupSystem _popup = default!; // ADT Radio Block
+    [Dependency] private readonly ILocalizationManager _loc = default!; // ADT Radio Block
 
     public override void Initialize()
     {
@@ -31,9 +33,61 @@ public sealed class HeadsetSystem : SharedHeadsetSystem
         SubscribeLocalEvent<WearingHeadsetComponent, EntitySpokeEvent>(OnSpeak);
 
         SubscribeLocalEvent<HeadsetComponent, EmpPulseEvent>(OnEmpPulse);
-
-        SubscribeLocalEvent<HeadsetComponent, GetVerbsEvent<AlternativeVerb>>(OnGetAltVerbs); // Ganimed edit 
     }
+
+    // ADT-ADD-Start: (P4A) Блокировка связи при оглушении и наручниках
+    private bool BlockedByHandcuffsOrStun(EntityUid user)
+    {
+        if (TryComp<CuffableComponent>(user, out var cuffable))
+        {
+            if (cuffable.CuffedHandCount > 0)
+                return true;
+        }
+
+        if (HasComp<StunnedComponent>(user))
+            return true;
+
+        return false;
+    }
+
+    private void ShowRadioBlockedPopup(EntityUid user)
+    {
+        if (!TryComp(user, out ActorComponent? actor))
+            return;
+
+        string msg;
+
+        if (TryComp<CuffableComponent>(user, out var cuffable) && cuffable.CuffedHandCount > 0)
+            msg = Loc.GetString("radio-blocked-handcuffed");
+        else
+            msg = Loc.GetString("radio-blocked-stunned");
+
+        _popup.PopupEntity(msg, user, user);
+    }
+
+    private void OnSpeak(EntityUid uid, WearingHeadsetComponent component, EntitySpokeEvent args)
+    {
+        var user = uid;
+
+        if (args.Channel != null)
+        {
+            if (BlockedByHandcuffsOrStun(user))
+            {
+                args.Channel = null;
+                ShowRadioBlockedPopup(user);
+                return;
+            }
+        }
+
+        if (args.Channel != null
+            && TryComp(component.Headset, out EncryptionKeyHolderComponent? keys)
+            && keys.Channels.Contains(args.Channel.ID))
+        {
+            _radio.SendRadioMessage(uid, args.Message, args.Channel, component.Headset);
+            args.Channel = null;
+        }
+    }
+    // ADT-ADD-End
 
     private void OnKeysChanged(EntityUid uid, HeadsetComponent component, EncryptionChannelsChangedEvent args)
     {
@@ -53,17 +107,6 @@ public sealed class HeadsetSystem : SharedHeadsetSystem
             RemComp<ActiveRadioComponent>(uid);
         else
             EnsureComp<ActiveRadioComponent>(uid).Channels = new(keyHolder.Channels);
-    }
-
-    private void OnSpeak(EntityUid uid, WearingHeadsetComponent component, EntitySpokeEvent args)
-    {
-        if (args.Channel != null
-            && TryComp(component.Headset, out EncryptionKeyHolderComponent? keys)
-            && keys.Channels.Contains(args.Channel.ID))
-        {
-            _radio.SendRadioMessage(uid, args.Message, args.Channel, component.Headset);
-            args.Channel = null; // prevent duplicate messages from other listeners.
-        }
     }
 
     protected override void OnGotEquipped(EntityUid uid, HeadsetComponent component, GotEquippedEvent args)
@@ -139,35 +182,4 @@ public sealed class HeadsetSystem : SharedHeadsetSystem
             args.Disabled = true;
         }
     }
-
-    // Ganimed edit start
-
-    private void OnGetAltVerbs(EntityUid uid, HeadsetComponent comp, GetVerbsEvent<AlternativeVerb> args)
-    {
-        if (!args.CanAccess || !args.CanInteract)
-            return;
-
-        if (comp.RadioTextIncrease <= 0)
-            return;
-
-        var verb = new AlternativeVerb
-        {
-            Act = () =>
-            {
-                comp.RadioBoostEnabled = !comp.RadioBoostEnabled;
-
-                var msg = comp.RadioBoostEnabled
-                    ? Loc.GetString("headset-radio-fontboost-on")
-                    : Loc.GetString("headset-radio-fontboost-off");
-
-                _popup.PopupEntity(msg, args.User, PopupType.Small);
-            },
-            Text = comp.RadioBoostEnabled
-                ? Loc.GetString("headset-radio-fontboost-disable")
-                : Loc.GetString("headset-radio-fontboost-enable"),
-        };
-
-        args.Verbs.Add(verb);
-    }
-    // Ganimed edit end
 }

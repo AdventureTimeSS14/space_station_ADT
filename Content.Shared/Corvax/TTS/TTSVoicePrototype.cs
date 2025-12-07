@@ -1,4 +1,5 @@
 ﻿using Content.Shared.Humanoid;
+using Content.Shared.Humanoid.Prototypes;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Corvax.TTS;
@@ -35,11 +36,17 @@ public sealed class TTSVoicePrototype : IPrototype
     [DataField("sponsorOnly")]
     public bool SponsorOnly { get; } = false;
 
-    // ADT-Tweak start
+    // ADT-Tweak-Start
     /// <summary>
     /// Voice category for grouping in UI
     /// </summary>
     [DataField("category")]
     public string Category { get; } = "Other";
-    // ADT-Tweak end 
+
+    [DataField("speciesBlacklist")]
+    public HashSet<ProtoId<SpeciesPrototype>> SpeciesBlacklist { get; } = new();
+
+    [DataField("speciesWhitelist")]
+    public HashSet<ProtoId<SpeciesPrototype>> SpeciesWhitelist { get; } = new();
+    // ADT-Tweak-End
 }
