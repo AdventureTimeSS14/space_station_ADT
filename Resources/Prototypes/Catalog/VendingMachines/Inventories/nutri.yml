@@ -1,6 +1,7 @@
 - type: vendingMachineInventory
   id: NutriMaxInventory
   startingInventory:
+    ADTWateringCan: 2 #ADT-Tweak
     HydroponicsToolSpade: 4
     HydroponicsToolMiniHoe: 4
     HydroponicsToolClippers: 4
