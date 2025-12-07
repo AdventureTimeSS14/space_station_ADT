@@ -8,10 +8,10 @@ zzzz-fmt-pressure = { TOSTRING($divided, "F1") } { $places ->
     [3] TPa
     [4] PBa
     *[5] ???
+}
 
 # Used internally for playtime formatting
 zzzz-fmt-playtime-minutes = { $minutes }m.
-}
 
 # Used internally by the POWERWATTS() function.
 zzzz-fmt-power-watts = { TOSTRING($divided, "F1") } { $places ->
