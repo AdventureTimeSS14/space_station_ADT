@@ -119,6 +119,15 @@ public sealed partial class InjectorComponent : Component
 
     #endregion
 
+    // ADT-Tweak-start (P4A) Ускорение Шприцов на койках и каталках
+    /// <summary>
+    /// Множитель скорости инъекции, если цель пристёгнута к мебели,
+    /// имеющей InjectorBoostComponent.
+    /// Значение 2f → ввод будет в 2 раза быстрее.
+    /// </summary>
+    [DataField("restrainedMultiplier"), ViewVariables(VVAccess.ReadWrite)]
+    public float RestrainedMultiplier = 1.0f;
+    // ADT-Tweak-end (P4A) Ускорение Шприцов на койках и каталках
 
     // ADT Injector blocking start
     [DataField]

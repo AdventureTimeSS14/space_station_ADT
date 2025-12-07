@@ -7,3 +7,12 @@
     sprite: ADT/Clothing/Ears/Headsets/blueshield.rsi
   - type: Clothing
     sprite: ADT/Clothing/Ears/Headsets/blueshield.rsi
+
+- type: entity
+  abstract: true
+  parent: ClothingHeadsetAlt
+  id: ADTClothingHeadsetAltLoudspeaker
+  components:
+  - type: Loudspeaker
+    canToggle: true
+    affectRadio: true

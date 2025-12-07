@@ -1284,7 +1284,7 @@
   productEntity: ReinforcementRadioSyndicateCyborgAssault
   icon: { sprite: Objects/Devices/communication.rsi, state: old-radio-borg-assault }
   cost:
-    Telecrystal: 100 # ADT-Tweak 65>100
+    Telecrystal: 80 # ADT-Tweak 65>80
   categories:
     - UplinkAllies
   conditions:

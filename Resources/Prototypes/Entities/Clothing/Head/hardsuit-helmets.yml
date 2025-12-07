@@ -461,9 +461,30 @@
   components:
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/capspace.rsi
+  # ADT-Tweak-start
+  - type: ToggleableVisuals
+    spriteLayer: light
+    clothingVisuals:
+      head:
+      - state: on-equipped-HELMET
+        shader: unshaded
+      head-vox:
+      - state: on-equipped-HELMET-vox
+        shader: unshaded
+      head-dog:
+      - state: on-equipped-HELMET-dog
+        shader: unshaded
   - type: Clothing
     sprite: Clothing/Head/Hardsuits/capspace.rsi
-  # ADT-Tweak-start
+    clothingVisuals:
+      head:
+      - state: off-equipped-HELMET
+      - state: equipped-HELMET-unshade
+        shader: unshaded
+      head-vox:
+      - state: off-equipped-HELMET-vox
+      head-dog:
+      - state: off-equipped-HELMET-dog
   - type: PointLight
     color: "#b88ae5"
   # ADT-Tweak-end

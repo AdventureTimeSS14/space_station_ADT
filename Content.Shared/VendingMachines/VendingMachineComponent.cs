@@ -211,6 +211,19 @@ namespace Content.Shared.VendingMachines
         public int Credits;
 
         public int NextItemCount = 1;
+
+        [DataField, AutoNetworkedField]
+        public Color UiButtonBorderColor = Color.FromHex("#4972A1");
+
+        [DataField, AutoNetworkedField]
+        public Color UiButtonBaseColor = Color.FromHex("#141F2F");
+
+        [DataField, AutoNetworkedField]
+        public Color UiButtonHoveredColor = Color.FromHex("#4972A1");
+
+        [DataField, AutoNetworkedField]
+        public Color UiButtonDisabledColor = Color.FromHex("#3f3f3fff");
+
         //ADT-Economy-End
     }
 

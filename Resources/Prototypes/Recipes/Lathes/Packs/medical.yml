@@ -24,6 +24,7 @@
   recipes:
   - Jug
   - ChemistryEmptyBottle01
+  - BoxBottle # ADT-Tweak
 ##  - ClothingEyesGlassesChemical
 
 - type: latheRecipePack
@@ -104,5 +105,12 @@
   - StasisBedMachineCircuitboard
   - BiomassReclaimerMachineCircuitboard
 ##- CryoPodMachineCircuitboard
-  - ADTMedicalAssemblerMachineCircuitBoard # ADT-Tweak
-  - EnergyChemDispenserMachineCircuitboard # ADT-Tweak
+  # ADT-Tweak-Start
+  - ADTMedicalAssemblerMachineCircuitBoard
+  - EnergyChemDispenserMachineCircuitboard
+  - ChemMasterMachineCircuitboard
+  - HotplateMachineCircuitboard
+  - CloningPodMachineCircuitboard
+  - CloningConsoleComputerCircuitboard
+  - MedicalScannerMachineCircuitboard
+  # ADT-Tweak-End

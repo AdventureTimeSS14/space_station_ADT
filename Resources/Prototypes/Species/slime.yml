@@ -9,6 +9,7 @@
   dollPrototype: MobSlimePersonDummy
   skinColoration: Hues
   # ADT start
+  shortDesc: species-short-desc-slime
   description: "/ServerInfo/ADT/SpeciesDescriptions/Slime.xml"
   pros:
   - Могут хранить внутри себя небольшие объекты.

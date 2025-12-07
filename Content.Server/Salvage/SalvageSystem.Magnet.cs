@@ -3,6 +3,7 @@ using System.Numerics;
 using System.Threading.Tasks;
 using Content.Server.Salvage.Magnet;
 using Content.Shared.Mobs.Components;
+using Content.Shared.Mind.Components;//ADT-Tweak
 using Content.Shared.Procedural;
 using Content.Shared.Radio;
 using Content.Shared.Salvage.Magnet;
@@ -15,7 +16,6 @@ namespace Content.Server.Salvage;
 public sealed partial class SalvageSystem
 {
     [Dependency] private readonly IRuntimeLog _runtimeLog = default!;
-
     private static readonly ProtoId<RadioChannelPrototype> MagnetChannel = "Supply";
 
     private EntityQuery<SalvageMobRestrictionsComponent> _salvMobQuery;
@@ -137,7 +137,7 @@ public sealed partial class SalvageSystem
 
             while (query.MoveNext(out var salvUid, out var salvMob, out var salvMobState))
             {
-                if (data.Comp.ActiveEntities.Contains(salvMob.LinkedEntity) && _mobState.IsAlive(salvUid, salvMobState))
+                if (data.Comp.ActiveEntities.Contains(salvMob.LinkedEntity) && !HasComp<MindContainerComponent>(salvUid))//ADT-Tweak Magnet Update
                 {
                     QueueDel(salvUid);
                 }
@@ -178,7 +178,7 @@ public sealed partial class SalvageSystem
             foreach (var ent in data.Comp.ActiveEntities)
             {
                 // ADT-Tweak - более безопасный способ удаления
-                QueueDel(ent);
+                Del(ent); //ADT-Tweak Magnet Update
             }
 
             foreach (var entity in _detachEnts)
@@ -433,7 +433,7 @@ public sealed partial class SalvageSystem
             }
         }
 
-        Report(magnet.Owner, MagnetChannel, "salvage-system-announcement-arrived", ("timeLeft", data.Comp.ActiveTime.TotalSeconds));
+        Report(magnet.Owner, MagnetChannel, "salvage-system-announcement-arrived", ("timeLeft", (data.Comp.ActiveTime-_timing.CurTime).TotalSeconds)); //ADT Tweak Magnet Update
         _mapSystem.DeleteMap(salvMapXform.MapID);
 
         data.Comp.Announced = false;

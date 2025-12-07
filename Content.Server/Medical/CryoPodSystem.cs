@@ -34,6 +34,119 @@ public sealed partial class CryoPodSystem : SharedCryoPodSystem
         SubscribeLocalEvent<CryoPodComponent, EntRemovedFromContainerMessage>(OnEjected);
     }
 
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+
+        var curTime = _gameTiming.CurTime;
+        var bloodStreamQuery = GetEntityQuery<BloodstreamComponent>();
+        var metaDataQuery = GetEntityQuery<MetaDataComponent>();
+        var itemSlotsQuery = GetEntityQuery<ItemSlotsComponent>();
+        var fitsInDispenserQuery = GetEntityQuery<FitsInDispenserComponent>();
+        var solutionContainerManagerQuery = GetEntityQuery<SolutionContainerManagerComponent>();
+        var ignoreCryoQuery = GetEntityQuery<IgnoreCryopodsComponent>(); // ADT-Tweak: (P4A) Игнорирование Криокамеры через компонент
+        var query = EntityQueryEnumerator<ActiveCryoPodComponent, CryoPodComponent>();
+
+        while (query.MoveNext(out var uid, out _, out var cryoPod))
+        {
+            metaDataQuery.TryGetComponent(uid, out var metaDataComponent);
+            if (curTime < cryoPod.NextInjectionTime + _metaDataSystem.GetPauseTime(uid, metaDataComponent))
+                continue;
+            cryoPod.NextInjectionTime = curTime + TimeSpan.FromSeconds(cryoPod.BeakerTransferTime);
+
+            if (!itemSlotsQuery.TryGetComponent(uid, out var itemSlotsComponent))
+            {
+                continue;
+            }
+            var container = _itemSlotsSystem.GetItemOrNull(uid, cryoPod.SolutionContainerName, itemSlotsComponent);
+            var patient = cryoPod.BodyContainer.ContainedEntity;
+            // ADT-Tweak: Start (P4A) Игнорирование криокамеры через компонент
+            if (patient == null || !patient.Value.Valid)
+                continue;
+
+            if (ignoreCryoQuery.HasComponent(patient.Value))
+                continue;
+
+            if (container != null
+                && container.Value.Valid
+                && fitsInDispenserQuery.TryGetComponent(container, out var fitsInDispenserComponent)
+                && solutionContainerManagerQuery.TryGetComponent(container, out var solutionContainerManagerComponent)
+                && _solutionContainerSystem.TryGetFitsInDispenser(
+                    (container.Value, fitsInDispenserComponent, solutionContainerManagerComponent),
+                    out var containerSolution, out _))
+            // ADT-Tweak: End
+            {
+                if (!bloodStreamQuery.TryGetComponent(patient, out var bloodstream))
+                {
+                    continue;
+                }
+
+                var solutionToInject = _solutionContainerSystem.SplitSolution(containerSolution.Value, cryoPod.BeakerTransferAmount);
+                _bloodstreamSystem.TryAddToChemicals((patient.Value, bloodstream), solutionToInject);
+                _reactiveSystem.DoEntityReaction(patient.Value, solutionToInject, ReactionMethod.Injection);
+            }
+        }
+    }
+
+    public override EntityUid? EjectBody(EntityUid uid, CryoPodComponent? cryoPodComponent)
+    {
+        if (!Resolve(uid, ref cryoPodComponent))
+            return null;
+        if (cryoPodComponent.BodyContainer.ContainedEntity is not { Valid: true } contained)
+            return null;
+        base.EjectBody(uid, cryoPodComponent);
+        _climbSystem.ForciblySetClimbing(contained, uid);
+        return contained;
+    }
+
+    #region Interaction
+
+    private void HandleDragDropOn(Entity<CryoPodComponent> entity, ref DragDropTargetEvent args)
+    {
+        if (entity.Comp.BodyContainer.ContainedEntity != null)
+            return;
+
+        var doAfterArgs = new DoAfterArgs(EntityManager, args.User, entity.Comp.EntryDelay, new CryoPodDragFinished(), entity, target: args.Dragged, used: entity)
+        {
+            BreakOnDamage = true,
+            BreakOnMove = true,
+            NeedHand = false,
+        };
+        _doAfterSystem.TryStartDoAfter(doAfterArgs);
+        args.Handled = true;
+    }
+
+    private void OnDragFinished(Entity<CryoPodComponent> entity, ref CryoPodDragFinished args)
+    {
+        if (args.Cancelled || args.Handled || args.Args.Target == null)
+            return;
+
+        if (InsertBody(entity.Owner, args.Args.Target.Value, entity.Comp))
+        {
+            if (!TryComp(entity.Owner, out CryoPodAirComponent? cryoPodAir))
+                _adminLogger.Add(LogType.Action, LogImpact.Medium,
+                    $"{ToPrettyString(args.User)} inserted {ToPrettyString(args.Args.Target.Value)} into {ToPrettyString(entity.Owner)}");
+
+            _adminLogger.Add(LogType.Action, LogImpact.Medium,
+                $"{ToPrettyString(args.User)} inserted {ToPrettyString(args.Args.Target.Value)} into {ToPrettyString(entity.Owner)} which contains gas: {cryoPodAir!.Air.ToPrettyString():gasMix}");
+        }
+        args.Handled = true;
+    }
+
+    private void OnActivateUIAttempt(Entity<CryoPodComponent> entity, ref ActivatableUIOpenAttemptEvent args)
+    {
+        if (args.Cancelled)
+        {
+            return;
+        }
+
+        var containedEntity = entity.Comp.BodyContainer.ContainedEntity;
+        if (containedEntity == null || containedEntity == args.User || !HasComp<ActiveCryoPodComponent>(entity))
+        {
+            args.Cancel();
+        }
+    }
+
     private void OnActivateUI(Entity<CryoPodComponent> entity, ref AfterActivatableUIOpenEvent args)
     {
         if (!entity.Comp.BodyContainer.ContainedEntity.HasValue)

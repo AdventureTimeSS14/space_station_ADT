@@ -311,7 +311,9 @@ namespace Content.Server.Database
                 loadouts,
                 // ADT start
                 new BarkData(profile.BarkProto, profile.BarkPitch, profile.LowBarkVar, profile.HighBarkVar),
-                languages.ToHashSet()
+                languages.ToHashSet(),
+                profile.OOCNotes,
+                profile.HeadshotUrl
                 // ADT end
             );
         }
@@ -411,6 +413,9 @@ namespace Content.Server.Database
                 humanoid.Languages
                         .Select(l => new Language {LanguageName = l.ToString()})
             );
+
+            profile.OOCNotes = humanoid.OOCNotes;
+            profile.HeadshotUrl = humanoid.HeadshotUrl;
             // ADT end
 
             return profile;
@@ -1643,7 +1648,7 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
 
             return true;
         }
-        
+
         protected async Task<List<BookPrinterEntry>> GetBookPrinterEntriesImpl(DbGuard db)
         {
             return await db.DbContext.BookPrinterEntry
