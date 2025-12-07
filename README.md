@@ -1,21 +1,21 @@
 <p align="center">
-  <img alt="Space Station 14" width="650" src="https://github.com/CrimeMoot/Ganimed14/blob/master/Resources/Textures/_Ganimed/Logo/logo-ganimed.png" />
+  <img alt="Space Station 14" width="650" src="https://github.com/ss14-ganimed/Ganimed14/blob/master/Resources/Textures/_Ganimed/Logo/logo-ganimed.png" />
 </p>
 
 <div align="center">
 
   [![Discord](https://img.shields.io/discord/1203769510599856138?label=Join%20our%20Discord&logo=discord&logoColor=white&style=for-the-badge)](https://discord.com/invite/nCn5F3kNyH)
-  [![Wiki](https://img.shields.io/badge/Wiki-Explore%20Our%20Wiki-blue?style=for-the-badge)](https://wiki.backmen.ru/)
+  [![Wiki](https://img.shields.io/badge/Wiki-Explore%20Our%20Wiki-blue?style=for-the-badge)](https://station-enterprise.space/)
   [![Steam](https://img.shields.io/badge/Steam-Play%20on%20Steam-blue?style=for-the-badge)](https://store.steampowered.com/app/1255460/Space_Station_14/)
   [![Client](https://img.shields.io/badge/Download-Client-blue?style=for-the-badge)](https://spacestation14.io/about/nightlies/)
-  [![GitHub](https://img.shields.io/github/stars/crimemoot/ganimed14?style=for-the-badge&logo=github)](https://github.com/CrimeMoot/Ganimed14)
+  [![GitHub](https://img.shields.io/github/stars/ss14-ganimed/ganimed14?style=for-the-badge&logo=github)](https://github.com/ss14-ganimed/Ganimed14)
 
 </div>
 
 <p align="center">
-  <img src="https://img.shields.io/github/commit-activity/y/crimemoot/ganimed14?style=flat-square" alt="GitHub commit activity">
-  <img src="https://img.shields.io/github/issues/crimemoot/ganimed14?style=flat-square" alt="GitHub Issues">
-  <img src="https://img.shields.io/github/issues-pr-closed/crimemoot/ganimed14?style=flat-square" alt="GitHub Closed PRs">
+  <img src="https://img.shields.io/github/commit-activity/y/ss14-ganimed/ganimed14?style=flat-square" alt="GitHub commit activity">
+  <img src="https://img.shields.io/github/issues/ss14-ganimed/ganimed14?style=flat-square" alt="GitHub Issues">
+  <img src="https://img.shields.io/github/issues-pr-closed/ss14-ganimed/ganimed14?style=flat-square" alt="GitHub Closed PRs">
 </p>
 
 ---
@@ -51,7 +51,7 @@
 
 Этот проект невозможен без усилий нашего сообщества. Вот те, кто внёс наибольший вклад:
 
-[![Участники](https://contrib.rocks/image?repo=crimemoot/ganimed14)](https://github.com/crimemoot/ganimed14/graphs/contributors)
+[![Участники](https://contrib.rocks/image?repo=ss14-ganimed/ganimed14)](https://github.com/ss14-ganimed/ganimed14/graphs/contributors)
 
 ---
 
