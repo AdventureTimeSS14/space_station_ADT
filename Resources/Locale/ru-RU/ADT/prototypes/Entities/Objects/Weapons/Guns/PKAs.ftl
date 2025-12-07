@@ -10,5 +10,5 @@ ent-ADTWeaponProtoKineticRailgun = протокинетический рельс
 ent-ADTWeaponProtoKineticShotgun = протокинетический дробовик
     .desc = Стреляет на короткую дальность залпом из 4-х снарядов, что суммарно наносят больший урон, чем базовый ПКА. Имеет меньшую вместимость под модули.
 
-ent-ADTWeaponExperimentalProtoKineticAcellerator = Экспериментальный протокинетический ускоритель
+ent-ADTWeaponExperimentalProtoKineticAcellerator = экспериментальный протокинетический ускоритель
     .desc = Улучшенная версия обычного протокинетического ускорителя, имеет больше места под улучшения.
