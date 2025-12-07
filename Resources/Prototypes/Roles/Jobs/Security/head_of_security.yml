@@ -3,16 +3,32 @@
   name: job-name-hos
   description: job-description-hos
   playTimeTracker: JobHeadOfSecurity
+  requireAdminNotify: true # Ganimed Rules Tweak
   requirements:
     - !type:RoleTimeRequirement
       role: JobWarden
-      time: 54000 #15 hrs # ADT-RoleTime
-#    - !type:RoleTimeRequirement
-#      role: JobSecurityOfficer
-#      time: 36000 #10 hrs
+      time: 36000 #10 hrs Ganimed-RoleTime
+    - !type:RoleTimeRequirement
+      role: JobDetective
+      time: 3600 #1 hr, knowing how to use the tools is important
+    - !type:RoleTimeRequirement
+      role: JobSecurityOfficer
+      time: 54000 #15 hrs Ganimed-RoleTime
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 198000 #55 hrs # ADT-RoleTime
+      time: 108000 #30 hrs Ganimed-RoleTime
+    - !type:OverallPlaytimeRequirement
+      time: 180000 #50 hrs Ganimed-RoleTime
+    - !type:TraitsRequirement # Ganimed-MRP: HoS undergoes medical examination
+      inverted: true
+      traits:
+      - Pacifist
+      - Blindness
+      - ADTDeaf
+      - Frail
+    - !type:AgeRequirement # Ganimed-MRP
+      requiredAge: 24
+  # ADT Restrict Start
     - !type:SpeciesRequirement
       inverted: true
       species:
@@ -43,6 +59,7 @@
     components:
       - type: CommandStaff
       # - type: PhantomTyranyTarget # ADT Phantom
+      - type: AntagImmune # Ganimed-MRP: Loyalty implant
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
@@ -55,7 +72,7 @@
   id: HoSGear
   equipment:
     eyes: ClothingEyesGlassesSecurity
-    # id: HoSPDA ADT: different PDAs in loadouts
+    id: HoSPDA #Ganimed-Tweak
     gloves: ClothingHandsGlovesCombat
     ears: ClothingHeadsetAltSecurity
   storage:

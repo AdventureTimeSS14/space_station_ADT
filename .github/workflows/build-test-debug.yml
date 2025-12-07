@@ -1,17 +1,20 @@
-name: Build & Test Debug Linux # ADT-Tweak
+name: Build & Test Debug # test
 
 on:
   push:
-    branches: [ master, staging, stable ]
+    branches: [ master, staging, trying ]
   merge_group:
   pull_request:
     types: [ opened, reopened, synchronize, ready_for_review ]
-    branches: [ master, staging, stable ]
-  workflow_dispatch: # ручной запуск ADT Tweak
+    branches: [ master ]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: false
 
 jobs:
   build:
-    if: github.actor != 'IanComradeBot' && github.event.pull_request.draft == false
+    if: github.actor != 'PJBot' && github.event.pull_request.draft == false && github.actor != 'DeltaV-Bot' && github.actor != 'SimpleStation14'
     strategy:
       matrix:
         os: [ubuntu-latest]
@@ -20,7 +23,7 @@ jobs:
 
     steps:
     - name: Checkout Master
-      uses: actions/checkout@v4.2.2
+      uses: actions/checkout@v3.6.0
 
     - name: Setup Submodule
       run: |
@@ -35,7 +38,7 @@ jobs:
         git submodule update --init --recursive
 
     - name: Setup .NET Core
-      uses: actions/setup-dotnet@v4.1.0
+      uses: actions/setup-dotnet@v3.2.0
       with:
         dotnet-version: 9.0.x
 
@@ -46,7 +49,7 @@ jobs:
       run: dotnet build --configuration DebugOpt --no-restore /m
 
     - name: Run Content.Tests
-      run: dotnet test --no-build --configuration DebugOpt Content.Tests/Content.Tests.csproj -- NUnit.ConsoleOut=0
+      run: dotnet test --no-build --configuration Debug Content.Tests/Content.Tests.csproj -- NUnit.ConsoleOut=0
 
     - name: Run Content.IntegrationTests
       shell: pwsh

@@ -1,0 +1,27 @@
+- type: entity
+  parent: ClothingBackpackClown
+  id: ClothingBackpackCluwneRemoveable
+  name: jiggles von jonkerton
+  suffix: Removeable
+  description: It's a backpack made by Jonk! Co.
+  components:
+  - type: Sprite
+    sprite: Clothing/Back/Backpacks/cluwne.rsi
+
+- type: entity
+  parent: ClothingBackpack
+  id: ClothingBackpackOfficerBlack
+  name: command officer's backpack
+  description: This dark backpack is used by command officials. It looks brand new.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Back/Backpacks/bridge_officer_backpack.rsi
+
+- type: entity
+  parent: ClothingBackpack
+  id: ClothingBackpackSecurityEngineer
+  name: field engineering backpack
+  description: Used by combat engineers, sappers and demolition experts.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Back/Backpacks/security-engineer.rsi

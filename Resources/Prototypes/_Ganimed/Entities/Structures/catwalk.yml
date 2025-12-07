@@ -1,0 +1,116 @@
+# TODO move this to tiles once tile smoothing is supported
+- type: entity
+  id: FloorHardCatwalkIron
+  name: hard steel catwalk
+  description: A catwalk for easier EVA maneuvering and cable placement.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Clickable
+  - type: Sprite
+    sprite: _Ganimed/Structures/single_catwalk.rsi
+    state: hardiron
+    drawdepth: FloorTiles
+  - type: Icon
+    sprite: _Ganimed/Structures/single_catwalk.rsi
+    state: hardiron
+  - type: Transform
+    anchored: true
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepCatwalk
+      params:
+        volume: 8
+  - type: Tag
+    tags:
+      - Catwalk
+#  - type: Construction
+#    graph: Catwalk
+#    node: Catwalk
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 800
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 350
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          PartRodMetal:
+            min: 1
+            max: 3
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: TrayScanReveal
+  - type: RCDDeconstructable
+    cost: 2
+    delay: 2
+    fx: EffectRCDDeconstruct2
+
+- type: entity
+  id: FloorHardCatwalkWhiteIron
+  parent: FloorHardCatwalkIron
+  name: hard white steel catwalk
+  components:
+  - type: Sprite
+    state: hardwhiteiron
+  - type: Icon
+    state: hardwhiteiron
+
+- type: entity
+  id: FloorHardCatwalkDarkIron
+  parent: FloorHardCatwalkIron
+  name: hard dark steel catwalk
+  components:
+  - type: Sprite
+    state: harddarkiron
+  - type: Icon
+    state: harddarkiron
+
+- type: entity
+  id: FloorHardCatwalkSmothIron
+  parent: FloorHardCatwalkIron
+  name: hard smooth steel catwalk
+  components:
+  - type: Sprite
+    state: hardsmoothiron
+  - type: Icon
+    state: hardsmoothiron
+
+- type: entity
+  id: FloorHardCatwalkFlatwhite
+  parent: FloorHardCatwalkIron
+  name: hard flat white catwalk
+  components:
+  - type: Sprite
+    state: hardflatwhite
+  - type: Icon
+    state: hardflatwhite
+
+- type: entity
+  id: FloorHardCatwalkMaint
+  parent: FloorHardCatwalkIron
+  name: hard maint catwalk
+  components:
+  - type: Sprite
+    state: hardmaint
+  - type: Icon
+    state: hardmaint
+
+- type: entity
+  id: FloorHardCatwalkTitanium
+  parent: FloorHardCatwalkIron
+  name: hard titanium catwalk
+  components:
+  - type: Sprite
+    state: hardtitanium
+  - type: Icon
+    state: hardtitanium

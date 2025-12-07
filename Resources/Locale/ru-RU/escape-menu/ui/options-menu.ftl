@@ -373,3 +373,14 @@ ui-options-enable-overlay-starting-job = Показывать начальную
 ui-options-overlay-merge-distance = Stack merge distance
 ui-options-overlay-ghost-fade-distance = Ghost overlay fade range from mouse
 ui-options-overlay-ghost-hide-distance = Ghost overlay hide range from mouse
+
+## Ganimed - TranslitSystem
+ui-options-toggle-translit-en-to-ru = (Чат) Транслитерирует ваш ввод в латинском алфавите в кириллицу
+ui-options-toggle-translit-ru-to-en = (Чат) Транслитерирует все в окне чата с кириллицы на латиницу
+## Ganimed - StackChat
+
+ui-options-chatstack = Автоматически объединять сообщения в чате:
+ui-options-chatstack-count = { $count ->
+    [1] Последнее сообщение
+   *[other] Последние {$count} сообщения
+}

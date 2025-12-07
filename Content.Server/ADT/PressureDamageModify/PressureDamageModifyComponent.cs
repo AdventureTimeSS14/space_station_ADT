@@ -17,7 +17,7 @@ public sealed partial class PressureDamageModifyComponent : Component
     [ViewVariables(VVAccess.ReadWrite), DataField("maxPressure")]
     public float MaxPressure = 40f;
     [ViewVariables(VVAccess.ReadWrite), DataField("minPressure")]
-    public float MinPressure = 10f;
+    public float MinPressure = 0f; // Ganimed-edit
 
     /// <summary>
     /// only for melee, doesn`t work for projectiles

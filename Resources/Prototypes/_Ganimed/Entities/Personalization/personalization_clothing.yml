@@ -1,0 +1,134 @@
+# Safno_S
+- type: entity
+  parent: ClothingHeadHatBeretHoS
+  id: ClothingHeadHatBeretHoSSafno
+  name: head of security's ashen beret
+  description: A black beret with a ruby Nanotrasen emblem. It's covered in ash.
+  suffix: Sponsor, Safno_S
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Personalization/Clothing/safno_hos_beret.rsi
+  - type: Clothing
+    sprite: _Ganimed/Personalization/Clothing/safno_hos_beret.rsi
+  - type: StaticPrice
+    price: 90
+
+- type: entity
+  parent: ClothingMaskGasSwat # [, ShowSecurityIcons] # TODO: implement sec glasses functionality. Currently bugged, works even when the mask is pulled down.
+  id: ClothingMaskGasHoSSafno
+  name: Chimera's mask
+  description: A sinister black gas mask made of robust composite material with three integrated dimly glowing red elements resembling a visor. They evoke a sense of unease. Perhaps its owner is not as ordinary as he might appear at first glance?
+  suffix: Sponsor, Safno_S
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Personalization/Clothing/safno_hos_mask.rsi
+  - type: Clothing
+    sprite: _Ganimed/Personalization/Clothing/safno_hos_mask.rsi
+  # - type: FlashImmunity # TODO: implement sec glasses functionality. Currently bugged, works even when the mask is pulled down.
+  # - type: EyeProtection
+  #   protectionTime: 5
+  # - type: VoiceMask # Tried to implement bark altering with VoiceMask component, but it makes the user's voice "Unknown" if name is null, so it's disabled until a system like AddAccentClothing is implemented for barks.
+  #   action: null
+  #   barkId: Synth2
+  #   barkPitch: 0.8
+  - type: HideLayerClothing
+    slots:
+    - Snout
+    - SnoutOverlay
+    hideOnToggle: true
+
+- type: entity
+  parent: ClothingNeckMantleHOS
+  id: ClothingNeckMantleHoSSafno
+  name: head of security's ashen mantle
+  description: A dark-ashen shoulder lamellar mantle with blood-red elements that offers full mobility. It is worn by a ruthless man. This mantle is a symbol of his commitment to the station.
+  suffix: Sponsor, Safno_S
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Personalization/Clothing/safno_hos_mantle.rsi
+  - type: Clothing
+    sprite: _Ganimed/Personalization/Clothing/safno_hos_mantle.rsi
+  - type: StaticPrice
+    price: 85
+
+- type: entity
+  parent: ClothingUniformJumpsuitHoSAlt
+  id: ClothingUniformJumpsuitHoSSafno
+  name: head of security's tactical jumpsuit
+  description: A robust durathread suit with fixtures, pockets, and straps on the chest and back. Epaulettes are visible on the shoulders. Red elements are present on the edges of the sleeves and trousers. Or are they traces of blood?
+  suffix: Sponsor, Safno_S
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Personalization/Clothing/safno_hos_jumpsuit.rsi
+  - type: Clothing
+    sprite: _Ganimed/Personalization/Clothing/safno_hos_jumpsuit.rsi
+  - type: StaticPrice
+    price: 85
+
+- type: entity
+  parent: [ClothingOuterArmorHoS, BaseSecurityCommandContraband, ClothingOuterArmorBasic]
+  id: ClothingOuterArmorHoSSafno
+  name: head of security's armor vest
+  description: An advanced, light and flexible type IV protective vest made exclusively for the head of security. It provides significant protection against most types of damage. It seems that the wearer is only concerned with protecting his torso, as the rest of his body does not need that much armor.
+  suffix: Sponsor, Safno_S
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Personalization/Clothing/safno_hos_armor.rsi
+  - type: Clothing
+    sprite: _Ganimed/Personalization/Clothing/safno_hos_armor.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.55
+        Slash: 0.55
+        Piercing: 0.55
+        Heat: 0.7
+  - type: ExplosionResistance
+    damageCoefficient: 0.75
+
+- type: entity
+  parent: ClothingBeltSecurity
+  id: ClothingBeltHoSSafno
+  name: head of security's tactical belt with sheaths
+  description: A unique belt for head of security, designed for security gear and equipment. It has integrated sheaths to hold katana and wakizashi swords.
+  suffix: Sponsor, Safno_S
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Personalization/Clothing/safno_hos_belt.rsi
+  - type: Clothing
+    sprite: _Ganimed/Personalization/Clothing/safno_hos_belt.rsi
+  - type: ContainerContainer
+    containers:
+      katana: !type:ContainerSlot
+      # wakizashi: !type:ContainerSlot # Second slot temporarily unused
+  - type: ItemSlots
+    slots:
+      katana:
+        name: Katana
+        startingItem: KatanaLethalHoSSafno
+        insertVerbText: sheath-insert-verb
+        ejectVerbText: sheath-eject-verb
+        insertSound: /Audio/Items/sheath.ogg
+        ejectSound: /Audio/Items/unsheath.ogg
+        whitelist:
+          tags:
+          - Katana
+      # wakizashi: # Second slot temporarily unused
+      #   name: Katana
+      #   startingItem: KatanaStunHoSSafno
+      #   insertVerbText: sheath-insert-verb
+      #   ejectVerbText: sheath-eject-verb
+      #   insertSound: /Audio/Items/sheath.ogg
+      #   ejectSound: /Audio/Items/unsheath.ogg
+      #   whitelist:
+      #     tags:
+      #     - Katana
+  # - type: ItemMapper # TODO: Make katana visuals that do not conflift with sec belt visuals
+  #   mapLayers:
+  #     katana:
+  #       whitelist:
+  #         tags:
+  #         - Katana
+  #   sprite: _Ganimed/Clothing/Belt/belt_overlay.rsi
+  - type: StaticPrice
+    price: 70

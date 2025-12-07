@@ -1,0 +1,174 @@
+- type: entity
+  parent: ClothingUniformJumpskirtCaptain
+  id: ClothingUniformJumpskirtCaptainWhite
+  name: white captain jumpskirt
+  description: White captain jumpsuit skirt symbolizing that your salary clearly exceeds the norm.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Uniforms/Jumpskirt/white_captain.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Uniforms/Jumpskirt/white_captain.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtCargoPostal
+  name: postal jumpskirt
+  description: A sturdy jumpskirt, issued to members of the Cargo department for postal work.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Uniforms/Jumpskirt/cargopostal.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Uniforms/Jumpskirt/cargopostal.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtMaid
+  name: юбка-костюм горничной
+  description: Элегантное платье горничной. В нем вы будете чувствовать себя комфортно, в безопасности и чистоте.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Uniforms/Jumpskirt/maid.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Uniforms/Jumpskirt/maid.rsi
+
+#- type: entity
+#  parent: ClothingUniformSkirtBase
+#  id: ClothingUniformJumpskirtBlueshields
+#  name: платье офицера синего щита
+#  description: Тот, кто носит это, говорит о деле.
+#  components:
+#  - type: Sprite
+#    sprite: _Ganimed/Clothing/Uniforms/Jumpskirt/blueshield-jumpskirt.rsi
+#  - type: Clothing
+#    sprite: _Ganimed/Clothing/Uniforms/Jumpskirt/blueshield-jumpskirt.rsi
+
+- type: entity # Backmen
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtDetectiveGrayAlt
+  name: grey detective's skirt-suit
+  description: A gray detective skirt suit, smells like mystery!
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Uniforms/Jumpskirt/dec.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Uniforms/Jumpskirt/dec.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtBrigmedicBlack
+  name: black brigmedic jumpskirt
+  description: Total overhaul vastly different from the usual brigmedic uniform. It is generally a bad idea to be bright if you are on a battlefield.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Uniforms/Jumpskirt/blackbrigmedic.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Uniforms/Jumpskirt/blackbrigmedic.rsi
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtCoronerBlack
+  name: black coroner jumpskirt
+  description: Total overhaul vastly different from the usual coroner uniform. Personel freak out when they can't see you from the shadows.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Uniforms/Jumpskirt/blackcoroner.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Uniforms/Jumpskirt/blackcoroner.rsi
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtCoroner
+  name: coroner jumpskirt
+  description: A special modification of the medical doctor uniform. Its wearer can be easily denoted as a trained post-mortem professional.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Uniforms/Jumpskirt/coroner.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Uniforms/Jumpskirt/coroner.rsi
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtJesterGreen
+  name: green jester skirt-suit
+  description: It makes you look HONKable!
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Uniforms/Jumpskirt/clownskirtsuit.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Uniforms/Jumpskirt/clownskirtsuit.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtShortsleeveSuit
+  name: short-sleeve suitskirt
+  description: I don't lose things. I place things in locations which later elude me.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Uniforms/Jumpskirt/alt_psychologist.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Uniforms/Jumpskirt/alt_psychologist.rsi
+
+# Old/Original
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtPsychologistOriginal
+  name: psychologist suitskirt
+  description: I don't lose things. I place things in locations which later elude me.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Uniforms/Jumpskirt/original_psychologist.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Uniforms/Jumpskirt/original_psychologist.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtHoSParadeFemaleOriginal
+  name: head of security's parade uniform
+  description: A male head of security's luxury-wear, for special occasions.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Uniforms/Jumpskirt/original_hos_parade.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Uniforms/Jumpskirt/original_hos_parade.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtHoSOriginal
+  name: head of security's colorful jumpskirt
+  description: It's even redder and even crisper, perfect for a not-so-cheerful head.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Uniforms/Jumpskirt/original_hos.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Uniforms/Jumpskirt/original_hos.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtBrigmedicOriginal
+  name: medical-security jumpskirt
+  description: This simple in design uniform is issued to personal with affinities to both medical and security. Strange choice of patterns nonetheless.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Uniforms/Jumpskirt/original_brigmedic.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Uniforms/Jumpskirt/original_brigmedic.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtScientistOriginal
+  name: scientist's plain jumpskirt
+  description: It's a less decorated scientist jumpskirt. It has minor markings that denote the wearer as a scientist.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Uniforms/Jumpskirt/original_scientist.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Uniforms/Jumpskirt/original_scientist.rsi

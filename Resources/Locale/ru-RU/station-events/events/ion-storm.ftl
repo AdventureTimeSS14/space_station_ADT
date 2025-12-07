@@ -1,4 +1,4 @@
-station-event-ion-storm-start-announcement = Вблизи станции обнаружен ионный шторм. Пожалуйста, проверьте всё оборудование, управляемое ИИ, на наличие ошибок.
+station-event-ion-storm-start-announcement = Ионный шторм приближается к станции. Электромагнитные помехи могут нарушить работу оборудования и искусственного интеллекта.
 ion-storm-law-scrambled-number = [font="Monospace"][scramble rate=250 length={ $length } chars="@@###$$&%!01"/][/font]
 ion-storm-you = ВЫ
 ion-storm-the-station = СТАНЦИЯ

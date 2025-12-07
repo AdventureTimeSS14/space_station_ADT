@@ -5,7 +5,10 @@
   components:
   - type: StorageFill
     contents:
+      - id: ADTClothingEyesGlassesMed
+        orGroup: BrigmedicGlasses # Ganimed-Tweak
       - id: ClothingEyesHudMedSec
+        orGroup: BrigmedicGlasses # Ganimed-Tweak
       - id: WeaponDisabler
       - id: TrackingImplanter
         amount: 4
@@ -23,7 +26,7 @@
       - id: MedkitToxinFilled
         prob: 0.3
       - id: MedkitBurnFilled
-        prob: 0.7
+        prob: 0.4
       - id: BoxSyringe
       - id: BoxPillCanister
       - id: BoxBodyBag
@@ -38,7 +41,10 @@
   components:
   - type: StorageFill
     contents:
+      - id: ADTClothingEyesGlassesMed
+        orGroup: BrigmedicGlasses # Ganimed-Tweak
       - id: ClothingEyesHudMedSec
+        orGroup: BrigmedicGlasses # Ganimed-Tweak
       - id: WeaponDisabler
       - id: TrackingImplanter
         amount: 4
@@ -53,13 +59,15 @@
       - id: MedkitToxinFilled
         prob: 0.3
       - id: MedkitBurnFilled
-        prob: 0.7
+        prob: 0.4
       - id: ClothingNeckCloakMoth #bzzz Moth-pocalypse
-        prob: 0.15
+        prob: 0.05
       - id: ClothingOuterVestSecurityMedic # Corvax-Resprite
         prob: 0.5
+        orGroup: BrigmedicOuterClothing # Ganimed-Tweak
       - id: ClothingOuterCoatLabSecurityMedic # Corvax-Resprite
         prob: 0.5
+        orGroup: BrigmedicOuterClothing # Ganimed-Tweak
       - id: BoxSyringe
       - id: BoxPillCanister
       - id: BoxBodyBag
@@ -71,4 +79,3 @@
       - id: ADTBookSRPsec
       - id: ADTBookSRPmed
       - id: ADTBookPCDsec
-

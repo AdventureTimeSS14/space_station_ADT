@@ -3,22 +3,34 @@
   name: job-name-captain
   description: job-description-captain
   playTimeTracker: JobCaptain
+  requireAdminNotify: true # Ganimed Rules Tweak
   requirements:
-    - !type:DepartmentTimeRequirement
-      department: Engineering
-      time: 14400 # 4 hours
-    - !type:DepartmentTimeRequirement
-      department: Medical
-      time: 14400 # 4 hours
-    - !type:DepartmentTimeRequirement
-      department: Science
-      time: 14400 # 4 hours
+#    - !type:DepartmentTimeRequirement
+#      department: Engineering
+#      time: 14400 # 4 hours
+#    - !type:DepartmentTimeRequirement
+#      department: Medical
+#      time: 14400 # 4 hours
+#    - !type:DepartmentTimeRequirement
+#      department: Science
+#      time: 14400 # 4 hours
+    - !type:RoleTimeRequirement
+      role: JobHeadOfPersonnel
+      time: 18000 # 5 hrs Ganimed-RoleTime
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 14400 # 4 hours
+      time: 72000 # 20 hrs Ganimed-RoleTime
     - !type:DepartmentTimeRequirement
       department: Command
-      time: 14400 # 4 hours
+      time: 90000 # 25 hrs Ganimed-RoleTime
+    - !type:OverallPlaytimeRequirement
+      time: 360000 # 100 hrs Ganimed-RoleTime
+    - !type:TraitsRequirement # Ganimed-MRP: Captain must be proficient in communication
+      inverted: true
+      traits:
+#     - Monolingual
+      - Muted
+      - ADTDeaf
   # ADT Restrict Start
     - !type:SpeciesRequirement
       inverted: true
@@ -26,6 +38,8 @@
       - Resomi
       - Vox
   # ADT RESTRICT End
+    - !type:AgeRequirement # Ganimed-MRP
+      requiredAge: 24
   weight: 20
   startingGear: CaptainGear
   icon: "JobIconCaptain"
@@ -41,6 +55,7 @@
     components:
       - type: CommandStaff
       # - type: PhantomTyranyTarget # ADT Phantom
+      - type: AntagImmune # Ganimed-MRP: Loyalty implant
 
 - type: startingGear
   id: CaptainGear

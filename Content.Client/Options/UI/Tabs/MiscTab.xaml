@@ -9,6 +9,9 @@
                        StyleClasses="LabelKeyText"/>
                 <ui:OptionDropDown Name="DropDownHudTheme" Title="{Loc 'ui-options-hud-theme'}" />
                 <ui:OptionDropDown Name="DropDownHudLayout" Title="{Loc 'ui-options-hud-layout'}" />
+                <!-- Ganimed, EE - chat stacking -->
+                <ui:OptionDropDown Name="ChatStackLastLines" Title="{Loc 'ui-options-chatstack'}" />
+                <!-- Ganimed, EE - chat stacking -->
                 <Label Text="{Loc 'ui-options-general-discord'}"
                        StyleClasses="LabelKeyText"/>
                 <CheckBox Name="DiscordRich" Text="{Loc 'ui-options-discordrich'}" />

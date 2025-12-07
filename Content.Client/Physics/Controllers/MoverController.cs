@@ -7,7 +7,9 @@ using Content.Shared.Movement.Systems;
 using Robust.Client.Physics;
 using Robust.Client.Player;
 using Robust.Shared.Configuration;
+using Robust.Shared.Physics.Components;
 using Robust.Shared.Player;
+using Robust.Shared.Configuration;
 using Robust.Shared.Timing;
 
 namespace Content.Client.PhysicsSystem.Controllers;
@@ -89,7 +91,7 @@ public sealed class MoverController : SharedMoverController
     {
         base.UpdateBeforeSolve(prediction, frameTime);
 
-        if (_playerManager.LocalEntity is not {Valid: true} player)
+        if (_playerManager.LocalEntity is not { Valid: true } player)
             return;
 
         if (RelayQuery.TryGetComponent(player, out var relayMover))
@@ -113,7 +115,7 @@ public sealed class MoverController : SharedMoverController
     {
         return _timing is { IsFirstTimePredicted: true, InSimulation: true };
     }
-
+    
     public override void SetSprinting(Entity<InputMoverComponent> entity, ushort subTick, bool walking)
     {
         // Logger.Info($"[{_gameTiming.CurTick}/{subTick}] Sprint: {enabled}");
@@ -124,4 +126,5 @@ public sealed class MoverController : SharedMoverController
         else
             _alerts.ClearAlert(entity, WalkingAlert);
     }
+
 }

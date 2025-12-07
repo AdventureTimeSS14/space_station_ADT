@@ -32,6 +32,10 @@ public sealed partial class ResearchSystem
         if (!GetServers(uid).Contains((serveruid.Value, serverComponent)))
             return;
 
+        if (!GetServers(uid).Contains((serveruid.Value, serverComponent)))
+            return;
+        // Ganimed edit end
+
         UnregisterClient(uid, component);
         RegisterClient(uid, serveruid.Value, component, serverComponent);
     }
@@ -113,6 +117,8 @@ public sealed partial class ResearchSystem
         _uiSystem.SetUiState(uid, ResearchClientUiKey.Key, state);
     }
 
+    [Dependency] private readonly PowerReceiverSystem _power = default!; // ganimed edit 
+
     /// <summary>
     /// Tries to get the server belonging to a client
     /// </summary>
@@ -137,6 +143,14 @@ public sealed partial class ResearchSystem
 
         if (!TryComp(component.Server, out serverComponent))
             return false;
+
+        // ganimed edit start
+        if(!_power.IsPowered(uid))
+            return false;
+
+        if(!_power.IsPowered(component.Server.Value))
+            return false;
+        // ganimed edit end
 
         server = component.Server;
         return true;

@@ -1,0 +1,36 @@
+ent-ClothingUnderSocksWhite = белые носки
+   .desc = Куда пропал ещё один?
+ent-ClothingUnderSocksBlack = чёрные носки
+   .desc = { ent-ClothingUnderSocksWhite.desc }
+ent-ClothingUnderSocksBlue = синие носки
+   .desc = { ent-ClothingUnderSocksWhite.desc }
+ent-ClothingUnderSocksBrown = коричневые носки
+   .desc = { ent-ClothingUnderSocksWhite.desc }
+ent-ClothingUnderSocksGreen = зелёные носки
+   .desc = { ent-ClothingUnderSocksWhite.desc }
+ent-ClothingUnderSocksRed = красные носки
+   .desc = { ent-ClothingUnderSocksWhite.desc }
+ent-ClothingUnderSocksYellow = жёлтые носки
+   .desc = { ent-ClothingUnderSocksWhite.desc }
+
+ent-ClothingUnderSocksStockingsBee = полосатые чулки
+   .desc = От их вида хочется жжужжать. Ж-жу-жу-жу.
+ent-ClothingUnderSocksStockingsCentCom = чулки центкома
+   .desc = Их любят властные женщины и их игрушки.
+ent-ClothingUnderSocksStockingsDark = тёмные чулки
+   .desc = Тёмные и прозрачные, подчёркивают красоту ваших ног.
+ent-ClothingUnderSocksStockingsFishnets = клетчатые чулки
+   .desc = Клетчатые и прозрачные, подчёркивают красоту ваших ног.
+ent-ClothingUnderSocksStockingsHoS = чулки главы службы безопасности
+   .desc = Полосатые чулки, подчёркивают ваш статус и имплант лояльности.
+ent-ClothingUnderSocksStockingsWhite = светлые чулки
+   .desc = Светлые и прозрачные, подчёркивают красоту ваших ног.
+ent-ClothingUnderSocksStockingsSky = светлые полосатые чулки
+   .desc = Светлые и непрозрачные, подчёркивают красоту ваших ног. Они в толстую полосочку.
+ent-ClothingUnderSocksStockingsCat = чулки с ушками
+   .desc = С ушками и в полосочку, подчёркивают ваше желание замурчать.	
+
+ent-ClothingUnderSocksLongDark = тёмные гольфы
+   .desc = Длинные и тёмные гольфы. Они призваны подчеркнуть элегантность ваших ног.
+ent-ClothingUnderSocksLongWhite = светлые гольфы
+   .desc = Длинные и светлые гольфы. Они призваны подчеркнуть элегантность ваших ног.

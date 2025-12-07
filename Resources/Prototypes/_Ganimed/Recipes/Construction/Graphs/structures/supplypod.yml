@@ -1,0 +1,30 @@
+- type: constructionGraph
+  id: SupplyPod
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: SupplyPod
+          completed:
+            - !type:SnapToGrid
+              southRotation: true
+          steps:
+            - material: Steel
+              amount: 3
+              doAfter: 1
+
+    - node: SupplyPod
+      entity: SupplyPodCapsuleDefault
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 3
+            - !type:EmptyAllContainers
+            - !type:DeleteEntity {}
+          steps:
+            - tool: Welding
+              doAfter: 2
+            - tool: Screwing
+              doAfter: 1

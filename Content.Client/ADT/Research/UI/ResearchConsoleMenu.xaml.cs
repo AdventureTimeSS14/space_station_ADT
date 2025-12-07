@@ -163,7 +163,7 @@ public sealed partial class ResearchConsoleMenu : FancyWindow
         _research = _entity.System<ResearchSystem>();
         _sprite = _entity.System<SpriteSystem>();
         _accessReader = _entity.System<AccessReaderSystem>();
-        StaticSprite.SetFromSpriteSpecifier(new SpriteSpecifier.Rsi(new("ADT/Interface/rnd-static.rsi"), "static"), new(2));
+        StaticSprite.SetFromSpriteSpecifier(new SpriteSpecifier.Rsi(new("_Ganimed/Interface/rnd"), "screen_black"), new(2)); // Ganimed edit
 
         ServerButton.OnPressed += _ => OnServerButtonPressed?.Invoke();
         DragContainer.OnKeyBindDown += args => OnKeybindDown(args);

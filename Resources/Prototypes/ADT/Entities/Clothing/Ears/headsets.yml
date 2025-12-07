@@ -14,6 +14,8 @@
       - EncryptionKeyCentCom
   - type: Sprite
     sprite: Clothing/Ears/Headsets/servicesecurity.rsi
+  - type: Headset # ganimed edit
+    radioTextIncrease: 3
 
 - type: entity
   parent: ClothingHeadset

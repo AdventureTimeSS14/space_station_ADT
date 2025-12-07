@@ -1,0 +1,168 @@
+# Agzamov
+- type: entity
+  parent: Stunbaton
+  id: StunbatonAgzamov
+  name: Agzamov stun baton
+  description: A stun baton for incapacitating people with. Actively harming with this is considered bad tone.
+  suffix: Sponsor, Agzamov
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Personalization/Objects/agzamov_stunbaton.rsi
+    layers:
+    - state: stunbaton_off
+    - state: stunbaton_on
+      visible: false
+      map: [ "enum.ToggleableVisuals.Layer" ]
+    - state: stunbaton_on_light
+      shader: unshaded
+      visible: false
+      map: [ "light" ]
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Blunt: 5
+    bluntStaminaDamageFactor: 2.0
+    angle: 60
+    animation: WeaponArcThrust
+  - type: StaminaDamageOnCollide
+    damage: 25
+    sound: /Audio/Weapons/egloves.ogg
+  - type: Item
+    size: Small
+  - type: ItemToggleSize
+    activatedSize: Huge
+  - type: Clothing
+    sprite: _Ganimed/Personalization/Objects/agzamov_stunbaton.rsi
+    quickEquip: false
+    slots:
+    - Belt
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleableVisuals.Enabled:
+        enum.ToggleableVisuals.Layer:
+          True: { visible: true }
+          False: { visible: false }
+  - type: ToggleableLightVisuals
+    spriteLayer: light
+    inhandVisuals:
+      left:
+      - state: inhand-left-light
+        shader: unshaded
+      right:
+      - state: inhand-right-light
+        shader: unshaded
+  - type: PointLight
+    enabled: false
+    radius: 1.1
+    energy: 0.5
+    color: "#FF3D3D"
+    netsync: false
+  - type: ItemTogglePointLight
+
+# As04ka
+- type: entity
+  parent: BaseKnife
+  id: ShipKnife
+  name: Ship knife
+  description: This blood-red knife is very aerodynamic and easy to throw, but good luck trying to fight someone hand-to-hand.
+  suffix: Sponsor, As04ka
+  components:
+  - type: Tag
+    tags:
+    - CombatKnife
+    - Knife
+  - type: Sprite
+    sprite: _Ganimed/Personalization/Objects/ship_knife.rsi
+    state: icon
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    attackRate: 2
+    damage:
+      types:
+        Slash: 5
+  - type: EmbeddableProjectile
+    sound: /Audio/Weapons/star_hit.ogg
+    offset: -0.15,0.0
+  - type: LandAtCursor
+  - type: DamageOtherOnHit
+    ignoreResistances: true
+    damage:
+      types:
+        Slash: 5
+        Piercing: 15
+  - type: Item
+    sprite: _Ganimed/Personalization/Objects/ship_knife.rsi
+  - type: ThrowingAngle
+    angle: 225
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - neck
+
+# Safno_S
+- type: entity
+  parent: Stunbaton
+  id: KatanaStunHoSSafno
+  name: electric katana
+  description: An electrified wakizashi short sword with excellent incapacitating capabilities due to its smaller striking surface. The hilt bears the initials of the owner and the craftsman which are oddly intertwined in some parts.
+  suffix: Sponsor, Safno_S
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Personalization/Objects/safno_stun_katana.rsi
+  - type: MeleeWeapon
+    wideAnimationRotation: 90
+    swingLeft: true
+  - type: Clothing
+    sprite: _Ganimed/Personalization/Objects/safno_stun_katana.rsi
+  - type: Item
+    storedRotation: -90
+    shape:
+    - 0,0,0,3
+  - type: Tag
+    tags:
+    - Katana
+  - type: StaticPrice
+    price: 300
+
+- type: entity
+  parent: CombatKnife
+  id: KatanaLethalHoSSafno
+  name: heat-resistant katana
+  description: A katana forged from particularly robust and heat-resistant alloys, capable of withstanding extreme stresses and temperatures. An excellent choice against energy weapons.
+  suffix: Sponsor, Safno_S
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Personalization/Objects/safno_lethal_katana.rsi
+  - type: MeleeWeapon
+    wideAnimationRotation: 90
+    swingLeft: true
+  - type: Clothing
+    sprite: _Ganimed/Personalization/Objects/safno_lethal_katana.rsi
+    quickEquip: false
+    slots:
+    - Belt
+    - Suitstorage
+  - type: Item
+    sprite: _Ganimed/Personalization/Objects/safno_lethal_katana.rsi
+    storedRotation: -90
+    storedSprite:
+      state: icon
+      sprite: _Ganimed/Personalization/Objects/safno_lethal_katana.rsi
+    size: Normal
+    shape:
+    - 0,0,0,3
+  - type: Reflect
+    reflects:
+    - Energy
+    slotFlags:
+    - NONE
+    reflectProb: 0.02
+    spread: 90
+  - type: ThrowingAngle
+    angle: 90
+  - type: Tag
+    tags:
+    - Katana
+  - type: StaticPrice
+    price: 300

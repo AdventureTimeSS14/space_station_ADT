@@ -5,19 +5,22 @@
   playTimeTracker: JobSecurityCadet
   requirements:
     - !type:OverallPlaytimeRequirement
-      time: 54000 #15 hrs # ADT-RoleTime
-    - !type:DepartmentTimeRequirement
-      department: Security
-      time: 72000 #20 hrs # Corvax-RoleTime
-      inverted: true # stop playing intern if you're good at security!
-# ADT Restrict Start
-    - !type:SpeciesRequirement
+      time: 36000 #10 hrs Ganimed-RoleTime
+#    - !type:DepartmentTimeRequirement
+#      department: Security
+#      time: 72000 #20 hrs # Corvax-RoleTime
+#      inverted: true # stop playing intern if you're good at security!
+#    ADT Restrict Start
+#    - !type:SpeciesRequirement # Ganimed-Tweak
+#      inverted: true
+#      species:
+#      - Resomi
+#      - Vox
+#      - Shadekin
+#    ADT RESTRICT End
+    - !type:AgeRequirement
       inverted: true
-      species:
-      - Resomi
-      - Vox
-      - Shadekin
-    # ADT RESTRICT End
+      requiredAge: 100 # Ganimed-MRP
   startingGear: SecurityCadetGear
   icon: "JobIconSecurityCadet"
   supervisors: job-supervisors-security
@@ -26,6 +29,7 @@
   - Security
   - Brig
   - Maintenance
+  extendedAccess: # Ganimed Tweak: Cadet access
   - Service
   - External
   - Cryogenics
@@ -45,7 +49,7 @@
     ears: ClothingHeadsetSecurity
     belt: ClothingBeltSecurityFilled
     pocket1: WeaponPistolMk58
-    pocket2: ADTBookSpaceLaw #ADT-WikiBooks
+    pocket2: BookSecurity # Ganimed-Tweak
   storage:
     back:
     - Flash

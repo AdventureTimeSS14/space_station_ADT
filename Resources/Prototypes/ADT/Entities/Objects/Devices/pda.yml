@@ -767,14 +767,14 @@
 
 # HoS
 
-- type: entity
-  parent: HoSPDA
-  id: ADTSheriffPDA
-  name: sheriff PDA
-  description: Stand down cowboy.
-  components:
-  - type: Pda
-    id: ADTSheriffIDCard
+# - type: entity # Ganimed-MRP
+#  parent: HoSPDA
+#  id: ADTSheriffPDA
+#  name: sheriff PDA
+#  description: Stand down cowboy.
+#  components:
+#  - type: Pda
+#    id: ADTSheriffIDCard
 
 # Lawyer
 

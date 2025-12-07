@@ -1,0 +1,476 @@
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitCommandCaptain
+  name: captain command jumpsuit
+  description: Black suit with gold shoulder straps.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Uniforms/Jumpsuit/captain_command.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Uniforms/Jumpsuit/captain_command.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitCaptainWhite
+  name: white captain jumpsuit
+  description: Captain white jumpsuit symbolizes that your salary is clearly above the norm.
+  components:
+    - type: Sprite
+      sprite: _Ganimed/Clothing/Uniforms/Jumpsuit/captain_white.rsi
+    - type: Clothing
+      sprite: _Ganimed/Clothing/Uniforms/Jumpsuit/captain_white.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitBridgeOfficer
+  name: bridge officer uniform
+  description: More stylish than advanced, this formal suit serves as a great display of power.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Uniforms/Jumpsuit/bridgeofficer.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Uniforms/Jumpsuit/bridgeofficer.rsi
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitJumpsuitOfficerDark
+  name: officer's dark jumpsuit
+  description: Pretty nice formal suit made with elastic materials.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Uniforms/Jumpsuit/bridge_officer_jumpsuit.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Uniforms/Jumpsuit/bridge_officer_jumpsuit.rsi
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitCargoPostal
+  name: postal jumpsuit
+  description: A sturdy jumpskirt, issued to members of the Cargo department for postal work.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Uniforms/Jumpsuit/cargopostal.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Uniforms/Jumpsuit/cargopostal.rsi
+
+- type: entity # Backmen
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitDetectiveGrayAlt
+  name: grey detective's suit
+  description: A gray detective suit, smells of mystery!
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Uniforms/Jumpsuit/dec.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Uniforms/Jumpsuit/dec.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitSecEngineer
+  name: security engineering jumpsuit
+  description: The jumpsuit is made of durable material providing robust protection.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Uniforms/Jumpsuit/security_engineer.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Uniforms/Jumpsuit/security_engineer.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitCentcomOfficialRegular
+  name: dark-green centcom suit
+  description: Regular dark-mint uniform, worn by mid-ranking Central Command officials. Respectable, but not at all glamorous.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Uniforms/Jumpsuit/centcom_uni.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Uniforms/Jumpsuit/centcom_uni.rsi
+
+#- type: entity
+#  parent: ClothingUniformBase
+#  id: ClothingUniformJumpsuitBlueshields
+#  name: костюм офицера синего щита
+#  description: Тот, кто носит это, говорит о деле.
+#  components:
+#  - type: Sprite
+#    sprite: _Ganimed/Clothing/Uniforms/Jumpsuit/blueshild-jumpsuit.rsi
+#  - type: Clothing
+#    sprite: _Ganimed/Clothing/Uniforms/Jumpsuit/blueshild-jumpsuit.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitCoroner
+  name: coroner jumpsuit
+  description: A special modification of the medical doctor uniform. Its wearer can be easily denoted as a trained post-mortem professional.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Uniforms/Jumpsuit/coroner.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Uniforms/Jumpsuit/coroner.rsi
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitCoronerBlack
+  name: black coroner jumpsuit
+  description: Total overhaul vastly different from the usual coroner uniform. Personel freak out when they can't see you from the shadows.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Uniforms/Jumpsuit/blackcoroner.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Uniforms/Jumpsuit/blackcoroner.rsi
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitBrigmedicBlack
+  name: black brigmedic jumpsuit
+  description: Total overhaul vastly different from the usual brigmedic uniform. It is generally a bad idea to be bright if you are on a battlefield.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Uniforms/Jumpsuit/blackbrigmedic.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Uniforms/Jumpsuit/blackbrigmedic.rsi
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitMilitary
+  name: military jumpsuit
+  description: An outdated tactical camouflage suit. They say designs like this are of common use with the socialists.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Uniforms/Jumpsuit/military.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Uniforms/Jumpsuit/military.rsi
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitGoldenEra
+  name: golden era uniform
+  description: Heavily stylish orange suit with a coat decorated in gold and an interiour vital organs protection.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Uniforms/Jumpsuit/goldenerasuit.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Uniforms/Jumpsuit/goldenerasuit.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.85
+        Piercing: 0.85
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitTSF
+  name: TSF navy jumpsuit
+  description: It looks technologically advanced.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Uniforms/Jumpsuit/TSF/tsf.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Uniforms/Jumpsuit/TSF/tsf.rsi
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitTSFCommander
+  name: TSF commander jumpsuit
+  description: It looks technologically advanced.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Uniforms/Jumpsuit/TSF/tsf_captain.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Uniforms/Jumpsuit/TSF/tsf_captain.rsi
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+  - type: Armor
+    modifiers:
+      coefficients:
+        Heat: 0.95
+        Piercing: 0.95
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitUSSP
+  name: USSP jumpsuit
+  description: It looks like something communist.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Uniforms/Jumpsuit/USSP/ussp_form.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Uniforms/Jumpsuit/USSP/ussp_form.rsi
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitUSSPCommander
+  name: USSP commander jumpsuit
+  description: It looks like something very communist.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Uniforms/Jumpsuit/USSP/ussp_form_commander.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Uniforms/Jumpsuit/USSP/ussp_form_commander.rsi
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitSalvageSpecialistAlt
+  name: grimy shaft miner's jumpsuit
+  description: Salvager's jumpsuit with a sturdy set of dark overalls. It's very dirty and covered with cosmic dust and ash.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Uniforms/Jumpsuit/alt_salvage.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Uniforms/Jumpsuit/alt_salvage.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitRndAlt
+  name: science professor's suit
+  description: A very classy suit, most likely a property of a science professor.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Uniforms/Jumpsuit/alt_rnd.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Uniforms/Jumpsuit/alt_rnd.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitShortsleeveSuit
+  name: short-sleeve suit
+  description: I don't lose things. I place things in locations which later elude me.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Uniforms/Jumpsuit/alt_psychologist.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Uniforms/Jumpsuit/alt_psychologist.rsi
+
+# Old/Original
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitPsychologistOriginal
+  name: psychologist suit
+  description: I don't lose things. I place things in locations which later elude me.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Uniforms/Jumpsuit/original_psychologist.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Uniforms/Jumpsuit/original_psychologist.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitCentcomOfficialOriginal
+  name: CentCom official's formal jumpsuit
+  description: It's a formal and tasteless jumpsuit worn by CentCom's officials.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Uniforms/Jumpsuit/original_centcom_official.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Uniforms/Jumpsuit/original_centcom_official.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitCentcomOfficerOriginal
+  name: CentCom officer's mint jumpsuit
+  description: It's a mint-colored jumpsuit worn by CentCom Officers.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Uniforms/Jumpsuit/original_centcom_officer.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Uniforms/Jumpsuit/original_centcom_officer.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitHoSOriginal
+  name: head of security's colorful jumpsuit
+  description: It's even redder and even crisper, perfect for a not-so-cheerful head.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Uniforms/Jumpsuit/original_hos.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Uniforms/Jumpsuit/original_hos.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitHoSParadeMaleOriginal
+  name: head of security's parade uniform
+  description: A male head of security's luxury-wear, for special occasions.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Uniforms/Jumpsuit/original_hos_parade.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Uniforms/Jumpsuit/original_hos_parade.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitBrigmedicOriginal
+  name: medical-security jumpsuit
+  description: This simple in design uniform is issued to personal with affinities to both medical and security. Strange choice of patterns nonetheless.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Uniforms/Jumpsuit/original_brigmedic.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Uniforms/Jumpsuit/original_brigmedic.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitScientistOriginal
+  name: scientist's plain jumpsuit
+  description: It's a less decorated scientist jumpsuit. It has minor markings that denote the wearer as a scientist.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Uniforms/Jumpsuit/original_scientist.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Uniforms/Jumpsuit/original_scientist.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformOverallsOriginal
+  name: green and blue overalls
+  description: Still great for working outdoors.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Uniforms/Jumpsuit/original_overalls.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Uniforms/Jumpsuit/original_overalls.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitAtmosCasualOriginal
+  name: atmospheric technician's casual jumpsuit
+  description: Now that is a jumpsuit in its own right. Not a cheap boy worker uniform.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Uniforms/Jumpsuit/original_atmos_casual.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Uniforms/Jumpsuit/original_atmos_casual.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitERTEngineerOriginal
+  name: ERT black engineering uniform
+  description: A black and tactical version of the special suit made for the elite engineers under CentCom.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Uniforms/Jumpsuit/original_ert_engineer.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Uniforms/Jumpsuit/original_ert_engineer.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Radiation: 0.8
+        Heat: 0.9
+    staminaModifier: 0.9
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitERTJanitorOriginal
+  name: ERT black janitorial uniform
+  description: A black and tactical version of the special suit made for the elite janitors under CentCom.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Uniforms/Jumpsuit/original_ert_janitor.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Uniforms/Jumpsuit/original_ert_janitor.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Caustic: 0.9
+    staminaModifier: 0.9
+        
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitERTLeaderOriginal
+  name: ERT black leader uniform
+  description: A black and tactical version of the special suit made for the best of the elites under CentCom.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Uniforms/Jumpsuit/original_ert_leader.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Uniforms/Jumpsuit/original_ert_leader.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.8
+    staminaModifier: 0.9
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitERTMedicOriginal
+  name: ERT black medical uniform
+  description: A black and tactical version of the special suit made for the elite medics under CentCom.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Uniforms/Jumpsuit/original_ert_medic.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Uniforms/Jumpsuit/original_ert_medic.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Heat: 0.9
+        Caustic: 0.9
+    staminaModifier: 0.9
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitERTSecurityOriginal
+  name: ERT black security uniform
+  description: A black and tactical version of the special suit made for the elite security under CentCom.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Uniforms/Jumpsuit/original_ert_security.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Uniforms/Jumpsuit/original_ert_security.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.8
+    staminaModifier: 0.9
+
+- type: entity
+  parent: [ClothingUniformBase, BaseCommandContraband]
+  id: ClothingUniformJumpsuitCaptainParadeMale
+  name: captain's parade uniform
+  description: Captain's luxury-wear, for special occasions.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Uniforms/Jumpsuit/original_capformal.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Uniforms/Jumpsuit/original_capformal.rsi

@@ -21,9 +21,9 @@
     ears: ClothingHeadsetScience
     belt: ClothingBeltUtilityFilled
     pocket1: AnomalyLocatorEmpty
-  storage:
-    back:
-    - ADTHumanCubeWrapped #ADT-CustomADTLoadout
+  # storage:
+  #   back:
+  #   - ADTHumanCubeWrapped #ADT-CustomADTLoadout # Ganimed-Remove
 
 - type: chameleonOutfit
   id: ADTSeniorResearcherChameleonOutfit

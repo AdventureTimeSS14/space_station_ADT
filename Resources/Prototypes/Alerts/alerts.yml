@@ -13,9 +13,9 @@
     - alertType: Ensnared
     - category: Buckled
     - alertType: Pulling
+    - alertType: Walking
     - alertType: ADTPulling # ADT Grab
     - alertType: ADTPulled  # ADT Grab
-    - alertType: Walking
     - category: Piloting
     - alertType: Corporeal
     - alertType: Stun

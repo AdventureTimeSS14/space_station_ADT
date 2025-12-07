@@ -6,7 +6,7 @@
   # ADT-Tweak-start
   requirements:
     - !type:OverallPlaytimeRequirement
-      time: 10800 #3 hrs
+      time: 3600 #1 hr #Ganimed-RoleTime
   # ADT-tweak-end
   startingGear: PsychologistGear
   icon: "JobIconPsychologist"

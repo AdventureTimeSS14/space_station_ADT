@@ -350,7 +350,7 @@
   table: !type:AllSelector
     children:
     - id: ClothingMaskBreath
-    - id: ClothingOuterHardsuitRd
+    - id: ClothingModsuitBackRD
     - id: OxygenTankFilled
 
 # No hardsuit locker

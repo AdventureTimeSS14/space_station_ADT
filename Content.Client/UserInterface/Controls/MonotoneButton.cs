@@ -14,7 +14,6 @@ public sealed class MonotoneButton : Button
     /// </summary>
     [ViewVariables]
     public Color AltTextColor { set; get; } = new Color(0.2f, 0.2f, 0.2f);
-
     public MonotoneButton()
     {
         RemoveStyleClass("button");

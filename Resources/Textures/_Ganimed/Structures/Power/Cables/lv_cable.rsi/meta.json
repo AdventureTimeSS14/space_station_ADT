@@ -1,0 +1,75 @@
+{
+    "version": 1,
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+	"license": "CC-BY-SA-3.0",
+	"copyright": "Taken from Lost Paradise at commit https://github.com/Lost-Paradise-Project/Lost-Paradise/commit/d6ce9a8a6ee39f5a9fb1671d738af216d26f313c, modified by HyperB1 (GitHub)",
+    "states": [
+        {
+            "name": "lvcable_0"
+
+        },
+        {
+            "name": "lvcable_1"
+
+        },
+        {
+            "name": "lvcable_2"
+
+        },
+        {
+            "name": "lvcable_3"
+
+        },
+        {
+            "name": "lvcable_4"
+
+        },
+        {
+            "name": "lvcable_5"
+
+        },
+        {
+            "name": "lvcable_6"
+
+        },
+        {
+            "name": "lvcable_7"
+
+        },
+        {
+            "name": "lvcable_8"
+
+        },
+        {
+            "name": "lvcable_9"
+
+        },
+        {
+            "name": "lvcable_10"
+
+        },
+        {
+            "name": "lvcable_11"
+
+        },
+        {
+            "name": "lvcable_12"
+
+        },
+        {
+            "name": "lvcable_13"
+
+        },
+        {
+            "name": "lvcable_14"
+
+        },
+        {
+            "name": "lvcable_15"
+
+        }
+    ]
+}

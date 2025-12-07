@@ -1,0 +1,63 @@
+- type: entity
+  parent: FoodProduceBase
+  id: FoodCucumber
+  name: cucumber
+  description: Prickly and juicy.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - water
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 14
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 7
+        - ReagentId: Vitamin
+          Quantity: 1
+        - ReagentId: Water
+          Quantity: 4
+  - type: Sprite
+    sprite: _Ganimed/Objects/Specific/Hydroponics/cucumber.rsi
+  - type: Produce
+    seedId: cucumber
+  - type: Tag
+    tags:
+    - Fruit
+    - Vegetable
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Blunt: 1
+  - type: FoodSequenceElement
+    entries:
+      Burger: CucumberBurger
+      Taco: Cucumber
+
+- type: entity
+  parent: FoodCucumber
+  id: FoodShashamber
+  name: shashamber
+  description: Whocumber?
+  components:
+  - type: FlavorProfile
+    flavors:
+      - water
+      - strange
+    ignoreReagents:
+      - Cryptobiolin
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 14
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 7
+        - ReagentId: Cryptobiolin
+          Quantity: 7
+  - type: Sprite
+    sprite: _Ganimed/Objects/Specific/Hydroponics/shashamber.rsi
+  - type: Produce
+    seedId: shashamber

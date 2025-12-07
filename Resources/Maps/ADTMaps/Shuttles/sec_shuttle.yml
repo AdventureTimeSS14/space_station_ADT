@@ -226,7 +226,7 @@ entities:
           - 0
         chunkSize: 4
     - type: GasTileOverlay
-- proto: ADTPoweredShuttleLightLED
+- proto: AlwaysPoweredWallLight
   entities:
   - uid: 219
     components:

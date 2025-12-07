@@ -8,6 +8,9 @@ using Content.Shared.Interaction.Events;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Random;
+using Robust.Shared.Utility; // Ganimed edit
+using Content.Server.Forensics; // Ganimed edit
+using Content.Server.Forensics.Components; // Ganimed edit
 using static Content.Shared.Storage.EntitySpawnCollection;
 
 namespace Content.Server.Storage.EntitySystems
@@ -20,6 +23,7 @@ namespace Content.Server.Storage.EntitySystems
         [Dependency] private readonly PricingSystem _pricing = default!;
         [Dependency] private readonly SharedAudioSystem _audio = default!;
         [Dependency] private readonly SharedTransformSystem _transform = default!;
+        [Dependency] private readonly ForensicsSystem _forensicsSystem = default!; // Ganimed edit
 
         public override void Initialize()
         {
@@ -74,9 +78,26 @@ namespace Content.Server.Storage.EntitySystems
             var spawnEntities = GetSpawns(component.Items, _random);
             EntityUid? entityToPlaceInHands = null;
 
-            foreach (var proto in spawnEntities)
+            // Ganimed edit start
+            for (int i = 0; i < spawnEntities.Count; i++)
             {
+                var proto = spawnEntities[i];
                 entityToPlaceInHands = Spawn(proto, coords);
+
+                if (i < component.Items.Count && component.Items[i].InheritParentForensics)
+                {
+                    if (TryComp<ForensicsComponent>(uid, out var parentForensics))
+                    {
+                        if (!TryComp<ForensicsComponent>(entityToPlaceInHands.Value, out var childForensics))
+                        {
+                            childForensics = EntityManager.AddComponent<ForensicsComponent>(entityToPlaceInHands.Value);
+                        }
+
+                        _forensicsSystem.CopyForensicsFrom(parentForensics, entityToPlaceInHands.Value);
+                    }
+                }
+            // Ganimed edit end
+
                 _adminLogger.Add(LogType.EntitySpawn, LogImpact.Low, $"{ToPrettyString(args.User)} used {ToPrettyString(uid)} which spawned {ToPrettyString(entityToPlaceInHands.Value)}");
             }
 

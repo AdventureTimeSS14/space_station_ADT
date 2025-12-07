@@ -1,0 +1,10 @@
+- type: entity
+  parent: BaseTranslatorImplant
+  id: NeoRusskiyaTranslatorImplant
+  name: translator implant
+  # description: This implant grants language knowledge.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TranslatorImplant
+    languages:
+      NeoRusskiya: Speak

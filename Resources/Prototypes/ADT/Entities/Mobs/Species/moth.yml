@@ -75,7 +75,7 @@
   - type: Sprite # sprite again because we want different layer ordering
     noRot: true
     drawdepth: Mobs
-    scale: 0.93, 0.93
+    scale: 0.95, 0.95 # Ganimed-Tweak
     layers:
       - map: [ "enum.HumanoidVisualLayers.Chest" ]
       - map: [ "enum.HumanoidVisualLayers.Head" ]
@@ -117,8 +117,8 @@
       - map: [ "ears" ]
       - map: [ "outerClothing" ]
       - map: [ "eyes" ]
-      - map: [ "belt" ]
       - map: [ "id" ]
+      - map: [ "belt" ]
       - map: [ "enum.HumanoidVisualLayers.Tail" ] #in the utopian future we should probably have a wings enum inserted here so everyhting doesn't break
       - map: [ "neck" ]
       - map: [ "back" ]

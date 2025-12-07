@@ -93,7 +93,8 @@
   components:
   - type: FlavorProfile
     flavors:
-      - ADTSawdust
+      - rice
+      - meaty
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/Baked/uzber_plow.rsi
     layers:
@@ -102,14 +103,14 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 21
+        maxVol: 20
         reagents:
         - ReagentId: Nutriment
-          Quantity: 3
+          Quantity: 8
         - ReagentId: Vitamin
           Quantity: 3
-        - ReagentId: Water
-          Quantity: 15
+        - ReagentId: Protein
+          Quantity: 5
 
 - type: entity
   name: chesnechka

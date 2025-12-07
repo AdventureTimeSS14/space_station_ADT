@@ -124,7 +124,7 @@
     bulb: Bulb
     color: "#fffcf8" # ADT-Sound-Update
     lightEnergy: 1.0
-    lightRadius: 5 # ADT-Sound-Update
+    lightRadius: 6
     lightSoftness: 1.1
   - type: Tag
     tags:
@@ -232,12 +232,10 @@
   description: A light fixture.
   components:
   - type: LightBulb
-    # ADT-Sound-Update-Start
-    color: "#FAFFFF" # 5000K color temp
-    lightEnergy: 0.9
-    lightRadius: 7
-    lightSoftness: 2.2
-    # ADT-Sound-Update-End
+    color: "#FFE4CE" # 5000K color temp
+    lightEnergy: 0.8
+    lightRadius: 10
+    lightSoftness: 1
     PowerUse: 25
 
 - type: entity
@@ -247,12 +245,10 @@
   description: An aging light fixture.
   components:
   - type: LightBulb
-    # ADT-Sound-Update-Start
-    color: "#FFEEE0" # old fluorescents are yellower-4500K temp
-    lightEnergy: 0.4
-    lightRadius: 8
-    lightSoftness: 1.5
-    # ADT-Sound-Update-End
+    color: "#FFDABB" # old fluorescents are yellower-4500K temp
+    lightEnergy: 0.5
+    lightRadius: 10
+    lightSoftness: 1
     PowerUse: 10
 
 - type: entity
@@ -273,11 +269,9 @@
   components:
   - type: LightBulb
     color: "#EEEEFF"
-    # ADT-Sound-Update-Start
-    lightEnergy: 1.1
-    lightRadius: 11
-    lightSoftness: 2.2
-    # ADT-Sound-Update-End
+    lightEnergy: 1
+    lightRadius: 15
+    lightSoftness: 0.9
     BurningTemperature: 350
     PowerUse: 12
 

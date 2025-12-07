@@ -393,20 +393,21 @@
     highPressureMultiplier: 0.2
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
-    damageCoefficient: 0.4
+    damageCoefficient: 0.3
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.6
-        Slash: 0.6
-        Piercing: 0.45
-        Heat: 0.6
-        Radiation: 0.8
+        Blunt: 0.35
+        Slash: 0.4
+        Piercing: 0.4
+        Heat: 0.4
+        Radiation: 0.4
         Caustic: 0.75
   - type: StaminaResistance
     damageCoefficient: 0.6
   - type: ClothingSpeedModifier
-    sprintModifier: 0.75
+    sprintModifier: 0.8
+    walkModifier: 0.8
   - type: ToggleableClothing
     clothingPrototype: ADTClothingHeadHelmetHardsuitOBS7USSP
 
@@ -424,20 +425,21 @@
     highPressureMultiplier: 0.2
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
-    damageCoefficient: 0.3
+    damageCoefficient: 0.2
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.6
-        Slash: 0.6
+        Blunt: 0.5
+        Slash: 0.55
         Piercing: 0.45
-        Heat: 0.6
-        Radiation: 0.8
+        Heat: 0.7
+        Radiation: 0.5
         Caustic: 0.75
   - type: StaminaResistance
     damageCoefficient: 0.6
   - type: ClothingSpeedModifier
     sprintModifier: 0.75
+    walkModifier: 0.75
   - type: ToggleableClothing
     clothingPrototype: ADTClothingHeadHelmetHardsuitOBS5USSP
 

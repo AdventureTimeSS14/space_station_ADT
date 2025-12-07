@@ -15,4 +15,20 @@ public sealed partial class HeadsetComponent : Component
 
     [DataField("requiredSlot")]
     public SlotFlags RequiredSlot = SlotFlags.EARS;
+
+    /// <summary>
+    ///     Ganimed edit
+    ///     Determines how much larger the radio message font size will be.
+    ///     Only applied if RadioBoostEnabled is true.
+    /// </summary>
+    [DataField]
+    public int? RadioTextIncrease { get; set; } = 0;
+
+    /// <summary>
+    ///     Whether radio font size boost is currently active.
+    /// </summary>
+    [DataField]
+    public bool RadioBoostEnabled = false;
+    /// Ganimed edit end
 }
+

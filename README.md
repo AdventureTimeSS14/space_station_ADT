@@ -1,37 +1,59 @@
-<div class="header" align="center">  
-<img alt="Space Station 14" width="880" height="300" src="https://raw.githubusercontent.com/space-wizards/asset-dump/de329a7898bb716b9d5ba9a0cd07f38e61f1ed05/github-logo.svg">  
+<p align="center">
+  <img alt="Space Station 14" width="650" src="https://github.com/ss14-ganimed/Ganimed14/blob/master/Resources/Textures/_Ganimed/Logo/logo-ganimed.png" />
+</p>
+
+<div align="center">
+
+  [![Discord](https://img.shields.io/discord/1203769510599856138?label=Join%20our%20Discord&logo=discord&logoColor=white&style=for-the-badge)](https://discord.com/invite/nCn5F3kNyH)
+  [![Wiki](https://img.shields.io/badge/Wiki-Explore%20Our%20Wiki-blue?style=for-the-badge)](https://station-enterprise.space/)
+  [![Steam](https://img.shields.io/badge/Steam-Play%20on%20Steam-blue?style=for-the-badge)](https://store.steampowered.com/app/1255460/Space_Station_14/)
+  [![Client](https://img.shields.io/badge/Download-Client-blue?style=for-the-badge)](https://spacestation14.io/about/nightlies/)
+  [![GitHub](https://img.shields.io/github/stars/ss14-ganimed/ganimed14?style=for-the-badge&logo=github)](https://github.com/ss14-ganimed/Ganimed14)
+
 </div>
 
-# Adventure Time: Space Station 14
+<p align="center">
+  <img src="https://img.shields.io/github/commit-activity/y/ss14-ganimed/ganimed14?style=flat-square" alt="GitHub commit activity">
+  <img src="https://img.shields.io/github/issues/ss14-ganimed/ganimed14?style=flat-square" alt="GitHub Issues">
+  <img src="https://img.shields.io/github/issues-pr-closed/ss14-ganimed/ganimed14?style=flat-square" alt="GitHub Closed PRs">
+</p>
 
-Space Station 14 это ремейк SS13, который работает на собственном движке [Robust Toolbox](https://github.com/space-wizards/RobustToolbox), написанном на C#.
+---
 
-Adventure Time - это проект русскоязычного сервера по Space Station 14, целью которого является полный перевод игры на русский язык, поддержка актуальных изменений из основного репозитория, а так же добавление собственных изменений по необходимости.
+## 🚀 О проекте 
 
-## Ссылки
-[Наш Discord](https://discord.gg/NY3KDNuH9r) | [Наша вики](https://wiki.adventurestation.space/Заглавная_страница) | [Steam](https://store.steampowered.com/app/1255460/Space_Station_14/) | [Клиент без Steam](https://spacestation14.io/about/nightlies/) | [Основной репозиторий](https://github.com/space-wizards/space-station-14)
+**Space Station 14** — это захватывающая ролевая игра, вдохновлённая культовой Space Station 13. 
+Погрузитесь в атмосферу космической станции, где каждое ваше действие может привести к неожиданным последствиям. 
+Наш проект предлагает:
 
-[Наш Discord](https://discord.station14.ru) | [Наша Вики](https://wiki.station14.ru) | [Steam](https://store.steampowered.com/app/1255460/Space_Station_14/) | [Клиент без Steam](https://spacestation14.io/about/nightlies/) | [Основной репозиторий](https://github.com/space-wizards/space-station-14)
+- Уникальный геймплей, поддерживаемый целым рядом сообществ.
+- Интенсивное взаимодействие игроков в замкнутом пространстве станции.
+- Постоянное развитие благодаря движку [Robust Toolbox](https://github.com/space-wizards/RobustToolbox), написанный на C#.
 
-## Документация
+---
 
-На официальном сайте с [документацией](https://docs.spacestation14.io/) имеется вся необходимая информация о контенте SS14, движке, дизайне игры и многом другом. Также имеется много информации для начинающих разработчиков.
+<p align="center">
+  <b>✨ Активность проекта</b>
+</p>
+<p align="center">
+  <i>Следите за динамикой проекта и вовлечённостью сообщества:</i>
+</p>
 
-## Контрибьют
+<div align="center">
 
-Мы рады принять вклад от любого человека. Заходите в Discord, если хотите помочь. У нас есть [список проблем](https://github.com/space-syndicate/space-station-14-content/issues), которые нужно решить, и любой может за них взяться. Не бойтесь просить о помощи!
-Только убедитесь, что ваши изменения и PRы соответствуют [руководству по контрибьюту](https://docs.spacestation14.com/en/general-development/codebase-info/pull-request-guidelines.html).
+![Активность PR](https://repobeats.axiom.co/api/embed/4ebb037939c72b15a842f7e154f3cba94e4bfa1a.svg "Repobeats analytics image")
 
-## Сборка
-1. Клонируйте этот репозиторий локально.
-2. Запустите RUN_THIS.py для инициализации подмодулей и загрузки движка.
-3. Скомпилируйте проект с помощью команды dotnet build. 
+</div>
 
-1. Склонируйте этот репозиторий локально
-2. Запустите `RUN_THIS.py` для инициализации подмодулей и скачивания движка.
-3. Скомпилируйте проект.
+---
 
-[Более подробная инструкция по запуску проекта.](https://docs.spacestation14.com/en/general-development/setup.html)
+## 🌐 Участники проекта
+
+Этот проект невозможен без усилий нашего сообщества. Вот те, кто внёс наибольший вклад:
+
+[![Участники](https://contrib.rocks/image?repo=ss14-ganimed/ganimed14)](https://github.com/ss14-ganimed/ganimed14/graphs/contributors)
+
+---
 
 ## Лицензия
 

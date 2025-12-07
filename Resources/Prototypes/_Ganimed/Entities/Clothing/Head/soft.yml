@@ -1,0 +1,32 @@
+- type: entity
+  parent: ClothingHeadHeadHatBaseFlippable
+  id: ClothingHeadHatCargoPostalsoft
+  name: postal cap
+  description: "It's a baseball hat painted in postal of Cargo colours."
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Head/Soft/cargopostalsoft.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Head/Soft/cargopostalsoft.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+    - HamsterWearable
+    - WhitelistChameleon
+
+- type: entity
+  parent: [ClothingHeadHeadHatBaseFlipped, ClothingHeadHatCargoPostalsoft]
+  id: ClothingHeadHatCargoPostalsoftFlipped
+  name: postal cap flipped
+  description: "It's a baseball hat painted in postal of Cargo colours. Flipped."
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatFlightCapSec
+  name: security flight cap
+  description: Side cap of Nanotrasen Security Service personnel, also used by its space defense forces. It has a double brim and the NT insignia.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Head/Soft/secflightcap.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Head/Soft/secflightcap.rsi

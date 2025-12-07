@@ -1,0 +1,34 @@
+- type: entity
+  name: breaching sledgehammer
+  parent: Sledgehammer
+  id: SecBreachingHammer
+  description: Heavy sledgehammer capable of easily knocking down doors and breaking windows. Perfect for "knock-knock" jokes.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Objects/Weapons/Melee/breaching_hammer.rsi
+    state: icon
+  - type: MeleeWeapon
+    swingLeft: true
+    attackRate: 0.7
+    damage:
+      types:
+        Blunt: 10
+        Slash: 5
+        Structural: 20
+    bluntStaminaDamageFactor: 1.50 # 15 stamina damage
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 5
+        Slash: 2
+        Structural: 40
+  - type: Prying
+  - type: UseDelay
+    delay: 1
+  - type: ToolTileCompatible
+  - type: Clothing
+    sprite: _Ganimed/Objects/Weapons/Melee/breaching_hammer.rsi
+    quickEquip: false
+    slots:
+    - back
+    - suitStorage

@@ -1,0 +1,30 @@
+- type: entity
+  parent: [ClothingOuterStorageBase, AllowSuitStorageClothing, GeigerCounterClothing]
+  id: ClothingOuterVestProtective
+  name: protective vest
+  description: A sturdy engineering hi-viz vest that provides light protection against common workplace hazards. Equipped with various functionalities such as pockets and fixtures.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/OuterClothing/Vests/protective_vest.rsi
+  - type: Item
+    size: Large
+    shape:
+    - 0,0,2,2
+  - type: Storage
+    maxItemSize: Small
+  - type: Clothing
+    sprite: _Ganimed/Clothing/OuterClothing/Vests/protective_vest.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.95
+        Heat: 0.7
+        Shock: 0.9
+        Radiation: 0.7
+        Caustic: 0.9
+    staminaModifier: 0.8
+  - type: ExplosionResistance
+    damageCoefficient: 0.8
+  - type: Insulated
+    coefficient: 0.9

@@ -63,18 +63,41 @@ public sealed class ToggleableFontTag : IMarkupTag
                     size = vectorFont.Size;
                     break;
                 case StackedFont stackedFont:
-                    if (stackedFont.Stack.Length == 0 || stackedFont.Stack[0] is not VectorFont stackVectorFont)
-                        break;
-
-                    size = stackVectorFont.Size;
+                    // Ganimed edit start
+                    if (stackedFont.Stack.Length > 0 && stackedFont.Stack[0] is VectorFont stackVectorFont)
+                        size = stackVectorFont.Size;
+                    // Ganime edit end
                     break;
             }
         }
 
+        /// Ganimed edit start
+        var isRadioMessage = node.Attributes.ContainsKey("defaultFont") &&
+                             node.Attributes.ContainsKey("defaultSize");
+        /// Ganimed edit end
+
         if (cfg.GetCVar(ADTCCVars.EnableLanguageFonts))
         {
             if (node.Attributes.TryGetValue("size", out var sizeParameter))
-                size = (int) (sizeParameter.LongValue ?? size);
+        /// Ganimed edit start
+                size = (int)(sizeParameter.LongValue ?? size);
+        }
+        else if (isRadioMessage)
+        {
+            fontId = DefaultFont;
+
+            var baseSize = DefaultSize;
+            if (node.Attributes.TryGetValue("defaultSize", out var dSize))
+                baseSize = (int)(dSize.LongValue ?? DefaultSize);
+
+            if (node.Attributes.TryGetValue("size", out var sizeParameter))
+                size = (int)(sizeParameter.LongValue ?? baseSize);
+            else
+                size = baseSize;
+
+            if (node.Attributes.TryGetValue("defaultFont", out var dFont) && dFont.TryGetString(out var dFontStr))
+                fontId = dFontStr;
+        /// Ganimed edit end
         }
         else
         {

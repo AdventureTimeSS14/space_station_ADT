@@ -1,7 +1,7 @@
 - type: species
   id: DemonSpecies
   name: species-name-demon
-  roundStart: true
+  roundStart: false  # Ganimed-MRP
   prototype: MobDemon
   sprites: MobDemonSprites
   defaultSkinTone: "#34a223"
@@ -27,6 +27,8 @@
   - Получают на 50% больше урона клеточными
   defaultLanguages:
   - GalacticCommon
+  - Arkane
+  uniqueLanguages:
   - Arkane
   minAge: 50
   maxAge: 350

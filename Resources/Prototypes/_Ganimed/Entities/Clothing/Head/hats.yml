@@ -1,0 +1,114 @@
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatCapSec
+  name: security officer's cap
+  description: Nanotrasen security cap, worn by higher ranking officers on the station.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Head/Hats/seccap.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Head/Hats/seccap.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatTSFNavyOfficerCap
+  name: navy officer cap
+  description: Navy officer cap. Better than any stripes will emphasize your importance and rank.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Head/Hats/officer_cap.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Head/Hats/officer_cap.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatCapcapWhite
+  name: white cap cap
+  description: Stylish white cap cap.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Head/Hats/white_capcap.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Head/Hats/white_capcap.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+    - HamsterWearable
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatBeretCaptainWhite
+  name: white captain beret
+  description: A white captain beret, an icon of style.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Head/Hats/white_beret.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Head/Hats/white_beret.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+    - HamsterWearable
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatBeretBridgeOfficer
+  name: bridge officer's beret
+  description: It is perhaps the sole article of an officer's attire that offers no particular benefits.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Head/Hats/bridge_officer_beret.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Head/Hats/bridge_officer_beret.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatBeretUSSP
+  name: ussp army beret 
+  description: It's military beret, it belongs to the USSP
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Head/Hats/ussp_beret.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Head/Hats/ussp_beret.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+    - HamsterWearable
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatWitchHunter
+  name: witch hunter's hat
+  description: A wide-brimmed medieval style inquisitor's hat.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Head/Hats/witchunterhat.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Head/Hats/witchunterhat.rsi
+
+# Old/Original
+- type: entity
+  parent: ClothingHeadHatUshanka
+  id: ClothingHeadHatUshankaOriginal
+  name: old ushanka-hat
+  description: This hat will keep your head and ears warm during long winter nights.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Head/Hats/original_ushanka.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Head/Hats/original_ushanka.rsi
+
+- type: entity
+  parent: ClothingHeadHatBeretCmo
+  id: ClothingHeadHatBeretCmoOriginal
+  name: classic chief medical officer's beret
+  description: Cerulean beret with a green cross on the front. The sight of it calms you down and makes it clear that you will be cured.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Head/Hats/original_beret_cmo.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Head/Hats/original_beret_cmo.rsi

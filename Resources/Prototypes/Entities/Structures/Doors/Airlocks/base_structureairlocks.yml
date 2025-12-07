@@ -131,7 +131,7 @@
   - type: Airtight
     noAirWhenFullyAirBlocked: false
   - type: RadiationBlocker
-    resistance: 3
+    resistance: 10
   - type: Occluder
   - type: Damageable
     damageContainer: StructuralInorganic
@@ -169,6 +169,9 @@
     - board
   - type: PlacementReplacement
     key: walls
+  - type: IconSmooth
+    key: walls
+    mode: NoSprite
   - type: Paintable
     group: AirlockStandard
   - type: StaticPrice

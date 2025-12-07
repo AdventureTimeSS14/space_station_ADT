@@ -1,0 +1,103 @@
+- type: entity
+  parent: BaseStorageItem
+  id: ClothingBeltPouchBase
+  name: base pouch
+  description: Base pouch. If you read this in the game something went wrong.
+  categories: [ HideSpawnMenu ]
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Belt/Pouches/utilitypouch.rsi
+    state: icon
+  - type: GenericVisualizer
+    visuals:
+      enum.StorageVisuals.Open:
+        base:
+          True: { state: icon-open }
+          False: { state: icon }
+  - type: Appearance
+  - type: Clothing
+    slots:
+      - Belt
+      - Pocket
+    equipSound:
+      path: /Audio/Items/belt_equip.ogg
+  - type: Item
+    size: Large
+    shape:
+    - 0,0,1,3
+  - type: Storage
+    maxItemSize: Small
+    grid:
+    - 0,0,3,2
+
+- type: entity
+  parent: ClothingBeltPouchBase
+  id: ClothingBeltPouchMedical
+  name: medicalpouch
+  description: medpouch-desc
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Belt/Pouches/medicalpouch.rsi
+    state: icon
+  - type: Storage
+    maxItemSize: Small
+    grid:
+    - 0,0,3,2
+    whitelist:
+      tags:
+        - Bottle
+        - Spray
+        - Brutepack
+        - Bloodpack
+        - Gauze
+        - Ointment
+        - CigPack
+        - PillCanister
+        - Radio
+        - DiscreteHealthAnalyzer
+      components:
+        - Hypospray
+        - Injector
+        - Pill
+        - Healing
+
+- type: entity
+  parent: ClothingBeltPouchBase
+  id: ClothingBeltPouchUtility
+  name: general pouch
+  description: Тактический штурмовой подсумок.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Belt/Pouches/utilitypouch.rsi
+    state: icon
+
+#- type: entity #Будет реализовано позже как будут поправлены теги и спрайты
+#  parent: ClothingBeltPouchBase
+#  id: ClothingBeltPouchFlare
+#  name: flare pouch
+#  description: Can hold flare gun and flares.
+#  components:
+#  - type: Sprite
+#    sprite: _Ganimed/Clothing/Belt/pistolbelt.rsi #заменить
+#  - type: Clothing
+#    sprite: _Ganimed/Clothing/Belt/pistolbelt.rsi
+#  - type: Storage
+#    grid:
+#    - 0,0,3,1
+#    maxItemSize: Normal
+#    whitelist:
+#      tags:
+#        - ShellShotgunLight
+#  - type: ItemSlots
+#    slots:
+#      item:
+#        name: Sidearm
+#        insertVerbText: sheath-insert-verb
+#        ejectVerbText: sheath-eject-verb
+#        insertSound: /Audio/Items/sheath.ogg
+#        ejectSound: /Audio/Items/unsheath.ogg
+#        priority: 3
+#        whitelist:
+#          tags:
+#          - Sidearm #Нужен отдельный тег для сигнального пистолета

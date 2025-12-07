@@ -1,0 +1,85 @@
+- type: entity
+  parent: [ClothingEyesBase, ShowSecurityIcons]
+  id: ClothingEyesGlassesBrigmedic
+  name: medical-security sunglasses
+  description: Protective sunglasses equipped with integrated medical and security HUDs.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Eyes/Glasses/brigmedicglasses.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Eyes/Glasses/brigmedicglasses.rsi
+  - type: FlashImmunity
+  - type: EyeProtection
+    protectionTime: 5
+  - type: ShowHealthBars
+  - type: Tag
+    tags:
+    - HamsterWearable
+    - WhitelistChameleon
+  - type: GuideHelp
+    guides:
+    - Security
+    - Antagonists
+  - type: IdentityBlocker
+    coverage: EYES
+
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesGlassesTray
+  name: T-ray glasses
+  description: Improved shielding blocks many flashes. Improved ancient technology?
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Eyes/Glasses/traymeson.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Eyes/Glasses/traymeson.rsi
+  - type: EyeProtection
+  - type: TrayScanner
+
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesGlassesHudSunglassesScience
+  name: science HUD sunglasses
+  description: Improved shielding blocks many flashes. Improved ancient technology?
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Eyes/Glasses/scisunglasses.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Eyes/Glasses/scisunglasses.rsi
+  - type: FlashImmunity
+  - type: SolutionScanner
+  - type: Tag
+    tags:
+    - HamsterWearable
+
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesGlassesHudSunglassesEngineering
+  name: engineering sunglasses
+  description: Improved shielding blocks many flashes. Improved ancient technology?
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Eyes/Glasses/mesonsunglasses.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Eyes/Glasses/mesonsunglasses.rsi
+  - type: FlashImmunity
+  - type: EyeProtection
+  - type: Tag
+    tags:
+    - HamsterWearable
+
+- type: entity
+  parent: [ClothingEyesBase, ShowSecurityIcons]
+  id: ClothingEyesHudSecEng
+  name: field engineering goggles
+  description: This HUD model is a synthesis of an optical meson scanner with security sensors. Provides good eye protection.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Eyes/Glasses/secenggoggles.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Eyes/Glasses/secenggoggles.rsi
+  - type: EyeProtection
+  - type: FlashImmunity
+  - type: Tag
+    tags:
+    - HudSecurity

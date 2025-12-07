@@ -1,0 +1,40 @@
+- type: entity
+  parent: MarkerBase
+  id: SpawnStraySupplyPod
+  name: stray supply pod spawner
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: _Ganimed/Structures/Storage/SupplyPods/supply_pod_default.rsi
+        state: default_pod
+      - sprite: _Ganimed/Structures/Storage/SupplyPods/supply_pod_default.rsi
+        state: default_closed
+      - sprite: _Ganimed/Structures/Storage/SupplyPods/supply_pod_default.rsi
+        state: overlay
+  - type: RandomSpawner
+    prototypes:
+      - SupplyPodCircleSurplusCargo
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnStraySupplyPodSyndicate
+  name: stray supply pod syndicate spawner
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: _Ganimed/Structures/Storage/SupplyPods/supply_pod_syndicate.rsi
+        state: default_pod
+      - sprite: _Ganimed/Structures/Storage/SupplyPods/supply_pod_syndicate.rsi
+        state: default_closed
+      - sprite: _Ganimed/Structures/Storage/SupplyPods/supply_pod_syndicate.rsi
+        state: overlay
+  - type: RandomSpawner
+    prototypes:
+      - SupplyPodCircleSyndicateSurplus5TC
+      - SupplyPodCircleSyndicateSurplus10TC
+    chance: 0.9
+    rarePrototypes:
+      - SupplyPodCircleSyndicateSurplus15TC
+    rareChance: 0.1

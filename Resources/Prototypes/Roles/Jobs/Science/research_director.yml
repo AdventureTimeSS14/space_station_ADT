@@ -3,18 +3,24 @@
   name: job-name-rd
   description: job-description-rd
   playTimeTracker: JobResearchDirector
+  requireAdminNotify: true # Ganimed Rules Tweak
   requirements:
   - !type:RoleTimeRequirement
     role: JobScientist
-    time: 18000 #5 hrs
+    time: 21600 #6 hrs #Ganimed-RoleTime
   - !type:DepartmentTimeRequirement
     department: Science
-    time: 36000 #10 hrs
+    time: 72000 #20 hrs Ganimed-RoleTime
+  - !type:OverallPlaytimeRequirement
+    time: 144000 #40 hrs Ganimed-RoleTime
+  - !type:AgeRequirement # Ganimed-MRP
+    requiredAge: 21
   weight: 10
   startingGear: ResearchDirectorGear
   icon: "JobIconResearchDirector"
   supervisors: job-supervisors-captain
-  canBeAntag: false
+  canBeAntag: true # Ganimed-MRP
+  antagAdvantage: 5 # Ganimed-MRP: Heads can be antags
   access:
   - Research
   - Command
@@ -23,8 +29,8 @@
   - Brig
   - Cryogenics
   special:
-  - !type:AddImplantSpecial
-    implants: [ MindShieldImplant ]
+#  - !type:AddImplantSpecial # Ganimed-MRP
+#    implants: [ MindShieldImplant ] # Ganimed-MRP
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
@@ -39,7 +45,7 @@
     back:
     - Flash
     - ADTtelescopicBaton #ADT-CustomADTLoadoutStart
-    - ADTHumanCubeWrapped #ADT-CustomADTLoadoutEnd
+    # - ADTHumanCubeWrapped #ADT-CustomADTLoadoutEnd # Ganimed-Remove
 
 - type: chameleonOutfit
   id: ResearchDirectorChameleonOutfit

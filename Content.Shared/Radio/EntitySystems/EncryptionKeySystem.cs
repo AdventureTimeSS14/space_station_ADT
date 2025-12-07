@@ -202,6 +202,22 @@ public sealed partial class EncryptionKeySystem : EntitySystem
                     "examine-encryption-channel");
             }
         }
+
+        // Ganimed edit start
+        if (TryComp<HeadsetComponent>(uid, out var headset))
+        {
+            if (headset.RadioTextIncrease > 0)
+            {
+                args.PushMarkup(Loc.GetString("examine-encryption-radio-boost-available"));
+
+                var status = headset.RadioBoostEnabled
+                    ? Loc.GetString("examine-encryption-radio-boost-on")
+                    : Loc.GetString("examine-encryption-radio-boost-off");
+
+                args.PushMarkup(status);
+            }
+        }
+        // Ganimed edit end
     }
 
     private void OnKeyExamined(EntityUid uid, EncryptionKeyComponent component, ExaminedEvent args)

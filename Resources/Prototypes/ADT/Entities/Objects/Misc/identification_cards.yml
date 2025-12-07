@@ -638,13 +638,13 @@
 
 # HoS
 
-- type: entity
-  parent: HoSIDCard
-  id: ADTSheriffIDCard
-  name: sheriff ID card
-  components:
-  - type: IdCard
-    jobTitle: job-name-sheriff
+# - type: entity # Ganimed-MRP
+#  parent: HoSIDCard
+#  id: ADTSheriffIDCard
+#  name: sheriff ID card
+#  components:
+#  - type: IdCard
+#    jobTitle: job-name-sheriff
 
 # Lawyer
 

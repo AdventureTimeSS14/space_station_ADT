@@ -52,6 +52,7 @@ public sealed partial class TestPair
 
     public PoolTestLogHandler ServerLogHandler { get;  private set; } = default!;
     public PoolTestLogHandler ClientLogHandler { get;  private set; } = default!;
+    public bool IsDead { get; internal set; }
 
     public TestPair(int id)
     {

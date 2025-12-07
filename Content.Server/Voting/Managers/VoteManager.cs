@@ -23,6 +23,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using Robust.Shared.Log;
 
 namespace Content.Server.Voting.Managers
 {
@@ -252,7 +253,7 @@ namespace Content.Server.Voting.Managers
             if (!CheckVoterEligibility(player, v.VoterEligibility))
             {
                 msg.VoteActive = false;
-                player.Channel.SendMessage(msg);
+                TrySendMessage(player, msg);
                 return;
             }
 
@@ -295,7 +296,21 @@ namespace Content.Server.Voting.Managers
                 msg.Options[i] = (msg.DisplayVotes ? (ushort) entry.Votes : (ushort) 0, entry.Text);
             }
 
-            player.Channel.SendMessage(msg);
+            TrySendMessage(player, msg);
+        }
+
+        private void TrySendMessage(ICommonSession player, NetMessage msg)
+        {
+            try
+            {
+                player.Channel.SendMessage(msg);
+            }
+            catch (NotImplementedException e)
+            {
+#if DEBUG
+                Logger.Warning($"[VoteManager] Tried to send message to DummyChannel during test: {e.Message}");
+#endif
+            }
         }
 
         private void DirtyCanCallVoteAll()

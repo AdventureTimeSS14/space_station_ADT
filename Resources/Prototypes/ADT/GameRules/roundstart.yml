@@ -27,7 +27,7 @@
   components:
   - type: HereticRule
   - type: GameRule
-    minPlayers: 25
+    minPlayers: 15 # Ganimed-Tweak
   - type: AntagSelection
     agentName: heretic-roundend-name
     definitions:
@@ -82,7 +82,7 @@
   components:
   - type: ChangelingRule
   - type: GameRule
-    minPlayers: 25
+    minPlayers: 15 # Ganimed-Tweak
     delay:
       min: 30
       max: 60

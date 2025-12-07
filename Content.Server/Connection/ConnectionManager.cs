@@ -264,9 +264,9 @@ namespace Content.Server.Connection
                         ConnectionDenyReason.DiscordAuth,
                         $"You are not authorized through discord!\n\n"
                         + "Присоединитесь к нашему дискорд серверу:\n"
-                        + "https://discord.com/invite/NY3KDNuH9r\n\n"
+                        + "https://discord.com/invite/nCn5F3kNyH\n\n"
                         + "И авторизуйтесь здесь:\n"
-                        + "https://discord.com/channels/901772674865455115/1351213738774237184\n\n"
+                        + "https://discord.com/channels/1146501723624570961/1384983236454645860\n\n"
                         + $"Введите uid вашего аккаунта: {userId.ToString()}\n"
                         + "ВНИМАНИЕ: Не показывайте этот uid никому, кроме администрации!",
                         null

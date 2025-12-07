@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Fills made by RedTerror",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "bowl"
+    },
+    {
+      "name": "bear"
+    },
+    {
+      "name": "okroshka"
+    },
+    {
+      "name": "olivier"
+    },
+    {
+      "name": "pilav"
+    },
+    {
+      "name": "solyanka"
+    }
+  ]
+}

@@ -256,18 +256,6 @@
                     0.1
                 ]
             ]
-        },
-        {
-            "name": "white_adult_slime",
-            "delays": [
-              [
-                0.3,
-                0.3
-              ]
-            ]
-        },
-        {
-            "name": "white_adult_slime_dead"
         }
     ]
 }

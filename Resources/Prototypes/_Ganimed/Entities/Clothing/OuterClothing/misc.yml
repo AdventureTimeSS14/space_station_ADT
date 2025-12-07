@@ -1,0 +1,43 @@
+- type: entity
+  parent: ClothingOuterBase
+  id: ClothingOuterUnathiRobe
+  name: roughspun robes
+  description: A traditional Unathi garment.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/OuterClothing/Misc/traditional_robe.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/OuterClothing/Misc/traditional_robe.rsi
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterRobesWitchHunter
+  name: witch hunter's robes
+  description: Reminiscent of the robes of medieval inquisitors.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/OuterClothing/Misc/witch_hunter_robe.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/OuterClothing/Misc/witch_hunter_robe.rsi
+
+- type: entity
+  parent: ClothingOuterBase
+  id: ClothingOuterNightDress
+  name: deep blue aquilegia dress 
+  description: A dress of futuristic dark neon tones and high royal court designs. Truly a dangerous mix of different times.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/OuterClothing/Misc/nightdress.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/OuterClothing/Misc/nightdress.rsi
+
+- type: entity
+  parent: ClothingOuterBase
+  id: ClothingOuterRobesCultWhite
+  name: white cult robes
+  description: There's no cult without classic red/crimson cult robes. Wait, they're white...
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/OuterClothing/Misc/white_cultrobes.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/OuterClothing/Misc/white_cultrobes.rsi

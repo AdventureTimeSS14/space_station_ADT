@@ -1,0 +1,31 @@
+- type: entity
+  name: Ganimed plushies spawner
+  id: GanimedPlushiesSpawner
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Ganimed/Objects/Fun/toys.rsi
+      state: mira
+  - type: RandomSpawner
+    prototypes:
+    - PlushieCaptain
+    - PlushieHeadOfSecurity
+    - PlushieInternalAffairsAgent
+    - PlushieChiefMedicalOfficer
+    - PlushieMedicalWorker
+    - PlushieParamedic
+    - PlushieVirologist
+    - PlushieChemist
+    - PlushieBartenderSlime
+    - PlushieServiceWorker
+    - PlushieQuartermaster
+    - PlushieLizardQM
+    - PlushieSalvageSpecialist
+    - PlushieLizardBex
+    - PlushieLizardHart
+    - PlushieLizardReesa
+    - PlushieLizardMetaku
+    chance: 1
+    offset: 0.2

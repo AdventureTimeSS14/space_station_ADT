@@ -116,9 +116,6 @@
       - On
       - Off
       - Toggle
-  - type: Construction
-    graph: ADTLightFixtureShuttle
-    node: shuttle
   - type: WallMount
   - type: Appearance
   - type: PoweredLightVisuals

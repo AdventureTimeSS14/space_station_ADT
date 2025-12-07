@@ -5,7 +5,7 @@
   description: Bluespace technologies on the application of bureaucracy.
   components:
   - type: Sprite
-    sprite: Structures/Machines/fax_machine.rsi
+    sprite: _Ganimed/Structures/Machines/fax_machine.rsi #Ganimed-resprite
     drawdepth: SmallObjects
     layers:
     - state: icon

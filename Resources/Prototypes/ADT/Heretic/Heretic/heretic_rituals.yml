@@ -20,7 +20,7 @@
     state: icon
   requiredTags:
     GlassShard: 1
-    Eyes: 1
+    Flare: 1
   output:
     ClothingNeckAmberFocus: 1
 

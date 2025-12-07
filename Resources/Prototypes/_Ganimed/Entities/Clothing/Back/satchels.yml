@@ -1,0 +1,8 @@
+- type: entity
+  id: ClothingBackpackSatchelCaptainWhite
+  parent: ClothingBackpackSatchel
+  name: white captain's satchel
+  description: Is it your imagination, or is there a stain on it?
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Back/Satchels/white_captain_satchel.rsi

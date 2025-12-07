@@ -94,12 +94,12 @@
   ruleEntry: true
   text: "/ServerInfo/ADT/Guidebook/ServerRules/Rule10.xml"
 
-- type: entity
-  parent: BasePlushie
-  id: ADTIconAdventureTime
-  name: AdventureTime
-  description: Decs AdventureTime icon
-  components:
-  - type: Sprite
-    sprite: ADT/Objects/Misc/adventuretime.rsi
-    state: icon
+#- type: entity #Ganimed-Tweak
+#  parent: BasePlushie
+#  id: ADTIconAdventureTime
+#  name: AdventureTime
+#  description: Decs AdventureTime icon
+#  components:
+#  - type: Sprite
+#    sprite: ADT/Objects/Misc/adventuretime.rsi
+#    state: icon

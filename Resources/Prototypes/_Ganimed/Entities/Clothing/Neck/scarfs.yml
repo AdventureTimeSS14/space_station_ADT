@@ -1,0 +1,87 @@
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckScarfStripedAzure
+  name: striped azure scarf
+  description: A stylish striped azure scarf.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Neck/Scarfs/azure.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Neck/Scarfs/azure.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckScarfStripedLime
+  name: striped lime scarf
+  description: A stylish striped lime scarf.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Neck/Scarfs/lime.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Neck/Scarfs/lime.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckScarfStripedPink
+  name: striped pink scarf
+  description: A stylish striped pink scarf.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Neck/Scarfs/pink.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Neck/Scarfs/pink.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckScarfStripedBrightOrange
+  name: striped orange scarf
+  description: A stylish striped bright orange scarf.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Neck/Scarfs/orange.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Neck/Scarfs/orange.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckScarfStripedViolet
+  name: striped dark purple scarf
+  description: A stylish striped dark purple scarf.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Neck/Scarfs/purple.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Neck/Scarfs/purple.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckScarfStripedVermilion
+  name: striped vermilion scarf
+  description: A stylish striped vermilion scarf.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Neck/Scarfs/vermilion.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Neck/Scarfs/vermilion.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckScarfStripedDarkRed
+  name: striped dark red scarf
+  description: A stylish striped dark red scarf.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Neck/Scarfs/dark_red.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Neck/Scarfs/dark_red.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckScarfStripedYellow
+  name: striped yellow scarf
+  description: A stylish striped yellow scarf.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Neck/Scarfs/yellow.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Neck/Scarfs/yellow.rsi

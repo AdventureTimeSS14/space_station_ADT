@@ -823,5 +823,21 @@ ADTClothingHeadHatsGuardOfficer: ADTClothingHeadHatsCorrectionsOfficerCap
 ADTClothingUniformGuardOfficer: ADTClothingUniformCorrectionsOfficer
 
 # ADT 2025-11-08
-ChemDispenser: EnergyChemDispenser
-ChemDispenserEmpty: EnergyChemDispenser
+# ChemDispenser: EnergyChemDispenser # Ganimed-Remove
+# ChemDispenserEmpty: EnergyChemDispenser # Ganimed-Remove
+
+#Ganimed 2025-06-01
+ADTIconAdventureTime: null
+
+#Ganimed 2025-06-14
+ADTPoweredShuttleLight: AlwaysPoweredWallLight
+ADTPoweredShuttleLightLED: AlwaysPoweredWallLight
+ADTPoweredShuttleLightRed: AlwaysPoweredWallLight
+ADTPoweredShuttleLightOrange: AlwaysPoweredWallLight
+ADTPoweredShuttleLightSodium: AlwaysPoweredWallLight
+
+# Ganimed 2025-07-10
+GhostBarSpawner: null
+
+# Ganimed 2025-11-03
+ADTDrinkBeerCanPack: null

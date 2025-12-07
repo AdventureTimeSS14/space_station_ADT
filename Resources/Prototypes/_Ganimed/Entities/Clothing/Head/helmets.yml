@@ -1,0 +1,70 @@
+- type: entity
+  parent: [ ClothingHeadHelmetBase, BaseMajorContraband ]
+  id: ClothingHeadHelmetMercMedic
+  name: mercenary medic helmet
+  description: The combat helmet is commonly used by mercenaries, is strong, light and smells like gunpowder and the jungle.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Head/Helmets/merc_medic_helmets.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Head/Helmets/merc_medic_helmets.rsi
+
+- type: entity
+  parent: ClothingHeadHelmetBase
+  id: ClothingHeadHelmetPilot
+  name: pilot helmet
+  description: This helmet keeps the heads of those who are capable of enduring high g-force while navigating through asteroid fields intact.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Head/Helmets/pilothelmet.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Head/Helmets/pilothelmet.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.9
+        Heat: 0.9
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
+
+- type: entity
+  parent: ClothingHeadHelmetBase
+  id: ClothingHeadHelmetCorpsman
+  name: corpsman helmet
+  description: An extremely robust helmet of the combat medic. It features a white cross, a vivid symbol of hope for the wounded soldier. Don't expect it to dissuade enemy fire though.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Head/Helmets/corpsman_helmet.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Head/Helmets/corpsman_helmet.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.85
+        Slash: 0.9
+        Piercing: 0.85
+        Heat: 0.85
+        Caustic: 0.9
+
+- type: entity
+  parent: [ClothingHeadBase, BaseMajorContraband]
+  id: ClothingHeadHelmetCultWhite
+  name: white cult helmet
+  description: A robust, evil-looking cult helmet.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Head/Helmets/white_cult.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Head/Helmets/white_cult.rsi
+  - type: IngestionBlocker
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.8
+        Piercing: 0.9
+        Heat: 0.9
+  - type: CoveredSlot
+    slots: [eyes, mask, ears]

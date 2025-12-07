@@ -14,7 +14,7 @@
 - type: entity
   id: ActionMorphRemember
   name: "[color=red]Remember[/color]"
-  description: Remember enrity to mimicry in future
+  description: Remember this entity to mimic in future.
   components:
   - type: Action
     icon: { sprite : ADT/Interface/Actions/morph.rsi, state: remember }
@@ -27,7 +27,7 @@
 - type: entity
   id: ActionMorphReplication
   name: "[color=red]Reproduce[/color]"
-  description: Create absolute copy of you.
+  description: Create a full copy of yourself.
   components:
   - type: Action
     icon: { sprite : ADT/Interface/Actions/morph.rsi, state: reproduce }
@@ -39,7 +39,7 @@
 - type: entity
   id: ActionMorphMimicry
   name: "[color=red]Mimicry[/color]"
-  description: Transform to an remembered entiry
+  description: Transform to an entity you've seen.
   components:
   - type: Action
     icon: { sprite : ADT/Interface/Actions/morph.rsi, state: mimicry }

@@ -73,7 +73,7 @@ ent-DevTranslatorImplanter = имплант языка разработчика
     .desc = { ent-BaseImplantOnlyImplanter.desc }
     .suffix = АДМЕМЫ
 
-ent-IPCTranslatorImplanter = полноценный языковой имплант троичного кода
+ent-IPCTranslatorImplanter = полноценный языковой имплант кода Синт-Линк
     .desc = { ent-BaseImplantOnlyImplanter.desc }
     .suffix = IPC
 ent-VoxPidginTranslatorImplanter = полноценный языковой имплант Вокс-Пиджин

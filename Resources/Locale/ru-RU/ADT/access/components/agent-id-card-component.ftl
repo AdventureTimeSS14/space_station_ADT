@@ -1,1 +1,1 @@
-agent-id-card-current-number = Номер НаноМакс
+agent-id-card-current-number = Номер НаноЧат

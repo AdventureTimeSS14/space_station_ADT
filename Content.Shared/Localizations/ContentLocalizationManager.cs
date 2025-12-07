@@ -56,6 +56,7 @@ namespace Content.Shared.Localizations
 
             _loc.AddFunction(cultureEn, "MAKEPLURAL", FormatMakePlural);
             _loc.AddFunction(cultureEn, "MANY", FormatMany);
+            _loc.AddFunction(cultureEn, "TOSTRING", args => FormatToString(cultureEn, args));
         }
 
         private ILocValue FormatMany(LocArgs args)
@@ -157,7 +158,10 @@ namespace Content.Shared.Localizations
         {
             time = TimeSpan.FromMinutes(Math.Ceiling(time.TotalMinutes));
             var hours = (int)time.TotalHours;
-            return Loc.GetString($"zzzz-fmt-playtime", ("hours", hours));
+            // Ganimed edit start
+            var minutes = time.Minutes;
+            return Loc.GetString($"zzzz-fmt-playtime", ("hours", hours), ("minutes", minutes));
+            // Ganimed edit stop
         }
 
         public static string FormatPlaytimeMinutes(TimeSpan time)

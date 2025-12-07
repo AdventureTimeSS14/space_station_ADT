@@ -1,0 +1,9 @@
+- type: entity
+  id: CrateMaterialUranium
+  name: uranium crate
+  parent: CrateGenericSteel
+  components:
+  - type: StorageFill
+    contents:
+      - id: SheetUranium
+        amount: 3

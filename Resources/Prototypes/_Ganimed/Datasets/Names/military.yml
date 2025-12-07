@@ -1,0 +1,18 @@
+# USSP faction
+- type: localizedDataset
+  id: NamesFirstUSSPMilitaryLeader
+  values:
+    prefix: names-first-ussp-military-leader-dataset-
+    count: 5
+
+- type: localizedDataset
+  id: NamesFirstUSSPMilitary
+  values:
+    prefix: names-first-ussp-military-dataset-
+    count: 5
+
+- type: localizedDataset
+  id: NamesLastUSSPMilitary
+  values:
+    prefix: names-last-ussp-military-dataset-
+    count: 59

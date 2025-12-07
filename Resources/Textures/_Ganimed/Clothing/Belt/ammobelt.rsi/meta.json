@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/c838ba21dae97db345e0113f99596decd1d66039 , https://github.com/tgstation/TerraGov-Marine-Corps/blob/2ac8e0f965273c17259587f2d3561b03b046b796/icons/obj/clothing/pouches.dmi and edited by Red_Spy",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "ammobelt-0"
+    },
+    {
+      "name": "ammobelt-1"
+    },
+    {
+      "name": "ammobelt-2"
+    },
+    {
+      "name": "ammobelt-3"
+    },
+    {
+      "name": "ammobelt-4"
+    },
+    {
+      "name": "ammobelt-5"
+    },
+    {
+      "name": "ammobelt-6"
+    },
+    {
+      "name": "equipped-BELT",
+      "directions": 4
+    },
+    {
+      "name": "inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "inhand-right",
+      "directions": 4
+    }
+  ]
+}

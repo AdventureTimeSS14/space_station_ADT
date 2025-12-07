@@ -77,7 +77,7 @@
   - type: TypingIndicator
     proto: spider
   - type: Sprite # I'd prefer if these maps were better. Insert map pun here.
-    scale: 1.07, 1.07 # ADT tweak
+    scale: 1.05, 1.05 # ADT tweak
     layers:
       - map: [ "enum.HumanoidVisualLayers.Chest" ]
       - map: [ "enum.HumanoidVisualLayers.Head" ]
@@ -101,12 +101,12 @@
       - map: ["enum.HumanoidVisualLayers.RHand"]
       - map: [ "gloves" ]
       - map: [ "shoes" ]
-      - map: [ "belt" ]
       - map: [ "id" ]
       - map: [ "outerClothing" ]
+      - map: [ "belt" ]
       - map: [ "enum.HumanoidVisualLayers.Tail" ] # Mentioned in moth code: This needs renaming lol.
-      - map: [ "back" ]
       - map: [ "neck" ]
+      - map: [ "back" ]
       - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
       - map: [ "enum.HumanoidVisualLayers.Hair" ] # Do these need to be here? (arachnid hair arachnid hair)
       - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
@@ -137,7 +137,7 @@
     tall: true
     tallscale: 1.15
     short: true
-    shortscale: 0.98
+    shortscale: 0.95 # Ganimed-Tweak
   # ADT tweak end
 
 - type: entity
@@ -151,7 +151,7 @@
     speciesId: arachnid
   # Start ADT tweak
   - type: Sprite # I'd prefer if these maps were better. Insert map pun here.
-    scale: 1.07, 1.07 # ADT tweak
+    scale: 1.05, 1.05 # ADT tweak
     layers:
       - map: [ "enum.HumanoidVisualLayers.Chest" ]
       - map: [ "enum.HumanoidVisualLayers.Head" ]

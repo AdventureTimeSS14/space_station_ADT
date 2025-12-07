@@ -17,7 +17,8 @@
       enum.HyperLinkUiKey.Key:
         type: HyperLinkBoundUserInterface
   - type: HyperLink
-    url: https://wiki.adventurestation.space/%D0%9A%D0%BE%D1%80%D0%BF%D0%BE%D1%80%D0%B0%D1%82%D0%B8%D0%B2%D0%BD%D1%8B%D0%B9_%D0%B7%D0%B0%D0%BA%D0%BE%D0%BD#%D0%9A%D0%BE%D1%80%D0%BF%D0%BE%D1%80%D0%B0%D1%82%D0%B8%D0%B2%D0%BD%D1%8B%D0%B9_%D0%B7%D0%B0%D0%BA%D0%BE%D0%BD
+    url: https://wiki.station-enterprise.space/ru/game/corporate-law # Ganimed Tweak
+# Corvax-HyperLink
   - type: MeleeWeapon # so you can teach using PAIN
     soundHit:
       collection: Punch
@@ -53,7 +54,14 @@
     layers:
     - state: PCD_SEC
   - type: HyperLink
-    url: https://wiki.adventurestation.space/%D0%9F%D1%80%D0%BE%D1%86%D0%B5%D0%B4%D1%83%D1%80%D1%8B_%D1%81%D0%BB%D1%83%D0%B6%D0%B1%D1%8B_%D0%B1%D0%B5%D0%B7%D0%BE%D0%BF%D0%B0%D1%81%D0%BD%D0%BE%D1%81%D1%82%D0%B8
+    url: https://wiki.station-enterprise.space/ru/game/sop/security
+# Corvax-HyperLink
+  - type: MeleeWeapon # so you can teach using PAIN
+    soundHit:
+      collection: Punch
+    damage:
+      types:
+        Blunt: 1
 
 - type: entity
   id: ADTBookPCDcmd
@@ -66,7 +74,14 @@
     layers:
     - state: PCD_CMD
   - type: HyperLink
-    url: https://wiki.adventurestation.space/%D0%9F%D1%80%D0%BE%D1%86%D0%B5%D0%B4%D1%83%D1%80%D1%8B_%D0%BA%D0%BE%D0%BC%D0%B0%D0%BD%D0%B4%D0%BD%D0%BE%D0%B3%D0%BE_%D1%81%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D0%B0
+    url: https://wiki.station-enterprise.space/ru/game/sop/command # Ganimed Tweak
+# Corvax-HyperLink
+  - type: MeleeWeapon # so you can teach using PAIN
+    soundHit:
+      collection: Punch
+    damage:
+      types:
+        Blunt: 1
 
 - type: entity
   id: ADTBookPCDjrd
@@ -79,7 +94,14 @@
     layers:
     - state: PCD_JRD
   - type: HyperLink
-    url: https://wiki.adventurestation.space/%D0%9F%D1%80%D0%BE%D1%86%D0%B5%D0%B4%D1%83%D1%80%D1%8B_%D1%8E%D1%80%D0%B8%D0%B4%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D0%BE%D1%82%D0%B4%D0%B5%D0%BB%D0%B0
+    url: https://wiki.station-enterprise.space/ru/game/sop/law # Ganimed Tweak
+# Corvax-HyperLink
+  - type: MeleeWeapon # so you can teach using PAIN
+    soundHit:
+      collection: Punch
+    damage:
+      types:
+        Blunt: 1
 
 # srp
 # srp
@@ -96,7 +118,14 @@
     layers:
     - state: CRP_CMD
   - type: HyperLink
-    url: https://wiki.adventurestation.space/%D0%A1%D1%82%D0%B0%D0%BD%D0%B4%D0%B0%D1%80%D1%82%D0%BD%D1%8B%D0%B5_%D1%80%D0%B0%D0%B1%D0%BE%D1%87%D0%B8%D0%B5_%D0%BF%D1%80%D0%BE%D1%86%D0%B5%D0%B4%D1%83%D1%80%D1%8B_%D0%BA%D0%BE%D0%BC%D0%B0%D0%BD%D0%B4%D0%BD%D0%BE%D0%B3%D0%BE_%D1%81%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D0%B0
+    url: https://wiki.station-enterprise.space/ru/game/sop/command # Ganimed Tweak
+# Corvax-HyperLink
+  - type: MeleeWeapon # so you can teach using PAIN
+    soundHit:
+      collection: Punch
+    damage:
+      types:
+        Blunt: 1
 
 - type: entity
   id: ADTBookSRPcrg
@@ -109,7 +138,14 @@
     layers:
     - state: CRP_CRG
   - type: HyperLink
-    url: https://wiki.adventurestation.space/%D0%A1%D1%82%D0%B0%D0%BD%D0%B4%D0%B0%D1%80%D1%82%D0%BD%D1%8B%D0%B5_%D1%80%D0%B0%D0%B1%D0%BE%D1%87%D0%B8%D0%B5_%D0%BF%D1%80%D0%BE%D1%86%D0%B5%D0%B4%D1%83%D1%80%D1%8B_%D0%BE%D1%82%D0%B4%D0%B5%D0%BB%D0%B0_%D1%81%D0%BD%D0%B0%D0%B1%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F
+    url: https://wiki.station-enterprise.space/ru/game/sop/supply # Ganimed Tweak
+# Corvax-HyperLink
+  - type: MeleeWeapon # so you can teach using PAIN
+    soundHit:
+      collection: Punch
+    damage:
+      types:
+        Blunt: 1
 
 - type: entity
   id: ADTBookSRPeng
@@ -122,7 +158,14 @@
     layers:
     - state: CRP_ENG
   - type: HyperLink
-    url: https://wiki.adventurestation.space/%D0%A1%D1%82%D0%B0%D0%BD%D0%B4%D0%B0%D1%80%D1%82%D0%BD%D1%8B%D0%B5_%D1%80%D0%B0%D0%B1%D0%BE%D1%87%D0%B8%D0%B5_%D0%BF%D1%80%D0%BE%D1%86%D0%B5%D0%B4%D1%83%D1%80%D1%8B_%D0%B8%D0%BD%D0%B6%D0%B5%D0%BD%D0%B5%D1%80%D0%BD%D0%BE%D0%B3%D0%BE_%D0%BE%D1%82%D0%B4%D0%B5%D0%BB%D0%B0
+    url: https://wiki.station-enterprise.space/ru/game/sop/engineering # Ganimed Tweak
+# Corvax-HyperLink
+  - type: MeleeWeapon # so you can teach using PAIN
+    soundHit:
+      collection: Punch
+    damage:
+      types:
+        Blunt: 1
 
 - type: entity
   id: ADTBookSRPjrd
@@ -135,7 +178,14 @@
     layers:
     - state: CRP_JRD
   - type: HyperLink
-    url: https://wiki.adventurestation.space/%D0%A1%D1%82%D0%B0%D0%BD%D0%B4%D0%B0%D1%80%D1%82%D0%BD%D1%8B%D0%B5_%D1%80%D0%B0%D0%B1%D0%BE%D1%87%D0%B8%D0%B5_%D0%BF%D1%80%D0%BE%D1%86%D0%B5%D0%B4%D1%83%D1%80%D1%8B_%D1%8E%D1%80%D0%B8%D0%B4%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D0%BE%D1%82%D0%B4%D0%B5%D0%BB%D0%B0
+    url: https://wiki.station-enterprise.space/ru/game/sop/law # Ganimed Tweak
+# Corvax-HyperLink
+  - type: MeleeWeapon # so you can teach using PAIN
+    soundHit:
+      collection: Punch
+    damage:
+      types:
+        Blunt: 1
 
 - type: entity
   id: ADTBookSRPmed
@@ -148,7 +198,14 @@
     layers:
     - state: CRP_MED
   - type: HyperLink
-    url: https://wiki.adventurestation.space/%D0%A1%D1%82%D0%B0%D0%BD%D0%B4%D0%B0%D1%80%D1%82%D0%BD%D1%8B%D0%B5_%D1%80%D0%B0%D0%B1%D0%BE%D1%87%D0%B8%D0%B5_%D0%BF%D1%80%D0%BE%D1%86%D0%B5%D0%B4%D1%83%D1%80%D1%8B_%D0%BC%D0%B5%D0%B4%D0%B8%D1%86%D0%B8%D0%BD%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D0%BE%D1%82%D0%B4%D0%B5%D0%BB%D0%B0
+    url: https://wiki.station-enterprise.space/ru/game/sop/medical # Ganimed Tweak
+# Corvax-HyperLink
+  - type: MeleeWeapon # so you can teach using PAIN
+    soundHit:
+      collection: Punch
+    damage:
+      types:
+        Blunt: 1
 
 - type: entity
   id: ADTBookSRPrnd
@@ -161,7 +218,14 @@
     layers:
     - state: CRP_RND
   - type: HyperLink
-    url: https://wiki.adventurestation.space/%D0%A1%D1%82%D0%B0%D0%BD%D0%B4%D0%B0%D1%80%D1%82%D0%BD%D1%8B%D0%B5_%D1%80%D0%B0%D0%B1%D0%BE%D1%87%D0%B8%D0%B5_%D0%BF%D1%80%D0%BE%D1%86%D0%B5%D0%B4%D1%83%D1%80%D1%8B_%D0%BD%D0%B0%D1%83%D1%87%D0%BD%D0%BE%D0%B3%D0%BE_%D0%BE%D1%82%D0%B4%D0%B5%D0%BB%D0%B0
+    url: https://wiki.station-enterprise.space/ru/game/sop/science # Ganimed Tweak
+# Corvax-HyperLink
+  - type: MeleeWeapon # so you can teach using PAIN
+    soundHit:
+      collection: Punch
+    damage:
+      types:
+        Blunt: 1
 
 - type: entity
   id: ADTBookSRPsec
@@ -174,7 +238,14 @@
     layers:
     - state: CRP_SEC
   - type: HyperLink
-    url: https://wiki.adventurestation.space/%D0%A1%D1%82%D0%B0%D0%BD%D0%B4%D0%B0%D1%80%D1%82%D0%BD%D1%8B%D0%B5_%D1%80%D0%B0%D0%B1%D0%BE%D1%87%D0%B8%D0%B5_%D0%BF%D1%80%D0%BE%D1%86%D0%B5%D0%B4%D1%83%D1%80%D1%8B_%D0%BE%D1%82%D0%B4%D0%B5%D0%BB%D0%B0_%D1%81%D0%BB%D1%83%D0%B6%D0%B1%D1%8B_%D0%B1%D0%B5%D0%B7%D0%BE%D0%BF%D0%B0%D1%81%D0%BD%D0%BE%D1%81%D1%82%D0%B8
+    url: https://wiki.station-enterprise.space/ru/game/sop/security # Ganimed Tweak
+# Corvax-HyperLink
+  - type: MeleeWeapon # so you can teach using PAIN
+    soundHit:
+      collection: Punch
+    damage:
+      types:
+        Blunt: 1
 
 - type: entity
   id: ADTBookSRPsrv
@@ -187,7 +258,14 @@
     layers:
     - state: CRP_SRV
   - type: HyperLink
-    url: https://wiki.adventurestation.space/%D0%A1%D1%82%D0%B0%D0%BD%D0%B4%D0%B0%D1%80%D1%82%D0%BD%D1%8B%D0%B5_%D1%80%D0%B0%D0%B1%D0%BE%D1%87%D0%B8%D0%B5_%D0%BF%D1%80%D0%BE%D1%86%D0%B5%D0%B4%D1%83%D1%80%D1%8B_%D1%81%D0%B5%D1%80%D0%B2%D0%B8%D1%81%D0%BD%D0%BE%D0%B3%D0%BE_%D0%BE%D1%82%D0%B4%D0%B5%D0%BB%D0%B0
+    url: https://wiki.station-enterprise.space/ru/game/sop/service # Ganimed Tweak
+# Corvax-HyperLink
+  - type: MeleeWeapon # so you can teach using PAIN
+    soundHit:
+      collection: Punch
+    damage:
+      types:
+        Blunt: 1
 
 #Рецепты
 - type: entity

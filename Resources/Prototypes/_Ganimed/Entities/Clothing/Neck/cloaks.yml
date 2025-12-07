@@ -1,0 +1,293 @@
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckCaptainWide
+  name: captain wide overcoat
+  description: Wide captain's greatcoat. It doesn't seem to fit you, but it will do as a cape on your shoulders.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Neck/Cloaks/wide_captain_cloak.rsi
+  - type: StealTarget
+    stealGroup: HeadCloak
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckCloakOrange
+  name: orange sunset cloak
+  description: Bright and comfy orange cloak with nice sun-colored accents. Stay warm while until your days set like a burning star.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Neck/Cloaks/orange.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckCloakHieroglyphics
+  name: hieroglyphics cloak
+  description: A particularly charming trendy cloak inspired by the progressive Japan of the old days. Sometimes less is more. Do not forget it.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Neck/Cloaks/hieroglyphics.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckCloakSec
+  name: security cloak
+  description: Worn by the most skilled professional security.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Neck/Cloaks/sec.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckCloakMed
+  name: medical cloak
+  description: Worn by the most skilled professional surgeons.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Neck/Cloaks/med.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckCloakChaplainBlack
+  name: black chaplain's cloak
+  description: Black chasuble of the cleric. It holds mysteries?
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Neck/Cloaks/chaplain_black.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckCloakChaplainWhite
+  name: white chaplain's cloak
+  description: Liturgical holy white vestment.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Neck/Cloaks/chaplain_white.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckCloakSanabi
+  name: чёрный плащ "Санаби"
+  description: Чёрный плащ с красной окантовкой и маленькой именной биркой.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Neck/Cloaks/sanabi.rsi
+
+# Old/Original
+- type: entity
+  parent: [ClothingNeckBase, BaseCommandContraband]
+  id: ClothingNeckCloakCapOriginal
+  name: old-fashioned captain's cloak
+  description: An outdated relic of the past, a cloak of dark colors and bleak gold. Not as good at showing off, still a treasured memory.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Neck/Cloaks/original_cap.rsi
+  - type: StealTarget
+    stealGroup: HeadCloak
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckCloakHosOriginal
+  name: bleak head of security's cloak
+  description: An exquisite dark and red cloak washed-out with time. Should've learned how to use the washing machine!
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Neck/Cloaks/original_hos.rsi
+  - type: StealTarget
+    stealGroup: HeadCloak
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckCloakCeOriginal
+  name: cybercloak
+  description: A dark green cloak with light blue ornaments for the most exqusite cyberpunks.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Neck/Cloaks/original_ce.rsi
+  - type: StealTarget
+    stealGroup: HeadCloak
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckCloakRdOriginal
+  name: white science cloak
+  description: A white cloak with violet stripes, showing your status as the harbringer of cutting-edge technology.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Neck/Cloaks/original_rd.rsi
+
+- type: entity
+  parent: [ClothingNeckBase, BaseCommandContraband]
+  id: ClothingNeckCloakCapAlt
+  name: captain's gilded cloak
+  description: The indigo colored cloak with chic golden trim is sure to make you the center of attention among fashion connoisseurs.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Neck/Cloaks/alt_cap.rsi
+  - type: StealTarget
+    stealGroup: HeadCloak
+
+- type: entity
+  parent: [ClothingNeckBase, BaseCommandContraband]
+  id: ClothingNeckCloakCapFormalAlt
+  name: captain's long formal cloak
+  description: A lavish long cloak for special occasions.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Neck/Cloaks/alt_capcloakformal.rsi
+  - type: StealTarget
+    stealGroup: HeadCloak
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckCloakHosAlt
+  name: vibrant head of security's cloak
+  description: Nothing speaks unyielding authority quite like a cloak of contrasting black and red colors, perfect for concealing bloodstains on your clothing. Good at covering your neck from shrapnel as well.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Neck/Cloaks/alt_hos.rsi
+  - type: StealTarget
+    stealGroup: HeadCloak
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckCloakCeAlt
+  name: honored chief engineer's cloak
+  description: A heavy white cloak with reflective orange ornaments belonging to the one, capable of taming singularities. Woven with insulated fire-retardant fibers, it shields against sparks and welding spatter. Wear it, and the engines will hum in respect.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Neck/Cloaks/alt_ce.rsi
+  - type: StealTarget
+    stealGroup: HeadCloak
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckCloakRdAlt
+  name: research director's warm cloak
+  description: Cozy crocheted purple cloak belonging to the scientist brave and inquisitive enough to be worthy of the rank of a research director.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Neck/Cloaks/alt_rd.rsi
+  - type: StealTarget
+    stealGroup: HeadCloak
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckCloakHopAlt
+  name: sleek head of personnel's cloak
+  description: A blue cloak with red shoulder pads and gold buttons, proving you are the gatekeeper to any airlock on the station.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Neck/Cloaks/alt_hop.rsi
+  - type: StealTarget
+    stealGroup: HeadCloak
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckCloakCmoAlt
+  name: chief medical officer's classic cloak
+  description: A sterile cerulean cloak with a green cross, smelling faintly of antiseptic and hope, drapes the shoulders of one who defies death itself.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Neck/Cloaks/alt_cmo.rsi
+  - type: StealTarget
+    stealGroup: HeadCloak
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckCloakCmoTurquoise
+  name: chief medical officer's turquoise cloak
+  description: A sterile turquoise cloak with three white crosses. It's stain resistant because it's too elegant to get blood on it.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Neck/Cloaks/turquoise_cmo.rsi
+  - type: StealTarget
+    stealGroup: HeadCloak
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckCloakQmAlt
+  name: quartermaster's leather cloak
+  description: A solid leather cape with a reflective stripe, worn by reputable logistics officers. It signifies mastery of red tape and bargaining.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Neck/Cloaks/alt_qm.rsi
+  - type: StealTarget
+    stealGroup: HeadCloak
+
+# LONG
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckLongCloakRD
+  name: long research director cloak
+  description: RD cloak.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Neck/Cloaks/Long/rd.rsi
+  - type: StealTarget
+    stealGroup: HeadCloak
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckLongCloakCE
+  name: long chief engineer cloak
+  description: CE cloak.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Neck/Cloaks/Long/ce.rsi
+  - type: StealTarget
+    stealGroup: HeadCloak
+
+- type: entity
+  parent: [ClothingNeckBase, BaseCommandContraband]
+  id: ClothingNeckLongCloakCap
+  name: long cap cloak
+  description: Cap cloak.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Neck/Cloaks/Long/cap.rsi
+  - type: StealTarget
+    stealGroup: HeadCloak
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckLongCloakCMO
+  name: long chief medical officer cloak
+  description: CMO cloak.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Neck/Cloaks/Long/cmo.rsi
+  - type: StealTarget
+    stealGroup: HeadCloak
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckLongCloakQM
+  name: long quartermaster cloak
+  description: QM cloak.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Neck/Cloaks/Long/qm.rsi
+  - type: StealTarget
+    stealGroup: HeadCloak
+
+- type: entity
+  parent: [ClothingNeckBase, BaseCommandContraband]
+  id: ClothingNeckLongCloakHOP
+  name: long head of personnel cloak
+  description: HOP cloak.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Neck/Cloaks/Long/hop.rsi
+  - type: StealTarget
+    stealGroup: HeadCloak
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckLongCloakHOS
+  name: long head of security cloak
+  description: HOS cloak.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Neck/Cloaks/Long/hos.rsi
+  - type: StealTarget
+    stealGroup: HeadCloak

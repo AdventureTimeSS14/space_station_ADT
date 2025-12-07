@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Encryption key sprite modified from original by AltMapper (Github) for Ganimed/Enterprise",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {"name": "crypt_red_ussp"},
+    {"name": "ussp_label"},
+    {"name": "tsf_label"},
+    {"name": "specops_label"}
+  ]
+}

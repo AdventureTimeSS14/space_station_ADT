@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA-4.0",
+  "copyright": "Made by AltMapper (GitHub) for Ganimed/Enterprise server.",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "elysium"
+    },
+    {
+      "name": "tsf"
+    },
+    {
+      "name": "ussp"
+    }
+  ]
+}

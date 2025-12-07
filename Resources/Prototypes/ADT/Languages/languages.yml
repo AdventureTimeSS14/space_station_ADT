@@ -324,6 +324,7 @@
 
 - type: language
   id: SignLanguage
+  roundstart: true # Ganimed-Tweak
   uiColor: White
   parent: BaseEmoteLanguage
   speech: !type:Emotes

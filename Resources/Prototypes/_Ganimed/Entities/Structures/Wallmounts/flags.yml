@@ -1,0 +1,32 @@
+- type: entity
+  parent: BaseFlag
+  id: FlagElysium
+  name: Elizium flag
+  description: "Go kill some xenos!"
+  components:
+  - type: Sprite
+    drawdepth: WallTops
+    sprite: _Ganimed/Structures/Wallmounts/flags.rsi
+    state: elysium
+
+- type: entity
+  parent: BaseFlag
+  id: FlagTSF
+  name: TSF flag
+  description: "It doesn't look technologically advanced."
+  components:
+  - type: Sprite
+    drawdepth: WallTops
+    sprite: _Ganimed/Structures/Wallmounts/flags.rsi
+    state: tsf
+
+- type: entity
+  parent: BaseFlag
+  id: FlagUSSP
+  name: USSP flag
+  description: "Сranberry."
+  components:
+  - type: Sprite
+    drawdepth: WallTops
+    sprite: _Ganimed/Structures/Wallmounts/flags.rsi
+    state: ussp

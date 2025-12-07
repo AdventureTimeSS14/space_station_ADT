@@ -27,9 +27,6 @@ alerts-weightless-desc =
     Gravity has ceased affecting you, and you're floating around aimlessly. Find something sturdy to hold onto, or throw or shoot something in a direction opposite of you.
     Mag-boots or jetpacks would help you move with more control.
 
-alerts-walking-name = Walking
-alerts-walking-desc = You are walking, moving at a slow pace.
-
 alerts-stunned-name = [color=yellow]Stunned[/color]
 alerts-stunned-desc = You're [color=yellow]stunned[/color]! Something is impairing your ability to move or interact with objects.
 
@@ -59,6 +56,9 @@ alerts-battery-desc = If your battery depletes, you will be unable to use your a
 
 alerts-no-battery-name = No Battery
 alerts-no-battery-desc = You don't have a battery, rendering you unable to charge or use your abilities.
+
+alerts-walking-name = Walking
+alerts-walking-desc = You are walking, moving at a slow pace.
 
 alerts-internals-name = Toggle internals
 alerts-internals-desc = Toggles your gas tank internals on or off.

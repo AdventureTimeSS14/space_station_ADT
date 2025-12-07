@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "bar-high and passenger taken from CEV-Eris at https://github.com/discordia-space/CEV-Eris/blob/master/icons/obj/furniture.dmi, dark comfy by EDMI",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "bar-high"
+    },
+    {
+      "name": "passenger",
+      "directions": 4
+    },
+    {
+      "name": "dark-comfy",
+      "directions": 4
+    },
+    {
+      "name": "dark-comfy-overlay",
+      "directions": 4
+    }
+  ]
+}

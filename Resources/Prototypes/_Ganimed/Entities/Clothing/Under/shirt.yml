@@ -1,0 +1,486 @@
+- type: entity
+  parent: ADTClothingUnderwearTopBase
+  id: ClothingUnderBrassiereWhite
+  name: brassiere
+  description: Make them loins buzz!
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Under/Shirt/Brassiere/white.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Under/Shirt/Brassiere/white.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearTopBase
+  id: ClothingUnderBrassiereBlack
+  name: brassiere
+  description: Make them loins buzz!
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Under/Shirt/Brassiere/white.rsi
+    color: "#3f3f3f"
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Under/Shirt/Brassiere/white.rsi
+    clothingVisuals:
+      underweart:
+        - state: equipped-UNDERWEART
+          color: "#3f3f3f"
+
+- type: entity
+  parent: ADTClothingUnderwearTopBase
+  id: ClothingUnderBrassiereBlue
+  name: brassiere
+  description: Make them loins buzz!
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Under/Shirt/Brassiere/white.rsi
+    color: "#0089EF"
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Under/Shirt/Brassiere/white.rsi
+    clothingVisuals:
+      underweart:
+        - state: equipped-UNDERWEART
+          color: "#0089EF"
+
+- type: entity
+  parent: ADTClothingUnderwearTopBase
+  id: ClothingUnderBrassiereGreen
+  name: brassiere
+  description: Make them loins buzz!
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Under/Shirt/Brassiere/white.rsi
+    color: "#5ABF2F"
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Under/Shirt/Brassiere/white.rsi
+    clothingVisuals:
+      underweart:
+        - state: equipped-UNDERWEART
+          color: "#5ABF2F"
+
+- type: entity
+  parent: ADTClothingUnderwearTopBase
+  id: ClothingUnderBrassiereBrown
+  name: brassiere
+  description: Make them loins buzz!
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Under/Shirt/Brassiere/white.rsi
+    color: "#723A02"
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Under/Shirt/Brassiere/white.rsi
+    clothingVisuals:
+      underweart:
+        - state: equipped-UNDERWEART
+          color: "#723A02"
+
+- type: entity
+  parent: ADTClothingUnderwearTopBase
+  id: ClothingUnderBrassiereRed
+  name: brassiere
+  description: Make them loins buzz!
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Under/Shirt/Brassiere/white.rsi
+    color: "#940000"
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Under/Shirt/Brassiere/white.rsi
+    clothingVisuals:
+      underweart:
+        - state: equipped-UNDERWEART
+          color: "#940000"
+
+- type: entity
+  parent: ADTClothingUnderwearTopBase
+  id: ClothingUnderBrassiereYellow
+  name: brassiere
+  description: Make them loins buzz!
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Under/Shirt/Brassiere/white.rsi
+    color: "#EBE216"
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Under/Shirt/Brassiere/white.rsi
+    clothingVisuals:
+      underweart:
+        - state: equipped-UNDERWEART
+          color: "#EBE216"
+
+# Large
+- type: entity
+  parent: ADTClothingUnderwearTopBase
+  id: ClothingUnderBrassiereLargeWhite
+  name: brassiere
+  description: Make them loins buzz!
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Under/Shirt/Brassiere/bigwhite.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Under/Shirt/Brassiere/bigwhite.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearTopBase
+  id: ClothingUnderBrassiereLargeBlack
+  name: brassiere
+  description: Make them loins buzz!
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Under/Shirt/Brassiere/bigwhite.rsi
+    color: "#3f3f3f"
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Under/Shirt/Brassiere/bigwhite.rsi
+    clothingVisuals:
+      underweart:
+        - state: equipped-UNDERWEART
+          color: "#3f3f3f"
+
+- type: entity
+  parent: ADTClothingUnderwearTopBase
+  id: ClothingUnderBrassiereLargeBlue
+  name: brassiere
+  description: Make them loins buzz!
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Under/Shirt/Brassiere/bigwhite.rsi
+    color: "#0089EF"
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Under/Shirt/Brassiere/bigwhite.rsi
+    clothingVisuals:
+      underweart:
+        - state: equipped-UNDERWEART
+          color: "#0089EF"
+
+- type: entity
+  parent: ADTClothingUnderwearTopBase
+  id: ClothingUnderBrassiereLargeGreen
+  name: brassiere
+  description: Make them loins buzz!
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Under/Shirt/Brassiere/bigwhite.rsi
+    color: "#5ABF2F"
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Under/Shirt/Brassiere/bigwhite.rsi
+    clothingVisuals:
+      underweart:
+        - state: equipped-UNDERWEART
+          color: "#5ABF2F"
+
+- type: entity
+  parent: ADTClothingUnderwearTopBase
+  id: ClothingUnderBrassiereLargeBrown
+  name: brassiere
+  description: Make them loins buzz!
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Under/Shirt/Brassiere/bigwhite.rsi
+    color: "#723A02"
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Under/Shirt/Brassiere/bigwhite.rsi
+    clothingVisuals:
+      underweart:
+        - state: equipped-UNDERWEART
+          color: "#723A02"
+
+- type: entity
+  parent: ADTClothingUnderwearTopBase
+  id: ClothingUnderBrassiereLargeRed
+  name: brassiere
+  description: Make them loins buzz!
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Under/Shirt/Brassiere/bigwhite.rsi
+    color: "#940000"
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Under/Shirt/Brassiere/bigwhite.rsi
+    clothingVisuals:
+      underweart:
+        - state: equipped-UNDERWEART
+          color: "#940000"
+
+- type: entity
+  parent: ADTClothingUnderwearTopBase
+  id: ClothingUnderBrassiereLargeYellow
+  name: brassiere
+  description: Make them loins buzz!
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Under/Shirt/Brassiere/bigwhite.rsi
+    color: "#EBE216"
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Under/Shirt/Brassiere/bigwhite.rsi
+    clothingVisuals:
+      underweart:
+        - state: equipped-UNDERWEART
+          color: "#EBE216"
+
+# Alternate
+- type: entity
+  parent: ADTClothingUnderwearTopBase
+  id: ClothingUnderBrassiereAlterWhite
+  name: brassiere
+  description: Make them loins buzz!
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Under/Shirt/Brassiere/alterwhite.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Under/Shirt/Brassiere/alterwhite.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearTopBase
+  id: ClothingUnderBrassiereAlterBlack
+  name: brassiere
+  description: Make them loins buzz!
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Under/Shirt/Brassiere/alterwhite.rsi
+    color: "#3f3f3f"
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Under/Shirt/Brassiere/alterwhite.rsi
+    clothingVisuals:
+      underweart:
+        - state: equipped-UNDERWEART
+          color: "#3f3f3f"
+
+- type: entity
+  parent: ADTClothingUnderwearTopBase
+  id: ClothingUnderBrassiereAlterBlue
+  name: brassiere
+  description: Make them loins buzz!
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Under/Shirt/Brassiere/alterwhite.rsi
+    color: "#0089EF"
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Under/Shirt/Brassiere/alterwhite.rsi
+    clothingVisuals:
+      underweart:
+        - state: equipped-UNDERWEART
+          color: "#0089EF"
+
+- type: entity
+  parent: ADTClothingUnderwearTopBase
+  id: ClothingUnderBrassiereAlterGreen
+  name: brassiere
+  description: Make them loins buzz!
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Under/Shirt/Brassiere/alterwhite.rsi
+    color: "#5ABF2F"
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Under/Shirt/Brassiere/alterwhite.rsi
+    clothingVisuals:
+      underweart:
+        - state: equipped-UNDERWEART
+          color: "#5ABF2F"
+
+- type: entity
+  parent: ADTClothingUnderwearTopBase
+  id: ClothingUnderBrassiereAlterBrown
+  name: brassiere
+  description: Make them loins buzz!
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Under/Shirt/Brassiere/alterwhite.rsi
+    color: "#723A02"
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Under/Shirt/Brassiere/alterwhite.rsi
+    clothingVisuals:
+      underweart:
+        - state: equipped-UNDERWEART
+          color: "#723A02"
+
+- type: entity
+  parent: ADTClothingUnderwearTopBase
+  id: ClothingUnderBrassiereAlterRed
+  name: brassiere
+  description: Make them loins buzz!
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Under/Shirt/Brassiere/alterwhite.rsi
+    color: "#940000"
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Under/Shirt/Brassiere/alterwhite.rsi
+    clothingVisuals:
+      underweart:
+        - state: equipped-UNDERWEART
+          color: "#940000"
+
+- type: entity
+  parent: ADTClothingUnderwearTopBase
+  id: ClothingUnderBrassiereAlterYellow
+  name: brassiere
+  description: Make them loins buzz!
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Under/Shirt/Brassiere/alterwhite.rsi
+    color: "#EBE216"
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Under/Shirt/Brassiere/alterwhite.rsi
+    clothingVisuals:
+      underweart:
+        - state: equipped-UNDERWEART
+          color: "#EBE216"
+
+# Misc
+- type: entity
+  parent: ADTClothingUnderwearTopBase
+  id: ClothingUnderBrassiereAnime
+  name: brassiere
+  description: Make them loins buzz!
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Under/Shirt/Brassiere/anime.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Under/Shirt/Brassiere/anime.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearTopBase
+  id: ClothingUnderBrassiereCat
+  name: neko bra
+  description: Make them loins buzz!
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Under/Shirt/Brassiere/cat.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Under/Shirt/Brassiere/cat.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearTopBase
+  id: ClothingUnderBrassiereFlower
+  name: brassiere
+  description: Make them loins buzz!
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Under/Shirt/Brassiere/flower.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Under/Shirt/Brassiere/flower.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearTopBase
+  id: ClothingUnderBrassiereHeart
+  name: brassiere
+  description: Make them loins buzz!
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Under/Shirt/Brassiere/heart.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Under/Shirt/Brassiere/heart.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearTopBase
+  id: ClothingUnderBrassiereMira
+  name: brassiere
+  description: Make them loins buzz!
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Under/Shirt/Brassiere/mirabrassiere.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Under/Shirt/Brassiere/mirabrassiere.rsi
+
+# T-shirts
+- type: entity
+  parent: ADTClothingUnderwearTopBase
+  id: ClothingUnderShirtWhite
+  name: t-shirt
+  description: Make them loins buzz!
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Under/Shirt/Tshirt/shirt.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Under/Shirt/Tshirt/shirt.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearTopBase
+  id: ClothingUnderShirtBlack
+  name: t-shirt
+  description: Make them loins buzz!
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Under/Shirt/Tshirt/shirt.rsi
+    color: "#3f3f3f"
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Under/Shirt/Tshirt/shirt.rsi
+    clothingVisuals:
+      underweart:
+        - state: equipped-UNDERWEART
+          color: "#3f3f3f"
+
+- type: entity
+  parent: ADTClothingUnderwearTopBase
+  id: ClothingUnderShirtBlue
+  name: t-shirt
+  description: Make them loins buzz!
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Under/Shirt/Tshirt/shirt.rsi
+    color: "#0089EF"
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Under/Shirt/Tshirt/shirt.rsi
+    clothingVisuals:
+      underweart:
+        - state: equipped-UNDERWEART
+          color: "#0089EF"
+
+- type: entity
+  parent: ADTClothingUnderwearTopBase
+  id: ClothingUnderShirtGreen
+  name: t-shirt
+  description: Make them loins buzz!
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Under/Shirt/Tshirt/shirt.rsi
+    color: "#5ABF2F"
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Under/Shirt/Tshirt/shirt.rsi
+    clothingVisuals:
+      underweart:
+        - state: equipped-UNDERWEART
+          color: "#5ABF2F"
+
+- type: entity
+  parent: ADTClothingUnderwearTopBase
+  id: ClothingUnderShirtBrown
+  name: t-shirt
+  description: Make them loins buzz!
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Under/Shirt/Tshirt/shirt.rsi
+    color: "#723A02"
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Under/Shirt/Tshirt/shirt.rsi
+    clothingVisuals:
+      underweart:
+        - state: equipped-UNDERWEART
+          color: "#723A02"
+
+- type: entity
+  parent: ADTClothingUnderwearTopBase
+  id: ClothingUnderShirtRed
+  name: t-shirt
+  description: Make them loins buzz!
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Under/Shirt/Tshirt/shirt.rsi
+    color: "#940000"
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Under/Shirt/Tshirt/shirt.rsi
+    clothingVisuals:
+      underweart:
+        - state: equipped-UNDERWEART
+          color: "#940000"
+
+- type: entity
+  parent: ADTClothingUnderwearTopBase
+  id: ClothingUnderShirtYellow
+  name: t-shirt
+  description: Make them loins buzz!
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Under/Shirt/Tshirt/shirt.rsi
+    color: "#EBE216"
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Under/Shirt/Tshirt/shirt.rsi
+    clothingVisuals:
+      underweart:
+        - state: equipped-UNDERWEART
+          color: "#EBE216"

@@ -1,0 +1,27 @@
+- type: latheRecipe
+  id: BotanistBagOfHolding
+  result: BotanistBagOfHolding
+  completetime: 5
+  materials:
+    Steel: 2000
+    Silver: 750
+    Plasma: 1500
+    Uranium: 150
+    ADTBScrystal: 500
+
+- type: latheRecipe
+  id: WateringCan
+  result: WateringCan
+  completetime: 5
+  materials:
+    Steel: 1450
+    Glass: 1100
+
+- type: latheRecipe
+  id: AdvWateringCan
+  result: AdvWateringCan
+  completetime: 5
+  materials:
+    Steel: 1450
+    Glass: 1100
+    Silver: 1050

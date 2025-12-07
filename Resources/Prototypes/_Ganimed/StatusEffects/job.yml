@@ -1,0 +1,31 @@
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconTSF
+  icon:
+    sprite: /Textures/_Ganimed/Interface/Misc/job_icons.rsi
+    state: TSF
+  jobName: job-name-tsf-representative
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconUSSPSoldier
+  icon:
+    sprite: /Textures/_Ganimed/Interface/Misc/job_icons.rsi
+    state: USSPSoldier
+  jobName: job-name-ussp-soldier
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconUSSPMedical
+  icon:
+    sprite: /Textures/_Ganimed/Interface/Misc/job_icons.rsi
+    state: USSPMedical
+  jobName: job-name-ussp-medical
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconUSSPOfficer
+  icon:
+    sprite: /Textures/_Ganimed/Interface/Misc/job_icons.rsi
+    state: USSPOfficer
+  jobName: job-name-ussp-officer

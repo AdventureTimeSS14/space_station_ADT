@@ -25,6 +25,8 @@
                 <Label Text="{Loc 'ui-options-accessability-header-content'}"
                        StyleClasses="LabelKeyText"/>
                 <CheckBox Name="CensorNudityCheckBox" Text="{Loc 'ui-options-censor-nudity'}" />
+                <CheckBox Name="TranslitEnToRuCheckBox" Text="{Loc 'ui-options-toggle-translit-en-to-ru'}" /> <!-- Ganimed - transliteration -->
+                <CheckBox Name="TranslitRuToEnCheckBox" Text="{Loc 'ui-options-toggle-translit-ru-to-en'}" /> <!-- Ganimed - transliteration -->
             </BoxContainer>
         </ScrollContainer>
         <ui:OptionsTabControlRow Name="Control" Access="Public" />

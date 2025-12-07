@@ -73,4 +73,16 @@ public sealed partial class CCVars
     /// </summary>
     public static readonly CVarDef<bool> AccessibilityServerCensorNudity =
             CVarDef.Create("accessibility.server_censor_nudity", false, CVar.ARCHIVE | CVar.REPLICATED | CVar.SERVER);
+
+    /// <summary>
+    ///     Ganimed - Transliteration of latin (english) characters into cyrilic when saying a chat message. Example: sh->ш
+    /// </summary>
+    public static readonly CVarDef<bool> TransliterationEnToRu =
+        CVarDef.Create("accessibility.translit_en_to_ru", false, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    /// <summary>
+    ///     Ganimed - Transliteration of all cyrilic characters in the chatbox into latin (english) characters. Example: ш->sh
+    /// </summary>
+    public static readonly CVarDef<bool> TransliterationRuToEn =
+        CVarDef.Create("accessibility.translit_ru_to_en", false, CVar.CLIENTONLY | CVar.ARCHIVE);
 }

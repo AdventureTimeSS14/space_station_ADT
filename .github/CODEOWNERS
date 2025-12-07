@@ -1,39 +1,60 @@
 # Last match in file takes precedence.
 
 # Ping for all PRs
-* @Morb0
-* @JerryImMouse
+* @CrimeMoot
 
-# Ping for all PRs that include translations/editing fluent strings
-*.ftl @ficcialfaint
+# Database
+/Content.*.Database/ @CrimeMoot
 
-# Map files
-/Resources/Prototypes/Maps/** @Ko4ergaPunk 
-/Resources/Maps/** @Ko4ergaPunk 
+# C# content
+*.cs @CrimeMoot
+/Content.*/ @CrimeMoot
+/Content.*/_Ganimed/ @CrimeMoot
 
-/Resources/Prototypes/Body/ @DrSmugleaf # suffering
-/Resources/Prototypes/Entities/Mobs/Player/ @DrSmugleaf
-/Resources/Prototypes/Entities/Mobs/Species/ @DrSmugleaf
-/Resources/Prototypes/Guidebook/rules.yml @nikthechampiongr @crazybrain23
-/Content.*/Body/ @DrSmugleaf
-/Content.YAMLLinter @DrSmugleaf
-/Content.Shared/Damage/ @DrSmugleaf
+# YAML and prototypes
+*.yml @CrimeMoot @RedSpyy @HyperB1
+/Resources/Prototypes/ @CrimeMoot @RedSpyy @HyperB1
 
-/Content.*/Anomaly/ @TheShuEd
-/Resources/Prototypes/Entities/Structures/Specific/anomalies.yml @TheShuEd
+# Localization
+*.ftl @HyperB1
+/Resources/Locale/ru-RU/ @HyperB1
 
-/Content.*/Forensics/ @ficcialfaint
+# Administration
+/Resources/ConfigPresets/ @CrimeMoot @RedSpyy @Yuoko
+/Content.*/Administration/ @CrimeMoot @RedSpyy @Yuoko
 
-# SKREEEE
-/Content.*.Database/ @PJB3005 @DrSmugleaf
-/Content.Shared.Database/Log*.cs @PJB3005 @DrSmugleaf @nikthechampiongr @crazybrain23
-/Pow3r/ @PJB3005
-/Content.Server/Power/Pow3r/ @PJB3005
+# Head Mapper
+/Resources/Maps/** @AltMapper
+/Resources/Prototypes/Maps/** @AltMapper
+/Resources/Prototypes/*/Maps/** @AltMapper
 
+# Sprites and design (Head Spriter vacant)
+*.png @HyperB1 @AltMapper
+*meta.json @HyperB1 @AltMapper
+/Resources/Textures/ @HyperB1 @AltMapper
 
-# Sloth
-/Content.*/Audio @metalgearsloth
-/Content.*/Movement @metalgearsloth
-/Content.*/NPC @metalgearsloth
-/Content.*/Shuttles @metalgearsloth
-/Content.*/Weapons @metalgearsloth
+# Species
+/Resources/Prototypes/Species/ @AltMapper @Yuoko @HyperB1
+/Resources/Prototypes/*/Species/ @AltMapper @Yuoko @HyperB1
+/Resources/Prototypes/Entities/Mobs/Species/ @AltMapper @Yuoko @HyperB1
+/Resources/Prototypes/*/Entities/Mobs/Species/ @AltMapper @Yuoko @HyperB1
+/Resources/Prototypes/Entities/Mobs/Player/ @AltMapper @Yuoko @HyperB1
+/Resources/Prototypes/*/Entities/Mobs/Player/ @AltMapper @Yuoko @HyperB1
+
+# Other unique content
+/Resources/Prototypes/Traits/ @CrimeMoot @HyperB1
+/Resources/Prototypes/*/Traits/ @CrimeMoot @HyperB1
+/Resources/Prototypes/Roles/ @HyperB1 @RedSpyy @Yuoko @AltMapper
+/Resources/Prototypes/*/Roles/ @HyperB1 @RedSpyy @Yuoko @AltMapper
+/Resources/Prototypes/Loadouts/ @HyperB1
+/Resources/Prototypes/*/Loadouts/ @HyperB1
+/Resources/Prototypes/_Ganimed/Entities/Clothing/ @AltMapper @HyperB1
+/Resources/Prototypes/Entities/Objects/Weapons/ @RedSpyy
+/Resources/Prototypes/*/Entities/Objects/Weapons/ @RedSpyy
+/Resources/Prototypes/GameRules/ @HyperB1 @AltMapper @CrimeMoot @Yuoko
+
+# Lore, Wiki, Guidebook & Rules
+*.xml @HyperB1
+/Resources/ServerInfo/ @AltMapper @Yuoko @HyperB1
+/Resources/Prototypes/Guidebook/ @AltMapper @Yuoko @HyperB1
+/Resources/Prototypes/*/Guidebook/ @AltMapper @Yuoko @HyperB1

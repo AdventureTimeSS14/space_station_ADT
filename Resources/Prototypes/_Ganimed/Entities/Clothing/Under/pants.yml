@@ -1,0 +1,509 @@
+#color
+- type: entity
+  parent: ADTClothingUnderwearBottomBase
+  id: ClothingUnderPantsWhite
+  name: white underpants
+  description: Make them loins buzz!
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Under/Underpants/Male/white.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Under/Underpants/Male/white.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearBottomBase
+  id: ClothingUnderPantsBlack
+  name: black underpants
+  description: Make them loins buzz!
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Under/Underpants/Male/white.rsi
+    color: "#3f3f3f"
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Under/Underpants/Male/white.rsi
+    clothingVisuals:
+      underwearb:
+        - state: equipped-UNDERWEARB
+          color: "#3f3f3f"
+
+- type: entity
+  parent: ADTClothingUnderwearBottomBase
+  id: ClothingUnderPantsBlue
+  name: blue underpants
+  description: Make them loins buzz!
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Under/Underpants/Male/white.rsi
+    color: "#0089EF"
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Under/Underpants/Male/white.rsi
+    clothingVisuals:
+      underwearb:
+        - state: equipped-UNDERWEARB
+          color: "#0089EF"
+
+- type: entity
+  parent: ADTClothingUnderwearBottomBase
+  id: ClothingUnderPantsBrown
+  name: brown underpants
+  description: Make them loins buzz!
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Under/Underpants/Male/white.rsi
+    color: "#723A02"
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Under/Underpants/Male/white.rsi
+    clothingVisuals:
+      underwearb:
+        - state: equipped-UNDERWEARB
+          color: "#723A02"
+
+- type: entity
+  parent: ADTClothingUnderwearBottomBase
+  id: ClothingUnderPantsGreen
+  name: green underpants
+  description: Make them loins buzz!
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Under/Underpants/Male/white.rsi
+    color: "#5ABF2F"
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Under/Underpants/Male/white.rsi
+    clothingVisuals:
+      underwearb:
+        - state: equipped-UNDERWEARB
+          color: "#5ABF2F"
+
+- type: entity
+  parent: ADTClothingUnderwearBottomBase
+  id: ClothingUnderPantsRed
+  name: red underpants
+  description: Make them loins buzz!
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Under/Underpants/Male/white.rsi
+    color: "#940000"
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Under/Underpants/Male/white.rsi
+    clothingVisuals:
+      underwearb:
+        - state: equipped-UNDERWEARB
+          color: "#940000"
+
+- type: entity
+  parent: ADTClothingUnderwearBottomBase
+  id: ClothingUnderPantsYellow
+  name: yellow underpants
+  description: Make them loins buzz!
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Under/Underpants/Male/white.rsi
+    color: "#EBE216"
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Under/Underpants/Male/white.rsi
+    clothingVisuals:
+      underwearb:
+        - state: equipped-UNDERWEARB
+          color: "#EBE216"
+
+#Female
+- type: entity
+  parent: ADTClothingUnderwearBottomBase
+  id: ClothingUnderPantsFemaleWhite
+  name: female white underpants
+  description: Make them loins buzz!
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Under/Underpants/Female/white.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Under/Underpants/Female/white.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearBottomBase
+  id: ClothingUnderPantsFemaleBlack
+  name: black underpants
+  description: Make them loins buzz!
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Under/Underpants/Female/white.rsi
+    color: "#3f3f3f"
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Under/Underpants/Female/white.rsi
+    clothingVisuals:
+      underwearb:
+        - state: equipped-UNDERWEARB
+          color: "#3f3f3f"
+
+- type: entity
+  parent: ADTClothingUnderwearBottomBase
+  id: ClothingUnderPantsFemaleBlue
+  name: blue underpants
+  description: Make them loins buzz!
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Under/Underpants/Female/white.rsi
+    color: "#0089EF"
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Under/Underpants/Female/white.rsi
+    clothingVisuals:
+      underwearb:
+        - state: equipped-UNDERWEARB
+          color: "#0089EF"
+
+- type: entity
+  parent: ADTClothingUnderwearBottomBase
+  id: ClothingUnderPantsFemaleBrown
+  name: brown underpants
+  description: Make them loins buzz!
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Under/Underpants/Female/white.rsi
+    color: "#723A02"
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Under/Underpants/Female/white.rsi
+    clothingVisuals:
+      underwearb:
+        - state: equipped-UNDERWEARB
+          color: "#723A02"
+
+- type: entity
+  parent: ADTClothingUnderwearBottomBase
+  id: ClothingUnderPantsFemaleGreen
+  name: greem underpants
+  description: Make them loins buzz!
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Under/Underpants/Female/white.rsi
+    color: "#5ABF2F"
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Under/Underpants/Female/white.rsi
+    clothingVisuals:
+      underwearb:
+        - state: equipped-UNDERWEARB
+          color: "#5ABF2F"
+
+- type: entity
+  parent: ADTClothingUnderwearBottomBase
+  id: ClothingUnderPantsFemaleRed
+  name: red underpants
+  description: Make them loins buzz!
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Under/Underpants/Female/white.rsi
+    color: "#940000"
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Under/Underpants/Female/white.rsi
+    clothingVisuals:
+      underwearb:
+        - state: equipped-UNDERWEARB
+          color: "#940000"
+
+- type: entity
+  parent: ADTClothingUnderwearBottomBase
+  id: ClothingUnderPantsFemaleYellow
+  name: yellow underpants
+  description: Make them loins buzz!
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Under/Underpants/Female/white.rsi
+    color: "#EBE216"
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Under/Underpants/Female/white.rsi
+    clothingVisuals:
+      underwearb:
+        - state: equipped-UNDERWEARB
+          color: "#EBE216"
+
+#strings
+- type: entity
+  parent: ADTClothingUnderwearBottomBase
+  id: ClothingUnderPantsFemaleThongWhite
+  name: female white underpants
+  description: Make them loins buzz!
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Under/Underpants/Female/whitestring.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Under/Underpants/Female/whitestring.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearBottomBase
+  id: ClothingUnderPantsFemaleThongBlack
+  name: black underpants
+  description: Make them loins buzz!
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Under/Underpants/Female/whitestring.rsi
+    color: "#3f3f3f"
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Under/Underpants/Female/whitestring.rsi
+    clothingVisuals:
+      underwearb:
+        - state: equipped-UNDERWEARB
+          color: "#3f3f3f"
+
+- type: entity
+  parent: ADTClothingUnderwearBottomBase
+  id: ClothingUnderPantsFemaleThongBlue
+  name: blue underpants
+  description: Make them loins buzz!
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Under/Underpants/Female/whitestring.rsi
+    color: "#0089EF"
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Under/Underpants/Female/whitestring.rsi
+    clothingVisuals:
+      underwearb:
+        - state: equipped-UNDERWEARB
+          color: "#0089EF"
+
+- type: entity
+  parent: ADTClothingUnderwearBottomBase
+  id: ClothingUnderPantsFemaleThongBrown
+  name: brown underpants
+  description: Make them loins buzz!
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Under/Underpants/Female/whitestring.rsi
+    color: "#723A02"
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Under/Underpants/Female/whitestring.rsi
+    clothingVisuals:
+      underwearb:
+        - state: equipped-UNDERWEARB
+          color: "#723A02"
+
+- type: entity
+  parent: ADTClothingUnderwearBottomBase
+  id: ClothingUnderPantsFemaleThongGreen
+  name: greem underpants
+  description: Make them loins buzz!
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Under/Underpants/Female/whitestring.rsi
+    color: "#5ABF2F"
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Under/Underpants/Female/whitestring.rsi
+    clothingVisuals:
+      underwearb:
+        - state: equipped-UNDERWEARB
+          color: "#5ABF2F"
+
+- type: entity
+  parent: ADTClothingUnderwearBottomBase
+  id: ClothingUnderPantsFemaleThongRed
+  name: red underpants
+  description: Make them loins buzz!
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Under/Underpants/Female/whitestring.rsi
+    color: "#940000"
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Under/Underpants/Female/whitestring.rsi
+    clothingVisuals:
+      underwearb:
+        - state: equipped-UNDERWEARB
+          color: "#940000"
+
+- type: entity
+  parent: ADTClothingUnderwearBottomBase
+  id: ClothingUnderPantsFemaleThongYellow
+  name: yellow underpants
+  description: Make them loins buzz!
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Under/Underpants/Female/whitestring.rsi
+    color: "#EBE216"
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Under/Underpants/Female/whitestring.rsi
+    clothingVisuals:
+      underwearb:
+        - state: equipped-UNDERWEARB
+          color: "#EBE216"
+
+#Alter
+- type: entity
+  parent: ADTClothingUnderwearBottomBase
+  id: ClothingUnderPantsFemaleAlterWhite
+  name: female white underpants
+  description: Make them loins buzz!
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Under/Underpants/Female/alterwhite.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Under/Underpants/Female/alterwhite.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearBottomBase
+  id: ClothingUnderPantsFemaleAlterBlack
+  name: black underpants
+  description: Make them loins buzz!
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Under/Underpants/Female/alterwhite.rsi
+    color: "#3f3f3f"
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Under/Underpants/Female/alterwhite.rsi
+    clothingVisuals:
+      underwearb:
+        - state: equipped-UNDERWEARB
+          color: "#3f3f3f"
+
+- type: entity
+  parent: ADTClothingUnderwearBottomBase
+  id: ClothingUnderPantsFemaleAlterBlue
+  name: blue underpants
+  description: Make them loins buzz!
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Under/Underpants/Female/alterwhite.rsi
+    color: "#0089EF"
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Under/Underpants/Female/alterwhite.rsi
+    clothingVisuals:
+      underwearb:
+        - state: equipped-UNDERWEARB
+          color: "#0089EF"
+
+- type: entity
+  parent: ADTClothingUnderwearBottomBase
+  id: ClothingUnderPantsFemaleAlterBrown
+  name: brown underpants
+  description: Make them loins buzz!
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Under/Underpants/Female/alterwhite.rsi
+    color: "#723A02"
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Under/Underpants/Female/alterwhite.rsi
+    clothingVisuals:
+      underwearb:
+        - state: equipped-UNDERWEARB
+          color: "#723A02"
+
+- type: entity
+  parent: ADTClothingUnderwearBottomBase
+  id: ClothingUnderPantsFemaleAlterGreen
+  name: greem underpants
+  description: Make them loins buzz!
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Under/Underpants/Female/alterwhite.rsi
+    color: "#5ABF2F"
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Under/Underpants/Female/alterwhite.rsi
+    clothingVisuals:
+      underwearb:
+        - state: equipped-UNDERWEARB
+          color: "#5ABF2F"
+
+- type: entity
+  parent: ADTClothingUnderwearBottomBase
+  id: ClothingUnderPantsFemaleAlterRed
+  name: red underpants
+  description: Make them loins buzz!
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Under/Underpants/Female/alterwhite.rsi
+    color: "#940000"
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Under/Underpants/Female/alterwhite.rsi
+    clothingVisuals:
+      underwearb:
+        - state: equipped-UNDERWEARB
+          color: "#940000"
+
+- type: entity
+  parent: ADTClothingUnderwearBottomBase
+  id: ClothingUnderPantsFemaleAlterYellow
+  name: yellow underpants
+  description: Make them loins buzz!
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Under/Underpants/Female/alterwhite.rsi
+    color: "#EBE216"
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Under/Underpants/Female/alterwhite.rsi
+    clothingVisuals:
+      underwearb:
+        - state: equipped-UNDERWEARB
+          color: "#EBE216"
+
+#Misc
+- type: entity
+  parent: ADTClothingUnderwearBottomBase
+  id: ClothingUnderPantsNT
+  name: NT underpants
+  description: Make them loins buzz!
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Under/Underpants/Male/ntpants.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Under/Underpants/Male/ntpants.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearBottomBase
+  id: ClothingUnderPantsMilitary
+  name: military underpants
+  description: Make them loins buzz!
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Under/Underpants/Male/military.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Under/Underpants/Male/military.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearBottomBase
+  id: ClothingUnderPantsFemaleAnime
+  name: cosplayer panties
+  description: Make them loins buzz!
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Under/Underpants/Female/anime.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Under/Underpants/Female/anime.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearBottomBase
+  id: ClothingUnderPantsFemaleCat
+  name: neko panties
+  description: Make them loins buzz!
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Under/Underpants/Female/cat.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Under/Underpants/Female/cat.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearBottomBase
+  id: ClothingUnderPantsFemaleFlower
+  name: female underpants
+  description: Make them loins buzz!
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Under/Underpants/Female/flower.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Under/Underpants/Female/flower.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearBottomBase
+  id: ClothingUnderPantsFemaleHeart
+  name: female underpants
+  description: Make them loins buzz!
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Under/Underpants/Female/heart.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Under/Underpants/Female/heart.rsi
+
+- type: entity
+  parent: ADTClothingUnderwearBottomBase
+  id: ClothingUnderPantsFemaleMira
+  name: female underpants
+  description: Make them loins buzz!
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Under/Underpants/Female/mirapants.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Under/Underpants/Female/mirapants.rsi

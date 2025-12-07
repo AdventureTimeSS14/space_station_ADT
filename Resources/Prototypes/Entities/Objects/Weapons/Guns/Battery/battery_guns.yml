@@ -240,12 +240,12 @@
 
 - type: entity
   name: practice laser rifle
-  parent: [BaseWeaponBattery] #ADT Tweak - removed BaseGunWieldable
+  parent: [BaseWeaponBattery, BaseGunWieldable] #Ganimed_Tweak
   id: WeaponLaserCarbinePractice
   description: This modified laser rifle fires nearly harmless beams in the 40-watt range, for target practice.
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Battery/laser_gun.rsi
+    sprite: _Ganimed/Objects/Weapons/Guns/Battery/laser_gun.rsi #Ganimed-resprite
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -258,7 +258,7 @@
     zeroVisible: false
   - type: Appearance
   - type: Clothing
-    sprite: Objects/Weapons/Guns/Battery/laser_gun.rsi
+    sprite: _Ganimed/Objects/Weapons/Guns/Battery/laser_gun.rsi
   # ADT-Tweak start
   # - type: RunAndGunSpreadModifier
   #   modifyer: 0.3
@@ -279,14 +279,14 @@
     - SemiAuto
   - type: HitscanBatteryAmmoProvider
     proto: RedLaserPractice
-    fireCost: 20 #ADT_Tweak 62.5 -> 20
+    fireCost: 50 #Ganimed_Tweak 28.5 -> 50
   - type: StaticPrice
     price: 300
   - type: GunExecutionBlacklist
 
 - type: entity
   name: laser rifle
-  parent: [WeaponLaserCarbinePractice, BaseSecurityContraband, ADTBaseAttachableHolder] # ADT TWEAK #ADT Tweak - removed BaseGunWieldable
+  parent: [WeaponLaserCarbinePractice, BaseGunWieldable, BaseSecurityContraband, ADTBaseAttachableHolder] #Ganimed_Tweak
   id: WeaponLaserCarbine
   description: Favoured by Nanotrasen Security for being cheap and easy to use.
   components:

@@ -47,3 +47,6 @@ trait-uncloneable-name = Неклонируемость
 trait-uncloneable-desc = Вы не можете быть клонированы.
 trait-hemophilia-name = Гемофилия
 trait-hemophilia-desc = Ваша кровь хуже сворачивается... "ЧУВАК У ТЕБЯ КРОВЬ ИДЁТ РЕКОЙ! НАЙДИ УЖЕ МАРЛЮ!!!"
+
+trait-impaired-mobility-name = Нарушение подвижности
+trait-impaired-mobility-desc = Вам тяжело передвигаться без посторонней помощи.

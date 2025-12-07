@@ -47,6 +47,9 @@
     # ADT-SlimeHair-End
       enum.StoreUiKey.Key:                # Чтобы не ломался генокрад
         type: StoreBoundUserInterface               # Чтобы не ломался генокрад
+    # Ganimed-Fix
+      enum.HereticLivingHeartKey.Key:
+        type: LivingHeartMenuBoundUserInterface
   # to prevent bag open/honk spam
   - type: UseDelay
     delay: 0.5
@@ -137,11 +140,15 @@
       GalacticCommon: Speak
       Bubblish: Speak
   - type: SlimeHair # ADT-SlimeHair
+  # Ganimed-Tweak-Start
+  - type: Sprite
+    scale: 0.95, 0.95
+  # Ganimed-Tweak-End
   - type: SizeAttributeWhitelist # Frontier
     tall: true
-    tallscale: 1.05
+    tallscale: 1 # Ganimed-Tweak
     short: true
-    shortscale: 0.95
+    shortscale: 0.9 # Ganimed-Tweak
   #End ADT tweak
 
 - type: entity

@@ -71,7 +71,7 @@
   - type: Appearance
   - type: EntityStorageVisuals
     stateBaseClosed: cargo
-    stateDoorOpen: color_black3_open
+    stateDoorOpen: cargo_open
     stateDoorClosed: cargo_door
   - type: AccessReader
     access: [["Cargo"]]
@@ -442,7 +442,7 @@
     stateDoorOpen: color_red_open
     stateDoorClosed: brigmedic_door
   - type: AccessReader
-    access: [["Security"]] #ADT-tweak
+    access: [["Medical"], ["Armory"]] # Ganimed-Tweak
 
 # Security Officer
 - type: entity

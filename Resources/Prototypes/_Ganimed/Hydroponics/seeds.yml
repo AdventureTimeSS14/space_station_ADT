@@ -1,0 +1,63 @@
+- type: seed
+  id: cucumber
+  name: seeds-cucumber-name
+  noun: seeds-noun-seeds
+  displayName: seeds-cucumber-display-name
+  plantRsi: _Ganimed/Objects/Specific/Hydroponics/cucumber.rsi
+  packetPrototype: CucumberSeeds
+  productPrototypes:
+    - FoodCucumber
+  mutationPrototypes:
+    - shashamber
+  harvestRepeat: Repeat
+  lifespan: 25
+  maturation: 8
+  production: 5
+  yield: 2
+  potency: 10
+  waterConsumption: 0.60
+  nutrientConsumption: 0.40
+  idealLight: 8
+  idealHeat: 298
+  chemicals:
+    Nutriment:
+      Min: 2
+      Max: 8
+      PotencyDivisor: 14
+    Vitamin:
+      Min: 1
+      Max: 3
+      PotencyDivisor: 30
+    Water:
+      Min: 2
+      Max: 5
+      PotencyDivisor: 25
+
+- type: seed
+  id: shashamber
+  name: seeds-shashamber-name
+  noun: seeds-noun-seeds
+  displayName: seeds-shashamber-display-name
+  plantRsi: _Ganimed/Objects/Specific/Hydroponics/shashamber.rsi
+  packetPrototype: ShashamberSeeds
+  productPrototypes:
+    - FoodShashamber
+  harvestRepeat: Repeat
+  lifespan: 25
+  maturation: 8
+  production: 5
+  yield: 2
+  potency: 10
+  waterConsumption: 0.60
+  nutrientConsumption: 0.40
+  idealLight: 8
+  idealHeat: 298
+  chemicals:
+    Nutriment:
+      Min: 2
+      Max: 8
+      PotencyDivisor: 14
+    Cryptobiolin:
+      Min: 5
+      Max: 8
+      PotencyDivisor: 25

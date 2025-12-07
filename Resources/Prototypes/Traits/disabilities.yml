@@ -125,11 +125,17 @@
   quirk: true
   cost: -2 # ADT Quirks
 
-# - type: trait
-#   id: ImpairedMobility
-#   name: trait-impaired-mobility-name
-#   description: trait-impaired-mobility-desc
-#   traitGear: OffsetCane
-#   category: Disabilities
-#   components:
-#     - type: ImpairedMobility
+- type: trait
+  id: ImpairedMobility
+  name: trait-impaired-mobility-name
+  description: trait-impaired-mobility-desc
+  traitGear: OffsetCane
+  category: Disabilities
+  components:
+  - type: ImpairedMobility
+  # ADT Quirks start
+  speciesBlacklist:
+  - IPC
+  quirk: true
+  cost: -2
+  # ADT Quirks end

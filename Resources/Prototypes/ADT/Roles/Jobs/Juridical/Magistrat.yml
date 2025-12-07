@@ -37,6 +37,10 @@
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
+  - !type:AddComponentSpecial
+    components:
+      - type: CommandStaff
+      - type: AntagImmune # Ganimed-MRP: Loyalty implant
 
 - type: startingGear
   id: MagistratGear

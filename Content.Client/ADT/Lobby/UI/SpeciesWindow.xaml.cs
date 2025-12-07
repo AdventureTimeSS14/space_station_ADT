@@ -13,6 +13,7 @@ using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared.ContentPack;
 using Robust.Shared.Prototypes;
+using Content.Shared.Roles;
 using Content.Client.Corvax.Sponsors;
 
 namespace Content.Client.ADT.Lobby.UI;
@@ -152,7 +153,16 @@ public sealed partial class SpeciesWindow : FancyWindow
         }
 
         var proto = _proto.Index(protoId);
-        var job = Profile.JobPriorities.Where(x => x.Value == JobPriority.High).First().Key;
+        // Ganimed edit
+        var highPriorityJob = Profile.JobPriorities.FirstOrDefault(x => x.Value == JobPriority.High);
+
+        if (highPriorityJob.Equals(default(KeyValuePair<ProtoId<JobPrototype>, JobPriority>)))
+        {
+            return;
+        }
+        var job = highPriorityJob.Key;
+        // Ganimed edit
+
         CurrentSpecies = protoId;
 
         var previewProfile = Profile;

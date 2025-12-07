@@ -24,6 +24,7 @@ using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
+using Robust.Shared.Configuration; // Ganimed edit
 
 using System.Text.RegularExpressions;
 using System.IO;
@@ -602,7 +603,7 @@ namespace Content.Server.GameTicking
                 {
                     // Note that contentPlayerData?.Name sticks around after the player is disconnected.
                     // This is as opposed to ply?.Name which doesn't.
-                    PlayerOOCName = contentPlayerData?.Name ?? "(IMPOSSIBLE: REGISTERED MIND WITH NO OWNER)",
+                    PlayerOOCName = mind.Incognito ? Loc.GetString("game-ticker-unknown-role") : contentPlayerData?.Name ?? Loc.GetString("game-ticker-unknown-role"), // Ganimed edit
                     // Character name takes precedence over current entity name
                     PlayerICName = playerIcName,
                     PlayerGuid = userId,
@@ -827,8 +828,13 @@ namespace Content.Server.GameTicking
 
                 ReqWindowAttentionAll();
                 // Запуск голосования за Мапу и Режим в лобби
-                _voteManager.CreateStandardVote(initiator: null, voteType: StandardVoteType.Map);     // ADT-Tweak
-                _voteManager.CreateStandardVote(initiator: null, voteType: StandardVoteType.Preset);  // ADT-Tweak
+                // Ganimed edit start
+                if (_cfg.GetCVar(CCVars.LobbyAutoVotes))
+                {
+                    _voteManager.CreateStandardVote(initiator: null, voteType: StandardVoteType.Map);
+                    _voteManager.CreateStandardVote(initiator: null, voteType: StandardVoteType.Preset);
+                }
+                // Ganimed edit end
             }
         }
 

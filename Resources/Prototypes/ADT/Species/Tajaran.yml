@@ -27,7 +27,7 @@
   defaultLanguages:
   - GalacticCommon
   - SikTaj
-  - CintaTaj
+  # - CintaTaj # Ganimed-Tweak
   maxAge: 45
   oldAge: 36
   youngAge: 22

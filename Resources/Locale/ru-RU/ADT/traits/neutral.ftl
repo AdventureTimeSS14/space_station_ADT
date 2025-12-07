@@ -11,10 +11,10 @@ trait-nya-accent-name = Ня-кцент
 trait-nya-accent-desc = Кажется на вас нашло мря-гкое голово-муууррр-жение.
 
 trait-tall-name = Высокий
-trait-tall-desc = Вы немного выше других представителей своего вида.
+trait-tall-desc = Вы выше других представителей своего вида.
 
 trait-short-name = Низкий
-trait-short-desc = Вы немного ниже других представителей своего вида.
+trait-short-desc = Вы ниже других представителей своего вида.
 
 trait-sick-teeth-accent-name = Зубной дефект
 trait-sick-teeth-accent-desc = Проблемы с зубами меняют вашу речь: некоторые согласные звучат иначе.

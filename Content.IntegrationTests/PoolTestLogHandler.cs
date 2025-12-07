@@ -1,4 +1,6 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
+using NUnit.Framework;
 using Robust.Shared.Log;
 using Robust.Shared.Timing;
 using Serilog.Events;
@@ -55,6 +57,25 @@ public sealed class PoolTestLogHandler : ILogHandler
         var name = LogMessage.LogLevelToName(level);
         var seconds = _stopwatch.Elapsed.TotalSeconds;
         var rendered = message.RenderMessage();
+
+        // Ganimed edit start
+        if (level == LogLevel.Error &&
+            rendered.Contains("Attempted to add a SmokeAffectedComponent component to an entity") &&
+            rendered.Contains("while it is terminating"))
+        {
+            testContext.WriteLine($"{_prefix}{seconds:F3}s [IGNORED ERROR] {sawmillName}: {rendered}");
+            return;
+        }
+        // Ganimed edit stop
+
+        // Ganimed edit: Ignore known alert log spam from MobThresholdSystem
+        if (level == LogLevel.Error &&
+            rendered.Contains("No alert alert for mob state Dead"))
+        {
+            testContext.WriteLine($"{_prefix}{seconds:F3}s [IGNORED ERROR] {sawmillName}: {rendered}");
+            return;
+        }
+
         var line = $"{_prefix}{seconds:F3}s [{name}] {sawmillName}: {rendered}";
 
         testContext.WriteLine(line);

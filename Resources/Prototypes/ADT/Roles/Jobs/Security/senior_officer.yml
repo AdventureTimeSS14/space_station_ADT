@@ -21,7 +21,10 @@
       species:
       - Resomi
       - Vox
-      - Shadekin
+#      - Shadekin
+  # ADT RESTRICT End
+    - !type:AgeRequirement # Ganimed-MRP
+      requiredAge: 21
   startingGear: SeniorOfficerGear
   icon: "JobIconSeniorOfficer"
   supervisors: job-supervisors-hos
@@ -33,6 +36,8 @@
   - Service
   - External
   - Cryogenics
+  extendedAccess: # Ganimed-Tweak
+  - Detective
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
@@ -45,9 +50,9 @@
     ears: ClothingHeadsetSecurity
     pocket1: WeaponRevolverDeckard
     pocket2: SpeedLoaderMagnum
-  storage:
-    back:
-    - ADTHumanCubeWrapped #ADT-CustomADTLoadout
+  # storage:
+  #   back:
+  #   - ADTHumanCubeWrapped #ADT-CustomADTLoadout # Ganimed-Remove
 
 - type: chameleonOutfit
   id: ADTSeniorOfficerChameleonOutfit

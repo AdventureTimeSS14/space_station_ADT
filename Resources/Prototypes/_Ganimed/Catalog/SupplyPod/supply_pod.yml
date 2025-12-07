@@ -1,0 +1,249 @@
+# Stray supply pod surplus cargo
+- type: entity
+  parent: BaseSupplyPodTargetCircle
+  id: SupplyPodCircleSurplusCargo
+  suffix: Surplus, Cargo
+  components:
+    - type: TimedSpawner
+      prototypes:
+        - SupplyPodFallingAnimationSurplusCargo
+
+- type: entity
+  parent: SupplyPodDefaultFallingAnimation
+  categories: [ HideSpawnMenu ]
+  id: SupplyPodFallingAnimationSurplusCargo
+  components:
+    - type: TimedSpawner
+      prototypes:
+        - SupplyPodSurplusCargo
+
+- type: entity
+  parent: SupplyPodCapsuleDefault
+  categories: [ HideSpawnMenu ]
+  id: SupplyPodSurplusCargo
+  components:
+    - type: EntityTableContainerFill
+      containers:
+        entity_storage: !type:NestedSelector
+          tableId: SurplusCargoTable
+
+# Stray syndicate surplus 5TC
+- type: entity
+  parent: BaseSupplyPodTargetCircle
+  id: SupplyPodCircleSyndicateSurplus5TC
+  suffix: Surplus 5TC, Syndicate
+  components:
+    - type: TimedSpawner
+      prototypes:
+        - SupplyPodFallingAnimationSyndicateSurplus5TC
+
+- type: entity
+  parent: SupplyPodSyndicateFallingAnimation
+  categories: [ HideSpawnMenu ]
+  id: SupplyPodFallingAnimationSyndicateSurplus5TC
+  components:
+    - type: TimedSpawner
+      prototypes:
+        - SupplyPodSyndicateSurplus5TC
+
+- type: entity
+  parent: [ SupplyPodCapsuleSyndicate, CrateSyndicateSurplusBundle]
+  categories: [ HideSpawnMenu ]
+  id: SupplyPodSyndicateSurplus5TC
+  components:
+    - type: SurplusBundle
+      totalPrice: 5
+
+# Stray syndicate surplus 10TC
+- type: entity
+  parent: BaseSupplyPodTargetCircle
+  id: SupplyPodCircleSyndicateSurplus10TC
+  suffix: Surplus 10TC, Syndicate
+  components:
+    - type: TimedSpawner
+      prototypes:
+        - SupplyPodFallingAnimationSyndicateSurplus10TC
+
+- type: entity
+  parent: SupplyPodSyndicateFallingAnimation
+  categories: [ HideSpawnMenu ]
+  id: SupplyPodFallingAnimationSyndicateSurplus10TC
+  components:
+    - type: TimedSpawner
+      prototypes:
+        - SupplyPodSyndicateSurplus10TC
+
+- type: entity
+  parent: [ SupplyPodCapsuleSyndicate, CrateSyndicateSurplusBundle ]
+  categories: [ HideSpawnMenu ]
+  id: SupplyPodSyndicateSurplus10TC
+  components:
+    - type: SurplusBundle
+      totalPrice: 10
+
+# Stray syndicate surplus 15TC
+- type: entity
+  parent: BaseSupplyPodTargetCircle
+  id: SupplyPodCircleSyndicateSurplus15TC
+  suffix: Surplus 15TC, Syndicate
+  components:
+    - type: TimedSpawner
+      prototypes:
+        - SupplyPodFallingAnimationSyndicateSurplus15TC
+
+- type: entity
+  parent: SupplyPodSyndicateFallingAnimation
+  categories: [ HideSpawnMenu ]
+  id: SupplyPodFallingAnimationSyndicateSurplus15TC
+  components:
+    - type: TimedSpawner
+      prototypes:
+        - SupplyPodSyndicateSurplus15TC
+
+- type: entity
+  parent: [ SupplyPodCapsuleSyndicate, CrateSyndicateSurplusBundle ]
+  categories: [ HideSpawnMenu ]
+  id: SupplyPodSyndicateSurplus15TC
+  components:
+    - type: SurplusBundle
+      totalPrice: 15
+
+# Stray syndicate surplus 20TC
+- type: entity
+  parent: BaseSupplyPodTargetCircle
+  id: SupplyPodCircleSyndicateSurplus20TC
+  suffix: Surplus 20TC, Syndicate
+  components:
+    - type: TimedSpawner
+      prototypes:
+        - SupplyPodFallingAnimationSyndicateSurplus20TC
+
+- type: entity
+  parent: SupplyPodSyndicateFallingAnimation
+  categories: [ HideSpawnMenu ]
+  id: SupplyPodFallingAnimationSyndicateSurplus20TC
+  components:
+    - type: TimedSpawner
+      prototypes:
+        - SupplyPodSyndicateSurplus20TC
+
+- type: entity
+  parent: [ SupplyPodCapsuleSyndicate, CrateSyndicateSurplusBundle ]
+  categories: [ HideSpawnMenu ]
+  id: SupplyPodSyndicateSurplus20TC
+  components:
+    - type: SurplusBundle
+      totalPrice: 20
+
+# Stray syndicate surplus 25TC
+- type: entity
+  parent: BaseSupplyPodTargetCircle
+  id: SupplyPodCircleSyndicateSurplus25TC
+  suffix: Surplus 25TC, Syndicate
+  components:
+    - type: TimedSpawner
+      prototypes:
+        - SupplyPodFallingAnimationSyndicateSurplus25TC
+
+- type: entity
+  parent: SupplyPodSyndicateFallingAnimation
+  categories: [ HideSpawnMenu ]
+  id: SupplyPodFallingAnimationSyndicateSurplus25TC
+  components:
+    - type: TimedSpawner
+      prototypes:
+        - SupplyPodSyndicateSurplus25TC
+
+- type: entity
+  parent: [ SupplyPodCapsuleSyndicate, CrateSyndicateSurplusBundle ]
+  categories: [ HideSpawnMenu ]
+  id: SupplyPodSyndicateSurplus25TC
+  components:
+    - type: SurplusBundle
+      totalPrice: 25
+
+# SyndicateSurplusBundle
+- type: entity
+  parent: BaseSupplyPodTargetCircle
+  id: SupplyPodCircleSyndicateSurplusBundle
+  suffix: Surplus bundle 50TC, Syndicate
+  components:
+    - type: TimedSpawner
+      prototypes:
+        - SupplyPodFallingAnimationSyndicateSurplusBundle
+
+- type: entity
+  parent: SupplyPodSyndicateFallingAnimation
+  categories: [ HideSpawnMenu ]
+  id: SupplyPodFallingAnimationSyndicateSurplusBundle
+  components:
+    - type: TimedSpawner
+      prototypes:
+        - SupplyPodSyndicateSurplusBundle
+
+- type: entity
+  parent: [ SupplyPodCapsuleSyndicate, CrateSyndicateSurplusBundle ]
+  categories: [ HideSpawnMenu ]
+  id: SupplyPodSyndicateSurplusBundle
+  components:
+    - type: SurplusBundle
+      totalPrice: 50
+
+# SyndicateSuperSurplusBundle
+- type: entity
+  parent: BaseSupplyPodTargetCircle
+  id: SupplyPodCircleSyndicateSuperSurplusBundle
+  suffix: Super surplus bundle 125TC, Syndicate
+  components:
+    - type: TimedSpawner
+      prototypes:
+        - SupplyPodFallingAnimationSyndicateSuperSurplusBundle
+
+- type: entity
+  parent: SupplyPodSyndicateFallingAnimation
+  categories: [ HideSpawnMenu ]
+  id: SupplyPodFallingAnimationSyndicateSuperSurplusBundle
+  components:
+    - type: TimedSpawner
+      prototypes:
+        - SupplyPodSyndicateSuperSurplusBundle
+
+- type: entity
+  parent: [ SupplyPodCapsuleSyndicate, CrateSyndicateSurplusBundle ]
+  categories: [ HideSpawnMenu ]
+  id: SupplyPodSyndicateSuperSurplusBundle
+  components:
+    - type: SurplusBundle
+      totalPrice: 125
+
+# CybersunJuggernautBundle
+- type: entity
+  parent: BaseSupplyPodTargetCircle
+  id: SupplyPodCircleCybersunJuggernautBundle
+  suffix: Cybersun Juggernaut bundle, Syndicate
+  components:
+    - type: TimedSpawner
+      prototypes:
+        - SupplyPodFallingAnimationCybersunJuggernautBundle
+
+- type: entity
+  parent: SupplyPodSyndicateFallingAnimation
+  categories: [ HideSpawnMenu ]
+  id: SupplyPodFallingAnimationCybersunJuggernautBundle
+  components:
+    - type: TimedSpawner
+      prototypes:
+        - SupplyPodCybersunJuggernautBundle
+
+- type: entity
+  parent: [ SupplyPodCapsuleSyndicate, CrateSyndicateSurplusBundle ]
+  categories: [ HideSpawnMenu ]
+  id: SupplyPodCybersunJuggernautBundle
+  components:
+    - type: StorageFill
+      contents:
+        - id: ClothingOuterHardsuitJuggernaut
+        - id: ClothingMaskGasSyndicate
+        - id: ClothingHandsGlovesCombat
+        - id: DoubleEmergencyOxygenTankFilled
+        - id: DoubleEmergencyNitrogenTankFilled

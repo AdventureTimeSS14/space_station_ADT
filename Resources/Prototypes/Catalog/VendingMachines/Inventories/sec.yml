@@ -14,6 +14,7 @@
     ClothingEyesHudSecurity: 2
     ClothingEyesEyepatchHudSecurity: 2
     ClothingBeltSecurityWebbing: 5
+    ClothingBeltTacticalHolster: 2 # Ganimed-Edit
     CombatKnife: 3
     Zipties: 12
     RiotShield: 2
@@ -21,7 +22,7 @@
     ADTClothingBeltJudo: 3 #ADT tweak
     ADTBookPTCR: 4 #ADT tweak
     ADTWeaponTonfa: 2 #ADT tweak
-    # RiotBulletShield: 2 ADT no nullet shield
+    RiotBulletShield: 2 #Зачем они их убирали?
     RadioHandheldSecurity: 5
     Bola: 5 #ADT tweak
     ADTClothingNeckBodyCamera: 3 #ADT-tweak

@@ -16,7 +16,6 @@ namespace Content.Client.Access.UI;
 public sealed partial class GroupedAccessLevelChecklist : BoxContainer
 {
     private static readonly ProtoId<AccessGroupPrototype> GeneralAccessGroup = "General";
-
     [Dependency] private readonly IPrototypeManager _protoManager = default!;
 
     private bool _isMonotone;

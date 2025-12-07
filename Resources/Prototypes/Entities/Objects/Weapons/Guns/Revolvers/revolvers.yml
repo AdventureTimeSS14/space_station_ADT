@@ -101,14 +101,14 @@
   components:
   # ADT tweak Start
   - type: Item
-    sprite: ADT/Objects/Weapons/Guns/Revolvers/inspector.rsi # ADT tweak
+    sprite: Objects/Weapons/Guns/Revolvers/inspector.rsi #Ganimed-resprite
     size: Small
     shape:
     - 0,0,1,0
     - 0,1,0,1
   # ADT tweak End
   - type: Sprite
-    sprite: ADT/Objects/Weapons/Guns/Revolvers/inspector.rsi # ADT tweak
+    sprite: Objects/Weapons/Guns/Revolvers/inspector.rsi #Ganimed-resprite
   - type: Clothing
     sprite: Objects/Weapons/Guns/Revolvers/inspector.rsi
   - type: RevolverAmmoProvider
@@ -131,9 +131,9 @@
     - 0,1,0,1
   # ADT tweak End
   - type: Sprite
-    sprite: ADT/Objects/Weapons/Guns/Revolvers/mateba.rsi # ADT tweak
+    sprite: Objects/Weapons/Guns/Revolvers/mateba.rsi #Ganimed-resprite
   - type: Clothing
-    sprite: ADT/Objects/Weapons/Guns/Revolvers/mateba.rsi # ADT tweak
+    sprite: Objects/Weapons/Guns/Revolvers/mateba.rsi #Ganimed-resprite
   - type: Gun
     fireRate: 3
     soundGunshot:
@@ -155,14 +155,14 @@
   components:
   # ADT tweak Start
   - type: Item
-    sprite: ADT/Objects/Weapons/Guns/Revolvers/python.rsi
+    sprite: Objects/Weapons/Guns/Revolvers/python.rsi #Ganimed-resprite
     size: Small
     shape:
     - 0,0,1,0
     - 0,1,0,1
   # ADT tweak End
   - type: Sprite
-    sprite: ADT/Objects/Weapons/Guns/Revolvers/python.rsi # ADT tweak
+    sprite: Objects/Weapons/Guns/Revolvers/python.rsi #Ganimed-resprite
   - type: Clothing
     sprite: Objects/Weapons/Guns/Revolvers/python.rsi
   - type: Gun
@@ -207,7 +207,7 @@
     - 0,1,0,1
   # ADT tweak End
   - type: Sprite
-    sprite: ADT/Objects/Weapons/Guns/Revolvers/pirate_revolver.rsi # ADT tweak
+    sprite: Objects/Weapons/Guns/Revolvers/pirate_revolver.rsi #Ganimed-resprite
   - type: Clothing
     sprite: Objects/Weapons/Guns/Revolvers/pirate_revolver.rsi
   - type: Gun

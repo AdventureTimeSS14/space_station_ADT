@@ -48,5 +48,18 @@ namespace Content.Shared.CombatMode
         /// </summary>
         [DataField, AutoNetworkedField]
         public bool ToggleMouseRotator = true;
+
+        // Ganimed edit start
+        /// <summary>
+        ///     If true, sets <see cref="MouseRotatorComponent.AngleTolerance"/> to 1 degree and <see cref="MouseRotatorComponent.Simple4DirMode"/>
+        ///     to false when the owner enters combatmode. This is currently being tested, so a simple bool switch should suffice.
+        ///     Leaving AutoNetworking just in case shitmins need to disable it for someone. Will only take effect when re-enabling combat mode.
+        /// </summary>
+        /// <remarks>
+        ///     No effect if <see cref="ToggleMouseRotator"/> is false.
+        /// </remarks>
+        [DataField, AutoNetworkedField]
+        public bool SmoothRotation = true;
+        // Ganimed edit end
     }
 }

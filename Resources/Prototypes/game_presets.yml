@@ -8,8 +8,8 @@
   rules:
     - MeteorSwarmScheduler
     - RampingStationEventScheduler
-    - SpaceTrafficControlEventScheduler
-    - SpaceTrafficControlFriendlyEventScheduler
+#    - SpaceTrafficControlEventScheduler #Ganimed-Tweak
+#    - SpaceTrafficControlFriendlyEventScheduler #Ganimed-Tweak
     - BasicRoundstartVariation
     - CrewTransferScheduler #ADT tweak
   bannedRound: 2 #ADT tweak
@@ -26,7 +26,7 @@
   rules:
     - KesslerSyndromeScheduler
     - RampingStationEventScheduler
-    - SpaceTrafficControlEventScheduler
+#    - SpaceTrafficControlEventScheduler #Ganimed-Tweak
     - BasicRoundstartVariation
     - CrewTransferScheduler #ADT tweak
 
@@ -45,7 +45,7 @@
     - Wizard
     - KesslerSyndromeScheduler
     - RampingStationEventScheduler
-    - SpaceTrafficControlEventScheduler
+#    - SpaceTrafficControlEventScheduler #Ganimed-Tweak
     - BasicRoundstartVariation
     - CrewTransferScheduler #ADT tweak
 
@@ -70,8 +70,8 @@
     - MeteorSwarmMildScheduler
     - MeteorSwarmScheduler
     - RampingStationEventScheduler
-    - SpaceTrafficControlEventScheduler
-    - SpaceTrafficControlFriendlyEventScheduler
+#    - SpaceTrafficControlEventScheduler #Ganimed-Tweak
+#    - SpaceTrafficControlFriendlyEventScheduler #Ganimed-Tweak
     - BasicRoundstartVariation
     - CrewTransferScheduler #ADT tweak
 
@@ -86,7 +86,7 @@
   rules:
   - ExtendedStationEventScheduler #ADT extended
   - MeteorSwarmScheduler
-  - SpaceTrafficControlEventScheduler
+#  - SpaceTrafficControlEventScheduler #Ganimed-Tweak
   - BasicRoundstartVariation
   - CrewTransferScheduler #ADT tweak
 
@@ -99,7 +99,7 @@
   showInVote: false #ADT_Tweak
   description: greenshift-description
   rules:
-  - SpaceTrafficControlFriendlyEventScheduler
+#  - SpaceTrafficControlFriendlyEventScheduler #Ganimed-Tweak
   - BasicRoundstartVariation
   - CrewTransferScheduler #ADT tweak
 
@@ -124,7 +124,7 @@
   rules:
     - BasicStationEventScheduler
     - MeteorSwarmScheduler
-    - SpaceTrafficControlEventScheduler
+#    - SpaceTrafficControlEventScheduler #Ganimed-Tweak
     - BasicRoundstartVariation
     - CrewTransferScheduler #ADT tweak
 
@@ -136,7 +136,7 @@
   showInVote: false #Admin Use
   description: secret-description
   rules:
-  - SpaceTrafficControlFriendlyEventScheduler
+#  - SpaceTrafficControlFriendlyEventScheduler #Ganimed-Tweak
   - BasicRoundstartVariation
   - CrewTransferScheduler #ADT tweak
 
@@ -165,7 +165,7 @@
     - SubGamemodesRule
     - BasicStationEventScheduler
     - MeteorSwarmScheduler
-    - SpaceTrafficControlEventScheduler
+#    - SpaceTrafficControlEventScheduler #Ganimed-Tweak
     - BasicRoundstartVariation
     - CrewTransferScheduler #ADT tweak
 
@@ -196,7 +196,7 @@
     - SubGamemodesRule
     - BasicStationEventScheduler
     - MeteorSwarmScheduler
-    - SpaceTrafficControlEventScheduler
+#    - SpaceTrafficControlEventScheduler #Ganimed-Tweak
     - BasicRoundstartVariation
     - CrewTransferScheduler #ADT tweak
 
@@ -215,7 +215,7 @@
     - SubGamemodesRule
     - BasicStationEventScheduler
     - MeteorSwarmScheduler
-    - SpaceTrafficControlEventScheduler
+#    - SpaceTrafficControlEventScheduler #Ganimed-Tweak
     - BasicRoundstartVariation
     - CrewTransferScheduler #ADT tweak
 
@@ -232,7 +232,7 @@
   - SubGamemodesRuleNoWizard #No Dual Wizards at the start, midround is fine
   - BasicStationEventScheduler
   - MeteorSwarmScheduler
-  - SpaceTrafficControlEventScheduler
+#  - SpaceTrafficControlEventScheduler #Ganimed-Tweak
   - BasicRoundstartVariation
 
 
@@ -251,7 +251,7 @@
   - Zombie
   - BasicStationEventScheduler
   - MeteorSwarmScheduler
-  - SpaceTrafficControlEventScheduler
+#  - SpaceTrafficControlEventScheduler #Ganimed-Tweak
   - BasicRoundstartVariation
   - CrewTransferScheduler #ADT tweak
 
@@ -268,6 +268,6 @@
   - Zombie
   - BasicStationEventScheduler
   - KesslerSyndromeScheduler
-  - SpaceTrafficControlEventScheduler
+#  - SpaceTrafficControlEventScheduler #Ganimed-Tweak
   - BasicRoundstartVariation
   - CrewTransferScheduler #ADT tweak

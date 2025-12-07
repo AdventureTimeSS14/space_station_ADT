@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   name: watcher
   id: MobWatcherBase
   parent: [ ADTSimpleMobBaselavaland, FlyingMobBase ] #ADT‑Tweak: Сменил перент на наш (SimpleSpaceMobBase - > ADTSimpleMobBaselavaland)
@@ -49,8 +49,6 @@
       50: Dead
   - type: Butcherable
     spawned:
-    - id: DiamondOre1
-      amount: 1
     - id: MaterialBones1 #ADT tweak
       maxAmount: 3 #ADT tweak
   - type: MovementSpeedModifier

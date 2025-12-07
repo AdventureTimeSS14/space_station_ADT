@@ -57,7 +57,7 @@
   description: An orange high voltage power cable.
   components:
   - type: Sprite
-    sprite: Structures/Power/Cables/hv_cable.rsi
+    sprite: _Ganimed/Structures/Power/Cables/hv_cable.rsi #Ganimed-resprite
     state: hvcable_0
     drawdepth: ThickWire
   - type: Icon
@@ -114,14 +114,13 @@
   name: MV power cable
   description: A medium voltage power cable.
   components:
-  - type: Sprite
-    sprite: Structures/Power/Cables/mv_cable.rsi
-    layers:
-    - state: mvcable_0
-      color: Yellow
-    - state: mvstripes_0
+  - type: Sprite 
+#    color: Yellow # Ganimed-Resprite
+    sprite: _Ganimed/Structures/Power/Cables/mv_cable.rsi # Ganimed-Resprite
+    state: mvcable_0
   - type: Icon
-    sprite: Structures/Power/Cables/mv_cable.rsi
+#    color: Yellow # Ganimed-Resprite
+    sprite: _Ganimed/Structures/Power/Cables/mv_cable.rsi # Ganimed-Resprite
     state: mvcable_4
   - type: NodeContainer
     nodes:
@@ -152,7 +151,6 @@
         acts: [ "Destruction" ]
   - type: CableVisualizer
     statePrefix: mvcable_
-    extraLayerPrefix: mvstripes_
 
 - type: entity
   id: CableMVUncuttable
@@ -169,11 +167,12 @@
   description: A cable used to connect machines to an APC. #APCs aren't area defined anymore so need this cable to connect things to the APC. This description should be dynamic in future.
   components:
   - type: Sprite
-    color: Green
-    sprite: Structures/Power/Cables/lv_cable.rsi
+#    color: Green # Ganimed-Resprite
+    sprite: _Ganimed/Structures/Power/Cables/lv_cable.rsi # Ganimed-Resprite
     state: lvcable_0
   - type: Icon
-    sprite: Structures/Power/Cables/lv_cable.rsi
+#    color: Green # Ganimed-Resprite
+    sprite: _Ganimed/Structures/Power/Cables/lv_cable.rsi # Ganimed-Resprite
     state: lvcable_4
   - type: NodeContainer
     nodes:

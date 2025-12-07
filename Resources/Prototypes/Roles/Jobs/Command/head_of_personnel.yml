@@ -3,32 +3,45 @@
   name: job-name-hop
   description: job-description-hop
   playTimeTracker: JobHeadOfPersonnel
+  requireAdminNotify: true # Ganimed Rules Tweak
   requirements:
-    - !type:DepartmentTimeRequirement
-      department: Engineering
-      time: 9000 # 2.5 hours
-    - !type:DepartmentTimeRequirement
-      department: Medical
-      time: 9000 # 2.5 hours
-    - !type:DepartmentTimeRequirement
-      department: Science
-      time: 9000 # 2.5 hrs
-    - !type:DepartmentTimeRequirement
-      department: Security
-      time: 9000 # 2.5 hrs
+#    - !type:DepartmentTimeRequirement
+#      department: Engineering
+#      time: 9000 # 2.5 hrs
+#    - !type:DepartmentTimeRequirement
+#      department: Medical
+#      time: 9000 # 2.5 hrs
+#    - !type:DepartmentTimeRequirement
+#      department: Science
+#      time: 9000 # 2.5 hrs
+#    - !type:DepartmentTimeRequirement
+#      department: Security
+#      time: 9000 # 2.5 hrs
+#    - !type:DepartmentTimeRequirement
+#      department: Cargo
+#      time: 18000 #5 hrs # Ganimed-RoleTime
+    - !type:OverallPlaytimeRequirement
+      time: 180000 #50 hrs # Corvax-RoleTime
     - !type:DepartmentTimeRequirement
       department: Command
-      time: 9000 # 2.5 hours
+      time: 54000 #15 hrs Ganimed-RoleTime
+    - !type:DepartmentTimeRequirement
+      department: Civilian
+      time: 36000 #10 hrs Ganimed-RoleTime
+#       ADT tweak start
     - !type:SpeciesRequirement
       inverted: true
       species:
       - Vox
-      #ADT tweak end
+#       ADT tweak end
+    - !type:AgeRequirement # Ganimed-MRP
+      requiredAge: 21
   weight: 20
   startingGear: HoPGear
   icon: "JobIconHeadOfPersonnel"
   supervisors: job-supervisors-captain
-  canBeAntag: false
+  canBeAntag: true # Ganimed-MRP
+  antagAdvantage: 5 # Ganimed-MRP: Heads can be antags
   access:
   - Command
   - HeadOfPersonnel
@@ -57,8 +70,8 @@
   - Atmospherics
   - Medical
   special:
-  - !type:AddImplantSpecial
-    implants: [ MindShieldImplant ]
+#  - !type:AddImplantSpecial # Ganimed-MRP
+#    implants: [ MindShieldImplant ] # Ganimed-MRP
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff

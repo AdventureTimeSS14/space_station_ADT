@@ -51,8 +51,8 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 10
-        Structural: 15
+        Piercing: 15
+        Structural: 10 # Ganimed-Tweak
 
 
 - type: entity
@@ -80,10 +80,9 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 7
-        Structural: 15  #ADT tweak Structural 0 -> 15
-        # Blunt: 3 ADT tweak
-        # Heat: 7 ADT tweak
+        Piercing: 6 # Ganimed-Tweak
+        Blunt: 3 # Ganimed-Tweak
+        Heat: 6 # Ganimed-Tweak
   - type: IgnitionSource
     ignited: true
 

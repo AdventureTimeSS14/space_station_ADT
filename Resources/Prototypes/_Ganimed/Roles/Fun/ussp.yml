@@ -1,0 +1,117 @@
+- type: startingGear
+  id: USSPGearSoldier
+  equipment:
+    jumpsuit: ADTParatrooperUSSPUniform
+    back: ClothingMilitaryBackpack
+    shoes: ClothingShoesBootsCombatFilled
+    mask: ADTClothingMaskGasUSSP
+    head: ADTClothingHeadHelmetUSSPSfera
+    eyes: ClothingEyesGlassesSunglasses
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: ADTClothingOuterVestUSSPKZS1
+    suitstorage: WeaponRifleABZ
+    id: ADTUSSPArmyCard
+    ears: ADTClothingHeadsetUSSP
+    belt: ADTClothingRPSUSSP
+    pocket1: MagazinePistolCaselessRifle
+    pocket2: WeaponPistolCobra
+#    underpants: ClothingUnderPantsMilitary
+#    undershirt: ClothingUnderShirtBlack
+#    socks: ClothingSocksBlack
+  storage:
+    back:
+    - BoxMRE
+    - DoubleEmergencyOxygenTankFilled
+    - Tourniquet
+    belt:
+    - MagazineLightRifle #к сожалению работает только так
+    - MagazineLightRifle
+    - MagazineLightRifle
+    - MagazineLightRifle
+    - MagazineLightRifle
+    - MagazinePistolCaselessRifle
+    - GrenadeShrapnel
+    - ExGrenade    
+
+- type: startingGear
+  id: USSPGearOfficer
+  equipment:
+    jumpsuit: ADTInfantrymanTUSSPUniform
+    back: ClothingMilitaryBackpack
+    shoes: ClothingShoesBootsCombatFilled
+    mask: ADTClothingMaskGasUSSP
+    head: ADTClothingHeadHatBeretOfTheArmedForcesoftheUSSP
+    eyes: ClothingEyesGlassesSunglasses
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: ADTClothingOuterVestUSSPKZS1
+    suitstorage: WeaponRifleABZ
+    id: ADTUSSPArmyOfficerCard
+    ears: ADTClothingHeadsetUSSP
+    belt: ADTClothingRPSUSSP
+    pocket1: MagazinePistolCaselessRifle
+    pocket2: WeaponPistolCobra
+#    underpants: ClothingUnderPantsMilitary
+#    undershirt: ClothingUnderShirtBlack
+#    socks: ClothingSocksBlack
+  storage:
+    back:
+    - BoxMRE
+    - DoubleEmergencyOxygenTankFilled
+    - WeaponFlareGun
+    - BoxShotgunFlare
+    - Tourniquet
+    - Binoculars
+    - SmokeGrenade
+    - PowerCellHigh
+    belt:
+    - MagazineLightRifle #к сожалению работает только так
+    - MagazineLightRifle
+    - MagazineLightRifle
+    - MagazineLightRifle
+    - MagazineLightRifle
+    - MagazinePistolCaselessRifle
+    - GrenadeShrapnel
+    - ExGrenade
+
+- type: startingGear
+  id: USSPGearMedic
+  equipment:
+    jumpsuit: ADTParatrooperUSSPUniform
+    back: ClothingBackpackDuffelMilitary
+    shoes: ClothingShoesBootsCombatFilled
+    mask: ADTClothingMaskGasUSSP
+    head: ClothingHeadHelmetMercMedic
+    eyes: ClothingEyesGlassesSunglasses
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: ADTClothingOuterVestUSSPKZS1
+    suitstorage: WeaponRifleABZ
+    id: USSPMedicPDA
+    ears: ADTClothingHeadsetUSSP
+    belt: ClothingBeltMedicalMarine
+    pocket1: MagazinePistolCaselessRifle
+    pocket2: WeaponPistolCobra
+#    underpants: ClothingUnderPantsMilitary
+#    undershirt: ClothingUnderShirtBlack
+#    socks: ClothingSocksBlack
+  storage:
+    back:
+    - BoxMRE
+    - DoubleEmergencyOxygenTankFilled
+    - Tourniquet
+    - MagazineLightRifle
+    - MagazineLightRifle
+    - MagazinePistolCaselessRifle
+    - DefibrillatorCompact
+    belt:
+    - MedicatedSuture
+    - MedicatedSuture
+    - Bloodpack
+    - Bloodpack
+    - Gauze
+    - RegenerativeMesh
+    - RegenerativeMesh
+    - CombatMedipen
+    - CombatMedipen
+    - ChemistryBottleEpinephrine
+    - ChemistryBottleEpinephrine
+    - SyndiHypo

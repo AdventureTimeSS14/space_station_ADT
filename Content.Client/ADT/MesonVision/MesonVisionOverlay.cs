@@ -1,16 +1,14 @@
 using System.Numerics;
+using Content.Shared.Traits.Assorted;
 using Content.Shared.ADT.MesonVision;
-using Content.Shared.Mobs.Components;
+using Content.Shared.Doors.Components;
+using Content.Shared.Light.Components;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.Player;
 using Robust.Shared.Enums;
 using Robust.Shared.Map;
-using Content.Client.Markers;
-using Robust.Shared.GameObjects;
-using Content.Shared.StepTrigger.Components;
-using Content.Shared.Item;
-using DrawDepthTag = Robust.Shared.GameObjects.DrawDepth;
+
 namespace Content.Client.ADT.MesonVision;
 
 public sealed class MesonVisionOverlay : Overlay
@@ -19,9 +17,6 @@ public sealed class MesonVisionOverlay : Overlay
     [Dependency] private readonly IPlayerManager _player = default!;
     private readonly SharedTransformSystem _xformSystem;
     private readonly ContainerSystem _container;
-    private readonly EntityQuery<ItemComponent> _item;
-    private readonly EntityQuery<MobStateComponent> _mob;
-    private readonly EntityQuery<MarkerComponent> _marker;
     private readonly EntityQuery<SpriteComponent> _spriteQuery;
     private readonly EntityQuery<TransformComponent> _xformQuery;
 
@@ -33,9 +28,6 @@ public sealed class MesonVisionOverlay : Overlay
         IoCManager.InjectDependencies(this);
         _container = _entity.System<ContainerSystem>();
         _xformSystem = _entity.System<SharedTransformSystem>();
-        _item = _entity.GetEntityQuery<ItemComponent>();
-        _mob = _entity.GetEntityQuery<MobStateComponent>();
-        _marker = _entity.GetEntityQuery<MarkerComponent>();
         _spriteQuery = _entity.GetEntityQuery<SpriteComponent>();
         _xformQuery = _entity.GetEntityQuery<TransformComponent>();
     }
@@ -43,7 +35,8 @@ public sealed class MesonVisionOverlay : Overlay
     protected override void Draw(in OverlayDrawArgs args)
     {
         if (!_entity.TryGetComponent(_player.LocalEntity, out MesonVisionComponent? nightVision) ||
-            nightVision.State != MesonVisionState.Full)
+            nightVision.State != MesonVisionState.Full ||
+            _entity.HasComponent<PermanentBlindnessComponent>(_player.LocalEntity))
         {
             return;
         }
@@ -58,15 +51,26 @@ public sealed class MesonVisionOverlay : Overlay
 
         foreach (var entity in _entity.GetEntities())
         {
-            if (_mob.HasComponent(entity) || _marker.HasComponent(entity)) continue;
-            if (!_spriteQuery.TryGetComponent(entity, out var sprite) || sprite.DrawDepth < -2 || sprite.DrawDepth > 7 || sprite.DrawDepth == 0) continue;
-            if (!_xformQuery.TryGetComponent(entity, out var xform)) continue;
-            if (_container.TryGetOuterContainer(entity, xform, out var container)) continue;
-
-            if (xform.MapID != mapId) continue;
+            // Ganimed edit start
+            if (!_spriteQuery.TryGetComponent(entity, out var sprite) ||
+                !_xformQuery.TryGetComponent(entity, out var xform) ||
+                xform.MapID != mapId ||
+                _container.TryGetOuterContainer(entity, xform, out var _))
+            {
+                continue;
+            }
+            // Ganimed edit end
 
             var worldPos = _xformSystem.GetWorldPosition(xform);
             if (!worldBounds.Contains(worldPos)) continue;
+
+            // Ganimed edit start
+            var isWall = _entity.HasComponent<SunShadowCastComponent>(entity) || _entity.HasComponent<IsRoofComponent>(entity);
+            var isDoor = _entity.HasComponent<DoorComponent>(entity);
+
+            if (!isWall && !isDoor)
+                continue;
+            // Ganimed edit end 
 
             _entries.Add(new MesonVisionRenderEntry(
                 (entity, sprite, xform),

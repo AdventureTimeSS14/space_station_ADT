@@ -2,6 +2,7 @@ using Content.Shared.Polymorph;
 using Content.Server.Polymorph.Components;
 using Content.Server.Explosion.EntitySystems;
 using Robust.Shared.Prototypes;
+using Content.Shared.Mech.Components;
 
 namespace Content.Server.Polymorph.Systems;
 
@@ -24,8 +25,15 @@ public sealed partial class PolymorphSystem
         if (args.User == null)
             return;
 
-        _queuedPolymorphUpdates.Enqueue((args.User.Value, ent.Comp.Polymorph));
+        // Ganimed edit start
+        var user = args.User.Value;
+
+        if (TryComp<MechPilotComponent>(user, out var pilot) && pilot.Mech != null)
+            return;
+
+        _queuedPolymorphUpdates.Enqueue((user, ent.Comp.Polymorph));
         args.Handled = true;
+        // Ganimed edit end
     }
 
     public void UpdateTrigger()

@@ -1,0 +1,77 @@
+- type: entity
+  parent: [ClothingNeckBase, BaseFoldable]
+  id: ClothingNeckBaseFlippable
+  abstract: true
+  components:
+  - type: Appearance
+  - type: Foldable
+    canFoldInsideContainer: true
+    unfoldVerbText: fold-flip-verb
+    foldVerbText: fold-flip-verb
+  - type: FoldableClothing
+    foldedEquippedPrefix: flipped
+    foldedHeldPrefix: flipped
+  - type: Sprite
+    layers:
+    - state: icon
+      map: [ "unfoldedLayer" ]
+    - state: icon_flipped
+      map: ["foldedLayer"]
+      visible: false
+
+- type: entity
+  parent: ClothingNeckBaseFlippable
+  id: ClothingNeckBaseFlipped
+  suffix: flipped
+  abstract: true
+  components:
+  - type: Foldable
+    folded: true
+  - type: Clothing
+    equippedPrefix: flipped
+  - type: Item
+    heldPrefix: flipped
+  - type: Sprite
+    layers:
+    - state: icon
+      map: [ "unfoldedLayer" ]
+      visible: false
+    - state: icon_flipped
+      map: ["foldedLayer"]
+      visible: true
+
+- type: entity
+  parent: ClothingNeckBaseFlippable
+  id: ClothingNeckBandageRev
+  name: red bandage
+  description: It's a red bandage, you can tie it on your shoulder.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Neck/Bandage/revbandage.rsi
+
+- type: entity
+  parent: ClothingNeckBaseFlippable
+  id: ClothingNeckBandageTSF
+  name: blue bandage
+  description: It's a blue bandage, you can tie it on your shoulder.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Neck/Bandage/tsfbandage.rsi
+
+- type: entity
+  parent: ClothingNeckBaseFlippable
+  id: ClothingNeckBandageElysium
+  name: green bandage
+  description: It's a green bandage, you can tie it on your shoulder.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Neck/Bandage/elysbandage.rsi
+
+- type: entity
+  parent: ClothingNeckBaseFlippable
+  id: ClothingNeckBandagePeriph
+  name: dark gray bandage
+  description: It's a dark bandage, you can tie it on your shoulder.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Neck/Bandage/periphbandage.rsi

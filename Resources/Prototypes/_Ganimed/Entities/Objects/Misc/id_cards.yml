@@ -1,0 +1,67 @@
+- type: entity
+  parent: IDCardStandard
+  id: TSFIDCard
+  name: TSF representative ID card
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Objects/Misc/id_cards.rsi
+    layers:
+    - state: blue
+    - state: idtsf
+  - type: Item
+    heldPrefix: blue
+  - type: IdCard
+    jobTitle: job-title-tsf-representative
+    jobIcon: JobIconTSF
+#    jobColor: "#2A5760"
+  - type: Access
+    tags:
+     - Maintenance
+
+- type: entity
+  parent: IDCardStandard
+  id: USSPSoldierIDCard
+  name: USSP soldier ID card.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Objects/Misc/id_cards.rsi
+    layers:
+    - state: red
+    - state: idusspsoldier
+  - type: Item
+    heldPrefix: red
+  - type: IdCard
+    jobTitle: job-title-ussp-soldier
+    jobIcon: JobIconUSSPSoldier
+
+- type: entity
+  parent: IDCardStandard
+  id: USSPMedicalIDCard
+  name: USSP medic ID card.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Objects/Misc/id_cards.rsi
+    layers:
+    - state: red
+    - state: idusspmedical
+  - type: Item
+    heldPrefix: red
+  - type: IdCard
+    jobTitle: job-title-ussp-medical
+    jobIcon: JobIconUSSPMedical
+
+- type: entity
+  parent: IDCardStandard
+  id: USSPOfficerIDCard
+  name: USSP officer ID card.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Objects/Misc/id_cards.rsi
+    layers:
+    - state: red
+    - state: idusspofficer
+  - type: Item
+    heldPrefix: red
+  - type: IdCard
+    jobTitle: job-title-ussp-officer 
+    jobIcon: JobIconUSSPOfficer

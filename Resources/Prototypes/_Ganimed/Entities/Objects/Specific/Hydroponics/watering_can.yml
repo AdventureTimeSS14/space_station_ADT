@@ -1,0 +1,106 @@
+- type: entity
+  parent: BaseItem
+  id: WateringCan
+  name: watering can
+  description: It's a boring old watering can.
+  components:
+  - type: Clickable
+  - type: Sprite
+    sprite: _Ganimed/Objects/Specific/Hydroponics/watering_can.rsi
+    layers:
+    - state: icon
+  - type: SolutionContainerManager
+    solutions:
+      bucket:
+        maxVol: 250
+  - type: Drink
+    solution: bucket
+    ignoreEmpty: true
+  - type: MixableSolution
+    solution: bucket
+  - type: Item
+    size: Normal
+    sprite: _Ganimed/Objects/Specific/Hydroponics/watering_can.rsi
+  - type: SolutionTransfer
+    transferAmount: 100
+    maxTransferAmount: 100
+    minTransferAmount: 10
+    canChangeTransferAmount: true
+  - type: UserInterface
+    interfaces:
+      enum.TransferAmountUiKey.Key:
+        type: TransferAmountBoundUserInterface
+  - type: MeleeWeapon
+    soundNoDamage:
+      path: "/Audio/_Ganimed/Weapons/watering.ogg"
+    damage:
+      types:
+        Blunt: 0
+  - type: Spillable
+    solution: bucket
+  - type: DrawableSolution
+    solution: bucket
+  - type: RefillableSolution
+    solution: bucket
+  - type: DrainableSolution
+    solution: bucket
+  - type: Appearance
+  - type: ExaminableSolution
+    solution: bucket
+  - type: Tag
+    tags:
+      - Bucket
+  - type: PhysicalComposition
+    materialComposition:
+      Plastic: 50
+
+- type: entity
+  parent: WateringCan
+  id: AdvWateringCan
+  name: adv watering can
+  description: It's a boring old adv watering can.
+  components:
+  - type: Clickable
+  - type: Sprite
+    sprite: _Ganimed/Objects/Specific/Hydroponics/adv_watering_can.rsi
+    layers:
+    - state: icon
+  - type: SolutionContainerManager
+    solutions:
+      bucket:
+        maxVol: 750
+  - type: Item
+    size: Normal
+    sprite: _Ganimed/Objects/Specific/Hydroponics/adv_watering_can.rsi
+  - type: SolutionTransfer
+    transferAmount: 100
+    maxTransferAmount: 100
+    minTransferAmount: 10
+    canChangeTransferAmount: true
+  - type: UserInterface
+    interfaces:
+      enum.TransferAmountUiKey.Key:
+        type: TransferAmountBoundUserInterface
+  - type: MeleeWeapon
+    soundNoDamage:
+      path: "/Audio/_Ganimed/Weapons/watering.ogg"
+    damage:
+      types:
+        Blunt: 0
+  - type: Spillable
+    solution: bucket
+  - type: DrawableSolution
+    solution: bucket
+  - type: RefillableSolution
+    solution: bucket
+  - type: DrainableSolution
+    solution: bucket
+  - type: Appearance
+  - type: ExaminableSolution
+    solution: bucket
+  - type: Tag
+    tags:
+      - Bucket
+  - type: PhysicalComposition
+    materialComposition:
+      Plastic: 100

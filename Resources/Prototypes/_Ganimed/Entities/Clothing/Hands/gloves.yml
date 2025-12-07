@@ -1,0 +1,24 @@
+- type: entity
+  parent: ClothingHandsGlovesCaptain
+  id: ClothingHandsGlovesCaptainWhite
+  name: white captain gloves
+  description: Royal white gloves with gold trim. Gorgeous.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Hands/Gloves/white_captain_gloves.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Hands/Gloves/white_captain_gloves.rsi
+
+- type: entity
+  parent: ClothingHandsBase
+  id: ClothingHandsGlovesPaws
+  name: black paws gloves
+  description: A pair of soft paws for all your cosplaying needs, desu.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/Hands/Gloves/paws.rsi
+  - type: Clothing
+    sprite: _Ganimed/Clothing/Hands/Gloves/paws.rsi
+  - type: Fiber
+    fiberMaterial: fibers-synthetic
+    fiberColor: fibers-black

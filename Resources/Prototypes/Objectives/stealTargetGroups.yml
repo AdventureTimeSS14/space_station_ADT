@@ -18,7 +18,7 @@
   id: ClothingOuterHardsuitRd
   name: steal-target-groups-clothing-outer-hardsuit-rd
   sprite:
-    sprite: Clothing/OuterClothing/Hardsuits/rd.rsi
+    sprite: _Ganimed/Clothing/Back/Modsuit/rd.rsi
     state: icon
 
 - type: stealTargetGroup

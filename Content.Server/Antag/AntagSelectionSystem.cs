@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Shared._Ganimed.Traits.Assorted; // Ganimed edit Incognito
 using Content.Server.Antag.Components;
 using Content.Server.Chat.Managers;
 using Content.Server.GameTicking;
@@ -467,7 +468,16 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
             {
                 curMind = _mind.CreateMind(session.UserId, Name(antagEnt.Value));
                 _mind.SetUserId(curMind.Value, session.UserId);
+                mindComp = Comp<MindComponent>(curMind.Value); // Ganimed edit Incognito
             }
+
+            // Ganimed edit Incognito start
+            if (HasComp<SetIncognitoComponent>(antagEnt))
+            {
+                mindComp.Incognito = true;
+                Dirty(curMind.Value, mindComp);
+            }
+            // Ganimed edit Incognito end
 
             _mind.TransferTo(curMind.Value, antagEnt, ghostCheckOverride: true);
             _role.MindAddRoles(curMind.Value, def.MindRoles, null, true);

@@ -1,0 +1,40 @@
+# Agzamov
+- type: loadout
+  id: SponsorLoadoutAgzamovStunbaton
+  storage:
+    back:
+    - StunbatonAgzamov
+  effects:
+    - !type:SponsorLoadoutEffect
+      tier: 3
+    - !type:JobRestrictedLoadoutEffect
+      whitelistJobs: [ Detective, HeadOfSecurity, SecurityCadet, SecurityOfficer, Warden ]
+
+# As04ka
+- type: loadout
+  id: SponsorLoadoutAsukaShipKnife
+  storage:
+    back:
+    - ShipKnife
+  effects:
+    - !type:SponsorLoadoutEffect
+      tier: 3
+    - !type:JobRestrictedLoadoutEffect
+      whitelistJobs: [ Detective, HeadOfSecurity, SecurityCadet, SecurityOfficer, Warden ]
+
+# Safno_S
+- type: loadout
+  id: SponsorLoadoutSafnoHoSClothing
+  dummyEntity: ClothingMaskGasHoSSafno
+  equipment:
+    head: ClothingHeadHatBeretHoSSafno
+    mask: ClothingMaskGasHoSSafno
+    neck: ClothingNeckMantleHoSSafno
+    jumpsuit: ClothingUniformJumpsuitHoSSafno
+    outerClothing: ClothingOuterArmorHoSSafno
+    belt: ClothingBeltHoSSafno
+  effects:
+    - !type:SponsorLoadoutEffect
+      tier: 3
+    - !type:JobRestrictedLoadoutEffect
+      whitelistJobs: [ HeadOfSecurity ]

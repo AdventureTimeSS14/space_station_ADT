@@ -163,3 +163,8 @@
       - id: DeathNettle
         amount: !type:RangeNumberSelector
           range: 1, 5
+      # Ganimed-edit-start
+      - id: FoodCucumber
+        amount: !type:RangeNumberSelector
+          range: 1, 5
+      # Ganimed-edit-end

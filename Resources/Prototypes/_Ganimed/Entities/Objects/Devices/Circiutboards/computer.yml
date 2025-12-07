@@ -1,0 +1,10 @@
+- type: entity
+  parent: BaseComputerCircuitboard
+  id: BotanicalSeedDNAManipulatorCircuitboard
+  name: plant seed DNA manipulator computer board
+  description: A computer printed circuit board for a plant seed DNA manipulator console.
+  components:
+    - type: Sprite
+      state: cpu_service
+    - type: ComputerBoard
+      prototype: ComputerBotanicalSeedDNAManipulator

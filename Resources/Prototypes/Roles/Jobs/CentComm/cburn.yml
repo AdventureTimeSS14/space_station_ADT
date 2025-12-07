@@ -4,6 +4,13 @@
   description: job-description-cburn
   playTimeTracker: JobCBURN
   setPreference: false
+  requirements: # Ganimed-RoleTime
+  - !type:DepartmentTimeRequirement
+    department: Security
+    time: 18000 # 5 hrs
+  - !type:DepartmentTimeRequirement
+    department: Medical
+    time: 18000 # 5 hrs
   startingGear: ADTCBURNGear # ADT tweak
   icon: "JobIconNanotrasen"
   supervisors: job-supervisors-centcom

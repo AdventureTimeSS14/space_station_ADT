@@ -1,6 +1,7 @@
 - type: vendingMachineInventory
   id: NutriMaxInventory
   startingInventory:
+    WateringCan: 2 # Ganimed-Edit
     HydroponicsToolSpade: 4
     HydroponicsToolMiniHoe: 4
     HydroponicsToolClippers: 4
@@ -21,6 +22,7 @@
     ADTPlantAnalyzer: 1
     ADTSoilPacked: 2
     # ADT tweak End
+    BotanicalSeedDNADisk: 10 # Ganimed-Edit
   contrabandInventory:
     ChemistryBottleUnstableMutagen: 1
     Joint: 1

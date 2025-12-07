@@ -167,6 +167,8 @@
         type: StrippableBoundUserInterface
       enum.StoreUiKey.Key:
         type: StoreBoundUserInterface
+      enum.HereticLivingHeartKey.Key:
+        type: LivingHeartMenuBoundUserInterface
   - type: IpcScreen
     selectSlotTime: 0
     changeSlotTime: 0

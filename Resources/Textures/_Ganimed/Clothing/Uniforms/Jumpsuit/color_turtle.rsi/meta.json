@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Derived from white turtleneck and color jumpsuit sprites by discord:prazat911 and modified by HyperB1 (GitHub), inspired by Ko4erga",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "icon"
+    },
+    {
+      "name": "equipped-INNERCLOTHING",
+      "directions": 4
+    },
+    {
+      "name": "inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "trousers-icon"
+    },
+    {
+      "name": "trousers-equipped-INNERCLOTHING",
+      "directions": 4
+    },
+    {
+      "name": "trousers-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "trousers-inhand-right",
+      "directions": 4
+    }
+  ]
+}

@@ -4,16 +4,22 @@
   description: job-description-warden
   playTimeTracker: JobWarden
   requirements:
+    - !type:RoleTimeRequirement
+      role: JobSecurityOfficer
+      time: 36000 #10 hrs
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 180000 #50 hrs
-    - !type:SpeciesRequirement  # ADT Restrict Start
+      time: 90000 #25 hrs Ganimed-RoleTime
+  # ADT Restrict Start
+    - !type:SpeciesRequirement
       inverted: true
       species:
       - Resomi
       - Vox
-      - Shadekin
+#      - Shadekin
   # ADT RESTRICT End
+    - !type:AgeRequirement # Ganimed-MRP
+      requiredAge: 21
   startingGear: WardenGear
   icon: "JobIconWarden"
   supervisors: job-supervisors-hos

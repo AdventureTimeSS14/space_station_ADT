@@ -1,0 +1,113 @@
+- type: entity
+  parent: ADTClothingOuterModsuitBodyBase
+  id: ClothingOuterModsuitBodyCMO
+  name: chief medical officer MOD chestplate
+  suffix: Ganimed
+  description: A chestplate for a MODsuit.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/OuterClothing/Modsuit/cmo.rsi
+  - type: Clothing
+    equipDelay: 3
+    unequipDelay: 3
+    sprite: _Ganimed/Clothing/OuterClothing/Modsuit/cmo.rsi
+    slots: [ OUTERCLOTHING ]
+    equipSound: /Audio/Mecha/mechmove03.ogg
+    unequipSound: /Audio/Mecha/mechmove03.ogg
+  - type: Armor
+    modifiers:
+      coefficients:
+        Caustic: 0.1
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.95
+
+- type: entity
+  parent: ADTClothingOuterModsuitBodyBase
+  id: ClothingOuterModsuitBodyRD
+  name: Research director MOD chestplate
+  suffix: Ganimed
+  description: A chestplate for a MODsuit.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/OuterClothing/Modsuit/rd.rsi
+  - type: Clothing
+    equipDelay: 3
+    unequipDelay: 3
+    sprite: _Ganimed/Clothing/OuterClothing/Modsuit/rd.rsi
+    slots: [ OUTERCLOTHING ]
+    equipSound: /Audio/Mecha/mechmove03.ogg
+    unequipSound: /Audio/Mecha/mechmove03.ogg
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.8
+        Piercing: 0.9
+        Heat: 0.3
+        Radiation: 0.1
+        Caustic: 0.2
+  - type: ExplosionResistance
+    damageCoefficient: 0.1
+  - type: ClothingSpeedModifier
+    walkModifier: 0.75
+    sprintModifier: 0.75
+  - type: FireProtection
+    reduction: 0.9
+
+- type: entity
+  parent: ADTClothingOuterModsuitBodyBase
+  id: ClothingOuterModsuitBodyMagnate
+  name: Magnate MOD chestplate
+  suffix: Ganimed
+  description: A chestplate for a MODsuit.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/OuterClothing/Modsuit/captain.rsi
+  - type: Clothing
+    equipDelay: 3
+    unequipDelay: 3
+    sprite: _Ganimed/Clothing/OuterClothing/Modsuit/captain.rsi
+    slots: [ OUTERCLOTHING ]
+    equipSound: /Audio/Mecha/mechmove03.ogg
+    unequipSound: /Audio/Mecha/mechmove03.ogg
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.4 #ADT Tweak 0.8
+        Slash: 0.4 #ADT Tweak 0.8
+        Piercing: 0.5 #ADT Tweak 0.6
+        Heat: 0.5
+        Radiation: 0.5
+        Caustic: 0.6
+    staminaModifier: 0.7  # ADT
+  - type: ClothingSpeedModifier
+    walkModifier: 0.8
+    sprintModifier: 0.8
+
+- type: entity
+  parent: ADTClothingOuterModsuitBodyBase
+  id: ClothingOuterModsuitBodyCorporate
+  name: Corporate MOD chestplate
+  suffix: Ganimed
+  description: A chestplate for a MODsuit.
+  components:
+  - type: Sprite
+    sprite: _Ganimed/Clothing/OuterClothing/Modsuit/corporate.rsi
+  - type: Clothing
+    equipDelay: 3
+    unequipDelay: 3
+    sprite: _Ganimed/Clothing/OuterClothing/Modsuit/corporate.rsi
+    slots: [ OUTERCLOTHING ]
+    equipSound: /Audio/Mecha/mechmove03.ogg
+    unequipSound: /Audio/Mecha/mechmove03.ogg
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.4
+        Slash: 0.4
+        Piercing: 0.5
+        Heat: 0.4
+        Radiation: 0.3
+        Caustic: 0.6
+    staminaModifier: 0.7

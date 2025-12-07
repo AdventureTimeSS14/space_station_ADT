@@ -3,6 +3,7 @@ using System.Linq;
 using Content.Shared.CCVar;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Random;
+using Content.Shared.Preferences.Loadouts.Effects; // Ganimed sponsor
 using Robust.Shared.Collections;
 using Robust.Shared.Network;
 using Robust.Shared.Configuration;
@@ -112,11 +113,10 @@ public sealed partial class RoleLoadout : IEquatable<RoleLoadout>
         // In some instances we might not have picked up a new group for existing data.
         foreach (var groupProto in roleProto.Groups)
         {
-            if (SelectedLoadouts.ContainsKey(groupProto))
-                continue;
-
-            // Data will get set below.
-            SelectedLoadouts[groupProto] = new List<Loadout>();
+            // Ganimed sponsor start
+            if (!SelectedLoadouts.ContainsKey(groupProto))
+                SelectedLoadouts[groupProto] = new List<Loadout>(); 
+            // Ganimed sponsor end
         }
 
         // Reset points to recalculate.
@@ -332,31 +332,39 @@ public sealed partial class RoleLoadout : IEquatable<RoleLoadout>
     /// </summary>
     public bool AddLoadout(ProtoId<LoadoutGroupPrototype> selectedGroup, ProtoId<LoadoutPrototype> selectedLoadout, IPrototypeManager protoManager)
     {
-        var groupLoadouts = SelectedLoadouts[selectedGroup];
-
-        // Need to unselect existing ones if we're at or above limit
-        var limit = Math.Max(0, groupLoadouts.Count + 1 - protoManager.Index(selectedGroup).MaxLimit);
-
-        for (var i = 0; i < groupLoadouts.Count; i++)
-        {
-            var loadout = groupLoadouts[i];
-
-            if (loadout.Prototype != selectedLoadout)
-            {
-                // Remove any other loadouts that might push it above the limit.
-                if (limit > 0)
-                {
-                    limit--;
-                    groupLoadouts.RemoveAt(i);
-                    i--;
-                }
-
-                continue;
-            }
-
-            DebugTools.Assert(false);
+        // Ganimed sponsor start
+        if (!SelectedLoadouts.TryGetValue(selectedGroup, out var groupLoadouts))
             return false;
+
+        var newProto = protoManager.Index(selectedLoadout);
+
+        var conflictingGroups = new List<ProtoId<LoadoutGroupPrototype>>();
+        foreach (var (groupId, items) in SelectedLoadouts)
+        {
+            if (!protoManager.TryIndex(groupId, out var groupProto))
+                continue;
+
+            foreach (var item in items)
+            {
+                if (!protoManager.TryIndex(item.Prototype, out var otherProto))
+                    continue;
+
+                if (Conflicts(newProto, otherProto))
+                {
+                    conflictingGroups.Add(groupId);
+                    break;
+                }
+            }
         }
+
+        foreach (var group in conflictingGroups)
+        {
+            if (!SelectedLoadouts.TryGetValue(group, out var items))
+                continue;
+
+            items.Clear();
+        }
+        // Ganimed sponsor end
 
         groupLoadouts.Add(new Loadout()
         {
@@ -366,24 +374,33 @@ public sealed partial class RoleLoadout : IEquatable<RoleLoadout>
         return true;
     }
 
-    /// <summary>
-    /// Removed the specified loadout from this group.
-    /// </summary>
+    // Ganimed sponsor start
+    private bool Conflicts(LoadoutPrototype a, LoadoutPrototype b)
+    {
+        foreach (var slot in a.Equipment.Keys)
+        {
+            if (b.Equipment.ContainsKey(slot))
+                return true;
+        }
+
+        return false;
+    }
+    // Ganimed sponsor end
+
     public bool RemoveLoadout(ProtoId<LoadoutGroupPrototype> selectedGroup, ProtoId<LoadoutPrototype> selectedLoadout, IPrototypeManager protoManager)
     {
-        // Although this may bring us below minimum we'll let EnsureValid handle it.
-
-        var groupLoadouts = SelectedLoadouts[selectedGroup];
+        if (!SelectedLoadouts.TryGetValue(selectedGroup, out var groupLoadouts)) // Ganimed sponsor
+            return false;
 
         for (var i = 0; i < groupLoadouts.Count; i++)
         {
-            var loadout = groupLoadouts[i];
-
-            if (loadout.Prototype != selectedLoadout)
-                continue;
-
-            groupLoadouts.RemoveAt(i);
-            return true;
+            // Ganimed sponsor start
+            if (groupLoadouts[i].Prototype == selectedLoadout)
+            {
+                groupLoadouts.RemoveAt(i);
+                return true;
+            }
+            // Ganimed sponsor end
         }
 
         return false;

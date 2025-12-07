@@ -1,0 +1,81 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made by NNNNNOOOOOMMMMMAAAAAD",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "icon_iron_star"
+    },
+    {
+      "name": "equipped-NECK_iron_star",
+      "directions": 4
+    },
+    {
+      "name": "icon_iron_sol"
+    },
+    {
+      "name": "equipped-NECK_iron_sol",
+      "directions": 4
+    },
+    {
+      "name": "icon_bronze_sol"
+    },
+    {
+      "name": "equipped-NECK_bronze_sol",
+      "directions": 4
+    },
+    {
+      "name": "icon_silver_sword"
+    },
+    {
+      "name": "equipped-NECK_silver_sword",
+      "directions": 4
+    },
+    {
+      "name": "icon_silver_sol"
+    },
+    {
+      "name": "equipped-NECK_silver_sol",
+      "directions": 4
+    },
+    {
+      "name": "icon_gold_star"
+    },
+    {
+      "name": "equipped-NECK_gold_star",
+      "directions": 4
+    },
+    {
+      "name": "icon_gold_sun"
+    },
+    {
+      "name": "equipped-NECK_gold_sun",
+      "directions": 4
+    },
+    {
+      "name": "icon_gold_crest"
+    },
+    {
+      "name": "equipped-NECK_gold_crest",
+      "directions": 4
+    },
+    {
+      "name": "icon_gold_sol"
+    },
+    {
+      "name": "equipped-NECK_gold_sol",
+      "directions": 4
+    },
+    {
+      "name": "icon_pin_pilot"
+    },
+    {
+      "name": "equipped-NECK_pin_pilot",
+      "directions": 4
+    }
+  ]
+}
