@@ -1,7 +1,8 @@
-- type: ghostbarMap
-  id: GhostbarMapGoob
-  path: "Maps/ADTMaps/Ghostbars/ghostbar_goob.yml"
-
-- type: ghostbarMap
-  id: GhostbarMapCalm
-  path: "Maps/ADTMaps/Ghostbars/calm_ghostly_bar.yml"
+# ADT-Tweak: Temporarily disabled due to missing ghostbarMap prototype type
+# - type: ghostbarMap
+#   id: GhostbarMapGoob
+#   path: "Maps/ADTMaps/Ghostbars/ghostbar_goob.yml"
+#
+# - type: ghostbarMap
+#   id: GhostbarMapCalm
+#   path: "Maps/ADTMaps/Ghostbars/calm_ghostly_bar.yml"

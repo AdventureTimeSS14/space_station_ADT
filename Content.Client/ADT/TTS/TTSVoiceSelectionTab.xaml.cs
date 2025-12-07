@@ -217,7 +217,7 @@ public sealed partial class TTSVoiceSelectionTab : Control
     {
         foreach (var button in VoicesGrid.Children.OfType<Button>())
         {
-            var voiceName = button.Text.Replace(" ⭐", "");
+            var voiceName = button.Text?.Replace(" ⭐", "") ?? "";
             var voice = _filteredVoices.FirstOrDefault(v => Loc.GetString(v.Name) == voiceName);
             if (voice != null)
             {
