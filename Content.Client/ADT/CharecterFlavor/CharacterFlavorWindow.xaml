@@ -123,7 +123,6 @@
                                          VScrollEnabled="True"
                                          HScrollEnabled="False">
                             <ui:RichTextLabel Name="OOCNotesLabel"
-                                              MaxSize="370 10000"
                                               VerticalAlignment="Top"
                                               HorizontalAlignment="Left"
                                               HorizontalExpand="True"
