@@ -60,8 +60,10 @@
       prob: 0.02
     - id: MobMouse2
       prob: 0.02
-    - id: ADTMobMouseSpace # ADT-tweak MouseSpace from ADT\Entities\Mobs\NPCs\animals.yml
-      prob: 0.02
+      #ADT-Tweak-Start
+    - id: ADTMobMouseSpace 
+      prob: 0.003
+      #ADT-Tweak-End
     - id: MobMouseCancer
       prob: 0.001
     specialEntries:
