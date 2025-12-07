@@ -1005,7 +1005,7 @@ public sealed partial class BiomeSystem : SharedBiomeSystem
     /// <summary>
     /// Creates a simple planet setup for a map.
     /// </summary>
-    public void EnsurePlanet(EntityUid mapUid, BiomeTemplatePrototype biomeTemplate, int? seed = null, MetaDataComponent? metadata = null, Color? mapLight = null, bool dayCycle = true) // ADT DayCycle Tweak
+    public void EnsurePlanet(EntityUid mapUid, BiomeTemplatePrototype biomeTemplate, int? seed = null, MetaDataComponent? metadata = null, Color? mapLight = null, bool dayCycle = true) //ADT-tweak
     {
         if (!Resolve(mapUid, ref metadata))
             return;
@@ -1034,19 +1034,19 @@ public sealed partial class BiomeSystem : SharedBiomeSystem
 
         EnsureComp<RoofComponent>(mapUid);
 
-        // ADT DayCycle Start
+        //ADT-tweak-start
         // EnsureComp<LightCycleComponent>(mapUid);
         if (dayCycle)
         {
             EnsureComp<LightCycleComponent>(mapUid);
             EnsureComp<SunShadowCycleComponent>(mapUid);
         }
-        // ADT DayCycle End
+        //ADT-tweak-end
 
         EnsureComp<SunShadowComponent>(mapUid);
-        // ADT DayCycle Start
+        //ADT-tweak-start
         // EnsureComp<SunShadowCycleComponent>(mapUid);
-        // ADT DayCycle End
+        //ADT-tweak-end
 
         var moles = new float[Atmospherics.AdjustedNumberOfGases];
         moles[(int)Gas.Oxygen] = 21.824779f;
