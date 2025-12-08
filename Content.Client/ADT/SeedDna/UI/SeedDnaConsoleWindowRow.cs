@@ -199,7 +199,7 @@ public sealed class SeedDnaConsoleWindowRow
             var p = potency ?? 50f;
             var x = chem.Min + (p / chem.PotencyDivisor);
             var amount = Math.Clamp(x, chem.Min, chem.Max);
-            valueLabel.Text = amount.ToString();
+            valueLabel.Text = amount.ToString() + "u";
             valueLabel.Align = Label.AlignMode.Right;
         }
         else
