@@ -15,33 +15,27 @@ namespace Content.Client.ADT.CharecterFlavor;
 [GenerateTypedNameReferences]
 public sealed partial class CharacterFlavorWindow : FancyWindow
 {
-    private readonly IEntityManager _entityManager;
-    private readonly IPrototypeManager _proto;
-    private readonly IClyde _clyde = default!;
-    private EntityUid _charecter;
+    [Dependency] private readonly IEntityManager _entityManager = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly IClyde _clyde = default!;
 
     public CharacterFlavorWindow()
     {
         RobustXamlLoader.Load(this);
-        _entityManager = IoCManager.Resolve<IEntityManager>();
-        _clyde = IoCManager.Resolve<IClyde>();
-        _proto = IoCManager.Resolve<IPrototypeManager>();
+        IoCManager.InjectDependencies(this);
 
         HeadshotLoadingLabel.SetMarkup(Loc.GetString("headshot-loading"));
     }
 
     public void SetEntity(EntityUid uid)
     {
-        CharecterView.SetEntity(uid);
-        _charecter = uid;
-
-        if (!_entityManager.TryGetComponent<CharacterFlavorComponent>(_charecter, out var flavor))
+        if (!_entityManager.TryGetComponent<CharacterFlavorComponent>(uid, out var flavor))
             return;
 
         if (!_entityManager.TryGetComponent<MetaDataComponent>(uid, out var metaData))
             return;
 
-        if (_entityManager.TryGetComponent<HumanoidAppearanceComponent>(_charecter, out var humanoid)
+        if (_entityManager.TryGetComponent<HumanoidAppearanceComponent>(uid, out var humanoid)
         && _proto.Index(humanoid.Species).ShortDesc != string.Empty)
         {
             CustomSpeciesLabel.Text = Loc.GetString(_proto.Index(humanoid.Species).ShortDesc);
@@ -57,9 +51,10 @@ public sealed partial class CharacterFlavorWindow : FancyWindow
         {
             HeadshotContainer.Visible = false;
         }
+
         Title = metaData.EntityName;
-        FlavorTextLabel.Text = flavor.FlavorText;
-        OOCNotesLabel.Text = flavor.OOCNotes;
+        FlavorTextLabel.SetMarkup(flavor.FlavorText);
+        OOCNotesLabel.SetMarkup(flavor.OOCNotes);
     }
 
     public void SetHeadshot(byte[] image)
