@@ -25,8 +25,8 @@ public sealed class SeedDnaConsoleWindowRow
     private Action? _actionExtract;
     private Action? _actionReplace;
 
-    private readonly Func<float>? _getSeedPotency;
-    private readonly Func<float>? _getDiskPotency;
+    private readonly Func<float?>? _getSeedPotency;
+    private readonly Func<float?>? _getDiskPotency;
 
     private SeedDnaConsoleWindowRow(string title,
         bool seedPresent, bool dnaDiskPresent,
@@ -34,8 +34,8 @@ public sealed class SeedDnaConsoleWindowRow
         Action<object?> setterSeedValue, Action<object?> setterDnaDiskValue,
         Func<bool> flagUpdateImmediately,
         Action<TargetSeedData> submit,
-        Func<float>? getSeedPotency = null,
-        Func<float>? getDiskPotency = null
+        Func<float?>? getSeedPotency = null,
+        Func<float?>? getDiskPotency = null
     )
     {
         _getSeedPotency = getSeedPotency;
@@ -109,8 +109,8 @@ public sealed class SeedDnaConsoleWindowRow
         Action<object?> setterSeedValue, Action<object?> setterDnaDiskValue,
         Func<bool> flagUpdateImmediately,
         Action<TargetSeedData> submit,
-        Func<float>? getSeedPotency = null,
-        Func<float>? getDiskPotency = null)
+        Func<float?>? getSeedPotency = null,
+        Func<float?>? getDiskPotency = null)
     {
         if (getterSeedValue() == null && getterDnaDiskValue() == null)
             return null;
@@ -150,7 +150,7 @@ public sealed class SeedDnaConsoleWindowRow
                 return;
 
             setter(value);
-            var targetPotency = targetPotencyFunc?.Invoke() ?? 50f;
+            var targetPotency = targetPotencyFunc?.Invoke();
             SetLabelValue(setupLabel, value, targetPotency);
             _extractButton!.Disabled = true;
             _replaceButton!.Disabled = true;
@@ -196,11 +196,19 @@ public sealed class SeedDnaConsoleWindowRow
         else if (value is SeedChemQuantityDto chem)
         {
             _isChemical = true;
-            var p = potency ?? 50f;
-            var x = chem.Min + (p / chem.PotencyDivisor);
-            var amount = Math.Clamp(x, chem.Min, chem.Max);
-            valueLabel.Text = amount.ToString() + "u";
-            valueLabel.Align = Label.AlignMode.Right;
+            if (potency == null)
+            {
+                valueLabel.Text = "-";
+                valueLabel.Align = Label.AlignMode.Center;
+            }
+            else
+            {
+                var p = potency.Value;
+                var x = chem.Min + (p / chem.PotencyDivisor);
+                var amount = Math.Clamp(x, chem.Min, chem.Max);
+                valueLabel.Text = amount.ToString() + "u";
+                valueLabel.Align = Label.AlignMode.Right;
+            }
         }
         else
         {

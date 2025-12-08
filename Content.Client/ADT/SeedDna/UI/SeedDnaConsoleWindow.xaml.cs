@@ -146,8 +146,8 @@ public sealed partial class SeedDnaConsoleWindow : DefaultWindow
         if (!_seedIsPresent && !_dnaDiskIsPresent)
             return;
 
-        var getSeedPotency = new Func<float>(() => _seedDataDto?.Potency ?? 50f);
-        var getDiskPotency = new Func<float>(() => _dnaDiskDataDto?.Potency ?? (_seedIsPresent ? _seedDataDto?.Potency ?? 50f : 50f));
+        var getSeedPotency = new Func<float?>(() => _seedDataDto?.Potency);
+        var getDiskPotency = new Func<float?>(() => _dnaDiskDataDto?.Potency ?? (_seedIsPresent ? _seedDataDto?.Potency : null));
 
         // Chemicals
         if (_seedDataDto?.Chemicals?.Count > 0 || _dnaDiskDataDto?.Chemicals?.Count > 0)
