@@ -1,4 +1,5 @@
 // Inspired by Nyanotrasen
+using Content.Shared.ADT.CCVar;
 using Content.Shared.ADT.CharecterFlavor;
 using Robust.Shared.Configuration;
 using System.Net;
@@ -19,7 +20,7 @@ public sealed class CharecterFlavorSystem : SharedCharecterFlavorSystem
 
         var clientHandler = new HttpClientHandler()
         {
-            Proxy = new WebProxy(_cfg.GetCVar<string>("ic.headshot_proxy")),
+            Proxy = new WebProxy(_cfg.GetCVar(ADTCCVars.HeadshotProxy)),
             ServerCertificateCustomValidationCallback = HttpClientHandler.DangerousAcceptAnyServerCertificateValidator
         };
 
