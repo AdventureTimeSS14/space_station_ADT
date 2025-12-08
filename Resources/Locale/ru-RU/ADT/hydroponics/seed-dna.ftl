@@ -45,10 +45,10 @@ seed-dna-row-CanScream = Может издавать крик
 # Локализация химикатов — заполнить по необходимости
 # seed-dna-chemical-??? = ???
 
-seed-dna-chemicalProp-Min = Минимальное значение
-seed-dna-chemicalProp-Max = Максимальное значение
-seed-dna-chemicalProp-PotencyDivisor = Делитель потенции
-seed-dna-chemicalProp-Inherent = Врождённый
+# seed-dna-chemicalProp-Min = Минимальное значение
+# seed-dna-chemicalProp-Max = Максимальное значение
+# seed-dna-chemicalProp-PotencyDivisor = Делитель потенции
+# seed-dna-chemicalProp-Inherent = Врождённый
 
 # Локализация газов — заполнить по необходимости
 # seed-dna-gas-??? = ???

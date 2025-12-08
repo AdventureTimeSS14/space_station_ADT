@@ -1,5 +1,4 @@
 using Content.Shared.ADT.SeedDna;
-using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 
 namespace Content.Client.ADT.SeedDna.UI;
@@ -26,17 +25,32 @@ public sealed class SeedDnaConsoleWindowRow
     private Action? _actionExtract;
     private Action? _actionReplace;
 
+    private readonly Func<float>? _getSeedPotency;
+    private readonly Func<float>? _getDiskPotency;
+
     private SeedDnaConsoleWindowRow(string title,
         bool seedPresent, bool dnaDiskPresent,
         Func<object?> getterSeedValue, Func<object?> getterDnaDiskValue,
         Action<object?> setterSeedValue, Action<object?> setterDnaDiskValue,
         Func<bool> flagUpdateImmediately,
-        Action<TargetSeedData> submit
+        Action<TargetSeedData> submit,
+        Func<float>? getSeedPotency = null,
+        Func<float>? getDiskPotency = null
     )
     {
+        _getSeedPotency = getSeedPotency;
+        _getDiskPotency = getDiskPotency;
+
         SetupTitle(title);
-        SetLabelValue(_seedValueLabel = CreateValueLabel(), getterSeedValue());
-        SetLabelValue(_dnaDiskValueLabel = CreateValueLabel(), getterDnaDiskValue());
+
+        var seedValue = getterSeedValue();
+        var diskValue = getterDnaDiskValue();
+
+        var seedPotencyValue = _getSeedPotency?.Invoke();
+        var diskPotencyValue = _getDiskPotency?.Invoke();
+
+        SetLabelValue(_seedValueLabel = CreateValueLabel(), seedValue, seedPotencyValue);
+        SetLabelValue(_dnaDiskValueLabel = CreateValueLabel(), diskValue, diskPotencyValue);
 
         _actionExtract = SetupActionButton(_extractButton = CreateActionButton(Loc.GetString("seed-dna-extract-btn")),
             dnaDiskPresent, getterSeedValue, setterDnaDiskValue,
@@ -74,31 +88,7 @@ public sealed class SeedDnaConsoleWindowRow
             },
         });
 
-        if (!_isChemical)
-            return this;
-
-        var seedChemQuantityDto = _getterChemSeedValue!();
-        var dnaDiskChemQuantityDto = _getterChemDnaDiskValue!();
-
-        container.AddChild(CreateTitleLabel($"  - {Loc.GetString("seed-dna-chemicalProp-Min")}"));
-        container.AddChild(SetLabelValue(CreateValueLabel(), seedChemQuantityDto?.Min));
-        container.AddChild(SetLabelValue(CreateValueLabel(), dnaDiskChemQuantityDto?.Min));
-        container.AddChild(new Control());
-
-        container.AddChild(CreateTitleLabel($"  - {Loc.GetString("seed-dna-chemicalProp-Max")}"));
-        container.AddChild(SetLabelValue(CreateValueLabel(), seedChemQuantityDto?.Max));
-        container.AddChild(SetLabelValue(CreateValueLabel(), dnaDiskChemQuantityDto?.Max));
-        container.AddChild(new Control());
-
-        container.AddChild(CreateTitleLabel($"  - {Loc.GetString("seed-dna-chemicalProp-PotencyDivisor")}"));
-        container.AddChild(SetLabelValue(CreateValueLabel(), seedChemQuantityDto?.PotencyDivisor));
-        container.AddChild(SetLabelValue(CreateValueLabel(), dnaDiskChemQuantityDto?.PotencyDivisor));
-        container.AddChild(new Control());
-
-        container.AddChild(CreateTitleLabel($"  - {Loc.GetString("seed-dna-chemicalProp-Inherent")}"));
-        container.AddChild(SetLabelValue(CreateValueLabel(), seedChemQuantityDto?.Inherent));
-        container.AddChild(SetLabelValue(CreateValueLabel(), dnaDiskChemQuantityDto?.Inherent));
-        container.AddChild(new Control());
+        // Removed sub-rows for chemicals as per modification
 
         return this;
     }
@@ -118,7 +108,9 @@ public sealed class SeedDnaConsoleWindowRow
         Func<object?> getterSeedValue, Func<object?> getterDnaDiskValue,
         Action<object?> setterSeedValue, Action<object?> setterDnaDiskValue,
         Func<bool> flagUpdateImmediately,
-        Action<TargetSeedData> submit)
+        Action<TargetSeedData> submit,
+        Func<float>? getSeedPotency = null,
+        Func<float>? getDiskPotency = null)
     {
         if (getterSeedValue() == null && getterDnaDiskValue() == null)
             return null;
@@ -131,7 +123,9 @@ public sealed class SeedDnaConsoleWindowRow
             setterSeedValue,
             setterDnaDiskValue,
             flagUpdateImmediately,
-            submit);
+            submit,
+            getSeedPotency,
+            getDiskPotency);
     }
 
     private void SetupTitle(string title)
@@ -147,6 +141,8 @@ public sealed class SeedDnaConsoleWindowRow
     {
         actionBtn.Disabled = !(getter() != null && secondDataPresent) && !getupLabel.Text!.Equals(setupLabel.Text);
 
+        var targetPotencyFunc = target == TargetSeedData.Seed ? _getSeedPotency : _getDiskPotency;
+
         var action = () =>
         {
             var value = getter();
@@ -154,7 +150,8 @@ public sealed class SeedDnaConsoleWindowRow
                 return;
 
             setter(value);
-            SetLabelValue(setupLabel, getupLabel.Text);
+            var targetPotency = targetPotencyFunc?.Invoke() ?? 50f;
+            SetLabelValue(setupLabel, value, targetPotency);
             _extractButton!.Disabled = true;
             _replaceButton!.Disabled = true;
 
@@ -189,17 +186,20 @@ public sealed class SeedDnaConsoleWindowRow
         };
     }
 
-    private Label SetLabelValue(Label valueLabel, object? value)
+    private Label SetLabelValue(Label valueLabel, object? value, float? potency = null)
     {
         if (value == null)
         {
             valueLabel.Text = "-";
             valueLabel.Align = Label.AlignMode.Center;
         }
-        else if (value is SeedChemQuantityDto)
+        else if (value is SeedChemQuantityDto chem)
         {
             _isChemical = true;
-            valueLabel.Text = ".";
+            var p = potency ?? 50f;
+            var x = chem.Min + (p / chem.PotencyDivisor);
+            var amount = Math.Clamp(x, chem.Min, chem.Max);
+            valueLabel.Text = amount.ToString();
             valueLabel.Align = Label.AlignMode.Right;
         }
         else
