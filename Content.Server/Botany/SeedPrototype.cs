@@ -131,10 +131,8 @@ public partial class SeedData
     /// <summary>
     ///     The entity prototype this seed spawns when it gets harvested.
     /// </summary>
-    //ADT-Tweak-Start
     [DataField]
     public List<EntProtoId> ProductPrototypes = new();
-    //ADT-Tweak-End
 
     [DataField] public Dictionary<string, SeedChemQuantity> Chemicals = new();
 
@@ -243,10 +241,8 @@ public partial class SeedData
     /// <summary>
     ///     The seed prototypes this seed may mutate into when prompted to.
     /// </summary>
-    //ADT-Tweak-Start
     [DataField]
     public List<ProtoId<SeedPrototype>> MutationPrototypes = new();
-    //ADT-Tweak-End
 
     /// <summary>
     ///  Log impact for when the seed is planted.
@@ -272,10 +268,8 @@ public partial class SeedData
             Mysterious = Mysterious,
 
             PacketPrototype = PacketPrototype,
-            //ADT-Tweak-Start
             ProductPrototypes = new List<EntProtoId>(ProductPrototypes),
             MutationPrototypes = new List<ProtoId<SeedPrototype>>(MutationPrototypes),
-            //ADT-Tweak-End
             Chemicals = new Dictionary<string, SeedChemQuantity>(Chemicals),
             ConsumeGasses = new Dictionary<Gas, float>(ConsumeGasses),
             ExudeGasses = new Dictionary<Gas, float>(ExudeGasses),
@@ -334,10 +328,8 @@ public partial class SeedData
             Mysterious = other.Mysterious,
 
             PacketPrototype = other.PacketPrototype,
-            //ADT-Tweak-Start
             ProductPrototypes = new List<EntProtoId>(other.ProductPrototypes),
             MutationPrototypes = new List<ProtoId<SeedPrototype>>(other.MutationPrototypes),
-            //ADT-Tweak-End
 
             Chemicals = new Dictionary<string, SeedChemQuantity>(Chemicals),
             ConsumeGasses = new Dictionary<Gas, float>(ConsumeGasses),
