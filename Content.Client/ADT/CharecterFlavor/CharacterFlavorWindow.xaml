@@ -90,7 +90,7 @@
 
                     <BoxContainer Orientation="Vertical" Margin="8" SetWidth="250">
                         <ui:Label Name="CustomSpeciesTitle"
-                                  Text="{Loc 'flavor-interface-no-custom-species'}"
+                                  Text="{Loc 'flavor-interface-custom-species'}"
                                   StyleClasses="LabelHeading"
                                   Margin="8 0"/>
 
