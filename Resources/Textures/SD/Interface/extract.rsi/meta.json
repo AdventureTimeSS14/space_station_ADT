@@ -1,0 +1,18 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from EphemeralSpace https://github.com/EmoGarbage404/ephemeral-space/tree/250b83ccc2c45a953643f5b675aa47cbd1325f25/Resources/Textures/_ES/Actions/masks/extract.rsi",
+
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "arms-dealer"
+        },
+        {
+            "name": "arms-dealer-on"
+        }
+    ]
+}

@@ -99,6 +99,8 @@
       - ADTMoneyForGamble
       - SpaceCash
   # ADT-Economy-End
+  - type: StealTarget
+    stealGroup: Cash
 
 - type: material
   id: Credit

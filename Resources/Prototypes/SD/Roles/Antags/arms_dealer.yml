@@ -1,0 +1,9 @@
+- type: antag
+  id: ArmsDealer
+  name: roles-antag-arms-dealer-name
+  antagonist: true
+  setPreference: true
+  objective: roles-antag-arms-dealer-objective
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 108000

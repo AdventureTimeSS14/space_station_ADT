@@ -1,0 +1,28 @@
+- type: entity
+  parent: BaseGameRule
+  id: ArmsDealer
+  components:
+  - type: ArmsDealerRule
+  - type: AntagObjectives
+    objectives:
+    - ArmsDealerMoneyObjective
+  - type: AntagSelection
+    agentName: arms-dealer-round-end-agent-name
+    selectionTime: IntraPlayerSpawn
+    definitions:
+    - prefRoles: [ ArmsDealer ]
+      max: 1
+      playerRatio: 1
+      lateJoinAdditional: true
+      allowNonHumans: true
+      multiAntagSetting: NotExclusive
+      components:
+      - type: ActionGrant
+        actions:
+        - SD_ActionSummonGun
+
+      - type: Pacified
+      mindRoles:
+      - MindRoleArmsDealer
+      briefing:
+        sound: "/Audio/Misc/thief_greeting.ogg"

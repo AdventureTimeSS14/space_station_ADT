@@ -6,3 +6,11 @@
   sprite:
     sprite: ADT/Clothing/Underwear/Bottom/Heads/capitan_panties.rsi
     state: icon
+
+# Arms dealer
+- type: stealTargetGroup
+  id: Cash
+  name: steal-target-groups-cash
+  sprite:
+    sprite: /Textures/Objects/Economy/cash.rsi
+    state: cash
