@@ -26,3 +26,6 @@ ent-MinesweeperArcade = аркада Сапёр
 ent-MinesweeperArcadeFilled = { ent-MinesweeperArcade }
     .desc = { ent-MinesweeperArcade.desc }
     .suffix = Заполненный
+
+ent-ADTComputerBotanicalSeedDNAManipulator = консоль манипулятора ДНК семян
+    .desc = Используется для генной инженерии с растениями.
