@@ -66,7 +66,7 @@ namespace Content.Server.NodeContainer.NodeGroups
             if (Air.Pressure <= MinPressureLimit || OverpressurePipeEntities.Count == 0)
                 return;
 
-            _overpressureSystem?.Update(this);
+            _overpressureSystem?.HandlePressure(this);
             // ADT-Tweak end
         }
 
@@ -138,7 +138,7 @@ namespace Content.Server.NodeContainer.NodeGroups
 
         public override string GetDebugData()
         {
-            return @$"Pressure: {Air.Pressure:G3}
+            return @$"Pressure: { Air.Pressure:G3}
 Temperature: {Air.Temperature:G3}
 Volume: {Air.Volume:G3}";
         }

@@ -21,7 +21,7 @@ namespace Content.Server.ADT.Atmos.Piping.Systems
             _accumulator += frameTime;
         }
 
-        public void Update(PipeNet net)
+        public void HandlePressure(PipeNet net)
         {
             if (_accumulator < UpdateInterval)
                 return;
