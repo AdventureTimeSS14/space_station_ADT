@@ -2,7 +2,7 @@
   id: CatEarsStubby
   bodyPart: HeadTop
   markingCategory: HeadTop
-  speciesRestriction: [Human]
+  speciesRestriction: [Human, Felinid]
   coloring:
     default:
       type:
@@ -25,7 +25,7 @@
   id: CatEarsCurled
   bodyPart: HeadTop
   markingCategory: HeadTop
-  speciesRestriction: [Human]
+  speciesRestriction: [Human, Felinid]
   coloring:
     default:
       type:
@@ -48,7 +48,7 @@
   id: CatEarsTorn
   bodyPart: HeadTop
   markingCategory: HeadTop
-  speciesRestriction: [Human]
+  speciesRestriction: [Human, Felinid]
   coloring:
     default:
       type:
@@ -71,7 +71,7 @@
   id: CatTailStripes
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Human]
+  speciesRestriction: [Human, Felinid]
   coloring:
     default:
       type:

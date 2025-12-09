@@ -1,0 +1,26 @@
+- type: marking
+  id: HumanFoxTail1
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Human]
+  sprites:
+  - sprite: SD/Mobs/Customization/Human/fox_tails.rsi
+    state: hum_fox_tail1
+
+- type: marking
+  id: HumanFoxTail2
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Human]
+  sprites:
+  - sprite: SD/Mobs/Customization/Human/fox_tails.rsi
+    state: hum_fox_tail2
+
+- type: marking
+  id: HumanFoxTail3
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Human]
+  sprites:
+  - sprite: SD/Mobs/Customization/Human/fox_tails.rsi
+    state: hum_fox_tail3

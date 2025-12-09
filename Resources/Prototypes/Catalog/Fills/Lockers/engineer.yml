@@ -166,14 +166,16 @@
     - id: ADTBookSRPeng
     - id: ADTBookAtmosSupermatter
     # ADT-WikiBooks-End
+    - id: SD_ClothingHandsGlovesAtmos # Helix-Tweak
 
 - type: entityTable
   id: FillAtmosphericsHardsuit
   table: !type:AllSelector
     children:
-    - id: ClothingOuterHardsuitAtmos
+    - id: ADTClothingModsuitBackAtmos # Helix-Tweak
+    - id: ClothingShoesBootsMagAtmos  # Helix-Tweak
     - id: OxygenTankFilled
-    - id: ClothingMaskBreath
+    # - id: ClothingMaskBreath # Helix-Tweak
 
 - type: entity
   id: LockerEngineerFilledHardsuit

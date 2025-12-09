@@ -282,6 +282,7 @@
   id: FemaleSlimeLaugh
   files:
     - /Audio/ADT/Voice/Slime/s_womanlaugh.ogg
+    - /Audio/SD/Voice/Slime/slime_laugh_f1.ogg # Helix-Tweak
 
 - type: soundCollection
   id: MaleSlimeSigh

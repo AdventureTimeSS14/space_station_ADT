@@ -195,6 +195,7 @@
       - NanoTaskCartridge # SD fix
       - NewsReaderCartridge
       - AtmoTechCartridge # SD add
+      - NanoChatCartridge # ADT-tweak: Наночат
       - ADTWalletCartridge # ADT-Economy
     diskSpace: 8 # ADT tweak
 

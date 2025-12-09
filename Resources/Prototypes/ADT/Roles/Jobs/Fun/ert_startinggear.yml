@@ -10,7 +10,7 @@
     neck: ClothingNeckMantleERTLeader
     outerClothing: ClothingOuterArmorBulletproof
     id: ERTLeaderPDA
-    ears: ClothingHeadsetAltCentCom
+    ears: SD_ClothingHeadsetAltSpecCom # Helix-Tweak
     belt: ClothingBeltAssault
     pocket1: DoubleEmergencyOxygenTankFilled
     pocket2: PhoneInstrument
@@ -53,7 +53,7 @@
     outerClothing: ClothingOuterHardsuitERTLeader
     id: ERTLeaderPDA
     neck: ClothingNeckMantleERTLeader
-    ears: ClothingHeadsetAltCentCom
+    ears: SD_ClothingHeadsetAltSpecCom # Helix-Tweak
     belt: ClothingBeltAssault
     pocket1: DoubleEmergencyOxygenTankFilled
     pocket2: ADTBaseUplinkBOBERT
@@ -98,7 +98,7 @@
     outerClothing: ADTClothingOuterERTRiotHardsuit
     id: ERTLeaderPDA
     neck: ClothingNeckMantleERTLeader
-    ears: ClothingHeadsetAltCentCom
+    ears: SD_ClothingHeadsetAltSpecCom # Helix-Tweak
     belt: ClothingBeltAssault
     pocket1: DoubleEmergencyOxygenTankFilled
     pocket2: FlashlightSeclite
@@ -143,7 +143,7 @@
     gloves: ClothingHandsGlovesCombat
     outerClothing: ClothingOuterArmorBasicSlim
     id: ERTEngineerPDA
-    ears: ClothingHeadsetAltCentCom
+    ears: SD_ClothingHeadsetAltSpecCom # Helix-Tweak
     belt: ClothingBeltChiefEngineerFilled
     pocket1: DoubleEmergencyOxygenTankFilled
     pocket2: WeaponPistolMk58
@@ -178,7 +178,7 @@
     gloves: ClothingHandsGlovesCombat
     outerClothing: ClothingOuterHardsuitERTEngineer
     id: ERTEngineerPDA
-    ears: ClothingHeadsetAltCentCom
+    ears: SD_ClothingHeadsetAltSpecCom # Helix-Tweak
     belt: ClothingBeltChiefEngineerFilled
     pocket1: DoubleEmergencyOxygenTankFilled
     pocket2: ADTBaseUplinkBOBERT
@@ -212,7 +212,7 @@
     gloves: ClothingHandsGlovesCombat
     outerClothing: ADTClothingOuterERTRiotHardsuit
     id: ERTEngineerPDA
-    ears: ClothingHeadsetAltCentCom
+    ears: SD_ClothingHeadsetAltSpecCom # Helix-Tweak
     belt: ClothingBeltChiefEngineerFilled
     pocket1: DoubleEmergencyOxygenTankFilled
     pocket2: FlashlightSeclite
@@ -247,7 +247,7 @@
     gloves: ClothingHandsGlovesCombat
     outerClothing: ClothingOuterArmorBulletproof
     id: ERTSecurityPDA
-    ears: ClothingHeadsetAltCentCom
+    ears: SD_ClothingHeadsetAltSpecCom # Helix-Tweak
     belt: ClothingBeltAssault
     pocket1: DoubleEmergencyOxygenTankFilled
     pocket2: ADTWeaponPistolDesertEagle
@@ -276,7 +276,7 @@
     gloves: ClothingHandsGlovesCombat
     outerClothing: ClothingOuterHardsuitERTSecurity
     id: ERTSecurityPDA
-    ears: ClothingHeadsetAltCentCom
+    ears: SD_ClothingHeadsetAltSpecCom # Helix-Tweak
     belt: ClothingBeltAssault
     pocket1: DoubleEmergencyOxygenTankFilled
     pocket2: ADTBaseUplinkBOBERT
@@ -304,7 +304,7 @@
     gloves: ClothingHandsGlovesCombat
     outerClothing: ADTClothingOuterERTRiotHardsuit
     id: ERTSecurityPDA
-    ears: ClothingHeadsetAltCentCom
+    ears: SD_ClothingHeadsetAltSpecCom # Helix-Tweak
     belt: ClothingBeltAssault
     pocket1: DoubleEmergencyOxygenTankFilled
     pocket2: FlashlightSeclite
@@ -335,7 +335,7 @@
     gloves: ClothingHandsGlovesCombat
     outerClothing: ClothingOuterVestArmorMedSec
     id: ERTMedicPDA
-    ears: ClothingHeadsetAltCentCom
+    ears: SD_ClothingHeadsetAltSpecCom # Helix-Tweak
     belt: ADTClothingBeltMedicalSecurityERTFilled
     pocket1: DoubleEmergencyOxygenTankFilled
     pocket2: WeaponPistolMk58
@@ -365,7 +365,7 @@
     gloves: ClothingHandsGlovesCombat
     outerClothing: ClothingOuterHardsuitERTMedical
     id: ERTMedicPDA
-    ears: ClothingHeadsetAltCentCom
+    ears: SD_ClothingHeadsetAltSpecCom # Helix-Tweak
     belt: ADTClothingBeltMedicalSecurityERTFilled
     pocket1: DoubleEmergencyOxygenTankFilled
     pocket2: ADTBaseUplinkBOBERT
@@ -394,7 +394,7 @@
     gloves: ClothingHandsGlovesNitrile
     outerClothing: ADTClothingOuterERTRiotHardsuit
     id: ERTMedicPDA
-    ears: ClothingHeadsetAltCentCom
+    ears: SD_ClothingHeadsetAltSpecCom # Helix-Tweak
     belt: ADTClothingBeltMedicalSecurityERTFilled
     pocket1: DoubleEmergencyOxygenTankFilled
     pocket2: FlashlightSeclite
@@ -423,7 +423,7 @@
     gloves: ClothingHandsGlovesCombat
     outerClothing: ClothingOuterCoatLabOpened
     id: ERTJanitorPDA
-    ears: ClothingHeadsetAltCentCom
+    ears: SD_ClothingHeadsetAltSpecCom # Helix-Tweak
     belt: WeaponLaserSvalinn
     pocket1: DoubleEmergencyOxygenTankFilled
     pocket2: WeaponLaserSvalinn
@@ -463,7 +463,7 @@
     gloves: ClothingHandsGlovesCombat
     outerClothing: ClothingOuterHardsuitERTJanitor
     id: ERTJanitorPDA
-    ears: ClothingHeadsetAltCentCom
+    ears: SD_ClothingHeadsetAltSpecCom # Helix-Tweak
     belt: WeaponLaserSvalinn
     pocket1: DoubleEmergencyOxygenTankFilled
     pocket2: ADTBaseUplinkBOBERT
@@ -503,7 +503,7 @@
     gloves: ClothingHandsGlovesCombat
     outerClothing: ADTClothingOuterERTRiotHardsuit
     id: ERTJanitorPDA
-    ears: ClothingHeadsetAltCentCom
+    ears: SD_ClothingHeadsetAltSpecCom # Helix-Tweak
     belt: WeaponLaserSvalinn
     pocket1: DoubleEmergencyOxygenTankFilled
     pocket2: FlashlightSeclite

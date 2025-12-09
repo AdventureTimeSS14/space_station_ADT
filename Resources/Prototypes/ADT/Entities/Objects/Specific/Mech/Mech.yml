@@ -19,7 +19,7 @@
       path: /Audio/ADT/Mecha/mechstep.ogg
   - type: Mech
     modifiers:
-      coefficients: #коэффициенты для легкобронированных мехов 
+      coefficients: #коэффициенты для легкобронированных мехов
         Blunt: 0.25
         Slash: 0.25
         Piercing: 0.5
@@ -31,7 +31,7 @@
     baseState: gygax
     openState: gygax-open
     brokenState: gygax-broken
-    mechToPilotDamageMultiplier: 0.15 #коэффициент для легкобронированных мехов 
+    mechToPilotDamageMultiplier: 0.15 #коэффициент для легкобронированных мехов
     pilotWhitelist:
       components:
         - HumanoidAppearance
@@ -659,7 +659,7 @@
       state: ntgygax
   - type: Mech
     modifiers:
-      coefficients: #коэффициенты для легкобронированных мехов 
+      coefficients: #коэффициенты для легкобронированных мехов
         Blunt: 0.25
         Slash: 0.25
         Piercing: 0.5
@@ -667,7 +667,7 @@
         Radiation: 0
         Caustic: 0.1
         Structural: 1.0
-    mechToPilotDamageMultiplier: 0.15 #коэффициент для легкобронированных мехов 
+    mechToPilotDamageMultiplier: 0.15 #коэффициент для легкобронированных мехов
     maxintegrity: 350
     baseState: ntgygax
     openState: ntgygax-open
@@ -731,7 +731,7 @@
       state: darkgygax
   - type: Mech
     modifiers:
-      coefficients: #коэффициенты для легкобронированных мехов 
+      coefficients: #коэффициенты для легкобронированных мехов
         Blunt: 0.25
         Slash: 0.25
         Piercing: 0.5
@@ -739,7 +739,7 @@
         Radiation: 0
         Caustic: 0.1
         Structural: 1.0
-    mechToPilotDamageMultiplier: 0.15 #коэффициент для легкобронированных мехов 
+    mechToPilotDamageMultiplier: 0.15 #коэффициент для легкобронированных мехов
     maxintegrity: 350
     baseState: darkgygax
     openState: darkgygax-open
@@ -891,7 +891,7 @@
       path: /Audio/ADT/Mecha/mechstep.ogg
   - type: Mech
     modifiers:
-      coefficients: #коэффициенты для легкобронированных мехов 
+      coefficients: #коэффициенты для легкобронированных мехов
         Blunt: 0.25
         Slash: 0.25
         Piercing: 0.5
@@ -899,7 +899,7 @@
         Radiation: 0
         Caustic: 0.1
         Structural: 1.0
-    mechToPilotDamageMultiplier: 0.15 #коэффициент для легкобронированных мехов 
+    mechToPilotDamageMultiplier: 0.15 #коэффициент для легкобронированных мехов
     maxintegrity: 300
     baseState: paddy
     openState: paddy-open

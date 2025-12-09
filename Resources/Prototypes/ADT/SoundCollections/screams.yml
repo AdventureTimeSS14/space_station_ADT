@@ -47,8 +47,9 @@
 - type: soundCollection
   id: FemaleSlimeScreams
   files:
-    - /Audio/ADT/Voice/Slime/s_femalescream_1.ogg
+    # - /Audio/ADT/Voice/Slime/s_femalescream_1.ogg # Helix-Tweak
     - /Audio/ADT/Voice/Slime/s_femalescream_2.ogg
-    - /Audio/ADT/Voice/Slime/s_femalescream_3.ogg
+    # - /Audio/ADT/Voice/Slime/s_femalescream_3.ogg # Helix-Tweak
     - /Audio/ADT/Voice/Slime/s_femalescream_4.ogg
-    - /Audio/ADT/Voice/Slime/s_femalescream_5.ogg
+    # - /Audio/ADT/Voice/Slime/s_femalescream_5.ogg # Helix-Tweak
+    - /Audio/SD/Voice/Slime/slime_scream_f1.ogg # Helix-Tweak

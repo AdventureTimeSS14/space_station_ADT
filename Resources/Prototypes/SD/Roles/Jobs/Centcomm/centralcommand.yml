@@ -28,7 +28,7 @@
     back: ClothingBackpackSatchelLeather
     outerClothing: ClothingOuterArmourInvisible
     id: SD_NavyOfficerPDA
-    ears: ClothingHeadsetAltCentCom
+    ears: SD_ClothingHeadsetAltSpecCom # Helix-Tweak
     belt: ClothingBeltHolster
   storage:
     belt:

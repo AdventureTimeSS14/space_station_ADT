@@ -26,7 +26,7 @@
     back: ClothingDeathSquadronBackpack
     mask: ClothingMaskGasDeathSquad
     eyes: ClothingEyesGlassesDeathSquad # SD tweak
-    ears: ClothingHeadsetAltCentCom
+    ears: SD_ClothingHeadsetAltSpecCom # Helix-Tweak
     gloves: ClothingHandsGlovesCombat
     outerClothing: ClothingOuterHardsuitDeathsquad
     shoes: ClothingShoesBootsMagDeathsquad # SD tweak

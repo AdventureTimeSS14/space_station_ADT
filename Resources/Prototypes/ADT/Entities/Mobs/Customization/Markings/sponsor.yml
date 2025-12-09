@@ -1,6 +1,7 @@
 - type: marking
   id: ADTAlldurak
   bodyPart: HeadTop
+  speciesRestriction: [Human] # Helix-Tweak
   markingCategory: HeadTop
   sponsorOnly: false
   sprites:
@@ -10,6 +11,7 @@
 - type: marking
   id: ADTAllhorn1
   bodyPart: HeadTop
+  speciesRestriction: [Human] # Helix-Tweak
   markingCategory: HeadTop
   sponsorOnly: false
   sprites:
@@ -19,6 +21,7 @@
 - type: marking
   id: ADTAllhorn2
   bodyPart: HeadTop
+  speciesRestriction: [Human] # Helix-Tweak
   markingCategory: HeadTop
   sponsorOnly: false
   sprites:
@@ -28,6 +31,7 @@
 - type: marking
   id: ADTAllhorn3
   bodyPart: HeadTop
+  speciesRestriction: [Human] # Helix-Tweak
   markingCategory: HeadTop
   sponsorOnly: false
   sprites:
@@ -37,6 +41,7 @@
 - type: marking
   id: ADTAllhorn4
   bodyPart: HeadTop
+  speciesRestriction: [Human] # Helix-Tweak
   markingCategory: HeadTop
   sponsorOnly: false
   sprites:
@@ -46,6 +51,7 @@
 - type: marking
   id: ADTAllhorn5
   bodyPart: HeadTop
+  speciesRestriction: [Human] # Helix-Tweak
   markingCategory: HeadTop
   sponsorOnly: false
   sprites:
@@ -55,6 +61,7 @@
 - type: marking
   id: ADTAllhorn6
   bodyPart: HeadTop
+  speciesRestriction: [Human] # Helix-Tweak
   markingCategory: HeadTop
   sponsorOnly: false
   sprites:
@@ -64,6 +71,7 @@
 - type: marking
   id: ADTAlllord
   bodyPart: HeadTop
+  speciesRestriction: [Human] # Helix-Tweak
   markingCategory: HeadTop
   sponsorOnly: false
   sprites:
@@ -73,6 +81,7 @@
 - type: marking
   id: ADTAlloldpain
   bodyPart: HeadTop
+  speciesRestriction: [Human] # Helix-Tweak
   markingCategory: HeadTop
   sponsorOnly: false
   sprites:
@@ -82,6 +91,7 @@
 - type: marking
   id: ADTAlltavrhorn
   bodyPart: HeadTop
+  speciesRestriction: [Human] # Helix-Tweak
   markingCategory: HeadTop
   sponsorOnly: false
   sprites:
@@ -91,6 +101,7 @@
 - type: marking
   id: ADTAlltelehorn
   bodyPart: HeadTop
+  speciesRestriction: [Human] # Helix-Tweak
   markingCategory: HeadTop
   sponsorOnly: false
   sprites:
@@ -100,6 +111,7 @@
 - type: marking
   id: ADTAllvampirehorn
   bodyPart: HeadTop
+  speciesRestriction: [Human] # Helix-Tweak
   markingCategory: HeadTop
   sponsorOnly: false
   sprites:

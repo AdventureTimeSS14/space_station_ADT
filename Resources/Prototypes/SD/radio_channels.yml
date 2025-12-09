@@ -1,0 +1,7 @@
+- type: radioChannel
+  id: SDSpecCom
+  name: chat-radio-speccom
+  keycode: 'в'
+  frequency: 2475
+  color: "#9B2D30"
+  longRange: true

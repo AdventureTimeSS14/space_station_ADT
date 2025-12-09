@@ -1,0 +1,23 @@
+{
+    "version": 1,
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Make by Helix",
+    "states": [
+        {
+            "name": "hum_fox_tail1",
+            "directions": 4
+        },
+        {
+            "name": "hum_fox_tail2",
+            "directions": 4
+        },
+        {
+            "name": "hum_fox_tail3",
+            "directions": 4
+        }
+    ]
+}

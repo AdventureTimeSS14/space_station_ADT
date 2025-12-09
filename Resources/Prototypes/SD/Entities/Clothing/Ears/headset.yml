@@ -13,3 +13,24 @@
     sprite: Clothing/Ears/Headsets/base_syndicate.rsi
   - type: Clothing
     sprite: Clothing/Ears/Headsets/base_syndicate.rsi
+
+- type: entity
+  parent: [ ClothingHeadset, BaseCentcommContraband ]
+  id: SD_ClothingHeadsetAltSpecCom
+  name: SpecCom headset
+  description: A headset used by Special Command of Nanotrasen.
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - SD_EncryptionKeySpecCom
+      - EncryptionKeyCentCom
+      - EncryptionKeyStationMaster
+  - type: Sprite
+    sprite: ADT/Clothing/Ears/Headsets/space_sec_headset_full.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Ears/Headsets/space_sec_headset_full.rsi
+  #Helix-Tweak-Start
+  - type: CoveredSlot
+    slots: [ears]
+  #Helix-Tweak-Emd

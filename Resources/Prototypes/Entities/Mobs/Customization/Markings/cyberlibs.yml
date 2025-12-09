@@ -3,7 +3,7 @@
   id: CyberlimbRArmBishop
   bodyPart: RArm
   markingCategory: Arms
-  speciesRestriction: [ Human, Dwarf, Arachnid ]
+  speciesRestriction: [ Human, Aegi, Dwarf, Arachnid ]
   coloring:
     default:
       type:
@@ -17,7 +17,7 @@
   id: CyberlimbLArmBishop
   bodyPart: LArm
   markingCategory: Arms
-  speciesRestriction: [ Human, Dwarf, Arachnid ]
+  speciesRestriction: [ Human, Aegi, Dwarf, Arachnid ]
   coloring:
     default:
       type:
@@ -31,7 +31,7 @@
   id: CyberlimbRHandBishop
   bodyPart: RHand
   markingCategory: Arms
-  speciesRestriction: [ Human, Dwarf, Arachnid ]
+  speciesRestriction: [ Human, Aegi, Dwarf, Arachnid ]
   coloring:
     default:
       type:
@@ -45,7 +45,7 @@
   id: CyberlimbLHandBishop
   bodyPart: LHand
   markingCategory: Arms
-  speciesRestriction: [ Human, Dwarf, Arachnid ]
+  speciesRestriction: [ Human, Aegi, Dwarf, Arachnid ]
   coloring:
     default:
       type:
@@ -59,7 +59,7 @@
   id: CyberlimbRLegBishop
   bodyPart: LLeg # ADT-Tweak RLeg -> LLeg
   markingCategory: Legs
-  speciesRestriction: [ Human, Dwarf, Arachnid ]
+  speciesRestriction: [ Human, Aegi, Dwarf, Arachnid ]
   coloring:
     default:
       type:
@@ -73,7 +73,7 @@
   id: CyberlimbLLegBishop
   bodyPart: LLeg
   markingCategory: Legs
-  speciesRestriction: [ Human, Dwarf, Arachnid ]
+  speciesRestriction: [ Human, Aegi, Dwarf, Arachnid ]
   coloring:
     default:
       type:
@@ -87,7 +87,7 @@
   id: CyberlimbLFootBishop
   bodyPart: RFoot # ADT-Tweak LFoot -> RFoot
   markingCategory: Legs
-  speciesRestriction: [ Human, Dwarf, Arachnid ]
+  speciesRestriction: [ Human, Aegi, Dwarf, Arachnid ]
   coloring:
     default:
       type:
@@ -101,7 +101,7 @@
   id: CyberlimbRFootBishop
   bodyPart: RFoot
   markingCategory: Legs
-  speciesRestriction: [ Human, Dwarf, Arachnid ]
+  speciesRestriction: [ Human, Aegi, Dwarf, Arachnid ]
   coloring:
     default:
       type:
@@ -115,7 +115,7 @@
   id: CyberlimbTorsoBishop
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [ Human, Dwarf, Arachnid ]
+  speciesRestriction: [ Human, Aegi, Dwarf, Arachnid ]
   coloring:
     default:
       type:
@@ -130,7 +130,7 @@
   id: CyberlimbRArmHephaestus
   bodyPart: RArm
   markingCategory: Arms
-  speciesRestriction: [ Human, Dwarf, Arachnid ]
+  speciesRestriction: [ Human, Aegi, Dwarf, Arachnid ]
   coloring:
     default:
       type:
@@ -144,7 +144,7 @@
   id: CyberlimbLArmHephaestus
   bodyPart: LArm
   markingCategory: Arms
-  speciesRestriction: [ Human, Dwarf, Arachnid ]
+  speciesRestriction: [ Human, Aegi, Dwarf, Arachnid ]
   coloring:
     default:
       type:
@@ -158,7 +158,7 @@
   id: CyberlimbRHandHephaestus
   bodyPart: RHand
   markingCategory: Arms
-  speciesRestriction: [ Human, Dwarf, Arachnid ]
+  speciesRestriction: [ Human, Aegi, Dwarf, Arachnid ]
   coloring:
     default:
       type:
@@ -172,7 +172,7 @@
   id: CyberlimbLHandHephaestus
   bodyPart: LHand
   markingCategory: Arms
-  speciesRestriction: [ Human, Dwarf, Arachnid ]
+  speciesRestriction: [ Human, Aegi, Dwarf, Arachnid ]
   coloring:
     default:
       type:
@@ -186,7 +186,7 @@
   id: CyberlimbRLegHephaestus
   bodyPart: LLeg # ADT-Tweak RLeg -> LLeg
   markingCategory: Legs
-  speciesRestriction: [ Human, Dwarf, Arachnid ]
+  speciesRestriction: [ Human, Aegi, Dwarf, Arachnid ]
   coloring:
     default:
       type:
@@ -200,7 +200,7 @@
   id: CyberlimbLLegHephaestus
   bodyPart: LLeg
   markingCategory: Legs
-  speciesRestriction: [ Human, Dwarf, Arachnid ]
+  speciesRestriction: [ Human, Aegi, Dwarf, Arachnid ]
   coloring:
     default:
       type:
@@ -214,7 +214,7 @@
   id: CyberlimbLFootHephaestus
   bodyPart: RFoot # ADT-Tweak LFoot -> RFoot
   markingCategory: Legs
-  speciesRestriction: [ Human, Dwarf, Arachnid ]
+  speciesRestriction: [ Human, Aegi, Dwarf, Arachnid ]
   coloring:
     default:
       type:
@@ -228,7 +228,7 @@
   id: CyberlimbRFootHephaestus
   bodyPart: RFoot
   markingCategory: Legs
-  speciesRestriction: [ Human, Dwarf, Arachnid ]
+  speciesRestriction: [ Human, Aegi, Dwarf, Arachnid ]
   coloring:
     default:
       type:
@@ -242,7 +242,7 @@
   id: CyberlimbTorsoHephaestus
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [ Human, Dwarf, Arachnid ]
+  speciesRestriction: [ Human, Aegi, Dwarf, Arachnid ]
   coloring:
     default:
       type:
@@ -257,7 +257,7 @@
   id: CyberlimbRArmHephaestusTitan
   bodyPart: RArm
   markingCategory: Arms
-  speciesRestriction: [ Human, Dwarf, Arachnid ]
+  speciesRestriction: [ Human, Aegi, Dwarf, Arachnid ]
   coloring:
     default:
       type:
@@ -271,7 +271,7 @@
   id: CyberlimbLArmHephaestusTitan
   bodyPart: LArm
   markingCategory: Arms
-  speciesRestriction: [ Human, Dwarf, Arachnid ]
+  speciesRestriction: [ Human, Aegi, Dwarf, Arachnid ]
   coloring:
     default:
       type:
@@ -285,7 +285,7 @@
   id: CyberlimbRHandHephaestusTitan
   bodyPart: RHand
   markingCategory: Arms
-  speciesRestriction: [ Human, Dwarf, Arachnid ]
+  speciesRestriction: [ Human, Aegi, Dwarf, Arachnid ]
   coloring:
     default:
       type:
@@ -299,7 +299,7 @@
   id: CyberlimbLHandHephaestusTitan
   bodyPart: LHand
   markingCategory: Arms
-  speciesRestriction: [ Human, Dwarf, Arachnid ]
+  speciesRestriction: [ Human, Aegi, Dwarf, Arachnid ]
   coloring:
     default:
       type:
@@ -313,7 +313,7 @@
   id: CyberlimbRLegHephaestusTitan
   bodyPart: LLeg # ADT-Tweak RLeg -> LLeg
   markingCategory: Legs
-  speciesRestriction: [ Human, Dwarf, Arachnid ]
+  speciesRestriction: [ Human, Aegi, Dwarf, Arachnid ]
   coloring:
     default:
       type:
@@ -327,7 +327,7 @@
   id: CyberlimbLLegHephaestusTitan
   bodyPart: LLeg
   markingCategory: Legs
-  speciesRestriction: [ Human, Dwarf, Arachnid ]
+  speciesRestriction: [ Human, Aegi, Dwarf, Arachnid ]
   coloring:
     default:
       type:
@@ -341,7 +341,7 @@
   id: CyberlimbLFootHephaestusTitan
   bodyPart: RFoot # ADT-Tweak LFoot -> RFoot
   markingCategory: Legs
-  speciesRestriction: [ Human, Dwarf, Arachnid ]
+  speciesRestriction: [ Human, Aegi, Dwarf, Arachnid ]
   coloring:
     default:
       type:
@@ -355,7 +355,7 @@
   id: CyberlimbRFootHephaestusTitan
   bodyPart: RFoot
   markingCategory: Legs
-  speciesRestriction: [ Human, Dwarf, Arachnid ]
+  speciesRestriction: [ Human, Aegi, Dwarf, Arachnid ]
   coloring:
     default:
       type:
@@ -369,7 +369,7 @@
   id: CyberlimbTorsoHephaestusTitan
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [ Human, Dwarf, Arachnid ]
+  speciesRestriction: [ Human, Aegi, Dwarf, Arachnid ]
   coloring:
     default:
       type:
@@ -384,7 +384,7 @@
   id: CyberlimbRArmMorpheus
   bodyPart: RArm
   markingCategory: Arms
-  speciesRestriction: [ Human, Dwarf, Arachnid ]
+  speciesRestriction: [ Human, Aegi, Dwarf, Arachnid ]
   coloring:
     default:
       type:
@@ -398,7 +398,7 @@
   id: CyberlimbLArmMorpheus
   bodyPart: LArm
   markingCategory: Arms
-  speciesRestriction: [ Human, Dwarf, Arachnid ]
+  speciesRestriction: [ Human, Aegi, Dwarf, Arachnid ]
   coloring:
     default:
       type:
@@ -412,7 +412,7 @@
   id: CyberlimbRHandMorpheus
   bodyPart: RHand
   markingCategory: Arms
-  speciesRestriction: [ Human, Dwarf, Arachnid ]
+  speciesRestriction: [ Human, Aegi, Dwarf, Arachnid ]
   coloring:
     default:
       type:
@@ -426,7 +426,7 @@
   id: CyberlimbLHandMorpheus
   bodyPart: LHand
   markingCategory: Arms
-  speciesRestriction: [ Human, Dwarf, Arachnid ]
+  speciesRestriction: [ Human, Aegi, Dwarf, Arachnid ]
   coloring:
     default:
       type:
@@ -440,7 +440,7 @@
   id: CyberlimbRLegMorpheus
   bodyPart: LLeg # ADT-Tweak RLeg -> LLeg
   markingCategory: Legs
-  speciesRestriction: [ Human, Dwarf, Arachnid ]
+  speciesRestriction: [ Human, Aegi, Dwarf, Arachnid ]
   coloring:
     default:
       type:
@@ -454,7 +454,7 @@
   id: CyberlimbLLegMorpheus
   bodyPart: LLeg
   markingCategory: Legs
-  speciesRestriction: [ Human, Dwarf, Arachnid ]
+  speciesRestriction: [ Human, Aegi, Dwarf, Arachnid ]
   coloring:
     default:
       type:
@@ -468,7 +468,7 @@
   id: CyberlimbLFootMorpheus
   bodyPart: RFoot # ADT-Tweak LFoot -> RFoot
   markingCategory: Legs
-  speciesRestriction: [ Human, Dwarf, Arachnid ]
+  speciesRestriction: [ Human, Aegi, Dwarf, Arachnid ]
   coloring:
     default:
       type:
@@ -482,7 +482,7 @@
   id: CyberlimbRFootMorpheus
   bodyPart: RFoot
   markingCategory: Legs
-  speciesRestriction: [ Human, Dwarf, Arachnid ]
+  speciesRestriction: [ Human, Aegi, Dwarf, Arachnid ]
   coloring:
     default:
       type:
@@ -496,7 +496,7 @@
   id: CyberlimbTorsoMorpheus
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [ Human, Dwarf, Arachnid ]
+  speciesRestriction: [ Human, Aegi, Dwarf, Arachnid ]
   coloring:
     default:
       type:
@@ -512,7 +512,7 @@
   id: CyberlimbRArmWardtakahashi
   bodyPart: RArm
   markingCategory: Arms
-  speciesRestriction: [ Human, Dwarf, Arachnid ]
+  speciesRestriction: [ Human, Aegi, Dwarf, Arachnid ]
   coloring:
     default:
       type:
@@ -526,7 +526,7 @@
   id: CyberlimbLArmWardtakahashi
   bodyPart: LArm
   markingCategory: Arms
-  speciesRestriction: [ Human, Dwarf, Arachnid ]
+  speciesRestriction: [ Human, Aegi, Dwarf, Arachnid ]
   coloring:
     default:
       type:
@@ -540,7 +540,7 @@
   id: CyberlimbRHandWardtakahashi
   bodyPart: RHand
   markingCategory: Arms
-  speciesRestriction: [ Human, Dwarf, Arachnid ]
+  speciesRestriction: [ Human, Aegi, Dwarf, Arachnid ]
   coloring:
     default:
       type:
@@ -554,7 +554,7 @@
   id: CyberlimbLHandWardtakahashi
   bodyPart: LHand
   markingCategory: Arms
-  speciesRestriction: [ Human, Dwarf, Arachnid ]
+  speciesRestriction: [ Human, Aegi, Dwarf, Arachnid ]
   coloring:
     default:
       type:
@@ -568,7 +568,7 @@
   id: CyberlimbRLegWardtakahashi
   bodyPart: LLeg # ADT-Tweak RLeg -> LLeg
   markingCategory: Legs
-  speciesRestriction: [ Human, Dwarf, Arachnid ]
+  speciesRestriction: [ Human, Aegi, Dwarf, Arachnid ]
   coloring:
     default:
       type:
@@ -582,7 +582,7 @@
   id: CyberlimbLLegWardtakahashi
   bodyPart: LLeg
   markingCategory: Legs
-  speciesRestriction: [ Human, Dwarf, Arachnid ]
+  speciesRestriction: [ Human, Aegi, Dwarf, Arachnid ]
   coloring:
     default:
       type:
@@ -596,7 +596,7 @@
   id: CyberlimbLFootWardtakahashi
   bodyPart: RFoot # ADT-Tweak LFoot -> RFoot
   markingCategory: Legs
-  speciesRestriction: [ Human, Dwarf, Arachnid ]
+  speciesRestriction: [ Human, Aegi, Dwarf, Arachnid ]
   coloring:
     default:
       type:
@@ -610,7 +610,7 @@
   id: CyberlimbRFootWardtakahashi
   bodyPart: RFoot
   markingCategory: Legs
-  speciesRestriction: [ Human, Dwarf, Arachnid ]
+  speciesRestriction: [ Human, Aegi, Dwarf, Arachnid ]
   coloring:
     default:
       type:
@@ -624,7 +624,7 @@
   id: CyberlimbTorsoWardtakahashiMale
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [ Human, Dwarf, Arachnid ]
+  speciesRestriction: [ Human, Aegi, Dwarf, Arachnid ]
   sexRestriction: Male
   coloring:
     default:
@@ -639,7 +639,7 @@
   id: CyberlimbTorsoWardtakahashiFemale
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [ Human, Dwarf, Arachnid ]
+  speciesRestriction: [ Human, Aegi, Dwarf, Arachnid ]
   sexRestriction: Female
   coloring:
     default:
@@ -655,7 +655,7 @@
   id: CyberlimbRArmZenghu
   bodyPart: RArm
   markingCategory: Arms
-  speciesRestriction: [ Human, Dwarf, Arachnid ]
+  speciesRestriction: [ Human, Aegi, Dwarf, Arachnid ]
   coloring:
     default:
       type:
@@ -669,7 +669,7 @@
   id: CyberlimbLArmZenghu
   bodyPart: LArm
   markingCategory: Arms
-  speciesRestriction: [ Human, Dwarf, Arachnid ]
+  speciesRestriction: [ Human, Aegi, Dwarf, Arachnid ]
   coloring:
     default:
       type:
@@ -683,7 +683,7 @@
   id: CyberlimbRHandZenghu
   bodyPart: RHand
   markingCategory: Arms
-  speciesRestriction: [ Human, Dwarf, Arachnid ]
+  speciesRestriction: [ Human, Aegi, Dwarf, Arachnid ]
   coloring:
     default:
       type:
@@ -697,7 +697,7 @@
   id: CyberlimbLHandZenghu
   bodyPart: LHand
   markingCategory: Arms
-  speciesRestriction: [ Human, Dwarf, Arachnid ]
+  speciesRestriction: [ Human, Aegi, Dwarf, Arachnid ]
   coloring:
     default:
       type:
@@ -711,7 +711,7 @@
   id: CyberlimbRLegZenghu
   bodyPart: LLeg # ADT-Tweak RLeg -> LLeg
   markingCategory: Legs
-  speciesRestriction: [ Human, Dwarf, Arachnid ]
+  speciesRestriction: [ Human, Aegi, Dwarf, Arachnid ]
   coloring:
     default:
       type:
@@ -725,7 +725,7 @@
   id: CyberlimbLLegZenghu
   bodyPart: LLeg
   markingCategory: Legs
-  speciesRestriction: [ Human, Dwarf, Arachnid ]
+  speciesRestriction: [ Human, Aegi, Dwarf, Arachnid ]
   coloring:
     default:
       type:
@@ -739,7 +739,7 @@
   id: CyberlimbLFootZenghu
   bodyPart: RFoot # ADT-Tweak LFoot -> RFoot
   markingCategory: Legs
-  speciesRestriction: [ Human, Dwarf, Arachnid ]
+  speciesRestriction: [ Human, Aegi, Dwarf, Arachnid ]
   coloring:
     default:
       type:
@@ -753,7 +753,7 @@
   id: CyberlimbRFootZenghu
   bodyPart: RFoot
   markingCategory: Legs
-  speciesRestriction: [ Human, Dwarf, Arachnid ]
+  speciesRestriction: [ Human, Aegi, Dwarf, Arachnid ]
   coloring:
     default:
       type:
@@ -767,7 +767,7 @@
   id: CyberlimbTorsoZenghu
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [ Human, Dwarf, Arachnid ]
+  speciesRestriction: [ Human, Aegi, Dwarf, Arachnid ]
   coloring:
     default:
       type:
@@ -782,7 +782,7 @@
   id: CyberlimbRArmNanotrasen
   bodyPart: RArm
   markingCategory: Arms
-  speciesRestriction: [ Human, Dwarf, Arachnid ]
+  speciesRestriction: [ Human, Aegi, Dwarf, Arachnid ]
   coloring:
     default:
       type:
@@ -796,7 +796,7 @@
   id: CyberlimbLArmNanotrasen
   bodyPart: LArm
   markingCategory: Arms
-  speciesRestriction: [ Human, Dwarf, Arachnid ]
+  speciesRestriction: [ Human, Aegi, Dwarf, Arachnid ]
   coloring:
     default:
       type:
@@ -810,7 +810,7 @@
   id: CyberlimbRHandNanotrasen
   bodyPart: RHand
   markingCategory: Arms
-  speciesRestriction: [ Human, Dwarf, Arachnid ]
+  speciesRestriction: [ Human, Aegi, Dwarf, Arachnid ]
   coloring:
     default:
       type:
@@ -824,7 +824,7 @@
   id: CyberlimbLHandNanotrasen
   bodyPart: LHand
   markingCategory: Arms
-  speciesRestriction: [ Human, Dwarf, Arachnid ]
+  speciesRestriction: [ Human, Aegi, Dwarf, Arachnid ]
   coloring:
     default:
       type:
@@ -838,7 +838,7 @@
   id: CyberlimbRLegNanotrasen
   bodyPart: LLeg # ADT-Tweak RLeg -> LLeg
   markingCategory: Legs
-  speciesRestriction: [ Human, Dwarf, Arachnid ]
+  speciesRestriction: [ Human, Aegi, Dwarf, Arachnid ]
   coloring:
     default:
       type:
@@ -852,7 +852,7 @@
   id: CyberlimbLLegNanotrasen
   bodyPart: LLeg
   markingCategory: Legs
-  speciesRestriction: [ Human, Dwarf, Arachnid ]
+  speciesRestriction: [ Human, Aegi, Dwarf, Arachnid ]
   coloring:
     default:
       type:
@@ -866,7 +866,7 @@
   id: CyberlimbLFootNanotrasen
   bodyPart: RFoot # ADT-Tweak LFoot -> RFoot
   markingCategory: Legs
-  speciesRestriction: [ Human, Dwarf, Arachnid ]
+  speciesRestriction: [ Human, Aegi, Dwarf, Arachnid ]
   coloring:
     default:
       type:
@@ -880,7 +880,7 @@
   id: CyberlimbRFootNanotrasen
   bodyPart: RFoot
   markingCategory: Legs
-  speciesRestriction: [ Human, Dwarf, Arachnid ]
+  speciesRestriction: [ Human, Aegi, Dwarf, Arachnid ]
   coloring:
     default:
       type:
@@ -894,7 +894,7 @@
   id: CyberlimbTorsoNanotrasen
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [ Human, Dwarf, Arachnid ]
+  speciesRestriction: [ Human, Aegi, Dwarf, Arachnid ]
   coloring:
     default:
       type:
@@ -909,7 +909,7 @@
   id: CyberlimbRArmXion
   bodyPart: RArm
   markingCategory: Arms
-  speciesRestriction: [ Human, Dwarf, Arachnid ]
+  speciesRestriction: [ Human, Aegi, Dwarf, Arachnid ]
   coloring:
     default:
       type:
@@ -923,7 +923,7 @@
   id: CyberlimbLArmXion
   bodyPart: LArm
   markingCategory: Arms
-  speciesRestriction: [ Human, Dwarf, Arachnid ]
+  speciesRestriction: [ Human, Aegi, Dwarf, Arachnid ]
   coloring:
     default:
       type:
@@ -937,7 +937,7 @@
   id: CyberlimbRHandXion
   bodyPart: RHand
   markingCategory: Arms
-  speciesRestriction: [ Human, Dwarf, Arachnid ]
+  speciesRestriction: [ Human, Aegi, Dwarf, Arachnid ]
   coloring:
     default:
       type:
@@ -951,7 +951,7 @@
   id: CyberlimbLHandXion
   bodyPart: LHand
   markingCategory: Arms
-  speciesRestriction: [ Human, Dwarf, Arachnid ]
+  speciesRestriction: [ Human, Aegi, Dwarf, Arachnid ]
   coloring:
     default:
       type:
@@ -965,7 +965,7 @@
   id: CyberlimbRLegXion
   bodyPart: LLeg # ADT-Tweak RLeg -> LLeg
   markingCategory: Legs
-  speciesRestriction: [ Human, Dwarf, Arachnid ]
+  speciesRestriction: [ Human, Aegi, Dwarf, Arachnid ]
   coloring:
     default:
       type:
@@ -979,7 +979,7 @@
   id: CyberlimbLLegXion
   bodyPart: LLeg
   markingCategory: Legs
-  speciesRestriction: [ Human, Dwarf, Arachnid ]
+  speciesRestriction: [ Human, Aegi, Dwarf, Arachnid ]
   coloring:
     default:
       type:
@@ -993,7 +993,7 @@
   id: CyberlimbLFootXion
   bodyPart: RFoot # ADT-Tweak LFoot -> RFoot
   markingCategory: Legs
-  speciesRestriction: [ Human, Dwarf, Arachnid ]
+  speciesRestriction: [ Human, Aegi, Dwarf, Arachnid ]
   coloring:
     default:
       type:
@@ -1007,7 +1007,7 @@
   id: CyberlimbRFootXion
   bodyPart: RFoot
   markingCategory: Legs
-  speciesRestriction: [ Human, Dwarf, Arachnid ]
+  speciesRestriction: [ Human, Aegi, Dwarf, Arachnid ]
   coloring:
     default:
       type:
@@ -1021,7 +1021,7 @@
   id: CyberlimbTorsoXion
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [ Human, Dwarf, Arachnid ]
+  speciesRestriction: [ Human, Aegi, Dwarf, Arachnid ]
   coloring:
     default:
       type:

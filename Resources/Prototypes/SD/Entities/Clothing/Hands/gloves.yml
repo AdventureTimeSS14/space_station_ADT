@@ -1,0 +1,39 @@
+- type: entity
+  parent: [ ClothingHandsGlovesColorBlack, BaseEngineeringContraband ]
+  id: SD_ClothingHandsGlovesAtmos
+  name: atmospheric extrication gloves
+  description: Heavy duty gloves for firefighters. These are thick and non-flammable.
+  components:
+  - type: Sprite
+    sprite: SD/Clothing/Hands/Gloves/atmos_insuls.rsi
+  - type: Clothing
+    sprite: SD/Clothing/Hands/Gloves/atmos_insuls.rsi
+  - type: Insulated
+  - type: Fiber
+    fiberMaterial: fibers-insulative
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Heat: 0.85
+
+- type: entity
+  parent: [ ClothingHandsGlovesColorBlack, BaseCommandContraband ]
+  id: SD_ClothingHandsGlovesCE
+  name: advanced insulated gloves
+  description: These gloves provide excellent heat and electric insulation.
+  components:
+  - type: Sprite
+    sprite: SD/Clothing/Hands/Gloves/ce_insuls.rsi
+  - type: Clothing
+    sprite: SD/Clothing/Hands/Gloves/ce_insuls.rsi
+  - type: Insulated
+  - type: Fiber
+    fiberMaterial: fibers-insulative
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+        Heat: 0.85

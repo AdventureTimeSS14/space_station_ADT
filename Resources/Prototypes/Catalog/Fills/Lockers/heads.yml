@@ -214,6 +214,7 @@
     - id: ADTtelescopicBaton
     # ADT-WikiBooks-End
     - id: AtmoTechCartridge # SD Elven Atmos
+    - id: SD_ClothingHandsGlovesCE # Helix-Tweak
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable

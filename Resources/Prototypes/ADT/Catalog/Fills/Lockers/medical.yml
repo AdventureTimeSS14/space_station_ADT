@@ -20,18 +20,32 @@
   components:
   - type: StorageFill
     contents:
-      - id: ClothingOuterCoatParamedicWB
-      - id: ClothingHeadHatParamedicsoft
-      - id: ADTClothingHeadHatsParamedicBeret 
-      - id: ADTHighVoltageDefibrillator 
-      - id: ClothingOuterWinterPara
-      - id: ClothingUniformJumpsuitParamedic
-      - id: ClothingUniformJumpskirtParamedic
-      - id: ClothingEyesHudMedical
-      - id: ClothingHandsGlovesLatex
-      - id: ClothingHeadsetMedical
-      - id: ClothingMaskSterile
+      # Helix-Tweak-Start
+      # - id: ADTClothingModsuitBackMedical #ADT tweak
+      # - id: ClothingOuterCoatParamedicWB
+      # - id: ClothingHeadHatParamedicsoft
+      - id: ADTClothingHeadHatsParamedicBeret # ADT tweak
+      - id: ADTHighVoltageDefibrillator # ADT Tweak
+      # - id: ClothingOuterWinterPara
+      # - id: ClothingUniformJumpsuitParamedic
+      # - id: ClothingUniformJumpskirtParamedic
+      # - id: ClothingEyesHudMedical
+      # - id: ClothingHandsGlovesLatex
+      # - id: ClothingHeadsetMedical
+      # - id: ClothingMaskSterile
+      # Helix-Tweak-End
       - id: HandheldGPSBasic
       - id: MedkitFilled
         prob: 0.3
+    # ADT-WikiBooks-Start
       - id: ADTBookSRPmed
+    # ADT-WikiBooks-End
+    # Helix-Tweak-Start
+      - id: Fulton
+      - id: FultonBeacon
+      - id: SDHandheldCrewMonitorParamedic
+      - id: MedkitBruteFilled
+      - id: MedkitBurnFilled
+      - id: MedkitCombatFilled
+        prob: 0.25
+    # Helix-Tweak-End
