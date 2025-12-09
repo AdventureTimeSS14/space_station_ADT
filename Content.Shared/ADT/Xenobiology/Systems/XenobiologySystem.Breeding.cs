@@ -11,11 +11,26 @@ namespace Content.Shared.ADT.Xenobiology.Systems;
 /// </summary>
 public partial class XenobiologySystem
 {
-    private void InitializeBreeding() =>
-        SubscribeLocalEvent<SlimeComponent, MapInitEvent>(OnSlimeInit);
-
-    private void OnSlimeInit(Entity<SlimeComponent> slime, ref MapInitEvent args)
+    private void InitializeBreeding()
     {
+        SubscribeLocalEvent<PendingSlimeSpawnComponent, MapInitEvent>(OnPendingSlimeMapInit);
+        SubscribeLocalEvent<SlimeComponent, MapInitEvent>(OnSlimeMapInit);
+    }
+
+    private void OnPendingSlimeMapInit(Entity<PendingSlimeSpawnComponent> ent, ref MapInitEvent args)
+    {
+        if (!_net.IsServer)
+            return;
+
+        SpawnSlime(ent, ent.Comp.BasePrototype, ent.Comp.Breed);
+        QueueDel(ent);
+    }
+
+    private void OnSlimeMapInit(Entity<SlimeComponent> slime, ref MapInitEvent args)
+    {
+        if (!_net.IsServer)
+            return;
+
         Subs.CVar(_configuration, ADTCCVars.BreedingInterval, val => slime.Comp.UpdateInterval = TimeSpan.FromSeconds(val), true);
         slime.Comp.NextUpdateTime = _gameTiming.CurTime + slime.Comp.UpdateInterval;
     }
@@ -57,24 +72,23 @@ public partial class XenobiologySystem
     /// <param name="parent">The original entity.</param>
     /// <param name="newEntityProto">The proto of the entity being spawned.</param>
     /// <param name="selectedBreed">The selected breed of the entity.</param>
-    public void DoBreeding(EntityUid parent, EntProtoId newEntityProto, ProtoId<BreedPrototype> selectedBreed)
+    public Entity<SlimeComponent>? SpawnSlime(EntityUid parent, EntProtoId newEntityProto, ProtoId<BreedPrototype> selectedBreed)
     {
-        if (!_prototypeManager.TryIndex(selectedBreed, out var newBreed)
-            || _net.IsClient)
-            return;
+        if (Deleted(parent)
+        || !_prototypeManager.TryIndex(selectedBreed, out var newBreed) || _net.IsClient)
+            return null;
 
         var newEntityUid = SpawnNextToOrDrop(newEntityProto, parent, null, newBreed.Components);
-        if (!_slimeQuery.TryComp(newEntityUid, out var slime))
-            return;
+        if (!_slimeQuery.TryComp(newEntityUid, out var newSlime))
+            return null;
 
-        if (slime is { ShouldHaveShader: true, Shader: not null })
-            _appearance.SetData(newEntityUid, XenoSlimeVisuals.Shader, slime.Shader);
+        if (newSlime.ShouldHaveShader && newSlime.Shader != null)
+            _appearance.SetData(newEntityUid, XenoSlimeVisuals.Shader, newSlime.Shader);
 
-        _appearance.SetData(newEntityUid, XenoSlimeVisuals.Color, slime.SlimeColor);
+        _appearance.SetData(newEntityUid, XenoSlimeVisuals.Color, newSlime.SlimeColor);
         _metaData.SetEntityName(newEntityUid, newBreed.BreedName);
 
-        if (HasComp<RandomBreedOnSpawnComponent>(parent))
-            QueueDel(parent);
+        return new Entity<SlimeComponent>(newEntityUid, newSlime);
     }
 
     //Handles slime mitosis, for each offspring, a mutation is selected from their potential mutations - if mutation is successful, the products of mitosis will have the new mutation.
@@ -92,11 +106,15 @@ public partial class XenobiologySystem
 
             if (_random.Prob(ent.Comp.MutationChance) && ent.Comp.PotentialMutations.Count > 0)
                 selectedBreed = _random.Pick(ent.Comp.PotentialMutations);
-            else if (ent.Comp.MutationChance >= 0.7f && ent.Comp.SpecialPotentialMutations.Count > 0 &&
-                _random.Prob(ent.Comp.SpecialMutationChance))
-                selectedBreed = _random.Pick(ent.Comp.SpecialPotentialMutations);
 
-            DoBreeding(ent, ent.Comp.DefaultSlimeProto, selectedBreed);
+            var sl = SpawnSlime(ent, ent.Comp.DefaultSlimeProto, selectedBreed);
+            if (sl.HasValue)
+            {
+                sl.Value.Comp.Tamer = ent.Comp.Tamer;
+                sl.Value.Comp.MutationChance = ent.Comp.MutationChance;
+                sl.Value.Comp.MaxOffspring = ent.Comp.MaxOffspring;
+                sl.Value.Comp.ExtractsProduced = ent.Comp.ExtractsProduced;
+            }
         }
 
         _containerSystem.EmptyContainer(ent.Comp.Stomach);

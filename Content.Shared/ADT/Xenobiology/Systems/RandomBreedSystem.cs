@@ -17,11 +17,9 @@ public sealed partial class RandomBreedOnSpawn : EntitySystem
     private void OnSlimeInit(EntityUid uid, RandomBreedOnSpawnComponent comp, ref MapInitEvent args)
     {
         if (!TryComp<SlimeComponent>(uid, out var slime))
-        {
             return;
-        }
 
         var selectedBreed = _random.Pick(comp.Mutations);
-        _xenobiologySystem.DoBreeding(uid, slime.DefaultSlimeProto, selectedBreed);
+        _xenobiologySystem.SpawnSlime(uid, slime.DefaultSlimeProto, selectedBreed);
     }
 }
