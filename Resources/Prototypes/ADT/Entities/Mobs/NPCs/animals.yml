@@ -489,3 +489,42 @@
         alive: Rainbow
       enum.DamageStateVisualLayers.BaseUnshaded:
         mouth: ""
+
+- type: entity
+  id: ADTMobMouseSpace
+  name: space mouse
+  parent: [ MobMouse, SimpleMobBase ]
+  description: The space-conquering rodent.
+  components:
+  - type: Sprite
+    sprite: ADT/Mobs/Animals/mousespace.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base", "movement"]
+      state: mousespace
+  - type: SpriteMovement
+    movementLayers:
+      movement:
+        state: moving_mousespace
+    noMovementLayers:
+      movement:
+        state: mousespace
+  - type: Clothing
+    equippedPrefix: 3
+    sprite: ADT/Mobs/Animals/mousespace.rsi
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: mousespace
+      Critical:
+        Base: dead_and_splat_mousespace
+      Dead:
+        Base: dead_and_splat_mousespace
+  - type: PressureImmunity
+  - type: Temperature
+    heatDamageThreshold: 423
+    coldDamageThreshold: 0
+  - type: Respirator
+    minSaturation: 5.0
+  - type: Item
+    size: Tiny
+    heldPrefix: 3
