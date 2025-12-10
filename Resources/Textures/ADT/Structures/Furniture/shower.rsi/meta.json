@@ -1,0 +1,45 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "made by 0uch, taken from MOLOT-BlueMoon-Station at commit https://github.com/BlueMoon-Labs/BlueMoon-Station-13/commit/152eb3f29edace4bb77e4f201beebf722bf86f70. If the author is specified incorrectly, you can contact us: https://discord.gg/MraaYU9ZE3",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "shower",
+            "directions": 4
+        },
+        {
+            "name": "shower-on",
+            "directions": 4,
+            "delays": [
+                [
+                  0.1,
+                  0.1,
+                  0.1,
+                  0.1
+                ],
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ],
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ],
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ]
+            ]
+        }
+    ]
+}
