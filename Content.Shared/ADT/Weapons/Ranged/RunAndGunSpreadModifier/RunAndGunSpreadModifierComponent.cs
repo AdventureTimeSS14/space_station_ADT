@@ -9,4 +9,6 @@ public sealed partial class RunAndGunSpreadModifierComponent : Component
 {
     [DataField]
     public float Modifyer = 1f;
+    [DataField]
+    public float MinVelocity = 4.6f;
 }

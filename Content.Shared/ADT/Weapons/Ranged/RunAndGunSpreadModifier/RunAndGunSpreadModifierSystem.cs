@@ -19,7 +19,7 @@ public sealed class RunAndGunSpreadModifierSystem : EntitySystem
     private void OnModifyAngle(Entity<RunAndGunSpreadModifierComponent> ent, ref GunShotEvent args)
     {
         if (!TryComp<PhysicsComponent>(args.User, out var physics) || 
-            physics.LinearVelocity.LengthSquared() < 1f)
+            physics.LinearVelocity.LengthSquared() < ent.Comp.MinVelocity)
             return;
 
         var dir = args.ToCoordinates.Position - args.FromCoordinates.Position;
@@ -42,8 +42,8 @@ public sealed class RunAndGunSpreadModifierSystem : EntitySystem
     private void OnBlocker(Entity<RunAndGunBlockerComponent> ent, ref AttemptShootEvent args)
     {
         if (!args.Cancelled &&
-            TryComp<PhysicsComponent>(args.User, out var physics) && 
-            physics.LinearVelocity.LengthSquared() > 0f)
+            TryComp<PhysicsComponent>(args.User, out var physics) &&
+            physics.LinearVelocity.LengthSquared() > ent.Comp.MaxVelocity)
             args.Cancelled = true;
     }
 }
