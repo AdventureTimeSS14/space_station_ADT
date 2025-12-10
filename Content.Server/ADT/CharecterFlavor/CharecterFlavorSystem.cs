@@ -1,7 +1,5 @@
 // Inspired by Nyanotrasen
 using Content.Shared.ADT.CharecterFlavor;
-using Robust.Shared.Configuration;
-using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 
@@ -9,25 +7,15 @@ namespace Content.Server.ADT.CharecterFlavor;
 
 public sealed class CharecterFlavorSystem : SharedCharecterFlavorSystem
 {
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-
-    private static HttpClient _httpClient = new HttpClient();
+    private static readonly HttpClient HttpClient = new HttpClient();
 
     public override void Initialize()
     {
         base.Initialize();
 
-        var clientHandler = new HttpClientHandler()
+        if (HttpClient.DefaultRequestHeaders.UserAgent.Count == 0)
         {
-            Proxy = new WebProxy(_cfg.GetCVar<string>("ic.headshot_proxy")),
-            ServerCertificateCustomValidationCallback = HttpClientHandler.DangerousAcceptAnyServerCertificateValidator
-        };
-
-        _httpClient = new(clientHandler);
-
-        if (_httpClient.DefaultRequestHeaders.UserAgent.Count == 0)
-        {
-            _httpClient.DefaultRequestHeaders.UserAgent.ParseAdd("Mozilla/5.0");
+            HttpClient.DefaultRequestHeaders.UserAgent.ParseAdd("Mozilla/5.0");
         }
     }
 
@@ -54,7 +42,7 @@ public sealed class CharecterFlavorSystem : SharedCharecterFlavorSystem
     {
         try
         {
-            return await _httpClient.GetByteArrayAsync(url);
+            return await HttpClient.GetByteArrayAsync(url);
         }
         catch (Exception ex)
         {
