@@ -132,7 +132,7 @@
   id: SpaceEmperorSpawn
   components:
   - type: StationEvent
-    weight: 6.5
+    weight: 1
     earliestStart: 10
     reoccurrenceDelay: 75
     duration: null
@@ -144,3 +144,5 @@
       min: 1
       max: 1
       pickPlayer: false
+  - type: DragonRule #чтобы отдельный рул не писать
+  - type: GhostRoleAntagSpawner
