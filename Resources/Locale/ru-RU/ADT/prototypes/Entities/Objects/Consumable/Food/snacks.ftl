@@ -92,6 +92,9 @@ ent-ADTFoodSnackChocolateBarPink = розовый шоколадный бато�
 ent-ADTFoodSnackChocolateBarTwo = двойной батончик
     .desc = Выбирай, на чьей ты стороне?
 
+ent-ADTFoodSnackChocolateBarChunk = кусочек шоколада
+    .desc = На вкус как картон.
+
 # Обертки
 ent-ADTFoodSnackChocolateTrashChoco = обертка от шоколадного батончика
     .desc = Мусор

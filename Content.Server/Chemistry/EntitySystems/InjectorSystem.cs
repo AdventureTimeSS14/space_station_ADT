@@ -13,7 +13,8 @@ using Content.Shared.Interaction;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Stacks;
 using Content.Shared.Nutrition.EntitySystems;
-
+using Content.Shared.Buckle.Components; // ADT-Tweak (P4A) Ускорение Шприцов на койках и каталках
+using Content.Shared.ADT.Chemistry.Components; // ADT-Tweak (P4A) Ускорение Шприцов на койках и каталках
 namespace Content.Server.Chemistry.EntitySystems;
 
 public sealed class InjectorSystem : SharedInjectorSystem
@@ -152,7 +153,19 @@ public sealed class InjectorSystem : SharedInjectorSystem
 
         // Ensure that minimum delay before incapacitation checks is 1 seconds
         actualDelay = MathHelper.Max(actualDelay, TimeSpan.FromSeconds(1));
-
+        // ADT-Tweak-start (P4A) Ускорение Шприцов на койках и каталках
+        if (injector.Comp.RestrainedMultiplier > 1f)
+        {
+            if (TryComp<BuckleComponent>(target, out var buckle) &&
+                buckle.BuckledTo is { Valid: true } buckledTo)
+            {
+                if (HasComp<InjectorBoostComponent>(buckledTo))
+                {
+                    actualDelay /= injector.Comp.RestrainedMultiplier;
+                }
+            }
+        }
+        // ADT-Tweak-end (P4A) Ускорение Шприцов на койках и каталках
 
         var isTarget = user != target;
 

@@ -1,0 +1,1 @@
+mantis-daggers-cantshoot = Your Mantis Daggers prevent you from using { $used }!

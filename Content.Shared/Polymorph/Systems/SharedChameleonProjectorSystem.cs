@@ -1,5 +1,4 @@
 using Content.Shared.Actions;
-// using Content.Shared.ADT.Morph;
 using Content.Shared.Coordinates;
 using Content.Shared.Damage;
 using Content.Shared.Hands;
@@ -17,7 +16,6 @@ using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Toolshed.TypeParsers;
 using System.Diagnostics.CodeAnalysis;
 using Content.Shared.Stunnable;
-using Content.Shared.ADT.Morph;
 
 namespace Content.Shared.Polymorph.Systems;
 
@@ -38,9 +36,6 @@ public abstract class SharedChameleonProjectorSystem : EntitySystem
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedTransformSystem _xform = default!;
-    // ADT-Tweak-Start
-     [Dependency] private readonly SharedStunSystem _stun = default!;
-    // ADT-Tweak-End
     public override void Initialize()
     {
         base.Initialize();
@@ -65,9 +60,7 @@ public abstract class SharedChameleonProjectorSystem : EntitySystem
 
     private void OnDisguiseInteractHand(Entity<ChameleonDisguiseComponent> ent, ref InteractHandEvent args)
     {
-        // ADT tweak start
-        RaiseLocalEvent(ent, new UndisguisedEvent(args.User));
-        //ADT tweak end
+        RaiseLocalEvent(ent, new UndisguisedEvent(args.User)); // ADT-Tweak
         TryReveal(ent.Comp.User);
         args.Handled = true;
     }

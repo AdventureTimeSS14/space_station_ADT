@@ -2,7 +2,8 @@
   id: Lavaland
   biome: LavaLand
   mapName: shuttle-destination-lavaland
-  mapLight: "#1a0005"
+  mapLight: "#6e2c2c"
+  dayCycle: false
   addedComponents:
   - type: RestrictedRange
     range: 250
@@ -59,6 +60,9 @@
       duration:
         min: 30
         max: 30
+  - type: SunShadow
+    alpha: 0.75
+    direction: "-1, -1"
   atmosphere:
     volume: 2500
     temperature: 313.15 # 40C

@@ -2607,4 +2607,44 @@
   - type: ConditionalSpawner
     prototypes:
     - ADTMobWatcherBible
+
+#Glude
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieGlide
+  name: Plushie Glide
+  description: Plushie Glide
+  suffix: Personal, Glide
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/plushie_glide.rsi
+    state: icon
+  - type: Clothing
+    quickEquip: false
+    sprite: ADT/Personalization/plushie_glide.rsi
+    slots:
+    - HEAD
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+        offset: "0, 0.04"
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Voice/Slime/slime_squish.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Voice/Slime/slime_squish.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Voice/Slime/slime_squish.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Voice/Slime/slime_squish.ogg
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      path: /Audio/Voice/Slime/slime_squish.ogg
+  - type: FoodSequenceElement
+    entries:
+      CottonBurger: SlimePlushie
 #SPONSOR-ITEMS-END

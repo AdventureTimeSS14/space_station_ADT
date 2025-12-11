@@ -119,8 +119,8 @@ public sealed partial class SupermatterSystem
                 sm.PowerlossDynamicScaling = Math.Clamp(sm.PowerlossDynamicScaling + hydrogenpowerloss, 0f, 1f);
             }
 
-            // Same scaling as before, but now if SM Power > 7000 - stop this shit pls.
-            else if (co2 > h2 && sm.Power > _config.GetCVar(ADTCCVars.SupermatterSeverePowerPenaltyThreshold))
+            // Same scaling as before, but now if SM Power > 5000 - stop this shit pls.
+            else if (co2 > h2 && sm.Power > _config.GetCVar(ADTCCVars.SupermatterPowerPenaltyThreshold))
             {
                 var co2powerloss = Math.Clamp(gasComposition.GetMoles(Gas.CarbonDioxide) - sm.PowerlossDynamicScaling, -0.02f, 0.02f);
                 sm.PowerlossDynamicScaling = Math.Clamp(sm.PowerlossDynamicScaling + co2powerloss, 0f, 1f);
@@ -309,6 +309,13 @@ public sealed partial class SupermatterSystem
             return DelamType.Cascade;
         }
 
+        // Tesla Delam
+        if (sm.Power >= _config.GetCVar(ADTCCVars.SupermatterSeverePowerPenaltyThreshold))
+        {
+            _alert.SetLevel(stationId, sm.AlertCodeDeltaId, true, true, true, false);
+            return DelamType.Tesla;
+        }
+
         // Singularity Delam
         var mix = _atmosphere.GetContainingMixture(uid, true, true);
 
@@ -322,13 +329,6 @@ public sealed partial class SupermatterSystem
                 _alert.SetLevel(stationId, sm.AlertCodeDeltaId, true, true, true, false);
                 return DelamType.Singularity;
             }
-        }
-
-        // Tesla Delam
-        if (sm.Power >= _config.GetCVar(ADTCCVars.SupermatterSeverePowerPenaltyThreshold))
-        {
-            _alert.SetLevel(stationId, sm.AlertCodeDeltaId, true, true, true, false);
-            return DelamType.Tesla;
         }
 
         // Base explosion
@@ -400,7 +400,6 @@ public sealed partial class SupermatterSystem
         {
             case DelamType.Cascade:
                 QueueDel(uid);
-                Spawn(sm.SupermatterCascadePrototype, xform.Coordinates);
                 Spawn(sm.KudzuPrototype, xform.Coordinates);
                 _roundEnd.EndRound(sm.RestartDelay);
                 break;
