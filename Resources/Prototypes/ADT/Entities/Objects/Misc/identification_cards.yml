@@ -416,6 +416,14 @@
   - type: IdCard
     jobTitle: job-name-mechanic
 
+- type: entity
+  parent: EngineeringIDCard
+  id: ADTWelderIDCard
+  name: welder ID card
+  components:
+  - type: IdCard
+    jobTitle: job-name-welder
+
 # Cargo Technician
 
 - type: entity
