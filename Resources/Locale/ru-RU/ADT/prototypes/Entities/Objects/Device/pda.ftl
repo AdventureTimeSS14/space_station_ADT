@@ -84,6 +84,9 @@ ent-ADTElectricianPDA = КПК электрика
 ent-ADTMechanicPDA = КПК механика
     .desc = Мы обожаем гаечные ключи!
 
+ent-ADTWelderPDA = КПК сварщика
+    .desc = Владелец этого КПК может "заварить" вам чай.
+
 ent-ADTPostmanPDA = КПК почтальона
     .desc = Сколько писем!
 

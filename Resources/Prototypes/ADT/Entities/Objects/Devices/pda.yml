@@ -550,6 +550,15 @@
   - type: Pda
     id: ADTMechanicIDCard
 
+- type: entity
+  parent: EngineerPDA
+  id: ADTWelderPDA
+  name: welder PDA
+  description: The owner of this PDA can "weld" you some tea.
+  components:
+  - type: Pda
+    id: ADTWelderIDCard
+
 # Cargo Technician
 
 - type: entity
