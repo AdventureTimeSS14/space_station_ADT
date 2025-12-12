@@ -15,3 +15,214 @@
     materialComposition:
       Steel: 400 # 4 sheets
 
+- type: entity
+  parent: BaseScrap
+  id: ADTScrapLvCable
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Materials/Scrap/generic.rsi
+    layers:
+    - state: lv_cabel_trash
+  - type: Item
+    size: Small
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 100 # 1 sheets
+  - type: Stack
+    stackType: TrashLvCable
+    count: 1
+
+- type: entity
+  parent: BaseScrap
+  id: ADTScrapMvCable
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Materials/Scrap/generic.rsi
+    layers:
+    - state: mv_cabel_trash
+  - type: Item
+    size: Small
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 200 # 2 sheets
+  - type: Stack
+    stackType: TrashMvCable
+    count: 1
+
+- type: entity
+  parent: BaseScrap
+  id: ADTScrapHvCable
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Materials/Scrap/generic.rsi
+    layers:
+    - state: hv_cabel_trash
+  - type: Item
+    size: Small
+  - type: PhysicalComposition
+    materialComposition:
+      Copper: 300 # 3 sheets
+  - type: Stack
+    stackType: TrashHvCable
+    count: 1
+
+- type: entity
+  parent: BaseScrap
+  id: ADTScrapZincBeam
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Materials/Scrap/generic.rsi
+    layers:
+    - state: zinc_trash
+  - type: Item
+    size: Medium
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 200 # 2 sheets
+      Zinc: 300 # 3 sheets
+
+- type: entity
+  parent: BaseScrap
+  id: ADTScrapBattery
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Materials/Scrap/generic.rsi
+    layers:
+    - state: medium_pwr_cell_trash
+  - type: Item
+    size: Small
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 300 # 3 sheets
+      Zinc: 400 # 4 sheets
+      Gold: 200 # 2 sheets
+
+- type: entity
+  parent: BaseScrap
+  id: ADTScrapZincHeap
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Materials/Scrap/generic.rsi
+    layers:
+    - state: balka_trash
+  - type: Item
+    size: Medium
+  - type: PhysicalComposition
+    materialComposition:
+      Zinc: 1000 # 10 sheets
+
+- type: entity
+  parent: BaseScrap
+  id: ADTScrapLeadContainer
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Materials/Scrap/generic.rsi
+    layers:
+    - state: radioactiv_trash
+  - type: Item
+    size: Small
+  - type: PhysicalComposition
+    materialComposition:
+      Lead: 1500 # 15 sheets
+      Zinc: 1000 # 10 sheets
+
+- type: entity
+  parent: BaseScrap
+  id: ADTScrapLeadHeap
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Materials/Scrap/generic.rsi
+    layers:
+    - state: lead_trash
+  - type: Item
+    size: Small
+  - type: PhysicalComposition
+    materialComposition:
+      Lead: 1500 # 15 sheets
+
+- type: entity
+  parent: BaseScrap
+  id: ADTScrapTextile
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Materials/Scrap/generic.rsi
+    layers:
+    - state: clothing_part_trash
+  - type: Item
+    size: Small
+  - type: PhysicalComposition
+    materialComposition:
+      Cloth: 500 # 5 sheets
+
+- type: entity
+  parent: BaseScrap
+  id: ADTScrapClothing1
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Materials/Scrap/generic.rsi
+    layers:
+    - state: clothing_uniform_trash
+  - type: Item
+    size: Small
+  - type: PhysicalComposition
+    materialComposition:
+      Cloth: 700 # 7 sheets
+
+- type: entity
+  parent: BaseScrap
+  id: ADTScrapClothing2
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Materials/Scrap/generic.rsi
+    layers:
+    - state: clothing_uniform_trash2
+  - type: Item
+    size: Small
+  - type: PhysicalComposition
+    materialComposition:
+      Cloth: 700 # 7 sheets
+
+- type: entity
+  parent: BaseScrap
+  id: ADTScrapBandage
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Materials/Scrap/generic.rsi
+    layers:
+    - state: gauze_trash
+  - type: Item
+    size: Small
+  - type: PhysicalComposition
+    materialComposition:
+      Cloth: 600 # 6 sheets
+  - type: Stack
+    stackType: ScrapBandage
+    count: 1
+
+- type: entity
+  parent: BaseScrap
+  id: ADTScrapBrokenBoards
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Materials/Scrap/generic.rsi
+    layers:
+    - state: wood_plank_trash
+  - type: Item
+    size: Medium
+  - type: PhysicalComposition
+    materialComposition:
+      Wood: 400 # 4 sheets
+
+- type: entity
+  parent: BaseScrap
+  id: ADTScrapBrokenChair
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Materials/Scrap/generic.rsi
+    layers:
+    - state: wood_table_part_trash
+  - type: Item
+    size: Small
+  - type: PhysicalComposition
+    materialComposition:
+      Wood: 500 # 4 sheets

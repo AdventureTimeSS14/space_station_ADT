@@ -1,0 +1,23 @@
+- type: stack
+  id: TrashLvCable
+  icon: { sprite: "/Textures/Objects/Tools/cable-coils.rsi", state: coilhv-30 }
+  spawn: ADTScrapLvCable
+  maxCount: 30
+
+- type: stack
+  id: TrashMvCable
+  icon: { sprite: "/Textures/Objects/Tools/cable-coils.rsi", state: coilhv-30 }
+  spawn: ADTScrapMvCable
+  maxCount: 30
+
+- type: stack
+  id: TrashHvCable
+  icon: { sprite: "/Textures/Objects/Tools/cable-coils.rsi", state: coilhv-30 }
+  spawn: ADTScrapHvCable
+  maxCount: 30
+
+- type: stack
+  id: TrashBandage
+  icon: { sprite: "/Textures/Objects/Tools/cable-coils.rsi", state: coilhv-30 }
+  spawn: ADTScrapBandage
+  maxCount: 10
