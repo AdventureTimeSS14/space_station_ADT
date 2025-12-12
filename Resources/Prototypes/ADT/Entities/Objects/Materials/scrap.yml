@@ -196,7 +196,7 @@
     materialComposition:
       Cloth: 600 # 6 sheets
   - type: Stack
-    stackType: ScrapBandage
+    stackType: TrashBandage
     count: 1
 
 - type: entity
@@ -225,4 +225,4 @@
     size: Small
   - type: PhysicalComposition
     materialComposition:
-      Wood: 500 # 4 sheets
+      Wood: 500 # 5 sheets

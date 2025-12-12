@@ -35,7 +35,7 @@
       weight: 0.5
       amount: !type:RangeNumberSelector
         range: 1, 3
-      #ADT-Tweak-start
+      #ADT-Tweak-Start
     - id: ADTScrapLvCable
       weight: 0.5
       amount: !type:RangeNumberSelector
@@ -84,10 +84,6 @@
       weight: 0.5
       amount: !type:RangeNumberSelector
         range: 1, 3
-    - id: ADTScrapBandage
-      weight: 0.5
-      amount: !type:RangeNumberSelector
-        range: 1, 3
     - id: ADTScrapBrokenBoards
       weight: 0.5
       amount: !type:RangeNumberSelector
@@ -96,6 +92,7 @@
       weight: 0.5
       amount: !type:RangeNumberSelector
         range: 1, 3
+      #ADT-Tweak-End
 
 - type: entityTable
   id: SalvageScrapHighValue
