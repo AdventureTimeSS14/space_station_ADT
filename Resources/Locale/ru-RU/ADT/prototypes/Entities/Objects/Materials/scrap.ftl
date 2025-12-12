@@ -24,3 +24,7 @@ ent-ADTScrapLeadHeap = свинцовая банка
 
 ent-ADTScrapTextile = кусок ткани
     .desc = Кусок ткани что был оторван от шторы.
+
+trash-lv-cable = сломанный НВ кабель
+trash-mv-cable = сломанный МВ кабель
+trash-hv-cable = сломанный ВВ кабель
