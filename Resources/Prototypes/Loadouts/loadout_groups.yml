@@ -496,6 +496,9 @@
   minLimit: 0
   loadouts:
   - JanitorHead
+  # ADT-tweak-start
+  - ADTJanitorHeadbandTacticalMaid
+  # ADT-tweak-end
 
 - type: loadoutGroup
   id: JanitorJumpsuit
@@ -507,6 +510,7 @@
   - ADTJanitorJumpsuitJanimaid
   - ADTJanitorJumpsuitJanimaidmini
   - ADTJanitorJumpsuitJanimaidElegant
+  - ADTJanitorJumpsuitTacticalMaid
   # ADT-Loadouts-End
   # ADT tweak start
   - ADTClothingUniformJumpsuitTurtleneckPurple
@@ -522,6 +526,7 @@
   # ADT tweak start
   - ADTOrangeGloves
   - ADTPurpleGloves
+  - ADTJanitorGlovesTacticalMaid
   # ADT tweak end
 
 - type: loadoutGroup
