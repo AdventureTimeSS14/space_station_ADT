@@ -75,6 +75,11 @@
         - !type:OrganType
           type: Arachnid
           shouldHave: false
+          #ADT Start
+        - !type:OrganType
+          type: Vox
+          shouldHave: false
+          #ADT End
         damage:
           types:
             Poison: 0.1
@@ -313,6 +318,12 @@
     Poison:
       effects:
       - !type:HealthChange
+      # ADT Start
+        conditions:
+        - !type:OrganType
+          type: Vox
+          shouldHave: false
+      # ADT End
         damage:
           types:
             Poison: 1.5
