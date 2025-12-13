@@ -8,7 +8,7 @@
   tier: 1
   cost: 10000
   recipeUnlocks:
-  - ChemDispenserMachineCircuitboard
+#  - ChemDispenserMachineCircuitboard
   - ChemMasterMachineCircuitboard
   - HotplateMachineCircuitboard
   - ADTColdplateMachineCircuitboard

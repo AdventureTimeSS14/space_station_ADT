@@ -73,10 +73,9 @@
   - ReagentGrinderIndustrialMachineCircuitboard
   - JukeboxCircuitBoard
   - DawInstrumentMachineCircuitboard
-  - CloningPodMachineCircuitboard #ADT tweak
-  - CloningConsoleComputerCircuitboard #ADT tweak
-  - MedicalScannerMachineCircuitboard #ADT tweak
-  - ADTAdvancedMicrowaveMachineCircuitBoard #ADT tweak
-  - ADTCoffeeMachineBluespaceCircuitboard #ADT tweak
-  - ADTAdvancedReagentGrinderMachineCircuitboard #ADT tweak
-  - ADTHydroponicsTrayAdvancedMachineCircuitboard #ADT tweak
+  # ADT-Tweak-Start
+  - ADTAdvancedMicrowaveMachineCircuitBoard
+  - ADTCoffeeMachineBluespaceCircuitboard
+  - ADTAdvancedReagentGrinderMachineCircuitboard
+  - ADTHydroponicsTrayAdvancedMachineCircuitboard
+  # ADT-Tweak-End

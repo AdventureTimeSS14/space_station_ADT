@@ -280,6 +280,7 @@
     - MedicalBoardsStatic
     - EngineeringBoardsStatic
     - CircuitFloorsStatic
+    - ElectronicsStatic # ADT-Tweak
     dynamicPacks:
     - EngineeringBoards
     - CargoBoards
@@ -295,6 +296,9 @@
     - ADTIndustrialCharger
     - ADTAdvancedThruster
     - ADTMegaCharger
+    - ADTChemDisp
+    - ADTAdvancedMedical
+    - ADTCryoPodMachineCircuitboard
     # ADT-tweak-end
   - type: EmagLatheRecipes
     emagDynamicPacks:
@@ -539,12 +543,10 @@
     dynamicPacks:
     - Chemistry
     #ADT-Tweak Start
-    - ADTAdvancedMedical
     - ADTAdvancedMedicalMiscPack
     - ADTAdvancedMedicalCarePack
     - ADTCryoTech
     - ADTThermoTech
-    - ADTChemDisp
     #ADT-Tweak End
   - type: Machine
     board: MedicalTechFabCircuitboard
