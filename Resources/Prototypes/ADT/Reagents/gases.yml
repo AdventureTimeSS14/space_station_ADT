@@ -158,37 +158,65 @@
     Gas:
       effects:
       - !type:MovespeedModifier
-        walkSpeedModifier: 1.5 # SD-tweak
-        sprintSpeedModifier: 1.5 # SD-tweak
+        conditions:
+          - !type:ReagentThreshold
+            reagent: Nitrium
+            min: 3
+        statusLifetime: 64
+        walkSpeedModifier: 1.5
+        sprintSpeedModifier: 1.5
       - !type:GenericStatusEffect
+        conditions:
+          - !type:ReagentThreshold
+            reagent: Nitrium
+            min: 6
+        key: StaminaModifier
+        component: StaminaModifier
+        time: 3
+        type: add
+      - !type:GenericStatusEffect
+        conditions:
+          - !type:ReagentThreshold
+            reagent: Nitrium
+            min: 6
         key: Stun
         time: 3
         type: Remove
       - !type:GenericStatusEffect
-        key: KnockedDown
-        time: 3
-        type: Remove
-        # SD-tweak-start
-      - !type:GenericStatusEffect
+        conditions:
+          - !type:ReagentThreshold
+            reagent: Nitrium
+            min: 6
         key: StaminaModifier
         component: StaminaModifier
         time: 3
         type: Add
-      - !type:ModifyStatusEffect
-        effectProto: StatusEffectForcedSleeping
+      - !type:GenericStatusEffect
+        conditions:
+          - !type:ReagentThreshold
+            reagent: Nitrium
+            min: 6
+        key: KnockedDown
         time: 3
         type: Remove
-        # SD-tweak-end
+      - !type:ModifyStatusEffect
+        conditions:
+          - !type:ReagentThreshold
+            reagent: Nitrium
+            min: 6
+        effectProto: StatusEffectForcedSleeping
+        time: 15
+        type: Remove
       - !type:HealthChange
         conditions:
           - !type:ReagentThreshold
             reagent: Nitrium
-            min: 50 # SD-tweak
+            min: 9
         scaleByQuantity: true
         ignoreResistances: true
         damage:
           types:
-            Poison: 0.01
+            Poison: 1
 
 - type: reagent
   id: Healium
