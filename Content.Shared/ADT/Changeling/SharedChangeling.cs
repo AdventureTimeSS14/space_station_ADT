@@ -41,7 +41,7 @@ public sealed partial class ChangelingEvolutionMenuActionEvent : BaseInstantChan
 {
 }
 
-public sealed partial class ChangelingTransformActionEvent : BaseInstantChangelingActionEvent
+public sealed partial class ADTChangelingTransformActionEvent : BaseInstantChangelingActionEvent
 {
 }
 

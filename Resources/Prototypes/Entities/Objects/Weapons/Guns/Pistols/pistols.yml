@@ -16,6 +16,7 @@
     shape:
     - 0,0,1,0
     - 0,1,0,1
+    storedOffset: 0,-4
   - type: Tag
     tags:
     - Sidearm
@@ -166,7 +167,6 @@
     maxCharge: 1000
     startingCharge: 1000
   - type: BatterySelfRecharger
-    autoRecharge: true
     autoRechargeRate: 25
   - type: AmmoCounter
 
@@ -262,6 +262,8 @@
   #   modifyer: 0.1
   - type: Clothing
     sprite: Objects/Weapons/Guns/Pistols/mk58.rsi
+  - type: Item
+    storedOffset: 0,-2
   - type: Gun
     fireRate: 5
     # ADT: amount of shots while burst
@@ -272,6 +274,8 @@
     - Burst
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/mk58.ogg
+  - type: StealTarget
+    stealGroup: OfficerHandgun
 # ADT TWEAK START
   - type: AttachableHolder
     slots:
