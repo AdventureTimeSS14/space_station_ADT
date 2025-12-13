@@ -138,7 +138,6 @@
   id: ClothingHandsTacticalMaidGlovesNoInsulated
   name: tactical maid gloves
   description: Tactical maid gloves, every self-respecting maid should be able to discreetly eliminate her goals.
-  suffix: NoInsulated
   components:
   - type: Sprite
     sprite: Clothing/Hands/Gloves/tacticalmaidgloves.rsi
