@@ -106,7 +106,7 @@
     layers:
     - state: balka_trash
   - type: Item
-    size: Medium
+    size: Normal
   - type: PhysicalComposition
     materialComposition:
       Zinc: 1000 # 10 sheets
