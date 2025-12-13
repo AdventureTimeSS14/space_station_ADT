@@ -445,6 +445,9 @@
         Slash: 17
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
+  - type: Construction
+    graph: ADTBLongsword
+    node: ADTCompBoneLongsword
 
 - type: entity
   name: bone battleaxe
@@ -470,3 +473,6 @@
         Blunt: 15
         Structural: 15
   - type: Wieldable
+  - type: Construction
+    graph: ADTBBattleaxe
+    node: ADTBoneCompBattleaxe
