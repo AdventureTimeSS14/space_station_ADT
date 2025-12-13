@@ -1,6 +1,8 @@
+using Content.Server.ADT.SeedDna.Systems; //ADT-Tweak
 using Content.Server.Botany.Components;
 using Content.Server.Botany.Systems;
 using Content.Server.EntityEffects.Effects.Botany;
+using Content.Server.EntityEffects; //ADT-Tweak
 using Content.Shared.Atmos;
 using Content.Shared.Database;
 using Content.Shared.EntityEffects;
@@ -12,10 +14,10 @@ using Robust.Shared.Utility;
 
 namespace Content.Server.Botany;
 
-[Prototype]
+[Prototype("seed")] //ADT-Tweak
 public sealed partial class SeedPrototype : SeedData, IPrototype
 {
-    [IdDataField] public string ID { get; private set; } = default!;
+    [IdDataField] public string ID { get; private init; } = default!; //ADT-Tweak
 }
 
 public enum HarvestType : byte
@@ -87,6 +89,8 @@ public partial struct SeedChemQuantity
 /// </remarks>
 // TODO: Hit Botany with hammers
 [Virtual, DataDefinition]
+
+[Access(typeof(BotanySystem), typeof(PlantHolderSystem), typeof(SeedExtractorSystem), typeof(PlantHolderComponent), typeof(EntityEffectSystem), typeof(MutationSystem), typeof(SeedDnaConsoleSystem))] //ADT-Tweak
 public partial class SeedData
 {
     #region Tracking
