@@ -11,12 +11,34 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.8
-        Slash: 0.8
+        Blunt: 0.6
+        Slash: 0.6
         Piercing: 0.4
         Heat: 0.8
   - type: ExplosionResistance
     damageCoefficient: 0.80
+  - type: StaminaResistance
+    damageCoefficient: 0.75
+    
+- type: entity
+  parent: [ClothingHeadHelmetArmoredBase, BaseSecurityContraband]
+  id: ADTClothingHeadHelmetBasic
+  name: helmet
+  description: Standard blueshield gear. Protects the head from impacts.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Helmets/blu_helmet.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Helmets/blu_helmet.rsi
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+    - SecurityHelmet
+  - type: HideLayerClothing
+    layers:
+      Hair: HEAD
+  - type: CoveredSlot
+    slots: [eyes]
 
 - type: entity
   abstract: true
