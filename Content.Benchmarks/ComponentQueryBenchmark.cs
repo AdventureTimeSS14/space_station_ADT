@@ -29,7 +29,7 @@ namespace Content.Benchmarks;
 [CategoriesColumn]
 public class ComponentQueryBenchmark
 {
-    public const string Map = "Maps/ADTMaps/ADTStations/adt_saltern.yml";
+    public const string Map = "Maps/ADTMaps/ADTStations/adt_saltern.yml"; //ADT-tweak
 
     private TestPair _pair = default!;
     private IEntityManager _entMan = default!;
