@@ -25,11 +25,29 @@ centcom-random-event-plant-2 = фрукты
 centcom-random-event-plant-3 = овощи
 centcom-random-event-plant-4 = ягоды
 
+centcom-random-event-language-1 = пузырчатый
+centcom-random-event-language-2 = хихич
+centcom-random-event-language-3 = ткачий
+centcom-random-event-language-4 = троичный
+centcom-random-event-language-5 = синта'унати
+centcom-random-event-language-6 = синта'таир
+centcom-random-event-language-7 = сик'таир
+centcom-random-event-language-8 = скретчи
+centcom-random-event-language-9 = рыкрур
+centcom-random-event-language-10 = паучий
+centcom-random-event-language-11 = орлуум
+centcom-random-event-language-12 = некоязык
+centcom-random-event-language-13 = канилулц
+centcom-random-event-language-14 = каукиттен
+centcom-random-event-language-15 = шахт
+
 centcom-random-event-words-1 = слова "ня", "мяу", "мевп", "мев" и "мррр" запрещены
 centcom-random-event-words-2 = слова "бульк", "блуп", "блёп", "бламп", "блимпаф" и "хлюп" запрещены
-centcom-random-event-words-3 = шипенье, рычание и мяуканье запрещено
-centcom-random-event-words-4 = стрекотание и жужание запрещено
-centcom-random-event-words-5 = гавканье, скулёж и рычание запрещено
+centcom-random-event-words-3 = тен-коды запрещены
+centcom-random-event-words-4 = любые сокращения, включая но не ограничиваясь: "ГП, РНД, РСУ, ТЭГ" запрещены
+centcom-random-event-words-5 = шипенье, рычание и мяуканье запрещено
+centcom-random-event-words-6 = стрекотание и жужание запрещено
+centcom-random-event-words-7 = гавканье, скулёж и рычание запрещено
 
 centcom-random-event-race-1 = воксы
 centcom-random-event-race-2 = дворфы
@@ -49,22 +67,6 @@ centcom-random-event-race-15 = новакиды
 centcom-random-event-race-16 = резоми
 centcom-random-event-race-17 = сумеречники
 centcom-random-event-race-18 = фелиниды
-
-centcom-random-event-language-1 = пузырчатый
-centcom-random-event-language-2 = хихич
-centcom-random-event-language-3 = ткачий
-centcom-random-event-language-4 = троичный
-centcom-random-event-language-5 = синта'унати
-centcom-random-event-language-6 = синта'таир
-centcom-random-event-language-7 = сик'таир
-centcom-random-event-language-8 = скретчи
-centcom-random-event-language-9 = рыкрур
-centcom-random-event-language-10 = паучий
-centcom-random-event-language-11 = орлуум
-centcom-random-event-language-12 = некоязык
-centcom-random-event-language-13 = канилулц
-centcom-random-event-language-14 = каукиттен
-centcom-random-event-language-15 = шахт
 
 centcom-random-event-fax-paper-name = документ
 
