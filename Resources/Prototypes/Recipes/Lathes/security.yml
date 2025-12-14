@@ -232,7 +232,6 @@
     Glass: 800
     Plastic: 500
     Copper: 3000 #ADT-Tweak
-    
 
 - type: latheRecipe
   parent: BaseWeaponRecipeLong
