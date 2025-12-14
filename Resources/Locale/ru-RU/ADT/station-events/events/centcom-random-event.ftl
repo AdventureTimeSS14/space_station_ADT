@@ -46,7 +46,7 @@ centcom-random-event-words-2 = слова "бульк", "блуп", "блёп", 
 centcom-random-event-words-3 = тен-коды запрещены
 centcom-random-event-words-4 = любые сокращения, включая но не ограничиваясь: "ГП, РНД, РСУ, ТЭГ" запрещены
 centcom-random-event-words-5 = шипенье, рычание и мяуканье запрещено
-centcom-random-event-words-6 = стрекотание и жужание запрещено
+centcom-random-event-words-6 = стрекотание и жужжание запрещено
 centcom-random-event-words-7 = гавканье, скулёж и рычание запрещено
 
 centcom-random-event-race-1 = воксы
