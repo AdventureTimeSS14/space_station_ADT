@@ -16,7 +16,7 @@
     storedRotation: -90
   - type: ActivatableUI
     key: enum.PlantAnalyzerUiKey.Key
-    inHandsOnly: true
+    inHandsOnly: false
   - type: UserInterface
     interfaces:
       enum.PlantAnalyzerUiKey.Key:
