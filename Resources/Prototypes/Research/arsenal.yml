@@ -60,7 +60,6 @@
   # - ADTWeaponIonCarbine
   - ADTBorgModuleHarm #ADT secborg
   - ADTMechGunImmolatorLaser
-  - ADTPowerCellLasgunRevolverBig
   position: 2,-1
   requiredTech:
   - DraconicMunitions
