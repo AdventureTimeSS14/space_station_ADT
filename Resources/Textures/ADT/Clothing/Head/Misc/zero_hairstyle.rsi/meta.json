@@ -1,0 +1,26 @@
+{
+    "version": 1,
+    "size": {
+      "x": 32,
+      "y": 32
+    },
+    "copyright": "Was created by discord:ryslan32 and added inhand states, icon state,glare and shadows by discord: firemix_",
+    "license": "CC-BY-SA-3.0",
+    "states": [
+      {
+        "name": "equipped-HELMET",
+        "directions": 4
+      },
+      {
+        "name": "icon"
+      },
+      {
+        "name": "inhand-left",
+        "directions": 4
+      },
+      {
+        "name": "inhand-right",
+        "directions": 4
+      }
+    ]
+  }

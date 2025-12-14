@@ -35,6 +35,7 @@
       - NanoTaskCartridge
       - NewsReaderCartridge
       - MedTekCartridge
+      - NanoChatCartridge # ADT-tweak: Наночат
       - ADTWalletCartridge # ADT-Economy
     diskSpace: 8 # ADT tweak
 
@@ -49,6 +50,7 @@
     - NotekeeperCartridge
     - NanoTaskCartridge
     - NewsReaderCartridge
+    - NanoChatCartridge # ADT-tweak: Наночат
     - WantedListCartridge
     - ADTWalletCartridge # ADT-Economy
     diskSpace: 8 # ADT tweak

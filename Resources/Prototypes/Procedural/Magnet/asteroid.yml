@@ -1,6 +1,7 @@
 # Large asteroids, typically 1
 - type: dungeonConfig
   id: BlobAsteroid
+  sizeTag: OreMagnetTargets #ADT-Tweak-MagnetUpdate
   # Floor generation
   layers:
   - !type:NoiseDunGen
@@ -31,6 +32,7 @@
 # This is a pain so we generate fewer tiles
 - type: dungeonConfig
   id: ClusterAsteroid
+  sizeTag: OreMagnetTargets #ADT-Tweak-MagnetUpdate
   # Floor generation
   layers:
   - !type:NoiseDunGen
@@ -59,6 +61,7 @@
 # Long and spindly, less smooth than blob
 - type: dungeonConfig
   id: SpindlyAsteroid
+  sizeTag: OreMagnetTargets #ADT-Tweak-MagnetUpdate
   # Floor generation
   layers:
   - !type:NoiseDunGen
@@ -88,6 +91,7 @@
 # Lots of holes in it
 - type: dungeonConfig
   id: SwissCheeseAsteroid
+  sizeTag: OreMagnetTargets #ADT-Tweak-MagnetUpdate
   # Floor generation
   layers:
   - !type:NoiseDunGen

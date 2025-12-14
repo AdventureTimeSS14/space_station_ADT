@@ -5,7 +5,7 @@
   - !type:JobRequirementLoadoutEffect
     requirement:
       !type:RoleTimeRequirement
-      role: JobADTCorrectionsOfficer
+      role: JobADTGuardOfficer
       time: 36000 # 10 часов (А нахуя он в минутах писал вообще?)
 
 # Head

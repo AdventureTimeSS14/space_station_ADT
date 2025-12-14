@@ -48,7 +48,7 @@
     # СБ
     SecurityCadet: 200
     SecurityOfficer: 300
-    ADTGuardOfficer: 375
+    ADTCorrectionsOfficer: 375
     Detective: 400
     Pilot: 400
     Brigmedic: 400

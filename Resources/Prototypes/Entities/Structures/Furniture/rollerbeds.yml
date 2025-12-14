@@ -36,6 +36,7 @@
           density: 80
           mask:
           - MobMask
+    - type: InjectorBoost # ADT-Tweak (P4A) Ускорение Шприцов на койках и каталках
     - type: Damageable
     - type: Destructible
       thresholds:

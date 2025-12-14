@@ -12,6 +12,9 @@ public sealed class ADTCCVars
     /*
     * Barks
     */
+    public static readonly CVarDef<string> HeadshotUrl =
+        CVarDef.Create("ic.headshot_url", "https://i.pinimg.com", CVar.SERVER | CVar.REPLICATED);
+
     public static readonly CVarDef<bool> BarksEnabled =
         CVarDef.Create("barks.enabled", true, CVar.SERVER | CVar.REPLICATED | CVar.ARCHIVE);
 
@@ -164,7 +167,7 @@ public sealed class ADTCCVars
     ///     Below this threshold, the supermatter can heal damage.
     /// </summary>
     public static readonly CVarDef<float> SupermatterMolePenaltyThreshold =
-        CVarDef.Create("supermatter.mole_penalty_threshold", 1800f, CVar.SERVER);
+        CVarDef.Create("supermatter.mole_penalty_threshold", 100f, CVar.SERVER);
 
     /// <summary>
     ///     Divisor on the amount of oxygen released during atmospheric reactions.

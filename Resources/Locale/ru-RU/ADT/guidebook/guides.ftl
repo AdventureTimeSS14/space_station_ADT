@@ -1,5 +1,6 @@
 guide-entry-medic-brigmedic = Бригмедик
 guide-new-cocktails-ADT = Новые рецепты коктейлей
+guide-entry-base-recipes = Основы
 guide-entry-pizza-recipes = Пицца
 guide-entry-savory-recipes = Пикантные блюда
 guide-entry-bread-recipes = Хлеб
@@ -13,6 +14,7 @@ guide-entry-barsandcookies-recipes = Батончики и печенье
 guide-entry-cake-recipes = Торты
 guide-entry-salad-recipes = Салаты
 guide-entry-holiday-recipes = Праздничные рецепты
+guide-entry-icecream-recipes = Мороженое
 guide-entry-medicinal-recipes = Наборы и медипены
 guide-entry-other-recipes = Другое
 guide-entry-secret-recipes = Секретное

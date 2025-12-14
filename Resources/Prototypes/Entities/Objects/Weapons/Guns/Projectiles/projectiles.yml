@@ -384,7 +384,7 @@
     lifetime: 3
   #ADT-Tweak
   - type: SupermatterFood
-    energy: 100
+    energy: 250
   #ADT-Tweak
 
 - type: entity

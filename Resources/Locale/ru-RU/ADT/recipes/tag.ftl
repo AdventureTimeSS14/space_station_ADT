@@ -35,15 +35,15 @@ construction-graph-tag-clarke-peripherals-module = модуль управлен
 construction-graph-tag-clarke-control-module = центральный контрольный модуль Кларка
 construction-graph-tag-durand-central-module = центральный модуль управления Дюранда
 construction-graph-tag-durand-peripherals-module = модуль управления периферией Дюранда
-construction-graph-tag-durand-armor-plates = защитная пластина Дюранда
+construction-graph-tag-durand-armor-plates = бронеплиты Дюранда
 construction-graph-tag-gygax-central-module = центральный модуль управления Гайгэкса
 construction-graph-tag-gygax-peripherals-module = модуль управления периферией Гайгэкса
-construction-graph-tag-gygax-armor-plates = защитная пластина Гайгэкса
+construction-graph-tag-gygax-armor-plates = бронеплиты Гайгэкса
 construction-graph-tag-odysseus-central-module = центральный модуль управления Одиссея
 construction-graph-tag-odysseus-peripherals-module = модуль управления периферией Одиссея
 construction-graph-tag-phazon-central-module = центральный модуль управления Фазона
 construction-graph-tag-phazon-peripherals-module = модуль управления периферией Фазона
-construction-graph-tag-phazon-armor-plates = защитная пластина Фазона
+construction-graph-tag-phazon-armor-plates = бронеплиты Фазона
 construction-graph-tag-phazon-weapon-control-module = оружейный модуль Фазона
 construction-graph-tag-ripley_mkii-modification-kit = комплект модификации Рипли
 
@@ -97,11 +97,9 @@ construction-graph-door-electronics = микросхема шлюза
 construction-graph-intercom-electronics = плата интеркома
 
 # Другое
-
-construction-graph-tag-capicator-stock-part = конденcатор
 construction-graph-voice-trigger = голосовой триггер
 construction-graph-tag-toy-blaster = игрушечный бластер
 construction-graph-tag-stunbaton = дубинка-шокер
+construction-graph-tag-manipulator-stock-part = модульная машинная часть
 construction-graph-carved-pumpkin = вырезанная тыква
 construction-graph-flashlight = фонарик
-

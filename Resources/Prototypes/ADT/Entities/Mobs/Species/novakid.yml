@@ -161,6 +161,20 @@
     - DoorBumpOpener
     - AnomalyHost
     - ChangelingBlacklist
+  - type: MidroundCustomization
+    customizableCategories:
+    - Hair
+    changeMarkingSound: /Audio/ADT/Novakid/novakid_laugh01.ogg
+  - type: UserInterface
+    interfaces:
+      enum.HumanoidMarkingModifierKey.Key:
+        type: HumanoidMarkingModifierBoundUserInterface
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
+      enum.MidroundCustomizationUiKey.Key:
+        type: MidroundCustomizationBoundUserInterface
+      enum.StoreUiKey.Key: # Чтобы не ломался генокрад
+        type: StoreBoundUserInterface # Чтобы не ломался генокрад
 
 - type: entity
   save: false

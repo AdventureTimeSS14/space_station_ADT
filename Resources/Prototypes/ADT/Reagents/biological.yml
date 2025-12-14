@@ -9,8 +9,8 @@
   color: "#2e0f24"
   recognizable: true
   physicalDesc: reagent-physical-desc-ferrous
-  slipData:
-    requiredSlipSpeed: 3.5
+ # slipData:
+ #   requiredSlipSpeed: 3.5
 
 # Кровь унатхов
 
@@ -121,3 +121,17 @@
         conditions:
         - !type:ReagentThreshold
           min: 25
+
+# Проклятая кровь
+
+- type: reagent
+  parent: Blood
+  id: ADTCursedBlood
+  name: reagent-name-cursed-blood
+  group: Biological
+  desc: reagent-desc-cursed-blood
+  flavor: metallic
+  color: "#6e0095"
+  recognizable: true
+  physicalDesc: reagent-physical-desc-ferrous
+  evaporationSpeed: 0.6

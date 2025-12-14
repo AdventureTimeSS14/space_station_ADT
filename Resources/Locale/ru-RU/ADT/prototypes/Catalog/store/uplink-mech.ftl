@@ -1,5 +1,5 @@
 # Mechs
-uplink-syndimech-mech-gygax-name = Гигакс
+uplink-syndimech-mech-gygax-name = Гайгэкс
 uplink-syndimech-mech-gygax-desc = Быстрый и манёвренный экзоскелет, обладает перегрузкой ножных сервоприводов, создан для быстрого выполнения целей.
 uplink-syndimech-mech-mauler-name = Маулер
 uplink-syndimech-mech-mauler-desc = Тяжёлый бронированный экзоскелет, обладающий 5-ю слотами.

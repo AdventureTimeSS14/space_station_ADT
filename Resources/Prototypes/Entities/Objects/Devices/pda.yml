@@ -1018,6 +1018,10 @@
     maxScanRange: null
     scanDelay: 0
     silent: true
+  # ADT-Tweak-Start
+  - type: NanoChatCard
+    listNumber: false
+  # ADT-Tweak-End
   - type: CartridgeLoader
     uiKey: enum.PdaUiKey.Key
     notificationsEnabled: false

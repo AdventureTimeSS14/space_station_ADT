@@ -82,3 +82,57 @@
         Piercing: 4
   - type: Item
     sprite: ADT/Objects/Weapons/Melee/ussp_barzai_knife.rsi
+
+
+- type: entity
+  name: Zero's Katana
+  parent: BaseSword
+  id: ADTZerosKatanaCosplay
+  description: Katana of some guy
+  suffix: Cosplay
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Melee/katana_zero.rsi
+  - type: Tag
+    tags:
+    - ADTZeroKatana
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 1
+  - type: Item
+    storedSprite:
+      state: storage
+      sprite: ADT/Objects/Weapons/Melee/katana_zero_storage_64x.rsi #Done in 64x64 because it looks way too puny in 32x32
+    shape:
+    - 0,0,0,3
+  - type: DisarmMalus
+
+- type: entity
+  name: Zero's Katana
+  parent: BaseSword
+  id: ADTZerosKatanaReal
+  description: Katana of some guy
+  suffix: Real
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Melee/katana_zero.rsi
+  - type: Tag
+    tags:
+    - ADTZeroKatana
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    attackRate: 1
+    damage:
+      types:
+        Slash: 15
+        Piercing: 6
+  - type: Item
+    storedSprite:
+      state: storage
+      sprite: ADT/Objects/Weapons/Melee/katana_zero_storage_64x.rsi #Done in 64x64 because it looks way too puny in 32x32
+    shape:
+    - 0,0,0,3
+  - type: DisarmMalus

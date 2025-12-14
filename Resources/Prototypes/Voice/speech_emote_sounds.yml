@@ -101,6 +101,8 @@
     Laugh:
       path: /Audio/Animals/lizard_happy.ogg
       #ADT-Tweak start
+    Honk:
+      collection: BikeHorn
     Sneeze:
       collection: MaleSneezes
     Cough:
@@ -139,6 +141,8 @@
     Laugh:
       path: /Audio/Animals/lizard_happy.ogg
       #ADT-Tweak start
+    Honk:
+      collection: BikeHorn
     Sneeze:
       collection: FemaleSneezes
     Cough:

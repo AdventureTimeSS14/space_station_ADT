@@ -8,9 +8,11 @@
   - type: HTN
     rootTask:
       task: SimpleHostileCompound
-  - type: NpcFactionMember
-    factions:
-    - SimpleHostile
+# ADT-tweak-start
+#  - type: NpcFactionMember
+#    factions:
+#    - SimpleHostile
+# ADT-tweak-end
   - type: Sprite
     drawdepth: Mobs
     sprite: Mobs/Animals/bear.rsi
@@ -84,11 +86,11 @@
     - map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
       state: glow
       shader: unshaded
-  # Start ADT tweak
+  # ADT-tweak-start
   - type: NpcFactionMember
     factions:
     - ADTSpaceMobs
-  # End ADT tweak
+  # ADT-tweak-end
   - type: DamageStateVisuals
     states:
       Alive:
@@ -139,11 +141,11 @@
     - map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
       state: glow
       shader: unshaded
-  # Start ADT tweak
+  # ADT-tweak-start
   - type: NpcFactionMember
     factions:
     - ADTSpaceMobs
-  # End ADT tweak
+  # ADT-tweak-end
   - type: MeleeWeapon
     soundHit:
         path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
@@ -249,13 +251,16 @@
       types:
         Piercing: 6
         Poison: 4
-  #ADT Start
+  # ADT-tweak-start
   - type: SolutionContainerManager
     solutions:
       melee:
         reagents:
         - ReagentId: ChloralHydrate
           Quantity: 15
+  - type: NpcFactionMember
+    factions:
+    - ADTSpaceMobs
   - type: SolutionRegeneration
     solution: melee
     generated:
@@ -265,7 +270,7 @@
   - type: MeleeChemicalInjector
     solution: melee
     transferAmount: 2
-  #ADT End
+  # ADT-tweak-end
   - type: ReplacementAccent
     accent: xeno
   - type: InteractionPopup
@@ -337,6 +342,11 @@
         - id: ClothingShoesSnakeskinBoots
           amount: 1
           prob: 0.3
+  # ADT-tweak-start
+    - type: NpcFactionMember
+      factions:
+        - ADTSpaceMobs
+  # ADT-tweak-end
     - type: Bloodstream
       bloodMaxVolume: 200
       bloodReagent: Cryoxadone
@@ -386,7 +396,7 @@
     - type: StealthOnMove
       passiveVisibilityRate: -0.25
       movementVisibilityRate: 0.25
-    - type: SupermatterIgnore # ADT tweak
+    - type: SupermatterIgnore # ADT-tweak
 
 - type: entity
   id: MobCobraSpaceSalvage
@@ -541,7 +551,7 @@
         visualType: Large
         messages: [ "snail-hurt-by-salt-popup" ]
         probability: 0.66
-  - type: SupermatterIgnore # ADT tweak
+  - type: SupermatterIgnore # ADT-tweak
 
 - type: entity
   parent: MobSnail

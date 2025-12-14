@@ -485,3 +485,76 @@
     equipSound:
       path: /Audio/Items/belt_equip.ogg
     quickEquip: false
+  - type: Tag
+    tags:
+    - ADTBureaucraticBelt
+
+- type: entity
+  parent: [ClothingBeltBase, ClothingSlotBase]
+  id: ADTClothingBeltSheathZero
+  name: Zero's sabre sheath
+  description: An ornate sheath designed to hold a katana.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Belt/blade_zero.rsi
+    state: sheath
+  - type: Clothing
+    sprite: ADT/Clothing/Belt/blade_zero.rsi
+  - type: Item
+    size: Ginormous
+  - type: ItemSlots
+    slots:
+      item:
+        name: Sabre
+        insertVerbText: sheath-insert-verb
+        ejectVerbText: sheath-eject-verb
+        insertSound: /Audio/Items/sheath.ogg
+        ejectSound: /Audio/Items/unsheath.ogg
+        whitelist:
+          tags:
+          - ADTZeroKatana
+  - type: ItemMapper
+    mapLayers:
+      sheath-blade:
+        whitelist:
+          tags:
+          - ADTZeroKatana
+  - type: Appearance
+  
+- type: entity
+  id: ADTClothingChemdisBelt
+  parent: ClothingBeltStorageBase
+  name: chemdis belt 4000
+  description: Compactt version of chemical dispencer, based on old versions of it.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Belt/chemdis.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Belt/chemdis.rsi
+    slots: [belt]
+    equipSound:
+      path: /Audio/Items/belt_equip.ogg
+    quickEquip: false
+  - type: ReagentDispenser
+    beakerSlot:
+      whitelistFailPopup: reagent-dispenser-component-cannot-put-entity-message
+      whitelist:
+        components:
+        - FitsInDispenser
+      priority: 9
+  - type: Storage
+    maxItemSize: Large
+    grid:
+    - 0,0,9,5
+    openOnActivate: false
+    whitelist:
+      tags:
+      - ChemDispensable
+  - type: ActivatableUI
+    key: enum.ReagentDispenserUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.ReagentDispenserUiKey.Key:
+        type: ReagentDispenserBoundUserInterface
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface

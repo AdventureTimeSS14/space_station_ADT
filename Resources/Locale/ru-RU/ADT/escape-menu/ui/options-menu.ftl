@@ -16,3 +16,7 @@ ui-options-function-toggle-crawling = Переключить ползание
 ui-options-function-open-languages-menu = Открыть меню выбора языка
 ui-options-function-offer-item = Передать что-либо
 ui-options-hud-theme-operative = Оперативник
+ui-options-hud-theme-detective = Детектив
+ui-options-hud-theme-coscult = Космический культ
+ui-options-hud-theme-xeno = Ксеноморф
+ui-options-hud-theme-trasenknox = Олдскул
