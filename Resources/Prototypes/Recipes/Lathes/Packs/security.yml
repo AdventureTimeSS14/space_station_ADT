@@ -133,7 +133,6 @@
   - SpeedLoaderMagnumUranium
   - ADTSpeedLoaderMagnumLesserIncendiary # ADT tweak
   - ADTSpeedLoaderMagnumLesserUranium # ADT tweak
-  - ADTPowerCellLasgunRevolverBig
 - type: latheRecipePack
   id: SecurityWeapons
   recipes:
