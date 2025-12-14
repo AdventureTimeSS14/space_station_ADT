@@ -1,0 +1,44 @@
+- type: marking
+  id: BodyShadekinInk
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Shadekin]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Shadekin/shadekin_overlay.rsi
+      state: body_ink
+
+- type: marking
+  id: BodyShadekinInk2
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Shadekin]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Shadekin/shadekin_overlay.rsi
+      state: body_ink2
+
+- type: marking
+  id: BodyShadekinInk3
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Shadekin]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Shadekin/shadekin_overlay.rsi
+      state: body_ink3
+
+- type: marking
+  id: BodyShadekinInk4
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Shadekin]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Shadekin/shadekin_overlay.rsi
+      state: body_ink4
+
+- type: marking
+  id: BodyShadekinBlackHole
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Shadekin]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Shadekin/shadekin_overlay.rsi
+      state: body_blackhole
