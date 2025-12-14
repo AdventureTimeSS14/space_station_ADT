@@ -44,6 +44,10 @@
         - Injector
         - Pill
         - HandLabeler
+        - Bola
+        - GrenadeStinger
+        - CryostasisBeaker
+        - BluespaceBeaker
   - type: ItemMapper
     mapLayers:
       flashbang:
