@@ -1,6 +1,6 @@
 - type: entity
   name: shower
-  id: ADTBaseShower
+  id: ADTShower
   parent: [ BaseStructure ]
   placement:
     mode: SnapgridCenter
