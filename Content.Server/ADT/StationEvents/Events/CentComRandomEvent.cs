@@ -74,7 +74,7 @@ public sealed class CentComRandomEvent : StationEventSystem<CentComRandomEventCo
         return id switch
         {
             3 => Loc.GetString(baseEvent, ("generator", Loc.GetString($"centcom-random-event-generator-{RobustRandom.Next(1, 8)}"))),
-            4 => Loc.GetString(baseEvent, ("plant", Loc.GetString($"centcom-random-event-plant-{RobustRandom.Next(1, 3)}"))),
+            4 => Loc.GetString(baseEvent, ("plant", Loc.GetString($"centcom-random-event-plant-{RobustRandom.Next(1, 4)}"))),
             6 => Loc.GetString(baseEvent, ("language", Loc.GetString($"centcom-random-event-language-{RobustRandom.Next(1, 15)}"))),
             7 => Loc.GetString(baseEvent, ("words", Loc.GetString($"centcom-random-event-words-{RobustRandom.Next(1, 5)}"))),
             8 => Loc.GetString(baseEvent, ("race", Loc.GetString($"centcom-random-event-race-{RobustRandom.Next(1, 18)}"))),

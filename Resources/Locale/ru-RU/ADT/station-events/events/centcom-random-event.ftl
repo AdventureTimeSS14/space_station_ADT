@@ -8,7 +8,7 @@ centcom-random-event-sighting-3 = запрещено использовать { 
 centcom-random-event-sighting-4 = запрещено выращивать { $plant } из-за опасной болезни, распространяющейся среди растений. Нарушение данного закона приравнивается к нарушению статьи 303.
 centcom-random-event-sighting-5 = теперь датчики должны быть включены в режиме координат. Нарушение данного закона приравнивается к нарушению статьи 310.
 centcom-random-event-sighting-6 = язык: "{ $language }" запрещён к использованию. Нарушение данного закона приравнивается к нарушению статьи 204.
-centcom-random-event-sighting-7 = { $words } запрещены к использованию. Нарушение данного закона приравнивается к нарушению статьи 204.
+centcom-random-event-sighting-7 = { $words } к использованию. Нарушение данного закона приравнивается к нарушению статьи 204.
 centcom-random-event-sighting-8 = все { $race } находящиеся на станции или недавно прибывшие на неё должны пройти обязательный обыск службой безопасности. Нарушение данного закона приравнивается к нарушению статьи 304.
 
 centcom-random-event-generator-1 = сингулярность
@@ -23,12 +23,13 @@ centcom-random-event-generator-8 = реактор на основе биомас
 centcom-random-event-plant-1 = злаковые культуры
 centcom-random-event-plant-2 = фрукты
 centcom-random-event-plant-3 = овощи
+centcom-random-event-plant-4 = ягоды
 
-centcom-random-event-words-1 = слова "ня", "мяу", "мевп", "мев" и "мррр"
-centcom-random-event-words-2 = слова "бульк", "блуп", "блёп", "бламп", "блимпаф" и "хлюп"
-centcom-random-event-words-3 = шипенье, рычание и мяуканье
-centcom-random-event-words-4 = стрекотание и жужание
-centcom-random-event-words-5 = гавканье, рычание и скулёж
+centcom-random-event-words-1 = слова "ня", "мяу", "мевп", "мев" и "мррр" запрещены
+centcom-random-event-words-2 = слова "бульк", "блуп", "блёп", "бламп", "блимпаф" и "хлюп" запрещены
+centcom-random-event-words-3 = шипенье, рычание и мяуканье запрещено
+centcom-random-event-words-4 = стрекотание и жужание запрещено
+centcom-random-event-words-5 = гавканье, скулёж и рычание запрещено
 
 centcom-random-event-race-1 = воксы
 centcom-random-event-race-2 = дворфы
