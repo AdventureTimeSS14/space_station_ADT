@@ -30,4 +30,3 @@
     - type: Appearance
     - type: Transform
       anchored: true
-    - type: Physics
