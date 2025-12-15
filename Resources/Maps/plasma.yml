@@ -137947,7 +137947,6 @@ entities:
       pos: -82.10486,-20.286572
       parent: 2
     - type: Blocking
-      blockingToggleActionEntity: 6684
     - type: ActionsContainer
     - type: ContainerContainer
       containers:
@@ -137960,7 +137959,6 @@ entities:
       pos: -82.19861,-20.661572
       parent: 2
     - type: Blocking
-      blockingToggleActionEntity: 6685
     - type: ActionsContainer
     - type: ContainerContainer
       containers:
@@ -137975,7 +137973,6 @@ entities:
       pos: -82.46423,-20.286572
       parent: 2
     - type: Blocking
-      blockingToggleActionEntity: 6753
     - type: ActionsContainer
     - type: ContainerContainer
       containers:
@@ -137988,7 +137985,6 @@ entities:
       pos: -82.46423,-20.661572
       parent: 2
     - type: Blocking
-      blockingToggleActionEntity: 6768
     - type: ActionsContainer
     - type: ContainerContainer
       containers:

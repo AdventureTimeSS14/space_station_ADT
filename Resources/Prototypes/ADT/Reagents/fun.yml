@@ -45,6 +45,8 @@
         conditions:
           - !type:OrganType
             type: Human
+          - !type:OrganType
+            type: Felinid
           - !type:ReagentThreshold
             min: 16
             max: 16

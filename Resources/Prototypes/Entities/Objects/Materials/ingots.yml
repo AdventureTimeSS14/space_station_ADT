@@ -35,7 +35,6 @@
 # Start ADT Tweak
   - type: Tag
     tags:
-      - ADTGoldCandle
       - Ingot
 # End ADT Tweak
   - type: Material
@@ -86,7 +85,6 @@
 # Start ADT Tweak
   - type: Tag
     tags:
-      - ADTSilverCandle
       - Ingot
 # End ADT Tweak
   - type: Material

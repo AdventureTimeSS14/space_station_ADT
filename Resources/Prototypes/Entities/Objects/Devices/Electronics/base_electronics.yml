@@ -18,3 +18,20 @@
     chemicalComposition:
       Silicon: 20
   - type: Electronics # ADT tweak
+  # ADT Start
+  - type: Food
+    requiresSpecialDigestion: true
+  - type: FlavorProfile
+    flavors:
+    - cold
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Silicon
+          Quantity: 5
+  - type: Tag
+    tags:
+    - VoxFood
+  # ADT End

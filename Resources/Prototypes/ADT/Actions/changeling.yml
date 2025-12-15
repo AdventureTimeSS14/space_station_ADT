@@ -127,7 +127,7 @@
       sprite: ADT/Changeling/Actions/actions_ling.rsi
       state: adrenaline
     itemIconStyle: BigAction
-    useDelay: 90
+    useDelay: 70
     priority: -45
   - type: InstantAction
     event: !type:AdrenalineActionEvent
@@ -222,6 +222,8 @@
       sprite: ADT/Changeling/Actions/actions_ling.rsi
       state: chitinous_armor
     itemIconStyle: BigAction
+    checkCanInteract: false
+    checkConsciousness: false
     useDelay: 5
     priority: -49
   - type: InstantAction
@@ -237,6 +239,8 @@
       sprite: ADT/Changeling/Actions/actions_ling.rsi
       state: organic_shield
     itemIconStyle: BigAction
+    checkCanInteract: false
+    checkConsciousness: false
     useDelay: 1
     priority: -51
   - type: InstantAction

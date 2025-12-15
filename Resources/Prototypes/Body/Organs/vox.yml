@@ -27,6 +27,7 @@
     specialDigestible:
       tags:
         - Trash
+        - VoxFood # ADT Tweak
     isSpecialDigestibleExclusive: false
 
 - type: entity

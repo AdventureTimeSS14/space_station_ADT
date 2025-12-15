@@ -375,6 +375,8 @@ public sealed partial class ChangelingSystem
         {
             if (!TryUseAbility(uid, component, args.Cost))
                 return;
+            
+        _damageableSystem.TryChangeDamage(uid, new DamageSpecifier(_proto.Index<DamageTypePrototype>("Cellular"), 200));
 
             args.Handled = true;
 

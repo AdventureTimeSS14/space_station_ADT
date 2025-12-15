@@ -12,6 +12,7 @@
     - type: Tag
       tags:
       - ADTGygaxCentralControlModule
+      - VoxFood
     - type: GuideHelp
       guides:
       - Robotics
@@ -28,6 +29,7 @@
     - type: Tag
       tags:
       - ADTGygaxPeripheralsControlModule
+      - VoxFood
     - type: GuideHelp
       guides:
       - Robotics
@@ -46,6 +48,7 @@
     - type: Tag
       tags:
       - ADTClarkeCentralControlModule
+      - VoxFood
     - type: GuideHelp
       guides:
       - Robotics
@@ -62,6 +65,7 @@
     - type: Tag
       tags:
       - ADTClarkePeripheralsControlModule
+      - VoxFood
     - type: GuideHelp
       guides:
       - Robotics
@@ -80,6 +84,7 @@
     - type: Tag
       tags:
       - ADTDurandCentralControlModule
+      - VoxFood
     - type: GuideHelp
       guides:
       - Robotics
@@ -96,6 +101,7 @@
     - type: Tag
       tags:
       - ADTDurandPeripheralsControlModule
+      - VoxFood
     - type: GuideHelp
       guides:
       - Robotics
@@ -114,6 +120,7 @@
     - type: Tag
       tags:
       - ADTOdysseusCentralControlModule
+      - VoxFood
     - type: GuideHelp
       guides:
       - Robotics
@@ -130,6 +137,7 @@
     - type: Tag
       tags:
       - ADTOdysseusPeripheralsControlModule
+      - VoxFood
     - type: GuideHelp
       guides:
       - Robotics
@@ -148,6 +156,7 @@
     - type: Tag
       tags:
       - ADTPhazonCentralControlModule
+      - VoxFood
     - type: GuideHelp
       guides:
       - Robotics
@@ -164,6 +173,7 @@
     - type: Tag
       tags:
       - ADTPhazonWeaponControlModule
+      - VoxFood
     - type: GuideHelp
       guides:
       - Robotics
@@ -180,6 +190,7 @@
     - type: Tag
       tags:
       - ADTPhazonPeripheralsControlModule
+      - VoxFood
     - type: GuideHelp
       guides:
       - Robotics

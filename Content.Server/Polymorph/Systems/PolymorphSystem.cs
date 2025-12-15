@@ -43,7 +43,8 @@ using Robust.Shared.Utility;
 using Content.Shared.Forensics.Components; // ADT-Changeling-Tweak
 using Content.Shared.Mindshield.Components; // ADT-Changeling-Tweak
 using Robust.Shared.Serialization.Manager;
-using Content.Shared.DetailExaminable; // ADT-Changeling-Tweak
+using Content.Shared.DetailExaminable;
+using Content.Shared.ADT.CharecterFlavor; // ADT-Changeling-Tweak
 
 namespace Content.Server.Polymorph.Systems;
 
@@ -320,7 +321,6 @@ public sealed partial class PolymorphSystem : EntitySystem
                 typeof(BarkAccentComponent),
                 typeof(BleatingAccentComponent),
                 typeof(DamagedSiliconAccentComponent),
-                typeof(DeutschAccentComponent),
                 typeof(FrenchAccentComponent),
                 typeof(GermanAccentComponent),
                 typeof(GrowlingAccentComponent),
@@ -693,12 +693,20 @@ public sealed partial class PolymorphSystem : EntitySystem
             var copiedMindshieldComp = (Component) _serialization.CreateCopy(mindshieldComp, notNullableOverride: true);
             EntityManager.AddComponent(newEntityUid, copiedMindshieldComp);
         }
-        if (TryComp<DetailExaminableComponent>(source, out var desc))
+        //ADT-tweak-start
+        // if (TryComp<DetailExaminableComponent>(source, out var desc))
+        // {
+        //     var newDesc = EnsureComp<DetailExaminableComponent>(newEntityUid);
+        //     newDesc.Content = desc.Content;
+        // }
+        if (TryComp<CharacterFlavorComponent>(source, out var flavor))
         {
-            var newDesc = EnsureComp<DetailExaminableComponent>(newEntityUid);
-            newDesc.Content = desc.Content;
+            var newDesc = EnsureComp<CharacterFlavorComponent>(newEntityUid);
+            newDesc.FlavorText = flavor.FlavorText;
+            newDesc.OOCNotes = flavor.OOCNotes;
+            newDesc.HeadshotUrl = flavor.HeadshotUrl;
         }
-
+        //ADT-tweak-end
         SendToPausedMap(newEntityUid, newEntityUidTransformComp);
 
         newHumanoidData.EntityUid = newEntityUid;

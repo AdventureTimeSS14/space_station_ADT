@@ -1,7 +1,5 @@
 - type: entity
   id: ActionShadekinTeleport
-  name: action-shadekin-teleport
-  description: action-shadekin-teleport-desc
   categories: [ HideSpawnMenu ]
   components:
   - type: Action

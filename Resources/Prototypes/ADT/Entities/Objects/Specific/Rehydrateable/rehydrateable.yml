@@ -5,7 +5,7 @@
   components:
   - type: Rehydratable
     possibleSpawns:
-    - MobHuman
+    - MobArtificialHuman
   - type: Tag
     tags:
     - Meat

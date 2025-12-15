@@ -5,6 +5,7 @@
   prototype: MobKobolt
   sprites: MobKoboltSprites
   defaultSkinTone: "#34a223"
+  shortDesc: species-short-desc-kobalt
   markingLimits: MobKoboltMarkingLimits
   dollPrototype: MobKoboltDummy
   skinColoration: Hues #как у reptilian

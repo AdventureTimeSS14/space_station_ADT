@@ -23,6 +23,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Content.Shared.Damage.Components;
 using Content.Shared.ADT.Chaplain.Components;
+using Content.Shared.ADT.Damage.Components;
 using Robust.Shared.Utility;
 
 namespace Content.Server.Heretic.EntitySystems;
@@ -57,6 +58,8 @@ public sealed class HereticSystem : EntitySystem
     }
     private void OnHereticStartup(EntityUid uid, HereticComponent component, ComponentStartup args)
     {
+        EnsureComp<PassiveHolyHealingComponent>(uid);
+        EnsureComp<ChangeDamageContainerComponent>(uid);
         EnsureComp<HolyDamageMultiplierComponent>(uid);
     }
 

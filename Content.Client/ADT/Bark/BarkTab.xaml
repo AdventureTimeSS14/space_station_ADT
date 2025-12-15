@@ -1,0 +1,56 @@
+<Control xmlns="https://spacestation14.io" xmlns:graphics="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client">
+    <BoxContainer Orientation="Vertical" HorizontalExpand="True">
+        <BoxContainer Orientation="Horizontal" HorizontalExpand="True" Margin="5">
+            <LineEdit Name="SearchEdit" MinWidth="400" PlaceHolder="{Loc 'humanoid-profile-editor-bark-placeholder'}"/>
+            <Label Name="ResultsLabel" MinWidth="100" HorizontalExpand="True" HorizontalAlignment="Right"/>
+        </BoxContainer>
+        
+        <BoxContainer Orientation="Horizontal" HorizontalExpand="True" VerticalExpand="True" Margin="0 5 0 0">
+            <!-- Левая панель с категориями -->
+            <PanelContainer HorizontalExpand="False" VerticalExpand="True" MinSize="190 300" Margin="0 0 5 0">
+                <PanelContainer.PanelOverride>
+                    <graphics:StyleBoxFlat BackgroundColor="#1A1A1A" />
+                </PanelContainer.PanelOverride>
+                <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True" Margin="5">
+                    <Label Text="{Loc 'humanoid-profile-editor-bark-categories'}" StyleClasses="LabelHeading" HorizontalAlignment="Center" Margin="0 0 0 5"/>
+                    <ScrollContainer VerticalExpand="True" HorizontalExpand="True">
+                        <BoxContainer Name="CategoriesContainer" Orientation="Vertical" HorizontalExpand="True"/>
+                    </ScrollContainer>
+                </BoxContainer>
+            </PanelContainer>
+
+            <!-- Правая панель с барками -->
+            <PanelContainer HorizontalExpand="True" VerticalExpand="True" MinSize="420 320">
+                <PanelContainer.PanelOverride>
+                    <graphics:StyleBoxFlat BackgroundColor="#1A1A1A" />
+                </PanelContainer.PanelOverride>
+                <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True" Margin="5">
+                    <Label Name="SelectedCategoryLabel" Text="" StyleClasses="LabelHeading" HorizontalAlignment="Center" Margin="0 0 0 5"/>
+                    <ScrollContainer VerticalExpand="True" HorizontalExpand="True">
+                        <BoxContainer Name="BarksGrid" Orientation="Vertical" HorizontalExpand="True"/>
+                    </ScrollContainer>
+                </BoxContainer>
+            </PanelContainer>
+        </BoxContainer>
+        
+        <!-- Настройки барка -->
+        <PanelContainer HorizontalExpand="True" Margin="5 5 5 0">
+            <PanelContainer.PanelOverride>
+                <graphics:StyleBoxFlat BackgroundColor="#252525" />
+            </PanelContainer.PanelOverride>
+            <BoxContainer Orientation="Vertical" Margin="10">
+                <Label Text="{Loc 'humanoid-profile-editor-bark-settings'}" StyleClasses="LabelHeading" HorizontalAlignment="Center" Margin="0 0 0 5"/>
+                <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
+                    <Label Text="{Loc 'humanoid-profile-editor-bark-pitch-label'}" MinWidth="100"/>
+                    <LineEdit Name="PitchEdit" MinSize="80 0" HorizontalExpand="True" Margin="5 0 5 0" />
+                </BoxContainer>
+                <BoxContainer Orientation="Horizontal" HorizontalExpand="True" Margin="0 5 0 0">
+                    <Label Text="{Loc 'humanoid-profile-editor-bark-delay-label'}" MinWidth="100"/>
+                    <LineEdit Name="DelayVariationMinEdit" MinSize="80 0" HorizontalExpand="True" Margin="5 0 2 0" />
+                    <Label Text="-" HorizontalAlignment="Center" MinWidth="20"/>
+                    <LineEdit Name="DelayVariationMaxEdit" MinSize="80 0" HorizontalExpand="True" Margin="2 0 5 0" />
+                </BoxContainer>
+            </BoxContainer>
+        </PanelContainer>
+    </BoxContainer>
+</Control>

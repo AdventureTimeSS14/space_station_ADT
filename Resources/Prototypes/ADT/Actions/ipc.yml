@@ -1,7 +1,5 @@
 - type: entity
   id: ActionIpcScreen
-  name: action-ipc-screen
-  description: action-ipc-screen-desc
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -11,4 +9,4 @@
     itemIconStyle: BigAction
     useDelay: 1
   - type: InstantAction
-    event: !type:IpcScreenActionEvent
+    event: !type:MidroundCustomizationActionEvent

@@ -591,3 +591,103 @@
     - sprite: ADT/Mobs/Customization/Ipc/ipc_screens.rsi
       state: ipc_screen_tenna
   shader: unshaded
+
+- type: marking
+  speciesRestriction: [IPC]
+  id: ADTScreenCuteNeutral
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  sprites:
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_screens.rsi
+      state: ipc_screen_cute_neutral
+  shader: unshaded
+
+- type: marking
+  speciesRestriction: [IPC]
+  id: ADTScreenCuteEyes
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  sprites:
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_screens.rsi
+      state: ipc_screen_cute_eyes
+  shader: unshaded
+
+- type: marking
+  speciesRestriction: [IPC]
+  id: ADTScreenCuteAngry
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  sprites:
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_screens.rsi
+      state: ipc_screen_cute_angry
+  shader: unshaded
+
+- type: marking
+  speciesRestriction: [IPC]
+  id: ADTScreenCuteSuspicious
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  sprites:
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_screens.rsi
+      state: ipc_screen_cute_suspicious
+  shader: unshaded
+
+- type: marking
+  speciesRestriction: [IPC]
+  id: ADTScreenCuteWorried
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  sprites:
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_screens.rsi
+      state: ipc_screen_cute_worried
+  shader: unshaded
+
+- type: marking
+  speciesRestriction: [IPC]
+  id: ADTScreenCuteSmirking
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  sprites:
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_screens.rsi
+      state: ipc_screen_cute_smirking
+  shader: unshaded
+
+- type: marking
+  speciesRestriction: [IPC]
+  id: ADTScreenCuteCryed
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  sprites:
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_screens.rsi
+      state: ipc_screen_cute_cryed
+  shader: unshaded
+
+- type: marking
+  speciesRestriction: [IPC]
+  id: ADTScreenCuteLaughing
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  sprites:
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_screens.rsi
+      state: ipc_screen_cute_laughing
+  shader: unshaded
+
+- type: marking
+  speciesRestriction: [IPC]
+  id: ADTScreenCuteQuestioningly
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  sprites:
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_screens.rsi
+      state: ipc_screen_cute_questioningly
+  shader: unshaded
+
+- type: marking
+  speciesRestriction: [IPC]
+  id: ADTScreenCuteUnsurprised
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  sprites:
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_screens.rsi
+      state: ipc_screen_cute_unsurprised
+  shader: unshaded

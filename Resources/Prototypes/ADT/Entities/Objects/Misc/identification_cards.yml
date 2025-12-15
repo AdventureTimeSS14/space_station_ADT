@@ -170,16 +170,16 @@
 
 - type: entity
   parent: IDCardStandard
-  id: ADTGuardOfficerIDCard
-  name: guard officer ID card
+  id: ADTCorrectionsOfficerIDCard
+  name: corrections officer ID card
   components:
   - type: Sprite
     sprite: ADT/Objects/Misc/id_cards.rsi
     layers:
     - state: default
-    - state: id-guardofficer
+    - state: id-correctionsofficer
   - type: PresetIdCard
-    job: ADTGuardOfficer
+    job: ADTCorrectionsOfficer
 
 - type: entity
   parent: PassengerIDCard

@@ -55,6 +55,16 @@ marking-ADTScreenOko = Око
 marking-ADTScreenRock = Подозрительный взгляд
 marking-ADTScreenSkull = Череп
 marking-ADTScreenTenna = Время ТВ!
+marking-ADTScreenCuteNeutral = Милое (Нейтральное)
+marking-ADTScreenCuteEyes = Милое (Глаза)
+marking-ADTScreenCuteAngry = Милое (Злое)
+marking-ADTScreenCuteSuspicious = Милое (Подозрительное)
+marking-ADTScreenCuteWorried = Милое (Обеспокоенное)
+marking-ADTScreenCuteSmirking = Милое (Ухмыляющееся)
+marking-ADTScreenCuteCryed = Милое (Плачущее)
+marking-ADTScreenCuteLaughing = Милое (Смеющееся)
+marking-ADTScreenCuteQuestioningly = Милое (Вопросительное)
+marking-ADTScreenCuteUnsurprised = Милое (Неудивлённое)
 
 marking-RobotAntennaTv = ТВ
 marking-RobotAntennaTesla = Тесла

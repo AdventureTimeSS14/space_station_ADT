@@ -1,0 +1,25 @@
+- type: constructionGraph
+  id: PumpkinHat
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: pumpkin_hat
+      steps:
+      - tag: ADTCarvedPumpkin
+        icon:
+          sprite: Objects/Specific/Hydroponics/pumpkin.rsi
+          state: carved
+        name: construction-graph-carved-pumpkin
+      - tag: Flashlight
+        icon:
+          sprite: Objects/Tools/flashlight.rsi
+          state: flashlight
+        name: construction-graph-flashlight
+      - material: Cloth
+        amount: 5
+      - material: Cable
+        amount: 5
+        doAfter: 5
+  - node: pumpkin_hat
+    entity: ClothingHeadHatPumpkin

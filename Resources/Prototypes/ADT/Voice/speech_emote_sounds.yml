@@ -105,6 +105,12 @@
       collection: MaleCry
     Whistle:
       collection: Whistles
+    Spit:
+      collection: HumanSpits
+    Gasp:
+      collection: MaleGasp
+    DefaultDeathgasp:
+      collection: MothDeathGasp
 
 - type: emoteSounds
   id: FemaleMoth
@@ -141,6 +147,28 @@
       collection: FemaleCry
     Whistle:
       collection: Whistles
+    Spit:
+      collection: HumanSpits
+    Gasp:
+      collection: FemaleGasp
+    DefaultDeathgasp:
+      collection: MothDeathGasp
+
+- type: emoteSounds
+  id: MothBodyEmotes
+  sounds:
+    FlapWings:
+      path: /Audio/ADT/Voice/Moth/moth_flapwings.ogg
+    Clap:
+      collection: Claps
+    ClapSingle:
+      collection: ClapSingle
+    Snap:
+      collection: Snaps
+      params:
+        volume: -6
+    Salute:
+      collection: Salutes
 
 - type: emoteSounds
   id: ADTMaleTajaran
@@ -511,6 +539,10 @@
       collection: VulpHeckaetSound
     Spit:
       collection: HumanSpits
+    Gasp:
+      collection: MaleGasp
+    DefaultDeathgasp:
+      collection: DeathGasp
 
 - type: emoteSounds
   id: NesFemaleVulpa
@@ -557,6 +589,10 @@
       collection: VulpHeckaetSound
     Spit:
       collection: HumanSpits
+    Gasp:
+      collection: FemaleGasp
+    DefaultDeathgasp:
+      collection: DeathGasp
 
 - type: emoteSounds
   id: MaleFelinid
@@ -661,14 +697,20 @@
   params:
     variation: 0.125
   sounds:
-    Scream: 
+    Scream:
       collection: MaleResomiScreams
     Laugh:
-      collection: ResomiLaughs 
+      collection: ResomiLaughs
     Cough:
       collection: ResomiCoughs
     Sneeze:
-      collection: ResomiSneeze 
+      collection: ResomiSneeze
+    Hiss:
+      collection: ResomiHiss
+    Chirps:
+      collection: ResomiChirps
+    Coos:
+      collection: ResomiCoos
     Honk:
       collection: BikeHorn
     Whistle:
@@ -690,11 +732,17 @@
     Scream:
       collection: FemaleResomiScreams
     Laugh:
-      collection: ResomiLaughs 
+      collection: ResomiLaughs
     Cough:
       collection: ResomiCoughs
     Sneeze:
       collection: ResomiSneeze
+    Hiss:
+      collection: ResomiHiss
+    Chirps:
+      collection: ResomiChirps
+    Coos:
+      collection: ResomiCoos
     Honk:
       collection: BikeHorn
     Whistle:

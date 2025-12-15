@@ -77,7 +77,6 @@
   categories: [ HideSpawnMenu ]
   parent: [BaseChangelingObjective, BaseKillObjective]
   id: KillRandomPersonObjectiveLing
-  description: ling-kill-desc
   components:
   - type: Objective
     difficulty: 1.5
@@ -90,7 +89,6 @@
   categories: [ HideSpawnMenu ]
   parent: [BaseChangelingObjective, BasePersonalityStealObjective]
   id: StealRandomPersonalityObjectiveLing
-  description: ling-steal-personality-desc
   components:
   - type: Objective
     difficulty: 2

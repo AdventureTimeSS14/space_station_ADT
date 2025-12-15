@@ -29,12 +29,9 @@
   id: ADTAnomalyCoreHW
   suffix: HW
   components:
-  - type: SpawnItemsOnUse
-    items:
-    - id: Ash
-    sound:
-      path: /Audio/Items/Lighters/lighter3.ogg
   - type: HWAnomCoreLootbox
+    settings:
+      useDelay: 3
   - type: Sprite
     sprite: ADT/Structures/Specific/Anomalies/Cores/hw_core.rsi
   - type: PointLight
@@ -48,6 +45,9 @@
   id: ADTAnomalyCoreHWInert
   suffix: HW, Inert
   components:
+  - type: HWAnomCoreLootbox
+    settings:
+      useDelay: 3
   - type: Sprite
     sprite: ADT/Structures/Specific/Anomalies/Cores/hw_core.rsi
   - type: PointLight

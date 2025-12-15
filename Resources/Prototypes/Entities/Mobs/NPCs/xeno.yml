@@ -98,10 +98,10 @@
         Base: dead
   - type: Puller
   - type: Butcherable
-    butcheringType: Spike
+    butcheringType: knife # ADT-Tweak butcheringType: Spike
     spawned:
     - id: FoodMeatXeno
-      amount: 5
+      amount: 2 # ADT-Tweak 5 -> 2
   - type: GhostRole
     allowMovement: true
     allowSpeech: true

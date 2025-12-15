@@ -69,7 +69,7 @@
             SecurityCadet: [ 4, 4 ]
             Brigmedic: [ 1, 1 ]
             ADTSeniorOfficer: [ 1, 1 ]
-            ADTGuardOfficer: [ 1, 1 ]
+            ADTCorrectionsOfficer: [ 1, 1 ]
 
             # Supply
             Quartermaster: [ 1, 1 ]

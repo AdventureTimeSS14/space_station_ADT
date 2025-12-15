@@ -1,0 +1,32 @@
+- type: entity
+  id: ADTDesktop
+  parent: BaseStructure
+  name: desktop computer
+  description: The message wait until the operating system is updated is frozen on the screen. Although the progress bar never seems to move.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/ADT/Structures/Decoration/desktop.rsi
+    state: desktop
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 100
+        behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+  - type: AmbientSound
+    volume: -6
+    range: 3
+    sound:
+      path: /Audio/ADT/Machines/computerboot_pc.ogg
+  - type: PointLight
+    radius: 3
+    energy: 2
+    color: "#2789CD"

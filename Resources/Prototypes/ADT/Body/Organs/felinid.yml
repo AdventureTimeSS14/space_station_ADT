@@ -6,7 +6,7 @@
   components:
   - type: Metabolizer
     maxReagents: 4
-    metabolizerTypes: [Felinid, Animal]
+    metabolizerTypes: [Felinid]
     groups:
     - id: Medicine
     - id: Poison
@@ -16,3 +16,16 @@
     - Meat
     - Organ
     - Heart
+
+- type: entity
+  id: ADTOrganFelinidStomach
+  parent: OrganHumanStomach
+  name: stomach
+  description: "Gross. This is hard to stomach."
+  components:
+  - type: Metabolizer
+    maxReagents: 3
+    metabolizerTypes: [Felinid]
+    groups:
+    - id: Food
+    - id: Drink

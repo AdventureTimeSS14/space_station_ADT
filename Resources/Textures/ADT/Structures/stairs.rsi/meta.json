@@ -1,0 +1,125 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "created by maksim21612 (discord)",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+	{
+	    "name": "steel_dark_center_stairs"
+        },
+        {
+            "name": "steel_dark_left_stairs"
+        },
+        {
+            "name": "steel_dark_right_stairs"
+        },
+        {
+            "name": "steel_dark_single_stairs"
+        },
+        {
+            "name": "steel_dark_light_left_stairs"
+        },
+        {
+            "name": "steel_dark_light_right_stairs"
+        },
+	{
+	    "name": "steel_center_stairs"
+        },
+        {
+            "name": "steel_left_stairs"
+        },
+        {
+            "name": "steel_right_stairs"
+        },
+        {
+            "name": "steel_single_stairs"
+        },
+        {
+            "name": "steel_light_left_stairs"
+        },
+        {
+            "name": "steel_light_right_stairs"
+        },
+	{
+	    "name": "steel_white_center_stairs"
+        },
+        {
+            "name": "steel_white_left_stairs"
+        },
+        {
+            "name": "steel_white_right_stairs"
+        },
+        {
+            "name": "steel_white_single_stairs"
+        },
+        {
+            "name": "steel_white_light_left_stairs"
+        },
+        {
+            "name": "steel_white_light_right_stairs"
+        },
+	{
+	    "name": "wood_black_center_stairs"
+        },
+        {
+            "name": "wood_black_left_stairs"
+        },
+        {
+            "name": "wood_black_right_stairs"
+        },
+        {
+            "name": "wood_black_single_stairs"
+        },
+	{
+	    "name": "wood_dark_center_stairs"
+        },
+        {
+            "name": "wood_dark_left_stairs"
+        },
+        {
+            "name": "wood_dark_right_stairs"
+        },
+        {
+            "name": "wood_dark_single_stairs"
+        },
+	{
+	    "name": "wood_center_stairs"
+        },
+        {
+            "name": "wood_left_stairs"
+        },
+        {
+            "name": "wood_right_stairs"
+        },
+        {
+            "name": "wood_single_stairs"
+        },
+	{
+	    "name": "wood_light_center_stairs"
+        },
+        {
+            "name": "wood_light_left_stairs"
+        },
+        {
+            "name": "wood_light_right_stairs"
+        },
+        {
+            "name": "wood_light_single_stairs"
+        },
+	{
+	    "name": "wood_red_center_stairs"
+        },
+        {
+            "name": "wood_red_left_stairs"
+        },
+        {
+            "name": "wood_red_right_stairs"
+        },
+        {
+            "name": "wood_red_single_stairs"
+        }
+    ]
+}

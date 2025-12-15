@@ -223,6 +223,7 @@
       types:
         Piercing: 0.75
         Holy: 6
+  - type: HolyDamage
 
 - type: entity
   id: ADTBoltHoly
@@ -240,3 +241,4 @@
       types:
         Piercing: 1.5
         Holy: 7
+  - type: HolyDamage

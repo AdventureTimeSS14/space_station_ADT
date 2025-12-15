@@ -1,0 +1,36 @@
+- type: entity
+  id: ADTCeilingFan
+  parent: BaseStructure
+  name: ceiling fan
+  description: An antiquated method of cooling the room, but it sure has a charm to it.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: SpriteFade
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/ADT/Structures/Decoration/ceilingfan.rsi
+    state: ceilingfan
+    drawdepth: OverMobs
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Wood
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 50
+        behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+  - type: AmbientSound
+    volume: -1
+    range: 6
+    sound:
+      path: /Audio/ADT/Ambience/fan_drone.ogg

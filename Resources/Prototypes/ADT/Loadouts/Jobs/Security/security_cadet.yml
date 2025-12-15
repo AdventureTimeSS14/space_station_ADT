@@ -1,5 +1,10 @@
-# Neck Cadet Security Officer ADT
-# - type: loadout
-#   id: ADTSecurityCadetNeck
-#   equipment:
-#     neck: ADTClothingNeckSecBadge
+# Jumpsuit
+- type: loadout
+  id: ADTJumpskirtSecurityCadetLight
+  equipment:
+    jumpsuit: ADTClothingUniformJumpskirtSecurityCadetLight
+
+- type: loadout
+  id: ADTUniformSecurityCadetLight
+  equipment:
+    jumpsuit: ADTClothingUniformSecurityCadetLight

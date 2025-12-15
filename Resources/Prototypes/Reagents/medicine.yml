@@ -1286,8 +1286,15 @@
       - !type:HealthChange
         damage:
           types:
-            Piercing: -0.6 # 6 per u
-            Blunt: 0.05 # 0.5 per u
+      # ADT-Tweak-Start
+            Piercing: -0.8 # 8 per u
+            Blunt: 0.15 # 0.5 -> 1.5 per u
+      - !type:ChemVomit
+        conditions:
+        - !type:ReagentThreshold
+          min: 25
+        probability: 0.2
+      # ADT-Tweak-End
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
@@ -1311,14 +1318,22 @@
       - !type:HealthChange
         damage:
           types:
-            Blunt: -0.6 # 6 per u
+      # ADT-Tweak-Start
+            Blunt: -0.7 # 7 per u
+            Piercing: 0.15 # 1.5 per u
+      - !type:ChemVomit
+        conditions:
+        - !type:ReagentThreshold
+          min: 21
+        probability: 0.4
+      # ADT-Tweak-End
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
           min: 19
         damage:
           types:
-            Poison: 1.5 # 15 per u
+            Poison: 0.7 # ADT-Tweak 7 per u
 
 - type: reagent
   id: Holywater
@@ -1382,6 +1397,7 @@
         damage:
           types:
             Heat: -1
+            Slash: 0.15 # ADT-Tweak 1.5 per u
       # od causes massive bleeding
       - !type:HealthChange
         conditions:

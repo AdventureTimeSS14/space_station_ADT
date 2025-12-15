@@ -62,6 +62,9 @@ public sealed partial class GibtoniteComponent : Component
     [DataField]
     public EntProtoId OrePrototype = "ADTGibtonite";
 
+    [DataField]
+    public EntProtoId ShardPrototype = "ADTGibtoniteShard";
+
     /// <summary>
     /// Значения для взрыва. Думаю по названиям переменных всё понятно... так ведь?
     /// </summary>

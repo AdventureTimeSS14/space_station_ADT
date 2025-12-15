@@ -1,0 +1,28 @@
+- type: entity
+  id: ADTGarbage
+  parent: BaseItem
+  name: garbage
+  description: It's crawling with maggots!
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/ADT/Structures/Decoration/garbage.rsi
+    state: garbage
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Wood
+  - type: Pullable
+  - type: AmbientSound
+    volume: -2
+    range: 2
+    sound:
+      path: /Audio/ADT/Ambience/flies_buzzing.ogg
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 35
+        behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+

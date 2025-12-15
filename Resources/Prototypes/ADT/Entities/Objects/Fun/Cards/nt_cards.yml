@@ -1,0 +1,691 @@
+- type: entity
+  parent: ADTCardBase
+  id: ADTCardBaseNanotrasen
+  name: card
+  categories: [ HideSpawnMenu ] # Frontier
+  components:
+    - type: Card
+      backSprite:
+      - sprite: ADT/Objects/Fun/cards.rsi
+        state: singlecard_down_nanotrasen
+
+- type: entity
+  parent: ADTCardBoxBase
+  id: ADTCardBoxNanotrasen
+  name: nanotrasen deck box
+  components:
+  - type: Item
+    size: Small
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    layers:
+    - state: nanotrasen_box
+    - state: nanotrasen_box_open
+      map: [ "openLayer" ]
+      visible: false
+  - type: OpenTriggeredStorageFill
+    contents:
+    - id: ADTCardDeckNanotrasen
+      amount: 1
+
+- type: entity
+  parent: ADTCardDeckBase
+  id: ADTCardDeckNanotrasen
+  name: deck of cards
+  categories: [ HideSpawnMenu, DoNotMap ] # Frontier
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: deck_nanotrasen_full
+  - type: CardStack
+    initialContent:
+    # Clubs
+    - ADTCardScAceOfClubsNanotrasen
+    - ADTCardSc2OfClubsNanotrasen
+    - ADTCardSc3OfClubsNanotrasen
+    - ADTCardSc4OfClubsNanotrasen
+    - ADTCardSc5OfClubsNanotrasen
+    - ADTCardSc6OfClubsNanotrasen
+    - ADTCardSc7OfClubsNanotrasen
+    - ADTCardSc8OfClubsNanotrasen
+    - ADTCardSc9OfClubsNanotrasen
+    - ADTCardSc10OfClubsNanotrasen
+    - ADTCardScJackOfClubsNanotrasen
+    - ADTCardScQueenOfClubsNanotrasen
+    - ADTCardScKingOfClubsNanotrasen
+    # Diamonds
+    - ADTCardScAceOfDiamondsNanotrasen
+    - ADTCardSc2OfDiamondsNanotrasen
+    - ADTCardSc3OfDiamondsNanotrasen
+    - ADTCardSc4OfDiamondsNanotrasen
+    - ADTCardSc5OfDiamondsNanotrasen
+    - ADTCardSc6OfDiamondsNanotrasen
+    - ADTCardSc7OfDiamondsNanotrasen
+    - ADTCardSc8OfDiamondsNanotrasen
+    - ADTCardSc9OfDiamondsNanotrasen
+    - ADTCardSc10OfDiamondsNanotrasen
+    - ADTCardScJackOfDiamondsNanotrasen
+    - ADTCardScQueenOfDiamondsNanotrasen
+    - ADTCardScKingOfDiamondsNanotrasen
+    # Hearts
+    - ADTCardScAceOfHeartsNanotrasen
+    - ADTCardSc2OfHeartsNanotrasen
+    - ADTCardSc3OfHeartsNanotrasen
+    - ADTCardSc4OfHeartsNanotrasen
+    - ADTCardSc5OfHeartsNanotrasen
+    - ADTCardSc6OfHeartsNanotrasen
+    - ADTCardSc7OfHeartsNanotrasen
+    - ADTCardSc8OfHeartsNanotrasen
+    - ADTCardSc9OfHeartsNanotrasen
+    - ADTCardSc10OfHeartsNanotrasen
+    - ADTCardScJackOfHeartsNanotrasen
+    - ADTCardScQueenOfHeartsNanotrasen
+    - ADTCardScKingOfHeartsNanotrasen
+    # Spades
+    - ADTCardScAceOfSpadesNanotrasen
+    - ADTCardSc2OfSpadesNanotrasen
+    - ADTCardSc3OfSpadesNanotrasen
+    - ADTCardSc4OfSpadesNanotrasen
+    - ADTCardSc5OfSpadesNanotrasen
+    - ADTCardSc6OfSpadesNanotrasen
+    - ADTCardSc7OfSpadesNanotrasen
+    - ADTCardSc8OfSpadesNanotrasen
+    - ADTCardSc9OfSpadesNanotrasen
+    - ADTCardSc10OfSpadesNanotrasen
+    - ADTCardScJackOfSpadesNanotrasen
+    - ADTCardScQueenOfSpadesNanotrasen
+    - ADTCardScKingOfSpadesNanotrasen
+    # Joker
+    - ADTCardScJokerNanotrasen
+
+# region Nanotrasen Cards
+
+- type: entity
+  parent: ADTCardBaseNanotrasen
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc2OfClubsNanotrasen
+  components:
+  - type: Card
+    name: card-sc-2-clubs
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_2_of_Clubs_nanotrasen
+
+- type: entity
+  parent: ADTCardBaseNanotrasen
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc3OfClubsNanotrasen
+  components:
+  - type: Card
+    name: card-sc-3-clubs
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_3_of_Clubs_nanotrasen
+
+- type: entity
+  parent: ADTCardBaseNanotrasen
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc4OfClubsNanotrasen
+  components:
+  - type: Card
+    name: card-sc-4-clubs
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_4_of_Clubs_nanotrasen
+
+- type: entity
+  parent: ADTCardBaseNanotrasen
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc5OfClubsNanotrasen
+  components:
+  - type: Card
+    name: card-sc-5-clubs
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_5_of_Clubs_nanotrasen
+
+- type: entity
+  parent: ADTCardBaseNanotrasen
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc6OfClubsNanotrasen
+  components:
+  - type: Card
+    name: card-sc-6-clubs
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_6_of_Clubs_nanotrasen
+
+- type: entity
+  parent: ADTCardBaseNanotrasen
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc7OfClubsNanotrasen
+  components:
+  - type: Card
+    name: card-sc-7-clubs
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_7_of_Clubs_nanotrasen
+
+- type: entity
+  parent: ADTCardBaseNanotrasen
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc8OfClubsNanotrasen
+  components:
+  - type: Card
+    name: card-sc-8-clubs
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_8_of_Clubs_nanotrasen
+
+- type: entity
+  parent: ADTCardBaseNanotrasen
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc9OfClubsNanotrasen
+  components:
+  - type: Card
+    name: card-sc-9-clubs
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_9_of_Clubs_nanotrasen
+
+- type: entity
+  parent: ADTCardBaseNanotrasen
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc10OfClubsNanotrasen
+  components:
+  - type: Card
+    name: card-sc-10-clubs
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_10_of_Clubs_nanotrasen
+
+- type: entity
+  parent: ADTCardBaseNanotrasen
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScAceOfClubsNanotrasen
+  components:
+  - type: Card
+    name: card-sc-ace-clubs
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_Ace_of_Clubs_nanotrasen
+
+
+- type: entity
+  parent: ADTCardBaseNanotrasen
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScJackOfClubsNanotrasen
+  components:
+  - type: Card
+    name: card-sc-jack-clubs
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_Jack_of_Clubs_nanotrasen
+
+- type: entity
+  parent: ADTCardBaseNanotrasen
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScKingOfClubsNanotrasen
+  components:
+  - type: Card
+    name: card-sc-king-clubs
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_King_of_Clubs_nanotrasen
+
+- type: entity
+  parent: ADTCardBaseNanotrasen
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScQueenOfClubsNanotrasen
+  components:
+  - type: Card
+    name: card-sc-queen-clubs
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_Queen_of_Clubs_nanotrasen
+
+
+- type: entity
+  parent: ADTCardBaseNanotrasen
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScJackOfDiamondsNanotrasen
+  components:
+  - type: Card
+    name: card-sc-jack-diamonds
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_Jack_of_Diamonds_nanotrasen
+
+- type: entity
+  parent: ADTCardBaseNanotrasen
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScQueenOfDiamondsNanotrasen
+  components:
+  - type: Card
+    name: card-sc-queen-diamonds
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_Queen_of_Diamonds_nanotrasen
+
+- type: entity
+  parent: ADTCardBaseNanotrasen
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScKingOfDiamondsNanotrasen
+  components:
+  - type: Card
+    name: card-sc-king-diamonds
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_King_of_Diamonds_nanotrasen
+
+- type: entity
+  parent: ADTCardBaseNanotrasen
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScAceOfDiamondsNanotrasen
+  components:
+  - type: Card
+    name: card-sc-ace-diamonds
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_Ace_of_Diamonds_nanotrasen
+
+- type: entity
+  parent: ADTCardBaseNanotrasen
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc2OfDiamondsNanotrasen
+  components:
+  - type: Card
+    name: card-sc-2-diamonds
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_2_of_Diamonds_nanotrasen
+
+- type: entity
+  parent: ADTCardBaseNanotrasen
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc3OfDiamondsNanotrasen
+  components:
+  - type: Card
+    name: card-sc-3-diamonds
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_3_of_Diamonds_nanotrasen
+
+- type: entity
+  parent: ADTCardBaseNanotrasen
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc4OfDiamondsNanotrasen
+  components:
+  - type: Card
+    name: card-sc-4-diamonds
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_4_of_Diamonds_nanotrasen
+
+- type: entity
+  parent: ADTCardBaseNanotrasen
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc5OfDiamondsNanotrasen
+  components:
+  - type: Card
+    name: card-sc-5-diamonds
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_5_of_Diamonds_nanotrasen
+
+- type: entity
+  parent: ADTCardBaseNanotrasen
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc6OfDiamondsNanotrasen
+  components:
+  - type: Card
+    name: card-sc-6-diamonds
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_6_of_Diamonds_nanotrasen
+
+- type: entity
+  parent: ADTCardBaseNanotrasen
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc7OfDiamondsNanotrasen
+  components:
+  - type: Card
+    name: card-sc-7-diamonds
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_7_of_Diamonds_nanotrasen
+
+- type: entity
+  parent: ADTCardBaseNanotrasen
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc8OfDiamondsNanotrasen
+  components:
+  - type: Card
+    name: card-sc-8-diamonds
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_8_of_Diamonds_nanotrasen
+
+- type: entity
+  parent: ADTCardBaseNanotrasen
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc9OfDiamondsNanotrasen
+  components:
+  - type: Card
+    name: card-sc-9-diamonds
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_9_of_Diamonds_nanotrasen
+
+- type: entity
+  parent: ADTCardBaseNanotrasen
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc10OfDiamondsNanotrasen
+  components:
+  - type: Card
+    name: card-sc-10-diamonds
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_10_of_Diamonds_nanotrasen
+
+
+- type: entity
+  parent: ADTCardBaseNanotrasen
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc2OfHeartsNanotrasen
+  components:
+  - type: Card
+    name: card-sc-2-hearts
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_2_of_Hearts_nanotrasen
+
+- type: entity
+  parent: ADTCardBaseNanotrasen
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc3OfHeartsNanotrasen
+  components:
+  - type: Card
+    name: card-sc-3-hearts
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_3_of_Hearts_nanotrasen
+
+- type: entity
+  parent: ADTCardBaseNanotrasen
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc4OfHeartsNanotrasen
+  components:
+  - type: Card
+    name: card-sc-4-hearts
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_4_of_Hearts_nanotrasen
+
+- type: entity
+  parent: ADTCardBaseNanotrasen
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc5OfHeartsNanotrasen
+  components:
+  - type: Card
+    name: card-sc-5-hearts
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_5_of_Hearts_nanotrasen
+
+- type: entity
+  parent: ADTCardBaseNanotrasen
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc6OfHeartsNanotrasen
+  components:
+  - type: Card
+    name: card-sc-6-hearts
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_6_of_Hearts_nanotrasen
+
+- type: entity
+  parent: ADTCardBaseNanotrasen
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc7OfHeartsNanotrasen
+  components:
+  - type: Card
+    name: card-sc-7-hearts
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_7_of_Hearts_nanotrasen
+
+- type: entity
+  parent: ADTCardBaseNanotrasen
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc8OfHeartsNanotrasen
+  components:
+  - type: Card
+    name: card-sc-8-hearts
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_8_of_Hearts_nanotrasen
+
+- type: entity
+  parent: ADTCardBaseNanotrasen
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc9OfHeartsNanotrasen
+  components:
+  - type: Card
+    name: card-sc-9-hearts
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_9_of_Hearts_nanotrasen
+
+- type: entity
+  parent: ADTCardBaseNanotrasen
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc10OfHeartsNanotrasen
+  components:
+  - type: Card
+    name: card-sc-10-hearts
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_10_of_Hearts_nanotrasen
+
+- type: entity
+  parent: ADTCardBaseNanotrasen
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScKingOfHeartsNanotrasen
+  components:
+  - type: Card
+    name: card-sc-king-hearts
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_King_of_Hearts_nanotrasen
+
+- type: entity
+  parent: ADTCardBaseNanotrasen
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScQueenOfHeartsNanotrasen
+  components:
+  - type: Card
+    name: card-sc-queen-hearts
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_Queen_of_Hearts_nanotrasen
+
+- type: entity
+  parent: ADTCardBaseNanotrasen
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScJackOfHeartsNanotrasen
+  components:
+  - type: Card
+    name: card-sc-jack-hearts
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_Jack_of_Hearts_nanotrasen
+
+- type: entity
+  parent: ADTCardBaseNanotrasen
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScAceOfHeartsNanotrasen
+  components:
+  - type: Card
+    name: card-sc-ace-hearts
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_Ace_of_Hearts_nanotrasen
+
+
+- type: entity
+  parent: ADTCardBaseNanotrasen
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc2OfSpadesNanotrasen
+  components:
+  - type: Card
+    name: card-sc-2-spades
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_2_of_Spades_nanotrasen
+
+- type: entity
+  parent: ADTCardBaseNanotrasen
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc3OfSpadesNanotrasen
+  components:
+  - type: Card
+    name: card-sc-3-spades
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_3_of_Spades_nanotrasen
+
+- type: entity
+  parent: ADTCardBaseNanotrasen
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc4OfSpadesNanotrasen
+  components:
+  - type: Card
+    name: card-sc-4-spades
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_4_of_Spades_nanotrasen
+
+- type: entity
+  parent: ADTCardBaseNanotrasen
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc5OfSpadesNanotrasen
+  components:
+  - type: Card
+    name: card-sc-5-spades
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_5_of_Spades_nanotrasen
+
+- type: entity
+  parent: ADTCardBaseNanotrasen
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc6OfSpadesNanotrasen
+  components:
+  - type: Card
+    name: card-sc-6-spades
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_6_of_Spades_nanotrasen
+
+- type: entity
+  parent: ADTCardBaseNanotrasen
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc7OfSpadesNanotrasen
+  components:
+  - type: Card
+    name: card-sc-7-spades
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_7_of_Spades_nanotrasen
+
+- type: entity
+  parent: ADTCardBaseNanotrasen
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc8OfSpadesNanotrasen
+  components:
+  - type: Card
+    name: card-sc-8-spades
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_8_of_Spades_nanotrasen
+
+- type: entity
+  parent: ADTCardBaseNanotrasen
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc9OfSpadesNanotrasen
+  components:
+  - type: Card
+    name: card-sc-9-spades
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_9_of_Spades_nanotrasen
+
+
+- type: entity
+  parent: ADTCardBaseNanotrasen
+  categories: [ HideSpawnMenu ]
+  id: ADTCardSc10OfSpadesNanotrasen
+  components:
+  - type: Card
+    name: card-sc-10-spades
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_10_of_Spades_nanotrasen
+
+- type: entity
+  parent: ADTCardBaseNanotrasen
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScKingOfSpadesNanotrasen
+  components:
+  - type: Card
+    name: card-sc-king-spades
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_King_of_Spades_nanotrasen
+
+- type: entity
+  parent: ADTCardBaseNanotrasen
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScQueenOfSpadesNanotrasen
+  components:
+  - type: Card
+    name: card-sc-queen-spades
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_Queen_of_Spades_nanotrasen
+
+- type: entity
+  parent: ADTCardBaseNanotrasen
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScJackOfSpadesNanotrasen
+  components:
+  - type: Card
+    name: card-sc-jack-spades
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_Jack_of_Spades_nanotrasen
+
+- type: entity
+  parent: ADTCardBaseNanotrasen
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScAceOfSpadesNanotrasen
+  components:
+  - type: Card
+    name: card-sc-ace-spades
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: sc_Ace_of_Spades_nanotrasen
+
+- type: entity
+  parent: ADTCardBaseNanotrasen
+  categories: [ HideSpawnMenu ]
+  id: ADTCardScJokerNanotrasen
+  components:
+  - type: Card
+    name: card-sc-joker
+  - type: Sprite
+    sprite: ADT/Objects/Fun/cards.rsi
+    state: nanotrasen_joker
+
+# endregion Nanotrasen Cards

@@ -1,20 +1,33 @@
 # Игроки
 - type: entity
   id: ActionPumpCursedHeart
-  name: action-pump-heart
-  description: action-pump-heart-desc
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
     icon:
-      sprite: ADT/Objects/Specific/Lavaland/loot.rsi
-      state: cursed_heart
+      sprite: ADT/Interface/Actions/lavaland.rsi
+      state: cursed_heart_pump
     checkCanInteract: false
     checkConsciousness: false # Позволяет использовать сердце в крите, порт импрувмента отсюда: https://github.com/Rxup/space-station-14/pull/1351
     itemIconStyle: BigAction
     useDelay: 1
   - type: InstantAction
     event: !type:PumpHeartActionEvent
+
+- type: entity
+  id: ActionToggleCursedHeart
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    icon:
+      sprite: ADT/Interface/Actions/lavaland.rsi
+      state: cursed_heart_toggle
+    checkCanInteract: false
+    checkConsciousness: true # НЕ позволяет переключать сердце в крите, иначе будет слишком имбово
+    itemIconStyle: BigAction
+    useDelay: 30
+  - type: InstantAction
+    event: !type:ToggleHeartActionEvent
 
 # Фауна
 - type: entity

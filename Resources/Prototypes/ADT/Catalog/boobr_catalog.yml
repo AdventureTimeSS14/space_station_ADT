@@ -535,6 +535,15 @@
   categories:
   - ADTUplinkERTMisc
 
+- type: listing
+  id: ADTBoberEmpGrenade
+  name: boobr-emp-grenade-name
+  description: boobr-emp-grenade-desc
+  productEntity: EmpGrenade
+  cost:
+    Productunit: 3
+  categories:
+  - ADTUplinkERTMisc
 
 - type: listing
   id: ADTBoberCleanerGrenade

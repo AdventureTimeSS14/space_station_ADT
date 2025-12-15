@@ -1,0 +1,31 @@
+- type: entity
+  id: ADTBlobWallSinLaziness
+  parent: BaseStructure
+  name: blob wall
+  description: A wall of slime that smells like corpses and sewage.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: ADT/Structures/Specific/blob_wall_sin_of_laziness.rsi
+    state: blob
+    drawdepth: Mobs
+  - type: Transform
+    anchored: true
+    noRot: true
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      solid:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        layer:
+        - WallLayer
+        mask:
+        - MobMask
+        - ItemMask
+        density: 1000
+        hard: true

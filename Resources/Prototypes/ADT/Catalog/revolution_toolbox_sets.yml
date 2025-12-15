@@ -28,7 +28,7 @@
   content:
   - ADTRevBlueprint
   - ADTChemMasterFlatpack
-  - ADTChemDispenserFlatpack
+  - ADTEnergyChemDispenserFlatpack
   - ADTJugCharcoal
   - ADTJugCharcoal
   - ADTJugCharcoal

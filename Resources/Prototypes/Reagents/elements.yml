@@ -8,6 +8,15 @@
   color: "#848789"
   boilingPoint: 2327.0
   meltingPoint: 660.0
+    # ADT Start
+  metabolisms:
+    Food:
+      effects:
+      - !type:SatiateHunger
+        conditions:
+          - !type:OrganType
+            type: Vox
+    # ADT End
 
 - type: reagent
   id: Carbon
@@ -77,6 +86,14 @@
           type: Arachnid
           shouldHave: true
         amount: 0.4
+    # ADT Start
+    Food:
+      effects:
+      - !type:SatiateHunger
+        conditions:
+          - !type:OrganType
+            type: Vox
+    # ADT End
 
 - type: reagent
   id: Fluorine
@@ -115,6 +132,15 @@
   color: "#F7C430"
   boilingPoint: 2700.0
   meltingPoint: 1064.76
+    # ADT Start
+  metabolisms:
+    Food:
+      effects:
+      - !type:SatiateHunger
+        conditions:
+          - !type:OrganType
+            type: Vox
+    # ADT End
 
 # ADT-Gas-Start
 # - type: reagent
@@ -175,6 +201,14 @@
           shouldHave: false
         # ADT tweak end
         amount: 0.4
+    # ADT Start
+    Food:
+      effects:
+      - !type:SatiateHunger
+        conditions:
+          - !type:OrganType
+            type: Vox
+    # ADT End
 
 - type: reagent
   id: Lithium
@@ -282,6 +316,14 @@
         damage:
           types:
             Poison: 1.5
+    # ADT Start
+    Food:
+      effects:
+      - !type:SatiateHunger
+        conditions:
+          - !type:OrganType
+            type: Vox
+    # ADT End
 
 - type: reagent
   id: Silver
@@ -293,6 +335,15 @@
   color: "#d0d0d0"
   boilingPoint: 2212.0
   meltingPoint: 960.5
+    # ADT Start
+  metabolisms:
+    Food:
+      effects:
+      - !type:SatiateHunger
+        conditions:
+          - !type:OrganType
+            type: Vox
+    # ADT End
 
 - type: reagent
   id: Sulfur
@@ -361,3 +412,12 @@
   color: "#bababa"
   meltingPoint: 419.5
   boilingPoint: 907.0
+    # ADT Start
+  metabolisms:
+    Food:
+      effects:
+      - !type:SatiateHunger
+        conditions:
+          - !type:OrganType
+            type: Vox
+    # ADT End

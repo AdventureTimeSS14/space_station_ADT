@@ -59,7 +59,7 @@ ent-CrateLockBoxMedical = медицинский ящик с замком
     .desc = { ent-CrateBaseLockBox.desc }
 ent-CrateLockBoxScience = научный ящик с замком
     .desc = { ent-CrateBaseLockBox.desc }
-ent-CrateLockBoxSecurity = охраннный ящик с замком
+ent-CrateLockBoxSecurity = охранный ящик с замком
     .desc = { ent-CrateBaseLockBox.desc }
 ent-CrateLockBoxService = сервисный ящик с замком
     .desc = { ent-CrateBaseLockBox.desc }
@@ -71,7 +71,7 @@ ent-CrateToyBox = коробка игрушек
 ent-CrateCoffin = гроб
     .desc = Удобный гроб, прекрасное место для вампиров и покойников.
 ent-ADTCoffinZinc = цинковый гроб
-    .desc = Что ты выберешь, смерть с деньгами в богатом гробе или же в бедном, деревянном?
+    .desc = Что ты выберешь, смерть с деньгами в богатом гробу или же в бедном, деревянном?
 
 ent-CrateWoodenGrave = могила
     .desc = Здесь кто-то умер...

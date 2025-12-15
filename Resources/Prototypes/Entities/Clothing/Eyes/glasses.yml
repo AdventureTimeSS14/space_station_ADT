@@ -63,7 +63,6 @@
   - type: Clothing
     sprite: ADT/Clothing/Eyes/Glasses/meson.rsi #ADT tweak
   - type: MesonVisionItem #ADT tweak
-  - type: ItemToggle #ADT tweak
   # - type: EyeProtection #ADT tweak
   - type: IdentityBlocker
     coverage: EYES
@@ -256,7 +255,6 @@
   - type: IdentityBlocker
     coverage: EYES
   - type: ThermalVisionItem # ADT tweak
-  - type: ItemToggle  # ADT tweak
 
 - type: entity
   parent: ClothingEyesBase
@@ -288,8 +286,6 @@
     sprite: Clothing/Eyes/Glasses/ninjavisor.rsi
   - type: FlashImmunity
   - type: NightVisionItem # ADT tweak
-  - type: ItemToggle  # ADT tweak
-  - type: ThermalVisionItem # ADT tweak
   - type: Appearance
   - type: GenericVisualizer
     visuals:

@@ -1,7 +1,7 @@
 - type: vendingMachineInventory
   id: ChemVendInventory
   startingInventory:
-    Jug: 4
+    Jug: 12 # ADT-tweak: Химка на энергии прикол
     JugAluminium: 2
     JugCarbon: 4
     JugChlorine: 1

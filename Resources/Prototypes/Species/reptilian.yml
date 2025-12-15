@@ -12,6 +12,7 @@
   femaleFirstNames: NamesReptilianFemale
   naming: FirstDashFirst
   # ADT start
+  shortDesc: species-short-desc-reptilian
   description: "/ServerInfo/ADT/SpeciesDescriptions/Unath.xml"
   pros:
   - Могут таскать объекты хвостом.

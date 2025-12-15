@@ -4,18 +4,20 @@ using Content.Shared.Vehicle.Components;
 using Robust.Shared.GameStates;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Weapons.Melee.Events;
+using Content.Shared.Stunnable;
 
 namespace Content.Shared.Vehicle;
 
 public abstract partial class SharedVehicleSystem
 {
+    [Dependency] private readonly SharedStunSystem _stun = default!;
     private void InitializeRider()
     {
         SubscribeLocalEvent<RiderComponent, ComponentGetState>(OnRiderGetState);
         SubscribeLocalEvent<RiderComponent, VirtualItemDeletedEvent>(OnVirtualItemDeleted);
         SubscribeLocalEvent<RiderComponent, PullAttemptEvent>(OnPullAttempt);
         SubscribeLocalEvent<RiderComponent, ShotAttemptedEvent>(OnShootAttempt);
-        SubscribeLocalEvent<RiderComponent, AttemptMeleeEvent>(OnHitAttempt);
+        SubscribeLocalEvent<RiderComponent, MeleeHitEvent>(OnHitAttempt);
     }
 
     private void OnRiderGetState(EntityUid uid, RiderComponent component, ref ComponentGetState args)
@@ -47,8 +49,8 @@ public abstract partial class SharedVehicleSystem
     {
         args.Cancel();
     }
-    private void OnHitAttempt(EntityUid uid, RiderComponent component, ref AttemptMeleeEvent args)
+    private void OnHitAttempt(EntityUid uid, RiderComponent component, MeleeHitEvent args)
     {
-        args.Cancelled = true;
+        _stun.TryKnockdown(uid, TimeSpan.FromSeconds(4), refresh: false);
     }
 }

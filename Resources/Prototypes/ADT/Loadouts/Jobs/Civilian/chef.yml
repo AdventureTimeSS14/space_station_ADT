@@ -7,14 +7,6 @@
       role: JobChef
       time: 36000 #10 часов
 
-- type: loadout
-  id: ADTChefCqc
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: ADTMasterChef
-  equipment:
-    pocket1: ADTCqcManualWeak
-
 # PDA
 - type: loadout
   id: ChefPDA

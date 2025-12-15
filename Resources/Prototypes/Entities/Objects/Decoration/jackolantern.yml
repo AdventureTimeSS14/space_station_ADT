@@ -12,6 +12,11 @@
   - type: Construction
     graph: PumpkinAddLight
     node: start
+# ADT-Tweak-Start
+  - type: Tag
+    tags:
+      - ADTCarvedPumpkin
+# ADT-Tweak-End
 
 - type: entity
   parent: CarvedPumpkin

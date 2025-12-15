@@ -6,9 +6,8 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 198000 #55 hrs # ADT-RoleTime
-  # ADT Restrict Start
-    - !type:SpeciesRequirement
+      time: 180000 #50 hrs
+    - !type:SpeciesRequirement  # ADT Restrict Start
       inverted: true
       species:
       - Resomi

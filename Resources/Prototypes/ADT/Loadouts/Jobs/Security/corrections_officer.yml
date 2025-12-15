@@ -1,0 +1,61 @@
+# Крутой надзиратель
+- type: loadoutEffectGroup
+  id: GreyCorrectionOfficer
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobADTGuardOfficer
+      time: 36000 # 10 часов (А нахуя он в минутах писал вообще?)
+
+# Head
+- type: loadout
+  id: ADTHeadHatCorrectionsOfficer
+  equipment:
+    head: ADTClothingHeadHatsCorrectionsOfficerCap
+
+- type: loadout
+  id: ADTHeadHatCorrectionsOfficerGrey
+  equipment:
+    head: ADTClothingHeadHatsCorrectionsOfficerCapGrey
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: GreyCorrectionOfficer # Нужно наиграть 10 часов на надзирателе для открытия
+
+# Jumpsuit
+- type: loadout
+  id: ADTJumpsuitCorrectionsOfficer
+  equipment:
+    jumpsuit: ADTClothingUniformCorrectionsOfficer
+
+- type: loadout
+  id: ADTJumpsuitCorrectionsOfficerGrey
+  equipment:
+    jumpsuit: ADTClothingUniformCorrectionsOfficerGrey
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: GreyCorrectionOfficer # Нужно наиграть 10 часов на надзирателе для открытия
+
+- type: loadout
+  id: ADTJumpsuitCorrectionsOfficerLight
+  equipment:
+    jumpsuit: ADTClothingUniformCorrectionsOfficerLight
+
+- type: loadout
+  id: ADTJumpskirtCorrectionsOfficer
+  equipment:
+    jumpsuit: ADTClothingUniformJumpskirtCorrectionsOfficer
+
+# Outerclothing
+- type: loadout
+  id: ADTCoatSecurity
+  equipment:
+    outerClothing: ADTClothingOuterCoatSecurity
+
+- type: loadout
+  id: ADTCoatCorrectionsOfficerGrey
+  equipment:
+    outerClothing: ADTClothingOuterCoatCorrectionsOfficerGrey
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: GreyCorrectionOfficer # Нужно наиграть 10 часов на надзирателе для открытия

@@ -22,6 +22,7 @@
         - TableMask
   - type: Sprite
     sprite: Structures/Furniture/furniture.rsi
+    drawdepth: HighFloorObjects # ADT-Tweak
     state: bed
     noRot: true
   - type: Strap
@@ -81,6 +82,7 @@
   - type: Construction
     graph: bed
     node: medicalbed
+  - type: InjectorBoost # ADT-Tweak (P4A) Ускорение Шприцов на койках и каталках
   - type: GuideHelp
     guides:
     - MedicalDoctor

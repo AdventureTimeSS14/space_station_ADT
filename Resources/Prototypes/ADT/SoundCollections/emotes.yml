@@ -83,6 +83,9 @@
   id: TajaranGrowls
   files:
   - /Audio/ADT/Felinid/cat_growl1.ogg
+  - /Audio/ADT/Felinid/cat_growl2.ogg
+  - /Audio/ADT/Felinid/cat_growl3.ogg
+  - /Audio/ADT/Felinid/cat_growl4.ogg
 
 - type: soundCollection
   id: TajaranPurrs
@@ -202,6 +205,9 @@
   id: FelinidGrowls
   files:
   - /Audio/ADT/Felinid/cat_growl1.ogg
+  - /Audio/ADT/Felinid/cat_growl2.ogg
+  - /Audio/ADT/Felinid/cat_growl3.ogg
+  - /Audio/ADT/Felinid/cat_growl4.ogg
 
 - type: soundCollection
   id: FelinidPurrs
@@ -233,6 +239,21 @@
   id: ResomiCoughs
   files:
     - /Audio/ADT/Voice/Resomi/resomi_cough.ogg
+
+- type: soundCollection
+  id: ResomiHiss
+  files:
+    - /Audio/ADT/Voice/Resomi/resomi_hiss.ogg
+
+- type: soundCollection
+  id: ResomiCoos
+  files:
+    - /Audio/ADT/Voice/Resomi/resomi_coos.ogg
+
+- type: soundCollection
+  id: ResomiChirps
+  files:
+    - /Audio/ADT/Voice/Resomi/resomi_chirps.ogg
 
 # Other
 - type: soundCollection
