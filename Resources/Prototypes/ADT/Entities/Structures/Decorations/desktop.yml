@@ -9,7 +9,13 @@
   - type: Sprite
     noRot: true
     sprite: /Textures/ADT/Structures/Decoration/desktop.rsi
-    state: desktop
+    drawdepth: WallMountedItems
+    layers:
+    - state: desktop
+    - state: screen
+      shader: unshaded
+      visible: false
+      map: ["enum.ToggleableVisuals.Layer"]
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: Metallic
@@ -21,12 +27,50 @@
         behaviors:
         - !type:DoActsBehavior
           acts: [ "Destruction" ]
-  - type: AmbientSound
-    volume: -6
-    range: 3
-    sound:
+  - type: ItemToggleActiveSound
+    activeSound:
       path: /Audio/ADT/Machines/computerboot_pc.ogg
+      params:
+        volume: -16
+        range: 3
   - type: PointLight
-    radius: 3
-    energy: 2
+    enabled: false
+    radius: 1.1
+    energy: 1
     color: "#2789CD"
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.2,-0.4,0.45,0.3"
+        density: 60
+        mask:
+        - MachineMask
+        layer:
+        - MidImpassable
+        - LowImpassable
+  - type: ItemToggle
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleableVisuals.Enabled:
+        enum.ToggleableVisuals.Layer:
+          True: { visible: true }
+          False: { visible: false }
+  - type: ItemTogglePointLight
+  - type: Appearance
+
+- type: entity
+  id: ADTDesktopWhite
+  parent: ADTDesktop
+  name: white desktop computer
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/ADT/Structures/Decoration/desktop.rsi
+    layers:
+    - state: desktop_white
+    - state: screen
+      shader: unshaded
+      visible: false
+      map: ["enum.ToggleableVisuals.Layer"]

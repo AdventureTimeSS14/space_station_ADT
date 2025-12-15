@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from skyrat-tg at commit https://github.com/Skyrat-SS13/Skyrat-tg/commit/639e77f6e957bce88d9734b4b97b249738af42b1, resprited by orange6775 (discord)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "full_window",
+      "directions": 4
+    }
+  ]
+}

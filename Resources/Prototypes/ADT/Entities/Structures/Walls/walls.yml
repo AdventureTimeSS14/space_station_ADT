@@ -444,4 +444,252 @@
   - type: Icon
     sprite: ADT/Structures/Walls/abductor_diagonal.rsi
     state: state0
-    
+
+# Colored walls
+
+- type: entity
+  parent: BaseWall
+  id: ADTWallSolidWhite
+  name: white solid wall
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Walls/white_solid.rsi
+  - type: WallReplacementMarker
+  - type: Icon
+    sprite: ADT/Structures/Walls/white_solid.rsi
+  - type: RCDDeconstructable
+    cost: 6
+    delay: 8
+    fx: EffectRCDDeconstruct8
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 400
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+      - !type:ChangeConstructionNodeBehavior
+        node: girder
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: IconSmooth
+    key: walls
+    base: solid
+
+- type: entity
+  parent: ADTWallSolidWhite
+  id: ADTWallSolidBlack
+  name: black solid wall
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Walls/white_solid.rsi
+    color: "#535353"
+  - type: Icon
+    sprite: ADT/Structures/Walls/white_solid.rsi
+    color: "#535353"
+
+- type: entity
+  parent: ADTWallSolidWhite
+  id: ADTWallSolidPurple
+  name: purple solid wall
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Walls/white_solid.rsi
+    color: "#9C0DE1"
+  - type: Icon
+    sprite: ADT/Structures/Walls/white_solid.rsi
+    color: "#9C0DE1"
+
+- type: entity
+  parent: ADTWallSolidWhite
+  id: ADTWallSolidRed
+  name: red solid wall
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Walls/white_solid.rsi
+    color: "#940000"
+  - type: Icon
+    sprite: ADT/Structures/Walls/white_solid.rsi
+    color: "#940000"
+
+- type: entity
+  parent: ADTWallSolidWhite
+  id: ADTWallSolidBlue
+  name: blue solid wall
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Walls/white_solid.rsi
+    color: "#0089EF"
+  - type: Icon
+    sprite: ADT/Structures/Walls/white_solid.rsi
+    color: "#0089EF"
+
+- type: entity
+  parent: ADTWallSolidWhite
+  id: ADTWallSolidTeal
+  name: teal solid wall
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Walls/white_solid.rsi
+    color: "#3CB57C"
+  - type: Icon
+    sprite: ADT/Structures/Walls/white_solid.rsi
+    color: "#3CB57C"
+
+- type: entity
+  parent: ADTWallSolidWhite
+  id: ADTWallSolidBrown
+  name: brown solid wall
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Walls/white_solid.rsi
+    color: "#723A02"
+  - type: Icon
+    sprite: ADT/Structures/Walls/white_solid.rsi
+    color: "#723A02"
+
+- type: entity
+  parent: ADTWallSolidWhite
+  id: ADTWallSolidGray
+  name: gray solid wall
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Walls/white_solid.rsi
+    color: "#999999"
+  - type: Icon
+    sprite: ADT/Structures/Walls/white_solid.rsi
+    color: "#999999"
+
+- type: entity
+  parent: ADTWallSolidWhite
+  id: ADTWallSolidGreen
+  name: green solid wall
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Walls/white_solid.rsi
+    color: "#5ABF2F"
+  - type: Icon
+    sprite: ADT/Structures/Walls/white_solid.rsi
+    color: "#5ABF2F"
+
+- type: entity
+  parent: ADTWallSolidWhite
+  id: ADTWallSolidLightBrown
+  name: light brown solid wall
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Walls/white_solid.rsi
+    color: "#C09F72"
+  - type: Icon
+    sprite: ADT/Structures/Walls/white_solid.rsi
+    color: "#C09F72"
+
+- type: entity
+  parent: ADTWallSolidWhite
+  id: ADTWallSolidOrange
+  name: orange solid wall
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Walls/white_solid.rsi
+    color: "#EF8100"
+  - type: Icon
+    sprite: ADT/Structures/Walls/white_solid.rsi
+    color: "#EF8100"
+
+- type: entity
+  parent: ADTWallSolidWhite
+  id: ADTWallSolidYellow
+  name: yellow solid wall
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Walls/white_solid.rsi
+    color: "#FFF300"
+  - type: Icon
+    sprite: ADT/Structures/Walls/white_solid.rsi
+    color: "#FFF300"
+
+#Admin walls
+
+- type: entity
+  id: ADTWallAdminWhite
+  name: admin white wall
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Walls/admin_wall.rsi
+    state: white
+    drawdepth: Walls
+  - type: WallReplacementMarker
+  - type: Icon
+    sprite: ADT/Structures/Walls/admin_wall.rsi
+    state: white
+  - type: Occluder
+  - type: Tag
+    tags:
+    - Structure
+    - Wall
+    - HideContextMenu
+  - type: IsRoof
+  - type: PlacementReplacement
+    key: walls
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+        density: 1000
+  - type: Airtight
+  - type: StaticPrice
+    price: 1
+  - type: RadiationBlocker
+    resistance: 5
+  - type: BlockWeather
+  - type: Transform
+    anchored: true
+  - type: Clickable
+
+- type: entity
+  parent: ADTWallAdminWhite
+  id: ADTWallAdminWhiteUnshaded
+  name: admin white wall unshaded
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Walls/admin_wall.rsi
+    layers:
+      - state: white
+        shader: unshaded
+    drawdepth: Walls
+
+- type: entity
+  parent: ADTWallAdminWhite
+  id: ADTWallAdminBlack
+  name: admin black wall
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Walls/admin_wall.rsi
+    state: black
+    drawdepth: Walls
+  - type: Icon
+    sprite: ADT/Structures/Walls/admin_wall.rsi
+    state: black

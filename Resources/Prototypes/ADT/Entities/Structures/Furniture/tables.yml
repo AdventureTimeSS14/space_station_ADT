@@ -104,6 +104,7 @@
   name: plastic round table
   description: Do not apply fire to this. Rumour says it burns easily.
   components:
+  - type: Animateable
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: Metallic
@@ -129,16 +130,18 @@
     fixtures:
       fix1:
         shape:
-          !type:PhysShapeAabb
-          bounds: "-0.5,-0.5,0.5,0.5"
+          !type:PhysShapeCircle
+          radius: 0.5
         density: 55
         mask: # tables should collide with other tables
         - TableMask
         layer:
         - TableLayer
+  - type: SpriteFade
   - type: Sprite
     sprite: ADT/Structures/Furniture/Tables/roundtable.rsi
     state: round_plastic
+    noRot: true
   - type: Icon
     sprite: ADT/Structures/Furniture/Tables/roundtable.rsi
     state: round_plastic
@@ -158,7 +161,10 @@
   - type: Construction
     graph: ADTTable
     node: adttableroundplastic
-
+  - type: Tag
+    tags:
+    - Table
+    - ForceFixRotations
 
 - type: entity
   id: ADTTableRoundWood
