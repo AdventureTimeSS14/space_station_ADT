@@ -237,6 +237,8 @@
     - SecurityExplosives
     - SecurityEquipment
     - SecurityWeapons
+  - type: AccessReader
+    access: [["Engineering"], ["Research"]]
 
 - type: entity
   id: ProtolatheHyperConvection
