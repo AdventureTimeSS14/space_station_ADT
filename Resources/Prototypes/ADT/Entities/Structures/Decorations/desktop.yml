@@ -32,7 +32,7 @@
       path: /Audio/ADT/Machines/computerboot_pc.ogg
       params:
         volume: -16
-        range: 3
+        maxDistance: 3
   - type: PointLight
     enabled: false
     radius: 1.1
