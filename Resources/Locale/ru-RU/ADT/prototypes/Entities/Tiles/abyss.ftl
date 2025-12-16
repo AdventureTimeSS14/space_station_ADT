@@ -1,3 +1,6 @@
+ent-ADTFloorAbyssTinyEntity = { ent-FloorChasmEntity }
+    .desc = { ent-FloorChasmEntity.desc }
+    .suffix = Декоративная, крошечная
 ent-ADTFloorAbyssSmallEntity = { ent-FloorChasmEntity }
     .desc = { ent-FloorChasmEntity.desc }
     .suffix = Декоративная, маленькая

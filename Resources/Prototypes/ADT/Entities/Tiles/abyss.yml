@@ -1,6 +1,6 @@
 - type: entity
-  id: ADTFloorAbyssSmallEntity
-  name: small abyss
+  id: ADTFloorAbyssTinyEntity
+  name: tiny abyss
   description: You can't even see the bottom.
   placement:
     mode: SnapgridCenter
@@ -14,10 +14,10 @@
     sprite: ADT/Tiles/Misc/abyss.rsi
     drawdepth: Walls
     layers:
-    - state: abyss_small
+    - state: abyss_tiny
   - type: Icon
     sprite: ADT/Tiles/Misc/abyss.rsi
-    state: abyss_small
+    state: abyss_tiny
   - type: Physics
     bodyType: Static
   - type: Fixtures
@@ -37,7 +37,21 @@
     - HideContextMenu
 
 - type: entity
-  parent: ADTFloorAbyssSmallEntity
+  parent: ADTFloorAbyssTinyEntity
+  id: ADTFloorAbyssSmallEntity
+  name: small abyss
+  components:
+  - type: Sprite
+    sprite: ADT/Tiles/Misc/abyss.rsi
+    drawdepth: Walls
+    layers:
+    - state: abyss_small
+  - type: Icon
+    sprite: ADT/Tiles/Misc/abyss.rsi
+    state: abyss_small
+
+- type: entity
+  parent: ADTFloorAbyssTinyEntity
   id: ADTFloorAbyssNormalEntity
   name: normal abyss
   components:
@@ -51,7 +65,7 @@
     state: abyss_normal
 
 - type: entity
-  parent: ADTFloorAbyssSmallEntity
+  parent: ADTFloorAbyssTinyEntity
   id: ADTFloorAbyssBigEntity
   name: big abyss
   components:
