@@ -237,8 +237,10 @@
     - SecurityExplosives
     - SecurityEquipment
     - SecurityWeapons
+  # ADT-Tweak-Start:
   - type: AccessReader
     access: [["Engineering"], ["Research"]]
+  # ADT-Tweak-End
 
 - type: entity
   id: ProtolatheHyperConvection
