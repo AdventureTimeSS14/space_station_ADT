@@ -19,7 +19,7 @@
   # - Train
 
 # ADT Maps Базовые Актуальные
-  - ADT_Bagel
+  # - ADT_Bagel # SD-Tweak
   - ADT_Box
   - ADT_Cluster
   - ADT_Origin
@@ -40,6 +40,7 @@
   - SD_Flicker
   - SD_Lumen
   - SD_Pascal
+  - SD_Whiteout
 
 # ADT Maps Выведенные на переработку
   # - ADT_Avrit требуется декорваксизация
