@@ -691,3 +691,6 @@
 
 - type: Tag
   id: VoxFood
+
+- type: Tag
+  id: ADTClosedRadio
