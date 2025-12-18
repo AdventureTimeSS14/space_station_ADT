@@ -18,8 +18,8 @@ public sealed class RunAndGunSpreadModifierSystem : EntitySystem
 
     private void OnModifyAngle(Entity<RunAndGunSpreadModifierComponent> ent, ref GunShotEvent args)
     {
-        if (!TryComp<PhysicsComponent>(args.User, out var physics) || 
-            physics.LinearVelocity.LengthSquared() < ent.Comp.MinVelocity)
+        if (!TryComp<PhysicsComponent>(args.User, out var physics) ||
+            physics.LinearVelocity.Length() < ent.Comp.MinVelocity)
             return;
         // Log.Warning(physics.LinearVelocity.LengthSquared().ToString()); //раскомментируйте, если хотите заменять скорость для нового оружия
 
@@ -37,7 +37,7 @@ public sealed class RunAndGunSpreadModifierSystem : EntitySystem
     {
         if (!args.Cancelled &&
             TryComp<PhysicsComponent>(args.User, out var physics) &&
-            physics.LinearVelocity.LengthSquared() > ent.Comp.MaxVelocity)
+            physics.LinearVelocity.Length() > ent.Comp.MaxVelocity)
             args.Cancelled = true;
     }
 }

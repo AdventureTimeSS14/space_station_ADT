@@ -13,8 +13,8 @@ public sealed partial class RunAndGunSpreadModifierComponent : Component
     [DataField]
     public float Modifier = 1f;
     /// <summary>
-    /// Минимальная инерция для работы, работает НЕ ПО ТАЙЛАМ В СЕКУНДУ, подробнее можно посмотреть в системе
+    /// Минимальная инерция для работы, работает по тайлам в секунду
     /// </summary>
     [DataField]
-    public float MinVelocity = 21f; //ЭТО по идеи равняется 4.5 тайлам в секунду и я понятия не имею, каким чёртом оно работает
+    public float MinVelocity = 4.5f;
 }
