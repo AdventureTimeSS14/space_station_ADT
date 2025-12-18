@@ -1,0 +1,59 @@
+- type: cargoBounty
+  id: BountySalvageOreСopper
+  reward: 7500
+  description: bounty-description-salvage-ore-copper
+  group: SalvageJobTier1
+  sprite:
+    sprite: ADT/Objects/Materials/ore.rsi
+    state: copper
+  entries:
+  - name: bounty-item-ore-copper
+    amount: 45
+    whitelist:
+      tags:
+      - ADTOreCopper
+
+- type: cargoBounty
+  id: BountySalvageOreBS
+  reward: 15000
+  description: bounty-description-salvage-ore-bs
+  group: SalvageJobTier2
+  sprite:
+    sprite: ADT/Objects/Materials/BS_ore.rsi
+    state: BS_ore
+  entries:
+  - name: bounty-item-ore-bs
+    amount: 20
+    whitelist:
+      tags:
+      - ADTOreBS
+
+- type: cargoBounty
+  id: BountySalvageOreZinc
+  reward: 10500
+  description: bounty-description-salvage-ore-zinc
+  group: SalvageJobTier2
+  sprite:
+    sprite: ADT/Objects/Materials/ore.rsi
+    state: zinc
+  entries:
+  - name: bounty-item-ore-zinc
+    amount: 45
+    whitelist:
+      tags:
+      - ADTZincOre
+
+- type: cargoBounty
+  id: BountySalvageOreLead
+  reward: 8000
+  description: bounty-description-salvage-ore-lead
+  group: SalvageJobTier2
+  sprite:
+    sprite: ADT/Objects/Materials/ore.rsi
+    state: lead
+  entries:
+  - name: bounty-item-ore-lead
+    amount: 30
+    whitelist:
+      tags:
+      - ADTLeadOre

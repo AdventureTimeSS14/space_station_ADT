@@ -13,7 +13,6 @@
   unit: materials-unit-chunk
   icon: { sprite: ADT/Objects/Materials/BS_ore.rsi, state: BS_ore }
   color: "#a8ccd7"
-  price: 0.075
 
 - type: material
   id: ADTBScrystal
@@ -22,7 +21,7 @@
   unit: materials-unit-piece
   icon: { sprite: ADT/Objects/Materials/crystal.rsi, state: crystal }
   color: "#1d55c4"
-  price: 2.5
+  price: 1
 
 - type: material
   id: ADTBScrystalArt
@@ -30,7 +29,7 @@
   unit: materials-unit-piece
   icon: { sprite: ADT/Objects/Materials/crystal_art.rsi, state: crystal }
   color: "#1d55c4"
-  price: 0
+  price: 1
 
 - type: material
   id: Copper
