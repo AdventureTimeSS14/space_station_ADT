@@ -1,5 +1,5 @@
 - type: cargoBounty
-  id: BountySalvageOreСopper
+  id: BountySalvageOreCopper
   reward: 7500
   description: bounty-description-salvage-ore-copper
   group: SalvageJobTier1
