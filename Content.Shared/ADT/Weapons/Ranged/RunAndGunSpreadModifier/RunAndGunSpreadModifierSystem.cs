@@ -21,17 +21,11 @@ public sealed class RunAndGunSpreadModifierSystem : EntitySystem
         if (!TryComp<PhysicsComponent>(args.User, out var physics) || 
             physics.LinearVelocity.LengthSquared() < ent.Comp.MinVelocity)
             return;
+        // Log.Warning(physics.LinearVelocity.LengthSquared().ToString()); //раскомментируйте, если хотите заменять скорость для нового оружия
 
         var dir = args.ToCoordinates.Position - args.FromCoordinates.Position;
-        var lenSq = dir.LengthSquared();
 
-        if (lenSq < 0.0001f)
-            return;
-
-        var invLen = 1f / MathF.Sqrt(lenSq);
-        dir *= invLen;
-
-        var spread = MathF.Abs(physics.LinearVelocity.X + physics.LinearVelocity.Y) * ent.Comp.Modifyer;
+        var spread = MathF.Abs(physics.LinearVelocity.X + physics.LinearVelocity.Y) * ent.Comp.Modifier / 4;
 
         args.ToCoordinates = args.ToCoordinates.Offset(new Vector2(
             dir.X * _random.NextFloat(0f, spread) - dir.Y * _random.NextFloat(-spread, spread),
