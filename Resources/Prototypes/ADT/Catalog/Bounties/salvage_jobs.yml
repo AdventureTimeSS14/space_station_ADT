@@ -57,3 +57,34 @@
     whitelist:
       tags:
       - ADTLeadOre
+
+
+- type: cargoBounty
+  id: BountySalvageScrapAirlock1
+  reward: 3000
+  description: bounty-description-salvage-airlockscrap
+  group: SalvageJobTier1
+  sprite:
+    sprite: Objects/Materials/Scrap/generic.rsi
+    state: junk-airlock-1
+  entries:
+  - name: bounty-item-airlockscrap
+    amount: 8
+    whitelist:
+      tags:
+      - ScrapAirlock1
+
+- type: cargoBounty
+  id: BountySalvageScrapAirlock2
+  reward: 5000
+  description: bounty-description-salvage-airlockscrap2
+  group: SalvageJobTier1
+  sprite:
+    sprite: Objects/Materials/Scrap/generic.rsi
+    state: junk-airlock-3
+  entries:
+  - name: bounty-item-airlockscrap2
+    amount: 10
+    whitelist:
+      tags:
+      - ScrapAirlock2
