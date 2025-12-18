@@ -175,6 +175,7 @@
       path: /Audio/Machines/beep.ogg
     customizableCategories:
     - FacialHair
+    defaultSkinColoring: false
   - type: AnimatedEmotes
 
 - type: entity
