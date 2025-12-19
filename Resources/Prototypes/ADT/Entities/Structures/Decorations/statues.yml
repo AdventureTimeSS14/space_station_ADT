@@ -7,7 +7,7 @@
   components:
   - type: Sprite
     noRot: true
-    sprite: ADT/Structures/Decoration/statues.rsi
+    sprite: ADT/Structures/Decoration/Statues/beer_messiah.rsi
     state: beer_messiah_left
     drawdepth: Mobs
     offset: "0.0,0.5"
@@ -21,7 +21,7 @@
   components:
   - type: Sprite
     noRot: true
-    sprite: ADT/Structures/Decoration/statues.rsi
+    sprite: ADT/Structures/Decoration/Statues/beer_messiah.rsi
     state: beer_messiah_right
     drawdepth: Mobs
     offset: "0.0,0.5"
