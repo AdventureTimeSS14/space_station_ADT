@@ -388,6 +388,17 @@
       path: /Audio/Effects/unwrap.ogg
 
 - type: entity
+  id: ADTPresentSelected
+  parent: [PresentBase, BaseItem]
+  suffix: Filled Selected
+  components:
+  - type: SpawnItemsOnUse
+    items:
+      - id: PresentTrash
+  - type: SpawnItemSelector
+    selectedItemId: Coal1
+
+- type: entity
   id: PresentRandomCoal
   parent: [PresentBase, BaseItem]
   suffix: Filled Coal
