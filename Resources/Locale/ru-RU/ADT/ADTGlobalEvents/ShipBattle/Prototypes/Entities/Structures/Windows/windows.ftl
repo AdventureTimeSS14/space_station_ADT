@@ -12,5 +12,5 @@ ent-ADTWindowTSFHeavy = укрепленное окно ТСФ
     .suffix = { "Космические бои, ТСФ" }
 ent-ADTWindowFrameless = безрамное окно
     .desc = { ent-Window.desc }
-ent-ADTWindowDirectionalFrameless = безрамное полное окно
+ent-ADTWindowDirectionalFrameless = направленное безрамное окно
     .desc = { ent-Window.desc }
