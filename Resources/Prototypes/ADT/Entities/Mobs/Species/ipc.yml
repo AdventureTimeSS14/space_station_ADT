@@ -171,8 +171,10 @@
     action: ActionIpcScreen
     selectSlotTime: 0
     changeSlotTime: 0
+    changeVoiceTime: 0
     changeMarkingSound:
       path: /Audio/Machines/beep.ogg
+    playSoundForVoiceChange: false
     customizableCategories:
     - FacialHair
   - type: AnimatedEmotes

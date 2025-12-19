@@ -233,7 +233,8 @@ public sealed partial class MidroundCustomizationSystem : EntitySystem
         if (!_proto.TryIndex<TTSVoicePrototype>(args.Voice, out var proto) || !HumanoidCharacterProfile.CanHaveVoice(proto, humanoid.Sex, humanoid.Species))
             return;
 
-        _audio.PlayPvs(component.ChangeMarkingSound, uid);
+        if (component.PlaySoundForVoiceChange)
+            _audio.PlayPvs(component.ChangeMarkingSound, uid);
         _humanoid.SetTTSVoice(args.Target.Value, args.Voice, humanoid);
 
         UpdateInterface(uid, component);
@@ -269,7 +270,8 @@ public sealed partial class MidroundCustomizationSystem : EntitySystem
         if (!_proto.TryIndex<BarkPrototype>(args.Proto, out _))
             return;
 
-        _audio.PlayPvs(component.ChangeMarkingSound, uid);
+        if (component.PlaySoundForVoiceChange)
+            _audio.PlayPvs(component.ChangeMarkingSound, uid);
         var newData = humanoid.Bark.WithProto(args.Proto);
         _humanoid.SetBarkData(args.Target.Value, newData, humanoid);
 
@@ -303,7 +305,8 @@ public sealed partial class MidroundCustomizationSystem : EntitySystem
         if (!TryComp<HumanoidAppearanceComponent>(args.Target.Value, out var humanoid))
             return;
 
-        _audio.PlayPvs(component.ChangeMarkingSound, uid);
+        if (component.PlaySoundForVoiceChange)
+            _audio.PlayPvs(component.ChangeMarkingSound, uid);
         var newData = humanoid.Bark.WithPitch(args.Pitch);
         _humanoid.SetBarkData(args.Target.Value, newData, humanoid);
 
@@ -337,7 +340,8 @@ public sealed partial class MidroundCustomizationSystem : EntitySystem
         if (!TryComp<HumanoidAppearanceComponent>(args.Target.Value, out var humanoid))
             return;
 
-        _audio.PlayPvs(component.ChangeMarkingSound, uid);
+        if (component.PlaySoundForVoiceChange)
+            _audio.PlayPvs(component.ChangeMarkingSound, uid);
         var newData = humanoid.Bark.WithMinVar(args.MinVar);
         _humanoid.SetBarkData(args.Target.Value, newData, humanoid);
 
@@ -371,7 +375,8 @@ public sealed partial class MidroundCustomizationSystem : EntitySystem
         if (!TryComp<HumanoidAppearanceComponent>(args.Target.Value, out var humanoid))
             return;
 
-        _audio.PlayPvs(component.ChangeMarkingSound, uid);
+        if (component.PlaySoundForVoiceChange)
+            _audio.PlayPvs(component.ChangeMarkingSound, uid);
         var newData = humanoid.Bark.WithMaxVar(args.MaxVar);
         _humanoid.SetBarkData(args.Target.Value, newData, humanoid);
 
