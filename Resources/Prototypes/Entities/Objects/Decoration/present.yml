@@ -387,6 +387,7 @@
     sound:
       path: /Audio/Effects/unwrap.ogg
 
+# ADT-Tweak start
 - type: entity
   id: ADTPresentSelected
   parent: [PresentBase, BaseItem]
@@ -397,6 +398,7 @@
       - id: PresentTrash
   - type: SpawnItemSelector
     selectedItemId: Coal1
+# ADT-Tweak end
 
 - type: entity
   id: PresentRandomCoal
