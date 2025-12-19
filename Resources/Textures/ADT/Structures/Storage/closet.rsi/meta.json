@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "size": {
+    "x": 36,
+    "y": 36
+  },
+  "copyright": "Taken from tgstation, resprited by orange6775 (discord)",
+  "license": "CC-BY-SA-3.0",
+  "states": [
+    {
+      "name": "rusty"
+    },
+    {
+      "name": "rusty_door"
+    },
+    {
+      "name": "rusty_open"
+    }
+  ]
+}

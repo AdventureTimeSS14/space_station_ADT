@@ -7,6 +7,9 @@ ent-ADTChairRed = красный деревянный стул
 ent-ADTChairWhite = белый деревянный стул
     .desc = Комфортный белый стул с белой спинкой и сидалищем
 
+ent-ADTChairRusty = ржавый стул
+    .desc = Вам лучше не сидеть на нём.
+
 ent-ADTArmchairWhite = белое кресло
     .desc = Выглядит крайне комфортно.
 
