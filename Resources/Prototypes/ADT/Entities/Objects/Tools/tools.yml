@@ -229,7 +229,6 @@
   - type: StaticPrice
     price: 40
 
-    rechargeDuration: 2
 - type: entity
   name: scalpel
   id: ADTSupermatterScalpel
