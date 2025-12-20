@@ -9,6 +9,7 @@
   markingLimits: MobIPCMarkingLimits
   dollPrototype: MobIPCDummy
   skinColoration: Hues
+  shortDesc: species-short-desc-ipc
   sponsorOnly: false
   minAge: 1
   maxAge: 55

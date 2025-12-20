@@ -140,7 +140,6 @@ public sealed class CursedHeartSystem : EntitySystem
                 comp.OriginalCritThreshold = currentCrit;
             }
             _mobThreshold.SetMobStateThreshold(uid, FixedPoint2.New(60), MobState.Critical, thresholds);
-            _bloodstream.TryModifyBloodLevel(uid, -75);
 
             _popup.PopupEntity(Loc.GetString("popup-cursed-heart-stop"), uid, uid, PopupType.LargeCaution);
             _audio.PlayGlobal(new SoundPathSpecifier("/Audio/ADT/Heretic/heartbeat.ogg"), uid);
@@ -163,6 +162,7 @@ public sealed class CursedHeartSystem : EntitySystem
         }
         _bloodstream.TryModifyBloodLevel(args.User, -999);
         _bloodstream.ChangeBloodReagent(args.User, "ADTCursedBlood");
+        _bloodstream.TryModifyBloodLevel(args.User, 300);
         _popup.PopupEntity(Loc.GetString("popup-cursed-heart-use"), args.User, args.User, PopupType.LargeCaution);
         _damage.TryChangeDamage(args.User, new DamageSpecifier(_proto.Index<DamageTypePrototype>("Piercing"), 20), true, false);
         _audio.PlayGlobal(new SoundPathSpecifier("/Audio/ADT/Heretic/heartbeat.ogg"), args.User);

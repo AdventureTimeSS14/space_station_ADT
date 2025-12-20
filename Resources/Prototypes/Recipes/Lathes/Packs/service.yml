@@ -3,9 +3,12 @@
 - type: latheRecipePack
   id: ServiceStatic
   recipes:
-  - Mousetrap  # ADT Tweak
-  - TrashBag  # ADT Tweak
-  - ADTPlantAnalyzer # ADT Tweak
+  #ADT-Tweak-Start
+  - ADTWateringCan 
+  - Mousetrap
+  - ADTPlantAnalyzer
+  - ADTBotanicalSeedDNADisk
+  #ADT-Tweak-End
   - Bucket
   - Ashtray
   - DrinkMug
@@ -53,6 +56,7 @@
   - ClothingBackpackWaterTank
   - MegaSprayBottle
   - ADTBluespaceTrashCan # ADT tweak
+  - ADTAdvancedWateringCan #ADT-Tweak
 
 - type: latheRecipePack
   id: Instruments

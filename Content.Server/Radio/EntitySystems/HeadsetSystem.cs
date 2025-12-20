@@ -38,11 +38,11 @@ public sealed class HeadsetSystem : SharedHeadsetSystem
     // ADT-ADD-Start: (P4A) Блокировка связи при оглушении и наручниках
     private bool BlockedByHandcuffsOrStun(EntityUid user)
     {
-        if (TryComp<CuffableComponent>(user, out var cuffable))
-        {
-            if (cuffable.CuffedHandCount > 0)
-                return true;
-        }
+//        if (TryComp<CuffableComponent>(user, out var cuffable))
+//        {
+//            if (cuffable.CuffedHandCount > 0)
+//                return true;
+//        }
 
         if (HasComp<StunnedComponent>(user))
             return true;
@@ -57,10 +57,10 @@ public sealed class HeadsetSystem : SharedHeadsetSystem
 
         string msg;
 
-        if (TryComp<CuffableComponent>(user, out var cuffable) && cuffable.CuffedHandCount > 0)
-            msg = Loc.GetString("radio-blocked-handcuffed");
-        else
-            msg = Loc.GetString("radio-blocked-stunned");
+//        if (TryComp<CuffableComponent>(user, out var cuffable) && cuffable.CuffedHandCount > 0)
+//            msg = Loc.GetString("radio-blocked-handcuffed");
+//        else
+        msg = Loc.GetString("radio-blocked-stunned");
 
         _popup.PopupEntity(msg, user, user);
     }
