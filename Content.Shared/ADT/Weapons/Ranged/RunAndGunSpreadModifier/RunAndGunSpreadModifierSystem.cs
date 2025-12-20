@@ -25,7 +25,7 @@ public sealed class RunAndGunSpreadModifierSystem : EntitySystem
 
         var dir = args.ToCoordinates.Position - args.FromCoordinates.Position;
 
-        var spread = MathF.Abs(physics.LinearVelocity.X + physics.LinearVelocity.Y) * ent.Comp.Modifier / 4;
+        var spread = physics.LinearVelocity.Length() * ent.Comp.Modifier / 4;
 
         args.ToCoordinates = args.ToCoordinates.Offset(new Vector2(
             dir.X * _random.NextFloat(0f, spread) - dir.Y * _random.NextFloat(-spread, spread),
