@@ -13,14 +13,20 @@ public sealed partial class PosingComponent : Component
     public Angle CurrentAngle = Angle.Zero;
 
     [DataField, AutoNetworkedField]
-    public Vector2 OffsetLimits = new(1f, 1f);
+    public Vector2 OffsetLimits = new(0.3f, 0.3f);
 
-    [DataField("angleLimits"), AutoNetworkedField]
-    private float _angleLimitsDegrees = 45f;
-
-    [ViewVariables(VVAccess.ReadOnly)]
-    public Angle AngleLimits => Angle.FromDegrees(_angleLimitsDegrees);
+    [DataField, AutoNetworkedField]
+    public float AngleLimits = 180f;
 
     [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
     public bool Posing = false;
+
+    [DataField]
+    public string DefaultInputContext = "human";
+
+    [DataField]
+    public Vector2 DefaultOffset = Vector2.Zero;
+
+    [DataField]
+    public float DefaultAngle = 0f;
 }
