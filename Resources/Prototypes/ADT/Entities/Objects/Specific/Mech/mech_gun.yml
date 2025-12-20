@@ -249,7 +249,7 @@
   - type: UIFragment
     ui: !type:MechGunUi
   # - type: RunAndGunSpreadModifier
-  #   modifyer: 1
+  #   modifier: 1
 
 - type: entity
   name: FNX-99 "Hades" Carbine
