@@ -17,12 +17,13 @@ public abstract partial class SharedPosingSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<PosingComponent, UpdateCanMoveEvent>(OnUpdateCanMove);
+        SubscribeLocalEvent<PosingComponent, DownedEvent>(OnDowned);
 
         CommandBinds.Builder
             .Bind(ContentKeyFunctions.TogglePosing,
                 InputCmdHandler.FromDelegate(session =>
                     {
-                        if (session?.AttachedEntity is { } userUid)
+                        if (session?.AttachedEntity is { } userUid && !_standing.IsDown(userUid))
                             TogglePosing(userUid);
                     },
                     handle: false))
@@ -83,12 +84,15 @@ public abstract partial class SharedPosingSystem : EntitySystem
             args.Cancel();
     }
 
+    private void OnDowned(EntityUid uid, PosingComponent component, DownedEvent args)
+    {
+        if (component.Posing)
+            TogglePosing(uid, component);
+    }
+
     private void TogglePosing(EntityUid uid, PosingComponent? posingComp = null)
     {
         if (!Resolve(uid, ref posingComp, false))
-            return;
-
-        if (_standing.IsDown(uid))
             return;
 
         posingComp.Posing = !posingComp.Posing;
