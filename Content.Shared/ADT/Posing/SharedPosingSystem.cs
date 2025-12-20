@@ -106,12 +106,12 @@ public abstract partial class SharedPosingSystem : EntitySystem
         if (!Resolve(uid, ref posingComp, false) || !posingComp.Posing)
             return;
 
-        var previusOffset = posingComp.CurrentOffset;
+        var previousOffset = posingComp.CurrentOffset;
 
         posingComp.CurrentOffset += offset;
         posingComp.CurrentOffset = Vector2.Clamp(posingComp.CurrentOffset, -posingComp.OffsetLimits, posingComp.OffsetLimits);
 
-        if (posingComp.CurrentOffset.Equals(previusOffset))
+        if (posingComp.CurrentOffset.Equals(previousOffset))
             return;
 
         Dirty(uid, posingComp);
@@ -122,12 +122,12 @@ public abstract partial class SharedPosingSystem : EntitySystem
         if (!Resolve(uid, ref posingComp, false) || !posingComp.Posing)
             return;
 
-        var previusAngle = posingComp.CurrentAngle;
+        var previousAngle = posingComp.CurrentAngle;
 
         var newAngle = posingComp.CurrentAngle.Degrees + angle;
         posingComp.CurrentAngle = Angle.FromDegrees(Math.Clamp(newAngle, -posingComp.AngleLimits, posingComp.AngleLimits));
 
-        if (posingComp.CurrentAngle.Equals(previusAngle))
+        if (posingComp.CurrentAngle.Equals(previousAngle))
             return;
 
         Dirty(uid, posingComp);
