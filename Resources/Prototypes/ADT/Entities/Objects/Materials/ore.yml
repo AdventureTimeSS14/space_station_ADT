@@ -125,6 +125,9 @@
         reagents:
         - ReagentId: Copper
           Quantity: 20
+  - type: Tag
+    tags:
+    - ADTOreCopper
 
 - type: entity
   parent: ADTCopperOre
@@ -159,6 +162,9 @@
         reagents:
         - ReagentId: Zinc
           Quantity: 20
+  - type: Tag
+    tags:
+    - ADTOreZinc
 
 - type: entity
   parent: ADTZincOre
@@ -194,6 +200,9 @@
         reagents:
         - ReagentId: Lead
           Quantity: 20
+  - type: Tag
+    tags:
+    - ADTOreLead
 
 - type: entity
   parent: ADTLeadOre

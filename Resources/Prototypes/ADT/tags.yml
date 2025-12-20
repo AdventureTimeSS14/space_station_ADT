@@ -691,3 +691,12 @@
 
 - type: Tag
   id: VoxFood
+
+- type: Tag
+  id: ADTOreCopper
+
+- type: Tag
+  id: ADTZincOre
+
+- type: Tag
+  id: ADTLeadOre
