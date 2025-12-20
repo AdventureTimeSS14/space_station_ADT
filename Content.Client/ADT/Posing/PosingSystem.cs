@@ -1,12 +1,8 @@
-using Content.Shared.ActionBlocker;
 using Content.Shared.ADT.Posing;
 using Content.Shared.Input;
-using Content.Shared.Standing;
 using Robust.Client.GameObjects;
 using Robust.Client.Input;
 using Robust.Client.Player;
-using Robust.Shared.Network;
-using Robust.Shared.Timing;
 
 namespace Content.Client.ADT.Posing;
 
@@ -14,7 +10,6 @@ public sealed partial class PosingSystem : SharedPosingSystem
 {
     [Dependency] private readonly IInputManager _input = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly SpriteSystem _sprite = default!;
 
     public override void Initialize()

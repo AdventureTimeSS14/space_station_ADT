@@ -4,14 +4,11 @@ using Content.Shared.Input;
 using Content.Shared.Movement.Events;
 using Content.Shared.Standing;
 using Robust.Shared.Input.Binding;
-using Robust.Shared.Network;
-using Robust.Shared.Player;
 
 namespace Content.Shared.ADT.Posing;
 
 public abstract partial class SharedPosingSystem : EntitySystem
 {
-    [Dependency] private readonly ISharedPlayerManager _player = default!;
     [Dependency] private readonly StandingStateSystem _standing = default!;
     [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
 
