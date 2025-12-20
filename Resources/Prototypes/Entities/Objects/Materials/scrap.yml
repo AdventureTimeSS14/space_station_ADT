@@ -146,6 +146,9 @@
   - type: PhysicalComposition
     materialComposition:
       Steel: 1500 # 15 sheets
+  - type: Tag
+    tags:
+    - ScrapAirlock1
 
 - type: entity
   parent: BaseScrap
@@ -164,6 +167,9 @@
     materialComposition:
       Steel: 200 # 2 sheets
       Glass: 500 # 5 sheets
+  - type: Tag
+    tags:
+    - ScrapAirlock2
 
 - type: entity
   parent: BaseScrap

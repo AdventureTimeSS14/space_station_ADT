@@ -127,7 +127,7 @@
           Quantity: 20
   - type: Tag
     tags:
-    - ADTOreCopper
+    - ADTCopperOre
 
 - type: entity
   parent: ADTCopperOre
@@ -164,7 +164,7 @@
           Quantity: 20
   - type: Tag
     tags:
-    - ADTOreZinc
+    - ADTZincOre
 
 - type: entity
   parent: ADTZincOre
@@ -202,7 +202,7 @@
           Quantity: 20
   - type: Tag
     tags:
-    - ADTOreLead
+    - ADTLeadOre
 
 - type: entity
   parent: ADTLeadOre

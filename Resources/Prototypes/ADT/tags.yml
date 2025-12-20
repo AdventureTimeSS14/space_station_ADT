@@ -700,3 +700,9 @@
 
 - type: Tag
   id: ADTLeadOre
+
+- type: Tag
+  id: ScrapAirlock1
+
+- type: Tag
+  id: ScrapAirlock2
