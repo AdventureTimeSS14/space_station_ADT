@@ -39,3 +39,6 @@ ent-ADTArmchairBlue2 = { ent-ADTArmchairBlue }
 
 ent-ADTBarberChair = парикмахерское кресло
     .desc = Очень удобное кресло, предназначенное для работы парикмахера.
+
+ent-ADTArmchairCentcomm = раскошное кресло Центком
+    .desc = Комфортное и раскошное кресло для представителей Центком.
