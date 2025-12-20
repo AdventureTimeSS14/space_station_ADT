@@ -177,7 +177,9 @@
     playSoundForVoiceChange: false
     customizableCategories:
     - FacialHair
+    defaultSkinColoring: false
   - type: AnimatedEmotes
+  - type: Posing
 
 - type: entity
   save: false

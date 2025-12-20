@@ -102,8 +102,26 @@ public sealed partial class MidroundCustomizationSystem : EntitySystem
         if (!TryComp<HumanoidAppearanceComponent>(uid, out var humanoid))
             return;
 
+        Color defaultColor;
+        if (component.DefaultSkinColoring)
+        {
+            defaultColor = humanoid.SkinColor;
+        }
+        else
+        {
+            defaultColor = Color.White;
+            if (humanoid.MarkingSet.TryGetCategory(args.Category, out var markingsList) && args.Slot < markingsList.Count)
+            {
+                var current = markingsList[args.Slot];
+                if (current.MarkingColors.Count > 0)
+                {
+                    defaultColor = current.MarkingColors[0];
+                }
+            }
+        }
+
         _audio.PlayPvs(component.ChangeMarkingSound, uid);
-        _humanoid.SetMarkingId(uid, args.Category, args.Slot, args.Marking, force: false, defaultColor: component.DefaultSkinColoring ? humanoid.SkinColor : Color.Gray);
+        _humanoid.SetMarkingId(uid, args.Category, args.Slot, args.Marking, force: false, defaultColor: defaultColor);
         UpdateInterface(uid, component);
     }
 
@@ -198,8 +216,10 @@ public sealed partial class MidroundCustomizationSystem : EntitySystem
         if (string.IsNullOrEmpty(marking))
             return;
 
+        Color color = component.DefaultSkinColoring ? humanoid.SkinColor : Color.White;
+
         _audio.PlayPvs(component.ChangeMarkingSound, uid);
-        _humanoid.AddMarking(uid, marking, component.DefaultSkinColoring ? humanoid.SkinColor : Color.Gray);
+        _humanoid.AddMarking(uid, marking, color);
         UpdateInterface(uid, component);
     }
 
