@@ -176,6 +176,7 @@
     customizableCategories:
     - FacialHair
   - type: AnimatedEmotes
+  - type: Posing
 
 - type: entity
   save: false
