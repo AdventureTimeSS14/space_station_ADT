@@ -61,7 +61,7 @@
 
 - type: cargoBounty
   id: BountySalvageScrapAirlock1
-  reward: 3000
+  reward: 8000
   description: bounty-description-salvage-airlockscrap
   group: SalvageJobTier1
   sprite:
@@ -76,7 +76,7 @@
 
 - type: cargoBounty
   id: BountySalvageScrapAirlock2
-  reward: 5000
+  reward: 7000
   description: bounty-description-salvage-airlockscrap2
   group: SalvageJobTier1
   sprite:

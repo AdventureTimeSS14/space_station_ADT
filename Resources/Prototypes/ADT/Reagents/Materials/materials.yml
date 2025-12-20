@@ -13,6 +13,7 @@
   unit: materials-unit-chunk
   icon: { sprite: ADT/Objects/Materials/BS_ore.rsi, state: BS_ore }
   color: "#a8ccd7"
+  price: 0
 
 - type: material
   id: ADTBScrystal
