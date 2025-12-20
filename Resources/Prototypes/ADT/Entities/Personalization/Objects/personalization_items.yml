@@ -188,7 +188,7 @@
     - suitStorage
   - type: ChamberMagazineAmmoProvider
   - type: RunAndGunSpreadModifier
-    modifyer: 0.4
+    modifier: 0.04
   - type: MeleeWeapon
     resetOnHandSelected: false
     attackRate: 1
