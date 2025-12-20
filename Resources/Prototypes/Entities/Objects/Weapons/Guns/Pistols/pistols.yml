@@ -107,8 +107,8 @@
         whitelist:
           tags:
             - CartridgePistol
-  # - type: RunAndGunSpreadModifier
-  #   modifyer: 0.1
+  - type: RunAndGunSpreadModifier
+    modifier: 0.05
   - type: ContainerContainer
     containers:
       gun_magazine: !type:ContainerSlot
@@ -157,8 +157,8 @@
   - type: ContainerContainer
     containers:
       ballistic-ammo: !type:Container
-  # - type: RunAndGunSpreadModifier
-  #   modifyer: 0.1 
+  - type: RunAndGunSpreadModifier
+    modifier: 0.05
   - type: ProjectileBatteryAmmoProvider
     proto: BulletPistol
     fireCost: 100
@@ -187,8 +187,8 @@
     sprite: Objects/Weapons/Guns/Pistols/cobra.rsi
   - type: ChamberMagazineAmmoProvider
     boltClosed: null
-  # - type: RunAndGunSpreadModifier
-  #   modifyer: 0.1
+  - type: RunAndGunSpreadModifier
+    modifier: 0.05
   - type: Gun
     fireRate: 4
     soundGunshot:
@@ -258,8 +258,8 @@
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-0
       map: ["enum.GunVisualLayers.Mag"]
-  # - type: RunAndGunSpreadModifier
-  #   modifyer: 0.1
+  - type: RunAndGunSpreadModifier
+    modifier: 0.05
   - type: Clothing
     sprite: Objects/Weapons/Guns/Pistols/mk58.rsi
   - type: Gun
@@ -309,8 +309,8 @@
       map: ["enum.GunVisualLayers.Mag"]
   - type: Clothing
     sprite: Objects/Weapons/Guns/Pistols/N1984.rsi
-  # - type: RunAndGunSpreadModifier
-  #   modifyer: 0.4
+  - type: RunAndGunSpreadModifier
+    modifier: 0.05
   - type: Gun
     minAngle: 1
     maxAngle: 20
