@@ -643,3 +643,25 @@ binds:
 - function: PickupHumans # ADT-Tweak
   type: State
   key: Space
+- function: TogglePosing # ADT-Tweak
+  type: State
+  key: R
+  mod1: Control
+- function: PosingOffsetLeft # ADT-Tweak
+  type: State
+  key: A
+- function: PosingOffsetRight # ADT-Tweak
+  type: State
+  key: D
+- function: PosingOffsetUp # ADT-Tweak
+  type: State
+  key: W
+- function: PosingOffsetDown # ADT-Tweak
+  type: State
+  key: S
+- function: PosingRotateNegative # ADT-Tweak
+  type: State
+  key: Q
+- function: PosingRotatePositive # ADT-Tweak
+  type: State
+  key: E
