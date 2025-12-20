@@ -1,8 +1,11 @@
 using System.Numerics;
 using Content.Shared.ActionBlocker;
+using Content.Shared.Damage.Components;
 using Content.Shared.Input;
+using Content.Shared.Mobs;
 using Content.Shared.Movement.Events;
 using Content.Shared.Standing;
+using Content.Shared.Stunnable;
 using Robust.Shared.Input.Binding;
 
 namespace Content.Shared.ADT.Posing;
@@ -18,12 +21,13 @@ public abstract partial class SharedPosingSystem : EntitySystem
 
         SubscribeLocalEvent<PosingComponent, UpdateCanMoveEvent>(OnUpdateCanMove);
         SubscribeLocalEvent<PosingComponent, DownedEvent>(OnDowned);
+        SubscribeLocalEvent<PosingComponent, MobStateChangedEvent>(OnMobStateChanged);
 
         CommandBinds.Builder
             .Bind(ContentKeyFunctions.TogglePosing,
                 InputCmdHandler.FromDelegate(session =>
                     {
-                        if (session?.AttachedEntity is { } userUid && !_standing.IsDown(userUid))
+                        if (session?.AttachedEntity is { } userUid && !CanTogglePosing(userUid))
                             TogglePosing(userUid);
                     },
                     handle: false))
@@ -84,7 +88,13 @@ public abstract partial class SharedPosingSystem : EntitySystem
             args.Cancel();
     }
 
-    private void OnDowned(EntityUid uid, PosingComponent component, DownedEvent args)
+    private void OnDowned(EntityUid uid, PosingComponent component, EntityEventArgs args)
+    {
+        if (component.Posing)
+            TogglePosing(uid, component);
+    }
+
+    private void OnMobStateChanged(EntityUid uid, PosingComponent component, ref MobStateChangedEvent args)
     {
         if (component.Posing)
             TogglePosing(uid, component);
@@ -139,5 +149,22 @@ public abstract partial class SharedPosingSystem : EntitySystem
 
     protected virtual void ClientTogglePosing(EntityUid uid, PosingComponent posing)
     {
+    }
+
+    private bool CanTogglePosing(EntityUid uid)
+    {
+        if (_actionBlocker.CanConsciouslyPerformAction(uid))
+            return false;
+
+        if (TryComp<StaminaComponent>(uid, out var stamina) && stamina.Critical)
+            return false;
+
+        if (HasComp<StunnedComponent>(uid))
+            return false;
+
+        if (_standing.IsDown(uid))
+            return false;
+
+        return true;
     }
 }
