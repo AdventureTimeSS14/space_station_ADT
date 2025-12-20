@@ -33,6 +33,12 @@ public sealed partial class PosingSystem : SharedPosingSystem
         posing.AddFunction(ContentKeyFunctions.PosingRotateNegative);
     }
 
+    public override void Shutdown()
+    {
+        base.Shutdown();
+        _input.Contexts.Remove("posing");
+    }
+
     private void OnAfterHandleState(EntityUid uid, PosingComponent component, ref AfterAutoHandleStateEvent args)
     {
         if (_playerManager.LocalEntity == uid)
