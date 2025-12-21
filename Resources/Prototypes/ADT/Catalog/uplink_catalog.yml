@@ -561,18 +561,18 @@
   categories:
     - UplinkImplants
 
-- type: listing
-  id: ADTUplinkSandevistanImplant
-  name: uplink-sandevistan-implant-name
-  description: uplink-sandevistan-implant-desc
-  icon: { sprite: ADT/Implants/sandevistan.rsi, state: icon}
-  productEntity: ADTSandevistanAutoSurgeon
-  discountDownTo:
-    Telecrystal: 8
-  cost:
-    Telecrystal: 12
-  categories:
-    - UplinkImplants
+#- type: listing
+#  id: ADTUplinkSandevistanImplant
+#  name: uplink-sandevistan-implant-name
+#  description: uplink-sandevistan-implant-desc
+#  icon: { sprite: ADT/Implants/sandevistan.rsi, state: icon}
+#  productEntity: ADTSandevistanAutoSurgeon
+#  discountDownTo:
+#    Telecrystal: 8
+#  cost:
+#    Telecrystal: 12
+#  categories:
+#    - UplinkImplants
 
 - type: listing
   id: ADTUplinkMantisDaggersImplant
