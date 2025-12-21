@@ -21,4 +21,4 @@ guide-entry-secret-recipes = Секретное
 guide-entry-medication = Медицина
 guide-entry-chaplain = Священник
 guide-entry-altars = Таблица алтарей
-guide-entry-matrialarts-ADT = Боевые искусства
+guide-entry-martialarts-ADT = Боевые искусства
