@@ -22,3 +22,5 @@ grab-escape-success-popup-self = Вы ослабили захват.
 grab-escape-success-popup-others = { $pullable } ослабляет захват.
 
 grab-speech-attempt-choke = Вы не можете дышать!
+
+forced-toilet-dunk-success-message = { CAPITALIZE($bonker) } окунает голову { $victim } в { $bonkable }!
