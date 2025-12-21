@@ -15,6 +15,15 @@ ui-options-show-offer-mode-indicators = Показывать индикатор 
 ui-options-function-toggle-crawling = Переключить ползание
 ui-options-function-open-languages-menu = Открыть меню выбора языка
 ui-options-function-offer-item = Передать что-либо
+ui-options-function-pickup-humans = Переключить режим подбора игроков
+ui-options-function-toggle-posing = Переключить режим позирования
+ui-options-function-posing-offset-left = Переместиться влево (позирование)
+ui-options-function-posing-offset-right = Переместиться вправо (позирование)
+ui-options-function-posing-offset-up = Переместиться вверх (позирование)
+ui-options-function-posing-offset-down = Переместиться вниз (позирование)
+ui-options-function-posing-rotate-negative = Повернуть против часовой (позирование)
+ui-options-function-posing-rotate-positive = Повернуть по часовой (позирование)
+
 ui-options-hud-theme-operative = Оперативник
 ui-options-hud-theme-detective = Детектив
 ui-options-hud-theme-coscult = Космический культ
