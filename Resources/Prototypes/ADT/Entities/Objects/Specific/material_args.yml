@@ -14,7 +14,7 @@
         path: /Audio/Items/Lighters/lighter3.ogg
     - type: GuideHelp
       guides:
-      - ADTMatrialArts
+      - ADTMartialArts
     - type: AddComponentsOnUse
       components:
         - type: Necksnap
@@ -141,7 +141,7 @@
         path: /Audio/Items/Lighters/lighter3.ogg
     - type: GuideHelp
       guides:
-      - ADTMatrialArts
+      - ADTMartialArts
     - type: AddComponentsOnUse
       components:
         - type: Reflect
@@ -272,7 +272,7 @@
         path: /Audio/Items/Lighters/lighter3.ogg
     - type: GuideHelp
       guides:
-      - ADTMatrialArts
+      - ADTMartialArts
     - type: AddComponentsOnUse
       components:
         - type: Combo

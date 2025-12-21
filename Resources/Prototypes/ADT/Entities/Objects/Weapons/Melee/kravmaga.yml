@@ -13,7 +13,7 @@
     fiberColor: fibers-red
   - type: GuideHelp
     guides:
-    - ADTMatrialArts
+    - ADTMartialArts
   - type: ClothingGrantComponent
     component:
     - type: PrepareAction

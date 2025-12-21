@@ -14,8 +14,8 @@
   children:
   - Radio
 # ADT-tweak start
-  - ADTMatrialArts
-# ADT-tweak end
+  - ADTMartialArts
+# ADT-tweak start  
 
 - type: guideEntry
   id: Radio

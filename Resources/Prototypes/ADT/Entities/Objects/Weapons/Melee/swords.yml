@@ -29,7 +29,7 @@
   - type: DisarmMalus
   - type: GuideHelp
     guides:
-    - ADTMatrialArts
+    - ADTMartialArts
   - type: ComboWeapon
     swapSound:
       path: /Audio/ADT/Entities/helmet_drop.ogg

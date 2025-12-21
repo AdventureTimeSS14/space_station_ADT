@@ -373,7 +373,7 @@
     sprite: ADT/Clothing/Belt/judo_belt.rsi
   - type: GuideHelp
     guides:
-    - ADTMatrialArts
+    - ADTMartialArts
   - type: Clothing
     sprite: ADT/Clothing/Belt/judo_belt.rsi
   - type: ClothingGrantTag

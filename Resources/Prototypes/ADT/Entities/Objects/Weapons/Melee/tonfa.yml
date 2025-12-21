@@ -29,7 +29,7 @@
     size: Normal
   - type: GuideHelp
     guides:
-    - ADTMatrialArts
+    - ADTMartialArts
   - type: DisarmMalus
   - type: ComboWeapon
     swapSound: /Audio/Effects/thudswoosh.ogg
