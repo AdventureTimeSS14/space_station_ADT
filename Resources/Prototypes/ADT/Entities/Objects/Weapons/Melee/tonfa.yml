@@ -27,6 +27,9 @@
   - type: Item
     sprite: ADT/Objects/Weapons/Melee/tonfa.rsi
     size: Normal
+  - type: GuideHelp
+    guides:
+    - ADTMatrialArts
   - type: DisarmMalus
   - type: ComboWeapon
     swapSound: /Audio/Effects/thudswoosh.ogg

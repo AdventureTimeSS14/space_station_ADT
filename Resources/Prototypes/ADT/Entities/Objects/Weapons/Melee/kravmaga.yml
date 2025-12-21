@@ -11,6 +11,9 @@
   - type: Fiber
     fiberMaterial: fibers-leather
     fiberColor: fibers-red
+  - type: GuideHelp
+    guides:
+    - ADTMatrialArts
   - type: ClothingGrantComponent
     component:
     - type: PrepareAction
