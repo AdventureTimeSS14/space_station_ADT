@@ -146,9 +146,11 @@
   - type: PhysicalComposition
     materialComposition:
       Steel: 1500 # 15 sheets
+  #ADT-Tweak-Start
   - type: Tag
     tags:
     - ScrapAirlock1
+  #ADT-Tweak-End
 
 - type: entity
   parent: BaseScrap
@@ -167,9 +169,11 @@
     materialComposition:
       Steel: 200 # 2 sheets
       Glass: 500 # 5 sheets
+  #ADT-Tweak-Start
   - type: Tag
     tags:
     - ScrapAirlock2
+  #ADT-Tweak-End
 
 - type: entity
   parent: BaseScrap

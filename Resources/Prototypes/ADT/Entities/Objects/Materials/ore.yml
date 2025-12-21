@@ -24,6 +24,7 @@
     tags:
       - ADTBSore
       - Ore
+      - ADTOreBS
 
 - type: entity
   parent: ADTBSore

@@ -693,7 +693,7 @@
   id: VoxFood
 
 - type: Tag
-  id: ADTOreCopper
+  id: ADTCopperOre
 
 - type: Tag
   id: ADTZincOre
@@ -706,3 +706,6 @@
 
 - type: Tag
   id: ScrapAirlock2
+
+- type: Tag
+  id: ADTOreBS
