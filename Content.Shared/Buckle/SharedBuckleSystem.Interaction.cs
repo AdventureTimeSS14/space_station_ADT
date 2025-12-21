@@ -44,7 +44,8 @@ public abstract partial class SharedBuckleSystem
         else
         {
             if (!TryComp(args.Dragged, out BuckleComponent? buckle) ||
-                !CanBuckle(args.Dragged, args.User, uid, true, out var _, buckle))
+                !CanBuckle(args.Dragged, args.User, uid, true, out var _, buckle) ||
+                !component.ForceBuckle) // ADT-Tweak
                 return;
 
             var doAfterArgs = new DoAfterArgs(EntityManager, args.User, component.BuckleDoafterTime, new BuckleDoAfterEvent(), args.Dragged, args.Dragged, uid)
