@@ -18,7 +18,7 @@ namespace Content.Server.ADT.BookPrinter
 
         public bool IsUploadAvailable()
         {
-            if (!_cfg.GetCVar(ADTCCVars.BookPrinterUploadCooldownEnabled))
+            if (!IsCooldownEnabled())
                 return true;
 
             if (_lastUploadTime == null)
@@ -32,7 +32,7 @@ namespace Content.Server.ADT.BookPrinter
 
         public TimeSpan GetRemainingCooldown()
         {
-            if (!_cfg.GetCVar(ADTCCVars.BookPrinterUploadCooldownEnabled) || _lastUploadTime == null)
+            if (!IsCooldownEnabled() || _lastUploadTime == null)
                 return TimeSpan.Zero;
 
             var cooldownDuration = TimeSpan.FromSeconds(_cfg.GetCVar(ADTCCVars.BookPrinterUploadCooldown));
@@ -55,11 +55,6 @@ namespace Content.Server.ADT.BookPrinter
         public bool IsCooldownEnabled()
         {
             return _cfg.GetCVar(ADTCCVars.BookPrinterUploadCooldownEnabled);
-        }
-
-        public void ResetCooldown()
-        {
-            _lastUploadTime = null;
         }
     }
 }
