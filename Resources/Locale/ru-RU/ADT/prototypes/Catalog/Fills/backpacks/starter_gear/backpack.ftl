@@ -24,3 +24,5 @@ ent-ADTClothingBackpackSeniorSecurityFilled = { ent-ClothingBackpackSecurity }
     .desc = { ent-ClothingBackpackSecurity }
 ent-ADTClothingBackpackParamedicFilled = рюкзак парамедика
     .desc = Рюкзак, изготовленный для экстренных вызовов медицинской помощи.
+ent-ADTClothingCentcomBackpackFilled = { ent-ADTClothingCentcomBackpack }
+    .desc = { ent-ADTClothingCentcomBackpack.desc }

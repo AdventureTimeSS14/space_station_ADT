@@ -12,6 +12,9 @@
       - id: Ash
       sound: 
         path: /Audio/Items/Lighters/lighter3.ogg
+    - type: GuideHelp
+      guides:
+      - ADTMartialArts
     - type: AddComponentsOnUse
       components:
         - type: Necksnap
@@ -136,8 +139,13 @@
       - id: Ash
       sound: 
         path: /Audio/Items/Lighters/lighter3.ogg
+    - type: GuideHelp
+      guides:
+      - ADTMartialArts
     - type: AddComponentsOnUse
       components:
+        - type: ComboCounter
+          maxCombo: 4
         - type: Reflect
           reflectProb: 1
           includeExamine: false
@@ -147,108 +155,57 @@
           availableMoves:
             - actionsNeeds:
                 - Hit
-                - Grab
-              comboEvent:
-                - !type:ComboPopupEffect
-                  localeText: combo-backhit-end
-                - !type:ComboStopGrabEffect
-                - !type:ComboStunEffect
-                  stunTime: 4
-                  dropItems: false
-                - !type:ComboSpeechEffect
-                  speech: speech-carp-backhit
-                - !type:ComboAudioEffect
-                  sound:
-                    collection: GenericHit
-            - actionsNeeds:
                 - Hit
-                - Disarm
-                - Hit
-                - Disarm
               comboEvent:
-                - !type:ComboPopupEffect
-                  localeText: combo-elbow-end
                 - !type:ComboDamageEffect
                   damage:
                     types:
-                      Blunt: 50
-                - !type:ComboFallEffect
-                - !type:ComboMoreDamageToDownedEffect
+                      Slash: 10
+                - !type:ComboEffectCounterDamageBonus
                   damage:
                     types:
-                      Blunt: 25
-                - !type:ComboSpeechEffect
-                  speech: speech-carp-elbow
-                - !type:ComboStopGrabEffect
-                - !type:ComboAudioEffect
-                  sound:
-                    collection: GenericHit
-            - actionsNeeds:
-                - Disarm
-                - Hit
-                - Hit
-              comboEvent:
-                - !type:ComboPopupEffect
-                  localeText: combo-headkick-end
-                - !type:ComboDamageEffect
-                  damage:
-                    types:
-                      Blunt: 20
-                - !type:ComboDropFromHandsEffect
+                      Slash: 10
+                - !type:ComboEffectAddToCounter
+                  amount: 1
                 - !type:ComboSpeechEffect
                   speech: speech-carp-headkick
                 - !type:ComboAudioEffect
                   sound:
                     collection: GenericHit
-            - actionsNeeds:
-                - Grab
-                - Hit
-              comboEvent:
-                - !type:ComboStopGrabEffect
                 - !type:ComboPopupEffect
-                  localeText: combo-stomach-end
+                  localeText: combo-gnashingteeth-end
+            - actionsNeeds:
+                - Hit
+                - Disarm
+              comboEvent:
                 - !type:ComboDamageEffect
                   damage:
                     types:
-                      Blunt: 5
-                - !type:ComboStunEffect
-                  stunTime: 4
+                      Slash: 15
+                - !type:ComboFallEffect
                   dropItems: false
-                - !type:ComboSpeechEffect
-                  speech: speech-carp-stomach
+                - !type:ComboTrowTargetEffect
+                  thrownSpeed: 50
                 - !type:ComboAudioEffect
                   sound:
                     collection: GenericHit
-            - actionsNeeds:
-                - Disarm
-                - Disarm
-              comboEvent:
                 - !type:ComboPopupEffect
-                  localeText: combo-wrench-end
+                  localeText: combo-crashingwave-end
+            - actionsNeeds:
+                - Hit
+                - Grab
+              comboEvent:
                 - !type:ComboDamageEffect
                   damage:
                     types:
-                      Blunt: 5
-                - !type:ComboDropFromHandsEffect
-                - !type:ComboSpeechEffect
-                  speech: speech-carp-wrench
-            - actionsNeeds:
-                - Hit
-                - Crawl
-              comboEvent:
-                - !type:ComboEffectToUserPuller
-                  comboEvents:
-                  - !type:ComboDamageEffect
-                    damage:
-                      types:
-                        Blunt: 10
-                  - !type:ComboTrowOnUserEffect
-                  - !type:ComboStopTargetGrabEffect
-                  - !type:ComboStunEffect
-                    stunTime: 1
-                    dropItems: false
-                  - !type:ComboSpeechEffect
-                    speech: speech-carp-throw
+                      Blunt: 10
+                - !type:ComboStaminaDamageEffect
+                  staminaDamage: 50
+                - !type:ComboAudioEffect
+                  sound:
+                    collection: GenericHit
+                - !type:ComboPopupEffect
+                  localeText: combo-headkick-end
 
 - type: entity
   id: ADTBookPTCR
@@ -264,6 +221,9 @@
       - id: Ash
       sound: 
         path: /Audio/Items/Lighters/lighter3.ogg
+    - type: GuideHelp
+      guides:
+      - ADTMartialArts
     - type: AddComponentsOnUse
       components:
         - type: Combo

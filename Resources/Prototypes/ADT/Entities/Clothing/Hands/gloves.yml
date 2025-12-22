@@ -131,8 +131,22 @@
 # ADT End Paws
 #endregion Paws
 
-# Тактические перчатки горничной (проводят электричество)
+# Medical
+- type: entity
+  parent: ClothingHandsButcherable
+  id: ClothingHandsGlovesLatexBlack
+  name: black latex gloves
+  description: Thin black sterile latex gloves. Basic PPE for any doctor.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Hands/Gloves/latex_black.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Hands/Gloves/latex_black.rsi
+  - type: Fiber
+    fiberMaterial: fibers-latex
+  - type: FingerprintMask
 
+# Тактические перчатки горничной (проводят электричество)
 - type: entity
   parent: ClothingHandsGlovesSyntheticBase
   id: ClothingHandsTacticalMaidGlovesNoInsulated
@@ -145,4 +159,3 @@
     sprite: Clothing/Hands/Gloves/tacticalmaidgloves.rsi
   - type: Fiber
     fiberColor: fibers-black
-

@@ -20,6 +20,9 @@ using Robust.Shared.Random;
 using Content.Shared.Cargo.Components;
 using Content.Shared.Cargo;
 using Robust.Shared.Timing;
+using Content.Shared.CCVar;
+using Robust.Shared.Configuration;
+using Content.Shared.ADT.CCVar;
 
 namespace Content.Server.ADT.Economy;
 
@@ -39,6 +42,7 @@ public sealed class BankCardSystem : EntitySystem
     [Dependency] private readonly GameTicker _gameTicker = default!;
     [Dependency] private readonly CartridgeLoaderSystem _cartridgeLoader = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly IConfigurationManager _configManager = default!;
 
     private const int SalaryDelay = 2700;
 
@@ -76,6 +80,9 @@ public sealed class BankCardSystem : EntitySystem
 
     private void PaySalary()
     {
+        if (!_configManager.GetCVar(ADTCCVars.PaySalary))
+            return;
+
         foreach (var account in _accounts.Where(account =>
                      account.Mind is {Comp.UserId: not null, Comp.CurrentEntity: not null} &&
                      _playerManager.TryGetSessionById(account.Mind.Value.Comp.UserId!.Value, out _) &&
