@@ -10,6 +10,8 @@
   - !type:DepartmentTimeRequirement
     department: Science
     time: 36000 #10 hrs
+  - !type:AgeRequirement # Hellix-Tweak
+    requiredAge: 40
   weight: 10
   startingGear: ResearchDirectorGear
   icon: "JobIconResearchDirector"

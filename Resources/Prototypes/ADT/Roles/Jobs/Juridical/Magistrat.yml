@@ -13,7 +13,7 @@
     - !type:DepartmentTimeRequirement
       department: Juridical
       time: 108000 # 30 hrs
-    - !type:AgeRequirement
+    - !type:AgeRequirement # Hellix-Tweak
       requiredAge: 30
     - !type:SpeciesRequirement
       inverted: true

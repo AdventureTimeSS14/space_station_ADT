@@ -58,7 +58,7 @@
             Lawyer: [ 1, 1 ]
             IAA: [ 1, 1 ]
             Pilot: [1, 1] # Corvax-Pilot
-            Magistrat: [ 1, 1 ] #ADT-Roles
+            # Magistrat: [ 1, 1 ] #ADT-Roles # Hellix-Tweak
             ADTRoboticist: [ 1, 2 ] #ADT-Roles
             ADTPathologist: [ 1, 1 ] #ADT-Roles
             ADTBlueShieldOfficer: [ 1, 1 ] #ADT-Roles

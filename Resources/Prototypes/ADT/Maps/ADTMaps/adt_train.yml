@@ -83,7 +83,7 @@
             # Juridical
             Lawyer: [ 2, 2 ]
             IAA: [ 1, 1 ]
-            Magistrat: [ 1, 1 ]
+            # Magistrat: [ 1, 1 ] # Hellix-Tweak
 
             # Silicon
             StationAi: [ 1, 1 ]

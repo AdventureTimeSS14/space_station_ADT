@@ -19,6 +19,8 @@
     - !type:DepartmentTimeRequirement
       department: Command
       time: 14400 # 4 hours
+    - !type:AgeRequirement # Hellix-Tweak
+      requiredAge: 35
   # ADT Restrict Start
     - !type:SpeciesRequirement
       inverted: true

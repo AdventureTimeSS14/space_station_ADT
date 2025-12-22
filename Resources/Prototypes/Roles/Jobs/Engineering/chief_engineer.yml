@@ -13,6 +13,8 @@
     - !type:DepartmentTimeRequirement
       department: Engineering
       time: 36000 #10 hrs
+    - !type:AgeRequirement # Hellix-Tweak
+      requiredAge: 28
       #ADT tweak start
     - !type:SpeciesRequirement
       inverted: true
