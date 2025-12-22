@@ -66,7 +66,26 @@
     graph: ADTSeat
     node: adtchairwhite
 
+- type: entity
+  name: rusty chair
+  id: ADTChairRusty
+  parent: ChairBase
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Chairs/chairs.rsi
+    state: rusty_chair
+
 # Sofas
+
+- type: entity
+  name: centcomm armchair
+  id: ADTArmchairCentcomm
+  parent: ADTChairBase
+  description: It looks comfy and expensive.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Chairs/armchairs.rsi
+    state: centcomm_armchair
 
 #кресла от Юны
 - type: entity

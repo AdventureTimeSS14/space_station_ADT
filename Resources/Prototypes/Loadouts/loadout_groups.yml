@@ -496,6 +496,9 @@
   minLimit: 0
   loadouts:
   - JanitorHead
+  # ADT-tweak-start
+  - ADTJanitorHeadbandTacticalMaid
+  # ADT-tweak-end
 
 - type: loadoutGroup
   id: JanitorJumpsuit
@@ -507,6 +510,7 @@
   - ADTJanitorJumpsuitJanimaid
   - ADTJanitorJumpsuitJanimaidmini
   - ADTJanitorJumpsuitJanimaidElegant
+  - ADTJanitorJumpsuitTacticalMaid
   # ADT-Loadouts-End
   # ADT tweak start
   - ADTClothingUniformJumpsuitTurtleneckPurple
@@ -522,6 +526,7 @@
   # ADT tweak start
   - ADTOrangeGloves
   - ADTPurpleGloves
+  - ADTJanitorGlovesTacticalMaid
   # ADT tweak end
 
 - type: loadoutGroup
@@ -1005,6 +1010,7 @@
   - StationEngineerPDA
   - ADTElectricianPDA # ADT
   - ADTMechanicPDA # ADT
+  - ADTWelderPDA # ADT
 
 - type: loadoutGroup
   id: AtmosphericTechnicianJumpsuit
@@ -1189,6 +1195,7 @@
   loadouts:
   - LatexGloves
   - ADTPurpleGloves # ADT tweak
+  - ADTGlovesLatexBlack # ADT tweak
 
 - type: loadoutGroup
   id: ScientistPDA
@@ -1556,6 +1563,7 @@
   minLimit: 0
   loadouts:
   - LatexGloves
+  - ADTGlovesLatexBlack #ADT tweak
   - NitrileGloves
 
 - type: loadoutGroup
