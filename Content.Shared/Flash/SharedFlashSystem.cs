@@ -160,6 +160,13 @@ public abstract class SharedFlashSystem : EntitySystem
         if (attempt.Cancelled)
             return;
 
+        // ADT-Tweak-Start фикс компонента флешмодифера, раньше он не работал
+        if (TryComp<FlashModifierComponent>(target, out var flashModifier))
+        {
+            flashDuration *= flashModifier.Modifier;
+        }
+        // ADT-Tweak-End
+
         // don't paralyze, slowdown or convert to rev if the target is immune to flashes
         if (!_statusEffectsSystem.TryAddStatusEffect<FlashedComponent>(target, FlashedKey, flashDuration, true))
             return;

@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Taken from https://github.com/Skyrat-SS13/Skyrat-tg/blob/master/icons/obj/card.dmi, pathologist made by JustKekc, SpaceSec made by the Adventure Time Project team, id-barber by prazat911 (discord) for ADT",
+    "copyright": "Taken from https://github.com/Skyrat-SS13/Skyrat-tg/blob/master/icons/obj/card.dmi, pathologist made by JustKekc, SpaceSec made by the Adventure Time Project team, id-barber by prazat911 (discord) for ADT. idblueshield, iddeathsquade and idconsultant made by Tamioki.",
     "size": {
       "x": 32,
       "y": 32
@@ -23,6 +23,12 @@
         },
         {
             "name": "idblueshield"
+        },
+        {
+            "name": "idconsultant"
+        },
+        {
+            "name": "iddeathsquade"
         },
         {
             "name": "centcom"
