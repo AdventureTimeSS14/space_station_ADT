@@ -16,6 +16,22 @@
 
 - type: jobIcon
   parent: JobIcon
+  id: JobIconADTCentcomConsultant
+  icon:
+    sprite: /Textures/ADT/Interface/Misc/job_icons.rsi
+    state: ADTConsultant
+  jobName: job-name-ADTCentcomConsultant
+
+- type: jobIcon
+  parent: JobIcon
+  id: ADTJobIconDeathSquad
+  icon:
+    sprite: /Textures/ADT/Interface/Misc/job_icons.rsi
+    state: ADTDeathSquad
+  jobName: job-name-deathsquad
+
+- type: jobIcon
+  parent: JobIcon
   id: JobIconADTPathologist
   icon:
     sprite: /Textures/ADT/Interface/Misc/job_icons.rsi
