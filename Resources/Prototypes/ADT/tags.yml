@@ -709,3 +709,7 @@
 
 - type: Tag
   id: ADTOreBS
+ 
+- type: Tag
+  id: ADTClosedRadio
+

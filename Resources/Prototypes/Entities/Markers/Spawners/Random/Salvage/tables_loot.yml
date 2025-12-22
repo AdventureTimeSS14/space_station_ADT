@@ -35,6 +35,64 @@
       weight: 0.5
       amount: !type:RangeNumberSelector
         range: 1, 3
+      #ADT-Tweak-Start
+    - id: ADTScrapLvCable
+      weight: 0.5
+      amount: !type:RangeNumberSelector
+        range: 1, 3
+    - id: ADTScrapMvCable
+      weight: 0.5
+      amount: !type:RangeNumberSelector
+        range: 1, 3
+    - id: ADTScrapHvCable
+      weight: 0.5
+      amount: !type:RangeNumberSelector
+        range: 1, 3
+    - id: ADTScrapZincBeam
+      weight: 0.5
+      amount: !type:RangeNumberSelector
+        range: 1, 2
+    - id: ADTScrapBattery
+      weight: 0.5
+      amount: !type:RangeNumberSelector
+        range: 1, 3
+    - id: ADTScrapZincHeap
+      weight: 0.5
+      amount: !type:RangeNumberSelector
+        range: 1, 3
+    - id: ADTScrapLeadContainer
+      weight: 0.5
+      amount: !type:RangeNumberSelector
+        range: 1, 3
+    - id: ADTScrapLeadHeap
+      weight: 0.5
+      amount: !type:RangeNumberSelector
+        range: 1, 3
+    - id: ADTScrapTextile
+      weight: 0.5
+      amount: !type:RangeNumberSelector
+        range: 1, 3
+    - id: ADTScrapClothing1
+      weight: 0.5
+      amount: !type:RangeNumberSelector
+        range: 1, 3
+    - id: ADTScrapClothing2
+      weight: 0.5
+      amount: !type:RangeNumberSelector
+        range: 1, 3
+    - id: ADTScrapBandage
+      weight: 0.5
+      amount: !type:RangeNumberSelector
+        range: 1, 3
+    - id: ADTScrapBrokenBoards
+      weight: 0.5
+      amount: !type:RangeNumberSelector
+        range: 1, 3
+    - id: ADTScrapBrokenChair
+      weight: 0.5
+      amount: !type:RangeNumberSelector
+        range: 1, 3
+      #ADT-Tweak-End
 
 - type: entityTable
   id: SalvageScrapHighValue

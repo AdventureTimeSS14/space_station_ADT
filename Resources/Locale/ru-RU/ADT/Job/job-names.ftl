@@ -57,6 +57,7 @@ job-name-life-support-tech = техник жизнеобеспечения
 job-name-plasma-scientist = плазмотехнолог
 job-name-electrician = электрик
 job-name-mechanic = механик
+job-name-welder = сварщик
 
 # Cargo
 
