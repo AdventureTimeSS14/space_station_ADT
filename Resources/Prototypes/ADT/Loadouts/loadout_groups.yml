@@ -399,6 +399,7 @@
   loadouts:
   - ADTBlueshieldHeadBeret
   - ADTBlueshieldHeadBeretBlack
+  - ADTBlueshieldHeadHelmetBasic
 
 - type: loadoutGroup
   id: ADTBlueshieldNeck

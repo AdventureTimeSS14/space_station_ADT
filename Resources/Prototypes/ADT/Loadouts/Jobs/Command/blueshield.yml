@@ -8,6 +8,11 @@
   id: ADTBlueshieldHeadBeretBlack
   equipment:
     head: ADTClothingHeadHatBeretBlueshieldBlack
+    
+- type: loadout
+  id: ADTBlueshieldHeadHelmetBasic
+  equipment:
+    head: ADTClothingHeadHelmetBasic
 
 # Jumpsuit
 - type: loadout

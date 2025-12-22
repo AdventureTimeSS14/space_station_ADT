@@ -19,6 +19,7 @@
     - id: ClothingShoesBootsJack
     - id: ADTClothingUniformJumpskirtTurtleneckBlueshield
     - id: ADTClothingUniformJumpsuitTurtleneckBlueshield
+    - id: ADTClothingHeadHelmetBasic
     # - id: ADTCqcManualWeak
 
 - type: entity
@@ -40,4 +41,5 @@
     - id: ClothingShoesBootsJack
     - id: ADTClothingUniformJumpskirtTurtleneckBlueshield
     - id: ADTClothingUniformJumpsuitTurtleneckBlueshield
+    - id: ADTClothingHeadHelmetBasic
     # - id: ADTCqcManualWeak
