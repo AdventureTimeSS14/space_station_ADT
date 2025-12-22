@@ -48,6 +48,9 @@
   canBeAntag: false
   accessGroups:
     - ADTAccessCentComm
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant ]
 
 - type: startingGear
   id: ADTCentcomConsultantGear
@@ -57,7 +60,7 @@
     id: ADTCentcomConsultantPDA
 
 - type: chameleonOutfit
-  id: ADTADTCentcomConsultantOutfit
+  id: ADTCentcomConsultantOutfit
   job: ADTCentcomConsultant
   hasMindShield: true
   equipment:
