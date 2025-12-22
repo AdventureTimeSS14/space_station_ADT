@@ -129,6 +129,12 @@
   source: "https://freesound.org/s/262213/"
 
 - files:
+  - "sheath2.ogg"
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from Sound Dimension YT chanel"
+  source: "https://www.youtube.com/watch?v=Ds9zM_tfTKA"
+
+- files:
   - "sheath.ogg"
   - "unsheath.ogg"
   license: "CC-BY-SA-3.0"
