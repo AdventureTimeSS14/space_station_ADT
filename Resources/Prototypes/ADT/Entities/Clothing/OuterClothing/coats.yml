@@ -142,28 +142,37 @@
   id: ADTClothingOuterCoatCentCom
   name: centcom coat
   description: A green coat with gold inserts. The golden letter N is emblazoned on the back. Only the big shots wear this coat...
+  components: 
+  - type: Storage
+    grid:
+     - 0,0,2,1
+    maxItemSize: Normal
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Coats/centcom_coat.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Coats/centcom_coat.rsi
+  - type: ExplosionResistance
+    damageCoefficient: 0.8
+  - type: Armor
+    modifiers:
+      coefficients:
+       Blunt: 0.6
+       Slash: 0.6
+       Piercing: 0.6
+       Heat: 0.7
+       Caustic: 0.75 
+
+#Пальто КЦК
+- type: entity
+  parent: ADTClothingOuterCoatCentCom
+  id: ADTClothingOuterCoatCCC
+  name: Centcom consultant coat
+  description: A gray coat with gold inserts. The golden letter N is emblazoned on the back. Only the big shots wear this coat...
   components:
-    - type: Storage
-      grid:
-      - 0,0,2,1
-      maxItemSize: Normal
     - type: Sprite
-      sprite: ADT/Clothing/OuterClothing/Coats/centcom_coat.rsi
+      sprite: ADT/Clothing/OuterClothing/Coats/ccc_coat.rsi
     - type: Clothing
-      sprite: ADT/Clothing/OuterClothing/Coats/centcom_coat.rsi
-    - type: StorageFill
-      contents:
-      - id: RubberStampCentcom
-      - id: PenCentcom
-    - type: Armor
-      modifiers:
-        coefficients:
-          Blunt: 0.7
-          Slash: 0.7
-          Piercing: 0.6
-          Heat: 0.7
-    - type: ExplosionResistance
-      damageCoefficient: 0.75
+      sprite: ADT/Clothing/OuterClothing/Coats/ccc_coat.rsi
 
 - type: entity
   parent: ClothingOuterStorageBase

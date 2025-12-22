@@ -1,0 +1,66 @@
+- type: job
+  id: ADTCentcomConsultant
+  name: job-name-ADTCentcomConsultant
+  description: job-description-ADTCentcomConsultant
+  playTimeTracker: JobADTCentcomConsultant
+  requirements:
+    - !type:RoleTimeRequirement
+      role: JobCaptain
+      time: 18000 #5 hrs
+    - !type:RoleTimeRequirement
+      role: JobHeadOfSecurity
+      time: 18000 #5 hrs
+    - !type:RoleTimeRequirement
+      role: JobChiefMedicalOfficer
+      time: 18000 #5 hrs
+    - !type:RoleTimeRequirement
+      role: JobHeadOfPersonnel
+      time: 36000 #10 hrs
+    - !type:RoleTimeRequirement
+      role: JobChiefEngineer
+      time: 36000 #10 hrs
+    - !type:RoleTimeRequirement
+      role: JobQuartermaster
+      time: 36000 #10 hrs
+    - !type:RoleTimeRequirement
+      role: JobResearchDirector
+      time: 36000 #10 hrs
+    - !type:RoleTimeRequirement
+      role: JobIAA
+      time: 36000 #10 hrs
+    - !type:RoleTimeRequirement
+      role: JobADTBlueShieldOfficer
+      time: 18000 #5 hrs
+    - !type:DepartmentTimeRequirement
+      department: Command
+      time: 594000 # 165 hrs
+    - !type:AgeRequirement
+      requiredAge: 21
+    - !type:SpeciesRequirement
+      inverted: true
+      species:
+      - Resomi
+      - Vox
+  weight: 15
+  startingGear: ADTCentcomConsultantGear
+  icon: "JobIconADTCentcomConsultant"
+  supervisors: job-supervisors-centcom
+  canBeAntag: false
+  accessGroups:
+    - ADTAccessCentComm
+
+- type: startingGear
+  id: ADTCentcomConsultantGear
+  equipment:
+    eyes: ClothingEyesGlassesSunglasses
+    belt: BoxFolderCentComClipboard
+    id: ADTCentcomConsultantPDA
+
+- type: chameleonOutfit
+  id: ADTADTCentcomConsultantOutfit
+  job: ADTCentcomConsultant
+  hasMindShield: true
+  equipment:
+    eyes: ClothingEyesGlassesSunglasses
+    belt: BoxFolderCentComClipboard
+    id: ADTCentcomConsultantPDA

@@ -32,6 +32,29 @@
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpsuit/turtleneck_blueshield.rsi
 
+# Centcom Consultant
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitConsultantCentcom
+  name: Centcom consultants's jumpsuit
+  description: Centcom consultants's jumpsuit
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/ccc_suit.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/ccc_suit.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitCCCFormal
+  name: Centcom consultant's formal suit
+  description: Centcom consultant's formal suit
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/ccc_formal.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/ccc_formal.rsi
+
 # Водолазки. От prazat911, конечно же.
 - type: entity
   parent: ClothingUniformBase

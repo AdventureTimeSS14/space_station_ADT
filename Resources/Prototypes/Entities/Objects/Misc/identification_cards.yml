@@ -506,7 +506,7 @@
     - state: centcom
     - state: idcentcom
   - type: Item
-    heldPrefix: blue
+    heldPrefix: gold
   - type: PresetIdCard
     job: CentralCommandOfficial
   - type: NanoChatCard # ADT-tweak: Наночат
@@ -618,14 +618,15 @@
   name: death squad ID card
   components:
   - type: Sprite
+    sprite: ADT/Objects/Misc/id_cards.rsi
     layers:
     - state: centcom
-  - type: Item
-    heldPrefix: blue
+    - state: iddeathsquade
   - type: PresetIdCard
     job: DeathSquad
   - type: NanoChatCard # ADT-tweak: Наночат
     listNumber: false # ADT-tweak
+
 
 - type: entity
   name: passenger ID card
