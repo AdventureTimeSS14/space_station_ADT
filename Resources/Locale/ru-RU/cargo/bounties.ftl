@@ -146,7 +146,7 @@ bounty-description-lasergun = Караван утилизаторов запра
 bounty-description-food = После нашествия крысиного короля соседняя станция унатхов осталась без еды. Необходима большая партия мясных блюд.
 bounty-description-flashes = ПРИВЕТСТВИЕ \[Станция] НАМ НЕОБХОДИМЫ 6 ВСПЫШЕК ДЛЯ ОБЫЧНЫХ \[ТренировкаУпражнение] С СОТРУДНИКАМИ СЛУЖБЫ БЕЗОПАСНОСТИ. ВСЁ \[Нормально].
 bounty-description-ring = В этот НЕОБЫЧАЙНЫЙ день состоится свадьба Гелтов, но мистер Гелт потерял кольца, отправьте пару колец.
-
+<#-- ADT-Tweak-Start -->
 bounty-item-ore-bs = Блюспейс руда
 bounty-item-ore-copper = Медная руда
 bounty-item-ore-zinc = Цинковая руда
@@ -154,3 +154,5 @@ bounty-item-ore-lead = Свинцовая руда
 
 bounty-item-airlockscrap = Сломанный шлюз
 bounty-item-airlockscrap2 = Кусок от сломанного шлюза
+
+<#-- ADT-Tweak-End -->
