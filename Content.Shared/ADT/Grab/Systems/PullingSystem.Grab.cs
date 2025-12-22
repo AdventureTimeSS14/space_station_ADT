@@ -40,6 +40,7 @@ using Robust.Shared.Physics.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Content.Shared.GrabProtection;
+using Content.Shared.Toilet.Components;
 
 namespace Content.Shared.Movement.Pulling.Systems;
 
@@ -228,9 +229,18 @@ public abstract partial class PullingSystem
         var puller = args.PuttingOnTable;
         var stunTime = TimeSpan.FromSeconds(2);
 
-        _damageable.TryChangeDamage(uid, new(_proto.Index<DamageTypePrototype>("Blunt"), 17));
+        if (TryComp<ToiletComponent>(args.BeingClimbedOn, out var toilet) && toilet.ToggleSeat)
+        {
+            _audio.PlayPredicted(new SoundCollectionSpecifier("WaterSplashSounds"), uid, args.PuttingOnTable);
+            _damageable.TryChangeDamage(uid, new(_proto.Index<DamageTypePrototype>("Asphyxiation"), 5));
+        }
+        else
+        {
+            _audio.PlayPredicted(new SoundCollectionSpecifier("TrayHit"), uid, args.PuttingOnTable);
+            _damageable.TryChangeDamage(uid, new(_proto.Index<DamageTypePrototype>("Blunt"), 17));
+        }
+
         _stun.TryUpdateParalyzeDuration(uid, stunTime);
-        _audio.PlayPredicted(new SoundCollectionSpecifier("TrayHit"), uid, args.PuttingOnTable);
         TryStopPull(uid, comp);
 
         // Someone else slamed you onto the table.
@@ -241,13 +251,26 @@ public abstract partial class PullingSystem
         var gettingPutOnTableName = Identity.Entity(uid, EntityManager);
         var puttingOnTableName = Identity.Entity(puller, EntityManager);
 
-        _popup.PopupEntity(
-            Loc.GetString("forced-bonkable-success-message",
-                ("bonker", puttingOnTableName),
-                ("victim", gettingPutOnTableName),
-                ("bonkable", args.BeingClimbedOn)),
-                args.GettingPutOnTable,
-                PopupType.MediumCaution);
+        if (TryComp<ToiletComponent>(args.BeingClimbedOn, out var toilet2) && toilet2.ToggleSeat)
+        {
+            _popup.PopupEntity(
+                Loc.GetString("forced-toilet-dunk-success-message",
+                    ("bonker", puttingOnTableName),
+                    ("victim", gettingPutOnTableName),
+                    ("bonkable", args.BeingClimbedOn)),
+                    args.GettingPutOnTable,
+                    PopupType.MediumCaution);
+        }
+        else
+        {
+            _popup.PopupEntity(
+                Loc.GetString("forced-bonkable-success-message",
+                    ("bonker", puttingOnTableName),
+                    ("victim", gettingPutOnTableName),
+                    ("bonkable", args.BeingClimbedOn)),
+                    args.GettingPutOnTable,
+                    PopupType.MediumCaution);
+        }
     }
 
     private void OnEscapeDoAfter(EntityUid uid, PullableComponent comp, GrabEscapeDoAfterEvent args)
