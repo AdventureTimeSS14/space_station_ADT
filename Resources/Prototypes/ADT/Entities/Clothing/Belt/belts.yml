@@ -387,6 +387,9 @@
   components:
   - type: Sprite
     sprite: ADT/Clothing/Belt/judo_belt.rsi
+  - type: GuideHelp
+    guides:
+    - ADTMartialArts
   - type: Clothing
     sprite: ADT/Clothing/Belt/judo_belt.rsi
   - type: ClothingGrantTag

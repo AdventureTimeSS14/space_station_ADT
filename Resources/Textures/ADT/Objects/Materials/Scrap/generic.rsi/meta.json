@@ -1,0 +1,53 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Created by FIREMIX! For ADT:3",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "balka_trash"
+        },
+        {
+            "name": "clothing_part_trash"
+        },
+        {
+            "name": "clothing_uniform_trash"
+        },
+        {
+            "name": "clothing_uniform_trash2"
+        },
+        {
+            "name": "gauze_trash"
+        },
+        {
+            "name": "hv_cabel_trash"
+        },
+        {
+            "name": "mv_cabel_trash"
+        },
+        {
+            "name": "lv_cabel_trash"
+        },
+        {
+            "name": "lead_trash"
+        },
+        {
+            "name": "medium_pwr_cell_trash"
+        },
+        {
+            "name": "radioactiv_trash"
+        },
+        {
+            "name": "wood_plank_trash"
+        },
+        {
+            "name": "wood_table_part_trash"
+        },
+        {
+            "name": "zinc_trash"
+        }
+    ]
+}

@@ -101,6 +101,9 @@ ent-ADTElectricianIDCard = ID карта электрика
 ent-ADTMechanicIDCard = ID карта механика
     .desc = ID карта механика.
 
+ent-ADTWelderIDCard = ID карта сварщика
+    .desc = ID карта сварщика.
+
 ent-ADTPostmanIDCard = ID карта почтальона
     .desc = ID карта почтальона.
 
