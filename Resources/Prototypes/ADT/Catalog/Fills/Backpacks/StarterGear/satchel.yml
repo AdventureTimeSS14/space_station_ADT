@@ -27,7 +27,7 @@
     contents:
     # - id: BoxSurvival
       - id: Flash
-      - id: ADTSpaceLaw
+#     - id: ADTSpaceLaw
 
 - type: entity
   parent: ClothingBackpackSatchelBrigmedic

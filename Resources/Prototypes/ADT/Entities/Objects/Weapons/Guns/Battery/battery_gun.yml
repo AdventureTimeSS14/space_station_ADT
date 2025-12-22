@@ -501,7 +501,6 @@
     proto: ADTBulletYellowLaser
     fireCost: 125
   - type: MagazineVisuals
-    sprite: ADT/Objects/Weapons/Guns/Battery/cc-7_arbiter.rsi
     magState: mag
     steps: 13
     zeroVisible: true

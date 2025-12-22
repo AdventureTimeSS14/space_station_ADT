@@ -41,7 +41,7 @@
     contents:
     # - id: BoxSurvival
       - id: Flash
-      - id: ADTSpaceLaw
+ #    - id: ADTSpaceLaw
 
 - type: entity
   categories: [ HideSpawnMenu ]
