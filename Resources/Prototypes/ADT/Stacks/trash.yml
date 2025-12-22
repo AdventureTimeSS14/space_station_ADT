@@ -1,0 +1,27 @@
+- type: stack
+  id: TrashLvCable
+  name: trash-lv-cable
+  icon: { sprite: "ADT/Objects/Materials/Scrap/generic.rsi", state: lv_cabel_trash }
+  spawn: ADTScrapLvCable
+  maxCount: 30
+
+- type: stack
+  id: TrashMvCable
+  name: trash-mv-cable
+  icon: { sprite: "ADT/Objects/Materials/Scrap/generic.rsi", state: mv_cabel_trash }
+  spawn: ADTScrapMvCable
+  maxCount: 30
+
+- type: stack
+  id: TrashHvCable
+  name: trash-hv-cable
+  icon: { sprite: "ADT/Objects/Materials/Scrap/generic.rsi", state: hv_cabel_trash }
+  spawn: ADTScrapHvCable
+  maxCount: 30
+
+- type: stack
+  id: TrashBandage
+  name: trash-bandage
+  icon: { sprite: "ADT/Objects/Materials/Scrap/generic.rsi", state: gauze_trash }
+  spawn: ADTScrapBandage
+  maxCount: 10
