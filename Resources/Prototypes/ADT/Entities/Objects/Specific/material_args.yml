@@ -12,6 +12,9 @@
       - id: Ash
       sound: 
         path: /Audio/Items/Lighters/lighter3.ogg
+    - type: GuideHelp
+      guides:
+      - ADTMartialArts
     - type: AddComponentsOnUse
       components:
         - type: Necksnap
@@ -136,6 +139,9 @@
       - id: Ash
       sound: 
         path: /Audio/Items/Lighters/lighter3.ogg
+    - type: GuideHelp
+      guides:
+      - ADTMartialArts
     - type: AddComponentsOnUse
       components:
         - type: ComboCounter
@@ -215,6 +221,9 @@
       - id: Ash
       sound: 
         path: /Audio/Items/Lighters/lighter3.ogg
+    - type: GuideHelp
+      guides:
+      - ADTMartialArts
     - type: AddComponentsOnUse
       components:
         - type: Combo
