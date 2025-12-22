@@ -60,5 +60,5 @@ jobs:
         SSH_PORT: ${{ secrets.SSH_PORT }}
         SSH_PATH: ${{ secrets.SSH_PATH }}
       run: |
-         #scp -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no -P $SSH_PORT release/SS14.Server_linux-x64.zip release/SS14.Client.zip $SSH_PATH
-         rsync -av -e "ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no -p $SSH_PORT" release/SS14.Server_linux-x64.zip release/SS14.Client.zi $SSH_PATH
+         scp -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no -P $SSH_PORT release/SS14.Server_linux-x64.zip release/SS14.Client.zip $SSH_PATH
+         #rsync -av -e "ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no -p $SSH_PORT" release/SS14.Server_linux-x64.zip release/SS14.Client.zip $SSH_PATH
