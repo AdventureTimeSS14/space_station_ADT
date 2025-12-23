@@ -9,7 +9,7 @@ namespace Content.Shared.Cargo.Components;
 /// <summary>
 /// Added to the abstract representation of a station to track its money.
 /// </summary>
-[RegisterComponent, NetworkedComponent, Access(typeof(SharedCargoSystem)), AutoGenerateComponentPause, AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentPause, AutoGenerateComponentState]
 public sealed partial class StationBankAccountComponent : Component
 {
     /// <summary>
@@ -77,15 +77,7 @@ public sealed partial class StationBankAccountComponent : Component
     public TimeSpan IncomeDelay = TimeSpan.FromSeconds(50);
 
     //ADT-Economy-Start
-    [ViewVariables(VVAccess.ReadWrite)]
-    public int Balance
-    {
-        get => BankAccount.Balance;
-        set => BankAccount.Balance = value;
-    }
-
-    [ViewVariables]
-    public BankAccount BankAccount = default!;
+    public Dictionary<ProtoId<CargoAccountPrototype>, BankAccount> BankAccounts = new();
     //ADT-Economy-End
 }
 
