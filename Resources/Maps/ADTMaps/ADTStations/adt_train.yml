@@ -4,8 +4,8 @@ meta:
   engineVersion: 265.0.0
   forkId: ""
   forkVersion: ""
-  time: 12/22/2025 20:50:52
-  entityCount: 27564
+  time: 12/23/2025 12:23:35
+  entityCount: 27612
 maps:
 - 1
 grids:
@@ -19188,7 +19188,7 @@ entities:
             1: 8176
           3,-77:
             3: 60928
-            6: 14
+            4: 14
           4,-76:
             1: 310
           4,-74:
@@ -19714,7 +19714,7 @@ entities:
           -1,-81:
             0: 15119
           -1,-79:
-            4: 61152
+            5: 61152
           0,-80:
             0: 255
             1: 61440
@@ -19724,7 +19724,7 @@ entities:
           0,-81:
             0: 39695
           0,-79:
-            5: 61152
+            6: 61152
           1,-80:
             0: 51455
             1: 12288
@@ -19754,7 +19754,7 @@ entities:
             1: 65535
           3,-78:
             1: 15
-            6: 60928
+            4: 60928
           3,-81:
             1: 65535
           4,-80:
@@ -20170,6 +20170,29 @@ entities:
         - volume: 2500
           temperature: 293.15
           moles:
+          - 0
+          - 0
+          - 0
+          - 6666.982
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
+          temperature: 293.15
+          moles:
           - 6666.982
           - 0
           - 0
@@ -20197,29 +20220,6 @@ entities:
           - 6666.982
           - 0
           - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-        - volume: 2500
-          temperature: 293.15
-          moles:
-          - 0
-          - 0
-          - 0
-          - 6666.982
           - 0
           - 0
           - 0
@@ -25784,7 +25784,7 @@ entities:
       pos: 10.5,-221.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -240364.98
+      secondsUntilStateChange: -241612.28
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -26216,7 +26216,7 @@ entities:
       pos: -8.5,-43.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -66779.02
+      secondsUntilStateChange: -68026.33
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -26741,7 +26741,7 @@ entities:
       pos: -2.5,-293.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -25354.72
+      secondsUntilStateChange: -26602.023
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -52914,6 +52914,16 @@ entities:
     - type: Transform
       pos: 20.5,-173.5
       parent: 2
+  - uid: 7612
+    components:
+    - type: Transform
+      pos: 11.5,3.5
+      parent: 2
+  - uid: 7614
+    components:
+    - type: Transform
+      pos: 12.5,3.5
+      parent: 2
   - uid: 27358
     components:
     - type: Transform
@@ -52983,6 +52993,186 @@ entities:
     components:
     - type: Transform
       pos: -0.5,-322.5
+      parent: 2
+  - uid: 27577
+    components:
+    - type: Transform
+      pos: 9.5,-2.5
+      parent: 2
+  - uid: 27578
+    components:
+    - type: Transform
+      pos: 9.5,-3.5
+      parent: 2
+  - uid: 27579
+    components:
+    - type: Transform
+      pos: 9.5,-4.5
+      parent: 2
+  - uid: 27580
+    components:
+    - type: Transform
+      pos: 9.5,-5.5
+      parent: 2
+  - uid: 27581
+    components:
+    - type: Transform
+      pos: 9.5,-4.5
+      parent: 2
+  - uid: 27582
+    components:
+    - type: Transform
+      pos: 10.5,-4.5
+      parent: 2
+  - uid: 27583
+    components:
+    - type: Transform
+      pos: 11.5,-4.5
+      parent: 2
+  - uid: 27584
+    components:
+    - type: Transform
+      pos: 12.5,-4.5
+      parent: 2
+  - uid: 27585
+    components:
+    - type: Transform
+      pos: 13.5,-4.5
+      parent: 2
+  - uid: 27586
+    components:
+    - type: Transform
+      pos: 10.5,-2.5
+      parent: 2
+  - uid: 27587
+    components:
+    - type: Transform
+      pos: 10.5,-1.5
+      parent: 2
+  - uid: 27588
+    components:
+    - type: Transform
+      pos: 10.5,-0.5
+      parent: 2
+  - uid: 27589
+    components:
+    - type: Transform
+      pos: 11.5,-0.5
+      parent: 2
+  - uid: 27590
+    components:
+    - type: Transform
+      pos: 12.5,-0.5
+      parent: 2
+  - uid: 27591
+    components:
+    - type: Transform
+      pos: 13.5,-0.5
+      parent: 2
+  - uid: 27592
+    components:
+    - type: Transform
+      pos: 10.5,0.5
+      parent: 2
+  - uid: 27593
+    components:
+    - type: Transform
+      pos: 10.5,1.5
+      parent: 2
+  - uid: 27594
+    components:
+    - type: Transform
+      pos: 11.5,1.5
+      parent: 2
+  - uid: 27595
+    components:
+    - type: Transform
+      pos: 12.5,1.5
+      parent: 2
+  - uid: 27596
+    components:
+    - type: Transform
+      pos: 13.5,1.5
+      parent: 2
+  - uid: 27597
+    components:
+    - type: Transform
+      pos: 9.5,1.5
+      parent: 2
+  - uid: 27598
+    components:
+    - type: Transform
+      pos: 10.5,2.5
+      parent: 2
+  - uid: 27599
+    components:
+    - type: Transform
+      pos: 10.5,3.5
+      parent: 2
+  - uid: 27600
+    components:
+    - type: Transform
+      pos: 13.5,3.5
+      parent: 2
+  - uid: 27601
+    components:
+    - type: Transform
+      pos: 14.5,3.5
+      parent: 2
+  - uid: 27602
+    components:
+    - type: Transform
+      pos: 14.5,1.5
+      parent: 2
+  - uid: 27603
+    components:
+    - type: Transform
+      pos: 15.5,1.5
+      parent: 2
+  - uid: 27604
+    components:
+    - type: Transform
+      pos: 15.5,2.5
+      parent: 2
+  - uid: 27605
+    components:
+    - type: Transform
+      pos: 15.5,0.5
+      parent: 2
+  - uid: 27606
+    components:
+    - type: Transform
+      pos: 14.5,-4.5
+      parent: 2
+  - uid: 27607
+    components:
+    - type: Transform
+      pos: 14.5,-3.5
+      parent: 2
+  - uid: 27608
+    components:
+    - type: Transform
+      pos: 14.5,-5.5
+      parent: 2
+  - uid: 27609
+    components:
+    - type: Transform
+      pos: 11.5,-5.5
+      parent: 2
+  - uid: 27610
+    components:
+    - type: Transform
+      pos: 11.5,-6.5
+      parent: 2
+  - uid: 27611
+    components:
+    - type: Transform
+      pos: 10.5,-6.5
+      parent: 2
+  - uid: 27612
+    components:
+    - type: Transform
+      pos: 12.5,-6.5
       parent: 2
 - proto: CableApcStack
   entities:
@@ -62336,20 +62526,10 @@ entities:
     - type: Transform
       pos: 5.5,-2.5
       parent: 2
-  - uid: 7612
-    components:
-    - type: Transform
-      pos: 6.5,-2.5
-      parent: 2
   - uid: 7613
     components:
     - type: Transform
       pos: 2.5,-2.5
-      parent: 2
-  - uid: 7614
-    components:
-    - type: Transform
-      pos: 7.5,-2.5
       parent: 2
   - uid: 7615
     components:
@@ -70265,6 +70445,66 @@ entities:
     components:
     - type: Transform
       pos: 0.5,-265.5
+      parent: 2
+  - uid: 27565
+    components:
+    - type: Transform
+      pos: 5.5,0.5
+      parent: 2
+  - uid: 27566
+    components:
+    - type: Transform
+      pos: 5.5,1.5
+      parent: 2
+  - uid: 27567
+    components:
+    - type: Transform
+      pos: 6.5,1.5
+      parent: 2
+  - uid: 27568
+    components:
+    - type: Transform
+      pos: 8.5,1.5
+      parent: 2
+  - uid: 27569
+    components:
+    - type: Transform
+      pos: 9.5,1.5
+      parent: 2
+  - uid: 27570
+    components:
+    - type: Transform
+      pos: 7.5,1.5
+      parent: 2
+  - uid: 27571
+    components:
+    - type: Transform
+      pos: 10.5,1.5
+      parent: 2
+  - uid: 27572
+    components:
+    - type: Transform
+      pos: 10.5,0.5
+      parent: 2
+  - uid: 27573
+    components:
+    - type: Transform
+      pos: 10.5,-0.5
+      parent: 2
+  - uid: 27574
+    components:
+    - type: Transform
+      pos: 10.5,-1.5
+      parent: 2
+  - uid: 27575
+    components:
+    - type: Transform
+      pos: 10.5,-2.5
+      parent: 2
+  - uid: 27576
+    components:
+    - type: Transform
+      pos: 9.5,-2.5
       parent: 2
 - proto: CableMVStack
   entities:
@@ -88596,7 +88836,7 @@ entities:
       pos: -11.5,-282.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -8405.995
+      secondsUntilStateChange: -9653.299
       state: Closing
   - uid: 12342
     components:
@@ -88618,7 +88858,7 @@ entities:
       pos: -4.5,-9.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -396900.94
+      secondsUntilStateChange: -398148.25
       state: Closing
 - proto: CurtainsGreenOpen
   entities:
