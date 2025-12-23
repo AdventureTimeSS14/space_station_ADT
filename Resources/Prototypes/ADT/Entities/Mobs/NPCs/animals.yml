@@ -155,6 +155,7 @@
       - KnockedDown
       - SlowedDown
       - Stutter
+      - Weakness
       - Electrocution
       - ForcedSleep
       - TemporaryBlindness
