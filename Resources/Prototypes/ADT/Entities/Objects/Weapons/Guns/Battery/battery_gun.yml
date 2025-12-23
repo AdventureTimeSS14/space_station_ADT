@@ -505,7 +505,7 @@
     - proto: ADTBulletYellowLaser
       fireCost: 125
     - proto: ADTBulletDisabler
-      fireCost: 312
+      fireCost: 156
   - type: MagazineVisuals
     magState: mag
     steps: 13
