@@ -80,6 +80,15 @@
   - type: Construction
     graph: ADTSeat
     node: adtchairoktoberfest
+ 
+- type: entity
+  name: rusty chair
+  id: ADTChairRusty
+  parent: ChairBase
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Chairs/chairs.rsi
+    state: rusty_chair
 
 # Sofas
 

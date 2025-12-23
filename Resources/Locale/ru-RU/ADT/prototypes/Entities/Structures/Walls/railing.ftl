@@ -1,0 +1,10 @@
+ent-ADTBaseRailingRusty = ржавые перила
+    .desc = Ржавые перила, которые не спасут таких идиотов, как вы, от падения.
+ent-ADTRailingRusty = { ent-ADTBaseRailingRusty }
+    .desc = { ent-ADTBaseRailingRusty.desc }
+ent-ADTRailingRustyCorner = { ent-ADTBaseRailingRusty }
+    .desc = { ent-ADTBaseRailingRusty.desc }
+ent-ADTRailingRustyCornerSmall = { ent-ADTBaseRailingRusty }
+    .desc = { ent-ADTBaseRailingRusty.desc }
+ent-ADTRailingRustyRound = { ent-ADTBaseRailingRusty }
+    .desc = { ent-ADTBaseRailingRusty.desc }
