@@ -32,3 +32,7 @@ ent-ADTClothingHandsCatPawsBlackWhiteCombat = чёрно-белые кошачь
 
 ent-ClothingHandsGlovesLatexBlack = чёрные латексные перчатки
     .desc = Тонкие стерильные латексные перчатки чёрного цвета.
+
+ent-ClothingHandsTacticalMaidGlovesNoInsulated = дешёвые тактические перчатки горничной
+    .desc = Тактические перчатки для горничных — каждая уважающая себя горничная должна уметь незаметно устранять свои цели. Прочные на вид, но защиту от тока не обеспечивают.
+    .suffix = Без изоляции
