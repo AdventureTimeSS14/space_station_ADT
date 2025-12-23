@@ -76,7 +76,6 @@
           tags:
             - MagazinePistolHighCapacity
   - type: Gun
-    fireRate: 20
     selectedMode: Burst
     shotsPerBurst: 3
     availableModes:
