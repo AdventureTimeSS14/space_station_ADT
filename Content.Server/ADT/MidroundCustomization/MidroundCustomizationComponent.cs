@@ -66,6 +66,9 @@ public sealed partial class MidroundCustomizationComponent : Component
     };
 
     [DataField]
+    public bool PlaySoundForVoiceChange = true;
+
+    [DataField]
     public EntProtoId Action = "ActionSlimeHair";
 
     [DataField, AutoNetworkedField]
