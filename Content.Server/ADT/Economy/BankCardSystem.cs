@@ -18,7 +18,7 @@ using Robust.Server.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Content.Shared.Cargo.Components;
-using Content.Shared.Cargo;
+using Content.Shared.Cargo.Prototypes;
 using Robust.Shared.Timing;
 using Content.Shared.CCVar;
 using Robust.Shared.Configuration;
@@ -84,7 +84,7 @@ public sealed class BankCardSystem : EntitySystem
             return;
 
         foreach (var account in _accounts.Where(account =>
-                     account.Mind is {Comp.UserId: not null, Comp.CurrentEntity: not null} &&
+                     account.Mind is { Comp.UserId: not null, Comp.CurrentEntity: not null } &&
                      _playerManager.TryGetSessionById(account.Mind.Value.Comp.UserId!.Value, out _) &&
                      !_mobState.IsDead(account.Mind.Value.Comp.CurrentEntity!.Value)))
         {
@@ -107,11 +107,31 @@ public sealed class BankCardSystem : EntitySystem
 
     private void OnMapInit(EntityUid uid, BankCardComponent component, MapInitEvent args)
     {
-        if (component.CommandBudgetCard &&
-            TryComp(_station.GetOwningStation(uid), out StationBankAccountComponent? acc))
+        if (component.CommandBudgetCard)
         {
-            component.AccountId = acc.BankAccount.AccountId;
-            return;
+            if (TryComp<StationBankAccountComponent>(_station.GetOwningStation(uid), out var stationBank)
+                && component.CommandBudgetType != null)
+            {
+
+                var existingAccount = _accounts.FirstOrDefault(acc =>
+                    acc.CommandBudgetAccount &&
+                    acc.AccountPrototype == component.CommandBudgetType);
+
+                if (existingAccount != null)
+                {
+                    component.AccountId = existingAccount.AccountId;
+                    return;
+                }
+
+                stationBank.BankAccounts.Add(component.CommandBudgetType.Value, CreateDepartmentAccount(component.CommandBudgetType.Value));
+                stationBank.BankAccounts.TryGetValue(component.CommandBudgetType.Value, out var account);
+
+                if (account != null)
+                {
+                    component.AccountId = account.AccountId;
+                    return;
+                }
+            }
         }
 
         if (component.AccountId.HasValue)
@@ -120,8 +140,25 @@ public sealed class BankCardSystem : EntitySystem
             return;
         }
 
-        var account = CreateAccount(default, component.StartingBalance);
-        component.AccountId = account.AccountId;
+        var playerAccount = CreateAccount(default, component.StartingBalance);
+        component.AccountId = playerAccount.AccountId;
+    }
+
+    private BankAccount CreateDepartmentAccount(ProtoId<CargoAccountPrototype> departmentType)
+    {
+        int accountNumber;
+        do
+        {
+            accountNumber = _random.Next(100000, 999999);
+        } while (AccountExist(accountNumber));
+
+        var account = new BankAccount(accountNumber, 0, _random);
+        account.AccountPrototype = departmentType;
+        account.CommandBudgetAccount = true;
+        account.Name = Loc.GetString($"command-budget-{departmentType}");
+
+        _accounts.Add(account);
+        return account;
     }
 
     private void OnRoundRestart(RoundRestartCleanupEvent ev)
@@ -205,30 +242,48 @@ public sealed class BankCardSystem : EntitySystem
 
     public int GetBalance(int accountId)
     {
-        if (TryGetAccount(accountId, out var account))
+        if (!TryGetAccount(accountId, out var account))
+            return 0;
+
+        if (account.CommandBudgetAccount && account.AccountPrototype != null)
         {
-            return account.Balance;
+            var query = EntityQueryEnumerator<StationBankAccountComponent>();
+            while (query.MoveNext(out var stationUid, out var stationBank))
+            {
+                if (stationBank.Accounts.TryGetValue(account.AccountPrototype.Value, out var balance))
+                    return balance;
+            }
+            return 0;
         }
 
-        return 0;
+        return account.Balance;
     }
 
     public bool TryChangeBalance(int accountId, int amount)
     {
-        if (!TryGetAccount(accountId, out var account) || account.Balance + amount < 0)
+        if (!TryGetAccount(accountId, out var account))
             return false;
 
-        // if (account.CommandBudgetAccount)
-        // {
-        //     while (AllEntityQuery<StationBankAccountComponent>().MoveNext(out var uid, out var acc))
-        //     {
-        //         if (acc.BankAccount.AccountId != accountId)
-        //             continue;
+        if (account.CommandBudgetAccount && account.AccountPrototype != null)
+        {
+            var query = EntityQueryEnumerator<StationBankAccountComponent>();
+            while (query.MoveNext(out var stationUid, out var stationBank))
+            {
+                if (stationBank.Accounts.ContainsKey(account.AccountPrototype.Value))
+                {
+                    var currentBalance = stationBank.Accounts[account.AccountPrototype.Value];
+                    if (currentBalance + amount < 0)
+                        return false;
 
-        //         _cargo.UpdateBankAccount((uid, acc), amount);
-        //         return true;
-        //     }
-        // }
+                    _cargo.UpdateBankAccount((stationUid, stationBank), amount, account.AccountPrototype.Value);
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        if (account.Balance + amount < 0)
+            return false;
 
         account.Balance += amount;
 
@@ -249,4 +304,3 @@ public sealed class BankCardSystem : EntitySystem
         return true;
     }
 }
-
