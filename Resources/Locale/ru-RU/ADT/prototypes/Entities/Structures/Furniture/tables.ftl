@@ -23,3 +23,6 @@ ent-ADTTableOktoberfest = стол для Октоберфеста
 ent-ADTTableOktoberfestOrange = стол с оранжевой скатертью для Октоберфеста
     .suffix = { "Октоберфест" }
     .desc = { ent-ADTTableOktoberfest }
+
+ent-ADTTableRusty = ржавый стол
+    .desc = Старый и ржавый металлический стол. Уж лучше поесть с пола, чем с него.

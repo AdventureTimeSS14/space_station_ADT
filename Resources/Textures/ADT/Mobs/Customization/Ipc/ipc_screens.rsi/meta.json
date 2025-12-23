@@ -1816,6 +1816,36 @@
           0.3
         ]
       ]
+    },
+    {
+      "name": "ipc_screen_ascended",
+      "directions": 4,
+      "delays": [
+        [
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "ipc_screen_pacifist_1",
+      "directions": 4
+    },
+    {
+      "name": "ipc_screen_pacifist_2",
+      "directions": 4
     }
   ]
 }

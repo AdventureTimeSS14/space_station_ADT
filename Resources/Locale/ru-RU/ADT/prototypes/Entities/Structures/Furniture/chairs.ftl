@@ -11,6 +11,9 @@ ent-ADTChairOktoberfest = роскошный праздничный стул
     .desc = Комфортнейший стул для праздника пива.
     .suffix = { "Октоберфест" }
 
+ent-ADTChairRusty = ржавый стул
+    .desc = Вам лучше не сидеть на нём.
+
 ent-ADTArmchairWhite = белое кресло
     .desc = Выглядит крайне комфортно.
 
