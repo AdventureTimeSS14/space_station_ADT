@@ -124,6 +124,7 @@ namespace Content.Shared.Preferences
         public SpawnPriorityPreference SpawnPriority { get; private set; } = SpawnPriorityPreference.None;
 
         // ADT Barks start
+        [DataField]
         public BarkData Bark = new();
         // ADT Barks end
         // ADT Languages start
