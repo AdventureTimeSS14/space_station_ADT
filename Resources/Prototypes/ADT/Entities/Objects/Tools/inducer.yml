@@ -63,8 +63,8 @@
     state: icon
   - type: Inducer
     availableTransferRates:
-    - 1500
-    transferRate: 1500
+    - 900
+    transferRate: 900
     transferDelay: 0.09
     maxDistance: 6
   - type: ItemSlots
