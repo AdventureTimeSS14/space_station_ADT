@@ -227,6 +227,19 @@
 
 - type: entity
   parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitTurtleneckDarkBlue
+  name: white turtleneck
+  description: Warm and comfy.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/turtleneck_darkblue.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/turtleneck_darkblue.rsi
+  - type: StaticPrice
+    price: 15
+
+- type: entity
+  parent: ClothingUniformBase
   id: ADTClothingUniformJumpsuitTurtleneckBlackSleeveless
   name: ancient jumpsuit
   description: A terribly ragged and frayed grey jumpsuit. It looks like it hasn't been washed in over a decade.

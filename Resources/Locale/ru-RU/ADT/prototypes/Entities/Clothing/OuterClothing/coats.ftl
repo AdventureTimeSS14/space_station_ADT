@@ -127,3 +127,45 @@ ent-ADTClothingOuterDavidsJacket = куртка парамедика
 
 ent-ADTClothingOuterDavidsJacketValid = куртка эджраннера
     .desc = Ты на самой грани. Покажи им, что ты готов на всё.
+
+ent-ADTClothingOuterWinterCoatLightColorAquamarine = аквамариновая лёгкая куртка
+    .desc = Лёгкая, стильная, тёплая куртка.
+
+ent-ADTClothingOuterWinterCoatLightColorWhite = белая лёгкая куртка
+    .desc = { ent-ADTClothingOuterWinterCoatLightColorAquamarine.desc }
+
+ent-ADTClothingOuterWinterCoatLightColorAzure = голубая лёгкая куртка
+    .desc = { ent-ADTClothingOuterWinterCoatLightColorAquamarine.desc }
+
+ent-ADTClothingOuterWinterCoatLightColorYellow = жёлтая лёгкая куртка
+    .desc = { ent-ADTClothingOuterWinterCoatLightColorAquamarine.desc }
+
+ent-ADTClothingOuterWinterCoatLightColorGreen = зелёная лёгкая куртка
+    .desc = { ent-ADTClothingOuterWinterCoatLightColorAquamarine.desc }
+
+ent-ADTClothingOuterWinterCoatLightColorBrown = коричневая лёгкая куртка
+    .desc = { ent-ADTClothingOuterWinterCoatLightColorAquamarine.desc }
+
+ent-ADTClothingOuterWinterCoatLightColorRed = красная лёгкая куртка
+    .desc = { ent-ADTClothingOuterWinterCoatLightColorAquamarine.desc }
+
+ent-ADTClothingOuterWinterCoatLightColorOrange = оранжевая лёгкая куртка
+    .desc = { ent-ADTClothingOuterWinterCoatLightColorAquamarine.desc }
+
+ent-ADTClothingOuterWinterCoatLightColorPink = розовая лёгкая куртка
+    .desc = { ent-ADTClothingOuterWinterCoatLightColorAquamarine.desc }
+
+ent-ADTClothingOuterWinterCoatLightColorGrey = серая лёгкая куртка
+    .desc = { ent-ADTClothingOuterWinterCoatLightColorAquamarine.desc }
+
+ent-ADTClothingOuterWinterCoatLightColorBlue = синяя лёгкая куртка
+    .desc = { ent-ADTClothingOuterWinterCoatLightColorAquamarine.desc }
+
+ent-ADTClothingOuterWinterCoatLightColorPurple = фиолетовая лёгкая куртка
+    .desc = { ent-ADTClothingOuterWinterCoatLightColorAquamarine.desc }
+
+ent-ADTClothingOuterWinterCoatLightColorBlack = чёрная лёгкая куртка
+    .desc = { ent-ADTClothingOuterWinterCoatLightColorAquamarine.desc }
+
+ent-ADTClothingOuterWinterCoatLightColorDarkBlue = тёмно-синяя лёгкая куртка
+    .desc = { ent-ADTClothingOuterWinterCoatLightColorAquamarine.desc }
