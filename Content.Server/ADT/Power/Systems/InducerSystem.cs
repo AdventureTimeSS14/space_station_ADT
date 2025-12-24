@@ -126,7 +126,6 @@ public sealed class InducerSystem : EntitySystem
         if (!args.CanAccess || !args.CanInteract)
             return;
 
-
         var priority = 0;
         foreach (var rate in component.AvailableTransferRates)
         {

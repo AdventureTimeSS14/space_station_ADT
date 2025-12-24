@@ -10,6 +10,7 @@ public sealed partial class InducerComponent : Component
     [DataField]
     public string PowerCellSlotId = "inducer_power_cell_slot";
 
+    [DataField]
     public float TransferRate = default!;
 
     [DataField]
