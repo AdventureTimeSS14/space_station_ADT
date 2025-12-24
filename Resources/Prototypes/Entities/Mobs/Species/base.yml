@@ -125,6 +125,7 @@
   - type: StatusEffects
     allowed:
     - Stutter
+    - Weakness #ADT-Weakness-Tweak
     - Electrocution
     - Drunk
     - SlurredSpeech
@@ -224,6 +225,7 @@
     languages:
       GalacticCommon: Speak
   - type: SpeechBarks
+  - type: Posing
   # ADT tweak end
 
 - type: entity

@@ -48,6 +48,10 @@
   - type: RadarConsole
     followEntity: false
   - type: GhostTakeoverAvailable
+  - type: UserInterface
+    interfaces:
+      enum.RadarConsoleUiKey.Key:
+        type: RadarConsoleBoundUserInterface
   - type: IntrinsicUI
     uis:
       enum.RadarConsoleUiKey.Key:
@@ -118,6 +122,7 @@
   - type: StatusEffects
     allowed:
     - Stutter
+    - Weakness
     - RadiationProtection
     - Adrenaline #ADT-Medicine
   - type: Metabolizer
@@ -144,22 +149,7 @@
       path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
     damage:
       groups:
-        Brute: 12
-  - type: Devourer
-    foodPreferenceWhitelist:
-      components:
-      - HumanoidAppearance
-    stomachStorageWhitelist:
-      components:
-      - MobState
-    chemical: Ichor
-    healRate: 7.5
-    whitelist:
-      components:
-      - MobState
-      - Door
-      tags:
-      - Wall
+        Brute: 4
   - type: Tag
     tags:
     - CannotSuicide

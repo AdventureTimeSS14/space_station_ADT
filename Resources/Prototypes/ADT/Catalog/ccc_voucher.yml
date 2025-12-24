@@ -1,0 +1,29 @@
+- type: thiefBackpackSet
+  id: WeaponCC7Arbiter
+  name: ccc-voucher-cc-7-arbiter-name
+  description: ccc-voucher-cc-7-arbiter-description
+  sprite:
+    sprite: ADT/Objects/Weapons/Guns/Battery/cc-7_arbiter.rsi
+    state: base
+  content:
+  - ADTBaseWeaponCaseNTCC7Arbiter
+
+- type: thiefBackpackSet
+  id: WeaponR22Rodent
+  name: ccc-voucher-rodent-r22-name
+  description: ccc-voucher-rodent-r22-description
+  sprite:
+    sprite: ADT/Objects/Weapons/Guns/SMGs/rodent-r22.rsi
+    state: base
+  content:
+  - ADTBaseWeaponCaseNTR22Rodent
+
+- type: thiefBackpackSet
+  id: WeaponCentcomStockdegen
+  name: ccc-stockdegen-name
+  description: ccc-stockdegen-description
+  sprite:
+    sprite: ADT/Objects/Weapons/Melee/ccc_stockdegen.rsi
+    state: icon_off
+  content:
+  - ADTBaseWeaponCaseNTCentcomStockdegen

@@ -11,6 +11,9 @@
   id: JobADTBlueShieldOfficer
 
 - type: playTimeTracker
+  id: JobADTCentcomConsultant
+
+- type: playTimeTracker
   id: JobADTSeniorPhysician
 
 - type: playTimeTracker
