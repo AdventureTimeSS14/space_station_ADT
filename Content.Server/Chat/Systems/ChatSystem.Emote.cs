@@ -1,4 +1,5 @@
 using System.Collections.Frozen;
+using Content.Server.ADT.Chat;
 using Content.Server.Popups;
 using Content.Shared.Chat;
 using Content.Shared.Chat.Prototypes;
@@ -162,6 +163,15 @@ public partial class ChatSystem
 
         // optional override params > general params for all sounds in set > individual sound params
         var param = audioParams ?? proto.GeneralParams ?? sound.Params;
+
+        // ADT-Tweak-start
+        var overrideEv = new OverrideEmoteSoundEvent(sound, param);
+        RaiseLocalEvent(uid, ref overrideEv);
+
+        if (overrideEv.Cancelled)
+            return true;
+        // ADT-Tweak-end
+
         _audio.PlayPvs(sound, uid, param);
         return true;
     }
@@ -171,7 +181,7 @@ public partial class ChatSystem
     /// <param name="uid"></param>
     /// <param name="textInput"></param>
     /// <returns>True if the chat message should be displayed (because the emote was explicitly cancelled), false if it should not be.</returns>
-    private bool TryEmoteChatInput(EntityUid uid, string textInput)
+    public bool TryEmoteChatInput(EntityUid uid, string textInput)  // ADT-Tweak - сделал публичным
     {
         var actionTrimmedLower = TrimPunctuation(textInput.ToLower());
         if (!_wordEmoteDict.TryGetValue(actionTrimmedLower, out var emote))
