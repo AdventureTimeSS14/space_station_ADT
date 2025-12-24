@@ -1,4 +1,5 @@
 using System.Collections.Frozen;
+using Content.Shared.Chat;
 using Content.Shared.Chat.Prototypes;
 using Content.Shared.Speech;
 using Robust.Shared.Audio;
@@ -156,6 +157,15 @@ public abstract partial class SharedChatSystem
 
         // optional override params > general params for all sounds in set > individual sound params
         var param = audioParams ?? proto.GeneralParams ?? sound.Params;
+
+        // ADT-Tweak-start
+        var overrideEv = new OverrideEmoteSoundEvent(sound, param);
+        RaiseLocalEvent(uid, ref overrideEv);
+
+        if (overrideEv.Cancelled)
+            return true;
+        // ADT-Tweak-end
+
         _audio.PlayPvs(sound, uid, param);
         return true;
     }

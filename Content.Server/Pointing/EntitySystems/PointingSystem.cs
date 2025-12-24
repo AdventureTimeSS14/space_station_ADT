@@ -1,5 +1,7 @@
 using System.Linq;
+using Content.Shared.ADT.Shizophrenia;
 using Content.Server.Administration.Logs;
+using Content.Server.ADT.Pointing;
 using Content.Server.Pointing.Components;
 using Content.Shared.CCVar;
 using Content.Shared.Database;
@@ -162,6 +164,11 @@ namespace Content.Server.Pointing.EntitySystems
 
             var arrow = Spawn("PointingArrow", coordsPointed);
 
+            // ADT-Tweak-start
+            var setupEv = new SetupPointingArrowEvent(arrow);
+            RaiseLocalEvent(player, ref setupEv);
+            // ADT-Tweak-end
+
             if (TryComp<PointingArrowComponent>(arrow, out var pointing))
             {
                 pointing.StartPosition = _transform.ToCoordinates((arrow, Transform(arrow)), _transform.ToMapCoordinates(Transform(player).Coordinates)).Position;
@@ -207,6 +214,11 @@ namespace Content.Server.Pointing.EntitySystems
             string? viewerPointedAtMessage = null;
             var playerName = Identity.Entity(player, EntityManager);
             EntityUid? iconTarget = null; // ADT-Tweak
+
+            // ADT-Tweak-start
+            if (HasComp<HallucinationComponent>(pointed))
+                pointed = EntityUid.Invalid;
+            // ADT-Tweak-end
 
             if (Exists(pointed))
             {
