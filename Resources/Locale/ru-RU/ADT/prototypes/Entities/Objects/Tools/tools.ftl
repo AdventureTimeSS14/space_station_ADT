@@ -14,17 +14,17 @@ ent-ADTSupermatterScalpel = скальпель
     .desc = Скальпель, специально разработанный для разрезания кристалла Суперматерии.
 
 ent-ADTEngiInducer = индуктор
-    .desc = Устройство для беспроводной передачи энергии от батареи к другим устройствам.
+    .desc = Устройство для беспроводной передачи энергии от собственной батареи к батареям других устройств.
     .suffix = Пустой, Инженерный
 
-ent-ADTEngiInducerBattery = индуктор
-    .desc = Устройство для беспроводной передачи энергии от батареи к другим устройствам.
+ent-ADTEngiInducerBattery = { ent-ADTEngiInducer }
+    .desc = { ent-ADTEngiInducer.desc }
     .suffix = Батарея, Инженерный
 
-ent-ADTRNDInducer = индуктор
-    .desc = Устройство для беспроводной передачи энергии от батареи к другим устройствам.
+ent-ADTRNDInducer = { ent-ADTEngiInducer }
+    .desc = { ent-ADTEngiInducer.desc }
     .suffix = Пустой, РНД
 
-ent-ADTRNDInducerBattery = индуктор
-    .desc = Устройство для беспроводной передачи энергии от батареи к другим устройствам.
+ent-ADTRNDInducerBattery = { ent-ADTEngiInducer }
+    .desc = { ent-ADTEngiInducer.desc }
     .suffix = Батарея, РНД

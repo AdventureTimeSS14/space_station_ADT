@@ -13,4 +13,4 @@ research-technology-basemegacells = Мегабатареи
 
 research-technology-advancedmegacells = Сверхэффективные мегабатареи
 
-research-technology-reducer = Промышленная передача энергии
+research-technology-reducer = Беспроводная передача энергии
