@@ -14,34 +14,18 @@
     #ADTClothingOuterBlackCardigan: 2
     #ADTClothingUnderwearStockingsHeart: 2
 # Конец одежда на 14 февраля
-    #ADT-Tweak-ClothingVoucher-Start
-    ADTClothingVoucherHatsoft: 8
-    ADTClothingVoucherJumpsuitTurtleneck: 8
-    ADTClothingVoucherJumpskirtTurtleneck: 8
-    #ADT-Tweak-ClothingVoucher-End
     ClothingBackpack: 3 #ADT-tweak 5>3
     ClothingBackpackDuffel: 3 #ADT-tweak 5>3
     ClothingBackpackSatchel: 2 #ADT-tweak 3>2
-    #ADT-Tweak-Gloves-Start
-    ADTClothingHandsCatPawsWhite: 3
-    ADTClothingHandsCatPawsBrown: 3
-    ADTClothingHandsCatPawsBlack: 3
-    ADTClothingHandsCatPawsBlackWhite: 3
-    #ADT-Tweak-Gloves-End
     #ADT-Tweak-Backpack-Start
     ADTClothingBackpackBlackLadySatchel: 2
     ADTClothingBackpackLeatherLadySatchel: 2
     #ADT-Tweak-Backpack-End
-    ADTClothingHeadHatBeretBlackCivilian: 2 #ADT-Tweak
     ClothingBackpackSatchelLeather: 2
     #ADT-Tweak-Cloak-Start
     ADTClothingNeckDarkGreyCloak: 1
     ADTClothingNeckGothicCloak: 1
     #ADT-Tweak-Cloak-End
-    ADTClothingSandals: 2 #ADT-Tweak
-    ClothingRandomSpawner: 4 #ADT-tweak 8>4
-    ClothingUniformRandomShorts: 3 #ADT-tweak 4>3
-    ClothingHeadHatBeret: 3 #ADT-tweak 4>3
     ClothingHeadBandBlack: 2
     ClothingHeadBandBlue: 2
     ClothingHeadBandGreen: 2
@@ -49,6 +33,8 @@
     ClothingHeadBandSkull: 2
     ClothingHeadHatGreyFlatcap: 3
     ClothingHeadHatBrownFlatcap: 3
+    ClothingHeadHatBeret: 3 #ADT-tweak-Move 4>3
+    ADTClothingHeadHatBeretBlackCivilian: 2 #ADT-Tweak
     ClothingUniformJumpsuitColorGrey: 4 #ADT-tweak 8>4
     ClothingUniformJumpskirtColorGrey: 4 #ADT-tweak 8>4
     ClothingUniformJumpsuitColorWhite: 3
@@ -89,6 +75,22 @@
     ClothingUniformJumpskirtCasualRed: 2
     ClothingUniformJumpsuitCasualGreen: 2
     ClothingUniformJumpskirtCasualGreen: 2
+    #ADT-Tweak-Turtleneck-Start
+    ADTClothingUniformJumpsuitTurtleneckBlackSleeveless: 1
+    ADTClothingUniformJumpskirtTurtleneckBlackSleeveless: 1
+    ADTClothingUniformJumpsuitTurtleneckWhiteSleeveless: 1
+    ADTClothingUniformJumpskirtTurtleneckWhiteSleeveless: 1
+    ADTClothingUniformJumpsuitTurtleneckWhiteBlackSleeveless: 1
+    #ADT-Tweak-Turtleneck-End
+    #ADT-Tweak-ClothingVoucher-Start
+    ADTClothingVoucherJumpsuitTurtleneck: 8
+    ADTClothingVoucherJumpskirtTurtleneck: 8
+    #ADT-Tweak-ClothingVoucher-End
+    #ADT-Tweak-Leather-Start
+    ADTClothingOuterCoatLeathOvercoat: 1
+    ADTClothingOuterLeatherJacket: 1
+    ADTClothingOuterBikerJacket: 1
+    #ADT-Tweak-Leather-End
     # DO NOT ADD MORE, USE UNIFORM DYING
     #ADT-Tweak-FootWraps-Start
     ADTClothingFootWrapsWhite: 2
@@ -107,6 +109,7 @@
     ClothingShoesColorOrange: 2
     ClothingShoesColorRed: 2
     ClothingShoesColorPurple: 2
+    ADTClothingSandals: 2 #ADT-Tweak
     #ADT-Tweak-ClothingVoucher-Start
     #ClothingHeadHatGreysoft: 8
     #ClothingHeadHatMimesoft: 3
@@ -122,8 +125,10 @@
     ClothingHeadFishCap: 2
     ClothingHeadRastaHat: 2
     ClothingHeadPropellerHat: 2
+    ADTClothingVoucherHatsoft: 8 #ADT-Tweak-ClothingVoucher
     ClothingBeltStorageWaistbag: 3
     ClothingEyesGlasses: 6
+    ClothingEyesGlassesCheapSunglasses: 3 #ADT-Tweak-Move
     ClothingHandsGlovesColorBlack: 4
     ClothingHandsGlovesColorGray: 4
     ClothingHandsGlovesColorBrown: 2
@@ -134,19 +139,16 @@
     ClothingHandsGlovesColorGreen: 2
     ClothingHandsGlovesColorOrange: 2
     ClothingHandsGlovesColorPurple: 2
-    ClothingEyesGlassesCheapSunglasses: 3
-    #ADT-Tweak-Turtleneck-Start
-    ADTClothingUniformJumpsuitTurtleneckBlackSleeveless: 1
-    ADTClothingUniformJumpskirtTurtleneckBlackSleeveless: 1
-    ADTClothingUniformJumpsuitTurtleneckWhiteSleeveless: 1
-    ADTClothingUniformJumpskirtTurtleneckWhiteSleeveless: 1
-    ADTClothingUniformJumpsuitTurtleneckWhiteBlackSleeveless: 1
-    #ADT-Tweak-Turtleneck-End
-    #ADT-Tweak-Leather-Start
-    ADTClothingOuterCoatLeathOvercoat: 1
-    ADTClothingOuterLeatherJacket: 1
-    ADTClothingOuterBikerJacket: 1
-    #ADT-Tweak-Leather-End
+    #ADT-Tweak-Gloves-Start
+    ADTClothingHandsCatPawsWhite: 3
+    ADTClothingHandsCatPawsBrown: 3
+    ADTClothingHandsCatPawsBlack: 3
+    ADTClothingHandsCatPawsBlackWhite: 3
+    #ADT-Tweak-Gloves-End
+    #ADT-Tweak-Move-Start
+    ClothingRandomSpawner: 4 #ADT-tweak 8>4
+    ClothingUniformRandomShorts: 3 #ADT-tweak 4>3
+    #ADT-Tweak-Move-End
     #ADT-Tweak-Underwear-Start
     ADTClothingUnderwearBottomBoxersWhite: 3
     ADTClothingUnderwearBottomBriefsWhite: 3
