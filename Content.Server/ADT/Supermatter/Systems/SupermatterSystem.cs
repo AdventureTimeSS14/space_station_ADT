@@ -85,7 +85,6 @@ public sealed partial class SupermatterSystem : EntitySystem
     [Dependency] private StationSystem _station = default!;
     [Dependency] private SharedTransformSystem _transform = default!;
     [Dependency] private RoundEndSystem _roundEnd = default!;
-    [Dependency] private HallucinationsSystem _hallucinations = default!;
     [Dependency] private TagSystem _tag = default!;
 
     private static readonly ProtoId<ToolQualityPrototype> SlicingQuality = "Slicing";
