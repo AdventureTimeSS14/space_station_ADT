@@ -1009,11 +1009,11 @@
     id: ADTVisitorPDA
     outerClothing: ClothingOuterHardsuitSanta
     suitstorage: OxygenTankFilled
-    storage:
-      back:
-      - BoxSurvivalEngineering
-      - ClothingHeadHatSantahat
-      - ClothingOuterSanta
-      - ADTReindeerCubeBox
-      - ADTWeaponWandSanta
-      - ADTGingerbreadCubeBox
+  storage:
+    back:
+    - BoxSurvivalEngineering
+    - ClothingHeadHatSantahat
+    - ClothingOuterSanta
+    - ADTReindeerCubeBox
+    - ADTWeaponWandSanta
+    - ADTGingerbreadCubeBox
