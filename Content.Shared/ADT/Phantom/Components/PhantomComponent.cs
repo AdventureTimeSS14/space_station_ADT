@@ -1,7 +1,6 @@
 using System.Numerics;
 using Content.Shared.FixedPoint;
 using Content.Shared.Eui;
-using Content.Shared.ADT.Hallucinations;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
@@ -303,9 +302,6 @@ public sealed partial class PhantomComponent : Component
 
     [DataField(customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
     public string PortalPrototype = "ADTPhantomPortal";
-
-    [DataField(customTypeSerializer: typeof(PrototypeIdSerializer<HallucinationsPrototype>))]
-    public string HallucinationsPrototype = "Phantom";
 
     [ViewVariables(VVAccess.ReadWrite)]
     public Container HelpingHand = default!;

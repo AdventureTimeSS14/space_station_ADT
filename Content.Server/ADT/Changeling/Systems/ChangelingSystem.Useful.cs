@@ -375,7 +375,7 @@ public sealed partial class ChangelingSystem
         {
             if (!TryUseAbility(uid, component, args.Cost))
                 return;
-            
+
         _damageableSystem.TryChangeDamage(uid, new DamageSpecifier(_proto.Index<DamageTypePrototype>("Cellular"), 200));
 
             args.Handled = true;
@@ -458,7 +458,7 @@ public sealed partial class ChangelingSystem
 
         args.Handled = true;
 
-        _hallucinations.StartHallucinations(target, "ADTHallucinations", TimeSpan.FromSeconds(args.Duration), true, "Changeling");
+        //_hallucinations.StartHallucinations(target, "ADTHallucinations", TimeSpan.FromSeconds(args.Duration), true, "Changeling");
         var selfMessageSuccess = Loc.GetString("changeling-success-sting", ("target", Identity.Entity(target, EntityManager)));
         _popup.PopupEntity(selfMessageSuccess, uid, uid);
 

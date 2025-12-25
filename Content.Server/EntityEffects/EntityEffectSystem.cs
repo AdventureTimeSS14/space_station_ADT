@@ -42,7 +42,6 @@ using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Content.Shared.StatusEffect;
-using Content.Server.ADT.Hallucinations;
 using Content.Server.ADT.Shadekin;
 
 using TemperatureCondition = Content.Shared.EntityEffects.EffectConditions.Temperature; // disambiguate the namespace
