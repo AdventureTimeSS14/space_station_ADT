@@ -19,6 +19,9 @@ ent-ADTClothingVoucherWinterCoatLight = автопокрасчик лёгкой 
 ent-ADTClothingVoucherScarfLong = автопокрасчик длинного шарфа
     .desc = { ent-ADTClothingVoucherJumpsuitTurtleneck.desc }
 
+ent-ADTClothingVoucherTie = автопокрасчик галстука
+    .desc = { ent-ADTClothingVoucherJumpsuitTurtleneck.desc }
+
 clothing-voucher-jumpsuit-turtleneck-white = { ent-ADTClothingUniformJumpsuitTurtleneckWhite }
 clothing-voucher-jumpsuit-turtleneck-aquamarine = { ent-ADTClothingUniformJumpsuitTurtleneckAquamarine }
 clothing-voucher-jumpsuit-turtleneck-azure = { ent-ADTClothingUniformJumpsuitTurtleneckAzure }
@@ -102,3 +105,18 @@ clothing-voucher-scarf-long-purple = { ent-ADTClothingNeckScarfLongPurple }
 clothing-voucher-scarf-long-pink = { ent-ADTClothingNeckScarfLongPink }
 clothing-voucher-scarf-long-blue = { ent-ADTClothingNeckScarfLongBlue }
 clothing-voucher-scarf-long-black = { ent-ADTClothingNeckScarfLongBlack }
+
+clothing-voucher-tie-white = { ent-ADTClothingNeckWhiteTie }
+clothing-voucher-tie-blue = { ent-ADTClothingNeckBlueTie }
+clothing-voucher-tie-aquamarine = { ent-ADTClothingNeckAquamarineTie }
+clothing-voucher-tie-azure = { ent-ADTClothingNeckAzureTie }
+clothing-voucher-tie-black = { ent-ADTClothingNeckBlackTie }
+clothing-voucher-tie-brown = { ent-ADTClothingNeckBrownTie }
+clothing-voucher-tie-darkblue = { ent-ADTClothingNeckDarkBlueTie }
+clothing-voucher-tie-green = { ent-ADTClothingNeckGreenTie }
+clothing-voucher-tie-grey = { ent-ADTClothingNeckGreyTie }
+clothing-voucher-tie-orange = { ent-ADTClothingNeckOrangeTie }
+clothing-voucher-tie-pink = { ent-ADTClothingNeckPinkTie }
+clothing-voucher-tie-purple = { ent-ADTClothingNeckPurpleTie }
+clothing-voucher-tie-red = { ent-ADTClothingNeckRedTie }
+clothing-voucher-tie-yellow = { ent-ADTClothingNeckYellowTie }

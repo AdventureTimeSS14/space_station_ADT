@@ -780,3 +780,145 @@
     state: icon
   content:
   - ADTClothingNeckScarfLongBlack
+
+#region Tie
+
+- type: thiefBackpackSet
+  id: TieWhite
+  name: clothing-voucher-tie-white
+  description: clothing-voucher-tie-white
+  sprite:
+    sprite: ADT/Clothing/Neck/Ties/white_tie.rsi
+    state: icon
+  content:
+  - ADTClothingNeckWhiteTie
+
+- type: thiefBackpackSet
+  id: TieBlue
+  name: clothing-voucher-tie-blue
+  description: clothing-voucher-tie-blue
+  sprite:
+    sprite: ADT/Clothing/Neck/Ties/blue_tie.rsi
+    state: icon
+  content:
+  - ADTClothingNeckBlueTie
+
+- type: thiefBackpackSet
+  id: TieAquamarine
+  name: clothing-voucher-tie-aquamarine
+  description: clothing-voucher-tie-aquamarine
+  sprite:
+    sprite: ADT/Clothing/Neck/Ties/aquamarine_tie.rsi
+    state: icon
+  content:
+  - ADTClothingNeckAquamarineTie
+
+- type: thiefBackpackSet
+  id: TieAzure
+  name: clothing-voucher-tie-azure
+  description: clothing-voucher-tie-azure
+  sprite:
+    sprite: ADT/Clothing/Neck/Ties/azure_tie.rsi
+    state: icon
+  content:
+  - ADTClothingNeckAzureTie
+
+- type: thiefBackpackSet
+  id: TieBlack
+  name: clothing-voucher-tie-black
+  description: clothing-voucher-tie-black
+  sprite:
+    sprite: ADT/Clothing/Neck/Ties/black_tie.rsi
+    state: icon
+  content:
+  - ADTClothingNeckBlackTie
+
+- type: thiefBackpackSet
+  id: TieBrown
+  name: clothing-voucher-tie-brown
+  description: clothing-voucher-tie-brown
+  sprite:
+    sprite: ADT/Clothing/Neck/Ties/brown_tie.rsi
+    state: icon
+  content:
+  - ADTClothingNeckBrownTie
+
+- type: thiefBackpackSet
+  id: TieDarkBlue
+  name: clothing-voucher-tie-darkblue
+  description: clothing-voucher-tie-darkblue
+  sprite:
+    sprite: ADT/Clothing/Neck/Ties/darkblue_tie.rsi
+    state: icon
+  content:
+  - ADTClothingNeckDarkBlueTie
+
+- type: thiefBackpackSet
+  id: TieGreen
+  name: clothing-voucher-tie-green
+  description: clothing-voucher-tie-green
+  sprite:
+    sprite: ADT/Clothing/Neck/Ties/green_tie.rsi
+    state: icon
+  content:
+  - ADTClothingNeckGreenTie
+
+- type: thiefBackpackSet
+  id: TieGrey
+  name: clothing-voucher-tie-grey
+  description: clothing-voucher-tie-grey
+  sprite:
+    sprite: ADT/Clothing/Neck/Ties/grey_tie.rsi
+    state: icon
+  content:
+  - ADTClothingNeckGreyTie
+
+- type: thiefBackpackSet
+  id: TieOrange
+  name: clothing-voucher-tie-orange
+  description: clothing-voucher-tie-orange
+  sprite:
+    sprite: ADT/Clothing/Neck/Ties/orange_tie.rsi
+    state: icon
+  content:
+  - ADTClothingNeckOrangeTie
+
+- type: thiefBackpackSet
+  id: TiePink
+  name: clothing-voucher-tie-pink
+  description: clothing-voucher-tie-pink
+  sprite:
+    sprite: ADT/Clothing/Neck/Ties/pink_tie.rsi
+    state: icon
+  content:
+  - ADTClothingNeckPinkTie
+
+- type: thiefBackpackSet
+  id: TiePurple
+  name: clothing-voucher-tie-purple
+  description: clothing-voucher-tie-purple
+  sprite:
+    sprite: ADT/Clothing/Neck/Ties/purple_tie.rsi
+    state: icon
+  content:
+  - ADTClothingNeckPurpleTie
+
+- type: thiefBackpackSet
+  id: TieRed
+  name: clothing-voucher-tie-red
+  description: clothing-voucher-tie-red
+  sprite:
+    sprite: ADT/Clothing/Neck/Ties/red_tie.rsi
+    state: icon
+  content:
+  - ADTClothingNeckRedTie
+
+- type: thiefBackpackSet
+  id: TieYellow
+  name: clothing-voucher-tie-yellow
+  description: clothing-voucher-tie-yellow
+  sprite:
+    sprite: ADT/Clothing/Neck/Ties/yellow_tie.rsi
+    state: icon
+  content:
+  - ADTClothingNeckYellowTie
