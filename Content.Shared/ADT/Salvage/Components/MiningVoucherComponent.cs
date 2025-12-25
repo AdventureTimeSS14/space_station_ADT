@@ -64,5 +64,6 @@ public enum MiningVoucherTypeDrop : byte
 public enum MiningVoucherTypeDropPlace : byte
 {
     Default,
-    ThisPlace
+    ThisPlace,
+    InHands
 }

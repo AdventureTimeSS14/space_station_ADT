@@ -14,7 +14,7 @@
   - type: MiningVoucher
     kits:
     - JumpsuitTurtleneckWhite
-    typeDropPlace: ThisPlace
+    typeDropPlace: InHands
 
 - type: entity
   parent: ADTClothingVoucherBase
@@ -43,7 +43,7 @@
     - JumpsuitTurtleneckPurple
     - JumpsuitTurtleneckBlack
     - JumpsuitTurtleneckDarkBlue
-    typeDropPlace: ThisPlace
+    typeDropPlace: InHands
 
 - type: entity
   parent: ADTClothingVoucherBase
@@ -72,7 +72,7 @@
     - JumpskirtTurtleneckPurple
     - JumpskirtTurtleneckBlack
     - JumpskirtTurtleneckDarkBlue
-    typeDropPlace: ThisPlace
+    typeDropPlace: InHands
 
 - type: entity
   parent: ADTClothingVoucherBase
@@ -96,7 +96,7 @@
     - HatsoftPurple
     - HatsoftRed
     - HatsoftYellow
-    typeDropPlace: ThisPlace
+    typeDropPlace: InHands
 
 - type: entity
   parent: ADTClothingVoucherBase
@@ -120,7 +120,7 @@
     - ScarfStripedLightBlue
     - ScarfStripedBlue
     - ScarfStripedBlack
-    typeDropPlace: ThisPlace
+    typeDropPlace: InHands
 
 - type: entity
   parent: ADTClothingVoucherBase
@@ -143,7 +143,7 @@
     - FacescarfBlue
     - FacescarfPurple
     - FacescarfBlack
-    typeDropPlace: ThisPlace
+    typeDropPlace: InHands
 
 - type: entity
   parent: ADTClothingVoucherBase
@@ -172,7 +172,7 @@
     - WinterCoatLightDarkBlue
     - WinterCoatLightPurple
     - WinterCoatLightBlack
-    typeDropPlace: ThisPlace
+    typeDropPlace: InHands
 
 - type: entity
   parent: ADTClothingVoucherBase
@@ -196,7 +196,7 @@
     - ScarfLongPink
     - ScarfLongBlue
     - ScarfLongBlack
-    typeDropPlace: ThisPlace
+    typeDropPlace: InHands
 
 - type: entity
   parent: ADTClothingVoucherBase
@@ -225,4 +225,4 @@
     - TiePurple
     - TieRed
     - TieYellow
-    typeDropPlace: ThisPlace
+    typeDropPlace: InHands
