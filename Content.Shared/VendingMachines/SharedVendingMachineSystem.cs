@@ -12,20 +12,29 @@ using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+using Content.Shared.Power.EntitySystems;
+using Content.Shared.Access.Components;
+using Content.Shared.Access.Systems;
+using Content.Shared.Advertise.Components;
+using Content.Shared.Advertise.Systems;
 
 namespace Content.Shared.VendingMachines;
 
 public abstract partial class SharedVendingMachineSystem : EntitySystem
 {
     [Dependency] protected readonly IGameTiming Timing = default!;
-    [Dependency] private readonly INetManager _net = default!;
     [Dependency] protected readonly IPrototypeManager PrototypeManager = default!;
+    [Dependency] private   readonly AccessReaderSystem _accessReader = default!;
+    [Dependency] private   readonly SharedAppearanceSystem _appearanceSystem = default!;
     [Dependency] protected readonly SharedAudioSystem Audio = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private   readonly SharedDoAfterSystem _doAfter = default!;
+    [Dependency] protected readonly SharedPointLightSystem Light = default!;
+    [Dependency] private   readonly SharedPowerReceiverSystem _receiver = default!;
     [Dependency] protected readonly SharedPopupSystem Popup = default!;
+    [Dependency] private   readonly SharedSpeakOnUIClosedSystem _speakOn = default!;
+    [Dependency] protected readonly SharedUserInterfaceSystem UISystem = default!;
     [Dependency] protected readonly IRobustRandom Randomizer = default!;
     [Dependency] private readonly EmagSystem _emag = default!;
-
     public override void Initialize()
     {
         base.Initialize();

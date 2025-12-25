@@ -7,7 +7,7 @@ namespace Content.Shared.Medical.SuitSensor;
 [Serializable, NetSerializable]
 public sealed class SuitSensorStatus
 {
-    public SuitSensorStatus(NetEntity ownerUid, NetEntity suitSensorUid, string name, string job, string jobIcon, List<string> jobDepartments, SuitSensorMode sensorMode) // ADT-Tweak
+    public SuitSensorStatus(NetEntity ownerUid, NetEntity suitSensorUid, string name, string job, string jobIcon, List<string> jobDepartments)
     {
         OwnerUid = ownerUid;
         SuitSensorUid = suitSensorUid;
@@ -15,7 +15,6 @@ public sealed class SuitSensorStatus
         Job = job;
         JobIcon = jobIcon;
         JobDepartments = jobDepartments;
-        Mode = sensorMode; // ADT-Tweak
     }
 
     public TimeSpan Timestamp;

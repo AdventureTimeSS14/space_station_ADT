@@ -49,7 +49,7 @@ public abstract class SharedMesonVisionSystem : EntitySystem
     private void OnMesonVisionRemove(Entity<MesonVisionComponent> ent, ref ComponentRemove args)
     {
         if (ent.Comp.Alert is { } alert)
-            _alerts.ClearAlert(ent, alert);
+            _alerts.ClearAlert(ent.Owner, alert);
 
         MesonVisionRemoved(ent);
     }
@@ -128,7 +128,7 @@ public abstract class SharedMesonVisionSystem : EntitySystem
             var level = MathF.Max((int)MesonVisionState.Off, (int)ent.Comp.State);
             var max = _alerts.GetMaxSeverity(alert);
             var severity = max - ContentHelpers.RoundToLevels(level, (int)MesonVisionState.Full, max + 1);
-            _alerts.ShowAlert(ent, alert, (short)severity);
+            _alerts.ShowAlert(ent.Owner, alert, (short)severity);
         }
 
         MesonVisionChanged(ent);

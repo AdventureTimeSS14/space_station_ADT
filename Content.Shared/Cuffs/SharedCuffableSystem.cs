@@ -351,9 +351,9 @@ namespace Content.Shared.Cuffs
             if (!args.Cancelled && TryAddNewCuffs(target, user, uid, cuffable))
             {
                 // ADT-Tweak-Start: по механике, спавнятся новые наручники, у которых уже свой компонент. "Старый" уже не актуален.
-                if (!TryComp<HandcuffComponent>(cuffable.LastAddedCuffs, out var newComponent))
-                    return;
-                component = newComponent;
+                // if (!TryComp<HandcuffComponent>(cuffable.LastAddedCuffs, out var newComponent))
+                //     return;
+                // component = newComponent;
                 // ADT-Tweak-End
                 component.Used = true;
                 _audio.PlayPredicted(component.EndCuffSound, uid, user);
@@ -489,9 +489,9 @@ namespace Content.Shared.Cuffs
             }
             if (TryComp<StackComponent>(handcuff, out var stackComp))
             {
-                if (_stacks.GetCount(handcuff, stackComp) >= 1)
+                if (_stacks.GetCount((handcuff, stackComp)) >= 1)
                 {
-                    _stacks.Use(handcuff, 1, stackComp);
+                    _stacks.TryUse((handcuff, stackComp), 1);
 
                     var pos = Transform(target).Coordinates;
                     handcuffsplit = Spawn(Prototype(handcuff)?.ID, pos);

@@ -17,6 +17,7 @@ namespace Content.Shared.Humanoid
         Snout,
         SnoutCover, // things layered over snouts (i.e. noses)
         HeadSide, // side parts (i.e., frills)
+        SnoutOverlay, //ADT-tweak
         HeadTop,  // top parts (i.e., ears)
         Eyes,
         RArm,

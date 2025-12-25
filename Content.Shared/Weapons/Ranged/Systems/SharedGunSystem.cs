@@ -276,7 +276,7 @@ public abstract partial class SharedGunSystem : EntitySystem
                 if (TryComp<CombatModeComponent>(user, out var combatModeComp))
                     _combatMode.SetInCombatMode(user, false);
 
-                return;
+                return false;
             }
         }
         ///ADT-Personal-Gun block end
