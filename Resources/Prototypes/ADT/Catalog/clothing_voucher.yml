@@ -285,7 +285,7 @@
 #region HatSoft
 
 - type: thiefBackpackSet
-  id: HeadHatsoftWhite
+  id: HatsoftWhite
   name: clothing-voucher-hatsoft-white-name
   description: clothing-voucher-hatsoft-white-description
   sprite:
@@ -295,7 +295,7 @@
   - ClothingHeadHatMimesoft
 
 - type: thiefBackpackSet
-  id: HeadHatsoftBlue
+  id: HatsoftBlue
   name: clothing-voucher-hatsoft-blue-name
   description: clothing-voucher-hatsoft-blue-description
   sprite:
@@ -305,7 +305,7 @@
   - ClothingHeadHatBluesoft
 
 - type: thiefBackpackSet
-  id: HeadHatsoftGreen
+  id: HatsoftGreen
   name: clothing-voucher-hatsoft-green-name
   description: clothing-voucher-hatsoft-green-description
   sprite:
@@ -315,7 +315,7 @@
   - ClothingHeadHatGreensoft
 
 - type: thiefBackpackSet
-  id: HeadHatsoftBlack
+  id: HatsoftBlack
   name: clothing-voucher-hatsoft-black-name
   description: clothing-voucher-hatsoft-black-description
   sprite:
@@ -325,7 +325,7 @@
   - ClothingHeadHatBlacksoft
 
 - type: thiefBackpackSet
-  id: HeadHatsoftGrey
+  id: HatsoftGrey
   name: clothing-voucher-hatsoft-grey-name
   description: clothing-voucher-hatsoft-grey-description
   sprite:
@@ -335,7 +335,7 @@
   - ClothingHeadHatGreysoft
 
 - type: thiefBackpackSet
-  id: HeadHatsoftOrange
+  id: HatsoftOrange
   name: clothing-voucher-hatsoft-orange-name
   description: clothing-voucher-hatsoft-orange-description
   sprite:
@@ -345,7 +345,7 @@
   - ClothingHeadHatOrangesoft
 
 - type: thiefBackpackSet
-  id: HeadHatsoftPurple
+  id: HatsoftPurple
   name: clothing-voucher-hatsoft-purple-name
   description: clothing-voucher-hatsoft-purple-description
   sprite:
@@ -355,7 +355,7 @@
   - ClothingHeadHatPurplesoft
 
 - type: thiefBackpackSet
-  id: HeadHatsoftRed
+  id: HatsoftRed
   name: clothing-voucher-hatsoft-red-name
   description: clothing-voucher-hatsoft-red-description
   sprite:
@@ -365,7 +365,7 @@
   - ClothingHeadHatRedsoft
 
 - type: thiefBackpackSet
-  id: HeadHatsoftYellow
+  id: HatsoftYellow
   name: clothing-voucher-hatsoft-yellow-name
   description: clothing-voucher-hatsoft-yellow-description
   sprite:
@@ -373,3 +373,95 @@
     state: icon
   content:
   - ClothingHeadHatYellowsoft
+
+#region ScarfStripedWhite
+
+- type: thiefBackpackSet
+  id: ScarfStripedWhite
+  name: clothing-voucher-scarf-striped-white-name
+  description: clothing-voucher-scarf-striped-white-name
+  sprite:
+    sprite: ADT/Clothing/Neck/Scarfs/white.rsi
+    state: icon
+  content:
+  - ADTClothingNeckScarfStripedWhite
+
+- type: thiefBackpackSet
+  id: ScarfStripedGreen
+  name: clothing-voucher-scarf-striped-green-name
+  description: clothing-voucher-scarf-striped-green-name
+  sprite:
+    sprite: Clothing/Neck/Scarfs/green.rsi
+    state: icon
+  content:
+  - ClothingNeckScarfStripedGreen
+
+- type: thiefBackpackSet
+  id: ScarfStripedBrown
+  name: clothing-voucher-scarf-striped-brown-name
+  description: clothing-voucher-scarf-striped-brown-name
+  sprite:
+    sprite: Clothing/Neck/Scarfs/brown.rsi
+    state: icon
+  content:
+  - ClothingNeckScarfStripedBrown
+
+- type: thiefBackpackSet
+  id: ScarfStripedRed
+  name: clothing-voucher-scarf-striped-red-name
+  description: clothing-voucher-scarf-striped-red-name
+  sprite:
+    sprite: Clothing/Neck/Scarfs/red.rsi
+    state: icon
+  content:
+  - ClothingNeckScarfStripedRed
+
+- type: thiefBackpackSet
+  id: ScarfStripedOrange
+  name: clothing-voucher-scarf-striped-orange-name
+  description: clothing-voucher-scarf-striped-orange-name
+  sprite:
+    sprite: Clothing/Neck/Scarfs/orange.rsi
+    state: icon
+  content:
+  - ClothingNeckScarfStripedOrange
+
+- type: thiefBackpackSet
+  id: ScarfStripedPurple
+  name: clothing-voucher-scarf-striped-purple-name
+  description: clothing-voucher-scarf-striped-purple-name
+  sprite:
+    sprite: Clothing/Neck/Scarfs/purple.rsi
+    state: icon
+  content:
+  - ClothingNeckScarfStripedPurple
+
+- type: thiefBackpackSet
+  id: ScarfStripedLightBlue
+  name: clothing-voucher-scarf-striped-lightblue-name
+  description: clothing-voucher-scarf-striped-lightblue-name
+  sprite:
+    sprite: Clothing/Neck/Scarfs/lightblue.rsi
+    state: icon
+  content:
+  - ClothingNeckScarfStripedLightBlue
+
+- type: thiefBackpackSet
+  id: ScarfStripedBlue
+  name: clothing-voucher-scarf-striped-blue-name
+  description: clothing-voucher-scarf-striped-blue-name
+  sprite:
+    sprite: Clothing/Neck/Scarfs/blue.rsi
+    state: icon
+  content:
+  - ClothingNeckScarfStripedBlue
+
+- type: thiefBackpackSet
+  id: ScarfStripedBlack
+  name: clothing-voucher-scarf-striped-black-name
+  description: clothing-voucher-scarf-striped-black-name
+  sprite:
+    sprite: Clothing/Neck/Scarfs/black.rsi
+    state: icon
+  content:
+  - ClothingNeckScarfStripedBlack

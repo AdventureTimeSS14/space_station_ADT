@@ -76,7 +76,7 @@
 
 - type: entity
   parent: ADTClothingVoucherBase
-  id: ADTClothingVoucherHeadHatsoft
+  id: ADTClothingVoucherHatsoft
   abstract: false
   components:
   - type: Sprite
@@ -87,13 +87,37 @@
         state: icon
   - type: MiningVoucher
     kits:
-    - HeadHatsoftWhite
-    - HeadHatsoftBlue
-    - HeadHatsoftGreen
-    - HeadHatsoftBlack
-    - HeadHatsoftGrey
-    - HeadHatsoftOrange
-    - HeadHatsoftPurple
-    - HeadHatsoftRed
-    - HeadHatsoftYellow
+    - HatsoftWhite
+    - HatsoftBlue
+    - HatsoftGreen
+    - HatsoftBlack
+    - HatsoftGrey
+    - HatsoftOrange
+    - HatsoftPurple
+    - HatsoftRed
+    - HatsoftYellow
+    typeDropPlace: ThisPlace
+
+- type: entity
+  parent: ADTClothingVoucherBase
+  id: ADTClothingVoucherScarfStriped
+  abstract: false
+  components:
+  - type: Sprite
+    layers:
+      - sprite: ADT/Clothing/Neck/Scarfs/white.rsi
+        state: icon
+      - sprite: ADT/Objects/Specific/clothing_voucher.rsi
+        state: icon
+  - type: MiningVoucher
+    kits:
+    - ScarfStripedWhite
+    - ScarfStripedGreen
+    - ScarfStripedBrown
+    - ScarfStripedRed
+    - ScarfStripedOrange
+    - ScarfStripedPurple
+    - ScarfStripedLightBlue
+    - ScarfStripedBlue
+    - ScarfStripedBlack
     typeDropPlace: ThisPlace

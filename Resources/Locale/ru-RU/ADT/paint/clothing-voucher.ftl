@@ -4,7 +4,10 @@ ent-ADTClothingVoucherJumpsuitTurtleneck = автопокрасчик водол
 ent-ADTClothingVoucherJumpskirtTurtleneck = автопокрасчик водолазки с юбкой
     .desc = { ent-ADTClothingVoucherJumpsuitTurtleneck.desc }
 
-ent-ADTClothingVoucherHeadHatsoft = автопокрасчик кепки
+ent-ADTClothingVoucherHatsoft = автопокрасчик кепки
+    .desc = { ent-ADTClothingVoucherJumpsuitTurtleneck.desc }
+
+ent-ADTClothingVoucherScarfStriped = автопокрасчик шарфа
     .desc = { ent-ADTClothingVoucherJumpsuitTurtleneck.desc }
 
 clothing-voucher-jumpsuit-turtleneck-white-name = { ent-ADTClothingUniformJumpsuitTurtleneckWhite }
@@ -83,3 +86,23 @@ clothing-voucher-hatsoft-red-name = { ent-ClothingHeadHatRedsoft }
 clothing-voucher-hatsoft-red-description = { ent-ClothingHeadHatRedsoft.desc }
 clothing-voucher-hatsoft-yellow-name = { ent-ClothingHeadHatYellowsoft }
 clothing-voucher-hatsoft-yellow-description = { ent-ClothingHeadHatYellowsoft.desc }
+
+clothing-voucher-scarf-striped-white-name = { ent-ADTClothingNeckScarfStripedWhite }
+clothing-voucher-scarf-striped-white-description = { ent-ADTClothingNeckScarfStripedWhite.desc }
+clothing-voucher-scarf-striped-green-name = { ent-ClothingNeckScarfStripedGreen }
+clothing-voucher-scarf-striped-green-description = { ent-ClothingNeckScarfStripedGreen.desc }
+clothing-voucher-scarf-striped-brown-name = { ent-ClothingNeckScarfStripedBrown }
+clothing-voucher-scarf-striped-brown-description = { ent-ClothingNeckScarfStripedBrown.desc }
+clothing-voucher-scarf-striped-red-name = { ent-ClothingNeckScarfStripedRed }
+clothing-voucher-scarf-striped-red-description = { ent-ClothingNeckScarfStripedRed.desc }
+clothing-voucher-scarf-striped-orange-name = { ent-ClothingNeckScarfStripedOrange }
+clothing-voucher-scarf-striped-orange-description = { ent-ClothingNeckScarfStripedOrange.desc }
+clothing-voucher-scarf-striped-purple-name = { ent-ClothingNeckScarfStripedPurple }
+clothing-voucher-scarf-striped-purple-description = { ent-ClothingNeckScarfStripedPurple.desc }
+clothing-voucher-scarf-striped-blue-name = { ent-ClothingNeckScarfStripedBlue }
+clothing-voucher-scarf-striped-blue-description = { ent-ClothingNeckScarfStripedBlue.desc }
+clothing-voucher-scarf-striped-lightblue-name = { ent-ClothingNeckScarfStripedLightBlue }
+clothing-voucher-scarf-striped-lightblue-description = { ent-ClothingNeckScarfStripedLightBlue.desc }
+clothing-voucher-scarf-striped-black-name = { ent-ClothingNeckScarfStripedBlack }
+clothing-voucher-scarf-striped-black-description = { ent-ClothingNeckScarfStripedBlack.desc }
+
