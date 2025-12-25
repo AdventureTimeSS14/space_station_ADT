@@ -2,8 +2,8 @@
 
 - type: thiefBackpackSet
   id: JumpsuitTurtleneckWhite
-  name: clothing-voucher-jumpsuit-turtleneck-white-name
-  description: clothing-voucher-jumpsuit-turtleneck-white-description
+  name: clothing-voucher-jumpsuit-turtleneck-white
+  description: clothing-voucher-jumpsuit-turtleneck-white
   sprite:
     sprite: ADT/Clothing/Uniforms/Jumpsuit/turtleneck_white.rsi
     state: icon
@@ -12,8 +12,8 @@
 
 - type: thiefBackpackSet
   id: JumpsuitTurtleneckAquamarine
-  name: clothing-voucher-jumpsuit-turtleneck-aquamarine-name
-  description: clothing-voucher-jumpsuit-turtleneck-aquamarine-description
+  name: clothing-voucher-jumpsuit-turtleneck-aquamarine
+  description: clothing-voucher-jumpsuit-turtleneck-aquamarine
   sprite:
     sprite: ADT/Clothing/Uniforms/Jumpsuit/turtleneck_aquamarine.rsi
     state: icon
@@ -22,8 +22,8 @@
 
 - type: thiefBackpackSet
   id: JumpsuitTurtleneckAzure
-  name: clothing-voucher-jumpsuit-turtleneck-azure-name
-  description: clothing-voucher-jumpsuit-turtleneck-azure-description
+  name: clothing-voucher-jumpsuit-turtleneck-azure
+  description: clothing-voucher-jumpsuit-turtleneck-azure
   sprite:
     sprite: ADT/Clothing/Uniforms/Jumpsuit/turtleneck_azure.rsi
     state: icon
@@ -32,8 +32,8 @@
 
 - type: thiefBackpackSet
   id: JumpsuitTurtleneckYellow
-  name: clothing-voucher-jumpsuit-turtleneck-yellow-name
-  description: clothing-voucher-jumpsuit-turtleneck-yellow-description
+  name: clothing-voucher-jumpsuit-turtleneck-yellow
+  description: clothing-voucher-jumpsuit-turtleneck-yellow
   sprite:
     sprite: ADT/Clothing/Uniforms/Jumpsuit/turtleneck_yellow.rsi
     state: icon
@@ -42,8 +42,8 @@
 
 - type: thiefBackpackSet
   id: JumpsuitTurtleneckGreen
-  name: clothing-voucher-jumpsuit-turtleneck-green-name
-  description: clothing-voucher-jumpsuit-turtleneck-green-description
+  name: clothing-voucher-jumpsuit-turtleneck-green
+  description: clothing-voucher-jumpsuit-turtleneck-green
   sprite:
     sprite: ADT/Clothing/Uniforms/Jumpsuit/turtleneck_green.rsi
     state: icon
@@ -52,8 +52,8 @@
 
 - type: thiefBackpackSet
   id: JumpsuitTurtleneckBrown
-  name: clothing-voucher-jumpsuit-turtleneck-brown-name
-  description: clothing-voucher-jumpsuit-turtleneck-brown-description
+  name: clothing-voucher-jumpsuit-turtleneck-brown
+  description: clothing-voucher-jumpsuit-turtleneck-brown
   sprite:
     sprite: ADT/Clothing/Uniforms/Jumpsuit/turtleneck_brown.rsi
     state: icon
@@ -62,8 +62,8 @@
 
 - type: thiefBackpackSet
   id: JumpsuitTurtleneckRed
-  name: clothing-voucher-jumpsuit-turtleneck-red-name
-  description: clothing-voucher-jumpsuit-turtleneck-red-description
+  name: clothing-voucher-jumpsuit-turtleneck-red
+  description: clothing-voucher-jumpsuit-turtleneck-red
   sprite:
     sprite: ADT/Clothing/Uniforms/Jumpsuit/turtleneck_red.rsi
     state: icon
@@ -72,8 +72,8 @@
 
 - type: thiefBackpackSet
   id: JumpsuitTurtleneckOrange
-  name: clothing-voucher-jumpsuit-turtleneck-orange-name
-  description: clothing-voucher-jumpsuit-turtleneck-orange-description
+  name: clothing-voucher-jumpsuit-turtleneck-orange
+  description: clothing-voucher-jumpsuit-turtleneck-orange
   sprite:
     sprite: ADT/Clothing/Uniforms/Jumpsuit/turtleneck_orange.rsi
     state: icon
@@ -82,8 +82,8 @@
 
 - type: thiefBackpackSet
   id: JumpsuitTurtleneckPink
-  name: clothing-voucher-jumpsuit-turtleneck-pink-name
-  description: clothing-voucher-jumpsuit-turtleneck-pink-description
+  name: clothing-voucher-jumpsuit-turtleneck-pink
+  description: clothing-voucher-jumpsuit-turtleneck-pink
   sprite:
     sprite: ADT/Clothing/Uniforms/Jumpsuit/turtleneck_pink.rsi
     state: icon
@@ -92,8 +92,8 @@
 
 - type: thiefBackpackSet
   id: JumpsuitTurtleneckGrey
-  name: clothing-voucher-jumpsuit-turtleneck-grey-name
-  description: clothing-voucher-jumpsuit-turtleneck-grey-description
+  name: clothing-voucher-jumpsuit-turtleneck-grey
+  description: clothing-voucher-jumpsuit-turtleneck-grey
   sprite:
     sprite: ADT/Clothing/Uniforms/Jumpsuit/turtleneck_grey.rsi
     state: icon
@@ -102,8 +102,8 @@
 
 - type: thiefBackpackSet
   id: JumpsuitTurtleneckBlue
-  name: clothing-voucher-jumpsuit-turtleneck-blue-name
-  description: clothing-voucher-jumpsuit-turtleneck-blue-description
+  name: clothing-voucher-jumpsuit-turtleneck-blue
+  description: clothing-voucher-jumpsuit-turtleneck-blue
   sprite:
     sprite: ADT/Clothing/Uniforms/Jumpsuit/turtleneck_blue.rsi
     state: icon
@@ -112,8 +112,8 @@
 
 - type: thiefBackpackSet
   id: JumpsuitTurtleneckPurple
-  name: clothing-voucher-jumpsuit-turtleneck-purple-name
-  description: clothing-voucher-jumpsuit-turtleneck-purple-description
+  name: clothing-voucher-jumpsuit-turtleneck-purple
+  description: clothing-voucher-jumpsuit-turtleneck-purple
   sprite:
     sprite: ADT/Clothing/Uniforms/Jumpsuit/turtleneck_purple.rsi
     state: icon
@@ -122,8 +122,8 @@
 
 - type: thiefBackpackSet
   id: JumpsuitTurtleneckBlack
-  name: clothing-voucher-jumpsuit-turtleneck-black-name
-  description: clothing-voucher-jumpsuit-turtleneck-black-description
+  name: clothing-voucher-jumpsuit-turtleneck-black
+  description: clothing-voucher-jumpsuit-turtleneck-black
   sprite:
     sprite: ADT/Clothing/Uniforms/Jumpsuit/turtleneck_black.rsi
     state: icon
@@ -132,8 +132,8 @@
 
 - type: thiefBackpackSet
   id: JumpsuitTurtleneckDarkBlue
-  name: clothing-voucher-jumpsuit-turtleneck-darkblue-name
-  description: clothing-voucher-jumpsuit-turtleneck-darkblue-description
+  name: clothing-voucher-jumpsuit-turtleneck-darkblue
+  description: clothing-voucher-jumpsuit-turtleneck-darkblue
   sprite:
     sprite: ADT/Clothing/Uniforms/Jumpsuit/turtleneck_darkblue.rsi
     state: icon
@@ -144,8 +144,8 @@
 
 - type: thiefBackpackSet
   id: JumpskirtTurtleneckWhite
-  name: clothing-voucher-jumpskirt-turtleneck-white-name
-  description: clothing-voucher-jumpskirt-turtleneck-white-description
+  name: clothing-voucher-jumpskirt-turtleneck-white
+  description: clothing-voucher-jumpskirt-turtleneck-white
   sprite:
     sprite: ADT/Clothing/Uniforms/Jumpskirt/turtleneck_white_women.rsi
     state: icon
@@ -154,8 +154,8 @@
 
 - type: thiefBackpackSet
   id: JumpskirtTurtleneckAquamarine
-  name: clothing-voucher-jumpskirt-turtleneck-aquamarine-name
-  description: clothing-voucher-jumpskirt-turtleneck-aquamarine-description
+  name: clothing-voucher-jumpskirt-turtleneck-aquamarine
+  description: clothing-voucher-jumpskirt-turtleneck-aquamarine
   sprite:
     sprite: ADT/Clothing/Uniforms/Jumpskirt/turtleneck_aquamarine_women.rsi
     state: icon
@@ -164,8 +164,8 @@
 
 - type: thiefBackpackSet
   id: JumpskirtTurtleneckAzure
-  name: clothing-voucher-jumpskirt-turtleneck-azure-name
-  description: clothing-voucher-jumpskirt-turtleneck-azure-description
+  name: clothing-voucher-jumpskirt-turtleneck-azure
+  description: clothing-voucher-jumpskirt-turtleneck-azure
   sprite:
     sprite: ADT/Clothing/Uniforms/Jumpskirt/turtleneck_azure_women.rsi
     state: icon
@@ -174,8 +174,8 @@
 
 - type: thiefBackpackSet
   id: JumpskirtTurtleneckYellow
-  name: clothing-voucher-jumpskirt-turtleneck-yellow-name
-  description: clothing-voucher-jumpskirt-turtleneck-yellow-description
+  name: clothing-voucher-jumpskirt-turtleneck-yellow
+  description: clothing-voucher-jumpskirt-turtleneck-yellow
   sprite:
     sprite: ADT/Clothing/Uniforms/Jumpskirt/turtleneck_yellow_women.rsi
     state: icon
@@ -184,8 +184,8 @@
 
 - type: thiefBackpackSet
   id: JumpskirtTurtleneckGreen
-  name: clothing-voucher-jumpskirt-turtleneck-green-name
-  description: clothing-voucher-jumpskirt-turtleneck-green-description
+  name: clothing-voucher-jumpskirt-turtleneck-green
+  description: clothing-voucher-jumpskirt-turtleneck-green
   sprite:
     sprite: ADT/Clothing/Uniforms/Jumpskirt/turtleneck_green_women.rsi
     state: icon
@@ -194,8 +194,8 @@
 
 - type: thiefBackpackSet
   id: JumpskirtTurtleneckBrown
-  name: clothing-voucher-jumpskirt-turtleneck-brown-name
-  description: clothing-voucher-jumpskirt-turtleneck-brown-description
+  name: clothing-voucher-jumpskirt-turtleneck-brown
+  description: clothing-voucher-jumpskirt-turtleneck-brown
   sprite:
     sprite: ADT/Clothing/Uniforms/Jumpskirt/turtleneck_brown_women.rsi
     state: icon
@@ -204,8 +204,8 @@
 
 - type: thiefBackpackSet
   id: JumpskirtTurtleneckRed
-  name: clothing-voucher-jumpskirt-turtleneck-red-name
-  description: clothing-voucher-jumpskirt-turtleneck-red-description
+  name: clothing-voucher-jumpskirt-turtleneck-red
+  description: clothing-voucher-jumpskirt-turtleneck-red
   sprite:
     sprite: ADT/Clothing/Uniforms/Jumpskirt/turtleneck_red_women.rsi
     state: icon
@@ -214,8 +214,8 @@
 
 - type: thiefBackpackSet
   id: JumpskirtTurtleneckOrange
-  name: clothing-voucher-jumpskirt-turtleneck-orange-name
-  description: clothing-voucher-jumpskirt-turtleneck-orange-description
+  name: clothing-voucher-jumpskirt-turtleneck-orange
+  description: clothing-voucher-jumpskirt-turtleneck-orange
   sprite:
     sprite: ADT/Clothing/Uniforms/Jumpskirt/turtleneck_orange_women.rsi
     state: icon
@@ -224,8 +224,8 @@
 
 - type: thiefBackpackSet
   id: JumpskirtTurtleneckPink
-  name: clothing-voucher-jumpskirt-turtleneck-pink-name
-  description: clothing-voucher-jumpskirt-turtleneck-pink-description
+  name: clothing-voucher-jumpskirt-turtleneck-pink
+  description: clothing-voucher-jumpskirt-turtleneck-pink
   sprite:
     sprite: ADT/Clothing/Uniforms/Jumpskirt/turtleneck_pink_women.rsi
     state: icon
@@ -234,8 +234,8 @@
 
 - type: thiefBackpackSet
   id: JumpskirtTurtleneckGrey
-  name: clothing-voucher-jumpskirt-turtleneck-grey-name
-  description: clothing-voucher-jumpskirt-turtleneck-grey-description
+  name: clothing-voucher-jumpskirt-turtleneck-grey
+  description: clothing-voucher-jumpskirt-turtleneck-grey
   sprite:
     sprite: ADT/Clothing/Uniforms/Jumpskirt/turtleneck_grey_women.rsi
     state: icon
@@ -244,8 +244,8 @@
 
 - type: thiefBackpackSet
   id: JumpskirtTurtleneckBlue
-  name: clothing-voucher-jumpskirt-turtleneck-blue-name
-  description: clothing-voucher-jumpskirt-turtleneck-blue-description
+  name: clothing-voucher-jumpskirt-turtleneck-blue
+  description: clothing-voucher-jumpskirt-turtleneck-blue
   sprite:
     sprite: ADT/Clothing/Uniforms/Jumpskirt/turtleneck_blue_women.rsi
     state: icon
@@ -254,8 +254,8 @@
 
 - type: thiefBackpackSet
   id: JumpskirtTurtleneckPurple
-  name: clothing-voucher-jumpskirt-turtleneck-purple-name
-  description: clothing-voucher-jumpskirt-turtleneck-purple-description
+  name: clothing-voucher-jumpskirt-turtleneck-purple
+  description: clothing-voucher-jumpskirt-turtleneck-purple
   sprite:
     sprite: ADT/Clothing/Uniforms/Jumpskirt/turtleneck_purple_women.rsi
     state: icon
@@ -264,8 +264,8 @@
 
 - type: thiefBackpackSet
   id: JumpskirtTurtleneckBlack
-  name: clothing-voucher-jumpskirt-turtleneck-black-name
-  description: clothing-voucher-jumpskirt-turtleneck-black-description
+  name: clothing-voucher-jumpskirt-turtleneck-black
+  description: clothing-voucher-jumpskirt-turtleneck-black
   sprite:
     sprite: ADT/Clothing/Uniforms/Jumpskirt/turtleneck_black_women.rsi
     state: icon
@@ -274,8 +274,8 @@
 
 - type: thiefBackpackSet
   id: JumpskirtTurtleneckDarkBlue
-  name: clothing-voucher-jumpskirt-turtleneck-darkblue-name
-  description: clothing-voucher-jumpskirt-turtleneck-darkblue-description
+  name: clothing-voucher-jumpskirt-turtleneck-darkblue
+  description: clothing-voucher-jumpskirt-turtleneck-darkblue
   sprite:
     sprite: ADT/Clothing/Uniforms/Jumpskirt/turtleneck_darkblue_women.rsi
     state: icon
@@ -286,8 +286,8 @@
 
 - type: thiefBackpackSet
   id: HatsoftWhite
-  name: clothing-voucher-hatsoft-white-name
-  description: clothing-voucher-hatsoft-white-description
+  name: clothing-voucher-hatsoft-white
+  description: clothing-voucher-hatsoft-white
   sprite:
     sprite: Clothing/Head/Soft/mimesoft.rsi
     state: icon
@@ -296,8 +296,8 @@
 
 - type: thiefBackpackSet
   id: HatsoftBlue
-  name: clothing-voucher-hatsoft-blue-name
-  description: clothing-voucher-hatsoft-blue-description
+  name: clothing-voucher-hatsoft-blue
+  description: clothing-voucher-hatsoft-blue
   sprite:
     sprite: Clothing/Head/Soft/bluesoft.rsi
     state: icon
@@ -306,8 +306,8 @@
 
 - type: thiefBackpackSet
   id: HatsoftGreen
-  name: clothing-voucher-hatsoft-green-name
-  description: clothing-voucher-hatsoft-green-description
+  name: clothing-voucher-hatsoft-green
+  description: clothing-voucher-hatsoft-green
   sprite:
     sprite: Clothing/Head/Soft/greensoft.rsi
     state: icon
@@ -316,8 +316,8 @@
 
 - type: thiefBackpackSet
   id: HatsoftBlack
-  name: clothing-voucher-hatsoft-black-name
-  description: clothing-voucher-hatsoft-black-description
+  name: clothing-voucher-hatsoft-black
+  description: clothing-voucher-hatsoft-black
   sprite:
     sprite: Clothing/Head/Soft/blacksoft.rsi
     state: icon
@@ -326,8 +326,8 @@
 
 - type: thiefBackpackSet
   id: HatsoftGrey
-  name: clothing-voucher-hatsoft-grey-name
-  description: clothing-voucher-hatsoft-grey-description
+  name: clothing-voucher-hatsoft-grey
+  description: clothing-voucher-hatsoft-grey
   sprite:
     sprite: Clothing/Head/Soft/greysoft.rsi
     state: icon
@@ -336,8 +336,8 @@
 
 - type: thiefBackpackSet
   id: HatsoftOrange
-  name: clothing-voucher-hatsoft-orange-name
-  description: clothing-voucher-hatsoft-orange-description
+  name: clothing-voucher-hatsoft-orange
+  description: clothing-voucher-hatsoft-orange
   sprite:
     sprite: Clothing/Head/Soft/orangesoft.rsi
     state: icon
@@ -346,8 +346,8 @@
 
 - type: thiefBackpackSet
   id: HatsoftPurple
-  name: clothing-voucher-hatsoft-purple-name
-  description: clothing-voucher-hatsoft-purple-description
+  name: clothing-voucher-hatsoft-purple
+  description: clothing-voucher-hatsoft-purple
   sprite:
     sprite: Clothing/Head/Soft/purplesoft.rsi
     state: icon
@@ -356,8 +356,8 @@
 
 - type: thiefBackpackSet
   id: HatsoftRed
-  name: clothing-voucher-hatsoft-red-name
-  description: clothing-voucher-hatsoft-red-description
+  name: clothing-voucher-hatsoft-red
+  description: clothing-voucher-hatsoft-red
   sprite:
     sprite: Clothing/Head/Soft/redsoft.rsi
     state: icon
@@ -366,8 +366,8 @@
 
 - type: thiefBackpackSet
   id: HatsoftYellow
-  name: clothing-voucher-hatsoft-yellow-name
-  description: clothing-voucher-hatsoft-yellow-description
+  name: clothing-voucher-hatsoft-yellow
+  description: clothing-voucher-hatsoft-yellow
   sprite:
     sprite: Clothing/Head/Soft/yellowsoft.rsi
     state: icon
@@ -378,8 +378,8 @@
 
 - type: thiefBackpackSet
   id: ScarfStripedWhite
-  name: clothing-voucher-scarf-striped-white-name
-  description: clothing-voucher-scarf-striped-white-name
+  name: clothing-voucher-scarf-striped-white
+  description: clothing-voucher-scarf-striped-white
   sprite:
     sprite: ADT/Clothing/Neck/Scarfs/white.rsi
     state: icon
@@ -388,8 +388,8 @@
 
 - type: thiefBackpackSet
   id: ScarfStripedGreen
-  name: clothing-voucher-scarf-striped-green-name
-  description: clothing-voucher-scarf-striped-green-name
+  name: clothing-voucher-scarf-striped-green
+  description: clothing-voucher-scarf-striped-green
   sprite:
     sprite: Clothing/Neck/Scarfs/green.rsi
     state: icon
@@ -398,8 +398,8 @@
 
 - type: thiefBackpackSet
   id: ScarfStripedBrown
-  name: clothing-voucher-scarf-striped-brown-name
-  description: clothing-voucher-scarf-striped-brown-name
+  name: clothing-voucher-scarf-striped-brown
+  description: clothing-voucher-scarf-striped-brown
   sprite:
     sprite: Clothing/Neck/Scarfs/brown.rsi
     state: icon
@@ -408,8 +408,8 @@
 
 - type: thiefBackpackSet
   id: ScarfStripedRed
-  name: clothing-voucher-scarf-striped-red-name
-  description: clothing-voucher-scarf-striped-red-name
+  name: clothing-voucher-scarf-striped-red
+  description: clothing-voucher-scarf-striped-red
   sprite:
     sprite: Clothing/Neck/Scarfs/red.rsi
     state: icon
@@ -418,8 +418,8 @@
 
 - type: thiefBackpackSet
   id: ScarfStripedOrange
-  name: clothing-voucher-scarf-striped-orange-name
-  description: clothing-voucher-scarf-striped-orange-name
+  name: clothing-voucher-scarf-striped-orange
+  description: clothing-voucher-scarf-striped-orange
   sprite:
     sprite: Clothing/Neck/Scarfs/orange.rsi
     state: icon
@@ -428,8 +428,8 @@
 
 - type: thiefBackpackSet
   id: ScarfStripedPurple
-  name: clothing-voucher-scarf-striped-purple-name
-  description: clothing-voucher-scarf-striped-purple-name
+  name: clothing-voucher-scarf-striped-purple
+  description: clothing-voucher-scarf-striped-purple
   sprite:
     sprite: Clothing/Neck/Scarfs/purple.rsi
     state: icon
@@ -438,8 +438,8 @@
 
 - type: thiefBackpackSet
   id: ScarfStripedLightBlue
-  name: clothing-voucher-scarf-striped-lightblue-name
-  description: clothing-voucher-scarf-striped-lightblue-name
+  name: clothing-voucher-scarf-striped-lightblue
+  description: clothing-voucher-scarf-striped-lightblue
   sprite:
     sprite: Clothing/Neck/Scarfs/lightblue.rsi
     state: icon
@@ -448,8 +448,8 @@
 
 - type: thiefBackpackSet
   id: ScarfStripedBlue
-  name: clothing-voucher-scarf-striped-blue-name
-  description: clothing-voucher-scarf-striped-blue-name
+  name: clothing-voucher-scarf-striped-blue
+  description: clothing-voucher-scarf-striped-blue
   sprite:
     sprite: Clothing/Neck/Scarfs/blue.rsi
     state: icon
@@ -458,10 +458,91 @@
 
 - type: thiefBackpackSet
   id: ScarfStripedBlack
-  name: clothing-voucher-scarf-striped-black-name
-  description: clothing-voucher-scarf-striped-black-name
+  name: clothing-voucher-scarf-striped-black
+  description: clothing-voucher-scarf-striped-black
   sprite:
     sprite: Clothing/Neck/Scarfs/black.rsi
     state: icon
   content:
   - ClothingNeckScarfStripedBlack
+
+#region Facescarf
+- type: thiefBackpackSet
+  id: FacescarfWhite
+  name: clothing-voucher-facescarf-white
+  description: clothing-voucher-facescarf-white
+  sprite:
+    sprite: ADT/Clothing/Neck/Facescarfs/facescarf_white.rsi
+    state: icon
+  content:
+  - ADTClothingNeckFacescarfWhite
+
+- type: thiefBackpackSet
+  id: FacescarfGreen
+  name: clothing-voucher-facescarf-green
+  description: clothing-voucher-facescarf-green
+  sprite:
+    sprite: ADT/Clothing/Neck/Facescarfs/facescarf_green.rsi
+    state: icon
+  content:
+  - ADTClothingNeckFacescarfGreen
+
+- type: thiefBackpackSet
+  id: FacescarfRed
+  name: clothing-voucher-facescarf-red
+  description: clothing-voucher-facescarf-red
+  sprite:
+    sprite: ADT/Clothing/Neck/Facescarfs/facescarf_red.rsi
+    state: icon
+  content:
+  - ADTClothingNeckFacescarfRed
+
+- type: thiefBackpackSet
+  id: FacescarfOrange
+  name: clothing-voucher-facescarf-orange
+  description: clothing-voucher-facescarf-orange
+  sprite:
+    sprite: ADT/Clothing/Neck/Facescarfs/facescarf_orange.rsi
+    state: icon
+  content:
+  - ADTClothingNeckFacescarfOrange
+
+- type: thiefBackpackSet
+  id: FacescarfGrey
+  name: clothing-voucher-facescarf-grey
+  description: clothing-voucher-facescarf-grey
+  sprite:
+    sprite: ADT/Clothing/Neck/Facescarfs/facescarf_grey.rsi
+    state: icon
+  content:
+  - ADTClothingNeckFacescarfGrey
+
+- type: thiefBackpackSet
+  id: FacescarfBlue
+  name: clothing-voucher-facescarf-blue
+  description: clothing-voucher-facescarf-blue
+  sprite:
+    sprite: ADT/Clothing/Neck/Facescarfs/facescarf_blue.rsi
+    state: icon
+  content:
+  - ADTClothingNeckFacescarfBlue
+
+- type: thiefBackpackSet
+  id: FacescarfPurple
+  name: clothing-voucher-facescarf-purple
+  description: clothing-voucher-facescarf-purple
+  sprite:
+    sprite: ADT/Clothing/Neck/Facescarfs/facescarf_purple.rsi
+    state: icon
+  content:
+  - ADTClothingNeckFacescarfPurple
+
+- type: thiefBackpackSet
+  id: FacescarfBlack
+  name: clothing-voucher-facescarf-black
+  description: clothing-voucher-facescarf-black
+  sprite:
+    sprite: ADT/Clothing/Neck/Facescarfs/facescarf_black.rsi
+    state: icon
+  content:
+  - ADTClothingNeckFacescarfBlack
