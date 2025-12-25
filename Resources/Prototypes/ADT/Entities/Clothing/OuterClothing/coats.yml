@@ -37,6 +37,19 @@
 #толстовки-топки от Празата
 - type: entity
   parent: ClothingOuterStorageBase
+  id: ADTClothingOuterWhiteSweatshirtTop
+  name: white sweatshirt-top
+  description: white sweatshirt-top
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Coats/white_sweatshirttop.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Coats/white_sweatshirttop.rsi
+  - type: StaticPrice
+    price: 65
+
+- type: entity
+  parent: ClothingOuterStorageBase
   id: ADTClothingOuterGraySweatshirtTop
   name: gray sweatshirt-top
   description: gray sweatshirt-top
