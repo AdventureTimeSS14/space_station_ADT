@@ -14,38 +14,34 @@
     #ADTClothingOuterBlackCardigan: 2
     #ADTClothingUnderwearStockingsHeart: 2
 # Конец одежда на 14 февраля
-    ClothingBackpack: 3 # ADT-Tweak: уменьшено с 5 до 3 для баланса
-    ClothingBackpackDuffel: 3 # ADT-Tweak: уменьшено с 5 до 3 для баланса
-    ClothingBackpackSatchel: 2 # ADT-Tweak: уменьшено с 3 до 2 для баланса
-# ADT tweak gloves start
+    #ADT-Tweak-ClothingVoucher-Start
+    ADTClothingVoucherHatsoft: 8
+    ADTClothingVoucherJumpsuitTurtleneck: 8
+    ADTClothingVoucherJumpskirtTurtleneck: 8
+    #ADT-Tweak-ClothingVoucher-End
+    ClothingBackpack: 3 #ADT-tweak 5>3
+    ClothingBackpackDuffel: 3 #ADT-tweak 5>3
+    ClothingBackpackSatchel: 2 #ADT-tweak 3>2
+    #ADT-Tweak-Gloves-Start
     ADTClothingHandsCatPawsWhite: 3
     ADTClothingHandsCatPawsBrown: 3
     ADTClothingHandsCatPawsBlack: 3
     ADTClothingHandsCatPawsBlackWhite: 3
-# ADT tweak gloves end
-
-# ADT сумки начало
+    #ADT-Tweak-Gloves-End
+    #ADT-Tweak-Backpack-Start
     ADTClothingBackpackBlackLadySatchel: 2
     ADTClothingBackpackLeatherLadySatchel: 2
-# ADT сумки конец
-    ADTClothingHeadHatBeretBlackCivilian: 2 # ADT Кастомный чёрный берет
+    #ADT-Tweak-Backpack-End
+    ADTClothingHeadHatBeretBlackCivilian: 2 #ADT-Tweak
     ClothingBackpackSatchelLeather: 2
-# ADT бельё/обмотки/плащи/носки начало
-    ADTClothingUnderwearBottomBoxersWhite: 3
-    ADTClothingUnderwearBottomBriefsWhite: 3
-    ADTClothingUnderwearBottomBoxersAmerica: 2
-    ADTClothingUnderwearBottomBoxersBoom: 2
-    ADTClothingUnderwearBottomPantiesComfyWhite: 3 # ADT-Tweak: уменьшено с 4 до 3 для баланса
-    ADTClothingUnderwearTopBraWhite: 3 # ADT-Tweak: уменьшено с 4 до 3 для баланса
-    ADTClothingUnderwearTopBraComfyWhite: 3 # ADT-Tweak: уменьшено с 4 до 3 для баланса
-# конец белья
+    #ADT-Tweak-Cloak-Start
     ADTClothingNeckDarkGreyCloak: 1
     ADTClothingNeckGothicCloak: 1
-# ADT бельё/обмотки/плащи/носки конец
-    ADTClothingSandals: 2
-    ClothingRandomSpawner: 4 # ADT-Tweak: уменьшено с 8 до 4 для баланса
-    ClothingUniformRandomShorts: 3 # ADT-Tweak: уменьшено с 4 до 3 для баланса
-    ClothingHeadHatBeret: 3 # ADT-Tweak: уменьшено с 4 до 3 для баланса
+    #ADT-Tweak-Cloak-End
+    ADTClothingSandals: 2 #ADT-Tweak
+    ClothingRandomSpawner: 4 #ADT-tweak 8>4
+    ClothingUniformRandomShorts: 3 #ADT-tweak 4>3
+    ClothingHeadHatBeret: 3 #ADT-tweak 4>3
     ClothingHeadBandBlack: 2
     ClothingHeadBandBlue: 2
     ClothingHeadBandGreen: 2
@@ -53,8 +49,8 @@
     ClothingHeadBandSkull: 2
     ClothingHeadHatGreyFlatcap: 3
     ClothingHeadHatBrownFlatcap: 3
-    ClothingUniformJumpsuitColorGrey: 4 # ADT-Tweak: уменьшено с 8 до 4 для баланса
-    ClothingUniformJumpskirtColorGrey: 4 # ADT-Tweak: уменьшено с 8 до 4 для баланса
+    ClothingUniformJumpsuitColorGrey: 4 #ADT-tweak 8>4
+    ClothingUniformJumpskirtColorGrey: 4 #ADT-tweak 8>4
     ClothingUniformJumpsuitColorWhite: 3
     ClothingUniformJumpskirtColorWhite: 3
     ClothingUniformJumpsuitColorBlack: 3
@@ -94,7 +90,73 @@
     ClothingUniformJumpsuitCasualGreen: 2
     ClothingUniformJumpskirtCasualGreen: 2
     # DO NOT ADD MORE, USE UNIFORM DYING
-# ADT начало носков
+    #ADT-Tweak-FootWraps-Start
+    ADTClothingFootWrapsWhite: 2
+    ADTClothingFootWrapsHighWhite: 2
+    ADTClothingFootWrapsBlack: 2
+    ADTClothingFootWrapsHighBlack: 2
+    ADTClothingFootWrapsBrown: 2
+    ADTClothingFootWrapsHighBrown: 2
+    #ADT-Tweak-FootWraps-End
+    ClothingShoesColorBlack: 4 #ADT-tweak 8>4
+    ClothingShoesColorBrown: 4
+    ClothingShoesColorWhite: 3
+    ClothingShoesColorBlue: 2
+    ClothingShoesColorYellow: 2
+    ClothingShoesColorGreen: 2
+    ClothingShoesColorOrange: 2
+    ClothingShoesColorRed: 2
+    ClothingShoesColorPurple: 2
+    #ADT-Tweak-ClothingVoucher-Start
+    #ClothingHeadHatGreysoft: 8
+    #ClothingHeadHatMimesoft: 3
+    #ClothingHeadHatBluesoft: 2
+    #ClothingHeadHatYellowsoft: 2
+    #ClothingHeadHatGreensoft: 2
+    #ClothingHeadHatOrangesoft: 2
+    #ClothingHeadHatRedsoft: 2
+    #ClothingHeadHatBlacksoft: 2
+    #ClothingHeadHatPurplesoft: 2
+    #ADT-Tweak-ClothingVoucher-End
+    ClothingHeadHatCorpsoft: 2
+    ClothingHeadFishCap: 2
+    ClothingHeadRastaHat: 2
+    ClothingHeadPropellerHat: 2
+    ClothingBeltStorageWaistbag: 3
+    ClothingEyesGlasses: 6
+    ClothingHandsGlovesColorBlack: 4
+    ClothingHandsGlovesColorGray: 4
+    ClothingHandsGlovesColorBrown: 2
+    ClothingHandsGlovesColorWhite: 2
+    ClothingHandsGlovesColorRed: 2
+    ClothingHandsGlovesColorBlue: 2
+    ClothingHandsGlovesColorTeal: 2
+    ClothingHandsGlovesColorGreen: 2
+    ClothingHandsGlovesColorOrange: 2
+    ClothingHandsGlovesColorPurple: 2
+    ClothingEyesGlassesCheapSunglasses: 3
+    #ADT-Tweak-Turtleneck-Start
+    ADTClothingUniformJumpsuitTurtleneckBlackSleeveless: 1
+    ADTClothingUniformJumpskirtTurtleneckBlackSleeveless: 1
+    ADTClothingUniformJumpsuitTurtleneckWhiteSleeveless: 1
+    ADTClothingUniformJumpskirtTurtleneckWhiteSleeveless: 1
+    ADTClothingUniformJumpsuitTurtleneckWhiteBlackSleeveless: 1
+    #ADT-Tweak-Turtleneck-End
+    #ADT-Tweak-Leather-Start
+    ADTClothingOuterCoatLeathOvercoat: 1
+    ADTClothingOuterLeatherJacket: 1
+    ADTClothingOuterBikerJacket: 1
+    #ADT-Tweak-Leather-End
+    #ADT-Tweak-Underwear-Start
+    ADTClothingUnderwearBottomBoxersWhite: 3
+    ADTClothingUnderwearBottomBriefsWhite: 3
+    ADTClothingUnderwearBottomBoxersAmerica: 2
+    ADTClothingUnderwearBottomBoxersBoom: 2
+    ADTClothingUnderwearBottomPantiesComfyWhite: 3
+    ADTClothingUnderwearTopBraWhite: 3
+    ADTClothingUnderwearTopBraComfyWhite: 3
+    #ADT-Tweak-Underwear-End
+    #ADT-Tweak-Socks-Start
     ADTClothingUnderwearSocksShort: 2
     ADTClothingUnderwearSocksHigh: 2
     ADTClothingUnderwearSocksThigh: 2
@@ -150,92 +212,7 @@
     ADTClothingUnderwearSocksYellow: 2
     ADTClothingUnderwearSocksKneeYellow: 2
     ADTClothingUnderwearSocksThighYellow: 2
-# ADT конец носков
-    # ADT бельё/обмотки/плащи начало
-    ADTClothingFootWrapsWhite: 2
-    ADTClothingFootWrapsHighWhite: 2
-    ADTClothingFootWrapsBlack: 2
-    ADTClothingFootWrapsHighBlack: 2
-    ADTClothingFootWrapsBrown: 2
-    ADTClothingFootWrapsHighBrown: 2
-    # ADT бельё/обмотки/плащи конец
-    ClothingShoesColorBlack: 4  # ADT-Tweak: уменьшено с 8 до 4 для баланса
-    ClothingShoesColorBrown: 4
-    ClothingShoesColorWhite: 3
-    ClothingShoesColorBlue: 2
-    ClothingShoesColorYellow: 2
-    ClothingShoesColorGreen: 2
-    ClothingShoesColorOrange: 2
-    ClothingShoesColorRed: 2
-    ClothingShoesColorPurple: 2
-    ClothingHeadHatGreysoft: 4 # ADT-Tweak: уменьшено с 8 до 4 для баланса
-    ClothingHeadHatMimesoft: 3
-    ClothingHeadHatBluesoft: 2
-    ClothingHeadHatYellowsoft: 2
-    ClothingHeadHatGreensoft: 2
-    ClothingHeadHatOrangesoft: 2
-    ClothingHeadHatRedsoft: 2
-    # DO NOT ADD MORE, USE UNIFORM DYING
-    ClothingHeadHatBlacksoft: 2
-    ClothingHeadHatPurplesoft: 2
-    ClothingHeadHatCorpsoft: 2
-    ClothingHeadFishCap: 2
-    ClothingHeadRastaHat: 2
-    ClothingHeadPropellerHat: 2
-    ClothingBeltStorageWaistbag: 3
-    ClothingEyesGlasses: 6
-    ClothingHandsGlovesColorBlack: 4
-    ClothingHandsGlovesColorGray: 4
-    ClothingHandsGlovesColorBrown: 2
-    ClothingHandsGlovesColorWhite: 2
-    ClothingHandsGlovesColorRed: 2
-    ClothingHandsGlovesColorBlue: 2
-    ClothingHandsGlovesColorTeal: 2
-    ClothingHandsGlovesColorGreen: 2
-    ClothingHandsGlovesColorOrange: 2
-    ClothingHandsGlovesColorPurple: 2
-    ClothingEyesGlassesCheapSunglasses: 3
-# ADT водолазки начало
-    ADTClothingUniformJumpsuitTurtleneckBlack: 1
-    ADTClothingUniformJumpskirtTurtleneckBlack: 1
-    ADTClothingUniformJumpsuitTurtleneckGrey: 1
-    ADTClothingUniformJumpskirtTurtleneckGrey: 1
-    ADTClothingUniformJumpsuitTurtleneckBrown: 1
-    ADTClothingUniformJumpskirtTurtleneckBrown: 1
-    ADTClothingUniformJumpsuitTurtleneckBlue: 1
-    ADTClothingUniformJumpskirtTurtleneckBlue: 1
-    ADTClothingUniformJumpsuitTurtleneckAzure: 1
-    ADTClothingUniformJumpskirtTurtleneckAzure: 1
-    ADTClothingUniformJumpsuitTurtleneckAquamarine: 1
-    ADTClothingUniformJumpskirtTurtleneckAquamarine: 1
-    ADTClothingUniformJumpsuitTurtleneckGreen: 1
-    ADTClothingUniformJumpskirtTurtleneckGreen: 1
-    ADTClothingUniformJumpsuitTurtleneckOrange: 1
-    ADTClothingUniformJumpskirtTurtleneckOrange: 1
-    ADTClothingUniformJumpsuitTurtleneckYellow: 1
-    ADTClothingUniformJumpskirtTurtleneckYellow: 1
-    ADTClothingUniformJumpsuitTurtleneckPurple: 1
-    ADTClothingUniformJumpskirtTurtleneckPurple: 1
-    ADTClothingUniformJumpsuitTurtleneckPink: 1
-    ADTClothingUniformJumpskirtTurtleneckPink: 1
-    ADTClothingUniformJumpsuitTurtleneckRed: 1
-    ADTClothingUniformJumpskirtTurtleneckRed: 1
-#    ADTClothingUniformJumpsuitTurtleneckSalat: 2
-#    ADTClothingUniformJumpsuitTurtleneckSalatBlack: 2
-#    ADTClothingUniformJumpskirtTurtleneckSalat: 2
-    ADTClothingUniformJumpsuitTurtleneckWhite: 1
-    ADTClothingUniformJumpskirtTurtleneckWhite: 1
-    ADTClothingUniformJumpsuitTurtleneckBlackSleeveless: 1
-    ADTClothingUniformJumpskirtTurtleneckBlackSleeveless: 1
-    ADTClothingUniformJumpsuitTurtleneckWhiteSleeveless: 1
-    ADTClothingUniformJumpskirtTurtleneckWhiteSleeveless: 1
-    ADTClothingUniformJumpsuitTurtleneckWhiteBlackSleeveless: 1
-# ADT водолазки конец
-# ADT Кожанки
-    ADTClothingOuterCoatLeathOvercoat: 1
-    ADTClothingOuterLeatherJacket: 1
-    ADTClothingOuterBikerJacket: 1
-# ADT Кожанки, все распродали :c
+    #ADT-Tweak-Socks-End
 
 # DO NOT ADD MORE, USE UNIFORM DYING
   contrabandInventory:
