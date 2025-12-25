@@ -22,19 +22,6 @@
     ADTClothingBackpackLeatherLadySatchel: 2
     #ADT-Tweak-Backpack-End
     ClothingBackpackSatchelLeather: 2
-    #ADT-Tweak-Cloak-Start
-    ADTClothingNeckDarkGreyCloak: 1
-    ADTClothingNeckGothicCloak: 1
-    #ADT-Tweak-Cloak-End
-    ClothingHeadBandBlack: 2
-    ClothingHeadBandBlue: 2
-    ClothingHeadBandGreen: 2
-    ClothingHeadBandRed: 2
-    ClothingHeadBandSkull: 2
-    ClothingHeadHatGreyFlatcap: 3
-    ClothingHeadHatBrownFlatcap: 3
-    ClothingHeadHatBeret: 3 #ADT-tweak-Move 4>3
-    ADTClothingHeadHatBeretBlackCivilian: 2 #ADT-Tweak
     ClothingUniformJumpsuitColorGrey: 4 #ADT-tweak 8>4
     ClothingUniformJumpskirtColorGrey: 4 #ADT-tweak 8>4
     ClothingUniformJumpsuitColorWhite: 3
@@ -91,6 +78,10 @@
     ADTClothingOuterLeatherJacket: 1
     ADTClothingOuterBikerJacket: 1
     #ADT-Tweak-Leather-End
+    #ADT-Tweak-Cloak-Start
+    ADTClothingNeckDarkGreyCloak: 1
+    ADTClothingNeckGothicCloak: 1
+    #ADT-Tweak-Cloak-End
     # DO NOT ADD MORE, USE UNIFORM DYING
     #ADT-Tweak-FootWraps-Start
     ADTClothingFootWrapsWhite: 2
@@ -121,6 +112,17 @@
     #ClothingHeadHatBlacksoft: 2
     #ClothingHeadHatPurplesoft: 2
     #ADT-Tweak-ClothingVoucher-End
+    #ADT-Tweak-Move-Start
+    ClothingHeadBandBlack: 2
+    ClothingHeadBandBlue: 2
+    ClothingHeadBandGreen: 2
+    ClothingHeadBandRed: 2
+    ClothingHeadBandSkull: 2
+    ClothingHeadHatGreyFlatcap: 3
+    ClothingHeadHatBrownFlatcap: 3
+    ClothingHeadHatBeret: 3 #ADT-tweak 4>3
+    #ADT-Tweak-Move-End
+    ADTClothingHeadHatBeretBlackCivilian: 2 #ADT-Tweak
     ClothingHeadHatCorpsoft: 2
     ClothingHeadFishCap: 2
     ClothingHeadRastaHat: 2
