@@ -77,6 +77,15 @@
     duration: 1
   - type: LoadMapRule
     mapPath: /Maps/ADTMaps/Nonstation/voxbase.yml
+  - type: AntagSelection
+    agentName: morph-round-end-agent-name
+    definitions:
+    - spawnerPrototype: SpawnPointGhostMorph
+      min: 1
+      max: 1
+      pickPlayer: false
+      mindRoles:
+      - MindRoleMorph
 
 - type: entity
   id: IanHeroEvent
@@ -126,3 +135,43 @@
     prototype: ADTEventJaunterPortal
     minCount: 100
     maxCount: 300
+<<<<<<< Updated upstream
+=======
+
+- type: entity
+  parent: BaseGameRule
+  id: SpaceEmperorSpawn
+  components:
+  - type: StationEvent
+    weight: 6.5
+    earliestStart: 10
+    reoccurrenceDelay: 75
+    duration: null
+  - type: SpaceSpawnRule
+    spawnDistance: 0
+  - type: AntagSelection
+    definitions:
+    - spawnerPrototype: ADTSpawnPointSpaceEmperor
+      min: 1
+      max: 1
+      pickPlayer: false
+
+- type: entity
+  parent: BaseGameRule
+  id: SantaSpawn
+  components:
+  - type: StationEvent
+    weight: 2
+    earliestStart: 10
+    reoccurrenceDelay: 75
+    duration: null
+  - type: SpaceSpawnRule
+    spawnDistance: 0
+  - type: AntagSelection
+    definitions:
+    - spawnerPrototype: ADTSanta
+      min: 1
+      max: 1
+      pickPlayer: false
+
+>>>>>>> Stashed changes

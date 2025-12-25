@@ -11,3 +11,31 @@
   - type: Sprite
     sprite: ADT/Objects/Misc/humancube.rsi
     state: box
+
+- type: entity
+  parent: BoxCardboard
+  name: ADTReindeerCubeBox
+  id: ADTReindeerCubeBox
+  description: ADTReindeerCubeBox
+  components:
+  - type: StorageFill
+    contents:
+      - id: ADTReindeerCube
+        amount: 8
+  - type: Sprite
+    sprite: ADT/Objects/Misc/humancube.rsi
+    state: box
+  
+  - type: entity
+  parent: BoxCardboard
+  name: ADTCubeBox
+  id: ADTGingerbreadCubeBox
+  description: ADTGingerbreadCubeBox
+  components:
+  - type: StorageFill
+    contents:
+      - id: ADTGingerbreadCube
+        amount: 8
+  - type: Sprite
+    sprite: ADT/Objects/Misc/humancube.rsi
+    state: box
