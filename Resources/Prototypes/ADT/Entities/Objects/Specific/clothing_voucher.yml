@@ -73,3 +73,27 @@
     - JumpskirtTurtleneckBlack
     - JumpskirtTurtleneckDarkBlue
     typeDropPlace: ThisPlace
+
+- type: entity
+  parent: ADTClothingVoucherBase
+  id: ADTClothingVoucherHeadHatsoft
+  abstract: false
+  components:
+  - type: Sprite
+    layers:
+      - sprite: Clothing/Head/Soft/mimesoft.rsi
+        state: icon
+      - sprite: ADT/Objects/Specific/clothing_voucher.rsi
+        state: icon
+  - type: MiningVoucher
+    kits:
+    - HeadHatsoftWhite
+    - HeadHatsoftBlue
+    - HeadHatsoftGreen
+    - HeadHatsoftBlack
+    - HeadHatsoftGrey
+    - HeadHatsoftOrange
+    - HeadHatsoftPurple
+    - HeadHatsoftRed
+    - HeadHatsoftYellow
+    typeDropPlace: ThisPlace

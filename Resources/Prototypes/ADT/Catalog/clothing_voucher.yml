@@ -281,3 +281,95 @@
     state: icon
   content:
   - ADTClothingUniformJumpskirtTurtleneckDarkBlue
+
+#region HatSoft
+
+- type: thiefBackpackSet
+  id: HeadHatsoftWhite
+  name: clothing-voucher-hatsoft-white-name
+  description: clothing-voucher-hatsoft-white-description
+  sprite:
+    sprite: Clothing/Head/Soft/mimesoft.rsi
+    state: icon
+  content:
+  - ClothingHeadHatMimesoft
+
+- type: thiefBackpackSet
+  id: HeadHatsoftBlue
+  name: clothing-voucher-hatsoft-blue-name
+  description: clothing-voucher-hatsoft-blue-description
+  sprite:
+    sprite: Clothing/Head/Soft/bluesoft.rsi
+    state: icon
+  content:
+  - ClothingHeadHatBluesoft
+
+- type: thiefBackpackSet
+  id: HeadHatsoftGreen
+  name: clothing-voucher-hatsoft-green-name
+  description: clothing-voucher-hatsoft-green-description
+  sprite:
+    sprite: Clothing/Head/Soft/greensoft.rsi
+    state: icon
+  content:
+  - ClothingHeadHatGreensoft
+
+- type: thiefBackpackSet
+  id: HeadHatsoftBlack
+  name: clothing-voucher-hatsoft-black-name
+  description: clothing-voucher-hatsoft-black-description
+  sprite:
+    sprite: Clothing/Head/Soft/blacksoft.rsi
+    state: icon
+  content:
+  - ClothingHeadHatBlacksoft
+
+- type: thiefBackpackSet
+  id: HeadHatsoftGrey
+  name: clothing-voucher-hatsoft-grey-name
+  description: clothing-voucher-hatsoft-grey-description
+  sprite:
+    sprite: Clothing/Head/Soft/greysoft.rsi
+    state: icon
+  content:
+  - ClothingHeadHatGreysoft
+
+- type: thiefBackpackSet
+  id: HeadHatsoftOrange
+  name: clothing-voucher-hatsoft-orange-name
+  description: clothing-voucher-hatsoft-orange-description
+  sprite:
+    sprite: Clothing/Head/Soft/orangesoft.rsi
+    state: icon
+  content:
+  - ClothingHeadHatOrangesoft
+
+- type: thiefBackpackSet
+  id: HeadHatsoftPurple
+  name: clothing-voucher-hatsoft-purple-name
+  description: clothing-voucher-hatsoft-purple-description
+  sprite:
+    sprite: Clothing/Head/Soft/purplesoft.rsi
+    state: icon
+  content:
+  - ClothingHeadHatPurplesoft
+
+- type: thiefBackpackSet
+  id: HeadHatsoftRed
+  name: clothing-voucher-hatsoft-red-name
+  description: clothing-voucher-hatsoft-red-description
+  sprite:
+    sprite: Clothing/Head/Soft/redsoft.rsi
+    state: icon
+  content:
+  - ClothingHeadHatRedsoft
+
+- type: thiefBackpackSet
+  id: HeadHatsoftYellow
+  name: clothing-voucher-hatsoft-yellow-name
+  description: clothing-voucher-hatsoft-yellow-description
+  sprite:
+    sprite: Clothing/Head/Soft/yellowsoft.rsi
+    state: icon
+  content:
+  - ClothingHeadHatYellowsoft

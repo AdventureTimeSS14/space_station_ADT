@@ -4,8 +4,11 @@ ent-ADTClothingVoucherJumpsuitTurtleneck = автопокрасчик водол
 ent-ADTClothingVoucherJumpskirtTurtleneck = автопокрасчик водолазки с юбкой
     .desc = { ent-ADTClothingVoucherJumpsuitTurtleneck.desc }
 
+ent-ADTClothingVoucherHeadHatsoft = автопокрасчик кепки
+    .desc = { ent-ADTClothingVoucherJumpsuitTurtleneck.desc }
+
 clothing-voucher-jumpsuit-turtleneck-white-name = { ent-ADTClothingUniformJumpsuitTurtleneckWhite }
-clothing-voucher-jumpsuit-turtleneck-white-description ={ ent-ADTClothingUniformJumpsuitTurtleneckWhite.desc }
+clothing-voucher-jumpsuit-turtleneck-white-description = { ent-ADTClothingUniformJumpsuitTurtleneckWhite.desc }
 clothing-voucher-jumpsuit-turtleneck-aquamarine-name = { ent-ADTClothingUniformJumpsuitTurtleneckAquamarine }
 clothing-voucher-jumpsuit-turtleneck-aquamarine-description = { ent-ADTClothingUniformJumpsuitTurtleneckAquamarine.desc }
 clothing-voucher-jumpsuit-turtleneck-azure-name = { ent-ADTClothingUniformJumpsuitTurtleneckAzure }
@@ -34,7 +37,7 @@ clothing-voucher-jumpsuit-turtleneck-darkblue-name = { ent-ADTClothingUniformJum
 clothing-voucher-jumpsuit-turtleneck-darkblue-description = { ent-ADTClothingUniformJumpsuitTurtleneckDarkBlue.desc }
 
 clothing-voucher-jumpskirt-turtleneck-white-name = { ent-ADTClothingUniformJumpskirtTurtleneckWhite }
-clothing-voucher-jumpskirt-turtleneck-white-description ={ ent-ADTClothingUniformJumpskirtTurtleneckWhite.desc }
+clothing-voucher-jumpskirt-turtleneck-white-description = { ent-ADTClothingUniformJumpskirtTurtleneckWhite.desc }
 clothing-voucher-jumpskirt-turtleneck-aquamarine-name = { ent-ADTClothingUniformJumpskirtTurtleneckAquamarine }
 clothing-voucher-jumpskirt-turtleneck-aquamarine-description = { ent-ADTClothingUniformJumpskirtTurtleneckAquamarine.desc }
 clothing-voucher-jumpskirt-turtleneck-azure-name = { ent-ADTClothingUniformJumpskirtTurtleneckAzure }
@@ -61,3 +64,22 @@ clothing-voucher-jumpskirt-turtleneck-black-name = { ent-ADTClothingUniformJumps
 clothing-voucher-jumpskirt-turtleneck-black-description = { ent-ADTClothingUniformJumpskirtTurtleneckBlack.desc }
 clothing-voucher-jumpskirt-turtleneck-darkblue-name = { ent-ADTClothingUniformJumpskirtTurtleneckDarkBlue }
 clothing-voucher-jumpskirt-turtleneck-darkblue-description = { ent-ADTClothingUniformJumpskirtTurtleneckDarkBlue.desc }
+
+clothing-voucher-hatsoft-white-name = { ent-ClothingHeadHatMimesoft }
+clothing-voucher-hatsoft-white-description = { ent-ClothingHeadHatMimesoft.desc }
+clothing-voucher-hatsoft-blue-name = { ent-ClothingHeadHatBluesoft }
+clothing-voucher-hatsoft-blue-description = { ent-ClothingHeadHatBluesoft.desc }
+clothing-voucher-hatsoft-green-name = { ent-ClothingHeadHatGreensoft }
+clothing-voucher-hatsoft-green-description = { ent-ClothingHeadHatGreensoft.desc }
+clothing-voucher-hatsoft-black-name = { ent-ClothingHeadHatBlacksoft }
+clothing-voucher-hatsoft-black-description = { ent-ClothingHeadHatBlacksoft.desc }
+clothing-voucher-hatsoft-grey-name = { ent-ClothingHeadHatGreysoft }
+clothing-voucher-hatsoft-grey-description = { ent-ClothingHeadHatGreysoft.desc }
+clothing-voucher-hatsoft-orange-name = { ent-ClothingHeadHatOrangesoft }
+clothing-voucher-hatsoft-orange-description = { ent-ClothingHeadHatOrangesoft.desc }
+clothing-voucher-hatsoft-purple-name = { ent-ClothingHeadHatPurplesoft }
+clothing-voucher-hatsoft-purple-description = { ent-ClothingHeadHatPurplesoft.desc }
+clothing-voucher-hatsoft-red-name = { ent-ClothingHeadHatRedsoft }
+clothing-voucher-hatsoft-red-description = { ent-ClothingHeadHatRedsoft.desc }
+clothing-voucher-hatsoft-yellow-name = { ent-ClothingHeadHatYellowsoft }
+clothing-voucher-hatsoft-yellow-description = { ent-ClothingHeadHatYellowsoft.desc }
