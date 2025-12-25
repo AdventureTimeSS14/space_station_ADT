@@ -55,6 +55,14 @@ public sealed partial class LanguageSystem : SharedLanguageSystem
         UpdateUi(uid);
     }
 
+    public string ObfuscateMessage(EntityUid uid, string originalMessage, LanguagePrototype proto)
+    {
+        if (proto.LanguageType is not Generic gen)
+            return "";
+
+        return ObfuscateMessage(uid, originalMessage, gen.Replacement, gen.ObfuscateSyllables);
+    }
+
     public string ObfuscateMessage(EntityUid uid, string originalMessage, List<string> replacements, bool obfiscateSyllables)
     {
         var builder = new StringBuilder();

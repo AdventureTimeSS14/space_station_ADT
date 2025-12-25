@@ -357,7 +357,7 @@ namespace Content.Server.Atmos.EntitySystems
 
                 var extinguished = new IgnitedEvent();
                 RaiseLocalEvent(uid, ref extinguished);
-            
+
                 //ADT bonfire
                 var ev = new OnFireChangedEvent(flammable.OnFire);
                 RaiseLocalEvent(uid, ref ev);
@@ -445,61 +445,61 @@ namespace Content.Server.Atmos.EntitySystems
             _timer -= UpdateTime;
 
             // TODO: This needs cleanup to take off the crust from TemperatureComponent and shit.
-            var query = EntityQueryEnumerator<FlammableComponent, TransformComponent>();
-            while (query.MoveNext(out var uid, out var flammable, out _))
-            {
-                // Slowly dry ourselves off if wet.
-                if (flammable.FireStacks < 0)
-                {
-                    flammable.FireStacks = MathF.Min(0, flammable.FireStacks + 1);
-                }
+        //     var query = EntityQueryEnumerator<FlammableComponent, TransformComponent>();
+        //     while (query.MoveNext(out var uid, out var flammable, out _))
+        //     {
+        //         // Slowly dry ourselves off if wet.
+        //         if (flammable.FireStacks < 0)
+        //         {
+        //             flammable.FireStacks = MathF.Min(0, flammable.FireStacks + 1);
+        //         }
 
-                if (!flammable.OnFire)
-                {
-                    _alertsSystem.ClearAlert(uid, flammable.FireAlert);
-                    continue;
-                }
+        //         if (!flammable.OnFire)
+        //         {
+        //             _alertsSystem.ClearAlert(uid, flammable.FireAlert);
+        //             continue;
+        //         }
 
-                _alertsSystem.ShowAlert(uid, flammable.FireAlert);
+        //         _alertsSystem.ShowAlert(uid, flammable.FireAlert);
 
-                if (flammable.FireStacks > 0)
-                {
-                    var air = _atmosphereSystem.GetContainingMixture(uid);
+        //         if (flammable.FireStacks > 0)
+        //         {
+        //             var air = _atmosphereSystem.GetContainingMixture(uid);
 
-                    // If we're in an oxygenless environment, put the fire out.
-                    if (air == null || air.GetMoles(Gas.Oxygen) < 1f)
-                    {
-                        Extinguish(uid, flammable);
-                        continue;
-                    }
+        //             // If we're in an oxygenless environment, put the fire out.
+        //             if (air == null || air.GetMoles(Gas.Oxygen) < 1f)
+        //             {
+        //                 Extinguish(uid, flammable);
+        //                 continue;
+        //             }
 
-                    var source = EnsureComp<IgnitionSourceComponent>(uid);
-                    _ignitionSourceSystem.SetIgnited((uid, source));
+        //             var source = EnsureComp<IgnitionSourceComponent>(uid);
+        //             _ignitionSourceSystem.SetIgnited((uid, source));
 
-                    if (TryComp(uid, out TemperatureComponent? temp))
-                        _temperatureSystem.ChangeHeat(uid, 12500 * flammable.FireStacks, false, temp);
+        //             if (TryComp(uid, out TemperatureComponent? temp))
+        //                 _temperatureSystem.ChangeHeat(uid, 12500 * flammable.FireStacks, false, temp);
 
-                    var ev = new GetFireProtectionEvent();
-                    // let the thing on fire handle it
-                    RaiseLocalEvent(uid, ref ev);
-                    // and whatever it's wearing
-                    if (_inventoryQuery.TryComp(uid, out var inv))
-                        _inventory.RelayEvent((uid, inv), ref ev);
+        //             var ev = new GetFireProtectionEvent();
+        //             // let the thing on fire handle it
+        //             RaiseLocalEvent(uid, ref ev);
+        //             // and whatever it's wearing
+        //             if (_inventoryQuery.TryComp(uid, out var inv))
+        //                 _inventory.RelayEvent((uid, inv), ref ev);
 
-                    _damageableSystem.TryChangeDamage(uid, flammable.Damage * flammable.FireStacks * ev.Multiplier, interruptsDoAfters: false);
+        //             _damageableSystem.TryChangeDamage(uid, flammable.Damage * flammable.FireStacks * ev.Multiplier, interruptsDoAfters: false);
 
-                    AdjustFireStacks(uid, flammable.FirestackFade * (flammable.Resisting ? 10f : 1f), flammable, flammable.OnFire);
+        //             AdjustFireStacks(uid, flammable.FirestackFade * (flammable.Resisting ? 10f : 1f), flammable, flammable.OnFire);
 
-                    //ADT bonfire
-                    if (flammable.FirestackFadeFade != 0)
-                        flammable.FirestackFade += flammable.FirestackFadeFade * frameTime;
-                    //ADT bonfire end
-                }
-                else
-                {
-                    Extinguish(uid, flammable);
-                }
-            }
+        //             //ADT bonfire
+        //             if (flammable.FirestackFadeFade != 0)
+        //                 flammable.FirestackFade += flammable.FirestackFadeFade * frameTime;
+        //             //ADT bonfire end
+        //         }
+        //         else
+        //         {
+        //             Extinguish(uid, flammable);
+        //         }
+        //     }
         }
     }
 }

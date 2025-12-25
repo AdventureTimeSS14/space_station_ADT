@@ -453,7 +453,7 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
         SetTTSVoice(uid, profile.Voice, humanoid); // Corvax-TTS
         // ADT Start
         SetBarkData(uid, profile.Bark, humanoid);
-        SetLanguages(uid, profile.Languages.ToList());
+        SetLanguages(uid, _proto.Index(profile.Species).DefaultLanguages);
         var species = _proto.Index(humanoid.Species);
         species.ForceLanguages.ForEach(x =>
         {
@@ -572,7 +572,14 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
         var languageSpeaker = EnsureComp<LanguageSpeakerComponent>(uid);
         languageSpeaker.Languages.Clear();
 
-        languages.ForEach(x => languageSpeaker.Languages.Add(x.ToString(), LanguageKnowledge.Speak));
+        foreach (var item in languages)
+        {
+            if (item == "GalacticCommon")
+                continue;
+
+            languageSpeaker.Languages.Add(item.ToString(), LanguageKnowledge.Speak);
+        }
+
         _language.SelectDefaultLanguage(uid);
         _language.UpdateUi(uid);
     }

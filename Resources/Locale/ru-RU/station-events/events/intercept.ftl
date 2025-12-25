@@ -1,1 +1,1 @@
-station-event-communication-interception = Внимание! Перехвачена вражеская передача. Уровень угрозы повышен.
+station-event-communication-interception = Вобблдингвах! Бла блединг динг-донг. Динг-донг блибуб жуббре белбе.

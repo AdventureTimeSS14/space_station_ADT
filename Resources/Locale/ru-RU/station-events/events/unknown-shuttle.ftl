@@ -1,1 +1,1 @@
-station-event-unknown-shuttle-incoming = Внимание! Неопознанный космический корабль был замечен на подходе к вашему сектору.
+station-event-unknown-shuttle-incoming =  Вобблдингвах! Бла. Динг-донг жуббре белбе.

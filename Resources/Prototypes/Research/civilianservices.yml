@@ -255,9 +255,9 @@
   recipeUnlocks:
   - CargoTelepadMachineCircuitboard
   # ADT Research Console Rework start
-  position: 2,2
+  position: 3,2
   requiredTech:
-  - BasicTranslation
+  - ADTServiceMODsuitMODs
   # ADT Research Console Rework end
 
 - type: technology
