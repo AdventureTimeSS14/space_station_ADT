@@ -112,6 +112,9 @@ public sealed class MiningVoucherSystem : EntitySystem
         var kit = _proto.Index(ent.Comp.Kits[index]);
         var xform = Transform(user);
 
+        if (ent.Comp.UseSound != null)
+            _audio.PlayPvs(ent.Comp.UseSound, user);
+
         switch (ent.Comp.TypeDrop)
         {
             case MiningVoucherTypeDrop.Default:

@@ -12,6 +12,8 @@
       enum.MiningVoucherUiKey.Key:
         type: MiningVoucherBoundUserInterface
   - type: MiningVoucher
+    useSound:
+     path: /Audio/Effects/spray2.ogg
     kits:
     - JumpsuitTurtleneckWhite
     typeDropPlace: InHands
@@ -28,6 +30,8 @@
       - sprite: ADT/Objects/Specific/clothing_voucher.rsi
         state: icon
   - type: MiningVoucher
+    useSound:
+     path: /Audio/Effects/spray2.ogg
     kits:
     - JumpsuitTurtleneckWhite
     - JumpsuitTurtleneckAquamarine
@@ -57,6 +61,8 @@
       - sprite: ADT/Objects/Specific/clothing_voucher.rsi
         state: icon
   - type: MiningVoucher
+    useSound:
+     path: /Audio/Effects/spray2.ogg
     kits:
     - JumpskirtTurtleneckWhite
     - JumpskirtTurtleneckAquamarine
@@ -86,6 +92,8 @@
       - sprite: ADT/Objects/Specific/clothing_voucher.rsi
         state: icon
   - type: MiningVoucher
+    useSound:
+     path: /Audio/Effects/spray2.ogg
     kits:
     - HatsoftWhite
     - HatsoftBlue
@@ -110,6 +118,8 @@
       - sprite: ADT/Objects/Specific/clothing_voucher.rsi
         state: icon
   - type: MiningVoucher
+    useSound:
+     path: /Audio/Effects/spray2.ogg
     kits:
     - ScarfStripedWhite
     - ScarfStripedGreen
@@ -134,6 +144,8 @@
       - sprite: ADT/Objects/Specific/clothing_voucher.rsi
         state: icon
   - type: MiningVoucher
+    useSound:
+     path: /Audio/Effects/spray2.ogg
     kits:
     - FacescarfWhite
     - FacescarfGreen
@@ -157,6 +169,8 @@
       - sprite: ADT/Objects/Specific/clothing_voucher.rsi
         state: icon
   - type: MiningVoucher
+    useSound:
+     path: /Audio/Effects/spray2.ogg
     kits:
     - WinterCoatLightWhite
     - WinterCoatLightAquamarine
@@ -186,6 +200,8 @@
       - sprite: ADT/Objects/Specific/clothing_voucher.rsi
         state: icon
   - type: MiningVoucher
+    useSound:
+     path: /Audio/Effects/spray2.ogg
     kits:
     - ScarfLongWhite
     - ScarfLongYellow
@@ -210,6 +226,8 @@
       - sprite: ADT/Objects/Specific/clothing_voucher.rsi
         state: icon
   - type: MiningVoucher
+    useSound:
+     path: /Audio/Effects/spray2.ogg
     kits:
     - TieWhite
     - TieBlue
