@@ -13,6 +13,9 @@ ent-ADTClothingVoucherScarfStriped = автопокрасчик шарфа
 ent-ADTClothingVoucherFacescarf = автопокрасчик лицевого шарфа
     .desc = { ent-ADTClothingVoucherJumpsuitTurtleneck.desc }
 
+ent-ADTClothingVoucherWinterCoatLight = автопокрасчик лёгкой куртки
+    .desc = { ent-ADTClothingVoucherJumpsuitTurtleneck.desc }
+
 clothing-voucher-jumpsuit-turtleneck-white = { ent-ADTClothingUniformJumpsuitTurtleneckWhite }
 clothing-voucher-jumpsuit-turtleneck-aquamarine = { ent-ADTClothingUniformJumpsuitTurtleneckAquamarine }
 clothing-voucher-jumpsuit-turtleneck-azure = { ent-ADTClothingUniformJumpsuitTurtleneckAzure }
@@ -71,3 +74,18 @@ clothing-voucher-facescarf-grey = { ent-ADTClothingNeckFacescarfGrey }
 clothing-voucher-facescarf-blue = { ent-ADTClothingNeckFacescarfBlue }
 clothing-voucher-facescarf-purple = { ent-ADTClothingNeckFacescarfPurple }
 clothing-voucher-facescarf-black = { ent-ADTClothingNeckFacescarfBlack }
+
+clothing-voucher-winter-coat-light-white = { ent-ADTClothingOuterWinterCoatLightColorWhite }
+clothing-voucher-winter-coat-light-aquamarine = { ent-ADTClothingOuterWinterCoatLightColorAquamarine }
+clothing-voucher-winter-coat-light-azure = { ent-ADTClothingOuterWinterCoatLightColorAzure }
+clothing-voucher-winter-coat-light-yellow = { ent-ADTClothingOuterWinterCoatLightColorYellow }
+clothing-voucher-winter-coat-light-green = { ent-ADTClothingOuterWinterCoatLightColorGreen }
+clothing-voucher-winter-coat-light-brown = { ent-ADTClothingOuterWinterCoatLightColorBrown }
+clothing-voucher-winter-coat-light-red = { ent-ADTClothingOuterWinterCoatLightColorRed }
+clothing-voucher-winter-coat-light-orange = { ent-ADTClothingOuterWinterCoatLightColorOrange }
+clothing-voucher-winter-coat-light-pink = { ent-ADTClothingOuterWinterCoatLightColorPink }
+clothing-voucher-winter-coat-light-grey = { ent-ADTClothingOuterWinterCoatLightColorGrey }
+clothing-voucher-winter-coat-light-blue = { ent-ADTClothingOuterWinterCoatLightColorBlue }
+clothing-voucher-winter-coat-light-darkblue = { ent-ADTClothingOuterWinterCoatLightColorDarkBlue }
+clothing-voucher-winter-coat-light-purple = { ent-ADTClothingOuterWinterCoatLightColorPurple }
+clothing-voucher-winter-coat-light-black = { ent-ADTClothingOuterWinterCoatLightColorBlack }

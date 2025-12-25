@@ -546,3 +546,147 @@
     state: icon
   content:
   - ADTClothingNeckFacescarfBlack
+
+#region WinterCoatLight
+
+- type: thiefBackpackSet
+  id: WinterCoatLightWhite
+  name: clothing-voucher-winter-coat-light-white
+  description: clothing-voucher-winter-coat-light-white
+  sprite:
+    sprite: ADT/Clothing/OuterClothing/WinterCoats/light_winter_coat_white.rsi
+    state: icon
+  content:
+  - ADTClothingOuterWinterCoatLightColorWhite
+
+- type: thiefBackpackSet
+  id: WinterCoatLightAquamarine
+  name: clothing-voucher-winter-coat-light-aquamarine
+  description: clothing-voucher-winter-coat-light-aquamarine
+  sprite:
+    sprite: ADT/Clothing/OuterClothing/WinterCoats/light_winter_coat_aquamarine.rsi
+    state: icon
+  content:
+  - ADTClothingOuterWinterCoatLightColorAquamarine
+
+- type: thiefBackpackSet
+  id: WinterCoatLightAzure
+  name: clothing-voucher-winter-coat-light-azure
+  description: clothing-voucher-winter-coat-light-azure
+  sprite:
+    sprite: ADT/Clothing/OuterClothing/WinterCoats/light_winter_coat_azure.rsi
+    state: icon
+  content:
+  - ADTClothingOuterWinterCoatLightColorAzure
+
+- type: thiefBackpackSet
+  id: WinterCoatLightYellow
+  name: clothing-voucher-winter-coat-light-yellow
+  description: clothing-voucher-winter-coat-light-yellow
+  sprite:
+    sprite: ADT/Clothing/OuterClothing/WinterCoats/light_winter_coat_yellow.rsi
+    state: icon
+  content:
+  - ADTClothingOuterWinterCoatLightColorYellow
+
+- type: thiefBackpackSet
+  id: WinterCoatLightGreen
+  name: clothing-voucher-winter-coat-light-green
+  description: clothing-voucher-winter-coat-light-green
+  sprite:
+    sprite: ADT/Clothing/OuterClothing/WinterCoats/light_winter_coat_green.rsi
+    state: icon
+  content:
+  - ADTClothingOuterWinterCoatLightColorGreen
+
+- type: thiefBackpackSet
+  id: WinterCoatLightBrown
+  name: clothing-voucher-winter-coat-light-brown
+  description: clothing-voucher-winter-coat-light-brown
+  sprite:
+    sprite: ADT/Clothing/OuterClothing/WinterCoats/light_winter_coat_brown.rsi
+    state: icon
+  content:
+  - ADTClothingOuterWinterCoatLightColorBrown
+
+- type: thiefBackpackSet
+  id: WinterCoatLightRed
+  name: clothing-voucher-winter-coat-light-red
+  description: clothing-voucher-winter-coat-light-red
+  sprite:
+    sprite: ADT/Clothing/OuterClothing/WinterCoats/light_winter_coat_red.rsi
+    state: icon
+  content:
+  - ADTClothingOuterWinterCoatLightColorRed
+
+- type: thiefBackpackSet
+  id: WinterCoatLightOrange
+  name: clothing-voucher-winter-coat-light-orange
+  description: clothing-voucher-winter-coat-light-orange
+  sprite:
+    sprite: ADT/Clothing/OuterClothing/WinterCoats/light_winter_coat_orange.rsi
+    state: icon
+  content:
+  - ADTClothingOuterWinterCoatLightColorOrange
+
+- type: thiefBackpackSet
+  id: WinterCoatLightPink
+  name: clothing-voucher-winter-coat-light-pink
+  description: clothing-voucher-winter-coat-light-pink
+  sprite:
+    sprite: ADT/Clothing/OuterClothing/WinterCoats/light_winter_coat_pink.rsi
+    state: icon
+  content:
+  - ADTClothingOuterWinterCoatLightColorPink
+
+- type: thiefBackpackSet
+  id: WinterCoatLightGrey
+  name: clothing-voucher-winter-coat-light-grey
+  description: clothing-voucher-winter-coat-light-grey
+  sprite:
+    sprite: ADT/Clothing/OuterClothing/WinterCoats/light_winter_coat_grey.rsi
+    state: icon
+  content:
+  - ADTClothingOuterWinterCoatLightColorGrey
+
+- type: thiefBackpackSet
+  id: WinterCoatLightBlue
+  name: clothing-voucher-winter-coat-light-blue
+  description: clothing-voucher-winter-coat-light-blue
+  sprite:
+    sprite: ADT/Clothing/OuterClothing/WinterCoats/light_winter_coat_blue.rsi
+    state: icon
+  content:
+  - ADTClothingOuterWinterCoatLightColorBlue
+
+- type: thiefBackpackSet
+  id: WinterCoatLightDarkBlue
+  name: clothing-voucher-winter-coat-light-darkblue
+  description: clothing-voucher-winter-coat-light-darkblue
+  sprite:
+    sprite: ADT/Clothing/OuterClothing/WinterCoats/light_winter_coat_darkblue.rsi
+    state: icon
+  content:
+  - ADTClothingOuterWinterCoatLightColorDarkBlue
+
+- type: thiefBackpackSet
+  id: WinterCoatLightPurple
+  name: clothing-voucher-winter-coat-light-purple
+  description: clothing-voucher-winter-coat-light-purple
+  sprite:
+    sprite: ADT/Clothing/OuterClothing/WinterCoats/light_winter_coat_purple.rsi
+    state: icon
+  content:
+  - ADTClothingOuterWinterCoatLightColorPurple
+
+- type: thiefBackpackSet
+  id: WinterCoatLightBlack
+  name: clothing-voucher-winter-coat-light-black
+  description: clothing-voucher-winter-coat-light-black
+  sprite:
+    sprite: ADT/Clothing/OuterClothing/WinterCoats/light_winter_coat_black.rsi
+    state: icon
+  content:
+  - ADTClothingOuterWinterCoatLightColorBlack
+
+#Aquamarine, Azure, Yellow, Green, Brown, Red, Orange, Pink, Grey, Blue, DarkBlue, Purple and Black colors
