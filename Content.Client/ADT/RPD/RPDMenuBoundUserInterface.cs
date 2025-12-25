@@ -63,10 +63,10 @@ public sealed class RPDMenuBoundUserInterface : BoundUserInterface
         // ADT Radial menu settings end
     }
 
-    private IEnumerable<RadialMenuOption> ConvertToButtons(HashSet<ProtoId<RPDPrototype>> prototypes)
+    private IEnumerable<RadialMenuOptionBase> ConvertToButtons(HashSet<ProtoId<RPDPrototype>> prototypes)
     {
-        Dictionary<string, List<RadialMenuActionOption>> buttonsByCategory = new();
-        ValueList<RadialMenuActionOption> topLevelActions = new();
+        Dictionary<string, List<RadialMenuActionOptionBase>> buttonsByCategory = new();
+        ValueList<RadialMenuActionOptionBase> topLevelActions = new();
 
         foreach (var protoId in prototypes)
         {
@@ -75,7 +75,6 @@ public sealed class RPDMenuBoundUserInterface : BoundUserInterface
             {
                 var topLevelActionOption = new RadialMenuActionOption<RPDPrototype>(HandleMenuOptionClick, prototype)
                 {
-                    Sprite = prototype.Sprite,
                     ToolTip = GetTooltip(prototype)
                 };
                 topLevelActions.Add(topLevelActionOption);
@@ -87,26 +86,24 @@ public sealed class RPDMenuBoundUserInterface : BoundUserInterface
 
             if (!buttonsByCategory.TryGetValue(prototype.Category, out var list))
             {
-                list = new List<RadialMenuActionOption>();
+                list = new List<RadialMenuActionOptionBase>();
                 buttonsByCategory.Add(prototype.Category, list);
             }
 
             var actionOption = new RadialMenuActionOption<RPDPrototype>(HandleMenuOptionClick, prototype)
             {
-                Sprite = prototype.Sprite,
                 ToolTip = GetTooltip(prototype)
             };
             list.Add(actionOption);
         }
 
-        var models = new RadialMenuOption[buttonsByCategory.Count + topLevelActions.Count];
+        var models = new RadialMenuOptionBase[buttonsByCategory.Count + topLevelActions.Count];
         var i = 0;
         foreach (var (key, list) in buttonsByCategory)
         {
             var groupInfo = PrototypesGroupingInfo[key];
             models[i] = new RadialMenuNestedLayerOption(list)
             {
-                Sprite = groupInfo.Sprite,
                 ToolTip = Loc.GetString(groupInfo.Tooltip)
             };
             i++;
