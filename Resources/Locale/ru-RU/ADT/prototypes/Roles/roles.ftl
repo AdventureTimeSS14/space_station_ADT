@@ -33,5 +33,5 @@ ent-ADTGingerbreadCube = Кубик пряничного человечка
 ent-ADTGingerbreadCubeBox = Коробка кубиков пряничного человечка
     .desc = Намочите кубик водой, чтобы появился пряничный человечек
 ghost-role-information-Santa-name = Санта-Клаус
-ghost-role-information-Santa-decription = Принесите станции дух Рождества. Дарите подарки, катайтесь на оленях. Сделайте себе свиту из пряничных человечков
+ghost-role-information-Santa-description = Принесите станции дух Рождества. Дарите подарки, катайтесь на оленях. Сделайте себе свиту из пряничных человечков
 ghost-role-information-Santa-rules = Стандартные правила неантагониста
