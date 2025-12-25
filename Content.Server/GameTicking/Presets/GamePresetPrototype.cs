@@ -41,8 +41,9 @@ namespace Content.Server.GameTicking.Presets
         [DataField("supportedMaps", customTypeSerializer: typeof(PrototypeIdSerializer<GameMapPoolPrototype>))]
         public string? MapPool;
 
+        //ADT-Tweak-Start
         /// <summary>
-        /// ADT. Количество раундов, на которое этот игровой режим будет заблокирован после его использования.
+        /// Количество раундов, на которое этот игровой режим будет заблокирован после его использования.
         /// </summary>
         /// <remarks>
         /// Если значение не задано (<c>null</c>) или равно 0, режим не блокируется и может появляться в голосовании каждую игру.
@@ -52,7 +53,8 @@ namespace Content.Server.GameTicking.Presets
         /// Например, при значении <c>2</c> режим будет отсутствовать в голосовании в течение двух следующих раундов,
         /// а затем снова появится.
         /// </example>
-        [DataField("bannedRound")]
+        [DataField]
         public int? BannedRound = 0;
+        //ADT-Tweak-End
     }
 }

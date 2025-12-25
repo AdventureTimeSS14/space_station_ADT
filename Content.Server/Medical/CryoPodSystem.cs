@@ -86,6 +86,7 @@ public sealed partial class CryoPodSystem : SharedCryoPodSystem
         var itemSlotsQuery = GetEntityQuery<ItemSlotsComponent>();
         var fitsInDispenserQuery = GetEntityQuery<FitsInDispenserComponent>();
         var solutionContainerManagerQuery = GetEntityQuery<SolutionContainerManagerComponent>();
+        var ignoreCryoQuery = GetEntityQuery<IgnoreCryopodsComponent>(); // ADT-Tweak: (P4A) Игнорирование Криокамеры через компонент
         var query = EntityQueryEnumerator<ActiveCryoPodComponent, CryoPodComponent>();
 
         while (query.MoveNext(out var uid, out _, out var cryoPod))
@@ -101,14 +102,21 @@ public sealed partial class CryoPodSystem : SharedCryoPodSystem
             }
             var container = _itemSlotsSystem.GetItemOrNull(uid, cryoPod.SolutionContainerName, itemSlotsComponent);
             var patient = cryoPod.BodyContainer.ContainedEntity;
+            // ADT-Tweak: Start (P4A) Игнорирование криокамеры через компонент
+            if (patient == null || !patient.Value.Valid)
+                continue;
+
+            if (ignoreCryoQuery.HasComponent(patient.Value))
+                continue;
+
             if (container != null
                 && container.Value.Valid
-                && patient != null
                 && fitsInDispenserQuery.TryGetComponent(container, out var fitsInDispenserComponent)
-                && solutionContainerManagerQuery.TryGetComponent(container,
-                    out var solutionContainerManagerComponent)
-                && _solutionContainerSystem.TryGetFitsInDispenser((container.Value, fitsInDispenserComponent, solutionContainerManagerComponent),
+                && solutionContainerManagerQuery.TryGetComponent(container, out var solutionContainerManagerComponent)
+                && _solutionContainerSystem.TryGetFitsInDispenser(
+                    (container.Value, fitsInDispenserComponent, solutionContainerManagerComponent),
                     out var containerSolution, out _))
+            // ADT-Tweak: End
             {
                 if (!bloodStreamQuery.TryGetComponent(patient, out var bloodstream))
                 {

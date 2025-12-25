@@ -968,6 +968,7 @@
     prototypes: [ADTRoleMobEvilBotGear]
   - type: TTS
     voice: sentrybot
+  
     
 
 - type: startingGear

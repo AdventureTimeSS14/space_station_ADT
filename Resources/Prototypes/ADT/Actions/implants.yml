@@ -7,7 +7,6 @@
       sprite: ADT/Interface/Actions/mantis_daggers.rsi
       state: icon
     itemIconStyle: BigAction
-    useDelay: 1
   - type: InstantAction
     event: !type:ToggleMantisDaggersEvent
 
@@ -73,8 +72,6 @@
 
 - type: entity
   id: ActionToggleSandevistan
-  name: action-sandevistan-name
-  description: action-sandevistan-desc
   categories: [ HideSpawnMenu ]
   components:
   - type: Action

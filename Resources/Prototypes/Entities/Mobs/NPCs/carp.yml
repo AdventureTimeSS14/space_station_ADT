@@ -76,7 +76,7 @@
       tags:
         - Carp
         - DoorBumpOpener
-        - NoPaint # ADT tweak
+        - NoPaint # ADT-tweak
         - CannotSuicide
     - type: ReplacementAccent
       accent: genericAggressive
@@ -89,13 +89,13 @@
         path: /Audio/Effects/bite.ogg
     - type: CollectiveMindRank
       rankName: collective-mind-carp-rank
-    # Start ADT Tweak
+    # ADT-tweak-end
     - type: LanguageSpeaker
       languages:
         GalacticCommon: Speak
         CarpCollectiveMind: Speak
     - type: GrabProtection
-    # End ADT Tweak
+    # ADT-tweak-start
 
 - type: entity
   parent: BaseMobCarp
@@ -191,7 +191,7 @@
     - type: HTN
       rootTask:
         task: DragonCarpCompound
-# ADT-Tweak-start
+# ADT-tweak-start
 # the carps must not be combustible because they are the children of the dragon mwahahahaha. only those who come out of the portal.
     - type: Flammable
       fireSpread: false
@@ -204,7 +204,7 @@
     - type: Temperature
       heatDamageThreshold: 800
       coldDamageThreshold: -800
-# ADT-Tweak-end
+# ADT-tweak-end
 
 - type: entity
   id: MobCarpDungeon
@@ -276,14 +276,14 @@
         types:
           Slash: 10
           Bloodloss: 5
-    # ADT Start
+    # ADT-tweak-start
     - type: CollectiveMindRank
       rankName: collective-mind-shark-rank
     - type: LanguageSpeaker
       languages:
         GalacticCommon: Speak
         CarpCollectiveMind: Speak
-    # ADT End
+    # ADT-tweak-end
 
 - type: entity
   id: MobSharkSalvage

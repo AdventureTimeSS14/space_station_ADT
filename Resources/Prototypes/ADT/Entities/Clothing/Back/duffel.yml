@@ -8,6 +8,16 @@
   - type: Sprite
     sprite: ADT/Clothing/Back/blueshield_duffel.rsi
 
+#ЦК
+- type: entity
+  parent: ClothingBackpackDuffelSecurity
+  id: ADTClothingBackpackDuffelCentcom
+  name: Centcom's duffel bag
+  description: The most expensive duffel bag you've ever seen.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Back/centcom_duffel.rsi
+
 - type: entity
   parent: ClothingBackpackDuffel
   id: ADTClothingBackpackDuffelDurathead

@@ -65,6 +65,10 @@ marking-ADTScreenCuteCryed = Милое (Плачущее)
 marking-ADTScreenCuteLaughing = Милое (Смеющееся)
 marking-ADTScreenCuteQuestioningly = Милое (Вопросительное)
 marking-ADTScreenCuteUnsurprised = Милое (Неудивлённое)
+marking-ADTScreenPacifist1 = Пацифист 1
+marking-ADTScreenPacifist2 = Пацифист 2
+marking-ADTScreenAscended = Вознесённый
+
 
 marking-RobotAntennaTv = ТВ
 marking-RobotAntennaTesla = Тесла

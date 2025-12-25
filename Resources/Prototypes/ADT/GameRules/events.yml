@@ -85,7 +85,7 @@
   - type: StationEvent
     startAudio:
       path: /Audio/ADT/Announcements/announce_dig.ogg
-    weight: 3
+    weight: 1
     reoccurrenceDelay: 300
     duration: 1
   - type: LoadMapRule
@@ -98,9 +98,9 @@
   components:
   - type: StationEvent
     startAudio:
-      path: /Audio/Announcements/attention.ogg
+      path: /Audio/ADT/Announcements/announce_dig.ogg
     earliestStart: 20
-    weight: 3
+    weight: 1
     minimumPlayers: 30
     reoccurrenceDelay: 300
     duration: 1
@@ -126,3 +126,41 @@
     prototype: ADTEventJaunterPortal
     minCount: 100
     maxCount: 300
+
+- type: entity
+  parent: BaseGameRule
+  id: SpaceEmperorSpawn
+  components:
+  - type: StationEvent
+    weight: 1
+    earliestStart: 10
+    reoccurrenceDelay: 75
+    duration: null
+  - type: SpaceSpawnRule
+    spawnDistance: 0
+  - type: AntagSelection
+    definitions:
+    - spawnerPrototype: ADTSpawnPointSpaceEmperor
+      min: 1
+      max: 1
+      pickPlayer: false
+
+- type: entity
+  parent: BaseGameRule
+  id: SantaSpawn
+  components:
+  - type: StationEvent
+    weight: 2
+    earliestStart: 10
+    reoccurrenceDelay: 75
+    duration: null
+  - type: SpaceSpawnRule
+    spawnDistance: 0
+  - type: AntagSelection
+    definitions:
+    - spawnerPrototype: ADTSanta
+      min: 1
+      max: 1
+      pickPlayer: false
+  - type: DragonRule #чтобы отдельный рул не писать
+  - type: GhostRoleAntagSpawner
