@@ -8,11 +8,8 @@ namespace Content.Shared.EntityEffects.Effects
     /// </summary>
     public sealed partial class HallucinationsReagentEffect : EventEntityEffect<HallucinationsReagentEffect>
     {
-        [DataField("key")]
-        public string Key = "ADTHallucinations";
-
         [DataField(required: true)]
-        public string Proto = string.Empty;
+        public List<string> Hallucinations;
 
         [DataField]
         public float Time = 2.0f;

@@ -33,36 +33,7 @@ public sealed partial class SchizophreniaSystem : EntitySystem
 
     private void OnAddMobs(Entity<CanHallucinateComponent> ent, ref AddHallucinationsEvent args)
     {
-        var comp = EnsureComp<HallucinatingComponent>(ent.Owner);
-
-        // Ensure that we don't have active hallucinations with this key
-        if (comp.Hallucinations.ContainsKey(args.Id))
-        {
-            if (!args.OverwriteTimer)
-                return;
-
-            if (comp.Removes.ContainsKey(args.Id) && args.Duration < 0)
-                comp.Removes.Remove(args.Id);
-            else
-                comp.Removes[args.Id] = _timing.CurTime + TimeSpan.FromSeconds(args.Duration);
-
-            return;
-        }
-
-        // Get and add entry
-        var data = _proto.Index(args.Id).Data;
-
-        if (data != null)
-        {
-            var entry = data.GetEntry();
-            comp.Hallucinations.Add(args.Id, entry);
-        }
-
-        EntityManager.AddComponents(ent.Owner, _proto.Index(args.Id).Components);
-
-        // If not infinite, add timer
-        if (args.Duration > 0)
-            comp.Removes.Add(args.Id, _timing.CurTime + TimeSpan.FromSeconds(args.Duration));
+        AddOrAdjustHallucinations(ent.Owner, args.Id, args.Duration);
     }
 
     private void OnRemove(Entity<HallucinatingComponent> ent, ref RemoveHallucinationsEvent args)
@@ -166,6 +137,37 @@ public sealed partial class SchizophreniaSystem : EntitySystem
             Dirty(uid, comp);
             Dirty(toAdd, hallucination);
         }
+    }
+
+    public void AddOrAdjustHallucinations(EntityUid uid, ProtoId<HallucinationsPackPrototype> pack, float duration)
+    {
+        var comp = EnsureComp<HallucinatingComponent>(uid);
+
+        // Ensure that we don't have active hallucinations with this key
+        if (comp.Hallucinations.ContainsKey(pack))
+        {
+            if (comp.Removes.ContainsKey(pack) && duration < 0)
+                comp.Removes.Remove(pack);
+            else
+                comp.Removes[pack] = _timing.CurTime + TimeSpan.FromSeconds(duration);
+
+            return;
+        }
+
+        // Get and add entry
+        var data = _proto.Index(pack).Data;
+
+        if (data != null)
+        {
+            var entry = data.GetEntry();
+            comp.Hallucinations.Add(pack, entry);
+        }
+
+        EntityManager.AddComponents(uid, _proto.Index(pack).Components);
+
+        // If not infinite, add timer
+        if (duration > 0)
+            comp.Removes.Add(pack, _timing.CurTime + TimeSpan.FromSeconds(duration));
     }
     #endregion
 }
