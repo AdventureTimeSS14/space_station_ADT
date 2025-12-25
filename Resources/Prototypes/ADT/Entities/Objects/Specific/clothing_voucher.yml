@@ -1,0 +1,75 @@
+- type: entity
+  parent: BaseItem
+  id: ADTClothingVoucherBase
+  abstract: true
+  components:
+  - type: Item
+    size: Normal
+  - type: ActivatableUI
+    key: enum.MiningVoucherUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.MiningVoucherUiKey.Key:
+        type: MiningVoucherBoundUserInterface
+  - type: MiningVoucher
+    kits:
+    - JumpsuitTurtleneckWhite
+    typeDropPlace: ThisPlace
+
+- type: entity
+  parent: ADTClothingVoucherBase
+  id: ADTClothingVoucherJumpsuitTurtleneck
+  abstract: false
+  components:
+  - type: Sprite
+    layers:
+      - sprite: ADT/Clothing/Uniforms/Jumpsuit/turtleneck_white.rsi
+        state: icon
+      - sprite: ADT/Objects/Specific/clothing_voucher.rsi
+        state: icon
+  - type: MiningVoucher
+    kits:
+    - JumpsuitTurtleneckWhite
+    - JumpsuitTurtleneckAquamarine
+    - JumpsuitTurtleneckAzure
+    - JumpsuitTurtleneckYellow
+    - JumpsuitTurtleneckGreen
+    - JumpsuitTurtleneckBrown
+    - JumpsuitTurtleneckRed
+    - JumpsuitTurtleneckOrange
+    - JumpsuitTurtleneckPink
+    - JumpsuitTurtleneckGrey
+    - JumpsuitTurtleneckBlue
+    - JumpsuitTurtleneckPurple
+    - JumpsuitTurtleneckBlack
+    - JumpsuitTurtleneckDarkBlue
+    typeDropPlace: ThisPlace
+
+- type: entity
+  parent: ADTClothingVoucherBase
+  id: ADTClothingVoucherJumpskirtTurtleneck
+  abstract: false
+  components:
+  - type: Sprite
+    layers:
+      - sprite: ADT/Clothing/Uniforms/Jumpskirt/turtleneck_white_women.rsi
+        state: icon
+      - sprite: ADT/Objects/Specific/clothing_voucher.rsi
+        state: icon
+  - type: MiningVoucher
+    kits:
+    - JumpskirtTurtleneckWhite
+    - JumpskirtTurtleneckAquamarine
+    - JumpskirtTurtleneckAzure
+    - JumpskirtTurtleneckYellow
+    - JumpskirtTurtleneckGreen
+    - JumpskirtTurtleneckBrown
+    - JumpskirtTurtleneckRed
+    - JumpskirtTurtleneckOrange
+    - JumpskirtTurtleneckPink
+    - JumpskirtTurtleneckGrey
+    - JumpskirtTurtleneckBlue
+    - JumpskirtTurtleneckPurple
+    - JumpskirtTurtleneckBlack
+    - JumpskirtTurtleneckDarkBlue
+    typeDropPlace: ThisPlace

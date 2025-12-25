@@ -228,7 +228,7 @@
 - type: entity
   parent: ClothingUniformBase
   id: ADTClothingUniformJumpsuitTurtleneckDarkBlue
-  name: white turtleneck
+  name: dark blue turtleneck
   description: Warm and comfy.
   components:
   - type: Sprite

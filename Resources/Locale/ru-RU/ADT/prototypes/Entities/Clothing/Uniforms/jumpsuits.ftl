@@ -110,7 +110,7 @@ ent-ADTClothingUniformJumpsuitTurtleneckBlack = чёрная водолазка
     .suffix = { "" }
 
 ent-ADTClothingUniformJumpsuitTurtleneckDarkBlue = тёмно-синяя водолазка
-    .desc = Тёмно-синяя водолазка.
+    .desc = Для тех, кто любит косить под капитана.
     .suffix = { "" }
 
 ent-ADTClothingUniformJumpsuitTurtleneckBlue = синяя водолазка
