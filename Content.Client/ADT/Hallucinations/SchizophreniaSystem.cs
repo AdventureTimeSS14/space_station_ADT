@@ -1,10 +1,12 @@
 using System.Linq;
 using Content.Shared.ADT.Shizophrenia;
 using Content.Shared.Humanoid;
+using Content.Shared.Mobs.Components;
 using Content.Shared.StatusIcon;
 using Content.Shared.StatusIcon.Components;
 using Robust.Client.Audio;
 using Robust.Client.GameObjects;
+using Robust.Client.GameStates;
 using Robust.Client.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
@@ -22,10 +24,15 @@ public sealed class ShizophreniaSystem : EntitySystem
     [Dependency] private readonly SpriteSystem _sprite = default!;
 
     private Dictionary<NetEntity, TimeSpan> _layers = new();
+    private List<NetEntity> _hiddenEntities = new();
+
+    private EntityQuery<SpriteComponent> _spriteQuery;
 
     public override void Initialize()
     {
         base.Initialize();
+
+        _spriteQuery = GetEntityQuery<SpriteComponent>();
 
         SubscribeNetworkEvent<SetHallucinationAppearanceMessage>(OnAppearanceMessage);
         SubscribeLocalEvent<SchizophreniaComponent, GetStatusIconsEvent>(OnGetStatusIcons);
@@ -87,6 +94,38 @@ public sealed class ShizophreniaSystem : EntitySystem
 
             _sprite.RemoveLayer(ent.Value, "hallucination", false);
             _layers.Remove(item.Key);
+        }
+
+        if (HasComp<HallucinationsRemoveMobsComponent>(_player.LocalEntity))
+        {
+            var ents = EntityManager.AllEntities<MobStateComponent>().Where(x => !HasComp<HallucinationComponent>(x)).ToList();
+            foreach (var item in ents)
+            {
+                if (item.Owner == _player.LocalEntity || Transform(item.Owner).ParentUid == _player.LocalEntity)
+                    continue;
+
+                var netEnt = GetNetEntity(item);
+                if (!_hiddenEntities.Contains(netEnt) && _spriteQuery.TryGetComponent(item, out var sprite) && sprite.Visible)
+                {
+                    _sprite.SetVisible(item.Owner, false);
+                    _hiddenEntities.Add(netEnt);
+                }
+            }
+        }
+        else
+        {
+            if (_hiddenEntities.Count == 0)
+                return;
+
+            foreach (var item in _hiddenEntities.ToList())
+            {
+                if (!TryGetEntity(item, out var ent))
+                    continue;
+
+                _sprite.SetVisible(ent.Value, true);
+            }
+
+            _hiddenEntities.Clear();
         }
     }
 }

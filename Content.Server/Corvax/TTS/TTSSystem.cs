@@ -10,6 +10,8 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Content.Server.ADT.Language;
 using Content.Shared.ADT.Language;
+using Content.Server.ADT.Chat;
+using Content.Server.DeviceLinking.Systems;
 
 namespace Content.Server.Corvax.TTS;
 
@@ -118,12 +120,32 @@ public sealed partial class TTSSystem : EntitySystem
         var soundData = await GenerateTTS(message, speaker);
         if (soundData is null) return;
 
-        // ADT Languages start
+        // ADT-Tweak-start
         var languageSoundData = await GenerateTTS(_language.ObfuscateMessage(uid, message, gen.Replacement, gen.ObfuscateSyllables), speaker);
         if (languageSoundData is null) return;
-        // ADT Languages end
 
-        RaiseNetworkEvent(new PlayTTSEvent(soundData, languageSoundData, language, GetNetEntity(uid)), Filter.Pvs(uid));
+        var pvs = Filter.Pvs(uid);
+
+        foreach (var item in pvs.Recipients)
+        {
+            if (!item.AttachedEntity.HasValue)
+            {
+                pvs.RemovePlayer(item);
+                continue;
+            }
+
+            var ev = new CanHearVoiceEvent(uid, false);
+            RaiseLocalEvent(item.AttachedEntity.Value, ref ev);
+
+            if (ev.Cancelled)
+            {
+                pvs.RemovePlayer(item);
+                continue;
+            }
+        }
+        // ADT-Tweak-end
+
+        RaiseNetworkEvent(new PlayTTSEvent(soundData, languageSoundData, language, GetNetEntity(uid)), pvs);
     }
 
     private async void HandleWhisper(EntityUid uid, string message, string obfMessage, string speaker, LanguagePrototype language)
@@ -161,6 +183,15 @@ public sealed partial class TTSSystem : EntitySystem
             var distance = (sourcePos - _xforms.GetWorldPosition(xform, xformQuery)).Length();
             if (distance > ChatSystem.VoiceRange * ChatSystem.VoiceRange)
                 continue;
+
+            // ADT-Tweak-start
+            var ev = new CanHearVoiceEvent(uid, true);
+            RaiseLocalEvent(session.AttachedEntity.Value, ref ev);
+
+            if (ev.Cancelled)
+                continue;
+            // ADT-Tweak-end
+
 
             RaiseNetworkEvent(distance > ChatSystem.WhisperClearRange ? obfTtsEvent : fullTtsEvent, session);
         }

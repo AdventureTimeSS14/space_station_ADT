@@ -8,4 +8,9 @@ namespace Content.Shared.ADT.Shizophrenia;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class HallucinationsRemoveMobsComponent : Component
 {
+    [DataField]
+    public string Reveal = "";
+
+    [DataField]
+    public string StartingMessage = "";
 }
