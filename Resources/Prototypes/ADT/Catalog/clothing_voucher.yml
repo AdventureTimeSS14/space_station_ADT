@@ -689,4 +689,94 @@
   content:
   - ADTClothingOuterWinterCoatLightColorBlack
 
-#Aquamarine, Azure, Yellow, Green, Brown, Red, Orange, Pink, Grey, Blue, DarkBlue, Purple and Black colors
+#region NeckScarfLong
+
+- type: thiefBackpackSet
+  id: ScarfLongWhite
+  name: clothing-voucher-scarf-long-white
+  description: clothing-voucher-scarf-long-white
+  sprite:
+    sprite: ADT/Clothing/Neck/Scarfs/White_long_scarf.rsi
+    state: icon
+  content:
+  - ADTClothingNeckScarfLongWhite
+
+- type: thiefBackpackSet
+  id: ScarfLongYellow
+  name: clothing-voucher-scarf-long-yellow
+  description: clothing-voucher-scarf-long-yellow
+  sprite:
+    sprite: ADT/Clothing/Neck/Scarfs/Yellow_long_scarf.rsi
+    state: icon
+  content:
+  - ADTClothingNeckScarfLongYellow
+
+- type: thiefBackpackSet
+  id: ScarfLongGreen
+  name: clothing-voucher-scarf-long-green
+  description: clothing-voucher-scarf-long-green
+  sprite:
+    sprite: ADT/Clothing/Neck/Scarfs/Green_long_scarf.rsi
+    state: icon
+  content:
+  - ADTClothingNeckScarfLongGreen
+
+- type: thiefBackpackSet
+  id: ScarfLongRed
+  name: clothing-voucher-scarf-long-red
+  description: clothing-voucher-scarf-long-red
+  sprite:
+    sprite: ADT/Clothing/Neck/Scarfs/Red_long_scarf.rsi
+    state: icon
+  content:
+  - ADTClothingNeckScarfLongRed
+
+- type: thiefBackpackSet
+  id: ScarfLongOrange
+  name: clothing-voucher-scarf-long-orange
+  description: clothing-voucher-scarf-long-orange
+  sprite:
+    sprite: ADT/Clothing/Neck/Scarfs/Orange_long_scarf.rsi
+    state: icon
+  content:
+  - ADTClothingNeckScarfLongOrange
+
+- type: thiefBackpackSet
+  id: ScarfLongPurple
+  name: clothing-voucher-scarf-long-purple
+  description: clothing-voucher-scarf-long-purple
+  sprite:
+    sprite: ADT/Clothing/Neck/Scarfs/Purple_long_scarf.rsi
+    state: icon
+  content:
+  - ADTClothingNeckScarfLongPurple
+
+- type: thiefBackpackSet
+  id: ScarfLongPink
+  name: clothing-voucher-scarf-long-pink
+  description: clothing-voucher-scarf-long-pink
+  sprite:
+    sprite: ADT/Clothing/Neck/Scarfs/Pink_long_scarf.rsi
+    state: icon
+  content:
+  - ADTClothingNeckScarfLongPink
+
+- type: thiefBackpackSet
+  id: ScarfLongBlue
+  name: clothing-voucher-scarf-long-blue
+  description: clothing-voucher-scarf-long-blue
+  sprite:
+    sprite: ADT/Clothing/Neck/Scarfs/Blue_long_scarf.rsi
+    state: icon
+  content:
+  - ADTClothingNeckScarfLongBlue
+
+- type: thiefBackpackSet
+  id: ScarfLongBlack
+  name: clothing-voucher-scarf-long-black
+  description: clothing-voucher-scarf-long-black
+  sprite:
+    sprite: ADT/Clothing/Neck/Scarfs/Black_long_scarf.rsi
+    state: icon
+  content:
+  - ADTClothingNeckScarfLongBlack

@@ -173,3 +173,27 @@
     - WinterCoatLightPurple
     - WinterCoatLightBlack
     typeDropPlace: ThisPlace
+
+- type: entity
+  parent: ADTClothingVoucherBase
+  id: ADTClothingVoucherScarfLong
+  abstract: false
+  components:
+  - type: Sprite
+    layers:
+      - sprite: ADT/Clothing/Neck/Scarfs/White_long_scarf.rsi
+        state: icon
+      - sprite: ADT/Objects/Specific/clothing_voucher.rsi
+        state: icon
+  - type: MiningVoucher
+    kits:
+    - ScarfLongWhite
+    - ScarfLongYellow
+    - ScarfLongGreen
+    - ScarfLongRed
+    - ScarfLongOrange
+    - ScarfLongPurple
+    - ScarfLongPink
+    - ScarfLongBlue
+    - ScarfLongBlack
+    typeDropPlace: ThisPlace
