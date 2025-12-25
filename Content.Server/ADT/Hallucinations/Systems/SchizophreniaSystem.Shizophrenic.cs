@@ -1,8 +1,12 @@
 using Content.Server.ADT.Chat;
 using Content.Shared.ADT.Shizophrenia;
+using Content.Shared.Damage;
 using Content.Shared.Eye;
 using Content.Shared.Humanoid;
+using Content.Shared.Kitchen;
+using Content.Shared.Mobs.Components;
 using Robust.Shared.Player;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.ADT.Shizophrenia;
 
@@ -16,7 +20,10 @@ public sealed partial class SchizophreniaSystem : EntitySystem
         SubscribeLocalEvent<CanHallucinateComponent, AddHallucinationsEvent>(OnAddMobs);
         SubscribeLocalEvent<HallucinatingComponent, RemoveHallucinationsEvent>(OnRemove);
 
+        SubscribeLocalEvent<HallucinationsRemoveMobsComponent, ComponentStartup>(OnRemoveMobsStartup);
         SubscribeLocalEvent<HallucinationsRemoveMobsComponent, CanHearVoiceEvent>(OnCanHearVoice);
+        SubscribeLocalEvent<HallucinationsRemoveMobsComponent, CanReceiveChatMessageEvent>(OnCanReceiveMessage);
+        SubscribeLocalEvent<HallucinationsRemoveMobsComponent, DamageChangedEvent>(OnDamage);
     }
 
     private void OnPlayerAttached(Entity<SchizophreniaComponent> ent, ref PlayerAttachedEvent args)
@@ -47,10 +54,43 @@ public sealed partial class SchizophreniaSystem : EntitySystem
         EntityManager.RemoveComponents(ent.Owner, _proto.Index(args.Id).Components);
     }
 
+    private void OnRemoveMobsStartup(Entity<HallucinationsRemoveMobsComponent> ent, ref ComponentStartup args)
+    {
+        if (ent.Comp.StartingMessage != "")
+            _popup.PopupEntity(Loc.GetString(ent.Comp.StartingMessage), ent.Owner, ent.Owner, Shared.Popups.PopupType.MediumCaution);
+    }
+
     private void OnCanHearVoice(Entity<HallucinationsRemoveMobsComponent> ent, ref CanHearVoiceEvent args)
     {
-        if (HasComp<HumanoidAppearanceComponent>(args.Source) && !HasComp<HallucinationComponent>(args.Source))
+        if (args.Source == ent.Owner)
+            return;
+
+        if (HasComp<MobStateComponent>(args.Source) && !HasComp<HallucinationComponent>(args.Source))
             args.Cancelled = true;
+    }
+
+    private void OnCanReceiveMessage(Entity<HallucinationsRemoveMobsComponent> ent, ref CanReceiveChatMessageEvent args)
+    {
+        if (args.Source == ent.Owner)
+            return;
+
+        if (HasComp<MobStateComponent>(args.Source) && !HasComp<HallucinationComponent>(args.Source))
+            args.Cancelled = true;
+    }
+
+    private void OnDamage(Entity<HallucinationsRemoveMobsComponent> ent, ref DamageChangedEvent args)
+    {
+        if (!args.Origin.HasValue)
+            return;
+
+        if (!args.DamageIncreased)
+            return;
+
+        if (string.IsNullOrEmpty(ent.Comp.Reveal))
+            return;
+
+        var reveal = Spawn(ent.Comp.Reveal, Transform(args.Origin.Value).Coordinates);
+        AddAsHallucination(ent.Owner, reveal);
     }
 
     #region Public
