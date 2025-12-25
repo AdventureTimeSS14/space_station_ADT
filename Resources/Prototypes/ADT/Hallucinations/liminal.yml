@@ -1,0 +1,6 @@
+- type: hallucinationsPack
+  id: Liminal
+  components:
+  - type: HallucinationsRemoveMobs
+    reveal: ADTLiminalRevealEffect
+    #startingMessage: Кажется, вы выпали за карту.

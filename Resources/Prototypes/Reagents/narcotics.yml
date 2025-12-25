@@ -342,6 +342,12 @@
         effectProto: StatusEffectSeeingRainbow
         type: Add
         time: 5
+        refresh: false
+      - !type:HallucinationsReagentEffect
+        proto: Changeling
+        type: Add
+        time: 4
+        refresh: false
 
 - type: reagent
   id: Bananadine
@@ -358,6 +364,12 @@
         effectProto: StatusEffectSeeingRainbow
         type: Add
         time: 5
+        refresh: false
+      - !type:HallucinationsReagentEffect
+        proto: Changeling
+        type: Add
+        time: 4
+        refresh: false
 
 # Probably replace this one with sleeping chem when putting someone in a comatose state is easier
 - type: reagent
@@ -687,3 +699,9 @@
         effectProto: StatusEffectSeeingRainbow
         type: Add
         time: 5
+        refresh: false
+      - !type:HallucinationsReagentEffect
+        proto: Changeling
+        type: Add
+        time: 4
+        refresh: false
