@@ -898,7 +898,7 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitColorBlack
     back: ClothingBackpackSatchel
-    ears: ADTClothingHeadsetVoxRaiders
+    ears: ClothingHeadsetFreelance
     shoes: ADTClothingFootWrapsBlack
     id: PiratePDA
     pocket1: PlushieVox
