@@ -148,6 +148,11 @@
     slots:
       cell_slot:
         name: power-cell-slot-component-slot-name-default
+      # ADT-tweak-start
+        blacklist:
+          tags:
+          - ADTMegaCell
+      # ADT-tweak-end
   - type: Body
   - type: StatusEffects
     allowed:
