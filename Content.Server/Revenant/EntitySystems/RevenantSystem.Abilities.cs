@@ -29,7 +29,6 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Revenant.Components;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Utility;
-using Content.Server.ADT.Hallucinations;
 using Content.Shared.StatusEffect;
 using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.Eye.Blinding.Systems;
@@ -59,7 +58,7 @@ public sealed partial class RevenantSystem
     [Dependency] private readonly MobThresholdSystem _mobThresholdSystem = default!;
     [Dependency] private readonly GhostSystem _ghost = default!;
     [Dependency] private readonly TileSystem _tile = default!;
-    [Dependency] private readonly HallucinationsSystem _hallucinations = default!;
+    //[Dependency] private readonly HallucinationsSystem _hallucinations = default!;
     [Dependency] private readonly StatusEffectsSystem _status = default!;
     [Dependency] private readonly SmokeSystem _smoke = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
@@ -417,7 +416,7 @@ public sealed partial class RevenantSystem
             // ADT-Tweak end
 
             _status.TryAddStatusEffect<BlindnessStatusEffectComponent>(ent, BlindnessSystem.BlindingStatusEffect, TimeSpan.FromSeconds(3), true);
-            _hallucinations.StartHallucinations(ent, "ADTHallucinations", component.HysteriaDuration, true, component.HysteriaProto);
+            // _hallucinations.StartHallucinations(ent, "ADTHallucinations", component.HysteriaDuration, true, component.HysteriaProto);
             if (!_mind.TryGetMind(ent, out var mindId, out var mind) || !_player.TryGetSessionById(mind.UserId, out var session))
                 continue;
             _audio.PlayGlobal(component.HysteriaSound, Filter.SinglePlayer(session), false);

@@ -80,7 +80,6 @@ public sealed partial class SupermatterSystem : EntitySystem
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly RoundEndSystem _roundEnd = default!;
-    [Dependency] private readonly HallucinationsSystem _hallucinations = default!;
     [Dependency] private readonly TagSystem _tag = default!;
 
     public override void Initialize()
