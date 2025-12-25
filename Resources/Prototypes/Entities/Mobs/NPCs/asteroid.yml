@@ -19,6 +19,8 @@
     group: GenericNumber
   - type: StatusEffects
     allowed:
+    - Stutter
+    - Weakness #ADT-Weakness-Tweak
     - Electrocution
     - TemporaryBlindness
     - RadiationProtection

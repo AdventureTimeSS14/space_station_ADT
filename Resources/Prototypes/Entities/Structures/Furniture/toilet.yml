@@ -34,6 +34,7 @@
     whitelist:
       components:
       - HumanoidAppearance
+    forceBuckle: false
   - type: DisposalUnit
     blacklist:
       components:
@@ -123,6 +124,7 @@
     damage:
       types:
         Poison: 0 # ADT CHANGE sleep END
+  - type: Climbable # ADT-Tweak
 
 - type: entity
   parent: BaseToilet

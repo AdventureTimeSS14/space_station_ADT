@@ -1341,9 +1341,6 @@ namespace Content.Client.Lobby.UI
                 return;
 
             Profile = Profile.WithFlavorText(content);
-            //ADT-tweak-start
-            Profile = Profile.WithOOCNotes(content);
-            //ADT-tweak-end
             SetDirty();
         }
 

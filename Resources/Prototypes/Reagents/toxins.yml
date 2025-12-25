@@ -558,6 +558,9 @@
           - !type:OrganType
             type: Felinid
             shouldHave: false
+          - !type:OrganType
+            type: Plant
+            shouldHave: false
 # ADT-Tweak-End
         type: Local
         visualType: MediumCaution
@@ -570,10 +573,16 @@
           - !type:OrganType
             type: Felinid
             shouldHave: false
+          - !type:OrganType
+            type: Plant
+            shouldHave: false
 # ADT-Tweak-End
 # ADT-Tweak-Start
         - !type:OrganType
           type: Felinid
+          shouldHave: false
+        - !type:OrganType
+          type: Plant
           shouldHave: false
 # ADT-Tweak-End
         - !type:MetabolizerTypeCondition
@@ -605,6 +614,14 @@
           type: [ Vox ]
         reagent: Protein
         amount: 0.25
+# ADT-Tweak-Start
+      - !type:AdjustReagent
+        conditions:
+        - !type:OrganType
+          type: Plant
+        reagent: Protein
+        amount: 0.20
+# ADT-Tweak-End
 
 - type: reagent
   id: Allicin

@@ -87,7 +87,9 @@ public abstract partial class PullingSystem : EntitySystem    // ADT Grab tweak:
         SubscribeLocalEvent<PullableComponent, BuckledEvent>(OnGotBuckled);
         SubscribeLocalEvent<ActivePullerComponent, TargetHandcuffedEvent>(OnTargetHandcuffed);
 
-        InitializeGrab();   // ADT Grab
+        // ADT-Tweak-Start
+        InitializeGrab();
+        // ADT-Tweak-End
 
         CommandBinds.Builder
             .Bind(ContentKeyFunctions.ReleasePulledObject, InputCmdHandler.FromDelegate(OnReleasePulledObject, handle: false))

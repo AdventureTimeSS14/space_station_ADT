@@ -154,7 +154,7 @@
         tableId: LetterDeliveryRewards
 
 
-# Modifier Tables
+# modifier Tables
 - type: entityTable
   id: DeliveryModifierTable
   table: !type:AllSelector

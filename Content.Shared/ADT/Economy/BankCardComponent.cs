@@ -1,3 +1,5 @@
+using Content.Shared.Cargo.Prototypes;
+using Robust.Shared.Prototypes;
 using Robust.Shared.GameStates;
 
 namespace Content.Shared.ADT.Economy;
@@ -13,4 +15,7 @@ public sealed partial class BankCardComponent : Component
 
     [DataField]
     public bool CommandBudgetCard;
+
+    [DataField]
+    public ProtoId<CargoAccountPrototype>? CommandBudgetType;
 }

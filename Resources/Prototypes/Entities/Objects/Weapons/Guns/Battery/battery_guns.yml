@@ -176,7 +176,7 @@
     storedOffset: 0,-5
   # ADT-Tweak start
   # - type: RunAndGunSpreadModifier
-  #   modifyer: 0.3
+  #   modifier: 0.3
   - type: MeleeWeapon
     resetOnHandSelected: false
     attackRate: 1
@@ -219,7 +219,7 @@
         pitch: 2 #ADT Tweak Ends
   # ADT-Tweak start
   # - type: RunAndGunSpreadModifier
-  #   modifyer: 0.4
+  #   modifier: 0.4
   - type: MeleeWeapon
     resetOnHandSelected: false
     attackRate: 1
@@ -283,8 +283,54 @@
   - type: Appearance
 
 - type: entity
-  name: laser carbine
-  parent: [BaseLaserRifle, BaseSecurityContraband]
+  name: practice laser rifle
+  parent: [BaseWeaponBattery] #ADT Tweak - removed BaseGunWieldable
+  id: WeaponLaserCarbinePractice
+  description: This modified laser rifle fires nearly harmless beams in the 40-watt range, for target practice.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Battery/laser_gun.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-4
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: false
+  - type: Appearance
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Battery/laser_gun.rsi
+  # ADT-Tweak start
+  # - type: RunAndGunSpreadModifier
+  #   modifier: 0.3
+  - type: MeleeWeapon
+    resetOnHandSelected: false
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 9
+    soundHit:
+      collection: GenericHit
+  - type: AltFireMelee
+  # ADT-Tweak end
+  - type: Gun
+    selectedMode: SemiAuto
+    fireRate: 2
+    availableModes:
+    - SemiAuto
+  - type: HitscanBatteryAmmoProvider
+    proto: RedLaserPractice
+    fireCost: 20 #ADT_Tweak 62.5 -> 20
+  - type: StaticPrice
+    price: 300
+  - type: GunExecutionBlacklist
+
+- type: entity
+  name: laser rifle
+  parent: [WeaponLaserCarbinePractice, BaseSecurityContraband, ADTBaseAttachableHolder] # ADT TWEAK #ADT Tweak - removed BaseGunWieldable
   id: WeaponLaserCarbine
   description: Favoured by Nanotrasen Security for being cheap and easy to use.
 
@@ -297,9 +343,19 @@
   - type: StaticPrice
     price: 300
   - type: HitscanBatteryAmmoProvider
-    proto: RedLaserPractice
-    fireCost: 62.5
-  - type: PacifismAllowedGun
+    proto: RedMediumLaser #ADT_Tweak
+    fireCost: 28.5 #ADT_Tweak 62.5 -> 28.5
+  # - type: RunAndGunSpreadModifier
+  #   modifier: 0.3
+  - type: MeleeWeapon #ADT_Tweak
+    resetOnHandSelected: false
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 9 # 5 -> 9
+    soundHit:
+      collection: GenericHit
+  - type: AltFireMelee #ADT_Tweak
 # ADT TWEAK START
   - type: AttachableHolder
     slots:
@@ -345,7 +401,7 @@
     sprite: Objects/Weapons/Guns/Battery/pulse_pistol.rsi
   # ADT-Tweak start
   # - type: RunAndGunSpreadModifier
-  #   modifyer: 0.1
+  #   modifier: 0.1
   - type: MeleeWeapon
     resetOnHandSelected: false
     attackRate: 1
@@ -393,7 +449,7 @@
   - type: Appearance
   # ADT-Tweak start
   # - type: RunAndGunSpreadModifier
-  #   modifyer: 0.4
+  #   modifier: 0.4
   - type: MeleeWeapon
     resetOnHandSelected: false
     attackRate: 1
@@ -465,7 +521,7 @@
   - type: Appearance
   # ADT-Tweak start
   # - type: RunAndGunSpreadModifier
-  #   modifyer: 0.4
+  #   modifier: 0.4
   - type: MeleeWeapon
     resetOnHandSelected: false
     attackRate: 1
@@ -532,8 +588,9 @@
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
   # ADT-Tweak start
-  # - type: RunAndGunSpreadModifier
-  #   modifyer: 0.4
+  - type: RunAndGunSpreadModifier
+    modifier: 0.04
+    minVelocity: 20 # чуть меньше скорости бега
   - type: MeleeWeapon
     resetOnHandSelected: false
     attackRate: 1
@@ -589,7 +646,7 @@
       size: Ginormous
     - type: MultiHandedItem
     # - type: RunAndGunSpreadModifier
-    #   modifyer: 0.3
+    #   modifier: 0.3
     - type: ClothingSpeedModifier
       walkModifier: 0.6
       sprintModifier: 0.6
@@ -611,7 +668,7 @@
     - type: Battery
       maxCharge: 10000
       startingCharge: 10000
-      
+
 - type: entity
   name: x-ray cannon
   parent: [BaseWeaponBattery, BaseGunWieldable, BaseSecurityContraband, ADTBaseAttachableHolder] # ADT-Tweak Add ADTBaseAttachableHolder
@@ -630,9 +687,10 @@
     - state: mag-unshaded-0
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
-  # ADT-Tweak start
-  # - type: RunAndGunSpreadModifier
-  #   modifyer: 0.3
+  #ADT-Tweak start
+  - type: RunAndGunSpreadModifier
+    modifier: 0.03
+    minVelocity: 15 # значительно меньше скорости бега
   - type: MeleeWeapon
     resetOnHandSelected: false
     attackRate: 1
@@ -692,7 +750,7 @@
     storedOffset: -1,-5
   # ADT-Tweak start
   # - type: RunAndGunSpreadModifier
-  #   modifyer: 0.2
+  #   modifier: 0.2
   - type: MeleeWeapon
     resetOnHandSelected: false
     attackRate: 1
@@ -746,8 +804,8 @@
         map: ["enum.GunVisualLayers.MagUnshaded"]
         shader: unshaded
   # ADT-Tweak start
-  # - type: RunAndGunSpreadModifier
-  #   modifyer: 0.2
+  - type: RunAndGunSpreadModifier
+    modifier: 0.05
   - type: MeleeWeapon
     resetOnHandSelected: false
     attackRate: 1
@@ -804,8 +862,8 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
   # ADT-Tweak start
-  # - type: RunAndGunSpreadModifier
-  #   modifyer: 0.4
+  - type: RunAndGunSpreadModifier
+    modifier: 0.04
   - type: MeleeWeapon
     resetOnHandSelected: false
     attackRate: 1
@@ -847,7 +905,7 @@
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
   # - type: RunAndGunSpreadModifier
-  #   modifyer: 0.2
+  #   modifier: 0.2
   - type: Item
     heldPrefix: taser4
   - type: Clothing
@@ -902,8 +960,8 @@
   - type: Clothing
     sprite: Objects/Weapons/Guns/Battery/antiquelasergun.rsi
   # ADT-Tweak start
-  # - type: RunAndGunSpreadModifier
-  #   modifyer: 0.2
+  - type: RunAndGunSpreadModifier
+    modifier: 0.05
   - type: MeleeWeapon
     resetOnHandSelected: false
     attackRate: 1
@@ -967,8 +1025,8 @@
   - type: Clothing
     sprite: Objects/Weapons/Guns/Battery/advancedlasergun.rsi
   # ADT-Tweak start
-  # - type: RunAndGunSpreadModifier
-  #   modifyer: 0.3
+  - type: RunAndGunSpreadModifier
+    modifier: 0.04
   - type: MeleeWeapon
     resetOnHandSelected: false
     attackRate: 1
@@ -1074,7 +1132,7 @@
     - state: base
       map: ["enum.GunVisualLayers.Base"]
   # - type: RunAndGunSpreadModifier
-  #   modifyer: 0.2
+  #   modifier: 0.2
   - type: Gun
     fireRate: 1
     soundGunshot:
@@ -1108,7 +1166,7 @@
   - type: Appearance
   # ADT-Tweak start
   # - type: RunAndGunSpreadModifier
-  #   modifyer: 0.4
+  #   modifier: 0.4
   - type: MeleeWeapon
     resetOnHandSelected: false
     attackRate: 1
@@ -1215,8 +1273,9 @@
     steps: 5
     zeroVisible: false
   # ADT-Tweak start
-  # - type: RunAndGunSpreadModifier
-  #   modifyer: 0.3
+  - type: RunAndGunSpreadModifier
+    modifier: 0.03
+    minVelocity: 20 # чуть меньше скорости бега
   - type: MeleeWeapon
     resetOnHandSelected: false
     attackRate: 1

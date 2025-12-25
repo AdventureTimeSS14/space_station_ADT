@@ -544,6 +544,8 @@
     - sprite: *icon-rsi
       offset: *icon-offset
       state: Brigmedic
+  - type: PresetIdCard # ADT rework
+    job: Brigmedic     #
 
 - type: entity
   parent: SecurityIDCard
@@ -1118,6 +1120,8 @@
     heldPrefix: blue
   - type: PresetIdCard
     job: CentralCommandOfficial
+  - type: NanoChatCard # ADT-tweak: Наночат
+    listNumber: false # ADT-tweak
 
 - type: entity
   parent: IDCardStandard
@@ -1138,6 +1142,8 @@
     heldPrefix: gold
   - type: PresetIdCard
     job: ERTLeader
+  - type: NanoChatCard # ADT-tweak: Наночат
+    listNumber: false # ADT-tweak
 
 - type: entity
   parent: IDCardStandard
@@ -1158,6 +1164,8 @@
     heldPrefix: blue
   - type: PresetIdCard
     job: ERTChaplain
+  - type: NanoChatCard # ADT-tweak: Наночат
+    listNumber: false # ADT-tweak
 
 - type: entity
   parent: IDCardStandard
@@ -1178,6 +1186,8 @@
     heldPrefix: blue
   - type: PresetIdCard
     job: ERTEngineer
+  - type: NanoChatCard # ADT-tweak: Наночат
+    listNumber: false # ADT-tweak
 
 - type: entity
   parent: IDCardStandard
@@ -1198,6 +1208,8 @@
     heldPrefix: blue
   - type: PresetIdCard
     job: ERTJanitor
+  - type: NanoChatCard # ADT-tweak: Наночат
+    listNumber: false # ADT-tweak
 
 - type: entity
   parent: IDCardStandard
@@ -1218,6 +1230,8 @@
     heldPrefix: blue
   - type: PresetIdCard
     job: ERTMedical
+  - type: NanoChatCard # ADT-tweak: Наночат
+    listNumber: false # ADT-tweak
 
 - type: entity
   parent: IDCardStandard
@@ -1238,6 +1252,8 @@
     heldPrefix: blue
   - type: PresetIdCard
     job: ERTSecurity
+  - type: NanoChatCard # ADT-tweak: Наночат
+    listNumber: false # ADT-tweak
 
 - type: entity
   parent: IDCardStandard
@@ -1256,6 +1272,8 @@
       state: DeathSquad
   - type: PresetIdCard
     job: DeathSquad
+  - type: NanoChatCard # ADT-tweak: Наночат
+    listNumber: false # ADT-tweak
 
 - type: entity
   parent: IDCardStandard
@@ -1277,6 +1295,8 @@
     heldPrefix: blue
   - type: PresetIdCard
     job: CBURN
+  - type: NanoChatCard # ADT-tweak: Наночат
+    listNumber: false # ADT-tweak
 
 - type: entity
   parent: IDCardStandard

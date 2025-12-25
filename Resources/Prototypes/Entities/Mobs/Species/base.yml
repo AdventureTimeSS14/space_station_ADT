@@ -126,6 +126,8 @@
       - !type:WashCreamPie
   - type: StatusEffects
     allowed:
+    - Stutter
+    - Weakness #ADT-Weakness-Tweak
     - Electrocution
     - RatvarianLanguage
     - PressureImmunity
@@ -227,6 +229,7 @@
     languages:
       GalacticCommon: Speak
   - type: SpeechBarks
+  - type: Posing
   # ADT tweak end
 
 - type: entity

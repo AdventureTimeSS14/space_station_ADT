@@ -75,6 +75,11 @@
         - !type:MetabolizerTypeCondition
           type: [ Arachnid ]
           inverted: true
+          #ADT-Tweak-Start
+        - !type:OrganType
+          type: Vox
+          shouldHave: false
+          #ADT-Tweak-End
         damage:
           types:
             Poison: 0.1
@@ -311,6 +316,12 @@
     Poison:
       effects:
       - !type:HealthChange
+      #ADT-Tweak-Start
+        conditions:
+        - !type:OrganType
+          type: Vox
+          shouldHave: false
+      #ADT-Tweak-End
         damage:
           types:
             Poison: 1.5
