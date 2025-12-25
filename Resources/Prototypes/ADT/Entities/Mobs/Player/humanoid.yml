@@ -1010,9 +1010,10 @@
     outerClothing: ClothingOuterHardsuitSanta
     suitstorage: OxygenTankFilled
     storage:
-    back:
-    - BoxSurvivalEngineering
-    - ClothingHeadHatSantahat
-    - ClothingOuterSanta
-    - ADTReindeerCubeBox
-    - ADTWeaponWandSanta
+      back:
+      - BoxSurvivalEngineering
+      - ClothingHeadHatSantahat
+      - ClothingOuterSanta
+      - ADTReindeerCubeBox
+      - ADTWeaponWandSanta
+      - ADTGingerbreadCubeBox
