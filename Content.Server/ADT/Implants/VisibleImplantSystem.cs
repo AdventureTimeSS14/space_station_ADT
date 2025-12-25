@@ -28,6 +28,7 @@ using Content.Shared.Jittering;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Weapons.Reflect;
+using Content.Shared.ADT.CantShoot;
 
 namespace Content.Server.ADT.Implants;
 
@@ -41,6 +42,7 @@ public sealed class VisibleImplantSystem : SharedVisibleImplantSystem
     [Dependency] private readonly ExplosionSystem _explosion = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly SharedActionsSystem _action = default!;
+    [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly StealthSystem _stealth = default!;
@@ -111,18 +113,26 @@ public sealed class VisibleImplantSystem : SharedVisibleImplantSystem
 
         if (!comp.Active)
         {
+            var cantshoot = EnsureComp<CantShootComponent>(uid);
+            cantshoot.Popup = "mantis-daggers-cantshoot";
             _appearance.SetData(uid, MantisDaggersVisuals.Active, true);
             _appearance.SetData(uid, MantisDaggersVisuals.Inactive, false);
             var reflect = EnsureComp<ReflectComponent>(uid);
-            reflect.ReflectProb = 0.5f;
+            reflect.ReflectProb = 0.3f;
+            _action.SetCooldown(comp.ActionEntity, TimeSpan.FromSeconds(2));
         }
         else
         {
             _appearance.SetData(uid, MantisDaggersVisuals.Active, false);
             _appearance.SetData(uid, MantisDaggersVisuals.Inactive, true);
+            _action.SetCooldown(comp.ActionEntity, TimeSpan.FromSeconds(1));
             if (TryComp<ReflectComponent>(uid, out var reflect))
             {
                 RemComp<ReflectComponent>(uid);
+            }
+            if (TryComp<CantShootComponent>(uid, out var cantshoot))
+            {
+                RemComp<CantShootComponent>(uid);
             }
         }
         comp.Active = !comp.Active;
@@ -136,7 +146,6 @@ public sealed class VisibleImplantSystem : SharedVisibleImplantSystem
         var uid = ent.Owner;
 
         _damageable.TryChangeDamage(uid, ent.Comp.EmpDamage, ignoreResistances: true);
-        _jittering.DoJitter(uid, TimeSpan.FromSeconds(5f), true);
 
         if (ent.Comp.Active)
         {
@@ -146,6 +155,9 @@ public sealed class VisibleImplantSystem : SharedVisibleImplantSystem
             }
             _appearance.SetData(uid, MantisDaggersVisuals.Active, false);
             _appearance.SetData(uid, MantisDaggersVisuals.Inactive, true);
+            _stun.TryAddParalyzeDuration(uid, TimeSpan.FromSeconds(3f));
+            _jittering.DoJitter(uid, TimeSpan.FromSeconds(30f), true);
+            Spawn("EffectSparks", Transform(uid).Coordinates);
             ent.Comp.Active = false;
             _audio.PlayEntity(ent.Comp.Sound, Filter.Pvs(uid), uid, true);
             Dirty(uid, ent.Comp);

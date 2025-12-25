@@ -35,3 +35,13 @@ adt-tiles-black-wood-broken = сломанный деревянный чёрны
 adt-tiles-black-wood-large-broken = сломанный большой деревянный чёрный пол
 adt-tiles-black-wood-chess-broken = сломанный шахматный деревянный чёрный пол
 adt-tiles-black-wood-parquet-broken = сломанный деревянный чёрный паркет
+
+adt-tiles-liminal-carpet-floor = лиминальный ковёр
+adt-tiles-admin-white-floor = абсолютно белый пол
+adt-tiles-admin-white-plating = абсолютно белое покрытие
+adt-tiles-admin-black-floor = абсолютно чёрный пол
+adt-tiles-admin-black-plating = абсолютно чёрное покрытие
+
+adt-tiles-admin-grass-realistic-floor = реалистичная трава
+adt-tiles-admin-grass-realistic-light-floor = реалистичная светлая трава
+adt-tiles-admin-grass-realistic-dark-floor = реалистичная тёмная трава

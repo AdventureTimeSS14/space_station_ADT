@@ -295,7 +295,7 @@ public sealed partial class DoorComponent : Component
     public int OpenDrawDepth = (int) DrawDepth.DrawDepth.Doors;
 
     [DataField(customTypeSerializer: typeof(ConstantSerializer<DrawDepthTag>))]
-    public int ClosedDrawDepth = (int) DrawDepth.DrawDepth.Doors;
+    public int ClosedDrawDepth = (int) DrawDepth.DrawDepth.BelowMobs;   // ADT-Tweak - Doors > BelowMobs
 }
 
 [Serializable, NetSerializable]

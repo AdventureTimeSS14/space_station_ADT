@@ -392,7 +392,7 @@
   - type: Fauna
   - type: AshStormImmune
   - type: Gun
-    fireRate: 0.66
+    fireRate: 0.33
     selectedMode: SemiAuto
     showExamineText: false
     availableModes:
@@ -440,6 +440,7 @@
     - KnockedDown
     - SlowedDown
     - Stutter
+    - Weakness
     - Electrocution
     - ForcedSleep
     - TemporaryBlindness

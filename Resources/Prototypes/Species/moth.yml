@@ -9,6 +9,7 @@
   dollPrototype: MobMothDummy
   skinColoration: Hues
   # ADT-name-custom
+  shortDesc: species-short-desc-moth
   maleFirstNames: first_male_moth
   femaleFirstNames: first_female_moth
   maleLastNames: last_moth
@@ -20,6 +21,7 @@
   - Получают на 30% меньше урона холодом.
   special:
   - Могут есть ткань.
+  - Могут совершать "рывок" перелетая вплоть до 5 тайлов.
   cons:
   - Не могут переваривать мясную пищу.
   - Получают повышенный урон во время горения в 3 раза по сравнению с человеком

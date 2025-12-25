@@ -1,7 +1,7 @@
-- type: accessGroup 
+- type: accessGroup
   id: ADTOverallAccess #ADT-group-roles - все возможные доступы в игре
   tags:
-  - CentralCommand 
+  - CentralCommand
   - EmergencyShuttleRepealAll
   - Captain
   - HeadOfPersonnel
@@ -83,3 +83,50 @@
   - Atmospherics
   - IAA
   - Magistrate # ADT-Roles
+
+- type: accessGroup
+  id: ADTAccessCentComm  #ADT-group-roles
+  tags:
+  - CentralCommand
+  - EmergencyShuttleRepealAll
+  - Captain
+  - HeadOfPersonnel
+  - ChiefEngineer
+  - ChiefMedicalOfficer
+  - HeadOfSecurity
+  - ResearchDirector
+  - Command
+  - Cryogenics
+  - Security
+  - Detective
+  - Armory
+  - Brig
+  - Lawyer
+  - Engineering
+  - Medical
+  - Quartermaster
+  - Salvage
+  - Cargo
+  - Research
+  - Service
+  - Maintenance
+  - External
+  - Janitor
+  - Theatre
+  - Bar
+  - Chemistry
+  - Kitchen
+  - Chapel
+  - Hydroponics
+  - Atmospherics
+  - IAA
+  - BlueShield # ADT-Roles
+  - Magistrate # ADT-Roles
+
+#
+# Расширенный доступ должен работать ТОЛЬКО и ИСКЛЮЧИТЕЛЬНО на шлюзы, выдаётся автоматически всем СБшникам в ЯК и выше
+# обязательно используйте этот комментарий
+#
+- type: accessLevel
+  id: ADTExtended
+  name: id-card-access-level-extended
