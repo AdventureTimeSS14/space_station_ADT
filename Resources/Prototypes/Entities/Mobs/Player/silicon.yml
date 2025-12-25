@@ -313,7 +313,7 @@
       - hl-words-ai-2
   - type: LanguageSpeaker
     languages:
-      GalacticCommon: Speak
+      #GalacticCommon: Speak
       RobotTalk: Speak
       Arkane: Speak
       Urs: Speak
@@ -327,12 +327,10 @@
       Canilunzt: Speak
       Draconic: Speak
       Bubblish: Speak
-      Nekomimetic: Speak
       BorgTalk: Speak
       Dwarf: Speak
       CintaTaj: Speak
       SiliconCollectiveMind: Speak
-      NeoRusskiya: Speak
   - type: CollectiveMindRank
     rankName: collective-mind-sai-rank
   - type: StationAiBrain
@@ -424,12 +422,10 @@
       Canilunzt: Speak
       Draconic: Speak
       Bubblish: Speak
-      Nekomimetic: Speak
       BorgTalk: Speak
       Dwarf: Speak
       CintaTaj: Speak
       SiliconCollectiveMind: Speak
-      NeoRusskiya: Speak
   # End-ADT-Tweak
 
 # Borgs
