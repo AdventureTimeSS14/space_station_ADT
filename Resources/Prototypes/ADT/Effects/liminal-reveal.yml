@@ -1,0 +1,19 @@
+- type: entity
+  id: ADTLiminalRevealEffect
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 3.5
+  - type: Sprite
+    noRot: true
+    drawdepth: Effects
+    layers:
+      - shader: unshaded
+        map: ["enum.EffectLayers.Unshaded"]
+        sprite: ADT/Effects/liminalium-reveal.rsi
+        state: icon
+  - type: EffectVisuals
+  - type: Tag
+    tags:
+      - HideContextMenu
+  - type: AnimationPlayer

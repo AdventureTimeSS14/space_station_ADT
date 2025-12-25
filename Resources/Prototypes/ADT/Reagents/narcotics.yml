@@ -156,3 +156,32 @@
         conditions:
         - !type:ReagentThreshold
           min: 20
+
+- type: reagent
+  id: ADTLiminalium
+  name: reagent-name-liminalium
+  group: Narcotics
+  desc: reagent-desc-liminalium
+  flavor: bitter
+  flavorMinimum: 0.05
+  color: "#99986b"
+  physicalDesc: reagent-physical-desc-crystalline
+  plantMetabolism:
+  - !type:PlantAdjustNutrition
+    amount: -5
+  - !type:PlantAdjustHealth
+    amount: -1
+  metabolisms:
+    Narcotic:
+      effects:
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectSeeingRainbow
+        time: 16
+        type: Add
+        refresh: false
+      - !type:Jitter
+      - !type:HallucinationsReagentEffect
+        hallucinations: [ Liminal ]
+        type: Add
+        time: 300
+        refresh: false
