@@ -1,4 +1,6 @@
 using Content.Shared.ADT.Salvage.Components;
+using Content.Shared.ADT.Droppods.EntitySystems;
+using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
 using Content.Shared.Power.EntitySystems;
@@ -7,8 +9,6 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
-using Content.Shared.ADT.Droppods.EntitySystems;
-using Content.Shared.Hands.EntitySystems;
 
 namespace Content.Shared.ADT.Salvage.Systems;
 
