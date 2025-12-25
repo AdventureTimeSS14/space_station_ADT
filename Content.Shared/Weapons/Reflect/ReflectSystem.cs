@@ -205,33 +205,33 @@ public sealed class ReflectSystem : EntitySystem
     }
 
     #region Examine
-    private void OnExamine(Entity<ReflectComponent> ent, ref ExaminedEvent args)
-    {
-        // This isn't examine verb or something just because it looks too much bad.
-        // Trust me, universal verb for the potential weapons, armor and walls looks awful.
-        var value = MathF.Round(ent.Comp.ReflectProb * 100, 1);
+    // private void OnExamine(Entity<ReflectComponent> ent, ref ExaminedEvent args)
+    // {
+    //     // This isn't examine verb or something just because it looks too much bad.
+    //     // Trust me, universal verb for the potential weapons, armor and walls looks awful.
+    //     var value = MathF.Round(ent.Comp.ReflectProb * 100, 1);
 
-        if (!_toggle.IsActivated(ent.Owner) || value == 0 || ent.Comp.Reflects == ReflectType.None)
-            return;
+    //     if (!_toggle.IsActivated(ent.Owner) || value == 0 || ent.Comp.Reflects == ReflectType.None)
+    //         return;
 
-        var compTypes = ent.Comp.Reflects.ToString().Split(", ");
+    //     var compTypes = ent.Comp.Reflects.ToString().Split(", ");
 
-        List<string> typeList = new(compTypes.Length);
+    //     List<string> typeList = new(compTypes.Length);
 
-        for (var i = 0; i < compTypes.Length; i++)
-        {
-            var type = Loc.GetString(("reflect-component-" + compTypes[i]).ToLower());
-            typeList.Add(type);
-        }
+    //     for (var i = 0; i < compTypes.Length; i++)
+    //     {
+    //         var type = Loc.GetString(("reflect-component-" + compTypes[i]).ToLower());
+    //         typeList.Add(type);
+    //     }
 
-        var msg = ContentLocalizationManager.FormatList(typeList);
+    //     var msg = ContentLocalizationManager.FormatList(typeList);
 
-        // ADT-Tweak-Start
-        if (ent.Comp.IncludeExamine)
-        {
-            args.PushMarkup(Loc.GetString("reflect-component-examine", ("value", value), ("type", msg)));
-        }
-        // ADT-Tweak-End
-    }
+    //     // ADT-Tweak-Start
+    //     if (ent.Comp.IncludeExamine)
+    //     {
+    //         args.PushMarkup(Loc.GetString("reflect-component-examine", ("value", value), ("type", msg)));
+    //     }
+    //     // ADT-Tweak-End
+    // } // ADT-Tweak
     #endregion
 }
