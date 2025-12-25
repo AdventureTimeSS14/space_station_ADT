@@ -461,6 +461,8 @@
       reagents:
       - ReagentId: Rewriter
         Quantity: 2
+  - type: Bloodstream
+    bloodMaxVolume: 25
   - type: MeleeChemicalInjector
     transferAmount: 8
     solution: melee
