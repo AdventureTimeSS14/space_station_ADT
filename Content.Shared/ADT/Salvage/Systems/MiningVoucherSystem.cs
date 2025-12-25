@@ -23,13 +23,10 @@ public sealed class MiningVoucherSystem : EntitySystem
     [Dependency] private readonly SharedPowerReceiverSystem _power = default!;
     [Dependency] private readonly DroppodSystem _droppod = default!;
     [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
-    [Dependency] private EntityManager _entityManager = default!;
 
     public override void Initialize()
     {
         base.Initialize();
-
-        IoCManager.Resolve(ref _entityManager);
 
         SubscribeLocalEvent<MiningVoucherComponent, AfterInteractEvent>(OnAfterInteract);
         SubscribeLocalEvent<MiningVoucherComponent, MapInitEvent>(OnMapInit);
@@ -120,7 +117,7 @@ public sealed class MiningVoucherSystem : EntitySystem
             case MiningVoucherTypeDrop.Default:
                 if (ent.Comp.TypeDropPlace == MiningVoucherTypeDropPlace.InHands)
                 {
-                    _entityManager.DeleteEntity(ent);
+                    QueueDel(ent);
                     foreach (var id in kit.Content)
                     {
                         var item = Spawn(id, xform.Coordinates);
