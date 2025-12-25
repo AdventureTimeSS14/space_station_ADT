@@ -1,6 +1,7 @@
 using Content.Server.Actions;
 using Content.Server.Chat.Managers;
 using Content.Server.Chat.Systems;
+using Content.Server.Popups;
 using Content.Server.Speech;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;
@@ -25,6 +26,7 @@ public sealed partial class SchizophreniaSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly PopupSystem _popup = default!;
 
     private int _nextIdx = 1;
 
