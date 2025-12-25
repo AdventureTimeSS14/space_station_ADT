@@ -111,7 +111,6 @@
           - PotatoBattery
           - ADTMegaCell #ADT-tweak
 
-
 - type: entity
   parent: [ BaseItemRecharger, ConstructibleMachine ]
   id: PowerCageRecharger
