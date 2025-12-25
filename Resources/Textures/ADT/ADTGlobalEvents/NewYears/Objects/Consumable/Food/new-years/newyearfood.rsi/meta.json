@@ -1,0 +1,41 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Created by discord: prazat911 for Adventure Time",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "bowl"
+        },
+        {
+            "name": "olivier"
+        },
+        {
+            "name": "plate_small"
+        },
+        {
+            "name": "jellymeat"
+        },
+        {
+            "name": "herring"
+        },
+        {
+            "name": "plate"
+        },
+        {
+            "name": "ham"
+        },
+        {
+            "name": "hampiece"
+        },
+        {
+            "name": "pudding"
+        },
+        {
+            "name": "christmaspudding"
+        }
+    ]
+}

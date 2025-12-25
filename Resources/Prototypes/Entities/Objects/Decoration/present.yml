@@ -386,6 +386,28 @@
         orGroup: GiftPool
     sound:
       path: /Audio/Effects/unwrap.ogg
+  - type: Delivery
+    baseSpesoReward: 500
+    baseSpesoPenalty: 125 # So low due to dept economy splitting all the earnings, but not splitting the penalty.
+  - type: Speech
+    speechVerb: Robotic
+  - type: EntityTableContainerFill
+    containers:
+      delivery: !type:NestedSelector
+        tableId: LetterDeliveryRewards
+
+# ADT-Tweak start
+- type: entity
+  id: ADTPresentSelected
+  parent: [PresentBase, BaseItem]
+  suffix: Filled Selected
+  components:
+  - type: SpawnItemsOnUse
+    items:
+      - id: PresentTrash
+  - type: SpawnItemSelector
+    selectedItemId: Coal1
+# ADT-Tweak end
 
 - type: entity
   id: PresentRandomCoal
