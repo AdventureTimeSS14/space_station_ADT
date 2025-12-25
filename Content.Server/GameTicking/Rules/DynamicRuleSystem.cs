@@ -8,10 +8,11 @@ using Content.Shared.GameTicking.Components;
 using Content.Shared.GameTicking.Rules;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Content.Server.GameTicking.Rules;
 
-namespace Content.Server.GameTicking.Rules;
+namespace Content.Server.ADT.GameTicking.Rules;
 
-public sealed class DynamicRuleSystem : GameRuleSystem<DynamicRuleComponent>
+public sealed class ChaoticDynamicRuleSystem : GameRuleSystem<ChaoticDynamicRuleComponent>
 {
     [Dependency] private readonly IAdminLogManager _adminLog = default!;
     [Dependency] private readonly EntityTableSystem _entityTable = default!;

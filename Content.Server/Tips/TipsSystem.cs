@@ -9,8 +9,6 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
-using Content.Server.Administration.Logs;
-using Content.Shared.Database;
 
 namespace Content.Server.Tips;
 
@@ -22,9 +20,6 @@ public sealed class TipsSystem : SharedTipsSystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly GameTicker _ticker = default!;
-    [Dependency] private readonly IConsoleHost _conHost = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly IAdminLogManager _adminLogger = default!;
 
     private bool _tipsEnabled;
     private float _tipTimeOutOfRound;
@@ -73,59 +68,6 @@ public sealed class TipsSystem : SharedTipsSystem
         {
             _nextTipTime = _timing.CurTime + TimeSpan.FromSeconds(_tipTimeInRound);
         }
-
-        // ADT-Tweak-Start Логируем сообщение
-        _adminLogger.Add(
-            LogType.AdminMessage,
-            LogImpact.Low,
-            $"[АДМИНАБУЗ] {shell.Player?.Name} used the command tippy or tip. EntityPrototype: {args[2]}"
-        );
-        // ADT-Tweak-End
-        ActorComponent? actor = null;
-        if (args[0] != "all")
-        {
-            ICommonSession? session;
-            if (args.Length > 0)
-            {
-                // Get player entity
-                if (!_playerManager.TryGetSessionByUsername(args[0], out session))
-                {
-                    shell.WriteLine(Loc.GetString("cmd-tippy-error-no-user"));
-                    return;
-                }
-            }
-            else
-            {
-                session = shell.Player;
-            }
-
-            if (session?.AttachedEntity is not { } user)
-            {
-                shell.WriteLine(Loc.GetString("cmd-tippy-error-no-user"));
-                return;
-            }
-
-            if (!TryComp(user, out actor))
-            {
-                shell.WriteError(Loc.GetString("cmd-tippy-error-no-user"));
-                return;
-            }
-        }
-
-        var ev = new TippyEvent(args[1]);
-
-        if (args.Length > 2)
-        {
-            ev.Proto = args[2];
-            if (!_prototype.HasIndex<EntityPrototype>(args[2]))
-            {
-                shell.WriteError(Loc.GetString("cmd-tippy-error-no-prototype", ("proto", args[2])));
-                return;
-            }
-        }
-
-        if (args.Length > 3)
-            ev.SpeakTime = float.Parse(args[3]);
         else
         {
             _nextTipTime = _timing.CurTime + TimeSpan.FromSeconds(_tipTimeOutOfRound);

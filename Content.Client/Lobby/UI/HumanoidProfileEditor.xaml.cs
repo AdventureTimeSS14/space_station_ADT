@@ -630,7 +630,7 @@ namespace Content.Client.Lobby.UI
             if (Profile is null || _ttsTab is null)
                 return;
 
-            _ttsTab.UpdateControls(Profile, Profile.Sex);
+            _ttsTab.UpdateControls(Profile, Profile.Sex, Profile.Species); //ADT-tweak: добавлена раса
             _ttsTab.SetSelectedVoice(Profile.Voice);
         }
 
@@ -1945,33 +1945,34 @@ namespace Content.Client.Lobby.UI
 
             switch (skin)
             {
-                case HumanoidSkinColor.HumanToned:
-                    {
-                        var tone = SkinColor.HumanSkinToneFromColor(previus.Appearance.SkinColor);
-                        color = SkinColor.HumanSkinTone((int)tone);
-                        Skin.Value = tone;
+                //R.A.T. shitfix
+                // case HumanoidSkinColo.HumanToned:
+                //     {
+                //         var tone = SkinColor.HumanSkinToneFromColor(previus.Appearance.SkinColor);
+                //         color = SkinColor.HumanSkinTone((int)tone);
+                //         Skin.Value = tone;
 
-                        Profile = Profile.WithCharacterAppearance(Profile.Appearance.WithSkinColor(color));//
-                        break;
-                    }
-                case HumanoidSkinColor.Hues:
-                    {
-                        break;
-                    }
-                case HumanoidSkinColor.TintedHues:
-                    {
-                        color = SkinColor.TintedHues(previus.Appearance.SkinColor);
+                //         Profile = Profile.WithCharacterAppearance(Profile.Appearance.WithSkinColor(color));//
+                //         break;
+                //     }
+                // case HumanoidSkinColor.Hues:
+                //     {
+                //         break;
+                //     }
+                // case HumanoidSkinColor.TintedHues:
+                //     {
+                //         color = SkinColor.TintedHues(previus.Appearance.SkinColor);
 
-                        Profile = Profile.WithCharacterAppearance(Profile.Appearance.WithSkinColor(color));
-                        break;
-                    }
-                case HumanoidSkinColor.VoxFeathers:
-                    {
-                        color = SkinColor.ClosestVoxColor(previus.Appearance.SkinColor);
+                //         Profile = Profile.WithCharacterAppearance(Profile.Appearance.WithSkinColor(color));
+                //         break;
+                //     }
+                // case HumanoidSkinColor.VoxFeathers:
+                //     {
+                //         color = SkinColor.ClosestVoxColor(previus.Appearance.SkinColor);
 
-                        Profile = Profile.WithCharacterAppearance(Profile.Appearance.WithSkinColor(color));
-                        break;
-                    }
+                //         Profile = Profile.WithCharacterAppearance(Profile.Appearance.WithSkinColor(color));
+                //         break;
+                //     }
             }
 
             _rgbSkinColorSelector.Color = color;

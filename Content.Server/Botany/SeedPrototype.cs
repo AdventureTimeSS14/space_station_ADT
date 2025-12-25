@@ -90,7 +90,7 @@ public partial struct SeedChemQuantity
 // TODO: Hit Botany with hammers
 [Virtual, DataDefinition]
 
-[Access(typeof(BotanySystem), typeof(PlantHolderSystem), typeof(SeedExtractorSystem), typeof(PlantHolderComponent), typeof(EntityEffectSystem), typeof(MutationSystem), typeof(SeedDnaConsoleSystem))] //ADT-Tweak
+// [Access(typeof(BotanySystem), typeof(PlantHolderSystem), typeof(SeedExtractorSystem), typeof(PlantHolderComponent), typeof(EntityEffectSystem), typeof(MutationSystem), typeof(SeedDnaConsoleSystem))] //ADT-Tweak: ничего же плохого не будет,да?
 public partial class SeedData
 {
     #region Tracking

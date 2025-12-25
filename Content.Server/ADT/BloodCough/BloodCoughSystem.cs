@@ -9,6 +9,8 @@ using Content.Shared.ADT.Silicon.Components;
 using Robust.Shared.Prototypes;
 using Content.Shared.Chat;
 using System.Threading;
+using Content.Shared.Damage.Systems;
+using Content.Shared.Damage.Components;
 
 namespace Content.Server.ADT.BloodCough;
 
@@ -26,7 +28,7 @@ public sealed class BloodCoughSystem : EntitySystem
         SubscribeLocalEvent<BloodCoughComponent, DamageChangedEvent>(OnMobStateDamage);
         SubscribeLocalEvent<BloodCoughComponent, ComponentStartup>(OnComponentStartup);
         SubscribeLocalEvent<BloodCoughComponent, ComponentShutdown>(OnComponentShutdown);
-        SubscribeLocalEvent<BloodCoughComponent, AfterAutoHandleStateEvent>(OnAfterAutoHandleState);
+        // SubscribeLocalEvent<BloodCoughComponent, AfterAutoHandleStateEvent>(OnAfterAutoHandleState); //R.A.T. shitfix
     }
 
     private void OnComponentStartup(EntityUid uid, BloodCoughComponent component, ComponentStartup args)

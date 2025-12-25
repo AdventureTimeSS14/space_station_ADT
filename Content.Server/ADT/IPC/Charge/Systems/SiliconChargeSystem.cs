@@ -21,6 +21,9 @@ using Robust.Shared.Configuration;
 using Robust.Shared.Utility;
 using Content.Shared.Movement.Components;
 using Robust.Shared.Physics.Components;
+using Content.Shared.Power.Components;
+using Content.Shared.Temperature.Components;
+using Content.Shared.Atmos.Components;
 
 namespace Content.Server.ADT.Silicon.Charge;
 

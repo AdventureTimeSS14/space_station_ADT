@@ -25,6 +25,7 @@ using Content.Shared.Tag;
 using Robust.Server.GameObjects;
 using Robust.Shared.Random;
 using Content.Server.Singularity.Events;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.Revenant.EntitySystems;
 
@@ -202,12 +203,12 @@ public sealed partial class RevenantSystem : EntitySystem
         return true;
     }
 
-    private void OnShop(EntityUid uid, RevenantComponent component, RevenantShopActionEvent args)
-    {
-        if (!TryComp<StoreComponent>(uid, out var store))
-            return;
-        _store.ToggleUi(uid, uid, store);
-    }
+    // private void OnShop(EntityUid uid, RevenantComponent component, RevenantShopActionEven args)
+    // {
+    //     if (!TryComp<StoreComponent>(uid, out var store))
+    //         return;
+    //     _store.ToggleUi(uid, uid, store);
+    // }
 
     private void OnSinguloConsumeAttempt(EntityUid uid, RevenantComponent component, ref EventHorizonAttemptConsumeEntityEvent args) // ADT
     {

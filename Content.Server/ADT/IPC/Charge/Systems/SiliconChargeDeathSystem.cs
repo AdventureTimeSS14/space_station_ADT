@@ -5,6 +5,7 @@ using Content.Server.ADT.Silicon.Charge;
 using Content.Shared.StatusEffect;
 using Content.Server.Humanoid;
 using Content.Shared.Humanoid;
+using Content.Shared.Power.Components;
 
 namespace Content.Server.ADT.Silicon.Death;
 

@@ -1,13 +1,13 @@
 using Content.Shared.EntityTable.EntitySelectors;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
-namespace Content.Shared.GameTicking.Rules;
+namespace Content.Shared.ADT.GameTicking.Rules;
 
 /// <summary>
 /// Gamerule the spawns multiple antags at intervals based on a budget
 /// </summary>
 [RegisterComponent, AutoGenerateComponentPause]
-public sealed partial class DynamicRuleComponent : Component
+public sealed partial class ChaoticDynamicRuleComponent : Component
 {
     /// <summary>
     /// The total budget for antags.

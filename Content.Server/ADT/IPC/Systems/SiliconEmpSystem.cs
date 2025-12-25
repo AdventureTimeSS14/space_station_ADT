@@ -13,6 +13,8 @@ using Robust.Shared.Random;
 using Content.Shared.Damage;
 using Robust.Shared.Prototypes;
 using Content.Shared.Damage.Prototypes;
+using Content.Shared.Damage.Systems;
+using Content.Shared.Emp;
 
 namespace Content.Server.ADT.Silicon.Systems;
 
@@ -57,7 +59,7 @@ public sealed class SiliconEmpSystem : EntitySystem
             _slurredSystem.DoSlur(uid, duration * 2, statusComp);
 
         if (_random.Prob(0.6f))
-            _stuttering.DoStutter(uid, duration * 2, false, statusComp);
+            _stuttering.DoStutter(uid, duration * 2, false);
 
         if (_random.Prob(0.7f))
             _status.TryAddStatusEffect<PacifiedComponent>(uid, "Pacified", duration * 0.5, true, statusComp);
