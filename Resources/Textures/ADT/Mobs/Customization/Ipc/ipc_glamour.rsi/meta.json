@@ -16,7 +16,9 @@
     {"name": "r_arm_second", "directions": 4},
     {"name": "l_leg_prime", "directions": 4},
     {"name": "l_leg_second", "directions": 4},
+    {"name": "l_leg_third", "directions": 4},
     {"name": "r_leg_prime", "directions": 4},
-    {"name": "r_leg_second", "directions": 4}
+    {"name": "r_leg_second", "directions": 4},
+    {"name": "r_leg_third", "directions": 4}
   ]
 }

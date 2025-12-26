@@ -120,9 +120,11 @@ marking-ADTIPCRArmGlamour-r_arm_second = Вторичный
 marking-ADTIPCLLegGlamour = Гламур, левая нога
 marking-ADTIPCLLegGlamour-l_leg_prime = Первичный
 marking-ADTIPCLLegGlamour-l_leg_second = Вторичный
+marking-ADTIPCLLegGlamour-l_leg_third = Троичный
 marking-ADTIPCRLegGlamour = Гламур, правая нога
 marking-ADTIPCRLegGlamour-r_leg_prime = Первичный
 marking-ADTIPCRLegGlamour-r_leg_second = Вторичный
+marking-ADTIPCRLegGlamour-r_leg_third = Троичный
 
 marking-ADTIPCHeadDefault = Обычная, голова
 marking-ADTIPCHeadDefault-head_prime = Первичный
