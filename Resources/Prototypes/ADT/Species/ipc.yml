@@ -65,7 +65,7 @@
     HeadTop: MobHumanoidAnyMarking
     HeadSide: MobHumanoidAnyMarking
     Tail: MobHumanoidAnyMarking
-    Hair: MobHumanoidMarkingMatchSkin
+    Hair: MobHumanoidAnyMarking
     FacialHair: MobIPCScreen
     Chest: MobIPCTorso
     LArm: MobIPCLArm
