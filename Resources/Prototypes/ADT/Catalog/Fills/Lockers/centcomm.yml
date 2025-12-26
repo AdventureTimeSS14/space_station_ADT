@@ -74,7 +74,6 @@
     - id: ADTClothingModsuitBackCCC
     - id: ADTCCCVoucher
     - id: RubberStampCCC
-    - id: WeaponDisabler
 
 - type: entity
   id: ADTLockerCCCFilled
@@ -99,4 +98,3 @@
     - id: CentCommFlippo
     - id: ADTCCCVoucher
     - id: RubberStampCCC
-    - id: WeaponDisabler

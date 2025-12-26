@@ -23,8 +23,8 @@
     - id: MailTeleporterMachineCircuitboard
     - id: PrinterDocFlatpack # Corvax-Printer
     # # ADT-Economy-Start
-    # - id: ADTCommandBudgetCard
-    # - id: ADTCommandBudgetPinPaper
+    - id: ADTCommandBudgetCard
+    - id: ADTCommandBudgetPinPaper
     # # ADT-Economy-End
     # ADT-WikiBooks-Start
     - id: ADTBookSRPcmd
@@ -174,6 +174,10 @@
     - id: ClothingOuterCoatHOP # Corvax-Resprite
     - id: PrinterDocFlatpack # Corvax-Printer
     - id: ADTHoPClipboard #ADT-Tweak
+    # # ADT-Economy-Start
+    - id: ADTServiceBudgetCard
+    - id: ADTServiceBudgetPinPaper
+    # # ADT-Economy-End
 
 - type: entity
   id: LockerHeadOfPersonnelFilled
@@ -222,6 +226,10 @@
     - id: ADTBookPCDcmd
     - id: ADTtelescopicBaton
     # ADT-WikiBooks-End
+    # # ADT-Economy-Start
+    - id: ADTEngineeringBudgetCard
+    - id: ADTEngineeringBudgetPinPaper
+    # # ADT-Economy-End
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
@@ -303,6 +311,10 @@
     - id: OpporozidoneBeakerSmall
     - id: ADTClothingEyesGlassesMedChem
     # ADT tweak End
+    # # ADT-Economy-Start
+    - id: ADTMedicalBudgetCard
+    - id: ADTMedicalBudgetPinPaper
+    # # ADT-Economy-End
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
@@ -373,6 +385,10 @@
     - id: ADTtelescopicBaton
     - id: ADTBoxAICircuitBoard
     # ADT-WikiBooks-End
+    # # ADT-Economy-Start
+    - id: ADTScienceBudgetCard
+    - id: ADTScienceBudgetPinPaper
+    # # ADT-Economy-End
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
@@ -450,6 +466,10 @@
     # ADT-SecShuttle-Start
     - id: ADTSecShuttleConsoleCircuitboard
     # ADT-SecShuttle-End
+    # # ADT-Economy-Start
+    - id: ADTSecurityBudgetCard
+    - id: ADTSecurityBudgetPinPaper
+    # # ADT-Economy-End
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable

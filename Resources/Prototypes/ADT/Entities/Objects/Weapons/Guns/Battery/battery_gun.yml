@@ -500,6 +500,12 @@
   - type: ProjectileBatteryAmmoProvider
     proto: ADTBulletYellowLaser
     fireCost: 125
+  - type: BatteryWeaponFireModes
+    fireModes:
+    - proto: ADTBulletYellowLaser
+      fireCost: 125
+    - proto: ADTBulletDisabler
+      fireCost: 156
   - type: MagazineVisuals
     magState: mag
     steps: 13
