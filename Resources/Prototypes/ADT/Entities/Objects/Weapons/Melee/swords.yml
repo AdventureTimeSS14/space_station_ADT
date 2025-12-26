@@ -27,6 +27,9 @@
   - type: Item
     sprite: ADT/Objects/Weapons/Melee/katana_cursed.rsi
   - type: DisarmMalus
+  - type: GuideHelp
+    guides:
+    - ADTMartialArts
   - type: ComboWeapon
     swapSound:
       path: /Audio/ADT/Entities/helmet_drop.ogg

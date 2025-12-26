@@ -1,9 +1,10 @@
 ﻿<DefaultWindow xmlns="https://spacestation14.io"
+            xmlns:adt="clr-namespace:Content.Client.ADT.UserInterface.Controls"
             Title="{Loc 'crayon-window-title'}"
             MinSize="450 500"
             SetSize="450 500">
     <BoxContainer Orientation="Vertical">
-        <ColorSelectorSliders Name="ColorSelector" Visible="False" />
+        <adt:LegacyColorSelectorSliders Name="ColorSelector" Visible="False" /> <!-- ADT-Tweak - ColorSelectorSliders -> LegacyColorSelectorSliders -->
         <LineEdit Name="Search" Margin="0 0 0 8" PlaceHolder="{Loc 'crayon-window-placeholder'}" />
         <ScrollContainer VerticalExpand="True">
             <BoxContainer Name="Grids" Orientation="Vertical">
