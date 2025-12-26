@@ -44,14 +44,14 @@ public sealed partial class MantisDaggersComponent : Component
     public TimeSpan EmpLastPulse = TimeSpan.Zero;
 
     [ViewVariables(VVAccess.ReadOnly)]
-    public TimeSpan EmpCooldown = TimeSpan.FromSeconds(60f);
+    public TimeSpan EmpCooldown = TimeSpan.FromSeconds(30f);
 
     [DataField]
     public DamageSpecifier EmpDamage = new()
     {
         DamageDict = new Dictionary<string, FixedPoint2>
         {
-            { "Shock", 12 },
+            { "Shock", 20 },
         },
     };
 }

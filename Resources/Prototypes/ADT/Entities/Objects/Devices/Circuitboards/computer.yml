@@ -39,6 +39,17 @@
       prototype: MinesweeperArcade
 
 - type: entity
+  parent: BaseComputerCircuitboard
+  id: ADTBotanicalSeedDNAManipulatorCircuitboard
+  name: plant seed DNA manipulator computer board
+  description: A computer printed circuit board for a plant seed DNA manipulator console.
+  components:
+    - type: Sprite
+      state: cpu_service
+    - type: ComputerBoard
+      prototype: ADTComputerBotanicalSeedDNAManipulator
+
+- type: entity
   id: ADTXenobiologyBountyComputerCircuitboard
   parent: BaseComputerCircuitboard
   name: xenobiological bounty console board

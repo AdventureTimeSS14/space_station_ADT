@@ -1373,3 +1373,51 @@
     # - CorgiWearable
     - HelmetEVA
     # - WhitelistChameleon
+
+#luckyrat
+- type: entity
+  parent: ADTSponsorClothingUniformBase
+  id: ADTClothingUniformLuckyrat
+  name: captain of bar suit
+  description: captain of bar suit
+  suffix: Personal, luckyrat
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/luckyrat/luckyrat_uniform.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/luckyrat/luckyrat_uniform.rsi
+
+- type: entity
+  parent: ADTSponsorClothingNeckBase
+  id: ADTClothingNeckLuckyratCloak
+  name: captain of bar cloak
+  description: captain of bar cloak
+  suffix: Personal, luckyrat
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/luckyrat/luckyrat_cloak.rsi
+
+- type: entity
+  parent: ADTSponsorClothingHeadBase
+  id: ADTClothingHeadHatsLuckyrat
+  name: captain of bar cylinder
+  description: captain of bar cylinder
+  suffix: Personal, luckyrat
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/luckyrat/luckyrat_hat.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/luckyrat/luckyrat_hat.rsi
+
+- type: entity
+  parent: ADTSponsorClothingShoesBase
+  id: ADTClothingShoesLuckyrat
+  name: captain of bar shoes
+  description: captain of bar shoes
+  suffix: Personal, luckyrat
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/luckyrat/luckyrat_boots.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/luckyrat/luckyrat_boots.rsi
+  - type: Matchbox

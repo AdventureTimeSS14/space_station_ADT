@@ -71,6 +71,7 @@ public sealed partial class IdCardConsoleComponent : Component
         "Security",
         "Service",
         "Theatre",
+        "ADTExtended", //ADT-tweak: расширенный доступ
     };
 
     [Serializable, NetSerializable]

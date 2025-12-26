@@ -209,9 +209,10 @@
     - id: RCD
     - id: RCDAmmo
     - id: MetalFoamGrenade
-    # ADT-WikiBooks-Start
+    # ADT-Tweak-Start
     - id: ADTBookSRPeng
-    # ADT-WikiBooks-End
+    - id: ADTEngiInducerBattery
+    # ADT-Tweak-End
 
 - type: entityTable
   id: FillEngineerHardsuit

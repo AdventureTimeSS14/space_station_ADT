@@ -9,7 +9,7 @@
     itemIconStyle: BigAction
     useDelay: 1
   - type: InstantAction
-    event: !type:SlimeHairActionEvent
+    event: !type:MidroundCustomizationActionEvent
 
 - type: entity
   id: SlimeLatch

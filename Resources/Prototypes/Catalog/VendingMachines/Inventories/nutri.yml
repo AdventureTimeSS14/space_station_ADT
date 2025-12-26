@@ -1,6 +1,7 @@
 - type: vendingMachineInventory
   id: NutriMaxInventory
   startingInventory:
+    ADTWateringCan: 2 #ADT-Tweak
     HydroponicsToolSpade: 4
     HydroponicsToolMiniHoe: 4
     HydroponicsToolClippers: 4
@@ -20,6 +21,7 @@
     # ADT tweak Start
     ADTPlantAnalyzer: 1
     ADTSoilPacked: 2
+    ADTBotanicalSeedDNADisk: 10
     # ADT tweak End
   contrabandInventory:
     ChemistryBottleUnstableMutagen: 1
