@@ -22,6 +22,7 @@ using Content.Shared.Mind;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Stunnable;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 
 namespace Content.Server.GameTicking.Rules;
 

@@ -15,6 +15,8 @@ using Content.Shared.Tools.Systems;
 using Content.Shared.Whitelist;
 using Robust.Shared.Prototypes;
 using System.Linq;
+using Content.Shared.Damage.Systems;
+using Content.Shared.Damage.Components;
 
 namespace Content.Server.Heretic.Abilities;
 
@@ -67,12 +69,12 @@ public sealed partial class HereticAbilitySystem : EntitySystem
             var damage = _random.NextFloat(20, 99);
             var damage_brute = new DamageSpecifier(_prot.Index(BruteDamageGroup), -damage);
             var damage_burn = new DamageSpecifier(_prot.Index(BurnDamageGroup), -damage);
-            _damageable.TryChangeDamage(ent, damage_brute);
-            _damageable.TryChangeDamage(ent, damage_burn);
+            _damageable.TryChangeDamage(ent.Owner, damage_brute);
+            _damageable.TryChangeDamage(ent.Owner, damage_burn);
 
             damage = (float)(dmgComp.TotalDamage + damage) / _prot.EnumeratePrototypes<DamageTypePrototype>().Count();
 
-            _damageable.SetAllDamage(args.Target, dmgComp, damage);
+            _damageable.SetAllDamage(args.Target, damage);
             args.Handled = true;
         }
     }
@@ -88,7 +90,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
             return;
 
         // heal teammates, mostly ghouls
-        _damageable.SetAllDamage((EntityUid)args.Target, dmg, 0);
+        _damageable.SetAllDamage((EntityUid)args.Target, 0);
         args.Handled = true;
     }
     private void OnFleshAscendPolymorph(Entity<HereticComponent> ent, ref HereticAscensionFleshEvent args)
