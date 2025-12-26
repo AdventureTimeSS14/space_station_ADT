@@ -7,6 +7,7 @@ using Content.Server.Mind;
 using Robust.Shared.Player;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
+using Content.Shared.Chat;
 
 namespace Content.Server.ADT.SpeechBarks;
 
@@ -53,7 +54,8 @@ public sealed class SpeechBarksSystem : SharedSpeechBarksSystem
                         ev.Data.Pitch,
                         ev.Data.MinVar,
                         ev.Data.MaxVar,
-                        args.Whisper), session);
+                        false //R.A.T. shitfix: должна быть нормальная зависимость от шептения
+                        ), session);
         }
     }
 }

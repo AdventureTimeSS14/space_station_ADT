@@ -19,6 +19,7 @@ using Content.Shared.Eye.Blinding.Systems;
 using Content.Shared.Damage.Components;
 using Content.Shared.Hands.EntitySystems;
 using Robust.Shared.Containers;
+using Content.Shared.Damage.Systems;
 
 namespace Content.Server.Changeling.EntitySystems;
 
