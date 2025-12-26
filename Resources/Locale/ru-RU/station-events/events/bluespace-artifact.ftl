@@ -1,8 +1,8 @@
-bluespace-artifact-event-announcement = На станции обнаружена нестабильная блюспейс аномалия. Пожалуйста, незамедлительно сообщайте научному отделу о { $sighting }.
-bluespace-artifact-sighting-1 = ярких вспышках света
-bluespace-artifact-sighting-2 = странных звуках, доносящихся из технических туннелей
-bluespace-artifact-sighting-3 = неестественных конструкциях
-bluespace-artifact-sighting-4 = непостижимых инопланетных объектах
-bluespace-artifact-sighting-5 = незнакомых предметах в странных местах
-bluespace-artifact-sighting-6 = неизвестных инопланетных артефактах
-bluespace-artifact-sighting-7 = взрывах ламп, сопровождаемых странными звуками
+bluespace-artifact-event-announcement = На блединг динг-донг. Жуббре белбе { $sighting }.
+bluespace-artifact-sighting-1 = динг-донг
+bluespace-artifact-sighting-2 = блединг, жуббр-динг белбе
+bluespace-artifact-sighting-3 = блединг динг
+bluespace-artifact-sighting-4 = белбе донг
+bluespace-artifact-sighting-5 = бла-бла
+bluespace-artifact-sighting-6 = блабле донг жуббр
+bluespace-artifact-sighting-7 = блабле динг жуббр
