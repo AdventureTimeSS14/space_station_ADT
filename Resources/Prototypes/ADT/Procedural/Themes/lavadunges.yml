@@ -1,6 +1,6 @@
 - type: dungeonRoom
   id: LavaDungeonRipley
-  size: 0, -1
+  size: 1, -1
   atlas: /Maps/ADTMaps/Ruins/lavadunges.yml
   offset: 3, -8
   tags:
