@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Client.ADT.UserInterface.Controls;
 using Content.Client.Corvax.Sponsors;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Markings;
@@ -422,7 +423,8 @@ public sealed partial class MarkingPicker : Control
         var stateNames = GetMarkingStateNames(prototype);
         _currentMarkingColors.Clear();
         CMarkingColors.RemoveAllChildren();
-        List<ColorSelectorSliders> colorSliders = new();
+        CMarkingColors.DisposeAllChildren();
+        List<LegacyColorSelectorSliders> colorSliders = new();  // ADT-Tweak - ColorSelectorSliders > LegacyColorSelectorSliders
         for (int i = 0; i < prototype.Sprites.Count; i++)
         {
             var colorContainer = new BoxContainer
@@ -432,7 +434,7 @@ public sealed partial class MarkingPicker : Control
 
             CMarkingColors.AddChild(colorContainer);
 
-            ColorSelectorSliders colorSelector = new ColorSelectorSliders();
+            LegacyColorSelectorSliders colorSelector = new LegacyColorSelectorSliders();  // ADT-Tweak - ColorSelectorSliders > LegacyColorSelectorSliders
             // ADT-Tweak-Start
             // colorSelector.SelectorType = ColorSelectorSliders.ColorSelectorType.Hsv; // defaults color selector to HSV
             // ADT-Tweak-End

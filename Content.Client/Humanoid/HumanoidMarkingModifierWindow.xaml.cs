@@ -1,3 +1,4 @@
+using Content.Client.ADT.UserInterface.Controls;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.Humanoid.Prototypes;
@@ -91,7 +92,7 @@ public sealed partial class HumanoidMarkingModifierWindow : DefaultWindow
     {
         private CheckBox _enable;
         private LineEdit _lineEdit;
-        private ColorSelectorSliders _colorSliders;
+        private LegacyColorSelectorSliders _colorSliders;   // ADT-Tweak - ColorSelectorSliders > LegacyColorSelectorSliders
         private BoxContainer _infoBox;
 
         public bool Enabled => _enable.Pressed;
