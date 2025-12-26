@@ -968,7 +968,6 @@
     prototypes: [ADTRoleMobEvilBotGear]
   - type: TTS
     voice: sentrybot
-  
     
 
 - type: startingGear
@@ -981,16 +980,8 @@
 - type: entity
   name: ADTSanta-name
   id: ADTSanta
+  parent: MobHuman
   suffix: New Year
-  components:
-    - type: Sprite
-      sprite: Mobs/Species/Reptilian/parts.rsi
-      state: full
-    - type: RandomHumanoidSpawner
-      settings: ADTSantaSettings
-
-- type: randomHumanoidSettings
-  id: ADTSantaSettings
   components:
     - type: GhostTakeoverAvailable
     - type: Loadout
@@ -1004,7 +995,7 @@
     jumpsuit: ADTClothingUniformRollNeckSnowman
     gloves: ClothingHandsGlovesColorWhite
     back: ADTClothingBackpackSanta
-    ears: ClothingHeadset
+    ears: ClothingHeadsetGrey
     shoes: ClothingShoesBootsWinter
     id: ADTVisitorPDA
     outerClothing: ClothingOuterHardsuitSanta
