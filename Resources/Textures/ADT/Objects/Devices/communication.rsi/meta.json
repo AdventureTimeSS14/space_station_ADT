@@ -49,6 +49,9 @@
       "name": "old-radio-inhand-left"
     },
     {
+      "name": "old-radio-off"
+    },
+    {
       "name": "old-radio",
       "delays": [
         [
