@@ -17,9 +17,9 @@
   - type: Speech
     speechVerb: ADTRadioBroadcasting
   - type: Sprite
-    sprite: ADT/Objects/Devices/communication.rsi 
+    sprite: ADT/Objects/Devices/communication.rsi
     layers:
-#   - state: old-radio-off
+    - state: old-radio-off
     - state: old-radio
     state: old-radio
   - type: Item
