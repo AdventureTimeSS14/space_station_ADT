@@ -8,6 +8,9 @@ ent-ADTClothingNeckScarfWindy = ветренный шарф
 ent-ADTClothingNecChefShawl = шейный платок повара
     .desc = Раньше ими вытирали пот, теперь это для имиджа.
 
+ent-ADTClothingNeckScarfLongWhite = длинный белый шарф
+    .desc = Длинный клетчатый шарф. Очень тёплый и приятный на ощупь.
+
 ent-ADTClothingNeckScarfLongPurple = длинный пурпурный шарф
     .desc = Длинный клетчатый шарф. Очень тёплый и приятный на ощупь.
 
