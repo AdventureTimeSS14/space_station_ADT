@@ -1,0 +1,16 @@
+- type: constructionGraph
+  id: DrinkBurst
+  start: start
+  graph:
+
+  - node: start
+    edges:
+    - to: burst
+      completed:
+      - !type:DamageEntity
+        damage:
+          Blunt: 6 #стеклу не важно, какой урон, главное чтобы был 5.
+      steps:
+      - minTemperature: 353
+
+  - node: burst

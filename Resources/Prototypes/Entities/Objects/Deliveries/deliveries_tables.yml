@@ -16,7 +16,7 @@
   id: RandomDeliveryLetterBasic
   table: !type:GroupSelector
     children:
-    - id: LetterDelivery
+    - id: PresentRandom
 
 # Packages
 
@@ -24,7 +24,7 @@
   id: RandomDeliveryPackageBasic
   table: !type:GroupSelector
     children:
-    - id: PackageDelivery
+    - id: PresentRandom
 
 ### Reward Tables
 
