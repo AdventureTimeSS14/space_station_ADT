@@ -138,7 +138,7 @@
       shader: unshaded
   # ADT-Tweak start
   # - type: RunAndGunSpreadModifier
-  #   modifyer: 0.3
+  #   modifier: 0.3
   - type: MeleeWeapon
     resetOnHandSelected: false
     attackRate: 1
@@ -179,7 +179,7 @@
         pitch: 2 #ADT Tweak Ends
   # ADT-Tweak start
   # - type: RunAndGunSpreadModifier
-  #   modifyer: 0.4
+  #   modifier: 0.4
   - type: MeleeWeapon
     resetOnHandSelected: false
     attackRate: 1
@@ -261,7 +261,7 @@
     sprite: Objects/Weapons/Guns/Battery/laser_gun.rsi
   # ADT-Tweak start
   # - type: RunAndGunSpreadModifier
-  #   modifyer: 0.3
+  #   modifier: 0.3
   - type: MeleeWeapon
     resetOnHandSelected: false
     attackRate: 1
@@ -296,7 +296,7 @@
     proto: RedMediumLaser #ADT_Tweak
     fireCost: 28.5 #ADT_Tweak 62.5 -> 28.5
   # - type: RunAndGunSpreadModifier
-  #   modifyer: 0.3
+  #   modifier: 0.3
   - type: MeleeWeapon #ADT_Tweak
     resetOnHandSelected: false
     attackRate: 1
@@ -349,7 +349,7 @@
     sprite: Objects/Weapons/Guns/Battery/pulse_pistol.rsi
   # ADT-Tweak start
   # - type: RunAndGunSpreadModifier
-  #   modifyer: 0.1
+  #   modifier: 0.1
   - type: MeleeWeapon
     resetOnHandSelected: false
     attackRate: 1
@@ -395,7 +395,7 @@
   - type: Appearance
   # ADT-Tweak start
   # - type: RunAndGunSpreadModifier
-  #   modifyer: 0.4
+  #   modifier: 0.4
   - type: MeleeWeapon
     resetOnHandSelected: false
     attackRate: 1
@@ -463,7 +463,7 @@
   - type: Appearance
   # ADT-Tweak start
   # - type: RunAndGunSpreadModifier
-  #   modifyer: 0.4
+  #   modifier: 0.4
   - type: MeleeWeapon
     resetOnHandSelected: false
     attackRate: 1
@@ -526,8 +526,9 @@
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
   # ADT-Tweak start
-  # - type: RunAndGunSpreadModifier
-  #   modifyer: 0.4
+  - type: RunAndGunSpreadModifier
+    modifier: 0.04
+    minVelocity: 20 # чуть меньше скорости бега
   - type: MeleeWeapon
     resetOnHandSelected: false
     attackRate: 1
@@ -583,7 +584,7 @@
       size: Ginormous
     - type: MultiHandedItem
     # - type: RunAndGunSpreadModifier
-    #   modifyer: 0.3
+    #   modifier: 0.3
     - type: ClothingSpeedModifier
       walkModifier: 0.6
       sprintModifier: 0.6
@@ -620,9 +621,10 @@
     - state: mag-unshaded-0
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
-  # ADT-Tweak start
-  # - type: RunAndGunSpreadModifier
-  #   modifyer: 0.3
+  #ADT-Tweak start
+  - type: RunAndGunSpreadModifier
+    modifier: 0.03
+    minVelocity: 15 # значительно меньше скорости бега
   - type: MeleeWeapon
     resetOnHandSelected: false
     attackRate: 1
@@ -680,7 +682,7 @@
       shader: unshaded
   # ADT-Tweak start
   # - type: RunAndGunSpreadModifier
-  #   modifyer: 0.2
+  #   modifier: 0.2
   - type: MeleeWeapon
     resetOnHandSelected: false
     attackRate: 1
@@ -733,8 +735,8 @@
         map: ["enum.GunVisualLayers.MagUnshaded"]
         shader: unshaded
   # ADT-Tweak start
-  # - type: RunAndGunSpreadModifier
-  #   modifyer: 0.2
+  - type: RunAndGunSpreadModifier
+    modifier: 0.05
   - type: MeleeWeapon
     resetOnHandSelected: false
     attackRate: 1
@@ -788,8 +790,8 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
   # ADT-Tweak start
-  # - type: RunAndGunSpreadModifier
-  #   modifyer: 0.4
+  - type: RunAndGunSpreadModifier
+    modifier: 0.04
   - type: MeleeWeapon
     resetOnHandSelected: false
     attackRate: 1
@@ -830,7 +832,7 @@
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
   # - type: RunAndGunSpreadModifier
-  #   modifyer: 0.2
+  #   modifier: 0.2
   - type: Item
     heldPrefix: taser4
   - type: Clothing
@@ -883,8 +885,8 @@
   - type: Clothing
     sprite: Objects/Weapons/Guns/Battery/antiquelasergun.rsi
   # ADT-Tweak start
-  # - type: RunAndGunSpreadModifier
-  #   modifyer: 0.2
+  - type: RunAndGunSpreadModifier
+    modifier: 0.05
   - type: MeleeWeapon
     resetOnHandSelected: false
     attackRate: 1
@@ -947,8 +949,8 @@
   - type: Clothing
     sprite: Objects/Weapons/Guns/Battery/advancedlasergun.rsi
   # ADT-Tweak start
-  # - type: RunAndGunSpreadModifier
-  #   modifyer: 0.3
+  - type: RunAndGunSpreadModifier
+    modifier: 0.04
   - type: MeleeWeapon
     resetOnHandSelected: false
     attackRate: 1
@@ -1053,7 +1055,7 @@
     - state: base
       map: ["enum.GunVisualLayers.Base"]
   # - type: RunAndGunSpreadModifier
-  #   modifyer: 0.2
+  #   modifier: 0.2
   - type: Gun
     fireRate: 1
     soundGunshot:
@@ -1088,7 +1090,7 @@
   - type: Appearance
   # ADT-Tweak start
   # - type: RunAndGunSpreadModifier
-  #   modifyer: 0.4
+  #   modifier: 0.4
   - type: MeleeWeapon
     resetOnHandSelected: false
     attackRate: 1
@@ -1165,8 +1167,9 @@
     steps: 5
     zeroVisible: false
   # ADT-Tweak start
-  # - type: RunAndGunSpreadModifier
-  #   modifyer: 0.3
+  - type: RunAndGunSpreadModifier
+    modifier: 0.03
+    minVelocity: 20 # чуть меньше скорости бега
   - type: MeleeWeapon
     resetOnHandSelected: false
     attackRate: 1

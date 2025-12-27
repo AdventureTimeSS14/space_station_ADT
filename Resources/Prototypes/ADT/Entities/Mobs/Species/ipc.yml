@@ -13,6 +13,11 @@
         locked: true
         name: power-cell-slot-component-slot-name-default
         startingItem: PowerCellMedium
+      # ADT-tweak-start
+        blacklist:
+          tags:
+          - ADTMegaCell
+      # ADT-tweak-end
   - type: Lock
     locked: true
     lockOnClick: false
@@ -171,12 +176,15 @@
     action: ActionIpcScreen
     selectSlotTime: 0
     changeSlotTime: 0
+    changeVoiceTime: 0
     changeMarkingSound:
       path: /Audio/Machines/beep.ogg
+    playSoundForVoiceChange: false
     customizableCategories:
     - FacialHair
     defaultSkinColoring: false
   - type: AnimatedEmotes
+  - type: Posing
 
 - type: entity
   save: false
