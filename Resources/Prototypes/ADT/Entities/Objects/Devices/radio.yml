@@ -19,12 +19,9 @@
   - type: Sprite
     sprite: ADT/Objects/Devices/communication.rsi
     layers:
-    - state: old-radio-off
-      map: ["enum.ToggleVisuals.Layer"]
+#   - state: old-radio-off
     - state: old-radio
-      map: ["enum.ToggleVisuals.Layer"]
-      visible: false
-  - type: Appearance
+    state: old-radio
   - type: Item
     sprite: ADT/Objects/Devices/communication.rsi
     heldPrefix: old-radio
