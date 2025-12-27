@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "license": "CC-BY-SA-3.0",
   "copyright": "Made by Tamioki", 
   "size": {
@@ -16,7 +16,10 @@
       "directions": 4
     },
     {
-      "name": "icon"
+      "name": "icon-of"
+    },
+    {
+      "name": "icon-prot"
     }
   ]
 }
