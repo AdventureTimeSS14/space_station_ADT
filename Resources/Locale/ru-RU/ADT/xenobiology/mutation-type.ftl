@@ -1,0 +1,23 @@
+
+slime-mutation-type-greymutation = Серый
+slime-mutation-type-orangemutation = Оранжевый
+slime-mutation-type-purplemutation = Фиолетовый
+slime-mutation-type-bluemutation = Голубой
+slime-mutation-type-metalmutation = Металлический
+slime-mutation-type-yellowmutation = Жёлтый
+slime-mutation-type-darkpurplemutation = Сливовый
+slime-mutation-type-darkbluemutation = Синий
+slime-mutation-type-silvermutation = Серебряный
+slime-mutation-type-bluespacemutation = Блюспейс
+slime-mutation-type-sepiamutation = Сепия
+slime-mutation-type-ceruleanmutation = Лазурный
+slime-mutation-type-pyritemutation = Пиритовый
+slime-mutation-type-redmutation = Красный
+slime-mutation-type-greenmutation = Зелёный
+slime-mutation-type-pinkmutation = Розовый
+slime-mutation-type-goldmutation = Золотой
+slime-mutation-type-oilmutation = Масляный
+slime-mutation-type-lightpinkmutation = Пудровый
+slime-mutation-type-blackmutation = Чёрный
+slime-mutation-type-adamantinemutation = Адамантиевый
+slime-mutation-type-rainbowmutation = Радужный
