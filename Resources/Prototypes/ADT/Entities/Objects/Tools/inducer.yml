@@ -1,0 +1,97 @@
+- type: entity
+  parent: BaseItem
+  id: ADTEngiInducer
+  name: inducer
+  description: A device for wirelessly transferring energy from a battery to other devices.
+  suffix: Empty, Engineering
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Tools/inducer-engi.rsi
+    state: icon
+  - type: Item
+    size: Small
+  - type: Inducer
+    availableTransferRates:
+    - 500
+    - 2500
+    - 5000
+    - 7500
+    transferRate: 500
+    transferDelay: 1
+    maxDistance: 3
+  - type: PowerCellSlot
+    cellSlotId: inducer_power_cell_slot
+  - type: ItemSlots
+    slots:
+      inducer_power_cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        whitelist:
+          tags:
+          - ADTMegaCell
+  - type: ItemMapper
+    mapLayers:
+      inducer-bat:
+        whitelist:
+          tags:
+          - ADTMegaCell
+    sprite: ADT/Objects/Tools/inducer-engi.rsi
+  - type: Appearance
+
+- type: entity
+  parent: ADTEngiInducer
+  id: ADTEngiInducerBattery
+  name: inducer
+  description: A device for wirelessly transferring energy from a battery to other devices.
+  suffix: Battery, Engineering
+  components:
+  - type: ItemSlots
+    slots:
+      inducer_power_cell_slot:
+        startingItem: ADTMegaCellMedium
+
+- type: entity
+  parent: ADTEngiInducer
+  id: ADTRNDInducer
+  name: inducer
+  description: A device for wirelessly transferring energy from a battery to other devices.
+  suffix: Empty, RND
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Tools/inducer-rnd.rsi
+    state: icon
+  - type: Inducer
+    availableTransferRates:
+    - 900
+    transferRate: 900
+    transferDelay: 0.09
+    maxDistance: 6
+  - type: ItemSlots
+    slots:
+      inducer_power_cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        whitelist:
+          tags:
+          - ADTMegaCell
+  - type: ItemMapper
+    mapLayers:
+      inducer-bat:
+        whitelist:
+          tags:
+          - ADTMegaCell
+    sprite: ADT/Objects/Tools/inducer-rnd.rsi
+
+- type: entity
+  parent: ADTRNDInducer
+  id: ADTRNDInducerBattery
+  name: inducer
+  description: A device for wirelessly transferring energy from a battery to other devices.
+  suffix: Battery, RND
+  components:
+  - type: ItemSlots
+    slots:
+      inducer_power_cell_slot:
+        startingItem: ADTMegaCellMedium
