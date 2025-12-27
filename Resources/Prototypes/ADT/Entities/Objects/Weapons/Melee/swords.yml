@@ -16,7 +16,7 @@
       map: [ "enum.ComboWeaponState.State" ]
   - type: MeleeWeapon
     wideAnimationRotation: -135
-    attackRate: 2
+    attackRate: 1
     damage:
       types:
         Slash: 15
@@ -76,7 +76,7 @@
                   Slash: 15
             - !type:ComboStopGrabEffect
             - !type:ComboStunEffect
-              stunTime: 6
+              stunTime: 4
               dropItems: false
           - !type:ComboAudioEffect
             sound:
@@ -110,7 +110,7 @@
   description: A small box containing a hypopen. Packaging disintegrates when opened, leaving no evidence behind.
   components:
   - type: Sprite
-    sprite: ADT/Objects/Weapons/Melee/katana_cursed.rsi
+    sprite: ADT/Objects/Misc/cursed_katana_shard.rsi
     state: katana-shard
   - type: SpawnItemsOnUse
     items:
