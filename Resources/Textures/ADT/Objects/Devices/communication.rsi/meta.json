@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Icon state created by ryslan32, other states by FIREMIX for ADT!:3",
+  "copyright": "Icon state created by ryslan32, other states by FIREMIX for ADT!:3. Old radio taken from Shiptest.",
   "size": {
     "x": 32,
     "y": 32
@@ -26,6 +26,40 @@
     {
       "name": "icon-inhand-left",
       "directions": 4
+    },
+    {
+      "name": "old-radio-ancestor"
+    },
+    {
+      "name": "old-radio-borg-assault"
+    },
+    {
+      "name": "old-radio-nukeop"
+    },
+    {
+      "name": "old-radio-syndicat"
+    },
+    {
+      "name": "old-radio-urist"
+    },
+    {
+      "name": "old-radio-inhand-right" 
+    },
+    {
+      "name": "old-radio-inhand-left"
+    },
+    {
+      "name": "old-radio",
+      "delays": [
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ]
+      ]
     }
   ]
 }
