@@ -6,9 +6,8 @@
   requirements:
   - !type:DepartmentTimeRequirement
     department: Security
-    time: 72000 #20 hrs
-  # ADT Restrict Start
-  - !type:SpeciesRequirement
+    time: 20h
+  - !type:TraitsRequirement
     inverted: true
     species:
     - Resomi

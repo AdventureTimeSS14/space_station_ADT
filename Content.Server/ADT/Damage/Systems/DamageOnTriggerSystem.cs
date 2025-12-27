@@ -3,7 +3,9 @@
 using Content.Server.Damage.Components;
 using Content.Server.Explosion.EntitySystems;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.StepTrigger.Systems;
+using Content.Shared.Trigger;
 
 namespace Content.Server.Damage.Systems
 {

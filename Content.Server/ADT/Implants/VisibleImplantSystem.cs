@@ -29,6 +29,7 @@ using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Weapons.Reflect;
 using Content.Shared.ADT.CantShoot;
+using Content.Shared.Emp;
 
 namespace Content.Server.ADT.Implants;
 

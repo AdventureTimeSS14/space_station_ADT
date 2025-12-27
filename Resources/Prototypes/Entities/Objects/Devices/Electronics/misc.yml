@@ -12,5 +12,3 @@
       - FreezerElectronics
       - VoxFood # ADT Tweak
   - type: DoorElectronics
-  - type: StaticPrice
-    price: 55
