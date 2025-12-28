@@ -105,6 +105,14 @@
         whitelist:
           tags:
             - CartridgeLightRifle
+# ADT-tweak start
+  - type: Clothing
+    sprite: ADT/Objects/Weapons/Guns/Rifles/ak.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+# ADT-tweak end
   - type: ContainerContainer
     containers:
       gun_magazine: !type:ContainerSlot
