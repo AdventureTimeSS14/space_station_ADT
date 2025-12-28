@@ -47320,11 +47320,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 46.5,-36.5
       parent: 1
-    - type: DeviceNetwork
-      configurators:
-      - invalid
-      deviceLists:
-      - 8226
 - proto: GeneratorBasic
   entities:
   - uid: 1611
