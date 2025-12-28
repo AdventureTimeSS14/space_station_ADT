@@ -1,7 +1,7 @@
 {
-    "version": 1,
+    "version": 2,
     "license": "CC-BY-SA-3.0",
-    "copyright": "made by nope_ingeneer",
+    "copyright": "made by nope_ingeneer, backpack and SUITSTORAGE sling sprite edited by Boaz1111",
     "size": {
         "x": 32,
         "y": 32
@@ -23,6 +23,10 @@
         },
         {
             "name": "equipped-BACKPACK",
+            "directions": 4
+        },
+        {
+            "name": "equipped-SUITSTORAGE",
             "directions": 4
         },
         {

@@ -151,3 +151,74 @@
     Gold: 300
     Plastic: 100
     Copper: 200
+
+- type: latheRecipe
+  id: Radio
+  result: RadioHandheld
+  completetime: 0.5
+  materials:
+    Plastic: 500
+    Copper: 200
+
+- type: latheRecipe
+  id: Pen
+  result: Pen
+  completetime: 0.5
+  materials:
+    Plastic: 50
+
+- type: latheRecipe
+  id: ClothingBeltJanitor
+  result: ClothingBeltJanitor
+  completetime: 1
+  materials:
+    Plastic: 500
+    Cloth: 200
+
+- type: latheRecipe
+  id: ADTBureaucraticBelt
+  result: ADTBureaucraticBelt
+  completetime: 1
+  materials:
+    Cloth: 500
+
+- type: latheRecipe
+  id: ClothingShoesSkates
+  result: ClothingShoesSkates
+  completetime: 1
+  materials:
+    Steel: 200
+    Plastic: 1000
+
+- type: latheRecipe
+  id: ADTOldRadio
+  result: ADTOldRadio
+  completetime: 1
+  materials:
+    Steel: 150
+    Plastic: 50
+    Copper: 30
+
+- type: latheRecipe
+  id: SheetPaper
+  result: SheetPaper1
+  completetime: 0.5
+  materials:
+    Wood: 50
+
+- type: latheRecipe
+  id: Paper
+  result: Paper
+  completetime: 0.5
+  materials:
+    Wood: 10
+
+- type: latheRecipe
+  id: ADTEftpos
+  result: ADTEftpos
+  completetime: 1
+  materials:
+    Steel: 300
+    Plastic: 400
+    Copper: 100
+

@@ -59,8 +59,14 @@
     ClothingShoesBootsCowboyBrown: 1
     ClothingShoesBootsCowboyBlack: 1
     ClothingShoesBootsCowboyWhite: 1
-    ADTBoxTeto: 1 # ADT tweak
-    BoxPerformer: 1 # ADT tweak
+    # ADT-Tweak-start
+    ADTBoxTeto: 1
+    BoxPerformer: 1
+    ADTClothingBeltSheathZeroCosplayFilled: 2
+    ADTClothingUniformKimanoZero: 2
+    ADTClothingShoesZero: 2
+    ADTClothingHeadZeroHairstyle: 4
+    # ADT-Tweak-end
   contrabandInventory:
     ClothingHeadHatRichard: 1
     ToyFigurineBoxer: 1
@@ -73,3 +79,7 @@
     ClothingMaskBlushingClown: 1
     ClothingMaskBlushingMime: 1
     ClothingHeadHatCowboyBountyHunter: 1
+    # ADT-Tweak-start
+    ADTClothingBeltSheathZeroFilled: 1
+    ADTClothingUniformKimanoArmoredZero: 1
+    # ADT-Tweak-end

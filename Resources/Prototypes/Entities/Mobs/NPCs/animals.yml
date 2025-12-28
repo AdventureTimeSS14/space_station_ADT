@@ -523,6 +523,10 @@
     speechVerb: Moth
     speechSounds: Squeak
     allowedEmotes: ['Chitter', 'Squeak']
+    # ADT-Tweak Moth Roll start
+  - type: DashAction
+    actionProto: ADTActionDashMoth
+    # ADT-Tweak Moth Roll end
   - type: FaxableObject
     insertingState: inserting_mothroach
   - type: MothAccent
@@ -660,7 +664,11 @@
           32:
             sprite: Mobs/Animals/mothroach/displacement.rsi
             state: neck
-
+# ADT-Tweak-Start-Port-Goob-EatToGrowSystem
+  - type: EatToGrow
+    growth: 0.05
+    maxGrowth: 2
+    #ADT-Tweak-End-Port-Goob-EatToGrowSystem
 
 # Note that the mallard duck is actually a male drake mallard, with the brown duck being the female variant of the same species, however ss14 lacks sex specific textures
 # The white duck is more akin to a pekin or call duck.
@@ -3251,6 +3259,11 @@
         Slash: 6
         Piercing: 6
         Structural: 15
+  # ADT Tweak start
+  - type: LanguageSpeaker
+    languages:
+      GalacticCommon: Speak
+  # ADT Tweak end
 
 - type: entity
   name: space cat

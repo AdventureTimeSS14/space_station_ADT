@@ -84,6 +84,28 @@
   # ADT underwear tweak end
 
 - type: roleLoadout
+  id: JobADTCentcomConsultant
+  groups:
+  - Inventory # Corvax-Loadouts
+  - GroupTankHarness
+  - ADTCentcomConsultantHead
+  - ADTCentcomConsultantEars
+  - ADTCentcomConsultantJumpsuit
+  - ADTCentcomConsultantHands
+  - ADTCentcomConsultantNeck
+  - ADTCentcomConsultantBack
+  - ADTCentcomConsultantOuterClothing
+  - ADTCentcomConsultantShoes
+  - SurvivalSecurity
+  - Trinkets
+  - GroupSpeciesBreathToolSecurity
+  # ADT underwear tweak start
+  - ADTCentcomConsultantSocks
+  - ADTTop
+  - ADTBottom
+  # ADT underwear tweak end
+
+- type: roleLoadout
   id: JobADTSeniorPhysician
   groups:
   - Inventory # Corvax-Loadouts
@@ -197,7 +219,7 @@
   # ADT underwear tweak end
 
 - type: roleLoadout
-  id: JobADTGuardOfficer
+  id: JobADTCorrectionsOfficer
   groups:
   - Inventory # Corvax-Loadouts
   - GroupTankHarness

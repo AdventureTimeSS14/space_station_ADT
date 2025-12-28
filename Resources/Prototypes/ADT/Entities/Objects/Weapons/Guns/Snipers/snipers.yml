@@ -15,13 +15,15 @@
     sprite: ADT/Objects/Weapons/Guns/Snipers/new_hristov.rsi
     slots:
     - Back
+    - suitStorage
     quickEquip: false
   - type: Wieldable
   - type: GunWieldBonus
     minAngle: -23
     maxAngle: -44
   - type: RunAndGunSpreadModifier
-    modifyer: 1
+    modifier: 1
+    minVelocity: 3
   - type: MeleeWeapon
     resetOnHandSelected: false
     attackRate: 0.65

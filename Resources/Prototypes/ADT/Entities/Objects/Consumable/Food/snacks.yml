@@ -500,3 +500,32 @@
   components:
   - type: Sprite
     state: two-trash
+
+- type: entity
+  name: chocolate bar chunk
+  parent: FoodSnackBase
+  id: ADTFoodSnackChocolateBarChunk
+  description: Tastes like cardboard.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - chocolate
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Chocolate/bars.rsi
+    state: bar-chunk
+  - type: Item
+  - type: Tag
+    tags:
+      - FoodSnack
+      - ReptilianFood
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 4
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 2.5
+        - ReagentId: Theobromine
+          Quantity: 0.75
+        - ReagentId: CocoaPowder
+          Quantity: 0.25

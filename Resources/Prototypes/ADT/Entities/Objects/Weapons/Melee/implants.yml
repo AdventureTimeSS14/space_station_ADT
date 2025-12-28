@@ -47,17 +47,6 @@
             sound:
               collection: ADTMantisDaggerCutSound
       - actionsNeeds:
-          - OffensiveWideHit
-          - OffensiveHit
-        comboEvent:
-          - !type:ComboStaminaDamageEffect
-            staminaDamage: 20
-          - !type:ComboSlowdownEffect
-            time: 3
-          - !type:ComboAudioEffect
-            sound:
-              collection: GenericHit
-      - actionsNeeds:
           - OffensiveHit
           - OffensiveHit
         comboEvent:

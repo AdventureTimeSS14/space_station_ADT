@@ -46,7 +46,7 @@
     - state: crystal
       map: [ "base" ]
   - type: StackPrice
-    price: 500
+    price: 200
   - type: Appearance
   - type: Stack
     count: 10
@@ -90,7 +90,7 @@
     - state: crystal
       map: [ "base" ]
   - type: StackPrice
-    price: 500
+    price: 215
   - type: Appearance
   - type: Stack
     count: 10
