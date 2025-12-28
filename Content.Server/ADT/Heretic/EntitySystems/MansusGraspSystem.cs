@@ -7,6 +7,7 @@ using Content.Server.Temperature.Components;
 using Content.Server.Temperature.Systems;
 using Content.Shared.ADT.Heretic.Components;
 using Content.Shared.Actions;
+using Content.Shared.Bible.Components;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
 using Content.Shared.DoAfter;
@@ -257,10 +258,13 @@ public sealed partial class MansusGraspSystem : EntitySystem
 
         if (HasComp<StatusEffectsComponent>(target))
         {
-            _audio.PlayPvs(new SoundPathSpecifier("/Audio/Items/welder.ogg"), target);
-            _stun.TryKnockdown(target, TimeSpan.FromSeconds(3f), true);
-            _stamina.TakeStaminaDamage(target, 80f);
-            _language.DoRatvarian(target, TimeSpan.FromSeconds(10f), true);
+            if (!HasComp<ChaplainComponent>(target))
+            {
+                _audio.PlayPvs(new SoundPathSpecifier("/Audio/Items/welder.ogg"), target);
+                _stun.TryKnockdown(target, TimeSpan.FromSeconds(3f), true);
+                _stamina.TakeStaminaDamage(target, 80f);
+                _language.DoRatvarian(target, TimeSpan.FromSeconds(10f), true);
+            }
         }
 
         if (TryComp<HandsComponent>(target, out var hands))
