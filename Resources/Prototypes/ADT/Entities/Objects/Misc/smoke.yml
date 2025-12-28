@@ -1,0 +1,32 @@
+- type: entity
+  name: dark haze
+  id: ADTAdminShadow
+  placement:
+    mode: SnapgridCenter
+    snap:
+      - Wall
+  components:
+    - type: Physics
+      canCollide: false
+    - type: Occluder
+    - type: Sprite
+      drawdepth: Effects
+      sprite: Effects/spookysmoke.rsi
+      layers:
+      - state: spookysmoke
+        color: "#000000dd"
+        map: [base]
+    - type: Tag
+      tags:
+        - HideContextMenu
+        - SpookyFog
+    - type: OptionsVisualizer
+      visuals:
+        base:
+        - options: Default
+          data: { state: spookysmoke }
+        - options: ReducedMotion
+          data: { state: spookysmoke_static }
+    - type: Appearance
+    - type: Transform
+      anchored: true

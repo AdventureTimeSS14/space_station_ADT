@@ -14,6 +14,7 @@
   femaleLastNames: NamesDionaLast # Corvax-LastnameGender
   naming: TheFirstofLast
   # ADT start
+  shortDesc: species-short-desc-diona
   description: "/ServerInfo/ADT/SpeciesDescriptions/Diona.xml"
   pros:
   - Не получают негативных эффектов от кудзу.

@@ -54,6 +54,7 @@
         { "name": "vampire", "directions": 4 },
         { "name": "blush", "directions": 4 },
         { "name": "blush_full", "directions": 4 },
-        { "name": "cheeks", "directions": 4 }
+        { "name": "cheeks", "directions": 4 },
+        { "name": "eyesglow", "directions": 4 }
     ]
 }

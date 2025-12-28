@@ -103,6 +103,8 @@
   name: coldplate machine board
   description: A machine printed circuit board for a coldplate.
   components:
+    - type: Sprite
+      state: medical
     - type: MachineBoard
       prototype: ADTChemistryColdplate
       stackRequirements:

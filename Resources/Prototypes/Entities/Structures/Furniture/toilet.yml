@@ -7,6 +7,7 @@
   components:
   - type: Sprite
     sprite: Structures/Furniture/toilet.rsi
+    drawdepth: HighFloorObjects # ADT-Tweak
     layers:
     - state: condisposal
       map: [ "enum.DisposalUnitVisualLayers.Unanchored" ]
@@ -35,6 +36,7 @@
     whitelist:
       components:
       - HumanoidAppearance
+    forceBuckle: false
   - type: DisposalUnit
     blacklist:
       components:
@@ -114,6 +116,7 @@
     damage:
       types:
         Poison: 0 # ADT CHANGE sleep END
+  - type: Climbable # ADT-Tweak
 
 - type: entity
   name: toilet

@@ -90,25 +90,25 @@
     Sneeze:
       collection: MaleSneezes
     Cough:
-      collection: MaleCoughs
+      path: /Audio/ADT/Voice/Moth/moth_cough.ogg
     MonkeyScreeches:
       collection: MonkeyScreeches
     Yawn:
-      collection: MaleYawn
+      path: /Audio/ADT/Voice/Moth/moth_yawn.ogg
     Snore:
       collection: Snores
     Honk:
       collection: BikeHorn
     Sigh:
-      collection: MaleSigh
+      path: /Audio/ADT/Voice/Moth/moth_sigh.ogg
     Crying:
-      collection: MaleCry
+      path: /Audio/ADT/Voice/Moth/moth_cry.ogg
     Whistle:
       collection: Whistles
     Spit:
       collection: HumanSpits
     Gasp:
-      collection: MaleGasp
+      path: /Audio/ADT/Voice/Moth/moth_gasp.ogg
     DefaultDeathgasp:
       collection: MothDeathGasp
 
@@ -132,25 +132,25 @@
     Sneeze:
       collection: FemaleSneezes
     Cough:
-      collection: FemaleCoughs
+      path: /Audio/ADT/Voice/Moth/moth_cough.ogg
     MonkeyScreeches:
       collection: MonkeyScreeches
     Yawn:
-      collection: FemaleYawn
+      path: /Audio/ADT/Voice/Moth/moth_yawn.ogg
     Snore:
       collection: Snores
     Honk:
       collection: BikeHorn
     Sigh:
-      collection: FemaleSigh
+      path: /Audio/ADT/Voice/Moth/moth_sigh.ogg
     Crying:
-      collection: FemaleCry
+      path: /Audio/ADT/Voice/Moth/moth_cry.ogg
     Whistle:
       collection: Whistles
     Spit:
       collection: HumanSpits
     Gasp:
-      collection: FemaleGasp
+      path: /Audio/ADT/Voice/Moth/moth_gasp.ogg
     DefaultDeathgasp:
       collection: MothDeathGasp
 
@@ -705,6 +705,12 @@
       collection: ResomiCoughs
     Sneeze:
       collection: ResomiSneeze
+    Hiss:
+      collection: ResomiHiss
+    Chirps:
+      collection: ResomiChirps
+    Coos:
+      collection: ResomiCoos
     Honk:
       collection: BikeHorn
     Whistle:
@@ -731,6 +737,12 @@
       collection: ResomiCoughs
     Sneeze:
       collection: ResomiSneeze
+    Hiss:
+      collection: ResomiHiss
+    Chirps:
+      collection: ResomiChirps
+    Coos:
+      collection: ResomiCoos
     Honk:
       collection: BikeHorn
     Whistle:

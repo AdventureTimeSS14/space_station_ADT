@@ -9,6 +9,7 @@
   markingLimits: MobIPCMarkingLimits
   dollPrototype: MobIPCDummy
   skinColoration: Hues
+  shortDesc: species-short-desc-ipc
   sponsorOnly: false
   minAge: 1
   maxAge: 55
@@ -44,6 +45,10 @@
   - GalacticCommon
   - RobotTalk
   - BorgTalk
+  uniqueLanguages:
+  - RobotTalk
+  - Bubblish
+  - RootSpeak
   maxLanguages: 6
 
 # The lack of a layer means that
@@ -60,7 +65,7 @@
     HeadTop: MobHumanoidAnyMarking
     HeadSide: MobHumanoidAnyMarking
     Tail: MobHumanoidAnyMarking
-    Hair: MobHumanoidMarkingMatchSkin
+    Hair: MobHumanoidAnyMarking
     FacialHair: MobIPCScreen
     Chest: MobIPCTorso
     LArm: MobIPCLArm
@@ -77,13 +82,16 @@
   onlyWhitelisted: true
   points:
     Chest:
-      points: 0
+      points: 1
       required: false
     Legs:
-      points: 0
+      points: 4
       required: false
     Arms:
-      points: 0
+      points: 4
+      required: false
+    Tail:
+      points: 1
       required: false
 
 - type: humanoidBaseSprite

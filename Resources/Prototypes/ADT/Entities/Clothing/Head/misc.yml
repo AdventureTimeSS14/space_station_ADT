@@ -11,3 +11,45 @@
   - type: HideLayerClothing
     slots:
     - Hair
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadZeroHairstyle
+  name: Zero's hairstyle
+  description: The hairstyle of Zero
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Misc/zero_hairstyle.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Misc/zero_hairstyle.rsi
+  - type: HideLayerClothing
+    slots:
+    - Hair
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadRobotnikHead
+  name: robotnik head
+  description: PRRROMOTION
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Misc/eggman.rsi
+    layers:
+    - state: icon
+    - state: icon-unshade
+      shader: unshaded
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Misc/eggman.rsi
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+      - state: equipped-HELMET-unshade
+        shader: unshaded
+  - type: HideLayerClothing
+    slots:
+    - Hair
+  - type: AmbientSound
+    volume: -10
+    range: 10 #радиус голоса
+    sound:
+      path: /Audio/ADT/Ambience/Music/robotnik.ogg

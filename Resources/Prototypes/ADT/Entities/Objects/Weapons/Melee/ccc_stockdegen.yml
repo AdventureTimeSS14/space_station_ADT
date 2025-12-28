@@ -1,0 +1,108 @@
+- type: entity
+  name: Centcom stockdegen
+  parent: BaseItem
+  id: ADTCCCStockdegen
+  description: 
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Melee/ccc_stockdegen.rsi
+    layers:
+    - state: icon_off
+      map: [ "base" ]
+  - type: SwitchableWeapon
+    damageOpen:
+      types:
+        Slash: 17
+    damageFolded:
+      types:
+        Blunt: 8
+    staminaDamageFolded: 25
+    staminaDamageOpen: 0
+    attackRateOpen: 1.5
+    attackRateFolded: 0.9
+    sizeOpened: Huge
+    sizeClosed: Large
+  - type: ToggleAnimation
+  - type: ItemToggleMeleeWeapon
+    activatedSoundOnHit:
+      path: /Audio/Weapons/bladeslice2.ogg
+      params:
+        variation: 0.250
+        volume: 5
+    activatedSoundOnHitNoDamage:
+      path: /Audio/Weapons/punchmiss.ogg
+      params:
+        variation: 0.250
+        volume: -10
+    activatedSoundOnSwing:
+      path: /Audio/Weapons/punchmiss.ogg
+      params:
+        variation: 0.125
+    deactivatedSoundOnHit:
+      path: /Audio/Weapons/pierce.ogg
+      params:
+        variation: 0.250
+    deactivatedSoundOnHitNoDamage:
+      path: /Audio/Weapons/punchmiss.ogg
+      params:
+        variation: 0.250
+        volume: -10
+    deactivatedSoundOnSwing:
+      path: /Audio/Weapons/punchmiss.ogg
+      params:
+        variation: 0.125
+  - type: MeleeWeapon
+    wideAnimationRotation: -300
+    wideAnimation: WeaponArcADTCCCStockdegenSlash
+    customWideAnim: true
+    damage:
+      types:
+        Blunt: 8
+    bluntStaminaDamageFactor: 2.5
+  - type: Item
+    sprite: ADT/Objects/Weapons/Melee/ccc_stockdegen.rsi
+    size: Large
+  - type: UseDelay
+    delay: 1.0
+  - type: DisarmMalus
+    malus: 0
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleAnimationVisuals.ToggleState:
+        base:
+          On: {state: icon_on}
+          Off: {state: icon_off}
+          TogglingOn: { state: icon-animation-opening }
+          TogglingOff: { state: icon-animation-closing }
+  - type: ComponentToggler
+    components:
+    - type: Sharp
+    - type: DisarmMalus
+      malus: 0.6
+    - type: Execution
+      doAfterDuration: 4.0
+  - type: ToggleableVisuals
+    spriteLayer: open
+    inhandVisuals:
+     left:
+     - state: on-inhand-left
+     right:
+     - state: on-inhand-right
+  - type: ItemToggle
+    predictable: false
+    soundActivate:
+      path: /Audio/Items/unsheath.ogg
+    soundDeactivate:
+      path: /Audio/Items/sheath2.ogg
+
+- type: entity
+  id: WeaponArcADTCCCStockdegenSlash
+  parent: WeaponArcStatic
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: WeaponArcVisuals
+      animation: Slash
+    - type: Sprite
+      sprite: ADT/Objects/Weapons/Melee/ccc_stockdegen.rsi
+      state: icon_blade

@@ -39,7 +39,7 @@ public sealed partial class RiposteeSystem : EntitySystem
                 rip.Timer = rip.Cooldown;
 
                 rip.CanRiposte = true;
-                _popup.PopupEntity(Loc.GetString("heretic-riposte-available"), uid, uid);
+                _popup.PopupCursor(Loc.GetString("heretic-riposte-available"), uid);
             }
         }
     }
@@ -56,6 +56,6 @@ public sealed partial class RiposteeSystem : EntitySystem
             _dmg.TryChangeDamage(args.Origin, args.Damage, true); // back to sender
 
         ent.Comp.CanRiposte = false;
-        _popup.PopupEntity(Loc.GetString("heretic-riposte-used"), ent);
+        _popup.PopupCursor(Loc.GetString("heretic-riposte-used"), ent);
     }
 }

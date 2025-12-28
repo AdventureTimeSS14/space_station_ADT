@@ -93,6 +93,8 @@ marking-HeadMane-mane_head = Грива
 marking-HeadEyesWide = Широкие глаза
 marking-HeadEyesWide-c_eyes_wide = Центральный
 marking-HeadEyesWide-s_eyes_wide = Боковой
+marking-ADTTajaranEyeGlow = Светящиеся глаза
+marking-ADTTajaranEyeGlow-eyesglow = Светящиеся глаза
 
 marking-HeadMascara = Тушь на глазах
 marking-HeadMascara-mascara = Цвет

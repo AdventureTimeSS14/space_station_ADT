@@ -502,15 +502,15 @@
     layers:
     - state: base
     - state: overlay
-      color: "#ad8c27"
+      color: "#D1B01B" # ADT-Tweak
     - state: closed
       map: ["enum.StorageVisualLayers.Door"]
     - state: overlay-closed
-      color: "#ad8c27"
+      color: "#D1B01B" # ADT-Tweak
       map: [ lid_overlay ]
     # ADT-Tweak-Start
     - state: overlay-open
-      color: "#ad8c27"
+      color: "#D1B01B"
       map: [ open_overlay ]
     # ADT-Tweak-End
     - state: welded
@@ -537,15 +537,15 @@
     layers:
     - state: base
     - state: overlay
-      color: "#92c7e8"
+      color: "#5294A1" # ADT-Tweak
     - state: closed
       map: ["enum.StorageVisualLayers.Door"]
     - state: overlay-closed
-      color: "#92c7e8"
+      color: "#5294A1" # ADT-Tweak
       map: [ lid_overlay ]
     # ADT-Tweak-Start
     - state: overlay-open
-      color: "#92c7e8"
+      color: "#5294A1"
       map: [ open_overlay ]
     # ADT-Tweak-End
     - state: welded
@@ -572,15 +572,15 @@
     layers:
     - state: base
     - state: overlay
-      color: "#ba4bf0"
+      color: "#9A62B0" # ADT-Tweak
     - state: closed
       map: ["enum.StorageVisualLayers.Door"]
     - state: overlay-closed
-      color: "#ba4bf0"
+      color: "#9A62B0" # ADT-Tweak
       map: [ lid_overlay ]
     # ADT-Tweak-Start
     - state: overlay-open
-      color: "#ba4bf0"
+      color: "#9A62B0"
       map: [ open_overlay ]
     # ADT-Tweak-End
     - state: welded
@@ -642,15 +642,15 @@
     layers:
     - state: base
     - state: overlay
-      color: "#53b723"
+      color: "#65AC50" # ADT-Tweak
     - state: closed
       map: ["enum.StorageVisualLayers.Door"]
     - state: overlay-closed
-      color: "#53b723"
+      color: "#65AC50" # ADT-Tweak
       map: [ lid_overlay ]
     # ADT-Tweak-Start
     - state: overlay-open
-      color: "#53b723"
+      color: "#65AC50"
       map: [ open_overlay ]
     # ADT-Tweak-End
     - state: welded

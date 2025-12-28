@@ -495,6 +495,9 @@
   id: ADTVoxEmotes
 
 - type: Tag
+  id: ADTResomiEmotes
+
+- type: Tag
   id: ADTSlimeEmotes
 
 - type: Tag
@@ -654,6 +657,21 @@
   id: ADTSheet
 
 - type: Tag
+  id: ClothingShoesSkates
+
+- type: Tag
+  id: ADTBureaucraticBelt
+
+- type: Tag
+  id: ClothingBeltJanitor
+
+- type: Tag
+  id: ADTEftpos
+
+- type: Tag
+  id: ADTSheetPaper
+
+- type: Tag
   id: ADTMicroManipulatorStockPart
 
 - type: Tag
@@ -669,4 +687,29 @@
   id: FoodCondimentPacketBbq
 
 - type: Tag
+  id: ADTZeroKatana
+
+- type: Tag
   id: VoxFood
+
+- type: Tag
+  id: ADTCopperOre
+
+- type: Tag
+  id: ADTZincOre
+
+- type: Tag
+  id: ADTLeadOre
+
+- type: Tag
+  id: ScrapAirlock1
+
+- type: Tag
+  id: ScrapAirlock2
+
+- type: Tag
+  id: ADTOreBS
+ 
+- type: Tag
+  id: ADTClosedRadio
+

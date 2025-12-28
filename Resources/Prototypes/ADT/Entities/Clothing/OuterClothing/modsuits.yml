@@ -399,9 +399,12 @@
     sprintModifier: 1
   - type: FireProtection
     reduction: 0.7
-  - type: ClothingGrantComponent
-    component:
-    - type: GrabProtection
+  # ADT-Tweak-Start
+  - type: ModifyGrabStageTime
+    modifiers:
+      Hard: 2.25
+      Choke: 2
+  # ADT-Tweak-End
 
 - type: entity
   parent: ADTClothingOuterModsuitBodySyndicate
@@ -439,6 +442,12 @@
     damageCoefficient: 0.1
   - type: FireProtection
     reduction: 1
+  # ADT-Tweak-Start
+  - type: ModifyGrabStageTime
+    modifiers:
+      Hard: 1.5
+      Choke: 2
+  # ADT-Tweak-End
 
 - type: entity
   parent: ADTClothingOuterModsuitBodySyndicate
@@ -476,9 +485,12 @@
     damageCoefficient: 0.1
   - type: FireProtection
     reduction: 0.9
-  - type: ClothingGrantComponent
-    component:
-    - type: GrabProtection
+  # ADT-Tweak-Start
+  - type: ModifyGrabStageTime
+    modifiers:
+      Hard: 2.25
+      Choke: 2
+  # ADT-Tweak-End
 
 - type: entity
   parent: ADTClothingOuterModsuitBodyBase
@@ -566,6 +578,53 @@
     damageCoefficient: 0.6
   - type: FireProtection
     reduction: 0.6
+
+- type: entity
+  parent: ADTClothingOuterModsuitBodySyndicateCommander
+  id: ADTClothingOuterModsuitBodyCentcom
+  name: Corporate MOD chestplate
+  description: A chestplate for a MODsuit.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Modsuit/centcomm.rsi
+  - type: Clothing
+    equipDelay: 3
+    unequipDelay: 3
+    sprite: ADT/Clothing/OuterClothing/Modsuit/centcomm.rsi
+    slots: [ OUTERCLOTHING ]
+    equipSound: /Audio/Mecha/mechmove03.ogg
+    unequipSound: /Audio/Mecha/mechmove03.ogg
+
+- type: entity
+  parent: ADTClothingOuterModsuitBodyBase
+  id: ADTClothingOuterModsuitBodyCCC
+  name: Corporate MOD chestplate
+  description: A chestplate for a MODsuit.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Modsuit/centcomm.rsi
+  - type: Clothing
+    equipDelay: 3
+    unequipDelay: 3
+    sprite: ADT/Clothing/OuterClothing/Modsuit/centcomm.rsi
+    slots: [ OUTERCLOTHING ]
+    equipSound: /Audio/Mecha/mechmove03.ogg
+    unequipSound: /Audio/Mecha/mechmove03.ogg
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Heat: 0.8
+        Piercing: 0.7
+        Caustic: 0.75
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.9
+  - type: ExplosionResistance
+    damageCoefficient: 0.8
+  - type: FireProtection
+    reduction: 0.7
 
 - type: entity
   parent: ADTClothingOuterModsuitBodyBase

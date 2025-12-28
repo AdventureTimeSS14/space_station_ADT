@@ -78,9 +78,6 @@ public sealed partial class SupermatterComponent : Component
     public EntProtoId KudzuPrototype = "SupermatterKudzu";
 
     [DataField]
-    public EntProtoId SupermatterCascadePrototype = "CascadeSupermatter";
-
-    [DataField]
     public EntProtoId AnomalyBluespaceSpawnPrototype = "AnomalyBluespace";
 
     [DataField]
@@ -88,12 +85,12 @@ public sealed partial class SupermatterComponent : Component
 
     [DataField]
     public EntProtoId AnomalyPyroSpawnPrototype = "AnomalyPyroclastic";
-    
+
     [DataField]
     public EntProtoId HalfLifePortalPrototype = "ADTSupermatterHLRift";
 
     [DataField]
-    public EntProtoId CascadePortalPrototype = "ADTSupermatterCascadeRift";    
+    public EntProtoId CascadePortalPrototype = "ADTSupermatterCascadeRift";
 
     [DataField]
     public EntProtoId CollisionResultPrototype = "Ash";
@@ -193,12 +190,6 @@ public sealed partial class SupermatterComponent : Component
     /// </summary>
     [DataField]
     public float MoleHeatPenaltyThreshold;
-    
-    /// <summary>
-    /// Modifier to damage taken during supermatter reactions, soothing the supermatter when a psychologist is nearby
-    /// </summary>
-    [DataField]
-    public float PsyCoefficient;
 
     /// <summary>
     /// If > 0, Supermatter get damage. While >0 DelamType always been Cascade.
@@ -481,10 +472,10 @@ public sealed partial class SupermatterComponent : Component
 
 public enum DelamType : int
 {
-    Explosion = 0,
-    Singularity = 1,
-    Tesla = 2,
-    Cascade = 3
+    Cascade = 0,
+    Tesla = 1,
+    Singularity = 2,
+    Explosion = 3
 }
 
 [Serializable, NetSerializable]
@@ -612,8 +603,7 @@ public enum SupermatterCrystalState : byte
 [Serializable, NetSerializable]
 public enum SupermatterVisuals : byte
 {
-    Crystal,
-    Psy
+    Crystal
 }
 
 [Serializable, NetSerializable]

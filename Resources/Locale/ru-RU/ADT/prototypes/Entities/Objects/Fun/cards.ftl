@@ -32,6 +32,7 @@ ent-ADTCardDeckBase = { ent-ADTCardStackBase }
 ent-ADTCardDeckBlack = { ent-ADTCardStackBase }
 ent-ADTCardDeckNanotrasen = { ent-ADTCardStackBase }
 ent-ADTCardDeckSyndicate = { ent-ADTCardStackBase }
+ent-ADTCardDeckUno = колода карт Uno
 
 card-sc-2-clubs = двойка треф
 card-sc-3-clubs = тройка треф
@@ -91,6 +92,65 @@ card-sc-queen-spades = дама пик
 
 card-sc-joker = джокер
 
+card-sc-0-red = красная ноль
+card-sc-1-red = красная один
+card-sc-2-red = красная два
+card-sc-3-red = красная три
+card-sc-4-red = красная четыре
+card-sc-5-red = красная пять
+card-sc-6-red = красная шесть
+card-sc-7-red = красная семь
+card-sc-8-red = красная восемь
+card-sc-9-red = красная девять
+card-sc-skip-red = красная "пропустить ход"
+card-sc-reverse-red = красная "реверс"
+card-sc-draw-two-red = красная "+2"
+
+card-sc-0-blue = синяя ноль
+card-sc-1-blue = синяя один
+card-sc-2-blue = синяя два
+card-sc-3-blue = синяя три
+card-sc-4-blue = синяя четыре
+card-sc-5-blue = синяя пять
+card-sc-6-blue = синяя шесть
+card-sc-7-blue = синяя семь
+card-sc-8-blue = синяя восемь
+card-sc-9-blue = синяя девять
+card-sc-skip-blue = синяя "пропустить ход"
+card-sc-reverse-blue = синяя "реверс"
+card-sc-draw-two-blue = синяя "+2"
+
+card-sc-0-yellow = жёлтая ноль
+card-sc-1-yellow = жёлтая один
+card-sc-2-yellow = жёлтая два
+card-sc-3-yellow = жёлтая три
+card-sc-4-yellow = жёлтая четыре
+card-sc-5-yellow = жёлтая пять
+card-sc-6-yellow = жёлтая шесть
+card-sc-7-yellow = жёлтая семь
+card-sc-8-yellow = жёлтая восемь
+card-sc-9-yellow = жёлтая девять
+card-sc-skip-yellow = жёлтая "пропустить ход"
+card-sc-reverse-yellow = жёлтая "реверс"
+card-sc-draw-two-yellow = жёлтая "+2"
+
+card-sc-0-green = зелёная ноль
+card-sc-1-green = зелёная один
+card-sc-2-green = зелёная два
+card-sc-3-green = зелёная три
+card-sc-4-green = зелёная четыре
+card-sc-5-green = зелёная пять
+card-sc-6-green = зелёная шесть
+card-sc-7-green = зелёная семь
+card-sc-8-green = зелёная восемь
+card-sc-9-green = зелёная девять
+card-sc-skip-green = зелёная "пропустить ход"
+card-sc-reverse-green = зелёная "реверс"
+card-sc-draw-two-green = зелёная "+2"
+
+card-sc-wild = закажи цвет
+card-sc-wild-draw-four = закажи цвет "+4"
+
 container-sealed = На ней голографическая защитная пломба. При открытии пломба порвётся.
 container-unsealed = Прикреплённая к ней пломба порвана.
 
@@ -102,6 +162,9 @@ ent-ADTCardBoxNanotrasen = коробка корпоративных играл�
 
 ent-ADTCardBoxSyndicate = коробка подозрительных игральных карт
     .desc = Коробка с подозрительной колодой карт. Сыграем? Ставлю на кон жизнь того паренька.
+
+ent-ADTCardBoxUno = коробка игральных карт Uno
+    .desc = Коробка с картами для настольной игры Uno. Веселитесь!
 
 ent-ADTCardHandBase = карты
 

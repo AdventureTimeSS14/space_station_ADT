@@ -637,9 +637,33 @@ binds:
   type: State
   key: MouseRight
   canFocus: true
-- function: OfferItem # ADT-Tweak
+# ADT-Tweak-start
+- function: OfferItem
   type: State
   key: F
-- function: PickupHumans # ADT-Tweak
+- function: PickupHumans
   type: State
   key: Space
+- function: TogglePosing
+  type: State
+  key: R
+  mod1: Control
+- function: PosingOffsetLeft
+  type: State
+  key: A
+- function: PosingOffsetRight
+  type: State
+  key: D
+- function: PosingOffsetUp
+  type: State
+  key: W
+- function: PosingOffsetDown
+  type: State
+  key: S
+- function: PosingRotateNegative
+  type: State
+  key: Q
+- function: PosingRotatePositive
+  type: State
+  key: E
+# ADT-Tweak-end
