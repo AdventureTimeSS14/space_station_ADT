@@ -25,6 +25,7 @@
     RadioHandheldSecurity: 5
     Bola: 5 #ADT tweak
     ADTClothingNeckBodyCamera: 3 #ADT-tweak
+    ClothingHandsKnuckleDustersStun: 1 # SD-Tweak
   # security officers need to follow a diet regimen!
   contrabandInventory:
     WeaponMeleeNeedle: 2
