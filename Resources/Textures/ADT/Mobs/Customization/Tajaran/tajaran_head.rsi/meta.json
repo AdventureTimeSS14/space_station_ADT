@@ -37,6 +37,7 @@
         { "name": "ring_right", "directions": 4 },
         { "name": "scar_down", "directions": 4 },
         { "name": "scar_left", "directions": 4 },
+        { "name": "scar_right", "directions": 4 },
         { "name": "spot", "directions": 4 },
         { "name": "spots", "directions": 4 },
         { "name": "spots_1", "directions": 4 },
