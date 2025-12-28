@@ -570,6 +570,7 @@
     sprite: ADT/Clothing/OuterClothing/Coats/corrections_officer_coat_grey.rsi
   - type: Clothing
     sprite: ADT/Clothing/OuterClothing/Coats/corrections_officer_coat_grey.rsi
+
 - type: entity
   parent: ClothingOuterStorageBase
   id: ADTClothingOuterDavidsJacket

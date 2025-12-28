@@ -64,7 +64,6 @@
                     types:
                       Blunt: 10
                 - !type:ComboFallEffect
-                - !type:ComboStopGrabEffect
                 - !type:ComboAudioEffect
                   sound:
                     collection: GenericHit
@@ -136,7 +135,6 @@
                 - !type:ComboPopupEffect
                   localeText: combo-leg-sweep-end
                 - !type:ComboFallEffect
-                - !type:ComboStopGrabEffect
                 - !type:ComboAudioEffect
                   sound:
                     collection: GenericHit
