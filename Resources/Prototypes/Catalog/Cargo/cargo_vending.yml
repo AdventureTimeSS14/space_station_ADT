@@ -162,7 +162,7 @@
     sprite: Objects/Specific/Service/vending_machine_restock.rsi
     state: base
   product: CrateVendingMachineRestockSecTechFilled
-  cost: 2200
+  cost: 4500 # SD-Tweak
   category: cargoproduct-category-name-security
   group: market
 
