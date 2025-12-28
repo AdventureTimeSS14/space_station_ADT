@@ -200,26 +200,23 @@
         range: 1, 3
     - id: RubberStampCE
     - id: MetalFoamGrenade
-    # Start-ADT Tweak
-    - id: ADTMachinePowerTransmissionLaserFlatpack # Goobstation - Engi printing money pr
+    # ADT-Tweak-Start
+    - id: ADTMachinePowerTransmissionLaserFlatpack
     - id: OxygenTankFilled
     - id: NitrogenTankFilled
-    - id: ADTHyperNobCore ## ADT-Tweak
+    - id: ADTHyperNobCore
     - id: ClothingNeckCloakCe
     - id: ADTClothingMaskGasCE
     - id: ADTUniversalPipeDispenserCircuitboard
     - id: ADTRPD
-    # End-ADT Tweak
-    # ADT-WikiBooks-Start
+    - id: ADTEngiInducerBattery
     - id: ADTBookSRPcmd
     - id: ADTBookSRPeng
     - id: ADTBookPCDcmd
     - id: ADTtelescopicBaton
-    # ADT-WikiBooks-End
-    # # ADT-Economy-Start
     - id: ADTEngineeringBudgetCard
     - id: ADTEngineeringBudgetPinPaper
-    # # ADT-Economy-End
+    # # ADT-Tweak-End
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
@@ -348,17 +345,16 @@
     - id: ResearchComputerCircuitboard
     - id: CargoRequestScienceComputerCircuitboard
     - id: RubberStampRd
-    # ADT-WikiBooks-Start
+    # ADT-Tweak-Start
     - id: ADTBookSRPcmd
     - id: ADTBookSRPrnd
     - id: ADTBookPCDcmd
     - id: ADTtelescopicBaton
     - id: ADTBoxAICircuitBoard
-    # ADT-WikiBooks-End
-    # # ADT-Economy-Start
     - id: ADTScienceBudgetCard
     - id: ADTScienceBudgetPinPaper
-    # # ADT-Economy-End
+    - id: ADTRNDInducerBattery
+    # ADT-Tweak-End
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
