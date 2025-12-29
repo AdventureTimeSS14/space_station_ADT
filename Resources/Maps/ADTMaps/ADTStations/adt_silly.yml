@@ -13199,7 +13199,7 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 10539
-      - 10538
+      - 10538 
   - uid: 10541
     components:
     - type: Transform
