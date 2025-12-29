@@ -128,7 +128,7 @@
         - !type:HasComponentCondition
           components:
             - ActiveSandevistanUser
-          guidebookComponentName: reagent-comp-condition-blue-desoxyephedrine-sandevistan
+          guidebookComponentName: reagent-comp-condition-speedbust-sandevistan
     Narcotic:
       effects:
       - !type:MovespeedModifier
