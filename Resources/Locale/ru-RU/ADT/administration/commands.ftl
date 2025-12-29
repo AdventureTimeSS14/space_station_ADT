@@ -92,3 +92,7 @@ cmd-adt-converttodungeonroom-no-grid = Не удалось загрузить г
 cmd-adt-converttodungeonroom-empty = На гриде нет ни одного тайла, конвертировать нечего.
 cmd-adt-converttodungeonroom-too-many-tiles = В комнате слишком много разных тайлов, не вмещает.
 cmd-adt-converttodungeonroom-done = Комната { $room } собрана, выберите куда её сохранить.
+# Команда: hallucinate
+hallucinate-command-description = Применяет определённые галлюцинации к сущности
+hallucinate-command-help-text = Использование: { $command } <uid> <способ применения> <время> <паки галлюцинаций>
+shell-invalid-metabolism-type = Неверный способ применения
