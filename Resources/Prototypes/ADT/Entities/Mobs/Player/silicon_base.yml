@@ -386,3 +386,4 @@
         - SeeingStatic
     - type: Blindable
     - type: SpeechBarks
+    - type: CanHallucinate
