@@ -155,7 +155,6 @@ public sealed class VisibleImplantSystem : SharedVisibleImplantSystem
             }
             _appearance.SetData(uid, MantisDaggersVisuals.Active, false);
             _appearance.SetData(uid, MantisDaggersVisuals.Inactive, true);
-            _stun.TryAddParalyzeDuration(uid, TimeSpan.FromSeconds(3f));
             _jittering.DoJitter(uid, TimeSpan.FromSeconds(30f), true);
             Spawn("EffectSparks", Transform(uid).Coordinates);
             ent.Comp.Active = false;
