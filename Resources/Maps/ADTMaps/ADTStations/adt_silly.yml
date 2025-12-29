@@ -13197,8 +13197,6 @@ entities:
       pos: -44.5,39.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 10539
       - 10538
