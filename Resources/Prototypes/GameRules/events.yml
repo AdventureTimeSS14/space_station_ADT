@@ -47,7 +47,7 @@
     - id: Pirates # ADT tweak pirates
     - id: MorphSpawn #ADT tweak morph
     - id: VoxRaidersEvent # ADT tweak vox-raiders
-    - id: SuperHeroEvent # ADT tweak heros
+    # - id: SuperHeroEvent # ADT tweak heros
     # - id: IanHeroEvent # ADT tweak heros
 
 - type: entity
