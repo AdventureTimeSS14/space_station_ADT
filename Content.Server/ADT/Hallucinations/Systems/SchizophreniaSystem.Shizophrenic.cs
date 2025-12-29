@@ -202,7 +202,8 @@ public sealed partial class SchizophreniaSystem : EntitySystem
 
         EntityManager.AddComponents(uid, packProto.Components);
 
-        EntityManager.AddComponents(uid, _proto.Index(pack).Components);
+        if (!string.IsNullOrEmpty(packProto.StartingMessage))
+            _popup.PopupEntity(Loc.GetString(packProto.StartingMessage), uid, uid, packProto.MessageType);
 
         // If not infinite, add timer
         if (duration > 0)
