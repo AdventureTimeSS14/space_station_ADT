@@ -1,1 +1,1 @@
-reagent-comp-condition-desoxyephedrine-sandevistan = носитель сандевиндстана
+reagent-comp-condition-speedbust-sandevistan = носитель сандевиндстана
