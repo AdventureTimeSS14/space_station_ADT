@@ -1,6 +1,7 @@
 using Content.Server.ADT.Chat;
 using Content.Shared.ADT.Shizophrenia;
 using Content.Shared.Damage;
+using Content.Shared.EntityEffects.Effects;
 using Content.Shared.Eye;
 using Content.Shared.Humanoid;
 using Content.Shared.Kitchen;
@@ -40,11 +41,17 @@ public sealed partial class SchizophreniaSystem : EntitySystem
 
     private void OnAddMobs(Entity<CanHallucinateComponent> ent, ref AddHallucinationsEvent args)
     {
-        AddOrAdjustHallucinations(ent.Owner, args.Id, args.Duration);
+        AddOrAdjustHallucinations(ent.Owner, args.Id, args.Duration, args.OverwriteTimer ? HallucinationsMetabolismType.Set : HallucinationsMetabolismType.Add);
     }
 
     private void OnRemove(Entity<HallucinatingComponent> ent, ref RemoveHallucinationsEvent args)
     {
+        if (args.Time.HasValue)
+        {
+            AddOrAdjustHallucinations(ent.Owner, args.Id, args.Time.Value, HallucinationsMetabolismType.Remove);
+            return;
+        }
+
         if (ent.Comp.Hallucinations.ContainsKey(args.Id))
             ent.Comp.Hallucinations.Remove(args.Id);
 
@@ -95,48 +102,6 @@ public sealed partial class SchizophreniaSystem : EntitySystem
 
     #region Public
     /// <summary>
-    /// Spawns and makes entity a hallucination for another
-    /// </summary>
-    /// <param name="uid">Hallucinating entity</param>
-    /// <param name="protoId">Entity to spawn</param>
-    /// <returns></returns>
-    public EntityUid AddHallucination(EntityUid uid, string protoId)
-    {
-        var comp = EnsureComp<SchizophreniaComponent>(uid);
-        var ent = Spawn(protoId, Transform(uid).Coordinates);
-
-        // Set invisible (kinda) layer
-        _visibility.SetLayer(ent, (ushort) VisibilityFlags.Hallucination, true);
-
-        // Add pvs override if can
-        if (_player.TryGetSessionByEntity(uid, out var session))
-            _pvsOverride.AddForceSend(ent, session);
-
-        comp.Hallucinations.Add(ent);
-
-        // Just needed, else game crashes
-        var hallucination = new HallucinationComponent()
-        {
-            Ent = uid
-        };
-        AddComp(ent, hallucination);
-
-        // We dont need to change index if entity is already hallucinating
-        if (comp.Idx <= 0)
-        {
-            comp.Idx = _nextIdx;
-            _nextIdx++;
-        }
-
-        hallucination.Idx = comp.Idx;
-        hallucination.Ent = uid;
-
-        Dirty(uid, comp);
-        Dirty(ent, hallucination);
-        return ent;
-    }
-
-    /// <summary>
     /// Makes entity a hallucination for another one
     /// </summary>
     /// <param name="uid">Hallucinating entity</param>
@@ -179,29 +144,63 @@ public sealed partial class SchizophreniaSystem : EntitySystem
         }
     }
 
-    public void AddOrAdjustHallucinations(EntityUid uid, ProtoId<HallucinationsPackPrototype> pack, float duration)
+    /// <summary>
+    /// Applies a certain hallucination pack to the entity
+    /// </summary>
+    /// <param name="uid">Target entity</param>
+    /// <param name="pack">Hallucinations pack</param>
+    /// <param name="duration">Duration of the effect or removed time</param>
+    /// <param name="type">Add/Set/Remove</param>
+    public void AddOrAdjustHallucinations(EntityUid uid, ProtoId<HallucinationsPackPrototype> pack, float duration, HallucinationsMetabolismType type)
     {
         var comp = EnsureComp<HallucinatingComponent>(uid);
 
-        // Ensure that we don't have active hallucinations with this key
-        if (comp.Hallucinations.ContainsKey(pack))
+        switch (type)
         {
-            if (comp.Removes.ContainsKey(pack) && duration < 0)
-                comp.Removes.Remove(pack);
-            else
-                comp.Removes[pack] = _timing.CurTime + TimeSpan.FromSeconds(duration);
+            case HallucinationsMetabolismType.Add:
+                if (!comp.Hallucinations.ContainsKey(pack))
+                    break;
 
-            return;
+                if (!comp.Removes.ContainsKey(pack))
+                    return;
+
+                comp.Removes[pack] += TimeSpan.FromSeconds(duration);
+                return;
+            case HallucinationsMetabolismType.Set:
+                if (!comp.Hallucinations.ContainsKey(pack))
+                    break;
+
+                comp.Removes[pack] = _timing.CurTime + TimeSpan.FromSeconds(duration);
+                return;
+            case HallucinationsMetabolismType.Remove:
+                if (!comp.Hallucinations.ContainsKey(pack))
+                    return;
+
+                if (!comp.Removes.ContainsKey(pack) && duration > 0)
+                    return;
+
+                if (duration <= 0)
+                    comp.Removes[pack] = _timing.CurTime;
+                else
+                    comp.Removes[pack] -= TimeSpan.FromSeconds(duration);
+                return;
+            default:
+                break;
         }
 
         // Get and add entry
-        var data = _proto.Index(pack).Data;
+        var packProto = _proto.Index(pack);
+        var data = packProto.Data;
 
         if (data != null)
         {
             var entry = data.GetEntry();
             comp.Hallucinations.Add(pack, entry);
         }
+        else
+            comp.Hallucinations.Add(pack, null);
+
+        EntityManager.AddComponents(uid, packProto.Components);
 
         EntityManager.AddComponents(uid, _proto.Index(pack).Components);
 
