@@ -1047,7 +1047,7 @@
   components:
   - type: Pda
     id: CentcomIDCardDeathsquad
-  - type: Icon 
+  - type: Icon
     state: pda-ds
   - type: Appearance
     appearanceDataInit:
@@ -1276,7 +1276,7 @@
     accentVColor: "#447987"
 
 - type: entity
-  parent: BasePDA
+  parent: MedicalPDA # ADT-Tweak: анализатор здоровья
   id: PsychologistPDA
   name: psychologist PDA
   description: Looks immaculately cleaned.
