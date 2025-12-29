@@ -155,7 +155,7 @@ public sealed class VisibleImplantSystem : SharedVisibleImplantSystem
             }
             _appearance.SetData(uid, MantisDaggersVisuals.Active, false);
             _appearance.SetData(uid, MantisDaggersVisuals.Inactive, true);
-            _jittering.DoJitter(uid, TimeSpan.FromSeconds(30f), true);
+            _jittering.DoJitter(uid, TimeSpan.FromSeconds(15f), true);
             Spawn("EffectSparks", Transform(uid).Coordinates);
             ent.Comp.Active = false;
             _audio.PlayEntity(ent.Comp.Sound, Filter.Pvs(uid), uid, true);
