@@ -1,3 +1,4 @@
+using Content.Shared.Popups;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.ADT.Shizophrenia;
@@ -13,4 +14,10 @@ public sealed partial class HallucinationsPackPrototype : IPrototype
 
     [DataField]
     public ComponentRegistry Components = new();
+
+    [DataField]
+    public string? StartingMessage;
+
+    [DataField]
+    public PopupType MessageType = PopupType.MediumCaution;
 }
