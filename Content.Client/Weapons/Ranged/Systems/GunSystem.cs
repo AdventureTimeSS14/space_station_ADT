@@ -3,6 +3,7 @@ using Content.Client.Animations;
 using Content.Client.Gameplay;
 using Content.Client.Items;
 using Content.Client.Weapons.Ranged.Components;
+using Content.Shared.ADT.Shizophrenia;
 using Content.Shared.Camera;
 using Content.Shared.CombatMode;
 using Content.Shared.Mech.Components;
@@ -344,6 +345,11 @@ public sealed partial class GunSystem : SharedGunSystem
         {
             return;
         }
+
+        // ADT-Tweak-start
+        if (HasComp<HallucinationsRemoveMobsComponent>(_player.LocalEntity) && tracked != _player.LocalEntity && !HasComp<HallucinationComponent>(tracked))
+            tracked = null;
+        // ADT-Tweak-end
 
         var ent = Spawn(message.Prototype, coordinates);
         TransformSystem.SetWorldRotationNoLerp(ent, message.Angle);
