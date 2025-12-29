@@ -13,4 +13,10 @@ public sealed partial class RemoveHallucinationsEvent : EntityEventArgs
     /// </summary>
     [DataField]
     public ProtoId<HallucinationsPackPrototype> Id = "";
+
+    /// <summary>
+    /// Time to remove from pack duration
+    /// </summary>
+    [DataField]
+    public float? Time;
 }

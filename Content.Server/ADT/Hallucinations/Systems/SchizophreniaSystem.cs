@@ -71,7 +71,7 @@ public sealed partial class SchizophreniaSystem : EntitySystem
 
             // Hallucinate
             foreach (var item in comp.Hallucinations)
-                item.Value.TryPerform(uid, EntityManager, _random, _timing.CurTime);
+                item.Value?.TryPerform(uid, EntityManager, _random, _timing.CurTime);
         }
     }
 }
