@@ -25,6 +25,7 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
+using Content.Shared.ADT.Shizophrenia;
 
 namespace Content.Shared.Buckle;
 
@@ -385,7 +386,8 @@ public abstract partial class SharedBuckleSystem
         else if (user != null)
             _adminLogger.Add(LogType.Action, LogImpact.Low, $"{ToPrettyString(user):player} buckled {ToPrettyString(buckle)} to {ToPrettyString(strap)}");
 
-        _audio.PlayPredicted(strap.Comp.BuckleSound, strap, user);
+        if (!(HasComp<HallucinationsRemoveMobsComponent>(_playerManager.LocalEntity) && user != _playerManager.LocalEntity))
+            _audio.PlayPredicted(strap.Comp.BuckleSound, strap, user);
 
         SetBuckledTo(buckle, strap!);
         Appearance.SetData(strap, StrapVisuals.State, true);
@@ -476,7 +478,8 @@ public abstract partial class SharedBuckleSystem
         else if (user != null)
             _adminLogger.Add(LogType.Action, LogImpact.Low, $"{ToPrettyString(user):user} unbuckled {ToPrettyString(buckle):target} from {ToPrettyString(strap):strap}");
 
-        _audio.PlayPredicted(strap.Comp.UnbuckleSound, strap, user);
+        if (!(HasComp<HallucinationsRemoveMobsComponent>(_playerManager.LocalEntity) && user != _playerManager.LocalEntity))
+            _audio.PlayPredicted(strap.Comp.UnbuckleSound, strap, user);
 
         SetBuckledTo(buckle, null);
 
