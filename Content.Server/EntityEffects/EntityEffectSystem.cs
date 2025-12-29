@@ -1001,7 +1001,7 @@ public sealed class EntityEffectSystem : EntitySystem
 
         foreach (var item in args.Effect.Hallucinations)
         {
-            _shiz.AddOrAdjustHallucinations(hallargs.TargetEntity, item, time);
+            _shiz.AddOrAdjustHallucinations(hallargs.TargetEntity, item, time, args.Effect.Type);
         }
     }
     private void OnExecuteRandomTeleport(ref ExecuteEntityEffectEvent<RandomTeleport> args)
