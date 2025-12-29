@@ -78,6 +78,7 @@
   - type: MovementSpeedModifier
   - type: LagCompensation
   - type: MirrorReflection # ADT-Tweak
+  - type: CanHallucinate
 
 - type: entity
   save: false
