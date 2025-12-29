@@ -15611,11 +15611,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: -38.5,-29.5
       parent: 2
-    - type: DeviceNetwork
-      configurators:
-      - invalid
-      deviceLists:
-      - 24861
 - proto: AltarConvert
   entities:
   - uid: 686
