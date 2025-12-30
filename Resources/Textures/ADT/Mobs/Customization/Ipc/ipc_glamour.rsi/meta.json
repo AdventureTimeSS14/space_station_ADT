@@ -31,6 +31,8 @@
     {"name": "l_leg_line_prime", "directions": 4},
     {"name": "l_leg_line_second", "directions": 4},
     {"name": "r_leg_line_prime", "directions": 4},
-    {"name": "r_leg_line_second", "directions": 4}
+    {"name": "r_leg_line_second", "directions": 4},
+    {"name": "l_foot_line_prime", "directions": 4},
+    {"name": "r_foot_line_prime", "directions": 4}
   ]
 }

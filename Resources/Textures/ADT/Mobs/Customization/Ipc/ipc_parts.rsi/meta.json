@@ -15,6 +15,10 @@
     {"name": "l_arm_line_prime", "directions": 4},
     {"name": "l_arm_line_second", "directions": 4},
     {"name": "r_arm_line_prime", "directions": 4},
-    {"name": "r_arm_line_second", "directions": 4}
+    {"name": "r_arm_line_second", "directions": 4},
+    {"name": "l_hand_line_prime", "directions": 4},
+    {"name": "r_hand_line_prime", "directions": 4},
+    {"name": "l_foot_line_prime", "directions": 4},
+    {"name": "r_foot_line_prime", "directions": 4}
   ]
 }
