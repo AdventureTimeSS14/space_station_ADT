@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Client.ADT.Shizophrenia;
 using Content.Shared.Examine;
 using Content.Shared.GameTicking;
 using Content.Shared.Popups;
@@ -25,6 +26,7 @@ public sealed partial class PopupSystem : SharedPopupSystem
     [Dependency] private IReplayRecordingManager _replayRecording = default!;
     [Dependency] private ExamineSystemShared _examine = default!;
     [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private ShizophreniaSystem _schiz = default!; // ADT-Tweak - hallucinations
 
     public IReadOnlyCollection<WorldPopupLabel> WorldLabels => _aliveWorldLabels.Values;
     public IReadOnlyCollection<CursorPopupLabel> CursorLabels => _aliveCursorLabels.Values;
@@ -206,7 +208,7 @@ public sealed partial class PopupSystem : SharedPopupSystem
         if (!Timing.IsFirstTimePredicted || message is null)
             return;
 
-        if (!TryComp(uid, out TransformComponent? transform))
+        if (!TryComp(uid, out TransformComponent? transform) || !_schiz.CanSee(uid)) // ADT-Tweak - hallucinations
             return;
 
         _predictionInstances.Add(new PopupEntityEvent.PredictionInstance(message, type, Timing.CurTick, GetNetEntity(uid)));
