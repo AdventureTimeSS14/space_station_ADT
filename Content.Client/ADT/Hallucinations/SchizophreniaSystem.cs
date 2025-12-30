@@ -77,6 +77,23 @@ public sealed class ShizophreniaSystem : EntitySystem
             args.StatusIcons.Add(_prototypeManager.Index<FactionIconPrototype>("ShizophrenicIcon"));
     }
 
+    public bool CanSee(EntityUid target)
+    {
+        if (!HasComp<HallucinationsRemoveMobsComponent>(_player.LocalEntity))
+            return true;
+
+        if (target == _player.LocalEntity)
+            return true;
+
+        if (HasComp<HallucinationComponent>(target))
+            return true;
+
+        if (Transform(target).ParentUid == _player.LocalEntity)
+            return true;
+
+        return false;
+    }
+
 
     public override void FrameUpdate(float frameTime)
     {
