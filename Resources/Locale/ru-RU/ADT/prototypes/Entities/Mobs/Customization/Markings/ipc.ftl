@@ -89,8 +89,8 @@ marking-ADTIPCAntennaFox = Лисьи ушки
 marking-ADTIPCAntennaCat = Кошачьи ушки
 marking-ADTIPCAntennaTvAlt = ТВ антенна
 
-marking-ADTIPCHeaptopWires = Кабели
-marking-ADTIPCHeaptopWires-ipc_wires = Кабели
+marking-ADTIPCHeadTopWires = Кабели
+marking-ADTIPCHeadTopWires-ipc_wires = Кабели
 
 marking-ADTIPCTailHydra = Гидра
 marking-ADTIPCTailHydra-ipc_tail_hydra_prime = Первичный
