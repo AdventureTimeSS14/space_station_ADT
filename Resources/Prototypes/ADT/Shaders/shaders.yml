@@ -145,3 +145,9 @@
   id: XenoBluespace
   kind: source
   path: "/Textures/ADT/Xenobiology/Shaders/xeno_bluespace.swsl"
+
+# ADT
+- type: shader
+  id: HueShift
+  kind: source
+  path: "/Textures/ADT/Shaders/hue_shift.swsl"
