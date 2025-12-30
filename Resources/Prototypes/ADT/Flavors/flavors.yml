@@ -451,3 +451,8 @@
   description: flavor-complex-adtyupiwatermelon
 
 # Юппи конец
+
+- type: flavor
+  id: ADTNigiriFlavor
+  flavorType: Base
+  description: flavor-base-nigiri

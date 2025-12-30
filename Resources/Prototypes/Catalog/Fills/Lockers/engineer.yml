@@ -166,16 +166,14 @@
     - id: GasAnalyzer
     - id: MedkitOxygenFilled
     - id: HolofanProjector
-    - id: ADTDoorRemoteFirefight # ADT-Atmos-Remote
-    # ADT-RPD-Start
+    - id: AirGrenade
+    # ADT-Tweak-Start
+    - id: ADTDoorRemoteFirefight
     - id: ADTRPD
     - id: RCDAmmo
-    # ADT-RPD-End
-    - id: AirGrenade
-    # ADT-WikiBooks-Start
     - id: ADTBookSRPeng
     - id: ADTBookAtmosSupermatter
-    # ADT-WikiBooks-End
+    # ADT-Tweak-End
 
 - type: entityTable
   id: FillAtmosphericsHardsuit
@@ -232,6 +230,7 @@
     # ADT-Tweak-Start
     - id: ADTBookSRPeng
     - id: ADTEngiInducerBattery
+      prob: 0.3
     # ADT-Tweak-End
 
 - type: entityTable
