@@ -1,5 +1,6 @@
 ﻿using Content.Shared.FixedPoint;
 using Robust.Shared.GameStates;
+using Robust.Shared.Audio;
 
 namespace Content.Shared.Speech.Components;
 
@@ -78,4 +79,20 @@ public sealed partial class DamagedSiliconAccentComponent : Component
     /// </summary>
     [DataField]
     public float ProbToCorruptDotFromPower = 0.6f;
+    // ADT-Tweak (P4A)-start: Изменение акцентов Синтетиков
+    [DataField]
+    public SoundPathSpecifier[] SpeechGlitchSounds { get; set; } = new[]
+    {
+        new SoundPathSpecifier("/Audio/ADT/Effects/Synt/Glitch_1.ogg"),
+        new SoundPathSpecifier("/Audio/ADT/Effects/Synt/Glitch_2.ogg"),
+        new SoundPathSpecifier("/Audio/ADT/Effects/Synt/Glitch_3.ogg")
+    };
+
+    [DataField("speechGlitchVolume")]
+    public float SpeechGlitchVolume { get; set; } = 0.5f;
+
+    [ViewVariables(VVAccess.ReadWrite)]
+    public AudioParams SpeechGlitchAudioParams => AudioParams.Default.WithVolume(SpeechGlitchVolume);
+    // ADT-Tweak (P4A)-end
+
 }

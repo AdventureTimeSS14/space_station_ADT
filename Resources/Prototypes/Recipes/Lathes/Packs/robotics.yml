@@ -39,7 +39,9 @@
   recipes:
   - BorgModuleAdvancedCleaning
   - BorgModuleAdvancedTool
-  - BorgModuleAdvancedChemical
+  # ADT-Tweak-Start: "MedborgModuleUpdate"
+  #- BorgModuleAdvancedChemical  # новые модули сделал отдельно в папке ADT
+  # ADT-Tweak-End
   - BorgModuleAdvancedMining
   - ADTBorgModuleRPD # ADT-Tweak
 

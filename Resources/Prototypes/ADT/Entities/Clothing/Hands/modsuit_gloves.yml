@@ -267,6 +267,38 @@
 
 - type: entity
   parent: ADTClothingHandsModsuitBase
+  id: ADTClothingHandsModsuitCentcom
+  name: Corporate MOD gauntlets
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Hands/Modsuit/centcomm.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Hands/Modsuit/centcomm.rsi
+    equipSound: /Audio/Mecha/mechmove03.ogg
+    unequipSound: /Audio/Mecha/mechmove03.ogg
+    equipDelay: 3
+    unequipDelay: 3
+  - type: Fiber
+    fiberColor: fibers-regal-green
+
+- type: entity
+  parent: ADTClothingHandsModsuitCentcom
+  id: ADTClothingHandsModsuitCCC
+  name: Corporate MOD gauntlets
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Hands/Modsuit/centcomm.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Hands/Modsuit/centcomm.rsi
+    equipSound: /Audio/Mecha/mechmove03.ogg
+    unequipSound: /Audio/Mecha/mechmove03.ogg
+    equipDelay: 3
+    unequipDelay: 3
+  - type: Fiber
+    fiberColor: fibers-regal-green
+
+- type: entity
+  parent: ADTClothingHandsModsuitBase
   id: ADTClothingHandsModsuitWard
   name: warden MOD gauntlets
   components:

@@ -1,0 +1,32 @@
+<BoxContainer xmlns="https://spacestation14.io"
+            xmlns:adt="clr-namespace:Content.Client.ADT.UserInterface.Controls.FancyButton"
+            Orientation="Vertical"
+            SetWidth="144">
+    <adt:FancyButton
+            Name="BuyButton"
+            SetSize="140 140"
+            Margin="4">
+        <EntityPrototypeView
+                Name="ItemPrototype"
+                Margin="8"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Scale="4 4"/>
+        <BoxContainer
+                Orientation="Horizontal"
+                HorizontalExpand="True"
+                VerticalAlignment="Top"
+                Margin="6">
+            <RichTextLabel Name="CostLabel"
+                    HorizontalAlignment="Left"/>
+            <Control HorizontalExpand="True"/>
+            <RichTextLabel Name="CountLabel"
+                    HorizontalAlignment="Right"/>
+        </BoxContainer>
+    </adt:FancyButton>
+    <RichTextLabel Name="NameLabel"
+            Margin="0 4"
+            MaxWidth="144"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Bottom"/>
+</BoxContainer>

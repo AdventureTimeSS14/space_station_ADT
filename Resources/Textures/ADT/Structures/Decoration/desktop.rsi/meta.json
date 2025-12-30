@@ -1,7 +1,7 @@
 {
-    "version": 1,
+    "version": 2,
     "license": "CC-BY-NC-SA-3.0",
-    "copyright": "Goonstation 13",
+    "copyright": "Goonstation 13, desktop_white sprited by orange6775 (discord)",
     "size": {
         "x": 32,
         "y": 32
@@ -9,6 +9,12 @@
     "states": [
         {
             "name": "desktop"
+        },
+        {
+            "name": "desktop_white"
+        },
+        {
+            "name": "screen"
         }
     ]
 }

@@ -18,10 +18,18 @@ public sealed class CommandBudgetSystem : EntitySystem
 
     private void OnMapInit(EntityUid uid, CommandBudgetPinPaperComponent component, MapInitEvent args)
     {
-        if (!TryComp(_station.GetOwningStation(uid), out StationBankAccountComponent? account))
+        if (!TryComp(_station.GetOwningStation(uid), out StationBankAccountComponent? stationBank))
             return;
 
-        var pin = account.BankAccount.AccountPin;
-        _paper.SetContent((uid, EnsureComp<PaperComponent>(uid)), Loc.GetString("command-budget-pin-message", ("pin", pin)));
+        if (component.CommandBudgetType == null)
+            return;
+
+        stationBank.BankAccounts.TryGetValue(component.CommandBudgetType.Value, out var account);
+
+        if (account != null)
+        {
+            var pin = account.AccountPin;
+            _paper.SetContent((uid, EnsureComp<PaperComponent>(uid)), Loc.GetString("command-budget-pin-message", ("pin", pin)));
+        }
     }
 }

@@ -86,6 +86,8 @@
 
 # Borg Modules Update start
 
+#ENG
+
 - type: entity
   id: ADTBorgModuleRPD
   parent: [ BaseBorgModuleEngineering, BaseProviderBorgModule ]
@@ -104,6 +106,8 @@
     - PowerDrill
   - type: BorgModuleIcon
     icon: { sprite: ADT/Interface/Actions/actions_borg.rsi, state: rpd-module }
+
+#SUP
 
 - type: entity
   id: ADTBorgModuleSalvage
@@ -127,8 +131,8 @@
     - HandHeldMassScannerBorg
     - MaterialBag
   - type: BorgModuleIcon
-    icon: { sprite: Objects/Weapons/Guns/Basic/kinetic_accelerator.rsi, state: icon }
-
+    icon: { sprite: ADT/Interface/Actions/actions_borg.rsi, state: salvage-module }
+  
 # SEC
 
 - type: entity
@@ -146,5 +150,59 @@
     - state: icon-lecter
   - type: BorgModuleIcon
     icon: { sprite: ADT/Interface/Actions/actions_borg.rsi, state: lecter-module }
+
+# MED
+
+- type: entity
+  id: ADTBorgModuleChemical
+  parent: BorgModuleChemical
+  name: chemical cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: medical
+    - state: icon-chem
+  - type: ItemBorgModule
+    items:
+    - HandheldHealthAnalyzerUnpowered
+    - Syringe
+    - Syringe
+    - ADTBorgDrinkGlass
+    - ADTBorgDrinkGlass
+    - ADTBorgDrinkGlass
+
+- type: entity
+  id: ADTBorgModuleAdvancedChemical
+  parent: BorgModuleChemical
+  name: chemical cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: medical
+    - state: icon-chemist
+  - type: ItemBorgModule
+    items:
+    - HandheldHealthAnalyzerUnpowered
+    - BorgHypo
+    - BorgDropper
+    - BorgBeaker
+    - BorgBeaker
+    - HandLabeler
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: adv-chem-module }
+
+- type: entity
+  id: ADTBorgModuleRescue
+  parent: BorgModuleRescue
+  name: rescue cyborg module
+  components:
+  - type: ItemBorgModule
+    items:
+    - HandheldHealthAnalyzerUnpowered
+    - BorgFireExtinguisher
+    - BorgHandheldGPSBasic
+    - HandheldStationMapUnpowered
+    - WeaponGrapplingGun
+    - DefibrillatorOneHandedUnpowered
 
 # Borg Modules Update End

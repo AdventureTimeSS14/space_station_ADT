@@ -11,6 +11,7 @@
   - Ursus # ADT tweak
   - AllHostile
   - Wizard
+  - SimpleHostile # ADT-tweak
 
 - type: npcFaction
   id: NanoTrasen
@@ -20,7 +21,7 @@
   - Xeno
   - Zombie
   - Revolutionary
-  - DroneAntag # ADT tweak
+  - DroneAntag # ADT-tweak
   - Dragon
   - AllHostile
   - Wizard
@@ -57,13 +58,14 @@
   - PetsNT
   - Zombie
   - Revolutionary
-  - Ursus # ADT tweak
+  - Ursus # ADT-tweak
   - AllHostile
   - Wizard
   - Heretic # goob edit - heretics
   - Dragon
   - Xeno
   - Xenoborg
+  - ADTSpaceMobs # ADT-tweak
 
 - type: npcFaction
   id: SimpleNeutral
@@ -77,8 +79,8 @@
   - PetsNT
   - Zombie
   - Heretic # goob edit - heretics
-  - DroneAntag # ADT tweak
-  - Ursus # ADT tweak
+  - DroneAntag # ADT-tweak
+  - Ursus # ADT-tweak
   - Dragon
   - AllHostile
   - Wizard
@@ -94,7 +96,7 @@
   - Zombie
   - Revolutionary
   - Heretic # goob edit - heretics
-  - Ursus # ADT tweak
+  - Ursus # ADT-tweak
   - AllHostile
   - Wizard
   - Dragon
@@ -110,7 +112,7 @@
   - Passive
   - PetsNT
   - Revolutionary
-  - Ursus # ADT tweak
+  - Ursus # ADT-tweak
   - AllHostile
   - Wizard
   - Heretic # goob edit - heretics
@@ -124,7 +126,7 @@
   - Zombie
   - SimpleHostile
   - Dragon
-  - Ursus # ADT tweak
+  - Ursus # ADT-tweak
   - AllHostile
   - Wizard
   - Xenoborg
@@ -143,9 +145,10 @@
   - Xeno
   - Zombie
   - Revolutionary
-  - Heretic #ADT tweak
-  - Ursus # ADT tweak
-  - DroneAntag # ADT tweak
+  - Heretic # ADT-tweak
+  - Ursus # ADT-tweak
+  - DroneAntag # ADT-tweak
+  - ADTSpaceMobs # ADT-tweak
   - Wizard
   - Xenoborg
 
