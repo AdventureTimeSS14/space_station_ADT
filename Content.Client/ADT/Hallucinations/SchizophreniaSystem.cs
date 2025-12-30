@@ -77,10 +77,17 @@ public sealed class ShizophreniaSystem : EntitySystem
             args.StatusIcons.Add(_prototypeManager.Index<FactionIconPrototype>("ShizophrenicIcon"));
     }
 
+
     public override void FrameUpdate(float frameTime)
     {
         base.FrameUpdate(frameTime);
 
+        FrameUpdateExtraLayers();
+        FrameUpdateMobs();
+    }
+
+    private void FrameUpdateExtraLayers()
+    {
         foreach (var item in _layers.ToDictionary())
         {
             if (item.Value > _timing.CurTime)
@@ -92,7 +99,10 @@ public sealed class ShizophreniaSystem : EntitySystem
             _sprite.RemoveLayer(ent.Value, "hallucination", false);
             _layers.Remove(item.Key);
         }
+    }
 
+    private void FrameUpdateMobs()
+    {
         if (HasComp<HallucinationsRemoveMobsComponent>(_player.LocalEntity))
         {
             var ents = EntityManager.AllEntities<MobStateComponent>().Where(x => !HasComp<HallucinationComponent>(x)).ToList();
