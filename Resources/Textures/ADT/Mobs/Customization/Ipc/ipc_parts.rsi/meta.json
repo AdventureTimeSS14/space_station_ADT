@@ -11,6 +11,10 @@
     {"name": "chest_line_prime", "directions": 4},
     {"name": "chest_line_second", "directions": 4},
     {"name": "chest_line_third", "directions": 4},
-    {"name": "chest_line_fourth", "directions": 4}
+    {"name": "chest_line_fourth", "directions": 4},
+    {"name": "l_arm_line_prime", "directions": 4},
+    {"name": "l_arm_line_second", "directions": 4},
+    {"name": "r_arm_line_prime", "directions": 4},
+    {"name": "r_arm_line_second", "directions": 4}
   ]
 }

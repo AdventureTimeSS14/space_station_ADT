@@ -21,3 +21,25 @@
       state: chest_line_third
     - sprite: ADT/Mobs/Customization/Ipc/ipc_parts.rsi
       state: chest_line_fourth
+
+- type: marking
+  speciesRestriction: [IPC]
+  id: ADTIPCPartLArmDefaultLines
+  bodyPart: LArm
+  markingCategory: Arms
+  sprites:
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_parts.rsi
+      state: l_arm_line_prime
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_parts.rsi
+      state: l_arm_line_second
+
+- type: marking
+  speciesRestriction: [IPC]
+  id: ADTIPCPartRArmDefaultLines
+  bodyPart: RArm
+  markingCategory: Arms
+  sprites:
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_parts.rsi
+      state: r_arm_line_prime
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_parts.rsi
+      state: r_arm_line_second
