@@ -10,9 +10,9 @@
   - type: Hunger
     startingHunger: 50
     thresholds:
-      Overfed: 250
-      Okay: 100
-      Peckish: 25 #Baby Slimes will begin hunting here, Adult Slimes will target their tamers here.
+      Overfed: 150
+      Okay: 75
+      Peckish: 25
       Starving: 10
       Dead: 0
     hungerThresholdDecayModifiers:
@@ -31,7 +31,7 @@
     - id: Poison
   - type: Sprite
     drawdepth: Mobs
-    sprite: ADT/Xenobiology/Mobs/slimesBaby.rsi
+    sprite: ADT/Mobs/Xenobiology/slimesBaby.rsi
     layers:
     - map: [ "enum.DamageStateVisualLayers.Base" ]
       state: base
@@ -147,48 +147,51 @@
   - type: HTN
     rootTask:
       task: XenoSlimeCompound
+  - type: LanguageSpeaker
+    languages:
+      Bubblish: Speak
 
 - type: entity
-  name: grey slime
+  name: xenoslime
   id: ADTMobXenoSlime
   parent: ADTBaseMobXenoSlime
-  suffix: Baby
+  categories: [ HideSpawnMenu ]
   description: It looks so much like jelly. I wonder what it tastes like?
   components:
   - type: Sprite
     drawdepth: Mobs
-    sprite: ADT/Xenobiology/Mobs/slimesBaby.rsi
+    sprite: ADT/Mobs/Xenobiology/slimesBaby.rsi
     layers:
     - map: [ "enum.DamageStateVisualLayers.Base" ]
       state: base
       color: "#ffffff"
   - type: MobGrowth
-    hungerRequired: 100
+    hungerRequired: 75
     currentStage: baby
     stages:
       baby:
         nextStage: adult
-        sprite: ADT/Xenobiology/Mobs/slimesBaby.rsi
+        sprite: ADT/Mobs/Xenobiology/slimesBaby.rsi
         displayName: baby
       adult:
-        sprite: ADT/Xenobiology/Mobs/slimesAdult.rsi
+        sprite: ADT/Mobs/Xenobiology/slimesAdult.rsi
         displayName: adult
 
 - type: entity
-  name: grey slime
+  name: xenoslime
   id: ADTMobXenoSlimeAdult
   parent: ADTMobXenoSlime
-  suffix: Adult
+  categories: [ HideSpawnMenu ]
   description: It looks so much like jelly. I wonder what it tastes like?
   components:
   - type: MobGrowth
-    hungerRequired: 100
+    hungerRequired: 75
     currentStage: adult
     stages:
       baby:
         nextStage: adult
-        sprite: ADT/Xenobiology/Mobs/slimesBaby.rsi
+        sprite: ADT/Mobs/Xenobiology/slimesBaby.rsi
         displayName: baby
       adult:
-        sprite: ADT/Xenobiology/Mobs/slimesAdult.rsi
+        sprite: ADT/Mobs/Xenobiology/slimesAdult.rsi
         displayName: adult

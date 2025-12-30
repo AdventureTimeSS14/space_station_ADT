@@ -9,7 +9,7 @@
     layers:
     - sprite: ADT/Xenobiology/Specific/Xenobiology/extract_jellies.rsi
       state: jelly
-      color: "#828282"
+      color: "#8B93AF"
   - type: Damageable
     damageContainer: Inorganic
   - type: Destructible
@@ -45,7 +45,7 @@
     layers:
     - sprite: ADT/Xenobiology/Specific/Xenobiology/extract_jellies.rsi
       state: jelly
-      color: "#ff9f1a"
+      color: "#FA6A0A"
 
 - type: entity
   id: BasePurpleExtractJelly
@@ -69,7 +69,7 @@
     layers:
     - sprite: ADT/Xenobiology/Specific/Xenobiology/extract_jellies.rsi
       state: jelly
-      color: "#79F6FC"
+      color: "#249FDE"
 
 - type: entity
   id: BaseDarkBlueExtractJelly
@@ -81,7 +81,7 @@
     layers:
     - sprite: ADT/Xenobiology/Specific/Xenobiology/extract_jellies.rsi
       state: jelly
-      color: "#1e8cfa"
+      color: "#3375F9"
 
 - type: entity
   id: BaseCeruleanExtractJelly
@@ -105,7 +105,7 @@
     layers:
     - sprite: ADT/Xenobiology/Specific/Xenobiology/extract_jellies.rsi
       state: jelly
-      color: "#ff3333"
+      color: "#B4202A"
 
 - type: entity
   id: BaseGreenExtractJelly
@@ -117,19 +117,7 @@
     layers:
     - sprite: ADT/Xenobiology/Specific/Xenobiology/extract_jellies.rsi
       state: jelly
-      color: "#4dff4d"
-
-- type: entity
-  id: BaseVolatileExtractJelly
-  parent: BaseExtractJelly
-  name: volatile red slime jelly
-  description: Primate test subjects exhibited heightened speed and senses, even whilst carrying high density ore - subjects were burnt to a crisp after a scientist lit his cigarette.
-  components:
-  - type: Sprite
-    layers:
-    - sprite: ADT/Xenobiology/Specific/Xenobiology/extract_jellies.rsi
-      state: jelly
-      color: "#ff3333" #This will need an additional distinguishing shader?
+      color: "#14A02E"
 
 - type: entity
   id: BasePinkExtractJelly
@@ -141,7 +129,7 @@
     layers:
     - sprite: ADT/Xenobiology/Specific/Xenobiology/extract_jellies.rsi
       state: jelly
-      color: "#F5A097"
+      color: "#ff33cc"
 
 - type: entity
   id: BaseOilyExtractJelly
@@ -166,7 +154,7 @@
     layers:
     - sprite: ADT/Xenobiology/Specific/Xenobiology/extract_jellies.rsi
       state: jelly
-      color: "#E9B5A3"
+      color: "#ffb3ec"
 
 - type: entity
   id: BaseRainbowExtractJelly

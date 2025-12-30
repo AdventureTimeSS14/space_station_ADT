@@ -15,15 +15,45 @@ public partial class XenobiologySystem
     {
         SubscribeLocalEvent<PendingSlimeSpawnComponent, MapInitEvent>(OnPendingSlimeMapInit);
         SubscribeLocalEvent<SlimeComponent, MapInitEvent>(OnSlimeMapInit);
+        SubscribeLocalEvent<RandomBreedOnSpawnComponent, MapInitEvent>(OnSlimeInit);
     }
 
     private void OnPendingSlimeMapInit(Entity<PendingSlimeSpawnComponent> ent, ref MapInitEvent args)
     {
-        if (!_net.IsServer)
+        if (!_net.IsServer) return;
+
+        var slime = SpawnSlime(ent, ent.Comp.BasePrototype, ent.Comp.Breed);
+        QueueDel(ent);
+
+        if (!slime.HasValue)
             return;
 
-        SpawnSlime(ent, ent.Comp.BasePrototype, ent.Comp.Breed);
+        var s = slime.Value.Comp;
+
+        s.MutationChance *= _random.NextFloat(.5f, 1.5f);
+        s.MaxOffspring += _random.Next(-1, 2);
+        s.ExtractsProduced += _random.Next(0, 2);
+        s.MitosisHunger *= _random.NextFloat(.75f, 1.2f);
+    }
+
+    private void OnSlimeInit(Entity<RandomBreedOnSpawnComponent> ent, ref MapInitEvent args)
+    {
+        if (!TryComp<SlimeComponent>(ent, out var slime))
+            return;
+
+        var selectedBreed = _random.Pick(ent.Comp.Mutations);
+        var sl = SpawnSlime(ent, slime.DefaultSlimeProto, selectedBreed);
         QueueDel(ent);
+
+        if (!sl.HasValue)
+            return;
+
+        var s = sl.Value.Comp;
+
+        s.MutationChance *= _random.NextFloat(.5f, 1.5f);
+        s.MaxOffspring += _random.Next(-1, 2);
+        s.ExtractsProduced += _random.Next(0, 2);
+        s.MitosisHunger *= _random.NextFloat(.75f, 1.2f);
     }
 
     private void OnSlimeMapInit(Entity<SlimeComponent> slime, ref MapInitEvent args)
@@ -35,7 +65,6 @@ public partial class XenobiologySystem
         slime.Comp.NextUpdateTime = _gameTiming.CurTime + slime.Comp.UpdateInterval;
     }
 
-    // Checks slime entity hunger threshholds, if the threshhold required by SlimeComponent is met -> DoMitosis.
     private void UpdateMitosis()
     {
         var eligibleSlimes = new HashSet<Entity<SlimeComponent, MobGrowthComponent, HungerComponent>>();
@@ -72,21 +101,21 @@ public partial class XenobiologySystem
     /// <param name="parent">The original entity.</param>
     /// <param name="newEntityProto">The proto of the entity being spawned.</param>
     /// <param name="selectedBreed">The selected breed of the entity.</param>
-    public Entity<SlimeComponent>? SpawnSlime(EntityUid parent, EntProtoId newEntityProto, ProtoId<BreedPrototype> selectedBreed)
+    private Entity<SlimeComponent>? SpawnSlime(EntityUid parent, EntProtoId newEntityProto, ProtoId<BreedPrototype> selectedBreed)
     {
         if (Deleted(parent)
         || !_prototypeManager.TryIndex(selectedBreed, out var newBreed) || _net.IsClient)
             return null;
 
         var newEntityUid = SpawnNextToOrDrop(newEntityProto, parent, null, newBreed.Components);
-        if (!_slimeQuery.TryComp(newEntityUid, out var newSlime))
+        if (!TryComp<SlimeComponent>(newEntityUid, out var newSlime))
             return null;
 
         if (newSlime.ShouldHaveShader && newSlime.Shader != null)
             _appearance.SetData(newEntityUid, XenoSlimeVisuals.Shader, newSlime.Shader);
 
         _appearance.SetData(newEntityUid, XenoSlimeVisuals.Color, newSlime.SlimeColor);
-        _metaData.SetEntityName(newEntityUid, newBreed.BreedName);
+        _metaData.SetEntityName(newEntityUid, newBreed.LocalizedName);
 
         return new Entity<SlimeComponent>(newEntityUid, newSlime);
     }
@@ -110,10 +139,11 @@ public partial class XenobiologySystem
             var sl = SpawnSlime(ent, ent.Comp.DefaultSlimeProto, selectedBreed);
             if (sl.HasValue)
             {
-                sl.Value.Comp.Tamer = ent.Comp.Tamer;
-                sl.Value.Comp.MutationChance = ent.Comp.MutationChance;
-                sl.Value.Comp.MaxOffspring = ent.Comp.MaxOffspring;
-                sl.Value.Comp.ExtractsProduced = ent.Comp.ExtractsProduced;
+                var newSlime = sl.Value.Comp;
+                newSlime.Tamer = ent.Comp.Tamer;
+                newSlime.MutationChance = ent.Comp.MutationChance;
+                newSlime.MaxOffspring = ent.Comp.MaxOffspring;
+                newSlime.ExtractsProduced = ent.Comp.ExtractsProduced;
             }
         }
 

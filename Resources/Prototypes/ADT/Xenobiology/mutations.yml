@@ -1,7 +1,7 @@
 - type: breed
-  breedName: grey slime
+  breedName: breed-grey-xenoslime
   id: GreyMutation
-  producedExtract: GreySlimeExtract
+  producedExtract: ADTGreySlimeExtract
   components:
   - type: Slime
     breed: GreyMutation
@@ -15,9 +15,9 @@
     - MetalMutation
 
 - type: breed
-  breedName: orange slime
+  breedName: breed-orange-xenoslime
   id: OrangeMutation
-  producedExtract: OrangeSlimeExtract
+  producedExtract: ADTOrangeSlimeExtract
   components:
   - type: Slime
     slimeColor: "#FA6A0A"
@@ -31,9 +31,9 @@
     - RedMutation
 
 - type: breed
-  breedName: purple slime
+  breedName: breed-purple-xenoslime
   id: PurpleMutation
-  producedExtract: PurpleSlimeExtract
+  producedExtract: ADTPurpleSlimeExtract
   components:
   - type: Slime
     slimeColor: "#BF77F6"
@@ -47,9 +47,9 @@
     - GreenMutation
 
 - type: breed
-  breedName: blue slime
+  breedName: breed-blue-xenoslime
   id: BlueMutation
-  producedExtract: BlueSlimeExtract
+  producedExtract: ADTBlueSlimeExtract
   components:
   - type: Slime
     slimeColor: "#249FDE"
@@ -63,9 +63,9 @@
     - PinkMutation
 
 - type: breed
-  breedName: metal slime
+  breedName: breed-metal-xenoslime
   id: MetalMutation
-  producedExtract: MetalSlimeExtract
+  producedExtract: ADTMetalSlimeExtract
   components:
   - type: Slime
     slimeColor: "#6D758D"
@@ -81,9 +81,9 @@
     - GoldMutation
 
 - type: breed
-  breedName: yellow slime
+  breedName: breed-yellow-xenoslime
   id: YellowMutation
-  producedExtract: YellowSlimeExtract
+  producedExtract: ADTYellowSlimeExtract
   components:
   - type: Slime
     slimeColor: "#FFD541"
@@ -96,9 +96,9 @@
     - BluespaceMutation
 
 - type: breed
-  breedName: dark purple slime
+  breedName: breed-darkpurple-xenoslime
   id: DarkPurpleMutation
-  producedExtract: DarkPurpleSlimeExtract
+  producedExtract: ADTDarkPurpleSlimeExtract
   components:
   - type: Slime
     slimeColor: "#8e0ff0"
@@ -111,9 +111,9 @@
     - SepiaMutation
 
 - type: breed
-  breedName: dark blue slime
+  breedName: breed-darkblue-xenoslime
   id: DarkBlueMutation
-  producedExtract: DarkBlueSlimeExtract
+  producedExtract: ADTDarkBlueSlimeExtract
   components:
   - type: Slime
     slimeColor: "#3375F9"
@@ -126,9 +126,9 @@
     - CeruleanMutation
 
 - type: breed
-  breedName: silver slime
+  breedName: breed-silver-xenoslime
   id: SilverMutation
-  producedExtract: SilverSlimeExtract
+  producedExtract: ADTSilverSlimeExtract
   components:
   - type: Slime
     slimeColor: "#c4c4c4"
@@ -143,9 +143,9 @@
     - PyriteMutation
 
 - type: breed
-  breedName: bluespace slime
+  breedName: breed-bluespace-xenoslime
   id: BluespaceMutation
-  producedExtract: BluespaceSlimeExtract
+  producedExtract: ADTBluespaceSlimeExtract
   components:
   - type: Slime
     slimeColor: "#f0f8ff"
@@ -158,9 +158,9 @@
     - BluespaceMutation
 
 - type: breed
-  breedName: sepia slime
+  breedName: breed-sepia-xenoslime
   id: SepiaMutation
-  producedExtract: SepiaSlimeExtract
+  producedExtract: ADTSepiaSlimeExtract
   components:
   - type: Slime
     slimeColor: "#A08662"
@@ -173,9 +173,9 @@
     - SepiaMutation
 
 - type: breed
-  breedName: cerulean slime
+  breedName: breed-cerulean-xenoslime
   id: CeruleanMutation
-  producedExtract: CeruleanSlimeExtract
+  producedExtract: ADTCeruleanSlimeExtract
   components:
   - type: Slime
     slimeColor: "#2A52BE"
@@ -186,9 +186,9 @@
     - CeruleanMutation
 
 - type: breed
-  breedName: pyrite slime
+  breedName: breed-pyrite-xenoslime
   id: PyriteMutation
-  producedExtract: PyriteSlimeExtract
+  producedExtract: ADTPyriteSlimeExtract
   components:
   - type: Slime
     slimeColor: "#f5ff93"
@@ -201,9 +201,9 @@
     - PyriteMutation
 
 - type: breed
-  breedName: red slime
+  breedName: breed-red-xenoslime
   id: RedMutation
-  producedExtract: RedSlimeExtract
+  producedExtract: ADTRedSlimeExtract
   components:
   - type: Slime
     slimeColor: "#B4202A"
@@ -215,9 +215,9 @@
     - OilMutation
 
 - type: breed
-  breedName: green slime
+  breedName: breed-green-xenoslime
   id: GreenMutation
-  producedExtract: GreenSlimeExtract
+  producedExtract: ADTGreenSlimeExtract
   components:
   - type: Slime
     slimeColor: "#14A02E"
@@ -229,9 +229,9 @@
     - BlackMutation
 
 - type: breed
-  breedName: pink slime
+  breedName: breed-pink-xenoslime
   id: PinkMutation
-  producedExtract: PinkSlimeExtract
+  producedExtract: ADTPinkSlimeExtract
   components:
   - type: Slime
     slimeColor: "#ff33cc"
@@ -243,9 +243,9 @@
     - LightPinkMutation
 
 - type: breed
-  breedName: gold slime
+  breedName: breed-gold-xenoslime
   id: GoldMutation
-  producedExtract: GoldSlimeExtract
+  producedExtract: ADTGoldSlimeExtract
   components:
   - type: Slime
     slimeColor: "#e8b923"
@@ -259,9 +259,9 @@
     - AdamantineMutation
 
 - type: breed
-  breedName: oil slime
+  breedName: breed-oil-xenoslime
   id: OilMutation
-  producedExtract: OilSlimeExtract
+  producedExtract: ADTOilSlimeExtract
   components:
   - type: Slime
     slimeColor: "#383936"
@@ -274,9 +274,9 @@
     - OilMutation
 
 - type: breed
-  breedName: light pink slime
+  breedName: breed-lightpink-xenoslime
   id: LightPinkMutation
-  producedExtract: LightPinkSlimeExtract
+  producedExtract: ADTLightPinkSlimeExtract
   components:
   - type: Slime
     slimeColor: "#ffb3ec"
@@ -287,9 +287,9 @@
     - LightPinkMutation
 
 - type: breed
-  breedName: black slime
+  breedName: breed-black-xenoslime
   id: BlackMutation
-  producedExtract: BlackSlimeExtract
+  producedExtract: ADTBlackSlimeExtract
   components:
   - type: Slime
     slimeColor: "#000000"
@@ -300,9 +300,9 @@
     - BlackMutation
 
 - type: breed
-  breedName: adamantine slime
+  breedName: breed-adamantine-xenoslime
   id: AdamantineMutation
-  producedExtract: AdamantineSlimeExtract
+  producedExtract: ADTAdamantineSlimeExtract
   components:
   - type: Slime
     slimeColor: "#2B7A74"

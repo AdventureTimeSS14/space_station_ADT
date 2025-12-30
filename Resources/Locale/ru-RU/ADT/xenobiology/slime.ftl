@@ -1,8 +1,15 @@
-slime-action-latch-fail = The {$slime} fails to consume the {$target}!
-slime-action-latch-success = The {$slime} swallows the {$target} whole!
-slime-latch-attempt = The {$slime} begins to swallow the {$ent}!
+slime-action-latch-fail = {$slime} не смог поглотить {$target}
+slime-action-latch-success = {$slime} целиком проглатывает {$target}!
+slime-latch-attempt = {$slime} приступает к поглощению {$ent}
 
-slime-latch-fail-target-dead = You do not want to consume the {$ent}, it is dead!
-slime-latch-fail-max-entities = You cannot consume the {$ent}, you are full!
+slime-latch-fail-target-dead = Вы не хотите поглощать это существо, так как оно мертво
+slime-latch-fail-max-entities = Вы не можете поглотить это существо. Оно в вас не помещается
 
-slime-examined-text = [color=cyan]This slime contains {$num} entities.[/color]
+slime-examined-text = [color=cyan]Этот слайм поглотил { $num ->
+    [1] { $num } существо
+    [few] { $num } существа
+    *[other] { $num } существ
+}.[/color]
+
+slime-interaction-tame = Вы понравились слайму!
+slime-interaction-tame-fail = Слайм не заинтересован в вас!

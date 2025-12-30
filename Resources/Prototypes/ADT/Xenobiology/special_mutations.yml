@@ -1,7 +1,7 @@
 - type: breed
-  breedName: rainbow slime
+  breedName: breed-rainbow-xenoslime
   id: RainbowMutation
-  producedExtract: RainbowSlimeExtract
+  producedExtract: ADTRainbowSlimeExtract
   components:
   - type: Slime
     shouldHaveShader: true

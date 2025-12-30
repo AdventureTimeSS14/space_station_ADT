@@ -1,7 +1,8 @@
+# XenoVac и все его ипостасии
 
 - type: entity
   parent: [Clothing, ClothingSlotBase]
-  id: ClothingBackpackXenoBioTank
+  id: ADTClothingBackpackXenoBioTank
   name: xenovac containment tank
   description: Holds xenofauna. Sucks via the nozzle in your hands, and has a slot on the side for said spray nozzle.
   components:
@@ -44,17 +45,7 @@
           - XenoVacuum
 
 - type: entity
-  id: ClothingBackpackXenoBioTankFilled
-  parent: ClothingBackpackXenoBioTank
-  suffix: Filled
-  components:
-  - type: ContainerFill
-    containers:
-      item:
-      - WeaponXenoVacNozzle
-
-- type: entity
-  id: WeaponXenoVacNozzle
+  id: ADTWeaponXenoVacNozzle
   parent: BaseItem
   name: xenovac nozzle
   description: A high-powered vacuum nozzle used in conjunction with a backpack-mounted storage tank to store slimes.
@@ -69,8 +60,20 @@
   - type: XenoVacuum
 
 - type: entity
+  id: ADTClothingBackpackXenoBioTankFilled
+  parent: ADTClothingBackpackXenoBioTank
+  suffix: Filled
+  components:
+  - type: ContainerFill
+    containers:
+      item:
+      - ADTWeaponXenoVacNozzle
+
+# Анализатор слаймов и все его ипостасии
+
+- type: entity
   parent: BaseItem
-  id: HandheldSlimeAnalyzerUnpowered
+  id: ADTSlimeAnalyzerUnpowered
   name: slime analyzer
   description: "A special analytical instrument for obtaining accurate characteristics of slimes."
   components:
@@ -105,8 +108,8 @@
           False: { visible: false }
 
 - type: entity
-  id: HandheldSlimeAnalyzer
-  parent: [ HandheldSlimeAnalyzerUnpowered, PowerCellSlotSmallItem]
+  id: ADTSlimeAnalyzer
+  parent: [ ADTSlimeAnalyzerUnpowered, PowerCellSlotSmallItem]
   suffix: Powered
   components:
   - type: PowerCellDraw
@@ -115,8 +118,8 @@
   - type: ActivatableUIRequiresPowerCell
 
 - type: entity
-  id: HandheldSlimeAnalyzerEmpty
-  parent: HandheldSlimeAnalyzer
+  id: ADTSlimeAnalyzerEmpty
+  parent: ADTSlimeAnalyzer
   suffix: Empty
   components:
   - type: Sprite

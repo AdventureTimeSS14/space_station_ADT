@@ -12,6 +12,9 @@ public sealed partial class BreedPrototype : IPrototype
     [DataField(required: true)]
     public string BreedName = string.Empty;
 
+    [ViewVariables(VVAccess.ReadOnly)]
+    public string LocalizedName => Loc.GetString(BreedName);
+
     [DataField]
     public EntProtoId ProducedExtract = "GreySlimeExtract";
 

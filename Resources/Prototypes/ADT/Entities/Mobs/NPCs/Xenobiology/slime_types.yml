@@ -28,14 +28,213 @@
     - LightPinkMutation
     - BlackMutation
     - AdamantineMutation
-    - RainbowMutation
 
 - type: entity
   name: slime
-  id: ADTRandomBreedMobXenoSlime
+  id: ADTGreyBreedMobXenoSlime
   parent: ADTMobXenoSlime
   suffix: Grey
   description: It looks so much like jelly. I wonder what it tastes like?
   components:
   - type: PendingSlimeSpawn
     breed: GreyMutation
+
+- type: entity
+  name: slime
+  id: ADTOrangeBreedMobXenoSlime
+  parent: ADTMobXenoSlime
+  suffix: Orange
+  description: It looks so much like jelly. I wonder what it tastes like?
+  components:
+  - type: PendingSlimeSpawn
+    breed: OrangeMutation
+
+- type: entity
+  name: slime
+  id: ADTPurpleBreedMobXenoSlime
+  parent: ADTMobXenoSlime
+  suffix: Purple
+  description: It looks so much like jelly. I wonder what it tastes like?
+  components:
+  - type: PendingSlimeSpawn
+    breed: PurpleMutation
+
+- type: entity
+  name: slime
+  id: ADTBlueBreedMobXenoSlime
+  parent: ADTMobXenoSlime
+  suffix: Blue
+  description: It looks so much like jelly. I wonder what it tastes like?
+  components:
+  - type: PendingSlimeSpawn
+    breed: BlueMutation
+
+- type: entity
+  name: slime
+  id: ADTMetalBreedMobXenoSlime
+  parent: ADTMobXenoSlime
+  suffix: Metal
+  description: It looks so much like jelly. I wonder what it tastes like?
+  components:
+  - type: PendingSlimeSpawn
+    breed: MetalMutation
+
+- type: entity
+  name: slime
+  id: ADTYellowBreedMobXenoSlime
+  parent: ADTMobXenoSlime
+  suffix: Yellow
+  description: It looks so much like jelly. I wonder what it tastes like?
+  components:
+  - type: PendingSlimeSpawn
+    breed: YellowMutation
+
+- type: entity
+  name: slime
+  id: ADTDarkPurpleBreedMobXenoSlime
+  parent: ADTMobXenoSlime
+  suffix: DarkPurple
+  description: It looks so much like jelly. I wonder what it tastes like?
+  components:
+  - type: PendingSlimeSpawn
+    breed: DarkPurpleMutation
+
+- type: entity
+  name: slime
+  id: ADTDarkBlueBreedMobXenoSlime
+  parent: ADTMobXenoSlime
+  suffix: DarkBlue
+  description: It looks so much like jelly. I wonder what it tastes like?
+  components:
+  - type: PendingSlimeSpawn
+    breed: DarkBlueMutation
+
+- type: entity
+  name: slime
+  id: ADTSilverBreedMobXenoSlime
+  parent: ADTMobXenoSlime
+  suffix: Silver
+  description: It looks so much like jelly. I wonder what it tastes like?
+  components:
+  - type: PendingSlimeSpawn
+    breed: SilverMutation
+
+- type: entity
+  name: slime
+  id: ADTBluespaceBreedMobXenoSlime
+  parent: ADTMobXenoSlime
+  suffix: Bluespace
+  description: It looks so much like jelly. I wonder what it tastes like?
+  components:
+  - type: PendingSlimeSpawn
+    breed: BluespaceMutation
+
+- type: entity
+  name: slime
+  id: ADTSepiaBreedMobXenoSlime
+  parent: ADTMobXenoSlime
+  suffix: Sepia
+  description: It looks so much like jelly. I wonder what it tastes like?
+  components:
+  - type: PendingSlimeSpawn
+    breed: SepiaMutation
+
+- type: entity
+  name: slime
+  id: ADTCeruleanBreedMobXenoSlime
+  parent: ADTMobXenoSlime
+  suffix: Cerulean
+  description: It looks so much like jelly. I wonder what it tastes like?
+  components:
+  - type: PendingSlimeSpawn
+    breed: CeruleanMutation
+
+- type: entity
+  name: slime
+  id: ADTPyriteBreedMobXenoSlime
+  parent: ADTMobXenoSlime
+  suffix: Pyrite
+  description: It looks so much like jelly. I wonder what it tastes like?
+  components:
+  - type: PendingSlimeSpawn
+    breed: PyriteMutation
+
+- type: entity
+  name: slime
+  id: ADTRedBreedMobXenoSlime
+  parent: ADTMobXenoSlime
+  suffix: Red
+  description: It looks so much like jelly. I wonder what it tastes like?
+  components:
+  - type: PendingSlimeSpawn
+    breed: RedMutation
+
+- type: entity
+  name: slime
+  id: ADTGreenBreedMobXenoSlime
+  parent: ADTMobXenoSlime
+  suffix: Green
+  description: It looks so much like jelly. I wonder what it tastes like?
+  components:
+  - type: PendingSlimeSpawn
+    breed: GreenMutation
+
+- type: entity
+  name: slime
+  id: ADTPinkBreedMobXenoSlime
+  parent: ADTMobXenoSlime
+  suffix: Pink
+  description: It looks so much like jelly. I wonder what it tastes like?
+  components:
+  - type: PendingSlimeSpawn
+    breed: PinkMutation
+
+- type: entity
+  name: slime
+  id: ADTGoldBreedMobXenoSlime
+  parent: ADTMobXenoSlime
+  suffix: Gold
+  description: It looks so much like jelly. I wonder what it tastes like?
+  components:
+  - type: PendingSlimeSpawn
+    breed: GoldMutation
+
+- type: entity
+  name: slime
+  id: ADTOilBreedMobXenoSlime
+  parent: ADTMobXenoSlime
+  suffix: Oil
+  description: It looks so much like jelly. I wonder what it tastes like?
+  components:
+  - type: PendingSlimeSpawn
+    breed: OilMutation
+
+- type: entity
+  name: slime
+  id: ADTLightPinkBreedMobXenoSlime
+  parent: ADTMobXenoSlime
+  suffix: LightPink
+  description: It looks so much like jelly. I wonder what it tastes like?
+  components:
+  - type: PendingSlimeSpawn
+    breed: LightPinkMutation
+
+- type: entity
+  name: slime
+  id: ADTBlackBreedMobXenoSlime
+  parent: ADTMobXenoSlime
+  suffix: Black
+  description: It looks so much like jelly. I wonder what it tastes like?
+  components:
+  - type: PendingSlimeSpawn
+    breed: BlackMutation
+
+- type: entity
+  name: slime
+  id: ADTAdamantineBreedMobXenoSlime
+  parent: ADTMobXenoSlime
+  suffix: Adamantine
+  description: It looks so much like jelly. I wonder what it tastes like?
+  components:
+  - type: PendingSlimeSpawn
+    breed: AdamantineMutation

@@ -17,17 +17,17 @@
 - type: shader
   id: XenoMetallic
   kind: source
-  path: "/Textures/ADT/Xenobiology/Shaders/xeno_metallic.swsl"
+  path: "/Textures/ADT/Shaders/xeno_metallic.swsl"
 
 - type: shader
   id: XenoSepia
   kind: source
-  path: "/Textures/ADT/Xenobiology/Shaders/xeno_sepia.swsl"
+  path: "/Textures/ADT/Shaders/xeno_sepia.swsl"
 
 - type: shader
   id: XenoBluespace
   kind: source
-  path: "/Textures/ADT/Xenobiology/Shaders/xeno_bluespace.swsl"
+  path: "/Textures/ADT/Shaders/xeno_bluespace.swsl"
 
 - type: shader
   id: Rainbow2

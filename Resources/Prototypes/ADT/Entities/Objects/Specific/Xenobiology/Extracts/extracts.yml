@@ -1,5 +1,5 @@
 - type: entity
-  id: BaseSlimeExtract
+  id: ADTBaseSlimeExtract
   parent: BaseItem
   name: slime extract
   description:
@@ -26,8 +26,8 @@
     oneUnitReaction: true
 
 - type: entity
-  id: GreySlimeExtract
-  parent: BaseSlimeExtract
+  id: ADTGreySlimeExtract
+  parent: ADTBaseSlimeExtract
   name: grey slime extract
   description:
   components:
@@ -72,8 +72,8 @@
     - XenobiologyGreyExtract
 
 - type: entity
-  id: OrangeSlimeExtract
-  parent: BaseSlimeExtract
+  id: ADTOrangeSlimeExtract
+  parent: ADTBaseSlimeExtract
   name: orange slime extract
   description:
   components:
@@ -125,8 +125,8 @@
     - XenobiologyOrangeExtract
 
 - type: entity
-  id: PurpleSlimeExtract
-  parent: BaseSlimeExtract
+  id: ADTPurpleSlimeExtract
+  parent: ADTBaseSlimeExtract
   name: purple slime extract
   description:
   components:
@@ -134,7 +134,7 @@
     layers:
     - sprite: ADT/Xenobiology/Specific/Xenobiology/extract.rsi
       state: core
-      color: "#BC4A9B"
+      color: "#BF77F6"
   - type: Reactive
     isReactionsUnlimited: false
     oneUnitReaction: true
@@ -171,8 +171,8 @@
     - XenobiologyPurpleExtract
 
 - type: entity
-  id: BlueSlimeExtract
-  parent: BaseSlimeExtract
+  id: ADTBlueSlimeExtract
+  parent: ADTBaseSlimeExtract
   name: blue slime extract
   description:
   components:
@@ -219,8 +219,8 @@
     - XenobiologyBlueExtract
 
 - type: entity
-  id: MetalSlimeExtract
-  parent: BaseSlimeExtract
+  id: ADTMetalSlimeExtract
+  parent: ADTBaseSlimeExtract
   name: metal slime extract
   description:
   components:
@@ -272,8 +272,8 @@
     - XenobiologyMetalExtract
 
 - type: entity
-  id: YellowSlimeExtract
-  parent: BaseSlimeExtract
+  id: ADTYellowSlimeExtract
+  parent: ADTBaseSlimeExtract
   name: yellow slime extract
   description:
   components:
@@ -281,7 +281,7 @@
     layers:
     - sprite: ADT/Xenobiology/Specific/Xenobiology/extract.rsi
       state: core
-      color: "#ffff1a"
+      color: "#FFD541"
   - type: Reactive
     isReactionsUnlimited: false
     oneUnitReaction: true
@@ -316,8 +316,8 @@
     - XenobiologyYellowExtract
 
 - type: entity
-  id: DarkPurpleSlimeExtract
-  parent: BaseSlimeExtract
+  id: ADTDarkPurpleSlimeExtract
+  parent: ADTBaseSlimeExtract
   name: dark purple slime extract
   description:
   components:
@@ -325,7 +325,7 @@
     layers:
     - sprite: ADT/Xenobiology/Specific/Xenobiology/extract.rsi
       state: core
-      color: "#793A80"
+      color: "#8e0ff0"
   - type: Reactive
     isReactionsUnlimited: false
     oneUnitReaction: true
@@ -360,8 +360,8 @@
     - XenobiologyDarkPurpleExtract
 
 - type: entity
-  id: DarkBlueSlimeExtract
-  parent: BaseSlimeExtract
+  id: ADTDarkBlueSlimeExtract
+  parent: ADTBaseSlimeExtract
   name: dark blue slime extract
   description:
   components:
@@ -406,8 +406,8 @@
     - XenobiologyDarkBlueExtract
 
 - type: entity
-  id: SilverSlimeExtract
-  parent: BaseSlimeExtract
+  id: ADTSilverSlimeExtract
+  parent: ADTBaseSlimeExtract
   name: silver slime extract
   description:
   components:
@@ -415,7 +415,7 @@
     layers:
     - sprite: ADT/Xenobiology/Specific/Xenobiology/extract.rsi
       state: core
-      color: "#8B93AF"
+      color: "#c4c4c4"
       shader: XenoMetallic
   - type: Reactive
     isReactionsUnlimited: false
@@ -453,8 +453,8 @@
     - XenobiologySilverExtract
 
 - type: entity
-  id: BluespaceSlimeExtract
-  parent: BaseSlimeExtract
+  id: ADTBluespaceSlimeExtract
+  parent: ADTBaseSlimeExtract
   name: bluespace slime extract
   description:
   components:
@@ -496,8 +496,8 @@
     - XenobiologyBluespaceExtract
 
 - type: entity
-  id: SepiaSlimeExtract
-  parent: BaseSlimeExtract
+  id: ADTSepiaSlimeExtract
+  parent: ADTBaseSlimeExtract
   name: sepia slime extract
   description:
   components:
@@ -548,8 +548,8 @@
     - XenobiologySepiaExtract
 
 - type: entity
-  id: CeruleanSlimeExtract
-  parent: BaseSlimeExtract
+  id: ADTCeruleanSlimeExtract
+  parent: ADTBaseSlimeExtract
   name: cerulean slime extract
   description:
   components:
@@ -588,8 +588,8 @@
     - XenobiologyCeruleanExtract
 
 - type: entity
-  id: PyriteSlimeExtract
-  parent: BaseSlimeExtract
+  id: ADTPyriteSlimeExtract
+  parent: ADTBaseSlimeExtract
   name: pyrite slime extract
   description:
   components:
@@ -597,7 +597,7 @@
     layers:
     - sprite: ADT/Xenobiology/Specific/Xenobiology/extract.rsi
       state: core
-      color: "#dcaa4f"
+      color: "#f5ff93"
       shader: XenoMetallic
   - type: SlimeExtract
   - type: Tag
@@ -607,8 +607,8 @@
 # Tier 3
 
 - type: entity
-  id: RedSlimeExtract
-  parent: BaseSlimeExtract
+  id: ADTRedSlimeExtract
+  parent: ADTBaseSlimeExtract
   name: red slime extract
   description:
   components:
@@ -623,8 +623,8 @@
     - XenobiologyRedExtract
 
 - type: entity
-  id: GreenSlimeExtract
-  parent: BaseSlimeExtract
+  id: ADTGreenSlimeExtract
+  parent: ADTBaseSlimeExtract
   name: green slime extract
   description:
   components:
@@ -675,8 +675,8 @@
     - XenobiologyGreenExtract
 
 - type: entity
-  id: PinkSlimeExtract
-  parent: BaseSlimeExtract
+  id: ADTPinkSlimeExtract
+  parent: ADTBaseSlimeExtract
   name: pink slime extract
   description:
   components:
@@ -684,7 +684,7 @@
     layers:
     - sprite: ADT/Xenobiology/Specific/Xenobiology/extract.rsi
       state: core
-      color: "#F5A097"
+      color: "#ff33cc"
   - type: Reactive
     isReactionsUnlimited: false
     oneUnitReaction: true
@@ -725,8 +725,8 @@
     - XenobiologyPinkExtract
 
 - type: entity
-  id: GoldSlimeExtract
-  parent: BaseSlimeExtract
+  id: ADTGoldSlimeExtract
+  parent: ADTBaseSlimeExtract
   name: gold slime extract
   description:
   components:
@@ -772,8 +772,8 @@
 # Tier 4
 
 - type: entity
-  id: OilSlimeExtract
-  parent: BaseSlimeExtract
+  id: ADTOilSlimeExtract
+  parent: ADTBaseSlimeExtract
   name: oil slime extract
   description:
   components:
@@ -790,7 +790,7 @@
 
 - type: entity
   id: LightPinkSlimeExtract
-  parent: BaseSlimeExtract
+  parent: ADTBaseSlimeExtract
   name: light pink slime extract
   description:
   components:
@@ -798,7 +798,7 @@
     layers:
     - sprite: ADT/Xenobiology/Specific/Xenobiology/extract.rsi
       state: core
-      color: "#E9B5A3"
+      color: "#ffb3ec"
   - type: Reactive
     isReactionsUnlimited: false
     oneUnitReaction: true
@@ -835,8 +835,8 @@
     - XenobiologyLightPinkExtract
 
 - type: entity
-  id: BlackSlimeExtract
-  parent: BaseSlimeExtract
+  id: ADTBlackSlimeExtract
+  parent: ADTBaseSlimeExtract
   name: black slime extract
   description:
   components:
@@ -870,8 +870,8 @@
     - XenobiologyBlackExtract
 
 - type: entity
-  id: AdamantineSlimeExtract
-  parent: BaseSlimeExtract
+  id: ADTAdamantineSlimeExtract
+  parent: ADTBaseSlimeExtract
   name: adamantine slime extract
   description:
   components:
@@ -909,8 +909,8 @@
     - XenobiologyAdamantineExtract
 
 - type: entity
-  id: RainbowSlimeExtract
-  parent: BaseSlimeExtract
+  id: ADTRainbowSlimeExtract
+  parent: ADTBaseSlimeExtract
   name: rainbow slime extract
   description:
   components:

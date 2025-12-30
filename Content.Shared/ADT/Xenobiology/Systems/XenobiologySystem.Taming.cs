@@ -8,22 +8,30 @@ namespace Content.Shared.ADT.Xenobiology.Systems;
 /// </summary>
 public sealed partial class XenobiologySystem
 {
-    private void InitializeTaming() =>
+    private void InitializeTaming()
+    {
         SubscribeLocalEvent<SlimeComponent, InteractionSuccessEvent>(OnTame);
+    }
 
     private void OnTame(Entity<SlimeComponent> ent, ref InteractionSuccessEvent args)
     {
-        if (ent.Comp.Tamer.HasValue
-            || _net.IsClient)
+        if (_net.IsClient)
             return;
+
+        if (ent.Comp.Tamer.HasValue)
+        {
+            _popup.PopupEntity(Loc.GetString("slime-interaction-tame-fail"), args.User, args.User);
+            return;
+        }
 
         var (slime, comp) = ent;
         var coords = Transform(slime).Coordinates;
-        var user = args.User;
 
-        // Hearts VFX - Slime taming is seperate to core Pettable Component/System
         Spawn(ent.Comp.TameEffect, coords);
-        comp.Tamer = user;
+        comp.Tamer = args.User;
+
+        _popup.PopupEntity(Loc.GetString("slime-interaction-tame"), args.User, args.User);
+
         Dirty(ent);
     }
 }

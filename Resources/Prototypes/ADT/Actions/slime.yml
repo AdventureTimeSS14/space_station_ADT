@@ -1,6 +1,6 @@
 - type: entity
+  parent: BaseAction
   id: ActionSlimeHair
-  categories: [ HideSpawnMenu ]
   components:
   - type: Action
     icon:
@@ -12,6 +12,7 @@
     event: !type:MidroundCustomizationActionEvent
 
 - type: entity
+  parent: BaseAction
   id: SlimeLatch
   name: Latch
   description: Latches onto a target, slowly consuming their flesh.
@@ -19,7 +20,7 @@
   - type: Action
     itemIconStyle: NoItem
     icon:
-      sprite: ADT/Xenobiology/Actions/actions_slime.rsi
+      sprite: ADT/Actions/actions_xenoslime.rsi
       state: slimeeat
     useDelay: 3
   - type: TargetAction

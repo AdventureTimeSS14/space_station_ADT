@@ -8,4 +8,4 @@ xenobiology-console-reward-label = Начисление: [color=purple]{ $reward
 xenobiology-console-refresh-label = {"   "}Следующее обновление запросов через: [color=orange]{$time}[/color]
 
 xenobiology-console-flavor-left = Порядок в отделе начинается со слайма в загоне.
-xenobiology-console-flavor-right = v210.19
+xenobiology-console-flavor-right = 14.11.2022

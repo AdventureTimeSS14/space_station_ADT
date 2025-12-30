@@ -21,7 +21,7 @@ public sealed partial class SlimeComponent : Component
     public ProtoId<BreedPrototype> Breed = "GreyMutation";
 
     [DataField]
-    public EntProtoId DefaultExtract = "GreySlimeExtract";
+    public EntProtoId DefaultExtract = "ADTGreySlimeExtract";
 
     [DataField, AutoNetworkedField]
     public HashSet<ProtoId<BreedPrototype>> PotentialMutations = new();
