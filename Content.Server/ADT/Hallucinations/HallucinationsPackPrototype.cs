@@ -1,4 +1,6 @@
+using Content.Shared.Destructible.Thresholds;
 using Content.Shared.Popups;
+using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.ADT.Shizophrenia;
@@ -20,4 +22,13 @@ public sealed partial class HallucinationsPackPrototype : IPrototype
 
     [DataField]
     public PopupType MessageType = PopupType.MediumCaution;
+
+    [DataField]
+    public SoundSpecifier? Music;
+
+    [DataField]
+    public float MusicDurationThreshold = 1f;
+
+    [DataField]
+    public MinMax? MusicPlayInterval;
 }
