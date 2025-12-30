@@ -1,4 +1,4 @@
-using System.Linq;
+﻿using System.Linq;
 using Content.Client.ADT.Shizophrenia;
 using Content.Shared.Examine;
 using Content.Shared.GameTicking;
@@ -26,7 +26,7 @@ public sealed partial class PopupSystem : SharedPopupSystem
     [Dependency] private IReplayRecordingManager _replayRecording = default!;
     [Dependency] private ExamineSystemShared _examine = default!;
     [Dependency] private SharedTransformSystem _transform = default!;
-    [Dependency] private ShizophreniaSystem _schiz = default!; // ADT-Tweak - hallucinations
+    [Dependency] private SchizophreniaSystem _schiz = default!; // ADT-Tweak - hallucinations
 
     public IReadOnlyCollection<WorldPopupLabel> WorldLabels => _aliveWorldLabels.Values;
     public IReadOnlyCollection<CursorPopupLabel> CursorLabels => _aliveCursorLabels.Values;
