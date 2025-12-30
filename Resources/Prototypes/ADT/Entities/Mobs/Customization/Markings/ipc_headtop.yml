@@ -1,6 +1,6 @@
 - type: marking
   speciesRestriction: [IPC]
-  id: RobotHeadWires
+  id: ADTIPCHeaptopWires
   bodyPart: Head
   markingCategory: HeadTop
   sprites:

@@ -1,0 +1,23 @@
+- type: marking
+  speciesRestriction: [IPC]
+  id: ADTIPCPartChestCore
+  bodyPart: Chest
+  markingCategory: Chest
+  sprites:
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_parts.rsi
+      state: chest_core
+
+- type: marking
+  speciesRestriction: [IPC]
+  id: ADTIPCPartChestDefaultLines
+  bodyPart: Chest
+  markingCategory: Chest
+  sprites:
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_parts.rsi
+      state: chest_line_prime
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_parts.rsi
+      state: chest_line_second
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_parts.rsi
+      state: chest_line_third
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_parts.rsi
+      state: chest_line_fourth
