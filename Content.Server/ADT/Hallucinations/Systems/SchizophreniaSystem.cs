@@ -3,6 +3,7 @@ using Content.Server.Chat.Managers;
 using Content.Server.Chat.Systems;
 using Content.Server.Popups;
 using Content.Server.Speech;
+using Content.Shared.ADT.Shizophrenia;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;
 using Robust.Server.GameStates;
@@ -51,27 +52,86 @@ public sealed partial class SchizophreniaSystem : EntitySystem
 
             comp.NextUpdate = _timing.CurTime + TimeSpan.FromSeconds(0.5f);
 
-            // Handle remove timers
-            foreach (var item in new Dictionary<string, TimeSpan>(comp.Removes))
-            {
-                if (item.Value <= _timing.CurTime)
-                {
-                    comp.Hallucinations.Remove(item.Key);
-                    comp.Removes.Remove(item.Key);
-                    EntityManager.RemoveComponents(uid, _proto.Index<HallucinationsPackPrototype>(item.Key).Components);
-                }
-            }
+            UpdateMusic(uid, comp);
 
-            // If there is no hallucinations, remove component
-            if (comp.Hallucinations.Count <= 0)
-            {
-                RemComp(uid, comp);
+            if (!UpdateRemoving(uid, comp))
                 continue;
-            }
 
-            // Hallucinate
-            foreach (var item in comp.Hallucinations)
-                item.Value?.TryPerform(uid, EntityManager, _random, _timing.CurTime);
+            UpdateEffects(uid, comp);
+        }
+    }
+
+    private bool UpdateRemoving(EntityUid uid, HallucinatingComponent comp)
+    {
+        // Handle remove timers
+        foreach (var item in new Dictionary<string, TimeSpan>(comp.Removes))
+        {
+            if (item.Value <= _timing.CurTime)
+            {
+                comp.Hallucinations.Remove(item.Key);
+                comp.Removes.Remove(item.Key);
+                EntityManager.RemoveComponents(uid, _proto.Index<HallucinationsPackPrototype>(item.Key).Components);
+
+                if (!TryComp<HallucinationsMusicComponent>(uid, out var musicComp) ||
+                    !musicComp.Music.ContainsKey(item.Key))
+                    continue;
+
+                musicComp.Music.Remove(item.Key);
+
+                if (musicComp.Music.Count > 0)
+                    Dirty(uid, musicComp);
+                else
+                    RemComp(uid, musicComp);
+            }
+        }
+
+        // If there is no hallucinations, remove component
+        if (comp.Hallucinations.Count <= 0)
+        {
+            RemComp(uid, comp);
+            return false;
+        }
+
+        return true;
+    }
+
+    private void UpdateEffects(EntityUid uid, HallucinatingComponent comp)
+    {
+        // Hallucinate
+        foreach (var item in comp.Hallucinations)
+            item.Value?.TryPerform(uid, EntityManager, _random, _timing.CurTime);
+    }
+
+    private void UpdateMusic(EntityUid uid, HallucinatingComponent comp)
+    {
+        // Hallucinate
+        foreach (var item in comp.Hallucinations)
+        {
+            var proto = _proto.Index<HallucinationsPackPrototype>(item.Key);
+            if (proto.Music == null)
+                continue;
+
+            if (comp.Removes.TryGetValue(item.Key, out var removeTime) &&
+                (removeTime - _timing.CurTime).TotalSeconds < proto.MusicDurationThreshold)
+            {
+                if (!TryComp<HallucinationsMusicComponent>(uid, out var musicComp) ||
+                    !musicComp.Music.ContainsKey(item.Key))
+                    continue;
+
+                musicComp.Music.Remove(item.Key);
+
+                if (musicComp.Music.Count > 0)
+                    Dirty(uid, musicComp);
+                else
+                    RemComp(uid, musicComp);
+            }
+            else if (!TryComp<HallucinationsMusicComponent>(uid, out var musicComp) ||
+                    !musicComp.Music.ContainsKey(item.Key))
+            {
+                musicComp = EnsureComp<HallucinationsMusicComponent>(uid);
+                musicComp.Music.Add(item.Key, new(proto.Music, proto.MusicPlayInterval));
+                Dirty(uid, musicComp);
+            }
         }
     }
 }

@@ -18,5 +18,11 @@ public sealed partial class HallucinatingComponent : Component
     [ViewVariables(VVAccess.ReadWrite)]
     public Dictionary<string, TimeSpan> Removes = new();
 
+    /// <summary>
+    /// Hallucinations music
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    public List<string> Music = new();
+
     public TimeSpan NextUpdate = TimeSpan.Zero;
 }

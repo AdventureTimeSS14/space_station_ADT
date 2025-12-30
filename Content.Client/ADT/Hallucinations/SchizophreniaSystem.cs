@@ -1,5 +1,6 @@
 using System.Linq;
 using System.Numerics;
+using Content.Client.Audio;
 using Content.Shared.ADT.Shizophrenia;
 using Content.Shared.Humanoid;
 using Content.Shared.Mobs.Components;
@@ -8,7 +9,9 @@ using Content.Shared.StatusIcon.Components;
 using Robust.Client.Audio;
 using Robust.Client.GameObjects;
 using Robust.Client.Player;
+using Robust.Shared.Audio;
 using Robust.Shared.Map;
+using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
@@ -24,6 +27,7 @@ public sealed class SchizophreniaSystem : EntitySystem
     [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly SpriteSystem _sprite = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
+    [Dependency] private readonly ContentAudioSystem _contentAudio = default!;
 
     private Dictionary<NetEntity, TimeSpan> _layers = new();
 
@@ -32,7 +36,14 @@ public sealed class SchizophreniaSystem : EntitySystem
         base.Initialize();
 
         SubscribeNetworkEvent<SetHallucinationAppearanceMessage>(OnAppearanceMessage);
+
         SubscribeLocalEvent<SchizophreniaComponent, GetStatusIconsEvent>(OnGetStatusIcons);
+
+        SubscribeLocalEvent<HallucinationsMusicComponent, MapInitEvent>(OnMusicInit);
+        SubscribeLocalEvent<HallucinationsMusicComponent, ComponentShutdown>(OnMusicShutdown);
+        SubscribeLocalEvent<HallucinationsMusicComponent, LocalPlayerAttachedEvent>(OnMusicAttach);
+        SubscribeLocalEvent<HallucinationsMusicComponent, LocalPlayerDetachedEvent>(OnMusicDetach);
+        SubscribeLocalEvent<HallucinationsMusicComponent, AfterAutoHandleStateEvent>(OnMusicHandleState);
     }
 
     private void OnAppearanceMessage(SetHallucinationAppearanceMessage args)
@@ -77,6 +88,70 @@ public sealed class SchizophreniaSystem : EntitySystem
             args.StatusIcons.Add(_prototypeManager.Index<FactionIconPrototype>("ShizophrenicIcon"));
     }
 
+    private void OnMusicInit(Entity<HallucinationsMusicComponent> ent, ref MapInitEvent args)
+    {
+        if (_player.LocalEntity != ent.Owner)
+            return;
+
+        foreach (var item in ent.Comp.Music)
+        {
+            if (ent.Comp.ActiveMusic.ContainsKey(item.Key) || ent.Comp.NextMusic.ContainsKey(item.Key))
+                continue;
+
+            ent.Comp.NextMusic[item.Key] = _timing.CurTime + TimeSpan.FromSeconds(10f);
+        }
+    }
+
+    private void OnMusicShutdown(Entity<HallucinationsMusicComponent> ent, ref ComponentShutdown args)
+    {
+        if (_player.LocalEntity != ent.Owner)
+            return;
+
+        foreach (var item in ent.Comp.ActiveMusic)
+        {
+            _contentAudio.FadeOut(item.Value, duration: 5f);
+        }
+    }
+
+    private void OnMusicAttach(Entity<HallucinationsMusicComponent> ent, ref LocalPlayerAttachedEvent args)
+    {
+        foreach (var item in ent.Comp.Music)
+        {
+            if (ent.Comp.ActiveMusic.ContainsKey(item.Key) || ent.Comp.NextMusic.ContainsKey(item.Key))
+                continue;
+
+            ent.Comp.NextMusic[item.Key] = _timing.CurTime + TimeSpan.FromSeconds(item.Value.Delay.HasValue ? item.Value.Delay.Value.Next(_random) : 10f);
+        }
+    }
+
+    private void OnMusicDetach(Entity<HallucinationsMusicComponent> ent, ref LocalPlayerDetachedEvent args)
+    {
+        foreach (var item in ent.Comp.ActiveMusic)
+        {
+            _contentAudio.FadeOut(item.Value, duration: 1f);
+        }
+    }
+
+    private void OnMusicHandleState(Entity<HallucinationsMusicComponent> ent, ref AfterAutoHandleStateEvent args)
+    {
+        if (_player.LocalEntity != ent.Owner)
+            return;
+
+        foreach (var item in ent.Comp.Music)
+        {
+            if (ent.Comp.ActiveMusic.ContainsKey(item.Key) || ent.Comp.NextMusic.ContainsKey(item.Key))
+                continue;
+
+            ent.Comp.NextMusic[item.Key] = _timing.CurTime + TimeSpan.FromSeconds(10f);
+        }
+
+        foreach (var item in ent.Comp.ActiveMusic)
+        {
+            if (!ent.Comp.Music.ContainsKey(item.Key))
+                _contentAudio.FadeOut(item.Value, duration: 8f);
+        }
+    }
+
     public bool CanSee(EntityUid target)
     {
         if (!HasComp<HallucinationsRemoveMobsComponent>(_player.LocalEntity))
@@ -94,6 +169,33 @@ public sealed class SchizophreniaSystem : EntitySystem
         return false;
     }
 
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+
+        if (!TryComp<HallucinationsMusicComponent>(_player.LocalEntity, out var comp))
+            return;
+
+        foreach (var item in comp.NextMusic.ToDictionary())
+        {
+            if (item.Value > _timing.CurTime)
+                continue;
+
+            if (!comp.Music.TryGetValue(item.Key, out var music))
+                continue;
+
+            if (music.Delay.HasValue)
+                comp.NextMusic[item.Key] = _timing.CurTime + TimeSpan.FromSeconds(music.Delay.Value.Next(_random));
+            else
+                comp.NextMusic.Remove(item.Key);
+
+            var mus = _audio.PlayGlobal(music.Sound, _player.LocalEntity.Value, AudioParams.Default.WithLoop(music.Delay == null));
+            if (!mus.HasValue)
+                continue;
+
+            comp.ActiveMusic[item.Key] = mus.Value.Entity;
+        }
+    }
 
     public override void FrameUpdate(float frameTime)
     {
