@@ -175,3 +175,9 @@
   path: "/Textures/ADT/Shaders/ghost_body.swsl"
   params:
     visibility: 0.55
+
+# ADT
+- type: shader
+  id: HueShift
+  kind: source
+  path: "/Textures/ADT/Shaders/hue_shift.swsl"
