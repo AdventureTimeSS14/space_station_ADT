@@ -31,7 +31,7 @@ namespace Content.Client.Popups
         [Dependency] private readonly IReplayRecordingManager _replayRecording = default!;
         [Dependency] private readonly ExamineSystemShared _examine = default!;
         [Dependency] private readonly SharedTransformSystem _transform = default!;
-        [Dependency] private readonly ShizophreniaSystem _schiz = default!; // ADT-Tweak - hallucinations
+        [Dependency] private readonly SchizophreniaSystem _schiz = default!; // ADT-Tweak - hallucinations
 
         public IReadOnlyCollection<WorldPopupLabel> WorldLabels => _aliveWorldLabels.Values;
         public IReadOnlyCollection<CursorPopupLabel> CursorLabels => _aliveCursorLabels.Values;

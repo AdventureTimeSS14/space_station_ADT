@@ -15,7 +15,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Client.ADT.Shizophrenia;
 
-public sealed class ShizophreniaSystem : EntitySystem
+public sealed class SchizophreniaSystem : EntitySystem
 {
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
