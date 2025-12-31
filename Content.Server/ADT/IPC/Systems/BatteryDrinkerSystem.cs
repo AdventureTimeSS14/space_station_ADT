@@ -9,6 +9,7 @@ using Robust.Shared.Utility;
 using Content.Server.ADT.Silicon.Charge;
 using Content.Server.Power.EntitySystems;
 using Content.Server.Popups;
+using Content.Shared.Power.Components;
 
 namespace Content.Server.ADT.Power;
 
@@ -132,9 +133,9 @@ public sealed class BatteryDrinkerSystem : EntitySystem
             return;
         }
 
-        if (_battery.TryUseCharge(source, amountToDrink, sourceBattery))
+        if (_battery.TryUseCharge(source, amountToDrink))
         {
-            _battery.SetCharge(drinkerBatteryUid, drinkerBattery.CurrentCharge + amountToDrink, drinkerBattery);
+            _battery.SetCharge(drinkerBatteryUid, drinkerBattery.CurrentCharge + amountToDrink);
             if (drinkerBattery.CurrentCharge < drinkerBattery.MaxCharge * 0.95f)
             {
                 args.Repeat = true;
@@ -148,8 +149,8 @@ public sealed class BatteryDrinkerSystem : EntitySystem
 
         else
         {
-            _battery.SetCharge(drinker, sourceBattery.CurrentCharge + drinkerBattery.CurrentCharge, drinkerBattery);
-            _battery.SetCharge(source, 0, sourceBattery);
+            _battery.SetCharge(drinker, sourceBattery.CurrentCharge + drinkerBattery.CurrentCharge);
+            _battery.SetCharge(source, 0);
             args.Repeat = false;
         }
     }

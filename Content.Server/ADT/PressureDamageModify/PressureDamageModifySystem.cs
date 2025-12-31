@@ -10,6 +10,7 @@ using Content.Shared.Weapons.Melee.Events;
 using System.Linq;
 using Content.Server.Atmos.EntitySystems;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 
 namespace Content.Server.ADT.PressureDamageModify;
 

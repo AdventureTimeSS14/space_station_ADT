@@ -6,11 +6,12 @@ using Content.Shared.Mind.Components;
 //ADT-Tweak-End
 using Content.Shared.Movement.Events;
 using Content.Shared.StepTrigger.Systems;
+using Content.Shared.Weapons.Misc;
+using Robust.Shared.Network;
 //ADT-Tweak-Start
 //using Robust.Shared.Audio;
 //using Robust.Shared.Audio.Systems;
 //ADT-Tweak-End
-using Robust.Shared.Network;
 //using Robust.Shared.Physics.Components; ADT-Tweak
 using Robust.Shared.Timing;
 using Content.Shared.ADT.Chasm; //ADT-Tweak
@@ -25,6 +26,7 @@ public sealed class ChasmSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly ActionBlockerSystem _blocker = default!;
     [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private readonly SharedGrapplingGunSystem _grapple = default!;
     //ADT-Tweak-Start
     //[Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedTransformSystem _xform = default!;
@@ -142,6 +144,12 @@ public sealed class ChasmSystem : EntitySystem
 
     private void OnStepTriggerAttempt(EntityUid uid, ChasmComponent component, ref StepTriggerAttemptEvent args)
     {
+        if (_grapple.IsEntityHooked(args.Tripper))
+        {
+            args.Cancelled = true;
+            return;
+        }
+
         args.Continue = true;
     }
 

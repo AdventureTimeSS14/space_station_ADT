@@ -88,6 +88,11 @@
     - Dwarf
     - Human
     - Reptilian
+    #Corvax-Species-Start
+    - Vulpkanin
+    - CorvaxVulpkanin
+    - Tajaran
+    #Corvax-Species-End
 
 - type: loadoutEffectGroup
   id: OxygenBreatherMimeMoth

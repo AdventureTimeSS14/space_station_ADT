@@ -86,7 +86,7 @@ public sealed partial class PhantomStyleMenu : RadialMenu
 }
 
 
-public sealed class PhantomStyleMenuButton : RadialMenuTextureButtonWithSector
+public sealed class PhantomStyleMenuButton : RadialMenuButtonWithSector
 {
     public ProtoId<PhantomStylePrototype> ProtoId { get; set; }
 }

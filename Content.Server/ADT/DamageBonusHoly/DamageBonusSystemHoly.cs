@@ -11,6 +11,7 @@ using Content.Server.ADT.DamageBonusHoly.Components;
 using System.Linq;
 using Content.Shared.ADT.Phantom;
 using Content.Shared.ADT.Phantom.Components;
+using Content.Shared.Damage.Systems;
 
 namespace Content.Server.ADT.DamageBonusHoly;
 
