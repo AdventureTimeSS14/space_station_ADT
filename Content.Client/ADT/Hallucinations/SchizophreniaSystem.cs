@@ -107,9 +107,11 @@ public sealed class SchizophreniaSystem : EntitySystem
         if (_player.LocalEntity != ent.Owner)
             return;
 
-        foreach (var item in ent.Comp.ActiveMusic)
+        foreach (var item in ent.Comp.ActiveMusic.ToList())
         {
             _contentAudio.FadeOut(item.Value, duration: 5f);
+            ent.Comp.ActiveMusic.Remove(item.Key);
+            ent.Comp.NextMusic.Remove(item.Key);
         }
     }
 
@@ -126,9 +128,11 @@ public sealed class SchizophreniaSystem : EntitySystem
 
     private void OnMusicDetach(Entity<HallucinationsMusicComponent> ent, ref LocalPlayerDetachedEvent args)
     {
-        foreach (var item in ent.Comp.ActiveMusic)
+        foreach (var item in ent.Comp.ActiveMusic.ToList())
         {
             _contentAudio.FadeOut(item.Value, duration: 1f);
+            ent.Comp.ActiveMusic.Remove(item.Key);
+            ent.Comp.NextMusic.Remove(item.Key);
         }
     }
 
@@ -145,10 +149,14 @@ public sealed class SchizophreniaSystem : EntitySystem
             ent.Comp.NextMusic[item.Key] = _timing.CurTime + TimeSpan.FromSeconds(10f);
         }
 
-        foreach (var item in ent.Comp.ActiveMusic)
+        foreach (var item in ent.Comp.ActiveMusic.ToList())
         {
             if (!ent.Comp.Music.ContainsKey(item.Key))
+            {
                 _contentAudio.FadeOut(item.Value, duration: 8f);
+                ent.Comp.ActiveMusic.Remove(item.Key);
+                ent.Comp.NextMusic.Remove(item.Key);
+            }
         }
     }
 
@@ -189,11 +197,16 @@ public sealed class SchizophreniaSystem : EntitySystem
             else
                 comp.NextMusic.Remove(item.Key);
 
+            var hasMusic = comp.ActiveMusic.TryGetValue(item.Key, out var exsisting) && exsisting.IsValid();
+
             var mus = _audio.PlayGlobal(music.Sound, _player.LocalEntity.Value, AudioParams.Default.WithLoop(music.Delay == null));
             if (!mus.HasValue)
                 continue;
 
             comp.ActiveMusic[item.Key] = mus.Value.Entity;
+
+            if (!hasMusic)
+                _contentAudio.FadeIn(mus.Value.Entity, duration: 5f);
         }
     }
 
