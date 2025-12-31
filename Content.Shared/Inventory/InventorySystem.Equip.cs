@@ -245,20 +245,43 @@ public abstract partial class InventorySystem
         DebugTools.Assert(slotDefinition.Name == slot);
         if (slotDefinition.DependsOn != null)
         {
-            if (!TryGetSlotEntity(target, slotDefinition.DependsOn, out EntityUid? slotEntity, inventory))
-                return false;
+            //ADT-Tweak-Start
+            EntityUid? slotEntity = null;
+            var hasDepend = TryGetSlotEntity(target, slotDefinition.DependsOn, out slotEntity, inventory);
+            if (!hasDepend)
+            {
+                if (!string.Equals(slot, "suitStorage", StringComparison.OrdinalIgnoreCase))
+                    return false;
+            }
+            //ADT-Tweak-End
 
             if (slotDefinition.DependsOnComponents is { } componentRegistry)
             {
-                foreach (var (_, entry) in componentRegistry)
+                //ADT-Tweak-Start
+                if (slotEntity == null)
                 {
-                    if (!HasComp(slotEntity, entry.Component.GetType()))
-                        return false;
-
-                    if (TryComp<AllowSuitStorageComponent>(slotEntity, out var comp) &&
-                        _whitelistSystem.IsWhitelistFailOrNull(comp.Whitelist, itemUid))
+                    // If no dependent entity and we're skipping the requirement for "suitStorage", allow if no components are required; otherwise fail if registry exists.
+                    if (componentRegistry.Count > 0 && !string.Equals(slot, "suitStorage", StringComparison.OrdinalIgnoreCase))
                         return false;
                 }
+                else
+                {
+                    foreach (var (_, entry) in componentRegistry)
+                    {
+                        var compType = entry.Component.GetType();
+                        if (string.Equals(slot, "suitStorage", StringComparison.OrdinalIgnoreCase) && compType == typeof(AllowSuitStorageComponent))
+                            continue;
+
+                        if (!HasComp(slotEntity, compType))
+                            return false;
+
+                        if (!string.Equals(slot, "suitStorage", StringComparison.OrdinalIgnoreCase) &&
+                            TryComp<AllowSuitStorageComponent>(slotEntity, out var comp) &&
+                            _whitelistSystem.IsWhitelistFailOrNull(comp.Whitelist, itemUid))
+                            return false;
+                    }
+                }
+                //ADT-Tweak-End
             }
         }
 
