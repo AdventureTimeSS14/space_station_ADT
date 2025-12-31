@@ -1,0 +1,62 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made for Space Station 14",
+  "size": {
+    "x": 64,
+    "y": 64
+  },
+  "states": [
+    {
+      "name": "fireplace",
+      "directions": 1
+    },
+    {
+      "name": "fire",
+      "directions": 1,
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "glow",
+      "directions": 1,
+      "delays": [
+        [
+          0.4,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "fireplace_wooden",
+      "directions": 1
+    },
+    {
+      "name": "fire_wooden",
+      "directions": 1,
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "glow_wooden",
+      "directions": 1,
+      "delays": [
+        [
+          0.4,
+          0.1
+        ]
+      ]
+    }
+  ]
+}
+
