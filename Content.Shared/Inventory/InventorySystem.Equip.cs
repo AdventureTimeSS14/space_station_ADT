@@ -274,12 +274,11 @@ public abstract partial class InventorySystem
 
                         if (!HasComp(slotEntity, compType))
                             return false;
-
-                        if (!string.Equals(slot, "suitStorage", StringComparison.OrdinalIgnoreCase) &&
-                            TryComp<AllowSuitStorageComponent>(slotEntity, out var comp) &&
-                            _whitelistSystem.IsWhitelistFailOrNull(comp.Whitelist, itemUid))
-                            return false;
                     }
+                    if (!string.Equals(slot, "suitStorage", StringComparison.OrdinalIgnoreCase) &&
+                        TryComp<AllowSuitStorageComponent>(slotEntity, out var comp) &&
+                        _whitelistSystem.IsWhitelistFailOrNull(comp.Whitelist, itemUid))
+                        return false;
                 }
                 //ADT-Tweak-End
             }
