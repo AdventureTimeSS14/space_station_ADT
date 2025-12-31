@@ -1,0 +1,56 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "size": {
+    "x": 96,
+    "y": 64
+  },
+  "states": [
+    {
+      "name": "cybersun_black"
+    },
+    {
+      "name": "cybersun_black_tape"
+    },
+    {
+      "name": "dv_cloth"
+    },
+    {
+      "name": "dv_militech"
+    },
+    {
+      "name": "dv_militech_tape"
+    },
+    {
+      "name": "gorlex_black"
+    },
+    {
+      "name": "gorlex_black_tape"
+    },
+    {
+      "name": "honkburger"
+    },
+    {
+      "name": "interdyne_black"
+    },
+    {
+      "name": "interdyne_black_tape"
+    },
+    {
+      "name": "nanotrasen_future"
+    },
+    {
+      "name": "nanotrasen_nofuture"
+    },
+    {
+      "name": "saibasan"
+    },
+    {
+      "name": "space_cola"
+    },
+    {
+      "name": "tlh"
+    }
+  ]
+}
+
