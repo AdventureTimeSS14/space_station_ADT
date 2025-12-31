@@ -271,7 +271,7 @@
     soundHit:
       collection: GenericHit
   - type: AltFireMelee
-  - type: GunExecutionBlacklist
+  - type: GunExecutionBlacklist #ADT-Tweak
   # ADT-Tweak end
   - type: Gun
     selectedMode: SemiAuto
@@ -692,7 +692,7 @@
     soundHit:
       collection: GenericHit
   - type: AltFireMelee
-  - type: GunExecutionBlacklist
+  - type: GunExecutionBlacklist #ADT-Tweak
   # ADT-Tweak end
   - type: Clothing
     sprite: Objects/Weapons/Guns/Battery/practice_disabler.rsi
@@ -746,7 +746,7 @@
     soundHit:
       collection: GenericHit
   - type: AltFireMelee
-  - type: GunExecutionBlacklist
+  - type: GunExecutionBlacklist #ADT-Tweak
   # ADT-Tweak end
   - type: Clothing
     sprite: Objects/Weapons/Guns/Battery/disabler.rsi
@@ -802,7 +802,7 @@
     soundHit:
       collection: GenericHit
   - type: AltFireMelee
-  - type: GunExecutionBlacklist
+  - type: GunExecutionBlacklist #ADT-Tweak
   # ADT-Tweak end
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDisablerSmg
