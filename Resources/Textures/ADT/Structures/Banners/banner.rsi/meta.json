@@ -1,0 +1,143 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "https://github.com/tgstation/tgstation/commit/fa9e44d937026d5a2ba72615afccf2f18a87c485 | banner_syndicate sprited by mureixlol (Discord)| color banners repsrited by lzk228",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "banner"
+    },
+    {
+      "name": "banner-red"
+    },
+    {
+      "name": "banner-blue"
+    },
+    {
+      "name": "banner-yellow"
+    },
+    {
+      "name": "banner-green"
+    },
+    {
+      "name": "banner_engineering"
+    },
+    {
+      "name": "banner_medical"
+    },
+    {
+      "name": "banner_science"
+    },
+    {
+      "name": "banner_cargo"
+    },
+    {
+      "name": "banner_security"
+    },
+    {
+      "name": "banner_revolution"
+    },
+    {
+      "name": "banner_syndicate"
+    },
+    {
+      "name": "humanflag"
+    },
+    {
+      "name": "kmt"
+    },
+    {
+      "name": "tsf"
+    },
+    {
+      "name": "base"
+    },
+    {
+      "name": "clown"
+    },
+    {
+      "name": "cydersun"
+    },
+    {
+      "name": "diona"
+    },
+    {
+      "name": "drask"
+    },
+    {
+      "name": "elysium"
+    },
+    {
+      "name": "empire_khsira"
+    },
+    {
+      "name": "gorlex"
+    },
+    {
+      "name": "greytide"
+    },
+    {
+      "name": "interpharm"
+    },
+    {
+      "name": "ipc",
+      "directions": 1,
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "magic"
+    },
+    {
+      "name": "mime"
+    },
+    {
+      "name": "narsi"
+    },
+    {
+      "name": "nian"
+    },
+    {
+      "name": "ninja"
+    },
+    {
+      "name": "novakid"
+    },
+    {
+      "name": "pirate"
+    },
+    {
+      "name": "robust"
+    },
+    {
+      "name": "slime"
+    },
+    {
+      "name": "tajaran"
+    },
+    {
+      "name": "ussp"
+    },
+    {
+      "name": "vox"
+    },
+    {
+      "name": "vulp"
+    }
+  ]
+}
