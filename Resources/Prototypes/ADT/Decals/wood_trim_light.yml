@@ -1,118 +1,119 @@
-﻿- type: decal
-  id: WoodTrimThinBox
+- type: decal
+  id: WoodTrimThinBoxLight
   tags: ["station", "markings"]
   sprite:
-    sprite: ADT/Decals/wood_trim.rsi
+    sprite: ADT/Decals/wood_trim_light.rsi
     state: thin_box
 
 - type: decal
-  id: WoodTrimThinCornerNe
+  id: WoodTrimThinCornerNeLight
   tags: ["station", "markings"]
   sprite:
-    sprite: ADT/Decals/wood_trim.rsi
+    sprite: ADT/Decals/wood_trim_light.rsi
     state: thin_corner_ne
 
 - type: decal
-  id: WoodTrimThinCornerSe
+  id: WoodTrimThinCornerSeLight
   tags: ["station", "markings"]
   sprite:
-    sprite: ADT/Decals/wood_trim.rsi
+    sprite: ADT/Decals/wood_trim_light.rsi
     state: thin_corner_se
 
 - type: decal
-  id: WoodTrimThinCornerNw
+  id: WoodTrimThinCornerNwLight
   tags: ["station", "markings"]
   sprite:
-    sprite: ADT/Decals/wood_trim.rsi
+    sprite: ADT/Decals/wood_trim_light.rsi
     state: thin_corner_nw
 
 - type: decal
-  id: WoodTrimThinCornerSw
+  id: WoodTrimThinCornerSwLight
   tags: ["station", "markings"]
   sprite:
-    sprite: ADT/Decals/wood_trim.rsi
+    sprite: ADT/Decals/wood_trim_light.rsi
     state: thin_corner_sw
 
 - type: decal
-  id: WoodTrimThinInnerNe
+  id: WoodTrimThinInnerNeLight
   tags: ["station", "markings"]
   sprite:
-    sprite: ADT/Decals/wood_trim.rsi
+    sprite: ADT/Decals/wood_trim_light.rsi
     state: thin_inner_ne
 
 - type: decal
-  id: WoodTrimThinInnerSe
+  id: WoodTrimThinInnerSeLight
   tags: ["station", "markings"]
   sprite:
-    sprite: ADT/Decals/wood_trim.rsi
+    sprite: ADT/Decals/wood_trim_light.rsi
     state: thin_inner_se
 
 - type: decal
-  id: WoodTrimThinInnerNw
+  id: WoodTrimThinInnerNwLight
   tags: ["station", "markings"]
   sprite:
-    sprite: ADT/Decals/wood_trim.rsi
+    sprite: ADT/Decals/wood_trim_light.rsi
     state: thin_inner_nw
 
 - type: decal
-  id: WoodTrimThinInnerSw
+  id: WoodTrimThinInnerSwLight
   tags: ["station", "markings"]
   sprite:
-    sprite: ADT/Decals/wood_trim.rsi
+    sprite: ADT/Decals/wood_trim_light.rsi
     state: thin_inner_sw
 
 - type: decal
-  id: WoodTrimThinEndN
+  id: WoodTrimThinEndNLight
   tags: ["station", "markings"]
   sprite:
-    sprite: ADT/Decals/wood_trim.rsi
+    sprite: ADT/Decals/wood_trim_light.rsi
     state: thin_end_n
 
 - type: decal
-  id: WoodTrimThinEndE
+  id: WoodTrimThinEndELight
   tags: ["station", "markings"]
   sprite:
-    sprite: ADT/Decals/wood_trim.rsi
+    sprite: ADT/Decals/wood_trim_light.rsi
     state: thin_end_e
 
 - type: decal
-  id: WoodTrimThinEndS
+  id: WoodTrimThinEndSLight
   tags: ["station", "markings"]
   sprite:
-    sprite: ADT/Decals/wood_trim.rsi
+    sprite: ADT/Decals/wood_trim_light.rsi
     state: thin_end_s
 
 - type: decal
-  id: WoodTrimThinEndW
+  id: WoodTrimThinEndWLight
   tags: ["station", "markings"]
   sprite:
-    sprite: ADT/Decals/wood_trim.rsi
+    sprite: ADT/Decals/wood_trim_light.rsi
     state: thin_end_w
 
 - type: decal
-  id: WoodTrimThinLineN
+  id: WoodTrimThinLineNLight
   tags: ["station", "markings"]
   sprite:
-    sprite: ADT/Decals/wood_trim.rsi
+    sprite: ADT/Decals/wood_trim_light.rsi
     state: thin_line_n
 
 - type: decal
-  id: WoodTrimThinLineE
+  id: WoodTrimThinLineELight
   tags: ["station", "markings"]
   sprite:
-    sprite: ADT/Decals/wood_trim.rsi
+    sprite: ADT/Decals/wood_trim_light.rsi
     state: thin_line_e
 
 - type: decal
-  id: WoodTrimThinLineS
+  id: WoodTrimThinLineSLight
   tags: ["station", "markings"]
   sprite:
-    sprite: ADT/Decals/wood_trim.rsi
+    sprite: ADT/Decals/wood_trim_light.rsi
     state: thin_line_s
 
 - type: decal
-  id: WoodTrimThinLineW
+  id: WoodTrimThinLineWLight
   tags: ["station", "markings"]
   sprite:
-    sprite: ADT/Decals/wood_trim.rsi
+    sprite: ADT/Decals/wood_trim_light.rsi
     state: thin_line_w
+

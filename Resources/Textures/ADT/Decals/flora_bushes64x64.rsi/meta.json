@@ -1,0 +1,23 @@
+{
+    "version": 1,
+    "license": "CC0-1.0",
+    "size": {
+        "x": 64,
+        "y": 64
+    },
+    "states": [
+        {
+            "name": "bigbush1"
+        },
+        {
+            "name": "bigbush2"
+        },
+        {
+            "name": "bigbush3"
+        },
+        {
+            "name": "bigbush4"
+        }
+    ]
+}
+

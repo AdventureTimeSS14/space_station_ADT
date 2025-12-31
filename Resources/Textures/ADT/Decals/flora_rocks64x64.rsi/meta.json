@@ -1,0 +1,23 @@
+{
+    "version": 1,
+    "license": "CC0-1.0",
+    "size": {
+        "x": 64,
+        "y": 64
+    },
+    "states": [
+        {
+            "name": "bigrock01"
+        },
+        {
+            "name": "bigrock02"
+        },
+        {
+            "name": "bigrock03"
+        },
+        {
+            "name": "bigrock04"
+        }
+    ]
+}
+
