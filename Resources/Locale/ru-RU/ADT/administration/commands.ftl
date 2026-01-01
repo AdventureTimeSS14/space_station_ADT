@@ -64,3 +64,6 @@ massmsg-command-hint-second-args = popupMessage
 hallucinate-command-description = Применяет определённые галлюцинации к сущности
 hallucinate-command-help-text = Использование: { $command } <uid> <способ применения> <время> <паки галлюцинаций>
 shell-invalid-metabolism-type = Неверный способ применения
+
+screamer-command-description = Пугает указанного игрока скримером
+screamer-command-help-text = Использование: { $command } <uid> <прототип скримера> <время> <звук> <непрозрачность> <плавное появление> <плавное затухание> <x> <y>
