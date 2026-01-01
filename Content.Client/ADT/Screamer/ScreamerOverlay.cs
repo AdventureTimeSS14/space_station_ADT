@@ -91,7 +91,7 @@ public sealed class ScreamerOverlay : Overlay
 
             var alpha = GetAlpha(item.Value) * item.Value.Alpha;
 
-            RenderEntity((item.Key, sprite), (player, xform), handle, eyeRot, alpha, item.Value.Offset, Color.White);
+            RenderEntity((item.Key, sprite), (player, xform), handle, eyeRot, alpha, item.Value.Offset, args.Viewport);
         }
     }
 
@@ -128,19 +128,26 @@ public sealed class ScreamerOverlay : Overlay
         Angle eyeRot,
         float alpha,
         Vector2 offset,
-        Color color)
+        IClydeViewport viewport)
     {
         var position = _xformSystem.GetWorldPosition(player.Comp);
-        //var rotation = _xformSystem.GetWorldRotation(player.Comp);
 
         handle.SetTransform(position + offset, eyeRot);
 
         var originalColor = ent.Comp.Color;
+        var originalScale = ent.Comp.Scale;
 
-        _sprite.SetColor(ent.Owner, color.WithAlpha(alpha));
+        var textureSize = ent.Comp.Icon?.TextureFor(Direction.South).Size ?? Vector2.One;
+        var scaleX = viewport.Size.X / textureSize.X;
+        var scaleY = viewport.Size.Y / textureSize.Y;
+
+        _sprite.SetRotation(ent.Owner, eyeRot);
+        _sprite.SetColor(ent.Owner, originalColor.WithAlpha(alpha));
+        _sprite.SetScale(ent.Owner, new Vector2(Math.Min(scaleX, scaleY)));
         _sprite.RenderSprite(ent, handle, eyeRot, eyeRot, position + offset);
 
         _sprite.SetColor(ent.Owner, originalColor);
+        _sprite.SetScale(ent.Owner, originalScale);
         handle.SetTransform(Vector2.Zero, Angle.Zero);
     }
 
