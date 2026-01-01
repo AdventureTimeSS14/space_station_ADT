@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "size": {
+    "x": 32,
+    "y": 64
+  },
+  "states": [
+    {
+      "name": "standard"
+    },
+    {
+      "name": "colour"
+    },
+    {
+      "name": "elysium"
+    },
+    {
+      "name": "kmt"
+    },
+    {
+      "name": "nt"
+    },
+    {
+      "name": "pirate"
+    },
+    {
+      "name": "syndicate"
+    },
+    {
+      "name": "tsf"
+    },
+    {
+      "name": "tsfarmy1"
+    },
+    {
+      "name": "ussp"
+    }
+  ]
+}
+

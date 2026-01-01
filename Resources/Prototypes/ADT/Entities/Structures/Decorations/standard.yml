@@ -1,0 +1,42 @@
+- type: entity
+  id: StandardFrame
+  parent: BaseStructure
+  name: standard frame
+  description: A frame for hanging standards. You can attach standards to it.
+  components:
+  - type: Sprite
+    sprite: ADT/Standard/standard.rsi
+    state: standard
+  - type: AttachableHolder
+    slots:
+      rmc-aslot-standard:
+        locked: false
+        whitelist:
+          tags:
+          - Standard
+  - type: AttachableHolderVisuals
+    offsets:
+      rmc-aslot-standard: "0, 0"
+  - type: ActivatableUI
+    verbText: rmc-verb-strip-attachables
+    verbOnly: true
+    key:
+      enum.AttachmentUI.StripKey
+  - type: UserInterface
+    interfaces:
+      enum.AttachmentUI.StripKey:
+        type: AttachmentStripBui
+      enum.AttachmentUI.ChooseSlotKey:
+        type: AttachmentChooseSlotBui
+  - type: InteractionOutline
+  - type: Damageable
+    damageContainer: StructuralInorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
