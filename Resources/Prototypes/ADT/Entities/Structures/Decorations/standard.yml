@@ -1,5 +1,5 @@
 - type: entity
-  id: StandardFrame
+  id: ADTStandardFrame
   parent: BaseStructure
   name: standard frame
   description: A frame for hanging standards. You can attach standards to it.

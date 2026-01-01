@@ -1,5 +1,5 @@
 - type: entity
-  id: StandardBase
+  id: ADTStandardBase
   parent: BaseItem
   abstract: true
   components:
@@ -19,8 +19,8 @@
     - Standard
 
 - type: entity
-  id: StandardColourRed
-  parent: StandardBase
+  id: ADTStandardColourRed
+  parent: ADTStandardBase
   name: red standard
   description: "A red standard. The main colors are: red, blue, green, yellow, orange, purple, white"
   components:
@@ -39,8 +39,8 @@
     suffix: ""
 
 - type: entity
-  id: StandardColourBlue
-  parent: StandardBase
+  id: ADTStandardColourBlue
+  parent: ADTStandardBase
   name: blue standard
   description: "A blue standard. The main colors are: red, blue, green, yellow, orange, purple, white"
   components:
@@ -59,8 +59,8 @@
     suffix: ""
 
 - type: entity
-  id: StandardColourGreen
-  parent: StandardBase
+  id: ADTStandardColourGreen
+  parent: ADTStandardBase
   name: green standard
   description: "A green standard. The main colors are: red, blue, green, yellow, orange, purple, white"
   components:
@@ -79,8 +79,8 @@
     suffix: ""
 
 - type: entity
-  id: StandardColourYellow
-  parent: StandardBase
+  id: ADTStandardColourYellow
+  parent: ADTStandardBase
   name: yellow standard
   description: "A yellow standard. The main colors are: red, blue, green, yellow, orange, purple, white"
   components:
@@ -99,8 +99,8 @@
     suffix: ""
 
 - type: entity
-  id: StandardColourOrange
-  parent: StandardBase
+  id: ADTStandardColourOrange
+  parent: ADTStandardBase
   name: orange standard
   description: "An orange standard. The main colors are: red, blue, green, yellow, orange, purple, white"
   components:
@@ -119,8 +119,8 @@
     suffix: ""
 
 - type: entity
-  id: StandardColourPurple
-  parent: StandardBase
+  id: ADTStandardColourPurple
+  parent: ADTStandardBase
   name: purple standard
   description: "A purple standard. The main colors are: red, blue, green, yellow, orange, purple, white"
   components:
@@ -139,8 +139,8 @@
     suffix: ""
 
 - type: entity
-  id: StandardColourWhite
-  parent: StandardBase
+  id: ADTStandardColourWhite
+  parent: ADTStandardBase
   name: white standard
   description: "A white standard. The main colors are: red, blue, green, yellow, orange, purple, white"
   components:
@@ -159,8 +159,8 @@
     suffix: ""
 
 - type: entity
-  id: StandardElysium
-  parent: StandardBase
+  id: ADTStandardElysium
+  parent: ADTStandardBase
   name: elysium standard
   description: "A standard with the flag of the Elysium Republic. Are you harboring enemies of Elysium?"
   components:
@@ -178,8 +178,8 @@
     suffix: ""
 
 - type: entity
-  id: StandardKmt
-  parent: StandardBase
+  id: ADTStandardKmt
+  parent: ADTStandardBase
   name: kmt standard
   description: A standard with the flag of the Communist Party of Mars. Long live the KMT and all who fight for liberation!
   components:
@@ -197,8 +197,8 @@
     suffix: ""
 
 - type: entity
-  id: StandardNt
-  parent: StandardBase
+  id: ADTStandardNt
+  parent: ADTStandardBase
   name: nanotrasen standard
   description: A standard with the corporate flag of NanoTrasen. What could be better?
   components:
@@ -216,8 +216,8 @@
     suffix: ""
 
 - type: entity
-  id: StandardPirate
-  parent: StandardBase
+  id: ADTStandardPirate
+  parent: ADTStandardBase
   name: pirate standard
   description: Ahoy!
   components:
@@ -235,8 +235,8 @@
     suffix: ""
 
 - type: entity
-  id: StandardSyndicate
-  parent: StandardBase
+  id: ADTStandardSyndicate
+  parent: ADTStandardBase
   name: syndicate standard
   description: "A standard with the flag of the Syndicate. Death to NT!"
   components:
@@ -254,8 +254,8 @@
     suffix: ""
 
 - type: entity
-  id: StandardTsf
-  parent: StandardBase
+  id: ADTStandardTsf
+  parent: ADTStandardBase
   name: tsf standard
   description: A standard with the flag of the Trans-Solar Federation. Yes, we are expanding!
   components:
@@ -273,8 +273,8 @@
     suffix: ""
 
 - type: entity
-  id: StandardTsfarmy1
-  parent: StandardBase
+  id: ADTStandardTsfarmy1
+  parent: ADTStandardBase
   name: tsf army standard
   description: A standard of the 8th Army (Mars) of the Trans-Solar Federation.
   components:
@@ -292,8 +292,8 @@
     suffix: ""
 
 - type: entity
-  id: StandardUssp
-  parent: StandardBase
+  id: ADTStandardUssp
+  parent: ADTStandardBase
   name: ussp standard
   description: A standard with the flag of the Union of Soviet Socialist Planets. Glory to the USSP!
   components:
