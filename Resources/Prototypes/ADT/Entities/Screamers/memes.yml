@@ -1,9 +1,9 @@
 - type: entity
-  parent: BaseItem
+  parent: ADTBaseScreamer
   id: ADTScreamerSpeed
   name: ishowsped
   description: "dovolen"
-  categories: [ Screamers ]
   components:
   - type: Sprite
     texture: /Textures/ADT/Misc/Screamers/speed.png
+    noRot: true
