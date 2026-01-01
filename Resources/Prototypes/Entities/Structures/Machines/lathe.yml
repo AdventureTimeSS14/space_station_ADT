@@ -136,7 +136,6 @@
     - ADTServiceStaticPack
     - ADTRecorderStaticPack
     - ADTMicsStaticPack
-    - ADTServiceBoards
     # ADT-tweak-end
   - type: EmagLatheRecipes
     emagStaticPacks:
@@ -220,6 +219,7 @@
     - Equipment
     - FauxTiles
     #ADT-tweak-start
+    - ADTServiceBoards
     - ADTRCDPack
     - ADTPKAPack
     - ADTServiceHydroponics
