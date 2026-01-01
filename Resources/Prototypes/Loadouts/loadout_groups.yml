@@ -45,7 +45,7 @@
   # # Corvax-Loadouts-End
   - AcousticGuitarInstrument
   - RockGuitarInstrument #ADT-tweak
-  - HarmonicaInstrument
+  - HarmonicaInstrument #ADT-tweak
   - ADTModStorageVoucher
   #ADT-tweak
   - ADTClothingGeorgeRibbonPin
