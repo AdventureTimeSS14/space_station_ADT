@@ -17,16 +17,28 @@
     - ADTModStorageVoucher
 
 - type: loadout
-  id: SilverRing
+  id: ADTClothingHandsRingEmerald
   storage:
     back:
-    - SilverRing
+    - ADTClothingHandsRingEmerald
 
 - type: loadout
-  id: GoldRing
+  id: ADTClothingHandsRingBlood
   storage:
     back:
-    - GoldRing
+    - ADTClothingHandsRingBlood
+
+- type: loadout
+  id: ADTClothingHandsRingPlazma
+  storage:
+    back:
+    - ADTClothingHandsRingPlazma
+
+- type: loadout
+  id: ADTClothingHandsRingTurk
+  storage:
+    back:
+    - ADTClothingHandsRingTurk
 
 - type: loadout
   id: ADTClothingGeorgeRibbonPin

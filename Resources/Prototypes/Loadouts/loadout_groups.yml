@@ -47,8 +47,10 @@
   - RockGuitar
   - HarmonicaInstrument
   - ADTModStorageVoucher
-  - SilverRing
-  - GoldRing
+  - ADTClothingHandsRingEmerald
+  - ADTClothingHandsRingBlood
+  - ADTClothingHandsRingPlazma
+  - ADTClothingHandsRingTurk
   - ADTClothingGeorgeRibbonPin
   - ADTClothingMaskPaperBlank
   #ADT-tweak-end
