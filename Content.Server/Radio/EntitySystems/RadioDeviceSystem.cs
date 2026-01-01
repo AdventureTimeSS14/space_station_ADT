@@ -3,6 +3,7 @@ using Content.Server.Chat.Systems;
 using Content.Server.Interaction;
 using Content.Server.ADT.Language;  // ADT Languages
 using Robust.Shared.Audio.Systems; // ADT Radio Update
+using Content.Shared.Power.EntitySystems;
 using Content.Server.Popups;
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
@@ -32,6 +33,7 @@ public sealed class RadioDeviceSystem : EntitySystem
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly LanguageSystem _language = default!;  // ADT Languages
     [Dependency] private readonly SharedAudioSystem _audio = default!;  // ADT Radio Update
+    [Dependency] private readonly SharedPowerReceiverSystem _power = default!; // ADT Radio Update
 
     // Used to prevent a shitter from using a bunch of radios to spam chat.
     private HashSet<(string, EntityUid, RadioChannelPrototype)> _recentlySent = new();
@@ -211,7 +213,7 @@ public sealed class RadioDeviceSystem : EntitySystem
 
     private void OnReceiveRadio(EntityUid uid, RadioSpeakerComponent component, ref RadioReceiveEvent args)
     {
-        if (uid == args.RadioSource)
+        if (uid == args.RadioSource|| component.PowerRequired && !_power.IsPowered(uid)) // ADT Radio Update, powered required
             return;
         /// Start ADT Tweak
         if (component.SoundOnReceive != null)
@@ -231,7 +233,7 @@ public sealed class RadioDeviceSystem : EntitySystem
         _chat.TrySendInGameICMessage(
             uid,
             args.Message,
-            component.SpeechMode, // You know what? I dont like idea about constant SpeechMode
+            component.SpeakNormally ? InGameICChatType.Speak : InGameICChatType.Whisper, // Goobstation - radio host
             ChatTransmitRange.GhostRangeLimit,
             nameOverride: name,
             checkRadioPrefix: false,

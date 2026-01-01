@@ -97,3 +97,22 @@
   requiredTech:
   - AdvancedSpray
   - AdvancedCleaning
+
+- type: technology
+  id: ADTRadioMusicCommunications
+  name: research-technology-radio-music-communication
+  icon:
+    sprite: ADT/Structures/Machines/StationRadio/vinylplayer.rsi
+    state: icon
+  discipline: CivilianServices
+  tier: 2
+  cost: 10000
+  recipeUnlocks:
+  - ADTVinylPlayerCircuitboard
+  - ADTTapeDeckCircuitboard
+  - ADTStationRadioServerCircuitboard
+  - ADTStationRadioRigCircuitboard
+  - ADTStationRadioCircuitboard
+  position: 4,3
+  requiredTech:
+  - BasicTranslation
