@@ -141,7 +141,7 @@ public sealed class ScreamerOverlay : Overlay
         var scaleX = viewport.Size.X / textureSize.X;
         var scaleY = viewport.Size.Y / textureSize.Y;
 
-        _sprite.SetRotation(ent.Owner, eyeRot);
+        //_sprite.SetRotation(ent.Owner, eyeRot);
         _sprite.SetColor(ent.Owner, originalColor.WithAlpha(alpha));
         _sprite.SetScale(ent.Owner, new Vector2(Math.Min(scaleX, scaleY)));
         _sprite.RenderSprite(ent, handle, eyeRot, eyeRot, position + offset);
