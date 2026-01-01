@@ -139,7 +139,7 @@ sealed class ScreamerCommand : IConsoleCommand
 
         if (args.Length == 2)
         {
-            var opts = _proto.EnumeratePrototypes<EntityPrototype>().Select(proto => proto.ID).ToList();
+            var opts = _proto.EnumeratePrototypes<EntityPrototype>().Where(x => x.Categories.Count > 0 && x.Categories.First().ID == "Screamers").Select(proto => proto.ID).ToList();
             return CompletionResult.FromHintOptions(opts, "<prototype>");
         }
 
