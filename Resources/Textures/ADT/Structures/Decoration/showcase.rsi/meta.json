@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made for Space Station 14",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "showcase_3",
+      "directions": 4
+    },
+    {
+      "name": "showcase_4",
+      "directions": 4
+    },
+    {
+      "name": "durand",
+      "directions": 4
+    },
+    {
+      "name": "gygax",
+      "directions": 4
+    },
+    {
+      "name": "honker",
+      "directions": 4
+    },
+    {
+      "name": "diver"
+    },
+    {
+      "name": "skeleton"
+    },
+    {
+      "name": "skeleton_reptilian"
+    },
+    {
+      "name": "skeleton_tajaran"
+    },
+    {
+      "name": "skeleton_vulp"
+    }
+  ]
+}
+

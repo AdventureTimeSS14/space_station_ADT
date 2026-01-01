@@ -1,0 +1,16 @@
+ent-ADTShowcaseDurand = durand showcase
+    .desc = Does not work
+ent-ADTShowcaseGygax = gygax showcase
+    .desc = Does not work
+ent-ADTShowcaseHonker = honker showcase
+    .desc = Honk honk honk!
+ent-ADTShowcaseDiver = diver showcase
+    .desc = Diver for underwater work!
+ent-ADTShowcaseSkeleton = skeleton showcase
+    .desc = Boom! Boom!
+ent-ADTShowcaseSkeletonReptilian = reptilian skeleton showcase
+    .desc = The lizard no longer exists.
+ent-ADTShowcaseSkeletonTajaran = tajaran skeleton showcase
+    .desc = The lizard no longer exists.
+ent-ADTShowcaseSkeletonVulp = vulp skeleton showcase
+    .desc = Where is the tail?!
