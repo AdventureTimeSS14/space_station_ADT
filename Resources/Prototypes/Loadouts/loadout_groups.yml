@@ -44,7 +44,7 @@
   # - ClothingNeckWhiteListPin
   # # Corvax-Loadouts-End
   - AcousticGuitarInstrument
-  - RockGuitar
+  - RockGuitarInstrument
   - HarmonicaInstrument
   - ADTModStorageVoucher
   - ADTClothingHandsRingEmerald
@@ -71,9 +71,7 @@
   - TowelColorWhite
   - TowelColorYellow
   # ADT-Tweak-Start
-  - AcousticGuitarInstrument
   - ADTHandheldStationMapUnpowered
-  - HarmonicaInstrument
   - ADTModStorageVoucher
   - ADTClothingGeorgeRibbonPin
   # ADT-Tweak-End

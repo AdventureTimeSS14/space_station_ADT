@@ -1,14 +1,24 @@
+# Instruments
 - type: loadout
   id: AcousticGuitarInstrument
   storage:
     back:
     - AcousticGuitarInstrument
+  groupBy: "instruments"
+
+- type: loadout
+  id: RockGuitarInstrument
+  storage:
+    back:
+    - RockGuitarInstrument
+  groupBy: "instruments"
 
 - type: loadout
   id: HarmonicaInstrument
   storage:
     back:
     - HarmonicaInstrument
+  groupBy: "instruments"
 
 - type: loadout
   id: ADTModStorageVoucher
@@ -16,29 +26,34 @@
     back:
     - ADTModStorageVoucher
 
+# Rings
 - type: loadout
   id: ADTClothingHandsRingEmerald
   storage:
     back:
     - ADTClothingHandsRingEmerald
+  groupBy: "rings"
 
 - type: loadout
   id: ADTClothingHandsRingBlood
   storage:
     back:
     - ADTClothingHandsRingBlood
+  groupBy: "rings"
 
 - type: loadout
   id: ADTClothingHandsRingPlazma
   storage:
     back:
     - ADTClothingHandsRingPlazma
+  groupBy: "rings"
 
 - type: loadout
   id: ADTClothingHandsRingTurk
   storage:
     back:
     - ADTClothingHandsRingTurk
+  groupBy: "rings"
 
 - type: loadout
   id: ADTClothingGeorgeRibbonPin
