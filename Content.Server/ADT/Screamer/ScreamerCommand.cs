@@ -1,5 +1,6 @@
 using System.Linq;
 using System.Numerics;
+using Content.Server.ADT.Screamer;
 using Content.Server.ADT.Shizophrenia;
 using Content.Shared.Administration;
 using Content.Shared.ADT.Screamer;
@@ -19,7 +20,6 @@ sealed class ScreamerCommand : IConsoleCommand
 {
     [Dependency] private readonly IEntityManager _entManager = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly IResourceManager _res = default!;
 
     public string Command => "screamer";
@@ -122,11 +122,7 @@ sealed class ScreamerCommand : IConsoleCommand
             offset.Y = y;
         }
 
-        if (!_player.TryGetSessionByEntity(uid, out var session))
-            return;
-
-        var msg = new DoScreamerMessage(args[1], sound, offset, alpha, duration, fadeIn, fadeOut);
-        _entManager.EntityNetManager?.SendSystemNetworkMessage(msg, session.Channel);
+        _entManager.System<ScreamerSystem>().DoScreamer(uid, args[1], sound, offset, alpha, duration, fadeIn, fadeOut);
     }
 
     public CompletionResult GetCompletion(IConsoleShell shell, string[] args)
