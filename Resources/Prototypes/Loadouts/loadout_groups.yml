@@ -47,10 +47,7 @@
   - RockGuitarInstrument
   - HarmonicaInstrument
   - ADTModStorageVoucher
-  - ADTClothingHandsRingEmerald
-  - ADTClothingHandsRingBlood
-  - ADTClothingHandsRingPlazma
-  - ADTClothingHandsRingTurk
+  #ADT-tweak
   - ADTClothingGeorgeRibbonPin
   - ADTClothingMaskPaperBlank
   #ADT-tweak-end
@@ -71,6 +68,10 @@
   - TowelColorWhite
   - TowelColorYellow
   # ADT-Tweak-Start
+  - ADTClothingHandsRingEmerald
+  - ADTClothingHandsRingBlood
+  - ADTClothingHandsRingPlazma
+  - ADTClothingHandsRingTurk
   - ADTHandheldStationMapUnpowered
   - ADTModStorageVoucher
   - ADTClothingGeorgeRibbonPin
