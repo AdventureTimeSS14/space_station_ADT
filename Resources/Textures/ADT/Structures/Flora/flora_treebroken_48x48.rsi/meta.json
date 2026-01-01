@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made for Space Station 14",
+  "size": {
+    "x": 48,
+    "y": 48
+  },
+  "states": [
+    {
+      "name": "broken03",
+      "directions": 1
+    },
+    {
+      "name": "broken05",
+      "directions": 1
+    }
+  ]
+}
+
+

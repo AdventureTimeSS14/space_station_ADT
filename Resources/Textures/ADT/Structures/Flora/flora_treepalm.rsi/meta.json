@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made for Space Station 14",
+  "size": {
+    "x": 96,
+    "y": 96
+  },
+  "states": [
+    {
+      "name": "treepalm01"
+    },
+    {
+      "name": "treepalm02"
+    },
+    {
+      "name": "treepalm03"
+    }
+  ]
+}
+
