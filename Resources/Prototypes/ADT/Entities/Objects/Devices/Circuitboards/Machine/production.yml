@@ -365,7 +365,7 @@
   - type: Sprite
     state: service
   - type: MachineBoard
-    prototype: VinylPlayer
+    prototype: ADTVinylPlayer
     stackRequirements:
       Manipulator: 1
       Steel: 1
@@ -380,7 +380,7 @@
   - type: Sprite
     state: service
   - type: MachineBoard
-    prototype: TapeDeck
+    prototype: ADTTapeDeck
     stackRequirements:
       Manipulator: 2
       Plastic: 3
@@ -395,7 +395,7 @@
   - type: Sprite
     state: service
   - type: MachineBoard
-    prototype: StationRadioServer
+    prototype: ADTStationRadioServer
     stackRequirements:
       Manipulator: 1
       Steel: 10
@@ -412,7 +412,7 @@
   - type: Sprite
     state: service
   - type: MachineBoard
-    prototype: StationRadioRig
+    prototype: ADTStationRadioRig
     stackRequirements:
       Manipulator: 3
       Steel: 5
@@ -428,7 +428,7 @@
   - type: Sprite
     state: service
   - type: MachineBoard
-    prototype: StationRadioReceiver
+    prototype: ADTStationRadioReceiver
     stackRequirements:
       Manipulator: 1
       Cable: 2
