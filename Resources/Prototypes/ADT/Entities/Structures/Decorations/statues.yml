@@ -88,3 +88,147 @@
         layer:
         - MidImpassable
         - LowImpassable
+
+- type: entity
+  id: ADTStatueAngel
+  parent: BaseStructure
+  name: statue of an angel
+  description: An angel-guardian who protects you from all troubles and misfortunes. Guardian-protector, and in the difficult hour of your life, he will help you overcome difficulties, guardian!
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: ADT/Structures/Decoration/Statues/angel.rsi
+    state: angel
+    drawdepth: Mobs
+    offset: "0.0,0.5"
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,1.5"
+        density: 60
+        mask:
+        - MachineMask
+        layer:
+        - MidImpassable
+        - LowImpassable
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 150
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+
+- type: entity
+  id: ADTStatueLion
+  parent: BaseStructure
+  name: statue of a lion
+  description: On guard
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: ADT/Structures/Decoration/Statues/lion.rsi
+    state: lion
+    drawdepth: Mobs
+    offset: "0.0,0.5"
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,1.5"
+        density: 60
+        mask:
+        - MachineMask
+        layer:
+        - MidImpassable
+        - LowImpassable
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 150
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+
+- type: entity
+  id: ADTStatueLenin
+  parent: BaseStructure
+  name: statue of Lenin
+  description: Great leader of the proletariat.
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: ADT/Structures/Decoration/Statues/lenin.rsi
+    state: lenin
+    drawdepth: Mobs
+    offset: "0.0,0.5"
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,1.5"
+        density: 60
+        mask:
+        - MachineMask
+        layer:
+        - MidImpassable
+        - LowImpassable
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 150
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+
+- type: entity
+  id: ADTStatueHadii
+  parent: BaseStructure
+  name: statue of Hadji Murat
+  description: Courage, honor, dignity and loyalty to one's word - these are the qualities of a hero.
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: ADT/Structures/Decoration/Statues/hadii.rsi
+    state: hadii
+    drawdepth: Mobs
+    offset: "0.0,0.5"
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,1.5"
+        density: 60
+        mask:
+        - MachineMask
+        layer:
+        - MidImpassable
+        - LowImpassable
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 150
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
