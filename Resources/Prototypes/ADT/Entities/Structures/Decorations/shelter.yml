@@ -1,0 +1,175 @@
+# Барьеры
+- type: entity
+  parent: BaseStructure
+  id: ADTShelterBarbedwire
+  name: barbed wire
+  description: Barbed wire. Hurts to touch, but not to look.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Decoration/shelter.rsi
+    state: barbedwire
+    dimensions: 4
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,-0.4,0.4,0.2"
+        density: 100
+        hard: true
+        layer:
+        - LowImpassable
+        - MidImpassable
+        - BulletImpassable
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallic
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 50
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+
+- type: entity
+  parent: BaseStructure
+  id: ADTShelterConcreteBarrier
+  name: concrete barrier
+  description: Not very strong, but very heavy concrete barrier.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Decoration/shelter.rsi
+    state: concrete_barrier
+    dimensions: 4
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,-0.4,0.4,0.2"
+        density: 500
+        hard: true
+        layer:
+        - LowImpassable
+        - MidImpassable
+        - BulletImpassable
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallic
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 600
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+
+- type: entity
+  parent: ADTShelterConcreteBarrier
+  id: ADTShelterConcreteBarrier2
+  components:
+  - type: Sprite
+    state: concrete_barrier-2
+    dimensions: 4
+
+- type: entity
+  parent: ADTShelterConcreteBarrier
+  id: ADTShelterConcreteBarrier3
+  components:
+  - type: Sprite
+    state: concrete_barrier-3
+    dimensions: 4
+
+- type: entity
+  parent: ADTShelterConcreteBarrier
+  id: ADTShelterConcreteBarrierAlt
+  components:
+  - type: Sprite
+    state: concrete_barrier_alt
+
+- type: entity
+  parent: BaseStructure
+  id: ADTShelterRoadBarrier
+  name: road barrier
+  description: Road barrier!
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Decoration/shelter.rsi
+    state: road_barrier
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,-0.4,0.4,0.2"
+        density: 200
+        hard: true
+        layer:
+        - LowImpassable
+        - MidImpassable
+        - BulletImpassable
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallic
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 75
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+
+# Мешки с песком
+- type: entity
+  parent: BaseStructure
+  id: ADTShelterSandbag
+  name: sandbag
+  description: Sandbag for cover and protection. Destroys on damage.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Decoration/sandbag.rsi
+    state: sandbag
+    dimensions: 4
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,-0.4,0.4,0.2"
+        density: 300
+        hard: true
+        layer:
+        - LowImpassable
+        - MidImpassable
+        - BulletImpassable
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallic
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 200
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+  - type: Appearance
+  - type: DamageVisuals
+    thresholds: [50, 100, 150]
+    damageDivisor: 1
+    trackAllDamage: true
+    damageOverlay:
+      sprite: ADT/Structures/Decoration/sandbag.rsi
+
