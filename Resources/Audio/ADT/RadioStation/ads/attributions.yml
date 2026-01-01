@@ -1,4 +1,4 @@
 - files: ["Cargo.ogg", "Donk_pocket.ogg", "Donk_pocket_uncensured.ogg", "dudes_in_uniform.ogg", "ERT_add.ogg", "vox_shampoo.ogg", "capcast.ogg", "mrchangadd.ogg", "syndieadd.ogg", "wehhew.ogg", "WhickeyColaWhickey.ogg", "nanomaxadd.ogg"]
   license: "CC-BY-SA-4.0"
   copyright: "made by TheQWERTY for Adventure Time SS14 server"
-  source: "_"
+  source: "https://github.com/AdventureTimeSS14/space_station_ADT/pull/2372"
