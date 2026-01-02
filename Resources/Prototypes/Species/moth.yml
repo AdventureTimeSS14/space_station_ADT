@@ -9,6 +9,7 @@
   dollPrototype: MobMothDummy
   skinColoration: Hues
   # ADT-name-custom
+  shortDesc: species-short-desc-moth
   maleFirstNames: first_male_moth
   femaleFirstNames: first_female_moth
   maleLastNames: last_moth

@@ -21,6 +21,29 @@
   - type: Clothing
     sprite: ADT/Clothing/Uniforms/Jumpskirt/turtleneck_blueshield_woman.rsi
 
+# Centcom consultant
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ADTClothingUniformJumpskirtCCC
+  name: Centcom consultants's jumpskirt
+  description: Centcom consultants's jumpskirt
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/ccc_suit.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/ccc_suit.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ADTClothingUniformJumpskirtCCCFormal
+  name: Centcom consultant's formal suit
+  description: Centcom consultant's formal suit
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/ccc_formal.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/ccc_formal.rsi
+
 #Водолазки от prazat911.
 - type: entity
   parent: ClothingUniformSkirtBase

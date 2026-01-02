@@ -69,3 +69,11 @@
   frequency: 1604
   color: "#723817"
   longRange: true
+
+- type: radioChannel
+  id: ADTClosedChannel
+  name: ADT-Close-Channel-name
+  keycode: 'а'
+  frequency: 1415
+  color: "#24211f"
+  longRange: true

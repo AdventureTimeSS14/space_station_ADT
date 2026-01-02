@@ -1,7 +1,7 @@
 {
     "version": 4,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Made by Adventure Time, justkekc, Blueshield made by Tamioki, pathologist upgraded and sprite barber by discord:prazat911",
+    "copyright": "Made by Adventure Time, justkekc, Blueshield and consultant_cc made by Tamioki, pathologist upgraded and sprite barber by discord:prazat911",
     "size": {
         "x": 32,
         "y": 32
@@ -27,6 +27,9 @@
         },
         {
             "name": "blueshield"
+        },
+        {
+            "name": "consultant_cc"
         },
         {
             "name": "secborg"

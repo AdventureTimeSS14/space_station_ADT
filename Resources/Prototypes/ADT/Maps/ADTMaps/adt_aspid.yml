@@ -19,9 +19,11 @@
           path: /Maps/ADTMaps/Shuttles/adt_cargo.yml
         - type: StationJobs
           availableJobs:
+            # centcomm specialsts
+            ADTBlueShieldOfficer: [ 1, 1 ] #ADT-Roles
+            ADTCentcomConsultant: [ 1, 1 ] #ADT-Roles
             # command
             Captain: [ 1, 1 ]
-            ADTBlueShieldOfficer: [ 1, 1 ] #ADT-Roles
             #service
             Bartender: [ 2, 2 ]
             Botanist: [ 2, 2]

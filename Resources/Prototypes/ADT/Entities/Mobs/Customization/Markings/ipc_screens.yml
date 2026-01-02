@@ -691,3 +691,33 @@
     - sprite: ADT/Mobs/Customization/Ipc/ipc_screens.rsi
       state: ipc_screen_cute_unsurprised
   shader: unshaded
+
+- type: marking
+  speciesRestriction: [IPC]
+  id: ADTScreenPacifist1
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  sprites:
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_screens.rsi
+      state: ipc_screen_pacifist_1
+  shader: unshaded
+
+- type: marking
+  speciesRestriction: [IPC]
+  id: ADTScreenPacifist2
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  sprites:
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_screens.rsi
+      state: ipc_screen_pacifist_2
+  shader: unshaded
+
+- type: marking
+  speciesRestriction: [IPC]
+  id: ADTScreenAscended
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  sprites:
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_screens.rsi
+      state: ipc_screen_ascended
+  shader: unshaded

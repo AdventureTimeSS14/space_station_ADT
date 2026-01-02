@@ -51,6 +51,19 @@
 
 - type: entity
   parent: IDCardStandard
+  id: ADTCentcomConsultantIDCard
+  name: Central Command consultant ID card
+  components:
+    - type: Sprite
+      sprite: ADT/Objects/Misc/id_cards.rsi
+      layers:
+        - state: ert_commander
+        - state: idconsultant
+    - type: PresetIdCard
+      job: ADTCentcomConsultant
+
+- type: entity
+  parent: IDCardStandard
   id: ADTSpaceSecCadetIDCard
   name: space sec cadet ID card
   components:
@@ -415,6 +428,14 @@
   components:
   - type: IdCard
     jobTitle: job-name-mechanic
+
+- type: entity
+  parent: EngineeringIDCard
+  id: ADTWelderIDCard
+  name: welder ID card
+  components:
+  - type: IdCard
+    jobTitle: job-name-welder
 
 # Cargo Technician
 

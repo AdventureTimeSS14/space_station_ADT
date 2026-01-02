@@ -243,3 +243,4 @@ marking-BodyShadekinGauzeUpLegL = Перевязь, Левая нога(Верх
 marking-BodyShadekinGauzeUpLegL-gauze_upperleg_l_shadekin = Бинт
 marking-BodyShadekinGauzeUpLegR = Перевязь, Правая нога(Верх)
 marking-BodyShadekinGauzeUpLegR-gauze_upperleg_r_shadekin = Бинт
+marking-ScepticEyesShadekin = Бессонница

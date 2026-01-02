@@ -7,6 +7,9 @@ ent-ADTChairRed = красный деревянный стул
 ent-ADTChairWhite = белый деревянный стул
     .desc = Комфортный белый стул с белой спинкой и сидалищем
 
+ent-ADTChairRusty = ржавый стул
+    .desc = Вам лучше не сидеть на нём.
+
 ent-ADTArmchairWhite = белое кресло
     .desc = Выглядит крайне комфортно.
 
@@ -39,3 +42,6 @@ ent-ADTArmchairBlue2 = { ent-ADTArmchairBlue }
 
 ent-ADTBarberChair = парикмахерское кресло
     .desc = Очень удобное кресло, предназначенное для работы парикмахера.
+
+ent-ADTArmchairCentcomm = раскошное кресло Центком
+    .desc = Комфортное и раскошное кресло для представителей Центком.

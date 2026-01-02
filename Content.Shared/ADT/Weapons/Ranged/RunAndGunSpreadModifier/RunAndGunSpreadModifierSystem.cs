@@ -18,20 +18,14 @@ public sealed class RunAndGunSpreadModifierSystem : EntitySystem
 
     private void OnModifyAngle(Entity<RunAndGunSpreadModifierComponent> ent, ref GunShotEvent args)
     {
-        if (!TryComp<PhysicsComponent>(args.User, out var physics) || 
-            physics.LinearVelocity.LengthSquared() < 1f)
+        if (!TryComp<PhysicsComponent>(args.User, out var physics) ||
+            physics.LinearVelocity.Length() < ent.Comp.MinVelocity)
             return;
+        // Log.Warning(physics.LinearVelocity.LengthSquared().ToString()); //раскомментируйте, если хотите заменять скорость для нового оружия
 
         var dir = args.ToCoordinates.Position - args.FromCoordinates.Position;
-        var lenSq = dir.LengthSquared();
 
-        if (lenSq < 0.0001f)
-            return;
-
-        var invLen = 1f / MathF.Sqrt(lenSq);
-        dir *= invLen;
-
-        var spread = MathF.Abs(physics.LinearVelocity.X + physics.LinearVelocity.Y) * ent.Comp.Modifyer;
+        var spread = physics.LinearVelocity.Length() * ent.Comp.Modifier / 4;
 
         args.ToCoordinates = args.ToCoordinates.Offset(new Vector2(
             dir.X * _random.NextFloat(0f, spread) - dir.Y * _random.NextFloat(-spread, spread),
@@ -42,8 +36,8 @@ public sealed class RunAndGunSpreadModifierSystem : EntitySystem
     private void OnBlocker(Entity<RunAndGunBlockerComponent> ent, ref AttemptShootEvent args)
     {
         if (!args.Cancelled &&
-            TryComp<PhysicsComponent>(args.User, out var physics) && 
-            physics.LinearVelocity.LengthSquared() > 0f)
+            TryComp<PhysicsComponent>(args.User, out var physics) &&
+            physics.LinearVelocity.Length() > ent.Comp.MaxVelocity)
             args.Cancelled = true;
     }
 }

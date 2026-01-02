@@ -1,0 +1,31 @@
+- type: oreDunGen
+  id: ADTOreBS
+  replacement: AsteroidRock
+  entity: ADTAsteroidRockBS
+  count: 5
+  minGroupSize: 5
+  maxGroupSize: 7
+
+- type: oreDunGen
+  id: ADTOreCopper
+  replacement: AsteroidRock
+  entity: ADTAsteroidRockCopper
+  count: 5
+  minGroupSize: 5
+  maxGroupSize: 7
+
+- type: oreDunGen
+  id: ADTOreZinc
+  replacement: AsteroidRock
+  entity: ADTAsteroidRockZinc
+  count: 5
+  minGroupSize: 5
+  maxGroupSize: 7
+
+- type: oreDunGen
+  id: ADTOreLead
+  replacement: AsteroidRock
+  entity: ADTAsteroidRockLead
+  count: 5
+  minGroupSize: 5
+  maxGroupSize: 7

@@ -485,6 +485,19 @@
   components:
   - type: Sprite
     sprite: Objects/Tools/Lighters/centcomm.rsi
+    layers:
+    - state: closed
+      map: ["base"]
+    - state: open
+      map: ["top"]
+      visible: false
+    - state: open
+      map: ["open"]
+      visible: false
+    - state: lighter_flame
+      map: ["flame"]
+      visible: false
+      shader: unshaded
   - type: Item
     sprite: Objects/Tools/Lighters/centcomm.rsi
   - type: ItemToggleRequiresLock
@@ -498,7 +511,7 @@
     enabled: false
     netsync: false
     radius: 4 #Excessively powerful
-    color: Gold
+    color: "#7FFFD4"
   - type: RefillableSolution
     solution: Welder
   - type: SolutionContainerManager

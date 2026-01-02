@@ -49,6 +49,30 @@
   equipment:
     jumpsuit: ClothingUniformJumpskirtElegantMaid
 
+- type: loadout
+  id: ADTJanitorJumpsuitTacticalMaid
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTJanitorialMaidDress100hours
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtTacticalMaid
+
+- type: loadout
+  id: ADTJanitorHeadbandTacticalMaid
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTJanitorialMaidDress100hours
+  equipment:
+    head: ClothingHeadHatTacticalMaidHeadband
+
+- type: loadout
+  id: ADTJanitorGlovesTacticalMaid
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTJanitorialMaidDress100hours
+  equipment:
+    gloves: ClothingHandsTacticalMaidGlovesNoInsulated
+
 #SD Tweak start
 
 - type: loadoutEffectGroup
@@ -100,7 +124,7 @@
   equipment:
     shoes: SDClothingShoesTacticalGaloshes
 
- #SD Tweak end   
+ #SD Tweak end
 
 # PDA
 - type: loadout

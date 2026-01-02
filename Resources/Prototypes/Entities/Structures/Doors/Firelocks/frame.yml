@@ -5,6 +5,7 @@
   description: That is a firelock frame.
   components:
   - type: Sprite
+    drawdepth: BelowMobs  # ADT-Tweak
     sprite: Structures/Doors/Airlocks/Standard/firelock.rsi
     layers:
     - state: frame1

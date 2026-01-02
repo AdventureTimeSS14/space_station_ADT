@@ -36,6 +36,7 @@
   - type: StatusEffects
     allowed:
     - Stutter
+    - Weakness #ADT-Weakness-Tweak
     - Electrocution
   - type: Pullable
   - type: Tag

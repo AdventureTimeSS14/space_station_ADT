@@ -13,6 +13,9 @@ ent-ADTCorrectionsOfficerIDCard = ID карта надзирателя СБ
 ent-ADTBlueShieldOfficerIDCard = ID карта офицера синего щита
     .desc = Блестящая карта офицера Синего Щита.
 
+ent-ADTCentcomConsultantIDCard = ID карта консультанта Центком
+    .desc = Золотая версия карты для представителей Центрального Командования.
+
 ent-ADTBrigMedicIDCard = ID карта бригмедика
     .desc = ID карта бриг медика
 
@@ -97,6 +100,9 @@ ent-ADTElectricianIDCard = ID карта электрика
 
 ent-ADTMechanicIDCard = ID карта механика
     .desc = ID карта механика.
+
+ent-ADTWelderIDCard = ID карта сварщика
+    .desc = ID карта сварщика.
 
 ent-ADTPostmanIDCard = ID карта почтальона
     .desc = ID карта почтальона.

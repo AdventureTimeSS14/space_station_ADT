@@ -1,7 +1,13 @@
-ent-ADTChemDispenserFlatpack = упакованый раздатчик химикатов
+ent-ADTChemDispenserFlatpack = упакованный раздатчик химикатов
     .desc = Упаковка, при помощи которой можно создать раздатчик химикатов.
 
-ent-ADTChemMasterFlatpack = упакованый ХимМастер 4000
+ent-ADTEnergyChemDispenserFlatpack = упакованный энерго-раздатчик химикатов
+    .desc = Упаковка, при помощи которой можно создать раздатчик химикатов.
+
+ent-ADTMachinePowerTransmissionLaserFlatpack = упакованный лазерный передатчик энергии
+    .desc = Упаковка, при помощи которой можно создать лазерный передатчик энергии.
+
+ent-ADTChemMasterFlatpack = упакованный ХимМастер 4000
     .desc = Упаковка, при помощи которой можно создать ХимМастер 4000.
 
 ent-ADTStasisBedFlatpack = упакованная стазисная кровать

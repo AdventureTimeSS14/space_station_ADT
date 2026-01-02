@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Icon state created by ryslan32, other states by FIREMIX for ADT!:3",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "icon"
+    },
+    {
+      "name": "icon-on"
+    },
+    {
+      "name": "icon-off"
+    },
+    {
+      "name": "icon-active"
+    },
+    {
+      "name": "icon-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "icon-inhand-left",
+      "directions": 4
+    }
+  ]
+}

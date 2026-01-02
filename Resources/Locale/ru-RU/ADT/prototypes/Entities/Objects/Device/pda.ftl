@@ -10,6 +10,8 @@ ent-ADTRoboticistPDA = КПК робототехника
 ent-ADTBlueshieldOfficerPDA = КПК офицера синего щита
     .desc = Покажи им, какой он стильный, как он прочен, ведь в нём вся сила NT.
 
+ent-ADTCentcomConsultantPDA = КПК консультанта Центком
+
 ent-ADTGhostPDA = КПК призрака
     .desc = Скажи станции Бу!
 
@@ -83,6 +85,9 @@ ent-ADTElectricianPDA = КПК электрика
 
 ent-ADTMechanicPDA = КПК механика
     .desc = Мы обожаем гаечные ключи!
+
+ent-ADTWelderPDA = КПК сварщика
+    .desc = Владелец этого КПК может "заварить" вам чай.
 
 ent-ADTPostmanPDA = КПК почтальона
     .desc = Сколько писем!

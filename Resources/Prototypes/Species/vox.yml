@@ -14,6 +14,7 @@
   sexes:
   - Unsexed
   # ADT start
+  shortDesc: species-short-desc-vox
   description: "/ServerInfo/ADT/SpeciesDescriptions/Vox.xml"
   pros:
   - Если у вокса имеется менее 20 единиц повреждений от ядов, он восстанавливает их.

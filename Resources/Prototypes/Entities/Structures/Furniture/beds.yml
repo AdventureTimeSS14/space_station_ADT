@@ -82,6 +82,7 @@
   - type: Construction
     graph: bed
     node: medicalbed
+  - type: InjectorBoost # ADT-Tweak (P4A) Ускорение Шприцов на койках и каталках
   - type: GuideHelp
     guides:
     - MedicalDoctor
