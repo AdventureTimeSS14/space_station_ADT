@@ -248,3 +248,12 @@
   components:
   - type: Sprite
     sprite: ADT/Clothing/Neck/Cloaks/captain_admiral.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingCloakInvestigator
+  name: investigator's cloak
+  description: A stylish cloak that instills fear in even the most terrifying prisoners.
+  components:
+    - type: Sprite
+      sprite: ADT/Clothing/Neck/Cloaks/investigator_cloak.rsi
