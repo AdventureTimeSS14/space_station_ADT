@@ -7127,17 +7127,17 @@ entities:
       inSlot: neck
     - type: Physics
       canCollide: False
-- proto: ADTClothingNeckCloakSecondBlueshield
-  entities:
-  - uid: 105
-    components:
-    - type: Transform
-      parent: 101
-    - type: Clothing
-      inSlotFlag: NECK
-      inSlot: neck
-    - type: Physics
-      canCollide: False
+# - proto: ADTClothingNeckCloakSecondBlueshield
+#   entities:
+#   - uid: 105
+#     components:
+#     - type: Transform
+#       parent: 101
+#     - type: Clothing
+#       inSlotFlag: NECK
+#       inSlot: neck
+#     - type: Physics
+#       canCollide: False
 - proto: ADTClothingOuterArmorCrusader
   entities:
   - uid: 148
