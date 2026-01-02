@@ -7,8 +7,8 @@
         - to: stable
           steps:
             - tag: ADTStabilizingSerum
-              name: Skibidi pau pau eto vse ravno ne uvidit nikto
-              doAfter: 1
+              name: construction-graph-stabilizing-serum
+              doAfter: 0,1
 
     - node: stable
       entity: ADTLegionCoreStable
