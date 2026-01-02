@@ -87,7 +87,7 @@
       path: /Audio/Ambience/Objects/fireplace.ogg
   - type: Damageable
     damageContainer: StructuralInorganic
-    damageModifierSet: Metallic
+    damageModifierSet: Wood
   - type: Destructible
     thresholds:
       - trigger:
@@ -101,12 +101,12 @@
       Flammable: [ Touch ]
       Extinguish: [ Touch ]
   - type: Flammable
-    fireSpread: false
+    fireSpread: true
     canResistFire: false
     alwaysCombustible: true
     canExtinguish: true
-    firestacksOnIgnite: 1
-    firestackFade: 0
+    firestacksOnIgnite: 2
+    firestackFade: -0.05
     damage:
       types:
         Heat: 0

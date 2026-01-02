@@ -93,6 +93,7 @@
   components:
   - type: Sprite
     state: concrete_barrier_alt
+    dimensions: 4
 
 - type: entity
   parent: BaseStructure
@@ -103,6 +104,7 @@
   - type: Sprite
     sprite: ADT/Structures/Decoration/shelter.rsi
     state: road_barrier
+    dimensions: 4
   - type: Physics
     bodyType: Static
   - type: Fixtures

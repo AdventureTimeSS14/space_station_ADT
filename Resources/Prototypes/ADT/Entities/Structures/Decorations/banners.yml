@@ -209,7 +209,7 @@
 - type: entity
   id: ADTBannerGorlex
   parent: BannerBase
-  name: Gorlex Securitie banner
+  name: Gorlex Securities banner
   description: A banner with the Gorlex Securities LLC logo. These corporations are very secretive, but you know everything!
   components:
   - type: Sprite

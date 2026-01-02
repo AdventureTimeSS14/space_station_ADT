@@ -27,7 +27,7 @@ ent-ADTBannerElysium = знамя Элизиума
 ent-ADTBannerEmpireKhsira = знамя Империи Кхси'Ра
     .desc = Это знамя, на котором изображен герб Великой Империи Кхси’Ра. Империя - часть Транс-Солнечной Федерации.
 
-ent-ADTBannerGorlex = знамя Gorlex Securitie
+ent-ADTBannerGorlex = знамя Gorlex Securities
     .desc = Это знамя с логотипом Gorlex Securities LLC. Военные преступления не считаются, если тебе было весело!
 
 ent-ADTBannerGreytide = знамя грейтайда
