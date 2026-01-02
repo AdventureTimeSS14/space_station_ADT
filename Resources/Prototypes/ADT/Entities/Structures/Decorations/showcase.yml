@@ -63,7 +63,7 @@
   id: ADTShowcaseSkeletonTajaran
   parent: BaseShowcaseRobot
   name: tajaran skeleton showcase
-  description: The lizard no longer exists.
+  description: tajaran skeleton showcase
   components:
   - type: Sprite
     sprite: ADT/Structures/Decoration/showcase.rsi
