@@ -83,5 +83,8 @@
     sprite: SD/Objects/Fun/toys.rsi
     state: plush_ena
   - type: AmbientSound
+    enabled: true
+    volume: -10
+    range: 7
     sound:
-      path: /Audio/SD/Items/METAROOM-The-Purge-Event.ogg
+      path: /Audio/SD/Items/METAROOM-The-Purge-Event-MONO.ogg
