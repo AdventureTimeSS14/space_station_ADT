@@ -1047,7 +1047,7 @@
   components:
   - type: Pda
     id: CentcomIDCardDeathsquad
-  - type: Icon 
+  - type: Icon
     state: pda-ds
   - type: Appearance
     appearanceDataInit:
