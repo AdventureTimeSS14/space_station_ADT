@@ -5,7 +5,7 @@
   description: Does not work
   components:
   - type: Sprite
-    sprite: ADT/Structures/Decorations/showcase.rsi
+    sprite: ADT/Structures/Decoration/showcase.rsi
     state: durand
 
 - type: entity
@@ -15,7 +15,7 @@
   description: Does not work
   components:
   - type: Sprite
-    sprite: ADT/Structures/Decorations/showcase.rsi
+    sprite: ADT/Structures/Decoration/showcase.rsi
     state: gygax
 
 - type: entity
@@ -25,7 +25,7 @@
   description: Honk honk honk!
   components:
   - type: Sprite
-    sprite: ADT/Structures/Decorations/showcase.rsi
+    sprite: ADT/Structures/Decoration/showcase.rsi
     state: honker
 
 # Витрины без 4 направлений
@@ -36,7 +36,7 @@
   description: Diver for underwater work!
   components:
   - type: Sprite
-    sprite: ADT/Structures/Decorations/showcase.rsi
+    sprite: ADT/Structures/Decoration/showcase.rsi
     state: diver
 
 - type: entity
@@ -46,7 +46,7 @@
   description: Boom! Boom!
   components:
   - type: Sprite
-    sprite: ADT/Structures/Decorations/showcase.rsi
+    sprite: ADT/Structures/Decoration/showcase.rsi
     state: skeleton
 
 - type: entity
@@ -56,7 +56,7 @@
   description: The lizard no longer exists.
   components:
   - type: Sprite
-    sprite: ADT/Structures/Decorations/showcase.rsi
+    sprite: ADT/Structures/Decoration/showcase.rsi
     state: skeleton_reptilian
 
 - type: entity
@@ -66,7 +66,7 @@
   description: The lizard no longer exists.
   components:
   - type: Sprite
-    sprite: ADT/Structures/Decorations/showcase.rsi
+    sprite: ADT/Structures/Decoration/showcase.rsi
     state: skeleton_tajaran
 
 - type: entity
@@ -76,6 +76,6 @@
   description: Where is the tail?!
   components:
   - type: Sprite
-    sprite: ADT/Structures/Decorations/showcase.rsi
+    sprite: ADT/Structures/Decoration/showcase.rsi
     state: skeleton_vulp
 
