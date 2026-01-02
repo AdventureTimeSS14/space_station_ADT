@@ -505,7 +505,7 @@
 
 - type: entity
   parent: [ ClothingHeadHardsuitBase , ClothingHeadHelmetHardsuitSyndieCommander ]
-  id: ADTClothingHeadHelmetHardsuitEVENTLeader
+  id: ADTClothingHeadHelmetHardsuitEVENTsunshine
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite

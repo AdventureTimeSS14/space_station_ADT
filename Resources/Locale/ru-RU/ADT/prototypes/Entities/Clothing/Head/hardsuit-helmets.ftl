@@ -56,5 +56,5 @@ ent-ADTClothingHeadHelmetHardsuitEVENTServant = шлем скафандра пр
     .desc = На шлеме светящийся розовым цветом T-образный символ. Сам же шлем сделан из крепкого сплава.
 ent-ADTClothingHeadHelmetHardsuitEVENTMed = шлем скафандра медика рассвета
     .desc = На шлеме светящийся розовым цветом T-образный символ. Сам же шлем сделан из крепкого сплава.
-ent-ADTClothingHeadHelmetHardsuitEVENTLeader = шлем скафандра владыки рассвета
+ent-ADTClothingHeadHelmetHardsuitEVENTsunshine = шлем скафандра владыки рассвета
     .desc = На шлеме одна вертикальная фиолетовая линия, которая светится. Сам же шлем сделан из крепчайшего сплава.

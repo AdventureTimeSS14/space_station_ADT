@@ -591,7 +591,7 @@
     clothingPrototype: ADTClothingHeadHelmetHardsuitEVENTServant
 
 - type: entity
-  parent: [ClothingOuterHardsuitBase , ClothingOuterHardsuitSyndieCommander ]
+  parent: [ClothingOuterHardsuitBase, ClothingOuterHardsuitSyndieCommander ]
   id: ADTEVENTLeaderHardsuit
   components:
   - type: Sprite
@@ -602,7 +602,7 @@
     clothingPrototype: ADTClothingHeadHelmetHardsuitEVENTsunshine
 
 - type: entity
-  parent: [ClothingOuterHardsuitBase,ClothingOuterHardsuitSyndieMedic]
+  parent: [ClothingOuterHardsuitBase, ClothingOuterHardsuitSyndieMedic]
   id: ADTEVENTMedHardsuit
   components:
   - type: Sprite
