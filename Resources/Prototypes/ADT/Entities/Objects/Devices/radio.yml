@@ -50,3 +50,30 @@
   - type: Tag
     tags:
     - ADTBroadcastMicrophone
+
+- type: entity
+  parent: BaseItem
+  id: ADTClosedRadio
+  name: handheld radio
+  description: A handy handheld radio.
+  components:
+  - type: TelecomExempt
+  - type: RadioMicrophone
+    broadcastChannel: ADTClosedChannel
+  - type: RadioSpeaker
+    channels:
+    - ADTClosedChannel
+  - type: Speech
+    speechVerb: Robotic
+  - type: Sprite
+    sprite: ADT/Objects/Devices/communication.rsi
+    layers:
+    - state: icon
+    - state: icon-on
+    state: icon
+  - type: Item
+    sprite: ADT/Objects/Devices/communication.rsi
+    heldPrefix: icon
+  - type: Tag
+    tags:
+    - ADTClosedRadio

@@ -353,8 +353,24 @@
       collection: Hew
     Honk:
       collection: BikeHorn
+    #ADT-Tweak-Start Arachnid-Emotes
+    Crying:
+      path: /Audio/ADT/Voice/Arachnid/arachnid_cry.ogg
+    Cough:
+      path: /Audio/ADT/Voice/Arachnid/arachnid_cough.ogg
+    Yawn:
+      path: /Audio/ADT/Voice/Arachnid/arachnid_yawn.ogg
+    Sigh:
+      path: /Audio/ADT/Voice/Arachnid/arachnid_sigh.ogg
     Gasp:
-      collection: MaleGasp
+      path: /Audio/ADT/Voice/Arachnid/arachnid_gasp.ogg
+    Spit:
+      collection: HumanSpits
+    Sneeze:
+      collection: MaleSneezes
+    Whistle:
+      collection: Whistles
+    #ADT-Tweak-End Arachnid-Emotes
     DefaultDeathgasp:
       collection: DeathGasp
 

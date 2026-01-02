@@ -44,6 +44,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Toolshed.Errors;
 using Robust.Shared.Utility;
 using Direction = Robust.Shared.Maths.Direction;
+using Content.Client.ADT.UserInterface.Controls;
 using Content.Shared.SD;
 using Content.Client.FlavorText;
 
@@ -115,7 +116,7 @@ namespace Content.Client.Lobby.UI
 
         private Direction _previewRotation = Direction.North;
 
-        private ColorSelectorSliders _rgbSkinColorSelector;
+        private LegacyColorSelectorSliders _rgbSkinColorSelector;   // ADT-Tweak - ColorSelectorSliders > LegacyColorSelectorSliders
 
         private bool _isDirty;
 
@@ -329,7 +330,7 @@ namespace Content.Client.Lobby.UI
                 OnSkinColorOnValueChanged();
             };
 
-            RgbSkinColorContainer.AddChild(_rgbSkinColorSelector = new ColorSelectorSliders());
+            RgbSkinColorContainer.AddChild(_rgbSkinColorSelector = new LegacyColorSelectorSliders());   // ADT-Tweak - ColorSelectorSliders > LegacyColorSelectorSliders
             // ADT-Tweak-Start
             // _rgbSkinColorSelector.SelectorType = ColorSelectorSliders.ColorSelectorType.Hsv; // defaults color selector to HSV
             // ADT-Tweak-End
@@ -569,6 +570,10 @@ namespace Content.Client.Lobby.UI
                 TabContainer.SetTabTitle(TabContainer.ChildCount - 1, Loc.GetString("humanoid-profile-editor-flavortext-tab"));
                 _flavorTextEdit = _flavorText.CFlavorTextInput;
 
+                //ADT-tweak-start
+                _flavorText.OnOOCNotesChanged += OnOOCNotesChange;
+                _flavorText.OnHeadshotUrlChanged += OnHeadshotUrlChange;
+                //ADT-tweak-end
                 _flavorText.OnFlavorTextChanged += OnFlavorTextChange;
                 // SD-ERPStatus-Start
                 _erpStatus = _flavorText.CERPStatusOption;
@@ -595,6 +600,10 @@ namespace Content.Client.Lobby.UI
 
                 TabContainer.RemoveChild(_flavorText);
                 _flavorText.OnFlavorTextChanged -= OnFlavorTextChange;
+                //ADT-tweak-start
+                _flavorText.OnOOCNotesChanged -= OnOOCNotesChange;
+                _flavorText.OnHeadshotUrlChanged -= OnHeadshotUrlChange;
+                //ADT-tweak-end
                 _flavorText.Dispose();
                 _flavorTextEdit?.Dispose();
                 _flavorTextEdit = null;
@@ -1303,6 +1312,24 @@ namespace Content.Client.Lobby.UI
             SetDirty();
         }
 
+        //ADT-tweak-start: ООС заметки и юрл
+        private void OnOOCNotesChange(string content)
+        {
+            if (Profile is null)
+                return;
+
+            Profile = Profile.WithOOCNotes(content);
+            SetDirty();
+        }
+        private void OnHeadshotUrlChange(string content)
+        {
+            if (Profile is null)
+                return;
+
+            Profile = Profile.WithHeadshotUrl(content);
+            SetDirty();
+        }
+        //ADT-tweak-end
         private void OnMarkingChange(MarkingSet markings)
         {
             if (Profile is null)
@@ -1528,6 +1555,13 @@ namespace Content.Client.Lobby.UI
             if (_flavorTextEdit != null)
             {
                 _flavorTextEdit.TextRope = new Rope.Leaf(Profile?.FlavorText ?? "");
+                // ADT-Tweak-start
+                if (_flavorText == null)
+                    return;
+
+                _flavorText.COOCTextInput.TextRope = new Rope.Leaf(Profile?.OOCNotes ?? "");
+                _flavorText.CHeadshotUrlInput.Text = Profile?.HeadshotUrl ?? "";
+                // ADT-Tweak-end
             }
         }
 

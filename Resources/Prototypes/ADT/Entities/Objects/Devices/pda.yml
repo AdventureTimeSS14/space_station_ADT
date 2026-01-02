@@ -184,6 +184,14 @@
         visible: false
 
 - type: entity
+  parent: CentcomPDA
+  id: ADTCentcomConsultantPDA
+  name: Centcom consultant PDA
+  components:
+    - type: Pda
+      id: ADTCentcomConsultantIDCard
+
+- type: entity
   parent: ADTBasePDA
   id: ADTGhostPDA
   name: ghost PDA
@@ -549,6 +557,15 @@
   components:
   - type: Pda
     id: ADTMechanicIDCard
+
+- type: entity
+  parent: EngineerPDA
+  id: ADTWelderPDA
+  name: welder PDA
+  description: The owner of this PDA can "weld" you some tea.
+  components:
+  - type: Pda
+    id: ADTWelderIDCard
 
 # Cargo Technician
 

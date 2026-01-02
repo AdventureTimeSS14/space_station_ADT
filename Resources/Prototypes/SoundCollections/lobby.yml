@@ -22,21 +22,24 @@
 #    - /Audio/Lobby/atomicamnesiammx.ogg
 #    - /Audio/Corvax/Lobby/service.ogg # Corvax-LobbyMusic
     # ADT music start
-#    - /Audio/ADT/Lobby/The_Wrong_Party.ogg
-#    - /Audio/ADT/Lobby/Gift_of_Adventure_from_Conjurer.ogg
-#    - /Audio/ADT/Lobby/friday_night.ogg
-#    - /Audio/ADT/Lobby/space_oddity.ogg
-#    - /Audio/ADT/Jukebox/fsm-team-escp-midnight-room.ogg
-#    - /Audio/ADT/Jukebox/fsm-team-escp-neonscapes.ogg
-#    - /Audio/ADT/Jukebox/fsm-team-eagle.ogg
-#    - /Audio/ADT/Lobby/horn.ogg
-#    - /Audio/ADT/Lobby/Collapsing_Rift.ogg
-#    - /Audio/ADT/Lobby/Nebula.ogg
-#    - /Audio/ADT/Lobby/DOS.ogg
-#    - /Audio/ADT/Lobby/IHYVA.ogg
-#    - /Audio/ADT/Lobby/Home_-_Were_Finally_Landing.ogg
-#    # ADT music end
-#    - /Audio/Corvax/Lobby/nodecision.ogg # Corvax-LobbyMusic
+    - /Audio/ADT/Lobby/The_Wrong_Party.ogg
+    - /Audio/ADT/Lobby/Gift_of_Adventure_from_Conjurer.ogg
+    - /Audio/ADT/Lobby/friday_night.ogg
+    - /Audio/ADT/Lobby/space_oddity.ogg
+    - /Audio/ADT/Jukebox/fsm-team-escp-midnight-room.ogg
+    - /Audio/ADT/Jukebox/fsm-team-escp-neonscapes.ogg
+    - /Audio/ADT/Jukebox/fsm-team-eagle.ogg
+    - /Audio/ADT/Lobby/horn.ogg
+    - /Audio/ADT/Lobby/Sonic_The_Hedgehog_CD_Naofumi_Hataya_Masafumi_Ogata-Collision_Chaos_Good_Future.ogg
+    - /Audio/ADT/Lobby/Tidal_Tempest_Zone_Present_US_Sonic_The_Hedgehog_CD.ogg
+    - /Audio/ADT/Lobby/Tidal_Tempest_Sonic_CD_JP.ogg
+    - /Audio/ADT/Lobby/Collapsing_Rift.ogg
+    - /Audio/ADT/Lobby/Nebula.ogg
+    - /Audio/ADT/Lobby/DOS.ogg
+    - /Audio/ADT/Lobby/IHYVA.ogg
+    - /Audio/ADT/Lobby/Home_-_Were_Finally_Landing.ogg
+    # ADT music end
+    - /Audio/Corvax/Lobby/nodecision.ogg # Corvax-LobbyMusic
     - /Audio/SD/Lobby/last-christmas.ogg
     - /Audio/SD/Lobby/santaclausiscoming.ogg
     - /Audio/SD/Lobby/alliwantforchristmas.ogg

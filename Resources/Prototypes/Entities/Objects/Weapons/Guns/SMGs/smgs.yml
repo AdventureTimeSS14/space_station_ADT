@@ -16,8 +16,8 @@
     - suitStorage
   - type: AmmoCounter
   # ADT-Tweak start
-  # - type: RunAndGunSpreadModifier # SD-Tweak: fuck immobility
-  #  modifyer: 0.4
+  - type: RunAndGunSpreadModifier
+    modifier: 0.04
   # ADT-Tweak end
   - type: Gun
     minAngle: 2

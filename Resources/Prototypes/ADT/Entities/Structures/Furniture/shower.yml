@@ -1,0 +1,74 @@
+- type: entity
+  name: shower
+  id: ADTShower
+  parent: [ BaseStructure ]
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wallmount
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/shower.rsi
+    layers:
+    - state: shower
+      map: [ "enum.ToggleableVisuals.Layer" ]
+  - type: Rotatable
+  - type: Transform
+    noRot: false
+  - type: Physics
+    bodyType: Static
+    canCollide: false
+  - type: Appearance
+  - type: Clickable
+  - type: InteractionOutline
+  - type: ItemToggle
+    predictable: false
+    soundActivate:
+      path: /Audio/ADT/Effects/shower_start.ogg
+    soundDeactivate:
+      path: /Audio/ADT/Effects/shower_end.ogg
+  - type: ItemToggleActiveSound
+    activeSound:
+      collection: ADTShowerMid
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleableVisuals.Enabled:
+        enum.ToggleableVisuals.Layer:
+          True: {state: shower-on}
+          False: {state: shower}
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 80
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+      - trigger:
+          !type:DamageTrigger
+          damage: 40
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+          - !type:PlaySoundBehavior
+            sound:
+              collection: MetalBreak
+  - type: ComponentToggler
+    components:
+    - type: GasMiner
+      spawnGas: WaterVapor
+      maxExternalPressure: 102
+      spawnAmount: 0.2
+    - type: AtmosDevice
+    - type: SolutionContainerManager
+      solutions:
+        showerWater:
+          maxVol: 200
+    - type: SolutionRegeneration
+      solution: showerWater
+      generated:
+        reagents:
+        - ReagentId: Water
+          Quantity: 5
+    - type: DrainableSolution
+      solution: showerWater

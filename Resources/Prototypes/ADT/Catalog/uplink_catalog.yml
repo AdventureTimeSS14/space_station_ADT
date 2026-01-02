@@ -593,7 +593,7 @@
   description: uplink-cyberpsycho-bundle-desc
   productEntity: ADTBoxSyndicateCyberpsycho
   cost:
-    Telecrystal: 20
+    Telecrystal: 16
   categories:
     - UplinkImplants
 
@@ -665,13 +665,13 @@
   cost:
     Telecrystal: 15 #Tweak 20->15
   categories:
-    - UplinkPointless
+  - UplinkPointless
   #ADT-tweak-start
   conditions:
-    - !type:BuyerWhitelistCondition
-      blacklist:
-        components:
-          - SurplusBundle
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+        - SurplusBundle
   #ADT-tweak-end
 
 - type: listing

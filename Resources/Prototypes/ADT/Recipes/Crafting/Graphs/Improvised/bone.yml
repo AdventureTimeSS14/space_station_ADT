@@ -45,3 +45,35 @@
         doAfter: 1
   - node: ADTBoneCompSword
     entity: ADTBoneSword
+
+- type: constructionGraph
+  id: ADTBBattleaxe
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: ADTBoneCompBattleaxe
+      steps:
+      - material: Bones
+        amount: 20
+      - material: Cloth
+        amount: 10
+        doAfter: 1
+  - node: ADTBoneCompBattleaxe
+    entity: ADTBoneBattleaxe
+
+- type: constructionGraph
+  id: ADTBLongsword
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: ADTCompBoneLongsword
+      steps:
+      - material: Bones
+        amount: 15
+      - material: Cloth
+        amount: 5
+        doAfter: 1
+  - node: ADTCompBoneLongsword
+    entity: ADTBoneLongsword

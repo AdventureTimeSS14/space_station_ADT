@@ -17,21 +17,13 @@ public sealed partial class CentComRandomEventComponent : Component
     [DataField("weights")]
     public Dictionary<int, float> Weights { get; private set; } = new()
     {
-        {1, 10f},
-        {2, 6f},
-        {3, 3f},
-        {4, 9f},
-        {5, 8f},
-        {6, 8f},
-        {7, 0.5f},
-        {8, 6f},
-        {9, 3f},
-        {10, 0.5f},
-        {11, 6f},
-        {12, 5f},
-        {13, 0.5f},
-        {14, 8f},
-        {15, 5f},
-        {16, 0.5f}
+        {1, 1f},
+        {2, 1f},
+        {3, 1f},
+        {4, 1f},
+        {5, 1f},
+        {6, 1f},
+        {7, 1f},
+        {8, 1f}
     };
 }

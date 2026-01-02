@@ -1,0 +1,12 @@
+ent-ADTFloorAbyssTinyEntity = { ent-FloorChasmEntity }
+    .desc = { ent-FloorChasmEntity.desc }
+    .suffix = Декоративная, крошечная
+ent-ADTFloorAbyssSmallEntity = { ent-FloorChasmEntity }
+    .desc = { ent-FloorChasmEntity.desc }
+    .suffix = Декоративная, маленькая
+ent-ADTFloorAbyssNormalEntity = { ent-FloorChasmEntity }
+    .desc = { ent-FloorChasmEntity.desc }
+    .suffix = Декоративная, средняя
+ent-ADTFloorAbyssBigEntity = { ent-FloorChasmEntity }
+    .desc = { ent-FloorChasmEntity.desc }
+    .suffix = Декоративная, большая

@@ -22,6 +22,7 @@
   - type: ExtensionCableReceiver
   - type: Machine
     board: ADTAdvancedMedicalBedCircuitboard
+  - type: InjectorBoost # ADT-Tweak (P4A) Ускорение Шприцов на койках и каталках
   - type: GuideHelp
     guides:
     - MedicalDoctor

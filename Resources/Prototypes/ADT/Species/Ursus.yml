@@ -9,6 +9,7 @@
   dollPrototype: MobUrsusDummy
   skinColoration: Hues
   maleFirstNames: firstMaleUrs
+  shortDesc: species-short-desc-urs
   femaleFirstNames: firstFemaleUrs
   maleLastNames: LastMaleUrs
   femaleLastNames: LastFemaleUrs

@@ -14,6 +14,7 @@ using Robust.Shared.Audio.Systems;
 using Content.Shared.Speech.Muting;
 using Content.Shared.Eye.Blinding.Systems;
 using Content.Shared.Flash.Components;
+using Content.Shared.Mobs;
 using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Movement.Pulling.Components;
 using Robust.Shared.Timing;
@@ -467,3 +468,40 @@ public sealed partial class ComboEffectSleep: IComboEffect
     }
 }
 
+[Serializable, NetSerializable]
+public sealed partial class ComboEffectAddToCounter : IComboEffect
+{
+    [DataField("amount")]
+    public int Amount = 1;
+
+    public void DoEffect(EntityUid user, EntityUid target, IEntityManager entMan)
+    {
+        var counter = entMan.System<ComboCounterSystem>();
+
+        if (entMan.TryGetComponent<ComboCounterComponent>(user, out var comp))
+        {
+            counter.AddToCounter(comp, Amount);
+        }
+    }
+}
+
+[Serializable, NetSerializable]
+public sealed partial class ComboEffectCounterDamageBonus : IComboEffect
+{
+    [DataField("damage")]
+    public DamageSpecifier Damage;
+
+    public void DoEffect(EntityUid user, EntityUid target, IEntityManager entMan)
+    {
+        if (entMan.TryGetComponent<MobStateComponent>(target, out var state) && state.CurrentState != MobState.Dead)
+        {
+            if (entMan.TryGetComponent<ComboCounterComponent>(user, out var comp))
+            {
+                var damageable = entMan.System<DamageableSystem>();
+                var newDamage = Damage * comp.ComboCounter;
+                damageable.TryChangeDamage(target, newDamage);
+            }
+
+        }
+    }
+}

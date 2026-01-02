@@ -515,6 +515,55 @@
       - ADTModsuitModJetpack
       - ADTModsuitModIsulation
 
+# ЦК
+- type: entity
+  parent: ADTClothingModsuitBackSyndicate
+  id: ADTClothingModsuitBackCentcom
+  name: Corporate MOD control unit
+  description: Made centcom
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Back/Modsuit/centcomm.rsi
+    state: icon
+  - type: ModSuit
+    fullyEnabledSound:
+      path: /Audio/ADT/Mecha/nominalnano.ogg
+    clothingPrototypes:
+      head: ADTClothingHeadHelmetModsuitCentcom
+      gloves: ADTClothingHandsModsuitCentcom
+      outerClothing: ADTClothingOuterModsuitBodyCentcom
+      shoes: ADTClothingModsuitShoesCentcom
+    startingModules:
+      - ADTModsuitModStorageLarge
+      - ADTModsuitModLight
+      - ADTModsuitModJetpack
+      - ADTModsuitModEmpProtection
+      - ADTModsuitModIsulation
+
+# КЦК
+- type: entity
+  parent: ADTClothingModsuitBackBase
+  id: ADTClothingModsuitBackCCC
+  name: Corporate MOD control unit
+  description: Made Centcom Consultant
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Back/Modsuit/centcomm.rsi
+    state: icon
+  - type: ModSuit
+    fullyEnabledSound:
+      path: /Audio/ADT/Mecha/nominalnano.ogg
+    clothingPrototypes:
+      head: ADTClothingHeadHelmetModsuitCCC
+      gloves: ADTClothingHandsModsuitCCC
+      outerClothing: ADTClothingOuterModsuitBodyCCC
+      shoes: ADTClothingModsuitShoesCentcom
+    startingModules:
+      - ADTModsuitModStorageLarge
+      - ADTModsuitModLight
+      - ADTModsuitModJetpack
+      - ADTModsuitModIsulation
+
 # Смотритель
 - type: entity
   parent: ADTClothingModsuitBackBase

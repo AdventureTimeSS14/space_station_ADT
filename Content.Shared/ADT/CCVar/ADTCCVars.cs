@@ -12,6 +12,9 @@ public sealed class ADTCCVars
     /*
     * Barks
     */
+    public static readonly CVarDef<string> HeadshotUrl =
+        CVarDef.Create("ic.headshot_url", "https://i.pinimg.com", CVar.SERVER | CVar.REPLICATED);
+
     public static readonly CVarDef<bool> BarksEnabled =
         CVarDef.Create("barks.enabled", true, CVar.SERVER | CVar.REPLICATED | CVar.ARCHIVE);
 
@@ -274,5 +277,8 @@ public sealed class ADTCCVars
 
     public static readonly CVarDef<bool> BookPrinterUploadCooldownEnabled =
         CVarDef.Create("bookprinter.upload_cooldown_enabled", true, CVar.SERVERONLY | CVar.ARCHIVE);
+
+    public static readonly CVarDef<bool> PaySalary =
+        CVarDef.Create("economy.pay_salary", true, CVar.SERVERONLY | CVar.ARCHIVE);
 }
 

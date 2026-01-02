@@ -65,6 +65,7 @@
   - ADTMegaCellMediumRecipe
   - ADTMegaCellHighRecipe
   - ADTMegaCellHyperRecipe
+  - RNDInducerRecipe
 
 - type: latheRecipePack
   id: ADTMegaCharger

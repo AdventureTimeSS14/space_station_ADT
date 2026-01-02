@@ -151,6 +151,8 @@
         Blunt: 2
         Slash: 3
         Piercing: 1
+  - type: FlashModifier
+    modifier: 2
   - type: Shadekin
   - type: Vocal
     sounds:

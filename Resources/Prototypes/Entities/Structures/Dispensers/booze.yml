@@ -34,22 +34,17 @@
   components:
   - type: StorageFill
     contents:
-    - id: DrinkCoconutWaterJug
-    - id: DrinkCoffeeJug
-    - id: DrinkColaBottleFull
-    - id: DrinkCreamCartonXL
-    - id: DrinkDrGibbJug
-    - id: DrinkEnergyDrinkJug
-    - id: DrinkGreenTeaJug
-    - id: DrinkIceJug
-    - id: DrinkJuiceLimeCartonXL
-    - id: DrinkJuiceOrangeCartonXL
-    - id: DrinkLemonLimeJug
-    - id: DrinkRootBeerJug
-    - id: DrinkSodaWaterBottleFull
-    - id: DrinkSpaceMountainWindBottleFull
-    - id: DrinkSpaceUpBottleFull
-    - id: DrinkSugarJug
-    - id: DrinkTeaJug
-    - id: DrinkTonicWaterBottleFull 
-    - id: DrinkWaterMelonJuiceJug
+    # ADT-Tweak-Start Вернул на места бутылки. Ничего не менял
+    - id: DrinkAleBottleFullGrowler
+    - id: DrinkBeerGrowler
+    - id: DrinkCoffeeLiqueurBottleFull
+    - id: DrinkCognacBottleFull
+    - id: DrinkGinBottleFull
+    - id: DrinkMeadJug
+    - id: DrinkRumBottleFull
+    - id: DrinkTequilaBottleFull
+    - id: DrinkVermouthBottleFull
+    - id: DrinkVodkaBottleFull
+    - id: DrinkWhiskeyBottleFull
+    - id: DrinkWineBottleFull
+    # ADT-Tweak-End

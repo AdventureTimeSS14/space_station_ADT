@@ -6,6 +6,7 @@ using Content.Server.PDA;
 using Content.Server.Station.Components;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
+using Content.Shared.ADT.CharecterFlavor;
 using Content.Shared.CCVar;
 using Content.Shared.Clothing;
 using Content.Shared.DetailExaminable;
@@ -136,20 +137,23 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
             _humanoidSystem.LoadProfile(entity.Value, profile);
             _metaSystem.SetEntityName(entity.Value, profile.Name);
 
-            // SD-ERPStatus-Start
-            // if (profile.FlavorText != "" && _configurationManager.GetCVar(CCVars.FlavorText))
-            // {
-            //     AddComp<DetailExaminableComponent>(entity.Value).Content = profile.FlavorText;
-            // }
-            if (_configurationManager.GetCVar(CCVars.FlavorText))
+            if (profile.FlavorText != "" && _configurationManager.GetCVar(CCVars.FlavorText))
             {
+                //ADT-tweak-start: Реворк флаворов
+                // AddComp<DetailExaminableComponent>(entity.Value).Content = profile.FlavorText;
+                var flavor = EnsureComp<CharacterFlavorComponent>(entity.Value);
+                flavor.FlavorText = profile.FlavorText;
+                flavor.OOCNotes = profile.OOCNotes;
+                flavor.HeadshotUrl = profile.HeadshotUrl;
+                //возможное TODO: добавить кастомное описание рас
+                //ADT-tweak-end
+
                 var detailExamineComp = EntityManager.EnsureComponent<DetailExaminableComponent>(entity.Value);
                 detailExamineComp.Content = profile.FlavorText ?? "";
 
                 // Сохраняем ERPStatus независимо от наличия FlavorText
                 detailExamineComp.ERPStatus = profile.ERPStatus;
             }
-            // SD-ERPStatus-End
         }
 
         if (loadout != null)

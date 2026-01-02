@@ -14,7 +14,7 @@
     sprite: Objects/Materials/ingots.rsi
     state: copper_3
   product: CrateMaterialCopper
-  cost: 2000
+  cost: 6000
   category: Materials
   group: market
 
@@ -24,7 +24,7 @@
     sprite: ADT/Objects/Materials/Sheets/metal.rsi
     state: zinc_3
   product: CrateMaterialZinc
-  cost: 2000
+  cost: 6000
   category: Materials
   group: market
 
@@ -34,7 +34,7 @@
     sprite: ADT/Objects/Materials/Sheets/metal.rsi
     state: lead_3
   product: CrateMaterialLead
-  cost: 1500
+  cost: 4500
   category: Materials
   group: market
 

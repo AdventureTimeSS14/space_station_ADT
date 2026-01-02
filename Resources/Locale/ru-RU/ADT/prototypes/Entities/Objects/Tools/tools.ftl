@@ -12,3 +12,19 @@ ent-ADTRazor = Машинка для стрижки
 
 ent-ADTSupermatterScalpel = скальпель
     .desc = Скальпель, специально разработанный для разрезания кристалла Суперматерии.
+
+ent-ADTEngiInducer = индуктор
+    .desc = Устройство для беспроводной передачи энергии от собственной батареи к батареям других устройств.
+    .suffix = Пустой, Инженерный
+
+ent-ADTEngiInducerBattery = { ent-ADTEngiInducer }
+    .desc = { ent-ADTEngiInducer.desc }
+    .suffix = Батарея, Инженерный
+
+ent-ADTRNDInducer = { ent-ADTEngiInducer }
+    .desc = { ent-ADTEngiInducer.desc }
+    .suffix = Пустой, РНД
+
+ent-ADTRNDInducerBattery = { ent-ADTEngiInducer }
+    .desc = { ent-ADTEngiInducer.desc }
+    .suffix = Батарея, РНД

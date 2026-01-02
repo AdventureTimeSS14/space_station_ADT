@@ -45,7 +45,13 @@
   # - ClothingNeckSolarisPin
   # - ClothingNeckWhiteListPin
   # # Corvax-Loadouts-End
-  #ADT end
+  - AcousticGuitarInstrument
+  - RockGuitarInstrument #ADT-tweak
+  - HarmonicaInstrument #ADT-tweak
+  - ADTModStorageVoucher
+  - ADTClothingGeorgeRibbonPin
+  - ADTClothingMaskPaperBlank
+  #ADT-tweak-end
   - TowelColorBlack
   - TowelColorDarkBlue
   - TowelColorDarkGreen
@@ -63,9 +69,11 @@
   - TowelColorWhite
   - TowelColorYellow
   # ADT-Tweak-Start
-  - AcousticGuitarInstrument
+  - ADTClothingHandsRingEmerald
+  - ADTClothingHandsRingBlood
+  - ADTClothingHandsRingPlazma
+  - ADTClothingHandsRingTurk
   - ADTHandheldStationMapUnpowered
-  - HarmonicaInstrument
   - ADTModStorageVoucher
   - ADTClothingGeorgeRibbonPin
   # ADT-Tweak-End
@@ -481,6 +489,7 @@
   - ADTJanitorJumpsuitJanimaid
   - ADTJanitorJumpsuitJanimaidmini
   - ADTJanitorJumpsuitJanimaidElegant
+  - ADTJanitorJumpsuitTacticalMaid
   # ADT-Loadouts-End
   #SD Tweak start
   - SDJanitorTacticalJanimaidSkirt
@@ -499,6 +508,7 @@
   # ADT tweak start
   - ADTOrangeGloves
   - ADTPurpleGloves
+  - ADTJanitorGlovesTacticalMaid
   # ADT tweak end
   #SD Tweak start
   - SDJanitorTacticalJanimaidGloves
@@ -990,6 +1000,7 @@
   - StationEngineerPDA
   - ADTElectricianPDA # ADT
   - ADTMechanicPDA # ADT
+  - ADTWelderPDA # ADT
 
 - type: loadoutGroup
   id: AtmosphericTechnicianJumpsuit
@@ -1174,6 +1185,7 @@
   loadouts:
   - LatexGloves
   - ADTPurpleGloves # ADT tweak
+  - ADTGlovesLatexBlack # ADT tweak
 
 - type: loadoutGroup
   id: ScientistPDA
@@ -1353,6 +1365,7 @@
   loadouts:
   - DetectiveTie
   # ADT-Loadout-Start
+  - ADTClothingInvestigatorShoulderNeck
   - ADTNeckSecBadgeBronze
   - ADTNeckSecBadgeSilver
   - ADTNeckSecBadgeGold
@@ -1540,6 +1553,7 @@
   minLimit: 0
   loadouts:
   - LatexGloves
+  - ADTGlovesLatexBlack #ADT tweak
   - NitrileGloves
 
 - type: loadoutGroup
