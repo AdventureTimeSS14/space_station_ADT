@@ -41,7 +41,8 @@ maxplayers = 20
 soft_max_players = 20
 map_rotation = true
 peaceful_end = false
-lobbyenabled = true
+# Для разработки вырублю
+lobbyenabled = false
 contraband_examine = false
 lobbyduration = 20
 [worldgen]

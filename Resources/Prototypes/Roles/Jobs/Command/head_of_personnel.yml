@@ -19,6 +19,8 @@
     - !type:DepartmentTimeRequirement
       department: Command
       time: 9000 # 2.5 hours
+    - !type:AgeRequirement # Hellix-Tweak
+      requiredAge: 20
     - !type:SpeciesRequirement
       inverted: true
       species:
