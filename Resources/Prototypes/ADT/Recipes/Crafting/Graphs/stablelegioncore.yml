@@ -7,7 +7,7 @@
         - to: stable
           steps:
             - tag: ADTStabilizingSerum
-              name: стабилизирующая сыворотка
+              name: Skibidi pau pau eto vse ravno ne uvidit nikto
               doAfter: 1
 
     - node: stable

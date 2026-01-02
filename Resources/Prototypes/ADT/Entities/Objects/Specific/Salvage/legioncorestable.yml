@@ -1,8 +1,8 @@
 - type: entity
-  name: стабильное ядро легиона
+  name: stable legion core
   id: ADTLegionCoreStable
   parent: BaseItem
-  description: Ядро стабильно бьётся, будто его и не доставали из тела. Можно использовать для лечения.
+  description: Is this a soul from undertale?
   components:
   - type: Sprite
     sprite: ADT/Objects/Specific/Lavaland/loot.rsi
@@ -11,7 +11,7 @@
     damageContainers:
     - Biological
     damage:
-      groups: # these are all split across multiple types
+      groups:
         Brute: -100
         Burn: -100
     delay: 0.1

@@ -1,8 +1,8 @@
 - type: entity
-  name: стабилизирующая сыворотка
+  name: stabilizing serum
   id: ADTStabilizingSerum
   parent: BaseItem
-  description: Позволяет стабилизировать активные ядра легиона, позволяя вам хранить их бесконечно. Не сработает на потухшие ядра.
+  description: Drink this and become a ninja turtle.
   components:
   - type: Sprite
     sprite: ADT/Objects/Specific/Salvage/stabilizing_serum.rsi
