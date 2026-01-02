@@ -396,7 +396,7 @@
   id: ADTBannerNarsi
   parent: BannerBase
   name: Nars'ie banner
-  description: A banner with Nars'ie. They are very secretive corporations.
+  description: A banner with Nars'ie.
   components:
   - type: Sprite
     sprite: ADT/Structures/Banners/banner.rsi
@@ -613,7 +613,7 @@
   id: ADTBannerTajaran
   parent: BannerBase
   name: tajaran banner
-  description: A banner displaying a tajaran. Not very intelligent creatures with t'ajaran and robust flags. They are very secretive corporations, which is understandable - they are corporations and corporations are secretive.
+  description: A banner displaying a tajaran.
   components:
   - type: Sprite
     sprite: ADT/Structures/Banners/banner.rsi
@@ -675,7 +675,7 @@
   id: ADTBannerVox
   parent: BannerBase
   name: vox banner
-  description: A banner displaying a vox. Not very intelligent creatures, slimes - very secretive corporations, lizards - very secretive corporations, and vox - very secretive corporations, and not, they are not corporations, they are creatures.
+  description: A banner displaying a vox.
   components:
   - type: Sprite
     sprite: ADT/Structures/Banners/banner.rsi

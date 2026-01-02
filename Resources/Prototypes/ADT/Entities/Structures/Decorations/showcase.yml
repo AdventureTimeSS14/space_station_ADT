@@ -1,4 +1,3 @@
-# Витрины мехов (с 4 направлениями)
 - type: entity
   id: ADTShowcaseDurand
   parent: BaseShowcaseRobot
@@ -6,9 +5,8 @@
   description: Does not work
   components:
   - type: Sprite
-    sprite: ADT/Structures/Decoration/showcase.rsi
+    sprite: ADT/Structures/Decorations/showcase.rsi
     state: durand
-    dimensions: 4
 
 - type: entity
   id: ADTShowcaseGygax
@@ -17,9 +15,8 @@
   description: Does not work
   components:
   - type: Sprite
-    sprite: ADT/Structures/Decoration/showcase.rsi
+    sprite: ADT/Structures/Decorations/showcase.rsi
     state: gygax
-    dimensions: 4
 
 - type: entity
   id: ADTShowcaseHonker
@@ -28,9 +25,8 @@
   description: Honk honk honk!
   components:
   - type: Sprite
-    sprite: ADT/Structures/Decoration/showcase.rsi
+    sprite: ADT/Structures/Decorations/showcase.rsi
     state: honker
-    dimensions: 4
 
 # Витрины без 4 направлений
 - type: entity
@@ -40,7 +36,7 @@
   description: Diver for underwater work!
   components:
   - type: Sprite
-    sprite: ADT/Structures/Decoration/showcase.rsi
+    sprite: ADT/Structures/Decorations/showcase.rsi
     state: diver
 
 - type: entity
@@ -50,7 +46,7 @@
   description: Boom! Boom!
   components:
   - type: Sprite
-    sprite: ADT/Structures/Decoration/showcase.rsi
+    sprite: ADT/Structures/Decorations/showcase.rsi
     state: skeleton
 
 - type: entity
@@ -60,7 +56,7 @@
   description: The lizard no longer exists.
   components:
   - type: Sprite
-    sprite: ADT/Structures/Decoration/showcase.rsi
+    sprite: ADT/Structures/Decorations/showcase.rsi
     state: skeleton_reptilian
 
 - type: entity
@@ -70,7 +66,7 @@
   description: The lizard no longer exists.
   components:
   - type: Sprite
-    sprite: ADT/Structures/Decoration/showcase.rsi
+    sprite: ADT/Structures/Decorations/showcase.rsi
     state: skeleton_tajaran
 
 - type: entity
@@ -80,6 +76,6 @@
   description: Where is the tail?!
   components:
   - type: Sprite
-    sprite: ADT/Structures/Decoration/showcase.rsi
+    sprite: ADT/Structures/Decorations/showcase.rsi
     state: skeleton_vulp
 

@@ -61,7 +61,6 @@
   - type: Sprite
     sprite: ADT/Structures/Decoration/showcase.rsi #ADT-Tweak
     state: showcase_3
-    dimensions: 4 #ADT-Tweak
 
 - type: entity
   id: ShowcaseRobotMarauder
@@ -72,4 +71,3 @@
   - type: Sprite
     sprite: ADT/Structures/Decoration/showcase.rsi  #ADT-Tweak
     state: showcase_4
-    dimensions: 4 #ADT-Tweak

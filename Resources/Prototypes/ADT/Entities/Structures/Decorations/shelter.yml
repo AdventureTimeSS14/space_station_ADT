@@ -8,7 +8,6 @@
   - type: Sprite
     sprite: ADT/Structures/Decoration/shelter.rsi
     state: barbedwire
-    dimensions: 4
   - type: Physics
     bodyType: Static
   - type: Fixtures
@@ -44,7 +43,6 @@
   - type: Sprite
     sprite: ADT/Structures/Decoration/shelter.rsi
     state: concrete_barrier
-    dimensions: 4
   - type: Physics
     bodyType: Static
   - type: Fixtures
@@ -77,7 +75,6 @@
   components:
   - type: Sprite
     state: concrete_barrier-2
-    dimensions: 4
 
 - type: entity
   parent: ADTShelterConcreteBarrier
@@ -85,7 +82,6 @@
   components:
   - type: Sprite
     state: concrete_barrier-3
-    dimensions: 4
 
 - type: entity
   parent: ADTShelterConcreteBarrier
@@ -93,7 +89,6 @@
   components:
   - type: Sprite
     state: concrete_barrier_alt
-    dimensions: 4
 
 - type: entity
   parent: BaseStructure
@@ -104,7 +99,6 @@
   - type: Sprite
     sprite: ADT/Structures/Decoration/shelter.rsi
     state: road_barrier
-    dimensions: 4
   - type: Physics
     bodyType: Static
   - type: Fixtures
@@ -141,7 +135,6 @@
   - type: Sprite
     sprite: ADT/Structures/Decoration/sandbag.rsi
     state: sandbag
-    dimensions: 4
   - type: Physics
     bodyType: Static
   - type: Fixtures
