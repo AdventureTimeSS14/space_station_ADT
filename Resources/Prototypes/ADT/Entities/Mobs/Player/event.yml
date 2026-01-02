@@ -45,4 +45,14 @@
         Piercing: 0.35
         Heat: 0.20
         Caustic: 0.35
+  - type: Hands
+    hands:
+      hand_right:
+        location: Right
+      hand_left:
+        location: Left
+      hand_extra_1:
+        location: Middle
+      hand_extra_2:
+        location: Middle
 
