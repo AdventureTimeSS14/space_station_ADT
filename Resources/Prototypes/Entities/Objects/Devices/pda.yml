@@ -1047,8 +1047,8 @@
   components:
   - type: Pda
     id: CentcomIDCardDeathsquad
-  # - type: Icon
-  #   state: pda-ds
+  - type: Icon
+    state: pda-ds
   - type: Appearance
     appearanceDataInit:
      enum.PdaVisuals.PdaType:
