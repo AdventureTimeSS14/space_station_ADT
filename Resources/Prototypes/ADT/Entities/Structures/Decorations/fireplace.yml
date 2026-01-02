@@ -55,6 +55,9 @@
   - type: FireVisuals
     sprite: ADT/Structures/Decoration/fireplace.rsi
     normalState: fire
+  - type: Construction
+    graph: ADTFireplaceWhite
+    node: fireplace
 
 - type: entity
   id: ADTFireplaceWooden
@@ -113,4 +116,7 @@
   - type: FireVisuals
     sprite: ADT/Structures/Decoration/fireplace.rsi
     normalState: fire_wooden
+  - type: Construction
+    graph: ADTFireplaceWooden
+    node: fireplace
 
