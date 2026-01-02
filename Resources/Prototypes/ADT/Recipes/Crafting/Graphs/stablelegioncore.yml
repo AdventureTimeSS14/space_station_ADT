@@ -1,0 +1,14 @@
+- type: constructionGraph
+  id: ADTLegionCoreStable
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: stable
+          steps:
+            - tag: ADTStabilizingSerum
+              name: стабилизирующая сыворотка
+              doAfter: 1
+
+    - node: stable
+      entity: ADTLegionCoreStable

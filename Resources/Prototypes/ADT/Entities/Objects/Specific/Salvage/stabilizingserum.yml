@@ -1,0 +1,14 @@
+- type: entity
+  name: стабилизирующая сыворотка
+  id: ADTStabilizingSerum
+  parent: BaseItem
+  description: Позволяет стабилизировать активные ядра легиона, позволяя вам хранить их бесконечно. Не сработает на потухшие ядра.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Salvage/stabilizing_serum.rsi
+    state: icon
+  - type: Item
+    size: Small
+  - type: Tag
+    tags:
+    - ADTStabilizingSerum

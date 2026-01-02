@@ -1,0 +1,25 @@
+- type: entity
+  name: стабильное ядро легиона
+  id: ADTLegionCoreStable
+  parent: BaseItem
+  description: Ядро стабильно бьётся, будто его и не доставали из тела. Можно использовать для лечения.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Lavaland/loot.rsi
+    state: legion_core_stable
+  - type: Healing
+    damageContainers:
+    - Biological
+    damage:
+      groups: # these are all split across multiple types
+        Brute: -100
+        Burn: -100
+    delay: 0.1
+    selfHealPenaltyMultiplier: 0
+    healingBeginSound:
+      path: "/Audio/Items/eating_1.ogg"
+    healingEndSound:
+      path: "/Audio/Items/eating_3.ogg"
+  - type: Construction
+    graph: ADTLegionCoreStable
+    node: stable
