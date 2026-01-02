@@ -568,8 +568,6 @@
   icon: { sprite: ADT/Implants/sandevistan.rsi, state: icon}
   productEntity: ADTSandevistanAutoSurgeon
   discountDownTo:
-    Telecrystal: 10
-  cost:
     Telecrystal: 12
   cost:
     Telecrystal: 14
@@ -667,13 +665,13 @@
   cost:
     Telecrystal: 15 #Tweak 20->15
   categories:
-    - UplinkPointless
+  - UplinkPointless
   #ADT-tweak-start
   conditions:
-    - !type:BuyerWhitelistCondition
-      blacklist:
-        components:
-          - SurplusBundle
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+        - SurplusBundle
   #ADT-tweak-end
 
 - type: listing

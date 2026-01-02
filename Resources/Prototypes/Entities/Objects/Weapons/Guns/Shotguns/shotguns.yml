@@ -198,7 +198,7 @@
     sprite: Objects/Weapons/Guns/Shotguns/enforcer.rsi
   # ADT-Tweak start
   - type: RunAndGunSpreadModifier # SD-Tweak: fuck immobility
-    modifyer: 0.3
+    modifier: 0.3
   # ADT-Tweak end
   - type: Item
     sprite: Objects/Weapons/Guns/Shotguns/enforcer_inhands_64x.rsi

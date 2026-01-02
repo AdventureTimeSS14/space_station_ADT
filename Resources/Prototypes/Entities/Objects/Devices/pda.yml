@@ -64,10 +64,9 @@
   - type: UnpoweredFlashlight
   - type: PointLight
     enabled: false
-    mask: /Textures/Effects/LightMasks/cone.png
+    radius: 1.5
+    softness: 5
     autoRot: true
-    radius: 2.5
-    netsync: false
   - type: Ringer
   - type: RingerUplink
   - type: DeviceNetwork
@@ -110,8 +109,6 @@
         type: InstrumentBoundUserInterface
       enum.HealthAnalyzerUiKey.Key:
         type: HealthAnalyzerBoundUserInterface
-      enum.GasAnalyzerUiKey.Key: # SD tweak
-        type: GasAnalyzerBoundUserInterface
   - type: Tag
     tags:
     - DoorBumpOpener
@@ -184,23 +181,6 @@
 
 - type: entity
   parent: BasePDA
-  id: BaseEngineerPDA
-  abstract: true
-  components:
-  - type: CartridgeLoader
-    uiKey: enum.PdaUiKey.Key
-    preinstalled:
-      - CrewManifestCartridge
-      - NotekeeperCartridge
-      - NanoTaskCartridge # SD fix
-      - NewsReaderCartridge
-      - AtmoTechCartridge # SD add
-      - NanoChatCartridge # ADT-tweak: Наночат
-      - ADTWalletCartridge # ADT-Economy
-    diskSpace: 8 # ADT tweak
-
-- type: entity
-  parent: BasePDA
   id: PassengerPDA
   name: passenger PDA
   description: Why isn't it gray?
@@ -211,7 +191,7 @@
     borderColor: "#717059"
 
 - type: entity
-  parent: BaseEngineerPDA # SD Elf Atmos
+  parent: BasePDA
   id: TechnicalAssistantPDA
   name: technical assistant PDA
   description: Why isn't it yellow?
@@ -724,7 +704,7 @@
     state: pda-hop
 
 - type: entity
-  parent: BaseEngineerPDA # SD Elf Atmos
+  parent: BasePDA
   id: CEPDA
   name: chief engineer PDA
   description: Looks like it's barely been used.
@@ -751,7 +731,7 @@
     state: pda-ce
 
 - type: entity
-  parent: BaseEngineerPDA # SD Elf Atmos
+  parent: BasePDA
   id: EngineerPDA
   name: engineer PDA
   description: Rugged and well-worn.
@@ -1061,41 +1041,14 @@
     - DoorBumpOpener
 
 - type: entity
-  parent: BaseSecurityPDA
+  parent: CentcomPDA
   id: DeathsquadPDA
-  name: Dso-pda-name
   suffix: Death Squad
-  description: Dso-pda-desc
   components:
   - type: Pda
     id: CentcomIDCardDeathsquad
-    penSlot:
-      startingItem: PenCentcom
-      whitelist:
-        tags:
-        - Write
-  - type: Appearance
-    appearanceDataInit:
-     enum.PdaVisuals.PdaType:
-       !type:String
-       pda-dso
-  - type: PdaBorderColor
-    borderColor: "#00842e"
-  - type: Icon
-    state: pda-dso
-  - type: CartridgeLoader
-    uiKey: enum.PdaUiKey.Key
-    preinstalled:
-      - CrewManifestCartridge
-      - NotekeeperCartridge
-      - NanoTaskCartridge
-      - NewsReaderCartridge
-      - MedTekCartridge
-      - WantedListCartridge
-      - LogProbeCartridge
-      - AstroNavCartridge
-  - type: Icon
-    state: pda-ds
+  # - type: Icon
+  #   state: pda-ds
   - type: Appearance
     appearanceDataInit:
      enum.PdaVisuals.PdaType:
@@ -1144,7 +1097,7 @@
     - DoorBumpOpener
 
 - type: entity
-  parent: BaseEngineerPDA # SD Elf Atmos
+  parent: BasePDA
   id: AtmosPDA
   name: atmos PDA
   description: Still smells like plasma.
@@ -1267,19 +1220,6 @@
   components:
   - type: Pda
     id: ERTEngineerIDCard
-  - type: CartridgeLoader
-    uiKey: enum.PdaUiKey.Key
-    preinstalled:
-      - CrewManifestCartridge
-      - NotekeeperCartridge
-      - NanoTaskCartridge # SD fix
-      - NewsReaderCartridge
-      - MedTekCartridge
-      - WantedListCartridge
-      - AstroNavCartridge
-      - AtmoTechCartridge # SD tweak
-      - ADTWalletCartridge # ADT-Economy
-    diskSpace: 8 # ADT tweak
 
 - type: entity
   parent: ERTLeaderPDA
@@ -1501,7 +1441,7 @@
   - type: Unremoveable
 
 - type: entity
-  parent: BaseEngineerPDA # SD Elf Atmos
+  parent: BasePDA
   id: SeniorEngineerPDA
   name: senior engineer PDA
   description: Seems to have been taken apart and put back together several times.
