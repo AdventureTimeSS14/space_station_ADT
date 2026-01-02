@@ -1,0 +1,48 @@
+# Почему бы и нет, создал файл для ивентовых монстров
+
+- type: entity
+  id: ADTMobEVENTValue
+  parent: BaseMobAsteroid
+  components:
+  - type: Sprite
+    sprite: ADT/Mobs/Animals/value.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: value
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: icon
+      Dead:
+        Base: dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 3.5
+    baseSprintSpeed : 4.0
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: Dead
+  - type: MeleeWeapon
+    damage:
+      types:
+        Slash: 10
+        Piercing: 2
+  - type: PassiveDamage
+    allowedStates:
+    - Alive
+    damageCap: 40
+    damage:
+      types:
+        Heat: -10
+        Cold: -10
+      groups:
+        Brute: -10
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.35
+        Slash: 0.35
+        Piercing: 0.35
+        Heat: 0.20
+        Caustic: 0.35
+
