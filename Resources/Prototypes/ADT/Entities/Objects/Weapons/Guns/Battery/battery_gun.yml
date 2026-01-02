@@ -429,6 +429,7 @@
     fireCost: 125
   - type: StaticPrice
     price: 50
+  - type: GunExecutionBlacklist
 
 - type: entity
   name: red toy blaster
@@ -447,6 +448,7 @@
   - type: Tag
     tags:
     - ADTToyBlaster
+  - type: GunExecutionBlacklist
 
 - type: entity
   name: blue toy blaster
@@ -465,6 +467,7 @@
   - type: Tag
     tags:
     - ADTToyBlaster
+  - type: GunExecutionBlacklist
 
 - type: entity
   name: green toy blaster
@@ -483,6 +486,7 @@
   - type: Tag
     tags:
     - ADTToyBlaster
+  - type: GunExecutionBlacklist
 
 - type: entity
   name: CC-7 "Arbiter"

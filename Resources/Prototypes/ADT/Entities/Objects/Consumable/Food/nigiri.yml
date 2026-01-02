@@ -7,6 +7,12 @@
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/nigiri.rsi
     state: nigiri-carp
+  - type: Food
+    trash:
+    - FoodBowlBig
+  - type: FlavorProfile
+    flavors:
+      - ADTNigiriFlavor
   - type: SolutionContainerManager
     solutions:
       food:
@@ -24,6 +30,12 @@
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/nigiri.rsi
     state: nigiri-cooked
+  - type: Food
+    trash:
+    - FoodBowlBig
+  - type: FlavorProfile
+    flavors:
+      - ADTNigiriFlavor
 
 - type: entity
   parent: ADTFoodMealBase
@@ -34,3 +46,10 @@
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/nigiri.rsi
     state: nigiri-fish
+  - type: Food
+    trash:
+    - FoodBowlBig
+  - type: FlavorProfile
+    flavors:
+      - ADTNigiriFlavor
+

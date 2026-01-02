@@ -385,3 +385,4 @@
       path: /Audio/Weapons/Guns/Empty/empty.ogg
     clumsyProof: true
   - type: PacifismAllowedGun
+  - type: GunExecutionBlacklist #ADT-Tweak

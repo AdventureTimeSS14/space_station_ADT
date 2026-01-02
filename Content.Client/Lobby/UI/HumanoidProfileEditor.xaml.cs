@@ -44,6 +44,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Toolshed.Errors;
 using Robust.Shared.Utility;
 using Direction = Robust.Shared.Maths.Direction;
+using Content.Client.ADT.UserInterface.Controls;
 using Content.Shared.SD;
 using Content.Client.FlavorText;
 
@@ -115,7 +116,7 @@ namespace Content.Client.Lobby.UI
 
         private Direction _previewRotation = Direction.North;
 
-        private ColorSelectorSliders _rgbSkinColorSelector;
+        private LegacyColorSelectorSliders _rgbSkinColorSelector;   // ADT-Tweak - ColorSelectorSliders > LegacyColorSelectorSliders
 
         private bool _isDirty;
 
@@ -329,7 +330,7 @@ namespace Content.Client.Lobby.UI
                 OnSkinColorOnValueChanged();
             };
 
-            RgbSkinColorContainer.AddChild(_rgbSkinColorSelector = new ColorSelectorSliders());
+            RgbSkinColorContainer.AddChild(_rgbSkinColorSelector = new LegacyColorSelectorSliders());   // ADT-Tweak - ColorSelectorSliders > LegacyColorSelectorSliders
             // ADT-Tweak-Start
             // _rgbSkinColorSelector.SelectorType = ColorSelectorSliders.ColorSelectorType.Hsv; // defaults color selector to HSV
             // ADT-Tweak-End

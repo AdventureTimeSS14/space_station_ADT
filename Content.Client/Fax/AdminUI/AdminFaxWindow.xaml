@@ -1,4 +1,5 @@
 <DefaultWindow xmlns="https://spacestation14.io"
+               xmlns:adt="clr-namespace:Content.Client.ADT.UserInterface.Controls"
                Title="{Loc admin-fax-title}"
                MinWidth="400">
     <BoxContainer Orientation="Vertical" VerticalExpand="True">
@@ -22,7 +23,7 @@
             <OptionButton Name="StampSelector" HorizontalExpand="True" />
         </BoxContainer>
         <Label Text="{Loc admin-fax-stamp-color}" />
-        <ColorSelectorSliders Margin="12 0 0 0" Name="StampColorSelector" Color="#BB3232"/>
+        <adt:LegacyColorSelectorSliders Margin="12 0 0 0" Name="StampColorSelector" Color="#BB3232"/> <!-- ADT-Tweak - ColorSelectorSliders -> LegacyColorSelectorSliders -->
         <CheckBox Name="LockPageCheckbox" Text="{Loc admin-fax-lock-page}" ToolTip="{Loc admin-fax-lock-page-tooltip}"/>
         <Button Name="SendButton" Text="{Loc admin-fax-send}" Margin="0 10 0 0" />
     </BoxContainer>

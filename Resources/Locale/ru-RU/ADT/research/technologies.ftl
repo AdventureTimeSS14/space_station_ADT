@@ -12,3 +12,5 @@ research-technology-engineering-robotics = Инженерная робототе
 research-technology-basemegacells = Мегабатареи
 
 research-technology-advancedmegacells = Сверхэффективные мегабатареи
+
+research-technology-reducer = Беспроводная передача энергии
