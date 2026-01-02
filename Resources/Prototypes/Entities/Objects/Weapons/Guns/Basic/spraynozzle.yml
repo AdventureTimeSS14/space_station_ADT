@@ -36,3 +36,4 @@
       - NozzleBackTank
   - type: UseDelay
     delay: 1.0
+  - type: GunExecutionBlacklist #ADT-Tweak
