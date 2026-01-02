@@ -3,19 +3,15 @@ ent-ADTShelterBarbedwire = колючая проволока
 
 ent-ADTShelterConcreteBarrier = бетонный барьер
     .desc = Не очень прочный, но очень тяжёлый бетонный барьер.
-    .suffix = By Baron
 
 ent-ADTShelterConcreteBarrier2 = { ent-ADTShelterConcreteBarrier }
     .desc = { ent-ADTShelterConcreteBarrier.desc }
-    .suffix = By Baron
 
 ent-ADTShelterConcreteBarrier3 = { ent-ADTShelterConcreteBarrier }
     .desc = { ent-ADTShelterConcreteBarrier.desc }
-    .suffix = By Baron
 
 ent-ADTShelterConcreteBarrierAlt = { ent-ADTShelterConcreteBarrier }
     .desc = { ent-ADTShelterConcreteBarrier.desc }
-    .suffix = By Baron
 
 ent-ADTShelterRoadBarrier = дорожный барьер
     .desc = Дорогу барьерам!
