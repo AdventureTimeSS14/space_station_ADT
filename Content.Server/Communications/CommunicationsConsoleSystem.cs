@@ -1,4 +1,5 @@
 using Content.Server.Administration.Logs;
+using Content.Server.ADT.Language;
 using Content.Server.AlertLevel;
 using Content.Server.Chat.Systems;
 using Content.Server.DeviceNetwork.Systems;
@@ -35,6 +36,7 @@ namespace Content.Server.Communications
         [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
         [Dependency] private readonly IConfigurationManager _cfg = default!;
         [Dependency] private readonly IAdminLogManager _adminLogger = default!;
+        [Dependency] private readonly LanguageSystem _language = default!;
 
         private const float UIUpdateInterval = 5.0f;
 
@@ -229,7 +231,7 @@ namespace Content.Server.Communications
             CommunicationsConsoleAnnounceMessage message)
         {
             var maxLength = _cfg.GetCVar(CCVars.ChatMaxAnnouncementLength);
-            var msg = SharedChatSystem.SanitizeAnnouncement(message.Message, maxLength);
+            var msg = SharedChatSystem.SanitizeAnnouncement(_language.ObfuscateMessage(message.Actor, message.Message, _language.GetCurrentLanguage(message.Actor)), maxLength);
             var author = Loc.GetString("comms-console-announcement-unknown-sender");
             if (message.Actor is { Valid: true } mob)
             {

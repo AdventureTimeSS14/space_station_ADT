@@ -1,22 +1,22 @@
 ## Phrases used for where central command got this information.
 
-random-sentience-event-data-1 = сканирование сенсорами дальнего действия
-random-sentience-event-data-2 = наши сложные статистические модели вероятности
-random-sentience-event-data-3 = наше всемогущество
-random-sentience-event-data-4 = коммуникационный трафик с вашей станции
-random-sentience-event-data-5 = обнаруженные нами энергетические всплески
-random-sentience-event-data-6 = [УДАЛЕНО]
+random-sentience-event-data-1 = нехблебла динг-донг
+random-sentience-event-data-2 = блабле донг
+random-sentience-event-data-3 = блабле донг
+random-sentience-event-data-4 = блединг, жуббр-динг
+random-sentience-event-data-5 = нехблебла динг-донг
+random-sentience-event-data-6 = [БЛАБЛА]
 
 ## Phrases used to describe the level of intelligence, though it doesn't actually affect anything.
 
-random-sentience-event-strength-1 = человека
-random-sentience-event-strength-2 = обезьяны
-random-sentience-event-strength-3 = среднего
-random-sentience-event-strength-4 = службы безопасности
-random-sentience-event-strength-5 = командования
-random-sentience-event-strength-6 = клоуна
-random-sentience-event-strength-7 = низкого
-random-sentience-event-strength-8 = ИИ
+random-sentience-event-strength-1 = динг
+random-sentience-event-strength-2 = бле
+random-sentience-event-strength-3 = донг
+random-sentience-event-strength-4 = блединг
+random-sentience-event-strength-5 = блиббер
+random-sentience-event-strength-6 = хонк
+random-sentience-event-strength-7 = бла
+random-sentience-event-strength-8 = ЫЫ
 
 ## Announcement text
 
@@ -32,10 +32,10 @@ station-event-random-sentience-announcement =
 
 station-event-random-sentience-role-description = Вы разумный { $name }, оживший благодаря космической магии.
 # Flavors
-station-event-random-sentience-flavor-mechanical = механизмы
-station-event-random-sentience-flavor-organic = органики
-station-event-random-sentience-flavor-corgi = корги
-station-event-random-sentience-flavor-primate = приматы
-station-event-random-sentience-flavor-kobold = прото-сохуны
-station-event-random-sentience-flavor-slime = слаймы
-station-event-random-sentience-flavor-inanimate = неодушевлённые предметы
+station-event-random-sentience-flavor-mechanical = бле-бла
+station-event-random-sentience-flavor-organic = динг-донг
+station-event-random-sentience-flavor-corgi = хонке
+station-event-random-sentience-flavor-primate = нехблебла
+station-event-random-sentience-flavor-kobold = нехблебла
+station-event-random-sentience-flavor-slime = виббла
+station-event-random-sentience-flavor-inanimate = виббла

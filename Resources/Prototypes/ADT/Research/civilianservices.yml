@@ -28,7 +28,7 @@
   cost: 10000
   recipeUnlocks:
   - ADTClothingOuterExoskeletonBase
-  position: 2,3
+  position: 4,2
   requiredTech:
   - BluespaceCargoTransport
 

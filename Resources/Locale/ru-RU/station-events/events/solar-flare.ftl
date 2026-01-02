@@ -1,2 +1,2 @@
-station-event-solar-flare-start-announcement = Вблизи станции была зафиксирована солнечная вспышка. Некоторые каналы связи могут перестать функционировать.
-station-event-solar-flare-end-announcement = Солнечная вспышка прошла. Каналы связи больше не подвержены её влиянию.
+station-event-solar-flare-start-announcement = Бла-бла. Блединг динг-донг жуббре белбе.
+station-event-solar-flare-end-announcement = Динг-донг донг. Блабле донг жуббр.

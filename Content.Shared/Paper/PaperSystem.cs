@@ -12,6 +12,7 @@ using Robust.Shared.Audio.Systems;
 using static Content.Shared.Paper.PaperComponent;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Content.Shared.ADT.Language;
 
 namespace Content.Shared.Paper;
 
@@ -27,6 +28,7 @@ public sealed class PaperSystem : EntitySystem
     [Dependency] private readonly SharedUserInterfaceSystem _uiSystem = default!;
     [Dependency] private readonly MetaDataSystem _metaSystem = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly SharedLanguageSystem _language = default!;    // ADT-Tweak
 
     private static readonly ProtoId<TagPrototype> WriteIgnoreStampsTag = "WriteIgnoreStamps";
     private static readonly ProtoId<TagPrototype> WriteTag = "Write";
@@ -115,6 +117,12 @@ public sealed class PaperSystem : EntitySystem
     {
         // only allow editing if there are no stamps or when using a cyberpen
         var editable = entity.Comp.StampedBy.Count == 0 || _tagSystem.HasTag(args.Used, WriteIgnoreStampsTag);
+
+        // ADT-Tweak-start
+        if (!_language.CanUnderstand(args.User, "GalacticCommon"))
+            return;
+        // ADT-Tweak-end
+
         if (_tagSystem.HasTag(args.Used, WriteTag))
         {
             if (editable)

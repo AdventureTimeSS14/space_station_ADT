@@ -40,11 +40,11 @@ public sealed class MakeSentientCommand : LocalizedEntityCommands
         {
             entityManager.EnsureComponent<SpeechComponent>(uid);
             entityManager.EnsureComponent<EmotingComponent>(uid);
-            var lang = entityManager.EnsureComponent<LanguageSpeakerComponent>(uid);
-            if (!lang.Languages.ContainsKey("GalacticCommon"))
-                lang.Languages.Add("GalacticCommon", LanguageKnowledge.Speak);
-            else
-                lang.Languages["GalacticCommon"] = LanguageKnowledge.Speak;
+            // var lang = entityManager.EnsureComponent<LanguageSpeakerComponent>(uid);
+            // if (!lang.Languages.ContainsKey("GalacticCommon"))
+            //     lang.Languages.Add("GalacticCommon", LanguageKnowledge.Speak);
+            // else
+            //     lang.Languages["GalacticCommon"] = LanguageKnowledge.Speak;
         }
 
         if (!entityManager.EntityExists(entId))

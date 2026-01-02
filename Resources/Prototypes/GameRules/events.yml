@@ -7,7 +7,7 @@
     - id: BluespaceLocker
     - id: BreakerFlip
     - id: BureaucraticError
-    - id: CentComRandomEvent # ADT-tweak
+    #- id: CentComRandomEvent # ADT-tweak
     - id: ClericalError
     - id: CockroachMigration
     - id: GasLeak
@@ -88,9 +88,7 @@
   - type: StationEvent
     startAnnouncementColor: "#18abf5"
     startAudio:
-      path: /Audio/ADT/Announcements/spanomalies.ogg # ADT Tweak
-      params:
-        volume: -4
+      path: /Audio/ADT/Announcements/announce_dig.ogg
     weight: 8
     duration: 35
   - type: AnomalySpawnRule
@@ -106,9 +104,7 @@
   - type: StationEvent
     startAnnouncementColor: "#18abf5"
     startAudio:
-      path: /Audio/Corvax/Announcements/blusp_anomalies.ogg # Corvax-Announcements
-      params:
-        volume: -4
+      path: /Audio/ADT/Announcements/announce_dig.ogg
     weight: 8
     duration: 35
   - type: BluespaceArtifactRule
@@ -354,15 +350,11 @@
   - type: StationEvent
     startAnnouncement: station-event-gas-leak-start-announcement
     startAudio:
-      path: /Audio/Announcements/gasleak_start.ogg # Corvax-Announcements
-      params:
-        volume: -4
+      path: /Audio/ADT/Announcements/announce_dig.ogg
     endAnnouncement: station-event-gas-leak-end-announcement
     weight: 8
     endAudio:
-      path: /Audio/Announcements/gasleak_end.ogg # Corvax-Announcements
-      params:
-        volume: -4
+      path: /Audio/ADT/Announcements/announce_dig.ogg
   - type: GasLeakRule
 
 - type: entity
@@ -391,7 +383,7 @@
       # path: /Audio/Announcements/power_off.ogg
       # params:
       #   volume: -4
-      collection: ADTPowerOff
+      path: /Audio/ADT/Announcements/announce_dig.ogg
   - type: PowerGridCheckRule
     endSound:
       collection: ADTPowerOn
@@ -408,9 +400,7 @@
     startAnnouncement: station-event-solar-flare-start-announcement
     endAnnouncement: station-event-solar-flare-end-announcement
     startAudio: # Corvax-Announcements
-      path: /Audio/Corvax/Announcements/comms_blackout.ogg
-      params:
-        volume: -4
+      path: /Audio/ADT/Announcements/announce_dig.ogg
     duration: 120
     maxDuration: 240
   - type: SolarFlareRule
@@ -436,9 +426,7 @@
   - type: StationEvent
     startAnnouncement: station-event-vent-clog-start-announcement
     startAudio:
-      path: /Audio/Announcements/ventclog.ogg # Corvax-Announcements
-      params:
-        volume: -4
+      path: /Audio/ADT/Announcements/announce_dig.ogg
     earliestStart: 15
     minimumPlayers: 15
     weight: 5
