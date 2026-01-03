@@ -1,0 +1,35 @@
+- type: entity
+  parent: MarkerBase
+  id: ADTSpawnMobXenoEasyNoGhost
+  name: Xeno Spawner
+  suffix: Easy, Random, NoGhost
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Mobs/Aliens/Xenos/drone.rsi
+      state: running
+    - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+    - ADTMobXenoNoGhost
+    - ADTMobXenoDroneNoGhost
+    - ADTMobXenoRunnerNoGhost
+
+- type: entity
+  parent: MarkerBase
+  id: ADTSpawnMobXenoHardNoGhost
+  name: Xeno Spawner
+  suffix: Hard, Random, NoGhost
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Mobs/Aliens/Xenos/ravager.rsi
+      state: running
+    - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+    - ADTMobXenoPraetorianNoGhost
+    - ADTMobXenoRavagerNoGhost
+    - ADTMobXenoSpitterNoGhost
