@@ -28985,7 +28985,7 @@ entities:
     - type: Transform
       pos: 40.475166,-16.265089
       parent: 1
-- proto: ClothingOuterHardsuitLuxury
+- proto: ADTClothingModsuitBackMining
   entities:
   - uid: 12100
     components:
