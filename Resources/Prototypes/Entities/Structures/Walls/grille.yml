@@ -193,10 +193,8 @@
         shape:
           !type:PolygonShape
             vertices:
-            #ADT-Tweak-Start
-            - "-0.45,-0.5"
-            - "0.5,0.45"
-            #ADT-Tweak-End
+            - "-0.5,-0.5"
+            - "0.5,0.5"
             - "0.5,-0.5"
         mask:
         - FullTileMask
