@@ -12,7 +12,7 @@
     - type: Timer
     - type: TimedSpawner
       prototypes:
-      - MobXenoNoGhost
+      - ADTMobXenoNoGhost
       chance: 0.85
       intervalSeconds: 30
       minimumEntitiesSpawned: 2
