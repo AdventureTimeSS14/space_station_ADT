@@ -1,0 +1,76 @@
+- type: entity
+  name: ADTCandy-catName
+  parent: FoodBakedBase
+  id: ADTFoodCookieBlackcat
+  description: ADTCandy-catDesc
+  suffix: Halloween
+  components:
+  - type: Food
+  - type: FlavorProfile
+    flavors:
+      - sweet
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/Baked/cookies.rsi
+    state: cookie_blackcat
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 7
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5
+  - type: Tag
+    tags:
+    - ADTMothFriendlyFood
+    - ADTCandies
+
+- type: entity
+  name: ADTCandy-GhostName
+  parent: ADTFoodCookieBlackcat
+  id: ADTFoodCookieGhost
+  description: ADTCandy-GhostDesc
+  suffix: Halloween
+  components:
+  - type: Sprite
+    state: cookie_ghost
+
+- type: entity
+  name: ADTCandy-knightName
+  parent: ADTFoodCookieBlackcat
+  id: ADTFoodCookieKnight
+  description: ADTCandy-KnightDesc
+  suffix: Halloween
+  components:
+  - type: Sprite
+    state: cookie_knight
+
+- type: entity
+  name: ADTCandy-SpiderName
+  parent: ADTFoodCookieBlackcat
+  id: ADTFoodCookieSpider
+  description: ADTCandy-SpiderDesc
+  suffix: Halloween
+  components:
+  - type: Sprite
+    state: cookie_spider
+
+- type: entity
+  name: ADTCandy-SpiderName
+  parent: ADTFoodCookieBlackcat
+  id: ADTFoodCookiePumpkin
+  description: ADTCandy-SpiderDesc
+  suffix: Halloween
+  components:
+  - type: Sprite
+    state: cookie_pumpkin
+
+- type: entity
+  name: scull gingerbread
+  parent: ADTFoodCookieBlackcat
+  id: ADTFoodCookieSkull
+  description: scull gingerbread
+  suffix: Halloween
+  components:
+  - type: Sprite
+    state: cookie_skull
+
