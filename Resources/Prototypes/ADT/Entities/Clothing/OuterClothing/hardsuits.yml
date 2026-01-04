@@ -577,3 +577,37 @@
   - type: ToggleableClothing
     clothingPrototype: ADTClothingHeadHelmetHardsuitIanHero
   - type: CargoSellBlacklist
+
+#EVENT_ABYSS
+- type: entity
+  parent: [ClothingOuterHardsuitBase, ADTClothingOuterERTRiotHardsuit ]
+  id: ADTEVENTServantHardsuit
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/event_servant_hardsuit.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/event_servant_hardsuit.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ADTClothingHeadHelmetHardsuitEVENTServant
+
+- type: entity
+  parent: [ClothingOuterHardsuitBase, ClothingOuterHardsuitSyndieCommander ]
+  id: ADTEVENTLeaderHardsuit
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/event_sunshine_hardsuit.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/event_sunshine_hardsuit.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ADTClothingHeadHelmetHardsuitEVENTsunshine
+
+- type: entity
+  parent: [ClothingOuterHardsuitBase, ClothingOuterHardsuitSyndieMedic]
+  id: ADTEVENTMedHardsuit
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/event_med_hardsuit.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Hardsuits/event_med_hardsuit.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ADTClothingHeadHelmetHardsuitEVENTMed
