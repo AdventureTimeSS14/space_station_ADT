@@ -1,0 +1,4 @@
+- type: entityCategory
+  id: Screamers
+  name: entity-category-name-screamers
+  hideSpawnMenu: true

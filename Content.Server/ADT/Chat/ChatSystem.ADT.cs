@@ -1,10 +1,13 @@
 using System.Linq;
 using Content.Server.ADT.Chat;
+using Content.Server.ADT.Language;
 using Content.Shared.ADT.Language;
 using Content.Shared.Chat;
 using Content.Shared.Ghost;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
+using Robust.Shared.Utility;
 
 namespace Content.Server.Chat.Systems;
 
@@ -113,5 +116,43 @@ public sealed partial class ChatSystem
             else
                 _chatManager.ChatMessageToOne(ChatChannel.Whisper, obfuscatedMessage, wrappedUnknownLangMessage, source, false, session.Channel);
         }
+    }
+
+    /// <summary>
+    ///     Wraps a message sent by the specified entity into an "x says y" string.
+    /// </summary>
+    public string WrapPublicMessage(EntityUid source, string name, string message)
+    {
+        var wrapId = GetSpeechVerb(source, message).Bold ? "chat-manager-entity-say-bold-wrap-message" : "chat-manager-entity-say-wrap-message";
+        return WrapMessage(wrapId, InGameICChatType.Speak, source, name, message);
+    }
+
+    /// <summary>
+    ///     Wraps a message whispered by the specified entity into an "x whispers y" string.
+    /// </summary>
+    public string WrapWhisperMessage(EntityUid source, LocId defaultWrap, string entityName, string message)
+    {
+        return WrapMessage(defaultWrap, InGameICChatType.Whisper, source, entityName, message);
+    }
+
+    /// <summary>
+    ///     Wraps a message sent by the specified entity into the specified wrap string.
+    /// </summary>
+    public string WrapMessage(LocId wrapId, InGameICChatType chatType, EntityUid source, string entityName, string message)
+    {
+        var speech = GetSpeechVerb(source, message);
+        var random = IoCManager.Resolve<IRobustRandom>();
+
+        message = TransformSpeech(source, message);
+
+        // Build messages
+        return Loc.GetString(speech.Bold ? "chat-manager-entity-say-bold-wrap-message" : "chat-manager-entity-say-wrap-message",
+            ("entityName", FormattedMessage.EscapeText(entityName)),
+            ("verb", Loc.GetString(random.Pick(speech.SpeechVerbStrings))),
+            ("fontType", speech.FontId),
+            ("fontSize", speech.FontSize),
+            ("defaultFont", speech.FontId),
+            ("defaultSize", speech.FontSize),
+            ("message", message));
     }
 }

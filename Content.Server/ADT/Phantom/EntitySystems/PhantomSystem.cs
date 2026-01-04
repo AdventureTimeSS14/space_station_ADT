@@ -50,7 +50,6 @@ using Content.Server.Station.Systems;
 using Content.Server.EUI;
 using Content.Server.Body.Components;
 using Content.Shared.Eye.Blinding.Components;
-using Content.Server.ADT.Hallucinations;
 using Content.Server.AlertLevel;
 using Content.Shared.ADT.Controlled;
 using Robust.Shared.Audio.Systems;
@@ -64,7 +63,6 @@ using Content.Shared.Tag;
 using Content.Server.Hands.Systems;
 using Content.Shared.Cuffs.Components;
 using Content.Shared.Rejuvenate;
-using Content.Shared.ADT.Hallucinations;
 using Robust.Shared.Utility;
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.Projectiles;
@@ -114,7 +112,7 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
     [Dependency] private readonly BatterySystem _batterySystem = default!;
     [Dependency] private readonly BloodstreamSystem _bloodstreamSystem = default!;
     [Dependency] private readonly BlindableSystem _blindable = default!;
-    [Dependency] private readonly HallucinationsSystem _hallucinations = default!;
+    //[Dependency] private readonly HallucinationsSystem _hallucinations = default!;
     [Dependency] private readonly AlertLevelSystem _alertLevel = default!;
     [Dependency] private readonly IEntitySystemManager _entitySystems = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
@@ -1304,12 +1302,12 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
 
         var (target, _) = _random.Pick(_lookup.GetEntitiesInRange<HumanoidAppearanceComponent>(Transform(uid).Coordinates, 150f));
 
-        if (!_hallucinations.StartEpidemicHallucinations(target, component.HallucinationsPrototype))
-        {
-            var failMessage = Loc.GetString("phantom-epidemic-fail");
-            _popup.PopupEntity(failMessage, uid, uid);
-            return;
-        }
+        // if (!_hallucinations.StartEpidemicHallucinations(target, component.HallucinationsPrototype))
+        // {
+        //     var failMessage = Loc.GetString("phantom-epidemic-fail");
+        //     _popup.PopupEntity(failMessage, uid, uid);
+        //     return;
+        // }
 
         if (_mindSystem.TryGetMind(uid, out _, out var mind) && mind.UserId != null && _player.TryGetSessionById(mind.UserId, out var session))
             _audio.PlayGlobal(component.PsychoSound, session);

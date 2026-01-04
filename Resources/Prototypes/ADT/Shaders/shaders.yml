@@ -13,3 +13,9 @@
   id: SandevistanVision
   kind: source
   path: "/Textures/ADT/Shaders/sandevistan_vision.swsl"
+
+# ADT
+- type: shader
+  id: HueShift
+  kind: source
+  path: "/Textures/ADT/Shaders/hue_shift.swsl"

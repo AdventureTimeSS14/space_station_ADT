@@ -67,7 +67,7 @@ public sealed partial class SupermatterSystem
             var hallucinationKey = "ADTHallucination";
             var hallucinationProto = "SupermatterPack";
 
-            _hallucinations.StartHallucinations(mob, hallucinationKey, TimeSpan.FromSeconds(100), true, hallucinationProto);
+            //_hallucinations.StartHallucinations(mob, hallucinationKey, TimeSpan.FromSeconds(100), true, hallucinationProto);
         }
     }
 

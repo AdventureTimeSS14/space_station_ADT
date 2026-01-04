@@ -65,8 +65,9 @@
         - Mouse
         - Candle
   - type: AnimatedEmotes
+  - type: CanHallucinate
   # ADT-tweak-end
- 
+
 - type: entity
   save: false
   id: MobPolymorphable

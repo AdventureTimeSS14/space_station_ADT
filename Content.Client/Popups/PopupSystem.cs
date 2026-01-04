@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Client.ADT.Shizophrenia;
 using Content.Shared.Containers;
 using Content.Shared.Examine;
 using Content.Shared.GameTicking;
@@ -30,6 +31,7 @@ namespace Content.Client.Popups
         [Dependency] private readonly IReplayRecordingManager _replayRecording = default!;
         [Dependency] private readonly ExamineSystemShared _examine = default!;
         [Dependency] private readonly SharedTransformSystem _transform = default!;
+        [Dependency] private readonly SchizophreniaSystem _schiz = default!; // ADT-Tweak - hallucinations
 
         public IReadOnlyCollection<WorldPopupLabel> WorldLabels => _aliveWorldLabels.Values;
         public IReadOnlyCollection<CursorPopupLabel> CursorLabels => _aliveCursorLabels.Values;
@@ -237,7 +239,7 @@ namespace Content.Client.Popups
 
         public override void PopupEntity(string? message, EntityUid uid, PopupType type = PopupType.Small)
         {
-            if (TryComp(uid, out TransformComponent? transform))
+            if (TryComp(uid, out TransformComponent? transform) && _schiz.CanSee(uid))  // ADT-Tweak - hallucinations
                 PopupMessage(message, type, transform.Coordinates, uid, true);
         }
 

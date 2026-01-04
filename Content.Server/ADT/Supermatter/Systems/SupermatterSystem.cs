@@ -16,7 +16,6 @@ using Content.Server.Radio.EntitySystems;
 using Content.Server.Singularity.Components;
 using Content.Server.Singularity.EntitySystems;
 using Content.Server.Traits.Assorted;
-using Content.Server.ADT.Hallucinations;
 using Content.Shared.ADT.CCVar;
 using Content.Shared.ADT.Supermatter.Components;
 using Content.Shared.Atmos;
@@ -81,7 +80,6 @@ public sealed partial class SupermatterSystem : EntitySystem
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly RoundEndSystem _roundEnd = default!;
-    [Dependency] private readonly HallucinationsSystem _hallucinations = default!;
     [Dependency] private readonly TagSystem _tag = default!;
 
     public override void Initialize()
