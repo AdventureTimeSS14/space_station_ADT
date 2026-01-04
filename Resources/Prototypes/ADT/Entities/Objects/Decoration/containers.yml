@@ -1,0 +1,152 @@
+#ADT-Tweak Start
+- type: entity
+  id: ADTShippingContainerCybersunBlack
+  parent: BaseShippingContainer
+  name: Cybersun Industries shipping container
+  description: A standard-measure shipping container for bulk transport of goods. This one prominently features Cybersun's logo, and so presumably could be carrying almost anything.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Decoration/containers.rsi
+    state: cybersun_black
+
+- type: entity
+  id: ADTShippingContainerCybersunBlackTape
+  parent: BaseShippingContainer
+  name: Cybersun Industries shipping container
+  description: A standard-measure shipping container for bulk transport of goods. This one prominently features Cybersun's logo, and so presumably could be carrying almost anything.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Decoration/containers.rsi
+    state: cybersun_black_tape
+
+- type: entity
+  id: ADTShippingContainerDVCloth
+  parent: BaseShippingContainer
+  name: Dar-Vaxed Cloth Co. shipping container
+  description: A standard-measure shipping container for bulk transport of goods. This container prominently features the logo of Dar-Vaxed, and presumably, probably contains textile products or clothing.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Decoration/containers.rsi
+    state: dv_cloth
+
+- type: entity
+  id: ADTShippingContainerDVMilitech
+  parent: BaseShippingContainer
+  name: Dar-Vaxed MILITARY TECHNOLOGY shipping container
+  description: A standard-measure shipping container for bulk transport of goods. This container prominently features the logo of Dar-Vaxed and, presumably, probably contains military equipment or weapons.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Decoration/containers.rsi
+    state: dv_militech
+
+- type: entity
+  id: ADTShippingContainerDVMilitechTape
+  parent: BaseShippingContainer
+  name: Dar-Vaxed MILITARY TECHNOLOGY shipping container
+  description: A standard-measure shipping container for bulk transport of goods. This container prominently features the logo of Dar-Vaxed and, presumably, probably contains military equipment or weapons.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Decoration/containers.rsi
+    state: dv_militech_tape
+
+- type: entity
+  id: ADTShippingContainerGorlexBlack
+  parent: BaseShippingContainer
+  name: Gorlex Securities shipping container
+  description: A standard-measure shipping container for bulk transport of goods. This container prominently features Gorlex Securities, and presumably, probably contains military equipment or weapons.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Decoration/containers.rsi
+    state: gorlex_black
+
+- type: entity
+  id: ADTShippingContainerGorlexBlackTape
+  parent: BaseShippingContainer
+  name: Gorlex Securities shipping container
+  description: A standard-measure shipping container for bulk transport of goods. This container prominently features Gorlex Securities, and presumably, probably contains military equipment or weapons.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Decoration/containers.rsi
+    state: gorlex_black_tape
+
+- type: entity
+  id: ADTShippingContainerHonkburger
+  parent: BaseShippingContainer
+  name: Honk-Burger shipping container
+  description: A standard-measure shipping container for bulk transport of goods. This one prominently features the logo of Honk-Burger Corporation, and presumably could be carrying food products or burgers.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Decoration/containers.rsi
+    state: honkburger
+
+- type: entity
+  id: ADTShippingContainerInterdyneBlack
+  parent: BaseShippingContainer
+  name: Interdyne shipping container
+  description: A standard-measure shipping container for bulk transport of goods. This container prominently features the logo of Interdyne, a private pharmaceutical company. Probably, probably contains medical supplies or research materials. Probably.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Decoration/containers.rsi
+    state: interdyne_black
+
+- type: entity
+  id: ADTShippingContainerInterdyneBlackTape
+  parent: BaseShippingContainer
+  name: Interdyne shipping container
+  description: A standard-measure shipping container for bulk transport of goods. This container prominently features the logo of Interdyne, a private pharmaceutical company. Probably, probably contains medical supplies or research materials. Probably.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Decoration/containers.rsi
+    state: interdyne_black_tape
+
+- type: entity
+  id: ADTShippingContainerNanotrasenFuture
+  parent: BaseShippingContainer
+  name: Nanotrasen shipping container
+  description: A standard-measure shipping container for bulk transport of goods. This one prominently features Nanotrasen's logo, and so presumably could be carrying anything.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Decoration/containers.rsi
+    state: nanotrasen_future
+
+- type: entity
+  id: ADTShippingContainerNanotrasenNoFuture
+  parent: BaseShippingContainer
+  name: Nanotrasen shipping container
+  description: A standard-measure shipping container for bulk transport of goods. This one prominently features Nanotrasen's logo, and so presumably could be carrying anything (or maybe not, maybe it's just an empty container and nothing is being transported).
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Decoration/containers.rsi
+    state: nanotrasen_nofuture
+
+- type: entity
+  id: ADTShippingContainerSaibasan
+  parent: BaseShippingContainer
+  name: Saibasan shipping container
+  description: A standard-measure shipping container for bulk transport of goods. This one prominently features the logo of Saibasan. Probably, probably contains medical supplies.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Decoration/containers.rsi
+    state: saibasan
+
+- type: entity
+  id: ADTShippingContainerSpaceCola
+  parent: BaseShippingContainer
+  name: The Space Cola shipping container
+  description: A standard-measure shipping container for bulk transport of goods. This one prominently features the logo of The Space Cola Company, and presumably could be carrying drinks.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Decoration/containers.rsi
+    state: space_cola
+
+- type: entity
+  id: ADTShippingContainerTLH
+  parent: BaseShippingContainer
+  name: Tres Lunae Hecate shipping container
+  description: A standard-measure shipping container for bulk transport of goods. This one prominently features the logo of Tres Lunae Hecate Corporation, and presumably could be carrying anything.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Decoration/containers.rsi
+    state: tlh
+#ADT-Tweak End
+

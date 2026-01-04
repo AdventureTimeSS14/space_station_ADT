@@ -1,0 +1,13 @@
+- type: constructionGraph
+  id: ADTStandardFrame
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: standard_frame
+      steps:
+      - material: MetalRod
+        amount: 5
+  - node: standard_frame
+    entity: ADTStandardFrame
+

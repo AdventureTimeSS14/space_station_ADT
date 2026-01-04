@@ -1,0 +1,28 @@
+- type: decal
+  id: FloraBigRock01
+  tags: ["flora"]
+  sprite:
+    sprite: ADT/Decals/flora_rocks64x64.rsi
+    state: bigrock01
+
+- type: decal
+  id: FloraBigRock02
+  tags: ["flora"]
+  sprite:
+    sprite: ADT/Decals/flora_rocks64x64.rsi
+    state: bigrock02
+
+- type: decal
+  id: FloraBigRock03
+  tags: ["flora"]
+  sprite:
+    sprite: ADT/Decals/flora_rocks64x64.rsi
+    state: bigrock03
+
+- type: decal
+  id: FloraBigRock04
+  tags: ["flora"]
+  sprite:
+    sprite: ADT/Decals/flora_rocks64x64.rsi
+    state: bigrock04
+

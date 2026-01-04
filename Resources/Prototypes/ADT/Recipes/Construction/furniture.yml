@@ -940,6 +940,34 @@
     - !type:TileNotBlocked
 
 - type: construction
+  name: construction-name-fireplace-white
+  id: ADTFireplaceWhiteRecipe
+  graph: ADTFireplaceWhite
+  startNode: start
+  targetNode: fireplace
+  category: construction-category-furniture
+  description: construction-desc-fireplace-white
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: construction-name-fireplace-wooden
+  id: ADTFireplaceWoodenRecipe
+  graph: ADTFireplaceWooden
+  startNode: start
+  targetNode: fireplace
+  category: construction-category-furniture
+  description: construction-desc-fireplace-wooden
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
   name: construction-name-deckchair
   id: ADTDeckChairRecipe
   description: construction-desc-deckchair
