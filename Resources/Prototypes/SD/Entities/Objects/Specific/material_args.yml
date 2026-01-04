@@ -1,0 +1,90 @@
+- type: entity
+  id: SDDragonManual
+  name: Komaki's Dragon Manual
+  description: A manual written and approved by the ancient learner of the space dragons ways. Legends say that Komaki themselves are a space dragon.
+  parent: BaseItem
+  components:
+    - type: Sprite
+      sprite: SD/Objects/Specific/martial_arts.rsi
+      state: dragon
+    - type: AddComponentsOnUse
+      components:
+        - type: MeleeWeapon
+          animation: WeaponArcFist
+          attackRate: 1.5
+          damage:
+            types:
+              Blunt: 16
+              armorPenetration: 0.5
+        - type: ComboCounter
+          maxCombo: 4
+        - type: Combo
+          availableMoves:
+            - actionsNeeds:
+                - Hit
+                - Hit
+              comboEvent:
+                - !type:ComboDamageEffect
+                  damage:
+                    types:
+                      Blunt: 0 # По сути это комбо существует лишь для повышения урона от counterа
+                - !type:ComboEffectCounterDamageBonus
+                  damage:
+                    types:
+                      Blunt: 5
+                - !type:ComboEffectAddToCounter
+                  amount: 1
+                - !type:ComboPopupEffect
+                  localeText: combo-komaki-end
+            - actionsNeeds:
+                - Grab
+                - Hit
+                - Disarm
+              comboEvent:
+                - !type:ComboPopupEffect
+                  localeText: combo-komaki-disarm-end
+                - !type:ComboFallEffect
+                - !type:ComboStaminaDamageEffect
+                  staminaDamage: 35
+                - !type:ComboHandsRetakeEffect
+            - actionsNeeds:
+                - Hit
+                - Grab
+                - Hit
+              stopGrab: true
+              comboEvent:
+                - !type:ComboPopupEffect
+                  localeText: combo-komaki-grab-end
+                - !type:ComboFallEffect
+                  dropItems: true
+                - !type:ComboTrowOnUserEffect
+                - !type:ComboStaminaDamageEffect
+                  staminaDamage: 70
+            - actionsNeeds:
+                - Grab
+                - Disarm
+              comboEvent:
+                - !type:ComboStaminaDamageEffect
+                  staminaDamage: 45
+                - !type:ComboStopTargetGrabEffect
+                - !type:ComboTrowTargetEffect
+                - !type:ComboPopupEffect
+                  localeText: combo-komaki-twistandshove-end
+            - actionsNeeds:
+                - Disarm
+                - Hit
+              comboEvent:
+                - !type:ComboEffectToUserPuller
+                  comboEvents:
+                  - !type:ComboDamageEffect
+                    damage:
+                      types:
+                        Blunt: 50
+                        armorPenetration: 1.0
+                  - !type:ComboStopTargetGrabEffect
+                  - !type:ComboTrowTargetEffect
+                  - !type:ComboStunEffect
+                    stunTime: 1
+                    dropItems: false
+                  - !type:ComboPopupEffect
+                    localeText: combo-tigerdrop-end

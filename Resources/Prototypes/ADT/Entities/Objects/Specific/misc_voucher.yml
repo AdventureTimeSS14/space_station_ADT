@@ -97,5 +97,6 @@
     - WeaponHoSMultiphase
     - WeaponHoSBat
     - WeaponHoSEnergyShotgun #sd-tweak
+    - WeaponHoSDragon #sd-tweak
     typeDropPlace: ThisPlace
     typeDrop: Rocket

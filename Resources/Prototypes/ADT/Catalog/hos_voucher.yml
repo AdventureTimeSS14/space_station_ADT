@@ -32,14 +32,14 @@
 # sd-tweak start
 
 - type: thiefBackpackSet
-  id: WeaponHoSCQC
-  name: hos-voucher-cqc
-  description: hos-voucher-cqc-description
+  id: WeaponHoSDragon
+  name: hos-voucher-dragon
+  description: hos-voucher-dragon-description
   sprite:
-    sprite: ADT/Objects/Specific/material_art_book.rsi
-    state: cqc
+    sprite: SD/Objects/Specific/martial_arts.rsi
+    state: dragon
   content:
-  - ADTCqcManual
+  - SDDragonManual
 
 - type: thiefBackpackSet
   id: WeaponHoSEnergyShotgun
