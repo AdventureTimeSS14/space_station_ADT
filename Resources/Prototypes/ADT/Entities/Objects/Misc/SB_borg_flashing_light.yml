@@ -1,0 +1,44 @@
+- type: entity
+  parent: BaseItem
+  id: ADTBorgFlashingLight
+  name: borg flashing light
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/Flashing_light/SB_borg_flashing_light.rsi
+    layers:
+      - state: SB_borg_flashing_light
+  - type: Appearance
+  - type: ItemToggle
+    predictable: false
+    onUse: false
+    soundActivate:
+      path: /Audio/Items/flashlight_on.ogg
+    soundDeactivate:
+      path: /Audio/Items/flashlight_off.ogg
+    soundFailToActivate:
+      path: /Audio/Machines/button.ogg
+  - type: ItemToggleActiveSound
+    activeSound:
+      path: /Audio/Effects/Vehicle/policesiren.ogg
+      params:
+        volume: -4
+  - type: UseDelay
+    delay: 1.0
+  - type: ItemTogglePointLight
+  - type: ToggleableVisuals
+    spriteLayer: light
+    clothingVisuals:
+      head:
+      - state: on-equipped-HELMET
+        shader: unshaded
+  - type: PointLight
+    enabled: false
+    radius: 1.4
+    energy: 1.4
+    color: red
+    netsync: false
+    mask: /Textures/Effects/LightMasks/double_cone.png
+  - type: RotatingLight
+    speed: 360
+  - type: CoveredSlot
+    slots: [eyes]

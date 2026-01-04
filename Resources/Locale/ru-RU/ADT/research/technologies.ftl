@@ -13,4 +13,7 @@ research-technology-basemegacells = Мегабатареи
 
 research-technology-advancedmegacells = Сверхэффективные мегабатареи
 
+research-technology-shooter-modules-borg = Стрелковый модуль борга
+
 research-technology-reducer = Беспроводная передача энергии
+

@@ -72,8 +72,8 @@
     availableModes:
     - SemiAuto
   - type: HitscanBatteryAmmoProvider
-    proto: RedLaser
-    fireCost: 62.5
+    proto: RedMediumLaser
+    fireCost: 28.5
   - type: StaticPrice
     price: 300
   - type: BatterySelfRecharger

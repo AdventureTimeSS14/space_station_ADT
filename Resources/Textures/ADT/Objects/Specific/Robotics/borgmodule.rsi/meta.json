@@ -1,17 +1,32 @@
 {
-    "version": 2,
-    "license": "CC0-1.0",
-    "copyright": "icon-rpd made by ledniky, (discord:726481288713732147)",
+  "version": 3,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made by ledniky, (discord:726481288713732147)",
     "size": {
         "x": 32,
         "y": 32
     },
     "states": [
         {
+            "name": "security"
+        },
+        {
+            "name": "icon-detentions"
+        },
+        {
+            "name": "icon-laser"
+        },
+        {
+            "name": "icon-lecter"
+        },
+        {
             "name": "engineering"
         },
         {
             "name": "icon-rpd"
+        },
+        {
+            "name": "tech_combat_module"
         },
         {
             "name": "base-icon-inhand-left",
