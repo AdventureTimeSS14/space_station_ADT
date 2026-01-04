@@ -32,9 +32,6 @@
       enum.AttachmentUI.ChooseSlotKey:
         type: AttachmentChooseSlotBui
   - type: InteractionOutline
-  - type: Construction
-    graph: ADTStandardFrame
-    node: standard_frame
   - type: Damageable
     damageContainer: StructuralInorganic
   - type: Destructible
