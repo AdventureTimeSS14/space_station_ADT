@@ -7,6 +7,9 @@
   - type: Sprite
     sprite: ADT/Standard/standard.rsi
     state: standard
+  - type: Construction
+    graph: ADTStandardFrame
+    node: standard_frame
   - type: AttachableHolder
     slots:
       rmc-aslot-standard:

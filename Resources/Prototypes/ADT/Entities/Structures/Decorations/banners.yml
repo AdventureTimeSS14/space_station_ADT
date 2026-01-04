@@ -570,6 +570,9 @@
           False: {visible: true}
   - type: Item
     size: Normal
+  - type: Construction
+    graph: ADTBannerRobust
+    node: banner
 
 - type: entity
   id: ADTBannerSlime
