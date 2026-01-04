@@ -23,3 +23,199 @@
       - id: ADTFishingRodGoon
       - id: ClothingHeadFishCap
       - id: ADTDrinkBeerCanPack
+
+
+- type: entity
+  id: ADTCrateRadioStationAds
+  parent: CrateGenericSteel
+  name: ads crate
+  description: A whole crate which sole purpose is to store 6 exclusive ads, aint capitalism great?
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: RandomCDDisk
+        rolls: 6
+
+- type: entity
+  id: ADTCrateRadioStationVinyls
+  parent: CrateGenericSteel
+  name: vinyls crate
+  description: A crate with 12 vinyls so you'll NEVER play the same song twice, they come in sleeves!
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: RandomVinylSleeve
+        rolls: 12
+
+- type: entityTable
+  id: RandomCDDisk
+  table: !type:GroupSelector
+    children:
+    - id: ADTCdDiskDudesInUniform
+      weight: 0.6
+    - id: ADTCdDiskCargoAd
+      weight: 0.6
+    - id: ADTCdDiskERTad
+      weight: 0.6
+    - id: ADTCdDiskVoxShampoo
+      weight: 0.6
+    - id: ADTCdDiskDonkPocket
+      weight: 0.6
+    - id: ADTCdDiskDonkPocketUncensured
+      weight: 0.1
+    - id: ADTCdDiskWhickeyCola
+      weight: 0.6
+    - id: ADTCdDiskWehHew
+      weight: 0.6
+    - id: ADTCdDiskMrChangAd
+      weight: 0.6
+    - id: ADTCdDiskCapCast
+      weight: 0.6
+    - id: ADTCdDiskNanoMax
+      weight: 0.6
+
+- type: entityTable
+  id: ADTRandomVinylDisk
+  table: !type:GroupSelector
+    children:
+    - id: ADTVinylDiskAI
+      weight: 0.6
+    - id: ADTVinylDiskDevil
+      weight: 0.6
+    - id: ADTVinylDiskPizza
+      weight: 0.6
+    - id: ADTVinylDiskGlossy
+      weight: 0.6
+    - id: ADTVinylDiskRed
+      weight: 0.6
+    - id: ADTVinylDiskLightBlue
+      weight: 0.6
+    - id: ADTVinylDiskBanana
+      weight: 0.6
+    - id: ADTVinylDiskCarrot
+      weight: 0.6
+    - id: ADTVinylDiskCyan
+      weight: 0.6
+    - id: ADTVinylDiskBlue
+      weight: 0.6
+    - id: ADTVinylDiskYellow
+      weight: 0.6
+    - id: ADTVinylDiskGreen
+      weight: 0.6
+    - id: ADTVinylDiskPurple
+      weight: 0.6
+    - id: ADTVinylDiskOrange
+      weight: 0.6
+    - id: ADTVinylDiskWhite
+      weight: 0.6
+    - id: ADTVinylDiskDarkBlue
+      weight: 0.6
+    - id: ADTVinylDiskPink
+      weight: 0.6
+    - id: ADTVinylDiskBurnTheWorld
+      weight: 0.6
+    - id: ADTVinylDiskFeralAngel
+      weight: 0.6
+    - id: ADTVinylDiskAlsoSprach
+      weight: 0.6
+    - id: ADTVinylDiskValkyries
+      weight: 0.6
+    - id: ADTVinylDiskRomeoJuliet
+      weight: 0.6
+    - id: ADTVinylDiskRussian
+      weight: 0.6
+    - id: ADTVinylDiskFlowerDuet
+      weight: 0.6
+    - id: ADTVinylDiskWinterVivaldi
+      weight: 0.6
+    - id: ADTVinylDiskBachCello
+      weight: 0.6
+    - id: ADTVinylDiskForgotten
+      weight: 0.2
+    - id: ADTVinylDiskWCM
+      weight: 0.2
+    - id: ADTVinylDiskWCN
+      weight: 0.2
+    - id: ADTVinylDiskHardcoreDance
+      weight: 0.2
+
+- type: entityTable
+  id: RandomVinylSleeve
+  table: !type:GroupSelector
+    children:
+    - id: ADTVinylSleeveAI
+      weight: 0.6
+    - id: ADTVinylSleeveDevil
+      weight: 0.6
+    - id: ADTVinylSleevePizza
+      weight: 0.6
+    - id: ADTVinylSleeveFart
+      weight: 0.6
+    - id: ADTVinylSleeveLavaLand
+      weight: 0.6
+    - id: ADTVinylSleeveHockey
+      weight: 0.6
+    - id: ADTVinylSleeveRat
+      weight: 0.6
+    - id: ADTVinylSleeveMgs
+      weight: 0.6
+    - id: ADTVinylSleeveQuestionable
+      weight: 0.6
+    - id: ADTVinylSleeveJanitor
+      weight: 0.6
+    - id: ADTVinylSleeveWeird
+      weight: 0.6
+    - id: ADTVinylSleeveDJClown
+      weight: 0.6
+    - id: ADTVinylSleeveVampire
+      weight: 0.6
+    - id: ADTVinylSleeveShulker
+      weight: 0.6
+    - id: ADTVinylSleeveRedSun
+      weight: 0.6
+    - id: ADTVinylSleeveSkull
+      weight: 0.6
+    - id: ADTVinylSleeveFisherman
+      weight: 0.6
+    - id: ADTVinylSleeveHeisenbee
+      weight: 0.6
+    - id: ADTVinylSleeveStation13
+      weight: 0.6
+    - id: ADTVinylSleeveStation14
+      weight: 0.6
+    - id: ADTVinylSleeveNukeDisk
+      weight: 0.6
+    - id: ADTVinylSleeveBlockyCraft
+      weight: 0.6
+    - id: ADTVinylSleeveEye
+      weight: 0.6
+    - id: ADTVinylSleeveTh
+      weight: 0.6
+    - id: ADTVinylSleeveClown
+      weight: 0.6
+    - id: ADTVinylSleeveNanoYork
+      weight: 0.6
+    - id: ADTVinylSleeveDJTider
+      weight: 0.6
+    - id: ADTVinylSleeveCoffee
+      weight: 0.6
+    - id: ADTVinylSleeveWelcomeSS13
+      weight: 0.6
+    - id: ADTVinylSleevePeace
+      weight: 0.6
+    - id: ADTVinylSleeveJapan
+      weight: 0.6
+    - id: ADTVinylSleeveChristmas
+      weight: 0.6
+    - id: ADTVinylSleevePickle
+      weight: 0.6
+    - id: ADTVinylSleeveFlash
+      weight: 0.6
+    - id: ADTVinylSleeveBeige
+      weight: 0.6
+    - id: ADTVinylSleeveBlack
+      weight: 0.6
+    - id: ADTVinylSleeveWhite
+      weight: 0.6

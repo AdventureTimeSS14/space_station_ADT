@@ -938,3 +938,17 @@
   - !type:BuyerJobCondition
     whitelist:
     - AtmosphericTechnician
+
+- type: listing
+  id: uplinkSyndicateAdCDdisk
+  name: uplink-syndicate-cd-disk-advanced-name
+  description: uplink-syndicate-cd-disk-advanced-desc
+  productEntity: ADTCdDiskSyndicateAd
+  cost:
+    Telecrystal: 1
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Reporter

@@ -1,0 +1,133 @@
+- type: entity
+  name: cd disk
+  description: A cd disk, usually contains ads.
+  id: ADTBaseCdDisk
+  parent: BaseItem
+  abstract: true
+  components:
+  - type: Vinyl
+  - type: Sprite
+    sprite: Objects/Misc/cd.rsi
+    state: icon
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Wood
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 12
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+- type: entity
+  parent: ADTBaseCdDisk
+  name: cd disk (Dudes in uniform)
+  id: ADTCdDiskDudesInUniform
+  components:
+  - type: Vinyl
+    song:
+      path: /Audio/ADT/RadioStation/ads/dudes_in_uniform.ogg
+
+- type: entity
+  parent: ADTBaseCdDisk
+  name: cd disk (Cargo social ad)
+  id: ADTCdDiskCargoAd
+  components:
+  - type: Vinyl
+    song:
+      path: /Audio/ADT/RadioStation/ads/Cargo.ogg
+
+- type: entity
+  parent: ADTBaseCdDisk
+  name: cd disk (Military ERT ad)
+  id: ADTCdDiskERTad
+  components:
+  - type: Vinyl
+    song:
+      path: /Audio/ADT/RadioStation/ads/ERT_add.ogg
+
+- type: entity
+  parent: ADTBaseCdDisk
+  name: cd disk (Vox's Shampoo)
+  id: ADTCdDiskVoxShampoo
+  components:
+  - type: Vinyl
+    song:
+      path: /Audio/ADT/RadioStation/ads/vox_shampoo.ogg
+
+- type: entity
+  parent: ADTBaseCdDisk
+  name: cd disk (Donk Pocket AD)
+  id: ADTCdDiskDonkPocket
+  components:
+  - type: Vinyl
+    song:
+      path: /Audio/ADT/RadioStation/ads/Donk_pocket.ogg
+
+- type: entity
+  parent: ADTBaseCdDisk
+  name: cd disk (Donk Pocket AD "UNCENSURED")
+  id: ADTCdDiskDonkPocketUncensured
+  components:
+  - type: Vinyl
+    song:
+      path: /Audio/ADT/RadioStation/ads/Donk_pocket_uncensured.ogg
+
+- type: entity
+  parent: ADTBaseCdDisk
+  name: cd disk (Whiskey cola AD)
+  id: ADTCdDiskWhickeyCola
+  components:
+  - type: Vinyl
+    song:
+      path: /Audio/ADT/RadioStation/ads/WhickeyColaWhickey.ogg
+
+- type: entity
+  parent: ADTBaseCdDisk
+  name: cd disk (Lizard plushie AD)
+  id: ADTCdDiskWehHew
+  components:
+  - type: Vinyl
+    song:
+      path: /Audio/ADT/RadioStation/ads/wehhew.ogg
+
+- type: entity
+  parent: ADTBaseCdDisk
+  name: cd disk (Syndicate AD)
+  id: ADTCdDiskSyndicateAd
+  components:
+  - type: Vinyl
+    song:
+      path: /Audio/ADT/RadioStation/ads/syndieadd.ogg
+
+- type: entity
+  parent: ADTBaseCdDisk
+  name: cd disk (Mr. Chang Ad)
+  id: ADTCdDiskMrChangAd
+  components:
+  - type: Vinyl
+    song:
+      path: /Audio/ADT/RadioStation/ads/mrchangadd.ogg
+
+- type: entity
+  parent: ADTBaseCdDisk
+  name: cd disk (Space Station 14 CapCast)
+  id: ADTCdDiskCapCast
+  components:
+  - type: Vinyl
+    song:
+      path: /Audio/ADT/RadioStation/ads/capcast.ogg
+
+- type: entity
+  parent: ADTBaseCdDisk
+  name: cd disk (Nanomax AD)
+  id: ADTCdDiskNanoMax
+  components:
+  - type: Vinyl
+    song:
+      path: /Audio/ADT/RadioStation/ads/nanomaxadd.ogg

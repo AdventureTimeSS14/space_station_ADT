@@ -219,6 +219,7 @@
     - Equipment
     - FauxTiles
     #ADT-tweak-start
+    - ADTServiceBoards
     - ADTRCDPack
     - ADTPKAPack
     - ADTServiceHydroponics

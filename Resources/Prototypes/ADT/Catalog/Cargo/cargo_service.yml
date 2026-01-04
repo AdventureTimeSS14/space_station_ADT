@@ -33,3 +33,24 @@
   cost: 3200
   category: Service
   group: market
+
+### ДИДЖЕЙ ЗДЕСЬ И ВОТ ОБНОВА ДЛЯ РАДИО!!!
+- type: cargoProduct
+  id: RadioAdsCrateCargo
+  icon:
+    sprite: Objects/Misc/cd.rsi
+    state: icon
+  product: ADTCrateRadioStationAds
+  cost: 3000
+  category: Service
+  group: market
+
+- type: cargoProduct
+  id: RadioVinylCrateCargo
+  icon:
+    sprite: ADT/Objects/Misc/RadioStation/vinyls.rsi
+    state: red-vinyl-disk
+  product: ADTCrateRadioStationVinyls
+  cost: 3000
+  category: Service
+  group: market

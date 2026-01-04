@@ -1,0 +1,45 @@
+- type: entity
+  id: ADTStationRadioServer
+  name: station radio server
+  parent: [ BaseMachinePowered, ConstructibleMachine ]
+  description: A rack of servers, controls whether your voice is being broadcasted or not
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Machines/StationRadio/stationradioserver.rsi
+    layers:
+    - state: icon
+  - type: StationRadioServer
+  - type: DeviceLinkSource
+    ports:
+    - StationRadioServerPort
+    # TODO: unlit & maints panel sprite
+  - type: Transform
+    noRot: false
+  - type: Rotatable
+  - type: Machine
+    board: ADTStationRadioServerCircuitboard
+  - type: TelecomExempt
+  - type: RadioMicrophone
+    powerRequired: true
+    broadcastChannel: ADTOldBroadcast
+
+- type: entity
+  id: ADTStationRadioRig
+  parent: [ BaseMachinePowered, ConstructibleMachine ]
+  name: station radio rig
+  description: A collection of everything you need to play music over the station.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Machines/StationRadio/radiostationrig.rsi
+    layers:
+    - state: icon
+    # TODO: unlit & maints panel sprite
+  - type: DeviceLinkSink
+    ports:
+    - StationRadioRigPort
+  - type: Transform
+    noRot: false
+  - type: Rotatable
+  - type: Machine
+    board: ADTStationRadioRigCircuitboard
+  - type: RadioRig

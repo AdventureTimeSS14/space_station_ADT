@@ -13,3 +13,5 @@ research-technology-services-hydroponics-advanced = Продвинутая ги�
 research-technology-electrical-range = Электрическая печь
 
 research-technology-hydra = Уборочный гранатомёт
+
+research-technology-radio-music-communication = радио-телекоммуникация
