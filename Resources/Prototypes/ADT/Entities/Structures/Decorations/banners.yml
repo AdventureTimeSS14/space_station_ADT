@@ -355,6 +355,9 @@
           False: {visible: true}
   - type: Item
     size: Normal
+  - type: Construction
+    graph: ADTBannerMagic
+    node: banner
 
 - type: entity
   id: ADTBannerMime
@@ -385,7 +388,7 @@
   - type: Item
     size: Normal
   - type: Construction
-    graph: ADTBannerMagic
+    graph: ADTBannerMime
     node: banner
 
 - type: entity
@@ -416,9 +419,6 @@
           False: {visible: true}
   - type: Item
     size: Normal
-  - type: Construction
-    graph: ADTBannerMime
-    node: banner
 
 - type: entity
   id: ADTBannerNian
@@ -541,9 +541,6 @@
           False: {visible: true}
   - type: Item
     size: Normal
-  - type: Construction
-    graph: ADTBannerRobust
-    node: banner
 
 - type: entity
   id: ADTBannerRobust

@@ -124,6 +124,9 @@
         behaviors:
           - !type:DoActsBehavior
             acts: [ "Destruction" ]
+  - type: Construction
+    graph: ADTStatueAngel
+    node: statue
 
 - type: entity
   id: ADTStatueLion
@@ -160,6 +163,9 @@
         behaviors:
           - !type:DoActsBehavior
             acts: [ "Destruction" ]
+  - type: Construction
+    graph: ADTStatueLion
+    node: statue
 
 - type: entity
   id: ADTStatueLenin
@@ -196,6 +202,9 @@
         behaviors:
           - !type:DoActsBehavior
             acts: [ "Destruction" ]
+  - type: Construction
+    graph: ADTStatueLenin
+    node: statue
 
 - type: entity
   id: ADTStatueHadii
@@ -232,3 +241,6 @@
         behaviors:
           - !type:DoActsBehavior
             acts: [ "Destruction" ]
+  - type: Construction
+    graph: ADTStatueHadii
+    node: statue
