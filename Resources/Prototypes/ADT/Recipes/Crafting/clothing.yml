@@ -13,3 +13,4 @@
   targetNode: standard_frame
   category: construction-category-structures
   objectType: Structure
+  placementMode: SnapgridCenter

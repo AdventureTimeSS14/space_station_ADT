@@ -5,9 +5,13 @@
   - node: start
     edges:
     - to: standard_frame
+      completed:
+        - !type:SnapToGrid
+          southRotation: true
       steps:
       - material: MetalRod
         amount: 5
+        doAfter: 3
   - node: standard_frame
     entity: ADTStandardFrame
 

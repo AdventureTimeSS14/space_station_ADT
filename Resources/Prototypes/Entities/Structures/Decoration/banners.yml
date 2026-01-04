@@ -66,6 +66,9 @@
           False: {visible: true}
   - type: Item
     size: Normal
+  - type: Construction
+    graph: BannerNanotrasen
+    node: banner
 #ADT-Tweak End
 
 - type: entity
@@ -97,6 +100,9 @@
           False: {visible: true}
   - type: Item
     size: Normal
+  - type: Construction
+    graph: BannerCargo
+    node: banner
 #ADT-Tweak End
 
 - type: entity
@@ -128,6 +134,9 @@
           False: {visible: true}
   - type: Item
     size: Normal
+  - type: Construction
+    graph: BannerEngineering
+    node: banner
 #ADT-Tweak End
 
 - type: entity
@@ -159,6 +168,9 @@
           False: {visible: true}
   - type: Item
     size: Normal
+  - type: Construction
+    graph: BannerMedical
+    node: banner
 #ADT-Tweak End
 
 - type: entity
@@ -252,6 +264,9 @@
           False: {visible: true}
   - type: Item
     size: Normal
+  - type: Construction
+    graph: BannerScience
+    node: banner
 #ADT-Tweak End
 
 - type: entity
@@ -283,6 +298,9 @@
           False: {visible: true}
   - type: Item
     size: Normal
+  - type: Construction
+    graph: BannerSecurity
+    node: banner
 #ADT-Tweak End
 
 - type: entity
@@ -314,6 +332,9 @@
           False: {visible: true}
   - type: Item
     size: Normal
+  - type: Construction
+    graph: BannerBlue
+    node: banner
 #ADT-Tweak End
 
 - type: entity
@@ -345,6 +366,9 @@
           False: {visible: true}
   - type: Item
     size: Normal
+  - type: Construction
+    graph: BannerRed
+    node: banner
 #ADT-Tweak End
 
 - type: entity
@@ -376,6 +400,9 @@
           False: {visible: true}
   - type: Item
     size: Normal
+  - type: Construction
+    graph: BannerYellow
+    node: banner
 #ADT-Tweak End
 
 - type: entity
@@ -407,6 +434,9 @@
           False: {visible: true}
   - type: Item
     size: Normal
+  - type: Construction
+    graph: BannerGreen
+    node: banner
 #ADT-Tweak End
 
 

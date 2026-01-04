@@ -142,3 +142,85 @@ construction-desc-white-office-sofa-right-side = Выглядит удобно.
 construction-desc-white-office-sofa-middle = Выглядит удобно.
 construction-desc-white-office-sofa-left-corner = Выглядит удобно.
 construction-desc-white-office-sofa-right-corner = Выглядит удобно.
+
+# Баннеры
+construction-name-banner-red = красное знамя
+construction-desc-banner-red = Это знамя в красных цветах. Типа крутое.
+
+construction-name-banner-blue = синее знамя
+construction-desc-banner-blue = Это знамя в синих цветах. Ай м блу, дабуди-дабудай.
+
+construction-name-banner-green = зелёное знамя
+construction-desc-banner-green = Это знамя в зелёных цветах. Трава, листья, гуакамоле.
+
+construction-name-banner-yellow = жёлтое знамя
+construction-desc-banner-yellow = Это знамя в жёлтых цветах. Напоминает об уточках и лимонах.
+
+construction-name-banner-nanotrasen = знамя Nanotrasen
+construction-desc-banner-nanotrasen = Это знамя с логотипом Nanotrasen. Оно выглядит довольно дёшево.
+
+construction-name-banner-vulp = знамя Ассамблеи
+construction-desc-banner-vulp = Это знамя, на котором изображен герб Ассамблеи.
+
+construction-name-banner-empire-khsira = знамя Империи Кхси'Ра
+construction-desc-banner-empire-khsira = Это знамя, на котором изображен герб Великой Империи Кхси'Ра. Империя - часть Транс-Солнечной Федерации.
+
+construction-name-banner-nian = знамя Ниан
+construction-desc-banner-nian = Это знамя, на котором изображена символика Великого Кочевого Флота.
+
+construction-name-banner-ussp = знамя СССП
+construction-desc-banner-ussp = Это знамя, на котором изображен герб Союза Советских Социалистических Планет. Слава СССП!
+
+construction-name-banner-slime = знамя Слаймолюдов
+construction-desc-banner-slime = Это знамя, на котором изображен флаг Содружества Слаймолюдов. На нём изображена родная планета слаймолюдов - Ксарксис 5, а также ледяная луна.
+
+construction-name-banner-ipc = знамя Союза Синтетиков
+construction-desc-banner-ipc = Это знамя, на котором изображен флаг Синтетического Союза. Долой угнетение тостеров и бытовой техники!
+
+construction-name-banner-magic = знамя волшебника
+construction-desc-banner-magic = Это знамя, на котором изображен герб магической школы "Школа оккультно-гуманитарных и техно-магических наук". Ходят слухи, они крадут одарённых сирот к себе на обучение...
+
+construction-name-banner-greytide = знамя грейтайда
+construction-desc-banner-greytide = Это знамя в серых цветах. Серая армия всех сильней!
+
+construction-name-banner-mime = знамя мима
+construction-desc-banner-mime = ...
+
+construction-name-banner-tajaran = знамя таяранов
+construction-desc-banner-tajaran = Это знамя, на котором изображен флаг Адомая. На нём изображен стебель мун'лайта с тремя цветками. Эти цветы символизируют трех Домов, красный круг - Адомай и связь с империей.
+
+construction-name-banner-diona = знамя дионы
+construction-desc-banner-diona = Это знамя, на котором изображены... Корни гештальтов?
+
+construction-name-banner-drask = знамя драска
+construction-desc-banner-drask = Это знамя, на котором изображен флаг Драсков. Это объединённый флаг всех городов-государств, представляющий Урлум.
+
+construction-name-banner-clown = знамя клоуна
+construction-desc-banner-clown = Это знамя, на котором изображён клоун. Хонк!
+
+construction-name-banner-vox = знамя ковчега
+construction-desc-banner-vox = Самый популярный вариант знамени ковчега. По словам воксов, зелёный - свободный народ воксов, чёрный - бескрайний космос для путешествий, а жёлтый шар - материнский ковчег воксов, и да, когда вы это читали, вас таки обокрали.
+
+construction-name-banner-novakid = знамя новакида
+construction-desc-banner-novakid = Это знамя, на котором представлены звёзды и вспышка сверхновой звезды. Нас ждут великие дела, партнёр.
+
+construction-name-banner-robust = знамя робаста
+construction-desc-banner-robust = Это знамя в серых цветах. Упаси вас господь, если вы вякнете что-то про РП рядом с ним.
+
+construction-name-banner-cargo = знамя отдела снабжения
+construction-desc-banner-cargo = Это знамя, на котором представлены цвета отдела карго. Не. Каргонии.
+
+construction-name-banner-engineering = знамя инженерного отдела
+construction-desc-banner-engineering = Это знамя, на котором представлены цвета инженерного отдела. Промасленное.
+
+construction-name-banner-medical = знамя медицинского отдела
+construction-desc-banner-medical = Это знамя, на котором представлены цвета медицинского отдела. Какое стерильное.
+
+construction-name-banner-science = знамя научного отдела
+construction-desc-banner-science = Это знамя, на котором представлены цвета научного отдела. Где знания безграничны, а техника безопасности игнорируется.
+
+construction-name-banner-security = знамя службы безопасности
+construction-desc-banner-security = Это знамя, на котором представлены цвета отдела безопасности. Вы удивлены, что его ещё никто не испортил.
+
+construction-name-banner-human-flag = знамя Объединённого Правительства Земли
+construction-desc-banner-human-flag = Это знамя центрального человеческого государства, управляющего Солнечной системой и колониями со столицей на планете Земля.

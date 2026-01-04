@@ -19,7 +19,6 @@
     state: mgdflag
     scale: 0.75, 0.75
 
-#ADT-Tweak Start
 - type: entity
   id: ADTBannerClown
   parent: BannerBase
@@ -48,9 +47,10 @@
           False: {visible: true}
   - type: Item
     size: Normal
-#ADT-Tweak End
+  - type: Construction
+    graph: ADTBannerClown
+    node: banner
 
-#ADT-Tweak Start
 - type: entity
   id: ADTBannerCybersun
   parent: BannerBase
@@ -79,9 +79,7 @@
           False: {visible: true}
   - type: Item
     size: Normal
-#ADT-Tweak End
 
-#ADT-Tweak Start
 - type: entity
   id: ADTBannerDiona
   parent: BannerBase
@@ -110,9 +108,10 @@
           False: {visible: true}
   - type: Item
     size: Normal
-#ADT-Tweak End
+  - type: Construction
+    graph: ADTBannerDiona
+    node: banner
 
-#ADT-Tweak Start
 - type: entity
   id: ADTBannerDrask
   parent: BannerBase
@@ -141,9 +140,10 @@
           False: {visible: true}
   - type: Item
     size: Normal
-#ADT-Tweak End
+  - type: Construction
+    graph: ADTBannerDrask
+    node: banner
 
-#ADT-Tweak Start
 - type: entity
   id: ADTBannerElysium
   parent: BannerBase
@@ -172,9 +172,7 @@
           False: {visible: true}
   - type: Item
     size: Normal
-#ADT-Tweak End
 
-#ADT-Tweak Start
 - type: entity
   id: ADTBannerEmpireKhsira
   parent: BannerBase
@@ -203,9 +201,10 @@
           False: {visible: true}
   - type: Item
     size: Normal
-#ADT-Tweak End
+  - type: Construction
+    graph: ADTBannerEmpireKhsira
+    node: banner
 
-#ADT-Tweak Start
 - type: entity
   id: ADTBannerGorlex
   parent: BannerBase
@@ -234,9 +233,7 @@
           False: {visible: true}
   - type: Item
     size: Normal
-#ADT-Tweak End
 
-#ADT-Tweak Start
 - type: entity
   id: ADTBannerGreytide
   parent: BannerBase
@@ -265,9 +262,10 @@
           False: {visible: true}
   - type: Item
     size: Normal
-#ADT-Tweak End
+  - type: Construction
+    graph: ADTBannerGreytide
+    node: banner
 
-#ADT-Tweak Start
 - type: entity
   id: ADTBannerInterpharm
   parent: BannerBase
@@ -296,9 +294,7 @@
           False: {visible: true}
   - type: Item
     size: Normal
-#ADT-Tweak End
 
-#ADT-Tweak Start
 - type: entity
   id: ADTBannerIPC
   parent: BannerBase
@@ -327,9 +323,10 @@
           False: {visible: true}
   - type: Item
     size: Normal
-#ADT-Tweak End
+  - type: Construction
+    graph: ADTBannerIPC
+    node: banner
 
-#ADT-Tweak Start
 - type: entity
   id: ADTBannerMagic
   parent: BannerBase
@@ -358,9 +355,7 @@
           False: {visible: true}
   - type: Item
     size: Normal
-#ADT-Tweak End
 
-#ADT-Tweak Start
 - type: entity
   id: ADTBannerMime
   parent: BannerBase
@@ -389,9 +384,10 @@
           False: {visible: true}
   - type: Item
     size: Normal
-#ADT-Tweak End
+  - type: Construction
+    graph: ADTBannerMagic
+    node: banner
 
-#ADT-Tweak Start
 - type: entity
   id: ADTBannerNarsi
   parent: BannerBase
@@ -420,9 +416,10 @@
           False: {visible: true}
   - type: Item
     size: Normal
-#ADT-Tweak End
+  - type: Construction
+    graph: ADTBannerMime
+    node: banner
 
-#ADT-Tweak Start
 - type: entity
   id: ADTBannerNian
   parent: BannerBase
@@ -451,9 +448,10 @@
           False: {visible: true}
   - type: Item
     size: Normal
-#ADT-Tweak End
+  - type: Construction
+    graph: ADTBannerNian
+    node: banner
 
-#ADT-Tweak Start
 - type: entity
   id: ADTBannerNinja
   parent: BannerBase
@@ -482,9 +480,7 @@
           False: {visible: true}
   - type: Item
     size: Normal
-#ADT-Tweak End
 
-#ADT-Tweak Start
 - type: entity
   id: ADTBannerNovakid
   parent: BannerBase
@@ -513,9 +509,10 @@
           False: {visible: true}
   - type: Item
     size: Normal
-#ADT-Tweak End
+  - type: Construction
+    graph: ADTBannerNovakid
+    node: banner
 
-#ADT-Tweak Start
 - type: entity
   id: ADTBannerPirate
   parent: BannerBase
@@ -544,9 +541,10 @@
           False: {visible: true}
   - type: Item
     size: Normal
-#ADT-Tweak End
+  - type: Construction
+    graph: ADTBannerRobust
+    node: banner
 
-#ADT-Tweak Start
 - type: entity
   id: ADTBannerRobust
   parent: BannerBase
@@ -575,9 +573,7 @@
           False: {visible: true}
   - type: Item
     size: Normal
-#ADT-Tweak End
 
-#ADT-Tweak Start
 - type: entity
   id: ADTBannerSlime
   parent: BannerBase
@@ -606,9 +602,10 @@
           False: {visible: true}
   - type: Item
     size: Normal
-#ADT-Tweak End
+  - type: Construction
+    graph: ADTBannerSlime
+    node: banner
 
-#ADT-Tweak Start
 - type: entity
   id: ADTBannerTajaran
   parent: BannerBase
@@ -637,9 +634,10 @@
           False: {visible: true}
   - type: Item
     size: Normal
-#ADT-Tweak End
+  - type: Construction
+    graph: ADTBannerTajaran
+    node: banner
 
-#ADT-Tweak Start
 - type: entity
   id: ADTBannerUSSP
   parent: BannerBase
@@ -668,9 +666,10 @@
           False: {visible: true}
   - type: Item
     size: Normal
-#ADT-Tweak End
+  - type: Construction
+    graph: ADTBannerUSSP
+    node: banner
 
-#ADT-Tweak Start
 - type: entity
   id: ADTBannerVox
   parent: BannerBase
@@ -699,9 +698,10 @@
           False: {visible: true}
   - type: Item
     size: Normal
-#ADT-Tweak End
+  - type: Construction
+    graph: ADTBannerVox
+    node: banner
 
-#ADT-Tweak Start
 - type: entity
   id: ADTBannerVulp
   parent: BannerBase
@@ -730,9 +730,10 @@
           False: {visible: true}
   - type: Item
     size: Normal
-#ADT-Tweak End
+  - type: Construction
+    graph: ADTBannerVulp
+    node: banner
 
-#ADT-Tweak Start
 - type: entity
   id: ADTBannerHumanFlag
   parent: BannerBase
@@ -761,4 +762,6 @@
           False: {visible: true}
   - type: Item
     size: Normal
-#ADT-Tweak End
+  - type: Construction
+    graph: ADTBannerHumanFlag
+    node: banner
