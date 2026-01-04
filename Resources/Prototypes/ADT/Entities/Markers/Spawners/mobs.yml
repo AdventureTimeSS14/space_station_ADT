@@ -499,3 +499,17 @@
   - type: ConditionalSpawner
     prototypes:
       - MobArgocyteLeviathing
+
+- type: entity
+  name: xenobio slime spawner
+  id: ADTXenoSlimeSpawner
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: ADT/Mobs/Xenobiology/slimesBaby.rsi
+        state: base
+  - type: ConditionalSpawner
+    prototypes:
+    - ADTGreyBreedMobXenoSlime
