@@ -103,7 +103,6 @@
     spawned:
     - id: FoodMeatXeno
       amount: 2 # ADT-Tweak 5 -> 2
-  - type: GhostTakeoverAvailable
   - type: TypingIndicator
     proto: alien
   - type: Temperature
