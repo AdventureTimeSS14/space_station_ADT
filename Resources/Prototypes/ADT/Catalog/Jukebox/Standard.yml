@@ -11,6 +11,12 @@
     path: /Audio/ADT/Jukebox/A_Tense_Adventure.ogg
 
 - type: jukebox
+  id: BillieJean
+  name: Michael Jackson - Billie Jean
+  path:
+    path: /Audio/ADT/Jukebox/Michael_Jackson_Billie_Jean.ogg
+
+- type: jukebox
   id: SpaceAsshole
   name: Space Asshole - Chris Remo
   path:
@@ -47,6 +53,12 @@
     path: /Audio/ADT/Lobby/Gift_of_Adventure_from_Conjurer.ogg
 
 - type: jukebox
+  id: PWHappy
+  name: Pharrell Williams - Happy
+  path:
+    path: /Audio/ADT/Jukebox/Pharrell_Williams_Happy.ogg
+
+- type: jukebox
   id: HappyEnding
   name: Conjurerq - Happy ending
   path:
@@ -71,10 +83,22 @@
     path: /Audio/ADT/Jukebox/HM_ItsSafeNow.ogg
 
 - type: jukebox
+  id: JTTOU
+  name: Grover Washington Jr. - Just the Two of Us
+  path:
+    path: /Audio/ADT/Jukebox/Grover_Washington_Jr_Just_the_Two_of_Us.ogg
+
+- type: jukebox
   id: lateraligator
   name: Silverman Sound Studios - Later Alligator
   path:
     path: /Audio/ADT/Jukebox/lateraligator.ogg
+
+- type: jukebox
+  id: LetsGroove
+  name: Earth, Wind & Fire - Let's Groove
+  path:
+    path: /Audio/ADT/Jukebox/Earth_Wind_&_Fire_Lets_Groove.ogg
 
 - type: jukebox
   id: SCMJ
@@ -113,6 +137,12 @@
     path: /Audio/ADT/Jukebox/fsm-team-escp-neonscapes.ogg
 
 - type: jukebox
+  id: NGGYU
+  name: Rick Astley - Never Gonna Give You Up
+  path:
+    path: /Audio/ADT/Jukebox/Rick_Astley_Never_Gonna_Give_You_Up.ogg
+
+- type: jukebox
   id: HotlineParis
   name: Hotline Miami - Paris
   path:
@@ -125,10 +155,22 @@
     path: /Audio/ADT/Lobby/Oh_Its_You.ogg
 
 - type: jukebox
+  id: September
+  name: Earth, Wind & Fire - September
+  path:
+    path: /Audio/ADT/Jukebox/Earth_Wind_&_Fire_September.ogg
+
+- type: jukebox
   id: Hotline2Sexualizer
   name: Hotline Miami 2 - Sexualizer
   path:
     path: /Audio/ADT/Jukebox/HM2_Sexualizer.ogg
+
+- type: jukebox
+  id: StayinAlive
+  name: Bee Gees - Stayin' Alive
+  path:
+    path: /Audio/ADT/Jukebox/Bee_Gees_Stayin_Alive.ogg
 
 - type: jukebox
   id: EOFTTS
