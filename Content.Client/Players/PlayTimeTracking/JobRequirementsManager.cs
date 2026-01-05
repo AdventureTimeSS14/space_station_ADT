@@ -147,11 +147,10 @@ public sealed class JobRequirementsManager : ISharedPlaytimeManager
         }
 
         //ADT-Sponsors-Job-Start
-        var info = _sponsorsManager.TryGetInfo(out var sponsorInfo);
-        if (info && sponsorInfo != null)
+        if (_sponsorsManager.TryGetInfo(out var sponsorInfo) && !sponsorInfo.AllowJob)
         {
-            if (sponsorInfo.AllowJob)
-                return true;
+            reason = FormattedMessage.FromUnformatted(Loc.GetString("sponsor-job"));
+            return false;
         }
         //ADT-Sponsors-Job-End
 
