@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Server.Actions;
 using Content.Server.Chat.Managers;
 using Content.Server.Chat.Systems;
@@ -64,7 +65,7 @@ public sealed partial class SchizophreniaSystem : EntitySystem
     private bool UpdateRemoving(EntityUid uid, HallucinatingComponent comp)
     {
         // Handle remove timers
-        foreach (var item in new Dictionary<string, TimeSpan>(comp.Removes))
+        foreach (var item in comp.Removes.ToDictionary())
         {
             if (item.Value <= _timing.CurTime)
             {
@@ -99,7 +100,13 @@ public sealed partial class SchizophreniaSystem : EntitySystem
     {
         // Hallucinate
         foreach (var item in comp.Hallucinations)
-            item.Value?.TryPerform(uid, EntityManager, _random, _timing.CurTime);
+        {
+            if (item.Value == null)
+                continue;
+
+            foreach (var effect in item.Value)
+                effect.TryPerform(uid, EntityManager, _random, _timing.CurTime);
+        }
     }
 
     private void UpdateMusic(EntityUid uid, HallucinatingComponent comp)

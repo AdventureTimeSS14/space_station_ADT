@@ -12,7 +12,7 @@ public sealed partial class HallucinationsPackPrototype : IPrototype
     public string ID { get; } = default!;
 
     [DataField]
-    public BaseHallucinationsType? Data;
+    public List<BaseHallucinationsType>? Data;
 
     [DataField]
     public ComponentRegistry Components = new();
