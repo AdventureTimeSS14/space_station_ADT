@@ -724,10 +724,10 @@
 
 - type: marking
   speciesRestriction: [IPC]
-  id: ADTIPCScreenMonoeyeb
+  id: ADTIPCScreenMonoeyeAlt
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
     - sprite: ADT/Mobs/Customization/Ipc/ipc_screens.rsi
-      state: ipc_screen_monoeyeb
+      state: ipc_screen_monoeye_alt
   shader: unshaded

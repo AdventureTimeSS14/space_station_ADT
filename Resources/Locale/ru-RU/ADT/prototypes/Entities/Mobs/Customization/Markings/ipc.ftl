@@ -68,7 +68,7 @@ marking-ADTIPCScreenCuteUnsurprised = Милое (Неудивлённое)
 marking-ADTIPCScreenPacifist1 = Пацифист 1
 marking-ADTIPCScreenPacifist2 = Пацифист 2
 marking-ADTIPCScreenAscended = Вознесённый
-marking-ADTIPCScreenMonoeyeb = Циклоп (альт.)
+marking-ADTIPCScreenMonoeyeAlt = Циклоп (альт.)
 
 marking-ADTIPCAntennaTv = ТВ
 marking-ADTIPCAntennaTesla = Тесла
@@ -96,7 +96,7 @@ marking-ADTIPCTailHydra = Гидра
 marking-ADTIPCTailHydra-ipc_tail_hydra_prime = Первичный
 marking-ADTIPCTailHydra-ipc_tail_hydra_second = Вторичный
 marking-ADTIPCTailHydra-ipc_tail_hydra_third = Троичный
-marking-ADTIPCTailHydra-ipc_tail_hydra_fourth = Четвёртый
+marking-ADTIPCTailHydra-ipc_tail_hydra_fourth = Четвертичный
 marking-ADTIPCTailOctopus = Осминог
 marking-ADTIPCTailOctopus-ipc_tail_octopus = Осминог
 marking-ADTIPCTailFox = Лисий хвост
