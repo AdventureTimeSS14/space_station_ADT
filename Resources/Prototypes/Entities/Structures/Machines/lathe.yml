@@ -202,7 +202,6 @@
       - [Research]
       - [Engineering]
   - type: Wires
-    boardName: wires-board-name-protolathe
     layoutId: ADTLatheWithAccess
   - type: Electrified
     enabled: false
@@ -287,7 +286,6 @@
       - [Research]
       - [Engineering]
   - type: Wires
-    boardName: wires-board-name-protolathe
     layoutId: ADTLatheWithAccess
   - type: Electrified
     enabled: false
@@ -329,7 +327,6 @@
     access:
       - [Research]
   - type: Wires
-    boardName: wires-board-name-circuitimprinter
     layoutId: ADTLatheWithAccess
   - type: Electrified
     enabled: false
@@ -405,7 +402,6 @@
     access:
       - [Research]
   - type: Wires
-    boardName: wires-board-name-circuitimprinter
     layoutId: ADTLatheWithAccess
   - type: Electrified
     enabled: false

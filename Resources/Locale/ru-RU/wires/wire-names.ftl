@@ -73,6 +73,3 @@ wire-name-bomb-bolt = БОЛТ
 wire-name-speech = ДНМК
 wire-name-listen = МИКР
 wire-name-log = ЛОГ
-
-#ADT-Tweak
-wires-board-name-circuitimprinter = Принтер плат
