@@ -84,8 +84,8 @@ public sealed class SchizophreniaSystem : EntitySystem
 
     private void OnGetStatusIcons(Entity<SchizophreniaComponent> ent, ref GetStatusIconsEvent args)
     {
-        if (TryComp<HallucinationComponent>(_player.LocalEntity, out var hallucination) && hallucination.Idx == ent.Comp.Idx)
-            args.StatusIcons.Add(_prototypeManager.Index<FactionIconPrototype>("ShizophrenicIcon"));
+        // if (TryComp<HallucinationComponent>(_player.LocalEntity, out var hallucination) && hallucination.Idx == ent.Comp.Idx)
+        //     args.StatusIcons.Add(_prototypeManager.Index<FactionIconPrototype>("ShizophrenicIcon"));
     }
 
     private void OnMusicInit(Entity<HallucinationsMusicComponent> ent, ref MapInitEvent args)

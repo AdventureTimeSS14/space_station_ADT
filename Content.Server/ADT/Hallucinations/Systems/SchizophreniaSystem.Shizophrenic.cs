@@ -192,13 +192,18 @@ public sealed partial class SchizophreniaSystem : EntitySystem
         var packProto = _proto.Index(pack);
         var data = packProto.Data;
 
+        List<BaseHallucinationsEntry>? entries = null;
         if (data != null)
         {
-            var entry = data.GetEntry();
-            comp.Hallucinations.Add(pack, entry);
+            entries = new();
+            foreach (var item in data)
+            {
+                var entry = item.GetEntry();
+                entries.Add(entry);
+            }
         }
-        else
-            comp.Hallucinations.Add(pack, null);
+
+        comp.Hallucinations.Add(pack, entries);
 
         EntityManager.AddComponents(uid, packProto.Components);
 
