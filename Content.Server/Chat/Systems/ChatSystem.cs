@@ -223,7 +223,7 @@ public sealed partial class ChatSystem : SharedChatSystem
 
         // ADT Alternative speech start
         var altEv = new AlternativeSpeechEvent(sanitizedMessage, false, desiredType);
-        if (TryProccessRadioMessage(source, sanitizedMessage, out var altSpeechRadioResult, out _, true))
+        if (TryProcessRadioMessage(source, sanitizedMessage, out var altSpeechRadioResult, out _, true))
         {
             altEv.Radio = true;
             altEv.Message = altSpeechRadioResult;
@@ -321,12 +321,14 @@ public sealed partial class ChatSystem : SharedChatSystem
     /// <inheritdoc />
     public override void DispatchGlobalAnnouncement(
         string message,
-        string sender = "Central Command",
+        string? sender = null,
         bool playSound = true,
         SoundSpecifier? announcementSound = null,
         Color? colorOverride = null
         )
     {
+        sender ??= Loc.GetString("chat-manager-sender-announcement");
+
         var wrappedMessage = Loc.GetString("chat-manager-sender-announcement-wrap-message", ("sender", sender), ("message", FormattedMessage.EscapeText(message)));
         _chatManager.ChatMessageToAll(ChatChannel.Radio, message, wrappedMessage, default, false, true, colorOverride);
         if (playSound)
@@ -362,11 +364,13 @@ public sealed partial class ChatSystem : SharedChatSystem
     public override void DispatchStationAnnouncement(
         EntityUid source,
         string message,
-        string sender = "Central Command",
+        string? sender = null,
         bool playDefaultSound = true,
         SoundSpecifier? announcementSound = null,
         Color? colorOverride = null)
     {
+        sender ??= Loc.GetString("chat-manager-sender-announcement");
+
         var wrappedMessage = Loc.GetString("chat-manager-sender-announcement-wrap-message", ("sender", sender), ("message", FormattedMessage.EscapeText(message)));
         var station = _stationSystem.GetOwningStation(source);
 
@@ -460,7 +464,7 @@ public sealed partial class ChatSystem : SharedChatSystem
 
         if (language.LanguageType.RaiseEvent)
         {
-            var ev = new EntitySpokeEvent(source, resultMessage, language, null, null);  // ADT message => resultMessage
+            var ev = new EntitySpokeEvent(source, resultMessage, message, language, null, null);  // ADT message => resultMessage
             RaiseLocalEvent(source, ev, true);
         }
         // ADT Languages end
@@ -555,7 +559,7 @@ public sealed partial class ChatSystem : SharedChatSystem
 
         if (language.LanguageType.RaiseEvent)   // ADT Tweaked
         {
-            var ev = new EntitySpokeEvent(source, resultMessage, language, channel, resultObfMessage, true);
+            var ev = new EntitySpokeEvent(source, resultMessage, message, language, channel, resultObfMessage);
             RaiseLocalEvent(source, ev, true);
         }
 

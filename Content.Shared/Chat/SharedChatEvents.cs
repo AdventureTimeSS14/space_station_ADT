@@ -1,3 +1,4 @@
+using Content.Shared.ADT.Language;
 using Content.Shared.Inventory;
 using Content.Shared.Radio;
 using Content.Shared.Speech;
@@ -60,6 +61,7 @@ public sealed class EntitySpokeEvent : EntityEventArgs
     public readonly string Message;
     public readonly string? ObfuscatedMessage; // not null if this was a whisper
     public readonly string OriginalMessage; // Corvax-TTS
+    public readonly LanguagePrototype Language; // ADT-Tweak - languages
 
     /// <summary>
     /// If the entity was trying to speak into a radio, this was the channel they were trying to access. If a radio
@@ -67,12 +69,13 @@ public sealed class EntitySpokeEvent : EntityEventArgs
     /// </summary>
     public RadioChannelPrototype? Channel;
 
-    public EntitySpokeEvent(EntityUid source, string message, string originalMessage, RadioChannelPrototype? channel, string? obfuscatedMessage)// Corvax-TTS originalMessage
+    public EntitySpokeEvent(EntityUid source, string message, string originalMessage, LanguagePrototype language, RadioChannelPrototype? channel, string? obfuscatedMessage)// Corvax-TTS originalMessage   // ADT-Tweak - languages
     {
         Source = source;
         Message = message;
         OriginalMessage = originalMessage; // Corvax-TTS: Spec symbol sanitize
         Channel = channel;
         ObfuscatedMessage = obfuscatedMessage;
+        Language = language;    // ADT-Tweak - languages
     }
 }
