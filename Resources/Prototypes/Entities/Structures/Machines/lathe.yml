@@ -186,26 +186,12 @@
   - type: Machine
     board: ProtolatheMachineCircuitboard
   # ADT-tweak Start
-  - type: UserInterface
-    interfaces:
-      enum.LatheUiKey.Key:
-        type: LatheBoundUserInterface
-      enum.ResearchClientUiKey.Key:
-        type: ResearchClientBoundUserInterface
-      enum.WiresUiKey.Key:
-        type: WiresBoundUserInterface
   - type: StationAiWhitelist
   - type: ActivatableUIRequiresAccess
   - type: AccessReader
-    breakOnAccessBreaker: true
     access:
       - [Research]
       - [Engineering]
-  - type: Wires
-    layoutId: ADTLatheWithAccess
-  - type: Electrified
-    enabled: false
-    usesApcPower: true
   # ADT-tweak End
   - type: MaterialStorage
     whitelist:
@@ -270,26 +256,11 @@
   - type: Machine
     board: ProtolatheHyperConvectionMachineCircuitboard
   # ADT-tweak Start
-  - type: UserInterface
-    interfaces:
-      enum.LatheUiKey.Key:
-        type: LatheBoundUserInterface
-      enum.ResearchClientUiKey.Key:
-        type: ResearchClientBoundUserInterface
-      enum.WiresUiKey.Key:
-        type: WiresBoundUserInterface
-  - type: StationAiWhitelist
   - type: ActivatableUIRequiresAccess
   - type: AccessReader
-    breakOnAccessBreaker: true
     access:
       - [Research]
       - [Engineering]
-  - type: Wires
-    layoutId: ADTLatheWithAccess
-  - type: Electrified
-    enabled: false
-    usesApcPower: true
   # ADT-tweak End
 
 - type: entity
@@ -312,25 +283,11 @@
   - type: Machine
     board: CircuitImprinterMachineCircuitboard
   # ADT-tweak Start
-  - type: UserInterface
-    interfaces:
-      enum.LatheUiKey.Key:
-        type: LatheBoundUserInterface
-      enum.ResearchClientUiKey.Key:
-        type: ResearchClientBoundUserInterface
-      enum.WiresUiKey.Key:
-        type: WiresBoundUserInterface
   - type: StationAiWhitelist
   - type: ActivatableUIRequiresAccess
   - type: AccessReader
-    breakOnAccessBreaker: true
     access:
       - [Research]
-  - type: Wires
-    layoutId: ADTLatheWithAccess
-  - type: Electrified
-    enabled: false
-    usesApcPower: true
   # ADT-tweak End
   - type: Lathe
     producingSound: /Audio/Machines/circuitprinter.ogg
@@ -387,25 +344,10 @@
   - type: Machine
     board: CircuitImprinterHyperConvectionMachineCircuitboard
   # ADT-tweak Start
-  - type: UserInterface
-    interfaces:
-      enum.LatheUiKey.Key:
-        type: LatheBoundUserInterface
-      enum.ResearchClientUiKey.Key:
-        type: ResearchClientBoundUserInterface
-      enum.WiresUiKey.Key:
-        type: WiresBoundUserInterface
-  - type: StationAiWhitelist
   - type: ActivatableUIRequiresAccess
   - type: AccessReader
-    breakOnAccessBreaker: true
     access:
       - [Research]
-  - type: Wires
-    layoutId: ADTLatheWithAccess
-  - type: Electrified
-    enabled: false
-    usesApcPower: true
   # ADT-tweak End
 
 - type: entity
