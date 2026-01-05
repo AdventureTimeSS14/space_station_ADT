@@ -1,6 +1,14 @@
 - type: hallucinationsPack
   id: Liminal
+  music:
+    path: /Audio/ADT/Phantom/Music/help.ogg
+    params:
+      volume: -12
+  musicPlayInterval:
+    min: 200
+    max: 250
+  musicDurationThreshold: 100
   components:
   - type: HallucinationsRemoveMobs
     reveal: ADTLiminalRevealEffect
-    #startingMessage: Кажется, вы выпали за карту.
+  startingMessage: Кажется, вы выпали за карту.
