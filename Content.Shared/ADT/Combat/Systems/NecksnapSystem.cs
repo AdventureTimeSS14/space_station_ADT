@@ -55,7 +55,7 @@ public abstract class SharedNecksnapSystem : EntitySystem
             {
                 combo.CurrestActions.Clear(); // мы очищаем комбо список чтобы не было конфликтов, прежде чем сделать попап.
             }
-            var blunt = new DamageSpecifier(_proto.Index<DamageTypePrototype>("Blunt"), damageToKill.Value);
+            var blunt = new DamageSpecifier(_proto.Index<DamageTypePrototype>("Asphyxiation"), damageToKill.Value);
             _damageable.TryChangeDamage(target, blunt, true);
             _audio.PlayPvs(comp.Sound, target);
             if (comp.Popup != null)
