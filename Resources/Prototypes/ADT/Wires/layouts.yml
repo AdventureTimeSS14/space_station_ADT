@@ -2,3 +2,14 @@
 
 - type: wireLayout
   id: IPC
+
+- type: wireLayout
+  id: ADTLatheWithAccess
+  dummyWires: 4
+  wires:
+  - !type:PowerWireAction
+  - !type:PowerWireAction
+    pulseTimeout: 15
+  - !type:AccessWireAction
+  - !type:LogWireAction
+  - !type:AiInteractWireAction
