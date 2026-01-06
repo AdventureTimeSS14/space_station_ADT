@@ -76,10 +76,10 @@
     reduction: 0.4
   - type: StaminaResistance
     damageCoefficient: 0.9
-  # ADT-Tweak-End
   - type: ClothingSpeedModifier
-    walkModifier: 0.75
-    sprintModifier: 0.75
+    walkModifier: 0.75 # 0.7 -> 0.75
+    sprintModifier: 0.75 # 0.7 -> 0.75
+  # ADT-Tweak-End
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitEngineering

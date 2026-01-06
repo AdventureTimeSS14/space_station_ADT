@@ -10,6 +10,6 @@ ent-ADTModsuitPlateMedical = покрытие МОДа "Медицинский"
 ent-ADTModsuitPlateSecurity = покрытие МОДа "Охранный"
 ent-ADTModsuitPlateStandard = покрытие МОДа "Базовый"
 ent-ADTModsuitPlateCience =  покрытие МОДа "Научный"
-ent-ADTModsuitPlateMining = покрытие МОДа "шахтёрский"
+ent-ADTModsuitPlateMining = покрытие МОДа "Шахтёрский"
 ent-ADTModsuitAssembly = Незавершенное ядро МОДа
 ent-ADTModsuitAssembled = Ядро МОДа
