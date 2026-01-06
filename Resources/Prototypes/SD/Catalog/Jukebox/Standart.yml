@@ -323,3 +323,21 @@
   name: Mariah Carey - All I want for christmas
   path:
     path: /Audio/SD/Lobby/alliwantforchristmas.ogg
+
+- type: jukebox
+  id: fridaynight
+  name: SEGA SOUND TEAM - Friday Night
+  path:
+    path: /Audio/SD/Lobby/fridaynight.ogg
+
+- type: jukebox
+  id: koinodiscoqueen
+  name: SEGA SOUND TEAM - Koi No Disco Queen
+  path:
+    path: /Audio/SD/Jukebox/koinodiscoqueen.ogg
+
+- type: jukebox
+  id: theislandsong
+  name: Ashley Eriksson - Island Song (Come Along with Me)
+  path:
+    path: /Audio/SD/Jukebox/islandsong.ogg

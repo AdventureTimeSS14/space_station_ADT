@@ -30,3 +30,14 @@
     sprite: SD/Clothing/Shoes/glow_shoes.rsi
   - type: Clothing
     sprite: SD/Clothing/Shoes/glow_shoes.rsi
+
+- type: entity
+  parent: ClothingShoesBase
+  id: SDClothingShoesMadDog
+  name: Mad Dog Shoes
+  description: It falls down...
+  components:
+  - type: Sprite
+    sprite: SD/Clothing/Shoes/maddogshoes.rsi
+  - type: Clothing
+    sprite: SD/Clothing/Shoes/maddogshoes.rsi

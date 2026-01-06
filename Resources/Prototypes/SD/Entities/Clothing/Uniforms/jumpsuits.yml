@@ -55,3 +55,14 @@
     sprite: SD/Clothing/Uniform/Jumpsuit/nanotrasen_representative.rsi
   - type: Clothing
     sprite: SD/Clothing/Uniform/Jumpsuit/nanotrasen_representative.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: SDClothingUniformJumpsuitMadDog
+  name: Mad Dog Pants
+  description: Kiryu-chan!
+  components:
+  - type: Sprite
+    sprite: SD/Clothing/Uniform/Jumpsuit/maddog.rsi
+  - type: Clothing
+    sprite: SD/Clothing/Uniform/Jumpsuit/maddog.rsi

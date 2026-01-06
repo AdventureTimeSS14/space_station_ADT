@@ -252,3 +252,18 @@
   license: "CC-BY-SA-3.0"
   copyright: "The Prodigy - Breathe."
   source: "https://youtu.be/rmHDhAohJlQ?si=IDL3MvdmZbSfZs76"
+
+- files: ["fridaynight.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Friday Night · SEGA/稲毛 謙介(TEMPEST STUDIO)/荒井 善博"
+  source: "https://youtu.be/SaNmV7Sx5_M?si=25Oq3QUKOQa_K641"
+
+- files: ["koinodiscoqueen.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "恋のディスコクイーン · SEGA"
+  source: "https://youtu.be/7HRDMK-ibTc?si=tiRCACUhQdTcKjDd"
+
+- files: ["islandsong.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Island Song (Come Along with Me) · Adventure Time · Ashley Eriksson"
+  source: "https://youtu.be/xXQNdUpCQzw?si=I_PdFd6WZKeUvFwX"

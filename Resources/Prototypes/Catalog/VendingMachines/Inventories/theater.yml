@@ -44,6 +44,10 @@
     ClothingUniformJumpsuitDameDane: 2
     ClothingShoesDameDane: 2
     ClothingOuterDameDane: 2
+    SDClothingEyesMadDog: 2
+    SDClothingUniformJumpsuitMadDog: 2
+    SDClothingShoesMadDog: 2
+    SDClothingOuterMadDog: 2
     ClothingOuterClownPriest: 1
     ClothingMaskSadMime: 1
     ClothingMaskScaredMime: 1
@@ -83,3 +87,7 @@
     ADTClothingBeltSheathZeroFilled: 1
     ADTClothingUniformKimanoArmoredZero: 1
     # ADT-Tweak-end
+    # SD-Tweak-start
+    ClothingUniformJumpsuitDameDane: 2
+    ClothingShoesDameDane: 2
+    ClothingOuterDameDane: 2
