@@ -177,6 +177,7 @@
   - type: GhostTakeoverAvailable
   - type: TTS
     voice: ranrak
+  - type: AshStormImmune
 
 - type: entity
   id: ADTAbominationBloated
