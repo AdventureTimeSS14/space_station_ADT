@@ -11,6 +11,8 @@ using Robust.Shared.Utility;
 using Robust.Client.UserInterface.RichText;
 using Content.Client.UserInterface.RichText;
 using Robust.Shared.Input;
+using Content.Client.ADT.Language;
+using Robust.Client.Player;
 
 namespace Content.Client.Paper.UI
 {
@@ -259,8 +261,12 @@ namespace Content.Client.Paper.UI
             InputContainer.Visible = isEditing;
             EditButtons.Visible = isEditing;
 
+            var text = state.Text;
+            if (!IoCManager.Resolve<IEntityManager>().System<LanguageSystem>().CanUnderstand(IoCManager.Resolve<IPlayerManager>().LocalEntity ?? EntityUid.Invalid, "GalacticCommon"))
+                text = "[italic]Вы не можете понять ни единого слова.[/italic]";
+
             var msg = new FormattedMessage();
-            msg.AddMarkupPermissive(state.Text);
+            msg.AddMarkupPermissive(text);
 
             // For premade documents, we want to be able to edit them rather than
             // replace them.
