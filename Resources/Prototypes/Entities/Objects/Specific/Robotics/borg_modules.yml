@@ -506,7 +506,7 @@
     items:
     - MiningDrill
     # - Shovel ADT tweak
-    - MineralScannerUnpowered # ADT-Tweak
+    - MineralScannerUnpowered
     - BorgOreBag
     - BorgHandheldGPSBasic #ADT tweak: MineBorgModulesUpdate
     - HandheldStationMapUnpowered #ADT tweak: MineBorgModulesUpdate
@@ -527,7 +527,7 @@
     items:
     - MiningDrillDiamond
     - Shovel
-    - AdvancedMineralScannerUnpowered # ADT-Tweak
+    - AdvancedMineralScannerUnpowered
     - OreBagOfHolding
     - BorgHandheldGPSBasic #ADT tweak: MineBorgModulesUpdate
     - HandheldStationMapUnpowered #ADT tweak: MineBorgModulesUpdate

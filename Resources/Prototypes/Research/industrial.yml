@@ -11,7 +11,7 @@
   cost: 7500
   recipeUnlocks:
   - MiningDrill
-  - MineralScannerUnpowered
+  - MineralScannerUnpowered # ADT-Tweak
   - OreProcessorIndustrialMachineCircuitboard
   - ClothingMaskWeldingGas
   # - ClothingShoesBootsJump ADT tweak
@@ -231,7 +231,7 @@
   recipeUnlocks:
     - OreBagOfHolding
     - MiningDrillDiamond
-    - AdvancedMineralScannerUnpowered
+    - AdvancedMineralScannerUnpowered # ADT-Tweak
     - BorgModuleAdvancedMining
   # ADT Research Console Rework start
   position: 4,-1
