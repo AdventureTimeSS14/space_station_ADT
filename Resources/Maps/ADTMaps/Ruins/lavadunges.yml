@@ -49558,7 +49558,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 91.5,-39.5
       parent: 1
-- proto: MineralScannerEmpty
+- proto: MineralScannerUnpowered
   entities:
   - uid: 1798
     components:

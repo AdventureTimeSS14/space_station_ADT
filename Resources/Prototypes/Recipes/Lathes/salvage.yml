@@ -1,6 +1,6 @@
 - type: latheRecipe
-  id: MineralScannerEmpty
-  result: MineralScannerEmpty
+  id: MineralScannerUnpowered
+  result: MineralScannerUnpowered
   completetime: 3
   materials:
     Steel: 1000
@@ -9,8 +9,8 @@
     Gold: 500
 
 - type: latheRecipe
-  id: AdvancedMineralScannerEmpty
-  result: AdvancedMineralScannerEmpty
+  id: AdvancedMineralScannerUnpowered
+  result: AdvancedMineralScannerUnpowered
   completetime: 1
   materials:
     Steel: 1000

@@ -126369,7 +126369,7 @@ entities:
       parent: 2
     - type: Stack
       count: 5
-- proto: MineralScanner
+- proto: MineralScannerUnpowered
   entities:
   - uid: 17676
     components:

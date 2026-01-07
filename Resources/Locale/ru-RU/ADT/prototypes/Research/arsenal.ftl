@@ -1,5 +1,5 @@
-research-technology-salvage-weapons-adv = Продвинутое оружие утилизаторов
-research-technology-salvage-weapon = Оружие утилизаторов
+research-technology-salvage-weapons-adv = Продвинутый лазерный резак
+research-technology-salvage-weapon = Лазерный резак
 
 research-technology-security-modsuit = МОД "Офицер"
 
