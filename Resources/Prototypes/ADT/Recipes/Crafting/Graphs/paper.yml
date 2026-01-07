@@ -193,3 +193,20 @@
         doAfter: 4
   - node: done
     entity: ADTPaperShip
+
+- type: constructionGraph
+  id: PaperEnvelope
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: done
+      steps:
+      - tag: Paper
+        name: construction-graph-tag-paper
+        icon:
+          sprite: Objects/Misc/bureaucracy.rsi
+          state: paper
+        doAfter: 5
+  - node: done
+    entity: Envelope

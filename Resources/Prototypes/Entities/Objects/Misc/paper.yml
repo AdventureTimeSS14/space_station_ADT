@@ -556,3 +556,8 @@
       - !type:EmptyAllContainersBehaviour
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+# ADT-tweak start
+  - type: Construction
+    graph: ADTPaperEnvelope
+    node: done
+# ADT-tweak end
