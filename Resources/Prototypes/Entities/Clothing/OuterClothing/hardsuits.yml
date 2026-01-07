@@ -60,7 +60,7 @@
     highPressureMultiplier: 0.04
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
-    damageCoefficient: 0.6 # 0.5 -> 0.6
+    damageCoefficient: 0.6 # ADT-Tweak 0.5 -> 0.6
   - type: Armor
     modifiers:
       coefficients:
