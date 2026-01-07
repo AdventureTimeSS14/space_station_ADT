@@ -14,6 +14,7 @@ using Robust.Client.UserInterface.XAML;
 using Robust.Shared.ContentPack;
 using Robust.Shared.Prototypes;
 using Content.Client.Corvax.Sponsors;
+using Robust.Shared.Random;
 
 namespace Content.Client.ADT.Lobby.UI;
 
@@ -29,6 +30,7 @@ public sealed partial class SpeciesWindow : FancyWindow
     private readonly LobbyUIController _uIController;
     private readonly IResourceManager _resMan;
     [Dependency] private readonly DocumentParsingManager _parsingMan = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
 
     public SpeciesWindow(HumanoidCharacterProfile profile,
                         IPrototypeManager proto,
@@ -127,7 +129,7 @@ public sealed partial class SpeciesWindow : FancyWindow
         var label = new Label()
         {
             Text = text,
-            StyleClasses = { StyleBase.ClassLowDivider },
+            StyleClasses = { "LowDivider" },
             Margin = new(2f, 2f),
         };
         var separator = new HSeparator()
@@ -159,35 +161,15 @@ public sealed partial class SpeciesWindow : FancyWindow
         previewProfile = previewProfile.WithSpecies(protoId);
 
         var skin = proto.SkinColoration;
-        switch (skin)
+        var skinType = _proto.Index(protoId).SkinColoration;
+        var strategy = _proto.Index(skinType).Strategy;
+
+        var newSkinColor = strategy.InputType switch
         {
-            case HumanoidSkinColor.HumanToned:
-                {
-                    var tone = SkinColor.HumanSkinToneFromColor(Profile.Appearance.SkinColor);
-                    var color = SkinColor.HumanSkinTone((int)tone);
-
-                    previewProfile = previewProfile.WithCharacterAppearance(previewProfile.Appearance.WithSkinColor(color));//
-                    break;
-                }
-            case HumanoidSkinColor.Hues:
-                {
-                    break;
-                }
-            case HumanoidSkinColor.TintedHues:
-                {
-                    var color = SkinColor.TintedHues(Profile.Appearance.SkinColor);
-
-                    previewProfile = previewProfile.WithCharacterAppearance(previewProfile.Appearance.WithSkinColor(color));
-                    break;
-                }
-            case HumanoidSkinColor.VoxFeathers:
-                {
-                    var color = SkinColor.ClosestVoxColor(Profile.Appearance.SkinColor);
-
-                    previewProfile = previewProfile.WithCharacterAppearance(previewProfile.Appearance.WithSkinColor(color));
-                    break;
-                }
-        }
+            SkinColorationStrategyInput.Unary => strategy.FromUnary(_random.NextFloat(0f, 100f)),
+            SkinColorationStrategyInput.Color => strategy.ClosestSkinColor(new Color(_random.NextFloat(1), _random.NextFloat(1), _random.NextFloat(1), 1)),
+            _ => strategy.ClosestSkinColor(new Color(_random.NextFloat(1), _random.NextFloat(1), _random.NextFloat(1), 1)),
+        };
 
         var mob = _uIController.LoadProfileEntity(previewProfile, _proto.Index(job), false);  // Раздетый моб
         Mob.SetEntity(mob);
@@ -208,7 +190,7 @@ public sealed partial class SpeciesWindow : FancyWindow
         var prosConsLabel = new RichTextLabel()
         {
             Text = Loc.GetString("ui-species-pros-cons"),
-            StyleClasses = { StyleBase.ClassLowDivider },
+            StyleClasses = { "LowDivider" },
             Margin = new(2f, 2f),
         };
         var separator = new HSeparator()
@@ -237,7 +219,7 @@ public sealed partial class SpeciesWindow : FancyWindow
                     var label = new RichTextLabel()
                     {
                         Text = "[color=#13f244]- " + Loc.GetString(item) + "[/color]",
-                        StyleClasses = { StyleBase.ClassLowDivider },
+                        StyleClasses = { "LowDivider" },
                         Margin = new(4f, 2f),
                     };
                     prosConsContainer.AddChild(label);
@@ -252,7 +234,7 @@ public sealed partial class SpeciesWindow : FancyWindow
                     var label = new RichTextLabel()
                     {
                         Text = "- " + Loc.GetString(item),
-                        StyleClasses = { StyleBase.ClassLowDivider },
+                        StyleClasses = { "LowDivider" },
                         Margin = new(4f, 2f),
                     };
                     prosConsContainer.AddChild(label);
@@ -267,7 +249,7 @@ public sealed partial class SpeciesWindow : FancyWindow
                     var label = new RichTextLabel()
                     {
                         Text = "[color=#d63636]- " + Loc.GetString(item) + "[/color]",
-                        StyleClasses = { StyleBase.ClassLowDivider },
+                        StyleClasses = { "LowDivider" },
                         Margin = new(4f, 2f),
                     };
                     prosConsContainer.AddChild(label);
