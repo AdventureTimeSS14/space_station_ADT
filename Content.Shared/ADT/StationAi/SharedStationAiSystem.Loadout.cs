@@ -1,40 +1,27 @@
-using System.Diagnostics.CodeAnalysis;
-using Content.Shared.Actions.Events;
-using Content.Shared.IdentityManagement;
-using Content.Shared.Interaction.Events;
-using Content.Shared.Popups;
 using Content.Shared.Roles;
-using Content.Shared.Silicons.Laws;
-using Content.Shared.Verbs;
 using Robust.Shared.Containers;
-using Robust.Shared.Serialization;
-using Robust.Shared.Utility;
 
 namespace Content.Shared.Silicons.StationAi;
 
 public abstract partial class SharedStationAiSystem
 {
-    [Dependency] private readonly SharedSiliconLawSystem _law = default!;
-
     public static string ExtraLoadoutScreenId = "ai-screen";
     public static string ExtraLoadoutLawsetId = "ai-lawset";
     public static string ExtraLoadoutNameId = "ai-name";
 
     private void InitializeLoadout()
     {
-        SubscribeLocalEvent<StationAiBrainComponent, ApplyLoadoutExtrasEvent>(ApplyExtras);
+        SubscribeLocalEvent<StationAiCustomizationComponent, ApplyLoadoutExtrasEvent>(ApplyExtras);
         SubscribeLocalEvent<StationAiBrainComponent, EntGotInsertedIntoContainerMessage>(OnBrainInsert);
         SubscribeLocalEvent<StationAiCoreComponent, ApplyLoadoutExtrasEvent>(ApplyCoreExtras);
     }
 
-    private void ApplyExtras(Entity<StationAiBrainComponent> ent, ref ApplyLoadoutExtrasEvent args)
+    private void ApplyExtras(Entity<StationAiCustomizationComponent> ent, ref ApplyLoadoutExtrasEvent args)
     {
-        if (!ent.Comp.AllowCustomization)
-            return;
         SetLoadoutExtraLawset(ent, args.Data);
 
         if (args.Data.TryGetValue(ExtraLoadoutScreenId, out var screen))
-            ent.Comp.AiScreenProto = screen;
+            ent.Comp.ProtoIds[_stationAiCoreCustomGroupProtoId] = screen;
 
         if (args.Data.TryGetValue(ExtraLoadoutNameId, out var name))
             _metadata.SetEntityName(ent, name);
@@ -60,6 +47,10 @@ public abstract partial class SharedStationAiSystem
         if (data.TryGetValue(ExtraLoadoutScreenId, out var customScreen))
             screen = customScreen;
 
+        if (TryComp<StationAiCustomizationComponent>(ent, out var custom))
+        {
+            custom.ProtoIds[_stationAiCoreCustomGroupProtoId] = screen;
+        }
         _appearance.SetData(ent, StationAiCustomVisualState.Key, screen);
 
         if (!data.TryGetValue(ExtraLoadoutNameId, out var name) || name == string.Empty)

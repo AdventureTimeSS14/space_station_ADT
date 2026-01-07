@@ -63,6 +63,7 @@ public abstract class SharedStationSpawningSystem : EntitySystem
         }
 
         EquipRoleName(entity, loadout, roleProto);
+        ApplyLoadoutExtras(entity, loadout);    // ADT-Tweak
     }
 
     /// <summary>
@@ -241,4 +242,12 @@ public abstract class SharedStationSpawningSystem : EntitySystem
 
         return null;
     }
+
+    // ADT-Tweak-start
+    public void ApplyLoadoutExtras(EntityUid uid, RoleLoadout loadout)
+    {
+        var ev = new ApplyLoadoutExtrasEvent(uid, loadout.ExtraData);
+        RaiseLocalEvent(uid, ref ev, true);
+    }
+    // ADT-Tweak-end
 }

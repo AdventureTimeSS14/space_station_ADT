@@ -66,6 +66,8 @@ public sealed class StationAiSystem : SharedStationAiSystem
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly ISharedPlayerManager _player = default!; // ADT-Tweak
+    [Dependency] private readonly SiliconLawSystem _law = default!; // ADT-Tweak
+    [Dependency] private readonly GameTicker _ticker = default!; // ADT-Tweak
 
     private readonly HashSet<Entity<StationAiCoreComponent>> _stationAiCores = new();
 

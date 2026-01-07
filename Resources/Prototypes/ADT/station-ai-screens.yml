@@ -1,289 +1,503 @@
-- type: aiScreen
-  id: Default
-  icon:
-    sprite: /Textures/ADT/Mobs/Silicon/ai-screen.rsi
-    state: ai
-  priority: -1
+# - type: stationAiCustomization
+#   id: Default
+#   parent: StationAiIconBase
+#   layerData:
+#     Occupied:
+#       sprite: /Textures/ADT/Mobs/Silicon/ai-screen.rsi
+#       state: ai
+#     Dead:
+#       sprite: Mobs/Silicon/station_ai.rsi
+#       state: ai_dead
+#   priority: -1
 
-- type: aiScreen
+- type: stationAiCustomization
   id: Red
-  icon:
-    sprite: /Textures/ADT/Mobs/Silicon/ai-screen.rsi
-    state: ai-red
-  priority: 0
+  parent: StationAiIconBase
+  name: station-ai-icon-red
+  layerData:
+    Occupied:
+      sprite: /Textures/ADT/Mobs/Silicon/ai-screen.rsi
+      state: ai-red
+    Dead:
+      sprite: Mobs/Silicon/station_ai.rsi
+      state: ai_dead
 
-- type: aiScreen
+- type: stationAiCustomization
   id: U
-  icon:
-    sprite: /Textures/ADT/Mobs/Silicon/ai-screen.rsi
-    state: ai-u
-  priority: 0
+  parent: StationAiIconBase
+  name: station-ai-icon-u
+  layerData:
+    Occupied:
+      sprite: /Textures/ADT/Mobs/Silicon/ai-screen.rsi
+      state: ai-u
+    Dead:
+      sprite: Mobs/Silicon/station_ai.rsi
+      state: ai_dead
 
-- type: aiScreen
+- type: stationAiCustomization
   id: Mono
-  icon:
-    sprite: /Textures/ADT/Mobs/Silicon/ai-screen.rsi
-    state: ai-mono
-  priority: 0
+  parent: StationAiIconBase
+  name: station-ai-icon-mono
+  layerData:
+    Occupied:
+      sprite: /Textures/ADT/Mobs/Silicon/ai-screen.rsi
+      state: ai-mono
+    Dead:
+      sprite: Mobs/Silicon/station_ai.rsi
+      state: ai_dead
 
-- type: aiScreen
+- type: stationAiCustomization
   id: Static
-  icon:
-    sprite: /Textures/ADT/Mobs/Silicon/ai-screen.rsi
-    state: ai-static
-  priority: 0
+  parent: StationAiIconBase
+  name: station-ai-icon-static
+  layerData:
+    Occupied:
+      sprite: /Textures/ADT/Mobs/Silicon/ai-screen.rsi
+      state: ai-static
+    Dead:
+      sprite: Mobs/Silicon/station_ai.rsi
+      state: ai_dead
 
-- type: aiScreen
+- type: stationAiCustomization
   id: Cheerful
-  icon:
-    sprite: /Textures/ADT/Mobs/Silicon/ai-screen.rsi
-    state: ai-cheerful
-  priority: 0
+  parent: StationAiIconBase
+  name: station-ai-icon-cheerful
+  layerData:
+    Occupied:
+      sprite: /Textures/ADT/Mobs/Silicon/ai-screen.rsi
+      state: ai-cheerful
+    Dead:
+      sprite: Mobs/Silicon/station_ai.rsi
+      state: ai_dead
 
-- type: aiScreen
+- type: stationAiCustomization
   id: Stern
-  icon:
-    sprite: /Textures/ADT/Mobs/Silicon/ai-screen.rsi
-    state: ai-stern
-  priority: 0
+  parent: StationAiIconBase
+  name: station-ai-icon-stern
+  layerData:
+    Occupied:
+      sprite: /Textures/ADT/Mobs/Silicon/ai-screen.rsi
+      state: ai-stern
+    Dead:
+      sprite: Mobs/Silicon/station_ai.rsi
+      state: ai_dead
 
-- type: aiScreen
+- type: stationAiCustomization
   id: Wierd
-  icon:
-    sprite: /Textures/ADT/Mobs/Silicon/ai-screen.rsi
-    state: ai-wierd
-  priority: 0
+  parent: StationAiIconBase
+  name: station-ai-icon-wierd
+  layerData:
+    Occupied:
+      sprite: /Textures/ADT/Mobs/Silicon/ai-screen.rsi
+      state: ai-wierd
+    Dead:
+      sprite: Mobs/Silicon/station_ai.rsi
+      state: ai_dead
 
-- type: aiScreen
+- type: stationAiCustomization
   id: Gentoo
-  icon:
-    sprite: /Textures/ADT/Mobs/Silicon/ai-screen.rsi
-    state: ai-gentoo
+  parent: StationAiIconBase
+  name: station-ai-icon-gentoo
+  layerData:
+    Occupied:
+      sprite: /Textures/ADT/Mobs/Silicon/ai-screen.rsi
+      state: ai-gentoo
+    Dead:
+      sprite: Mobs/Silicon/station_ai.rsi
+      state: ai_dead
 
-- type: aiScreen
+- type: stationAiCustomization
   id: Nanotrasen
-  icon:
-    sprite: /Textures/ADT/Mobs/Silicon/ai-screen.rsi
-    state: ai-nanotrasen
+  parent: StationAiIconBase
+  name: station-ai-icon-nanotrasen
+  layerData:
+    Occupied:
+      sprite: /Textures/ADT/Mobs/Silicon/ai-screen.rsi
+      state: ai-nanotrasen
+    Dead:
+      sprite: Mobs/Silicon/station_ai.rsi
+      state: ai_dead
 
-- type: aiScreen
+- type: stationAiCustomization
   id: Database
-  icon:
-    sprite: /Textures/ADT/Mobs/Silicon/ai-screen.rsi
-    state: ai-database
+  parent: StationAiIconBase
+  name: station-ai-icon-database
+  layerData:
+    Occupied:
+      sprite: /Textures/ADT/Mobs/Silicon/ai-screen.rsi
+      state: ai-database
+    Dead:
+      sprite: Mobs/Silicon/station_ai.rsi
+      state: ai_dead
 
-- type: aiScreen
+- type: stationAiCustomization
   id: Goon
-  icon:
-    sprite: /Textures/ADT/Mobs/Silicon/ai-screen.rsi
-    state: ai-goon
+  parent: StationAiIconBase
+  name: station-ai-icon-goon
+  layerData:
+    Occupied:
+      sprite: /Textures/ADT/Mobs/Silicon/ai-screen.rsi
+      state: ai-goon
+    Dead:
+      sprite: Mobs/Silicon/station_ai.rsi
+      state: ai_dead
 
-- type: aiScreen
-  id: Heartline
-  icon:
-    sprite: /Textures/ADT/Mobs/Silicon/ai-screen.rsi
-    state: ai-heartline
-
-- type: aiScreen
+- type: stationAiCustomization
   id: President
-  icon:
-    sprite: /Textures/ADT/Mobs/Silicon/ai-screen.rsi
-    state: ai-president
+  parent: StationAiIconBase
+  name: station-ai-icon-president
+  layerData:
+    Occupied:
+      sprite: /Textures/ADT/Mobs/Silicon/ai-screen.rsi
+      state: ai-president
+    Dead:
+      sprite: Mobs/Silicon/station_ai.rsi
+      state: ai_dead
 
-- type: aiScreen
+- type: stationAiCustomization
   id: Clown
-  icon:
-    sprite: /Textures/ADT/Mobs/Silicon/ai-screen.rsi
-    state: ai-clown
+  parent: StationAiIconBase
+  name: station-ai-icon-clown-2
+  layerData:
+    Occupied:
+      sprite: /Textures/ADT/Mobs/Silicon/ai-screen.rsi
+      state: ai-clown
+    Dead:
+      sprite: Mobs/Silicon/station_ai.rsi
+      state: ai_dead
 
-- type: aiScreen
-  id: Clown2
-  icon:
-    sprite: /Textures/ADT/Mobs/Silicon/ai-screen.rsi
-    state: ai-clown2
-
-- type: aiScreen
+- type: stationAiCustomization
   id: Serithi
-  icon:
-    sprite: /Textures/ADT/Mobs/Silicon/ai-screen.rsi
-    state: ai-serithi
+  parent: StationAiIconBase
+  name: station-ai-icon-serithi
+  layerData:
+    Occupied:
+      sprite: /Textures/ADT/Mobs/Silicon/ai-screen.rsi
+      state: ai-serithi
+    Dead:
+      sprite: Mobs/Silicon/station_ai.rsi
+      state: ai_dead
 
-- type: aiScreen
+- type: stationAiCustomization
   id: Alien
-  icon:
-    sprite: /Textures/ADT/Mobs/Silicon/ai-screen.rsi
-    state: ai-alien
+  parent: StationAiIconBase
+  name: station-ai-icon-alien
+  layerData:
+    Occupied:
+      sprite: /Textures/ADT/Mobs/Silicon/ai-screen.rsi
+      state: ai-alien
+    Dead:
+      sprite: Mobs/Silicon/station_ai.rsi
+      state: ai_dead
 
-- type: aiScreen
+- type: stationAiCustomization
   id: Sheltered
-  icon:
-    sprite: /Textures/ADT/Mobs/Silicon/ai-screen.rsi
-    state: ai-sheltered
+  parent: StationAiIconBase
+  name: station-ai-icon-shelter
+  layerData:
+    Occupied:
+      sprite: /Textures/ADT/Mobs/Silicon/ai-screen.rsi
+      state: ai-sheltered
+    Dead:
+      sprite: Mobs/Silicon/station_ai.rsi
+      state: ai_dead
 
-- type: aiScreen
+- type: stationAiCustomization
   id: Fabulous
-  icon:
-    sprite: /Textures/ADT/Mobs/Silicon/ai-screen.rsi
-    state: ai-fabulous
+  parent: StationAiIconBase
+  name: station-ai-icon-fabulous
+  layerData:
+    Occupied:
+      sprite: /Textures/ADT/Mobs/Silicon/ai-screen.rsi
+      state: ai-fabulous
+    Dead:
+      sprite: Mobs/Silicon/station_ai.rsi
+      state: ai_dead
 
-- type: aiScreen
+- type: stationAiCustomization
   id: Wasp
-  icon:
-    sprite: /Textures/ADT/Mobs/Silicon/ai-screen.rsi
-    state: ai-wasp
+  parent: StationAiIconBase
+  name: station-ai-icon-wasp
+  layerData:
+    Occupied:
+      sprite: /Textures/ADT/Mobs/Silicon/ai-screen.rsi
+      state: ai-wasp
+    Dead:
+      sprite: Mobs/Silicon/station_ai.rsi
+      state: ai_dead
 
-- type: aiScreen
+- type: stationAiCustomization
   id: Eager
-  icon:
-    sprite: /Textures/ADT/Mobs/Silicon/ai-screen.rsi
-    state: ai-eager
+  parent: StationAiIconBase
+  name: station-ai-icon-eager
+  layerData:
+    Occupied:
+      sprite: /Textures/ADT/Mobs/Silicon/ai-screen.rsi
+      state: ai-eager
+    Dead:
+      sprite: Mobs/Silicon/station_ai.rsi
+      state: ai_dead
 
-- type: aiScreen
+- type: stationAiCustomization
   id: EagerOld
-  icon:
-    sprite: /Textures/ADT/Mobs/Silicon/ai-screen.rsi
-    state: ai-eager-old
+  parent: StationAiIconBase
+  name: station-ai-icon-eager-old
+  layerData:
+    Occupied:
+      sprite: /Textures/ADT/Mobs/Silicon/ai-screen.rsi
+      state: ai-eager-old
+    Dead:
+      sprite: Mobs/Silicon/station_ai.rsi
+      state: ai_dead
 
-- type: aiScreen
+- type: stationAiCustomization
   id: Royal
-  icon:
-    sprite: /Textures/ADT/Mobs/Silicon/ai-screen.rsi
-    state: ai-royal
+  parent: StationAiIconBase
+  name: station-ai-icon-royal
+  layerData:
+    Occupied:
+      sprite: /Textures/ADT/Mobs/Silicon/ai-screen.rsi
+      state: ai-royal
+    Dead:
+      sprite: Mobs/Silicon/station_ai.rsi
+      state: ai_dead
 
-- type: aiScreen
+- type: stationAiCustomization
   id: Ravensdale
-  icon:
-    sprite: /Textures/ADT/Mobs/Silicon/ai-screen.rsi
-    state: ai-ravensdale
+  parent: StationAiIconBase
+  name: station-ai-icon-ravensdale
+  layerData:
+    Occupied:
+      sprite: /Textures/ADT/Mobs/Silicon/ai-screen.rsi
+      state: ai-ravensdale
+    Dead:
+      sprite: Mobs/Silicon/station_ai.rsi
+      state: ai_dead
 
-- type: aiScreen
+- type: stationAiCustomization
   id: Bored
-  icon:
-    sprite: /Textures/ADT/Mobs/Silicon/ai-screen.rsi
-    state: ai-bored
+  parent: StationAiIconBase
+  name: station-ai-icon-bored
+  layerData:
+    Occupied:
+      sprite: /Textures/ADT/Mobs/Silicon/ai-screen.rsi
+      state: ai-bored
+    Dead:
+      sprite: Mobs/Silicon/station_ai.rsi
+      state: ai_dead
 
-- type: aiScreen
+- type: stationAiCustomization
   id: Magma
-  icon:
-    sprite: /Textures/ADT/Mobs/Silicon/ai-screen.rsi
-    state: ai-magma
+  parent: StationAiIconBase
+  name: station-ai-icon-magma
+  layerData:
+    Occupied:
+      sprite: /Textures/ADT/Mobs/Silicon/ai-screen.rsi
+      state: ai-magma
+    Dead:
+      sprite: Mobs/Silicon/station_ai.rsi
+      state: ai_dead
 
-- type: aiScreen
+- type: stationAiCustomization
   id: Triumvirate
-  icon:
-    sprite: /Textures/ADT/Mobs/Silicon/ai-screen.rsi
-    state: ai-triumvirate
+  parent: StationAiIconBase
+  name: station-ai-icon-triumvirate
+  layerData:
+    Occupied:
+      sprite: /Textures/ADT/Mobs/Silicon/ai-screen.rsi
+      state: ai-triumvirate
+    Dead:
+      sprite: Mobs/Silicon/station_ai.rsi
+      state: ai_dead
 
-- type: aiScreen
+- type: stationAiCustomization
   id: Ahasuerus
-  icon:
-    sprite: /Textures/ADT/Mobs/Silicon/ai-screen.rsi
-    state: ai-ahasuerus
+  parent: StationAiIconBase
+  name: station-ai-icon-ahasuerus
+  layerData:
+    Occupied:
+      sprite: /Textures/ADT/Mobs/Silicon/ai-screen.rsi
+      state: ai-ahasuerus
+    Dead:
+      sprite: Mobs/Silicon/station_ai.rsi
+      state: ai_dead
 
-- type: aiScreen
+- type: stationAiCustomization
   id: Godfrey
-  icon:
-    sprite: /Textures/ADT/Mobs/Silicon/ai-screen.rsi
-    state: ai-godfrey
+  parent: StationAiIconBase
+  name: station-ai-icon-godfrey
+  layerData:
+    Occupied:
+      sprite: /Textures/ADT/Mobs/Silicon/ai-screen.rsi
+      state: ai-godfrey
+    Dead:
+      sprite: Mobs/Silicon/station_ai.rsi
+      state: ai_dead
 
-- type: aiScreen
-  id: Smiley
-  icon:
-    sprite: /Textures/ADT/Mobs/Silicon/ai-screen.rsi
-    state: ai-smiley
-
-- type: aiScreen
+- type: stationAiCustomization
   id: Angryface
-  icon:
-    sprite: /Textures/ADT/Mobs/Silicon/ai-screen.rsi
-    state: ai-angryface
+  parent: StationAiIconBase
+  name: station-ai-icon-angry
+  layerData:
+    Occupied:
+      sprite: /Textures/ADT/Mobs/Silicon/ai-screen.rsi
+      state: ai-angryface
+    Dead:
+      sprite: Mobs/Silicon/station_ai.rsi
+      state: ai_dead
 
-- type: aiScreen
+- type: stationAiCustomization
   id: Soviet
-  icon:
-    sprite: /Textures/ADT/Mobs/Silicon/ai-screen.rsi
-    state: ai-soviet
+  parent: StationAiIconBase
+  name: station-ai-icon-soviet
+  layerData:
+    Occupied:
+      sprite: /Textures/ADT/Mobs/Silicon/ai-screen.rsi
+      state: ai-soviet
+    Dead:
+      sprite: Mobs/Silicon/station_ai.rsi
+      state: ai_dead
 
-- type: aiScreen
+- type: stationAiCustomization
   id: Matrix
-  icon:
-    sprite: /Textures/ADT/Mobs/Silicon/ai-screen.rsi
-    state: ai-matrix
+  parent: StationAiIconBase
+  name: station-ai-icon-martix
+  layerData:
+    Occupied:
+      sprite: /Textures/ADT/Mobs/Silicon/ai-screen.rsi
+      state: ai-matrix
+    Dead:
+      sprite: Mobs/Silicon/station_ai.rsi
+      state: ai_dead
 
-- type: aiScreen
-  id: Bliss
-  icon:
-    sprite: /Textures/ADT/Mobs/Silicon/ai-screen.rsi
-    state: ai-bliss
-
-- type: aiScreen
+- type: stationAiCustomization
   id: Glitchman
-  icon:
-    sprite: /Textures/ADT/Mobs/Silicon/ai-screen.rsi
-    state: ai-glitchman
+  parent: StationAiIconBase
+  name: station-ai-icon-glitchman
+  layerData:
+    Occupied:
+      sprite: /Textures/ADT/Mobs/Silicon/ai-screen.rsi
+      state: ai-glitchman
+    Dead:
+      sprite: Mobs/Silicon/station_ai.rsi
+      state: ai_dead
 
-- type: aiScreen
+- type: stationAiCustomization
   id: Lonestar
-  icon:
-    sprite: /Textures/ADT/Mobs/Silicon/ai-screen.rsi
-    state: ai-lonestar
+  parent: StationAiIconBase
+  name: station-ai-icon-lonestar
+  layerData:
+    Occupied:
+      sprite: /Textures/ADT/Mobs/Silicon/ai-screen.rsi
+      state: ai-lonestar
+    Dead:
+      sprite: Mobs/Silicon/station_ai.rsi
+      state: ai_dead
 
-- type: aiScreen
-  id: Angel
-  icon:
-    sprite: /Textures/ADT/Mobs/Silicon/ai-screen.rsi
-    state: ai-angel
-
-- type: aiScreen
+- type: stationAiCustomization
   id: Hourglass
-  icon:
-    sprite: /Textures/ADT/Mobs/Silicon/ai-screen.rsi
-    state: ai-hourglass
+  parent: StationAiIconBase
+  name: station-ai-icon-hourglass
+  layerData:
+    Occupied:
+      sprite: /Textures/ADT/Mobs/Silicon/ai-screen.rsi
+      state: ai-hourglass
+    Dead:
+      sprite: Mobs/Silicon/station_ai.rsi
+      state: ai_dead
 
-- type: aiScreen
+- type: stationAiCustomization
   id: Helios
-  icon:
-    sprite: /Textures/ADT/Mobs/Silicon/ai-screen.rsi
-    state: ai-helios
+  parent: StationAiIconBase
+  name: station-ai-icon-helios
+  layerData:
+    Occupied:
+      sprite: /Textures/ADT/Mobs/Silicon/ai-screen.rsi
+      state: ai-helios
+    Dead:
+      sprite: Mobs/Silicon/station_ai.rsi
+      state: ai_dead
 
-- type: aiScreen
+- type: stationAiCustomization
   id: Rainbow
-  icon:
-    sprite: /Textures/ADT/Mobs/Silicon/ai-screen.rsi
-    state: ai-rainbow
+  parent: StationAiIconBase
+  name: station-ai-icon-rainbow
+  layerData:
+    Occupied:
+      sprite: /Textures/ADT/Mobs/Silicon/ai-screen.rsi
+      state: ai-rainbow
+    Dead:
+      sprite: Mobs/Silicon/station_ai.rsi
+      state: ai_dead
 
-- type: aiScreen
+- type: stationAiCustomization
   id: Thinking
-  icon:
-    sprite: /Textures/ADT/Mobs/Silicon/ai-screen.rsi
-    state: ai-thinking
+  parent: StationAiIconBase
+  name: station-ai-icon-thinking
+  layerData:
+    Occupied:
+      sprite: /Textures/ADT/Mobs/Silicon/ai-screen.rsi
+      state: ai-thinking
+    Dead:
+      sprite: Mobs/Silicon/station_ai.rsi
+      state: ai_dead
 
-- type: aiScreen
+- type: stationAiCustomization
   id: Jackfrost
-  icon:
-    sprite: /Textures/ADT/Mobs/Silicon/ai-screen.rsi
-    state: ai-jackfrost
+  parent: StationAiIconBase
+  name: station-ai-icon-jackfrost
+  layerData:
+    Occupied:
+      sprite: /Textures/ADT/Mobs/Silicon/ai-screen.rsi
+      state: ai-jackfrost
+    Dead:
+      sprite: Mobs/Silicon/station_ai.rsi
+      state: ai_dead
 
-- type: aiScreen
+- type: stationAiCustomization
   id: Moth
-  icon:
-    sprite: /Textures/ADT/Mobs/Silicon/ai-screen.rsi
-    state: ai-mothman
+  parent: StationAiIconBase
+  name: station-ai-icon-moth
+  layerData:
+    Occupied:
+      sprite: /Textures/ADT/Mobs/Silicon/ai-screen.rsi
+      state: ai-mothman
+    Dead:
+      sprite: Mobs/Silicon/station_ai.rsi
+      state: ai_dead
 
-- type: aiScreen
+- type: stationAiCustomization
   id: 4Chan
-  icon:
-    sprite: /Textures/ADT/Mobs/Silicon/ai-screen.rsi
-    state: ai-4chan
+  parent: StationAiIconBase
+  name: station-ai-icon-4chan
+  layerData:
+    Occupied:
+      sprite: /Textures/ADT/Mobs/Silicon/ai-screen.rsi
+      state: ai-4chan
+    Dead:
+      sprite: Mobs/Silicon/station_ai.rsi
+      state: ai_dead
 
-- type: aiScreen
+- type: stationAiCustomization
   id: Terminal
-  icon:
-    sprite: /Textures/ADT/Mobs/Silicon/ai-screen.rsi
-    state: ai-terminal
+  parent: StationAiIconBase
+  name: station-ai-icon-terminal
+  layerData:
+    Occupied:
+      sprite: /Textures/ADT/Mobs/Silicon/ai-screen.rsi
+      state: ai-terminal
+    Dead:
+      sprite: Mobs/Silicon/station_ai.rsi
+      state: ai_dead
 
-- type: aiScreen
+- type: stationAiCustomization
   id: Honey
-  icon:
-    sprite: /Textures/ADT/Mobs/Silicon/ai-screen.rsi
-    state: ai-honeycomb
+  parent: StationAiIconBase
+  name: station-ai-icon-honey
+  layerData:
+    Occupied:
+      sprite: /Textures/ADT/Mobs/Silicon/ai-screen.rsi
+      state: ai-honeycomb
+    Dead:
+      sprite: Mobs/Silicon/station_ai.rsi
+      state: ai_dead
