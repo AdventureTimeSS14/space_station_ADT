@@ -301,7 +301,7 @@
     - id: ClothingEyesGlassesMeson
     - id: ClothingBeltSalvageWebbing
     - id: SeismicCharge
-    - id: MineralScannerUnpowered
+    - id: MineralScannerUnpowered # ADT-Tweak
       weight: 0.5
     - id: WeaponCrusher
       weight: 0.5

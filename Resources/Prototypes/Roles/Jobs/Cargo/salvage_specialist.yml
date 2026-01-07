@@ -35,7 +35,7 @@
     pocket2: OreBag
   storage:
     back:
-    - MineralScannerUnpowered
+    - MineralScannerUnpowered # ADT-Tweak
     - FlashlightSeclite
     - MiningVoucher
     - MiningSuitVoucher
