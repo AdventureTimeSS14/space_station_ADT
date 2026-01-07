@@ -135,7 +135,7 @@
       fix1:
         shape:
           !type:PhysShapeCircle
-          radius: 0.4
+          radius: 0.5
         density: 12000
         mask:
         - MobMask
@@ -161,7 +161,7 @@
       groups:
         Brute: 20
   - type: Jumpboots
-    jumpAction: ActionJumpbootsSynd
+    jumpAction: CompActionJumpAbomination
   - type: EmitSoundOnSpawn
     sound:
       path: /Audio/ADT/Effects/MobsEffects/spawn_mob_death.ogg
