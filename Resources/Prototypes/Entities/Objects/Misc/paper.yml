@@ -558,6 +558,6 @@
         acts: [ "Destruction" ]
 # ADT-tweak start
   - type: Construction
-    graph: ADTPaperEnvelope
+    graph: PaperEnvelope
     node: done
 # ADT-tweak end
