@@ -310,6 +310,7 @@
     sprite: ADT/Clothing/Back/Modsuit/bso.rsi
     state: icon
   - type: ModSuit
+    maxComplexity: 13
     fullyEnabledSound:
       path: /Audio/ADT/Mecha/nominalnano.ogg
     clothingPrototypes:

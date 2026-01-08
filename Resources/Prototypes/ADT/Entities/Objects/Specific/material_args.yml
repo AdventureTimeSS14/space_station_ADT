@@ -314,8 +314,8 @@
               comboEvent:
                 - !type:ComboPopupEffect
                   localeText: combo-cqc-restain-end
-                - !type:ComboStunEffect
-                  stunTime: 2
+                - !type:ComboStaminaDamageEffect
+                  staminaDamage: 45
             - actionsNeeds:
                 - Disarm
                 - Disarm
