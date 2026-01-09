@@ -120,7 +120,7 @@ public sealed class SpeechBarksSystem : EntitySystem
                 continue;
             }
 
-            var audioParams = AudioParams.Default.WithPitchScale(item.Pitch).WithVolume(item.Volume);
+            var audioParams = AudioParams.Default.WithPitchScale(item.Pitch).WithVolume(item.Volume).WithMaxDistance(item.Distance);
             item.BarksPlayed++;
             item.NextSound = _timing.CurTime + TimeSpan.FromSeconds(_random.NextFloat(item.DelayVariation.Item1, item.DelayVariation.Item2));
 
