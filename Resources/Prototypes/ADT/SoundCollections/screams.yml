@@ -52,3 +52,12 @@
     - /Audio/ADT/Voice/Slime/s_femalescream_3.ogg
     - /Audio/ADT/Voice/Slime/s_femalescream_4.ogg
     - /Audio/ADT/Voice/Slime/s_femalescream_5.ogg
+
+- type: soundCollection
+  id: SkeletonScreams
+  files:
+    - /Audio/Voice/Skeleton/skeleton_scream.ogg
+    - /Audio/ADT/Voice/Skeleton/skeleton_scream1.ogg
+    - /Audio/ADT/Voice/Skeleton/skeleton_scream2.ogg
+    - /Audio/ADT/Voice/Skeleton/skeleton_scream3.ogg
+    - /Audio/ADT/Voice/Skeleton/skeleton_screamAlt.ogg
