@@ -20,7 +20,7 @@ public sealed partial class CharacterFlavorComponent : Component
     /// ссылка на изображение, что будет использоваться в качестве хэдшота
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
-    public string HeadshotUrl = "https://media.discordapp.net/attachments/1446603657255850085";
+    public string HeadshotUrl = "https://i.pinimg.com/736x/0e/04/5a/0e045a8c7792396c13ec332817b7f4be.jpg";
 }
 
 [Serializable, NetSerializable]
