@@ -64,8 +64,24 @@
 
 - type: radioChannel
   id: ADTOldBroadcast
-  name: chat-radio-broadcast
+  name: chat-radio-broadcast-one
   keycode: 'р'
+  frequency: 1604
+  color: "#723817"
+  longRange: true
+
+- type: radioChannel
+  id: ADTOldBroadcast2
+  name: chat-radio-broadcast-two
+  keycode: 'ч'
+  frequency: 1604
+  color: "#723817"
+  longRange: true
+
+- type: radioChannel
+  id: ADTOldBroadcast3
+  name: chat-radio-broadcast-three
+  keycode: 'э'
   frequency: 1604
   color: "#723817"
   longRange: true

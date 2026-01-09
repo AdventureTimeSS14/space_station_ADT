@@ -7,8 +7,11 @@ namespace Content.Shared.ADT.StationRadio.Events;
 public sealed class StationRadioMediaPlayedEvent : EntityEventArgs
 {
     public SoundPathSpecifier MediaPlayed { get; }
-    public StationRadioMediaPlayedEvent(SoundPathSpecifier Media)
+    public string ChannelId { get; }
+
+    public StationRadioMediaPlayedEvent(SoundPathSpecifier media, string channelId)
     {
-        MediaPlayed = Media;
+        MediaPlayed = media;
+        ChannelId = channelId;
     }
 }
