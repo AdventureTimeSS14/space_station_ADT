@@ -385,6 +385,8 @@
   - type: Item
     sprite: ADT/Mobs/Animals/minispider.rsi
     size: Huge
+  - type: Bloodstream
+    bloodMaxVolume: 25
   - type: Clothing
     quickEquip: false
     sprite: ADT/Mobs/Animals/minispider.rsi
