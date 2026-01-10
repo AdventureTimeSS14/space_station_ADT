@@ -5,10 +5,6 @@
   description: This data disk stores information about genetic modifications and mutations in plant seeds.
   components:
     - type: Sprite
-      sprite: Objects/Misc/module.rsi
-      layers:
-        - state: datadisk_hydro
-          map: [ "enum.DamageStateVisualLayers.Base" ]
-        - state: datadisk_label
-        - state: datadisk_gene
+      sprite: ADT/Objects/Misc/DNA_disk.rsi
+      state: icon
     - type: DnaDisk
