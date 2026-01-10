@@ -11,7 +11,7 @@
     iconOn:
       sprite: SD/Interface/extract.rsi
       state: arms-dealer-on
-    useDelay: 300
+    useDelay: 180
   - type: TargetAction
   - type: EntityTargetAction
     whitelist:
@@ -24,17 +24,29 @@
           weight: 15
         - id: WeaponPistolMk58
           weight: 10
+        - id: WeaponPistolViper
+          weight: 5
         - id: WeaponPistolCobra
           weight: 5
+        - id: WeaponRevolverPython
+          weight: 15
         - id: WeaponShotgunDoubleBarreled
           weight: 7.5
         - id: ADTClothingBackpackDuffelSyndicateFilledWeaponAttachments
           weight: 7.5
-        - id: ADTAttachmentSuppressor
-          weight: 10
         - id: WeaponShotgunKammerer
           weight: 5
         - id: WeaponSubMachineGunWt550
           weight: 1
+        - id: WeaponSubMachineGunAtreides
+          weight: 5
         - id: ADTWeaponCaseAmmoBulldogX4
           weight: 10
+        - id: BoxMagazinePistolSubMachineGun
+          weight: 5
+        - id: BoxMagazinePistolHighCapacity
+          weight: 5
+        - id: BoxMagazinePistol
+          weight: 5
+        - id: ADTWeaponEnergyCrossbow
+          weight: 7.5
