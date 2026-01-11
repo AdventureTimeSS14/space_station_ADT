@@ -12,6 +12,7 @@ public enum BarbellBenchState
 [Serializable, NetSerializable]
 public enum BarbellBenchVisuals : byte
 {
-    State
+    State,
+    HasBarbell
 }
 

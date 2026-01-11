@@ -26,6 +26,8 @@ public sealed class BarbellBenchVisualizerSystem : VisualizerSystem<BarbellBench
         if (!AppearanceSystem.TryGetData<BarbellBenchState>(uid, BarbellBenchVisuals.State, out var state, args.Component))
             state = BarbellBenchState.Idle;
 
+        AppearanceSystem.TryGetData<bool>(uid, BarbellBenchVisuals.HasBarbell, out _, args.Component);
+
         if (!TryComp<BarbellBenchComponent>(uid, out var benchComp))
             return;
 
@@ -38,31 +40,36 @@ public sealed class BarbellBenchVisualizerSystem : VisualizerSystem<BarbellBench
             attachedBarbell = slotContainer.ContainedEntities[0];
         var hasBarbellAttached = attachedBarbell != null;
 
-        // Overlay visuals from barbell prototype if attached.
         ResPath? overlayRsi = null;
+        if (attachedBarbell != null && TryComp<BarbellLiftComponent>(attachedBarbell.Value, out var lift))
+            overlayRsi = lift.OverlayRsi;
+
+        var attachedState = component.AttachedState;
         var overlayBaseState = component.OverlayBaseState;
         var overlayRepFlickState = component.OverlayRepFlickState;
-
-        if (attachedBarbell != null && TryComp<BarbellLiftComponent>(attachedBarbell.Value, out var barbellLift))
-        {
-            overlayRsi = barbellLift.BenchOverlayRsi;
-            overlayBaseState = barbellLift.BenchOverlayBaseState;
-            overlayRepFlickState = barbellLift.BenchOverlayRepFlickState;
-        }
 
         var isBuckled = TryComp<StrapComponent>(uid, out var strap) && strap.BuckledEntities.Count > 0;
 
         if (overlayUid != null)
             _animationPlayer.Stop(overlayUid.Value, OverlayAnimationKey);
 
-        // Если штанга прикреплена как модуль, скрываем её слой пока кто-то пристёгнут.
         if (hasAttachableHolder && SpriteSystem.LayerMapTryGet((uid, args.Sprite), slotId, out var attachedLayer, false))
         {
-            var visible = hasBarbellAttached && !isBuckled;
+            var visible = hasBarbellAttached && !isBuckled && overlayRsi != null;
             SpriteSystem.LayerSetVisible((uid, args.Sprite), attachedLayer, visible);
+            if (visible)
+            {
+                var layerData = new PrototypeLayerData
+                {
+                    RsiPath = overlayRsi!.Value.ToString(),
+                    State = attachedState,
+                    Offset = Vector2.Zero,
+                    Visible = true
+                };
+                SpriteSystem.LayerSetData((uid, args.Sprite), attachedLayer, layerData);
+            }
         }
 
-        // Оверлей по умолчанию скрыт.
         if (overlayUid != null &&
             TryComp<SpriteComponent>(overlayUid.Value, out var overlaySpriteCompDefault))
         {
@@ -93,6 +100,7 @@ public sealed class BarbellBenchVisualizerSystem : VisualizerSystem<BarbellBench
         {
             case BarbellBenchState.PerformingRep:
                 if (hasBarbellAttached &&
+                    isBuckled &&
                     overlayUid != null &&
                     TryComp<SpriteComponent>(overlayUid.Value, out var overlaySpriteComp))
                 {

@@ -8,6 +8,7 @@
     drawdepth: HighFloorObjects
   - type: BarbellBench
   - type: BarbellBenchVisuals
+    attachedState: barbell-overlay-up
     overlayBaseState: barbell-overlay-up
     overlayRepFlickState: barbell-up
   - type: Appearance
@@ -18,9 +19,7 @@
         whitelist:
           tags:
           - ADTBarbellAttachment
-  - type: AttachableHolderVisuals
-    offsets:
-      adt-aslot-barbell: 0, 0
+  # Визуализация штанги на скамье управляется BarbellBenchVisualizerSystem (низ + оверлей).
   - type: Strap
     position: Down
     rotation: -90
@@ -72,7 +71,12 @@
   components:
   - type: Sprite
     sprite: ADT/Structures/Furniture/barbell_bench.rsi
-    state: barbell
+    layers:
+    - state: barbell
+      map: ["base"]
+    - state: barbell
+      map: ["adt-aslot-barbell"]
+      visible: false
   - type: Construction
     graph: ADTBarbellBench
     node: barbellbench
@@ -134,9 +138,7 @@
     - ADTBarbellAttachment
   - type: BarbellLift
     staminaCost: 15
-    benchOverlayRsi: ADT/Objects/Fun/barbell.rsi
-    benchOverlayBaseState: barbell-overlay-up
-    benchOverlayRepFlickState: barbell-up
+    overlayRsi: ADT/Objects/Fun/barbell.rsi
   - type: MultiHandedItem
     handsNeeded: 2
   - type: HeldSpeedModifier

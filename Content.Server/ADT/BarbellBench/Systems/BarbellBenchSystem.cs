@@ -47,17 +47,17 @@ public sealed class BarbellBenchSystem : SharedBarbellBenchSystem
         if (component.OverlayEntity is not { } overlay || !Exists(overlay))
             return;
 
+        _appearance.SetData(uid, BarbellBenchVisuals.HasBarbell, args.Alteration == AttachableAlteredType.Attached);
+
         switch (args.Alteration)
         {
             case AttachableAlteredType.Attached:
-                // Копируем имя и описание штанги на оверлей
                 var barbellMeta = MetaData(args.Attachable);
                 _metaData.SetEntityName(overlay, barbellMeta.EntityName);
                 _metaData.SetEntityDescription(overlay, barbellMeta.EntityDescription);
                 break;
 
             case AttachableAlteredType.Detached:
-                // Сбрасываем имя оверлея на дефолтное (из прототипа)
                 var overlayMeta = MetaData(overlay);
                 if (overlayMeta.EntityPrototype != null)
                 {
@@ -74,11 +74,9 @@ public sealed class BarbellBenchSystem : SharedBarbellBenchSystem
             return;
 
         var msg = Loc.GetString(ent.Comp.EmoteLoc, ("name", Name(args.User)));
-        // Так как текст эмоуты уже содержит имя, подавляем стандартную обёртку вида "Имя ...".
         _chat.TrySendInGameICMessage(args.User, msg, InGameICChatType.Emote, ChatTransmitRange.Normal,
             ignoreActionBlocker: true, nameOverride: string.Empty);
 
-        // Показываем сообщение самому игроку
         var selfMsg = Loc.GetString(ent.Comp.EmoteLocSelf);
         _popup.PopupEntity(selfMsg, args.User, args.User, PopupType.Medium);
 
@@ -156,9 +154,4 @@ public sealed class BarbellBenchSystem : SharedBarbellBenchSystem
         args.Handled = true;
     }
 
-    private void UpdateAppearance(EntityUid uid, BarbellBenchComponent component)
-    {
-        _appearance.SetData(uid, BarbellBenchVisuals.State,
-            component.IsPerformingRep ? BarbellBenchState.PerformingRep : BarbellBenchState.Idle);
-    }
 }
