@@ -1,0 +1,12 @@
+- type: entity
+  parent: ClothingNeckPinBase
+  id: ClothingNeckOSevenPin
+  name: Пин О-7
+  description: Значок Колонии Германского Народа.
+  components:
+  - type: Sprite
+    sprite: SD/Clothing/Neck/Misc/pins.rsi
+    state: OSeven_Pin
+  - type: Clothing
+    sprite: SD/Clothing/Neck/Misc/pins.rsi
+    equippedPrefix: OSeven_Pin

@@ -1,0 +1,16 @@
+- type: entity
+  parent: BaseSign
+  id: SDBaseFlag
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: SD/Structures/Wallmounts/flags.rsi
+
+- type: entity
+  parent: SDBaseFlag
+  id: OSevenFlag
+  name: Флаг О-7
+  description: Отдать честь знамени Колонии Германского Народа!
+  components:
+  - type: Sprite
+    state: OSeven_flag
