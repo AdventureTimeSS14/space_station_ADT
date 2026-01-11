@@ -1,0 +1,159 @@
+- type: entity
+  abstract: true
+  id: ADTBarbellBenchBase
+  parent: [BaseStructure, ADTBaseAttachableHolder]
+  components:
+  - type: Sprite
+    noRot: true
+    drawdepth: HighFloorObjects
+  - type: BarbellBench
+  - type: BarbellBenchVisuals
+    overlayBaseState: barbell-overlay-up
+    overlayRepFlickState: barbell-up
+  - type: Appearance
+  - type: AttachableHolder
+    slots:
+      adt-aslot-barbell:
+        locked: false
+        whitelist:
+          tags:
+          - ADTBarbellAttachment
+  - type: AttachableHolderVisuals
+    offsets:
+      adt-aslot-barbell: 0, 0
+  - type: Strap
+    position: Down
+    rotation: -90
+    buckleOffset: "0,-0.15"
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.45,-0.45,0.45,0.05"
+        density: 190
+        mask:
+        - TableMask
+  - type: Transform
+    anchored: true
+    noRot: true
+  - type: Anchorable
+  - type: Pullable
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+    - trigger:
+        !type:DamageTrigger
+        damage: 75
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetSteel1:
+            min: 1
+            max: 2
+
+- type: entity
+  parent: ADTBarbellBenchBase
+  id: ADTBarbellBench
+  name: barbell bench
+  description: A bench for bench pressing. You can attach a barbell to it.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/barbell_bench.rsi
+    state: barbell
+  - type: Construction
+    graph: ADTBarbellBench
+    node: barbellbench
+
+- type: entity
+  id: ADTBarbellBenchOverlay
+  name: barbell bench overlay
+  description: Visual overlay for barbell bench.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/barbell.rsi
+    layers:
+    - state: barbell-overlay-up
+      map: ["barbell-overlay"]
+      visible: false
+    noRot: true
+    drawdepth: OverMobs
+  - type: Transform
+    noRot: true
+
+# Отдельная штанга как предмет
+- type: entity
+  abstract: true
+  id: ADTBarbellBase
+  parent: BaseItem
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/barbell.rsi
+    state: icon
+  - type: Item
+    size: Huge
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      right:
+      - state: inhand-right
+  # Увеличенный хитбокс, чтобы штанга нормально подсвечивалась и поднималась кликом.
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.55,-0.12,0.55,0.12"
+        density: 20
+        mask:
+        - ItemMask
+  - type: Attachable
+    attachDoAfter: 2.0
+    attachSound:
+      path: /Audio/ADT/Furniture/barbell/sound_for_barbell_3.ogg
+    detachSound:
+      path: /Audio/ADT/Furniture/barbell/sound_for_barbell_2.ogg
+  - type: AttachableVisuals
+    rsi: ADT/Objects/Fun/barbell.rsi
+    prefix: barbell-overlay-up
+    suffix: ""
+  - type: Tag
+    tags:
+    - ADTBarbellAttachment
+  - type: BarbellLift
+    staminaCost: 15
+    benchOverlayRsi: ADT/Objects/Fun/barbell.rsi
+    benchOverlayBaseState: barbell-overlay-up
+    benchOverlayRepFlickState: barbell-up
+  - type: MultiHandedItem
+    handsNeeded: 2
+  - type: HeldSpeedModifier
+    walkModifier: 0.6
+    sprintModifier: 0.6
+  - type: UseDelay
+    delay: 1
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - back
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 500
+
+- type: entity
+  parent: ADTBarbellBase
+  id: ADTBarbell
+  name: barbell
+  description: A heavy barbell for bench pressing. Can be attached to a barbell bench.

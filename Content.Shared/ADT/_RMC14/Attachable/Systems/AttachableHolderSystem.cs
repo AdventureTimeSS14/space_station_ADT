@@ -382,7 +382,8 @@ public sealed class AttachableHolderSystem : EntitySystem
 
         Dirty(holder);
 
-        _gun.RefreshModifiers(holder.Owner);
+        if (HasComp<GunComponent>(holder.Owner))
+            _gun.RefreshModifiers(holder.Owner);
         _audio.PlayPredicted(Comp<AttachableComponent>(attachableUid).AttachSound,
             holder,
             userUid);
@@ -404,7 +405,7 @@ public sealed class AttachableHolderSystem : EntitySystem
         RaiseLocalEvent(holder, ref holderEv);
     }
 
-    //Detaching
+    // Отсоединение
     public void StartDetach(Entity<AttachableHolderComponent> holder, string slotId, EntityUid userUid)
     {
         if (TryGetAttachable(holder, slotId, out var attachable) && holder.Comp.Slots.ContainsKey(slotId) && !holder.Comp.Slots[slotId].Locked)
@@ -481,7 +482,8 @@ public sealed class AttachableHolderSystem : EntitySystem
             userUid);
 
         Dirty(holder);
-        _gun.RefreshModifiers(holder.Owner);
+        if (HasComp<GunComponent>(holder.Owner))
+            _gun.RefreshModifiers(holder.Owner);
         _hands.TryPickupAnyHand(userUid, attachable);
         return true;
     }

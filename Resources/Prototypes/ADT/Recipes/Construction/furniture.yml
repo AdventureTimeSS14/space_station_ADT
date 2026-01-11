@@ -954,6 +954,20 @@
     - !type:TileNotBlocked
 
 - type: construction
+  name: construction-name-adt-barbell-bench
+  id: ADTBarbellBenchRecipe
+  description: construction-desc-adt-barbell-bench
+  graph: ADTBarbellBench
+  startNode: start
+  targetNode: barbellbench
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
   id: ADTBonfireRecipe
   name: construction-name-bonfire
   description: construction-desc-bonfire

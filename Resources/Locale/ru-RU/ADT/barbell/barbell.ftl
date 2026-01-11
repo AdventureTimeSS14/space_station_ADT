@@ -1,0 +1,2 @@
+adt-aslot-barbell = Штанга
+

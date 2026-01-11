@@ -66,6 +66,7 @@ construction-name-white-office-sofa-right-side = правая сторона б�
 construction-name-white-office-sofa-middle = средняя часть белого офисного дивана
 construction-name-white-office-sofa-left-corner = левый угол белого офисного дивана
 construction-name-white-office-sofa-right-corner = правый угол белого офисного дивана
+construction-name-adt-barbell-bench = скамья для жима
 # Описания
 construction-desc-sofa-left-side = Выглядит удобно.
 construction-desc-sofa-middle = Выглядит удобно.
@@ -138,3 +139,4 @@ construction-desc-white-office-sofa-right-side = Выглядит удобно.
 construction-desc-white-office-sofa-middle = Выглядит удобно.
 construction-desc-white-office-sofa-left-corner = Выглядит удобно.
 construction-desc-white-office-sofa-right-corner = Выглядит удобно.
+construction-desc-adt-barbell-bench = Скамья для жима лёжа. Штанга ставится отдельным модулем.

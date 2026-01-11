@@ -1,0 +1,13 @@
+- type: entity
+  parent: BaseAction
+  id: ActionBarbellBenchPerformRep
+  name: action-name-barbell-bench-perform-rep
+  description: action-desc-barbell-bench-perform-rep
+  components:
+  - type: Action
+    icon: { sprite: Interface/Actions/adt-barbell-lift.rsi, state: icon }
+    itemIconStyle: NoItem
+    useDelay: 3.0
+  - type: InstantAction
+    event: !type:BarbellBenchPerformRepEvent
+
