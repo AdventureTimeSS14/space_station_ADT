@@ -1,24 +1,68 @@
 using Content.Shared.ADT.StationRadio.Components;
 using Content.Shared.ADT.StationRadio.Events;
-using Content.Shared.DeviceLinking;
+using Content.Shared.Destructible;
+using Content.Shared.Examine;
 using Content.Shared.Radio;
 using Content.Shared.Verbs;
-using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Utility;
 
 namespace Content.Shared.ADT.StationRadio.Systems;
 
 public sealed class StationRadioServerSystem : EntitySystem
 {
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly SharedDeviceLinkSystem _deviceLink = default!;
+
+    private const string DefaultChannel = "ADTOldBroadcast";
+
+    private readonly string[] _allowedChannels = new[] { "ADTOldBroadcast", "ADTOldBroadcast2", "ADTOldBroadcast3" };
 
     public override void Initialize()
     {
         base.Initialize();
+
+        SubscribeLocalEvent<StationRadioServerComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<StationRadioServerComponent, DestructionEventArgs>(OnDestruction);
+        SubscribeLocalEvent<StationRadioServerComponent, ExaminedEvent>(OnExamined);
         SubscribeLocalEvent<StationRadioServerComponent, GetVerbsEvent<Verb>>(OnGetVerbs);
+    }
+
+    private void OnStartup(EntityUid uid, StationRadioServerComponent comp, ComponentStartup args)
+    {
+        if (comp.ChannelId == null)
+        {
+            comp.ChannelId = DefaultChannel;
+            Dirty(uid, comp);
+        }
+    }
+
+    private void OnDestruction(EntityUid uid, StationRadioServerComponent comp, DestructionEventArgs args)
+    {
+        if (comp.CurrentMedia == null || comp.ChannelId == null)
+            return;
+
+        var channelId = comp.ChannelId;
+        comp.CurrentMedia = null;
+        comp.ChannelId = null;
+        Dirty(uid, comp);
+
+        var ev = new StationRadioMediaStoppedEvent(channelId);
+        var query = EntityQueryEnumerator<StationRadioReceiverComponent>();
+        while (query.MoveNext(out var receiver, out var receiverComp))
+        {
+            if (receiverComp.SelectedChannelId == channelId)
+                RaiseLocalEvent(receiver, ev);
+        }
+    }
+
+    private void OnExamined(EntityUid uid, StationRadioServerComponent comp, ExaminedEvent args)
+    {
+        if (comp.ChannelId == null || !_proto.TryIndex<RadioChannelPrototype>(comp.ChannelId, out var channel))
+        {
+            args.PushMarkup(Loc.GetString("station-radio-server-examine-none"));
+            return;
+        }
+
+        args.PushMarkup(Loc.GetString("station-radio-server-examine", ("channel", channel.LocalizedName)));
     }
 
     private void OnGetVerbs(EntityUid uid, StationRadioServerComponent comp, GetVerbsEvent<Verb> args)
@@ -26,65 +70,45 @@ public sealed class StationRadioServerSystem : EntitySystem
         if (!args.CanAccess || !args.CanInteract)
             return;
 
-        foreach (var channel in _proto.EnumeratePrototypes<RadioChannelPrototype>())
+        foreach (var id in _allowedChannels)
         {
-            var channelId = channel.ID; // Capture in closure
+            if (!_proto.TryIndex<RadioChannelPrototype>(id, out var channel))
+                continue;
+
+            var channelId = channel.ID;
             var verb = new Verb
             {
                 Category = VerbCategory.StationRadio,
                 Text = channel.LocalizedName,
-                Icon = new SpriteSpecifier.Texture(new("/Textures/ADT/Interface/VerbIcons/icons-radio.svg.png")), // Optional, adjust path if needed
                 Act = () =>
                 {
-                    var oldChannelId = comp.ChannelId;
-
-                    if (oldChannelId == channelId)
+                    if (comp.ChannelId == channelId)
                         return;
 
+                    var oldChannelId = comp.ChannelId;
                     comp.ChannelId = channelId;
                     Dirty(uid, comp);
 
-                    // Handle switching music if playing
-                    if (!TryComp<DeviceLinkSourceComponent>(uid, out var serverSrc))
+                    if (comp.CurrentMedia is not { } media)
                         return;
 
-                    foreach (var rig in serverSrc.LinkedPorts.Keys)
+                    if (oldChannelId != null)
                     {
-                        if (!HasComp<RadioRigComponent>(rig))
-                            continue;
-
-                        if (!TryComp<DeviceLinkSinkComponent>(rig, out var rigSink))
-                            continue;
-
-                        foreach (var vinyl in rigSink.LinkedSources)
+                        var stopEv = new StationRadioMediaStoppedEvent(oldChannelId);
+                        var query = EntityQueryEnumerator<StationRadioReceiverComponent>();
+                        while (query.MoveNext(out var rec, out var recComp))
                         {
-                            if (!TryComp<VinylPlayerComponent>(vinyl, out var vinylComp) || !vinylComp.RelayToRadios || vinylComp.SoundEntity == null || vinylComp.InsertedVinyl == null)
-                                continue;
-
-                            if (!TryComp<VinylComponent>(vinylComp.InsertedVinyl, out var vComp) || vComp.Song == null)
-                                continue;
-
-                            // Stop on old channel
-                            if (oldChannelId != null)
-                            {
-                                var stopEv = new StationRadioMediaStoppedEvent(oldChannelId);
-                                var query = EntityQueryEnumerator<StationRadioReceiverComponent>();
-                                while (query.MoveNext(out var rec, out var recComp))
-                                {
-                                    if (recComp.SelectedChannelId == oldChannelId)
-                                        RaiseLocalEvent(rec, stopEv);
-                                }
-                            }
-
-                            // Play on new channel
-                            var playEv = new StationRadioMediaPlayedEvent(vComp.Song, channelId);
-                            var queryPlay = EntityQueryEnumerator<StationRadioReceiverComponent>();
-                            while (queryPlay.MoveNext(out var rec, out var recComp))
-                            {
-                                if (recComp.SelectedChannelId == channelId && !recComp.SoundEntity.HasValue)
-                                    RaiseLocalEvent(rec, playEv);
-                            }
+                            if (recComp.SelectedChannelId == oldChannelId)
+                                RaiseLocalEvent(rec, stopEv);
                         }
+                    }
+
+                    var playEv = new StationRadioMediaPlayedEvent(media, channelId);
+                    var queryPlay = EntityQueryEnumerator<StationRadioReceiverComponent>();
+                    while (queryPlay.MoveNext(out var rec, out var recComp))
+                    {
+                        if (recComp.SelectedChannelId == channelId)
+                            RaiseLocalEvent(rec, playEv);
                     }
                 }
             };

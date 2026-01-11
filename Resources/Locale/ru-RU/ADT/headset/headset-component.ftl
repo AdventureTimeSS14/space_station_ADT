@@ -1,4 +1,6 @@
 verb-categories-station-radio = Выбор частоты
+station-radio-server-examine = Подключён к частоте: [color=lime]{ $channel }[/color]
+station-radio-server-examine-none = Не подключён к частоте.
 
 ADT-Lawyer-Channel-name = Юридический
 ADT-SpaceSec-Channel-name = SPACE SEC линия

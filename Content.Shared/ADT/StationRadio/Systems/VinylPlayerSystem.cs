@@ -21,6 +21,7 @@ public sealed class VinylPlayerSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
+
         SubscribeLocalEvent<VinylPlayerComponent, EntInsertedIntoContainerMessage>(OnVinylInserted);
         SubscribeLocalEvent<VinylPlayerComponent, EntRemovedFromContainerMessage>(OnVinylRemove);
         SubscribeLocalEvent<VinylPlayerComponent, DestructionEventArgs>(OnDestruction);
@@ -29,36 +30,41 @@ public sealed class VinylPlayerSystem : EntitySystem
 
     private void OnPowerChanged(EntityUid uid, VinylPlayerComponent comp, PowerChangedEvent args)
     {
-        if (comp.SoundEntity != null && !args.Powered)
-            comp.SoundEntity = _audio.Stop(comp.SoundEntity);
-
-        if (!comp.RelayToRadios || !CheckForRadioServer(uid, out var radioServer) || !TryComp<StationRadioServerComponent>(radioServer, out var serverComp) || serverComp.ChannelId == null)
-            return;
-
-        var channelId = serverComp.ChannelId;
-
-        var ev = new StationRadioMediaStoppedEvent(channelId);
-        var query = EntityQueryEnumerator<StationRadioReceiverComponent>();
-        while (query.MoveNext(out var receiver, out var receiverComp))
+        if (!args.Powered && comp.SoundEntity != null)
         {
-            if (receiverComp.SelectedChannelId == channelId)
-                RaiseLocalEvent(receiver, ev);
+            comp.SoundEntity = _audio.Stop(comp.SoundEntity.Value);
+        }
+
+        if (!args.Powered && CheckForRadioServer(uid, out var radioServer) &&
+            TryComp<StationRadioServerComponent>(radioServer, out var serverComp) && serverComp.CurrentMedia != null)
+        {
+            StopBroadcast(radioServer, serverComp);
+        }
+
+        if (args.Powered && comp.InsertedVinyl != null &&
+            TryComp<VinylComponent>(comp.InsertedVinyl, out var vinylComp) &&
+            vinylComp.Song != null && comp.SoundEntity == null)
+        {
+            var audioParams = AudioParams.Default.WithVolume(3f).WithMaxDistance(4.5f).WithLoop(true);
+            var audio = _audio.PlayPredicted(vinylComp.Song, uid, uid, audioParams);
+            if (audio != null)
+                comp.SoundEntity = audio.Value.Entity;
+
+            if (CheckForRadioServer(uid, out radioServer) &&
+                TryComp<StationRadioServerComponent>(radioServer, out serverComp) &&
+                serverComp.ChannelId != null)
+            {
+                StartBroadcast(radioServer, serverComp, vinylComp.Song, serverComp.ChannelId);
+            }
         }
     }
 
     private void OnDestruction(EntityUid uid, VinylPlayerComponent comp, DestructionEventArgs args)
     {
-        if (!comp.RelayToRadios || !CheckForRadioServer(uid, out var radioServer) || !TryComp<StationRadioServerComponent>(radioServer, out var serverComp) || serverComp.ChannelId == null)
-            return;
-
-        var channelId = serverComp.ChannelId;
-
-        var ev = new StationRadioMediaStoppedEvent(channelId);
-        var query = EntityQueryEnumerator<StationRadioReceiverComponent>();
-        while (query.MoveNext(out var receiver, out var receiverComp))
+        if (CheckForRadioServer(uid, out var radioServer) &&
+            TryComp<StationRadioServerComponent>(radioServer, out var serverComp))
         {
-            if (receiverComp.SelectedChannelId == channelId)
-                RaiseLocalEvent(receiver, ev);
+            StopBroadcast(radioServer, serverComp);
         }
     }
 
@@ -67,44 +73,65 @@ public sealed class VinylPlayerSystem : EntitySystem
         if (!TryComp(args.Entity, out VinylComponent? vinylcomp) || _net.IsClient || vinylcomp.Song == null || !_power.IsPowered(uid))
             return;
 
-        var audio = _audio.PlayPredicted(vinylcomp.Song, uid, uid, AudioParams.Default.WithVolume(3f).WithMaxDistance(4.5f));
+        var audioParams = AudioParams.Default.WithVolume(3f).WithMaxDistance(4.5f).WithLoop(true);
+        var audio = _audio.PlayPredicted(vinylcomp.Song, uid, uid, audioParams);
         if (audio != null)
             comp.SoundEntity = audio.Value.Entity;
 
         comp.InsertedVinyl = args.Entity;
 
-        if (!comp.RelayToRadios || !CheckForRadioServer(uid, out var radioServer) || !TryComp<StationRadioServerComponent>(radioServer, out var serverComp) || serverComp.ChannelId == null)
+        if (!CheckForRadioServer(uid, out var radioServer) ||
+            !TryComp<StationRadioServerComponent>(radioServer, out var serverComp) || serverComp.ChannelId == null)
             return;
 
-        var channelId = serverComp.ChannelId;
-
-        var ev = new StationRadioMediaPlayedEvent(vinylcomp.Song, channelId);
-        var query = EntityQueryEnumerator<StationRadioReceiverComponent>();
-        while (query.MoveNext(out var receiver, out var receiverComp))
-        {
-            if (receiverComp.SelectedChannelId == channelId && !receiverComp.SoundEntity.HasValue)
-                RaiseLocalEvent(receiver, ev);
-        }
+        StartBroadcast(radioServer, serverComp, vinylcomp.Song, serverComp.ChannelId);
     }
 
     private void OnVinylRemove(EntityUid uid, VinylPlayerComponent comp, EntRemovedFromContainerMessage args)
     {
+        // Всегда останавливаем локальный звук
         if (comp.SoundEntity != null)
             comp.SoundEntity = _audio.Stop(comp.SoundEntity);
 
         comp.InsertedVinyl = null;
 
-        if (!comp.RelayToRadios || !CheckForRadioServer(uid, out var radioServer) || !TryComp<StationRadioServerComponent>(radioServer, out var serverComp) || serverComp.ChannelId == null)
+        // Всегда пытаемся остановить broadcast, если линковка есть (независимо от питания)
+        if (CheckForRadioServer(uid, out var radioServer) &&
+            TryComp<StationRadioServerComponent>(radioServer, out var serverComp))
+        {
+            StopBroadcast(radioServer, serverComp);
+        }
+    }
+
+    private void StartBroadcast(EntityUid radioServer, StationRadioServerComponent serverComp, SoundPathSpecifier song, string channelId)
+    {
+        serverComp.CurrentMedia = song;
+        Dirty(radioServer, serverComp);
+
+        var ev = new StationRadioMediaPlayedEvent(song, channelId);
+        var query = EntityQueryEnumerator<StationRadioReceiverComponent>();
+        while (query.MoveNext(out var receiver, out var receiverComp))
+        {
+            if (receiverComp.SelectedChannelId == channelId)
+                RaiseLocalEvent(receiver, ev, true);
+        }
+    }
+
+    private void StopBroadcast(EntityUid radioServer, StationRadioServerComponent serverComp)
+    {
+        if (serverComp.CurrentMedia == null || serverComp.ChannelId == null)
             return;
 
         var channelId = serverComp.ChannelId;
+        serverComp.CurrentMedia = null;
+        Dirty(radioServer, serverComp);
 
         var ev = new StationRadioMediaStoppedEvent(channelId);
         var query = EntityQueryEnumerator<StationRadioReceiverComponent>();
         while (query.MoveNext(out var receiver, out var receiverComp))
         {
-            if (receiverComp.SelectedChannelId == channelId)
-                RaiseLocalEvent(receiver, ev);
+            if (receiverComp.SelectedChannelId == channelId && receiverComp.SoundEntity != null)
+                RaiseLocalEvent(receiver, ev, true);
         }
     }
 
@@ -112,26 +139,27 @@ public sealed class VinylPlayerSystem : EntitySystem
     {
         radioServer = EntityUid.Invalid;
 
-        if (!TryComp<DeviceLinkSourceComponent>(uid, out var vinylSource))
+        if (!TryComp<DeviceLinkSourceComponent>(uid, out var source))
             return false;
 
-        foreach (var rig in vinylSource.LinkedPorts.Keys)
+        foreach (var linked in source.LinkedPorts.Keys)
         {
-            if (!HasComp<RadioRigComponent>(rig))
+            if (!HasComp<RadioRigComponent>(linked))
                 continue;
 
-            if (!TryComp<DeviceLinkSourceComponent>(rig, out var rigSource))
+            if (!TryComp<DeviceLinkSinkComponent>(linked, out var rigSink))
                 continue;
 
-            foreach (var server in rigSource.LinkedPorts.Keys)
+            foreach (var serverUid in rigSink.LinkedSources)
             {
-                if (HasComp<StationRadioServerComponent>(server))
+                if (HasComp<StationRadioServerComponent>(serverUid))
                 {
-                    radioServer = server;
+                    radioServer = serverUid;
                     return true;
                 }
             }
         }
+
         return false;
     }
 }
