@@ -103,3 +103,4 @@ construction-graph-tag-stunbaton = дубинка-шокер
 construction-graph-tag-manipulator-stock-part = модульная машинная часть
 construction-graph-carved-pumpkin = вырезанная тыква
 construction-graph-flashlight = фонарик
+construction-graph-stabilizing-serum = стабилизирующая сыворотка
