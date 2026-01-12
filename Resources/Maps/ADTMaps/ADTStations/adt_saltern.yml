@@ -40730,8 +40730,6 @@ entities:
       pos: -3.5,32.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 12959
       - 12960
@@ -40753,8 +40751,6 @@ entities:
       pos: -3.5,29.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 126
 - proto: Fireplace
