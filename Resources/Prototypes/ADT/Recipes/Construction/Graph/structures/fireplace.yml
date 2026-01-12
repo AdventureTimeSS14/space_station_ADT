@@ -52,7 +52,7 @@
           - !type:DeleteEntity {}
           steps:
             - tool: Prying
-              doAfter: 5
+              doAfter: 15
 
 - type: constructionGraph
   id: ADTFireplaceWooden
@@ -80,4 +80,4 @@
           - !type:DeleteEntity {}
           steps:
             - tool: Prying
-              doAfter: 5
+              doAfter: 15
