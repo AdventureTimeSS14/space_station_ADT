@@ -4,6 +4,7 @@ using Content.Server.Heretic.Components.PathSpecific;
 using Content.Server.Magic;
 using Content.Server.Temperature.Components;
 using Content.Shared.ADT.Heretic.Components;
+using Content.Shared.Bible.Components;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Heretic;
@@ -75,7 +76,10 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         _aud.PlayPvs(new SoundPathSpecifier("/Audio/Effects/tesla_consume.ogg"), ent);
 
         foreach (var pookie in GetNearbyPeople(ent, power))
-            _stun.TryKnockdown(pookie, TimeSpan.FromSeconds(power), true);
+            if (!HasComp<ChaplainComponent>(pookie))
+            {
+                _stun.TryKnockdown(pookie, TimeSpan.FromSeconds(power), true);
+            }
 
         _transform.SetCoordinates(ent, args.Target);
 
@@ -84,8 +88,11 @@ public sealed partial class HereticAbilitySystem : EntitySystem
 
         foreach (var pookie in GetNearbyPeople(ent, ent.Comp.PathStage / 3f))
         {
-            _stam.TakeStaminaDamage(pookie, power);
-            if (condition) _voidcurse.DoCurse(pookie);
+            if (!HasComp<ChaplainComponent>(pookie))
+            {
+                _stam.TakeStaminaDamage(pookie, power);
+                if (condition) _voidcurse.DoCurse(pookie);
+            }
         }
 
         args.Handled = true;
@@ -105,7 +112,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         // damage closest ones
         foreach (var pookie in topPriority)
         {
-            if (!TryComp<DamageableComponent>(pookie, out var dmgComp))
+            if (!TryComp<DamageableComponent>(pookie, out var dmgComp) || HasComp<ChaplainComponent>(pookie))
                 continue;
 
             // total damage + power divided by all damage types.

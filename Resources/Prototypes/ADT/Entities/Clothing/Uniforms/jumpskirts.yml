@@ -216,6 +216,19 @@
 
 - type: entity
   parent: ClothingUniformSkirtBase
+  id: ADTClothingUniformJumpskirtTurtleneckDarkBlue
+  name: dark blue turtleneck with skirt
+  description: Warm and comfy.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/turtleneck_darkblue_women.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/turtleneck_darkblue_women.rsi
+  - type: StaticPrice
+    price: 15
+
+- type: entity
+  parent: ClothingUniformSkirtBase
   id: ADTClothingUniformJumpskirtTurtleneckBlackSleeveless
   name: ancient jumpsuit
   description: A terribly ragged and frayed grey jumpsuit. It looks like it hasn't been washed in over a decade.
