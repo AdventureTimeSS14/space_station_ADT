@@ -8,6 +8,9 @@
   id: ADTMedicalAssemblerStuff
 
 - type: Tag
+  id: ADTStabilizingSerum
+
+- type: Tag
   id: Patch
 
 - type: Tag

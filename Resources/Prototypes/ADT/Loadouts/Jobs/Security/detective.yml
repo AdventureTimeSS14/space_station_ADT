@@ -56,6 +56,15 @@
   equipment:
     outerClothing: ADTClothingOuterCoatDetectiveLoadoutOld
 
+# Shoulders
+- type: loadout
+  id: ADTClothingInvestigatorShoulderNeck
+  effects:
+  - !type:GroupLoadoutEffect
+   proto: MasterDetective
+  equipment:
+    neck: ADTClothingCloakInvestigator
+
 # Shoes
 - type: loadout
   id: ADTDetectiveBootsOld
