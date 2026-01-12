@@ -52,9 +52,9 @@
         - MachineMask
         layer:
         - MachineLayer
-  - type: ApcPowerReceiver
-  - type: ExtensionCableReceiver
-  - type: ActivatableUIRequiresPower
+#  - type: ApcPowerReceiver
+#  - type: ExtensionCableReceiver
+#  - type: ActivatableUIRequiresPower
   - type: Anchorable
   - type: Pullable
   - type: Damageable

@@ -11149,14 +11149,6 @@ entities:
     - type: RadiationGridResistance
     - type: SupermatterSpreaderGrid
     - type: NavMap
-- proto: ActionToggleBlock
-  entities:
-  - uid: 92
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 41
 - proto: ADEffectTashfallLight
   entities:
   - uid: 10892
@@ -17822,21 +17814,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: 86.5,-9.5
       parent: 1
-- proto: ADTRomanShield
-  entities:
-  - uid: 41
-    components:
-    - type: Transform
-      pos: 89.706795,-21.331495
-      parent: 1
-    - type: Blocking
-      blockingToggleActionEntity: 92
-    - type: ActionsContainer
-    - type: ContainerContainer
-      containers:
-        actions: !type:Container
-          ents:
-          - 92
   - uid: 625
     components:
     - type: Transform

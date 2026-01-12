@@ -185,7 +185,14 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: Machine
     board: ProtolatheMachineCircuitboard
-  - type: StationAiWhitelist #ADT-Tweak
+  # ADT-tweak Start
+  - type: StationAiWhitelist
+  - type: ActivatableUIRequiresAccess
+  - type: AccessReader
+    access:
+      - [Research]
+      - [Engineering]
+  # ADT-tweak End
   - type: MaterialStorage
     whitelist:
       tags:
@@ -248,6 +255,13 @@
     sprite: Structures/Machines/protolathe_hypercon.rsi
   - type: Machine
     board: ProtolatheHyperConvectionMachineCircuitboard
+  # ADT-tweak Start
+  - type: ActivatableUIRequiresAccess
+  - type: AccessReader
+    access:
+      - [Research]
+      - [Engineering]
+  # ADT-tweak End
 
 - type: entity
   id: CircuitImprinter
@@ -268,7 +282,13 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: Machine
     board: CircuitImprinterMachineCircuitboard
-  - type: StationAiWhitelist #ADT-Tweak
+  # ADT-tweak Start
+  - type: StationAiWhitelist
+  - type: ActivatableUIRequiresAccess
+  - type: AccessReader
+    access:
+      - [Research]
+  # ADT-tweak End
   - type: Lathe
     producingSound: /Audio/Machines/circuitprinter.ogg
     idleState: icon
@@ -323,6 +343,12 @@
     sprite: Structures/Machines/circuit_imprinter_hypercon.rsi
   - type: Machine
     board: CircuitImprinterHyperConvectionMachineCircuitboard
+  # ADT-tweak Start
+  - type: ActivatableUIRequiresAccess
+  - type: AccessReader
+    access:
+      - [Research]
+  # ADT-tweak End
 
 - type: entity
   id: ExosuitFabricator
