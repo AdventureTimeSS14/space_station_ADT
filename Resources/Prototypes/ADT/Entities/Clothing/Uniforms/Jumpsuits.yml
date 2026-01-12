@@ -584,6 +584,32 @@
   - type: StaticPrice
     price: 55
 
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitRedVictorianSuit
+  name: red victorian suit
+  description: A Victorian-style costume for true connoisseurs.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/victorian_red_suit.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/victorian_red_suit.rsi #rhetajrkah взял с сервера Orehum Project
+  - type: StaticPrice
+    price: 55
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitBlackVictorianSuit
+  name: black victorian suit
+  description: A Victorian-style costume for true connoisseurs.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/victorian_black_suit.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/victorian_black_suit.rsi #rhetajrkah взял с сервера Orehum Project
+  - type: StaticPrice
+    price: 55
+
 # SPACE SEC
 - type: entity
   parent: ClothingUniformBase
