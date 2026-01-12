@@ -81,13 +81,12 @@ public sealed class StationRadioServerSystem : EntitySystem
     /// <summary>
     /// Обработчик verbs для смены канала сервера.
     /// Предоставляет список доступных каналов для выбора.
-    /// </summary>
+        /// </summary>
     private void OnGetVerbs(EntityUid uid, StationRadioServerComponent comp, GetVerbsEvent<Verb> args)
     {
         if (!args.CanAccess || !args.CanInteract)
             return;
 
-        // ИСПОЛЬЗУЕМ ОБЩИЕ КОНСТАНТЫ
         foreach (var id in RadioConstants.AllowedChannels)
         {
             if (!_proto.TryIndex<RadioChannelPrototype>(id, out var channel))
@@ -110,25 +109,29 @@ public sealed class StationRadioServerSystem : EntitySystem
                     if (comp.CurrentMedia is not { } media)
                         return;
 
-                    // Останавливаем на старой частоте
-                    if (oldChannelId != null)
+                    // Останавливаем на старой частоте ТОЛЬКО если это другой канал
+                    if (oldChannelId != null && oldChannelId != channelId)
                     {
                         var stopEv = new StationRadioMediaStoppedEvent(oldChannelId);
                         var query = EntityQueryEnumerator<StationRadioReceiverComponent>();
                         while (query.MoveNext(out var rec, out var recComp))
                         {
+                            // Отправляем событие ТОЛЬКО тем ресиверам, которые слушают этот канал
                             if (recComp.SelectedChannelId == oldChannelId)
                                 RaiseLocalEvent(rec, stopEv);
                         }
                     }
 
-                    // Запускаем на новой - событие будет помечено Handled при первой обработке
+                    // Запускаем на новой - ОДИН РАЗ для каждого ресивера
                     var playEv = new StationRadioMediaPlayedEvent(media, channelId);
                     var queryPlay = EntityQueryEnumerator<StationRadioReceiverComponent>();
                     while (queryPlay.MoveNext(out var rec, out var recComp))
                     {
                         if (recComp.SelectedChannelId == channelId)
+                        {
+                            // Отправляем событие напрямую, а не broadcast
                             RaiseLocalEvent(rec, playEv);
+                        }
                     }
                 }
             };

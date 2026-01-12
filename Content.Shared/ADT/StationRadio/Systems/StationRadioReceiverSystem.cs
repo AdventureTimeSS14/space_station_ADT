@@ -8,7 +8,10 @@ using Content.Shared.Radio;
 using Content.Shared.Verbs;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Audio.Components;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Network;
+using Robust.Shared.Timing;
 
 namespace Content.Shared.ADT.StationRadio.Systems;
 
@@ -17,6 +20,11 @@ public sealed class StationRadioReceiverSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedPowerReceiverSystem _power = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly INetManager _netManager = default!;
+    [Dependency] private readonly IGameTiming _gameTiming = default!;
+
+    // Трекер для предотвращения множественных вызовов одного события
+    private readonly Dictionary<EntityUid, (string ChannelId, SoundPathSpecifier? Media, TimeSpan LastCall)> _eventTracker = new();
 
     public override void Initialize()
     {
@@ -28,6 +36,27 @@ public sealed class StationRadioReceiverSystem : EntitySystem
         SubscribeLocalEvent<StationRadioReceiverComponent, ActivateInWorldEvent>(OnRadioToggle);
         SubscribeLocalEvent<StationRadioReceiverComponent, PowerChangedEvent>(OnPowerChanged);
         SubscribeLocalEvent<StationRadioReceiverComponent, GetVerbsEvent<Verb>>(OnGetVerbs);
+    }
+
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+        CleanupEventTracker();
+    }
+
+    private void CleanupEventTracker()
+    {
+        var currentTime = _gameTiming.CurTime;
+        var toRemove = new List<EntityUid>();
+
+        foreach (var (uid, (_, _, lastCall)) in _eventTracker)
+        {
+            if (currentTime - lastCall > TimeSpan.FromSeconds(1))
+                toRemove.Add(uid);
+        }
+
+        foreach (var uid in toRemove)
+            _eventTracker.Remove(uid);
     }
 
     private void OnStartup(EntityUid uid, StationRadioReceiverComponent comp, ComponentStartup args)
@@ -43,10 +72,15 @@ public sealed class StationRadioReceiverSystem : EntitySystem
 
     private void OnPowerChanged(EntityUid uid, StationRadioReceiverComponent comp, PowerChangedEvent args)
     {
-        if (comp.SoundEntity != null)
+        if (comp.SoundEntity.HasValue && Exists(comp.SoundEntity.Value) &&
+            TryComp<AudioComponent>(comp.SoundEntity.Value, out var audioComp))
         {
             var gain = args.Powered ? (comp.Active ? 1f : 0f) : 0f;
-            _audio.SetGain(comp.SoundEntity.Value, gain);
+            _audio.SetGain(comp.SoundEntity.Value, gain, audioComp);
+        }
+        else if (!args.Powered)
+        {
+            StopMedia(uid, comp);
         }
 
         if (args.Powered)
@@ -57,12 +91,33 @@ public sealed class StationRadioReceiverSystem : EntitySystem
     {
         comp.Active = !comp.Active;
 
-        if (comp.SoundEntity != null && _power.IsPowered(uid))
-            _audio.SetGain(comp.SoundEntity.Value, comp.Active ? 1f : 0f);
+        if (comp.SoundEntity.HasValue && Exists(comp.SoundEntity.Value) &&
+            TryComp<AudioComponent>(comp.SoundEntity.Value, out var audioComp) && _power.IsPowered(uid))
+        {
+            var gain = comp.Active ? 1f : 0f;
+            _audio.SetGain(comp.SoundEntity.Value, gain, audioComp);
+        }
+
+        if (!comp.Active)
+            StopMedia(uid, comp);
     }
 
     private void OnMediaPlayed(EntityUid uid, StationRadioReceiverComponent comp, StationRadioMediaPlayedEvent args)
     {
+        // Проверяем, не обрабатывали ли мы уже это событие для этого ресивера
+        var eventKey = (uid, args.ChannelId, args.MediaPlayed);
+        var currentTime = _gameTiming.CurTime;
+
+        if (_eventTracker.TryGetValue(uid, out var tracked) &&
+            tracked.ChannelId == args.ChannelId &&
+            tracked.Media == args.MediaPlayed &&
+            currentTime - tracked.LastCall < TimeSpan.FromMilliseconds(500))
+        {
+            return; // Игнорируем повторное событие
+        }
+
+        _eventTracker[uid] = (args.ChannelId, args.MediaPlayed, currentTime);
+
         if (comp.SelectedChannelId != args.ChannelId)
             return;
 
@@ -71,30 +126,43 @@ public sealed class StationRadioReceiverSystem : EntitySystem
 
     private void PlayMedia(EntityUid uid, StationRadioReceiverComponent comp, SoundPathSpecifier media)
     {
-        // Защита от дублей: если уже играет точно то же — пропускаем полностью
-        if (comp.CurrentMedia == media && comp.SoundEntity.HasValue)
+        // Если уже играет та же музыка - ничего не делаем
+        if (comp.CurrentMedia == media && comp.SoundEntity.HasValue && Exists(comp.SoundEntity.Value))
             return;
 
-        // Стоп старого (на всякий)
-        if (comp.SoundEntity.HasValue)
-        {
-            _audio.Stop(comp.SoundEntity.Value);
-            comp.SoundEntity = null;
-        }
-
-        comp.CurrentMedia = null; // сбрасываем временно
+        // Всегда останавливаем предыдущий звук
+        StopMedia(uid, comp);
 
         if (!comp.Active || !_power.IsPowered(uid))
             return;
 
-        var audioParams = AudioParams.Default.WithVolume(3f).WithMaxDistance(4.5f).WithLoop(true);
-        var audio = _audio.PlayPredicted(media, uid, uid, audioParams);
+        var audioParams = AudioParams.Default
+            .WithVolume(3f)
+            .WithMaxDistance(4.5f)
+            .WithLoop(true)
+            .WithVariation(0f); // Отключаем вариации для точного сравнения
 
-        if (audio == null)
-            return;
+        // Воспроизводим только если мы на сервере ИЛИ это предсказание на клиенте
+        if (_netManager.IsServer || !_netManager.IsConnected)
+        {
+            var audio = _audio.PlayPredicted(media, uid, null, audioParams);
 
-        comp.SoundEntity = audio.Value.Entity;
-        comp.CurrentMedia = media;
+            if (audio == null)
+                return;
+
+            comp.SoundEntity = audio.Value.Entity;
+            comp.CurrentMedia = media;
+        }
+    }
+
+    private void StopMedia(EntityUid uid, StationRadioReceiverComponent comp)
+    {
+        if (comp.SoundEntity.HasValue && Exists(comp.SoundEntity.Value))
+        {
+            _audio.Stop(comp.SoundEntity.Value);
+        }
+        comp.SoundEntity = null;
+        comp.CurrentMedia = null;
     }
 
     private void OnMediaStopped(EntityUid uid, StationRadioReceiverComponent comp, StationRadioMediaStoppedEvent args)
@@ -102,13 +170,7 @@ public sealed class StationRadioReceiverSystem : EntitySystem
         if (comp.SelectedChannelId != args.ChannelId)
             return;
 
-        if (comp.SoundEntity != null)
-        {
-            _audio.Stop(comp.SoundEntity.Value);
-            comp.SoundEntity = null;
-        }
-
-        comp.CurrentMedia = null;
+        StopMedia(uid, comp);
     }
 
     private void OnGetVerbs(EntityUid uid, StationRadioReceiverComponent comp, GetVerbsEvent<Verb> args)
@@ -131,17 +193,13 @@ public sealed class StationRadioReceiverSystem : EntitySystem
                     if (comp.SelectedChannelId == channelId)
                         return;
 
-                    // Жёсткий стоп старого
-                    if (comp.SoundEntity != null)
-                    {
-                        _audio.Stop(comp.SoundEntity.Value);
-                        comp.SoundEntity = null;
-                        comp.CurrentMedia = null;
-                    }
+                    // Останавливаем текущий звук
+                    StopMedia(uid, comp);
 
                     comp.SelectedChannelId = channelId;
                     Dirty(uid, comp);
 
+                    // Пытаемся присоединиться к вещанию на новом канале
                     TryJoinCurrentBroadcast(uid, comp);
                 }
             };
@@ -151,11 +209,14 @@ public sealed class StationRadioReceiverSystem : EntitySystem
 
     private void TryJoinCurrentBroadcast(EntityUid uid, StationRadioReceiverComponent comp)
     {
-        if (comp.SelectedChannelId == null || !_power.IsPowered(uid))
+        if (comp.SelectedChannelId == null || !_power.IsPowered(uid) || !comp.Active)
             return;
 
         if (GetCurrentBroadcastMedia(comp.SelectedChannelId) is { } media)
-            PlayMedia(uid, comp, media);
+        {
+            var ev = new StationRadioMediaPlayedEvent(media, comp.SelectedChannelId);
+            RaiseLocalEvent(uid, ev);
+        }
     }
 
     private SoundPathSpecifier? GetCurrentBroadcastMedia(string? channelId)

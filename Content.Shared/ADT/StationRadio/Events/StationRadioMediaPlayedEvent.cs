@@ -8,10 +8,12 @@ public sealed class StationRadioMediaPlayedEvent : EntityEventArgs
 {
     public SoundPathSpecifier MediaPlayed { get; }
     public string ChannelId { get; }
+    public Guid EventId { get; } // Уникальный идентификатор события
 
     public StationRadioMediaPlayedEvent(SoundPathSpecifier media, string channelId)
     {
         MediaPlayed = media;
         ChannelId = channelId;
+        EventId = Guid.NewGuid(); // Генерируем уникальный ID
     }
 }
