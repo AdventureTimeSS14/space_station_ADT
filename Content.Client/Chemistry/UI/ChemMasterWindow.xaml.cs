@@ -765,6 +765,10 @@ namespace Content.Client.Chemistry.UI
                     ? new Dictionary<ReagentId, float>(castState.SelectedReagentAmounts)
                     : null;
 
+            // ADT-Tweak: Update dosage BEFORE generating label, so GenerateLabel uses correct PillDosage.Value
+            // Update Number and Dosage based on selected reagents
+            UpdateDosageAndNumberFromSelection();
+
             // Update label if field is not being edited and either UpdateLabel flag is set or reagents changed
             if (!_labelLineEditFocused && (castState.UpdateLabel || selectedReagentsChanged))
                 LabelLine = GenerateLabel(castState);
@@ -780,9 +784,6 @@ namespace Content.Client.Chemistry.UI
             }
 
             InputEjectButton.Disabled = castState.ContainerInfo is null;
-
-            // Update Number and Dosage based on selected reagents
-            UpdateDosageAndNumberFromSelection();
 
             // Check if we can create pills
             var totalSelectedAmount = GetTotalSelectedReagentAmount();
@@ -1254,6 +1255,36 @@ namespace Content.Client.Chemistry.UI
         /// <param name="state">State data sent by the server.</param>
         private string GenerateLabel(ChemMasterBoundUserInterfaceState state)
         {
+            // ADT-Tweak: Use PillDosage for the shared label field (displayed in UI)
+            // When actually creating pills/bottles, use GenerateLabelWithDosage with the correct dosage
+            return GenerateLabelWithDosage(state, (uint)PillDosage.Value);
+        }
+
+        /// <summary>
+        /// Generate a label for pills using the pill dosage.
+        /// </summary>
+        public string GeneratePillLabel()
+        {
+            if (_lastState == null)
+                return LabelLine;
+            return GenerateLabelWithDosage(_lastState, (uint)PillDosage.Value);
+        }
+
+        /// <summary>
+        /// Generate a label for bottles using the bottle dosage.
+        /// </summary>
+        public string GenerateBottleLabel()
+        {
+            if (_lastState == null)
+                return LabelLine;
+            return GenerateLabelWithDosage(_lastState, (uint)BottleDosage.Value);
+        }
+
+        /// <summary>
+        /// Generate a product label based on reagents and a specific dosage.
+        /// </summary>
+        private string GenerateLabelWithDosage(ChemMasterBoundUserInterfaceState state, uint dosage)
+        {
             // ADT-Tweak Start: Cutted
             // if (state.BufferCurrentVolume == 0)
             //     return "";
@@ -1268,11 +1299,6 @@ namespace Content.Client.Chemistry.UI
 
             if (state.SelectedReagentAmounts == null || state.SelectedReagentAmounts.Count == 0)
                 return "";
-
-            // Determine if we're on output tab (Выход) - use bottles dosage by default
-            // Note: Both bottles and pills interfaces are now in the same tab
-            bool isOutputTab = IsOutputTab;
-            uint dosage = isOutputTab ? (uint)BottleDosage.Value : (uint)PillDosage.Value;
 
             if (dosage == 0)
                 return "";
