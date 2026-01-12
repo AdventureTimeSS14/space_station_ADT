@@ -603,7 +603,7 @@
   - type: Clothing
     clothingVisuals:
       outerClothing:
-      - state: valid-equipped-OUTERCLOTHING
+      - state: equipped-OUTERCLOTHING
   - type: Armor
     modifiers:
       coefficients:

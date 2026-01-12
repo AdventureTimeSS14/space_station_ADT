@@ -402,3 +402,9 @@ ent-ADTClothingUniformKimanoZero = Кимоно Змея
 
 ent-ADTClothingUniformKimanoArmoredZero = Кимоно Змея
     .desc = Стильное кимоно, свободное и удобное, так ещё и с почти незаметными вшитыми бронепластинами 3 класса... Удачи выполнить заказ и получить Хронус
+
+ent-ADTClothingUniformJumpsuitRedVictorianSuit = красный викторианский костюм
+    .desc = Элегантный костюм, создающий образ аристократичной роскоши.
+
+ent-ADTClothingUniformJumpsuitBlackVictorianSuit = черный викторианский костюм
+    .desc = Элегантный костюм, создающий образ аристократичной роскоши.
