@@ -108,8 +108,8 @@
 
 - type: marking
   id: HumanTattooSkull
-  bodyPart: Head
-  markingCategory: Head
+  bodyPart: Chest
+  markingCategory: Chest
   speciesRestriction: [Human, Felinid]
   sprites:
   - sprite: ADT/Mobs/Customization/Human/custom.rsi
@@ -207,8 +207,8 @@
 
 - type: marking
   id: HumanTattooSpaceChristianCross
-  bodyPart: Head
-  markingCategory: Head
+  bodyPart: Chest
+  markingCategory: Chest
   speciesRestriction: [Human, Felinid]
   sprites:
   - sprite: ADT/Mobs/Customization/Human/custom.rsi
