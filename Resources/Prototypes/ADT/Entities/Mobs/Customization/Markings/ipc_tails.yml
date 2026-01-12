@@ -10,6 +10,8 @@
       state: ipc_tail_hydra_second
     - sprite: ADT/Mobs/Customization/Ipc/ipc_tails.rsi
       state: ipc_tail_hydra_third
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_tails.rsi
+      state: ipc_tail_hydra_fourth
 
 - type: marking
   speciesRestriction: [IPC]
