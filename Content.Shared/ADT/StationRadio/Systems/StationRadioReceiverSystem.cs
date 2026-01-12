@@ -1,3 +1,4 @@
+using Content.Shared.ADT.StationRadio;
 using Content.Shared.ADT.StationRadio.Components;
 using Content.Shared.ADT.StationRadio.Events;
 using Content.Shared.Interaction;
@@ -17,8 +18,6 @@ public sealed class StationRadioReceiverSystem : EntitySystem
     [Dependency] private readonly SharedPowerReceiverSystem _power = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
 
-    private const string DefaultChannel = "ADTOldBroadcast";
-
     public override void Initialize()
     {
         base.Initialize();
@@ -35,7 +34,7 @@ public sealed class StationRadioReceiverSystem : EntitySystem
     {
         if (comp.SelectedChannelId == null)
         {
-            comp.SelectedChannelId = DefaultChannel;
+            comp.SelectedChannelId = RadioConstants.DefaultChannel;
             Dirty(uid, comp);
         }
 
@@ -52,15 +51,6 @@ public sealed class StationRadioReceiverSystem : EntitySystem
 
         if (args.Powered)
             TryJoinCurrentBroadcast(uid, comp);
-    }
-
-    private void TryJoinCurrentBroadcast(EntityUid uid, StationRadioReceiverComponent comp)
-    {
-        if (comp.SelectedChannelId == null || !_power.IsPowered(uid))
-            return;
-
-        if (GetCurrentBroadcastMedia(comp.SelectedChannelId) is { } media)
-            PlayMedia(uid, comp, media);
     }
 
     private void OnRadioToggle(EntityUid uid, StationRadioReceiverComponent comp, ActivateInWorldEvent args)
@@ -81,9 +71,21 @@ public sealed class StationRadioReceiverSystem : EntitySystem
 
     private void PlayMedia(EntityUid uid, StationRadioReceiverComponent comp, SoundPathSpecifier media)
     {
-        // Ключевой фикс: всегда останавливаем старый звук перед новым — это убивает любые дубли/наложения 100%
+        // Защита от дублей: если уже играет точно то же — пропускаем полностью
+        if (comp.CurrentMedia == media && comp.SoundEntity.HasValue)
+            return;
+
+        // Стоп старого (на всякий)
         if (comp.SoundEntity.HasValue)
-            comp.SoundEntity = _audio.Stop(comp.SoundEntity.Value);
+        {
+            _audio.Stop(comp.SoundEntity.Value);
+            comp.SoundEntity = null;
+        }
+
+        comp.CurrentMedia = null; // сбрасываем временно
+
+        if (!comp.Active || !_power.IsPowered(uid))
+            return;
 
         var audioParams = AudioParams.Default.WithVolume(3f).WithMaxDistance(4.5f).WithLoop(true);
         var audio = _audio.PlayPredicted(media, uid, uid, audioParams);
@@ -92,10 +94,7 @@ public sealed class StationRadioReceiverSystem : EntitySystem
             return;
 
         comp.SoundEntity = audio.Value.Entity;
-
-        var gain = comp.Active ? 1f : 0f;
-        var poweredGain = _power.IsPowered(uid) ? gain : 0f;
-        _audio.SetGain(comp.SoundEntity.Value, poweredGain);
+        comp.CurrentMedia = media;
     }
 
     private void OnMediaStopped(EntityUid uid, StationRadioReceiverComponent comp, StationRadioMediaStoppedEvent args)
@@ -104,7 +103,12 @@ public sealed class StationRadioReceiverSystem : EntitySystem
             return;
 
         if (comp.SoundEntity != null)
-            comp.SoundEntity = _audio.Stop(comp.SoundEntity);
+        {
+            _audio.Stop(comp.SoundEntity.Value);
+            comp.SoundEntity = null;
+        }
+
+        comp.CurrentMedia = null;
     }
 
     private void OnGetVerbs(EntityUid uid, StationRadioReceiverComponent comp, GetVerbsEvent<Verb> args)
@@ -112,9 +116,7 @@ public sealed class StationRadioReceiverSystem : EntitySystem
         if (!args.CanAccess || !args.CanInteract)
             return;
 
-        var allowedChannels = new[] { "ADTOldBroadcast", "ADTOldBroadcast2", "ADTOldBroadcast3" };
-
-        foreach (var id in allowedChannels)
+        foreach (var id in RadioConstants.AllowedChannels)
         {
             if (!_proto.TryIndex<RadioChannelPrototype>(id, out var channel))
                 continue;
@@ -129,19 +131,31 @@ public sealed class StationRadioReceiverSystem : EntitySystem
                     if (comp.SelectedChannelId == channelId)
                         return;
 
-                    // Стоп старого (на всякий случай)
+                    // Жёсткий стоп старого
                     if (comp.SoundEntity != null)
-                        comp.SoundEntity = _audio.Stop(comp.SoundEntity);
+                    {
+                        _audio.Stop(comp.SoundEntity.Value);
+                        comp.SoundEntity = null;
+                        comp.CurrentMedia = null;
+                    }
 
                     comp.SelectedChannelId = channelId;
                     Dirty(uid, comp);
 
-                    // Ручной join к новому — с защитой от дублей внутри PlayMedia
                     TryJoinCurrentBroadcast(uid, comp);
                 }
             };
             args.Verbs.Add(verb);
         }
+    }
+
+    private void TryJoinCurrentBroadcast(EntityUid uid, StationRadioReceiverComponent comp)
+    {
+        if (comp.SelectedChannelId == null || !_power.IsPowered(uid))
+            return;
+
+        if (GetCurrentBroadcastMedia(comp.SelectedChannelId) is { } media)
+            PlayMedia(uid, comp, media);
     }
 
     private SoundPathSpecifier? GetCurrentBroadcastMedia(string? channelId)

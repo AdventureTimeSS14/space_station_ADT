@@ -30,28 +30,31 @@ public sealed class VinylPlayerSystem : EntitySystem
 
     private void OnPowerChanged(EntityUid uid, VinylPlayerComponent comp, PowerChangedEvent args)
     {
-        if (!args.Powered && comp.SoundEntity != null)
+        // При потере питания - останавливаем ВСЁ
+        if (!args.Powered)
         {
-            comp.SoundEntity = _audio.Stop(comp.SoundEntity.Value);
-        }
+            StopAllSoundsForVinylPlayer(uid, comp);
 
-        if (!args.Powered && CheckForRadioServer(uid, out var radioServer) &&
-            TryComp<StationRadioServerComponent>(radioServer, out var serverComp) && serverComp.CurrentMedia != null)
-        {
-            StopBroadcast(radioServer, serverComp);
+            if (CheckForRadioServer(uid, out var radioServer) &&
+                TryComp<StationRadioServerComponent>(radioServer, out var serverComp))
+            {
+                StopBroadcast(radioServer, serverComp);
+            }
         }
-
-        if (args.Powered && comp.InsertedVinyl != null &&
-            TryComp<VinylComponent>(comp.InsertedVinyl, out var vinylComp) &&
-            vinylComp.Song != null && comp.SoundEntity == null)
+        // При восстановлении питания - запускаем пластинку если она есть
+        else if (args.Powered && comp.InsertedVinyl != null &&
+                TryComp<VinylComponent>(comp.InsertedVinyl, out var vinylComp) &&
+                vinylComp.Song != null)
         {
+            StopAllSoundsForVinylPlayer(uid, comp);
+
             var audioParams = AudioParams.Default.WithVolume(3f).WithMaxDistance(4.5f).WithLoop(true);
             var audio = _audio.PlayPredicted(vinylComp.Song, uid, uid, audioParams);
             if (audio != null)
                 comp.SoundEntity = audio.Value.Entity;
 
-            if (CheckForRadioServer(uid, out radioServer) &&
-                TryComp<StationRadioServerComponent>(radioServer, out serverComp) &&
+            if (CheckForRadioServer(uid, out var radioServer) &&
+                TryComp<StationRadioServerComponent>(radioServer, out var serverComp) &&
                 serverComp.ChannelId != null)
             {
                 StartBroadcast(radioServer, serverComp, vinylComp.Song, serverComp.ChannelId);
@@ -59,8 +62,20 @@ public sealed class VinylPlayerSystem : EntitySystem
         }
     }
 
+    private void StopAllSoundsForVinylPlayer(EntityUid uid, VinylPlayerComponent comp)
+    {
+        // Останавливаем только сохраненный звук пластинки
+        if (comp.SoundEntity.HasValue && Exists(comp.SoundEntity.Value))
+        {
+            _audio.Stop(comp.SoundEntity.Value);
+            comp.SoundEntity = null;
+        }
+    }
+
     private void OnDestruction(EntityUid uid, VinylPlayerComponent comp, DestructionEventArgs args)
     {
+        StopAllSoundsForVinylPlayer(uid, comp);
+
         if (CheckForRadioServer(uid, out var radioServer) &&
             TryComp<StationRadioServerComponent>(radioServer, out var serverComp))
         {
@@ -73,6 +88,10 @@ public sealed class VinylPlayerSystem : EntitySystem
         if (!TryComp(args.Entity, out VinylComponent? vinylcomp) || _net.IsClient || vinylcomp.Song == null || !_power.IsPowered(uid))
             return;
 
+        // Останавливаем все предыдущие звуки
+        StopAllSoundsForVinylPlayer(uid, comp);
+
+        // Запускаем новую пластинку
         var audioParams = AudioParams.Default.WithVolume(3f).WithMaxDistance(4.5f).WithLoop(true);
         var audio = _audio.PlayPredicted(vinylcomp.Song, uid, uid, audioParams);
         if (audio != null)
@@ -89,13 +108,12 @@ public sealed class VinylPlayerSystem : EntitySystem
 
     private void OnVinylRemove(EntityUid uid, VinylPlayerComponent comp, EntRemovedFromContainerMessage args)
     {
-        // Всегда останавливаем локальный звук
-        if (comp.SoundEntity != null)
-            comp.SoundEntity = _audio.Stop(comp.SoundEntity);
+        // Останавливаем ВСЕ звуки
+        StopAllSoundsForVinylPlayer(uid, comp);
 
         comp.InsertedVinyl = null;
 
-        // Всегда пытаемся остановить broadcast, если линковка есть (независимо от питания)
+        // Останавливаем трансляцию
         if (CheckForRadioServer(uid, out var radioServer) &&
             TryComp<StationRadioServerComponent>(radioServer, out var serverComp))
         {
@@ -103,8 +121,13 @@ public sealed class VinylPlayerSystem : EntitySystem
         }
     }
 
+    // ... (твой код без изменений, кроме StartBroadcast)
+
     private void StartBroadcast(EntityUid radioServer, StationRadioServerComponent serverComp, SoundPathSpecifier song, string channelId)
     {
+        if (serverComp.CurrentMedia == song)
+            return;
+
         serverComp.CurrentMedia = song;
         Dirty(radioServer, serverComp);
 
@@ -113,7 +136,7 @@ public sealed class VinylPlayerSystem : EntitySystem
         while (query.MoveNext(out var receiver, out var receiverComp))
         {
             if (receiverComp.SelectedChannelId == channelId)
-                RaiseLocalEvent(receiver, ev, true);
+                RaiseLocalEvent(receiver, ev); // broadcast: true по умолчанию — правильно!
         }
     }
 
@@ -128,10 +151,9 @@ public sealed class VinylPlayerSystem : EntitySystem
 
         var ev = new StationRadioMediaStoppedEvent(channelId);
         var query = EntityQueryEnumerator<StationRadioReceiverComponent>();
-        while (query.MoveNext(out var receiver, out var receiverComp))
+        while (query.MoveNext(out var receiver, out _))
         {
-            if (receiverComp.SelectedChannelId == channelId && receiverComp.SoundEntity != null)
-                RaiseLocalEvent(receiver, ev, true);
+            RaiseLocalEvent(receiver, ev);
         }
     }
 

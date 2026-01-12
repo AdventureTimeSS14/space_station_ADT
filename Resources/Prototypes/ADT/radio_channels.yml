@@ -71,7 +71,7 @@
   longRange: true
 
 - type: radioChannel
-  id: ADTOldBroadcast2
+  id: ADTOldBroadcastTwo
   name: chat-radio-broadcast-two
   keycode: 'ч'
   frequency: 1604
@@ -79,7 +79,7 @@
   longRange: true
 
 - type: radioChannel
-  id: ADTOldBroadcast3
+  id: ADTOldBroadcastThree
   name: chat-radio-broadcast-three
   keycode: 'э'
   frequency: 1604
