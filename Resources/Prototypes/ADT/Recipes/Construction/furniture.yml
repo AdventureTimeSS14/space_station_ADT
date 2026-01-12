@@ -984,6 +984,34 @@
     - !type:TileNotBlocked
 
 - type: construction
+  name: construction-name-fireplace-white
+  id: ADTFireplaceWhiteRecipe
+  graph: ADTFireplaceWhite
+  startNode: start
+  targetNode: fireplace
+  category: construction-category-furniture
+  description: construction-desc-fireplace-white
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: construction-name-fireplace-wooden
+  id: ADTFireplaceWoodenRecipe
+  graph: ADTFireplaceWooden
+  startNode: start
+  targetNode: fireplace
+  category: construction-category-furniture
+  description: construction-desc-fireplace-wooden
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
   name: construction-name-deckchair
   id: ADTDeckChairRecipe
   description: construction-desc-deckchair
@@ -1039,3 +1067,383 @@
   canBuildInImpassable: false
   conditions:
   - !type:TileNotBlocked
+
+
+# Баннеры
+- type: construction
+  id: BannerRedRecipe
+  name: construction-name-banner-red
+  description: construction-desc-banner-red
+  graph: BannerRed
+  startNode: start
+  targetNode: banner
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: BannerBlueRecipe
+  name: construction-name-banner-blue
+  description: construction-desc-banner-blue
+  graph: BannerBlue
+  startNode: start
+  targetNode: banner
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: BannerGreenRecipe
+  name: construction-name-banner-green
+  description: construction-desc-banner-green
+  graph: BannerGreen
+  startNode: start
+  targetNode: banner
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: BannerYellowRecipe
+  name: construction-name-banner-yellow
+  description: construction-desc-banner-yellow
+  graph: BannerYellow
+  startNode: start
+  targetNode: banner
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: BannerNanotrasenRecipe
+  name: construction-name-banner-nanotrasen
+  description: construction-desc-banner-nanotrasen
+  graph: BannerNanotrasen
+  startNode: start
+  targetNode: banner
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: ADTBannerVulpRecipe
+  name: construction-name-banner-vulp
+  description: construction-desc-banner-vulp
+  graph: ADTBannerVulp
+  startNode: start
+  targetNode: banner
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: ADTBannerEmpireKhsiraRecipe
+  name: construction-name-banner-empire-khsira
+  description: construction-desc-banner-empire-khsira
+  graph: ADTBannerEmpireKhsira
+  startNode: start
+  targetNode: banner
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: ADTBannerNianRecipe
+  name: construction-name-banner-nian
+  description: construction-desc-banner-nian
+  graph: ADTBannerNian
+  startNode: start
+  targetNode: banner
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: ADTBannerUSSPRecipe
+  name: construction-name-banner-ussp
+  description: construction-desc-banner-ussp
+  graph: ADTBannerUSSP
+  startNode: start
+  targetNode: banner
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: ADTBannerSlimeRecipe
+  name: construction-name-banner-slime
+  description: construction-desc-banner-slime
+  graph: ADTBannerSlime
+  startNode: start
+  targetNode: banner
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: ADTBannerIPCRecipe
+  name: construction-name-banner-ipc
+  description: construction-desc-banner-ipc
+  graph: ADTBannerIPC
+  startNode: start
+  targetNode: banner
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: ADTBannerMagicRecipe
+  name: construction-name-banner-magic
+  description: construction-desc-banner-magic
+  graph: ADTBannerMagic
+  startNode: start
+  targetNode: banner
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: ADTBannerGreytideRecipe
+  name: construction-name-banner-greytide
+  description: construction-desc-banner-greytide
+  graph: ADTBannerGreytide
+  startNode: start
+  targetNode: banner
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: ADTBannerMimeRecipe
+  name: construction-name-banner-mime
+  description: construction-desc-banner-mime
+  graph: ADTBannerMime
+  startNode: start
+  targetNode: banner
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: ADTBannerTajaranRecipe
+  name: construction-name-banner-tajaran
+  description: construction-desc-banner-tajaran
+  graph: ADTBannerTajaran
+  startNode: start
+  targetNode: banner
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: ADTBannerDionaRecipe
+  name: construction-name-banner-diona
+  description: construction-desc-banner-diona
+  graph: ADTBannerDiona
+  startNode: start
+  targetNode: banner
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: ADTBannerDraskRecipe
+  name: construction-name-banner-drask
+  description: construction-desc-banner-drask
+  graph: ADTBannerDrask
+  startNode: start
+  targetNode: banner
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: ADTBannerClownRecipe
+  name: construction-name-banner-clown
+  description: construction-desc-banner-clown
+  graph: ADTBannerClown
+  startNode: start
+  targetNode: banner
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: ADTBannerVoxRecipe
+  name: construction-name-banner-vox
+  description: construction-desc-banner-vox
+  graph: ADTBannerVox
+  startNode: start
+  targetNode: banner
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: ADTBannerNovakidRecipe
+  name: construction-name-banner-novakid
+  description: construction-desc-banner-novakid
+  graph: ADTBannerNovakid
+  startNode: start
+  targetNode: banner
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: ADTBannerRobustRecipe
+  name: construction-name-banner-robust
+  description: construction-desc-banner-robust
+  graph: ADTBannerRobust
+  startNode: start
+  targetNode: banner
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: BannerCargoRecipe
+  name: construction-name-banner-cargo
+  description: construction-desc-banner-cargo
+  graph: BannerCargo
+  startNode: start
+  targetNode: banner
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: BannerEngineeringRecipe
+  name: construction-name-banner-engineering
+  description: construction-desc-banner-engineering
+  graph: BannerEngineering
+  startNode: start
+  targetNode: banner
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: BannerMedicalRecipe
+  name: construction-name-banner-medical
+  description: construction-desc-banner-medical
+  graph: BannerMedical
+  startNode: start
+  targetNode: banner
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: BannerScienceRecipe
+  name: construction-name-banner-science
+  description: construction-desc-banner-science
+  graph: BannerScience
+  startNode: start
+  targetNode: banner
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: BannerSecurityRecipe
+  name: construction-name-banner-security
+  description: construction-desc-banner-security
+  graph: BannerSecurity
+  startNode: start
+  targetNode: banner
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: ADTBannerHumanFlagRecipe
+  name: construction-name-banner-human-flag
+  description: construction-desc-banner-human-flag
+  graph: ADTBannerHumanFlag
+  startNode: start
+  targetNode: banner
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
