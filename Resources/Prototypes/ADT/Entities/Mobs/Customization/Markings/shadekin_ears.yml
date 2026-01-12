@@ -447,6 +447,17 @@
       state: alpha_stripy
 
 - type: marking
+  id: EarsShadekinAlphaStripy2
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Shadekin]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Shadekin/shadekin_ears_32x64.rsi
+      state: alpha_default
+    - sprite: ADT/Mobs/Customization/Shadekin/shadekin_ears_32x64.rsi
+      state: alpha_stripy2
+
+- type: marking
   id: EarsShadekinAlphaTorch
   bodyPart: HeadTop
   markingCategory: HeadTop
