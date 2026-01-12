@@ -1759,7 +1759,7 @@
   description: uplink-clothing-eyes-hud-syndicate-desc
   productEntity: ClothingEyesHudSyndicate
   cost:
-    Telecrystal: 2
+    Telecrystal: 4 # ADT-Tweak 2 -> 4 так как в комплекте термалы.
   categories:
     - UplinkWearables
   conditions:
