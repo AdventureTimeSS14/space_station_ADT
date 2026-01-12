@@ -1,4 +1,4 @@
-tiles-blackorange-floor = черно-оранжевая плитка
+tiles-blackorange-floor = чёрно-оранжевая плитка
 tiles-yelloworange-floor = желто-оранжевая плитка
 
 tiles-lattice-left-upper = угловая решётка, лево-верх
@@ -7,10 +7,10 @@ tiles-lattice-right-upper = угловая решётка, право-верх
 tiles-lattice-right-lower = угловая решётка, право-низ
 adt-tiles-flesh-floor = мясной пол, планета
 
-adt-tiles-digital-floor = цифровой пол 
-adt-tiles-digital-off-floor = выключенный цифровой пол 
-adt-tiles-digital-red-floor = красный цифровой пол 
-adt-tiles-digital-blue-floor = синий цифровой пол 
+adt-tiles-digital-floor = цифровой пол
+adt-tiles-digital-off-floor = выключенный цифровой пол
+adt-tiles-digital-red-floor = красный цифровой пол
+adt-tiles-digital-blue-floor = синий цифровой пол
 adt-tiles-cult-fire-floor = огненный пол культа
 adt-tiles-cult-hell-floor = адский пол культа
 adt-tiles-cult-floor = пол культа
@@ -35,3 +35,13 @@ adt-tiles-black-wood-broken = сломанный деревянный чёрны
 adt-tiles-black-wood-large-broken = сломанный большой деревянный чёрный пол
 adt-tiles-black-wood-chess-broken = сломанный шахматный деревянный чёрный пол
 adt-tiles-black-wood-parquet-broken = сломанный деревянный чёрный паркет
+
+adt-tiles-liminal-carpet-floor = лиминальный ковёр
+adt-tiles-admin-white-floor = абсолютно белый пол
+adt-tiles-admin-white-plating = абсолютно белое покрытие
+adt-tiles-admin-black-floor = абсолютно чёрный пол
+adt-tiles-admin-black-plating = абсолютно чёрное покрытие
+
+adt-tiles-admin-grass-realistic-floor = реалистичная трава
+adt-tiles-admin-grass-realistic-light-floor = реалистичная светлая трава
+adt-tiles-admin-grass-realistic-dark-floor = реалистичная тёмная трава

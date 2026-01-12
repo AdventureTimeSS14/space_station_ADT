@@ -52,7 +52,7 @@
     tags:
     - Pickaxe
   - type: Sprite
-    sprite: Objects/Tools/handdrill.rsi
+    sprite: ADT/Objects/Tools/handdrill.rsi # ADT-tweak: Objects/Tools/handdrill.rsi --> ADT/Objects/Tools/handdrill.rsi
     state: handdrill
   - type: MeleeWeapon
     autoAttack: true
@@ -74,7 +74,7 @@
   description: A significantly more efficient mining drill tipped with diamond.
   components:
   - type: Sprite
-    sprite: Objects/Tools/handdrilldiamond.rsi
+    sprite: ADT/Objects/Tools/handdrilldiamond.rsi # ADT-tweak: Objects/Tools/handdrilldiamond.rsi --> ADT/Objects/Tools/handdrilldiamond.rsi
     state: handdrill
   - type: MeleeWeapon
     autoAttack: true

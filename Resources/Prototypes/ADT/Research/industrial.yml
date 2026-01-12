@@ -162,6 +162,21 @@
   - ADTAdvancedEnergy
 
 - type: technology
+  id: ADTInducer
+  name: research-technology-reducer
+  icon:
+    sprite: ADT/Objects/Tools/inducer-rnd.rsi
+    state: icon
+  discipline: Industrial
+  tier: 3
+  cost: 10000
+  recipeUnlocks:
+    - RNDInducerRecipe
+  position: 0,-4
+  requiredTech:
+  - ADTMegaCells
+
+- type: technology
   id: ADTMegaCellsAdvanced
   name: research-technology-advancedmegacells
   icon:
@@ -169,10 +184,10 @@
     state: hyp_megacell
   discipline: Industrial
   tier: 3
-  cost: 35000
+  cost: 25000
   recipeUnlocks:
     - ADTMegaCellHighRecipe
     - ADTMegaCellHyperRecipe
-  position: 0,-4
+  position: 0,-5
   requiredTech:
-  - ADTMegaCells
+  - ADTInducer
