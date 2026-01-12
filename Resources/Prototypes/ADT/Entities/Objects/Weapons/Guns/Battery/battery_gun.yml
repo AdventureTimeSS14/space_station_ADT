@@ -424,6 +424,7 @@
     fireCost: 125
   - type: StaticPrice
     price: 50
+  - type: GunExecutionBlacklist
 
 - type: entity
   name: red toy blaster
@@ -442,6 +443,7 @@
   - type: Tag
     tags:
     - ADTToyBlaster
+  - type: GunExecutionBlacklist
 
 - type: entity
   name: blue toy blaster
@@ -460,6 +462,7 @@
   - type: Tag
     tags:
     - ADTToyBlaster
+  - type: GunExecutionBlacklist
 
 - type: entity
   name: green toy blaster
@@ -478,6 +481,7 @@
   - type: Tag
     tags:
     - ADTToyBlaster
+  - type: GunExecutionBlacklist
 
 - type: entity
   name: CC-7 "Arbiter"
@@ -500,6 +504,12 @@
   - type: ProjectileBatteryAmmoProvider
     proto: ADTBulletYellowLaser
     fireCost: 125
+  - type: BatteryWeaponFireModes
+    fireModes:
+    - proto: ADTBulletYellowLaser
+      fireCost: 125
+    - proto: ADTBulletDisabler
+      fireCost: 156
   - type: MagazineVisuals
     magState: mag
     steps: 13

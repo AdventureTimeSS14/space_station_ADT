@@ -71,6 +71,8 @@
     price: 1000
   - id: ADTPatchPackFilled
     price: 400
+  - id: ADTStabilizingSerum
+    price: 300
 
 - type: miningShopSection
   id: EquipmentWearable

@@ -23,8 +23,8 @@
     - id: MailTeleporterMachineCircuitboard
     - id: PrinterDocFlatpack # Corvax-Printer
     # # ADT-Economy-Start
-    # - id: ADTCommandBudgetCard
-    # - id: ADTCommandBudgetPinPaper
+    - id: ADTCommandBudgetCard
+    - id: ADTCommandBudgetPinPaper
     # # ADT-Economy-End
     # ADT-WikiBooks-Start
     - id: ADTBookSRPcmd
@@ -164,6 +164,10 @@
     - id: ClothingOuterCoatHOP # Corvax-Resprite
     - id: PrinterDocFlatpack # Corvax-Printer
     - id: ADTHoPClipboard #ADT-Tweak
+    # # ADT-Economy-Start
+    - id: ADTServiceBudgetCard
+    - id: ADTServiceBudgetPinPaper
+    # # ADT-Economy-End
 
 - type: entity
   id: LockerHeadOfPersonnelFilled
@@ -196,22 +200,23 @@
         range: 1, 3
     - id: RubberStampCE
     - id: MetalFoamGrenade
-    # Start-ADT Tweak
-    - id: ADTMachinePowerTransmissionLaserFlatpack # Goobstation - Engi printing money pr
+    # ADT-Tweak-Start
+    - id: ADTMachinePowerTransmissionLaserFlatpack
     - id: OxygenTankFilled
     - id: NitrogenTankFilled
-    - id: ADTHyperNobCore ## ADT-Tweak
+    - id: ADTHyperNobCore
     - id: ClothingNeckCloakCe
     - id: ADTClothingMaskGasCE
     - id: ADTUniversalPipeDispenserCircuitboard
     - id: ADTRPD
-    # End-ADT Tweak
-    # ADT-WikiBooks-Start
+    - id: ADTEngiInducerBattery
     - id: ADTBookSRPcmd
     - id: ADTBookSRPeng
     - id: ADTBookPCDcmd
     - id: ADTtelescopicBaton
-    # ADT-WikiBooks-End
+    - id: ADTEngineeringBudgetCard
+    - id: ADTEngineeringBudgetPinPaper
+    # # ADT-Tweak-End
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
@@ -283,6 +288,10 @@
     - id: OpporozidoneBeakerSmall
     - id: ADTClothingEyesGlassesMedChem
     # ADT tweak End
+    # # ADT-Economy-Start
+    - id: ADTMedicalBudgetCard
+    - id: ADTMedicalBudgetPinPaper
+    # # ADT-Economy-End
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
@@ -336,13 +345,16 @@
     - id: ResearchComputerCircuitboard
     - id: CargoRequestScienceComputerCircuitboard
     - id: RubberStampRd
-    # ADT-WikiBooks-Start
+    # ADT-Tweak-Start
     - id: ADTBookSRPcmd
     - id: ADTBookSRPrnd
     - id: ADTBookPCDcmd
     - id: ADTtelescopicBaton
     - id: ADTBoxAICircuitBoard
-    # ADT-WikiBooks-End
+    - id: ADTScienceBudgetCard
+    - id: ADTScienceBudgetPinPaper
+    - id: ADTRNDInducerBattery
+    # ADT-Tweak-End
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
@@ -420,6 +432,10 @@
     # ADT-SecShuttle-Start
     - id: ADTSecShuttleConsoleCircuitboard
     # ADT-SecShuttle-End
+    # # ADT-Economy-Start
+    - id: ADTSecurityBudgetCard
+    - id: ADTSecurityBudgetPinPaper
+    # # ADT-Economy-End
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
