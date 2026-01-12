@@ -1,0 +1,28 @@
+- type: decal
+  id: FloraBigBush1
+  tags: ["flora"]
+  sprite:
+    sprite: ADT/Decals/flora_bushes64x64.rsi
+    state: bigbush1
+
+- type: decal
+  id: FloraBigBush2
+  tags: ["flora"]
+  sprite:
+    sprite: ADT/Decals/flora_bushes64x64.rsi
+    state: bigbush2
+
+- type: decal
+  id: FloraBigBush3
+  tags: ["flora"]
+  sprite:
+    sprite: ADT/Decals/flora_bushes64x64.rsi
+    state: bigbush3
+
+- type: decal
+  id: FloraBigBush4
+  tags: ["flora"]
+  sprite:
+    sprite: ADT/Decals/flora_bushes64x64.rsi
+    state: bigbush4
+
