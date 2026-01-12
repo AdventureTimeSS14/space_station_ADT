@@ -1018,10 +1018,6 @@
     maxScanRange: null
     scanDelay: 0
     silent: true
-  # ADT-Tweak-Start
-  - type: NanoChatCard
-    listNumber: false
-  # ADT-Tweak-End
   - type: CartridgeLoader
     uiKey: enum.PdaUiKey.Key
     notificationsEnabled: false
@@ -1047,7 +1043,7 @@
   components:
   - type: Pda
     id: CentcomIDCardDeathsquad
-  - type: Icon 
+  - type: Icon
     state: pda-ds
   - type: Appearance
     appearanceDataInit:

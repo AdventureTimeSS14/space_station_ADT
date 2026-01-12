@@ -30,14 +30,14 @@ centcom-random-event-language-2 = хихич
 centcom-random-event-language-3 = ткачий
 centcom-random-event-language-4 = троичный
 centcom-random-event-language-5 = синта'унати
-centcom-random-event-language-6 = синта'таир
-centcom-random-event-language-7 = сик'таир
+centcom-random-event-language-6 = синта’тайр
+centcom-random-event-language-7 = сик'тайр
 centcom-random-event-language-8 = скретчи
 centcom-random-event-language-9 = рыкрур
 centcom-random-event-language-10 = паучий
 centcom-random-event-language-11 = орлуум
 centcom-random-event-language-12 = некоязык
-centcom-random-event-language-13 = канилулц
+centcom-random-event-language-13 = канилунц
 centcom-random-event-language-14 = каукиттен
 centcom-random-event-language-15 = шахт
 
