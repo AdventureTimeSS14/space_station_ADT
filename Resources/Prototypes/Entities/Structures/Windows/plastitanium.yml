@@ -173,6 +173,12 @@
   components:
   - type: ExaminableDamage
     messages: null
+  #ADT-Tweak-Start
+  - type: Tag
+    tags:
+    - Diagonal
+    - Window
+  #ADT-Tweak-End
 
 - type: entity
   id: PlastitaniumWindowDiagonal
@@ -217,3 +223,9 @@
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: RGlass
+  #ADT-Tweak-Start
+  - type: Tag
+    tags:
+    - Diagonal
+    - Window
+  #ADT-Tweak-End

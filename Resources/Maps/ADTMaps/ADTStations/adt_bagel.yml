@@ -15612,8 +15612,6 @@ entities:
       pos: -38.5,-29.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 24861
 - proto: AltarConvert
