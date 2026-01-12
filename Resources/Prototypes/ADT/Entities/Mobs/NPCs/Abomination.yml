@@ -135,8 +135,8 @@
       fix1:
         shape:
           !type:PhysShapeCircle
-          radius: 0.5
-        density: 12000
+          radius: 0.45
+        density: 1350
         mask:
         - MobMask
         layer:
@@ -144,7 +144,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      750: Dead
+      300: Dead
   - type: MobPrice
     price: 1500
   - type: Damageable
@@ -160,6 +160,8 @@
     damage:
       groups:
         Brute: 20
+      types:
+        Structural: 30
   - type: Jumpboots
     jumpAction: CompActionJumpAbomination
   - type: EmitSoundOnSpawn
@@ -174,7 +176,8 @@
     rules: ghost-role-information-antagonist-rules
   - type: GhostTakeoverAvailable
   - type: TTS
-    voice: biden
+    voice: ranrak
+  - type: AshStormImmune
 
 - type: entity
   id: ADTAbominationBloated
