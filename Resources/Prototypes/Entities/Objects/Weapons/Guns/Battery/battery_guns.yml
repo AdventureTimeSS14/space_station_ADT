@@ -315,6 +315,7 @@
     soundHit:
       collection: GenericHit
   - type: AltFireMelee
+  - type: GunExecutionBlacklist #ADT-Tweak
   # ADT-Tweak end
   - type: Gun
     selectedMode: SemiAuto
@@ -326,7 +327,6 @@
     fireCost: 20 #ADT_Tweak 62.5 -> 20
   - type: StaticPrice
     price: 300
-  - type: GunExecutionBlacklist
 
 - type: entity
   name: laser rifle
@@ -760,6 +760,7 @@
     soundHit:
       collection: GenericHit
   - type: AltFireMelee
+  - type: GunExecutionBlacklist #ADT-Tweak
   # ADT-Tweak end
   - type: Clothing
     sprite: Objects/Weapons/Guns/Battery/practice_disabler.rsi
@@ -788,6 +789,7 @@
   - type: PacifismAllowedGun #ADT-tweak
   - ADTBsoWeapon #ADT-tweak
   - type: GunExecutionBlacklist #ADT-tweak
+    - ADTBsoWeapon #ADT tweak
 
 - type: entity
   name: disabler
@@ -815,6 +817,7 @@
     soundHit:
       collection: GenericHit
   - type: AltFireMelee
+  - type: GunExecutionBlacklist #ADT-Tweak
   # ADT-Tweak end
   - type: Clothing
     sprite: Objects/Weapons/Guns/Battery/disabler.rsi
@@ -873,6 +876,7 @@
     soundHit:
       collection: GenericHit
   - type: AltFireMelee
+  - type: GunExecutionBlacklist #ADT-Tweak
   # ADT-Tweak end
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDisablerSmg

@@ -16,37 +16,9 @@ ent-ADTSpawnPointVoxRaider = спавнер вокса-налётчика
     .desc = { ent-MarkerBase.desc }
     .suffix = Вокс-налётчик
 
-ent-ADTSpawnMobXenoBurrower = спавнер бурильщика
+ent-ADTSpawnMobXenoRouny = спавнер ксено
     .desc = { ent-MarkerBase.desc }
-    .suffix = Ксено
-
-ent-ADTSpawnMobXenoPraetorian = спавнер преторианца
-    .desc = { ent-MarkerBase.desc }
-    .suffix = Ксено
-
-ent-ADTSpawnMobXenoDrone = спавнер дрона
-    .desc = { ent-MarkerBase.desc }
-    .suffix = Ксено
-
-ent-ADTSpawnMobXenoQueen = спавнер королевы
-    .desc = { ent-MarkerBase.desc }
-    .suffix = Ксено
-
-ent-ADTSpawnMobXenoRavager = спавнер разрушителя
-    .desc = { ent-MarkerBase.desc }
-    .suffix = Ксено
-
-ent-ADTSpawnMobXenoRunner = спавнер бегуна
-    .desc = { ent-MarkerBase.desc }
-    .suffix = Ксено
-
-ent-ADTSpawnMobXenoRouny = спавнер руни
-    .desc = { ent-MarkerBase.desc }
-    .suffix = Ксено
-
-ent-ADTSpawnMobXenoSpitter = спавнер плевальщика
-    .desc = { ent-MarkerBase.desc }
-    .suffix = Ксено
+    .suffix = Руни
 
 ent-ADTSpawnMobArgocyteSlurva = спавнер ленивчика
     .desc = { ent-MarkerBase.desc }

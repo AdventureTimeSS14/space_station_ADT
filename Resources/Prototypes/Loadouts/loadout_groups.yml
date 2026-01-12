@@ -60,6 +60,37 @@
   # Corvax-Loadouts-End
   - TowelColorWhite
   - TowelColorGray
+=======
+  #ADT-tweak-start
+  # - ClothingNeckLGBTPin
+  # - ClothingNeckAromanticPin
+  # - ClothingNeckAsexualPin
+  # - ClothingNeckBisexualPin
+  # - ClothingNeckIntersexPin
+  # - ClothingNeckLesbianPin
+  # - ClothingNeckNonBinaryPin
+  # - ClothingNeckPansexualPin
+  # - ClothingNeckTransPin
+  # - ClothingNeckAutismPin
+  # - ClothingNeckGoldAutismPin
+  # # Corvax-Loadouts-Start
+  # - ClothingNeckAtharaPin
+  # - ClothingNeckCorvaxPin
+  # - ClothingNeckEchoPin
+  # - ClothingNeckElysiumPin
+  # - ClothingNeckMainPin
+  # - ClothingNeckNebulaPin
+  # - ClothingNeckNovaPin
+  # - ClothingNeckSolarisPin
+  # - ClothingNeckWhiteListPin
+  # # Corvax-Loadouts-End
+  - AcousticGuitarInstrument
+  - RockGuitarInstrument #ADT-tweak
+  - HarmonicaInstrument #ADT-tweak
+  - ADTModStorageVoucher
+  - ADTClothingGeorgeRibbonPin
+  - ADTClothingMaskPaperBlank
+  #ADT-tweak-end
   - TowelColorBlack
   - TowelColorRed
   - TowelColorOrange
@@ -77,9 +108,11 @@
   - TowelColorWhite
   - TowelColorYellow
   # ADT-Tweak-Start
-  - AcousticGuitarInstrument
+  - ADTClothingHandsRingEmerald
+  - ADTClothingHandsRingBlood
+  - ADTClothingHandsRingPlazma
+  - ADTClothingHandsRingTurk
   - ADTHandheldStationMapUnpowered
-  - HarmonicaInstrument
   - ADTModStorageVoucher
   - ADTClothingGeorgeRibbonPin
   # ADT-Tweak-End
@@ -1579,6 +1612,7 @@
   loadouts:
   - DetectiveTie
   # ADT-Loadout-Start
+  - ADTClothingInvestigatorShoulderNeck
   - ADTNeckSecBadgeBronze
   - ADTNeckSecBadgeSilver
   - ADTNeckSecBadgeGold

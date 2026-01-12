@@ -20,6 +20,7 @@ namespace Content.Shared.Humanoid.Markings
         Arms,
         Legs,
         Tail,
+        OverlayBandage, // for bandage (ADT)
         Overlay
     }
 
@@ -49,6 +50,7 @@ namespace Content.Shared.Humanoid.Markings
                 HumanoidVisualLayers.LFoot => MarkingCategories.Legs,
                 HumanoidVisualLayers.RFoot => MarkingCategories.Legs,
                 HumanoidVisualLayers.Tail => MarkingCategories.Tail,
+                HumanoidVisualLayers.OverlayBandage => MarkingCategories.OverlayBandage, // for bandage (ADT)
                 _ => MarkingCategories.Overlay
             };
         }

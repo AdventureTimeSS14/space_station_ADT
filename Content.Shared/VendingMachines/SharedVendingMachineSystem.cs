@@ -339,6 +339,15 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
 
         // only emag if there are emag-only items
         args.Handled = component.EmaggedInventory.Count > 0 || component.PriceMultiplier > 0; // ADT-Economy
+
+        // ADT-tweak start
+        if (args.Handled)
+        {
+            // Make all items free when emagged
+            component.AllForFree = true;
+            Dirty(uid, component);
+        }
+        // ADT-tweak end
     }
 
     /// <summary>

@@ -862,3 +862,9 @@ ToySkeleton: ToyFigurineSkeleton
 
 # 2025-10-28
 DrinkKiraSpecial: DrinkOrangeLimeSodaGlass
+
+# ADT 2026-01-06
+ADTSpawnMobXenoBurrower: SpawnMobXenoBurrower
+ADTSpawnMobXenoDrone: SpawnMobXenoDrone
+ADTSpawnMobXenoQueen: SpawnMobXenoQueen
+ADTSpawnMobXenoRavager: SpawnMobXenoRavager

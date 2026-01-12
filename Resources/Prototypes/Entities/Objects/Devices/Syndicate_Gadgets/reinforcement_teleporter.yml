@@ -6,7 +6,7 @@
   description: Call in a syndicate agent of questionable quality, instantly! Only basic equipment provided.
   components:
   - type: Sprite
-    sprite: Objects/Devices/communication.rsi
+    sprite: ADT/Objects/Devices/communication.rsi # ADT-tweak: Objects/Devices/communication.rsi --> ADT/Objects/Devices/communication.rsi
     layers:
     - state: old-radio
   - type: UserInterface

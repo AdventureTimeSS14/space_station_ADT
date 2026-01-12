@@ -32,6 +32,7 @@ namespace Content.Shared.Humanoid
         StencilMask,
         Ensnare,
         Fire,
+        OverlayBandage, // for bandage (ADT)
 
     }
 }

@@ -80,14 +80,10 @@
       types:
         Slash: 20
         Structural: 20
-    # ADT-Tweak end
-  # Start ADT: Xeno Buff
- # - type: StaminaDamageOnHit
-  #  damage: 10
   - type: Damageable
     damageModifierSet: ADTXenoDamageSet
   - type: Fauna
-  # End ADT
+    # ADT-Tweak end
   - type: DamageStateVisuals
     states:
       Alive:
@@ -164,8 +160,6 @@
     damage:
       groups:
         Brute: 27
-  #- type: StaminaDamageOnHit
-  #  damage: 12
   # ADT End
   - type: Fixtures
     fixtures:
@@ -205,13 +199,9 @@
   - type: MeleeWeapon
     damage:
   # ADT-Tweak start
-      types:  
+      types:
         Blunt: 15
   # ADT-Tweak end
-  # Start ADT: Xeno Buff
-  #- type: StaminaDamageOnHit
-  #  damage: 15
-  # End ADT
   - type: MovementSpeedModifier
     baseSprintSpeed: 4
   - type: Fixtures
@@ -235,9 +225,7 @@
   parent: MobXeno
   id: MobXenoQueen
   components:
-  # ADT Start: Xeno buff
   - type: XenoQueen # ADT Tweak: Способности королевы
-  #ADT End
   - type: Sprite
     drawdepth: Mobs
     sprite: Mobs/Aliens/Xenos/queen.rsi
@@ -257,10 +245,6 @@
     damage:
      groups:
        Brute: 42 # ADT Tweak
-  # Start ADT: Xeno Buff
-  # - type: StaminaDamageOnHit
-  #  damage: 35
-  # End ADT
   - type: Fixtures
     fixtures:
       fix1:
@@ -307,7 +291,10 @@
       - !type:GibBehavior { }
 # ADT-tweak end
   - type: MovementSpeedModifier
-    baseSprintSpeed: 2 # ADT Tweak
+    # ADT-tweak start
+    baseSprintSpeed: 2
+    baseWalkSpeed: 1
+    # ADT-tweak end
   - type: MeleeWeapon
     damage:
     # ADT-tweak start
@@ -318,10 +305,6 @@
   - type: SlowOnDamage
     speedModifierThresholds:
       50: 0.7
-  # Start ADT: Xeno Buff
-  # - type: StaminaDamageOnHit
-  #  damage: 45 # 60
-  # End ADT
   - type: Fixtures
     fixtures:
       fix1:
@@ -364,10 +347,6 @@
      types:
        Piercing: 13
     # ADT-Tweak end
-  # Start ADT: Xeno Buff
-  # - type: StaminaDamageOnHit
-  #  damage: 5
-  # End ADT
   - type: Fixtures
     fixtures:
       fix1:

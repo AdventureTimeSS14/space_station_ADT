@@ -107,6 +107,10 @@
         whitelist:
           tags:
             - CartridgeLightRifle
+# ADT-tweak start
+  - type: Clothing
+    sprite: ADT/Objects/Weapons/Guns/Rifles/ak.rsi
+# ADT-tweak end
   - type: ContainerContainer
     containers:
       gun_magazine: !type:ContainerSlot
@@ -419,3 +423,4 @@
       path: /Audio/Weapons/Guns/Empty/empty.ogg
     clumsyProof: true
   - type: PacifismAllowedGun
+  - type: GunExecutionBlacklist #ADT-Tweak

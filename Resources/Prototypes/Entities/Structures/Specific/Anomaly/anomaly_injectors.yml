@@ -65,6 +65,11 @@
           Moth:
             sprite: Structures/Specific/Anomalies/inner_anom_layer.rsi
             state: fire_MOTH
+# ADT-tweak start
+          Resomi:
+            sprite: ADT/Structures/Specific/Anomalies/inner_anom_layer.rsi
+            state: fire_RESOMI
+# ADT-tweak end
 
 - type: entity
   parent: BaseAnomalyInjector
@@ -103,6 +108,11 @@
           Moth:
             sprite: Structures/Specific/Anomalies/inner_anom_layer.rsi
             state: shock_MOTH
+# ADT-tweak start
+          Resomi:
+            sprite: ADT/Structures/Specific/Anomalies/inner_anom_layer.rsi
+            state: shock_RESOMI
+# ADT-tweak end
 
 - type: entity
   parent: BaseAnomalyInjector
@@ -141,6 +151,11 @@
           Moth:
             sprite: Structures/Specific/Anomalies/inner_anom_layer.rsi
             state: shadow_MOTH
+# ADT-tweak start
+          Resomi:
+            sprite: ADT/Structures/Specific/Anomalies/inner_anom_layer.rsi
+            state: shadow_RESOMI
+# ADT-tweak end
 
 - type: entity
   parent: BaseAnomalyInjector
@@ -179,6 +194,11 @@
           Moth:
             sprite: Structures/Specific/Anomalies/inner_anom_layer.rsi
             state: frost_MOTH
+# ADT-tweak start
+          Resomi:
+            sprite: ADT/Structures/Specific/Anomalies/inner_anom_layer.rsi
+            state: frost_RESOMI
+# ADT-tweak end
 
 - type: entity
   parent: BaseAnomalyInjector
@@ -217,6 +237,11 @@
           Moth:
             sprite: Structures/Specific/Anomalies/inner_anom_layer.rsi
             state: flora_MOTH
+# ADT-tweak start
+          Resomi:
+            sprite: ADT/Structures/Specific/Anomalies/inner_anom_layer.rsi
+            state: flora_RESOMI
+# ADT-tweak end
 
 - type: entity
   parent: BaseAnomalyInjector
@@ -255,6 +280,11 @@
           Moth:
             sprite: Structures/Specific/Anomalies/inner_anom_layer.rsi
             state: bluespace_MOTH
+# ADT-tweak start
+          Resomi:
+            sprite: ADT/Structures/Specific/Anomalies/inner_anom_layer.rsi
+            state: bluespace_RESOMI
+# ADT-tweak end
 
 - type: entity
   parent: BaseAnomalyInjector
@@ -293,6 +323,11 @@
           Moth:
             sprite: Structures/Specific/Anomalies/inner_anom_layer.rsi
             state: flesh_MOTH
+# ADT-tweak start
+          Resomi:
+            sprite: ADT/Structures/Specific/Anomalies/inner_anom_layer.rsi
+            state: flesh_RESOMI
+# ADT-tweak end
 
 - type: entity
   parent: BaseAnomalyInjector
@@ -332,6 +367,11 @@
           Moth:
             sprite: Structures/Specific/Anomalies/inner_anom_layer.rsi
             state: grav_MOTH
+# ADT-tweak start
+          Resomi:
+            sprite: ADT/Structures/Specific/Anomalies/inner_anom_layer.rsi
+            state: grav_RESOMI
+# ADT-tweak end
 
 - type: entity
   parent: BaseAnomalyInjector
@@ -370,6 +410,11 @@
           Moth:
             sprite: Structures/Specific/Anomalies/inner_anom_layer.rsi
             state: tech_MOTH
+# ADT-tweak start
+          Resomi:
+            sprite: ADT/Structures/Specific/Anomalies/inner_anom_layer.rsi
+            state: tech_RESOMI
+# ADT-tweak end
 
 - type: entity
   parent: BaseAnomalyInjector
@@ -409,6 +454,10 @@
           Moth:
             sprite: Structures/Specific/Anomalies/inner_anom_layer.rsi
             state: rock_MOTH
+# ADT-tweak start
+          Resomi:
+            sprite: ADT/Structures/Specific/Anomalies/inner_anom_layer.rsi
+            state: rock_RESOMI
 
 - type: entity
   parent: BaseAnomalyInjector
@@ -437,3 +486,9 @@
         fallbackSprite:
           sprite: Structures/Specific/Anomalies/inner_anom_layer.rsi
           state: santa
+# ADT-tweak start
+        speciesSprites:
+          Resomi:
+            sprite: ADT/Structures/Specific/Anomalies/inner_anom_layer.rsi
+            state: santa_RESOMI
+# ADT-tweak end
