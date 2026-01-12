@@ -123,6 +123,56 @@
     sound:
       path: /Audio/ADT/SoundGen/reverse_dissolve_scary.ogg
 
+- type: entity
+  parent: ADTSoundGenBase
+  id: ADTSoundGenManLaugh
+  name: ADTSoundGenManLaugh
+  abstract: false
+  components:
+  - type: TimedDespawn
+    lifetime: 3
+  - type: EmitSoundOnSpawn
+    sound:
+      path: /Audio/Voice/Human/manlaugh2.ogg
+
+- type: entity
+  parent: ADTSoundGenBase
+  id: ADTSoundGenWomanLaugh
+  name: ADTSoundGenWomanLaugh
+  abstract: false
+  components:
+  - type: TimedDespawn
+    lifetime: 3
+  - type: EmitSoundOnSpawn
+    sound:
+      path: /Audio/ADT/Voice/Human/female_giggle1.ogg
+
+- type: entity
+  parent: ADTSoundGenBase
+  id: ADTSoundGenCluwneLaugh
+  name: ADTSoundGenCluwneLaugh
+  abstract: false
+  components:
+  - type: TimedDespawn
+    lifetime: 3
+  - type: EmitSoundOnSpawn
+    sound:
+      path: /Audio/Voice/Cluwne/cluwnelaugh1.ogg
+
+- type: entity
+  parent: ADTSoundGenBase
+  id: ADTSoundGenScaryLaugh
+  name: ADTSoundGenScaryLaugh
+  abstract: false
+  components:
+  - type: TimedDespawn
+    lifetime: 10
+  - type: EmitSoundOnSpawn
+    sound:
+      path: /Audio/ADT/SoundGen/scary_laugh.ogg
+    
+
+
 
 # Ambient
 
