@@ -143604,6 +143604,8 @@ entities:
     - type: Transform
       pos: -5.5,-141.5
       parent: 2
+- proto: SpawnPointChiefMedicalOfficer
+  entities:
   - uid: 20549
     components:
     - type: Transform
