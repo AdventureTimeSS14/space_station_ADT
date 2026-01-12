@@ -20,11 +20,748 @@
     scale: 0.75, 0.75
 
 - type: entity
+  id: ADTBannerClown
+  parent: BannerBase
+  name: clown banner
+  description: A banner displaying a clown. Honk!
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Banners/banner.rsi
+    layers:
+    - state: clown
+      map: ["unfoldedLayer"]
+    - sprite: ADT/Structures/Banners/rolled.rsi
+      state: clown-rolled
+      map: ["foldedLayer"]
+      visible: false
+  - type: Foldable
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.FoldedVisuals.State:
+        foldedLayer:
+          True: {visible: true}
+          False: {visible: false}
+        unfoldedLayer:
+          True: {visible: false}
+          False: {visible: true}
+  - type: Item
+    size: Normal
+  - type: Construction
+    graph: ADTBannerClown
+    node: banner
+
+- type: entity
+  id: ADTBannerCybersun
+  parent: BannerBase
+  name: Cybersun banner
+  description: A banner with the Cybersun Industries logo. They are very secretive corporations.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Banners/banner.rsi
+    layers:
+    - state: cydersun
+      map: ["unfoldedLayer"]
+    - sprite: ADT/Structures/Banners/rolled.rsi
+      state: cydersun-rolled
+      map: ["foldedLayer"]
+      visible: false
+  - type: Foldable
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.FoldedVisuals.State:
+        foldedLayer:
+          True: {visible: true}
+          False: {visible: false}
+        unfoldedLayer:
+          True: {visible: false}
+          False: {visible: true}
+  - type: Item
+    size: Normal
+
+- type: entity
+  id: ADTBannerDiona
+  parent: BannerBase
+  name: diona banner
+  description: A banner displaying a diona... Are they plants?
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Banners/banner.rsi
+    layers:
+    - state: diona
+      map: ["unfoldedLayer"]
+    - sprite: ADT/Structures/Banners/rolled.rsi
+      state: diona-rolled
+      map: ["foldedLayer"]
+      visible: false
+  - type: Foldable
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.FoldedVisuals.State:
+        foldedLayer:
+          True: {visible: true}
+          False: {visible: false}
+        unfoldedLayer:
+          True: {visible: false}
+          False: {visible: true}
+  - type: Item
+    size: Normal
+  - type: Construction
+    graph: ADTBannerDiona
+    node: banner
+
+- type: entity
+  id: ADTBannerDrask
+  parent: BannerBase
+  name: drask banner
+  description: A banner displaying a drask. They are very cold-blooded creatures, preferring cold environments.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Banners/banner.rsi
+    layers:
+    - state: drask
+      map: ["unfoldedLayer"]
+    - sprite: ADT/Structures/Banners/rolled.rsi
+      state: drask-rolled
+      map: ["foldedLayer"]
+      visible: false
+  - type: Foldable
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.FoldedVisuals.State:
+        foldedLayer:
+          True: {visible: true}
+          False: {visible: false}
+        unfoldedLayer:
+          True: {visible: false}
+          False: {visible: true}
+  - type: Item
+    size: Normal
+  - type: Construction
+    graph: ADTBannerDrask
+    node: banner
+
+- type: entity
+  id: ADTBannerElysium
+  parent: BannerBase
+  name: elysium banner
+  description: A banner displaying the Elysium Corporation logo. Are they really a corporation?
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Banners/banner.rsi
+    layers:
+    - state: elysium
+      map: ["unfoldedLayer"]
+    - sprite: ADT/Structures/Banners/rolled.rsi
+      state: elysium-rolled
+      map: ["foldedLayer"]
+      visible: false
+  - type: Foldable
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.FoldedVisuals.State:
+        foldedLayer:
+          True: {visible: true}
+          False: {visible: false}
+        unfoldedLayer:
+          True: {visible: false}
+          False: {visible: true}
+  - type: Item
+    size: Normal
+
+- type: entity
+  id: ADTBannerEmpireKhsira
+  parent: BannerBase
+  name: Khsira Empire banner
+  description: A banner displaying the Khsira Empire flag. This empire is very militaristic (especially) semi-feudal militaristic society.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Banners/banner.rsi
+    layers:
+    - state: empire_khsira
+      map: ["unfoldedLayer"]
+    - sprite: ADT/Structures/Banners/rolled.rsi
+      state: empire_khsira-rolled
+      map: ["foldedLayer"]
+      visible: false
+  - type: Foldable
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.FoldedVisuals.State:
+        foldedLayer:
+          True: {visible: true}
+          False: {visible: false}
+        unfoldedLayer:
+          True: {visible: false}
+          False: {visible: true}
+  - type: Item
+    size: Normal
+  - type: Construction
+    graph: ADTBannerEmpireKhsira
+    node: banner
+
+- type: entity
+  id: ADTBannerGorlex
+  parent: BannerBase
+  name: Gorlex Securities banner
+  description: A banner with the Gorlex Securities LLC logo. These corporations are very secretive, but you know everything!
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Banners/banner.rsi
+    layers:
+    - state: gorlex
+      map: ["unfoldedLayer"]
+    - sprite: ADT/Structures/Banners/rolled.rsi
+      state: gorlex-rolled
+      map: ["foldedLayer"]
+      visible: false
+  - type: Foldable
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.FoldedVisuals.State:
+        foldedLayer:
+          True: {visible: true}
+          False: {visible: false}
+        unfoldedLayer:
+          True: {visible: false}
+          False: {visible: true}
+  - type: Item
+    size: Normal
+
+- type: entity
+  id: ADTBannerGreytide
+  parent: BannerBase
+  name: greytide banner
+  description: A banner with a greytide flag. Greytide must be destroyed!
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Banners/banner.rsi
+    layers:
+    - state: greytide
+      map: ["unfoldedLayer"]
+    - sprite: ADT/Structures/Banners/rolled.rsi
+      state: greytide-rolled
+      map: ["foldedLayer"]
+      visible: false
+  - type: Foldable
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.FoldedVisuals.State:
+        foldedLayer:
+          True: {visible: true}
+          False: {visible: false}
+        unfoldedLayer:
+          True: {visible: false}
+          False: {visible: true}
+  - type: Item
+    size: Normal
+  - type: Construction
+    graph: ADTBannerGreytide
+    node: banner
+
+- type: entity
+  id: ADTBannerInterpharm
+  parent: BannerBase
+  name: InterPharm banner
+  description: A banner with the Interdyne Pharmaceutics logo. They are corporations. Pharmaceuticals - that's understandable.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Banners/banner.rsi
+    layers:
+    - state: interpharm
+      map: ["unfoldedLayer"]
+    - sprite: ADT/Structures/Banners/rolled.rsi
+      state: interpharm-rolled
+      map: ["foldedLayer"]
+      visible: false
+  - type: Foldable
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.FoldedVisuals.State:
+        foldedLayer:
+          True: {visible: true}
+          False: {visible: false}
+        unfoldedLayer:
+          True: {visible: false}
+          False: {visible: true}
+  - type: Item
+    size: Normal
+
+- type: entity
+  id: ADTBannerIPC
+  parent: BannerBase
+  name: synthetic banner
+  description: A banner displaying a synthetic. Synths must be destroyed and all their rights!
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Banners/banner.rsi
+    layers:
+    - state: ipc
+      map: ["unfoldedLayer"]
+    - sprite: ADT/Structures/Banners/rolled.rsi
+      state: ipc-rolled
+      map: ["foldedLayer"]
+      visible: false
+  - type: Foldable
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.FoldedVisuals.State:
+        foldedLayer:
+          True: {visible: true}
+          False: {visible: false}
+        unfoldedLayer:
+          True: {visible: false}
+          False: {visible: true}
+  - type: Item
+    size: Normal
+  - type: Construction
+    graph: ADTBannerIPC
+    node: banner
+
+- type: entity
+  id: ADTBannerMagic
+  parent: BannerBase
+  name: wizard banner
+  description: A banner displaying a wizard from the "Order of Wizard-Magicians and Wizard-Magicians Order". Honestly, that name sounds like it came from a children's book.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Banners/banner.rsi
+    layers:
+    - state: magic
+      map: ["unfoldedLayer"]
+    - sprite: ADT/Structures/Banners/rolled.rsi
+      state: magic-rolled
+      map: ["foldedLayer"]
+      visible: false
+  - type: Foldable
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.FoldedVisuals.State:
+        foldedLayer:
+          True: {visible: true}
+          False: {visible: false}
+        unfoldedLayer:
+          True: {visible: false}
+          False: {visible: true}
+  - type: Item
+    size: Normal
+  - type: Construction
+    graph: ADTBannerMagic
+    node: banner
+
+- type: entity
+  id: ADTBannerMime
+  parent: BannerBase
+  name: mime banner
+  description: ...
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Banners/banner.rsi
+    layers:
+    - state: mime
+      map: ["unfoldedLayer"]
+    - sprite: ADT/Structures/Banners/rolled.rsi
+      state: mime-rolled
+      map: ["foldedLayer"]
+      visible: false
+  - type: Foldable
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.FoldedVisuals.State:
+        foldedLayer:
+          True: {visible: true}
+          False: {visible: false}
+        unfoldedLayer:
+          True: {visible: false}
+          False: {visible: true}
+  - type: Item
+    size: Normal
+  - type: Construction
+    graph: ADTBannerMime
+    node: banner
+
+- type: entity
+  id: ADTBannerNarsi
+  parent: BannerBase
+  name: Nars'ie banner
+  description: A banner with Nars'ie.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Banners/banner.rsi
+    layers:
+    - state: narsi
+      map: ["unfoldedLayer"]
+    - sprite: ADT/Structures/Banners/rolled.rsi
+      state: narsi-rolled
+      map: ["foldedLayer"]
+      visible: false
+  - type: Foldable
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.FoldedVisuals.State:
+        foldedLayer:
+          True: {visible: true}
+          False: {visible: false}
+        unfoldedLayer:
+          True: {visible: false}
+          False: {visible: true}
+  - type: Item
+    size: Normal
+
+- type: entity
+  id: ADTBannerNian
+  parent: BannerBase
+  name: Nian banner
+  description: A banner displaying the Nian Empire flag.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Banners/banner.rsi
+    layers:
+    - state: nian
+      map: ["unfoldedLayer"]
+    - sprite: ADT/Structures/Banners/rolled.rsi
+      state: nian-rolled
+      map: ["foldedLayer"]
+      visible: false
+  - type: Foldable
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.FoldedVisuals.State:
+        foldedLayer:
+          True: {visible: true}
+          False: {visible: false}
+        unfoldedLayer:
+          True: {visible: false}
+          False: {visible: true}
+  - type: Item
+    size: Normal
+  - type: Construction
+    graph: ADTBannerNian
+    node: banner
+
+- type: entity
+  id: ADTBannerNinja
+  parent: BannerBase
+  name: space ninja banner
+  description: A banner displaying a ninja.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Banners/banner.rsi
+    layers:
+    - state: ninja
+      map: ["unfoldedLayer"]
+    - sprite: ADT/Structures/Banners/rolled.rsi
+      state: ninja-rolled
+      map: ["foldedLayer"]
+      visible: false
+  - type: Foldable
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.FoldedVisuals.State:
+        foldedLayer:
+          True: {visible: true}
+          False: {visible: false}
+        unfoldedLayer:
+          True: {visible: false}
+          False: {visible: true}
+  - type: Item
+    size: Normal
+
+- type: entity
+  id: ADTBannerNovakid
+  parent: BannerBase
+  name: novakid banner
+  description: A banner displaying a novakid with a cowboy hat. Honestly, you don't know if this is a real species or just a joke.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Banners/banner.rsi
+    layers:
+    - state: novakid
+      map: ["unfoldedLayer"]
+    - sprite: ADT/Structures/Banners/rolled.rsi
+      state: novakid-rolled
+      map: ["foldedLayer"]
+      visible: false
+  - type: Foldable
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.FoldedVisuals.State:
+        foldedLayer:
+          True: {visible: true}
+          False: {visible: false}
+        unfoldedLayer:
+          True: {visible: false}
+          False: {visible: true}
+  - type: Item
+    size: Normal
+  - type: Construction
+    graph: ADTBannerNovakid
+    node: banner
+
+- type: entity
   id: ADTBannerPirate
   parent: BannerBase
   name: pirate banner
-  description: pirate banner.
+  description: A banner displaying a pirate flag. Argh!
   components:
   - type: Sprite
-    sprite: ADT/Structures/Decoration/pirate.rsi
-    state: icon
+    sprite: ADT/Structures/Banners/banner.rsi
+    layers:
+    - state: pirate
+      map: ["unfoldedLayer"]
+    - sprite: ADT/Structures/Banners/rolled.rsi
+      state: pirate-rolled
+      map: ["foldedLayer"]
+      visible: false
+  - type: Foldable
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.FoldedVisuals.State:
+        foldedLayer:
+          True: {visible: true}
+          False: {visible: false}
+        unfoldedLayer:
+          True: {visible: false}
+          False: {visible: true}
+  - type: Item
+    size: Normal
+
+- type: entity
+  id: ADTBannerRobust
+  parent: BannerBase
+  name: robust banner
+  description: A banner with a robust flag. What is this, is it 2D space?
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Banners/banner.rsi
+    layers:
+    - state: robust
+      map: ["unfoldedLayer"]
+    - sprite: ADT/Structures/Banners/rolled.rsi
+      state: robust-rolled
+      map: ["foldedLayer"]
+      visible: false
+  - type: Foldable
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.FoldedVisuals.State:
+        foldedLayer:
+          True: {visible: true}
+          False: {visible: false}
+        unfoldedLayer:
+          True: {visible: false}
+          False: {visible: true}
+  - type: Item
+    size: Normal
+  - type: Construction
+    graph: ADTBannerRobust
+    node: banner
+
+- type: entity
+  id: ADTBannerSlime
+  parent: BannerBase
+  name: slime banner
+  description: A banner displaying a slime person. Not very intelligent creatures - intelligence 5, and they can't speak.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Banners/banner.rsi
+    layers:
+    - state: slime
+      map: ["unfoldedLayer"]
+    - sprite: ADT/Structures/Banners/rolled.rsi
+      state: slime-rolled
+      map: ["foldedLayer"]
+      visible: false
+  - type: Foldable
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.FoldedVisuals.State:
+        foldedLayer:
+          True: {visible: true}
+          False: {visible: false}
+        unfoldedLayer:
+          True: {visible: false}
+          False: {visible: true}
+  - type: Item
+    size: Normal
+  - type: Construction
+    graph: ADTBannerSlime
+    node: banner
+
+- type: entity
+  id: ADTBannerTajaran
+  parent: BannerBase
+  name: tajaran banner
+  description: A banner displaying a tajaran.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Banners/banner.rsi
+    layers:
+    - state: tajaran
+      map: ["unfoldedLayer"]
+    - sprite: ADT/Structures/Banners/rolled.rsi
+      state: tajaran-rolled
+      map: ["foldedLayer"]
+      visible: false
+  - type: Foldable
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.FoldedVisuals.State:
+        foldedLayer:
+          True: {visible: true}
+          False: {visible: false}
+        unfoldedLayer:
+          True: {visible: false}
+          False: {visible: true}
+  - type: Item
+    size: Normal
+  - type: Construction
+    graph: ADTBannerTajaran
+    node: banner
+
+- type: entity
+  id: ADTBannerUSSP
+  parent: BannerBase
+  name: USSP banner
+  description: A banner displaying the USSP flag. Glory to the Union!
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Banners/banner.rsi
+    layers:
+    - state: ussp
+      map: ["unfoldedLayer"]
+    - sprite: ADT/Structures/Banners/rolled.rsi
+      state: ussp-rolled
+      map: ["foldedLayer"]
+      visible: false
+  - type: Foldable
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.FoldedVisuals.State:
+        foldedLayer:
+          True: {visible: true}
+          False: {visible: false}
+        unfoldedLayer:
+          True: {visible: false}
+          False: {visible: true}
+  - type: Item
+    size: Normal
+  - type: Construction
+    graph: ADTBannerUSSP
+    node: banner
+
+- type: entity
+  id: ADTBannerVox
+  parent: BannerBase
+  name: vox banner
+  description: A banner displaying a vox.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Banners/banner.rsi
+    layers:
+    - state: vox
+      map: ["unfoldedLayer"]
+    - sprite: ADT/Structures/Banners/rolled.rsi
+      state: vox-rolled
+      map: ["foldedLayer"]
+      visible: false
+  - type: Foldable
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.FoldedVisuals.State:
+        foldedLayer:
+          True: {visible: true}
+          False: {visible: false}
+        unfoldedLayer:
+          True: {visible: false}
+          False: {visible: true}
+  - type: Item
+    size: Normal
+  - type: Construction
+    graph: ADTBannerVox
+    node: banner
+
+- type: entity
+  id: ADTBannerVulp
+  parent: BannerBase
+  name: vulp banner
+  description: A banner displaying a vulp.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Banners/banner.rsi
+    layers:
+    - state: vulp
+      map: ["unfoldedLayer"]
+    - sprite: ADT/Structures/Banners/rolled.rsi
+      state: vulp-rolled
+      map: ["foldedLayer"]
+      visible: false
+  - type: Foldable
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.FoldedVisuals.State:
+        foldedLayer:
+          True: {visible: true}
+          False: {visible: false}
+        unfoldedLayer:
+          True: {visible: false}
+          False: {visible: true}
+  - type: Item
+    size: Normal
+  - type: Construction
+    graph: ADTBannerVulp
+    node: banner
+
+- type: entity
+  id: ADTBannerHumanFlag
+  parent: BannerBase
+  name: human flag banner
+  description: A banner displaying a human flag.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Banners/banner.rsi
+    layers:
+    - state: humanflag
+      map: ["unfoldedLayer"]
+    - sprite: ADT/Structures/Banners/rolled.rsi
+      state: humanflag-rolled
+      map: ["foldedLayer"]
+      visible: false
+  - type: Foldable
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.FoldedVisuals.State:
+        foldedLayer:
+          True: {visible: true}
+          False: {visible: false}
+        unfoldedLayer:
+          True: {visible: false}
+          False: {visible: true}
+  - type: Item
+    size: Normal
+  - type: Construction
+    graph: ADTBannerHumanFlag
+    node: banner

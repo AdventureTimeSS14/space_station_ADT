@@ -1,15 +1,20 @@
 - type: vendingMachineInventory
   id: WinterDrobeInventory
   startingInventory:
-    ClothingNeckScarfStripedRed: 3
-    ClothingNeckScarfStripedGreen: 3
-    ClothingNeckScarfStripedBlue: 3
-    ClothingNeckScarfStripedBlack: 3
-    ClothingNeckScarfStripedBrown: 3
-    ClothingNeckScarfStripedLightBlue: 3
-    ClothingNeckScarfStripedOrange: 3
-    ClothingNeckScarfStripedPurple: 3
-    ADTClothingNeckScarfStripedWhite: 3 #ADT Tweak
+    #ADT-Tweak-ClothingVoucher-Start
+    ADTClothingVoucherScarfStriped: 8
+    ADTClothingVoucherFacescarf: 8
+    ADTClothingVoucherScarfLong: 8
+    ADTClothingVoucherWinterCoatLight: 8
+    #ClothingNeckScarfStripedRed: 3
+    #ClothingNeckScarfStripedGreen: 3
+    #ClothingNeckScarfStripedBlue: 3
+    #ClothingNeckScarfStripedBlack: 3
+    #ClothingNeckScarfStripedBrown: 3
+    #ClothingNeckScarfStripedLightBlue: 3
+    #ClothingNeckScarfStripedOrange: 3
+    #ClothingNeckScarfStripedPurple: 3
+    #ADT-Tweak-ClothingVoucher-End
     ClothingOuterCoatTrench: 6
     ClothingOuterWinterCoatToggleable: 6 #ADT-Tweak
     ClothingShoesBootsWinter: 6
@@ -26,22 +31,6 @@
     ADTClothingHeadHatGreenBenie: 3 #ADT-Tweak
     ADTClothingHeadHatPurpleBenie: 3 #ADT-Tweak
     ADTClothingHeadHatRedBenie: 3 #ADT-Tweak
-    ADTClothingNeckScarfLongYellow: 6 #ADT-Tweak
-    ADTClothingNeckScarfLongOrange: 6 #ADT-Tweak
-    ADTClothingNeckScarfLongGreen: 6 #ADT-Tweak
-    ADTClothingNeckScarfLongPurple: 6 #ADT-Tweak
-    ADTClothingNeckScarfLongRed: 6 #ADT-Tweak
-    ADTClothingNeckScarfLongPink: 6 #ADT-Tweak
-    ADTClothingNeckScarfLongBlack: 6 #ADT-Tweak
-    ADTClothingNeckScarfLongBlue: 6 #ADT-Tweak
-    ADTClothingNeckFacescarfBlack: 3 #ADT-Tweak
-    ADTClothingNeckFacescarfBlue: 3 #ADT-Tweak
-    ADTClothingNeckFacescarfGreen: 3 #ADT-Tweak
-    ADTClothingNeckFacescarfGrey: 3 #ADT-Tweak
-    ADTClothingNeckFacescarfOrange: 3 #ADT-Tweak
-    ADTClothingNeckFacescarfPurple: 3 #ADT-Tweak
-    ADTClothingNeckFacescarfRed: 3 #ADT-Tweak
-    ADTClothingNeckFacescarfWhite: 3 #ADT-Tweak
     ADTClothingOuterHoodyBlack: 3 #ADT-Tweak
     ADTClothingOuterHoodyWhite: 3 #ADT-Tweak
     ADTClothingUnderwearSocksKneeHolyday: 2 #ADT-Tweak
