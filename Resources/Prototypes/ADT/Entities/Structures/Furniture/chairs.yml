@@ -49,7 +49,7 @@
   components:
   - type: Sprite
     sprite: ADT/Structures/Furniture/Chairs/chairs.rsi #спрайт от Овая
-    state: white_chair
+    state: red_chair
   - type: Construction
     graph: ADTSeat
     node: adtchairred
@@ -66,6 +66,7 @@
     graph: ADTSeat
     node: adtchairwhite
 
+
 - type: entity
   name: rusty chair
   id: ADTChairRusty
@@ -74,6 +75,149 @@
   - type: Sprite
     sprite: ADT/Structures/Furniture/Chairs/chairs.rsi
     state: rusty_chair
+
+- type: entity
+  name: bar stool
+  id: ADTChairBarStool
+  parent: ADTChairBase
+  description: This is a chair.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Chairs/chairs.rsi
+    state: bar-stool
+  - type: Construction
+    graph: ADTSeat
+    node: adtchairbarstool
+
+- type: entity
+  name: bar stool
+  id: ADTChairBarStool2
+  parent: ADTChairBase
+  description: This is a chair.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Chairs/chairs.rsi
+    state: bar-stool2
+  - type: Construction
+    graph: ADTSeat
+    node: adtchairbarstool2
+
+- type: entity
+  name: comfy black chair
+  id: ADTChairComfyBlack
+  parent: ADTChairBase
+  description: This is a chair.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Chairs/chairs.rsi
+    state: comfy_black
+  - type: Construction
+    graph: ADTSeat
+    node: adtchaircomfyblack
+
+- type: entity
+  name: comfy maroon chair
+  id: ADTChairComfyMaroon
+  parent: ADTChairBase
+  description: This is a chair.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Chairs/chairs.rsi
+    state: comfy_maroon
+  - type: Construction
+    graph: ADTSeat
+    node: adtchaircomfymaroon
+
+- type: entity
+  name: comfy white chair
+  id: ADTChairComfyWhite
+  parent: ADTChairBase
+  description: This is a chair.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Chairs/chairs.rsi
+    state: comfy_white
+  - type: Construction
+    graph: ADTSeat
+    node: adtchaircomfywhite
+
+- type: entity
+  name: king chair
+  id: ADTChairKing
+  parent: ADTChairBase
+  description: This is a chair.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Chairs/chairs.rsi
+    state: king
+  - type: Construction
+    graph: ADTSeat
+    node: adtchairking
+
+- type: entity
+  name: rich chair
+  id: ADTChairRich
+  parent: ADTChairBase
+  description: This is a chair.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Chairs/chairs.rsi
+    state: rich
+  - type: Construction
+    graph: ADTSeat
+    node: adtchairrich
+
+- type: entity
+  name: rich white chair
+  id: ADTChairRichWhite
+  parent: ADTChairBase
+  description: This is a chair.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Chairs/chairs.rsi
+    state: rich_white
+  - type: Construction
+    graph: ADTSeat
+    node: adtchairrichwhite
+
+- type: entity
+  name: style chair
+  id: ADTChairStyle
+  parent: ADTChairBase
+  description: This is a chair.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Chairs/chairs.rsi
+    state: style
+  - type: Construction
+    graph: ADTSeat
+    node: adtchairstyle
+
+- type: entity
+  name: wooden stool
+  id: ADTChairWoodenStool
+  parent: ADTChairBase
+  description: This is a chair.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Chairs/chairs.rsi
+    state: wooden-stool
+  - type: Construction
+    graph: ADTSeat
+    node: adtchairwoodenstool
+
+- type: entity
+  name: wooden stool
+  id: ADTChairWoodenStool2
+  parent: ADTChairBase
+  description: This is a chair.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Chairs/chairs.rsi
+    state: wooden-stool2
+  - type: Construction
+    graph: ADTSeat
+    node: adtchairwoodenstool2
 
 # Sofas
 

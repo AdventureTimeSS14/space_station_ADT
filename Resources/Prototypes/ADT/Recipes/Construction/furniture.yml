@@ -879,6 +879,160 @@
   conditions:
     - !type:TileNotBlocked
 
+- type: construction
+  name: construction-name-bar-stool
+  id: ADTChairBarStoolRecipe
+  graph: ADTSeat
+  startNode: start
+  targetNode: adtchairbarstool
+  category: construction-category-furniture
+  description: construction-desc-bar-stool
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: construction-name-bar-stool-2
+  id: ADTChairBarStool2Recipe
+  graph: ADTSeat
+  startNode: start
+  targetNode: adtchairbarstool2
+  category: construction-category-furniture
+  description: construction-desc-bar-stool-2
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: construction-name-comfy-black-chair
+  id: ADTChairComfyBlackRecipe
+  graph: ADTSeat
+  startNode: start
+  targetNode: adtchaircomfyblack
+  category: construction-category-furniture
+  description: construction-desc-comfy-black-chair
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: construction-name-comfy-maroon-chair
+  id: ADTChairComfyMaroonRecipe
+  graph: ADTSeat
+  startNode: start
+  targetNode: adtchaircomfymaroon
+  category: construction-category-furniture
+  description: construction-desc-comfy-maroon-chair
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: construction-name-comfy-white-chair
+  id: ADTChairComfyWhiteRecipe
+  graph: ADTSeat
+  startNode: start
+  targetNode: adtchaircomfywhite
+  category: construction-category-furniture
+  description: construction-desc-comfy-white-chair
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: construction-name-king-chair
+  id: ADTChairKingRecipe
+  graph: ADTSeat
+  startNode: start
+  targetNode: adtchairking
+  category: construction-category-furniture
+  description: construction-desc-king-chair
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: construction-name-rich-chair
+  id: ADTChairRichRecipe
+  graph: ADTSeat
+  startNode: start
+  targetNode: adtchairrich
+  category: construction-category-furniture
+  description: construction-desc-rich-chair
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: construction-name-rich-white-chair
+  id: ADTChairRichWhiteRecipe
+  graph: ADTSeat
+  startNode: start
+  targetNode: adtchairrichwhite
+  category: construction-category-furniture
+  description: construction-desc-rich-white-chair
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: construction-name-style-chair
+  id: ADTChairStyleRecipe
+  graph: ADTSeat
+  startNode: start
+  targetNode: adtchairstyle
+  category: construction-category-furniture
+  description: construction-desc-style-chair
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: construction-name-wooden-stool
+  id: ADTChairWoodenStoolRecipe
+  graph: ADTSeat
+  startNode: start
+  targetNode: adtchairwoodenstool
+  category: construction-category-furniture
+  description: construction-desc-wooden-stool
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: construction-name-wooden-stool-2
+  id: ADTChairWoodenStool2Recipe
+  graph: ADTSeat
+  startNode: start
+  targetNode: adtchairwoodenstool2
+  category: construction-category-furniture
+  description: construction-desc-wooden-stool-2
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
 # Benches
 
 - type: construction

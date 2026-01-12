@@ -286,6 +286,70 @@
             - material: WoodPlank
               amount: 2
               doAfter: 1
+        - to: adtchairbarstool
+          steps:
+            - material: WoodPlank
+              amount: 2
+              doAfter: 1
+        - to: adtchairbarstool2
+          steps:
+            - material: WoodPlank
+              amount: 2
+              doAfter: 1
+        - to: adtchaircomfyblack
+          steps:
+            - material: WoodPlank
+              amount: 2
+              doAfter: 1
+        - to: adtchaircomfymaroon
+          steps:
+            - material: WoodPlank
+              amount: 2
+              doAfter: 1
+        - to: adtchaircomfywhite
+          steps:
+            - material: WoodPlank
+              amount: 2
+              doAfter: 1
+        - to: adtchairking
+          steps:
+            - material: Gold
+              amount: 3
+              doAfter: 1
+            - material: Cloth
+              amount: 5
+              doAfter: 1
+        - to: adtchairrich
+          steps:
+            - material: Gold
+              amount: 3
+              doAfter: 1
+            - material: Cloth
+              amount: 5
+              doAfter: 1
+        - to: adtchairrichwhite
+          steps:
+            - material: Gold
+              amount: 3
+              doAfter: 1
+            - material: Cloth
+              amount: 5
+              doAfter: 1
+        - to: adtchairstyle
+          steps:
+            - material: WoodPlank
+              amount: 2
+              doAfter: 1
+        - to: adtchairwoodenstool
+          steps:
+            - material: WoodPlank
+              amount: 2
+              doAfter: 1
+        - to: adtchairwoodenstool2
+          steps:
+            - material: WoodPlank
+              amount: 2
+              doAfter: 1
         - to: adtbenchchurchleft
           steps:
             - material: WoodPlank
@@ -1016,6 +1080,139 @@
 
     - node: adtchairwhite
       entity: ADTChairWhite
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialWoodPlank1
+          steps:
+            - tool: Screwing
+              doAfter: 2
+
+    - node: adtchairbarstool
+      entity: ADTChairBarStool
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialWoodPlank1
+          steps:
+            - tool: Screwing
+              doAfter: 2
+
+    - node: adtchairbarstool2
+      entity: ADTChairBarStool2
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialWoodPlank1
+          steps:
+            - tool: Screwing
+              doAfter: 2
+
+    - node: adtchaircomfyblack
+      entity: ADTChairComfyBlack
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialWoodPlank1
+          steps:
+            - tool: Screwing
+              doAfter: 2
+
+    - node: adtchaircomfymaroon
+      entity: ADTChairComfyMaroon
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialWoodPlank1
+          steps:
+            - tool: Screwing
+              doAfter: 2
+
+    - node: adtchaircomfywhite
+      entity: ADTChairComfyWhite
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialWoodPlank1
+          steps:
+            - tool: Screwing
+              doAfter: 2
+
+    - node: adtchairking
+      entity: ADTChairKing
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialGold1
+              amount: 3
+            - !type:SpawnPrototype
+              prototype: MaterialCloth1
+              amount: 5
+          steps:
+            - tool: Screwing
+              doAfter: 2
+
+    - node: adtchairrich
+      entity: ADTChairRich
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialGold1
+              amount: 3
+            - !type:SpawnPrototype
+              prototype: MaterialCloth1
+              amount: 5
+          steps:
+            - tool: Screwing
+              doAfter: 2
+
+    - node: adtchairrichwhite
+      entity: ADTChairRichWhite
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialGold1
+              amount: 3
+            - !type:SpawnPrototype
+              prototype: MaterialCloth1
+              amount: 5
+          steps:
+            - tool: Screwing
+              doAfter: 2
+
+    - node: adtchairstyle
+      entity: ADTChairStyle
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialWoodPlank1
+          steps:
+            - tool: Screwing
+              doAfter: 2
+
+    - node: adtchairwoodenstool
+      entity: ADTChairWoodenStool
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialWoodPlank1
+          steps:
+            - tool: Screwing
+              doAfter: 2
+
+    - node: adtchairwoodenstool2
+      entity: ADTChairWoodenStool2
       edges:
         - to: start
           completed:
