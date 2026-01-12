@@ -35,6 +35,10 @@
         - GPS
         - WeldingMask
         - RemoteSignaller
+        # ADT-Tweak-Start
+        - ADTDrill
+        - PowerCell
+        # ADT-Tweak-End
       components:
         - StationMap
         - SprayPainter
@@ -301,7 +305,7 @@
     tags:
     - ClothingBeltJanitor
    # ADT-Tweak-End
-   
+
 - type: entity
   parent: ClothingBeltStorageBase
   id: ClothingBeltMedical

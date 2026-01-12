@@ -13,8 +13,8 @@
       slotTexture: socks
       slotFlags: SOCKS
       stripTime: 6
-      uiWindowPos: 3,0
-      strippingWindowPos: 2,4
+      uiWindowPos: 4,0
+      strippingWindowPos: 2,5
       displayName: Socks
       whitelist:
         tags:
@@ -23,8 +23,8 @@
       slotTexture: underwearb
       slotFlags: UNDERWEARB
       stripTime: 6
-      uiWindowPos: 3,1
-      strippingWindowPos: 1,4
+      uiWindowPos: 4,1
+      strippingWindowPos: 1,5
       displayName: Panties
       whitelist:
         tags:
@@ -33,8 +33,8 @@
       slotTexture: underweart
       slotFlags: UNDERWEART
       stripTime: 6
-      uiWindowPos: 3,2
-      strippingWindowPos: 0,4
+      uiWindowPos: 4,2
+      strippingWindowPos: 0,5
       displayName: Bra
       whitelist:
         tags:
