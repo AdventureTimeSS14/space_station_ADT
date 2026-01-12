@@ -59,7 +59,7 @@
   description: A non-functional replica of an old cargo robot.
   components:
   - type: Sprite
-    sprite: ADT/Structures/Decoration/showcase.rsi #ADT-Tweak
+    sprite: ADT/Structures/Decoration/showcase.rsi #ADT-Tweak Structures/Decoration/showcase.rsi -> ADT/Structures/Decoration/showcase.rsi
     state: showcase_3
 
 - type: entity
@@ -69,5 +69,5 @@
   description: A non-functional replica of a marauder, painted green.
   components:
   - type: Sprite
-    sprite: ADT/Structures/Decoration/showcase.rsi  #ADT-Tweak
+    sprite: ADT/Structures/Decoration/showcase.rsi  #ADT-Tweak Structures/Decoration/showcase.rsi -> ADT/Structures/Decoration/showcase.rsi
     state: showcase_4
