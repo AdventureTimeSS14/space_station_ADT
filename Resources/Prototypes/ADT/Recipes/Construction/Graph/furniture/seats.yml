@@ -66,6 +66,81 @@
             - material: Steel
               amount: 2
               doAfter: 1
+        - to: adtsofacutblackleft
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 1
+        - to: adtsofacutblackmiddle
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 1
+        - to: adtsofacutblackright
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 1
+        - to: adtsofacutblackleftcorner
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 1
+        - to: adtsofacutblackrightcorner
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 1
+        - to: adtsofacutcomfyleft
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 1
+        - to: adtsofacutcomfymiddle
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 1
+        - to: adtsofacutcomfyright
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 1
+        - to: adtsofacutcomfyleftcorner
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 1
+        - to: adtsofacutcomfyrightcorner
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 1
+        - to: adtsofacutdainerleft
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 1
+        - to: adtsofacutdainermiddle
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 1
+        - to: adtsofacutdainerright
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 1
+        - to: adtsofacutdainerleftcorner
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 1
+        - to: adtsofacutdainerrightcorner
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 1
         - to: adtsofawhiteleft
           steps:
             - material: Steel
@@ -394,6 +469,191 @@
 
     - node: adtsofablackright
       entity: ADTSofaBlackRightSide
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 2
+          steps:
+            - tool: Screwing
+              doAfter: 2
+
+# Sofa
+
+  # Sofa-black
+    - node: adtsofacutblackleft
+      entity: ADTSofaCutBlackLeftSide
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 2
+          steps:
+            - tool: Screwing
+              doAfter: 2
+
+    - node: adtsofacutblackmiddle
+      entity: ADTSofaCutBlackMiddle
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 2
+          steps:
+            - tool: Screwing
+              doAfter: 2
+
+    - node: adtsofacutblackright
+      entity: ADTSofaCutBlackRightSide
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 2
+          steps:
+            - tool: Screwing
+              doAfter: 2
+
+    - node: adtsofacutblackleftcorner
+      entity: ADTSofaCutBlackLeftCorner
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 2
+          steps:
+            - tool: Screwing
+              doAfter: 2
+
+    - node: adtsofacutblackrightcorner
+      entity: ADTSofaCutBlackRightCorner
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 2
+          steps:
+            - tool: Screwing
+              doAfter: 2
+
+  # Sofa-comfy
+    - node: adtsofacutcomfyleft
+      entity: ADTSofaCutComfyLeftSide
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 2
+          steps:
+            - tool: Screwing
+              doAfter: 2
+
+    - node: adtsofacutcomfymiddle
+      entity: ADTSofaCutComfyMiddle
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 2
+          steps:
+            - tool: Screwing
+              doAfter: 2
+
+    - node: adtsofacutcomfyright
+      entity: ADTSofaCutComfyRightSide
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 2
+          steps:
+            - tool: Screwing
+              doAfter: 2
+
+    - node: adtsofacutcomfyleftcorner
+      entity: ADTSofaCutComfyLeftCorner
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 2
+          steps:
+            - tool: Screwing
+              doAfter: 2
+
+    - node: adtsofacutcomfyrightcorner
+      entity: ADTSofaCutComfyRightCorner
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 2
+          steps:
+            - tool: Screwing
+              doAfter: 2
+
+  # Sofa-dainer
+    - node: adtsofacutdainerleft
+      entity: ADTSofaCutDainerLeftSide
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 2
+          steps:
+            - tool: Screwing
+              doAfter: 2
+
+    - node: adtsofacutdainermiddle
+      entity: ADTSofaCutDainerMiddle
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 2
+          steps:
+            - tool: Screwing
+              doAfter: 2
+
+    - node: adtsofacutdainerright
+      entity: ADTSofaCutDainerRightSide
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 2
+          steps:
+            - tool: Screwing
+              doAfter: 2
+
+    - node: adtsofacutdainerleftcorner
+      entity: ADTSofaCutDainerLeftCorner
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 2
+          steps:
+            - tool: Screwing
+              doAfter: 2
+
+    - node: adtsofacutdainerrightcorner
+      entity: ADTSofaCutDainerRightCorner
       edges:
         - to: start
           completed:
@@ -899,7 +1159,7 @@
           steps:
             - tool: Screwing
               doAfter: 2
- 
+
     - node: adtarmchairblack
       entity: ADTArmchairBlack
       edges:

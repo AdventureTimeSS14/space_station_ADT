@@ -43,6 +43,218 @@
   conditions:
     - !type:TileNotBlocked
 
+# sofa (furniture_cut, no overlays)
+
+- type: construction
+  name: construction-name-black-sofa-left-side
+  id: ADTSofaCutBlackLeftSideRecipe
+  graph: ADTSeat
+  startNode: start
+  targetNode: adtsofacutblackleft
+  category: construction-category-furniture
+  description: construction-desc-cut-black-sofa-left-side
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: construction-name-black-sofa-middle
+  id: ADTSofaCutBlackMiddleRecipe
+  graph: ADTSeat
+  startNode: start
+  targetNode: adtsofacutblackmiddle
+  category: construction-category-furniture
+  description: construction-desc-cut-black-sofa-middle
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: construction-name-black-sofa-right-side
+  id: ADTSofaCutBlackRightSideRecipe
+  graph: ADTSeat
+  startNode: start
+  targetNode: adtsofacutblackright
+  category: construction-category-furniture
+  description: construction-desc-cut-black-sofa-right-side
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: construction-name-black-sofa-left-corner
+  id: ADTSofaCutBlackLeftCornerRecipe
+  graph: ADTSeat
+  startNode: start
+  targetNode: adtsofacutblackleftcorner
+  category: construction-category-furniture
+  description: construction-desc-cut-black-sofa-left-corner
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: construction-name-black-sofa-right-corner
+  id: ADTSofaCutBlackRightCornerRecipe
+  graph: ADTSeat
+  startNode: start
+  targetNode: adtsofacutblackrightcorner
+  category: construction-category-furniture
+  description: construction-desc-cut-black-sofa-right-corner
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: construction-name-comfy-sofa-left-side
+  id: ADTSofaCutComfyLeftSideRecipe
+  graph: ADTSeat
+  startNode: start
+  targetNode: adtsofacutcomfyleft
+  category: construction-category-furniture
+  description: construction-desc-cut-comfy-sofa-left-side
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: construction-name-comfy-sofa-middle
+  id: ADTSofaCutComfyMiddleRecipe
+  graph: ADTSeat
+  startNode: start
+  targetNode: adtsofacutcomfymiddle
+  category: construction-category-furniture
+  description: construction-desc-cut-comfy-sofa-middle
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: construction-name-comfy-sofa-right-side
+  id: ADTSofaCutComfyRightSideRecipe
+  graph: ADTSeat
+  startNode: start
+  targetNode: adtsofacutcomfyright
+  category: construction-category-furniture
+  description: construction-desc-cut-comfy-sofa-right-side
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: construction-name-comfy-sofa-left-corner
+  id: ADTSofaCutComfyLeftCornerRecipe
+  graph: ADTSeat
+  startNode: start
+  targetNode: adtsofacutcomfyleftcorner
+  category: construction-category-furniture
+  description: construction-desc-cut-comfy-sofa-left-corner
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: construction-name-comfy-sofa-right-corner
+  id: ADTSofaCutComfyRightCornerRecipe
+  graph: ADTSeat
+  startNode: start
+  targetNode: adtsofacutcomfyrightcorner
+  category: construction-category-furniture
+  description: construction-desc-cut-comfy-sofa-right-corner
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: construction-name-dainer-sofa-left-side
+  id: ADTSofaCutDainerLeftSideRecipe
+  graph: ADTSeat
+  startNode: start
+  targetNode: adtsofacutdainerleft
+  category: construction-category-furniture
+  description: construction-desc-cut-dainer-sofa-left-side
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: construction-name-dainer-sofa-middle
+  id: ADTSofaCutDainerMiddleRecipe
+  graph: ADTSeat
+  startNode: start
+  targetNode: adtsofacutdainermiddle
+  category: construction-category-furniture
+  description: construction-desc-cut-dainer-sofa-middle
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: construction-name-dainer-sofa-right-side
+  id: ADTSofaCutDainerRightSideRecipe
+  graph: ADTSeat
+  startNode: start
+  targetNode: adtsofacutdainerright
+  category: construction-category-furniture
+  description: construction-desc-cut-dainer-sofa-right-side
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: construction-name-dainer-sofa-left-corner
+  id: ADTSofaCutDainerLeftCornerRecipe
+  graph: ADTSeat
+  startNode: start
+  targetNode: adtsofacutdainerleftcorner
+  category: construction-category-furniture
+  description: construction-desc-cut-dainer-sofa-left-corner
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: construction-name-dainer-sofa-right-corner
+  id: ADTSofaCutDainerRightCornerRecipe
+  graph: ADTSeat
+  startNode: start
+  targetNode: adtsofacutdainerrightcorner
+  category: construction-category-furniture
+  description: construction-desc-cut-dainer-sofa-right-corner
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
 # sofa-red
 
 - type: construction
