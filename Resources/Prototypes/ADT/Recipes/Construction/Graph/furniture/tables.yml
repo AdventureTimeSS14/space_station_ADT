@@ -61,6 +61,30 @@
               amount: 1
               doAfter: 1
 
+        - to: adttableplastic
+          steps:
+            - material: Plastic
+              amount: 1
+              doAfter: 1
+
+        - to: adttableuraniumglass
+          steps:
+            - material: UraniumGlass
+              amount: 1
+              doAfter: 1
+
+        - to: adttablereinforcedplasmaglass
+          steps:
+            - material: ReinforcedPlasmaGlass
+              amount: 1
+              doAfter: 1
+
+        - to: adttablereinforceduraniumglass
+          steps:
+            - material: ReinforcedUraniumGlass
+              amount: 1
+              doAfter: 1
+
         - to: adttableredwood
           steps:
             - tool: Screwing
@@ -130,4 +154,52 @@
               amount: 1
           steps:
             - tool: Prying
+              doAfter: 1
+
+    - node: adttableplastic
+      entity: ADTTablePlastic
+      edges:
+        - to: adttableframe
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetPlastic1
+              amount: 1
+          steps:
+            - tool: Anchoring
+              doAfter: 1
+
+    - node: adttableuraniumglass
+      entity: ADTTableUraniumGlass
+      edges:
+        - to: adttableframe
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetUGlass1
+              amount: 1
+          steps:
+            - tool: Anchoring
+              doAfter: 1
+
+    - node: adttablereinforcedplasmaglass
+      entity: ADTTableReinforcedPlasmaGlass
+      edges:
+        - to: adttableframe
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetRPGlass1
+              amount: 1
+          steps:
+            - tool: Anchoring
+              doAfter: 1
+
+    - node: adttablereinforceduraniumglass
+      entity: ADTTableReinforcedUraniumGlass
+      edges:
+        - to: adttableframe
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetRUGlass1
+              amount: 1
+          steps:
+            - tool: Anchoring
               doAfter: 1
