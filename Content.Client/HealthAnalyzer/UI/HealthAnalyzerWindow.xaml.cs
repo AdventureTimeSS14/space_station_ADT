@@ -211,7 +211,7 @@ namespace Content.Client.HealthAnalyzer.UI
                 var groupBox = new PanelContainer
                 {
                     Margin = new Thickness(2),
-                    MinWidth = 185,
+                    MinWidth = 200,
                 };
 
                 // Boxes in the second column get right aligned
