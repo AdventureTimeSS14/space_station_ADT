@@ -31,4 +31,5 @@
     offset: 0
     prototypes:
       - FoodBoxPizzaFilled
+    rarePrototypes:
       - ADTExplosivePizzabox
