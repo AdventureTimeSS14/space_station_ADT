@@ -362,7 +362,7 @@ namespace Content.Client.HealthAnalyzer.UI
 
         private Texture GetTexture(string texture)
         {
-            var rsiPath = new ResPath("/Textures/_Starlight/Objects/Devices/health_analyzer.rsi"); // ADT-Tweak - new rsi for new icons :)
+            var rsiPath = new ResPath("/Textures/ADT/Objects/Devices/health_analyzer.rsi"); // ADT-Tweak - new rsi for new icons :)
             var rsiSprite = new SpriteSpecifier.Rsi(rsiPath, texture);
 
             var rsi = _cache.GetResource<RSIResource>(rsiSprite.RsiPath).RSI;
