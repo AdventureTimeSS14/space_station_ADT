@@ -429,6 +429,35 @@
     node: adttableroundplasma
 
 - type: entity
+  id: ADTTableRoulette
+  parent: ADTTableRoundPlastic
+  name: roulette table
+  description: Watch you don't lose your salary.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Tables/roulette.rsi
+    noRot: true
+    layers:
+    - state: idle
+      map: ["enum.RouletteVisualLayers.Base"]
+  - type: Icon
+    sprite: ADT/Structures/Furniture/Tables/roulette.rsi
+    state: idle
+  - type: Appearance
+  - type: Roulette
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-1.0,-0.5,1.0,0.5"
+        density: 55
+        mask:
+        - TableMask
+        layer:
+        - TableLayer
+
+- type: entity
   id: ADTTableRusty
   parent: ADTTableBase
   name: table
