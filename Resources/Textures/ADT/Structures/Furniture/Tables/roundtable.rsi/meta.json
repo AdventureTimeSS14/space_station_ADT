@@ -15,6 +15,18 @@
         },
         {
             "name": "round_wood"
+        },
+        {
+            "name": "round_frame"
+        },
+        {
+            "name": "round_generic"
+        },
+        {
+            "name": "round_carpet"
+        },
+        {
+            "name": "round_plasma"
         }
     ]
 }

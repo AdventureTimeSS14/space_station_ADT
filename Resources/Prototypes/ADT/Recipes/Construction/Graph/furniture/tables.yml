@@ -14,32 +14,14 @@
             - material: MetalRod
               amount: 2
               doAfter: 1
-        - to: adttableroundplastic
+        - to: adttableroundframe
           completed:
             - !type:SnapToGrid
               southRotation: true
           steps:
-            - material: Plastic
-              amount: 4
-              doAfter: 4
-
-        - to: adttableroundwood
-          completed:
-            - !type:SnapToGrid
-              southRotation: true
-          steps:
-            - material: WoodPlank
-              amount: 4
-              doAfter: 4
-
-        - to: adttableroundglass
-          completed:
-            - !type:SnapToGrid
-              southRotation: true
-          steps:
-            - material: Glass
-              amount: 4
-              doAfter: 4
+            - material: MetalRod
+              amount: 2
+              doAfter: 1
 
     - node: adttableframe
       entity: ADTTableFrame
@@ -93,10 +75,61 @@
               amount: 1
               doAfter: 1
 
+    - node: adttableroundframe
+      entity: ADTTableRoundFrame
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: PartRodMetal
+              amount: 2
+          steps:
+            - tool: Anchoring
+              doAfter: 1
+
+        - to: adttableroundplastic
+          steps:
+            - material: Plastic
+              amount: 4
+              doAfter: 4
+
+        - to: adttableroundwood
+          steps:
+            - material: WoodPlank
+              amount: 4
+              doAfter: 4
+
+        - to: adttableroundglass
+          steps:
+            - material: Glass
+              amount: 4
+              doAfter: 4
+
+        - to: adttableroundgeneric
+          steps:
+            - material: Steel
+              amount: 1
+              doAfter: 1
+
+        - to: adttableroundcarpet
+          steps:
+            - material: WoodPlank
+              amount: 1
+              doAfter: 1
+            - material: Cloth
+              amount: 1
+              doAfter: 1
+
+        - to: adttableroundplasma
+          steps:
+            - material: PlasmaGlass
+              amount: 1
+              doAfter: 1
+
     - node: adttableroundplastic
       entity: ADTTableRoundPlastic
       edges:
-        - to: start
+        - to: adttableroundframe
           completed:
           - !type:SpawnPrototype
                 prototype: SheetPlastic1
@@ -109,7 +142,7 @@
     - node: adttableroundwood
       entity: ADTTableRoundWood
       edges:
-        - to: start
+        - to: adttableroundframe
           completed:
           - !type:SpawnPrototype
                 prototype: MaterialWoodPlank1
@@ -122,7 +155,7 @@
     - node: adttableroundglass
       entity: ADTTableRoundGlass
       edges:
-        - to: start
+        - to: adttableroundframe
           completed:
           - !type:SpawnPrototype
                 prototype: SheetGlass1
@@ -131,6 +164,45 @@
           steps:
             - tool: Prying
               doAfter: 4
+
+    - node: adttableroundgeneric
+      entity: ADTTableRoundGeneric
+      edges:
+        - to: adttableroundframe
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 1
+          steps:
+            - tool: Anchoring
+              doAfter: 1
+
+    - node: adttableroundcarpet
+      entity: ADTTableRoundCarpet
+      edges:
+        - to: adttableroundframe
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialWoodPlank1
+              amount: 1
+            - !type:SpawnPrototype
+              prototype: MaterialCloth1
+              amount: 1
+          steps:
+            - tool: Anchoring
+              doAfter: 1
+
+    - node: adttableroundplasma
+      entity: ADTTableRoundPlasma
+      edges:
+        - to: adttableroundframe
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetPGlass1
+              amount: 1
+          steps:
+            - tool: Anchoring
+              doAfter: 1
 
     - node: adttableredwood
       entity: ADTTableRedWood

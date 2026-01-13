@@ -244,6 +244,191 @@
     node: adttableroundglass
 
 - type: entity
+  id: ADTTableRoundFrame
+  parent: BaseStructure
+  name: round table frame
+  description: Pieces of metal that make the frame of a round table.
+  components:
+  - type: Animateable
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 15
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Effects/metal_break1.ogg
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: PlaceableSurface
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.5
+        density: 55
+        mask:
+        - TableMask
+        layer:
+        - TableLayer
+  - type: SpriteFade
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Tables/roundtable.rsi
+    state: round_frame
+    noRot: true
+  - type: Icon
+    sprite: ADT/Structures/Furniture/Tables/roundtable.rsi
+    state: round_frame
+  - type: Climbable
+  - type: Bonkable
+    bonkDamage:
+      types:
+        Blunt: 4
+    bonkSound: !type:SoundCollectionSpecifier
+      collection: TrayHit
+  - type: Clickable
+  - type: Anchorable
+  - type: Rotatable
+  - type: InteractionOutline
+  - type: Physics
+    bodyType: Static
+  - type: Construction
+    graph: ADTTable
+    node: adttableroundframe
+  - type: Tag
+    tags:
+    - Table
+    - ForceFixRotations
+
+- type: entity
+  id: ADTTableRoundGeneric
+  parent: ADTTableRoundPlastic
+  name: round table
+  description: A round piece of metal standing on a metal leg.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Tables/roundtable.rsi
+    state: round_generic
+  - type: Icon
+    sprite: ADT/Structures/Furniture/Tables/roundtable.rsi
+    state: round_generic
+  - type: Construction
+    graph: ADTTable
+    node: adttableroundgeneric
+
+- type: entity
+  id: ADTTableRoundCarpet
+  parent: ADTTableRoundPlastic
+  name: gambling round table
+  description: Play em' cowboy.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Tables/roundtable.rsi
+    state: round_carpet
+  - type: Icon
+    sprite: ADT/Structures/Furniture/Tables/roundtable.rsi
+    state: round_carpet
+  - type: Damageable
+    damageModifierSet: Wood
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WoodDestroy
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+    - trigger:
+        !type:DamageTrigger
+        damage: 15
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WoodDestroy
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          MaterialWoodPlank:
+            min: 1
+            max: 1
+          MaterialCloth1:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: TabletopGame
+    size: 300, 300
+    setup:
+      !type:TabletopEmptySetup
+      boardPrototype: Crowbar
+  - type: Tag
+    tags:
+    - Wooden
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepCarpet
+  - type: Construction
+    graph: ADTTable
+    node: adttableroundcarpet
+
+- type: entity
+  id: ADTTableRoundPlasma
+  parent: ADTTableRoundPlastic
+  name: plasma round table
+  description: A round piece of plasma glass, standing on a metal leg. Pretty!
+  components:
+  - type: GlassTable
+    climberDamage:
+      types:
+        Slash: 30
+    tableDamage:
+      types:
+        Blunt: 100
+    tableMassLimit: 240
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 250
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Tables/roundtable.rsi
+    state: round_plasma
+  - type: Icon
+    sprite: ADT/Structures/Furniture/Tables/roundtable.rsi
+    state: round_plasma
+  - type: Construction
+    graph: ADTTable
+    node: adttableroundplasma
+
+- type: entity
   id: ADTTableRusty
   parent: ADTTableBase
   name: table
