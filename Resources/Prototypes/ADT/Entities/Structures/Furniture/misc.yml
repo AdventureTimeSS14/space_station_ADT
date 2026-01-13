@@ -47,3 +47,48 @@
   - type: Construction
     graph: ADTDiscoBallGraph
     node: adtdiscoball
+
+# Боксёрская груша
+
+- type: entity
+  id: ADTPunchingBag
+  parent: BaseStructure
+  name: punching bag
+  description: A heavy bag for boxing practice.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/PunchingBag/punchingbag.rsi
+    drawdepth: HighFloorObjects
+    noRot: true
+    layers:
+    - state: punchingbag
+      map: ["base"]
+  - type: Transform
+    anchored: true
+    noRot: true
+  - type: InteractionOutline
+  - type: Anchorable
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.5,0.25,0.5"
+        density: 50
+        mask:
+        - TableMask
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: Pullable
+  - type: PunchingBagAnimations
+    animationState: swinging
