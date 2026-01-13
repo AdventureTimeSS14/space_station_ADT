@@ -1,0 +1,20 @@
+- type: entity
+  parent: MarkerBase
+  id: ADTVaseSpawnRandom
+  name: random vases spawner
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: ADT/Markers/randoms.rsi
+        state: vases
+  - type: RandomSpawner
+    prototypes:
+      - ADTVasePlant1
+      - ADTVasePlant2
+      - ADTVasePlant3
+      - ADTVasePlant4
+      - ADTVasePlant5
+      - ADTVasePlant6
+      - ADTVasePlant7
+      - ADTVasePlant8
