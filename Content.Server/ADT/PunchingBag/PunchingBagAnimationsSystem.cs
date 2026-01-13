@@ -9,7 +9,6 @@ public sealed class PunchingBagAnimationsSystem : SharedPunchingBagAnimationsSys
     {
         var filter = Filter.Pvs(uid, entityManager: EntityManager);
 
-        // Don't send the network event back to the attacker to avoid double-triggering.
         if (TryComp(attacker, out ActorComponent? actor))
             filter.RemovePlayer(actor.PlayerSession);
 

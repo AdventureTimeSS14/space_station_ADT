@@ -48,8 +48,6 @@
     graph: ADTDiscoBallGraph
     node: adtdiscoball
 
-# Боксёрская груша
-
 - type: entity
   id: ADTPunchingBag
   parent: BaseStructure

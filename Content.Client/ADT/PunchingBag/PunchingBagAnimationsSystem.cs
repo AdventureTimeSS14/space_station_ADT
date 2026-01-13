@@ -24,8 +24,6 @@ public sealed class PunchingBagAnimationsSystem : SharedPunchingBagAnimationsSys
 
     protected override void PlayAnimation(EntityUid uid, EntityUid attacker, string animationState)
     {
-        // Predicted attacks: only run on first-time predicted.
-        // Network events: attacker == Invalid, always run so other clients see it.
         if (!_timing.IsFirstTimePredicted && attacker != EntityUid.Invalid)
             return;
 
@@ -38,11 +36,9 @@ public sealed class PunchingBagAnimationsSystem : SharedPunchingBagAnimationsSys
         if (_animationSystem.HasRunningAnimation(uid, AnimationKey))
             _animationSystem.Stop(uid, AnimationKey);
 
-        // Ensure the base layer has a mapped key so AnimationTrackSpriteFlick can address it.
         if (!_sprite.LayerMapTryGet((uid, sprite), BaseLayerKey, out _, false))
             _sprite.LayerMapSet((uid, sprite), BaseLayerKey, 0);
 
-        // 10 frames * 0.1s each = 1.0s
         var animation = new Animation
         {
             Length = TimeSpan.FromSeconds(1.0),
