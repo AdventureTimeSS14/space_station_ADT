@@ -14,7 +14,7 @@
         - ReagentId: Water
           Quantity: 30
   - type: Sprite
-    sprite: /Textures/ADT/Structures/Decoration/vase.rsi
+    sprite: ADT/Objects/Misc/vase.rsi
     state: vase-0
 
 - type: entity
