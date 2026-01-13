@@ -1036,7 +1036,8 @@
         - to: start
           completed:
             - !type:SpawnPrototype
-              prototype: MaterialWoodPlank1
+              prototype: SheetSteel1
+              amount: 2
           steps:
             - tool: Screwing
               doAfter: 2
