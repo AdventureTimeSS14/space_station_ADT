@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseAction
   id: ActionBarbellBenchPerformRep
-  name: action-name-barbell-bench-perform-rep
-  description: action-desc-barbell-bench-perform-rep
+  name: Perform rep
+  description: Perform one rep on the barbell bench.
   components:
   - type: Action
     icon: { sprite: Interface/Actions/adt-barbell-lift.rsi, state: icon }
