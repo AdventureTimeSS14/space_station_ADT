@@ -118,3 +118,148 @@
           - !type:PlaySoundBehavior
             sound:
               collection: MetalBreak
+
+# Мемориалы
+
+- type: entity
+  id: ADTMemorialColumn
+  parent: Memorial
+  name: alien column
+  description: A tall column with carved hieroglyphs in an unknown language.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Memorials/column.rsi
+    state: full
+    noRot: true
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.225,-0.45,0.225,1.5"
+        density: 85
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+
+- type: entity
+  id: ADTMemorialColumnDamaged
+  parent: Memorial
+  name: alien column
+  description: A tall column with carved hieroglyphs in an unknown language. Looks old.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Memorials/column.rsi
+    state: column_damaged
+    noRot: true
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.225,-0.45,0.225,1.5"
+        density: 85
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+
+- type: entity
+  id: ADTMemorialTombstone1
+  parent: Memorial
+  name: tombstone
+  description: Rest in peace.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Memorials/tombstone.rsi
+    state: tombstone1
+    noRot: true
+
+- type: entity
+  id: ADTMemorialTombstone2
+  parent: Memorial
+  name: tombstone
+  description: Rest in peace.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Memorials/tombstone.rsi
+    state: tombstone2
+    noRot: true
+
+- type: entity
+  id: ADTMemorialTombstone3
+  parent: Memorial
+  name: tombstone
+  description: Rest in peace.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Memorials/tombstone.rsi
+    state: tombstone3
+    noRot: true
+
+- type: entity
+  id: ADTMemorialTombstone4
+  parent: Memorial
+  name: tombstone
+  description: Rest in peace.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Memorials/tombstone.rsi
+    state: tombstone4
+    noRot: true
+
+- type: entity
+  id: ADTMemorialTombstone5
+  parent: Memorial
+  name: tombstone
+  description: Rest in peace.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Memorials/tombstone.rsi
+    state: tombstone5
+    noRot: true
+
+- type: entity
+  id: ADTMemorialVeterans
+  parent: Memorial
+  name: fallen memorial
+  description: A memorial plaque with names of fallen marines and peacekeepers.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Memorials/veterans_64x32.rsi
+    state: full
+    noRot: true
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-1.0,-0.5,1.0,0.5"
+        density: 85
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+
+- type: entity
+  id: ADTMemorialVeteransCivilWar
+  parent: Memorial
+  name: civil war veterans memorial
+  description: A massive black granite slab covered with countless names of fallen soldiers.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Memorials/veterans_192x64.rsi
+    state: full
+    noRot: true
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-2.5,-1.0,2.5,1.0"
+        density: 85
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
