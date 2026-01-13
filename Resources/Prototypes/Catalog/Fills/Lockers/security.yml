@@ -11,6 +11,16 @@
           tableId: FillLockerWarden
         - !type:NestedSelector
           tableId: FillLockerWardenHarduit
+  #ADT-Tweak-Start
+  - type: UserInterface
+    interfaces:
+      enum.SuitStorageUiKey.Key:
+        type: SuitStorageBoundUserInterface
+  - type: SuitStorage
+    options:
+    - ADTClothingModsuitBackWard
+    - ClothingOuterHardsuitWarden
+  #ADT-Tweak-End
 
 - type: entity
   id: LockerWardenFilled
@@ -65,7 +75,7 @@
   id: FillLockerWardenHarduit
   table: !type:AllSelector
     children:
-  # - id: ClothingOuterHardsuitWarden ADT tweak
+    #- id: ClothingOuterHardsuitWarden ADT-Tweak
     - id: OxygenTankFilled
     - id: ClothingMaskBreath
 

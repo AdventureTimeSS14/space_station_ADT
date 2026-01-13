@@ -163,3 +163,52 @@
   materials:
     Cloth: 500
     Durathread: 1000
+
+# Standards
+
+- type: latheRecipe
+  abstract: true
+  id: ADTBaseStandardRecipe
+  completetime: 3
+  materials:
+    Cloth: 500
+
+- type: latheRecipe
+  parent: ADTBaseStandardRecipe
+  id: ADTStandardColourRed
+  result: ADTStandardColourRed
+
+- type: latheRecipe
+  parent: ADTBaseStandardRecipe
+  id: ADTStandardColourBlue
+  result: ADTStandardColourBlue
+
+- type: latheRecipe
+  parent: ADTBaseStandardRecipe
+  id: ADTStandardColourGreen
+  result: ADTStandardColourGreen
+
+- type: latheRecipe
+  parent: ADTBaseStandardRecipe
+  id: ADTStandardColourYellow
+  result: ADTStandardColourYellow
+
+- type: latheRecipe
+  parent: ADTBaseStandardRecipe
+  id: ADTStandardColourOrange
+  result: ADTStandardColourOrange
+
+- type: latheRecipe
+  parent: ADTBaseStandardRecipe
+  id: ADTStandardColourPurple
+  result: ADTStandardColourPurple
+
+- type: latheRecipe
+  parent: ADTBaseStandardRecipe
+  id: ADTStandardColourWhite
+  result: ADTStandardColourWhite
+
+- type: latheRecipe
+  parent: ADTBaseStandardRecipe
+  id: ADTStandardNt
+  result: ADTStandardNt
