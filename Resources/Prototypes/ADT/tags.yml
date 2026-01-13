@@ -191,6 +191,9 @@
   id: ADTArmorSacrafice
 
 - type: Tag
+  id: ADTBarbellAttachment
+
+- type: Tag
   id: ADTSyndieThingies
 
 - type: Tag
