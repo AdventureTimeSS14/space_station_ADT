@@ -47,3 +47,74 @@
   - type: Construction
     graph: ADTDiscoBallGraph
     node: adtdiscoball
+
+# Часовой шкаф
+
+- type: entity
+  name: часовой шкаф
+  id: ADTClockCabinet
+  parent: BaseStructure
+  description: Тик. Так. Тик. Так.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/clock_cabinet.rsi # made by prazat911 for ADT
+    layers:
+    - state: clock-off
+      map: ["enum.ToggleableVisuals.Layer"]
+    noRot: true
+  - type: Transform
+    anchored: true
+  - type: Anchorable
+  - type: Rotatable
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.3,-0.3,0.6,0.6"
+        density: 190
+        mask:
+        - TableMask
+  - type: Appearance
+  - type: Clickable
+  - type: InteractionOutline
+  - type: ItemToggle
+    onActivate: true
+    predictable: true
+  - type: ItemToggleActiveSound
+    activeSound:
+      path: /Audio/ADT/Furniture/clock_ticktack.ogg
+      params:
+        volume: -8
+        maxDistance: 5
+  - type: Clock
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleableVisuals.Enabled:
+        enum.ToggleableVisuals.Layer:
+          True: {state: clock-on}
+          False: {state: clock-off}
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 100
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+      - trigger:
+          !type:DamageTrigger
+          damage: 50
+        behaviors:
+          - !type:DoActsBehavior
+            acts: ["Destruction"]
+          - !type:PlaySoundBehavior
+            sound:
+              collection: MetalBreak
