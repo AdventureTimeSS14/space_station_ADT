@@ -105,21 +105,21 @@ namespace Content.Client.Chemistry.UI
         private void HandleCreatePillPressed()
         {
             if (_window == null) return;
-
+            var pillLabel = _window.GeneratePillLabel();
             SendMessage(new ChemMasterCreatePillsMessage(
                 (uint)_window.PillDosage.Value,
                 (uint)_window.PillNumber.Value,
-                _window.LabelLine));
+                pillLabel));
         }
 
         private void HandleCreateBottlePressed()
         {
             if (_window == null) return;
-
+            var bottleLabel = _window.GenerateBottleLabel();
             SendMessage(new ChemMasterOutputToBottleMessage(
                 (uint)_window.BottleDosage.Value,
                 (uint)_window.BottleNumber.Value,
-                _window.LabelLine));
+                bottleLabel));
         }
         // ADT-Tweak-End: Creation Handlers
     }
