@@ -17,12 +17,6 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 500
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-    - trigger:
-        !type:DamageTrigger
         damage: 50
       behaviors:
       - !type:SpawnEntitiesBehavior
@@ -46,12 +40,6 @@
     state: barrel_planks
   - type: Destructible
     thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 500
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
         damage: 50
@@ -82,12 +70,6 @@
     state: barrel_fire
   - type: Destructible
     thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 500
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
         damage: 50
