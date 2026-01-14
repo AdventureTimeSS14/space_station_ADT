@@ -1,5 +1,5 @@
 - type: entity
-  name: drone miner spawner
+  name: спавнер дрона шахтера
   id: ADTSpawnerDroneAntagMiner
   parent: MarkerBase
   components:
@@ -14,7 +14,7 @@
         - ADTDroneAntagMiner
 
 - type: entity
-  name: drone engineer spawner
+  name: спавнер дрона инженера
   id: ADTSpawnerDroneAntagEngineer
   parent: MarkerBase
   components:
@@ -29,7 +29,7 @@
         - ADTDroneAntagMiner
 
 - type: entity
-  name: drone charger spawner
+  name: спавнер дрона зарядника
   id: ADTSpawnerDroneAntagCharger
   parent: MarkerBase
   components:
@@ -44,7 +44,7 @@
         - ADTDroneAntagMiner
 
 - type: entity
-  name: drone soldier spawner
+  name: спавнер дрона солдата
   suffix: IPC
   id: ADTSpawnerDroneAntagIPC
   parent: MarkerBase

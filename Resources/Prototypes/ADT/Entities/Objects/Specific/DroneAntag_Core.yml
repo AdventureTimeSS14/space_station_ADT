@@ -21,7 +21,7 @@
 - type: entity
   id: ADTDroneAntagCoreAdvanced
   parent: BaseItem
-  name: advanced drone core
+  name: продвинутое ядро дрона
   description: Это ядро продвинутого дрона. Лучше вернуть это Space SEC.
   components:
     - type: Sprite
@@ -39,7 +39,7 @@
 - type: entity
   id: ADTDroneAntagCoreElite
   parent: BaseItem
-  name: elite drone core
+  name: элитное ядро дрона
   description: Это ядро продвинутого дрона. Лучше вернуть это Space SEC.
   components:
     - type: Sprite
@@ -58,7 +58,7 @@
 - type: entity
   id: ADTDroneAntagCoreCommand
   parent: BaseItem
-  name: command drone core
+  name: командное ядро дрона
   description: Это ядро продвинутого дрона. Лучше вернуть это Space SEC.
   components:
     - type: Sprite

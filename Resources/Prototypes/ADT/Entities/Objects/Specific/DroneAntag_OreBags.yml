@@ -1,8 +1,8 @@
 - type: entity
-  name: ore bag
+  name: сумка для руды
   id: OreBagAntagDrone
   parent: BaseStorageItem
-  suffix: Antag Drone
+  suffix: Дрон Антаг
   components:
   - type: MagnetPickup
   - type: Sprite
