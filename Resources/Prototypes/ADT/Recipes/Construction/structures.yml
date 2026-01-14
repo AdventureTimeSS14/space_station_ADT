@@ -223,6 +223,66 @@
     - !type:TileNotBlocked
 
 - type: construction
+  id: ADTStatueLeninRecipe
+  name: construction-name-statue-lenin
+  description: construction-desc-statue-lenin
+  graph: ADTStatueLenin
+  startNode: start
+  targetNode: statue
+  category: construction-category-structures
+  placementMode: SnapgridCenter
+  objectType: Structure
+  canBuildInImpassable: false
+  canRotate: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: ADTStatueAngelRecipe
+  name: construction-name-statue-angel
+  description: construction-desc-statue-angel
+  graph: ADTStatueAngel
+  startNode: start
+  targetNode: statue
+  category: construction-category-structures
+  placementMode: SnapgridCenter
+  objectType: Structure
+  canBuildInImpassable: false
+  canRotate: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: ADTStatueHadiiRecipe
+  name: construction-name-statue-hadii
+  description: construction-desc-statue-hadii
+  graph: ADTStatueHadii
+  startNode: start
+  targetNode: statue
+  category: construction-category-structures
+  placementMode: SnapgridCenter
+  objectType: Structure
+  canBuildInImpassable: false
+  canRotate: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: ADTStatueLionRecipe
+  name: construction-name-statue-lion
+  description: construction-desc-statue-lion
+  graph: ADTStatueLion
+  startNode: start
+  targetNode: statue
+  category: construction-category-structures
+  placementMode: SnapgridCenter
+  objectType: Structure
+  canBuildInImpassable: false
+  canRotate: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
   id: ADTMarblePeacemaker
   graph: MarblePeacemaker
   startNode: start
