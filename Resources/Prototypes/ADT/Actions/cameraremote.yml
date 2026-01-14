@@ -1,0 +1,13 @@
+- type: entity
+  id: ActionReturnFromRemoteEye
+  name: Return to Body
+  description: Return to your original body from camera view.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    icon:
+      sprite: Interface/Actions/actions_ai.rsi
+      state: ai_core
+  - type: InstantAction
+    event: !type:ReturnFromRemoteEyeEvent

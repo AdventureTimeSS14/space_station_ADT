@@ -1,0 +1,144 @@
+
+- type: entity
+  id: GreyExtractJelly
+  parent: BaseExtractJelly
+  name: grey slime jelly
+  description: Slimes love this stuff, metabolizes into additional extracts inside the slime.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 100
+        reagents:
+        - ReagentId: Epinephrine
+          Quantity: 100
+
+- type: entity
+  id: OrangeExtractJelly
+  parent: BaseOrangeExtractJelly
+  name: orange slime jelly
+  description: Slimes love this stuff, metabolizes into additional extracts inside the slime.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 50
+        reagents:
+        - ReagentId: CapsaicinOil
+          Quantity: 50
+
+- type: entity
+  id: PurpleExtractJelly
+  parent: BasePurpleExtractJelly
+  name: purple slime jelly
+  description: Slimes love this stuff, metabolizes into additional extracts inside the slime.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 1
+        reagents:
+        - ReagentId: PurpleXenoJelly
+          Quantity: 1
+
+- type: entity
+  id: BlueExtractJelly
+  parent: BaseBlueExtractJelly
+  name: blue slime jelly
+  description: The frosty chill caused by this jelly reduces a slime's chance to mutate when metabolized.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 1.5
+        reagents:
+        - ReagentId: BlueXenoJelly
+          Quantity: 1.5
+
+- type: entity
+  id: CeruleanExtractJelly
+  parent: BaseCeruleanExtractJelly
+  name: cerulean slime jelly
+  description: Slimes with more... cannibalistic tendencies... appeared to react more after consuming cerulean jelly.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 1
+        reagents:
+        - ReagentId: CeruleanXenoJelly
+          Quantity: 1
+
+- type: entity
+  id: RedExtractJelly
+  parent: BaseRedExtractJelly
+  name: red slime jelly
+  description: The violent contractions caused by this jelly increase a slime's chance to mutate when metabolized.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 1
+        reagents:
+        - ReagentId: RedXenoJelly
+          Quantity: 1
+
+- type: entity
+  id: GreenExtractJelly
+  parent: BaseGreenExtractJelly
+  name: green slime jelly
+  description: The violent contractions caused by this jelly increase a slime's chance to mutate when metabolized.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: GreenXenoJelly
+          Quantity: 15
+
+- type: entity
+  id: GreenExtractJellyHuman
+  parent: BaseGreenExtractJelly
+  name: green slime jelly
+  description: The violent contractions caused by this jelly increase a slime's chance to mutate when metabolized.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: XenoHumanToxin
+          Quantity: 15
+
+- type: entity
+  id: GreenExtractJellyLizard
+  parent: BaseGreenExtractJelly
+  name: green slime jelly
+  description: The violent contractions caused by this jelly increase a slime's chance to mutate when metabolized.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: XenoLizardToxin
+          Quantity: 15
+
+- type: entity
+  id: LightPinkExtractJelly
+  parent: BaseLightPinkExtractJelly
+  name: light pink slime jelly
+  description: Salvage Log 3036 - "Did that Goliath just... talk?"
+  components:
+  - type: ExaminableSolution
+    solution: food
+  - type: DrawableSolution
+    solution: food
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Cognizine
+          Quantity: 5

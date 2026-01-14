@@ -1,0 +1,197 @@
+
+- type: entity
+  name: basic slime
+  abstract: true
+  id: ADTBaseMobXenoSlime
+  parent: [ SimpleMobBase, MobCombat ]
+  description: It looks so much like jelly. I wonder what it tastes like?
+  components:
+  - type: Appearance
+  - type: Hunger
+    startingHunger: 50
+    thresholds:
+      Overfed: 150
+      Okay: 75
+      Peckish: 25
+      Starving: 10
+      Dead: 0
+    hungerThresholdDecayModifiers:
+      Okay: 1.5
+      Peckish: 0.4
+      Starving: 0.2
+      Dead: 0.1
+    baseDecayRate: 0.5
+    starvingSlowdownModifier: 0
+  - type: Metabolizer
+    metabolizerTypes: [ Slime ]
+    solutionOnBody: false
+    groups:
+    - id: Food
+    - id: Medicine
+    - id: Poison
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: ADT/Mobs/Xenobiology/slimesBaby.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: base
+  - type: DamageStateVisuals
+    states:
+      Dead:
+        Base: dead
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.30
+        density: 80
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: Dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2
+    baseSprintSpeed: 4
+  - type: FootstepModifier
+    footstepSoundCollection:
+      path: /Audio/Effects/Footsteps/slime1.ogg
+      params:
+        volume: 3
+  - type: Tag
+    tags:
+    - FootstepSound
+    - DoorBumpOpener
+    - XenoSlime
+  - type: Butcherable
+    butcheringType: Knife
+    spawned:
+    - id: FoodMeatSlime
+      amount: 2
+  - type: Respirator
+    damage:
+      types:
+        Asphyxiation: 0.2
+    damageRecovery:
+      types:
+        Asphyxiation: -1.0
+    maxSaturation: 15
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Slime
+  - type: Bloodstream
+    bloodReagent: Slime
+    bloodlossDamage:
+      types:
+        Bloodloss:
+          0.5
+    bloodlossHealDamage:
+      types:
+        Bloodloss:
+          -0.25
+  - type: Barotrauma
+    damage:
+      types:
+        Blunt: 0.45
+  - type: Reactive
+    groups:
+      Flammable: [ Touch ]
+      Extinguish: [ Touch ]
+    reactions:
+    - reagents: [ Water, SpaceCleaner ]
+      methods: [ Touch ]
+      effects:
+      - !type:WashCreamPieReaction
+    - reagents: [ Water ]
+      methods: [ Touch ]
+      effects:
+      - !type:HealthChange
+        scaleByQuantity: true
+        damage:
+          types:
+            Caustic: 5
+      - !type:PopupMessage
+        type: Local
+        messages: [ "slime-hurt-by-water-popup" ]
+        probability: 0.25
+  - type: Body
+    prototype: Slimes
+    requiredLegs: 1
+  - type: InteractionPopup
+    successChance: 0.5
+    interactSuccessString: petting-success-slimes
+    interactFailureString: petting-failure-generic
+  - type: VentCrawler
+  - type: Speech
+    speechVerb: Slime
+    speechSounds: Slime
+    allowedEmotes: ['Squish']
+  - type: TypingIndicator
+    proto: slime
+  - type: ReplacementAccent
+    accent: slimes
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+  - type: ActionGrant
+    actions:
+    - SlimeLatch
+  - type: HTN
+    rootTask:
+      task: XenoSlimeCompound
+  - type: LanguageSpeaker
+    languages:
+      Bubblish: Speak
+
+- type: entity
+  name: xenoslime
+  id: ADTMobXenoSlime
+  parent: ADTBaseMobXenoSlime
+  categories: [ HideSpawnMenu ]
+  description: It looks so much like jelly. I wonder what it tastes like?
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: ADT/Mobs/Xenobiology/slimesBaby.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: base
+      color: "#ffffff"
+  - type: MobGrowth
+    hungerRequired: 75
+    currentStage: baby
+    stages:
+      baby:
+        nextStage: adult
+        sprite: ADT/Mobs/Xenobiology/slimesBaby.rsi
+        displayName: baby
+      adult:
+        sprite: ADT/Mobs/Xenobiology/slimesAdult.rsi
+        displayName: adult
+
+- type: entity
+  name: xenoslime
+  id: ADTMobXenoSlimeAdult
+  parent: ADTMobXenoSlime
+  categories: [ HideSpawnMenu ]
+  description: It looks so much like jelly. I wonder what it tastes like?
+  components:
+  - type: MobGrowth
+    hungerRequired: 75
+    currentStage: adult
+    stages:
+      baby:
+        nextStage: adult
+        sprite: ADT/Mobs/Xenobiology/slimesBaby.rsi
+        displayName: baby
+      adult:
+        sprite: ADT/Mobs/Xenobiology/slimesAdult.rsi
+        displayName: adult

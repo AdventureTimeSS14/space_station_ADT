@@ -18,6 +18,7 @@
         Security: [ ]
         Service: [ ]
     - type: StationCargoBountyDatabase
+    - type: StationXenobiologyBountyDatabase # ADT-Tweak
 
 - type: entity
   id: BaseStationJobsSpawning

@@ -1,0 +1,24 @@
+- type: entity
+  parent:
+  - Incorporeal
+  - BaseMob
+  id: RemoteEye
+  name: remote eye
+  description: A remote viewing eye.
+  categories: [ HideSpawnMenu, DoNotMap ]
+  components:
+  - type: RemoteEye
+  - type: RemoteEyeOverlay
+  - type: NoFTL
+  - type: Eye
+    pvsScale: 1.5
+  - type: Examiner
+  - type: ContentEye
+  - type: WarpPoint
+    follow: true
+    blacklist:
+      tags:
+      - GhostOnlyWarp
+  - type: Tag
+    tags:
+    - GhostOnlyWarp

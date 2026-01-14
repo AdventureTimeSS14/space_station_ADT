@@ -55,3 +55,6 @@ ent-ADTSpawnMobArgocyteFounder = спавнер прародителя
 
 ent-ADTSpawnMobArgocyteLeviathing = спавнер левиазверя
     .desc = { ent-MarkerBase.desc }
+
+ent-ADTXenoSlimeSpawner = спавнер ксено слайма
+    .desc = { ent-MarkerBase.desc }

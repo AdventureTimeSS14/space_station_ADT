@@ -389,8 +389,14 @@
   configuration:
     entity: MobReptilian
     forced: true
+    transferBodycolor: true
     transferName: true
     inventory: Transfer
+    transferLanguageSpeaker: true
+    transferTTS: true
+    transferSpeechBarks: true
+    transferAccents: true
+    transferHumanoidAppearance: false
     allowRepeatedMorphs: true
     revertOnDeath: false
     revertOnCrit: false
@@ -402,6 +408,26 @@
     forced: true
     transferName: true
     inventory: Transfer
+    transferLanguageSpeaker: true
+    transferTTS: true
+    transferSpeechBarks: true
+    transferHumanoidAppearance: false
+    allowRepeatedMorphs: true
+    revertOnDeath: false
+    revertOnCrit: false
+
+- type: polymorph
+  id: ADTSlimePolymorph
+  configuration:
+    entity: MobSlimePerson
+    forced: true
+    transferBodycolor: true
+    transferName: true
+    inventory: Transfer
+    transferLanguageSpeaker: true
+    transferTTS: true
+    transferSpeechBarks: true
+    transferHumanoidAppearance: false
     allowRepeatedMorphs: true
     revertOnDeath: false
     revertOnCrit: false
