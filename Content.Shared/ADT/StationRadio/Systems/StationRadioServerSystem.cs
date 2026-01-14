@@ -6,9 +6,7 @@ using Content.Shared.Examine;
 using Content.Shared.Radio;
 using Content.Shared.Verbs;
 using Robust.Shared.Prototypes;
-
 namespace Content.Shared.ADT.StationRadio.Systems;
-
 /// <summary>
 /// Система управления серверами радиостанций.
 /// Обрабатывает смену каналов и трансляцию медиа.
@@ -16,18 +14,15 @@ namespace Content.Shared.ADT.StationRadio.Systems;
 public sealed class StationRadioServerSystem : EntitySystem
 {
     [Dependency] private readonly IPrototypeManager _proto = default!;
-
     /// <inheritdoc/>
     public override void Initialize()
     {
         base.Initialize();
-
         SubscribeLocalEvent<StationRadioServerComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<StationRadioServerComponent, DestructionEventArgs>(OnDestruction);
         SubscribeLocalEvent<StationRadioServerComponent, ExaminedEvent>(OnExamined);
         SubscribeLocalEvent<StationRadioServerComponent, GetVerbsEvent<Verb>>(OnGetVerbs);
     }
-
     /// <summary>
     /// Обработчик инициализации компонента.
     /// Устанавливает канал по умолчанию, если не задан.
@@ -40,7 +35,6 @@ public sealed class StationRadioServerSystem : EntitySystem
             Dirty(uid, comp);
         }
     }
-
     /// <summary>
     /// Обработчик уничтожения сервера.
     /// Останавливает трансляцию на всех подключенных ресиверах.
@@ -49,12 +43,10 @@ public sealed class StationRadioServerSystem : EntitySystem
     {
         if (comp.CurrentMedia == null || comp.ChannelId == null)
             return;
-
         var channelId = comp.ChannelId;
         comp.CurrentMedia = null;
         comp.ChannelId = null;
         Dirty(uid, comp);
-
         var ev = new StationRadioMediaStoppedEvent(channelId);
         var query = EntityQueryEnumerator<StationRadioReceiverComponent>();
         while (query.MoveNext(out var receiver, out _))
@@ -62,7 +54,6 @@ public sealed class StationRadioServerSystem : EntitySystem
             RaiseLocalEvent(receiver, ev);
         }
     }
-
     /// <summary>
     /// Обработчик осмотра сервера.
     /// Показывает информацию о текущем канале.
@@ -74,10 +65,8 @@ public sealed class StationRadioServerSystem : EntitySystem
             args.PushMarkup(Loc.GetString("station-radio-server-examine-none"));
             return;
         }
-
         args.PushMarkup(Loc.GetString("station-radio-server-examine", ("channel", channel.LocalizedName)));
     }
-
     /// <summary>
     /// Обработчик verbs для смены канала сервера.
     /// Предоставляет список доступных каналов для выбора.
@@ -86,12 +75,10 @@ public sealed class StationRadioServerSystem : EntitySystem
     {
         if (!args.CanAccess || !args.CanInteract)
             return;
-
         foreach (var id in RadioConstants.AllowedChannels)
         {
             if (!_proto.TryIndex<RadioChannelPrototype>(id, out var channel))
                 continue;
-
             var channelId = channel.ID;
             var verb = new Verb
             {
@@ -101,14 +88,11 @@ public sealed class StationRadioServerSystem : EntitySystem
                 {
                     if (comp.ChannelId == channelId)
                         return;
-
                     var oldChannelId = comp.ChannelId;
                     comp.ChannelId = channelId;
                     Dirty(uid, comp);
-
                     if (comp.CurrentMedia is not { } media)
                         return;
-
                     // Останавливаем на старой частоте ТОЛЬКО если это другой канал
                     if (oldChannelId != null && oldChannelId != channelId)
                     {
@@ -121,7 +105,6 @@ public sealed class StationRadioServerSystem : EntitySystem
                                 RaiseLocalEvent(rec, stopEv);
                         }
                     }
-
                     // Запускаем на новой - ОДИН РАЗ для каждого ресивера
                     var playEv = new StationRadioMediaPlayedEvent(media, channelId);
                     var queryPlay = EntityQueryEnumerator<StationRadioReceiverComponent>();

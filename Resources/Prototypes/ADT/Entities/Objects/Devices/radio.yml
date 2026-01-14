@@ -4,6 +4,12 @@
   parent: BaseItem
   id: ADTOldRadio
   components:
+  - type: VerbSelectableRadioChannel
+    allowedChannels:
+      - ADTOldBroadcast
+      - ADTOldBroadcastTwo
+      - ADTOldBroadcastThree
+    selectedChannelId: ADTOldBroadcast
   - type: RadioSpeaker
     enabled: true
     speakNormally: true
@@ -37,6 +43,12 @@
   parent: BaseItem
   id: ADTOldRadioMicrophone
   components:
+  - type: VerbSelectableRadioChannel
+    allowedChannels:
+      - ADTOldBroadcast
+      - ADTOldBroadcastTwo
+      - ADTOldBroadcastThree
+    selectedChannelId: ADTOldBroadcast
   - type: RadioMicrophone
     listenRange: 1
     broadcastChannel: ADTOldBroadcast
