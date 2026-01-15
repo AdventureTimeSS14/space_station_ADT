@@ -1,4 +1,3 @@
-using System.Threading;
 using Content.Shared.ADT.Furniture.Tables.Components;
 using Content.Shared.Examine;
 using Content.Shared.Interaction;
@@ -6,6 +5,7 @@ using Content.Shared.Popups;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Random;
+using System.Threading;
 
 namespace Content.Server.ADT.Furniture.Tables.Systems;
 
@@ -78,7 +78,7 @@ public sealed class RouletteSystem : EntitySystem
             RolloffFactor = 2f,
             ReferenceDistance = 0.5f
         };
-        var audioEntity = _audio.PlayPvs(new SoundPathSpecifier("/Audio/ADT/Furniture/roulette-wheel-throw-1.ogg"), uid, audioParams);
+        _audio.PlayPvs(new SoundPathSpecifier("/Audio/ADT/Furniture/roulette-wheel-throw-1.ogg"), uid, audioParams);
 
         component.CancellationTokenSource?.Cancel();
         component.CancellationTokenSource = new CancellationTokenSource();

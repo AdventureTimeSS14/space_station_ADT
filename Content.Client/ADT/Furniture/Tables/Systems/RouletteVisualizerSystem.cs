@@ -26,9 +26,6 @@ public sealed class RouletteVisualizerSystem : EntitySystem
         if (!_appearance.TryGetData(uid, RouletteVisuals.State, out RouletteState state))
             state = RouletteState.Idle;
 
-        if (!_appearance.TryGetData(uid, RouletteVisuals.Result, out int result))
-            result = 0;
-
         switch (state)
         {
             case RouletteState.Idle:
