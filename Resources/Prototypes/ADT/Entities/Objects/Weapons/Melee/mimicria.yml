@@ -15,7 +15,7 @@
   - type: Spellbook
     learnTime: 0.01
     spellActions:
-      ADTActionTeatacles: 3
+      ADTActionTeatacles: null
   - type: Item
     sprite: ADT/Objects/Weapons/Melee/mimicria_sword.rsi
     size: Huge

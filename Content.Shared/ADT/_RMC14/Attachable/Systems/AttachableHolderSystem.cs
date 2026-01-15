@@ -382,7 +382,8 @@ public sealed class AttachableHolderSystem : EntitySystem
 
         Dirty(holder);
 
-        _gun.RefreshModifiers(holder.Owner);
+        if (HasComp<GunComponent>(holder.Owner))
+            _gun.RefreshModifiers(holder.Owner);
         _audio.PlayPredicted(Comp<AttachableComponent>(attachableUid).AttachSound,
             holder,
             userUid);
@@ -481,7 +482,8 @@ public sealed class AttachableHolderSystem : EntitySystem
             userUid);
 
         Dirty(holder);
-        _gun.RefreshModifiers(holder.Owner);
+        if (HasComp<GunComponent>(holder.Owner))
+            _gun.RefreshModifiers(holder.Owner);
         _hands.TryPickupAnyHand(userUid, attachable);
         return true;
     }
