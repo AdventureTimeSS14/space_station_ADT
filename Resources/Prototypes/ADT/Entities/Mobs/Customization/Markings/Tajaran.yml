@@ -35,6 +35,168 @@
     - sprite: ADT/Mobs/Customization/Tajaran/tajaran_chest.rsi
       state: chest
 
+- type: marking
+  id: ChestBirch
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [TajaranSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_chest.rsi
+      state: birch
+
+- type: marking
+  id: ChestBreastFemale
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [TajaranSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_chest.rsi
+      state: breast_female
+
+- type: marking
+  id: ChestBreastMale
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [TajaranSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_chest.rsi
+      state: breast_male
+
+- type: marking
+  id: ChestBreastSecond
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [TajaranSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_chest.rsi
+      state: breast_second
+
+- type: marking
+  id: ChestDisheveled
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [TajaranSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_chest.rsi
+      state: disheveled
+
+- type: marking
+  id: ChestGepard
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [TajaranSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_chest.rsi
+      state: gepard
+
+- type: marking
+  id: ChestHearts
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [TajaranSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_chest.rsi
+      state: hearts
+
+- type: marking
+  id: ChestSpots1
+  bodyPart: Chest
+  markingCategory: Overlay
+  speciesRestriction: [TajaranSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_chest.rsi
+      state: spots_1
+
+- type: marking
+  id: ChestSpots2
+  bodyPart: Chest
+  markingCategory: Overlay
+  speciesRestriction: [TajaranSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_chest.rsi
+      state: spots_2
+
+- type: marking
+  id: ChestSpots3
+  bodyPart: Chest
+  markingCategory: Overlay
+  speciesRestriction: [TajaranSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_chest.rsi
+      state: spots_3
+
+- type: marking
+  id: ChestSpots4
+  bodyPart: Chest
+  markingCategory: Overlay
+  speciesRestriction: [TajaranSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_chest.rsi
+      state: spots_4
+
+- type: marking
+  id: ChestSpots5
+  bodyPart: Chest
+  markingCategory: Overlay
+  speciesRestriction: [TajaranSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_chest.rsi
+      state: spots_5
+
+- type: marking
+  id: ChestSpots6
+  bodyPart: Chest
+  markingCategory: Overlay
+  speciesRestriction: [TajaranSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_chest.rsi
+      state: spots_6
+
+- type: marking
+  id: ChestSpots7
+  bodyPart: Chest
+  markingCategory: Overlay
+  speciesRestriction: [TajaranSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_chest.rsi
+      state: spots_7
+
+- type: marking
+  id: ChestStrips1
+  bodyPart: Chest
+  markingCategory: Overlay
+  speciesRestriction: [TajaranSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_chest.rsi
+      state: strips_1
+
+- type: marking
+  id: ChestStrips2
+  bodyPart: Chest
+  markingCategory: Overlay
+  speciesRestriction: [TajaranSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_chest.rsi
+      state: strips_2
+
+- type: marking
+  id: ChestFurrF
+  bodyPart: Chest
+  markingCategory: Overlay
+  speciesRestriction: [TajaranSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_chest.rsi
+      state: white_furr_female
+
+- type: marking
+  id: ChestFurrM
+  bodyPart: Chest
+  markingCategory: Overlay
+  speciesRestriction: [TajaranSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_chest.rsi
+      state: white_furr_male
+
 #Наложение.
 - type: marking
   id: BodyStripes
@@ -413,6 +575,321 @@
     state: s_eyes_wide
 
 - type: marking
+  id: HeadMascara
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [TajaranSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_head.rsi #Спрайты от moroz_3
+      state: mascara
+
+- type: marking
+  id: Head_3
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [TajaranSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_head.rsi #Спрайты от moroz_3
+      state: _3
+
+- type: marking
+  id: HeadCalm
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [TajaranSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_head.rsi #Спрайты от moroz_3
+      state: calm
+
+- type: marking
+  id: HeadEarringLeft
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [TajaranSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_head.rsi #Спрайты от moroz_3
+      state: earring_left
+
+- type: marking
+  id: HeadEarringRight
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [TajaranSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_head.rsi #Спрайты от moroz_3
+      state: earring_right
+
+- type: marking
+  id: HeadEyebrows2
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [TajaranSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_head.rsi #Спрайты от moroz_3
+      state: eyebrows_2
+
+- type: marking
+  id: HeadEyelashesDown
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [TajaranSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_head.rsi #Спрайты от moroz_3
+      state: eyelashes_down
+
+- type: marking
+  id: HeadEyelashesUp
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [TajaranSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_head.rsi #Спрайты от moroz_3
+      state: eyelashes_up
+
+- type: marking
+  id: HeadGepard
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [TajaranSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_head.rsi #Спрайты от moroz_3
+      state: gepard
+
+- type: marking
+  id: HeadJoke
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [TajaranSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_head.rsi #Спрайты от moroz_3
+      state: joke
+
+- type: marking
+  id: HeadJoke2
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [TajaranSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_head.rsi #Спрайты от moroz_3
+      state: joke_2
+
+- type: marking
+  id: HeadOutline
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [TajaranSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_head.rsi #Спрайты от moroz_3
+      state: outline
+
+- type: marking
+  id: HeadRingLeft
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [TajaranSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_head.rsi #Спрайты от moroz_3
+      state: ring_left
+
+- type: marking
+  id: HeadRingRight
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [TajaranSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_head.rsi #Спрайты от moroz_3
+      state: ring_right
+
+- type: marking
+  id: HeadScarDown
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [TajaranSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_head.rsi #Спрайты от moroz_3
+      state: scar_down
+
+- type: marking
+  id: HeadScarLeft
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [TajaranSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_head.rsi #Спрайты от moroz_3
+      state: scar_left
+
+- type: marking
+  id: HeadScarRight
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [TajaranSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_head.rsi #Спрайты от moroz_3
+      state: scar_right
+
+- type: marking
+  id: HeadSpot
+  bodyPart: Head
+  markingCategory: Overlay
+  speciesRestriction: [TajaranSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_head.rsi #Спрайты от moroz_3
+      state: spot
+
+- type: marking
+  id: HeadSpots
+  bodyPart: Head
+  markingCategory: Overlay
+  speciesRestriction: [TajaranSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_head.rsi #Спрайты от moroz_3
+      state: spots
+
+- type: marking
+  id: HeadSpots1
+  bodyPart: Head
+  markingCategory: Overlay
+  speciesRestriction: [TajaranSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_head.rsi #Спрайты от moroz_3
+      state: spots_1
+
+- type: marking
+  id: HeadSpots2
+  bodyPart: Head
+  markingCategory: Overlay
+  speciesRestriction: [TajaranSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_head.rsi #Спрайты от moroz_3
+      state: spots_2
+
+- type: marking
+  id: HeadStripVertical
+  bodyPart: Head
+  markingCategory: Overlay
+  speciesRestriction: [TajaranSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_head.rsi #Спрайты от moroz_3
+      state: strip_vertical
+
+- type: marking
+  id: HeadStrips
+  bodyPart: Head
+  markingCategory: Overlay
+  speciesRestriction: [TajaranSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_head.rsi #Спрайты от moroz_3
+      state: strips
+
+- type: marking
+  id: HeadStrips2
+  bodyPart: Head
+  markingCategory: Overlay
+  speciesRestriction: [TajaranSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_head.rsi #Спрайты от moroz_3
+      state: strips_2
+
+- type: marking
+  id: HeadSun
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [TajaranSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_head.rsi #Спрайты от moroz_3
+      state: sun
+
+- type: marking
+  id: HeadTagLeft
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [TajaranSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_head.rsi #Спрайты от moroz_3
+      state: tag_left
+
+- type: marking
+  id: HeadTagRight
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [TajaranSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_head.rsi #Спрайты от moroz_3
+      state: tag_right
+
+- type: marking
+  id: HeadWifi
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [TajaranSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_head.rsi #Спрайты от moroz_3
+      state: wifi
+
+- type: marking
+  id: HeadWrinkle
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [TajaranSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_head.rsi #Спрайты от moroz_3
+      state: wrinkle
+
+- type: marking
+  id: HeadYshastik
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [TajaranSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_head.rsi #Спрайты от moroz_3
+      state: yshastik
+
+- type: marking
+  id: HeadSmile
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [TajaranSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_head.rsi #Спрайты от moroz_3
+      state: smile
+
+- type: marking
+  id: HeadVampire
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [TajaranSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_head.rsi #Спрайты от moroz_3
+      state: vampire
+
+- type: marking
+  id: HeadBlush
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [TajaranSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_head.rsi #Спрайты от moroz_3
+      state: blush
+
+- type: marking
+  id: HeadBlushFull
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [TajaranSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_head.rsi #Спрайты от moroz_3
+      state: blush_full
+
+- type: marking
+  id: HeadCheeks
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [TajaranSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_head.rsi #Спрайты от moroz_3
+      state: cheeks
+
+- type: marking
   id: HairEyebrows
   bodyPart: Head
   markingCategory: Head
@@ -622,6 +1099,15 @@
     - sprite: ADT/Mobs/Customization/Tajaran/tajaran_hairs.rsi #Спрайты от prazat911
       state: ponytail
 
+- type: marking
+  id: HairBraidSmooth
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [TajaranSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_hairs.rsi #Спрайты от prazat911
+      state: braid_smooth
+
 #Бороды. (которые, как бы, лицевая раст-сть)
 - type: marking
   id: FacialHairBeard
@@ -667,3 +1153,12 @@
   sprites:
     - sprite: ADT/Mobs/Customization/Tajaran/tajaran_facial_hairs.rsi #Спрайты от moroz_3
       state: mustache_3
+
+- type: marking
+  id: FacialHairMustache4
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  speciesRestriction: [TajaranSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_facial_hairs.rsi #Спрайты от moroz_3
+      state: mustache_4

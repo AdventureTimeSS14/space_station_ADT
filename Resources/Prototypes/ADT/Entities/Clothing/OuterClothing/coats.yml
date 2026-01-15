@@ -37,6 +37,19 @@
 #толстовки-топки от Празата
 - type: entity
   parent: ClothingOuterStorageBase
+  id: ADTClothingOuterWhiteSweatshirtTop
+  name: white sweatshirt-top
+  description: white sweatshirt-top
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Coats/white_sweatshirttop.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Coats/white_sweatshirttop.rsi
+  - type: StaticPrice
+    price: 65
+
+- type: entity
+  parent: ClothingOuterStorageBase
   id: ADTClothingOuterGraySweatshirtTop
   name: gray sweatshirt-top
   description: gray sweatshirt-top
@@ -126,7 +139,7 @@
         Heat: 0.8
 
 - type: entity
-  parent: ClothingOuterBase
+  parent: ClothingOuterStorageBase
   id: ClothingOuterAtmosianBomberJacket
   name: atmosian bomber jacket
   description: A thick, well-worn atmosian leather bomber jacket.
@@ -142,7 +155,7 @@
   id: ADTClothingOuterCoatCentCom
   name: centcom coat
   description: A green coat with gold inserts. The golden letter N is emblazoned on the back. Only the big shots wear this coat...
-  components: 
+  components:
   - type: Storage
     grid:
      - 0,0,2,1
@@ -160,7 +173,7 @@
         Slash: 0.8
         Piercing: 0.7
         Heat: 0.85
-        Caustic: 0.75 
+        Caustic: 0.75
 
 #Пальто КЦК
 - type: entity
@@ -549,12 +562,12 @@
     sprite: ADT/Clothing/OuterClothing/Coats/sec_coat.rsi
   - type: Clothing
     sprite: ADT/Clothing/OuterClothing/Coats/sec_coat.rsi
-  - type: Armor 
+  - type: Armor
     modifiers:
       coefficients:
         Blunt: 0.70
         Slash: 0.70
-        Piercing: 0.70 
+        Piercing: 0.70
         Heat: 0.80
   - type: ExplosionResistance
     damageCoefficient: 0.90
@@ -590,7 +603,7 @@
   - type: Clothing
     clothingVisuals:
       outerClothing:
-      - state: valid-equipped-OUTERCLOTHING
+      - state: equipped-OUTERCLOTHING
   - type: Armor
     modifiers:
       coefficients:
@@ -598,3 +611,145 @@
         Slash: 0.7
         Piercing: 0.7
         Heat: 0.8
+
+#Лёгкие куртки
+
+- type: entity
+  parent: ClothingOuterWinterCoat
+  id: ADTClothingOuterWinterCoatLightColorAquamarine
+  name: aquamarine light winter coat
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/WinterCoats/light_winter_coat_aquamarine.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/WinterCoats/light_winter_coat_aquamarine.rsi
+
+- type: entity
+  parent: ClothingOuterWinterCoat
+  id: ADTClothingOuterWinterCoatLightColorWhite
+  name: white light winter coat
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/WinterCoats/light_winter_coat_white.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/WinterCoats/light_winter_coat_white.rsi
+
+- type: entity
+  parent: ClothingOuterWinterCoat
+  id: ADTClothingOuterWinterCoatLightColorAzure
+  name: azure light winter coat
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/WinterCoats/light_winter_coat_azure.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/WinterCoats/light_winter_coat_azure.rsi
+
+- type: entity
+  parent: ClothingOuterWinterCoat
+  id: ADTClothingOuterWinterCoatLightColorYellow
+  name: yellow light winter coat
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/WinterCoats/light_winter_coat_yellow.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/WinterCoats/light_winter_coat_yellow.rsi
+
+- type: entity
+  parent: ClothingOuterWinterCoat
+  id: ADTClothingOuterWinterCoatLightColorGreen
+  name: green light winter coat
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/WinterCoats/light_winter_coat_green.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/WinterCoats/light_winter_coat_green.rsi
+
+- type: entity
+  parent: ClothingOuterWinterCoat
+  id: ADTClothingOuterWinterCoatLightColorBrown
+  name: brown light winter coat
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/WinterCoats/light_winter_coat_brown.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/WinterCoats/light_winter_coat_brown.rsi
+
+- type: entity
+  parent: ClothingOuterWinterCoat
+  id: ADTClothingOuterWinterCoatLightColorRed
+  name: red light winter coat
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/WinterCoats/light_winter_coat_red.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/WinterCoats/light_winter_coat_red.rsi
+
+- type: entity
+  parent: ClothingOuterWinterCoat
+  id: ADTClothingOuterWinterCoatLightColorOrange
+  name: orange light winter coat
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/WinterCoats/light_winter_coat_orange.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/WinterCoats/light_winter_coat_orange.rsi
+
+- type: entity
+  parent: ClothingOuterWinterCoat
+  id: ADTClothingOuterWinterCoatLightColorPink
+  name: pink light winter coat
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/WinterCoats/light_winter_coat_pink.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/WinterCoats/light_winter_coat_pink.rsi
+
+- type: entity
+  parent: ClothingOuterWinterCoat
+  id: ADTClothingOuterWinterCoatLightColorGrey
+  name: grey light winter coat
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/WinterCoats/light_winter_coat_grey.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/WinterCoats/light_winter_coat_grey.rsi
+
+- type: entity
+  parent: ClothingOuterWinterCoat
+  id: ADTClothingOuterWinterCoatLightColorBlue
+  name: blue light winter coat
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/WinterCoats/light_winter_coat_blue.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/WinterCoats/light_winter_coat_blue.rsi
+
+- type: entity
+  parent: ClothingOuterWinterCoat
+  id: ADTClothingOuterWinterCoatLightColorPurple
+  name: purple light winter coat
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/WinterCoats/light_winter_coat_purple.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/WinterCoats/light_winter_coat_purple.rsi
+
+- type: entity
+  parent: ClothingOuterWinterCoat
+  id: ADTClothingOuterWinterCoatLightColorBlack
+  name: black light winter coat
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/WinterCoats/light_winter_coat_black.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/WinterCoats/light_winter_coat_black.rsi
+
+- type: entity
+  parent: ClothingOuterWinterCoat
+  id: ADTClothingOuterWinterCoatLightColorDarkBlue
+  name: darkblue light winter coat
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/WinterCoats/light_winter_coat_darkblue.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/WinterCoats/light_winter_coat_darkblue.rsi

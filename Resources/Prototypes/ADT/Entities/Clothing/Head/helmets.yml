@@ -111,7 +111,7 @@
       coefficients:
         Blunt: 0.85
         Slash: 0.85
-        Piercing: 0.85
+        Piercing: 0.95
         Heat: 0.85
   - type: Tag
     tags:
