@@ -397,7 +397,7 @@
               amount: 3
               doAfter: 1
             - material: Cloth
-              amount: 5
+              amount: 1
               doAfter: 1
         - to: adtchairrich
           steps:
@@ -1432,7 +1432,7 @@
               amount: 3
             - !type:SpawnPrototype
               prototype: MaterialCloth1
-              amount: 5
+              amount: 1
           steps:
             - tool: Screwing
               doAfter: 2

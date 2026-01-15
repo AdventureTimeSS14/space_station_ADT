@@ -163,6 +163,8 @@
   - type: Sprite
     sprite: ADT/Structures/Furniture/Chairs/chairs.rsi
     state: king
+  - type: StaticPrice
+    price: 300
   - type: Construction
     graph: ADTSeat
     node: adtchairking
@@ -176,6 +178,8 @@
   - type: Sprite
     sprite: ADT/Structures/Furniture/Chairs/chairs.rsi
     state: rich
+  - type: StaticPrice
+    price: 260
   - type: Construction
     graph: ADTSeat
     node: adtchairrich
@@ -189,6 +193,8 @@
   - type: Sprite
     sprite: ADT/Structures/Furniture/Chairs/chairs.rsi
     state: rich_white
+  - type: StaticPrice
+    price: 260
   - type: Construction
     graph: ADTSeat
     node: adtchairrichwhite
