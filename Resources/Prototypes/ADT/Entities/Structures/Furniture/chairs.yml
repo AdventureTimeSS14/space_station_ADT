@@ -66,6 +66,16 @@
     graph: ADTSeat
     node: adtchairwhite
 
+- type: entity
+  name: orange wooden chair
+  id: ADTChairOktoberfestOrange
+  parent: ADTChairBase
+  description: A wooden chair painted orange.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Chairs/oktoberfest_chair.rsi
+    state: oct_chair_orange
+
 
 - type: entity
   name: rusty chair
