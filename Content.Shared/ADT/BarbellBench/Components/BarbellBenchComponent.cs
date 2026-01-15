@@ -23,9 +23,9 @@ public sealed partial class BarbellBenchComponent : Component
     [DataField]
     public float RepDuration = 3.0f;
 
-    [DataField, AutoNetworkedField]
+    [AutoNetworkedField]
     public EntityUid? BarbellRepAction;
 
-    [DataField, AutoNetworkedField]
+    [AutoNetworkedField]
     public EntityUid? OverlayEntity;
 }
