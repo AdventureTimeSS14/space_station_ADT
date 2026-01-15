@@ -1428,7 +1428,7 @@
         - to: start
           completed:
             - !type:SpawnPrototype
-              prototype: MaterialGold1
+              prototype: IngotGold1
               amount: 3
             - !type:SpawnPrototype
               prototype: MaterialCloth1
@@ -1443,7 +1443,7 @@
         - to: start
           completed:
             - !type:SpawnPrototype
-              prototype: MaterialGold1
+              prototype: IngotGold1
               amount: 3
             - !type:SpawnPrototype
               prototype: MaterialCloth1
@@ -1458,7 +1458,7 @@
         - to: start
           completed:
             - !type:SpawnPrototype
-              prototype: MaterialGold1
+              prototype: IngotGold1
               amount: 3
             - !type:SpawnPrototype
               prototype: MaterialCloth1
