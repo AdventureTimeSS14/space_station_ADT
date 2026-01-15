@@ -1190,6 +1190,20 @@
     - !type:TileNotBlocked
 
 - type: construction
+  name: construction-name-oktoberfest-chair
+  id: ADTChairOktoberfestOrangeRecipe
+  graph: ADTSeat
+  startNode: start
+  targetNode: adtchairoktoberfestorange
+  category: construction-category-furniture
+  description: construction-desc-oktoberfest-chair
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
   name: construction-name-bar-stool
   id: ADTChairBarStoolRecipe
   graph: ADTSeat
@@ -1439,6 +1453,20 @@
   targetNode: adtdiscoball
   category: construction-category-furniture
   description: construction-desc-disco-ball
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: construction-name-roulette
+  id: ADTTableRouletteRecipe
+  graph: ADTTable
+  startNode: start
+  targetNode: adttableroulette
+  category: construction-category-furniture
+  description: construction-desc-roulette
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false

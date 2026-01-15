@@ -6,6 +6,14 @@
       actions:
         - !type:DeleteEntity {}
       edges:
+        - to: adttableroulette
+          steps:
+            - material: WoodPlank
+              amount: 6
+              doAfter: 6
+            - material: Cloth
+              amount: 4
+              doAfter: 4
         - to: adttableframe
           completed:
             - !type:SnapToGrid
@@ -203,6 +211,22 @@
           steps:
             - tool: Anchoring
               doAfter: 1
+
+    - node: adttableroulette
+      entity: ADTTableRoulette
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialWoodPlank1
+              amount: 6
+            - !type:SpawnPrototype
+              prototype: MaterialCloth1
+              amount: 4
+            - !type:DeleteEntity {}
+          steps:
+            - tool: Prying
+              doAfter: 4
 
     - node: adttableredwood
       entity: ADTTableRedWood

@@ -130,13 +130,14 @@
   - type: Sprite
     sprite: ADT/Structures/Furniture/Memorials/column.rsi
     state: full
+    drawdepth: OverMobs
     noRot: true
   - type: Fixtures
     fixtures:
       fix1:
         shape:
           !type:PhysShapeAabb
-          bounds: "-0.225,-0.95,0.225,1.0"
+          bounds: "-0.225,-0.95,0.225,0.05"
         density: 85
         mask:
         - FullTileMask
@@ -152,13 +153,14 @@
   - type: Sprite
     sprite: ADT/Structures/Furniture/Memorials/column.rsi
     state: column_damaged
+    drawdepth: OverMobs
     noRot: true
   - type: Fixtures
     fixtures:
       fix1:
         shape:
           !type:PhysShapeAabb
-          bounds: "-0.225,-0.95,0.225,1.0"
+          bounds: "-0.225,-0.95,0.225,0.05"
         density: 85
         mask:
         - FullTileMask
@@ -229,6 +231,7 @@
   - type: Sprite
     sprite: ADT/Structures/Furniture/Memorials/veterans_64x32.rsi
     state: full
+    drawdepth: OverMobs
     noRot: true
   - type: Fixtures
     fixtures:
@@ -251,13 +254,14 @@
   - type: Sprite
     sprite: ADT/Structures/Furniture/Memorials/veterans_192x64.rsi
     state: full
+    drawdepth: OverMobs
     noRot: true
   - type: Fixtures
     fixtures:
       fix1:
         shape:
           !type:PhysShapeAabb
-          bounds: "-3.0,-1.0,3.0,1.0"
+          bounds: "-3.0,-1.0,3.0,0.0"
         density: 85
         mask:
         - FullTileMask

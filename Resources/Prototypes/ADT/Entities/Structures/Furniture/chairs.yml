@@ -75,6 +75,9 @@
   - type: Sprite
     sprite: ADT/Structures/Furniture/Chairs/oktoberfest_chair.rsi
     state: oct_chair_orange
+  - type: Construction
+    graph: ADTSeat
+    node: adtchairoktoberfestorange
 
 
 - type: entity

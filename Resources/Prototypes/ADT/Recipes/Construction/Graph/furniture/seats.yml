@@ -361,14 +361,19 @@
             - material: WoodPlank
               amount: 2
               doAfter: 1
-        - to: adtchairbarstool
+        - to: adtchairoktoberfestorange
           steps:
             - material: WoodPlank
               amount: 2
               doAfter: 1
+        - to: adtchairbarstool
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 1
         - to: adtchairbarstool2
           steps:
-            - material: WoodPlank
+            - material: Steel
               amount: 2
               doAfter: 1
         - to: adtchaircomfyblack
@@ -400,7 +405,7 @@
               amount: 3
               doAfter: 1
             - material: Cloth
-              amount: 5
+              amount: 1
               doAfter: 1
         - to: adtchairrichwhite
           steps:
@@ -408,11 +413,11 @@
               amount: 3
               doAfter: 1
             - material: Cloth
-              amount: 5
+              amount: 1
               doAfter: 1
         - to: adtchairstyle
           steps:
-            - material: WoodPlank
+            - material: Steel
               amount: 2
               doAfter: 1
         - to: adtchairwoodenstool
@@ -1349,13 +1354,25 @@
             - tool: Screwing
               doAfter: 2
 
+    - node: adtchairoktoberfestorange
+      entity: ADTChairOktoberfestOrange
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialWoodPlank1
+          steps:
+            - tool: Screwing
+              doAfter: 2
+
     - node: adtchairbarstool
       entity: ADTChairBarStool
       edges:
         - to: start
           completed:
             - !type:SpawnPrototype
-              prototype: MaterialWoodPlank1
+              prototype: SheetSteel1
+              amount: 2
           steps:
             - tool: Screwing
               doAfter: 2
@@ -1366,7 +1383,8 @@
         - to: start
           completed:
             - !type:SpawnPrototype
-              prototype: MaterialWoodPlank1
+              prototype: SheetSteel1
+              amount: 2
           steps:
             - tool: Screwing
               doAfter: 2
@@ -1429,7 +1447,7 @@
               amount: 3
             - !type:SpawnPrototype
               prototype: MaterialCloth1
-              amount: 5
+              amount: 1
           steps:
             - tool: Screwing
               doAfter: 2
@@ -1444,7 +1462,7 @@
               amount: 3
             - !type:SpawnPrototype
               prototype: MaterialCloth1
-              amount: 5
+              amount: 1
           steps:
             - tool: Screwing
               doAfter: 2
@@ -1455,7 +1473,8 @@
         - to: start
           completed:
             - !type:SpawnPrototype
-              prototype: MaterialWoodPlank1
+              prototype: SheetSteel1
+              amount: 2
           steps:
             - tool: Screwing
               doAfter: 2
