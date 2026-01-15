@@ -39,3 +39,15 @@
   id: ADTSyndicateDuffel
   recipes:
   - ADTClothingBackpackDuffelSyndicate
+
+- type: latheRecipePack
+  id: ADTStandards
+  recipes:
+  - ADTStandardColourRed
+  - ADTStandardColourBlue
+  - ADTStandardColourGreen
+  - ADTStandardColourYellow
+  - ADTStandardColourOrange
+  - ADTStandardColourPurple
+  - ADTStandardColourWhite
+  - ADTStandardNt

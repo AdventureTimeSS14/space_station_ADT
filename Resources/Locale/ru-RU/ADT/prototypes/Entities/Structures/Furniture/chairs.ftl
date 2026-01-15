@@ -78,3 +78,6 @@ ent-ADTChairWoodenStool = табуретка
 
 ent-ADTChairWoodenStool2 = табуретка
     .desc = Вы сидите на ней. Либо по вашей воле, либо по принуждению.
+
+ent-ADTArmchairCentcomm = роскошное кресло Центком
+    .desc = Комфортное и роскошное кресло для представителей Центком.
