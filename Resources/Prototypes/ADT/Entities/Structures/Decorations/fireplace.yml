@@ -8,17 +8,11 @@
     sprite: ADT/Structures/Decoration/fireplace.rsi
     layers:
       - state: fireplace
-      # ADT rsi не содержит fireplacefestive, поэтому используем дубль базового спрайта.
       - state: fire
         shader: unshaded
       - state: glow
         shader: unshaded
   - type: Appearance
-  - type: GenericVisualizer
-    visuals:
-      enum.HolidayVisuals.Holiday:
-        christmas:
-          festive: { visible: true }
   - type: AmbientSound
     volume: -6
     range: 5
@@ -59,11 +53,6 @@
       - state: glow_wooden
         shader: unshaded
   - type: Appearance
-  - type: GenericVisualizer
-    visuals:
-      enum.HolidayVisuals.Holiday:
-        christmas:
-          festive: { visible: true }
   - type: AmbientSound
     volume: -6
     range: 5
