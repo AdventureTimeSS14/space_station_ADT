@@ -167,7 +167,7 @@
       state: sonfariel
     - map: ["enum.StateSlimcatVisual.Sleep"]
       visible: false
-      state: sonfariel-rest
+      state: rest-sonfariel
   - type: DamageStateVisuals
     states:
       Alive:
