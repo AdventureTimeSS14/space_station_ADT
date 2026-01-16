@@ -1,96 +1,68 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Made by github @AegisShieldDev",
+  "copyright": "Made by github @AegisShieldDev ; holy, metaphysical by discord: archero0 ",
   "size": {
     "x": 15,
     "y": 15
   },
   "states": [
     {
-      "name": "piercing",
-      "directions": 1,
-      "copyright": "Made by github @AegisShieldDev"
+      "name": "toxin"
     },
     {
-      "name": "blunt",
-      "directions": 1,
-      "copyright": "Made by github @AegisShieldDev"
+      "name": "airloss"
     },
     {
-      "name": "slash",
-      "directions": 1,
-      "copyright": "Made by github @AegisShieldDev"
+      "name": "asphyxiation"
     },
     {
-      "name": "brute",
-      "directions": 1,
-      "copyright": "Made by github @AegisShieldDev"
+      "name": "bloodloss"
     },
     {
-      "name": "airloss",
-      "directions": 1,
-      "copyright": "Made by github @AegisShieldDev"
+      "name": "blunt"
     },
     {
-      "name": "asphyxiation",
-      "directions": 1,
-      "copyright": "Made by github @AegisShieldDev"
+      "name": "brute"
     },
     {
-      "name": "bloodloss",
-      "directions": 1,
-      "copyright": "Made by github @AegisShieldDev"
+      "name": "burn"
     },
     {
-      "name": "genetic",
-      "directions": 1,
-      "copyright": "Made by github @AegisShieldDev"
+      "name": "caustic"
     },
     {
-      "name": "cellular",
-      "directions": 1,
-      "copyright": "Made by github @AegisShieldDev"
+      "name": "cellular"
     },
     {
-      "name": "radiation",
-      "directions": 1,
-      "copyright": "Made by github @AegisShieldDev"
+      "name": "cold"
     },
     {
-      "name": "poison",
-      "directions": 1,
-      "copyright": "Made by github @AegisShieldDev"
+      "name": "genetic"
     },
     {
-      "name": "toxin",
-      "directions": 1,
-      "copyright": "Made by github @AegisShieldDev"
+      "name": "heat"
     },
     {
-      "name": "burn",
-      "directions": 1,
-      "copyright": "Made by github @AegisShieldDev"
+      "name": "holy"
     },
     {
-      "name": "heat",
-      "directions": 1,
-      "copyright": "Made by github @AegisShieldDev"
+      "name": "metaphysical"
     },
     {
-      "name": "cold",
-      "directions": 1,
-      "copyright": "Made by github @AegisShieldDev"
+      "name": "piercing"
     },
     {
-      "name": "caustic",
-      "directions": 1,
-      "copyright": "Made by github @AegisShieldDev"
+      "name": "poison"
     },
     {
-      "name": "shock",
-      "directions": 1,
-      "copyright": "Made by github @AegisShieldDev"
+      "name": "radiation"
+    },
+    {
+      "name": "shock"
+    },
+    {
+      "name": "slash"
     }
   ]
 }
