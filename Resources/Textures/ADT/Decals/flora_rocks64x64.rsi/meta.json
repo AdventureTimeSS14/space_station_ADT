@@ -1,0 +1,24 @@
+{
+    "version": 1,
+    "license": "CC0-1.0",
+    "copyright": "Made by prazat911 (discord) for Adventure Time",
+    "size": {
+        "x": 64,
+        "y": 64
+    },
+    "states": [
+        {
+            "name": "bigrock01"
+        },
+        {
+            "name": "bigrock02"
+        },
+        {
+            "name": "bigrock03"
+        },
+        {
+            "name": "bigrock04"
+        }
+    ]
+}
+
