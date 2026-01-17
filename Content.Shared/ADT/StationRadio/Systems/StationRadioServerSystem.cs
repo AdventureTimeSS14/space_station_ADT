@@ -1,32 +1,52 @@
-using Content.Shared.ADT.StationRadio; // Используем общие константы
+using Content.Shared.ADT.StationRadio;
 using Content.Shared.ADT.StationRadio.Components;
 using Content.Shared.ADT.StationRadio.Events;
 using Content.Shared.Destructible;
 using Content.Shared.Examine;
 using Content.Shared.Radio;
 using Content.Shared.Verbs;
+using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Timing;
+
 namespace Content.Shared.ADT.StationRadio.Systems;
-/// <summary>
-/// Система управления серверами радиостанций.
-/// Обрабатывает смену каналов и трансляцию медиа.
-/// </summary>
+
 public sealed class StationRadioServerSystem : EntitySystem
 {
     [Dependency] private readonly IPrototypeManager _proto = default!;
-    /// <inheritdoc/>
+    [Dependency] private readonly IGameTiming _gameTiming = default!;
+
     public override void Initialize()
     {
         base.Initialize();
         SubscribeLocalEvent<StationRadioServerComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<StationRadioServerComponent, ComponentGetState>(OnGetState);
+        SubscribeLocalEvent<StationRadioServerComponent, ComponentHandleState>(OnHandleState);
         SubscribeLocalEvent<StationRadioServerComponent, DestructionEventArgs>(OnDestruction);
         SubscribeLocalEvent<StationRadioServerComponent, ExaminedEvent>(OnExamined);
         SubscribeLocalEvent<StationRadioServerComponent, GetVerbsEvent<Verb>>(OnGetVerbs);
     }
-    /// <summary>
-    /// Обработчик инициализации компонента.
-    /// Устанавливает канал по умолчанию, если не задан.
-    /// </summary>
+
+    private void OnGetState(EntityUid uid, StationRadioServerComponent comp, ref ComponentGetState args)
+    {
+        args.State = new StationRadioServerComponentState(
+            comp.ChannelId,
+            comp.CurrentMedia,
+            comp.BroadcastStartTime,
+            comp.CurrentBroadcastId);
+    }
+
+    private void OnHandleState(EntityUid uid, StationRadioServerComponent comp, ref ComponentHandleState args)
+    {
+        if (args.Current is not StationRadioServerComponentState state)
+            return;
+
+        comp.ChannelId = state.ChannelId;
+        comp.CurrentMedia = state.CurrentMedia;
+        comp.BroadcastStartTime = state.BroadcastStartTime;
+        comp.CurrentBroadcastId = state.CurrentBroadcastId;
+    }
+
     private void OnStartup(EntityUid uid, StationRadioServerComponent comp, ComponentStartup args)
     {
         if (comp.ChannelId == null)
@@ -35,18 +55,18 @@ public sealed class StationRadioServerSystem : EntitySystem
             Dirty(uid, comp);
         }
     }
-    /// <summary>
-    /// Обработчик уничтожения сервера.
-    /// Останавливает трансляцию на всех подключенных ресиверах.
-    /// </summary>
+
     private void OnDestruction(EntityUid uid, StationRadioServerComponent comp, DestructionEventArgs args)
     {
         if (comp.CurrentMedia == null || comp.ChannelId == null)
             return;
+
         var channelId = comp.ChannelId;
         comp.CurrentMedia = null;
-        comp.ChannelId = null;
+        comp.BroadcastStartTime = null;
+        comp.CurrentBroadcastId = null;
         Dirty(uid, comp);
+
         var ev = new StationRadioMediaStoppedEvent(channelId);
         var query = EntityQueryEnumerator<StationRadioReceiverComponent>();
         while (query.MoveNext(out var receiver, out _))
@@ -54,10 +74,7 @@ public sealed class StationRadioServerSystem : EntitySystem
             RaiseLocalEvent(receiver, ev);
         }
     }
-    /// <summary>
-    /// Обработчик осмотра сервера.
-    /// Показывает информацию о текущем канале.
-    /// </summary>
+
     private void OnExamined(EntityUid uid, StationRadioServerComponent comp, ExaminedEvent args)
     {
         if (comp.ChannelId == null || !_proto.TryIndex<RadioChannelPrototype>(comp.ChannelId, out var channel))
@@ -67,18 +84,17 @@ public sealed class StationRadioServerSystem : EntitySystem
         }
         args.PushMarkup(Loc.GetString("station-radio-server-examine", ("channel", channel.LocalizedName)));
     }
-    /// <summary>
-    /// Обработчик verbs для смены канала сервера.
-    /// Предоставляет список доступных каналов для выбора.
-        /// </summary>
+
     private void OnGetVerbs(EntityUid uid, StationRadioServerComponent comp, GetVerbsEvent<Verb> args)
     {
         if (!args.CanAccess || !args.CanInteract)
             return;
+
         foreach (var id in RadioConstants.AllowedChannels)
         {
             if (!_proto.TryIndex<RadioChannelPrototype>(id, out var channel))
                 continue;
+
             var channelId = channel.ID;
             var verb = new Verb
             {
@@ -88,32 +104,42 @@ public sealed class StationRadioServerSystem : EntitySystem
                 {
                     if (comp.ChannelId == channelId)
                         return;
+
                     var oldChannelId = comp.ChannelId;
                     comp.ChannelId = channelId;
                     Dirty(uid, comp);
+
                     if (comp.CurrentMedia is not { } media)
                         return;
-                    // Останавливаем на старой частоте ТОЛЬКО если это другой канал
+
+                    // Если меняем канал с активным вещанием, останавливаем на старом
                     if (oldChannelId != null && oldChannelId != channelId)
                     {
                         var stopEv = new StationRadioMediaStoppedEvent(oldChannelId);
                         var query = EntityQueryEnumerator<StationRadioReceiverComponent>();
                         while (query.MoveNext(out var rec, out var recComp))
                         {
-                            // Отправляем событие ТОЛЬКО тем ресиверам, которые слушают этот канал
                             if (recComp.SelectedChannelId == oldChannelId)
                                 RaiseLocalEvent(rec, stopEv);
                         }
                     }
-                    // Запускаем на новой - ОДИН РАЗ для каждого ресивера
-                    var playEv = new StationRadioMediaPlayedEvent(media, channelId);
-                    var queryPlay = EntityQueryEnumerator<StationRadioReceiverComponent>();
-                    while (queryPlay.MoveNext(out var rec, out var recComp))
+
+                    // Запускаем на новом канале с тем же треком (если он играет)
+                    if (comp.BroadcastStartTime != null && comp.CurrentBroadcastId != null)
                     {
-                        if (recComp.SelectedChannelId == channelId)
+                        var playEv = new StationRadioMediaPlayedEvent(
+                            media,
+                            channelId,
+                            comp.BroadcastStartTime.Value,
+                            comp.CurrentBroadcastId.Value);
+
+                        var queryPlay = EntityQueryEnumerator<StationRadioReceiverComponent>();
+                        while (queryPlay.MoveNext(out var rec, out var recComp))
                         {
-                            // Отправляем событие напрямую, а не broadcast
-                            RaiseLocalEvent(rec, playEv);
+                            if (recComp.SelectedChannelId == channelId)
+                            {
+                                RaiseLocalEvent(rec, playEv);
+                            }
                         }
                     }
                 }

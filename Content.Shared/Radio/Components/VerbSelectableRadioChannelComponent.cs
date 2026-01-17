@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Robust.Shared.GameStates;
+using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.List;
 
 namespace Content.Shared.Radio.Components;
@@ -8,7 +9,7 @@ namespace Content.Shared.Radio.Components;
 /// Универсальный компонент для выбора радио-канала через verbs.
 /// Добавляется к сущностям, у которых есть RadioMicrophoneComponent и/или RadioSpeakerComponent.
 /// </summary>
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent]
 public sealed partial class VerbSelectableRadioChannelComponent : Component
 {
     /// <summary>
@@ -20,6 +21,17 @@ public sealed partial class VerbSelectableRadioChannelComponent : Component
     /// <summary>
     /// Текущий выбранный канал.
     /// </summary>
-    [DataField, AutoNetworkedField]
+    [DataField]
     public string SelectedChannelId = "Common";
+}
+
+[Serializable, NetSerializable]
+public sealed class VerbSelectableRadioChannelComponentState : ComponentState
+{
+    public string SelectedChannelId { get; }
+
+    public VerbSelectableRadioChannelComponentState(string selectedChannelId)
+    {
+        SelectedChannelId = selectedChannelId;
+    }
 }

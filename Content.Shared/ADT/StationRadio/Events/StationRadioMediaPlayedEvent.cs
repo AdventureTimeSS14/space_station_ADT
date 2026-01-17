@@ -1,16 +1,21 @@
 using Robust.Shared.Audio;
 using Robust.Shared.Serialization;
+
 namespace Content.Shared.ADT.StationRadio.Events;
+
 [Serializable, NetSerializable]
 public sealed class StationRadioMediaPlayedEvent : EntityEventArgs
 {
     public SoundPathSpecifier MediaPlayed { get; }
     public string ChannelId { get; }
-    public Guid EventId { get; } // Уникальный идентификатор события
-    public StationRadioMediaPlayedEvent(SoundPathSpecifier media, string channelId)
+    public TimeSpan StartTime { get; }
+    public Guid BroadcastId { get; }
+
+    public StationRadioMediaPlayedEvent(SoundPathSpecifier media, string channelId, TimeSpan startTime, Guid broadcastId)
     {
         MediaPlayed = media;
         ChannelId = channelId;
-        EventId = Guid.NewGuid(); // Генерируем уникальный ID
+        StartTime = startTime;
+        BroadcastId = broadcastId;
     }
 }

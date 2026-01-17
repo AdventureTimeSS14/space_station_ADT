@@ -4,6 +4,12 @@
   parent: [ BaseMachinePowered, ConstructibleMachine ]
   description: Listen to the top hits of your stations local radio.
   components:
+  - type: VerbSelectableRadioChannel
+    allowedChannels:
+      - ADTOldBroadcast
+      - ADTOldBroadcastTwo
+      - ADTOldBroadcastThree
+    selectedChannelId: ADTOldBroadcast
   - type: Appearance
   - type: Sprite
     sprite: ADT/Structures/Machines/StationRadio/stationradio.rsi
@@ -44,14 +50,10 @@
         volume: -6
         maxDistance: 10
         variation: 0.05
-    powerRequired: true
     speakNormally: true
     enabled: true
     channels:
     - ADTOldBroadcast
   - type: Speech
-    speechVerb: Robotic
-  - type: ActiveRadio
-    channels:
-    - ADTOldBroadcast
+    speechVerb: ADTRadioBroadcasting
   - type: StationRadioReceiver

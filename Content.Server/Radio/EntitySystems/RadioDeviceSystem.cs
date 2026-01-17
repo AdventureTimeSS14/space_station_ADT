@@ -16,9 +16,11 @@ using Content.Shared.Radio;
 using Content.Shared.Chat;
 using Content.Shared.Radio.Components;
 using Content.Shared.Verbs;
-using Content.Shared.Radio.Components;
-using Content.Shared.ADT.StationRadio.Components; // Для StationRadioReceiverComponent
+using Content.Shared.ADT.StationRadio.Components; // ADT-Tweak
+using Content.Shared.ADT.StationRadio.Systems; // ADT-Tweak
+using Content.Shared.ADT.StationRadio.Events; // ADT-Tweak
 using Robust.Shared.Prototypes;
+using Robust.Shared.GameStates;  // ADT-Tweak
 
 namespace Content.Server.Radio.EntitySystems;
 
@@ -35,6 +37,7 @@ public sealed class RadioDeviceSystem : EntitySystem
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly LanguageSystem _language = default!;  // ADT Languages
     [Dependency] private readonly SharedAudioSystem _audio = default!;  // ADT Radio Update
+    [Dependency] private readonly StationRadioBroadcastSystem _broadcastSystem = default!;  // ADT-Tweak
 
     private HashSet<(string, EntityUid, RadioChannelPrototype)> _recentlySent = new();
 
@@ -58,10 +61,34 @@ public sealed class RadioDeviceSystem : EntitySystem
         SubscribeLocalEvent<IntercomComponent, ToggleIntercomSpeakerMessage>(OnToggleIntercomSpeaker);
         SubscribeLocalEvent<IntercomComponent, SelectIntercomChannelMessage>(OnSelectIntercomChannel);
 
+        // Start ADT-Tweak
         SubscribeLocalEvent<VerbSelectableRadioChannelComponent, ComponentInit>(OnChannelComponentInit);
+        SubscribeLocalEvent<VerbSelectableRadioChannelComponent, ComponentGetState>(OnChannelGetState);
+        SubscribeLocalEvent<VerbSelectableRadioChannelComponent, ComponentHandleState>(OnChannelHandleState);
         SubscribeLocalEvent<VerbSelectableRadioChannelComponent, GetVerbsEvent<Verb>>(OnGetChannelVerbs);
         SubscribeLocalEvent<VerbSelectableRadioChannelComponent, ExaminedEvent>(OnChannelExamined);
+        SubscribeLocalEvent<VerbSelectableRadioChannelComponent, StationRadioChannelChangedEvent>(OnChannelComponentChanged);
+        // End ADT-Tweak
     }
+
+    // Start ADT-Tweak
+    private void OnChannelGetState(EntityUid uid, VerbSelectableRadioChannelComponent comp, ref ComponentGetState args)
+    {
+        args.State = new VerbSelectableRadioChannelComponentState(comp.SelectedChannelId);
+    }
+
+    private void OnChannelHandleState(EntityUid uid, VerbSelectableRadioChannelComponent comp, ref ComponentHandleState args)
+    {
+        if (args.Current is not VerbSelectableRadioChannelComponentState state)
+            return;
+
+        if (comp.SelectedChannelId != state.SelectedChannelId)
+        {
+            comp.SelectedChannelId = state.SelectedChannelId;
+            UpdateChannelOnComponents(uid, comp.SelectedChannelId);
+        }
+    }
+    // End ADT-Tweak
 
     public override void Update(float frameTime)
     {
@@ -80,14 +107,14 @@ public sealed class RadioDeviceSystem : EntitySystem
 
     private void OnSpeakerInit(EntityUid uid, RadioSpeakerComponent component, ComponentInit args)
     {
-        UpdateSpeakerActiveChannels(uid, component);
+        UpdateSpeakerActiveChannels(uid, component);    // ADT-Tweak
     }
     #endregion
 
     #region Toggling
     private void OnActivateMicrophone(EntityUid uid, RadioMicrophoneComponent component, ActivateInWorldEvent args)
     {
-        if (!args.Complex || !component.ToggleOnInteract)
+        if (!args.Complex || !component.ToggleOnInteract) // ADT-Tweak
             return;
 
         ToggleRadioMicrophone(uid, args.User, args.Handled, component);
@@ -96,7 +123,7 @@ public sealed class RadioDeviceSystem : EntitySystem
 
     private void OnActivateSpeaker(EntityUid uid, RadioSpeakerComponent component, ActivateInWorldEvent args)
     {
-        if (!args.Complex || !component.ToggleOnInteract)
+        if (!args.Complex || !component.ToggleOnInteract)  // ADT-Tweak
             return;
 
         ToggleRadioSpeaker(uid, args.User, args.Handled, component);
@@ -111,6 +138,7 @@ public sealed class RadioDeviceSystem : EntitySystem
         SetMicrophoneEnabled(uid, user, !component.Enabled, quiet, component);
     }
 
+    // Start ADT-Tweak
     public void ToggleRadioSpeaker(EntityUid uid, EntityUid user, bool quiet = false, RadioSpeakerComponent? component = null)
     {
         if (!Resolve(uid, ref component))
@@ -136,6 +164,7 @@ public sealed class RadioDeviceSystem : EntitySystem
         SetSpeakerEnabled(uid, null, false, true, component);
     }
     #endregion
+    // End ADT-Tweak
 
     public void SetMicrophoneEnabled(EntityUid uid, EntityUid? user, bool enabled, bool quiet = false, RadioMicrophoneComponent? component = null)
     {
@@ -143,12 +172,13 @@ public sealed class RadioDeviceSystem : EntitySystem
             return;
 
         if (component.PowerRequired && !this.IsPowered(uid, EntityManager))
+        // Start ADT-Tweak
         {
             if (enabled && user != null)
                 _popup.PopupEntity(Loc.GetString("handheld-radio-component-no-power"), uid, user.Value);
             return;
         }
-
+        // Start ADT-Tweak
         component.Enabled = enabled;
 
         if (!quiet && user != null)
@@ -166,11 +196,12 @@ public sealed class RadioDeviceSystem : EntitySystem
             RemCompDeferred<ActiveListenerComponent>(uid);
     }
 
-    public void SetSpeakerEnabled(EntityUid uid, EntityUid? user, bool enabled, bool quiet = false, RadioSpeakerComponent? component = null)
+    public void SetSpeakerEnabled(EntityUid uid, EntityUid? user, bool enabled, bool quiet = false, RadioSpeakerComponent? component = null)  // ADT-Tweak
     {
         if (!Resolve(uid, ref component))
             return;
 
+        // Start ADT-Tweak
         if (component.PowerRequired && !this.IsPowered(uid, EntityManager))
         {
             if (enabled && user != null)
@@ -179,6 +210,7 @@ public sealed class RadioDeviceSystem : EntitySystem
         }
 
         var wasEnabled = component.Enabled;
+        // End ADT-Tweak
         component.Enabled = enabled;
 
         if (!quiet && user != null)
@@ -189,7 +221,7 @@ public sealed class RadioDeviceSystem : EntitySystem
         }
 
         _appearance.SetData(uid, RadioDeviceVisuals.Speaker, component.Enabled);
-
+        // Start ADT-Tweak
         if (component.Enabled || wasEnabled)
             UpdateSpeakerActiveChannels(uid, component);
     }
@@ -207,6 +239,7 @@ public sealed class RadioDeviceSystem : EntitySystem
             RemCompDeferred<ActiveRadioComponent>(uid);
         }
     }
+        // End ADT-Tweak
     #endregion
 
     private void OnExamine(EntityUid uid, RadioMicrophoneComponent component, ExaminedEvent args)
@@ -227,7 +260,7 @@ public sealed class RadioDeviceSystem : EntitySystem
     private void OnListen(EntityUid uid, RadioMicrophoneComponent component, ListenEvent args)
     {
         if (HasComp<RadioSpeakerComponent>(args.Source))
-            return;
+            return; // no feedback loops please.
 
         var channel = _protoMan.Index<RadioChannelPrototype>(component.BroadcastChannel)!;
         if (_recentlySent.Add((args.Message, args.Source, channel)))
@@ -236,8 +269,10 @@ public sealed class RadioDeviceSystem : EntitySystem
 
     private void OnAttemptListen(EntityUid uid, RadioMicrophoneComponent component, ListenAttemptEvent args)
     {
+    // Start ADT-Tweak
         if (component.PowerRequired && !this.IsPowered(uid, EntityManager) ||
             component.UnobstructedRequired && !_interaction.InRangeUnobstructed(args.Source, uid, 0))
+    // End ADT-Tweak
         {
             args.Cancel();
         }
@@ -248,8 +283,10 @@ public sealed class RadioDeviceSystem : EntitySystem
         if (uid == args.RadioSource)
             return;
 
+        // Start ADT-Tweak
         if (!component.Enabled || (component.PowerRequired && !this.IsPowered(uid, EntityManager)))
             return;
+        // End ADT-Tweak
 
         if (component.SoundOnReceive != null)
             _audio.PlayPvs(component.SoundOnReceive, uid);
@@ -266,7 +303,7 @@ public sealed class RadioDeviceSystem : EntitySystem
         _chat.TrySendInGameICMessage(
             uid,
             args.Message,
-            chatType,
+            chatType,   // ADT-Tweak
             ChatTransmitRange.GhostRangeLimit,
             nameOverride: name,
             checkRadioPrefix: false,
@@ -336,7 +373,7 @@ public sealed class RadioDeviceSystem : EntitySystem
             speaker.Channels = new() { channel };
         Dirty(ent);
     }
-
+        // Start ADT-Tweak
     #region VerbSelectableRadioChannel
 
     private void OnChannelComponentInit(EntityUid uid, VerbSelectableRadioChannelComponent comp, ComponentInit args)
@@ -347,24 +384,30 @@ public sealed class RadioDeviceSystem : EntitySystem
             current = receiver.SelectedChannelId;
         else if (TryComp<RadioMicrophoneComponent>(uid, out var mic) && !string.IsNullOrEmpty(mic.BroadcastChannel))
             current = mic.BroadcastChannel;
+        else if (TryComp<RadioSpeakerComponent>(uid, out var speaker) && speaker.Channels.Count > 0)
+            current = speaker.Channels.First();
 
-        if (TryComp<RadioMicrophoneComponent>(uid, out var micComp))
-            micComp.BroadcastChannel = current;
-
-        if (TryComp<RadioSpeakerComponent>(uid, out var speakerComp))
+        if (current != comp.SelectedChannelId)
         {
-            speakerComp.Channels = new HashSet<string> { current };
-            UpdateSpeakerActiveChannels(uid, speakerComp);
+            comp.SelectedChannelId = current;
+            Dirty(uid, comp);
         }
 
-        if (TryComp<StationRadioReceiverComponent>(uid, out var receiverComp))
-        {
-            receiverComp.SelectedChannelId = current;
-            Dirty(uid, receiverComp);
-        }
+        // Синхронизируем все компоненты с выбранным каналом
+        UpdateChannelOnComponents(uid, comp.SelectedChannelId);
+    }
 
-        comp.SelectedChannelId = current;
+    private void OnChannelComponentChanged(EntityUid uid, VerbSelectableRadioChannelComponent comp, StationRadioChannelChangedEvent args)
+    {
+        if (comp.SelectedChannelId == args.NewChannelId)
+            return;
+
+        comp.SelectedChannelId = args.NewChannelId;
         Dirty(uid, comp);
+
+        // Обновляем все компоненты на новом канале
+        UpdateChannelOnComponents(uid, args.NewChannelId);
+        // End ADT-Tweak
     }
 
     private void OnGetChannelVerbs(EntityUid uid, VerbSelectableRadioChannelComponent comp, GetVerbsEvent<Verb> args)
@@ -402,29 +445,49 @@ public sealed class RadioDeviceSystem : EntitySystem
         if (comp.SelectedChannelId == channelId)
             return;
 
+        // Обновляем состояние компонента
         comp.SelectedChannelId = channelId;
         Dirty(uid, comp);
 
-        if (TryComp<RadioMicrophoneComponent>(uid, out var mic))
-            mic.BroadcastChannel = channelId;
+        // Отправляем событие изменения канала для всех заинтересованных компонентов
+        var ev = new StationRadioChannelChangedEvent(channelId);
+        RaiseLocalEvent(uid, ev);
 
-        if (TryComp<RadioSpeakerComponent>(uid, out var speaker))
-        {
-            speaker.Channels = new HashSet<string> { channelId };
-            UpdateSpeakerActiveChannels(uid, speaker);
-        }
-
-        if (TryComp<StationRadioReceiverComponent>(uid, out var receiver))
-        {
-            receiver.SelectedChannelId = channelId;
-            Dirty(uid, receiver);
-        }
+        // Обновляем все компоненты
+        UpdateChannelOnComponents(uid, channelId);
 
         if (_protoMan.TryIndex<RadioChannelPrototype>(channelId, out var channelProto))
         {
             var message = Loc.GetString("handheld-radio-component-chennel-examine",
                 ("channel", channelProto.LocalizedName));
             _popup.PopupEntity(message, user, user);
+        }
+    }
+
+    private void UpdateChannelOnComponents(EntityUid uid, string channelId)
+    {
+        // Обновляем RadioMicrophoneComponent
+        if (TryComp<RadioMicrophoneComponent>(uid, out var mic))
+        {
+            mic.BroadcastChannel = channelId;
+        }
+
+        // Обновляем RadioSpeakerComponent
+        if (TryComp<RadioSpeakerComponent>(uid, out var speaker))
+        {
+            speaker.Channels = new HashSet<string> { channelId };
+            UpdateSpeakerActiveChannels(uid, speaker);
+        }
+
+        // Обновляем StationRadioReceiverComponent (через систему трансляций)
+        if (TryComp<StationRadioReceiverComponent>(uid, out var receiver))
+        {
+            // Используем систему трансляций для правильного обновления
+            _broadcastSystem.SubscribeToChannel(uid, channelId, receiver);
+
+            // Отправляем событие для обновления состояния
+            var ev = new StationRadioChannelChangedEvent(channelId);
+            RaiseLocalEvent(uid, ev);
         }
     }
 
@@ -444,6 +507,6 @@ public sealed class RadioDeviceSystem : EntitySystem
                 ("channel", channelProto.LocalizedName)));
         }
     }
-
+        // End ADT-Tweak
     #endregion
 }

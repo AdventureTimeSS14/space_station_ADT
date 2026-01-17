@@ -8,13 +8,23 @@ using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Network;
+using Robust.Shared.Timing;
+using System;
+
 namespace Content.Shared.ADT.StationRadio.Systems;
+
 public sealed class VinylPlayerSystem : EntitySystem
 {
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedPowerReceiverSystem _power = default!;
     [Dependency] private readonly SharedDeviceLinkSystem _deviceLinkSystem = default!;
+    [Dependency] private readonly IGameTiming _gameTiming = default!;
+    [Dependency] private readonly StationRadioBroadcastSystem _broadcastSystem = default!;
+
+    // Отслеживаем активные проигрыватели по каналам
+    private readonly Dictionary<string, EntityUid> _activePlayersByChannel = new();
+
     public override void Initialize()
     {
         base.Initialize();
@@ -22,37 +32,41 @@ public sealed class VinylPlayerSystem : EntitySystem
         SubscribeLocalEvent<VinylPlayerComponent, EntRemovedFromContainerMessage>(OnVinylRemove);
         SubscribeLocalEvent<VinylPlayerComponent, DestructionEventArgs>(OnDestruction);
         SubscribeLocalEvent<VinylPlayerComponent, PowerChangedEvent>(OnPowerChanged);
+        SubscribeLocalEvent<VinylPlayerComponent, ComponentShutdown>(OnShutdown);
     }
+
     private void OnPowerChanged(EntityUid uid, VinylPlayerComponent comp, PowerChangedEvent args)
     {
-        // При потере питания - останавливаем ВСЁ
         if (!args.Powered)
         {
+            // При потере питания - останавливаем всё
             StopAllSoundsForVinylPlayer(uid, comp);
-            if (CheckForRadioServer(uid, out var radioServer) &&
-                TryComp<StationRadioServerComponent>(radioServer, out var serverComp))
+
+            // Останавливаем трансляцию, если есть
+            if (TryGetRadioChannel(uid, out var channelId))
             {
-                StopBroadcast(radioServer, serverComp);
+                StopBroadcast(channelId, uid);
             }
         }
-        // При восстановлении питания - запускаем пластинку если она есть
         else if (args.Powered && comp.InsertedVinyl != null &&
                 TryComp<VinylComponent>(comp.InsertedVinyl, out var vinylComp) &&
                 vinylComp.Song != null)
         {
+            // При восстановлении питания - запускаем пластинку если она есть
             StopAllSoundsForVinylPlayer(uid, comp);
             var audioParams = AudioParams.Default.WithVolume(3f).WithMaxDistance(4.5f).WithLoop(true);
-            var audio = _audio.PlayPredicted(vinylComp.Song, uid, null, audioParams); // Фикс: user = null
+            var audio = _audio.PlayPredicted(vinylComp.Song, uid, null, audioParams);
             if (audio != null)
                 comp.SoundEntity = audio.Value.Entity;
-            if (CheckForRadioServer(uid, out var radioServer) &&
-                TryComp<StationRadioServerComponent>(radioServer, out var serverComp) &&
-                serverComp.ChannelId != null)
+
+            // Запускаем трансляцию, если есть куда транслировать
+            if (TryGetRadioChannel(uid, out var channelId))
             {
-                StartBroadcast(radioServer, serverComp, vinylComp.Song, serverComp.ChannelId);
+                StartBroadcast(channelId, vinylComp.Song, uid);
             }
         }
     }
+
     private void StopAllSoundsForVinylPlayer(EntityUid uid, VinylPlayerComponent comp)
     {
         if (comp.SoundEntity.HasValue && Exists(comp.SoundEntity.Value))
@@ -61,95 +75,113 @@ public sealed class VinylPlayerSystem : EntitySystem
             comp.SoundEntity = null;
         }
     }
+
     private void OnDestruction(EntityUid uid, VinylPlayerComponent comp, DestructionEventArgs args)
     {
         StopAllSoundsForVinylPlayer(uid, comp);
-        if (CheckForRadioServer(uid, out var radioServer) &&
-            TryComp<StationRadioServerComponent>(radioServer, out var serverComp))
+
+        // Останавливаем трансляцию, если есть
+        if (TryGetRadioChannel(uid, out var channelId))
         {
-            StopBroadcast(radioServer, serverComp);
+            StopBroadcast(channelId, uid);
         }
     }
+
+    private void OnShutdown(EntityUid uid, VinylPlayerComponent comp, ComponentShutdown args)
+    {
+        StopAllSoundsForVinylPlayer(uid, comp);
+
+        // Останавливаем трансляцию, если есть
+        if (TryGetRadioChannel(uid, out var channelId))
+        {
+            StopBroadcast(channelId, uid);
+        }
+    }
+
     private void OnVinylInserted(EntityUid uid, VinylPlayerComponent comp, EntInsertedIntoContainerMessage args)
     {
         if (!TryComp(args.Entity, out VinylComponent? vinylcomp) || _net.IsClient || vinylcomp.Song == null || !_power.IsPowered(uid))
             return;
+
         // Останавливаем все предыдущие звуки
         StopAllSoundsForVinylPlayer(uid, comp);
+
         // Запускаем новую пластинку
         var audioParams = AudioParams.Default.WithVolume(3f).WithMaxDistance(4.5f).WithLoop(true);
-        var audio = _audio.PlayPredicted(vinylcomp.Song, uid, null, audioParams); // Фикс: user = null
+        var audio = _audio.PlayPredicted(vinylcomp.Song, uid, null, audioParams);
         if (audio != null)
             comp.SoundEntity = audio.Value.Entity;
+
         comp.InsertedVinyl = args.Entity;
-        if (!CheckForRadioServer(uid, out var radioServer) ||
-            !TryComp<StationRadioServerComponent>(radioServer, out var serverComp) || serverComp.ChannelId == null)
-            return;
-        StartBroadcast(radioServer, serverComp, vinylcomp.Song, serverComp.ChannelId);
+
+        // Запускаем трансляцию, если есть куда транслировать
+        if (TryGetRadioChannel(uid, out var channelId))
+        {
+            StartBroadcast(channelId, vinylcomp.Song, uid);
+        }
     }
+
     private void OnVinylRemove(EntityUid uid, VinylPlayerComponent comp, EntRemovedFromContainerMessage args)
     {
         // Останавливаем ВСЕ звуки
         StopAllSoundsForVinylPlayer(uid, comp);
         comp.InsertedVinyl = null;
+
         // Останавливаем трансляцию
-        if (CheckForRadioServer(uid, out var radioServer) &&
-            TryComp<StationRadioServerComponent>(radioServer, out var serverComp))
+        if (TryGetRadioChannel(uid, out var channelId))
         {
-            StopBroadcast(radioServer, serverComp);
+            StopBroadcast(channelId, uid);
         }
     }
-    private void StartBroadcast(EntityUid radioServer, StationRadioServerComponent serverComp, SoundPathSpecifier song, string channelId)
+
+    private void StartBroadcast(string channelId, SoundPathSpecifier song, EntityUid source)
     {
-        // Проверяем, не пытаемся ли запустить ту же самую песню
-        if (serverComp.CurrentMedia == song)
-            return;
-        serverComp.CurrentMedia = song;
-        Dirty(radioServer, serverComp);
-        var ev = new StationRadioMediaPlayedEvent(song, channelId);
-        var query = EntityQueryEnumerator<StationRadioReceiverComponent>();
-        while (query.MoveNext(out var receiver, out var receiverComp))
+        // Проверяем, не занят ли канал другим проигрывателем
+        if (_activePlayersByChannel.TryGetValue(channelId, out var currentPlayer) && currentPlayer != source)
         {
-            // Отправляем ТОЛЬКО ресиверам на этом канале
-            if (receiverComp.SelectedChannelId == channelId)
+            // Если канал занят другим проигрывателем, останавливаем его
+            if (TryComp<VinylPlayerComponent>(currentPlayer, out var otherComp))
             {
-                RaiseLocalEvent(receiver, ev);
+                StopAllSoundsForVinylPlayer(currentPlayer, otherComp);
             }
+            StopBroadcast(channelId, currentPlayer);
         }
+
+        // Запускаем трансляцию через централизованную систему
+        _broadcastSystem.StartBroadcast(channelId, song, source);
+        _activePlayersByChannel[channelId] = source;
     }
-    private void StopBroadcast(EntityUid radioServer, StationRadioServerComponent serverComp)
+
+    private void StopBroadcast(string channelId, EntityUid source)
     {
-        if (serverComp.CurrentMedia == null || serverComp.ChannelId == null)
-            return;
-        var channelId = serverComp.ChannelId;
-        serverComp.CurrentMedia = null;
-        Dirty(radioServer, serverComp);
-        var ev = new StationRadioMediaStoppedEvent(channelId);
-        var query = EntityQueryEnumerator<StationRadioReceiverComponent>();
-        while (query.MoveNext(out var receiver, out var receiverComp))
+        // Проверяем, что останавливаем именно тот проигрыватель, который вещает на канале
+        if (_activePlayersByChannel.TryGetValue(channelId, out var currentPlayer) && currentPlayer == source)
         {
-            if (receiverComp.SelectedChannelId == channelId)
-            {
-                RaiseLocalEvent(receiver, ev);
-            }
+            _broadcastSystem.StopBroadcast(channelId);
+            _activePlayersByChannel.Remove(channelId);
         }
     }
-    private bool CheckForRadioServer(EntityUid uid, out EntityUid radioServer)
+
+    private bool TryGetRadioChannel(EntityUid uid, out string channelId)
     {
-        radioServer = EntityUid.Invalid;
+        channelId = string.Empty;
+
         if (!TryComp<DeviceLinkSourceComponent>(uid, out var source))
             return false;
+
         foreach (var linked in source.LinkedPorts.Keys)
         {
             if (!HasComp<RadioRigComponent>(linked))
                 continue;
+
             if (!TryComp<DeviceLinkSinkComponent>(linked, out var rigSink))
                 continue;
+
             foreach (var serverUid in rigSink.LinkedSources)
             {
-                if (HasComp<StationRadioServerComponent>(serverUid))
+                if (TryComp<StationRadioServerComponent>(serverUid, out var serverComp) && serverComp.ChannelId != null)
                 {
-                    radioServer = serverUid;
+                    channelId = serverComp.ChannelId;
                     return true;
                 }
             }
