@@ -264,6 +264,9 @@
     sprite: ADT/Clothing/OuterClothing/Armor/mining.rsi
   - type: Clothing
     sprite: ADT/Clothing/OuterClothing/Armor/mining.rsi
+  - type: TemperatureProtection
+    heatingCoefficient: 0.7
+    coolingCoefficient: 1
   - type: Armor
     modifiers:
       coefficients:
@@ -305,6 +308,9 @@
       outerClothing:
       - state: equipped-OUTERCLOTHING
       - state: equipped-OUTERCLOTHING-xeno
+  - type: TemperatureProtection
+    heatingCoefficient: 0.7
+    coolingCoefficient: 1
   - type: Armor
     modifiers:
       coefficients:
@@ -334,6 +340,9 @@
       - state: equipped-OUTERCLOTHING
       - state: equipped-OUTERCLOTHING-unshaded
         shader: unshaded
+  - type: TemperatureProtection
+    heatingCoefficient: 0.7
+    coolingCoefficient: 1
   - type: Armor
     modifiers:
       coefficients:
@@ -393,6 +402,9 @@
     sprite: ADT/Clothing/OuterClothing/Armor/mining_reinforced_one.rsi
   - type: Clothing
     sprite: ADT/Clothing/OuterClothing/Armor/mining_reinforced_one.rsi
+  - type: TemperatureProtection
+    heatingCoefficient: 0.7
+    coolingCoefficient: 1
   - type: Armor
     modifiers:
       coefficients:
@@ -433,6 +445,9 @@
     sprite: ADT/Clothing/OuterClothing/Armor/mining_reinforced_two.rsi
   - type: Clothing
     sprite: ADT/Clothing/OuterClothing/Armor/mining_reinforced_two.rsi
+  - type: TemperatureProtection
+    heatingCoefficient: 0.7
+    coolingCoefficient: 1
   - type: Armor
     modifiers:
       coefficients:
@@ -473,6 +488,9 @@
     sprite: ADT/Clothing/OuterClothing/Armor/mining_reinforced_full.rsi
   - type: Clothing
     sprite: ADT/Clothing/OuterClothing/Armor/mining_reinforced_full.rsi
+  - type: TemperatureProtection
+    heatingCoefficient: 0.7
+    coolingCoefficient: 1
   - type: Armor
     modifiers:
       coefficients:
