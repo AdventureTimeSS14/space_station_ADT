@@ -5,28 +5,23 @@
   description: Изысканный белый камин. Может быть зажжён для создания уютной атмосферы.
   components:
   - type: Sprite
-    noRot: true
     sprite: ADT/Structures/Decoration/fireplace.rsi
     layers:
       - state: fireplace
+      - state: fire
+        shader: unshaded
       - state: glow
         shader: unshaded
-        visible: false
-        map: ["glowLayer"]
   - type: Appearance
-  - type: GenericVisualizer
-    visuals:
-      enum.FireVisuals.OnFire:
-        glowLayer:
-          True: { visible: true }
-          False: { visible: false }
-  - type: ADTFlammableAmbientSound
   - type: AmbientSound
-    enabled: false
     volume: -6
     range: 5
     sound:
       path: /Audio/Ambience/Objects/fireplace.ogg
+  - type: PointLight
+    radius: 3
+    energy: 3
+    color: "#FF6F00"
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: Metallic
@@ -38,23 +33,7 @@
         behaviors:
           - !type:DoActsBehavior
             acts: [ "Destruction" ]
-  - type: Reactive
-    groups:
-      Flammable: [ Touch ]
-      Extinguish: [ Touch ]
-  - type: Flammable
-    fireSpread: false
-    canResistFire: false
-    alwaysCombustible: true
-    canExtinguish: true
-    firestacksOnIgnite: 1
-    firestackFade: 0
-    damage:
-      types:
-        Heat: 0
-  - type: FireVisuals
-    sprite: ADT/Structures/Decoration/fireplace.rsi
-    normalState: fire
+  - type: AlwaysHot
   - type: Construction
     graph: ADTFireplaceWhite
     node: fireplace
@@ -66,28 +45,23 @@
   description: Изысканный деревянный камин. Может быть зажжён для создания уютной атмосферы.
   components:
   - type: Sprite
-    noRot: true
     sprite: ADT/Structures/Decoration/fireplace.rsi
     layers:
       - state: fireplace_wooden
+      - state: fire_wooden
+        shader: unshaded
       - state: glow_wooden
         shader: unshaded
-        visible: false
-        map: ["glowLayer"]
   - type: Appearance
-  - type: GenericVisualizer
-    visuals:
-      enum.FireVisuals.OnFire:
-        glowLayer:
-          True: { visible: true }
-          False: { visible: false }
-  - type: ADTFlammableAmbientSound
   - type: AmbientSound
-    enabled: false
     volume: -6
     range: 5
     sound:
       path: /Audio/Ambience/Objects/fireplace.ogg
+  - type: PointLight
+    radius: 3
+    energy: 3
+    color: "#FF6F00"
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: Wood
@@ -99,23 +73,7 @@
         behaviors:
           - !type:DoActsBehavior
             acts: [ "Destruction" ]
-  - type: Reactive
-    groups:
-      Flammable: [ Touch ]
-      Extinguish: [ Touch ]
-  - type: Flammable
-    fireSpread: true
-    canResistFire: false
-    alwaysCombustible: true
-    canExtinguish: true
-    firestacksOnIgnite: 2
-    firestackFade: -0.05
-    damage:
-      types:
-        Heat: 0
-  - type: FireVisuals
-    sprite: ADT/Structures/Decoration/fireplace.rsi
-    normalState: fire_wooden
+  - type: AlwaysHot
   - type: Construction
     graph: ADTFireplaceWooden
     node: fireplace
