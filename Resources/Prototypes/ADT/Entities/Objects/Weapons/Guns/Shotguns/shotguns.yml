@@ -16,7 +16,7 @@
     soundGunshot: # Corvax-Guns
       path: /Audio/Corvax/Weapons/Guns/Gunshots/shotgun_sawed.ogg
   - type: RunAndGunSpreadModifier
-    modifier: 0.05
+    modifier: 0.3
   - type: BallisticAmmoProvider
     capacity: 1
     proto: null
@@ -49,7 +49,7 @@
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/empty.ogg
   - type: RunAndGunSpreadModifier
-    modifier: 0.03
+    modifier: 0.2
   - type: BallisticAmmoProvider
     whitelist:
       tags:
