@@ -11,7 +11,7 @@
       - ADTOldBroadcastThree
     selectedChannelId: ADTOldBroadcast
   - type: RadioSpeaker
-    enabled: true
+    enabled: false
     speakNormally: true
     soundOnReceive:
       path: /Audio/ADT/Effects/static.ogg
@@ -36,6 +36,8 @@
     tags:
     - ADTOldRadio
   - type: StationRadioReceiver
+    selectedChannelId: ADTOldBroadcast
+    active: false
 
 - type: entity
   name: radio microphone

@@ -19,9 +19,6 @@
   - type: Machine
     board: ADTStationRadioServerCircuitboard
   - type: TelecomExempt
-  - type: RadioMicrophone
-    powerRequired: true
-    broadcastChannel: ADTOldBroadcast
 
 - type: entity
   id: ADTStationRadioRig

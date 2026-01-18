@@ -51,9 +51,11 @@
         maxDistance: 10
         variation: 0.05
     speakNormally: true
-    enabled: true
+    enabled: false
     channels:
     - ADTOldBroadcast
   - type: Speech
     speechVerb: ADTRadioBroadcasting
   - type: StationRadioReceiver
+    selectedChannelId: ADTOldBroadcast
+    active: false

@@ -86,10 +86,23 @@ public sealed class StationRadioServerSystem : EntitySystem
                 continue;
 
             var channelId = channel.ID;
+
+            var isOccupiedByOther = false;
+            var query = EntityQueryEnumerator<StationRadioServerComponent>();
+            while (query.MoveNext(out var otherUid, out var otherComp))
+            {
+                if (otherUid != uid && otherComp.ChannelId == channelId)
+                {
+                    isOccupiedByOther = true;
+                    break;
+                }
+            }
+
             var verb = new Verb
             {
                 Category = VerbCategory.StationRadio,
                 Text = channel.LocalizedName,
+                Disabled = (comp.ChannelId == channelId) || isOccupiedByOther,
                 Act = () =>
                 {
                     if (comp.ChannelId == channelId)
