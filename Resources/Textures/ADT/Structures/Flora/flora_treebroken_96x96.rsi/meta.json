@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made by prazat911 (discord) for Adventure Time",
+  "size": {
+    "x": 96,
+    "y": 96
+  },
+  "states": [
+    {
+      "name": "broken01",
+      "directions": 1
+    },
+    {
+      "name": "broken02",
+      "directions": 1
+    },
+    {
+      "name": "broken04",
+      "directions": 1
+    }
+  ]
+}
+
+
+

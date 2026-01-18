@@ -22,3 +22,10 @@
   category: construction-category-misc
   objectType: Item
 
+- type: construction
+  id: ADTPaperEnvelope
+  graph: PaperEnvelope
+  startNode: start
+  targetNode: done
+  category: construction-category-misc
+  objectType: Item

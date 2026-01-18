@@ -69,8 +69,8 @@ uplink-xc67-description = Набор, содержащий штурмовую в
 uplink-xc67ammo-name = Набор магазинов для xC-67
 uplink-xc67ammo-description = Набор, содержащий три расширенных магазина от хС-67 под патрон 6.5 мм ТСФ.
 
-uplink-AKMS-bundle-name = Набор АКМС
-uplink-AKMS-bundle-desc = набор, содержащий АКМС и четыре магазина к нему.
+uplink-AKMS-bundle-name = Набор АКМ
+uplink-AKMS-bundle-desc = Набор, содержащий АКМ и четыре магазина к нему.
 
 uplink-hristov-bundle-name = Набор модернизированного "Христова"
 uplink-hristov-bundle-desc = Содержит в себе Улучшенную винтовку "Христов" и три запасных магазина к нему.

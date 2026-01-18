@@ -27,7 +27,6 @@
         Radiation: 0.4
   - type: StaminaResistance
     damageCoefficient: 0.65
-  #Stun: 0.65
   - type: ToggleableClothing
     clothingPrototype: ADTSpaceSecPilotHelm
   - type: ExplosionResistance
@@ -62,7 +61,6 @@
         Caustic: 0.85
   - type: StaminaResistance
     damageCoefficient: 0.6
-#        Stun: 0.6
   - type: ToggleableClothing
     clothingPrototype: ADTSpaceSecOfficerHelm
   - type: ExplosionResistance
@@ -97,7 +95,6 @@
         Caustic: 0.6
   - type: StaminaResistance
     damageCoefficient: 0.5
-#        Stun: 0.5
   - type: ToggleableClothing
     clothingPrototype: ADTSpaceSecCommanderHelm
   - type: ExplosionResistance
@@ -150,14 +147,14 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.6
-        Slash: 0.6
-        Piercing: 0.5
-        Heat: 0.7
-        Radiation: 0.3
-        Caustic: 0.5
+        Blunt: 0.5
+        Slash: 0.5
+        Heat: 0.6
+        Piercing: 0.6
+        Caustic: 0.7
+        Radiation: 0.7
   - type: StaminaResistance
-    damageCoefficient: 0.85
+    damageCoefficient: 0.75
   - type: ExplosionResistance
     damageCoefficient: 0.6
   - type: ToggleableClothing
@@ -292,7 +289,7 @@
         Heat: 0.3
         Radiation: 0.20
   - type: StaminaResistance
-    damageCoefficient: 0.3  # ADT
+    damageCoefficient: 0.3
   - type: ExplosionResistance
     damageCoefficient: 0.3
   - type: ToggleableClothing
@@ -325,7 +322,7 @@
         Heat: 0.1
         Radiation: 0
   - type: StaminaResistance
-    damageCoefficient: 0.3  # ADT
+    damageCoefficient: 0.3
   - type: ExplosionResistance
     damageCoefficient: 0.1
   - type: ToggleableClothing
@@ -371,7 +368,7 @@
         Heat: 0.1
         Radiation: 0
   - type: StaminaResistance
-    damageCoefficient: 0.3  # ADT
+    damageCoefficient: 0.3
   - type: ExplosionResistance
     damageCoefficient: 0.1
   - type: ToggleableClothing
