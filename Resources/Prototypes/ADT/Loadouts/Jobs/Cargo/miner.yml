@@ -62,7 +62,7 @@
   id: ADTNeckMinerSCape
   effects:
   - !type:GroupLoadoutEffect
-   proto: ADTMinerSilverCape5hour
+    proto: ADTMinerSilverCape5hour
   equipment:
     neck: ADTClothingSilverCape
 
@@ -70,7 +70,7 @@
   id: ADTNeckMinerGCape
   effects:
   - !type:GroupLoadoutEffect
-   proto: ADTMinerGoldenCape15hour
+    proto: ADTMinerGoldenCape15hour
   equipment:
     neck: ADTClothingGoldenCape
 
@@ -78,7 +78,7 @@
   id: ADTNeckMinerPCape
   effects:
   - !type:GroupLoadoutEffect
-   proto: ADTMinerPlatinumCape30hour
+    proto: ADTMinerPlatinumCape30hour
   equipment:
     neck: ADTClothingPlatinumCape
 
@@ -86,7 +86,7 @@
   id: ADTNeckMinerECape
   effects:
   - !type:GroupLoadoutEffect
-   proto: ADTMinerEmeraldCape60hour
+    proto: ADTMinerEmeraldCape60hour
   equipment:
     neck: ADTClothingEmeraldCape
 
@@ -94,7 +94,7 @@
   id: ADTNeckMinerDCape
   effects:
   - !type:GroupLoadoutEffect
-   proto: ADTMinerDiamondCape100hour
+    proto: ADTMinerDiamondCape100hour
   equipment:
     neck: ADTClothingDiamondCape
 
@@ -102,7 +102,7 @@
   id: ADTNeckMinerRCape
   effects:
   - !type:GroupLoadoutEffect
-   proto: ADTMinerRubieCape300hour
+    proto: ADTMinerRubieCape300hour
   equipment:
     neck: ADTClothingRubieCape
 
