@@ -19,7 +19,6 @@ public sealed class StationRadioServerSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<StationRadioServerComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<StationRadioServerComponent, ComponentGetState>(OnGetState);
         SubscribeLocalEvent<StationRadioServerComponent, ComponentHandleState>(OnHandleState);
         SubscribeLocalEvent<StationRadioServerComponent, DestructionEventArgs>(OnDestruction);
@@ -45,15 +44,6 @@ public sealed class StationRadioServerSystem : EntitySystem
         comp.CurrentMedia = state.CurrentMedia;
         comp.BroadcastStartTime = state.BroadcastStartTime;
         comp.CurrentBroadcastId = state.CurrentBroadcastId;
-    }
-
-    private void OnStartup(EntityUid uid, StationRadioServerComponent comp, ComponentStartup args)
-    {
-        if (comp.ChannelId == null)
-        {
-            comp.ChannelId = RadioConstants.DefaultChannel;
-            Dirty(uid, comp);
-        }
     }
 
     private void OnDestruction(EntityUid uid, StationRadioServerComponent comp, DestructionEventArgs args)
@@ -112,7 +102,6 @@ public sealed class StationRadioServerSystem : EntitySystem
                     if (comp.CurrentMedia is not { } media)
                         return;
 
-                    // Если меняем канал с активным вещанием, останавливаем на старом
                     if (oldChannelId != null && oldChannelId != channelId)
                     {
                         var stopEv = new StationRadioMediaStoppedEvent(oldChannelId);
@@ -124,7 +113,6 @@ public sealed class StationRadioServerSystem : EntitySystem
                         }
                     }
 
-                    // Запускаем на новом канале с тем же треком (если он играет)
                     if (comp.BroadcastStartTime != null && comp.CurrentBroadcastId != null)
                     {
                         var playEv = new StationRadioMediaPlayedEvent(
