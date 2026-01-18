@@ -1,4 +1,3 @@
-#marathon
 meta:
   format: 7
   category: Grid
@@ -149678,3 +149677,4 @@ entities:
     - type: Transform
       pos: -41.384064,49.470146
       parent: 1
+...
