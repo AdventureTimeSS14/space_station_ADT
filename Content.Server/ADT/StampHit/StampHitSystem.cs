@@ -1,8 +1,10 @@
+using Content.Shared.Humanoid;
+using Content.Shared.ADT.StampHit;
 using Content.Shared.Popups;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Paper;
 
-namespace Content.Shared.ADT.StampHit;
+namespace Content.Server.ADT.StampHit;
 
 public sealed class StampHitSystem : EntitySystem
 {
@@ -16,10 +18,16 @@ public sealed class StampHitSystem : EntitySystem
     {
         foreach (var i in args.HitEntities)
         {
-            AddComp<StampedEntityComponent>(i);
-            if (TryComp<StampedEntityComponent>(i, out var EntStamped))
+            if (HasComp<HumanoidAppearanceComponent>(i))
             {
-                EntStamped.StampToEntity.Add(comp.StampedName);
+                if (!TryComp<StampedEntityComponent>(i, out var entStamped))
+                {
+                    AddComp<StampedEntityComponent>(i);
+                }
+                else
+                {
+                    entStamped.StampToEntity.Add(comp.StampedName);
+                }
             }
         }
     }

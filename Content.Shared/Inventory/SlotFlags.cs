@@ -28,7 +28,9 @@ public enum SlotFlags
     SUITSTORAGE = 1 << 15, // ADT-Slot-Start
     UNDERWEART = 1 << 16,
     UNDERWEARB = 1 << 17,
-    SOCKS = 1 << 18, // ADT-Slot-End
+    SOCKS = 1 << 18,
+    FINGER = 1 << 19,
+    EARS2 = 1 << 20,// ADT-Slot-End
     All = ~NONE,
 
     WITHOUT_POCKET = All & ~POCKET

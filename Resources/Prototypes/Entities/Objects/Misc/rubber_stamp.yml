@@ -14,6 +14,11 @@
       params:
         volume: -2
         maxDistance: 5
+  - type: MeleeWeapon
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 1
   - type: Sprite
     sprite: Objects/Misc/stamps.rsi
     state: stamp-mime
