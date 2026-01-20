@@ -274,7 +274,7 @@
     layoutId: AirlockCargo
 
 - type: entity
-  parent: AirlockServiceLocked
+  parent: ADTJournalistAirlock
   id: ADTAirlockJournalismLocked
   suffix: Journalism, Locked
   components:
@@ -283,7 +283,7 @@
       board: [ DoorElectronicsJournalism ]
 
 - type: entity
-  parent: AirlockServiceGlassLocked
+  parent: ADTJournalistAirlockGlass
   id: ADTAirlockJournalismGlassLocked
   suffix: Journalism, Locked
   components:

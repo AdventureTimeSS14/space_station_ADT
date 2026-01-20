@@ -429,3 +429,18 @@
     boardName: wires-board-name-highsec
     layoutId: HighSec
 
+- type: entity
+  parent: Airlock
+  id: ADTJournalistAirlock
+  suffix: Journalist
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Doors/Airlocks/Standard/journalist.rsi
+
+- type: entity
+  parent: AirlockGlass
+  id: ADTJournalistAirlockGlass
+  suffix: Journalist
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Doors/Airlocks/Glass/journalist.rsi

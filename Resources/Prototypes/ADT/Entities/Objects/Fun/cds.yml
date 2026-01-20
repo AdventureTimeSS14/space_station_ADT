@@ -49,7 +49,7 @@
   components:
   - type: Vinyl
     song:
-      path: /Audio/ADT/RadioStation/ads/ERT_add.ogg
+      path: /Audio/ADT/RadioStation/ads/ERT_ad.ogg
 
 - type: entity
   parent: ADTBaseCdDisk
@@ -76,7 +76,7 @@
   components:
   - type: Vinyl
     song:
-      path: /Audio/ADT/RadioStation/ads/Donk_pocket_uncensured.ogg
+      path: /Audio/ADT/RadioStation/ads/Donk_pocket_uncensored.ogg
 
 - type: entity
   parent: ADTBaseCdDisk
@@ -85,7 +85,7 @@
   components:
   - type: Vinyl
     song:
-      path: /Audio/ADT/RadioStation/ads/WhickeyColaWhickey.ogg
+      path: /Audio/ADT/RadioStation/ads/WhiskeyColaWhiskey.ogg
 
 - type: entity
   parent: ADTBaseCdDisk
@@ -103,7 +103,7 @@
   components:
   - type: Vinyl
     song:
-      path: /Audio/ADT/RadioStation/ads/syndieadd.ogg
+      path: /Audio/ADT/RadioStation/ads/syndiead.ogg
 
 - type: entity
   parent: ADTBaseCdDisk
@@ -112,7 +112,7 @@
   components:
   - type: Vinyl
     song:
-      path: /Audio/ADT/RadioStation/ads/mrchangadd.ogg
+      path: /Audio/ADT/RadioStation/ads/mrchangad.ogg
 
 - type: entity
   parent: ADTBaseCdDisk
@@ -130,4 +130,4 @@
   components:
   - type: Vinyl
     song:
-      path: /Audio/ADT/RadioStation/ads/nanomaxadd.ogg
+      path: /Audio/ADT/RadioStation/ads/nanomaxad.ogg
