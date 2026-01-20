@@ -20,11 +20,15 @@ public sealed class StampHitSystem : EntitySystem
         {
             if (HasComp<HumanoidAppearanceComponent>(i))
             {
-                if (!TryComp<StampedEntityComponent>(i, out var entStamped))
+                if (!HasComp<StampedEntityComponent>(i))
                 {
                     AddComp<StampedEntityComponent>(i);
+                    if (TryComp<StampedEntityComponent>(i, out var entStamped))
+                    {
+                        entStamped.StampToEntity.Add(comp.StampedName);
+                    }
                 }
-                else
+                else if (TryComp<StampedEntityComponent>(i, out var entStamped))
                 {
                     entStamped.StampToEntity.Add(comp.StampedName);
                 }

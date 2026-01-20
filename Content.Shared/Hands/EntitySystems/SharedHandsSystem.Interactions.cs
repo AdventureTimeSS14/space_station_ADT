@@ -10,7 +10,6 @@ using Robust.Shared.Input.Binding;
 using Robust.Shared.Map;
 using Robust.Shared.Player;
 using Robust.Shared.Utility;
-using Content.Shared.ADT.StampHit; //ADT-Tweak
 
 namespace Content.Shared.Hands.EntitySystems;
 
@@ -216,22 +215,10 @@ public abstract partial class SharedHandsSystem : EntitySystem
         var locKey = heldItemNames.Count != 0 ? "comp-hands-examine" : "comp-hands-examine-empty";
         var locUser = ("user", Identity.Entity(examinedUid, EntityManager));
         var locItems = ("items", ContentLocalizationManager.FormatList(heldItemNames));
-        (string, object)? locStamps = null;
-        //ADT-Tweak-Start
-        if (TryComp<StampedEntityComponent>(examinedUid, out var stampedEntity))
-        {
-            locStamps = ("stamps", ContentLocalizationManager.FormatList(stampedEntity.StampToEntity));
-        }
-        //ADT-Tweak-End
+
         using (args.PushGroup(nameof(HandsComponent)))
         {
             args.PushMarkup(Loc.GetString(locKey, locUser, locItems));
-            //ADT-Tweak-Start
-            if (TryComp<StampedEntityComponent>(examinedUid, out var entityexamed) && locStamps != null)
-            {
-                args.PushMarkup(Loc.GetString("comp-stamp-examine", locUser, locStamps));
-            }
-            //ADT-Tweak-End
         }
     }
 }

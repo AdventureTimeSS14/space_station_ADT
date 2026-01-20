@@ -122,6 +122,12 @@
       methods: [Touch]
       effects:
       - !type:WashCreamPieReaction
+    #ADT=Tweak=start
+    - reagents: [Water, SpaceCleaner]
+      methods: [Touch]
+      effects:
+      - !type:WashStampReaction
+    #ADT=Tweak=end
   - type: StatusEffects
     allowed:
     - Stutter

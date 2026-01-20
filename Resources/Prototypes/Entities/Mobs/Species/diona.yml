@@ -44,6 +44,12 @@
       methods: [Touch]
       effects:
       - !type:WashCreamPieReaction
+    #ADT=Tweak=start
+    - reagents: [Water, SpaceCleaner]
+      methods: [Touch]
+      effects:
+      - !type:WashStampReaction
+    #ADT=Tweak=end
     - reagents: [ PlantBGone ]
       methods: [ Touch ]
       effects:
