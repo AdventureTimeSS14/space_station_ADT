@@ -43,9 +43,33 @@
   name: nanotrasen banner
   description: A banner displaying the Nanotrasen logo. It looks rather cheap.
   components:
+#ADT-Tweak Start
   - type: Sprite
-    sprite: Structures/Decoration/banner.rsi
-    state: banner
+    sprite: ADT/Structures/Banners/banner.rsi
+    layers:
+    - state: banner
+      map: ["unfoldedLayer"]
+    - sprite: ADT/Structures/Banners/rolled.rsi
+      state: banner-rolled
+      map: ["foldedLayer"]
+      visible: false
+  - type: Foldable
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.FoldedVisuals.State:
+        foldedLayer:
+          True: {visible: true}
+          False: {visible: false}
+        unfoldedLayer:
+          True: {visible: false}
+          False: {visible: true}
+  - type: Item
+    size: Normal
+  - type: Construction
+    graph: BannerNanotrasen
+    node: banner
+#ADT-Tweak End
 
 - type: entity
   id: BannerCargo
@@ -53,9 +77,33 @@
   name: cargo banner
   description: A banner displaying the colors of the cargo department. Not. Cargonia.
   components:
+#ADT-Tweak Start
   - type: Sprite
-    sprite: Structures/Decoration/banner.rsi
-    state: banner_cargo
+    sprite: ADT/Structures/Banners/banner.rsi
+    layers:
+    - state: banner_cargo
+      map: ["unfoldedLayer"]
+    - sprite: ADT/Structures/Banners/rolled.rsi
+      state: banner_cargo-rolled
+      map: ["foldedLayer"]
+      visible: false
+  - type: Foldable
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.FoldedVisuals.State:
+        foldedLayer:
+          True: {visible: true}
+          False: {visible: false}
+        unfoldedLayer:
+          True: {visible: false}
+          False: {visible: true}
+  - type: Item
+    size: Normal
+  - type: Construction
+    graph: BannerCargo
+    node: banner
+#ADT-Tweak End
 
 - type: entity
   id: BannerEngineering
@@ -63,9 +111,33 @@
   name: engineering banner
   description: A banner displaying the colors of the engineering department. Scrungularty.
   components:
+#ADT-Tweak Start
   - type: Sprite
-    sprite: Structures/Decoration/banner.rsi
-    state: banner_engineering
+    sprite: ADT/Structures/Banners/banner.rsi
+    layers:
+    - state: banner_engineering
+      map: ["unfoldedLayer"]
+    - sprite: ADT/Structures/Banners/rolled.rsi
+      state: banner_engineering-rolled
+      map: ["foldedLayer"]
+      visible: false
+  - type: Foldable
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.FoldedVisuals.State:
+        foldedLayer:
+          True: {visible: true}
+          False: {visible: false}
+        unfoldedLayer:
+          True: {visible: false}
+          False: {visible: true}
+  - type: Item
+    size: Normal
+  - type: Construction
+    graph: BannerEngineering
+    node: banner
+#ADT-Tweak End
 
 - type: entity
   id: BannerMedical
@@ -73,9 +145,33 @@
   name: medical banner
   description: A banner displaying the colors of the medical department. How sterile.
   components:
+#ADT-Tweak Start
   - type: Sprite
-    sprite: Structures/Decoration/banner.rsi
-    state: banner_medical
+    sprite: ADT/Structures/Banners/banner.rsi
+    layers:
+    - state: banner_medical
+      map: ["unfoldedLayer"]
+    - sprite: ADT/Structures/Banners/rolled.rsi
+      state: banner_medical-rolled
+      map: ["foldedLayer"]
+      visible: false
+  - type: Foldable
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.FoldedVisuals.State:
+        foldedLayer:
+          True: {visible: true}
+          False: {visible: false}
+        unfoldedLayer:
+          True: {visible: false}
+          False: {visible: true}
+  - type: Item
+    size: Normal
+  - type: Construction
+    graph: BannerMedical
+    node: banner
+#ADT-Tweak End
 
 - type: entity
   id: BannerRevolution
@@ -83,9 +179,30 @@
   name: revolution banner
   description: A banner displaying revolution. Viva!
   components:
+#ADT-Tweak Start
   - type: Sprite
-    sprite: Structures/Decoration/banner.rsi
-    state: banner_revolution
+    sprite: ADT/Structures/Banners/banner.rsi
+    layers:
+    - state: banner_revolution
+      map: ["unfoldedLayer"]
+    - sprite: ADT/Structures/Banners/rolled.rsi
+      state: banner_revolution-rolled
+      map: ["foldedLayer"]
+      visible: false
+  - type: Foldable
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.FoldedVisuals.State:
+        foldedLayer:
+          True: {visible: true}
+          False: {visible: false}
+        unfoldedLayer:
+          True: {visible: false}
+          False: {visible: true}
+  - type: Item
+    size: Normal
+#ADT-Tweak End
 
 - type: entity
   id: BannerSyndicate
@@ -93,9 +210,30 @@
   name: syndicate banner
   description: A banner from which, according to the syndicate, you should feel hatred for NT.
   components:
+#ADT-Tweak Start
   - type: Sprite
-    sprite: Structures/Decoration/banner.rsi
-    state: banner_syndicate
+    sprite: ADT/Structures/Banners/banner.rsi
+    layers:
+    - state: banner_syndicate
+      map: ["unfoldedLayer"]
+    - sprite: ADT/Structures/Banners/rolled.rsi
+      state: banner_syndicate-rolled
+      map: ["foldedLayer"]
+      visible: false
+  - type: Foldable
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.FoldedVisuals.State:
+        foldedLayer:
+          True: {visible: true}
+          False: {visible: false}
+        unfoldedLayer:
+          True: {visible: false}
+          False: {visible: true}
+  - type: Item
+    size: Normal
+#ADT-Tweak End
 
 - type: entity
   id: BannerScience
@@ -103,9 +241,33 @@
   name: science banner
   description: A banner displaying the colors of the science department. Where science has no bounds, and regulations are rarely followed.
   components:
+#ADT-Tweak Start
   - type: Sprite
-    sprite: Structures/Decoration/banner.rsi
-    state: banner_science
+    sprite: ADT/Structures/Banners/banner.rsi
+    layers:
+    - state: banner_science
+      map: ["unfoldedLayer"]
+    - sprite: ADT/Structures/Banners/rolled.rsi
+      state: banner_science-rolled
+      map: ["foldedLayer"]
+      visible: false
+  - type: Foldable
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.FoldedVisuals.State:
+        foldedLayer:
+          True: {visible: true}
+          False: {visible: false}
+        unfoldedLayer:
+          True: {visible: false}
+          False: {visible: true}
+  - type: Item
+    size: Normal
+  - type: Construction
+    graph: BannerScience
+    node: banner
+#ADT-Tweak End
 
 - type: entity
   id: BannerSecurity
@@ -113,9 +275,33 @@
   name: security banner
   description: A banner displaying the colors of the security department. You're surprised it's not vandalised.
   components:
+#ADT-Tweak Start
   - type: Sprite
-    sprite: Structures/Decoration/banner.rsi
-    state: banner_security
+    sprite: ADT/Structures/Banners/banner.rsi
+    layers:
+    - state: banner_security
+      map: ["unfoldedLayer"]
+    - sprite: ADT/Structures/Banners/rolled.rsi
+      state: banner_security-rolled
+      map: ["foldedLayer"]
+      visible: false
+  - type: Foldable
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.FoldedVisuals.State:
+        foldedLayer:
+          True: {visible: true}
+          False: {visible: false}
+        unfoldedLayer:
+          True: {visible: false}
+          False: {visible: true}
+  - type: Item
+    size: Normal
+  - type: Construction
+    graph: BannerSecurity
+    node: banner
+#ADT-Tweak End
 
 - type: entity
   id: BannerBlue
@@ -123,9 +309,33 @@
   name: blue banner
   description: A banner displaying the color blue. Dabudidabudai.
   components:
+#ADT-Tweak Start
   - type: Sprite
-    sprite: Structures/Decoration/banner.rsi
-    state: banner-blue
+    sprite: ADT/Structures/Banners/banner.rsi
+    layers:
+    - state: banner-blue
+      map: ["unfoldedLayer"]
+    - sprite: ADT/Structures/Banners/rolled.rsi
+      state: banner-blue-rolled
+      map: ["foldedLayer"]
+      visible: false
+  - type: Foldable
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.FoldedVisuals.State:
+        foldedLayer:
+          True: {visible: true}
+          False: {visible: false}
+        unfoldedLayer:
+          True: {visible: false}
+          False: {visible: true}
+  - type: Item
+    size: Normal
+  - type: Construction
+    graph: BannerBlue
+    node: banner
+#ADT-Tweak End
 
 - type: entity
   id: BannerRed
@@ -133,9 +343,33 @@
   name: red banner
   description: A banner displaying the color red. The edgy one.
   components:
+#ADT-Tweak Start
   - type: Sprite
-    sprite: Structures/Decoration/banner.rsi
-    state: banner-red
+    sprite: ADT/Structures/Banners/banner.rsi
+    layers:
+    - state: banner-red
+      map: ["unfoldedLayer"]
+    - sprite: ADT/Structures/Banners/rolled.rsi
+      state: banner-red-rolled
+      map: ["foldedLayer"]
+      visible: false
+  - type: Foldable
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.FoldedVisuals.State:
+        foldedLayer:
+          True: {visible: true}
+          False: {visible: false}
+        unfoldedLayer:
+          True: {visible: false}
+          False: {visible: true}
+  - type: Item
+    size: Normal
+  - type: Construction
+    graph: BannerRed
+    node: banner
+#ADT-Tweak End
 
 - type: entity
   id: BannerYellow
@@ -143,9 +377,33 @@
   name: yellow banner
   description: A banner displaying the color yellow. Reminds you of ducks and lemon stands.
   components:
+#ADT-Tweak Start
   - type: Sprite
-    sprite: Structures/Decoration/banner.rsi
-    state: banner-yellow
+    sprite: ADT/Structures/Banners/banner.rsi
+    layers:
+    - state: banner-yellow
+      map: ["unfoldedLayer"]
+    - sprite: ADT/Structures/Banners/rolled.rsi
+      state: banner-yellow-rolled
+      map: ["foldedLayer"]
+      visible: false
+  - type: Foldable
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.FoldedVisuals.State:
+        foldedLayer:
+          True: {visible: true}
+          False: {visible: false}
+        unfoldedLayer:
+          True: {visible: false}
+          False: {visible: true}
+  - type: Item
+    size: Normal
+  - type: Construction
+    graph: BannerYellow
+    node: banner
+#ADT-Tweak End
 
 - type: entity
   id: BannerGreen
@@ -153,8 +411,32 @@
   name: green banner
   description: A banner displaying the color green. Grass, leaves, guacamole.
   components:
+#ADT-Tweak Start
   - type: Sprite
-    sprite: Structures/Decoration/banner.rsi
-    state: banner-green
+    sprite: ADT/Structures/Banners/banner.rsi
+    layers:
+    - state: banner-green
+      map: ["unfoldedLayer"]
+    - sprite: ADT/Structures/Banners/rolled.rsi
+      state: banner-green-rolled
+      map: ["foldedLayer"]
+      visible: false
+  - type: Foldable
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.FoldedVisuals.State:
+        foldedLayer:
+          True: {visible: true}
+          False: {visible: false}
+        unfoldedLayer:
+          True: {visible: false}
+          False: {visible: true}
+  - type: Item
+    size: Normal
+  - type: Construction
+    graph: BannerGreen
+    node: banner
+#ADT-Tweak End
 
 
