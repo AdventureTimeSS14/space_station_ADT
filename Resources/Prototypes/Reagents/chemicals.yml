@@ -256,9 +256,11 @@
   metabolisms:
     Medicine:
       effects:
-      - !type:EvenHealthChange
+      # ADT-Tweak start
+      - !type:EvenHealthChange 
         damage:
           Brute: -4
+      # ADT-Tweak end
       - !type:GenericStatusEffect
         key: Adrenaline
         component: IgnoreSlowOnDamage

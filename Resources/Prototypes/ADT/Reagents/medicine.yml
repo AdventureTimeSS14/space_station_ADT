@@ -450,7 +450,7 @@
       effects:
       - !type:EvenHealthChange
         damage:
-            Brute: -2.25
+          Brute: -2.25
       - !type:ModifyBleedAmount
         amount: -1 #почему кровоостанавливающая пудра не останавливала кровотечение?
       - !type:PopupMessage
