@@ -6,12 +6,27 @@
   components:
   - type: Sprite
     sprite: ADT/Structures/Furniture/witness_stand.rsi
-    state: witness_stand
-    drawdepth: OverMobs
     noRot: true
+    drawdepth: OverMobs
+    layers:
+    - state: witness_stand
+      map: ["base"]
+    - state: witness_stand_occupied
+      map: ["occupiedLayer"]
+      visible: false
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.StrapVisuals.State:
+        base:
+          True: {visible: false}
+          False: {visible: true}
+        occupiedLayer:
+          True: {visible: true}
+          False: {visible: false}
   - type: Strap
     position: Stand
-    buckleOffset: "0,0.15"
+    buckleOffset: "0,0"
   - type: Damageable
     damageModifierSet: Wood
   - type: Destructible

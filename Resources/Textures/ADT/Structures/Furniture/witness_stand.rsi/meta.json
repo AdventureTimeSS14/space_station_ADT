@@ -10,6 +10,10 @@
         {
             "name": "witness_stand",
             "directions": 4
+        },
+        {
+            "name": "witness_stand_occupied",
+            "directions": 4
         }
     ]
 }
