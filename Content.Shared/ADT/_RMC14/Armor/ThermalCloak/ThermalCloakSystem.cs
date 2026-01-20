@@ -2,7 +2,7 @@ using Content.Shared._RMC14.Stealth;
 using Content.Shared.Actions;
 using Content.Shared.Actions.Components;
 using Content.Shared.Actions.Events;
-using Content.Shared.Explosion.Components.OnTrigger;
+using Content.Shared.Explosion.Components;
 using Content.Shared.Humanoid;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Inventory;
@@ -20,6 +20,8 @@ using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Ninja.Systems;
 using Content.Shared.Hands.EntitySystems;
+using Content.Shared.Trigger.Components.Effects;
+
 
 namespace Content.Shared._RMC14.Armor.ThermalCloak;
 

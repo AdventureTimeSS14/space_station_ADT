@@ -10,6 +10,7 @@ using Robust.Shared.Audio.Systems;
 using Content.Shared.Damage;
 using Content.Shared.Mobs.Components;
 using Content.Server.ADT.Mech.Equipment.Components;
+using Content.Shared.Damage.Systems;
 
 namespace Content.Server.ADT.Mech.Equipment.EntitySystems;
 
@@ -72,7 +73,7 @@ public sealed class MechDrillSystem : EntitySystem
         if (args?.Args?.Target is not { } target)
             return;
 
-        if (args.Cancelled)
+        if (args.Cancelled || args.Target == null)
             return;
         component.Token = null;
 
@@ -97,7 +98,7 @@ public sealed class MechDrillSystem : EntitySystem
         if (Comp<MechComponent>(equipmentComponent.EquipmentOwner.Value).Energy <= 0)
             args.Repeat = false;
 
-        _damageable.TryChangeDamage(args.Target, component.DamageToDrilled, ignoreResistances: false);
+        _damageable.TryChangeDamage(args.Target.Value, component.DamageToDrilled, ignoreResistances: false);
         _mech.UpdateUserInterface(equipmentComponent.EquipmentOwner.Value);
         args.Repeat = true;
     }

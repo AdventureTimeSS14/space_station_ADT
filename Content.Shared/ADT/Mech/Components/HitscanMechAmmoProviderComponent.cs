@@ -14,6 +14,6 @@ public sealed partial class HitscanMechAmmoProviderComponent : MechAmmoProviderC
     [AutoNetworkedField]
     public float ShotCost = 15f;
 
-    [DataField(required: true)]
-    public ProtoId<HitscanPrototype> Proto;
+    [DataField("proto", required: true)]
+    public EntProtoId Proto;
 }

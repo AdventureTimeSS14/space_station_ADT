@@ -4,6 +4,7 @@ using Content.Shared.Verbs;
 using Content.Shared.Tools.Components;
 using Content.Shared.Whitelist;
 using Content.Shared.Lock;
+using Content.Shared.Storage.Components;
 
 namespace Content.Server.ADT.Traits;
 

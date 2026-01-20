@@ -1,6 +1,7 @@
 ﻿using Content.Server.Explosion.EntitySystems;
 using Content.Shared._RMC14.Weapons.Ranged;
 using Content.Shared.Throwing;
+using Content.Shared.Trigger.Systems;
 using Content.Shared.Weapons.Ranged.Events;
 using Robust.Shared.Timing;
 
@@ -19,10 +20,10 @@ public sealed class RMCTriggerSystem : EntitySystem
 
     private void OnTriggerTimerAmmoShot(Entity<OnShootTriggerAmmoTimerComponent> ent, ref AmmoShotEvent args)
     {
-        foreach (var projectile in args.FiredProjectiles)
-        {
-            _trigger.HandleTimerTrigger(projectile, null, ent.Comp.Delay, ent.Comp.BeepInterval, ent.Comp.InitialBeepDelay, ent.Comp.BeepSound);
-        }
+        // foreach (var projectile in args.FiredProjectiles)
+        // {
+        //     _trigger.Trigger(projectile, null, ent.Comp.Delay, ent.Comp.BeepInterval, ent.Comp.InitialBeepDelay, ent.Comp.BeepSound);
+        // }
     }
 
     private void OnTriggerOnFixedDistanceStop(Entity<TriggerOnFixedDistanceStopComponent> ent, ref ProjectileFixedDistanceStopEvent args)

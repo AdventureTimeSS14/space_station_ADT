@@ -6,6 +6,8 @@ using Content.Shared.Mech.EntitySystems;
 using Robust.Server.GameObjects;
 using Content.Server.Emp;
 using Content.Shared.Mech.Equipment.Components;
+using Content.Shared.Emp;
+using Content.Shared.Damage.Systems;
 
 namespace Content.Server.Mech.Systems;
 

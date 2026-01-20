@@ -41,7 +41,7 @@ public sealed partial class ChangelingEvolutionMenuActionEvent : BaseInstantChan
 {
 }
 
-public sealed partial class ChangelingTransformActionEvent : BaseInstantChangelingActionEvent
+public sealed partial class ADTChangelingTransformActionEvent : BaseInstantChangelingActionEvent
 {
 }
 
@@ -109,7 +109,7 @@ public sealed partial class LingEMPActionEvent : BaseInstantChangelingActionEven
     /// How long the Dissonant Shriek's EMP effects last for
     /// </summary>
     [DataField]
-    public float Duration = 12f;
+    public TimeSpan Duration = TimeSpan.FromSeconds(12);
 }
 
 public sealed partial class StasisDeathActionEvent : BaseInstantChangelingActionEvent

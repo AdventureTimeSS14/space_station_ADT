@@ -67,7 +67,7 @@
   - type: Tag
     tags:
     - Diagonal
-    - Window #ADT-Tweak
+    - Window
   - type: IconSmooth
     mode: Diagonal
     key: walls #corvax smooth

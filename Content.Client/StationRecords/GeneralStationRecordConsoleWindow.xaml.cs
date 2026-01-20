@@ -9,8 +9,8 @@ namespace Content.Client.StationRecords;
 [GenerateTypedNameReferences]
 public sealed partial class GeneralStationRecordConsoleWindow : DefaultWindow
 {
+    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IEntityManager _ent = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
 
     public Action<uint?>? OnKeySelected;
 
@@ -24,7 +24,7 @@ public sealed partial class GeneralStationRecordConsoleWindow : DefaultWindow
     public GeneralStationRecordConsoleWindow()
     {
         RobustXamlLoader.Load(this);
-        IoCManager.InjectDependencies(this);    // ADT Station Records Showcase Tweaked
+        IoCManager.InjectDependencies(this);
 
         _currentFilterType = StationRecordFilterType.Name;
 
@@ -49,7 +49,7 @@ public sealed partial class GeneralStationRecordConsoleWindow : DefaultWindow
 
         StationRecordsFilterType.OnItemSelected += eventArgs =>
         {
-            var type = (StationRecordFilterType) eventArgs.Id;
+            var type = (StationRecordFilterType)eventArgs.Id;
 
             if (_currentFilterType != type)
             {
@@ -144,7 +144,7 @@ public sealed partial class GeneralStationRecordConsoleWindow : DefaultWindow
     private void PopulateRecordContainer(GeneralStationRecord record, bool enableDelete, uint? id)
     {
         RecordContainer.RemoveAllChildren();
-        var newRecord = new GeneralRecord(record, enableDelete, id, _ent, _proto);  // ADT Station Records Showcase Tweaked
+        var newRecord = new GeneralRecord(record, enableDelete, id, _prototypeManager);
         newRecord.OnDeletePressed = OnDeleted;
 
         RecordContainer.AddChild(newRecord);

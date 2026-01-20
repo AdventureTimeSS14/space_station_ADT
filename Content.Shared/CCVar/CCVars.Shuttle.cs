@@ -117,7 +117,7 @@ public sealed partial class CCVars
     ///     Is the emergency shuttle allowed to be early launched.
     /// </summary>
     public static readonly CVarDef<bool> EmergencyEarlyLaunchAllowed =
-        CVarDef.Create("shuttle.emergency_early_launch_allowed", true, CVar.SERVERONLY); //ADT-Tweak - включен ранний запуск аварийного шаттла командованием
+        CVarDef.Create("shuttle.emergency_early_launch_allowed", true, CVar.SERVER | CVar.REPLICATED); //ADT-Tweak - включен ранний запуск аварийного шаттла командованием
 
     /// <summary>
     ///     How long the emergency shuttle remains docked with the station, in seconds.

@@ -51,7 +51,7 @@ public abstract class SharedNightVisionSystem : EntitySystem
     private void OnNightVisionRemove(Entity<NightVisionComponent> ent, ref ComponentRemove args)
     {
         if (ent.Comp.Alert is { } alert)
-            _alerts.ClearAlert(ent, alert);
+            _alerts.ClearAlert(ent.Owner, alert);
 
         NightVisionRemoved(ent);
     }
@@ -130,7 +130,7 @@ public abstract class SharedNightVisionSystem : EntitySystem
             var level = MathF.Max((int)NightVisionState.Off, (int)ent.Comp.State);
             var max = _alerts.GetMaxSeverity(alert);
             var severity = max - ContentHelpers.RoundToLevels(level, (int)NightVisionState.Full, max + 1);
-            _alerts.ShowAlert(ent, alert, (short)severity);
+            _alerts.ShowAlert(ent.Owner, alert, (short)severity);
         }
 
         NightVisionChanged(ent);

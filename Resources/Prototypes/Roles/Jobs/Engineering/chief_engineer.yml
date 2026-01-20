@@ -6,15 +6,16 @@
   requirements:
     - !type:RoleTimeRequirement
       role: JobAtmosphericTechnician
-      time: 9000 #2.5 hrs
-    - !type:RoleTimeRequirement
-      role: JobStationEngineer
-      time: 18000 #5 hrs
+      time: 10h # Corvax-RoleTime 2.5h
+#    - !type:RoleTimeRequirement
+#      role: JobStationEngineer
+#      time: 21600 #6 hrs
     - !type:DepartmentTimeRequirement
       department: Engineering
-      time: 36000 #10 hrs
-      #ADT tweak start
-    - !type:SpeciesRequirement
+      time: 15h # Corvax-RoleTime 5h
+#    - !type:OverallPlaytimeRequirement
+#      time: 144000 #40 hrs
+    - !type:TraitsRequirement #Corvax-TraitsRequirement
       inverted: true
       species:
       - Vox

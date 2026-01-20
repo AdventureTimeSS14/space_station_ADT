@@ -33,7 +33,7 @@
           shape:
             !type:PhysShapeCircle
             radius: 0.35
-          density: 80
+          density: 20
           mask:
           - MobMask
     - type: InjectorBoost # ADT-Tweak (P4A) Ускорение Шприцов на койках и каталках
@@ -70,13 +70,15 @@
           buckledLayer:
             True: {visible: true}
             False: {visible: false}
+          unfoldedLayer:
+            True: { visible: false }
+            False: { visible: true }
         enum.FoldedVisuals.State: # Copypasta from BaseFoldable b/c collections don't merge when overriding component prototypes.
           foldedLayer:
             True: {visible: true}
             False: {visible: false}
           unfoldedLayer:
             True: {visible: false}
-            False: {visible: true}
     - type: StaticPrice
       price: 120
 
@@ -108,7 +110,6 @@
     - state: cheap_rollerbed_buckled
       map: ["buckledLayer"]
       visible: false
-  - type: Appearance
 
 - type: entity
   parent: CheapRollerBed
@@ -138,7 +139,6 @@
     - state: emergency_rollerbed_buckled
       map: ["buckledLayer"]
       visible: false
-  - type: Appearance
 
 - type: entity
   parent: EmergencyRollerBed

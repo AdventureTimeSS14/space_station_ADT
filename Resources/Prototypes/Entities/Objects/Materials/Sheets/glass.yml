@@ -15,6 +15,7 @@
   - type: Tag
     tags:
     - Sheet
+    - ConstructionMaterial
     - NoPaint #ADT tweak
     - ADTGlassSheet #ADT tweak
   - type: Material
@@ -130,15 +131,6 @@
     count: 1
 
 - type: entity
-  parent: SheetGlass
-  id: SheetGlassLingering0
-  suffix: Lingering, 0
-  components:
-  - type: Stack
-    lingering: true
-    count: 0
-
-- type: entity
   parent: SheetGlassBase
   id: SheetRGlass
   name: reinforced glass
@@ -226,15 +218,6 @@
         - ReagentId: Carbon
           Quantity: 0.5
         canReact: false
-
-- type: entity
-  parent: SheetRGlass
-  id: SheetRGlassLingering0
-  suffix: Lingering, 0
-  components:
-  - type: Stack
-    lingering: true
-    count: 0
 
 - type: entity
   parent: SheetGlassBase
@@ -407,15 +390,6 @@
   - type: Stack
     stackType: ReinforcedPlasmaGlass
     count: 1
-
-- type: entity
-  parent: SheetRPGlass
-  id: SheetRPGlassLingering0
-  suffix: Lingering, 0
-  components:
-  - type: Stack
-    lingering: true
-    count: 0
 
 - type: entity
   parent: SheetGlassBase

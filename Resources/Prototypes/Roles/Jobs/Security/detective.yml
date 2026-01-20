@@ -4,9 +4,13 @@
   description: job-description-detective
   playTimeTracker: JobDetective
   requirements:
-  - !type:DepartmentTimeRequirement
-    department: Security
-    time: 90000 #25 hrs # ADT-RoleTime
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 20h # Corvax-RoleTime
+    - !type:TraitsRequirement #Corvax-TraitsRequirement
+      inverted: true
+      traits:
+      - Muted
   # ADT Restrict Start
   - !type:SpeciesRequirement
     inverted: true
@@ -23,10 +27,11 @@
   - Security
   - Brig
   - Maintenance
-  - Service
   - Detective
   - Cryogenics
   - External
+  - GenpopEnter
+  - GenpopLeave
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]

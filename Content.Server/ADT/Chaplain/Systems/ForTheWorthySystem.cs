@@ -13,6 +13,7 @@ using Content.Shared.Movement.Systems;
 using Content.Shared.Item;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Electrocution;
+using Content.Shared.Damage.Systems;
 
 namespace Content.Server.ADT.Chaplain.Systems;
 

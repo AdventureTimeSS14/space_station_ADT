@@ -5,6 +5,7 @@
   recipes:
   - AppraisalTool
   - Pickaxe
+  - UtilityKnife
   - Flare  # ADT Tweak
 
 - type: latheRecipePack

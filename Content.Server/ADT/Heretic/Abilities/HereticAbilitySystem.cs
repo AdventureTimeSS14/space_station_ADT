@@ -34,6 +34,8 @@ using Content.Server.ADT.Heretic.EntitySystems.PathSpecific;
 using Content.Server.Heretic.Components;
 using Content.Shared.Hands.Components;
 using Content.Shared.Tag;
+using Content.Shared.Medical;
+using Content.Shared.Chat;
 
 namespace Content.Server.Heretic.Abilities;
 

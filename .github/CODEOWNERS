@@ -1,39 +1,14 @@
 # Last match in file takes precedence.
 
 # Ping for all PRs
-* @Morb0
-* @JerryImMouse
+* @Morb0 @JerryImMouse @DIMMoon1
 
-# Ping for all PRs that include translations/editing fluent strings
-*.ftl @ficcialfaint
+# Translations
+*.ftl @Morb0 @DIMMoon1 @ficcialfaint
 
-# Map files
-/Resources/Prototypes/Maps/** @Ko4ergaPunk 
-/Resources/Maps/** @Ko4ergaPunk 
+# Maps
+/Resources/Prototypes/Maps/** @Morb0 @DIMMoon1 @Ko4ergaPunk
+/Resources/Maps/** @Morb0 @DIMMoon1 @Ko4ergaPunk
 
-/Resources/Prototypes/Body/ @DrSmugleaf # suffering
-/Resources/Prototypes/Entities/Mobs/Player/ @DrSmugleaf
-/Resources/Prototypes/Entities/Mobs/Species/ @DrSmugleaf
-/Resources/Prototypes/Guidebook/rules.yml @nikthechampiongr @crazybrain23
-/Content.*/Body/ @DrSmugleaf
-/Content.YAMLLinter @DrSmugleaf
-/Content.Shared/Damage/ @DrSmugleaf
-
-/Content.*/Anomaly/ @TheShuEd
-/Resources/Prototypes/Entities/Structures/Specific/anomalies.yml @TheShuEd
-
-/Content.*/Forensics/ @ficcialfaint
-
-# SKREEEE
-/Content.*.Database/ @PJB3005 @DrSmugleaf
-/Content.Shared.Database/Log*.cs @PJB3005 @DrSmugleaf @nikthechampiongr @crazybrain23
-/Pow3r/ @PJB3005
-/Content.Server/Power/Pow3r/ @PJB3005
-
-
-# Sloth
-/Content.*/Audio @metalgearsloth
-/Content.*/Movement @metalgearsloth
-/Content.*/NPC @metalgearsloth
-/Content.*/Shuttles @metalgearsloth
-/Content.*/Weapons @metalgearsloth
+# Sprites
+/Resources/Textures/** @Morb0 @DIMMoon1 @SonicHDC

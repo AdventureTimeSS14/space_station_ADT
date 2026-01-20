@@ -9,6 +9,7 @@
     state: icon
 #ADT tweak start
   - type: Item
+  	storedRotation: 135
     sprite: Objects/Tools/scissors.rsi
     storedSprite:
       sprite: Objects/Tools/scissors.rsi

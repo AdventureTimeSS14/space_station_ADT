@@ -90,7 +90,7 @@ public sealed partial class PhantomVesselsMenu : RadialMenu
 }
 
 
-public sealed class PhantomVesselsMenuButton : RadialMenuTextureButtonWithSector
+public sealed class PhantomVesselsMenuButton : RadialMenuButtonWithSector
 {
     public NetEntity Entity;
     public HumanoidCharacterProfile? Profile;

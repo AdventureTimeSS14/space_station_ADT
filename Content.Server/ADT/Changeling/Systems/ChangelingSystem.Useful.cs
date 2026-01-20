@@ -21,6 +21,7 @@ using Content.Shared.ADT.Stealth.Components;
 using Content.Server.Medical;
 using Content.Shared.Heretic;
 using Content.Shared.ADT.BloodBrothers;
+using Content.Shared.Medical;
 
 namespace Content.Server.Changeling.EntitySystems;
 
@@ -623,9 +624,10 @@ public sealed partial class ChangelingSystem
         }
         if (!TryComp<CuffableComponent>(target, out var cuffs) || cuffs.Container.ContainedEntities.Count < 1)
             return;
-        if (!TryComp<HandcuffComponent>(cuffs.LastAddedCuffs, out var handcuffs) || cuffs.Container.ContainedEntities.Count < 1)
-            return;
-        _cuffable.Uncuff(target, uid, cuffs.LastAddedCuffs, cuffs, handcuffs);
+        //R.A.T. shitfix: визарды сломали систему, надо починить потом
+        // if (!TryComp<HandcuffComponent>(cuffs.LastAddedCuffs, out var handcuffs) || cuffs.Container.ContainedEntities.Count < 1)
+        //     return;
+        // _cuffable.Uncuff(target, uid, cuffs.LastAddedCuffs, cuffs, handcuffs);
     }
 
     public void OnTransformSting(EntityUid uid, ChangelingComponent component, TransformationStingEvent args)
