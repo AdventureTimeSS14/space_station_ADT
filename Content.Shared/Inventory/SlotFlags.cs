@@ -25,12 +25,12 @@ public enum SlotFlags
     POCKET = 1 << 12,
     LEGS = 1 << 13,
     FEET = 1 << 14,
-    SUITSTORAGE = 1 << 15, // ADT-Slot-Start
+    SUITSTORAGE = 1 << 15, // ADT-Tweak-Start
     UNDERWEART = 1 << 16,
     UNDERWEARB = 1 << 17,
     SOCKS = 1 << 18,
     FINGER = 1 << 19,
-    EARS2 = 1 << 20,// ADT-Slot-End
+    EARS2 = 1 << 20,// ADT-Tweak-End
     All = ~NONE,
 
     WITHOUT_POCKET = All & ~POCKET
