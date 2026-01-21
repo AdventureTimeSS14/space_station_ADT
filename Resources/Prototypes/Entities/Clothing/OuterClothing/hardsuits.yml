@@ -25,11 +25,14 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.9
+        Blunt: 0.7 # ADT-Tweak 0.9 -> 0.7
         Slash: 0.9
-        Piercing: 0.9
-        Heat: 0.8
-        Radiation: 0.5
+        Piercing: 0.9   
+        # ADT-Tweak-Start
+        Heat: 0.4       # 0.8 -> 0.4
+        Radiation: 0.4  # 0.5 -> 0.4
+        Caustic: 0.5    #  -> Caustic: 0.5 
+        # ADT-Tweak-End
   - type: ClothingSpeedModifier
     walkModifier: 0.7
     sprintModifier: 0.7
@@ -57,19 +60,26 @@
     highPressureMultiplier: 0.04
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
-    damageCoefficient: 0.5
+    damageCoefficient: 0.6 # ADT-Tweak 0.5 -> 0.6
   - type: Armor
     modifiers:
       coefficients:
+  # ADT-Tweak-Start
         Blunt: 0.9
         Slash: 0.9
         Piercing: 0.9
-        Shock: 0.8
-        Caustic: 0.5
-        Radiation: 0.2
+        Heat: 0.8 # -> Heat: 0.8
+        Radiation: 0.3 # 0.2 -> 0.3
+        Caustic: 0.7 # 0.5 -> 0.7
+       #Shock: 0.8
+  - type: FireProtection
+    reduction: 0.4
+  - type: StaminaResistance
+    damageCoefficient: 0.9
   - type: ClothingSpeedModifier
-    walkModifier: 0.7
-    sprintModifier: 0.7
+    walkModifier: 0.75 # 0.7 -> 0.75
+    sprintModifier: 0.75 # 0.7 -> 0.75
+  # ADT-Tweak-End
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitEngineering
@@ -246,12 +256,12 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.6
-        Slash: 0.6
-        Piercing: 0.6
-        Heat: 0.8
-        Caustic: 0.7
 # Start ADT Tweak
+        Blunt: 0.7
+        Slash: 0.7
+        Heat: 0.8
+        Piercing: 0.55
+        Caustic: 0.7
   - type: StaminaResistance
     damageCoefficient: 0.8
 # End ADT Tweak
@@ -291,8 +301,10 @@
         Heat: 0.7
         Radiation: 0.8
         Caustic: 0.7
+  - type: StaminaResistance
+    damageCoefficient: 0.8
   - type: ExplosionResistance
-    damageCoefficient: 0.25
+    damageCoefficient: 0.7 # ADT-Tweak 0.25 -> 0.7
   - type: ItemToggle
     onUse: false
     soundActivate:
@@ -342,23 +354,25 @@
   - type: PressureProtection
     highPressureMultiplier: 0.5
     lowPressureMultiplier: 1000
-  - type: ExplosionResistance
-    damageCoefficient: 0.4
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.6 # ADT tweak 0.4 > 0.6
-        Slash: 0.6 # ADT tweak 0.5 > 0.6
-        Piercing: 0.5 # ADT tweak 0.6 > 0.5
-        Heat: 0.65 # ADT tweak 0.8 > 0.65
+  # ADT-Tweak-Start
+        Blunt: 0.6
+        Slash: 0.6
+        Heat: 0.65
+        Piercing: 0.5
         Caustic: 0.7
-# Start ADT Tweak
   - type: StaminaResistance
-    damageCoefficient: 0.7 
-# End ADT Tweak
+    damageCoefficient: 0.7
   - type: ClothingSpeedModifier
-    walkModifier: 0.7
-    sprintModifier: 0.7
+    walkModifier: 0.75
+    sprintModifier: 0.75
+  - type: FireProtection
+    reduction: 0.4
+  - type: ExplosionResistance
+    damageCoefficient: 0.35
+  # ADT-Tweak-End
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitWarden
@@ -382,16 +396,18 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.4 #ADT Tweak 0.8
-        Slash: 0.4 #ADT Tweak 0.8
-        Piercing: 0.5 #ADT Tweak 0.6
+  # ADT-Tweak-Start
+        Blunt: 0.4
+        Slash: 0.4
         Heat: 0.5
+        Piercing: 0.5
         Radiation: 0.5
         Caustic: 0.6
-# Start ADT Tweak
   - type: StaminaResistance
     damageCoefficient: 0.7
-# End ADT Tweak
+  - type: FireProtection
+    reduction: 0.6
+  # ADT-Tweak-End
   - type: ClothingSpeedModifier
     walkModifier: 0.8
     sprintModifier: 0.8
@@ -419,9 +435,9 @@
     highPressureMultiplier: 0.02
     lowPressureMultiplier: 1000
   - type: FireProtection
-    reduction: 0.8
+    reduction: 1 # ADT-Tweak 0.8 -> 1
   - type: ExplosionResistance
-    damageCoefficient: 0.2
+    damageCoefficient: 0.5 # ADT-Tweak 0.2 -> 0.5
   - type: Armor
     modifiers:
       coefficients:
@@ -469,9 +485,15 @@
         Caustic: 0.1
   - type: ZombificationResistance
     zombificationResistanceCoefficient: 0.4
+  # ADT-Tweak-Start
+  - type: FireProtection
+    reduction: 0.1
+  - type: ExplosionResistance
+    damageCoefficient: 0.8
   - type: ClothingSpeedModifier
-    walkModifier: 0.95
-    sprintModifier: 0.95
+    walkModifier: 1 # 0.95 -> 1 Добавляем смысл этому скафу.
+    sprintModifier: 1 # 0.95 -> 1
+  # ADT-Tweak-End
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitMedical
@@ -502,8 +524,10 @@
         Slash: 0.8
         Piercing: 0.9
         Heat: 0.3
-        Radiation: 0.1
-        Caustic: 0.2
+        # ADT-Tweak-Start
+        Radiation: 0.3 # 0.1 -> 0.3
+        Caustic: 0.1 # 0.2 -> 0.1
+        # ADT-Tweak-End
   - type: ExplosionResistance
     damageCoefficient: 0.1
   - type: ClothingSpeedModifier
@@ -612,22 +636,24 @@
   - type: PressureProtection
     highPressureMultiplier: 0.05
     lowPressureMultiplier: 1000
+  # ADT-Tweak-Start
   - type: ExplosionResistance
     damageCoefficient: 0.5
   - type: StaminaResistance # do not add these to other equipment or mobs, we don't want to microbalance these everywhere
-    damageCoefficient: 0.75
+    damageCoefficient: 0.3
   - type: Armor
     modifiers:
-      coefficients: #ADT Nukiebuff
-        Blunt: 0.6
-        Slash: 0.6
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.5
         Piercing: 0.4
         Heat: 0.6
         Radiation: 0.3
         Caustic: 0.3
-  - type: ClothingSpeedModifier #ADT Nukiebuff
+  - type: ClothingSpeedModifier 
     walkModifier: 1
     sprintModifier: 1
+  # ADT-Tweak-End
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitSyndie
@@ -692,16 +718,18 @@
   - type: FireProtection
     reduction: 0.8
   - type: StaminaResistance # do not add these to other equipment or mobs, we don't want to microbalance these everywhere
-    damageCoefficient: 0.6
+  # ADT-Tweak-Start
+    damageCoefficient: 0.3
   - type: Armor
     modifiers:
-      coefficients: #ADT nukebuff
-        Blunt: 0.5
-        Slash: 0.5
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.6
         Piercing: 0.6
-        Heat: 0.1
+        Heat: 0.2
         Radiation: 0.01
         Caustic: 0.5
+  # ADT-Tweak-End
   - type: Item
     size: Huge
   - type: Tag
@@ -737,10 +765,11 @@
   - type: PressureProtection
     highPressureMultiplier: 0.05
     lowPressureMultiplier: 1000
+  # ADT-Tweak-Start
   - type: ExplosionResistance
-    damageCoefficient: 0.5
+    damageCoefficient: 0.4 # 0.5 -> 0.4
   - type: StaminaResistance # do not add these to other equipment or mobs, we don't want to microbalance these everywhere
-    damageCoefficient: 0.6
+    damageCoefficient: 0.3 # 0.6 -> 0.3
   - type: Armor
     modifiers:
       coefficients:
@@ -751,8 +780,11 @@
         Radiation: 0.25
         Caustic: 0.4
   - type: ClothingSpeedModifier
-    walkModifier: 0.9
-    sprintModifier: 0.9
+    walkModifier: 1 # 0.9 -> 1
+    sprintModifier: 1 # 0.9 -> 1
+  - type: FireProtection
+    reduction: 0.75
+  # ADT-Tweak-End
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitSyndieCommander
@@ -766,8 +798,8 @@
     modifiers:
       Hard: 2.25
       Choke: 2
+  - type: DNALocker
   # ADT-Tweak-End
-  - type: DNALocker # ADT-Tweak
 
 #Cybersun Juggernaut Hardsuit
 - type: entity

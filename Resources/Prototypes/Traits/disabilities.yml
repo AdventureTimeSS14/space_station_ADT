@@ -65,6 +65,7 @@
   cost: -1  # ADT Quirks
   speciesBlacklist:
   - IPC
+  - NovakidSpecies
   quirk: true  # ADT Quirks
 
 # - type: trait

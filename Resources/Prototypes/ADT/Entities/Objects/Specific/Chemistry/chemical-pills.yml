@@ -157,6 +157,21 @@
       - id: ADTEthylredoxrazinePill
         amount: 10
 
+- type: entity
+  name: ethyloxyephedrine pack
+  id: ADTEthyloxyephedrinePack
+  parent: ADTPillPack
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Chemistry/packs.rsi
+    state: ethyloxyephedrine
+  - type: Item
+    sprite: ADT/Objects/Specific/Chemistry/packs.rsi
+  - type: StorageFill
+    contents:
+      - id: ADTEthyloxyephedrinePill
+        amount: 10
+
 #баночка
 - type: entity
   name: vitamin canister
@@ -302,6 +317,22 @@
   - type: Sprite
     sprite: Objects/Specific/Chemistry/pills.rsi
     state: pill16
+
+- type: entity
+  name: ethyloxyephedrine pill
+  parent: ADTPillBase
+  id: ADTEthyloxyephedrinePill
+  description: Narcolepsy is not a problem anymore.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Ethyloxyephedrine
+          Quantity: 10
+  - type: Sprite
+    sprite: Objects/Specific/Chemistry/pills.rsi
+    state: pill18
 
 # Пилюля для ГраждоМеда # Убрать и заменить на норм настройку цен в вендомате как будет возможность.
 
