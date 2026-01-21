@@ -7,8 +7,9 @@ namespace Content.Shared.ADT.StampHit;
 
 public abstract partial class SharedStampHitSystem : EntitySystem
 {
-    private void InitializeInteractions()
+    private void Initialize()
     {
+        base.Initialize();
         SubscribeLocalEvent<StampedEntityComponent, ExaminedEvent>(Examined);
     }
     private void Examined(EntityUid examinedUid, StampedEntityComponent stampedComp, ExaminedEvent args)
