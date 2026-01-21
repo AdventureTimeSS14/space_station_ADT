@@ -14,7 +14,7 @@ public sealed class StampHitSystem : EntitySystem
         SubscribeLocalEvent<StampComponent, MeleeHitEvent>(OnMeleeHit);
     }
 
-    public async void OnMeleeHit(EntityUid uid, StampComponent comp, MeleeHitEvent args)
+    public void OnMeleeHit(EntityUid uid, StampComponent comp, MeleeHitEvent args)
     {
         foreach (var i in args.HitEntities)
         {
