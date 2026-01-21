@@ -1,0 +1,68 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made by github @AegisShieldDev ; holy, metaphysical by discord: archero0 ",
+  "size": {
+    "x": 15,
+    "y": 15
+  },
+  "states": [
+    {
+      "name": "toxin"
+    },
+    {
+      "name": "airloss"
+    },
+    {
+      "name": "asphyxiation"
+    },
+    {
+      "name": "bloodloss"
+    },
+    {
+      "name": "blunt"
+    },
+    {
+      "name": "brute"
+    },
+    {
+      "name": "burn"
+    },
+    {
+      "name": "caustic"
+    },
+    {
+      "name": "cellular"
+    },
+    {
+      "name": "cold"
+    },
+    {
+      "name": "genetic"
+    },
+    {
+      "name": "heat"
+    },
+    {
+      "name": "holy"
+    },
+    {
+      "name": "metaphysical"
+    },
+    {
+      "name": "piercing"
+    },
+    {
+      "name": "poison"
+    },
+    {
+      "name": "radiation"
+    },
+    {
+      "name": "shock"
+    },
+    {
+      "name": "slash"
+    }
+  ]
+}
