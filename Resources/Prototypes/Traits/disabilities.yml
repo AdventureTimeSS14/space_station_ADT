@@ -84,10 +84,10 @@
   blacklist:
     components:
       - BorgChassis
-# ADT-tweak start
+# ADT-Tweak start
   speciesBlacklist:
   - SlimePerson
-# ADT-tweak end
+# ADT-Tweak end
   components:
     - type: Muted
   cost: -2  # ADT Quirks
