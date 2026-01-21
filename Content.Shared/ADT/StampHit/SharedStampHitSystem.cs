@@ -14,16 +14,13 @@ public abstract partial class SharedStampHitSystem : EntitySystem
     private void Examined(EntityUid examinedUid, StampedEntityComponent stampedComp, ExaminedEvent args)
     {
         var locUser = ("user", Identity.Entity(examinedUid, EntityManager));
-        (string, object) locStamps;
-        if (TryComp<StampedEntityComponent>(examinedUid, out var stampedEntity))
-        {
-            List<string> readyListStamped = [];
-            foreach (var i in stampedEntity.StampToEntity)
-            {
-                readyListStamped.Add(Loc.GetString(i));
-            }
-            locStamps = ("stamps", ContentLocalizationManager.FormatList(readyListStamped));
-            args.PushMarkup(Loc.GetString("comp-stamp-examine", locUser, locStamps));
++        List<string> readyListStamped = [];
++        foreach (var stamp in stampedComp.StampToEntity)
++        {
++            readyListStamped.Add(Loc.GetString(stamp));
+         }
++        var locStamps = ("stamps", ContentLocalizationManager.FormatList(readyListStamped));
++        args.PushMarkup(Loc.GetString("comp-stamp-examine", locUser, locStamps));
         }
     }
 }
