@@ -25,7 +25,7 @@ public sealed partial class DamagedThroatComponent : Component
     [DataField]
     public List<ProtoId<LanguagePrototype>> ExcludedLanguages = new()
     {
-        "Sign"
+        "SignLanguage"
     };
 
     /// <summary>
