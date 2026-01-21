@@ -74,12 +74,12 @@
       methods: [ Touch ]
       effects:
       - !type:WashCreamPieReaction
-    #ADT=Tweak=start
+    #ADT-Tweak-Start
     - reagents: [Water, SpaceCleaner]
       methods: [Touch]
       effects:
       - !type:WashStampReaction
-    #ADT=Tweak=end
+    #ADT-Tweak-End
     - reagents: [ Milk, MilkGoat, MilkSoy, MilkSpoiled ]
       # add new types of milk to reagents as they appear, oat milk isn't on the list
       # because turns out oat milk has 1/30th the amount of calcium in it compared to the rest
