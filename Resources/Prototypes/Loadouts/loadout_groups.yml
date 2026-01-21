@@ -44,8 +44,8 @@
   # - ClothingNeckWhiteListPin
   # # Corvax-Loadouts-End
   - AcousticGuitarInstrument
-  - RockGuitar
-  - HarmonicaInstrument
+  - RockGuitarInstrument #ADT-tweak
+  - HarmonicaInstrument #ADT-tweak
   - ADTModStorageVoucher
   - ADTClothingGeorgeRibbonPin
   - ADTClothingMaskPaperBlank
@@ -67,9 +67,11 @@
   - TowelColorWhite
   - TowelColorYellow
   # ADT-Tweak-Start
-  - AcousticGuitarInstrument
+  - ADTClothingHandsRingEmerald
+  - ADTClothingHandsRingBlood
+  - ADTClothingHandsRingPlazma
+  - ADTClothingHandsRingTurk
   - ADTHandheldStationMapUnpowered
-  - HarmonicaInstrument
   - ADTModStorageVoucher
   - ADTClothingGeorgeRibbonPin
   # ADT-Tweak-End
@@ -1374,6 +1376,7 @@
   loadouts:
   - DetectiveTie
   # ADT-Loadout-Start
+  - ADTClothingInvestigatorShoulderNeck
   - ADTNeckSecBadgeBronze
   - ADTNeckSecBadgeSilver
   - ADTNeckSecBadgeGold

@@ -142,3 +142,27 @@
   sprites:
     - sprite: ADT/Mobs/Customization/Resomi/resomi_hair.rsi
       state: ResomiLong
+- type: marking
+  id: HairResomiPointyTwo
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Resomi]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Resomi/resomi_hair.rsi
+      state: ResomiPointyTwo
+- type: marking
+  id: HairResomiUprightTwo
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Resomi]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Resomi/resomi_hair.rsi
+      state: ResomiUprightTwo
+- type: marking
+  id: HairResomiLongwayTwo
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Resomi]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Resomi/resomi_hair.rsi
+      state: ResomiLongwayTwo

@@ -11149,14 +11149,6 @@ entities:
     - type: RadiationGridResistance
     - type: SupermatterSpreaderGrid
     - type: NavMap
-- proto: ActionToggleBlock
-  entities:
-  - uid: 92
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 41
 - proto: ADEffectTashfallLight
   entities:
   - uid: 10892
@@ -17822,21 +17814,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: 86.5,-9.5
       parent: 1
-- proto: ADTRomanShield
-  entities:
-  - uid: 41
-    components:
-    - type: Transform
-      pos: 89.706795,-21.331495
-      parent: 1
-    - type: Blocking
-      blockingToggleActionEntity: 92
-    - type: ActionsContainer
-    - type: ContainerContainer
-      containers:
-        actions: !type:Container
-          ents:
-          - 92
   - uid: 625
     components:
     - type: Transform
@@ -28985,7 +28962,7 @@ entities:
     - type: Transform
       pos: 40.475166,-16.265089
       parent: 1
-- proto: ClothingOuterHardsuitLuxury
+- proto: ADTClothingModsuitBackMining
   entities:
   - uid: 12100
     components:
@@ -47308,8 +47285,6 @@ entities:
       pos: 47.5,-34.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 8226
 - proto: GasVentScrubber
@@ -47321,8 +47296,6 @@ entities:
       pos: 46.5,-36.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 8226
 - proto: GeneratorBasic
@@ -54308,7 +54281,7 @@ entities:
     - type: Transform
       pos: 20.5,-5.5
       parent: 1
-- proto: SpawnMobXenoEasy
+- proto: ADTSpawnMobXenoEasyNoGhost
   entities:
   - uid: 11867
     components:
@@ -54362,7 +54335,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 139.5,-55.5
       parent: 1
-- proto: SpawnMobXenoHard
+- proto: ADTSpawnMobXenoHardNoGhost
   entities:
   - uid: 11870
     components:
@@ -54381,7 +54354,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 145.5,-55.5
       parent: 1
-- proto: SpawnMobXenoQueen
+- proto: ADTSpawnMobXenoQueenNoGhost
   entities:
   - uid: 11866
     components:

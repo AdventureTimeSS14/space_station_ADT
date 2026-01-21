@@ -91,7 +91,7 @@
   id: FillCaptainHardsuit
   table: !type:AllSelector
     children:
-    - id: ADTClothingModsuitBackCaptain # ADT tweak ClothingOuterHardsuitCap
+    #- id: ClothingOuterHardsuitCap # ADT-Tweak
     - id: ClothingMaskGasCaptain
     - id: JetpackCaptainFilled
     - id: OxygenTankFilled
@@ -132,6 +132,16 @@
           tableId: LockerFillCaptainLaser
         - !type:NestedSelector
           tableId: FillCaptainHardsuit
+  #ADT-Tweak-Start
+  - type: UserInterface
+    interfaces:
+      enum.SuitStorageUiKey.Key:
+        type: SuitStorageBoundUserInterface
+  - type: SuitStorage
+    options:
+    - ADTClothingModsuitBackCaptain
+    - ClothingOuterHardsuitCap
+  #ADT-Tweak-End
 
 - type: entityTable
   id: LockerFillHeadOfPersonnel
@@ -200,26 +210,23 @@
         range: 1, 3
     - id: RubberStampCE
     - id: MetalFoamGrenade
-    # Start-ADT Tweak
-    - id: ADTMachinePowerTransmissionLaserFlatpack # Goobstation - Engi printing money pr
+    # ADT-Tweak-Start
+    - id: ADTMachinePowerTransmissionLaserFlatpack
     - id: OxygenTankFilled
     - id: NitrogenTankFilled
-    - id: ADTHyperNobCore ## ADT-Tweak
+    - id: ADTHyperNobCore
     - id: ClothingNeckCloakCe
     - id: ADTClothingMaskGasCE
     - id: ADTUniversalPipeDispenserCircuitboard
     - id: ADTRPD
-    # End-ADT Tweak
-    # ADT-WikiBooks-Start
+    - id: ADTEngiInducerBattery
     - id: ADTBookSRPcmd
     - id: ADTBookSRPeng
     - id: ADTBookPCDcmd
     - id: ADTtelescopicBaton
-    # ADT-WikiBooks-End
-    # # ADT-Economy-Start
     - id: ADTEngineeringBudgetCard
     - id: ADTEngineeringBudgetPinPaper
-    # # ADT-Economy-End
+    # # ADT-Tweak-End
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
@@ -227,7 +234,7 @@
   table: !type:AllSelector
     children:
     - id: ClothingMaskGasAtmos
-    - id: ADTClothingModsuitBackAdvanced #ADT-tweak
+    #- id: ADTClothingModsuitBackAdvanced #ADT-Tweak
     - id: ClothingShoesBootsMagAdv
     - id: JetpackVoidFilled
     - id: OxygenTankFilled
@@ -257,6 +264,16 @@
           tableId: LockerFillChiefEngineerNoHardsuit
         - !type:NestedSelector
           tableId: FillChiefEngineerHardsuit
+  #ADT-Tweak-Start
+  - type: UserInterface
+    interfaces:
+      enum.SuitStorageUiKey.Key:
+        type: SuitStorageBoundUserInterface
+  - type: SuitStorage
+    options:
+    - ADTClothingModsuitBackAdvanced
+    - ClothingOuterHardsuitEngineeringWhite
+  #ADT-Tweak-End
 
 # No hardsuit table
 - type: entityTable
@@ -302,7 +319,7 @@
   table: !type:AllSelector
     children:
     - id: ClothingMaskBreathMedical
-    - id: ADTClothingModsuitBackCMO #ADT-Tweak ClothingOuterHardsuitMedical
+    #- id: ClothingOuterHardsuitMedical #ADT-Tweak
     - id: OxygenTankFilled
 
 # No hardsuit locker
@@ -330,6 +347,16 @@
           tableId: LockerFillChiefMedicalOfficerNoHardsuit
         - !type:NestedSelector
           tableId: FillChiefMedicalOfficerHardsuit
+  #ADT-Tweak-Start
+  - type: UserInterface
+    interfaces:
+      enum.SuitStorageUiKey.Key:
+        type: SuitStorageBoundUserInterface
+  - type: SuitStorage
+    options:
+    - ADTClothingModsuitBackCMO
+    - ClothingOuterHardsuitMedical
+  #ADT-Tweak-End
 
 # No hardsuit table
 - type: entityTable
@@ -348,17 +375,16 @@
     - id: ResearchComputerCircuitboard
     - id: CargoRequestScienceComputerCircuitboard
     - id: RubberStampRd
-    # ADT-WikiBooks-Start
+    # ADT-Tweak-Start
     - id: ADTBookSRPcmd
     - id: ADTBookSRPrnd
     - id: ADTBookPCDcmd
     - id: ADTtelescopicBaton
     - id: ADTBoxAICircuitBoard
-    # ADT-WikiBooks-End
-    # # ADT-Economy-Start
     - id: ADTScienceBudgetCard
     - id: ADTScienceBudgetPinPaper
-    # # ADT-Economy-End
+    - id: ADTRNDInducerBattery
+    # ADT-Tweak-End
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
@@ -447,7 +473,7 @@
   table: !type:AllSelector
     children:
     - id: ClothingMaskGasSwat
-    - id: ADTClothingModsuitBackSafeguard #ADT-tweak
+    #- id: ADTClothingModsuitBackSafeguard #ADT-Tweak
     - id: JetpackSecurityFilled
     - id: OxygenTankFilled
 
@@ -476,6 +502,16 @@
           tableId: LockerFillHeadOfSecurityNoHardsuit
         - !type:NestedSelector
           tableId: FillHeadOfSecurityHardsuit
+  #ADT-Tweak-Start
+  - type: UserInterface
+    interfaces:
+      enum.SuitStorageUiKey.Key:
+        type: SuitStorageBoundUserInterface
+  - type: SuitStorage
+    options:
+    - ADTClothingModsuitBackSafeguard
+    - ClothingOuterHardsuitSecurityRed
+  #ADT-Tweak-End
 
 - type: entity
   id: LockerFreezerVaultFilled
@@ -488,6 +524,6 @@
     contents:
     - id: WeaponRevolverDeckard
     - id: JetpackBlue
-    # - id: SpaceCash1000 # ADT-Economy
+    #- id: SpaceCash1000 # ADT-Economy
     - id: BeachBall
     - id: BikeHorn
