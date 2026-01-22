@@ -1,0 +1,81 @@
+- type: entity
+  id: ADTShowcaseDurand
+  parent: BaseShowcaseRobot
+  name: durand showcase
+  description: Does not work
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Decoration/showcase.rsi
+    state: durand
+
+- type: entity
+  id: ADTShowcaseGygax
+  parent: BaseShowcaseRobot
+  name: gygax showcase
+  description: Does not work
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Decoration/showcase.rsi
+    state: gygax
+
+- type: entity
+  id: ADTShowcaseHonker
+  parent: BaseShowcaseRobot
+  name: honker showcase
+  description: Honk honk honk!
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Decoration/showcase.rsi
+    state: honker
+
+# Витрины без 4 направлений
+- type: entity
+  id: ADTShowcaseDiver
+  parent: BaseShowcaseRobot
+  name: diver showcase
+  description: Diver for underwater work!
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Decoration/showcase.rsi
+    state: diver
+
+- type: entity
+  id: ADTShowcaseSkeleton
+  parent: BaseShowcaseRobot
+  name: skeleton showcase
+  description: Boom! Boom!
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Decoration/showcase.rsi
+    state: skeleton
+
+- type: entity
+  id: ADTShowcaseSkeletonReptilian
+  parent: BaseShowcaseRobot
+  name: reptilian skeleton showcase
+  description: The lizard no longer exists.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Decoration/showcase.rsi
+    state: skeleton_reptilian
+
+- type: entity
+  id: ADTShowcaseSkeletonTajaran
+  parent: BaseShowcaseRobot
+  name: tajaran skeleton showcase
+  description: tajaran skeleton showcase
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Decoration/showcase.rsi
+    state: skeleton_tajaran
+
+- type: entity
+  id: ADTShowcaseSkeletonVulp
+  parent: BaseShowcaseRobot
+  name: vulp skeleton showcase
+  description: Where is the tail?!
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Decoration/showcase.rsi
+    state: skeleton_vulp
+

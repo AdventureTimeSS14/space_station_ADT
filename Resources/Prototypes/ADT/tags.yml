@@ -143,6 +143,9 @@
   id: Tongue
 
 - type: Tag
+  id: Standard
+
+- type: Tag
   id: Poppy
 
 - type: Tag
