@@ -44,7 +44,7 @@ public sealed class TeddyBearSystem : EntitySystem
 
     private void OnExplode(Entity<TeddyBearComponent> ent, ref TeddyBearExplodeEvent args)
     {
-        if (args.Handled)
+        if (args.Handled || ent.Comp.ExplodeTime != null)
             return;
         var beepSound = new SoundPathSpecifier("/Audio/Machines/Nuke/general_beep.ogg", AudioParams.Default.WithVolume(-5f));
         _audio.PlayPvs(beepSound, ent);

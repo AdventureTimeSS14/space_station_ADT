@@ -11,9 +11,6 @@ public sealed partial class TeddyBearComponent : Component
     public EntProtoId WeaponPrototype = "WeaponLightMachineGunL6";
 
     [DataField]
-    public EntityUid? SpawnedWeapon;
-
-    [DataField]
     public TimeSpan? ExplodeTime;
 
     [DataField]
