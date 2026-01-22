@@ -1,16 +1,16 @@
 meta:
   format: 7
-  category: Grid
+  category: Map
   engineVersion: 265.0.0
   forkId: ADT
-  forkVersion: f3239a936ab4b46f136112b615be049578118617
-  time: 01/04/2026 09:07:26
-  entityCount: 23342
-maps: []
+  forkVersion: e0df63ce05b6f28fcfbdf1724b180434609bdc3a
+  time: 01/12/2026 14:51:05
+  entityCount: 23343
+maps:
+- 23343
 grids:
 - 1
-orphans:
-- 1
+orphans: []
 nullspace: []
 tilemap:
   0: Space
@@ -90,7 +90,7 @@ entities:
     - type: MetaData
     - type: Transform
       pos: 4.2710133,-0.41482115
-      parent: invalid
+      parent: 23343
     - type: MapGrid
       chunks:
         -1,0:
@@ -6123,7 +6123,7 @@ entities:
             0: 65327
           -11,12:
             0: 35071
-            5: 16384
+            3: 16384
           -10,9:
             0: 47359
           -10,10:
@@ -6203,7 +6203,7 @@ entities:
             0: 1088
           -16,14:
             0: 32
-            3: 128
+            4: 128
           -16,15:
             2: 3976
           -17,15:
@@ -6235,7 +6235,7 @@ entities:
             0: 65535
           -12,13:
             0: 14335
-            4: 2048
+            5: 2048
           -12,14:
             0: 12287
           -12,15:
@@ -6802,18 +6802,18 @@ entities:
             2: 34952
           6,-6:
             2: 61440
-            8: 224
+            6: 224
           6,-5:
             0: 112
             2: 2184
           6,-8:
-            3: 224
-            6: 57344
-          6,-7:
-            6: 224
+            4: 224
             7: 57344
+          6,-7:
+            7: 224
+            8: 57344
           6,-9:
-            6: 57568
+            7: 57568
           7,-5:
             2: 4084
           7,-8:
@@ -7877,6 +7877,29 @@ entities:
         - volume: 2500
           temperature: 293.15
           moles:
+          - 21.6852
+          - 81.57766
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
+          temperature: 293.15
+          moles:
           - 0
           - 0
           - 0
@@ -7923,8 +7946,8 @@ entities:
         - volume: 2500
           temperature: 293.15
           moles:
-          - 21.6852
-          - 81.57766
+          - 0
+          - 6666.982
           - 0
           - 0
           - 0
@@ -7971,29 +7994,6 @@ entities:
           moles:
           - 6666.982
           - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-        - volume: 2500
-          temperature: 293.15
-          moles:
-          - 0
-          - 6666.982
           - 0
           - 0
           - 0
@@ -8025,6 +8025,16 @@ entities:
     - type: SpreaderGrid
     - type: GridPathfinding
     - type: SupermatterSpreaderGrid
+  - uid: 23343
+    components:
+    - type: MetaData
+      name: Map Entity
+    - type: Transform
+    - type: Map
+      mapPaused: True
+    - type: GridTree
+    - type: Broadphase
+    - type: OccluderTree
 - proto: AcousticGuitarInstrument
   entities:
   - uid: 2
@@ -8521,6 +8531,13 @@ entities:
     - type: InsideEntityStorage
 - proto: ADTClothingModsuitBackSecurity
   entities:
+  - uid: 19288
+    components:
+    - type: Transform
+      parent: 19287
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
   - uid: 19290
     components:
     - type: Transform
@@ -8529,6 +8546,13 @@ entities:
       canCollide: False
     - type: InsideEntityStorage
   - uid: 19291
+    components:
+    - type: Transform
+      parent: 19287
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+  - uid: 19300
     components:
     - type: Transform
       parent: 19287
@@ -13337,7 +13361,7 @@ entities:
       pos: -20.5,-5.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -48315.07
+      secondsUntilStateChange: -48328.64
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -14219,8 +14243,6 @@ entities:
       pos: -38.5,-19.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 315
   - uid: 23281
@@ -55720,22 +55742,6 @@ entities:
     - type: Transform
       pos: 19.488726,8.340895
       parent: 1
-- proto: ClothingOuterHardsuitSecurity
-  entities:
-  - uid: 19288
-    components:
-    - type: Transform
-      parent: 19287
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 19300
-    components:
-    - type: Transform
-      parent: 19287
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
 - proto: ClothingOuterNunRobe
   entities:
   - uid: 8543
@@ -66489,8 +66495,6 @@ entities:
       pos: -43.5,-20.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 240
       - 315
@@ -66951,8 +66955,6 @@ entities:
       pos: -40.5,-21.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 315
   - uid: 10230
@@ -66962,8 +66964,6 @@ entities:
       pos: -40.5,-19.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 315
 - proto: FirelockElectronics
@@ -92915,8 +92915,6 @@ entities:
       pos: -40.5,-19.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 315
     - type: AtmosPipeColor
@@ -94330,8 +94328,6 @@ entities:
       pos: -38.5,-22.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 315
     - type: AtmosPipeColor
@@ -147604,7 +147600,7 @@ entities:
       pos: -0.38376427,40.55692
       parent: 1
     - type: MeleeWeapon
-      nextAttack: -33.9179846
+      nextAttack: -33.9179845
     - type: ContainerContainer
       containers:
         gun_magazine: !type:ContainerSlot
