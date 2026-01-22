@@ -59,7 +59,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: ConfirmableAction
-    popup: Вы уверены, что хотите взорваться?
+    popup: teddy-bear-explode-confirm
   - type: Action
     itemIconStyle: BigAction
     icon:
