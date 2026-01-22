@@ -11,3 +11,4 @@ ent-ADTActionTeddyExplode = Самоподрыв!
     .desc = Активирует внутреннюю бомбу.
 
 teddy-bear-gun-spawned = Вы достаете из себя пулемёт!
+teddy-bear-gun-failed = Не удалось достать пулемёт... 
