@@ -214,7 +214,7 @@
           type: Dwarf
         damage:
           groups:
-            Brute: -1
+            Brute: -3 # ADT-Tweak ## Лечит механические повреждения на 1 (3/3)
       - !type:ChemVomit
         probability: 0.04
         conditions:
@@ -1157,10 +1157,13 @@
       - !type:HealthChange
         damage:
           groups:
-            Burn: -1
             Brute: -1
-            Airloss: -1
-            Toxin: -1
+          # ADT-Tweak start
+          types:
+            Poison: -0.5 
+            Shock: -0.33
+            Cold: -0.33
+          # ADT-Tweak end 
 
 - type: reagent
   id: DriestMartini
