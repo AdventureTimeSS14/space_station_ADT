@@ -24,7 +24,7 @@
   # - type: AmmoCounter #ADT-tweak: для русской рулетки
   # ADT-Tweak start
   - type: RunAndGunSpreadModifier
-    modifier: 0.01
+    modifier: 0.08
   - type: MeleeWeapon
     resetOnHandSelected: false
     attackRate: 1
