@@ -1,0 +1,113 @@
+# Neck
+- type: loadoutEffectGroup
+  id: ADTMinerSilverCape5hour
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobADTMiner
+      time: 18000 #5 часов
+
+- type: loadoutEffectGroup
+  id: ADTMinerGoldenCape15hour
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobADTMiner
+      time: 54000 #15 часов
+
+- type: loadoutEffectGroup
+  id: ADTMinerPlatinumCape30hour
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobADTMiner
+      time: 108000 #30 часов
+
+- type: loadoutEffectGroup
+  id: ADTMinerEmeraldCape60hour
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobADTMiner
+      time: 216000 #60 часов
+
+- type: loadoutEffectGroup
+  id: ADTMinerDiamondCape100hour
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobADTMiner
+      time: 360000 #100 часов
+
+- type: loadoutEffectGroup
+  id: ADTMinerRubieCape300hour
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobADTMiner
+      time: 1080000 #300 часов
+
+- type: loadout
+  id: ADTNeckMinerCCape
+  equipment:
+    neck: ADTClothingCopperCape
+
+- type: loadout
+  id: ADTNeckMinerSCape
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTMinerSilverCape5hour
+  equipment:
+    neck: ADTClothingSilverCape
+
+- type: loadout
+  id: ADTNeckMinerGCape
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTMinerGoldenCape15hour
+  equipment:
+    neck: ADTClothingGoldenCape
+
+- type: loadout
+  id: ADTNeckMinerPCape
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTMinerPlatinumCape30hour
+  equipment:
+    neck: ADTClothingPlatinumCape
+
+- type: loadout
+  id: ADTNeckMinerECape
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTMinerEmeraldCape60hour
+  equipment:
+    neck: ADTClothingEmeraldCape
+
+- type: loadout
+  id: ADTNeckMinerDCape
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTMinerDiamondCape100hour
+  equipment:
+    neck: ADTClothingDiamondCape
+
+- type: loadout
+  id: ADTNeckMinerRCape
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTMinerRubieCape300hour
+  equipment:
+    neck: ADTClothingRubieCape
+
+# PDA
+- type: loadout
+  id: ADTMinerPDA
+  equipment:
+    id: ADTMinerPDA
