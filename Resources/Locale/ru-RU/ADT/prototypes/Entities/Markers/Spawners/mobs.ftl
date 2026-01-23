@@ -16,37 +16,9 @@ ent-ADTSpawnPointVoxRaider = спавнер вокса-налётчика
     .desc = { ent-MarkerBase.desc }
     .suffix = Вокс-налётчик
 
-ent-ADTSpawnMobXenoBurrower = спавнер бурильщика
+ent-ADTSpawnMobXenoRouny = спавнер ксено
     .desc = { ent-MarkerBase.desc }
-    .suffix = Ксено
-
-ent-ADTSpawnMobXenoPraetorian = спавнер преторианца
-    .desc = { ent-MarkerBase.desc }
-    .suffix = Ксено
-
-ent-ADTSpawnMobXenoDrone = спавнер дрона
-    .desc = { ent-MarkerBase.desc }
-    .suffix = Ксено
-
-ent-ADTSpawnMobXenoQueen = спавнер королевы
-    .desc = { ent-MarkerBase.desc }
-    .suffix = Ксено
-
-ent-ADTSpawnMobXenoRavager = спавнер разрушителя
-    .desc = { ent-MarkerBase.desc }
-    .suffix = Ксено
-
-ent-ADTSpawnMobXenoRunner = спавнер бегуна
-    .desc = { ent-MarkerBase.desc }
-    .suffix = Ксено
-
-ent-ADTSpawnMobXenoRouny = спавнер руни
-    .desc = { ent-MarkerBase.desc }
-    .suffix = Ксено
-
-ent-ADTSpawnMobXenoSpitter = спавнер плевальщика
-    .desc = { ent-MarkerBase.desc }
-    .suffix = Ксено
+    .suffix = Руни
 
 ent-ADTSpawnMobArgocyteSlurva = спавнер ленивчика
     .desc = { ent-MarkerBase.desc }
@@ -83,3 +55,35 @@ ent-ADTSpawnMobArgocyteFounder = спавнер прародителя
 
 ent-ADTSpawnMobArgocyteLeviathing = спавнер левиазверя
     .desc = { ent-MarkerBase.desc }
+
+ent-ADTSpawnMobXenoBurrowerNoGhost = спавнер ксено
+    .desc = { ent-MarkerBase.desc }
+    .suffix = { "Без роли призрака, Бурильщик" }
+
+ent-ADTSpawnMobXenoPraetorianNoGhost = спавнер ксено
+    .desc = { ent-MarkerBase.desc }
+    .suffix = { "Без роли призрака, Преторианец" }
+
+ent-ADTSpawnMobXenoDroneNoGhost = спавнер ксено
+    .desc = { ent-MarkerBase.desc }
+    .suffix = { "Без роли призрака, Дрон" }
+
+ent-ADTSpawnMobXenoQueenNoGhost = спавнер ксено
+    .desc = { ent-MarkerBase.desc }
+    .suffix = { "Без роли призрака, Королева" }
+
+ent-ADTSpawnMobXenoRavagerNoGhost = спавнер ксено
+    .desc = { ent-MarkerBase.desc }
+    .suffix = { "Без роли призрака, Разрушитель" }
+
+ent-ADTSpawnMobXenoRunnerNoGhost = спавнер ксено
+    .desc = { ent-MarkerBase.desc }
+    .suffix = { "Без роли призрака, Бегун" }
+
+ent-ADTSpawnMobXenoRounyNoGhost = спавнер ксено
+    .desc = { ent-MarkerBase.desc }
+    .suffix = { "Без роли призрака, Руни" }
+
+ent-ADTSpawnMobXenoSpitterNoGhost = спавнер ксено
+    .desc = { ent-MarkerBase.desc }
+    .suffix = { "Без роли призрака, Плевальщик" }

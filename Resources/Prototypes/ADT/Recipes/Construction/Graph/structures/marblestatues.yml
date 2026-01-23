@@ -405,3 +405,103 @@
           steps:
             - tool: Prying
               doAfter: 10
+
+- type: constructionGraph
+  id: ADTStatueLenin
+  start: start
+  graph:
+    - node: start
+      actions:
+        - !type:DestroyEntity {}
+      edges:
+        - to: statue
+          steps:
+            - material: ADTmarbleStack
+              amount: 8
+              doAfter: 15
+    - node: statue
+      entity: ADTStatueLenin
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: ADTmarble1
+              amount: 6
+          steps:
+            - tool: Prying
+              doAfter: 10
+
+- type: constructionGraph
+  id: ADTStatueAngel
+  start: start
+  graph:
+    - node: start
+      actions:
+        - !type:DestroyEntity {}
+      edges:
+        - to: statue
+          steps:
+            - material: ADTmarbleStack
+              amount: 8
+              doAfter: 15
+    - node: statue
+      entity: ADTStatueAngel
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: ADTmarble1
+              amount: 6
+          steps:
+            - tool: Prying
+              doAfter: 10
+
+- type: constructionGraph
+  id: ADTStatueHadii
+  start: start
+  graph:
+    - node: start
+      actions:
+        - !type:DestroyEntity {}
+      edges:
+        - to: statue
+          steps:
+            - material: ADTmarbleStack
+              amount: 8
+              doAfter: 15
+    - node: statue
+      entity: ADTStatueHadii
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: ADTmarble1
+              amount: 6
+          steps:
+            - tool: Prying
+              doAfter: 10
+
+- type: constructionGraph
+  id: ADTStatueLion
+  start: start
+  graph:
+    - node: start
+      actions:
+        - !type:DestroyEntity {}
+      edges:
+        - to: statue
+          steps:
+            - material: ADTmarbleStack
+              amount: 8
+              doAfter: 15
+    - node: statue
+      entity: ADTStatueLion
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: ADTmarble1
+              amount: 6
+          steps:
+            - tool: Prying
+              doAfter: 10

@@ -5,3 +5,12 @@
   targetNode: pumpkin_hat
   category: construction-category-clothing
   objectType: Item
+
+- type: construction
+  id: ADTStandardFrame
+  graph: ADTStandardFrame
+  startNode: start
+  targetNode: standard_frame
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter

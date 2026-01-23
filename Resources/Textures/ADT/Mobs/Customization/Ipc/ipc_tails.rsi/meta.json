@@ -10,6 +10,7 @@
     {"name": "ipc_tail_hydra_prime", "directions": 4},
     {"name": "ipc_tail_hydra_second", "directions": 4},
     {"name": "ipc_tail_hydra_third", "directions": 4},
+    {"name": "ipc_tail_hydra_fourth", "directions": 4},
     {"name": "ipc_tail_octopus", "directions": 4, "delays": [
       [0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1],
       [0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1],

@@ -119,6 +119,16 @@
           types:
             Poison: 2
             Bloodloss: 1
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 30
+            Asphyxiation: 15
+        conditions:
+        - !type:HasComponentCondition
+          components:
+            - ActiveSandevistanUser
+          guidebookComponentName: reagent-comp-condition-speedbust-sandevistan
     Narcotic:
       effects:
       - !type:MovespeedModifier
