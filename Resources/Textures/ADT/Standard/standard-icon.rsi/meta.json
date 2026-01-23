@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made by prazat911 (discord) for Adventure Time",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "colour-icon"
+    },
+    {
+      "name": "elysium-icon"
+    },
+    {
+      "name": "kmt-icon"
+    },
+    {
+      "name": "nt-icon"
+    },
+    {
+      "name": "pirate-icon"
+    },
+    {
+      "name": "syndicate-icon"
+    },
+    {
+      "name": "tsf-icon"
+    },
+    {
+      "name": "tsfarmy1-icon"
+    },
+    {
+      "name": "ussp-icon"
+    }
+  ]
+}
+

@@ -1,7 +1,7 @@
 ﻿{
-    "version": 1,
+    "version": 2,
     "license": "CC-BY-SA-3.0",
-    "copyright": "",
+    "copyright": "braid_smooth and resprites by discord : moroz_3",
     "size": {
         "x": 32,
         "y": 32
@@ -26,6 +26,7 @@
         { "name": "eyebrows", "directions": 4 },
         { "name": "pigtail", "directions": 4 },
         { "name": "ponytail", "directions": 4 },
-        { "name": "victory", "directions": 4 }
+        { "name": "victory", "directions": 4 },
+        { "name": "braid_smooth", "directions": 4 }
     ]
 }

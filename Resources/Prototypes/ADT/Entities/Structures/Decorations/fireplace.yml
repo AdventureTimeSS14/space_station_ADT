@@ -1,0 +1,80 @@
+- type: entity
+  id: ADTFireplaceWhite
+  parent: BaseStructure
+  name: белый камин
+  description: Изысканный белый камин. Может быть зажжён для создания уютной атмосферы.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Decoration/fireplace.rsi
+    layers:
+      - state: fireplace
+      - state: fire
+        shader: unshaded
+      - state: glow
+        shader: unshaded
+  - type: Appearance
+  - type: AmbientSound
+    volume: -6
+    range: 5
+    sound:
+      path: /Audio/Ambience/Objects/fireplace.ogg
+  - type: PointLight
+    radius: 3
+    energy: 3
+    color: "#FF6F00"
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 200
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+  - type: AlwaysHot
+  - type: Construction
+    graph: ADTFireplaceWhite
+    node: fireplace
+
+- type: entity
+  id: ADTFireplaceWooden
+  parent: BaseStructure
+  name: деревянный камин
+  description: Изысканный деревянный камин. Может быть зажжён для создания уютной атмосферы.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Decoration/fireplace.rsi
+    layers:
+      - state: fireplace_wooden
+      - state: fire_wooden
+        shader: unshaded
+      - state: glow_wooden
+        shader: unshaded
+  - type: Appearance
+  - type: AmbientSound
+    volume: -6
+    range: 5
+    sound:
+      path: /Audio/Ambience/Objects/fireplace.ogg
+  - type: PointLight
+    radius: 3
+    energy: 3
+    color: "#FF6F00"
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Wood
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 200
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+  - type: AlwaysHot
+  - type: Construction
+    graph: ADTFireplaceWooden
+    node: fireplace
+

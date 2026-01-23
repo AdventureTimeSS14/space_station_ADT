@@ -357,10 +357,9 @@
         component: IgnoreSlowOnDamage
         time: 60
         refresh: true
-      - !type:HealthChange
+      - !type:EvenHealthChange
         damage:
-          groups:
-            Brute: -1
+          Brute: -1
       - !type:PopupMessage
         conditions:
         - !type:TotalDamage
@@ -445,47 +444,13 @@
   flavor: medicine
   color: "#c8a2c8"
   physicalDesc: reagent-physical-desc-powdery
-  # SD tweak start
-  worksOnTheDead: true
-  reactiveEffects:
-    Acidic:
-      methods: [ Touch ]
-      effects:
-      - !type:HealthChange
-        scaleByQuantity: true
-        ignoreResistances: false
-        damage:
-          types:
-            Blunt: -0.5
-            Piercing: -0.5
-            Slash: -0.5
-        conditions:
-        - !type:HasComponentOnEquipmentCondition
-          components:
-          - type: PressureProtection # не работает сквозь скафандры!
-          invert: true
-      - !type:ModifyBleedAmount
-        amount: -1
-        conditions:
-        - !type:HasComponentOnEquipmentCondition
-          components:
-          - type: PressureProtection
-          invert: true
-  # SD tweak end
   metabolisms:
     Medicine:
-      metabolismRate : 3 # SD tweak
+      metabolismRate : 0.75
       effects:
-      - !type:HealthChange
+      - !type:EvenHealthChange
         damage:
-          groups:
-            Brute: -2 # SD tweak
-      # SD tweak start
-      - !type:HealthChange
-        damage:
-          types:
-            Poison: 2
-      # SD tweak end
+          Brute: -2.25
       - !type:ModifyBleedAmount
         amount: -1 #почему кровоостанавливающая пудра не останавливала кровотечение?
       - !type:PopupMessage
@@ -504,43 +469,15 @@
   group: Medicine
   desc: reagent-desc-silver-sulfadiazine
   flavor: medicine
-  color: "#ffed24" # SD tweak "#c8a2c8" -> "#ffed24"
+  color: "#c8a2c8"
   physicalDesc: reagent-physical-desc-powdery
-  # SD tweak start
-  worksOnTheDead: true
-  reactiveEffects:
-    Acidic:
-      methods: [ Touch ]
-      effects:
-      - !type:HealthChange
-        scaleByQuantity: true
-        ignoreResistances: false
-        damage:
-          types:
-            Heat: -0.5
-            Cold: -0.5
-            Shock: -0.5
-            Caustic: -0.5
-        conditions:
-        - !type:HasComponentOnEquipmentCondition
-          components:
-          - type: PressureProtection # не работает сквозь скафандры!
-          invert: true
-  # SD tweak end
   metabolisms:
     Medicine:
-      metabolismRate : 3 # SD tweak
+      metabolismRate : 0.75
       effects:
-      - !type:HealthChange
+      - !type:EvenHealthChange
         damage:
-          groups:
-            Burn: -3
-      # SD tweak start
-      - !type:HealthChange
-        damage:
-          types:
-            Poison: 2
-      # SD tweak end
+          Burn: -3
       - !type:PopupMessage
         conditions:
         - !type:TotalDamage

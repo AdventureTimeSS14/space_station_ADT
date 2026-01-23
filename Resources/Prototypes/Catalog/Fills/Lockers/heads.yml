@@ -92,7 +92,7 @@
   id: FillCaptainHardsuit
   table: !type:AllSelector
     children:
-    - id: ADTClothingModsuitBackCaptain # ADT tweak ClothingOuterHardsuitCap
+    #- id: ClothingOuterHardsuitCap # ADT-Tweak
     - id: ClothingMaskGasCaptain
     - id: JetpackCaptainFilled
     - id: OxygenTankFilled
@@ -133,6 +133,16 @@
           tableId: LockerFillCaptainLaser
         - !type:NestedSelector
           tableId: FillCaptainHardsuit
+  #ADT-Tweak-Start
+  - type: UserInterface
+    interfaces:
+      enum.SuitStorageUiKey.Key:
+        type: SuitStorageBoundUserInterface
+  - type: SuitStorage
+    options:
+    - ADTClothingModsuitBackCaptain
+    - ClothingOuterHardsuitCap
+  #ADT-Tweak-End
 
 - type: entityTable
   id: LockerFillHeadOfPersonnel
@@ -229,7 +239,7 @@
   table: !type:AllSelector
     children:
     - id: ClothingMaskGasAtmos
-    - id: ADTClothingModsuitBackAdvanced #ADT-tweak
+    #- id: ADTClothingModsuitBackAdvanced #ADT-Tweak
     - id: ClothingShoesBootsMagAdv
     - id: JetpackVoidFilled
     - id: OxygenTankFilled
@@ -259,6 +269,16 @@
           tableId: LockerFillChiefEngineerNoHardsuit
         - !type:NestedSelector
           tableId: FillChiefEngineerHardsuit
+  #ADT-Tweak-Start
+  - type: UserInterface
+    interfaces:
+      enum.SuitStorageUiKey.Key:
+        type: SuitStorageBoundUserInterface
+  - type: SuitStorage
+    options:
+    - ADTClothingModsuitBackAdvanced
+    - ClothingOuterHardsuitEngineeringWhite
+  #ADT-Tweak-End
 
 # No hardsuit table
 - type: entityTable
@@ -304,7 +324,7 @@
   table: !type:AllSelector
     children:
     - id: ClothingMaskBreathMedical
-    - id: ADTClothingModsuitBackCMO #ADT-Tweak ClothingOuterHardsuitMedical
+    #- id: ClothingOuterHardsuitMedical #ADT-Tweak
     - id: OxygenTankFilled
 
 # No hardsuit locker
@@ -332,6 +352,16 @@
           tableId: LockerFillChiefMedicalOfficerNoHardsuit
         - !type:NestedSelector
           tableId: FillChiefMedicalOfficerHardsuit
+  #ADT-Tweak-Start
+  - type: UserInterface
+    interfaces:
+      enum.SuitStorageUiKey.Key:
+        type: SuitStorageBoundUserInterface
+  - type: SuitStorage
+    options:
+    - ADTClothingModsuitBackCMO
+    - ClothingOuterHardsuitMedical
+  #ADT-Tweak-End
 
 # No hardsuit table
 - type: entityTable
@@ -448,7 +478,7 @@
   table: !type:AllSelector
     children:
     - id: ClothingMaskGasSwat
-    - id: ADTClothingModsuitBackSafeguard #ADT-tweak
+    #- id: ADTClothingModsuitBackSafeguard #ADT-Tweak
     - id: JetpackSecurityFilled
     - id: OxygenTankFilled
 
@@ -477,6 +507,16 @@
           tableId: LockerFillHeadOfSecurityNoHardsuit
         - !type:NestedSelector
           tableId: FillHeadOfSecurityHardsuit
+  #ADT-Tweak-Start
+  - type: UserInterface
+    interfaces:
+      enum.SuitStorageUiKey.Key:
+        type: SuitStorageBoundUserInterface
+  - type: SuitStorage
+    options:
+    - ADTClothingModsuitBackSafeguard
+    - ClothingOuterHardsuitSecurityRed
+  #ADT-Tweak-End
 
 - type: entity
   id: LockerFreezerVaultFilled
@@ -489,6 +529,6 @@
     contents:
     - id: WeaponRevolverDeckard
     - id: JetpackBlue
-    # - id: SpaceCash1000 # ADT-Economy
+    #- id: SpaceCash1000 # ADT-Economy
     - id: BeachBall
     - id: BikeHorn

@@ -2,7 +2,7 @@
 
 - type: marking
   speciesRestriction: [IPC]
-  id: RobotAntennaTv
+  id: ADTIPCAntennaTv
   bodyPart: Hair
   markingCategory: Hair
   sprites:
@@ -11,7 +11,7 @@
 
 - type: marking
   speciesRestriction: [IPC]
-  id: RobotAntennaTesla
+  id: ADTIPCAntennaTesla
   bodyPart: Hair
   markingCategory: Hair
   sprites:
@@ -20,7 +20,7 @@
 
 # - type: marking
 #   speciesRestriction: [IPC]
-#   id: RobotAntennaLightb
+#   id: ADTIPCAntennaLightb
 #   bodyPart: Hair
 #   markingCategory: Hair
 #   sprites:
@@ -29,7 +29,7 @@
 
 # - type: marking
 #   speciesRestriction: [IPC]
-#   id: RobotAntennaLight
+#   id: ADTIPCAntennaLight
 #   bodyPart: Hair
 #   markingCategory: Hair
 #   sprites:
@@ -38,7 +38,7 @@
 
 - type: marking
   speciesRestriction: [IPC]
-  id: RobotAntennaCyberhead
+  id: ADTIPCAntennaCyberhead
   bodyPart: Hair
   markingCategory: Hair
   sprites:
@@ -47,7 +47,7 @@
 
 # - type: marking
 #   speciesRestriction: [IPC]
-#   id: RobotAntennaSidelights
+#   id: ADTIPCAntennaSidelights
 #   bodyPart: Hair
 #   markingCategory: Hair
 #   sprites:
@@ -56,7 +56,7 @@
 
 - type: marking
   speciesRestriction: [IPC]
-  id: RobotAntennaAntlers
+  id: ADTIPCAntennaAntlers
   bodyPart: Hair
   markingCategory: Hair
   sprites:
@@ -65,7 +65,7 @@
 
 - type: marking
   speciesRestriction: [IPC]
-  id: RobotAntennaDroneeyes
+  id: ADTIPCAntennaDroneeyes
   bodyPart: Hair
   markingCategory: Hair
   sprites:
@@ -74,7 +74,7 @@
 
 - type: marking
   speciesRestriction: [IPC]
-  id: RobotAntennaCrowned
+  id: ADTIPCAntennaCrowned
   bodyPart: Hair
   markingCategory: Hair
   sprites:
@@ -83,7 +83,7 @@
 
 - type: marking
   speciesRestriction: [IPC]
-  id: RobotAntennaTowers
+  id: ADTIPCAntennaTowers
   bodyPart: Hair
   markingCategory: Hair
   sprites:
@@ -94,7 +94,7 @@
 
 - type: marking
   speciesRestriction: [IPC]
-  id: RobotAntennaDuality
+  id: ADTIPCAntennaDuality
   bodyPart: Hair
   markingCategory: Hair
   sprites:
@@ -103,7 +103,7 @@
 
 - type: marking
   speciesRestriction: [IPC]
-  id: RobotAntennaHoloaura
+  id: ADTIPCAntennaHoloaura
   bodyPart: Hair
   markingCategory: Hair
   sprites:
@@ -112,7 +112,7 @@
 
 - type: marking
   speciesRestriction: [IPC]
-  id: RobotAntennaWireless
+  id: ADTIPCAntennaWireless
   bodyPart: Hair
   markingCategory: Hair
   sprites:
@@ -121,7 +121,7 @@
 
 - type: marking
   speciesRestriction: [IPC]
-  id: RobotAntennaSmallEye
+  id: ADTIPCAntennaSmallEye
   bodyPart: Hair
   markingCategory: Hair
   sprites:
@@ -130,7 +130,7 @@
 
 - type: marking
   speciesRestriction: [IPC]
-  id: ADTRobotAntennaModule
+  id: ADTIPCAntennaModule
   bodyPart: Hair
   markingCategory: Hair
   sprites:
@@ -139,7 +139,7 @@
 
 - type: marking
   speciesRestriction: [IPC]
-  id: ADTRobotAntennaFox
+  id: ADTIPCAntennaFox
   bodyPart: Hair
   markingCategory: Hair
   sprites:
@@ -150,7 +150,7 @@
 
 - type: marking
   speciesRestriction: [IPC]
-  id: ADTRobotAntennaCat
+  id: ADTIPCAntennaCat
   bodyPart: Hair
   markingCategory: Hair
   sprites:
@@ -159,7 +159,7 @@
 
 - type: marking
   speciesRestriction: [IPC]
-  id: ADTRobotAntennaTvAlt
+  id: ADTIPCAntennaTvAlt
   bodyPart: Hair
   markingCategory: Hair
   sprites:

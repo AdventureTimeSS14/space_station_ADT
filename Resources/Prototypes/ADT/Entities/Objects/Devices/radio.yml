@@ -17,13 +17,13 @@
   - type: Speech
     speechVerb: ADTRadioBroadcasting
   - type: Sprite
-    sprite: Objects/Devices/communication.rsi
+    sprite: ADT/Objects/Devices/communication.rsi
     layers:
-    - state: old-radio-off
+#   - state: old-radio-off
     - state: old-radio
     state: old-radio
   - type: Item
-    sprite: Objects/Devices/communication.rsi
+    sprite: ADT/Objects/Devices/communication.rsi
     heldPrefix: old-radio
   - type: Construction
     graph: BroadcastRadio

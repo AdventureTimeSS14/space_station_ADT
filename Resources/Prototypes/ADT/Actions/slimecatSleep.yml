@@ -5,7 +5,7 @@
   - type: Action
     icon:
       sprite: ADT/Mobs/slug-cat.rsi
-      state: creek-rest
+      state: rest-rivulet
     itemIconStyle: BigAction
     useDelay: 1
   - type: InstantAction

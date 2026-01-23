@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Sprited by orange6775 (discord)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {"name": "chest_core", "directions": 4},
+    {"name": "chest_line_prime", "directions": 4},
+    {"name": "chest_line_second", "directions": 4},
+    {"name": "chest_line_third", "directions": 4},
+    {"name": "chest_line_fourth", "directions": 4},
+    {"name": "l_arm_line_prime", "directions": 4},
+    {"name": "l_arm_line_second", "directions": 4},
+    {"name": "r_arm_line_prime", "directions": 4},
+    {"name": "r_arm_line_second", "directions": 4},
+    {"name": "l_hand_line_prime", "directions": 4},
+    {"name": "r_hand_line_prime", "directions": 4},
+    {"name": "l_foot_line_prime", "directions": 4},
+    {"name": "r_foot_line_prime", "directions": 4}
+  ]
+}
