@@ -625,6 +625,7 @@
     - ADTBackpacks
     - ADTSatchels
     - ADTDuffel
+    - ADTStandards
     # ADT tweak end
   - type: EmagLatheRecipes
     emagStaticPacks:

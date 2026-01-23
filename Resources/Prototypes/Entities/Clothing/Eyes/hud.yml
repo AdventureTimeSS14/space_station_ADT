@@ -190,7 +190,6 @@
     - Inorganic
   - type: ShowSyndicateIcons
   - type: ThermalVisionItem # ADT tweak
-  - type: ItemToggle  # ADT tweak
 
 - type: entity
   parent: [ClothingEyesBase, ShowSecurityIcons, ShowMedicalIcons]
@@ -224,7 +223,6 @@
     sprite: Clothing/Eyes/Hud/synd.rsi
   - type: ShowSyndicateIcons
   - type: ThermalVisionItem # ADT tweak
-  - type: ItemToggle  # ADT tweak
   - type: Tag
     tags:
     - PetWearable
@@ -243,7 +241,6 @@
   - type: ShowSyndicateIcons
   - type: ShowHealthBars
   - type: ThermalVisionItem # ADT tweak
-  - type: ItemToggle  # ADT tweak
   - type: Tag
     tags:
     - PetWearable

@@ -60,8 +60,8 @@
   - type: Item
     size: Large
   # ADT-Tweak start
-  #- type: RunAndGunSpreadModifier # SD-Tweak: fuck immobility
-  #  modifyer: 0.5
+  - type: RunAndGunSpreadModifier
+    modifier: 0.3
   # ADT-Tweak end
   - type: Clothing
     sprite: Objects/Weapons/Guns/Shotguns/bulldog.rsi
@@ -156,7 +156,7 @@
     fireRate: 3
   # ADT-Tweak start
   - type: RunAndGunSpreadModifier
-    modifier: 0.05
+    modifier: 0.3
   - type: MeleeWeapon
     resetOnHandSelected: false
     attackRate: 0.85
@@ -197,7 +197,7 @@
   - type: Clothing
     sprite: Objects/Weapons/Guns/Shotguns/enforcer.rsi
   # ADT-Tweak start
-  - type: RunAndGunSpreadModifier # SD-Tweak: fuck immobility
+  - type: RunAndGunSpreadModifier
     modifier: 0.3
   # ADT-Tweak end
   - type: Item
@@ -269,8 +269,8 @@
   - type: Gun
     fireRate: 1.25
   # ADT-Tweak start
-  #- type: RunAndGunSpreadModifier
-  #  modifyer: 0.6 #SD-tweak
+  - type: RunAndGunSpreadModifier
+    modifier: 0.3
   - type: MeleeWeapon
     resetOnHandSelected: false
     attackRate: 0.85
@@ -304,7 +304,7 @@
     sprite: ADT/Objects/Weapons/Guns/Shotguns/sawn.rsi # ADT tweak
   # ADT-Tweak start
   - type: RunAndGunSpreadModifier
-    modifier: 0.06
+    modifier: 0.3
   # ADT-Tweak end
   - type: Gun
     fireRate: 3
@@ -348,7 +348,7 @@
     sprite: Objects/Weapons/Guns/Shotguns/hm_pistol.rsi
   # ADT-Tweak start
   - type: RunAndGunSpreadModifier
-    modifier: 0.08
+    modifier: 0.2
   # ADT-Tweak end
   - type: Gun
     fireRate: 4
@@ -379,7 +379,7 @@
   - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
   # ADT-Tweak start
   - type: RunAndGunSpreadModifier
-    modifier: 0.04
+    modifier: 0.3
   - type: MeleeWeapon
     resetOnHandSelected: false
     attackRate: 0.85
@@ -415,7 +415,7 @@
   - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
   # ADT-Tweak start
   - type: RunAndGunSpreadModifier
-    modifier: 0.05
+    modifier: 0.4
   - type: MeleeWeapon
     resetOnHandSelected: false
     attackRate: 0.85

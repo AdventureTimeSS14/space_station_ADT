@@ -74,6 +74,10 @@ ent-ADTClothingUniformJumpskirtTurtleneckPink = розовая водолазк�
     .desc = { ent-ADTClothingUniformJumpsuitTurtleneckPink.desc }
     .suffix = { "" }
 
+ent-ADTClothingUniformJumpskirtTurtleneckDarkBlue = тёмно-синяя водолазка с юбкой
+    .desc = { ent-ADTClothingUniformJumpsuitTurtleneckDarkBlue.desc }
+    .suffix = { "" }
+
 ent-ADTClothingUniformJumpskirtTurtleneckBlackSleeveless = чёрная водолазка с юбкой
     .desc = { ent-ADTClothingUniformJumpsuitTurtleneckBlackSleeveless.desc }
     .suffix = { "" }

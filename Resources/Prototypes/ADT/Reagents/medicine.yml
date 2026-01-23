@@ -357,10 +357,9 @@
         component: IgnoreSlowOnDamage
         time: 60
         refresh: true
-      - !type:HealthChange
+      - !type:EvenHealthChange
         damage:
-          groups:
-            Brute: -1
+          Brute: -1
       - !type:PopupMessage
         conditions:
         - !type:TotalDamage
@@ -476,7 +475,7 @@
     Medicine:
       metabolismRate : 3 # SD tweak
       effects:
-      - !type:HealthChange
+      - !type:EvenHealthChange
         damage:
           groups:
             Brute: -2 # SD tweak
@@ -531,7 +530,7 @@
     Medicine:
       metabolismRate : 3 # SD tweak
       effects:
-      - !type:HealthChange
+      - !type:EvenHealthChange
         damage:
           groups:
             Burn: -3

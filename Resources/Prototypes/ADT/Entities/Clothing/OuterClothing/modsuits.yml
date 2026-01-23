@@ -76,7 +76,7 @@
   - type: ExplosionResistance
     damageCoefficient: 0.7
   - type: FireProtection
-    reduction: 1
+    reduction: 0.8
 
 - type: entity
   parent: ADTClothingOuterModsuitBodyBase
@@ -100,6 +100,8 @@
         Slash: 0.9
         Piercing: 0.9
         Caustic: 0.8
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
   - type: ClothingSpeedModifier
     walkModifier: 1
     sprintModifier: 1
@@ -125,16 +127,18 @@
         Blunt: 0.9
         Slash: 0.9
         Piercing: 0.9
-        Heat: 0.9
+        Heat: 0.8
         Radiation: 0.3
-        Caustic: 0.5
+        Caustic: 0.7
   - type: StaminaResistance
     damageCoefficient: 0.9
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.85
   - type: FireProtection
-    reduction: 0.9
+    reduction: 0.4
+  - type: ExplosionResistance
+    damageCoefficient: 0.6
 
 - type: entity
   parent: ADTClothingOuterModsuitBodyBase
@@ -229,8 +233,6 @@
     sprintModifier: 0.9
   - type: ExplosionResistance
     damageCoefficient: 0.6
-  - type: FireProtection
-    reduction: 0.7
 
 - type: entity
   parent: ADTClothingOuterModsuitBodyBase
@@ -254,15 +256,13 @@
         Slash: 0.85
         Heat: 0.8
         Piercing: 0.8
-        Caustic: 0.7
+        Caustic: 0.2
         Radiation: 0.6
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.9
   - type: ExplosionResistance
-    damageCoefficient: 0.2
-  - type: FireProtection
-    reduction: 0.5
+    damageCoefficient: 0.3
 
 - type: entity
   parent: ADTClothingOuterModsuitBodyBase
@@ -295,7 +295,7 @@
   - type: ExplosionResistance
     damageCoefficient: 0.2
   - type: FireProtection
-    reduction: 0.8
+    reduction: 0.3
 
 - type: entity
   parent: ADTClothingOuterModsuitBodyBase
@@ -320,15 +320,16 @@
         Heat: 0.6
         Piercing: 0.6
         Caustic: 0.7
+        Radiation: 0.7
   - type: StaminaResistance
     damageCoefficient: 0.75
   - type: ClothingSpeedModifier
     walkModifier: 1
     sprintModifier: 1
   - type: ExplosionResistance
-    damageCoefficient: 0.5
+    damageCoefficient: 0.6
   - type: FireProtection
-    reduction: 0.8
+    reduction: 0.3
 
 - type: entity
   parent: ADTClothingOuterModsuitBodyBase
@@ -386,8 +387,8 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.6
-        Slash: 0.6
+        Blunt: 0.5
+        Slash: 0.5
         Piercing: 0.4
         Heat: 0.6
         Radiation: 0.3
@@ -399,12 +400,10 @@
     sprintModifier: 1
   - type: FireProtection
     reduction: 0.7
-  # ADT-Tweak-Start
   - type: ModifyGrabStageTime
     modifiers:
       Hard: 2.25
       Choke: 2
-  # ADT-Tweak-End
 
 - type: entity
   parent: ADTClothingOuterModsuitBodySyndicate
@@ -424,10 +423,10 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.5
-        Slash: 0.5
+        Blunt: 0.6
+        Slash: 0.6
         Piercing: 0.6
-        Heat: 0.1
+        Heat: 0.2
         Radiation: 0.01
         Caustic: 0.5
   - type: StaminaResistance
@@ -442,12 +441,10 @@
     damageCoefficient: 0.1
   - type: FireProtection
     reduction: 1
-  # ADT-Tweak-Start
   - type: ModifyGrabStageTime
     modifiers:
       Hard: 1.5
       Choke: 2
-  # ADT-Tweak-End
 
 - type: entity
   parent: ADTClothingOuterModsuitBodySyndicate
@@ -482,15 +479,13 @@
     heatingCoefficient: 0.001
     coolingCoefficient: 0.001
   - type: ExplosionResistance
-    damageCoefficient: 0.1
+    damageCoefficient: 0.4
   - type: FireProtection
-    reduction: 0.9
-  # ADT-Tweak-Start
+    reduction: 0.75
   - type: ModifyGrabStageTime
     modifiers:
       Hard: 2.25
       Choke: 2
-  # ADT-Tweak-End
 
 - type: entity
   parent: ADTClothingOuterModsuitBodyBase
@@ -511,6 +506,8 @@
     modifiers:
       coefficients:
         Caustic: 0.1
+  - type: ExplosionResistance
+    damageCoefficient: 0.8
   - type: ClothingSpeedModifier
     walkModifier: 1
     sprintModifier: 1
@@ -568,6 +565,7 @@
         Slash: 0.4
         Heat: 0.5
         Piercing: 0.5
+        Radiation: 0.5
         Caustic: 0.6
   - type: StaminaResistance
     damageCoefficient: 0.7
@@ -575,7 +573,7 @@
     walkModifier: 0.9
     sprintModifier: 0.9
   - type: ExplosionResistance
-    damageCoefficient: 0.6
+    damageCoefficient: 0.5
   - type: FireProtection
     reduction: 0.6
 
@@ -655,7 +653,7 @@
     walkModifier: 0.85
     sprintModifier: 0.85
   - type: FireProtection
-    reduction: 0.6
+    reduction: 0.4
   - type: ExplosionResistance
     damageCoefficient: 0.35
 
@@ -686,10 +684,9 @@
   - type: StaminaResistance
     damageCoefficient: 0.8
   - type: ClothingSpeedModifier
-    walkModifier: 0.9
-    sprintModifier: 0.9
+    sprintModifier: 0.95
   - type: ExplosionResistance
-    damageCoefficient: 0.25
+    damageCoefficient: 0.7
   - type: ItemToggle
     onUse: false
     soundActivate:

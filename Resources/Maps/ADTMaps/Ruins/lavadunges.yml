@@ -28962,7 +28962,7 @@ entities:
     - type: Transform
       pos: 40.475166,-16.265089
       parent: 1
-- proto: ClothingOuterHardsuitLuxury
+- proto: ADTClothingModsuitBackMining
   entities:
   - uid: 12100
     components:
@@ -54281,7 +54281,7 @@ entities:
     - type: Transform
       pos: 20.5,-5.5
       parent: 1
-- proto: SpawnMobXenoEasy
+- proto: ADTSpawnMobXenoEasyNoGhost
   entities:
   - uid: 11867
     components:
@@ -54335,7 +54335,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 139.5,-55.5
       parent: 1
-- proto: SpawnMobXenoHard
+- proto: ADTSpawnMobXenoHardNoGhost
   entities:
   - uid: 11870
     components:
@@ -54354,7 +54354,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 145.5,-55.5
       parent: 1
-- proto: SpawnMobXenoQueen
+- proto: ADTSpawnMobXenoQueenNoGhost
   entities:
   - uid: 11866
     components:

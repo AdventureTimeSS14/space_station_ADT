@@ -1,0 +1,36 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made by prazat911 (discord) and Baron for Adventure Time",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "barbedwire",
+      "directions": 4
+    },
+    {
+      "name": "concrete_barrier",
+      "directions": 4
+    },
+    {
+      "name": "concrete_barrier-2",
+      "directions": 4
+    },
+    {
+      "name": "concrete_barrier-3",
+      "directions": 4
+    },
+    {
+      "name": "concrete_barrier_alt",
+      "directions": 4
+    },
+    {
+      "name": "road_barrier",
+      "directions": 4
+    }
+  ]
+}
+

@@ -9,7 +9,7 @@
       - id: WeaponDisabler
       - id: TrackingImplanter
         amount: 4
-      - id: ADTClothingModsuitBackBrigmedic
+      #- id: ADTClothingModsuitBackBrigmedic
       - id: ClothingHandsGlovesNitrile
       - id: BrigmedicDuffelbagClothing
       - id: MedkitFilled
@@ -31,6 +31,14 @@
         amount: 1
       - id: BrigmedHypo
       - id: ADTHandheldCrewMonitorBrigmedic
+  - type: UserInterface
+    interfaces:
+      enum.SuitStorageUiKey.Key:
+        type: SuitStorageBoundUserInterface
+  - type: SuitStorage
+    options:
+    - ADTClothingModsuitBackBrigmedic
+    - ClothingOuterHardsuitBrigmedic
 
 - type: entity
   id: LockerBrigmedicFilled
