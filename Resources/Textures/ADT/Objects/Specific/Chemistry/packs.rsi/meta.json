@@ -1,11 +1,11 @@
 {
-    "version": 1,
+    "version": 2,
     "size": {
         "x": 32,
         "y": 32
     },
     "license": "CC-BY-NC-SA-4.0",
-    "copyright": "Created by JustKekc.",
+    "copyright": "Created by JustKekc. Ethyloxyephedrine pack sprite created by StasNeStasNe.",
     "states": [
         {
             "name": "pack"
@@ -33,6 +33,9 @@
         },
         {
             "name": "ethylredoxrazine"
+        },
+        {
+            "name": "ethyloxyephedrine"
         },
         {
             "name": "inhand-left",
