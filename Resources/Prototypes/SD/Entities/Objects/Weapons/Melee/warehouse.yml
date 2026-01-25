@@ -1,0 +1,15 @@
+#------=СКЛАД ДАРОВ МАППЕРОВ=------
+- type: entity
+  id: Tomahawk
+  name: тактический томагавк
+  description: Обычный томагавк, или же топорик, обмотанный для удобства использования красным кордом, излишком свисающим с края. Общий вид топорика поношенный, лезвие хорошо заточено.
+  parent: CombatKnife
+  components:
+  - type: Tag
+    tags:
+    - Knife
+  - type: Sprite
+    sprite: SD/Entities/Weapons/Warehouse/topor-myasnika.rsi
+    state: icon
+  - type: Item
+    sprite: SD/Entities/Weapons/Warehouse/topor-myasnika.rsi
