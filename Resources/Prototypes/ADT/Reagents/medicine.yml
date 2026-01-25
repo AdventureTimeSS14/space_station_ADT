@@ -357,10 +357,9 @@
         component: IgnoreSlowOnDamage
         time: 60
         refresh: true
-      - !type:HealthChange
+      - !type:EvenHealthChange
         damage:
-          groups:
-            Brute: -1
+          Brute: -1
       - !type:PopupMessage
         conditions:
         - !type:TotalDamage
@@ -449,10 +448,9 @@
     Medicine:
       metabolismRate : 0.75
       effects:
-      - !type:HealthChange
+      - !type:EvenHealthChange
         damage:
-          groups:
-            Brute: -2.25
+          Brute: -2.25
       - !type:ModifyBleedAmount
         amount: -1 #почему кровоостанавливающая пудра не останавливала кровотечение?
       - !type:PopupMessage
@@ -476,10 +474,9 @@
     Medicine:
       metabolismRate : 0.75
       effects:
-      - !type:HealthChange
+      - !type:EvenHealthChange
         damage:
-          groups:
-            Burn: -3
+          Burn: -3
       - !type:PopupMessage
         conditions:
         - !type:TotalDamage

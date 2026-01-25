@@ -1,7 +1,7 @@
 ﻿{
-    "version": 2,
+    "version": 3,
     "license": "CC-BY-SA-3.0",
-    "copyright": "",
+    "copyright": "All except belly 1-3 made by moroz_3",
     "size": {
         "x": 32,
         "y": 32
@@ -21,6 +21,14 @@
         { "name": "spots_1", "directions": 4 },
         { "name": "spots_2", "directions": 4 },
         { "name": "spots_3", "directions": 4 },
-        { "name": "spots_4", "directions": 4 }
+        { "name": "spots_4", "directions": 4 },
+        { "name": "spots_5", "directions": 4 },
+        { "name": "spots_6", "directions": 4 },
+        { "name": "spots_7", "directions": 4 },
+        { "name": "strips_1", "directions": 4 },
+        { "name": "strips_2", "directions": 4 },
+        { "name": "white_furr_female", "directions": 4 },
+        { "name": "white_furr_male", "directions": 4 },
+        { "name": "mane_head", "directions": 4 }
     ]
 }
