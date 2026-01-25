@@ -57,7 +57,7 @@
     belt: OreBag
     back: ClothingBackpackSatchelSalvage
     gloves: ClothingHandsGlovesPowerglove
-    pocket1: MineralScannerUnpowered # ADT-Tweak
+    pocket1: MineralScanner
   inhand:
     - Pickaxe
 

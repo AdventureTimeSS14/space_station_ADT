@@ -20,8 +20,8 @@
   recipes:
   - MiningDrill
   - MiningDrillDiamond
-  - MineralScannerUnpowered # ADT-Tweak
-  - AdvancedMineralScannerUnpowered # ADT-Tweak
+  - MineralScannerEmpty
+  - AdvancedMineralScannerEmpty
   - OreBagOfHolding
 
 - type: latheRecipePack

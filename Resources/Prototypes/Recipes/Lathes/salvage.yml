@@ -1,6 +1,6 @@
 - type: latheRecipe
-  id: MineralScannerUnpowered # ADT-Tweak
-  result: MineralScannerUnpowered # ADT-Tweak
+  id: MineralScannerEmpty
+  result: MineralScannerEmpty
   completetime: 3
   materials:
     Steel: 1000
@@ -9,8 +9,8 @@
     Gold: 500
 
 - type: latheRecipe
-  id: AdvancedMineralScannerUnpowered # ADT-Tweak
-  result: AdvancedMineralScannerUnpowered # ADT-Tweak
+  id: AdvancedMineralScannerEmpty
+  result: AdvancedMineralScannerEmpty
   completetime: 1
   materials:
     Steel: 1000

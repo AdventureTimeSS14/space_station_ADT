@@ -301,7 +301,7 @@
     - id: ClothingEyesGlassesMeson
     - id: ClothingBeltSalvageWebbing
     - id: SeismicCharge
-    - id: MineralScannerUnpowered # ADT-Tweak
+    - id: MineralScanner
       weight: 0.5
     - id: WeaponCrusher
       weight: 0.5
@@ -314,7 +314,7 @@
   id: SalvageEquipmentLegendary
   table: !type:GroupSelector
     children:
-    - id: AdvancedMineralScannerUnpowered # ADT-Tweak
+    - id: AdvancedMineralScanner
     - id: BlueprintFulton
     - id: BlueprintSeismicCharge
     - id: WeaponCrusherGlaive

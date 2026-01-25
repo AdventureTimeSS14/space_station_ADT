@@ -28,7 +28,7 @@
     pocket2: OreBag
   storage:
     back:
-    - MineralScannerUnpowered
+    - MineralScanner
     - FlashlightSeclite
     - MiningVoucher
     - MiningSuitVoucher

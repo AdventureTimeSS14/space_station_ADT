@@ -78,8 +78,9 @@
   - type: StorageFill
     contents:
       - id: ADTWeaponCutterAdv
-      - id: AdvancedMineralScannerUnpowered
-    #  - id: OreBagOfHolding # Жирно лудше пусть ждут нио
+      - id: SheetPlasma
+      - id: AdvancedMineralScanner
+    #  - id: OreBagOfHolding # Жирно лудше пусть ждут нио или ищут обломок.
 
 - type: entity
   id: ADTCrateNecropolisArmorMinerLight
