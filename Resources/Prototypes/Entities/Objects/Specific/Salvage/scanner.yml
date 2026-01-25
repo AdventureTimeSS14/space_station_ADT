@@ -19,12 +19,14 @@
       - state: inhand-left-reg
       right:
       - state: inhand-right-reg
-  - type: ItemToggleActiveSound
-    activeSound:
-      path: /Audio/Ambience/Objects/light_hum.ogg
-      params:
-        volume: -10
-        maxDistance: 1
+# ADT-Tweak-Start насилует уши и стакается.
+#  - type: ItemToggleActiveSound 
+#    activeSound:
+#      path: /Audio/Ambience/Objects/light_hum.ogg
+#      params:
+#        volume: -10
+#        maxDistance: 1
+# ADT-Tweak-End
   - type: Appearance
   - type: GenericVisualizer
     visuals:
