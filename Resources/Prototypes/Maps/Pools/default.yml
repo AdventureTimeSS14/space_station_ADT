@@ -21,26 +21,27 @@
 # ADT Maps Базовые Актуальные
   # - ADT_Bagel # SD-Tweak
   - ADT_Box
-  - ADT_Cluster
+#  - ADT_Cluster # SD-Tweak
   - ADT_Origin
   - ADT_Fland
-  - ADT_Marathon
+#  - ADT_Marathon # SD-Tweak
   - ADT_Meta
   - ADT_Saltern
   - ADT_Packed
   - ADT_Aspid
-  - ADT_Kerberos
+#  - ADT_Kerberos # SD-Tweak
   - ADT_Reach
   - ADT_Train
   - ADT_Silly
 
   # SD Maps
-  # - SD_Joule : temporarily out
+  - SD_Joule
   - SD_Sievert
   - SD_Flicker
   - SD_Lumen
   - SD_Pascal
   - SD_Whiteout
+  - SD_Newton
 
 # ADT Maps Выведенные на переработку
   # - ADT_Avrit требуется декорваксизация
