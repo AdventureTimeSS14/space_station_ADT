@@ -80,7 +80,7 @@
       - id: ADTWeaponCutterAdv
       - id: SheetPlasma
       - id: AdvancedMineralScanner
-    #  - id: OreBagOfHolding # Жирно лудше пусть ждут нио или ищут обломок.
+    #  - id: OreBagOfHolding # Жирно лучше пусть ждут нио или ищут обломок.
 
 - type: entity
   id: ADTCrateNecropolisArmorMinerLight
