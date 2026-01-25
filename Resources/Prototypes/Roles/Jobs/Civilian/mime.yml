@@ -21,6 +21,11 @@
     # ADT-Tweak start. Акшон надувания шаров
     - type: MimeBaloon
     # ADT-Tweak end.
+  # ADT-Tweak start
+  - !type:AddLanguageSpecial
+    languages:
+      SignLanguage: Speak
+  # ADT-Tweak end
 
 - type: startingGear
   id: MimeGear
