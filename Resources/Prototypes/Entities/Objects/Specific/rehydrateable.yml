@@ -254,15 +254,17 @@
   components:
   - type: Rehydratable
     possibleSpawns:
-    - MobCarpHolo
-    - MobXenoRavager
-    - MobAngryBee
-    - MobAdultSlimesYellowAngry
-    - MobSpiderSpace
-    - MobBearSpace
-    - MobPurpleSnake
-    - MobKangarooSpace
-    - MobTick
+# ADT-Tweak start
+    - ADTMobCarpHoloSponge # MobCarpHolo --> ADTMobCarpHoloSponge
+    - ADTMobXenoRavagerNoGhostSponge # MobXenoRavager --> ADTMobXenoRavagerNoGhostSponge
+    - ADTMobAngryBeeSponge # MobAngryBee --> ADTMobAngryBeeSponge
+    - ADTMobAdultSlimesYellowAngrySponge # MobAdultSlimesYellowAngry --> ADTMobAdultSlimesYellowAngrySponge
+    - ADTMobSpiderSpaceSponge # MobSpiderSpace --> ADTMobSpiderSpaceSponge
+    - ADTMobBearSpaceSponge # MobBearSpace --> ADTMobBearSpaceSponge
+    - ADTMobPurpleSnakeSponge # MobPurpleSnake --> ADTMobPurpleSnakeSponge
+    - ADTMobKangarooSpaceSponge # MobKangarooSpace --> ADTMobKangarooSpaceSponge
+    - ADTMobTickSponge # MobTick --> ADTMobTickSponge
+# ADT-Tweak end
 
 - type: entity
   parent: RehydratableItem
