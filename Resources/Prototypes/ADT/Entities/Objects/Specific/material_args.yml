@@ -23,7 +23,7 @@
           animation: WeaponArcFist
           damage:
             types:
-              Blunt: 6
+              Blunt: 5
         - type: Combo
           availableMoves:
             - actionsNeeds:
@@ -53,13 +53,13 @@
                 - !type:ComboMoreDamageToDownedEffect
                   damage:
                     types:
-                      Blunt: 15
+                      Blunt: 20
                 - !type:ComboPopupEffect
                   localeText: combo-headkick-end
                 - !type:ComboDamageEffect
                   damage:
                     types:
-                      Blunt: 20
+                      Blunt: 10
                 - !type:ComboAudioEffect
                   sound:
                     collection: GenericHit
