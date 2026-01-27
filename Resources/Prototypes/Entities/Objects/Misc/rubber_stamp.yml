@@ -14,13 +14,6 @@
       params:
         volume: -2
         maxDistance: 5
-  #ADT-Tweak-Start
-  - type: MeleeWeapon
-    attackRate: 1
-    damage:
-      types:
-        Blunt: 1
-  #ADT-Tweak-End
   - type: Sprite
     sprite: Objects/Misc/stamps.rsi
     state: stamp-mime
@@ -28,10 +21,15 @@
     size: Tiny
   - type: StealTarget
     stealGroup: Stamp
-    # ADT-Tweak start
+  # ADT-Tweak start
   - type: Tag
     tags:
     - ADTStamp
+  - type: MeleeWeapon
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 1
     # ADT-Tweak end
 
 - type: entity
