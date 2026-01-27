@@ -1,17 +1,16 @@
 ADT-variant-salvage-magnet-resources =
     { $resource ->
-        [OreIron] Железо
-        [OreCoal] Уголь
+        [OreIron] Железная руда
+        [OreCoal] Угольная руда
         [OreQuartz] Кварц
         [OreSalt] Соль
-        [OreGold] Золото
-        [OreDiamond] Алмазы
-        [OreSilver] Серебро
-        [OrePlasma] Плазма
-        [OreUranium] Уран
+        [OreGold] Золотая руда
+        [OreDiamond] Алмазная руда
+        [OreSilver] Серебрянная руда
+        [OrePlasma] Плазмовая руда
+        [OreUranium] Урановая руда
         [OreArtifactFragment] Фрагменты артефактов
-        [OreBananium] Бананиум
-        [OreSalt] Соль
+        [OreBananium] Бананиумовая руда
         [ADTOreBS] Блюспейс руда
         [ADTOreCopper] Медная руда
         [ADTOreZinc] Цинковая руда
