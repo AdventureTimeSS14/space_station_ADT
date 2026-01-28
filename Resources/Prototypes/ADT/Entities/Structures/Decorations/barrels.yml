@@ -15,20 +15,17 @@
   - type: Pullable
   - type: Destructible
     thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 50
-      behaviors:
-      - !type:SpawnEntitiesBehavior
-        spawn:
-          SheetSteel1:
-            min: 3
-            max: 5
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-  - type: Construction
-    graph: ADTBaseBarrel
-    node: adtbasebarrel
+      - trigger:
+          !type:DamageTrigger
+          damage: 80
+        behaviors:
+        - !type:SpawnEntitiesBehavior
+          spawn:
+            SheetSteel1:
+              min: 4
+              max: 8
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
 
 - type: entity
   id: ADTBarrelPlanks
@@ -38,26 +35,7 @@
     noRot: true
     sprite: /Textures/ADT/Structures/Decoration/blackbarrel.rsi
     state: barrel_planks
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 50
-      behaviors:
-      - !type:SpawnEntitiesBehavior
-        spawn:
-          SheetSteel1:
-            min: 3
-            max: 5
-          MaterialWoodPlank1:
-            min: 2
-            max: 4
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-  - type: Construction
-    graph: ADTBarrelPlanks
-    node: adtbarrelplanks
-
+    
 - type: entity
   id: ADTBarrelFire
   parent: ADTBaseBarrel
@@ -68,22 +46,6 @@
     noRot: true
     sprite: /Textures/ADT/Structures/Decoration/blackbarrel.rsi
     state: barrel_fire
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 50
-      behaviors:
-      - !type:SpawnEntitiesBehavior
-        spawn:
-          SheetSteel1:
-            min: 3
-            max: 5
-          Coal1:
-            min: 3
-            max: 4
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
   - type: PointLight
     radius: 5
     energy: 3
@@ -94,6 +56,3 @@
     sound:
       path: /Audio/Ambience/Objects/fireplace.ogg
   - type: AlwaysHot
-  - type: Construction
-    graph: ADTBarrelFire
-    node: adtbarrelfire

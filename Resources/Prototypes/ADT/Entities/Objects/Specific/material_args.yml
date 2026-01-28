@@ -18,30 +18,23 @@
     - type: AddComponentsOnUse
       components:
         - type: Necksnap
-        - type: MeleeWeapon
-          attackRate: 1.25
-          animation: WeaponArcFist
-          damage:
-            types:
-              Blunt: 5
         - type: Combo
           availableMoves:
             - actionsNeeds:
                 - Grab
                 - Hit
               comboEvent:
-              - !type:ComboEffectToStanding
-                comboEvents:
-                  - !type:ComboPopupEffect
-                    localeText: combo-slam-end
-                  - !type:ComboDamageEffect
-                    damage:
-                      types:
-                        Blunt: 20
-                  - !type:ComboFallEffect
-                  - !type:ComboAudioEffect
-                    sound:
-                      collection: GenericHit
+                - !type:ComboPopupEffect
+                  localeText: combo-slam-end
+                - !type:ComboDamageEffect
+                  damage:
+                    types:
+                      Blunt: 10
+                - !type:ComboFallEffect
+                - !type:ComboStopGrabEffect
+                - !type:ComboAudioEffect
+                  sound:
+                    collection: GenericHit
             - actionsNeeds:
                 - Hit
                 - Hit
@@ -53,9 +46,9 @@
                 - !type:ComboMoreDamageToDownedEffect
                   damage:
                     types:
-                      Blunt: 20
+                      Blunt: 15
                 - !type:ComboPopupEffect
-                  localeText: combo-headkick-end
+                  localeText: combo-cqc-kick-end
                 - !type:ComboDamageEffect
                   damage:
                     types:
@@ -64,6 +57,8 @@
                   sound:
                     collection: GenericHit
                 - !type:ComboTrowTargetEffect
+                - !type:ComboStaminaDamageEffect
+                  staminaDamage: 25
             - actionsNeeds:
                 - Disarm
                 - Grab
@@ -72,6 +67,7 @@
                   localeText: combo-cqc-pressure-end
                 - !type:ComboStaminaDamageEffect
                   staminaDamage: 35
+                - !type:ComboHandsRetakeEffect
             - actionsNeeds:
                 - Grab
                 - Grab
@@ -82,7 +78,7 @@
                 - !type:ComboFallEffect
                   dropItems: true
                 - !type:ComboStaminaDamageEffect
-                  staminaDamage: 30
+                  staminaDamage: 55
             - actionsNeeds:
                 - Disarm
                 - Disarm
@@ -93,10 +89,10 @@
                 - !type:ComboMoreDamageToDownedEffect
                   damage:
                     types:
-                      Blunt: 35
+                      Blunt: 25
                 - !type:ComboFallEffect
                 - !type:ComboStaminaDamageEffect
-                  staminaDamage: 45
+                  staminaDamage: 60
                 - !type:ComboAudioEffect
                   sound:
                     collection: GenericHit
@@ -107,9 +103,27 @@
                 - !type:ComboPopupEffect
                   localeText: combo-leg-sweep-end
                 - !type:ComboFallEffect
+                - !type:ComboStopGrabEffect
                 - !type:ComboAudioEffect
                   sound:
                     collection: GenericHit
+            - actionsNeeds:
+                - Crawl
+                - Crawl
+              comboEvent:
+                - !type:ComboEffectToUserPuller
+                  comboEvents:
+                  - !type:ComboDamageEffect
+                    damage:
+                      types:
+                        Blunt: 10
+                  - !type:ComboTrowOnUserEffect
+                  - !type:ComboStopTargetGrabEffect
+                  - !type:ComboStunEffect
+                    stunTime: 1
+                    dropItems: false
+                  - !type:ComboPopupEffect
+                    localeText: combo-leg-sweep-end
 
 - type: entity
   id: ADTScrollSleepingCarp
@@ -161,8 +175,8 @@
                 - !type:ComboPopupEffect
                   localeText: combo-gnashingteeth-end
             - actionsNeeds:
-                - Disarm
                 - Hit
+                - Disarm
               comboEvent:
                 - !type:ComboDamageEffect
                   damage:
@@ -170,29 +184,28 @@
                       Slash: 15
                 - !type:ComboFallEffect
                   dropItems: false
-                - !type:ComboSpeechEffect
-                  speech: speech-carp-throw
                 - !type:ComboTrowTargetEffect
-                  thrownSpeed: 25
+                  thrownSpeed: 50
                 - !type:ComboAudioEffect
                   sound:
                     collection: GenericHit
                 - !type:ComboPopupEffect
                   localeText: combo-crashingwave-end
             - actionsNeeds:
-                - Disarm
-                - Disarm
+                - Hit
+                - Grab
               comboEvent:
                 - !type:ComboDamageEffect
                   damage:
                     types:
                       Blunt: 10
-                - !type:ComboHandsRetakeEffect
+                - !type:ComboStaminaDamageEffect
+                  staminaDamage: 50
                 - !type:ComboAudioEffect
                   sound:
                     collection: GenericHit
                 - !type:ComboPopupEffect
-                  localeText: combo-twisthand-end
+                  localeText: combo-headkick-end
 
 - type: entity
   id: ADTBookPTCR
@@ -232,6 +245,7 @@
                   localeText: combo-leg-sweep-end
                 - !type:ComboFallEffect
                   dropItems: false
+                - !type:ComboStopGrabEffect
                 - !type:ComboAudioEffect
                   sound:
                     collection: GenericHit

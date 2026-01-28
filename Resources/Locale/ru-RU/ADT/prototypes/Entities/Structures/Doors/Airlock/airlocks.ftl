@@ -82,12 +82,6 @@ ent-ADTPsychoAirlock = шлюз
 ent-ADTCorporateAirlock = шлюз
     .desc = Он открывается, он закрывается, и он может вас раздавить.
     .suffix = Корпоративный
-ent-ADTAlwaysPoweredUraniumAirlock =  шлюз
-    .desc = Он открывается, он закрывается, и он может вас раздавить.
-    .suffix = Чревоугодие, Всегда запитан
-ent-ADTUraniumAirlock =  шлюз
-    .desc = Он открывается, он закрывается, и он может вас раздавить.
-    .suffix = Чревоугодие
 
 # стеклянные
 

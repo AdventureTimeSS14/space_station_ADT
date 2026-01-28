@@ -77,8 +77,9 @@
               damage:
                 types:
                   Slash: 15
+            - !type:ComboStopGrabEffect
             - !type:ComboStunEffect
-              stunTime: 4
+              stunTime: 6
               dropItems: false
           - !type:ComboAudioEffect
             sound:

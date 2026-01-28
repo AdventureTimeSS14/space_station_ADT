@@ -27,6 +27,3 @@
     range: 2
     sound:
       path: /Audio/ADT/Ambience/clock_tick.ogg
-  - type: Construction
-    graph: ADTWallClock
-    node: adtwallclock
