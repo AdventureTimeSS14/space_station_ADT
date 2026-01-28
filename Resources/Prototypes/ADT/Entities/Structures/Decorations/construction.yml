@@ -28,3 +28,6 @@
               max: 5
         - !type:DoActsBehavior
           acts: [ "Destruction" ]
+  - type: Construction
+    graph: ADTConstructionBarricade
+    node: adtconstructionbarricade     

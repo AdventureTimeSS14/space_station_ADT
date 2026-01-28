@@ -1,0 +1,42 @@
+- type: entity
+  parent: MarkerBase
+  id: ADTBarrelsBoxesRandom
+  name: random barrel and boxes spawner
+  suffix: Maintenance
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: ADT/Markers/randoms.rsi
+        state: barrels_boxes
+  - type: RandomSpawner
+    rareChance: 0.30
+    offset: 0
+    prototypes:
+      - ADTBoxMaintenanceRandom
+    rarePrototypes:
+      - ADTBarrelFire
+      - ADTBaseBarrel
+      - ADTBarrelPlanks
+    chance: 1
+
+- type: entity
+  parent: MarkerBase
+  id: ADTBarrelsRandom
+  name: random barrel spawner
+  suffix: Maintenance
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: ADT/Markers/randoms.rsi
+        state: barrels
+  - type: RandomSpawner
+    rareChance: 0.15
+    offset: 0
+    prototypes:
+      - ADTBaseBarrel
+      - ADTBarrelPlanks
+    rarePrototypes:
+      - ADTBarrelFire
+    chance: 1

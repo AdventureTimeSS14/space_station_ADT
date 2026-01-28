@@ -1,0 +1,29 @@
+- type: constructionGraph
+  id: ADTWallClock
+  start: start
+  graph:
+    - node: start
+      actions:
+        - !type:DestroyEntity {}
+      edges:
+        - to: adtwallclock
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 2
+        
+    - node: adtwallclock
+      entity: ADTWallClock
+      edges:
+        - to: start
+          conditions:
+            - !type:EntityAnchored
+              anchored: true
+          steps:
+            - tool: Screwing
+              doAfter: 2
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 1
+            - !type:DeleteEntity {}
