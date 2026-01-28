@@ -29,11 +29,18 @@
       0: Alive
       110: Critical
       325: Dead
+  - type: Explosive
+    explosionType: Default
+    maxIntensity: 2.5
+    intensitySlope: 1
+    totalIntensity: 10
+    canCreateVacuum: false
+  - type: ExplodeOnTrigger
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 300
+        damage: 325
       behaviors:
       - !type:SpawnEntitiesBehavior
         spawn:
@@ -41,6 +48,7 @@
               min: 3
               max: 6
       - !type:BurnBodyBehavior { }
+      - !type:ExplodeBehavior
   - type: Respirator
     damage:
       types:

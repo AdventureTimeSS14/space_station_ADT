@@ -8,6 +8,20 @@
   cost: -2
   quirk: true
 
+- type: trait
+  id: ADTDamagedThroat
+  name: trait-damaged-throat-name
+  description: trait-damaged-throat-description
+  category: Quirks
+  components:
+    - type: DamagedThroat
+  cost: -1
+  quirk: true
+  speciesBlacklist:
+  - IPC
+  - NovakidSpecies
+  - Diona
+  - SlimePerson
 # Simple Station
 
 - type: trait
