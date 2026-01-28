@@ -191,15 +191,6 @@
     Plastic: 1000
 
 - type: latheRecipe
-  id: ADTOldRadio
-  result: ADTOldRadio
-  completetime: 1
-  materials:
-    Steel: 150
-    Plastic: 50
-    Copper: 30
-
-- type: latheRecipe
   id: SheetPaper
   result: SheetPaper1
   completetime: 0.5

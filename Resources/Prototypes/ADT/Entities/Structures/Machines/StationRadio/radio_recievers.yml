@@ -1,0 +1,61 @@
+- type: entity
+  id: ADTStationRadioReceiver
+  name: station radio
+  parent: [ BaseMachinePowered, ConstructibleMachine ]
+  description: Listen to the top hits of your stations local radio.
+  components:
+  - type: VerbSelectableRadioChannel
+    allowedChannels:
+      - ADTOldBroadcast
+      - ADTOldBroadcastTwo
+      - ADTOldBroadcastThree
+    selectedChannelId: ADTOldBroadcast
+  - type: Appearance
+  - type: Sprite
+    sprite: ADT/Structures/Machines/StationRadio/stationradio.rsi
+    layers:
+    - state: icon
+    - state: unlit
+      shader: unshaded
+      map: [ "enum.PowerDeviceVisualLayers.Powered" ]
+    drawdepth: SmallObjects
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.10,-0.10,0.10,0.10"
+        density: 500
+        mask:
+        - TabletopMachineMask
+        layer:
+        - BulletImpassable
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 80
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalGlassBreak
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Machine
+    board: ADTStationRadioCircuitboard
+  - type: RadioSpeaker
+    soundOnReceive:
+      path: /Audio/ADT/Effects/static.ogg
+      params:
+        volume: -6
+        maxDistance: 10
+        variation: 0.05
+    speakNormally: true
+    enabled: false
+    channels:
+    - ADTOldBroadcast
+  - type: Speech
+    speechVerb: ADTRadioBroadcasting
+  - type: StationRadioReceiver
+    selectedChannelId: ADTOldBroadcast
+    active: false

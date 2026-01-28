@@ -4,8 +4,15 @@
   parent: BaseItem
   id: ADTOldRadio
   components:
+  - type: VerbSelectableRadioChannel
+    allowedChannels:
+      - ADTOldBroadcast
+      - ADTOldBroadcastTwo
+      - ADTOldBroadcastThree
+    selectedChannelId: ADTOldBroadcast
   - type: RadioSpeaker
-    speechMode: Speak
+    enabled: false
+    speakNormally: true
     soundOnReceive:
       path: /Audio/ADT/Effects/static.ogg
       params:
@@ -25,12 +32,12 @@
   - type: Item
     sprite: ADT/Objects/Devices/communication.rsi
     heldPrefix: old-radio
-  - type: Construction
-    graph: BroadcastRadio
-    node: oldRadio
   - type: Tag
     tags:
     - ADTOldRadio
+  - type: StationRadioReceiver
+    selectedChannelId: ADTOldBroadcast
+    active: false
 
 - type: entity
   name: radio microphone
@@ -38,6 +45,12 @@
   parent: BaseItem
   id: ADTOldRadioMicrophone
   components:
+  - type: VerbSelectableRadioChannel
+    allowedChannels:
+      - ADTOldBroadcast
+      - ADTOldBroadcastTwo
+      - ADTOldBroadcastThree
+    selectedChannelId: ADTOldBroadcast
   - type: RadioMicrophone
     listenRange: 1
     broadcastChannel: ADTOldBroadcast

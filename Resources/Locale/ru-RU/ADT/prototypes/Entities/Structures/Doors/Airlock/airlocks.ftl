@@ -82,6 +82,9 @@ ent-ADTPsychoAirlock = шлюз
 ent-ADTCorporateAirlock = шлюз
     .desc = Он открывается, он закрывается, и он может вас раздавить.
     .suffix = Корпоративный
+ent-ADTJournalistAirlock = шлюз
+    .desc = Он открывается, он закрывается, и он может вас раздавить.
+    .suffix = Репортёр
 
 # стеклянные
 
@@ -151,4 +154,6 @@ ent-ADTGlassBlackCentcommAirlock = стеклянный шлюз
 ent-ADTGlassCorporateAirlock = стеклянный шлюз
     .desc = Он открывается, он закрывается, и он может вас раздавить.
     .suffix = Корпоративный
-
+ent-ADTJournalistAirlockGlass = стеклянный шлюз
+    .desc = Он открывается, он закрывается, и он может вас раздавить.
+    .suffix = Репортёр

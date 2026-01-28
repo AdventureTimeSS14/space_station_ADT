@@ -138,3 +138,43 @@
     Gold: 600
     Silver: 600
     Copper: 1000
+
+- type: latheRecipe
+  parent: [ BaseCircuitboardRecipe, BaseServiceMachineRecipeCategory ]
+  id: ADTVinylPlayerCircuitboard
+  icon:
+    sprite:  ADT/Structures/Machines/StationRadio/vinylplayer.rsi
+    state: icon
+  result: ADTVinylPlayerCircuitboard
+
+- type: latheRecipe
+  parent: [ BaseCircuitboardRecipe, BaseServiceMachineRecipeCategory ]
+  id: ADTTapeDeckCircuitboard
+  icon:
+    sprite:  ADT/Structures/Machines/StationRadio/tapedeck.rsi
+    state: icon
+  result: ADTTapeDeckCircuitboard
+
+- type: latheRecipe
+  parent: [ BaseGoldCircuitboardRecipe, BaseServiceMachineRecipeCategory ]
+  id: ADTStationRadioServerCircuitboard
+  icon:
+    sprite:  ADT/Structures/Machines/StationRadio/stationradioserver.rsi
+    state: icon
+  result: ADTStationRadioServerCircuitboard
+
+- type: latheRecipe
+  parent: [ BaseSilverCircuitboardRecipe, BaseServiceMachineRecipeCategory ]
+  id: ADTStationRadioRigCircuitboard
+  icon:
+    sprite:  ADT/Structures/Machines/StationRadio/radiostationrig.rsi
+    state: icon
+  result: ADTStationRadioRigCircuitboard
+
+- type: latheRecipe
+  parent: [ BaseCircuitboardRecipe, BaseMachineRecipeCategory ]
+  id: ADTStationRadioCircuitboard
+  icon:
+    sprite:  ADT/Structures/Machines/StationRadio/stationradio.rsi
+    state: icon
+  result: ADTStationRadioCircuitboard

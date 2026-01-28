@@ -5,11 +5,3 @@
   targetNode: makeshiftRod
   category: construction-category-misc
   objectType: Item
-
-- type: construction
-  id: ADTOldRadio
-  graph: BroadcastRadio
-  startNode: start
-  targetNode: oldRadio
-  category: construction-category-tools
-  objectType: Item
