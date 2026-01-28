@@ -36,6 +36,16 @@
     state: bed-frame2
 
 - type: entity
+  parent: Bed
+  id: ADTCarBed
+  name: car bed
+  description: A bed made from a car. Comfortable and stylish.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/carbed.rsi
+    state: carbed
+
+- type: entity
   parent: [BaseItem, BaseDeployFoldable]
   id: ADTBedroll
   name: bedroll
@@ -44,7 +54,7 @@
   - type: Transform
     noRot: true
   - type: Item
-    size: Small
+    size: Medium
     heldPrefix: bedroll
   - type: Sprite
     sprite: ADT/Structures/Furniture/bedroll.rsi
