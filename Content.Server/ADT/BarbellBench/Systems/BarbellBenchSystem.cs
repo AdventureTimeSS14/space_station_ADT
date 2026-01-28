@@ -4,6 +4,8 @@ using Content.Shared.ADT.BarbellBench;
 using Content.Shared.ADT.BarbellBench.Components;
 using Content.Shared.ADT.BarbellBench.Systems;
 using Content.Shared.Audio;
+using Content.Shared.Bed.Components;
+using Content.Shared.Buckle.Components;
 using Content.Shared.Chat;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Interaction.Events;
@@ -38,6 +40,7 @@ public sealed class BarbellBenchSystem : SharedBarbellBenchSystem
         SubscribeLocalEvent<BarbellBenchComponent, BarbellBenchPerformRepEvent>(OnPerformRep);
         SubscribeLocalEvent<BarbellBenchComponent, AttachableHolderAttachablesAlteredEvent>(OnAttachableAltered);
         SubscribeLocalEvent<BarbellLiftComponent, UseInHandEvent>(OnBarbellUseInHand);
+        SubscribeLocalEvent<BarbellBenchComponent, StrappedEvent>(OnBarbellBenchStrapped);
     }
 
     private void OnAttachableAltered(EntityUid uid, BarbellBenchComponent component, ref AttachableHolderAttachablesAlteredEvent args)
@@ -49,6 +52,21 @@ public sealed class BarbellBenchSystem : SharedBarbellBenchSystem
             return;
 
         _appearance.SetData(uid, BarbellBenchVisuals.HasBarbell, args.Alteration == AttachableAlteredType.Attached);
+
+        if (TryComp<StrapComponent>(uid, out var strap))
+        {
+            foreach (var buckledEntity in strap.BuckledEntities)
+            {
+                if (args.Alteration == AttachableAlteredType.Attached)
+                {
+                    _actionsSystem.AddAction(buckledEntity, ref component.BarbellRepAction, SharedBarbellBenchSystem.BarbellRepActionId, uid);
+                }
+                else if (args.Alteration == AttachableAlteredType.Detached)
+                {
+                    _actionsSystem.RemoveAction(buckledEntity, component.BarbellRepAction);
+                }
+            }
+        }
 
         switch (args.Alteration)
         {
@@ -90,6 +108,14 @@ public sealed class BarbellBenchSystem : SharedBarbellBenchSystem
     {
         EnsureOverlay(uid, component);
         UpdateAppearance(uid, component);
+    }
+
+    private void OnBarbellBenchStrapped(Entity<BarbellBenchComponent> bench, ref StrappedEvent args)
+    {
+        if (TryComp<HealOnBuckleComponent>(bench.Owner, out var healComp) && healComp.SleepAction is { Valid: true } sleepAction)
+        {
+            _actionsSystem.RemoveAction(args.Buckle.Owner, sleepAction);
+        }
     }
 
     private void OnShutdown(EntityUid uid, BarbellBenchComponent component, ComponentShutdown args)
