@@ -53,6 +53,7 @@ public sealed partial class PullerComponent : Component
     /// Density reduction applied to pulled objects (0 to 1). 0 = no change, 1 = maximum reduction.
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
+    [Access(typeof(PullingSystem), Friend = AccessPermissions.ReadWriteExecute, Other = AccessPermissions.ReadWriteExecute)]
     public float PulledDensityReduction = 0f;
     // ADT-tweak end
 
