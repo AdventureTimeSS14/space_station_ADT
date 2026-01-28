@@ -4,7 +4,7 @@
   mapPath: /Maps/SDMaps/SDStations/sd_newton.yml
   minPlayers: 5
   stations:
-    SD_Lumen:
+    SD_Newton:
       stationProto: StandardNanotrasenStation
       components:
         - type: StationNameSetup
@@ -23,7 +23,7 @@
             ADTBlueShieldOfficer: [ 1, 1 ] #ADT-Roles
             #service
             HeadOfPersonnel: [ 1, 1 ]
-            Bartender: [ 3, 3 ]
+            Bartender: [ 2, 2 ]
             Botanist: [ 3, 3 ]
             Chef: [ 2, 2 ]
             Janitor: [ 3, 3 ]
