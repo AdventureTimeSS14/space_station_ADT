@@ -14,3 +14,23 @@
     position: Down
     rotation: -90
     buckleOffset: "0,-0.15"
+
+- type: entity
+  parent: Bed
+  id: ADTBedFrame
+  name: bed frame
+  description: A simple bed frame for sleeping.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/bed-frame.rsi
+    state: bed-frame
+
+- type: entity
+  parent: Bed
+  id: ADTBedFrame2
+  name: bed frame
+  description: A simple bed frame for sleeping.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/bed-frame.rsi
+    state: bed-frame2
