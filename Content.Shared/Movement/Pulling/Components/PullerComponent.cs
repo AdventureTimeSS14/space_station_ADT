@@ -48,11 +48,13 @@ public sealed partial class PullerComponent : Component
     [DataField]
     public ProtoId<AlertPrototype> PullingAlert = "ADTPulling"; // ADT Grab
 
+    // ADT-tweak start
     /// <summary>
     /// Density reduction applied to pulled objects (0 to 1). 0 = no change, 1 = maximum reduction.
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public float PulledDensityReduction = 0f;
+    // ADT-tweak end
 
     // ADT Grab start
     [ViewVariables]

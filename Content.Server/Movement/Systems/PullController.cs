@@ -81,9 +81,11 @@ public sealed class PullController : VirtualController
     private EntityQuery<PullableComponent> _pullableQuery;
     private EntityQuery<PullerComponent> _pullerQuery;
     private EntityQuery<TransformComponent> _xformQuery;
+    // ADT-tweak start
     private EntityQuery<FixturesComponent> _fixturesQuery;
 
     private readonly Dictionary<EntityUid, Dictionary<string, float>> _originalDensities = new();
+    // ADT-tweak end
 
     public override void Initialize()
     {
@@ -95,11 +97,13 @@ public sealed class PullController : VirtualController
         _pullableQuery = GetEntityQuery<PullableComponent>();
         _pullerQuery = GetEntityQuery<PullerComponent>();
         _xformQuery = GetEntityQuery<TransformComponent>();
-        _fixturesQuery = GetEntityQuery<FixturesComponent>();
+        _fixturesQuery = GetEntityQuery<FixturesComponent>(); // ADT-tweak
 
         UpdatesAfter.Add(typeof(MoverController));
+        // ADT-tweak start
         SubscribeLocalEvent<PullableComponent, PullStartedMessage>(OnPullStarted);
         SubscribeLocalEvent<PullableComponent, PullStoppedMessage>(OnPullStopped);
+        // ADT-tweak end
         SubscribeLocalEvent<PullMovingComponent, PullStoppedMessage>(OnPullStop);
         SubscribeLocalEvent<ActivePullerComponent, MoveEvent>(OnPullerMove);
 
@@ -112,6 +116,7 @@ public sealed class PullController : VirtualController
         CommandBinds.Unregister<PullController>();
     }
 
+    // ADT-tweak start
     private void OnPullStarted(Entity<PullableComponent> ent, ref PullStartedMessage args)
     {
         if (args.PullerUid is not { Valid: true } puller ||
@@ -126,12 +131,14 @@ public sealed class PullController : VirtualController
     {
         RestoreDensity(ent);
     }
+    // ADT-tweak end
 
     private void OnPullStop(Entity<PullMovingComponent> ent, ref PullStoppedMessage args)
     {
         RemCompDeferred<PullMovingComponent>(ent);
     }
 
+    // ADT-tweak start
     private void RestoreDensity(EntityUid uid)
     {
         if (!_originalDensities.TryGetValue(uid, out var originalDensities) ||
@@ -183,6 +190,7 @@ public sealed class PullController : VirtualController
             }
         }
     }
+    // ADT-tweak end
 
     private bool OnRequestMovePulledObject(ICommonSession? session, EntityCoordinates coords, EntityUid uid)
     {
@@ -307,7 +315,7 @@ public sealed class PullController : VirtualController
     {
         base.UpdateBeforeSolve(prediction, frameTime);
 
-        // Restore density for objects that are no longer being pulled
+        // ADT-tweak start
         var pulledQuery = EntityQueryEnumerator<PullableComponent, PhysicsComponent>();
         while (pulledQuery.MoveNext(out var pullableEnt, out var pullable, out var physics))
         {
@@ -316,6 +324,7 @@ public sealed class PullController : VirtualController
                 RestoreDensity(pullableEnt);
             }
         }
+        // ADT-tweak end
 
         var movingQuery = EntityQueryEnumerator<PullMovingComponent, PullableComponent, TransformComponent>();
 
