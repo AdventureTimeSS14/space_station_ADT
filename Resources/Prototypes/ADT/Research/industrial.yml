@@ -85,7 +85,7 @@
     state: icon
   discipline: Industrial
   tier: 2
-  cost: 7500
+  cost: 5500
   recipeUnlocks:
     - ADTWeaponCutter
   position: 4,1
