@@ -16,6 +16,6 @@ public sealed partial class ComboCounterComponent : Component
     public TimeSpan LastCombo;
 
     [DataField("duration")]
-    public float Duration = 10f;
+    public float Duration = 6f;
 
 }

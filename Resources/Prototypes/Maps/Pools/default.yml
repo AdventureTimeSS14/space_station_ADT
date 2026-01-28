@@ -37,6 +37,7 @@
   # SD Maps
   - SD_Joule
   - SD_Sievert
+  - SD_Amber
   - SD_Flicker
   - SD_Lumen
   - SD_Pascal
