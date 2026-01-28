@@ -34,3 +34,60 @@
   - type: Sprite
     sprite: ADT/Structures/Furniture/bed-frame.rsi
     state: bed-frame2
+
+- type: entity
+  parent: [BaseItem, BaseDeployFoldable]
+  id: ADTBedroll
+  name: bedroll
+  description: A portable sleeping bag that can be deployed on the ground. Can be folded back into an item.
+  components:
+  - type: Transform
+    noRot: true
+  - type: Item
+    size: Small
+    heldPrefix: bedroll
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/bedroll.rsi
+    drawdepth: HighFloorObjects
+    noRot: true
+    layers:
+    - state: bedroll
+      map: ["unfoldedLayer"]
+    - state: bedroll_rolled
+      map: ["foldedLayer"]
+      visible: false
+  - type: Icon
+    sprite: ADT/Structures/Furniture/bedroll.rsi
+    state: bedroll_rolled
+  - type: MovedByPressure
+  - type: InteractionOutline
+  - type: Physics
+    bodyType: Dynamic
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 20
+        mask:
+        - MobMask
+  - type: Pullable
+  - type: Strap
+    position: Down
+    rotation: -90
+  - type: HealOnBuckle
+    damage:
+      types:
+        Poison: -0.1
+        Blunt: -0.1
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.FoldedVisuals.State:
+        foldedLayer:
+          True: {visible: true}
+          False: {visible: false}
+        unfoldedLayer:
+          True: {visible: false}
+          False: {visible: true}
