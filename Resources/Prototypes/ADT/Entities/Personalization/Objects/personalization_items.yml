@@ -2668,7 +2668,7 @@
     prototypes:
     - ADTMobWatcherBible
 
-#Glude
+#Glide
 - type: entity
   parent: BasePlushie
   id: ADTPlushieGlide
@@ -2707,4 +2707,24 @@
   - type: FoodSequenceElement
     entries:
       CottonBurger: SlimePlushie
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieVictor
+  name: Plushie Victor
+  description: Plushie Victor
+  suffix: Personal, Glide
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/plushie_glide_victor.rsi
+    state: icon
+  - type: Clothing
+    quickEquip: false
+    sprite: ADT/Personalization/plushie_glide_victor.rsi
+    slots:
+    - HEAD
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+        offset: "0, 0.04"
 #SPONSOR-ITEMS-END
