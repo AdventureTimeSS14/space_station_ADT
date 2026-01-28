@@ -7,6 +7,7 @@ using Content.Shared.Audio;
 using Content.Shared.Chat;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Interaction.Events;
+using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Popups;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
@@ -127,6 +128,13 @@ public sealed class BarbellBenchSystem : SharedBarbellBenchSystem
             {
                 _stamina.TakeStaminaDamage(args.Performer, lift.StaminaCost, source: args.Performer, with: barbell, visual: true);
                 _popup.PopupEntity(Loc.GetString(lift.EmoteLocSelf), args.Performer, args.Performer, PopupType.Medium);
+
+                PullerComponent? pullerComp = null;
+                if (Resolve(args.Performer, ref pullerComp))
+                {
+                    pullerComp.PulledDensityReduction = Math.Min(pullerComp.PulledDensityReduction + 0.05f, 0.8f);
+                    Dirty(args.Performer, pullerComp);
+                }
             }
         }
 
