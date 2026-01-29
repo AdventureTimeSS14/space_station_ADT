@@ -6,49 +6,87 @@
   - type: Tag
     tags:
     - ADTBorgModuleSecurity
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Robotics/borgmodule.rsi
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: base-icon-inhand-left
+        color: "#FF9999"
+      - state: base-module-inhand-left
+        color: "#FF3333"
+      - state: base-stripes-inhand-left
+        color: "#B30000"
+      right:
+      - state: base-icon-inhand-right
+        color: "#FF9999"
+      - state: base-module-inhand-right
+        color: "#FF3333"
+      - state: base-stripes-inhand-right
+        color: "#B30000"
 
 - type: entity
   id: ADTBorgModuleDetention
-  parent: [ ADTBaseBorgModuleSecurity, BaseProviderBorgModule ]
+  parent: [ BaseProviderBorgModule, ADTBaseBorgModuleSecurity ]
   name: detentions module
   components:
   - type: Sprite
     layers:
     - state: security
-    - state: icons-detentions
+    - state: icon-detentions
+  - type: BorgModuleIcon
+    icon: { sprite: ADT/Interface/Actions/actions_borg.rsi, state: detention-module }
   - type: ItemBorgModule
+    droppableItems:
+    - id: Handcuffs
+      whitelist:
+        tags:
+        - Handcuffs
+    - id: Handcuffs
+      whitelist:
+        tags:
+        - Handcuffs
     items:
-    - ADTInfCablecuffs
-    - ADTtelescopicBaton
+    - ADTBorgStunbaton
+    - ADTWeaponDisablerBorg
+    - ADTBorgFlashingLight
     - ADTBorgflash
 
 - type: entity
-  id: ADTBorgModuleHarm
+  id: ADTBorgModuleLaser
   parent: [ ADTBaseBorgModuleSecurity, BaseProviderBorgModule ]
-  name: harm module
+  name: laser module
   components:
   - type: Sprite
     layers:
     - state: security
-    - state: icons-harm
+    - state: icon-laser
+  - type: BorgModuleIcon
+    icon: { sprite: ADT/Interface/Actions/actions_borg.rsi, state: laser-module }
   - type: ItemBorgModule
     items:
     - Truncheon
     - ADTWeaponLaserCarbineBorg
 
-- type: entity
-  id: ADTBorgModuleDisabler
-  parent: [ ADTBaseBorgModuleSecurity, BaseProviderBorgModule ]
-  name: disabler module
-  components:
-  - type: Sprite
-    layers:
-    - state: security
-    - state: icons-disabler
-  - type: ItemBorgModule
-    items:
-    - ADTInfCablecuffs
-    - ADTWeaponDisablerBorg
+# ADT-Tweak-Start: SBborgModuleUpdate
+#- type: entity
+#  id: ADTBorgModuleDisabler
+#  parent: [ ADTBaseBorgModuleSecurity, BaseProviderBorgModule ]
+#  name: disabler module
+#  components:
+#  - type: Sprite
+#    layers:
+#    - state: security
+#    - state: icons-disabler
+#  - type: ItemBorgModule
+#    items:
+#    - ADTInfCablecuffs
+#    - ADTWeaponDisablerBorg
+# ADT-Tweak-End
+
+# Borg Modules Update start
+
+#ENG
 
 - type: entity
   id: ADTBorgModuleRPD
@@ -68,6 +106,8 @@
     - PowerDrill
   - type: BorgModuleIcon
     icon: { sprite: ADT/Interface/Actions/actions_borg.rsi, state: rpd-module }
+
+#SUP
 
 - type: entity
   id: ADTBorgModuleSalvage
@@ -92,8 +132,26 @@
     - MaterialBag
   - type: BorgModuleIcon
     icon: { sprite: ADT/Interface/Actions/actions_borg.rsi, state: salvage-module }
+  
+# SEC
 
-# Borg Modules Update start
+- type: entity
+  id: ADTBorgModuleRifleLecter
+  parent: [ ADTBaseBorgModuleSecurity, BaseProviderBorgModule ]
+  name: lecter cyborg module
+  description: A module that comes with a L6C.
+  components:
+  - type: ItemBorgModule
+    items:
+    - ADTWeaponRifleLecterBorg
+  - type: Sprite
+    layers:
+    - state: security
+    - state: icon-lecter
+  - type: BorgModuleIcon
+    icon: { sprite: ADT/Interface/Actions/actions_borg.rsi, state: lecter-module }
+
+# MED
 
 - type: entity
   id: ADTBorgModuleChemical

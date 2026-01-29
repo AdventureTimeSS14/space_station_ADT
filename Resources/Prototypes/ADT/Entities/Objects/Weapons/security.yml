@@ -4,6 +4,15 @@
   id: ADTBorgflash
   description: An ultrabright flashbulb with a trigger, which causes the victim to be dazed and lose their eyesight for a moment. Useless when burnt out.
   components:
-    - type: LimitedCharges
-    - type: AutoRecharge
-      rechargeDuration: 10
+  - type: LimitedCharges
+  - type: AutoRecharge
+    rechargeDuration: 10
+
+- type: entity
+  name: borg stun baton
+  parent: Stunbaton
+  id: ADTBorgStunbaton
+  components:
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 20

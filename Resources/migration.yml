@@ -826,6 +826,9 @@ ADTClothingUniformGuardOfficer: ADTClothingUniformCorrectionsOfficer
 ChemDispenser: EnergyChemDispenser
 ChemDispenserEmpty: EnergyChemDispenser
 
+# ADT 2025-11-10
+ADTBorgModuleDisabler: ADTBorgModuleDetention
+
 # ADT 2026-01-06
 ADTSpawnMobXenoBurrower: SpawnMobXenoBurrower
 ADTSpawnMobXenoDrone: SpawnMobXenoDrone

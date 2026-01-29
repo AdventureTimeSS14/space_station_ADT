@@ -10,6 +10,33 @@
     voice: sentrybot
   - type: BorgSwitchableSubtype
     borgSubtype: default_security
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      150: Critical
+      400: Dead
+    stateAlertDict:
+      Alive: BorgHealth
+      Critical: BorgCrit
+      Dead: BorgDead
+    showOverlays: false
+    allowRevives: true
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 400
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:EmptyContainersBehaviour
+        containers:
+        - borg_brain
+        - borg_module
+        - cell_slot
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
 
 - type: entity
   id: ADTBorgChassisKerfusNT
