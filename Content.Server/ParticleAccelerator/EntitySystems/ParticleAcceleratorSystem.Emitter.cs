@@ -4,6 +4,7 @@ using Content.Shared.ParticleAccelerator.Components;
 using Content.Shared.Projectiles;
 using Content.Shared.Singularity.Components;
 using Robust.Shared.Physics.Components;
+using Content.Shared.ADT.Supermatter.Components; // ADT-tweak
 
 namespace Content.Server.ParticleAccelerator.EntitySystems;
 
@@ -54,6 +55,21 @@ public sealed partial class ParticleAcceleratorSystem
                 _ => 0,
             } * 10;
         }
+        //ADT-tweak-start
+        if (TryComp<SupermatterFoodComponent>(emitted, out var sm))
+        {
+            // TODO: Unhardcode this, when wizards do this lmao.
+            sm.Energy = strength switch
+            {
+                ParticleAcceleratorPowerState.Standby => 0,
+                ParticleAcceleratorPowerState.Level0 => 1,
+                ParticleAcceleratorPowerState.Level1 => 150,
+                ParticleAcceleratorPowerState.Level2 => 300,
+                ParticleAcceleratorPowerState.Level3 => 1000,  // Проверял 
+                _ => 0,
+            };
+        }
+        //ADT-tweak-end
 
         if (TryComp<ParticleProjectileComponent>(emitted, out var particle))
             particle.State = strength;
