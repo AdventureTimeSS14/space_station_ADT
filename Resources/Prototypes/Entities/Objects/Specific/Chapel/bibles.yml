@@ -44,7 +44,7 @@
     - Belt
   - type: Storage
     grid:
-    - 0,0,0,1
+    - 0,0,1,2 # ADT-Tweak
   - type: UserInterface
     interfaces:
       enum.StorageUiKey.Key:
@@ -166,4 +166,4 @@
     sprite: Objects/Specific/Chapel/codexnanotrasimus.rsi
 
 
-    
+

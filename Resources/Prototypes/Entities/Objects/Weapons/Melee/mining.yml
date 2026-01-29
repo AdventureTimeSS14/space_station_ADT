@@ -51,6 +51,7 @@
   - type: Tag
     tags:
     - Pickaxe
+    - ADTDrill # ADT-Tweak
   - type: Sprite
     sprite: ADT/Objects/Tools/handdrill.rsi # ADT-tweak: Objects/Tools/handdrill.rsi --> ADT/Objects/Tools/handdrill.rsi
     state: handdrill
@@ -115,7 +116,7 @@
       - Slicing
     useSound:
       path: /Audio/Items/Culinary/chop.ogg
-  - type: Prying 
+  - type: Prying
     useSound:
       path: /Audio/Items/crowbar.ogg
 

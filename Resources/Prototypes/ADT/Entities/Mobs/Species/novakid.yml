@@ -126,6 +126,10 @@
       methods: [ Touch ]
       effects:
       - !type:WashCreamPieReaction
+    - reagents: [Water, SpaceCleaner]
+      methods: [Touch]
+      effects:
+      - !type:WashStampReaction
     - reagents: [ Water, SpaceCleaner ]
       methods: [ Touch ]
       effects:

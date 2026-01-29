@@ -1,7 +1,7 @@
 {
-    "version": 1,
+    "version": 2,
     "license": "CC0-1.0",
-    "copyright": "Created by Beck Thompson for SS14",
+    "copyright": "Created by Beck Thompson for SS14, finger equipped by FIREMIX",
     "size": {
       "x": 32,
       "y": 32
@@ -12,6 +12,9 @@
       },
       {
         "name": "gem"
+      },
+      {
+        "name": "equipped-FINGER"
       }
     ]
   }

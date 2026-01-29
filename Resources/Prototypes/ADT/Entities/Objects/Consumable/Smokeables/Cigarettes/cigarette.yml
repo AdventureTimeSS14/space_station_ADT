@@ -14,7 +14,7 @@
   - type: SpaceGarbage
   - type: Clothing
     sprite: ADT/Objects/Consumable/Smokeables/Cigarettes/lucky_sloths_cigarette.rsi
-    slots: [ mask ]
+    slots: [ mask , ears2 ]
     equippedPrefix: unlit
   - type: Item
     size: Tiny
@@ -42,7 +42,7 @@
   - type: SpaceGarbage
   - type: Clothing
     sprite: ADT/Objects/Consumable/Smokeables/Cigarettes/we_ya_gold_cigarette.rsi
-    slots: [ mask ]
+    slots: [ mask , ears2 ]
     equippedPrefix: unlit
   - type: Item
     size: Tiny
@@ -70,7 +70,7 @@
   - type: SpaceGarbage
   - type: Clothing
     sprite: ADT/Objects/Consumable/Smokeables/Cigarettes/executive_select_cigarette.rsi
-    slots: [ mask ]
+    slots: [ mask , ears2 ]
     equippedPrefix: unlit
   - type: Item
     size: Tiny

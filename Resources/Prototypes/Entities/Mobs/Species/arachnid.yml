@@ -40,11 +40,15 @@
       methods: [Touch]
       effects:
       - !type:WashCreamPieReaction
-  # Start ADT tweak
+    #ADT-Tweak=Start
+    - reagents: [Water, SpaceCleaner]
+      methods: [Touch]
+      effects:
+      - !type:WashStampReaction
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: ADTArachnid
-  # End ADT tweak
+    # ADT-Tweak-End
   # Damage (Self)
   - type: Bloodstream
     bloodReagent: CopperBlood
