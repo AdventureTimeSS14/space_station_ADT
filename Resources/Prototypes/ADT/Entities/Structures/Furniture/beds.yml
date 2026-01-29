@@ -101,3 +101,24 @@
         unfoldedLayer:
           True: {visible: false}
           False: {visible: true}
+
+- type: entity
+  parent: Bed
+  id: ADTDoubleBed
+  name: double bed
+  description: A large bed for two people. Can place two bedsheets and buckle two people.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/bed_double.rsi
+    state: bedual-3
+  - type: Construction
+    graph: bed
+    node: double_bed_complete
+  - type: DoubleBed
+  - type: Appearance
+  - type: Strap
+    position: Down
+    rotation: -90
+    size: 200
+  - type: PlaceableSurface
+    placeCentered: true

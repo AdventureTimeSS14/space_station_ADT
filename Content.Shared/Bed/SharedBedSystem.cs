@@ -1,4 +1,5 @@
 using Content.Shared.Actions;
+using Content.Shared.Actions.Components;
 using Content.Shared.Bed.Components;
 using Content.Shared.Bed.Sleep;
 using Content.Shared.Body.Events;
@@ -60,7 +61,14 @@ public abstract class SharedBedSystem : EntitySystem
 
     private void OnUnstrapped(Entity<HealOnBuckleComponent> bed, ref UnstrappedEvent args)
     {
-        _actionsSystem.RemoveAction(args.Buckle.Owner, bed.Comp.SleepAction);
+        if (bed.Comp.SleepAction != null)
+        {
+            var action = bed.Comp.SleepAction.Value;
+            if (TryComp<ActionComponent>(action, out var actionComp) && actionComp.AttachedEntity == args.Buckle.Owner)
+            {
+                _actionsSystem.RemoveAction(args.Buckle.Owner, bed.Comp.SleepAction);
+            }
+        }
         _sleepingSystem.TryWaking(args.Buckle.Owner);
         RemComp<HealOnBuckleHealingComponent>(bed);
     }

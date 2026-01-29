@@ -982,6 +982,20 @@
     - !type:TileNotBlocked
 
 - type: construction
+  id: ADTDoubleBedRecipe
+  name: construction-name-double-bed
+  description: construction-desc-double-bed
+  graph: bed
+  startNode: start
+  targetNode: double_bed_complete
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
   id: ADTBonfireRecipe
   name: construction-name-bonfire
   description: construction-desc-bonfire
