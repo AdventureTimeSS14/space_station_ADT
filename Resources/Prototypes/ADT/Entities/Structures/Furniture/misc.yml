@@ -47,3 +47,223 @@
   - type: Construction
     graph: ADTDiscoBallGraph
     node: adtdiscoball
+
+# Часовой шкаф
+
+- type: entity
+  name: часовой шкаф
+  id: ADTClockCabinet
+  parent: BaseStructure
+  description: Тик. Так. Тик. Так.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/clock_cabinet.rsi # made by prazat911 for ADT
+    layers:
+    - state: clock-off
+      map: ["enum.ToggleableVisuals.Layer"]
+    noRot: true
+  - type: Transform
+    anchored: true
+  - type: Anchorable
+  - type: Rotatable
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.3,-0.3,0.6,0.6"
+        density: 190
+        mask:
+        - TableMask
+  - type: Appearance
+  - type: Clickable
+  - type: InteractionOutline
+  - type: ItemToggle
+    onActivate: true
+    predictable: true
+  - type: ItemToggleActiveSound
+    activeSound:
+      path: /Audio/ADT/Furniture/clock_ticktack.ogg
+      params:
+        volume: -8
+        maxDistance: 5
+  - type: Clock
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleableVisuals.Enabled:
+        enum.ToggleableVisuals.Layer:
+          True: {state: clock-on}
+          False: {state: clock-off}
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 100
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+      - trigger:
+          !type:DamageTrigger
+          damage: 50
+        behaviors:
+          - !type:DoActsBehavior
+            acts: ["Destruction"]
+          - !type:PlaySoundBehavior
+            sound:
+              collection: MetalBreak
+
+# Мемориалы
+
+- type: entity
+  id: ADTColumn
+  parent: Memorial
+  name: alien column
+  description: A tall column with carved hieroglyphs in an unknown language.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Memorials/column.rsi
+    state: full
+    drawdepth: OverMobs
+    noRot: true
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.225,-0.95,0.225,0.05"
+        density: 85
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+
+- type: entity
+  id: ADTColumnDamaged
+  parent: Memorial
+  name: alien column
+  description: A tall column with carved hieroglyphs in an unknown language. Looks old.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Memorials/column.rsi
+    state: column_damaged
+    drawdepth: OverMobs
+    noRot: true
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.225,-0.95,0.225,0.05"
+        density: 85
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+
+- type: entity
+  id: ADTMemorialTombstone1
+  parent: Memorial
+  name: tombstone
+  description: Rest in peace.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Memorials/tombstone.rsi
+    state: tombstone1
+    noRot: true
+
+- type: entity
+  id: ADTMemorialTombstone2
+  parent: Memorial
+  name: tombstone
+  description: Rest in peace.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Memorials/tombstone.rsi
+    state: tombstone2
+    noRot: true
+
+- type: entity
+  id: ADTMemorialTombstone3
+  parent: Memorial
+  name: tombstone
+  description: Rest in peace.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Memorials/tombstone.rsi
+    state: tombstone3
+    noRot: true
+
+- type: entity
+  id: ADTMemorialTombstone4
+  parent: Memorial
+  name: tombstone
+  description: Rest in peace.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Memorials/tombstone.rsi
+    state: tombstone4
+    noRot: true
+
+- type: entity
+  id: ADTMemorialTombstone5
+  parent: Memorial
+  name: tombstone
+  description: Rest in peace.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Memorials/tombstone.rsi
+    state: tombstone5
+    noRot: true
+
+- type: entity
+  id: ADTMemorialVeterans
+  parent: Memorial
+  name: fallen memorial
+  description: A memorial plaque with names of fallen marines and peacekeepers.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Memorials/veterans_64x32.rsi
+    state: full
+    drawdepth: OverMobs
+    noRot: true
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-1.0,-0.5,1.0,0.5"
+        density: 85
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+
+- type: entity
+  id: ADTMemorialVeteransCivilWar
+  parent: Memorial
+  name: civil war veterans memorial
+  description: A massive black granite slab covered with countless names of fallen soldiers.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Memorials/veterans_192x64.rsi
+    state: full
+    drawdepth: OverMobs
+    noRot: true
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-3.0,-1.0,3.0,0.0"
+        density: 85
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer

@@ -169,3 +169,63 @@ ent-ADTSofaOfficeWhiteRightCorner = { ent-ADTSofaOfficeWhiteLeftSide }
 ent-ADTSofaOfficeWhiteLeftCorner = { ent-ADTSofaOfficeWhiteLeftSide }
     .suffix = Левый угол
     .desc = { ent-ADTSofaBlackLeftSide.desc }
+
+ent-ADTSofaCutBlackLeftSide = чёрный диван
+    .suffix = Левая часть
+    .desc = { ent-ADTSofaBlackLeftSide.desc }
+
+ent-ADTSofaCutBlackMiddle = { ent-ADTSofaCutBlackLeftSide }
+    .suffix = Середина
+    .desc = { ent-ADTSofaBlackLeftSide.desc }
+
+ent-ADTSofaCutBlackRightSide = { ent-ADTSofaCutBlackLeftSide }
+    .suffix = Правая часть
+    .desc = { ent-ADTSofaBlackLeftSide.desc }
+
+ent-ADTSofaCutBlackLeftCorner = { ent-ADTSofaCutBlackLeftSide }
+    .suffix = Левый угол
+    .desc = { ent-ADTSofaBlackLeftSide.desc }
+
+ent-ADTSofaCutBlackRightCorner = { ent-ADTSofaCutBlackLeftSide }
+    .suffix = Правый угол
+    .desc = { ent-ADTSofaBlackLeftSide.desc }
+
+ent-ADTSofaCutComfyLeftSide = удобный диван
+    .suffix = Левая часть
+    .desc = { ent-ADTSofaBlackLeftSide.desc }
+
+ent-ADTSofaCutComfyMiddle = { ent-ADTSofaCutComfyLeftSide }
+    .suffix = Середина
+    .desc = { ent-ADTSofaBlackLeftSide.desc }
+
+ent-ADTSofaCutComfyRightSide = { ent-ADTSofaCutComfyLeftSide }
+    .suffix = Правая часть
+    .desc = { ent-ADTSofaBlackLeftSide.desc }
+
+ent-ADTSofaCutComfyLeftCorner = { ent-ADTSofaCutComfyLeftSide }
+    .suffix = Левый угол
+    .desc = { ent-ADTSofaBlackLeftSide.desc }
+
+ent-ADTSofaCutComfyRightCorner = { ent-ADTSofaCutComfyLeftSide }
+    .suffix = Правый угол
+    .desc = { ent-ADTSofaBlackLeftSide.desc }
+
+ent-ADTSofaCutDainerLeftSide = обеденный диван
+    .suffix = Левая часть
+    .desc = { ent-ADTSofaBlackLeftSide.desc }
+
+ent-ADTSofaCutDainerMiddle = { ent-ADTSofaCutDainerLeftSide }
+    .suffix = Середина
+    .desc = { ent-ADTSofaBlackLeftSide.desc }
+
+ent-ADTSofaCutDainerRightSide = { ent-ADTSofaCutDainerLeftSide }
+    .suffix = Правая часть
+    .desc = { ent-ADTSofaBlackLeftSide.desc }
+
+ent-ADTSofaCutDainerLeftCorner = { ent-ADTSofaCutDainerLeftSide }
+    .suffix = Левый угол
+    .desc = { ent-ADTSofaBlackLeftSide.desc }
+
+ent-ADTSofaCutDainerRightCorner = { ent-ADTSofaCutDainerLeftSide }
+    .suffix = Правый угол
+    .desc = { ent-ADTSofaBlackLeftSide.desc }

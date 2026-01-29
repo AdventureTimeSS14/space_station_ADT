@@ -27,3 +27,47 @@
       - ADTCrateNecropolisAdvancedEquipment
       - ADTCrateNecropolisArmorMinerLight
     chance: 1
+
+- type: entity
+  parent: MarkerBase
+  id: ADTRandomSpawnerContainers
+  name: random container spawner
+  suffix: Shipping
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: Corvax/Objects/Decoration/containers.rsi
+      state: container_blank
+  - type: RandomSpawner
+    offset: 0.0
+    chance: 1.0
+    prototypes:
+    - ShippingContainerBlank
+    - ShippingContainerConarex
+    - ShippingContainerDeforest
+    - ShippingContainerKahraman
+    - ShippingContainerKosmologistika
+    - ShippingContainerInterdyne
+    - ShippingContainerNakamura
+    - ShippingContainerNanotrasen
+    - ShippingContainerVitezstvi
+    - ShippingContainerCybersun
+    - ShippingContainerDonkCo
+    - ShippingContainerGorlex
+    - ShippingContainerGorlexRed
+    - ADTShippingContainerCybersunBlack
+    - ADTShippingContainerCybersunBlackTape
+    - ADTShippingContainerDVCloth
+    - ADTShippingContainerDVMilitech
+    - ADTShippingContainerDVMilitechTape
+    - ADTShippingContainerGorlexBlack
+    - ADTShippingContainerGorlexBlackTape
+    - ADTShippingContainerHonkburger
+    - ADTShippingContainerInterdyneBlack
+    - ADTShippingContainerInterdyneBlackTape
+    - ADTShippingContainerNanotrasenFuture
+    - ADTShippingContainerNanotrasenNoFuture
+    - ADTShippingContainerSaibasan
+    - ADTShippingContainerSpaceCola
+    - ADTShippingContainerTLH
