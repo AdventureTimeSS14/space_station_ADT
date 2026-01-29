@@ -94,6 +94,8 @@
       types:
         Structural: 5000
         Blunt: 10
+  - type: SingularityDistortion
+    intensity: 0
 
 
 - type: entity
@@ -114,6 +116,8 @@
     - HideContextMenu
   - type: Physics
     canCollide: false
+  - type: SingularityDistortion
+    intensity: 0
 
 - type: entity
   id: SpaceLeviathanDespawn
