@@ -61792,7 +61792,7 @@ entities:
       pos: -0.50479734,65.52099
       parent: 2
     - type: RadiationSource
-      slope: 0.32
+# ADT-Tweak      slope: 0.32
       intensity: 2
 - proto: PortableGeneratorJrPacman
   entities:

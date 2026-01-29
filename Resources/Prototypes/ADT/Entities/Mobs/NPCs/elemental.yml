@@ -75,7 +75,7 @@
       task: SimpleHostileCompound
   - type: RadiationSource
     intensity: 0.1
-    slope: 0.5
+# ADT-Tweak    slope: 0.5
 
 - type: entity
   parent: MobSilverCrab
