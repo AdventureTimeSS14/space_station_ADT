@@ -14,7 +14,7 @@ using Content.Server.ADT.MobCaller;
 using System.Linq;
 using Robust.Shared.Spawners;
 
-namespace Content.Goobstation.Server.SpaceWhale.StationProximity;
+namespace Content.Server.ADT.SpaceWhale.StationProximity;
 
 // used by space whales so think twice beofre using it for yourself somewhere else
 // also half of this was taken from wizden #30436 and redone for whale purposes

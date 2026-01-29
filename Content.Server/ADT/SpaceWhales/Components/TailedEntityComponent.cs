@@ -1,6 +1,6 @@
 using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Server.SpaceWhale
+namespace Content.Server.ADT.SpaceWhale
 {
     /// <summary>
     /// When given to an entity, creates X tailed entities that try to follow the entity with the component.
