@@ -1,0 +1,71 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Created by discord:KING_DICE#4881",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "icon-emerald"
+        },
+        {
+            "name": "icon-plazma"
+        },
+        {
+            "name": "icon-turk"
+        },
+        {
+            "name": "icon-blood"
+        },
+        {
+            "name": "equipped-FINGER-emerald",
+            "directions": 4
+        },
+        {
+            "name": "equipped-FINGER-plazma",
+            "directions": 4
+        },
+        {
+            "name": "equipped-FINGER-turk",
+            "directions": 4
+        },
+        {
+            "name": "equipped-FINGER-blood",
+            "directions": 4
+        },
+        {
+            "name": "inhand-left-emerald",
+            "directions": 4
+        },
+        {
+            "name": "inhand-left-plazma",
+            "directions": 4
+        },
+        {
+            "name": "inhand-left-turk",
+            "directions": 4
+        },
+        {
+            "name": "inhand-left-blood",
+            "directions": 4
+        },
+        {
+            "name": "inhand-right-emerald",
+            "directions": 4
+        },
+        {
+            "name": "inhand-right-plazma",
+            "directions": 4
+        },
+        {
+            "name": "inhand-right-turk",
+            "directions": 4
+        },
+        {
+            "name": "inhand-right-blood",
+            "directions": 4
+        }
+    ]
+}

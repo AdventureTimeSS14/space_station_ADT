@@ -5,11 +5,20 @@
   description: Good ring.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Hands/Rings/RingBlood.rsi
+    sprite: ADT/Clothing/Hands/Rings/Rings.rsi
+    state: icon-blood
   - type: Clothing
     slots: [finger]
-    sprite: ADT/Clothing/Hands/Rings/RingBlood.rsi
+    sprite: ADT/Clothing/Hands/Rings/Rings.rsi
+    clothingVisuals:
+      finger:
+      - state: equipped-FINGER-blood
   - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-blood
+      right:
+      - state: inhand-right-blood
     size: Tiny
   - type: StaticPrice
     price: 1000
@@ -21,11 +30,20 @@
   description: Good ring.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Hands/Rings/RingEmerald.rsi
+    sprite: ADT/Clothing/Hands/Rings/Rings.rsi
+    state: icon-emerald
   - type: Clothing
     slots: [finger]
-    sprite: ADT/Clothing/Hands/Rings/RingEmerald.rsi
+    sprite: ADT/Clothing/Hands/Rings/Rings.rsi
+    clothingVisuals:
+      finger:
+      - state: equipped-FINGER-emerald
   - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-emerald
+      right:
+      - state: inhand-right-emerald
     size: Tiny
   - type: StaticPrice
     price: 1000
@@ -37,11 +55,20 @@
   description: Good ring.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Hands/Rings/RingPlazma.rsi
+    sprite: ADT/Clothing/Hands/Rings/Rings.rsi
+    state: icon-plazma
   - type: Clothing
     slots: [finger]
-    sprite: ADT/Clothing/Hands/Rings/RingPlazma.rsi
+    sprite: ADT/Clothing/Hands/Rings/Rings.rsi
+    clothingVisuals:
+      finger:
+      - state: equipped-FINGER-plazma
   - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-plazma
+      right:
+      - state: inhand-right-plazma
     size: Tiny
   - type: StaticPrice
     price: 1000
@@ -53,11 +80,20 @@
   description: Good ring.
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Hands/Rings/RingTurk.rsi
+    sprite: ADT/Clothing/Hands/Rings/Rings.rsi
+    state: icon-turk
   - type: Clothing
     slots: [finger]
-    sprite: ADT/Clothing/Hands/Rings/RingTurk.rsi
+    sprite: ADT/Clothing/Hands/Rings/Rings.rsi
+    clothingVisuals:
+      finger:
+      - state: equipped-FINGER-turk
   - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-turk
+      right:
+      - state: inhand-right-turk
     size: Tiny
   - type: StaticPrice
     price: 1000
