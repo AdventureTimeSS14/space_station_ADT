@@ -26,6 +26,18 @@
   quirk: true
 
 - type: trait
+  id: Hushed
+  name: trait-hushed-name
+  description: trait-hushed-desc
+  category: SpeechTraits
+  cost: 0
+  blacklist:
+    components:
+    - BorgChassis
+  components:
+  - type: Hushed
+
+- type: trait
   id: ADTSoftWalk
   name: trait-soft-walk-name
   description: trait-soft-walk-desc

@@ -28,3 +28,6 @@ trait-echolalia-desc = Вы неконтролируемо повторяете 
 
 trait-dysgraphia-name = Дисграфия
 trait-dysgraphia-desc = Вы не способны внятно писать, поэтому не делаете это впринципе
+
+trait-hushed-name = Тихий
+trait-hushed-desc = Ваш голос не способен стать громче шёпота.
