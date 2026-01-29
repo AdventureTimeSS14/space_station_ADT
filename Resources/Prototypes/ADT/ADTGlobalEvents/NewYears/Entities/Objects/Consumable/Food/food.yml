@@ -1,0 +1,363 @@
+#Гвоздика
+- type: entity
+  name: carnation
+  parent: FoodProduceBase
+  id: ADTFoodCarnation
+  description: Is that really IS a carnation?
+  suffix: New Year
+  components:
+  - type: FlavorProfile
+    flavors:
+      - savory
+  - type: Food
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: ADTCarnation
+          Quantity: 5
+  - type: Item
+    sprite: ADT/ADTGlobalEvents/NewYears/Objects/Consumable/Food/new-years/carnation.rsi
+    size: Tiny
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/NewYears/Objects/Consumable/Food/new-years/carnation.rsi
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: ADTCarnation
+        Quantity: 5
+  - type: SolutionSpiker
+    sourceSolution: food
+    ignoreEmpty: true
+    popup: adt-spike-solution-put
+  - type: Appearance
+  - type: DeleteOnTrigger
+
+#Корица
+- type: entity
+  name: cinnamon
+  parent: FoodProduceBase
+  id: ADTFoodCinnamon
+  description: Fragrant cinnamon sticks.
+  suffix: New Year
+  components:
+  - type: FlavorProfile
+    flavors:
+      - sweet
+  - type: Food
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: ADTСinnamon
+          Quantity: 5
+  - type: Item
+    sprite: ADT/ADTGlobalEvents/NewYears/Objects/Consumable/Food/new-years/cinnamon.rsi
+    size: Tiny
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/NewYears/Objects/Consumable/Food/new-years/cinnamon.rsi
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: ADTСinnamon
+        Quantity: 5
+  - type: SolutionSpiker
+    sourceSolution: food
+    ignoreEmpty: true
+    popup: adt-spike-solution-put
+  - type: Appearance
+  - type: DeleteOnTrigger
+
+#Печенье
+- type: entity
+  name: atmos cake
+  parent: FoodSnackBase
+  id: ADTFoodSnackAtmosCake
+  description: atmos cake
+  suffix: New Year
+  components:
+  - type: FlavorProfile
+    flavors:
+      - sweet
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/NewYears/Objects/Consumable/Food/new-years/newyearsnack.rsi
+    state: atmos
+  - type: Item
+    size: Tiny
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 2
+
+- type: entity
+  name: botanic cake
+  parent: ADTFoodSnackAtmosCake
+  id: ADTFoodSnackBotanicCake
+  description: botanic cake
+  components:
+  - type: Sprite
+    state: botanic
+
+- type: entity
+  name: candy stick
+  parent: ADTFoodSnackAtmosCake
+  id: ADTFoodSnackCandyStick
+  description: candy stick
+  components:
+  - type: Sprite
+    state: stick
+
+- type: entity
+  name: cargo cake
+  parent: ADTFoodSnackAtmosCake
+  id: ADTFoodSnackCargoCake
+  description: cargo cake
+  components:
+  - type: Sprite
+    state: cargo
+
+- type: entity
+  name: cookie man
+  parent: ADTFoodSnackAtmosCake
+  id: ADTFoodSnackCookieMan
+  description: cookie man
+  components:
+  - type: Sprite
+    state: cookieman
+
+- type: entity
+  name: chef cake
+  parent: ADTFoodSnackAtmosCake
+  id: ADTFoodSnackChefCake
+  description: chef cake
+  components:
+  - type: Sprite
+    state: chef
+
+- type: entity
+  name: doctor cake
+  parent: ADTFoodSnackAtmosCake
+  id: ADTFoodSnackDoctorCake
+  description: doctor cake
+  components:
+  - type: Sprite
+    state: doctor
+
+- type: entity
+  name: gift cake
+  parent: ADTFoodSnackAtmosCake
+  id: ADTFoodSnackGiftCake
+  description: gift cake
+  components:
+  - type: Sprite
+    state: gift
+
+- type: entity
+  name: glove cake
+  parent: ADTFoodSnackAtmosCake
+  id: ADTFoodSnackGloveCake
+  description: glove cake
+  components:
+  - type: Sprite
+    state: glove
+
+- type: entity
+  name: janitory cake
+  parent: ADTFoodSnackAtmosCake
+  id: ADTFoodSnackJanitoryCake
+  description: janitory cake
+  components:
+  - type: Sprite
+    state: janitory
+
+- type: entity
+  name: mime cake
+  parent: ADTFoodSnackAtmosCake
+  id: ADTFoodSnackMimeCake
+  description: mime cake
+  components:
+  - type: Sprite
+    state: mime
+
+- type: entity
+  name: nukie cake
+  parent: ADTFoodSnackAtmosCake
+  id: ADTFoodSnackNukieCake
+  description: nukie cake
+  components:
+  - type: Sprite
+    state: nukie
+
+- type: entity
+  name: clown cake
+  parent: ADTFoodSnackAtmosCake
+  id: ADTFoodSnackClownCake
+  description: clown cake
+  components:
+  - type: Sprite
+    state: clown
+
+- type: entity
+  name: greytide cake
+  parent: ADTFoodSnackAtmosCake
+  id: ADTFoodSnackGreytideCake
+  description: greytide cake
+  components:
+  - type: Sprite
+    state: greytide
+
+- type: entity
+  name: scientist cake
+  parent: ADTFoodSnackAtmosCake
+  id: ADTFoodSnackScientistCake
+  description: scientist cake
+  components:
+  - type: Sprite
+    state: scientist
+
+- type: entity
+  name: security cake
+  parent: ADTFoodSnackAtmosCake
+  id: ADTFoodSnackSecurityCake
+  description: security cake
+  components:
+  - type: Sprite
+    state: security
+
+- type: entity
+  name: snowflake cake
+  parent: ADTFoodSnackAtmosCake
+  id: ADTFoodSnackSnowflakeCake
+  description: snowflake cake
+  components:
+  - type: Sprite
+    state: snowflake
+
+- type: entity
+  name: snowman cake
+  parent: ADTFoodSnackAtmosCake
+  id: ADTFoodSnackSnowmanCake
+  description: snowman cake
+  components:
+  - type: Sprite
+    state: snowman
+
+- type: entity
+  name: socks cake
+  parent: ADTFoodSnackAtmosCake
+  id: ADTFoodSnackSocksCake
+  description: socks cake
+  components:
+  - type: Sprite
+    state: socks
+
+- type: entity
+  name: tree cake
+  parent: ADTFoodSnackAtmosCake
+  id: ADTFoodSnackTreeCake
+  description: tree cake
+  components:
+  - type: Sprite
+    state: tree
+
+#Коробки со сладостями
+
+- type: entity
+  id: ADTBoxNewYearSnack1
+  parent: BaseStorageItem
+  name: new year snackbox 1
+  description: new year snackbox 1
+  suffix: New Year
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/NewYears/Objects/Consumable/Food/new-years/newyearsnack.rsi
+    state: box1
+  - type: Item
+    size: Large
+  - type: Storage
+    maxItemSize: Small
+    grid:
+    - 0,0,2,3
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+  - type: PhysicalComposition
+    materialComposition:
+      Cardboard: 100
+  - type: StorageFill
+    contents:
+    - id: ADTFoodSnackAtmosCake
+      amount: 1
+    - id: ADTFoodSnackBotanicCake
+      amount: 1
+    - id: ADTFoodSnackCargoCake
+      amount: 2
+    - id: ADTFoodSnackChefCake
+      amount: 1
+    - id: ADTFoodSnackDoctorCake
+      amount: 2
+    - id: ADTFoodSnackJanitoryCake
+      amount: 1
+    - id: ADTFoodSnackScientistCake
+      amount: 1
+    - id: ADTFoodSnackSecurityCake
+      amount: 1
+    - id: ADTFoodSnackYellowCandies
+      amount: 1
+
+- type: entity
+  name: new year snackbox 2
+  description: new year snackbox 2
+  parent: ADTBoxNewYearSnack1
+  id: ADTBoxNewYearSnack2
+  components:
+  - type: Sprite
+    state: box2
+  - type: StorageFill
+    contents:
+    - id: ADTFoodSnackCandyStick
+      amount: 3
+    - id: ADTFoodSnackCookieMan
+      amount: 2
+    - id: ADTFoodSnackGiftCake
+      amount: 1
+    - id: ADTFoodSnackGloveCake
+      amount: 1
+    - id: ADTFoodSnackSnowflakeCake
+      amount: 1
+    - id: ADTFoodSnackSnowmanCake
+      amount: 1
+    - id: ADTFoodSnackSocksCake
+      amount: 1
+    - id: ADTFoodSnackTreeCake
+      amount: 1
+    - id: ADTFoodSnackCoinCandies
+      amount: 1
+
+- type: entity
+  name: new year snackbox 3
+  description: new year snackbox 3
+  parent: ADTBoxNewYearSnack1
+  id: ADTBoxNewYearSnack3
+  components:
+  - type: Sprite
+    state: box3
+  - type: StorageFill
+    contents:
+    - id: ADTFoodSnackMimeCake
+      amount: 1
+    - id: ADTFoodSnackNukieCake
+      amount: 3
+    - id: ADTFoodSnackClownCake
+      amount: 2
+    - id: ADTFoodSnackGreytideCake
+      amount: 3
+    - id: ADTFoodSnackCoinCandies
+      amount: 2
+    - id: ADTFoodSnackBlackCandies
+      amount: 1

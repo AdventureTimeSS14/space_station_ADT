@@ -194,11 +194,26 @@ public abstract class SharedPickupHumansSystem : EntitySystem
         if (!CanPickup(args.Args.User, uid, component))
             return;
 
+        // ADT-Tweak-Halloween: CelticSpike PickupHumans restriction
+        if (!ShouldAllowPickup(args.Args.User, uid, component))
+        {
+            args.Handled = true;
+            return;
+        }
+        // ADT-Tweak-End
         Pickup(args.Args.User, uid);
 
         args.Handled = true;
     }
 
+    /// <summary>
+    /// С какой либо вероятностью разрешает поднять сущность на ноги (виртуальный метод для сервера)
+    /// <summary>
+    public virtual bool ShouldAllowPickup(EntityUid user, EntityUid target, PickupHumansComponent component)
+    {
+        return true;
+    }
+     // ADT-Tweak-End
 
     /// <summary>
     /// Поднимает сущность на руки

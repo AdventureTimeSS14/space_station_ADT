@@ -1,0 +1,101 @@
+- type: entity
+  name: cardboard gift
+  parent: PresentRandom
+  id: cardboardGift
+  description: a gift for those who performed poorly on NanoTrasen this year.
+  suffix: New Year
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/NewYears/Objects/Storage/gift.rsi
+    layers:
+      - state: icon
+  - type: SpawnItemsOnUse
+    items:
+      - id: PresentTrash
+      - id: coal
+  #- type: Item
+  #  size: Ginormous
+  #  sprite: ADT/Objects/Storage/gift.rsi
+  #- type: Storage
+  #  maxTotalWeight: 24
+
+#подарки от Празата:
+
+- type: entity
+  id: ADTPresentRandomBlue
+  parent: PresentRandom
+  suffix: Filled Safe, New Year
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/NewYears/Objects/Fun/new_year_present.rsi
+    layers:
+      - state: blue
+
+- type: entity
+  id: ADTPresentRandomGreen
+  parent: PresentRandom
+  suffix: Filled Safe, New Year
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/NewYears/Objects/Fun/new_year_present.rsi
+    layers:
+      - state: green
+
+- type: entity
+  id: ADTPresentRandomPurple
+  parent: PresentRandom
+  suffix: Filled Safe, New Year
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/NewYears/Objects/Fun/new_year_present.rsi
+    layers:
+      - state: purple
+
+- type: entity
+  id: ADTPresentRandomRed
+  parent: PresentRandom
+  suffix: Filled Safe, New Year
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/NewYears/Objects/Fun/new_year_present.rsi
+    layers:
+      - state: red
+
+- type: entity
+  id: ADTPresentRandomInsaneSyndicate
+  parent: PresentRandomInsane
+  suffix: Filled Insane, New Year
+  components:
+  - type: RandomGift
+    insaneMode: ADTUnSafe
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/NewYears/Objects/Fun/new_year_present.rsi
+    layers:
+      - state: syndicate
+
+#спавнер подарков
+
+- type: entity
+  parent: MarkerBase
+  id: ADTRandomNewYearGiftSpawner
+  name: random new year gift spawner
+  suffix: New Year
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: ADT/ADTGlobalEvents/NewYears/Objects/Fun/new_year_present.rsi
+        state: red
+  - type: RandomSpawner
+    offset: 0
+    prototypes:
+      - ADTPresentRandomRed
+      - ADTPresentRandomPurple
+      - ADTPresentRandomGreen
+      - ADTPresentRandomBlue
+      - cardboardGift
+    #chance: 0.7
+    rarePrototypes: #временный прикол, который стоит потом убрать.
+      - toyC4Package
+      - ADTPresentRandomInsaneSyndicate
+    rareChance: 0.10 #Был 0.25. Даже с таким слишком часто падает.

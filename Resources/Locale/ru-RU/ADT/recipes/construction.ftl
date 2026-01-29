@@ -51,6 +51,9 @@ construction-name-red-chair = красный стул
 construction-name-church-bench-left-side = левая сторона церковной скамьи
 construction-name-church-bench-middle = средняя часть церковной скамьи
 construction-name-church-bench-right-side = правая сторона церковной скамьи
+construction-name-oktoberfest-chair = стул для Октоберфеста
+construction-name-oktoberfest-table = стол для Октоберфеста
+construction-name-oktoberfest-orange-table = оранжевый стол для Октоберфеста
 construction-name-fireplace = камин
 construction-name-fireplace-white = белый камин
 construction-name-fireplace-wooden = деревянный камин
@@ -173,6 +176,7 @@ construction-desc-white-office-sofa-right-side = Выглядит удобно.
 construction-desc-white-office-sofa-middle = Выглядит удобно.
 construction-desc-white-office-sofa-left-corner = Выглядит удобно.
 construction-desc-white-office-sofa-right-corner = Выглядит удобно.
+
 construction-desc-banner-red = Это знамя в красных цветах. Типа крутое.
 construction-desc-banner-blue = Это знамя в синих цветах. Ай м блу, дабуди-дабудай.
 construction-desc-banner-green = Это знамя в зелёных цветах. Трава, листья, гуакамоле.
@@ -199,6 +203,7 @@ construction-desc-banner-engineering = Это знамя, на котором п
 construction-desc-banner-medical = Это знамя, на котором представлены цвета медицинского отдела. Какое стерильное.
 construction-desc-banner-science = Это знамя, на котором представлены цвета научного отдела. Где знания безграничны, а техника безопасности игнорируется.
 construction-desc-banner-security = Это знамя, на котором представлены цвета отдела безопасности. Вы удивлены, что его ещё никто не испортил.
+
 construction-desc-banner-human-flag = Это знамя центрального человеческого государства, управляющего Солнечной системой и колониями со столицей на планете Земля.
 construction-desc-statue-lenin = Без него ни одна площадь колонии СССП не обходится. Товарищи! Рабоче-крестьянская революция, о необходимости которой всё время говорили большевики, свершилась!
 construction-desc-statue-angel = Ангел-хранитель, который защищает вас от всех бед и несчастий. В трудный час вашей жизни он поможет вам преодолеть все ваши трудности.
