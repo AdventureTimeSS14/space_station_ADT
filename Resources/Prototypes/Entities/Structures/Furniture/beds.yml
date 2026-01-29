@@ -139,6 +139,9 @@
     state: mattress
   - type: Damageable
     damageModifierSet: Inflatable
+  - type: Construction
+    graph: adt_mattress
+    node: mattress
 
 - type: entity
   parent: Bed
