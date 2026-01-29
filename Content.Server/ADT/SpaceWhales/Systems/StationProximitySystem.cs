@@ -152,7 +152,7 @@ public sealed class StationProximitySystem : EntitySystem
 
     private void HandleFarFromStation(EntityUid entity) // basically handles space whale spawnings
     {
-        if (EntityManager.AllEntities<SpaceWhaleTargetComponent>().Count() > 0 || _mobCaller.HasValue)
+        if (EntityManager.AllEntities<SpaceWhaleTargetComponent>().Count() > 0)
             return;
 
         _popup.PopupEntity(
@@ -164,6 +164,9 @@ public sealed class StationProximitySystem : EntitySystem
         _audio.PlayGlobal(new SoundPathSpecifier("/Audio/ADT/Ambience/SpaceWhale/leviathan-appear.ogg"),
             entity,
             AudioParams.Default.WithVolume(1f));
+
+        if (_mobCaller.HasValue)
+            return;
 
         // Spawn a dummy entity at the player's location and lock it onto the player
         _mobCaller = Spawn(null, Transform(entity).Coordinates);
