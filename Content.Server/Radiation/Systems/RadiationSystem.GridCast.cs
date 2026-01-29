@@ -21,8 +21,8 @@ public partial class RadiationSystem
         Vector2 WorldPosition)
     {
         public EntityUid? GridUid => Entity.Comp2.GridUid;
-        public float TerminalDecaySlope => Entity.Comp1.TerminalDecaySlope;
-        public float TerminalDecayDistance => Entity.Comp1.TerminalDecayDistance;
+        public float TerminalDecaySlope => Entity.Comp1.TerminalDecaySlope; // ADT-Tweak
+        public float TerminalDecayDistance => Entity.Comp1.TerminalDecayDistance; // ADT-Tweak
         public TransformComponent Transform => Entity.Comp2;
     }
 
