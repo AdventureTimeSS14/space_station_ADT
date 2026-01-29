@@ -40,7 +40,6 @@ using Content.Shared.DoAfter;
 using Content.Server.Fluids.EntitySystems;
 using Content.Server.Cuffs;
 using Robust.Shared.Timing;
-using Content.Server.ADT.Hallucinations;
 using Content.Shared.Mobs;
 using Content.Server.Stealth;
 using Content.Server.ADT.Store;
@@ -83,7 +82,7 @@ public sealed partial class ChangelingSystem : EntitySystem
     [Dependency] private readonly PuddleSystem _puddle = default!;
     [Dependency] private readonly CuffableSystem _cuffable = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly HallucinationsSystem _hallucinations = default!;
+    //[Dependency] private readonly HallucinationsSystem _hallucinations = default!;
     [Dependency] private readonly StealthSystem _stealth = default!;
     [Dependency] private readonly ContainerSystem _container = default!;
     [Dependency] private readonly LanguageSystem _language = default!;

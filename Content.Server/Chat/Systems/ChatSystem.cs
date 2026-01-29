@@ -971,13 +971,18 @@ public sealed partial class ChatSystem : SharedChatSystem
 
             var observer = ghostHearing.HasComponent(playerEntity);
 
-            // ADT Resomi start
+            // ADT-Tweak-start
             var range = voiceGetRange;
             if (TryComp<ChatModifierComponent>(playerEntity, out var modifier) && modifier.Modifiers.ContainsKey(ChatModifierType.Say))
             {
                 range = modifier.Modifiers[ChatModifierType.Say];
             }
-            // ADT Resomi end
+
+            var ev = new CanReceiveChatMessageEvent(source, false);
+            RaiseLocalEvent(playerEntity, ref ev);
+            if (ev.Cancelled)
+                continue;
+            // ADT-Tweak-end
 
             // even if they are a ghost hearer, in some situations we still need the range
             if (sourceCoords.TryDistance(EntityManager, transformEntity.Coordinates, out var distance) && distance < range) // ADT Resomi tweaked

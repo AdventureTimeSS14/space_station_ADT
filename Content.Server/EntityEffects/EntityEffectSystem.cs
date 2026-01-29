@@ -42,8 +42,8 @@ using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Content.Shared.StatusEffect;
-using Content.Server.ADT.Hallucinations;
 using Content.Server.ADT.Shadekin;
+using Content.Server.ADT.Shizophrenia;
 
 using TemperatureCondition = Content.Shared.EntityEffects.EffectConditions.Temperature; // disambiguate the namespace
 using PolymorphEffect = Content.Shared.EntityEffects.Effects.Polymorph;
@@ -80,7 +80,7 @@ public sealed class EntityEffectSystem : EntitySystem
     [Dependency] private readonly VomitSystem _vomit = default!;
     [Dependency] private readonly TurfSystem _turf = default!;
     // ADT-Tweak-Start
-    [Dependency] private readonly HallucinationsSystem _hall = default!;
+    [Dependency] private readonly SchizophreniaSystem _shiz = default!;
     [Dependency] private readonly StatusEffectsSystem _status = default!;
     [Dependency] private readonly ShadekinSystem _shadekin = default!;
     // ADT-Tweak-End
@@ -999,18 +999,9 @@ public sealed class EntityEffectSystem : EntitySystem
         var time = args.Effect.Time;
         time *= hallargs.Scale.Float();
 
-        if (args.Effect.Type == HallucinationsMetabolismType.Add)
+        foreach (var item in args.Effect.Hallucinations)
         {
-            if (!_hall.StartHallucinations(hallargs.TargetEntity, args.Effect.Key, TimeSpan.FromSeconds(args.Effect.Time), args.Effect.Refresh, args.Effect.Proto))
-                return;
-        }
-        else if (args.Effect.Type == HallucinationsMetabolismType.Remove)
-        {
-            _status.TryRemoveTime(hallargs.TargetEntity, args.Effect.Key, TimeSpan.FromSeconds(time));
-        }
-        else if (args.Effect.Type == HallucinationsMetabolismType.Set)
-        {
-            _status.TrySetTime(hallargs.TargetEntity, args.Effect.Key, TimeSpan.FromSeconds(time));
+            _shiz.AddOrAdjustHallucinations(hallargs.TargetEntity, item, time, args.Effect.Type);
         }
     }
     private void OnExecuteRandomTeleport(ref ExecuteEntityEffectEvent<RandomTeleport> args)

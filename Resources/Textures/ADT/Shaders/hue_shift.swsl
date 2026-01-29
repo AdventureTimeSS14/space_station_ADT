@@ -1,0 +1,36 @@
+uniform sampler2D SCREEN_TEXTURE;
+uniform highp float shift;
+
+void fragment() {
+    highp vec4 color = zTextureSpec(SCREEN_TEXTURE, UV);
+
+    highp vec3 colorNoAlpha = vec3(color.x, color.y, color.z);
+    highp vec3 result = HueShift(colorNoAlpha);
+
+    COLOR = vec4(result, 1);
+}
+
+highp vec3 HueShift(highp vec3 colour)
+{
+    highp vec3 yiq = YIQ_CONVERT * colour;
+
+    highp mat2 rotMatrix = mat2(
+        cos(shift), -sin(shift),
+        sin(shift), cos(shift)
+    );
+    yiq.yz *= rotMatrix;
+
+    return RGB_CONVERT * yiq;
+}
+
+const highp mat3 YIQ_CONVERT = mat3(
+    0.299, 0.596, 0.211,
+    0.587, -0.274, -0.523,
+    0.114, -0.322, 0.312
+);
+
+const highp mat3 RGB_CONVERT = mat3(
+    1.0, 1.0, 1.0,
+    0.956, -0.272, -1.106,
+    0.621, -0.647, 1.703
+);

@@ -4,6 +4,7 @@ using Content.Shared.ActionBlocker;
 using Content.Shared.Actions.Components;
 using Content.Shared.Actions.Events;
 using Content.Shared.Administration.Logs;
+using Content.Shared.ADT.Actions;
 using Content.Shared.Database;
 using Content.Shared.Hands;
 using Content.Shared.Interaction;
@@ -677,6 +678,11 @@ public abstract class SharedActionsSystem : EntitySystem
         performer.Comp.Actions.Add(ent);
         Dirty(performer, performer.Comp);
         ActionAdded((performer, performer.Comp), (ent, ent.Comp));
+
+        // ADT-Tweak-start
+        var ev = new ActionAddedDirectEvent(ent);
+        RaiseLocalEvent(performer.Owner, ref ev);
+        // ADT-Tweak-end
         return true;
     }
 
