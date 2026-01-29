@@ -85,6 +85,10 @@
   - DrunkenResilience
   - NyaAccent
   - WeaknessAccent
+  - SoftHands
+  - UnadaptedToSpace
+  - ADTDamagedThroat
+  - Echolalia
   # ADT-fix-clone-end
   blacklist:
     components:
