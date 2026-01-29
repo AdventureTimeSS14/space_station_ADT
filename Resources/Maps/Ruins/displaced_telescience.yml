@@ -1933,7 +1933,7 @@ entities:
           volume: 0
         path: /Audio/Ambience/ambiruin5.ogg
     - type: RadiationSource
-      slope: 0.7
+# ADT-Tweak  slope: 0.7
       intensity: 4.5
 - proto: APCBasic
   entities:
