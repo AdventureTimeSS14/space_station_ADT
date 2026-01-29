@@ -9,7 +9,7 @@
     amount: 65
     speed: 13
     spacing: 1
-    prototype: SpaceWhaleSegment
+    prototype: ADTSpaceWhaleSegment
   - type: MovementSpeedModifier
     baseSprintSpeed: 11
     baseWalkSpeed: 11
