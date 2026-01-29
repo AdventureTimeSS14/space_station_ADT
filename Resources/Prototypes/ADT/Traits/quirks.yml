@@ -1,6 +1,43 @@
 # ADT
 
 - type: trait
+  id: Echolalia
+  name: trait-echolalia-name
+  description: trait-echolalia-desc
+  category: Quirks
+  cost: 0
+  components:
+  - type: ActiveListener
+    range: 5
+  - type: ParrotSpeech
+    maximumPhraseLength: 24 # higher chance of saying a full sentence
+    minimumWait: 300
+    maximumWait: 900 # triggers once every 15 minutes
+    learnChance: 0.1
+
+- type: trait
+  id: Dysgraphia
+  name: trait-dysgraphia-name
+  description: trait-dysgraphia-desc
+  category: Disabilities
+  components:
+  - type: BlockWriting
+  cost: 0
+  quirk: true
+
+- type: trait
+  id: Hushed
+  name: trait-hushed-name
+  description: trait-hushed-desc
+  category: SpeechTraits
+  cost: 0
+  blacklist:
+    components:
+    - BorgChassis
+  components:
+  - type: Hushed
+
+- type: trait
   id: ADTSoftWalk
   name: trait-soft-walk-name
   description: trait-soft-walk-desc

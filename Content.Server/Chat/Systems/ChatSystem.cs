@@ -8,6 +8,7 @@ using Content.Server.GameTicking;
 using Content.Server.Players.RateLimiting;
 using Content.Server.Speech.Prototypes;
 using Content.Server.Speech.EntitySystems;
+using Content.Shared.Speech.Hushing; // ADT Hushing
 using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
 using Content.Shared.ActionBlocker;
@@ -225,6 +226,15 @@ public sealed partial class ChatSystem : SharedChatSystem
             checkRadioPrefix = false;
             message = message[1..];
         }
+
+        // ADT-Port-Start - DeltaV - Hushed trait logic
+        // This needs to happen after prefix removal to avoid bug
+        if (desiredType == InGameICChatType.Speak && HasComp<HushedComponent>(source))
+        {
+            // hushed players cannot speak on local chat so will be sent as whisper instead
+            desiredType = InGameICChatType.Whisper;
+        }
+        // ADT-Port-End DeltaV - End hushed trait logic
 
         // ADT Languages start
 

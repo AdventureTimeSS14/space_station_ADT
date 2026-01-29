@@ -85,6 +85,13 @@
   - DrunkenResilience
   - NyaAccent
   - WeaknessAccent
+  - WieldingBlocker
+  - UnadaptedToSpace
+  - DamagedThroat
+  - ParrotSpeech
+  - ActiveListener
+  - BlockWriting
+  - Hushed
   # ADT-fix-clone-end
   blacklist:
     components:
