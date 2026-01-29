@@ -88,6 +88,7 @@
     - Dwarf
     - Human
     - Reptilian
+    # ADT-Tweak start
     - Demon
     - Vulpkanin
     - Kobolt
@@ -98,6 +99,7 @@
     - Felinid
     - Shadekin
     - Ursus
+    # ADT-Tweak end
 
 - type: loadoutEffectGroup
   id: OxygenBreatherMimeMoth
