@@ -79,10 +79,10 @@ public sealed class SalvageMagnetBoundUserInterface : BoundUserInterface
 
                         var resourceLabel = new Label
                         {
-                            Text = Loc.GetString("ADT-variant-salvage-magnet-resources",
+                            Text = Loc.GetString("ADT-variant-salvage-magnet-resources"/* ADT-Tweak-Для избежания конфликта перенесена локализация*/,
                                 ("resource", resource)),
                             HorizontalAlignment = Control.HAlignment.Left,
-                        }; // ADT-Tweak
+                        }; 
 
                         var countLabel = new Label
                         {
