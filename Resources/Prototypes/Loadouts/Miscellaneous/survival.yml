@@ -88,6 +88,16 @@
     - Dwarf
     - Human
     - Reptilian
+    - Demon
+    - Vulpkanin
+    - Kobolt
+    - Drask
+    - Novakid
+    - Resomi
+    - Tajaran
+    - Felinid
+    - Shadekin
+    - Ursus
 
 - type: loadoutEffectGroup
   id: OxygenBreatherMimeMoth

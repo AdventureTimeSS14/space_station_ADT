@@ -485,7 +485,7 @@
   minLimit: 1
   maxLimit: 1
   loadouts:
-  - CoatCCC 
+  - CoatCCC
   - CoatCentCom
 
 - type: loadoutGroup
@@ -1270,16 +1270,6 @@
   loadouts:
   - CMOPDA
   - ADTCMOPDA
-
-- type: loadoutGroup
-  id: ADTQuartermasterPDA
-  name: loadout-group-quartermaster-id
-  minLimit: 1
-  maxLimit: 1
-  loadouts:
-  - QuartermasterPDAloadout
-  - ADTintendantPDAloadout
-
 
 # Alts PDA end
 
