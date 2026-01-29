@@ -35,6 +35,22 @@ public sealed class StationProximitySystem : EntitySystem
     {
         base.Initialize();
         _nextCheck = _timing.CurTime + CheckInterval;
+
+        SubscribeLocalEvent<SpaceWhaleTargetComponent, MobStateChangedEvent>(OnTargetDeath);
+    }
+
+    private void OnTargetDeath(Entity<SpaceWhaleTargetComponent> ent, ref MobStateChangedEvent args)
+    {
+        if (args.NewMobState == MobState.Alive)
+            return;
+
+        if (TryComp<MobCallerComponent>(ent.Comp.Entity, out var caller))
+        {
+            foreach (var item in caller.SpawnedEntities)
+                EnsureComp<TimedDespawnComponent>(item).Lifetime = 20f;
+        }
+        QueueDel(ent.Comp.Entity);
+        RemComp<SpaceWhaleTargetComponent>(ent.Owner);
     }
 
     public override void Update(float frameTime)
