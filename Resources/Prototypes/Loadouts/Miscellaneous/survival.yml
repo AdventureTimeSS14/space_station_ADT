@@ -89,16 +89,16 @@
     - Human
     - Reptilian
     # ADT-Tweak start
-    - MobDemon
-    - MobVulpkanin
-    - Kobolt
-    - MobDrask
-    - MobNovakid
+    - DemonSpecies
+    - VulpkaninSpecies
+    - KoboltSpecies
+    - DraskSpecies
+    - NovakidSpecies
     - Resomi
-    - MobTajaran
+    - TajaranSpecies
     - Felinid
     - Shadekin
-    - MobUrsus
+    - UrsusSpecies
     # ADT-Tweak end
 
 - type: loadoutEffectGroup
