@@ -15,6 +15,15 @@
     maximumWait: 900 # triggers once every 15 minutes
     learnChance: 0.1
 
+- type: trait
+  id: Dysgraphia
+  name: trait-dysgraphia-name
+  description: trait-dysgraphia-desc
+  category: Disabilities
+  components:
+  - type: BlockWriting
+  cost: 0
+  quirk: true
 
 - type: trait
   id: ADTSoftWalk
