@@ -80,6 +80,11 @@ public sealed class PullController : VirtualController
     private EntityQuery<PullableComponent> _pullableQuery;
     private EntityQuery<PullerComponent> _pullerQuery;
     private EntityQuery<TransformComponent> _xformQuery;
+    // ADT-tweak start
+    private EntityQuery<FixturesComponent> _fixturesQuery;
+
+    private readonly Dictionary<EntityUid, Dictionary<string, float>> _originalDensities = new();
+    // ADT-tweak end
 
     public override void Initialize()
     {
@@ -91,8 +96,13 @@ public sealed class PullController : VirtualController
         _pullableQuery = GetEntityQuery<PullableComponent>();
         _pullerQuery = GetEntityQuery<PullerComponent>();
         _xformQuery = GetEntityQuery<TransformComponent>();
+        _fixturesQuery = GetEntityQuery<FixturesComponent>(); // ADT-tweak
 
         UpdatesAfter.Add(typeof(MoverController));
+        // ADT-tweak start
+        SubscribeLocalEvent<PullableComponent, PullStartedMessage>(OnPullStarted);
+        SubscribeLocalEvent<PullableComponent, PullStoppedMessage>(OnPullStopped);
+        // ADT-tweak end
         SubscribeLocalEvent<PullMovingComponent, PullStoppedMessage>(OnPullStop);
         SubscribeLocalEvent<ActivePullerComponent, MoveEvent>(OnPullerMove);
 
@@ -105,10 +115,81 @@ public sealed class PullController : VirtualController
         CommandBinds.Unregister<PullController>();
     }
 
+    // ADT-tweak start
+    private void OnPullStarted(Entity<PullableComponent> ent, ref PullStartedMessage args)
+    {
+        if (args.PullerUid is not { Valid: true } puller ||
+            !_pullerQuery.TryComp(puller, out var pullerComp) ||
+            pullerComp.PulledDensityReduction <= 0f)
+            return;
+
+        ApplyDensityReduction(ent, pullerComp.PulledDensityReduction);
+    }
+
+    private void OnPullStopped(Entity<PullableComponent> ent, ref PullStoppedMessage args)
+    {
+        RestoreDensity(ent);
+    }
+    // ADT-tweak end
+
     private void OnPullStop(Entity<PullMovingComponent> ent, ref PullStoppedMessage args)
     {
         RemCompDeferred<PullMovingComponent>(ent);
     }
+
+    // ADT-tweak start
+    private void RestoreDensity(EntityUid uid)
+    {
+        if (!_originalDensities.TryGetValue(uid, out var originalDensities) ||
+            !_fixturesQuery.TryComp(uid, out var fixtures))
+        {
+            _originalDensities.Remove(uid);
+            return;
+        }
+
+        foreach (var (fixtureId, originalDensity) in originalDensities)
+        {
+            if (fixtures.Fixtures.TryGetValue(fixtureId, out var fixture))
+            {
+                PhysicsSystem.SetDensity(uid, fixtureId, fixture, originalDensity);
+            }
+        }
+
+        _originalDensities.Remove(uid);
+    }
+
+    private void ApplyDensityReduction(EntityUid uid, float reduction)
+    {
+        if (reduction <= 0f || !_fixturesQuery.TryComp(uid, out var fixtures))
+            return;
+
+        // Limit maximum reduction to 80% (0.8)
+        reduction = Math.Min(reduction, 0.8f);
+
+        if (!_originalDensities.TryGetValue(uid, out var originalDensities))
+        {
+            originalDensities = new Dictionary<string, float>();
+            foreach (var (fixtureId, fixture) in fixtures.Fixtures)
+            {
+                originalDensities[fixtureId] = fixture.Density;
+            }
+            _originalDensities[uid] = originalDensities;
+        }
+        else
+        {
+            return;
+        }
+
+        var multiplier = 1f - reduction;
+        foreach (var (fixtureId, fixture) in fixtures.Fixtures)
+        {
+            if (originalDensities.TryGetValue(fixtureId, out var originalDensity))
+            {
+                PhysicsSystem.SetDensity(uid, fixtureId, fixture, Math.Max(0f, originalDensity * multiplier));
+            }
+        }
+    }
+    // ADT-tweak end
 
     private bool OnRequestMovePulledObject(ICommonSession? session, EntityCoordinates coords, EntityUid uid)
     {
@@ -232,6 +313,18 @@ public sealed class PullController : VirtualController
     public override void UpdateBeforeSolve(bool prediction, float frameTime)
     {
         base.UpdateBeforeSolve(prediction, frameTime);
+
+        // ADT-tweak start
+        var pulledQuery = EntityQueryEnumerator<PullableComponent, PhysicsComponent>();
+        while (pulledQuery.MoveNext(out var pullableEnt, out var pullable, out var physics))
+        {
+            if (pullable.Puller is not { Valid: true } puller || physics.BodyType == BodyType.Static)
+            {
+                RestoreDensity(pullableEnt);
+            }
+        }
+        // ADT-tweak end
+
         var movingQuery = EntityQueryEnumerator<PullMovingComponent, PullableComponent, TransformComponent>();
 
         while (movingQuery.MoveNext(out var pullableEnt, out var mover, out var pullable, out var pullableXform))

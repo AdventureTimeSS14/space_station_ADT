@@ -228,3 +228,37 @@
   - type: Sprite
     sprite: ADT/Structures/Furniture/Chairs/barber_chair.rsi
     state: barber_chair
+
+- type: entity
+  name: barbell chair
+  id: ADTBarbellChair
+  parent: [ADTChairBase, ADTBaseAttachableHolder]
+  description: A chair you can hang a barbell on.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Chairs/barbell_chair.rsi
+    layers:
+    - state: barbell-chair
+      map: ["base"]
+    - state: barbell-chair
+      map: ["adt-aslot-barbell"]
+      visible: false
+  - type: BarbellBench
+    overlayPrototype: ADTBarbellBenchOverlay
+  - type: BarbellBenchVisuals
+    attachedState: barbell_chair-overlay
+    overlayBaseState: barbell_chair-overlay
+    overlayRepFlickState: barbell-raises-overlay
+  - type: Appearance
+  - type: AttachableHolder
+    slots:
+      adt-aslot-barbell:
+        locked: false
+        whitelist:
+          tags:
+          - ADTBarbellAttachment
+  - type: Construction
+    graph: ADTSeat
+    node: adtbarbellchair

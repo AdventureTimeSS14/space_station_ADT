@@ -301,6 +301,11 @@
             - material: WoodPlank
               amount: 2
               doAfter: 1
+        - to: adtbarbellchair
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 1
 
 # Sofa
 # Sofa-black
@@ -835,7 +840,7 @@
           steps:
             - tool: Screwing
               doAfter: 2
- 
+
     - node: adtarmchairblack
       entity: ADTArmchairBlack
       edges:
@@ -1021,6 +1026,18 @@
           completed:
             - !type:SpawnPrototype
               prototype: MaterialWoodPlank1
+          steps:
+            - tool: Screwing
+              doAfter: 2
+
+    - node: adtbarbellchair
+      entity: ADTBarbellChair
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 2
           steps:
             - tool: Screwing
               doAfter: 2
