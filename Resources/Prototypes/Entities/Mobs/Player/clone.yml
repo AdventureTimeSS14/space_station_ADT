@@ -89,6 +89,8 @@
   - UnadaptedToSpace
   - ADTDamagedThroat
   - Echolalia
+  - Dysgraphia
+  - Hushed
   # ADT-fix-clone-end
   blacklist:
     components:
