@@ -164,7 +164,7 @@ namespace Content.Client.HealthAnalyzer.UI
             // Damage Groups
 
             IReadOnlyDictionary<string, FixedPoint2> damagePerType = damageable.Damage.DamageDict;
-
+            // ADT-Tweak start
             var groupOrder = new List<string> { "Burn", "Brute", "Airloss", "Toxin", "Genetic" };
             var sortedGroups = damageable.DamagePerGroup
                 .OrderBy(g => groupOrder.IndexOf(g.Key))
@@ -173,7 +173,7 @@ namespace Content.Client.HealthAnalyzer.UI
             DrawDiagnosticGroups(sortedGroups, damagePerType);
 
             DrawMetabolizingChemicals(msg.MetabolizingReagents);
-            // Starlight end
+            // ADT-Tweak end
         }
 
         private static string GetStatus(MobState mobState)
