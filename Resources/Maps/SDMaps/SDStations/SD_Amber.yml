@@ -120,7 +120,7 @@ entities:
       pos: -0.5400696,8.931154
       parent: 1
     - type: BecomesStation
-      id: Amber
+      id: SD_Amber
     - type: MapGrid
       chunks:
         -1,-1:
