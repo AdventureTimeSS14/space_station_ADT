@@ -58,8 +58,6 @@
   category: Quirks
   components:
     - type: WieldingBlocker
-      blockinhand: true
-      blockequipped: true
   cost: -2
   quirk: true
 
