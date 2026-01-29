@@ -1,0 +1,14 @@
+- type: salvageBiomeMod
+  id: BlizzzzzardPlanet
+  desc: salvage-biome-mod-blizzard
+  biome: BlizzzzzardPlanet
+
+- type: salvageBiomeMod
+  id: AquaPlanet
+  desc: salvage-biome-mod-aqua
+  biome: AquaPlanet
+
+- type: salvageBiomeMod
+  id: OasisDesertPlanet
+  desc: salvage-biome-mod-oasis-desert
+  biome: OasisDesertPlanet
