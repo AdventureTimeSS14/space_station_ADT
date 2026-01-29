@@ -85,11 +85,12 @@
   - DrunkenResilience
   - NyaAccent
   - WeaknessAccent
-  - SoftHands
+  - WieldingBlocker
   - UnadaptedToSpace
-  - ADTDamagedThroat
-  - Echolalia
-  - Dysgraphia
+  - DamagedThroat
+  - ParrotSpeech
+  - ActiveListener
+  - BlockWriting
   - Hushed
   # ADT-fix-clone-end
   blacklist:
