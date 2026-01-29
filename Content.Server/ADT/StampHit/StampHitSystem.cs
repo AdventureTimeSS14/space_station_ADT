@@ -22,7 +22,7 @@ public sealed class StampHitSystem : EntitySystem
         {
             if (!TryComp<HumanoidAppearanceComponent>(i, out var speciesComp))
                 continue;
-            if (speciesComp.Species != default && speciesComp.Species == "SlimePerson" && speciesComp.Species == "NovakidSpecies")
+            if (speciesComp.Species != default || speciesComp.Species == "SlimePerson" && speciesComp.Species == "NovakidSpecies")
                 continue;
             if (HasComp<HumanoidAppearanceComponent>(i))
             {

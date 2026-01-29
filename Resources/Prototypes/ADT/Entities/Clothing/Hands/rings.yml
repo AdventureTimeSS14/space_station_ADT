@@ -14,6 +14,7 @@
       finger:
       - state: equipped-FINGER-blood
   - type: Item
+    sprite: ADT/Clothing/Hands/Rings/Rings.rsi
     inhandVisuals:
       left:
       - state: inhand-left-blood
@@ -39,6 +40,7 @@
       finger:
       - state: equipped-FINGER-emerald
   - type: Item
+    sprite: ADT/Clothing/Hands/Rings/Rings.rsi
     inhandVisuals:
       left:
       - state: inhand-left-emerald
@@ -64,6 +66,7 @@
       finger:
       - state: equipped-FINGER-plazma
   - type: Item
+    sprite: ADT/Clothing/Hands/Rings/Rings.rsi
     inhandVisuals:
       left:
       - state: inhand-left-plazma
@@ -89,6 +92,7 @@
       finger:
       - state: equipped-FINGER-turk
   - type: Item
+    sprite: ADT/Clothing/Hands/Rings/Rings.rsi
     inhandVisuals:
       left:
       - state: inhand-left-turk
