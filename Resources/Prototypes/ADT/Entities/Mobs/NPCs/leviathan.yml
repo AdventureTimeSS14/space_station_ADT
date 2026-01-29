@@ -1,5 +1,5 @@
 - type: entity
-  id: SpaceLeviathan
+  id: ADTSpaceLeviathan
   parent: [ SimpleSpaceMobBase, FlyingMobBase, MobCombat ]
   name: space whale
   description: When the space becomes too quiet, there is no hope, there is no escape, but there is this.
@@ -99,7 +99,7 @@
 
 
 - type: entity
-  id: SpaceWhaleSegment
+  id: ADTSpaceWhaleSegment
   parent: FlyingMobBase
   categories: [ HideSpawnMenu ]
   components:
@@ -120,8 +120,8 @@
     intensity: 0
 
 - type: entity
-  id: SpaceLeviathanDespawn
-  parent: SpaceLeviathan
+  id: ADTSpaceLeviathanDespawn
+  parent: ADTSpaceLeviathan
   suffix: despawns
   components:
   - type: TimedDespawn

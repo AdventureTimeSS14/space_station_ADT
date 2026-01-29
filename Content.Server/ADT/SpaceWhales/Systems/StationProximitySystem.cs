@@ -170,7 +170,7 @@ public sealed class StationProximitySystem : EntitySystem
         _transform.SetParent(_mobCaller.Value, entity);
         var mobCaller = EnsureComp<MobCallerComponent>(_mobCaller.Value); // assign the goidacaller to the dummy
 
-        mobCaller.SpawnProto = "SpaceLeviathan";
+        mobCaller.SpawnProto = "ADTSpaceLeviathan";
         mobCaller.MaxAlive = 1; // nuh uh
         mobCaller.MinDistance = 100f; // should be far away
         mobCaller.NeedAnchored = false;
