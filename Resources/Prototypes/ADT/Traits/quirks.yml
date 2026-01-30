@@ -14,6 +14,7 @@
     minimumWait: 300
     maximumWait: 900 # triggers once every 15 minutes
     learnChance: 0.1
+  quirk: true
 
 - type: trait
   id: Dysgraphia
@@ -36,6 +37,31 @@
     - BorgChassis
   components:
   - type: Hushed
+  quirk: true
+
+- type: trait
+  id: PseudobulbarAffect
+  name: trait-pseudobulbar-affect-name
+  description: trait-pseudobulbar-affect-desc
+  category: SpeechTraits
+  cost: 0
+  components:
+  - type: EmotionallyUnstableAccent
+    triggerEmotionChance: 0.2
+    exclamatorySentenceChance: 0.5
+    changeMessageChance: 0.3
+    emotes:
+      - Laugh
+      - Scream
+      - Crying
+  - type: EmotionLoop
+    minTimeBetweenEmotions: 60
+    maxTimeBetweenEmotions: 90
+    emotes:
+      - Laugh
+      - Scream
+      - Crying
+  quirk: true
 
 - type: trait
   id: ADTSoftWalk
