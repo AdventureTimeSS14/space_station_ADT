@@ -25,6 +25,15 @@
 # Simple Station
 
 - type: trait
+  id: ADTTouchy
+  name: trait-touchy-name
+  description: trait-touchy-desc
+  category: Quirks
+  components:
+  - type: Touchy
+  cost: -1
+
+- type: trait
   id: ColorBlindnessMonochrome
   name: trait-monochromacy-name
   description: trait-monochromacy-description

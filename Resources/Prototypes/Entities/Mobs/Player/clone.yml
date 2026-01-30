@@ -94,6 +94,7 @@
   - ActiveListener
   - BlockWriting
   - Hushed
+  - Touchy
   # ADT-fix-clone-end
   blacklist:
     components:
