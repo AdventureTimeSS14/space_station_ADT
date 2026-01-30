@@ -61,6 +61,8 @@
       - Laugh
       - Scream
       - Crying
+  speciesBlacklist:
+  - IPC
   quirk: true
 
 - type: trait
