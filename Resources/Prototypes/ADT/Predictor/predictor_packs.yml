@@ -1,0 +1,40 @@
+- type: predictorPack
+  id: ADTPredictorPackNormal
+  predictions:
+    - "predictor-prediction-1"
+    - "predictor-prediction-2"
+    - "predictor-prediction-3"
+    - "predictor-prediction-4"
+    - "predictor-prediction-5"
+    - "predictor-prediction-6"
+    - "predictor-prediction-7"
+    - "predictor-prediction-8"
+    - "predictor-prediction-9"
+    - "predictor-prediction-10"
+    - "predictor-prediction-11"
+    - "predictor-prediction-12"
+    - "predictor-prediction-13"
+    - "predictor-prediction-14"
+    - "predictor-prediction-15"
+    - "predictor-prediction-16"
+    - "predictor-prediction-17"
+    - "predictor-prediction-18"
+    - "predictor-prediction-19"
+    - "predictor-prediction-20"
+    - "predictor-prediction-21"
+    - "predictor-prediction-22"
+    - "predictor-prediction-23"
+    - "predictor-prediction-24"
+
+- type: predictorPack
+  id: ADTPredictorPackEmagged
+  predictions:
+    - "predictor-prediction-emag-1"
+    - "predictor-prediction-emag-2"
+    - "predictor-prediction-emag-3"
+    - "predictor-prediction-emag-4"
+    - "predictor-prediction-emag-5"
+    - "predictor-prediction-emag-6"
+    - "predictor-prediction-emag-7"
+    - "predictor-prediction-emag-8"
+    - "predictor-prediction-emag-9"
