@@ -32,6 +32,7 @@
   components:
   - type: Touchy
   cost: -1
+  quirk: true
 
 - type: trait
   id: ColorBlindnessMonochrome

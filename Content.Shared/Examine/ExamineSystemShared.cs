@@ -1,4 +1,4 @@
-using Content.Shared.ADT.Examine;
+using Content.Shared.ADT.Examine; //ADT-Tweak-Touchy-Trait
 using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.Ghost;
 using Content.Shared.Interaction;

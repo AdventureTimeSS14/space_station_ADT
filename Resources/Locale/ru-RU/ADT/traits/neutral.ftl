@@ -27,7 +27,7 @@ trait-echolalia-name = Эхолалия
 trait-echolalia-desc = Вы неконтролируемо повторяете слова, фразы, звуки или интонации, услышанные от других людей.
 
 trait-dysgraphia-name = Дисграфия
-trait-dysgraphia-desc = Вы не способны внятно писать, поэтому не делаете это впринципе
+trait-dysgraphia-desc = Вы не способны излагать свои мысли в письменном виде.
 
 trait-hushed-name = Тихий
 trait-hushed-desc = Ваш голос не способен стать громче шёпота.
