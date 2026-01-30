@@ -1,7 +1,7 @@
 # ADT
 
 - type: trait
-  id: Echolalia
+  id: ADTEcholalia
   name: trait-echolalia-name
   description: trait-echolalia-desc
   category: Quirks
@@ -17,7 +17,7 @@
   quirk: true
 
 - type: trait
-  id: Dysgraphia
+  id: ADTDysgraphia
   name: trait-dysgraphia-name
   description: trait-dysgraphia-desc
   category: Disabilities
@@ -27,7 +27,7 @@
   quirk: true
 
 - type: trait
-  id: Hushed
+  id: ADTHushed
   name: trait-hushed-name
   description: trait-hushed-desc
   category: SpeechTraits
@@ -40,7 +40,7 @@
   quirk: true
 
 - type: trait
-  id: PseudobulbarAffect
+  id: ADTPseudobulbarAffect
   name: trait-pseudobulbar-affect-name
   description: trait-pseudobulbar-affect-desc
   category: SpeechTraits

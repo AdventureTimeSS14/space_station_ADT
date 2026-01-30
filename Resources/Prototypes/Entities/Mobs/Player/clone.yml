@@ -84,11 +84,13 @@
   - FoodConsumptionSpeedModifier
   - DrunkenResilience
   - NyaAccent
+  - EmotionallyUnstableAccent
   - WeaknessAccent
   - WieldingBlocker
   - UnadaptedToSpace
   - DamagedThroat
   - ParrotSpeech
+  - EmotionLoop
   - ActiveListener
   - BlockWriting
   - Hushed
