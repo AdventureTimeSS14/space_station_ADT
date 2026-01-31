@@ -296,6 +296,7 @@
   - type: Sprite
     sprite: ADT/Structures/Furniture/billiard.rsi
     state: billiard
+    noRot: false
   - type: Icon
     sprite: ADT/Structures/Furniture/billiard.rsi
     state: billiard
@@ -337,4 +338,3 @@
   - type: Tag
     tags:
     - Table
-    - ForceFixRotations

@@ -3,13 +3,12 @@
   "license": "CC-BY-SA-3.0",
   "copyright": "Created by discord:prazat911 for Adventure Time",
   "size": {
-    "x": 64,
-    "y": 64
+    "x": 32,
+    "y": 32
   },
   "states": [
     {
-      "name": "cable_reel",
-      "directions": 4
+      "name": "cable_reel"
     }
   ]
 }
