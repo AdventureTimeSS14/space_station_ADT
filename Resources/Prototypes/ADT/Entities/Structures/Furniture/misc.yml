@@ -344,3 +344,64 @@
     tags:
     - Table
     - ForceFixRotations
+
+# Меловая доска
+- type: entity
+  parent: BaseStructure
+  id: ADTChalkboard
+  name: chalkboard
+  description: A blackboard for writing messages with chalk.
+  components:
+  - type: Transform
+    noRot: true
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/chalkboard.rsi
+    state: chalkboard
+    noRot: true
+    layers:
+    - state: chalkboard-text
+      map: ["enum.PaperVisualLayers.Writing"]
+      color: "#000000"
+      visible: false
+  - type: Icon
+    sprite: ADT/Structures/Furniture/chalkboard.rsi
+    state: chalkboard
+  - type: Paper
+    contentSize: 10000
+  - type: ActivatableUI
+    key: enum.PaperUiKey.Key
+    requiresComplex: false
+  - type: UserInterface
+    interfaces:
+      enum.PaperUiKey.Key:
+        type: PaperBoundUserInterface
+  - type: PaperVisuals
+    backgroundModulate: "#000000"
+    contentImageModulate: "#000000"
+    fontAccentColor: "#ffffff"
+  - type: Chalkboard
+  - type: Appearance
+  - type: InteractionOutline
+  - type: Anchorable
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Wood
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WoodDestroy
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          MaterialWoodPlank:
+            min: 3
+            max: 5
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: Construction
+    graph: ADTChalkboard
+    node: adtchalkboard

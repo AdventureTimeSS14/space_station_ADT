@@ -863,6 +863,20 @@
   conditions:
     - !type:TileNotBlocked
 
+- type: construction
+  name: construction-name-chalkboard
+  id: ADTChalkboardRecipe
+  graph: ADTChalkboard
+  startNode: start
+  targetNode: adtchalkboard
+  category: construction-category-furniture
+  description: construction-desc-chalkboard
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
 # Chairs
 
 - type: construction
