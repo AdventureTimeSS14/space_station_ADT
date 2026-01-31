@@ -303,6 +303,8 @@
   - type: Icon
     sprite: ADT/Structures/Furniture/cable_reel.rsi
     state: cable_reel
+  - type: IconSmooth
+    enabled: false
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: Wood
