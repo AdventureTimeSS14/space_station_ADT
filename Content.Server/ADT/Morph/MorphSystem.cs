@@ -225,7 +225,7 @@ public sealed class MorphSystem : SharedMorphSystem
         if (args.User == null)
             return;
         _stun.TryUpdateStunDuration(args.User.Value, TimeSpan.FromSeconds(component.StunTimeInteract)); //при интеракции станим, при ударе морфом клокдауним
-        _damageable.TryChangeDamage(args.User, component.DamageOnTouch);
+        _damageable.TryChangeDamage(args.User.Value, component.DamageOnTouch);
         AmbushBreak(uid);
     }
     private void OnMimicryRadialMenu(EntityUid uid, MorphComponent component, MorphOpenRadialMenuEvent args)
