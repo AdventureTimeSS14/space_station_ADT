@@ -136,7 +136,14 @@ public sealed partial class MobCallerSystem : EntitySystem
 
                 // now also check that there's no obstructions in that direction before the continuous space
                 var ray = new CollisionRay(ent.Comp2.WorldPosition, stepVec, (int)ent.Comp1.OcclusionMask);
-                var rayCastResults = _physics.IntersectRay(ent.Comp2.MapID, ray, ent.Comp1.OcclusionDistance, ent);
+                var rayCastResults = _physics.IntersectRay(ent.Comp2.MapID, ray, ent.Comp1.OcclusionDistance, ent).ToList();
+                var ownerPos = Transform(ent.Owner).Coordinates;
+
+                foreach (var item in rayCastResults.ToList())
+                {
+                    if (!Transform(item.HitEntity).Coordinates.TryDistance(EntityManager, ownerPos, out var distance) || distance < ent.Comp1.MinDistance)
+                        rayCastResults.Remove(item);
+                }
 
                 return !rayCastResults.Any();
             }
