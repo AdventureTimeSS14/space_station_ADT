@@ -29,7 +29,7 @@ public abstract class SharedBarbellBenchSystem : EntitySystem
         Dirty(ent);
     }
 
-    private void OnStrapped(Entity<BarbellBenchComponent> bench, ref StrappedEvent args)
+    protected virtual void OnStrapped(Entity<BarbellBenchComponent> bench, ref StrappedEvent args)
     {
         if (Container.TryGetContainer(bench.Owner, bench.Comp.BarbellSlotId, out var barbellContainer) && barbellContainer.Count > 0)
         {

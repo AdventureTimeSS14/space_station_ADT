@@ -40,7 +40,6 @@ public sealed class BarbellBenchSystem : SharedBarbellBenchSystem
         SubscribeLocalEvent<BarbellBenchComponent, BarbellBenchPerformRepEvent>(OnPerformRep);
         SubscribeLocalEvent<BarbellBenchComponent, AttachableHolderAttachablesAlteredEvent>(OnAttachableAltered);
         SubscribeLocalEvent<BarbellLiftComponent, UseInHandEvent>(OnBarbellUseInHand);
-        SubscribeLocalEvent<BarbellBenchComponent, StrappedEvent>(OnBarbellBenchStrapped);
     }
 
     private void OnAttachableAltered(EntityUid uid, BarbellBenchComponent component, ref AttachableHolderAttachablesAlteredEvent args)
@@ -110,8 +109,10 @@ public sealed class BarbellBenchSystem : SharedBarbellBenchSystem
         UpdateAppearance(uid, component);
     }
 
-    private void OnBarbellBenchStrapped(Entity<BarbellBenchComponent> bench, ref StrappedEvent args)
+    protected override void OnStrapped(Entity<BarbellBenchComponent> bench, ref StrappedEvent args)
     {
+        base.OnStrapped(bench, ref args);
+        
         if (TryComp<HealOnBuckleComponent>(bench.Owner, out var healComp) && healComp.SleepAction is { Valid: true } sleepAction)
         {
             _actionsSystem.RemoveAction(args.Buckle.Owner, sleepAction);
