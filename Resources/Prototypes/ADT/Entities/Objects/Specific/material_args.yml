@@ -298,15 +298,15 @@
                 - !type:ComboPopupEffect
                   localeText: combo-cqc-pressure-end
                 - !type:ComboStaminaDamageEffect
-                  staminaDamage: 65
+                  staminaDamage: 35
             - actionsNeeds:
                 - Grab
                 - Grab
               comboEvent:
                 - !type:ComboPopupEffect
                   localeText: combo-cqc-restain-end
-                - !type:ComboStunEffect
-                  stunTime: 2
+                - !type:ComboFallEffect
+                  dropItems: true
             - actionsNeeds:
                 - Disarm
                 - Disarm
