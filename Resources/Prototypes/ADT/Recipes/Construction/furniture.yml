@@ -835,6 +835,20 @@
   conditions:
     - !type:TileNotBlocked
 
+- type: construction
+  name: construction-name-cable-reel
+  id: ADTCableReelRecipe
+  graph: ADTTable
+  startNode: start
+  targetNode: adtcablereel
+  category: construction-category-furniture
+  description: construction-desc-cable-reel
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
 # Chairs
 
 - type: construction

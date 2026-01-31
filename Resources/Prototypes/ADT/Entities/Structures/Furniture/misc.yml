@@ -50,13 +50,10 @@
 
 - type: entity
   id: ADTCableReel
-  parent: BaseStructure
+  parent: ADTTableBase
   name: cable reel
   description: A large reel for storing and organizing cables.
   components:
-  - type: Animateable
-  - type: Clickable
-  - type: InteractionOutline
   - type: Sprite
     sprite: ADT/Structures/Furniture/cable_reel.rsi
     state: cable_reel
@@ -65,7 +62,7 @@
     state: cable_reel
   - type: Damageable
     damageContainer: StructuralInorganic
-    damageModifierSet: Metallic
+    damageModifierSet: Wood
   - type: Destructible
     thresholds:
     - trigger:
@@ -76,18 +73,16 @@
         acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
-        damage: 25
+        damage: 15
       behaviors:
       - !type:PlaySoundBehavior
         sound:
-          collection: MetalBreak
-          params:
-            volume: -6
+          collection: WoodDestroy
       - !type:SpawnEntitiesBehavior
         spawn:
-          SheetSteel1:
+          MaterialWoodPlank:
             min: 1
-            max: 1
+            max: 5
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: Anchorable
@@ -95,18 +90,12 @@
     rotateWhileAnchored: true
   - type: Physics
     bodyType: Static
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.45,-0.45,0.45,0.45"
-        density: 55
-        mask:
-        - TableMask
-        layer:
-        - MidImpassable
   - type: Transform
     anchored: true
-  - type: Placement
-    mode: SnapgridCenter
+  - type: Construction
+    graph: ADTTable
+    node: adtcablereel
+  - type: Tag
+    tags:
+    - Table
+    - ForceFixRotations
