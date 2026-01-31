@@ -8,7 +8,7 @@
       time: 36000 #10 часов
 
 - type: loadout
-  id: ADTChefCqc
+  id: ADTChefChang
   effects:
   - !type:GroupLoadoutEffect
     proto: ADTMasterChef
