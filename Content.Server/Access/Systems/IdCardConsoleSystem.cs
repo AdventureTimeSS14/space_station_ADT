@@ -174,7 +174,7 @@ public sealed class IdCardConsoleSystem : SharedIdCardConsoleSystem
         /* ADT-Tweak: Для доступов, которые консоль не может изменить, не менять их. */
         newAccessList.AddRange(oldTags.Except(component.AccessLevels.Intersect(oldTags)));
 
-        var privilegedId = component.PrivilegedIdSlot.Item;
+        // var privilegedId = component.PrivilegedIdSlot.Item; // ADT-Tweak: Такая переменная уже есть
 
         if (oldTags.SequenceEqual(newAccessList))
             return;
