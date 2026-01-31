@@ -999,7 +999,7 @@
   id: ADTDoubleBedRecipe
   name: construction-name-double-bed
   description: construction-desc-double-bed
-  graph: bed
+  graph: adt_double_bed
   startNode: start
   targetNode: double_bed_complete
   category: construction-category-furniture

@@ -1,5 +1,5 @@
-using System.Numerics;
 using Robust.Shared.GameStates;
+using System.Numerics;
 
 namespace Content.Shared.ADT.Bed.Components;
 

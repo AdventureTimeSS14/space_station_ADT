@@ -47,6 +47,7 @@
           steps:
             - tool: Screwing
               doAfter: 1
+        # ADT-Tweak-Start
         - to: double_bed_complete
           completed:
             - !type:SnapToGrid { }
@@ -82,6 +83,7 @@
           steps:
             - tool: Screwing
               doAfter: 1
+        # ADT-Tweak-End
     - node: dogbed
       entity: DogBed
       edges:

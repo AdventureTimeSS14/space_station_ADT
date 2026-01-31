@@ -150,6 +150,5 @@
               amount: 5
             - !type:DeleteEntity {}
           steps:
-            - material: WoodPlank
-              amount: 5
+            - tool: Prying
               doAfter: 5

@@ -1,2 +1,2 @@
-ent-ADTElectricGrillBBQ = электрический грилль
+ent-ADTElectricGrillBBQ = электрический гриль
     .desc = Хорошая штучка для барбекю во дворе!

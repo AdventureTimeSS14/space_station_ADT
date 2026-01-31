@@ -1,5 +1,3 @@
-using System.Linq;
-using System.Numerics;
 using Content.Shared.ADT.Bed.Components;
 using Content.Shared.Buckle;
 using Content.Shared.Buckle.Components;
@@ -8,15 +6,18 @@ using Content.Shared.Placeable;
 using Content.Shared.Tag;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Map.Components;
+using System.Linq;
+using System.Numerics;
 
 namespace Content.Shared.ADT.Bed;
 
+/// <summary>
+/// Система для управления двуспальными кроватями с поддержкой двух позиций для пристёгивания и размещения постельного белья.
+/// </summary>
 public sealed class DoubleBedSystem : EntitySystem
 {
     [Dependency] private readonly TagSystem _tagSystem = default!;
-    [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
     [Dependency] private readonly PlaceableSurfaceSystem _placeableSurface = default!;
-    [Dependency] private readonly SharedBuckleSystem _buckleSystem = default!;
 
     public override void Initialize()
     {

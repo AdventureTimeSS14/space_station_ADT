@@ -61,6 +61,7 @@ public abstract class SharedBedSystem : EntitySystem
 
     private void OnUnstrapped(Entity<HealOnBuckleComponent> bed, ref UnstrappedEvent args)
     {
+        // ADT-Tweak-Start:
         if (bed.Comp.SleepAction != null)
         {
             var action = bed.Comp.SleepAction.Value;
@@ -69,6 +70,7 @@ public abstract class SharedBedSystem : EntitySystem
                 _actionsSystem.RemoveAction(args.Buckle.Owner, bed.Comp.SleepAction);
             }
         }
+        // ADT-Tweak-End
         _sleepingSystem.TryWaking(args.Buckle.Owner);
         RemComp<HealOnBuckleHealingComponent>(bed);
     }
