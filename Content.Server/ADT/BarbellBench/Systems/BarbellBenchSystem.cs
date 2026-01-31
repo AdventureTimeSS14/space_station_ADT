@@ -27,7 +27,6 @@ public sealed class BarbellBenchSystem : SharedBarbellBenchSystem
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly SharedStaminaSystem _stamina = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly MetaDataSystem _metaData = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
 
@@ -112,7 +111,7 @@ public sealed class BarbellBenchSystem : SharedBarbellBenchSystem
     protected override void OnStrapped(Entity<BarbellBenchComponent> bench, ref StrappedEvent args)
     {
         base.OnStrapped(bench, ref args);
-        
+
         if (TryComp<HealOnBuckleComponent>(bench.Owner, out var healComp) && healComp.SleepAction is { Valid: true } sleepAction)
         {
             _actionsSystem.RemoveAction(args.Buckle.Owner, sleepAction);
@@ -148,7 +147,7 @@ public sealed class BarbellBenchSystem : SharedBarbellBenchSystem
         if (component.IsPerformingRep)
             return;
 
-        if (_container.TryGetContainer(uid, component.BarbellSlotId, out var barbellContainer) && barbellContainer.Count > 0)
+        if (Container.TryGetContainer(uid, component.BarbellSlotId, out var barbellContainer) && barbellContainer.Count > 0)
         {
             var barbell = barbellContainer.ContainedEntities[0];
             if (TryComp<BarbellLiftComponent>(barbell, out var lift))
