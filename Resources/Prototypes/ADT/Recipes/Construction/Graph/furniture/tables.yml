@@ -147,7 +147,7 @@
           completed:
             - !type:SpawnPrototype
               prototype: MaterialWoodPlank1
-              amount: 5
+              amount: 3
             - !type:DeleteEntity {}
           steps:
             - tool: Prying
