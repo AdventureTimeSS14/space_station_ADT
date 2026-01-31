@@ -1,3 +1,5 @@
+using Content.Server.ADT.MobCaller;
+
 namespace Content.Server.ADT.SpaceWhale;
 
 /// <summary>
@@ -6,5 +8,6 @@ namespace Content.Server.ADT.SpaceWhale;
 [RegisterComponent]
 public sealed partial class SpaceWhaleTargetComponent : Component
 {
-    [DataField] public EntityUid Entity { get; set; }
+    [ViewVariables(VVAccess.ReadWrite)]
+    public Entity<MobCallerComponent>? MobCaller;
 }
