@@ -750,7 +750,7 @@
   minLimit: 0
   maxLimit: 1
   loadouts:
-  - ADTChefChang
+  - ADTChefManual
 
 - type: loadoutGroup
   id: ADTChefGloves

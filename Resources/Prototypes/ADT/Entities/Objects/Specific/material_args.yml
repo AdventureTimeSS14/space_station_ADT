@@ -237,14 +237,14 @@
                     collection: GenericHit
 
 - type: entity
-  id: ADTChangTechniques
-  name: techniques from Mr. Chang
-  description: A one-off manual teaching the user Mideast Combat Tactics at a basic level.
+  id: ADTCulinaryManual
+  name: cookbook of techniques
+  description: A cookbook describing in detail how to exquisitely cook a chop from a bun thief.
   parent: BaseItem
   components:
     - type: Sprite
       sprite: ADT/Objects/Specific/material_art_book.rsi
-      state: chang
+      state: culinary
     - type: SpawnItemsOnUse
       items:
       - id: Ash

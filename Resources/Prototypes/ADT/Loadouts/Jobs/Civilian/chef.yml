@@ -8,12 +8,12 @@
       time: 36000 #10 часов
 
 - type: loadout
-  id: ADTChefChang
+  id: ADTChefManual
   effects:
   - !type:GroupLoadoutEffect
     proto: ADTMasterChef
   equipment:
-    pocket1: ADTChangTechniques
+    pocket1: ADTCulinaryManual
 
 # PDA
 - type: loadout
