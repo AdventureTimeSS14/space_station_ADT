@@ -99,7 +99,7 @@
 # ADT TWEAK START
   - type: GunRequiresWield
   - type: RunAndGunSpreadModifier
-    modifier: 0.07
+    modifier: 0.2
   - type: AttachableHolder
     slots:
       rmc-aslot-rail:

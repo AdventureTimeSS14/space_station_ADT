@@ -1334,7 +1334,7 @@ entities:
     - type: PowerSupplier
       supplyRate: 15200
     - type: RadiationSource
-      slope: 0.15
+# ADT-Tweak    slope: 0.15
       intensity: 1.8
     - type: Explosive
       totalIntensity: 15000

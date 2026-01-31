@@ -1,0 +1,89 @@
+- type: entity
+  parent: MobCarpHolo
+  id: ADTMobCarpHoloSponge
+  description: This blue fish enraging me.
+  suffix: Sponge
+  components:
+    - type: NpcFactionMember
+      factions:
+      - SimpleHostile
+
+- type: entity
+  parent: ADTMobXenoRavagerNoGhost
+  id: ADTMobXenoRavagerNoGhostSponge
+  description: My eyes are blue, my heart is red.
+  suffix: Sponge
+  components:
+    - type: NpcFactionMember
+      factions:
+      - SimpleHostile
+
+- type: entity
+  parent: MobAngryBee
+  id: ADTMobAngryBeeSponge
+  description: To bee... Or not to bee. Great pun, huh?
+  suffix: Sponge
+  components:
+    - type: NpcFactionMember
+      factions:
+      - SimpleHostile
+
+- type: entity
+  parent: MobAdultSlimesYellowAngry
+  id: ADTMobAdultSlimesYellowAngrySponge
+  description: Don't you dare do it again.
+  suffix: Sponge
+  components:
+    - type: NpcFactionMember
+      factions:
+      - SimpleHostile
+
+- type: entity
+  parent: MobSpiderSpace
+  id: ADTMobSpiderSpaceSponge
+  description: Maybe i was wrong. Maybe. But you... Nah.
+  suffix: Sponge
+  components:
+    - type: NpcFactionMember
+      factions:
+      - SimpleHostile
+
+- type: entity
+  parent: MobBearSpace
+  id: ADTMobBearSpaceSponge
+  description: I just like to be here. I don't need anything else. Guys, you are the best!
+  suffix: Sponge
+  components:
+    - type: NpcFactionMember
+      factions:
+      - SimpleHostile
+
+- type: entity
+  parent: MobPurpleSnake
+  id: ADTMobPurpleSnakeSponge
+  description: I don't want to make this description.
+  suffix: Sponge
+  components:
+    - type: NpcFactionMember
+      factions:
+      - SimpleHostile
+
+- type: entity
+  parent: MobKangarooSpace
+  id: ADTMobKangarooSpaceSponge
+  description: Wake up. Stop being so lazy, dude.
+  suffix: Sponge
+  components:
+    - type: NpcFactionMember
+      factions:
+      - SimpleHostile
+
+- type: entity
+  parent: MobTick
+  id: ADTMobTickSponge
+  description: That's all. This is the end.
+  suffix: Sponge
+  components:
+    - type: NpcFactionMember
+      factions:
+      - SimpleHostile

@@ -178,15 +178,15 @@
     sprite: Clothing/OuterClothing/Vests/webvest.rsi
   - type: Armor
     modifiers:
+  # ADT-Tweak-Start
       coefficients:
-        Blunt: 0.6 #ballistic plates = better protection
-        Slash: 0.6
+        Blunt: 0.5 #ballistic plates = better protection
+        Slash: 0.5
         Piercing: 0.3
         Heat: 0.9
-  #ADT tweak start
   - type: StaminaResistance
     damageCoefficient: 0.7
-  #ADT tweak end
+  # ADT-Tweak-End
   - type: ExplosionResistance
     damageCoefficient: 0.9
   - type: StaticPrice
@@ -209,16 +209,16 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.5
-        Slash: 0.5
+  # ADT-Tweak-Start
+        Blunt: 0.6
+        Slash: 0.6
         Piercing: 0.7
         Heat: 0.3
         Radiation: 0.5
         Caustic: 0.5
-  #ADT tweak start
   - type: StaminaResistance
     damageCoefficient: 0.7
-  #ADT tweak end
+  # ADT-tweak-End
   - type: ExplosionResistance
     damageCoefficient: 0.5
   - type: FireProtection
@@ -271,6 +271,7 @@
         Slash: 0.35
         Piercing: 0.35
         Heat: 0.35
+        Radiation: 0.5 # ADT-Tweak
         Caustic: 0.5
   - type: ExplosionResistance
     damageCoefficient: 0.35

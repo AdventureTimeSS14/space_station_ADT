@@ -1,0 +1,164 @@
+- type: entity
+  id: ADTSpaceLeviathan
+  parent: [ SimpleSpaceMobBase, FlyingMobBase, MobCombat ]
+  name: space whale
+  description: When the space becomes too quiet, there is no hope, there is no escape, but there is this.
+  suffix: keeps tiles, no despawn
+  components:
+  - type: TailedEntity
+    amount: 65
+    spacing: 1
+    prototype: ADTSpaceWhaleSegment
+  - type: MovementSpeedModifier
+    baseSprintSpeed: 40
+    baseWalkSpeed: 11
+    baseWeightlessFriction: 4
+    weightlessFriction: 4
+    weightlessFrictionNoInput: 4
+  # - type: RadarBlip
+  #   scale: 3
+  #   shape: hexagon
+  #   visibleFromOtherGrids: true
+  - type: MovementIgnoreGravity
+    gravityState: true # wtf lol?
+  - type: WarpPoint
+    follow: true
+    location: space leviathan
+  - type: HTN
+    rootTask:
+      task: DragonCarpCompound
+  - type: NpcFactionMember
+    factions:
+    - Dragon #goida, also the carpsuit buff
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.7
+        density: 137992
+        mask:
+        - FlyingMobMask
+        layer:
+        - FlyingMobLayer
+  - type: MeleeWeapon
+    altDisarm: false
+    attackRate: 0.3
+    angle: 0
+    animation: WeaponArcBite
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+    damage:
+      types:
+        Blunt: 50
+        Slash: 45
+        Structural: 800 #lol
+  - type: Speech
+    speechVerb: LargeMob
+  # - type: InteractionPopup
+  #   interactSuccessString: petting-success-leviathan
+  #   interactFailureString: petting-failure-leviathan
+  #   interactFailureSound:
+  #     path: /Audio/Effects/bite.ogg
+  - type: Sprite
+    sprite: ADT/Mobs/Aliens/leviathan.rsi
+    state: head
+    noRot: false
+    drawdepth: Overdoors
+  # - type: NightVision # Goobstation - Nigthvision
+    # color: "#808080"
+    # activateSound: null
+    # deactivateSound: null
+  - type: AmbientSound
+    enabled: true
+    volume: 1
+    range: 50
+    sound:
+      path: /Audio/ADT/Ambience/SpaceWhale/leviathan-ambient.ogg
+  - type: Vocal
+    wilhelm: "/Audio/ADT/Ambience/SpaceWhale/imafuckingworm.ogg"
+    wilhelmProbability: 1 # funy
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      4000: Dead # todo maybe add some good loot in the future to make space salv go whale hunting
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 4000
+      behaviors:
+      - !type:GibBehavior
+#        gibContents:
+  - type: DamageOnCollide
+    inverted: true # fuck you wrath components!
+    damage:
+      types:
+        Structural: 5000
+        Blunt: 10
+    ignoreWhitelist:
+      components:
+      - ContainmentField
+  - type: SingularityDistortion
+    intensity: 0
+  - type: ContentEye
+    maxZoom: 1.5,1.5
+    targetZoom: 1.5,1.5
+  - type: SolutionContainerManager
+  - type: InjectableSolution
+    solution: chemicals
+  - type: Bloodstream
+    maxBleedAmount: 5
+    bloodRefreshAmount: 300
+    bleedReductionAmount: 2
+    bloodMaxVolume: 5000
+    bloodReagent: ADTCursedBlood
+    bloodlossDamage:
+      types:
+        Bloodloss: 0
+    bloodlossHealDamage:
+      types:
+        Bloodloss: -1
+
+
+- type: entity
+  id: ADTSpaceWhaleSegment
+  parent: FlyingMobBase
+  categories: [ HideSpawnMenu ]
+  components:
+  # - type: RadarBlip
+  #   scale: 2
+  #   shape: diamond
+  #   visibleFromOtherGrids: true
+  - type: Sprite
+    sprite: ADT/Mobs/Aliens/leviathan.rsi
+    state: segment
+    noRot: false
+    drawdepth: Overdoors
+  - type: Tag
+    tags:
+    - HideContextMenu
+  - type: Physics
+    #canCollide: false
+  - type: SingularityDistortion
+    intensity: 0
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 1.7
+        density: 137992
+        mask:
+        - FlyingMobMask
+        layer:
+        - FlyingMobLayer
+
+- type: entity
+  id: ADTSpaceLeviathanDespawn
+  parent: ADTSpaceLeviathan
+  suffix: despawns
+  components:
+  - type: TimedDespawn
+    lifetime: 190 # to further prevent shitters from abusing it if something came up
