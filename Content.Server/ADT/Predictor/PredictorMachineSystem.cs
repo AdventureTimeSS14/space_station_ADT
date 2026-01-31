@@ -4,7 +4,6 @@ using Content.Server.Medical;
 using Content.Server.Power.EntitySystems;
 using Content.Shared.ADT.Economy;
 using Content.Shared.ADT.Predictor;
-using Content.Shared.Access.Systems;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Systems;
 using Content.Shared.Chemistry.Components;
@@ -28,7 +27,6 @@ namespace Content.Server.ADT.Predictor;
 public sealed class PredictorMachineSystem : EntitySystem
 {
     [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly AccessReaderSystem _accessReader = default!;
     [Dependency] private readonly BankCardSystem _bankCard = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;

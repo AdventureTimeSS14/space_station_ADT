@@ -1,5 +1,4 @@
 using Content.Shared.ADT.Predictor;
-using Content.Shared.Emag.Components;
 using Robust.Client.Animations;
 using Robust.Client.GameObjects;
 using Robust.Shared.Timing;

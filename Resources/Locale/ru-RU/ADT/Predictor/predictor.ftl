@@ -45,7 +45,7 @@ predictor-prediction-special-dylovene = Мне кажется, тот вчера
 
 predictor-prediction-emag-1 = Я вижу... NanoTrasen эксплуатирует вас как дешёвый, легко заменяемый ресурс.
 predictor-prediction-emag-2 = Сотрудники службы безопасности вас не спасут, за помощью советую обращаться к агентам.
-predictor-prediction-emag-3 = NanoTrasen - людоедская корпорация, что старается монополизировать всё, что находиться поблизости.
+predictor-prediction-emag-3 = NanoTrasen - людоедская корпорация, что старается монополизировать всё, что находится поблизости.
 predictor-prediction-emag-4 = Смерть NanoTrasen!
 predictor-prediction-emag-5 = NanoTrasen вам не помогут, лучше увольтесь.
 predictor-prediction-emag-6 = Синдикат спасёт вас!
