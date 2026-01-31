@@ -176,7 +176,6 @@
   - type: Sprite
     sprite: ADT/Objects/Misc/desktop_table.rsi
     state: desktop_table
-    size: Small
   - type: Anchorable
 
 - type: entity
@@ -191,7 +190,9 @@
   - type: Item
     size: Large
   - type: Storage
-    size: 6
+    maxItemSize: Normal
+    grid:
+    - 0,0,6,3
   - type: Fixtures
     fixtures:
       fix1:

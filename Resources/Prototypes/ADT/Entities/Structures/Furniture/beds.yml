@@ -54,7 +54,7 @@
   - type: Transform
     noRot: true
   - type: Item
-    size: Medium
+    size: Normal
     heldPrefix: bedroll
   - type: Sprite
     sprite: ADT/Structures/Furniture/bedroll.rsi
