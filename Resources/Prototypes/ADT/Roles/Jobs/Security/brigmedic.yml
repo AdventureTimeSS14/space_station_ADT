@@ -14,6 +14,8 @@
       inverted: true
       species:
       - Vox
+      - Resomi
+      - Shadekin
   startingGear: BrigmedicGear
   icon: "JobIconBrigmedic"
   supervisors: job-supervisors-hos
