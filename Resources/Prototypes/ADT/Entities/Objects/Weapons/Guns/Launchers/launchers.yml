@@ -17,6 +17,16 @@
     - suitStorage
   - type: AmmoCounter
   - type: RunAndGunBlocker
+    maxVelocity: 3
+  - type: MeleeWeapon
+    resetOnHandSelected: false
+    attackRate: 0.75
+    damage:
+      types:
+        Blunt: 14
+    soundHit:
+      collection: GenericHit
+  - type: AltFireMelee
   - type: Gun
     fireRate: 1
     projectileSpeed: 25
@@ -51,6 +61,7 @@
   - type: Clothing
     sprite: Objects/Weapons/Guns/Launchers/rocket.rsi
   - type: RunAndGunBlocker
+    maxVelocity: 3
   - type: Gun
     fireRate: 0.5
     projectileSpeed: 25

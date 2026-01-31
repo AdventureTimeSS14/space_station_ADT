@@ -59,7 +59,7 @@
       rmc-aslot-barrel: 0.59375, 0
       # rmc-aslot-barrel: 0.59375, -0.15625
   - type: RunAndGunSpreadModifier
-    modifier: 0.2
+    modifier: 1
   - type: MeleeWeapon
     resetOnHandSelected: false
     attackRate: 1

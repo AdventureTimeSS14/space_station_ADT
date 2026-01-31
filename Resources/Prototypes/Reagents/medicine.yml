@@ -823,7 +823,7 @@
         # End ADT tweak
         damage:
           groups:
-            Brute: -3.5
+            Brute: -10.5 # ADT-Tweak ## Лечит механические повреждения на 3.5 (10.5/3)
           types:
             Asphyxiation: -2.5
       - !type:HealthChange
@@ -846,7 +846,7 @@
           shouldHave: true
         damage:
           groups:
-            Brute: -4
+            Brute: -12 # ADT-Tweak ## Лечит механические повреждения на 4 (12/3)
           types:
             Bloodloss: -1
       - !type:HealthChange
