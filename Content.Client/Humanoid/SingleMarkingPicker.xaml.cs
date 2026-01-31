@@ -202,8 +202,8 @@ public sealed partial class SingleMarkingPicker : BoxContainer
             // Corvax-Sponsors-Start
             if (marking.SponsorOnly)
                 item.Text += GetSponsorOnlySuffix();
-            if (marking.SponsorOnly && _sponsorsManager != null)
-                item.Disabled = !_sponsorsManager.GetClientPrototypes().Contains(marking.ID);
+            // if (marking.SponsorOnly && _sponsorsManager != null)
+            //     item.Disabled = !_sponsorsManager.GetClientPrototypes().Contains(marking.ID); // ADT-Tweak: GetClientPrototypes не реализован в клиентской части
             // Corvax-Sponsors-End
 
             if (_markings[Slot].MarkingId == id)
