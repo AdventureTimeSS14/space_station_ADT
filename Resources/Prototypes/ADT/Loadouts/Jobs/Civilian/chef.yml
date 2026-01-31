@@ -13,7 +13,7 @@
   - !type:GroupLoadoutEffect
     proto: ADTMasterChef
   equipment:
-    pocket1: ADTCulinaryManual
+    pocket1: ADTCookbookManual
 
 # PDA
 - type: loadout

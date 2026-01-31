@@ -237,7 +237,7 @@
                     collection: GenericHit
 
 - type: entity
-  id: ADTCulinaryManual
+  id: ADTCookbookManual
   name: cookbook of techniques
   description: A cookbook describing in detail how to exquisitely cook a chop from a bun thief.
   parent: BaseItem
