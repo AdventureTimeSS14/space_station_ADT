@@ -42,7 +42,7 @@ public abstract class SharedBarbellBenchSystem : EntitySystem
     {
         if (bench.Comp.BarbellRepAction is { Valid: true } action)
         {
-            _actionsSystem.RemoveAction(args.Buckle.Owner, action);
+            _actionsSystem.RemoveProvidedAction(args.Buckle.Owner, bench.Owner, action);
         }
 
         if (bench.Comp.IsPerformingRep)
