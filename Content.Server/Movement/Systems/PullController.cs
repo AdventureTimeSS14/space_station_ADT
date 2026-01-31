@@ -163,8 +163,8 @@ public sealed class PullController : VirtualController
         if (reduction <= 0f || !_fixturesQuery.TryComp(uid, out var fixtures))
             return;
 
-        // Limit maximum reduction to 80% (0.8)
-        reduction = Math.Min(reduction, 0.8f);
+        // Limit maximum reduction to 90% (0.9)
+        reduction = Math.Min(reduction, 0.9f);
 
         if (!_originalDensities.TryGetValue(uid, out var originalDensities))
         {

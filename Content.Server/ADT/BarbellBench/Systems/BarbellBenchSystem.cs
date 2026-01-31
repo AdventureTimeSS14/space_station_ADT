@@ -30,6 +30,9 @@ public sealed class BarbellBenchSystem : SharedBarbellBenchSystem
     [Dependency] private readonly MetaDataSystem _metaData = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
 
+    // Отслеживание прогресса силы для каждого игрока
+    private readonly Dictionary<EntityUid, float> _playerPullStrength = new();
+
     public override void Initialize()
     {
         base.Initialize();
@@ -158,7 +161,35 @@ public sealed class BarbellBenchSystem : SharedBarbellBenchSystem
                 PullerComponent? pullerComp = null;
                 if (Resolve(args.Performer, ref pullerComp))
                 {
-                    pullerComp.PulledDensityReduction = Math.Min(pullerComp.PulledDensityReduction + 0.05f, 0.8f);
+                    // Увеличиваем прогресс силы на 0.05 при каждом повторении
+                    if (!_playerPullStrength.TryGetValue(args.Performer, out var currentStrength))
+                    {
+                        currentStrength = 0f;
+                    }
+
+                    currentStrength += 0.02f;
+                    _playerPullStrength[args.Performer] = currentStrength;
+
+                    // Устанавливаем уровень PulledDensityReduction на основе накопленной силы
+                    float targetReduction;
+                    if (currentStrength >= 1.00f)
+                    {
+                        targetReduction = 1.00f; // Последний уровень (максимум 90%)
+                    }
+                    else if (currentStrength >= 0.70f)
+                    {
+                        targetReduction = 0.70f; // Второй уровень
+                    }
+                    else if (currentStrength >= 0.40f)
+                    {
+                        targetReduction = 0.40f; // Первый уровень
+                    }
+                    else
+                    {
+                        targetReduction = pullerComp.PulledDensityReduction; // Оставляем текущее значение
+                    }
+
+                    pullerComp.PulledDensityReduction = targetReduction;
                     Dirty(args.Performer, pullerComp);
                 }
             }
