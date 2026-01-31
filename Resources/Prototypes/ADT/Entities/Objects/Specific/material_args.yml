@@ -237,14 +237,14 @@
                     collection: GenericHit
 
 - type: entity
-  id: ADTCqcManualWeak
-  name: cqc manual for the smallest
+  id: ADTChangTechniques
+  name: techniques from Mr. Chang
   description: A one-off manual teaching the user Mideast Combat Tactics at a basic level.
   parent: BaseItem
   components:
     - type: Sprite
       sprite: ADT/Objects/Specific/material_art_book.rsi
-      state: cqc
+      state: chang
     - type: SpawnItemsOnUse
       items:
       - id: Ash

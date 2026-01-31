@@ -13,7 +13,7 @@
   - !type:GroupLoadoutEffect
     proto: ADTMasterChef
   equipment:
-    pocket1: ADTCqcManualWeak
+    pocket1: ADTChangTechniques
 
 # PDA
 - type: loadout

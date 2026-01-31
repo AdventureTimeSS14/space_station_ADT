@@ -1,5 +1,5 @@
 {
-    "version": 1,
+    "version": 2,
     "size": {
         "x": 32,
         "y": 32
@@ -15,6 +15,9 @@
         },
         {
             "name": "sleeping_carp"
+        },
+        {
+            "name": "chang"
         }
     ]
 }
