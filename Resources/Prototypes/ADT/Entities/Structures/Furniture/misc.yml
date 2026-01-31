@@ -242,6 +242,86 @@
         - LowImpassable
 
 - type: entity
+  id: ADTStandKatana
+  parent: BaseStructure
+  name: katana stand
+  description: A stand for displaying a katana.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/stand_katana.rsi
+    state: stand-katana
+  - type: Icon
+    sprite: ADT/Structures/Furniture/stand_katana.rsi
+    state: stand-katana
+  - type: Storage
+    grid:
+    - 0,0,2,2
+    maxItemSize: Normal
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+          params:
+            volume: -6
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetSteel1:
+            min: 1
+            max: 2
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Anchorable
+  - type: Rotatable
+  - type: InteractionOutline
+  - type: Clickable
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.3,-0.3,0.3,0.3"
+        density: 100
+        mask:
+        - MachineMask
+        layer:
+        - MidImpassable
+        - LowImpassable
+
+- type: entity
+  id: ADTStandKatanaFwo
+  parent: ADTStandKatana
+  name: katana stand
+  suffix: Fwo
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/stand_katana_fwo.rsi
+    state: stand-katana-fwo
+  - type: Icon
+    sprite: ADT/Structures/Furniture/stand_katana_fwo.rsi
+    state: stand-katana-fwo
+
+- type: entity
   id: ADTPitPoisoned
   parent: ADTPit
   name: poisoned well
