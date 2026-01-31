@@ -81,7 +81,11 @@ public sealed class PredictorMachineSystem : EntitySystem
         }
 
         if (bankCard == null || !bankCard.AccountId.HasValue)
+        {
+            _popup.PopupEntity(Loc.GetString("predictor-machine-no-id"), uid, args.User);
+            _audio.PlayPvs(component.SoundDeny, uid);
             return;
+        }
 
         if (!_powerReceiver.IsPowered(uid))
         {
