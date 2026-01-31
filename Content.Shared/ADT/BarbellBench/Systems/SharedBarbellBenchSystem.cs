@@ -9,7 +9,7 @@ public abstract class SharedBarbellBenchSystem : EntitySystem
 {
     [Dependency] private readonly ActionContainerSystem _actConts = default!;
     [Dependency] protected readonly SharedActionsSystem _actionsSystem = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] protected readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] protected readonly SharedContainerSystem Container = default!;
 
     public const string BarbellRepActionId = "ActionBarbellBenchPerformRep";
@@ -20,7 +20,6 @@ public abstract class SharedBarbellBenchSystem : EntitySystem
 
         SubscribeLocalEvent<BarbellBenchComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<BarbellBenchComponent, StrappedEvent>(OnStrapped);
-        SubscribeLocalEvent<BarbellBenchComponent, UnstrappedEvent>(OnUnstrapped);
     }
 
     private void OnMapInit(Entity<BarbellBenchComponent> ent, ref MapInitEvent args)
@@ -38,11 +37,14 @@ public abstract class SharedBarbellBenchSystem : EntitySystem
         }
     }
 
-    private void OnUnstrapped(Entity<BarbellBenchComponent> bench, ref UnstrappedEvent args)
+    protected virtual void OnUnstrapped(Entity<BarbellBenchComponent> bench, ref UnstrappedEvent args)
     {
         if (bench.Comp.BarbellRepAction is { Valid: true } action)
         {
-            _actionsSystem.RemoveProvidedAction(args.Buckle.Owner, bench.Owner, action);
+            // Unstrapped can happen even if the action was never actually granted (e.g. no barbell when strapped).
+            // Only remove if this action is currently attached to the unbuckling entity.
+            if (_actionsSystem.GetAction(action) is { } act && act.Comp.AttachedEntity == args.Buckle.Owner)
+                _actionsSystem.RemoveProvidedAction(args.Buckle.Owner, bench.Owner, action);
         }
 
         if (bench.Comp.IsPerformingRep)

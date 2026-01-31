@@ -23,7 +23,9 @@ using Content.Shared.Interaction.Events;
 using Content.Shared.Inventory.VirtualItem;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Popups;
+using Robust.Shared.Player;
 using Content.Shared.Verbs;
+using Content.Shared.Stunnable;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
@@ -35,7 +37,6 @@ namespace Content.Server.ADT.BarbellBench.Systems;
 
 public sealed class BarbellBenchSystem : SharedBarbellBenchSystem
 {
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
@@ -77,6 +78,11 @@ public sealed class BarbellBenchSystem : SharedBarbellBenchSystem
 
         SubscribeLocalEvent<BarbellPinnedComponent, GetVerbsEvent<InteractionVerb>>(OnPinnedGetVerbs,
             before: new[] { typeof(SharedBuckleSystem) });
+
+        SubscribeLocalEvent<PullerComponent, ComponentShutdown>(OnPullerShutdown);
+        SubscribeLocalEvent<PullerComponent, EntityTerminatingEvent>(OnPullerTerminating);
+        SubscribeLocalEvent<BarbellBenchComponent, UnstrappedEvent>(OnUnstrapped);
+        SubscribeLocalEvent<EntityTerminatingEvent>(OnEntityTerminating);
     }
 
     private void OnAttachableAltered(EntityUid uid, BarbellBenchComponent component, ref AttachableHolderAttachablesAlteredEvent args)
@@ -221,6 +227,7 @@ public sealed class BarbellBenchSystem : SharedBarbellBenchSystem
                         currentStrength = 0f;
                     }
 
+                    var previousStrength = currentStrength;
                     currentStrength += 0.02f;
                     _playerPullStrength[args.Performer] = currentStrength;
 
@@ -245,6 +252,32 @@ public sealed class BarbellBenchSystem : SharedBarbellBenchSystem
                     pullerComp.PulledDensityReduction = targetReduction;
                     Dirty(args.Performer, pullerComp);
 
+                    var performer = args.Performer;
+                    if (previousStrength < 0.40f && currentStrength >= 0.40f)
+                    {
+                        Timer.Spawn(TimeSpan.FromSeconds(0.5f), () =>
+                        {
+                            if (Exists(performer))
+                                _popup.PopupEntity(Loc.GetString("barbell-bench-strength-increased"), performer, performer, PopupType.Medium);
+                        });
+                    }
+                    else if (previousStrength < 0.70f && currentStrength >= 0.70f)
+                    {
+                        Timer.Spawn(TimeSpan.FromSeconds(0.5f), () =>
+                        {
+                            if (Exists(performer))
+                                _popup.PopupEntity(Loc.GetString("barbell-bench-strength-increased"), performer, performer, PopupType.Medium);
+                        });
+                    }
+                    else if (previousStrength < 1.00f && currentStrength >= 1.00f)
+                    {
+                        Timer.Spawn(TimeSpan.FromSeconds(0.5f), () =>
+                        {
+                            if (Exists(performer))
+                                _popup.PopupEntity(Loc.GetString("barbell-bench-strength-increased"), performer, performer, PopupType.Medium);
+                        });
+                    }
+
                     if (currentStrength >= 1.00f && !HasComp<MobIpcComponent>(args.Performer) && !_staminaBonusMaxLevelApplied.GetValueOrDefault(args.Performer, false))
                     {
                         if (TryComp<StaminaComponent>(args.Performer, out var staminaComp))
@@ -266,7 +299,10 @@ public sealed class BarbellBenchSystem : SharedBarbellBenchSystem
         Timer.Spawn(TimeSpan.FromSeconds(component.RepSoundDelay), () =>
         {
             if (Exists(uid))
-                _audio.PlayPvs(sound, uid);
+            {
+                var filter = Filter.Pvs(uid, entityManager: EntityManager);
+                _audio.PlayGlobal(sound, filter, recordReplay: true);
+            }
         });
 
         Timer.Spawn(TimeSpan.FromSeconds(component.RepDuration), () =>
@@ -298,7 +334,7 @@ public sealed class BarbellBenchSystem : SharedBarbellBenchSystem
         if (!TryComp<BarbellBenchComponent>(buckle.BuckledTo, out var bench))
             return;
 
-        if (buckle.BuckledTo == null || !Container.TryGetContainer(buckle.BuckledTo.Value, bench.BarbellSlotId, out var barbellContainer) || barbellContainer.Count == 0)
+        if (!Container.TryGetContainer(buckle.BuckledTo.Value, bench.BarbellSlotId, out var barbellContainer) || barbellContainer.Count == 0)
             return;
 
         var barbell = barbellContainer.ContainedEntities[0];
@@ -327,6 +363,38 @@ public sealed class BarbellBenchSystem : SharedBarbellBenchSystem
     {
         if (args.User == uid)
         {
+            var stunPassed = false;
+            if (TryComp<KnockedDownComponent>(uid, out var knockedDown))
+            {
+                stunPassed = knockedDown.NextUpdate <= _gameTiming.CurTime;
+            }
+
+            var staminaRecovered = false;
+            if (TryComp<StaminaComponent>(uid, out var staminaComp))
+            {
+                var currentStamina = _stamina.GetStaminaDamage(uid, staminaComp);
+                staminaRecovered = currentStamina < staminaComp.CritThreshold && !staminaComp.Critical;
+            }
+
+            if (stunPassed || staminaRecovered)
+            {
+                if (component.Bench != null && Exists(component.Bench))
+                {
+                    if (TryComp<BarbellBenchComponent>(component.Bench, out var bench))
+                    {
+                        if (component.Bench.HasValue && Container.TryGetContainer(component.Bench.Value, bench.BarbellSlotId, out var barbellContainer) && barbellContainer.Count > 0)
+                        {
+                            var barbell = barbellContainer.ContainedEntities[0];
+                            _virtualItem.DeleteInHandsMatching(uid, barbell);
+                        }
+                    }
+                }
+
+                RemComp<BarbellPinnedComponent>(uid);
+                RemComp<ActiveBarbellPinnedComponent>(uid);
+                return;
+            }
+
             args.Cancelled = true;
             if (args.Popup)
             {
@@ -335,30 +403,27 @@ public sealed class BarbellBenchSystem : SharedBarbellBenchSystem
             return;
         }
 
-        if (component.Bench != null && Exists(component.Bench))
+        var canUnbuckle = false;
+        if (TryComp<KnockedDownComponent>(uid, out var knockedDownOther))
         {
-            if (TryComp<BarbellBenchComponent>(component.Bench, out var bench))
-            {
-                if (component.Bench.HasValue && Container.TryGetContainer(component.Bench.Value, bench.BarbellSlotId, out var barbellContainer) && barbellContainer.Count > 0)
-                {
-                    args.Cancelled = true;
-                    if (args.Popup)
-                    {
-                        _popup.PopupEntity(Loc.GetString("barbell-bench-cannot-unbuckle"), uid, args.User ?? uid, PopupType.MediumCaution);
-                    }
-                    return;
-                }
-            }
+            canUnbuckle = knockedDownOther.NextUpdate <= _gameTiming.CurTime;
         }
 
-        if (component.Bench != null && Exists(component.Bench))
+        if (!canUnbuckle)
         {
-            if (TryComp<BarbellBenchComponent>(component.Bench, out var bench))
+            if (component.Bench != null && Exists(component.Bench))
             {
-                if (component.Bench.HasValue && Container.TryGetContainer(component.Bench.Value, bench.BarbellSlotId, out var barbellContainer) && barbellContainer.Count > 0)
+                if (TryComp<BarbellBenchComponent>(component.Bench, out var bench))
                 {
-                    var barbell = barbellContainer.ContainedEntities[0];
-                    _virtualItem.DeleteInHandsMatching(uid, barbell);
+                    if (component.Bench.HasValue && Container.TryGetContainer(component.Bench.Value, bench.BarbellSlotId, out var barbellContainer) && barbellContainer.Count > 0)
+                    {
+                        args.Cancelled = true;
+                        if (args.Popup)
+                        {
+                            _popup.PopupEntity(Loc.GetString("barbell-bench-cannot-unbuckle"), uid, args.User ?? uid, PopupType.MediumCaution);
+                        }
+                        return;
+                    }
                 }
             }
         }
@@ -371,8 +436,17 @@ public sealed class BarbellBenchSystem : SharedBarbellBenchSystem
     {
         if (args.User == uid)
         {
-            args.Handled = true;
-            _popup.PopupEntity(Loc.GetString("barbell-bench-cannot-unbuckle"), uid, uid, PopupType.MediumCaution);
+            var stunPassed = false;
+            if (TryComp<KnockedDownComponent>(uid, out var knockedDown))
+            {
+                stunPassed = knockedDown.NextUpdate <= _gameTiming.CurTime;
+            }
+
+            if (!stunPassed)
+            {
+                args.Handled = true;
+                _popup.PopupEntity(Loc.GetString("barbell-bench-cannot-unbuckle"), uid, uid, PopupType.MediumCaution);
+            }
         }
     }
 
@@ -383,10 +457,19 @@ public sealed class BarbellBenchSystem : SharedBarbellBenchSystem
 
     private void OnPinnedGetVerbs(EntityUid uid, BarbellPinnedComponent component, ref GetVerbsEvent<InteractionVerb> args)
     {
-        var verbsToRemove = args.Verbs.Where(v => v.Category == VerbCategory.Unbuckle).ToList();
-        foreach (var verb in verbsToRemove)
+        var stunPassed = false;
+        if (TryComp<KnockedDownComponent>(uid, out var knockedDown))
         {
-            args.Verbs.Remove(verb);
+            stunPassed = knockedDown.NextUpdate <= _gameTiming.CurTime;
+        }
+
+        if (!stunPassed)
+        {
+            var verbsToRemove = args.Verbs.Where(v => v.Category == VerbCategory.Unbuckle).ToList();
+            foreach (var verb in verbsToRemove)
+            {
+                args.Verbs.Remove(verb);
+            }
         }
     }
 
@@ -403,6 +486,34 @@ public sealed class BarbellBenchSystem : SharedBarbellBenchSystem
         }
     }
 
+    private void CleanupPullerData(EntityUid uid)
+    {
+        _playerPullStrength.Remove(uid);
+        _staminaBonusMaxLevelApplied.Remove(uid);
+    }
+
+    private void OnPullerShutdown(EntityUid uid, PullerComponent component, ComponentShutdown args)
+    {
+        CleanupPullerData(uid);
+    }
+
+    private void OnPullerTerminating(EntityUid uid, PullerComponent component, EntityTerminatingEvent args)
+    {
+        CleanupPullerData(uid);
+    }
+
+    protected override void OnUnstrapped(Entity<BarbellBenchComponent> bench, ref UnstrappedEvent args)
+    {
+        base.OnUnstrapped(bench, ref args);
+
+        _performingReps.Remove(args.Buckle.Owner);
+    }
+
+    private void OnEntityTerminating(ref EntityTerminatingEvent ev)
+    {
+        _performingReps.Remove(ev.Entity.Owner);
+    }
+
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
@@ -416,6 +527,44 @@ public sealed class BarbellBenchSystem : SharedBarbellBenchSystem
             var query = EntityQueryEnumerator<ActiveBarbellPinnedComponent, BarbellPinnedComponent>();
             while (query.MoveNext(out var uid, out _, out var pinned))
             {
+                if (TryComp<StaminaComponent>(uid, out var staminaComp))
+                {
+                    var currentStamina = _stamina.GetStaminaDamage(uid, staminaComp);
+                    if (currentStamina < staminaComp.CritThreshold && !staminaComp.Critical)
+                    {
+                        if (pinned.Bench != null && Exists(pinned.Bench))
+                        {
+                            if (TryComp<BarbellBenchComponent>(pinned.Bench, out var bench))
+                            {
+                                if (pinned.Bench.HasValue && Container.TryGetContainer(pinned.Bench.Value, bench.BarbellSlotId, out var barbellContainer) && barbellContainer.Count > 0)
+                                {
+                                    var barbell = barbellContainer.ContainedEntities[0];
+                                    _virtualItem.DeleteInHandsMatching(uid, barbell);
+                                }
+                            }
+                        }
+
+                        RemComp<BarbellPinnedComponent>(uid);
+                        RemComp<ActiveBarbellPinnedComponent>(uid);
+                        _popup.PopupEntity(Loc.GetString("barbell-bench-recovered"), uid, uid, PopupType.Medium);
+                        continue;
+                    }
+                }
+
+                var stunPassed = false;
+                if (TryComp<KnockedDownComponent>(uid, out var knockedDown))
+                {
+                    stunPassed = knockedDown.NextUpdate <= curTime;
+                }
+
+                if (stunPassed && pinned.Bench != null && Exists(pinned.Bench))
+                {
+                    if (TryComp<StrapComponent>(pinned.Bench, out var strap))
+                    {
+                        _alerts.ShowAlert(uid, strap.BuckledAlertType);
+                    }
+                }
+
                 // Проверяем, снята ли штанга
                 if (pinned.Bench != null && Exists(pinned.Bench))
                 {
@@ -432,21 +581,12 @@ public sealed class BarbellBenchSystem : SharedBarbellBenchSystem
                                 _damageable.TryChangeDamage(uid, respirator.Damage, interruptsDoAfters: false);
                             }
 
-                            _alerts.ClearAlertCategory(uid, SharedBuckleSystem.BuckledAlertCategory);
+                            if (!stunPassed)
+                            {
+                                _alerts.ClearAlertCategory(uid, SharedBuckleSystem.BuckledAlertCategory);
+                            }
 
                             continue;
-                        }
-                    }
-                }
-
-                if (pinned.Bench != null && Exists(pinned.Bench))
-                {
-                    if (TryComp<BarbellBenchComponent>(pinned.Bench, out var bench))
-                    {
-                        if (pinned.Bench.HasValue && Container.TryGetContainer(pinned.Bench.Value, bench.BarbellSlotId, out var barbellContainer) && barbellContainer.Count > 0)
-                        {
-                            var barbell = barbellContainer.ContainedEntities[0];
-                            _virtualItem.DeleteInHandsMatching(uid, barbell);
                         }
                     }
                 }
