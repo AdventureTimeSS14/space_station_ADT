@@ -453,6 +453,13 @@ public abstract partial class SharedChatSystem : EntitySystem
         SoundSpecifier? announcementSound = null,
         Color? colorOverride = null)
     { }
+
+    // ADT-Tweak-Start: возможность выделять сообщения в чате
+    public static bool MessageTextContains(ChatMessage msg, string text)
+    {
+        return Regex.IsMatch(msg.Message, "(?>^|[ ,.!?])(" + text + ")(?>$|[ ,.!?])", RegexOptions.IgnoreCase);
+    }
+    // ADT-Tweak-End
 }
 
 /// <summary>

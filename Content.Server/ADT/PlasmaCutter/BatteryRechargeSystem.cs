@@ -3,9 +3,10 @@
 using Content.Server.Materials;
 using Content.Shared.Materials;
 using Content.Server.Power.EntitySystems;
-using Content.Server.Power.Components;
 using Content.Server.PowerCell;
 using Content.Shared.PowerCell.Components;
+using Content.Shared.Power;
+using Content.Shared.Power.Components;
 
 namespace Content.Server.AruMoon.Plasmacutter
 {

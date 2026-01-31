@@ -9,6 +9,8 @@ using Content.Shared.GameTicking.Rules;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Content.Server.GameTicking.Rules;
+using Content.Shared.ADT.GameTicking.Rules;
+using Content.Server.GameTicking.Rules.Components;
 
 namespace Content.Server.ADT.GameTicking.Rules;
 
