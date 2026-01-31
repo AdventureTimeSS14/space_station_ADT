@@ -13,7 +13,6 @@
     - !type:SpeciesRequirement
       inverted: true
       species:
-      - Resomi
       - Vox
   startingGear: BrigmedicGear
   icon: "JobIconBrigmedic"
