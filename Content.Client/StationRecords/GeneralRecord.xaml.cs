@@ -22,14 +22,14 @@ public sealed partial class GeneralRecord : Control
     // ADT Station Records Showcase End
 
     public Action<uint>? OnDeletePressed;
-    public GeneralRecord(GeneralStationRecord record, bool canDelete, uint? id, IPrototypeManager prototypeManager)
+    public GeneralRecord(GeneralStationRecord record, bool canDelete, uint? id, IEntityManager ent, IPrototypeManager prototypeManager)
     {
         RobustXamlLoader.Load(this);
         // ADT Station Records Showcase Start
         _ui = UserInterfaceManager.GetUIController<LobbyUIController>();
         _ent = ent;
         _ent.DeleteEntity(CurrentShowcase);
-        var dummy = _ui.LoadProfileEntity(record.Profile, proto.Index<JobPrototype>(record.JobPrototype), true);
+        var dummy = _ui.LoadProfileEntity(record.Profile, prototypeManager.Index<JobPrototype>(record.JobPrototype), true);
         Showcase.SetEntity(dummy);
 
         RecordName.SetMessage(record.Name, defaultColor: Color.White);

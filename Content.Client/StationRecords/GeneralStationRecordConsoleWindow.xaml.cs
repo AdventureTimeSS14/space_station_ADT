@@ -144,7 +144,7 @@ public sealed partial class GeneralStationRecordConsoleWindow : DefaultWindow
     private void PopulateRecordContainer(GeneralStationRecord record, bool enableDelete, uint? id)
     {
         RecordContainer.RemoveAllChildren();
-        var newRecord = new GeneralRecord(record, enableDelete, id, _prototypeManager);
+        var newRecord = new GeneralRecord(record, enableDelete, id, _ent, _prototypeManager);
         newRecord.OnDeletePressed = OnDeleted;
 
         RecordContainer.AddChild(newRecord);
