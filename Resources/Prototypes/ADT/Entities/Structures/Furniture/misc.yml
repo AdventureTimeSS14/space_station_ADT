@@ -119,6 +119,61 @@
     anchored: true
 
 - type: entity
+  id: ADTMetalPole
+  parent: BaseStructure
+  name: pole
+  description: This could be either for a fire department or a brothel.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/metal_pole.rsi
+    state: metal_pole
+  - type: Icon
+    sprite: ADT/Structures/Furniture/metal_pole.rsi
+    state: metal_pole
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+          params:
+            volume: -6
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          PartRodMetal1:
+            min: 1
+            max: 2
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Anchorable
+  - type: Rotatable
+  - type: InteractionOutline
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.2,-0.45,0.2,0.45"
+        density: 100
+        mask:
+        - MachineMask
+        layer:
+        - MidImpassable
+        - LowImpassable
+
+- type: entity
   id: ADTCableReel
   parent: ADTTableBase
   name: cable reel
