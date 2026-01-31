@@ -322,6 +322,62 @@
     state: stand-katana-fwo
 
 - type: entity
+  id: ADTFloorGlobus
+  parent: BaseStructure
+  name: floor globe
+  description: A decorative floor globe.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/floor_globus.rsi
+    state: floor_globus
+  - type: Icon
+    sprite: ADT/Structures/Furniture/floor_globus.rsi
+    state: floor_globus
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+          params:
+            volume: -6
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetGlass1:
+            min: 1
+            max: 2
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Anchorable
+  - type: Rotatable
+  - type: InteractionOutline
+  - type: Clickable
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.3,-0.3,0.3,0.3"
+        density: 100
+        mask:
+        - MachineMask
+        layer:
+        - MidImpassable
+        - LowImpassable
+
+- type: entity
   id: ADTPitPoisoned
   parent: ADTPit
   name: poisoned well

@@ -24,3 +24,6 @@ ent-ADTStandKatana = стойка для катаны
 
 ent-ADTStandKatanaFwo = стойка для катаны
     .desc = Стойка для оружия искуссного воина.
+
+ent-ADTFloorGlobus = напольный глобус
+    .desc = Декоративный напольный глобус.
