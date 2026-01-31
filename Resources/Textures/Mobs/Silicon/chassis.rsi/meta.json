@@ -388,6 +388,22 @@
             "directions": 4
         },
         {
+            "name": "sec_l",
+            "directions": 4
+        },
+        {
+            "name": "sec_e_r",
+            "directions": 4
+        },
+        {
+            "name": "sec_e",
+            "directions": 4
+        },
+        {
+            "name": "sec",
+            "directions": 4
+        },
+        {
             "name": "synd_sec_derelict",
             "directions": 4
         },
