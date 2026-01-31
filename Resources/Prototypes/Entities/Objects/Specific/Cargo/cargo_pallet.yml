@@ -26,7 +26,7 @@
   - type: Sprite
     drawdepth: FloorTiles
     layers:
-    - sprite: Structures/catwalk.rsi
+    - sprite: ADT/Structures/Floor/catwalk.rsi
       state: catwalk_preview
   - type: GuideHelp
     guides:
