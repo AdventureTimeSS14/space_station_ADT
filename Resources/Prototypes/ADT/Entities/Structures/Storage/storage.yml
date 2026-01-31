@@ -61,3 +61,85 @@
   - type: Climbable
   - type: StaticPrice
     price: 30
+
+# Деревянные ящики
+- type: entity
+  parent: BaseStructureDynamic
+  id: ADTWoodenBoxBase
+  abstract: true
+  name: wooden box
+  description: wooden box.
+  components:
+  - type: Transform
+    noRot: true
+  - type: Icon
+    sprite: ADT/Structures/Storage/wooden_box.rsi
+    state: box-1
+  - type: Sprite
+    noRot: true
+    sprite: ADT/Structures/Storage/wooden_box.rsi
+    state: box-1
+  - type: RandomSprite
+    available:
+      - "0":
+          "box-1": null
+          "box-2": null
+          "box-3": null
+          "box-4": null
+          "box-5": null
+          "box-6": null
+  - type: InteractionOutline
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,-0.4,0.4,0.4"
+        density: 50
+        mask:
+        - CrateMask
+        layer:
+        - MachineLayer
+  - type: EntityStorage
+  - type: PlaceableSurface
+    isPlaceable: false
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Wood
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 75
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WoodDestroy
+  - type: ContainerContainer
+    containers:
+      entity_storage: !type:Container
+  - type: Construction
+    graph: ADTWoodenBox
+    node: adtwoodenbox
+    containers:
+      - entity_storage
+
+- type: entity
+  parent: ADTWoodenBoxBase
+  id: ADTWoodenBox1
+
+# Вариант для спавна с лутом (как коробки из тех-тоннелей)
+- type: entity
+  parent: ADTWoodenBoxBase
+  id: ADTWoodenBoxRandom
+  suffix: Random
+  components:
+  - type: StorageFill
+    contents:
+      - id: MaintenanceToolSpawner
+        prob: 0.5
+      - id: MaintenanceFluffSpawner
+        prob: 0.5

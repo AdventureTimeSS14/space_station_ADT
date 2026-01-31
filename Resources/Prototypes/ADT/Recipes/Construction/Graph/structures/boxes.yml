@@ -26,3 +26,31 @@
               prototype: MaintenanceFluffSpawner
               amount: 1
             - !type:DeleteEntity {}
+
+- type: constructionGraph
+  id: ADTWoodenBox
+  start: start
+  graph:
+    - node: start
+      actions:
+        - !type:DeleteEntity {}
+      edges:
+        - to: adtwoodenbox
+          completed:
+            - !type:SnapToGrid {}
+          steps:
+            - material: WoodPlank
+              amount: 5
+              doAfter: 5
+    - node: adtwoodenbox
+      entity: ADTWoodenBox1
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialWoodPlank1
+              amount: 5
+            - !type:DeleteEntity {}
+          steps:
+            - tool: Prying
+              doAfter: 5
