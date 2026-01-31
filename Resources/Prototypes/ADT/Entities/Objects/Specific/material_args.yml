@@ -244,7 +244,7 @@
   components:
     - type: Sprite
       sprite: ADT/Objects/Specific/material_art_book.rsi
-      state: culinary
+      state: cookbook
     - type: SpawnItemsOnUse
       items:
       - id: Ash
