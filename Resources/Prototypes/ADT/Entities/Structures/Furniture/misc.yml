@@ -49,6 +49,76 @@
     node: adtdiscoball
 
 - type: entity
+  id: ADTDresserMusic
+  parent: BaseStructure
+  name: music dresser
+  description: A wooden dresser with built-in music player. Store your things and enjoy music at the same time!
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/dresser_music.rsi
+    state: dresser-music
+  - type: Icon
+    sprite: ADT/Structures/Furniture/dresser_music.rsi
+    state: dresser-music
+  - type: Damageable
+    damageModifierSet: Wood
+    damageContainer: StructuralInorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          MaterialWoodPlank1:
+            min: 3
+            max: 3
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Storage
+    grid:
+    - 0,0,6,3
+    maxItemSize: Normal
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+      enum.JukeboxUiKey.Key:
+        type: JukeboxBoundUserInterface
+  - type: Jukebox
+    onState: dresser-music
+    offState: dresser-music
+    selectState: dresser-music
+  - type: ApcPowerReceiver
+    powerLoad: 100
+    priority: Low
+  - type: ExtensionCableReceiver
+  - type: ActivatableUI
+    key: enum.JukeboxUiKey.Key
+  - type: ActivatableUIRequiresPower
+  - type: InteractionOutline
+  - type: Clickable
+  - type: Tag
+    tags:
+    - Wooden
+  - type: Anchorable
+  - type: Rotatable
+  - type: Physics
+    bodyType: Static
+  - type: Transform
+    anchored: true
+
+- type: entity
   id: ADTCableReel
   parent: ADTTableBase
   name: cable reel
