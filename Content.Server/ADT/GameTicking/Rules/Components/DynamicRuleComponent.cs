@@ -1,10 +1,60 @@
 ﻿using Content.Shared.EntityTable.EntitySelectors;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Server.GameTicking.Rules.Components;
 
 [RegisterComponent, Access(typeof(DynamicRuleSystem))]
+[AutoGenerateComponentPause]
 public sealed partial class DynamicRuleComponent : Component
 {
+    /// <summary>
+    /// The total budget for antags.
+    /// </summary>
+    [DataField]
+    public float Budget;
+
+    /// <summary>
+    /// The last time budget was updated.
+    /// </summary>
+    [DataField]
+    public TimeSpan LastBudgetUpdate;
+
+    /// <summary>
+    /// The amount of budget accumulated every second.
+    /// </summary>
+    [DataField]
+    public float BudgetPerSecond = 0.1f;
+    
+    /// <summary>
+    /// A table of rules that are picked from.
+    /// </summary>
+    [DataField]
+    public EntityTableSelector Table = new NoneSelector();
+
+    /// <summary>
+    /// The rules that have been spawned
+    /// </summary>
+    [DataField]
+    public List<EntityUid> Rules = new();
+
+    /// <summary>
+    /// The time at which the next rule will start
+    /// </summary>
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
+    public TimeSpan NextRuleTime;
+
+    /// <summary>
+    /// Minimum delay between rules
+    /// </summary>
+    [DataField]
+    public TimeSpan MinRuleInterval = TimeSpan.FromMinutes(10);
+
+    /// <summary>
+    /// Maximum delay between rules
+    /// </summary>
+    [DataField]
+    public TimeSpan MaxRuleInterval = TimeSpan.FromMinutes(30);
+
     [DataField]
     public int MaxEventsBeforeAntag = 9;
     [ViewVariables(VVAccess.ReadWrite)]

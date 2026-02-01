@@ -3,15 +3,23 @@ using Content.Server.GameTicking.Rules.Components;
 using Content.Shared.GameTicking.Components;
 using Robust.Shared.Random;
 using Content.Server.StationEvents;
-using Content.Server.Database;
 using Robust.Shared.Player;
+using Robust.Shared.Prototypes;
+using Content.Shared.EntityTable;
+using Content.Shared.EntityTable.Conditions;
+using System.Diagnostics;
+using Content.Shared.GameTicking.Rules;
+using Content.Server.Administration.Logs;
+using Content.Shared.Database;
 
 namespace Content.Server.GameTicking.Rules;
 
 public sealed class DynamicRuleSystem : GameRuleSystem<DynamicRuleComponent>
 {
     [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly IAdminLogManager _adminLog = default!;
     [Dependency] private readonly EventManagerSystem _event = default!;
+    [Dependency] private readonly EntityTableSystem _entityTable = default!;
     [Dependency] private readonly IChatManager _chatManager = default!;
     [Dependency] private readonly ISharedPlayerManager _player = default!;
     public override void Initialize()
@@ -71,6 +79,127 @@ public sealed class DynamicRuleSystem : GameRuleSystem<DynamicRuleComponent>
             else
                 GameTicker.StartGameRule(rule, out _);
         }
+    }
+
+    public List<EntityUid> GetDynamicRules()
+    {
+        var rules = new List<EntityUid>();
+        var query = EntityQueryEnumerator<DynamicRuleComponent, GameRuleComponent>();
+        while (query.MoveNext(out var uid, out _, out var comp))
+        {
+            if (!GameTicker.IsGameRuleActive(uid, comp))
+                continue;
+            rules.Add(uid);
+        }
+
+        return rules;
+    }
+
+    public float? GetRuleBudget(Entity<DynamicRuleComponent?> entity)
+    {
+        if (!Resolve(entity, ref entity.Comp))
+            return null;
+
+        UpdateBudget((entity.Owner, entity.Comp));
+        return entity.Comp.Budget;
+    }
+
+    private void UpdateBudget(Entity<DynamicRuleComponent> entity)
+    {
+        var duration = (float) (Timing.CurTime - entity.Comp.LastBudgetUpdate).TotalSeconds;
+
+        entity.Comp.Budget += duration * entity.Comp.BudgetPerSecond;
+        entity.Comp.LastBudgetUpdate = Timing.CurTime;
+    }
+
+    public float? AdjustBudget(Entity<DynamicRuleComponent?> entity, float amount)
+    {
+        if (!Resolve(entity, ref entity.Comp))
+            return null;
+
+        UpdateBudget((entity.Owner, entity.Comp));
+        entity.Comp.Budget += amount;
+        return entity.Comp.Budget;
+    }
+
+    public float? SetBudget(Entity<DynamicRuleComponent?> entity, float amount)
+    {
+        if (!Resolve(entity, ref entity.Comp))
+            return null;
+
+        entity.Comp.LastBudgetUpdate = Timing.CurTime;
+        entity.Comp.Budget = amount;
+        return entity.Comp.Budget;
+    }
+
+    private IEnumerable<EntProtoId> GetRuleSpawns(Entity<DynamicRuleComponent> entity)
+    {
+        UpdateBudget((entity.Owner, entity.Comp));
+        var ctx = new EntityTableContext(new Dictionary<string, object>
+        {
+            { HasBudgetCondition.BudgetContextKey, entity.Comp.Budget },
+        });
+
+        return _entityTable.GetSpawns(entity.Comp.Table, ctx: ctx);
+    }
+
+    public IEnumerable<EntProtoId> DryRun(Entity<DynamicRuleComponent?> entity)
+    {
+        if (!Resolve(entity, ref entity.Comp))
+            return new List<EntProtoId>();
+
+        return GetRuleSpawns((entity.Owner, entity.Comp));
+    }
+
+    /// <summary>
+    /// Executes this rule, generating new dynamic rules and starting them.
+    /// </summary>
+    /// <returns>
+    /// Returns a list of the rules that were executed.
+    /// </returns>
+    private List<EntityUid> Execute(Entity<DynamicRuleComponent> entity)
+    {
+        entity.Comp.NextRuleTime =
+            Timing.CurTime + _random.Next(entity.Comp.MinRuleInterval, entity.Comp.MaxRuleInterval);
+
+        var executedRules = new List<EntityUid>();
+
+        foreach (var rule in GetRuleSpawns(entity))
+        {
+            var res = GameTicker.StartGameRule(rule, out var ruleUid);
+            Debug.Assert(res);
+
+            executedRules.Add(ruleUid);
+
+            if (TryComp<DynamicRuleCostComponent>(ruleUid, out var cost))
+            {
+                entity.Comp.Budget -= cost.Cost;
+                _adminLog.Add(LogType.EventRan, LogImpact.High, $"{ToPrettyString(entity)} ran rule {ToPrettyString(ruleUid)} with cost {cost.Cost} on budget {entity.Comp.Budget}.");
+            }
+            else
+            {
+                _adminLog.Add(LogType.EventRan, LogImpact.High, $"{ToPrettyString(entity)} ran rule {ToPrettyString(ruleUid)} which had no cost.");
+            }
+        }
+
+        entity.Comp.Rules.AddRange(executedRules);
+        return executedRules;
+    }
+
+    public IEnumerable<EntityUid> ExecuteNow(Entity<DynamicRuleComponent?> entity)
+    {
+        if (!Resolve(entity, ref entity.Comp))
+            return new List<EntityUid>();
+
+        return Execute((entity.Owner, entity.Comp));
+    }
+
+    public IEnumerable<EntityUid> Rules(Entity<DynamicRuleComponent?> entity)
+    {
+        if (!Resolve(entity, ref entity.Comp))
+            return new List<EntityUid>();
+
+        return entity.Comp.Rules;
     }
 
     protected override void Ended(EntityUid uid, DynamicRuleComponent component, GameRuleComponent gameRule, GameRuleEndedEvent args)
