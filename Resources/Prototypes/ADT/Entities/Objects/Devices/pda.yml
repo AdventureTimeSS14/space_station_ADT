@@ -941,13 +941,3 @@
   components:
   - type: Pda
     id: ADTCMOIDCard
-
-# intendant
-
-- type: entity
-  parent: QuartermasterPDA
-  id: ADTintendantPDA
-  name: Intendant PDA
-  components:
-  - type: Pda
-    id: ADTintendantIDCard

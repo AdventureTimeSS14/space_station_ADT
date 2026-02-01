@@ -220,6 +220,3 @@ ent-ADTCMOPDA = КПК старшего медицинского офицера
 
 ent-ADTTraumatologistPDA = КПК травматолога
     .desc = А что делать, если у пациента больше двух ног?
-
-ent-ADTintendantPDA = КПК интенданта
-    .desc = КПК главы Каргонии
