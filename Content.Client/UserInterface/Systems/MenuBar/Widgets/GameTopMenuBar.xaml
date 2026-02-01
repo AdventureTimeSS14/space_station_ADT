@@ -62,7 +62,7 @@
         BoundKey = "{x:Static is:ContentKeyFunctions.OpenLanguagesMenu}"
         MinSize="42 64"
         HorizontalExpand="True"
-        AppendStyleClass="{x:Static style:StyleBase.ButtonSquare}"
+        AppendStyleClass="{x:Static style:StyleClass.ButtonSquare}"
         />
     <!--ADT Languages end-->
     <ui:MenuButton
