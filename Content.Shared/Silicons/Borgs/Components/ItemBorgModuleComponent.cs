@@ -1,5 +1,5 @@
-﻿using Content.Shared.Whitelist; // ADT tweak
 ﻿using Content.Shared.Hands.Components;
+using Content.Shared.Whitelist;
 using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -37,6 +37,37 @@ public sealed partial class ItemBorgModuleComponent : Component
     /// </summary>
     [DataField]
     public string HoldingContainer = "holding_container";
+
+    /// <summary>
+    /// ADT: The entities from <see cref="Items"/> that were spawned.
+    /// </summary>
+    [DataField("droppableProvidedItems")]
+    public SortedDictionary<string, (EntityUid, DroppableBorgItem)> DroppableProvidedItems = new();
+
+    /// <summary>
+    /// Whether or not the items have been created and stored in <see cref="ProvidedContainer"/>
+    /// </summary>
+    [DataField("itemsCrated")]
+    public bool ItemsCreated;
+
+    /// <summary>
+    /// A container where provided items are stored when not being used.
+    /// This is helpful as it means that items retain state.
+    /// </summary>
+    [ViewVariables]
+    public Container ProvidedContainer = default!;
+
+    /// <summary>
+    /// An ID for the container where provided items are stored when not used.
+    /// </summary>
+    [DataField("providedContainerId")]
+    public string ProvidedContainerId = "provided_container";
+
+    /// <summary>
+    /// A counter that ensures a unique
+    /// </summary>
+    [DataField("handCounter")]
+    public int HandCounter;
 }
 
 [DataDefinition, Serializable, NetSerializable]
