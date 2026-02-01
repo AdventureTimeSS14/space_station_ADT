@@ -88,6 +88,18 @@
     - Dwarf
     - Human
     - Reptilian
+    # ADT-Tweak start
+    - DemonSpecies
+    - VulpkaninSpecies
+    - KoboltSpecies
+    - DraskSpecies
+    - NovakidSpecies
+    - Resomi
+    - TajaranSpecies
+    - Felinid
+    - Shadekin
+    - UrsusSpecies
+    # ADT-Tweak end
 
 - type: loadoutEffectGroup
   id: OxygenBreatherMimeMoth
