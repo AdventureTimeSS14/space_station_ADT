@@ -1,5 +1,6 @@
-using Content.Shared.Radio.EntitySystems;
 using Content.Shared.Chat;
+using Content.Shared.Radio.EntitySystems;
+using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
@@ -24,4 +25,15 @@ public sealed partial class RadioSpeakerComponent : Component
 
     [DataField, AutoNetworkedField]
     public bool Enabled;
+
+    /// Start ADT Tweak
+    [DataField("speechMode")]
+    public InGameICChatType SpeechMode = InGameICChatType.Whisper;
+
+    /// <summary>
+    /// The sound effect played when radio receive message
+    /// </summary>
+    [DataField]
+    public SoundSpecifier SoundOnReceive = new SoundPathSpecifier("/Audio/ADT/Effects/silence.ogg");
+    /// End ADT Tweak
 }
