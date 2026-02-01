@@ -324,7 +324,7 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
             SetLaws(lawset.Laws, update, provider.LawUploadSound);
         }
         ///ADT AI Custom law start
-        UpdateBorgsNTLaws(lawset);
+        UpdateBorgsNTLaws(lawset.Laws);
     }
     private void UpdateBorgsNTLaws(List<SiliconLaw> newLaws)
     {
