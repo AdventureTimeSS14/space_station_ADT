@@ -20,6 +20,12 @@ namespace Content.Client.VendingMachines.UI
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly IEntityManager _entityManager = default!;
 
+        /// <summary>
+        /// Whether the vending machine is able to be interacted with or not.
+        /// </summary>
+        private bool _enabled;
+        private readonly Dictionary<EntProtoId, uint> _amounts = new();
+
         private readonly Dictionary<EntProtoId, EntityUid> _dummies = [];
         public event Action<GUIBoundKeyEventArgs, ListData>? OnItemSelected;
         public Action<VendingMachineWithdrawMessage>? OnWithdraw; //ADT-Economy
