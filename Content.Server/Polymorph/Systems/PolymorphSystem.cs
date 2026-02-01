@@ -441,7 +441,7 @@ public sealed partial class PolymorphSystem : EntitySystem
             && _mobThreshold.GetScaledDamage(uid, child, out var damage)
             && damage != null)
         {
-            _damageable.SetDamage(child, damageParent, damage);
+            _damageable.SetDamage((child, damageParent), damage);
         }
 
         _inventory.TransferEntityInventories(uid, child); // transfer the inventory all the time
