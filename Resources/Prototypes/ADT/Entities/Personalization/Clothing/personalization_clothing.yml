@@ -424,12 +424,11 @@
   suffix: Personal, Aidan
   components:
   - type: Sprite
-    sprite: ADT/Personalization/aidan_mask.rsi
+    sprite: ADT/Personalization/aidan_neck.rsi
     state: icon
   - type: Clothing
-    sprite: ADT/Personalization/aidan_mask.rsi
+    sprite: ADT/Personalization/aidan_neck.rsi
     equippedState: equipped-NECK
-
 
 - type: entity
   parent: ClothingMaskBase
