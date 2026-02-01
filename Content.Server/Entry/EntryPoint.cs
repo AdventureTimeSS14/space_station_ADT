@@ -139,6 +139,8 @@ namespace Content.Server.Entry
             _rateLimit.Initialize();
             IoCManager.Resolve<ExportManager>().Initialize(); // ADT-tweak: export
             IoCManager.Resolve<TTSManager>().Initialize(); // Corvax-TTS
+
+            IoCManager.Resolve<SponsorsManager>().Initialize(); // Corvax-Sponsors
         }
 
         public override void PostInit()
