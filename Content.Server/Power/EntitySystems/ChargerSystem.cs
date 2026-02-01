@@ -98,22 +98,20 @@ public sealed class ChargerSystem : SharedChargerSystem
                 TransferPower(uid, contained, charger, frameTime);
             }
         }
+
+        // ADT-Tweak-Start
+        var query2 = EntityQueryEnumerator<ActiveChargerComponent, ChargerComponent, EntityStorageComponent>();
+        while (query2.MoveNext(out _, out _, out var charger, out var containerComp))
+        {
+            if (containerComp.Airtight)
+            {
+                var curTemp = containerComp.Air.Temperature;
+
+                containerComp.Air.Temperature += curTemp < charger.TargetTemp ? frameTime * charger.ChargeRate / 100 : 0;
+            }
+        }
+        // ADT-Tweak-End
     }
-
-// Нету charger.TargetTemp. Либо убрать, либо переписать логику
-    //     // ADT-Tweak-Start
-    //     var query2 = EntityQueryEnumerator<ActiveChargerComponent, ChargerComponent, EntityStorageComponent>();
-    //     while (query2.MoveNext(out _, out _, out var charger, out var containerComp))
-    //     {
-    //         if (containerComp.Airtight)
-    //         {
-    //             var curTemp = containerComp.Air.Temperature;
-
-    //             containerComp.Air.Temperature += curTemp < charger.TargetTemp ? frameTime * charger.ChargeRate / 100 : 0;
-    //         }
-    //     }
-    //     // ADT-Tweak-End
-    // }
 
     private void OnPowerChanged(EntityUid uid, ChargerComponent component, ref PowerChangedEvent args)
     {
