@@ -11,7 +11,7 @@ public abstract partial class SharedWeaponDismantleOnShootSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<WeaponDismantleOnShootComponent, ExaminedEvent>(OnExamine);
+//      SubscribeLocalEvent<WeaponDismantleOnShootComponent, ExaminedEvent>(OnExamine);
     }
 
     public bool DismantleCheck(Entity<WeaponDismantleOnShootComponent> ent, ref AmmoShotEvent args)
@@ -25,14 +25,14 @@ public abstract partial class SharedWeaponDismantleOnShootSystem : EntitySystem
         return true;
     }
 
-    private void OnExamine(Entity<WeaponDismantleOnShootComponent> ent, ref ExaminedEvent args)
-    {
-        if (!args.IsInDetailsRange)
-            return;
-
-        if (ent.Comp.DismantleChance <= 0.0f)
-            return;
-
-        args.PushMarkup(Loc.GetString("examine-weapon-dismantle-on-shoot", ("chance", String.Format("{0:0.#}", ent.Comp.DismantleChance * 100))));
-    }
+    //private void OnExamine(Entity<WeaponDismantleOnShootComponent> ent, ref ExaminedEvent args)
+    //{
+    //    if (!args.IsInDetailsRange)
+    //        return;
+    //
+    //    if (ent.Comp.DismantleChance <= 0.0f)
+    //        return;
+    //
+    //    args.PushMarkup(Loc.GetString("examine-weapon-dismantle-on-shoot", ("chance", String.Format("{0:0.#}", ent.Comp.DismantleChance * 100))));
+    //}
 }
