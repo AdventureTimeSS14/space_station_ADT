@@ -22,6 +22,7 @@ using Content.Shared.FixedPoint;
 using Content.Shared.Follower;
 using Content.Shared.Ghost;
 using Content.Shared.Mind;
+using Content.Shared.Medical.SuitSensors;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
