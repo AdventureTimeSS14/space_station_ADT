@@ -98,20 +98,22 @@ public sealed class ChargerSystem : SharedChargerSystem
                 TransferPower(uid, contained, charger, frameTime);
             }
         }
-
-        // ADT-Tweak-Start
-        var query2 = EntityQueryEnumerator<ActiveChargerComponent, ChargerComponent, EntityStorageComponent>();
-        while (query2.MoveNext(out _, out _, out var charger, out var containerComp))
-        {
-            if (containerComp.Airtight)
-            {
-                var curTemp = containerComp.Air.Temperature;
-
-                containerComp.Air.Temperature += curTemp < charger.TargetTemp ? frameTime * charger.ChargeRate / 100 : 0;
-            }
-        }
-        // ADT-Tweak-End
     }
+
+// Нету charger.TargetTemp. Либо убрать, либо переписать логику
+    //     // ADT-Tweak-Start
+    //     var query2 = EntityQueryEnumerator<ActiveChargerComponent, ChargerComponent, EntityStorageComponent>();
+    //     while (query2.MoveNext(out _, out _, out var charger, out var containerComp))
+    //     {
+    //         if (containerComp.Airtight)
+    //         {
+    //             var curTemp = containerComp.Air.Temperature;
+
+    //             containerComp.Air.Temperature += curTemp < charger.TargetTemp ? frameTime * charger.ChargeRate / 100 : 0;
+    //         }
+    //     }
+    //     // ADT-Tweak-End
+    // }
 
     private void OnPowerChanged(EntityUid uid, ChargerComponent component, ref PowerChangedEvent args)
     {
@@ -262,12 +264,13 @@ public sealed class ChargerSystem : SharedChargerSystem
         _battery.SetCharge((batteryUid.Value, heldBattery), heldBattery.CurrentCharge + component.ChargeRate * frameTime);
         UpdateStatus(uid, component);
 
-        // ADT-Tweak-Start
-        if ((heldBattery.MaxCharge - heldBattery.CurrentCharge) * 1.2 + heldBattery.MaxCharge < component.MinChargeSize && component.BlowUp)
-        {
-            _explosion.QueueExplosion(uid, "Default", heldBattery.MaxCharge / 50, 1.5f, 200, user: targetEntity);
-        }
-        // ADT-Tweak-End
+// Нету component.MinChargeSize && component.BlowUp. Либо убрать, либо переписать логику
+        // // ADT-Tweak-Start
+        // if ((heldBattery.MaxCharge - heldBattery.CurrentCharge) * 1.2 + heldBattery.MaxCharge < component.MinChargeSize && component.BlowUp)
+        // {
+        //     _explosion.QueueExplosion(uid, "Default", heldBattery.MaxCharge / 50, 1.5f, 200, user: targetEntity);
+        // }
+        // // ADT-Tweak-End
     }
 
     /// ADT tweak method fully rewrited
