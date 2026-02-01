@@ -170,7 +170,7 @@ public sealed class BibleSystem : EntitySystem
 
         var damage = _damageableSystem.TryChangeDamage(target, component.Damage, true, origin: uid);
 
-        if (damage == null || damage.Empty)
+        if (!damage)
         {
             var othersMessage = Loc.GetString(component.LocPrefix + "-heal-success-none-others", ("user", Identity.Entity(user, EntityManager)), ("target", Identity.Entity(target, EntityManager)), ("bible", uid));
             _popupSystem.PopupEntity(othersMessage, user, Filter.PvsExcept(user), true, PopupType.Medium);
