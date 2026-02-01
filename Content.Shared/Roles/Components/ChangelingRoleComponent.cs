@@ -1,9 +1,11 @@
-﻿using Robust.Shared.GameStates;
+﻿// Уже есть Content.Server\ADT\Changeling\Role\ChangelingRoleComponent.cs
 
-namespace Content.Shared.Roles.Components;
+// using Robust.Shared.GameStates;
 
-/// <summary>
-/// Added to mind role entities to tag that they are a changeling.
-/// </summary>
-[RegisterComponent, NetworkedComponent]
-public sealed partial class ChangelingRoleComponent : BaseMindRoleComponent;
+// namespace Content.Shared.Roles.Components;
+
+// /// <summary>
+// /// Added to mind role entities to tag that they are a changeling.
+// /// </summary>
+// [RegisterComponent, NetworkedComponent]
+// public sealed partial class ChangelingRoleComponent : BaseMindRoleComponent;
