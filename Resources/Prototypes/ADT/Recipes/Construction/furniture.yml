@@ -850,20 +850,6 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: construction-name-wooden-box
-  id: ADTWoodenBoxRecipe
-  graph: ADTWoodenBox
-  startNode: start
-  targetNode: adtwoodenbox
-  category: construction-category-storage
-  description: construction-desc-wooden-box
-  objectType: Structure
-  placementMode: SnapgridCenter
-  canBuildInImpassable: false
-  conditions:
-    - !type:TileNotBlocked
-
-- type: construction
   name: construction-name-chalkboard
   id: ADTChalkboardRecipe
   graph: ADTChalkboard

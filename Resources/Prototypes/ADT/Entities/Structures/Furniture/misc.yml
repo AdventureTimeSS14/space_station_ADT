@@ -293,18 +293,11 @@
 
 - type: entity
   id: ADTCableReel
-  parent: ADTTableBase
+  parent: BaseStructure
   name: cable reel
   description: A large reel for storing and organizing cables.
   components:
-  - type: Sprite
-    sprite: ADT/Structures/Furniture/cable_reel.rsi
-    state: cable_reel
-  - type: Icon
-    sprite: ADT/Structures/Furniture/cable_reel.rsi
-    state: cable_reel
-  - type: IconSmooth
-    enabled: false
+  - type: Animateable
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: Wood
@@ -330,9 +323,32 @@
             max: 5
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.5
+        density: 55
+        mask: # tables should collide with other tables
+        - TableMask
+        layer:
+        - TableLayer
+  - type: SpriteFade
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/cable_reel.rsi
+    state: cable_reel
+  - type: Climbable
+  - type: Bonkable
+    bonkDamage:
+      types:
+        Blunt: 4
+    bonkSound: !type:SoundCollectionSpecifier
+      collection: TrayHit
+  - type: Clickable
   - type: Anchorable
   - type: Rotatable
-    rotateWhileAnchored: true
+  - type: InteractionOutline
   - type: Physics
     bodyType: Static
   - type: Transform
@@ -342,7 +358,6 @@
     node: adtcablereel
   - type: Tag
     tags:
-    - Table
     - ForceFixRotations
 
 # Меловая доска

@@ -64,82 +64,67 @@
 
 # Деревянные ящики
 - type: entity
-  parent: BaseStructureDynamic
-  id: ADTWoodenBoxBase
-  abstract: true
+  parent: BaseStructure
+  id: ADTWoodenBoxRandom
   name: wooden box
   description: wooden box.
   components:
-  - type: Transform
-    noRot: true
-  - type: Icon
-    sprite: ADT/Structures/Storage/wooden_box.rsi
-    state: box-1
   - type: Sprite
-    noRot: true
     sprite: ADT/Structures/Storage/wooden_box.rsi
-    state: box-1
+    snapCardinals: true
+    layers:
+    - state: box-1
+      map: [ "box" ]
   - type: RandomSprite
     available:
-      - "0":
-          "box-1": null
-          "box-2": null
-          "box-3": null
-          "box-4": null
-          "box-5": null
-          "box-6": null
+      - box:
+          "box-1": ""
+          "box-2": ""
+          "box-3": ""
+          "box-4": ""
+          "box-5": ""
+          "box-6": ""
   - type: InteractionOutline
   - type: Physics
+    bodyType: Static
+  - type: Anchorable
+  - type: Pullable
+  - type: Transform
+    anchored: false
+    noRot: true
+  - type: Damageable
+    damageContainer: Box
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 30
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WoodDestroyHeavy
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          MaterialWoodPlank:
+            min: 1
+            max: 3
+          MaintenanceToolSpawner:
+            min: 1
+            max: 1
+          MaintenanceFluffSpawner:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
   - type: Fixtures
     fixtures:
       fix1:
         shape:
           !type:PhysShapeAabb
           bounds: "-0.4,-0.4,0.4,0.4"
-        density: 50
+        density: 100
         mask:
-        - CrateMask
+          - MobMask
         layer:
-        - MachineLayer
-  - type: EntityStorage
-  - type: PlaceableSurface
-    isPlaceable: false
-  - type: Damageable
-    damageContainer: StructuralInorganic
-    damageModifierSet: Wood
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 75
-      behaviors:
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
-      - !type:PlaySoundBehavior
-        sound:
-          collection: WoodDestroy
-  - type: ContainerContainer
-    containers:
-      entity_storage: !type:Container
-  - type: Construction
-    graph: ADTWoodenBox
-    node: adtwoodenbox
-    containers:
-      - entity_storage
-
-- type: entity
-  parent: ADTWoodenBoxBase
-  id: ADTWoodenBox1
-
-# Вариант для спавна с лутом (как коробки из тех-тоннелей)
-- type: entity
-  parent: ADTWoodenBoxBase
-  id: ADTWoodenBoxRandom
-  suffix: Random
-  components:
-  - type: StorageFill
-    contents:
-      - id: MaintenanceToolSpawner
-        prob: 0.5
-      - id: MaintenanceFluffSpawner
-        prob: 0.5
+          - MobLayer
+        hard: true
