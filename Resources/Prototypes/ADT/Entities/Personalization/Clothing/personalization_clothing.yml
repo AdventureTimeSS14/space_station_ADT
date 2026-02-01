@@ -416,6 +416,34 @@
   - type: Clothing
     sprite: ADT/Personalization/suit_aidan.rsi
 
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingNeckAidan
+  name: Aidan neck
+  description: 
+  suffix: Personal, Aidan
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/aidan_neck.rsi
+    state: icon
+  - type: Clothing
+    sprite: ADT/Personalization/aidan_neck.rsi
+    equippedState: equipped-NECK
+
+- type: entity
+  parent: ClothingMaskBase
+  id: ADTClothingMaskAidan
+  name: Aidan mask
+  description: 
+  suffix: Personal, Aidan
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/aidan_mask.rsi
+    state: icon
+  - type: Clothing
+    sprite: ADT/Personalization/aidan_mask.rsi
+    equippedState: equipped-MASK
+
 # Bolper
 - type: entity
   parent: ADTSponsorClothingOuterStorageBase
