@@ -1,5 +1,5 @@
-﻿using Content.Shared.Whitelist; // ADT tweak
 ﻿using Content.Shared.Hands.Components;
+using Content.Shared.Whitelist;
 using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
