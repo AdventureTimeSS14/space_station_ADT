@@ -68,7 +68,7 @@ public sealed class ChangeDamageContainerSystem : EntitySystem
         // Используем публичные методы для установки остальных свойств
         if (oldModifierSetId != null)
         {
-            _damageableSystem.SetDamageModifierSetId(uid, oldModifierSetId, newComponent);
+            _damageableSystem.SetDamageModifierSetId((uid, newComponent), oldModifierSetId);
         }
 
         // HealthBarThreshold - возможно, нужно установить через рефлексию, если нет публичного метода
@@ -82,7 +82,7 @@ public sealed class ChangeDamageContainerSystem : EntitySystem
 
         // Устанавливаем отфильтрованный урон
         var filteredDamage = FilterDamageByContainer(oldDamage, containerId);
-        _damageableSystem.SetDamage(uid, newComponent, filteredDamage);
+        _damageableSystem.SetDamage((uid, newComponent), filteredDamage);
 
         // Помечаем компонент как измененный
         Dirty(uid, newComponent);
