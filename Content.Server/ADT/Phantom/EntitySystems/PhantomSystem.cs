@@ -2568,8 +2568,9 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
             var sword = Spawn("Claymore", Transform(vessel).Coordinates);
             if (TryComp<CuffableComponent>(uid, out var cuffs) && cuffs.Container.ContainedEntities.Count > 0)
             {
-                if (!TryComp<HandcuffComponent>(cuffs.LastAddedCuffs, out var handcuffs) || cuffs.Container.ContainedEntities.Count > 0)
-                    _cuffable.Uncuff(vessel, vessel, cuffs.LastAddedCuffs, cuffs, handcuffs);
+                var cuffEntityLast = cuffs.Container.ContainedEntities.Last();
+                if (!TryComp<HandcuffComponent>(cuffEntityLast, out var handcuffs) || cuffs.Container.ContainedEntities.Count > 0)
+                    _cuffable.Uncuff(vessel, vessel, cuffEntityLast, cuffs, handcuffs);
             }
             if (_handsSystem.TryForcePickupAnyHand(vessel, sword))
                 EnsureComp<UnremoveableComponent>(sword);
