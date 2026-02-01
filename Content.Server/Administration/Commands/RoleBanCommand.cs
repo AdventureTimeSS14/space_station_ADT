@@ -124,7 +124,7 @@ public sealed class RoleBanCommand : IConsoleCommand
             Minutes = minutes,
             Reason = reason,
             Expires = DateTimeOffset.Now + TimeSpan.FromMinutes(minutes),
-            AdditionalInfo = new() { { "role", job } }
+            AdditionalInfo = new() { { "role", role } }
         };
 
         await _discordBanInfoSender.SendBanInfoAsync<RoleBanPayloadGenerator>(banInfo);
