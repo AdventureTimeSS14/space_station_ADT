@@ -20,7 +20,7 @@ namespace Content.Client.Paper.UI
         [Dependency] private readonly IInputManager _inputManager = default!;
         [Dependency] private readonly IResourceCache _resCache = default!;
 
-        private static Color DefaultTextColor = new(25, 25, 25);
+        private Color _defaultTextColor = new(25, 25, 25); // ADT-Tweak: Chalkboard
 
         // <summary>
         // Size of resize handles around the paper
@@ -70,7 +70,7 @@ namespace Content.Client.Paper.UI
             RobustXamlLoader.Load(this);
 
             // We can't configure the RichTextLabel contents from xaml, so do it here:
-            BlankPaperIndicator.SetMessage(Loc.GetString("paper-ui-blank-page-message"), null, DefaultTextColor);
+            BlankPaperIndicator.SetMessage(Loc.GetString("paper-ui-blank-page-message"), null, _defaultTextColor); //ADT-Tweak: Chalkboard
 
             // Hook up the close button:
             CloseButton.OnPressed += _ => Close();
@@ -163,6 +163,10 @@ namespace Content.Client.Paper.UI
             PaperContent.ModulateSelfOverride = visuals.ContentImageModulate;
             WrittenTextLabel.ModulateSelfOverride = visuals.FontAccentColor;
             FillStatus.ModulateSelfOverride = visuals.FontAccentColor;
+            // ADT-Tweak Start: Chalkboard
+            _defaultTextColor = visuals.FontDefaultColor;
+            BlankPaperIndicator.SetMessage(Loc.GetString("paper-ui-blank-page-message"), null, _defaultTextColor);
+            // ADT-Tweak End
 
             var contentImage = visuals.ContentImagePath != null ? _resCache.GetResource<TextureResource>(visuals.ContentImagePath) : null;
             if (contentImage != null)
@@ -280,7 +284,7 @@ namespace Content.Client.Paper.UI
             {
                 msg.AddMarkupPermissive("\r\n");
             }
-            WrittenTextLabel.SetMessage(msg, _allowedTags, DefaultTextColor);
+            WrittenTextLabel.SetMessage(msg, _allowedTags, _defaultTextColor);
 
             WrittenTextLabel.Visible = !isEditing && state.Text.Length > 0;
             BlankPaperIndicator.Visible = !isEditing && state.Text.Length == 0;

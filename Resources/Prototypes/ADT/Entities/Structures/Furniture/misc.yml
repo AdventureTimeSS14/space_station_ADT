@@ -371,12 +371,11 @@
     noRot: true
   - type: Sprite
     sprite: ADT/Structures/Furniture/chalkboard.rsi
-    state: chalkboard
     noRot: true
     layers:
+    - state: chalkboard
     - state: chalkboard-text
       map: ["enum.PaperVisualLayers.Writing"]
-      color: "#000000"
       visible: false
   - type: Icon
     sprite: ADT/Structures/Furniture/chalkboard.rsi
@@ -391,9 +390,12 @@
       enum.PaperUiKey.Key:
         type: PaperBoundUserInterface
   - type: PaperVisuals
-    backgroundModulate: "#000000"
-    contentImageModulate: "#000000"
+    backgroundImagePath: "/Textures/Interface/Paper/paper_background_default.svg.96dpi.png"
+    backgroundPatchMargin: 16.0, 16.0, 16.0, 16.0
+    contentMargin: 16.0, 16.0, 16.0, 16.0
+    backgroundModulate: "#202421"
     fontAccentColor: "#ffffff"
+    fontDefaultColor: "#ffffff"
   - type: Chalkboard
   - type: Appearance
   - type: InteractionOutline
