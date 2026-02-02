@@ -114,7 +114,6 @@
         type: WiresBoundUserInterface
   - type: Airtight
   - type: Occluder
-  - type: StationAiWhitelist #ADT-Tweak
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: StrongMetallic
