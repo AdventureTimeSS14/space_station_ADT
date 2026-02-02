@@ -333,6 +333,7 @@
       amount: 2
     - id: ClothingUniformJumpsuitSalvageSpecialist
       amount: 2
+    - id: ADTScrapBag # ADT-Tweak
 
 - type: entity
   id: WardrobeAtmosphericsFilled
