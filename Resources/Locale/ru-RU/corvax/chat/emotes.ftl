@@ -1,6 +1,6 @@
 # Имена
 chat-emote-name-howl = Выть
 chat-emote-name-growl = Рычать
-chat-emote-name-purr = Мурлыкать
+# chat-emote-name-purr = Мурлыкать
 # Сообщение
 chat-emote-msg-purr = мурлычет

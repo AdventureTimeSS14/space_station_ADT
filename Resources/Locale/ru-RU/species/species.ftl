@@ -10,7 +10,7 @@ species-name-arachnid = Арахнид
 species-name-skeleton = Скелет
 species-name-vox = Вокс
 species-name-gingerbread = вкуснейшая выпечка
-species-name-vulpkanin = Вульпканин
+# species-name-vulpkanin = Вульпканин
 
 ## Misc species things
 

@@ -32,11 +32,11 @@ chat-emote-name-monkeyscreeches = Обезьяньи крики
 chat-emote-name-robotbeep = Робот
 chat-emote-name-yawn = Зевать
 chat-emote-name-snore = Храпеть
-chat-emote-name-bark = Лаять
+# chat-emote-name-bark = Лаять
 chat-emote-name-snarl = Скалиться
-chat-emote-name-whine = Скулить
-chat-emote-name-howl = Выть
-chat-emote-name-growl = Рычать
+# chat-emote-name-whine = Скулить
+# chat-emote-name-howl = Выть
+# chat-emote-name-growl = Рычать
 # Сообщение
 chat-emote-msg-scream = кричит!
 chat-emote-msg-laugh = смеётся.
