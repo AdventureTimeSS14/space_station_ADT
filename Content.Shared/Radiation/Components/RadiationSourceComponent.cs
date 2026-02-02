@@ -16,13 +16,30 @@ public sealed partial class RadiationSourceComponent : Component
     public float Intensity = 1;
 
     /// <summary>
+    ///     ADT-Tweak
     ///     Defines how fast radiation rays will loose intensity
     ///     over distance. The bigger the value, the shorter range
     ///     of radiation source will be.
+    ///     over distance if the ray enters terminal decay. The bigger the value, faster the radiation source
+    ///     will decay past the TerminalDecayDistance.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField("slope")]
     public float Slope = 0.5f;
+    [DataField("terminalDecaySlope")] /// ADT-Tweak
+
+    /// ADT-Tweak
+    public float TerminalDecaySlope = 0.07f;
+
+    /// <summary>
+    ///     Defines distance from source until a radiation ray enters terminal decay.
+    ///     Increasing the value increases the distance the the ray will operate under pure hyperbolic decay.
+    ///     Hyperbolic decay is horizontially asymptotic at y=0. Terminal decay is an additional
+    ///     linear decrement.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    [DataField("terminalDecayDistance")]
+    public float TerminalDecayDistance = 15;
 
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public bool Enabled = true;

@@ -41,8 +41,10 @@
   - type: Sharp
   - type: Sprite
     sprite: Objects/Weapons/Melee/cane_blade.rsi
-    state: icon
   # ADT-Tweak-Start
+    layers:
+    - state: icon-of
+      map: [ "enum.ComboWeaponState.State" ]
   - type: Reflect
     reflectProb: 0.25
     spread: 90
@@ -82,7 +84,14 @@
             - !type:ComboAudioEffect
               sound:
                 path: /Audio/Items/Defib/defib_failed.ogg
-      # ADT-Tweak-End
+  - type: GenericVisualizer
+    visuals:
+      enum.ComboWeaponState.State:
+        enum.ComboWeaponState.State:
+          True: {state: icon-of}
+          False: {state: icon-prot}
+  - type: Appearance
+  # ADT-Tweak-End
 
 - type: entity
   parent: Cane
