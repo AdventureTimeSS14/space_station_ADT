@@ -789,7 +789,7 @@
   - type: PacifismAllowedGun #ADT-tweak
   - ADTBsoWeapon #ADT-tweak
   - type: GunExecutionBlacklist #ADT-tweak
-    - ADTBsoWeapon #ADT tweak
+  - ADTBsoWeapon #ADT tweak
 
 - type: entity
   name: disabler

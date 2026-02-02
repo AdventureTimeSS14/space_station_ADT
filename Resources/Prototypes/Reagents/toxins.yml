@@ -555,12 +555,12 @@
           type: [ Animal, Vox ]
           inverted: true
 # ADT-Tweak-Start
-          - !type:OrganType
-            type: Felinid
-            shouldHave: false
-          - !type:OrganType
-            type: Plant
-            shouldHave: false
+        - !type:OrganType
+          type: Felinid
+          shouldHave: false
+        - !type:OrganType
+          type: Plant
+          shouldHave: false
 # ADT-Tweak-End
         type: Local
         visualType: MediumCaution
@@ -578,16 +578,16 @@
             shouldHave: false
 # ADT-Tweak-End
 # ADT-Tweak-Start
-        - !type:OrganType
-          type: Felinid
-          shouldHave: false
-        - !type:OrganType
-          type: Plant
-          shouldHave: false
+          - !type:OrganType
+            type: Felinid
+            shouldHave: false
+          - !type:OrganType
+            type: Plant
+            shouldHave: false
 # ADT-Tweak-End
-        - !type:MetabolizerTypeCondition
-          type: [ Animal, Vox ]
-          inverted: true
+          - !type:MetabolizerTypeCondition
+            type: [ Animal, Vox ]
+            inverted: true
       - !type:HealthChange
         conditions:
         - !type:MetabolizerTypeCondition

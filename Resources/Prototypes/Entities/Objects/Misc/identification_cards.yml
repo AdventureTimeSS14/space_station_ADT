@@ -942,11 +942,11 @@
   - type: Sprite
     layers:
     - state: default
-  - type: NanoChatCard # ADT-tweak: Наночат
-    listNumber: false # ADT-tweak
     - sprite: *icon-rsi
       offset: *icon-offset
       state: Visitor
+  - type: NanoChatCard # ADT-tweak: Наночат
+    listNumber: false # ADT-tweak
   - type: IdCard
     jobTitle: job-title-visitor
     jobIcon: JobIconVisitor

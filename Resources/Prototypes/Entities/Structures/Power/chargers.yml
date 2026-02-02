@@ -238,9 +238,10 @@
         blacklist:
           tags:
           - PotatoBattery
-		  - BatteryRecharge #ADT-tweak plasmacutters end
+          components: # ADT plasmacutters
+          - BatteryRecharge # ADT plasmacutters
 
-- type- BatteryRecharge #ADT-tweak plasmacutters end: entity
+- type: entity
   parent: BaseRecharger
   id: BorgCharger
   name: cyborg recharging station

@@ -271,9 +271,6 @@
         - !type:OrganType
           type: Novakid
           shouldHave: false
-        damage:
-          types:
-            Poison: 1
         # ADT-Tweak Start
       - !type:AdjustReagent
         reagent: Ethanol
