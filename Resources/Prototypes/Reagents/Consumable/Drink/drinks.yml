@@ -613,11 +613,6 @@
   meltingPoint: 0.0
   boilingPoint: 100.0
   friction: 0.05 # Copied from Ice Crust
-  metabolisms:
-    Drink:
-      effects:
-      - !type:SatiateThirst
-        factor: 3 # Slightly worse for quenching thirst than just straight water
   plantMetabolism:
   - !type:PlantAdjustWater
     amount: 1 # The internet tells me I should avoid watering plants with ice, but mostly because of temperature, so this value being the same as water should probably be fine?

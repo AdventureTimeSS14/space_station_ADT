@@ -786,10 +786,9 @@
     tags:
     - Taser
     - Sidearm
+    - ADTBsoWeapon #ADT-tweak
   - type: PacifismAllowedGun #ADT-tweak
-  - ADTBsoWeapon #ADT-tweak
   - type: GunExecutionBlacklist #ADT-tweak
-  - ADTBsoWeapon #ADT tweak
 
 - type: entity
   name: disabler
