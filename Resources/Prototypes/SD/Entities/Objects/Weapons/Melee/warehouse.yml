@@ -13,3 +13,156 @@
     state: icon
   - type: Item
     sprite: SD/Entities/Weapons/Warehouse/topor-myasnika.rsi
+    storedSprite:
+      state: icon
+      sprite: SD/Entities/Weapons/Warehouse/topor-myasnika.rsi
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    attackRate: 1.5
+    soundHit:
+      path: /Audio/SD/Weapons/Melee/Warehouse/hit.ogg
+    soundSwing:
+      path: /Audio/SD/Weapons/Melee/Warehouse/miss.ogg
+    damage:
+      types:
+        Slash: 12
+  - type: ThrowingAngle
+    angle: 90
+    angularVelocity: true
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: tracksuitCoat
+  name: спортивный пиджак
+  suffix: "abobkamenyaebali"
+  components:
+    - type: Sprite
+      sprite: SD/Entities/Weapons/Warehouse/abobkamenayebali/tracksuitCoat.rsi
+      state: icon
+    - type: Item
+      sprite: SD/Entities/Weapons/Warehouse/abobkamenayebali/tracksuitCoat.rsi
+    - type: Clothing
+      sprite: SD/Entities/Weapons/Warehouse/abobkamenayebali/tracksuitCoat.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: tracksuit
+  name: спортивный костюм
+  suffix: "abobkamenyaebali"
+  components:
+    - type: Sprite
+      sprite: SD/Entities/Weapons/Warehouse/abobkamenayebali/tracksuit.rsi
+      state: icon
+    - type: Item
+      sprite: SD/Entities/Weapons/Warehouse/abobkamenayebali/tracksuit.rsi
+    - type: Clothing
+      sprite: SD/Entities/Weapons/Warehouse/abobkamenayebali/tracksuit.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: noblecloak
+  name: шарф короля техов
+  suffix: "Dolzhnik"
+  components:
+    - type: Sprite
+      sprite: SD/Entities/Weapons/Warehouse/Dolzhnik/noblecoat.rsi
+      state: icon
+    - type: Item
+      sprite: SD/Entities/Weapons/Warehouse/Dolzhnik/noblecoat.rsi
+    - type: Clothing
+      sprite: SD/Entities/Weapons/Warehouse/Dolzhnik/noblecoat.rsi
+
+- type: entity
+  id: noblespear
+  parent: Spear
+  suffix: "Dolzhnik"
+  name: копье короля техов
+  description: Древнее древковое орудие, какого-то нищего из глубин технических тоннелей.
+  components:
+    - type: Sprite
+      sprite: SD/Entities/Weapons/Warehouse/Dolzhnik/noblespear.rsi
+      layers:
+        - state: spear
+        - state: spear1
+          map: ["enum.SolutionContainerLayers.Fill"]
+          visible: false
+    - type: Item
+      size: Ginormous
+      sprite: SD/Entities/Weapons/Warehouse/Dolzhnik/noblespear.rsi
+      storedSprite:
+        state: spear
+        sprite: SD/Entities/Weapons/Warehouse/Dolzhnik/noblespear.rsi
+
+- type: entity
+  id: noblecrown
+  parent: ClothingHeadBase
+  suffix: "Dolzhnik"
+  name: корона короля техов
+  components:
+    - type: Sprite
+      sprite: SD/Entities/Weapons/Warehouse/Dolzhnik/tcrown.rsi
+      state: icon
+    - type: Item
+      sprite: SD/Entities/Weapons/Warehouse/Dolzhnik/tcrown.rsi
+    - type: Clothing
+      sprite: SD/Entities/Weapons/Warehouse/Dolzhnik/tcrown.rsi
+
+- type: entity
+  id: honorandloyalty
+  parent: ADTWeaponRevolverLesserUnica
+  suffix: "freealeq"
+  name: Честь и Верность
+  description: Этот револьвер является полным описанием своего владельца. По виду револьвера можно понять, что он верно служит хозяину на протяжении многих лет. На стволе револьвера виднеется гравировка "М.Э.", которая, судя по всему, была выцарапана.
+  components:
+    - type: Sprite
+      sprite: SD/Entities/Weapons/Warehouse/freealeq/revgun.rsi
+      state: icon
+    - type: Item
+      sprite: SD/Entities/Weapons/Warehouse/freealeq/revgun.rsi
+      storedSprite:
+        state: icon
+        sprite: SD/Entities/Weapons/Warehouse/freealeq/revgun.rsi
+
+- type: entity
+  parent: ClothingHandsBase
+  id: goldwatch
+  name: Золотые часы с гравировкой
+  suffix: "freealeq"
+  description: Эти золотые механические часы блестят настолько ярко, что могут кого-нибудь ослепить. Одно золотое звено этих часов стоит как среднестатистическое жалованье сотрудника корпорации, что ясно даёт понять о статусе носителя. Рядом с циферблатом виднеется чёрная гравировка "М.Э."
+  components:
+    - type: Sprite
+      sprite: SD/Entities/Weapons/Warehouse/freealeq/watch.rsi
+      state: icon
+    - type: Item
+      sprite: SD/Entities/Weapons/Warehouse/freealeq/watch.rsi
+    - type: Clothing
+      sprite: SD/Entities/Weapons/Warehouse/freealeq/watch.rsi
+
+- type: entity
+  parent: ClothingOuterArmorBase
+  id: skullvest
+  name: бронежилет с черепом
+  description: Невероятно крутой бронежилет, для действительно крутых актёров.
+  suffix: "KiberNikitos"
+  components:
+    - type: Sprite
+      sprite: SD/Entities/Weapons/Warehouse/KiberNikitos/armor.rsi
+      state: icon
+    - type: Item
+      sprite: SD/Entities/Weapons/Warehouse/KiberNikitos/armor.rsi
+    - type: Clothing
+      sprite: SD/Entities/Weapons/Warehouse/KiberNikitos/armor.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: nikitossuit
+  name: крутой костюм
+  suffix: "KiberNikitos"
+  components:
+    - type: Sprite
+      sprite: SD/Entities/Weapons/Warehouse/KiberNikitos/suit.rsi
+      state: icon
+    - type: Item
+      sprite: SD/Entities/Weapons/Warehouse/KiberNikitos/suit.rsi
+    - type: Clothing
+      sprite: SD/Entities/Weapons/Warehouse/KiberNikitos/suit.rsi
