@@ -16,9 +16,9 @@
       map: [ "enum.PdaVisualLayers.IdLight" ]
       shader: "unshaded"
       visible: false
-  - type: Tag
-    tags:
-    - ADTPDA
+  # - type: Tag # Это не нужно, если оно уже есть в BasePDA
+  #   tags:
+  #   - ADTPDA
   - type: Icon
     sprite: ADT/Objects/Devices/pda.rsi
 
