@@ -11,14 +11,14 @@
       inverted: true
       traits:
       - Muted
-  # ADT Restrict Start
-  - !type:SpeciesRequirement
-    inverted: true
-    species:
-    - Resomi
-    - Vox
-    - Shadekin
-  # ADT RESTRICT End
+    # ADT Restrict Start
+    - !type:SpeciesRequirement
+      inverted: true
+      species:
+      - Resomi
+      - Vox
+      - Shadekin
+    # ADT RESTRICT End
   startingGear: DetectiveGear
   icon: "JobIconDetective"
   supervisors: job-supervisors-hos
