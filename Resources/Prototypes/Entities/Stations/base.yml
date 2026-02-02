@@ -135,12 +135,12 @@
           paths:
           - /Maps/ADTMaps/Shuttles/mining.yml
         # ADT-Mining-End
-        # ADT-Security-Start
+        # SD-Security-Start
         security: !type:GridSpawnGroup
           nameGrid: false
           paths:
-          - /Maps/ADTMaps/Shuttles/sec_shuttle.yml
-        # ADT-Security-End
+          - /Maps/SDMaps/SDShuttles/SDSec_Shuttle.yml
+        # SD-Security-End
 
 - type: entity
   id: BaseStationCentcomm
