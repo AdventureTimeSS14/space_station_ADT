@@ -601,10 +601,10 @@
     sprite: Objects/Specific/Chemistry/pills.rsi
   - type: Pill
   - type: Food
-    # ADT-tweak start
+    # ADT-Tweak-Start
     delay: 0.3
     forceFeedDelay: 3
-    # ADT-tweak end
+    # ADT-Tweak-End
     transferAmount: null
     eatMessage: food-swallow
     useSound: /Audio/Items/pill.ogg
