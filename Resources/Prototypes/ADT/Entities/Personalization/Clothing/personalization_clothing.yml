@@ -444,6 +444,19 @@
     sprite: ADT/Personalization/aidan_mask.rsi
     equippedState: equipped-MASK
 
+- type: entity
+  parent: ADTClothingSponsorHandsBase
+  id: ADTClothingHandsAidanWatch
+  name: Aidan Watch
+  description: Aidan Watch
+  suffix: Personal, Aidan
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/aidan_watch.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/aidan_watch.rsi
+  - type: Clock
+
 # Bolper
 - type: entity
   parent: ADTSponsorClothingOuterStorageBase
