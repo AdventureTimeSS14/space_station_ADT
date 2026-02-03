@@ -298,8 +298,8 @@
       collection: Weh
     Hew:
       collection: Hew
-    Gasp:
-      path: /Audio/Effects/Gasp/vox_gasp.ogg
+    # Gasp:           # ADT-Tweak: Уже есть в ADT
+    #   path: /Audio/Effects/Gasp/vox_gasp.ogg
     DefaultDeathgasp:
       path: /Audio/Effects/Gasp/vox_DeathGasp.ogg
     # ADT-Tweak Start
