@@ -31,7 +31,7 @@ public sealed class PaperSystem : EntitySystem
 
     private static readonly ProtoId<TagPrototype> WriteIgnoreStampsTag = "WriteIgnoreStamps";
     private static readonly ProtoId<TagPrototype> WriteTag = "Write";
-    private static readonly ProtoId<TagPrototype> ChalkTag = "Chalk"; // ADT-Tweak: Chalkboard
+    private static readonly ProtoId<TagPrototype> CrayonTag = "Crayon"; // ADT-Tweak: Chalkboard
 
     private EntityQuery<PaperComponent> _paperQuery;
 
@@ -120,7 +120,7 @@ public sealed class PaperSystem : EntitySystem
         if (_tagSystem.HasTag(args.Used, WriteTag))
         {
             // ADT-Tweak Start: Chalkboard
-            if (HasComp<ChalkboardComponent>(entity) && !_tagSystem.HasTag(args.Used, ChalkTag))
+            if (HasComp<ChalkboardComponent>(entity) && !_tagSystem.HasTag(args.Used, CrayonTag))
             {
                 _popupSystem.PopupClient(Loc.GetString("chalkboard-only-chalk"), entity.Owner, args.User);
                 args.Handled = true;
