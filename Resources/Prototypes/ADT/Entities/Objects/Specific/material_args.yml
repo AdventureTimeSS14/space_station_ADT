@@ -264,7 +264,7 @@
                 - Hit
               comboEvent:
                 - !type:ComboPopupEffect
-                  localeText: combo-slam-end
+                  localeText: combo-cookbook-battre-end
                 - !type:ComboDamageEffect
                   damage:
                     types:
@@ -276,27 +276,11 @@
                   sound:
                     collection: GenericHit
             - actionsNeeds:
-                - Hit
-                - Disarm
-                - Hit
-              comboEvent:
-                - !type:ComboPopupEffect
-                  localeText: combo-cqc-kick-end
-                - !type:ComboDamageEffect
-                  damage:
-                    types:
-                      Blunt: 15
-                - !type:ComboFallEffect
-                  dropItems: false
-                - !type:ComboAudioEffect
-                  sound:
-                    collection: GenericHit
-            - actionsNeeds:
                 - Disarm
                 - Grab
               comboEvent:
                 - !type:ComboPopupEffect
-                  localeText: combo-cqc-pressure-end
+                  localeText: combo-cookbook-unwinding-end
                 - !type:ComboStaminaDamageEffect
                   staminaDamage: 35
             - actionsNeeds:
@@ -305,36 +289,19 @@
               stopGrab: false
               comboEvent:
                 - !type:ComboPopupEffect
-                  localeText: combo-cqc-restain-end
+                  localeText: combo-cookbook-rolling-end
                 - !type:ComboFallEffect
                   dropItems: true
                 - !type:ComboStaminaDamageEffect
-                  staminaDamage: 30
-            - actionsNeeds:
-                - Disarm
-                - Disarm
-                - Hit
-              comboEvent:
-                - !type:ComboPopupEffect
-                  localeText: combo-cqc-consecutive-end
-                - !type:ComboMoreDamageToDownedEffect
-                  damage:
-                    types:
-                      Blunt: 15
-                - !type:ComboFallEffect
-                - !type:ComboStaminaDamageEffect
-                  staminaDamage: 60
-                - !type:ComboAudioEffect
-                  sound:
-                    collection: GenericHit
+                  staminaDamage: 35
             - actionsNeeds:
                 - Grab
                 - Disarm
               comboEvent:
                 - !type:ComboPopupEffect
-                  localeText: combo-leg-sweep-end
+                  localeText: combo-cookbook-squeezing-end
                 - !type:ComboFallEffect
-                  dropItems: false
+                  dropItems: true
                 - !type:ComboAudioEffect
                   sound:
                     collection: GenericHit
