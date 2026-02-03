@@ -33,8 +33,11 @@ public sealed class DoubleBedSystem : EntitySystem
     {
         if (TryComp<StrapComponent>(ent, out var strap))
         {
-            strap.BuckleOffset = ent.Comp.LeftOffset;
-            Dirty(ent, strap);
+            if (strap.BuckleOffset == Vector2.Zero)
+            {
+                strap.BuckleOffset = ent.Comp.LeftOffset;
+                Dirty(ent, strap);
+            }
         }
     }
 

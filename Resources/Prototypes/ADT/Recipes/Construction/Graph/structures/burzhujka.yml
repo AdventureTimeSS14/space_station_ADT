@@ -18,10 +18,10 @@
       edges:
         - to: start
           completed:
-          - !type:SpawnPrototype
-                prototype: SheetSteel1
-                amount: 10
-          - !type:DeleteEntity {}
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 10
+            - !type:DeleteEntity {}
           steps:
             - tool: Prying
               doAfter: 5

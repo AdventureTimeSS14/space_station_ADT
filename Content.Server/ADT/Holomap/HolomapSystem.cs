@@ -1,8 +1,8 @@
+using Content.Server.Power.Components;
+using Content.Server.Power.EntitySystems;
 using Content.Shared.ADT.Holomap;
 using Content.Shared.Power;
 using Content.Shared.UserInterface;
-using Content.Server.Power.Components;
-using Content.Server.Power.EntitySystems;
 using Robust.Server.GameObjects;
 
 namespace Content.Server.ADT.Holomap;

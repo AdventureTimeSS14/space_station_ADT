@@ -120,6 +120,7 @@
     position: Down
     rotation: -90
     size: 200
+    buckleOffset: "0,-0.25"
   - type: PlaceableSurface
     placeCentered: true
 
@@ -156,6 +157,7 @@
     position: Down
     rotation: -90
     size: 200
+    buckleOffset: "0,-0.25"
   - type: PlaceableSurface
     placeCentered: true
 
@@ -176,5 +178,6 @@
     position: Down
     rotation: -90
     size: 200
+    buckleOffset: "0,-0.25"
   - type: PlaceableSurface
     placeCentered: true
