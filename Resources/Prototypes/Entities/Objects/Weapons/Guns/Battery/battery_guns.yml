@@ -303,9 +303,6 @@
   - type: Appearance
   - type: Clothing
     sprite: Objects/Weapons/Guns/Battery/laser_gun.rsi
-  # ADT-Tweak start
-  # - type: RunAndGunSpreadModifier
-  #   modifier: 0.3
   - type: MeleeWeapon
     resetOnHandSelected: false
     attackRate: 1
@@ -316,7 +313,6 @@
       collection: GenericHit
   - type: AltFireMelee
   - type: GunExecutionBlacklist #ADT-Tweak
-  # ADT-Tweak end
   - type: Gun
     selectedMode: SemiAuto
     fireRate: 2
@@ -327,36 +323,7 @@
     fireCost: 20 #ADT_Tweak 62.5 -> 20
   - type: StaticPrice
     price: 300
-
-- type: entity
-  name: laser rifle
-  parent: [WeaponLaserCarbinePractice, BaseSecurityContraband, ADTBaseAttachableHolder] # ADT TWEAK #ADT Tweak - removed BaseGunWieldable
-  id: WeaponLaserCarbine
-  description: Favoured by Nanotrasen Security for being cheap and easy to use.
-
-- type: entity
-  name: practice laser carbine
-  parent: [BaseLaserRifle, BaseGunWieldable]
-  id: WeaponLaserCarbinePractice
-  description: This modified laser carbine fires nearly harmless beams in the 40-watt range, for target practice.
-  components:
-  - type: StaticPrice
-    price: 300
-  - type: HitscanBatteryAmmoProvider
-    proto: RedMediumLaser #ADT_Tweak
-    fireCost: 28.5 #ADT_Tweak 62.5 -> 28.5
-  # - type: RunAndGunSpreadModifier
-  #   modifier: 0.3
-  - type: MeleeWeapon #ADT_Tweak
-    resetOnHandSelected: false
-    attackRate: 1
-    damage:
-      types:
-        Blunt: 9 # 5 -> 9
-    soundHit:
-      collection: GenericHit
-  - type: AltFireMelee #ADT_Tweak
-# ADT TWEAK START
+  # ADT TWEAK START - добавляем аттачменты из второго прототипа
   - type: AttachableHolder
     slots:
       rmc-aslot-underbarrel:
@@ -373,8 +340,14 @@
   - type: AttachableHolderVisuals
     offsets:
       rmc-aslot-underbarrel: 0.25, -0.14
-      rmc-aslot-rail: -0.3, -0.09375 # -0.03125, -0.09375 -> -0.3, -0.09375
-# ADT TWEAK END
+      rmc-aslot-rail: -0.3, -0.09375
+  # ADT TWEAK END
+
+- type: entity
+  name: laser rifle
+  parent: [WeaponLaserCarbinePractice, BaseSecurityContraband, ADTBaseAttachableHolder] # ADT TWEAK #ADT Tweak - removed BaseGunWieldable
+  id: WeaponLaserCarbine
+  description: Favoured by Nanotrasen Security for being cheap and easy to use.
 
 - type: entity
   name: pulse pistol
