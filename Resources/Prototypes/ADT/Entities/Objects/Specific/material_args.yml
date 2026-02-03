@@ -308,6 +308,8 @@
                   localeText: combo-cqc-restain-end
                 - !type:ComboFallEffect
                   dropItems: true
+                - !type:ComboStaminaDamageEffect
+                  staminaDamage: 30
             - actionsNeeds:
                 - Disarm
                 - Disarm
