@@ -292,8 +292,8 @@
       path: /Audio/Voice/Vox/vox_chitter.ogg
     Honk:
       collection: BikeHorn
-    Crying:
-      path: /Audio/Voice/Vox/vox_cry.ogg
+    # Crying:         # ADT-Tweak: Уже есть в ADT
+    #   path: /Audio/Voice/Vox/vox_cry.ogg
     Weh:
       collection: Weh
     Hew:
