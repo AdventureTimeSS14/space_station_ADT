@@ -441,7 +441,7 @@
 
 - type: entity
   parent: QuartermasterIDCard
-  id: ADTIntendantIDCar
+  id: ADTIntendantIDCard
   name: intendant ID card
   components:
   - type: IdCard

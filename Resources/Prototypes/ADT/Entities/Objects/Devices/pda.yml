@@ -576,7 +576,7 @@
   description: intendant PDA.
   components:
   - type: Pda
-    id: ADTIntendantIDCar
+    id: ADTIntendantIDCard
 
 # Cargo Technician
 
