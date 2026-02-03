@@ -125,10 +125,11 @@
   equipment:
     id: SecurityPDA
 
-- type: loadout
-  id: SeniorOfficerPDA
-  # effects: Corvax-MentorRoles
-  # - !type:GroupLoadoutEffect
-  #   proto: SeniorOfficer
-  equipment:
-    id: SeniorOfficerPDA
+# ADT-Tweak: Dublicate ID
+# - type: loadout
+#   id: SeniorOfficerPDA
+#   # effects: Corvax-MentorRoles
+#   # - !type:GroupLoadoutEffect
+#   #   proto: SeniorOfficer
+#   equipment:
+#     id: SeniorOfficerPDA
