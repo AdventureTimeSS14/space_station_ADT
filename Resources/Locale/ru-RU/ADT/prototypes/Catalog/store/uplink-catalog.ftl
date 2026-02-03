@@ -289,4 +289,4 @@ uplink-clothing-no-sound-shoes-name = Бесшумная обувь
 uplink-clothing-no-sound-shoes-desc = Ботинки-хамелеоны с особой подошвой, делающей шаги бесшумными.
 
 uplink-clothing-super-shoes-name = Продвинутые ботинки-хамелеоны
-uplink-clothing-super-shoes-desc = Ботинки-хамелеоны, обеспечивающие и бесшумную ходьбу, и защиту от подскальзывания.
+uplink-clothing-super-shoes-desc = Ботинки-хамелеоны, обеспечивающие и бесшумную ходьбу, и защиту от поскальзывания.
