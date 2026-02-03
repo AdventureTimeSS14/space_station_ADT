@@ -1,12 +1,12 @@
 accent-adt_chatsanitize-words-1-1 = фурри
 accent-adt_chatsanitize-words-1-2 = фури
-accent-adt_chatsanitize-replace-1 = ксенорасовец
+accent-adt_chatsanitize-replace-1 = пушистик
 
 accent-adt_chatsanitize-words-2-1 = фурриёб
 accent-adt_chatsanitize-words-2-2 = фуриёб
 accent-adt_chatsanitize-words-2-3 = фуриеб
 accent-adt_chatsanitize-words-2-4 = фурриеб
-accent-adt_chatsanitize-replace-2 = любитель ксенорас
+accent-adt_chatsanitize-replace-2 = любитель пушистых
 
 accent-adt_chatsanitize-words-3 = фембой
 accent-adt_chatsanitize-replace-3 = трансвестит
@@ -17,11 +17,6 @@ accent-adt_chatsanitize-replace-4 = в одиночку
 accent-adt_chatsanitize-words-5-1 = позер
 accent-adt_chatsanitize-words-5-2 = позёр
 accent-adt_chatsanitize-replace-5 = выпендрёжник
-
-accent-adt_chatsanitize-words-6-1 = робаст
-accent-adt_chatsanitize-words-6-2 = робастим
-accent-adt_chatsanitize-words-6-3 = роббаст
-accent-adt_chatsanitize-replace-6 = ловкач
 
 accent-adt_chatsanitize-words-7 = квадробер
 accent-adt_chatsanitize-replace-7 = звероподражатель
@@ -81,7 +76,7 @@ accent-adt_chatsanitize-words-23-1 = кринж
 accent-adt_chatsanitize-words-23-2 = кринжа
 accent-adt_chatsanitize-words-23-3 = кринжую
 accent-adt_chatsanitize-words-23-4 = кринжовать
-accent-adt_chatsanitize-replace-23 = это смешно просто
+accent-adt_chatsanitize-replace-23 = испанский стыд
 
 accent-adt_chatsanitize-words-24 = апнул
 accent-adt_chatsanitize-replace-24 = повысил
