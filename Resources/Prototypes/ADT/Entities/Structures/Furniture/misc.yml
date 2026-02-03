@@ -382,6 +382,8 @@
     state: chalkboard
   - type: Paper
     contentSize: 10000
+  - type: Chalkboard
+    baseDescription: black chalk deck
   - type: ActivatableUI
     key: enum.PaperUiKey.Key
     requiresComplex: false
