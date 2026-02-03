@@ -911,9 +911,6 @@
   id: MagazineMagnumSubMachineGun
 
 - type: Tag
-  id: MagazinePistolSubMachineGun
-
-- type: Tag
   id: Matchstick # Storage whitelist: Ashtray. ConstructionGraph: ImprovisedShotgunShellGraph
 
 - type: Tag
