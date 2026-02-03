@@ -46,7 +46,7 @@
 - type: startingGear
   id: QuartermasterGear
   equipment:
-    id: QuartermasterPDA
+    # id: QuartermasterPDA # ADT: different PDAs in loadouts
     # ears: ClothingHeadsetQM # ADT tweak
     belt: BoxFolderClipboard
     pocket1: AppraisalTool
