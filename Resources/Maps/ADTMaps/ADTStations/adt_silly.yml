@@ -4,8 +4,8 @@ meta:
   engineVersion: 265.0.0
   forkId: ""
   forkVersion: ""
-  time: 02/02/2026 19:53:44
-  entityCount: 9936
+  time: 02/03/2026 20:37:08
+  entityCount: 9937
 maps:
 - 1
 grids:
@@ -11797,6 +11797,13 @@ entities:
     components:
     - type: Transform
       pos: -13.5,0.5
+      parent: 2
+- proto: ADTWeaponCutter
+  entities:
+  - uid: 5258
+    components:
+    - type: Transform
+      pos: 18.478083,25.641546
       parent: 2
 - proto: ADTWeaponRevolverRussian
   entities:
@@ -43396,10 +43403,20 @@ entities:
     - type: Transform
       pos: 10.5,-11.5
       parent: 2
+  - uid: 5031
+    components:
+    - type: Transform
+      pos: -16.5,7.5
+      parent: 2
   - uid: 5560
     components:
     - type: Transform
       pos: 12.5,-11.5
+      parent: 2
+  - uid: 5676
+    components:
+    - type: Transform
+      pos: -16.5,6.5
       parent: 2
   - uid: 7395
     components:
@@ -51524,12 +51541,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -27.5,8.5
       parent: 2
-  - uid: 5031
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -25.5,9.5
-      parent: 2
   - uid: 5032
     components:
     - type: Transform
@@ -51902,6 +51913,21 @@ entities:
     components:
     - type: Transform
       pos: -25.5,-18.5
+      parent: 2
+  - uid: 5262
+    components:
+    - type: Transform
+      pos: -16.5,7.5
+      parent: 2
+  - uid: 5675
+    components:
+    - type: Transform
+      pos: -25.5,9.5
+      parent: 2
+  - uid: 5677
+    components:
+    - type: Transform
+      pos: -16.5,6.5
       parent: 2
 - proto: ReinforcedWindowDiagonal
   entities:
@@ -53541,18 +53567,6 @@ entities:
     - type: Transform
       pos: -3.5,19.5
       parent: 2
-- proto: SpawnPointADTMiner
-  entities:
-  - uid: 5257
-    components:
-    - type: Transform
-      pos: 17.5,27.5
-      parent: 2
-  - uid: 5258
-    components:
-    - type: Transform
-      pos: 20.5,28.5
-      parent: 2
 - proto: SpawnPointADTPathologist
   entities:
   - uid: 5259
@@ -53576,10 +53590,15 @@ entities:
       parent: 2
 - proto: SpawnPointBorg
   entities:
-  - uid: 5262
+  - uid: 5309
     components:
     - type: Transform
-      pos: 1.5,5.5
+      pos: -29.5,47.5
+      parent: 2
+  - uid: 5310
+    components:
+    - type: Transform
+      pos: -27.5,47.5
       parent: 2
 - proto: SpawnPointBotanist
   entities:
@@ -53871,20 +53890,15 @@ entities:
       parent: 2
 - proto: SpawnPointSalvageSpecialist
   entities:
+  - uid: 5257
+    components:
+    - type: Transform
+      pos: 17.5,27.5
+      parent: 2
   - uid: 5308
     components:
     - type: Transform
       pos: 14.5,27.5
-      parent: 2
-  - uid: 5309
-    components:
-    - type: Transform
-      pos: 21.5,26.5
-      parent: 2
-  - uid: 5310
-    components:
-    - type: Transform
-      pos: 19.5,24.5
       parent: 2
   - uid: 5311
     components:
@@ -65529,11 +65543,6 @@ entities:
     - type: Transform
       pos: -10.5,-4.5
       parent: 2
-  - uid: 6359
-    components:
-    - type: Transform
-      pos: -16.5,7.5
-      parent: 2
   - uid: 6360
     components:
     - type: Transform
@@ -65996,11 +66005,6 @@ entities:
     components:
     - type: Transform
       pos: -3.5,7.5
-      parent: 2
-  - uid: 6456
-    components:
-    - type: Transform
-      pos: -16.5,6.5
       parent: 2
   - uid: 6457
     components:
