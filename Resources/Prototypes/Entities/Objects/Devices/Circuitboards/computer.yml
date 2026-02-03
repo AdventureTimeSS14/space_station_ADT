@@ -19,7 +19,7 @@
         Silicon: 20
     - type: Circuitboard
     # ADT Start
-    - type: Food
+    - type: Edible
       requiresSpecialDigestion: true
     - type: FlavorProfile
       flavors:
