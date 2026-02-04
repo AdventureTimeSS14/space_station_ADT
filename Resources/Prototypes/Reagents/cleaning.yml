@@ -67,7 +67,6 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Drask ]
-          shouldHave: true
         key: Stutter
         component: StutteringAccent
       - !type:GenericStatusEffect
@@ -89,14 +88,12 @@
         # Start ADT tweak
         - !type:MetabolizerTypeCondition
           type: [ Drask ]
-          shouldHave: false
         # End ADT tweak
         probability: 0.20
       - !type:SatiateHunger
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Drask ]
-          shouldHave: true
         factor: 2
     Drink:
       effects:
@@ -107,7 +104,6 @@
         # Start ADT tweak
         - !type:MetabolizerTypeCondition
           type: [ Drask ]
-          shouldHave: false
         # End ADT tweak
         - !type:ReagentThreshold
           min: 6

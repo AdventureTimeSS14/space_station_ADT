@@ -183,7 +183,6 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Dragon ]
-          shouldHave: true
       # ADT tweak end
       - !type:EvenHealthChange
         damage:

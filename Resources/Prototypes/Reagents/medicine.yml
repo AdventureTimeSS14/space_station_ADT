@@ -157,7 +157,6 @@
       # Start ADT tweak
         - !type:MetabolizerTypeCondition
           type: [ Shadekin ]
-          shouldHave: false
       # End ADT tweak
         - !type:ReagentCondition
           reagent: Bicaridine
@@ -171,7 +170,6 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Shadekin ]
-          shouldHave: true
         - !type:ReagentCondition
           reagent: Bicaridine
           min: 15
@@ -215,7 +213,6 @@
           # Start ADT tweak
           - !type:MetabolizerTypeCondition
             type: [ Shadekin ]
-            shouldHave: false
           # End ADT tweak
           - !type:TemperatureCondition
             # this is a little arbitrary but they gotta be pretty cold
@@ -232,7 +229,6 @@
           conditions:
           - !type:MetabolizerTypeCondition
             type: [ Shadekin ]
-            shouldHave: true
           - !type:TemperatureCondition
             max: 213.0
           damage:
@@ -286,7 +282,6 @@
         # Start ADT tweak
         - !type:MetabolizerTypeCondition
           type: [ Shadekin ]
-          shouldHave: false
         # End ADT tweak
         - !type:ReagentCondition
           reagent: Dermaline
@@ -302,7 +297,6 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Shadekin ]
-          shouldHave: true
         - !type:ReagentCondition
           reagent: Dermaline
           min: 10
@@ -334,7 +328,6 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Shadekin ]
-          shouldHave: false
       # End ADT tweak
         damage:
           types:
@@ -345,7 +338,6 @@
         # Start ADT tweak
         - !type:MetabolizerTypeCondition
           type: [ Shadekin ]
-          shouldHave: false
         # End ADT tweak
         - !type:ReagentCondition
           reagent: Dexalin
@@ -359,7 +351,6 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Shadekin ]
-          shouldHave: true
         damage:
           types:
             Bloodloss: -1
@@ -367,7 +358,6 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Shadekin ]
-          shouldHave: true
         - !type:ReagentCondition
           reagent: Dexalin
           min: 20
@@ -392,7 +382,6 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Shadekin ]
-          shouldHave: false
         # End ADT tweak
         damage:
           types:
@@ -410,7 +399,6 @@
         # Start ADT tweak
         - !type:MetabolizerTypeCondition
           type: [ Shadekin ]
-          shouldHave: false
         # End ADT tweak
         - !type:ReagentCondition
           reagent: DexalinPlus
@@ -424,7 +412,6 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Shadekin ]
-          shouldHave: true
         damage:
           types:
             Poison: -0.5
@@ -433,7 +420,6 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Shadekin ]
-          shouldHave: true
         - !type:ReagentCondition
           reagent: DexalinPlus
           min: 25
@@ -467,7 +453,6 @@
         # Start ADT tweak
         - !type:MetabolizerTypeCondition
           type: [ Shadekin ]
-          shouldHave: false
         # End ADT tweak
           # they gotta be in crit first
         - !type:MobStateCondition
@@ -487,7 +472,6 @@
         # Start ADT tweak
         - !type:MetabolizerTypeCondition
           type: [ Shadekin ]
-          shouldHave: false
         # End ADT tweak
         - !type:ReagentCondition
           reagent: Epinephrine
@@ -501,7 +485,6 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Shadekin ]
-          shouldHave: true
         - !type:MobStateCondition
           mobstate: Critical
         - !type:ReagentCondition
@@ -518,7 +501,6 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Shadekin ]
-          shouldHave: true
         - !type:ReagentCondition
           reagent: Epinephrine
           min: 20
@@ -626,7 +608,6 @@
         # Start ADT tweak
         - !type:MetabolizerTypeCondition
           type: [ Shadekin ]
-          shouldHave: false
         # End ADT tweak
           # they gotta be in crit first
         - !type:MobStateCondition
@@ -639,7 +620,6 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Shadekin ]
-          shouldHave: false
         # End ADT tweak
         amount: -0.25
       # Start ADT tweak
@@ -647,7 +627,6 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Shadekin ]
-          shouldHave: true
         - !type:MobStateCondition
           mobstate: Critical
         damage:
@@ -657,7 +636,6 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Shadekin ]
-          shouldHave: true
         amount: -0.75
       # End ADT tweak
 
@@ -832,7 +810,6 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Shadekin ]
-          shouldHave: false
         # End ADT tweak
         damage:
           groups:
@@ -844,7 +821,6 @@
         # Start ADT tweak
         - !type:MetabolizerTypeCondition
           type: [ Shadekin ]
-          shouldHave: false
         # End ADT tweak
         - !type:ReagentCondition
           reagent: PolypyryliumOligomers
@@ -857,7 +833,6 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Shadekin ]
-          shouldHave: true
         damage:
           groups:
             Brute: -12 # ADT-Tweak ## Лечит механические повреждения на 4 (12/3)
@@ -867,7 +842,6 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Shadekin ]
-          shouldHave: true
         - !type:ReagentCondition
           reagent: PolypyryliumOligomers
           min: 30
@@ -946,7 +920,6 @@
           conditions:
           - !type:MetabolizerTypeCondition
             type: [ Drask ]
-            shouldHave: false
           # End ADT tweak
 
 - type: reagent

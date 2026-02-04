@@ -78,7 +78,6 @@
           #ADT-Tweak-Start
         - !type:MetabolizerTypeCondition
           type: [ Vox ]
-          shouldHave: false
           #ADT-Tweak-End
         damage:
           types:
@@ -201,7 +200,6 @@
         # ADT tweak start
         - !type:MetabolizerTypeCondition
           type: [ Drask ]
-          shouldHave: false
         # ADT tweak end
         amount: 0.4
     # ADT Start
@@ -320,7 +318,6 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Vox ]
-          shouldHave: false
       #ADT-Tweak-End
         damage:
           types:

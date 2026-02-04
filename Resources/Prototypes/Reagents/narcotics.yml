@@ -17,7 +17,6 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Shadekin ]
-          shouldHave: false
         # End ADT tweak
         damage:
           types:
@@ -26,7 +25,6 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Shadekin ]
-          shouldHave: false
         # End ADT tweak
         - !type:ReagentCondition
           reagent: Desoxyephedrine
@@ -40,7 +38,6 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Shadekin ]
-          shouldHave: true
         damage:
           types:
             Poison: 1
@@ -48,7 +45,6 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Shadekin ]
-          shouldHave: true
         - !type:ReagentCondition
           reagent: Desoxyephedrine
           min: 30
@@ -135,7 +131,6 @@
         # Start ADT tweak
         - !type:MetabolizerTypeCondition
           type: [ Shadekin ]
-          shouldHave: false
         # End ADT tweak
         - !type:ReagentCondition
           reagent: Ephedrine
@@ -149,7 +144,6 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Shadekin ]
-          shouldHave: true
         damage:
           types:
             Poison: 0.75
@@ -157,7 +151,6 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Shadekin ]
-          shouldHave: true
         - !type:ReagentCondition
           reagent: Ephedrine
           min: 20

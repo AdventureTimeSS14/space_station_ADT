@@ -75,9 +75,6 @@
       rules: ghost-role-information-Death-Squad-rules
       raffle:
         settings: short
-      requirements:
-      - !type:OverallPlaytimeRequirement
-        time: 270000 # 75h # adt tweak
       mindRoles:
       - MindRoleGhostRoleFamiliar
       job: DeathSquad

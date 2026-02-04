@@ -231,7 +231,6 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Shadekin ]
-          shouldHave: false
         # End edit by Filo
         damage:
           types:
@@ -249,7 +248,6 @@
         # Start edit by Filo
         - !type:MetabolizerTypeCondition
           type: [ Shadekin ]
-          shouldHave: false
         # End edit by Filo
         - !type:ReagentCondition
           reagent: DexalinPlus
@@ -262,7 +260,6 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Shadekin ]
-          shouldHave: true
         damage:
           types:
             Poison: -0.25
@@ -270,7 +267,6 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Shadekin ]
-          shouldHave: true
         - !type:ReagentCondition
           reagent: DexalinPlus
           min: 0.5
@@ -388,7 +384,6 @@
         # Start edit by Filo
         - !type:MetabolizerTypeCondition
           type: [ Shadekin ]
-          shouldHave: false
         # End edit by Filo
         - !type:ReagentCondition
           reagent: ADTMorphine
@@ -401,7 +396,6 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Shadekin ]
-          shouldHave: true
         - !type:ReagentCondition
           reagent: ADTMorphine
           min: 30.05

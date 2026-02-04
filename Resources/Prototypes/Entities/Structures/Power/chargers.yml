@@ -175,8 +175,6 @@
         blacklist:
           tags:
           - PotatoBattery
-          - BatteryRecharge # ADT plasmacutters
-          - BatterySelfRecharger # ADT-tweak
 
 - type: entity
   parent: BaseItemRecharger

@@ -545,7 +545,7 @@
     - item: Wirecutter
     - item: WelderIndustrial
     - item: Multitool
-    - HandheldStationMapUnpowered # ADT-tweak
+    - item: HandheldStationMapUnpowered # ADT-tweak
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: tool-module }
 
@@ -610,13 +610,13 @@
     - state: cargo
     - state: icon-mining
   - type: ItemBorgModule
-    items:
-    - MiningDrill
+    hands:
+    - item: MiningDrill
     # - Shovel ADT tweak
-    - MineralScannerUnpowered
-    - BorgOreBag
-    - BorgHandheldGPSBasic #ADT tweak: MineBorgModulesUpdate
-    - HandheldStationMapUnpowered #ADT tweak: MineBorgModulesUpdate
+    - item: MineralScannerUnpowered
+    - item: BorgOreBag
+    - item: BorgHandheldGPSBasic #ADT tweak: MineBorgModulesUpdate
+    - item: HandheldStationMapUnpowered #ADT tweak: MineBorgModulesUpdate
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: mining-module }
 

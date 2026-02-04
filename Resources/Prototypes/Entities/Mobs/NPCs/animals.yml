@@ -3798,8 +3798,8 @@
     reformTime: 10
     popupText: diona-reform-attempt
     reformPrototype: MobDionaReformed
-  - type: TTS # Corvax-TTS
-    voice: Omu
+  # - type: TTS # Corvax-TTS
+  #   voice: Omu # ADT-Tweak. Нету такого id в TTS
   # ADT Start Tweak Nimf
   - type: Clothing
     quickEquip: false

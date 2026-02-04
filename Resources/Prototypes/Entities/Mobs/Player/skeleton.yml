@@ -18,11 +18,6 @@
     name: ghost-role-information-skeleton-pirate-name
     description: ghost-role-information-skeleton-pirate-description
     rules: ghost-role-information-freeagent-rules
-# ADT-Tweak-start
-    requirements:
-      - !type:OverallPlaytimeRequirement
-        time: 7200 # 2h overall
-# ADT-Tweak-end
     mindRoles:
     - MindRoleGhostRoleFreeAgent
     raffle:

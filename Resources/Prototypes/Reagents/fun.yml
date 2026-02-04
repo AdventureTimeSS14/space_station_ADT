@@ -19,14 +19,12 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Moth ]
-          shouldHave: true
         key: Stutter
         component: StutteringAccent
       - !type:GenericStatusEffect
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Moth ]
-          shouldHave: true
         key: SeeingRainbows
         component: SeeingRainbows
         type: Add

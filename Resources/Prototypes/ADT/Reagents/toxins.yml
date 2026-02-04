@@ -69,7 +69,6 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Arachnid ]
-          shouldHave: false
         damage:
           types:
             Poison: 0.75
@@ -77,7 +76,6 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Arachnid ]
-          shouldHave: false
         type: Local
         visualType: Small
         messages: [ "toxin-effect-pain-latrotoxin" ]
@@ -89,6 +87,5 @@
           min: 10
         - !type:MetabolizerTypeCondition
           type: [ Arachnid ]
-          shouldHave: false
         walkSpeedModifier: 0.7
         sprintSpeedModifier: 0.7

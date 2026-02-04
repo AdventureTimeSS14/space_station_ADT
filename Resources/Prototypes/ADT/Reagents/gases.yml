@@ -13,7 +13,6 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Novakid ]
-          shouldHave: false
         # Filo tweak
         key: SeeingRainbows
         component: SeeingRainbows
@@ -113,7 +112,6 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Vox ]
-          shouldHave: false
         ratios:
           CarbonDioxide: 1.0
           Pluoxium: -1.0

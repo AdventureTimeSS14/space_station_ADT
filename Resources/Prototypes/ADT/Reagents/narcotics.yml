@@ -48,7 +48,6 @@
         # Start edit by Filo
         - !type:MetabolizerTypeCondition
           type: [ Shadekin ]
-          shouldHave: false
         # End edit by Filo
         - !type:ReagentCondition
           reagent: ADTOpium
@@ -61,7 +60,6 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Shadekin ]
-          shouldHave: true
         - !type:ReagentCondition
           reagent: ADTOpium
           min: 10.05
@@ -87,7 +85,6 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Shadekin ]
-          shouldHave: false
         damage:
           types:
             Poison: 0.25
@@ -95,7 +92,6 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Shadekin ]
-          shouldHave: false
         - !type:ReagentCondition
           reagent: ADTBlueSkyDesoxyephedrine
           min: 30
@@ -107,7 +103,6 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Shadekin ]
-          shouldHave: true
         damage:
           types:
             Poison: 0.5
@@ -115,7 +110,6 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Shadekin ]
-          shouldHave: true
         - !type:ReagentCondition
           reagent: ADTBlueSkyDesoxyephedrine
           min: 30

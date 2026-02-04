@@ -109,7 +109,6 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Novakid ]
-          shouldHave: false
       # End ADT tweak
         damage:
           types:
@@ -128,7 +127,6 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Novakid ]
-          shouldHave: false
         - !type:ReagentCondition
           reagent: Plasma
           min: 1
@@ -141,7 +139,6 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Novakid ]
-          shouldHave: false
         - !type:ReagentCondition
           reagent: Plasma
           min: 0.8
@@ -177,7 +174,6 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Novakid ]
-          shouldHave: false
         - !type:ReagentCondition
           reagent: Plasma
           min: 1
@@ -185,7 +181,6 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Novakid ]
-          shouldHave: true
         ratios:
           BZ: 0.4
           Plasma: -1.0

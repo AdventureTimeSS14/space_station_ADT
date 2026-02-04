@@ -24,14 +24,6 @@
   components:
   - type: GhostRole
     name: ghost-role-information-syndicate-reinforcement-spy-name
-    # ADT-Tweak-start
-    requirements:
-      - !type:DepartmentTimeRequirement
-        department: Security
-        time: 18000 # 5h
-      - !type:OverallPlaytimeRequirement
-        time: 54000 # adt tweak 2h > 15h
-    # ADT-Tweak-end
     description: ghost-role-information-syndicate-reinforcement-spy-description
     rules: ghost-role-information-syndicate-reinforcement-rules
     mindRoles:

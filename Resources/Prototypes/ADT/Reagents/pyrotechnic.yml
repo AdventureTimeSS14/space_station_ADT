@@ -18,7 +18,6 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Novakid ]
-          shouldHave: false
         damage:
           types:
             Cellular: 0.5
