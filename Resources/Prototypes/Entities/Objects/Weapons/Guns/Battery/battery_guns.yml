@@ -761,7 +761,6 @@
     - Sidearm
     - ADTBsoWeapon #ADT-tweak
   - type: PacifismAllowedGun #ADT-tweak
-  - type: GunExecutionBlacklist #ADT-tweak
 
 - type: entity
   name: disabler
