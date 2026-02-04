@@ -1,12 +1,12 @@
 accent-adt_chatsanitize-words-1-1 = фурри
 accent-adt_chatsanitize-words-1-2 = фури
-accent-adt_chatsanitize-replace-1 = пушистик
+accent-adt_chatsanitize-replace-1 = ксенорасовец
 
 accent-adt_chatsanitize-words-2-1 = фурриёб
 accent-adt_chatsanitize-words-2-2 = фуриёб
 accent-adt_chatsanitize-words-2-3 = фуриеб
 accent-adt_chatsanitize-words-2-4 = фурриеб
-accent-adt_chatsanitize-replace-2 = любитель пушистых
+accent-adt_chatsanitize-replace-2 = любитель ксенорас
 
 accent-adt_chatsanitize-words-3 = фембой
 accent-adt_chatsanitize-replace-3 = трансвестит
