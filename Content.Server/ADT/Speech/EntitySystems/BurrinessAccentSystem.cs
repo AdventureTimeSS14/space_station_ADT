@@ -10,6 +10,7 @@ public sealed class BurrinessAccentSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
 
     private static readonly Regex BurrRegex = new Regex("[рР]+", RegexOptions.Compiled);
+    private static readonly Regex LatinBurrRegex = new Regex("[rR]+", RegexOptions.Compiled);
 
     public override void Initialize()
     {
@@ -24,6 +25,11 @@ public sealed class BurrinessAccentSystem : EntitySystem
         message = BurrRegex.Replace(
             message,
             match => _random.Pick(new List<string> { "хх" })
+        );
+
+        message = LatinBurrRegex.Replace(
+            message,
+            match => _random.Pick(new List<string> { "hh" })
         );
 
         args.Message = message;
