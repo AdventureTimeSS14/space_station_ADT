@@ -1,4 +1,6 @@
+using Content.Server.Administration.Logs;
 using Content.Shared.Administration;
+using Content.Shared.Database;
 using Content.Shared.Tips;
 using Robust.Server.Player;
 using Robust.Shared.Console;
@@ -13,6 +15,7 @@ public sealed class TippyCommand : LocalizedEntityCommands
     [Dependency] private readonly SharedTipsSystem _tips = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
+    [Dependency] private readonly IAdminLogManager _adminLogger = default!;
 
     public override string Command => "tippy";
 
@@ -23,6 +26,13 @@ public sealed class TippyCommand : LocalizedEntityCommands
             shell.WriteLine(Loc.GetString("cmd-tippy-help"));
             return;
         }
+        // ADT-Tweak-Start Логируем сообщение
+        _adminLogger.Add(
+            LogType.AdminMessage,
+            LogImpact.Low,
+            $"[АДМИНАБУЗ] {shell.Player?.Name} used the command tippy. EntityPrototype: {args[2]}"
+        );
+        // ADT-Tweak-End
 
         ICommonSession? targetSession = null;
         if (args[0] != "all")
@@ -92,11 +102,19 @@ public sealed class TippyCommand : LocalizedEntityCommands
 public sealed class TipCommand : LocalizedEntityCommands
 {
     [Dependency] private readonly SharedTipsSystem _tips = default!;
+    [Dependency] private readonly IAdminLogManager _adminLogger = default!;
 
     public override string Command => "tip";
 
     public override void Execute(IConsoleShell shell, string argStr, string[] args)
     {
+        // ADT-Tweak-Start Логируем сообщение
+        _adminLogger.Add(
+            LogType.AdminMessage,
+            LogImpact.Low,
+            $"[АДМИНАБУЗ] {shell.Player?.Name} used the command tip"
+        );
+        // ADT-Tweak-End
         _tips.AnnounceRandomTip();
         _tips.RecalculateNextTipTime();
     }
