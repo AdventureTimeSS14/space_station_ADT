@@ -22,10 +22,6 @@
         reagents:
         - ReagentId: Nutriment
           Quantity: 5
-  #ADT-Tweak start
-  - type: Item
-    size: Tiny
-  #ADT-Tweak end
 
 - type: entity
   parent: FoodBagelBase
