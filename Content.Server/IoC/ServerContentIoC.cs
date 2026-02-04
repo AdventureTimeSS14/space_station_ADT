@@ -83,6 +83,8 @@ internal static class ServerContentIoC
         deps.Register<MappingManager>();
         deps.Register<IWatchlistWebhookManager, WatchlistWebhookManager>();
         deps.Register<ConnectionManager>();
+        deps.Register<JoinQueueManager>(); // ADT-add
+        deps.Register<DiscordAuthManager>(); // ADT-add
         deps.Register<MultiServerKickManager>();
         deps.Register<CVarControlManager>();
         deps.Register<DiscordLink>();
