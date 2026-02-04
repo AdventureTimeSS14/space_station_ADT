@@ -21,11 +21,11 @@ public sealed class EatToGrowSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<EdibleComponent, FullyEatenEvent>(OnFoodEaten);
+        SubscribeLocalEvent<EatToGrowComponent, FullyEatenEvent>(OnFoodEaten);
         SubscribeLocalEvent<EatToGrowComponent, MobStateChangedEvent>(ShrinkOnDeath);
     }
 
-    private void OnFoodEaten(Entity<EdibleComponent> ent, ref FullyEatenEvent args)
+    private void OnFoodEaten(Entity<EatToGrowComponent> ent, ref FullyEatenEvent args)
     {
         // The entity that ate the food (the mothroach, human, etc.)
         var eater = args.User;
