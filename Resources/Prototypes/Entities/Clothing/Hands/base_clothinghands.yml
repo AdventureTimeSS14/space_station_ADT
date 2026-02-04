@@ -12,7 +12,6 @@
       path: /Audio/ADT/Entities/glove_equip.ogg
     # ADT End
   - type: Edible
-  - type: Edible
     requiresSpecialDigestion: true
   - type: Item
     size: Small
