@@ -30,12 +30,12 @@
   metabolisms:
     Poison:
       effects:
-      - !type:MovespeedModifier
+      - !type:MovementSpeedModifier
         walkSpeedModifier: 0.65
         sprintSpeedModifier: 0.65
       - !type:GenericStatusEffect
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: ADTUltraChloralHydrate
           min: 3
         key: ForcedSleep
@@ -82,9 +82,9 @@
         visualType: Small
         messages: [ "toxin-effect-pain-latrotoxin" ]
         probability: 0.3
-      - !type:MovespeedModifier
+      - !type:MovementSpeedModifier
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: ADTLatrotoxin
           min: 10
         - !type:MetabolizerTypeCondition

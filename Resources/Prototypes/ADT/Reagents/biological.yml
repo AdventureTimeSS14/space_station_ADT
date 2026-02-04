@@ -42,7 +42,7 @@
         - !type:MetabolizerTypeCondition
           type: [ Reptilian ]
           shouldHave: false
-        - !type:Temperature
+        - !type:TemperatureCondition
           max: 370
         amount: 10000 # thermal energy, not temperature!
 
@@ -119,7 +119,8 @@
       - !type:Polymorph
         prototype: ADTGondolaMorph
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: ADTGondolium
           min: 25
 
 # Проклятая кровь

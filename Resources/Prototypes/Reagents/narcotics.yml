@@ -28,7 +28,8 @@
           type: [ Shadekin ]
           shouldHave: false
         # End ADT tweak
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Desoxyephedrine
           min: 30
         damage:
           types:
@@ -48,7 +49,8 @@
         - !type:MetabolizerTypeCondition
           type: [ Shadekin ]
           shouldHave: true
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Desoxyephedrine
           min: 30
         damage:
           types:
@@ -135,7 +137,8 @@
           type: [ Shadekin ]
           shouldHave: false
         # End ADT tweak
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Ephedrine
           min: 20
         damage:
           types:
@@ -155,7 +158,8 @@
         - !type:MetabolizerTypeCondition
           type: [ Shadekin ]
           shouldHave: true
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Ephedrine
           min: 20
         damage:
           types:
@@ -219,7 +223,7 @@
             - ActiveSandevistanUser
           guidebookComponentName: reagent-comp-condition-speedbust-sandevistan
       # ADT-Tweak-End
-      - !type:MovespeedModifier
+      - !type:MovementSpeedModifier
         walkSpeedModifier: 1.3
         sprintSpeedModifier: 1.3
       - !type:HealthChange

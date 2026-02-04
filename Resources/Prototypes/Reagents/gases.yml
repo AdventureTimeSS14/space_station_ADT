@@ -129,7 +129,7 @@
         - !type:MetabolizerTypeCondition
           type: [ Novakid ]
           shouldHave: false
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Plasma
           min: 1
         ignoreResistances: true
@@ -142,14 +142,14 @@
         - !type:MetabolizerTypeCondition
           type: [ Novakid ]
           shouldHave: false
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Plasma
           min: 0.8
       - !type:HealthChange
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Novakid ]
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Plasma
           min: 0.6
         scaleByQuantity: true
@@ -165,7 +165,7 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Novakid ]
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Plasma
           min: 1
         key: SeeingRainbows
@@ -178,7 +178,7 @@
         - !type:MetabolizerTypeCondition
           type: [ Novakid ]
           shouldHave: false
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Plasma
           min: 1
       - !type:ModifyLungGas
@@ -194,7 +194,7 @@
       - !type:AdjustAlert
         alertType: Toxins
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           min: 1.5
         ignoreResistances: true
         damage:

@@ -25,12 +25,12 @@
         component: StaminaModifier
         time: 1.15
         type: Add
-      - !type:MovespeedModifier
+      - !type:MovementSpeedModifier
         walkSpeedModifier: 1.03
         sprintSpeedModifier: 1.05
       - !type:AdjustTemperature
         conditions:
-        - !type:Temperature
+        - !type:TemperatureCondition
           max: 310
         amount: 2500
       # End ADT tweak
@@ -61,7 +61,7 @@
       # Start ADT tweak
       - !type:AdjustTemperature
         conditions:
-        - !type:Temperature
+        - !type:TemperatureCondition
           max: 310
         amount: 2500
       # End ADT tweak
@@ -134,7 +134,7 @@
       # Start ADT tweak
       - !type:AdjustTemperature
         conditions:
-        - !type:Temperature
+        - !type:TemperatureCondition
           max: 310
         amount: 2500
       - !type:GenericStatusEffect
@@ -170,12 +170,12 @@
         component: StaminaModifier
         time: 1.25
         type: Add
-      - !type:MovespeedModifier
+      - !type:MovementSpeedModifier
         walkSpeedModifier: 1.05
         sprintSpeedModifier: 1.10
       - !type:AdjustTemperature
         conditions:
-        - !type:Temperature
+        - !type:TemperatureCondition
           max: 310
         amount: 2500
       # End ADT tweak
@@ -231,7 +231,8 @@
         amount: -2500
       - !type:PopupMessage
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: IcedCoffee
           min: 5
         type: Local
         visualType: Medium
@@ -259,7 +260,7 @@
       effects:
       - !type:AdjustTemperature
         conditions:
-        - !type:Temperature
+        - !type:TemperatureCondition
           min: 280
         amount: -2500
       # End ADT tweak
@@ -289,7 +290,7 @@
       # Start ADT tweak
       - !type:AdjustTemperature
         conditions:
-        - !type:Temperature
+        - !type:TemperatureCondition
           min: 280
         amount: -2500
       # End ADT tweak
@@ -337,7 +338,7 @@
       # Start ADT tweak
       - !type:AdjustTemperature
         conditions:
-        - !type:Temperature
+        - !type:TemperatureCondition
           min: 310
         amount: -2500
       # End ADT tweak
@@ -452,7 +453,8 @@
       # Start ADT tweak
       - !type:GenericStatusEffect
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: NuclearCola
           min: 4
         key: SeeingRainbows
         component: SeeingRainbows
@@ -525,12 +527,12 @@
           types:
             Poison: -0.5
         probability: 0.3
-      - !type:MovespeedModifier
+      - !type:MovementSpeedModifier
         walkSpeedModifier: 1.03
         sprintSpeedModifier: 1.05
       - !type:AdjustTemperature
         conditions:
-        - !type:Temperature
+        - !type:TemperatureCondition
           max: 310
         amount: 2500
       # End ADT tweak
@@ -628,7 +630,7 @@
       effects:
       - !type:AdjustTemperature
         conditions:
-        - !type:Temperature
+        - !type:TemperatureCondition
           min: 280
         amount: -2500
       # End ADT tweak
@@ -663,7 +665,7 @@
       # Start ADT tweak
       - !type:AdjustTemperature
         conditions:
-        - !type:Temperature
+        - !type:TemperatureCondition
           max: 310
         amount: 2500
       # End ADT tweak
@@ -693,7 +695,7 @@
       # Start ADT tweak
       - !type:AdjustTemperature
         conditions:
-        - !type:Temperature
+        - !type:TemperatureCondition
           min: 280
         amount: -2500
       # End ADT tweak
@@ -759,7 +761,8 @@
       effects:
       - !type:PopupMessage
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Rewriter
           min: 15
         type: Local
         visualType: Medium

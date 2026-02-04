@@ -104,12 +104,11 @@
               Poison: 2
         - !type:Vomit
           conditions:
-          - !type:ReagentCondition
-            reagent: GastroToxin
           - !type:MetabolizerTypeCondition
             type: [ Plant ]
             shouldHave: false
-          - !type:ReagentThreshold
+          - !type:ReagentCondition
+            reagent: GastroToxin
             min: 2
           probability: 0.2
 
@@ -425,7 +424,8 @@
           type: [ Shadekin ]
           shouldHave: false
         # End ADT tweak
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Histamine
           min: 45
         damage:
           groups:
@@ -439,7 +439,8 @@
         - !type:MetabolizerTypeCondition
           type: [ Shadekin ]
           shouldHave: true
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Histamine
           min: 45
         damage:
           groups:

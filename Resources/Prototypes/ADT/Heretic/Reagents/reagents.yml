@@ -15,7 +15,7 @@
   metabolisms:
     Medicine:
       effects:
-      - !type:ModifyBloodLevel
+      - !type:ModifyBleed
         amount: 2
         conditions:
         - !type:HasComponentCondition

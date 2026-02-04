@@ -11,7 +11,8 @@
       effects:
       - !type:PopupMessage #прелюдии до полиморфа.
         conditions:
-          - !type:ReagentThreshold
+          - !type:ReagentCondition
+            reagent: ADTPolymorphine
             min: 12
             max: 20
         type: Local
@@ -20,7 +21,8 @@
         probability: 0.07
       - !type:PopupMessage
         conditions:
-          - !type:ReagentThreshold
+          - !type:ReagentCondition
+            reagent: ADTPolymorphine
             min: 16
             max: 16.5
         type: Pvs
@@ -29,12 +31,14 @@
         probability: 1
       - !type:Jitter
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: ADTPolymorphine
           min: 12
           max: 20
       - !type:AdjustAlert
         conditions:
-          - !type:ReagentThreshold
+          - !type:ReagentCondition
+            reagent: ADTPolymorphine
             min: 14
             max: 20
         alertType: ADTAlertPolymorph
@@ -47,7 +51,8 @@
             type: [ Human ]
           - !type:MetabolizerTypeCondition
             type: [ Felinid ]
-          - !type:ReagentThreshold
+          - !type:ReagentCondition
+            reagent: ADTPolymorphine
             min: 16
             max: 16
         probability: 0.5
@@ -56,7 +61,8 @@
         conditions:
           - !type:MetabolizerTypeCondition
             type: [ Human ]
-          - !type:ReagentThreshold
+          - !type:ReagentCondition
+            reagent: ADTPolymorphine
             min: 16
             max: 16
         probability: 0.5
@@ -65,7 +71,8 @@
         conditions:
           - !type:MetabolizerTypeCondition
             type: [ Dwarf]
-          - !type:ReagentThreshold
+          - !type:ReagentCondition
+            reagent: ADTPolymorphine
             min: 16
             max: 16
         probability: 0.5
@@ -74,7 +81,8 @@
         conditions:
           - !type:MetabolizerTypeCondition
             type: [ Dwarf ]
-          - !type:ReagentThreshold
+          - !type:ReagentCondition
+            reagent: ADTPolymorphine
             min: 16
             max: 16
         probability: 0.5
@@ -83,7 +91,8 @@
         conditions:
           - !type:MetabolizerTypeCondition
             type: [ Reptilian ]
-          - !type:ReagentThreshold
+          - !type:ReagentCondition
+            reagent: ADTPolymorphine
             min: 16
             max: 16
         probability: 0.5
@@ -92,7 +101,8 @@
         conditions:
           - !type:MetabolizerTypeCondition
             type: [ Reptilian ]
-          - !type:ReagentThreshold
+          - !type:ReagentCondition
+            reagent: ADTPolymorphine
             min: 16
             max: 16
         probability: 0.5
@@ -101,7 +111,8 @@
         conditions:
           - !type:MetabolizerTypeCondition
             type: [  Arachnid ]
-          - !type:ReagentThreshold
+          - !type:ReagentCondition
+            reagent: ADTPolymorphine
             min: 16
             max: 16
         probability: 0.5
@@ -110,7 +121,8 @@
         conditions:
           - !type:MetabolizerTypeCondition
             type: [ Arachnid ]
-          - !type:ReagentThreshold
+          - !type:ReagentCondition
+            reagent: ADTPolymorphine
             min: 16
             max: 16
         probability: 0.5
@@ -119,7 +131,8 @@
         conditions:
           - !type:MetabolizerTypeCondition
             type: [ Plant ]
-          - !type:ReagentThreshold
+          - !type:ReagentCondition
+            reagent: ADTPolymorphine
             min: 16
             max: 16
         probability: 0.5
@@ -128,7 +141,8 @@
         conditions:
           - !type:MetabolizerTypeCondition
             type: [ Plant ]
-          - !type:ReagentThreshold
+          - !type:ReagentCondition
+            reagent: ADTPolymorphine
             min: 16
             max: 16
         probability: 0.5
@@ -137,7 +151,8 @@
         conditions:
           - !type:MetabolizerTypeCondition
             type: [ Moth ]
-          - !type:ReagentThreshold
+          - !type:ReagentCondition
+            reagent: ADTPolymorphine
             min: 16
             max: 16
         probability: 0.5
@@ -146,7 +161,8 @@
         conditions:
           - !type:MetabolizerTypeCondition
             type: [ Moth ]
-          - !type:ReagentThreshold
+          - !type:ReagentCondition
+            reagent: ADTPolymorphine
             min: 16
             max: 16
         probability: 0.5
@@ -155,7 +171,8 @@
         conditions:
           - !type:MetabolizerTypeCondition
             type: [ Slime ]
-          - !type:ReagentThreshold
+          - !type:ReagentCondition
+            reagent: ADTPolymorphine
             min: 16
             max: 16
         probability: 0.5
@@ -164,7 +181,8 @@
         conditions:
           - !type:MetabolizerTypeCondition
             type: [ Slime ]
-          - !type:ReagentThreshold
+          - !type:ReagentCondition
+            reagent: ADTPolymorphine
             min: 16
             max: 16
         probability: 0.5 #наши расы ниже.
@@ -173,7 +191,8 @@
         conditions:
           - !type:MetabolizerTypeCondition
             type: [ Tajaran ]
-          - !type:ReagentThreshold
+          - !type:ReagentCondition
+            reagent: ADTPolymorphine
             min: 16
             max: 16
         probability: 0.5
@@ -182,7 +201,8 @@
         conditions:
           - !type:MetabolizerTypeCondition
             type: [ Tajaran ]
-          - !type:ReagentThreshold
+          - !type:ReagentCondition
+            reagent: ADTPolymorphine
             min: 16
             max: 16
         probability: 0.5
@@ -191,7 +211,8 @@
         conditions:
           - !type:MetabolizerTypeCondition
             type: [ Novakid ]
-          - !type:ReagentThreshold
+          - !type:ReagentCondition
+            reagent: ADTPolymorphine
             min: 16
             max: 16
         probability: 0.5
@@ -200,7 +221,8 @@
         conditions:
           - !type:MetabolizerTypeCondition
             type: [ Novakid ]
-          - !type:ReagentThreshold
+          - !type:ReagentCondition
+            reagent: ADTPolymorphine
             min: 16
             max: 16
         probability: 0.5
@@ -209,7 +231,8 @@
         conditions:
           - !type:MetabolizerTypeCondition
             type: [ Felinid ]
-          - !type:ReagentThreshold
+          - !type:ReagentCondition
+            reagent: ADTPolymorphine
             min: 16
             max: 16
         probability: 0.5
@@ -218,7 +241,8 @@
         conditions:
           - !type:MetabolizerTypeCondition
             type: [ Felinid ]
-          - !type:ReagentThreshold
+          - !type:ReagentCondition
+            reagent: ADTPolymorphine
             min: 16
             max: 16
         probability: 0.5
@@ -227,7 +251,8 @@
         conditions:
           - !type:MetabolizerTypeCondition
             type: [ Vulpkanin ]
-          - !type:ReagentThreshold
+          - !type:ReagentCondition
+            reagent: ADTPolymorphine
             min: 16
             max: 16
         probability: 0.5
@@ -236,7 +261,8 @@
         conditions:
           - !type:MetabolizerTypeCondition
             type: [ Vulpkanin ]
-          - !type:ReagentThreshold
+          - !type:ReagentCondition
+            reagent: ADTPolymorphine
             min: 16
             max: 16
         probability: 0.5
@@ -245,7 +271,8 @@
         conditions:
           - !type:MetabolizerTypeCondition
             type: [ Demon ]
-          - !type:ReagentThreshold
+          - !type:ReagentCondition
+            reagent: ADTPolymorphine
             min: 16
             max: 16
         probability: 0.5
@@ -254,7 +281,8 @@
         conditions:
           - !type:MetabolizerTypeCondition
             type: [ Demon ]
-          - !type:ReagentThreshold
+          - !type:ReagentCondition
+            reagent: ADTPolymorphine
             min: 16
             max: 16
         probability: 0.5
@@ -263,7 +291,8 @@
         conditions:
           - !type:MetabolizerTypeCondition
             type: [ Ursus ]
-          - !type:ReagentThreshold
+          - !type:ReagentCondition
+            reagent: ADTPolymorphine
             min: 16
             max: 16
         probability: 0.5
@@ -272,7 +301,8 @@
         conditions:
           - !type:MetabolizerTypeCondition
             type: [ Ursus ]
-          - !type:ReagentThreshold
+          - !type:ReagentCondition
+            reagent: ADTPolymorphine
             min: 16
             max: 16
         probability: 0.5
@@ -281,7 +311,8 @@
         conditions:
           - !type:MetabolizerTypeCondition
             type: [ Drask ]
-          - !type:ReagentThreshold
+          - !type:ReagentCondition
+            reagent: ADTPolymorphine
             min: 16
             max: 16
         probability: 0.5
@@ -290,7 +321,8 @@
         conditions:
           - !type:MetabolizerTypeCondition
             type: [ Drask ]
-          - !type:ReagentThreshold
+          - !type:ReagentCondition
+            reagent: ADTPolymorphine
             min: 16
             max: 16
         probability: 0.5
@@ -299,7 +331,8 @@
         conditions:
           - !type:MetabolizerTypeCondition
             type: [ Animal ]
-          - !type:ReagentThreshold
+          - !type:ReagentCondition
+            reagent: ADTPolymorphine
             min: 16
             max: 16
         probability: 0.25
@@ -308,7 +341,8 @@
         conditions:
           - !type:MetabolizerTypeCondition
             type: [ Animal ]
-          - !type:ReagentThreshold
+          - !type:ReagentCondition
+            reagent: ADTPolymorphine
             min: 16
             max: 16
         probability: 0.25
@@ -317,7 +351,8 @@
         conditions:
           - !type:MetabolizerTypeCondition
             type: [ Animal ]
-          - !type:ReagentThreshold
+          - !type:ReagentCondition
+            reagent: ADTPolymorphine
             min: 16
             max: 16
         probability: 0.25
@@ -326,7 +361,8 @@
         conditions:
           - !type:MetabolizerTypeCondition
             type: [ Animal ]
-          - !type:ReagentThreshold
+          - !type:ReagentCondition
+            reagent: ADTPolymorphine
             min: 16
             max: 16
         probability: 0.25
@@ -344,7 +380,8 @@
       effects:
       - !type:HealthChange #прелюдии до полиморфа.
         conditions:
-          - !type:ReagentThreshold
+          - !type:ReagentCondition
+            reagent: ADTChaoticPolymorphine
             min: 12
             max: 12
         damage:
@@ -352,7 +389,8 @@
             Cellular: 15
       - !type:PopupMessage
         conditions:
-          - !type:ReagentThreshold
+          - !type:ReagentCondition
+            reagent: ADTChaoticPolymorphine
             min: 8
             max: 15
         type: Local
@@ -361,7 +399,8 @@
         probability: 0.07
       - !type:PopupMessage
         conditions:
-          - !type:ReagentThreshold
+          - !type:ReagentCondition
+            reagent: ADTChaoticPolymorphine
             min: 11.5
             max: 12
         type: Local
@@ -370,12 +409,14 @@
         probability: 1
       - !type:Jitter
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: ADTChaoticPolymorphine
           min: 8
           max: 15
       - !type:AdjustAlert
         conditions:
-          - !type:ReagentThreshold
+          - !type:ReagentCondition
+            reagent: ADTChaoticPolymorphine
             min: 14
             max: 20
         alertType: ADTAlertPolymorph
@@ -384,70 +425,80 @@
       - !type:Polymorph #начало полиморфов.
         prototype: ADTPolymorphMonkey
         conditions:
-          - !type:ReagentThreshold
+          - !type:ReagentCondition
+            reagent: ADTChaoticPolymorphine
             min: 12
             max: 12
         probability: 0.1
       - !type:Polymorph
         prototype: ADTPolymorphBread
         conditions:
-          - !type:ReagentThreshold
+          - !type:ReagentCondition
+            reagent: ADTChaoticPolymorphine
             min: 12
             max: 12
         probability: 0.1
       - !type:Polymorph
         prototype: ADTPolymorphRodMetall2
         conditions:
-          - !type:ReagentThreshold
+          - !type:ReagentCondition
+            reagent: ADTChaoticPolymorphine
             min: 12
             max: 12
         probability: 0.1
       - !type:Polymorph
         prototype: ADTPolymorphFrog
         conditions:
-          - !type:ReagentThreshold
+          - !type:ReagentCondition
+            reagent: ADTChaoticPolymorphine
             min: 12
             max: 12
         probability: 0.1
       - !type:Polymorph
         prototype: ADTPolymorphCat
         conditions:
-          - !type:ReagentThreshold
+          - !type:ReagentCondition
+            reagent: ADTChaoticPolymorphine
             min: 12
             max: 12
         probability: 0.1
       - !type:Polymorph
         prototype: ADTPolymorphSkeleton
         conditions:
-          - !type:ReagentThreshold
+          - !type:ReagentCondition
+            reagent: ADTChaoticPolymorphine
             min: 12
             max: 12
         probability: 0.1
       - !type:Polymorph
         prototype: ADTPolymorphCow
         conditions:
-          - !type:ReagentThreshold
+          - !type:ReagentCondition
+            reagent: ADTChaoticPolymorphine
             min: 12
             max: 12
         probability: 0.1
       - !type:Polymorph
         prototype: ADTPolymorphPossum
         conditions:
-          - !type:ReagentThreshold
+          - !type:ReagentCondition
+            reagent: ADTChaoticPolymorphine
             min: 12
             max: 12
         probability: 0.1
       - !type:Polymorph
         prototype: ADTPolymorphCarp
         conditions:
-          - !type:ReagentThreshold
+          - !type:ReagentCondition
+            reagent: ADTChaoticPolymorphine
             min: 12
             max: 12
         probability: 0.1
       - !type:Polymorph
         prototype: ADTPolymorphSpaceBear
         conditions:
-          - !type:ReagentThreshold
+          - !type:ReagentCondition
+            reagent: ADTChaoticPolymorphine
             min: 12
             max: 12
         probability: 0.1
@@ -466,9 +517,10 @@
   metabolisms:
     Medicine:
       effects:
-      - !type:PopupMessage #прелюдии до полиморфа.
+      - !type:PopupMessage  ### прелюдии до полиморфа.
         conditions:
-          - !type:ReagentThreshold
+          - !type:ReagentCondition
+            reagent: ADTGenusiphine
             min: 12
             max: 20
         type: Local
@@ -477,7 +529,8 @@
         probability: 0.07
       - !type:PopupMessage
         conditions:
-          - !type:ReagentThreshold
+          - !type:ReagentCondition
+            reagent: ADTGenusiphine
             min: 16
             max: 16.5
         type: Pvs
@@ -486,12 +539,14 @@
         probability: 1
       - !type:Jitter
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: ADTGenusiphine
           min: 12
           max: 20
       - !type:AdjustAlert
         conditions:
-          - !type:ReagentThreshold
+          - !type:ReagentCondition
+            reagent: ADTGenusiphine
             min: 14
             max: 20
         alertType: ADTAlertPolymorph
@@ -500,98 +555,112 @@
       - !type:Polymorph #начало полиморфов.
         prototype: ADTLizardPolymorph # Превращение в унатха
         conditions:
-          - !type:ReagentThreshold
+          - !type:ReagentCondition
+            reagent: ADTGenusiphine
             min: 16
             max: 16
         probability: 0.5
       - !type:Polymorph
         prototype: ADTHumanPolymorph # Превращение в человека
         conditions:
-          - !type:ReagentThreshold
+          - !type:ReagentCondition
+            reagent: ADTGenusiphine
             min: 16
             max: 16
         probability: 0.5
       - !type:Polymorph
         prototype: ADTDwarfPolymorph  # Превращение в дворфа
         conditions:
-          - !type:ReagentThreshold
+          - !type:ReagentCondition
+            reagent: ADTGenusiphine
             min: 16
             max: 16
         probability: 0.5
       - !type:Polymorph
         prototype: ADTArachnidPolymorph  # Превращение в арахнида
         conditions:
-          - !type:ReagentThreshold
+          - !type:ReagentCondition
+            reagent: ADTGenusiphine
             min: 16
             max: 16
         probability: 0.5
       - !type:Polymorph
         prototype: ADTMothPolymorph  # Превращение в ниана
         conditions:
-          - !type:ReagentThreshold
+          - !type:ReagentCondition
+            reagent: ADTGenusiphine
             min: 16
             max: 16
         probability: 0.5
       - !type:Polymorph
         prototype: ADTVoxPolymorph  # Превращение в опущенн- вокса
         conditions:
-          - !type:ReagentThreshold
+          - !type:ReagentCondition
+            reagent: ADTGenusiphine
             min: 16
             max: 16
         probability: 0.5
       - !type:Polymorph
         prototype: ADTSkeletonPolymorph   # Превращение в скелета
         conditions:
-          - !type:ReagentThreshold
+          - !type:ReagentCondition
+            reagent: ADTGenusiphine
             min: 16
             max: 16
         probability: 0.5
       - !type:Polymorph
         prototype: ADTDraskPolymorph   # Превращение в драска
         conditions:
-          - !type:ReagentThreshold
+          - !type:ReagentCondition
+            reagent: ADTGenusiphine
             min: 16
             max: 16
         probability: 0.5
       - !type:Polymorph
         prototype: ADTTajaranPolymorph   # Превращение в таяра
         conditions:
-          - !type:ReagentThreshold
+          - !type:ReagentCondition
+            reagent: ADTGenusiphine
             min: 16
             max: 16
         probability: 0.5
       - !type:Polymorph
         prototype: ADTFelinidPolymorph   # Превращение в фелинида
         conditions:
-          - !type:ReagentThreshold
+          - !type:ReagentCondition
+            reagent: ADTGenusiphine
             min: 16
             max: 16
         probability: 0.5
       - !type:Polymorph
         prototype: ADTKoboltPolymorph   # Превращение в кобольта
         conditions:
-          - !type:ReagentThreshold
+          - !type:ReagentCondition
+            reagent: ADTGenusiphine
             min: 16
             max: 16
         probability: 0.5
       - !type:Polymorph
         prototype: ADTUrsusPolymorph   # Превращение в урсуса
         conditions:
-          - !type:ReagentThreshold
+          - !type:ReagentCondition
+            reagent: ADTGenusiphine
             min: 16
             max: 16
         probability: 0.5
       - !type:Polymorph
         prototype: ADTResomiPolymorph   # Превращение в резоми
         conditions:
-          - !type:ReagentThreshold
+          - !type:ReagentCondition
+            reagent: ADTGenusiphine
             min: 16
             max: 16
         probability: 0.5
       - !type:Polymorph
         prototype: ADTShadekinPolymorph   # Превращение в сумеречника
         conditions:
-          - !type:ReagentThreshold
+          - !type:ReagentCondition
+            reagent: ADTGenusiphine
             min: 16
             max: 16
         probability: 0.5

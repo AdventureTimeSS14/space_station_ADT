@@ -387,7 +387,8 @@
       # Start ADT tweak
       - !type:PopupMessage
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Rum
           min: 5
         type: Local
         visualType: Medium
@@ -419,7 +420,8 @@
         amount: 0.2
       - !type:PopupMessage
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Sake
           min: 5
         type: Local
         visualType: Medium
@@ -427,7 +429,8 @@
         probability: 0.1
       - !type:PopupMessage
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Sake
           min: 17
         type: Local
         visualType: Medium
@@ -723,12 +726,13 @@
       # Start ADT tweak
       - !type:AdjustTemperature
         conditions:
-        - !type:Temperature
+        - !type:TemperatureCondition
           min: 280
         amount: 2500
       - !type:PopupMessage
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Antifreeze
           min: 5
         type: Local
         visualType: Medium
@@ -805,7 +809,7 @@
       effects:
       - !type:AdjustTemperature
         conditions:
-        - !type:Temperature
+        - !type:TemperatureCondition
           min: 280
         amount: -2500
       # End ADT tweak
@@ -845,7 +849,8 @@
       effects:
       - !type:PopupMessage
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Barefoot
           min: 5
         type: Local
         visualType: Medium
@@ -945,11 +950,13 @@
       - !type:ChemVomit
         probability: 0.04
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Booger
           min: 10
       - !type:PopupMessage
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Booger
           min: 5
         type: Local
         visualType: Medium
@@ -1116,7 +1123,7 @@
       effects:
       - !type:Jitter
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           min: 5
       # End ADT tweak
 
@@ -1195,7 +1202,8 @@
       # Start ADT tweak
       - !type:Jitter
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: DriestMartini
           min: 3
       # End ADT tweak
 
@@ -1250,12 +1258,13 @@
       effects:
       - !type:AdjustTemperature
         conditions:
-        - !type:Temperature
+        - !type:TemperatureCondition
           min: 280
         amount: -2500
       - !type:PopupMessage
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: ErikaSurprise
           min: 5
         type: Local
         visualType: Medium
@@ -1288,7 +1297,8 @@
       # Start ADT tweak
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: GargleBlaster
           min: 15
         damage:
           groups:
@@ -1296,7 +1306,8 @@
         probability: 0.1
       - !type:PopupMessage
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: GargleBlaster
           min: 5
         type: Local
         visualType: Medium
@@ -1424,7 +1435,8 @@
         amount: 0.2
       - !type:PopupMessage
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Hooch
           min: 5
         type: Local
         visualType: Medium
@@ -1454,7 +1466,7 @@
       effects:
       - !type:AdjustTemperature
         conditions:
-        - !type:Temperature
+        - !type:TemperatureCondition
           min: 280
         amount: -2500
       # End ADT tweak
@@ -1598,7 +1610,7 @@
       # Start ADT tweak
       - !type:AdjustTemperature
         conditions:
-        - !type:Temperature
+        - !type:TemperatureCondition
           min: 283
         amount: -2500
       # End ADT tweak
@@ -1929,7 +1941,8 @@
       effects:
       - !type:PopupMessage
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Sbiten
           min: 5
         type: Local
         visualType: Medium
@@ -1962,7 +1975,8 @@
       # Start ADT tweak
       - !type:PopupMessage
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: ScrewdriverCocktail
           min: 5
         type: Local
         visualType: Medium
@@ -2039,7 +2053,8 @@
       effects:
       - !type:PopupMessage
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Singulo
           min: 3
         type: Local
         visualType: Medium
@@ -2047,7 +2062,8 @@
         probability: 0.2
       - !type:Jitter
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Singulo
           min: 5
       # End ADT tweak
 
@@ -2109,7 +2125,8 @@
         amount: 0.15
       - !type:PopupMessage
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: SyndicateBomb
           min: 3
         type: Local
         visualType: Medium
@@ -2142,7 +2159,8 @@
       # Start ADT tweak
       - !type:PopupMessage
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: TequilaSunrise
           min: 5
           max: 17
         type: Local
@@ -2151,7 +2169,8 @@
         probability: 0.1
       - !type:PopupMessage
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: TequilaSunrise
           min: 17
         type: Local
         visualType: Medium
@@ -2180,12 +2199,13 @@
       effects:
       - !type:AdjustTemperature
         conditions:
-        - !type:Temperature
+        - !type:TemperatureCondition
           min: 280
         amount: -2500
       - !type:PopupMessage
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: TheMartinez
           min: 5
         type: Local
         visualType: Medium
@@ -2193,7 +2213,8 @@
         probability: 0.1
       - !type:PopupMessage
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: TheMartinez
           min: 17
         type: Local
         visualType: Medium
@@ -2369,14 +2390,16 @@
           reagent: Ethanol
           amount: 0.15
       # Start ADT tweak
-        - !type:ChemVomit
+        - !type:Vomit
           probability: 0.04
           conditions:
-          - !type:ReagentThreshold
+          - !type:ReagentCondition
+            reagent: WhiteGilgamesh
             min: 10
         - !type:PopupMessage
           conditions:
-          - !type:ReagentThreshold
+          - !type:ReagentCondition
+            reagent: WhiteGilgamesh
             min: 5
           type: Local
           visualType: Medium
@@ -2410,7 +2433,8 @@
       # Start ADT tweak
       - !type:PopupMessage
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: WhiteRussian
           min: 5
         type: Local
         visualType: Medium
@@ -2450,13 +2474,15 @@
       # Start ADT tweak
         - !type:Emote
           conditions:
-          - !type:ReagentThreshold
+          - !type:ReagentCondition
+            reagent: VodkaRedBool
             min: 10
           emote: Scream
           probability: 0.05
         - !type:PopupMessage
           conditions:
-          - !type:ReagentThreshold
+          - !type:ReagentCondition
+            reagent: VodkaRedBool
             min: 5
           type: Local
           visualType: Medium
@@ -2464,7 +2490,8 @@
           probability: 0.1
         - !type:HealthChange
           conditions:
-          - !type:ReagentThreshold
+          - !type:ReagentCondition
+            reagent: VodkaRedBool
             min: 15
           damage:
             types:
@@ -2567,7 +2594,8 @@
       # Start ADT tweak
         - !type:Emote
           conditions:
-          - !type:ReagentThreshold
+          - !type:ReagentCondition
+            reagent: BudgetInsulsDrink
             min: 5
           emote: Scream
           probability: 0.1
@@ -2578,7 +2606,8 @@
           probability: 0.1
         - !type:HealthChange
           conditions:
-          - !type:ReagentThreshold
+          - !type:ReagentCondition
+            reagent: BudgetInsulsDrink
             min: 19
           damage:
             types:
@@ -2586,7 +2615,8 @@
           probability: 0.01
         - !type:Jitter
           conditions:
-          - !type:ReagentThreshold
+          - !type:ReagentCondition
+            reagent: BudgetInsulsDrink
             min: 10
       # End ADT tweak
   fizziness: 0.25
@@ -2678,7 +2708,8 @@
         amount: 0.1
       - !type:PopupMessage
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: BlueHawaiian
           min: 3
         type: Local
         visualType: Medium

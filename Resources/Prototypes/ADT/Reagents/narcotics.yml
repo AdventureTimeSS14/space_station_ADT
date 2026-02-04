@@ -50,7 +50,8 @@
           type: [ Shadekin ]
           shouldHave: false
         # End edit by Filo
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: ADTOpium
           min: 10.05
         damage:
           types:
@@ -61,7 +62,8 @@
         - !type:MetabolizerTypeCondition
           type: [ Shadekin ]
           shouldHave: true
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: ADTOpium
           min: 10.05
         damage:
           types:

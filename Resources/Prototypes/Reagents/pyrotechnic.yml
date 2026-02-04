@@ -62,9 +62,6 @@
   contrabandSeverity: Major
   flavor: bitter
   color: "#FA00AF"
-  tileReactions:
-  - !type:FlammableTileReaction
-    temperatureMultiplier: 5
   reactiveEffects:
     Flammable:
       methods: [ Touch ]
@@ -101,7 +98,6 @@
         - !type:MetabolizerTypeCondition
           type: [ Novakid ]
         # ADT-Tweak End
-      - !type:FlammableReaction
         # ADT-Tweak Start
         conditions:
         - !type:MetabolizerTypeCondition
@@ -140,7 +136,6 @@
         - !type:MetabolizerTypeCondition
           type: [ Novakid ]
         # ADT-Tweak End
-      - !type:FlammableReaction
         # ADT-Tweak Start
         conditions:
         - !type:MetabolizerTypeCondition
@@ -192,7 +187,6 @@
         - !type:MetabolizerTypeCondition
           type: [ Novakid ]
         # ADT-Tweak End
-      - !type:FlammableReaction
         # ADT-Tweak Start
         conditions:
           - !type:MetabolizerTypeCondition
@@ -264,13 +258,13 @@
         damage:
           types:
             Poison: 1
-      - !type:Flammable
-        - !type:MetabolizerTypeCondition
-          type: [ Vox ]
-          shouldHave: false
-        - !type:MetabolizerTypeCondition
-          type: [ Novakid ]
-          shouldHave: false
+      # - !type:Flammable
+      #   - !type:MetabolizerTypeCondition
+      #     type: [ Vox ]
+      #     shouldHave: false
+      #   - !type:MetabolizerTypeCondition
+      #     type: [ Novakid ]
+      #     shouldHave: false
         # ADT-Tweak Start
       - !type:AdjustReagent
         reagent: Ethanol
@@ -279,7 +273,6 @@
         - !type:MetabolizerTypeCondition
           type: [ Novakid ]
         # ADT-Tweak End
-      - !type:FlammableReaction
         # ADT-Tweak Start
         conditions:
         - !type:MetabolizerTypeCondition
