@@ -485,8 +485,6 @@
       - state: off-equipped-HELMET-vox
       head-dog:
       - state: off-equipped-HELMET-dog
-  - type: PointLight
-    color: "#b88ae5"
   # ADT-Tweak-end
   - type: PressureProtection
     highPressureMultiplier: 0.3

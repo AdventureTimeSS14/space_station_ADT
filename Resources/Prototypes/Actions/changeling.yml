@@ -33,12 +33,14 @@
   - type: EntityTargetAction
     event: !type:ChangelingDevourActionEvent
 
-- type: entity
-  id: ActionChangelingTransform
-  name: "[color=red]Transform[/color]"
-  description: Transform and assume the identities of those you have devoured.
-  components:
-  - type: Action
-    icon: { sprite : Interface/Actions/changeling.rsi, state: "transform" }
-  - type: InstantAction
-    event: !type:ChangelingTransformActionEvent
+# ADT-Tweak-Start Upstream
+#- type: entity
+#  id: ActionChangelingTransform
+#  name: "[color=red]Transform[/color]"
+#  description: Transform and assume the identities of those you have devoured.
+#  components:
+#  - type: Action
+#    icon: { sprite : Interface/Actions/changeling.rsi, state: "transform" }
+#  - type: InstantAction
+#    event: !type:ChangelingTransformActionEvent
+# ADT-Tweak-End

@@ -1,6 +1,8 @@
-﻿- type: antag
-  id: Changeling
-  name: roles-antag-changeling-name
-  antagonist: true
-  setPreference: false # TODO: set this to true once Changeling exits WIP status
-  objective: roles-antag-changeling-objective
+﻿# ADT-Tweak-Start Upstream
+#- type: antag
+#  id: Changeling
+#  name: roles-antag-changeling-name
+#  antagonist: true
+#  setPreference: false # TODO: set this to true once Changeling exits WIP status
+#  objective: roles-antag-changeling-objective
+#ADT-Tweak-End

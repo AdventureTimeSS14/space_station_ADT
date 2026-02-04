@@ -1,14 +1,16 @@
-- type: entity
-  abstract: true
-  parent: BaseObjective
-  id: BaseChangelingObjective
-  components:
-  - type: Objective
-    issuer: objective-issuer-changeling
-    difficulty: 1
-  - type: RoleRequirement
-    roles:
-    - ChangelingRole
+# ADT-Tweak-Start Upstream
+#- type: entity
+#  abstract: true
+#  parent: BaseObjective
+#  id: BaseChangelingObjective
+#  components:
+#  - type: Objective
+#    issuer: objective-issuer-changeling
+#    difficulty: 1
+#  - type: RoleRequirement
+#    roles:
+#    - ChangelingRole
+# ADT-Tweak-End
 
 - type: entity
   parent: [BaseChangelingObjective, BaseSurviveObjective]
