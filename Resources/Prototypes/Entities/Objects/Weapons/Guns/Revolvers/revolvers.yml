@@ -139,8 +139,6 @@
     sprite: ADT/Objects/Weapons/Guns/Revolvers/mateba.rsi # ADT tweak
   - type: Clothing
     sprite: ADT/Objects/Weapons/Guns/Revolvers/mateba.rsi # ADT tweak
-  - type: Item
-    storedOffset: 0,-3
   - type: Gun
     fireRate: 3
     soundGunshot:
