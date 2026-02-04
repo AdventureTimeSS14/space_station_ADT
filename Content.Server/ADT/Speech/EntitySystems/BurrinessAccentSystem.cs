@@ -18,7 +18,7 @@ public sealed class BurrinessAccentSystem : EntitySystem
         SubscribeLocalEvent<BurrinessAccentComponent, AccentGetEvent>(OnAccent);
     }
 
-    private void OnAccent(EntityUid uid, BurrinessAccentComponent component, AccentGetEvent args)
+    private void OnAccent(EntityUid uid, BurrinessAccentComponent component, ref AccentGetEvent args)
     {
         var message = args.Message;
 
