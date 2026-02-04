@@ -1,12 +1,18 @@
+using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 using Content.Server.Administration.Managers;
 using Content.Server.Administration.Systems;
+using Content.Server.ADT.Discord;
+using Content.Server.ADT.Discord.Bans;
+using Content.Server.ADT.Discord.Bans.PayloadGenerators;
 using Content.Server.Chat.Managers;
+using Content.Server.Database;
 using Content.Server.EUI;
 using Content.Shared.Administration;
 using Content.Shared.Database;
 using Content.Shared.Eui;
+
 using Robust.Shared.Network;
 
 namespace Content.Server.Administration;
@@ -19,6 +25,8 @@ public sealed class BanPanelEui : BaseEui
     [Dependency] private readonly IPlayerLocator _playerLocator = default!;
     [Dependency] private readonly IChatManager _chat = default!;
     [Dependency] private readonly IAdminManager _admins = default!;
+    [Dependency] private readonly IDiscordBanInfoSender _discordBanInfoSender = default!;
+    [Dependency] private readonly IServerDbManager _dbManager = default!;
 
     private readonly ISawmill _sawmill;
 
@@ -116,6 +124,12 @@ public sealed class BanPanelEui : BaseEui
         if (ban.BannedJobs?.Length > 0 || ban.BannedAntags?.Length > 0)
         {
             var now = DateTimeOffset.UtcNow;
+            //Start-ADT-Tweak: логи банов для диса
+            var lastRoleBan = await _dbManager.GetLastServerRoleBanAsync();
+            var startRoleBanId = lastRoleBan is not null ? lastRoleBan.Id + 1 : 1;
+            var currentRoleBanId = startRoleBanId;
+            var rolesData = new List<string>();
+            //End-ADT-Tweak
             foreach (var role in ban.BannedJobs ?? [])
             {
                 _banManager.CreateRoleBan(
@@ -147,6 +161,20 @@ public sealed class BanPanelEui : BaseEui
                     now
                 );
             }
+            //Start-ADT-Tweak: логи банов для диса
+            var roleBanInfo = new BanInfo
+            {
+                BanId = string.Empty,
+                Target = ban.Target!,
+                Player = Player,
+                Minutes = ban.BanDurationMinutes,
+                Reason = ban.Reason,
+                Expires = DateTimeOffset.Now + TimeSpan.FromMinutes(ban.BanDurationMinutes),
+                AdditionalInfo = new() { { "roles", string.Join(", ", rolesData) } }
+            };
+
+            await _discordBanInfoSender.SendBanInfoAsync<PanelBanPayloadGenerator>(roleBanInfo);
+            //End-ADT-Tweak
 
             Close();
 
@@ -165,6 +193,22 @@ public sealed class BanPanelEui : BaseEui
                 _sawmill.Error($"Error while erasing banned player:\n{e}");
             }
         }
+        // ADT-Tweak-Start: логи банов для диса
+        if (targetUid != null)
+        {
+            var dbData = await _dbManager.GetAdminDataForAsync(targetUid.Value);
+
+            if (dbData != null && dbData.AdminRank != null)
+            {
+                var targetPermissionsFlag = AdminFlagsHelper.NamesToFlags(dbData.AdminRank.Flags.Select(p => p.Flag));
+
+                if ((targetPermissionsFlag & AdminFlags.Permissions) == AdminFlags.Permissions)
+                    return;
+            }
+        }
+        var lastServerBan = await _dbManager.GetLastServerBanAsync();
+        var newServerBanId = lastServerBan is not null ? lastServerBan.Id + 1 : 1;
+        // ADT-Tweak-End
 
         _banManager.CreateServerBan(
             targetUid,
@@ -176,6 +220,19 @@ public sealed class BanPanelEui : BaseEui
             ban.Severity,
             ban.Reason
         );
+        // ADT-Tweak-Start: логи банов для дисаusing System.Collections.Immutable;
+        var banInfo = new BanInfo
+        {
+            BanId = newServerBanId.ToString()!,
+            Target = ban.Target!,
+            Player = Player,
+            Minutes = ban.BanDurationMinutes,
+            Reason = ban.Reason,
+            Expires = DateTimeOffset.Now + TimeSpan.FromMinutes(ban.BanDurationMinutes)
+        };
+
+        await _discordBanInfoSender.SendBanInfoAsync<PanelBanPayloadGenerator>(banInfo);
+        // ADT-Tweak-End
 
         Close();
     }
