@@ -114,7 +114,7 @@
   - type: SmokeOnTrigger
     duration: 30
     spreadAmount: 40
-  - type: SoundOnTrigger
+  - type: EmitSoundOnTrigger
     sound: /Audio/Items/smoke_grenade_smoke.ogg
 
 - type: entity
