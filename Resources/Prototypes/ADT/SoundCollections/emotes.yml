@@ -301,7 +301,11 @@
 - type: soundCollection
   id: SlimeBubbles
   files:
-    - /Audio/ADT/Voice/Slime/s_bubble.ogg
+    - /Audio/ADT/Voice/Slime/s_bubble_1.ogg
+    - /Audio/ADT/Voice/Slime/s_bubble_2.ogg
+    - /Audio/ADT/Voice/Slime/s_bubble_3.ogg
+    - /Audio/ADT/Voice/Slime/s_bubble_4.ogg
+    - /Audio/ADT/Voice/Slime/s_bubble_5.ogg
 
 - type: soundCollection
   id: MaleSlimeCry

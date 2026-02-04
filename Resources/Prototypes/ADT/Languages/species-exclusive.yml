@@ -20,27 +20,17 @@
   id: Bubblish
   uiColor: "#61daff"
   parent: BaseVocalLanguage
-  speech: !type:Generic
-    obfuscateSyllables: true
+  speech: !type:Emotes
     color: "#61daff"
     whisperColor: "#5f9db0"
     replacement:
-    - блоб
-    - плоп
-    - поп
-    - боп
-    - буп
-    - блюп
-    - бульп
-    - бульк
-    - бламп
-    - блимпаф
-    - блюмп
-    - блабл-бламп
-    - блампи-бламп
-    - блюм-бламп
+    - булькает
+    - бурлит
+    - пускает пузыри
     font: Airfool
     fontSize: 14
+    sound:
+      collection: SlimeBubbles
 
 # Spoken by the Novakid race.
 - type: language

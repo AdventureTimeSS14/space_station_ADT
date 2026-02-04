@@ -386,7 +386,7 @@
   chatMessages: [chat-emote-msg-pop]
   chatTriggers:
     - чпок
-
+    - чпокает
 
 - type: emote
   id: Bubbles
@@ -402,6 +402,8 @@
   chatMessages: [chat-emote-msg-bubbles]
   chatTriggers:
     - булькает
+    - бурлит
+    - пускает пузыри
 
 # Shadekin
 
