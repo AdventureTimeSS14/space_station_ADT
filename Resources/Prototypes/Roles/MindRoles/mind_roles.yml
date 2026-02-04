@@ -342,18 +342,16 @@
   - type: ZombieRole
 
 # Changeling
-# ADT-Tweak-Start Upstream
-#- type: entity
-#  parent: BaseMindRoleAntag
-#  id: MindRoleChangeling
-#  name: Changeling Role
-#  components:
-#  - type: MindRole
-#    antagPrototype: Changeling
-#    exclusiveAntag: true
-#    roleType: SoloAntagonist
-#    subtype: role-subtype-changeling
-#  - type: ChangelingRole
-#  - type: RoleBriefing
-#    briefing: changeling-briefing
-# ADT-Tweak-End
+- type: entity
+  parent: BaseMindRoleAntag
+  id: MindRoleChangeling
+  name: Changeling Role
+  components:
+  - type: MindRole
+    antagPrototype: Changeling
+    exclusiveAntag: true
+    roleType: SoloAntagonist
+    subtype: role-subtype-changeling
+  - type: ChangelingRole
+  - type: RoleBriefing
+    briefing: changeling-briefing

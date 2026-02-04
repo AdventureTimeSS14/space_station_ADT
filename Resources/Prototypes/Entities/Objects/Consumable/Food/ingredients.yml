@@ -962,6 +962,7 @@
   description: Buttery, flaky, fibery goodness waiting to happen.
   components:
   - type: Item
+    size: Tiny
     shape:
     - 0,0,1,0
     - 0,1,0,1
@@ -972,7 +973,3 @@
     - cotton
   - type: Sprite
     state: croissant-raw-cotton
-  #ADT-Tweak start
-  - type: Item
-    size: Tiny
-  #ADT-Tweak end
