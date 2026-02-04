@@ -33,4 +33,4 @@
   category: SpeechTraits
   cost: 1
   components:
-    - type: BurrinessAccentComponent
+    - type: BurrinessAccent
