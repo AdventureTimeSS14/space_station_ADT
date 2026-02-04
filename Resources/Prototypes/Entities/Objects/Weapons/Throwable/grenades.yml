@@ -98,7 +98,7 @@
         acts: ["Destruction"]
       - !type:ExplodeBehavior
 # ADT-Tweak END
-  - type: OnUseTimerTrigger
+  - type: TimerTrigger
     delay: 5
   - type: ExplodeOnTrigger
     keysIn:
