@@ -69,6 +69,7 @@
   - StutteringAccent
   - TTS # Corvax-TTS
   # ADT-fix-clone-start
+  - BurrinessAccent
   - LanguageSpeaker
   - SpeechBarks
   - SizeAttribute
