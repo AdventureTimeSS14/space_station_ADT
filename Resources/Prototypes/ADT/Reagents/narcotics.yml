@@ -94,7 +94,8 @@
         - !type:MetabolizerTypeCondition
           type: [ Shadekin ]
           shouldHave: false
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: ADTBlueSkyDesoxyephedrine
           min: 30
         damage:
           types:
@@ -113,7 +114,8 @@
         - !type:MetabolizerTypeCondition
           type: [ Shadekin ]
           shouldHave: true
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: ADTBlueSkyDesoxyephedrine
           min: 30
         damage:
           types:
@@ -138,20 +140,19 @@
         key: Stutter
         component: StutteringAccent
       - !type:Jitter
-      - !type:GenericStatusEffect
-        key: Stun
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectStunned
         time: 3
         type: Remove
-      - !type:GenericStatusEffect
-        key: KnockedDown
+      - !type:ModifyKnockdown
         time: 3
-        type: Remove
-      - !type:GenericStatusEffect
+        type: Removes
+      - !type:ModifyStatusEffect
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Haloperidol
           max: 0.01
-        key: Drowsiness
+        effectProto: StatusEffectDrowsiness
         time: 10
         type: Remove
       - !type:GenericStatusEffect
@@ -164,5 +165,6 @@
       effects:
       - !type:ResetNarcolepsy
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: ADTBlueSkyDesoxyephedrine
           min: 20

@@ -159,7 +159,8 @@
           type: [ Shadekin ]
           shouldHave: false
       # End ADT tweak
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Bicaridine
           min: 15
         damage:
           types:
@@ -171,7 +172,8 @@
         - !type:MetabolizerTypeCondition
           type: [ Shadekin ]
           shouldHave: true
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Bicaridine
           min: 15
         damage:
           types:
@@ -286,7 +288,8 @@
           type: [ Shadekin ]
           shouldHave: false
         # End ADT tweak
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Dermaline
           min: 10
         damage:
           types:
@@ -300,7 +303,8 @@
         - !type:MetabolizerTypeCondition
           type: [ Shadekin ]
           shouldHave: true
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Dermaline
           min: 10
         damage:
           types:
@@ -343,7 +347,8 @@
           type: [ Shadekin ]
           shouldHave: false
         # End ADT tweak
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Dexalin
           min: 20
         damage:
           types:
@@ -363,7 +368,8 @@
         - !type:MetabolizerTypeCondition
           type: [ Shadekin ]
           shouldHave: true
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Dexalin
           min: 20
         damage:
           types:
@@ -406,7 +412,8 @@
           type: [ Shadekin ]
           shouldHave: false
         # End ADT tweak
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: DexalinPlus
           min: 25
         damage:
           types:
@@ -427,7 +434,8 @@
         - !type:MetabolizerTypeCondition
           type: [ Shadekin ]
           shouldHave: true
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: DexalinPlus
           min: 25
         damage:
           types:
@@ -481,7 +489,8 @@
           type: [ Shadekin ]
           shouldHave: false
         # End ADT tweak
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Epinephrine
           min: 20
         damage:
           types:
@@ -495,7 +504,8 @@
           shouldHave: true
         - !type:MobStateCondition
           mobstate: Critical
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Epinephrine
           min: 0
           max: 20
         damage:
@@ -509,7 +519,8 @@
         - !type:MetabolizerTypeCondition
           type: [ Shadekin ]
           shouldHave: true
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Epinephrine
           min: 20
         damage:
           groups:
@@ -737,7 +748,8 @@
             Heat: 0.5
       - !type:HealthChange
         conditions:
-          - !type:ReagentThreshold
+          - !type:ReagentCondition
+            reagent: Barozine
             min: 60    #ADT_Tweak - изменено значение передозировки для борьбы с набегаторами
         damage:
           types:
@@ -745,7 +757,8 @@
       - !type:Vomit
         probability: 0.15
         conditions:
-          - !type:ReagentThreshold
+          - !type:ReagentCondition
+            reagent: Barozine
             min: 60    #ADT_Tweak - изменено значение передозировки для борьбы с набегаторами
       - !type:GenericStatusEffect
         key: PressureImmunity
@@ -833,7 +846,8 @@
           type: [ Shadekin ]
           shouldHave: false
         # End ADT tweak
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: PolypyryliumOligomers
           min: 30
         damage:
           types:
@@ -854,7 +868,8 @@
         - !type:MetabolizerTypeCondition
           type: [ Shadekin ]
           shouldHave: true
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: PolypyryliumOligomers
           min: 30
         damage:
           types:
@@ -1333,7 +1348,8 @@
             Blunt: 0.15 # 0.5 -> 1.5 per u
       - !type:ChemVomit
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Puncturase
           min: 25
         probability: 0.2
       # ADT-Tweak-End
@@ -1366,7 +1382,8 @@
             Piercing: 0.15 # 1.5 per u
       - !type:ChemVomit
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Bruizine
           min: 21
         probability: 0.4
       # ADT-Tweak-End

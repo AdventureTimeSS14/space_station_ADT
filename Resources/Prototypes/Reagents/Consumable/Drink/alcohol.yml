@@ -1165,10 +1165,10 @@
             Brute: -1
           # ADT-Tweak start
           types:
-            Poison: -0.5 
+            Poison: -0.5
             Shock: -0.33
             Cold: -0.33
-          # ADT-Tweak end 
+          # ADT-Tweak end
 
 - type: reagent
   id: DriestMartini
@@ -1813,7 +1813,8 @@
       # Start ADT tweak
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Painkiller
           min: 10
         damage:
           groups:
@@ -1821,7 +1822,7 @@
             Toxin: -2
             Airloss: -2
             Brute: -2
-        probability: 0.005
+        probability: 0.2
       # End ADT tweak
 
 - type: reagent

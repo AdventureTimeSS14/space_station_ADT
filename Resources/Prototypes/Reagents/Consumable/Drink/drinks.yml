@@ -226,7 +226,7 @@
       # Start ADT tweak
       - !type:AdjustTemperature
         conditions:
-        - !type:Temperature
+        - !type:TemperatureCondition
           min: 280
         amount: -2500
       - !type:PopupMessage

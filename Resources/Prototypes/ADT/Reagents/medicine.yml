@@ -191,7 +191,7 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Dylovene
           min: 0.5
         damage:
@@ -200,12 +200,12 @@
             Blunt: 1.5
       - !type:Jitter
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Dylovene
           min: 0.5
       - !type:PopupMessage
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Dylovene
           min: 0.5
         type: Local

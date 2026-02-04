@@ -453,7 +453,8 @@
         probability: 0.5
       - !type:PopupMessage
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: ADTJackieWelles
           min: 10
         type: Local
         visualType: Medium
