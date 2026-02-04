@@ -33,12 +33,12 @@
       - !type:HealthChange
         conditions:
         # ADT-Tweak Start
-        - !type:OrganType
-          type: Novakid
+        - !type:MetabolizerTypeCondition
+          type: [ Novakid ]
           shouldHave: false
         # ADT-Tweak End
-        - !type:OrganType
-          type: Vox
+        - !type:MetabolizerTypeCondition
+          type: [ Vox ]
           shouldHave: false
         damage:
           types:
@@ -49,8 +49,8 @@
         reagent: Ethanol
         amount: 0.4
         conditions:
-        - !type:OrganType
-            type: Novakid
+        - !type:MetabolizerTypeCondition
+          type: [ Novakid ]
         # ADT-Tweak End
 
 - type: reagent
@@ -72,8 +72,8 @@
       - !type:Flammable
         # ADT-Tweak Start
         conditions:
-        - !type:OrganType
-          type: Novakid
+        - !type:MetabolizerTypeCondition
+          type: [ Novakid ]
           shouldHave: False
         # ADT-Tweak End
         multiplier: 0.4
@@ -83,8 +83,8 @@
       - !type:HealthChange
         conditions:
         # ADT-Tweak Start
-        - !type:OrganType
-          type: Novakid
+        - !type:MetabolizerTypeCondition
+          type: [ Novakid ]
           shouldHave: false
         # ADT-Tweak End
         damage:
@@ -98,14 +98,14 @@
         reagent: Ethanol
         amount: 0.4
         conditions:
-        - !type:OrganType
-            type: Novakid
+        - !type:MetabolizerTypeCondition
+          type: [ Novakid ]
         # ADT-Tweak End
       - !type:FlammableReaction
         # ADT-Tweak Start
         conditions:
-        - !type:OrganType
-          type: Novakid
+        - !type:MetabolizerTypeCondition
+          type: [ Novakid ]
           shouldHave: false
         # ADT-Tweak End
         multiplier: 0.4
@@ -124,8 +124,8 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType
-          type: Novakid
+        - !type:MetabolizerTypeCondition
+          type: [ Novakid ]
           shouldHave: false
         damage:
           types:
@@ -137,14 +137,14 @@
         reagent: Ethanol
         amount: 0.4
         conditions:
-        - !type:OrganType
-            type: Novakid
+        - !type:MetabolizerTypeCondition
+          type: [ Novakid ]
         # ADT-Tweak End
       - !type:FlammableReaction
         # ADT-Tweak Start
         conditions:
-        - !type:OrganType
-          type: Novakid
+        - !type:MetabolizerTypeCondition
+          type: [ Novakid ]
           shouldHave: false
         # ADT-Tweak End
         multiplier: 0.1
@@ -175,8 +175,8 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType
-          type: Novakid
+        - !type:MetabolizerTypeCondition
+          type: [ Novakid ]
           shouldHave: false
         damage:
           types:
@@ -189,14 +189,14 @@
         reagent: Ethanol
         amount: 0.6
         conditions:
-        - !type:OrganType
-            type: Novakid
+        - !type:MetabolizerTypeCondition
+          type: [ Novakid ]
         # ADT-Tweak End
       - !type:FlammableReaction
         # ADT-Tweak Start
         conditions:
-        - !type:OrganType
-            type: Novakid
+          - !type:MetabolizerTypeCondition
+            type: [ Novakid ]
             shouldHave: false
         # ADT-Tweak End
         multiplier: 0.2
@@ -265,25 +265,25 @@
           types:
             Poison: 1
       - !type:Flammable
-        - !type:OrganType
-          type: Vox
+        - !type:MetabolizerTypeCondition
+          type: [ Vox ]
           shouldHave: false
-        - !type:OrganType
-          type: Novakid
+        - !type:MetabolizerTypeCondition
+          type: [ Novakid ]
           shouldHave: false
         # ADT-Tweak Start
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.3
         conditions:
-        - !type:OrganType
-            type: Novakid
+        - !type:MetabolizerTypeCondition
+          type: [ Novakid ]
         # ADT-Tweak End
       - !type:FlammableReaction
         # ADT-Tweak Start
         conditions:
-        - !type:OrganType
-          type: Novakid
+        - !type:MetabolizerTypeCondition
+          type: [ Novakid ]
           shouldHave: false
         # ADT-Tweak End
         multiplier: 0.4

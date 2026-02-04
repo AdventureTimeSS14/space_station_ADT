@@ -181,8 +181,8 @@
       - !type:ModifyBloodLevel
         amount: 6
         conditions:
-        - !type:OrganType
-          type: Dragon
+        - !type:MetabolizerTypeCondition
+          type: [ Dragon ]
           shouldHave: true
       # ADT tweak end
       - !type:EvenHealthChange
@@ -197,7 +197,7 @@
             Burn: -20 # Лечит все физические повреждение на 5 (20/4)
             Brute: -15 # Лечит все механические повреждение на 5 (15/3)
             Toxin: -4 # Лечит радиацию и токсины на 2 (4/2)
-            # ADT-Tweak end 
+            # ADT-Tweak end
           types:
             Bloodloss: -3
       - !type:ModifyBleed

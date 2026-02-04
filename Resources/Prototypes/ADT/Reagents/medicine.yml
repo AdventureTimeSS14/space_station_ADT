@@ -229,8 +229,8 @@
       - !type:HealthChange
         # Start edit by Filo
         conditions:
-        - !type:OrganType
-          type: Shadekin
+        - !type:MetabolizerTypeCondition
+          type: [ Shadekin ]
           shouldHave: false
         # End edit by Filo
         damage:
@@ -247,8 +247,8 @@
       - !type:HealthChange
         conditions:
         # Start edit by Filo
-        - !type:OrganType
-          type: Shadekin
+        - !type:MetabolizerTypeCondition
+          type: [ Shadekin ]
           shouldHave: false
         # End edit by Filo
         - !type:ReagentThreshold
@@ -260,16 +260,16 @@
       # Start edit by Filo
       - !type:HealthChange
         conditions:
-        - !type:OrganType
-          type: Shadekin
+        - !type:MetabolizerTypeCondition
+          type: [ Shadekin ]
           shouldHave: true
         damage:
           types:
             Poison: -0.25
       - !type:HealthChange
         conditions:
-        - !type:OrganType
-          type: Shadekin
+        - !type:MetabolizerTypeCondition
+          type: [ Shadekin ]
           shouldHave: true
         - !type:ReagentThreshold
           reagent: DexalinPlus
@@ -384,8 +384,8 @@
       - !type:HealthChange
         conditions:
         # Start edit by Filo
-        - !type:OrganType
-          type: Shadekin
+        - !type:MetabolizerTypeCondition
+          type: [ Shadekin ]
           shouldHave: false
         # End edit by Filo
         - !type:ReagentThreshold
@@ -396,8 +396,8 @@
       # Start edit by Filo
       - !type:HealthChange
         conditions:
-        - !type:OrganType
-          type: Shadekin
+        - !type:MetabolizerTypeCondition
+          type: [ Shadekin ]
           shouldHave: true
         - !type:ReagentThreshold
           min: 30.05

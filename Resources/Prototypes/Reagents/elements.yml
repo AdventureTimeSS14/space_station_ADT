@@ -14,8 +14,8 @@
       effects:
       - !type:SatiateHunger
         conditions:
-          - !type:OrganType
-            type: Vox
+          - !type:MetabolizerTypeCondition
+            type: [ Vox ]
     # ADT End
 
 - type: reagent
@@ -76,8 +76,8 @@
           type: [ Arachnid ]
           inverted: true
           #ADT-Tweak-Start
-        - !type:OrganType
-          type: Vox
+        - !type:MetabolizerTypeCondition
+          type: [ Vox ]
           shouldHave: false
           #ADT-Tweak-End
         damage:
@@ -95,8 +95,8 @@
       effects:
       - !type:SatiateHunger
         conditions:
-          - !type:OrganType
-            type: Vox
+          - !type:MetabolizerTypeCondition
+            type: [ Vox ]
     # ADT End
 
 - type: reagent
@@ -142,8 +142,8 @@
       effects:
       - !type:SatiateHunger
         conditions:
-          - !type:OrganType
-            type: Vox
+          - !type:MetabolizerTypeCondition
+            type: [ Vox ]
     # ADT End
 
 # ADT-Gas-Start
@@ -199,8 +199,8 @@
           type: [ Arachnid ]
           inverted: true
         # ADT tweak start
-        - !type:OrganType
-          type: Drask
+        - !type:MetabolizerTypeCondition
+          type: [ Drask ]
           shouldHave: false
         # ADT tweak end
         amount: 0.4
@@ -209,8 +209,8 @@
       effects:
       - !type:SatiateHunger
         conditions:
-          - !type:OrganType
-            type: Vox
+          - !type:MetabolizerTypeCondition
+            type: [ Vox ]
     # ADT End
 
 - type: reagent
@@ -318,8 +318,8 @@
       - !type:HealthChange
       #ADT-Tweak-Start
         conditions:
-        - !type:OrganType
-          type: Vox
+        - !type:MetabolizerTypeCondition
+          type: [ Vox ]
           shouldHave: false
       #ADT-Tweak-End
         damage:
@@ -330,8 +330,8 @@
       effects:
       - !type:SatiateHunger
         conditions:
-          - !type:OrganType
-            type: Vox
+          - !type:MetabolizerTypeCondition
+            type: [ Vox ]
     # ADT End
 
 - type: reagent
@@ -350,8 +350,8 @@
       effects:
       - !type:SatiateHunger
         conditions:
-          - !type:OrganType
-            type: Vox
+          - !type:MetabolizerTypeCondition
+            type: [ Vox ]
     # ADT End
 
 - type: reagent
@@ -427,6 +427,6 @@
       effects:
       - !type:SatiateHunger
         conditions:
-          - !type:OrganType
-            type: Vox
+          - !type:MetabolizerTypeCondition
+            type: [ Vox ]
     # ADT End

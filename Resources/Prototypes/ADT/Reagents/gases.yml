@@ -11,8 +11,8 @@
       - !type:GenericStatusEffect
         # Filo tweak
         conditions:
-        - !type:OrganType
-          type: Novakid
+        - !type:MetabolizerTypeCondition
+          type: [ Novakid ]
           shouldHave: false
         # Filo tweak
         key: SeeingRainbows
@@ -35,8 +35,8 @@
         - !type:ReagentThreshold
           reagent: BZ
           min: 1
-        - !type:OrganType
-          type: Slime
+        - !type:MetabolizerTypeCondition
+          type: [ Slime ]
         type: Local
         visualType: Medium
         messages: [ "effect-sleepy" ]
@@ -46,8 +46,8 @@
         - !type:ReagentThreshold
           reagent: BZ
           min: 1
-        - !type:OrganType
-          type: Slime
+        - !type:MetabolizerTypeCondition
+          type: [ Slime ]
         walkSpeedModifier: 0.65
         sprintSpeedModifier: 0.65
       - !type:GenericStatusEffect
@@ -55,8 +55,8 @@
         - !type:ReagentThreshold
           reagent: BZ
           min: 1
-        - !type:OrganType
-          type: Slime
+        - !type:MetabolizerTypeCondition
+          type: [ Slime ]
         key: ForcedSleep
         component: ForcedSleeping
         time: 3
@@ -77,50 +77,50 @@
       - !type:Oxygenate
         factor: 8
         conditions:
-        - !type:OrganType
-          type: Human
+        - !type:MetabolizerTypeCondition
+          type: [ Human ]
       - !type:Oxygenate
         factor: 8
         conditions:
-        - !type:OrganType
-          type: Novakid
+        - !type:MetabolizerTypeCondition
+          type: [ Novakid ]
       - !type:Oxygenate
         factor: 8
         conditions:
-        - !type:OrganType
-          type: Drask
+        - !type:MetabolizerTypeCondition
+          type: [ Drask ]
       - !type:Oxygenate
         factor: 8
         conditions:
-        - !type:OrganType
-          type: Animal
+        - !type:MetabolizerTypeCondition
+          type: [ Animal ]
       - !type:Oxygenate
         factor: 8
         conditions:
-        - !type:OrganType
-          type: Rat
+        - !type:MetabolizerTypeCondition
+          type: [ Rat ]
       - !type:Oxygenate
         factor: 8
         conditions:
-        - !type:OrganType
-          type: Plant
+        - !type:MetabolizerTypeCondition
+          type: [ Plant ]
       - !type:Oxygenate
         factor: 8
         conditions:
-        - !type:OrganType
-          type: Resomi
+        - !type:MetabolizerTypeCondition
+          type: [ Resomi ]
       - !type:ModifyLungGas
         conditions:
-        - !type:OrganType
-          type: Vox
+        - !type:MetabolizerTypeCondition
+          type: [ Vox ]
           shouldHave: false
         ratios:
           CarbonDioxide: 1.0
           Pluoxium: -1.0
       - !type:HealthChange
         conditions:
-        - !type:OrganType
-          type: Vox
+        - !type:MetabolizerTypeCondition
+          type: [ Vox ]
         scaleByQuantity: true
         ignoreResistances: true
         damage:

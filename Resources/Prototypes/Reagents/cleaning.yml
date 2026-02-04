@@ -65,15 +65,15 @@
       effects:
       - !type:GenericStatusEffect
         conditions:
-        - !type:OrganType
-          type: Drask
+        - !type:MetabolizerTypeCondition
+          type: [ Drask ]
           shouldHave: true
         key: Stutter
         component: StutteringAccent
       - !type:GenericStatusEffect
         conditions:
-        - !type:OrganType
-          type: Drask
+        - !type:MetabolizerTypeCondition
+          type: [ Drask ]
         key: SeeingRainbows
         component: SeeingRainbows
         type: Add
@@ -87,8 +87,8 @@
         - !type:ReagentCondition
           reagent: SoapReagent
         # Start ADT tweak
-        - !type:OrganType
-          type: Drask
+        - !type:MetabolizerTypeCondition
+          type: [ Drask ]
           shouldHave: false
         # End ADT tweak
         - !type:ReagentThreshold
@@ -96,8 +96,8 @@
         probability: 0.20
       - !type:SatiateHunger
         conditions:
-        - !type:OrganType
-          type: Drask
+        - !type:MetabolizerTypeCondition
+          type: [ Drask ]
           shouldHave: true
         factor: 2
     Drink:
@@ -107,8 +107,8 @@
         - !type:ReagentCondition
           reagent: SoapReagent
         # Start ADT tweak
-        - !type:OrganType
-          type: Drask
+        - !type:MetabolizerTypeCondition
+          type: [ Drask ]
           shouldHave: false
         # End ADT tweak
         - !type:ReagentThreshold

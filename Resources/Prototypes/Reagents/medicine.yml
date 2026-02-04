@@ -155,8 +155,8 @@
         - !type:ReagentCondition
           reagent: Bicaridine
       # Start ADT tweak
-        - !type:OrganType
-          type: Shadekin
+        - !type:MetabolizerTypeCondition
+          type: [ Shadekin ]
           shouldHave: false
       # End ADT tweak
         - !type:ReagentThreshold
@@ -168,8 +168,8 @@
       # Start ADT tweak
       - !type:HealthChange
         conditions:
-        - !type:OrganType
-          type: Shadekin
+        - !type:MetabolizerTypeCondition
+          type: [ Shadekin ]
           shouldHave: true
         - !type:ReagentThreshold
           min: 15
@@ -211,8 +211,8 @@
         - !type:HealthChange
           conditions:
           # Start ADT tweak
-          - !type:OrganType
-            type: Shadekin
+          - !type:MetabolizerTypeCondition
+            type: [ Shadekin ]
             shouldHave: false
           # End ADT tweak
           - !type:Temperature
@@ -228,8 +228,8 @@
         # Start ADT tweak
         - !type:HealthChange
           conditions:
-          - !type:OrganType
-            type: Shadekin
+          - !type:MetabolizerTypeCondition
+            type: [ Shadekin ]
             shouldHave: true
           - !type:Temperature
             max: 213.0
@@ -282,8 +282,8 @@
       - !type:HealthChange
         conditions:
         # Start ADT tweak
-        - !type:OrganType
-          type: Shadekin
+        - !type:MetabolizerTypeCondition
+          type: [ Shadekin ]
           shouldHave: false
         # End ADT tweak
         - !type:ReagentThreshold
@@ -297,8 +297,8 @@
       # Start ADT tweak
       - !type:HealthChange
         conditions:
-        - !type:OrganType
-          type: Shadekin
+        - !type:MetabolizerTypeCondition
+          type: [ Shadekin ]
           shouldHave: true
         - !type:ReagentThreshold
           min: 10
@@ -328,8 +328,8 @@
       - !type:HealthChange
       # Start ADT tweak
         conditions:
-        - !type:OrganType
-          type: Shadekin
+        - !type:MetabolizerTypeCondition
+          type: [ Shadekin ]
           shouldHave: false
       # End ADT tweak
         damage:
@@ -339,8 +339,8 @@
       - !type:HealthChange
         conditions:
         # Start ADT tweak
-        - !type:OrganType
-          type: Shadekin
+        - !type:MetabolizerTypeCondition
+          type: [ Shadekin ]
           shouldHave: false
         # End ADT tweak
         - !type:ReagentThreshold
@@ -352,16 +352,16 @@
       # Start ADT tweak
       - !type:HealthChange
         conditions:
-        - !type:OrganType
-          type: Shadekin
+        - !type:MetabolizerTypeCondition
+          type: [ Shadekin ]
           shouldHave: true
         damage:
           types:
             Bloodloss: -1
       - !type:HealthChange
         conditions:
-        - !type:OrganType
-          type: Shadekin
+        - !type:MetabolizerTypeCondition
+          type: [ Shadekin ]
           shouldHave: true
         - !type:ReagentThreshold
           min: 20
@@ -384,8 +384,8 @@
       - !type:HealthChange
         # Start ADT tweak
         conditions:
-        - !type:OrganType
-          type: Shadekin
+        - !type:MetabolizerTypeCondition
+          type: [ Shadekin ]
           shouldHave: false
         # End ADT tweak
         damage:
@@ -402,8 +402,8 @@
       - !type:HealthChange
         conditions:
         # Start ADT tweak
-        - !type:OrganType
-          type: Shadekin
+        - !type:MetabolizerTypeCondition
+          type: [ Shadekin ]
           shouldHave: false
         # End ADT tweak
         - !type:ReagentThreshold
@@ -415,8 +415,8 @@
       # Start ADT tweak
       - !type:HealthChange
         conditions:
-        - !type:OrganType
-          type: Shadekin
+        - !type:MetabolizerTypeCondition
+          type: [ Shadekin ]
           shouldHave: true
         damage:
           types:
@@ -424,8 +424,8 @@
             Bloodloss: -5
       - !type:HealthChange
         conditions:
-        - !type:OrganType
-          type: Shadekin
+        - !type:MetabolizerTypeCondition
+          type: [ Shadekin ]
           shouldHave: true
         - !type:ReagentThreshold
           min: 25
@@ -457,8 +457,8 @@
       - !type:HealthChange
         conditions:
         # Start ADT tweak
-        - !type:OrganType
-          type: Shadekin
+        - !type:MetabolizerTypeCondition
+          type: [ Shadekin ]
           shouldHave: false
         # End ADT tweak
           # they gotta be in crit first
@@ -477,8 +477,8 @@
       - !type:HealthChange
         conditions:
         # Start ADT tweak
-        - !type:OrganType
-          type: Shadekin
+        - !type:MetabolizerTypeCondition
+          type: [ Shadekin ]
           shouldHave: false
         # End ADT tweak
         - !type:ReagentThreshold
@@ -490,8 +490,8 @@
         # Start ADT tweak
       - !type:HealthChange
         conditions:
-        - !type:OrganType
-          type: Shadekin
+        - !type:MetabolizerTypeCondition
+          type: [ Shadekin ]
           shouldHave: true
         - !type:MobStateCondition
           mobstate: Critical
@@ -506,8 +506,8 @@
             Burn: -0.75
       - !type:HealthChange
         conditions:
-        - !type:OrganType
-          type: Shadekin
+        - !type:MetabolizerTypeCondition
+          type: [ Shadekin ]
           shouldHave: true
         - !type:ReagentThreshold
           min: 20
@@ -613,8 +613,8 @@
       - !type:HealthChange
         conditions:
         # Start ADT tweak
-        - !type:OrganType
-          type: Shadekin
+        - !type:MetabolizerTypeCondition
+          type: [ Shadekin ]
           shouldHave: false
         # End ADT tweak
           # they gotta be in crit first
@@ -626,16 +626,16 @@
       - !type:ModifyBleedAmount
         # Start ADT tweak
         conditions:
-        - !type:OrganType
-          type: Shadekin
+        - !type:MetabolizerTypeCondition
+          type: [ Shadekin ]
           shouldHave: false
         # End ADT tweak
         amount: -0.25
       # Start ADT tweak
       - !type:HealthChange
         conditions:
-        - !type:OrganType
-          type: Shadekin
+        - !type:MetabolizerTypeCondition
+          type: [ Shadekin ]
           shouldHave: true
         - !type:MobStateCondition
           mobstate: Critical
@@ -644,8 +644,8 @@
             Bloodloss: -1
       - !type:ModifyBleedAmount
         conditions:
-        - !type:OrganType
-          type: Shadekin
+        - !type:MetabolizerTypeCondition
+          type: [ Shadekin ]
           shouldHave: true
         amount: -0.75
       # End ADT tweak
@@ -817,8 +817,8 @@
       - !type:HealthChange
         # Start ADT tweak
         conditions:
-        - !type:OrganType
-          type: Shadekin
+        - !type:MetabolizerTypeCondition
+          type: [ Shadekin ]
           shouldHave: false
         # End ADT tweak
         damage:
@@ -829,8 +829,8 @@
       - !type:HealthChange
         conditions:
         # Start ADT tweak
-        - !type:OrganType
-          type: Shadekin
+        - !type:MetabolizerTypeCondition
+          type: [ Shadekin ]
           shouldHave: false
         # End ADT tweak
         - !type:ReagentThreshold
@@ -841,8 +841,8 @@
       # Start ADT tweak
       - !type:HealthChange
         conditions:
-        - !type:OrganType
-          type: Shadekin
+        - !type:MetabolizerTypeCondition
+          type: [ Shadekin ]
           shouldHave: true
         damage:
           groups:
@@ -851,8 +851,8 @@
             Bloodloss: -1
       - !type:HealthChange
         conditions:
-        - !type:OrganType
-          type: Shadekin
+        - !type:MetabolizerTypeCondition
+          type: [ Shadekin ]
           shouldHave: true
         - !type:ReagentThreshold
           min: 30
@@ -929,8 +929,8 @@
           amount: 6
           # Start ADT tweak
           conditions:
-          - !type:OrganType
-            type: Drask
+          - !type:MetabolizerTypeCondition
+            type: [ Drask ]
             shouldHave: false
           # End ADT tweak
 

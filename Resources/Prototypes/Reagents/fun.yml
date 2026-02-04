@@ -17,15 +17,15 @@
       effects:
       - !type:GenericStatusEffect
         conditions:
-        - !type:OrganType
-          type: Moth
+        - !type:MetabolizerTypeCondition
+          type: [ Moth ]
           shouldHave: true
         key: Stutter
         component: StutteringAccent
       - !type:GenericStatusEffect
         conditions:
-        - !type:OrganType
-          type: Moth
+        - !type:MetabolizerTypeCondition
+          type: [ Moth ]
           shouldHave: true
         key: SeeingRainbows
         component: SeeingRainbows

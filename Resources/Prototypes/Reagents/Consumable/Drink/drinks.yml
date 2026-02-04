@@ -585,8 +585,8 @@
           types:
             Cold: 1.3
         conditions:
-        - !type:OrganType
-          type: Novakid
+        - !type:MetabolizerTypeCondition
+          type: [ Novakid ]
 #ADT add ends
     Gas:
       effects:

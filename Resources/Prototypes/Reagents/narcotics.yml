@@ -15,8 +15,8 @@
       - !type:HealthChange
         # Start ADT tweak
         conditions:
-        - !type:OrganType
-          type: Shadekin
+        - !type:MetabolizerTypeCondition
+          type: [ Shadekin ]
           shouldHave: false
         # End ADT tweak
         damage:
@@ -24,8 +24,8 @@
             Poison: 0.75
       - !type:HealthChange
         conditions:
-        - !type:OrganType
-          type: Shadekin
+        - !type:MetabolizerTypeCondition
+          type: [ Shadekin ]
           shouldHave: false
         # End ADT tweak
         - !type:ReagentThreshold
@@ -37,16 +37,16 @@
       # Start ADT tweak
       - !type:HealthChange
         conditions:
-        - !type:OrganType
-          type: Shadekin
+        - !type:MetabolizerTypeCondition
+          type: [ Shadekin ]
           shouldHave: true
         damage:
           types:
             Poison: 1
       - !type:HealthChange
         conditions:
-        - !type:OrganType
-          type: Shadekin
+        - !type:MetabolizerTypeCondition
+          type: [ Shadekin ]
           shouldHave: true
         - !type:ReagentThreshold
           min: 30
@@ -131,8 +131,8 @@
         - !type:ReagentCondition
           reagent: Ephedrine
         # Start ADT tweak
-        - !type:OrganType
-          type: Shadekin
+        - !type:MetabolizerTypeCondition
+          type: [ Shadekin ]
           shouldHave: false
         # End ADT tweak
         - !type:ReagentThreshold
@@ -144,16 +144,16 @@
       # Start ADT tweak
       - !type:HealthChange
         conditions:
-        - !type:OrganType
-          type: Shadekin
+        - !type:MetabolizerTypeCondition
+          type: [ Shadekin ]
           shouldHave: true
         damage:
           types:
             Poison: 0.75
       - !type:HealthChange
         conditions:
-        - !type:OrganType
-          type: Shadekin
+        - !type:MetabolizerTypeCondition
+          type: [ Shadekin ]
           shouldHave: true
         - !type:ReagentThreshold
           min: 20

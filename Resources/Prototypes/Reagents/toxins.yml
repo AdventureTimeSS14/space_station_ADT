@@ -96,8 +96,8 @@
       effects:
         - !type:HealthChange
           conditions:
-          - !type:OrganType
-            type: Plant
+          - !type:MetabolizerTypeCondition
+            type: [ Plant ]
             shouldHave: false
           damage:
             types:
@@ -106,8 +106,8 @@
           conditions:
           - !type:ReagentCondition
             reagent: GastroToxin
-          - !type:OrganType
-            type: Plant
+          - !type:MetabolizerTypeCondition
+            type: [ Plant ]
             shouldHave: false
           - !type:ReagentThreshold
             min: 2
@@ -324,8 +324,8 @@
       - !type:HealthChange
         # Start ADT tweak
         conditions:
-        - !type:OrganType
-          type: Shadekin
+        - !type:MetabolizerTypeCondition
+          type: [ Shadekin ]
           shouldHave: false
         # End ADT tweak
         damage:
@@ -334,8 +334,8 @@
       # Start ADT tweak
       - !type:HealthChange
         conditions:
-        - !type:OrganType
-          type: Shadekin
+        - !type:MetabolizerTypeCondition
+          type: [ Shadekin ]
           shouldHave: true
         damage:
           types:
@@ -360,8 +360,8 @@
       - !type:HealthChange
         # Start ADT tweak
         conditions:
-        - !type:OrganType
-          type: Shadekin
+        - !type:MetabolizerTypeCondition
+          type: [ Shadekin ]
           shouldHave: false
         # End ADT tweak
         damage:
@@ -370,8 +370,8 @@
       # Start ADT tweak
       - !type:HealthChange
         conditions:
-        - !type:OrganType
-          type: Shadekin
+        - !type:MetabolizerTypeCondition
+          type: [ Shadekin ]
           shouldHave: true
         damage:
           types:
@@ -421,8 +421,8 @@
         - !type:ReagentCondition
           reagent: Histamine
         # Start ADT tweak
-        - !type:OrganType
-          type: Shadekin
+        - !type:MetabolizerTypeCondition
+          type: [ Shadekin ]
           shouldHave: false
         # End ADT tweak
         - !type:ReagentThreshold
@@ -436,8 +436,8 @@
       # Start ADT tweak
       - !type:HealthChange
         conditions:
-        - !type:OrganType
-          type: Shadekin
+        - !type:MetabolizerTypeCondition
+          type: [ Shadekin ]
           shouldHave: true
         - !type:ReagentThreshold
           min: 45
@@ -555,11 +555,11 @@
           type: [ Animal, Vox ]
           inverted: true
 # ADT-Tweak-Start
-        - !type:OrganType
-          type: Felinid
+        - !type:MetabolizerTypeCondition
+          type: [ Felinid ]
           shouldHave: false
-        - !type:OrganType
-          type: Plant
+        - !type:MetabolizerTypeCondition
+          type: [  Plant ]
           shouldHave: false
 # ADT-Tweak-End
         type: Local
@@ -570,19 +570,11 @@
         probability: 0.1
         conditions:
 # ADT-Tweak-Start
-          - !type:OrganType
-            type: Felinid
+          - !type:MetabolizerTypeCondition
+            type: [ Felinid ]
             shouldHave: false
-          - !type:OrganType
-            type: Plant
-            shouldHave: false
-# ADT-Tweak-End
-# ADT-Tweak-Start
-          - !type:OrganType
-            type: Felinid
-            shouldHave: false
-          - !type:OrganType
-            type: Plant
+          - !type:MetabolizerTypeCondition
+            type: [ Plant ]
             shouldHave: false
 # ADT-Tweak-End
           - !type:MetabolizerTypeCondition
@@ -600,11 +592,9 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Animal ]
-        - !type:OrganType
-          type: Animal
 # ADT-Tweak-Start
-        - !type:OrganType
-          type: Felinid
+        - !type:MetabolizerTypeCondition
+          type: [ Felinid ]
 # ADT-Tweak-End
         reagent: Protein
         amount: 0.5
@@ -617,8 +607,8 @@
 # ADT-Tweak-Start
       - !type:AdjustReagent
         conditions:
-        - !type:OrganType
-          type: Plant
+        - !type:MetabolizerTypeCondition
+          type: [ Plant ]
         reagent: Protein
         amount: 0.20
 # ADT-Tweak-End
@@ -753,8 +743,8 @@
       - !type:HealthChange
         # Start ADT tweak
         conditions:
-        - !type:OrganType
-          type: Shadekin
+        - !type:MetabolizerTypeCondition
+          type: [ Shadekin ]
           shouldHave: false
         # End ADT tweak
         damage:
@@ -763,8 +753,8 @@
       # Start ADT tweak
       - !type:HealthChange
         conditions:
-        - !type:OrganType
-          type: Shadekin
+        - !type:MetabolizerTypeCondition
+          type: [ Shadekin ]
           shouldHave: true
         damage:
           types:

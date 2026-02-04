@@ -67,16 +67,16 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType
-          type: Arachnid
+        - !type:MetabolizerTypeCondition
+          type: [ Arachnid ]
           shouldHave: false
         damage:
           types:
             Poison: 0.75
       - !type:PopupMessage
         conditions:
-        - !type:OrganType
-          type: Arachnid
+        - !type:MetabolizerTypeCondition
+          type: [ Arachnid ]
           shouldHave: false
         type: Local
         visualType: Small
@@ -87,8 +87,8 @@
         - !type:ReagentThreshold
           reagent: ADTLatrotoxin
           min: 10
-        - !type:OrganType
-          type: Arachnid
+        - !type:MetabolizerTypeCondition
+          type: [ Arachnid ]
           shouldHave: false
         walkSpeedModifier: 0.7
         sprintSpeedModifier: 0.7
