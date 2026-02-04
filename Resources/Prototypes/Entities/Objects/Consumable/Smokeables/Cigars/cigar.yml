@@ -16,7 +16,7 @@
       - Trash
   - type: Clothing
     sprite: Objects/Consumable/Smokeables/Cigars/cigar.rsi
-    slots: [ mask , ears2 ] # ADT-Tweak
+    slots: [ mask , ears , ears2 ] # ADT-Tweak
     equippedPrefix: unlit
   - type: Item
     size: Tiny

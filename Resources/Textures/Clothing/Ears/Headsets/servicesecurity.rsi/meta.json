@@ -1,7 +1,7 @@
 {
-  "version": 1,
+  "version": 2,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Made by Hqlle and SonicHDC (github)",
+  "copyright": "Made by Hqlle and SonicHDC (github), ears2 state by FIREMIX",
   "size": {
     "x": 32,
     "y": 32
@@ -12,6 +12,10 @@
     },
     {
         "name": "equipped-EARS",
+        "directions": 4
+    },
+    {
+        "name": "equipped-EARS2",
         "directions": 4
     }
   ]

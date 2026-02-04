@@ -22,6 +22,7 @@
   - type: Clothing
     slots:
     - ears
+    - ears2 # ADT-Tweak
     sprite: Clothing/Ears/Headsets/base.rsi
   - type: GuideHelp
     guides:
