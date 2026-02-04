@@ -1,4 +1,4 @@
-using System.Linq;
+using Content.Shared.ADT.Examine; //ADT-Tweak-Touchy-Trait
 using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.Ghost;
 using Content.Shared.Interaction;
@@ -9,6 +9,7 @@ using Robust.Shared.Containers;
 using Robust.Shared.Map;
 using Robust.Shared.Physics;
 using Robust.Shared.Utility;
+using System.Linq;
 using static Content.Shared.Interaction.SharedInteractionSystem;
 
 namespace Content.Shared.Examine
@@ -147,6 +148,11 @@ namespace Content.Shared.Examine
 
                 if (MobStateSystem.IsCritical(examiner, mobState) || TryComp<BlindableComponent>(examiner, out var blind) && blind.IsBlind)
                     return CritExamineRange;
+
+                //ADT-Tweak-Touchy-Trait-Start
+                if (HasComp<TouchyComponent>(examiner))
+                    return InteractionRange;
+                //ADT-Tweak-Touchy-Trait-End
 
                 if (TryComp<BlurryVisionComponent>(examiner, out var blurry))
                     return Math.Clamp(ExamineRange - blurry.Magnitude * ExamineBlurrinessMult, 2, ExamineRange);

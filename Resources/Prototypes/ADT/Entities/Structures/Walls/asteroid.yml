@@ -12,7 +12,7 @@
       WallRockSand: ADTWallRockSandCopper
       WallRockSnow: ADTWallRockSnowCopper
   - type: OreVein
-    oreChance: 1.0
+    oreChance: 0.5 #ADT tweak 1-->0.5
     currentOre: ADTOreCopper
   - type: Icon
     sprite: ADT/Structures/Walls/rock.rsi
@@ -38,7 +38,7 @@
   suffix: Copper
   components:
     - type: OreVein
-      oreChance: 1.0
+      oreChance: 0.5 #ADT tweak 1-->0.5
       currentOre: ADTOreCopper
     - type: Icon
       sprite: ADT/Structures/Walls/rock.rsi
@@ -64,7 +64,7 @@
   suffix: Copper
   components:
     - type: OreVein
-      oreChance: 1.0
+      oreChance: 0.5 #ADT tweak 1-->0.5
       currentOre: ADTOreCopper
     - type: Icon
       sprite: ADT/Structures/Walls/rock.rsi
@@ -89,7 +89,7 @@
   suffix: Copper
   components:
     - type: OreVein
-      oreChance: 1.0
+      oreChance: 0.5 #ADT tweak 1-->0.5
       currentOre: ADTOreCopper
     - type: Icon
       sprite: ADT/Structures/Walls/rock.rsi
@@ -115,7 +115,7 @@
   suffix: Copper
   components:
     - type: OreVein
-      oreChance: 1.0
+      oreChance: 0.5 #ADT tweak 1-->0.5
       currentOre: ADTOreCopper
     - type: Icon
       sprite: ADT/Structures/Walls/rock.rsi
@@ -141,7 +141,7 @@
   suffix: Copper
   components:
     - type: OreVein
-      oreChance: 1.0
+      oreChance: 0.5 #ADT tweak 1-->0.5
       currentOre: ADTOreCopper
     - type: Icon
       sprite: ADT/Structures/Walls/rock.rsi
@@ -167,7 +167,7 @@
   suffix: Copper
   components:
     - type: OreVein
-      oreChance: 1.0
+      oreChance: 0.5 #ADT tweak 1-->0.5
       currentOre: ADTOreCopper
     - type: Icon
       sprite: ADT/Structures/Walls/rock.rsi
@@ -193,7 +193,7 @@
   suffix: Copper
   components:
     - type: OreVein
-      oreChance: 1.0
+      oreChance: 0.5 #ADT tweak 1-->0.5
       currentOre: ADTOreCopper
     - type: Icon
       sprite: ADT/Structures/Walls/rock.rsi
@@ -219,7 +219,7 @@
   suffix: Copper
   components:
     - type: OreVein
-      oreChance: 1.0
+      oreChance: 0.5 #ADT tweak 1-->0.5
       currentOre: ADTOreCopper
     - type: Icon
       sprite: ADT/Structures/Walls/rock.rsi
@@ -253,7 +253,7 @@
       WallRockSand: ADTWallRockSandZinc
       WallRockSnow: ADTWallRockSnowZinc
   - type: OreVein
-    oreChance: 1.0
+    oreChance: 0.5 #ADT tweak 1-->0.5
     currentOre: ADTOreZinc
   - type: Icon
     sprite: ADT/Structures/Walls/rock.rsi
@@ -279,7 +279,7 @@
   suffix: Zinc
   components:
     - type: OreVein
-      oreChance: 1.0
+      oreChance: 0.5 #ADT tweak 1-->0.5
       currentOre: ADTOreZinc
     - type: Icon
       sprite: ADT/Structures/Walls/rock.rsi
@@ -305,7 +305,7 @@
   suffix: Zinc
   components:
     - type: OreVein
-      oreChance: 1.0
+      oreChance: 0.5 #ADT tweak 1-->0.5
       currentOre: ADTOreZinc
     - type: Icon
       sprite: ADT/Structures/Walls/rock.rsi
@@ -330,7 +330,7 @@
   suffix: Zinc
   components:
     - type: OreVein
-      oreChance: 1.0
+      oreChance: 0.5 #ADT tweak 1-->0.5
       currentOre: ADTOreZinc
     - type: Icon
       sprite: ADT/Structures/Walls/rock.rsi
@@ -356,7 +356,7 @@
   suffix: Zinc
   components:
     - type: OreVein
-      oreChance: 1.0
+      oreChance: 0.5 #ADT tweak 1-->0.5
       currentOre: ADTOreZinc
     - type: Icon
       sprite: ADT/Structures/Walls/rock.rsi
@@ -382,7 +382,7 @@
   suffix: Zinc
   components:
     - type: OreVein
-      oreChance: 1.0
+      oreChance: 0.5 #ADT tweak 1-->0.5
       currentOre: ADTOreZinc
     - type: Icon
       sprite: ADT/Structures/Walls/rock.rsi
@@ -408,7 +408,7 @@
   suffix: Zinc
   components:
     - type: OreVein
-      oreChance: 1.0
+      oreChance: 0.5 #ADT tweak 1-->0.5
       currentOre: ADTOreZinc
     - type: Icon
       sprite: ADT/Structures/Walls/rock.rsi
@@ -434,7 +434,7 @@
   suffix: Zinc
   components:
     - type: OreVein
-      oreChance: 1.0
+      oreChance: 0.5 #ADT tweak 1-->0.5
       currentOre: ADTOreZinc
     - type: Icon
       sprite: ADT/Structures/Walls/rock.rsi
@@ -460,7 +460,7 @@
   suffix: Zinc
   components:
     - type: OreVein
-      oreChance: 1.0
+      oreChance: 0.5 #ADT tweak 1-->0.5
       currentOre: ADTOreZinc
     - type: Icon
       sprite: ADT/Structures/Walls/rock.rsi
