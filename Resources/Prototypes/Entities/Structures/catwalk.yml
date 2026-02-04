@@ -8,10 +8,10 @@
   components:
   - type: Clickable
   - type: Sprite
-    sprite: Structures/catwalk.rsi
+    sprite: ADT/Structures/Floor/catwalk.rsi # ADT-Tweak: Resprite
     drawdepth: FloorTiles
   - type: Icon
-    sprite: Structures/catwalk.rsi
+    sprite: ADT/Structures/Floor/catwalk.rsi # ADT-Tweak: Resprite
     state: catwalk_preview
   - type: Transform
     anchored: true

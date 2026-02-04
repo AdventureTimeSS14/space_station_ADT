@@ -26,7 +26,7 @@
   - type: Sprite
     drawdepth: FloorTiles
     layers:
-    - sprite: Structures/catwalk.rsi
+    - sprite: ADT/Structures/Floor/catwalk.rsi # ADT-Tweak: Resprite
       state: catwalk_preview
   - type: GuideHelp
     guides:
@@ -68,9 +68,9 @@
   - type: CargoPallet
     palletType: sell
   - type: Sprite
-    sprite: Structures/cargo_pallets.rsi
+    sprite: ADT/Structures/Floor/cargo_pallets.rsi # ADT-Tweak: Resprite
   - type: Icon
-    sprite: Structures/cargo_pallets.rsi
+    sprite: ADT/Structures/Floor/cargo_pallets.rsi # ADT-Tweak: Resprite
     state: cargo_pallet_sell
   - type: IconSmooth
     key: cargo_pallet_sell
@@ -85,9 +85,9 @@
   - type: CargoPallet
     palletType: buy
   - type: Sprite
-    sprite: Structures/cargo_pallets.rsi
+    sprite: ADT/Structures/Floor/cargo_pallets.rsi # ADT-Tweak: Resprite
   - type: Icon
-    sprite: Structures/cargo_pallets.rsi
+    sprite: ADT/Structures/Floor/cargo_pallets.rsi # ADT-Tweak: Resprite
     state: cargo_pallet_buy
   - type: IconSmooth
     key: cargo_pallet_buy
