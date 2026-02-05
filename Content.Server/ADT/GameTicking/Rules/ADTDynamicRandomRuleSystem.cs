@@ -15,7 +15,7 @@ using Robust.Shared.Utility;
 
 namespace Content.Server.GameTicking.Rules;
 
-public sealed class ADTDynamicRandomRuleSystem : GameRuleSystem<ADTDynamicRandomRuleComponent>
+public sealed class ADTDynamicRandomRuleSystem : GameRuleSystem<DynamicRandomRuleComponent>
 {
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
@@ -31,7 +31,7 @@ public sealed class ADTDynamicRandomRuleSystem : GameRuleSystem<ADTDynamicRandom
         _ruleCompName = _compFact.GetComponentName(typeof(GameRuleComponent));
     }
 
-    protected override void Added(EntityUid uid, ADTDynamicRandomRuleComponent component, GameRuleComponent gameRule, GameRuleAddedEvent args)
+    protected override void Added(EntityUid uid, DynamicRandomRuleComponent component, GameRuleComponent gameRule, GameRuleAddedEvent args)
     {
         base.Added(uid, component, gameRule, args);
         var weights = _configurationManager.GetCVar(CCVars.DynamicRandomWeightPrototype);
@@ -59,7 +59,7 @@ public sealed class ADTDynamicRandomRuleSystem : GameRuleSystem<ADTDynamicRandom
         }
     }
 
-    protected override void Ended(EntityUid uid, ADTDynamicRandomRuleComponent component, GameRuleComponent gameRule, GameRuleEndedEvent args)
+    protected override void Ended(EntityUid uid, DynamicRandomRuleComponent component, GameRuleComponent gameRule, GameRuleEndedEvent args)
     {
         base.Ended(uid, component, gameRule, args);
 
