@@ -124,7 +124,7 @@
   suffix: Coal
   components:
     - type: OreVein
-      oreChance: 1.0
+      oreChance: 0.5 #ADT tweak 1-->0.5
       currentOre: OreCoal
     - type: Sprite
       layers:
@@ -157,7 +157,7 @@
   suffix: Gold
   components:
     - type: OreVein
-      oreChance: 1.0
+      oreChance: 0.5 #ADT tweak 1-->0.5
       currentOre: OreGold
     - type: Sprite
       layers:
@@ -190,7 +190,7 @@
   suffix: Diamond
   components:
     - type: OreVein
-      oreChance: 1.0
+      oreChance: 0.5 #ADT tweak 1-->0.5
       currentOre: OreDiamond
     - type: Sprite
       layers:
@@ -215,7 +215,7 @@
   suffix: Plasma
   components:
     - type: OreVein
-      oreChance: 1.0
+      oreChance: 0.5 #ADT tweak 1-->0.5
       currentOre: OrePlasma
     - type: Sprite
       layers:
@@ -240,7 +240,7 @@
   suffix: Quartz
   components:
     - type: OreVein
-      oreChance: 1.0
+      oreChance: 0.5 #ADT tweak 1-->0.5
       currentOre: OreSpaceQuartz
     - type: Sprite
       layers:
@@ -273,7 +273,7 @@
   suffix: Silver
   components:
     - type: OreVein
-      oreChance: 1.0
+      oreChance: 0.5 #ADT tweak 1-->0.5
       currentOre: OreSilver
     - type: Sprite
       layers:
@@ -307,7 +307,7 @@
   suffix: Iron
   components:
     - type: OreVein
-      oreChance: 1.0
+      oreChance: 0.5 #ADT tweak 1-->0.5
       currentOre: OreSteel
     - type: Sprite
       layers:
@@ -340,7 +340,7 @@
   suffix: Uranium
   components:
     - type: OreVein
-      oreChance: 1.0
+      oreChance: 0.5 #ADT tweak 1-->0.5
       currentOre: OreUranium
     - type: Sprite
       layers:
@@ -373,7 +373,7 @@
   suffix: Bananium
   components:
     - type: OreVein
-      oreChance: 1.0
+      oreChance: 0.5 #ADT tweak 1-->0.5
       currentOre: OreBananium
     - type: Sprite
       layers:
@@ -406,7 +406,7 @@
   suffix: Salt
   components:
     - type: OreVein
-      oreChance: 1.0
+      oreChance: 0.5 #ADT tweak 1-->0.5
       currentOre: OreSalt
     - type: Sprite
       layers:
@@ -431,7 +431,7 @@
   suffix: Artifact Fragment
   components:
     - type: OreVein
-      oreChance: 1.0
+      oreChance: 0.5 #ADT tweak 1-->0.5
       currentOre: OreArtifactFragment
     - type: Sprite
       layers:
@@ -525,7 +525,7 @@
   suffix: Coal
   components:
     - type: OreVein
-      oreChance: 1.0
+      oreChance: 0.5 #ADT tweak 1-->0.5
       currentOre: OreCoal
     - type: Sprite
       layers:
@@ -550,7 +550,7 @@
   suffix: Gold
   components:
     - type: OreVein
-      oreChance: 1.0
+      oreChance: 0.5 #ADT tweak 1-->0.5
       currentOre: OreGold
     - type: Sprite
       layers:
@@ -575,7 +575,7 @@
   suffix: Plasma
   components:
     - type: OreVein
-      oreChance: 1.0
+      oreChance: 0.5 #ADT tweak 1-->0.5
       currentOre: OrePlasma
     - type: Sprite
       layers:
@@ -600,7 +600,7 @@
   suffix: Quartz
   components:
     - type: OreVein
-      oreChance: 1.0
+      oreChance: 0.5 #ADT tweak 1-->0.5
       currentOre: OreSpaceQuartz
     - type: Sprite
       layers:
@@ -625,7 +625,7 @@
   suffix: Silver
   components:
     - type: OreVein
-      oreChance: 1.0
+      oreChance: 0.5 #ADT tweak 1-->0.5
       currentOre: OreSilver
     - type: Sprite
       layers:
@@ -650,7 +650,7 @@
   suffix: Iron
   components:
     - type: OreVein
-      oreChance: 1.0
+      oreChance: 0.5 #ADT tweak 1-->0.5
       currentOre: OreSteel
     - type: Sprite
       layers:
@@ -675,7 +675,7 @@
   suffix: Uranium
   components:
     - type: OreVein
-      oreChance: 1.0
+      oreChance: 0.5 #ADT tweak 1-->0.5
       currentOre: OreUranium
     - type: Sprite
       layers:
@@ -700,7 +700,7 @@
   suffix: Bananium
   components:
     - type: OreVein
-      oreChance: 1.0
+      oreChance: 0.5 #ADT tweak 1-->0.5
       currentOre: OreBananium
     - type: Sprite
       layers:
@@ -725,7 +725,7 @@
   suffix: Salt
   components:
     - type: OreVein
-      oreChance: 1.0
+      oreChance: 0.5 #ADT tweak 1-->0.5
       currentOre: OreSalt
     - type: Sprite
       layers:
@@ -750,7 +750,7 @@
   suffix: Artifact Fragment
   components:
   - type: OreVein
-    oreChance: 1.0
+    oreChance: 0.5 #ADT tweak 1-->0.5
     currentOre: OreArtifactFragment
   - type: Sprite
     layers:
@@ -794,7 +794,7 @@
   suffix: Diamond
   components:
     - type: OreVein
-      oreChance: 1.0
+      oreChance: 0.5 #ADT tweak 1-->0.5
       currentOre: OreDiamond
     - type: Sprite
       layers:
@@ -873,7 +873,7 @@
       WallRockSand: WallRockSandCoal
       WallRockSnow: WallRockSnowCoal
   - type: OreVein
-    oreChance: 1.0
+    oreChance: 0.5 #ADT tweak 1-->0.5
     currentOre: OreCoal
   - type: Sprite
     layers:
@@ -905,7 +905,7 @@
       WallRockSand: WallRockSandGold
       WallRockSnow: WallRockSnowGold
   - type: OreVein
-    oreChance: 1.0
+    oreChance: 0.5 #ADT tweak 1-->0.5
     currentOre: OreGold
   - type: Sprite
     layers:
@@ -930,7 +930,7 @@
   suffix: Diamond
   components:
     - type: OreVein
-      oreChance: 1.0
+      oreChance: 0.5 #ADT tweak 1-->0.5
       currentOre: OreDiamond
     - type: Sprite
       layers:
@@ -962,7 +962,7 @@
       WallRockSand: WallRockSandPlasma
       WallRockSnow: WallRockSnowPlasma
   - type: OreVein
-    oreChance: 1.0
+    oreChance: 0.5 #ADT tweak 1-->0.5
     currentOre: OrePlasma
   - type: Sprite
     layers:
@@ -994,7 +994,7 @@
       WallRockSand: WallRockSandQuartz
       WallRockSnow: WallRockSnowQuartz
   - type: OreVein
-    oreChance: 1.0
+    oreChance: 0.5 #ADT tweak 1-->0.5
     currentOre: OreSpaceQuartz
   - type: Sprite
     layers:
@@ -1026,7 +1026,7 @@
       WallRockSand: WallRockSandSilver
       WallRockSnow: WallRockSnowSilver
   - type: OreVein
-    oreChance: 1.0
+    oreChance: 0.5 #ADT tweak 1-->0.5
     currentOre: OreSilver
   - type: Sprite
     layers:
@@ -1059,7 +1059,7 @@
         WallRockSand: WallRockSandTin
         WallRockSnow: WallRockSnowTin
     - type: OreVein
-      oreChance: 1.0
+      oreChance: 0.5 #ADT tweak 1-->0.5
       currentOre: OreSteel
     - type: Sprite
       layers:
@@ -1091,7 +1091,7 @@
       WallRockSand: WallRockSandUranium
       WallRockSnow: WallRockSnowUranium
   - type: OreVein
-    oreChance: 1.0
+    oreChance: 0.5 #ADT tweak 1-->0.5
     currentOre: OreUranium
   - type: Sprite
     layers:
@@ -1124,7 +1124,7 @@
       WallRockSand: WallRockSandBananium
       WallRockSnow: WallRockSnowBananium
   - type: OreVein
-    oreChance: 1.0
+    oreChance: 0.5 #ADT tweak 1-->0.5
     currentOre: OreBananium
   - type: Sprite
     layers:
@@ -1156,7 +1156,7 @@
       WallRockSand: WallRockSandArtifactFragment
       WallRockSnow: WallRockSnowArtifactFragment
   - type: OreVein
-    oreChance: 1.0
+    oreChance: 0.5 #ADT tweak 1-->0.5
     currentOre: OreArtifactFragment
   - type: Sprite
     layers:
@@ -1188,7 +1188,7 @@
       WallRockSand: WallRockSandSalt
       WallRockSnow: WallRockSnowSalt
   - type: OreVein
-    oreChance: 1.0
+    oreChance: 0.5 #ADT tweak 1-->0.5
     currentOre: OreSalt
   - type: Sprite
     layers:
@@ -1235,7 +1235,7 @@
   suffix: Coal
   components:
     - type: OreVein
-      oreChance: 1.0
+      oreChance: 0.5 #ADT tweak 1-->0.5
       currentOre: OreCoal
     - type: Sprite
       layers:
@@ -1260,7 +1260,7 @@
   suffix: Gold
   components:
     - type: OreVein
-      oreChance: 1.0
+      oreChance: 0.5 #ADT tweak 1-->0.5
       currentOre: OreGold
     - type: Sprite
       layers:
@@ -1285,7 +1285,7 @@
   suffix: Diamond
   components:
     - type: OreVein
-      oreChance: 1.0
+      oreChance: 0.5 #ADT tweak 1-->0.5
       currentOre: OreDiamond
     - type: Sprite
       layers:
@@ -1310,7 +1310,7 @@
   suffix: Plasma
   components:
     - type: OreVein
-      oreChance: 1.0
+      oreChance: 0.5 #ADT tweak 1-->0.5
       currentOre: OrePlasma
     - type: Sprite
       layers:
@@ -1335,7 +1335,7 @@
   suffix: Quartz
   components:
     - type: OreVein
-      oreChance: 1.0
+      oreChance: 0.5 #ADT tweak 1-->0.5
       currentOre: OreSpaceQuartz
     - type: Sprite
       layers:
@@ -1360,7 +1360,7 @@
   suffix: Silver
   components:
     - type: OreVein
-      oreChance: 1.0
+      oreChance: 0.5 #ADT tweak 1-->0.5
       currentOre: OreSilver
     - type: Sprite
       layers:
@@ -1385,7 +1385,7 @@
   suffix: Iron
   components:
     - type: OreVein
-      oreChance: 1.0
+      oreChance: 0.5 #ADT tweak 1-->0.5
       currentOre: OreSteel
     - type: Sprite
       layers:
@@ -1410,7 +1410,7 @@
   suffix: Uranium
   components:
     - type: OreVein
-      oreChance: 1.0
+      oreChance: 0.5 #ADT tweak 1-->0.5
       currentOre: OreUranium
     - type: Sprite
       layers:
@@ -1435,7 +1435,7 @@
   suffix: Bananium
   components:
     - type: OreVein
-      oreChance: 1.0
+      oreChance: 0.5 #ADT tweak 1-->0.5
       currentOre: OreBananium
     - type: Sprite
       layers:
@@ -1460,7 +1460,7 @@
   suffix: Artifact Fragment
   components:
     - type: OreVein
-      oreChance: 1.0
+      oreChance: 0.5 #ADT tweak 1-->0.5
       currentOre: OreArtifactFragment
     - type: Sprite
       layers:
@@ -1485,7 +1485,7 @@
   suffix: Salt
   components:
     - type: OreVein
-      oreChance: 1.0
+      oreChance: 0.5 #ADT tweak 1-->0.5
       currentOre: OreSalt
     - type: Sprite
       layers:
@@ -1532,7 +1532,7 @@
   suffix: Coal
   components:
     - type: OreVein
-      oreChance: 1.0
+      oreChance: 0.5 #ADT tweak 1-->0.5
       currentOre: OreCoal
     - type: Sprite
       layers:
@@ -1557,7 +1557,7 @@
   suffix: Gold
   components:
     - type: OreVein
-      oreChance: 1.0
+      oreChance: 0.5 #ADT tweak 1-->0.5
       currentOre: OreGold
     - type: Sprite
       layers:
@@ -1582,7 +1582,7 @@
   suffix: Diamond
   components:
     - type: OreVein
-      oreChance: 1.0
+      oreChance: 0.5 #ADT tweak 1-->0.5
       currentOre: OreDiamond
     - type: Sprite
       layers:
@@ -1607,7 +1607,7 @@
   suffix: Plasma
   components:
     - type: OreVein
-      oreChance: 1.0
+      oreChance: 0.5 #ADT tweak 1-->0.5
       currentOre: OrePlasma
     - type: Sprite
       layers:
@@ -1632,7 +1632,7 @@
   suffix: Quartz
   components:
     - type: OreVein
-      oreChance: 1.0
+      oreChance: 0.5 #ADT tweak 1-->0.5
       currentOre: OreSpaceQuartz
     - type: Sprite
       layers:
@@ -1657,7 +1657,7 @@
   suffix: Silver
   components:
     - type: OreVein
-      oreChance: 1.0
+      oreChance: 0.5 #ADT tweak 1-->0.5
       currentOre: OreSilver
     - type: Sprite
       layers:
@@ -1682,7 +1682,7 @@
   suffix: Iron
   components:
     - type: OreVein
-      oreChance: 1.0
+      oreChance: 0.5 #ADT tweak 1-->0.5
       currentOre: OreSteel
     - type: Sprite
       layers:
@@ -1707,7 +1707,7 @@
   suffix: Uranium
   components:
     - type: OreVein
-      oreChance: 1.0
+      oreChance: 0.5 #ADT tweak 1-->0.5
       currentOre: OreUranium
     - type: Sprite
       layers:
@@ -1733,7 +1733,7 @@
   suffix: Bananium
   components:
     - type: OreVein
-      oreChance: 1.0
+      oreChance: 0.5 #ADT tweak 1-->0.5
       currentOre: OreBananium
     - type: Sprite
       layers:
@@ -1758,7 +1758,7 @@
   suffix: Artifact Fragment
   components:
     - type: OreVein
-      oreChance: 1.0
+      oreChance: 0.5 #ADT tweak 1-->0.5
       currentOre: OreArtifactFragment
     - type: Sprite
       layers:
@@ -1783,7 +1783,7 @@
   suffix: Salt
   components:
     - type: OreVein
-      oreChance: 1.0
+      oreChance: 0.5 #ADT tweak 1-->0.5
       currentOre: OreSalt
     - type: Sprite
       layers:
@@ -1830,7 +1830,7 @@
   suffix: Coal
   components:
     - type: OreVein
-      oreChance: 1.0
+      oreChance: 0.5 #ADT tweak 1-->0.5
       currentOre: OreCoal
     - type: Sprite
       layers:
@@ -1855,7 +1855,7 @@
   suffix: Gold
   components:
     - type: OreVein
-      oreChance: 1.0
+      oreChance: 0.5 #ADT tweak 1-->0.5
       currentOre: OreGold
     - type: Sprite
       layers:
@@ -1880,7 +1880,7 @@
   suffix: Diamond
   components:
     - type: OreVein
-      oreChance: 1.0
+      oreChance: 0.5 #ADT tweak 1-->0.5
       currentOre: OreDiamond
     - type: Sprite
       layers:
@@ -1905,7 +1905,7 @@
   suffix: Plasma
   components:
     - type: OreVein
-      oreChance: 1.0
+      oreChance: 0.5 #ADT tweak 1-->0.5
       currentOre: OrePlasma
     - type: Sprite
       layers:
@@ -1930,7 +1930,7 @@
   suffix: Quartz
   components:
     - type: OreVein
-      oreChance: 1.0
+      oreChance: 0.5 #ADT tweak 1-->0.5
       currentOre: OreSpaceQuartz
     - type: Sprite
       layers:
@@ -1955,7 +1955,7 @@
   suffix: Silver
   components:
     - type: OreVein
-      oreChance: 1.0
+      oreChance: 0.5 #ADT tweak 1-->0.5
       currentOre: OreSilver
     - type: Sprite
       layers:
@@ -1980,7 +1980,7 @@
   suffix: Iron
   components:
     - type: OreVein
-      oreChance: 1.0
+      oreChance: 0.5 #ADT tweak 1-->0.5
       currentOre: OreSteel
     - type: Sprite
       layers:
@@ -2005,7 +2005,7 @@
   suffix: Uranium
   components:
     - type: OreVein
-      oreChance: 1.0
+      oreChance: 0.5 #ADT tweak 1-->0.5
       currentOre: OreUranium
     - type: Sprite
       layers:
@@ -2030,7 +2030,7 @@
   suffix: Bananium
   components:
     - type: OreVein
-      oreChance: 1.0
+      oreChance: 0.5 #ADT tweak 1-->0.5
       currentOre: OreBananium
     - type: Sprite
       layers:
@@ -2055,7 +2055,7 @@
   suffix: Artifact Fragment
   components:
     - type: OreVein
-      oreChance: 1.0
+      oreChance: 0.5 #ADT tweak 1-->0.5
       currentOre: OreArtifactFragment
     - type: Sprite
       layers:
@@ -2080,7 +2080,7 @@
   suffix: Salt
   components:
     - type: OreVein
-      oreChance: 1.0
+      oreChance: 0.5 #ADT tweak 1-->0.5
       currentOre: OreSalt
     - type: Sprite
       layers:
@@ -2127,7 +2127,7 @@
   suffix: Coal
   components:
     - type: OreVein
-      oreChance: 1.0
+      oreChance: 0.5 #ADT tweak 1-->0.5
       currentOre: OreCoal
     - type: Sprite
       layers:
@@ -2152,7 +2152,7 @@
   suffix: Gold
   components:
     - type: OreVein
-      oreChance: 1.0
+      oreChance: 0.5 #ADT tweak 1-->0.5
       currentOre: OreGold
     - type: Sprite
       layers:
@@ -2177,7 +2177,7 @@
   suffix: Diamond
   components:
     - type: OreVein
-      oreChance: 1.0
+      oreChance: 0.5 #ADT tweak 1-->0.5
       currentOre: OreDiamond
     - type: Sprite
       layers:
@@ -2202,7 +2202,7 @@
   suffix: Plasma
   components:
     - type: OreVein
-      oreChance: 1.0
+      oreChance: 0.5 #ADT tweak 1-->0.5
       currentOre: OrePlasma
     - type: Sprite
       layers:
@@ -2227,7 +2227,7 @@
   suffix: Quartz
   components:
     - type: OreVein
-      oreChance: 1.0
+      oreChance: 0.5 #ADT tweak 1-->0.5
       currentOre: OreSpaceQuartz
     - type: Sprite
       layers:
@@ -2252,7 +2252,7 @@
   suffix: Silver
   components:
     - type: OreVein
-      oreChance: 1.0
+      oreChance: 0.5 #ADT tweak 1-->0.5
       currentOre: OreSilver
     - type: Sprite
       layers:
@@ -2277,7 +2277,7 @@
   suffix: Iron
   components:
     - type: OreVein
-      oreChance: 1.0
+      oreChance: 0.5 #ADT tweak 1-->0.5
       currentOre: OreSteel
     - type: Sprite
       layers:
@@ -2302,7 +2302,7 @@
   suffix: Uranium
   components:
     - type: OreVein
-      oreChance: 1.0
+      oreChance: 0.5 #ADT tweak 1-->0.5
       currentOre: OreUranium
     - type: Sprite
       layers:
@@ -2328,7 +2328,7 @@
   suffix: Bananium
   components:
     - type: OreVein
-      oreChance: 1.0
+      oreChance: 0.5 #ADT tweak 1-->0.5
       currentOre: OreBananium
     - type: Sprite
       layers:
@@ -2353,7 +2353,7 @@
   suffix: Artifact Fragment
   components:
     - type: OreVein
-      oreChance: 1.0
+      oreChance: 0.5 #ADT tweak 1-->0.5
       currentOre: OreArtifactFragment
     - type: Sprite
       layers:
@@ -2378,7 +2378,7 @@
   suffix: Salt
   components:
     - type: OreVein
-      oreChance: 1.0
+      oreChance: 0.5 #ADT tweak 1-->0.5
       currentOre: OreSalt
     - type: Sprite
       layers:
@@ -2425,7 +2425,7 @@
   suffix: Coal
   components:
     - type: OreVein
-      oreChance: 1.0
+      oreChance: 0.5 #ADT tweak 1-->0.5
       currentOre: OreCoal
     - type: Sprite
       layers:
@@ -2450,7 +2450,7 @@
   suffix: Gold
   components:
     - type: OreVein
-      oreChance: 1.0
+      oreChance: 0.5 #ADT tweak 1-->0.5
       currentOre: OreGold
     - type: Sprite
       layers:
@@ -2475,7 +2475,7 @@
   suffix: Diamond
   components:
     - type: OreVein
-      oreChance: 1.0
+      oreChance: 0.5 #ADT tweak 1-->0.5
       currentOre: OreDiamond
     - type: Sprite
       layers:
@@ -2500,7 +2500,7 @@
   suffix: Plasma
   components:
     - type: OreVein
-      oreChance: 1.0
+      oreChance: 0.5 #ADT tweak 1-->0.5
       currentOre: OrePlasma
     - type: Sprite
       layers:
@@ -2525,7 +2525,7 @@
   suffix: Quartz
   components:
     - type: OreVein
-      oreChance: 1.0
+      oreChance: 0.5 #ADT tweak 1-->0.5
       currentOre: OreSpaceQuartz
     - type: Sprite
       layers:
@@ -2550,7 +2550,7 @@
   suffix: Silver
   components:
     - type: OreVein
-      oreChance: 1.0
+      oreChance: 0.5 #ADT tweak 1-->0.5
       currentOre: OreSilver
     - type: Sprite
       layers:
@@ -2575,7 +2575,7 @@
   suffix: Iron
   components:
     - type: OreVein
-      oreChance: 1.0
+      oreChance: 0.5 #ADT tweak 1-->0.5
       currentOre: OreSteel
     - type: Sprite
       layers:
@@ -2600,7 +2600,7 @@
   suffix: Uranium
   components:
     - type: OreVein
-      oreChance: 1.0
+      oreChance: 0.5 #ADT tweak 1-->0.5
       currentOre: OreUranium
     - type: Sprite
       layers:
@@ -2626,7 +2626,7 @@
   suffix: Bananium
   components:
     - type: OreVein
-      oreChance: 1.0
+      oreChance: 0.5 #ADT tweak 1-->0.5
       currentOre: OreBananium
     - type: Sprite
       layers:
@@ -2651,7 +2651,7 @@
   suffix: Artifact Fragment
   components:
     - type: OreVein
-      oreChance: 1.0
+      oreChance: 0.5 #ADT tweak 1-->0.5
       currentOre: OreArtifactFragment
     - type: Sprite
       layers:
@@ -2676,7 +2676,7 @@
   suffix: Salt
   components:
     - type: OreVein
-      oreChance: 1.0
+      oreChance: 0.5 #ADT tweak 1-->0.5
       currentOre: OreSalt
     - type: Sprite
       layers:

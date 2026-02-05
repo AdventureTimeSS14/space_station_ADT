@@ -437,6 +437,16 @@
   - type: IdCard
     jobTitle: job-name-welder
 
+# Quartermaster
+
+- type: entity
+  parent: QuartermasterIDCard
+  id: ADTIntendantIDCard
+  name: intendant ID card
+  components:
+  - type: IdCard
+    jobTitle: job-name-intendant
+
 # Cargo Technician
 
 - type: entity
