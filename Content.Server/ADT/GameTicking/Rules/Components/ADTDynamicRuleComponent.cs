@@ -5,7 +5,7 @@ namespace Content.Server.GameTicking.Rules.Components;
 
 [RegisterComponent, Access(typeof(ADTDynamicRuleSystem))]
 [AutoGenerateComponentPause]
-public sealed partial class ADTDynamicRuleComponent : Component
+public sealed partial class DynamicRuleComponent : Component
 {
     /// <summary>
     /// The total budget for antags.
