@@ -45,7 +45,7 @@
             - Heretic
             - Ghoul
           guidebookComponentName: reagent-comp-condition-heretic-or-ghoul
-      - !type:ChemCleanBloodstream
+      - !type:CleanBloodstream
         cleanseRate: 3
         conditions:
         - !type:HasComponentCondition
