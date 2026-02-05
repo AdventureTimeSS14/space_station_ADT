@@ -13,7 +13,6 @@
         key: Adrenaline
         component: IgnoreSlowOnDamage
         time: 10
-        refresh: false
       - !type:PopupMessage
         conditions:
         - !type:TotalDamage
@@ -29,7 +28,6 @@
         component: SeeingRainbows
         type: Add
         time: 20 # THC масло по 16 добавляет.
-        refresh: false
       - !type:PopupMessage
         type: Local
         visualType: Small
@@ -129,7 +127,7 @@
           guidebookComponentName: reagent-comp-condition-speedbust-sandevistan
     Narcotic:
       effects:
-      - !type:MovespeedModifier
+      - !type:MovementSpeedModifier
         walkSpeedModifier: 1.4
         sprintSpeedModifier: 1.4
       - !type:GenericStatusEffect
@@ -156,7 +154,6 @@
         component: SeeingRainbows
         type: Add
         time: 16
-        refresh: false
     Medicine:
       effects:
       - !type:ResetNarcolepsy

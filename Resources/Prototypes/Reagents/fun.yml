@@ -29,7 +29,6 @@
         component: SeeingRainbows
         type: Add
         time: 8
-        refresh: false
     # End ADT tweak
     Poison:
       effects:
@@ -296,7 +295,7 @@
         - !type:TemperatureCondition
           min: 1 # ADT-Tweak 160.15 -> 1
         amount: -50000 #ADT-Tweak -10000 -> -50000
-      - !type:MovespeedModifier
+      - !type:MovementSpeedModifier
         conditions:
         - !type:ReagentCondition
           reagent: Fresium

@@ -40,7 +40,6 @@
           min: 3
         key: ForcedSleep
         component: ForcedSleeping
-        refresh: false
         type: Add
       - !type:PopupMessage
         type: Local

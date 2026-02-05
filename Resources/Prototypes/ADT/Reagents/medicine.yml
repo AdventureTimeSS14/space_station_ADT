@@ -21,7 +21,6 @@
         key: Adrenaline
         component: IgnoreSlowOnDamage
         time: 20
-        refresh: true
       - !type:HealthChange
         conditions:
         - !type:ReagentCondition
@@ -353,7 +352,6 @@
         key: Adrenaline
         component: IgnoreSlowOnDamage
         time: 60
-        refresh: true
       - !type:EvenHealthChange
         damage:
           Brute: -1
@@ -417,7 +415,6 @@
         component: SeeingRainbows
         type: Add
         time: 2.5
-        refresh: false
       - !type:HallucinationsReagentEffect
         proto: Changeling
         type: Remove

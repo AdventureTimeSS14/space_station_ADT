@@ -142,7 +142,7 @@
         component: StaminaModifier
         time: 1.05
         type: Add
-      - !type:MovespeedModifier
+      - !type:MovementSpeedModifier
         walkSpeedModifier: 1.03
         sprintSpeedModifier: 1.05
       # End ADT tweak
@@ -460,7 +460,6 @@
         component: SeeingRainbows
         type: Add
         time: 15
-        refresh: false
       # End ADT tweak
   fizziness: 0.5
 
