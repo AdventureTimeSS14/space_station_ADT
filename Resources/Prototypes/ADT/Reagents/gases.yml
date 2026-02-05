@@ -150,7 +150,6 @@
           - !type:ReagentCondition
             reagent: Nitrium
             min: 3
-        statusLifetime: 15
         walkSpeedModifier: 1.35
         sprintSpeedModifier: 1.35
       - !type:GenericStatusEffect

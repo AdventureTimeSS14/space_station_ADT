@@ -45,14 +45,6 @@
     name: ghost-role-information-nukeop-reinforcement-name
     description: ghost-role-information-nukeop-reinforcement-description
     rules: ghost-role-information-nukeop-reinforcement-rules
-# ADT-Tweak-start
-    requirements:
-      - !type:OverallPlaytimeRequirement
-        time: 54000 # 15h
-      - !type:DepartmentTimeRequirement
-        department: Security
-        time: 18000 # adt tweak 2h > 5h
-# ADT-Tweak-end
     mindRoles:
     - MindRoleGhostRoleTeamAntagonist
     raffle:

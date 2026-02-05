@@ -94,7 +94,6 @@
         - !type:MetabolizerTypeCondition
           type: [ Novakid ]
         # ADT-Tweak End
-        multiplier: 0.4
 
 - type: reagent
   id: Phlogiston
