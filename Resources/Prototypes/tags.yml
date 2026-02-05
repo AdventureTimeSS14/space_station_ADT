@@ -313,7 +313,7 @@
   id: CigFilter # Storage whitelist: PackPaperRolling
 
 - type: Tag
-  id: CigPack # Storage whitelist: BaseClothingBeltEngineering, ClothingBeltAssault, ClothingBeltChef, ClothingBeltMedical, ClothingBeltJanitor
+  id: CigPack # Storage whitelist: BaseClothingBeltEngineering, ClothingBeltMilitaryWebbing, ClothingBeltChef, ClothingBeltMedical, ClothingBeltJanitor
 
 - type: Tag
   id: Cleaver # Storage whitelist: ClothingBeltChef. ItemMapper: ClothingBeltChef

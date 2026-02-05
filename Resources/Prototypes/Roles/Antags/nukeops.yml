@@ -58,7 +58,7 @@
     id: SyndiOperativePDA
     pocket1: DoubleEmergencyOxygenTankFilled
     pocket2: PlushieCarp
-    belt: ClothingBeltAssault #ADT nukebuff
+    belt: ClothingBeltMilitaryWebbing #ADT nukebuff
   storage:
     back:
     - WeaponPistolViper

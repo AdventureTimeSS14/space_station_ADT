@@ -141,6 +141,7 @@ namespace Content.Server.Entry
             IoCManager.Resolve<TTSManager>().Initialize(); // Corvax-TTS
 
             IoCManager.Resolve<SponsorsManager>().Initialize(); // Corvax-Sponsors
+            IoCManager.Resolve<JoinQueueManager>().Initialize(); // Corvax-Queue
         }
 
         public override void PostInit()
