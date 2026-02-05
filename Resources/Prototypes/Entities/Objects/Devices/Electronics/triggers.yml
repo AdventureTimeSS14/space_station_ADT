@@ -53,7 +53,6 @@
     - SignalTrigger
   - type: PayloadTrigger
     components:
-    - type: TriggerOnSignal #ADT-tweak вместо таймера
     - type: DeviceNetwork
       deviceNetId: Wireless
       receiveFrequencyId: BasicDevice
