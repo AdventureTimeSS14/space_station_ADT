@@ -112,17 +112,6 @@
   - type: GhostRole
     name: ghost-role-information-loneop-name
     description: ghost-role-information-loneop-description
-    # ADT-Tweak-start
-    requirements:
-    - !type:DepartmentTimeRequirement
-      department: Medical
-      time: 36000 #10 hrs
-    - !type:DepartmentTimeRequirement
-      department: Security
-      time: 36000 # 10h
-    - !type:OverallPlaytimeRequirement
-      time: 54000 # 15h
-    # ADT-Tweak-end
     rules: ghost-role-information-loneop-rules
     mindRoles:
     - MindRoleLoneops

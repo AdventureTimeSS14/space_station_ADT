@@ -189,11 +189,6 @@
         conditions:
         - !type:ReagentCondition
           min: 1.5
-        ignoreResistances: true
-        damage:
-          types:
-            Poison:
-              0.1
       # We need a metabolism effect on reagent removal
       - !type:AdjustAlert
         alertType: Toxins

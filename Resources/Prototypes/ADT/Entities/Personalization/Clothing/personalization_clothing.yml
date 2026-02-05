@@ -1018,7 +1018,7 @@
   components:
   - type: Action
     icon: { sprite: ADT/Personalization/kringe-magboots.rsi, state: icon }
-    iconOn: { sprite: ADT/Personalization/kringe-magboots.rsi, state: icon-on.png }
+    iconOn: { sprite: ADT/Personalization/kringe-magboots.rsi, state: icon-on }
 
 - type: entity
   parent: ADTClothingSponsorHandsBase

@@ -17,8 +17,8 @@
   description: View a Mass Scanner Interface.
   components:
   - type: Action
-    icon: Interface/Actions/actions_ai.rsi/mass_scanner.png
-    iconOn: Interface/Actions/actions_ai.rsi/mass_scanner.png
+    icon: {sprite: Interface/Actions/actions_ai.rsi, state: mass_scanner}
+    iconOn: {sprite: Interface/Actions/actions_ai.rsi, state: mass_scanner}
     keywords: [ "AI", "console", "interface" ]
     priority: -9
   - type: InstantAction
