@@ -186,7 +186,7 @@ public sealed class ADTDynamicRuleSystem : GameRuleSystem<ADTDynamicRuleComponen
         return executedRules;
     }
 
-    public IEnumerable<EntityUid> ExecuteNow(Entity<DynamicRuleComponent?> entity)
+    public IEnumerable<EntityUid> ExecuteNow(Entity<ADTDynamicRuleComponent?> entity)
     {
         if (!Resolve(entity, ref entity.Comp))
             return new List<EntityUid>();
@@ -194,7 +194,7 @@ public sealed class ADTDynamicRuleSystem : GameRuleSystem<ADTDynamicRuleComponen
         return Execute((entity.Owner, entity.Comp));
     }
 
-    public IEnumerable<EntityUid> Rules(Entity<DynamicRuleComponent?> entity)
+    public IEnumerable<EntityUid> Rules(Entity<ADTDynamicRuleComponent?> entity)
     {
         if (!Resolve(entity, ref entity.Comp))
             return new List<EntityUid>();
@@ -202,7 +202,7 @@ public sealed class ADTDynamicRuleSystem : GameRuleSystem<ADTDynamicRuleComponen
         return entity.Comp.Rules;
     }
 
-    protected override void Ended(EntityUid uid, DynamicRuleComponent component, GameRuleComponent gameRule, GameRuleEndedEvent args)
+    protected override void Ended(EntityUid uid, ADTDynamicRuleComponent component, GameRuleComponent gameRule, GameRuleEndedEvent args)
     {
         base.Ended(uid, component, gameRule, args);
     }
@@ -212,7 +212,7 @@ public sealed class ADTDynamicRuleSystem : GameRuleSystem<ADTDynamicRuleComponen
         base.Update(frameTime);
         //замена стандартных шкедуллеров
 
-        var query = EntityQueryEnumerator<DynamicRuleComponent, GameRuleComponent>();
+        var query = EntityQueryEnumerator<ADTDynamicRuleComponent, GameRuleComponent>();
         while (query.MoveNext(out var uid, out var scheduler, out var gameRule))
         {
             if (!GameTicker.IsGameRuleActive(uid, gameRule))

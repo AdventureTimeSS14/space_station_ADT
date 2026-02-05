@@ -3,7 +3,7 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Server.GameTicking.Rules.Components;
 
-[RegisterComponent, Access(typeof(DynamicRuleSystem))]
+[RegisterComponent, Access(typeof(ADTDynamicRuleSystem))]
 [AutoGenerateComponentPause]
 public sealed partial class ADTDynamicRuleComponent : Component
 {
