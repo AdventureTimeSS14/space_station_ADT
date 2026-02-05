@@ -7,7 +7,7 @@
   - !type:DepartmentTimeRequirement
     department: Security
     time: 20h
-  - !type:TraitsRequirement
+  - !type:SpeciesRequirement # ADT-Fix
     inverted: true
     species:
     - Resomi
