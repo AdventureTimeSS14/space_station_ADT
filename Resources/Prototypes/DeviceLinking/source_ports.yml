@@ -162,7 +162,7 @@
   id: Trigger
   name: signal-port-name-trigger-sender
   description: signal-port-description-trigger-sender
-  defaultLinks: [ Toggle, Trigger, Timer ]
+  defaultLinks: [ Toggle, Trigger] #, Timer ] (Откат)
 
 - type: sourcePort
   id: ItemDetected
