@@ -567,6 +567,17 @@
   - type: Pda
     id: ADTWelderIDCard
 
+# Quartermaster
+
+- type: entity
+  parent: QuartermasterPDA
+  id: ADTIntendantPDA
+  name: intendant PDA
+  description: intendant PDA.
+  components:
+  - type: Pda
+    id: ADTIntendantIDCard
+
 # Cargo Technician
 
 - type: entity
