@@ -343,7 +343,7 @@
   parent: BaseGameRule
   components:
   - type: GameRule
-  - type: DynamicRandomRule
+  - type: DynamicRule
 
 - type: entity
   parent: BaseTraitorRule

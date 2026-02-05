@@ -632,12 +632,12 @@
     - state: icon-mining-adv
   - type: ItemBorgModule
     hands:
-    - MiningDrillDiamond
-    - Shovel
-    - AdvancedMineralScannerUnpowered
-    - OreBagOfHolding
-    - BorgHandheldGPSBasic #ADT tweak: MineBorgModulesUpdate
-    - HandheldStationMapUnpowered #ADT tweak: MineBorgModulesUpdate
+    - item: MiningDrillDiamond
+    - item: Shovel
+    - item: AdvancedMineralScannerUnpowered
+    - item: OreBagOfHolding
+    - item: BorgHandheldGPSBasic #ADT tweak: MineBorgModulesUpdate
+    - item: HandheldStationMapUnpowered #ADT tweak: MineBorgModulesUpdate
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: adv-mining-module }
 
