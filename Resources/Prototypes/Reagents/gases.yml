@@ -188,6 +188,7 @@
         alertType: Toxins
         conditions:
         - !type:ReagentCondition
+          reagent: Plasma
           min: 1.5
       # We need a metabolism effect on reagent removal
       - !type:AdjustAlert

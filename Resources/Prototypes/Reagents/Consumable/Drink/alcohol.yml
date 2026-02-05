@@ -1124,6 +1124,7 @@
       - !type:Jitter
         conditions:
         - !type:ReagentCondition
+          reagent: DemonsBlood
           min: 5
       # End ADT tweak
 

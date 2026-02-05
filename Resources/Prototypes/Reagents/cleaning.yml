@@ -100,12 +100,11 @@
         conditions:
         - !type:ReagentCondition
           reagent: SoapReagent
+          min: 6
         # Start ADT tweak
         - !type:MetabolizerTypeCondition
           type: [ Drask ]
         # End ADT tweak
-        - !type:ReagentCondition
-          min: 6
         probability: 0.20
 
 - type: reagent

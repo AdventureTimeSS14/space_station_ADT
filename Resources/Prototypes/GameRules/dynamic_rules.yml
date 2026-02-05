@@ -110,3 +110,5 @@
             min: 20
           - !type:RoundDurationCondition
             min: 2100 # 35 minutes
+    scheduledGameRules: !type:NestedSelector
+      tableId: DynamicGameRulesTable
