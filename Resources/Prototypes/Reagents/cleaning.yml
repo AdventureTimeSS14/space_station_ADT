@@ -77,7 +77,6 @@
         component: SeeingRainbows
         type: Add
         time: 9
-        refresh: false
   # End ADT tweak
     Food:
       effects:
@@ -105,7 +104,7 @@
         - !type:MetabolizerTypeCondition
           type: [ Drask ]
         # End ADT tweak
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           min: 6
         probability: 0.20
 

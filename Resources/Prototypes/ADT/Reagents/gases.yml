@@ -18,13 +18,11 @@
         component: SeeingRainbows
         type: Add
         time: 8
-        refresh: false
       - !type:HealthChange
         conditions:
         - !type:ReagentCondition
           reagent: BZ
           min: 0.5
-        scaleByQuantity: true
         ignoreResistances: true
         damage:
           types:
@@ -40,7 +38,7 @@
         visualType: Medium
         messages: [ "effect-sleepy" ]
         probability: 0.1
-      - !type:MovespeedModifier
+      - !type:MovementSpeedModifier
         conditions:
         - !type:ReagentCondition
           reagent: BZ
@@ -119,7 +117,6 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Vox ]
-        scaleByQuantity: true
         ignoreResistances: true
         damage:
           types:
@@ -148,7 +145,7 @@
   metabolisms:
     Gas:
       effects:
-      - !type:MovespeedModifier
+      - !type:MovementSpeedModifier
         conditions:
           - !type:ReagentCondition
             reagent: Nitrium
@@ -186,7 +183,6 @@
           - !type:ReagentCondition
             reagent: Nitrium
             min: 9
-        scaleByQuantity: true
         ignoreResistances: true
         damage:
           types:
@@ -211,14 +207,12 @@
           min: 1
         key: ForcedSleep
         component: ForcedSleeping
-        refresh: false
         type: Add
       - !type:HealthChange
         conditions:
         - !type:ReagentCondition
           reagent: Healium
           min: 2
-        scaleByQuantity: true
         ignoreResistances: true
         damage:
           groups:
@@ -267,7 +261,6 @@
           reagent: Zauker
           min: 0.25
           max: 8
-        scaleByQuantity: true
         ignoreResistances: true
         damage:
           types:
@@ -280,7 +273,6 @@
         - !type:ReagentCondition
           reagent: Zauker
           min: 8
-        scaleByQuantity: true
         ignoreResistances: true
         damage:
           types:

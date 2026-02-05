@@ -149,7 +149,6 @@
         - !type:ReagentCondition
           reagent: Plasma
           min: 0.6
-        scaleByQuantity: true
         ignoreResistances: true
         damage:
           types:
@@ -169,7 +168,6 @@
         component: SeeingRainbows
         type: Add
         time: 5
-        refresh: false
       - !type:Drunk
         conditions:
         - !type:MetabolizerTypeCondition

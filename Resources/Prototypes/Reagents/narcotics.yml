@@ -121,7 +121,7 @@
           components:
             - ActiveSandevistanUser
           guidebookComponentName: reagent-comp-condition-speedbust-sandevistan
-      - !type:MovespeedModifier
+      - !type:MovementSpeedModifier
         walkSpeedModifier: 1.25
         sprintSpeedModifier: 1.25
       - !type:HealthChange
