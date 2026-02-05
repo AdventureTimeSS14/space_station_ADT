@@ -1,40 +1,58 @@
-using Content.Shared.Damage.Components;
+using Content.Shared.EntityEffects;
+using JetBrains.Annotations;
+using Content.Shared.EntityConditions;
+using Robust.Shared.Prototypes;
 
-namespace Content.Shared.Destructible.Thresholds.Triggers;
+namespace Content.Shared.EntityEffects.EffectConditions;
 
-/// <summary>
-/// Триггер, проверяющий наличие определённых компонентов у сущности.
-/// </summary>
-[DataDefinition]
-public sealed partial class HasComponentTrigger : IThresholdTrigger
+public sealed partial class HasComponentConditionSystem : EntityConditionSystem<MetaDataComponent, HasComponentCondition>
 {
-    [Dependency] private readonly EntityManager _entityManager = default!;
-
-    /// <summary>
-    /// Набор имён компонентов для проверки.
-    /// </summary>
-    [DataField(required: true)]
-    public HashSet<string> Components = new();
-
-    /// <summary>
-    /// Инвертирует результат проверки.
-    /// </summary>
-    [DataField]
-    public bool Invert;
-
-    public bool Reached(Entity<DamageableComponent> damageable, SharedDestructibleSystem system)
+    protected override void Condition(Entity<MetaDataComponent> entity, ref EntityConditionEvent<HasComponentCondition> args)
     {
         var hasComp = false;
-
-        foreach (var component in Components)
+        foreach (var component in args.Condition.Components)
         {
-            var registration = _entityManager.ComponentFactory.GetRegistration(component);
-            hasComp = _entityManager.HasComponent(damageable, registration.Type);
+            var reg = EntityManager.ComponentFactory.GetRegistration(component);
+            hasComp = EntityManager.HasComponent(entity, reg.Type);
 
             if (hasComp)
                 break;
         }
 
-        return hasComp ^ Invert;
+        args.Result = hasComp ^ args.Condition.Invert;
+    }
+}
+
+/// <summary>
+/// Условие для проверки наличия определённых компонентов у сущности.
+/// Используется в системе эффектов реагентов для ограничения действия на конкретные типы сущностей.
+/// </summary>
+[UsedImplicitly]
+public sealed partial class HasComponentCondition : EntityConditionBase<HasComponentCondition>
+{
+    /// <summary>
+    /// Набор имён компонентов для проверки. Условие выполнится, если у сущности есть хотя бы один из них.
+    /// </summary>
+    [DataField(required: true)]
+    public HashSet<string> Components = new();
+
+    /// <summary>
+    /// Локализованное название компонента для отображения в руководстве.
+    /// </summary>
+    [DataField(required: true)]
+    public string GuidebookComponentName = default!;
+
+    /// <summary>
+    /// Инвертирует результат проверки условия.
+    /// </summary>
+    // Use base `Inverted` field from `EntityCondition`.
+    [DataField]
+    public bool Invert;
+
+    public override string EntityConditionGuidebookText(IPrototypeManager prototype)
+    {
+        return Loc.GetString("reagent-effect-condition-guidebook-has-component",
+            ("comp", Loc.GetString(GuidebookComponentName)),
+            ("invert", Inverted));
     }
 }
