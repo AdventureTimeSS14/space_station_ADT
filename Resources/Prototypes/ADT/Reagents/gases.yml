@@ -21,7 +21,7 @@
         refresh: false
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: BZ
           min: 0.5
         scaleByQuantity: true
@@ -31,7 +31,7 @@
             Cellular: 0.005
       - !type:PopupMessage
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: BZ
           min: 1
         - !type:MetabolizerTypeCondition
@@ -42,7 +42,7 @@
         probability: 0.1
       - !type:MovespeedModifier
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: BZ
           min: 1
         - !type:MetabolizerTypeCondition
@@ -51,7 +51,7 @@
         sprintSpeedModifier: 0.65
       - !type:GenericStatusEffect
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: BZ
           min: 1
         - !type:MetabolizerTypeCondition
@@ -150,7 +150,7 @@
       effects:
       - !type:MovespeedModifier
         conditions:
-          - !type:ReagentThreshold
+          - !type:ReagentCondition
             reagent: Nitrium
             min: 3
         statusLifetime: 15
@@ -158,7 +158,7 @@
         sprintSpeedModifier: 1.35
       - !type:GenericStatusEffect
         conditions:
-          - !type:ReagentThreshold
+          - !type:ReagentCondition
             reagent: Nitrium
             min: 6
         key: Stun
@@ -166,7 +166,7 @@
         type: Remove
       - !type:GenericStatusEffect
         conditions:
-          - !type:ReagentThreshold
+          - !type:ReagentCondition
             reagent: Nitrium
             min: 6
         key: KnockedDown
@@ -174,7 +174,7 @@
         type: Remove
       - !type:GenericStatusEffect
         conditions:
-          - !type:ReagentThreshold
+          - !type:ReagentCondition
             reagent: Nitrium
             min: 6
         key: ForcedSleep
@@ -183,7 +183,7 @@
         type: Remove
       - !type:HealthChange
         conditions:
-          - !type:ReagentThreshold
+          - !type:ReagentCondition
             reagent: Nitrium
             min: 9
         scaleByQuantity: true
@@ -206,7 +206,7 @@
       effects:
       - !type:GenericStatusEffect
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Healium
           min: 1
         key: ForcedSleep
@@ -215,7 +215,7 @@
         type: Add
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Healium
           min: 2
         scaleByQuantity: true
@@ -263,7 +263,7 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Zauker
           min: 0.25
           max: 8
@@ -277,7 +277,7 @@
             Bloodloss: 0.25
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Zauker
           min: 8
         scaleByQuantity: true
