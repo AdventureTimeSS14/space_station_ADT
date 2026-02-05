@@ -51,7 +51,6 @@
   - type: SpawnOnTrigger
     proto: GrenadeFlashEffect
   - type: ActiveTimerTrigger
-    timeRemaining: 0.3
   - type: DeleteOnTrigger
 
 - type: entity
