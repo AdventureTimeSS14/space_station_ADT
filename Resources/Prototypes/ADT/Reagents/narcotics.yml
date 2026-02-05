@@ -140,7 +140,7 @@
         type: Remove
       - !type:ModifyKnockdown
         time: 3
-        type: Removes
+        type: Remove
       - !type:ModifyStatusEffect
         conditions:
         - !type:ReagentCondition
