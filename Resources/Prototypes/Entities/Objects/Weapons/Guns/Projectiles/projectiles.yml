@@ -1466,6 +1466,17 @@
 
 # ADT-Tweak-start
 - type: entity
+  name : heavy laser bolt
+  id: BulletLaserHeavy
+  parent: BulletLaser
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Heat: 15
+
+- type: entity
   name: narrow laser barrage
   id: BulletLaserHeavySpread
   categories: [ HideSpawnMenu ]
