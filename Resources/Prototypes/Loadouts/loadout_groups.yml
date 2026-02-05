@@ -20,46 +20,6 @@
   - CigPackBlack
   - CigarCase
   - CigarGold
-  - BoxFolderBaseThreePapers
-  - BoxFolderPlasticClipboardThreePapers
-  - BoxFolderClipboardThreePapers
-  - ClothingNeckLGBTPin
-  - ClothingNeckAllyPin
-  - ClothingNeckAromanticPin
-  - ClothingNeckAsexualPin
-  - ClothingNeckAroacePin
-  - ClothingNeckBisexualPin
-  - ClothingNeckGayPin
-  - ClothingNeckIntersexPin
-  - ClothingNeckLesbianPin
-  - ClothingNeckNonBinaryPin
-  - ClothingNeckPansexualPin
-  - ClothingNeckPluralPin
-  - ClothingNeckOmnisexualPin
-  - ClothingNeckGenderqueerPin
-  - ClothingNeckGenderfluidPin
-  - ClothingNeckTransPin
-  - ClothingNeckAutismPin
-  - ClothingNeckGoldAutismPin
-  - OffsetCane
-  - OffsetCaneWood
-  - OffsetCaneClown
-  - OffsetCaneMime
-  - OffsetCaneNT
-  - Cane
-   # Corvax-Loadouts-Start
-  - ClothingNeckAtharaPin
-  - ClothingNeckCorvaxPin
-  - ClothingNeckEchoPin
-  - ClothingNeckElysiumPin
-  - ClothingNeckMainPin
-  - ClothingNeckNebulaPin
-  - ClothingNeckNovaPin
-  - ClothingNeckSolarisPin
-  - ClothingNeckWhiteListPin
-  # Corvax-Loadouts-End
-  - TowelColorWhite
-  - TowelColorGray
   #ADT-tweak-start
   # - ClothingNeckLGBTPin
   # - ClothingNeckAromanticPin
@@ -91,19 +51,19 @@
   - ADTClothingMaskPaperBlank
   #ADT-tweak-end
   - TowelColorBlack
-  - TowelColorRed
-  - TowelColorOrange
-  - TowelColorLightBrown
-  - TowelColorYellow
+  - TowelColorDarkBlue
   - TowelColorDarkGreen
+  - TowelColorGold
+  - TowelColorGray
   - TowelColorGreen
   - TowelColorLightBlue
-  - TowelColorDarkBlue
-  - TowelColorPurple
+  - TowelColorLightBrown
   - TowelColorMaroon
   - TowelColorMime
+  - TowelColorOrange
+  - TowelColorPurple
+  - TowelColorRed
   - TowelColorSilver
-  - TowelColorGold
   - TowelColorWhite
   - TowelColorYellow
   # ADT-Tweak-Start
