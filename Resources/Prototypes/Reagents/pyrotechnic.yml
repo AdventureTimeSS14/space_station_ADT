@@ -124,7 +124,6 @@
         - !type:MetabolizerTypeCondition
           type: [ Novakid ]
         # ADT-Tweak End
-        multiplier: 0.1
       - !type:AdjustTemperature
         amount: 6000
       - !type:Ignite
@@ -168,7 +167,6 @@
           - !type:MetabolizerTypeCondition
             type: [ Novakid ]
         # ADT-Tweak End
-        multiplier: 0.2
       - !type:AdjustTemperature
         amount: 6000
   reactiveEffects:
@@ -248,7 +246,6 @@
         - !type:MetabolizerTypeCondition
           type: [ Novakid ]
         # ADT-Tweak End
-        multiplier: 0.4
 
 - type: reagent
   id: Fluorosurfactant
