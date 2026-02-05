@@ -160,9 +160,7 @@ public sealed class ChemistryGuideDataSystem : SharedChemistryGuideDataSystem
 
     public List<ReagentSourceData> GetReagentSources(string id)
     {
-        // ADT-Fix-Start
         return _reagentSources.GetValueOrDefault(id) ?? new List<ReagentSourceData>();
-        // ADT-Fix-End
     }
 
     // Is handled on server and updated on client via ReagentGuideRegistryChangedEvent
