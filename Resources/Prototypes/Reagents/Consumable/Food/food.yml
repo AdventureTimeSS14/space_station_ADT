@@ -14,9 +14,9 @@
       - !type:HealthChange # ADT-Tweak start
         damage:
           groups:
-            Brute: -0.2 
+            Brute: -0.2
             Burn: -0.2
-      - !type:ModifyBleedAmount
+      - !type:ModifyBleed
         amount: -0.1
       - !type:ModifyBloodLevel
         amount: 0.25 # ADT-Tweak end

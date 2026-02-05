@@ -15,7 +15,7 @@
         time: 10
       - !type:PopupMessage
         conditions:
-        - !type:TotalDamage
+        - !type:TotalDamageCondition
           min: 0.5
         type: Local
         visualType: Small

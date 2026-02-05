@@ -371,7 +371,7 @@
         key: KnockedDown
         time: 1.5
         type: Remove
-      - !type:ChemVomit #а это уже передозы.
+      - !type:Vomit #а это уже передозы.
         conditions:
         - !type:ReagentCondition
           reagent: ADTMorphine

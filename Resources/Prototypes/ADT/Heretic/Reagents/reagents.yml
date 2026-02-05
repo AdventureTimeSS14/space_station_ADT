@@ -37,7 +37,7 @@
             - Heretic
             - Ghoul
           guidebookComponentName: reagent-comp-condition-heretic-or-ghoul
-      - !type:ModifyBleedAmount
+      - !type:ModifyBleed
         amount: -1
         conditions:
         - !type:HasComponentCondition
