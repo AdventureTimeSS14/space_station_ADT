@@ -1,7 +1,7 @@
 ﻿namespace Content.Server.GameTicking.Rules.Components;
 
 [RegisterComponent, Access(typeof(ADTDynamicRandomRuleSystem))]
-public sealed partial class ADTDynamicRandomRuleComponent : Component
+public sealed partial class DynamicRandomRuleComponent : Component
 {
     /// <summary>
     /// The gamerules that get added by dynamic random.
