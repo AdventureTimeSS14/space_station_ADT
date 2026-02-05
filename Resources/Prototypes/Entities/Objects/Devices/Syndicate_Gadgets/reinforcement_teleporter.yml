@@ -61,11 +61,6 @@
   - type: GhostRole
     name: ghost-role-information-syndicate-monkey-reinforcement-name
     description: ghost-role-information-syndicate-monkey-reinforcement-description
-# ADT-Tweak-start
-    requirements:
-      - !type:OverallPlaytimeRequirement
-        time: 18000 # 5h overall
-# ADT-Tweak-end
     rules: ghost-role-information-syndicate-reinforcement-rules
     mindRoles:
     - MindRoleGhostRoleTeamAntagonist
@@ -81,11 +76,7 @@
   suffix: NukeOps
   components:
   - type: GhostRole
-    # ADT-Tweak-start
-    requirements:
-      - !type:OverallPlaytimeRequirement
-        time: 18000 # 5h overall
-    # ADT-Tweak-end
+
     rules: ghost-role-information-nukeop-reinforcement-rules
   - type: GhostRoleMobSpawner
     prototype: MobMonkeySyndicateAgentNukeops
@@ -100,11 +91,6 @@
   - type: GhostRole
     name: ghost-role-information-SyndiCat-name
     description: ghost-role-information-SyndiCat-description
-# ADT-Tweak-start
-    requirements:
-      - !type:OverallPlaytimeRequirement
-        time: 7200 # 2h overall
-# ADT-Tweak-end
     rules: ghost-role-information-syndicate-reinforcement-rules
     mindRoles:
     - MindRoleGhostRoleTeamAntagonist
@@ -126,11 +112,6 @@
       name: ghost-role-information-syndicate-cyborg-assault-name
       description: ghost-role-information-syndicate-cyborg-description
       rules: ghost-role-information-silicon-rules
-# ADT-Tweak-start
-      requirements:
-        - !type:OverallPlaytimeRequirement
-          time: 54000 # 15h overall
-# ADT-Tweak-end
       mindRoles:
       - MindRoleGhostRoleSilicon
       raffle:

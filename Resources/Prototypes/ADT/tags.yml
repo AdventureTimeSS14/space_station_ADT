@@ -724,3 +724,15 @@
 
 - type: Tag
   id: Katana
+
+- type: Tag
+  id: MagazineLightRiflePan
+
+- type: Tag
+  id: SecwayKeys
+
+- type: Tag
+  id: ATVKeys
+
+- type: Tag
+  id: SyndicateSegwayKeys
