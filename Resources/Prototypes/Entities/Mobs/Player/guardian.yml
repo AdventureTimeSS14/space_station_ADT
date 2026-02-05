@@ -193,9 +193,9 @@
       name: ghost-role-information-holoclown-name
       description: ghost-role-information-holoclown-description
       # ADT-Tweak-start
-      requirements:
-        - !type:OverallPlaytimeRequirement
-          time: 36000 # 10h
+      # requirements:
+        # - !type:OverallPlaytimeRequirement # Удалили
+        #   time: 36000 # 10h
       # ADT-Tweak-end
       rules: ghost-role-information-familiar-rules
       raffle:

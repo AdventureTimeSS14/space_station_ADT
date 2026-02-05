@@ -817,11 +817,11 @@
     name: ghost-role-information-willow-name
     description: ghost-role-information-willow-description
     rules: ghost-role-information-nonantagonist-rules
-# ADT-Tweak-start
-    requirements:
-      - !type:OverallPlaytimeRequirement
-        time: 7200 # 2h overall
-# ADT-Tweak-end
+# # ADT-Tweak-start
+#     requirements:
+#       - !type:OverallPlaytimeRequirement # Удалили
+#         time: 7200 # 2h overall
+# # ADT-Tweak-end
   - type: GhostTakeoverAvailable
   - type: Loadout
     prototypes: [ BoxingKangarooGear ]
@@ -902,9 +902,9 @@
     rules: ghost-role-information-nonantagonist-rules
     raffle: null
 # ADT-Tweak-start
-    requirements:
-      - !type:OverallPlaytimeRequirement
-        time: 7200 # 2h overall
+    # requirements:
+    #   - !type:OverallPlaytimeRequirement УДАЛИЛИ
+    #     time: 7200 # 2h overall
   - type: Prying
     pryPowered: false
     force: false
@@ -934,9 +934,9 @@
     description: ghost-role-information-punpun-description
     rules: ghost-role-information-nonantagonist-rules
 # ADT-Tweak-start
-    requirements:
-      - !type:OverallPlaytimeRequirement
-        time: 7200 # 2h overall
+    # requirements:
+    #   - !type:OverallPlaytimeRequirement # Удалили
+    #     time: 7200 # 2h overall
 # ADT-Tweak-end
   - type: GhostTakeoverAvailable
   - type: Butcherable

@@ -38,9 +38,9 @@
     description: ghost-role-information-skeleton-biker-description
     rules: ghost-role-information-freeagent-rules
 # ADT-Tweak-start
-    requirements:
-      - !type:OverallPlaytimeRequirement
-        time: 7200 # 2h overall
+    # requirements:
+    #   - !type:OverallPlaytimeRequirement # Удалили
+    #     time: 7200 # 2h overall
 # ADT-Tweak-end
     mindRoles:
     - MindRoleGhostRoleFreeAgent
@@ -61,9 +61,9 @@
     description: ghost-role-information-closet-skeleton-description
     rules: ghost-role-information-closet-skeleton-rules # ADT-Tweak
 # ADT-Tweak-start
-    requirements:
-      - !type:OverallPlaytimeRequirement
-        time: 7200 # 2h overall
+    # requirements:
+    #   - !type:OverallPlaytimeRequirement # Удалили
+    #     time: 7200 # 2h overall
 # ADT-Tweak-end
     mindRoles:
     - MindRoleGhostRoleFreeAgent

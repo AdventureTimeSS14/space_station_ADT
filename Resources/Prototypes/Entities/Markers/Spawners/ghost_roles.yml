@@ -113,15 +113,15 @@
     name: ghost-role-information-loneop-name
     description: ghost-role-information-loneop-description
     # ADT-Tweak-start
-    requirements:
-    - !type:DepartmentTimeRequirement
-      department: Medical
-      time: 36000 #10 hrs
-    - !type:DepartmentTimeRequirement
-      department: Security
-      time: 36000 # 10h
-    - !type:OverallPlaytimeRequirement
-      time: 54000 # 15h
+    # requirements:
+    # - !type:DepartmentTimeRequirement # Удалили
+    #   department: Medical
+    #   time: 36000 #10 hrs
+    # - !type:DepartmentTimeRequirement
+    #   department: Security
+    #   time: 36000 # 10h
+    # - !type:OverallPlaytimeRequirement
+    #   time: 54000 # 15h
     # ADT-Tweak-end
     rules: ghost-role-information-loneop-rules
     mindRoles:
@@ -181,9 +181,9 @@
     mindRoles:
     - MindRoleDragon
     # ADT-Tweak-start
-    requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 54000 # 15h
+    # requirements:
+    # - !type:OverallPlaytimeRequirement # Удалили
+    #   time: 54000 # 15h
     # ADT-Tweak-end
   - type: Sprite
     layers:
@@ -201,15 +201,15 @@
     description: ghost-role-information-space-ninja-description
     rules: ghost-role-information-space-ninja-rules
     # ADT-Tweak-start
-    requirements:
-    - !type:DepartmentTimeRequirement
-      department: Medical
-      time: 18000 # 5h
-    - !type:DepartmentTimeRequirement
-      department: Security
-      time: 36000 # 10h
-    - !type:OverallPlaytimeRequirement
-      time: 90000 # adt tweak 2h > 25h
+    # requirements:
+    # - !type:DepartmentTimeRequirement # Удалили
+    #   department: Medical
+    #   time: 18000 # 5h
+    # - !type:DepartmentTimeRequirement
+    #   department: Security
+    #   time: 36000 # 10h
+    # - !type:OverallPlaytimeRequirement
+    #   time: 90000 # adt tweak 2h > 25h
     # ADT-Tweak-end
     mindRoles:
     - MindRoleNinja
@@ -263,9 +263,9 @@
     name: ghost-role-information-derelict-cyborg-name
     description: ghost-role-information-derelict-cyborg-description
     # ADT-Tweak-start
-    requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 18000 # 5h
+    # requirements:
+    # - !type:OverallPlaytimeRequirement # Удалили
+    #   time: 18000 # 5h
     # ADT-Tweak-end
     rules: ghost-role-information-silicon-rules
     mindRoles:
