@@ -16,7 +16,11 @@
     - !type:DepartmentTimeRequirement
       department: Security
       time: 50h # Corvax-RoleTime 10
-    - !type:SpeciesRequirement # ADT-Fix
+    - !type:TraitsRequirement #Corvax-TraitsRequirement
+      inverted: true
+      traits:
+      - Muted
+    - !type:SpeciesRequirement # ADT-Tweak
       inverted: true
       species:
       - Resomi

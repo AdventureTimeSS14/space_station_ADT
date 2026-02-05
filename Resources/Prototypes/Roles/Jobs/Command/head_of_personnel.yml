@@ -21,7 +21,11 @@
 #      time: 2.5h
     - !type:OverallPlaytimeRequirement
       time: 50h # Corvax-RoleTime
-    - !type:SpeciesRequirement # ADT-Fix
+    - !type:TraitsRequirement #Corvax-TraitsRequirement
+      inverted: true
+      traits:
+      - Muted
+    - !type:SpeciesRequirement # ADT-Tweak
       inverted: true
       species:
       - Vox
