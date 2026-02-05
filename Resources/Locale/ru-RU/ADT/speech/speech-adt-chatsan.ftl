@@ -72,23 +72,26 @@ accent-adt_chatsanitize-replace-20 = легко
 accent-adt_chatsanitize-words-21 = рофл
 accent-adt_chatsanitize-replace-21 = шутка
 
-accent-adt_chatsanitize-words-22-1 = кринж
-accent-adt_chatsanitize-words-22-2 = кринжа
-accent-adt_chatsanitize-words-22-3 = кринжую
-accent-adt_chatsanitize-words-22-4 = кринжовать
-accent-adt_chatsanitize-replace-22 = испанский стыд
+accent-adt_chatsanitize-words-22 = рофлю
+accent-adt_chatsanitize-replace-22 = шучу
 
-accent-adt_chatsanitize-words-23 = апнул
-accent-adt_chatsanitize-replace-23 = повысил
+accent-adt_chatsanitize-words-23-1 = кринж
+accent-adt_chatsanitize-words-23-2 = кринжа
+accent-adt_chatsanitize-words-23-3 = кринжую
+accent-adt_chatsanitize-words-23-4 = кринжовать
+accent-adt_chatsanitize-replace-23 = испанский стыд
 
-accent-adt_chatsanitize-words-24-1 = офни
-accent-adt_chatsanitize-words-24-2 = оффни
-accent-adt_chatsanitize-replace-24 = выключи
+accent-adt_chatsanitize-words-24 = апнул
+accent-adt_chatsanitize-replace-24 = повысил
 
-accent-adt_chatsanitize-words-25-1 = оффнул
-accent-adt_chatsanitize-words-25-2 = офнул
-accent-adt_chatsanitize-replace-25 = выключил
+accent-adt_chatsanitize-words-25-1 = офни
+accent-adt_chatsanitize-words-25-2 = оффни
+accent-adt_chatsanitize-replace-25 = выключи
 
-accent-adt_chatsanitize-words-26-1 = чек
-accent-adt_chatsanitize-words-26-2 = чекай
-accent-adt_chatsanitize-replace-26 = смотри
+accent-adt_chatsanitize-words-26-1 = оффнул
+accent-adt_chatsanitize-words-26-2 = офнул
+accent-adt_chatsanitize-replace-26 = выключил
+
+accent-adt_chatsanitize-words-27-1 = чек
+accent-adt_chatsanitize-words-27-2 = чекай
+accent-adt_chatsanitize-replace-27 = смотри
