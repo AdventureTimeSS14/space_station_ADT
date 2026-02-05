@@ -14,7 +14,7 @@ using Content.Shared.Database;
 
 namespace Content.Server.GameTicking.Rules;
 
-public sealed class DynamicRuleSystem : GameRuleSystem<DynamicRuleComponent>
+public sealed class ADTDynamicRuleSystem : GameRuleSystem<ADTDynamicRuleComponent>
 {
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IAdminLogManager _adminLog = default!;
@@ -27,7 +27,7 @@ public sealed class DynamicRuleSystem : GameRuleSystem<DynamicRuleComponent>
         base.Initialize();
     }
 
-    protected override void Added(EntityUid uid, DynamicRuleComponent component, GameRuleComponent gameRule, GameRuleAddedEvent args)
+    protected override void Added(EntityUid uid, ADTDynamicRuleComponent component, GameRuleComponent gameRule, GameRuleAddedEvent args)
     {
         base.Added(uid, component, gameRule, args);
 
@@ -84,7 +84,7 @@ public sealed class DynamicRuleSystem : GameRuleSystem<DynamicRuleComponent>
     public List<EntityUid> GetDynamicRules()
     {
         var rules = new List<EntityUid>();
-        var query = EntityQueryEnumerator<DynamicRuleComponent, GameRuleComponent>();
+        var query = EntityQueryEnumerator<ADTDynamicRuleComponent, GameRuleComponent>();
         while (query.MoveNext(out var uid, out _, out var comp))
         {
             if (!GameTicker.IsGameRuleActive(uid, comp))
@@ -95,7 +95,7 @@ public sealed class DynamicRuleSystem : GameRuleSystem<DynamicRuleComponent>
         return rules;
     }
 
-    public float? GetRuleBudget(Entity<DynamicRuleComponent?> entity)
+    public float? GetRuleBudget(Entity<ADTDynamicRuleComponent?> entity)
     {
         if (!Resolve(entity, ref entity.Comp))
             return null;
@@ -104,7 +104,7 @@ public sealed class DynamicRuleSystem : GameRuleSystem<DynamicRuleComponent>
         return entity.Comp.Budget;
     }
 
-    private void UpdateBudget(Entity<DynamicRuleComponent> entity)
+    private void UpdateBudget(Entity<ADTDynamicRuleComponent> entity)
     {
         var duration = (float) (Timing.CurTime - entity.Comp.LastBudgetUpdate).TotalSeconds;
 
@@ -112,7 +112,7 @@ public sealed class DynamicRuleSystem : GameRuleSystem<DynamicRuleComponent>
         entity.Comp.LastBudgetUpdate = Timing.CurTime;
     }
 
-    public float? AdjustBudget(Entity<DynamicRuleComponent?> entity, float amount)
+    public float? AdjustBudget(Entity<ADTDynamicRuleComponent?> entity, float amount)
     {
         if (!Resolve(entity, ref entity.Comp))
             return null;
@@ -122,7 +122,7 @@ public sealed class DynamicRuleSystem : GameRuleSystem<DynamicRuleComponent>
         return entity.Comp.Budget;
     }
 
-    public float? SetBudget(Entity<DynamicRuleComponent?> entity, float amount)
+    public float? SetBudget(Entity<ADTDynamicRuleComponent?> entity, float amount)
     {
         if (!Resolve(entity, ref entity.Comp))
             return null;
@@ -132,7 +132,7 @@ public sealed class DynamicRuleSystem : GameRuleSystem<DynamicRuleComponent>
         return entity.Comp.Budget;
     }
 
-    private IEnumerable<EntProtoId> GetRuleSpawns(Entity<DynamicRuleComponent> entity)
+    private IEnumerable<EntProtoId> GetRuleSpawns(Entity<ADTDynamicRuleComponent> entity)
     {
         UpdateBudget((entity.Owner, entity.Comp));
         var ctx = new EntityTableContext(new Dictionary<string, object>
@@ -143,7 +143,7 @@ public sealed class DynamicRuleSystem : GameRuleSystem<DynamicRuleComponent>
         return _entityTable.GetSpawns(entity.Comp.Table, ctx: ctx);
     }
 
-    public IEnumerable<EntProtoId> DryRun(Entity<DynamicRuleComponent?> entity)
+    public IEnumerable<EntProtoId> DryRun(Entity<ADTDynamicRuleComponent?> entity)
     {
         if (!Resolve(entity, ref entity.Comp))
             return new List<EntProtoId>();
@@ -157,7 +157,7 @@ public sealed class DynamicRuleSystem : GameRuleSystem<DynamicRuleComponent>
     /// <returns>
     /// Returns a list of the rules that were executed.
     /// </returns>
-    private List<EntityUid> Execute(Entity<DynamicRuleComponent> entity)
+    private List<EntityUid> Execute(Entity<ADTDynamicRuleComponent> entity)
     {
         entity.Comp.NextRuleTime =
             Timing.CurTime + _random.Next(entity.Comp.MinRuleInterval, entity.Comp.MaxRuleInterval);
@@ -171,7 +171,7 @@ public sealed class DynamicRuleSystem : GameRuleSystem<DynamicRuleComponent>
 
             executedRules.Add(ruleUid);
 
-            if (TryComp<DynamicRuleCostComponent>(ruleUid, out var cost))
+            if (TryComp<ADTDynamicRuleCostComponent>(ruleUid, out var cost))
             {
                 entity.Comp.Budget -= cost.Cost;
                 _adminLog.Add(LogType.EventRan, LogImpact.High, $"{ToPrettyString(entity)} ran rule {ToPrettyString(ruleUid)} with cost {cost.Cost} on budget {entity.Comp.Budget}.");

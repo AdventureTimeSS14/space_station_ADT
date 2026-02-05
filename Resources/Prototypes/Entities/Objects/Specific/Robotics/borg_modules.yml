@@ -631,7 +631,7 @@
     - state: cargo
     - state: icon-mining-adv
   - type: ItemBorgModule
-    items:
+    hands:
     - MiningDrillDiamond
     - Shovel
     - AdvancedMineralScannerUnpowered

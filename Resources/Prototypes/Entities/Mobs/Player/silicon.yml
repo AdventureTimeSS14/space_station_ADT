@@ -848,7 +848,6 @@
       borg_module:
       - BorgModuleTool #No fire extinguisher, traversal is better
       - BorgModuleMining
-      - BorgModuleTraversal
       - BorgModuleAppraisal
   - type: ItemSlots
     slots:

@@ -17,7 +17,7 @@
     - state: security
     - state: icons-detentions
   - type: ItemBorgModule
-    items:
+    hands:
     - ADTInfCablecuffs
     - ADTtelescopicBaton
     - ADTBorgflash
@@ -32,7 +32,7 @@
     - state: security
     - state: icons-harm
   - type: ItemBorgModule
-    items:
+    hands:
     - Truncheon
     - ADTWeaponLaserCarbineBorg
 
@@ -46,7 +46,7 @@
     - state: security
     - state: icons-disabler
   - type: ItemBorgModule
-    items:
+    hands:
     - ADTInfCablecuffs
     - ADTWeaponDisablerBorg
 
@@ -61,7 +61,7 @@
     - state: engineering
     - state: icon-rpd
   - type: ItemBorgModule
-    items:
+    hands:
     - ADTRPDRecharging
     - GasAnalyzer
     - HolofanProjectorBorg
@@ -85,7 +85,7 @@
       whitelist:
         tags:
         - PKA
-    items:
+    hands:
     - WeaponGrapplingGun
     - BorgHandheldGPSBasic
     - HandHeldMassScannerBorg
@@ -105,7 +105,7 @@
     - state: medical
     - state: icon-chem
   - type: ItemBorgModule
-    items:
+    hands:
     - HandheldHealthAnalyzerUnpowered
     - Syringe
     - Syringe
@@ -123,7 +123,7 @@
     - state: medical
     - state: icon-chemist
   - type: ItemBorgModule
-    items:
+    hands:
     - HandheldHealthAnalyzerUnpowered
     - BorgHypo
     - BorgDropper
@@ -139,7 +139,7 @@
   name: rescue cyborg module
   components:
   - type: ItemBorgModule
-    items:
+    hands:
     - HandheldHealthAnalyzerUnpowered
     - BorgFireExtinguisher
     - BorgHandheldGPSBasic
