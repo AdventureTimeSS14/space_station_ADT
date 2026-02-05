@@ -28,7 +28,6 @@
       - id: BurnAutoInjector
       - id: RadAutoInjector
       - id: AntiPoisonMedipen
-      - id: Gauze10Lingering
       - id: RegenerativeMesh
       - id: MedicatedSuture
       - id: Bloodpack
