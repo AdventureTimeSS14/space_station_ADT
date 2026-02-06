@@ -825,3 +825,9 @@ ADTClothingUniformGuardOfficer: ADTClothingUniformCorrectionsOfficer
 # ADT 2025-11-08
 ChemDispenser: EnergyChemDispenser
 ChemDispenserEmpty: EnergyChemDispenser
+
+# ADT 2026-01-06
+ADTSpawnMobXenoBurrower: SpawnMobXenoBurrower
+ADTSpawnMobXenoDrone: SpawnMobXenoDrone
+ADTSpawnMobXenoQueen: SpawnMobXenoQueen
+ADTSpawnMobXenoRavager: SpawnMobXenoRavager

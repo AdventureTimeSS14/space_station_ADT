@@ -165,6 +165,13 @@
   components:
   - type: Sprite
     sprite: ADT/Objects/Consumable/Smokeables/Cigarettes/we_ya_gold_packet.rsi
+  - type: Storage
+    grid:
+    - 0,0,9,1
+    whitelist:
+      tags:
+      - Cigarette
+      - ADTLighter
   - type: StorageFill
     contents:
     - id: ADTWeYaGoldCigarette
@@ -180,6 +187,13 @@
   components:
   - type: Sprite
     sprite: ADT/Objects/Consumable/Smokeables/Cigarettes/executive_select_packet.rsi
+  - type: Storage
+    grid:
+    - 0,0,9,1
+    whitelist:
+      tags:
+      - Cigarette
+      - ADTLighter
   - type: StorageFill
     contents:
     - id: ADTExecutiveSelectCigarette

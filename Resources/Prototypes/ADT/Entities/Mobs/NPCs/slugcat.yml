@@ -1,7 +1,7 @@
 - type: entity
   name: Slug Cat
   parent: SimpleMobBase
-  id: ADTMobSlugCatCreek
+  id: ADTMobSlugCatRivulet
   description: An amazing creature that looks like a cat and a slug at the same time. But it's not a slug, if you look closely you'll realize it just has very slippery skin. Very agile and clever.
   components:
   - type: SlimecatsSleepAction
@@ -10,10 +10,10 @@
     sprite: ADT/Mobs/slug-cat.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
-      state: creek
+      state: rivulet
     - map: ["enum.StateSlimcatVisual.Sleep"]
       visible: false
-      state: creek-rest
+      state: rest-rivulet
     - map: [ "mask" ]
   - type: Fixtures
     fixtures:
@@ -35,11 +35,11 @@
   - type: DamageStateVisuals
     states:
       Alive:
-        Base: creek
+        Base: rivulet
       Critical:
-        Base: dead-creek
+        Base: crit-rivulet
       Dead:
-        Base: dead-creek
+        Base: dead-rivulet
   - type: Butcherable
     spawned:
     - id: FoodMeat
@@ -112,30 +112,30 @@
 
 - type: entity
   name: Slug Cat
-  parent: ADTMobSlugCatCreek
-  id: ADTMobSlugCatHoly
+  parent: ADTMobSlugCatRivulet
+  id: ADTMobSlugCatSaint
   description: cat
   components:
   - type: Sprite
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
-      state: holy
+      state: saint
     - map: ["enum.StateSlimcatVisual.Sleep"]
       visible: false
-      state: holy-rest
+      state: rest-saint
   - type: DamageStateVisuals
     states:
       Alive:
-        Base: holy
+        Base: saint
       Critical:
-        Base: dead-holy
+        Base: crit-saint
       Dead:
-        Base: dead-holy
+        Base: dead-saint
 
 
 - type: entity
   name: Slug Cat
-  parent: ADTMobSlugCatCreek
+  parent: ADTMobSlugCatRivulet
   id: ADTMobSlugCatMonk
   description: cat
   components:
@@ -145,19 +145,19 @@
       state: monk
     - map: ["enum.StateSlimcatVisual.Sleep"]
       visible: false
-      state: monk-rest
+      state: rest-monk
   - type: DamageStateVisuals
     states:
       Alive:
         Base: monk
       Critical:
-        Base: dead-monk
+        Base: crit-monk
       Dead:
         Base: dead-monk
 
 - type: entity
   name: Slug Cat
-  parent: ADTMobSlugCatCreek
+  parent: ADTMobSlugCatRivulet
   id: ADTMobSlugCatSonfariel
   description: cat
   components:
@@ -167,7 +167,7 @@
       state: sonfariel
     - map: ["enum.StateSlimcatVisual.Sleep"]
       visible: false
-      state: sonfariel-rest
+      state: rest-sonfariel
   - type: DamageStateVisuals
     states:
       Alive:
@@ -179,7 +179,7 @@
 
 - type: entity
   name: Slug Cat
-  parent: ADTMobSlugCatCreek
+  parent: ADTMobSlugCatRivulet
   id: ADTMobSlugCatSpearMaster
   description: cat
   components:
@@ -189,34 +189,34 @@
       state: spear-master
     - map: ["enum.StateSlimcatVisual.Sleep"]
       visible: false
-      state: spear-master-rest
+      state: rest-spear-master
   - type: DamageStateVisuals
     states:
       Alive:
         Base: spear-master
       Critical:
-        Base: dead-spear-master
+        Base: crit-spear-master
       Dead:
         Base: dead-spear-master
 
 - type: entity
   name: Slug Cat
-  parent: ADTMobSlugCatCreek
-  id: ADTMobSlugCatTechnician
+  parent: ADTMobSlugCatRivulet
+  id: ADTMobSlugCatArtificer
   description: cat
   components:
   - type: Sprite
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
-      state: technician
+      state: artificer
     - map: ["enum.StateSlimcatVisual.Sleep"]
       visible: false
-      state: technician-rest
+      state: rest-artificer
   - type: DamageStateVisuals
     states:
       Alive:
-        Base: technician
+        Base: artificer
       Critical:
-        Base: dead-technician
+        Base: crit-artificer
       Dead:
-        Base: dead-technician
+        Base: dead-artificer

@@ -1,3 +1,13 @@
+# SpaceAsshole Time
+- type: loadoutEffectGroup
+  id: SpaceAssholeTider
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobPassenger
+      time: 36000 #10 hrs
+
 # PDA
 - type: loadout
   id: PassengerPDA
@@ -60,3 +70,12 @@
   id: ADTClothingUniformJumpsuitHawaiBlack
   equipment:
     jumpsuit: ClothingUniformJumpsuitHawaiBlack
+
+# Outerclothing
+- type: loadout
+  id: ADTClothingOuterCoatSpaceAsshole
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SpaceAssholeTider
+  equipment:
+    outerClothing: ClothingOuterCoatSpaceAsshole

@@ -1,5 +1,5 @@
 {
-    "version": 1,
+    "version": 2,
     "license": "CC-BY-SA-3.0",
     "copyright": "JustKekc & moroz_3",
     "size": {
@@ -11,6 +11,7 @@
         { "name": "cheeks", "directions": 4 },
         { "name": "mustache", "directions": 4 },
         { "name": "mustache_2", "directions": 4 },
-        { "name": "mustache_3", "directions": 4 }
+        { "name": "mustache_3", "directions": 4 },
+        { "name": "mustache_4", "directions": 4 }
     ]
 }

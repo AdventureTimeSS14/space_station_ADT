@@ -2,7 +2,7 @@
 - type: marking
   id: GauzeLefteyePatch
   bodyPart: Eyes
-  markingCategory: Overlay
+  markingCategory: OverlayBandage # ADT-Tweak
   speciesRestriction: [Dwarf, Human, Arachnid, VulpkaninSpecies] # ADT-Tweak
   coloring:
     default:
@@ -16,7 +16,7 @@
 - type: marking
   id: GauzeLefteyePad
   bodyPart: Eyes
-  markingCategory: Overlay
+  markingCategory: OverlayBandage # ADT-Tweak
   speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, VulpkaninSpecies] # ADT-Tweak
   coloring:
     default:
@@ -30,7 +30,7 @@
 - type: marking
   id: GauzeRighteyePatch
   bodyPart: Eyes
-  markingCategory: Overlay
+  markingCategory: OverlayBandage # ADT-Tweak
   speciesRestriction: [Dwarf, Human, Arachnid, VulpkaninSpecies] # ADT-Tweak
   coloring:
     default:
@@ -44,7 +44,7 @@
 - type: marking
   id: GauzeRighteyePad
   bodyPart: Eyes
-  markingCategory: Overlay
+  markingCategory: OverlayBandage # ADT-Tweak
   speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, VulpkaninSpecies] # ADT-Tweak
   coloring:
     default:
@@ -58,7 +58,7 @@
 - type: marking
   id: GauzeBlindfold
   bodyPart: Eyes
-  markingCategory: Overlay
+  markingCategory: OverlayBandage # ADT-Tweak
   speciesRestriction: [Dwarf, Human, Arachnid, VulpkaninSpecies] # ADT-Tweak
   coloring:
     default:
@@ -72,7 +72,7 @@
 - type: marking
   id: GauzeShoulder
   bodyPart: Chest
-  markingCategory: Overlay
+  markingCategory: OverlayBandage # ADT-Tweak
   speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, VulpkaninSpecies] # ADT-Tweak
   coloring:
     default:
@@ -82,11 +82,11 @@
   sprites:
   - sprite: Mobs/Customization/gauze.rsi
     state: gauze_shoulder
-    
+
 - type: marking
   id: GauzeStomach
   bodyPart: Chest
-  markingCategory: Overlay
+  markingCategory: OverlayBandage # ADT-Tweak
   speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, VulpkaninSpecies] # ADT-Tweak
   coloring:
     default:
@@ -100,7 +100,7 @@
 - type: marking
   id: GauzeUpperArmRight
   bodyPart: RArm
-  markingCategory: Overlay
+  markingCategory: OverlayBandage # ADT-Tweak
   speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, VulpkaninSpecies] # ADT-Tweak
   coloring:
     default:
@@ -114,7 +114,7 @@
 - type: marking
   id: GauzeLowerArmRight
   bodyPart: RArm, RHand
-  markingCategory: Overlay
+  markingCategory: OverlayBandage # ADT-Tweak
   speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, VulpkaninSpecies] # ADT-Tweak
   coloring:
     default:
@@ -128,7 +128,7 @@
 - type: marking
   id: GauzeLeftArm
   bodyPart: LArm, LHand
-  markingCategory: Overlay
+  markingCategory: OverlayBandage # ADT-Tweak
   speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, VulpkaninSpecies] # ADT-Tweak
   coloring:
     default:
@@ -142,7 +142,7 @@
 - type: marking
   id: GauzeLowerLegLeft
   bodyPart: LFoot
-  markingCategory: Overlay
+  markingCategory: OverlayBandage # ADT-Tweak
   speciesRestriction: [Dwarf, Human, Arachnid] # ADT-Tweak
   coloring:
     default:
@@ -156,7 +156,7 @@
 - type: marking
   id: GauzeUpperLegLeft
   bodyPart: LLeg
-  markingCategory: Overlay
+  markingCategory: OverlayBandage # ADT-Tweak
   speciesRestriction: [Dwarf, Human, Reptilian, Arachnid] # ADT-Tweak
   coloring:
     default:
@@ -170,7 +170,7 @@
 - type: marking
   id: GauzeUpperLegRight
   bodyPart: RLeg
-  markingCategory: Overlay
+  markingCategory: OverlayBandage # ADT-Tweak
   speciesRestriction: [Dwarf, Human, Reptilian, Arachnid] # ADT-Tweak
   coloring:
     default:
@@ -180,11 +180,11 @@
   sprites:
   - sprite: Mobs/Customization/gauze.rsi
     state: gauze_upperleg_r
-    
+
 - type: marking
   id: GauzeLowerLegRight
   bodyPart: RFoot
-  markingCategory: Overlay
+  markingCategory: OverlayBandage # ADT-Tweak
   speciesRestriction: [Dwarf, Human, Arachnid] # ADT-Tweak
   coloring:
     default:
@@ -194,11 +194,11 @@
   sprites:
   - sprite: Mobs/Customization/gauze.rsi
     state: gauze_lowerleg_r
-    
+
 - type: marking
   id: GauzeBoxerWrapRight
   bodyPart: RHand
-  markingCategory: Overlay
+  markingCategory: OverlayBandage # ADT-Tweak
   speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, VulpkaninSpecies] # ADT-Tweak
   coloring:
     default:
@@ -208,11 +208,11 @@
   sprites:
   - sprite: Mobs/Customization/gauze.rsi
     state: gauze_boxerwrap_r
-    
+
 - type: marking
   id: GauzeBoxerWrapLeft
   bodyPart: LHand
-  markingCategory: Overlay
+  markingCategory: OverlayBandage # ADT-Tweak
   speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, VulpkaninSpecies] # ADT-Tweak
   coloring:
     default:
@@ -226,7 +226,7 @@
 - type: marking
   id: GauzeHead
   bodyPart: Head
-  markingCategory: Overlay
+  markingCategory: OverlayBandage # ADT-Tweak
   speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, Moth, VulpkaninSpecies] # ADT-Tweak
   coloring:
     default:
@@ -241,7 +241,7 @@
 - type: marking
   id: GauzeLizardLefteyePatch
   bodyPart: Eyes
-  markingCategory: Overlay
+  markingCategory: OverlayBandage # ADT-Tweak
   speciesRestriction: [Reptilian, KoboltSpecies] #ADT везде добавил спешил кобальдов, т.к. все маркинги от унатхов им тоже подходят
   coloring:
     default:
@@ -255,7 +255,7 @@
 - type: marking
   id: GauzeLizardRighteyePatch
   bodyPart: Eyes
-  markingCategory: Overlay
+  markingCategory: OverlayBandage # ADT-Tweak
   speciesRestriction: [Reptilian, KoboltSpecies] #ADT Tweak
   coloring:
     default:
@@ -269,7 +269,7 @@
 - type: marking
   id: GauzeLizardFootRight
   bodyPart: RFoot
-  markingCategory: Overlay
+  markingCategory: OverlayBandage # ADT-Tweak
   speciesRestriction: [Reptilian, KoboltSpecies] #ADT Tweak
   coloring:
     default:
@@ -283,7 +283,7 @@
 - type: marking
   id: GauzeLizardFootLeft
   bodyPart: LFoot
-  markingCategory: Overlay
+  markingCategory: OverlayBandage # ADT-Tweak
   speciesRestriction: [Reptilian, KoboltSpecies] #ADT Tweak
   coloring:
     default:
@@ -297,7 +297,7 @@
 - type: marking
   id: GauzeLizardBlindfold
   bodyPart: Eyes
-  markingCategory: Overlay
+  markingCategory: OverlayBandage # ADT-Tweak
   speciesRestriction: [Reptilian, KoboltSpecies] #ADT Tweak
   coloring:
     default:
@@ -312,7 +312,7 @@
 - type: marking
   id: GauzeMothBlindfold
   bodyPart: Eyes
-  markingCategory: Overlay
+  markingCategory: OverlayBandage # ADT-Tweak
   speciesRestriction: [Moth]
   coloring:
     default:
@@ -326,7 +326,7 @@
 - type: marking
   id: GauzeMothShoulder
   bodyPart: Chest
-  markingCategory: Overlay
+  markingCategory: OverlayBandage # ADT-Tweak
   speciesRestriction: [Moth]
   coloring:
     default:
@@ -340,7 +340,7 @@
 - type: marking
   id: GauzeMothStomach
   bodyPart: Chest
-  markingCategory: Overlay
+  markingCategory: OverlayBandage # ADT-Tweak
   speciesRestriction: [Moth]
   coloring:
     default:
@@ -354,7 +354,7 @@
 - type: marking
   id: GauzeMothLeftEyePatch
   bodyPart: Eyes
-  markingCategory: Overlay
+  markingCategory: OverlayBandage # ADT-Tweak
   speciesRestriction: [Moth]
   coloring:
     default:
@@ -368,7 +368,7 @@
 - type: marking
   id: GauzeMothLeftEyePad
   bodyPart: Eyes
-  markingCategory: Overlay
+  markingCategory: OverlayBandage # ADT-Tweak
   speciesRestriction: [Moth]
   coloring:
     default:
@@ -382,7 +382,7 @@
 - type: marking
   id: GauzeMothRightEyePatch
   bodyPart: Eyes
-  markingCategory: Overlay
+  markingCategory: OverlayBandage # ADT-Tweak
   speciesRestriction: [Moth]
   coloring:
     default:
@@ -396,7 +396,7 @@
 - type: marking
   id: GauzeMothRightEyePad
   bodyPart: Eyes
-  markingCategory: Overlay
+  markingCategory: OverlayBandage # ADT-Tweak
   speciesRestriction: [Moth]
   coloring:
     default:
@@ -410,7 +410,7 @@
 - type: marking
   id: GauzeMothUpperArmRight
   bodyPart: RArm
-  markingCategory: Overlay
+  markingCategory: OverlayBandage # ADT-Tweak
   speciesRestriction: [Moth]
   coloring:
     default:
@@ -424,7 +424,7 @@
 - type: marking
   id: GauzeMothUpperArmLeft
   bodyPart: LArm
-  markingCategory: Overlay
+  markingCategory: OverlayBandage # ADT-Tweak
   speciesRestriction: [Moth]
   coloring:
     default:
@@ -438,7 +438,7 @@
 - type: marking
   id: GauzeMothUpperLegRight
   bodyPart: RLeg
-  markingCategory: Overlay
+  markingCategory: OverlayBandage # ADT-Tweak
   speciesRestriction: [Moth]
   coloring:
     default:
@@ -452,7 +452,7 @@
 - type: marking
   id: GauzeMothUpperLegLeft
   bodyPart: LLeg
-  markingCategory: Overlay
+  markingCategory: OverlayBandage # ADT-Tweak
   speciesRestriction: [Moth]
   coloring:
     default:
@@ -466,7 +466,7 @@
 - type: marking
   id: GauzeMothLowerLegRight
   bodyPart: RFoot
-  markingCategory: Overlay
+  markingCategory: OverlayBandage # ADT-Tweak
   speciesRestriction: [Moth]
   coloring:
     default:
@@ -480,7 +480,7 @@
 - type: marking
   id: GauzeMothLowerLegLeft
   bodyPart: LFoot
-  markingCategory: Overlay
+  markingCategory: OverlayBandage # ADT-Tweak
   speciesRestriction: [Moth]
   coloring:
     default:
