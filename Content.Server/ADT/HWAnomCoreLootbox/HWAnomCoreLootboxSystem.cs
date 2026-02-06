@@ -59,7 +59,8 @@ namespace Content.Server.ADT.HWAnomCoreLootbox
         }
         private void OnDoAfter(Entity<HWAnomCoreLootboxComponent> ent, ref HWAnomCoreLootboxDoAfterEvent args)
         {
-            float choosenumber = _random.NextFloat(1f, 10f);
+            _audio.PlayPvs(ent.Comp.DoAfterSound, ent);
+            float choosenumber = _random.NextFloat(0f, 11f);
             switch (choosenumber)
             {
                 case > 0f and < 4f:
@@ -90,6 +91,13 @@ namespace Content.Server.ADT.HWAnomCoreLootbox
             if (!HasComp<ChaplainComponent>(uid))
             {
                 EnsureComp<ChaplainComponent>(uid);
+                var msg = Loc.GetString("anombook-church-popup",("player", uid));
+                _popupSystem.PopupEntity(msg, uid, uid);
+            }
+            else
+            {
+                var msg = Loc.GetString("anombook-nothing-heppend",("player", uid));
+                _popupSystem.PopupEntity(msg, uid, uid);
             }
         }
 
@@ -97,6 +105,8 @@ namespace Content.Server.ADT.HWAnomCoreLootbox
         {
             if (!HasComp<HWAnomCoreLootboxComponent>(comp.Owner))
                 return;
+            var msg = Loc.GetString("anombook-blind-popup",("player", user));
+            _popupSystem.PopupEntity(msg, user, user);
             _status.TryAddStatusEffect<TemporaryBlindnessComponent>(user, TemporaryBlindnessSystem.BlindingStatusEffect, TimeSpan.FromSeconds(comp.Settings.Duration), true);
         }
 
@@ -105,6 +115,13 @@ namespace Content.Server.ADT.HWAnomCoreLootbox
             if (!HasComp<HemophiliaComponent>(uid))
             {
                 EnsureComp<HemophiliaComponent>(uid);
+                var msg = Loc.GetString("anombook-gemophilia-popup",("player", uid));
+                _popupSystem.PopupEntity(msg, uid, uid);
+            }
+            else
+            {
+                var msg = Loc.GetString("anombook-nothing-heppend",("player", uid));
+                _popupSystem.PopupEntity(msg, uid, uid);
             }
         }
 
@@ -113,6 +130,13 @@ namespace Content.Server.ADT.HWAnomCoreLootbox
             if (!HasComp<ParacusiaComponent>(uid))
             {
                 EnsureComp<ParacusiaComponent>(uid);
+                var msg = Loc.GetString("anombook-parakuzia-popup",("player", uid));
+                _popupSystem.PopupEntity(msg, uid, uid);
+            }
+            else
+            {
+                var msg = Loc.GetString("anombook-nothing-heppend",("player", uid));
+                _popupSystem.PopupEntity(msg, uid, uid);
             }
         }
 

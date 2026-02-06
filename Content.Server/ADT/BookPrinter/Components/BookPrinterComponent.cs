@@ -39,5 +39,9 @@ namespace Content.Server.ADT.BookPrinter.Components
 
         [DataField, ViewVariables(VVAccess.ReadWrite)]
         public float CartridgeUsage = 5.0f;
+
+        public TimeSpan LastUiUpdate;
+
+        public static TimeSpan VisualsChangeDelay = TimeSpan.FromSeconds(1);
     }
 }

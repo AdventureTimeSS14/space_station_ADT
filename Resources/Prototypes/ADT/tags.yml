@@ -8,6 +8,9 @@
   id: ADTMedicalAssemblerStuff
 
 - type: Tag
+  id: ADTStabilizingSerum
+
+- type: Tag
   id: Patch
 
 - type: Tag
@@ -138,6 +141,9 @@
 
 - type: Tag
   id: Tongue
+
+- type: Tag
+  id: Standard
 
 - type: Tag
   id: Poppy
@@ -522,6 +528,9 @@
 - type: Tag
   id: ADTWeaponMeleePrasatChainsword
 
+- type: Tag
+  id: ADTKeyPangaariBike
+
 #sponsor_items - End
 
 - type: Tag
@@ -691,3 +700,25 @@
 
 - type: Tag
   id: VoxFood
+
+- type: Tag
+  id: ADTCopperOre
+
+- type: Tag
+  id: ADTZincOre
+
+- type: Tag
+  id: ADTLeadOre
+
+- type: Tag
+  id: ScrapAirlock1
+
+- type: Tag
+  id: ScrapAirlock2
+
+- type: Tag
+  id: ADTOreBS
+
+- type: Tag
+  id: ADTClosedRadio
+

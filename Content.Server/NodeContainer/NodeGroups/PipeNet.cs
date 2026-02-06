@@ -51,10 +51,10 @@ namespace Content.Server.NodeContainer.NodeGroups
         {
             _atmosphereSystem?.React(Air, this);
 
-            // ADT-Tweak start
-            var overpressureSystem = _entMan?.EntitySysManager.GetEntitySystem<OverpressurePipeDamageSystem>();
-            overpressureSystem?.Update(this);
-            // ADT-Tweak end
+            // // ADT-Tweak start
+            // var overpressureSystem = _entMan?.EntitySysManager.GetEntitySystem<OverpressurePipeDamageSystem>();
+            // overpressureSystem?.Update(this);
+            // // ADT-Tweak end
         }
 
         public override void LoadNodes(List<Node> groupNodes)

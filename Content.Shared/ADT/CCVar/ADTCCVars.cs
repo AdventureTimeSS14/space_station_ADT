@@ -12,6 +12,9 @@ public sealed class ADTCCVars
     /*
     * Barks
     */
+    public static readonly CVarDef<string> HeadshotUrl =
+        CVarDef.Create("ic.headshot_url", "https://media.discordapp.net/attachments/1446603657255850085", CVar.SERVER | CVar.REPLICATED);
+
     public static readonly CVarDef<bool> BarksEnabled =
         CVarDef.Create("barks.enabled", true, CVar.SERVER | CVar.REPLICATED | CVar.ARCHIVE);
 
@@ -164,7 +167,7 @@ public sealed class ADTCCVars
     ///     Below this threshold, the supermatter can heal damage.
     /// </summary>
     public static readonly CVarDef<float> SupermatterMolePenaltyThreshold =
-        CVarDef.Create("supermatter.mole_penalty_threshold", 1800f, CVar.SERVER);
+        CVarDef.Create("supermatter.mole_penalty_threshold", 100f, CVar.SERVER);
 
     /// <summary>
     ///     Divisor on the amount of oxygen released during atmospheric reactions.
@@ -274,5 +277,22 @@ public sealed class ADTCCVars
 
     public static readonly CVarDef<bool> BookPrinterUploadCooldownEnabled =
         CVarDef.Create("bookprinter.upload_cooldown_enabled", true, CVar.SERVERONLY | CVar.ARCHIVE);
+
+    public static readonly CVarDef<bool> PaySalary =
+        CVarDef.Create("economy.pay_salary", true, CVar.SERVERONLY | CVar.ARCHIVE);
+
+
+
+    /// <summary>
+    /// Whether or not to spawn space whales if the entity is too far away from the station
+    /// </summary>
+    public static readonly CVarDef<bool> SpaceWhaleSpawn =
+        CVarDef.Create("misc.space_whale_spawn", true, CVar.SERVER);
+
+    /// <summary>
+    /// The distance to spawn a space whale from the station
+    /// </summary>
+    public static readonly CVarDef<int> SpaceWhaleSpawnDistance =
+        CVarDef.Create("misc.space_whale_spawn_distance", 1965, CVar.SERVER);
 }
 

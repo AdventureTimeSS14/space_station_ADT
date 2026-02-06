@@ -7,4 +7,6 @@ namespace Content.Shared.ADT.Weapons.Ranged.RunAndGunSpreadModifier;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class RunAndGunBlockerComponent : Component
 {
+    [DataField]
+    public float MaxVelocity = 4.6f;
 }

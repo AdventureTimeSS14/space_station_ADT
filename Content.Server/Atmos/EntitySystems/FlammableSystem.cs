@@ -357,7 +357,7 @@ namespace Content.Server.Atmos.EntitySystems
 
                 var extinguished = new IgnitedEvent();
                 RaiseLocalEvent(uid, ref extinguished);
-            
+
                 //ADT bonfire
                 var ev = new OnFireChangedEvent(flammable.OnFire);
                 RaiseLocalEvent(uid, ref ev);
@@ -419,7 +419,7 @@ namespace Content.Server.Atmos.EntitySystems
                 UpdateAppearance(uid, flammable);
             });
         }
-
+        
         public override void Update(float frameTime)
         {
             // process all fire events

@@ -102,14 +102,17 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
             args.AddLine(text);
         }
 
-        args.AddLine(Loc.GetString("nukeops-list-start"));
+        // ADT-tweak-start
+        /*
+        args.AddLine(Loc.GetString($"{component.LocalePrefix}list-start"));
 
         var antags = _antag.GetAntagIdentifiers(uid);
 
         foreach (var (_, sessionData, name) in antags)
         {
-            args.AddLine(Loc.GetString("nukeops-list-name-user", ("name", name), ("user", sessionData.UserName)));
-        }
+            args.AddLine(Loc.GetString($"{component.LocalePrefix}list-name-user", ("name", name), ("user", sessionData.UserName)));
+        } */
+        //ADT-tweak-end
     }
 
     private void OnNukeExploded(NukeExplodedEvent ev)

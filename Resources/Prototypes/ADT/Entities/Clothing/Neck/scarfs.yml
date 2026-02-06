@@ -42,6 +42,29 @@
 
 - type: entity
   parent: ADTClothingNeckScarfBase
+  id: ADTClothingNeckScarfLongWhite
+  name: long white scarf
+  description: Stylish white checkered long scarf. An ideal winter accessory for those who are well versed in fashion, as well as for those who simply cannot stand when the cold wind blows around their neck.
+  components:
+    - type: Sprite 
+      sprite: ADT/Clothing/Neck/Scarfs/White_long_scarf.rsi
+    - type: Clothing 
+      sprite: ADT/Clothing/Neck/Scarfs/White_long_scarf.rsi
+    - type: Butcherable
+      butcheringType: Knife
+      spawned:
+      - id: MaterialCloth1 
+        amount: 3
+    - type: SolutionContainerManager 
+      solutions:
+        food:
+          maxVol: 15
+          reagents:
+          - ReagentId: Fiber
+            Quantity: 15
+
+- type: entity
+  parent: ADTClothingNeckScarfBase
   id: ADTClothingNeckScarfLongPurple
   name: long purple scarf
   description: Stylish purple checkered long scarf. An ideal winter accessory for those who are well versed in fashion, as well as for those who simply cannot stand when the cold wind blows around their neck.

@@ -4,7 +4,7 @@
   id: SalvageEquipment
   name: research-technology-salvage-equipment
   icon:
-    sprite: Objects/Tools/handdrill.rsi
+    sprite: ADT/Objects/Tools/handdrill.rsi # ADT-tweak: Objects/Tools/handdrill.rsi --> ADT/Objects/Tools/handdrill.rsi
     state: handdrill
   discipline: Industrial
   tier: 1
@@ -223,11 +223,11 @@
   id: MassExcavation
   name: research-technology-excavation
   icon:
-    sprite: Objects/Tools/handdrilldiamond.rsi
+    sprite: ADT/Objects/Tools/handdrilldiamond.rsi # ADT-tweak: Objects/Tools/handdrilldiamond.rsi --> ADT/Objects/Tools/handdrilldiamond.rsi
     state: handdrill
   discipline: Industrial
   tier: 2
-  cost: 12500
+  cost: 32500 # ADT-Tweak 12500 -> 32500
   recipeUnlocks:
     - OreBagOfHolding
     - MiningDrillDiamond
@@ -237,6 +237,7 @@
   position: 4,-1
   requiredTech:
   - SalvageEquipment
+  - AdvSalvageWeapons # ADT-Tweak
   # ADT Research Console Rework end
 
 # Tier 3
@@ -254,6 +255,7 @@
   - ClothingBackpackHolding
   - ClothingBackpackSatchelHolding
   - ClothingBackpackDuffelHolding
+  - ADTBotanistBagOfHolding #ADT-Tweak
 # ADT Research Console Rework start
   position: 2,-3
   requiredTech:

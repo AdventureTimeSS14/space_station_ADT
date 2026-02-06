@@ -569,7 +569,7 @@
   equipment:
     socks: ADTClothingUnderwearSocksKneeComfyViolet
 
-# главы.. ну пусть будет, пока тут только синяя лепеха
+# главы.. ну пусть будет, пока тут только синяя лепеха (Теперь нет)
 
 - type: loadout
   id: ADTUnderwearStockingsBlueshield
@@ -586,6 +586,30 @@
     proto: ADTUnderwearSpeciesRestrictions
   equipment:
     socks: ADTClothingUnderwearSocksBlueshield
+
+- type: loadout
+  id: ADTUnderwearStockingsCentcom
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTUnderwearSpeciesRestrictions
+  equipment:
+    socks: ADTClothingUnderwearSocksThighCentcom
+
+- type: loadout
+  id: ADTUnderwearSocksKneeCentcom
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTUnderwearSpeciesRestrictions
+  equipment:
+    socks: ADTClothingUnderwearSocksKneeCentcom
+
+- type: loadout
+  id: ADTUnderwearSocksCentcom
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTUnderwearSpeciesRestrictions
+  equipment:
+    socks: ADTClothingUnderwearSocksCentcom
 
 # последую запискам Фило... Куча эбанных носков с ТГ. КОТОРЫЕ МЕНЯ ЗАСТВИЛ ПЕРЕНОСИТЬ ИЛЛЮМИ (Знай, что ты злодей)
 

@@ -53,13 +53,11 @@
 - type: damageModifierSet
   id: Shadekin # жертвы ради телепорта
   coefficients:
-    Blunt: 1.2
-    Piercing: 1.2
-    Slash: 1.2
     Cold: 0.7
-    Heat: 0.85
-    Poison: 1
-    Cellular: 1
+    Heat: 1.2
+    Bloodloss: 1.25
+    Shock: 1.2
+    Radiation: 1.25
 
 - type: damageModifierSet
   id: ADTNovakid # новакиж

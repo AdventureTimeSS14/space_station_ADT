@@ -135,7 +135,6 @@
   - ChefOuterClothing
   - Glasses
   # ADT-Tweak-Start
-  - ADTChefPocket1
   - ADTChefPDA
   # ADT-Tweak-End
   # ADT underwear tweak start
@@ -334,7 +333,7 @@
   - QuartermasterOuterClothing
   - QuartermasterShoes
   - Glasses
-  - ADTQuartermasterPDA # ADT-Tweak
+  - ADTQuartermasterPDA # ADT tweak
   # ADT underwear tweak start
   - ADTTopQM
   - ADTBottomQM
@@ -372,7 +371,6 @@
   - GroupTankHarness
   - ADTSalvageSpecialistJumpsuit #ADT Loadouts
   - SalvageSpecialistBackpack
-  - ADTSalvageSpecialistNeck #ADT Loadouts
   - ADTSalvageSpecialistEars # ADT tweak
   - SalvageSpecialistOuterClothing
   - SalvageSpecialistShoes

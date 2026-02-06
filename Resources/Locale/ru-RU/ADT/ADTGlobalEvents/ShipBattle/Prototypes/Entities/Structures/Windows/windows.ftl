@@ -10,3 +10,7 @@ ent-ADTWindowKMTHeavy = укрепленное окно КМТ
 ent-ADTWindowTSFHeavy = укрепленное окно ТСФ
     .desc = Смотри не заляпай. Кровь бойцов КМТ не в счёт.
     .suffix = { "Космические бои, ТСФ" }
+ent-ADTWindowFrameless = безрамное окно
+    .desc = { ent-Window.desc }
+ent-ADTWindowDirectionalFrameless = направленное безрамное окно
+    .desc = { ent-Window.desc }

@@ -6,7 +6,7 @@
   components:
   - type: Sprite
     noRot: true
-    sprite: /Textures/ADT/Structures/Decoration/garbage.rsi
+    sprite: ADT/Objects/Misc/garbage.rsi
     state: garbage
   - type: Damageable
     damageContainer: StructuralInorganic
@@ -17,6 +17,13 @@
     range: 2
     sound:
       path: /Audio/ADT/Ambience/flies_buzzing.ogg
+  - type: Tag
+    tags:
+    - Trash
+  - type: PhysicalComposition
+    materialComposition:
+      Plastic: 250
+      Steel: 250
   - type: Destructible
     thresholds:
       - trigger:

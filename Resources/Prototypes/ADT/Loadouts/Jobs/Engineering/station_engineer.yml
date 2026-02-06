@@ -9,6 +9,11 @@
   equipment:
     id: ADTMechanicPDA
 
+- type: loadout
+  id: ADTWelderPDA
+  equipment:
+    id: ADTWelderPDA
+
 # Glasses
 - type: loadout
   id: ADTEyeWeldingOldStyle

@@ -19,6 +19,7 @@
     capacity: 10
     count: 10
   - type: PacifismAllowedGun
+  - type: GunExecutionBlacklist #ADT-tweak
 
 - type: entity
   name: staff of entrance

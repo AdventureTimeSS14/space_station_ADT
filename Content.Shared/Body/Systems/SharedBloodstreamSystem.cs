@@ -16,7 +16,7 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Random.Helpers;
 using Content.Shared.Rejuvenate;
-using Content.Shared.Speech.EntitySystems;
+using Content.Shared.ADT.Speech.EntitySystems; //ADT-Weakness-Tweak
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
@@ -37,7 +37,7 @@ public abstract class SharedBloodstreamSystem : EntitySystem
     [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
     [Dependency] private readonly SharedDrunkSystem _drunkSystem = default!;
-    [Dependency] private readonly SharedStutteringSystem _stutteringSystem = default!;
+    [Dependency] private readonly SharedWeaknessSystem _weaknessSystem = default!; //ADT-Weakness-Tweak
 
     public override void Initialize()
     {
@@ -104,9 +104,9 @@ public abstract class SharedBloodstreamSystem : EntitySystem
                     uid,
                     (float)bloodstream.AdjustedUpdateInterval.TotalSeconds * 2,
                     applySlur: false);
-                _stutteringSystem.DoStutter(uid, bloodstream.AdjustedUpdateInterval * 2, refresh: false);
+                _weaknessSystem.DoWeakness(uid, bloodstream.AdjustedUpdateInterval * 2, refresh: false); //ADT-Weakness-Tweak
 
-                // storing the drunk and stutter time so we can remove it independently from other effects additions
+                // storing the drunk and weakness time so we can remove it independently from other effects additions
                 bloodstream.StatusTime += bloodstream.AdjustedUpdateInterval * 2;
                 DirtyField(uid, bloodstream, nameof(BloodstreamComponent.StatusTime));
             }
@@ -118,10 +118,10 @@ public abstract class SharedBloodstreamSystem : EntitySystem
                     bloodstream.BloodlossHealDamage * bloodPercentage,
                     ignoreResistances: true, interruptsDoAfters: false);
 
-                // Remove the drunk effect when healthy. Should only remove the amount of drunk and stutter added by low blood level
+                // Remove the drunk effect when healthy. Should only remove the amount of drunk and weakness added by low blood level
                 _drunkSystem.TryRemoveDrunkenessTime(uid, bloodstream.StatusTime.TotalSeconds);
-                _stutteringSystem.DoRemoveStutterTime(uid, bloodstream.StatusTime.TotalSeconds);
-                // Reset the drunk and stutter time to zero
+                _weaknessSystem.DoRemoveWeaknessTime(uid, bloodstream.StatusTime.TotalSeconds); //ADT-Weakness-Tweak
+                // Reset the drunk and weakness time to zero
                 bloodstream.StatusTime = TimeSpan.Zero;
                 DirtyField(uid, bloodstream, nameof(BloodstreamComponent.StatusTime));
             }

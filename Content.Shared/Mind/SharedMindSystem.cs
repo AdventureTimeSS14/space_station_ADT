@@ -14,12 +14,13 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Objectives.Systems;
 using Content.Shared.Players;
 using Content.Shared.Speech;
-
 using Content.Shared.Whitelist;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
+using Content.Shared.ADT.LastWords;
 
 namespace Content.Shared.Mind;
 
@@ -36,6 +37,7 @@ public abstract partial class SharedMindSystem : EntitySystem
 
     [ViewVariables]
     protected readonly Dictionary<NetUserId, EntityUid> UserMinds = new();
+
 
     public override void Initialize()
     {
@@ -221,6 +223,7 @@ public abstract partial class SharedMindSystem : EntitySystem
         var mindId = Spawn(null, MapCoordinates.Nullspace);
         _metadata.SetEntityName(mindId, name == null ? "mind" : $"mind ({name})");
         var mind = EnsureComp<MindComponent>(mindId);
+        EnsureComp<LastWordsComponent>(mindId); //ADT-tweak: последние слова
         mind.CharacterName = name;
         SetUserId(mindId, userId, mind);
 

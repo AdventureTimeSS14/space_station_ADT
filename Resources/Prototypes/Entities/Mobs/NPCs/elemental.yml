@@ -36,6 +36,7 @@
   - type: StatusEffects
     allowed:
     - Stutter
+    - Weakness #ADT-Weakness-Tweak
     - Electrocution
   - type: Pullable
   - type: Tag
@@ -202,7 +203,7 @@
       - SimpleNeutral
   - type: RadiationSource
     intensity: 2
-    slope: 0.3
+# ADT-Tweak  slope: 0.3
   - type: Destructible
     thresholds:
     - trigger:

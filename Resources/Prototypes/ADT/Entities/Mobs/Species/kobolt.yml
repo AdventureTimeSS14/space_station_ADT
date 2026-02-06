@@ -101,32 +101,6 @@
     tallscale: 0.9
     short: true
     shortscale: 0.8
-  - type: Puller  # кобальты мелкие, потому так
-    grabStats:
-      None:
-        requiredHands: 0
-        doaftersToEscape: 0
-        movementSpeedModifier: 0.9
-        escapeAttemptTime: 0
-        setStageTime: 0
-      Soft:
-        requiredHands: 0
-        doaftersToEscape: 1
-        movementSpeedModifier: 0.8
-        escapeAttemptTime: 1
-        setStageTime: 0
-      Hard:
-        requiredHands: 1
-        doaftersToEscape: 2
-        movementSpeedModifier: 0.75
-        escapeAttemptTime: 1
-        setStageTime: 0.75
-      Choke:
-        requiredHands: 2
-        doaftersToEscape: 2
-        movementSpeedModifier: 0.7
-        escapeAttemptTime: 1.25
-        setStageTime: 1.25
   - type: Thieving
     stealthy: false
 

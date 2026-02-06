@@ -1018,10 +1018,6 @@
     maxScanRange: null
     scanDelay: 0
     silent: true
-  # ADT-Tweak-Start
-  - type: NanoChatCard
-    listNumber: false
-  # ADT-Tweak-End
   - type: CartridgeLoader
     uiKey: enum.PdaUiKey.Key
     notificationsEnabled: false
@@ -1047,6 +1043,17 @@
   components:
   - type: Pda
     id: CentcomIDCardDeathsquad
+  - type: Icon
+    state: pda-ds
+  - type: Appearance
+    appearanceDataInit:
+     enum.PdaVisuals.PdaType:
+       !type:String
+       pda-ds
+  - type: PdaBorderColor
+    borderColor: "##1C1C1C"
+    accentHColor: "#2851a4"
+    accentVColor: "#8B0000"
   - type: Tag #  Ignore Chameleon tags
     tags:
     - DoorBumpOpener

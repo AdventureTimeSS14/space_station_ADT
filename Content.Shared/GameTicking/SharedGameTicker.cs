@@ -7,6 +7,8 @@ using Robust.Shared.Serialization.Markdown.Mapping;
 using Robust.Shared.Serialization.Markdown.Value;
 using Robust.Shared.Timing;
 using Robust.Shared.Audio;
+using Content.Shared.Mobs;
+using Content.Shared.FixedPoint;
 
 namespace Content.Shared.GameTicking
 {
@@ -184,6 +186,14 @@ namespace Content.Shared.GameTicking
             public bool Observer;
 
             public bool Connected;
+
+            //ADT-tweak-start
+            public string? LastWords;
+
+            public MobState EntMobState;
+
+            public Dictionary<string, FixedPoint2> DamagePerGroup;
+            //ADT-tweak-end
         }
 
         public string GamemodeTitle { get; }
