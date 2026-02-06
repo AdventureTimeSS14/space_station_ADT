@@ -3,7 +3,7 @@
 - type: marking
   speciesRestriction: [IPC]
   #sponsorOnly: true # Corvax-Sponsors
-  id: ScreenStatic
+  id: ADTIPCScreenStatic
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
@@ -13,7 +13,7 @@
 
 - type: marking
   speciesRestriction: [IPC]
-  id: ScreenBlue
+  id: ADTIPCScreenBlue
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
@@ -24,7 +24,7 @@
 - type: marking
   speciesRestriction: [IPC]
   #sponsorOnly: true # Corvax-Sponsors
-  id: ScreenBreakout
+  id: ADTIPCScreenBreakout
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
@@ -35,7 +35,7 @@
 - type: marking
   speciesRestriction: [IPC]
   #sponsorOnly: true # Corvax-Sponsors
-  id: ScreenEight
+  id: ADTIPCScreenEight
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
@@ -45,7 +45,7 @@
 
 - type: marking
   speciesRestriction: [IPC]
-  id: ScreenGoggles
+  id: ADTIPCScreenGoggles
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
@@ -55,7 +55,7 @@
 
 - type: marking
   speciesRestriction: [IPC]
-  id: ScreenExclaim
+  id: ADTIPCScreenExclaim
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
@@ -65,7 +65,7 @@
 
 - type: marking
   speciesRestriction: [IPC]
-  id: ScreenHeart
+  id: ADTIPCScreenHeart
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
@@ -75,7 +75,7 @@
 
 - type: marking
   speciesRestriction: [IPC]
-  id: ScreenMonoeye
+  id: ADTIPCScreenMonoeye
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
@@ -85,7 +85,7 @@
 
 - type: marking
   speciesRestriction: [IPC]
-  id: ScreenNature
+  id: ADTIPCScreenNature
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
@@ -96,7 +96,7 @@
 - type: marking
   speciesRestriction: [IPC]
   #sponsorOnly: true # Corvax-Sponsors
-  id: ScreenOrange
+  id: ADTIPCScreenOrange
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
@@ -106,7 +106,7 @@
 
 - type: marking
   speciesRestriction: [IPC]
-  id: ScreenPink
+  id: ADTIPCScreenPink
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
@@ -116,7 +116,7 @@
 
 - type: marking
   speciesRestriction: [IPC]
-  id: ScreenQuestion
+  id: ADTIPCScreenQuestion
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
@@ -127,7 +127,7 @@
 - type: marking
   speciesRestriction: [IPC]
   #sponsorOnly: true # Corvax-Sponsors
-  id: ScreenShower
+  id: ADTIPCScreenShower
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
@@ -138,7 +138,7 @@
 - type: marking
   speciesRestriction: [IPC]
   #sponsorOnly: true # Corvax-Sponsors
-  id: ScreenYellow
+  id: ADTIPCScreenYellow
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
@@ -149,7 +149,7 @@
 - type: marking
   speciesRestriction: [IPC]
   #sponsorOnly: true # Corvax-Sponsors
-  id: ScreenScroll
+  id: ADTIPCScreenScroll
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
@@ -159,7 +159,7 @@
 
 - type: marking
   speciesRestriction: [IPC]
-  id: ScreenConsole
+  id: ADTIPCScreenConsole
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
@@ -170,7 +170,7 @@
 - type: marking
   speciesRestriction: [IPC]
   #sponsorOnly: true # Corvax-Sponsors
-  id: ScreenRgb
+  id: ADTIPCScreenRgb
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
@@ -181,7 +181,7 @@
 - type: marking
   speciesRestriction: [IPC]
   #sponsorOnly: true # Corvax-Sponsors
-  id: ScreenGlider
+  id: ADTIPCScreenGlider
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
@@ -192,7 +192,7 @@
 - type: marking
   speciesRestriction: [IPC]
   #sponsorOnly: true # Corvax-Sponsors
-  id: ScreenRainbowhoriz
+  id: ADTIPCScreenRainbowhoriz
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
@@ -203,7 +203,7 @@
 - type: marking
   speciesRestriction: [IPC]
   #sponsorOnly: true # Corvax-Sponsors
-  id: ScreenBsod
+  id: ADTIPCScreenBsod
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
@@ -214,7 +214,7 @@
 - type: marking
   speciesRestriction: [IPC]
   #sponsorOnly: true # Corvax-Sponsors
-  id: ScreenRedtext
+  id: ADTIPCScreenRedtext
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
@@ -225,7 +225,7 @@
 - type: marking
   speciesRestriction: [IPC]
   #sponsorOnly: true # Corvax-Sponsors
-  id: ScreenSinewave
+  id: ADTIPCScreenSinewave
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
@@ -236,7 +236,7 @@
 - type: marking
   speciesRestriction: [IPC]
   #sponsorOnly: true # Corvax-Sponsors
-  id: ScreenSquarewave
+  id: ADTIPCScreenSquarewave
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
@@ -247,7 +247,7 @@
 - type: marking
   speciesRestriction: [IPC]
   #sponsorOnly: true # Corvax-Sponsors
-  id: ScreenEcgwave
+  id: ADTIPCScreenEcgwave
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
@@ -257,7 +257,7 @@
 
 - type: marking
   speciesRestriction: [IPC]
-  id: ScreenEyes
+  id: ADTIPCScreenEyes
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
@@ -267,7 +267,7 @@
 
 - type: marking
   speciesRestriction: [IPC]
-  id: ScreenEyestall
+  id: ADTIPCScreenEyestall
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
@@ -277,7 +277,7 @@
 
 - type: marking
   speciesRestriction: [IPC]
-  id: ScreenEyesangry
+  id: ADTIPCScreenEyesangry
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
@@ -288,7 +288,7 @@
 - type: marking
   speciesRestriction: [IPC]
   #sponsorOnly: true # Corvax-Sponsors
-  id: ScreenLoading
+  id: ADTIPCScreenLoading
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
@@ -299,7 +299,7 @@
 - type: marking
   speciesRestriction: [IPC]
   #sponsorOnly: true # Corvax-Sponsors
-  id: ScreenWindowsxp
+  id: ADTIPCScreenWindowsxp
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
@@ -310,7 +310,7 @@
 - type: marking
   speciesRestriction: [IPC]
   #sponsorOnly: true # Corvax-Sponsors
-  id: ScreenTetris
+  id: ADTIPCScreenTetris
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
@@ -321,7 +321,7 @@
 - type: marking
   speciesRestriction: [IPC]
   #sponsorOnly: true # Corvax-Sponsors
-  id: ScreenTv
+  id: ADTIPCScreenTv
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
@@ -332,7 +332,7 @@
 - type: marking
   speciesRestriction: [IPC]
   #sponsorOnly: true # Corvax-Sponsors
-  id: ScreenTextdrop
+  id: ADTIPCScreenTextdrop
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
@@ -343,7 +343,7 @@
 - type: marking
   speciesRestriction: [IPC]
   #sponsorOnly: true # Corvax-Sponsors
-  id: ScreenStars
+  id: ADTIPCScreenStars
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
@@ -354,7 +354,7 @@
 - type: marking
   speciesRestriction: [IPC]
   #sponsorOnly: true # Corvax-Sponsors
-  id: ScreenRainbowdiag
+  id: ADTIPCScreenRainbowdiag
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
@@ -364,7 +364,7 @@
 
 - type: marking
   speciesRestriction: [IPC]
-  id: ScreenBlank
+  id: ADTIPCScreenBlank
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
@@ -374,7 +374,7 @@
 
 - type: marking
   speciesRestriction: [IPC]
-  id: ScreenSmile
+  id: ADTIPCScreenSmile
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
@@ -384,7 +384,7 @@
 
 - type: marking
   speciesRestriction: [IPC]
-  id: ScreenFrown
+  id: ADTIPCScreenFrown
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
@@ -394,7 +394,7 @@
 
 - type: marking
   speciesRestriction: [IPC]
-  id: ScreenRing
+  id: ADTIPCScreenRing
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
@@ -404,7 +404,7 @@
 
 - type: marking
   speciesRestriction: [IPC]
-  id: ScreenL
+  id: ADTIPCScreenL
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
@@ -414,7 +414,7 @@
 
 - type: marking
   speciesRestriction: [IPC]
-  id: ADTScreenPoxui
+  id: ADTIPCScreenPoxui
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
@@ -424,7 +424,7 @@
 
 - type: marking
   speciesRestriction: [IPC]
-  id: ADTScreenAbsolutepoxui
+  id: ADTIPCScreenAbsolutepoxui
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
@@ -434,7 +434,7 @@
 
 - type: marking
   speciesRestriction: [IPC]
-  id: ADTScreenAwesome
+  id: ADTIPCScreenAwesome
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
@@ -444,7 +444,7 @@
 
 - type: marking
   speciesRestriction: [IPC]
-  id: ADTScreenBestfriend
+  id: ADTIPCScreenBestfriend
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
@@ -454,7 +454,7 @@
 
 - type: marking
   speciesRestriction: [IPC]
-  id: ADTScreenBigsmile
+  id: ADTIPCScreenBigsmile
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
@@ -464,7 +464,7 @@
 
 - type: marking
   speciesRestriction: [IPC]
-  id: ADTScreenBoredom
+  id: ADTIPCScreenBoredom
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
@@ -474,7 +474,7 @@
 
 - type: marking
   speciesRestriction: [IPC]
-  id: ADTScreenClown
+  id: ADTIPCScreenClown
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
@@ -484,7 +484,7 @@
 
 - type: marking
   speciesRestriction: [IPC]
-  id: ADTScreenCreeper
+  id: ADTIPCScreenCreeper
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
@@ -494,7 +494,7 @@
 
 - type: marking
   speciesRestriction: [IPC]
-  id: ADTScreenDealmaker
+  id: ADTIPCScreenDealmaker
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
@@ -504,7 +504,7 @@
 
 - type: marking
   speciesRestriction: [IPC]
-  id: ADTScreenMime
+  id: ADTIPCScreenMime
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
@@ -514,7 +514,7 @@
 
 - type: marking
   speciesRestriction: [IPC]
-  id: ADTScreenMonkey
+  id: ADTIPCScreenMonkey
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
@@ -524,7 +524,7 @@
 
 - type: marking
   speciesRestriction: [IPC]
-  id: ADTScreenMrgutsy
+  id: ADTIPCScreenMrgutsy
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
@@ -534,7 +534,7 @@
 
 - type: marking
   speciesRestriction: [IPC]
-  id: ADTScreenNerd
+  id: ADTIPCScreenNerd
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
@@ -544,7 +544,7 @@
 
 - type: marking
   speciesRestriction: [IPC]
-  id: ADTScreenNya
+  id: ADTIPCScreenNya
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
@@ -554,7 +554,7 @@
 
 - type: marking
   speciesRestriction: [IPC]
-  id: ADTScreenOko
+  id: ADTIPCScreenOko
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
@@ -564,7 +564,7 @@
 
 - type: marking
   speciesRestriction: [IPC]
-  id: ADTScreenRock
+  id: ADTIPCScreenRock
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
@@ -574,7 +574,7 @@
 
 - type: marking
   speciesRestriction: [IPC]
-  id: ADTScreenSkull
+  id: ADTIPCScreenSkull
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
@@ -584,7 +584,7 @@
 
 - type: marking
   speciesRestriction: [IPC]
-  id: ADTScreenTenna
+  id: ADTIPCScreenTenna
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
@@ -594,7 +594,7 @@
 
 - type: marking
   speciesRestriction: [IPC]
-  id: ADTScreenCuteNeutral
+  id: ADTIPCScreenCuteNeutral
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
@@ -604,7 +604,7 @@
 
 - type: marking
   speciesRestriction: [IPC]
-  id: ADTScreenCuteEyes
+  id: ADTIPCScreenCuteEyes
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
@@ -614,7 +614,7 @@
 
 - type: marking
   speciesRestriction: [IPC]
-  id: ADTScreenCuteAngry
+  id: ADTIPCScreenCuteAngry
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
@@ -624,7 +624,7 @@
 
 - type: marking
   speciesRestriction: [IPC]
-  id: ADTScreenCuteSuspicious
+  id: ADTIPCScreenCuteSuspicious
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
@@ -634,7 +634,7 @@
 
 - type: marking
   speciesRestriction: [IPC]
-  id: ADTScreenCuteWorried
+  id: ADTIPCScreenCuteWorried
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
@@ -644,7 +644,7 @@
 
 - type: marking
   speciesRestriction: [IPC]
-  id: ADTScreenCuteSmirking
+  id: ADTIPCScreenCuteSmirking
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
@@ -654,7 +654,7 @@
 
 - type: marking
   speciesRestriction: [IPC]
-  id: ADTScreenCuteCryed
+  id: ADTIPCScreenCuteCryed
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
@@ -664,7 +664,7 @@
 
 - type: marking
   speciesRestriction: [IPC]
-  id: ADTScreenCuteLaughing
+  id: ADTIPCScreenCuteLaughing
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
@@ -674,7 +674,7 @@
 
 - type: marking
   speciesRestriction: [IPC]
-  id: ADTScreenCuteQuestioningly
+  id: ADTIPCScreenCuteQuestioningly
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
@@ -684,7 +684,7 @@
 
 - type: marking
   speciesRestriction: [IPC]
-  id: ADTScreenCuteUnsurprised
+  id: ADTIPCScreenCuteUnsurprised
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
@@ -694,7 +694,7 @@
 
 - type: marking
   speciesRestriction: [IPC]
-  id: ADTScreenPacifist1
+  id: ADTIPCScreenPacifist1
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
@@ -704,7 +704,7 @@
 
 - type: marking
   speciesRestriction: [IPC]
-  id: ADTScreenPacifist2
+  id: ADTIPCScreenPacifist2
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
@@ -714,10 +714,20 @@
 
 - type: marking
   speciesRestriction: [IPC]
-  id: ADTScreenAscended
+  id: ADTIPCScreenAscended
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
     - sprite: ADT/Mobs/Customization/Ipc/ipc_screens.rsi
       state: ipc_screen_ascended
+  shader: unshaded
+
+- type: marking
+  speciesRestriction: [IPC]
+  id: ADTIPCScreenMonoeyeAlt
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  sprites:
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_screens.rsi
+      state: ipc_screen_monoeye_alt
   shader: unshaded

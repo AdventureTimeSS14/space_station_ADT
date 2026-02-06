@@ -11,14 +11,15 @@ namespace Content.Client._RMC14.Attachable.Systems;
 public sealed class AttachableHolderVisualsSystem : EntitySystem
 {
     [Dependency] private readonly AttachableHolderSystem _attachableHolderSystem = default!;
-    
+    [Dependency] private readonly SpriteSystem _sprite = default!;
+
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<AttachableHolderVisualsComponent, EntRemovedFromContainerMessage>(OnDetached);
         SubscribeLocalEvent<AttachableHolderVisualsComponent, AttachableHolderAttachablesAlteredEvent>(OnAttachablesAltered);
-        
+
         SubscribeLocalEvent<AttachableVisualsComponent, AppearanceChangeEvent>(OnAttachableAppearanceChange);
     }
 
@@ -72,7 +73,7 @@ public sealed class AttachableHolderVisualsSystem : EntitySystem
 
                 SetAttachableOverlay(holder, attachable, args.SlotId);
                 break;
-            
+
             case AttachableAlteredType.AppearanceChanged:
                 SetAttachableOverlay(holder, attachable, args.SlotId, suffix);
                 break;
@@ -134,12 +135,23 @@ public sealed class AttachableHolderVisualsSystem : EntitySystem
         if (holderSprite.LayerMapTryGet(slotId, out var index))
         {
             holderSprite.LayerSetData(index, layerData);
-            return;
+        }
+        else
+        {
+            index = holderSprite.AddLayer(layerData);
+            holderSprite.LayerMapSet(slotId, index);
         }
 
-        holderSprite.LayerMapSet(slotId, holderSprite.AddLayer(layerData));
+        var attachableLayerIndex = attachable.Comp.Layer;
+        if (_sprite.TryGetLayer((attachable.Owner, attachableSprite), attachableLayerIndex, out var attachableLayer, logMissing: false))
+        {
+            var layerColor = attachableLayer.Color;
+            var spriteColor = attachableSprite.Color;
+            var finalColor = layerColor * spriteColor;
+            _sprite.LayerSetColor((holder.Owner, holderSprite), index, finalColor);
+        }
     }
-    
+
     private void OnAttachableAppearanceChange(Entity<AttachableVisualsComponent> attachable, ref AppearanceChangeEvent args)
     {
         if (!attachable.Comp.RedrawOnAppearanceChange ||
@@ -148,7 +160,7 @@ public sealed class AttachableHolderVisualsSystem : EntitySystem
         {
             return;
         }
-        
+
         var holderEvent = new AttachableHolderAttachablesAlteredEvent(attachable.Owner, slotId, AttachableAlteredType.AppearanceChanged);
         RaiseLocalEvent(holderUid.Value, ref holderEvent);
     }

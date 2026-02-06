@@ -78,6 +78,18 @@
         {
             "name": "ResomiLong",
             "directions": 4
+        },
+        {
+            "name": "ResomiUprightTwo",
+            "directions": 4
+        },
+        {
+            "name": "ResomiLongwayTwo",
+            "directions": 4
+        },
+        {
+            "name": "ResomiPointyTwo",
+            "directions": 4
         }
     ]
 }

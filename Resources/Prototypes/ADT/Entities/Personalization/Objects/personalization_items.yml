@@ -188,7 +188,7 @@
     - suitStorage
   - type: ChamberMagazineAmmoProvider
   - type: RunAndGunSpreadModifier
-    modifier: 0.04
+    modifier: 0.1
   - type: MeleeWeapon
     resetOnHandSelected: false
     attackRate: 1
@@ -690,6 +690,66 @@
       - state: pochita-inhand-left
       right:
       - state: pochita-inhand-right
+
+- type: entity
+  parent: ADTVehicleKeyJanicart
+  id: ADTVehicleKeyPangaariBike
+  name: Pangaari bike keys # Для Пани на её ДР в 2026 году от Altius, Mina0, kiwi_fruit, RedLis. Тут был Лис.
+  description: Today, its on the highway, and tomorrow, its just a burning wreck.
+  components:
+  - type: Tag
+    tags:
+    - VehicleKey
+    - ADTKeyPangaariBike
+  - type: Sprite
+    sprite: ADT/Personalization/pangaari_bike.rsi
+    state: keys
+
+- type: entity
+  parent: ADTBaseVehicleRideable
+  id: ADTVehiclePangaariBike
+  name: sports motorcycle # Для Пани на её ДР в 2026 году от Altius, Mina0, kiwi_fruit, RedLis. Тут был Лис.
+  description: Today, its on the highway, and tomorrow, its just a burning wreck.
+  components:
+  - type: Vehicle
+    southOver: true
+    northOver: true
+    northOverride: -0.1
+    southOverride: 0.1
+  - type: Sprite
+    sprite: ADT/Personalization/pangaari_bike.rsi
+    layers:
+    - state: vehicle
+      map: ["enum.VehicleVisualLayers.AutoAnimate"]
+    noRot: true
+  - type: MovementSpeedModifier
+    acceleration: 1
+    friction: 1
+    baseWalkSpeed: 4.5
+    baseSprintSpeed: 7
+  - type: Strap
+    buckleOffset: "0.1, -0.05"
+    #maxBuckleDistance: 1
+  - type: UnpoweredFlashlight
+  - type: PointLight
+    enabled: false
+    radius: 3.5
+    softness: 2
+    mask: /Textures/Effects/LightMasks/cone.png
+    autoRot: true
+  - type: ItemSlots
+    slots:
+      key_slot:
+        name: vehicle-slot-component-slot-name-keys
+        whitelist:
+          requireAll: true
+          tags:
+          - VehicleKey
+          - ADTKeyPangaariBike
+        insertSound:
+          path: /Audio/Effects/Vehicle/vehiclestartup.ogg
+          params:
+            volume: -3
 
 # D1night
 - type: entity
@@ -1732,6 +1792,19 @@
         - ReagentId: Nutriment
           Quantity: 3
 
+# Altius, на ДР 2026 года. Тут был Лис и алкоголь.
+
+- type: entity
+  parent: BookBase
+  id: ADTBookAidan
+  name: Aidan Book
+  description: Aidan Book
+  components:
+    - type: Sprite
+      sprite: ADT/Personalization/aidan_book.rsi
+      layers:
+      - state: icon
+
 #ADT-TEAM-ITEMS-END
 
 #SPONSOR-ITEMS-START
@@ -2608,7 +2681,7 @@
     prototypes:
     - ADTMobWatcherBible
 
-#Glude
+#Glide
 - type: entity
   parent: BasePlushie
   id: ADTPlushieGlide
@@ -2647,4 +2720,24 @@
   - type: FoodSequenceElement
     entries:
       CottonBurger: SlimePlushie
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieVictor
+  name: Plushie Victor
+  description: Plushie Victor
+  suffix: Personal, Glide
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/plushie_glide_victor.rsi
+    state: icon
+  - type: Clothing
+    quickEquip: false
+    sprite: ADT/Personalization/plushie_glide_victor.rsi
+    slots:
+    - HEAD
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+        offset: "0, 0.04"
 #SPONSOR-ITEMS-END

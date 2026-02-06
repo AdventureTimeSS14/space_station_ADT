@@ -16,3 +16,6 @@ marking-HairResomiPointy = Резоми Заостренный
 marking-HairResomiTwies = Резоми Двойная
 marking-HairResomiUpright = Резоми Ровная
 marking-HairResomiLong = Резоми Длинная
+marking-HairResomiPointyTwo = Резоми Заостренный (вариант 2)
+marking-HairResomiUprightTwo = Резоми Ровная (вариант 2)
+marking-HairResomiLongwayTwo = Резоми Коса (вариант 2)

@@ -177,9 +177,11 @@
       - !type:HealthChange
         damage:
           groups:
-            Burn: -5
-            Brute: -5
-            Toxin: -2
+            # ADT-Tweak start
+            Burn: -20 # Лечит все физические повреждение на 5 (20/4)
+            Brute: -15 # Лечит все механические повреждение на 5 (15/3)
+            Toxin: -4 # Лечит радиацию и токсины на 2 (4/2)
+            # ADT-Tweak end 
           types:
             Bloodloss: -5
       - !type:ModifyBleedAmount

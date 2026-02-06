@@ -1,0 +1,513 @@
+- type: constructionGraph
+  id: BannerRed
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: banner
+      completed:
+        - !type:SnapToGrid
+          southRotation: true
+      steps:
+      - material: MetalRod
+        amount: 3
+      - material: Cloth
+        amount: 5
+        doAfter: 3
+  - node: banner
+    entity: BannerRed
+
+- type: constructionGraph
+  id: BannerBlue
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: banner
+      completed:
+        - !type:SnapToGrid
+          southRotation: true
+      steps:
+      - material: MetalRod
+        amount: 3
+      - material: Cloth
+        amount: 5
+        doAfter: 3
+  - node: banner
+    entity: BannerBlue
+
+- type: constructionGraph
+  id: BannerGreen
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: banner
+      completed:
+        - !type:SnapToGrid
+          southRotation: true
+      steps:
+      - material: MetalRod
+        amount: 3
+      - material: Cloth
+        amount: 5
+        doAfter: 3
+  - node: banner
+    entity: BannerGreen
+
+- type: constructionGraph
+  id: BannerYellow
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: banner
+      completed:
+        - !type:SnapToGrid
+          southRotation: true
+      steps:
+      - material: MetalRod
+        amount: 3
+      - material: Cloth
+        amount: 5
+        doAfter: 3
+  - node: banner
+    entity: BannerYellow
+
+- type: constructionGraph
+  id: BannerNanotrasen
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: banner
+      completed:
+        - !type:SnapToGrid
+          southRotation: true
+      steps:
+      - material: MetalRod
+        amount: 3
+      - material: Cloth
+        amount: 5
+        doAfter: 3
+  - node: banner
+    entity: BannerNanotrasen
+
+- type: constructionGraph
+  id: ADTBannerVulp
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: banner
+      completed:
+        - !type:SnapToGrid
+          southRotation: true
+      steps:
+      - material: MetalRod
+        amount: 3
+      - material: Cloth
+        amount: 5
+        doAfter: 3
+  - node: banner
+    entity: ADTBannerVulp
+
+- type: constructionGraph
+  id: ADTBannerEmpireKhsira
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: banner
+      completed:
+        - !type:SnapToGrid
+          southRotation: true
+      steps:
+      - material: MetalRod
+        amount: 3
+      - material: Cloth
+        amount: 5
+        doAfter: 3
+  - node: banner
+    entity: ADTBannerEmpireKhsira
+
+- type: constructionGraph
+  id: ADTBannerNian
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: banner
+      completed:
+        - !type:SnapToGrid
+          southRotation: true
+      steps:
+      - material: MetalRod
+        amount: 3
+      - material: Cloth
+        amount: 5
+        doAfter: 3
+  - node: banner
+    entity: ADTBannerNian
+
+- type: constructionGraph
+  id: ADTBannerUSSP
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: banner
+      completed:
+        - !type:SnapToGrid
+          southRotation: true
+      steps:
+      - material: MetalRod
+        amount: 3
+      - material: Cloth
+        amount: 5
+        doAfter: 3
+  - node: banner
+    entity: ADTBannerUSSP
+
+- type: constructionGraph
+  id: ADTBannerSlime
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: banner
+      completed:
+        - !type:SnapToGrid
+          southRotation: true
+      steps:
+      - material: MetalRod
+        amount: 3
+      - material: Cloth
+        amount: 5
+        doAfter: 3
+  - node: banner
+    entity: ADTBannerSlime
+
+- type: constructionGraph
+  id: ADTBannerIPC
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: banner
+      completed:
+        - !type:SnapToGrid
+          southRotation: true
+      steps:
+      - material: MetalRod
+        amount: 3
+      - material: Cloth
+        amount: 5
+        doAfter: 3
+  - node: banner
+    entity: ADTBannerIPC
+
+- type: constructionGraph
+  id: ADTBannerMagic
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: banner
+      completed:
+        - !type:SnapToGrid
+          southRotation: true
+      steps:
+      - material: MetalRod
+        amount: 3
+      - material: Cloth
+        amount: 5
+        doAfter: 3
+  - node: banner
+    entity: ADTBannerMagic
+
+- type: constructionGraph
+  id: ADTBannerGreytide
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: banner
+      completed:
+        - !type:SnapToGrid
+          southRotation: true
+      steps:
+      - material: MetalRod
+        amount: 3
+      - material: Cloth
+        amount: 5
+        doAfter: 3
+  - node: banner
+    entity: ADTBannerGreytide
+
+- type: constructionGraph
+  id: ADTBannerMime
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: banner
+      completed:
+        - !type:SnapToGrid
+          southRotation: true
+      steps:
+      - material: MetalRod
+        amount: 3
+      - material: Cloth
+        amount: 5
+        doAfter: 3
+  - node: banner
+    entity: ADTBannerMime
+
+- type: constructionGraph
+  id: ADTBannerTajaran
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: banner
+      completed:
+        - !type:SnapToGrid
+          southRotation: true
+      steps:
+      - material: MetalRod
+        amount: 3
+      - material: Cloth
+        amount: 5
+        doAfter: 3
+  - node: banner
+    entity: ADTBannerTajaran
+
+- type: constructionGraph
+  id: ADTBannerDiona
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: banner
+      completed:
+        - !type:SnapToGrid
+          southRotation: true
+      steps:
+      - material: MetalRod
+        amount: 3
+      - material: Cloth
+        amount: 5
+        doAfter: 3
+  - node: banner
+    entity: ADTBannerDiona
+
+- type: constructionGraph
+  id: ADTBannerDrask
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: banner
+      completed:
+        - !type:SnapToGrid
+          southRotation: true
+      steps:
+      - material: MetalRod
+        amount: 3
+      - material: Cloth
+        amount: 5
+        doAfter: 3
+  - node: banner
+    entity: ADTBannerDrask
+
+- type: constructionGraph
+  id: ADTBannerClown
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: banner
+      completed:
+        - !type:SnapToGrid
+          southRotation: true
+      steps:
+      - material: MetalRod
+        amount: 3
+      - material: Cloth
+        amount: 5
+        doAfter: 3
+  - node: banner
+    entity: ADTBannerClown
+
+- type: constructionGraph
+  id: ADTBannerVox
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: banner
+      completed:
+        - !type:SnapToGrid
+          southRotation: true
+      steps:
+      - material: MetalRod
+        amount: 3
+      - material: Cloth
+        amount: 5
+        doAfter: 3
+  - node: banner
+    entity: ADTBannerVox
+
+- type: constructionGraph
+  id: ADTBannerNovakid
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: banner
+      completed:
+        - !type:SnapToGrid
+          southRotation: true
+      steps:
+      - material: MetalRod
+        amount: 3
+      - material: Cloth
+        amount: 5
+        doAfter: 3
+  - node: banner
+    entity: ADTBannerNovakid
+
+- type: constructionGraph
+  id: ADTBannerRobust
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: banner
+      completed:
+        - !type:SnapToGrid
+          southRotation: true
+      steps:
+      - material: MetalRod
+        amount: 3
+      - material: Cloth
+        amount: 5
+        doAfter: 3
+  - node: banner
+    entity: ADTBannerRobust
+
+- type: constructionGraph
+  id: BannerCargo
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: banner
+      completed:
+        - !type:SnapToGrid
+          southRotation: true
+      steps:
+      - material: MetalRod
+        amount: 3
+      - material: Cloth
+        amount: 5
+        doAfter: 3
+  - node: banner
+    entity: BannerCargo
+
+- type: constructionGraph
+  id: BannerEngineering
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: banner
+      completed:
+        - !type:SnapToGrid
+          southRotation: true
+      steps:
+      - material: MetalRod
+        amount: 3
+      - material: Cloth
+        amount: 5
+        doAfter: 3
+  - node: banner
+    entity: BannerEngineering
+
+- type: constructionGraph
+  id: BannerMedical
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: banner
+      completed:
+        - !type:SnapToGrid
+          southRotation: true
+      steps:
+      - material: MetalRod
+        amount: 3
+      - material: Cloth
+        amount: 5
+        doAfter: 3
+  - node: banner
+    entity: BannerMedical
+
+- type: constructionGraph
+  id: BannerScience
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: banner
+      completed:
+        - !type:SnapToGrid
+          southRotation: true
+      steps:
+      - material: MetalRod
+        amount: 3
+      - material: Cloth
+        amount: 5
+        doAfter: 3
+  - node: banner
+    entity: BannerScience
+
+- type: constructionGraph
+  id: BannerSecurity
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: banner
+      completed:
+        - !type:SnapToGrid
+          southRotation: true
+      steps:
+      - material: MetalRod
+        amount: 3
+      - material: Cloth
+        amount: 5
+        doAfter: 3
+  - node: banner
+    entity: BannerSecurity
+
+- type: constructionGraph
+  id: ADTBannerHumanFlag
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: banner
+      completed:
+        - !type:SnapToGrid
+          southRotation: true
+      steps:
+      - material: MetalRod
+        amount: 3
+      - material: Cloth
+        amount: 5
+        doAfter: 3
+  - node: banner
+    entity: ADTBannerHumanFlag
+
