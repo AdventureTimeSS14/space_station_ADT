@@ -17,6 +17,8 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.Popups;
 using Content.Shared.Stacks;
+using Content.Shared.Buckle.Components; // ADT-Tweak (P4A) Ускорение Шприцов на койках и каталках
+using Content.Shared.ADT.Chemistry.Components; // ADT-Tweak (P4A) Ускорение Шприцов на койках и каталках
 using Content.Shared.Verbs;
 
 namespace Content.Shared.Chemistry.EntitySystems;
@@ -117,6 +119,19 @@ public abstract class SharedInjectorSystem : EntitySystem
         if (args.Target is not { Valid: true } target || !HasComp<SolutionContainerManagerComponent>(ent))
             return;
 
+        // ADT Injector blocking start
+        if (!ent.Comp.IgnoreBlockers)
+        {
+            var ev = new InjectAttemptEvent();
+            RaiseLocalEvent(target, ev);
+            if (ev.Cancelled)
+            {
+                _popup.PopupEntity(Loc.GetString("injector-component-fail-user", ("target", Identity.Entity(target, EntityManager))), target, args.User);
+                return;
+            }
+        }
+        // ADT Injector blocking end
+
         // Is the target a mob? If yes, use a do-after to give them time to respond.
         if (HasComp<MobStateComponent>(target) || HasComp<BloodstreamComponent>(target))
         {
@@ -160,6 +175,21 @@ public abstract class SharedInjectorSystem : EntitySystem
             return;
 
         var actualDelay = injector.Comp.Delay;
+
+        // ADT-Tweak-start (P4A) Ускорение Шприцов на койках и каталках
+        if (injector.Comp.RestrainedMultiplier > 1f)
+        {
+            if (TryComp<BuckleComponent>(target, out var buckle) &&
+                buckle.BuckledTo is { Valid: true } buckledTo)
+            {
+                if (HasComp<InjectorBoostComponent>(buckledTo))
+                {
+                    actualDelay /= injector.Comp.RestrainedMultiplier;
+                }
+            }
+        }
+        // ADT-Tweak-end (P4A) Ускорение Шприцов на койках и каталках
+
         FixedPoint2 amountToInject;
         if (injector.Comp.ToggleState == InjectorToggleMode.Draw)
         {
