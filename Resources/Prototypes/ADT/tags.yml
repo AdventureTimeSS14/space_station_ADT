@@ -736,9 +736,3 @@
 
 - type: Tag
   id: SyndicateSegwayKeys
-
-- type: Tag
-  id: Briefcase
-
-- type: Tag
-  id: GasTank
