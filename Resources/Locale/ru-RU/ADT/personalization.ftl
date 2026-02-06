@@ -533,11 +533,11 @@ ent-ADTPlushieAnagiri = плюшевая Плейона
 
 ent-ADTClothingUniformJumpsuitSaintMadmanClothing = униформа аристократа
     .desc = Белая торжественная униформа аристократа. Выглядит величественно.
-    .suffix = { "Спонсорское, Saint_madman" }
+    .suffix = { "Именное, Saint_madman" }
 
 ent-ADTClothingNeckSaintMadmanMantle = наплечная мантия аристократа
     .desc = Белая торжественная мантия аристократа. Знак чистой крови.
-    .suffix = { "Спонсорское, Saint_madman" }
+    .suffix = { "Именное, Saint_madman" }
 
 ent-ADTClothingOuterCoatSaintMadman = пальто аристократа
     .desc = Белое торжественное пальто аристократа. 
