@@ -93,3 +93,5 @@
     requireWielding: false
     attachment: false
   - type: GunRequiresWield
+  - type: Item
+    size: Huge
