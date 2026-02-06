@@ -107,6 +107,12 @@
         },
         {
             "name": "idpilot"
-        }
+        },
+        {
+            "name": "idroboticist"
+        },
+        {
+            "name": "idlawyer"
+        } 
     ]
 }
