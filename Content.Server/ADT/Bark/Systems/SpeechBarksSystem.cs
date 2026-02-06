@@ -39,6 +39,7 @@ public sealed class SpeechBarksSystem : EntitySystem
 
         var message = args.ObfuscatedMessage ?? args.Message;
         var soundSpecifier = ev.Data.Sound ?? _proto.Index(ev.Data.Proto).Sound;
+        var isWhisper = args.ObfuscatedMessage != null; // Определяем, был ли это шепот
 
         foreach (var ent in _lookup.GetEntitiesInRange(Transform(uid).Coordinates, 10f))
         {
@@ -52,8 +53,7 @@ public sealed class SpeechBarksSystem : EntitySystem
                         ev.Data.Pitch,
                         ev.Data.MinVar,
                         ev.Data.MaxVar,
-                        false //R.A.T. shitfix: должна быть нормальная зависимость от шептения
-                        ), session);
+                        isWhisper), session);
         }
     }
 }
