@@ -58,7 +58,8 @@ namespace Content.Server.GameTicking
 
                     // Make the player actually join the game.
                     // timer time must be > tick length
-                    // Timer.Spawn(0, args.Session.JoinGame); // Corvax-Queue: Moved to `JoinQueueManager`
+                    // TODO: R.A.T. shitfix
+                    Timer.Spawn(0, () => _playerManager.JoinGame(session)); // Corvax-Queue: Moved to `JoinQueueManager`
 
                     var record = await _db.GetPlayerRecordByUserId(args.Session.UserId);
                     var firstConnection = record != null &&
