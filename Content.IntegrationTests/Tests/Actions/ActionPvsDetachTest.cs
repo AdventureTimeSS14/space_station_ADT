@@ -12,7 +12,7 @@ public sealed class ActionPvsDetachTest
     [Test]
     public async Task TestActionDetach()
     {
-        await using var pair = await PoolManager.GetServerClient(new PoolSettings()); // ADT-Tweak: Временно!!
+        await using var pair = await PoolManager.GetServerClient(new PoolSettings { Connected = true });
         var (server, client) = pair;
         var sys = server.System<SharedActionsSystem>();
         var cSys = client.System<SharedActionsSystem>();
