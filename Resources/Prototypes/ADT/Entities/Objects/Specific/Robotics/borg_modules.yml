@@ -97,7 +97,7 @@
 
 - type: entity
   id: ADTBorgModuleChemical
-  parent: BorgModuleChemical
+  parent: [ BaseBorgModuleMedical, BaseProviderBorgModule ]
   name: chemical cyborg module
   components:
   - type: Sprite
@@ -115,7 +115,7 @@
 
 - type: entity
   id: ADTBorgModuleAdvancedChemical
-  parent: BorgModuleChemical
+  parent: [ BaseBorgModuleMedical, BaseProviderBorgModule ]
   name: chemical cyborg module
   components:
   - type: Sprite
@@ -134,7 +134,7 @@
 
 - type: entity
   id: ADTBorgModuleRescue
-  parent: BorgModuleRescue
+  parent: [ BaseBorgModuleMedical, BaseProviderBorgModule ]
   name: rescue cyborg module
   components:
   - type: ItemBorgModule

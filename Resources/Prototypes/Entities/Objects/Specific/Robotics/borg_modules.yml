@@ -920,7 +920,6 @@
   id: BorgModuleRescue
   parent: [ BaseBorgModuleMedical, BaseProviderBorgModule ]
   name: rescue cyborg module
-  abstract: true # ADT-Tweak: "MedborgModuleUpdate"
   components:
   - type: Sprite
     layers:
@@ -939,7 +938,6 @@
 - type: entity
   id: BorgModuleChemical
   parent: [ BaseBorgModuleMedical, BaseProviderBorgModule ]
-  abstract: true  # ADT-Tweak: "MedborgModuleUpdate"
   name: chemical cyborg module
   components:
   - type: Sprite
@@ -951,6 +949,20 @@
     - item: HandheldHealthAnalyzerUnpowered
     - item: Syringe
     - item: BorgDropper
+    - item: BaseChemistryEmptyVial
+      hand:
+        emptyLabel: borg-slot-small-containers-empty
+        emptyRepresentative: BaseChemistryEmptyVial
+        whitelist:
+          components:
+          - FitsInDispenser
+    - item: BaseChemistryEmptyVial
+      hand:
+        emptyLabel: borg-slot-small-containers-empty
+        emptyRepresentative: BaseChemistryEmptyVial
+        whitelist:
+          components:
+          - FitsInDispenser
     - item: BaseChemistryEmptyVial
       hand:
         emptyLabel: borg-slot-small-containers-empty
