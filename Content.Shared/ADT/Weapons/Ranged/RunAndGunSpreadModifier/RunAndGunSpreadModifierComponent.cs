@@ -16,5 +16,5 @@ public sealed partial class RunAndGunSpreadModifierComponent : Component
     /// Минимальная инерция для работы, работает по тайлам в секунду
     /// </summary>
     [DataField]
-    public float MinVelocity = 4.5f;
+    public float MinVelocity = 4.6f;
 }
