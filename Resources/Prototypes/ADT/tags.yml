@@ -110,6 +110,9 @@
   id: Heart
 
 - type: Tag
+  id: HideFromGhostWarps
+
+- type: Tag
   id: Kidneys
 
 - type: Tag
