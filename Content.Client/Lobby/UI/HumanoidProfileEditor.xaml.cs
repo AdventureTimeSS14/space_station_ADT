@@ -475,7 +475,7 @@ namespace Content.Client.Lobby.UI
             // ADT Languages end
             #region Jobs
 
-            TabContainer.SetTabTitle(2, Loc.GetString("humanoid-profile-editor-jobs-tab")); // ADT Languages tweak
+            TabContainer.SetTabTitle(3, Loc.GetString("humanoid-profile-editor-jobs-tab")); // ADT Languages tweak
 
             PreferenceUnavailableButton.AddItem(
                 Loc.GetString("humanoid-profile-editor-preference-unavailable-stay-in-lobby-button"),
@@ -499,15 +499,15 @@ namespace Content.Client.Lobby.UI
 
             #endregion Jobs
 
-            TabContainer.SetTabTitle(3, Loc.GetString("humanoid-profile-editor-antags-tab"));   // ADT Languages tweak
+            TabContainer.SetTabTitle(4, Loc.GetString("humanoid-profile-editor-antags-tab"));   // ADT Languages tweak
 
             RefreshTraits();
 
-            TabContainer.SetTabTitle(3, Loc.GetString("humanoid-profile-editor-traits-tab")); // Corvax-TTS-Edit
+            TabContainer.SetTabTitle(5, Loc.GetString("humanoid-profile-editor-traits-tab")); // Corvax-TTS-Edit
 
             #region Markings
 
-            TabContainer.SetTabTitle(5, Loc.GetString("humanoid-profile-editor-markings-tab")); // ADT Languages tweak
+            TabContainer.SetTabTitle(6, Loc.GetString("humanoid-profile-editor-markings-tab")); // ADT Languages tweak
 
             Markings.OnMarkingAdded += OnMarkingChange;
             Markings.OnMarkingRemoved += OnMarkingChange;
