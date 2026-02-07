@@ -124,12 +124,11 @@ public sealed class BanPanelEui : BaseEui
         if (ban.BannedJobs?.Length > 0 || ban.BannedAntags?.Length > 0)
         {
             var now = DateTimeOffset.UtcNow;
-            //Start-ADT-Tweak: логи банов для диса
+            // Start-ADT-Tweak: логи банов для диса
             var lastRoleBan = await _dbManager.GetLastServerRoleBanAsync();
-            var startRoleBanId = lastRoleBan is not null ? lastRoleBan.Id + 1 : 1;
-            var currentRoleBanId = startRoleBanId;
+            var currentRoleBanId = lastRoleBan is not null ? lastRoleBan.Id + 1 : 1;
             var rolesData = new List<string>();
-            //End-ADT-Tweak
+            // End-ADT-Tweak
             foreach (var role in ban.BannedJobs ?? [])
             {
                 _banManager.CreateRoleBan(
@@ -144,6 +143,8 @@ public sealed class BanPanelEui : BaseEui
                     ban.Reason,
                     now
                 );
+                rolesData.Add($"{role}:{currentRoleBanId}"); // ADT-Tweak
+                currentRoleBanId++; // ADT-Tweak 
             }
 
             foreach (var role in ban.BannedAntags ?? [])
@@ -160,8 +161,11 @@ public sealed class BanPanelEui : BaseEui
                     ban.Reason,
                     now
                 );
+
+                rolesData.Add($"{role}:{currentRoleBanId}"); // ADT-Tweak
+                currentRoleBanId++; // ADT-Tweak
             }
-            //Start-ADT-Tweak: логи банов для диса
+            // Start-ADT-Tweak: логи банов для диса
             var roleBanInfo = new BanInfo
             {
                 BanId = string.Empty,
@@ -170,14 +174,16 @@ public sealed class BanPanelEui : BaseEui
                 Minutes = ban.BanDurationMinutes,
                 Reason = ban.Reason,
                 Expires = DateTimeOffset.Now + TimeSpan.FromMinutes(ban.BanDurationMinutes),
-                AdditionalInfo = new() { { "roles", string.Join(", ", rolesData) } }
+                AdditionalInfo = new()
+                {
+                    { "roles", string.Join(", ", rolesData) }
+                }
+            // End-ADT-Tweak
             };
 
             await _discordBanInfoSender.SendBanInfoAsync<PanelBanPayloadGenerator>(roleBanInfo);
-            //End-ADT-Tweak
 
             Close();
-
             return;
         }
 

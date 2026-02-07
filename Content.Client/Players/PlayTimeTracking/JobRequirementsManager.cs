@@ -139,6 +139,7 @@ public sealed class JobRequirementsManager : ISharedPlaytimeManager
         HumanoidCharacterProfile? profile,
         [NotNullWhen(false)] out FormattedMessage? reason)
     {
+        reason=null;
         // Check the player's bans
         if (_jobBans.Contains(job.ID))
         {
@@ -152,6 +153,8 @@ public sealed class JobRequirementsManager : ISharedPlaytimeManager
             reason = FormattedMessage.FromUnformatted(Loc.GetString("sponsor-job"));
             return false;
         }
+        if (_sponsorsManager.TryGetInfo(out sponsorInfo) && sponsorInfo.AllowJob)
+            return true;
         //ADT-Sponsors-Job-End
 
         if (!CheckWhitelist(job, out reason))

@@ -6,16 +6,16 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Engineering
-      time: 5h # Corvax-RoleTime 2.5h
+      time: 2.5h # ADT-Tweak 2.5h
     - !type:DepartmentTimeRequirement
       department: Medical
-      time: 5h # Corvax-RoleTime 2.5h
+      time: 2.5h # ADT-Tweak 2.5h
     - !type:DepartmentTimeRequirement
       department: Science
       time: 2.5h
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 5h # Corvax-RoleTime 2.5h
+      time: 2.5h # ADT-Tweak 2.5h
 #    - !type:DepartmentTimeRequirement
 #      department: Command
 #      time: 2.5h
