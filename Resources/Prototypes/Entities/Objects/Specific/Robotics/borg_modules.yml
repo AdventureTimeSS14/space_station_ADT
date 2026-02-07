@@ -949,7 +949,7 @@
     - item: HandLabeler
     - item: Syringe
       hand:
-        emptyLabel: borg-slot-injector-dropper-empty
+        emptyLabel: borg-slot-small-containers-empty
         emptyRepresentative: Syringe
         whitelist:
           tags:
