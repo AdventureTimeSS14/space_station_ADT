@@ -246,20 +246,21 @@ namespace Content.Server.Lathe
                 if (currentRecipe.Result is { } resultProto)
                 {
                     var result = Spawn(resultProto, Transform(uid).Coordinates);
-                    //Corvax
-                    RaiseLocalEvent(uid, new LatheGetResultEvent(result));
-                    //Corvax
                     //ADT tweak start
-                    if (TryComp<DocumentPrinterComponent>(uid, out var printerComponent))
+                    if (TryComp<DocumentPrinterComponent>(uid, out var printer)
+                        && printer.Queue.Count > 0)
                     {
-                        (EntityUid, LatheRecipePrototype) tuple;
-                        if (printerComponent.Queue.Count > 0)
+                        var (actor, recipe) = printer.Queue[0];
+                        if (recipe.Result.Equals(resultProto))
                         {
-                            tuple = printerComponent.Queue.First();
-                            if (tuple.Item2.Result.Equals(resultProto))
-                                RaiseLocalEvent(uid, new PrintingDocumentEvent(result, tuple.Item1));
-                            printerComponent.Queue.Remove(tuple);
+                            // Logger.Warning( // Для дебага
+                            //     $"[FinishProducing] Printing {ToPrettyString(result)} for {ToPrettyString(actor)}");
+                            RaiseLocalEvent(uid, new PrintingDocumentEvent(
+                                paper: result,
+                                actor: actor
+                            ));
                         }
+                        printer.Queue.RemoveAt(0);
                     }
                     //ADT tweak end
                     _stack.TryMergeToContacts(result);
@@ -483,6 +484,12 @@ namespace Content.Server.Lathe
             {
                 if (TryAddToQueue(uid, recipe, args.Quantity, component))
                 {
+                    // ADT-Tweak-start: Принтер документов
+                    if (TryComp<DocumentPrinterComponent>(uid, out var printer))
+                    {
+                        printer.Queue.Add((args.Actor, recipe));
+                    }
+                    // ADT-Tweak-end
                     _adminLogger.Add(LogType.Action,
                         LogImpact.Low,
                         $"{ToPrettyString(args.Actor):player} queued {args.Quantity} {GetRecipeName(recipe)} at {ToPrettyString(uid):lathe}");

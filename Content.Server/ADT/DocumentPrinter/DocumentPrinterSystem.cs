@@ -52,6 +52,8 @@ public sealed class DocumentPrinterSystem : EntitySystem
 
     public void OnPrinting(EntityUid uid, DocumentPrinterComponent component, PrintingDocumentEvent args)
     {
+        Logger.Warning($"[OnPrinting] {ToPrettyString(uid)} заход в функцию. {ToPrettyString(args.Paper)} {ToPrettyString(args.Actor)}");
+
         //coef for YEAR 544
         if (!TryComp<PaperComponent>(args.Paper, out var paperComponent)) return;
         if (!TryComp<InventoryComponent>(args.Actor, out var inventoryComponent)) return;
