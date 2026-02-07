@@ -9,9 +9,6 @@ public sealed class BurrinessAccentSystem : EntitySystem
 {
     [Dependency] private readonly IRobustRandom _random = default!;
 
-    private static readonly Regex BurrRegex = new Regex("[рР]+", RegexOptions.Compiled);
-    private static readonly Regex LatinBurrRegex = new Regex("[rR]+", RegexOptions.Compiled);
-
     public override void Initialize()
     {
         base.Initialize();
@@ -21,17 +18,10 @@ public sealed class BurrinessAccentSystem : EntitySystem
     private void OnAccent(EntityUid uid, BurrinessAccentComponent component, ref AccentGetEvent args)
     {
         var message = args.Message;
-
-        message = BurrRegex.Replace(
-            message,
-            match => _random.Pick(new List<string> { "хх" })
-        );
-
-        message = LatinBurrRegex.Replace(
-            message,
-            match => _random.Pick(new List<string> { "hh" })
-        );
-
+        message = Regex.Replace(message, "r+", "hh");
+        message = Regex.Replace(message, "R+", "HH");
+        message = Regex.Replace(message, "р+", "хх");
+        message = Regex.Replace(message, "Р+", "ХХ");
         args.Message = message;
     }
 }
