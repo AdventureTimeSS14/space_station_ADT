@@ -503,7 +503,7 @@ namespace Content.Client.Lobby.UI
 
             RefreshTraits();
 
-            TabContainer.SetTabTitle(3, Loc.GetString("humanoid-profile-editor-traits-tab")); // Corvax-TTS-Edit
+            // TabContainer.SetTabTitle(3, Loc.GetString("humanoid-profile-editor-traits-tab")); // Corvax-TTS-Edit // ADT-TWEAK-FIX
 
             #region Markings
 
