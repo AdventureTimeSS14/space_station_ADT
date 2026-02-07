@@ -1937,48 +1937,62 @@ namespace Content.Client.Lobby.UI
         }
 
         // ADT Species Window start
-        private void OnSkinColorOnValueChangedKeepColor(HumanoidCharacterProfile previus)
+        private void OnSkinColorOnValueChangedKeepColor(HumanoidCharacterProfile previous)
         {
             if (Profile is null) return;
 
-            var skin = _prototypeManager.Index<SpeciesPrototype>(Profile.Species).SkinColoration;
-            var color = previus.Appearance.SkinColor;
+            var skinTypeStr = _prototypeManager.Index<SpeciesPrototype>(Profile.Species).SkinColoration;
+            var color = previous.Appearance.SkinColor;
 
-            switch (skin)
+            switch (skinTypeStr)
             {
-                //R.A.T. shitfix
-                // case HumanoidSkinColo.HumanToned:
-                //     {
-                //         var tone = SkinColor.HumanSkinToneFromColor(previus.Appearance.SkinColor);
-                //         color = SkinColor.HumanSkinTone((int)tone);
-                //         Skin.Value = tone;
+                case "HumanToned":
+                    // Просто оставить предыдущий цвет
+                    break;
 
-                //         Profile = Profile.WithCharacterAppearance(Profile.Appearance.WithSkinColor(color));//
-                //         break;
-                //     }
-                // case HumanoidSkinColor.Hues:
-                //     {
-                //         break;
-                //     }
-                // case HumanoidSkinColor.TintedHues:
-                //     {
-                //         color = SkinColor.TintedHues(previus.Appearance.SkinColor);
+                case "Hues":
+                    color = AdjustBrightness(color, 0.9f, 1.0f);
+                    break;
 
-                //         Profile = Profile.WithCharacterAppearance(Profile.Appearance.WithSkinColor(color));
-                //         break;
-                //     }
-                // case HumanoidSkinColor.VoxFeathers:
-                //     {
-                //         color = SkinColor.ClosestVoxColor(previus.Appearance.SkinColor);
+                case "TintedHues":
+                    color = AdjustSaturation(color, 0.1f);
+                    break;
 
-                //         Profile = Profile.WithCharacterAppearance(Profile.Appearance.WithSkinColor(color));
-                //         break;
-                //     }
+                case "VoxFeathers":
+                    color = ClampColor(color, 29f / 360f, 174f / 360f, 0.2f, 0.88f, 0.36f, 0.55f);
+                    break;
+
+                default:
+                    // Если неизвестный тип, оставляем как есть
+                    break;
             }
 
             _rgbSkinColorSelector.Color = color;
-
             ReloadProfilePreview();
+        }
+
+        // Простейшие вспомогательные функции:
+        private Color AdjustBrightness(Color color, float min, float max)
+        {
+            var hsv = Color.ToHsv(color);
+            hsv.Z = Math.Clamp(hsv.Z, min, max);
+            return Color.FromHsv(hsv);
+        }
+
+        private Color AdjustSaturation(Color color, float maxSaturation)
+        {
+            var hsv = Color.ToHsv(color);
+            hsv.Y = Math.Min(hsv.Y, maxSaturation);
+            return Color.FromHsv(hsv);
+        }
+
+        private Color ClampColor(Color color, float minH, float maxH, float minS, float maxS, float minV, float maxV)
+        {
+            var hsv = Color.ToHsv(color);
+            hsv.X = Math.Clamp(hsv.X, minH, maxH);
+            hsv.Y = Math.Clamp(hsv.Y, minS, maxS);
+            hsv.Z = Math.Clamp(hsv.Z, minV, maxV);
+            return Color.FromHsv(hsv);
         }
         // ADT Species Window end
     }
