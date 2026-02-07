@@ -9,7 +9,7 @@
     #  time: 5h
     - !type:DepartmentTimeRequirement
       department: Science
-      time: 15h # Corvax-RoleTime 10
+      time: 10h # ADT-Tweak
     - !type:TraitsRequirement #Corvax-TraitsRequirement
       inverted: true
       traits:
