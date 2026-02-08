@@ -15,10 +15,6 @@ public sealed partial class ExpendedBowsComponent : Component
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public float floatToColdown = 7f;
-    /// <summary>
-    /// Timer to change tension in bow
-    /// </summary>
-    public TimeSpan coldownTime = TimeSpan.FromSeconds(floatToColdown);
 
     /// <summary>
     /// Aaa.....Step of tension in bow 
