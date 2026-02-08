@@ -324,21 +324,12 @@
     Medicine:
       effects:
       - !type:HealthChange
-      # Start ADT tweak
-        conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Shadekin ]
-      # End ADT tweak
         damage:
           types:
             Asphyxiation: -1
             Bloodloss: -0.5
       - !type:HealthChange
         conditions:
-        # Start ADT tweak
-        - !type:MetabolizerTypeCondition
-          type: [ Shadekin ]
-        # End ADT tweak
         - !type:ReagentCondition
           reagent: Dexalin
           min: 20
@@ -378,11 +369,6 @@
     Medicine:
       effects:
       - !type:HealthChange
-        # Start ADT tweak
-        conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Shadekin ]
-        # End ADT tweak
         damage:
           types:
             Asphyxiation: -3.5
@@ -396,10 +382,6 @@
         amount: -3
       - !type:HealthChange
         conditions:
-        # Start ADT tweak
-        - !type:MetabolizerTypeCondition
-          type: [ Shadekin ]
-        # End ADT tweak
         - !type:ReagentCondition
           reagent: DexalinPlus
           min: 25
@@ -450,10 +432,6 @@
         amount: -5
       - !type:HealthChange
         conditions:
-        # Start ADT tweak
-        - !type:MetabolizerTypeCondition
-          type: [ Shadekin ]
-        # End ADT tweak
           # they gotta be in crit first
         - !type:MobStateCondition
           mobstate: Critical
@@ -469,10 +447,6 @@
             Burn: -0.5
       - !type:HealthChange
         conditions:
-        # Start ADT tweak
-        - !type:MetabolizerTypeCondition
-          type: [ Shadekin ]
-        # End ADT tweak
         - !type:ReagentCondition
           reagent: Epinephrine
           min: 20
