@@ -10,7 +10,7 @@ public sealed partial class ExpendedBowsComponent : Component
     public TimeSpan coldownStart = TimeSpan.Zero;
 
     [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public TimeSpan coldown = TimeSpan.FromSeconds(3f);
+    public TimeSpan coldown = TimeSpan.FromSeconds(7f);
 
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public int StepOfTension=0;
@@ -25,5 +25,14 @@ public sealed partial class ExpendedBowsComponent : Component
         {1, "popup-bow-use-light"},
         {2, "popup-bow-use-medium"},
         {3, "popup-bow-use-hard"},
+    };
+
+    [DataField]
+    public Dictionary<int, float> TensionAnModieferSpeed = new Dictionary<int, float>
+    {
+        {0, 0.5f},
+        {1, 1f},
+        {2, 1.4f},
+        {3, 1.7f},
     };
 }

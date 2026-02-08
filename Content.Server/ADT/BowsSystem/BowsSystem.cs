@@ -18,19 +18,11 @@ public sealed partial class BowsSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<ExpendedBowsComponent, ShotAttemptedEvent>(OnShootAttemp);
-        SubscribeLocalEvent<ExpendedBowsComponent, GunRefreshModifiersEvent>(OnGunRefreshModifiers);
     }
 
     public void OnShootAttemp(Entity<ExpendedBowsComponent> bow,ref ShotAttemptedEvent args)
     {
         if(bow.Comp.StepOfTension==0)
             args.Cancel();
-    }
-
-    private void OnGunRefreshModifiers(Entity<ExpendedBowsComponent> bow, ref GunRefreshModifiersEvent args)
-    {
-        if (bow.Comp.StepOfTension==0)
-            return;
-        args.ProjectileSpeed = args.ProjectileSpeed * bow.Comp.StepOfTension;;
     }
 }

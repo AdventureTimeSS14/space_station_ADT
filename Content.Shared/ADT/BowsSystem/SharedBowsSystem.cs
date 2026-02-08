@@ -25,6 +25,8 @@ public sealed partial class BowsSystem : EntitySystem
     {
         base.Initialize();
         SubscribeLocalEvent<ExpendedBowsComponent, GunShotEvent>(OnShoot);
+        SubscribeLocalEvent<ExpendedBowsComponent, UseInHandEvent>(OnUseInHand);
+        SubscribeLocalEvent<ExpendedBowsComponent, GunRefreshModifiersEvent>(EditSpeed);
     }
     
     public void OnShoot(Entity<ExpendedBowsComponent> bow, ref GunShotEvent args)
@@ -48,30 +50,38 @@ public sealed partial class BowsSystem : EntitySystem
         }
     }
 
-public override void Update(float frameTime)
-{
-    base.Update(frameTime);
-
-    var query = EntityQueryEnumerator<ExpendedBowsComponent>();
-
-    while (query.MoveNext(out var uid, out var comp))
+    public void OnUseInHand(Entity<ExpendedBowsComponent> bow, ref UseInHandEvent args)
     {
-        comp.coldownStart = _timing.CurTime + comp.coldown;
-        if(!TryComp<WieldableComponent>(uid,out var wielded))
-        {
-            comp.StepOfTension=0;
-            return;
-        }
-        if (comp.StepOfTension >= 3)
-            continue;
-
-        if (_timing.CurTime < comp.coldownStart)
-            continue;
-
-        comp.StepOfTension++;
-         _popup.PopupClient(Loc.GetString(comp.TensionAndLoc[comp.StepOfTension],("user", wielded.User)), uid, wielded.User);
-        comp.coldownStart = _timing.CurTime + comp.coldown;
+        bow.Comp.coldownStart = _timing.CurTime + bow.Comp.coldown;
     }
-}
 
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+
+        var query = EntityQueryEnumerator<ExpendedBowsComponent>();
+
+        while (query.MoveNext(out var uid, out var comp))
+        {
+            if (_timing.CurTime < comp.coldownStart)
+                continue;
+            if(!TryComp<WieldableComponent>(uid,out var wielded) || !wielded.Wielded)
+            {
+                comp.StepOfTension=0;
+                return;
+            }
+            if (comp.StepOfTension >= 3)
+                continue;
+
+            comp.StepOfTension++;
+            _popup.PopupClient(Loc.GetString(comp.TensionAndLoc[comp.StepOfTension],("user", wielded.User)), uid, wielded.User);
+            comp.coldownStart = _timing.CurTime + comp.coldown;
+        }
+    }
+
+    public void EditSpeed(Entity<ExpendedBowsComponent> bow, ref GunRefreshModifiersEvent args)
+    {
+        args.ProjectileSpeed *= bow.Comp.TensionAnModieferSpeed[bow.Comp.StepOfTension];
+
+    }
 }
