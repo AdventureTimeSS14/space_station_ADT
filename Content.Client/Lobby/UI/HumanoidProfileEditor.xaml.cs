@@ -475,7 +475,8 @@ namespace Content.Client.Lobby.UI
             // ADT Languages end
             #region Jobs
 
-            TabContainer.SetTabTitle(3, Loc.GetString("humanoid-profile-editor-jobs-tab")); // ADT Languages tweak
+            /*TabContainer.SetTabTitle(3, Loc.GetString("humanoid-profile-editor-jobs-tab")); // ADT Languages tweak
+            Вынесено в HumanoidProfileEditor в регионе InvokeRefresh, чтобы не накладывало названия друг на друга*/
 
             PreferenceUnavailableButton.AddItem(
                 Loc.GetString("humanoid-profile-editor-preference-unavailable-stay-in-lobby-button"),
@@ -499,15 +500,18 @@ namespace Content.Client.Lobby.UI
 
             #endregion Jobs
 
-            TabContainer.SetTabTitle(4, Loc.GetString("humanoid-profile-editor-antags-tab"));   // ADT Languages tweak
+            /*TabContainer.SetTabTitle(4, Loc.GetString("humanoid-profile-editor-antags-tab"));   // ADT Languages tweak
+            Вынесено в HumanoidProfileEditor в регионе InvokeRefresh, чтобы не накладывало названия друг на друга*/
 
             RefreshTraits();
 
-            TabContainer.SetTabTitle(5, Loc.GetString("humanoid-profile-editor-traits-tab")); // Corvax-TTS-Edit
+            /*TabContainer.SetTabTitle(5, Loc.GetString("humanoid-profile-editor-traits-tab")); // Corvax-TTS-Edit
+            Вынесено в HumanoidProfileEditor в регионе InvokeRefresh, чтобы не накладывало названия друг на друга*/
 
             #region Markings
 
-            TabContainer.SetTabTitle(6, Loc.GetString("humanoid-profile-editor-markings-tab")); // ADT Languages tweak
+            /*TabContainer.SetTabTitle(6, Loc.GetString("humanoid-profile-editor-markings-tab")); // ADT Languages tweak
+            Вынесено в HumanoidProfileEditor в регионе InvokeRefresh, чтобы не накладывало названия друг на друга*/
 
             Markings.OnMarkingAdded += OnMarkingChange;
             Markings.OnMarkingRemoved += OnMarkingChange;
@@ -519,6 +523,27 @@ namespace Content.Client.Lobby.UI
             RefreshFlavorText();
 
             RefreshVoiceTab(); // Corvax-TTS
+
+            // ADT-Tweak start. Корректно вставляем вкладки для кастомизации персонажа и их названия
+            #region InvokeRefresh
+            bool ttsIsEnabled = _cfgManager.GetCVar(CCCVars.TTSEnabled);
+            int valueTTSEnable = ttsIsEnabled ? 1 : 0; // Переменная для перехода на следующий индекс вкладки, если ТТС включён, чтобы их названия не накладывались друг на друга
+
+            TabContainer.SetTabTitle(0, Loc.GetString("humanoid-profile-editor-appearance-tab"));
+            if (ttsIsEnabled)
+                TabContainer.SetTabTitle(1, Loc.GetString("humanoid-profile-editor-voice-tab"));
+
+            TabContainer.SetTabTitle(1 + valueTTSEnable, Loc.GetString("humanoid-profile-editor-languages-tab"));
+            TabContainer.SetTabTitle(2 + valueTTSEnable, Loc.GetString("humanoid-profile-editor-jobs-tab"));
+            TabContainer.SetTabTitle(3 + valueTTSEnable, Loc.GetString("humanoid-profile-editor-antags-tab"));
+            TabContainer.SetTabTitle(4 + valueTTSEnable, Loc.GetString("humanoid-profile-editor-traits-tab"));
+            TabContainer.SetTabTitle(5 + valueTTSEnable, Loc.GetString("humanoid-profile-editor-markings-tab"));
+
+            if (_allowFlavorText)
+                TabContainer.SetTabTitle(TabContainer.ChildCount - 1, Loc.GetString("humanoid-profile-editor-flavortext-tab"));
+
+            #endregion
+            // ADT-Tweak end.
 
             #region Dummy
 
@@ -612,7 +637,8 @@ namespace Content.Client.Lobby.UI
                 TabContainer.AddChild(children[i]);
             }
 
-            TabContainer.SetTabTitle(1, Loc.GetString("humanoid-profile-editor-voice-tab"));
+            /*TabContainer.SetTabTitle(1, Loc.GetString("humanoid-profile-editor-voice-tab"));
+            Вынесено в HumanoidProfileEditor в регионе InvokeRefresh, чтобы не накладывало названия друг на друга*/
 
             _ttsTab.OnVoiceSelected += voiceId =>
             {
@@ -646,7 +672,8 @@ namespace Content.Client.Lobby.UI
             TraitsList.RemoveAllChildren();
 
             var traits = _prototypeManager.EnumeratePrototypes<TraitPrototype>().Where(t => !t.Quirk).OrderBy(t => Loc.GetString(t.Name)).ToList(); // ADT Quirks tweaked
-            TabContainer.SetTabTitle(4, Loc.GetString("humanoid-profile-editor-traits-tab"));   // ADT Languages tweak
+            /*TabContainer.SetTabTitle(4, Loc.GetString("humanoid-profile-editor-traits-tab"));   // ADT Languages tweak
+            Вынесено в HumanoidProfileEditor в регионе InvokeRefresh, чтобы не накладывало названия друг на друга*/
 
             // ADT Quirks Window start
             if (Profile != null)
