@@ -30,9 +30,7 @@ public sealed partial class BowsSystem : EntitySystem
     {
         if(!TryComp<ContainerAmmoProviderComponent>(bow, out var containerComp))
             return;
-        if (containerComp.ProviderUid.Value == null)
-            return;
-        if (!_containerSystem.TryGetContainer(containerComp.ProviderUid.Value, containerComp.Container, out var container))
+        if (!_containerSystem.TryGetContainer(containerComp.ProviderUid.Value!, containerComp.Container!, out var container))
             return;
         if (bow.Comp.StepOfTension!=bow.Comp.MinTension)
         {
