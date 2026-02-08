@@ -45,6 +45,7 @@ public sealed partial class BowsSystem : EntitySystem
                 }
             }
         }
+        bow.Comp.StepOfTension=bow.Comp.MinTension;
     }
 
     public void OnUseInHand(Entity<ExpendedBowsComponent> bow, ref UseInHandEvent args)
@@ -78,7 +79,6 @@ public sealed partial class BowsSystem : EntitySystem
 
     public void EditSpeed(Entity<ExpendedBowsComponent> bow, ref GunRefreshModifiersEvent args)
     {
-        args.ProjectileSpeed *= bow.Comp.TensionAnModieferSpeed[bow.Comp.StepOfTension];
-
+        args.ProjectileSpeed *= bow.Comp.TensionAndModieferSpeed[bow.Comp.StepOfTension];
     }
 }

@@ -1,6 +1,4 @@
-using Robust.Shared.Prototypes;
 using Robust.Shared.GameStates;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Shared.ADT.BowsSystem.Components;
 [RegisterComponent, NetworkedComponent]
@@ -28,7 +26,7 @@ public sealed partial class ExpendedBowsComponent : Component
     };
 
     [DataField]
-    public Dictionary<int, float> TensionAnModieferSpeed = new Dictionary<int, float>
+    public Dictionary<int, float> TensionAndModieferSpeed = new Dictionary<int, float>
     {
         {0, 0.5f},
         {1, 1f},
