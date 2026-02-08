@@ -77,8 +77,8 @@ ent-CrowbarWrenchScrewdriverMakeshift = самодельный лом - гаеч
 ent-OmnitoolMakeshift = самодельный омнитул
     .desc = Это издевательство...
 
-ent-MultitoolImprovised = импровезированный мультитул
-    .desc = Иногда искриться и бьёт током, а в прочем не плох.
+ent-MultitoolImprovised = импровизированный мультитул
+    .desc = Иногда искрится и бьёт током, а впрочем неплох.
 
 ent-ScrewdriverImprovised = импровизированная отвёртка
     .desc = Как бы оно ни выглядело, главное что работает.

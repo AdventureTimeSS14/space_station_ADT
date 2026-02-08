@@ -12,5 +12,5 @@ ent-ADTSpeedLoaderMagnumLesserIncendiary = спидлоадер (.357 магну
     .desc = { ent-ADTSpeedLoaderMagnumLesser.desc }
 ent-ADTSpeedLoaderMagnumLesserUranium = спидлоадер (.357 магнум урановый)
     .desc = { ent-ADTSpeedLoaderMagnumLesser.desc }
-ent-SpeedLoaderMagnumImprovised = импровезированный спидлоадер (.357 магнум)
+ent-SpeedLoaderMagnumImprovised = импровизированный спидлоадер (.357 магнум)
     .desc = { ent-ADTSpeedLoaderMagnumLesser.desc }
