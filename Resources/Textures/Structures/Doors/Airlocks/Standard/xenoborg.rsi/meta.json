@@ -93,6 +93,19 @@
             ]
         },
         {
+            "name": "open_unlit",
+            "delays": [
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ]
+            ]
+        },
+        {
             "name": "panel_closing",
             "delays": [
                 [
