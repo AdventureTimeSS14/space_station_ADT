@@ -8,8 +8,6 @@ from typing import Iterable
 
 PUBLISH_TOKEN = os.environ["PUBLISH_TOKEN"]
 VERSION = os.environ["GITHUB_SHA"]
-FORK_ID = os.environ['FORK_ID']
-
 RELEASE_DIR = "release"
 
 #
@@ -20,10 +18,10 @@ ROBUST_CDN_URL = "http://version.adventurestation.ru/"
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--fork-id", default=FORK_ID)
+    parser.add_argument("--fork-id")
 
     args = parser.parse_args()
-    fork_id = args.fork_id
+    fork_id = args.fork_id or os.getenv("FORK_ID")
 
     session = requests.Session()
     session.headers = {
