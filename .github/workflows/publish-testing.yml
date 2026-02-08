@@ -40,7 +40,8 @@ jobs:
       run: dotnet run --project Content.Packaging client --no-wipe-release
 
     - name: Publish version
-      run: Tools/publish_multi_request.py --fork-id SS14_DEV
+      run: Tools/publish_multi_request.py
       env:
-        PUBLISH_TOKEN: ${{ secrets.PUBLISH_TOKEN }}
+        PUBLISH_TOKEN: ${{ secrets.PUBLISH_TOKEN_TEST }}
         GITHUB_REPOSITORY: ${{ vars.GITHUB_REPOSITORY }}
+        FORK_ID: ${{ vars.FORK_ID_TEST }}
