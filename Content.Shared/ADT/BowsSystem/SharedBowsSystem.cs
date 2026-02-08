@@ -7,6 +7,8 @@ using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Weapons.Ranged.Systems;
 using Content.Shared.Wieldable.Components;
+using Robust.Shared.Audio;
+using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Timing;
 
@@ -17,6 +19,7 @@ public sealed partial class BowsSystem : EntitySystem
     [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
     [Dependency] private readonly ItemSlotsSystem _itemSlotsSystem = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     public override void Initialize()
     {
@@ -28,28 +31,6 @@ public sealed partial class BowsSystem : EntitySystem
     
     public void OnShoot(Entity<ExpendedBowsComponent> bow, ref GunShotEvent args)
     {
-        if(!TryComp<ContainerAmmoProviderComponent>(bow, out var containerComp))
-            return;
-        if (containerComp.ProviderUid is not { } providerUid)
-            return;
-
-        if (!_containerSystem.TryGetContainer(providerUid, containerComp.Container!, out var container))
-            return;
-        if (bow.Comp.StepOfTension!=bow.Comp.MinTension)
-        {
-            if (container.ContainedEntities == null)
-                return;
-            foreach (var i in container.ContainedEntities)
-            {
-                if (TryComp<ProjectileComponent>(i,out var proj))
-                {
-                    if (!proj.Damage.DamageDict.TryGetValue(bow.Comp.DamageToModifying, out var ProjectileDamage))
-                        return;
-                    var multipliedDamage = ProjectileDamage * bow.Comp.StepOfTension;
-                    proj.Damage.DamageDict[bow.Comp.DamageToModifying] = multipliedDamage;
-                }
-            }
-        }
         bow.Comp.StepOfTension=bow.Comp.MinTension;
     }
 
@@ -78,12 +59,13 @@ public sealed partial class BowsSystem : EntitySystem
 
             comp.StepOfTension++;
             _popup.PopupClient(Loc.GetString(comp.TensionAndLoc[comp.StepOfTension],("user", wielded.User!)), uid, wielded.User);
+            _audio.PlayPvs(comp.bowSound, wielded.User);
             comp.coldownStart = _timing.CurTime + TimeSpan.FromSeconds(comp.floatToColdown);
         }
     }
 
     public void EditSpeed(Entity<ExpendedBowsComponent> bow, ref GunRefreshModifiersEvent args)
     {
-        args.ProjectileSpeed *= bow.Comp.TensionAndModieferSpeed[bow.Comp.StepOfTension];
+        args.ProjectileSpeed =args.ProjectileSpeed * bow.Comp.TensionAndModieferSpeed[bow.Comp.StepOfTension];
     }
 }

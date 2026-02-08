@@ -1,9 +1,17 @@
+using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 
 namespace Content.Shared.ADT.BowsSystem.Components;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class ExpendedBowsComponent : Component
 {
+
+    /// <summary>
+    /// Sound to bow on tension
+    /// </summary>
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    public SoundSpecifier bowSound = new SoundPathSpecifier("/Audio/Weapons/Guns/Misc/arrow_nock.ogg");
+
     /// <summary>
     /// Zero state timer
     /// </summary>
@@ -45,7 +53,7 @@ public sealed partial class ExpendedBowsComponent : Component
         {0, 0.5f},
         {1, 1f},
         {2, 1.4f},
-        {3, 1.7f},
+        {3, 3f},
     };
 
     /// <summary>
