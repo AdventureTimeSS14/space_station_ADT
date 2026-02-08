@@ -30,7 +30,7 @@ public sealed partial class BowsSystem : EntitySystem
     {
         if(!TryComp<ContainerAmmoProviderComponent>(bow, out var containerComp))
             return;
-        if (!_containerSystem.TryGetContainer(containerComp.ProviderUid.Value, containerComp.Container, out var container))
+        if (containerComp.ProviderUid.Value != null && !_containerSystem.TryGetContainer(containerComp.ProviderUid.Value, containerComp.Container, out var container))
             return;
         if (bow.Comp.StepOfTension!=bow.Comp.MinTension)
         {
@@ -73,7 +73,7 @@ public sealed partial class BowsSystem : EntitySystem
 
             comp.StepOfTension++;
             _popup.PopupClient(Loc.GetString(comp.TensionAndLoc[comp.StepOfTension],("user", wielded.User)), uid, wielded.User);
-            comp.coldownStart = _timing.CurTime + TimeSpan.FromSeconds(bow.Comp.floatToColdown);
+            comp.coldownStart = _timing.CurTime + TimeSpan.FromSeconds(comp.floatToColdown);
         }
     }
 
