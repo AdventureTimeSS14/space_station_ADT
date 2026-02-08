@@ -194,7 +194,6 @@
   - type: Item
     sprite: ADT/Objects/Tools/makeshift_omnitool.rsi
   - type: Prying
-    enabled: false
   - type: Tool
     qualities:
     - Prying
@@ -300,6 +299,7 @@
     - Screwing
     - Cutting
     speedModifier: 0.6
+  - type: ToolTileCompatible
   - type: MultipleTool
     statusShowBehavior: true
     entries:
@@ -392,7 +392,6 @@
   - type: Item
     sprite: ADT/Objects/Tools/improvised_wirecutters.rsi
     storedRotation: -90
-  - type: ToolTileCompatible
   - type: Tool
     qualities:
     - Cutting
@@ -491,8 +490,6 @@
     sound:
       path: /Audio/Items/crowbar_drop.ogg
   - type: Tool
-    useSound:
-      collection: Welder
     qualities:
     - Prying
     - Anchoring
@@ -502,6 +499,7 @@
     speedModifier: 0.7
   - type: Item
     size: Normal
+  - type: ToolTileCompatible
   - type: MultipleTool
     statusShowBehavior: true
     entries:
@@ -570,6 +568,7 @@
     quickEquip: false
     slots:
     - Belt
+  - type: ToolTileCompatible
   - type: Tool
     qualities:
     - Prying
@@ -578,8 +577,6 @@
     - Cutting
     - Pulsing
     speedModifier: 0.9
-    useSound:
-      collection: Welder
   - type: Item
     sprite: ADT/Objects/Tools/forged_omnitool.rsi
     size: Normal
