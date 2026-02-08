@@ -35,4 +35,8 @@ public sealed partial class ExpendedBowsComponent : Component
         {2, 1.4f},
         {3, 1.7f},
     };
+
+    public string DamageToModidiering = "Piercing";
+    public int MaxTension = 3;
+    public int MinTension = 0;
 }

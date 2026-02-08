@@ -9,11 +9,8 @@ using Content.Shared.Weapons.Ranged.Systems;
 using Content.Shared.Wieldable.Components;
 using Robust.Shared.Containers;
 using Robust.Shared.Timing;
-using System.Reflection.Metadata;
-using System.Diagnostics;
-using System.Threading;
 
-namespace Content.Server.ADT.BowsSystem;
+namespace Content.Shared.ADT.BowsSystem;
 
 public sealed partial class BowsSystem : EntitySystem
 {
@@ -33,18 +30,18 @@ public sealed partial class BowsSystem : EntitySystem
     {
         if(!TryComp<ContainerAmmoProviderComponent>(bow, out var containerComp))
             return;
-        if (_containerSystem.TryGetContainer(containerComp.ProviderUid.Value, containerComp.Container, out var container))
+        if (!_containerSystem.TryGetContainer(containerComp.ProviderUid.Value, containerComp.Container, out var container))
             return;
-        if (bow.Comp.StepOfTension!=0)
+        if (bow.Comp.StepOfTension!=bow.Comp.MinTension)
         {
             foreach (var i in container.ContainedEntities)
             {
                 if (TryComp<ProjectileComponent>(i,out var proj))
                 {
-                    if (!proj.Damage.DamageDict.TryGetValue("Piercing", out var ProjectileDamage))
+                    if (!proj.Damage.DamageDict.TryGetValue(bow.Comp.DamageToModidiering, out var ProjectileDamage))
                         return;
                     var multipliedDamage = ProjectileDamage * bow.Comp.StepOfTension;
-                    proj.Damage.DamageDict["Piercing"] = multipliedDamage;
+                    proj.Damage.DamageDict[bow.Comp.DamageToModidiering] = multipliedDamage;
                 }
             }
         }
@@ -67,10 +64,10 @@ public sealed partial class BowsSystem : EntitySystem
                 continue;
             if(!TryComp<WieldableComponent>(uid,out var wielded) || !wielded.Wielded)
             {
-                comp.StepOfTension=0;
-                return;
+                comp.StepOfTension=comp.MinTension;
+                continue;
             }
-            if (comp.StepOfTension >= 3)
+            if (comp.StepOfTension >= comp.MaxTension)
                 continue;
 
             comp.StepOfTension++;
