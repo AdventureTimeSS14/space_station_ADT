@@ -167,16 +167,6 @@ public sealed class PickObjectiveTargetSystem : EntitySystem
 
         var traitors = _traitorRule.GetOtherTraitorMindsAliveAndConnected(args.Mind).ToHashSet();
 
-        //ADT-Tweak-Start
-        // Filter out immune targets
-        traitors.RemoveWhere(t =>
-        {
-            if (!TryComp<MindComponent>(t.Id, out var mindComp))
-                return false;
-            return HasTargetImmunity(mindComp.OwnedEntity);
-        });
-        //ADT-Tweak-End
-
         // cant help anyone who is tasked with helping:
         // 1. thats boring
         // 2. no cyclic progress dependencies!!!
@@ -225,16 +215,6 @@ public sealed class PickObjectiveTargetSystem : EntitySystem
         }
 
         var traitors = _traitorRule.GetOtherTraitorMindsAliveAndConnected(args.Mind).ToHashSet();
-
-        //ADT-Tweak-Start
-        // Filter out immune targets
-        traitors.RemoveWhere(t =>
-        {
-            if (!TryComp<MindComponent>(t.Id, out var mindComp))
-                return false;
-            return HasTargetImmunity(mindComp.OwnedEntity);
-        });
-        //ADT-Tweak-End
 
         // Can't have multiple objectives to help/save the same person
         foreach (var objective in args.Mind.Objectives)
