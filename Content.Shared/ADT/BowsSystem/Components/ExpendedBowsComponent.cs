@@ -4,19 +4,35 @@ namespace Content.Shared.ADT.BowsSystem.Components;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class ExpendedBowsComponent : Component
 {
+    /// <summary>
+    /// Zero state timer
+    /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public TimeSpan coldownStart = TimeSpan.Zero;
 
+    /// <summary>
+    /// Time to timer
+    /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public TimeSpan coldown = TimeSpan.FromSeconds(7f);
+    public float floatToColdown = 7f;
+    /// <summary>
+    /// Timer to change tension in bow
+    /// </summary>
+    public TimeSpan coldownTime = TimeSpan.FromSeconds(floatToColdown);
 
-    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    /// <summary>
+    /// Aaa.....Step of tension in bow 
+    /// </summary>
     public int StepOfTension=0;
 
-    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    /// <summary>
+    /// Slot in bow for arrow
+    /// </summary>
     public string ItemSlot="projectiles";
 
-    [DataField]
+    /// <summary>
+    /// Tension and loc for it
+    /// </summary>
     public Dictionary<int, string> TensionAndLoc = new Dictionary<int, string>
     {
         {0, "popup-bow-use-null"},
@@ -25,7 +41,9 @@ public sealed partial class ExpendedBowsComponent : Component
         {3, "popup-bow-use-hard"},
     };
 
-    [DataField]
+    /// <summary>
+    /// Tension in bow and speed modiefer for arrow
+    /// </summary>
     public Dictionary<int, float> TensionAndModieferSpeed = new Dictionary<int, float>
     {
         {0, 0.5f},
@@ -34,7 +52,18 @@ public sealed partial class ExpendedBowsComponent : Component
         {3, 1.7f},
     };
 
-    public string DamageToModidiering = "Piercing";
+    /// <summary>
+    /// Damage that have bonus
+    /// </summary>
+    public string DamageToModifying = "Piercing";
+
+    /// <summary>
+    /// Max tension in bow
+    /// </summary>
     public int MaxTension = 3;
+
+    /// <summary>
+    /// Min tension in bow
+    /// </summary>
     public int MinTension = 0;
 }

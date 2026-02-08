@@ -38,7 +38,7 @@ public sealed partial class BowsSystem : EntitySystem
             {
                 if (TryComp<ProjectileComponent>(i,out var proj))
                 {
-                    if (!proj.Damage.DamageDict.TryGetValue(bow.Comp.DamageToModidiering, out var ProjectileDamage))
+                    if (!proj.Damage.DamageDict.TryGetValue(bow.Comp.DamageToModifying, out var ProjectileDamage))
                         return;
                     var multipliedDamage = ProjectileDamage * bow.Comp.StepOfTension;
                     proj.Damage.DamageDict[bow.Comp.DamageToModidiering] = multipliedDamage;
@@ -50,7 +50,7 @@ public sealed partial class BowsSystem : EntitySystem
 
     public void OnUseInHand(Entity<ExpendedBowsComponent> bow, ref UseInHandEvent args)
     {
-        bow.Comp.coldownStart = _timing.CurTime + bow.Comp.coldown;
+        bow.Comp.coldownStart = _timing.CurTime + bow.Comp.coldownTime;
     }
 
     public override void Update(float frameTime)
@@ -73,7 +73,7 @@ public sealed partial class BowsSystem : EntitySystem
 
             comp.StepOfTension++;
             _popup.PopupClient(Loc.GetString(comp.TensionAndLoc[comp.StepOfTension],("user", wielded.User)), uid, wielded.User);
-            comp.coldownStart = _timing.CurTime + comp.coldown;
+            comp.coldownStart = _timing.CurTime + comp.coldownTime;
         }
     }
 
