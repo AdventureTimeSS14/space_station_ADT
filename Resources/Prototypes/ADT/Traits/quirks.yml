@@ -155,6 +155,15 @@
   speciesBlacklist:
   - IPC
 
+- type: trait
+  id: MarkedAsProtected
+  name: trait-protected-name
+  description: trait-protected-desc
+  category: Meta
+  components:
+    - type: TargetObjectiveImmune
+  cost: 0
+
 # - type: trait
 #   id: ADTPotentialPoltergeist
 #   name: trait-poltergeist-name
