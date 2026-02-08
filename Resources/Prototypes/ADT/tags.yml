@@ -510,6 +510,9 @@
   id: ADTShadekinEmotes
 
 - type: Tag
+  id: ADTNovakidEmotes
+
+- type: Tag
   id: ADTDogEmotes
 
 - type: Tag

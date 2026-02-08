@@ -517,3 +517,25 @@
     - машет своими крылышками
     - взмахивает своими крыльями
     - взмахивает своими крылышками
+
+# Novakid
+
+- type: emote
+  id: FierySounds
+  name: chat-emote-name-fiery-sounds
+  category: Vocal
+  whitelist:
+    requireAll: true
+    components:
+    - Vocal
+    tags:
+    - ADTNovakidEmotes
+  icon: ADT/Interface/Emotes/Vocal/fire.png
+  chatMessages: [chat-emote-msg-fiery-sounds]
+  chatTriggers:
+    - разгарается
+    - потрескивает огнём
+    - издаёт пламенные звуки
+    - разгараеться
+    - потрескивает огнем
+    - издает пламенные звуки

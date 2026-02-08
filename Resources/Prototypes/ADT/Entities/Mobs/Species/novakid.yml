@@ -169,6 +169,7 @@
     - DoorBumpOpener
     - AnomalyHost
     - ChangelingBlacklist
+    - ADTNovakidEmotes
   - type: MidroundCustomization
     customizableCategories:
     - Hair

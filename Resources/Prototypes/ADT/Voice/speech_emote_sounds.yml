@@ -305,6 +305,8 @@
       collection: MaleCry
     Whistle:
       collection: Whistles
+    FierySounds:
+      collection: NovakidLaugh
 
 - type: emoteSounds
   id: MaleNovakid
@@ -348,6 +350,8 @@
       collection: MaleSigh
     Crying-apathy:
       collection: MaleCry
+    FierySounds:
+      collection: NovakidLaugh
 
 - type: emoteSounds
   id: FemaleNovakid
@@ -391,6 +395,8 @@
       collection: FemaleSigh
     Crying-apathy:
       collection: FemaleCry
+    FierySounds:
+      collection: NovakidLaugh
 
 - type: emoteSounds
   id: UnisexIPC
