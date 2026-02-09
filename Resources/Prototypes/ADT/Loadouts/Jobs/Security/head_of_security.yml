@@ -1,3 +1,22 @@
+# Revered Whistle
+
+- type: loadoutEffectGroup
+  id: MasterWhistle
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobHeadOfSecurity
+      time: 54000 #15 hrs
+
+- type: loadout
+  id: HeadOfSecurityWhistle
+  equipment:
+    neck: ADTReveredWhistle
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: MasterWhistle
+
 - type: loadout
   id: HeadofSecurityMantleShoulder
   equipment:
