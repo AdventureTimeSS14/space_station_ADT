@@ -154,12 +154,6 @@
         conditions:
         - !type:ReagentCondition
           reagent: Bicaridine
-      # Start ADT tweak
-        - !type:MetabolizerTypeCondition
-          type: [ Shadekin ]
-      # End ADT tweak
-        - !type:ReagentCondition
-          reagent: Bicaridine
           min: 15
         damage:
           types:
@@ -275,10 +269,6 @@
             Cold: -1.5
       - !type:HealthChange
         conditions:
-        # Start ADT tweak
-        - !type:MetabolizerTypeCondition
-          type: [ Shadekin ]
-        # End ADT tweak
         - !type:ReagentCondition
           reagent: Dermaline
           min: 10
@@ -575,10 +565,6 @@
       effects:
       - !type:HealthChange
         conditions:
-        # Start ADT tweak
-        - !type:MetabolizerTypeCondition
-          type: [ Shadekin ]
-        # End ADT tweak
           # they gotta be in crit first
         - !type:MobStateCondition
           mobstate: Critical
@@ -586,11 +572,6 @@
           types:
             Asphyxiation: -2
       - !type:ModifyBleed
-        # Start ADT tweak
-        conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Shadekin ]
-        # End ADT tweak
         amount: -0.25
       # Start ADT tweak
       - !type:HealthChange
@@ -776,11 +757,6 @@
     Medicine:
       effects:
       - !type:HealthChange
-        # Start ADT tweak
-        conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Shadekin ]
-        # End ADT tweak
         damage:
           groups:
             Brute: -10.5 # ADT-Tweak ## Лечит механические повреждения на 3.5 (10.5/3)
@@ -788,10 +764,6 @@
             Asphyxiation: -2.5
       - !type:HealthChange
         conditions:
-        # Start ADT tweak
-        - !type:MetabolizerTypeCondition
-          type: [ Shadekin ]
-        # End ADT tweak
         - !type:ReagentCondition
           reagent: PolypyryliumOligomers
           min: 30
