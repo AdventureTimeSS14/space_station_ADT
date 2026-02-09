@@ -210,10 +210,6 @@
       effects:
         - !type:HealthChange
           conditions:
-          # Start ADT tweak
-          - !type:MetabolizerTypeCondition
-            type: [ Shadekin ]
-          # End ADT tweak
           - !type:TemperatureCondition
             # this is a little arbitrary but they gotta be pretty cold
             max: 213.0
