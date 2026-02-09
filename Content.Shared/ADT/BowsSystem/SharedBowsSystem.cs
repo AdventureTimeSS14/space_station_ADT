@@ -53,11 +53,13 @@ public sealed partial class BowsSystem : EntitySystem
             {
                 continue;
             }
-            if (wielded.Wielded is not { } owner)
+            if (wielded.Wielded is not {})
             {
                 comp.StepOfTension=comp.MinTension;
                 continue;
             }
+            if (wielded.User is not {} owner)
+                return;
             if (comp.StepOfTension >= comp.MaxTension)
                 continue;
 
