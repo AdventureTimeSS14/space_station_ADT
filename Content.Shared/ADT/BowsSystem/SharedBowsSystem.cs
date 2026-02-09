@@ -51,15 +51,12 @@ public sealed partial class BowsSystem : EntitySystem
                 continue;
             if(!TryComp<WieldableComponent>(uid,out var wieldedcomp))
                 continue;
-            if (wieldedcomp.Wielded is not {} wielded)
+            if (wieldedcomp.Wielded == false)
             {
-                if (wielded=true)
-                {
-                    comp.StepOfTension=comp.MinTension;
-                    continue;
-                }
+                comp.StepOfTension=comp.MinTension;
+                continue;
             }
-            if (wielded.User is not {} owner)
+            if (wieldedcomp.User is not {} owner)
                 return;
             if (comp.StepOfTension >= comp.MaxTension)
                 continue;
