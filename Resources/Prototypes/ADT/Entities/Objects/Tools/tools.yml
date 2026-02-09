@@ -198,6 +198,7 @@
     qualities:
     - Prying
     - Anchoring
+    useSound: /Audio/Items/crowbar.ogg
     speedModifier: 0.7
   - type: ToolTileCompatible
   - type: MeleeWeapon
