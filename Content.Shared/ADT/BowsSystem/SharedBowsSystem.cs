@@ -49,7 +49,11 @@ public sealed partial class BowsSystem : EntitySystem
         {
             if (_timing.CurTime < comp.coldownStart)
                 continue;
-            if(!TryComp<WieldableComponent>(uid,out var wielded) || !wielded.Wielded)
+            if(!TryComp<WieldableComponent>(uid,out var wielded))
+            {
+                continue;
+            }
+            if (wielded.Wielded is not { } owner)
             {
                 comp.StepOfTension=comp.MinTension;
                 continue;
@@ -58,8 +62,8 @@ public sealed partial class BowsSystem : EntitySystem
                 continue;
 
             comp.StepOfTension++;
-            _popup.PopupClient(Loc.GetString(comp.TensionAndLoc[comp.StepOfTension],("user", wielded.User!)), uid, wielded.User);
-            _audio.PlayPvs(comp.bowSound, wielded.User!);
+            _popup.PopupClient(Loc.GetString(comp.TensionAndLoc[comp.StepOfTension],("user", owner)), uid, wielded.User);
+            _audio.PlayPvs(comp.bowSound, owner);
             comp.coldownStart = _timing.CurTime + TimeSpan.FromSeconds(comp.floatToColdown);
         }
     }
