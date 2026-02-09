@@ -198,8 +198,8 @@
     qualities:
     - Prying
     - Anchoring
-    useSound: /Audio/Items/crowbar.ogg
     speedModifier: 0.7
+    useSound: /Audio/Items/crowbar.ogg
   - type: ToolTileCompatible
   - type: MeleeWeapon
     wideAnimationRotation: -135
@@ -250,6 +250,7 @@
     - Anchoring
     - Screwing
     speedModifier: 0.6
+    useSound: /Audio/Items/crowbar.ogg
   - type: MultipleTool
     statusShowBehavior: true
     entries:
@@ -299,7 +300,8 @@
     - Anchoring
     - Screwing
     - Cutting
-    speedModifier: 0.6
+    speedModifier: 0.5
+    useSound: /Audio/Items/crowbar.ogg
   - type: ToolTileCompatible
   - type: MultipleTool
     statusShowBehavior: true
@@ -498,6 +500,7 @@
     - Cutting
     - Pulsing
     speedModifier: 0.7
+    useSound: /Audio/Items/crowbar.ogg
   - type: Item
     size: Normal
   - type: ToolTileCompatible
@@ -577,7 +580,8 @@
     - Screwing
     - Cutting
     - Pulsing
-    speedModifier: 0.9
+    speedModifier: 0.8
+    useSound: /Audio/Items/crowbar.ogg
   - type: Item
     sprite: ADT/Objects/Tools/forged_omnitool.rsi
     size: Normal
