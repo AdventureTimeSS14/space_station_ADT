@@ -12,7 +12,7 @@
 - type: loadout
   id: HeadOfSecurityWhistle
   equipment:
-    neck: ReveredWhistle
+    neck: ADTReveredWhistle
   effects:
   - !type:GroupLoadoutEffect
     proto: MasterWhistle

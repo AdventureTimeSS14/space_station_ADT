@@ -1,6 +1,6 @@
 - type: entity
   parent: BaseItem
-  id: ReveredWhistle
+  id: ADTReveredWhistle
   name: revered whistle
   description: A whistle awarded for brave and long service in the ranks of the security service.
   components:
