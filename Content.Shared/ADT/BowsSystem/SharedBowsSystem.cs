@@ -59,7 +59,7 @@ public sealed partial class BowsSystem : EntitySystem
 
             comp.StepOfTension++;
             _popup.PopupClient(Loc.GetString(comp.TensionAndLoc[comp.StepOfTension],("user", wielded.User!)), uid, wielded.User);
-            _audio.PlayPvs(comp.bowSound, wielded.User);
+            _audio.PlayPvs(comp.bowSound, wielded.User!);
             comp.coldownStart = _timing.CurTime + TimeSpan.FromSeconds(comp.floatToColdown);
         }
     }
