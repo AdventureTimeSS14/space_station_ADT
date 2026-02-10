@@ -25,6 +25,7 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Shadekin ]
+          inverted: true
         # End ADT tweak
         - !type:ReagentCondition
           reagent: Desoxyephedrine
@@ -45,6 +46,7 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Shadekin ]
+          inverted: true
         - !type:ReagentCondition
           reagent: Desoxyephedrine
           min: 30
@@ -117,6 +119,9 @@
             Poison: 12
             Asphyxiation: 7
         conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Shadekin ]
+          inverted: true
         - !type:HasComponentCondition
           components:
             - ActiveSandevistanUser
@@ -131,6 +136,7 @@
         # Start ADT tweak
         - !type:MetabolizerTypeCondition
           type: [ Shadekin ]
+          inverted: true
         # End ADT tweak
         - !type:ReagentCondition
           reagent: Ephedrine

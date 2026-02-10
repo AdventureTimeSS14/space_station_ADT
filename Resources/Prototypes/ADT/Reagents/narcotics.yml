@@ -46,6 +46,7 @@
         # Start edit by Filo
         - !type:MetabolizerTypeCondition
           type: [ Shadekin ]
+          inverted: true
         # End edit by Filo
         - !type:ReagentCondition
           reagent: ADTOpium
@@ -90,6 +91,7 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Shadekin ]
+          inverted: true
         - !type:ReagentCondition
           reagent: ADTBlueSkyDesoxyephedrine
           min: 30
@@ -121,6 +123,9 @@
             Poison: 30
             Asphyxiation: 15
         conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Shadekin ]
+          inverted: true
         - !type:HasComponentCondition
           components:
             - ActiveSandevistanUser

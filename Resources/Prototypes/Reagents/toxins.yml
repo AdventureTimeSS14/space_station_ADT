@@ -319,11 +319,10 @@
     Poison:
       effects:
       - !type:HealthChange
-        # Start ADT tweak
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Shadekin ]
-        # End ADT tweak
+          inverted: true
         damage:
           types:
             Asphyxiation: 5
@@ -357,6 +356,7 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Shadekin ]
+          inverted: true
         # End ADT tweak
         damage:
           groups:
@@ -416,6 +416,7 @@
         # Start ADT tweak
         - !type:MetabolizerTypeCondition
           type: [ Shadekin ]
+          inverted: true
         # End ADT tweak
         - !type:ReagentCondition
           reagent: Histamine

@@ -152,6 +152,11 @@
           Brute: -1.5
       - !type:HealthChange
         conditions:
+      # Start ADT tweak
+        - !type:MetabolizerTypeCondition
+          type: [ Shadekin ]
+          inverted: true
+      # End ADT tweak
         - !type:ReagentCondition
           reagent: Bicaridine
           min: 15
@@ -204,6 +209,11 @@
       effects:
         - !type:HealthChange
           conditions:
+      # Start ADT tweak
+          - !type:MetabolizerTypeCondition
+            type: [ Shadekin ]
+            inverted: true
+      # End ADT tweak
           - !type:TemperatureCondition
             # this is a little arbitrary but they gotta be pretty cold
             max: 213.0
@@ -269,6 +279,11 @@
             Cold: -1.5
       - !type:HealthChange
         conditions:
+      # Start ADT tweak
+        - !type:MetabolizerTypeCondition
+          type: [ Shadekin ]
+          inverted: true
+      # End ADT tweak
         - !type:ReagentCondition
           reagent: Dermaline
           min: 10
@@ -355,6 +370,12 @@
     Medicine:
       effects:
       - !type:HealthChange
+      # Start ADT tweak
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Shadekin ]
+          inverted: true
+      # End ADT tweak
         damage:
           types:
             Asphyxiation: -3.5
@@ -368,6 +389,11 @@
         amount: -3
       - !type:HealthChange
         conditions:
+      # Start ADT tweak
+        - !type:MetabolizerTypeCondition
+          type: [ Shadekin ]
+          inverted: true
+      # End ADT tweak
         - !type:ReagentCondition
           reagent: DexalinPlus
           min: 25
@@ -419,6 +445,11 @@
       - !type:HealthChange
         conditions:
           # they gotta be in crit first
+      # Start ADT tweak
+        - !type:MetabolizerTypeCondition
+          type: [ Shadekin ]
+          inverted: true
+      # End ADT tweak
         - !type:MobStateCondition
           mobstate: Critical
         - !type:ReagentCondition
@@ -565,6 +596,11 @@
       effects:
       - !type:HealthChange
         conditions:
+      # Start ADT tweak
+        - !type:MetabolizerTypeCondition
+          type: [ Shadekin ]
+          inverted: true
+      # End ADT tweak
           # they gotta be in crit first
         - !type:MobStateCondition
           mobstate: Critical
@@ -757,6 +793,12 @@
     Medicine:
       effects:
       - !type:HealthChange
+      # Start ADT tweak
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Shadekin ]
+          inverted: true
+      # End ADT tweak
         damage:
           groups:
             Brute: -10.5 # ADT-Tweak ## Лечит механические повреждения на 3.5 (10.5/3)
@@ -764,6 +806,11 @@
             Asphyxiation: -2.5
       - !type:HealthChange
         conditions:
+      # Start ADT tweak
+        - !type:MetabolizerTypeCondition
+          type: [ Shadekin ]
+          inverted: true
+      # End ADT tweak
         - !type:ReagentCondition
           reagent: PolypyryliumOligomers
           min: 30

@@ -230,6 +230,7 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Shadekin ]
+          inverted: true
         # End edit by Filo
         damage:
           types:
@@ -382,6 +383,7 @@
         # Start edit by Filo
         - !type:MetabolizerTypeCondition
           type: [ Shadekin ]
+          inverted: true
         # End edit by Filo
         - !type:ReagentCondition
           reagent: ADTMorphine
