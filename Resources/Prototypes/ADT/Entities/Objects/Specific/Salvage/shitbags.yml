@@ -1,0 +1,75 @@
+- type: entity
+  name: materials bag
+  id: ADTMaterialBag
+  parent: BaseStorageItem
+  description: A bag for salvages to easily move their fast founded materials.
+  components:
+  - type: Sprite
+    color: "#ac7536"
+    sprite: Objects/Specific/Hydroponics/Equipment/plant_bag.rsi
+    state: icon
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#ac7536"
+      right:
+      - state: inhand-right
+        color: "#ac7536"
+    size: Large
+    storedRotation: -90
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - belt
+    clothingVisuals:
+      belt:
+      - state: equipped-BELT
+        color: "#ac7536"
+  - type: Storage
+    grid:
+    - 0,0,11,3
+    maxItemSize: Normal
+    quickInsert: true
+    areaInsert: true
+    whitelist:
+      tags:
+      - Sheet
+      - RawMaterial
+      - Ingot
+      - PhantomEctoplasm
+      - RodMetal1
+  - type: Dumpable
+
+- type: entity
+  name: scrab bag
+  id: ADTScrapBag
+  parent: BaseStorageItem
+  description: A bag for salvages to easily move their fast founded garbage.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Salvage/scrap_bag.rsi
+    state: icon
+  - type: Item
+    sprite: ADT/Objects/Specific/Salvage/scrap_bag.rsi
+    size: Huge
+    storedRotation: -90
+  - type: Clothing
+    sprite: ADT/Objects/Specific/Salvage/scrap_bag.rsi
+    quickEquip: false
+    slots:
+    - belt
+  - type: Storage
+    grid:
+    - 0,0,20,9
+    maxItemSize: Huge
+    quickInsert: true
+    areaInsert: true
+    whitelist:
+      tags:
+      - Recyclable
+      - Trash
+      - SalvageScrap
+      - ScrapAirlock2
+      - ScrapAirlock1
+  - type: Dumpable
