@@ -66,8 +66,8 @@
   components:
   - type: Sprite
     noRot: true
-    sprite: /Textures/ADT/Structures/Decoration/blackbarrel.rsi
-    state: barrel_fire
+    sprite: Structures/Storage/barrels.rsi
+    state: flamingmetalbarrel
   - type: Destructible
     thresholds:
     - trigger:
