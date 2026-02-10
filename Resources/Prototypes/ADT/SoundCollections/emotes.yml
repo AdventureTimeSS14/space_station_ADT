@@ -63,7 +63,7 @@
 - type: soundCollection
   id: NovakidYawn
   files:
-    - /Audio/ADT/Novakid/novakid_laugh03.ogg
+    - /Audio/ADT/Novakid/novakid_yawn.ogg
 
 - type: soundCollection
   id: MaleNovakidSneezes

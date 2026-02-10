@@ -300,7 +300,7 @@
     Honk:
       collection: BikeHorn
     Sigh:
-      collection: MaleSigh
+      collection: NovakidLaugh
     Crying:
       collection: MaleCry
     Whistle:
@@ -336,7 +336,7 @@
     Honk:
       collection: BikeHorn
     Sigh:
-      collection: MaleSigh
+      collection: NovakidLaugh
     Crying:
       collection: MaleCry
     Whistle:
@@ -381,7 +381,7 @@
     Honk:
       collection: CluwneHorn
     Sigh:
-      collection: FemaleSigh
+      collection: NovakidLaugh
     Crying:
       collection: FemaleCry
     Whistle:
