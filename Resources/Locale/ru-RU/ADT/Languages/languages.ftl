@@ -125,7 +125,7 @@ language-Clownish-description = Клоунский язык! Хонк!
 language-Scratches-name = Скретчи
 language-Scratches-description = Язык резоми, состоящий из различных хрипов, тресков и писков, которые нетренированным ухом часто воспринимается, как какофония.
 
-language-SignLanguage-name = Язык жестов
+language-SignLanguage-name = Жестовый язык
 language-SignLanguage-description = Язык, что позволяет глухим представителям всевозможных рас контактировать между собой.
 
 language-DionaCollectiveMind-name = Колл. разум дион

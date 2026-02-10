@@ -377,3 +377,14 @@
     Silver: 200
     Copper: 800
     Zinc: 700
+
+- type: latheRecipe
+  id: ADTClothingBeltManipulator
+  result: ADTClothingBeltManipulator
+  completetime: 5
+  materials:
+    Steel: 500
+    Plastic: 500
+    Gold: 100
+    Plasma: 50
+    Cloth: 500
