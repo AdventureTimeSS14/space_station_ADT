@@ -50,3 +50,14 @@
     contents:
       - id: ADTmarble
         amount: 3
+
+- type: entity
+  id: ADTCrateMaterialWood
+  parent: CrateGenericSteel
+  name: wood sheet crate
+  description: 90 sheets of wood.
+  components:
+  - type: StorageFill
+    contents:
+      - id: MaterialWoodPlank
+        amount: 3

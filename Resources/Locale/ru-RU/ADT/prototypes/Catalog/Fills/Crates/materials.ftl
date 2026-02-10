@@ -6,3 +6,9 @@ ent-CrateMaterialZinc = Ящик цинка
 
 ent-CrateMaterialLead = Ящик свинца
     .desc = Ящик, наполненный 90 листами свинца
+
+ent-CrateMaterialLead = Ящик свинца
+    .desc = Ящик, наполненный 90 листами свинца
+
+ent-ADTCrateMaterialWood = ящик деревянных досок
+    .desc = Ящик, наполненный 90 деревянными досками.
