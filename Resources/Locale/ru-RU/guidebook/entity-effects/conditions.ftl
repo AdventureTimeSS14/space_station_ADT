@@ -67,7 +67,7 @@ entity-condition-guidebook-organ-type =
     метаболизирующий орган { $shouldhave ->
         [true] это
        *[false] это не
-    } { $name } орган
+    } { $name }
 entity-condition-guidebook-has-tag =
     цель { $invert ->
         [true] не имеет

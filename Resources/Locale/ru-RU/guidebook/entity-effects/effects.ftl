@@ -379,7 +379,7 @@ entity-effect-guidebook-make-sentient =
 entity-effect-guidebook-make-polymorph =
     { $chance ->
         [1] Полиморфирует
-        *[other] поолиморфирует
+        *[other] полиморфирует
     } потребителя в { $entityname }
 
 entity-effect-guidebook-modify-bleed-amount =
@@ -488,7 +488,7 @@ entity-effect-guidebook-plant-cryoxadone =
     { $chance ->
         [1] Омолаживает
         *[other] омолаживает
-    } the plant, depending on the plant's age and time to grow
+    } растение в зависимости от его возраста и времени на вырост
 
 entity-effect-guidebook-plant-phalanximine =
     { $chance ->
