@@ -1,0 +1,68 @@
+- type: entity
+  id: ADTHandMadeCompoundBow
+  parent: BaseBow
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Bow/compound_bow_handmade.rsi
+    layers:
+    - state: unwielded
+      map: [ base ]
+    - state: unwielded-arrow
+      map: [ arrow ]
+      visible: false
+  - type: Appearance
+  - type: ItemMapper
+    spriteLayers:
+    - arrow
+    mapLayers:
+      arrow:
+        whitelist:
+          tags:
+          - Arrow
+  - type: GenericVisualizer
+    visuals:
+      enum.WieldableVisuals.Wielded:
+        arrow:
+          True: { state: wielded-arrow }
+          False: { state: unwielded-arrow }
+        base:
+          True: { state: wielded }
+          False: { state: unwielded }
+  - type: ExpendedBows
+    floatToColdown: 5
+  - type: Construction
+    graph: ImprovisedBow
+    node: ImprovisedBow
+
+- type: entity
+  id: ADTSecurityCompoundBow
+  parent: BaseBow
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Bow/compound_bow_security.rsi
+    layers:
+    - state: unwielded
+      map: [ base ]
+    - state: unwielded-arrow
+      map: [ arrow ]
+      visible: false
+  - type: Appearance
+  - type: ItemMapper
+    spriteLayers:
+    - arrow
+    mapLayers:
+      arrow:
+        whitelist:
+          tags:
+          - Arrow
+  - type: GenericVisualizer
+    visuals:
+      enum.WieldableVisuals.Wielded:
+        arrow:
+          True: { state: wielded-arrow }
+          False: { state: unwielded-arrow }
+        base:
+          True: { state: wielded }
+          False: { state: unwielded }
+  - type: ExpendedBows
+    floatToColdown: 2
