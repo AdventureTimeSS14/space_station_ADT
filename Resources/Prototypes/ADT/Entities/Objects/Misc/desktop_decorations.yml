@@ -194,6 +194,8 @@
     grid:
     - 0,0,6,3
   - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
   - type: Fixtures
     fixtures:
       fix1:
