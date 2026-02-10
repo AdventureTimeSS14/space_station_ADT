@@ -31,11 +31,6 @@ ent-ADTSupermatterCascadeRift = разлом
 ent-ADTDARKMATTER = кристалл Суперматерии
     .desc = Даже в специальных очках у вас начинают слезиться глаза.
 
-ent-SupermatterLightning = дуга суперматерии
-
-ent-SupermatterLightningCharged = заряженая дуга суперматерии
-
-ent-SupermatterLightningSupercharged = сверх заряженая дуга суперматерии
 
 supermatter-announcer = Автоматический Двигатель Суперматерии
 
