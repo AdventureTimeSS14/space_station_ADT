@@ -417,7 +417,7 @@
     - type: Sprite
       layers:
       - state: red
-      - sprite: Structures/Power/Substation.rsi
+      - sprite: Structures/Power/substation.rsi
         state: substation_static
     - type: RandomSpawner
       rarePrototypes:
@@ -426,6 +426,25 @@
       prototypes:
         - BrokenSubstation
       chance: 1
+
+- type: entity
+  name: Salvage Generator Spawner
+  id: SalvageGeneratorSpawner
+  suffix: Salvage
+  parent: MarkerBase
+  components:
+    - type: Sprite
+      layers:
+      - state: red
+      - sprite: Structures/Power/Generation/rtg.rsi
+        state: rtg
+    - type: RandomSpawner
+      rarePrototypes:
+        - GeneratorRTG
+      rareChance: 0.3
+      prototypes:
+        - BrokenRTG
+      chance: 0.8
 
 - type: entity
   name: Salvage APC Spawner

@@ -3544,7 +3544,7 @@ entities:
     - type: Transform
       pos: -9.802638,17.820904
       parent: 1
-- proto: CigarPlatinumSpent
+- proto: CigarGoldSpent
   entities:
   - uid: 487
     components:
@@ -5219,7 +5219,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 3.5,-3.5
       parent: 1
-- proto: PosterLegitBarDrinks
+- proto: PosterLegitHighClassMartini
   entities:
   - uid: 700
     components:
@@ -5234,7 +5234,7 @@ entities:
     - type: Transform
       pos: -3.5,5.5
       parent: 1
-- proto: PosterLegitSMHardhats
+- proto: PosterLegitSafetyMothHardhat
   entities:
   - uid: 702
     components:
@@ -5248,7 +5248,7 @@ entities:
     - type: Transform
       pos: -4.5,5.5
       parent: 1
-- proto: PoweredlightColoredRed
+- proto: PoweredlightRed
   entities:
   - uid: 704
     components:
@@ -6049,14 +6049,14 @@ entities:
     - type: Door
       secondsUntilStateChange: -8798.576
       state: Opening
-- proto: SpawnDungeonClutterMedipens
+- proto: SalvageLootSpawner
   entities:
   - uid: 828
     components:
     - type: Transform
       pos: -8.269179,0.93070966
       parent: 1
-- proto: SpawnDungeonClutterMedsSingle
+- proto: SalvageLootSpawner
   entities:
   - uid: 829
     components:
@@ -6068,28 +6068,28 @@ entities:
     - type: Transform
       pos: -4.44201,5.991492
       parent: 1
-- proto: SpawnDungeonFurnitureKitchen
+- proto: MaintenanceFluffSpawner
   entities:
   - uid: 831
     components:
     - type: Transform
       pos: -9.5,1.5
       parent: 1
-- proto: SpawnDungeonLootArmoryClutter
+- proto: SalvageSpawnerScrapValuable75
   entities:
   - uid: 832
     components:
     - type: Transform
       pos: -2.2280428,19.670197
       parent: 1
-- proto: SpawnDungeonLootBureaucracy
+- proto: MaintenanceFluffSpawner
   entities:
   - uid: 833
     components:
     - type: Transform
       pos: -4.5764637,19.722322
       parent: 1
-- proto: SpawnDungeonLootCanister
+- proto: SalvageSpawnerScrapCommon75
   entities:
   - uid: 834
     components:
@@ -6101,7 +6101,7 @@ entities:
     - type: Transform
       pos: 2.5,-5.5
       parent: 1
-- proto: SpawnDungeonLootChems
+- proto: SalvageLootSpawner
   entities:
   - uid: 836
     components:
@@ -6113,7 +6113,7 @@ entities:
     - type: Transform
       pos: -4.277585,6.7766957
       parent: 1
-- proto: SpawnDungeonLootClutterEngi
+- proto: SalvageSpawnerScrapCommon75
   entities:
   - uid: 838
     components:
@@ -6150,7 +6150,7 @@ entities:
     - type: Transform
       pos: -4.904043,9.604862
       parent: 1
-- proto: SpawnDungeonLootClutterKitchen
+- proto: MaintenanceFluffSpawner
   entities:
   - uid: 845
     components:
@@ -6162,7 +6162,7 @@ entities:
     - type: Transform
       pos: -7.300504,1.3337224
       parent: 1
-- proto: SpawnDungeonLootClutterScience
+- proto: SalvageSpawnerScrapCommon75
   entities:
   - uid: 847
     components:
@@ -6194,28 +6194,28 @@ entities:
     - type: Transform
       pos: -0.599531,-3.1443653
       parent: 1
-- proto: SpawnDungeonLootFood
+- proto: MaintenanceFluffSpawner
   entities:
   - uid: 853
     components:
     - type: Transform
       pos: -7.7550454,1.0531578
       parent: 1
-- proto: SpawnDungeonLootLathe
+- proto: SalvageSpawnerScrapCommon75
   entities:
   - uid: 854
     components:
     - type: Transform
       pos: -8.5,-3.5
       parent: 1
-- proto: SpawnDungeonLootLockersEngi
+- proto: SalvageSpawnerScrapCommon75
   entities:
   - uid: 855
     components:
     - type: Transform
       pos: -8.5,-4.5
       parent: 1
-- proto: SpawnDungeonLootLockersGeneral
+- proto: SalvageSpawnerScrapCommon75
   entities:
   - uid: 856
     components:
@@ -6232,7 +6232,7 @@ entities:
     - type: Transform
       pos: -2.5,14.5
       parent: 1
-- proto: SpawnDungeonLootLockersSalvage
+- proto: SalvageSpawnerScrapCommon75
   entities:
   - uid: 859
     components:
@@ -6244,14 +6244,14 @@ entities:
     - type: Transform
       pos: -0.5,2.5
       parent: 1
-- proto: SpawnDungeonLootMaterialsBasicFull
+- proto: SalvageMaterialCrateSpawner
   entities:
   - uid: 861
     components:
     - type: Transform
       pos: -0.58830684,-2.596765
       parent: 1
-- proto: SpawnDungeonLootOresFull
+- proto: SalvageMaterialCrateSpawner
   entities:
   - uid: 862
     components:
@@ -6293,28 +6293,28 @@ entities:
     - type: Transform
       pos: -0.97199446,-4.1628914
       parent: 1
-- proto: SpawnDungeonLootPowerCell
+- proto: SalvageSpawnerScrapCommon75
   entities:
   - uid: 870
     components:
     - type: Transform
       pos: 0.8300026,6.587605
       parent: 1
-- proto: SpawnDungeonLootSpesos
+- proto: SalvageSpawnerTreasure
   entities:
   - uid: 871
     components:
     - type: Transform
       pos: -7.748448,19.688572
       parent: 1
-- proto: SpawnDungeonLootSuitStorageUnitsEngi
+- proto: SalvageSpawnerEquipment
   entities:
   - uid: 872
     components:
     - type: Transform
       pos: -8.5,-5.5
       parent: 1
-- proto: SpawnDungeonLootSuitStorageUnitsSalvage
+- proto: SalvageSpawnerEquipment
   entities:
   - uid: 873
     components:
@@ -6336,7 +6336,7 @@ entities:
     - type: Transform
       pos: -3.5,14.5
       parent: 1
-- proto: SpawnDungeonRandomHumanCorpse
+- proto: SalvageHumanCorpseSpawner
   entities:
   - uid: 877
     components:
@@ -6348,21 +6348,21 @@ entities:
     - type: Transform
       pos: -6.707635,16.918495
       parent: 1
-- proto: SpawnDungeonVendomatsEngi
+- proto: MaintenanceFluffSpawner
   entities:
   - uid: 879
     components:
     - type: Transform
       pos: -0.5,-9.5
       parent: 1
-- proto: SpawnDungeonVendomatsRecreational
+- proto: MaintenanceFluffSpawner
   entities:
   - uid: 880
     components:
     - type: Transform
       pos: -8.5,-1.5
       parent: 1
-- proto: SpawnDungeonVendomatsSalvage
+- proto: MaintenanceFluffSpawner
   entities:
   - uid: 881
     components:
@@ -7337,7 +7337,7 @@ entities:
     - type: Transform
       pos: -4.5,16.5
       parent: 1
-- proto: WarpPointShip
+- proto: WarpPoint
   entities:
   - uid: 1037
     components:
