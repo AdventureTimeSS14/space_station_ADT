@@ -282,9 +282,9 @@
     Laugh:
       collection: NovakidLaugh
     Sneeze:
-      collection: MaleSneezes
+      collection: MaleNovakidSneezes
     Cough:
-      collection: MaleCoughs
+      collection: NovakidCoughs
     CatMeow:
       collection: CatMeows
     CatHisses:
@@ -294,7 +294,7 @@
     RobotBeep:
       collection: RobotBeeps
     Yawn:
-      collection: MaleYawn
+      collection: NovakidYawn
     Snore:
       collection: Snores
     Honk:
@@ -318,9 +318,9 @@
     Laugh:
       collection: NovakidLaugh
     Sneeze:
-      collection: MaleSneezes
+      collection: MaleNovakidSneezes
     Cough:
-      collection: MaleCoughs
+      collection: NovakidCoughs
     CatMeow:
       collection: CatMeows
     CatHisses:
@@ -330,7 +330,7 @@
     RobotBeep:
       collection: RobotBeeps
     Yawn:
-      collection: MaleYawn
+      collection: NovakidYawn
     Snore:
       collection: Snores
     Honk:
@@ -363,9 +363,9 @@
     Laugh:
       collection: NovakidLaugh
     Sneeze:
-      collection: FemaleSneezes
+      collection: FemaleNovakidSneezes
     Cough:
-      collection: FemaleCoughs
+      collection: NovakidCoughs
     CatMeow:
       collection: CatMeows
     CatHisses:
@@ -375,9 +375,9 @@
     RobotBeep:
       collection: RobotBeeps
     Yawn:
-      collection: FemaleYawn
+      collection: NovakidYawn
     Snore:
-      collection: Snores
+      collection: CuteSnores
     Honk:
       collection: CluwneHorn
     Sigh:
