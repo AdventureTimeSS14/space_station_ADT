@@ -330,7 +330,7 @@
           !type:PhysShapeCircle
           radius: 0.5
         density: 55
-        mask: # tables should collide with other tables
+        mask:
         - TableMask
         layer:
         - TableLayer
@@ -360,7 +360,6 @@
     tags:
     - ForceFixRotations
 
-# Меловая доска
 - type: entity
   parent: BaseStructure
   id: ADTChalkboard
@@ -398,7 +397,6 @@
     backgroundModulate: "#202421"
     fontAccentColor: "#ffffff"
     fontDefaultColor: "#ffffff"
-  - type: Chalkboard
   - type: Appearance
   - type: InteractionOutline
   - type: Anchorable

@@ -193,6 +193,7 @@
     maxItemSize: Normal
     grid:
     - 0,0,6,3
+  - type: ContainerContainer
   - type: Fixtures
     fixtures:
       fix1:
