@@ -260,6 +260,42 @@
   components:
   - type: Sprite
     state: weldbarrel
+  - type: Explosive
+    explosionType: Default
+    totalIntensity: 10
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Heat
+        damage: 5
+      behaviors:
+      - !type:SolutionExplosionBehavior
+        solution: tank
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Piercing
+        damage: 5
+      behaviors:
+      - !type:SolutionExplosionBehavior
+        solution: tank
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 25
+      behaviors:
+      - !type:SpillBehavior
+        solution: tank
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
   - type: SolutionContainerManager
     solutions:
       tank:
@@ -278,7 +314,7 @@
     state: woodenbarrel
   - type: PhysicalComposition
     materialComposition:
-      WoodPlank: 2000
+      Wood: 2000
   - type: SolutionContainerManager
     solutions:
       tank:
@@ -292,6 +328,42 @@
   components:
   - type: Sprite
     state: iedweldbarrel
+  - type: Explosive
+    explosionType: Default
+    totalIntensity: 20
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Heat
+        damage: 5
+      behaviors:
+      - !type:SolutionExplosionBehavior
+        solution: tank
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Piercing
+        damage: 5
+      behaviors:
+      - !type:SolutionExplosionBehavior
+        solution: tank
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 25
+      behaviors:
+      - !type:SpillBehavior
+        solution: tank
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
   - type: SolutionContainerManager
     solutions:
       tank:
@@ -327,7 +399,6 @@
   - type: MixableSolution
     solution: tank
   - type: SolutionTransfer
-    solution: tank
     canChangeTransferAmount: true
   - type: DrawableSolution
     solution: tank
@@ -375,7 +446,6 @@
   - type: MixableSolution
     solution: tank
   - type: SolutionTransfer
-    solution: tank
     canChangeTransferAmount: true
   - type: DrawableSolution
     solution: tank
@@ -388,6 +458,42 @@
   - type: ExaminableSolution
     solution: tank
   - type: ReagentTank
+  - type: Explosive
+    explosionType: Default
+    totalIntensity: 10
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Heat
+        damage: 5
+      behaviors:
+      - !type:SolutionExplosionBehavior
+        solution: tank
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Piercing
+        damage: 5
+      behaviors:
+      - !type:SolutionExplosionBehavior
+        solution: tank
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 25
+      behaviors:
+      - !type:SpillBehavior
+        solution: tank
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
   - type: SolutionContainerManager
     solutions:
       tank:
@@ -423,7 +529,6 @@
   - type: MixableSolution
     solution: tank
   - type: SolutionTransfer
-    solution: tank
     canChangeTransferAmount: true
   - type: DrawableSolution
     solution: tank
@@ -440,9 +545,6 @@
     solutions:
       tank:
         maxVol: 500
-        reagents:
-        - ReagentId: Silicon
-          Quantity: 500
 
 - type: entity
   parent: BaseBarrelChem
@@ -471,7 +573,6 @@
   - type: MixableSolution
     solution: tank
   - type: SolutionTransfer
-    solution: tank
     canChangeTransferAmount: true
   - type: DrawableSolution
     solution: tank
@@ -486,7 +587,7 @@
   - type: ReagentTank
   - type: PhysicalComposition
     materialComposition:
-      WoodPlank: 2000
+      Wood: 2000
   - type: SolutionContainerManager
     solutions:
       tank:
@@ -522,7 +623,6 @@
   - type: MixableSolution
     solution: tank
   - type: SolutionTransfer
-    solution: tank
     canChangeTransferAmount: true
   - type: DrawableSolution
     solution: tank
@@ -539,9 +639,6 @@
     solutions:
       tank:
         maxVol: 500
-        reagents:
-        - ReagentId: Ethanol
-          Quantity: 500
 
 - type: entity
   parent: BaseBarrelChemRadioactive
@@ -570,7 +667,6 @@
   - type: MixableSolution
     solution: tank
   - type: SolutionTransfer
-    solution: tank
     canChangeTransferAmount: true
   - type: DrawableSolution
     solution: tank
