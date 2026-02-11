@@ -44,7 +44,7 @@ ent-ADTFoodPacketSpicyTrash = пустая упаковка от чипсов Ф
 ent-ADTFoodPacketBeefTrash = пустая упаковка от вяленой говядины
     .desc = Мусор
 
-ent-ADTFoodPacketChickenTrash = пустая упаковка от сушеного куриного мяся
+ent-ADTFoodPacketChickenTrash = пустая упаковка от сушеного куриного мяса
     .desc = Мусор
 
 ent-ADTFoodPacketHorseTrash = пустая упаковка от сушеной конины
