@@ -520,6 +520,7 @@
         whitelist:
           tags:
             - Paper
+            - SpaceCash # ADT-Tweak
   - type: ActivatableUI
     key: enum.PaperUiKey.Key
     requiresComplex: false
