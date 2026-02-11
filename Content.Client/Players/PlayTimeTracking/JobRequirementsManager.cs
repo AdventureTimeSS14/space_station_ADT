@@ -115,11 +115,7 @@ public sealed class JobRequirementsManager : ISharedPlaytimeManager
             foreach (var proto in antags)
             {
                 if (!IsAllowed(_prototypes.Index(proto), profile, out reason))
-                {
-                    reason ??= FormattedMessage.FromUnformatted( // ADT-Tweak
-                        Loc.GetString("role-not-allowed"));
                     return false;
-                }
             }
         }
 
@@ -128,51 +124,48 @@ public sealed class JobRequirementsManager : ISharedPlaytimeManager
             foreach (var proto in jobs)
             {
                 if (!IsAllowed(_prototypes.Index(proto), profile, out reason))
-                {
-                    reason ??= FormattedMessage.FromUnformatted( // ADT-Tweak
-                        Loc.GetString("role-not-allowed"));
                     return false;
-                }
             }
         }
 
         return true;
     }
 
-
     /// <summary>
     /// Check the job prototype against the current player, for requirements and bans
     /// </summary>
-    public bool IsAllowed(JobPrototype job, HumanoidCharacterProfile? profile, out FormattedMessage? reason)
+    public bool IsAllowed(
+        JobPrototype job,
+        HumanoidCharacterProfile? profile,
+        [NotNullWhen(false)] out FormattedMessage? reason)
     {
-        reason = null;
-
+        reason=null;
+        // Check the player's bans
         if (_jobBans.Contains(job.ID))
         {
             reason = FormattedMessage.FromUnformatted(Loc.GetString("role-ban"));
             return false;
         }
-        // ADT-Tweak-start
-        var ignoreRoleTimers =
-            _sponsorsManager.TryGetInfo(out var sponsorInfo) &&
-            sponsorInfo?.AllowJob == true;
+
+        //ADT-Sponsors-Job-Start
+        if (_sponsorsManager.TryGetInfo(out var sponsorInfo) && !sponsorInfo.AllowJob)
+        {
+            reason = FormattedMessage.FromUnformatted(Loc.GetString("sponsor-job"));
+            return false;
+        }
+        if (_sponsorsManager.TryGetInfo(out sponsorInfo) && sponsorInfo.AllowJob)
+            return true;
+        //ADT-Sponsors-Job-End
 
         if (!CheckWhitelist(job, out reason))
             return false;
 
-        var player = _playerManager.LocalSession;
-        if (player == null)
-            return true;
+        // Check other role requirements
+        var reqs = _entManager.System<SharedRoleSystem>().GetRoleRequirements(job);
+        if (!CheckRoleRequirements(reqs, profile, out reason))
+            return false;
 
-        if (ignoreRoleTimers)
-            return true;
-
-        var reqs = _entManager
-            .System<SharedRoleSystem>()
-            .GetRoleRequirements(job);
-
-        return CheckRoleRequirements(reqs, profile, out reason);
-        // ADT-Tweak-end
+        return true;
     }
 
     /// <summary>
