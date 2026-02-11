@@ -147,15 +147,13 @@ public sealed class JobRequirementsManager : ISharedPlaytimeManager
             return false;
         }
 
-        //ADT-Sponsors-Job-Start
-        if (_sponsorsManager.TryGetInfo(out var sponsorInfo) && !sponsorInfo.AllowJob)
+        // ADT-Sponsors-Job-Start
+        if (_sponsorsManager.TryGetInfo(out var sponsorInfo))
         {
-            reason = FormattedMessage.FromUnformatted(Loc.GetString("sponsor-job"));
-            return false;
+            if (sponsorInfo.AllowJob)
+                return true;
         }
-        if (_sponsorsManager.TryGetInfo(out sponsorInfo) && sponsorInfo.AllowJob)
-            return true;
-        //ADT-Sponsors-Job-End
+        // ADT-Sponsors-Job-End
 
         if (!CheckWhitelist(job, out reason))
             return false;
