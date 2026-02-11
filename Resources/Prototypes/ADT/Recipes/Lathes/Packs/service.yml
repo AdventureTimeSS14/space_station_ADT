@@ -120,3 +120,8 @@
   - ADTBlockGameArcadeComputerCircuitboard
   - ADTSpaceVillainArcadeComputerCircuitboard
   - ADTMinesweeperCircuitboard
+
+- type: latheRecipePack
+  id: ADTBeltManipulatorPack
+  recipes:
+  - ADTClothingBeltManipulator
