@@ -97,3 +97,18 @@
   requiredTech:
   - AdvancedSpray
   - AdvancedCleaning
+
+- type: technology
+  id: ADTManipulatorBelt
+  name: research-technology-manipulator-belt
+  icon:
+    sprite: ADT/Clothing/Belt/manipulator_belt.rsi
+    state: icon
+  discipline: CivilianServices
+  tier: 3
+  cost: 10000
+  recipeUnlocks:
+  - ADTClothingBeltManipulator
+  position: 6,1
+  requiredTech:
+  - ADTProtectionPseudoscience
