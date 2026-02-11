@@ -424,3 +424,95 @@
   canRotate: false
   conditions:
     - !type:TileNotBlocked
+
+- type: construction
+  id: ADTBaseBarrel
+  graph: ADTBaseBarrel
+  startNode: start
+  targetNode: adtbasebarrel
+  category: construction-category-structures
+  placementMode: SnapgridCenter
+  objectType: Structure
+  canBuildInImpassable: false
+  canRotate: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: ADTBarrelPlanks
+  graph: ADTBarrelPlanks
+  startNode: start
+  targetNode: adtbarrelplanks
+  category: construction-category-structures
+  placementMode: SnapgridCenter
+  objectType: Structure
+  canBuildInImpassable: false
+  canRotate: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: ADTBarrelFire
+  graph: ADTBarrelFire
+  startNode: start
+  targetNode: adtbarrelfire
+  category: construction-category-structures
+  placementMode: SnapgridCenter
+  objectType: Structure
+  canBuildInImpassable: false
+  canRotate: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: ADTCandelabraLit
+  graph: ADTCandelabraLit
+  startNode: start
+  targetNode: adtcandelabralit
+  category: construction-category-structures
+  placementMode: SnapgridCenter
+  objectType: Structure
+  canBuildInImpassable: false
+  canRotate: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: ADTCeilingFan
+  graph: ADTCeilingFan
+  startNode: start
+  targetNode: adtceilingfan
+  category: construction-category-structures
+  placementMode: SnapgridCenter
+  objectType: Structure
+  canBuildInImpassable: false
+  canRotate: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: ADTConstructionBarricade
+  graph: ADTConstructionBarricade
+  startNode: start
+  targetNode: adtconstructionbarricade
+  category: construction-category-structures
+  placementMode: SnapgridCenter
+  objectType: Structure
+  canBuildInImpassable: false
+  canRotate: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: ADTWallClock
+  graph: ADTWallClock
+  startNode: start
+  targetNode: adtwallclock
+  category: construction-category-structures
+  placementMode: SnapgridCenter
+  objectType: Structure
+  canBuildInImpassable: true
+  canRotate: false
+  conditions:
+    - !type:TileNotBlocked
+

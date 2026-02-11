@@ -61,9 +61,9 @@ job-name-welder = сварщик
 
 # Cargo
 
-job-name-intendant = интендант
 job-name-postman = почтальон
 job-name-inventory-associate = кладовщик
+job-name-intendant = интендант
 
 # Medical
 

@@ -416,6 +416,47 @@
   - type: Clothing
     sprite: ADT/Personalization/suit_aidan.rsi
 
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingNeckAidan
+  name: Aidan neck
+  description: 
+  suffix: Personal, Aidan
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/aidan_neck.rsi
+    state: icon
+  - type: Clothing
+    sprite: ADT/Personalization/aidan_neck.rsi
+    equippedState: equipped-NECK
+
+- type: entity
+  parent: ClothingMaskBase
+  id: ADTClothingMaskAidan
+  name: Aidan mask
+  description: 
+  suffix: Personal, Aidan
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/aidan_mask.rsi
+    state: icon
+  - type: Clothing
+    sprite: ADT/Personalization/aidan_mask.rsi
+    equippedState: equipped-MASK
+
+- type: entity
+  parent: ADTClothingSponsorHandsBase
+  id: ADTClothingHandsAidanWatch
+  name: Aidan Watch
+  description: Aidan Watch
+  suffix: Personal, Aidan
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/aidan_watch.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/aidan_watch.rsi
+  - type: Clock
+
 # Bolper
 - type: entity
   parent: ADTSponsorClothingOuterStorageBase
@@ -1424,3 +1465,30 @@
   - type: Clothing
     sprite: ADT/Personalization/luckyrat/luckyrat_boots.rsi
   - type: Matchbox
+
+#Faust Netzach
+- type: entity
+  parent: ADTSponsorClothingUniformBase
+  id: ADTClothingUniformGothic
+  name: gothic dress
+  description: A gothic dress is an elegant and mysterious garment characterized by its dark and intriguing style. Deep, dark shades like black, burgundy, or navy blue add an aura of mystery and aristocratic allure. Delicate lace accents, luxurious drapery, and ruffles evoke a sense of ancient romance. Keyhole or high neckline cuts give the gothic dress uniqueness and opulence. This dress is perfect for those who want to stand out and emphasize their individuality and mystique. In it, every woman feels refined and captivating, ready to enchant at first sight.
+  suffix: Personal, Faust Netzach
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/FaustNetzach/faust_gothic_dress.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/FaustNetzach/faust_gothic_dress.rsi
+
+- type: entity
+  parent: ADTClothingSponsorHandsBase
+  id: ADTClothingHandsCuffsFaust
+  name: mangette
+  description: mangette
+  suffix: Personal, Faust Netzach
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/FaustNetzach/faust_cuffs.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/FaustNetzach/faust_cuffs.rsi
+  - type: Fiber
+    fiberColor: fibers-white

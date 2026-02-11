@@ -34,3 +34,6 @@
     range: 6
     sound:
       path: /Audio/ADT/Ambience/fan_drone.ogg
+  - type: Construction
+    graph: ADTCeilingFan
+    node: adtceilingfan

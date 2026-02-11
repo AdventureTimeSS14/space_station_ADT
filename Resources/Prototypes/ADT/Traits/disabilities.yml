@@ -8,7 +8,31 @@
   cost: -2
   quirk: true
 
+- type: trait
+  id: ADTDamagedThroat
+  name: trait-damaged-throat-name
+  description: trait-damaged-throat-description
+  category: Quirks
+  components:
+    - type: DamagedThroat
+  cost: -1
+  quirk: true
+  speciesBlacklist:
+  - IPC
+  - NovakidSpecies
+  - Diona
+  - SlimePerson
 # Simple Station
+
+- type: trait
+  id: ADTTouchy
+  name: trait-touchy-name
+  description: trait-touchy-desc
+  category: Quirks
+  components:
+  - type: Touchy
+  cost: -1
+  quirk: true
 
 - type: trait
   id: ColorBlindnessMonochrome
@@ -36,3 +60,25 @@
         Shock: 1.2
   cost: -2
   quirk: true
+
+- type: trait
+  id: SoftHands #I don't fucking know how it works, but it works
+  name: trait-soft-hands-name
+  description: trait-soft-hands-desc
+  category: Quirks
+  components:
+    - type: WieldingBlocker
+  cost: -2
+  quirk: true
+
+- type: trait
+  id: UnadaptedToSpace
+  name: trait-unadapted-to-space-name
+  description: trait-unadapted-to-space-desc
+  category: Quirks
+  components:
+    - type: UnadaptedToSpace
+  cost: -2
+  quirk: true
+  speciesBlacklist:
+  - IPC

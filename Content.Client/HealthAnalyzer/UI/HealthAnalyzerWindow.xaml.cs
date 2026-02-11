@@ -111,7 +111,7 @@ namespace Content.Client.HealthAnalyzer.UI
                   _ => ""
                 };
 
-                BloodLabel.Text = $"{bloodPercent * 100:F1} %{exclamations}";
+                BloodLabel.Text = $"{bloodPercent * 100:F1}%{exclamations}";
 
                 // Color gradient: Goes from green at 100% to red at 50% then stays red.
                 var clampedPercent = Math.Max(bloodPercent, 0.5f);
@@ -163,15 +163,17 @@ namespace Content.Client.HealthAnalyzer.UI
 
             // Damage Groups
 
-            var damageSortedGroups =
-                damageable.DamagePerGroup.OrderByDescending(damage => damage.Value)
-                    .ToDictionary(x => x.Key, x => x.Value);
-
             IReadOnlyDictionary<string, FixedPoint2> damagePerType = damageable.Damage.DamageDict;
+            // ADT-Tweak start
+            var groupOrder = new List<string> { "Burn", "Brute", "Airloss", "Toxin", "Genetic" };
+            var sortedGroups = damageable.DamagePerGroup
+                .OrderBy(g => groupOrder.IndexOf(g.Key))
+                .ToDictionary(g => g.Key, g => g.Value);
 
-            DrawDiagnosticGroups(damageSortedGroups, damagePerType);
+            DrawDiagnosticGroups(sortedGroups, damagePerType);
 
-            DrawMetabolizingChemicals(msg.MetabolizingReagents); // ADT-Tweak - Metabolizing Chemicals Section
+            DrawMetabolizingChemicals(msg.MetabolizingReagents);
+            // ADT-Tweak end
         }
 
         private static string GetStatus(MobState mobState)
