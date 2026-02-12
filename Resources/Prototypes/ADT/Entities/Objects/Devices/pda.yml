@@ -64,6 +64,12 @@
   components:
   - type: Pda
     id: MagistratIDCard
+    penSlot:
+      startingItem: PenCentcom
+      priority: -1
+      whitelist:
+        tags:
+        - Write
   - type: Icon
     sprite: ADT/Objects/Devices/pda.rsi
     state: pda-lawyer
