@@ -183,6 +183,12 @@
         type: MidroundCustomizationBoundUserInterface
       enum.StoreUiKey.Key: # Чтобы не ломался генокрад
         type: StoreBoundUserInterface # Чтобы не ломался генокрад
+  - type: ItemToggle
+    activated: true
+    onActivate: false
+    onUse: false
+    predictable: false
+  - type: ItemToggleHot
 
 - type: entity
   save: false
