@@ -117,3 +117,75 @@
     sprite: ADT/Objects/Tools/supermatter_scalpel.rsi
     storedRotation: 90
   - type : SupermatterImmune
+
+#рукодельные инструменты
+
+- type: entity
+  parent: BaseCrowbar
+  name: Самодельная монтировка
+  id: ADTHMCrowbar
+  description: А это надёжно?..
+  components:
+  - type: Sprite
+    state: icon
+  - type: Item
+    storedSprite:
+      sprite: Objects/Tools/crowbar.rsi
+      state: storage
+  - type: MeleeWeapon
+    wideAnimationRotation: -100
+    damage:
+      types:
+        Blunt: 4
+    soundHit:
+      collection: MetalThud
+  - type: Prying
+    speedModifier: 0.4
+
+
+- type: entity
+  parent: Wirecutter
+  name: Самодельные кусачки
+  id: ADTHMWirecutter
+  description: Это кусачки или щипчики?
+  components:
+  - type: MeleeWeapon
+    damage:
+      types:
+        Piercing: 0
+  - type: Tool
+    qualities:
+      - Cutting
+    speedModifier: 0.4
+
+- type: entity
+  parent: Screwdriver
+  name: Самодельная отвёртка
+  id: ADTHMScrewdriver
+  description: Оно точно не сломается
+  components:
+  - type: MeleeWeapon
+    damage:
+      types:
+        Piercing: 0
+  - type: Tool
+    qualities:
+      - Screwing
+    speedModifier: 0.4
+
+- type: entity
+  parent: Wrench
+  name: Самодельный гаечный ключ
+  id: ADTHMWrench
+  description: Слабое и не надёжное
+  components:
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 2
+  - type: Tool
+    qualities:
+      - Anchoring
+    speedModifier: 0.4
+      
+    

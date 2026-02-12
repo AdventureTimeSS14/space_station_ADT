@@ -1,3 +1,4 @@
+#Crowbar
 - type: constructionGraph
   id: ADTHandmadeCrowbarGraph
   start: start
@@ -7,7 +8,58 @@
     - to: HandmadeCrowbar
       steps:
       - material: MetalRod
-        amount: 3
+        amount: 2
         doAfter: 1
   - node: HandmadeCrowbar
-    entity: Crowbar
+    entity: ADTHMCrowbar
+#Wirecutter
+- type: constructionGraph
+  id: ADTHandmadeWirecutterGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: HandmadeWirecutter
+      steps:
+      - material: MetalRod
+        amount: 2
+        doAfter: 1
+      - material: Steel
+        amount: 1
+        doAfter: 1
+    - node: HandmadeWirecutter
+      entity: ADTHMWirecutter
+#Screwdriver
+- type: constructionGraph
+  id: ADTHandmadeScrewdriver
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: HandmadeScrewdriver
+      steps:
+      - material: MetalRod
+        amount: 1
+        doAfter: 1
+      - material: Steel
+        amount: 1
+        doAfter: 1
+    - node: HandmadeScrewdriver
+      entity: ADTHMScrewdriver
+#Wrench
+- type: constructionGraph
+  id: ADTHandmadeWrench
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: HandmadeWrench
+      steps:
+      - material: MetalRod
+        amount: 1
+        doAfter: 1
+      - material: Steel
+        amount: 1
+        doAfter: 1
+    - node: HandmadeWrench
+      entity: ADTHMWrench

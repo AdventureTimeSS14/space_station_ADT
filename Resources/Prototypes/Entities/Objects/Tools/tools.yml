@@ -43,6 +43,10 @@
       Steel: 100
   - type: StaticPrice
     price: 30
+    # ADT add
+  - type: Construction
+    graph: ADTHandmadeWirecutterGraph
+    node: HandmadeWirecutter
 
 - type: entity
   name: screwdriver
@@ -87,6 +91,10 @@
       Steel: 100
   - type: StaticPrice
     price: 30
+    #ADT add
+  - type: Construction
+    graph: ADTHandmadeScrewdriver
+    node: HandmadeScrewdriver
 
 - type: entity
   name: wrench
@@ -129,6 +137,10 @@
   - type: GuideHelp
     guides:
     - Construction
+  #ADT add
+  - type: Construction
+    graph: ADTHandmadeWrench
+    node: HandmadeWrench
 
 - type: entity
   name: multitool
