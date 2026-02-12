@@ -52,3 +52,8 @@
   - ADTBoxAmmoHades
   # - ADTBoxAmmoSniper       Вырезано ради баланса
   - ADTBoxAmmoGranade
+
+- type: latheRecipePack
+  id: ADTBowEquipmentPack
+  recipes:
+  - ADTSecurityCompoundBow

@@ -31,8 +31,8 @@
   - type: ExpendedBows
     floatToColdown: 5
   - type: Construction
-    graph: ImprovisedBow
-    node: ImprovisedBow
+    graph: HandmadeCompoundBow
+    node: HandmadeCompoundBow
 
 - type: entity
   id: ADTSecurityCompoundBow
@@ -66,3 +66,12 @@
           False: { state: unwielded }
   - type: ExpendedBows
     floatToColdown: 2
+  - type: AttachableHolder
+    slots:
+      rmc-aslot-rail:
+        whitelist:
+          tags:
+          - ADTAttachmentT2Miniscope
+  - type: AttachableHolderVisuals
+    offsets:
+      rmc-aslot-rail: -0.0325, -0.0625

@@ -1,0 +1,21 @@
+- type: constructionGraph
+  id: HandmadeCompoundBow
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: HandmadeCompoundBow
+      steps:
+      - material: WoodPlank
+        amount: 15
+        doAfter: 4
+      - material: Cloth
+        amount: 6
+        doAfter: 4
+      - material: Steel
+        amount: 5
+        doAfter: 4
+
+
+  - node: HandmadeCompoundBow
+    entity: ADTHandMadeCompoundBow
