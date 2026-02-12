@@ -387,6 +387,7 @@
       - CombatKnife
       - Truncheon
       - HandGrenade
+      - ADTBola # ADT-Tweak
       components:
       - Stunbaton
       - FlashOnTrigger
