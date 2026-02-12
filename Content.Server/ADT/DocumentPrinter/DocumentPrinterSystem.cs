@@ -81,6 +81,7 @@ public sealed class DocumentPrinterSystem : EntitySystem
                 if (pda?.StationName is not null)
                 {
                     text = text.Replace("Station XX-000", pda.StationName);
+                    text = text.Replace(":СТАНЦИЯ:", pda.StationName);
                 }
                 if (meta_id is null)
                 {
