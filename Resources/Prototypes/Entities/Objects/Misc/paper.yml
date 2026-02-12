@@ -122,6 +122,7 @@
     solution: food
     delay: 7
     forceFeedDelay: 7
+    utensilRequired: true # ADT-Tweak. Чтобы при открытии бумаги не могли её скушать
   - type: FlavorProfile
     flavors:
     - paper
