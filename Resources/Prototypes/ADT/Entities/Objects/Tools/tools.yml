@@ -157,6 +157,10 @@
     qualities:
       - Cutting
     speedModifier: 0.4
+    # ADT add
+  - type: Construction
+    graph: ADTHandmadeWirecutterGraph
+    node: HandmadeWirecutter
 
 - type: entity
   parent: Screwdriver
@@ -172,6 +176,10 @@
     qualities:
       - Screwing
     speedModifier: 0.4
+      #ADT add
+  - type: Construction
+    graph: ADTHandmadeScrewdriver
+    node: HandmadeScrewdriver
 
 - type: entity
   parent: Wrench
@@ -187,5 +195,8 @@
     qualities:
       - Anchoring
     speedModifier: 0.4
+  - type: Construction
+    graph: ADTHandmadeWrench
+    node: HandmadeWrench
       
     

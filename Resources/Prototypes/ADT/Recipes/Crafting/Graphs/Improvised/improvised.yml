@@ -87,6 +87,30 @@
   objectType: Item
 
 - type: construction
+  id: HandmadeScrewdriver
+  graph: ADTHandmadeScrewdriver
+  startNode: start
+  targetNode: HandmadeScrewdriver
+  category: construction-category-tools
+  objectType: Item
+
+- type: construction
+  id: HandmadeWirecutter
+  graph: ADTHandmadeWirecutterGraph
+  startNode: start
+  targetNode: HandmadeWirecutter
+  category: construction-category-tools
+  objectType: Item
+
+- type: construction
+  id: HandmadeWrench
+  graph: ADTHandmadeWrench
+  startNode: start
+  targetNode: HandmadeWrench
+  category: construction-category-tools
+  objectType: Item
+
+- type: construction
   id: ADTBoneKnife
   graph: ADTBKnife
   startNode: start

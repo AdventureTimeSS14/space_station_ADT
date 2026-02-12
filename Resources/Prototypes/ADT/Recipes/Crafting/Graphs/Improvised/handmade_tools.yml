@@ -27,8 +27,9 @@
       - material: Steel
         amount: 1
         doAfter: 1
-    - node: HandmadeWirecutter
-      entity: ADTHMWirecutter
+  - node: HandmadeWirecutter
+    entity: ADTHMWirecutter
+
 #Screwdriver
 - type: constructionGraph
   id: ADTHandmadeScrewdriver
@@ -44,8 +45,9 @@
       - material: Steel
         amount: 1
         doAfter: 1
-    - node: HandmadeScrewdriver
-      entity: ADTHMScrewdriver
+  - node: HandmadeScrewdriver
+    entity: ADTHMScrewdriver
+
 #Wrench
 - type: constructionGraph
   id: ADTHandmadeWrench
@@ -61,5 +63,6 @@
       - material: Steel
         amount: 1
         doAfter: 1
-    - node: HandmadeWrench
-      entity: ADTHMWrench
+  - node: HandmadeWrench
+    entity: ADTHMWrench
+
