@@ -499,6 +499,8 @@
     - NewsReaderCartridge
     - AstroNavCartridge
     - NanoChatCartridge # ADT-tweak: Наночат
+    - ADTWalletCartridge # ADT-Economy
+    diskSpace: 8 # ADT tweak
 
 - type: entity
   parent: BasePDA
