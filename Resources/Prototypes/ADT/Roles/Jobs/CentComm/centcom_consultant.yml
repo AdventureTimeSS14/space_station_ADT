@@ -39,7 +39,6 @@
     - !type:SpeciesRequirement
       inverted: true
       species:
-      - Resomi
       - Vox
   weight: 15
   startingGear: ADTCentcomConsultantGear

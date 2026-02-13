@@ -143,6 +143,9 @@
   id: Tongue
 
 - type: Tag
+  id: Standard
+
+- type: Tag
   id: Poppy
 
 - type: Tag
@@ -524,6 +527,9 @@
 
 - type: Tag
   id: ADTWeaponMeleePrasatChainsword
+
+- type: Tag
+  id: ADTKeyPangaariBike
 
 #sponsor_items - End
 

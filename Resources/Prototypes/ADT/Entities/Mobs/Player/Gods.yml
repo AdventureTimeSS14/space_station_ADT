@@ -1,4 +1,4 @@
-# Forgotten god 
+# Forgotten god
 - type: entity
   abstract: true
   id: ADTMobForgottenGodBase
@@ -86,7 +86,7 @@
     baseRadialAcceleration: 6
     maxRange: 8
   - type: RadiationSource
-    slope: 0.2
+# ADT-Tweak    slope: 0.2
     intensity: 2
 
 - type: entity
@@ -169,7 +169,7 @@
     baseRadialAcceleration: 6
     maxRange: 8
   - type: RadiationSource
-    slope: 0.2
+# ADT-Tweak    slope: 0.2
     intensity: 1
 
 # Creator god
@@ -334,7 +334,7 @@
   description: An ancient evil that has long since lost its original form.
   components:
   - type: Sprite
-    sprite: ADT/Mobs/Demons/Gods/corrupted_god.rsi 
+    sprite: ADT/Mobs/Demons/Gods/corrupted_god.rsi
     drawdepth: Ghosts
     scale: 1.5,1.5
     layers:
@@ -353,7 +353,7 @@
   description: The creature is enormous and emits a strong heat, and beneath its robe is a fire that exudes hatred. Its body, composed of an unknown substance, pulsates with internal forces.
   components:
   - type: Sprite
-    sprite: ADT/Mobs/Demons/Gods/depravity_god.rsi 
+    sprite: ADT/Mobs/Demons/Gods/depravity_god.rsi
     drawdepth: Ghosts
     scale: 1,1
     layers:

@@ -236,6 +236,7 @@
     - ADTWeaponLauncherHydraPack
     - ADTPowerPack
     - ADTMegaCellPack
+    - ADTBeltManipulatorPack
     #ADT-tweak-end
     - ADTBluespaceCrystalTech #ADT Tweak
   - type: EmagLatheRecipes
@@ -621,6 +622,7 @@
     - ADTBackpacks
     - ADTSatchels
     - ADTDuffel
+    - ADTStandards
     # ADT tweak end
   - type: EmagLatheRecipes
     emagStaticPacks:
