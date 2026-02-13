@@ -2,7 +2,7 @@ slime-action-latch-fail = {$slime} не смог поглотить {$target}
 slime-action-latch-success = {$slime} целиком проглатывает {$target}!
 slime-latch-attempt = {$slime} приступает к поглощению {$ent}
 
-slime-latch-fail-target-dead = Вы не хотите поглощать это существо, так как оно мертво
+slime-latch-fail-target-dead = Вы не можете поглотить это существо, так как оно мертво
 slime-latch-fail-max-entities = Вы не можете поглотить это существо. Оно в вас не помещается
 
 slime-examined-text = [color=cyan]Этот слайм поглотил { $num ->

@@ -365,7 +365,7 @@
   - type: Sprite
     state: science
   - type: MachineBoard
-    prototype: SlimeGrinder
+    prototype: ADTSlimeGrinder
     stackRequirements:
       Manipulator: 2
       Steel: 5

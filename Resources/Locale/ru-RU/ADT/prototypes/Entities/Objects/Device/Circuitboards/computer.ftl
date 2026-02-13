@@ -9,3 +9,6 @@ ent-MinesweeperCircuitboard = аркада Сапёр (консольная пл
 
 ent-ADTBotanicalSeedDNAManipulatorCircuitboard = консоль манипулятора ДНК семян (консольная плата)
     .desc = Консольная плата для консоли манипулятора ДНК семян.
+
+ent-ADTXenobiologyBountyComputerCircuitboard = консоль ксенобиологических заказов (консольная плата)
+    .desc = Консольная плата для консоли ксенобиологических заказов.

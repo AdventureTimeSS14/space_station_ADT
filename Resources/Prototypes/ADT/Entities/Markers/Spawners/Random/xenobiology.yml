@@ -6,11 +6,6 @@
   - type: RandomSpawner
     prototypes:
     - MobAngryBee
-    - MobHomunculus
-    - MobBrullbar
-    - MobBrullbarKing
-    - MobBearGoon
-    - MobWhiteWolf
     - MobBoxingKangaroo
     - MobClownSpider
     - MobCorgiNarsi
@@ -80,7 +75,6 @@
     - MobXenoSpitter
     - MobPurpleSnake
     - MobSmallPurpleSnake
-    - MobBingle
     offset: 0.0
 
 - type: entity
@@ -103,8 +97,7 @@
     - MobReindeerBuck
     - MobReindeerDoe
     - MobCockroach
-    - MobSquackroach
-    - MobXenoSlime
+    - ADTGreyBreedMobXenoSlime
     - MobSnail
     - MobSnailSpeed
     - MobSnailMoth
@@ -148,4 +141,20 @@
     - MobPig
     - MobDionaNymph
     - MobCatShadow
+    offset: 0.0
+
+- type: entity
+  name: random spray can spawner
+  id: RSprayCanSpawner
+  parent: MarkerBase
+  components:
+  - type: RandomSpawner
+    prototypes:
+    - SprayPaintBlue
+    - SprayPaintRed
+    - SprayPaintGreen
+    - SprayPaintBlack
+    - SprayPaintOrange
+    - SprayPaintPurple
+    - SprayPaintWhite
     offset: 0.0

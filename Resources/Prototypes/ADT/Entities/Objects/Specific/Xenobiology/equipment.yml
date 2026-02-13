@@ -9,13 +9,13 @@
   - type: XenoVacuumTank
   - type: Appearance
   - type: Sprite
-    sprite: ADT/Xenobiology/Specific/Xenobiology/slime_pack.rsi
+    sprite: ADT/Objects/Specific/Xenobiology/slime_pack.rsi
     state: icon
   - type: Item
     size: Ginormous
   - type: Clothing
     slots: SUITSTORAGE
-    sprite: ADT/Xenobiology/Specific/Xenobiology/slime_pack.rsi
+    sprite: ADT/Objects/Specific/Xenobiology/slime_pack.rsi
   - type: ContainerContainer
     containers:
       tankbase: !type:Container
@@ -51,10 +51,10 @@
   description: A high-powered vacuum nozzle used in conjunction with a backpack-mounted storage tank to store slimes.
   components:
   - type: Sprite
-    sprite: ADT/Xenobiology/Specific/Xenobiology/slime_nozzle.rsi
+    sprite: ADT/Objects/Specific/Xenobiology/slime_nozzle.rsi
     state: icon
   - type: Item
-    sprite: ADT/Xenobiology/Specific/Xenobiology/slime_nozzle.rsi
+    sprite: ADT/Objects/Specific/Xenobiology/slime_nozzle.rsi
     size: Normal
   - type: Appearance
   - type: XenoVacuum
@@ -75,10 +75,11 @@
   parent: BaseItem
   id: ADTSlimeAnalyzerUnpowered
   name: slime analyzer
-  description: "A special analytical instrument for obtaining accurate characteristics of slimes."
+  description: A special analytical instrument for obtaining accurate characteristics of slimes.
+  abstract: true
   components:
   - type: Sprite
-    sprite: ADT/Xenobiology/Specific/Xenobiology/slime_analyzer.rsi
+    sprite: ADT/Objects/Specific/Xenobiology/slime_analyzer.rsi
     state: icon
     layers:
       - state: icon
@@ -87,7 +88,7 @@
         visible: true
         map: [ "enum.PowerDeviceVisualLayers.Powered" ]
   - type: Item
-    sprite: ADT/Xenobiology/Specific/Xenobiology/slime_analyzer.rsi
+    sprite: ADT/Objects/Specific/Xenobiology/slime_analyzer.rsi
   - type: ActivatableUI
     key: enum.SlimeAnalyzerUiKey.Key
   - type: UserInterface

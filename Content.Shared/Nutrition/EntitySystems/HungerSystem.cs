@@ -41,6 +41,14 @@ public sealed class HungerSystem : EntitySystem
 
     private void OnMapInit(EntityUid uid, HungerComponent component, MapInitEvent args)
     {
+        // ADT-Tweak-Start
+        if (component.StartingHunger is not null)
+        {
+            SetHunger(uid, component.StartingHunger.Value, component);
+            return;
+        }
+        // ADT-Tweak-End
+
         var amount = _random.Next(
             (int) component.Thresholds[HungerThreshold.Peckish] + 10,
             (int) component.Thresholds[HungerThreshold.Okay]);

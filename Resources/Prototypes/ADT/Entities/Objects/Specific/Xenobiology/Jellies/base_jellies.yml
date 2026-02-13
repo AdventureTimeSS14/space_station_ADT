@@ -1,4 +1,4 @@
-- type: entity
+- type: entityObjects
   name: base slime jelly
   parent: EdibleBase
   id: BaseExtractJelly
@@ -7,7 +7,7 @@
   components:
   - type: Sprite
     layers:
-    - sprite: ADT/Xenobiology/Specific/Xenobiology/extract_jellies.rsi
+    - sprite: ADT/Objects/Specific/Xenobiology/extract_jellies.rsi
       state: jelly
       color: "#8B93AF"
   - type: Damageable
@@ -43,7 +43,7 @@
   components:
   - type: Sprite
     layers:
-    - sprite: ADT/Xenobiology/Specific/Xenobiology/extract_jellies.rsi
+    - sprite: ADT/Objects/Specific/Xenobiology/extract_jellies.rsi
       state: jelly
       color: "#FA6A0A"
 
@@ -55,7 +55,7 @@
   components:
   - type: Sprite
     layers:
-    - sprite: ADT/Xenobiology/Specific/Xenobiology/extract_jellies.rsi
+    - sprite: ADT/Objects/Specific/Xenobiology/extract_jellies.rsi
       state: jelly
       color: "#BF77F6"
 
@@ -67,7 +67,7 @@
   components:
   - type: Sprite
     layers:
-    - sprite: ADT/Xenobiology/Specific/Xenobiology/extract_jellies.rsi
+    - sprite: ADT/Objects/Specific/Xenobiology/extract_jellies.rsi
       state: jelly
       color: "#249FDE"
 
@@ -79,7 +79,7 @@
   components:
   - type: Sprite
     layers:
-    - sprite: ADT/Xenobiology/Specific/Xenobiology/extract_jellies.rsi
+    - sprite: ADT/Objects/Specific/Xenobiology/extract_jellies.rsi
       state: jelly
       color: "#3375F9"
 
@@ -91,7 +91,7 @@
   components:
   - type: Sprite
     layers:
-    - sprite: ADT/Xenobiology/Specific/Xenobiology/extract_jellies.rsi
+    - sprite: ADT/Objects/Specific/Xenobiology/extract_jellies.rsi
       state: jelly
       color: "#2A52BE"
 
@@ -103,7 +103,7 @@
   components:
   - type: Sprite
     layers:
-    - sprite: ADT/Xenobiology/Specific/Xenobiology/extract_jellies.rsi
+    - sprite: ADT/Objects/Specific/Xenobiology/extract_jellies.rsi
       state: jelly
       color: "#B4202A"
 
@@ -115,7 +115,7 @@
   components:
   - type: Sprite
     layers:
-    - sprite: ADT/Xenobiology/Specific/Xenobiology/extract_jellies.rsi
+    - sprite: ADT/Objects/Specific/Xenobiology/extract_jellies.rsi
       state: jelly
       color: "#14A02E"
 
@@ -127,7 +127,7 @@
   components:
   - type: Sprite
     layers:
-    - sprite: ADT/Xenobiology/Specific/Xenobiology/extract_jellies.rsi
+    - sprite: ADT/Objects/Specific/Xenobiology/extract_jellies.rsi
       state: jelly
       color: "#ff33cc"
 
@@ -139,7 +139,7 @@
   components:
   - type: Sprite
     layers:
-    - sprite: ADT/Xenobiology/Specific/Xenobiology/extract_jellies.rsi
+    - sprite: ADT/Objects/Specific/Xenobiology/extract_jellies.rsi
       state: jelly
       color: "#383936"
       shader: XenoMetallic
@@ -152,7 +152,7 @@
   components:
   - type: Sprite
     layers:
-    - sprite: ADT/Xenobiology/Specific/Xenobiology/extract_jellies.rsi
+    - sprite: ADT/Objects/Specific/Xenobiology/extract_jellies.rsi
       state: jelly
       color: "#ffb3ec"
 
@@ -164,6 +164,6 @@
   components:
   - type: Sprite
     layers:
-    - sprite: ADT/Xenobiology/Specific/Xenobiology/extract_jellies.rsi
+    - sprite: ADT/Objects/Specific/Xenobiology/extract_jellies.rsi
       state: jelly
       shader: Rainbow2

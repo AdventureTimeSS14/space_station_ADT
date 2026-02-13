@@ -45,6 +45,14 @@ public abstract partial class EntityEffect
     /// </summary>
     public virtual bool ShouldLog { get; private set; } = false;
 
+    // ADT-Tweak-Start
+    /// <summary>
+    ///     After how much seconds do we want it to trigger? - Goobstation
+    /// </summary>
+    [DataField]
+    public float Delay = 0f;
+    // ADT-Tweak-End
+
     public abstract void Effect(EntityEffectBaseArgs args);
 
     /// <summary>

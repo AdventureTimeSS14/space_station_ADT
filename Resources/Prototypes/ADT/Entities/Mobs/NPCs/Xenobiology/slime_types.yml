@@ -238,3 +238,13 @@
   components:
   - type: PendingSlimeSpawn
     breed: AdamantineMutation
+
+- type: entity
+  name: slime
+  id: ADTRainbowBreedMobXenoSlime
+  parent: ADTMobXenoSlime
+  suffix: Rainbow
+  description: It looks so much like jelly. I wonder what it tastes like?
+  components:
+  - type: PendingSlimeSpawn
+    breed: RainbowMutation

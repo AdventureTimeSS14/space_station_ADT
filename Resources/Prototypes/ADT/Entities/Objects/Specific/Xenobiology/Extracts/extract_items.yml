@@ -6,7 +6,7 @@
   components:
   - type: Sprite
     layers:
-      - sprite: ADT/Xenobiology/Specific/Xenobiology/goo_ball.rsi
+      - sprite: ADT/Objects/Specific/Xenobiology/goo_ball.rsi
         state: icon
   - type: Item
     size: Normal
@@ -53,18 +53,18 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
 
-# Tier 2.5
+# Tier 2
 
 - type: entity
   name: fitted bluespace carpet square
   parent: FloorTileItemBase
-  id: FloorTileItemBluespace
+  id: ADTFloorTileItemBluespace
   components:
   - type: Sprite
     sprite: ADT/Xenobiology/Specific/Xenobiology/floors.rsi
     state: icon-bluespace
   - type: SpawnAfterInteract
-    prototype: FloorBluespaceEntity
+    prototype: ADTFloorBluespaceEntity
     doAfter: 0.5
     removeOnInteract: true
   - type: FloorTile
@@ -76,13 +76,13 @@
 - type: entity
   name: fitted sepia carpet square
   parent: FloorTileItemBase
-  id: FloorTileItemSepia
+  id: ADTFloorTileItemSepia
   components:
   - type: Sprite
-    sprite: ADT/Xenobiology/Specific/Xenobiology/floors.rsi
+    sprite: ADT/Tiles/Misc/sepia.rsi
     state: icon-sepia
   - type: SpawnAfterInteract
-    prototype: FloorSepiaEntity
+    prototype: FloorSepiaSlowEntity
     doAfter: 0.5
     removeOnInteract: true
   - type: FloorTile
@@ -90,3 +90,17 @@
     - Plating
   - type: Stack
     stackType: FloorTileItemSepia
+
+# tier 4
+
+- type: entity
+  parent: BaseItem
+  id: ADTXenoAdamantineOre
+  name: adamantine ore
+  description: Theoretically, if you sold a couple of these, you wouldn't need to work on the station any more. It must have it's use, since it costs a fortune to get one of these. But where?
+  components:
+  - type: Sprite
+    sprite: ADT/Xenobiology/Specific/Xenobiology/adamantine_ore.rsi
+    state: icon
+  - type: StaticPrice
+    price: 10000

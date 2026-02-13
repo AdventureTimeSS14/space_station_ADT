@@ -1,4 +1,3 @@
-
 - type: entity
   id: GreyExtractJelly
   parent: BaseExtractJelly
@@ -56,6 +55,20 @@
           Quantity: 1.5
 
 - type: entity
+  id: DarkBlueExtractJelly
+  parent: BaseDarkBlueExtractJelly
+  name: dark blue slime jelly
+  description: The frosty chill caused by this jelly reduces a slime's chance to mutate when metabolized.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 1.5
+        reagents:
+        - ReagentId: JellyXenoDarkBlue
+          Quantity: 1.5
+
+- type: entity
   id: CeruleanExtractJelly
   parent: BaseCeruleanExtractJelly
   name: cerulean slime jelly
@@ -82,6 +95,23 @@
         reagents:
         - ReagentId: RedXenoJelly
           Quantity: 1
+
+- type: entity
+  parent: BaseItem
+  id: XenobioVolatileRedExtractJelly
+  name: volatile red slime jelly
+  description: Using this on a piece of clothing seems to remove any potential slowdowns. Hovewer, subjects wearing such clothing were burnt to a crisp after a scientist lit his cigarette.
+  components:
+  - type: Sprite
+    layers:
+    - sprite: ADT/Objects/Specific/Xenobiology/extract_jellies.rsi
+      state: jelly
+      color: "#B4202A"
+  - type: ClothingCoating
+    coatingName: clothing-coating-xenobio-volatile
+    components:
+    - type: VeryFlammable
+    - type: SpeedModifierImmunity
 
 - type: entity
   id: GreenExtractJelly

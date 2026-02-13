@@ -50,7 +50,7 @@
     minInterval: 8
     maxInterval: 18
     sound:
-      collection: SlimeMaleScreams
+      collection: MaleSlimeScreams
       params:
         variation: 0.125
   - type: PointLight

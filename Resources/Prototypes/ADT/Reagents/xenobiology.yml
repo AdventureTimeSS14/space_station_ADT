@@ -2,6 +2,7 @@
   id: PurpleXenoJelly
   parent: Slime
   name: reagent-name-purple-xeno-jelly
+  color: "#BF77F6"
   metabolisms:
     Food:
       effects:
@@ -16,6 +17,7 @@
   id: BlueXenoJelly
   parent: Slime
   name: reagent-name-blue-xeno-jelly
+  color: "#249FDE"
   metabolisms:
     Food:
       effects:
@@ -31,6 +33,7 @@
   id: CeruleanXenoJelly
   parent: Slime
   name: reagent-name-cerulean-xeno-jelly
+  color: "#2A52BE"
   metabolisms:
     Food:
       effects:
@@ -45,6 +48,7 @@
   id: RedXenoJelly
   parent: Slime
   name: reagent-name-red-xeno-jelly
+  color: "#B4202A"
   metabolisms:
     Food:
       effects:
@@ -60,6 +64,7 @@
   id: GreenXenoJelly
   parent: Slime
   name: reagent-name-green-xeno-jelly
+  color: "#14A02E"
   metabolisms:
     Food:
       effects:
@@ -70,6 +75,7 @@
   id: XenoHumanToxin
   parent: Slime
   name: reagent-name-human-mutation-toxin
+  color: "#14A02E"
   metabolisms:
     Food:
       effects:
@@ -80,6 +86,7 @@
   id: XenoLizardToxin
   parent: Slime
   name: reagent-name-lizard-mutation-toxin
+  color: "#14A02E"
   metabolisms:
     Food:
       effects:
@@ -90,6 +97,7 @@
   id: XenoGenderFluid
   parent: Slime
   name: reagent-name-xeno-gender-fluid
+  color: "#ff33cc"
   metabolisms:
     Narcotic:
       effects:
@@ -98,3 +106,32 @@
         - !type:ReagentThreshold
           min: 10
           max: 10
+
+- type: reagent
+  id: AdvancedMutationToxin
+  parent: Slime
+  name: reagent-name-toxin-advanced
+  color: "#000000"
+  metabolisms:
+    Food:
+      effects:
+      - !type:Polymorph
+        prototype: ADTShadekinPolymorph
+
+- type: reagent
+  id: JellyXenoDarkBlue
+  parent: Slime
+  name: reagent-name-jelly-darkblue
+  color: "#3375F9"
+  metabolisms:
+    Food:
+      metabolismRate: 1
+      effects:
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectFireImmune
+        time: 60
+        refresh: false
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectWeatherImmune
+        time: 60
+        refresh: false

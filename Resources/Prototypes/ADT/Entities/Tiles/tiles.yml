@@ -1,5 +1,5 @@
 - type: entity
-  id: FloorBluespaceEntity
+  id: ADTFloorBluespaceEntity
   name: bluespace carpet
   description: State of the art carpets produced in the Nanotrasen Aperture Laboratory.
   placement:
@@ -7,7 +7,7 @@
   components:
   - type: Clickable
   - type: Sprite
-    sprite: ADT/Xenobiology/Specific/Xenobiology/floors.rsi
+    sprite: ADT/Tiles/Misc/bluespace.rsi
     drawdepth: FloorTiles
     layers:
     - state: bluespace
@@ -28,7 +28,7 @@
       behaviors:
       - !type:SpawnEntitiesBehavior
         spawn:
-          FloorTileItemBluespace:
+          ADTFloorTileItemBluespace:
             min: 1
             max: 1
       - !type:DoActsBehavior

@@ -131,6 +131,14 @@ public sealed partial class HungerComponent : Component
     [ViewVariables(VVAccess.ReadWrite)]
     [AutoNetworkedField]
     public TimeSpan ThresholdUpdateRate = TimeSpan.FromSeconds(1);
+
+    // ADT-Tweak-Start
+    /// <summary>
+    /// Starting hunger value the entity should be at, if set then it overrides the default hunger value randomization behaviour.
+    /// </summary>
+    [DataField, ViewVariables(VVAccess.ReadOnly)]
+    public float? StartingHunger = null;
+    // ADT-Tweak-End
 }
 
 [Serializable, NetSerializable]

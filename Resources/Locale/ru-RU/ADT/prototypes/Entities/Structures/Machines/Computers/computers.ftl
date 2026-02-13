@@ -29,3 +29,6 @@ ent-MinesweeperArcadeFilled = { ent-MinesweeperArcade }
 
 ent-ADTComputerBotanicalSeedDNAManipulator = консоль манипулятора ДНК семян
     .desc = Используется для генной инженерии с растениями.
+
+ent-ADTComputerScienceXenobiologyBounty = консоль ксенобиологических заказов
+    .desc = Используется для управления вознаграждаемыми заказами в сфере ксенобиологии.

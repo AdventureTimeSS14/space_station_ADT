@@ -7,7 +7,7 @@
   components:
   - type: Sprite
     layers:
-    - sprite: ADT/Xenobiology/Specific/Xenobiology/extract.rsi
+    - sprite: ADT/Objects/Specific/Xenobiology/extract.rsi
       state: core
   - type: Appearance
   - type: SolutionContainerManager
@@ -33,7 +33,7 @@
   components:
   - type: Sprite
     layers:
-    - sprite: ADT/Xenobiology/Specific/Xenobiology/extract.rsi
+    - sprite: ADT/Objects/Specific/Xenobiology/extract.rsi
       state: core
       color: "#8B93AF"
   - type: Reactive
@@ -49,12 +49,12 @@
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
       - !type:PopupMessage
-        messages: [ "xeno-extract-epinephrine-created" ]
+        messages: [ "xeno-extract-reaction-reagent" ]
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
       effects:
       - !type:CreateEntityReactionEffect
-        entity: MobXenoSlime
+        entity: ADTGreyBreedMobXenoSlime
         number: 1
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
@@ -79,7 +79,7 @@
   components:
   - type: Sprite
     layers:
-    - sprite: ADT/Xenobiology/Specific/Xenobiology/extract.rsi
+    - sprite: ADT/Objects/Specific/Xenobiology/extract.rsi
       state: core
       color: "#FA6A0A"
   - type: Reactive
@@ -116,7 +116,7 @@
         entity: OrangeExtractJelly
         number: 1
       - !type:PopupMessage
-        messages: [ "xeno-extract-capsaicin-created" ]
+        messages: [ "xeno-extract-reaction-reagent" ]
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
   - type: SlimeExtract
@@ -132,7 +132,7 @@
   components:
   - type: Sprite
     layers:
-    - sprite: ADT/Xenobiology/Specific/Xenobiology/extract.rsi
+    - sprite: ADT/Objects/Specific/Xenobiology/extract.rsi
       state: core
       color: "#BF77F6"
   - type: Reactive
@@ -162,7 +162,7 @@
         reagent: Omnizine
         amount: 100
       - !type:PopupMessage
-        messages: [ "xeno-extract-omnizine-created" ]
+        messages: [ "xeno-extract-reaction-reagent" ]
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
   - type: SlimeExtract
@@ -178,7 +178,7 @@
   components:
   - type: Sprite
     layers:
-    - sprite: ADT/Xenobiology/Specific/Xenobiology/extract.rsi
+    - sprite: ADT/Objects/Specific/Xenobiology/extract.rsi
       state: core
       color: "#249FDE"
   - type: Reactive
@@ -202,11 +202,12 @@
         reagent: FrostOil
         amount: 100
       - !type:PopupMessage
-        messages: [ "xeno-extract-frost-created" ]
+        messages: [ "xeno-extract-reaction-reagent" ]
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]
+      deleteEntity: true
       effects:
       - !type:CreateEntityReactionEffect
         entity: BlueExtractJelly
@@ -226,7 +227,7 @@
   components:
   - type: Sprite
     layers:
-    - sprite: ADT/Xenobiology/Specific/Xenobiology/extract.rsi
+    - sprite: ADT/Objects/Specific/Xenobiology/extract.rsi
       state: core
       color: "#6D758D"
       shader: XenoMetallic
@@ -263,7 +264,7 @@
         reagent: WeldingFuel
         amount: 100
       - !type:PopupMessage
-        messages: [ "xeno-extract-fuel-created" ]
+        messages: [ "xeno-extract-reaction-reagent" ]
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
   - type: SlimeExtract
@@ -279,7 +280,7 @@
   components:
   - type: Sprite
     layers:
-    - sprite: ADT/Xenobiology/Specific/Xenobiology/extract.rsi
+    - sprite: ADT/Objects/Specific/Xenobiology/extract.rsi
       state: core
       color: "#FFD541"
   - type: Reactive
@@ -300,7 +301,7 @@
       methods: [ Touch, Injection ]
       effects:
       - !type:CreateEntityReactionEffect
-        entity: XenoSlimeBattery
+        entity: PowerCellAntiqueProto
         number: 1
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
@@ -323,7 +324,7 @@
   components:
   - type: Sprite
     layers:
-    - sprite: ADT/Xenobiology/Specific/Xenobiology/extract.rsi
+    - sprite: ADT/Objects/Specific/Xenobiology/extract.rsi
       state: core
       color: "#8e0ff0"
   - type: Reactive
@@ -367,7 +368,7 @@
   components:
   - type: Sprite
     layers:
-    - sprite: ADT/Xenobiology/Specific/Xenobiology/extract.rsi
+    - sprite: ADT/Objects/Specific/Xenobiology/extract.rsi
       state: core
       color: "#3375F9"
   - type: Reactive
@@ -376,6 +377,7 @@
     reactions:
     - reagents: [ Water ]
       methods: [ Touch, Injection ]
+      deleteEntity: true
       effects:
       - !type:CreateEntityReactionEffect
         entity: DarkBlueExtractJelly
@@ -397,7 +399,7 @@
         reagent: Leporazine
         amount: 100
       - !type:PopupMessage
-        messages: [ "xeno-extract-leporazine-created" ]
+        messages: [ "xeno-extract-reaction-reagent" ]
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
   - type: SlimeExtract
@@ -413,7 +415,7 @@
   components:
   - type: Sprite
     layers:
-    - sprite: ADT/Xenobiology/Specific/Xenobiology/extract.rsi
+    - sprite: ADT/Objects/Specific/Xenobiology/extract.rsi
       state: core
       color: "#c4c4c4"
       shader: XenoMetallic
@@ -443,7 +445,7 @@
       methods: [ Touch, Injection ]
       effects:
       - !type:CreateEntityReactionEffect
-        entity: XenoGoopBall
+        entity: ADTXenoGoopBall
         number: 3
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
@@ -460,7 +462,7 @@
   components:
   - type: Sprite
     layers:
-    - sprite: ADT/Xenobiology/Specific/Xenobiology/extract.rsi
+    - sprite: ADT/Objects/Specific/Xenobiology/extract.rsi
       state: core
       color: "#f0f8ff"
       shader: XenoBluespace
@@ -470,6 +472,7 @@
     reactions:
     - reagents: [ Water ]
       methods: [ Touch, Injection ]
+      deleteEntity: true
       effects:
       - !type:CreateEntityReactionEffect
         entity: FloorTileItemBluespace
@@ -478,6 +481,7 @@
         sound: /Audio/Effects/Chemistry/bubbles.ogg
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
+      deleteEntity: true
       effects:
       - !type:CreateEntityReactionEffect
         entity: ADTMaterialBScrystal1
@@ -503,12 +507,12 @@
   components:
   - type: Sprite
     layers:
-    - sprite: ADT/Xenobiology/Specific/Xenobiology/extract.rsi
+    - sprite: ADT/Objects/Specific/Xenobiology/extract.rsi
       state: core
       color: "#A08662"
       shader: XenoSepia
   - type: Reactive
-    isReactionsUnlimited: true
+    isReactionsUnlimited: false
     oneUnitReaction: true
     blockReactionOnUse: true
     reactions:
@@ -516,10 +520,10 @@
       methods: [ Touch, Injection ]
       effects:
       - !type:AdjustReagent
-        reagent: Tilenol
+        reagent: MuteToxin
         amount: 100
       - !type:PopupMessage
-        messages: [ "xeno-extract-leporazine-created" ]
+        messages: [ "xeno-extract-reaction-reagent" ]
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
     - reagents: [ Plasma ]
@@ -536,6 +540,7 @@
           sound: /Audio/Effects/Chemistry/bubbles.ogg
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]
+      deleteEntity: true
       effects:
       - !type:CreateEntityReactionEffect
         entity: FloorTileItemSepia
@@ -555,7 +560,7 @@
   components:
   - type: Sprite
     layers:
-    - sprite: ADT/Xenobiology/Specific/Xenobiology/extract.rsi
+    - sprite: ADT/Objects/Specific/Xenobiology/extract.rsi
       state: core
       color: "#2A52BE"
   - type: Reactive
@@ -576,6 +581,7 @@
         sound: /Audio/Effects/Chemistry/bubbles.ogg
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]
+      deleteEntity: true
       effects:
       - !type:CreateEntityReactionEffect
         entity: CeruleanExtractJelly
@@ -595,10 +601,48 @@
   components:
   - type: Sprite
     layers:
-    - sprite: ADT/Xenobiology/Specific/Xenobiology/extract.rsi
+    - sprite: ADT/Objects/Specific/Xenobiology/extract.rsi
       state: core
       color: "#f5ff93"
       shader: XenoMetallic
+  - type: Reactive
+    isReactionsUnlimited: false
+    oneUnitReaction: true
+    reactions:
+    - reagents: [ Water ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:PopupMessage
+        type: Pvs
+        messages: [ "xeno-extract-reaction" ]
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
+      - !type:CreateEntityReactionEffect
+        reagent: CrayonSpawner90
+        number: 1
+    - reagents: [ Plasma ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:PopupMessage
+        type: Pvs
+        messages: [ "xeno-extract-reaction" ]
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
+      - !type:DoSmokeEntityEffect
+        duration: 5
+        spreadAmount: 75
+        smokePrototype: Smoke
+    - reagents: [ Blood ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:PopupMessage
+        type: Pvs
+        messages: [ "xeno-extract-reaction" ]
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
+      - !type:CreateEntityReactionEffect
+        reagent: RSprayCanSpawner
+        number: 1
   - type: SlimeExtract
   - type: Tag
     tags:
@@ -614,9 +658,49 @@
   components:
   - type: Sprite
     layers:
-    - sprite: ADT/Xenobiology/Specific/Xenobiology/extract.rsi
+    - sprite: ADT/Objects/Specific/Xenobiology/extract.rsi
       state: core
       color: "#B4202A"
+  - type: Reactive
+    oneUnitReaction: true
+    reactions:
+    - reagents: [ Water ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:MakeUnreactiveEntityEffect
+      - !type:PopupMessage
+        type: Pvs
+        messages: [ "xeno-extract-reaction" ]
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
+      - !type:CreateEntityReactionEffect
+        entity: XenobioVolatileRedExtractJelly
+        number: 1
+    - reagents: [ Plasma ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:MakeUnreactiveEntityEffect
+      - !type:PopupMessage
+        type: Pvs
+        messages: [ "xeno-extract-reaction-reagent" ]
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
+      - !type:CreateEntityReactionEffect
+        reagent: RedExtractJelly
+        number: 1
+    - reagents: [ Blood ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:MakeUnreactiveEntityEffect
+      - !type:PopupMessage
+        type: Pvs
+        messages: [ "xeno-extract-reaction" ]
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
+      - !type:ChangeFactionNearbyEffect
+        newFaction: AllHostile
+        radius: 3
+        duration: 30
   - type: SlimeExtract
   - type: Tag
     tags:
@@ -630,7 +714,7 @@
   components:
   - type: Sprite
     layers:
-    - sprite: ADT/Xenobiology/Specific/Xenobiology/extract.rsi
+    - sprite: ADT/Objects/Specific/Xenobiology/extract.rsi
       state: core
       color: "#14A02E"
   - type: Reactive
@@ -639,6 +723,7 @@
     reactions:
     - reagents: [ Water ]
       methods: [ Touch, Injection ]
+      deleteEntity: true
       effects:
       - !type:CreateEntityReactionEffect
         entity: MaterialBiomass
@@ -647,6 +732,7 @@
         sound: /Audio/Effects/Chemistry/bubbles.ogg
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
+      deleteEntity: true
       effects:
       - !type:CreateEntityReactionEffect
         entity: GreenExtractJelly
@@ -655,6 +741,7 @@
         sound: /Audio/Effects/Chemistry/bubbles.ogg
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]
+      deleteEntity: true
       effects:
       - !type:CreateEntityReactionEffect
         entity: GreenExtractJellyHuman
@@ -663,9 +750,10 @@
         sound: /Audio/Effects/Chemistry/bubbles.ogg
     - reagents: [ Radium ]
       methods: [ Touch, Injection ]
+      deleteEntity: true
       effects:
       - !type:CreateEntityReactionEffect
-        entity: XenoLizardToxin
+        entity: GreenExtractJellyLizard
         number: 1
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
@@ -682,18 +770,21 @@
   components:
   - type: Sprite
     layers:
-    - sprite: ADT/Xenobiology/Specific/Xenobiology/extract.rsi
+    - sprite: ADT/Objects/Specific/Xenobiology/extract.rsi
       state: core
       color: "#ff33cc"
   - type: Reactive
     isReactionsUnlimited: false
     oneUnitReaction: true
+    blockReactionOnUse: true
     reactions:
     - reagents: [ Water ]
       methods: [ Touch, Injection ]
-      effects: # Mutate nearby plants effect required.
+      effects:
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
+      - !type:MutateNearbyPlantsEntityEffect
+        radius: 5
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
       effects:
@@ -716,7 +807,7 @@
           delay: 1
           forceFeedDelay: 1.5
       - !type:PopupMessage
-        messages: [ "xeno-extract-gender-fluid-created" ]
+        messages: [ "xeno-extract-reaction-reagent" ]
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
   - type: SlimeExtract
@@ -732,7 +823,7 @@
   components:
   - type: Sprite
     layers:
-    - sprite: ADT/Xenobiology/Specific/Xenobiology/extract.rsi
+    - sprite: ADT/Objects/Specific/Xenobiology/extract.rsi
       state: core
       color: "#e8b923"
       shader: XenoMetallic
@@ -779,24 +870,40 @@
   components:
   - type: Sprite
     layers:
-    - sprite: ADT/Xenobiology/Specific/Xenobiology/extract.rsi
+    - sprite: ADT/Objects/Specific/Xenobiology/extract.rsi
       state: core
       color: "#383936"
       shader: XenoMetallic
+  - type: Reactive
+    isReactionsUnlimited: false
+    oneUnitReaction: true
+    reactions:
+    - reagents: [ Water ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:MakeUnreactiveEntityEffect
+      - !type:PopupMessage
+        type: Pvs
+        messages: [ "xeno-extract-reaction-reagent" ]
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
+      - !type:AdjustReagent
+        reagent: SpaceLube
+        amount: 100
   - type: SlimeExtract
   - type: Tag
     tags:
     - XenobiologyOilExtract
 
 - type: entity
-  id: LightPinkSlimeExtract
+  id: ADTLightPinkSlimeExtract
   parent: ADTBaseSlimeExtract
   name: light pink slime extract
   description:
   components:
   - type: Sprite
     layers:
-    - sprite: ADT/Xenobiology/Specific/Xenobiology/extract.rsi
+    - sprite: ADT/Objects/Specific/Xenobiology/extract.rsi
       state: core
       color: "#ffb3ec"
   - type: Reactive
@@ -827,6 +934,9 @@
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]
       effects:
+      - !type:CreateGas
+        gas: Healium
+        multiplier: 55
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
   - type: SlimeExtract
@@ -842,7 +952,7 @@
   components:
   - type: Sprite
     layers:
-    - sprite: ADT/Xenobiology/Specific/Xenobiology/extract.rsi
+    - sprite: ADT/Objects/Specific/Xenobiology/extract.rsi
       state: core
       color: "#000000"
   - type: Reactive
@@ -852,16 +962,28 @@
     - reagents: [ Water ]
       methods: [ Touch, Injection ]
       effects:
+      - !type:PopupMessage
+        type: Pvs
+        messages: [ "xeno-extract-reaction-fail" ]
       - !type:PlaySoundEffect
-        sound: /Audio/Effects/gib3.ogg
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
       effects:
+      - !type:PopupMessage
+        type: Pvs
+        messages: [ "xeno-extract-reaction-reagent" ]
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
+      - !type:AdjustReagent
+        reagent: AdvancedMutationToxin
+        amount: 10
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]
       effects:
+      - !type:PopupMessage
+        type: Pvs
+        messages: [ "xeno-extract-reaction-fail" ]
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
   - type: SlimeExtract
@@ -877,7 +999,7 @@
   components:
   - type: Sprite
     layers:
-    - sprite: ADT/Xenobiology/Specific/Xenobiology/extract.rsi
+    - sprite: ADT/Objects/Specific/Xenobiology/extract.rsi
       state: core
       color: "#2B7A74"
       shader: XenoMetallic
@@ -889,18 +1011,27 @@
       methods: [ Touch, Injection ]
       effects:
       - !type:CreateGas
-        gas: Healium
+        gas: Zauker
         multiplier: 55
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
-      effects: # Requires Armok... (Golems)
+      effects:
+      - !type:PopupMessage
+        type: Pvs
+        messages: [ "xeno-extract-reaction" ]
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
+      - !type:CreateEntityReactionEffect
+        entity: ADTXenoAdamantineBar
+        number: 1
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]
-      effects: # Requires upstream status effects.
+      effects:
+      - !type:PopupMessage
+        type: Pvs
+        messages: [ "xeno-extract-reaction-fail" ]
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
   - type: SlimeExtract
@@ -916,9 +1047,35 @@
   components:
   - type: Sprite
     layers:
-    - sprite: ADT/Xenobiology/Specific/Xenobiology/extract.rsi
+    - sprite: ADT/Objects/Specific/Xenobiology/extract.rsi
       state: core
       shader: Rainbow2
+  - type: Reactive
+    isReactionsUnlimited: false
+    oneUnitReaction: true
+    reactions:
+    - reagents: [ Plasma ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:CreateEntityReactionEffect
+        entity: ADTRandomBreedMobXenoSlime
+        number: 1
+    - reagents: [ Blood ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:PopupMessage
+        type: Pvs
+        messages: [ "xeno-extract-reaction-fail" ]
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
+    - reagents: [ Water ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:PopupMessage
+        type: Pvs
+        messages: [ "xeno-extract-reaction-fail" ]
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
   - type: SlimeExtract
   - type: Tag
     tags:
