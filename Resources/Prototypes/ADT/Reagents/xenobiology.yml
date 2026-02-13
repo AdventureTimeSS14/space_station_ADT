@@ -94,8 +94,8 @@
         prototype: ADTLizardPolymorph
 
 - type: reagent
-  parent: BaseXenobioReagent
   id: PinkXenoJelly
+  parent: Slime
   name: reagent-name-jelly-pink
   color: "#ff33cc"
   metabolisms:
