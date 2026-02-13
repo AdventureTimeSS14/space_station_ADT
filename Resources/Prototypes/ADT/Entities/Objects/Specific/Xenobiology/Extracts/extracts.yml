@@ -685,7 +685,7 @@
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
       - !type:CreateEntityReactionEffect
-        reagent: RedExtractJelly
+        entity: RedExtractJelly
         number: 1
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]
