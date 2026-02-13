@@ -74,4 +74,3 @@ research-technology-clowning-utilities = Клоунские принадлежн
 research-technology-quantum-fiber-weaving = Плетение квантового волокна
 research-technology-bluespace-cargo-transport = Блюспейс-транспортировка грузов
 research-technology-experimental-pka = Экспериментальный протокинетический ускоритель
-research-technology-bow-security = Снаряжение продвинутого лучника

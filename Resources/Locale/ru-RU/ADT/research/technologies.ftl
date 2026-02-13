@@ -14,3 +14,7 @@ research-technology-basemegacells = Мегабатареи
 research-technology-advancedmegacells = Сверхэффективные мегабатареи
 
 research-technology-reducer = Беспроводная передача энергии
+
+research-technology-bow-security = Снаряжение лучника СБ
+
+research-technology-arrows-security = Нелетальное, продвинутое снаряжение лучника СБ
