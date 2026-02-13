@@ -6,11 +6,24 @@
     edges:
     - to: ADTArrowGranade
       steps:
-      - material: C4
-        amount: 1
-      - material: ArrowImprovised
-        amount: 1
-        doAfter: 4
+      - tag: C4
+        icon:
+          sprite: Objects/Weapons/Bombs/c4.rsi
+          state: icon
+      - tag: Arrow
+        icon:
+          sprite: Objects/Weapons/Guns/Projectiles/arrows.rsi
+          layers:
+          - state: tail
+            color: white
+          - state: rod
+            color: darkgray
+          - state: tip
+            color: lightblue
+          - state: solution1
+            map: ["enum.SolutionContainerLayers.Fill"]
+            visible: false
+        name: construction-graph-tag-medkit
       - material: Steel
         amount: 5
         doAfter: 4
