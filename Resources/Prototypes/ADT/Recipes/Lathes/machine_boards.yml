@@ -29,3 +29,8 @@
   parent: ADTBaseThrusterCircuitboard
   id: ADTMachineMediumLongThrusterCircuitboard
   result: ADTMachineMediumLongThrusterCircuitboard
+
+- type: latheRecipe
+  parent: [ BaseGoldCircuitboardRecipe, BaseResearchMachineRecipeCategory ]
+  id: ADTSlimeGrinderMachineCircuitboard
+  result: ADTSlimeGrinderMachineCircuitboard

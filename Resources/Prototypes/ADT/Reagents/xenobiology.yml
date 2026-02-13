@@ -131,7 +131,3 @@
         effectProto: StatusEffectFireImmune
         time: 60
         refresh: false
-      - !type:ModifyStatusEffect
-        effectProto: StatusEffectWeatherImmune
-        time: 60
-        refresh: false

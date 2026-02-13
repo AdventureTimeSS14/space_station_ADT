@@ -80,3 +80,9 @@
   id: ADTBluespaceHarvesterPack
   recipes:
   - ADTMachineBluespaceHarvesterCircuitboard
+
+- type: latheRecipePack
+  id: ADTXenobioPack
+  recipes:
+  - ADTSlimeGrinderMachineCircuitboard
+  - ADTClothingBackpackXenoBioTank

@@ -237,6 +237,7 @@
     - ADTPowerPack
     - ADTMegaCellPack
     - ADTBeltManipulatorPack
+    - ADTXenobioPack
     #ADT-tweak-end
     - ADTBluespaceCrystalTech #ADT Tweak
   - type: EmagLatheRecipes

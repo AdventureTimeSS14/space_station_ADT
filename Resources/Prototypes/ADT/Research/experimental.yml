@@ -48,3 +48,19 @@
   position: 4,-3
   requiredTech:
   - BasicAnomalousResearch
+
+- type: technology
+  id: Xenobiology
+  name: research-technology-xenobiology
+  icon:
+    sprite: ADT/Objects/Specific/Xenobiology/slime_nozzle.rsi
+    state: icon
+  discipline: Experimental
+  tier: 1
+  cost: 5000
+  recipeUnlocks:
+  - ADTSlimeGrinderMachineCircuitboard
+  - ADTClothingBackpackXenoBioTank
+  position: -3,3
+  technologyPrerequisites:
+  - BasicXenoArcheology

@@ -14,6 +14,8 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Physics.Events;
 using Content.Shared.Projectiles;
+using Content.Shared.ADT.Temperature.Components;
+using Content.Shared.ADT.Temperature;
 
 namespace Content.Server.Temperature.Systems;
 
@@ -49,6 +51,12 @@ public sealed class TemperatureSystem : EntitySystem
         SubscribeLocalEvent<InternalTemperatureComponent, MapInitEvent>(OnInit);
 
         SubscribeLocalEvent<ChangeTemperatureOnCollideComponent, ProjectileHitEvent>(ChangeTemperatureOnCollide);
+
+        // ADT-Tweak-Start
+        SubscribeLocalEvent<SpecialLowTempImmunityComponent, TemperatureImmunityEvent>(OnCheckLowTemperatureImmunity);
+        SubscribeLocalEvent<SpecialHighTempImmunityComponent, TemperatureImmunityEvent>(OnCheckHighTemperatureImmunity);
+        SubscribeLocalEvent<TemperatureComponent, GetTemperatureThresholdsEvent>(OnGetTemperatureThresholds);
+        // ADT-Tweak-End
 
         // Allows overriding thresholds based on the parent's thresholds.
         SubscribeLocalEvent<TemperatureComponent, EntParentChangedMessage>(OnParentChange);
@@ -121,6 +129,24 @@ public sealed class TemperatureSystem : EntitySystem
         float lastTemp = temperature.CurrentTemperature;
         float delta = temperature.CurrentTemperature - temp;
         temperature.CurrentTemperature = temp;
+
+        // ADT-Tweak-Start
+        var preEv = new BeforeTemperatureChange(
+            temperature.CurrentTemperature,
+            lastTemp,
+            temperature.CurrentTemperature - lastTemp);
+        RaiseLocalEvent(uid, ref preEv);
+
+        var tempEv = new TemperatureImmunityEvent(temperature.CurrentTemperature);
+        RaiseLocalEvent(uid, tempEv);
+        temperature.CurrentTemperature = tempEv.CurrentTemperature;
+
+        var attemptEv = new TemperatureChangeAttemptEvent(temp, lastTemp, delta);
+        RaiseLocalEvent(uid, attemptEv);
+        if (attemptEv.Cancelled)
+            return;
+        // ADT-Tweak-End
+
         RaiseLocalEvent(uid, new OnTemperatureChangeEvent(temperature.CurrentTemperature, lastTemp, delta),
             true);
     }
@@ -138,9 +164,29 @@ public sealed class TemperatureSystem : EntitySystem
             heatAmount = ev.TemperatureDelta;
         }
 
+        // ADT-Tweak-Start
         float lastTemp = temperature.CurrentTemperature;
-        temperature.CurrentTemperature += heatAmount / GetHeatCapacity(uid, temperature);
-        float delta = temperature.CurrentTemperature - lastTemp;
+        float newTemp = temperature.CurrentTemperature + heatAmount / GetHeatCapacity(uid, temperature);
+
+        var preEv = new BeforeTemperatureChange(
+            newTemp,
+            lastTemp,
+            newTemp - lastTemp);
+        RaiseLocalEvent(uid, ref preEv);
+
+        var tempEv = new TemperatureImmunityEvent(newTemp);
+        RaiseLocalEvent(uid, tempEv);
+        newTemp = tempEv.CurrentTemperature;
+
+        float delta = newTemp - lastTemp;
+
+        var attemptEv = new TemperatureChangeAttemptEvent(newTemp, lastTemp, delta);
+        RaiseLocalEvent(uid, attemptEv);
+        if (attemptEv.Cancelled)
+            return;
+
+        temperature.CurrentTemperature = newTemp;
+        // ADT-Tweak-End
 
         RaiseLocalEvent(uid, new OnTemperatureChangeEvent(temperature.CurrentTemperature, lastTemp, delta), true);
     }
@@ -383,6 +429,26 @@ public sealed class TemperatureSystem : EntitySystem
         temperature.ParentHeatDamageThreshold = newThresholds.Item1;
         temperature.ParentColdDamageThreshold = newThresholds.Item2;
     }
+
+    // ADT-Tweak-Start
+    private void OnCheckLowTemperatureImmunity(Entity<SpecialLowTempImmunityComponent> ent, ref TemperatureImmunityEvent args)
+    {
+        if (args.CurrentTemperature < args.IdealTemperature)
+            args.CurrentTemperature = args.IdealTemperature;
+    }
+
+    private void OnCheckHighTemperatureImmunity(Entity<SpecialHighTempImmunityComponent> ent, ref TemperatureImmunityEvent args)
+    {
+        if (args.CurrentTemperature > args.IdealTemperature)
+            args.CurrentTemperature = args.IdealTemperature;
+    }
+
+    private void OnGetTemperatureThresholds(Entity<TemperatureComponent> ent, ref GetTemperatureThresholdsEvent args)
+    {
+        args.HeatDamageThreshold = ent.Comp.HeatDamageThreshold;
+        args.ColdDamageThreshold = ent.Comp.ColdDamageThreshold;
+    }
+    // ADT-Tweak-End
 
     /// <summary>
     /// Recalculate Parent Heat/Cold DamageThreshold by recursively checking each ancestor and fetching the
