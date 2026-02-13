@@ -199,24 +199,26 @@ namespace Content.Client.Lobby
             }
 
             var minutesToday = _playtimeTracking.PlaytimeMinutesToday;
-            if (minutesToday > 60)
-            {
-                Lobby!.PlaytimeComment.Visible = true;
+            // ADT-Tweak-start: Плохо выглядит в лобби
+            // if (minutesToday > 60)
+            // {
+            //     Lobby!.PlaytimeComment.Visible = true;
 
-                var hoursToday = Math.Round(minutesToday / 60f, 1);
+            //     var hoursToday = Math.Round(minutesToday / 60f, 1);
 
-                var chosenString = minutesToday switch
-                {
-                    < 180 => "lobby-state-playtime-comment-normal",
-                    < 360 => "lobby-state-playtime-comment-concerning",
-                    < 720 => "lobby-state-playtime-comment-grasstouchless",
-                    _ => "lobby-state-playtime-comment-selfdestructive"
-                };
+            //     var chosenString = minutesToday switch
+            //     {
+            //         < 180 => "lobby-state-playtime-comment-normal",
+            //         < 360 => "lobby-state-playtime-comment-concerning",
+            //         < 720 => "lobby-state-playtime-comment-grasstouchless",
+            //         _ => "lobby-state-playtime-comment-selfdestructive"
+            //     };
 
-                Lobby.PlaytimeComment.SetMarkup(Loc.GetString(chosenString, ("hours", hoursToday)));
-            }
-            else
-                Lobby!.PlaytimeComment.Visible = false;
+            //     Lobby.PlaytimeComment.SetMarkup(Loc.GetString(chosenString, ("hours", hoursToday)));
+            // }
+            // else
+            //     Lobby!.PlaytimeComment.Visible = false;
+            // ADT-Tweak-end
         }
 
         private void UpdateLobbySoundtrackInfo(LobbySoundtrackChangedEvent ev)
