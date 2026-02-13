@@ -618,7 +618,7 @@
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
       - !type:CreateEntityReactionEffect
-        reagent: CrayonSpawner90
+        entity: CrayonSpawner90
         number: 1
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
@@ -641,7 +641,7 @@
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
       - !type:CreateEntityReactionEffect
-        reagent: RSprayCanSpawner
+        entity: RSprayCanSpawner
         number: 1
   - type: SlimeExtract
   - type: Tag
