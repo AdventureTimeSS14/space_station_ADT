@@ -39,7 +39,7 @@ namespace Content.IntegrationTests.Tests
                 .EnumeratePrototypes<EntityPrototype>()
                 .Where(p => !p.Abstract)
                 .Where(p => !pair.IsTestPrototype(p))
-                .Where(p => !p.Components.ContainsKey("XenoArtifactNodeComponent")) // ADT-tweak 
+                .Where(p => !p.Components.ContainsKey("XenoArtifactNodeComponent")) // ADT-tweak
                 .Where(p => !p.Components.ContainsKey("MapGrid")) // This will smash stuff otherwise.
                 .Where(p => !p.Components.ContainsKey("MobReplacementRule")) // ADT-tweak - fuck them mimics
                 .Where(p => !p.Components.ContainsKey("Supermatter")) // ADT-tweak - Supermatter eats everything, oh no!
@@ -206,7 +206,7 @@ namespace Content.IntegrationTests.Tests
                 .Where(p => !p.Abstract)
                 .Where(p => !pair.IsTestPrototype(p))
                 .Where(p => !p.Components.ContainsKey("MapGrid")) // This will smash stuff otherwise.
-                .Where(p => !p.Components.ContainsKey("XenoArtifactNodeComponent")) // ADT-tweak 
+                .Where(p => !p.Components.ContainsKey("XenoArtifactNodeComponent")) // ADT-tweak
                 .Where(p => !p.Components.ContainsKey("MobReplacementRule")) // ADT-tweak - fuck them mimics
                 .Where(p => !p.Components.ContainsKey("Supermatter")) // ADT-tweak - Supermatter eats everything, oh no!
                 .Select(p => p.ID)
@@ -322,6 +322,11 @@ namespace Content.IntegrationTests.Tests
 
                 // makes an announcement on mapInit.
                 "AnnounceOnSpawn",
+
+                // ADT-Tweak-Start
+                "PendingSlimeSpawn",
+                "Slime"
+                // ADT-Tweak-End
             };
 
             Assert.That(server.CfgMan.GetCVar(CVars.NetPVS), Is.False);
@@ -372,7 +377,7 @@ namespace Content.IntegrationTests.Tests
                     // Check that the number of entities has increased.
                     Assert.That(Count(server.EntMan), Is.GreaterThan(count), $"Server prototype {protoId} failed on spawning as entity count didn't increase\n" +
                         BuildDiffString(serverEntities, Entities(server.EntMan), server.EntMan));
-                    
+
                     // Skip client check if entity doesn't exist on server (deleted itself)
                     if (server.EntMan.EntityExists(uid))
                     {
