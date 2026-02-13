@@ -4,7 +4,7 @@ using Content.Shared.NPC.Systems;
 using Content.Shared.NPC.Components;
 using Content.Shared.NPC.Prototypes;
 
-namespace Content.Server.NPC;
+namespace Content.Shared.NPC;
 
 public sealed partial class ChangeFactionStatusEffectSystem : EntitySystem
 {

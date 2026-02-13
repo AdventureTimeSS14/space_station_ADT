@@ -1,9 +1,9 @@
-using Content.Server.NPC;
+using Content.Shared.NPC;
 using Content.Shared.EntityEffects;
 using Content.Shared.NPC.Prototypes;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server.EntityEffects;
+namespace Content.Shared.EntityEffects;
 
 public sealed partial class ChangeFactionEntityEffect : EntityEffect
 {
@@ -18,5 +18,5 @@ public sealed partial class ChangeFactionEntityEffect : EntityEffect
     }
 
     protected override string? ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
-        => Loc.GetString("reagent-effect-guidebook-change-faction", ("faction", NewFaction));
+        => null;
 }

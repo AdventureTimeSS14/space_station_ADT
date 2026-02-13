@@ -1,7 +1,7 @@
 using Content.Shared.NPC.Prototypes;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server.NPC;
+namespace Content.Shared.NPC;
 
 [RegisterComponent]
 public sealed partial class ChangeFactionStatusEffectComponent : Component
