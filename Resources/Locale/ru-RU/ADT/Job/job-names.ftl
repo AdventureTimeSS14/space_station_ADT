@@ -21,8 +21,8 @@ JobADTSeniorEngineer = бригадир
 job-name-senior-officer = офицер-инструктор
 JobADTSeniorOfficer = офицер-инструктор
 
-job-name-ADTCentcomConsultant = консультант Центком
-JobADTCentcomConsultant = консультант Центком
+job-name-ADTCentcomConsultant = консультант центком
+JobADTCentcomConsultant = консультант центком
 
 job-name-ADTBlueShieldOfficer = офицер синий щит
 JobADTBlueShieldOfficer = офицер синий щит
@@ -61,9 +61,9 @@ job-name-welder = сварщик
 
 # Cargo
 
-job-name-intendant = интендант
 job-name-postman = почтальон
 job-name-inventory-associate = кладовщик
+job-name-intendant = интендант
 
 # Medical
 

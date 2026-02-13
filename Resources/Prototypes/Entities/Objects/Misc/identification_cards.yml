@@ -1019,5 +1019,8 @@
     interfaces:
       enum.AgentIDCardUiKey.Key:
         type: AgentIDCardBoundUserInterface
-  - type: NanoChatCard # ADT-tweak: Наночат
+  # ADT-Tweak-Start: Наночат
+  - type: NanoChatCard 
     notificationsMuted: true
+    listNumber: false 
+  # ADT-Tweak-End

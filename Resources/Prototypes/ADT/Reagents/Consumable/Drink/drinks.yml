@@ -70,8 +70,8 @@
       effects:
       - !type:HealthChange
         damage:
-          groups:
-            Toxin: -1
+          types:
+            Poison: -1
       - !type:PopupMessage
         type: Local
         visualType: Small

@@ -17,7 +17,7 @@
   - type: AmmoCounter
 # ADT-Tweak start
   - type: RunAndGunSpreadModifier
-    modifier: 0.03
+    modifier: 0.1
 # ADT-Tweak end
   - type: Gun
     fireRate: 5
@@ -105,6 +105,10 @@
         whitelist:
           tags:
             - CartridgeLightRifle
+# ADT-tweak start
+  - type: Clothing
+    sprite: ADT/Objects/Weapons/Guns/Rifles/ak.rsi
+# ADT-tweak end
   - type: ContainerContainer
     containers:
       gun_magazine: !type:ContainerSlot
@@ -385,3 +389,4 @@
       path: /Audio/Weapons/Guns/Empty/empty.ogg
     clumsyProof: true
   - type: PacifismAllowedGun
+  - type: GunExecutionBlacklist #ADT-Tweak

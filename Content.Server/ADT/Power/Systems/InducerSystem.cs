@@ -39,14 +39,12 @@ public sealed class InducerSystem : EntitySystem
             return;
         }
 
-        if (!_itemSlots.TryGetSlot(uid, component.PowerCellSlotId, out var slot) || slot.Item == null)
+        if (!_itemSlots.TryGetSlot(uid, component.PowerCellSlotId, out var slot) || slot.Item == null ||
+            !TryComp<BatteryComponent>(slot.Item.Value, out var sourceBattery))
         {
             _popup.PopupEntity(Loc.GetString("inducer-no-power-cell"), uid, args.User);
             return;
         }
-
-        if (!TryComp<BatteryComponent>(slot.Item.Value, out var sourceBattery))
-            return;
 
         if (sourceBattery.CurrentCharge <= 0)
         {
@@ -115,8 +113,8 @@ public sealed class InducerSystem : EntitySystem
         }
         else
         {
-            _battery.SetCharge(target, sourceBattery.CurrentCharge + targetBattery.CurrentCharge, targetBattery);
-            _battery.SetCharge(slot.Item.Value, 0, sourceBattery);
+            _battery.SetCharge(target, targetBattery.CurrentCharge + energyToTransfer, targetBattery);
+            _battery.SetCharge(slot.Item.Value, sourceBattery.CurrentCharge - energyToTransfer, sourceBattery);
             args.Repeat = false;
         }
     }

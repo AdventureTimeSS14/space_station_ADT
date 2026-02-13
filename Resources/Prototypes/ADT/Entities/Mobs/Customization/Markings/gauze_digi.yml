@@ -2,8 +2,8 @@
 - type: marking
   id: ADTGauzeLowerLegLeftDigi
   bodyPart: RFoot
-  markingCategory: Overlay
-  speciesRestriction: [VulpkaninSpecies] 
+  markingCategory: OverlayBandage
+  speciesRestriction: [VulpkaninSpecies]
   coloring:
     default:
       type:
@@ -16,7 +16,7 @@
 - type: marking
   id: ADTGauzeUpperLegLeftDigi
   bodyPart: LLeg
-  markingCategory: Overlay
+  markingCategory: OverlayBandage
   speciesRestriction: [VulpkaninSpecies]
   coloring:
     default:
@@ -30,8 +30,8 @@
 - type: marking
   id: ADTGauzeUpperLegRightDigi
   bodyPart: LLeg
-  markingCategory: Overlay
-  speciesRestriction: [VulpkaninSpecies] 
+  markingCategory: OverlayBandage
+  speciesRestriction: [VulpkaninSpecies]
   coloring:
     default:
       type:
@@ -44,8 +44,8 @@
 - type: marking
   id: ADTGauzeLowerLegRightDigi
   bodyPart: RFoot
-  markingCategory: Overlay
-  speciesRestriction: [VulpkaninSpecies] 
+  markingCategory: OverlayBandage
+  speciesRestriction: [VulpkaninSpecies]
   coloring:
     default:
       type:

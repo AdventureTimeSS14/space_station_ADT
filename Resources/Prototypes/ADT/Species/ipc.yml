@@ -81,15 +81,6 @@
   id: MobIPCMarkingLimits
   onlyWhitelisted: true
   points:
-    Chest:
-      points: 1
-      required: false
-    Legs:
-      points: 4
-      required: false
-    Arms:
-      points: 4
-      required: false
     Tail:
       points: 1
       required: false

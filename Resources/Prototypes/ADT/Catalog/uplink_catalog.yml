@@ -20,7 +20,7 @@
   id: ADTUplinkAKMS
   name: uplink-AKMS-bundle-name
   description: uplink-AKMS-bundle-desc
-  icon: { sprite: /Textures/Objects/Weapons/Guns/Rifles/ak.rsi, state: icon }
+  icon: { sprite: /Textures/ADT/Objects/Weapons/Guns/Rifles/ak.rsi, state: icon }
   productEntity: ADTClothingBackpackDuffelSyndicateFilledAKMS
   discountCategory: usualDiscounts
   discountDownTo:

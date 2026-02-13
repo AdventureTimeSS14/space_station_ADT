@@ -21,6 +21,9 @@
     maxDistance: 3
   - type: PowerCellSlot
     cellSlotId: inducer_power_cell_slot
+  - type: ContainerContainer
+    containers:
+      inducer_power_cell_slot: !type:ContainerSlot
   - type: ItemSlots
     slots:
       inducer_power_cell_slot:
@@ -67,15 +70,6 @@
     transferRate: 900
     transferDelay: 0.09
     maxDistance: 6
-  - type: ItemSlots
-    slots:
-      inducer_power_cell_slot:
-        name: power-cell-slot-component-slot-name-default
-        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
-        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
-        whitelist:
-          tags:
-          - ADTMegaCell
   - type: ItemMapper
     mapLayers:
       inducer-bat:

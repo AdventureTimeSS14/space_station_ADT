@@ -1,6 +1,71 @@
 # ADT
 
 - type: trait
+  id: ADTEcholalia
+  name: trait-echolalia-name
+  description: trait-echolalia-desc
+  category: Quirks
+  cost: 0
+  components:
+  - type: ActiveListener
+    range: 5
+  - type: ParrotSpeech
+    maximumPhraseLength: 24 # higher chance of saying a full sentence
+    minimumWait: 300
+    maximumWait: 900 # triggers once every 15 minutes
+    learnChance: 0.1
+  quirk: true
+
+- type: trait
+  id: ADTDysgraphia
+  name: trait-dysgraphia-name
+  description: trait-dysgraphia-desc
+  category: Disabilities
+  components:
+  - type: BlockWriting
+  cost: 0
+  quirk: true
+
+- type: trait
+  id: ADTHushed
+  name: trait-hushed-name
+  description: trait-hushed-desc
+  category: SpeechTraits
+  cost: 0
+  blacklist:
+    components:
+    - BorgChassis
+  components:
+  - type: Hushed
+  quirk: true
+
+- type: trait
+  id: ADTPseudobulbarAffect
+  name: trait-pseudobulbar-affect-name
+  description: trait-pseudobulbar-affect-desc
+  category: SpeechTraits
+  cost: 0
+  components:
+  - type: EmotionallyUnstableAccent
+    triggerEmotionChance: 0.2
+    exclamatorySentenceChance: 0.5
+    changeMessageChance: 0.3
+    emotes:
+      - Laugh
+      - Scream
+      - Crying
+  - type: EmotionLoop
+    minTimeBetweenEmotions: 60
+    maxTimeBetweenEmotions: 90
+    emotes:
+      - Laugh
+      - Scream
+      - Crying
+  speciesBlacklist:
+  - IPC
+  quirk: true
+
+- type: trait
   id: ADTSoftWalk
   name: trait-soft-walk-name
   description: trait-soft-walk-desc

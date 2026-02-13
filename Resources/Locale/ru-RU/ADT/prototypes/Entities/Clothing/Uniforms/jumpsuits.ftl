@@ -109,6 +109,10 @@ ent-ADTClothingUniformJumpsuitTurtleneckBlack = чёрная водолазка
     .desc = Любимая одежда книжного червя.
     .suffix = { "" }
 
+ent-ADTClothingUniformJumpsuitTurtleneckDarkBlue = тёмно-синяя водолазка
+    .desc = Для тех, кто любит косить под капитана.
+    .suffix = { "" }
+
 ent-ADTClothingUniformJumpsuitTurtleneckBlue = синяя водолазка
     .desc = Тёмный оттенок голубого.
     .suffix = { "" }
@@ -398,3 +402,9 @@ ent-ADTClothingUniformKimanoZero = Кимоно Змея
 
 ent-ADTClothingUniformKimanoArmoredZero = Кимоно Змея
     .desc = Стильное кимоно, свободное и удобное, так ещё и с почти незаметными вшитыми бронепластинами 3 класса... Удачи выполнить заказ и получить Хронус
+
+ent-ADTClothingUniformJumpsuitRedVictorianSuit = красный викторианский костюм
+    .desc = Элегантный костюм, создающий образ аристократичной роскоши.
+
+ent-ADTClothingUniformJumpsuitBlackVictorianSuit = черный викторианский костюм
+    .desc = Элегантный костюм, создающий образ аристократичной роскоши.

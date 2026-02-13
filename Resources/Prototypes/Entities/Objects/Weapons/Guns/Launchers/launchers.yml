@@ -333,6 +333,7 @@
             True: { state: base-unshaded }
             False: { state: base-unshaded-off }
     - type: PacifismAllowedGun
+    - type: GunExecutionBlacklist #ADT-tweak
 
 # Admeme
 - type: entity

@@ -4,13 +4,13 @@ using Content.Shared.DoAfter;
 
 namespace Content.Shared.Power.Components;
 
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class InducerComponent : Component
 {
     [DataField]
     public string PowerCellSlotId = "inducer_power_cell_slot";
 
-    [DataField]
+    [DataField, AutoNetworkedField]
     public float TransferRate = default!;
 
     [DataField]
@@ -24,6 +24,4 @@ public sealed partial class InducerComponent : Component
 }
 
 [Serializable, NetSerializable]
-public sealed partial class InducerDoAfterEvent : SimpleDoAfterEvent
-{
-}
+public sealed partial class InducerDoAfterEvent : SimpleDoAfterEvent;

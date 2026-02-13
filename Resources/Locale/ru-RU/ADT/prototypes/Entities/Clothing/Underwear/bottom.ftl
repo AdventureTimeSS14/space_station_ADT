@@ -83,6 +83,3 @@ ent-ADTClothingUnderwearBottomMonokiniBlack = низ черного моноки
 
 ent-ADTClothingUnderwearBottomMonokiniWhite = низ белого монокини
     .desc = низ монокини, белого цвета
-
-ent-ADTClothingUnderwearBottomPantiesCow = коровьи трусики
-    .desc = Милые коровьи трусики. Му-у-у!

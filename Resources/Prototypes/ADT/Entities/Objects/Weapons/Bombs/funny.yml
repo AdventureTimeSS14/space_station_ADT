@@ -7,7 +7,9 @@
     sprite: ADT/Objects/Weapons/Bombs/Funny/explosivepizzabox.rsi
     state: icon
   - type: Item
-    size: Small
+    size: Large
+    shape:
+    - 0,0,2,1
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
@@ -16,3 +18,5 @@
     totalIntensity: 120
     canCreateVacuum: false
   - type: TriggerOnUse
+  - type: StaticPrice
+    price: 72.5 # Мимикрирует цену коробки с пиццей

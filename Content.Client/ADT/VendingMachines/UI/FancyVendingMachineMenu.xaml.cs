@@ -33,6 +33,11 @@ public sealed partial class FancyVendingMachineMenu : FancyWindow
     public Color ButtonHoveredColor = Color.FromHex("#4972A1");
     public Color ButtonDisabledColor = Color.FromHex("#3f3f3fff");
 
+    public Color EmaggedButtonBorderColor = Color.FromHex("#A14949");
+    public Color EmaggedButtonBaseColor = Color.FromHex("#2F1414");
+    public Color EmaggedButtonHoveredColor = Color.FromHex("#A14949");
+    public Color EmaggedButtonDisabledColor = Color.FromHex("#3f1f1f");
+
     public FancyVendingMachineMenu()
     {
         RobustXamlLoader.Load(this);

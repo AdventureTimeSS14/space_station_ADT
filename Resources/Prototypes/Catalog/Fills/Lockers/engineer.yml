@@ -135,6 +135,16 @@
           tableId: FillLockerAtmospherics
         - !type:NestedSelector
           tableId: FillAtmosphericsHardsuit
+  #ADT-Tweak-Start
+  - type: UserInterface
+    interfaces:
+      enum.SuitStorageUiKey.Key:
+        type: SuitStorageBoundUserInterface
+  - type: SuitStorage
+    options:
+    - ADTClothingModsuitBackAtmos
+    - ClothingOuterHardsuitAtmos
+  #ADT-Tweak-End
 
 - type: entity
   id: LockerAtmosphericsFilled
@@ -156,22 +166,20 @@
     - id: GasAnalyzer
     - id: MedkitOxygenFilled
     - id: HolofanProjector
-    - id: ADTDoorRemoteFirefight # ADT-Atmos-Remote
-    # ADT-RPD-Start
+    - id: AirGrenade
+    # ADT-Tweak-Start
+    - id: ADTDoorRemoteFirefight
     - id: ADTRPD
     - id: RCDAmmo
-    # ADT-RPD-End
-    - id: AirGrenade
-    # ADT-WikiBooks-Start
     - id: ADTBookSRPeng
     - id: ADTBookAtmosSupermatter
-    # ADT-WikiBooks-End
+    # ADT-Tweak-End
 
 - type: entityTable
   id: FillAtmosphericsHardsuit
   table: !type:AllSelector
     children:
-    - id: ClothingOuterHardsuitAtmos
+    #- id: ClothingOuterHardsuitAtmos #ADT-Tweak
     - id: OxygenTankFilled
     - id: ClothingMaskBreath
 
@@ -188,6 +196,16 @@
           tableId: FillLockerEngineer
         - !type:NestedSelector
           tableId: FillEngineerHardsuit
+  #ADT-Tweak-Start
+  - type: UserInterface
+    interfaces:
+      enum.SuitStorageUiKey.Key:
+        type: SuitStorageBoundUserInterface
+  - type: SuitStorage
+    options:
+    - ADTClothingModsuitBackEngineering
+    - ClothingOuterHardsuitEngineering
+  #ADT-Tweak-End
 
 - type: entity
   id: LockerEngineerFilled
@@ -212,13 +230,14 @@
     # ADT-Tweak-Start
     - id: ADTBookSRPeng
     - id: ADTEngiInducerBattery
+      prob: 0.3
     # ADT-Tweak-End
 
 - type: entityTable
   id: FillEngineerHardsuit
   table: !type:AllSelector
     children:
-    - id: ClothingOuterHardsuitEngineering
+    #- id: ClothingOuterHardsuitEngineering #ADT-Tweak
     - id: OxygenTankFilled
     - id: ClothingShoesBootsMag
     - id: ClothingMaskBreath
