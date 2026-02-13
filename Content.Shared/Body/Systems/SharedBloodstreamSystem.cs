@@ -106,7 +106,7 @@ public abstract class SharedBloodstreamSystem : EntitySystem
                 // Apply dizziness as a symptom of bloodloss.
                 // The effect is applied in a way that it will never be cleared without being healthy.
                 // Multiplying by 2 is arbitrary but works for this case, it just prevents the time from running out
-                _status.TrySetStatusEffectDuration(uid, Bloodloss);
+                // _status.TrySetStatusEffectDuration(uid, Bloodloss);//ADT-Weakness-Tweak
                 _weaknessSystem.DoWeakness(uid, bloodstream.AdjustedUpdateInterval * 2, refresh: false); //ADT-Weakness-Tweak
             }
             else if (!_mobStateSystem.IsDead(uid))
@@ -117,7 +117,7 @@ public abstract class SharedBloodstreamSystem : EntitySystem
                     bloodstream.BloodlossHealDamage * bloodPercentage,
                     ignoreResistances: true, interruptsDoAfters: false);
 
-                _status.TryRemoveStatusEffect(uid, Bloodloss);
+                // _status.TryRemoveStatusEffect(uid, Bloodloss); //ADT-Weakness-Tweak
                 _weaknessSystem.DoRemoveWeakness(uid); //ADT-Weakness-Tweak
             }
         }
