@@ -18,7 +18,7 @@ public sealed partial class XenobiologyBountyPrototype : IPrototype
     public List<XenobiologyBountyItemEntry> Entries = [];
 
     [DataField]
-    public string IdPrefix = "NT";
+    public string IdPrefix = "Xeno";
 }
 
 [DataDefinition, Serializable, NetSerializable]
