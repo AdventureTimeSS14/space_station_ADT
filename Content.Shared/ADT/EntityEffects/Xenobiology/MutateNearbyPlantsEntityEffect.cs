@@ -11,7 +11,7 @@ public sealed partial class MutateNearbyPlantsEntityEffect : EntityEffect
     {
         var entityManager = args.EntityManager;
         var lookupSys = entityManager.System<EntityLookupSystem>();
-        var entityEffects = entityManager.System<SharedEntityEffectSystem >();
+        var entityEffects = entityManager.System<SharedEntityEffectSystem>();
 
         // should only work on plants in theorem
         foreach (var entity in lookupSys.GetEntitiesInRange(args.TargetEntity, Radius))
