@@ -100,7 +100,7 @@
   description: Theoretically, if you sold a couple of these, you wouldn't need to work on the station any more. It must have it's use, since it costs a fortune to get one of these. But where?
   components:
   - type: Sprite
-    sprite: ADT/Xenobiology/Specific/Xenobiology/adamantine_ore.rsi
+    sprite: ADT/Objects/Specific/Xenobiology/adamantine_ore.rsi
     state: icon
   - type: StaticPrice
     price: 10000
