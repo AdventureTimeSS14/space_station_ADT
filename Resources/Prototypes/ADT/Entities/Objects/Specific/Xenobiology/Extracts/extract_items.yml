@@ -61,7 +61,7 @@
   id: ADTFloorTileItemBluespace
   components:
   - type: Sprite
-    sprite: ADT/Xenobiology/Specific/Xenobiology/floors.rsi
+    sprite: ADT/Tiles/Misc/bluespace.rsi
     state: icon-bluespace
   - type: SpawnAfterInteract
     prototype: ADTFloorBluespaceEntity
