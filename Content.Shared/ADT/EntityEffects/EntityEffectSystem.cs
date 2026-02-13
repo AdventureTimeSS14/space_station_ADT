@@ -2,7 +2,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Shared.EntityEffects;
 
-public sealed partial class EntityEffectSystem : EntitySystem
+public sealed partial class SharedEntityEffectSystem  : EntitySystem
 {
     public struct EntityEffectQueueEntry
     {

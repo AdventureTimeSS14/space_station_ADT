@@ -3,6 +3,7 @@
   id: ADTXenobioCameraConsole
   name: xenobiology camera console
   description: Console for monitoring xenobiology cameras.
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: Structures/Machines/computers.rsi
