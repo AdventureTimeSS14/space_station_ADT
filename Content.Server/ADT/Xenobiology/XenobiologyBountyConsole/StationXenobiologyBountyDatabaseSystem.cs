@@ -86,7 +86,7 @@ public sealed class StationXenobiologyBountyDatabaseSystem : EntitySystem
 
         if (component.Bounties.Any(bountyData => bountyData.Id == newBounty.Id))
         {
-            Log.Error("Failed to add bounty {ID} because another one with the same ID already existed!", newBounty.Id);
+            Log.Warning("Failed to add bounty {ID} because another one with the same ID already existed!", newBounty.Id);
             return false;
         }
 
@@ -200,6 +200,6 @@ public sealed class StationXenobiologyBountyDatabaseSystem : EntitySystem
         var exponent = Math.Floor(Math.Log10(absNumber));
         var baseValue = 0.25 * Math.Pow(10, exponent);
         var roundedAbs = Math.Round(absNumber / baseValue, MidpointRounding.AwayFromZero) * baseValue;
-        return  (int)roundedAbs;
+        return (int)roundedAbs;
     }
 }
