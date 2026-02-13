@@ -2,7 +2,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Shared.EntityEffects;
 
-public sealed partial class SharedEntityEffectSystem  : EntitySystem
+public sealed partial class SharedEntityEffectSystem : EntitySystem
 {
     public struct EntityEffectQueueEntry
     {
@@ -51,7 +51,7 @@ public sealed partial class SharedEntityEffectSystem  : EntitySystem
 #pragma warning restore CS0618
 
     public void Effect(EntityEffect effect, EntityEffectBaseArgs args)
-        => Effect(effect, args, TimeSpan.FromSeconds(effect.Delay));
+        => Effect(effect, args, TimeSpan.FromSeconds(effect.BaseDelay));
 
     public void Effect(EntityEffect effect, EntityEffectBaseArgs args, TimeSpan delay)
     {

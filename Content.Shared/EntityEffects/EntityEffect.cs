@@ -50,7 +50,7 @@ public abstract partial class EntityEffect
     ///     After how much seconds do we want it to trigger? - Goobstation
     /// </summary>
     [DataField]
-    public float Delay = 0f;
+    public float BaseDelay = 0f;
     // ADT-Tweak-End
 
     public abstract void Effect(EntityEffectBaseArgs args);
