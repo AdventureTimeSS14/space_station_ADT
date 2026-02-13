@@ -37,13 +37,13 @@
 - type: stack
   id: FloorTileItemBluespace
   name: stack-bluespace-tile
-  spawn: FloorTileItemBluespace
+  spawn: ADTFloorTileItemBluespace
   maxCount: 30
 
 - type: stack
   id: FloorTileItemSepia
   name: stack-sepia-tile
-  spawn: FloorTileItemSepia
+  spawn: ADTFloorTileItemSepia
   maxCount: 30
 
 - type: stack

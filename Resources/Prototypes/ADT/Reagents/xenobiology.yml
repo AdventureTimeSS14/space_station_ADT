@@ -94,6 +94,21 @@
         prototype: ADTLizardPolymorph
 
 - type: reagent
+  parent: BaseXenobioReagent
+  id: PinkXenoJelly
+  name: reagent-name-jelly-pink
+  color: "#ff33cc"
+  metabolisms:
+    Poison:
+      metabolismRate: 1
+      effects:
+      - !type:ChangeFactionEntityEffect
+        conditions:
+        - !type:ReagentThreshold
+          min: 5
+        newFaction: Passive
+
+- type: reagent
   id: XenoGenderFluid
   parent: Slime
   name: reagent-name-xeno-gender-fluid

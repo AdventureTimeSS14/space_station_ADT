@@ -142,6 +142,20 @@
           Quantity: 15
 
 - type: entity
+  id: PinkExtractJelly
+  parent: BasePinkExtractJelly
+  name: pink slime jelly
+  description: The violent contractions caused by this jelly increase a slime's chance to mutate when metabolized.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: PinkXenoJelly
+          Quantity: 15
+
+- type: entity
   id: GreenExtractJellyLizard
   parent: BaseGreenExtractJelly
   name: green slime jelly

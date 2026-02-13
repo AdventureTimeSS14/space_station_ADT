@@ -475,7 +475,7 @@
       deleteEntity: true
       effects:
       - !type:CreateEntityReactionEffect
-        entity: FloorTileItemBluespace
+        entity: ADTFloorTileItemBluespace
         number: 25
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
@@ -543,7 +543,7 @@
       deleteEntity: true
       effects:
       - !type:CreateEntityReactionEffect
-        entity: FloorTileItemSepia
+        entity: ADTFloorTileItemSepia
         number: 25
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
@@ -618,7 +618,7 @@
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
       - !type:CreateEntityReactionEffect
-        entity: CrayonSpawner90
+        entity: CrayonBox
         number: 1
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
@@ -1036,7 +1036,7 @@
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
       - !type:CreateEntityReactionEffect
-        entity: ADTXenoAdamantineBar
+        entity: ADTXenoAdamantineOre
         number: 1
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]
