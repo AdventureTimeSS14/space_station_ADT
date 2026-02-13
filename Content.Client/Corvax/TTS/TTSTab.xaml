@@ -5,8 +5,8 @@
             <Label Name="ResultsLabel" MinWidth="100" HorizontalExpand="True" HorizontalAlignment="Right"/>
         </BoxContainer>
         
-        <PanelContainer HorizontalExpand="True" VerticalExpand="False" MinSize="0 200" Margin="0 5 0 20">
-            <PanelContainer.PanelOverride>
+        <!-- <PanelContainer HorizontalExpand="True" VerticalExpand="False" MinSize="0 200" Margin="0 5 0 20">
+            <PanelContainer.PanelOverride> // ADT-Tweak: Нахуй не нужно
                 <graphics:StyleBoxFlat BackgroundColor="#1A1A1A" />
             </PanelContainer.PanelOverride>
             <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True" Margin="5">
@@ -15,7 +15,7 @@
                     <GridContainer Name="CategoriesContainer" Columns="4" HorizontalExpand="True"/>
                 </ScrollContainer>
             </BoxContainer>
-        </PanelContainer>
+        </PanelContainer> -->
 
         <ScrollContainer VerticalExpand="True" Margin="5">
             <GridContainer Name="VoicesGrid" Columns="3" HorizontalExpand="True"/>

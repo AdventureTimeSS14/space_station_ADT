@@ -23,10 +23,10 @@ public sealed partial class TTSTab : Control
 
     private List<TTSVoicePrototype> _allVoices = new();
     private List<TTSVoicePrototype> _filteredVoices = new();
-    private Dictionary<string, List<TTSVoicePrototype>> _categorizedVoices = new();
+    // private Dictionary<string, List<TTSVoicePrototype>> _categorizedVoices = new(); // ADT-Tweak
     private string? _selectedVoiceId;
 
-    private static readonly Regex CategoryRegex = new Regex(@"^(.*?)\s*\(([^)]+)\)\s*$", RegexOptions.Compiled);
+    // private static readonly Regex CategoryRegex = new Regex(@"^(.*?)\s*\(([^)]+)\)\s*$", RegexOptions.Compiled); // ADT-Tweak
 
     public TTSTab()
     {
@@ -39,42 +39,44 @@ public sealed partial class TTSTab : Control
 
     private void LoadVoices()
     {
-        foreach (var voice in _allVoices)
-        {
-            var name = Loc.GetString(voice.Name);
-            var category = Loc.GetString("humanoid-profile-editor-voice-other");
+        // ADT-Tweak-start: Не нужна сортировка по категориям
+        // foreach (var voice in _allVoices)
+        // {
+        //     var name = Loc.GetString(voice.Name);
+        //     var category = Loc.GetString("humanoid-profile-editor-voice-other");
 
-            var match = CategoryRegex.Match(name);
-            if (match.Success)
-            {
-                category = match.Groups[2].Value.Trim();
-            }
+        //     var match = CategoryRegex.Match(name);
+        //     if (match.Success)
+        //     {
+        //         category = match.Groups[2].Value.Trim();
+        //     }
 
-            if (!_categorizedVoices.ContainsKey(category))
-                _categorizedVoices[category] = new List<TTSVoicePrototype>();
+        //     if (!_categorizedVoices.ContainsKey(category))
+        //         _categorizedVoices[category] = new List<TTSVoicePrototype>();
 
-            _categorizedVoices[category].Add(voice);
-        }
+        //     _categorizedVoices[category].Add(voice);
+        // }
 
-        CategoriesContainer.RemoveAllChildren();
+        // CategoriesContainer.RemoveAllChildren();
 
-        foreach (var category in _categorizedVoices.Keys.OrderBy(k => k))
-        {
-            var button = new Button
-            {
-                Text = category,
-                ToolTip = Loc.GetString("humanoid-profile-editor-voice-category-tooltip", ("category", category)),
-                HorizontalExpand = true,
-            };
+        // foreach (var category in _categorizedVoices.Keys.OrderBy(k => k))
+        // {
+        //     var button = new Button
+        //     {
+        //         Text = category,
+        //         ToolTip = Loc.GetString("humanoid-profile-editor-voice-category-tooltip", ("category", category)),
+        //         HorizontalExpand = true,
+        //     };
 
-            button.OnPressed += _ =>
-            {
-                SearchEdit.Text = category;
-                UpdateResults();
-            };
+        //     button.OnPressed += _ =>
+        //     {
+        //         SearchEdit.Text = category;
+        //         UpdateResults();
+        //     };
 
-            CategoriesContainer.AddChild(button);
-        }
+        //     CategoriesContainer.AddChild(button);
+        // }
+        // ADT-Tweak-end
 
         UpdateResults();
     }
@@ -178,7 +180,7 @@ public sealed partial class TTSTab : Control
             .OrderBy(o => Loc.GetString(o.Name))
             .ToList();
 
-        _categorizedVoices.Clear();
+        // _categorizedVoices.Clear(); // ADT-Tweak
         LoadVoices();
     }
 
