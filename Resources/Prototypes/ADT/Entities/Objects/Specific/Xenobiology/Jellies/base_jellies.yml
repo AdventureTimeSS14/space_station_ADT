@@ -1,4 +1,4 @@
-- type: entityObjects
+- type: entity
   name: base slime jelly
   parent: EdibleBase
   id: BaseExtractJelly
