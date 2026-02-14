@@ -1,8 +1,6 @@
 - type: vendingMachineInventory
   id: ADTLoveLandInventory
   startingInventory:
-    ADTBoxValentineRed: 5
-    ADTBoxValentineWhite: 5
     ADTClothingHeadRomanticHat: 3
     ADTClothingUniformJumpsuitRomanticSuit: 3
     ADTClothingUniformJumpsuitTurtleHeart: 5
