@@ -74,3 +74,22 @@
   - type: Sprite
     state: cookie_skull
 
+- type: entity
+  name: caramel ear
+  parent: ADTFoodCookieBlackcat
+  id: ADTFoodCookieCaramelEar
+  description: A heart-shaped pastry made from puff pastry.
+  suffix: Valentine's day
+  components:
+  - type: Sprite
+    state: caramel_ear
+
+- type: entity
+  name: strawberry heart
+  parent: ADTFoodCookieBlackcat
+  id: ADTFoodCookieStrawberryHeart
+  description: Strawberry shortbread cookies with a strawberry filling. I think your significant other will love this dessert.
+  suffix: Valentine's day
+  components:
+  - type: Sprite
+    state: strawberry_heart

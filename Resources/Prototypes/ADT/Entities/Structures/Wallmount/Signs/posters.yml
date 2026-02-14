@@ -869,6 +869,142 @@
   - type: Sprite
     state: poster_unclepraz_legit #Спрайт от Празата
 
+#постеры на день святого Валентина
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTDVLoveContraband
+  suffix: Valentine's day
+  name: Sharp love
+  description: Buy a sawblade for yourself and your beloved, and you'll get a third one as a gift!
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/posters_valentines_day.rsi
+    state: dv_love_contraband
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTSpaceLoveContraband
+  name: Share it together!
+  description: An advertising poster celebrating Valentine's Day.
+  suffix: Valentine's day
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/posters_valentines_day.rsi
+    state: space_love_contraband
+    
+- type: entity
+  parent: ADTPosterBase
+  id: ADTValentinaLegit
+  name: Love it...
+  description: To fly together in a hot air balloon.
+  suffix: Valentine's day
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/posters_valentines_day.rsi
+    state: valentina_legit
+    
+- type: entity
+  parent: ADTPosterBase
+  id: ADTValentina2Legit
+  name: Love it...
+  description: A piercing feeling in my heart.
+  suffix: Valentine's day
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/posters_valentines_day.rsi
+    state: valentina2_legit
+    
+- type: entity
+  parent: ADTPosterBase
+  id: ADTValentina3Legit
+  name: Love it...
+  description: Giving treats to your loved one.
+  suffix: Valentine's day
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/posters_valentines_day.rsi
+    state: valentina3_legit
+    
+- type: entity
+  parent: ADTPosterBase
+  id: ADTValentina4Legit
+  name: Love it...
+  description: Happiness is not just for two people.
+  suffix: Valentine's day
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/posters_valentines_day.rsi
+    state: valentina4_legit
+    
+- type: entity
+  parent: ADTPosterBase
+  id: ADTValentina5Legit
+  name: Love it...
+  description: Just to be together.
+  suffix: Valentine's day
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/posters_valentines_day.rsi
+    state: valentina5_legit
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTValentina6Legit
+  name: Love it...
+  description: Loyalty to your lover.
+  suffix: Valentine's day
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/posters_valentines_day.rsi
+    state: valentina6_legit
+
+#Сердечки ко дню святого Валентина
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTHangingHearts
+  name: Hanging hearts
+  description: Decorative hearts hanging from a rope. At least they're not real.
+  suffix: Valentine's day
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/hanging_hearts_valentines_day.rsi
+    state: love
+    
+- type: entity
+  parent: ADTPosterBase
+  id: ADTHangingHearts2
+  name: Hanging hearts
+  description: Decorative hearts hanging from a rope. At least they're not real.
+  suffix: Valentine's day
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/hanging_hearts_valentines_day.rsi
+    state: love2
+    
+- type: entity
+  parent: ADTPosterBase
+  id: ADTHangingHearts3
+  name: Hanging hearts
+  description: Decorative hearts hanging from a rope. At least they're not real.
+  suffix: Valentine's day
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/hanging_hearts_valentines_day.rsi
+    state: love3
+    
+- type: entity
+  parent: ADTPosterBase
+  id: ADTHangingHearts4
+  name: Hanging hearts
+  description: Decorative hearts hanging from a rope. At least they're not real.
+  suffix: Valentine's day
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/hanging_hearts_valentines_day.rsi
+    state: love4
+
 - type: entity
   parent: ADTPosterBase
   id: ADTPosterNoLRP
