@@ -2,9 +2,6 @@
   name: chocolate glaze cake
   parent: FoodCakeBase
   id: ADTFoodCakeChocolateGlazeHeart
-  name: chocolate cake
-  parent: FoodCakeBase
-  id: ADTFoodCakeChocolateHeart
   description: A cake with added chocolate.
   components:
   - type: Sprite
