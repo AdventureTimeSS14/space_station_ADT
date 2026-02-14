@@ -9,7 +9,6 @@ using Content.Shared.Emag.Systems;
 using Content.Shared.Power;
 using Content.Shared.Power.EntitySystems;
 using Robust.Shared.Timing;
-using Robust.Shared.Utility;
 
 namespace Content.Shared.Bed;
 
@@ -54,9 +53,6 @@ public abstract class SharedBedSystem : EntitySystem
         bed.Comp.NextHealTime = Timing.CurTime + TimeSpan.FromSeconds(bed.Comp.HealTime);
         _actionsSystem.AddAction(args.Buckle, ref bed.Comp.SleepAction, SleepingSystem.SleepActionId, bed);
         Dirty(bed);
-
-        // Single action entity, cannot strap multiple entities to the same bed.
-        DebugTools.AssertEqual(args.Strap.Comp.BuckledEntities.Count, 1);
     }
 
     private void OnUnstrapped(Entity<HealOnBuckleComponent> bed, ref UnstrappedEvent args)
