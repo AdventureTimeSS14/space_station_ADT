@@ -579,6 +579,73 @@
   - type: StaticPrice
     price: 85
 
+# Одежда на день святого Валентина
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ADTClothingUniformBurgundyDress
+  name: burgundy dress
+  description: The dress is medium-length, semi-fitting, with a deep neckline and a thigh-high slit.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/burgundy_dress.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/burgundy_dress.rsi
+  - type: StaticPrice
+    price: 55
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ADTClothingUniformBurgundyDressAlt
+  name: burgundy dress
+  description: Short burgundy dress.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/burgundy_dress_alt.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/burgundy_dress_alt.rsi
+  - type: StaticPrice
+    price: 55
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ADTClothingUniformCocktailDress
+  name: cocktail dress
+  description: A dress with red and white elements and a bow in the middle.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/cocktail_dress.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/cocktail_dress.rsi
+  - type: StaticPrice
+    price: 35
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ADTClothingUniformEveningDress
+  name: evening dress
+  description: The dress is medium-length, semi-fitting, with a deep neckline and a thigh-high slit.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/evening_dress.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/evening_dress.rsi
+  - type: StaticPrice
+    price: 65
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ADTClothingUniformGothDress
+  name: goth dress
+  description: A stylish black swimsuit for the beach or pool.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/goth_dress.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpskirt/goth_dress.rsi
+  - type: StaticPrice
+    price: 35
+    
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ADTClothingUniformSwimBlack

@@ -1,0 +1,35 @@
+{
+    "version": 1,
+    "license": "CC-BY-NC-SA-3.0",
+    "copyright": "creared by: descente (discord:still_smokin)",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "val1"
+        },
+        {
+            "name": "val2"
+        },
+        {
+            "name": "val3"
+        },
+        {
+            "name": "val4"
+        },
+        {
+            "name": "val5"
+        },
+        {
+            "name": "val6"
+        },
+        {
+            "name": "val7"
+        },
+        {
+            "name": "val8"
+        }
+    ]
+}
