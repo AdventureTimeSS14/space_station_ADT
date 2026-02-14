@@ -71,14 +71,26 @@ namespace Content.Server.Storage.EntitySystems
                 return;
 
             var coords = Transform(args.User).Coordinates;
-            var spawnEntities = GetSpawns(component.Items, _random);
             EntityUid? entityToPlaceInHands = null;
 
-            foreach (var proto in spawnEntities)
+            // ADT-Tweak start. Добавил проверку на компонент выбора предмета для спавна.
+            // If this entity has a SpawnItemSelectorComponent with a selected id, spawn that one item instead
+            if (TryComp<SpawnItemSelectorComponent>(uid, out var selector) && !string.IsNullOrWhiteSpace(selector.SelectedItemId))
             {
-                entityToPlaceInHands = Spawn(proto, coords);
+                entityToPlaceInHands = Spawn(selector.SelectedItemId!, coords);
                 _adminLogger.Add(LogType.EntitySpawn, LogImpact.Low, $"{ToPrettyString(args.User)} used {ToPrettyString(uid)} which spawned {ToPrettyString(entityToPlaceInHands.Value)}");
             }
+            else
+            {
+                var spawnEntities = GetSpawns(component.Items, _random);
+
+                foreach (var proto in spawnEntities)
+                {
+                    entityToPlaceInHands = Spawn(proto, coords);
+                    _adminLogger.Add(LogType.EntitySpawn, LogImpact.Low, $"{ToPrettyString(args.User)} used {ToPrettyString(uid)} which spawned {ToPrettyString(entityToPlaceInHands.Value)}");
+                }
+            }
+            // ADT-Tweak end.
 
             // The entity is often deleted, so play the sound at its position rather than parenting
             if (component.Sound != null)

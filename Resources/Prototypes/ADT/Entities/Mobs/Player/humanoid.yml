@@ -976,3 +976,35 @@
     jumpsuit: ClothingUniformJumpsuitColorWhite
     gloves: ClothingHandsGlovesColorWhite
     outerClothing: ADTOuterClothingCoatsCrazyScientist
+
+- type: entity
+  name: ADTSanta-name
+  id: ADTSanta
+  parent: MobHuman
+  suffix: New Year
+  components:
+    - type: GhostTakeoverAvailable
+    - type: Loadout
+      prototypes: [ ADTRoleSantaGear ]
+    - type: RandomHumanoidAppearance
+      randomizeName: false
+
+- type: startingGear
+  id: ADTRoleSantaGear
+  equipment:
+    jumpsuit: ADTClothingUniformRollNeckSnowman
+    gloves: ClothingHandsGlovesColorWhite
+    back: ADTClothingBackpackSanta
+    ears: ClothingHeadsetGrey
+    shoes: ClothingShoesBootsWinter
+    id: ADTVisitorPDA
+    outerClothing: ClothingOuterHardsuitSanta
+    suitstorage: OxygenTankFilled
+  storage:
+    back:
+    - BoxSurvivalEngineering
+    - ClothingHeadHatSantahat
+    - ClothingOuterSanta
+    - ADTReindeerCubeBox
+    - ADTWeaponWandSanta
+    - ADTGingerbreadCubeBox
