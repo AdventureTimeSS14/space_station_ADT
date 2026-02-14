@@ -1492,3 +1492,16 @@
     sprite: ADT/Personalization/FaustNetzach/faust_cuffs.rsi
   - type: Fiber
     fiberColor: fibers-white
+
+#kimer_k
+- type: entity
+  parent: ADTSponsorClothingUniformBase
+  id: ADTClothingUniformKimerK
+  name: pink suit
+  description: A lightweight classic shirt with a delicate tie, complemented by a button-down vest with a V-neck.
+  suffix: Personal, kimer_k
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/Kimer_k/kimer_k_suit.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/Kimer_k/kimer_k_suit.rsi

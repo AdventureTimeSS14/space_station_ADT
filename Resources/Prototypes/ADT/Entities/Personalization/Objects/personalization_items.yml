@@ -2740,4 +2740,39 @@
       head:
       - state: equipped-HELMET
         offset: "0, 0.04"
+        
+#kimer_k
+- type: entity
+  parent: DrinkShaker
+  id: ADTGoldPlatedDrinkShaker
+  name: gold-plated shaker
+  description: The shaker is made of high-quality stainless steel with a protective coating that prevents scratches and corrosion. Additionally, the shaker has an improved design for a comfortable grip and a stylish design with gold accents.
+  suffix: Personal, kimer_k
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/Kimer_k/kimer_k_shaker.rsi
+
+- type: entity
+  parent: Spoon
+  id: ADTGoldPlatedBarSpoon
+  name: gold-plated bar spoon
+  description: Stainless steel cocktail spoon with a golden finish.
+  suffix: Personal, kimer_k
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/Kimer_k/kimer_k_spoon.rsi
+    state: spoon
+  - type: Item
+    sprite: ADT/Personalization/Kimer_k/kimer_k_spoon.rsi
+
+- type: entity
+  parent: DrinkJigger
+  id: ADTGoldPlatedDrinkJigger
+  name: gold-plated jigger
+  description: A jigger with a gold-plated body and rubber inserts for a comfortable grip and operation.
+  suffix: Personal, kimer_k
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/Kimer_k/kimer_k_jigger.rsi
+
 #SPONSOR-ITEMS-END
