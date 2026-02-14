@@ -96,7 +96,7 @@ ent-ADTFoodSnackChocolateBarTwo = двойной батончик
     .desc = Выбирай, на чьей ты стороне?
 
 ent-ADTFoodSnackChocolateBarMedal = шоколадная медаль
-    .desc = Не всё то золото что блестит... Ням!
+    .desc = Не всё то золото, что блестит... Ням!
 
 ent-ADTFoodSnackChocolateBarChunk = кусочек шоколада
     .desc = На вкус как картон.
@@ -105,19 +105,19 @@ ent-ADTFoodSnackChocolateBarChunk = кусочек шоколада
 ent-ADTFoodSnackChocolateTrashChoco = обёртка от шоколадного батончика
     .desc = Мусор.
 
-ent-ADTFoodSnackChocolateTrashCoconut = обёртка от Кокосового батончика
+ent-ADTFoodSnackChocolateTrashCoconut = обёртка от кокосового батончика
     .desc = Мусор.
 
-ent-ADTFoodSnackChocolateTrashEnergy = обёртка от Энергетического батончика
+ent-ADTFoodSnackChocolateTrashEnergy = обёртка от энергетического батончика
     .desc = Мусор.
 
-ent-ADTFoodSnackChocolateTrashNuts = обёртка от Шоколадного батончика с орехами
+ent-ADTFoodSnackChocolateTrashNuts = обёртка от шоколадного батончика с орехами
     .desc = Мусор.
 
-ent-ADTFoodSnackChocolateTrashPink = обёртка от Розовый шоколадного батончика
+ent-ADTFoodSnackChocolateTrashPink = обёртка от розового шоколадного батончика
     .desc = Мусор.
 
-ent-ADTFoodSnackChocolateTrashTwo = обёртка от Двойного батончика
+ent-ADTFoodSnackChocolateTrashTwo = обёртка от двойного батончика
     .desc = Мусор.
 
 ent-ADTFoodPacketChocolateTrashMedal = обёртка от шоколадной медали
