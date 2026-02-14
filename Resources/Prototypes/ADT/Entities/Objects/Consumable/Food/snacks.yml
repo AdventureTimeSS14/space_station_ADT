@@ -350,6 +350,27 @@
     items:
       - id: ADTFoodPacketChocolateTrashTwo
       - id: ADTFoodSnackChocolateBarTwo
+
+- type: entity
+  name: chocolate bar
+  parent: ADTFoodSnackChocolateBarsBase
+  id: ADTFoodSnackChocolateBarMedalPack
+  description: Tastes like cardboard.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Neck/Misc/chocolate_medal.rsi
+    state: icon
+  - type: Tag
+  - type: SpawnItemsOnUse
+    items:
+      - id: ADTFoodPacketChocolateTrashMedal
+      - id: ADTFoodSnackChocolateBarMedal
+  - type: Clothing
+    sprite: ADT/Clothing/Neck/Misc/chocolate_medal.rsi
+    quickEquip: false
+    slots:
+    - neck
+
 #Chocolate bars
 - type: entity
   name: chocolate bar
@@ -433,6 +454,15 @@
   - type: Sprite
     state: bar-two
 
+- type: entity
+  name: chocolate bar
+  parent: ADTFoodSnackChocolateBarBase
+  id: ADTFoodSnackChocolateBarMedal
+  description: Tastes like cardboard.
+  components:
+  - type: Sprite
+    state: bar-medal
+
 #Trash
 
 - type: entity
@@ -500,6 +530,15 @@
   components:
   - type: Sprite
     state: two-trash
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ADTFoodPacketChocolateTrash
+  id: ADTFoodPacketChocolateTrashMedal
+  name: chocolate wrapper
+  components:
+  - type: Sprite
+    state: medal-trash
 
 - type: entity
   name: chocolate bar chunk
