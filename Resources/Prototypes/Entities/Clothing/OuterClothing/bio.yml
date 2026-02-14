@@ -9,9 +9,9 @@
     sprite: Clothing/OuterClothing/Bio/general.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Bio/general.rsi
-  - type: HideLayerClothing
-    slots:
-    - Tail
+  # - type: HideLayerClothing # ADT-Tweak: fix-tail
+  #   slots:
+  #   - Tail
   - type: Armor
     modifiers:
       coefficients:
