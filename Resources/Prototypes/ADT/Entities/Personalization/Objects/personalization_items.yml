@@ -2751,6 +2751,9 @@
   components:
   - type: Sprite
     sprite: ADT/Personalization/Kimer_k/kimer_k_shaker.rsi
+  - type: Tag
+    tags:
+    - ADTGoldPlatedDrinkShakerTag
 
 - type: entity
   parent: Spoon
@@ -2764,6 +2767,10 @@
     state: spoon
   - type: Item
     sprite: ADT/Personalization/Kimer_k/kimer_k_spoon.rsi
+  - type: Tag
+    tags:
+    - Metal
+    - ADTGoldPlatedBarSpoonTag
 
 - type: entity
   parent: DrinkJigger
@@ -2774,5 +2781,71 @@
   components:
   - type: Sprite
     sprite: ADT/Personalization/Kimer_k/kimer_k_jigger.rsi
+  - type: Tag
+    tags:
+    - ADTGoldPlatedDrinkJiggerTag
+
+
+- type: entity
+  id: ADTPremiumCaseKimerk
+  name: premium case
+  description: premium case desc
+  parent: [BaseStorageItem, BaseBagOpenClose]
+  suffix: Personal, kimer_k
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/Kimer_k/kimer_k_premium_case.rsi
+    state: closed
+    layers:
+    - state: closed
+      map: ["closeLayer"]
+    - state: open
+      map: ["openLayer"]
+      visible: false
+    # Слои заполнения
+    - state: full-item-open
+      map: ["full-item-open"]
+      visible: false
+    - state: bez_trex
+      map: ["bez_trex"]
+      visible: false
+    - state: bez_dvux
+      map: ["bez_dvux"]
+      visible: false
+    - state: bez_loshki
+      map: ["bez_loshki"]
+      visible: false
+  - type: Appearance
+  - type: Item
+    sprite: ADT/Personalization/Kimer_k/kimer_k_premium_case.rsi
+    size: Normal
+  - type: Storage
+    grid:
+    - 0,0,4,2
+    maxItemSize: Small
+  - type: StorageFill
+    contents:
+     - id: ADTGoldPlatedDrinkJigger
+     - id: ADTGoldPlatedDrinkJigger
+     - id: ADTGoldPlatedBarSpoon
+     - id: ADTGoldPlatedDrinkShaker
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 12
+    soundHit:
+      path: "/Audio/Weapons/smash.ogg"
+  - type: ItemCounter
+    count:
+      tags:
+        - ADTGoldPlatedDrinkJiggerTag
+        - ADTGoldPlatedBarSpoonTag
+        - ADTGoldPlatedDrinkShakerTag
+    composite: true
+    layerStates:
+      - full-item-open
+      - bez_trex
+      - bez_dvux
+      - bez_loshki
 
 #SPONSOR-ITEMS-END
