@@ -2740,4 +2740,112 @@
       head:
       - state: equipped-HELMET
         offset: "0, 0.04"
+        
+#kimer_k
+- type: entity
+  parent: DrinkShaker
+  id: ADTGoldPlatedDrinkShaker
+  name: gold-plated shaker
+  description: The shaker is made of high-quality stainless steel with a protective coating that prevents scratches and corrosion. Additionally, the shaker has an improved design for a comfortable grip and a stylish design with gold accents.
+  suffix: Personal, kimer_k
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/Kimer_k/kimer_k_shaker.rsi
+  - type: Tag
+    tags:
+    - ADTGoldPlatedDrinkShakerTag
+
+- type: entity
+  parent: Spoon
+  id: ADTGoldPlatedBarSpoon
+  name: gold-plated bar spoon
+  description: Stainless steel cocktail spoon with a golden finish.
+  suffix: Personal, kimer_k
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/Kimer_k/kimer_k_spoon.rsi
+    state: spoon
+  - type: Item
+    sprite: ADT/Personalization/Kimer_k/kimer_k_spoon.rsi
+  - type: Tag
+    tags:
+    - Metal
+    - ADTGoldPlatedBarSpoonTag
+
+- type: entity
+  parent: DrinkJigger
+  id: ADTGoldPlatedDrinkJigger
+  name: gold-plated jigger
+  description: A jigger with a gold-plated body and rubber inserts for a comfortable grip and operation.
+  suffix: Personal, kimer_k
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/Kimer_k/kimer_k_jigger.rsi
+  - type: Tag
+    tags:
+    - ADTGoldPlatedDrinkJiggerTag
+
+
+- type: entity
+  id: ADTPremiumCaseKimerk
+  name: premium case
+  description: premium case desc
+  parent: [BaseStorageItem, BaseBagOpenClose]
+  suffix: Personal, kimer_k
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/Kimer_k/kimer_k_premium_case.rsi
+    state: closed
+    layers:
+    - state: closed
+      map: ["closeLayer"]
+    - state: open
+      map: ["openLayer"]
+      visible: false
+    # Слои заполнения
+    - state: full-item-open
+      map: ["full-item-open"]
+      visible: false
+    - state: bez_trex
+      map: ["bez_trex"]
+      visible: false
+    - state: bez_dvux
+      map: ["bez_dvux"]
+      visible: false
+    - state: bez_loshki
+      map: ["bez_loshki"]
+      visible: false
+  - type: Appearance
+  - type: Item
+    sprite: ADT/Personalization/Kimer_k/kimer_k_premium_case.rsi
+    size: Normal
+  - type: Storage
+    grid:
+    - 0,0,4,2
+    maxItemSize: Small
+  - type: StorageFill
+    contents:
+     - id: ADTGoldPlatedDrinkJigger
+     - id: ADTGoldPlatedDrinkJigger
+     - id: ADTGoldPlatedBarSpoon
+     - id: ADTGoldPlatedDrinkShaker
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 12
+    soundHit:
+      path: "/Audio/Weapons/smash.ogg"
+  - type: ItemCounter
+    count:
+      tags:
+        - ADTGoldPlatedDrinkJiggerTag
+        - ADTGoldPlatedBarSpoonTag
+        - ADTGoldPlatedDrinkShakerTag
+    composite: true
+    layerStates:
+      - full-item-open
+      - bez_trex
+      - bez_dvux
+      - bez_loshki
+
 #SPONSOR-ITEMS-END
