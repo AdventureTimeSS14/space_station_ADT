@@ -357,4 +357,4 @@
         Cold: 0.9
         Shock: 0.65
   - type: Fiber
-    fiberMaterial: fibers-advancedcarbon-adt
+    fiberColor: fibers-brown
