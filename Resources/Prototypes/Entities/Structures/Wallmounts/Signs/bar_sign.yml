@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   id: BaseBarSign
   parent: [ BaseWallmountGlass, BaseWallmountMetallic ]
   name: bar sign
@@ -9,6 +9,10 @@
   - type: Sprite
     sprite: Structures/Wallmounts/barsign.rsi
     state: empty
+  #ADT-Tweak Fix
+  - type: ApcPowerReceiver
+  - type: ExtensionCableReceiver
+  #ADT-Tweak End
   - type: BarSign
   - type: AccessReader
     access: [["Bar"]]
