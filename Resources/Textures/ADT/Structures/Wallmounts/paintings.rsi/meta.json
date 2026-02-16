@@ -1,12 +1,29 @@
 {
-    "version": 1,
-    "license": "CC-BY-SA-3.0",
-    "copyright": "Made by Adventure Time project team",
-    "size": {
-        "x": 32,
-        "y": 32
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made by Adventure Time project team",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "painting2"
     },
-    "states": [
-        { "name": "painting_gagarin" }
-    ]
+    {
+      "name": "painting3"
+    },
+    {
+      "name": "painting5"
+    },
+    {
+      "name": "painting6"
+    },
+    {
+      "name": "painting14"
+    },
+    {
+      "name": "painting_gagarin"
+    }
+  ]
 }
