@@ -1,0 +1,14 @@
+- type: explosion
+  id: Electrical
+  damagePerIntensity:
+    types:
+      Shock: 10
+      Structural: 20
+      Ion: 20
+  lightColor: Cyan
+  fireColor: Cyan
+  texturePath: /Textures/Effects/fire_greyscale.rsi
+  sound:
+    path: /Audio/Effects/tesla_collapse.ogg
+  smallSound:
+    path: /Audio/Effects/tesla_collapse.ogg

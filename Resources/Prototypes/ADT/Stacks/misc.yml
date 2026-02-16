@@ -35,8 +35,21 @@
   maxCount: 10
 
 - type: stack
+  id: FloorTileItemBluespace
+  name: stack-bluespace-tile
+  spawn: ADTFloorTileItemBluespace
+  maxCount: 30
+
+- type: stack
+  id: FloorTileItemSepia
+  name: stack-sepia-tile
+  spawn: ADTFloorTileItemSepia
+  maxCount: 30
+
+- type: stack
   id: ADTmarbleStack
   name: stack-ADTmarble
   icon: { sprite: ADT/Objects/Materials/marble.rsi, state: icon }
   spawn: ADTmarble1
   maxCount: 10
+

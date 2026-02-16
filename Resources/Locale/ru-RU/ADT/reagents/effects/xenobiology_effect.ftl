@@ -1,0 +1,3 @@
+xeno-extract-reaction-reagent = Экстракт пузырится и наполняется неизвестным веществом.
+xeno-extract-reaction = Экстракт пузырится!
+xeno-extract-reaction-fail = Экстракт пузырится! Однако, ничего не произошло...

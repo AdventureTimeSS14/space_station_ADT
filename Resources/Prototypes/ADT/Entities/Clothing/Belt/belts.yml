@@ -523,7 +523,7 @@
           tags:
           - ADTZeroKatana
   - type: Appearance
-  
+
 - type: entity
   id: ADTClothingChemdisBelt
   parent: ClothingBeltStorageBase

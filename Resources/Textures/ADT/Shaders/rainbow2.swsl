@@ -1,0 +1,21 @@
+void fragment() {
+    highp vec4 sprite = zTexture(UV);
+
+    if (sprite.a == 0.0) {
+        discard;
+    }
+
+    highp vec3 o = -3.1416 * vec3(0.0, 0.5, 1.0);
+
+    highp float g = UV.y + TIME;
+
+    highp vec3 wave = vec3(0.5) + vec3(0.5) * (-sin(g)) * cos(g + o);
+
+    wave.g += 0.25;
+
+    wave = vec3(0.5) + (wave * 2.0 - 1.0);
+    wave.gb *= vec2(0.75, 0.9);
+    wave = vec3(0.125) + 0.75 * wave;
+
+    COLOR = vec4(sprite.rgb * wave, sprite.a);
+}

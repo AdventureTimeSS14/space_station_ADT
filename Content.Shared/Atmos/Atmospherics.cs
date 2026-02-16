@@ -41,6 +41,11 @@ namespace Content.Shared.Atmos
         public const float T20C = 293.15f;
 
         /// <summary>
+        ///     37ºC in K
+        /// </summary>
+        public const float T37C = 310.1f;
+
+        /// <summary>
         ///     -38.15ºC in K.
         ///     This is used to initialize roundstart freezer rooms.
         /// </summary>

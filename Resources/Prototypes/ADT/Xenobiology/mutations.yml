@@ -1,0 +1,315 @@
+- type: breed
+  breedName: breed-grey-xenoslime
+  id: GreyMutation
+  producedExtract: ADTGreySlimeExtract
+  components:
+  - type: Slime
+    breed: GreyMutation
+    slimeColor: "#8B93AF"
+    maxOffspring: 4
+    mutationChance: 0.45
+    potentialMutations:
+    - OrangeMutation
+    - PurpleMutation
+    - BlueMutation
+    - MetalMutation
+
+- type: breed
+  breedName: breed-orange-xenoslime
+  id: OrangeMutation
+  producedExtract: ADTOrangeSlimeExtract
+  components:
+  - type: Slime
+    slimeColor: "#FA6A0A"
+    breed: OrangeMutation
+    maxOffspring: 4
+    mutationChance: 0.45
+    potentialMutations:
+    - GreyMutation
+    - YellowMutation
+    - DarkPurpleMutation
+    - RedMutation
+
+- type: breed
+  breedName: breed-purple-xenoslime
+  id: PurpleMutation
+  producedExtract: ADTPurpleSlimeExtract
+  components:
+  - type: Slime
+    slimeColor: "#BF77F6"
+    breed: PurpleMutation
+    maxOffspring: 4
+    mutationChance: 0.45
+    potentialMutations:
+    - GreyMutation
+    - DarkPurpleMutation
+    - DarkBlueMutation
+    - GreenMutation
+
+- type: breed
+  breedName: breed-blue-xenoslime
+  id: BlueMutation
+  producedExtract: ADTBlueSlimeExtract
+  components:
+  - type: Slime
+    slimeColor: "#249FDE"
+    breed: BlueMutation
+    maxOffspring: 4
+    mutationChance: 0.45
+    potentialMutations:
+    - GreyMutation
+    - DarkBlueMutation
+    - SilverMutation
+    - PinkMutation
+
+- type: breed
+  breedName: breed-metal-xenoslime
+  id: MetalMutation
+  producedExtract: ADTMetalSlimeExtract
+  components:
+  - type: Slime
+    slimeColor: "#6D758D"
+    shouldHaveShader: true
+    shader: XenoMetallic
+    breed: MetalMutation
+    maxOffspring: 4
+    mutationChance: 0.45
+    potentialMutations:
+    - GreyMutation
+    - SilverMutation
+    - YellowMutation
+    - GoldMutation
+
+- type: breed
+  breedName: breed-yellow-xenoslime
+  id: YellowMutation
+  producedExtract: ADTYellowSlimeExtract
+  components:
+  - type: Slime
+    slimeColor: "#FFD541"
+    breed: YellowMutation
+    maxOffspring: 4
+    mutationChance: 0.45
+    potentialMutations:
+    - OrangeMutation
+    - MetalMutation
+    - BluespaceMutation
+
+- type: breed
+  breedName: breed-darkpurple-xenoslime
+  id: DarkPurpleMutation
+  producedExtract: ADTDarkPurpleSlimeExtract
+  components:
+  - type: Slime
+    slimeColor: "#8e0ff0"
+    breed: DarkPurpleMutation
+    maxOffspring: 4
+    mutationChance: 0.45
+    potentialMutations:
+    - PurpleMutation
+    - OrangeMutation
+    - SepiaMutation
+
+- type: breed
+  breedName: breed-darkblue-xenoslime
+  id: DarkBlueMutation
+  producedExtract: ADTDarkBlueSlimeExtract
+  components:
+  - type: Slime
+    slimeColor: "#3375F9"
+    breed: DarkBlueMutation
+    maxOffspring: 4
+    mutationChance: 0.45
+    potentialMutations:
+    - BlueMutation
+    - PurpleMutation
+    - CeruleanMutation
+
+- type: breed
+  breedName: breed-silver-xenoslime
+  id: SilverMutation
+  producedExtract: ADTSilverSlimeExtract
+  components:
+  - type: Slime
+    slimeColor: "#c4c4c4"
+    shouldHaveShader: true
+    shader: XenoMetallic
+    breed: SilverMutation
+    maxOffspring: 4
+    mutationChance: 0.45
+    potentialMutations:
+    - BlueMutation
+    - MetalMutation
+    - PyriteMutation
+
+- type: breed
+  breedName: breed-bluespace-xenoslime
+  id: BluespaceMutation
+  producedExtract: ADTBluespaceSlimeExtract
+  components:
+  - type: Slime
+    slimeColor: "#f0f8ff"
+    shouldHaveShader: true
+    shader: XenoBluespace
+    breed: BluespaceMutation
+    maxOffspring: 4
+    mutationChance: 0.45
+    potentialMutations:
+    - BluespaceMutation
+
+- type: breed
+  breedName: breed-sepia-xenoslime
+  id: SepiaMutation
+  producedExtract: ADTSepiaSlimeExtract
+  components:
+  - type: Slime
+    slimeColor: "#A08662"
+    shouldHaveShader: true
+    shader: XenoSepia
+    breed: SepiaMutation
+    maxOffspring: 4
+    mutationChance: 0.45
+    potentialMutations:
+    - SepiaMutation
+
+- type: breed
+  breedName: breed-cerulean-xenoslime
+  id: CeruleanMutation
+  producedExtract: ADTCeruleanSlimeExtract
+  components:
+  - type: Slime
+    slimeColor: "#2A52BE"
+    breed: CeruleanMutation
+    maxOffspring: 4
+    mutationChance: 0.45
+    potentialMutations:
+    - CeruleanMutation
+
+- type: breed
+  breedName: breed-pyrite-xenoslime
+  id: PyriteMutation
+  producedExtract: ADTPyriteSlimeExtract
+  components:
+  - type: Slime
+    slimeColor: "#f5ff93"
+    shouldHaveShader: true
+    shader: XenoMetallic
+    breed: PyriteMutation
+    maxOffspring: 4
+    mutationChance: 0.45
+    potentialMutations:
+    - PyriteMutation
+
+- type: breed
+  breedName: breed-red-xenoslime
+  id: RedMutation
+  producedExtract: ADTRedSlimeExtract
+  components:
+  - type: Slime
+    slimeColor: "#B4202A"
+    breed: RedMutation
+    maxOffspring: 4
+    mutationChance: 0.45
+    potentialMutations:
+    - RedMutation
+    - OilMutation
+
+- type: breed
+  breedName: breed-green-xenoslime
+  id: GreenMutation
+  producedExtract: ADTGreenSlimeExtract
+  components:
+  - type: Slime
+    slimeColor: "#14A02E"
+    breed: GreenMutation
+    maxOffspring: 4
+    mutationChance: 0.45
+    potentialMutations:
+    - GreenMutation
+    - BlackMutation
+
+- type: breed
+  breedName: breed-pink-xenoslime
+  id: PinkMutation
+  producedExtract: ADTPinkSlimeExtract
+  components:
+  - type: Slime
+    slimeColor: "#ff33cc"
+    breed: PinkMutation
+    maxOffspring: 4
+    mutationChance: 0.45
+    potentialMutations:
+    - PinkMutation
+    - LightPinkMutation
+
+- type: breed
+  breedName: breed-gold-xenoslime
+  id: GoldMutation
+  producedExtract: ADTGoldSlimeExtract
+  components:
+  - type: Slime
+    slimeColor: "#e8b923"
+    shouldHaveShader: true
+    shader: XenoMetallic
+    breed: GoldMutation
+    maxOffspring: 4
+    mutationChance: 0.45
+    potentialMutations:
+    - GoldMutation
+    - AdamantineMutation
+
+- type: breed
+  breedName: breed-oil-xenoslime
+  id: OilMutation
+  producedExtract: ADTOilSlimeExtract
+  components:
+  - type: Slime
+    slimeColor: "#383936"
+    shouldHaveShader: true
+    shader: XenoMetallic
+    breed: OilMutation
+    maxOffspring: 4
+    mutationChance: 0.45
+    potentialMutations:
+    - OilMutation
+
+- type: breed
+  breedName: breed-lightpink-xenoslime
+  id: LightPinkMutation
+  producedExtract: ADTLightPinkSlimeExtract
+  components:
+  - type: Slime
+    slimeColor: "#ffb3ec"
+    breed: LightPinkMutation
+    maxOffspring: 4
+    mutationChance: 0.45
+    potentialMutations:
+    - LightPinkMutation
+
+- type: breed
+  breedName: breed-black-xenoslime
+  id: BlackMutation
+  producedExtract: ADTBlackSlimeExtract
+  components:
+  - type: Slime
+    slimeColor: "#000000"
+    breed: BlackMutation
+    maxOffspring: 4
+    mutationChance: 0.45
+    potentialMutations:
+    - BlackMutation
+
+- type: breed
+  breedName: breed-adamantine-xenoslime
+  id: AdamantineMutation
+  producedExtract: ADTAdamantineSlimeExtract
+  components:
+  - type: Slime
+    slimeColor: "#2B7A74"
+    shouldHaveShader: true
+    shader: XenoMetallic
+    breed: AdamantineMutation
+    maxOffspring: 4
+    mutationChance: 0.45
+    potentialMutations:
+    - AdamantineMutation

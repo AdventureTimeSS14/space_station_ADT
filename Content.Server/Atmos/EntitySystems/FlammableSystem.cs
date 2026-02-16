@@ -30,6 +30,7 @@ using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Random;
 using Content.Server.ADT.Temperature; //ADT-Tweak-Bonfire
+using Content.Shared.ADT.Flammability;
 
 namespace Content.Server.Atmos.EntitySystems
 {
@@ -419,7 +420,7 @@ namespace Content.Server.Atmos.EntitySystems
                 UpdateAppearance(uid, flammable);
             });
         }
-        
+
         public override void Update(float frameTime)
         {
             // process all fire events
@@ -461,6 +462,11 @@ namespace Content.Server.Atmos.EntitySystems
                 }
 
                 _alertsSystem.ShowAlert(uid, flammable.FireAlert);
+
+                // ADT-Tweak-Start
+                if (HasComp<FireImmunityComponent>(uid))
+                    continue;
+                // ADT-Tweak-End
 
                 if (flammable.FireStacks > 0)
                 {

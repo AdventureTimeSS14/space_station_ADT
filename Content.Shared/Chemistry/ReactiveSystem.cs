@@ -4,6 +4,7 @@ using Content.Shared.Chemistry.Reaction;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Database;
 using Content.Shared.EntityEffects;
+using Content.Shared.Tag;
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
@@ -16,6 +17,7 @@ public sealed class ReactiveSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IRobustRandom _robustRandom = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] private readonly TagSystem _tagSystem = default!; // ADT-Tweak
 
     public void DoEntityReaction(EntityUid uid, Solution solution, ReactionMethod method)
     {
@@ -38,12 +40,28 @@ public sealed class ReactiveSystem : EntitySystem
         if (!TryComp(uid, out ReactiveComponent? reactive))
             return;
 
+        // ADT-Tweak-Start
+        if (reactive is { IsReactionsUnlimited: false, RemainingReactions: <= 0 })
+            return;
+
+        if (reactive.HasReacted)
+        {
+            RemComp<ReactiveComponent>(uid);
+            _tagSystem.AddTag(uid, "Trash");
+        }
+        // ADT-Tweak-End
+
         // custom event for bypassing reactivecomponent stuff
         var ev = new ReactionEntityEvent(method, proto, reagentQuantity, source);
         RaiseLocalEvent(uid, ref ev);
 
         // If we have a source solution, use the reagent quantity we have left. Otherwise, use the reaction volume specified.
         var args = new EntityEffectReagentArgs(uid, EntityManager, null, source, source?.GetReagentQuantity(reagentQuantity.Reagent) ?? reagentQuantity.Quantity, proto, method, 1f);
+
+        // ADT-Tweak-Start
+        if (reactive.OneUnitReaction)
+            args.Quantity = 1;
+        // ADT-Tweak-End
 
         // First, check if the reagent wants to apply any effects.
         if (proto.ReactiveEffects != null && reactive.ReactiveGroups != null)
@@ -58,6 +76,14 @@ public sealed class ReactiveSystem : EntitySystem
 
                 if (!reactive.ReactiveGroups[key].Contains(method))
                     continue;
+
+                // ADT-Tweak-Start
+                var beforeReact = new BeforeSolutionReactEvent();
+                RaiseLocalEvent(uid, ref beforeReact);
+
+                if (beforeReact.Cancelled)
+                    continue;
+                // ADT-Tweak-End
 
                 foreach (var effect in val.Effects)
                 {
@@ -101,6 +127,22 @@ public sealed class ReactiveSystem : EntitySystem
 
                     effect.Effect(args);
                 }
+
+                // ADT-Tweak-Start
+                var afterReact = new SolutionReactedEvent();
+                RaiseLocalEvent(uid, ref afterReact);
+
+                if (!reactive.IsReactionsUnlimited)
+                    reactive.RemainingReactions -= 1;
+
+                if (reactive.BlockReactionOnUse && reactive.RemainingReactions == 0
+                && !reactive.IsReactionsUnlimited)
+                    reactive.HasReacted = true;
+
+                if (entry.DeleteEntity && reactive.RemainingReactions == 0
+                && !reactive.IsReactionsUnlimited)
+                    QueueDel(uid);
+                // ADT-Tweak-End
             }
         }
     }

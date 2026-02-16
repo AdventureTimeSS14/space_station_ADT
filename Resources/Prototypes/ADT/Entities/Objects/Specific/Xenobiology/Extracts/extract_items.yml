@@ -1,0 +1,106 @@
+- type: entity
+  name: goop ball
+  parent: [ BaseItem, ItemHeftyBase ]
+  id: ADTXenoGoopBall
+  description: It's pulsating... is it alive?
+  components:
+  - type: Sprite
+    layers:
+      - sprite: ADT/Objects/Specific/Xenobiology/goo_ball.rsi
+        state: icon
+  - type: Item
+    size: Normal
+  - type: Damageable
+    damageContainer: Biological
+  - type: DamageOnHighSpeedImpact
+    minimumSpeed: 0.1
+    damage:
+      types:
+        Blunt: 1
+    soundHit:
+      collection: desecration
+  - type: UseDelay
+    delay: 0.5
+  - type: EmitSoundOnUse
+    sound:
+      collection: desecration
+      params:
+        variation: 0.125
+  - type: EmitSoundOnLand
+    sound:
+      collection: desecration
+      params:
+        variation: 0.125
+  - type: EmitSoundOnCollide
+    sound:
+      collection: desecration
+      params:
+        variation: 0.125
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: desecration
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ADTXenoGooWall:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+# Tier 2
+
+- type: entity
+  name: fitted bluespace carpet square
+  parent: FloorTileItemBase
+  id: ADTFloorTileItemBluespace
+  components:
+  - type: Sprite
+    sprite: ADT/Tiles/Misc/bluespace.rsi
+    state: icon-bluespace
+  - type: SpawnAfterInteract
+    prototype: ADTFloorBluespaceEntity
+    doAfter: 0.5
+    removeOnInteract: true
+  - type: FloorTile
+    outputs:
+    - Plating
+  - type: Stack
+    stackType: FloorTileItemBluespace
+
+- type: entity
+  name: fitted sepia carpet square
+  parent: FloorTileItemBase
+  id: ADTFloorTileItemSepia
+  components:
+  - type: Sprite
+    sprite: ADT/Tiles/Misc/sepia.rsi
+    state: icon-sepia
+  - type: SpawnAfterInteract
+    prototype: FloorSepiaSlowEntity
+    doAfter: 0.5
+    removeOnInteract: true
+  - type: FloorTile
+    outputs:
+    - Plating
+  - type: Stack
+    stackType: FloorTileItemSepia
+
+# tier 4
+
+- type: entity
+  parent: BaseItem
+  id: ADTXenoAdamantineOre
+  name: adamantine ore
+  description: Theoretically, if you sold a couple of these, you wouldn't need to work on the station any more. It must have it's use, since it costs a fortune to get one of these. But where?
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Xenobiology/adamantine_ore.rsi
+    state: icon
+  - type: StaticPrice
+    price: 10000

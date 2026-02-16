@@ -87,3 +87,6 @@ ent-ADTSpawnMobXenoRounyNoGhost = спавнер ксено
 ent-ADTSpawnMobXenoSpitterNoGhost = спавнер ксено
     .desc = { ent-MarkerBase.desc }
     .suffix = { "Без роли призрака, Плевальщик" }
+
+ent-ADTXenoSlimeSpawner = спавнер ксено слайма
+    .desc = { ent-MarkerBase.desc }

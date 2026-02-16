@@ -1,0 +1,19 @@
+- type: breed
+  breedName: breed-rainbow-xenoslime
+  id: RainbowMutation
+  producedExtract: ADTRainbowSlimeExtract
+  components:
+  - type: Slime
+    shouldHaveShader: true
+    shader: Rainbow2
+    breed: RainbowMutation
+    maxOffspring: 7
+    mutationChance: 1
+    potentialMutations:
+    - RedMutation
+    - OrangeMutation
+    - YellowMutation
+    - GreenMutation
+    - BlueMutation
+    - DarkBlueMutation
+    - PurpleMutation
