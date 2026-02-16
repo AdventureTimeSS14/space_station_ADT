@@ -36,6 +36,7 @@
   description: "A poster advertising high-quality food from the station's kitchen."
   components:
   - type: Sprite
+    sprite: ADT/Structures/Wallmounts/posters.rsi
     state: poster_adtgreatfood_legit #Спрайт от Празата
 
 - type: entity
@@ -45,6 +46,7 @@
   description: "This picture depicts the deep meaning of the existence of all possible races of our vast observable universe. The personification of the disease process gives reason to think about the meaning of our state of health (which generally does not exist)."
   components:
   - type: Sprite
+    sprite: ADT/Structures/Wallmounts/posters.rsi
     state: poster_adtchihposter
 
 - type: entity
@@ -54,6 +56,7 @@
   description: "A reminder from the paramedic to everyone at the station - turn on the sensors so that you are quickly found in case of trouble."
   components:
   - type: Sprite
+    sprite: ADT/Structures/Wallmounts/posters.rsi
     state: poster_adtturnonsensors_legit #Спрайт от Празата
 
 #контрабандные постеры
@@ -65,6 +68,7 @@
   description: "A poster with tayaran women of attractive appearance and in a provocative suit. Tayarans can also be beautiful!"
   components:
   - type: Sprite
+    sprite: ADT/Structures/Wallmounts/posters.rsi
     state: poster_adtlusttayaran_contraband #Спрайт от Празата
 
 - type: entity
@@ -74,6 +78,7 @@
   description: "An elite squad of nuclear operatives will burn you to the ground. Leave NanoTrasen before it's too late!"
   components:
   - type: Sprite
+    sprite: ADT/Structures/Wallmounts/posters.rsi
     state: poster_adtfearthem_contraband #Спрайт от Иллюми
 
 - type: entity
@@ -83,6 +88,7 @@
   description: "The Syndicate warns mime agents that you can be terribly tortured for divulging secrets."
   components:
   - type: Sprite
+    sprite: ADT/Structures/Wallmounts/posters.rsi
     state: poster_adtsilence_contraband #Спрайт от Иллюми
 
 - type: entity
@@ -92,6 +98,7 @@
   description: "A poster with vulpcanine women of attractive appearance and in a provocative suit."
   components:
   - type: Sprite
+    sprite: ADT/Structures/Wallmounts/posters.rsi
     state: poster_adtlustuma_contraband #Спрайт от Празата
 
 - type: entity
@@ -101,6 +108,7 @@
   description: "A poster with tayaran women of attractive appearance and in ar deco suit."
   components:
   - type: Sprite
+    sprite: ADT/Structures/Wallmounts/posters.rsi
     state: poster_adtlustardeco_contraband #Спрайт от Празата
 
 #Анимированные постеры
