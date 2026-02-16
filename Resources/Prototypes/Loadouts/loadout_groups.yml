@@ -105,6 +105,7 @@
   # ADT-Species-Start
   - ADTEmergencyMoth
   - ADTEmergencyIPC
+  - ADTEmergencyNovakid
   # ADT-Species-End
 
 # nitrogen or oxygen tank, depending on what your species needs
@@ -639,6 +640,7 @@
   # ADT-Loadout-Species-Start
   - ADTEmergencyMothClown
   - ADTEmergencyIPCClown
+  - ADTEmergencyNovakidClown
   # ADT-Loadout-Species-End
 
 - type: loadoutGroup
@@ -697,6 +699,10 @@
   - EmergencyNitrogenMime
   - EmergencyOxygenMime
   - EmergencySpeciesMothMime
+  # ADT-Loadout-Species-Start
+  - ADTEmergencyIPCMime
+  - ADTEmergencyNovakidMime
+  # ADT-Loadout-Species-End
   - LoadoutSpeciesVoxNitrogen
 
 - type: loadoutGroup
@@ -1068,8 +1074,11 @@
   - EmergencyNitrogenExtended
   - EmergencyOxygenExtended
   - LoadoutSpeciesVoxNitrogen
-  - ADTEmergencyMothExtended #ADT_Species
-  - ADTEmergencyIPCExtended #ADT_Species
+  # ADT-Loadout-Species-Start
+  - ADTEmergencyMothExtended
+  - ADTEmergencyIPCExtended
+  - ADTEmergencyNovakidExtended
+  # ADT-Loadout-Species-End
 
 # Science
 
@@ -1437,6 +1446,7 @@
   # ADT-Loadout-Species-Start
   - ADTEmergencyMothSecurity
   - ADTEmergencyIPCSecurity
+  - ADTEmergencyNovakidSecurity
   # ADT-Loadout-Species-Start
 
 - type: loadoutGroup
@@ -1682,6 +1692,7 @@
   # ADT-Loadout-Species-Start
   - ADTEmergencyMothMedical
   - ADTEmergencyIPCMedical
+  - ADTEmergencyNovakidMedical
   # ADT-Loadout-Species-End
 
 # Wildcards
@@ -1735,6 +1746,7 @@
   # ADT-Loadout-Species-Start
   - ADTEmergencyMothSyndicate
   - ADTEmergencyIPCSyndicate
+  - ADTEmergencyNovakidSyndicate
   # ADT-Loadout-Species-End
 
 - type: loadoutGroup
