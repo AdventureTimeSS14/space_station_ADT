@@ -686,4 +686,48 @@
         reagents:
         - ReagentId: Radium
           Quantity: 500
+
+- type: entity
+  parent: ADTBarrelChemWaterOpen
+  id: ADTBarrelChemWaterOpenEmpty
+  name: open water barrel (empty)
+  description: An empty open barrel for liquids.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      tank:
+        maxVol: 500
+
+- type: entity
+  parent: ADTBarrelChemWeldingOpen
+  id: ADTBarrelChemWeldingOpenEmpty
+  name: open welding fuel barrel (empty)
+  description: An empty open barrel for welding fuel.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      tank:
+        maxVol: 500
+
+- type: entity
+  parent: ADTBarrelWoodenOpen
+  id: ADTBarrelWoodenOpenEmpty
+  name: open wooden barrel (empty)
+  description: An empty open wooden barrel.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      tank:
+        maxVol: 500
+
+- type: entity
+  parent: ADTBarrelRadOpen
+  id: ADTBarrelRadOpenEmpty
+  name: open radioactive barrel (empty)
+  description: An empty open radioactive barrel.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      tank:
+        maxVol: 500
 # ADT-Tweak End

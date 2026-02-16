@@ -1,5 +1,5 @@
 - type: entity
-  parent: [ BaseMachinePowered, SmallConstructibleMachine ]
+  parent: BaseHeaterMachine
   id: ADTElectricGrillBBQ
   name: electric grill
   description: Good thing for barbecue in the yard!
@@ -9,19 +9,21 @@
     drawdepth: SmallObjects
     snapCardinals: true
     layers:
-    - state: icon
-    - map: ["enum.EntityHeaterVisuals.Setting"]
+    - map: ["GrillBase"]
+      state: close
+      shader: unshaded
+    - map: ["GrillOverlay"]
       shader: unshaded
       visible: false
   - type: ApcPowerReceiver
-    powerLoad: 0 # off by default
+    powerLoad: 0
   - type: EntityHeater
     settingSound:
       path: /Audio/Weapons/click.ogg
       params:
         volume: -6
   - type: ItemPlacer
-    maxEntities: 4 # big grill, many steaks
+    maxEntities: 4
     whitelist:
       components:
       - Temperature
@@ -32,32 +34,13 @@
   - type: GenericVisualizer
     visuals:
       enum.EntityHeaterVisuals.Setting:
-        enum.EntityHeaterVisuals.Setting:
-          Off: { visible: true, state: close }
+        GrillBase:
+          Off: { state: close }
+          Low: { state: icon }
+          Medium: { state: icon }
+          High: { state: icon }
+        GrillOverlay:
+          Off: { visible: false }
           Low: { visible: true, state: low }
           Medium: { visible: true, state: medium }
           High: { visible: true, state: high }
-  - type: Transform
-    anchored: false
-  - type: Physics
-    bodyType: Dynamic
-  - type: Fixtures
-    fixtures:
-      itemcollide:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.14,-0.05,0.15,0.25"
-        layer:
-        - HighImpassable
-        hard: false
-      fix1:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.14,-0.05,0.15,0.25"
-        mask:
-        - TabletopMachineMask
-        layer:
-        - TabletopMachineLayer
-  - type: Pullable
-  - type: Anchorable
-    delay: 2
