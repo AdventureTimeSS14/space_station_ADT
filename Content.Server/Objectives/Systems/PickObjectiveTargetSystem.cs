@@ -5,6 +5,10 @@ using Content.Server.GameTicking.Rules;
 using Content.Server.Revolutionary.Components;
 using Robust.Shared.Random;
 using System.Linq;
+//ADT-Tweak-Start
+using Content.Server.ADT.Objectives.Components;
+using Content.Shared.Mindshield.Components;
+//ADT-Tweak-End
 
 namespace Content.Server.Objectives.Systems;
 
@@ -30,6 +34,16 @@ public sealed class PickObjectiveTargetSystem : EntitySystem
         SubscribeLocalEvent<RandomTraitorProgressComponent, ObjectiveAssignedEvent>(OnRandomTraitorProgressAssigned);
         SubscribeLocalEvent<RandomTraitorAliveComponent, ObjectiveAssignedEvent>(OnRandomTraitorAliveAssigned);
     }
+
+    //ADT-Tweak-Start
+    private bool HasTargetImmunity(EntityUid? body)
+    {
+        if (body == null)
+            return false;
+
+        return HasComp<TargetObjectiveImmuneComponent>(body.Value) && !HasComp<MindShieldComponent>(body.Value);
+    }
+    //ADT-Tweak-End
 
     private void OnSpecificPersonAssigned(Entity<PickSpecificPersonComponent> ent, ref ObjectiveAssignedEvent args)
     {
@@ -75,6 +89,11 @@ public sealed class PickObjectiveTargetSystem : EntitySystem
 
         var allHumans = _mind.GetAliveHumans(args.MindId);
 
+        //ADT-Tweak-Start
+        // Filter out immune targets
+        allHumans.RemoveWhere(p => HasTargetImmunity(p.Comp.OwnedEntity));
+        //ADT-Tweak-End
+
         // Can't have multiple objectives to kill the same person
         foreach (var objective in args.Mind.Objectives)
         {
@@ -109,6 +128,12 @@ public sealed class PickObjectiveTargetSystem : EntitySystem
 
         // no other humans to kill
         var allHumans = _mind.GetAliveHumans(args.MindId);
+
+        //ADT-Tweak-Start
+        // Filter out immune targets
+        allHumans.RemoveWhere(p => HasTargetImmunity(p.Comp.OwnedEntity));
+        //ADT-Tweak-End
+
         if (allHumans.Count == 0)
         {
             args.Cancelled = true;
@@ -118,12 +143,15 @@ public sealed class PickObjectiveTargetSystem : EntitySystem
         var allHeads = new HashSet<Entity<MindComponent>>();
         foreach (var person in allHumans)
         {
-            if (TryComp<MindComponent>(person, out var mind) && mind.OwnedEntity is { } owned && HasComp<CommandStaffComponent>(owned))
+            //ADT-Tweak-Start
+            var mind = person.Comp;
+            if (mind.OwnedEntity is { } owned && HasComp<CommandStaffComponent>(owned))
+                //ADT-Tweak-End
                 allHeads.Add(person);
         }
 
         if (allHeads.Count == 0)
-            allHeads = allHumans; // fallback to non-head target
+            allHeads = new HashSet<Entity<MindComponent>>(allHumans); //ADT-Tweak
 
         _target.SetTarget(ent.Owner, _random.Pick(allHeads), target);
     }
