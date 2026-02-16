@@ -516,3 +516,15 @@
   conditions:
     - !type:TileNotBlocked
 
+- type: construction
+  id: ADTOpenSignRecipe
+  graph: ADTOpenSignGraph
+  startNode: start
+  targetNode: ADTOpenSignNode
+  category: construction-category-machines
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: true
+  conditions:
+    - !type:WallmountCondition
+
