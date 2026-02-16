@@ -591,6 +591,18 @@
   - type: Clothing
     sprite: ADT/Personalization/pangaari_american_sleeveless.rsi
 
+- type: entity
+  parent: ADTClothingSponsorHandsBase
+  id: ADTClothingHandsPangaariBracelet
+  suffix: Personal, Pangaari
+  name: blue bead bracelet
+  description: A bracelet made of beads on a strong fishing line. It is clearly handmade with great care. The alternating use of regular and long blue beads forms a message in Morse code.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/pangaari_bracelet.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/pangaari_bracelet.rsi
+
 #tweak
 - type: entity
   parent: ADTSponsorClothingOuterStorageBase
@@ -1211,6 +1223,18 @@
   - type: Clothing
     sprite: ADT/Personalization/feather_hairpin.rsi
 
+- type: entity
+  parent: ADTClothingSponsorHandsBase
+  id: ADTClothingHandsKiwiFruitBracelet
+  suffix: Personal, kiwi_fruit
+  name: green bead bracelet
+  description: A beaded bracelet on a strong fishing line. Clearly handmade, and though not very skillfully, but diligently. Alternation of the usual and long beads of green color makes up a certain message in Morse code.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/kiwi_fruit_bracelet.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/kiwi_fruit_bracelet.rsi
+
 #Sir_talter
 - type: entity
   parent: [ClothingOuterArmorBasic, BadgeOnClothing]
@@ -1505,3 +1529,16 @@
     sprite: ADT/Personalization/Kimer_k/kimer_k_suit.rsi
   - type: Clothing
     sprite: ADT/Personalization/Kimer_k/kimer_k_suit.rsi
+
+#WCTR829
+- type: entity
+  parent: ADTSponsorClothingUniformBase
+  id: ADTClothingUniformWCTR829
+  name: radio equipment overalls
+  description: The jumpsuit is a deep anthracite color, with white accents on the chest, shoulders, and forearms, emphasizing the sleek, technical silhouette.
+  suffix: Personal, WCTR829
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/WCTR829/WCTR829_suit.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/WCTR829/WCTR829_suit.rsi
