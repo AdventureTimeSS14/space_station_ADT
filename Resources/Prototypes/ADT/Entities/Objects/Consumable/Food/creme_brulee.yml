@@ -1,0 +1,47 @@
+- type: entity
+  name: creme brulee
+  parent: FoodInjectableBase
+  id: ADTBrouletTorched
+  description: A creme brulee with a crispy and toasty caramel-like crust.
+  components:
+  - type: Food
+    trash:
+    - FoodPlateTin
+    utensil: Fork
+  - type: FlavorProfile
+    flavors:
+      - sweet
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/creme_brulee.rsi
+    state: broulet_torched
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 26
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+        - ReagentId: Theobromine
+          Quantity: 5
+        - ReagentId: Vitamin
+          Quantity: 5
+          
+- type: entity
+  name: creme brulee
+  parent: ADTBrouletTorched
+  id: ADTCremeBroulet
+  description: A light creme brulee without caramelized sugar.
+  components:
+  - type: Sprite
+    state: creme_broulet
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 35
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+        - ReagentId: Theobromine
+          Quantity: 5
+        - ReagentId: Vitamin
+          Quantity: 5

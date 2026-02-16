@@ -1,0 +1,76 @@
+#шоколадная горилла
+- type: entity
+  id: ADTChocolateGorillaLarge
+  parent: BaseStructure
+  name: chocolate gorilla
+  description: chocolate gorilla
+  suffix: New Year
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.45
+        density: 100
+        mask:
+        - Impassable
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/NewYears/Objects/Consumable/Food/new-years/chocogorilla.rsi
+    state: chocogorilla
+  - type: Pullable
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Wood
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 400
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+      - trigger:
+          !type:DamageTrigger
+          damage: 75
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+          - !type:SpawnEntitiesBehavior
+            spawn:
+              Log:
+                min: 2
+                max: 8
+  - type: StaticPrice
+    price: 10
+  - type: Physics
+    bodyType: Static
+  - type: Anchorable
+  - type: Appearance
+  - type: Food
+  - type: InjectableSolution
+    solution: food
+  - type: RefillableSolution
+    solution: food
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 550
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 350
+        - ReagentId: Theobromine
+          Quantity: 105
+        - ReagentId: CocoaPowder
+          Quantity: 35
+  - type: FlavorProfile
+    flavors:
+      - chocolate
+  - type: Tag
+    tags:
+      - FoodSnack
+  - type: Rotatable

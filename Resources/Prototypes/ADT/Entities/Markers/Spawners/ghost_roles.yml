@@ -348,4 +348,26 @@
     layers:
       - state: green
 
+- type: entity
+  id: ADTSpawnPointSanta
+  name: Santa spawn point
+  suffix: New Year
+  parent: MarkerBase
+  components:
+  - type: GhostRole
+    name: ghost-role-information-Santa-name
+    description: ghost-role-information-Santa-description
+    rules: ghost-role-information-Santa-rules
+    raffle:
+      settings: default
+    requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 54000 # 15h
+  - type: GhostRoleMobSpawner
+    prototype: ADTSanta
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+
 
