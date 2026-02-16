@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Made by Adventure Time project team",
+  "copyright": "Made by discord:prazat911 for ADT",
   "size": {
     "x": 32,
     "y": 32
@@ -24,6 +24,78 @@
     },
     {
       "name": "painting_gagarin"
+    },
+    {
+      "name": "abstract"
+    },
+    {
+      "name": "bob_ross"
+    },
+    {
+      "name": "butterfly"
+    },
+    {
+      "name": "cert_medical"
+    },
+    {
+      "name": "cert_s"
+    },
+    {
+      "name": "charles_3"
+    },
+    {
+      "name": "comedia"
+    },
+    {
+      "name": "de_dust2"
+    },
+    {
+      "name": "de_sterrennacht"
+    },
+    {
+      "name": "diploma"
+    },
+    {
+      "name": "diploma_honk"
+    },
+    {
+      "name": "disaster"
+    },
+    {
+      "name": "dollar"
+    },
+    {
+      "name": "joseph_stalin"
+    },
+    {
+      "name": "medal"
+    },
+    {
+      "name": "mona_lisa"
+    },
+    {
+      "name": "pearl_earring"
+    },
+    {
+      "name": "prazat"
+    },
+    {
+      "name": "scared"
+    },
+    {
+      "name": "severed_ear"
+    },
+    {
+      "name": "stilllife1"
+    },
+    {
+      "name": "stilllife2"
+    },
+    {
+      "name": "wanderer"
+    },
+    {
+      "name": "zima_blue"
     }
   ]
 }
