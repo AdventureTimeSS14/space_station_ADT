@@ -206,7 +206,7 @@ ent-ADTPosterHalloweenSpiderWeb2 = паутина
 ent-ADTPosterContrabandLostParadise = Потерянный рай
     .desc = Контрабандный плакат ныне замороженной группы «Потерянный рай».
 
-ent-ADTPosterContrabandSlimeBarmaid = Слаймалюдка барменша
+ent-ADTPosterContrabandSlimeBarmaid = Слаймолюдка барменша
     .desc = Плакат с изображением слайма в костюме барменши, подающего напитки.
 
 ent-ADTPosterLegitGrowFood = Выращивай еду, а не травку!
@@ -240,7 +240,7 @@ ent-ADTPosterCalendarNT = Календарь
     .desc = Фирменный календарь NanoTrasen. Выглядит очень дёшево.
 
 ent-ADTPosterContrabandAnime = Конец Евангелиона
-    .desc = Рекламный плакат, рекламирующий японскую драму с боевиком про школьников, управляющих гигантскими био-роботами.
+    .desc = Рекламный плакат, японская драма-боевик про школьников, управляющих гигантскими био-роботами.
 
 ent-ADTPosterContrabandUnati = Похотливая унати дева
     .desc = Рекламный плакат серии книг про Унати-горничную.
