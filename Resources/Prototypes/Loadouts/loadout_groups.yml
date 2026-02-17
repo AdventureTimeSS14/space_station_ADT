@@ -1447,7 +1447,7 @@
   - ADTEmergencyMothSecurity
   - ADTEmergencyIPCSecurity
   - ADTEmergencyNovakidSecurity
-  # ADT-Loadout-Species-Start
+  # ADT-Loadout-Species-End
 
 - type: loadoutGroup
   id: SecurityStar
