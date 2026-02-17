@@ -95,6 +95,7 @@
         GalacticCommon: Speak
         CarpCollectiveMind: Speak
     - type: GrabProtection
+    - type: StandingState # Фикс костылём
     # ADT-tweak-start
 
 - type: entity
