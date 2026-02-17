@@ -28,23 +28,24 @@
             #service
             HeadOfPersonnel: [ 1, 1 ]
             Bartender: [ 1, 1 ]
-            Botanist: [ 1, 2 ]
+            Botanist: [ 2, 2 ]
             Chef: [ 1, 1 ]
             Janitor: [ 1, 1 ]
             Chaplain: [ 1, 1 ]
             Librarian: [ 1, 1 ]
             ServiceWorker: [ 2, 2 ]
+            ADTBarber: [ 1, 1 ] # ADT-roles
             #engineering
             ChiefEngineer: [ 1, 1 ]
-            AtmosphericTechnician: [ 0, 2 ]
-            StationEngineer: [ 4, 4 ]
+            AtmosphericTechnician: [ 2, 2 ]
+            StationEngineer: [ 3, 3 ]
             TechnicalAssistant: [ 4, 4 ]
             ADTSeniorEngineer: [ 1, 1 ] # ADT-roles
             #medical
             ChiefMedicalOfficer: [ 1, 1 ]
             Chemist: [ 2, 2 ]
             MedicalDoctor: [ 3, 3 ]
-            MedicalIntern: [ 4, 4 ]
+            MedicalIntern: [ 3, 3 ]
             Paramedic: [ 1, 1 ]
             ADTPathologist: [ 1, 1 ] #ADT-Roles
             ADTSeniorPhysician: [ 1, 1 ] #ADT-Roles
@@ -65,8 +66,9 @@
             ADTCorrectionsOfficer: [ 1, 1 ] # ADT-Roles
             #supply
             Quartermaster: [ 1, 1 ]
-            SalvageSpecialist: [ 1, 3 ]
+            SalvageSpecialist: [ 3, 3 ]
             CargoTechnician: [ 2, 2 ]
+            ADTMiner: [ 4, 4 ]
             #civillian
             Passenger: [ -1, -1 ]
             Clown: [ 1, 1 ]
