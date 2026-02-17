@@ -511,6 +511,9 @@
   - type: Construction
     graph: ADTBarrelChemSilicateOpen
     node: barrel
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 800
   - type: Sprite
     sprite: Structures/Storage/barrels.rsi
     state: silicatebarrel-open
@@ -608,6 +611,9 @@
   - type: Construction
     graph: ADTBarrelMetalOpen
     node: barrel
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 800
   - type: Sprite
     sprite: Structures/Storage/barrels.rsi
     state: metalbarrel-open
@@ -702,6 +708,9 @@
   - type: Construction
     graph: ADTBarrelChemWaterOpen
     node: barrel
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 800
   - type: SolutionContainerManager
     solutions:
       tank:
@@ -716,6 +725,9 @@
   - type: Construction
     graph: ADTBarrelChemWeldingOpen
     node: barrel
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 800
   - type: SolutionContainerManager
     solutions:
       tank:
@@ -730,6 +742,9 @@
   - type: Construction
     graph: ADTBarrelWoodenOpen
     node: barrel
+  - type: PhysicalComposition
+    materialComposition:
+      Wood: 800
   - type: SolutionContainerManager
     solutions:
       tank:
@@ -744,6 +759,9 @@
   - type: Construction
     graph: ADTBarrelRadOpen
     node: barrel
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 800
   - type: SolutionContainerManager
     solutions:
       tank:
