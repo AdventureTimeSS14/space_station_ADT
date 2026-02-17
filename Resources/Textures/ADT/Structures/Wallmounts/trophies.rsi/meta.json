@@ -8,13 +8,17 @@
   },
   "states": [
     {
-      "name": "poster_spacesec"
+      "name": "bolt"
     },
     {
-      "name": "smoking"
+      "name": "skull_cow"
     },
     {
-      "name": "peacekeeper"
+      "name": "skull_deer"
+    },
+    {
+      "name": "skull_wolf"
     }
   ]
 }
+
