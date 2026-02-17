@@ -499,6 +499,7 @@
   canBuildInImpassable: false
   canRotate: false
   conditions:
+    - !type:TileNotBlocked
 
 - type: construction
   name: construction-name-barrel-welding-open
