@@ -531,6 +531,14 @@
 - type: Tag
   id: ADTKeyPangaariBike
 
+- type: Tag
+  id: ADTGoldPlatedDrinkJiggerTag
+
+- type: Tag
+  id: ADTGoldPlatedBarSpoonTag
+
+- type: Tag
+  id: ADTGoldPlatedDrinkShakerTag
 #sponsor_items - End
 
 - type: Tag
