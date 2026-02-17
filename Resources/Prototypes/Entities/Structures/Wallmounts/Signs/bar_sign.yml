@@ -49,6 +49,10 @@
   id: BarSign
   name: bar sign
   suffix: Random
+  components:
+  - type: Construction
+    graph: ADTBarSignGraph
+    node: barSign
 
 # Missing appearance components & various other sprite issues.
 #- type: entity
