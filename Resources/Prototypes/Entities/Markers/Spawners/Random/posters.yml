@@ -116,6 +116,18 @@
       # - ADTPosterContrabandUmaOnBeach
       - ADTPosterContrabandGoobChuckler
       - ADTPosterContrabandGoobYakub
+      - ADTPosterContrabandSlimeBarmaid
+      - ADTPosterContrabandHonkminator
+      - ADTPosterContrabandHonkDance
+      - ADTPosterContrabandBorgBro
+      - ADTPosterContrabandLadyRnd
+      - ADTPosterContrabandSkrellSinger
+      - ADTPosterContrabandSpaceNinja
+      - ADTPosterContrabandAnime
+      - ADTPosterContrabandUnati
+      - ADTPosterContrabandPinning
+      - ADTPosterContrabandGorlaxSanta
+      - ADTPosterContrabandLostParadise
       #ADT tweak ^^^
     chance: 1
 
@@ -201,6 +213,11 @@
       - ADTPosterLegitGoobDurkPlush
       - ADTPosterLegitGoobBigBrotherAI
       - ADTPoster2984
+      - ADTPosterLegitGrowFood
+      - ADTPosterLegitMissNT1
+      - ADTPosterLegitMissNT2
+      - ADTPosterCalendarNT
+      - ADTPosterLegitObjection
       #ADT tweak ^^^
       - PosterLegitOppenhopper
       - PosterLegitTyrone
