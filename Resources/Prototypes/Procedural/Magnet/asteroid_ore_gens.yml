@@ -22,7 +22,7 @@
   id: OreIron
   replacement: AsteroidRock
   entity: AsteroidRockTin
-  count: 5
+  count: 3 #ADT tweak 5-->3
   minGroupSize: 5
   maxGroupSize: 7
 
@@ -30,7 +30,7 @@
   id: OreQuartz
   replacement: AsteroidRock
   entity: AsteroidRockQuartz
-  count: 5
+  count: 3 #ADT tweak 5-->3
   minGroupSize: 5
   maxGroupSize: 7
 
@@ -38,7 +38,7 @@
   id: OreCoal
   replacement: AsteroidRock
   entity: AsteroidRockCoal
-  count: 3
+  count: 1 #ADT tweak 3-->1
   minGroupSize: 5
   maxGroupSize: 7
 
@@ -46,7 +46,7 @@
   id: OreSalt
   replacement: AsteroidRock
   entity: AsteroidRockSalt
-  count: 3
+  count: 1 #ADT tweak 3-->1
   minGroupSize: 5
   maxGroupSize: 7
 
@@ -54,7 +54,7 @@
   id: OreGold
   replacement: AsteroidRock
   entity: AsteroidRockGold
-  count: 4
+  count: 2 #ADT tweak 4-->2
   minGroupSize: 5
   maxGroupSize: 7
 
@@ -62,7 +62,7 @@
   id: OreSilver
   replacement: AsteroidRock
   entity: AsteroidRockSilver
-  count: 4
+  count: 2 #ADT tweak 4-->2
   minGroupSize: 5
   maxGroupSize: 7
 
@@ -70,7 +70,7 @@
   id: OrePlasma
   replacement: AsteroidRock
   entity: AsteroidRockPlasma
-  count: 4
+  count: 2 #ADT tweak 4-->2
   minGroupSize: 5
   maxGroupSize: 7
 
@@ -78,7 +78,7 @@
   id: OreUranium
   replacement: AsteroidRock
   entity: AsteroidRockUranium
-  count: 4
+  count: 2 #ADT tweak 4-->2
   minGroupSize: 5
   maxGroupSize: 7
 
@@ -86,7 +86,7 @@
   id: OreBananium
   replacement: AsteroidRock
   entity: AsteroidRockBananium
-  count: 6
+  count: 4 #ADT tweak 6-->4
   minGroupSize: 3
   maxGroupSize: 6
 
@@ -94,7 +94,7 @@
   id: OreArtifactFragment
   replacement: AsteroidRock
   entity: AsteroidRockArtifactFragment
-  count: 5
+  count: 3 #ADT tweak 5-->3
   minGroupSize: 1
   maxGroupSize: 2
 

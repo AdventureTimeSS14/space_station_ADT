@@ -118,7 +118,7 @@
   - id: FireExtinguisherMini
     price: 150
   - id: ADTWeaponCutter
-    price: 1000
+    price: 2000
   - id: PowerCellHigh
     price: 650
   - id: Binoculars

@@ -84,7 +84,17 @@
   - FoodConsumptionSpeedModifier
   - DrunkenResilience
   - NyaAccent
+  - EmotionallyUnstableAccent
   - WeaknessAccent
+  - WieldingBlocker
+  - UnadaptedToSpace
+  - DamagedThroat
+  - ParrotSpeech
+  - EmotionLoop
+  - ActiveListener
+  - BlockWriting
+  - Hushed
+  - Touchy
   # ADT-fix-clone-end
   blacklist:
     components:

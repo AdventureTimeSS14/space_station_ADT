@@ -416,6 +416,47 @@
   - type: Clothing
     sprite: ADT/Personalization/suit_aidan.rsi
 
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingNeckAidan
+  name: Aidan neck
+  description: 
+  suffix: Personal, Aidan
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/aidan_neck.rsi
+    state: icon
+  - type: Clothing
+    sprite: ADT/Personalization/aidan_neck.rsi
+    equippedState: equipped-NECK
+
+- type: entity
+  parent: ClothingMaskBase
+  id: ADTClothingMaskAidan
+  name: Aidan mask
+  description: 
+  suffix: Personal, Aidan
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/aidan_mask.rsi
+    state: icon
+  - type: Clothing
+    sprite: ADT/Personalization/aidan_mask.rsi
+    equippedState: equipped-MASK
+
+- type: entity
+  parent: ADTClothingSponsorHandsBase
+  id: ADTClothingHandsAidanWatch
+  name: Aidan Watch
+  description: Aidan Watch
+  suffix: Personal, Aidan
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/aidan_watch.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/aidan_watch.rsi
+  - type: Clock
+
 # Bolper
 - type: entity
   parent: ADTSponsorClothingOuterStorageBase
@@ -549,6 +590,18 @@
     sprite: ADT/Personalization/pangaari_american_sleeveless.rsi
   - type: Clothing
     sprite: ADT/Personalization/pangaari_american_sleeveless.rsi
+
+- type: entity
+  parent: ADTClothingSponsorHandsBase
+  id: ADTClothingHandsPangaariBracelet
+  suffix: Personal, Pangaari
+  name: blue bead bracelet
+  description: A bracelet made of beads on a strong fishing line. It is clearly handmade with great care. The alternating use of regular and long blue beads forms a message in Morse code.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/pangaari_bracelet.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/pangaari_bracelet.rsi
 
 #tweak
 - type: entity
@@ -1170,6 +1223,18 @@
   - type: Clothing
     sprite: ADT/Personalization/feather_hairpin.rsi
 
+- type: entity
+  parent: ADTClothingSponsorHandsBase
+  id: ADTClothingHandsKiwiFruitBracelet
+  suffix: Personal, kiwi_fruit
+  name: green bead bracelet
+  description: A beaded bracelet on a strong fishing line. Clearly handmade, and though not very skillfully, but diligently. Alternation of the usual and long beads of green color makes up a certain message in Morse code.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/kiwi_fruit_bracelet.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/kiwi_fruit_bracelet.rsi
+
 #Sir_talter
 - type: entity
   parent: [ClothingOuterArmorBasic, BadgeOnClothing]
@@ -1424,3 +1489,56 @@
   - type: Clothing
     sprite: ADT/Personalization/luckyrat/luckyrat_boots.rsi
   - type: Matchbox
+
+#Faust Netzach
+- type: entity
+  parent: ADTSponsorClothingUniformBase
+  id: ADTClothingUniformGothic
+  name: gothic dress
+  description: A gothic dress is an elegant and mysterious garment characterized by its dark and intriguing style. Deep, dark shades like black, burgundy, or navy blue add an aura of mystery and aristocratic allure. Delicate lace accents, luxurious drapery, and ruffles evoke a sense of ancient romance. Keyhole or high neckline cuts give the gothic dress uniqueness and opulence. This dress is perfect for those who want to stand out and emphasize their individuality and mystique. In it, every woman feels refined and captivating, ready to enchant at first sight.
+  suffix: Personal, Faust Netzach
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/FaustNetzach/faust_gothic_dress.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/FaustNetzach/faust_gothic_dress.rsi
+
+- type: entity
+  parent: ADTClothingSponsorHandsBase
+  id: ADTClothingHandsCuffsFaust
+  name: mangette
+  description: mangette
+  suffix: Personal, Faust Netzach
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/FaustNetzach/faust_cuffs.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/FaustNetzach/faust_cuffs.rsi
+  - type: Fiber
+    fiberColor: fibers-white
+
+#kimer_k
+- type: entity
+  parent: ADTSponsorClothingUniformBase
+  id: ADTClothingUniformKimerK
+  name: pink suit
+  description: A lightweight classic shirt with a delicate tie, complemented by a button-down vest with a V-neck.
+  suffix: Personal, kimer_k
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/Kimer_k/kimer_k_suit.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/Kimer_k/kimer_k_suit.rsi
+
+#WCTR829
+- type: entity
+  parent: ADTSponsorClothingUniformBase
+  id: ADTClothingUniformWCTR829
+  name: radio equipment overalls
+  description: The jumpsuit is a deep anthracite color, with white accents on the chest, shoulders, and forearms, emphasizing the sleek, technical silhouette.
+  suffix: Personal, WCTR829
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/WCTR829/WCTR829_suit.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/WCTR829/WCTR829_suit.rsi
