@@ -84,7 +84,7 @@
       edges:
         - to: barrel
           steps:
-            - material: Steel
+            - material: WoodPlank
               amount: 8
               doAfter: 10
     - node: barrel
@@ -93,7 +93,7 @@
         - to: start
           completed:
             - !type:SpawnPrototype
-              prototype: SheetSteel1
+              prototype: MaterialWoodPlank1
               amount: 6
           steps:
             - tool: Prying

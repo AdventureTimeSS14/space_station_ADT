@@ -282,6 +282,9 @@
         behaviors:
           - !type:DoActsBehavior
             acts: [ "Destruction" ]
+  - type: Construction
+    graph: ADTBustHelios
+    node: bust
 
 - type: entity
   id: ADTBustLenin
@@ -318,6 +321,9 @@
         behaviors:
           - !type:DoActsBehavior
             acts: [ "Destruction" ]
+  - type: Construction
+    graph: ADTBustLenin
+    node: bust
 
 - type: entity
   id: ADTBustDarwin
@@ -354,6 +360,9 @@
         behaviors:
           - !type:DoActsBehavior
             acts: [ "Destruction" ]
+  - type: Construction
+    graph: ADTBustDarwin
+    node: bust
 
 - type: entity
   id: ADTBustPompeii
@@ -390,3 +399,6 @@
         behaviors:
           - !type:DoActsBehavior
             acts: [ "Destruction" ]
+  - type: Construction
+    graph: ADTBustPompeii
+    node: bust
