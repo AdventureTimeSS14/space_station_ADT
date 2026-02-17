@@ -508,6 +508,9 @@
   name: open silicate barrel
   description: An open barrel that can be filled with silicate or lubricant.
   components:
+  - type: Construction
+    graph: ADTBarrelChemSilicateOpen
+    node: barrel
   - type: Sprite
     sprite: Structures/Storage/barrels.rsi
     state: silicatebarrel-open
@@ -602,6 +605,9 @@
   name: open metal barrel
   description: An open metal barrel that can be filled with chemicals.
   components:
+  - type: Construction
+    graph: ADTBarrelMetalOpen
+    node: barrel
   - type: Sprite
     sprite: Structures/Storage/barrels.rsi
     state: metalbarrel-open
@@ -693,6 +699,9 @@
   name: open water barrel (empty)
   description: An empty open barrel for liquids.
   components:
+  - type: Construction
+    graph: ADTBarrelChemWaterOpen
+    node: barrel
   - type: SolutionContainerManager
     solutions:
       tank:
@@ -704,6 +713,9 @@
   name: open welding fuel barrel (empty)
   description: An empty open barrel for welding fuel.
   components:
+  - type: Construction
+    graph: ADTBarrelChemWeldingOpen
+    node: barrel
   - type: SolutionContainerManager
     solutions:
       tank:
@@ -715,6 +727,9 @@
   name: open wooden barrel (empty)
   description: An empty open wooden barrel.
   components:
+  - type: Construction
+    graph: ADTBarrelWoodenOpen
+    node: barrel
   - type: SolutionContainerManager
     solutions:
       tank:
@@ -726,6 +741,9 @@
   name: open radioactive barrel (empty)
   description: An empty open radioactive barrel.
   components:
+  - type: Construction
+    graph: ADTBarrelRadOpen
+    node: barrel
   - type: SolutionContainerManager
     solutions:
       tank:
