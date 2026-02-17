@@ -203,7 +203,7 @@ ent-ADTPosterHalloweenSpiderWeb2 = паутина
     .suffix = Хеллоуин
     .desc = Дом паука Аркадия.
 
-ent-ADTPosterContrabandLostParadise = Потерянный рай (контрабанда)
+ent-ADTPosterContrabandLostParadise = Потерянный рай
     .desc = Контрабандный плакат ныне замороженной группы «Потерянный рай».
 
 ent-ADTPosterContrabandSlimeBarmaid = Слаймалюдка барменша
@@ -233,7 +233,7 @@ ent-ADTPosterLegitMissNT2 = Мисс NanoTrasen
 ent-ADTPosterContrabandSkrellSinger = Скреллианская певица
     .desc = Плакат с изображением певицы Ла'лиа'вузо Сейур'а, самая известная артистка среди скреллов.
 
-ent-ADTPosterContrabandSpaceNinja = Космическая ниндзя
+ent-ADTPosterContrabandSpaceNinja = Космический ниндзя
     .desc = Плакат с изображением скрытной космической ниндзя в действии.
 
 ent-ADTPosterCalendarNT = Календарь
