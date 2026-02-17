@@ -6,6 +6,9 @@
   components:
   - type: Sprite
     state: blank2_flag
+  - type: Construction
+    graph: ADTBlankFlagVerticalGraph
+    node: flag
 
 - type: entity
   parent: BaseFlag
@@ -15,6 +18,9 @@
   components:
   - type: Sprite
     state: NT2_flag
+  - type: Construction
+    graph: ADTNTFlagVerticalGraph
+    node: flag
 
 - type: entity
   parent: BaseFlag
@@ -42,6 +48,9 @@
   components:
   - type: Sprite
     state: rastaman_flag
+  - type: Construction
+    graph: ADTRastamanFlagGraph
+    node: flag
 
 - type: entity
   parent: BaseFlag
@@ -51,6 +60,9 @@
   components:
   - type: Sprite
     state: roman_flag
+  - type: Construction
+    graph: ADTRomanFlagGraph
+    node: flag
 
 - type: entity
   parent: BaseFlag
@@ -60,6 +72,9 @@
   components:
   - type: Sprite
     state: ussp_flag
+  - type: Construction
+    graph: ADTUSSPFlagGraph
+    node: flag
 
 - type: entity
   parent: BaseFlag
@@ -69,6 +84,9 @@
   components:
   - type: Sprite
     state: ussp2_flag
+  - type: Construction
+    graph: ADTUSSPFlagVerticalGraph
+    node: flag
 
 - type: entity
   parent: BaseFlag
@@ -78,6 +96,9 @@
   components:
   - type: Sprite
     state: ussp3_flag
+  - type: Construction
+    graph: ADTUSSPFlagVertical2Graph
+    node: flag
 
 - type: entity
   parent: BaseFlag
@@ -87,6 +108,9 @@
   components:
   - type: Sprite
     state: kmt_flag
+  - type: Construction
+    graph: ADTKMTFlagGraph
+    node: flag
 
 - type: entity
   parent: BaseFlag
@@ -96,6 +120,9 @@
   components:
   - type: Sprite
     state: kmt2_flag
+  - type: Construction
+    graph: ADTKMTFlagVerticalGraph
+    node: flag
 
 - type: entity
   parent: BaseFlag
@@ -105,6 +132,9 @@
   components:
   - type: Sprite
     state: tsf_flag
+  - type: Construction
+    graph: ADTTSFFlagGraph
+    node: flag
 
 - type: entity
   parent: BaseFlag
@@ -114,6 +144,9 @@
   components:
   - type: Sprite
     state: tsf2_flag
+  - type: Construction
+    graph: ADTTSFFlagVerticalGraph
+    node: flag
 
 - type: entity
   parent: BaseFlag
@@ -123,6 +156,9 @@
   components:
   - type: Sprite
     state: elysium_flag
+  - type: Construction
+    graph: ADTElysiumFlagGraph
+    node: flag
 
 - type: entity
   parent: BaseFlag
@@ -132,3 +168,6 @@
   components:
   - type: Sprite
     state: elysium2_flag
+  - type: Construction
+    graph: ADTElysiumFlagVerticalGraph
+    node: flag
