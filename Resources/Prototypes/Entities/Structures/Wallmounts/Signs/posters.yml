@@ -89,7 +89,7 @@
   description: "A conspiratorial poster about dangerous alien lifeforms."
   components:
   - type: Sprite
-    sprite: ADT/Structures/Wallmounts/posters.rsi
+    sprite: ADT/Structures/Wallmounts/posters.rsi # ADT-Tweak
     state: poster4_contraband
 
 - type: entity
