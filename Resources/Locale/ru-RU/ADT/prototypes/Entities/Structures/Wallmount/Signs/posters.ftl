@@ -216,7 +216,7 @@ ent-ADTPosterContrabandHonkminator = Хонкминатор
     .desc = Рекламный плакат для научно-фантастического фильма о клоуне-киборге, прибывшем из будущего, чтобы убить молодого главу службы безопасности.
 
 ent-ADTPosterContrabandHonkDance = Хонк-Дэнс
-    .desc = Рекламный плакат, рекламирующий курс танцев на мехе Х.О.Н.К.
+    .desc = Плакат курса танцев на мехе Х.О.Н.К.
 
 ent-ADTPosterContrabandBorgBro = БроБорг
     .desc = Инновационная разработка! Борг, что может поддержать базар и даже курнуть вместе с тобой шмаль!
@@ -251,5 +251,5 @@ ent-ADTPosterContrabandPinning = Прикрепи хвост Иану!
 ent-ADTPosterLegitObjection = OBJECTION
     .desc = Ваша честь: Первое слово съела корова. Первое слово дороже второго.
 
-ent-ADTPosterContrabandGorlaxSanta = С новым годом
+ent-ADTPosterContrabandGorlaxSanta = С Новым годом
     .desc = Новогодний плакат, поздравляющий всех агентов синдиката с Новым годом.
