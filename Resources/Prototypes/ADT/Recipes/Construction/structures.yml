@@ -528,3 +528,17 @@
   conditions:
     - !type:WallmountCondition
 
+- type: construction
+  id: ADTBarSignRecipe
+  name: construction-name-bar-sign
+  description: construction-desc-bar-sign
+  graph: ADTBarSignGraph
+  startNode: start
+  targetNode: barSign
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: true
+  conditions:
+    - !type:WallmountCondition
+

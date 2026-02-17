@@ -239,7 +239,7 @@ ent-ADTPosterContrabandSpaceNinja = Космический ниндзя
 ent-ADTPosterCalendarNT = Календарь
     .desc = Фирменный календарь NanoTrasen. Выглядит очень дёшево.
 
-ent-ADTPosterContrabandAnime = Конец Евангелие
+ent-ADTPosterContrabandAnime = Конец Евангелиона
     .desc = Рекламный плакат, рекламирующий японскую драму с боевиком про школьников, управляющих гигантскими био-роботами.
 
 ent-ADTPosterContrabandUnati = Похотливая унати дева

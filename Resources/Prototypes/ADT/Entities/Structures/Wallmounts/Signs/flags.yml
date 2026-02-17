@@ -47,7 +47,7 @@
   parent: BaseFlag
   id: ADTRomanFlag
   name: roman flag
-  description: Ave Ledion! Ave Caesar!
+  description: Ave Legion! Ave Caesar!
   components:
   - type: Sprite
     state: roman_flag
