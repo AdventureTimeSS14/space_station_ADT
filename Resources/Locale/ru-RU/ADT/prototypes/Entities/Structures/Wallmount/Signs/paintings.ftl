@@ -66,7 +66,6 @@ ent-ADTPaintingMedal = медаль в рамке
 
 ent-ADTPaintingMonaLisa = Мона Лиза
     .desc = Одна из самых известных картин на Земле.
-    .desc = Одна из самых известных картин на Земле.
 
 ent-ADTPaintingPearlEarring = Девушка с жемчужной серёжкой
     .desc = Голландская версия Моны Лизы!
