@@ -368,7 +368,7 @@
   - CargoTechnicianBackpack
   - CargoTechnicianOuterClothing
   - CargoTechnicianShoes
-  - CargoTechnicianID
+  # - CargoTechnicianID # ADT tweak - убрал, чтобы не было дубляжа с КПК
   - Glasses
   - ADTCargoPDA # ADT tweak
   # ADT underwear tweak start
