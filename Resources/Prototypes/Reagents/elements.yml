@@ -318,6 +318,7 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Vox ]
+          inverted: true
       #ADT-Tweak-End
         damage:
           types:
