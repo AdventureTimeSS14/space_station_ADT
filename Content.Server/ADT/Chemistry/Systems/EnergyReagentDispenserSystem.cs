@@ -171,7 +171,7 @@ namespace Content.Server.ADT.Chemistry.EntitySystems
 
             var refundedPower = soln.Sum(reagent => GetPowerCostForReagent(reagent.Reagent.Prototype, (int)reagent.Quantity, reagentDispenser));
             if (refundedPower > 0)
-                _battery.AddCharge(reagentDispenser, refundedPower);
+                _battery.ChangeCharge(reagentDispenser.Owner, refundedPower);
 
             _solutionContainerSystem.RemoveAllSolution(solution.Value);
             UpdateUiState(reagentDispenser);

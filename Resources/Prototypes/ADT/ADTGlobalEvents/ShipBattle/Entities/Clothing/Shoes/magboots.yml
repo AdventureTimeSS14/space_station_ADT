@@ -49,7 +49,7 @@
   components:
   - type: Action
     icon: { sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Shoes/magboots_officer.rsi, state: icon }
-    iconOn: ADT/ADTGlobalEvents/ShipBattle/Clothing/Shoes/magboots_officer.rsi/icon-on.png
+    iconOn: { sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Shoes/magboots_officer.rsi, state: icon-on }
 
 - type: entity
   id: ADTShipBattleActionToggleMagbootsFleet
@@ -58,4 +58,4 @@
   components:
   - type: Action
     icon: { sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Shoes/magboots.rsi, state: icon }
-    iconOn: ADT/ADTGlobalEvents/ShipBattle/Clothing/Shoes/magboots.rsi/icon-on.png
+    iconOn: { sprite: ADT/ADTGlobalEvents/ShipBattle/Clothing/Shoes/magboots.rsi, state: icon-on }

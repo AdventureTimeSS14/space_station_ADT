@@ -52,6 +52,7 @@ public sealed class DocumentPrinterSystem : EntitySystem
 
     public void OnPrinting(EntityUid uid, DocumentPrinterComponent component, PrintingDocumentEvent args)
     {
+        // Logger.Warning($"[OnPrinting] {ToPrettyString(uid)} заход в функцию. {ToPrettyString(args.Paper)} {ToPrettyString(args.Actor)}");
         //coef for YEAR 544
         if (!TryComp<PaperComponent>(args.Paper, out var paperComponent)) return;
         if (!TryComp<InventoryComponent>(args.Actor, out var inventoryComponent)) return;
@@ -80,6 +81,7 @@ public sealed class DocumentPrinterSystem : EntitySystem
                 if (pda?.StationName is not null)
                 {
                     text = text.Replace("Station XX-000", pda.StationName);
+                    text = text.Replace(":СТАНЦИЯ:", pda.StationName);
                 }
                 if (meta_id is null)
                 {

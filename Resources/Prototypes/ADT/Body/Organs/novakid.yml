@@ -11,6 +11,8 @@
     - type: Metabolizer
       maxReagents: 7
       metabolizerTypes: [ Novakid ]
+      groups:
+      - id: Alcohol
 
 - type: entity
   id: ADTOrganNovakidLungs
