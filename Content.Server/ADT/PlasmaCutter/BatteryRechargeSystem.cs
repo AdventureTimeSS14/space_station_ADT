@@ -3,9 +3,10 @@
 using Content.Server.Materials;
 using Content.Shared.Materials;
 using Content.Server.Power.EntitySystems;
-using Content.Server.Power.Components;
 using Content.Server.PowerCell;
 using Content.Shared.PowerCell.Components;
+using Content.Shared.Power;
+using Content.Shared.Power.Components;
 
 namespace Content.Server.AruMoon.Plasmacutter
 {
@@ -65,11 +66,11 @@ namespace Content.Server.AruMoon.Plasmacutter
             var chargePerMaterial = availableMaterial * recharge.Multiplier;
             if (TryComp<PowerCellSlotComponent>(uid, out var slot) && _powerCell.TryGetBatteryFromSlot(uid, out var batteryEnt, out var battery, slot))
             {
-                _batterySystem.TryAddCharge(batteryEnt.Value, chargePerMaterial, battery);
+                _batterySystem.ChangeCharge(batteryEnt.Value, chargePerMaterial);
             }
             if (_materialStorage.TryChangeMaterialAmount(uid, fuelType, -availableMaterial))
             {
-                _batterySystem.TryAddCharge(uid, chargePerMaterial);
+                _batterySystem.ChangeCharge(uid, chargePerMaterial);
             }
         }
     }

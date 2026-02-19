@@ -1,44 +1,44 @@
-using Content.Shared.Actions;
+using System.Linq;
 using System.Numerics;
+using Content.Server.Body.Components;
+using Content.Server.Chat.Systems;
+using Content.Server.Humanoid;
+using Content.Server.Stunnable;
+using Content.Shared.ActionBlocker;
+using Content.Shared.Actions;
 using Content.Shared.ADT.Morph;
-using Content.Shared.Weapons.Melee.Events;
-using Content.Shared.Mobs.Systems;
-using Content.Shared.Nutrition.Components;
-using Content.Shared.Nutrition.EntitySystems;
+using Content.Shared.Body.Events;
+using Content.Shared.Damage;
+using Content.Shared.Damage.Prototypes;
+using Content.Shared.Damage.Systems;
 using Content.Shared.DoAfter;
-using Robust.Shared.Player;
-using Robust.Shared.Random;
+using Content.Shared.Examine;
+using Content.Shared.Hands.Components;
+using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Humanoid;
+using Content.Shared.Interaction;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
+using Content.Shared.Mobs.Systems;
+using Content.Shared.Movement.Components;
+using Content.Shared.Movement.Events;
+using Content.Shared.Nutrition.Components;
+using Content.Shared.Nutrition.EntitySystems;
+using Content.Shared.Polymorph.Components;
+using Content.Shared.Polymorph.Systems;
 using Content.Shared.Popups;
+using Content.Shared.Standing;
+using Content.Shared.Tools.Components;
+using Content.Shared.Tools.Systems;
+using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Whitelist;
+using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
-using Content.Shared.Damage;
-using Content.Shared.Hands.EntitySystems;
-using Content.Shared.Hands.Components;
-using System.Linq;
-using Content.Shared.Examine;
-using Robust.Shared.Prototypes;
-using Content.Shared.Damage.Prototypes;
-using Content.Shared.Destructible;
-using Content.Server.Humanoid;
-using Content.Shared.Polymorph.Components;
-using Content.Shared.Interaction;
-using Content.Shared.Polymorph.Systems;
-using Content.Server.Chat.Systems;
-using Content.Server.Stunnable;
-using Content.Shared.Tools.Systems;
-using Content.Shared.Tools.Components;
-using Content.Shared.ActionBlocker;
-using Content.Shared.Movement.Events;
-using Content.Shared.Movement.Components;
-using Content.Shared.Standing;
-using Content.Server.Body.Components;
-using Robust.Server.GameObjects;
 using Robust.Shared.Map;
-using Content.Shared.Body.Events;
+using Robust.Shared.Player;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
 
 namespace Content.Server.ADT.Morph;
 
@@ -225,7 +225,7 @@ public sealed class MorphSystem : SharedMorphSystem
         if (args.User == null)
             return;
         _stun.TryUpdateStunDuration(args.User.Value, TimeSpan.FromSeconds(component.StunTimeInteract)); //при интеракции станим, при ударе морфом клокдауним
-        _damageable.TryChangeDamage(args.User, component.DamageOnTouch);
+        _damageable.TryChangeDamage(args.User.Value, component.DamageOnTouch);
         AmbushBreak(uid);
     }
     private void OnMimicryRadialMenu(EntityUid uid, MorphComponent component, MorphOpenRadialMenuEvent args)

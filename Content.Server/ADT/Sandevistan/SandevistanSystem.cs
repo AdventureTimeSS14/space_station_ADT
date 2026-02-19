@@ -16,6 +16,7 @@ using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Timing;
 using System.Numerics;
+using Content.Shared.Emp;
 
 namespace Content.Server.ADT.Sandevistan;
 
@@ -204,14 +205,11 @@ public sealed class SandevistanSystem : EntitySystem
         ent.Comp.EmpLastPulse = _timing.CurTime;
         var uid = ent.Owner;
 
-        if (ent.Comp.Active != null)
-        {
-            ent.Comp.CurrentLoad += ent.Comp.EmpOverload;
-            _damageable.TryChangeDamage(uid, ent.Comp.EmpDamage, ignoreResistances: true);
-            _jittering.DoJitter(uid, TimeSpan.FromSeconds(30f), true);
-            _stun.TryAddParalyzeDuration(uid, TimeSpan.FromSeconds(5f));
-            Spawn("EffectSparks", Transform(uid).Coordinates);
-            Disable(ent, ent.Comp);
-        }
+        ent.Comp.CurrentLoad += ent.Comp.EmpOverload;
+        _damageable.TryChangeDamage(uid, ent.Comp.EmpDamage, ignoreResistances: true);
+        _jittering.DoJitter(uid, TimeSpan.FromSeconds(30f), true);
+        _stun.TryAddParalyzeDuration(uid, TimeSpan.FromSeconds(5f));
+        Spawn("EffectSparks", Transform(uid).Coordinates);
+        Disable(ent, ent.Comp);
     }
 }

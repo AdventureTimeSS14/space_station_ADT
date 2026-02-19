@@ -11,7 +11,9 @@ public sealed partial class HumanoidProfileEditor
     public void RefreshLanguages()
     {
         LanguagesList.DisposeAllChildren();
-        TabContainer.SetTabTitle(1, Loc.GetString("humanoid-profile-editor-languages-tab"));
+        /* TabContainer.SetTabTitle(2, Loc.GetString("humanoid-profile-editor-languages-tab"));
+        Вынесено в HumanoidProfileEditor в регионе InvokeRefresh, чтобы не накладывало названия друг на друга*/
+
         SetDefaultLanguagesButton.OnPressed += _ => SetDefaultLanguages();
 
         if (Profile == null)

@@ -6,72 +6,120 @@
     "x": 32,
     "y": 32
   },
-    "states": [
-        {
-            "name": "poster_adtgreatfood_legit"
-        },
-        {
-            "name": "poster_adtchihposter"
-        },
-        {
-            "name": "poster_noLRP"
-        },
-        {
-            "name": "poster_HB_Pangaari"
-        },
-        {
-            "name": "poster_adtturnonsensors_legit"
-        },
-        {
-            "name": "poster_adtoktoberfest_legit"
-        },
-        {
-            "name": "poster_adtoktoberfest2_legit"
-        },
-        {
-            "name": "poster_efficiencydiagram_legit"
-        },
-        {
-            "name": "poster_adtlusttayaran_contraband"
-        },
-        {
-            "name": "poster_adtfearthem_contraband"
-        },
-        {
-            "name": "poster_adtsilence_contraband"
-        },
-        {
-            "name": "poster_adtlustuma_contraband"
-        },
-        {
-            "name": "poster_adtlustardeco_contraband"
-        },
-        {
-            "name": "quadro_electronics"
-        },
-        {
-            "name": "poster_umahot_contraband"
-        },
-        {
-            "name": "poster_umapress_contraband"
-        },
-        {
-            "name": "poster_umasport_contraband"
-        },
-        {
-            "name": "poster_umaazalia_contraband"
-        },
-        {
-            "name": "poster_umarabbit_contraband"
-        },
-        {
-            "name": "poster_umaonbeach_contraband"
-        },
-        {
-            "name": "poster_whatdv_legit"
-        },
-        {
-            "name": "poster_unclepraz_legit"
-        }
-    ]
+  "states": [
+    {
+      "name": "poster_adtgreatfood_legit"
+    },
+    {
+      "name": "poster_adtchihposter"
+    },
+    {
+      "name": "poster_noLRP"
+    },
+    {
+      "name": "poster_HB_Pangaari"
+    },
+    {
+      "name": "poster_adtturnonsensors_legit"
+    },
+    {
+      "name": "poster_efficiencydiagram_legit"
+    },
+    {
+      "name": "poster_adtlusttayaran_contraband"
+    },
+    {
+      "name": "poster_adtfearthem_contraband"
+    },
+    {
+      "name": "poster_adtsilence_contraband"
+    },
+    {
+      "name": "poster_adtlustuma_contraband"
+    },
+    {
+      "name": "poster_adtlustardeco_contraband"
+    },
+    {
+      "name": "poster4_contraband"
+    },
+    {
+      "name": "quadro_electronics"
+    },
+    {
+      "name": "poster_umahot_contraband"
+    },
+    {
+      "name": "poster_umapress_contraband"
+    },
+    {
+      "name": "poster_umasport_contraband"
+    },
+    {
+      "name": "poster_umaazalia_contraband"
+    },
+    {
+      "name": "poster_umarabbit_contraband"
+    },
+    {
+      "name": "poster_umaonbeach_contraband"
+    },
+    {
+      "name": "poster_whatdv_legit"
+    },
+    {
+      "name": "poster_unclepraz_legit"
+    },
+    {
+      "name": "lp_contraband"
+    },
+    {
+      "name": "bar_contraband"
+    },
+    {
+      "name": "growfood_legit"
+    },
+    {
+      "name": "honkminator_contraband"
+    },
+    {
+      "name": "honkdance_contraband"
+    },
+    {
+      "name": "borgbro_contraband"
+    },
+    {
+      "name": "ladyrnd_contraband"
+    },
+    {
+      "name": "missnt1_legit"
+    },
+    {
+      "name": "missnt2_legit"
+    },
+    {
+      "name": "skrell_contraband"
+    },
+    {
+      "name": "ninja_contraband"
+    },
+    {
+      "name": "calendar_nt"
+    },
+    {
+      "name": "anime_contraband"
+    },
+    {
+      "name": "unati_contraband"
+    },
+    {
+      "name": "pinning_contraband"
+    },
+    {
+      "name": "objection_legit"
+    },
+    {
+      "name": "gorlaxsanta_contraband"
+    }
+  ]
 }

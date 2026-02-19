@@ -11,6 +11,7 @@ using Content.Shared.Popups;
 using Content.Shared.Tag;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
+using Content.Shared.Damage.Systems;
 using Content.Shared.StepTrigger.Components;
 using Content.Shared.Damage;
 

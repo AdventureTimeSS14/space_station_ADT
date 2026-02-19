@@ -13,10 +13,9 @@
         key: Adrenaline
         component: IgnoreSlowOnDamage
         time: 10
-        refresh: false
       - !type:PopupMessage
         conditions:
-        - !type:TotalDamage
+        - !type:TotalDamageCondition
           min: 0.5
         type: Local
         visualType: Small
@@ -29,7 +28,6 @@
         component: SeeingRainbows
         type: Add
         time: 20 # THC масло по 16 добавляет.
-        refresh: false
       - !type:PopupMessage
         type: Local
         visualType: Small
@@ -46,11 +44,12 @@
       - !type:HealthChange
         conditions:
         # Start edit by Filo
-        - !type:OrganType
-          type: Shadekin
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Shadekin ]
+          inverted: true
         # End edit by Filo
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: ADTOpium
           min: 10.05
         damage:
           types:
@@ -58,10 +57,10 @@
       # Start edit by Filo
       - !type:HealthChange
         conditions:
-        - !type:OrganType
-          type: Shadekin
-          shouldHave: true
-        - !type:ReagentThreshold
+        - !type:MetabolizerTypeCondition
+          type: [ Shadekin ]
+        - !type:ReagentCondition
+          reagent: ADTOpium
           min: 10.05
         damage:
           types:
@@ -83,18 +82,18 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType
-          type: Shadekin
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Shadekin ]
         damage:
           types:
             Poison: 0.25
       - !type:HealthChange
         conditions:
-        - !type:OrganType
-          type: Shadekin
-          shouldHave: false
-        - !type:ReagentThreshold
+        - !type:MetabolizerTypeCondition
+          type: [ Shadekin ]
+          inverted: true
+        - !type:ReagentCondition
+          reagent: ADTBlueSkyDesoxyephedrine
           min: 30
         damage:
           types:
@@ -102,18 +101,17 @@
             Asphyxiation: 1
       - !type:HealthChange
         conditions:
-        - !type:OrganType
-          type: Shadekin
-          shouldHave: true
+        - !type:MetabolizerTypeCondition
+          type: [ Shadekin ]
         damage:
           types:
             Poison: 0.5
       - !type:HealthChange
         conditions:
-        - !type:OrganType
-          type: Shadekin
-          shouldHave: true
-        - !type:ReagentThreshold
+        - !type:MetabolizerTypeCondition
+          type: [ Shadekin ]
+        - !type:ReagentCondition
+          reagent: ADTBlueSkyDesoxyephedrine
           min: 30
         damage:
           types:
@@ -125,33 +123,35 @@
             Poison: 30
             Asphyxiation: 15
         conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Shadekin ]
+          inverted: true
         - !type:HasComponentCondition
           components:
             - ActiveSandevistanUser
           guidebookComponentName: reagent-comp-condition-speedbust-sandevistan
     Narcotic:
       effects:
-      - !type:MovespeedModifier
+      - !type:MovementSpeedModifier
         walkSpeedModifier: 1.4
         sprintSpeedModifier: 1.4
       - !type:GenericStatusEffect
         key: Stutter
         component: StutteringAccent
       - !type:Jitter
-      - !type:GenericStatusEffect
-        key: Stun
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectStunned
         time: 3
         type: Remove
-      - !type:GenericStatusEffect
-        key: KnockedDown
+      - !type:ModifyKnockdown
         time: 3
         type: Remove
-      - !type:GenericStatusEffect
+      - !type:ModifyStatusEffect
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Haloperidol
           max: 0.01
-        key: Drowsiness
+        effectProto: StatusEffectDrowsiness
         time: 10
         type: Remove
       - !type:GenericStatusEffect
@@ -159,10 +159,10 @@
         component: SeeingRainbows
         type: Add
         time: 16
-        refresh: false
     Medicine:
       effects:
       - !type:ResetNarcolepsy
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: ADTBlueSkyDesoxyephedrine
           min: 20
