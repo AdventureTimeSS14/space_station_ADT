@@ -102,6 +102,7 @@
     groups:
     - id: Food
     - id: Drink
+    - id: Alcohol
   - type: Tag # goob edit
     tags:
     - Meat

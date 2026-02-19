@@ -231,6 +231,7 @@
     groups:
     - id: Food
     - id: Drink
+    - id: Alcohol # ADT-Tweak
   - type: Tag # goob edit
     tags:
     - Meat
