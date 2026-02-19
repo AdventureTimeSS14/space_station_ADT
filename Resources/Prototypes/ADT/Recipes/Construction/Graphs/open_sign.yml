@@ -1,0 +1,29 @@
+- type: constructionGraph
+  id: ADTOpenSignGraph
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: ADTOpenSignNode
+          steps:
+            - material: MetalRod
+              amount: 5
+              doAfter: 3.0
+            - material: Cable
+              amount: 5
+              doAfter: 2.0
+    - node: ADTOpenSignNode
+      entity: ADTOpenSign
+      edges:
+        - to: start
+          steps:
+            - tool: Cutting
+              doAfter: 3.0
+          completed:
+            - !type:GivePrototype
+              prototype: PartRodMetal1
+              amount: 5
+            - !type:GivePrototype
+              prototype: CableApcStack1
+              amount: 5
+            - !type:DeleteEntity {}

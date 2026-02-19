@@ -41,9 +41,10 @@
     color: "#ff6a00"
     whisperColor: "#e0894a"
     replacement:
-    - разгарается
+    - разгорается
     - потрескивает огнём
     - издаёт пламенные звуки
+    - полыхает
     font: Plantype
     fontSize: 14
     sound:

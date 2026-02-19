@@ -3,6 +3,7 @@ using Content.Server.Temperature.Systems;
 using Content.Shared.ADT.Heretic.Components;
 using Content.Shared.ADT.Heretic.Systems;
 using Content.Shared.Atmos;
+using Content.Shared.Temperature.Components;
 using Content.Shared.Speech.Muting;
 using Content.Shared.StatusEffect;
 

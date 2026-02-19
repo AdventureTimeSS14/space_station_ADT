@@ -30,17 +30,16 @@
   metabolisms:
     Poison:
       effects:
-      - !type:MovespeedModifier
+      - !type:MovementSpeedModifier
         walkSpeedModifier: 0.65
         sprintSpeedModifier: 0.65
       - !type:GenericStatusEffect
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: ADTUltraChloralHydrate
           min: 3
         key: ForcedSleep
         component: ForcedSleeping
-        refresh: false
         type: Add
       - !type:PopupMessage
         type: Local
@@ -67,28 +66,25 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType
-          type: Arachnid
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Arachnid ]
         damage:
           types:
             Poison: 0.75
       - !type:PopupMessage
         conditions:
-        - !type:OrganType
-          type: Arachnid
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Arachnid ]
         type: Local
         visualType: Small
         messages: [ "toxin-effect-pain-latrotoxin" ]
         probability: 0.3
-      - !type:MovespeedModifier
+      - !type:MovementSpeedModifier
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: ADTLatrotoxin
           min: 10
-        - !type:OrganType
-          type: Arachnid
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Arachnid ]
         walkSpeedModifier: 0.7
         sprintSpeedModifier: 0.7

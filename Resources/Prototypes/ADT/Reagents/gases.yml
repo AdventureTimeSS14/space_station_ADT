@@ -11,52 +11,49 @@
       - !type:GenericStatusEffect
         # Filo tweak
         conditions:
-        - !type:OrganType
-          type: Novakid
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Novakid ]
         # Filo tweak
         key: SeeingRainbows
         component: SeeingRainbows
         type: Add
         time: 8
-        refresh: false
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: BZ
           min: 0.5
-        scaleByQuantity: true
         ignoreResistances: true
         damage:
           types:
             Cellular: 0.005
       - !type:PopupMessage
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: BZ
           min: 1
-        - !type:OrganType
-          type: Slime
+        - !type:MetabolizerTypeCondition
+          type: [ Slime ]
         type: Local
         visualType: Medium
         messages: [ "effect-sleepy" ]
         probability: 0.1
-      - !type:MovespeedModifier
+      - !type:MovementSpeedModifier
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: BZ
           min: 1
-        - !type:OrganType
-          type: Slime
+        - !type:MetabolizerTypeCondition
+          type: [ Slime ]
         walkSpeedModifier: 0.65
         sprintSpeedModifier: 0.65
       - !type:GenericStatusEffect
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: BZ
           min: 1
-        - !type:OrganType
-          type: Slime
+        - !type:MetabolizerTypeCondition
+          type: [ Slime ]
         key: ForcedSleep
         component: ForcedSleeping
         time: 3
@@ -77,51 +74,49 @@
       - !type:Oxygenate
         factor: 8
         conditions:
-        - !type:OrganType
-          type: Human
+        - !type:MetabolizerTypeCondition
+          type: [ Human ]
       - !type:Oxygenate
         factor: 8
         conditions:
-        - !type:OrganType
-          type: Novakid
+        - !type:MetabolizerTypeCondition
+          type: [ Novakid ]
       - !type:Oxygenate
         factor: 8
         conditions:
-        - !type:OrganType
-          type: Drask
+        - !type:MetabolizerTypeCondition
+          type: [ Drask ]
       - !type:Oxygenate
         factor: 8
         conditions:
-        - !type:OrganType
-          type: Animal
+        - !type:MetabolizerTypeCondition
+          type: [ Animal ]
       - !type:Oxygenate
         factor: 8
         conditions:
-        - !type:OrganType
-          type: Rat
+        - !type:MetabolizerTypeCondition
+          type: [ Rat ]
       - !type:Oxygenate
         factor: 8
         conditions:
-        - !type:OrganType
-          type: Plant
+        - !type:MetabolizerTypeCondition
+          type: [ Plant ]
       - !type:Oxygenate
         factor: 8
         conditions:
-        - !type:OrganType
-          type: Resomi
+        - !type:MetabolizerTypeCondition
+          type: [ Resomi ]
       - !type:ModifyLungGas
         conditions:
-        - !type:OrganType
-          type: Vox
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Vox ]
         ratios:
           CarbonDioxide: 1.0
           Pluoxium: -1.0
       - !type:HealthChange
         conditions:
-        - !type:OrganType
-          type: Vox
-        scaleByQuantity: true
+        - !type:MetabolizerTypeCondition
+          type: [ Vox ]
         ignoreResistances: true
         damage:
           types:
@@ -150,17 +145,16 @@
   metabolisms:
     Gas:
       effects:
-      - !type:MovespeedModifier
+      - !type:MovementSpeedModifier
         conditions:
-          - !type:ReagentThreshold
+          - !type:ReagentCondition
             reagent: Nitrium
             min: 3
-        statusLifetime: 15
         walkSpeedModifier: 1.35
         sprintSpeedModifier: 1.35
       - !type:GenericStatusEffect
         conditions:
-          - !type:ReagentThreshold
+          - !type:ReagentCondition
             reagent: Nitrium
             min: 6
         key: Stun
@@ -168,7 +162,7 @@
         type: Remove
       - !type:GenericStatusEffect
         conditions:
-          - !type:ReagentThreshold
+          - !type:ReagentCondition
             reagent: Nitrium
             min: 6
         key: KnockedDown
@@ -176,7 +170,7 @@
         type: Remove
       - !type:GenericStatusEffect
         conditions:
-          - !type:ReagentThreshold
+          - !type:ReagentCondition
             reagent: Nitrium
             min: 6
         key: ForcedSleep
@@ -185,10 +179,9 @@
         type: Remove
       - !type:HealthChange
         conditions:
-          - !type:ReagentThreshold
+          - !type:ReagentCondition
             reagent: Nitrium
             min: 9
-        scaleByQuantity: true
         ignoreResistances: true
         damage:
           types:
@@ -208,19 +201,17 @@
       effects:
       - !type:GenericStatusEffect
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Healium
           min: 1
         key: ForcedSleep
         component: ForcedSleeping
-        refresh: false
         type: Add
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Healium
           min: 2
-        scaleByQuantity: true
         ignoreResistances: true
         damage:
           groups:
@@ -265,11 +256,10 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Zauker
           min: 0.25
           max: 8
-        scaleByQuantity: true
         ignoreResistances: true
         damage:
           types:
@@ -279,10 +269,9 @@
             Bloodloss: 0.25
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Zauker
           min: 8
-        scaleByQuantity: true
         ignoreResistances: true
         damage:
           types:

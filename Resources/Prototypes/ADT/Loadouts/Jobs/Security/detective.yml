@@ -52,6 +52,11 @@
     proto: MasterDetective
 
 - type: loadout
+  id: ADTDetectiveCoatDark
+  equipment:
+    outerClothing: ClothingOuterCoatDetectiveDark
+
+- type: loadout
   id: ADTDetectiveCoatOld
   equipment:
     outerClothing: ADTClothingOuterCoatDetectiveLoadoutOld
