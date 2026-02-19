@@ -16,7 +16,7 @@
     - 0,0,0,0
     heldPrefix: gummy
     sprite: ADT/Objects/Consumable/Food/gummies.rsi
-  - type: Food
+  - type: Edible
   - type: SolutionContainerManager
     solutions:
       food:

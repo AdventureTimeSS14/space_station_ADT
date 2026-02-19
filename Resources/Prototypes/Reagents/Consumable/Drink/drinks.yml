@@ -25,12 +25,12 @@
         component: StaminaModifier
         time: 1.15
         type: Add
-      - !type:MovespeedModifier
+      - !type:MovementSpeedModifier
         walkSpeedModifier: 1.03
         sprintSpeedModifier: 1.05
       - !type:AdjustTemperature
         conditions:
-        - !type:Temperature
+        - !type:TemperatureCondition
           max: 310
         amount: 2500
       # End ADT tweak
@@ -61,7 +61,7 @@
       # Start ADT tweak
       - !type:AdjustTemperature
         conditions:
-        - !type:Temperature
+        - !type:TemperatureCondition
           max: 310
         amount: 2500
       # End ADT tweak
@@ -118,7 +118,7 @@
   color: "#664300"
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/cafe_latte.rsi
-    state: icon_empty
+    state: icon
   metamorphicMaxFillLevels: 1
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
@@ -134,7 +134,7 @@
       # Start ADT tweak
       - !type:AdjustTemperature
         conditions:
-        - !type:Temperature
+        - !type:TemperatureCondition
           max: 310
         amount: 2500
       - !type:GenericStatusEffect
@@ -142,7 +142,7 @@
         component: StaminaModifier
         time: 1.05
         type: Add
-      - !type:MovespeedModifier
+      - !type:MovementSpeedModifier
         walkSpeedModifier: 1.03
         sprintSpeedModifier: 1.05
       # End ADT tweak
@@ -170,12 +170,12 @@
         component: StaminaModifier
         time: 1.25
         type: Add
-      - !type:MovespeedModifier
+      - !type:MovementSpeedModifier
         walkSpeedModifier: 1.05
         sprintSpeedModifier: 1.10
       - !type:AdjustTemperature
         conditions:
-        - !type:Temperature
+        - !type:TemperatureCondition
           max: 310
         amount: 2500
       # End ADT tweak
@@ -216,6 +216,9 @@
       effects:
       - !type:SatiateThirst
         factor: 2
+      - !type:AdjustReagent
+        reagent: Theobromine
+        amount: 0.05
       - !type:ModifyStatusEffect
         effectProto: StatusEffectDrowsiness
         time: 2
@@ -223,12 +226,13 @@
       # Start ADT tweak
       - !type:AdjustTemperature
         conditions:
-        - !type:Temperature
+        - !type:TemperatureCondition
           min: 280
         amount: -2500
       - !type:PopupMessage
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: IcedCoffee
           min: 5
         type: Local
         visualType: Medium
@@ -256,7 +260,7 @@
       effects:
       - !type:AdjustTemperature
         conditions:
-        - !type:Temperature
+        - !type:TemperatureCondition
           min: 280
         amount: -2500
       # End ADT tweak
@@ -286,7 +290,7 @@
       # Start ADT tweak
       - !type:AdjustTemperature
         conditions:
-        - !type:Temperature
+        - !type:TemperatureCondition
           min: 280
         amount: -2500
       # End ADT tweak
@@ -334,7 +338,7 @@
       # Start ADT tweak
       - !type:AdjustTemperature
         conditions:
-        - !type:Temperature
+        - !type:TemperatureCondition
           min: 310
         amount: -2500
       # End ADT tweak
@@ -449,13 +453,13 @@
       # Start ADT tweak
       - !type:GenericStatusEffect
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: NuclearCola
           min: 4
         key: SeeingRainbows
         component: SeeingRainbows
         type: Add
         time: 15
-        refresh: false
       # End ADT tweak
   fizziness: 0.5
 
@@ -522,12 +526,12 @@
           types:
             Poison: -0.5
         probability: 0.3
-      - !type:MovespeedModifier
+      - !type:MovementSpeedModifier
         walkSpeedModifier: 1.03
         sprintSpeedModifier: 1.05
       - !type:AdjustTemperature
         conditions:
-        - !type:Temperature
+        - !type:TemperatureCondition
           max: 310
         amount: 2500
       # End ADT tweak
@@ -582,18 +586,16 @@
           types:
             Cold: 1.3
         conditions:
-        - !type:OrganType
-          type: Novakid
+        - !type:MetabolizerTypeCondition
+          type: [ Novakid ]
 #ADT add ends
     Gas:
       effects:
       - !type:HealthChange
-        scaleByQuantity: true
         ignoreResistances: true
         conditions:
-        - !type:OrganType
-          type: Slime
-          shouldHave: true
+        - !type:MetabolizerTypeCondition
+          type: [ Slime ]
         damage:
           types:
             Heat: 3
@@ -604,16 +606,17 @@
   desc: reagent-desc-ice
   slipData:
     requiredSlipSpeed: 3.5
+  evaporationSpeed: 0.15 # TODO: Ideally Ice should just turn into Water if the room is warm enough (and vis versa), rather than Ice directly evaporating
   physicalDesc: reagent-physical-desc-frosty
   flavor: cold
   color: "#bed8e6"
   recognizable: true
   meltingPoint: 0.0
   boilingPoint: 100.0
-  friction: 0.05 #Copied from Ice Crust
+  friction: 0.05 # Copied from Ice Crust
   plantMetabolism:
   - !type:PlantAdjustWater
-    amount: 1
+    amount: 1 # The internet tells me I should avoid watering plants with ice, but mostly because of temperature, so this value being the same as water should probably be fine?
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/iceglass.rsi
     state: icon_empty
@@ -626,7 +629,7 @@
       effects:
       - !type:AdjustTemperature
         conditions:
-        - !type:Temperature
+        - !type:TemperatureCondition
           min: 280
         amount: -2500
       # End ADT tweak
@@ -661,7 +664,7 @@
       # Start ADT tweak
       - !type:AdjustTemperature
         conditions:
-        - !type:Temperature
+        - !type:TemperatureCondition
           max: 310
         amount: 2500
       # End ADT tweak
@@ -691,7 +694,7 @@
       # Start ADT tweak
       - !type:AdjustTemperature
         conditions:
-        - !type:Temperature
+        - !type:TemperatureCondition
           min: 280
         amount: -2500
       # End ADT tweak
@@ -721,15 +724,15 @@
   color: "#B3B599"
 
 - type: reagent
-  id: KiraSpecial
-  name: reagent-name-kira-special
+  id: OrangeLimeSoda
+  name: reagent-name-orange-lime-soda
   parent: BaseDrink
-  desc: reagent-desc-kira-special
+  desc: reagent-desc-orange-lime-soda
   physicalDesc: reagent-physical-desc-strong-smelling
   flavor: sweet
   color: "#CCCC99"
   metamorphicSprite:
-    sprite: Objects/Consumable/Drinks/kiraspecial.rsi
+    sprite: Objects/Consumable/Drinks/orangelime_soda.rsi
     state: icon_empty
   metamorphicMaxFillLevels: 3
   metamorphicFillBaseName: fill-
@@ -757,7 +760,8 @@
       effects:
       - !type:PopupMessage
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Rewriter
           min: 15
         type: Local
         visualType: Medium

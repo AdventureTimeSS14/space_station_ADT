@@ -7,6 +7,7 @@ using Robust.Client.GameObjects;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
 using Robust.Client.Utility;
+using static Content.Client.Corvax.SponsorOnlyHelpers; // Corvax-Sponsors
 
 namespace Content.Client.Humanoid;
 
@@ -200,13 +201,9 @@ public sealed partial class SingleMarkingPicker : BoxContainer
             item.Metadata = marking.ID;
             // Corvax-Sponsors-Start
             if (marking.SponsorOnly)
-            {
-                item.Disabled = true;
-                if (_sponsorsManager.TryGetInfo(out var sponsor))
-                {
-                    item.Disabled = !sponsor.AllowedMarkings.Contains(marking.ID);
-                }
-            }
+                item.Text += GetSponsorOnlySuffix();
+            // if (marking.SponsorOnly && _sponsorsManager != null)
+            //     item.Disabled = !_sponsorsManager.GetClientPrototypes().Contains(marking.ID); // ADT-Tweak: GetClientPrototypes не реализован в клиентской части
             // Corvax-Sponsors-End
 
             if (_markings[Slot].MarkingId == id)
@@ -231,7 +228,6 @@ public sealed partial class SingleMarkingPicker : BoxContainer
 
         var marking = _markings[Slot];
 
-        ColorSelectorContainer.DisposeAllChildren();
         ColorSelectorContainer.RemoveAllChildren();
 
         if (marking.MarkingColors.Count != proto.Sprites.Count)

@@ -2,3 +2,23 @@
   license: "CC-BY-SA-3.0"
   copyright: "Taken from https://zvukogram.com/category/zvuki-ognya/"
   source: "https://zvukogram.com/category/zvuki-ognya/"
+
+- files: ["novakid_cough"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Original sound made by Nic3_one on freesound.org, mixed to mono by orange6775 (discord)"
+  source: "https://freesound.org/people/Nic3_one/sounds/166553/"
+
+- files: ["novakid_sneeze_female"]
+  license: "CC0-1.0"
+  copyright: "sherby168 on freesound.org, mixed with novakid_scream04 to mono by orange6775 (discord)"
+  source: "https://freesound.org/people/sherby168/sounds/540771/"
+
+- files: ["novakid_sneeze_male"]
+  license: "CC-BY-4.0"
+  copyright: "InspectorJ (www.jshaw.co.uk) of Freesound.org, mixed with novakid_scream04 to mono by orange6775 (discord)"
+  source: "https://freesound.org/people/InspectorJ/sounds/352177/"
+
+- files: ["novakid_yawn"]
+  license: "CC-BY-4.0"
+  copyright: "Original sound made by luffy on freesound.org, mixed to mono by orange6775 (discord)"
+  source: "https://freesound.org/people/InspectorJ/sounds/352177/"
