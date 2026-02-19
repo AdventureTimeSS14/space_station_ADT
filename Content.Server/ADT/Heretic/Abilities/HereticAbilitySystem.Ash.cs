@@ -8,6 +8,8 @@ using Content.Shared.Temperature.Components;
 using Content.Server.Atmos.Components;
 using Content.Server.Body.Components;
 using Content.Server.Temperature.Components;
+using Content.Shared.Damage.Components;
+using Content.Shared.Atmos.Components;
 using Robust.Shared.Map.Components;
 using Robust.Server.GameObjects;
 using Robust.Shared.Prototypes;
@@ -103,7 +105,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
                         dmgdict[key] -= 10f + power;
 
                     var dmgspec = new DamageSpecifier() { DamageDict = dmgdict };
-                    _damageable.TryChangeDamage(ent, dmgspec, true, false, dmgc);
+                    _damageable.TryChangeDamage((ent.Owner, dmgc), dmgspec, true, false, look);
                 }
 
                 if (flam.OnFire)

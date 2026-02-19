@@ -12,7 +12,6 @@ namespace Content.Shared.Movement.Systems;
 public sealed class WormSystem : EntitySystem
 {
     [Dependency] private readonly AlertsSystem _alerts = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
 
     public override void Initialize()
@@ -26,8 +25,8 @@ public sealed class WormSystem : EntitySystem
     private void OnMapInit(Entity<WormComponent> ent, ref MapInitEvent args)
     {
         EnsureComp<KnockedDownComponent>(ent, out var knocked);
-        _alerts.ShowAlert(ent, SharedStunSystem.KnockdownAlert);
-        _stun.SetAutoStand((ent, knocked));
+        _alerts.ShowAlert(ent.Owner, SharedStunSystem.KnockdownAlert);
+        // _stun.SetAutoStand((ent, knocked)); //ADT-tweak
     }
 
     private void OnRejuvenate(Entity<WormComponent> ent, ref RejuvenateEvent args)

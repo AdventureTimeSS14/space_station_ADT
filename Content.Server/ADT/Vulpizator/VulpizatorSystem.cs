@@ -1,7 +1,7 @@
 using Content.Server.Antag;
-using Content.Shared.Mindshield.Components;
 using Content.Server.Polymorph.Components;
-using Content.Server.Roles;
+using Content.Shared.Mindshield.Components;
+using Content.Shared.Roles.Components;
 using Robust.Shared.Physics.Events;
 
 namespace Content.Server.Vulpizator.System;
@@ -9,7 +9,7 @@ namespace Content.Server.Vulpizator.System;
 public sealed class VulpizatorSystem : EntitySystem
 {
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
-    public const string _vulpa = "ADTMobRandomVulpkanin";
+    public const string Vulpa = "ADTMobRandomVulpkanin";
 
     public override void Initialize()
     {
@@ -18,7 +18,7 @@ public sealed class VulpizatorSystem : EntitySystem
     }
     private void OnPolymorphed(Entity<PolymorphedEntityComponent> uid, ref StartCollideEvent args)
     {
-        if (uid.Comp.Configuration.Entity == _vulpa)
+        if (uid.Comp.Configuration.Entity == Vulpa)
         {
             // Чтобы вульпе не приходило по 100 раз сообщение
             if (HasComp<RoleBriefingComponent>(uid))

@@ -1,7 +1,7 @@
 {
-    "version": 1,
+    "version": 2,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Created by discord:prazat911, bar-chunk sprited by orange6775 (discord)",
+    "copyright": "Created by discord:prazat911, bar-medal, bar-chunk sprited by orange6775 (discord)",
     "size": {
         "x": 32,
         "y": 32
@@ -24,6 +24,9 @@
         },
         {
             "name": "bar-two"
+        },
+        {
+            "name": "bar-medal"
         },
         {
             "name": "bar-chunk"

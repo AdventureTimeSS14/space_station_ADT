@@ -555,21 +555,17 @@ ent-ADTPlushieAnagiri = плюшевая Плейона
     .suffix = { "Спонсорское, Anagiri" }
 
 
-ent-ADTClothingUniformJumpsuitSaintMadmanClothing = униформа Via-Deus
-    .desc = Униформа компании Via-Deus.
-    .suffix = { "Спонсорское, Saint_madman" }
+ent-ADTClothingUniformJumpsuitSaintMadmanClothing = униформа аристократа
+    .desc = Белая торжественная униформа аристократа. Выглядит величественно.
+    .suffix = { "Именное, Saint_madman" }
 
-ent-ADTClothingOuterCoatSaintMadman = пальто Via-Deus
-    .desc = Черно-красное пальто компании Via-Deus.
-    .suffix = { "Спонсорское, Saint_madman" }
+ent-ADTClothingNeckSaintMadmanMantle = наплечная мантия аристократа
+    .desc = Белая торжественная мантия аристократа. Знак чистой крови.
+    .suffix = { "Именное, Saint_madman" }
 
-ent-ADTClothingOuterCoatViaDeus = торжественное пальто Via-Deus
-    .desc = Пальто для важных персон VD.
-    .suffix = { "Спонсорское, Saint_madman" }
-
-ent-ClothingHeadHatSaintMadmanthingy = монокль
-    .desc = Выглядит довольно элитно.
-    .suffix = { "Спонсорское, Saint_madman" }
+ent-ADTClothingOuterCoatSaintMadman = пальто аристократа
+    .desc = Белое торжественное пальто аристократа. 
+    .suffix = { "Именное, Saint_madman" }
 
 ent-ADTWhistleKringe = "Молящиеся руки"
     .desc = Свисток из неизвестного материала в виде молящихся рук.
