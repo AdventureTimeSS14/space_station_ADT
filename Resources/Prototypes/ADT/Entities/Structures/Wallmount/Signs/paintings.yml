@@ -2,8 +2,308 @@
   parent: PaintingBase
   id: ADTPaintingGagarin
   name: portrait of Yuri Alekseevich Gagarin
-  description: The first cosmonaut to fly into space. His historic flight took place on April 12, 1961 on the Vostok-1 spacecraft. Gagarin became the first person to successfully make a single near-Earth space trip, making one revolution around the Earth. This feat brought him worldwide fame and the status of a national hero in the USSR. It's a shame not to know about it while working in the Space Station.
+  description: The first cosmonaut to fly into space.
   components:
   - type: Sprite
     sprite: ADT/Structures/Wallmounts/paintings.rsi
     state: painting_gagarin
+
+- type: entity
+  parent: PaintingBase
+  id: ADTPaintingAbstract
+  name: abstract painting
+  description: Placeholder
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/paintings.rsi
+    state: abstract
+
+- type: entity
+  parent: PaintingBase
+  id: ADTPaintingAssassinationCaesar
+  name: assassination of Caesar
+  description: Placeholder
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/paintings_64x.rsi
+    state: assassination_caesar64x
+
+- type: entity
+  parent: PaintingBase
+  id: ADTPaintingBobRoss
+  name: portrait of Bob Ross
+  description: Placeholder
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/paintings.rsi
+    state: bob_ross
+
+- type: entity
+  parent: PaintingBase
+  id: ADTPaintingButterfly
+  name: butterfly collection
+  description: Placeholder
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/paintings.rsi
+    state: butterfly
+
+- type: entity
+  parent: PaintingBase
+  id: ADTPaintingCaesarInSenate
+  name: Julius Caesar addressing the people
+  description: Placeholder
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/paintings_64x.rsi
+    state: caesar_in_senate64x
+
+- type: entity
+  parent: PaintingBase
+  id: ADTPaintingCertMedical
+  name: medical certificate
+  description: Placeholder
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/paintings.rsi
+    state: cert_medical
+
+- type: entity
+  parent: PaintingBase
+  id: ADTPaintingCertS
+  name: scientific certificate
+  description: Placeholder
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/paintings.rsi
+    state: cert_s
+
+- type: entity
+  parent: PaintingBase
+  id: ADTPaintingCharles3
+  name: His Majesty King Charles III
+  description: Placeholder
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/paintings.rsi
+    state: charles_3
+
+- type: entity
+  parent: PaintingBase
+  id: ADTPaintingComedia
+  name: comedy
+  description: Placeholder
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/paintings.rsi
+    state: comedia
+
+- type: entity
+  parent: PaintingBase
+  id: ADTPaintingCreationAdam
+  name: The Creation of Adam
+  description: Placeholder
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/paintings_48x.rsi
+    state: creation_adam48x
+
+- type: entity
+  parent: PaintingBase
+  id: ADTPaintingCreationShitcurity
+  name: The Creation of Clown
+  description: Placeholder
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/paintings_48x.rsi
+    state: creation_shitcurity48x
+
+- type: entity
+  parent: PaintingBase
+  id: ADTPaintingDeDust2
+  name: Dust II
+  description: Placeholder
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/paintings.rsi
+    state: de_dust2
+
+- type: entity
+  parent: PaintingBase
+  id: ADTPaintingDeSterrennacht
+  name: The Starry Night
+  description: Placeholder
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/paintings.rsi
+    state: de_sterrennacht
+
+- type: entity
+  parent: PaintingBase
+  id: ADTPaintingDiploma
+  name: diploma
+  description: Placeholder
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/paintings.rsi
+    state: diploma
+
+- type: entity
+  parent: PaintingBase
+  id: ADTPaintingDiplomaHonk
+  name: clown diploma
+  description: Placeholder
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/paintings.rsi
+    state: diploma_honk
+
+- type: entity
+  parent: PaintingBase
+  id: ADTPaintingDisaster
+  name: disaster
+  description: Placeholder
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/paintings.rsi
+    state: disaster
+
+- type: entity
+  parent: PaintingBase
+  id: ADTPaintingDollar
+  name: framed dollar
+  description: Placeholder
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/paintings.rsi
+    state: dollar
+
+- type: entity
+  parent: PaintingBase
+  id: ADTPaintingDrinkFood
+  name: menu board
+  description: Placeholder
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/paintings_64x.rsi
+    state: drink_food64x
+
+- type: entity
+  parent: PaintingBase
+  id: ADTPaintingFarewellConvoy
+  name: Farewell to the Convoy
+  description: Placeholder
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/paintings_48x.rsi
+    state: farewell_convoy48x
+
+- type: entity
+  parent: PaintingBase
+  id: ADTPaintingJosephStalin
+  name: portrait of Stalin
+  description: Placeholder
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/paintings.rsi
+    state: joseph_stalin
+
+- type: entity
+  parent: PaintingBase
+  id: ADTPaintingMedal
+  name: framed medal
+  description: Placeholder
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/paintings.rsi
+    state: medal
+
+- type: entity
+  parent: PaintingBase
+  id: ADTPaintingMonaLisa
+  name: Mona Lisa
+  description: Placeholder
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/paintings.rsi
+    state: mona_lisa
+
+- type: entity
+  parent: PaintingBase
+  id: ADTPaintingPearlEarring
+  name: Girl with a Pearl Earring
+  description: Placeholder
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/paintings.rsi
+    state: pearl_earring
+
+- type: entity
+  parent: PaintingBase
+  id: ADTPaintingPrazat
+  name: self-portrait of Prazat Der Vahed
+  description: Placeholder
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/paintings.rsi
+    state: prazat
+
+- type: entity
+  parent: PaintingBase
+  id: ADTPaintingScared
+  name: scared
+  description: Placeholder
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/paintings.rsi
+    state: scared
+
+- type: entity
+  parent: PaintingBase
+  id: ADTPaintingSeveredEar
+  name: self-portrait with severed ear and pipe
+  description: Placeholder
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/paintings.rsi
+    state: severed_ear
+
+- type: entity
+  parent: PaintingBase
+  id: ADTPaintingStilllife1
+  name: still life
+  description: Placeholder
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/paintings.rsi
+    state: stilllife1
+
+- type: entity
+  parent: PaintingBase
+  id: ADTPaintingStilllife2
+  name: still life
+  description: Placeholder
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/paintings.rsi
+    state: stilllife2
+
+- type: entity
+  parent: PaintingBase
+  id: ADTPaintingWanderer
+  name: Wanderer above the Sea of Fog
+  description: Placeholder
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/paintings.rsi
+    state: wanderer
+
+- type: entity
+  parent: PaintingBase
+  id: ADTPaintingZimaBlue
+  name: Zima Blue
+  description: Placeholder
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/paintings.rsi
+    state: zima_blue

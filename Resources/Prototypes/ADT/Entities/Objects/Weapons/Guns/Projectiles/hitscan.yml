@@ -1,88 +1,90 @@
-- type: hitscan
+- type: entity
+  parent: BasicHitscan
   id: EctoLaserRifle
-  damage:
-    types:
-      Heat: 10
-  muzzleFlash:
-    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
-    state: muzzle_xray
-  travelFlash:
-    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
-    state: xray
-  impactFlash:
-    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
-    state: impact_xray
-  targetEvents:
-  - !type:EctoplasmHitscanHitEvent
-    damageToPhantom:
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: HitscanBasicDamage
+    damage:
       types:
-        Blunt: 50
-    damageToTarget:
-      types:
-        Heat: 30
+        Heat: 10
+  - type: HitscanBasicVisuals
+    muzzleFlash:
+      sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+      state: muzzle_xray
+    travelFlash:
+      sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+      state: xray
+    impactFlash:
+      sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+      state: impact_xray
+  - type: HitscanBasicEffects
 
 
-- type: hitscan
+- type: entity
+  parent: BasicHitscan
   id: EctoLaserPistol
-  damage:
-    types:
-      Heat: 10
-  muzzleFlash:
-    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
-    state: muzzle_xray
-  travelFlash:
-    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
-    state: xray
-  impactFlash:
-    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
-    state: impact_xray
-  targetEvents:
-  - !type:EctoplasmHitscanHitEvent
-    damageToPhantom:
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: HitscanBasicDamage
+    damage:
       types:
-        Blunt: 30
-    damageToTarget:
-      types:
-        Heat: 15
+        Heat: 10
+  - type: HitscanBasicVisuals
+    muzzleFlash:
+      sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+      state: muzzle_xray
+    travelFlash:
+      sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+      state: xray
+    impactFlash:
+      sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+      state: impact_xray
+  - type: HitscanBasicEffects
 
-- type: hitscan
+
+- type: entity
+  parent: BasicHitscan
   id: ADTHealMechGun
-  damage:
-    types:
-      Blunt: -2
-      Slash: -2
-      Piercing: -2
-      Heat: -2
-      #Radiation: -2
-      Caustic: -2
-      #Bloodloss: -2
-      #Asphyxiation: -2
-      #Cellular: -2
-      Cold: -2
-      Shock: -2
-      #Poison: -2
-  bloodlossModifier: -2
-  muzzleFlash:
-    sprite: ADT/Objects/Weapons/Guns/Projectiles/medigun_projectiles.rsi
-    state: muzzle_heal
-  travelFlash:
-    sprite: ADT/Objects/Weapons/Guns/Projectiles/medigun_projectiles.rsi
-    state: beam_heal
-  impactFlash:
-    sprite: ADT/Objects/Weapons/Guns/Projectiles/medigun_projectiles.rsi
-    state: impact_heal
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: HitscanBasicDamage
+    damage:
+      types:
+        Blunt: -2
+        Slash: -2
+        Piercing: -2
+        Heat: -2
+        Caustic: -2
+        Cold: -2
+        Shock: -2
+  - type: HitscanBasicVisuals
+    muzzleFlash:
+      sprite: ADT/Objects/Weapons/Guns/Projectiles/medigun_projectiles.rsi
+      state: muzzle_heal
+    travelFlash:
+      sprite: ADT/Objects/Weapons/Guns/Projectiles/medigun_projectiles.rsi
+      state: beam_heal
+    impactFlash:
+      sprite: ADT/Objects/Weapons/Guns/Projectiles/medigun_projectiles.rsi
+      state: impact_heal
 
-- type: hitscan
+
+- type: entity
+  parent: BasicHitscan
   id: RedLaserBlaster
-  damage:
-    types:
-      Heat: 0
-  muzzleFlash:
-    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
-    state: muzzle_laser
-  travelFlash:
-    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
-    state: beam
-  impactFlash:
-    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
-    state: impact_laser
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: HitscanBasicDamage
+    damage:
+      types:
+        Heat: 0
+  - type: HitscanBasicVisuals
+    muzzleFlash:
+      sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+      state: muzzle_laser
+    travelFlash:
+      sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+      state: beam
+    impactFlash:
+      sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+      state: impact_laser

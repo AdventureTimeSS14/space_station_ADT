@@ -1402,3 +1402,186 @@
   canBuildInImpassable: false
   conditions:
     - !type:TileNotBlocked
+
+# ADT wallmount flags
+- type: construction
+  id: ADTBlankFlagVerticalRecipe
+  name: construction-name-flag-blank
+  description: construction-desc-flag-blank
+  graph: ADTBlankFlagVerticalGraph
+  startNode: start
+  targetNode: flag
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: true
+  conditions:
+    - !type:WallmountCondition
+
+- type: construction
+  id: ADTNTFlagVerticalRecipe
+  name: construction-name-flag-nanotrasen
+  description: construction-desc-flag-nanotrasen
+  graph: ADTNTFlagVerticalGraph
+  startNode: start
+  targetNode: flag
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: true
+  conditions:
+    - !type:WallmountCondition
+
+- type: construction
+  id: ADTKMTFlagRecipe
+  name: construction-name-flag-kmt
+  description: construction-desc-flag-kmt
+  graph: ADTKMTFlagGraph
+  startNode: start
+  targetNode: flag
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: true
+  conditions:
+    - !type:WallmountCondition
+
+- type: construction
+  id: ADTKMTFlagVerticalRecipe
+  name: construction-name-flag-kmt-vertical
+  description: construction-desc-flag-kmt
+  graph: ADTKMTFlagVerticalGraph
+  startNode: start
+  targetNode: flag
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: true
+  conditions:
+    - !type:WallmountCondition
+
+- type: construction
+  id: ADTElysiumFlagRecipe
+  name: construction-name-flag-elysium
+  description: construction-desc-flag-elysium
+  graph: ADTElysiumFlagGraph
+  startNode: start
+  targetNode: flag
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: true
+  conditions:
+    - !type:WallmountCondition
+
+- type: construction
+  id: ADTElysiumFlagVerticalRecipe
+  name: construction-name-flag-elysium-vertical
+  description: construction-desc-flag-elysium
+  graph: ADTElysiumFlagVerticalGraph
+  startNode: start
+  targetNode: flag
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: true
+  conditions:
+    - !type:WallmountCondition
+
+- type: construction
+  id: ADTTSFFlagRecipe
+  name: construction-name-flag-tsf
+  description: construction-desc-flag-tsf
+  graph: ADTTSFFlagGraph
+  startNode: start
+  targetNode: flag
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: true
+  conditions:
+    - !type:WallmountCondition
+
+- type: construction
+  id: ADTTSFFlagVerticalRecipe
+  name: construction-name-flag-tsf-vertical
+  description: construction-desc-flag-tsf
+  graph: ADTTSFFlagVerticalGraph
+  startNode: start
+  targetNode: flag
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: true
+  conditions:
+    - !type:WallmountCondition
+
+- type: construction
+  id: ADTUSSPFlagRecipe
+  name: construction-name-flag-ussp
+  description: construction-desc-flag-ussp
+  graph: ADTUSSPFlagGraph
+  startNode: start
+  targetNode: flag
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: true
+  conditions:
+    - !type:WallmountCondition
+
+- type: construction
+  id: ADTUSSPFlagVerticalRecipe
+  name: construction-name-flag-ussp-vertical
+  description: construction-desc-flag-ussp
+  graph: ADTUSSPFlagVerticalGraph
+  startNode: start
+  targetNode: flag
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: true
+  conditions:
+    - !type:WallmountCondition
+
+- type: construction
+  id: ADTUSSPFlagVertical2Recipe
+  name: construction-name-flag-ussp-vertical-2
+  description: construction-desc-flag-ussp
+  graph: ADTUSSPFlagVertical2Graph
+  startNode: start
+  targetNode: flag
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: true
+  conditions:
+    - !type:WallmountCondition
+
+- type: construction
+  id: ADTRastamanFlagRecipe
+  name: construction-name-flag-rastaman
+  description: construction-desc-flag-rastaman
+  graph: ADTRastamanFlagGraph
+  startNode: start
+  targetNode: flag
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: true
+  conditions:
+    - !type:WallmountCondition
+
+- type: construction
+  id: ADTRomanFlagRecipe
+  name: construction-name-flag-roman
+  description: construction-desc-flag-roman
+  graph: ADTRomanFlagGraph
+  startNode: start
+  targetNode: flag
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: true
+  conditions:
+    - !type:WallmountCondition

@@ -6,7 +6,7 @@
   - type: FlavorProfile
     flavors:
       - bitter
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: false
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/drug_food.rsi
@@ -56,7 +56,7 @@
   - type: Stack
     stackType: ADTFoodMethCrystalShard
     count: 1
-  - type: Food
+  - type: Edible
   - type: Sprite
     color: "#ffffff"
     state: crystal_shard
@@ -98,7 +98,7 @@
   - type: Stack
     stackType: ADTFoodWalterMethCrystalShard
     count: 1
-  - type: Food
+  - type: Edible
   - type: Sprite
     color: "#1bcfe7"
     state: crystal_shard
