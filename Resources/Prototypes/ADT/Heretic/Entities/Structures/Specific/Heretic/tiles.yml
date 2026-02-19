@@ -20,7 +20,7 @@
         shader: unshaded
   - type: TileEntityEffect
     effects:
-    - !type:FlammableReaction
+    - !type:Flammable
       multiplier: 3.75
       multiplierOnExisting: 0.75
     - !type:Ignite
@@ -63,9 +63,9 @@
     layers:
       - state: voidtile
         shader: unshaded
-  - type: TileEntityEffect
-    effects:
-    - !type:VoidCurse
+  # - type: TileEntityEffect
+  #   effects:
+  #   - !type:VoidCurse
   - type: Transform
     anchored: true
   - type: Physics

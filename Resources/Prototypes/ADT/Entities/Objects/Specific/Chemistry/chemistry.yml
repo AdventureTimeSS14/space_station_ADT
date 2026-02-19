@@ -25,10 +25,7 @@
   - type: FitsInDispenser
     solution: injector
   - type: Injector
-    minTransferAmount: 1
-    maxTransferAmount: 5
     delay: 3
-    transferAmount: 1
     injectOnly: false
   - type: Appearance
   - type: ExaminableSolution

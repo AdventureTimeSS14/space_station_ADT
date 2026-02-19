@@ -6,7 +6,8 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Collision.Shapes;
 using Robust.Shared.Physics.Systems;
-using System.Numerics; // using for vectors
+using System.Numerics;
+using Content.Shared.Sprite; // using for vectors
 namespace Content.ADT.Server.EatToGrow;
 
 
@@ -20,11 +21,11 @@ public sealed class EatToGrowSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<FoodComponent, BeforeFullyEatenEvent>(OnFoodEaten);
+        SubscribeLocalEvent<EatToGrowComponent, FullyEatenEvent>(OnFoodEaten);
         SubscribeLocalEvent<EatToGrowComponent, MobStateChangedEvent>(ShrinkOnDeath);
     }
 
-    private void OnFoodEaten(Entity<FoodComponent> ent, ref BeforeFullyEatenEvent args)
+    private void OnFoodEaten(Entity<EatToGrowComponent> ent, ref FullyEatenEvent args)
     {
         // The entity that ate the food (the mothroach, human, etc.)
         var eater = args.User;

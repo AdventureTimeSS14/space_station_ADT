@@ -47,7 +47,7 @@
     - type: RadiationSource
       intensity: 2
     - type: SupermatterKudzuCollide
-    - type: Food # что нахуй
+    - type: Edible # что нахуй
       delay: 0.5
     - type: SolutionContainerManager # TODO: Когда-нибудь в будущем сделать собственный реагент для суперматтер.
       solutions:

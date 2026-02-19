@@ -88,6 +88,24 @@
     - Dwarf
     - Human
     - Reptilian
+    # #Corvax-Species-Start # ADT-Tweak: У нас есть свои айди
+    # - Vulpkanin
+    # - CorvaxVulpkanin
+    # - Tajaran
+    # #Corvax-Species-End
+    # ADT-Tweak start
+    - DemonSpecies
+    - VulpkaninSpecies
+    - KoboltSpecies
+    - DraskSpecies
+    - NovakidSpecies
+    - Resomi
+    - TajaranSpecies
+    - Felinid
+    - Shadekin
+    - UrsusSpecies
+    # ADT-Tweak end
+
 
 - type: loadoutEffectGroup
   id: OxygenBreatherMimeMoth

@@ -5050,7 +5050,7 @@ entities:
       parent: 1
     - type: Defusable
       activated: True
-    - type: OnUseTimerTrigger
+    - type: TimerTrigger
       delay: 85
     - type: Physics
       bodyType: Static

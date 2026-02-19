@@ -1,14 +1,15 @@
-using Content.Server.Chat.Systems;
-using Robust.Shared.Random;
-using Content.Shared.Damage;
-using Content.Shared.Body.Components;
-using Content.Shared.Chemistry.Components;
-using Content.Server.Fluids.EntitySystems;
-using Content.Shared.Mobs.Systems;
-using Content.Shared.ADT.Silicon.Components;
-using Robust.Shared.Prototypes;
-using Content.Shared.Chat;
 using System.Threading;
+using Content.Server.Chat.Systems;
+using Content.Server.Fluids.EntitySystems;
+using Content.Shared.ADT.Silicon.Components;
+using Content.Shared.Body.Components;
+using Content.Shared.Chat;
+using Content.Shared.Chemistry.Components;
+using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Systems;
+using Content.Shared.Mobs.Systems;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
 
 namespace Content.Server.ADT.BloodCough;
 
@@ -26,7 +27,6 @@ public sealed class BloodCoughSystem : EntitySystem
         SubscribeLocalEvent<BloodCoughComponent, DamageChangedEvent>(OnMobStateDamage);
         SubscribeLocalEvent<BloodCoughComponent, ComponentStartup>(OnComponentStartup);
         SubscribeLocalEvent<BloodCoughComponent, ComponentShutdown>(OnComponentShutdown);
-        SubscribeLocalEvent<BloodCoughComponent, AfterAutoHandleStateEvent>(OnAfterAutoHandleState);
     }
 
     private void OnComponentStartup(EntityUid uid, BloodCoughComponent component, ComponentStartup args)
@@ -44,12 +44,6 @@ public sealed class BloodCoughSystem : EntitySystem
             component.TokenSource.Dispose();
             component.TokenSource = null;
         }
-    }
-
-    private void OnAfterAutoHandleState(EntityUid uid, BloodCoughComponent component, ref AfterAutoHandleStateEvent args)
-    {
-        // Обновляем состояние кашля при изменении компонента
-        CheckAndUpdateCoughState(uid, component);
     }
 
     private void OnMobStateDamage(EntityUid uid, BloodCoughComponent component, DamageChangedEvent args)

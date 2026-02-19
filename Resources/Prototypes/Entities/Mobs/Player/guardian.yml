@@ -125,11 +125,6 @@
       makeSentient: true
       name: ghost-role-information-holoparasite-name
       description: ghost-role-information-holoparasite-description
-      # ADT-Tweak-start
-      requirements:
-        - !type:OverallPlaytimeRequirement
-          time: 36000 # 10h
-      # ADT-Tweak-end
       rules: ghost-role-information-familiar-rules
       raffle:
         settings: default
@@ -197,11 +192,6 @@
       makeSentient: true
       name: ghost-role-information-holoclown-name
       description: ghost-role-information-holoclown-description
-      # ADT-Tweak-start
-      requirements:
-        - !type:OverallPlaytimeRequirement
-          time: 36000 # 10h
-      # ADT-Tweak-end
       rules: ghost-role-information-familiar-rules
       raffle:
         settings: default
@@ -252,8 +242,7 @@
         types:
           Blunt: 5
           Piercing: 4
-        groups:
-          Burn: 3
+          Heat: 3
       catchingFailDamage:
         types:
           Blunt: 1

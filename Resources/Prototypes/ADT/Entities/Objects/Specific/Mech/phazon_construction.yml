@@ -49,14 +49,14 @@
   - type: ContainerContainer
     containers:
       mech-assembly-container: !type:Container
-  - type: MechAssembly
-    finishedPrototype: ADTPhazonChassis
-    requiredParts:
-      ADTPhazonLArm: false
-      ADTPhazonRArm: false
-      ADTPhazonLLeg: false
-      ADTPhazonRLeg: false
-      ADTPhazonHead: false
+  - type: PartAssembly
+    parts:
+      ADTPhazonChassis:
+      - ADTPhazonLArm
+      - ADTPhazonRArm
+      - ADTPhazonLLeg
+      - ADTPhazonRLeg
+      - ADTPhazonHead
   - type: Sprite
     state: phazon_harness+o
     noRot: true

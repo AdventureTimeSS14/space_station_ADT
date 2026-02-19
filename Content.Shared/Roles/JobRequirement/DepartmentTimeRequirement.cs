@@ -54,7 +54,7 @@ public sealed partial class DepartmentTimeRequirement : JobRequirement
         var formattedDeptDiffMinutes = ContentLocalizationManager.FormatPlaytimeMinutes(deptDiffSpan); // ADT change
         var nameDepartment = "role-timer-department-unknown";
 
-        if (protoManager.TryIndex(Department, out var departmentIndexed))
+        if (protoManager.Resolve(Department, out var departmentIndexed))
         {
             nameDepartment = departmentIndexed.Name;
         }
