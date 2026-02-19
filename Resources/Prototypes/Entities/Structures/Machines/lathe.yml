@@ -112,7 +112,11 @@
         - Sheet
         - RawMaterial
         - Ingot
-  - type: StationAiWhitelist #ADT-Tweak
+        # ADT-Tweak start. Разрешаем блюспейс кристаллы и фантомным кристаллам пихать в автолат
+        - ADTBSCrystal
+        - PhantomEctoplasm
+        #ADT-Tweak end
+  - type: StationAiWhitelist
   - type: OreSiloClient
   - type: Lathe
     idleState: icon
