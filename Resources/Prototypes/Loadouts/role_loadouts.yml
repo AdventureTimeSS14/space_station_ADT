@@ -16,6 +16,7 @@
   # ADT underwear tweak end
   - Survival
   - Trinkets
+  - CaptainJobTrinkets
   - GroupSpeciesBreathTool
 
 
@@ -38,6 +39,7 @@
   # ADT underwear tweak end
   - Survival
   - Trinkets
+  - HoPJobTrinkets
   - GroupSpeciesBreathTool
 
 # Silicons
@@ -79,6 +81,7 @@
   # ADT underwear tweak end
   - Survival
   - Trinkets
+  - PassengerJobTrinkets
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -100,6 +103,7 @@
   # ADT underwear tweak end
   - Survival
   - Trinkets
+  - BartenderJobTrinkets
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -119,6 +123,7 @@
   # ADT underwear tweak end
   - Survival
   - Trinkets
+  - ServiceWorkerJobTrinkets
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -144,6 +149,7 @@
   # ADT underwear tweak end
   - Survival
   - Trinkets
+  - ChefJobTrinkets
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -162,6 +168,7 @@
   # ADT underwear tweak end
   - Survival
   - Trinkets
+  - LibrarianJobTrinkets
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -183,6 +190,7 @@
   # ADT underwear tweak end
   - Survival
   - Trinkets
+  - LawyerJobTrinkets
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -206,6 +214,7 @@
   # ADT underwear tweak end
   - Survival
   - Trinkets
+  - ChaplainJobTrinkets
   - GroupSpeciesBreathTool
   # ADT chaplain update
   - ADTChaplainBelt
@@ -229,7 +238,7 @@
   # ADT underwear tweak end
   - Survival
   - Trinkets
-  - JanitorPlunger
+  - JanitorJobTrinkets
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -250,6 +259,7 @@
   # ADT underwear tweak end
   - Survival
   - Trinkets
+  - BotanistJobTrinkets
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -276,6 +286,7 @@
   # ADT underwear tweak end
   - SurvivalClown
   - Trinkets
+  - ClownJobTrinkets
 
 - type: roleLoadout
   id: JobMime
@@ -297,9 +308,11 @@
   # ADT underwear tweak end
   - SurvivalMime
   - Trinkets
+  - MimeJobTrinkets
 
 - type: roleLoadout
   id: JobMusician
+  canCustomizeName: true
   groups:
   - Inventory # Corvax-Loadouts
   - GroupTankHarness
@@ -316,6 +329,7 @@
   # ADT underwear tweak end
   - Survival
   - Trinkets
+  - MusicianJobTrinkets
   - Instruments
   - GroupSpeciesBreathTool
 
@@ -341,6 +355,7 @@
   # ADT underwear tweak end
   - Survival
   - Trinkets
+  - QuartermasterJobTrinkets
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -353,6 +368,7 @@
   - CargoTechnicianBackpack
   - CargoTechnicianOuterClothing
   - CargoTechnicianShoes
+  # - CargoTechnicianID # ADT tweak - убрал, чтобы не было дубляжа с КПК
   - Glasses
   - ADTCargoPDA # ADT tweak
   # ADT underwear tweak start
@@ -362,6 +378,7 @@
   # ADT underwear tweak end
   - Survival
   - Trinkets
+  - CargoTechnicianJobTrinkets
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -383,6 +400,7 @@
   # ADT underwear tweak end
   - Survival
   - Trinkets
+  - SalvageSpecialistJobTrinkets
   - GroupSpeciesBreathTool
 
 # Engineering
@@ -407,6 +425,7 @@
   # ADT underwear tweak end
   - SurvivalExtended
   - Trinkets
+  - ChiefEngineerJobTrinkets
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -424,6 +443,7 @@
   # ADT underwear tweak end
   - SurvivalExtended
   - Trinkets
+  - TechnicalAssistantJobTrinkets
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -446,6 +466,7 @@
   # ADT underwear tweak end
   - SurvivalExtended
   - Trinkets
+  - StationEngineerJobTrinkets
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -470,6 +491,7 @@
   # ADT underwear tweak end
   - SurvivalExtended
   - Trinkets
+  - AtmosphericTechnicianJobTrinkets
   - GroupSpeciesBreathTool
 
 # Science
@@ -495,6 +517,7 @@
   # ADT underwear tweak end
   - Survival
   - Trinkets
+  - ResearchDirectorJobTrinkets
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -518,6 +541,7 @@
   # ADT underwear tweak end
   - Survival
   - Trinkets
+  - ScientistJobTrinkets
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -535,6 +559,7 @@
   # ADT underwear tweak end
   - Survival
   - Trinkets
+  - ResearchAssistantJobTrinkets
   - GroupSpeciesBreathTool
 
 # Security
@@ -558,6 +583,7 @@
   - SurvivalSecurity
   - Trinkets
   # - SecurityStar #ADT_Tweak - закомментил это издевательство
+  - HeadofSecurityJobTrinkets
   - GroupSpeciesBreathToolSecurity
 
 - type: roleLoadout
@@ -578,6 +604,7 @@
   # ADT underwear tweak end
   - SurvivalSecurity
   - Trinkets
+  - WardenJobTrinkets
   # - SecurityStar #ADT_Tweak - закомментил это издевательство
   - GroupSpeciesBreathToolSecurity
 
@@ -600,6 +627,7 @@
   # ADT underwear tweak end
   - SurvivalSecurity
   - Trinkets
+  - SecurityJobTrinkets
   # - SecurityStar #ADT_Tweak - закомментил это издевательство
   - GroupSpeciesBreathToolSecurity
 
@@ -621,6 +649,7 @@
   # ADT underwear tweak end
   - SurvivalSecurity
   - Trinkets
+  - DetectiveJobTrinkets
   # - SecurityStar #ADT_Tweak - закомментил это издевательство
   - GroupSpeciesBreathToolSecurity
 
@@ -633,6 +662,7 @@
   - SecurityBackpack
   - SurvivalSecurity
   - Trinkets
+  - SecurityCadetJobTrinkets
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom
@@ -665,6 +695,7 @@
   # ADT underwear tweak end
   - SurvivalMedical
   - Trinkets
+  - ChiefMedicalOfficerJobTrinkets
   - GroupSpeciesBreathToolMedical
 
 - type: roleLoadout
@@ -689,6 +720,7 @@
   # ADT underwear tweak end
   - SurvivalMedical
   - Trinkets
+  - MedicalDoctorJobTrinkets
   - GroupSpeciesBreathToolMedical
 
 - type: roleLoadout
@@ -708,6 +740,7 @@
   # ADT underwear tweak end
   - SurvivalMedical
   - Trinkets
+  - MedicalInternJobTrinkets
   - GroupSpeciesBreathToolMedical
 
 - type: roleLoadout
@@ -728,6 +761,7 @@
   # ADT underwear tweak end
   - SurvivalMedical
   - Trinkets
+  - ChemistJobTrinkets
   - GroupSpeciesBreathToolMedical
 
 - type: roleLoadout
@@ -754,6 +788,7 @@
   # ADT underwear tweak end
   - SurvivalMedical
   - Trinkets
+  - ParamedicJobTrinkets
   - GroupSpeciesBreathToolMedical
 
 # Wildcards
@@ -771,6 +806,7 @@
   # ADT underwear tweak end
   - Survival
   - Trinkets
+  - ZookeeperJobTrinkets
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -789,6 +825,7 @@
   # ADT underwear tweak end
   - Survival
   - Trinkets
+  - ReporterJobTrinkets
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -807,6 +844,7 @@
   # ADT underwear tweak end
   - Survival
   - Trinkets
+  - PsychologistJobTrinkets
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -827,6 +865,7 @@
   # ADT underwear tweak end
   - Survival
   - Trinkets
+  - BoxerJobTrinkets
   - GroupSpeciesBreathTool
 
 # These loadouts are used for non-crew spawns, like off-station antags and event mobs

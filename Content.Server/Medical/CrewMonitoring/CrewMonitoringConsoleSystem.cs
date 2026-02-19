@@ -108,7 +108,7 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
             }
         }
         // ADT-Tweak-End
-        _uiSystem.SetUiState(uid, CrewMonitoringUIKey.Key, new CrewMonitoringState(allSensors, component.IsEmagged)); // ADT-Tweak
+        _uiSystem.SetUiState(uid, CrewMonitoringUIKey.Key, new CrewMonitoringState(allSensors, true)); // ADT-Tweak
     }
 
     // ADT-Tweak-Start

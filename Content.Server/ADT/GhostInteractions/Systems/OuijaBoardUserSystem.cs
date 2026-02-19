@@ -3,6 +3,7 @@ using Content.Server.Tabletop;
 using Content.Shared.ADT.GhostInteractions;
 using Content.Server.Light.Components;
 using Content.Server.Ghost;
+using Content.Shared.Light.Components;
 using Content.Server.Tabletop.Components;
 using Robust.Shared.Player;
 using Content.Shared.Interaction;

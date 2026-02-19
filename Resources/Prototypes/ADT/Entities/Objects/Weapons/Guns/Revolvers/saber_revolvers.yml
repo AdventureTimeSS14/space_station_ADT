@@ -80,20 +80,6 @@
     magState: mag
     steps: 2
     zeroVisible: true
-  - type: HiddenDescription
-    entries:
-    - label: corvax-hidden-desc-ADTWeaponSaberRevBlueshield-syndicate
-      whitelistMind:
-        components:
-          - TraitorRole
-          - NukeOperative
-    - label: corvax-hidden-desc-ADTWeaponSaberRevBlueshield-security
-      jobRequired:
-        - HeadOfSecurity
-        - Detective
-        - SecurityCadet
-        - SecurityOfficer
-        - Warden
   - type: Appearance
   - type: ItemSlots
     slots:
