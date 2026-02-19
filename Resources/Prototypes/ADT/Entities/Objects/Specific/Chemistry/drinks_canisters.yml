@@ -13,7 +13,6 @@
         reagents:
         - ReagentId: Ice
           Quantity: 600
-  - type: Drink
   - type: Label
     currentLabel: reagent-name-ice
 
@@ -29,7 +28,6 @@
         reagents:
         - ReagentId: CoconutWater
           Quantity: 600
-  - type: Drink
   - type: Label
     currentLabel: reagent-name-coconut-water
 
@@ -45,7 +43,6 @@
         reagents:
         - ReagentId: Coffee
           Quantity: 600
-  - type: Drink
   - type: Label
     currentLabel: reagent-name-coffee
 
@@ -61,7 +58,6 @@
         reagents:
         - ReagentId: Cream
           Quantity: 600
-  - type: Drink
   - type: Label
     currentLabel: reagent-name-cream
 
@@ -77,7 +73,6 @@
         reagents:
         - ReagentId: Tea
           Quantity: 600
-  - type: Drink
   - type: Label
     currentLabel: reagent-name-tea
 
@@ -93,7 +88,6 @@
         reagents:
         - ReagentId: GreenTea
           Quantity: 600
-  - type: Drink
   - type: Label
     currentLabel: reagent-name-green-tea
 
@@ -109,7 +103,6 @@
         reagents:
         - ReagentId: IcedTea
           Quantity: 600
-  - type: Drink
   - type: Label
     currentLabel: reagent-name-iced-tea
 
@@ -125,7 +118,6 @@
         reagents:
         - ReagentId: Cola
           Quantity: 600
-  - type: Drink
   - type: Label
     currentLabel: reagent-name-cola
 
@@ -141,7 +133,6 @@
         reagents:
         - ReagentId: SpaceMountainWind
           Quantity: 600
-  - type: Drink
   - type: Label
     currentLabel: reagent-name-space-mountain-wind
 
@@ -157,7 +148,6 @@
         reagents:
         - ReagentId: DrGibb
           Quantity: 600
-  - type: Drink
   - type: Label
     currentLabel: reagent-name-dr-gibb
 
@@ -173,7 +163,6 @@
         reagents:
         - ReagentId: RootBeer
           Quantity: 600
-  - type: Drink
   - type: Label
     currentLabel: reagent-name-root-beer
 
@@ -189,7 +178,6 @@
         reagents:
         - ReagentId: SpaceUp
           Quantity: 600
-  - type: Drink
   - type: Label
     currentLabel: reagent-name-space-up
 
@@ -205,7 +193,6 @@
         reagents:
         - ReagentId: TonicWater
           Quantity: 600
-  - type: Drink
   - type: Label
     currentLabel: reagent-name-tonic-water
 
@@ -221,7 +208,6 @@
         reagents:
         - ReagentId: SodaWater
           Quantity: 600
-  - type: Drink
   - type: Label
     currentLabel: reagent-name-soda-water
 
@@ -237,7 +223,6 @@
         reagents:
         - ReagentId: LemonLime
           Quantity: 600
-  - type: Drink
   - type: Label
     currentLabel: reagent-name-lemon-lime
 
@@ -253,7 +238,6 @@
         reagents:
         - ReagentId: Sugar
           Quantity: 600
-  - type: Drink
   - type: Label
     currentLabel: reagent-name-sugar
 
@@ -269,7 +253,6 @@
         reagents:
         - ReagentId: JuiceOrange
           Quantity: 600
-  - type: Drink
   - type: Label
     currentLabel: reagent-name-juice-orange
 
@@ -285,7 +268,6 @@
         reagents:
         - ReagentId: JuiceLime
           Quantity: 600
-  - type: Drink
   - type: Label
     currentLabel: reagent-name-juice-lime
 
@@ -301,7 +283,6 @@
         reagents:
         - ReagentId: JuiceWatermelon
           Quantity: 600
-  - type: Drink
   - type: Label
     currentLabel: reagent-name-juice-watermelon
 
@@ -317,7 +298,6 @@
         reagents:
         - ReagentId: EnergyDrink
           Quantity: 600
-  - type: Drink
   - type: Label
     currentLabel: reagent-name-energy-drink
 
@@ -335,7 +315,6 @@
         reagents:
         - ReagentId: Beer
           Quantity: 600
-  - type: Drink
   - type: Label
     currentLabel: reagent-name-beer
 
@@ -351,7 +330,6 @@
         reagents:
         - ReagentId: CoffeeLiqueur
           Quantity: 600
-  - type: Drink
   - type: Label
     currentLabel: reagent-name-coffeeliqueur
 
@@ -367,7 +345,6 @@
         reagents:
         - ReagentId: Wine
           Quantity: 600
-  - type: Drink
   - type: Label
     currentLabel: reagent-name-wine
 
@@ -383,7 +360,6 @@
         reagents:
         - ReagentId: Vodka
           Quantity: 600
-  - type: Drink
   - type: Label
     currentLabel: reagent-name-vodka
 
@@ -399,7 +375,6 @@
         reagents:
         - ReagentId: Gin
           Quantity: 600
-  - type: Drink
   - type: Label
     currentLabel: reagent-name-gin
 
@@ -415,7 +390,6 @@
         reagents:
         - ReagentId: Rum
           Quantity: 600
-  - type: Drink
   - type: Label
     currentLabel: reagent-name-rum
 
@@ -431,7 +405,6 @@
         reagents:
         - ReagentId: Tequila
           Quantity: 600
-  - type: Drink
   - type: Label
     currentLabel: reagent-name-tequila
 
@@ -447,7 +420,6 @@
         reagents:
         - ReagentId: Vermouth
           Quantity: 600
-  - type: Drink
   - type: Label
     currentLabel: reagent-name-vermouth
 
@@ -463,7 +435,6 @@
         reagents:
         - ReagentId: Cognac
           Quantity: 600
-  - type: Drink
   - type: Label
     currentLabel: reagent-name-cognac
 
@@ -479,7 +450,6 @@
         reagents:
         - ReagentId: Ale
           Quantity: 600
-  - type: Drink
   - type: Label
     currentLabel: reagent-name-ale
 
@@ -495,7 +465,6 @@
         reagents:
         - ReagentId: Mead
           Quantity: 600
-  - type: Drink
   - type: Label
     currentLabel: reagent-name-mead
 
@@ -511,7 +480,6 @@
 #         reagents:
 #         - ReagentId: ADTAppleLiqueur
 #           Quantity: 600
-#   - type: Drink
 #   - type: Label
 #     currentLabel: apple-liqueur-name
 
@@ -527,7 +495,6 @@
         reagents:
         - ReagentId: Whiskey
           Quantity: 600
-  - type: Drink
   - type: Label
     currentLabel: reagent-name-whiskey
 
@@ -552,7 +519,6 @@
       - ReagentId: Coffee
         Quantity: 1
   - type: Unremoveable
-  - type: Drink
   - type: Label
     currentLabel: reagent-name-coffee
   - type: Tag
@@ -571,6 +537,5 @@
         reagents:
         - ReagentId: SpaceLube
           Quantity: 600
-  - type: Drink
   - type: Label
     currentLabel: reagent-name-space-Lube

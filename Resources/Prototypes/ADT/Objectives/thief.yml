@@ -4,7 +4,7 @@
   id: ADTClothingMaskGasCEStealObjective
   components:
   - type: NotJobRequirement
-    job: StationEngineer
+    jobs: [ StationEngineer ]
   - type: StealCondition
     stealGroup: ADTClothingMaskGasCE
   - type: Objective

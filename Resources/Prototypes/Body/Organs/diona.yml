@@ -6,7 +6,7 @@
   - type: Sprite
     sprite: Mobs/Species/Diona/organs.rsi
   - type: Organ
-  - type: Food
+  - type: Edible
   - type: Extractable
     grindableSolutionName: organ
   - type: SolutionContainerManager
@@ -19,7 +19,7 @@
       food:
         maxVol: 5
         reagents:
-        - ReagentId: UncookedAnimalProteins
+        - ReagentId: Cellulose
           Quantity: 5
   - type: FlavorProfile
     flavors:
@@ -92,7 +92,7 @@
       food:
         maxVol: 5
         reagents:
-        - ReagentId: UncookedAnimalProteins
+        - ReagentId: Cellulose
           Quantity: 5
   - type: Stomach
   - type: Metabolizer
@@ -106,7 +106,6 @@
       - id: Poison
       - id: Narcotic
       - id: Alcohol
-        rateModifier: 0.1
   - type: Item
     size: Small
     heldPrefix: stomach
@@ -146,11 +145,18 @@
       Lung:
         maxVol: 100
         canReact: False
-  - type: Tag # goob edit
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Cellulose
+          Quantity: 5
+  #ADT-tweak-start
+  - type: Tag
     tags:
     - Meat
     - Organ
     - Lungs
+ #ADT-tweak-end
 
 # Organs that turn into nymphs on removal
 - type: entity

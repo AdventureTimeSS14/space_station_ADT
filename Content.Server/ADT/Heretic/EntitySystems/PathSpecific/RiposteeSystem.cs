@@ -2,6 +2,8 @@ using Content.Server.Hands.Systems;
 using Content.Server.Heretic.Components.PathSpecific;
 using Content.Server.Popups;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Weapons.Melee;
 
 namespace Content.Server.Heretic.EntitySystems.PathSpecific;
@@ -53,7 +55,7 @@ public sealed partial class RiposteeSystem : EntitySystem
 
         args.Cancelled = true;
         if (HasComp<DamageableComponent>(args.Origin))
-            _dmg.TryChangeDamage(args.Origin, args.Damage, true); // back to sender
+            _dmg.TryChangeDamage(args.Origin.Value, args.Damage, true); // back to sender
 
         ent.Comp.CanRiposte = false;
         _popup.PopupCursor(Loc.GetString("heretic-riposte-used"), ent);

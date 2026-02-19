@@ -1,8 +1,11 @@
-using Content.Shared.Roles;
+// Уже есть Content.Shared\Roles\Components\ChangelingRoleComponent.cs
 
-namespace Content.Server.Roles;
+// using Content.Shared.Roles;
+// using Content.Shared.Roles.Components;
 
-[RegisterComponent]
-public sealed partial class ChangelingRoleComponent : BaseMindRoleComponent
-{
-}
+// namespace Content.Server.Roles;
+
+// [RegisterComponent]
+// public sealed partial class ChangelingRoleComponent : BaseMindRoleComponent
+// {
+// }

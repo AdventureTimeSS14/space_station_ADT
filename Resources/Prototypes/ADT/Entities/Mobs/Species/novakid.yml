@@ -125,12 +125,11 @@
     - reagents: [ Water, SpaceCleaner ]
       methods: [ Touch ]
       effects:
-      - !type:WashCreamPieReaction
+      - !type:WashCreamPie
     - reagents: [ Water, SpaceCleaner ]
       methods: [ Touch ]
       effects:
       - !type:HealthChange
-        scaleByQuantity: true
         damage:
           types:
             Heat: 0.45 # Повышенный дамаг от водички и моющего средства. Пшик-пшик

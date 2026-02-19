@@ -35,8 +35,8 @@
   components:
   - type: PolymorphOnTrigger
     polymorph: ADTWizardForcedVulpkanin
-  - type: TriggerWhitelist
-    whitelist:
+  - type: WhitelistTriggerCondition
+    userWhitelist:
       components:
       - Body
 

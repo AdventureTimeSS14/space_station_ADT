@@ -6,11 +6,8 @@
     enabled: true
     radius: 2
     energy: 8
-  - type: SoundOnTrigger
-    removeOnTrigger: true
-    sound:
-      path: /Audio/Effects/Grenades/Supermatter/supermatter_start.ogg
-      volume: 5
+  - type: EmitSoundOnTrigger
+    sound: /Audio/Effects/Grenades/Supermatter/supermatter_start.ogg
   - type: AmbientSound
     enabled: true
     volume: -5
@@ -36,11 +33,8 @@
     enabled: true
     radius: 2
     energy: 8
-  - type: SoundOnTrigger
-    removeOnTrigger: true
-    sound:
-      path: /Audio/Effects/Grenades/Supermatter/supermatter_start.ogg
-      volume: 5
+  - type: EmitSoundOnTrigger
+    sound: /Audio/Effects/Grenades/Supermatter/supermatter_start.ogg
   - type: AmbientSound
     enabled: true
     volume: -5
