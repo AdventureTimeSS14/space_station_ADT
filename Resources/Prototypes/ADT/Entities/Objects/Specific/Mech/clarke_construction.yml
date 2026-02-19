@@ -49,14 +49,14 @@
   - type: ContainerContainer
     containers:
       mech-assembly-container: !type:Container
-  - type: MechAssembly
-    finishedPrototype: ADTClarkeChassis
-    requiredParts:
-      ADTClarkeLArm: false
-      ADTClarkeRArm: false
-      ADTClarkeLTread: false
-      ADTClarkeRTread: false
-      ADTClarkeHead: false
+  - type: PartAssembly
+    parts:
+      ADTClarkeChassis:
+      - ADTClarkeLArm
+      - ADTClarkeRArm
+      - ADTClarkeLTread
+      - ADTClarkeRTread
+      - ADTClarkeHead
   - type: Sprite
     state: clarke_harness+o
     noRot: true

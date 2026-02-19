@@ -1,3 +1,3 @@
 ent-ADTLockerParamedicFilledNoMod = { ent-LockerParamedic }
-    .suffix = Без МОДа
+    .suffix = Заполненный
     .desc = { ent-LockerParamedic.desc }

@@ -3,6 +3,7 @@ using Content.Server.Medical;
 using Content.Shared.Body.Components;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
+using Content.Shared.Medical;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Pinpointer;
 using Content.Shared.Teleportation.Components;

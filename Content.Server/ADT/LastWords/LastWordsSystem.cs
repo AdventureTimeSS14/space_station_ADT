@@ -3,6 +3,7 @@ using Content.Shared.Mind.Components;
 using Content.Shared.Mind;
 using Content.Shared.Mobs.Components;
 using Content.Shared.ADT.LastWords;
+using Content.Shared.Chat;
 
 namespace Content.Server.ADT.LastWords;
 

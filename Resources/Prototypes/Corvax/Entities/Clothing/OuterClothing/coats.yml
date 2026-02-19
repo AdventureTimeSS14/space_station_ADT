@@ -91,8 +91,8 @@
         coefficients:
           Blunt: 0.8
           Slash: 0.8
-          Piercing: 0.6
-          Heat: 0.9
+          Piercing: 0.7 #ADT-Tweak: 0,6 => 0,7
+          Heat: 0.85 #ADT-Tweak: 0,9 => 0,85
     #ADT-Tweak-Start
     - type: ContainerContainer
       containers:

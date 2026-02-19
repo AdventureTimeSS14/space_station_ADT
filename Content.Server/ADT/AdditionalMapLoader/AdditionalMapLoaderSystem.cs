@@ -7,7 +7,7 @@ namespace Content.Server.ADT.AdditionalMapLoader;
 
 public sealed class AdditionalMapLoaderSystem : EntitySystem
 {
-    [Dependency] private readonly GameTicking.GameTicker _gameTicker = default!;
+    [Dependency] private readonly GameTicker _gameTicker = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IMapManager _mapManager = default!;
 

@@ -2,6 +2,7 @@ using Content.Shared.ADT.Chaplain.Components;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Events;
 using Content.Shared.Damage.Prototypes;
+using Content.Shared.Damage.Systems;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.ADT.Chaplain;

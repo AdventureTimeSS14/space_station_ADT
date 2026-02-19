@@ -1,0 +1,48 @@
+- type: entity
+  parent: Clothing
+  id: ADTClothingBeltManipulator
+  name: T.I.C.K.
+  description: A compact manipulator secured with a harness system. Allow you to do more things at the same time, but does not guarantee you will do them correctly.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Belt/manipulator_belt.rsi
+    state: icon
+  - type: Item
+    size: Ginormous
+  - type: Clothing
+    slots: BELT
+    equipSound:
+      path: /Audio/Items/belt_equip.ogg
+  - type: Storage
+    maxItemSize: Normal
+    defaultStorageOrientation: Vertical
+    grid:
+    - 0,0,3,1
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+  - type: Appearance
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/ADT/Items/Handling/toolbelt_pickup.ogg
+      params:
+        volume: -4
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/ADT/Items/Handling/toolbelt_drop.ogg
+      params:
+        volume: -4
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/ADT/Items/Handling/toolbelt_drop.ogg
+      params:
+        volume: -4
+  - type: ExtraHandsEquipment
+    hands:
+      extra_hand_1:
+        location: Right

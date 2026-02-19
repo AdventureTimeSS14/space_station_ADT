@@ -13,9 +13,10 @@
     solutions:
       bucket:
         maxVol: 250
-  - type: Drink
+  - type: Edible
+    edible: Drink # slurping sounds!
     solution: bucket
-    ignoreEmpty: true
+    destroyOnEmpty: false
   - type: MixableSolution
     solution: bucket
   - type: Item

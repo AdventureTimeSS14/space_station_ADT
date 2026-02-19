@@ -8,6 +8,11 @@
       solutions:
         stomach:
           maxVol: 50.0
+    - type: Metabolizer
+      metabolizerTypes: [ Vulpkanin ]
+      groups:
+      - id: Alcohol
+
 
 - type: entity
   id: ADTOrganVulpkaninLiver

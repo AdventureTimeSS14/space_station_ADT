@@ -386,7 +386,7 @@
   chatMessages: [chat-emote-msg-pop]
   chatTriggers:
     - чпок
-
+    - чпокает
 
 - type: emote
   id: Bubbles
@@ -402,6 +402,8 @@
   chatMessages: [chat-emote-msg-bubbles]
   chatTriggers:
     - булькает
+    - бурлит
+    - пускает пузыри
 
 # Shadekin
 
@@ -517,3 +519,42 @@
     - машет своими крылышками
     - взмахивает своими крыльями
     - взмахивает своими крылышками
+
+# Novakid
+
+- type: emote
+  id: FierySounds
+  name: chat-emote-name-fiery-sounds
+  category: Vocal
+  whitelist:
+    requireAll: true
+    components:
+    - Vocal
+    tags:
+    - ADTNovakidEmotes
+  icon: ADT/Interface/Emotes/Vocal/fire.png
+  chatMessages: [chat-emote-msg-fiery-sounds]
+  chatTriggers:
+    - потрескивает огнём
+    - потрескивает огнем
+    - издаёт пламенные звуки
+    - издает пламенные звуки
+    - издаёт пламеные звуки
+    - издает пламеные звуки
+    - разгорается
+    - разгораеться
+    - разгарается
+    - разгараеться
+    - полыхает
+    - тихо потрескивает огнём
+    - тихо потрескивает огнем
+    - тихо издаёт пламенные звуки
+    - тихо издает пламенные звуки
+    - тихо разгорается
+    - тихо полыхает
+    - громко потрескивает огнём
+    - громко потрескивает огнем
+    - громко издаёт пламенные звуки
+    - громко издает пламенные звуки
+    - громко разгорается
+    - громко полыхает
