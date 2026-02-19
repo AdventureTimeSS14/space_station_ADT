@@ -41,7 +41,7 @@ public sealed class CrewMonitoringBoundUserInterface : BoundUserInterface
         {
             case CrewMonitoringState st:
                 EntMan.TryGetComponent<TransformComponent>(Owner, out var xform);
-                _menu?.ShowSensors(st.Sensors, Owner, xform?.Coordinates, st.IsEmagged); // ADT-Tweak
+                _menu?.ShowSensors(st.Sensors, Owner, xform?.Coordinates, true); // ADT-Tweak
                 break;
         }
     }

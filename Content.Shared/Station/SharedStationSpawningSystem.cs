@@ -63,6 +63,7 @@ public abstract class SharedStationSpawningSystem : EntitySystem
         }
 
         EquipRoleName(entity, loadout, roleProto);
+        ApplyLoadoutExtras(entity, loadout);    // ADT-Tweak
     }
 
     /// <summary>
@@ -77,7 +78,7 @@ public abstract class SharedStationSpawningSystem : EntitySystem
             name = loadout.EntityName;
         }
 
-        if (string.IsNullOrEmpty(name) && PrototypeManager.TryIndex(roleProto.NameDataset, out var nameData))
+        if (string.IsNullOrEmpty(name) && PrototypeManager.Resolve(roleProto.NameDataset, out var nameData))
         {
             name = Loc.GetString(_random.Pick(nameData.Values));
         }
@@ -99,7 +100,7 @@ public abstract class SharedStationSpawningSystem : EntitySystem
     /// </summary>
     public void EquipStartingGear(EntityUid entity, ProtoId<StartingGearPrototype>? startingGear, bool raiseEvent = true)
     {
-        PrototypeManager.TryIndex(startingGear, out var gearProto);
+        PrototypeManager.Resolve(startingGear, out var gearProto);
         EquipStartingGear(entity, gearProto, raiseEvent);
     }
 
@@ -230,7 +231,7 @@ public abstract class SharedStationSpawningSystem : EntitySystem
         {
             foreach (var items in group.Value)
             {
-                if (!PrototypeManager.TryIndex(items.Prototype, out var loadoutPrototype))
+                if (!PrototypeManager.Resolve(items.Prototype, out var loadoutPrototype))
                     return null;
 
                 var gear = ((IEquipmentLoadout) loadoutPrototype).GetGear(slot);
@@ -241,4 +242,12 @@ public abstract class SharedStationSpawningSystem : EntitySystem
 
         return null;
     }
+
+    // ADT-Tweak-start
+    public void ApplyLoadoutExtras(EntityUid uid, RoleLoadout loadout)
+    {
+        var ev = new ApplyLoadoutExtrasEvent(uid, loadout.ExtraData);
+        RaiseLocalEvent(uid, ref ev, true);
+    }
+    // ADT-Tweak-end
 }

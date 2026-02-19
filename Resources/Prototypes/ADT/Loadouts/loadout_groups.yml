@@ -1091,6 +1091,15 @@
   - ADTPlasmaScientistPDA
 
 - type: loadoutGroup
+  id: ADTQuartermasterPDA
+  name: loadout-group-quartermaster-id-adt
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - QuartermasterPDA
+  - ADTIntendantPDA
+
+- type: loadoutGroup
   id: ADTCargoPDA
   name: loadout-group-cargo-id-adt
   minLimit: 1

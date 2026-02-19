@@ -36,7 +36,7 @@ public sealed partial class SuitStorageMenu : RadialMenu
             var index = i;
             var proto = _proto.Index(comp.Options[i]);
 
-            var button = new RadialMenuTextureButtonWithSector
+            var button = new RadialMenuButtonWithSector
             {
                 SetSize = new Vector2(64f, 64f),
                 ToolTip = Loc.GetString(proto.Name)

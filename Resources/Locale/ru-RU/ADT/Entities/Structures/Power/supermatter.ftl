@@ -1,0 +1,1 @@
+ent-SupermatterLightningCharged = Заряженная суперматериальная молния

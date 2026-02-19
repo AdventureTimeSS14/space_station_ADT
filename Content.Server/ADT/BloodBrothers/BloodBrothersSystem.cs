@@ -13,7 +13,7 @@ using Content.Shared.Zombies;
 using Content.Server.ADT.Roles;
 using Content.Shared.ADT.BloodBrothers;
 using Robust.Shared.Prototypes;
-using Content.Shared.Roles;
+using Content.Shared.Roles.Components;
 
 namespace Content.Server.ADT.BloodBrothers;
 
@@ -48,7 +48,7 @@ public sealed class BloodBrotherSystem : SharedBloodBrothersSystem
         {
             return;
         }
-        foreach(var antag in mind.MindRoles)
+        foreach(var antag in mind.MindRoleContainer.ContainedEntities)
         {
             if (TryComp<MindRoleComponent>(antag, out var role) && role.Antag)
                 return;

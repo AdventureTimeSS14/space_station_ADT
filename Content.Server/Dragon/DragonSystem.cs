@@ -15,7 +15,8 @@ using Content.Shared.Zombies;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
-using Content.Shared.Damage; // ADT-Tweak
+using Content.Shared.Damage;
+using Content.Shared.Damage.Systems; // ADT-Tweak
 
 namespace Content.Server.Dragon;
 

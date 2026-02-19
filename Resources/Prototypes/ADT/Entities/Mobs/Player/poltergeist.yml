@@ -31,7 +31,7 @@
         mask:
         - GhostImpassable
   - type: MovementIgnoreGravity
-    gravityState: true
+    weightless: true
   - type: Damageable
     damageContainer: Biological
   - type: Examiner

@@ -52,7 +52,7 @@ public sealed class InducerSystem : EntitySystem
             return;
         }
 
-        if (_battery.IsFull(target, targetBattery))
+        if (_battery.IsFull((target, targetBattery)))
         {
             _popup.PopupEntity(Loc.GetString("inducer-target-full"), uid, args.User);
             return;
@@ -96,9 +96,9 @@ public sealed class InducerSystem : EntitySystem
         if (energyToTransfer <= 0)
             return;
 
-        if (_battery.TryUseCharge(slot.Item.Value, energyToTransfer, sourceBattery))
+        if (_battery.TryUseCharge((slot.Item.Value, sourceBattery), energyToTransfer))
         {
-            _battery.AddCharge(target, energyToTransfer, targetBattery);
+            _battery.ChangeCharge((target, targetBattery), energyToTransfer);
             var percent = (int)(targetBattery.CurrentCharge / targetBattery.MaxCharge * 100);
             _popup.PopupEntity(Loc.GetString("inducer-success", ("percent", percent)), uid, args.User);
 
@@ -113,8 +113,8 @@ public sealed class InducerSystem : EntitySystem
         }
         else
         {
-            _battery.SetCharge(target, targetBattery.CurrentCharge + energyToTransfer, targetBattery);
-            _battery.SetCharge(slot.Item.Value, sourceBattery.CurrentCharge - energyToTransfer, sourceBattery);
+            _battery.SetCharge((target, targetBattery), targetBattery.CurrentCharge + energyToTransfer);
+            _battery.SetCharge((slot.Item.Value, sourceBattery), sourceBattery.CurrentCharge - energyToTransfer);
             args.Repeat = false;
         }
     }

@@ -21,15 +21,16 @@
     exclusiveAntag: true
   - type: HereticRole
 
-- type: entity
-  parent: BaseMindRoleAntag
-  id: MindRoleChangeling
-  name: Changeling Role
-  components:
-  - type: MindRole
-    antagPrototype: Changeling
-    exclusiveAntag: true
-  - type: ChangelingRole
+# Закоментированно из-за наличия у оффов майнд роли генки
+#- type: entity
+#  parent: BaseMindRoleAntag
+#  id: MindRoleChangeling
+#  name: Changeling Role
+#  components:
+#  - type: MindRole
+#    antagPrototype: Changeling
+#    exclusiveAntag: true
+#  - type: ChangelingRole
 
 - type: entity
   parent: BaseMindRoleAntag

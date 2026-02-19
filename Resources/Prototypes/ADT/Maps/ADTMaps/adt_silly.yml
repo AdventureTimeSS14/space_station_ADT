@@ -22,7 +22,6 @@
         - type: StationJobs
           availableJobs:
             # centcom specialists
-            ADTCentcomConsultant: [ 1, 1 ] #ADT-Roles
             ADTBlueShieldOfficer: [ 1, 1 ] #ADT-Roles
 
             # command
@@ -30,8 +29,8 @@
 
             # cargo
             Quartermaster: [ 1, 1 ]
-            SalvageSpecialist: [ 3, 4 ]
-            CargoTechnician: [ 2, 3 ]
+            SalvageSpecialist: [ 4, 4 ]
+            CargoTechnician: [ 3, 3 ]
             # ADTMiner: [ 2, 2 ]
 
             # engineering
@@ -57,7 +56,6 @@
             ResearchAssistant: [ 2, 2 ]
             ADTRoboticist: [ 1, 1 ]
             ADTSeniorResearcher: [ 1, 1 ]
-
 
             # security
             HeadOfSecurity: [ 1, 1 ]
@@ -85,7 +83,7 @@
             Passenger: [ -1, -1 ]
 
             # silicon
-            Borg: [ 1, 2 ]
+            Borg: [ 2, 2 ]
             StationAi: [ 1, 1 ]
 
             # Juridical
