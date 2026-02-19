@@ -7,7 +7,7 @@
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/nigiri.rsi
     state: nigiri-carp
-  - type: Food
+  - type: Edible
     trash:
     - FoodBowlBig
   - type: FlavorProfile
@@ -30,7 +30,7 @@
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/nigiri.rsi
     state: nigiri-cooked
-  - type: Food
+  - type: Edible
     trash:
     - FoodBowlBig
   - type: FlavorProfile
@@ -46,7 +46,7 @@
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/nigiri.rsi
     state: nigiri-fish
-  - type: Food
+  - type: Edible
     trash:
     - FoodBowlBig
   - type: FlavorProfile

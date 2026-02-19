@@ -11,7 +11,7 @@
     sprite: ADT/Objects/Consumable/Food/Snacks/Chips/chips.rsi
     state: onion-and-sourcream
   - type: Item
-  - type: Food
+  - type: Edible
     trash:
       - ADTFoodPacketChipsTrash
 
@@ -23,7 +23,7 @@
   components:
   - type: Sprite
     state: onion-and-sourcream
-  - type: Food
+  - type: Edible
     trash:
       - ADTFoodPacketChipsOnionAndSourcreamTrash
 
@@ -35,7 +35,7 @@
   components:
   - type: Sprite
     state: shrimp
-  - type: Food
+  - type: Edible
     trash:
       - ADTFoodPacketChipsShrimpTrash
 
@@ -47,7 +47,7 @@
   components:
   - type: Sprite
     state: space
-  - type: Food
+  - type: Edible
     trash:
       - ADTFoodPacketChipsSpaceTrash
 
@@ -59,7 +59,7 @@
   components:
   - type: Sprite
     state: spicy
-  - type: Food
+  - type: Edible
     trash:
       - ADTFoodPacketSpicyTrash
   - type: SolutionContainerManager
@@ -85,7 +85,7 @@
     sprite: ADT/Objects/Consumable/Food/Snacks/Dried/meat.rsi
     state: beef
   - type: Item
-  - type: Food
+  - type: Edible
     trash:
       - ADTFoodPacketBeefTrash
 # Я однако не знаю какое им делать наполнение,по дефолту у них 10 питательных веществ, если нужно то заполните в base свои значения
@@ -99,7 +99,7 @@
   - type: Sprite
     state: beef
   - type: Item
-  - type: Food
+  - type: Edible
     trash:
       - ADTFoodPacketBeefTrash
 
@@ -112,7 +112,7 @@
   - type: Sprite
     state: chicken
   - type: Item
-  - type: Food
+  - type: Edible
     trash:
       - ADTFoodPacketChickenTrash
 
@@ -125,7 +125,7 @@
   - type: Sprite
     state: horse
   - type: Item
-  - type: Food
+  - type: Edible
     trash:
       - ADTFoodPacketHorseTrash
 
@@ -138,7 +138,7 @@
   - type: Sprite
     state: pig
   - type: Item
-  - type: Food
+  - type: Edible
     trash:
       - ADTFoodPacketPigTrash
 

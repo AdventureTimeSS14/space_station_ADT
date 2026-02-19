@@ -107,22 +107,22 @@ namespace Content.Client.Chemistry.UI
             PillTypeButtons = new Button[20];
             for (uint i = 0; i < PillTypeButtons.Length; i++)
             {
-                // For every button decide which stylebase to have
+                // For every button decide which StyleNano to have
                 // Every row has 10 buttons
-                String styleBase = StyleBase.ButtonOpenBoth;
+                String StyleNano = StyleClass.ButtonOpenBoth;
                 uint modulo = i % 10;
                 if (i > 0 && modulo == 0)
-                    styleBase = StyleBase.ButtonOpenRight;
+                    StyleNano = StyleClass.ButtonOpenRight;
                 else if (i > 0 && modulo == 9)
-                    styleBase = StyleBase.ButtonOpenLeft;
+                    StyleNano = StyleClass.ButtonOpenLeft;
                 else if (i == 0)
-                    styleBase = StyleBase.ButtonOpenRight;
+                    StyleNano = StyleClass.ButtonOpenRight;
 
                 // Generate buttons
                 PillTypeButtons[i] = new Button
                 {
                     Access = AccessLevel.Public,
-                    StyleClasses = { styleBase },
+                    StyleClasses = { StyleNano },
                     MaxSize = new Vector2(42, 28),
                     Group = pillTypeGroup
                 };
@@ -186,14 +186,14 @@ namespace Content.Client.Chemistry.UI
                     {
                         HorizontalExpand = true,
                         VerticalExpand = true,
-                        StyleClasses = { StyleBase.ButtonSquare },
+                        StyleClasses = { StyleNano.ButtonSquare },
                         ToggleMode = true
                     };
 
                     var ejectButton = new Button
                     {
                         VerticalExpand = true,
-                        StyleClasses = { StyleBase.ButtonOpenLeft }
+                        StyleClasses = { StyleNano.ButtonOpenLeft }
                     };
                     ejectButton.MinSize = new Vector2(20, 0);
                     ejectButton.MaxSize = new Vector2(20, float.MaxValue);
@@ -223,7 +223,7 @@ namespace Content.Client.Chemistry.UI
                 var rowEjectButton = new Button
                 {
                     Text = Loc.GetString("chem-master-window-eject-row-button"),
-                    StyleClasses = { StyleBase.ButtonCaution },
+                    StyleClasses = { StyleNano.ButtonCaution },
                     VerticalExpand = true
                 };
                 int rowIndex = row;
@@ -261,7 +261,7 @@ namespace Content.Client.Chemistry.UI
 
                     var mainButton = new Button
                     {
-                        StyleClasses = { StyleBase.ButtonSquare },
+                        StyleClasses = { StyleNano.ButtonSquare },
                         ToggleMode = true,
                         Margin = new Thickness(2),
                         MinSize = new Vector2(28, 28),
@@ -278,7 +278,7 @@ namespace Content.Client.Chemistry.UI
                 var ejectButton = new Button
                 {
                     Text = Loc.GetString("chem-master-window-eject-row-button"),
-                    StyleClasses = { StyleBase.ButtonCaution },
+                    StyleClasses = { StyleNano.ButtonCaution },
                     MinSize = new Vector2(105, 30),
                     MaxSize = new Vector2(105, 30),
                     HorizontalExpand = true,
@@ -356,16 +356,16 @@ namespace Content.Client.Chemistry.UI
 
         //     var buttonConfigs = new (string text, ChemMasterReagentAmount amount, string styleClass)[]
         //     {
-        //         ("1", ChemMasterReagentAmount.U1, StyleBase.ButtonOpenBoth),
-        //         ("5", ChemMasterReagentAmount.U5, StyleBase.ButtonOpenBoth),
-        //         ("10", ChemMasterReagentAmount.U10, StyleBase.ButtonOpenBoth),
-        //         ("15", ChemMasterReagentAmount.U15, StyleBase.ButtonOpenBoth),
-        //         ("20", ChemMasterReagentAmount.U20, StyleBase.ButtonOpenBoth),
-        //         ("25", ChemMasterReagentAmount.U25, StyleBase.ButtonOpenBoth),
-        //         ("30", ChemMasterReagentAmount.U30, StyleBase.ButtonOpenBoth),
-        //         ("50", ChemMasterReagentAmount.U50, StyleBase.ButtonOpenBoth),
-        //         ("100", ChemMasterReagentAmount.U100, StyleBase.ButtonOpenBoth),
-        //         (Loc.GetString("chem-master-window-buffer-all-amount"), ChemMasterReagentAmount.All, StyleBase.ButtonOpenLeft),
+        //         ("1", ChemMasterReagentAmount.U1, StyleNano.ButtonOpenBoth),
+        //         ("5", ChemMasterReagentAmount.U5, StyleNano.ButtonOpenBoth),
+        //         ("10", ChemMasterReagentAmount.U10, StyleNano.ButtonOpenBoth),
+        //         ("15", ChemMasterReagentAmount.U15, StyleNano.ButtonOpenBoth),
+        //         ("20", ChemMasterReagentAmount.U20, StyleNano.ButtonOpenBoth),
+        //         ("25", ChemMasterReagentAmount.U25, StyleNano.ButtonOpenBoth),
+        //         ("30", ChemMasterReagentAmount.U30, StyleNano.ButtonOpenBoth),
+        //         ("50", ChemMasterReagentAmount.U50, StyleNano.ButtonOpenBoth),
+        //         ("100", ChemMasterReagentAmount.U100, StyleNano.ButtonOpenBoth),
+        //         (Loc.GetString("chem-master-window-buffer-all-amount"), ChemMasterReagentAmount.All, StyleNano.ButtonOpenLeft),
         //     };
 
         //     var buttons = new List<ReagentButton>();
@@ -390,15 +390,15 @@ namespace Content.Client.Chemistry.UI
 
             for (int i = 0; i < buttonsToShow; i++)
             {
-                var styleClass = StyleBase.ButtonOpenBoth;
+                var styleClass = StyleNano.ButtonOpenBoth;
                 var amount = _amounts[i];
                 var columns = AmountButtons.Columns;
 
                 if (i == 0 || i % columns == 0)
-                    styleClass = StyleBase.ButtonOpenRight;
+                    styleClass = StyleNano.ButtonOpenRight;
 
                 if ((i + 1) % columns == 0)
-                    styleClass = StyleBase.ButtonOpenLeft;
+                    styleClass = StyleNano.ButtonOpenLeft;
 
                 var button = new Button()
                 {
@@ -1045,7 +1045,7 @@ namespace Content.Client.Chemistry.UI
                     Text = "↑",
                     MinWidth = 30,
                     MaxWidth = 30,
-                    StyleClasses = { StyleBase.ButtonOpenLeft }
+                    StyleClasses = { StyleNano.ButtonOpenLeft }
                 };
                 // Make button text bold
                 if (transferButton.Label != null)
@@ -1419,7 +1419,7 @@ namespace Content.Client.Chemistry.UI
             var bufferVol = new Label
             {
                 Text = $"{state.BufferCurrentVolume}u",
-                StyleClasses = { StyleNano.StyleClassLabelSecondaryColor }
+                StyleClasses = { StyleClass.LabelWeak }
             };
             bufferHBox.AddChild(bufferVol);
 
@@ -1572,7 +1572,7 @@ namespace Content.Client.Chemistry.UI
                     new Label
                     {
                         Text = $"{info.CurrentVolume}/{info.MaxVolume}",
-                        StyleClasses = { StyleNano.StyleClassLabelSecondaryColor }
+                        StyleClasses = { StyleClass.LabelWeak }
                     }
                 }
             });
@@ -1622,7 +1622,7 @@ namespace Content.Client.Chemistry.UI
                 selectButton = new Button()
                 {
                     Text = "✓",
-                    StyleClasses = { StyleNano.StyleClassButtonColorGreen, StyleBase.ButtonSquare },
+                    StyleClasses = { StyleNano.StyleClassButtonColorGreen, StyleNano.ButtonSquare },
                     MinSize = new Vector2(30, 0)
                 };
 
@@ -1647,7 +1647,7 @@ namespace Content.Client.Chemistry.UI
                 removeButton = new Button()
                 {
                     Text = "✗",
-                    StyleClasses = { StyleNano.StyleClassButtonColorRed, StyleBase.ButtonSquare },
+                    StyleClasses = { StyleNano.StyleClassButtonColorRed, StyleNano.ButtonSquare },
                     MinSize = new Vector2(30, 0)
                 };
 
@@ -1798,7 +1798,7 @@ namespace Content.Client.Chemistry.UI
                 }
 
                 rowContainer.AddChild(reagentButtonConstructor);
-                var transferAllButton = new Button() { Text = Loc.GetString("chem-master-window-buffer-all-amount"), StyleClasses = { StyleBase.ButtonOpenLeft } };
+                var transferAllButton = new Button() { Text = Loc.GetString("chem-master-window-buffer-all-amount"), StyleClasses = { StyleNano.ButtonOpenLeft } };
                 transferAllButton.OnPressed += _ => OnTransferAllPressed?.Invoke(reagent, isBuffer, IsOutputTab);
                 rowContainer.AddChild(transferAllButton);
             }
@@ -1836,7 +1836,7 @@ namespace Content.Client.Chemistry.UI
         public ReagentId Id { get; set; }
         public ReagentButton(string text, ReagentId id, bool isBuffer)
         {
-            AddStyleClass(StyleBase.ButtonSquare); // ADT-Tweak: SquareButton style for all ReagentButtons
+            AddStyleClass(StyleNano.ButtonSquare); // ADT-Tweak: SquareButton style for all ReagentButtons
             Text = text;
             // Amount = amount; // ADT-Tweak: Cutted
             Id = id;

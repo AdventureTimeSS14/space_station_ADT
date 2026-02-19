@@ -1,5 +1,5 @@
 - type: entity
-  parent: ClothingMaskBase
+  parent: [ClothingMaskBase, BaseChameleon]
   id: ClothingMaskGasChameleon
   name: gas mask
   description: A face-covering mask that can be connected to an air supply.
@@ -16,31 +16,9 @@
       default: ClothingMaskGas
     - type: BreathMask
     - type: IdentityBlocker # need that for default ClothingMaskGas
-    - type: UserInterface
-      interfaces:
-        enum.ChameleonUiKey.Key:
-          type: ChameleonBoundUserInterface
     - type: HideLayerClothing
       slots:
       - Snout
-      - SnoutOverlay # ADT Tweak
-# Corvax-HiddenDesc-Start
-    - type: HiddenDescription
-      entries:
-      - label: corvax-hidden-desc-Chameleon-syndicate
-        whitelistMind:
-          mindRoles:
-          - TraitorRole
-          - NukeopsRole
-      - label: corvax-hidden-desc-Chameleon-research
-        jobRequired:
-          - ResearchAssistant
-          - ResearchDirector
-          - Scientist
-          - Borg
-          - ADTSeniorResearcher # ADT tweak
-          - ADTRoboticist # ADT tweak
-# Corvax-HiddenDesc-End
 
 - type: entity
   parent: ClothingMaskGasChameleon
@@ -48,6 +26,12 @@
   suffix: Voice Mask, Chameleon
   components:
     - type: VoiceMask
+    - type: UIRequiresLock
+      userInterfaceKeys:
+        - enum.ChameleonUiKey.Key
+        - enum.VoiceMaskUIKey.Key
+      accessDeniedSound: null
+      popup: null
     - type: HideLayerClothing
       slots:
       - Snout
@@ -58,36 +42,6 @@
           type: ChameleonBoundUserInterface
         enum.VoiceMaskUIKey.Key:
           type: VoiceMaskBoundUserInterface
-# Corvax-HiddenDesc-Start
-    - type: HiddenDescription
-      entries:
-      - label: corvax-hidden-desc-Chameleon-syndicate
-        whitelistMind:
-          mindRoles:
-          - TraitorRole
-          - NukeopsRole
-      - label: corvax-hidden-desc-VoiceMasker-syndicate
-        whitelistMind:
-          mindRoles:
-          - TraitorRole
-          - NukeopsRole
-      - label: corvax-hidden-desc-Chameleon-research
-        jobRequired:
-          - ResearchAssistant
-          - ResearchDirector
-          - Scientist
-          - Borg
-          - ADTSeniorResearcher # ADT tweak
-          - ADTRoboticist # ADT tweak
-      - label: corvax-hidden-desc-VoiceMasker-research
-        jobRequired:
-          - ResearchAssistant
-          - ResearchDirector
-          - Scientist
-          - Borg
-          - ADTSeniorResearcher # ADT tweak
-          - ADTRoboticist # ADT tweak
-# Corvax-HiddenDesc-End
 
 - type: entity
   parent: ClothingMaskBase

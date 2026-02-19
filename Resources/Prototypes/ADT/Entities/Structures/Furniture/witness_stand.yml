@@ -1,0 +1,56 @@
+- type: entity
+  name: стойка свидетеля
+  id: ADTWitnessStand
+  parent: UnanchoredChairBase
+  description: Стойка для свидетелей в зале суда. Встаньте сюда, чтобы дать показания.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/witness_stand.rsi
+    noRot: true
+    drawdepth: OverMobs
+    layers:
+    - state: witness_stand
+      map: ["base"]
+    - state: witness_stand_occupied
+      map: ["occupiedLayer"]
+      visible: false
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.StrapVisuals.State:
+        base:
+          True: {visible: false}
+          False: {visible: true}
+        occupiedLayer:
+          True: {visible: true}
+          False: {visible: false}
+  - type: Strap
+    position: Stand
+    buckleOffset: "0,0"
+  - type: Damageable
+    damageModifierSet: Wood
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WoodDestroy
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+    - trigger:
+        !type:DamageTrigger
+        damage: 40
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WoodDestroy
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          MaterialWoodPlank:
+            min: 2
+            max: 4

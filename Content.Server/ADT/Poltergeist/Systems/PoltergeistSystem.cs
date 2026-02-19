@@ -1,27 +1,28 @@
-using Content.Shared.Actions;
-using Robust.Shared.Physics;
-using Content.Shared.ADT.Poltergeist;
-using Content.Shared.Popups;
-using Content.Server.Power.EntitySystems;
-using Robust.Shared.Random;
-using Content.Shared.IdentityManagement;
-using Content.Server.Chat.Systems;
-using Content.Shared.StatusEffect;
-using Content.Shared.Mind;
-using Robust.Shared.Containers;
-using Content.Shared.Stunnable;
-using Content.Server.Power.Components;
 using Content.Server.Chat;
-using Robust.Shared.Timing;
-using Content.Shared.ADT.GhostInteractions;
-using Content.Shared.Bible.Components;
+using Content.Server.Chat.Systems;
 using Content.Server.EUI;
-using Content.Shared.Throwing;
+using Content.Server.Power.EntitySystems;
+using Content.Server.Singularity.Events;
+using Content.Shared.Actions;
+using Content.Shared.ADT.GhostInteractions;
+using Content.Shared.ADT.Poltergeist;
+using Content.Shared.ADT.Silicon.Components;
+using Content.Shared.Bible.Components;
+using Content.Shared.Chat;
+using Content.Shared.IdentityManagement;
 using Content.Shared.Item;
+using Content.Shared.Mind;
+using Content.Shared.Popups;
+using Content.Shared.Power.Components;
+using Content.Shared.StatusEffect;
+using Content.Shared.Stunnable;
+using Content.Shared.Throwing;
+using Robust.Shared.Containers;
+using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Player;
-using Content.Server.Singularity.Events;
-using Content.Shared.ADT.Silicon.Components;
+using Robust.Shared.Random;
+using Robust.Shared.Timing;
 
 namespace Content.Server.ADT.Poltergeist;
 
@@ -104,7 +105,7 @@ public sealed partial class PoltergeistSystem : EntitySystem
         if (TryComp<BatteryComponent>(target, out var batteryComp))
         {
             var charge = batteryComp.CurrentCharge * 0.75f;
-            _batterySystem.SetCharge(target, charge, batteryComp);
+            _batterySystem.SetCharge((target, batteryComp), charge);
         }
 
         if (TryComp<ContainerManagerComponent>(target, out var containerManagerComponent))
@@ -116,7 +117,7 @@ public sealed partial class PoltergeistSystem : EntitySystem
                     if (TryComp<BatteryComponent>(entity, out var entBatteryComp))
                     {
                         var newCharge = entBatteryComp.CurrentCharge * 0.75f;
-                        _batterySystem.SetCharge(entity, newCharge, batteryComp);
+                        _batterySystem.SetCharge((entity, entBatteryComp), newCharge);
                     }
                 }
             }

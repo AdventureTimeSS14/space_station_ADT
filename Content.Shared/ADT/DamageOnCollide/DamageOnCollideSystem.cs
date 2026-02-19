@@ -1,7 +1,6 @@
-using Content.Shared.Damage;
-using Content.Shared.Tag;
 using Content.Shared.Whitelist;
 using Robust.Shared.Physics.Events;
+using Content.Shared.Damage.Systems;
 
 namespace Content.Shared.ADT.DamageOnCollide;
 
