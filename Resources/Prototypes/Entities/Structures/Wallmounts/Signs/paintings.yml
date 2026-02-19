@@ -31,6 +31,7 @@
   description: This painting depicts a barren landscape. It's filled with various surreal objects.
   components:
   - type: Sprite
+    sprite: ADT/Structures/Wallmounts/paintings.rsi  #ADT-Tweak
     state: painting2
 
 - type: entity
@@ -40,6 +41,7 @@
   description: This painting depicts a formal-looking man. His face is obscured by an apple.
   components:
   - type: Sprite
+    sprite: ADT/Structures/Wallmounts/paintings.rsi  #ADT-Tweak
     state: painting3
 
 - type: entity
@@ -58,6 +60,7 @@
   description: This painting depicts a distressed man standing on a bridge.
   components:
   - type: Sprite
+    sprite: ADT/Structures/Wallmounts/paintings.rsi  #ADT-Tweak
     state: painting5
 
 - type: entity
@@ -67,6 +70,7 @@
   description: This painting depicts a majestic wave. It's throwing around several small fishing boats.
   components:
   - type: Sprite
+    sprite: ADT/Structures/Wallmounts/paintings.rsi  #ADT-Tweak
     state: painting6
 
 - type: entity
@@ -139,6 +143,7 @@
   description: This painting depicts giant devouring a human corpse. He has a frightening look in his eyes.
   components:
   - type: Sprite
+    sprite: ADT/Structures/Wallmounts/paintings.rsi  #ADT-Tweak
     state: painting14
 
 - type: entity

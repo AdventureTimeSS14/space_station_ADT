@@ -13,6 +13,7 @@ namespace Content.Shared.Humanoid.Markings
         HeadSide,
         SnoutOverlay, // for animated tongue for ADT
         Snout,
+        SnoutCover,
         Chest,
         UndergarmentTop,
         UndergarmentBottom,

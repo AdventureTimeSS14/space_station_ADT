@@ -13,6 +13,8 @@ using Content.Shared.Popups;
 using Robust.Shared.Prototypes;
 using Content.Server.Kitchen.Components;
 using Content.Server.Gatherable.Components;
+using Content.Shared.Damage.Systems;
+using Content.Shared.Kitchen.Components;
 
 namespace Content.Server.ADT.Mining.Systems;
 

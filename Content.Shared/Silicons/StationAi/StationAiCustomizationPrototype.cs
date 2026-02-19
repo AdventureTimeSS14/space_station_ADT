@@ -51,4 +51,9 @@ public sealed partial class StationAiCustomizationPrototype : IPrototype, IInher
     [NeverPushInheritance]
     [AbstractDataField]
     public bool Abstract { get; private set; }
+
+    // ADT-Tweak-start
+    [DataField]
+    public int Priority = 0;
+    // ADT-Tweak-end
 }

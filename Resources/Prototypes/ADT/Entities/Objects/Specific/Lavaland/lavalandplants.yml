@@ -7,7 +7,7 @@
   description: This berry looks very watery
   components:
   - type: Item
-  - type: Food
+  - type: Edible
   - type: FlavorProfile
     flavors:
       - sweet

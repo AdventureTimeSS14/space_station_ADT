@@ -90,17 +90,22 @@
       types:
         Heat: 5
 
-- type: hitscan
+- type: entity
+  parent: BasicHitscan
   id: ADTPTL
-  damage:
-    types:
-      Heat: 120
-  muzzleFlash:
-    sprite: ADT/Structures/Machines/PTL/pt_beam.rsi
-    state: ptl_beam
-  travelFlash:
-    sprite: ADT/Structures/Machines/PTL/pt_beam.rsi
-    state: ptl_beam
-  impactFlash:
-    sprite: ADT/Structures/Machines/PTL/pt_beam.rsi
-    state: ptl_beam
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: HitscanBasicDamage
+    damage:
+      types:
+        Heat: 120
+  - type: HitscanBasicVisuals
+    muzzleFlash:
+      sprite: ADT/Structures/Machines/PTL/pt_beam.rsi
+      state: ptl_beam
+    travelFlash:
+      sprite: ADT/Structures/Machines/PTL/pt_beam.rsi
+      state: ptl_beam
+    impactFlash:
+      sprite: ADT/Structures/Machines/PTL/pt_beam.rsi
+      state: ptl_beam

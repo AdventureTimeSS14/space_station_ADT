@@ -311,7 +311,7 @@
         - reagents: [Water, SpaceCleaner]
           methods: [Touch]
           effects:
-            - !type:WashCreamPieReaction
+            - !type:WashCreamPie
     - type: DamageVisuals
       thresholds: [20, 40, 100]
       targetLayers:

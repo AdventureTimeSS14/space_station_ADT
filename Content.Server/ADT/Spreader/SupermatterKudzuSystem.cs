@@ -1,5 +1,6 @@
-using Content.Shared.Damage;
 using Content.Shared.ADT.Spreader;
+using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Systems;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;

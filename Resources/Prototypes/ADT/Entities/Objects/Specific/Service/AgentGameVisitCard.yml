@@ -16,8 +16,6 @@
     damage:
       types:
         Slash: 10
-      soundHit:
-      path: "/Audio/Weapons/smash.ogg"
   - type: StaminaDamageOnCollide
     damage: 35
   - type: Item
