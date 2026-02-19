@@ -186,7 +186,7 @@
   id: Maltroach
   name: barsign-prototype-name-maltroach
   icon:
-    sprite: Structures/Wallmounts/barsign.rsi
+    sprite: ADT/Structures/Wallmounts/barsign.rsi #ADT-Tweak
     state: maltroach
   description: barsign-prototype-description-maltroach
 

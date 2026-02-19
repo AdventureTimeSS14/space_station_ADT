@@ -197,7 +197,7 @@
           Unprimed:
             state: gibtonite_inactive
             visible: false
-  - type: OnUseTimerTrigger
+  - type: TimerTrigger
     examinable: false
     beepInterval: 0.4
     beepSound:

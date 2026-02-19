@@ -50,7 +50,8 @@
         key: TemporaryBlindness
         component: TemporaryBlindness
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: ADTMethanol
           min: 7
       - !type:PopupMessage
         visualType: MediumCaution
@@ -61,7 +62,8 @@
         - norepinephricacid-effect-darkness
         - norepinephricacid-effect-blindness
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: ADTMethanol
           min: 7
 
 - type: reagent
@@ -91,12 +93,12 @@
             Heat: -5
       - !type:AdjustTemperature
         conditions:
-        - !type:Temperature
+        - !type:TemperatureCondition
           max: 100
         amount: 20000 # thermal energy, not temperature!
       - !type:AdjustTemperature
         conditions:
-        - !type:Temperature
+        - !type:TemperatureCondition
           min: 1
         amount: 20000
       - !type:PopupMessage

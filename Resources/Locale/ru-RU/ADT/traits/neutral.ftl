@@ -13,6 +13,9 @@ trait-nya-accent-desc = Кажется на вас нашло мря-гкое г
 trait-sick-teeth-accent-name = Зубной дефект
 trait-sick-teeth-accent-desc = Проблемы с зубами меняют вашу речь: некоторые согласные звучат иначе.
 
+trait-burriness-accent-name = Картавость
+trait-burriness-accent-desc = Вы не умеете выговаххивать букву "Р" ;w;
+
 
 
 trait-tall-name = Высокий
