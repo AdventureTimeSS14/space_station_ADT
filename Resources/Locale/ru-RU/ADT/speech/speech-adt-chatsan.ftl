@@ -98,4 +98,3 @@ accent-adt_chatsanitize-replace-27 = смотри
 
 accent-adt_chatsanitize-words-28 = idk
 accent-adt_chatsanitize-replace-28 = не знаю
-
