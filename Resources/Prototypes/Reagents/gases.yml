@@ -108,7 +108,6 @@
       # Start ADT tweak: Novakid
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Novakid ]
       # End ADT tweak
         damage:
           types:
