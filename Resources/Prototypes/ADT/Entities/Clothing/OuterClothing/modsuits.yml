@@ -743,6 +743,7 @@
         Piercing: 0.7
         Heat: 0.7
         Cold: 0.7
+        Caustic: 0.5
         Radiation: 0.4
   - type: ClothingSpeedModifier
     walkModifier: 1
