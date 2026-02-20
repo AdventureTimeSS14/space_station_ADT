@@ -19,6 +19,7 @@
     ClothingHeadsetSecurity: 3
     ClothingOuterWinterSec: 2
     ClothingOuterArmorBasic: 2
+    ClothingOuterCoatSecurityOvercoat: 3 #ADT-Tweak
     ClothingNeckScarfStripedRed: 3
     ClothingOuterArmorBasicSlim: 2
     ClothingEyesBlindfold: 1

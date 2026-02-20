@@ -1,4 +1,5 @@
 using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Weapons.Melee.Events;
 
 namespace Content.Shared.Weapons.Melee.Backstab;

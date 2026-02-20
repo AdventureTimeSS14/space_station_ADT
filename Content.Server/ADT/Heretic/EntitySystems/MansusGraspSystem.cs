@@ -21,6 +21,8 @@ using Content.Shared.Heretic;
 using Content.Shared.Interaction;
 using Content.Shared.Item;
 using Content.Shared.Mobs.Components;
+using Content.Shared.Temperature.Components;
+using Content.Shared.Chat;
 using Content.Shared.Mech.Components;
 using Content.Shared.Speech.Muting;
 using Content.Shared.StatusEffect;
@@ -110,7 +112,7 @@ public sealed partial class MansusGraspSystem : EntitySystem
 
         if (HasComp<MechComponent>(target))
         {
-            _emp.DoEmpEffects(target, 100000, 30);
+            _emp.DoEmpEffects(target, 100000, TimeSpan.FromSeconds(30));
             _chat.TrySendInGameICMessage(args.User, Loc.GetString("heretic-speech-mansusgrasp"), InGameICChatType.Speak, false);
             _audio.PlayPvs(new SoundPathSpecifier("/Audio/Items/welder.ogg"), target);
             _action.SetCooldown(hereticComp.MansusGrasp, ent.Comp.CooldownAfterUse);

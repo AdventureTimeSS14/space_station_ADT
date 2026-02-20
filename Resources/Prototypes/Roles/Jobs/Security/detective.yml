@@ -4,17 +4,21 @@
   description: job-description-detective
   playTimeTracker: JobDetective
   requirements:
-  - !type:DepartmentTimeRequirement
-    department: Security
-    time: 90000 #25 hrs # ADT-RoleTime
-  # ADT Restrict Start
-  - !type:SpeciesRequirement
-    inverted: true
-    species:
-    - Resomi
-    - Vox
-    - Shadekin
-  # ADT RESTRICT End
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 25h # ADT-Tweak
+    - !type:TraitsRequirement #Corvax-TraitsRequirement
+      inverted: true
+      traits:
+      - Muted
+    # ADT Restrict Start
+    - !type:SpeciesRequirement
+      inverted: true
+      species:
+      - Resomi
+      - Vox
+      - Shadekin
+    # ADT RESTRICT End
   startingGear: DetectiveGear
   icon: "JobIconDetective"
   supervisors: job-supervisors-hos
@@ -23,10 +27,11 @@
   - Security
   - Brig
   - Maintenance
-  - Service
   - Detective
   - Cryogenics
   - External
+  - GenpopEnter
+  - GenpopLeave
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]

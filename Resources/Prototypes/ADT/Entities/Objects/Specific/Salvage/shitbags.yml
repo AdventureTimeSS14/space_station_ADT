@@ -38,7 +38,7 @@
       - RawMaterial
       - Ingot
       - PhantomEctoplasm
-      - RodMetal1
+      - ConstructionMaterial
   - type: Dumpable
 
 - type: entity

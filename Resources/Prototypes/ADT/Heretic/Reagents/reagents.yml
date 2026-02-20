@@ -15,7 +15,7 @@
   metabolisms:
     Medicine:
       effects:
-      - !type:ModifyBloodLevel
+      - !type:ModifyBleed
         amount: 2
         conditions:
         - !type:HasComponentCondition
@@ -37,7 +37,7 @@
             - Heretic
             - Ghoul
           guidebookComponentName: reagent-comp-condition-heretic-or-ghoul
-      - !type:ModifyBleedAmount
+      - !type:ModifyBleed
         amount: -1
         conditions:
         - !type:HasComponentCondition
@@ -45,7 +45,7 @@
             - Heretic
             - Ghoul
           guidebookComponentName: reagent-comp-condition-heretic-or-ghoul
-      - !type:ChemCleanBloodstream
+      - !type:CleanBloodstream
         cleanseRate: 3
         conditions:
         - !type:HasComponentCondition

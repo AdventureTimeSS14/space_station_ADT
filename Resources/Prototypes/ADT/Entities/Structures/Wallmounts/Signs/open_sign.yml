@@ -1,0 +1,60 @@
+- type: entity
+  parent: BaseWallmountMachine
+  id: ADTOpenSign
+  name: open sign
+  description: Shows whether the establishment is open or not.
+  components:
+  - type: WallMount
+    arc: 360
+  - type: ApcPowerReceiver
+    powerLoad: 5
+  - type: ExtensionCableReceiver
+    receptionRange: 5
+  - type: Sprite
+    drawdepth: WallMountedItems
+    sprite: ADT/Structures/Wallmounts/opensign.rsi
+    layers:
+    - state: open_off
+      map: [ "enum.OpenSignVisuals.Layer" ]
+  - type: OpenSign
+  - type: UseDelay
+    delay: 0.5
+  - type: Rotatable
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: BasicDevice
+  - type: WirelessNetworkConnection
+    range: 200
+  - type: DeviceLinkSink
+    ports:
+    - On
+    - Off
+    - Toggle
+  - type: DeviceLinkSource
+    ports:
+    - Status
+    lastSignals:
+      Status: false
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.OpenSignVisuals.Key:
+        enum.OpenSignVisuals.Layer:
+          True: { state: open_on }
+          False: { state: open_off }
+  - type: Construction
+    graph: ADTOpenSignGraph
+    node: ADTOpenSignNode
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 40
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+          params:
+            volume: -8

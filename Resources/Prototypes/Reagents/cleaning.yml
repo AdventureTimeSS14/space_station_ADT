@@ -3,6 +3,9 @@
   name: reagent-name-bleach
   desc: reagent-desc-bleach
   physicalDesc: reagent-physical-desc-strong-smelling
+  allowedJobs:
+  - Janitor
+  - Chemist
   flavor: bitter
   color: "#a1000b"
   boilingPoint: 111.0
@@ -23,6 +26,11 @@
       - !type:Emote
         emote: Scream
         probability: 0.15
+  tileReactions:
+  - !type:CleanTileReaction
+    cleanCost: 0.13
+  - !type:CleanDecalsReaction
+    cleanCost: 0.13
 
 - type: reagent
   id: SpaceCleaner
@@ -57,50 +65,46 @@
       effects:
       - !type:GenericStatusEffect
         conditions:
-        - !type:OrganType
-          type: Drask
-          shouldHave: true
+        - !type:MetabolizerTypeCondition
+          type: [ Drask ]
         key: Stutter
         component: StutteringAccent
       - !type:GenericStatusEffect
         conditions:
-        - !type:OrganType
-          type: Drask
+        - !type:MetabolizerTypeCondition
+          type: [ Drask ]
         key: SeeingRainbows
         component: SeeingRainbows
         type: Add
         time: 9
-        refresh: false
   # End ADT tweak
     Food:
       effects:
-      - !type:ChemVomit
+      - !type:Vomit
         conditions:
+        - !type:ReagentCondition
+          reagent: SoapReagent
         # Start ADT tweak
-        - !type:OrganType
-          type: Drask
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Drask ]
         # End ADT tweak
-        - !type:ReagentThreshold
-          min: 6
         probability: 0.20
       - !type:SatiateHunger
         conditions:
-        - !type:OrganType
-          type: Drask
-          shouldHave: true
+        - !type:MetabolizerTypeCondition
+          type: [ Drask ]
         factor: 2
     Drink:
       effects:
-      - !type:ChemVomit
+      - !type:Vomit
         conditions:
-        # Start ADT tweak
-        - !type:OrganType
-          type: Drask
-          shouldHave: false
-        # End ADT tweak
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: SoapReagent
           min: 6
+        # Start ADT tweak
+        - !type:MetabolizerTypeCondition
+          type: [ Drask ]
+        # End ADT tweak
         probability: 0.20
 
 - type: reagent
@@ -138,7 +142,7 @@
       methods: [ Touch ]
       effects:
       # pva glue? no, antibiotic glue for sealing wounds
-      - !type:ModifyBleedAmount
+      - !type:ModifyBleed
         amount: -1.5
   metabolisms:
     Narcotic:
@@ -147,14 +151,11 @@
         effectProto: StatusEffectSeeingRainbow
         time: 5
         type: Add
-        refresh: false
     Drink:
       effects:
       - !type:GenericStatusEffect
         key: Muted
         component: Muted
-        type: Add
         time: 5
-        refresh: false
   footstepSound:
     collection: FootstepSlime

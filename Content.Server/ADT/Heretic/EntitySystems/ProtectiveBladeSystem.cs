@@ -9,6 +9,7 @@ using Content.Shared.StatusEffect;
 using Robust.Shared.Prototypes;
 using System.Linq;
 using System.Numerics;
+using Content.Shared.Damage.Systems;
 
 namespace Content.Server.Heretic.EntitySystems;
 
