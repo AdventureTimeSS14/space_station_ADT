@@ -36,6 +36,7 @@
   description: "A poster advertising high-quality food from the station's kitchen."
   components:
   - type: Sprite
+    sprite: ADT/Structures/Wallmounts/posters.rsi
     state: poster_adtgreatfood_legit #Спрайт от Празата
 
 - type: entity
@@ -45,6 +46,7 @@
   description: "This picture depicts the deep meaning of the existence of all possible races of our vast observable universe. The personification of the disease process gives reason to think about the meaning of our state of health (which generally does not exist)."
   components:
   - type: Sprite
+    sprite: ADT/Structures/Wallmounts/posters.rsi
     state: poster_adtchihposter
 
 - type: entity
@@ -54,6 +56,7 @@
   description: "A reminder from the paramedic to everyone at the station - turn on the sensors so that you are quickly found in case of trouble."
   components:
   - type: Sprite
+    sprite: ADT/Structures/Wallmounts/posters.rsi
     state: poster_adtturnonsensors_legit #Спрайт от Празата
 
 #контрабандные постеры
@@ -65,6 +68,7 @@
   description: "A poster with tayaran women of attractive appearance and in a provocative suit. Tayarans can also be beautiful!"
   components:
   - type: Sprite
+    sprite: ADT/Structures/Wallmounts/posters.rsi
     state: poster_adtlusttayaran_contraband #Спрайт от Празата
 
 - type: entity
@@ -74,6 +78,7 @@
   description: "An elite squad of nuclear operatives will burn you to the ground. Leave NanoTrasen before it's too late!"
   components:
   - type: Sprite
+    sprite: ADT/Structures/Wallmounts/posters.rsi
     state: poster_adtfearthem_contraband #Спрайт от Иллюми
 
 - type: entity
@@ -83,6 +88,7 @@
   description: "The Syndicate warns mime agents that you can be terribly tortured for divulging secrets."
   components:
   - type: Sprite
+    sprite: ADT/Structures/Wallmounts/posters.rsi
     state: poster_adtsilence_contraband #Спрайт от Иллюми
 
 - type: entity
@@ -92,6 +98,7 @@
   description: "A poster with vulpcanine women of attractive appearance and in a provocative suit."
   components:
   - type: Sprite
+    sprite: ADT/Structures/Wallmounts/posters.rsi
     state: poster_adtlustuma_contraband #Спрайт от Празата
 
 - type: entity
@@ -101,7 +108,178 @@
   description: "A poster with tayaran women of attractive appearance and in ar deco suit."
   components:
   - type: Sprite
+    sprite: ADT/Structures/Wallmounts/posters.rsi
     state: poster_adtlustardeco_contraband #Спрайт от Празата
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterContrabandLostParadise
+  name: Lost Paradise (contraband)
+  description: "A contraband poster of the now-frozen band \"Lost Paradise\"."
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/posters.rsi
+    state: lp_contraband # Prazat911
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterContrabandSlimeBarmaid
+  name: Slime barmaid
+  description: "A poster depicting a slime in a barmaid outfit serving drinks at the bar."
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/posters.rsi
+    state: bar_contraband # by discord:prazat911 for ADT
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterLegitGrowFood
+  name: Grow food, not weed!
+  description: "A poster reminding botanists that their main task is to grow food for the chefs. And only then everything else."
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/posters.rsi
+    state: growfood_legit # by GOON station
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterContrabandHonkminator
+  name: Honkminator
+  description: "A promotional poster for a sci-fi film about a clown-cyborg from the future who came to kill the young head of security."
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/posters.rsi
+    state: honkminator_contraband # by GOON station
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterContrabandHonkDance
+  name: Honk-Dance
+  description: "A promotional poster advertising dance courses on the H.O.N.K. mech."
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/posters.rsi
+    state: honkdance_contraband # by GOON station
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterContrabandBorgBro
+  name: BroBorg
+  description: "Innovative development! A borg that can chat and even smoke with you!"
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/posters.rsi
+    state: borgbro_contraband # by paradise 220
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterContrabandLadyRnd
+  name: Miss R&D
+  description: "She's like a fire anomaly - a hot one!"
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/posters.rsi
+    state: ladyrnd_contraband # by paradise 220
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterLegitMissNT1
+  name: Miss NanoTrasen contest
+  description: "An old poster advertising a beauty contest among station employees."
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/posters.rsi
+    state: missnt1_legit # by paradise 220
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterLegitMissNT2
+  name: Miss NanoTrasen
+  description: "An old poster advertising NanoTrasen."
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/posters.rsi
+    state: missnt2_legit # by paradise 220
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterContrabandSkrellSinger
+  name: Skrell singer
+  description: "A poster depicting singer La'li'a'vuzo Seyur'a, the most famous artist among skrell."
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/posters.rsi
+    state: skrell_contraband # by paradise 220
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterContrabandSpaceNinja
+  name: Space ninja
+  description: "A poster depicting a stealthy space ninja in action."
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/posters.rsi
+    state: ninja_contraband # by discord:prazat911 for ADT
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterCalendarNT
+  name: Calendar
+  description: "A corporate NanoTrasen calendar. Looks very cheap."
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/posters.rsi
+    state: calendar_nt # by discord:prazat911 for ADT
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterContrabandAnime
+  name: End of Evangelion
+  description: "A promotional poster for a Japanese drama with action about schoolchildren piloting giant bio-robots."
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/posters.rsi
+    state: anime_contraband # by ss13
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterContrabandUnati
+  name: Lustful Unathi maiden
+  description: "A promotional poster for a book series about an Unathi maid."
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/posters.rsi
+    state: unati_contraband # by ss13
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterContrabandPinning
+  name: Pin the tail on Ian!
+  description: "Tail not included."
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/posters.rsi
+    state: pinning_contraband # by ss13
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterLegitObjection
+  name: OBJECTION
+  description: "Your Honor: The first word was eaten by a cow. The first word is more expensive than the second."
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/posters.rsi
+    state: objection_legit # by ss13
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterContrabandGorlaxSanta
+  name: Happy New Year
+  description: "A New Year poster congratulating all Syndicate agents on the New Year."
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/posters.rsi
+    state: gorlaxsanta_contraband # by ss13
 
 #Анимированные постеры
 
@@ -195,7 +373,7 @@
   description: work under way
   components:
   - type: Sprite
-    sprite: ADT/Structures/Wallmounts/workunderway.rsi #спрайты от yamato_no_orochi8
+    sprite: ADT/Structures/Wallmounts/workunderway.rsi
     state: workunderway
   - type: PointLight
     radius: 3
@@ -354,6 +532,7 @@
   description: diagram of efficiency
   components:
   - type: Sprite
+    sprite: ADT/Structures/Wallmounts/posters.rsi
     state: poster_efficiencydiagram_legit #Спрайт от Иллюми
 
 #Флаги и плакаты СССП
@@ -455,6 +634,7 @@
   description: "When you look at the poaster you want to wear an animal mask"
   components:
   - type: Sprite
+    sprite: ADT/Structures/Wallmounts/posters.rsi
     state: quadro_electronics
 
 - type: entity
@@ -529,6 +709,7 @@
   suffix: Sponsor, Uma
   components:
   - type: Sprite
+    sprite: ADT/Structures/Wallmounts/posters.rsi
     state: poster_umahot_contraband #Спрайт от Празата
 
 - type: entity
@@ -539,6 +720,7 @@
   suffix: Sponsor, Uma
   components:
   - type: Sprite
+    sprite: ADT/Structures/Wallmounts/posters.rsi
     state: poster_umapress_contraband #Спрайт от Празата
 
 - type: entity
@@ -549,6 +731,7 @@
   suffix: Sponsor, Uma
   components:
   - type: Sprite
+    sprite: ADT/Structures/Wallmounts/posters.rsi
     state: poster_umasport_contraband #Спрайт от Празата
 
 - type: entity
@@ -559,6 +742,7 @@
   suffix: Sponsor, Uma
   components:
   - type: Sprite
+    sprite: ADT/Structures/Wallmounts/posters.rsi
     state: poster_umaazalia_contraband #Спрайт от Празата
 
 - type: entity
@@ -569,6 +753,7 @@
   suffix: Sponsor, Uma
   components:
   - type: Sprite
+    sprite: ADT/Structures/Wallmounts/posters.rsi
     state: poster_umarabbit_contraband #Спрайт от Празата
 
 - type: entity
@@ -579,6 +764,7 @@
   suffix: Sponsor, Uma
   components:
   - type: Sprite
+    sprite: ADT/Structures/Wallmounts/posters.rsi
     state: poster_umaonbeach_contraband #Спрайт от Празата
 
 - type: entity
@@ -588,6 +774,7 @@
   suffix: DV
   components:
   - type: Sprite
+    sprite: ADT/Structures/Wallmounts/posters.rsi
     state: poster_whatdv_legit #Спрайт от Празата
 
 - type: entity
@@ -597,6 +784,7 @@
   suffix: DV
   components:
   - type: Sprite
+    sprite: ADT/Structures/Wallmounts/posters.rsi
     state: poster_unclepraz_legit #Спрайт от Празата
 
 - type: entity
@@ -606,6 +794,7 @@
   description: "-"
   components:
   - type: Sprite
+    sprite: ADT/Structures/Wallmounts/posters.rsi
     state: poster_noLRP
 
 - type: entity
@@ -615,6 +804,7 @@
   description: "-"
   components:
   - type: Sprite
+    sprite: ADT/Structures/Wallmounts/posters.rsi
     state: poster_HB_Pangaari
 
 - type: entity

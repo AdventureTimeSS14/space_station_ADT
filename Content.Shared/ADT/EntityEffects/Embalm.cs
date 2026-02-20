@@ -1,17 +1,27 @@
-using Robust.Shared.Prototypes;
 using Content.Shared.ADT.Atmos.Miasma;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared.EntityEffects.Effects;
 
-public sealed partial class Embalm : EntityEffect
+public sealed partial class Embalm : EntityEffectBase<Embalm>
 {
-    protected override string? ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
-      => Loc.GetString("reagent-effect-guidebook-embalm", ("chance", Probability));
+    [Dependency] private readonly IEntityManager _entMan = default!;
 
-    // Gives the entity a component that prevents rotting and also execution by defibrillator
-    public override void Effect(EntityEffectBaseArgs args)
+    public override void RaiseEvent(
+        EntityUid uid,
+        IEntityEffectRaiser raiser,
+        float scale,
+        EntityUid? user)
     {
-        var entityManager = args.EntityManager;
-        entityManager.EnsureComponent<EmbalmedComponent>(args.TargetEntity);
+        _entMan.EnsureComponent<EmbalmedComponent>(uid);
+    }
+
+    public override string? EntityEffectGuidebookText(
+        IPrototypeManager prototype,
+        IEntitySystemManager entSys)
+    {
+        return Loc.GetString(
+            "reagent-effect-guidebook-embalm",
+            ("chance", Probability));
     }
 }

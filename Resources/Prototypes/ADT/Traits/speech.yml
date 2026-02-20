@@ -25,3 +25,12 @@
   cost: 1
   components:
     - type: SickTeethAccent
+
+- type: trait
+  id: ADTBurrinessAccent
+  name: trait-burriness-accent-name
+  description: trait-burriness-accent-desc
+  category: SpeechTraits
+  cost: 1
+  components:
+    - type: BurrinessAccent

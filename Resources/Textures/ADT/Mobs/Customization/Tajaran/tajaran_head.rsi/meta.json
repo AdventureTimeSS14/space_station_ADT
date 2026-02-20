@@ -17,7 +17,6 @@
         { "name": "tiger_head", "directions": 4 },
         { "name": "eye_stripes_head", "directions": 4 },
         { "name": "star_head", "directions": 4 },
-        { "name": "mane_head", "directions": 4 },
         { "name": "raccoon-head", "directions": 4 },
         { "name": "c_eyes_wide", "directions": 4 },
         { "name": "s_eyes_wide", "directions": 4 },

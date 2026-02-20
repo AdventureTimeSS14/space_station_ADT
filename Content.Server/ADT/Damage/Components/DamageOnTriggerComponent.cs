@@ -1,12 +1,14 @@
-using Content.Shared.Damage;
+// Есть аналог Content.Shared\Trigger\Components\Effects\DamageOnTriggerComponent.cs
 
-namespace Content.Server.Damage.Components;
+// using Content.Shared.Damage;
 
-[RegisterComponent]
-public sealed partial class DamageOnTriggerComponent : Component
-{
-    [DataField("ignoreResistances")] public bool IgnoreResistances;
+// namespace Content.Server.Damage.Components;
 
-    [DataField("damage", required: true)]
-    public DamageSpecifier Damage = default!;
-}
+// [RegisterComponent]
+// public sealed partial class DamageOnTriggerComponent : Component
+// {
+//     [DataField("ignoreResistances")] public bool IgnoreResistances;
+
+//     [DataField("damage", required: true)]
+//     public DamageSpecifier Damage = default!;
+// }

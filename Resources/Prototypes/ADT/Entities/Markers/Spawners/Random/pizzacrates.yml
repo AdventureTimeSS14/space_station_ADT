@@ -1,0 +1,35 @@
+- type: entity
+  parent: MarkerBase
+  id: ADTPizzaCratesSafeRandom
+  name: random safe pizza crates spawner
+  suffix: No explosive pizza
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: ADT/Markers/randoms.rsi
+        state: pizzabox
+  - type: RandomSpawner
+    rareChance: 0.30
+    offset: 0
+    prototypes:
+      - FoodBoxPizzaFilled
+
+- type: entity
+  parent: MarkerBase
+  id: ADTPizzaCratesDangerousRandom
+  name: random dangerous pizza crates spawner
+  suffix: With explosive pizza
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: ADT/Markers/randoms.rsi
+        state: pizzabox
+  - type: RandomSpawner
+    rareChance: 0.15
+    offset: 0
+    prototypes:
+      - FoodBoxPizzaFilled
+    rarePrototypes:
+      - ADTExplosivePizzabox

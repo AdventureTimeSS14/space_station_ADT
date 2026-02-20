@@ -310,7 +310,7 @@
     sprite: Clothing/OuterClothing/Misc/hospitalgown.rsi
 
 - type: entity
-  parent: ClothingOuterBase
+  parent: ClothingOuterStorageBase # ADT-Tweak: карманы
   id: ClothingOuterFlannelRed
   name: red flannel jacket
   description: An old fashioned red flannel jacket for space autumn.
@@ -346,7 +346,7 @@
     coolingCoefficient: 0.3
 
 - type: entity
-  parent: ClothingOuterBase
+  parent: ClothingOuterStorageBase # ADT-Tweak: карманы
   id: ClothingOuterFlannelBlue
   name: blue flannel jacket
   description: An old fashioned blue flannel jacket for space autumn.
@@ -382,7 +382,7 @@
     coolingCoefficient: 0.3
 
 - type: entity
-  parent: ClothingOuterBase
+  parent: ClothingOuterStorageBase # ADT-Tweak: карманы
   id: ClothingOuterFlannelGreen
   name: green flannel jacket
   description: An old fashioned green flannel jacket for space autumn.

@@ -53,6 +53,7 @@ flavor-base-terrible = ужасающе
 flavor-base-mindful = разумно
 flavor-base-chewy = жевательно
 flavor-base-trashy = мусорно
+flavor-base-motivating = мотивирующее
 
 # Complex flavors. Put a flavor here when you want something that's more
 # specific.
@@ -185,6 +186,7 @@ flavor-complex-false-meat = как не совсем не мясо
 flavor-complex-paper = как кашеобразная масса
 flavor-complex-compressed-meat = как спрессованное мясо
 flavor-complex-dog-food = как еда для собак
+flavor-complex-canned-tuna = как консервированный тунец
 
 # Drink-specific flavors.
 
@@ -349,6 +351,6 @@ flavor-complex-bee = беспчеловечно
 flavor-complex-sax = как джаз
 flavor-complex-bottledlightning = как молния в бутылке
 flavor-complex-punishment = как наказание
-flavor-complex-artifact-glue = like crushed artifacts
+flavor-complex-artifact-glue = как дроблённые артефакты
 flavor-weh = как вех
 flavor-hew = как хев

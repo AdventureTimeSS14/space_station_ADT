@@ -4,7 +4,7 @@
   id: ADTFoodVulpix
   description: It helps to improve blood circulation.
   components:
-  - type: Food
+  - type: Edible
     trash:
     - FoodPlateSmall
     utensil: Fork

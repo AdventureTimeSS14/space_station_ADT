@@ -20,6 +20,23 @@
       - id: FoodPacketSusTrash
       - id: FoodPacketSyndiTrash
       - id: BrokenBottle
+#ADT-Tweak-Start
+      - id: ADTGarbage
+      - id: ADTFoodPacketChipsOnionAndSourcreamTrash
+      - id: ADTFoodPacketChipsShrimpTrash
+      - id: ADTFoodPacketChipsSpaceTrash
+      - id: ADTFoodPacketSpicyTrash
+      - id: ADTFoodPacketBeefTrash
+      - id: ADTFoodPacketChickenTrash
+      - id: ADTFoodPacketHorseTrash
+      - id: ADTFoodPacketPigTrash
+      - id: ADTFoodPacketChocolateTrashChoco
+      - id: ADTFoodPacketChocolateTrashCoconut
+      - id: ADTFoodPacketChocolateTrashEnergy
+      - id: ADTFoodPacketChocolateTrashNuts
+      - id: ADTFoodPacketChocolateTrashPink
+      - id: ADTFoodPacketChocolateTrashTwo
+#ADT-Tweak-End
     - !type:GroupSelector
       weight: 5
       children:

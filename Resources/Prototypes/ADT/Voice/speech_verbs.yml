@@ -13,3 +13,12 @@
   name: chat-speech-verb-name-supermatter
   speechVerbStrings:
   - chat-speech-verb-supermatter
+
+- type: speechVerb
+  id: Echo
+  name: chat-speech-verb-name-echo
+  speechVerbStrings:
+  - chat-speech-verb-echo-1
+  - chat-speech-verb-echo-2
+  - chat-speech-verb-echo-3
+  - chat-speech-verb-echo-4

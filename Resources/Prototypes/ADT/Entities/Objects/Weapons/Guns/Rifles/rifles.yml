@@ -71,7 +71,7 @@
   - type: Gun
     fireRate: 6
   - type: RunAndGunSpreadModifier
-    modifier: 0.06
+    modifier: 0.2
   - type: ItemSlots
     slots:
       gun_magazine:
@@ -136,7 +136,7 @@
   - type: Clothing
     sprite: ADT/Objects/Weapons/Guns/Rifles/tar60sf.rsi
   - type: RunAndGunSpreadModifier
-    modifier: 0.06
+    modifier: 0.2
   - type: Gun
     fireRate: 5.5
   - type: AttachableHolderVisuals
@@ -161,7 +161,7 @@
   - type: Clothing
     sprite: ADT/Objects/Weapons/Guns/Rifles/xc67.rsi
   - type: RunAndGunSpreadModifier
-    modifier: 0.03
+    modifier: 0.2
   - type: Gun
     minAngle: 20.5
     maxAngle: 31

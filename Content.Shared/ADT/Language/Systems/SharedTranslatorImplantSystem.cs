@@ -38,15 +38,13 @@ public abstract class SharedTranslatorImplantSystem : EntitySystem
 
     private void OnImplanted(EntityUid uid, TranslatorImplantComponent comp, ref ImplantImplantedEvent args)
     {
-        if (args.Implanted.HasValue)
-            _language.UpdateUi(args.Implanted.Value);
+        _language.UpdateUi(args.Implanted);
         comp.ImplantedEntity = args.Implanted;
     }
 
     private void OnUnimplanted(EntityUid uid, TranslatorImplantComponent comp, ref ImplantRemovedEvent args)
     {
-        if (args.Implanted.HasValue)
-            _language.UpdateUi(args.Implanted.Value);
+        _language.UpdateUi(args.Implanted);
         comp.ImplantedEntity = null;
     }
     private void OnRemoveAttempt(EntityUid uid, TranslatorImplantComponent component, ContainerGettingRemovedAttemptEvent args)
