@@ -21,7 +21,6 @@
       path: /Audio/Items/Handcuffs/rope_takeoff.ogg
     borgUse: true
   - type: Stack
-    lingering: true
     stackType: Zipties
     count: 1
 

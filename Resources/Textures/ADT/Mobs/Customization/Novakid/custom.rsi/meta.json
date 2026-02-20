@@ -1,5 +1,5 @@
 {
-    "version": 1,
+    "version": 2,
     "license": "CC-BY-SA-3.0",
     "copyright": "Created by discord:lunalita and Created by discord:unlumy",
     "size": {
@@ -173,7 +173,11 @@
             "directions": 4
         },
         {
-            "name": "torso_novakid_defolt",
+            "name": "torso_novakid_defolt_m",
+            "directions": 4
+        },
+        {
+            "name": "torso_novakid_defolt_f",
             "directions": 4
         },
         {

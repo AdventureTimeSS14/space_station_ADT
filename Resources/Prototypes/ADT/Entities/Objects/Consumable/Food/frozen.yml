@@ -6,7 +6,7 @@
   id: ADTFoodFrozenBase
   abstract: true
   components:
-  - type: Food
+  - type: Edible
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/Frozen/ice.rsi
   - type: SolutionContainerManager
@@ -38,7 +38,7 @@
   parent: ADTFoodFrozenChocolateBase
   id: ADTFoodFrozenChocolateFreezy
   components:
-  - type: Food
+  - type: Edible
   - type: Sprite
     state: chocolatefreezy
 
@@ -46,7 +46,7 @@
   parent: ADTFoodFrozenChocolateBase
   id: ADTFoodFrozenChocolateFreezyCaramel
   components:
-  - type: Food
+  - type: Edible
   - type: Sprite
     state: chocolatefreezy_caramel
 
@@ -54,7 +54,7 @@
   parent: ADTFoodFrozenChocolateBase
   id: ADTFoodFrozenChocolateIceCream
   components:
-  - type: Food
+  - type: Edible
   - type: Sprite
     state: chocolateicecream
 
@@ -62,7 +62,7 @@
   parent: ADTFoodFrozenBase
   id: ADTFoodFrozenHonkdae
   components:
-  - type: Food
+  - type: Edible
   - type: Sprite
     state: honkdae
   - type: SolutionContainerManager
@@ -77,7 +77,7 @@
   parent: ADTFoodFrozenBase
   id: ADTFoodFrozenIceCreamCone
   components:
-  - type: Food
+  - type: Edible
   - type: Sprite
     state: icecreamcone
   - type: SolutionContainerManager
@@ -92,7 +92,7 @@
   parent: ADTFoodFrozenBase
   id: ADTFoodFrozenIceCreamWafflecone
   components:
-  - type: Food
+  - type: Edible
   - type: Sprite
     state: icecreamwafflecone
   - type: SolutionContainerManager
@@ -111,7 +111,7 @@
   parent: ADTFoodFrozenBase
   id: ADTFoodFrozenIceCreamWaffleconeNuts
   components:
-  - type: Food
+  - type: Edible
   - type: Sprite
     state: icecreamwaffleconenuts
   - type: SolutionContainerManager
@@ -130,7 +130,7 @@
   parent: ADTFoodFrozenChocolateBase
   id: ADTFoodFrozenPineappleChocolate
   components:
-  - type: Food
+  - type: Edible
   - type: Sprite
     state: pineapplechocolate
 
@@ -138,7 +138,7 @@
   parent: ADTFoodFrozenBase
   id: ADTFoodFrozenSpaceFreezy
   components:
-  - type: Food
+  - type: Edible
   - type: Sprite
     state: spacefreezy
 
@@ -146,7 +146,7 @@
   parent: ADTFoodFrozenBase
   id: ADTFoodFrozenSpaceFreezyCaramel
   components:
-  - type: Food
+  - type: Edible
   - type: Sprite
     state: spacefreezy_caramel
 
@@ -154,7 +154,7 @@
   parent: ADTFoodFrozenBase
   id: ADTFoodFrozenSpaceIceCream
   components:
-  - type: Food
+  - type: Edible
   - type: Sprite
     state: spaceicecream
 
@@ -162,7 +162,7 @@
   parent: ADTFoodFrozenBase
   id: ADTFoodFrozenStrawberryIceCream
   components:
-  - type: Food
+  - type: Edible
   - type: Sprite
     state: strawberryicecream
 
@@ -170,7 +170,7 @@
   parent: ADTFoodFrozenBase
   id: ADTFoodFrozenSundae
   components:
-  - type: Food
+  - type: Edible
   - type: Sprite
     state: sundae
   - type: SolutionContainerManager
@@ -185,7 +185,7 @@
   parent: ADTFoodFrozenBase
   id: ADTFoodFrozenThreeFlavorsFreezy
   components:
-  - type: Food
+  - type: Edible
   - type: Sprite
     state: threeflavorsfreezy
 
@@ -193,7 +193,7 @@
   parent: ADTFoodFrozenBase
   id: ADTFoodFrozenThreeFlavorsFreezyCaramel
   components:
-  - type: Food
+  - type: Edible
   - type: Sprite
     state: threeflavorsfreezy_caramel
 
@@ -201,7 +201,7 @@
   parent: ADTFoodFrozenBase
   id: ADTFoodFrozenVanillaFreezy
   components:
-  - type: Food
+  - type: Edible
   - type: Sprite
     state: vanillafreezy
 
@@ -209,7 +209,7 @@
   parent: ADTFoodFrozenBase
   id: ADTFoodFrozenVanillaFreezyCaramel
   components:
-  - type: Food
+  - type: Edible
   - type: Sprite
     state: vanillafreezy_caramel
 
@@ -217,7 +217,7 @@
   parent: ADTFoodFrozenBase
   id: ADTFoodFrozenVanillaIceCream
   components:
-  - type: Food
+  - type: Edible
   - type: Sprite
     state: vanillaicecream
 
@@ -225,7 +225,7 @@
   parent: ADTFoodFrozenBase
   id: ADTFoodFrozenWafflecone
   components:
-  - type: Food
+  - type: Edible
   - type: Sprite
     state: wafflecone
 
@@ -241,7 +241,7 @@
     layers:
     - state: IceCreamStick
     - state: bananafruitIce
-  - type: Food
+  - type: Edible
     trash:
       - FoodFrozenPopsicleTrash
   - type: Tag

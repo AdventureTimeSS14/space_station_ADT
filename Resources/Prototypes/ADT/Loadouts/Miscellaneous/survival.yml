@@ -14,6 +14,13 @@
     species:
     - IPC
 
+- type: loadoutEffectGroup
+  id: ADTNovakidSpecies
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - NovakidSpecies
+
 # Basic
 - type: loadout
   id: ADTEmergencyMoth
@@ -32,6 +39,36 @@
   storage:
     back:
     - ADTBoxSurvivalSilicon
+
+- type: loadout
+  id: ADTEmergencyNovakid
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTNovakidSpecies
+  storage:
+    back:
+    - ADTBoxSurvivalNovakid
+    - PlasmaTankFilled
+
+# Mime
+- type: loadout
+  id: ADTEmergencyIPCMime
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTSiliconSpecies
+  storage:
+    back:
+    - ADTBoxSurvivalSiliconMime
+
+- type: loadout
+  id: ADTEmergencyNovakidMime
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTNovakidSpecies
+  storage:
+    back:
+    - ADTBoxSurvivalNovakidMime
+    - PlasmaTankFilled
 
 # Clown
 - type: loadout
@@ -52,6 +89,16 @@
     back:
     - ADTBoxSiliconHug
 
+- type: loadout
+  id: ADTEmergencyNovakidClown
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTNovakidSpecies
+  storage:
+    back:
+    - ADTBoxNovakidHug
+    - PlasmaTankFilled
+
 # Engineering / Extended
 - type: loadout
   id: ADTEmergencyMothExtended
@@ -70,6 +117,16 @@
   storage:
     back:
     - ADTBoxSurvivalSiliconEngineering
+
+- type: loadout
+  id: ADTEmergencyNovakidExtended
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTNovakidSpecies
+  storage:
+    back:
+    - ADTBoxSurvivalNovakidEngineering
+    - PlasmaTankFilled
 
 # Medical
 - type: loadout
@@ -90,6 +147,16 @@
     back:
     - ADTBoxSurvivalSiliconMedical
 
+- type: loadout
+  id: ADTEmergencyNovakidMedical
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTNovakidSpecies
+  storage:
+    back:
+    - ADTBoxSurvivalNovakidMedical
+    - PlasmaTankFilled
+
 # Security
 - type: loadout
   id: ADTEmergencyMothSecurity
@@ -109,6 +176,16 @@
     back:
     - ADTBoxSurvivalSiliconSecurity
 
+- type: loadout
+  id: ADTEmergencyNovakidSecurity
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTNovakidSpecies
+  storage:
+    back:
+    - ADTBoxSurvivalNovakidSecurity
+    - PlasmaTankFilled
+
 # Syndicate
 - type: loadout
   id: ADTEmergencyMothSyndicate
@@ -127,3 +204,13 @@
   storage:
     back:
     - ADTBoxSurvivalSiliconSyndicate
+
+- type: loadout
+  id: ADTEmergencyNovakidSyndicate
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTNovakidSpecies
+  storage:
+    back:
+    - ADTBoxSurvivalNovakidSyndicate
+    - PlasmaTankFilled

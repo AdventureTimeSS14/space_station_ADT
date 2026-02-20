@@ -4,7 +4,7 @@
   category: Vocal
   chatMessages: ["chat-emote-msg-sneeze"]
   # ADT tweak start
-  icon: Interface/Emotes/yawn.png
+  icon: ADT/Interface/Emotes/sneeze.png
   whitelist:
     components:
     - Vocal

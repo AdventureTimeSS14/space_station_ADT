@@ -52,3 +52,50 @@
     state: milky_horns
   - sprite: ADT/Mobs/Customization/Human/demon.rsi
     state: milky_horns_secondary
+
+- type: marking
+  id: ADTHorseEars
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Human]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:CategoryColoring
+          category: FacialHair
+        - !type:SkinColoring
+    layers:
+      ears_horse_inner:
+        type:
+          !type:CategoryColoring
+            category: Hair
+        fallbackTypes:
+          - !type:CategoryColoring
+            category: FacialHair
+          - !type:SkinColoring
+  sprites:
+  - sprite: ADT/Mobs/Customization/Human/horse.rsi
+    state: ears_horse_outer
+  - sprite: ADT/Mobs/Customization/Human/horse.rsi
+    state: ears_horse_inner
+
+- type: marking
+  id: ADTHorseTail
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Human]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:CategoryColoring
+          category: FacialHair
+        - !type:SkinColoring
+  sprites:
+  - sprite: ADT/Mobs/Customization/Human/horse.rsi
+    state: tail_horse

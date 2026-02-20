@@ -75,7 +75,7 @@ public sealed partial class PhantomFreedomMenu : RadialMenu
 }
 
 
-public sealed class PhantomFreedomMenuButton : RadialMenuTextureButtonWithSector
+public sealed class PhantomFreedomMenuButton : RadialMenuButtonWithSector
 {
     public string? ID;
 }

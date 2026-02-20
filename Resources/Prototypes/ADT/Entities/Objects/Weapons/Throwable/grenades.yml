@@ -10,9 +10,8 @@
   - type: DeleteOnTrigger
   - type: SpawnOnTrigger
     proto: GrenadeFlashEffect
-  - type: SoundOnTrigger
-    sound:
-      path: /Audio/ADT/Effects/kega.ogg
+  - type: EmitSoundOnTrigger
+    sound: /Audio/ADT/Effects/kega.ogg
   - type: Appearance
   - type: TimerTriggerVisuals
     primingSound:

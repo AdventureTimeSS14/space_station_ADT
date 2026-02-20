@@ -21,3 +21,6 @@ ent-ADTRingsCrate = набор колец
 
 ent-ADTCrateMaterialMarble = ящик мрамора
     .desc = Содержит 30 блоков мрамора.
+
+ent-ADTCrateServicePrinterInkCartridge = ящик с чернильным картриджем
+    .desc = Содержит чернильный картридж для принтера книг.

@@ -18,16 +18,14 @@ public sealed class MantisDaggersImplantSystem : EntitySystem
 
     private void OnImplanted(EntityUid uid, MantisDaggersImplantComponent comp, ref ImplantImplantedEvent args)
     {
-        if (args.Implanted is not { } owner)
-            return;
+        var owner = args.Implanted;
 
         EnsureComp<MantisDaggersComponent>(owner);
     }
 
     private void OnRemoved(EntityUid uid, MantisDaggersImplantComponent comp, ref ImplantRemovedEvent args)
     {
-        if (args.Implanted is not { } owner)
-            return;
+        var owner = args.Implanted;
 
         if (TryComp<MantisDaggersComponent>(owner, out var mantisComp))
         {
