@@ -81,19 +81,17 @@
     accent-adt_chatsanitize-words-4: accent-adt_chatsanitize-replace-4
     accent-adt_chatsanitize-words-5-1: accent-adt_chatsanitize-replace-5
     accent-adt_chatsanitize-words-5-2: accent-adt_chatsanitize-replace-5
-    accent-adt_chatsanitize-words-6-1: accent-adt_chatsanitize-replace-6
-    accent-adt_chatsanitize-words-6-2: accent-adt_chatsanitize-replace-6
-    accent-adt_chatsanitize-words-6-3: accent-adt_chatsanitize-replace-6
+    accent-adt_chatsanitize-words-6: accent-adt_chatsanitize-replace-6
     accent-adt_chatsanitize-words-7: accent-adt_chatsanitize-replace-7
     accent-adt_chatsanitize-words-8: accent-adt_chatsanitize-replace-8
-    accent-adt_chatsanitize-words-9: accent-adt_chatsanitize-replace-9
+    accent-adt_chatsanitize-words-9-1: accent-adt_chatsanitize-replace-9
+    accent-adt_chatsanitize-words-9-2: accent-adt_chatsanitize-replace-9
+    accent-adt_chatsanitize-words-9-3: accent-adt_chatsanitize-replace-9
     accent-adt_chatsanitize-words-10-1: accent-adt_chatsanitize-replace-10
     accent-adt_chatsanitize-words-10-2: accent-adt_chatsanitize-replace-10
     accent-adt_chatsanitize-words-10-3: accent-adt_chatsanitize-replace-10
-    accent-adt_chatsanitize-words-11-1: accent-adt_chatsanitize-replace-11
-    accent-adt_chatsanitize-words-11-2: accent-adt_chatsanitize-replace-11
-    accent-adt_chatsanitize-words-11-3: accent-adt_chatsanitize-replace-11
-    accent-adt_chatsanitize-words-11-4: accent-adt_chatsanitize-replace-11
+    accent-adt_chatsanitize-words-10-4: accent-adt_chatsanitize-replace-10
+    accent-adt_chatsanitize-words-11: accent-adt_chatsanitize-replace-11
     accent-adt_chatsanitize-words-12: accent-adt_chatsanitize-replace-12
     accent-adt_chatsanitize-words-13: accent-adt_chatsanitize-replace-13
     accent-adt_chatsanitize-words-14: accent-adt_chatsanitize-replace-14
@@ -101,9 +99,9 @@
     accent-adt_chatsanitize-words-16: accent-adt_chatsanitize-replace-16
     accent-adt_chatsanitize-words-17: accent-adt_chatsanitize-replace-17
     accent-adt_chatsanitize-words-18: accent-adt_chatsanitize-replace-18
-    accent-adt_chatsanitize-words-19: accent-adt_chatsanitize-replace-19
-    accent-adt_chatsanitize-words-20-1: accent-adt_chatsanitize-replace-20
-    accent-adt_chatsanitize-words-20-2: accent-adt_chatsanitize-replace-20
+    accent-adt_chatsanitize-words-19-1: accent-adt_chatsanitize-replace-19
+    accent-adt_chatsanitize-words-19-2: accent-adt_chatsanitize-replace-19
+    accent-adt_chatsanitize-words-20: accent-adt_chatsanitize-replace-20
     accent-adt_chatsanitize-words-21: accent-adt_chatsanitize-replace-21
     accent-adt_chatsanitize-words-22: accent-adt_chatsanitize-replace-22
     accent-adt_chatsanitize-words-23-1: accent-adt_chatsanitize-replace-23
