@@ -1,4 +1,4 @@
 - type: soundCollection
-  id: FootstepsSilent
+  id: ADTFootstepsSilent
   files:
     - /Audio/ADT/Effects/silence.ogg
