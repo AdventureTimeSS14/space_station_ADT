@@ -131,6 +131,41 @@
 # ADT End Paws
 #endregion Paws
 
+# Long gloves
+- type: entity
+  parent: ClothingHandsGlovesSyntheticBase
+  id: ADTClothingHandsGlovesLongBlack
+  name: long black gloves
+  description: Long black gloves that do not keep you from frying.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Hands/Gloves/long_black.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Hands/Gloves/long_black.rsi
+  - type: Butcherable
+    butcheringType: Knife
+    spawned:
+    - id: ClothingHandsGlovesFingerless
+  - type: Fiber
+    fiberColor: fibers-black
+
+- type: entity
+  parent: ClothingHandsGlovesSyntheticBase
+  id: ADTClothingHandsGlovesLongWhite
+  name: long white gloves
+  description: Long white gloves that do not keep you from frying.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Hands/Gloves/long_white.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Hands/Gloves/long_white.rsi
+  - type: Butcherable
+    butcheringType: Knife
+    spawned:
+    - id: ClothingHandsGlovesFingerless
+  - type: Fiber
+    fiberColor: fibers-white
+
 # Medical
 - type: entity
   parent: ClothingHandsButcherable

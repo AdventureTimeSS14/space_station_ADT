@@ -30,6 +30,12 @@ ent-ADTClothingHandsCatPawsBlackCombat = чёрные кошачьи лапки
 ent-ADTClothingHandsCatPawsBlackWhiteCombat = чёрно-белые кошачьи лапки
     .desc = Супермягкие чёрно-белые кошачьи лапки, специально для самых брутальных работников станции.
 
+ent-ADTClothingHandsGlovesLongBlack = длинные чёрные перчатки
+    .desc = Длинные чёрные перчатки, которые не спасут вас от поджаривания.
+
+ent-ADTClothingHandsGlovesLongWhite = длинные белые перчатки
+    .desc = Длинные белые перчатки, которые не спасут вас от поджаривания.
+
 ent-ClothingHandsGlovesLatexBlack = чёрные латексные перчатки
     .desc = Тонкие стерильные латексные перчатки чёрного цвета.
 

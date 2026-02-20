@@ -6,7 +6,7 @@
     sprite: Objects/Devices/chameleon_projector.rsi
     state: icon
   content:
-  - ClothingBackpackChameleonFill
+  - ADTClothingBackpackChameleonThiefFill # ADT-Tweak: ClothingBackpackChameleonFill --> ADTClothingBackpackChameleonThiefFill
   - ChameleonProjector
   - FakeMindShieldImplanter
   - AgentIDCard

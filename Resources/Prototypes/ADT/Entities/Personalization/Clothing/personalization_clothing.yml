@@ -935,20 +935,24 @@
   suffix: Personal, saint_madman
   components:
   - type: Sprite
-    sprite: ADT/Personalization/saintmadman-uniform.rsi
+    sprite: ADT/Personalization/saint_madman_uniform.rsi
   - type: Clothing
-    sprite: ADT/Personalization/saintmadman-uniform.rsi
+    sprite: ADT/Personalization/saint_madman_uniform.rsi
 
 - type: entity
-  parent: ADTSponsorClothingHeadBase
-  id: ClothingHeadHatSaintMadmanthingy
-  name: yeaaaaa
+  parent: ADTSponsorClothingNeckBase
+  id: ADTClothingNeckSaintMadmanMantle
   suffix: Personal, saint_madman
+  name: SaintMadmanNeck
+  description: The Aristocrat's neck
   components:
   - type: Sprite
-    sprite: ADT/Personalization/saintmadman-headthingy.rsi
+    sprite: ADT/Personalization/saint_madman_neck.rsi
+    state: icon
   - type: Clothing
-    sprite: ADT/Personalization/saintmadman-headthingy.rsi
+    sprite: ADT/Personalization/saint_madman_neck.rsi
+  - type: Item
+    size: Normal
 
 - type: entity
   parent: ADTSponsorClothingOuterStorageBase
@@ -958,32 +962,14 @@
   suffix: Personal, saint_madman
   components:
   - type: Sprite
-    sprite: ADT/Personalization/saintmadman-coat.rsi
+    sprite: ADT/Personalization/saint_madman_coat.rsi
   - type: Clothing
-    sprite: ADT/Personalization/saintmadman-coat.rsi
+    sprite: ADT/Personalization/saint_madman_coat.rsi
   - type: Storage
     grid:
     - 0,0,4,2
     maxItemSize: Normal
 
-- type: entity
-  parent: ADTSponsorClothingOuterBase
-  id: ADTClothingOuterCoatViaDeus
-  name: SaintMadmanCoat
-  description: yeaaaaagain
-  suffix: Personal, saint_madman
-  components:
-  - type: Sprite
-    sprite: ADT/Personalization/saintmadman-coatViaDeus.rsi
-  - type: Clothing
-    sprite: ADT/Personalization/saintmadman-coatViaDeus.rsi
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.95
-        Slash: 0.95
-        Piercing: 0.95
-        Heat: 0.95
 
 #kringe
 

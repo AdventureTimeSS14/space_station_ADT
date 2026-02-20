@@ -565,7 +565,7 @@
   - type: Pill
   - type: Edible
     delay: 0.6
-    forceFeedDelay: 2
+    forceFeedDelay: 3 # ADT-Tweak. 2 -> 3
     transferAmount: null
     edible: Pill
   - type: BadFood
