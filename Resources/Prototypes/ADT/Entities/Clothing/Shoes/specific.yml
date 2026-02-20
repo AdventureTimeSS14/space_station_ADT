@@ -139,7 +139,7 @@
   components:
   - type: FootstepModifier
     footstepSoundCollection:
-      collection: FootstepsSilent
+      collection: ADTFootstepsSilent
       params:
         volume: -3
 # Corvax-HiddenDesc-Start
