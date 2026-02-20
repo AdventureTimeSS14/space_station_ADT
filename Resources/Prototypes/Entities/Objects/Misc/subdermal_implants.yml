@@ -92,6 +92,14 @@
       whitelist:
         components:
         - MobState # admeme implanting a chair with tracking implant needs to give the chair mobstate so it can die first
+    # ADT Tweak-START
+    - type: TriggerOnMobstateChange
+      mobState:
+      - Dead
+      - Critical
+    - type: Rattle
+      radioChannel: Security
+    # ADT Tweak-END
     - type: SuitSensor
       randomMode: false
       controlsLocked: true
