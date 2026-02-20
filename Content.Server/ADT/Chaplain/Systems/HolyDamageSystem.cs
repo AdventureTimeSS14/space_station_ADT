@@ -12,6 +12,7 @@ using Content.Shared.Stunnable;
 using Content.Shared.FixedPoint;
 using Content.Shared.Weapons.Melee;
 using System.Linq;
+using Content.Shared.Damage.Systems;
 
 namespace Content.Server.ADT.Phantom.EntitySystems;
 

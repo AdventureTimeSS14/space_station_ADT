@@ -129,3 +129,25 @@
     tags:
     - ClownShoes
     - WhitelistChameleon
+
+- type: entity
+  parent: ClothingShoesChameleon
+  id: ADTClothingShoesChameleonNoSound
+  name: black shoes
+  suffix: NoSound, Chameleon
+  description: Stylish black shoes.
+  components:
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: ADTFootstepsSilent
+      params:
+        volume: -3
+
+- type: entity
+  parent: ADTClothingShoesChameleonNoSound
+  id: ADTClothingShoesChameleonSuper
+  name: black shoes
+  suffix: NoSound, NoSlip, Chameleon
+  description: Stylish black shoes.
+  components:
+  - type: NoSlip

@@ -1,0 +1,92 @@
+- type: constructionGraph
+  id: ADTBaseBarrel
+  start: start
+  graph:
+    - node: start
+      actions:
+        - !type:DestroyEntity {}
+      edges:
+        - to: adtbasebarrel
+          steps:
+            - material: Steel
+              amount: 5
+              doAfter: 5
+        
+    - node: adtbasebarrel
+      entity: ADTBaseBarrel
+      edges:
+        - to: start
+          steps:
+            - tool: Screwing
+              doAfter: 2
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 5
+            - !type:DeleteEntity {}
+
+- type: constructionGraph
+  id: ADTBarrelPlanks
+  start: start
+  graph:
+    - node: start
+      actions:
+        - !type:DestroyEntity {}
+      edges:
+        - to: adtbarrelplanks
+          steps:
+            - material: Steel
+              amount: 5
+              doAfter: 5
+            - material: WoodPlank
+              amount: 4
+              doAfter: 5
+
+    - node: adtbarrelplanks
+      entity: ADTBarrelPlanks
+      edges:
+        - to: start
+          steps:
+            - tool: Screwing
+              doAfter: 2
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 5
+            - !type:SpawnPrototype
+              prototype: MaterialWoodPlank1
+              amount: 4
+            - !type:DeleteEntity {}
+
+- type: constructionGraph
+  id: ADTBarrelFire
+  start: start
+  graph:
+    - node: start
+      actions:
+        - !type:DestroyEntity {}
+      edges:
+        - to: adtbarrelfire
+          steps:
+            - material: Steel
+              amount: 5
+              doAfter: 5
+            - material: WoodPlank
+              amount: 3
+              doAfter: 5
+
+    - node: adtbarrelfire
+      entity: ADTBarrelFire
+      edges:
+        - to: start
+          steps:
+            - tool: Screwing
+              doAfter: 2
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 5
+            - !type:SpawnPrototype
+              prototype: Coal1
+              amount: 4
+            - !type:DeleteEntity {}

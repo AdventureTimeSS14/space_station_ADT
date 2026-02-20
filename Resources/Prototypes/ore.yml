@@ -6,63 +6,63 @@
   id: OreSteel
   oreEntity: SteelOre1
   minOreYield: 1
-  maxOreYield: 2 #ADT tweak 5-->2
+  maxOreYield: 1 #ADT tweak 5-->2-->1
 
 - type: ore
   id: OreSpaceQuartz
   oreEntity: SpaceQuartz1
   minOreYield: 1
-  maxOreYield: 2 #ADT tweak 5-->2
+  maxOreYield: 1 #ADT tweak 5-->2-->1
 
 - type: ore
   id: OreCoal
   oreEntity: Coal1
   minOreYield: 1
-  maxOreYield: 2 #ADT tweak 5-->2
+  maxOreYield: 1 #ADT tweak 5-->2-->1
 
 # Medium yields
 - type: ore
   id: OreGold
   oreEntity: GoldOre1
   minOreYield: 1
-  maxOreYield: 2 #ADT tweak 3-->2
+  maxOreYield: 1 #ADT tweak 3-->2-->1
 
 - type: ore
   id: OreSilver
   oreEntity: SilverOre1
   minOreYield: 1
-  maxOreYield: 2 #ADT tweak 3-->2
+  maxOreYield: 1 #ADT tweak 3-->2-->1
 
 - type: ore
   id: OreSalt
   oreEntity: Salt1
   minOreYield: 1
-  maxOreYield: 3
+  maxOreYield: 2 #ADT tweak 3-->2
 
 # Low yields
 - type: ore
   id: OrePlasma
   oreEntity: PlasmaOre1
   minOreYield: 1
-  maxOreYield: 2
+  maxOreYield: 1 #ADT tweak 2-->1
 
 - type: ore
   id: OreUranium
   oreEntity: UraniumOre1
   minOreYield: 1
-  maxOreYield: 2
+  maxOreYield: 1 #ADT tweak 2-->1
 
 - type: ore
   id: OreBananium
   oreEntity: BananiumOre1
   minOreYield: 1
-  maxOreYield: 2
+  maxOreYield: 1 #ADT tweak 2-->1
 
 - type: ore
   id: OreDiamond
   oreEntity: DiamondOre1
   minOreYield: 1
-  maxOreYield: 2
+  maxOreYield: 1 #ADT tweak 2-->1
 
 - type: ore
   id: OreQuartzCrab

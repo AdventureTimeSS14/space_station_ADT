@@ -6,6 +6,7 @@ using Content.Server.Temperature.Components;
 using Content.Shared.ADT.Heretic.Components;
 using Content.Shared.Bible.Components;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Heretic;
 using Content.Shared.Temperature.Components;
@@ -119,7 +120,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
             var damage = (dmgComp.TotalDamage + power) / _prot.EnumeratePrototypes<DamageTypePrototype>().Count();
 
             // apply gaming.
-            _damageable.SetAllDamage(pookie, dmgComp, damage);
+            _damageable.SetAllDamage((pookie, dmgComp), damage);
         }
 
         // stun close-mid range

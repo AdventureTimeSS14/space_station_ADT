@@ -103,7 +103,7 @@ public sealed partial class ChangelingTransformMenu : RadialMenu
 }
 
 
-public sealed class ChangelingTransformMenuButton : RadialMenuTextureButtonWithSector
+public sealed class ChangelingTransformMenuButton : RadialMenuButtonWithSector
 {
     public NetEntity Entity;
     public HumanoidCharacterProfile? Profile;

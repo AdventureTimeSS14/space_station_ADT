@@ -1,13 +1,14 @@
-- type: entity
-  abstract: true
-  parent: BaseObjective
-  id: BaseChangelingObjective
-  components:
-  - type: Objective
-    issuer: changeling-issuer
-  - type: RoleRequirement
-    roles:
-      - ChangelingRole
+# Закоментированно из-за наличия у оффов генокрада
+#- type: entity
+#  abstract: true
+#  parent: BaseObjective
+#  id: BaseChangelingObjective
+#  components:
+#  - type: Objective
+#    issuer: changeling-issuer
+#  - type: RoleRequirement
+#    roles:
+#      - ChangelingRole
 
 - type: entity
   categories: [ HideSpawnMenu ]

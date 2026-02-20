@@ -6,9 +6,12 @@
   requirements:
   - !type:DepartmentTimeRequirement
     department: Security
-    time: 72000 #20 hrs
-  # ADT Restrict Start
-  - !type:SpeciesRequirement
+    time: 20h
+  - !type:TraitsRequirement #Corvax-TraitsRequirement
+    inverted: true
+    traits:
+    - Muted
+  - !type:SpeciesRequirement # ADT-Tweak
     inverted: true
     species:
     - Resomi

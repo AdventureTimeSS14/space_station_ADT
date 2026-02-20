@@ -1,0 +1,173 @@
+- type: entity
+  parent: BaseFlag
+  id: ADTBlankFlagVertical
+  name: blank flag
+  description: Some piece of white cloth. Definitely not the flag of France.
+  components:
+  - type: Sprite
+    state: blank2_flag
+  - type: Construction
+    graph: ADTBlankFlagVerticalGraph
+    node: flag
+
+- type: entity
+  parent: BaseFlag
+  id: ADTNTFlagVertical
+  name: Nanotrasen flag
+  description: Glory to NT! Wait, they really made a flag for a corporation?
+  components:
+  - type: Sprite
+    state: NT2_flag
+  - type: Construction
+    graph: ADTNTFlagVerticalGraph
+    node: flag
+
+- type: entity
+  parent: BaseFlag
+  id: ADTSyndieFlagVertical
+  name: syndicate flag
+  description: Smells bloody. Death to NT!
+  components:
+  - type: Sprite
+    state: syndie2_flag
+
+- type: entity
+  parent: BaseFlag
+  id: ADTPirateFlagVertical
+  name: pirate flag
+  description: Raise the jolly roger, scallywags!
+  components:
+  - type: Sprite
+    state: pirate2_flag
+
+- type: entity
+  parent: BaseFlag
+  id: ADTRastamanFlag
+  name: rastaman flag
+  description: Duuude, live with vibes, no worries!
+  components:
+  - type: Sprite
+    state: rastaman_flag
+  - type: Construction
+    graph: ADTRastamanFlagGraph
+    node: flag
+
+- type: entity
+  parent: BaseFlag
+  id: ADTRomanFlag
+  name: roman flag
+  description: Ave Legion! Ave Caesar!
+  components:
+  - type: Sprite
+    state: roman_flag
+  - type: Construction
+    graph: ADTRomanFlagGraph
+    node: flag
+
+- type: entity
+  parent: BaseFlag
+  id: ADTUSSPFlag
+  name: USSP flag
+  description: Flag of the Union of Soviet Socialist Planets. Proletarians of all planets, unite!
+  components:
+  - type: Sprite
+    state: ussp_flag
+  - type: Construction
+    graph: ADTUSSPFlagGraph
+    node: flag
+
+- type: entity
+  parent: BaseFlag
+  id: ADTUSSPFlagVertical
+  name: USSP flag
+  description: Flag of the Union of Soviet Socialist Planets. Proletarians of all planets, unite!
+  components:
+  - type: Sprite
+    state: ussp2_flag
+  - type: Construction
+    graph: ADTUSSPFlagVerticalGraph
+    node: flag
+
+- type: entity
+  parent: BaseFlag
+  id: ADTUSSPFlagVertical2
+  name: USSP flag
+  description: Flag of the Union of Soviet Socialist Planets. Proletarians of all planets, unite!
+  components:
+  - type: Sprite
+    state: ussp3_flag
+  - type: Construction
+    graph: ADTUSSPFlagVertical2Graph
+    node: flag
+
+- type: entity
+  parent: BaseFlag
+  id: ADTKMTFlag
+  name: KMT flag
+  description: Flag of the Confederate Worlds of Taurea. Freedom to all colonies from the federal yoke!
+  components:
+  - type: Sprite
+    state: kmt_flag
+  - type: Construction
+    graph: ADTKMTFlagGraph
+    node: flag
+
+- type: entity
+  parent: BaseFlag
+  id: ADTKMTFlagVertical
+  name: KMT flag
+  description: Flag of the Confederate Worlds of Taurea. Freedom to all colonies from the federal yoke!
+  components:
+  - type: Sprite
+    state: kmt2_flag
+  - type: Construction
+    graph: ADTKMTFlagVerticalGraph
+    node: flag
+
+- type: entity
+  parent: BaseFlag
+  id: ADTTSFFlag
+  name: TSF flag
+  description: Flag of the Trans-Solar Federation. God save Democracy!
+  components:
+  - type: Sprite
+    state: tsf_flag
+  - type: Construction
+    graph: ADTTSFFlagGraph
+    node: flag
+
+- type: entity
+  parent: BaseFlag
+  id: ADTTSFFlagVertical
+  name: TSF flag
+  description: Flag of the Trans-Solar Federation. God save Democracy!
+  components:
+  - type: Sprite
+    state: tsf2_flag
+  - type: Construction
+    graph: ADTTSFFlagVerticalGraph
+    node: flag
+
+- type: entity
+  parent: BaseFlag
+  id: ADTElysiumFlag
+  name: Elysium flag
+  description: Flag of the Republic of Elysium, looks very neat and well-kept.
+  components:
+  - type: Sprite
+    state: elysium_flag
+  - type: Construction
+    graph: ADTElysiumFlagGraph
+    node: flag
+
+- type: entity
+  parent: BaseFlag
+  id: ADTElysiumFlagVertical
+  name: Elysium flag
+  description: Flag of the Republic of Elysium, looks very neat and well-kept.
+  components:
+  - type: Sprite
+    state: elysium2_flag
+  - type: Construction
+    graph: ADTElysiumFlagVerticalGraph
+    node: flag

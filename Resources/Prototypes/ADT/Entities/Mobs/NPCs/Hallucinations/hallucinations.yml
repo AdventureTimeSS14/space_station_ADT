@@ -108,7 +108,7 @@
   - type: TimedDespawn
     lifetime: 10.0
   - type: MovementIgnoreGravity
-    gravityState: true
+    weightless: true
   - type: PointLight
     color: White
     radius: 1

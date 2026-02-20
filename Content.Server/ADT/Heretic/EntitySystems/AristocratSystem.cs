@@ -6,6 +6,7 @@ using Content.Shared.Heretic;
 using Content.Shared.Maps;
 using Content.Shared.Speech.Muting;
 using Content.Shared.StatusEffect;
+using Content.Shared.Temperature.Components;
 using Content.Shared.Tag;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
@@ -13,6 +14,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using System.Linq;
 using System.Numerics;
+
 
 namespace Content.Server.Heretic.EntitySystems;
 
