@@ -278,11 +278,12 @@
             - actionsNeeds:
                 - Disarm
                 - Grab
+                - Hit
               comboEvent:
                 - !type:ComboPopupEffect
                   localeText: combo-cookbook-unwinding-end
-                - !type:ComboStaminaDamageEffect
-                  staminaDamage: 35
+                - !type:ComboEffectSleep
+                  time: 5
             - actionsNeeds:
                 - Grab
                 - Grab
