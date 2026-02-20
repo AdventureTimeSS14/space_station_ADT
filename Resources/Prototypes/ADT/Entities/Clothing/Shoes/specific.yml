@@ -129,3 +129,85 @@
     tags:
     - ClownShoes
     - WhitelistChameleon
+
+- type: entity
+  parent: ClothingShoesChameleon
+  id: ADTClothingShoesChameleonNoSound
+  name: black shoes
+  suffix: NoSound, Chameleon
+  description: Stylish black shoes.
+  components:
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: ADTFootstepsSilent
+      params:
+        volume: -3
+# Corvax-HiddenDesc-Start
+  - type: HiddenDescription
+    entries:
+    - label: corvax-hidden-desc-Chameleon-syndicate
+      whitelistMind:
+        mindRoles:
+        - TraitorRole
+        - NukeopsRole
+    - label: corvax-hidden-desc-NoSlip-syndicate
+      whitelistMind:
+        mindRoles:
+        - TraitorRole
+        - NukeopsRole
+    - label: corvax-hidden-desc-Chameleon-research
+      jobRequired:
+        - ResearchAssistant
+        - ResearchDirector
+        - Scientist
+        - Borg
+        - ADTSeniorResearcher # ADT tweak
+        - ADTRoboticist # ADT tweak
+    - label: corvax-hidden-desc-NoSlip-research
+      jobRequired:
+        - ResearchAssistant
+        - ResearchDirector
+        - Scientist
+        - Borg
+        - ADTSeniorResearcher # ADT tweak
+        - ADTRoboticist # ADT tweak
+# Corvax-HiddenDesc-End
+
+- type: entity
+  parent: ADTClothingShoesChameleonNoSound
+  id: ADTClothingShoesChameleonSuper
+  name: black shoes
+  suffix: NoSound, NoSlip, Chameleon
+  description: Stylish black shoes.
+  components:
+  - type: NoSlip
+# Corvax-HiddenDesc-Start
+  - type: HiddenDescription
+    entries:
+    - label: corvax-hidden-desc-Chameleon-syndicate
+      whitelistMind:
+        mindRoles:
+        - TraitorRole
+        - NukeopsRole
+    - label: corvax-hidden-desc-NoSlip-syndicate
+      whitelistMind:
+        mindRoles:
+        - TraitorRole
+        - NukeopsRole
+    - label: corvax-hidden-desc-Chameleon-research
+      jobRequired:
+        - ResearchAssistant
+        - ResearchDirector
+        - Scientist
+        - Borg
+        - ADTSeniorResearcher # ADT tweak
+        - ADTRoboticist # ADT tweak
+    - label: corvax-hidden-desc-NoSlip-research
+      jobRequired:
+        - ResearchAssistant
+        - ResearchDirector
+        - Scientist
+        - Borg
+        - ADTSeniorResearcher # ADT tweak
+        - ADTRoboticist # ADT tweak
+# Corvax-HiddenDesc-End
