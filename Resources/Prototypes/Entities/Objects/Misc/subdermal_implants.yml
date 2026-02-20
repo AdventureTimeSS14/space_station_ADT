@@ -97,7 +97,7 @@
       mobState:
       - Dead
       - Critical
-    - type: Rattle
+    - type: RattleOnTrigger
       radioChannel: Security
     # ADT Tweak-END
     - type: SuitSensor
