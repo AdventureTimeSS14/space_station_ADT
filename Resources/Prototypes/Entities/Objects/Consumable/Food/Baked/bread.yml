@@ -678,6 +678,7 @@
     equippedPrefix: baguette
     quickEquip: false
   - type: Item
+    size: Tiny # ADT-Tweak
     shape:
     - 0,0,0,3
     storedRotation: -45
