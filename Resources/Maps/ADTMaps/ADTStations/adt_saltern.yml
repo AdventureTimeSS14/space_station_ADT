@@ -4,7 +4,7 @@ meta:
   engineVersion: 268.0.0
   forkId: ""
   forkVersion: ""
-  time: 02/21/2026 19:12:39
+  time: 02/21/2026 19:16:59
   entityCount: 13168
 maps:
 - 1
@@ -34714,26 +34714,24 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -15.5,9.5
       parent: 2
-  - uid: 4515
+- proto: CryogenicSleepUnitSpawnerLateJoin
+  entities:
+  - uid: 4702
+    components:
+    - type: Transform
+      pos: -42.5,-3.5
+      parent: 2
+  - uid: 4741
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -40.5,-5.5
       parent: 2
-  - uid: 4702
-    components:
-    - type: Transform
-      pos: -40.5,-3.5
-      parent: 2
-  - uid: 4741
-    components:
-    - type: Transform
-      pos: -42.5,-3.5
-      parent: 2
   - uid: 4742
     components:
     - type: Transform
-      pos: -41.5,-3.5
+      rot: 3.141592653589793 rad
+      pos: -42.5,-5.5
       parent: 2
   - uid: 5333
     components:
@@ -34744,8 +34742,12 @@ entities:
   - uid: 5512
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -42.5,-5.5
+      pos: -41.5,-3.5
+      parent: 2
+  - uid: 8986
+    components:
+    - type: Transform
+      pos: -40.5,-3.5
       parent: 2
 - proto: CryoPod
   entities:
@@ -64380,6 +64382,12 @@ entities:
     - type: Transform
       pos: 53.5,17.5
       parent: 2
+  - uid: 4515
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 2.5,-32.5
+      parent: 2
   - uid: 6919
     components:
     - type: Transform
@@ -64787,12 +64795,6 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 37.5,25.5
-      parent: 2
-  - uid: 8986
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 2.5,-32.5
       parent: 2
   - uid: 9059
     components:
