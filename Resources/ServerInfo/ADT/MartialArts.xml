@@ -124,6 +124,29 @@
 
 Роняет цель на пол, [color=#1e90ff]НЕ[/color] выбивая вещи из рук.
 
+## Кулинарная книга приёмов
+<Box>
+<GuideEntityEmbed Entity="ADTCookbookManual"/>
+</Box>
+
+[bold]Комбо-приёмы:[/bold]
+
+- [bold]Отбивание[/bold] — [bold][color=#986f00]захват[/color][/bold] + [bold][color=#b50000]удар[/color][/bold]
+
+Роняет цель на пол, наносит [color=red]10[/color] тупого урона и [color=#1e90ff]НЕ[/color] выбивает вещи из рук.
+
+- [bold]Раскручивание[/bold] — [bold][color=#1e90ff]обезоружить[/color][/bold] + [bold][color=#986f00]захват[/color][/bold] + [bold][color=#b50000]удар[/color][/bold]
+
+Оглушает цель на [color=#1e90ff]2[/color] секунды.
+
+- [bold]Раскатывание[/bold] — [bold][color=#986f00]захват[/color][/bold] + [bold][color=#986f00]захват[/color][/bold]
+
+Роняет цель на пол, наносит [color=#1e90ff]35[/color] урона по выносливости и выбивает вещи из рук.
+
+- [bold]Выжимание[/bold] — [bold][color=#986f00]захват[/color][/bold] + [bold][color=#1e90ff]обезоружить[/color][/bold]
+
+Роняет цель на пол и выбивает вещи из рук.
+
 ## Корпоративное дзюдо
 <Box>
 <GuideEntityEmbed Entity="ADTClothingBeltJudo"/>
