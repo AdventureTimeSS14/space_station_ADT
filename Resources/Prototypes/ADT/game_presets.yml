@@ -119,4 +119,4 @@
   showInVote: true
   rules:
     - DynamicRandomGamerule
-  bannedRound: 2
+  bannedRound: 1 # SD tweak

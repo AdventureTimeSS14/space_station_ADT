@@ -89,6 +89,7 @@
   - SpaceTrafficControlEventScheduler
   - BasicRoundstartVariation
   - CrewTransferScheduler #ADT tweak
+  bannedRound: 1
 
 - type: gamePreset
   id: Greenshift
@@ -113,6 +114,7 @@
   description: secret-description
   rules:
     - Secret
+  bannedRound: 1 # SD tweak
 
 - type: gamePreset
   id: SecretExtended #For Admin Use: Runs Extended but shows "Secret" in lobby.
