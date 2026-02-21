@@ -32,7 +32,7 @@
         Slash: 0.90
         Piercing: 0.95
         Heat: 0.90
-        Radiation: 0.25
+        Radiation: 0.90
   - type: PressureProtection
     highPressureMultiplier: 0.1
     lowPressureMultiplier: 1000
@@ -79,6 +79,18 @@
     coolingCoefficient: 0.005
   - type: FireProtection
     reduction: 0.8
+  - type: ShowHealthBars
+    damageContainers:
+    - Inorganic
+    - Silicon
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.90
+        Slash: 0.90
+        Piercing: 0.95
+        Heat: 0.90
+        Radiation: 0.25
 
 - type: entity
   parent: ADTClothingHeadHelmetModsuitBase
@@ -124,6 +136,14 @@
     damageContainers:
     - Inorganic
     - Silicon
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.90
+        Slash: 0.90
+        Piercing: 0.95
+        Heat: 0.90
+        Radiation: 0.25
 
 - type: entity
   parent: ADTClothingHeadHelmetModsuitBase
@@ -178,7 +198,7 @@
         Slash: 0.90
         Piercing: 0.95
         Heat: 0.90
-        Radiation: 0.25
+        Radiation: 0.90
 
 - type: entity
   parent: ADTClothingHeadHelmetModsuitBase
