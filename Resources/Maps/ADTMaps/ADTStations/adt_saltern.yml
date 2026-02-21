@@ -9682,8 +9682,6 @@ entities:
       pos: 16.5,-7.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 13175
   - uid: 353
@@ -39627,8 +39625,6 @@ entities:
       pos: 15.5,-3.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 13175
   - uid: 5431
@@ -39759,8 +39755,6 @@ entities:
       pos: 13.5,-0.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 13175
   - uid: 5459
@@ -40649,8 +40643,6 @@ entities:
       pos: 13.5,-9.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 13175
   - uid: 5570
@@ -40854,8 +40846,6 @@ entities:
       pos: 20.5,-11.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 13175
   - uid: 11197
@@ -41094,8 +41084,6 @@ entities:
       pos: 17.5,-3.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 13175
   - uid: 13170
@@ -41104,8 +41092,6 @@ entities:
       pos: 16.5,-3.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 13175
   - uid: 13174
@@ -41114,8 +41100,6 @@ entities:
       pos: 18.5,-14.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 13175
   - uid: 13176
@@ -41124,8 +41108,6 @@ entities:
       pos: 20.5,-6.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 13175
 - proto: Fireplace
@@ -53391,8 +53373,6 @@ entities:
       pos: 15.5,-7.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 13175
     - type: AtmosPipeColor
@@ -53578,8 +53558,6 @@ entities:
       pos: 16.5,-0.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 13175
     - type: AtmosPipeColor
@@ -53607,8 +53585,6 @@ entities:
       pos: 23.5,-5.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 13175
     - type: AtmosPipeColor
@@ -54335,8 +54311,6 @@ entities:
       pos: 15.5,-11.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 13175
     - type: AtmosPipeColor
@@ -54514,8 +54488,6 @@ entities:
       pos: 17.5,-1.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 13175
     - type: AtmosPipeColor
@@ -54543,8 +54515,6 @@ entities:
       pos: 22.5,-6.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 13175
     - type: AtmosPipeColor
