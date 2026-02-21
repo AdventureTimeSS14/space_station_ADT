@@ -1,9 +1,8 @@
-using Content.Server.Flash;
+using Content.Server.ADT.RespiratorBlocker;
 using Content.Server.Chat.Systems;
 using Content.Shared.ADT.Combat;
+using Content.Shared.Chat;
 using Content.Shared.StatusEffect;
-using Content.Server.ADT.RespiratorBlocker;
-using Content.Shared.Flash.Components;
 
 namespace Content.Server.ADT.Combat;
 

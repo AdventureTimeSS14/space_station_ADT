@@ -184,9 +184,6 @@
     rules: ghost-role-information-space-emperor-rules
     raffle:
       settings: default
-    requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 5000 
   - type: GhostRoleMobSpawner
     prototype: ADTMobSpaceEmperor
   - type: Sprite

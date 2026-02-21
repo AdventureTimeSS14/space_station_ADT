@@ -116,7 +116,7 @@
 - type: humanoidBaseSprite
   id: MobSlimeTorsoFemale
   baseSprite:
-    sprite: Mobs/Species/Slime/parts.rsi
+    sprite: ADT/Mobs/Species/Slime/parts.rsi #ADT-Tweak
     state: torso_f
 
 - type: humanoidBaseSprite

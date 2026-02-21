@@ -24,14 +24,6 @@
   components:
   - type: GhostRole
     name: ghost-role-information-syndicate-reinforcement-spy-name
-    # ADT-Tweak-start
-    requirements:
-      - !type:DepartmentTimeRequirement
-        department: Security
-        time: 18000 # 5h
-      - !type:OverallPlaytimeRequirement
-        time: 54000 # adt tweak 2h > 15h
-    # ADT-Tweak-end
     description: ghost-role-information-syndicate-reinforcement-spy-description
     rules: ghost-role-information-syndicate-reinforcement-rules
     mindRoles:
@@ -41,30 +33,6 @@
   - type: GhostRoleMobSpawner
     prototype: MobHumanSyndicateAgentSpy
     selectablePrototypes: ["SyndicateAgentMedic", "SyndicateAgentSpy", "SyndicateAgentThief"]
-# Corvax-HiddenDesc-Start
-  - type: HiddenDescription
-    entries:
-    - label: corvax-hidden-desc-ReinforcementRadioSyndicate-syndicate
-      whitelistMind:
-        mindRoles:
-        - TraitorRole
-        - NukeopsRole
-    - label: corvax-hidden-desc-ReinforcementRadio-engineering
-      jobRequired:
-      - ChiefEngineer
-      - AtmosphericTechnician
-      - StationEngineer
-      - TechnicalAssistant
-      - ADTSeniorEngineer # ADT tweak
-    - label: corvax-hidden-desc-ReinforcementRadio-research
-      jobRequired:
-      - ResearchAssistant
-      - ResearchDirector
-      - Scientist
-      - Borg
-      - ADTSeniorResearcher # ADT tweak
-      - ADTRoboticist # ADT tweak
-# Corvax-HiddenDesc-End
 
 - type: entity
   parent: ReinforcementRadio
@@ -77,14 +45,6 @@
     name: ghost-role-information-nukeop-reinforcement-name
     description: ghost-role-information-nukeop-reinforcement-description
     rules: ghost-role-information-nukeop-reinforcement-rules
-# ADT-Tweak-start
-    requirements:
-      - !type:OverallPlaytimeRequirement
-        time: 54000 # 15h
-      - !type:DepartmentTimeRequirement
-        department: Security
-        time: 18000 # adt tweak 2h > 5h
-# ADT-Tweak-end
     mindRoles:
     - MindRoleGhostRoleTeamAntagonist
     raffle:
@@ -101,11 +61,6 @@
   - type: GhostRole
     name: ghost-role-information-syndicate-monkey-reinforcement-name
     description: ghost-role-information-syndicate-monkey-reinforcement-description
-# ADT-Tweak-start
-    requirements:
-      - !type:OverallPlaytimeRequirement
-        time: 18000 # 5h overall
-# ADT-Tweak-end
     rules: ghost-role-information-syndicate-reinforcement-rules
     mindRoles:
     - MindRoleGhostRoleTeamAntagonist
@@ -114,31 +69,6 @@
   - type: GhostRoleMobSpawner
     prototype: MobMonkeySyndicateAgent
     selectablePrototypes: ["SyndicateMonkey", "SyndicateKobold"]
-# Corvax-HiddenDesc-Start
-  - type: HiddenDescription
-    entries:
-    - label: corvax-hidden-desc-ReinforcementRadioSyndicateMonkey-syndicate
-      whitelistMind:
-        mindRoles:
-        - TraitorRole
-        - NukeopsRole
-    - label: corvax-hidden-desc-ReinforcementRadio-engineering
-      jobRequired:
-        - ChiefEngineer
-        - AtmosphericTechnician
-        - StationEngineer
-        - TechnicalAssistant
-        - ADTSeniorEngineer # ADT tweak
-    - label: corvax-hidden-desc-ReinforcementRadio-research
-      jobRequired:
-        - ResearchAssistant
-        - ResearchDirector
-        - Scientist
-        - Borg
-        - ADTSeniorResearcher # ADT tweak
-        - ADTRoboticist # ADT tweak
-# Corvax-HiddenDesc-End
-
 
 - type: entity
   parent: ReinforcementRadioSyndicateAncestor
@@ -146,11 +76,7 @@
   suffix: NukeOps
   components:
   - type: GhostRole
-    # ADT-Tweak-start
-    requirements:
-      - !type:OverallPlaytimeRequirement
-        time: 18000 # 5h overall
-    # ADT-Tweak-end
+
     rules: ghost-role-information-nukeop-reinforcement-rules
   - type: GhostRoleMobSpawner
     prototype: MobMonkeySyndicateAgentNukeops
@@ -165,11 +91,6 @@
   - type: GhostRole
     name: ghost-role-information-SyndiCat-name
     description: ghost-role-information-SyndiCat-description
-# ADT-Tweak-start
-    requirements:
-      - !type:OverallPlaytimeRequirement
-        time: 7200 # 2h overall
-# ADT-Tweak-end
     rules: ghost-role-information-syndicate-reinforcement-rules
     mindRoles:
     - MindRoleGhostRoleTeamAntagonist
@@ -191,38 +112,10 @@
       name: ghost-role-information-syndicate-cyborg-assault-name
       description: ghost-role-information-syndicate-cyborg-description
       rules: ghost-role-information-silicon-rules
-# ADT-Tweak-start
-      requirements:
-        - !type:OverallPlaytimeRequirement
-          time: 54000 # 15h overall
-# ADT-Tweak-end
       mindRoles:
       - MindRoleGhostRoleSilicon
       raffle:
         settings: default
+      job: Borg
     - type: GhostRoleMobSpawner
       prototype: PlayerBorgSyndicateAssaultBattery
-# Corvax-HiddenDesc-Start
-    - type: HiddenDescription
-      entries:
-      - label: corvax-hidden-desc-ReinforcementRadioSyndicateCyborgAssault-syndicate
-        whitelistMind:
-          mindRoles:
-          - TraitorRole
-          - NukeopsRole
-      - label: corvax-hidden-desc-ReinforcementRadio-engineering
-        jobRequired:
-          - ChiefEngineer
-          - AtmosphericTechnician
-          - StationEngineer
-          - TechnicalAssistant
-          - ADTSeniorEngineer # ADT tweak
-      - label: corvax-hidden-desc-ReinforcementRadio-research
-        jobRequired:
-          - ResearchAssistant
-          - ResearchDirector
-          - Scientist
-          - Borg
-          - ADTSeniorResearcher # ADT tweak
-          - ADTRoboticist # ADT tweak
-# Corvax-HiddenDesc-End

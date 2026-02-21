@@ -298,8 +298,10 @@
     states:
       Alive:
         Base: golem
-      Critical:
-        Base: dead
+# ADT-Tweak-Start Фикс фикстур
+#      Critical:
+#        Base: dead
+# ADT-Tweak-End
       Dead:
         Base: dead
   - type: MobThresholds

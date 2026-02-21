@@ -38,10 +38,6 @@
       Helium: unwanted
       AntiNoblium: danger
       # ADT-Gas-End
-  - type: Tag
-    tags:
-      - AirSensor
-      - ForceFixRotations
   - type: GuideHelp
     guides:
     - DeviceMonitoringAndControl
@@ -109,6 +105,10 @@
         enum.PowerDeviceVisualLayers.Powered:
           True: { state: gsensor1 }
           False: { state: gsensor0 }
+  - type: Tag
+    tags:
+    - AirSensor
+    - ForceFixRotations
 
 - type: entity
   parent: BaseItem

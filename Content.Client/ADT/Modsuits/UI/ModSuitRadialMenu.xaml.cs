@@ -101,7 +101,7 @@ public sealed partial class ModSuitRadialMenu : RadialMenu
     }
 }
 
-public sealed class ModSuitRadialMenuButton : RadialMenuTextureButtonWithSector
+public sealed class ModSuitRadialMenuButton : RadialMenuButtonWithSector
 {
     public EntityUid AttachedClothingId { get; set; }
 }

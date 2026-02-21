@@ -607,3 +607,34 @@
     startingModules:
       - ADTModsuitModStorage
       - ADTModsuitModLight
+
+- type: entity
+  parent: ADTClothingModsuitBackBase
+  id: ADTClothingModsuitBackAncient
+  name: ancient MOD control unit
+  description: Ancient MOD
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Back/Modsuit/ancient.rsi
+    state: icon
+  - type: Clothing
+    sprite: ADT/Clothing/Back/Modsuit/ancient.rsi
+    clothingVisuals:
+      back:
+      - state: equipped-BACKPACK
+      - state: equipped-BACKPACK-unshaded
+        shader: unshaded
+  - type: ModSuit
+    fullyEnabledSound:
+      path: /Audio/ADT/Mecha/nominalnano.ogg
+    maxComplexity: 9
+    clothingPrototypes:
+      head: ADTClothingHeadHelmetModsuitAncient
+      gloves: ADTClothingHandsModsuitAncient
+      outerClothing: ADTClothingOuterModsuitBodyAncient
+      shoes: ADTClothingModsuitShoesAncient
+    startingModules:
+      - ADTModsuitModStorage
+      - ADTModsuitModLight
+      - ADTModsuitModIsulation
+      - ADTModsuitModWelding
