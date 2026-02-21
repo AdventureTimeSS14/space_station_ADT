@@ -328,3 +328,33 @@
     unequipDelay: 3
   - type: Fiber
     fiberColor: fibers-white
+
+- type: entity
+  parent: ADTClothingHandsModsuitBase
+  id: ADTClothingHandsModsuitAncient
+  name: ancient MOD gauntlets
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Hands/Modsuit/ancient.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Hands/Modsuit/ancient.rsi
+    clothingVisuals:
+      gloves:
+      - state: equipped-HAND
+      - state: equipped-HAND-unshaded
+        shader: unshaded
+    equipSound: /Audio/Mecha/mechmove03.ogg
+    unequipSound: /Audio/Mecha/mechmove03.ogg
+    equipDelay: 3
+    unequipDelay: 3
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
+        Cold: 0.9
+        Shock: 0.65
+  - type: Fiber
+    fiberColor: fibers-brown
