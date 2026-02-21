@@ -4,7 +4,6 @@
   name: Flask
   description: ''
   components:
-  - type: Drink
   - type: Sprite
     sprite: ADT/Objects/Consumable/Drinks/armyflask.rsi
 
@@ -13,6 +12,5 @@
   id: ADTDrinkFlaskDV
   name: DV`s Flask
   components:
-  - type: Drink
   - type: Sprite
     sprite: ADT/Objects/Consumable/Drinks/flask_dv.rsi

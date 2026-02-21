@@ -30,19 +30,20 @@
     canTargetSelf: false
     event: !type:LingAbsorbActionEvent
 
-- type: entity
-  id: ActionChangelingTransform
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Action
-    icon:
-      sprite: ADT/Changeling/Actions/actions_ling.rsi
-      state: transform
-    itemIconStyle: BigAction
-    useDelay: 5
-    priority: -69
-  - type: InstantAction
-    event: !type:ChangelingTransformActionEvent
+#Закоментировано из-за появление у оффов акшионов генки
+#- type: entity
+#  id: ActionChangelingTransform
+#  categories: [ HideSpawnMenu ]
+#  components:
+#  - type: Action
+#    icon:
+#      sprite: ADT/Changeling/Actions/actions_ling.rsi
+#      state: transform
+#    itemIconStyle: BigAction
+#    useDelay: 5
+#    priority: -69
+#  - type: InstantAction
+#    event: !type:ChangelingTransformActionEvent
 
 - type: entity
   id: ActionLingRegenerate

@@ -1,14 +1,20 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Made by the Adventure Time Project team",
+  "copyright": "Made by discord:prazat911 for ADT",
   "size": {
     "x": 32,
     "y": 32
   },
   "states": [
     {
-        "name": "poster_spacesec"
+      "name": "poster_spacesec"
+    },
+    {
+      "name": "smoking"
+    },
+    {
+      "name": "peacekeeper"
     }
   ]
 }

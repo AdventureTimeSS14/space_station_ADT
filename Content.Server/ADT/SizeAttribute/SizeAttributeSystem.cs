@@ -1,9 +1,10 @@
 using System.Numerics;
+using Content.Shared.Item.PseudoItem;
+using Content.Shared.Sprite;
 using Robust.Server.GameObjects;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Collision.Shapes;
 using Robust.Shared.Physics.Systems;
-using Content.Shared.Item.PseudoItem;
 
 namespace Content.Server.ADT.SizeAttribute
 {

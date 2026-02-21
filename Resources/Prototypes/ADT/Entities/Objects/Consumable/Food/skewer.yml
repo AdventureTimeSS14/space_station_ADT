@@ -3,7 +3,7 @@
   id: FoodSkewerBase
   abstract: true
   components:
-  - type: Food
+  - type: Edible
     trash: 
     - FoodKebabSkewer
   - type: Sprite

@@ -1,0 +1,23 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Created by discord:4rtefox",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "ears_horse_inner",
+            "directions": 4
+        },
+        {
+            "name": "ears_horse_outer",
+            "directions": 4
+        },
+        {
+            "name": "tail_horse",
+            "directions": 4
+        }
+    ]
+}

@@ -1,5 +1,7 @@
 ent-ProduceBase = { ent-BaseItem }
     .desc = { ent-BaseItem.desc }
+ent-ProduceBaseRuminant = { ent-ProduceBase }
+    .desc = { ent-ProduceBase.desc }
 ent-FoodProduceBase = { ent-FoodInjectableBase }
     .desc = { ent-FoodInjectableBase.desc }
 ent-WheatBushel = сноп пшеницы
@@ -157,3 +159,5 @@ ent-TrashCherryPit = вишнёвая косточка
     .desc = { ent-FoodInjectableBase.desc }
 ent-FoodAnomalyBerry = аномальная ягода
     .desc = Странная синяя ягода. Что-то в ней не так.
+ent-FoodBloonion = лук-летун
+    .desc = Странная летающая луковица... Она не стоит ваших слёз.

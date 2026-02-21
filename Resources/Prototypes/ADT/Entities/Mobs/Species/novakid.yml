@@ -125,12 +125,11 @@
     - reagents: [ Water, SpaceCleaner ]
       methods: [ Touch ]
       effects:
-      - !type:WashCreamPieReaction
+      - !type:WashCreamPie
     - reagents: [ Water, SpaceCleaner ]
       methods: [ Touch ]
       effects:
       - !type:HealthChange
-        scaleByQuantity: true
         damage:
           types:
             Heat: 0.45 # Повышенный дамаг от водички и моющего средства. Пшик-пшик
@@ -151,6 +150,13 @@
     interactSuccessString: hugging-success-generic
     interactSuccessSound: /Audio/Effects/thudswoosh.ogg
     messagePerceivedByOthers: hugging-success-generic-others
+  - type: Inventory
+    femaleDisplacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Human/displacement.rsi
+            state: jumpsuit-female
   - type: LanguageSpeaker
     languages:
       GalacticCommon: Speak
@@ -169,6 +175,7 @@
     - DoorBumpOpener
     - AnomalyHost
     - ChangelingBlacklist
+    - ADTNovakidEmotes
   - type: MidroundCustomization
     customizableCategories:
     - Hair
@@ -200,3 +207,10 @@
   components:
   - type: HumanoidAppearance
     species: NovakidSpecies
+  - type: Inventory
+    femaleDisplacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Human/displacement.rsi
+            state: jumpsuit-female

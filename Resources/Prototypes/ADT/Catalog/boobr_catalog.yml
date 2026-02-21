@@ -576,10 +576,10 @@
   - ADTUplinkERTMisc
 
 - type: listing
-  id: ADTBoberClothingBeltAssault
+  id: ADTBoberClothingBeltMilitaryWebbing
   name: boobr-clothing-belt-assault-name
   description: boobr-clothing-belt-assault-desc
-  productEntity: ClothingBeltAssault
+  productEntity: ClothingBeltMilitaryWebbing
   cost:
     Productunit: 5
   categories:
