@@ -5,7 +5,7 @@ using Robust.Shared.GameStates;
 namespace Content.Shared.Weapons.Ranged.Upgrades.Components;
 
 /// <summary>
-/// A <see cref="GunUpgradeComponent"/> for increasing the damage of a gun's projectile.
+/// A <see cref="GunUpgradeComponent"/> that grants vampirism — heals the shooter on projectile hit via negative damage.
 /// </summary>
 [RegisterComponent, NetworkedComponent, Access(typeof(GunUpgradeSystem))]
 public sealed partial class GunUpgradeVampirismComponent : Component

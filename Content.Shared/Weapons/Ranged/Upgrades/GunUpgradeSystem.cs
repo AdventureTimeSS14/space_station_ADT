@@ -51,7 +51,7 @@ public sealed class GunUpgradeSystem : EntitySystem
     {
         foreach (var (ammo, _) in args.Ammo)
         {
-            if (TryComp<ProjectileComponent>(ammo, out var proj))
+            if (TryComp<ProjectileComponent>(ammo, out var _))
             {
                 var comp = EnsureComp<ProjectileVampirismComponent>(ammo.Value);
                 comp.DamageOnHit = ent.Comp.DamageOnHit;
