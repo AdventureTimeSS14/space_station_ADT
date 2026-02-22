@@ -51,6 +51,7 @@
 - type: entity
   id: BowImprovised
   parent: BaseBow
+  name: improvised shortbow
   components:
   - type: Sprite
     layers:

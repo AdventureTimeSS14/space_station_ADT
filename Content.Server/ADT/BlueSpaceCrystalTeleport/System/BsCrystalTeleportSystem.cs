@@ -48,7 +48,7 @@ public sealed class BsCrystalTeleportSystem : EntitySystem
         if (TryTeleport(args.User, component.TeleportRadius, component.TeleportSound))
         {
             if (TryComp<StackComponent>(uid, out var stackComp))
-                _stacks.Use(uid, 1, stackComp);
+                _stacks.TryUse((uid, stackComp), 1);
             args.Handled = true;
         }
     }

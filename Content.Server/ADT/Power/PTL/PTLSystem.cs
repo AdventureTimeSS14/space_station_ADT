@@ -23,6 +23,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using System.Numerics;
 using System.Text;
+using Content.Shared.Power.Components;
 
 namespace Content.Server.ADT.Power.PTL;
 
@@ -114,8 +115,6 @@ public sealed partial class PTLSystem : EntitySystem
         if (TryComp<HitscanBatteryAmmoProviderComponent>(ent, out var hitscan))
         {
             hitscan.FireCost = (float) (charge * megajoule);
-            var prot = _protMan.Index<HitscanPrototype>(hitscan.Prototype);
-            prot.Damage = ent.Comp1.BaseBeamDamage * charge * 2f;
         }
 
         if (TryComp<GunComponent>(ent, out var gun))
@@ -180,7 +179,7 @@ public sealed partial class PTLSystem : EntitySystem
                 return;
             }
             var stackPrototype = _protMan.Index<StackPrototype>(_stackCredits);
-            _stack.Spawn((int) ent.Comp.SpesosHeld, stackPrototype, Transform(args.User).Coordinates);
+            _stack.SpawnAtPosition((int) ent.Comp.SpesosHeld, stackPrototype, Transform(args.User).Coordinates);
             ent.Comp.SpesosHeld = 0;
             _popup.PopupEntity(Loc.GetString("ptl-interact-spesos"), ent);
             _aud.PlayPvs(_soundKaching, args.User);
