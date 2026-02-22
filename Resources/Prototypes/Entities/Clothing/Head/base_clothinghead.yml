@@ -201,9 +201,9 @@
   - type: InjectorsBlocker
   - type: CoveredSlot
     slots: [eyes, mask, ears]
-  #ADT-Tweak-End
   - type: HidesSlots
     hidesSlots: [ EYES, EARS, MASK ]
+  #ADT-Tweak-End
 
 - type: entity
   abstract: true

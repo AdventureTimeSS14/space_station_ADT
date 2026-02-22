@@ -35,9 +35,9 @@
       path: /Audio/ADT/Entities/sneakers_land.ogg
   - type: CoveredSlot
     slots: [socks]
-  # ADT End
   - type: HidesSlots
     hidesSlots: [ SOCKS ]
+  # ADT End
 
 - type: entity
   abstract: true

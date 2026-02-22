@@ -152,9 +152,9 @@
   #ADT-Tweak-Start
   - type: CoveredSlot
     slots: [innerclothing, gloves, feet, underwearb, underweart, socks]
-  #ADT-Tweak-End
   - type: HidesSlots
     hidesSlots: [ INNERCLOTHING, GLOVES, LEGS, FEET, SOCKS, UNDERWEART, UNDERWEARB ]
+  #ADT-Tweak-End
 
 - type: entity
   abstract: true
