@@ -6,15 +6,18 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared.EntityEffects.Effects;
 
-public sealed partial class WashStampReaction : EntityEffect
+public sealed partial class WashStampReaction : StampedEntityComponent, WashStamp>
 {
-    protected override string? ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
-        => Loc.GetString("reagent-effect-guidebook-wash-stamp-reaction", ("chance", Probability));
 
-    public override void Effect(EntityEffectBaseArgs args)
+    protected override void Effect(StampedEntityComponent> entity, ref EntityEffectEvent<WashStamp> args)
     {
-        if (!args.EntityManager.TryGetComponent(args.TargetEntity, out StampedEntityComponent? stamped)) return;
-
         args.EntityManager.RemoveComponent<StampedEntityComponent>(args.TargetEntity);
     }
+}
+
+/// <inheritdoc cref="EntityEffect"/>
+public sealed partial class WashStamp : EntityEffectBase<WashStamp>
+{
+    public override string EntityEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
+        => Loc.GetString("reagent-effect-guidebook-wash-stamp-reaction", ("chance", Probability));
 }
