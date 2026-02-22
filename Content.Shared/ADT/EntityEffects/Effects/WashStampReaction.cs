@@ -7,10 +7,9 @@ namespace Content.Shared.EntityEffects.Effects;
 
 public sealed partial class WashStampReaction : EntityEffectSystem<StampedEntityComponent, WashStamp>
 {
-
     protected override void Effect(Entity<StampedEntityComponent> entity, ref EntityEffectEvent<WashStamp> args)
     {
-        args.EntityManager.RemoveComponent<StampedEntityComponent>(args.TargetEntity);
+        IEntityManager.RemoveComponent<StampedEntityComponent>(entity.Comp.TargetEntity);
     }
 }
 
