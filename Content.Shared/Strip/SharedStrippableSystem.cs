@@ -13,6 +13,7 @@ using Content.Shared.Interaction;
 using Content.Shared.Interaction.Components;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Inventory;
+using Content.Shared.ADT.Inventory; // ADT-tweak
 using Content.Shared.Inventory.VirtualItem;
 using Content.Shared.Popups;
 using Content.Shared.Strip.Components;
@@ -299,7 +300,7 @@ public abstract class SharedStrippableSystem : EntitySystem
 
         if (!stealth)
         {
-            if (IsStripHidden(slotDef, user))
+            if (IsStripHidden(slotDef, user, target)) // ADT-tweak
                 _popupSystem.PopupEntity(Loc.GetString("strippable-component-alert-owner-hidden", ("slot", slot)), target, target, PopupType.Large);
             else
             {
@@ -689,14 +690,34 @@ public abstract class SharedStrippableSystem : EntitySystem
             args.Handled = true;
     }
 
-    public bool IsStripHidden(SlotDefinition definition, EntityUid? viewer)
+    public bool IsStripHidden(SlotDefinition definition, EntityUid? viewer, EntityUid? target = null) // ADT-tweak
     {
-        if (!definition.StripHidden)
-            return false;
+        // ADT-tweak start
+        if (definition.StripHidden)
+        {
+            if (viewer == null)
+                return true;
 
-        if (viewer == null)
-            return true;
+            if (!HasComp<BypassInteractionChecksComponent>(viewer))
+                return true;
+        }
 
-        return !HasComp<BypassInteractionChecksComponent>(viewer);
+        if (target != null && target.Value.IsValid())
+        {
+            var enumerator = _inventorySystem.GetSlotEnumerator(target.Value);
+            while (enumerator.NextItem(out var item, out var slotDef))
+            {
+                if (TryComp<HidesSlotsComponent>(item, out var hidesSlotsComp))
+                {
+                    if ((hidesSlotsComp.HidesSlots & definition.SlotFlags) != SlotFlags.NONE)
+                    {
+                        return true;
+                    }
+                }
+            }
+        }
+
+        return false;
+        // ADT-tweak end
     }
 }

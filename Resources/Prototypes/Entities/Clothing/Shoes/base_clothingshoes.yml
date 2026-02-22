@@ -36,6 +36,8 @@
   - type: CoveredSlot
     slots: [socks]
   # ADT End
+  - type: HidesSlots
+    hidesSlots: [ SOCKS ]
 
 - type: entity
   abstract: true

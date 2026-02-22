@@ -202,6 +202,8 @@
   - type: CoveredSlot
     slots: [eyes, mask, ears]
   #ADT-Tweak-End
+  - type: HidesSlots
+    hidesSlots: [ EYES, EARS, MASK ]
 
 - type: entity
   abstract: true
