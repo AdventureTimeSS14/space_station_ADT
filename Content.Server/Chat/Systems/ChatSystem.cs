@@ -826,13 +826,10 @@ public sealed partial class ChatSystem : SharedChatSystem
 
     private static bool MessageContainsSkipWord(string message)
     {
-        var words = message.Split(' ', StringSplitOptions.RemoveEmptyEntries);
-        foreach (var word in words)
-        {
-            if (AlertSkipWords.Contains(word))
-                return true;
-        }
-        return false;
+        var words = message.Split(
+            new[] { ' ', ',', '.', '!', '?', ';', ':', '"', '\'', '(', ')', '[', ']', '{', '}' },
+            StringSplitOptions.RemoveEmptyEntries);
+        return words.Any(w => AlertSkipWords.Contains(w));
     }
     // ADT-Tweak-end
 
