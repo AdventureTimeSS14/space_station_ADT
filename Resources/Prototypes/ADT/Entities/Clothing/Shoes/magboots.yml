@@ -26,7 +26,7 @@
   components:
   - type: Action
     icon: { sprite: ADT/Clothing/Shoes/Boots/magboots-ert.rsi, state: icon }
-    iconOn: ADT/Clothing/Shoes/Boots/magboots-ert.rsi/icon-on.png
+    iconOn: { sprite: ADT/Clothing/Shoes/Boots/magboots-ert.rsi, state: icon-on}
 
 - type: entity
   parent: ClothingShoesBootsMagSyndie
@@ -67,4 +67,4 @@
   components:
     - type: Action
       icon: { sprite: ADT/Clothing/Shoes/Boots/advancedsyndie.rsi, state: icon }
-      iconOn: ADT/Clothing/Shoes/Boots/advancedsyndie.rsi/icon-on.png
+      iconOn: {sprite: ADT/Clothing/Shoes/Boots/advancedsyndie.rsi, state: icon-on}

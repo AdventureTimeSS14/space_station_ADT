@@ -28,7 +28,7 @@ public sealed class DamagedThroatSystem : EntitySystem
     private void OnSpeak(EntityUid uid, DamagedThroatComponent component, EntitySpokeEvent args)
     {
         // Don't damage if whispering
-        if (args.Whisper)
+        if (args.ObfuscatedMessage != null)
             return;
 
         // Don't damage if using excluded language (e.g., sign language)

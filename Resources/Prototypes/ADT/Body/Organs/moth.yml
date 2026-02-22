@@ -27,6 +27,7 @@
     groups:
       - id: Food
       - id: Drink
+      - id: Alcohol
 
 - type: entity
   id: OrganMothHeart

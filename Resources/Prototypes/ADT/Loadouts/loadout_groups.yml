@@ -745,6 +745,14 @@
 ## повар
 
 - type: loadoutGroup
+  id: ADTChefPocket1
+  name: loadout-chef-pocket1-adt
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - ADTChefManual
+
+- type: loadoutGroup
   id: ADTChefGloves
   name: loadout-group-chef-gloves-adt
   minLimit: 0

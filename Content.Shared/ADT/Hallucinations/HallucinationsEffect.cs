@@ -6,7 +6,7 @@ namespace Content.Shared.EntityEffects.Effects
     /// Default metabolism for stimulants and tranqs. Attempts to find a MovementSpeedModifier on the target,
     /// adding one if not there and to change the movespeed
     /// </summary>
-    public sealed partial class HallucinationsReagentEffect : EventEntityEffect<HallucinationsReagentEffect>
+    public sealed partial class HallucinationsReagentEffect : EntityEffectBase<HallucinationsReagentEffect>
     {
         [DataField("key")]
         public string Key = "ADTHallucinations";
@@ -23,7 +23,7 @@ namespace Content.Shared.EntityEffects.Effects
         [DataField]
         public HallucinationsMetabolismType Type = HallucinationsMetabolismType.Add;
 
-        protected override string? ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
+        public override string? EntityEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
         {
             return Loc.GetString("reagent-effect-guidebook-hallucinations",
                 ("chance", Probability),

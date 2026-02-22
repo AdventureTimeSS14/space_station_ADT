@@ -10,7 +10,7 @@
     outerClothing: ClothingOuterArmorBasicSlim
     id: ERTLeaderPDA
     ears: ClothingHeadsetAltCentCom
-    belt: ClothingBeltAssault
+    belt: ClothingBeltMilitaryWebbing
     pocket1: DoubleEmergencyOxygenTankFilled
     pocket2: ADTBaseUplinkBOBERT
     underwearb: ADTClothingUnderwearBottomBriefsWhite
@@ -37,7 +37,7 @@
     outerClothing: ClothingOuterHardsuitERTLeader
     id: ERTLeaderPDA
     ears: ClothingHeadsetAltCentCom
-    belt: ClothingBeltAssault
+    belt: ClothingBeltMilitaryWebbing
     pocket1: DoubleEmergencyOxygenTankFilled
     pocket2: ADTBaseUplinkBOBERT
     underwearb: ADTClothingUnderwearBottomBriefsWhite
@@ -65,7 +65,7 @@
     outerClothing: ADTClothingOuterERTRiotHardsuit
     id: ERTLeaderPDA
     ears: ClothingHeadsetAltCentCom
-    belt: ClothingBeltAssault
+    belt: ClothingBeltMilitaryWebbing
     pocket1: DoubleEmergencyOxygenTankFilled
     pocket2: FlashlightSeclite
     underwearb: ADTClothingUnderwearBottomBriefsWhite
@@ -194,7 +194,7 @@
     outerClothing: ClothingOuterArmorBasicSlim
     id: ERTSecurityPDA
     ears: ClothingHeadsetAltCentCom
-    belt: ClothingBeltAssault
+    belt: ClothingBeltMilitaryWebbing
     pocket1: DoubleEmergencyOxygenTankFilled
     pocket2: ADTBaseUplinkBOBERT
     underwearb: ADTClothingUnderwearBottomBriefsWhite
@@ -221,7 +221,7 @@
     outerClothing: ClothingOuterHardsuitERTSecurity
     id: ERTSecurityPDA
     ears: ClothingHeadsetAltCentCom
-    belt: ClothingBeltAssault
+    belt: ClothingBeltMilitaryWebbing
     pocket1: DoubleEmergencyOxygenTankFilled
     pocket2: ADTBaseUplinkBOBERT
     underwearb: ADTClothingUnderwearBottomBriefsWhite
@@ -248,7 +248,7 @@
     outerClothing: ADTClothingOuterERTRiotHardsuit
     id: ERTSecurityPDA
     ears: ClothingHeadsetAltCentCom
-    belt: ClothingBeltAssault
+    belt: ClothingBeltMilitaryWebbing
     pocket1: DoubleEmergencyOxygenTankFilled
     pocket2: FlashlightSeclite
     underwearb: ADTClothingUnderwearBottomBriefsWhite

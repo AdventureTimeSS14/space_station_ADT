@@ -1,0 +1,16 @@
+ent-ADTBarSignAlohaSnackbar = Закусочная "Алоха"
+    .desc = Тропическая закусочная, которая приносит островные вибрации в космос.
+ent-ADTBarSignLittleTreats = Маленькие угощения
+    .desc = Угощения маленькие, но чай настоящий.
+ent-ADTBarSignAssemblyLine = Сборочный конвейер
+    .desc = Любой коктейль на выбор.
+ent-ADTBarSignOrangeJuice = Орандж Джус
+    .desc = Содержимое стаканов официально считается соком!
+ent-ADTBarSignNeonFlamingo = Неоновый фламинго
+    .desc = Ночной бар посреди космоса, где нет времени суток, детка!
+ent-ADTBarSignSleuthsLounge = Отдых сыщика
+    .desc = Бар для тех, кто устал искать правду.
+ent-ADTBarSignCafeSilentieux = Кафе "Безмолвие"
+    .desc = Кафе, где говорят жестами, а кофе подают без лишних слов.
+ent-ADTBarSignTheRune = Бар Руна
+    .desc = Бар номер 1 по мнению Еретиков!
