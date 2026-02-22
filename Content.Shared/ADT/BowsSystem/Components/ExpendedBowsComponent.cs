@@ -25,7 +25,7 @@ public sealed partial class ExpendedBowsComponent : Component
     public float floatToColdown = 7f;
 
     /// <summary>
-    /// Aaa.....Step of tension in bow 
+    /// Step of tension in bow 
     /// </summary>
     public int StepOfTension=0;
 
