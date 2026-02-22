@@ -814,13 +814,28 @@ public sealed partial class ChatSystem : SharedChatSystem
         return !_chatManager.MessageCharacterLimit(player, message);
     }
 
+    // ADT-Tweak-start: Проверка, нужно ли отправлять в чат админам об использовании замены.
+    // О ДА ХАРДКОД
+    private static readonly HashSet<string> AlertSkipWords = new(StringComparer.OrdinalIgnoreCase)
+    {
+        "спс",
+        "пж",
+        "мб",
+    };
+    // ADT-Tweak-end
+
     // ReSharper disable once InconsistentNaming
     public string SanitizeInGameICMessage(EntityUid source, string message, out string? emoteStr, bool capitalize = true, bool punctuate = false, bool capitalizeTheWordI = true)
     {
         var newMessage = SanitizeMessageReplaceWords(message.Trim());
         // ADT-Tweak-start: Проверка, нужно ли отправлять в чат админам об использовании замены.
-        if ((message != newMessage) && HasComp<ActorComponent>(source))
-            _chatManager.SendAdminAlert($"Сущность {ToPrettyString(source)} применила слово из списка для замены: {message}");
+        if (message != newMessage &&
+            HasComp<ActorComponent>(source) &&
+            !AlertSkipWords.Contains(message))
+        {
+            _chatManager.SendAdminAlert(
+                $"Сущность {ToPrettyString(source)} применила слово из списка для замены: {message}");
+        }
         // ADT-Tweak-end
 
         GetRadioKeycodePrefix(source, newMessage, out newMessage, out var prefix);
