@@ -207,7 +207,7 @@
   metabolisms:
     Medicine:
       effects:
-        - !type:HealthChange
+        - !type:EvenHealthChange # ADT-Tweak
           conditions:
       # Start ADT tweak
           - !type:MetabolizerTypeCondition
@@ -219,11 +219,12 @@
             max: 213.0
           damage:
           # todo scale with temp like SS13
-            groups:
-              Airloss: -1
-              Brute: -1
-              Burn: -1.2
-              Toxin: -0.8
+          # ADT-Tweak start (made HealthChange even)
+            Airloss: -1
+            Brute: -1
+            Burn: -1.2
+            Toxin: -0.8
+          # ADT-Tweak end 
         # Start ADT tweak
         - !type:HealthChange
           conditions:
@@ -233,9 +234,9 @@
             max: 213.0
           damage:
             groups:
-              Brute: -1
-              Burn: -1.2
-              Toxin: -0.8
+              Brute: -3 # ADT-Tweak ## Лечит механические повреждение на 1 (3/3)
+              Burn: -4.8 # ADT-Tweak ## Лечит физические повреждение на 1.2 (4.8/4)
+              Toxin: -1.6 # ADT-Tweak ## Лечит яды на 0.8 (1.6/2)
             types:
               Bloodloss: -1
         # End ADT tweak
@@ -1525,16 +1526,17 @@
   metabolisms:
     Medicine:
       effects:
-        - !type:HealthChange
+        - !type:EvenHealthChange # ADT-Tweak 
           conditions:
           - !type:TemperatureCondition
             max: 213.0
           damage:
-            groups:
-              Brute: -7
-              Burn: -6
-              Airloss: -3
-              Toxin: -4
+          # ADT-Tweak start (made HealthChange even)
+            Brute: -7
+            Burn: -6
+            Airloss: -3
+            Toxin: -4
+          # ADT-Tweak end
 
 - type: reagent
   id : Aloxadone
