@@ -32,6 +32,7 @@
         - SurgeryTool
         - ADTLasgunRevolverCell
         - ADTTelescopicBaton
+        - ADTBola
       components:
         - Stunbaton
         - FlashOnTrigger
@@ -523,7 +524,7 @@
           tags:
           - ADTZeroKatana
   - type: Appearance
-  
+
 - type: entity
   id: ADTClothingChemdisBelt
   parent: ClothingBeltStorageBase
