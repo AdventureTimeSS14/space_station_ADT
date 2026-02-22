@@ -1,12 +1,11 @@
 using Content.Shared.ADT.StampHit;
-using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Nutrition.EntitySystems;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared.EntityEffects.Effects;
 
-public sealed partial class WashStampReaction : StampedEntityComponent, WashStamp>
+public sealed partial class WashStampReaction : EntityEffectSystem<StampedEntityComponent, WashStamp>
 {
 
     protected override void Effect(StampedEntityComponent> entity, ref EntityEffectEvent<WashStamp> args)
