@@ -88,15 +88,15 @@
   parent: Medkit
   id: MedkitAdvanced
   components:
-    #ADT Tweak
+    # ADT-Tweak-Start
   - type: Storage
     grid:
     - 0,0,6,1
-    #ADT Tweak
+    # ADT-Tweak-End
   - type: Sprite
     state: advkit
   - type: Item
-    size: Large
+    size: Large # ADT-Tweak
     heldPrefix: advkit
 
 - type: entity
