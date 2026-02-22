@@ -30,3 +30,7 @@
       - material: Cable
         amount: 10
         doAfter: 4
+
+
+  - node: ADTArrowGranade
+    entity: ADTArrowGranade
