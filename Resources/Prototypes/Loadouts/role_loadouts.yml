@@ -387,7 +387,10 @@
   groups:
   - Inventory # Corvax-Loadouts
   - GroupTankHarness
-  - ADTSalvageSpecialistJumpsuit #ADT Loadouts
+    #ADT Loadouts Start
+  - ADTSalvageSpecialistJumpsuit
+  - ADTSalvageSpecialistNeck
+    #ADT Loadouts End
   - SalvageSpecialistBackpack
   - ADTSalvageSpecialistEars # ADT tweak
   - SalvageSpecialistOuterClothing
