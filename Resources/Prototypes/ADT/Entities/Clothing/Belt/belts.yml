@@ -21,7 +21,10 @@
         - Bottle
         - Spray
         - Brutepack
+        - Truncheon
         - Bloodpack
+        - HandGrenade
+        - Dropper
         - Gauze
         - Ointment
         - CigPack
@@ -45,6 +48,9 @@
         - Injector
         - Pill
         - HandLabeler
+        - DoorRemote
+        - Whistle
+        - BalloonPopper
   - type: ItemMapper
     mapLayers:
       flashbang:
