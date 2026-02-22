@@ -1,6 +1,7 @@
 - type: entity
+  parent: BaseHumanOrgan
   id: ADTOrganNovakidStomach
-  parent: OrganAnimalStomach
+  suffix: "novakid"
   categories: [ HideSpawnMenu ]
   components:
     - type: Stomach
@@ -12,22 +13,39 @@
       maxReagents: 7
       metabolizerTypes: [ Novakid ]
       groups:
+      - id: Food
+      - id: Drink
       - id: Alcohol
+    - type: Tag # goob edit
+      tags:
+      - Organ
+      - Stomach
 
 - type: entity
+  parent: BaseHumanOrgan
   id: ADTOrganNovakidLungs
-  parent: OrganHumanLungs
-  categories: [ HideSpawnMenu ]
   suffix: "novakid"
+  categories: [ HideSpawnMenu ]
   components:
+  - type: Lung
   - type: Metabolizer
+    removeEmpty: true
+    solutionOnBody: false
+    solution: "Lung"
     metabolizerTypes: [ Novakid ]
+    groups:
+    - id: Gas
+      rateModifier: 100.0
+  - type: Tag # goob edit
+    tags:
+    - Organ
+    - Lungs
 
 - type: entity
+  parent: BaseHumanOrgan
   id: ADTOrganNovakidHeart
-  parent: OrganAnimalHeart
-  categories: [ HideSpawnMenu ]
   suffix: "novakid"
+  categories: [ HideSpawnMenu ]
   components:
   - type: Metabolizer
     maxReagents: 3
@@ -36,12 +54,16 @@
     - id: Medicine
     - id: Poison
     - id: Narcotic
+  - type: Tag # goob edit
+    tags:
+    - Organ
+    - Heart
 
 - type: entity
-  id: ADTOrganNovakidKidneys
   parent: BaseHumanOrgan
-  categories: [ HideSpawnMenu ]
+  id: ADTOrganNovakidKidneys
   suffix: "novakid"
+  categories: [ HideSpawnMenu ]
   name: kidneys
   components:
   - type: Sprite
@@ -52,13 +74,17 @@
     maxReagents: 1
     metabolizerTypes: [ Novakid ]
     removeEmpty: true
+  - type: Tag # goob edit
+    tags:
+    - Organ
+    - Kidneys
 
 - type: entity
+  parent: BaseHumanOrgan
   id: ADTOrganNovakidLiver
-  parent: BaseAnimalOrgan
   name: liver
-  categories: [ HideSpawnMenu ]
   suffix: "novakid"
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     state: liver
@@ -70,3 +96,7 @@
     groups:
     - id: Alcohol
       rateModifier: 0.1
+  - type: Tag # goob edit
+    tags:
+    - Organ
+    - Liver

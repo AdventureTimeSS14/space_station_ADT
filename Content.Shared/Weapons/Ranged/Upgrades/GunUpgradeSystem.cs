@@ -1,8 +1,9 @@
-using System.Linq;
 using Content.Shared.Administration.Logs;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Database;
 using Content.Shared.Examine;
 using Content.Shared.Interaction;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
 using Content.Shared.Projectiles;
 using Content.Shared.Tag;
@@ -24,6 +25,7 @@ public sealed class GunUpgradeSystem : EntitySystem
     [Dependency] private readonly SharedGunSystem _gun = default!;
     [Dependency] private readonly EntityWhitelistSystem _entityWhitelist = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly DamageableSystem _damageableSystem = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -38,7 +40,37 @@ public sealed class GunUpgradeSystem : EntitySystem
         SubscribeLocalEvent<GunUpgradeFireRateComponent, GunRefreshModifiersEvent>(OnFireRateRefresh);
         SubscribeLocalEvent<GunUpgradeSpeedComponent, GunRefreshModifiersEvent>(OnSpeedRefresh);
         SubscribeLocalEvent<GunUpgradeDamageComponent, GunShotEvent>(OnDamageGunShot);
+        // ADT-Tweak-start: Vampirism Upgrade
+        SubscribeLocalEvent<GunUpgradeVampirismComponent, GunShotEvent>(OnVampirismGunShot);
+        SubscribeLocalEvent<ProjectileVampirismComponent, ProjectileHitEvent>(OnVampirismProjectileHit);
+        // ADT-Tweak-end
     }
+
+    // ADT-Tweak-start: Vampirism Upgrade
+    private void OnVampirismGunShot(Entity<GunUpgradeVampirismComponent> ent, ref GunShotEvent args)
+    {
+        foreach (var (ammo, _) in args.Ammo)
+        {
+            if (TryComp<ProjectileComponent>(ammo, out var _))
+            {
+                var comp = EnsureComp<ProjectileVampirismComponent>(ammo.Value);
+                comp.DamageOnHit = ent.Comp.DamageOnHit;
+            }
+        }
+    }
+
+    private void OnVampirismProjectileHit(Entity<ProjectileVampirismComponent> ent, ref ProjectileHitEvent args)
+    {
+        if (!HasComp<MobStateComponent>(args.Target))
+            return;
+
+        if (args.Shooter is not EntityUid shooter)
+            return;
+
+        if (!_damageableSystem.TryChangeDamage(shooter, ent.Comp.DamageOnHit))
+            return;
+    }
+    // ADT-Tweak-end
 
     private void RelayEvent<T>(Entity<UpgradeableGunComponent> ent, ref T args) where T : notnull
     {
