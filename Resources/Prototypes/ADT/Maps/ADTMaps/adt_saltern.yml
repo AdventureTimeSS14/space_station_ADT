@@ -21,7 +21,7 @@
         - type: StationJobs
           availableJobs:
             #centcom specialists
-            ADTCentcomConsultant: [ 1, 1 ] #ADT-Roles
+            # ADTCentcomConsultant: [ 1, 1 ] #ADT-Roles # Убрано по голосованию
             ADTBlueShieldOfficer: [ 1, 1 ] #ADT-Roles
             # command
             Captain: [ 1, 1 ]

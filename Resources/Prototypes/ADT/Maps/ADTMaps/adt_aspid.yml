@@ -21,7 +21,7 @@
           availableJobs:
             # centcomm specialsts
             ADTBlueShieldOfficer: [ 1, 1 ] #ADT-Roles
-            ADTCentcomConsultant: [ 1, 1 ] #ADT-Roles
+            # ADTCentcomConsultant: [ 1, 1 ] #ADT-Roles # Убрано по голосованию
             # command
             Captain: [ 1, 1 ]
             #service
