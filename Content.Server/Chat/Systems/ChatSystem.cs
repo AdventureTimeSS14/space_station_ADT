@@ -821,7 +821,19 @@ public sealed partial class ChatSystem : SharedChatSystem
         "спс",
         "пж",
         "мб",
+        "хз"
     };
+
+    private static bool MessageContainsSkipWord(string message)
+    {
+        var words = message.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+        foreach (var word in words)
+        {
+            if (AlertSkipWords.Contains(word))
+                return true;
+        }
+        return false;
+    }
     // ADT-Tweak-end
 
     // ReSharper disable once InconsistentNaming
@@ -831,7 +843,7 @@ public sealed partial class ChatSystem : SharedChatSystem
         // ADT-Tweak-start: Проверка, нужно ли отправлять в чат админам об использовании замены.
         if (message != newMessage &&
             HasComp<ActorComponent>(source) &&
-            !AlertSkipWords.Contains(message))
+            !MessageContainsSkipWord(message))
         {
             _chatManager.SendAdminAlert(
                 $"Сущность {ToPrettyString(source)} применила слово из списка для замены: {message}");
