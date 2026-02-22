@@ -17,10 +17,10 @@
     - state: security
     - state: icons-detentions
   - type: ItemBorgModule
-    items:
-    - ADTInfCablecuffs
-    - ADTtelescopicBaton
-    - ADTBorgflash
+    hands:
+    - item: ADTInfCablecuffs
+    - item: ADTtelescopicBaton
+    - item: ADTBorgflash
 
 - type: entity
   id: ADTBorgModuleHarm
@@ -32,9 +32,9 @@
     - state: security
     - state: icons-harm
   - type: ItemBorgModule
-    items:
-    - Truncheon
-    - ADTWeaponLaserCarbineBorg
+    hands:
+    - item: Truncheon
+    - item: ADTWeaponLaserCarbineBorg
 
 - type: entity
   id: ADTBorgModuleDisabler
@@ -46,9 +46,9 @@
     - state: security
     - state: icons-disabler
   - type: ItemBorgModule
-    items:
-    - ADTInfCablecuffs
-    - ADTWeaponDisablerBorg
+    hands:
+    - item: ADTInfCablecuffs
+    - item: ADTWeaponDisablerBorg
 
 - type: entity
   id: ADTBorgModuleRPD
@@ -61,11 +61,11 @@
     - state: engineering
     - state: icon-rpd
   - type: ItemBorgModule
-    items:
-    - ADTRPDRecharging
-    - GasAnalyzer
-    - HolofanProjectorBorg
-    - PowerDrill
+    hands:
+    - item: ADTRPDRecharging
+    - item: GasAnalyzer
+    - item: HolofanProjectorBorg
+    - item: PowerDrill
   - type: BorgModuleIcon
     icon: { sprite: ADT/Interface/Actions/actions_borg.rsi, state: rpd-module }
 
@@ -85,11 +85,11 @@
       whitelist:
         tags:
         - PKA
-    items:
-    - WeaponGrapplingGun
-    - BorgHandheldGPSBasic
-    - HandHeldMassScannerBorg
-    - MaterialBag
+    hands:
+    - item: WeaponGrapplingGun
+    - item: BorgHandheldGPSBasic
+    - item: HandHeldMassScannerBorg
+    - item: MaterialBag
   - type: BorgModuleIcon
     icon: { sprite: ADT/Interface/Actions/actions_borg.rsi, state: salvage-module }
 
@@ -97,7 +97,7 @@
 
 - type: entity
   id: ADTBorgModuleChemical
-  parent: BorgModuleChemical
+  parent: [ BaseBorgModuleMedical, BaseProviderBorgModule ]
   name: chemical cyborg module
   components:
   - type: Sprite
@@ -105,17 +105,17 @@
     - state: medical
     - state: icon-chem
   - type: ItemBorgModule
-    items:
-    - HandheldHealthAnalyzerUnpowered
-    - Syringe
-    - Syringe
-    - ADTBorgDrinkGlass
-    - ADTBorgDrinkGlass
-    - ADTBorgDrinkGlass
+    hands:
+    - item: HandheldHealthAnalyzerUnpowered
+    - item: Syringe
+    - item: Syringe
+    - item: ADTBorgDrinkGlass
+    - item: ADTBorgDrinkGlass
+    - item: ADTBorgDrinkGlass
 
 - type: entity
   id: ADTBorgModuleAdvancedChemical
-  parent: BorgModuleChemical
+  parent: [ BaseBorgModuleMedical, BaseProviderBorgModule ]
   name: chemical cyborg module
   components:
   - type: Sprite
@@ -123,28 +123,27 @@
     - state: medical
     - state: icon-chemist
   - type: ItemBorgModule
-    items:
-    - HandheldHealthAnalyzerUnpowered
-    - BorgHypo
-    - BorgDropper
-    - BorgBeaker
-    - BorgBeaker
-    - HandLabeler
+    hands:
+    - item: HandheldHealthAnalyzerUnpowered
+    - item: BorgHypo
+    - item: BorgDropper
+    - item: BaseChemistryEmptyVial
+    - item: HandLabeler
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: adv-chem-module }
 
 - type: entity
   id: ADTBorgModuleRescue
-  parent: BorgModuleRescue
+  parent: [ BaseBorgModuleMedical, BaseProviderBorgModule ]
   name: rescue cyborg module
   components:
   - type: ItemBorgModule
-    items:
-    - HandheldHealthAnalyzerUnpowered
-    - BorgFireExtinguisher
-    - BorgHandheldGPSBasic
-    - HandheldStationMapUnpowered
-    - WeaponGrapplingGun
-    - DefibrillatorOneHandedUnpowered
+    hands:
+    - item: HandheldHealthAnalyzerUnpowered
+    - item: BorgFireExtinguisher
+    - item: BorgHandheldGPSBasic
+    - item: HandheldStationMapUnpowered
+    - item: WeaponGrapplingGun
+    - item: DefibrillatorOneHandedUnpowered
 
 # Borg Modules Update End

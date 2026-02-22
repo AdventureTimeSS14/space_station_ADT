@@ -526,3 +526,35 @@
   - type: ShowHealthIcons
     damageContainers:
     - Biological
+
+- type: entity
+  parent: ADTClothingHeadHelmetModsuitBase
+  id: ADTClothingHeadHelmetModsuitAncient
+  name: ancient MOD helmet
+  description: A helmet for a MODsuit.
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Modsuit/ancient.rsi
+    layers:
+    - state: icon
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.85
+        Slash: 0.85
+        Piercing: 0.85
+        Heat: 0.85
+        Cold: 0.85
+  - type: PressureProtection
+    highPressureMultiplier: 0
+    lowPressureMultiplier: 0
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Modsuit/ancient.rsi
+    clothingVisuals:
+      head:
+      - state: equipped-head
+      - state: equipped-head-unshaded
+        shader: unshaded
+  - type: PointLight
+    enabled: false
+    color: "#0BB0F4"

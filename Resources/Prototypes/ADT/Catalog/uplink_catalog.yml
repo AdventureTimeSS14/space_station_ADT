@@ -938,3 +938,36 @@
   - !type:BuyerJobCondition
     whitelist:
     - AtmosphericTechnician
+
+- type: listing
+  id: UplinkClothingNoSoundShoes
+  name: uplink-clothing-no-sound-shoes-name
+  description: uplink-clothing-no-sound-shoes-desc
+  icon: { sprite: /Textures/ADT/Misc/silent_shoes_icon.rsi, state: icon_no_sound_shoes }
+  productEntity: ADTClothingShoesChameleonNoSound
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 1
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkWearables
+
+- type: listing
+  id: UplinkClothingSuperShoes
+  name: uplink-clothing-super-shoes-name
+  description: uplink-clothing-super-shoes-desc
+  icon: { sprite: /Textures/ADT/Misc/silent_shoes_icon.rsi, state: icon_supershoes }
+  productEntity: ADTClothingShoesChameleonSuper
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 2
+  cost:
+    Telecrystal: 3
+  categories:
+  - UplinkWearables
+  conditions:
+    - !type:StoreWhitelistCondition
+      blacklist:
+        tags:
+          - NukeOpsUplink

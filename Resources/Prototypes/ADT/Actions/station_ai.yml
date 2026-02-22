@@ -17,8 +17,8 @@
   description: View a Mass Scanner Interface.
   components:
   - type: Action
-    icon: Interface/Actions/actions_ai.rsi/mass_scanner.png
-    iconOn: Interface/Actions/actions_ai.rsi/mass_scanner.png
+    icon: {sprite: Interface/Actions/actions_ai.rsi, state: mass_scanner}
+    iconOn: {sprite: Interface/Actions/actions_ai.rsi, state: mass_scanner}
     keywords: [ "AI", "console", "interface" ]
     priority: -9
   - type: InstantAction
@@ -30,8 +30,8 @@
   description: View a Crew Monitoring Interface.
   components:
   - type: Action
-    icon: Interface/Actions/actions_ai.rsi/crew_monitor.png
-    iconOn: Interface/Actions/actions_ai.rsi/crew_monitor.png
+    icon: {sprite: Interface/Actions/actions_ai.rsi, state: crew_monitor}
+    iconOn: {sprite: Interface/Actions/actions_ai.rsi, state: crew_monitor}
     keywords: [ "AI", "console", "interface" ]
     priority: -8
   - type: InstantAction
@@ -43,8 +43,8 @@
   description: View a Station Records Interface.
   components:
   - type: Action
-    icon: Interface/Actions/actions_ai.rsi/station_records.png
-    iconOn: Interface/Actions/actions_ai.rsi/station_records.png
+    icon: {sprite: Interface/Actions/actions_ai.rsi, state: station_records}
+    iconOn: { sprite: Interface/Actions/actions_ai.rsi, state: station_records}
     keywords: [ "AI", "console", "interface" ]
     priority: -7
   - type: InstantAction
@@ -56,8 +56,8 @@
   description: View a Communications Interface.
   components:
   - type: Action
-    icon: ADT/Interface/Actions/action_ai.rsi/comms_console.png
-    iconOn: ADT/Interface/Actions/action_ai.rsi/comms_console.png
+    icon: {sprite: ADT/Interface/Actions/action_ai.rsi, state: comms_console}
+    iconOn: {sprite: ADT/Interface/Actions/action_ai.rsi, state: comms_console}
     keywords: [ "AI", "console", "interface" ]
     priority: -6
   - type: InstantAction
@@ -69,8 +69,8 @@
   description: View a Atmospheric Alerts Interface.
   components:
   - type: Action
-    icon: ADT/Interface/Actions/action_ai.rsi/atmos_alerts.png
-    iconOn: ADT/Interface/Actions/action_ai.rsi/atmos_alerts.png
+    icon: {sprite: ADT/Interface/Actions/action_ai.rsi, state: atmos_alerts}
+    iconOn: {sprite: ADT/Interface/Actions/action_ai.rsi, state: atmos_alerts}
     keywords: [ "AI", "console", "interface" ]
     priority: -5
   - type: InstantAction

@@ -6,14 +6,14 @@ using Content.Shared.Mind.Components;
 //ADT-Tweak-End
 using Content.Shared.Movement.Events;
 using Content.Shared.StepTrigger.Systems;
+using Content.Shared.Weapons.Misc;
+using Robust.Shared.Network;
 //ADT-Tweak-Start
 //using Robust.Shared.Audio;
 //using Robust.Shared.Audio.Systems;
 //ADT-Tweak-End
-using Robust.Shared.Network;
 //using Robust.Shared.Physics.Components; ADT-Tweak
 using Robust.Shared.Timing;
-using Content.Shared.ADT.Chasm; //ADT-Tweak
 
 namespace Content.Shared.Chasm;
 
@@ -25,9 +25,9 @@ public sealed class ChasmSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly ActionBlockerSystem _blocker = default!;
     [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private readonly SharedGrapplingGunSystem _grapple = default!;
     //ADT-Tweak-Start
     //[Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedTransformSystem _xform = default!;
     //ADT-Tweak-End
 
     public override void Initialize()
@@ -65,28 +65,6 @@ public sealed class ChasmSystem : EntitySystem
             // ADT Jaunter end
             QueueDel(uid);
         }
-
-        //ADT-Tweak-Start
-        var pendingQuery = EntityQueryEnumerator<ChasmPendingFallComponent>();
-        while (pendingQuery.MoveNext(out var tripper, out var pending))
-        {
-            if (_timing.CurTime < pending.NextFallTime)
-                continue;
-
-            if (!IsStillOnChasm(tripper, pending.ChasmUid))
-            {
-                RemComp<ChasmPendingFallComponent>(tripper);
-                continue;
-            }
-
-            if (TryComp<ChasmComponent>(pending.ChasmUid, out var chasmComp) && !Deleted(pending.ChasmUid))
-            {
-                StartFalling(pending.ChasmUid, chasmComp, tripper);
-            }
-
-            RemComp<ChasmPendingFallComponent>(tripper);
-        }
-        //ADT-Tweak-End
     }
 
     private void OnStepTriggered(EntityUid uid, ChasmComponent component, ref StepTriggeredOffEvent args)
@@ -95,36 +73,7 @@ public sealed class ChasmSystem : EntitySystem
         if (HasComp<ChasmFallingComponent>(args.Tripper))
             return;
 
-        //ADT-Tweak-Start
-        //StartFalling(uid, component, args.Tripper);
-        var tripper = args.Tripper;
-
-        if (HasComp<MindContainerComponent>(tripper))
-        {
-            if (TryComp<ChasmPendingFallComponent>(tripper, out var existingPending))
-            {
-                if (existingPending.ChasmUid != uid)
-                {
-                    StartFalling(uid, component, tripper);
-                    RemComp<ChasmPendingFallComponent>(tripper);
-                }
-                else
-                {
-                    existingPending.NextFallTime = _timing.CurTime + TimeSpan.FromSeconds(1);
-                }
-            }
-            else
-            {
-                var pending = AddComp<ChasmPendingFallComponent>(tripper);
-                pending.NextFallTime = _timing.CurTime + TimeSpan.FromSeconds(1);
-                pending.ChasmUid = uid;
-            }
-        }
-        else
-        {
-            StartFalling(uid, component, tripper);
-        }
-        //ADT-Tweak-End
+        StartFalling(uid, component, args.Tripper);
     }
 
     public void StartFalling(EntityUid chasm, ChasmComponent component, EntityUid tripper) //ADT-Tweak
@@ -142,6 +91,12 @@ public sealed class ChasmSystem : EntitySystem
 
     private void OnStepTriggerAttempt(EntityUid uid, ChasmComponent component, ref StepTriggerAttemptEvent args)
     {
+        if (_grapple.IsEntityHooked(args.Tripper))
+        {
+            args.Cancelled = true;
+            return;
+        }
+
         args.Continue = true;
     }
 
@@ -149,21 +104,4 @@ public sealed class ChasmSystem : EntitySystem
     {
         args.Cancel();
     }
-
-    //ADT-Tweak-Start
-    private bool IsStillOnChasm(EntityUid tripper, EntityUid chasmUid)
-    {
-        if (Deleted(chasmUid))
-            return false;
-
-        var tripperCoords = _xform.GetMapCoordinates(tripper);
-        var chasmCoords = _xform.GetMapCoordinates(chasmUid);
-
-        if (tripperCoords.MapId != chasmCoords.MapId)
-            return false;
-
-        var distance = (tripperCoords.Position - chasmCoords.Position).Length();
-        return distance < 0.5f; // Assuming tile-based positioning with threshold for overlap
-    }
-    //ADT-Tweak-End
 }

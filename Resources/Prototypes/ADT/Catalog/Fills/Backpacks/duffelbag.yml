@@ -297,3 +297,22 @@
       - id: ClothingOuterCoatLab
       - id: GeigerCounter
       - id: ADTAntiNobliumPaper
+
+- type: entity
+  parent: ClothingBackpackChameleon
+  id: ADTClothingBackpackChameleonThiefFill
+  suffix: Fill, Chameleon, Thief
+  components:
+    - type: StorageFill
+      contents:
+        - id: ChameleonPDA
+        - id: ClothingUniformJumpsuitChameleon
+        - id: ClothingOuterChameleon
+        - id: ClothingNeckChameleon
+        - id: ClothingMaskGasChameleon
+        - id: ClothingHeadHatChameleon
+        - id: ClothingHandsChameleon
+        - id: ClothingEyesChameleon
+        - id: ClothingHeadsetChameleon
+        - id: ADTSyndicateShoesVoucher
+        - id: ChameleonControllerImplanter

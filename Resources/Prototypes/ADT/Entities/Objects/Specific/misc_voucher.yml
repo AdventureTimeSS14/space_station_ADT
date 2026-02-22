@@ -96,3 +96,28 @@
     - WeaponHoSBat
     typeDropPlace: ThisPlace
     typeDrop: Rocket
+
+- type: entity
+  parent: BaseItem
+  id: ADTSyndicateShoesVoucher
+  name: suspicious shoe box
+  description: A strange shoe box. Looking at it, you feel uncertain.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/syndieshoes_voucher.rsi
+    state: syndie_shoebox
+  - type: Item
+    size: Normal
+  - type: ActivatableUI
+    key: enum.MiningVoucherUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.MiningVoucherUiKey.Key:
+        type: MiningVoucherBoundUserInterface
+  - type: MiningVoucher
+    useSound:
+     path: /Audio/ADT/Effects/silence.ogg
+    kits:
+    - ShoesSyndieChameleon
+    - ShoesSyndieChameleonNoSound
+    typeDropPlace: InHands

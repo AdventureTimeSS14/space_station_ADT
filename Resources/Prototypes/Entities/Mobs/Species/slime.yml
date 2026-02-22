@@ -104,14 +104,17 @@
       effects:
       - !type:WashStampReaction
     #ADT=Tweak=end
+    - reagents: [Water, SpaceCleaner]
+      methods: [Touch]
+      effects:
+      - !type:WashCreamPie
     - reagents: [ Water ]
       methods: [ Touch ]
       effects:
       - !type:HealthChange
-        scaleByQuantity: true
         damage:
           types:
-            Heat: 0.1
+            Heat: 0.05
       - !type:PopupMessage
         type: Local
         visualType: Large

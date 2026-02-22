@@ -2,6 +2,9 @@ using Content.Server.Atmos.Components;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Heretic.Prototypes;
+using Content.Shared.Damage.Components;
+using Content.Shared.Atmos.Components;
+using Content.Shared.Damage.Systems;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.Heretic.Ritual;

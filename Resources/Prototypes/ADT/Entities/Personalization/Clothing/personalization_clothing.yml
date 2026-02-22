@@ -591,6 +591,18 @@
   - type: Clothing
     sprite: ADT/Personalization/pangaari_american_sleeveless.rsi
 
+- type: entity
+  parent: ADTClothingSponsorHandsBase
+  id: ADTClothingHandsPangaariBracelet
+  suffix: Personal, Pangaari
+  name: blue bead bracelet
+  description: A bracelet made of beads on a strong fishing line. It is clearly handmade with great care. The alternating use of regular and long blue beads forms a message in Morse code.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/pangaari_bracelet.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/pangaari_bracelet.rsi
+
 #tweak
 - type: entity
   parent: ADTSponsorClothingOuterStorageBase
@@ -923,20 +935,24 @@
   suffix: Personal, saint_madman
   components:
   - type: Sprite
-    sprite: ADT/Personalization/saintmadman-uniform.rsi
+    sprite: ADT/Personalization/saint_madman_uniform.rsi
   - type: Clothing
-    sprite: ADT/Personalization/saintmadman-uniform.rsi
+    sprite: ADT/Personalization/saint_madman_uniform.rsi
 
 - type: entity
-  parent: ADTSponsorClothingHeadBase
-  id: ClothingHeadHatSaintMadmanthingy
-  name: yeaaaaa
+  parent: ADTSponsorClothingNeckBase
+  id: ADTClothingNeckSaintMadmanMantle
   suffix: Personal, saint_madman
+  name: SaintMadmanNeck
+  description: The Aristocrat's neck
   components:
   - type: Sprite
-    sprite: ADT/Personalization/saintmadman-headthingy.rsi
+    sprite: ADT/Personalization/saint_madman_neck.rsi
+    state: icon
   - type: Clothing
-    sprite: ADT/Personalization/saintmadman-headthingy.rsi
+    sprite: ADT/Personalization/saint_madman_neck.rsi
+  - type: Item
+    size: Normal
 
 - type: entity
   parent: ADTSponsorClothingOuterStorageBase
@@ -946,32 +962,14 @@
   suffix: Personal, saint_madman
   components:
   - type: Sprite
-    sprite: ADT/Personalization/saintmadman-coat.rsi
+    sprite: ADT/Personalization/saint_madman_coat.rsi
   - type: Clothing
-    sprite: ADT/Personalization/saintmadman-coat.rsi
+    sprite: ADT/Personalization/saint_madman_coat.rsi
   - type: Storage
     grid:
     - 0,0,4,2
     maxItemSize: Normal
 
-- type: entity
-  parent: ADTSponsorClothingOuterBase
-  id: ADTClothingOuterCoatViaDeus
-  name: SaintMadmanCoat
-  description: yeaaaaagain
-  suffix: Personal, saint_madman
-  components:
-  - type: Sprite
-    sprite: ADT/Personalization/saintmadman-coatViaDeus.rsi
-  - type: Clothing
-    sprite: ADT/Personalization/saintmadman-coatViaDeus.rsi
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.95
-        Slash: 0.95
-        Piercing: 0.95
-        Heat: 0.95
 
 #kringe
 
@@ -1018,7 +1016,7 @@
   components:
   - type: Action
     icon: { sprite: ADT/Personalization/kringe-magboots.rsi, state: icon }
-    iconOn: ADT/Personalization/kringe-magboots.rsi/icon-on.png
+    iconOn: { sprite: ADT/Personalization/kringe-magboots.rsi, state: icon-on }
 
 - type: entity
   parent: ADTClothingSponsorHandsBase
@@ -1210,6 +1208,18 @@
     sprite: ADT/Personalization/feather_hairpin.rsi
   - type: Clothing
     sprite: ADT/Personalization/feather_hairpin.rsi
+
+- type: entity
+  parent: ADTClothingSponsorHandsBase
+  id: ADTClothingHandsKiwiFruitBracelet
+  suffix: Personal, kiwi_fruit
+  name: green bead bracelet
+  description: A beaded bracelet on a strong fishing line. Clearly handmade, and though not very skillfully, but diligently. Alternation of the usual and long beads of green color makes up a certain message in Morse code.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/kiwi_fruit_bracelet.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/kiwi_fruit_bracelet.rsi
 
 #Sir_talter
 - type: entity
@@ -1492,3 +1502,29 @@
     sprite: ADT/Personalization/FaustNetzach/faust_cuffs.rsi
   - type: Fiber
     fiberColor: fibers-white
+
+#kimer_k
+- type: entity
+  parent: ADTSponsorClothingUniformBase
+  id: ADTClothingUniformKimerK
+  name: pink suit
+  description: A lightweight classic shirt with a delicate tie, complemented by a button-down vest with a V-neck.
+  suffix: Personal, kimer_k
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/Kimer_k/kimer_k_suit.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/Kimer_k/kimer_k_suit.rsi
+
+#WCTR829
+- type: entity
+  parent: ADTSponsorClothingUniformBase
+  id: ADTClothingUniformWCTR829
+  name: radio equipment overalls
+  description: The jumpsuit is a deep anthracite color, with white accents on the chest, shoulders, and forearms, emphasizing the sleek, technical silhouette.
+  suffix: Personal, WCTR829
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/WCTR829/WCTR829_suit.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/WCTR829/WCTR829_suit.rsi
