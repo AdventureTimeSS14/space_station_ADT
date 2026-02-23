@@ -13,6 +13,11 @@ public sealed partial class FlavorPrototype : IPrototype
 
     [DataField("description")]
     public string FlavorDescription { get; private set; } = default!;
+
+    // ADT-Tweak-Start
+    [DataField]
+    public List<ProtoId<FlavorPrototype>> Neutralize { get; private set; } = new();
+    // ADT-Tweak-End
 }
 
 public enum FlavorType : byte
