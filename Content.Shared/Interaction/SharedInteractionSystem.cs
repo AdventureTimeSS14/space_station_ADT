@@ -1366,7 +1366,7 @@ namespace Content.Shared.Interaction
             if (wearer == user)
                 return true;
 
-            if (_strippable.IsStripHidden(slotDef, user, wearer)) // ADT-tweak
+            if (_strippable.IsStripHidden(slotDef, user, wearer)) // ADT-tweak: Allow user to see verbs for their own hidden slots
                 return false;
 
             return InRangeUnobstructed(user, wearer) && _containerSystem.IsInSameOrParentContainer(user, wearer);

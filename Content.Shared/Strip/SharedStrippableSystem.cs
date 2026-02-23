@@ -13,7 +13,7 @@ using Content.Shared.Interaction;
 using Content.Shared.Interaction.Components;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Inventory;
-using Content.Shared.ADT.Inventory; // ADT-tweak
+using Content.Shared.ADT.Inventory;
 using Content.Shared.Inventory.VirtualItem;
 using Content.Shared.Popups;
 using Content.Shared.Strip.Components;
@@ -300,7 +300,7 @@ public abstract class SharedStrippableSystem : EntitySystem
 
         if (!stealth)
         {
-            if (IsStripHidden(slotDef, user, target)) // ADT-tweak
+            if (IsStripHidden(slotDef, user, target)) // ADT-tweak: Allow user to see verbs for their own hidden slots
                 _popupSystem.PopupEntity(Loc.GetString("strippable-component-alert-owner-hidden", ("slot", slot)), target, target, PopupType.Large);
             else
             {
@@ -690,9 +690,9 @@ public abstract class SharedStrippableSystem : EntitySystem
             args.Handled = true;
     }
 
-    public bool IsStripHidden(SlotDefinition definition, EntityUid? viewer, EntityUid? target = null) // ADT-tweak
+    public bool IsStripHidden(SlotDefinition definition, EntityUid? viewer, EntityUid? target = null) // ADT-tweak: Allow user to see verbs for their own hidden slots
     {
-        // ADT-tweak start
+        // ADT-tweak start: Allow user to see verbs for their own hidden slots
         if (definition.StripHidden)
         {
             if (viewer == null)
@@ -718,6 +718,6 @@ public abstract class SharedStrippableSystem : EntitySystem
         }
 
         return false;
-        // ADT-tweak end
+        // ADT-tweak end: Allow user to see verbs for their own hidden slots
     }
 }
