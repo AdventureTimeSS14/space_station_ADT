@@ -511,7 +511,7 @@
   - type: Storage
     maxItemSize: Normal
     grid:
-    - 0,0,4,2 # ADT-Tweak увеличил с 0,0,3,3 -> 0,0,4,2
+    - 0,0,3,3
   - type: Tag
     tags:
     - Trash
