@@ -5,6 +5,7 @@ using Content.Shared.Inventory;
 using Content.Shared.Popups;
 using Content.Shared.Tag;
 using Content.Shared.Throwing;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Weapons.Ranged.Systems;
 using Robust.Shared.Physics.Systems;
 

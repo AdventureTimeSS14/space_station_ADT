@@ -103,7 +103,7 @@
   - type: Item
     size: Normal
   - type: Gun
-    fireRate: 9
+    fireRate: 8
     minAngle: 32
     angleIncrease: 3
     maxAngle: 64
@@ -140,11 +140,11 @@
     graph: MakeshiftSMGGraph
     node: shotgun
   - type: WeaponDismantleOnShoot
-    dismantleChance: 0.03 #Very low to account for automatic weapon fire, if entire mag is shot 3/10 SMGs will survive
+    dismantleChance: 0.05 #Very low to account for automatic weapon fire, if entire mag is shot 5/10 SMGs will survive
     selfDamage:
       types:
-        Blunt: 5
-        Heat: 5
+        Blunt: 10
+        Heat: 12
     items:
       - id: ModularBarrel
         launchAngle: 0
@@ -191,7 +191,7 @@
     graph: ImprovisedSMGGraph
     node: shotgun
   - type: WeaponDismantleOnShoot
-    dismantleChance: 0.01
+    dismantleChance: 0.02
     items:
       - id: ModularBarrel
         launchAngle: 0

@@ -103,47 +103,47 @@
     graph: ImprovisedMultitoolGraph
     node: tool
 
-- type: entity
-  parent: BaseItem
-  id: UnfinishedImprovisedOmnitool
-  name: improvised omnitool parts
-  description: What are you doing..? Needs.. to be welded.
-  components:
-  - type: Item
-    size: Normal
-  - type: Sprite
-    sprite: ADT/Objects/Tools/improvised_omnitool.rsi
-    state: unfinished
-  - type: ToolRefinable
-    refineResult:
-    - id: OmnitoolImprovised
-  - type: Tag
-    tags:
-    - Metal
-  - type: Construction
-    graph: ImprovisedOmnitoolGraph
-    node: tool
+#- type: entity
+#  parent: BaseItem
+#  id: UnfinishedImprovisedOmnitool
+#  name: improvised omnitool parts
+#  description: What are you doing..? Needs.. to be welded.
+#  components:
+#  - type: Item
+#    size: Normal
+#  - type: Sprite
+#    sprite: ADT/Objects/Tools/improvised_omnitool.rsi
+#    state: unfinished
+#  - type: ToolRefinable
+#    refineResult:
+#    - id: OmnitoolImprovised
+#  - type: Tag
+#    tags:
+#    - Metal
+#  - type: Construction
+#    graph: ImprovisedOmnitoolGraph
+#    node: tool
 
-- type: entity
-  parent: BaseItem
-  id: UnfinishedForgedOmnitool
-  name: forged omnitool parts
-  description: You are either crazy, or a psychopath. Likely both, needs to be welded.
-  components:
-  - type: Item
-    size: Normal
-  - type: Sprite
-    sprite: ADT/Objects/Tools/forged_omnitool.rsi
-    state: unfinished
-  - type: ToolRefinable
-    refineResult:
-    - id: OmnitoolForged
-  - type: Tag
-    tags:
-    - Metal
-  - type: Construction
-    graph: ForgedOmnitoolGraph
-    node: tool
+#- type: entity
+#  parent: BaseItem
+#  id: UnfinishedForgedOmnitool
+#  name: forged omnitool parts
+#  description: You are either crazy, or a psychopath. Likely both, needs to be welded.
+#  components:
+#  - type: Item
+#    size: Normal
+#  - type: Sprite
+#    sprite: ADT/Objects/Tools/forged_omnitool.rsi
+#    state: unfinished
+#  - type: ToolRefinable
+#    refineResult:
+#    - id: OmnitoolForged
+#  - type: Tag
+#    tags:
+#    - Metal
+#  - type: Construction
+#    graph: ForgedOmnitoolGraph
+#    node: tool
 
 - type: entity
   parent: BaseItem

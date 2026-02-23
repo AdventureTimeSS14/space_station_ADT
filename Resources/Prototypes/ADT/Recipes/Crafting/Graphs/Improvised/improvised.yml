@@ -448,25 +448,25 @@
   objectType: Item
   description: crafting-menu-text-IM
 
-- type: construction
-  name: crafting-menu-name-IO
-  id: OmnitoolImprovised
-  graph: ImprovisedOmnitoolGraph
-  startNode: start
-  targetNode: tool
-  category: construction-category-tools
-  objectType: Item
-  description: crafting-menu-text-IO
+#- type: construction
+#  name: crafting-menu-name-IO
+#  id: OmnitoolImprovised
+#  graph: ImprovisedOmnitoolGraph
+#  startNode: start
+#  targetNode: tool
+#  category: construction-category-tools
+#  objectType: Item
+#  description: crafting-menu-text-IO
 
-- type: construction
-  name: crafting-menu-name-FO
-  id: OmnitoolForged
-  graph: ForgedOmnitoolGraph
-  startNode: start
-  targetNode: tool
-  category: construction-category-tools
-  objectType: Item
-  description: crafting-menu-text-FO
+#- type: construction
+#  name: crafting-menu-name-FO
+#  id: OmnitoolForged
+#  graph: ForgedOmnitoolGraph
+#  startNode: start
+#  targetNode: tool
+#  category: construction-category-tools
+#  objectType: Item
+#  description: crafting-menu-text-FO
 
 - type: construction
   name: crafting-menu-name-WH

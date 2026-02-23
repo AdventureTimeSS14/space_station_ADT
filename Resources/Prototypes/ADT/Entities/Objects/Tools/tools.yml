@@ -147,9 +147,9 @@
     delay: 4
   - type: Prying
     speedModifier: 0.25
-  - type: ToolRefinable
-    refineResult:
-    - id: CrowbarWrenchMakeshift
+#  - type: ToolRefinable
+#    refineResult:
+#    - id: CrowbarWrenchMakeshift
   - type: Construction
     graph: MakeshiftCrowbarGraph
     node: tool
@@ -179,161 +179,161 @@
     tags:
       - ImprovisedCrowbar
 
-- type: entity
-  name: makeshift crowbar-wrench
-  parent: BaseItem
-  id: CrowbarWrenchMakeshift
-  description: Still pretty bad.
-  components:
-  - type: EmitSoundOnLand
-    sound:
-      path: /Audio/Items/crowbar_drop.ogg
-  - type: Sprite
-    sprite: ADT/Objects/Tools/makeshift_omnitool.rsi
-    state: wrench
-  - type: Item
-    sprite: ADT/Objects/Tools/makeshift_omnitool.rsi
-  - type: Prying
-  - type: Tool
-    qualities:
-    - Prying
-    - Anchoring
-    speedModifier: 0.7
-    useSound: /Audio/Items/crowbar.ogg
-  - type: ToolTileCompatible
-  - type: MeleeWeapon
-    wideAnimationRotation: -135
-    damage:
-      types:
-        Blunt: 9
-  - type: MultipleTool
-    statusShowBehavior: true
-    entries:
-      - behavior: Prying
-        sprite:
-          sprite: ADT/Objects/Tools/makeshift_omnitool.rsi
-          state: wrench
-        useSound:
-          path: /Audio/Items/crowbar.ogg
-      - behavior: Anchoring
-        sprite:
-          sprite: ADT/Objects/Tools/makeshift_omnitool.rsi
-          state: wrenchflipped
-        useSound:
-          path: /Audio/Items/ratchet.ogg
-  - type: ToolRefinable
-    refineResult:
-    - id: CrowbarWrenchScrewdriverMakeshift
-  - type: Tag
-    tags:
-      - Crowbar
-      - Wrench
+#- type: entity
+#  name: makeshift crowbar-wrench
+#  parent: BaseItem
+#  id: CrowbarWrenchMakeshift
+#  description: Still pretty bad.
+#  components:
+#  - type: EmitSoundOnLand
+#    sound:
+#      path: /Audio/Items/crowbar_drop.ogg
+#  - type: Sprite
+#    sprite: ADT/Objects/Tools/makeshift_omnitool.rsi
+#    state: wrench
+#  - type: Item
+#    sprite: ADT/Objects/Tools/makeshift_omnitool.rsi
+#  - type: Prying
+#  - type: Tool
+#    qualities:
+#    - Prying
+#    - Anchoring
+#    speedModifier: 0.7
+#    useSound: /Audio/Items/crowbar.ogg
+#  - type: ToolTileCompatible
+#  - type: MeleeWeapon
+#    wideAnimationRotation: -135
+#    damage:
+#      types:
+#        Blunt: 9
+#  - type: MultipleTool
+#    statusShowBehavior: true
+#    entries:
+#      - behavior: Prying
+#        sprite:
+#          sprite: ADT/Objects/Tools/makeshift_omnitool.rsi
+#          state: wrench
+#        useSound:
+#          path: /Audio/Items/crowbar.ogg
+#      - behavior: Anchoring
+#        sprite:
+#          sprite: ADT/Objects/Tools/makeshift_omnitool.rsi
+#          state: wrenchflipped
+#        useSound:
+#          path: /Audio/Items/ratchet.ogg
+#  - type: ToolRefinable
+#    refineResult:
+#    - id: CrowbarWrenchScrewdriverMakeshift
+#  - type: Tag
+#    tags:
+#      - Crowbar
+#      - Wrench
 
-- type: entity
-  name: makeshift crowbar-wrench-screwdriver
-  parent: CrowbarWrenchMakeshift
-  id: CrowbarWrenchScrewdriverMakeshift
-  description: It's.. useful?
-  components:
-  - type: MeleeWeapon
-    wideAnimationRotation: -135
-    damage:
-      types:
-        Blunt: 9
-        Slash: 1
-  - type: Sprite
-    sprite: ADT/Objects/Tools/makeshift_omnitool.rsi
-    state: screwdriver
-  - type: Tool
-    qualities:
-    - Prying
-    - Anchoring
-    - Screwing
-    speedModifier: 0.6
-    useSound: /Audio/Items/crowbar.ogg
-  - type: MultipleTool
-    statusShowBehavior: true
-    entries:
-      - behavior: Prying
-        sprite:
-          sprite: ADT/Objects/Tools/makeshift_omnitool.rsi
-          state: screwdriver
-        useSound:
-          path: /Audio/Items/crowbar.ogg
-      - behavior: Screwing
-        sprite:
-          sprite: ADT/Objects/Tools/makeshift_omnitool.rsi
-          state: screwdriverflipped
-      - behavior: Anchoring
-        sprite:
-          sprite: ADT/Objects/Tools/makeshift_omnitool.rsi
-          state: screwdriverflipped
-        useSound:
-          path: /Audio/Items/ratchet.ogg
-  - type: ToolRefinable
-    refineResult:
-    - id: OmnitoolMakeshift
-  - type: Tag
-    tags:
-      - Crowbar
-      - Wrench
-      - Screwdriver
+#- type: entity
+#  name: makeshift crowbar-wrench-screwdriver
+#  parent: CrowbarWrenchMakeshift
+#  id: CrowbarWrenchScrewdriverMakeshift
+#  description: It's.. useful?
+#  components:
+#  - type: MeleeWeapon
+#    wideAnimationRotation: -135
+#    damage:
+#      types:
+#        Blunt: 9
+#        Slash: 1
+#  - type: Sprite
+#    sprite: ADT/Objects/Tools/makeshift_omnitool.rsi
+#    state: screwdriver
+#  - type: Tool
+#    qualities:
+#    - Prying
+#    - Anchoring
+#    - Screwing
+#    speedModifier: 0.6
+#    useSound: /Audio/Items/crowbar.ogg
+#  - type: MultipleTool
+#    statusShowBehavior: true
+#    entries:
+#      - behavior: Prying
+#        sprite:
+#          sprite: ADT/Objects/Tools/makeshift_omnitool.rsi
+#          state: screwdriver
+#        useSound:
+#          path: /Audio/Items/crowbar.ogg
+#      - behavior: Screwing
+#        sprite:
+#          sprite: ADT/Objects/Tools/makeshift_omnitool.rsi
+#          state: screwdriverflipped
+#      - behavior: Anchoring
+#        sprite:
+#          sprite: ADT/Objects/Tools/makeshift_omnitool.rsi
+#          state: screwdriverflipped
+#        useSound:
+#          path: /Audio/Items/ratchet.ogg
+#  - type: ToolRefinable
+#    refineResult:
+#    - id: OmnitoolMakeshift
+#  - type: Tag
+#    tags:
+#      - Crowbar
+#      - Wrench
+#      - Screwdriver
 
-- type: entity
-  name: makeshift omni-tool
-  parent: CrowbarWrenchScrewdriverMakeshift
-  id: OmnitoolMakeshift
-  description: Who would've thought a red toolbox would have so many uses?
-  components:
-  - type: MeleeWeapon
-    wideAnimationRotation: -135
-    damage:
-      types:
-        Blunt: 9
-        Slash: 2
-  - type: Sprite
-    sprite: ADT/Objects/Tools/makeshift_omnitool.rsi
-    state: wirecutter
-  - type: Tool
-    qualities:
-    - Prying
-    - Anchoring
-    - Screwing
-    - Cutting
-    speedModifier: 0.5
-    useSound: /Audio/Items/crowbar.ogg
-  - type: ToolTileCompatible
-  - type: MultipleTool
-    statusShowBehavior: true
-    entries:
-      - behavior: Prying
-        sprite:
-          sprite: ADT/Objects/Tools/makeshift_omnitool.rsi
-          state: wirecutter
-        useSound:
-          path: /Audio/Items/crowbar.ogg
-      - behavior: Screwing
-        sprite:
-          sprite: ADT/Objects/Tools/makeshift_omnitool.rsi
-          state: wirecutterflipped
-      - behavior: Anchoring
-        sprite:
-          sprite: ADT/Objects/Tools/makeshift_omnitool.rsi
-          state: wirecutterflipped
-        useSound:
-          path: /Audio/Items/ratchet.ogg
-      - behavior: Cutting
-        sprite:
-          sprite: ADT/Objects/Tools/makeshift_omnitool.rsi
-          state: wirecutterside
-        useSound:
-          path: /Audio/Items/wirecutter.ogg
-  - type: Tag
-    tags:
-      - Crowbar
-      - Wrench
-      - Screwdriver
-      - Wirecutter
+#- type: entity
+#  name: makeshift omni-tool
+#  parent: CrowbarWrenchScrewdriverMakeshift
+#  id: OmnitoolMakeshift
+#  description: Who would've thought a red toolbox would have so many uses?
+#  components:
+#  - type: MeleeWeapon
+#    wideAnimationRotation: -135
+#    damage:
+#      types:
+#        Blunt: 9
+#        Slash: 2
+#  - type: Sprite
+#    sprite: ADT/Objects/Tools/makeshift_omnitool.rsi
+#    state: wirecutter
+#  - type: Tool
+#    qualities:
+#    - Prying
+#    - Anchoring
+#    - Screwing
+#    - Cutting
+#    speedModifier: 0.5
+#    useSound: /Audio/Items/crowbar.ogg
+#  - type: ToolTileCompatible
+#  - type: MultipleTool
+#    statusShowBehavior: true
+#    entries:
+#      - behavior: Prying
+#        sprite:
+#          sprite: ADT/Objects/Tools/makeshift_omnitool.rsi
+#          state: wirecutter
+#        useSound:
+#          path: /Audio/Items/crowbar.ogg
+#      - behavior: Screwing
+#        sprite:
+#          sprite: ADT/Objects/Tools/makeshift_omnitool.rsi
+#          state: wirecutterflipped
+#      - behavior: Anchoring
+#        sprite:
+#          sprite: ADT/Objects/Tools/makeshift_omnitool.rsi
+#          state: wirecutterflipped
+#        useSound:
+#          path: /Audio/Items/ratchet.ogg
+#      - behavior: Cutting
+#        sprite:
+#          sprite: ADT/Objects/Tools/makeshift_omnitool.rsi
+#          state: wirecutterside
+#        useSound:
+#          path: /Audio/Items/wirecutter.ogg
+#  - type: Tag
+#    tags:
+#      - Crowbar
+#      - Wrench
+#      - Screwdriver
+#      - Wirecutter
 
 - type: entity
   name: improvised screwdriver
@@ -479,159 +479,159 @@
       - ImprovisedMultitool
       - DoorElectronicsConfigurator
 
-- type: entity
-  name: improvised omnitool
-  parent: BaseItem
-  id: OmnitoolImprovised
-  description: An unholy abomination only second to the great Throngler itself.
-  components:
-  - type: Sprite
-    sprite: ADT/Objects/Tools/improvised_omnitool.rsi # TODO: Заменить спрайты и восстановить старые
-    layers:
-    - state: icon
-  - type: EmitSoundOnLand
-    sound:
-      path: /Audio/Items/crowbar_drop.ogg
-  - type: Tool
-    qualities:
-    - Prying
-    - Anchoring
-    - Screwing
-    - Cutting
-    - Pulsing
-    speedModifier: 0.7
-    useSound: /Audio/Items/crowbar.ogg
-  - type: Item
-    size: Normal
-  - type: ToolTileCompatible
-  - type: MultipleTool
-    statusShowBehavior: true
-    entries:
-      - behavior: Screwing
-        sprite:
-          sprite: ADT/Objects/Tools/improvised_omnitool.rsi
-          state: icon
-        useSound:
-          path: /Audio/Items/drill_use.ogg
-        changeSound:
-          path: /Audio/Items/change_drill.ogg
-      - behavior: Prying
-        sprite:
-          sprite: ADT/Objects/Tools/improvised_omnitool.rsi
-          state: icon
-        useSound:
-          path: /Audio/Items/jaws_pry.ogg
-        changeSound:
-          path: /Audio/Items/change_drill.ogg
-      - behavior: Anchoring
-        sprite:
-          sprite: ADT/Objects/Tools/improvised_omnitool.rsi
-          state: icon
-        useSound:
-          path: /Audio/Items/ratchet.ogg
-        changeSound:
-          path: /Audio/Items/change_drill.ogg
-      - behavior: Cutting
-        sprite:
-          sprite: ADT/Objects/Tools/improvised_omnitool.rsi
-          state: icon
-        useSound:
-          path: /Audio/Items/jaws_cut.ogg
-        changeSound:
-          path: /Audio/Items/change_drill.ogg
-      - behavior: Pulsing
-        sprite:
-          sprite: ADT/Objects/Tools/improvised_omnitool.rsi
-          state: icon
-        changeSound:
-          path: /Audio/Items/change_drill.ogg
-  - type: Tag
-    tags:
-      - Multitool
-      - DoorElectronicsConfigurator
-      - Wrench
-      - PlantSampleTaker
-      - Wirecutter
-      - Screwdriver
+#- type: entity
+#  name: improvised omnitool
+#  parent: BaseItem
+#  id: OmnitoolImprovised
+#  description: An unholy abomination only second to the great Throngler itself.
+#  components:
+#  - type: Sprite
+#    sprite: ADT/Objects/Tools/improvised_omnitool.rsi # TODO: Заменить спрайты и восстановить старые
+#    layers:
+#    - state: icon
+#  - type: EmitSoundOnLand
+#    sound:
+#      path: /Audio/Items/crowbar_drop.ogg
+#  - type: Tool
+#    qualities:
+#    - Prying
+#    - Anchoring
+#    - Screwing
+#    - Cutting
+#    - Pulsing
+#    speedModifier: 0.7
+#    useSound: /Audio/Items/crowbar.ogg
+#  - type: Item
+#    size: Normal
+#  - type: ToolTileCompatible
+#  - type: MultipleTool
+#    statusShowBehavior: true
+#    entries:
+#      - behavior: Screwing
+#        sprite:
+#          sprite: ADT/Objects/Tools/improvised_omnitool.rsi
+#          state: icon
+#        useSound:
+#          path: /Audio/Items/drill_use.ogg
+#        changeSound:
+#          path: /Audio/Items/change_drill.ogg
+#      - behavior: Prying
+#        sprite:
+#          sprite: ADT/Objects/Tools/improvised_omnitool.rsi
+#          state: icon
+#        useSound:
+#          path: /Audio/Items/jaws_pry.ogg
+#        changeSound:
+#          path: /Audio/Items/change_drill.ogg
+#      - behavior: Anchoring
+#        sprite:
+#          sprite: ADT/Objects/Tools/improvised_omnitool.rsi
+#          state: icon
+#        useSound:
+#          path: /Audio/Items/ratchet.ogg
+#        changeSound:
+#          path: /Audio/Items/change_drill.ogg
+#      - behavior: Cutting
+#        sprite:
+#          sprite: ADT/Objects/Tools/improvised_omnitool.rsi
+#          state: icon
+#        useSound:
+#          path: /Audio/Items/jaws_cut.ogg
+#        changeSound:
+#          path: /Audio/Items/change_drill.ogg
+#      - behavior: Pulsing
+#        sprite:
+#          sprite: ADT/Objects/Tools/improvised_omnitool.rsi
+#          state: icon
+#        changeSound:
+#          path: /Audio/Items/change_drill.ogg
+#  - type: Tag
+#    tags:
+#      - Multitool
+#      - DoorElectronicsConfigurator
+#      - Wrench
+#      - PlantSampleTaker
+#      - Wirecutter
+#      - Screwdriver
 
-- type: entity
-  name: forged omnitool
-  parent: BaseItem
-  id: OmnitoolForged
-  description: Some absolute psychopath decided to saw off the heads of all tools they could find and smash it together into a makeshift drill. Looks nice, considering it's origins.
-  components:
-  - type: EmitSoundOnLand
-    sound:
-      path: /Audio/Items/crowbar_drop.ogg
-  - type: Sprite
-    sprite: ADT/Objects/Tools/forged_omnitool.rsi
-    layers:
-    - state: icon
-  - type: Clothing
- #   sprite: ADT/Objects/Tools/forged_omnitool.rsi
-    quickEquip: false
-    slots:
-    - Belt
-  - type: ToolTileCompatible
-  - type: Tool
-    qualities:
-    - Prying
-    - Anchoring
-    - Screwing
-    - Cutting
-    - Pulsing
-    speedModifier: 0.8
-    useSound: /Audio/Items/crowbar.ogg
-  - type: Item
-    sprite: ADT/Objects/Tools/forged_omnitool.rsi
-    size: Normal
-  - type: MultipleTool
-    statusShowBehavior: true
-    entries:
-      - behavior: Screwing
-        sprite:
-          sprite: ADT/Objects/Tools/forged_omnitool.rsi
-          state: screwing
-        useSound:
-          path: /Audio/Items/drill_use.ogg
-        changeSound:
-          path: /Audio/Items/change_drill.ogg
-      - behavior: Prying
-        sprite:
-          sprite: ADT/Objects/Tools/forged_omnitool.rsi
-          state: prying
-        useSound:
-          path: /Audio/Items/jaws_pry.ogg
-        changeSound:
-          path: /Audio/Items/change_drill.ogg
-      - behavior: Anchoring
-        sprite:
-          sprite: ADT/Objects/Tools/forged_omnitool.rsi
-          state: wrenching
-        useSound:
-          path: /Audio/Items/ratchet.ogg
-        changeSound:
-          path: /Audio/Items/change_drill.ogg
-      - behavior: Cutting
-        sprite:
-          sprite: ADT/Objects/Tools/forged_omnitool.rsi
-          state: cutters
-        useSound:
-          path: /Audio/Items/jaws_cut.ogg
-        changeSound:
-          path: /Audio/Items/change_drill.ogg
-      - behavior: Pulsing
-        sprite:
-          sprite: ADT/Objects/Tools/forged_omnitool.rsi
-          state: pulsing
-        changeSound:
-          path: /Audio/Items/change_drill.ogg
-  - type: Tag
-    tags:
-      - Multitool
-      - DoorElectronicsConfigurator
-      - Wrench
-      - PlantSampleTaker
-      - Wirecutter
-      - Screwdriver
+#- type: entity
+#  name: forged omnitool
+#  parent: BaseItem
+#  id: OmnitoolForged
+#  description: Some absolute psychopath decided to saw off the heads of all tools they could find and smash it together into a makeshift drill. Looks nice, considering it's origins.
+#  components:
+#  - type: EmitSoundOnLand
+#    sound:
+#      path: /Audio/Items/crowbar_drop.ogg
+#  - type: Sprite
+#    sprite: ADT/Objects/Tools/forged_omnitool.rsi
+#    layers:
+#    - state: icon
+#  - type: Clothing
+# #   sprite: ADT/Objects/Tools/forged_omnitool.rsi
+#    quickEquip: false
+#    slots:
+#    - Belt
+#  - type: ToolTileCompatible
+#  - type: Tool
+#    qualities:
+#    - Prying
+#    - Anchoring
+#    - Screwing
+#    - Cutting
+#    - Pulsing
+#    speedModifier: 0.8
+#    useSound: /Audio/Items/crowbar.ogg
+#  - type: Item
+#    sprite: ADT/Objects/Tools/forged_omnitool.rsi
+#    size: Normal
+#  - type: MultipleTool
+#    statusShowBehavior: true
+#    entries:
+#      - behavior: Screwing
+#        sprite:
+#          sprite: ADT/Objects/Tools/forged_omnitool.rsi
+#          state: screwing
+#        useSound:
+#          path: /Audio/Items/drill_use.ogg
+#        changeSound:
+#          path: /Audio/Items/change_drill.ogg
+#      - behavior: Prying
+#        sprite:
+#          sprite: ADT/Objects/Tools/forged_omnitool.rsi
+#          state: prying
+#        useSound:
+#          path: /Audio/Items/jaws_pry.ogg
+#        changeSound:
+#          path: /Audio/Items/change_drill.ogg
+#      - behavior: Anchoring
+#        sprite:
+#          sprite: ADT/Objects/Tools/forged_omnitool.rsi
+#          state: wrenching
+#        useSound:
+#          path: /Audio/Items/ratchet.ogg
+#        changeSound:
+#          path: /Audio/Items/change_drill.ogg
+#      - behavior: Cutting
+#        sprite:
+#          sprite: ADT/Objects/Tools/forged_omnitool.rsi
+#          state: cutters
+#        useSound:
+#          path: /Audio/Items/jaws_cut.ogg
+#        changeSound:
+#          path: /Audio/Items/change_drill.ogg
+#      - behavior: Pulsing
+#        sprite:
+#          sprite: ADT/Objects/Tools/forged_omnitool.rsi
+#          state: pulsing
+#        changeSound:
+#          path: /Audio/Items/change_drill.ogg
+#  - type: Tag
+#    tags:
+#      - Multitool
+#      - DoorElectronicsConfigurator
+#      - Wrench
+#      - PlantSampleTaker
+#      - Wirecutter
+#      - Screwdriver
 # End

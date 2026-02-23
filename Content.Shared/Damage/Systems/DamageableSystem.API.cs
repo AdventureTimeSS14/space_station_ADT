@@ -260,4 +260,8 @@ public sealed partial class DamageableSystem
 
         Dirty(ent);
     }
+
+    public void TryChangeDamage(EntityUid? shooter, DamageSpecifier selfDamage, EntityUid? origin)
+    {
+    }
 }
