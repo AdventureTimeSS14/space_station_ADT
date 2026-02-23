@@ -5,15 +5,17 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared.EntityEffects.Effects;
 
-public sealed partial class WashStampReaction : EntityEffectSystem<StampedEntityComponent, WashStamp>
+public sealed partial class WashStampReaction : EntityEffect
 {
-    protected override void Effect(Entity<StampedEntityComponent> entity, ref EntityEffectEvent<WashStamp> args)
+    protected override void Effect(EntityEffectBaseArgs args)
     {
-        IEntityManager.RemoveComponent<StampedEntityComponent>(entity);
+        if (args.EntityManager.HasComponent<StampedEntityComponent>(args.TargetEntity))
+        {
+            args.EntityManager.RemoveComponent<StampedEntityComponent>(args.TargetEntity);
+        }
     }
 }
 
-/// <inheritdoc cref="EntityEffect"/>
 public sealed partial class WashStamp : EntityEffectBase<WashStamp>
 {
     public override string EntityEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
