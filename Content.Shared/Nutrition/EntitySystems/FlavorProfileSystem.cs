@@ -70,6 +70,18 @@ public sealed class FlavorProfileSystem : EntitySystem
 
         flavors.Sort((a, b) => a.FlavorType.CompareTo(b.FlavorType));
 
+        var neutralized = new List<FlavorPrototype>();
+        foreach (FlavorPrototype flavor in flavors)
+        {
+            foreach (ProtoId<FlavorPrototype> neutralizedProtoId in flavor.Neutralize)
+            {
+                FlavorPrototype neutralizedProto = _prototypeManager.Index<FlavorPrototype>(neutralizedProtoId);
+                if (!neutralized.Contains(neutralizedProto))
+                    neutralized.Add(neutralizedProto);
+            }
+        }
+        flavors = flavors.Except(neutralized).ToList();
+
         if (flavors.Count == 1 && !string.IsNullOrEmpty(flavors[0].FlavorDescription))
         {
             return Loc.GetString("flavor-profile", ("flavor", Loc.GetString(flavors[0].FlavorDescription)));
@@ -77,18 +89,6 @@ public sealed class FlavorProfileSystem : EntitySystem
 
         if (flavors.Count > 1)
         {
-            var neutralized = new List<FlavorPrototype>();
-            foreach (FlavorPrototype flavor in flavors)
-            {
-                foreach (ProtoId<FlavorPrototype> neutralizedProtoId in flavor.Neutralize)
-                {
-                    FlavorPrototype neutralizedProto = _prototypeManager.Index<FlavorPrototype>(neutralizedProtoId);
-                    if (!neutralized.Contains(neutralizedProto))
-                        neutralized.Add(neutralizedProto);
-                }
-            }
-            flavors = flavors.Except(neutralized).ToList();
-
             var lastFlavor = Loc.GetString(flavors[^1].FlavorDescription);
             var allFlavors = string.Join(", ", flavors.GetRange(0, flavors.Count - 1).Select(i => Loc.GetString(i.FlavorDescription)));
             return Loc.GetString("flavor-profile-multiple", ("flavors", allFlavors), ("lastFlavor", lastFlavor));
