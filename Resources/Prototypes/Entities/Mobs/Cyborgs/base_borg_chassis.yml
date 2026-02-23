@@ -197,6 +197,10 @@
   - type: UIRequiresLock
     userInterfaceKeys:
     - enum.BorgUiKey.Key
+    # ADT-Tweak-Start
+    accessDeniedSound: null
+    popup: null
+    # ADT-Tweak-End
   - type: LockedWiresPanel
   - type: Damageable
     damageContainer: Silicon
