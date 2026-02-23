@@ -5,6 +5,7 @@ using Content.Server.Power.EntitySystems;
 using Content.Shared.ADT.Economy;
 using Content.Shared.ADT.Predictor;
 using Content.Shared.Body.Components;
+using Content.Shared.Chat;
 using Content.Shared.Body.Systems;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Reagent;
@@ -12,6 +13,7 @@ using Content.Shared.Emag.Components;
 using Content.Shared.Emag.Systems;
 using Content.Shared.FixedPoint;
 using Content.Shared.Interaction;
+using Content.Shared.Medical;
 using Content.Shared.PDA;
 using Content.Shared.Popups;
 using Content.Shared.Power;
@@ -150,12 +152,12 @@ public sealed class PredictorMachineSystem : EntitySystem
             var specialRoll = _random.Next(2);
             if (specialRoll == 0)
             {
-                prediction = Loc.GetString("predictor-prediction-special-omnizine");
+                prediction = Loc.GetString("predictor-special-omnizine");
                 isSpecial = true;
             }
             else
             {
-                prediction = Loc.GetString("predictor-prediction-special-dylovene");
+                prediction = Loc.GetString("predictor-special-dylovene");
                 isSpecial = true;
             }
         }
@@ -192,8 +194,8 @@ public sealed class PredictorMachineSystem : EntitySystem
         if (!TryComp<BloodstreamComponent>(user, out var bloodstream))
             return;
 
-        var omnizinePrediction = Loc.GetString("predictor-prediction-special-omnizine");
-        var dylovenePrediction = Loc.GetString("predictor-prediction-special-dylovene");
+        var omnizinePrediction = Loc.GetString("predictor-special-omnizine");
+        var dylovenePrediction = Loc.GetString("predictor-special-dylovene");
 
         if (prediction == omnizinePrediction)
         {
