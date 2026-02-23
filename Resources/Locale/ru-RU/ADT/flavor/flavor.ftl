@@ -5,6 +5,7 @@ flavor-interface-headshot-url-desc = Для получения ссылки мо
     Найдите понравившуюся картинку, кликните по ней ПКМ и выберите "Копировать ссылку на картинку".
 flavor-interface-preview = Превью персонажа
 flavor-interface-OOC-notes = ООС заметки
+flavor-interface-prewiev = Предпросмотр
 flavor-interface-flavor-text-title = Описание персонажа
 flavor-interface-custom-species = Описание расы
 flavor-interface-no-custom-species = Особая раса отсутствует
