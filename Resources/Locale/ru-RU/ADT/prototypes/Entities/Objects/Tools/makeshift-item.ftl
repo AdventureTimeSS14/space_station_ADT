@@ -40,7 +40,7 @@ ent-UnfinishedClothingHeadHelmetForged = незаконченный кованы
     .desc = Требуется сварка, чтобы скрепить его воедино.
 
 ent-UnfinishedClothingOuterArmorForged = незаконченный кованый ламеллярный доспех
-    .desc = Требуется сварка, чтобы скрепить его воедино
+    .desc = Требуется сварка, чтобы скрепить его воедино.
 
 ent-UnfinishedForgedShieldTower = незаконченный кованый башенный щит
     .desc = Требуется сварка, чтобы скрепить его воедино.
