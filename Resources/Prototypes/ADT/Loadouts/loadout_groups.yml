@@ -417,6 +417,7 @@
   maxLimit: 1
   loadouts:
   - ADTBlueshieldCloak
+  - ADTBlueshieldCloakSecond
 
 - type: loadoutGroup
   id: ADTBlueshieldBack
