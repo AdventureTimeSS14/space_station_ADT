@@ -16,7 +16,7 @@ public sealed partial class FlavorPrototype : IPrototype
 
     // ADT-Tweak-Start
     [DataField]
-    public List<ProtoId<FlavorPrototype>> Neutralize = new();
+    public List<ProtoId<FlavorPrototype>> Neutralize { get; private set; } = new();
     // ADT-Tweak-End
 }
 
