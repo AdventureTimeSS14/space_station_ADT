@@ -8,11 +8,15 @@
   id: sweet
   flavorType: Base
   description: flavor-base-sweet
+  neutralize:
+    - acid
 
 - type: flavor
   id: salty
   flavorType: Base
   description: flavor-base-salty
+  neutrailize:
+    - bitter
 
 - type: flavor
   id: sour
@@ -28,6 +32,8 @@
   id: spicy
   flavorType: Base
   description: flavor-base-spicy
+  neutralize:
+    - medicine
 
 - type: flavor
   id: metallic

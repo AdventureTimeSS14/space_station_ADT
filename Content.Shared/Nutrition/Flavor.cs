@@ -13,6 +13,9 @@ public sealed partial class FlavorPrototype : IPrototype
 
     [DataField("description")]
     public string FlavorDescription { get; private set; } = default!;
+
+    [DataField]
+    public List<ProtoId<FlavorPrototype>> Neutralize = new();
 }
 
 public enum FlavorType : byte
