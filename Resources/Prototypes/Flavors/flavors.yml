@@ -8,15 +8,19 @@
   id: sweet
   flavorType: Base
   description: flavor-base-sweet
+  # ADT-Tweak-Start
   neutralize:
     - acid
+  # ADT-Tweak-End
 
 - type: flavor
   id: salty
   flavorType: Base
   description: flavor-base-salty
-  neutrailize:
+  # ADT-Tweak-Start
+  neutralize:
     - bitter
+  # ADT-Tweak-End
 
 - type: flavor
   id: sour
@@ -32,8 +36,10 @@
   id: spicy
   flavorType: Base
   description: flavor-base-spicy
+  # ADT-Tweak-Start
   neutralize:
     - medicine
+  # ADT-Tweak-End
 
 - type: flavor
   id: metallic
