@@ -1409,7 +1409,13 @@ namespace Content.Client.Lobby.UI
             flavor.HeadshotUrl = Profile.HeadshotUrl ?? string.Empty;
 
             var controller = UserInterfaceManager.GetUIController<CharacterFlavorUiController>();
-            controller.OpenMenu(PreviewDummy);
+            controller.OpenPreviewMenu(PreviewDummy);
+
+            // Попросить сервер скачать и прислать картинку для предпросмотра хэдшота.
+            if (!string.IsNullOrWhiteSpace(Profile.HeadshotUrl))
+            {
+                _entManager.System<CharecterFlavorSystem>().RequestHeadshotPreview(Profile.HeadshotUrl);
+            }
         }
         //ADT-tweak-end
         private void OnMarkingChange(MarkingSet markings)

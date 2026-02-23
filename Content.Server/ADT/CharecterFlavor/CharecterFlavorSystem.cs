@@ -1,13 +1,14 @@
 // Inspired by Nyanotrasen
-using Content.Shared.ADT.CharecterFlavor;
 using System.Net.Http;
 using System.Threading.Tasks;
+using Content.Shared.ADT.CharecterFlavor;
+using Robust.Shared.Player;
 
 namespace Content.Server.ADT.CharecterFlavor;
 
 public sealed class CharecterFlavorSystem : SharedCharecterFlavorSystem
 {
-    private static readonly HttpClient HttpClient = new HttpClient();
+    private static readonly HttpClient HttpClient = new();
 
     public override void Initialize()
     {
@@ -17,6 +18,8 @@ public sealed class CharecterFlavorSystem : SharedCharecterFlavorSystem
         {
             HttpClient.DefaultRequestHeaders.UserAgent.ParseAdd("Mozilla/5.0");
         }
+
+        SubscribeNetworkEvent<RequestHeadshotPreviewEvent>(OnRequestHeadshotPreview);
     }
 
     protected override async void OpenFlavor(EntityUid actor, EntityUid target)
@@ -36,6 +39,18 @@ public sealed class CharecterFlavorSystem : SharedCharecterFlavorSystem
 
         var ev = new SetHeadshotUiMessage(GetNetEntity(target), image);
         RaiseNetworkEvent(ev, actor);
+    }
+
+    private async void OnRequestHeadshotPreview(RequestHeadshotPreviewEvent ev, EntitySessionEventArgs args)
+    {
+        if (string.IsNullOrWhiteSpace(ev.Url))
+            return;
+
+        var image = await DownloadImageAsync(ev.Url);
+        if (image == null)
+            return;
+
+        RaiseNetworkEvent(new HeadshotPreviewEvent(image), Filter.SinglePlayer(args.SenderSession));
     }
 
     public async Task<byte[]?> DownloadImageAsync(string url)
