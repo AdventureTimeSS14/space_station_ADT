@@ -1,8 +1,8 @@
 flavor-interface-lable = Детальный осмотр персонажа
 flavor-interface-headshot = Хэдшот
-flavor-interface-headshot-url = url ссылка на хэдшот арт
-flavor-interface-headshot-url-desc = Для получения ссылки можно использовать исключительно
- изображения из канала #Хэдшоты в нашем дискорд сервере.
+flavor-interface-headshot-url = Ссылка на хэдшот арт
+flavor-interface-headshot-url-desc = Для получения ссылки можно использовать исключительно изображения с сайта https://ru.pinterest.com/. 
+    Найдите понравившуюся картинку, кликните по ней ПКМ и выберите "Копировать ссылку на картинку".
 flavor-interface-preview = Превью персонажа
 flavor-interface-OOC-notes = ООС заметки
 flavor-interface-flavor-text-title = Описание персонажа

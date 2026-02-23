@@ -696,7 +696,9 @@ namespace Content.Shared.Preferences
             }
 
             string headshoturl = HeadshotUrl;
-            if (headshoturl.Length > 500 || !HeadshotUrl.Contains(configManager.GetCVar(ADTCCVars.HeadshotUrl))) //чутка хардкод, но это просто чтобы не засирали ссылкками на что угодно
+            var allowedDomain = configManager.GetCVar(ADTCCVars.HeadshotDomain);
+
+            if (headshoturl.Length > 500 || !headshoturl.StartsWith(allowedDomain))
             {
                 headshoturl = string.Empty;
             }
