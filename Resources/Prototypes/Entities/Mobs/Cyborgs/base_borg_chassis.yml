@@ -195,9 +195,12 @@
     locked: true
     unlockOnClick: false
   - type: UIRequiresLock
-    showExamine: false
     userInterfaceKeys:
     - enum.BorgUiKey.Key
+    # ADT-Tweak-Start
+    accessDeniedSound: null
+    popup: null
+    # ADT-Tweak-End
   - type: LockedWiresPanel
   - type: Damageable
     damageContainer: Silicon
