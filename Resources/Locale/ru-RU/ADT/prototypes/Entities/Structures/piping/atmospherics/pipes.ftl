@@ -15,5 +15,5 @@ ent-ADTGasPipeFourway = { ent-GasPipeBase }
     .desc = { ent-GasPipeBase.desc }
 ent-SignalControlledValveAlt1 = сигнальный вентиль
     .desc = Труба с клапаном, который можно контролировать при помощи сигналов.
-ent-SignalControlledValveAlt2 = сигнальный вентиль
-    .desc = Труба с клапаном, который можно контролировать при помощи сигналов.
+ent-SignalControlledValveAlt2 = { ent-SignalControlledValveAlt1 }
+    .desc = { ent-SignalControlledValveAlt1.desc }

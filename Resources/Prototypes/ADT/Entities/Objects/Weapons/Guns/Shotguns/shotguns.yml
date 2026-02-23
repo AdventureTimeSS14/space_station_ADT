@@ -80,6 +80,17 @@
     - 0,0,4,0
   - type: Gun
     fireRate: 3
+  - type: RunAndGunSpreadModifier
+    modifier: 0.3
+  - type: MeleeWeapon
+    resetOnHandSelected: false
+    attackRate: 0.85
+    damage:
+      types:
+        Blunt: 12
+    soundHit:
+      collection: GenericHit
+  - type: AltFireMelee
   - type: Sprite
     sprite: ADT/Objects/Weapons/Guns/Shotguns/forged_shotgun.rsi
   - type: Clothing
