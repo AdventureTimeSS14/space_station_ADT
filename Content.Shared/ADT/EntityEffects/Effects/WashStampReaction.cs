@@ -9,7 +9,7 @@ public sealed partial class WashStampReaction : EntityEffectSystem<StampedEntity
 {
     protected override void Effect(Entity<StampedEntityComponent> entity, ref EntityEffectEvent<WashStamp> args)
     {
-        IEntityManager.RemoveComponent<StampedEntityComponent>(entity.Comp.TargetEntity);
+        IEntityManager.RemoveComponent<StampedEntityComponent>(entity);
     }
 }
 
