@@ -194,7 +194,8 @@
   - type: Lock
     locked: true
     unlockOnClick: false
-  - type: ActivatableUIRequiresLock
+  - type: UIRequiresLock
+    showExamine: false
     userInterfaceKeys:
     - enum.BorgUiKey.Key
   - type: LockedWiresPanel
