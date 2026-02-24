@@ -17,7 +17,7 @@
     storageOpenSound: /Audio/ADT/Entities/medkit_open.ogg
     # ADT End
   - type: Item
-    size: Large
+    size: Normal # ADT-Tweak Large -> Normal
     sprite: Objects/Specific/Medical/firstaidkits.rsi
     heldPrefix: firstaid
   - type: PhysicalComposition
@@ -88,14 +88,15 @@
   parent: Medkit
   id: MedkitAdvanced
   components:
-    #ADT Tweak
+    # ADT-Tweak-Start
   - type: Storage
     grid:
-    - 0,0,4,1
-    #ADT Tweak
+    - 0,0,6,1
+    # ADT-Tweak-End
   - type: Sprite
     state: advkit
   - type: Item
+    size: Large # ADT-Tweak
     heldPrefix: advkit
 
 - type: entity

@@ -149,3 +149,19 @@
   targetNode: weaponlaser
   category: construction-category-weapons
   objectType: Item
+
+- type: construction
+  id: ADTBoneLongsword
+  graph: ADTBLongsword
+  startNode: start
+  targetNode: ADTCompBoneLongsword
+  category: construction-category-weapons
+  objectType: Item
+
+- type: construction
+  id: ADTBoneBattleaxe
+  graph: ADTBBattleaxe
+  startNode: start
+  targetNode: ADTBoneCompBattleaxe
+  category: construction-category-weapons
+  objectType: Item

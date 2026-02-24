@@ -19,5 +19,5 @@
     ADTLiquidDarkMatter:
       amount: 30
   effects:
-  - !type:CreateEntityReactionEffect
+  - !type:SpawnEntity
     entity: ADTReactionSingularity

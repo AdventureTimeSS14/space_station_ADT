@@ -115,8 +115,10 @@ marking-NovakidFaceSymbolism = Новакид, лицо (Символизм)
 marking-NovakidFaceSymbolism-symbolism = Символизм
 
 # Тело
-marking-TorsoNovakidDefolt = Новакид, туловище (Белое ядро)
-marking-TorsoNovakidDefolt-torso_novakid_defolt = Ядро
+marking-TorsoNovakidDefoltMale = Новакид, туловище, мужское (Белое ядро)
+marking-TorsoNovakidDefolt-torso_novakid_defolt_m = Ядро
+marking-TorsoNovakidDefoltFemale = Новакид, туловище, женское (Белое ядро)
+marking-TorsoNovakidDefolt-torso_novakid_defolt_f = Ядро
 
 # Голова
 marking-HeadNovakidDefolt = Новакид, голова (Белое ядро)

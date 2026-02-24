@@ -1,9 +1,8 @@
-    using System.Linq;
+using System.Linq;
 using Content.Server.Administration.Logs;
 using Content.Server.CartridgeLoader;
 using Content.Server.Power.Components;
 using Content.Server.Radio;
-using Content.Server.Radio.Components;
 using Content.Server.Station.Systems;
 using Content.Shared.Access.Components;
 using Content.Shared.CartridgeLoader;
@@ -14,6 +13,7 @@ using Content.Shared.PDA;
 using Content.Shared.Radio.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
+using Robust.Shared.Utility;
 
 namespace Content.Server.ADT.CartridgeLoader.Cartridges;
 
@@ -246,7 +246,7 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
         var content = msg.Content;
         if (!string.IsNullOrWhiteSpace(content))
         {
-            content = content.Trim();
+            content = FormattedMessage.EscapeText(content.Trim());
             if (content.Length > NanoChatMessage.MaxContentLength)
                 content = content[..NanoChatMessage.MaxContentLength];
         }

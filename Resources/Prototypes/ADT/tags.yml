@@ -8,6 +8,9 @@
   id: ADTMedicalAssemblerStuff
 
 - type: Tag
+  id: ADTStabilizingSerum
+
+- type: Tag
   id: Patch
 
 - type: Tag
@@ -138,6 +141,9 @@
 
 - type: Tag
   id: Tongue
+
+- type: Tag
+  id: Standard
 
 - type: Tag
   id: Poppy
@@ -504,6 +510,9 @@
   id: ADTShadekinEmotes
 
 - type: Tag
+  id: ADTNovakidEmotes
+
+- type: Tag
   id: ADTDogEmotes
 
 - type: Tag
@@ -522,6 +531,17 @@
 - type: Tag
   id: ADTWeaponMeleePrasatChainsword
 
+- type: Tag
+  id: ADTKeyPangaariBike
+
+- type: Tag
+  id: ADTGoldPlatedDrinkJiggerTag
+
+- type: Tag
+  id: ADTGoldPlatedBarSpoonTag
+
+- type: Tag
+  id: ADTGoldPlatedDrinkShakerTag
 #sponsor_items - End
 
 - type: Tag
@@ -691,3 +711,42 @@
 
 - type: Tag
   id: VoxFood
+
+- type: Tag
+  id: ADTCopperOre
+
+- type: Tag
+  id: ADTZincOre
+
+- type: Tag
+  id: ADTLeadOre
+
+- type: Tag
+  id: ScrapAirlock1
+
+- type: Tag
+  id: ScrapAirlock2
+
+- type: Tag
+  id: ADTOreBS
+
+- type: Tag
+  id: ADTClosedRadio
+
+- type: Tag
+  id: Katana
+
+- type: Tag
+  id: MagazineLightRiflePan
+
+- type: Tag
+  id: SecwayKeys
+
+- type: Tag
+  id: ATVKeys
+
+- type: Tag
+  id: SyndicateSegwayKeys
+
+- type: Tag
+  id: GunUpgradeVampirism

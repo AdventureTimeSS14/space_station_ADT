@@ -25,11 +25,16 @@ public sealed class AirlockSystem : SharedAirlockSystem
         if (!TryComp<DoorComponent>(uid, out var door))
             return;
 
-        if (comp.OpenUnlitVisible) // Otherwise there are flashes of the fallback sprite between clicking on the door and the door closing animation starting.
-        {
-            door.OpenSpriteStates.Add((DoorVisualLayers.BaseUnlit, comp.OpenSpriteState));
-            door.ClosedSpriteStates.Add((DoorVisualLayers.BaseUnlit, comp.ClosedSpriteState));
-        }
+        // ADT-Tweak. Чиним анимацию открывания/закрывания, которая ломаласт после перезахода
+        // if (comp.OpenUnlitVisible) // Otherwise there are flashes of the fallback sprite between clicking on the door and the door closing animation starting.
+        // {
+        //     door.OpenSpriteStates.Add((DoorVisualLayers.BaseUnlit, comp.OpenSpriteState));
+        //     door.ClosedSpriteStates.Add((DoorVisualLayers.BaseUnlit, comp.ClosedSpriteState));
+        // }
+
+        door.OpenSpriteStates.Add((DoorVisualLayers.BaseUnlit, comp.OpenSpriteState));
+        door.ClosedSpriteStates.Add((DoorVisualLayers.BaseUnlit, comp.ClosedSpriteState));
+        // ADT-Tweak end.
 
         ((Animation)door.OpeningAnimation).AnimationTracks.Add(new AnimationTrackSpriteFlick()
         {
@@ -117,16 +122,18 @@ public sealed class AirlockSystem : SharedAirlockSystem
             );
         }
 
-        switch (state)
-        {
-            case DoorState.Open:
-                _sprite.LayerSetRsiState((uid, args.Sprite), DoorVisualLayers.BaseUnlit, comp.ClosingSpriteState);
-                _sprite.LayerSetAnimationTime((uid, args.Sprite), DoorVisualLayers.BaseUnlit, 0);
-                break;
-            case DoorState.Closed:
-                _sprite.LayerSetRsiState((uid, args.Sprite), DoorVisualLayers.BaseUnlit, comp.OpeningSpriteState);
-                _sprite.LayerSetAnimationTime((uid, args.Sprite), DoorVisualLayers.BaseUnlit, 0);
-                break;
-        }
+        // ADT-Tweak. Чиним анимацию открывания/закрывания, которая ломалась после перезахода
+        // switch (state)
+        // {
+        //     case DoorState.Open:
+        //         _sprite.LayerSetRsiState((uid, args.Sprite), DoorVisualLayers.BaseUnlit, comp.ClosingSpriteState);
+        //         _sprite.LayerSetAnimationTime((uid, args.Sprite), DoorVisualLayers.BaseUnlit, 0);
+        //         break;
+        //     case DoorState.Closed:
+        //         _sprite.LayerSetRsiState((uid, args.Sprite), DoorVisualLayers.BaseUnlit, comp.OpeningSpriteState);
+        //         _sprite.LayerSetAnimationTime((uid, args.Sprite), DoorVisualLayers.BaseUnlit, 0);
+        //         break;
+        // }
+        // ADT-Tweak end.
     }
 }

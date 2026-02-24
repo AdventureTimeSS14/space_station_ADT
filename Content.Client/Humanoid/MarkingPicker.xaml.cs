@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Client.ADT.UserInterface.Controls;
 using Content.Client.Corvax.Sponsors;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Markings;
@@ -12,6 +13,7 @@ using Robust.Client.Utility;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using static Robust.Client.UserInterface.Controls.BoxContainer;
+using static Content.Client.Corvax.SponsorOnlyHelpers; // Corvax-Sponsors
 
 namespace Content.Client.Humanoid;
 
@@ -231,6 +233,10 @@ public sealed partial class MarkingPicker : Control
             }
 
             var item = CMarkingsUnused.AddItem($"{GetMarkingName(marking)}", _sprite.Frame0(marking.Sprites[0]));
+            // Corvax-Sponsors-Start
+            if (marking.SponsorOnly)
+                item.Text += GetSponsorOnlySuffix();
+            // Corvax-Sponsors-End
             item.Metadata = marking;
             // Corvax-Sponsors-Start
             if (marking.SponsorOnly)
@@ -416,8 +422,9 @@ public sealed partial class MarkingPicker : Control
 
         var stateNames = GetMarkingStateNames(prototype);
         _currentMarkingColors.Clear();
+        CMarkingColors.RemoveAllChildren();
         CMarkingColors.DisposeAllChildren();
-        List<ColorSelectorSliders> colorSliders = new();
+        List<LegacyColorSelectorSliders> colorSliders = new();  // ADT-Tweak - ColorSelectorSliders > LegacyColorSelectorSliders
         for (int i = 0; i < prototype.Sprites.Count; i++)
         {
             var colorContainer = new BoxContainer
@@ -427,7 +434,7 @@ public sealed partial class MarkingPicker : Control
 
             CMarkingColors.AddChild(colorContainer);
 
-            ColorSelectorSliders colorSelector = new ColorSelectorSliders();
+            LegacyColorSelectorSliders colorSelector = new LegacyColorSelectorSliders();  // ADT-Tweak - ColorSelectorSliders > LegacyColorSelectorSliders
             // ADT-Tweak-Start
             // colorSelector.SelectorType = ColorSelectorSliders.ColorSelectorType.Hsv; // defaults color selector to HSV
             // ADT-Tweak-End

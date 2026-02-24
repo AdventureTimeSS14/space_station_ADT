@@ -11,3 +11,10 @@
   - /Audio/Weapons/Guns/Miss/bullet_miss2.ogg
   - /Audio/Weapons/Guns/Miss/bullet_miss3.ogg
   - /Audio/Weapons/Guns/Miss/bullet_miss4.ogg
+
+- type: soundCollection
+  id: ADTShowerMid
+  files:
+  - /Audio/ADT/Effects/shower_mid1.ogg
+  - /Audio/ADT/Effects/shower_mid2.ogg
+  - /Audio/ADT/Effects/shower_mid3.ogg

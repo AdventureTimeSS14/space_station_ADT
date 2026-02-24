@@ -23,7 +23,8 @@
     biomeTemplate: Asteroid
   - !type:OreDunGen
     replacement: AsteroidRock
-    entity: AsteroidRockGibtonite
+  # entity: AsteroidRockGibtonite #ADT-Tweak
+    entity: ADTAsteroidRockGibtonite #ADT-Tweak
     count: 8
     minGroupSize: 0
     maxGroupSize: 1
@@ -53,7 +54,8 @@
     biomeTemplate: Asteroid
   - !type:OreDunGen
     replacement: AsteroidRock
-    entity: AsteroidRockGibtonite
+  # entity: AsteroidRockGibtonite #ADT-Tweak
+    entity: ADTAsteroidRockGibtonite #ADT-Tweak
     count: 8
     minGroupSize: 0
     maxGroupSize: 1
@@ -83,7 +85,8 @@
     biomeTemplate: Asteroid
   - !type:OreDunGen
     replacement: AsteroidRock
-    entity: AsteroidRockGibtonite
+  # entity: AsteroidRockGibtonite #ADT-Tweak
+    entity: ADTAsteroidRockGibtonite #ADT-Tweak
     count: 8
     minGroupSize: 0
     maxGroupSize: 1
@@ -112,7 +115,8 @@
     biomeTemplate: Asteroid
   - !type:OreDunGen
     replacement: AsteroidRock
-    entity: AsteroidRockGibtonite
+  # entity: AsteroidRockGibtonite #ADT-Tweak
+    entity: ADTAsteroidRockGibtonite #ADT-Tweak
     count: 8
     minGroupSize: 0
     maxGroupSize: 1

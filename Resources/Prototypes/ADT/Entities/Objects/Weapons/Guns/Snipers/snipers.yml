@@ -22,7 +22,8 @@
     minAngle: -23
     maxAngle: -44
   - type: RunAndGunSpreadModifier
-    modifyer: 1
+    modifier: 1
+    minVelocity: 3
   - type: MeleeWeapon
     resetOnHandSelected: false
     attackRate: 0.65

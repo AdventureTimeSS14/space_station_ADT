@@ -16,7 +16,7 @@
       map: [ "enum.ComboWeaponState.State" ]
   - type: MeleeWeapon
     wideAnimationRotation: -135
-    attackRate: 2
+    attackRate: 1.3
     damage:
       types:
         Slash: 15
@@ -27,6 +27,9 @@
   - type: Item
     sprite: ADT/Objects/Weapons/Melee/katana_cursed.rsi
   - type: DisarmMalus
+  - type: GuideHelp
+    guides:
+    - ADTMartialArts
   - type: ComboWeapon
     swapSound:
       path: /Audio/ADT/Entities/helmet_drop.ogg
@@ -74,9 +77,8 @@
               damage:
                 types:
                   Slash: 15
-            - !type:ComboStopGrabEffect
             - !type:ComboStunEffect
-              stunTime: 6
+              stunTime: 4
               dropItems: false
           - !type:ComboAudioEffect
             sound:
@@ -110,7 +112,7 @@
   description: A small box containing a hypopen. Packaging disintegrates when opened, leaving no evidence behind.
   components:
   - type: Sprite
-    sprite: ADT/Objects/Weapons/Melee/katana_cursed.rsi
+    sprite: ADT/Objects/Specific/cursed_katana_shard.rsi
     state: katana-shard
   - type: SpawnItemsOnUse
     items:
@@ -429,3 +431,51 @@
     soundHit:
         path: /Audio/Weapons/bladeslice.ogg
   - type: Item
+
+- type: entity
+  name: bone longsword
+  parent: BaseSword
+  id: ADTBoneLongsword
+  description: A handmade single-edged bone longsword with a fairly wide blade. Its handle is wrapped in a cloth band. How grotesque.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Melee/bone_longsword.rsi
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    attackRate: 0.6
+    damage:
+      types:
+        Slash: 17
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+  - type: Construction
+    graph: ADTBLongsword
+    node: ADTCompBoneLongsword
+
+- type: entity
+  name: bone battleaxe
+  parent: BaseSword
+  id: ADTBoneBattleaxe
+  description: A handmade single-edged bone longsword with a fairly wide blade. Its handle is wrapped in a cloth band. How grotesque.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Melee/bone_battleaxe.rsi
+  - type: UseDelay
+    delay: 1
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    attackRate: 0.6
+    damage:
+      types:
+        Slash: 10
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 15
+        Structural: 15
+  - type: Wieldable
+  - type: Construction
+    graph: ADTBBattleaxe
+    node: ADTBoneCompBattleaxe

@@ -1,0 +1,36 @@
+# Крафт барной вывески: 3 провода, 4 стали, 4 стекла
+- type: constructionGraph
+  id: ADTBarSignGraph
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: barSign
+          steps:
+            - material: Steel
+              amount: 4
+              doAfter: 2
+            - material: Cable
+              amount: 3
+              doAfter: 2
+            - material: Glass
+              amount: 4
+              doAfter: 2
+    - node: barSign
+      entity: BarSign
+      edges:
+        - to: start
+          steps:
+            - tool: Cutting
+              doAfter: 3
+          completed:
+            - !type:GivePrototype
+              prototype: SheetSteel1
+              amount: 4
+            - !type:GivePrototype
+              prototype: CableApcStack1
+              amount: 3
+            - !type:GivePrototype
+              prototype: SheetGlass1
+              amount: 4
+            - !type:DeleteEntity {}

@@ -43,6 +43,7 @@
     Dead:
       sprite: Mobs/Silicon/station_ai.rsi
       state: ai_dead
+  priority: -1  # ADT-Tweak
 
 - type: stationAiCustomization
   parent: StationAiIconBase

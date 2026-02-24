@@ -19,9 +19,11 @@
           path: /Maps/ADTMaps/Shuttles/adt_cargo.yml
         - type: StationJobs
           availableJobs:
+            # centcomm specialsts
+            ADTBlueShieldOfficer: [ 1, 1 ] #ADT-Roles
+            # ADTCentcomConsultant: [ 1, 1 ] #ADT-Roles # Убрано по голосованию
             # command
             Captain: [ 1, 1 ]
-            ADTBlueShieldOfficer: [ 1, 1 ] #ADT-Roles
             #service
             Bartender: [ 2, 2 ]
             Botanist: [ 2, 2]
@@ -74,7 +76,7 @@
             # juridical
             Lawyer: [ 1, 1 ]
             IAA: [ 1, 1 ]
-            Magistrat: [ 1, 1 ] #ADT-Roles
+            # Magistrat: [ 1, 1 ] #ADT-Roles
             #silicon
             StationAi: [ 1, 1 ]
             Borg: [ 1, 2 ]

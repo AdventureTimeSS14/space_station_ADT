@@ -49,14 +49,14 @@
   - type: ContainerContainer
     containers:
       mech-assembly-container: !type:Container
-  - type: MechAssembly
-    finishedPrototype: ADTOdysseusChassis
-    requiredParts:
-      ADTOdysseusLArm: false
-      ADTOdysseusRArm: false
-      ADTOdysseusLLeg: false
-      ADTOdysseusRLeg: false
-      ADTOdysseusHead: false
+  - type: PartAssembly
+    parts:
+      ADTOdysseusChassis:
+      - ADTOdysseusLArm
+      - ADTOdysseusRArm
+      - ADTOdysseusLLeg
+      - ADTOdysseusRLeg
+      - ADTOdysseusHead
   - type: Sprite
     state: odysseus_torso+o
     noRot: true

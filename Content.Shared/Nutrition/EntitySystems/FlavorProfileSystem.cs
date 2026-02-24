@@ -19,21 +19,29 @@ public sealed class FlavorProfileSystem : EntitySystem
 
     private int FlavorLimit => _configManager.GetCVar(CCVars.FlavorLimit);
 
-    public string GetLocalizedFlavorsMessage(EntityUid uid, EntityUid user, Solution solution,
-        FlavorProfileComponent? flavorProfile = null)
+    public string GetLocalizedFlavorsMessage(Entity<FlavorProfileComponent?> entity, EntityUid user, Solution? solution)
     {
-        if (!Resolve(uid, ref flavorProfile, false))
+        HashSet<string> flavors = new();
+        HashSet<string>? ignore = null;
+
+        if (Resolve(entity, ref entity.Comp, false))
         {
-            return Loc.GetString(BackupFlavorMessage);
+            flavors = entity.Comp.Flavors;
+            ignore = entity.Comp.IgnoreReagents;
         }
 
-        var flavors = new HashSet<string>(flavorProfile.Flavors);
-        flavors.UnionWith(GetFlavorsFromReagents(solution, FlavorLimit - flavors.Count, flavorProfile.IgnoreReagents));
+
+        if (solution != null)
+            flavors.UnionWith(GetFlavorsFromReagents(solution, FlavorLimit - flavors.Count, ignore));
 
         var ev = new FlavorProfileModificationEvent(user, flavors);
+
         RaiseLocalEvent(ev);
-        RaiseLocalEvent(uid, ev);
+        RaiseLocalEvent(entity, ev);
         RaiseLocalEvent(user, ev);
+
+        if (flavors.Count == 0)
+            return Loc.GetString(BackupFlavorMessage);
 
         return FlavorsToFlavorMessage(flavors);
     }
@@ -61,6 +69,22 @@ public sealed class FlavorProfileSystem : EntitySystem
         }
 
         flavors.Sort((a, b) => a.FlavorType.CompareTo(b.FlavorType));
+
+        // ADT-Tweak-Start
+        var neutralized = new List<FlavorPrototype>();
+        foreach (FlavorPrototype flavor in flavors)
+        {
+            foreach (ProtoId<FlavorPrototype> neutralizedProtoId in flavor.Neutralize)
+            {
+                if (!_prototypeManager.TryIndex<FlavorPrototype>(neutralizedProtoId, out var neutralizedProto))
+                    continue;
+
+                if (!neutralized.Contains(neutralizedProto))
+                    neutralized.Add(neutralizedProto);
+            }
+        }
+        flavors = flavors.Except(neutralized).ToList();
+        // ADT-Tweak-End
 
         if (flavors.Count == 1 && !string.IsNullOrEmpty(flavors[0].FlavorDescription))
         {

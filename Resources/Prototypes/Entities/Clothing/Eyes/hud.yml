@@ -30,6 +30,7 @@
     damageContainers:
     - Inorganic
     - Silicon
+  - type: ShowAccessReaderSettings
 
 - type: entity
   parent: [ClothingEyesBase, ShowMedicalIcons]
@@ -109,7 +110,7 @@
   - type: Clothing
     sprite: Clothing/Eyes/Hud/friedonion.rsi
   - type: ShowHungerIcons
-  - type: Food
+  - type: Edible
   - type: SolutionContainerManager
     solutions:
       food:
@@ -190,7 +191,6 @@
     - Inorganic
   - type: ShowSyndicateIcons
   - type: ThermalVisionItem # ADT tweak
-  - type: ItemToggle  # ADT tweak
 
 - type: entity
   parent: [ClothingEyesBase, ShowSecurityIcons, ShowMedicalIcons]
@@ -224,7 +224,6 @@
     sprite: Clothing/Eyes/Hud/synd.rsi
   - type: ShowSyndicateIcons
   - type: ThermalVisionItem # ADT tweak
-  - type: ItemToggle  # ADT tweak
   - type: Tag
     tags:
     - PetWearable
@@ -243,7 +242,6 @@
   - type: ShowSyndicateIcons
   - type: ShowHealthBars
   - type: ThermalVisionItem # ADT tweak
-  - type: ItemToggle  # ADT tweak
   - type: Tag
     tags:
     - PetWearable

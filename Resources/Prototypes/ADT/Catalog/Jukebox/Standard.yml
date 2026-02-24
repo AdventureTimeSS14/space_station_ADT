@@ -59,6 +59,12 @@
     path: /Audio/ADT/Lobby/horn.ogg
 
 - type: jukebox
+  id: InTheLandOfMagnolias
+  name: Ариэль - В краю магнолий
+  path:
+    path: /Audio/ADT/Jukebox/In_the_land_of_magnolias.ogg
+
+- type: jukebox
   id: IHYVA
   name: Zeroh - I Hear Your Voice Again
   path:

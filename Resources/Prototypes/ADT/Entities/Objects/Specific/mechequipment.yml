@@ -16,7 +16,7 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon2.ogg
     fireRate: 1
-    projectileSpeed: 40
+    projectileSpeed: 30
     selectedMode: FullAuto
     availableModes:
       - FullAuto

@@ -65,7 +65,7 @@
     HeadTop: MobHumanoidAnyMarking
     HeadSide: MobHumanoidAnyMarking
     Tail: MobHumanoidAnyMarking
-    Hair: MobHumanoidMarkingMatchSkin
+    Hair: MobHumanoidAnyMarking
     FacialHair: MobIPCScreen
     Chest: MobIPCTorso
     LArm: MobIPCLArm
@@ -81,14 +81,8 @@
   id: MobIPCMarkingLimits
   onlyWhitelisted: true
   points:
-    Chest:
-      points: 0
-      required: false
-    Legs:
-      points: 0
-      required: false
-    Arms:
-      points: 0
+    Tail:
+      points: 1
       required: false
 
 - type: humanoidBaseSprite

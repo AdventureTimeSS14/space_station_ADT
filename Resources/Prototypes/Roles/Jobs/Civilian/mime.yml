@@ -4,8 +4,8 @@
   description: job-description-mime
   playTimeTracker: JobMime
   requirements:
-  - !type:OverallPlaytimeRequirement
-      time: 3600 #1 hrs # Corvax-RoleTime
+    - !type:OverallPlaytimeRequirement
+      time: 1h # Corvax-RoleTime 4
   startingGear: MimeGear
   icon: "JobIconMime"
   supervisors: job-supervisors-hop
@@ -21,6 +21,11 @@
     # ADT-Tweak start. Акшон надувания шаров
     - type: MimeBaloon
     # ADT-Tweak end.
+  # ADT-Tweak start
+  - !type:AddLanguageSpecial
+    languages:
+      SignLanguage: Speak
+  # ADT-Tweak end
 
 - type: startingGear
   id: MimeGear

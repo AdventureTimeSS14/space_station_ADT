@@ -8,11 +8,19 @@
   id: sweet
   flavorType: Base
   description: flavor-base-sweet
+  # ADT-Tweak-Start
+  neutralize:
+    - acid
+  # ADT-Tweak-End
 
 - type: flavor
   id: salty
   flavorType: Base
   description: flavor-base-salty
+  # ADT-Tweak-Start
+  neutralize:
+    - bitter
+  # ADT-Tweak-End
 
 - type: flavor
   id: sour
@@ -28,6 +36,10 @@
   id: spicy
   flavorType: Base
   description: flavor-base-spicy
+  # ADT-Tweak-Start
+  neutralize:
+    - medicine
+  # ADT-Tweak-End
 
 - type: flavor
   id: metallic
@@ -1350,6 +1362,11 @@
   description: flavor-complex-dog-food
 
 - type: flavor
+  id: cannedtuna
+  flavorType: Complex
+  description: flavor-complex-canned-tuna
+
+- type: flavor
   id: fishops
   flavorType: Complex
   description: flavor-complex-fishops
@@ -1483,3 +1500,13 @@
   id: artifactglue
   flavorType: Complex
   description: flavor-complex-artifact-glue
+
+- type: flavor
+  id: alkaline
+  flavorType: Base
+  description: flavor-base-alkaline
+
+- type: flavor
+  id: motivating
+  flavorType: Base
+  description: flavor-base-motivating

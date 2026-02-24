@@ -1,7 +1,9 @@
-﻿using Content.Shared.Whitelist; // ADT tweak
+﻿using Content.Shared.Hands.Components;
+using Content.Shared.Whitelist;
 using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization;
 
 namespace Content.Shared.Silicons.Borgs.Components;
 
@@ -12,10 +14,10 @@ namespace Content.Shared.Silicons.Borgs.Components;
 public sealed partial class ItemBorgModuleComponent : Component
 {
     /// <summary>
-    /// The items that are provided.
+    /// The hands that are provided.
     /// </summary>
     [DataField(required: true)]
-    public List<EntProtoId> Items = new();
+    public List<BorgHand> Hands = new();
 
     /// <summary>
     /// ADT: The droppable items that are provided.
@@ -25,21 +27,22 @@ public sealed partial class ItemBorgModuleComponent : Component
 
     /// <summary>
     /// The entities from <see cref="Items"/> that were spawned.
+    /// The items stored within the hands. Null until the first time items are stored.
     /// </summary>
-    [DataField("providedItems")]
-    public SortedDictionary<string, EntityUid> ProvidedItems = new();
+    [DataField]
+    public Dictionary<string, EntityUid>? StoredItems;
+
+    /// <summary>
+    /// An ID for the container where items are stored when not in use.
+    /// </summary>
+    [DataField]
+    public string HoldingContainer = "holding_container";
 
     /// <summary>
     /// ADT: The entities from <see cref="Items"/> that were spawned.
     /// </summary>
     [DataField("droppableProvidedItems")]
     public SortedDictionary<string, (EntityUid, DroppableBorgItem)> DroppableProvidedItems = new();
-
-    /// <summary>
-    /// A counter that ensures a unique
-    /// </summary>
-    [DataField("handCounter")]
-    public int HandCounter;
 
     /// <summary>
     /// Whether or not the items have been created and stored in <see cref="ProvidedContainer"/>
@@ -59,8 +62,33 @@ public sealed partial class ItemBorgModuleComponent : Component
     /// </summary>
     [DataField("providedContainerId")]
     public string ProvidedContainerId = "provided_container";
+
+    /// <summary>
+    /// A counter that ensures a unique
+    /// </summary>
+    [DataField("handCounter")]
+    public int HandCounter;
 }
 
+[DataDefinition, Serializable, NetSerializable]
+public partial record struct BorgHand
+{
+    [DataField]
+    public EntProtoId? Item;
+
+    [DataField]
+    public Hand Hand = new();
+
+    [DataField]
+    public bool ForceRemovable = false;
+
+    public BorgHand(EntProtoId? item, Hand hand, bool forceRemovable = false)
+    {
+        Item = item;
+        Hand = hand;
+        ForceRemovable = forceRemovable;
+    }
+}
 // ADT: droppable borg item data definitions
 [DataDefinition]
 public sealed partial class DroppableBorgItem

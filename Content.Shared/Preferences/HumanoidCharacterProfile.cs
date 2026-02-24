@@ -29,7 +29,7 @@ namespace Content.Shared.Preferences
     [Serializable, NetSerializable]
     public sealed partial class HumanoidCharacterProfile : ICharacterProfile
     {
-        private static readonly Regex RestrictedNameRegex = new("[^А-Яа-яёЁ0-9' -]"); // Corvax-Localization
+        private static readonly Regex RestrictedNameRegex = new("[^A-Za-zА-Яа-яёЁ0-9' _.<>^%~ -]"); //ADT-Tweak
         private static readonly Regex ICNameCaseRegex = new(@"^(?<word>\w)|\b(?<word>\w)(?=\w*$)");
 
         public const int MaxNameLength = 96;    // ну тип ADT
@@ -124,6 +124,7 @@ namespace Content.Shared.Preferences
         public SpawnPriorityPreference SpawnPriority { get; private set; } = SpawnPriorityPreference.None;
 
         // ADT Barks start
+        [DataField]
         public BarkData Bark = new();
         // ADT Barks end
         // ADT Languages start
@@ -261,6 +262,7 @@ namespace Content.Shared.Preferences
             return new()
             {
                 Species = species,
+                Appearance = HumanoidCharacterAppearance.DefaultWithSpecies(species),
                 _languages = proto.Index<SpeciesPrototype>(species).DefaultLanguages.ToHashSet()    // ADT Languages
             };
         }
@@ -515,7 +517,7 @@ namespace Content.Shared.Preferences
             // Category not found so dump it.
             TraitCategoryPrototype? traitCategory = null;
 
-            if (category != null && !protoManager.TryIndex(category, out traitCategory))
+            if (category != null && !protoManager.Resolve(category, out traitCategory))
                 return new(this);
 
             var list = new HashSet<ProtoId<TraitPrototype>>(_traitPreferences) { traitId };
@@ -694,7 +696,14 @@ namespace Content.Shared.Preferences
             }
 
             string headshoturl = HeadshotUrl;
-            if (headshoturl.Length > 500 || !HeadshotUrl.Contains(configManager.GetCVar(ADTCCVars.HeadshotUrl))) //чутка хардкод, но это просто чтобы не засирали ссылкками на что угодно
+            var allowedDomain = configManager.GetCVar(ADTCCVars.HeadshotDomain);
+
+            // Простая проверка URL
+            if (string.IsNullOrWhiteSpace(headshoturl) ||
+                headshoturl.Length > 500 ||
+                !(headshoturl.StartsWith("http://", StringComparison.OrdinalIgnoreCase) ||
+                headshoturl.StartsWith("https://", StringComparison.OrdinalIgnoreCase)) ||
+                !headshoturl.Contains(allowedDomain, StringComparison.OrdinalIgnoreCase))
             {
                 headshoturl = string.Empty;
             }
@@ -791,6 +800,9 @@ namespace Content.Shared.Preferences
                     continue;
                 }
 
+                // This happens after we verify the prototype exists
+                // These values are set equal in the database and we need to make sure they're equal here too!
+                loadouts.Role = roleName;
                 loadouts.EnsureValid(this, session, collection);
             }
 
@@ -839,7 +851,7 @@ namespace Content.Shared.Preferences
                 }
 
                 // No category so dump it.
-                if (!protoManager.TryIndex(traitProto.Category, out var category))
+                if (!protoManager.Resolve(traitProto.Category, out var category))
                     continue;
 
                 // ADT-Tweak start
@@ -894,10 +906,17 @@ namespace Content.Shared.Preferences
             var namingSystem = IoCManager.Resolve<IEntitySystemManager>().GetEntitySystem<NamingSystem>();
             return namingSystem.GetName(species, gender);
         }
+        public bool Equals(HumanoidCharacterProfile? other)
+        {
+            if (other is null)
+                return false;
+
+            return ReferenceEquals(this, other) || MemberwiseEquals(other);
+        }
 
         public override bool Equals(object? obj)
         {
-            return ReferenceEquals(this, obj) || obj is HumanoidCharacterProfile other && Equals(other);
+            return obj is HumanoidCharacterProfile other && Equals(other);
         }
 
         public override int GetHashCode()

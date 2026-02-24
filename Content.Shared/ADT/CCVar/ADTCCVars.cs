@@ -34,15 +34,6 @@ public sealed class ADTCCVars
         CVarDef.Create("barks.volume", 1f, CVar.CLIENTONLY | CVar.ARCHIVE);
 
     /*
-    * Headshot
-    */
-    public static readonly CVarDef<string> HeadshotUrl =
-    CVarDef.Create("ic.headshot_url", "https://media.discordapp.net/attachments/1446603657255850085/", CVar.SERVER | CVar.REPLICATED);
-
-    public static readonly CVarDef<string> HeadshotProxy =
-    CVarDef.Create("ic.headshot_proxy", "http://8.220.185.24", CVar.SERVERONLY);
-
-    /*
     * Radial menu
     */
     public static readonly CVarDef<bool> CenterRadialMenu =
@@ -283,5 +274,31 @@ public sealed class ADTCCVars
 
     public static readonly CVarDef<bool> BookPrinterUploadCooldownEnabled =
         CVarDef.Create("bookprinter.upload_cooldown_enabled", true, CVar.SERVERONLY | CVar.ARCHIVE);
+
+    public static readonly CVarDef<bool> PaySalary =
+        CVarDef.Create("economy.pay_salary", true, CVar.SERVERONLY | CVar.ARCHIVE);
+
+
+
+    /// <summary>
+    /// Whether or not to spawn space whales if the entity is too far away from the station
+    /// </summary>
+    public static readonly CVarDef<bool> SpaceWhaleSpawn =
+        CVarDef.Create("misc.space_whale_spawn", true, CVar.SERVER);
+
+    /// <summary>
+    /// The distance to spawn a space whale from the station
+    /// </summary>
+    public static readonly CVarDef<int> SpaceWhaleSpawnDistance =
+        CVarDef.Create("misc.space_whale_spawn_distance", 1965, CVar.SERVER);
+
+    /*
+    * Headshot
+    */
+    // public static readonly CVarDef<string> HeadshotUrl =
+    // CVarDef.Create("ic.headshot_url", "https://discord.com/channels/901772674865455115/1446603657255850085", CVar.SERVER | CVar.REPLICATED);
+    public static readonly CVarDef<string> HeadshotDomain =
+        CVarDef.Create("ic.headshot_domain", "i.pinimg.com", CVar.SERVER | CVar.REPLICATED);
+
 }
 

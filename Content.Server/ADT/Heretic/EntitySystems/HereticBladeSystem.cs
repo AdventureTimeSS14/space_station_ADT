@@ -19,6 +19,9 @@ using Robust.Shared.Random;
 using System.Linq;
 using System.Text;
 using Content.Shared.ADT.Combat;
+using Content.Shared.Damage.Systems;
+using Content.Shared.Damage.Components;
+using Content.Shared.Temperature.Components;
 
 namespace Content.Server.Heretic.EntitySystems;
 
@@ -168,7 +171,7 @@ public sealed partial class HereticBladeSystem : EntitySystem
                 foreach (var k in orig.Keys)
                     orig[k] = MathF.Max((float) orig[k] - bonusHeal, 0f);
 
-                _damage.SetDamage(args.User, dmg, new() { DamageDict = orig });
+                _damage.SetDamage((args.User, dmg), new() { DamageDict = orig });
             }
         }
     }
