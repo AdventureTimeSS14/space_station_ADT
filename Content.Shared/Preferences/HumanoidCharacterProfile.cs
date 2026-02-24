@@ -696,7 +696,14 @@ namespace Content.Shared.Preferences
             }
 
             string headshoturl = HeadshotUrl;
-            if (headshoturl.Length > 500 || !HeadshotUrl.Contains(configManager.GetCVar(ADTCCVars.HeadshotUrl))) //чутка хардкод, но это просто чтобы не засирали ссылкками на что угодно
+            var allowedDomain = configManager.GetCVar(ADTCCVars.HeadshotDomain);
+
+            // Простая проверка URL
+            if (string.IsNullOrWhiteSpace(headshoturl) ||
+                headshoturl.Length > 500 ||
+                !(headshoturl.StartsWith("http://", StringComparison.OrdinalIgnoreCase) ||
+                headshoturl.StartsWith("https://", StringComparison.OrdinalIgnoreCase)) ||
+                !headshoturl.Contains(allowedDomain, StringComparison.OrdinalIgnoreCase))
             {
                 headshoturl = string.Empty;
             }

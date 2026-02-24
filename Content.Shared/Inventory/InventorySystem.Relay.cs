@@ -163,7 +163,7 @@ public partial class InventorySystem
         var enumerator = new InventorySlotEnumerator(component);
         while (enumerator.NextItem(out var item, out var slotDef))
         {
-            if (!_strippable.IsStripHidden(slotDef, args.User) || args.User == uid)
+            if (!_strippable.IsStripHidden(slotDef, args.User, uid) || args.User == uid) // ADT-tweak: Allow user to see verbs for their own hidden slots
                 RaiseLocalEvent(item, ev);
         }
     }

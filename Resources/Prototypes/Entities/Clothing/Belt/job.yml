@@ -183,6 +183,7 @@
       - DiscreteHealthAnalyzer
       - SurgeryTool
       - Dropper
+      - ADTMobileDefibrillator # ADT-Tweak
       components:
       - Hypospray
       - Injector
