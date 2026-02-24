@@ -698,7 +698,12 @@ namespace Content.Shared.Preferences
             string headshoturl = HeadshotUrl;
             var allowedDomain = configManager.GetCVar(ADTCCVars.HeadshotDomain);
 
-            if (headshoturl.Length > 500 || !headshoturl.StartsWith(allowedDomain))
+            // Простая проверка URL
+            if (string.IsNullOrWhiteSpace(headshoturl) ||
+                headshoturl.Length > 500 ||
+                !(headshoturl.StartsWith("http://", StringComparison.OrdinalIgnoreCase) ||
+                headshoturl.StartsWith("https://", StringComparison.OrdinalIgnoreCase)) ||
+                !headshoturl.Contains(allowedDomain, StringComparison.OrdinalIgnoreCase))
             {
                 headshoturl = string.Empty;
             }
