@@ -20,6 +20,11 @@ public sealed partial class CharacterFlavorWindow : FancyWindow
     private readonly IClyde _clyde = default!;
     private EntityUid _charecter;
 
+    /// <summary>
+    /// true, если окно открыто как предпросмотр из лобби (без серверной загрузки headshot).
+    /// </summary>
+    public bool IsPreviewMode { get; set; }
+
     public CharacterFlavorWindow()
     {
         RobustXamlLoader.Load(this);
@@ -52,6 +57,7 @@ public sealed partial class CharacterFlavorWindow : FancyWindow
         {
             HeadshotImage.TexturePath = "/Textures/ADT/Interface/headshot-loading.png";
             HeadshotLoadingLabel.Visible = true;
+            HeadshotContainer.Visible = true;
         }
         else
         {
