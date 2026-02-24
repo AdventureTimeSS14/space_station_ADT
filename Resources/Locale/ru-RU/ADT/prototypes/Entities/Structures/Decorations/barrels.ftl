@@ -1,8 +1,8 @@
 ent-ADTBaseBarrel = чёрная бочка
-    .desc = Сделай перекат бочки!
+    .desc = Прокатись внутри бочки!
 
 ent-ADTBarrelPlanks = бочка с досками
-    .desc = { ent-ADTBaseBarrel.desc }
+    .desc = Мда уж...
 
 ent-ADTBarrelFire = бочка с огнём
-    .desc = Идеально тёплое место для совершенно безработных!
+    .desc = Для одних декорация, для других способ выжить.
