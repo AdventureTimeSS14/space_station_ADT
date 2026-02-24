@@ -46,7 +46,7 @@
       effects:
       - !type:WashStampReaction
     #ADT-Tweak-End
-     - reagents: [Water, SpaceCleaner]
+    - reagents: [Water, SpaceCleaner]
       methods: [Touch]
       effects:
       - !type:WashCreamPie
