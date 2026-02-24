@@ -202,7 +202,6 @@
     - id: RubberStampCE
     - id: MetalFoamGrenade
     # ADT-Tweak-Start
-    - id: ADTMachinePowerTransmissionLaserFlatpack
     - id: OxygenTankFilled
     - id: NitrogenTankFilled
     - id: ClothingNeckCloakCe
