@@ -1,4 +1,8 @@
 // Inspired by Nyanotrasen
+using Content.Shared.ADT.CCVar;
+using Content.Shared.ADT.CharecterFlavor;
+using Robust.Shared.Configuration;
+using System.Net;
 using System.IO;
 using System.Net.Http;
 using System.Threading.Tasks;
