@@ -771,6 +771,14 @@ ent-ADTClothingHeadHatsFaustCap = гвардейская фуражка
     .desc = Несмотря на то, что выглядит она достаточно угрожающе, на деле, она принадлежит вполне обычной даме.
     .suffix = { "Спонсорское, Faust Netzach" }
 
+ent-ADTDrinkFlecheCan = банка Flèche
+    .desc = Освежающее кофе в баночке!
+    .suffix = { "Спонсорское, Faust Netzach" }
+
+fleche-name = Flèche
+fleche-desc = Освежающая жидкость. Выглядит, как растворённое кофе в молоке. Туда инстинктивно хочется закинуть льда. 
+reagent-physical-desc-whitecoffee = кофейно-белое
+
 ent-ADTClothingUniformKimerK = фиолетовый костюм
     .desc = Лёгкая классическая рубашка с галстуком в нежных тонах, дополненная жилетом на пуговицах с V-образным вырезом.
     .suffix = { "Спонсорское, kimer_k" }

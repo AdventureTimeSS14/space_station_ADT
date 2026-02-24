@@ -2973,10 +2973,10 @@
 
 - type: reagent
   id: ADTFlecheDrink
-  name: Flèche
+  name: fleche-name
   parent: BaseDrink
-  desc: Освежающая жидкость. Выглядит, как растворённое кофе в молоке. Туда инстинктивно хочется закинуть льда. 
-  physicalDesc: кофейно-белое
+  desc: fleche-desc
+  physicalDesc: reagent-physical-desc-whitecoffee
   flavor: adtfleche
   color: "#d2b48c"
   metabolisms:
