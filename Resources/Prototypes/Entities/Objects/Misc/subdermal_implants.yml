@@ -96,7 +96,7 @@
     - type: TriggerOnMobstateChange
       mobState:
       - Dead
-      - Critical
+    #  - Critical
     - type: RattleOnTrigger
       radioChannel: Security
     # ADT Tweak-END

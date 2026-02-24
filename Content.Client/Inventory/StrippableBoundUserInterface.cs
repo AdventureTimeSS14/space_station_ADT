@@ -237,7 +237,7 @@ namespace Content.Client.Inventory
 
             // If this is a full pocket, obscure the real entity
             // this does not work for modified clients because they are still sent the real entity
-            if (entity != null && _strippable.IsStripHidden(slotDef, _player.LocalEntity))
+            if (entity != null && _strippable.IsStripHidden(slotDef, _player.LocalEntity, Owner)) // ADT-tweak: Allow user to see verbs for their own hidden slots
                 entity = _virtualHiddenEntity;
 
             var button = new SlotButton(new SlotData(slotDef, container));

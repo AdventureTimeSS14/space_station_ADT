@@ -20,7 +20,7 @@
         - type: StationJobs
           availableJobs:
             #centcom specialists
-            ADTCentcomConsultant: [ 1, 1 ] #ADT-Roles
+            # ADTCentcomConsultant: [ 1, 1 ] #ADT-Roles # Убрано по голосованию
             ADTBlueShieldOfficer: [ 1, 1 ] #ADT-Roles
             # command
             Captain: [ 1, 1 ]
@@ -71,4 +71,4 @@
             # juridical
             Lawyer: [ 1, 1 ]
             IAA: [ 1, 1 ]
-            Magistrat: [ 1, 1 ] #ADT-Roles
+            # Magistrat: [ 1, 1 ] #ADT-Roles

@@ -1503,6 +1503,17 @@
   - type: Fiber
     fiberColor: fibers-white
 
+- type: entity
+  parent: ADTSponsorClothingHeadBase
+  id: ADTClothingHeadHatsFaustCap
+  name: Faust cap
+  description: Standart officer`s cap
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/FaustNetzach/faust_cap.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/FaustNetzach/faust_cap.rsi
+
 #kimer_k
 - type: entity
   parent: ADTSponsorClothingUniformBase
