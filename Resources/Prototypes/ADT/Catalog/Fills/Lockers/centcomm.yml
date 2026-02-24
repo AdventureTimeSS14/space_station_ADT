@@ -18,6 +18,7 @@
     - id: ClothingShoesBootsJack
     - id: ADTClothingUniformJumpskirtTurtleneckBlueshield
     - id: ADTClothingUniformJumpsuitTurtleneckBlueshield
+    - id: ADTClothingNeckCloakSecondBlueshield
     #- id: ADTCqcManualWeak
   - type: UserInterface
     interfaces:
@@ -46,6 +47,7 @@
     - id: ClothingShoesBootsJack
     - id: ADTClothingUniformJumpskirtTurtleneckBlueshield
     - id: ADTClothingUniformJumpsuitTurtleneckBlueshield
+    - id: ADTClothingNeckCloakSecondBlueshield
     # - id: ADTCqcManualWeak
 
 # Centcom Consultant
