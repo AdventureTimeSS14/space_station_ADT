@@ -2,6 +2,7 @@ using Content.Shared.Examine;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Localizations;
 using Content.Shared.ADT.StampHit;
+using System.Reflection.Metadata;
 
 namespace Content.Shared.ADT.StampHit;
 
@@ -22,5 +23,10 @@ public abstract partial class SharedStampHitSystem : EntitySystem
         }
         var locStamps = ("stamps", ContentLocalizationManager.FormatList(readyListStamped));
         args.PushMarkup(Loc.GetString("comp-stamp-examine", locUser, locStamps));
+    }
+
+    public void RemoveStamps(Entity<StampedEntityComponent> ent)
+    {
+        IEntityManager.RemoveComponent<StampedEntityComponent>(ent);
     }
 }

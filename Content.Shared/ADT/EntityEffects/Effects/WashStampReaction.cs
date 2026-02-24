@@ -7,9 +7,10 @@ namespace Content.Shared.EntityEffects.Effects;
 
 public sealed partial class WashStampReaction : EntityEffectSystem<StampedEntityComponent, WashStamp>
 {
+    [Dependency] private readonly SharedStampHitSystem _stamp = default!;
     protected override void Effect(Entity<StampedEntityComponent> entity, ref EntityEffectEvent<WashStamp> args)
     {
-        IEntityManager.RemoveComponent<StampedEntityComponent>(entity);
+        _stamp.RemoveStamps(entity);
     }
 }
 
