@@ -551,7 +551,7 @@
             max: 173.0
           damage:
             groups:
-              Brute: -9.6
+              Brute: -28.8 # Лечит механические повреждения на 9.6 (28.8/3)
             types:
               Caustic: 1.0
         - !type:GenericStatusEffect

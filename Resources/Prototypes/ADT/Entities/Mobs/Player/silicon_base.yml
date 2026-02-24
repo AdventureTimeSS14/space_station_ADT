@@ -96,6 +96,7 @@
       thermalRegulationTemperatureThreshold: 125
     - type: ComplexInteraction
     - type: MobCollision
+    - type: GravityAffected
 
 - type: entity
   parent: ADTPlayerSiliconBase

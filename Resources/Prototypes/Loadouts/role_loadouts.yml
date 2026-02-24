@@ -140,6 +140,7 @@
   - ChefOuterClothing
   - Glasses
   # ADT-Tweak-Start
+  - ADTChefPocket1
   - ADTChefPDA
   # ADT-Tweak-End
   # ADT underwear tweak start
@@ -386,7 +387,10 @@
   groups:
   - Inventory # Corvax-Loadouts
   - GroupTankHarness
-  - ADTSalvageSpecialistJumpsuit #ADT Loadouts
+    #ADT Loadouts Start
+  - ADTSalvageSpecialistJumpsuit
+  - ADTSalvageSpecialistNeck
+    #ADT Loadouts End
   - SalvageSpecialistBackpack
   - ADTSalvageSpecialistEars # ADT tweak
   - SalvageSpecialistOuterClothing

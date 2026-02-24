@@ -70,6 +70,22 @@ public sealed class FlavorProfileSystem : EntitySystem
 
         flavors.Sort((a, b) => a.FlavorType.CompareTo(b.FlavorType));
 
+        // ADT-Tweak-Start
+        var neutralized = new List<FlavorPrototype>();
+        foreach (FlavorPrototype flavor in flavors)
+        {
+            foreach (ProtoId<FlavorPrototype> neutralizedProtoId in flavor.Neutralize)
+            {
+                if (!_prototypeManager.TryIndex<FlavorPrototype>(neutralizedProtoId, out var neutralizedProto))
+                    continue;
+
+                if (!neutralized.Contains(neutralizedProto))
+                    neutralized.Add(neutralizedProto);
+            }
+        }
+        flavors = flavors.Except(neutralized).ToList();
+        // ADT-Tweak-End
+
         if (flavors.Count == 1 && !string.IsNullOrEmpty(flavors[0].FlavorDescription))
         {
             return Loc.GetString("flavor-profile", ("flavor", Loc.GetString(flavors[0].FlavorDescription)));
