@@ -173,11 +173,6 @@ public sealed class BarbellBenchSystem : SharedBarbellBenchSystem
     protected override void OnStrapped(Entity<BarbellBenchComponent> bench, ref StrappedEvent args)
     {
         base.OnStrapped(bench, ref args);
-
-        if (TryComp<HealOnBuckleComponent>(bench.Owner, out var healComp) && healComp.SleepAction is { Valid: true } sleepAction)
-        {
-            _actionsSystem.RemoveAction(args.Buckle.Owner, sleepAction);
-        }
     }
 
     private void OnShutdown(EntityUid uid, BarbellBenchComponent component, ComponentShutdown args)
