@@ -171,7 +171,7 @@
           - HitscanBatteryAmmoProvider
           - ProjectileBatteryAmmoProvider
           - Stunbaton
-          - PowerCell
+        #  - PowerCell #ADT-Tweak
         blacklist:
           tags:
           - PotatoBattery
