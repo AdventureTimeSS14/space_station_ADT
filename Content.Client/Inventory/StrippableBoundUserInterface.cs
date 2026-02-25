@@ -156,7 +156,7 @@ namespace Content.Client.Inventory
                 var button = new Button()
                 {
                     Text = Loc.GetString("strippable-bound-user-interface-stripping-menu-ensnare-button"),
-                    StyleClasses = { StyleBase.ButtonOpenRight }
+                    StyleClasses = { StyleClass.ButtonOpenRight }
                 };
 
                 button.OnPressed += (_) => SendPredictedMessage(new StrippingEnsnareButtonPressed());
@@ -192,7 +192,7 @@ namespace Content.Client.Inventory
             if (EntMan.TryGetComponent<VirtualItemComponent>(heldEntity, out var virt))
             {
                 button.Blocked = true;
-                if (EntMan.TryGetComponent<CuffableComponent>(Owner, out var cuff) && _cuffable.GetAllCuffs(cuff).Contains(virt.BlockingEntity))
+                if (_cuffable.TryGetAllCuffs(Owner, out var cuffs) && cuffs.Contains(virt.BlockingEntity))
                     button.BlockedRect.MouseFilter = MouseFilterMode.Ignore;
             }
 
@@ -237,7 +237,7 @@ namespace Content.Client.Inventory
 
             // If this is a full pocket, obscure the real entity
             // this does not work for modified clients because they are still sent the real entity
-            if (entity != null && _strippable.IsStripHidden(slotDef, _player.LocalEntity))
+            if (entity != null && _strippable.IsStripHidden(slotDef, _player.LocalEntity, Owner)) // ADT-tweak: Allow user to see verbs for their own hidden slots
                 entity = _virtualHiddenEntity;
 
             var button = new SlotButton(new SlotData(slotDef, container));

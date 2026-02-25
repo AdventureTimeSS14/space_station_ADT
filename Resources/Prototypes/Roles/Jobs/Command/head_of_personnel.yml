@@ -6,20 +6,26 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Engineering
-      time: 9000 # 2.5 hours
+      time: 2.5h # ADT-Tweak 2.5h
     - !type:DepartmentTimeRequirement
       department: Medical
-      time: 9000 # 2.5 hours
+      time: 2.5h # ADT-Tweak 2.5h
     - !type:DepartmentTimeRequirement
       department: Science
-      time: 9000 # 2.5 hrs
+      time: 2.5h
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 9000 # 2.5 hrs
-    - !type:DepartmentTimeRequirement
-      department: Command
-      time: 9000 # 2.5 hours
-    - !type:SpeciesRequirement
+      time: 2.5h # ADT-Tweak 2.5h
+#    - !type:DepartmentTimeRequirement
+#      department: Command
+#      time: 2.5h
+    - !type:OverallPlaytimeRequirement
+      time: 50h # Corvax-RoleTime
+    - !type:TraitsRequirement #Corvax-TraitsRequirement
+      inverted: true
+      traits:
+      - Muted
+    - !type:SpeciesRequirement # ADT-Tweak
       inverted: true
       species:
       - Vox
@@ -70,8 +76,9 @@
     shoes: ClothingShoesColorBrown
     id: HoPPDA
     gloves: ClothingHandsGlovesHop
-    # ears: ClothingHeadsetAltCommand # ADT tweak
-    belt: BoxFolderClipboard
+    ears: ClothingHeadsetAltCommand
+    belt: BoxFolderClipboardThreePapers
+    eyes: ClothingEyesHudCommand
   storage:
     back:
     - Flash

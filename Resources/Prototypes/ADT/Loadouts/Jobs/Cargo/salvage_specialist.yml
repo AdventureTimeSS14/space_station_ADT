@@ -8,6 +8,15 @@
       role: JobSalvageSpecialist
       time: 18000 #5 часов
 
+- type: loadoutEffectGroup
+  id: ADTSalvageSpecialistCape100hour
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobSalvageSpecialist
+      time: 360000 #100 часов
+
 # Jumpsuit
 - type: loadout
   id: ADTClothingUniformJumpsuitSalvageSpecialist
@@ -18,6 +27,16 @@
   id: ADTUniformJumpsuitExplorer
   equipment:
     jumpsuit: ADTClothingUniformJumpsuitExplorer
+
+# Neck
+
+- type: loadout
+  id: ADTNeckSalvageSpecialistCape
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTSalvageSpecialistCape100hour
+  equipment:
+    neck: ClothingNeckCloakSalvagerSupreme
 
 # PDA
 - type: loadout

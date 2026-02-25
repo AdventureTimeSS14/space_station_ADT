@@ -21,7 +21,10 @@
         - Bottle
         - Spray
         - Brutepack
+        - Truncheon
         - Bloodpack
+        - HandGrenade
+        - Dropper
         - Gauze
         - Ointment
         - CigPack
@@ -32,6 +35,7 @@
         - SurgeryTool
         - ADTLasgunRevolverCell
         - ADTTelescopicBaton
+        - ADTBola
       components:
         - Stunbaton
         - FlashOnTrigger
@@ -44,6 +48,9 @@
         - Injector
         - Pill
         - HandLabeler
+        - DoorRemote
+        - Whistle
+        - BalloonPopper
   - type: ItemMapper
     mapLayers:
       flashbang:
@@ -403,6 +410,7 @@
                 slowDown: 3
           - actionsNeeds:
               - Disarm
+              - Disarm
               - Grab
             comboEvent:
               - !type:ComboMoreDamageToDownedEffect
@@ -523,7 +531,7 @@
           tags:
           - ADTZeroKatana
   - type: Appearance
-  
+
 - type: entity
   id: ADTClothingChemdisBelt
   parent: ClothingBeltStorageBase

@@ -15,6 +15,7 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
 using Robust.Shared.Random;
+using Content.Shared.Medical;
 
 namespace Content.Server.ADT.Salvage.Systems;
 

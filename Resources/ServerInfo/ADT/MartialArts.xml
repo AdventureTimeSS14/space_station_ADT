@@ -55,37 +55,29 @@
 
 - [bold]Слэм[/bold] — [bold][color=#986f00]захват[/color][/bold] + [bold][color=#b50000]удар[/color][/bold]
 
-Роняет цель на пол, нанося [color=red]10[/color] тупого урона и [color=#1e90ff]НЕ[/color] выбивая вещи из рук.
+Роняет цель на пол, нанося [color=red]20[/color] тупого урона и [color=#1e90ff]НЕ[/color] выбивая вещи из рук.
 
 - [bold]Удар CQC[/bold] — [bold][color=#b50000]удар[/color][/bold] + [bold][color=#b50000]удар[/color][/bold]
 
-Наносит [color=#1e90ff]25[/color] урона по выносливости, [color=red]10[/color] урона по стоящим и [color=red]25[/color] по лежащим.
+Наносит [color=#1e90ff]25[/color] урона по выносливости, [color=red]10[/color] урона по стоящим и [color=red]20[/color] по лежащим.
 
 Если ударить цель в стаминакрите - она будет оглушена на [color=#1e90ff]5[/color] секунд.
 
 - [bold]Перехват[/bold] — [bold][color=#1e90ff]обезоружить[/color][/bold] + [bold][color=#986f00]захват[/color][/bold]
 
-Перехватывает руку цели, забирая предмет из её активной руки в свободную руку, нанося [color=#1e90ff]35[/color] урона по выносливости.
+Наносит [color=#1e90ff]35[/color] урона по выносливости.
  
 - [bold]Захват[/bold] — [bold][color=#986f00]захват[/color][/bold] + [bold][color=#986f00]захват[/color][/bold]
 
-Роняет цель на пол и наносит [color=#1e90ff]55[/color] урона по выносливости.
+Роняет цель на пол и наносит [color=#1e90ff]30[/color] урона по выносливости.
 
 - [bold]Последовательные удары[/bold] — [bold][color=#1e90ff]обезоружить[/color][/bold] + [bold][color=#1e90ff]обезоружить[/color][/bold] + [bold][color=#b50000]удар[/color][/bold]
 
-Наносит [color=red]6[/color] тупого урона, роняет цель на землю. Если цель уже лежит, наносит дополнительно [color=red]25[/color] урона и [color=#1e90ff]60[/color] урона по выносливости.
+Наносит [color=red]6[/color] тупого урона, роняет цель на землю. Если цель уже лежит, наносит дополнительно [color=red]35[/color] урона и [color=#1e90ff]45[/color] урона по выносливости.
 
 - [bold]Хват за ногу[/bold] — [bold][color=#986f00]захват[/color][/bold] + [bold][color=#1e90ff]обезоружить[/color][/bold]
 
 Роняет цель на пол.
-
-- [bold]Выход кувырком[/bold] — [bold][color=#b50000]удар[/color][/bold] + [bold][color=green]ползать[/color][/bold] + [bold][color=green]ползать[/color][/bold]
-
-Работает только против цели, которая вас удерживает, нанося ей [color=red]6[/color] тупого урона, кидая в сторону и [color=#1e90ff]оглушая[/color] на 1 секунду.
-
-- [bold]Перелом шеи[/bold] — [bold][color=#b50000]удушающий[/color][/bold] [bold][color=#986f00]захват[/color][/bold] + [bold][color=#b50000]удар[/color][/bold]
-
-Если цель в стаминакрите, то убивает её, игнорируя любую броню.
 
 ## Сказ о спящем карпе
 <Box>
@@ -105,9 +97,9 @@
 
 Наносит [color=red]15[/color] режущего урона и отправляет цель в полёт с ОЧЕНЬ большой силой.
 
-- [bold]Удар в голову[/bold] — [bold][color=#b50000]удар[/color][/bold] + [bold][color=#986f00]захват[/color][/bold]
+- [bold]Перехват[/bold] — [bold][color=#1e90ff]обезоружить[/color][/bold] + [bold][color=#1e90ff]обезоружить[/color][/bold]
 
-Наносит [color=red]10[/color] тупого урона и [color=#1e90ff]50[/color] урона по выносливости.
+Наносит [color=red]10[/color] тупого урона и забирает предмет из руки цели в свободную руку.
 
 ## Как получить ПТСР
 <Box>
@@ -123,6 +115,29 @@
 - [bold]Подсечка в ноги[/bold] — [bold][color=#1e90ff]обезоружить[/color][/bold] + [bold][color=#986f00]захват[/color][/bold]
 
 Роняет цель на пол, [color=#1e90ff]НЕ[/color] выбивая вещи из рук.
+
+## Кулинарная книга приёмов
+<Box>
+<GuideEntityEmbed Entity="ADTCookbookManual"/>
+</Box>
+
+[bold]Комбо-приёмы:[/bold]
+
+- [bold]Отбивание[/bold] — [bold][color=#986f00]захват[/color][/bold] + [bold][color=#b50000]удар[/color][/bold]
+
+Роняет цель на пол, наносит [color=red]10[/color] тупого урона и [color=#1e90ff]НЕ[/color] выбивает вещи из рук.
+
+- [bold]Раскручивание[/bold] — [bold][color=#1e90ff]обезоружить[/color][/bold] + [bold][color=#986f00]захват[/color][/bold] + [bold][color=#b50000]удар[/color][/bold]
+
+Оглушает цель на [color=#1e90ff]2[/color] секунды.
+
+- [bold]Раскатывание[/bold] — [bold][color=#986f00]захват[/color][/bold] + [bold][color=#986f00]захват[/color][/bold]
+
+Роняет цель на пол, наносит [color=#1e90ff]35[/color] урона по выносливости и выбивает вещи из рук.
+
+- [bold]Выжимание[/bold] — [bold][color=#986f00]захват[/color][/bold] + [bold][color=#1e90ff]обезоружить[/color][/bold]
+
+Роняет цель на пол и выбивает вещи из рук.
 
 ## Корпоративное дзюдо
 <Box>
@@ -145,7 +160,7 @@
 
 - [bold]Нагэ-вадза[/bold] — [bold][color=#1e90ff]обезоружить[/color][/bold] + [bold][color=#b50000]удар[/color][/bold]
 
-Работает только на тех, кто вас удерживает. Бросает цель в сторону, нанося [color=red]15[/color] тупого урона.
+Работает только на тех, кто вас удерживает. Бросает цель в сторону, нанося [color=red]10[/color] тупого урона.
 
 ## Крав-мага
 <Box>

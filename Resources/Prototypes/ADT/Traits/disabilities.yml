@@ -25,6 +25,16 @@
 # Simple Station
 
 - type: trait
+  id: ADTTouchy
+  name: trait-touchy-name
+  description: trait-touchy-desc
+  category: Quirks
+  components:
+  - type: Touchy
+  cost: -1
+  quirk: true
+
+- type: trait
   id: ColorBlindnessMonochrome
   name: trait-monochromacy-name
   description: trait-monochromacy-description
@@ -50,3 +60,25 @@
         Shock: 1.2
   cost: -2
   quirk: true
+
+- type: trait
+  id: SoftHands #I don't fucking know how it works, but it works
+  name: trait-soft-hands-name
+  description: trait-soft-hands-desc
+  category: Quirks
+  components:
+    - type: WieldingBlocker
+  cost: -2
+  quirk: true
+
+- type: trait
+  id: UnadaptedToSpace
+  name: trait-unadapted-to-space-name
+  description: trait-unadapted-to-space-desc
+  category: Quirks
+  components:
+    - type: UnadaptedToSpace
+  cost: -2
+  quirk: true
+  speciesBlacklist:
+  - IPC

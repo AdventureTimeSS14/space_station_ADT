@@ -1,6 +1,6 @@
 - type: entity
   id: ADTVaseBase
-  parent: DrinkGlassBase
+  parent: [DrinkBaseCup, DrinkBaseMaterialGlass]
   name: vase
   description: It's a vase. It holds flowers.
   abstract: true

@@ -60,7 +60,7 @@ public sealed partial class Emotes : ILanguageType
         var chatMan = IoCManager.Resolve<IChatManager>();
         success = false;
 
-        chat.TryProccessRadioMessage(uid, message, out message, out _);
+        chat.TryProcessRadioMessage(uid, message, out message, out _);
         string coloredMessage = lang.AccentuateMessage(uid, Language, message);
 
         // We dont want to generate emotes
@@ -143,7 +143,7 @@ public sealed partial class Emotes : ILanguageType
         var chatMan = IoCManager.Resolve<IChatManager>();
         success = false;
 
-        chat.TryProccessRadioMessage(uid, message, out message, out _);
+        chat.TryProcessRadioMessage(uid, message, out message, out _);
         string coloredMessage = lang.AccentuateMessage(uid, Language, message);
         string coloredLanguageMessage = random.Pick(Replacement);
         resultMessage = FormattedMessage.EscapeText(coloredMessage);

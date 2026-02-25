@@ -6,7 +6,7 @@
   components:
   - type: Item
     size: Tiny
-  - type: Drink
+  - type: Edible
     solution: food
   - type: Openable
     sound:

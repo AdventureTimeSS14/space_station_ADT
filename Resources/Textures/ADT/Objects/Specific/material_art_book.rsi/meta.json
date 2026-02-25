@@ -1,11 +1,11 @@
 {
-    "version": 1,
+    "version": 2,
     "size": {
         "x": 32,
         "y": 32
     },
     "license": "CC-BY-SA-3.0",
-    "copyright": "Made by Tamioki, meow",
+    "copyright": "Made by Tamioki, cookbook sprited by orange6775 (discord)",
     "states": [
         {
             "name": "cqc"
@@ -15,6 +15,9 @@
         },
         {
             "name": "sleeping_carp"
+        },
+        {
+            "name": "cookbook"
         }
     ]
 }

@@ -29,6 +29,7 @@ public sealed class AddTests
         var sEntities = server.ResolveDependency<IEntityManager>();
 
         var sAdminLogSystem = server.ResolveDependency<IAdminLogManager>();
+        var sDatabase = server.ResolveDependency<IServerDbManager>(); // ADT-Tweak.
 
         var guid = Guid.NewGuid();
 
@@ -43,7 +44,8 @@ public sealed class AddTests
 
         await PoolManager.WaitUntil(server, async () =>
         {
-            var logs = sAdminLogSystem.CurrentRoundJson(new LogFilter
+            // ADT-Tweak. Используем базу данных вместо лог-манагера как и в других тестах. Пытаемся чинить тест
+            var logs = sDatabase.GetAdminLogsJson(new LogFilter
             {
                 Search = guid.ToString()
             });

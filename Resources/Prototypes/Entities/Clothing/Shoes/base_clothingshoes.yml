@@ -10,7 +10,7 @@
     state: icon
   - type: Item
     size: Normal
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
   - type: SolutionContainerManager
     solutions:
@@ -35,6 +35,8 @@
       path: /Audio/ADT/Entities/sneakers_land.ogg
   - type: CoveredSlot
     slots: [socks]
+  - type: HidesSlots
+    hidesSlots: [ SOCKS ]
   # ADT End
 
 - type: entity
@@ -62,6 +64,7 @@
     slots:
       item:
         name: clothing-boots-sidearm
+        priority: 4
         whitelist:
           tags:
           - Knife

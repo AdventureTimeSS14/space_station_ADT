@@ -31,7 +31,9 @@
   - type: SolutionContainerVisuals
     maxFillLevels: 7
     fillBaseName: fill
-  - type: Drink
+  - type: Edible
+    edible: Drink # slurping sounds!
+    destroyOnEmpty: false
   - type: SolutionContainerManager
     solutions:
       drink:

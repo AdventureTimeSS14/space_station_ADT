@@ -60,7 +60,7 @@
     Desoxyephedrine:
       amount: 50
   effects:
-  - !type:CreateEntityReactionEffect
+  - !type:SpawnEntity
     entity: ADTFoodMethCrystal
 
 - type: reaction
@@ -72,7 +72,7 @@
     ADTBlueSkyDesoxyephedrine:
       amount: 50
   effects:
-  - !type:CreateEntityReactionEffect
+  - !type:SpawnEntity
     entity: ADTFoodWalterMethCrystal
 
 - type: reaction

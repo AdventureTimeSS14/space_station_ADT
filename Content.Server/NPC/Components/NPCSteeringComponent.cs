@@ -119,6 +119,13 @@ public sealed partial class NPCSteeringComponent : Component
     /// </summary>
     [DataField("doAfterId")]
     public DoAfterId? DoAfterId = null;
+
+    // ADT-Tweak-start
+    /// <summary>
+    /// Whether to ignore pathing and just move directly to target.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)] public bool DirectMove = false;
+    // ADT-Tweak-end
 }
 
 public enum SteeringStatus : byte

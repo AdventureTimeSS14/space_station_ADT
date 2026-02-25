@@ -405,7 +405,7 @@ public sealed class AttachableHolderSystem : EntitySystem
         RaiseLocalEvent(holder, ref holderEv);
     }
 
-    //Detaching
+    // Отсоединение
     public void StartDetach(Entity<AttachableHolderComponent> holder, string slotId, EntityUid userUid)
     {
         if (TryGetAttachable(holder, slotId, out var attachable) && holder.Comp.Slots.ContainsKey(slotId) && !holder.Comp.Slots[slotId].Locked)

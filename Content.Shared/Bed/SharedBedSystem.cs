@@ -57,17 +57,14 @@ public abstract class SharedBedSystem : EntitySystem
 
     private void OnUnstrapped(Entity<HealOnBuckleComponent> bed, ref UnstrappedEvent args)
     {
-        // ADT-Tweak-Start:
-        if (bed.Comp.SleepAction != null)
+        // If the entity being unbuckled is terminating, we shouldn't try to act upon it, as some components may be gone
+        if (!Terminating(args.Buckle.Owner))
         {
-            var action = bed.Comp.SleepAction.Value;
-            if (TryComp<ActionComponent>(action, out var actionComp) && actionComp.AttachedEntity == args.Buckle.Owner)
-            {
+            if (_actionsSystem.GetAction(bed.Comp.SleepAction) is { } act && act.Comp.AttachedEntity == args.Buckle.Owner) //ADT-Tweak: Barbell
                 _actionsSystem.RemoveAction(args.Buckle.Owner, bed.Comp.SleepAction);
-            }
+            _sleepingSystem.TryWaking(args.Buckle.Owner);
         }
-        // ADT-Tweak-End
-        _sleepingSystem.TryWaking(args.Buckle.Owner);
+
         RemComp<HealOnBuckleHealingComponent>(bed);
     }
 

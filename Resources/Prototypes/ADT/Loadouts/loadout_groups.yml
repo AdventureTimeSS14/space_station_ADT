@@ -417,6 +417,7 @@
   maxLimit: 1
   loadouts:
   - ADTBlueshieldCloak
+  - ADTBlueshieldCloakSecond
 
 - type: loadoutGroup
   id: ADTBlueshieldBack
@@ -485,7 +486,7 @@
   minLimit: 1
   maxLimit: 1
   loadouts:
-  - CoatCCC 
+  - CoatCCC
   - CoatCentCom
 
 - type: loadoutGroup
@@ -745,6 +746,14 @@
 ## повар
 
 - type: loadoutGroup
+  id: ADTChefPocket1
+  name: loadout-chef-pocket1-adt
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - ADTChefManual
+
+- type: loadoutGroup
   id: ADTChefGloves
   name: loadout-group-chef-gloves-adt
   minLimit: 0
@@ -824,6 +833,14 @@
   maxLimit: 1
   loadouts:
   - ADTClothingUniformJumpsuitSalvageSpecialist
+
+- type: loadoutGroup
+  id: ADTSalvageSpecialistNeck
+  name: loadout-salvage-specialist-neck-adt
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - ADTNeckSalvageSpecialistCape
 
 # ШАХТЁР
 - type: loadoutGroup
@@ -1091,6 +1108,15 @@
   - ADTPlasmaScientistPDA
 
 - type: loadoutGroup
+  id: ADTQuartermasterPDA
+  name: loadout-group-quartermaster-id-adt
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - QuartermasterPDA
+  - ADTIntendantPDA
+
+- type: loadoutGroup
   id: ADTCargoPDA
   name: loadout-group-cargo-id-adt
   minLimit: 1
@@ -1270,16 +1296,6 @@
   loadouts:
   - CMOPDA
   - ADTCMOPDA
-
-- type: loadoutGroup
-  id: ADTQuartermasterPDA
-  name: loadout-group-quartermaster-id
-  minLimit: 1
-  maxLimit: 1
-  loadouts:
-  - QuartermasterPDAloadout
-  - ADTintendantPDAloadout
-
 
 # Alts PDA end
 

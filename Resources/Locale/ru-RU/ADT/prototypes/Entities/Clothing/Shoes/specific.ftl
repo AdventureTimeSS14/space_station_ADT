@@ -25,3 +25,11 @@ ent-ADTClothingFootWrapsHighBrown = коричневые высокие обмо
 ent-ADTClothingShoesClownAbyss = глубоководные клоунские ботинки
     .desc = Пара больших красных клоунских ботинок, пахнущих морской бездной.
     .suffix = { "" }
+
+ent-ADTClothingShoesChameleonNoSound = чёрные туфли
+    .desc = Стильные чёрные туфли.
+    .suffix = Бесшумные, Хамелеон
+
+ent-ADTClothingShoesChameleonSuper = { ent-ADTClothingShoesChameleonNoSound }
+    .desc = { ent-ADTClothingShoesChameleonNoSound.desc }
+    .suffix = Бесшумные, Нескользящие, Хамелеон

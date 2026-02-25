@@ -49,14 +49,14 @@
   - type: ContainerContainer
     containers:
       mech-assembly-container: !type:Container
-  - type: MechAssembly
-    finishedPrototype: ADTGygaxChassis
-    requiredParts:
-      ADTGygaxLArm: false
-      ADTGygaxRArm: false
-      ADTGygaxLLeg: false
-      ADTGygaxRLeg: false
-      ADTGygaxHead: false
+  - type: PartAssembly
+    parts:
+      ADTGygaxChassis:
+      - ADTGygaxLArm
+      - ADTGygaxRArm
+      - ADTGygaxLLeg
+      - ADTGygaxRLeg
+      - ADTGygaxHead
   - type: Sprite
     state: gygax_harness+o
     noRot: true
