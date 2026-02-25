@@ -47,6 +47,8 @@ using Direction = Robust.Shared.Maths.Direction;
 using static Content.Client.Corvax.SponsorOnlyHelpers; // Corvax-Sponsors
 using Content.Client.Corvax.TTS; // Corvax-TTS
 using Content.Client.ADT.UserInterface.Controls;
+using Content.Client.ADT.CharecterFlavor;
+using Content.Shared.ADT.CharecterFlavor;
 
 namespace Content.Client.Lobby.UI
 {
@@ -589,10 +591,11 @@ namespace Content.Client.Lobby.UI
                 TabContainer.SetTabTitle(TabContainer.ChildCount - 1, Loc.GetString("humanoid-profile-editor-flavortext-tab"));
                 _flavorTextEdit = _flavorText.CFlavorTextInput;
 
-                //ADT-tweak-start
+                // ADT-tweak-start
                 _flavorText.OnOOCNotesChanged += OnOOCNotesChange;
                 _flavorText.OnHeadshotUrlChanged += OnHeadshotUrlChange;
-                //ADT-tweak-end
+                _flavorText.OnPreviewRequested += OnFlavorPreviewRequested;
+                // ADT-tweak-end
                 _flavorText.OnFlavorTextChanged += OnFlavorTextChange;
             }
             else
@@ -602,10 +605,11 @@ namespace Content.Client.Lobby.UI
 
                 TabContainer.RemoveChild(_flavorText);
                 _flavorText.OnFlavorTextChanged -= OnFlavorTextChange;
-                //ADT-tweak-start
+                // ADT-tweak-start
                 _flavorText.OnOOCNotesChanged -= OnOOCNotesChange;
                 _flavorText.OnHeadshotUrlChanged -= OnHeadshotUrlChange;
-                //ADT-tweak-end
+                _flavorText.OnPreviewRequested -= OnFlavorPreviewRequested;
+                // ADT-tweak-end
                 _flavorText.Dispose();
                 _flavorTextEdit?.Dispose();
                 _flavorTextEdit = null;
@@ -1381,6 +1385,7 @@ namespace Content.Client.Lobby.UI
             Profile = Profile.WithOOCNotes(content);
             SetDirty();
         }
+
         private void OnHeadshotUrlChange(string content)
         {
             if (Profile is null)
@@ -1388,6 +1393,29 @@ namespace Content.Client.Lobby.UI
 
             Profile = Profile.WithHeadshotUrl(content);
             SetDirty();
+        }
+
+        private void OnFlavorPreviewRequested()
+        {
+            if (Profile is null)
+                return;
+
+            if (!_entManager.EntityExists(PreviewDummy))
+                return;
+
+            var flavor = _entManager.EnsureComponent<CharacterFlavorComponent>(PreviewDummy);
+            flavor.FlavorText = Profile.FlavorText ?? string.Empty;
+            flavor.OOCNotes = Profile.OOCNotes ?? string.Empty;
+            flavor.HeadshotUrl = Profile.HeadshotUrl ?? string.Empty;
+
+            var controller = UserInterfaceManager.GetUIController<CharacterFlavorUiController>();
+            controller.OpenPreviewMenu(PreviewDummy);
+
+            // Попросить сервер скачать и прислать картинку для предпросмотра хэдшота.
+            if (!string.IsNullOrWhiteSpace(Profile.HeadshotUrl))
+            {
+                _entManager.System<CharecterFlavorSystem>().RequestHeadshotPreview(Profile.HeadshotUrl);
+            }
         }
         //ADT-tweak-end
         private void OnMarkingChange(MarkingSet markings)

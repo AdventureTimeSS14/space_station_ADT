@@ -232,7 +232,7 @@
     - ADTAdvancedMedicalMiscPack
     - ADTTranslatorPack
     - ADTXenoTranslatorPack
-    - ADTPhantomPack
+    #- ADTPhantomPack
     - ADTWeaponLauncherHydraPack
     - ADTPowerPack
     - ADTMegaCellPack
