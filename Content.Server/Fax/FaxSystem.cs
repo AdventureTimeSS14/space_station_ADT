@@ -537,7 +537,7 @@ public sealed class FaxSystem : EntitySystem
             { FaxConstants.FaxPaperLabelData, labelComponent?.CurrentLabel },
             { FaxConstants.FaxPaperContentData, paper.Content },
             { FaxConstants.FaxPaperLockedData, paper.EditingDisabled },
-            { FaxConstants.FaxSenderNameData, component.FaxName },
+            { FaxConstants.FaxSenderNameData, component.FaxName }, // ADT-Tweak start: Get sender fax name from payload or from known faxes or use unknown
         };
 
         if (metadata.EntityPrototype != null)
@@ -575,18 +575,20 @@ public sealed class FaxSystem : EntitySystem
     ///     Accepts a new message and adds it to the queue to print
     ///     If has parameter "notifyAdmins" also output a special message to admin chat.
     /// </summary>
-    public void Receive(EntityUid uid, FaxPrintout printout, string? fromFaxName = null, FaxMachineComponent? component = null)
+    public void Receive(EntityUid uid, FaxPrintout printout, string? fromFaxName = null, FaxMachineComponent? component = null) // ADT-Tweak start: Get sender fax name from payload or from known faxes or use unknown
     {
         if (!Resolve(uid, ref component))
             return;
 
+        // ADT-Tweak start
         var senderName = fromFaxName ?? Loc.GetString("fax-machine-popup-source-unknown");
 
         _popupSystem.PopupEntity(Loc.GetString("fax-machine-popup-received", ("from", senderName)), uid);
+        // ADT-Tweak end
         _appearanceSystem.SetData(uid, FaxMachineVisuals.VisualState, FaxMachineVisualState.Printing);
 
         if (component.NotifyAdmins)
-            NotifyAdmins(senderName, component.FaxName);
+            NotifyAdmins(senderName, component.FaxName); // ADT-Tweak start: Get sender fax name from payload or from known faxes or use unknown
 
         component.PrintingQueue.Enqueue(printout);
     }
@@ -627,9 +629,9 @@ public sealed class FaxSystem : EntitySystem
         _adminLogger.Add(LogType.Action, LogImpact.Low, $"\"{component.FaxName}\" {ToPrettyString(uid):tool} printed {ToPrettyString(printed):subject}: {printout.Content}");
     }
 
-    private void NotifyAdmins(string fromFax, string toFax)
+    private void NotifyAdmins(string fromFax, string toFax)  // ADT-Tweak start: Get sender fax name from payload or from known faxes or use unknown
     {
-        _chat.SendAdminAnnouncement(Loc.GetString("fax-machine-chat-notify", ("from", fromFax), ("to", toFax)));
+        _chat.SendAdminAnnouncement(Loc.GetString("fax-machine-chat-notify", ("from", fromFax), ("to", toFax))); // ADT-Tweak start: Get sender fax name from payload or from known faxes or use unknown
         _audioSystem.PlayGlobal("/Audio/Machines/high_tech_confirm.ogg", Filter.Empty().AddPlayers(_adminManager.ActiveAdmins), false, AudioParams.Default.WithVolume(-8f));
     }
 }
