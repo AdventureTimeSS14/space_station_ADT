@@ -2042,15 +2042,7 @@
         },
         {
             "name": "supermatter_keys",
-            "directions": 1,
-            "delays": [
-                [
-                    1,
-                    1,
-                    1,
-                    1
-                ]
-            ]
+            "directions": 4
         },
         {
             "name": "supermatter-0",
