@@ -11,7 +11,6 @@ using Content.Shared.ADT.Silicon;
 using Content.Shared.Damage.Events;
 using Content.Shared.Audio;
 using Content.Shared.Alert;
-using Content.Shared.Bed.Components;
 using Content.Shared.Buckle;
 using Content.Shared.Buckle.Components;
 using Content.Shared.Chat;
@@ -214,72 +213,75 @@ public sealed class BarbellBenchSystem : SharedBarbellBenchSystem
                 _stamina.TakeStaminaDamage(args.Performer, lift.StaminaCost, source: args.Performer, with: barbell, visual: true);
                 _popup.PopupEntity(Loc.GetString(lift.EmoteLocSelf), args.Performer, args.Performer, PopupType.Medium);
 
-                PullerComponent? pullerComp = null;
-                if (Resolve(args.Performer, ref pullerComp))
+                if (!HasComp<MobIpcComponent>(args.Performer))
                 {
-                    if (!_playerPullStrength.TryGetValue(args.Performer, out var currentStrength))
+                    PullerComponent? pullerComp = null;
+                    if (Resolve(args.Performer, ref pullerComp))
                     {
-                        currentStrength = 0f;
-                    }
-
-                    var previousStrength = currentStrength;
-                    currentStrength += 0.02f;
-                    _playerPullStrength[args.Performer] = currentStrength;
-
-                    float targetReduction;
-                    if (currentStrength >= 1.00f)
-                    {
-                        targetReduction = 1.00f;
-                    }
-                    else if (currentStrength >= 0.70f)
-                    {
-                        targetReduction = 0.70f;
-                    }
-                    else if (currentStrength >= 0.40f)
-                    {
-                        targetReduction = 0.40f;
-                    }
-                    else
-                    {
-                        targetReduction = pullerComp.PulledDensityReduction;
-                    }
-
-                    pullerComp.PulledDensityReduction = targetReduction;
-                    Dirty(args.Performer, pullerComp);
-
-                    var performer = args.Performer;
-                    if (previousStrength < 0.40f && currentStrength >= 0.40f)
-                    {
-                        Timer.Spawn(TimeSpan.FromSeconds(0.5f), () =>
+                        if (!_playerPullStrength.TryGetValue(args.Performer, out var currentStrength))
                         {
-                            if (Exists(performer))
-                                _popup.PopupEntity(Loc.GetString("barbell-bench-strength-increased"), performer, performer, PopupType.Medium);
-                        });
-                    }
-                    else if (previousStrength < 0.70f && currentStrength >= 0.70f)
-                    {
-                        Timer.Spawn(TimeSpan.FromSeconds(0.5f), () =>
-                        {
-                            if (Exists(performer))
-                                _popup.PopupEntity(Loc.GetString("barbell-bench-strength-increased"), performer, performer, PopupType.Medium);
-                        });
-                    }
-                    else if (previousStrength < 1.00f && currentStrength >= 1.00f)
-                    {
-                        Timer.Spawn(TimeSpan.FromSeconds(0.5f), () =>
-                        {
-                            if (Exists(performer))
-                                _popup.PopupEntity(Loc.GetString("barbell-bench-strength-increased"), performer, performer, PopupType.Medium);
-                        });
-                    }
+                            currentStrength = 0f;
+                        }
 
-                    if (currentStrength >= 1.00f && !HasComp<MobIpcComponent>(args.Performer) && !_staminaBonusMaxLevelApplied.GetValueOrDefault(args.Performer, false))
-                    {
-                        if (TryComp<StaminaComponent>(args.Performer, out var staminaComp))
+                        var previousStrength = currentStrength;
+                        currentStrength += 0.02f;
+                        _playerPullStrength[args.Performer] = currentStrength;
+
+                        float targetReduction;
+                        if (currentStrength >= 1.00f)
                         {
-                            staminaComp.CritThreshold += 25f;
-                            _staminaBonusMaxLevelApplied[args.Performer] = true;
-                            Dirty(args.Performer, staminaComp);
+                            targetReduction = 1.00f;
+                        }
+                        else if (currentStrength >= 0.70f)
+                        {
+                            targetReduction = 0.70f;
+                        }
+                        else if (currentStrength >= 0.40f)
+                        {
+                            targetReduction = 0.40f;
+                        }
+                        else
+                        {
+                            targetReduction = pullerComp.PulledDensityReduction;
+                        }
+
+                        pullerComp.PulledDensityReduction = targetReduction;
+                        Dirty(args.Performer, pullerComp);
+
+                        var performer = args.Performer;
+                        if (previousStrength < 0.40f && currentStrength >= 0.40f)
+                        {
+                            Timer.Spawn(TimeSpan.FromSeconds(0.5f), () =>
+                            {
+                                if (Exists(performer))
+                                    _popup.PopupEntity(Loc.GetString("barbell-bench-strength-increased"), performer, performer, PopupType.Medium);
+                            });
+                        }
+                        else if (previousStrength < 0.70f && currentStrength >= 0.70f)
+                        {
+                            Timer.Spawn(TimeSpan.FromSeconds(0.5f), () =>
+                            {
+                                if (Exists(performer))
+                                    _popup.PopupEntity(Loc.GetString("barbell-bench-strength-increased"), performer, performer, PopupType.Medium);
+                            });
+                        }
+                        else if (previousStrength < 1.00f && currentStrength >= 1.00f)
+                        {
+                            Timer.Spawn(TimeSpan.FromSeconds(0.5f), () =>
+                            {
+                                if (Exists(performer))
+                                    _popup.PopupEntity(Loc.GetString("barbell-bench-strength-increased"), performer, performer, PopupType.Medium);
+                            });
+                        }
+
+                        if (currentStrength >= 1.00f && !_staminaBonusMaxLevelApplied.GetValueOrDefault(args.Performer, false))
+                        {
+                            if (TryComp<StaminaComponent>(args.Performer, out var staminaComp))
+                            {
+                                staminaComp.CritThreshold += 25f;
+                                _staminaBonusMaxLevelApplied[args.Performer] = true;
+                                Dirty(args.Performer, staminaComp);
+                            }
                         }
                     }
                 }
@@ -332,6 +334,9 @@ public sealed class BarbellBenchSystem : SharedBarbellBenchSystem
         if (!Container.TryGetContainer(buckle.BuckledTo.Value, bench.BarbellSlotId, out var barbellContainer) || barbellContainer.Count == 0)
             return;
 
+        if (HasComp<MobIpcComponent>(uid))
+            return;
+
         var barbell = barbellContainer.ContainedEntities[0];
 
         var pinnedComp = EnsureComp<BarbellPinnedComponent>(uid);
@@ -356,6 +361,13 @@ public sealed class BarbellBenchSystem : SharedBarbellBenchSystem
 
     private void OnPinnedUnbuckleAttempt(EntityUid uid, BarbellPinnedComponent component, ref UnbuckleAttemptEvent args)
     {
+        if (HasComp<MobIpcComponent>(uid))
+        {
+            RemComp<BarbellPinnedComponent>(uid);
+            RemComp<ActiveBarbellPinnedComponent>(uid);
+            return;
+        }
+
         if (args.User == uid)
         {
             var stunPassed = false;
