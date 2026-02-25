@@ -2043,42 +2043,90 @@
         {
             "name": "supermatter_keys",
             "directions": 1,
-            "frames": 4
+            "delays": [
+                [
+                    1,
+                    1,
+                    1,
+                    1
+                ]
+            ]
         },
         {
             "name": "supermatter-0",
             "directions": 1,
-            "frames": 4
+            "delays": [
+                [
+                    1,
+                    1,
+                    1,
+                    1
+                ]
+            ]
         },
         {
             "name": "supermatter-1",
             "directions": 1,
-            "frames": 4
+            "delays": [
+                [
+                    1,
+                    1,
+                    1,
+                    1
+                ]
+            ]
         },
         {
             "name": "supermatter-2",
             "directions": 1,
-            "frames": 4
+            "delays": [
+                [
+                    1,
+                    1,
+                    1,
+                    1
+                ]
+            ]
         },
         {
             "name": "supermatter-3",
             "directions": 1,
-            "frames": 4
+            "delays": [
+                [
+                    1,
+                    1,
+                    1,
+                    1
+                ]
+            ]
         },
         {
             "name": "supermatter-4",
             "directions": 1,
-            "frames": 4
+            "delays": [
+                [
+                    1,
+                    1,
+                    1,
+                    1
+                ]
+            ]
         },
         {
             "name": "supermatter-5",
             "directions": 1,
-            "frames": 4
+            "delays": [
+                [
+                    1,
+                    1,
+                    1,
+                    1
+                ]
+            ]
         },
         {
             "name": "supermatter-6",
             "directions": 1,
-            "frames": 9,
             "delays": [
                 [
                     0.1,
