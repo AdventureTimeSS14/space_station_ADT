@@ -410,6 +410,7 @@
                 slowDown: 3
           - actionsNeeds:
               - Disarm
+              - Disarm
               - Grab
             comboEvent:
               - !type:ComboMoreDamageToDownedEffect

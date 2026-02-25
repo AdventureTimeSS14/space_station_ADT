@@ -23,6 +23,10 @@
     walkModifier: 0.9
     sprintModifier: 0.9
   - type: HeldSpeedModifier
+  # ADT-Tweak-Start
+  - type: HidesSlots
+    hidesSlots: [ INNERCLOTHING, GLOVES, LEGS, FEET, SOCKS, UNDERWEART, UNDERWEARB, POCKET ]
+  #ADT-Tweak-End
 
 - type: entity
   abstract: true
@@ -153,7 +157,7 @@
   - type: CoveredSlot
     slots: [innerclothing, gloves, feet, underwearb, underweart, socks]
   - type: HidesSlots
-    hidesSlots: [ INNERCLOTHING, GLOVES, LEGS, FEET, SOCKS, UNDERWEART, UNDERWEARB ]
+    hidesSlots: [ INNERCLOTHING, GLOVES, LEGS, FEET, SOCKS, UNDERWEART, UNDERWEARB, POCKET ]
   #ADT-Tweak-End
 
 - type: entity
@@ -190,6 +194,8 @@
   #ADT-Tweak-Start
   - type: CoveredSlot
     slots: [innerclothing, gloves, feet, underwearb, underweart, socks]
+  - type: HidesSlots
+    hidesSlots: [ INNERCLOTHING, GLOVES, LEGS, FEET, SOCKS, UNDERWEART, UNDERWEARB, POCKET ]
   #ADT-Tweak-End
 
 - type: entity

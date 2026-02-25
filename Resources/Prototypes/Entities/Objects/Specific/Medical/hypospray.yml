@@ -731,7 +731,7 @@
     exactVolume: true
   - type: Hypospray
     onlyAffectsMobs: false
-    drawTime: 1.25
+  #  drawTime: 1.25 // ADT-tweak
   - type: UseDelay
     delay: 0.25 #ADT Tweak 0.5>0.25
   - type: StaticPrice # A new shitcurity meta
