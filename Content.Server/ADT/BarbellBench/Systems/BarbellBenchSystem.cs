@@ -9,21 +9,18 @@ using Content.Shared.ADT.BarbellBench.Systems;
 using Content.Shared.ADT.Damage.Events;
 using Content.Shared.ADT.Silicon;
 using Content.Shared.Damage.Events;
-using Content.Shared.Audio;
 using Content.Shared.Alert;
 using Content.Shared.Buckle;
 using Content.Shared.Buckle.Components;
-using Content.Shared.Chat;
-using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Interaction;
-using Content.Shared.Interaction.Events;
 using Content.Shared.Inventory.VirtualItem;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Popups;
 using Robust.Shared.Player;
 using Content.Shared.Verbs;
+using Content.Shared.StatusEffectNew;
 using Content.Shared.Stunnable;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
@@ -47,6 +44,7 @@ public sealed class BarbellBenchSystem : SharedBarbellBenchSystem
     [Dependency] private readonly RespiratorSystem _respirator = default!;
     [Dependency] private readonly AlertsSystem _alerts = default!;
     [Dependency] private readonly SharedVirtualItemSystem _virtualItem = default!;
+    [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
 
     private readonly Dictionary<EntityUid, float> _playerPullStrength = new();
 
@@ -56,6 +54,8 @@ public sealed class BarbellBenchSystem : SharedBarbellBenchSystem
 
     private TimeSpan _nextSuffocationDamage = TimeSpan.Zero;
 
+    private const double PinDurationSeconds = 27;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -64,7 +64,6 @@ public sealed class BarbellBenchSystem : SharedBarbellBenchSystem
         SubscribeLocalEvent<BarbellBenchComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<BarbellBenchComponent, BarbellBenchPerformRepEvent>(OnPerformRep);
         SubscribeLocalEvent<BarbellBenchComponent, AttachableHolderAttachablesAlteredEvent>(OnAttachableAltered);
-        SubscribeLocalEvent<BarbellLiftComponent, UseInHandEvent>(OnBarbellUseInHand);
 
         SubscribeLocalEvent<BarbellPinnedComponent, UnbuckleAttemptEvent>(OnPinnedUnbuckleAttempt);
         SubscribeLocalEvent<BarbellPinnedComponent, UnbuckleAlertEvent>(OnPinnedUnbuckleAlert);
@@ -144,23 +143,6 @@ public sealed class BarbellBenchSystem : SharedBarbellBenchSystem
                 }
                 break;
         }
-    }
-
-    private void OnBarbellUseInHand(Entity<BarbellLiftComponent> ent, ref UseInHandEvent args)
-    {
-        if (args.Handled)
-            return;
-
-        var msg = Loc.GetString(ent.Comp.EmoteLoc, ("name", Name(args.User)));
-        _chat.TrySendInGameICMessage(args.User, msg, InGameICChatType.Emote, ChatTransmitRange.Normal,
-            ignoreActionBlocker: true, nameOverride: string.Empty);
-
-        var selfMsg = Loc.GetString(ent.Comp.EmoteLocSelf);
-        _popup.PopupEntity(selfMsg, args.User, args.User, PopupType.Medium);
-
-        _stamina.TakeStaminaDamage(args.User, ent.Comp.StaminaCost, source: args.User, with: ent.Owner, visual: true);
-
-        args.Handled = true;
     }
 
     private void OnStartup(EntityUid uid, BarbellBenchComponent component, ComponentStartup args)
@@ -341,11 +323,12 @@ public sealed class BarbellBenchSystem : SharedBarbellBenchSystem
 
         var pinnedComp = EnsureComp<BarbellPinnedComponent>(uid);
         pinnedComp.Bench = buckle.BuckledTo;
+        pinnedComp.PinnedAt = _gameTiming.CurTime;
         Dirty(uid, pinnedComp);
 
         if (TryComp<StaminaComponent>(uid, out var staminaComp))
         {
-            staminaComp.StunTime = TimeSpan.FromSeconds(30);
+            staminaComp.StunTime = TimeSpan.FromSeconds(PinDurationSeconds);
             Dirty(uid, staminaComp);
         }
 
@@ -410,33 +393,19 @@ public sealed class BarbellBenchSystem : SharedBarbellBenchSystem
             return;
         }
 
-        var canUnbuckle = false;
-        if (TryComp<KnockedDownComponent>(uid, out var knockedDownOther))
+        if (component.Bench != null && Exists(component.Bench) && TryComp<BarbellBenchComponent>(component.Bench, out var benchOther)
+            && component.Bench.HasValue && Container.TryGetContainer(component.Bench.Value, benchOther.BarbellSlotId, out var barbellContainerOther) && barbellContainerOther.Count > 0)
         {
-            canUnbuckle = knockedDownOther.NextUpdate <= _gameTiming.CurTime;
-        }
-
-        if (!canUnbuckle)
-        {
-            if (component.Bench != null && Exists(component.Bench))
-            {
-                if (TryComp<BarbellBenchComponent>(component.Bench, out var bench))
-                {
-                    if (component.Bench.HasValue && Container.TryGetContainer(component.Bench.Value, bench.BarbellSlotId, out var barbellContainer) && barbellContainer.Count > 0)
-                    {
-                        args.Cancelled = true;
-                        if (args.Popup)
-                        {
-                            _popup.PopupEntity(Loc.GetString("barbell-bench-cannot-unbuckle"), uid, args.User ?? uid, PopupType.MediumCaution);
-                        }
-                        return;
-                    }
-                }
-            }
+            var barbellEnt = barbellContainerOther.ContainedEntities[0];
+            _virtualItem.DeleteInHandsMatching(uid, barbellEnt);
         }
 
         RemComp<BarbellPinnedComponent>(uid);
         RemComp<ActiveBarbellPinnedComponent>(uid);
+
+        _stamina.ExitStamCrit(uid);
+        _statusEffects.TryRemoveStatusEffect(uid, SharedStunSystem.StunId);
+        RemComp<KnockedDownComponent>(uid);
     }
 
     private void OnPinnedInteractHand(EntityUid uid, BarbellPinnedComponent component, ref InteractHandEvent args)
@@ -452,7 +421,7 @@ public sealed class BarbellBenchSystem : SharedBarbellBenchSystem
             if (!stunPassed)
             {
                 args.Handled = true;
-                _popup.PopupEntity(Loc.GetString("barbell-bench-cannot-unbuckle"), uid, uid, PopupType.MediumCaution);
+                _popup.PopupEntity(Loc.GetString("barbell-bench-pinned"), uid, uid, PopupType.MediumCaution);
             }
         }
     }
@@ -572,14 +541,16 @@ public sealed class BarbellBenchSystem : SharedBarbellBenchSystem
                     }
                 }
 
-                // Проверяем, снята ли штанга
+                var pinDuration = TimeSpan.FromSeconds(PinDurationSeconds);
+                var suffocationActive = (curTime - pinned.PinnedAt) < pinDuration;
+
                 if (pinned.Bench != null && Exists(pinned.Bench))
                 {
                     if (TryComp<BarbellBenchComponent>(pinned.Bench, out var bench))
                     {
                         if (pinned.Bench.HasValue && Container.TryGetContainer(pinned.Bench.Value, bench.BarbellSlotId, out var barbellContainer) && barbellContainer.Count > 0)
                         {
-                            if (TryComp<RespiratorComponent>(uid, out var respirator))
+                            if (suffocationActive && TryComp<RespiratorComponent>(uid, out var respirator))
                             {
                                 _respirator.UpdateSaturation(uid, -2f, respirator);
 
