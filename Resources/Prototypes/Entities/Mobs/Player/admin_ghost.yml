@@ -109,7 +109,6 @@
   - type: Loadout
     prototypes: [ MobAghostGear ]
   - type: BypassInteractionChecks
-  - type: BypassHidesSlots # ADT-Tweak
   - type: ExplosionResistance
     damageCoefficient: 0
   # Corvax-Start
