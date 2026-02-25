@@ -15,10 +15,6 @@
     - MonkeyWearable
     - CorgiWearable
     - WhitelistChameleon
-  #ADT-Tweak-Start
-  - type: HidesSlots
-    hidesSlots: [ POCKET, INNERCLOTHING, GLOVES, LEGS, FEET, SOCKS ]
-  #ADT-Tweak-End
 
 #Syndicate EVA
 - type: entity
