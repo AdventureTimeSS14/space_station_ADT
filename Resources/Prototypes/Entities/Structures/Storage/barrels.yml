@@ -386,8 +386,9 @@
     maxFillLevels: 5
     fillBaseName: "fill-"
     solutionName: tank
-  - type: Drink
+  - type: Edible
     solution: tank
+    utensil: None
   - type: MixableSolution
     solution: tank
   - type: SolutionTransfer

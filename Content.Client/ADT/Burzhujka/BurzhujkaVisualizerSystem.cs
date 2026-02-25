@@ -2,7 +2,6 @@ using Content.Shared.ADT.Burzhujka;
 using Content.Shared.Atmos;
 using Content.Shared.Nutrition.Components;
 using Robust.Client.GameObjects;
-using Robust.Shared.GameStates;
 
 namespace Content.Client.ADT.Burzhujka;
 
@@ -13,19 +12,9 @@ public sealed class BurzhujkaVisualizerSystem : VisualizerSystem<BurzhujkaVisual
         base.Initialize();
 
         SubscribeLocalEvent<BurzhujkaVisualizerComponent, ComponentStartup>(OnStartup);
-        SubscribeLocalEvent<BurzhujkaVisualizerComponent, AfterAutoHandleStateEvent>(OnAfterHandleState);
     }
 
     private void OnStartup(EntityUid uid, BurzhujkaVisualizerComponent comp, ComponentStartup args)
-    {
-        if (!TryComp<SpriteComponent>(uid, out var sprite))
-            return;
-
-        var opened = TryComp<OpenableComponent>(uid, out var openable) && openable.Opened;
-        UpdateVisuals(uid, sprite, opened);
-    }
-
-    private void OnAfterHandleState(EntityUid uid, BurzhujkaVisualizerComponent comp, ref AfterAutoHandleStateEvent args)
     {
         if (!TryComp<SpriteComponent>(uid, out var sprite))
             return;

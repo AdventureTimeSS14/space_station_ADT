@@ -112,10 +112,11 @@
           Quantity: 10000
   - type: DrainableSolution
     solution: tank
-  - type: Drink
+  - type: Edible
     solution: tank
     transferAmount: 5
     delay: 1
+    utensil: None
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: Metallic
@@ -328,11 +329,12 @@
         maxVol: 10000
   - type: DrainableSolution
     solution: tank
-  - type: Drink
+  - type: Edible
     solution: tank
     transferAmount: 5
     delay: 1
-    ignoreEmpty: true
+    destroyOnEmpty: false
+    utensil: None
 
 - type: entity
   id: ADTCableReel

@@ -1,7 +1,6 @@
 using Content.Shared.ADT.Mangal;
 using Content.Shared.Atmos;
 using Robust.Client.GameObjects;
-using Robust.Shared.GameStates;
 
 namespace Content.Client.ADT.Mangal;
 
@@ -12,18 +11,9 @@ public sealed class MangalVisualizerSystem : VisualizerSystem<MangalVisualizerCo
         base.Initialize();
 
         SubscribeLocalEvent<MangalVisualizerComponent, ComponentStartup>(OnStartup);
-        SubscribeLocalEvent<MangalVisualizerComponent, AfterAutoHandleStateEvent>(OnAfterHandleState);
     }
 
     private void OnStartup(EntityUid uid, MangalVisualizerComponent comp, ComponentStartup args)
-    {
-        if (!TryComp<SpriteComponent>(uid, out var sprite))
-            return;
-
-        UpdateVisuals(uid, sprite);
-    }
-
-    private void OnAfterHandleState(EntityUid uid, MangalVisualizerComponent comp, ref AfterAutoHandleStateEvent args)
     {
         if (!TryComp<SpriteComponent>(uid, out var sprite))
             return;

@@ -1,6 +1,7 @@
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Stack;
 using Content.Shared.ADT.Fuel;
+using Content.Shared.Atmos.Components;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
 using Content.Shared.Materials;
@@ -141,7 +142,7 @@ public sealed class FuelableSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        var query = EntityQueryEnumerator<FuelableComponent, Content.Server.Atmos.Components.FlammableComponent>();
+        var query = EntityQueryEnumerator<FuelableComponent, FlammableComponent>();
         while (query.MoveNext(out var uid, out var fuelable, out var flammable))
         {
             if (fuelable.FuelSeconds <= 0f)
@@ -177,7 +178,7 @@ public sealed class FuelableSystem : EntitySystem
 
     private void UpdateFireStacksFromFuel(Entity<FuelableComponent> ent)
     {
-        if (!TryComp(ent, out Content.Server.Atmos.Components.FlammableComponent? flammable))
+        if (!TryComp(ent, out FlammableComponent? flammable))
             return;
 
         _flammable.SetFireStacks(ent, FuelToFireStacks(ent.Comp), flammable);
@@ -185,7 +186,7 @@ public sealed class FuelableSystem : EntitySystem
 
     private void UpdateLight(Entity<FuelableComponent> ent)
     {
-        if (!TryComp(ent, out Content.Server.Atmos.Components.FlammableComponent? flammable))
+        if (!TryComp(ent, out FlammableComponent? flammable))
             return;
 
         if (!_pointLight.TryGetLight(ent, out var pointLight))
