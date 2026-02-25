@@ -20,6 +20,7 @@
       species:
       - Resomi
       - Vox
+      - Shadekin
   weight: 15
   startingGear: ADTBlueShieldOfficerGear
   icon: "JobIconADTBlueShieldOfficer"
