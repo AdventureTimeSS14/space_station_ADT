@@ -29,7 +29,7 @@ public abstract partial class SharedStampHitSystem : EntitySystem
         }
     }
 
-    public void RemoveStamps(Entity<StampedEntityComponent> ent)
+    public static void RemoveStamps(Entity<StampedEntityComponent> ent)
     {
         ent.Comp.StampToEntity.Clear();
     }
