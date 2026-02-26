@@ -10,9 +10,6 @@
     rules: ghost-role-information-pirate-rules
     mindRoles:
     - MindRoleGhostRoleTeamAntagonist
-    requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 54000 # 15h
   - type: GhostRoleMobSpawner
     prototype: ADTMobSkeletonPirate
   - type: Sprite
@@ -34,9 +31,6 @@
     rules: ghost-role-information-captain-pirate-rules
     mindRoles:
     - MindRoleGhostRoleTeamAntagonist
-    requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 54000 # 15h
   - type: GhostRoleMobSpawner
     prototype: ADTMobSkeletonCaptainPirate
   - type: Sprite
@@ -58,9 +52,9 @@
     rules: ghost-role-information-pirate-firstmate-rules
     mindRoles:
     - MindRoleGhostRoleTeamAntagonist
-    requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 54000 # 15h
+    # requirements:
+    # - !type:OverallPlaytimeRequirement # Удалили
+    #   time: 54000 # 15h
   - type: GhostRoleMobSpawner
     prototype: ADTMobSkeletonFirstmatePirate
   - type: Sprite
@@ -234,9 +228,9 @@
     rules: ghost-role-information-morph-rules
     mindRoles:
     - MindRoleGhostRoleTeamAntagonist
-    requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 54000 # 15h
+    # requirements:
+    # - !type:OverallPlaytimeRequirement # Удалили
+    #   time: 54000 # 15h
   - type: Sprite
     layers:
     - state: green
@@ -272,9 +266,9 @@
       settings: default
     mindRoles:
     - MindRoleGhostRoleTeamAntagonist
-    requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 54000 # 15h
+    # requirements:
+    # - !type:OverallPlaytimeRequirement # Удалили
+    #   time: 54000 # 15h
   - type: GhostRoleMobSpawner
     prototype: ADTMobVoxRaider
   - type: Sprite
@@ -294,9 +288,9 @@
     rules: ghost-role-information-ianhero-rules
     raffle:
       settings: default
-    requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 54000 # 15h
+    # requirements:
+    # - !type:OverallPlaytimeRequirement # Удалили
+    #   time: 54000 # 15h
   - type: GhostRoleMobSpawner
     prototype: ADTMobIanHero
   - type: Sprite
@@ -316,9 +310,9 @@
     rules: ghost-role-information-DrPolymorph-rules
     raffle:
       settings: default
-    requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 54000 # 15h
+    # requirements:
+    # - !type:OverallPlaytimeRequirement # Удалили
+    #   time: 54000 # 15h
   - type: GhostRoleMobSpawner
     prototype: ADTMobDrPolymorph
   - type: Sprite
@@ -338,9 +332,9 @@
     rules: ghost-role-information-EvilBot-rules
     raffle:
       settings: default
-    requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 54000 # 15h
+    # requirements:
+    # - !type:OverallPlaytimeRequirement # Удалили
+    #   time: 54000 # 15h
   - type: GhostRoleMobSpawner
     prototype: ADTMobEvilBot
   - type: Sprite

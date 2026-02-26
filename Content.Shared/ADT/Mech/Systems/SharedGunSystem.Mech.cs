@@ -130,7 +130,8 @@ public abstract partial class SharedGunSystem
                 var entBattery = Spawn(battery.Prototype, coordinates);
                 return (entBattery, EnsureShootable(entBattery));
             case HitscanMechAmmoProviderComponent hitscan:
-                return (null, ProtoManager.Index(hitscan.Proto));
+                var entHitscan = Spawn(hitscan.Proto, coordinates);
+                return (entHitscan, EnsureShootable(entHitscan));
             default:
                 throw new ArgumentOutOfRangeException();
         }

@@ -39,6 +39,9 @@ public sealed partial class MiningVoucherComponent : Component
     [DataField]
     public SoundSpecifier? RedeemSound = new SoundPathSpecifier("/Audio/Machines/twobeep.ogg");
 
+    [DataField, AutoNetworkedField]
+    public SoundSpecifier? UseSound;
+
     [DataField]
     public MiningVoucherTypeDrop TypeDrop = MiningVoucherTypeDrop.Default;
 
@@ -64,5 +67,6 @@ public enum MiningVoucherTypeDrop : byte
 public enum MiningVoucherTypeDropPlace : byte
 {
     Default,
-    ThisPlace
+    ThisPlace,
+    InHands
 }

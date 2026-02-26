@@ -5,6 +5,7 @@
     xmlns:hotbar="clr-namespace:Content.Client.UserInterface.Systems.Hotbar.Widgets"
     xmlns:graphics="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
     xmlns:mapping="clr-namespace:Content.Client.Mapping"
+    xmlns:adt="clr-namespace:Content.Client.ADT.UserInterface.Controls"
     VerticalExpand="False"
     VerticalAlignment="Bottom"
     HorizontalAlignment="Center">
@@ -16,7 +17,7 @@
             <BoxContainer Name="DecalContainer" Access="Public" Orientation="Horizontal"
                           Visible="False">
                 <BoxContainer Orientation="Vertical" HorizontalExpand="True">
-                    <ColorSelectorSliders Name="DecalColorPicker" IsAlphaVisible="True" />
+                    <adt:LegacyColorSelectorSliders Name="DecalColorPicker" IsAlphaVisible="True" /> <!-- ADT-Tweak - ColorSelectorSliders -> LegacyColorSelectorSliders -->
                     <Button Name="DecalPickerOpen" Text="{Loc decal-placer-window-palette}"
                             StyleClasses="ButtonSquare" />
                 </BoxContainer>

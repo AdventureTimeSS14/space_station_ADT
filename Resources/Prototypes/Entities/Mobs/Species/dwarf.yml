@@ -21,9 +21,7 @@
     damageRecovery:
       types:
         Asphyxiation: -1.0
-  - type: Sprite
-    noRot: true
-    drawdepth: Mobs
+  - type: ScaleVisuals
     scale: 1, 0.8
   - type: Body
     prototype: Dwarf
@@ -80,32 +78,6 @@
     languages:
       GalacticCommon: Speak
       Dwarf: Speak
-  - type: Puller  # дварфы мелкие, потому так
-    grabStats:
-      None:
-        requiredHands: 1
-        doaftersToEscape: 0
-        movementSpeedModifier: 0.8
-        escapeAttemptTime: 0
-        setStageTime: 0
-      Soft:
-        requiredHands: 1
-        doaftersToEscape: 1
-        movementSpeedModifier: 0.7
-        escapeAttemptTime: 1.1
-        setStageTime: 0
-      Hard:
-        requiredHands: 2
-        doaftersToEscape: 2
-        movementSpeedModifier: 0.6
-        escapeAttemptTime: 1
-        setStageTime: 0.75
-      Choke:
-        requiredHands: 2
-        doaftersToEscape: 2
-        movementSpeedModifier: 0.55
-        escapeAttemptTime: 1.25
-        setStageTime: 1.25
   # ADT tweak end
 
 - type: entity
@@ -113,7 +85,7 @@
   id: MobDwarfDummy
   categories: [ HideSpawnMenu ]
   components:
-  - type: Sprite
+  - type: ScaleVisuals
     scale: 1, 0.8
   - type: Inventory
     femaleDisplacements:

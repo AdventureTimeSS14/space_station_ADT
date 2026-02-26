@@ -21,6 +21,7 @@
     sizeOpened: Normal
     sizeClosed: Small
   - type: MeleeWeapon
+    soundHit: "/Audio/ADT/Weapons/Melee/bat.ogg"
     damage:
       types:
         Blunt: 2.4

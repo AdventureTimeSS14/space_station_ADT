@@ -12,7 +12,7 @@
   components:
   - type: Item
     storedRotation: -90
-  - type: Food
+  - type: Edible
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/meals.rsi
   - type: SolutionContainerManager
@@ -203,7 +203,7 @@
       - vegetables
       - meaty
       - magical
-  - type: Food
+  - type: Edible
     transferAmount: 5
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/meals.rsi
@@ -237,7 +237,7 @@
       - vegetables
       - meaty
       - magical
-  - type: Food
+  - type: Edible
     transferAmount: 5
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/meals.rsi
@@ -266,7 +266,7 @@
       - meaty
       - cheesy
       - magical
-  - type: Food
+  - type: Edible
     transferAmount: 5
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/meals.rsi

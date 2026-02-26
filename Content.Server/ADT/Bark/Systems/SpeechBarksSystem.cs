@@ -7,18 +7,17 @@ using Content.Server.Mind;
 using Robust.Shared.Player;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
+using Content.Shared.Chat;
 
 namespace Content.Server.ADT.SpeechBarks;
 
-public sealed class SpeechBarksSystem : SharedSpeechBarksSystem
+public sealed class SpeechBarksSystem : EntitySystem
 {
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly MindSystem _mind = default!;
     [Dependency] private readonly ISharedPlayerManager _player = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
     private bool _isEnabled = false;
 
     public override void Initialize()
@@ -40,6 +39,7 @@ public sealed class SpeechBarksSystem : SharedSpeechBarksSystem
 
         var message = args.ObfuscatedMessage ?? args.Message;
         var soundSpecifier = ev.Data.Sound ?? _proto.Index(ev.Data.Proto).Sound;
+        var isWhisper = args.ObfuscatedMessage != null; // Определяем, был ли это шепот
 
         foreach (var ent in _lookup.GetEntitiesInRange(Transform(uid).Coordinates, 10f))
         {
@@ -53,7 +53,7 @@ public sealed class SpeechBarksSystem : SharedSpeechBarksSystem
                         ev.Data.Pitch,
                         ev.Data.MinVar,
                         ev.Data.MaxVar,
-                        args.Whisper), session);
+                        isWhisper), session);
         }
     }
 }

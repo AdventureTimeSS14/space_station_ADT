@@ -28,3 +28,39 @@
     Glass: 1000
     Steel: 500
     Gold: 500
+
+- type: latheRecipe
+  id: ADTBotanistBagOfHolding
+  result: ADTBotanistBagOfHolding
+  completetime: 5
+  materials:
+    Steel: 2000
+    Silver: 750
+    Plasma: 1500
+    Uranium: 150
+    ADTBScrystal: 500
+
+- type: latheRecipe
+  id: ADTWateringCan
+  result: ADTWateringCan
+  completetime: 5
+  materials:
+    Steel: 1450
+    Glass: 1100
+
+- type: latheRecipe
+  id: ADTAdvancedWateringCan
+  result: ADTAdvancedWateringCan
+  completetime: 5
+  materials:
+    Steel: 1450
+    Glass: 1100
+    Silver: 1050
+
+- type: latheRecipe
+  id: ADTBotanicalSeedDNADisk
+  result: ADTBotanicalSeedDNADisk
+  completetime: 4
+  materials:
+    Steel: 500
+    Plastic: 100

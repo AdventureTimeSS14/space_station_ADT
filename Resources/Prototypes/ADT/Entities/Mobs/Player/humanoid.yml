@@ -57,9 +57,6 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
-      requirements:
-      - !type:OverallPlaytimeRequirement
-        time: 180000 # 50h #
     - type: Loadout
       prototypes: [ ADTERTLeaderGear ]
     - type: RandomMetadata
@@ -78,9 +75,6 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
-      requirements:
-      - !type:OverallPlaytimeRequirement
-        time: 180000 # 50h #
     - type: Loadout
       prototypes: [ ADTERTLeaderGearEVA ]
 
@@ -106,9 +100,6 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
-      requirements:
-      - !type:OverallPlaytimeRequirement
-        time: 180000 # 50h #
     - type: Loadout
       prototypes: [ ADTERTLeaderGearEVARiot ]
 
@@ -160,9 +151,6 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
-      requirements:
-      - !type:OverallPlaytimeRequirement
-        time: 180000 # 50h #
     - type: RandomMetadata
       nameSegments:
       - NamesFirstERTEngineer
@@ -193,9 +181,6 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
-      requirements:
-      - !type:OverallPlaytimeRequirement
-        time: 180000 # 50h #
     - type: Loadout
       prototypes: [ ADTERTJanitorGearEVA ]
 
@@ -221,9 +206,6 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
-      requirements:
-      - !type:OverallPlaytimeRequirement
-        time: 180000 # 50h #
     - type: Loadout
       prototypes: [ ADTERTJanitorGearEVARiot ]
 
@@ -275,9 +257,6 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
-      requirements:
-      - !type:OverallPlaytimeRequirement
-        time: 180000 # 50h #
     - type: RandomMetadata
       nameSegments:
       - NamesFirstERTEngineer
@@ -308,9 +287,6 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
-      requirements:
-      - !type:OverallPlaytimeRequirement
-        time: 180000 # 50h #
     - type: Loadout
       prototypes: [ ADTERTEngineerGearEVA ]
 
@@ -336,9 +312,6 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
-      requirements:
-      - !type:OverallPlaytimeRequirement
-        time: 180000 # 50h
     - type: Loadout
       prototypes: [ ADTERTEngineerGearEVARiot ]
 
@@ -390,9 +363,6 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
-      requirements:
-      - !type:OverallPlaytimeRequirement
-        time: 180000 # 50h
     - type: RandomMetadata
       nameSegments:
       - NamesFirstERTMilitary
@@ -423,9 +393,6 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
-      requirements:
-      - !type:OverallPlaytimeRequirement
-        time: 180000 # 50h
     - type: Loadout
       prototypes: [ ADTERTSecurityGearEVA ]
 
@@ -447,9 +414,6 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
-      requirements:
-      - !type:OverallPlaytimeRequirement
-        time: 180000 # 50h
     - type: Loadout
       prototypes: [  ADTERTSecurityGearEVARiot ]
 
@@ -501,9 +465,6 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
-      requirements:
-      - !type:OverallPlaytimeRequirement
-        time: 180000 # 50h
     - type: RandomMetadata
       nameSegments:
       - NamesFirstERTMedical
@@ -534,9 +495,6 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
-      requirements:
-      - !type:OverallPlaytimeRequirement
-        time: 180000 # 50h
     - type: Loadout
       prototypes: [ ADTERTMedicalGearEVA ]
 
@@ -562,9 +520,6 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
-      requirements:
-      - !type:OverallPlaytimeRequirement
-        time: 180000 # 50h
     - type: Loadout
       prototypes: [ ADTERTMedicalGearEVARiot ]
 
@@ -613,17 +568,6 @@
       description: ghost-role-information-cmnd-cburn-agent-description
       raffle:
         settings: short
-      # ADT-tweak-start
-      requirements:
-      - !type:DepartmentTimeRequirement
-        department: Medical
-        time: 18000 # 5h
-      - !type:DepartmentTimeRequirement
-        department: Security
-        time: 36000 # 10h
-      - !type:OverallPlaytimeRequirement
-        time: 90000 # ADT tweak 10h > 25h
-      # ADT-Tweak-end
     - type: GhostTakeoverAvailable
     - type: RandomMetadata
       nameSegments:

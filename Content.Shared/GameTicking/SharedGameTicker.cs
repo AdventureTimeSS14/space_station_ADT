@@ -7,6 +7,8 @@ using Robust.Shared.Serialization.Markdown.Mapping;
 using Robust.Shared.Serialization.Markdown.Value;
 using Robust.Shared.Timing;
 using Robust.Shared.Audio;
+using Content.Shared.Mobs;
+using Content.Shared.FixedPoint;
 
 namespace Content.Shared.GameTicking
 {
@@ -14,6 +16,12 @@ namespace Content.Shared.GameTicking
     {
         [Dependency] private readonly IReplayRecordingManager _replay = default!;
         [Dependency] private readonly IGameTiming _gameTiming = default!;
+
+        /// <summary>
+        ///     A list storing the start times of all game rules that have been started this round.
+        ///     Game rules can be started and stopped at any time, including midround.
+        /// </summary>
+        public abstract IReadOnlyList<(TimeSpan, string)> AllPreviousGameRules { get; }
 
         // See ideally these would be pulled from the job definition or something.
         // But this is easier, and at least it isn't hardcoded.
@@ -184,6 +192,14 @@ namespace Content.Shared.GameTicking
             public bool Observer;
 
             public bool Connected;
+
+            //ADT-tweak-start
+            public string? LastWords;
+
+            public MobState EntMobState;
+
+            public Dictionary<string, FixedPoint2> DamagePerGroup;
+            //ADT-tweak-end
         }
 
         public string GamemodeTitle { get; }

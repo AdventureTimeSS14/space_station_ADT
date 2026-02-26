@@ -1,0 +1,25 @@
+- type: entity
+  parent: BaseItem
+  id: ADTReveredWhistle
+  name: revered whistle
+  description: A whistle awarded for brave and long service in the ranks of the security service.
+  components:
+  - type: Item
+    sprite: ADT/Objects/Fun/revered_whistle.rsi
+    size: Tiny
+  - type: Sprite
+    sprite: ADT/Objects/Fun/revered_whistle.rsi
+    state: revered
+    scale: 0.6, 0.6
+  - type: Clothing
+    sprite: ADT/Objects/Fun/revered_whistle.rsi
+    equippedPrefix: revered
+    quickEquip: false
+    slots: neck
+  - type: UseDelay
+    delay: 3
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/ADT/Misc/revered_whistle.ogg
+  - type: Whistle
+    distance: 10

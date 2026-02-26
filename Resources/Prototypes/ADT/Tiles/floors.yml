@@ -563,3 +563,106 @@
     collection: FootstepFloor
   itemDrop: FloorTileItemSteel
   heatCapacity: 10000
+
+- type: tile
+  id: ADTFloorCarpetLiminal
+  name: adt-tiles-liminal-carpet-floor
+  sprite: /Textures/ADT/Tiles/carpetliminal.png
+  baseTurf: Plating
+  isSubfloor: false
+  footstepSounds:
+    collection: FootstepCarpet
+  barestepSounds:
+    collection: BarestepCarpet
+  heatCapacity: 10000
+  indestructible: true
+
+- type: tile
+  id: ADTFloorAdminWhite
+  name: adt-tiles-admin-white-floor
+  sprite: /Textures/ADT/Tiles/adminwhite.png
+  baseTurf: Plating
+  isSubfloor: false
+  heatCapacity: 10000
+  indestructible: true
+
+- type: tile
+  id: ADTPlatingAdminWhite
+  name: adt-tiles-admin-white-plating
+  sprite: /Textures/ADT/Tiles/adminwhite.png
+  baseTurf: Lattice
+  isSubfloor: true
+  heatCapacity: 10000
+  indestructible: true
+
+- type: tile
+  id: ADTFloorAdminBlack
+  name: adt-tiles-admin-black-floor
+  sprite: /Textures/ADT/Tiles/adminblack.png
+  baseTurf: Plating
+  isSubfloor: false
+  heatCapacity: 10000
+  indestructible: true
+
+- type: tile
+  id: ADTPlatingAdminBlack
+  name: adt-tiles-admin-black-plating
+  sprite: /Textures/ADT/Tiles/adminblack.png
+  baseTurf: Lattice
+  isSubfloor: true
+  heatCapacity: 10000
+  indestructible: true
+
+- type: tile
+  id: ADTFloorAdminGrassRealistic
+  name: adt-tiles-admin-grass-realistic-floor
+  sprite: /Textures/ADT/Tiles/grass_realistic.png
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  baseTurf: FloorDirt
+  isSubfloor: true
+  footstepSounds:
+    collection: FootstepGrass
+  heatCapacity: 10000
+  weather: true
+  indestructible: true
+
+- type: tile
+  id: ADTFloorAdminGrassRealisticLight
+  name: adt-tiles-admin-grass-realistic-light-floor
+  sprite: /Textures/ADT/Tiles/grass_realistic_light.png
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  baseTurf: FloorDirt
+  isSubfloor: true
+  footstepSounds:
+    collection: FootstepGrass
+  heatCapacity: 10000
+  weather: true
+  indestructible: true
+
+- type: tile
+  id: ADTFloorAdminGrassRealisticDark
+  name: adt-tiles-admin-grass-realistic-dark-floor
+  sprite: /Textures/ADT/Tiles/grass_realistic_dark.png
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  baseTurf: FloorDirt
+  isSubfloor: true
+  footstepSounds:
+    collection: FootstepGrass
+  heatCapacity: 10000
+  weather: true
+  indestructible: true

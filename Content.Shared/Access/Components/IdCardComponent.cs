@@ -1,4 +1,5 @@
 using Content.Shared.Access.Systems;
+using Content.Shared.ADT.AlertAccessLevel;
 using Content.Shared.PDA;
 using Content.Shared.Roles;
 using Content.Shared.StatusIcon;
@@ -9,7 +10,7 @@ namespace Content.Shared.Access.Components;
 
 [RegisterComponent, NetworkedComponent]
 [AutoGenerateComponentState]
-[Access(typeof(SharedIdCardSystem), typeof(SharedPdaSystem), typeof(SharedAgentIdCardSystem), Other = AccessPermissions.ReadWrite)]
+[Access(typeof(SharedIdCardSystem), typeof(SharedPdaSystem), typeof(SharedAgentIdCardSystem), typeof(SharedAlertAccessLevel), Other = AccessPermissions.ReadWrite)] //ADT-tweak: добавила typeof(SharedAlertAccessLevel)
 public sealed partial class IdCardComponent : Component
 {
     [DataField]
@@ -41,7 +42,7 @@ public sealed partial class IdCardComponent : Component
     /// </summary>
     [DataField]
     [AutoNetworkedField]
-    public ProtoId<AccessLevelPrototype>? JobPrototype;
+    public ProtoId<JobPrototype>? JobPrototype;
 
     /// <summary>
     /// The proto IDs of the departments associated with the job

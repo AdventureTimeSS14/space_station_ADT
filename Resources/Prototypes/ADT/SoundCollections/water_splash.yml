@@ -1,0 +1,6 @@
+- type: soundCollection
+  id: WaterSplashSounds
+  files:
+  - /Audio/ADT/Effects/Water/heavy-water-splash.ogg
+  - /Audio/ADT/Effects/Water/mario-splash.ogg
+  - /Audio/ADT/Effects/Water/ejectsplash-mp3cut.ogg

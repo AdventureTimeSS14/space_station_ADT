@@ -8,6 +8,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Content.Server.Chat.Systems;
 using Content.Shared.Administration.Logs;
+using Content.Shared.Chat;
 
 namespace Content.Server.ADT.Hallucinations;
 

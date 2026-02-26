@@ -106,15 +106,21 @@
       - id: ToyFigurineNukieCommander
         prob: 0.50
         orGroup: SpacemenFig
-      - id: ToyGriffin
+      - id: ToyFigurineGriffin
         prob: 0.50
         orGroup: SpacemenFig
-      - id: ToyOwlman
+      - id: ToyFigurineOwlman
         prob: 0.50
         orGroup: SpacemenFig
-      - id: ToySkeleton
+      - id: ToyFigurineSkeleton
         prob: 0.50
         orGroup: SpacemenFig
+      - id: ToyFigurineSkeleton
+        prob: 0.50
+        orGroup: SpacemenFig
+      - id: ToyFigurineThief
+        prob: 0.30
+        orgroup: SpacemenFig
       - id: ToyFigurineRatKing
         prob: 0.30
         orGroup: SpacemenFig
@@ -133,8 +139,22 @@
       - id: ToyFigurineHamlet
         prob: 0.20
         orGroup: SpacemenFig
-      - id: ADTToyFigurineBlueshieldOfficer  #ADT-Tweak
+      #ADT-Tweak-start
+      - id: ADTToyFigurineBlueshieldOfficer
+        prob: 0.20
         orGroup: SpacemenFig
+      - id: ToyFigurineBrigmedic  
+        orGroup: SpacemenFig
+      - id: ToyFigurineCCC  
+        prob: 0.20
+        orGroup: SpacemenFig
+      - id: ToyFigurineCentcomOfficial  
+        prob: 0.10
+        orGroup: SpacemenFig
+      - id: ToyFigurineCentcomIntern
+        prob: 0.05
+        orGroup: SpacemenFig
+       #ADT-Tweak-end
 
 - type: entity
   parent: BaseItem

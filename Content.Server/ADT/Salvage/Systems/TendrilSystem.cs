@@ -87,27 +87,21 @@ public sealed class TendrilSystem : EntitySystem
         var coords = Transform(uid).Coordinates;
         Robust.Shared.Timing.Timer.Spawn(TimeSpan.FromSeconds(comp.ChasmDelay), () =>
         {
-            SpawnChasm(coords, comp.ChasmRadius);
+            SpawnChasm(coords, 2);
         });
     }
 
     private void SpawnChasm(EntityCoordinates coords, int radius)
     {
-        Spawn("FloorChasmEntity", coords);
-        for (var i = 1; i <= radius; i++)
+        for (var dx = -radius; dx <= radius; dx++)
         {
-            // ЁБаный щиткод, но я не знаю, как иначе
-            Spawn("FloorChasmEntity", new EntityCoordinates(coords.EntityId, coords.X + i, coords.Y));
-            Spawn("FloorChasmEntity", new EntityCoordinates(coords.EntityId, coords.X - i, coords.Y));
-            Spawn("FloorChasmEntity", new EntityCoordinates(coords.EntityId, coords.X, coords.Y + i));
-            Spawn("FloorChasmEntity", new EntityCoordinates(coords.EntityId, coords.X, coords.Y - i));
-            Spawn("FloorChasmEntity", new EntityCoordinates(coords.EntityId, coords.X + i, coords.Y + i));
-            Spawn("FloorChasmEntity", new EntityCoordinates(coords.EntityId, coords.X - i, coords.Y + i));
-            Spawn("FloorChasmEntity", new EntityCoordinates(coords.EntityId, coords.X + i, coords.Y - i));
-            Spawn("FloorChasmEntity", new EntityCoordinates(coords.EntityId, coords.X - i, coords.Y - i));
+            for (var dy = -radius; dy <= radius; dy++)
+            {
+                Spawn("FloorChasmEntity", new EntityCoordinates(coords.EntityId, coords.X + dx, coords.Y + dy));
+            }
         }
-
     }
+
     private void OnMobState(EntityUid uid, TendrilMobComponent comp, MobStateChangedEvent args)
     {
         if (args.NewMobState != MobState.Dead)

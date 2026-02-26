@@ -9,6 +9,7 @@
   - Drinks
   - FoodRecipes
   - Writing
+  - Lawsets
 
   # ADT-Tweak Start
 - type: guideEntry
@@ -36,6 +37,7 @@
   text: "/ServerInfo/ADT/Guidebook/Service/FoodRecipes.xml"
   filterEnabled: True
   children:
+  - BaseRecipes #ADT-Tweak
   - PizzaRecipes
   - SavoryRecipes
   - BreadRecipes
@@ -48,10 +50,20 @@
   - BarsAndCookiesRecipes
   - CakeRecipes
   - SaladRecipes
-  - HolidayRecipes  #ADT-Tweak
+  #ADT-Tweak-Start
+  - IcecreamRecipes
+  - HolidayRecipes
+  #ADT-Tweak-End
   - OtherRecipes
 # - MedicinalRecipes
   - SecretRecipes
+
+#ADT-Tweak Start
+- type: guideEntry
+  id: BaseRecipes
+  name: guide-entry-base-recipes
+  text: "/ServerInfo/ADT/Guidebook/Service/BaseRecipes.xml"
+#ADT-Tweak End
 
 - type: guideEntry
   id: PizzaRecipes
@@ -127,6 +139,12 @@
 
 #ADT-Tweak Start
 - type: guideEntry
+  id: IcecreamRecipes
+  name: guide-entry-icecream-recipes
+  text: "/ServerInfo/ADT/Guidebook/Service/IcecreamRecipes.xml"
+  filterEnabled: True
+
+- type: guideEntry
   id: HolidayRecipes
   name: guide-entry-holiday-recipes
   text: "/ServerInfo/ADT/Guidebook/Service/HolidayRecipes.xml"
@@ -156,3 +174,8 @@
   name: guide-entry-writing
   text: "/ServerInfo/Guidebook/Writing.xml"
 
+- type: guideEntry
+  id: Lawsets
+  name: guide-entry-lawsets
+  text: "/ServerInfo/Guidebook/ReferenceTables/Lawsets.xml"
+  filterEnabled: True

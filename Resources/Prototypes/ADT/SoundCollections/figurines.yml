@@ -1,0 +1,10 @@
+- type: soundCollection
+  id: InternCentcomQuotes
+  files:
+    - /Audio/ADT/Announcements/CentcomIntern/1.ogg
+    - /Audio/ADT/Announcements/CentcomIntern/2.ogg
+    - /Audio/ADT/Announcements/CentcomIntern/3.ogg
+    - /Audio/ADT/Announcements/CentcomIntern/4.ogg
+    - /Audio/ADT/Announcements/CentcomIntern/5.ogg
+    - /Audio/ADT/Announcements/CentcomIntern/13.ogg
+    - /Audio/ADT/Announcements/CentcomIntern/14.ogg

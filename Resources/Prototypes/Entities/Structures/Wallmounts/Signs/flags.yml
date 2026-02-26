@@ -1,10 +1,11 @@
+
 - type: entity
   parent: BaseSign
   id: BaseFlag
   abstract: true
   components:
   - type: Sprite
-    sprite: Structures/Wallmounts/flags.rsi
+    sprite: ADT/Structures/Wallmounts/flags.rsi #ADT-Tweak
 
 - type: entity
   parent: BaseFlag

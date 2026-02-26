@@ -51,7 +51,6 @@
   - type: SpawnOnTrigger
     proto: GrenadeFlashEffect
   - type: ActiveTimerTrigger
-    timeRemaining: 0.3
   - type: DeleteOnTrigger
 
 - type: entity
@@ -114,7 +113,7 @@
   - type: SmokeOnTrigger
     duration: 30
     spreadAmount: 40
-  - type: SoundOnTrigger
+  - type: EmitSoundOnTrigger
     sound: /Audio/Items/smoke_grenade_smoke.ogg
 
 - type: entity
@@ -161,20 +160,25 @@
 
 # Отдельный проджектайл для лазерного пистолета капитана
 
-- type: hitscan
+- type: entity
+  parent: BasicHitscan
   id: ADTCapitanRedLaser
-  damage:
-    types:
-      Heat: 20
-  muzzleFlash:
-    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
-    state: muzzle_laser
-  travelFlash:
-    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
-    state: beam
-  impactFlash:
-    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
-    state: impact_laser
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: HitscanBasicDamage
+    damage:
+      types:
+        Heat: 20
+  - type: HitscanBasicVisuals
+    muzzleFlash:
+      sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+      state: muzzle_laser
+    travelFlash:
+      sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+      state: beam
+    impactFlash:
+      sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+      state: impact_laser
 
 # Конец отдельного проджектайтла.. НУ понятно корчое
 

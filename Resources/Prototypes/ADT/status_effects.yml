@@ -14,3 +14,6 @@
 
 - type: statusEffect
   id: SeeingStatic
+
+- type: statusEffect
+  id: Weakness

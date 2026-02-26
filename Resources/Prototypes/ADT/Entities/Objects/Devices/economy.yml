@@ -4,7 +4,7 @@
   categories: [ HideSpawnMenu ]
   components:
     - type: BankCard
-      startingBalance: 5000
+      commandBudgetCard: true
     - type: Sprite
       sprite: ADT/Objects/Misc/cards.rsi
       scale: 0.8, 0.8
@@ -15,86 +15,128 @@
 - type: entity
   parent: ADTBaseDepartmentBudgetCard
   id: ADTCommandBudgetCard
-  name: command budget card
+  name: budget card
+  suffix: Station
   components:
     - type: Sprite
       state: budgetcard
     - type: BankCard
-      commandBudgetCard: true
+      commandBudgetType: Cargo
 
 - type: entity
   parent: Paper
   id: ADTCommandBudgetPinPaper
-  name: command budget pin
+  name: budget pin
+  suffix: Station
   components:
   - type: CommandBudgetPinPaper
+    commandBudgetType: Cargo
   - type: Paper
 
 - type: entity
   parent: ADTBaseDepartmentBudgetCard
-  id: ADTCargoBudgetCard
-  categories: [ HideSpawnMenu ]
-  name: cargo budget card
-  components:
-    - type: Sprite
-      state: car_budget
-    - type: BankCard
-      accountId: 1315
-
-- type: entity
-  parent: ADTBaseDepartmentBudgetCard
-  id: ADTCivilianBudgetCard
-  name: civilian budget card
-  categories: [ HideSpawnMenu ]
+  id: ADTServiceBudgetCard
+  name: budget card
+  suffix: Service
   components:
     - type: Sprite
       state: srv_budget
     - type: BankCard
-      accountId: 1316
+      commandBudgetType: Service
+
+- type: entity
+  parent: Paper
+  id: ADTServiceBudgetPinPaper
+  name: budget pin
+  suffix: Service
+  components:
+  - type: CommandBudgetPinPaper
+    commandBudgetType: Service
+  - type: Paper
 
 - type: entity
   parent: ADTBaseDepartmentBudgetCard
   id: ADTEngineeringBudgetCard
-  name: engineering budget card
-  categories: [ HideSpawnMenu ]
+  name: budget card
+  suffix: Engineering
   components:
     - type: Sprite
       state: eng_budget
     - type: BankCard
-      accountId: 1318
+      commandBudgetType: Engineering
+
+- type: entity
+  parent: Paper
+  id: ADTEngineeringBudgetPinPaper
+  name: budget pin
+  suffix: Engineering
+  components:
+  - type: CommandBudgetPinPaper
+    commandBudgetType: Engineering
+  - type: Paper
 
 - type: entity
   parent: ADTBaseDepartmentBudgetCard
   id: ADTMedicalBudgetCard
-  name: medical budget card
-  categories: [ HideSpawnMenu ]
+  name: budget card
+  suffix: Medical
   components:
     - type: Sprite
       state: med_budget
     - type: BankCard
-      accountId: 1319
+      commandBudgetType: Medical
+
+- type: entity
+  parent: Paper
+  id: ADTMedicalBudgetPinPaper
+  name: budget pin
+  suffix: Medical
+  components:
+  - type: CommandBudgetPinPaper
+    commandBudgetType: Medical
+  - type: Paper
 
 - type: entity
   parent: ADTBaseDepartmentBudgetCard
   id: ADTScienceBudgetCard
-  name: science budget card
-  categories: [ HideSpawnMenu ]
+  name: budget card
+  suffix: Science
   components:
     - type: Sprite
       state: sci_budget
     - type: BankCard
-      accountId: 1321
+      commandBudgetType: Science
+
+- type: entity
+  parent: Paper
+  id: ADTScienceBudgetPinPaper
+  name: budget pin
+  suffix: Science
+  components:
+  - type: CommandBudgetPinPaper
+    commandBudgetType: Science
+  - type: Paper
 
 - type: entity
   parent: ADTBaseDepartmentBudgetCard
   id: ADTSecurityBudgetCard
-  name: security budget card
-  categories: [ HideSpawnMenu ]
+  name: budget card
+  suffix: Security
   components:
     - type: Sprite
       state: sec_budget
     - type: BankCard
-      accountId: 1320
+      commandBudgetType: Security
+
+- type: entity
+  parent: Paper
+  id: ADTSecurityBudgetPinPaper
+  name: budget pin
+  suffix: Security
+  components:
+  - type: CommandBudgetPinPaper
+    commandBudgetType: Security
+  - type: Paper
 
 - type: entity
   parent: BaseItem

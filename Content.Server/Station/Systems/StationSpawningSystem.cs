@@ -1,16 +1,17 @@
 using Content.Server.Access.Systems;
 using Content.Server.Humanoid;
-using Content.Server.IdentityManagement;
 using Content.Server.Mind;
 using Content.Server.PDA;
 using Content.Server.Station.Components;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
+using Content.Shared.ADT.CharecterFlavor;
 using Content.Shared.CCVar;
 using Content.Shared.Clothing;
 using Content.Shared.DetailExaminable;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Prototypes;
+using Content.Shared.IdentityManagement;
 using Content.Shared.PDA;
 using Content.Shared.Preferences;
 using Content.Shared.Preferences.Loadouts;
@@ -88,7 +89,7 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
         EntityUid? station,
         EntityUid? entity = null)
     {
-        _prototypeManager.TryIndex(job ?? string.Empty, out var prototype);
+        _prototypeManager.Resolve(job, out var prototype);
         RoleLoadout? loadout = null;
 
         // Need to get the loadout up-front to handle names if we use an entity spawn override.
@@ -138,7 +139,14 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
 
             if (profile.FlavorText != "" && _configurationManager.GetCVar(CCVars.FlavorText))
             {
-                AddComp<DetailExaminableComponent>(entity.Value).Content = profile.FlavorText;
+                //ADT-tweak-start: Реворк флаворов
+                // AddComp<DetailExaminableComponent>(entity.Value).Content = profile.FlavorText;
+                var flavor = EnsureComp<CharacterFlavorComponent>(entity.Value);
+                flavor.FlavorText = profile.FlavorText;
+                flavor.OOCNotes = profile.OOCNotes;
+                flavor.HeadshotUrl = profile.HeadshotUrl;
+                //возможное TODO: добавить кастомное описание рас
+                //ADT-tweak-end
             }
         }
 
@@ -168,7 +176,7 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
 
     private void DoJobSpecials(ProtoId<JobPrototype>? job, EntityUid entity)
     {
-        if (!_prototypeManager.TryIndex(job ?? string.Empty, out JobPrototype? prototype))
+        if (!_prototypeManager.Resolve(job, out JobPrototype? prototype))
             return;
 
         foreach (var jobSpecial in prototype.Special)
@@ -200,7 +208,7 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
         if (card.JobTitle == null) // ADT tweak
             _cardSystem.TryChangeJobTitle(cardId, jobPrototype.LocalizedName, card); // ADT tweak
 
-        if (_prototypeManager.TryIndex(jobPrototype.Icon, out var jobIcon))
+        if (_prototypeManager.Resolve(jobPrototype.Icon, out var jobIcon))
             _cardSystem.TryChangeJobIcon(cardId, jobIcon, card);
 
         var extendedAccess = false;

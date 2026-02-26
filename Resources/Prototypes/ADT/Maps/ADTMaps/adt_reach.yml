@@ -19,9 +19,11 @@
             prefixCreator: '-'
         - type: StationJobs
           availableJobs:
+            #centcom specialists
+            # ADTCentcomConsultant: [ 1, 1 ] #ADT-Roles # Убрано по голосованию
+            ADTBlueShieldOfficer: [ 1, 1 ] #ADT-Roles
             # command
             Captain: [ 1, 1 ]
-            ADTBlueShieldOfficer: [ 1, 1 ] #ADT-Roles
             #service
             HeadOfPersonnel: [ 1, 1 ]
             Bartender: [ 1, 1 ]
@@ -69,4 +71,4 @@
             # juridical
             Lawyer: [ 1, 1 ]
             IAA: [ 1, 1 ]
-            Magistrat: [ 1, 1 ] #ADT-Roles
+            # Magistrat: [ 1, 1 ] #ADT-Roles

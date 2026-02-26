@@ -6,7 +6,7 @@ namespace Content.Client.ADT.Crawling;
 
 public sealed partial class CrawlingSystem : EntitySystem
 {
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private readonly SpriteSystem _sprite = default!;
     [Dependency] private readonly StandingStateSystem _standing = default!;
 
     public override void Initialize()
@@ -20,16 +20,6 @@ public sealed partial class CrawlingSystem : EntitySystem
         if (args.Sprite == null)
             return;
 
-        if (_standing.IsDown(uid))
-        {
-            args.Sprite.DrawDepth = (int) DrawDepth.SmallMobs;
-        }
-        else
-        {
-            if (TryComp<SpriteComponent>(uid, out var spriteComp))
-                args.Sprite.DrawDepth = spriteComp.DrawDepth;
-            else
-                args.Sprite.DrawDepth = (int) DrawDepth.Mobs;
-        }
+        _sprite.SetDrawDepth(uid, _standing.IsDown(uid) ? (int)DrawDepth.SmallMobs : (int)DrawDepth.Mobs);
     }
 }

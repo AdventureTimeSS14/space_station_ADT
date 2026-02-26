@@ -17,10 +17,10 @@
     - state: security
     - state: icons-detentions
   - type: ItemBorgModule
-    items:
-    - ADTInfCablecuffs
-    - ADTtelescopicBaton
-    - ADTBorgflash
+    hands:
+    - item: ADTInfCablecuffs
+    - item: ADTtelescopicBaton
+    - item: ADTBorgflash
 
 - type: entity
   id: ADTBorgModuleHarm
@@ -32,9 +32,9 @@
     - state: security
     - state: icons-harm
   - type: ItemBorgModule
-    items:
-    - Truncheon
-    - ADTWeaponLaserCarbineBorg
+    hands:
+    - item: Truncheon
+    - item: ADTWeaponLaserCarbineBorg
 
 - type: entity
   id: ADTBorgModuleDisabler
@@ -46,9 +46,9 @@
     - state: security
     - state: icons-disabler
   - type: ItemBorgModule
-    items:
-    - ADTInfCablecuffs
-    - ADTWeaponDisablerBorg
+    hands:
+    - item: ADTInfCablecuffs
+    - item: ADTWeaponDisablerBorg
 
 - type: entity
   id: ADTBorgModuleRPD
@@ -56,17 +56,23 @@
   name: RPD cyborg module
   components:
   - type: Sprite
+    sprite: ADT/Objects/Specific/Robotics/borgmodule.rsi
     layers:
     - state: engineering
-    - state: icon-rcd
+    - state: icon-rpd
   - type: ItemBorgModule
-    items:
-    - ADTRPDRecharging
+    hands:
+    - item: ADTRPDRecharging
+    - item: GasAnalyzer
+    - item: HolofanProjectorBorg
+    - item: PowerDrill
+  - type: BorgModuleIcon
+    icon: { sprite: ADT/Interface/Actions/actions_borg.rsi, state: rpd-module }
 
 - type: entity
-  id: ADTBorgModulePKA
+  id: ADTBorgModuleSalvage
   parent: [ BaseBorgModuleCargo, BaseProviderBorgModule ]
-  name: proto kinetic accelerator cyborg module
+  name: salvage cyborg module
   components:
   - type: Sprite
     sprite: Objects/Specific/Robotics/borgmodule.rsi
@@ -74,12 +80,70 @@
     - state: cargo
     - state: icon-pka
   - type: ItemBorgModule
-    items:
-    - WeaponProtoKineticAccelerator
     droppableItems:
     - id: WeaponProtoKineticAccelerator
       whitelist:
         tags:
         - PKA
+    hands:
+    - item: WeaponGrapplingGun
+    - item: BorgHandheldGPSBasic
+    - item: HandHeldMassScannerBorg
+    - item: MaterialBag
   - type: BorgModuleIcon
-    icon: { sprite: Objects/Weapons/Guns/Basic/kinetic_accelerator.rsi, state: icon }
+    icon: { sprite: ADT/Interface/Actions/actions_borg.rsi, state: salvage-module }
+
+# Borg Modules Update start
+
+- type: entity
+  id: ADTBorgModuleChemical
+  parent: [ BaseBorgModuleMedical, BaseProviderBorgModule ]
+  name: chemical cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: medical
+    - state: icon-chem
+  - type: ItemBorgModule
+    hands:
+    - item: HandheldHealthAnalyzerUnpowered
+    - item: Syringe
+    - item: Syringe
+    - item: ADTBorgDrinkGlass
+    - item: ADTBorgDrinkGlass
+    - item: ADTBorgDrinkGlass
+
+- type: entity
+  id: ADTBorgModuleAdvancedChemical
+  parent: [ BaseBorgModuleMedical, BaseProviderBorgModule ]
+  name: chemical cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: medical
+    - state: icon-chemist
+  - type: ItemBorgModule
+    hands:
+    - item: HandheldHealthAnalyzerUnpowered
+    - item: BorgHypo
+    - item: BorgDropper
+    - item: BaseChemistryEmptyVial
+    - item: HandLabeler
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: adv-chem-module }
+
+- type: entity
+  id: ADTBorgModuleRescue
+  parent: [ BaseBorgModuleMedical, BaseProviderBorgModule ]
+  name: rescue cyborg module
+  components:
+  - type: ItemBorgModule
+    hands:
+    - item: HandheldHealthAnalyzerUnpowered
+    - item: BorgFireExtinguisher
+    - item: BorgHandheldGPSBasic
+    - item: HandheldStationMapUnpowered
+    - item: WeaponGrapplingGun
+    - item: DefibrillatorOneHandedUnpowered
+
+# Borg Modules Update End

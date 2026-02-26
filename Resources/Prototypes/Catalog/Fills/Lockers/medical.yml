@@ -171,11 +171,14 @@
   components:
   - type: StorageFill
     contents:
-      - id: ADTClothingModsuitBackMedical #ADT tweak
       - id: ClothingOuterCoatParamedicWB
       - id: ClothingHeadHatParamedicsoft
-      - id: ADTClothingHeadHatsParamedicBeret # ADT tweak
-      - id: ADTHighVoltageDefibrillator # ADT Tweak
+      #ADT-Tweak-Start
+      - id: ADTClothingHeadHatsParamedicBeret
+      - id: ADTHighVoltageDefibrillator
+      - id: OxygenTankFilled
+      - id: ClothingMaskBreathMedical
+      #ADT-Tweak-End
       - id: ClothingOuterWinterPara
       - id: ClothingUniformJumpsuitParamedic
       - id: ClothingUniformJumpskirtParamedic
@@ -189,3 +192,13 @@
     # ADT-WikiBooks-Start
       - id: ADTBookSRPmed
     # ADT-WikiBooks-End
+  #ADT-Tweak-Start
+  - type: UserInterface
+    interfaces:
+      enum.SuitStorageUiKey.Key:
+        type: SuitStorageBoundUserInterface
+  - type: SuitStorage
+    options:
+    - ADTClothingModsuitBackMedical
+    - ClothingOuterHardsuitVoidParamed
+  #ADT-Tweak-End

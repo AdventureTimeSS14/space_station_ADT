@@ -13,6 +13,20 @@
     state: stamp-magistrat
 
 - type: entity
+  name: Centcomm consultant rubber stamp
+  parent: RubberStampBaseAlt
+  id: RubberStampCCC
+  categories: [ DoNotMap ]
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-CCC
+    stampedColor: "#004D00"
+    stampState: "paper_stamp-centcom"
+  - type: Sprite
+    sprite: ADT/Objects/Misc/stamps.rsi
+    state: stamp-consultant
+
+- type: entity
   name: REMAKE rubber stamp
   parent: RubberStampBaseAlt
   id: ADTRubberStampRemake

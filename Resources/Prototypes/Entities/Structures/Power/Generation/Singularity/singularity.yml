@@ -55,7 +55,7 @@
     falloffPower: 2.529822
     intensity: 3645
   - type: RadiationSource
-    slope: 0.2 # its emit really far away
+# ADT-Tweak    slope: 0.2 # its emit really far away
     intensity: 6 # ADT tweak
   - type: PointLight
     enabled: true

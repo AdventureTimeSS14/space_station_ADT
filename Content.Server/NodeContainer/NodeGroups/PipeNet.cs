@@ -8,7 +8,7 @@ using Content.Shared.NodeContainer.NodeGroups;
 using Robust.Shared.Utility;
 using Robust.Shared.Random;
 using Robust.Shared.GameObjects;
-using Content.Server.ADT.Atmos.EntityDamage.Systems; //ADT-Tweak
+// using Content.Server.ADT.Atmos.EntityDamage.Systems; //ADT-Tweak. Закомменченно из-за коммента системы
 
 namespace Content.Server.NodeContainer.NodeGroups
 {
@@ -51,10 +51,10 @@ namespace Content.Server.NodeContainer.NodeGroups
         {
             _atmosphereSystem?.React(Air, this);
 
-            // ADT-Tweak start
-            var overpressureSystem = _entMan?.EntitySysManager.GetEntitySystem<OverpressurePipeDamageSystem>();
-            overpressureSystem?.Update(this);
-            // ADT-Tweak end
+            // // ADT-Tweak start
+            // var overpressureSystem = _entMan?.EntitySysManager.GetEntitySystem<OverpressurePipeDamageSystem>();
+            // overpressureSystem?.Update(this);
+            // // ADT-Tweak end
         }
 
         public override void LoadNodes(List<Node> groupNodes)

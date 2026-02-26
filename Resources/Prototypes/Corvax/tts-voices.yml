@@ -186,6 +186,8 @@
   sex: Male
   speaker: sentrybot
   id: sentrybot
+  speciesWhitelist:
+  - IPC
 
 - type: ttsVoice
   name: Мойра Браун
@@ -431,6 +433,8 @@
   sex: Female
   speaker: glados
   id: glados
+  speciesWhitelist:
+  - IPC
 
 - type: ttsVoice
   name: Модуль Приключений
@@ -438,6 +442,8 @@
   sex: Male
   speaker: adventure_core
   id: adventure_core
+  speciesWhitelist:
+  - IPC
 
 - type: ttsVoice
   name: Модуль Фактов
@@ -445,6 +451,8 @@
   sex: Male
   speaker: fact_core
   id: fact_core
+  speciesWhitelist:
+  - IPC
 
 - type: ttsVoice
   name: Модуль Космоса
@@ -452,6 +460,8 @@
   sex: Male
   speaker: space_core
   id: space_core
+  speciesWhitelist:
+  - IPC
 
 - type: ttsVoice
   name: Турель
@@ -459,6 +469,8 @@
   sex: Female
   speaker: turret_floor
   id: turret_floor
+  speciesWhitelist:
+  - IPC
 
 - type: ttsVoice
   name: Геральт из Ривии
@@ -1626,7 +1638,7 @@
   name: Мита Призрак | MiSide
   description: Голос персонажа Мита Призрак из игры MiSide
   sex: Female
-  speaker: mitaghost 
+  speaker: mitaghost
   id: mitaghost
 
 - type: ttsVoice

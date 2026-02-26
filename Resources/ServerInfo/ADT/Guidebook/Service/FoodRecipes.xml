@@ -5,6 +5,8 @@
 Это последняя опубликованная версия сборника рецептов NanoTrasen Central Command Kitchen de Cuisine, предназначенного для шеф-поваров, готовящих блюда, используя посуду NanoTrasen.
 
 
+<GuideMicrowaveGroupEmbed Group="Base"/>
+
 <GuideMicrowaveGroupEmbed Group="Pizza"/>
 
 <GuideMicrowaveGroupEmbed Group="Savory"/>
@@ -28,6 +30,8 @@
 <GuideMicrowaveGroupEmbed Group="Cake"/>
 
 <GuideMicrowaveGroupEmbed Group="Salad"/>
+
+<GuideMicrowaveGroupEmbed Group="Icecreams"/>
 
 <GuideMicrowaveGroupEmbed Group="Holiday"/>
 

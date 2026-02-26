@@ -1,0 +1,23 @@
+- type: entity
+  id: ADTClosetRusty
+  parent: ClosetBase
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: ADT/Structures/Storage/closet.rsi
+    layers:
+    - state: rusty
+      map: ["enum.StorageVisualLayers.Base"]
+    - state: rusty_door
+      map: ["enum.StorageVisualLayers.Door"]
+    - state: welded
+      visible: false
+      map: ["enum.WeldableLayers.BaseWelded"]
+    - state: paper
+      visible: false
+      sprite: Structures/Storage/closet_labels.rsi
+      map: ["enum.PaperLabelVisuals.Layer"]
+  - type: EntityStorageVisuals
+    stateBaseClosed: rusty
+    stateDoorOpen: rusty_open
+    stateDoorClosed: rusty_door

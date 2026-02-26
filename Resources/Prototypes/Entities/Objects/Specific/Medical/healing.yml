@@ -28,6 +28,7 @@
     state: ointment
   - type: Item
     heldPrefix: ointment
+    storedRotation: 45
   - type: Healing
     damageContainers:
       - Biological
@@ -61,15 +62,6 @@
   - type: Stack
     stackType: Ointment
     count: 1
-
-- type: entity
-  id: Ointment10Lingering
-  parent: Ointment
-  suffix: 10, Lingering
-  components:
-  - type: Stack
-    lingering: true
-    count: 10
 
 - type: entity
   name: regenerative mesh
@@ -120,15 +112,6 @@
     count: 1
 
 - type: entity
-  parent: RegenerativeMesh
-  id: RegenerativeMeshLingering0
-  suffix: 0, Lingering
-  components:
-  - type: Stack
-    lingering: true
-    count: 0
-
-- type: entity
   name: bruise pack
   description: A therapeutic gel pack and bandages designed to treat blunt-force trauma.
   parent: BaseHealingItem
@@ -173,15 +156,6 @@
   - type: Stack
     stackType: Brutepack
     count: 1
-
-- type: entity
-  id: Brutepack10Lingering
-  parent: Brutepack
-  suffix: 10, Lingering
-  components:
-  - type: Stack
-    lingering: true
-    count: 10
 
 - type: entity
   name: medicated suture
@@ -231,15 +205,6 @@
     count: 1
 
 - type: entity
-  parent: MedicatedSuture
-  id: MedicatedSutureLingering0
-  suffix: 0, Lingering
-  components:
-  - type: Stack
-    lingering: true
-    count: 0
-
-- type: entity
   name: blood pack
   description: Contains a groundbreaking universal blood replacement created by Nanotrasen's advanced medical science.
   parent: BaseHealingItem
@@ -284,15 +249,6 @@
   - type: Stack
     stackType: Bloodpack
     count: 1
-
-- type: entity
-  parent: Bloodpack
-  id: Bloodpack10Lingering
-  suffix: 10, Lingering
-  components:
-  - type: Stack
-    lingering: true
-    count: 10
 
 - type: entity
   parent: BaseHealingItem
@@ -346,6 +302,7 @@
     state: gauze
   - type: Item
     heldPrefix: gauze
+    storedRotation: -90
   - type: Construction
     graph: Gauze
     node: gauze
@@ -381,15 +338,6 @@
   components:
   - type: Stack
     count: 1
-
-- type: entity
-  id: Gauze10Lingering
-  parent: Gauze
-  suffix: 10, Lingering
-  components:
-  - type: Stack
-    lingering: true
-    count: 10
 
 - type: entity
   name: aloe cream
@@ -448,7 +396,7 @@
   - type: Sprite
     state: pill16
   - type: Label
-    currentLabel: dexalin 10u
+    currentLabel: Дексалин 10u # ADT-Tweak
   - type: SolutionContainerManager
     solutions:
       food:
@@ -464,7 +412,7 @@
   suffix: Dexalin 10u, 7
   components:
   - type: Label
-    currentLabel: dexalin 10u
+    currentLabel: Дексалин 10u # ADT-Tweak
   - type: StorageFill
     contents:
     - id: PillDexalin
@@ -481,7 +429,7 @@
   - type: Sprite
     state: pill10
   - type: Label
-    currentLabel: dylovene 10u
+    currentLabel: Диловен 10u # ADT-Tweak
   - type: SolutionContainerManager
     solutions:
       food:
@@ -497,7 +445,7 @@
   suffix: Dylovene 10u, 5
   components:
   - type: Label
-    currentLabel: dylovene 10u
+    currentLabel: Диловен 10u # ADT-Tweak
   - type: StorageFill
     contents:
     - id: PillDylovene
@@ -514,7 +462,7 @@
   - type: Sprite
     state: pill17
   - type: Label
-    currentLabel: hyronalin 10u
+    currentLabel: Хироналин 10u # ADT-Tweak
   - type: SolutionContainerManager
     solutions:
       food:
@@ -530,7 +478,7 @@
   suffix: Hyronalin 10u, 5
   components:
   - type: Label
-    currentLabel: hyronalin 10u
+    currentLabel: Хироналин 10u # ADT-Tweak
   - type: StorageFill
     contents:
     - id: PillHyronalin
@@ -547,7 +495,7 @@
   - type: Sprite
     state: pill9
   - type: Label
-    currentLabel: potassium iodide 10u
+    currentLabel: Иодид калия 10u # ADT-Tweak
   - type: SolutionContainerManager
     solutions:
       food:
@@ -563,7 +511,7 @@
   suffix: Potassium iodide 10u, 5
   components:
   - type: Label
-    currentLabel: potassium iodide 10u
+    currentLabel: Иодид калия 10u # ADT-Tweak
   - type: StorageFill
     contents:
     - id: PillPotassiumIodide
@@ -580,7 +528,7 @@
   - type: Sprite
     state: pill14
   - type: Label
-    currentLabel: iron 10u
+    currentLabel: Железо 10u # ADT-Tweak
   - type: SolutionContainerManager
     solutions:
       food:
@@ -600,7 +548,7 @@
   - type: Sprite
     state: pill13
   - type: Label
-    currentLabel: copper 10u
+    currentLabel: Медь 10u # ADT-Tweak
   - type: SolutionContainerManager
     solutions:
       food:
@@ -616,7 +564,7 @@
   suffix: Iron 10u, 5
   components:
   - type: Label
-    currentLabel: iron 10u
+    currentLabel: Железо 10u # ADT-Tweak
   - type: StorageFill
     contents:
     - id: PillIron
@@ -629,7 +577,7 @@
   suffix: Copper 10u, 5
   components:
   - type: Label
-    currentLabel: copper 10u
+    currentLabel: Медь 10u # ADT-Tweak
   - type: StorageFill
     contents:
     - id: PillCopper
@@ -646,7 +594,7 @@
   - type: Sprite
     state: pill4
   - type: Label
-    currentLabel: kelotane 10u
+    currentLabel: Келотан 10u # ADT-Tweak
   - type: SolutionContainerManager
     solutions:
       food:
@@ -662,7 +610,7 @@
   suffix: Kelotane 10u, 5
   components:
   - type: Label
-    currentLabel: kelotane 10u
+    currentLabel: Келотан 10u # ADT-Tweak
   - type: StorageFill
     contents:
     - id: PillKelotane
@@ -679,7 +627,7 @@
   - type: Sprite
     state: pill8
   - type: Label
-    currentLabel: dermaline 10u
+    currentLabel: Дермалин 10u # ADT-Tweak
   - type: SolutionContainerManager
     solutions:
       food:
@@ -695,7 +643,7 @@
   suffix: Dermaline 10u, 5
   components:
   - type: Label
-    currentLabel: dermaline 10u
+    currentLabel: Дермалин 10u # ADT-Tweak
   - type: StorageFill
     contents:
     - id: PillDermaline
@@ -725,7 +673,7 @@
   - type: Sprite
     state: pill3
   - type: Label
-    currentLabel: tricordrazine 10u
+    currentLabel: Трикордразин 10u # ADT-Tweak
   - type: SolutionContainerManager
     solutions:
       food:
@@ -741,7 +689,7 @@
   suffix: Tricordrazine 10u, 5
   components:
   - type: Label
-    currentLabel: tricordrazine 10u
+    currentLabel: Трикордразин 10u # ADT-Tweak
   - type: StorageFill
     contents:
     - id: PillTricordrazine
@@ -758,7 +706,7 @@
   - type: Sprite
     state: pill5
   - type: Label
-    currentLabel: bicaridine 10u
+    currentLabel: Бикаридин 10u # ADT-Tweak
   - type: SolutionContainerManager
     solutions:
       food:
@@ -774,7 +722,7 @@
   suffix: Bicaridine 10u, 5
   components:
   - type: Label
-    currentLabel: bicaridine 10u
+    currentLabel: Бикаридин 10u # ADT-Tweak
   - type: StorageFill
     contents:
     - id: PillBicaridine
@@ -791,7 +739,7 @@
   - type: Sprite
     state: pill21
   - type: Label
-    currentLabel: charcoal 10u
+    currentLabel: Уголь 10u # ADT-Tweak
   - type: SolutionContainerManager
     solutions:
       food:
@@ -807,7 +755,7 @@
   suffix: Charcoal 10u, 3
   components:
   - type: Label
-    currentLabel: charcoal 10u
+    currentLabel: Уголь 10u # ADT-Tweak
   - type: StorageFill
     contents:
     - id: PillCharcoal
