@@ -75,11 +75,9 @@
       rules: ghost-role-information-Death-Squad-rules
       raffle:
         settings: short
-      requirements:
-      - !type:OverallPlaytimeRequirement
-        time: 270000 # 75h # adt tweak
       mindRoles:
       - MindRoleGhostRoleFamiliar
+      job: DeathSquad
     - type: Loadout
       prototypes: [ DeathSquadGear ]
       roleLoadout: [ RoleSurvivalEVA ]
@@ -552,9 +550,7 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
-      requirements:
-      - !type:OverallPlaytimeRequirement
-        time: 180000 # 50h # ADT-tweak
+      job: CBURN
     - type: RandomMetadata
       nameSegments:
       - ADTNamesFirstMilitaryRXBZZ # ADT Tweak
@@ -602,6 +598,7 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: default
+      job: CentralCommandOfficial
     - type: Loadout
       prototypes: [ CentcomGear ]
       roleLoadout: [ RoleSurvivalStandard ]

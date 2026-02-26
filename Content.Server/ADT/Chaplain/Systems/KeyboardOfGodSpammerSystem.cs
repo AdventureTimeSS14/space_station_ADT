@@ -1,5 +1,6 @@
 using Content.Server.Chat.Systems;
 using Content.Shared.Chaplain.Components;
+using Content.Shared.Chat;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Random;
 

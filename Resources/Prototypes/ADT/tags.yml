@@ -197,6 +197,9 @@
   id: ADTArmorSacrafice
 
 - type: Tag
+  id: ADTBarbellAttachment
+
+- type: Tag
   id: ADTSyndieThingies
 
 - type: Tag
@@ -510,6 +513,9 @@
   id: ADTShadekinEmotes
 
 - type: Tag
+  id: ADTNovakidEmotes
+
+- type: Tag
   id: ADTDogEmotes
 
 - type: Tag
@@ -730,3 +736,20 @@
 - type: Tag
   id: ADTClosedRadio
 
+- type: Tag
+  id: Katana
+
+- type: Tag
+  id: MagazineLightRiflePan
+
+- type: Tag
+  id: SecwayKeys
+
+- type: Tag
+  id: ATVKeys
+
+- type: Tag
+  id: SyndicateSegwayKeys
+
+- type: Tag
+  id: GunUpgradeVampirism

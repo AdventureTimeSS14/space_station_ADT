@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Taken from https://github.com/tgstation/tgstation/blob/e9d1248bc9548ab18f3fcf967e0d9dfb303fe4ad/icons/obj/chairs.dmi and resprited by orange6775 (discord), white_chair, red_chair made by m1and1b for ADT MRP Server, pizza_chair made by discord - unlumy for ADT MRP Server",
+    "copyright": "Taken from https://github.com/tgstation/tgstation/blob/e9d1248bc9548ab18f3fcf967e0d9dfb303fe4ad/icons/obj/chairs.dmi and resprited by orange6775 (discord), white_chair, red_chair made by m1and1b for ADT MRP Server, pizza_chair made by discord - unlumy for ADT MRP Server, orange_chair and other made by prazat911 (discord) for ADT",
     "size": {
         "x": 32,
         "y": 32
@@ -21,6 +21,54 @@
         },
         {
             "name": "rusty_chair",
+            "directions": 4
+        },
+        {
+            "name": "orange_chair",
+            "directions": 4
+        },
+        {
+            "name": "bar-stool",
+            "directions": 4
+        },
+        {
+            "name": "bar-stool2",
+            "directions": 4
+        },
+        {
+            "name": "comfy_black",
+            "directions": 4
+        },
+        {
+            "name": "comfy_maroon",
+            "directions": 4
+        },
+        {
+            "name": "comfy_white",
+            "directions": 4
+        },
+        {
+            "name": "king",
+            "directions": 4
+        },
+        {
+            "name": "rich",
+            "directions": 4
+        },
+        {
+            "name": "rich_white",
+            "directions": 4
+        },
+        {
+            "name": "style",
+            "directions": 4
+        },
+        {
+            "name": "wooden-stool",
+            "directions": 4
+        },
+        {
+            "name": "wooden-stool2",
             "directions": 4
         }
     ]

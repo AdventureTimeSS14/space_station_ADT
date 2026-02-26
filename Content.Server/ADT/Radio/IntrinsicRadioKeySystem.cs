@@ -1,8 +1,7 @@
 // Simple Station
-
-using Content.Server.Radio.Components;
 using Content.Shared.Radio;
 using Content.Shared.Radio.Components;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.ADT.Radio;
 
@@ -26,7 +25,7 @@ public sealed class IntrinsicRadioKeySystem : EntitySystem
         UpdateChannels(uid, args.Component, ref component.Channels);
     }
 
-    private void UpdateChannels(EntityUid _, EncryptionKeyHolderComponent keyHolderComp, ref HashSet<string> channels)
+    private void UpdateChannels(EntityUid _, EncryptionKeyHolderComponent keyHolderComp, ref HashSet<ProtoId<RadioChannelPrototype>> channels)
     {
         channels.Clear();
         channels.UnionWith(keyHolderComp.Channels);

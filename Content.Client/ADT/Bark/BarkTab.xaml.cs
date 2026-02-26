@@ -84,7 +84,7 @@ public sealed partial class BarkTab : Control
         {
             Text = "Все барки",
             ToggleMode = true,
-            StyleClasses = { StyleBase.ButtonOpenRight },
+            StyleClasses = { StyleNano.ButtonOpenRight },
             HorizontalExpand = true,
             HorizontalAlignment = HAlignment.Left,
             MinWidth = 180,
@@ -104,7 +104,7 @@ public sealed partial class BarkTab : Control
             {
                 Text = localizedCategory,
                 ToggleMode = true,
-                StyleClasses = { StyleBase.ButtonOpenRight },
+                StyleClasses = { StyleNano.ButtonOpenRight },
                 HorizontalExpand = true,
                 HorizontalAlignment = HAlignment.Left,
                 MinWidth = 180,

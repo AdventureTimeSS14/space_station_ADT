@@ -1,7 +1,7 @@
 {
-    "version": 1,
+    "version": 2,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Created by discord:prazat911",
+    "copyright": "Created by discord:prazat911, medal-trash sprited by orange6775 (discord)",
     "size": {
         "x": 32,
         "y": 32
@@ -24,6 +24,9 @@
         },
         {
             "name": "two-trash"
+        },
+        {
+            "name": "medal-trash"
         }
     ]
 }

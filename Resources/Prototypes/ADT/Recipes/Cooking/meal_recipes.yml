@@ -724,6 +724,18 @@
   recipeType:
   - Oven
 
+- type: microwaveMealRecipe
+  id: ADTFoodMealChocolateMedalRecipe
+  name: chocolate medal
+  result: ADTFoodSnackChocolateBarMedalPack
+  time: 5
+  group: Dessert
+  solids:
+    FoodSnackChocolateBar: 1
+    MaterialCloth1: 1
+  recipeType:
+  - Assembler
+
 # Kebabs
 - type: microwaveMealRecipe
   id: RecipeMeatKebab

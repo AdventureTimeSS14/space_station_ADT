@@ -61,6 +61,26 @@
     - /Audio/ADT/Novakid/novakid_laugh05.ogg
 
 - type: soundCollection
+  id: NovakidYawn
+  files:
+    - /Audio/ADT/Novakid/novakid_yawn.ogg
+
+- type: soundCollection
+  id: MaleNovakidSneezes
+  files:
+    - /Audio/ADT/Novakid/novakid_sneeze_male.ogg
+
+- type: soundCollection
+  id: FemaleNovakidSneezes
+  files:
+    - /Audio/ADT/Novakid/novakid_sneeze_female.ogg
+
+- type: soundCollection
+  id: NovakidCoughs
+  files:
+    - /Audio/ADT/Novakid/novakid_cough.ogg
+
+- type: soundCollection
   id: TajaranHisses
   files:
   - /Audio/ADT/Felinid/cat_hiss1.ogg
@@ -301,7 +321,11 @@
 - type: soundCollection
   id: SlimeBubbles
   files:
-    - /Audio/ADT/Voice/Slime/s_bubble.ogg
+    - /Audio/ADT/Voice/Slime/s_bubble_1.ogg
+    - /Audio/ADT/Voice/Slime/s_bubble_2.ogg
+    - /Audio/ADT/Voice/Slime/s_bubble_3.ogg
+    - /Audio/ADT/Voice/Slime/s_bubble_4.ogg
+    - /Audio/ADT/Voice/Slime/s_bubble_5.ogg
 
 - type: soundCollection
   id: MaleSlimeCry
@@ -341,6 +365,7 @@
   id: VoxCry
   files:
     - /Audio/ADT/Voice/Vox/voxcry.ogg
+    - /Audio/Voice/Vox/vox_cry.ogg # Wizard`s Den
 
 # Shadekin
 
