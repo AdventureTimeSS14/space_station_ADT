@@ -11,7 +11,7 @@
   - type: Storage
     maxItemSize: Small
     grid:
-    - 0,0,3,2 # ADT developer was here
+    - 0,0,3,3 # ADT-Tweak 0,0,3,2 -> 0,0,3,3 (16 слотов)
   - type: Sprite
     state: box
   - type: Tag
@@ -416,7 +416,7 @@
   - type: Storage
     grid:
     - 0,0,5,3
-    whitelist:
+    whitelist: # TODO cardboard boxes shouldn't have whitelisting
       tags:
       - Candle
   - type: StorageFill

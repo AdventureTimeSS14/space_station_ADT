@@ -6,7 +6,8 @@ namespace Content.Shared.ADT.CrewMedal;
 /// Component for a medal that can be awarded to a player and 
 /// will be displayed in the final round summary screen.
 /// </summary>
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent]
+[AutoGenerateComponentState(raiseAfterAutoHandleState: true)]
 public sealed partial class CrewMedalComponent : Component
 {
     /// <summary>

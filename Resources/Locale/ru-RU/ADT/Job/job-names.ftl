@@ -28,6 +28,9 @@ job-name-ADTBlueShieldOfficer = офицер синий щит
 JobADTBlueShieldOfficer = офицер синий щит
 
 job-name-ussp-army-private = Военнослужащий СССП
+job-description-ussp-army-private = Рядовой состав армии СССП. Ваши обязанности включают патрулирование, охрану объектов, поддержание порядка и выполнение боевых или служебных задач согласно уставу и приказам командиров.
+job-supervisors-ussp-centcom = Вы подчиняетесь офицерам СССП и вышестоящему командованию
+
 job-name-ussp-army-officer = Офицер СССП
 JobADTUSSPArmyPrivate = Военнослужащий СССП
 JobADTUSSPArmyOfficer = Офицер СССП
@@ -63,6 +66,7 @@ job-name-welder = сварщик
 
 job-name-postman = почтальон
 job-name-inventory-associate = кладовщик
+job-name-intendant = интендант
 
 # Medical
 

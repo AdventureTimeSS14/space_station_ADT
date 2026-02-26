@@ -1,0 +1,3 @@
+roulette-examine-result = На рулетке выпало: [color={$color}]{$number}[/color]
+roulette-examine-rolling = Рулетка крутится...
+roulette-already-rolling = Рулетка уже крутится!

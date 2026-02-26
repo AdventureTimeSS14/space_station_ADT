@@ -1,0 +1,56 @@
+- type: entity
+  id: ADTPredictorMachine
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Transform
+    anchored: true
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.45,-0.45,0.45,0.45"
+        density: 60
+        mask:
+        - MachineMask
+        layer:
+        - MidImpassable
+        - LowImpassable
+  - type: Sprite
+    sprite: ADT/Structures/Machines/predictor.rsi
+    snapCardinals: false
+    state: off
+  - type: PredictorMachine
+    price: 5
+    animationState: "on-predicts"
+    onState: "on"
+    offState: "off"
+    emaggedState: "emagged"
+    emaggedAnimationState: "emagged-on-predicts"
+    animationCycles: 2
+    specialPredictionChance: 0.05
+    soundPayment:
+      path: /Audio/Machines/chime.ogg
+    soundDeny:
+      path: /Audio/Machines/buzz-sigh.ogg
+    normalPredictionsPack: ADTPredictorPackNormal
+    emaggedPredictionsPack: ADTPredictorPackEmagged
+  - type: Appearance
+  - type: Speech
+    speechVerb: Robotic
+  - type: ApcPowerReceiver
+    powerLoad: 100
+    priority: Low
+  - type: ExtensionCableReceiver
+  - type: Anchorable
+  - type: Pullable
+  - type: PointLight
+    enabled: false
+    castShadows: false
+    radius: 1.5
+  - type: LitOnPowered

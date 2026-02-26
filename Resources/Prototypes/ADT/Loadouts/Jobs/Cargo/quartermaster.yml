@@ -36,3 +36,15 @@
   id: ADTClothingHeadsetAltCargo
   equipment:
     ears: ClothingHeadsetAltCargo
+
+# PDA
+
+- type: loadout
+  id: ADTIntendantPDA
+  equipment:
+    id: ADTIntendantPDA
+
+- type: loadout
+  id: QuartermasterPDA
+  equipment:
+    id: QuartermasterPDA

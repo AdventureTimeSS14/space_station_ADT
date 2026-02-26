@@ -15,6 +15,7 @@
             </PanelContainer.PanelOverride>
 
             <BoxContainer Orientation="Vertical" Margin="10">
+                <Button Name="PreviewButton" Text="{Loc 'flavor-interface-prewiev'}" />
                 <ui:Label Text="{Loc 'flavor-interface-flavor-text-title'}"
                           Margin="0 0 0 8"
                           StyleClasses="LabelHeading"/>

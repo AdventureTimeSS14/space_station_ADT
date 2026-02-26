@@ -104,17 +104,19 @@
         - id: ClothingNeckCloakGoliathCloak
         - id: ClothingNeckCloakAce
         - id: ClothingNeckCloakAro
-        # start adt tweak
+        # start-adt-tweak
+        # - id: ClothingNeckCloakAroace
         # - id: ClothingNeckCloakBi
         # - id: ClothingNeckCloakIntersex
         # - id: ClothingNeckCloakLesbian
         # - id: ClothingNeckCloakGay
         # - id: ClothingNeckCloakEnby
         # - id: ClothingNeckCloakPan
-        # end adt tweak
-      - id: ToySkeleton
+        # end-adt-tweak
+      - id: ToyFigurineSkeleton
       - id: Basketball
       - id: Football
+      - id: TennisBall
       - id: BalloonNT
       - id: BalloonCorgi
       - id: MysteryFigureBox
@@ -343,6 +345,7 @@
       weight: 95
       children:
       - id: Machete
+      - id: Claymore
       - id: BaseBallBat
       - id: CombatKnife
       - id: Spear

@@ -1,0 +1,13 @@
+- type: entity
+  parent: BaseAction
+  id: ActionBarbellBenchPerformRep
+  name: Perform rep
+  description: Perform one rep on the barbell bench.
+  components:
+  - type: Action
+    icon: { sprite: Interface/Actions/adt-barbell-lift.rsi, state: icon }
+    itemIconStyle: NoItem
+    useDelay: 3.0
+  - type: InstantAction
+    event: !type:BarbellBenchPerformRepEvent
+
