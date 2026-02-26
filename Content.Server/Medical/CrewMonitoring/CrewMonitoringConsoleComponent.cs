@@ -38,5 +38,23 @@ public sealed partial class CrewMonitoringConsoleComponent : Component
     {
         Params = AudioParams.Default.WithVolume(8),
     };
+
+    /// <summary>
+    /// Sound played when any monitored sensor reports crit or dead. Repeats every CritAlertInterval seconds.
+    /// </summary>
+    [DataField("critAlertSound")]
+    public SoundSpecifier CritAlertSound = new SoundPathSpecifier("/Audio/ADT/Machines/crew_monitor_crit_alert.ogg");
+
+    /// <summary>
+    /// Interval in seconds between repeated crit/dead alerts.
+    /// </summary>
+    [DataField("critAlertInterval")]
+    public float CritAlertInterval = 20f;
+
+    /// <summary>
+    /// Next game time at which to play the crit alert (server-side, not serialized).
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    public TimeSpan NextCritAlertTime;
     // ADT-Tweak-End
 }

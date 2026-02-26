@@ -11,6 +11,7 @@ using Content.Shared.Medical.SuitSensor;
 using Content.Shared.Pinpointer;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Timing;
 // ADT-Tweak-Start
 using Robust.Shared.Prototypes;
 using Content.Shared.Roles;
@@ -28,6 +29,7 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
+    [Dependency] private readonly IGameTiming _gameTiming = default!;
     // ADT-Tweak-End
 
     public override void Initialize()
@@ -37,6 +39,39 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
         SubscribeLocalEvent<CrewMonitoringConsoleComponent, DeviceNetworkPacketEvent>(OnPacketReceived);
         SubscribeLocalEvent<CrewMonitoringConsoleComponent, BoundUIOpenedEvent>(OnUIOpened);
         SubscribeLocalEvent<CrewMonitoringConsoleComponent, GotEmaggedEvent>(OnEmagged); // ADT-Tweak
+    }
+
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+        UpdateCritAlerts();
+    }
+
+    /// <summary>
+    /// When any connected sensor is crit or dead, play alert at the console and repeat every CritAlertInterval.
+    /// </summary>
+    private void UpdateCritAlerts()
+    {
+        var now = _gameTiming.CurTime;
+        var query = EntityQueryEnumerator<CrewMonitoringConsoleComponent>();
+
+        while (query.MoveNext(out var uid, out var comp))
+        {
+            var sensors = comp.ConnectedSensors.Values;
+            var hasCritOrDead = sensors.Any(s => !s.IsAlive || (s.DamagePercentage != null && s.DamagePercentage.Value >= 0.8f));
+
+            if (!hasCritOrDead)
+            {
+                comp.NextCritAlertTime = TimeSpan.Zero;
+                continue;
+            }
+
+            if (comp.NextCritAlertTime != TimeSpan.Zero && now < comp.NextCritAlertTime)
+                continue;
+
+            _audio.PlayPvs(comp.CritAlertSound, uid);
+            comp.NextCritAlertTime = now + TimeSpan.FromSeconds(comp.CritAlertInterval);
+        }
     }
 
     private void OnRemove(EntityUid uid, CrewMonitoringConsoleComponent component, ComponentRemove args)
