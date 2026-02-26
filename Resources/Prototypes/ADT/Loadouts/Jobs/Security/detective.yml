@@ -52,9 +52,23 @@
     proto: MasterDetective
 
 - type: loadout
+  id: ADTDetectiveCoatDark
+  equipment:
+    outerClothing: ClothingOuterCoatDetectiveDark
+
+- type: loadout
   id: ADTDetectiveCoatOld
   equipment:
     outerClothing: ADTClothingOuterCoatDetectiveLoadoutOld
+
+# Shoulders
+- type: loadout
+  id: ADTClothingInvestigatorShoulderNeck
+  effects:
+  - !type:GroupLoadoutEffect
+   proto: MasterDetective
+  equipment:
+    neck: ADTClothingCloakInvestigator
 
 # Shoes
 - type: loadout

@@ -57,7 +57,7 @@
     tags: [ GunUpgradeRange ]
     examineText: gun-upgrade-examine-text-range
   - type: GunUpgradeSpeed
-    coefficient: 1.5
+    coefficient: 1.3 # ADT-Tweak 1.5 -> 1.3
 
 - type: entity
   id: PKAUpgradeFireRate

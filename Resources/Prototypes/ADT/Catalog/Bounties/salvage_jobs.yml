@@ -1,0 +1,90 @@
+- type: cargoBounty
+  id: BountySalvageOreCopper
+  reward: 7500
+  description: bounty-description-salvage-ore-copper
+  group: SalvageJobTier1
+  sprite:
+    sprite: ADT/Objects/Materials/ore.rsi
+    state: copper
+  entries:
+  - name: bounty-item-ore-copper
+    amount: 45
+    whitelist:
+      tags:
+      - ADTCopperOre
+
+- type: cargoBounty
+  id: BountySalvageOreBS
+  reward: 15000
+  description: bounty-description-salvage-ore-bs
+  group: SalvageJobTier2
+  sprite:
+    sprite: ADT/Objects/Materials/BS_ore.rsi
+    state: BS_ore
+  entries:
+  - name: bounty-item-ore-bs
+    amount: 20
+    whitelist:
+      tags:
+      - ADTOreBS
+
+- type: cargoBounty
+  id: BountySalvageOreZinc
+  reward: 10500
+  description: bounty-description-salvage-ore-zinc
+  group: SalvageJobTier2
+  sprite:
+    sprite: ADT/Objects/Materials/ore.rsi
+    state: zinc
+  entries:
+  - name: bounty-item-ore-zinc
+    amount: 45
+    whitelist:
+      tags:
+      - ADTZincOre
+
+- type: cargoBounty
+  id: BountySalvageOreLead
+  reward: 8000
+  description: bounty-description-salvage-ore-lead
+  group: SalvageJobTier2
+  sprite:
+    sprite: ADT/Objects/Materials/ore.rsi
+    state: lead
+  entries:
+  - name: bounty-item-ore-lead
+    amount: 30
+    whitelist:
+      tags:
+      - ADTLeadOre
+
+
+- type: cargoBounty
+  id: BountySalvageScrapAirlock1
+  reward: 8000
+  description: bounty-description-salvage-airlockscrap
+  group: SalvageJobTier1
+  sprite:
+    sprite: Objects/Materials/Scrap/generic.rsi
+    state: junk-airlock-1
+  entries:
+  - name: bounty-item-airlockscrap
+    amount: 8
+    whitelist:
+      tags:
+      - ScrapAirlock1
+
+- type: cargoBounty
+  id: BountySalvageScrapAirlock2
+  reward: 7000
+  description: bounty-description-salvage-airlockscrap2
+  group: SalvageJobTier1
+  sprite:
+    sprite: Objects/Materials/Scrap/generic.rsi
+    state: junk-airlock-3
+  entries:
+  - name: bounty-item-airlockscrap2
+    amount: 10
+    whitelist:
+      tags:
+      - ScrapAirlock2

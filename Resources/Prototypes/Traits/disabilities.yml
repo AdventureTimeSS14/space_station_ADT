@@ -50,8 +50,10 @@
   category: Quirks  # ADT Quirks
   components:
     - type: Narcolepsy
-      timeBetweenIncidents: 300, 600
-      durationOfIncident: 10, 30
+      maxTimeBetweenIncidents: 600
+      minTimeBetweenIncidents: 300
+      maxDurationOfIncident: 30
+      minDurationOfIncident: 10
   cost: -1  # ADT Quirks
   quirk: true  # ADT Quirks
 
@@ -62,9 +64,10 @@
   category: Quirks  # ADT Quirks
   components:
     - type: Unrevivable
-  cost: -1  # ADT Quirks
+  cost: -3  # ADT Quirks Tweak -1 -> -3
   speciesBlacklist:
   - IPC
+  - NovakidSpecies
   quirk: true  # ADT Quirks
 
 # - type: trait
@@ -83,6 +86,10 @@
   blacklist:
     components:
       - BorgChassis
+# ADT-Tweak start
+  speciesBlacklist:
+  - SlimePerson
+# ADT-Tweak end
   components:
     - type: Muted
   cost: -2  # ADT Quirks
@@ -117,7 +124,7 @@
   id: Hemophilia
   name: trait-hemophilia-name
   description: trait-hemophilia-desc
-  category: Quirks # ADT Disabilities -> Quirks
+  category: Disabilities
   components:
   - type: Hemophilia
   speciesBlacklist: # ADT Quirks
@@ -125,11 +132,11 @@
   quirk: true
   cost: -2 # ADT Quirks
 
-# - type: trait
-#   id: ImpairedMobility
-#   name: trait-impaired-mobility-name
-#   description: trait-impaired-mobility-desc
-#   traitGear: OffsetCane
-#   category: Disabilities
-#   components:
-#     - type: ImpairedMobility
+- type: trait
+  id: ImpairedMobility
+  name: trait-impaired-mobility-name
+  description: trait-impaired-mobility-desc
+  traitGear: OffsetCane
+  category: Disabilities
+  components:
+    - type: ImpairedMobility

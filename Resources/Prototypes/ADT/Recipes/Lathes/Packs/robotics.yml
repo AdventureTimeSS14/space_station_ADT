@@ -132,3 +132,11 @@
   # - ADTBoxAmmoSniper        Вырезано ради баланса
   # - ADTBoxAmmoGranade       Перенесено в охранный техфаб
   - ADTBoxPlasmaBox
+
+- type: latheRecipePack
+  id: ADTBorgModules
+  recipes:
+  - BorgModuleTopicals
+  - ADTBorgModuleRescue
+  - ADTBorgModuleAdvancedChemical
+  - ADTBorgModuleChemical

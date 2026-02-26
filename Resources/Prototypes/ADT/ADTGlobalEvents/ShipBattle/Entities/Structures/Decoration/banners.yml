@@ -1,3 +1,4 @@
+#ADT-Tweak Start
 - type: entity
   id: ADTBannerTSF
   parent: BannerBase
@@ -7,8 +8,29 @@
   components:
   - type: Sprite
     sprite: ADT/ADTGlobalEvents/ShipBattle/Structures/Decoration/banner.rsi
-    state: tsf
+    layers:
+    - state: tsf
+      map: ["unfoldedLayer"]
+    - sprite: ADT/Structures/Banners/rolled.rsi
+      state: tsf-rolled
+      map: ["foldedLayer"]
+      visible: false
+  - type: Foldable
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.FoldedVisuals.State:
+        foldedLayer:
+          True: {visible: true}
+          False: {visible: false}
+        unfoldedLayer:
+          True: {visible: false}
+          False: {visible: true}
+  - type: Item
+    size: Normal
+#ADT-Tweak End
 
+#ADT-Tweak Start
 - type: entity
   id: ADTBannerKMT
   parent: BannerBase
@@ -18,4 +40,24 @@
   components:
   - type: Sprite
     sprite: ADT/ADTGlobalEvents/ShipBattle/Structures/Decoration/banner.rsi
-    state: kmt
+    layers:
+    - state: kmt
+      map: ["unfoldedLayer"]
+    - sprite: ADT/Structures/Banners/rolled.rsi
+      state: kmt-rolled
+      map: ["foldedLayer"]
+      visible: false
+  - type: Foldable
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.FoldedVisuals.State:
+        foldedLayer:
+          True: {visible: true}
+          False: {visible: false}
+        unfoldedLayer:
+          True: {visible: false}
+          False: {visible: true}
+  - type: Item
+    size: Normal
+#ADT-Tweak End

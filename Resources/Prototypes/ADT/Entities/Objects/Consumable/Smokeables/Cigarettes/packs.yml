@@ -26,7 +26,7 @@
   - type: Storage
     grid:
     - 0,0,3,0
-    whitelist:
+    whitelist: # не стал добавлять в вайтлист зажигалки, поскольку пачка маленькая и по логике в нее они не поместятся.
       tags:
       - Cigarette
   - type: StorageFill
@@ -124,6 +124,7 @@
     whitelist:
       tags:
       - Cigarette
+      - ADTLighter
   - type: StorageFill
     contents:
     - id: ADTLuckySlothsCigarette

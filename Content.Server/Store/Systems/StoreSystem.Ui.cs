@@ -9,6 +9,7 @@ using Content.Server.Stack;
 using Content.Server.Store.Components;
 using Content.Shared.Actions;
 using Content.Shared.Database;
+using Content.Shared.ADT.ManifestListings;
 using Content.Shared.FixedPoint;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Heretic;
@@ -172,9 +173,16 @@ public sealed partial class StoreSystem
             }
         }
 
-        if (!IsOnStartingMap(uid, component))
-            DisableRefund(uid, component);
+        // ADT-tweak-start
+        if (_mind.TryGetMind(buyer, out var mindId, out _))
+        {
+            var ev = new ListingPurchasedEvent(buyer, uid, listing);
+            RaiseLocalEvent(mindId, ref ev);
+        }
 
+        // if (!IsOnStartingMap(uid, component))
+        //     component.RefundAllowed = false;
+        // ADT-tweak-end
         //subtract the cash
         foreach (var (currency, amount) in cost)
         {
@@ -340,7 +348,7 @@ public sealed partial class StoreSystem
         {
             var cashId = proto.Cash[value];
             var amountToSpawn = (int) MathF.Floor((float) (amountRemaining / value));
-            var ents = _stack.SpawnMultiple(cashId, amountToSpawn, coordinates);
+            var ents = _stack.SpawnMultipleAtPosition(cashId, amountToSpawn, coordinates);
             if (ents.FirstOrDefault() is {} ent)
                 _hands.PickupOrDrop(buyer, ent);
             amountRemaining -= value * amountToSpawn;

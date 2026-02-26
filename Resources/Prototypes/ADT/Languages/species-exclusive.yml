@@ -1,4 +1,4 @@
-  # Spoken by dionas.
+  # Spoken by the Diona race.
 - type: language
   id: RootSpeak
   uiColor: "#76ff61"
@@ -15,26 +15,22 @@
     sound:
       path: /Audio/Voice/Diona/diona_scream.ogg
 
-# Spoken by slimes.
+  # Spoken by the Slime race.
 - type: language
   id: Bubblish
   uiColor: "#61daff"
   parent: BaseVocalLanguage
-  speech: !type:Generic
-    obfuscateSyllables: true
+  speech: !type:Emotes
     color: "#61daff"
     whisperColor: "#5f9db0"
     replacement:
-    - блоб
-    - плоп
-    - поп
-    - боп
-    - буп
-    - блюп
-    - бульп
-    - блеб
+    - булькает
+    - бурлит
+    - пускает пузыри
     font: Airfool
     fontSize: 14
+    sound:
+      collection: SlimeBubbles
 
 # Spoken by the Novakid race.
 - type: language
@@ -45,14 +41,16 @@
     color: "#ff6a00"
     whisperColor: "#e0894a"
     replacement:
-    - разгарается
+    - разгорается
     - потрескивает огнём
     - издаёт пламенные звуки
+    - полыхает
     font: Plantype
     fontSize: 14
     sound:
       collection: NovakidLaugh
 
+# Spoken by the Shadekin race.
 - type: language
   id: Mar
   uiColor: "#9000ff"
@@ -69,6 +67,7 @@
     font: CaesarDressing
     fontSize: 13
 
+# Spoken by the Vox race.
 - type: language
   id: VoxPidgin
   uiColor: "#419167"
@@ -110,3 +109,23 @@
     - зак-зак
     font: Blackcraft
     fontSize: 14
+
+# Spoken by the IPC race.
+- type: language
+  id: RobotTalk
+  uiColor: "#5773ff"
+  parent: BaseVocalLanguage
+  speech: !type:Generic
+    obfuscateSyllables: true
+    color: "#5773ff"
+    whisperColor: "#7c8acc"
+    replacement:
+    - "0"
+    - "1"
+    - "2"
+    verbs:
+      chat-speech-verb-suffix-exclamation-strong: [ громко констатирует, громко сообщает ]
+      chat-speech-verb-suffix-exclamation: [ громко констатирует, громко сообщает ]
+      Default: [ констатирует, сообщает, докладывает ]
+    font: Pixelizer
+    fontSize: 15

@@ -1,0 +1,40 @@
+- type: entity
+  name: stabilizing serum
+  id: ADTStabilizingSerum
+  parent: BaseItem
+  description: Drink this and become a ninja turtle.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Salvage/stabilizing_serum.rsi
+    state: icon
+  - type: Item
+    size: Small
+  - type: Tag
+    tags:
+    - ADTStabilizingSerum
+
+- type: entity
+  name: stable legion core
+  id: ADTLegionCoreStable
+  parent: BaseItem
+  description: Is this a soul from undertale?
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Lavaland/loot.rsi
+    state: legion_core_stable
+  - type: Healing
+    damageContainers:
+    - Biological
+    damage:
+      groups:
+        Brute: -100
+        Burn: -100
+    delay: 0.1
+    selfHealPenaltyMultiplier: 0
+    healingBeginSound:
+      path: "/Audio/Items/eating_1.ogg"
+    healingEndSound:
+      path: "/Audio/Items/eating_3.ogg"
+  - type: Construction
+    graph: ADTLegionCoreStable
+    node: stable

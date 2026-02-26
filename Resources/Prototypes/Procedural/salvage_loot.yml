@@ -18,7 +18,7 @@
         - proto: CyborgEndoskeleton
           cost: 3
           prob: 0.5
-        - proto: ChemDispenserMachineCircuitboard
+        - proto: EnergyChemDispenserMachineCircuitboard # ADT-Tweak
           cost: 2
         - proto: CircuitImprinter
           cost: 2
@@ -53,6 +53,9 @@
           cost: 3
         - proto: PowerCellAntiqueProto
           cost: 5
+          prob: 0.5
+        - proto: ADTClothingModsuitBackAncient # ADT-Tweak
+          cost: 3
           prob: 0.5
         - proto: ProtolatheMachineCircuitboard
         - proto: RandomArtifactSpawner

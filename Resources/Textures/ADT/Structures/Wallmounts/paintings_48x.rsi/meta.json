@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made by discord:prazat911 for ADT",
+  "size": {
+    "x": 48,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "creation_adam48x"
+    },
+    {
+      "name": "creation_shitcurity48x"
+    },
+    {
+      "name": "farewell_convoy48x"
+    }
+  ]
+}

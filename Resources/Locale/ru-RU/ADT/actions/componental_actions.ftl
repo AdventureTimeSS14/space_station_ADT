@@ -7,3 +7,6 @@ ent-ControlReturnAction = Прекратить управление орудие
     .desc = Прекращает удаленное управление корабельным орудием.
 ent-ActionTurretShowRadar = Активировать радар.
     .desc = Включает интерфейс радара.
+
+ent-CompActionJumpAbomination = Прыжок
+    .desc = Прыгни и настигни свою цель.

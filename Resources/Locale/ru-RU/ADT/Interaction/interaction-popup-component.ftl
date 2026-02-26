@@ -7,3 +7,5 @@ petting-success-singularity = Вы гладите { $target }, и Вселенн
 petting-failure-singularity = Вы пытаетесь погладить { $target }, но { POSS-ADJ($target) } гравитация почти втягивает вас внутрь.
 petting-success-supermatter = Вы гладите { $target }, чувствуя, как ваше тело начинает светиться изнутри.
 petting-failure-supermatter = Вы тянетесь к { $target }, но { POSS-ADJ($target) } излучение мгновенно обжигает вашу руку.
+petting-success-resomi = Вы гладите { $target } по { POSS-ADJ($target) } маленькой пернатой голове.
+petting-success-resomi-others = { CAPITALIZE($user) } гладит { $target } по { POSS-ADJ($target) } маленькой пернатой голове.

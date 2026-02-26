@@ -1,0 +1,71 @@
+- type: entity
+  parent: BaseBarSign
+  id: ADTBarSignAlohaSnackbar
+  name: Aloha Snackbar
+  description: A tropical snackbar that brings island vibes to space.
+  components:
+  - type: BarSign
+    current: AlohaSnackbar
+
+- type: entity
+  parent: BaseBarSign
+  id: ADTBarSignLittleTreats
+  name: Little Treats
+  description: The treats are small, but the tea is real.
+  components:
+  - type: BarSign
+    current: LittleTreats
+
+- type: entity
+  parent: BaseBarSign
+  id: ADTBarSignAssemblyLine
+  name: Assembly Line
+  description: Any cocktail to choose from.
+  components:
+  - type: BarSign
+    current: AssemblyLine
+
+- type: entity
+  parent: BaseBarSign
+  id: ADTBarSignOrangeJuice
+  name: Juice
+  description: The contents of the glasses are officially considered juice!
+  components:
+  - type: BarSign
+    current: OrangeJuice
+
+- type: entity
+  parent: BaseBarSign
+  id: ADTBarSignNeonFlamingo
+  name: Neon Flamingo
+  description: A nightclub in the middle of space, where there's no time of day, baby!
+  components:
+  - type: BarSign
+    current: NeonFlamingo
+
+- type: entity
+  parent: BaseBarSign
+  id: ADTBarSignSleuthsLounge
+  name: Sleuth's Lounge
+  description: A bar for those tired of searching for the truth.
+  components:
+  - type: BarSign
+    current: SleuthsLounge
+
+- type: entity
+  parent: BaseBarSign
+  id: ADTBarSignCafeSilentieux
+  name: Café Silentieux
+  description: A café where they speak in gestures and serve coffee without unnecessary words.
+  components:
+  - type: BarSign
+    current: CafeSilentieux
+
+- type: entity
+  parent: BaseBarSign
+  id: ADTBarSignTheRune
+  name: The Rune
+  description: The #1 bar according to Heretics!
+  components:
+  - type: BarSign
+    current: TheRune

@@ -9,6 +9,7 @@
   dollPrototype: MobSlimePersonDummy
   skinColoration: Hues
   # ADT start
+  shortDesc: species-short-desc-slime
   description: "/ServerInfo/ADT/SpeciesDescriptions/Slime.xml"
   pros:
   - Могут хранить внутри себя небольшие объекты.
@@ -115,7 +116,7 @@
 - type: humanoidBaseSprite
   id: MobSlimeTorsoFemale
   baseSprite:
-    sprite: Mobs/Species/Slime/parts.rsi
+    sprite: ADT/Mobs/Species/Slime/parts.rsi #ADT-Tweak
     state: torso_f
 
 - type: humanoidBaseSprite

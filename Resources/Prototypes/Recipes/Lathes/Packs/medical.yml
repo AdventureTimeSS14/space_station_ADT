@@ -16,6 +16,7 @@
   - PillCanister
   - HandLabeler
   - BaseChemistryEmptyVial
+  - Dropper
 
 - type: latheRecipePack
   parent: BasicChemistryStatic
@@ -23,6 +24,7 @@
   recipes:
   - Jug
   - ChemistryEmptyBottle01
+  - BoxBottle # ADT-Tweak
 ##  - ClothingEyesGlassesChemical
 
 - type: latheRecipePack
@@ -44,6 +46,8 @@
   - DiseaseSwab
   - BodyBag
   - WhiteCane
+  - OffsetCane
+  - OffsetCaneWood
 
 - type: latheRecipePack
   id: RollerBedsStatic
@@ -101,5 +105,12 @@
   - StasisBedMachineCircuitboard
   - BiomassReclaimerMachineCircuitboard
 ##- CryoPodMachineCircuitboard
-  - ADTMedicalAssemblerMachineCircuitBoard # ADT-Tweak
-  - EnergyChemDispenserMachineCircuitboard # ADT-Tweak
+  # ADT-Tweak-Start
+  - ADTMedicalAssemblerMachineCircuitBoard
+  - EnergyChemDispenserMachineCircuitboard
+  - ChemMasterMachineCircuitboard
+  - HotplateMachineCircuitboard
+  - CloningPodMachineCircuitboard
+  - CloningConsoleComputerCircuitboard
+  - MedicalScannerMachineCircuitboard
+  # ADT-Tweak-End

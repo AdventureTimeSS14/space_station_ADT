@@ -49,6 +49,31 @@
 
 - type: entity
   parent: BaseItem
+  id: ADTCCCVoucher
+  name: RSI "Honesty"
+  description: The Radial Selective Interface is a device for transporting the latest weapon prototypes directly to the duty station. Spacial for Central Command Officials!
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/centcomm_voucher.rsi
+    state: icon
+  - type: Item
+    size: Small
+  - type: ActivatableUI
+    key: enum.MiningVoucherUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.MiningVoucherUiKey.Key:
+        type: MiningVoucherBoundUserInterface
+  - type: MiningVoucher
+    kits:
+    - WeaponCC7Arbiter
+    - WeaponR22Rodent
+    - WeaponCentcomStockdegen
+    typeDropPlace: ThisPlace
+    typeDrop: Rocket
+
+- type: entity
+  parent: BaseItem
   id: ADTHosVoucher
   name: RCU "Justice"
   description: The Radial Selective Interface is a device for transporting the latest weapon prototypes directly to the duty station. NT was developed specifically for the blue shield case.
@@ -71,3 +96,28 @@
     - WeaponHoSBat
     typeDropPlace: ThisPlace
     typeDrop: Rocket
+
+- type: entity
+  parent: BaseItem
+  id: ADTSyndicateShoesVoucher
+  name: suspicious shoe box
+  description: A strange shoe box. Looking at it, you feel uncertain.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/syndieshoes_voucher.rsi
+    state: syndie_shoebox
+  - type: Item
+    size: Normal
+  - type: ActivatableUI
+    key: enum.MiningVoucherUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.MiningVoucherUiKey.Key:
+        type: MiningVoucherBoundUserInterface
+  - type: MiningVoucher
+    useSound:
+     path: /Audio/ADT/Effects/silence.ogg
+    kits:
+    - ShoesSyndieChameleon
+    - ShoesSyndieChameleonNoSound
+    typeDropPlace: InHands

@@ -1,0 +1,27 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "tgstation at 677e7dc77a8e2c2ac3e5b4b09788c886418dd9ef modificated by git:Unlumy, resprited by orange6775 (discord)",
+    "size": {
+      "x": 32,
+      "y": 32
+    },
+  "states": [
+    {
+      "name": "side",
+      "directions": 4
+    },
+    {
+      "name": "corner",
+      "directions": 4
+    },
+    {
+        "name": "corner_small",
+        "directions": 4
+    },
+    {
+        "name": "round",
+        "directions": 4
+    }
+  ]
+}

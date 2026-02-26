@@ -1,0 +1,126 @@
+# Сломанные деревья
+- type: entity
+  parent: BaseTree
+  id: ADTFloraTreeBroken01
+  name: broken tree
+  description: The remains of a once majestic tree.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Flora/flora_treebroken_96x96.rsi
+    state: broken01
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.35,-0.3,0.35,0.5"
+        density: 1000
+        layer:
+        - WallLayer
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 100
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+
+- type: entity
+  parent: ADTFloraTreeBroken01
+  id: ADTFloraTreeBroken02
+  components:
+  - type: Sprite
+    state: broken02
+
+- type: entity
+  parent: ADTFloraTreeBroken01
+  id: ADTFloraTreeBroken03
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Flora/flora_treebroken_48x48.rsi
+    state: broken03
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.35,0.1,0.35,0.9"
+        density: 1000
+        layer:
+        - WallLayer
+
+- type: entity
+  parent: ADTFloraTreeBroken01
+  id: ADTFloraTreeBroken04
+  components:
+  - type: Sprite
+    state: broken04
+
+- type: entity
+  parent: ADTFloraTreeBroken01
+  id: ADTFloraTreeBroken05
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Flora/flora_treebroken_48x48.rsi
+    state: broken05
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.35,0.1,0.35,0.9"
+        density: 1000
+        layer:
+        - WallLayer
+
+# Пальмы
+- type: entity
+  parent: BaseTree
+  id: ADTFloraPalmTree01
+  name: palm tree
+  description: A tropical palm tree. Gives the atmosphere of a paradise island.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Flora/flora_treepalm.rsi
+    state: treepalm01
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 400
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+      - trigger:
+          !type:DamageTrigger
+          damage: 50
+        behaviors:
+        - !type:PlaySoundBehavior
+          sound:
+            path: /Audio/Effects/tree_fell.ogg
+            params:
+              volume: 5
+              variation: 0.05
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+        - !type:SpawnEntitiesBehavior
+          spawn:
+            Log:
+              min: 2
+              max: 5
+
+- type: entity
+  parent: ADTFloraPalmTree01
+  id: ADTFloraPalmTree02
+  components:
+  - type: Sprite
+    state: treepalm02
+
+- type: entity
+  parent: ADTFloraPalmTree01
+  id: ADTFloraPalmTree03
+  components:
+  - type: Sprite
+    state: treepalm03
+

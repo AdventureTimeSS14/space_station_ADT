@@ -24,7 +24,9 @@
     lifetime: 200
   - type: SpawnOnDespawn
     prototype: ADTLegionCoreDecayed
-
+  - type: Construction #ADT-Tweak
+    graph: ADTLegionCoreStable #ADT-Tweak
+    node: start #ADT-Tweak
 - type: entity
   name: legion core
   id: ADTLegionCoreDecayed

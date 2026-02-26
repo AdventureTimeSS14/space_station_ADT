@@ -1,0 +1,246 @@
+- type: entity
+  parent: BaseItem
+  id: ADTClothingVoucherBase
+  abstract: true
+  components:
+  - type: Item
+    size: Normal
+  - type: ActivatableUI
+    key: enum.MiningVoucherUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.MiningVoucherUiKey.Key:
+        type: MiningVoucherBoundUserInterface
+  - type: MiningVoucher
+    useSound:
+     path: /Audio/Effects/spray2.ogg
+    kits:
+    - JumpsuitTurtleneckWhite
+    typeDropPlace: InHands
+
+- type: entity
+  parent: ADTClothingVoucherBase
+  id: ADTClothingVoucherJumpsuitTurtleneck
+  abstract: false
+  components:
+  - type: Sprite
+    layers:
+      - sprite: ADT/Clothing/Uniforms/Jumpsuit/turtleneck_white.rsi
+        state: icon
+      - sprite: ADT/Objects/Specific/clothing_voucher.rsi
+        state: icon
+  - type: MiningVoucher
+    useSound:
+     path: /Audio/Effects/spray2.ogg
+    kits:
+    - JumpsuitTurtleneckWhite
+    - JumpsuitTurtleneckAquamarine
+    - JumpsuitTurtleneckAzure
+    - JumpsuitTurtleneckYellow
+    - JumpsuitTurtleneckGreen
+    - JumpsuitTurtleneckBrown
+    - JumpsuitTurtleneckRed
+    - JumpsuitTurtleneckOrange
+    - JumpsuitTurtleneckPink
+    - JumpsuitTurtleneckGrey
+    - JumpsuitTurtleneckBlue
+    - JumpsuitTurtleneckPurple
+    - JumpsuitTurtleneckBlack
+    - JumpsuitTurtleneckDarkBlue
+    typeDropPlace: InHands
+
+- type: entity
+  parent: ADTClothingVoucherBase
+  id: ADTClothingVoucherJumpskirtTurtleneck
+  abstract: false
+  components:
+  - type: Sprite
+    layers:
+      - sprite: ADT/Clothing/Uniforms/Jumpskirt/turtleneck_white_women.rsi
+        state: icon
+      - sprite: ADT/Objects/Specific/clothing_voucher.rsi
+        state: icon
+  - type: MiningVoucher
+    useSound:
+     path: /Audio/Effects/spray2.ogg
+    kits:
+    - JumpskirtTurtleneckWhite
+    - JumpskirtTurtleneckAquamarine
+    - JumpskirtTurtleneckAzure
+    - JumpskirtTurtleneckYellow
+    - JumpskirtTurtleneckGreen
+    - JumpskirtTurtleneckBrown
+    - JumpskirtTurtleneckRed
+    - JumpskirtTurtleneckOrange
+    - JumpskirtTurtleneckPink
+    - JumpskirtTurtleneckGrey
+    - JumpskirtTurtleneckBlue
+    - JumpskirtTurtleneckPurple
+    - JumpskirtTurtleneckBlack
+    - JumpskirtTurtleneckDarkBlue
+    typeDropPlace: InHands
+
+- type: entity
+  parent: ADTClothingVoucherBase
+  id: ADTClothingVoucherHatsoft
+  abstract: false
+  components:
+  - type: Sprite
+    layers:
+      - sprite: Clothing/Head/Soft/mimesoft.rsi
+        state: icon
+      - sprite: ADT/Objects/Specific/clothing_voucher.rsi
+        state: icon
+  - type: MiningVoucher
+    useSound:
+     path: /Audio/Effects/spray2.ogg
+    kits:
+    - HatsoftWhite
+    - HatsoftBlue
+    - HatsoftGreen
+    - HatsoftBlack
+    - HatsoftGrey
+    - HatsoftOrange
+    - HatsoftPurple
+    - HatsoftRed
+    - HatsoftYellow
+    typeDropPlace: InHands
+
+- type: entity
+  parent: ADTClothingVoucherBase
+  id: ADTClothingVoucherScarfStriped
+  abstract: false
+  components:
+  - type: Sprite
+    layers:
+      - sprite: ADT/Clothing/Neck/Scarfs/white.rsi
+        state: icon
+      - sprite: ADT/Objects/Specific/clothing_voucher.rsi
+        state: icon
+  - type: MiningVoucher
+    useSound:
+     path: /Audio/Effects/spray2.ogg
+    kits:
+    - ScarfStripedWhite
+    - ScarfStripedGreen
+    - ScarfStripedBrown
+    - ScarfStripedRed
+    - ScarfStripedOrange
+    - ScarfStripedPurple
+    - ScarfStripedLightBlue
+    - ScarfStripedBlue
+    - ScarfStripedBlack
+    typeDropPlace: InHands
+
+- type: entity
+  parent: ADTClothingVoucherBase
+  id: ADTClothingVoucherFacescarf
+  abstract: false
+  components:
+  - type: Sprite
+    layers:
+      - sprite: ADT/Clothing/Neck/Facescarfs/facescarf_white.rsi
+        state: icon
+      - sprite: ADT/Objects/Specific/clothing_voucher.rsi
+        state: icon
+  - type: MiningVoucher
+    useSound:
+     path: /Audio/Effects/spray2.ogg
+    kits:
+    - FacescarfWhite
+    - FacescarfGreen
+    - FacescarfRed
+    - FacescarfOrange
+    - FacescarfGrey
+    - FacescarfBlue
+    - FacescarfPurple
+    - FacescarfBlack
+    typeDropPlace: InHands
+
+- type: entity
+  parent: ADTClothingVoucherBase
+  id: ADTClothingVoucherWinterCoatLight
+  abstract: false
+  components:
+  - type: Sprite
+    layers:
+      - sprite: ADT/Clothing/OuterClothing/WinterCoats/light_winter_coat_white.rsi
+        state: icon
+      - sprite: ADT/Objects/Specific/clothing_voucher.rsi
+        state: icon
+  - type: MiningVoucher
+    useSound:
+     path: /Audio/Effects/spray2.ogg
+    kits:
+    - WinterCoatLightWhite
+    - WinterCoatLightAquamarine
+    - WinterCoatLightAzure
+    - WinterCoatLightYellow
+    - WinterCoatLightGreen
+    - WinterCoatLightBrown
+    - WinterCoatLightRed
+    - WinterCoatLightOrange
+    - WinterCoatLightPink
+    - WinterCoatLightGrey
+    - WinterCoatLightBlue
+    - WinterCoatLightDarkBlue
+    - WinterCoatLightPurple
+    - WinterCoatLightBlack
+    typeDropPlace: InHands
+
+- type: entity
+  parent: ADTClothingVoucherBase
+  id: ADTClothingVoucherScarfLong
+  abstract: false
+  components:
+  - type: Sprite
+    layers:
+      - sprite: ADT/Clothing/Neck/Scarfs/White_long_scarf.rsi
+        state: icon
+      - sprite: ADT/Objects/Specific/clothing_voucher.rsi
+        state: icon
+  - type: MiningVoucher
+    useSound:
+     path: /Audio/Effects/spray2.ogg
+    kits:
+    - ScarfLongWhite
+    - ScarfLongYellow
+    - ScarfLongGreen
+    - ScarfLongRed
+    - ScarfLongOrange
+    - ScarfLongPurple
+    - ScarfLongPink
+    - ScarfLongBlue
+    - ScarfLongBlack
+    typeDropPlace: InHands
+
+- type: entity
+  parent: ADTClothingVoucherBase
+  id: ADTClothingVoucherTie
+  abstract: false
+  components:
+  - type: Sprite
+    layers:
+      - sprite: ADT/Clothing/Neck/Ties/white_tie.rsi
+        state: icon
+      - sprite: ADT/Objects/Specific/clothing_voucher.rsi
+        state: icon
+  - type: MiningVoucher
+    useSound:
+     path: /Audio/Effects/spray2.ogg
+    kits:
+    - TieWhite
+    - TieBlue
+    - TieAquamarine
+    - TieAzure
+    - TieBlack
+    - TieBrown
+    - TieDarkBlue
+    - TieGreen
+    - TieGrey
+    - TieOrange
+    - TiePink
+    - TiePurple
+    - TieRed
+    - TieYellow
+    typeDropPlace: InHands

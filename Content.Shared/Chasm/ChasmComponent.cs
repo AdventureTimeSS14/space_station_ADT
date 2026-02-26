@@ -1,4 +1,4 @@
-﻿using Robust.Shared.Audio;
+﻿// using Robust.Shared.Audio; ADT-Tweak
 using Robust.Shared.GameStates;
 
 namespace Content.Shared.Chasm;
@@ -12,6 +12,8 @@ public sealed partial class ChasmComponent : Component
     /// <summary>
     ///     Sound that should be played when an entity falls into the chasm
     /// </summary>
-    [DataField("fallingSound")]
-    public SoundSpecifier FallingSound = new SoundPathSpecifier("/Audio/Effects/falling.ogg");
+    //ADT-Tweak-Start
+    //[DataField("fallingSound")]
+    //public SoundSpecifier FallingSound = new SoundPathSpecifier("/Audio/Effects/falling.ogg");
+    //ADT-Tweak-End
 }

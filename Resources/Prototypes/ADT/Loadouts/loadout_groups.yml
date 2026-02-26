@@ -71,6 +71,15 @@
   - ADTClothingHeadsetCargo
   - ADTClothingHeadsetMining
 
+- type: loadoutGroup
+  id: ADTCentcomConsultantEars
+  name: loadout-ccc-ears-adt
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - HeadsetAltCentCom
+  - HeadsetCentCom
+
 # MAGISTRATE
 
 - type: loadoutGroup
@@ -322,6 +331,7 @@
   minLimit: 0
   loadouts:
   - LatexGloves
+  - ADTGlovesLatexBlack
   - ADTPurpleGloves
   - RobohandsGloves
 
@@ -427,6 +437,144 @@
   loadouts:
   - ADTClothingOuterWinterBlueshield
   - ADTClothingBlueshieldArmor
+
+# CENTRAL COMMAND CONSULTANT
+
+- type: loadoutGroup
+  id: ADTCentcomConsultantJumpsuit
+  name: loadout-group-ccc-jumpsuit
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ADTJumpsuitССС
+  - ADTJumpskirtCCC
+  - ADTJumpsuitCCCFormal
+  - ADTJumpskirtCCCFormal
+  - CentcomOfficer
+  - ADTJumpskirtTurtleneckGreen
+
+- type: loadoutGroup
+  id: ADTCentcomConsultantHead
+  name: loadout-group-ccc-head
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - ADTConsultantCentcomCap
+  - Centcomcap
+
+- type: loadoutGroup
+  id: ADTCentcomConsultantNeck
+  name: loadout-group-ccc-neck
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - ScarfStripedCentcom
+
+- type: loadoutGroup
+  id: ADTCentcomConsultantBack
+  name: loadout-group-ccc-back
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - CentcomBackpack
+  - SatchelCentcom
+  - DuffelCentcom
+
+- type: loadoutGroup
+  id: ADTCentcomConsultantOuterClothing
+  name: loadout-group-ccc-outer-clothing
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - CoatCCC
+  - CoatCentCom
+
+- type: loadoutGroup
+  id: ADTCentcomConsultantShoes
+  name: loadout-group-ccc-shoes
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - BootsJack
+  - BootsLaceup
+
+- type: loadoutGroup
+  id: ADTCentcomConsultantHands
+  name: loadout-group-ccc-hands
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - ADTGlovesLatex
+  - ADTGlovesLatexBlack
+  - ADTGreenGloves
+
+- type: loadoutGroup
+  id: ADTCentcomConsultantSocks
+  name: loadout-group-ccc-socks
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ADTUnderwearStockingsCentcom
+  - ADTUnderwearSocksKneeCentcom
+  - ADTUnderwearSocksCentcom
+  - ADTUnderwearSocksNormal
+  - ADTUnderwearSocksHigh
+  - ADTUnderwearSocksShort
+  - ADTUnderwearSocksThigh
+  - ADTUnderwearStockings
+  - ADTUnderwearSocksComfyBlue
+  - ADTUnderwearSocksComfyGrey
+  - ADTUnderwearSocksComfyRed
+  - ADTUnderwearSocksComfyViolet
+  - ADTUnderwearSocksBee
+  - ADTUnderwearSocksBeeThigh
+  - ADTUnderwearSocksCoder
+  - ADTUnderwearStockingsLace
+  - ADTUnderwearStockingsBlack
+  - ADTUnderwearStockingsComfyBlue
+  - ADTUnderwearStockingsComfyGrey
+  - ADTUnderwearStockingsComfyRed
+  - ADTUnderwearStockingsComfyViolet
+  - ADTUnderwearSocksAzure
+  - ADTUnderwearSocksKneeAzure
+  - ADTUnderwearSocksThighAzure
+  - ADTUnderwearSocksBlack
+  - ADTUnderwearSocksKneeBlack
+  - ADTUnderwearSocksThighBlack
+  - ADTUnderwearSocksCyan
+  - ADTUnderwearSocksKneeCyan
+  - ADTUnderwearSocksThighCyan
+  - ADTUnderwearSocksFurr
+  - ADTUnderwearSocksKneeFurr
+  - ADTUnderwearSocksThighFurr
+  - ADTUnderwearSocksGreen
+  - ADTUnderwearSocksKneeGreen
+  - ADTUnderwearSocksThighGreen
+  - ADTUnderwearSocksHomelander
+  - ADTUnderwearSocksKneeHomelander
+  - ADTUnderwearSocksThighHomelander
+  - ADTUnderwearSocksHotpink
+  - ADTUnderwearSocksKneeHotpink
+  - ADTUnderwearSocksThighHotpink
+  - ADTUnderwearSocksOrange
+  - ADTUnderwearSocksKneeOrange
+  - ADTUnderwearSocksThighOrange
+  - ADTUnderwearSocksPink
+  - ADTUnderwearSocksKneePink
+  - ADTUnderwearSocksThighCreepy
+  - ADTUnderwearSocksKneeFishnet
+  - ADTUnderwearSocksFullFishnet
+  - ADTUnderwearSocksKneeThin
+  - ADTUnderwearSocksThighThin
+  - ADTUnderwearSocksThighBlue
+  - ADTUnderwearSocksThighFishnet
+  - ADTUnderwearSocksThighGrey
+  - ADTUnderwearSocksThighPantyhose
+  - ADTUnderwearSocksThighPurple
+  - ADTUnderwearSocksThighRed
+  - ADTUnderwearSocksYellow
+  - ADTUnderwearSocksKneeYellow
+  - ADTUnderwearSocksThighYellow
 
 # WARDEN
 
@@ -561,6 +709,7 @@
   maxLimit: 1
   loadouts:
   - ADTHandsGlovesLatex
+  - ADTGlovesLatexBlack
   - ADTHandsGlovesNitrile
 
   # Eyes
@@ -602,7 +751,7 @@
   minLimit: 0
   maxLimit: 1
   loadouts:
-  - ADTChefCqc
+  - ADTChefManual
 
 - type: loadoutGroup
   id: ADTChefGloves
@@ -685,6 +834,14 @@
   loadouts:
   - ADTClothingUniformJumpsuitSalvageSpecialist
 
+- type: loadoutGroup
+  id: ADTSalvageSpecialistNeck
+  name: loadout-salvage-specialist-neck-adt
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - ADTNeckSalvageSpecialistCape
+
 # ШАХТЁР
 - type: loadoutGroup
   id: ADTMinerJumpsuit
@@ -703,7 +860,7 @@
   - SalvageSpecialistDuffel
 
 - type: loadoutGroup
-  id: ADTMinerSpecialistEars
+  id: ADTMinerEars
   name: loadout-miner-ears-adt
   minLimit: 1
   maxLimit: 1
@@ -713,18 +870,18 @@
 
 # Плащи
 - type: loadoutGroup
-  id: ADTMinerSpecialistNeck
+  id: ADTMinerNeck
   name: loadout-miner-neck-adt
   minLimit: 0
   maxLimit: 1
   loadouts:
-  - ADTNeckSalvageSpecialistCCape
-  - ADTNeckSalvageSpecialistSCape
-  - ADTNeckSalvageSpecialistGCape
-  - ADTNeckSalvageSpecialistPCape
-  - ADTNeckSalvageSpecialistECape
-  - ADTNeckSalvageSpecialistDCape
-  - ADTNeckSalvageSpecialistRCape
+  - ADTNeckMinerCCape
+  - ADTNeckMinerSCape
+  - ADTNeckMinerGCape
+  - ADTNeckMinerPCape
+  - ADTNeckMinerECape
+  - ADTNeckMinerDCape
+  - ADTNeckMinerRCape
 
 - type: loadoutGroup
   id: ADTMinerOuterClothing
@@ -753,22 +910,6 @@
   - ADTFootWrapsHighBr
   - ADTFootWrapsBl
   - ADTFootWrapsHighBl
-
-# Плащи
-- type: loadoutGroup
-  id: ADTSalvageSpecialistNeck
-  name: loadout-salvage-specialist-neck-adt
-  minLimit: 0
-  maxLimit: 1
-  loadouts:
-  - ADTNeckSalvageSpecialistCCape
-  - ADTNeckSalvageSpecialistSCape
-  - ADTNeckSalvageSpecialistGCape
-  - ADTNeckSalvageSpecialistPCape
-  - ADTNeckSalvageSpecialistECape
-  - ADTNeckSalvageSpecialistDCape
-  - ADTNeckSalvageSpecialistRCape
-
 
 ## ДЕТЕКТИВ
 
@@ -967,6 +1108,15 @@
   - ADTPlasmaScientistPDA
 
 - type: loadoutGroup
+  id: ADTQuartermasterPDA
+  name: loadout-group-quartermaster-id-adt
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - QuartermasterPDA
+  - ADTIntendantPDA
+
+- type: loadoutGroup
   id: ADTCargoPDA
   name: loadout-group-cargo-id-adt
   minLimit: 1
@@ -1146,16 +1296,6 @@
   loadouts:
   - CMOPDA
   - ADTCMOPDA
-
-- type: loadoutGroup
-  id: ADTQuartermasterPDA
-  name: loadout-group-quartermaster-id
-  minLimit: 1
-  maxLimit: 1
-  loadouts:
-  - QuartermasterPDAloadout
-  - ADTintendantPDAloadout
-
 
 # Alts PDA end
 

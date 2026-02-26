@@ -10,13 +10,6 @@
   - CutterMachineCircuitboard
   - BorgChargerCircuitboard
 
-- type: latheRecipePack
-  id: CircuitFloorsStatic
-  recipes:
-  - FloorGreenCircuit
-  - FloorBlueCircuit
-  - FloorRedCircuit
-
 ## Dynamic
 
 - type: latheRecipePack
@@ -42,6 +35,8 @@
   - ClothingBackpackHolding
   - ClothingBackpackSatchelHolding
   - ClothingBackpackDuffelHolding
+  - ADTBotanistBagOfHolding #ADT-Tweak
+  - ADTClothingBeltManipulator # ADT-Tweak
 
 - type: latheRecipePack
   id: PowerCells
@@ -62,16 +57,6 @@
   - WeaponTetherGun
   - WeaponGauntletGorilla
   - WeaponLaserSvalinn # ADT tweak
-
-- type: latheRecipePack
-  id: FauxTiles
-  recipes:
-  - FauxTileAstroGrass
-  - FauxTileMowedAstroGrass
-  - FauxTileJungleAstroGrass
-  - FauxTileAstroIce
-  - FauxTileAstroSnow
-  - FauxTileAstroAsteroidSand
 
 # Only contains parts for making basic modular grenades, no actual explosives
 - type: latheRecipePack
@@ -98,6 +83,7 @@
   - AnomalyVesselCircuitboard
   - AnomalyVesselExperimentalCircuitboard
   - AnomalySynchronizerCircuitboard
+  - ADTBotanicalSeedDNAManipulatorCircuitboard #ADT-Tweak
   - APECircuitboard
   - ArtifactAnalyzerMachineCircuitboard
   - ArtifactCrusherMachineCircuitboard

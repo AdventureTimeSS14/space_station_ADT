@@ -1,0 +1,19 @@
+- type: thiefBackpackSet
+  id: ShoesSyndieChameleon
+  name: shoes-voucher-chameleon-name
+  description: shoes-voucher-chameleon-description
+  sprite:
+    sprite: Clothing/Shoes/color.rsi
+    state: icon
+  content:
+  - ClothingShoesChameleon
+
+- type: thiefBackpackSet
+  id: ShoesSyndieChameleonNoSound
+  name: shoes-voucher-no-sound-name
+  description: shoes-voucher-no-sound-description
+  sprite:
+    sprite: ADT/Misc/silent_shoes_icon.rsi
+    state: icon_no_sound_shoes
+  content:
+  - ADTClothingShoesChameleonNoSound

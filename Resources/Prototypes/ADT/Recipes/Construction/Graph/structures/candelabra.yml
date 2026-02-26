@@ -1,0 +1,51 @@
+- type: constructionGraph
+  id: ADTCandelabraLit
+  start: start
+  graph:
+    - node: start
+      actions:
+        - !type:DestroyEntity {}
+      edges:
+        - to: adtcandelabralit
+          steps:
+            - material: Steel
+              amount: 4
+              doAfter: 4
+
+        - to: adtbasecandelabra
+          steps:
+            - material: Steel
+              amount: 4
+              doAfter: 4
+        
+    - node: adtcandelabralit
+      entity: ADTCandelabraLit
+      edges:
+        - to: start
+          conditions:
+            - !type:EntityAnchored
+              anchored: true
+          steps:
+            - tool: Screwing
+              doAfter: 2
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 4
+            - !type:DeleteEntity {}
+        
+    - node: adtbasecandelabra
+      entity: ADTBaseCandelabra
+      edges:
+        - to: start
+          conditions:
+            - !type:EntityAnchored
+              anchored: true
+          steps:
+            - tool: Screwing
+              doAfter: 2
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 4
+            - !type:DeleteEntity {}

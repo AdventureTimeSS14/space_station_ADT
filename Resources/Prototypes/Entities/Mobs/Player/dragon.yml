@@ -123,6 +123,7 @@
   - type: StatusEffects # Overwriting basesimplemob to remove flash, getting flashed as dragon just feelsbad
     allowed:
     - Stutter
+    - Weakness #ADT-Weakness-Tweak
     # - Electrocution # ADT-Tweak - ъуъ
     # - ForcedSleep # ADT-Tweak - WHY THE FUCK CAN A DRAGON BE PUT TO SLEEP???
     # - TemporaryBlindness # ADT-Tweak - WHY THE FUCK CAN A DRAGON BE BLINDED???

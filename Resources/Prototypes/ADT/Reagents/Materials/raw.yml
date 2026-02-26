@@ -5,7 +5,7 @@
   unit: materials-unit-chunk
   icon: { sprite: ADT/Objects/Materials/ore.rsi, state: copper }
   color: "#dd7d00"
-  price: 0.075
+  price: 0
 
 - type: material
   id: RawZinc
@@ -14,7 +14,7 @@
   unit: materials-unit-chunk
   icon: { sprite: ADT/Objects/Materials/ore.rsi, state: zinc }
   color: "#087a67"
-  price: 0.075
+  price: 0
 
 - type: material
   id: RawLead
@@ -23,4 +23,4 @@
   unit: materials-unit-chunk
   icon: { sprite: ADT/Objects/Materials/ore.rsi, state: lead }
   color: "#087a67"
-  price: 0.075
+  price: 0

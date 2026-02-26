@@ -47,8 +47,10 @@
   - id: ADTShelterCapsuleLuxury
     price: 3500
   - id: ADTShelterCapsuleBar
+    price: 7500
+  - id: ADTShelterCapsuleLivingRoom
     price: 10000
-    
+
 - type: miningShopSection
   id: Medicine
   name: Медицина
@@ -69,6 +71,8 @@
     price: 1000
   - id: ADTPatchPackFilled
     price: 400
+  - id: ADTStabilizingSerum
+    price: 300
 
 - type: miningShopSection
   id: EquipmentWearable
@@ -114,7 +118,7 @@
   - id: FireExtinguisherMini
     price: 150
   - id: ADTWeaponCutter
-    price: 1000
+    price: 2000
   - id: PowerCellHigh
     price: 650
   - id: Binoculars

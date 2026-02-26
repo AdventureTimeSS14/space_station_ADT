@@ -18,7 +18,7 @@
   components:
   - type: TileEntityEffect
     effects:
-    - !type:FlammableReaction
+    - !type:Flammable
       multiplier: 0.5
       multiplierOnExisting: 0.75
     - !type:Ignite

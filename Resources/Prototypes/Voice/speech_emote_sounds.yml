@@ -282,12 +282,26 @@
       path: /Audio/Voice/Vox/shriek1.ogg
     Laugh:
       path: /Audio/Voice/Vox/vox_laugh.ogg
+    Cough:
+      path: /Audio/Voice/Vox/vox_cough.ogg
+    Sigh:
+      path: /Audio/Voice/Vox/vox_sigh.ogg
+    Click:
+      path: /Audio/Voice/Vox/vox_click.ogg
+    Chitter:
+      path: /Audio/Voice/Vox/vox_chitter.ogg
     Honk:
       collection: BikeHorn
+    # Crying:         # ADT-Tweak: Уже есть в ADT
+    #   path: /Audio/Voice/Vox/vox_cry.ogg
     Weh:
       collection: Weh
     Hew:
       collection: Hew
+    # Gasp:           # ADT-Tweak: Уже есть в ADT
+    #   path: /Audio/Effects/Gasp/vox_gasp.ogg
+    DefaultDeathgasp:
+      path: /Audio/Effects/Gasp/vox_DeathGasp.ogg
     # ADT-Tweak Start
     Gasp:
       collection: VoxGasp
@@ -310,7 +324,7 @@
     # ADT-Tweak End
   params:
     variation: 0.125
-    # We need vox sounds for the other emotes
+    # TODO: We need vox sounds for the other emotes
 
 - type: emoteSounds
   id: UnisexDiona
@@ -353,8 +367,24 @@
       collection: Hew
     Honk:
       collection: BikeHorn
+    #ADT-Tweak-Start Arachnid-Emotes
+    Crying:
+      path: /Audio/ADT/Voice/Arachnid/arachnid_cry.ogg
+    Cough:
+      path: /Audio/ADT/Voice/Arachnid/arachnid_cough.ogg
+    Yawn:
+      path: /Audio/ADT/Voice/Arachnid/arachnid_yawn.ogg
+    Sigh:
+      path: /Audio/ADT/Voice/Arachnid/arachnid_sigh.ogg
     Gasp:
-      collection: MaleGasp
+      path: /Audio/ADT/Voice/Arachnid/arachnid_gasp.ogg
+    Spit:
+      collection: HumanSpits
+    Sneeze:
+      collection: MaleSneezes
+    Whistle:
+      collection: Whistles
+    #ADT-Tweak-End Arachnid-Emotes
     DefaultDeathgasp:
       collection: DeathGasp
 
@@ -525,6 +555,8 @@
   params:
     variation: 0.05
   sounds:
+    Scream:
+      collection: XenoborgScream
     Laugh:
       collection: XenoborgLaugh
     Beep:
@@ -539,6 +571,75 @@
       collection: XenoborgBikeHorn
     Ping:
       collection: XenoborgPing
+
+# Vulp Sounds
+- type: emoteSounds
+  id: MaleVulpkanin
+  params:
+    variation: 0.125
+  sounds:
+    Laugh:
+      collection: MaleLaugh
+    Sneeze:
+      collection: MaleSneezes
+    Cough:
+      collection: MaleCoughs
+    Whistle:
+      collection: Whistles
+    Sigh:
+      collection: MaleSigh
+    Scream:
+      collection: VulpkaninScreams
+    Growl:
+      collection: VulpkaninGrowls
+    Snarl:
+      collection: VulpkaninSnarls
+    Bark:
+      collection: VulpkaninBarks
+    Whine:
+      collection: VulpkaninWhines
+    Crying:
+      collection: VulpkaninWhines
+    Howl:
+      collection: VulpkaninHowls
+    Gasp:
+      collection: MaleGasp
+    DefaultDeathgasp:
+      collection: MaleDeathGasp
+
+- type: emoteSounds
+  id: FemaleVulpkanin
+  params:
+    variation: 0.125
+  sounds:
+    Laugh:
+      collection: FemaleLaugh
+    Sneeze:
+      collection: FemaleSneezes
+    Cough:
+      collection: FemaleCoughs
+    Whistle:
+      collection: Whistles
+    Sigh:
+      collection: FemaleSigh
+    Scream:
+      collection: VulpkaninScreams
+    Growl:
+      collection: VulpkaninGrowls
+    Snarl:
+      collection: VulpkaninSnarls
+    Bark:
+      collection: VulpkaninBarks
+    Whine:
+      collection: VulpkaninWhines
+    Crying:
+      collection: VulpkaninWhines
+    Howl:
+      collection: VulpkaninHowls
+    Gasp:
+      collection: FemaleGasp
+    DefaultDeathgasp:
+      collection: FemaleDeathGasp
 
 # body emotes
 - type: emoteSounds
@@ -601,7 +702,7 @@
 - type: emoteSounds
   id: Skeleton
   sound:
-    path: /Audio/Voice/Skeleton/skeleton_scream.ogg
+    collection: SkeletonScreams #ADT-Tweak
     params:
       variation: 0.125
 

@@ -7,6 +7,7 @@ rmc-aslot-barrel = Ствол
 rmc-aslot-rail = Верхняя планка
 rmc-aslot-stock = Приклад
 rmc-aslot-underbarrel = Подствольное
+rmc-aslot-standard = Штандарт
 
 rmc-attachable-activation-fail-not-wielded = {CAPITALIZE($holder)} должен быть в обеих руках, чтобы активировать {$attachable}!
 rmc-attachable-activation-fail-not-held = {CAPITALIZE($holder)} должен быть в руках, чтобы активировать {$attachable}!

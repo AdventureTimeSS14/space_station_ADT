@@ -72,3 +72,33 @@
   license: "CC-BY-SA-3.0"
   copyright: "SS1984"
   source: "https://github.com/ss220-space/Paradise"
+
+- files: ["carpetliminal.png"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Adventure Time MRP Server"
+  source: "https://github.com/AdventureTimeSS14/space_station_ADT"
+
+- files: ["adminwhite.png"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Adventure Time MRP Server"
+  source: "https://github.com/AdventureTimeSS14/space_station_ADT"
+
+- files: ["adminblack.png"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Adventure Time MRP Server"
+  source: "https://github.com/AdventureTimeSS14/space_station_ADT"
+
+- files: ["grass_realistic.png"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Adventure Time MRP Server"
+  source: "https://github.com/AdventureTimeSS14/space_station_ADT"
+
+- files: ["grass_realistic_light.png"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Adventure Time MRP Server"
+  source: "https://github.com/AdventureTimeSS14/space_station_ADT"
+
+- files: ["grass_realistic_dark.png"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Adventure Time MRP Server"
+  source: "https://github.com/AdventureTimeSS14/space_station_ADT"

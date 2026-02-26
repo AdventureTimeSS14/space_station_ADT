@@ -43,11 +43,11 @@
     useDelay: 35
     itemIconStyle: BigAction
     icon:
-      sprite: Clothing/Shoes/Boots/combatboots.rsi
-      state: icon
+      sprite: Objects/Magic/magicactions.rsi
+      state: repulse
   - type: TargetAction
     checkCanAccess: false
     range: 16
     repeat: true
   - type: WorldTargetAction
-    event: !type:CompJumpActionEvent
+    event: !type:JumpbootsActionEvent

@@ -11,7 +11,7 @@
   - type: Item
     size: Small
     storedRotation: -90
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
   - type: SolutionContainerManager
     solutions:
@@ -104,6 +104,10 @@
   - type: ContainerContainer
     containers:
       cell_slot: !type:ContainerSlot {}
+  # ADT-Tweak-Start
+  - type: HidesSlots
+    hidesSlots: [ EYES, EARS, MASK ]
+  # ADT-Tweak-End
 
 - type: entity
   abstract: true
@@ -141,9 +145,12 @@
     - Snout
     - HeadTop
     - HeadSide
+    - FacialHair
   #ADT-Tweak-Start
   - type: CoveredSlot
     slots: [eyes, mask, ears]
+  - type: HidesSlots
+    hidesSlots: [ EYES, EARS, MASK ]
   #ADT-Tweak-End
 
 
@@ -194,11 +201,14 @@
     - Snout
     - HeadTop
     - HeadSide
+    - FacialHair
     - SnoutOverlay # ADT Tweak
   #ADT-Tweak-Start
   - type: InjectorsBlocker
   - type: CoveredSlot
     slots: [eyes, mask, ears]
+  - type: HidesSlots
+    hidesSlots: [ EYES, EARS, MASK ]
   #ADT-Tweak-End
 
 - type: entity
@@ -256,8 +266,11 @@
     maxCharge: 600 #lights drain 3/s but recharge of 2 makes this 1/s. Therefore 600 is 10 minutes of light.
     startingCharge: 600
   - type: BatterySelfRecharger
-    autoRecharge: true
     autoRechargeRate: 2 #recharge of 2 makes total drain 1w / s so max charge is 1:1 with time. Time to fully charge should be 5 minutes. Having recharge gives light an extended flicker period which gives you some warning to return to light area.
+  # ADT-Tweak-Start
+  - type: HidesSlots
+    hidesSlots: [ EYES, EARS, MASK ]
+  # ADT-Tweak-End
 
 - type: entity
   abstract: true

@@ -16,6 +16,7 @@ using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Timing;
 using System.Numerics;
+using Content.Shared.Emp;
 
 namespace Content.Server.ADT.Sandevistan;
 
@@ -71,7 +72,7 @@ public sealed class SandevistanSystem : EntitySystem
                 { 2, () => _stamina.TakeStaminaDamage(uid, comp.StaminaDamage * frameTime)},
                 { 3, () => _damageable.TryChangeDamage(uid, comp.Damage * frameTime, ignoreResistances: true)},
                 { 4, () => _stun.TryKnockdown(uid, comp.StatusEffectTime, true)},
-                { 6, () => _mobState.ChangeMobState(uid, MobState.Dead)},
+                { 6, () => _damageable.TryChangeDamage(uid, comp.Damage * frameTime, ignoreResistances: true)},
             };
 
             var filteredStates = new List<int>();
@@ -134,7 +135,7 @@ public sealed class SandevistanSystem : EntitySystem
             trail.RenderedEntity = ent;
             trail.LerpTime = 0.05f;
             trail.LerpDelay = TimeSpan.FromSeconds(1);
-            trail.Lifetime = 3;
+            trail.Lifetime = 0.5f;
             trail.Frequency = 0.06f;
             trail.AlphaLerpAmount = 0.3f;
             trail.MaxParticleAmount = 15;
@@ -204,13 +205,11 @@ public sealed class SandevistanSystem : EntitySystem
         ent.Comp.EmpLastPulse = _timing.CurTime;
         var uid = ent.Owner;
 
-        if (ent.Comp.Active != null)
-        {
-            ent.Comp.CurrentLoad += ent.Comp.EmpOverload;
-            _damageable.TryChangeDamage(uid, ent.Comp.EmpDamage, ignoreResistances: true);
-            _jittering.DoJitter(uid, TimeSpan.FromSeconds(5f), true);
-            _stun.TryAddParalyzeDuration(uid, TimeSpan.FromSeconds(5f));
-            Disable(ent, ent.Comp);
-        }
+        ent.Comp.CurrentLoad += ent.Comp.EmpOverload;
+        _damageable.TryChangeDamage(uid, ent.Comp.EmpDamage, ignoreResistances: true);
+        _jittering.DoJitter(uid, TimeSpan.FromSeconds(30f), true);
+        _stun.TryAddParalyzeDuration(uid, TimeSpan.FromSeconds(5f));
+        Spawn("EffectSparks", Transform(uid).Coordinates);
+        Disable(ent, ent.Comp);
     }
 }

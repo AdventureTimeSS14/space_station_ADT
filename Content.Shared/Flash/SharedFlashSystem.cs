@@ -21,6 +21,12 @@ using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using System.Linq;
 using Content.Shared.Movement.Systems;
+using Content.Shared.Random.Helpers;
+using Content.Shared.Clothing.Components;
+// ADT-Tweak-Start. Убираем надпись защиты от вспышек из описания новакида, КПБ
+using Content.Shared.ADT.Novakid;
+using Content.Shared.ADT.Silicon;
+// ADT-Tweak-End
 
 namespace Content.Shared.Flash;
 
@@ -160,6 +166,13 @@ public abstract class SharedFlashSystem : EntitySystem
         if (attempt.Cancelled)
             return;
 
+        // ADT-Tweak-Start фикс компонента флешмодифера, раньше он не работал
+        if (TryComp<FlashModifierComponent>(target, out var flashModifier))
+        {
+            flashDuration *= flashModifier.Modifier;
+        }
+        // ADT-Tweak-End
+
         // don't paralyze, slowdown or convert to rev if the target is immune to flashes
         if (!_statusEffectsSystem.TryAddStatusEffect<FlashedComponent>(target, FlashedKey, flashDuration, true))
             return;
@@ -204,7 +217,8 @@ public abstract class SharedFlashSystem : EntitySystem
         foreach (var entity in _entSet)
         {
             // TODO: Use RandomPredicted https://github.com/space-wizards/RobustToolbox/pull/5849
-            var rand = new System.Random((int)_timing.CurTick.Value + GetNetEntity(entity).Id);
+            var seed = SharedRandomExtensions.HashCodeCombine((int)_timing.CurTick.Value, GetNetEntity(entity).Id);
+            var rand = new System.Random(seed);
             if (!rand.Prob(probability))
                 continue;
 
@@ -256,12 +270,22 @@ public abstract class SharedFlashSystem : EntitySystem
 
     private void OnFlashImmunityFlashAttempt(Entity<FlashImmunityComponent> ent, ref FlashAttemptEvent args)
     {
+        if (TryComp<MaskComponent>(ent, out var mask) && mask.IsToggled)
+            return;
+
         if (ent.Comp.Enabled)
             args.Cancelled = true;
     }
 
     private void OnExamine(Entity<FlashImmunityComponent> ent, ref ExaminedEvent args)
     {
+        // ADT-Tweak-Start. Убираем надпись защиты от вспышек из описания новакида
+        if (HasComp<NovakidGlowingComponent>(ent))
+            return;
+        // ADT-Tweak-End
+
+        if (ent.Comp.ShowInExamine)
+            args.PushMarkup(Loc.GetString("flash-protection"));
         // ADT-Tweak-Start
         if (ent.Comp.IncludeExamine)
         {

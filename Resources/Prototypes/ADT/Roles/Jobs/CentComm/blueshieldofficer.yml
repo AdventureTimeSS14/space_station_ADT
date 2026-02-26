@@ -1,0 +1,162 @@
+- type: job
+  id: ADTBlueShieldOfficer
+  name: job-name-ADTBlueShieldOfficer
+  description: job-description-ADTBlueShieldOfficer
+  playTimeTracker: JobADTBlueShieldOfficer
+  requirements:
+    - !type:RoleTimeRequirement
+      role: JobCaptain
+      time: 36000 #10 hrs
+    - !type:RoleTimeRequirement
+      role: JobHeadOfSecurity
+      time: 36000 #10 hrs
+    - !type:RoleTimeRequirement
+      role: JobChiefMedicalOfficer
+      time: 18000 #5 hrs
+    - !type:AgeRequirement
+      requiredAge: 21
+    - !type:SpeciesRequirement
+      inverted: true
+      species:
+      - Resomi
+      - Vox
+      - Shadekin
+  weight: 15
+  startingGear: ADTBlueShieldOfficerGear
+  icon: "JobIconADTBlueShieldOfficer"
+  supervisors: job-supervisors-CCC
+  canBeAntag: false
+  access:
+    - Captain
+    - Command
+    - Brig
+    - Security
+    - Armory
+    - Maintenance
+    - Service
+    - External
+    - Research
+    - Medical
+    - Engineering
+    - Cargo
+    - BlueShield
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant ]
+  - !type:AddComponentSpecial
+      components:
+        - type: BlueShield
+        - type: CantShoot
+          popup: combo-cantshoot
+          whitelist:
+            tags:
+            - ADTBsoWeapon
+        - type: Necksnap
+        - type: Combo
+          availableMoves:
+            - actionsNeeds:
+                - Grab
+                - Hit
+              comboEvent:
+              - !type:ComboEffectToStanding
+                comboEvents:
+                  - !type:ComboPopupEffect
+                    localeText: combo-slam-end
+                  - !type:ComboDamageEffect
+                    damage:
+                      types:
+                        Blunt: 20
+                  - !type:ComboFallEffect
+                  - !type:ComboAudioEffect
+                    sound:
+                      collection: GenericHit
+            - actionsNeeds:
+                - Hit
+                - Hit
+              comboEvent:
+                - !type:ComboEffectToStuned
+                  comboEvents:
+                  - !type:ComboEffectSleep
+                    time: 5
+                - !type:ComboMoreDamageToDownedEffect
+                  damage:
+                    types:
+                      Blunt: 20
+                - !type:ComboPopupEffect
+                  localeText: combo-headkick-end
+                - !type:ComboDamageEffect
+                  damage:
+                    types:
+                      Blunt: 10
+                - !type:ComboAudioEffect
+                  sound:
+                    collection: GenericHit
+                - !type:ComboTrowTargetEffect
+            - actionsNeeds:
+                - Disarm
+                - Grab
+              comboEvent:
+                - !type:ComboPopupEffect
+                  localeText: combo-cqc-pressure-end
+                - !type:ComboStaminaDamageEffect
+                  staminaDamage: 35
+            - actionsNeeds:
+                - Grab
+                - Grab
+              stopGrab: false
+              comboEvent:
+                - !type:ComboPopupEffect
+                  localeText: combo-cqc-restain-end
+                - !type:ComboFallEffect
+                  dropItems: true
+                - !type:ComboStaminaDamageEffect
+                  staminaDamage: 30
+            - actionsNeeds:
+                - Disarm
+                - Disarm
+                - Hit
+              comboEvent:
+                - !type:ComboPopupEffect
+                  localeText: combo-cqc-consecutive-end
+                - !type:ComboMoreDamageToDownedEffect
+                  damage:
+                    types:
+                      Blunt: 35
+                - !type:ComboFallEffect
+                - !type:ComboStaminaDamageEffect
+                  staminaDamage: 45
+                - !type:ComboAudioEffect
+                  sound:
+                    collection: GenericHit
+            - actionsNeeds:
+                - Grab
+                - Disarm
+              comboEvent:
+                - !type:ComboPopupEffect
+                  localeText: combo-leg-sweep-end
+                - !type:ComboFallEffect
+                - !type:ComboAudioEffect
+                  sound:
+                    collection: GenericHit
+
+- type: startingGear
+  id: ADTBlueShieldOfficerGear
+  equipment:
+    eyes: ADTClothingEyesGlassesBlueshield
+    shoes: ClothingShoesBootsCombatFilled
+    belt: ADTClothingBeltMedicalSecurityFilled
+    gloves: ClothingHandsGlovesCombat
+    id: ADTBlueshieldOfficerPDA
+    pocket1: ADTBlueshieldVoucher
+    pocket2: ADTHandheldCrewMonitorBlueshield
+
+- type: chameleonOutfit
+  id: ADTBlueShieldChameleonOutfit
+  job: ADTBlueShieldOfficer
+  hasMindShield: true
+  equipment:
+    eyes: ADTClothingEyesGlassesBlueshield
+    shoes: ClothingShoesBootsCombatFilled
+    belt: ADTClothingBeltMedicalSecurityFilled
+    gloves: ClothingHandsGlovesCombat
+    id: ADTBlueshieldOfficerPDA

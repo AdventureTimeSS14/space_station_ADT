@@ -7,6 +7,7 @@
   defaultSkinTone: "#34a223"
   markingLimits: MobNovakidMarkingLimits
   dollPrototype: MobNovakidDummy
+  shortDesc: species-short-desc-novakid
   skinColoration: Hues
   maleFirstNames: firstNovakid
   femaleFirstNames: firstNovakid
@@ -78,11 +79,11 @@
     HeadSide:
       points: 1
       required: true
-      defaultMarkings: [ NovakidFace1 ]
+      defaultMarkings: [NovakidFace1]
     Chest:
       points: 1
       required: true
-      defaultMarkings: [ TorsoNovakidDefolt ]
+      defaultMarkings: [TorsoNovakidDefoltMale]
     Tail:
       points: 1
       required: false

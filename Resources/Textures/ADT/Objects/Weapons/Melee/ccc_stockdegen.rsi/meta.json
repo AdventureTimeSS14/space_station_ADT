@@ -1,0 +1,78 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made by Tamioki",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "icon_off"
+    },
+    {
+      "name": "icon_on"
+    },
+    {
+      "name": "icon_blade"
+    },
+    {
+      "name": "icon-animation-opening",
+      "delays": [
+        [
+          0.01,
+          0.05,
+          0.05,
+          0.06,
+          0.07,
+          0.05,
+          0.05,
+          0.05,
+          0.05,
+          2
+        ]
+      ]
+    },
+    {
+      "name": "icon-animation-closing",
+      "delays": [
+        [
+          0.01,
+          0.05,
+          0.05,
+          0.05,
+          0.05,
+          0.07,
+          0.06,
+          0.05,
+          0.05,
+          2
+        ]
+      ]
+    },
+    {
+      "name": "on-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "on-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "off-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "off-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "wielded-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "wielded-inhand-right",
+      "directions": 4
+    }
+  ]
+}

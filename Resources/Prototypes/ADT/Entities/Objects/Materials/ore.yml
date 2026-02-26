@@ -24,6 +24,7 @@
     tags:
       - ADTBSore
       - Ore
+      - ADTOreBS
 
 - type: entity
   parent: ADTBSore
@@ -125,6 +126,10 @@
         reagents:
         - ReagentId: Copper
           Quantity: 20
+  - type: Tag
+    tags:
+    - Ore
+    - ADTCopperOre
 
 - type: entity
   parent: ADTCopperOre
@@ -159,6 +164,10 @@
         reagents:
         - ReagentId: Zinc
           Quantity: 20
+  - type: Tag
+    tags:
+    - Ore
+    - ADTZincOre
 
 - type: entity
   parent: ADTZincOre
@@ -194,6 +203,10 @@
         reagents:
         - ReagentId: Lead
           Quantity: 20
+  - type: Tag
+    tags:
+    - Ore
+    - ADTLeadOre
 
 - type: entity
   parent: ADTLeadOre

@@ -14,6 +14,7 @@
 
   defaultModules:
   - BorgModuleTool
+  - BorgModuleInflatable
   - BorgModuleArtifact
   - BorgModuleAnomaly
   radioChannels:
@@ -84,9 +85,9 @@
   defaultModules:
   - BorgModuleTool
   - BorgModuleMining
-  - BorgModuleTraversal
+  #- BorgModuleTraversal #ADT tweak: MineBorgModulesUpdate
   - BorgModuleAppraisal
-  - ADTBorgModulePKA # ADT tweak
+  - ADTBorgModuleSalvage #ADT tweak: MineBorgModulesUpdate
 
   radioChannels:
   - Supply
@@ -157,9 +158,11 @@
 
   defaultModules:
   - BorgModuleTool
-  - BorgModuleChemical
+  # ADT-Tweak-Start: "MedborgModuleUpdate"
+  - ADTBorgModuleChemical
   - BorgModuleTopicals
-  - BorgModuleRescue
+  - ADTBorgModuleRescue
+  # ADT-Tweak-end
 
   radioChannels:
   - Science

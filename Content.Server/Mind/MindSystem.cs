@@ -12,6 +12,8 @@ using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Utility;
 using System.Diagnostics.CodeAnalysis;
+using Content.Shared.Tag;
+using Content.Shared.Mobs.Components;
 
 namespace Content.Server.Mind;
 
@@ -198,6 +200,11 @@ public sealed class MindSystem : SharedMindSystem
 
                 alreadyAttached = true;
             }
+
+            //ADT-tweak-start
+            if (HasComp<MobStateComponent>(entity.Value))
+                mind.LastMob = entity.Value;
+            //ADT-tweak-end
         }
         else if (createGhost)
         {

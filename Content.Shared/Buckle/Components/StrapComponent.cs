@@ -91,6 +91,11 @@ public sealed partial class StrapComponent : Component
     /// </summary>
     [DataField]
     public bool BuckleOnInteractHand = true;
+
+    // ADT-Tweak-Start
+    [DataField]
+    public bool ForceBuckle = true;
+    // ADT-Tweak-End
 }
 
 public enum StrapPosition
