@@ -80,7 +80,7 @@
         Base: headslug_dead
       Dead:
         Base: headslug_dead
-  - type: Food
+  - type: Edible
   # - type: Tag
   #   tags:
   #   - ShoesRequiredStepTriggerImmune # По-моему из за этой хуйни падал сервер

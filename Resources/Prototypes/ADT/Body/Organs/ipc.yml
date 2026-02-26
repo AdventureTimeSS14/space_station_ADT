@@ -9,7 +9,7 @@
     netsync: false
     sprite: ADT/Mobs/Species/IPC/organs.rsi
   - type: Organ
-  # - type: Food
+  # - type: Edible
   # - type: Extractable
   #   grindableSolutionName: organ
   - type: SolutionContainerManager

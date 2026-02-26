@@ -15,12 +15,30 @@ public sealed class CharecterFlavorSystem : SharedCharecterFlavorSystem
         base.Initialize();
 
         SubscribeNetworkEvent<SetHeadshotUiMessage>(OnSetHeadshot);
+        SubscribeNetworkEvent<HeadshotPreviewEvent>(OnHeadshotPreview);
     }
 
     private void OnSetHeadshot(SetHeadshotUiMessage args)
     {
         var controller = _ui.GetUIController<CharacterFlavorUiController>();
         controller.SetHeadshot(args.Target, args.Image);
+    }
+
+    private void OnHeadshotPreview(HeadshotPreviewEvent ev)
+    {
+        var controller = _ui.GetUIController<CharacterFlavorUiController>();
+        controller.SetPreviewHeadshot(ev.Image);
+    }
+
+    /// <summary>
+    /// Запросить у сервера предпросмотр хэдшота по URL (используется в лобби).
+    /// </summary>
+    public void RequestHeadshotPreview(string url)
+    {
+        if (string.IsNullOrWhiteSpace(url))
+            return;
+
+        RaiseNetworkEvent(new RequestHeadshotPreviewEvent(url));
     }
 
     protected override void OpenFlavor(EntityUid actor, EntityUid target)
