@@ -1209,11 +1209,13 @@
     damageCoefficient: 0.85
   - type: Armor
     modifiers:
-      coefficients:
-        Blunt: 0.85
-        Slash: 0.9
-        Piercing: 0.85
-        Caustic: 0.8
+      coefficients: #ADT nukebuff
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.6
+        Heat: 0.1
+        Radiation: 0.01
+        Caustic: 0.5
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.9

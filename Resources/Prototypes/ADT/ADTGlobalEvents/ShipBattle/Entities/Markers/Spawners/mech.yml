@@ -25,6 +25,10 @@
   - type: ConditionalSpawner
     prototypes:
       - ADTMechKMTOneStar
+  - type: AmbientSound
+    range: 100
+    volume: /Uploaded/echoesofabyss
+    sound: 5
 
 - type: entity
   name: Sabre TSF Spawner

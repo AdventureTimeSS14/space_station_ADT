@@ -17,3 +17,12 @@
   - type: MindRole
     roleType: TeamAntagonist
     exclusiveAntag: true
+
+- type: entity
+  parent: BaseMindRoleAntag
+  id: MindRoleVoxRaider
+  name: Vox Raider Role
+  components:
+  - type: MindRole
+    roleType: TeamAntagonist
+    exclusiveAntag: true

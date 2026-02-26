@@ -131,6 +131,7 @@
       startingCharge: 2000
     - type: DNAGunLocker
     - type: RMCMagneticItem
+      magnetizeToSlots: 
 
 - type: entity
   name: Cutter

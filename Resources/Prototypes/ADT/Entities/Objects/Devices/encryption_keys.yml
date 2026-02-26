@@ -95,3 +95,19 @@
       layers:
       - state: crypt_silver
       - state: nano_label
+
+- type: entity
+  parent: EncryptionKey
+  id: ADTEncryptionKeyVoxRaiders
+  name: vox raiders encryption key
+  description: vox raiders encryption key
+  components:
+    - type: EncryptionKey
+      channels:
+      - ADTVoxRaidersChannel
+      - Common
+      defaultChannel: ADTVoxRaidersChannel
+    - type: Sprite
+      layers:
+      - state: crypt_silver
+      - state: pirate_label
