@@ -56,5 +56,50 @@ public sealed partial class CrewMonitoringConsoleComponent : Component
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     public TimeSpan NextCritAlertTime;
+
+    /// <summary>
+    /// Last server name received with sensor data (for UI).
+    /// </summary>
+    [ViewVariables(VVAccess.ReadOnly)]
+    public string LastServerName = string.Empty;
+
+    /// <summary>
+    /// Last server code received with sensor data (for UI).
+    /// </summary>
+    [ViewVariables(VVAccess.ReadOnly)]
+    public string LastServerCode = string.Empty;
+
+    /// <summary>
+    /// If true, crit/dead alert sound is muted on this console.
+    /// </summary>
+    [DataField("alertMuted"), ViewVariables(VVAccess.ReadWrite)]
+    public bool AlertMuted;
+
+    /// <summary>
+    /// Last time we received a packet from the server (for connection timeout).
+    /// </summary>
+    [ViewVariables(VVAccess.ReadOnly)]
+    public TimeSpan LastPacketTime;
+
+    /// <summary>
+    /// Cached snapshot of sensors when we had connection; shown when connection is lost.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadOnly)]
+    public Dictionary<string, SuitSensorStatus> CachedSensors = new();
+
+    /// <summary>
+    /// Cached server name/code for display when offline.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadOnly)]
+    public string CachedServerName = string.Empty;
+
+    [ViewVariables(VVAccess.ReadOnly)]
+    public string CachedServerCode = string.Empty;
+
+    /// <summary>
+    /// Last time we pushed offline state to UI (throttle).
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    public TimeSpan LastOfflineStatePush;
     // ADT-Tweak-End
 }

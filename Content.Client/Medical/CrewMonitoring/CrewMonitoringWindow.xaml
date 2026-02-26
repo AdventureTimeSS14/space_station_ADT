@@ -8,7 +8,8 @@
     <BoxContainer Orientation="Vertical">
         <BoxContainer Orientation="Horizontal" VerticalExpand="True" HorizontalExpand="True">
             <ui:CrewMonitoringNavMapControl Name="NavMap" HorizontalExpand="True" VerticalExpand="True" Margin="5 20"/>
-            <BoxContainer Orientation="Vertical" Margin="0 0 10 0">
+            <BoxContainer Orientation="Vertical" Margin="0 0 10 0" Name="RightPanel">
+                <BoxContainer Orientation="Vertical" Name="HeaderContainer" Margin="0 0 0 4"/>
                 <controls:StripeBack>
                     <PanelContainer>
                         <Label Name="StationName" Text="{Loc crew-monitoring-ui-no-station-label}" Align="Center" Margin="0 5 0 3"/>

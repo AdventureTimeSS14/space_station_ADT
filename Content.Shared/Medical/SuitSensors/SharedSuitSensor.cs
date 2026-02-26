@@ -72,6 +72,11 @@ public static class SuitSensorConstants
 
     ///Used by the CrewMonitoringServerSystem to send the status of all connected suit sensors to each crew monitor
     public const string NET_STATUS_COLLECTION = "suit-status-collection";
+
+    /// <summary> Server display name sent with status payload. </summary>
+    public const string NET_SERVER_NAME = "server-name";
+    /// <summary> Server code/ID sent with status payload. </summary>
+    public const string NET_SERVER_CODE = "server-code";
 }
 
 [Serializable, NetSerializable]

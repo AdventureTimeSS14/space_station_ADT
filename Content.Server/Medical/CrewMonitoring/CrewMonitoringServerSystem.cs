@@ -93,13 +93,24 @@ public sealed class CrewMonitoringServerSystem : EntitySystem
         if (!Resolve(uid, ref serverComponent, ref device))
             return;
 
+        var serverName = serverComponent.ServerName ?? Name(uid);
+        var serverCode = serverComponent.ServerCode ?? GenerateServerCode(uid);
+
         var payload = new NetworkPayload()
         {
             [DeviceNetworkConstants.Command] = DeviceNetworkConstants.CmdUpdatedState,
-            [SuitSensorConstants.NET_STATUS_COLLECTION] = serverComponent.SensorStatus
+            [SuitSensorConstants.NET_STATUS_COLLECTION] = serverComponent.SensorStatus,
+            [SuitSensorConstants.NET_SERVER_NAME] = serverName,
+            [SuitSensorConstants.NET_SERVER_CODE] = serverCode
         };
 
         _deviceNetworkSystem.QueuePacket(uid, null, payload, device: device);
+    }
+
+    private static string GenerateServerCode(EntityUid uid)
+    {
+        var hash = (uint) uid.GetHashCode();
+        return $"10.0.{(hash >> 8) % 256}.{hash % 256}";
     }
 
     /// <summary>

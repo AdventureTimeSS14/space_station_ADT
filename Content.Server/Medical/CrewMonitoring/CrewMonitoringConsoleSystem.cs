@@ -15,6 +15,7 @@ using Robust.Shared.Timing;
 // ADT-Tweak-Start
 using Robust.Shared.Prototypes;
 using Content.Shared.Roles;
+using Content.Server.Station.Systems;
 // ADT-Tweak-End
 
 namespace Content.Server.Medical.CrewMonitoring;
@@ -30,6 +31,7 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
+    [Dependency] private readonly StationSystem _station = default!;
     // ADT-Tweak-End
 
     public override void Initialize()
@@ -39,12 +41,44 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
         SubscribeLocalEvent<CrewMonitoringConsoleComponent, DeviceNetworkPacketEvent>(OnPacketReceived);
         SubscribeLocalEvent<CrewMonitoringConsoleComponent, BoundUIOpenedEvent>(OnUIOpened);
         SubscribeLocalEvent<CrewMonitoringConsoleComponent, GotEmaggedEvent>(OnEmagged); // ADT-Tweak
+        SubscribeLocalEvent<CrewMonitoringConsoleComponent, CrewMonitoringSetAlertMutedMessage>(OnSetAlertMuted);
     }
+
+    /// <summary>
+    /// Throttle: push offline state at most once per second.
+    /// </summary>
+    private const float OfflineStatePushInterval = 1f;
 
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
         UpdateCritAlerts();
+        UpdateOfflineConsoles();
+    }
+
+    /// <summary>
+    /// When connection is lost, push cached state to open UIs so client shows "Server Offline" and last snapshot.
+    /// </summary>
+    private void UpdateOfflineConsoles()
+    {
+        var now = _gameTiming.CurTime;
+        var query = EntityQueryEnumerator<CrewMonitoringConsoleComponent>();
+
+        while (query.MoveNext(out var uid, out var comp))
+        {
+            if (!_uiSystem.IsUiOpen(uid, CrewMonitoringUIKey.Key))
+                continue;
+
+            var isOnline = (now - comp.LastPacketTime).TotalSeconds <= comp.SensorTimeout;
+            if (isOnline || comp.CachedSensors.Count == 0)
+                continue;
+
+            if ((now - comp.LastOfflineStatePush).TotalSeconds < OfflineStatePushInterval)
+                continue;
+
+            comp.LastOfflineStatePush = now;
+            UpdateUserInterface(uid, comp);
+        }
     }
 
     /// <summary>
@@ -57,6 +91,10 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
 
         while (query.MoveNext(out var uid, out var comp))
         {
+            var isOnline = (now - comp.LastPacketTime).TotalSeconds <= comp.SensorTimeout;
+            if (!isOnline)
+                continue; // Don't play alert from stale cached data
+
             var sensors = comp.ConnectedSensors.Values;
             var hasCritOrDead = sensors.Any(s => !s.IsAlive || (s.DamagePercentage != null && s.DamagePercentage.Value >= 0.8f));
 
@@ -69,6 +107,9 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
             if (comp.NextCritAlertTime != TimeSpan.Zero && now < comp.NextCritAlertTime)
                 continue;
 
+            if (comp.AlertMuted)
+                continue;
+
             _audio.PlayPvs(comp.CritAlertSound, uid);
             comp.NextCritAlertTime = now + TimeSpan.FromSeconds(comp.CritAlertInterval);
         }
@@ -77,6 +118,7 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
     private void OnRemove(EntityUid uid, CrewMonitoringConsoleComponent component, ComponentRemove args)
     {
         component.ConnectedSensors.Clear();
+        component.CachedSensors.Clear();
     }
 
     private void OnPacketReceived(EntityUid uid, CrewMonitoringConsoleComponent component, DeviceNetworkPacketEvent args)
@@ -94,6 +136,19 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
             return;
 
         component.ConnectedSensors = sensorStatus;
+        component.LastServerName = payload.TryGetValue(SuitSensorConstants.NET_SERVER_NAME, out var nameObj) && nameObj is string n ? n : string.Empty;
+        component.LastServerCode = payload.TryGetValue(SuitSensorConstants.NET_SERVER_CODE, out var codeObj) && codeObj is string c ? c : string.Empty;
+        component.LastPacketTime = _gameTiming.CurTime;
+        // Cache snapshot for display when connection is lost
+        component.CachedSensors = new Dictionary<string, SuitSensorStatus>(sensorStatus);
+        component.CachedServerName = component.LastServerName;
+        component.CachedServerCode = component.LastServerCode;
+        UpdateUserInterface(uid, component);
+    }
+
+    private void OnSetAlertMuted(EntityUid uid, CrewMonitoringConsoleComponent component, CrewMonitoringSetAlertMutedMessage args)
+    {
+        component.AlertMuted = args.Muted;
         UpdateUserInterface(uid, component);
     }
 
@@ -119,8 +174,15 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
         if (xform.GridUid != null)
             EnsureComp<NavMapComponent>(xform.GridUid.Value);
 
+        // When connection lost (timeout), show cached snapshot instead of empty
+        var now = _gameTiming.CurTime;
+        var isOnline = (now - component.LastPacketTime).TotalSeconds <= component.SensorTimeout;
+        var sourceSensors = isOnline ? component.ConnectedSensors : component.CachedSensors;
+        var serverName = isOnline ? component.LastServerName : component.CachedServerName;
+        var serverCode = isOnline ? component.LastServerCode : component.CachedServerCode;
+
         // Update all sensors info
-        var allSensors = component.ConnectedSensors.Values.ToList();
+        var allSensors = sourceSensors.Values.ToList();
 
         //ADT-Tweak-Start: Filtering by departments
         if (component.Departments.Count > 0)
@@ -143,7 +205,30 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
             }
         }
         // ADT-Tweak-End
-        _uiSystem.SetUiState(uid, CrewMonitoringUIKey.Key, new CrewMonitoringState(allSensors, true)); // ADT-Tweak
+
+        var serverOnline = isOnline && allSensors.Count > 0;
+        var alertActive = allSensors.Any(s => !s.IsAlive || (s.DamagePercentage != null && s.DamagePercentage.Value >= 0.8f));
+        var stationCode = GetStationCode(uid);
+
+        _uiSystem.SetUiState(uid, CrewMonitoringUIKey.Key, new CrewMonitoringState(
+            allSensors,
+            true,
+            serverOnline,
+            serverName,
+            serverCode,
+            stationCode,
+            alertActive,
+            component.AlertMuted));
+    }
+
+    private string GetStationCode(EntityUid uid)
+    {
+        var xform = Transform(uid);
+        var station = xform.GridUid != null ? _station.GetOwningStation(xform.GridUid.Value) : null;
+        if (station == null)
+            return string.Empty;
+        var hash = (uint) station.Value.GetHashCode();
+        return $"ST-{(hash % 10000):D4}";
     }
 
     // ADT-Tweak-Start

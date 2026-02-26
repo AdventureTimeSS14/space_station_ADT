@@ -33,15 +33,13 @@ public sealed partial class CrewMonitoringNavMapControl : NavMapControl
             {
                 BackgroundColor = BackgroundColor,
             },
-
-            Margin = new Thickness(5f, 10f),
-            HorizontalAlignment = HAlignment.Left,
-            VerticalAlignment = VAlignment.Bottom,
             Visible = false,
         };
 
         _trackedEntityPanel.AddChild(_trackedEntityLabel);
         this.AddChild(_trackedEntityPanel);
+        LayoutContainer.SetAnchorAndMarginPreset(_trackedEntityPanel, LayoutContainer.LayoutPreset.BottomLeft,
+            LayoutContainer.LayoutPresetMode.MinSize, 5);
     }
 
     protected override void FrameUpdate(FrameEventArgs args)

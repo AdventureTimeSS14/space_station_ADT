@@ -10,6 +10,15 @@ crew-monitoring-user-interface-alive = Жив
 crew-monitoring-user-interface-dead = Мёртв
 crew-monitoring-user-interface-no-info = Н/Д
 crew-monitoring-user-interface-no-server = Сервер не найден
+
+## Header (server status, alert toggle)
+crew-monitoring-header-server-online = Сервер: ONLINE
+crew-monitoring-header-server-offline = Сервер: OFFLINE
+crew-monitoring-header-server-code = Код сервера:
+crew-monitoring-header-station-code = Код станции:
+crew-monitoring-header-alert-on = Оповещение (ВКЛ)
+crew-monitoring-header-alert-off = Оповещение (ВЫКЛ)
+
 crew-monitoring-user-interface-no-department = Неизвестно
 crew-monitoring-user-interface-flavor-left = В случае экстренной ситуации, немедленно свяжитесь с мед. персоналом станции.
 crew-monitoring-user-interface-flavor-right = v1.8
