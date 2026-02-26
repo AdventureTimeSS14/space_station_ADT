@@ -19,6 +19,9 @@ crew-monitoring-header-station-code = Код станции:
 crew-monitoring-header-alert-on = Оповещение (ВКЛ)
 crew-monitoring-header-alert-off = Оповещение (ВЫКЛ)
 
+crew-monitoring-servers-department = Серверы датчиков
+crew-monitoring-server-blip = Сервер
+
 crew-monitoring-user-interface-no-department = Неизвестно
 crew-monitoring-user-interface-flavor-left = В случае экстренной ситуации, немедленно свяжитесь с мед. персоналом станции.
 crew-monitoring-user-interface-flavor-right = v1.8

@@ -15,6 +15,9 @@ crew-monitoring-header-station-code = Station code:
 crew-monitoring-header-alert-on = Alert (ON)
 crew-monitoring-header-alert-off = Alert (OFF)
 
+crew-monitoring-servers-department = Sensor servers
+crew-monitoring-server-blip = Server
+
 crew-monitoring-ui-no-department-label = Unknown
 crew-monitoring-ui-no-station-label = Unknown station
 

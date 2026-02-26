@@ -1,7 +1,25 @@
 using Content.Shared.Medical.SuitSensor;
 using Robust.Shared.Serialization;
+using Robust.Shared.Map;
 
 namespace Content.Shared.Medical.CrewMonitoring;
+
+[Serializable, NetSerializable]
+public sealed class CrewMonitoringServerEntry
+{
+    public NetEntity NetEntity;
+    public NetCoordinates? Coordinates;
+    public string ServerCode;
+    public bool IsOnline;
+
+    public CrewMonitoringServerEntry(NetEntity netEntity, NetCoordinates? coordinates, string serverCode, bool isOnline)
+    {
+        NetEntity = netEntity;
+        Coordinates = coordinates;
+        ServerCode = serverCode;
+        IsOnline = isOnline;
+    }
+}
 
 [Serializable, NetSerializable]
 public enum CrewMonitoringUIKey
@@ -57,6 +75,11 @@ public sealed class CrewMonitoringState : BoundUserInterfaceState
     /// </summary>
     public bool AlertMuted;
 
+    /// <summary>
+    /// All sensor servers on the station for the "Серверы датчиков" department and map blips.
+    /// </summary>
+    public List<CrewMonitoringServerEntry> Servers;
+
     public CrewMonitoringState(
         List<SuitSensorStatus> sensors,
         bool isEmagged,
@@ -65,7 +88,8 @@ public sealed class CrewMonitoringState : BoundUserInterfaceState
         string serverCode,
         string stationCode,
         bool alertActive,
-        bool alertMuted)
+        bool alertMuted,
+        List<CrewMonitoringServerEntry>? servers = null)
     {
         Sensors = sensors;
         IsEmagged = isEmagged;
@@ -75,6 +99,7 @@ public sealed class CrewMonitoringState : BoundUserInterfaceState
         StationCode = stationCode;
         AlertActive = alertActive;
         AlertMuted = alertMuted;
+        Servers = servers ?? new List<CrewMonitoringServerEntry>();
     }
 }
 

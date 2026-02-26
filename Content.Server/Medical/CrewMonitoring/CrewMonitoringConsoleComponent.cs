@@ -101,5 +101,11 @@ public sealed partial class CrewMonitoringConsoleComponent : Component
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     public TimeSpan LastOfflineStatePush;
+
+    /// <summary>
+    /// Entity that sent the last packet (for server list online status).
+    /// </summary>
+    [ViewVariables(VVAccess.ReadOnly)]
+    public EntityUid? LastServerUid;
     // ADT-Tweak-End
 }

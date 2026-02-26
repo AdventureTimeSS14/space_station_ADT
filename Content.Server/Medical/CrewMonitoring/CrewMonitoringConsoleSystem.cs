@@ -139,6 +139,7 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
         component.LastServerName = payload.TryGetValue(SuitSensorConstants.NET_SERVER_NAME, out var nameObj) && nameObj is string n ? n : string.Empty;
         component.LastServerCode = payload.TryGetValue(SuitSensorConstants.NET_SERVER_CODE, out var codeObj) && codeObj is string c ? c : string.Empty;
         component.LastPacketTime = _gameTiming.CurTime;
+        component.LastServerUid = args.Sender;
         // Cache snapshot for display when connection is lost
         component.CachedSensors = new Dictionary<string, SuitSensorStatus>(sensorStatus);
         component.CachedServerName = component.LastServerName;
@@ -209,6 +210,7 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
         var serverOnline = isOnline && allSensors.Count > 0;
         var alertActive = allSensors.Any(s => !s.IsAlive || (s.DamagePercentage != null && s.DamagePercentage.Value >= 0.8f));
         var stationCode = GetStationCode(uid);
+        var servers = GetServersOnStation(uid, component, isOnline);
 
         _uiSystem.SetUiState(uid, CrewMonitoringUIKey.Key, new CrewMonitoringState(
             allSensors,
@@ -218,7 +220,34 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
             serverCode,
             stationCode,
             alertActive,
-            component.AlertMuted));
+            component.AlertMuted,
+            servers));
+    }
+
+    private List<CrewMonitoringServerEntry> GetServersOnStation(EntityUid consoleUid, CrewMonitoringConsoleComponent component, bool connectionOnline)
+    {
+        var list = new List<CrewMonitoringServerEntry>();
+        var xform = Transform(consoleUid);
+        var station = xform.GridUid != null ? _station.GetOwningStation(xform.GridUid.Value) : null;
+        if (station == null)
+            return list;
+
+        var query = EntityQueryEnumerator<CrewMonitoringServerComponent, TransformComponent>();
+        while (query.MoveNext(out var serverUid, out var serverComp, out var serverXform))
+        {
+            var serverStation = serverXform.GridUid != null ? _station.GetOwningStation(serverXform.GridUid.Value) : null;
+            if (serverStation != station)
+                continue;
+
+            var netEntity = GetNetEntity(serverUid);
+            var coords = GetNetCoordinates(serverXform.Coordinates);
+            var code = serverComp.ServerCode ?? string.Empty;
+            var isOnline = connectionOnline && component.LastServerUid == serverUid;
+
+            list.Add(new CrewMonitoringServerEntry(netEntity, coords, code, isOnline));
+        }
+
+        return list;
     }
 
     private string GetStationCode(EntityUid uid)

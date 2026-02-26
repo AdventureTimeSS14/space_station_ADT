@@ -32,6 +32,7 @@ public sealed partial class CrewMonitoringWindow : FancyWindow
     private NetEntity? _trackedEntity;
     private bool _tryToScrollToListFocus;
     private Texture? _blipTexture;
+    private Texture? _serverBlipTexture;
 
     /// <summary>
     /// Called when the user toggles alert sound (crit/dead) on or off.
@@ -52,6 +53,7 @@ public sealed partial class CrewMonitoringWindow : FancyWindow
     public void Set(string stationName, EntityUid? mapUid)
     {
         _blipTexture = _spriteSystem.Frame0(new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/NavMap/beveled_circle.png")));
+        _serverBlipTexture = _spriteSystem.Frame0(new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/NavMap/beveled_square.png")));
 
         if (_entManager.TryGetComponent<TransformComponent>(mapUid, out var xform))
             NavMap.MapUid = xform.GridUid;
@@ -81,6 +83,59 @@ public sealed partial class CrewMonitoringWindow : FancyWindow
         UpdateHeader(state);
 
         ClearOutDatedData();
+
+        // Секция "Серверы датчиков" и блипы на карте
+        var servers = state.Servers ?? new List<CrewMonitoringServerEntry>();
+        if (servers.Count > 0)
+        {
+            SensorsTable.AddChild(new Control() { SetHeight = 20 });
+            var serversLabel = new RichTextLabel()
+            {
+                Margin = new Thickness(10, 0),
+                HorizontalExpand = true,
+            };
+            serversLabel.SetMessage(Loc.GetString("crew-monitoring-servers-department"));
+            serversLabel.StyleClasses.Add("font-large");
+            SensorsTable.AddChild(serversLabel);
+
+            foreach (var server in servers)
+            {
+                var serverRow = new BoxContainer
+                {
+                    Orientation = LayoutOrientation.Horizontal,
+                    HorizontalExpand = true,
+                    Margin = new Thickness(10, 2, 0, 0)
+                };
+                var indicator = new PanelContainer
+                {
+                    MinSize = new Vector2(10, 10),
+                    MaxSize = new Vector2(10, 10),
+                    Margin = new Thickness(0, 0, 6, 0),
+                    PanelOverride = new StyleBoxFlat { BackgroundColor = server.IsOnline ? Color.LimeGreen : Color.Red }
+                };
+                serverRow.AddChild(indicator);
+                serverRow.AddChild(new Label { Text = server.ServerCode, ClipText = true });
+                SensorsTable.AddChild(serverRow);
+            }
+
+            if (_serverBlipTexture != null && NavMap.Visible)
+            {
+                foreach (var server in servers)
+                {
+                    var serverCoords = _entManager.GetCoordinates(server.Coordinates);
+                    if (serverCoords == null)
+                        continue;
+                    NavMap.LocalizedNames.TryAdd(server.NetEntity, Loc.GetString("crew-monitoring-server-blip") + " " + server.ServerCode);
+                    NavMap.TrackedEntities.TryAdd(server.NetEntity,
+                        new NavMapBlip(
+                            CoordinatesToLocal(serverCoords.Value),
+                            _serverBlipTexture,
+                            server.IsOnline ? Color.LimeGreen : Color.Red,
+                            false,
+                            false));
+                }
+            }
+        }
 
         // No server label
         if (sensors.Count == 0)
