@@ -165,7 +165,7 @@
 - type: entity
   parent: Screwdriver
   name: cамодельная отвёртка
-  id: ADTHMScrewdriver
+  id: ADTHandMadeScrewdriver
   description: Оно точно не сломается
   components:
   - type: MeleeWeapon
