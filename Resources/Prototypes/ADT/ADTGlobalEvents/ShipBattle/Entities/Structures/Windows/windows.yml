@@ -123,7 +123,7 @@
 
 - type: entity
   id: ADTWindowFrameless
-  parent: BaseStructure
+  parent: [BaseDeltaPressureGlass, BaseStructure]
   name: frameless window
   description: Don't smudge up the glass down there.
   placement:
@@ -216,7 +216,7 @@
 
 - type: entity
   id: ADTWindowDirectionalFrameless
-  parent: BaseStructure
+  parent: [BaseDeltaPressureGlassQuarter, BaseStructure]
   name: frameless directional window
   description: Don't smudge up the glass down there.
   placement:

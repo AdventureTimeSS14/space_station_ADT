@@ -7,8 +7,8 @@
   id: BaseDeltaPressureReinforcedPlasma
   components:
   - type: DeltaPressure
-    minPressure: 150000
-    minPressureDelta: 100000
+    minPressure: 999999 #ADT-Tweak 150000 > 999999
+    minPressureDelta: 999999 #ADT-Tweak 100000 > 999999
     scalingType: Linear
     scalingPower: 0.0001
 
@@ -18,8 +18,8 @@
   id: BaseDeltaPressureReinforcedPlasmaQuarter
   components:
   - type: DeltaPressure
-    minPressure: 37500
-    minPressureDelta: 25000
+    minPressure: 999999 #ADT-Tweak 37500 > 999999
+    minPressureDelta: 999999 #ADT-Tweak 25000 > 999999
     scalingType: Threshold
 
 ## For plasma windows
@@ -49,8 +49,8 @@
   id: BaseDeltaPressureReinforcedGlass
   components:
   - type: DeltaPressure
-    minPressure: 15000
-    minPressureDelta: 10000
+    minPressure: 999999 #ADT-Tweak 15000 > 999999
+    minPressureDelta: 999999 #ADT-Tweak 10000 > 999999
     scalingType: Threshold
 
 ## For quarter reinforced glass windows
@@ -59,8 +59,8 @@
   id: BaseDeltaPressureReinforcedGlassQuarter
   components:
   - type: DeltaPressure
-    minPressure: 3750
-    minPressureDelta: 2500
+    minPressure: 999999 #ADT-Tweak 3750 > 999999
+    minPressureDelta: 999999 #ADT-Tweak 2500 > 999999
 
 ## For glass windows
 - type: entity

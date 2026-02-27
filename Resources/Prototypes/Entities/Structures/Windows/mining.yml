@@ -1,7 +1,7 @@
 - type: entity
   id: MiningWindow
   name: mining window
-  parent: WindowRCDResistant
+  parent: [BaseDeltaPressureReinforcedGlass, WindowRCDResistant]
   components:
   - type: Sprite
     drawdepth: WallTops
