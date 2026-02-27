@@ -11,7 +11,7 @@
         amount: 2
         doAfter: 1
   - node: HandmadeCrowbar
-    entity: ADTHMCrowbar
+    entity: ADTHandMadeCrowbar
 #Wirecutter
 - type: constructionGraph
   id: ADTHandmadeWirecutterGraph
