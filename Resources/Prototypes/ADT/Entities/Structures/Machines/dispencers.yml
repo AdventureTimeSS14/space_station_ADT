@@ -141,7 +141,7 @@
 #раздатчики алкоголя и безалкоголя
 - type: entity
   parent: EnergyChemDispenser
-  id: ADTSodaEnergyDispenser
+  id: ADTEnergySodaDispenser
   name: energy chemical dispenser
   description: A bluespace Chemical Dispenser that uses station energy to synthesize Reagents. The future is here and now.
   suffix: Energy
@@ -209,7 +209,7 @@
 
 - type: entity
   parent: EnergyChemDispenser
-  id: ADTBoozeEnergyDispenser
+  id: ADTEnergyBoozeDispenser
   name: booze dispenser
   description: A booze dispenser.
   suffix: Energy
