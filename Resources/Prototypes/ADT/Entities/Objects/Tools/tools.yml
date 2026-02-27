@@ -184,7 +184,7 @@
 - type: entity
   parent: Wrench
   name: cамодельный гаечный ключ
-  id: ADTHMWrench
+  id: ADTHandMadeWrench
   description: Слабое и не надёжное
   components:
   - type: MeleeWeapon
