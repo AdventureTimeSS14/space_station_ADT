@@ -146,7 +146,7 @@
 - type: entity
   parent: Wirecutter
   name: cамодельные кусачки
-  id: ADTHMWirecutter
+  id: ADTHandMadeWirecutter
   description: Это кусачки или щипчики?
   components:
   - type: MeleeWeapon
