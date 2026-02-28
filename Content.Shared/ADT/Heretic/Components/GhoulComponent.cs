@@ -1,4 +1,5 @@
 using Content.Shared.FixedPoint;
+using Content.Shared.Radio;
 using Content.Shared.StatusIcon;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -22,4 +23,6 @@ public sealed partial class GhoulComponent : Component
     public ProtoId<FactionIconPrototype> MasterIcon { get; set; } = "GhoulHereticMaster";
     [DataField, ViewVariables(VVAccess.ReadOnly)]
     public ProtoId<FactionIconPrototype> GhoulIcon { get; set; } = "GhoulFaction";
+
+    public ProtoId<RadioChannelPrototype> Channel { get; set; } = "Mansus";
 }
