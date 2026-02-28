@@ -275,12 +275,14 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         if (args.Cancelled)
             return;
 
-        _tag.AddTag(ent, MansusLinkTag);
+        _tag.AddTag(args.Target, MansusLinkTag);
 
-        var activeRadio = EnsureComp<ActiveRadioComponent>(ent);
+        var activeRadio = EnsureComp<ActiveRadioComponent>(args.Target);
         activeRadio.Channels.Add(ent.Comp.Channel);
 
-        var intrinsicRadioTransmitter = EnsureComp<IntrinsicRadioTransmitterComponent>(ent);
+        EnsureComp<IntrinsicRadioReceiverComponent>(args.Target);
+
+        var intrinsicRadioTransmitter = EnsureComp<IntrinsicRadioTransmitterComponent>(args.Target);
         intrinsicRadioTransmitter.Channels.Add(ent.Comp.Channel);
 
         // this "* 1000f" (divided by 1000 in FlashSystem) is gonna age like fine wine :clueless:
