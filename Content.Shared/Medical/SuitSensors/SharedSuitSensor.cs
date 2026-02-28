@@ -75,8 +75,12 @@ public static class SuitSensorConstants
 
     /// <summary> Server display name sent with status payload. </summary>
     public const string NET_SERVER_NAME = "server-name";
-    /// <summary> Server code/ID sent with status payload. </summary>
-    public const string NET_SERVER_CODE = "server-code";
+    /// <summary> Server address sent with status payload. </summary>
+    public const string NET_SERVER_ADDRESS = "server-address";
+    /// <summary> Grid/station name where the server is located. </summary>
+    public const string NET_GRID_NAME = "grid-name";
+    /// <summary> Grid entity (NetEntity) where the server is located, for map display. </summary>
+    public const string NET_GRID_UID = "grid-uid";
 }
 
 [Serializable, NetSerializable]

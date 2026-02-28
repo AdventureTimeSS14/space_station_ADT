@@ -32,6 +32,9 @@ public sealed class CrewMonitoringBoundUserInterface : BoundUserInterface
         _menu = this.CreateWindow<CrewMonitoringWindow>();
         _menu.Set(stationName, gridUid);
         _menu.OnAlertMutedChanged = muted => SendMessage(new CrewMonitoringSetAlertMutedMessage(muted));
+        _menu.OnSelectServer = server => SendMessage(new CrewMonitoringSelectServerMessage(server));
+        _menu.OnScanComplete = () => SendMessage(new CrewMonitoringScanCompleteMessage());
+        _menu.OnRescan = () => SendMessage(new CrewMonitoringRescanMessage());
     }
 
     protected override void UpdateState(BoundUserInterfaceState state)

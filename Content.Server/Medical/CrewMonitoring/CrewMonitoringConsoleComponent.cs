@@ -1,6 +1,7 @@
 using Content.Shared.Medical.SuitSensor;
 using Content.Shared.Medical.CrewMonitoring;
 using Robust.Shared.Audio;
+using Robust.Shared.Network;
 
 namespace Content.Server.Medical.CrewMonitoring;
 
@@ -67,7 +68,7 @@ public sealed partial class CrewMonitoringConsoleComponent : Component
     /// Last server code received with sensor data (for UI).
     /// </summary>
     [ViewVariables(VVAccess.ReadOnly)]
-    public string LastServerCode = string.Empty;
+    public string LastServerAddress = string.Empty;
 
     /// <summary>
     /// If true, crit/dead alert sound is muted on this console.
@@ -94,7 +95,25 @@ public sealed partial class CrewMonitoringConsoleComponent : Component
     public string CachedServerName = string.Empty;
 
     [ViewVariables(VVAccess.ReadOnly)]
-    public string CachedServerCode = string.Empty;
+    public string CachedServerAddress = string.Empty;
+
+    /// <summary>
+    /// Last grid/station name received (grid where the selected server is).
+    /// </summary>
+    [ViewVariables(VVAccess.ReadOnly)]
+    public string LastGridName = string.Empty;
+
+    /// <summary>
+    /// Last grid entity received (for map display). Null when server is in space.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadOnly)]
+    public NetEntity? LastGridUid;
+
+    [ViewVariables(VVAccess.ReadOnly)]
+    public string CachedGridName = string.Empty;
+
+    [ViewVariables(VVAccess.ReadOnly)]
+    public NetEntity? CachedGridUid;
 
     /// <summary>
     /// Last time we pushed offline state to UI (throttle).
@@ -107,5 +126,17 @@ public sealed partial class CrewMonitoringConsoleComponent : Component
     /// </summary>
     [ViewVariables(VVAccess.ReadOnly)]
     public EntityUid? LastServerUid;
+
+    /// <summary>
+    /// Server this console has selected (monitor-server pair). Null until user selects one.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    public EntityUid? SelectedServerUid;
+
+    /// <summary>
+    /// True after user has completed "Start scan"; then server list is shown.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    public bool HasScanned;
     // ADT-Tweak-End
 }

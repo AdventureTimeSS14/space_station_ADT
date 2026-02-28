@@ -3,7 +3,7 @@ using Content.Shared.Medical.SuitSensor;
 namespace Content.Server.Medical.CrewMonitoring;
 
 [RegisterComponent]
-[Access(typeof(CrewMonitoringServerSystem))]
+[Access(typeof(CrewMonitoringServerSystem), typeof(CrewMonitoringConsoleSystem))]
 public sealed partial class CrewMonitoringServerComponent : Component
 {
 
@@ -25,9 +25,15 @@ public sealed partial class CrewMonitoringServerComponent : Component
     public string? ServerName;
 
     /// <summary>
-    ///     Unique code of this server (e.g. "10.0.0.1"). Set in the prototype to distinguish multiple servers.
-    ///     If null, a code is generated at runtime from entity uid.
+    ///     Unique address of this server (e.g. "10.0.12.34"). Set in the prototype to distinguish multiple servers.
+    ///     If null, a random address is generated at map init.
     /// </summary>
-    [DataField("serverCode"), ViewVariables(VVAccess.ReadWrite)]
-    public string? ServerCode;
+    [DataField("serverAddress"), ViewVariables(VVAccess.ReadWrite)]
+    public string? ServerAddress;
+
+    /// <summary>
+    /// Consoles that have selected this server (monitor-server pair). Server is active only when this is non-empty.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadOnly)]
+    public HashSet<EntityUid> SubscriberConsoles = new();
 }

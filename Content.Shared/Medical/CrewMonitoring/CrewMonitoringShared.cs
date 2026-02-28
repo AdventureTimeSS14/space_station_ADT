@@ -9,15 +9,18 @@ public sealed class CrewMonitoringServerEntry
 {
     public NetEntity NetEntity;
     public NetCoordinates? Coordinates;
-    public string ServerCode;
+    public string ServerAddress;
     public bool IsOnline;
+    /// <summary> Grid/station name where the server is located (for display). </summary>
+    public string GridName;
 
-    public CrewMonitoringServerEntry(NetEntity netEntity, NetCoordinates? coordinates, string serverCode, bool isOnline)
+    public CrewMonitoringServerEntry(NetEntity netEntity, NetCoordinates? coordinates, string serverAddress, bool isOnline, string gridName = "")
     {
         NetEntity = netEntity;
         Coordinates = coordinates;
-        ServerCode = serverCode;
+        ServerAddress = serverAddress;
         IsOnline = isOnline;
+        GridName = gridName ?? string.Empty;
     }
 }
 
@@ -59,9 +62,9 @@ public sealed class CrewMonitoringState : BoundUserInterfaceState
     /// </summary>
     public string ServerName;
     /// <summary> 
-    /// Code/ID of the server (e.g. device address). 
+    /// Address of the server (e.g. "10.0.12.34"). 
     /// </summary>
-    public string ServerCode;
+    public string ServerAddress;
     /// <summary> 
     /// Station code where sensors are located. 
     /// </summary>
@@ -80,28 +83,67 @@ public sealed class CrewMonitoringState : BoundUserInterfaceState
     /// </summary>
     public List<CrewMonitoringServerEntry> Servers;
 
+    /// <summary>
+    /// True after the user has completed "Start scan" (progress bar); then server list and tabs are shown.
+    /// </summary>
+    public bool HasScanned;
+
+    /// <summary>
+    /// Name of the grid/station where the selected server is located (for map caption).
+    /// </summary>
+    public string GridName;
+
+    /// <summary>
+    /// Grid entity where the selected server is located; map shows this grid. Null when no server selected.
+    /// </summary>
+    public NetEntity? ServerGridUid;
+
+    /// <summary>
+    /// Server this console is currently connected to (for status: green=connected, yellow=standby, red=offline).
+    /// </summary>
+    public NetEntity? SelectedServerUid;
+
     public CrewMonitoringState(
         List<SuitSensorStatus> sensors,
         bool isEmagged,
         bool serverOnline,
         string serverName,
-        string serverCode,
+        string serverAddress,
         string stationCode,
         bool alertActive,
         bool alertMuted,
-        List<CrewMonitoringServerEntry>? servers = null)
+        List<CrewMonitoringServerEntry>? servers = null,
+        bool hasScanned = false,
+        string gridName = "",
+        NetEntity? serverGridUid = null,
+        NetEntity? selectedServerUid = null)
     {
         Sensors = sensors;
         IsEmagged = isEmagged;
         ServerOnline = serverOnline;
         ServerName = serverName;
-        ServerCode = serverCode;
+        ServerAddress = serverAddress;
         StationCode = stationCode;
         AlertActive = alertActive;
         AlertMuted = alertMuted;
         Servers = servers ?? new List<CrewMonitoringServerEntry>();
+        HasScanned = hasScanned;
+        GridName = gridName;
+        ServerGridUid = serverGridUid;
+        SelectedServerUid = selectedServerUid;
     }
 }
+
+[Serializable, NetSerializable]
+public sealed class CrewMonitoringScanCompleteMessage : BoundUserInterfaceMessage
+{
+}
+
+[Serializable, NetSerializable]
+public sealed class CrewMonitoringRescanMessage : BoundUserInterfaceMessage
+{
+}
+
 
 [Serializable, NetSerializable]
 public sealed class CrewMonitoringSetAlertMutedMessage : BoundUserInterfaceMessage
@@ -113,3 +155,19 @@ public sealed class CrewMonitoringSetAlertMutedMessage : BoundUserInterfaceMessa
         Muted = muted;
     }
 }
+
+/// <summary>
+/// Request to make the given server the active one for this station (monitor-server pair).
+/// </summary>
+[Serializable, NetSerializable]
+public sealed class CrewMonitoringSelectServerMessage : BoundUserInterfaceMessage
+{
+    public NetEntity Server { get; }
+
+    public CrewMonitoringSelectServerMessage(NetEntity server)
+    {
+        Server = server;
+    }
+}
+
+

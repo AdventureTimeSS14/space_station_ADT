@@ -1,4 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
+using System.Diagnostics.CodeAnalysis;
 using Content.Server.DeviceNetwork.Components;
 using Content.Server.Medical.CrewMonitoring;
 using Content.Server.Station.Systems;
@@ -28,6 +28,35 @@ public sealed class SingletonDeviceNetServerSystem : EntitySystem
     public bool IsActiveServer(EntityUid serverId, SingletonDeviceNetServerComponent? serverComponent = default)
     {
         return Resolve(serverId, ref serverComponent) && serverComponent.Active;
+    }
+
+    /// <summary>
+    /// Makes the given server the active one for its station (e.g. when a monitor selects it).
+    /// Disconnects all other servers of type TComp on that station, then connects the selected server.
+    /// </summary>
+    public bool RequestActivateServer<TComp>(EntityUid serverUid) where TComp : IComponent
+    {
+        if (!HasComp<TComp>(serverUid) || !TryComp<SingletonDeviceNetServerComponent>(serverUid, out var serverComp) ||
+            !TryComp<DeviceNetworkComponent>(serverUid, out var deviceComp))
+            return false;
+
+        var stationId = _stationSystem.GetOwningStation(serverUid);
+        if (!stationId.HasValue)
+            return false;
+
+        var station = stationId.Value;
+
+        // Disconnect all servers of this type on the station
+        var query = EntityQueryEnumerator<SingletonDeviceNetServerComponent, DeviceNetworkComponent, TComp>();
+        while (query.MoveNext(out var uid, out var s, out var d, out _))
+        {
+            if (_stationSystem.GetOwningStation(uid) != station)
+                continue;
+            DisconnectServer(uid, s, d);
+        }
+
+        ConnectServer(serverUid, serverComp, deviceComp);
+        return true;
     }
 
     /// <summary>

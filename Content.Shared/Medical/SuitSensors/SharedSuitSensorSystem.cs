@@ -423,6 +423,9 @@ public abstract class SharedSuitSensorSystem : EntitySystem
                 break;
         }
 
+        // Preserve current sensor mode so the monitor UI can filter and mask data correctly.
+        status.Mode = sensor.Mode;
+
         return status;
     }
 
@@ -441,6 +444,7 @@ public abstract class SharedSuitSensorSystem : EntitySystem
             [SuitSensorConstants.NET_IS_ALIVE] = status.IsAlive,
             [SuitSensorConstants.NET_SUIT_SENSOR_UID] = status.SuitSensorUid,
             [SuitSensorConstants.NET_OWNER_UID] = status.OwnerUid,
+            [SuitSensorConstants.NET_SUIT_SENSOR_MODE] = status.Mode,
         };
 
         if (status.TotalDamage != null)
@@ -473,10 +477,11 @@ public abstract class SharedSuitSensorSystem : EntitySystem
         if (!payload.TryGetValue(SuitSensorConstants.NET_SUIT_SENSOR_UID, out NetEntity suitSensorUid)) return null;
         if (!payload.TryGetValue(SuitSensorConstants.NET_OWNER_UID, out NetEntity ownerUid)) return null;
 
-        // try get total damage and cords (optionals)
+        // try get total damage, cords and mode (optionals)
         payload.TryGetValue(SuitSensorConstants.NET_TOTAL_DAMAGE, out int? totalDamage);
         payload.TryGetValue(SuitSensorConstants.NET_TOTAL_DAMAGE_THRESHOLD, out int? totalDamageThreshold);
         payload.TryGetValue(SuitSensorConstants.NET_COORDINATES, out NetCoordinates? coords);
+        payload.TryGetValue(SuitSensorConstants.NET_SUIT_SENSOR_MODE, out SuitSensorMode mode);
 
         var status = new SuitSensorStatus(ownerUid, suitSensorUid, name, job, jobIcon, jobDepartments)
         {
@@ -484,6 +489,7 @@ public abstract class SharedSuitSensorSystem : EntitySystem
             TotalDamage = totalDamage,
             TotalDamageThreshold = totalDamageThreshold,
             Coordinates = coords,
+            Mode = mode,
         };
         return status;
     }

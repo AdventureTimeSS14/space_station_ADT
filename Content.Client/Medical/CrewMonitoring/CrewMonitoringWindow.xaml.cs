@@ -39,6 +39,27 @@ public sealed partial class CrewMonitoringWindow : FancyWindow
     /// </summary>
     public Action<bool>? OnAlertMutedChanged;
 
+    /// <summary>
+    /// Called when the user clicks "Select" on a sensor server to make it the active one.
+    /// </summary>
+    public Action<NetEntity>? OnSelectServer;
+
+    /// <summary>
+    /// Called when the 5s scan progress completes; BUI sends CrewMonitoringScanCompleteMessage.
+    /// </summary>
+    public Action? OnScanComplete;
+
+    /// <summary>
+    /// Called when the user clicks "Rescan" to refresh the server list.
+    /// </summary>
+    public Action? OnRescan;
+
+    private const float ScanDuration = 5f;
+    private float _scanProgress;
+    private bool _rescanInProgress;
+    private float _rescanProgress;
+    private ProgressBar? _rescanProgressBar;
+
     public CrewMonitoringWindow()
     {
         RobustXamlLoader.Load(this);
@@ -48,6 +69,14 @@ public sealed partial class CrewMonitoringWindow : FancyWindow
         _spriteSystem = _entManager.System<SpriteSystem>();
 
         NavMap.TrackedEntitySelectedAction += SetTrackedEntityFromNavMap;
+
+        StartScanButton.OnPressed += _ =>
+        {
+            StartScanButton.Visible = false;
+            ScanProgressBar.Visible = true;
+            ScanProgressBar.Value = 0;
+            _scanProgress = 0;
+        };
     }
 
     public void Set(string stationName, EntityUid? mapUid)
@@ -70,6 +99,34 @@ public sealed partial class CrewMonitoringWindow : FancyWindow
     {
         base.FrameUpdate(args);
 
+        if (ScanProgressBar.Visible && _scanProgress < 1f)
+        {
+            _scanProgress += (float) args.DeltaSeconds / ScanDuration;
+            if (_scanProgress >= 1f)
+            {
+                _scanProgress = 1f;
+                ScanProgressBar.Value = 1;
+                OnScanComplete?.Invoke();
+            }
+            else
+            {
+                ScanProgressBar.Value = _scanProgress;
+            }
+        }
+
+        if (_rescanInProgress)
+        {
+            _rescanProgress += (float) args.DeltaSeconds / ScanDuration;
+            if (_rescanProgressBar != null)
+                _rescanProgressBar.Value = _rescanProgress;
+            if (_rescanProgress >= 1f)
+            {
+                _rescanInProgress = false;
+                _rescanProgress = 0;
+                OnRescan?.Invoke();
+            }
+        }
+
         if (_tryToScrollToListFocus)
             TryToScrollToFocus();
     }
@@ -79,16 +136,73 @@ public sealed partial class CrewMonitoringWindow : FancyWindow
     {
         var sensors = state.Sensors;
         var isEmagged = state.IsEmagged;
+        var hasScanned = state.HasScanned;
 
-        UpdateHeader(state);
+        StartScanPanel.Visible = !hasScanned;
+        MainTabs.Visible = hasScanned;
+
+        ServerStatusContainer.Visible = hasScanned;
+        if (hasScanned)
+        {
+            MainTabs.SetTabTitle(0, Loc.GetString("crew-monitoring-tab-sensors"));
+            MainTabs.SetTabTitle(1, Loc.GetString("crew-monitoring-tab-servers"));
+            UpdateHeader(state);
+        }
 
         ClearOutDatedData();
+        ServersListContainer.RemoveAllChildren();
 
-        // Секция "Серверы датчиков" и блипы на карте
         var servers = state.Servers ?? new List<CrewMonitoringServerEntry>();
-        if (servers.Count > 0)
+        var hasServerSelected = sensors.Count > 0;
+
+        if (!hasScanned || !hasServerSelected)
         {
-            SensorsTable.AddChild(new Control() { SetHeight = 20 });
+            NavMap.Visible = false;
+            MapPlaceholder.Visible = true;
+            StationName.Text = Loc.GetString("crew-monitoring-ui-select-server-label");
+        }
+        else
+        {
+            NavMap.Visible = true;
+            MapPlaceholder.Visible = false;
+            StationName.Text = state.GridName ?? string.Empty;
+            if (state.ServerGridUid != null && _entManager.TryGetEntity(state.ServerGridUid.Value, out var gridUid))
+                NavMap.MapUid = gridUid;
+            else
+                NavMap.MapUid = null;
+        }
+
+        var selectedServerUid = state.SelectedServerUid;
+        _rescanProgressBar = null;
+        if (hasScanned && servers.Count > 0)
+        {
+            var rescanButton = new Button
+            {
+                Text = Loc.GetString("crew-monitoring-rescan"),
+                HorizontalExpand = true,
+                Margin = new Thickness(10, 0, 10, 6)
+            };
+            rescanButton.OnPressed += _ =>
+            {
+                _rescanInProgress = true;
+                _rescanProgress = 0;
+                var idx = rescanButton.GetPositionInParent();
+                ServersListContainer.RemoveChild(rescanButton);
+                var rescanBar = new ProgressBar
+                {
+                    MinValue = 0,
+                    MaxValue = 1,
+                    Value = 0,
+                    HorizontalExpand = true,
+                    Margin = new Thickness(10, 0, 10, 6),
+                    SetHeight = 24
+                };
+                _rescanProgressBar = rescanBar;
+                ServersListContainer.AddChild(rescanBar);
+                rescanBar.SetPositionInParent(idx);
+            };
+            ServersListContainer.AddChild(rescanButton);
+
             var serversLabel = new RichTextLabel()
             {
                 Margin = new Thickness(10, 0),
@@ -96,10 +210,14 @@ public sealed partial class CrewMonitoringWindow : FancyWindow
             };
             serversLabel.SetMessage(Loc.GetString("crew-monitoring-servers-department"));
             serversLabel.StyleClasses.Add("font-large");
-            SensorsTable.AddChild(serversLabel);
+            ServersListContainer.AddChild(serversLabel);
 
             foreach (var server in servers)
             {
+                var isSelected = selectedServerUid != null && server.NetEntity == selectedServerUid.Value;
+                var statusColor = isSelected
+                    ? (server.IsOnline ? Color.LimeGreen : Color.Red)
+                    : Color.Yellow;
                 var serverRow = new BoxContainer
                 {
                     Orientation = LayoutOrientation.Horizontal,
@@ -111,36 +229,54 @@ public sealed partial class CrewMonitoringWindow : FancyWindow
                     MinSize = new Vector2(10, 10),
                     MaxSize = new Vector2(10, 10),
                     Margin = new Thickness(0, 0, 6, 0),
-                    PanelOverride = new StyleBoxFlat { BackgroundColor = server.IsOnline ? Color.LimeGreen : Color.Red }
+                    PanelOverride = new StyleBoxFlat { BackgroundColor = statusColor }
                 };
                 serverRow.AddChild(indicator);
-                serverRow.AddChild(new Label { Text = server.ServerCode, ClipText = true });
-                SensorsTable.AddChild(serverRow);
+                var serverDisplayName = string.IsNullOrEmpty(server.GridName)
+                    ? server.ServerAddress
+                    : $"{server.GridName} — {server.ServerAddress}";
+                serverRow.AddChild(new Label { Text = serverDisplayName, ClipText = true, HorizontalExpand = true });
+                var selectButton = new Button
+                {
+                    Text = server.IsOnline ? Loc.GetString("crew-monitoring-server-active") : Loc.GetString("crew-monitoring-server-select"),
+                    Disabled = server.IsOnline
+                };
+                var serverEntity = server.NetEntity;
+                selectButton.OnPressed += _ => OnSelectServer?.Invoke(serverEntity);
+                serverRow.AddChild(selectButton);
+                ServersListContainer.AddChild(serverRow);
             }
 
-            if (_serverBlipTexture != null && NavMap.Visible)
+            if (hasServerSelected && _serverBlipTexture != null && NavMap.Visible)
             {
                 foreach (var server in servers)
                 {
                     var serverCoords = _entManager.GetCoordinates(server.Coordinates);
                     if (serverCoords == null)
                         continue;
-                    NavMap.LocalizedNames.TryAdd(server.NetEntity, Loc.GetString("crew-monitoring-server-blip") + " " + server.ServerCode);
+                    var isSelected = selectedServerUid != null && server.NetEntity == selectedServerUid.Value;
+                    var blipColor = isSelected
+                        ? (server.IsOnline ? Color.LimeGreen : Color.Red)
+                        : Color.Yellow;
+                    NavMap.LocalizedNames.TryAdd(server.NetEntity, Loc.GetString("crew-monitoring-server-blip") + " " + server.ServerAddress);
                     NavMap.TrackedEntities.TryAdd(server.NetEntity,
                         new NavMapBlip(
                             CoordinatesToLocal(serverCoords.Value),
                             _serverBlipTexture,
-                            server.IsOnline ? Color.LimeGreen : Color.Red,
+                            blipColor,
                             false,
                             false));
                 }
             }
         }
 
-        // No server label
+        if (!hasScanned)
+            return;
+
         if (sensors.Count == 0)
         {
             NoServerLabel.Visible = true;
+            NoServerLabel.Text = Loc.GetString("crew-monitoring-ui-select-server-label");
             return;
         }
 
@@ -258,53 +394,44 @@ public sealed partial class CrewMonitoringWindow : FancyWindow
             PopulateDepartmentList(remainingSensors);
         }
 
-        // Показываем монитор на карте
-        if (monitorCoords != null && _blipTexture != null)
+        // Показываем монитор на карте только если он на том же гриде, что и выбранный сервер
+        if (monitorCoords != null && _blipTexture != null && NavMap.MapUid != null &&
+            _entManager.TryGetComponent<TransformComponent>(monitor, out var monitorXform) &&
+            monitorXform.GridUid == NavMap.MapUid)
         {
-            NavMap.TrackedEntities[_entManager.GetNetEntity(monitor)] = new NavMapBlip(monitorCoords.Value, _blipTexture, Color.Cyan, true, false);
+            NavMap.TrackedEntities[_entManager.GetNetEntity(monitor)] = new NavMapBlip(CoordinatesToLocal(monitorCoords.Value), _blipTexture, Color.Cyan, true, false);
         }
     }
 
     private void UpdateHeader(CrewMonitoringState state)
     {
-        HeaderContainer.RemoveAllChildren();
-        HeaderContainer.Orientation = LayoutOrientation.Vertical;
+        ServerStatusContainer.RemoveAllChildren();
+        ServerStatusContainer.Orientation = LayoutOrientation.Horizontal;
 
-        // Сервер: ONLINE/OFFLINE + кружок
         var statusColor = state.ServerOnline ? Color.LimeGreen : Color.Red;
         var statusText = state.ServerOnline
             ? Loc.GetString("crew-monitoring-header-server-online")
             : Loc.GetString("crew-monitoring-header-server-offline");
-        var statusRow = new BoxContainer
-        {
-            Orientation = LayoutOrientation.Horizontal,
-            HorizontalExpand = true,
-            Margin = new Thickness(0, 0, 0, 2)
-        };
-        statusRow.AddChild(new Label { Text = statusText, Margin = new Thickness(0, 0, 6, 0) });
-        statusRow.AddChild(new PanelContainer
+        ServerStatusContainer.AddChild(new Label { Text = statusText, Margin = new Thickness(0, 0, 6, 0) });
+        ServerStatusContainer.AddChild(new PanelContainer
         {
             MinSize = new Vector2(10, 10),
             MaxSize = new Vector2(10, 10),
+            Margin = new Thickness(0, 0, 12, 0),
             PanelOverride = new StyleBoxFlat { BackgroundColor = statusColor }
         });
-        HeaderContainer.AddChild(statusRow);
-
-        // Код сервера
-        HeaderContainer.AddChild(new Label
+        ServerStatusContainer.AddChild(new Label
         {
-            Text = Loc.GetString("crew-monitoring-header-server-code") + " " + (state.ServerCode ?? "—"),
-            Margin = new Thickness(0, 0, 0, 2)
+            Text = Loc.GetString("crew-monitoring-header-server-address") + " " + (state.ServerAddress ?? "—"),
+            Margin = new Thickness(0, 0, 12, 0)
         });
-
-        // Оповещение ВКЛ/ВЫКЛ
         var alertCheck = new CheckBox
         {
             Pressed = !state.AlertMuted,
             Text = state.AlertMuted
                 ? Loc.GetString("crew-monitoring-header-alert-off")
                 : Loc.GetString("crew-monitoring-header-alert-on"),
-            Margin = new Thickness(0, 2, 0, 0)
+            Margin = new Thickness(0, 0, 0, 0)
         };
         alertCheck.OnToggled += args =>
         {
@@ -313,7 +440,7 @@ public sealed partial class CrewMonitoringWindow : FancyWindow
                 : Loc.GetString("crew-monitoring-header-alert-off");
             OnAlertMutedChanged?.Invoke(!args.Pressed);
         };
-        HeaderContainer.AddChild(alertCheck);
+        ServerStatusContainer.AddChild(alertCheck);
     }
     // ADT-Tweak-end (P4A)
 

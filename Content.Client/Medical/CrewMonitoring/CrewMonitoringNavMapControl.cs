@@ -37,7 +37,10 @@ public sealed partial class CrewMonitoringNavMapControl : NavMapControl
         };
 
         _trackedEntityPanel.AddChild(_trackedEntityLabel);
-        this.AddChild(_trackedEntityPanel);
+        // Add overlay to the map drawing area so it appears on top of the map, not below the whole control
+        var topContainer = Children[0];
+        var drawingArea = topContainer.Children[1];
+        drawingArea.AddChild(_trackedEntityPanel);
         LayoutContainer.SetAnchorAndMarginPreset(_trackedEntityPanel, LayoutContainer.LayoutPreset.BottomLeft,
             LayoutContainer.LayoutPresetMode.MinSize, 5);
     }

@@ -28,7 +28,6 @@
         machine_board: !type:Container
         machine_parts: !type:Container
     - type: CrewMonitoringServer
-    - type: SingletonDeviceNetServer
     - type: DeviceNetwork
       deviceNetId: Wireless
       transmitFrequencyId: CrewMonitor
