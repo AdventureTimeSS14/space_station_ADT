@@ -1562,7 +1562,7 @@
   suffix: Personal, Altius, RedLis
   components:
   - type: Sprite
-    sprite: ADT/Personalization/luckyrat/luckyrat_cloak.rsi
+    sprite: ADT/Personalization/Altius_RedLis/shiptest_shamag.rsi
 
 - type: entity
   parent: ADTSponsorClothingShoesBase
