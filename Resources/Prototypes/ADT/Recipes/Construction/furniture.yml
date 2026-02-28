@@ -1190,20 +1190,6 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: construction-name-barbell-chair
-  id: ADTBarbellChairRecipe
-  graph: ADTSeat
-  startNode: start
-  targetNode: adtbarbellchair
-  category: construction-category-furniture
-  description: construction-desc-barbell-chair
-  objectType: Structure
-  placementMode: SnapgridCenter
-  canBuildInImpassable: false
-  conditions:
-    - !type:TileNotBlocked
-
-- type: construction
   name: construction-name-oktoberfest-chair
   id: ADTChairOktoberfestOrangeRecipe
   graph: ADTSeat
