@@ -823,7 +823,7 @@ ent-ADTClothingShoesShipTestAltiusRedLis = армейские ботинки
     .desc = Ботинки с высоким берцем и толстой протекторной подошвой, усиленные в области носка и пятки для дополнительной защиты стопы.
     .suffix = { "Спонсорское, Altius, RedLis" }
 
-ent-ADTSponsorClothingHeadBase = берет
+ent-ADTClothingHeadHatsShipTestAltiusRedLis = берет
     .desc = Головной убор с золотым символом, возможно, принадлежащий какому-то определённому роду войск.
     .suffix = { "Спонсорское, Altius, RedLis" }
 
