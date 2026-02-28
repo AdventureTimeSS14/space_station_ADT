@@ -1,43 +1,42 @@
+using Content.Server.ADT.Heretic.EntitySystems.PathSpecific;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Chat.Systems;
 using Content.Server.DoAfter;
 using Content.Server.Flash;
 using Content.Server.Hands.Systems;
+using Content.Server.Heretic.Components;
+using Content.Server.Heretic.EntitySystems;
 using Content.Server.Magic;
 using Content.Server.Polymorph.Systems;
 using Content.Server.Popups;
+using Content.Server.Station.Systems;
 using Content.Server.Store.Systems;
 using Content.Shared.Actions;
+using Content.Shared.Body.Systems;
+using Content.Shared.Chat;
 using Content.Shared.Damage.Systems;
 using Content.Shared.DoAfter;
-using Content.Shared.Heretic;
-using Content.Shared.Mind.Components;
-using Content.Shared.Mobs.Systems;
-using Content.Shared.Store.Components;
-using Robust.Shared.Audio.Systems;
-using Content.Shared.Popups;
-using Robust.Shared.Random;
-using Content.Shared.Body.Systems;
-using Content.Server.Medical;
-using Robust.Server.GameObjects;
-using Content.Shared.Stunnable;
-using Robust.Shared.Map;
-using Content.Shared.StatusEffect;
-using Content.Shared.Throwing;
-using Content.Server.Station.Systems;
-using Content.Shared.Localizations;
-using Robust.Shared.Audio;
-using Content.Shared.Mobs.Components;
-using Robust.Shared.Prototypes;
-using Content.Server.Heretic.EntitySystems;
-using Content.Server.ADT.Heretic.EntitySystems.PathSpecific;
-using Content.Server.Heretic.Components;
 using Content.Shared.Hands.Components;
-using Content.Shared.Tag;
+using Content.Shared.Heretic;
+using Content.Shared.Localizations;
 using Content.Shared.Medical;
-using Content.Shared.Chat;
-using Content.Shared.Radio.Components;
+using Content.Shared.Mind.Components;
+using Content.Shared.Mobs.Components;
+using Content.Shared.Mobs.Systems;
+using Content.Shared.Popups;
 using Content.Shared.Radio;
+using Content.Shared.Radio.Components;
+using Content.Shared.StatusEffect;
+using Content.Shared.Store.Components;
+using Content.Shared.Stunnable;
+using Content.Shared.Tag;
+using Content.Shared.Throwing;
+using Robust.Server.GameObjects;
+using Robust.Shared.Audio;
+using Robust.Shared.Audio.Systems;
+using Robust.Shared.Map;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
 
 namespace Content.Server.Heretic.Abilities;
 
@@ -276,6 +275,12 @@ public sealed partial class HereticAbilitySystem : EntitySystem
     private void OnMansusLinkDoafter(Entity<GhoulComponent> ent, ref HereticMansusLinkDoAfter args)
     {
         if (args.Cancelled)
+            return;
+
+        if (!HasComp<MindContainerComponent>(args.Target))
+            return;
+
+        if (_tag.HasTag(args.Target, MansusLinkTag))
             return;
 
         _tag.AddTag(args.Target, MansusLinkTag);
