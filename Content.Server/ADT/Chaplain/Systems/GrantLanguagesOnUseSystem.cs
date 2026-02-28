@@ -29,7 +29,7 @@ public sealed class GrantLanguagesOnUseSystem : EntitySystem
             if (_proto.TryIndex<LanguagePrototype>(langId, out var lang))
             {
                 _language.AddSpokenLanguage(args.User, langId);
-                learned.Add(lang.ID);
+                learned.Add(Loc.GetString($"language-{lang.ID}-name"));
             }
         }
 
@@ -42,7 +42,8 @@ public sealed class GrantLanguagesOnUseSystem : EntitySystem
         }
 
         var languagesStr = string.Join(", ", learned);
-        _popup.PopupEntity(Loc.GetString("grant-languages-success", ("languages", languagesStr)),
+        var key = learned.Count == 1 ? "grant-language-success" : "grant-languages-success";
+        _popup.PopupEntity(Loc.GetString(key, ("languages", languagesStr)),
             args.User,
             args.User);
 
