@@ -430,17 +430,27 @@
             - material: WoodPlank
               amount: 2
               doAfter: 1
-        - to: adtbenchchurchleft
+        - to: adtchairoktoberfestorange
           steps:
             - material: WoodPlank
               amount: 2
               doAfter: 1
-        - to: adtbenchchurchmiddle
+        - to: adtchairbarstool
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 1
+        - to: adtchairbarstool2
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 1
+        - to: adtchaircomfyblack
           steps:
             - material: WoodPlank
               amount: 2
               doAfter: 1
-        - to: adtbenchchurchright
+        - to: adtchaircomfymaroon
           steps:
             - material: WoodPlank
               amount: 2
@@ -1169,7 +1179,7 @@
           steps:
             - tool: Screwing
               doAfter: 2
-
+ 
     - node: adtarmchairblack
       entity: ADTArmchairBlack
       edges:
