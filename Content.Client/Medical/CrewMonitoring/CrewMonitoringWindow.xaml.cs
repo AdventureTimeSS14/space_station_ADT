@@ -176,32 +176,35 @@ public sealed partial class CrewMonitoringWindow : FancyWindow
         _rescanProgressBar = null;
         if (hasScanned && servers.Count > 0)
         {
-            var rescanButton = new Button
+            if (_rescanInProgress)
             {
-                Text = Loc.GetString("crew-monitoring-rescan"),
-                HorizontalExpand = true,
-                Margin = new Thickness(10, 0, 10, 6)
-            };
-            rescanButton.OnPressed += _ =>
-            {
-                _rescanInProgress = true;
-                _rescanProgress = 0;
-                var idx = rescanButton.GetPositionInParent();
-                ServersListContainer.RemoveChild(rescanButton);
                 var rescanBar = new ProgressBar
                 {
                     MinValue = 0,
                     MaxValue = 1,
-                    Value = 0,
+                    Value = Math.Clamp(_rescanProgress, 0f, 1f),
                     HorizontalExpand = true,
                     Margin = new Thickness(10, 0, 10, 6),
                     SetHeight = 24
                 };
                 _rescanProgressBar = rescanBar;
                 ServersListContainer.AddChild(rescanBar);
-                rescanBar.SetPositionInParent(idx);
-            };
-            ServersListContainer.AddChild(rescanButton);
+            }
+            else
+            {
+                var rescanButton = new Button
+                {
+                    Text = Loc.GetString("crew-monitoring-rescan"),
+                    HorizontalExpand = true,
+                    Margin = new Thickness(10, 0, 10, 6)
+                };
+                rescanButton.OnPressed += _ =>
+                {
+                    _rescanInProgress = true;
+                    _rescanProgress = 0;
+                };
+                ServersListContainer.AddChild(rescanButton);
+            }
 
             var serversLabel = new RichTextLabel()
             {
@@ -215,9 +218,7 @@ public sealed partial class CrewMonitoringWindow : FancyWindow
             foreach (var server in servers)
             {
                 var isSelected = selectedServerUid != null && server.NetEntity == selectedServerUid.Value;
-                var statusColor = isSelected
-                    ? (server.IsOnline ? Color.LimeGreen : Color.Red)
-                    : Color.Yellow;
+                var statusColor = server.IsOnline ? Color.LimeGreen : Color.Red;
                 var serverRow = new BoxContainer
                 {
                     Orientation = LayoutOrientation.Horizontal,
@@ -238,8 +239,8 @@ public sealed partial class CrewMonitoringWindow : FancyWindow
                 serverRow.AddChild(new Label { Text = serverDisplayName, ClipText = true, HorizontalExpand = true });
                 var selectButton = new Button
                 {
-                    Text = server.IsOnline ? Loc.GetString("crew-monitoring-server-active") : Loc.GetString("crew-monitoring-server-select"),
-                    Disabled = server.IsOnline
+                    Text = isSelected ? Loc.GetString("crew-monitoring-server-active") : Loc.GetString("crew-monitoring-server-select"),
+                    Disabled = isSelected
                 };
                 var serverEntity = server.NetEntity;
                 selectButton.OnPressed += _ => OnSelectServer?.Invoke(serverEntity);
@@ -252,16 +253,17 @@ public sealed partial class CrewMonitoringWindow : FancyWindow
                 foreach (var server in servers)
                 {
                     var serverCoords = _entManager.GetCoordinates(server.Coordinates);
-                    if (serverCoords == null)
+                    if (serverCoords == null || !serverCoords.Value.IsValid(_entManager))
                         continue;
                     var isSelected = selectedServerUid != null && server.NetEntity == selectedServerUid.Value;
-                    var blipColor = isSelected
-                        ? (server.IsOnline ? Color.LimeGreen : Color.Red)
-                        : Color.Yellow;
+                    var blipColor = server.IsOnline ? Color.LimeGreen : Color.Red;
+                    var localCoords = CoordinatesToLocal(serverCoords.Value);
+                    if (localCoords == null)
+                        continue;
                     NavMap.LocalizedNames.TryAdd(server.NetEntity, Loc.GetString("crew-monitoring-server-blip") + " " + server.ServerAddress);
                     NavMap.TrackedEntities.TryAdd(server.NetEntity,
                         new NavMapBlip(
-                            CoordinatesToLocal(serverCoords.Value),
+                            localCoords.Value,
                             _serverBlipTexture,
                             blipColor,
                             false,
@@ -395,11 +397,14 @@ public sealed partial class CrewMonitoringWindow : FancyWindow
         }
 
         // Показываем монитор на карте только если он на том же гриде, что и выбранный сервер
-        if (monitorCoords != null && _blipTexture != null && NavMap.MapUid != null &&
+        if (monitorCoords != null && monitorCoords.Value.IsValid(_entManager) &&
+            _blipTexture != null && NavMap.MapUid != null &&
             _entManager.TryGetComponent<TransformComponent>(monitor, out var monitorXform) &&
             monitorXform.GridUid == NavMap.MapUid)
         {
-            NavMap.TrackedEntities[_entManager.GetNetEntity(monitor)] = new NavMapBlip(CoordinatesToLocal(monitorCoords.Value), _blipTexture, Color.Cyan, true, false);
+            var localMonitorCoords = CoordinatesToLocal(monitorCoords.Value);
+            if (localMonitorCoords != null)
+                NavMap.TrackedEntities[_entManager.GetNetEntity(monitor)] = new NavMapBlip(localMonitorCoords.Value, _blipTexture, Color.Cyan, true, false);
         }
     }
 
@@ -455,6 +460,8 @@ public sealed partial class CrewMonitoringWindow : FancyWindow
                 continue;
 
             var coordinates = _entManager.GetCoordinates(sensor.Coordinates);
+            if (coordinates != null && !coordinates.Value.IsValid(_entManager))
+                coordinates = null;
 
             // Add a button that will hold a username and other details
             NavMap.LocalizedNames.TryAdd(sensor.SuitSensorUid, sensor.Name + ", " + sensor.Job);
@@ -581,9 +588,12 @@ public sealed partial class CrewMonitoringWindow : FancyWindow
             // Add user coordinates to the navmap
             if (coordinates != null && NavMap.Visible && _blipTexture != null)
             {
+                var localCoords = CoordinatesToLocal(coordinates.Value);
+                if (localCoords == null)
+                    continue;
                 NavMap.TrackedEntities.TryAdd(sensor.SuitSensorUid,
                     new NavMapBlip
-                    (CoordinatesToLocal(coordinates.Value),
+                    (localCoords.Value,
                     _blipTexture,
                     (_trackedEntity == null || sensor.SuitSensorUid == _trackedEntity) ? Color.LimeGreen : Color.LimeGreen * Color.DimGray,
                     sensor.SuitSensorUid == _trackedEntity));
@@ -632,10 +642,8 @@ public sealed partial class CrewMonitoringWindow : FancyWindow
     {
         foreach (var sensor in SensorsTable.Children)
         {
-            if (sensor is not CrewMonitoringButton)
+            if (sensor is not CrewMonitoringButton castSensor)
                 continue;
-
-            var castSensor = (CrewMonitoringButton) sensor;
 
             if (castSensor.SuitSensorUid == prevTrackedEntity)
                 castSensor.RemoveStyleClass(StyleClass.Positive);
@@ -648,8 +656,11 @@ public sealed partial class CrewMonitoringWindow : FancyWindow
 
             if (NavMap.TrackedEntities.TryGetValue(castSensor.SuitSensorUid, out var data))
             {
+                var localCoords = CoordinatesToLocal(data.Coordinates);
+                if (localCoords == null)
+                    continue;
                 data = new NavMapBlip
-                    (CoordinatesToLocal(data.Coordinates),
+                    (localCoords.Value,
                     data.Texture,
                     (currTrackedEntity == null || castSensor.SuitSensorUid == currTrackedEntity) ? Color.LimeGreen : Color.LimeGreen * Color.DimGray,
                     castSensor.SuitSensorUid == currTrackedEntity);
@@ -682,8 +693,8 @@ public sealed partial class CrewMonitoringWindow : FancyWindow
 
         foreach (var sensor in SensorsTable.Children)
         {
-            if (sensor is CrewMonitoringButton &&
-                ((CrewMonitoringButton) sensor).SuitSensorUid == _trackedEntity)
+            if (sensor is CrewMonitoringButton sensorButton &&
+                sensorButton.SuitSensorUid == _trackedEntity)
                 return true;
 
             nextScrollPosition += sensor.Height;
@@ -703,16 +714,20 @@ public sealed partial class CrewMonitoringWindow : FancyWindow
     /// blip will move smoothly, unlike the others. By converting the
     /// coordinates, we are back in control of the blip movement.
     /// </summary>
-    private EntityCoordinates CoordinatesToLocal(EntityCoordinates refCoords)
+    private EntityCoordinates? CoordinatesToLocal(EntityCoordinates refCoords)
     {
-        if (NavMap.MapUid != null)
-        {
-            return _transformSystem.WithEntityId(refCoords, (EntityUid)NavMap.MapUid);
-        }
-        else
-        {
+        if (!refCoords.IsValid(_entManager))
+            return null;
+
+        if (NavMap.MapUid == null)
             return refCoords;
-        }
+
+        var targetMapId = _transformSystem.GetMapId((EntityUid)NavMap.MapUid);
+        var sourceMapId = _transformSystem.GetMapId(refCoords);
+        if (targetMapId != sourceMapId)
+            return null;
+
+        return _transformSystem.WithEntityId(refCoords, (EntityUid)NavMap.MapUid);
     }
 
     private void ClearOutDatedData()

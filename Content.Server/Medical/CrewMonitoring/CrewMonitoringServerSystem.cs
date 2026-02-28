@@ -50,20 +50,23 @@ public sealed class CrewMonitoringServerSystem : EntitySystem
             var hasSubscribers = server.SubscriberConsoles.Count > 0;
             var powered = TryComp<ApcPowerReceiverComponent>(uid, out var power) && power.Powered;
 
-            if (hasSubscribers && powered)
+            if (powered)
             {
                 if (!_deviceNetworkSystem.IsDeviceConnected(uid, device))
                     _deviceNetworkSystem.ConnectDevice(uid, device);
                 UpdateTimeout(uid, server);
-                BroadcastSensorStatus(uid, server, device);
+
+                // Keep collecting sensor data while powered so selecting a server can show data immediately.
+                if (hasSubscribers)
+                    BroadcastSensorStatus(uid, server, device);
             }
             else
             {
                 if (_deviceNetworkSystem.IsDeviceConnected(uid, device))
                 {
                     _deviceNetworkSystem.DisconnectDevice(uid, device, false);
-                    server.SensorStatus.Clear();
                 }
+                server.SensorStatus.Clear();
             }
         }
     }
