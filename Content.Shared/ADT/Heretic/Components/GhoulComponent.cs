@@ -1,5 +1,4 @@
 using Content.Shared.FixedPoint;
-using Content.Shared.Radio;
 using Content.Shared.StatusIcon;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
