@@ -36,6 +36,7 @@ using Content.Shared.Hands.Components;
 using Content.Shared.Tag;
 using Content.Shared.Medical;
 using Content.Shared.Chat;
+using Content.Shared.Radio.Components;
 
 namespace Content.Server.Heretic.Abilities;
 
@@ -275,6 +276,12 @@ public sealed partial class HereticAbilitySystem : EntitySystem
             return;
 
         _tag.AddTag(ent, MansusLinkTag);
+
+        var activeRadio = EnsureComp<ActiveRadioComponent>(ent);
+        activeRadio.Channels.Add(ent.Comp.Channel);
+
+        var intrinsicRadioTransmitter = EnsureComp<IntrinsicRadioTransmitterComponent>(ent);
+        intrinsicRadioTransmitter.Channels.Add(ent.Comp.Channel);
 
         // this "* 1000f" (divided by 1000 in FlashSystem) is gonna age like fine wine :clueless:
         _flash.Flash(args.Target, null, null, TimeSpan.FromSeconds(2f), 0f, false, true, stunDuration: TimeSpan.FromSeconds(1f));
