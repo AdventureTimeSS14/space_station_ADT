@@ -160,7 +160,7 @@ entities:
         - 0
         - 0
     - type: Parallax
-      parallax: PilgrimAiur
+      parallax: SillyIsland
     - type: MapLight
       ambientLightColor: '#E0A0C0FF'
     - type: LightCycle
