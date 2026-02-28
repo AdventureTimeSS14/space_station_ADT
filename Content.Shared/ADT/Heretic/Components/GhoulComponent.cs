@@ -23,6 +23,4 @@ public sealed partial class GhoulComponent : Component
     public ProtoId<FactionIconPrototype> MasterIcon { get; set; } = "GhoulHereticMaster";
     [DataField, ViewVariables(VVAccess.ReadOnly)]
     public ProtoId<FactionIconPrototype> GhoulIcon { get; set; } = "GhoulFaction";
-    [DataField, ViewVariables(VVAccess.ReadOnly)]
-    public ProtoId<RadioChannelPrototype> Channel { get; set; } = "Mansus";
 }

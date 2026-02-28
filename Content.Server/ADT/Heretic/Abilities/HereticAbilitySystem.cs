@@ -37,6 +37,7 @@ using Content.Shared.Tag;
 using Content.Shared.Medical;
 using Content.Shared.Chat;
 using Content.Shared.Radio.Components;
+using Content.Shared.Radio;
 
 namespace Content.Server.Heretic.Abilities;
 
@@ -72,6 +73,8 @@ public sealed partial class HereticAbilitySystem : EntitySystem
     [Dependency] private readonly StatusEffectsSystem _statusEffect = default!;
     [Dependency] private readonly VoidCurseSystem _voidcurse = default!;
     [Dependency] private readonly TagSystem _tag = default!;
+
+    public ProtoId<RadioChannelPrototype> MansusLinkChannel = "Mansus";
 
     private List<EntityUid> GetNearbyPeople(Entity<HereticComponent> ent, float range)
     {
@@ -278,12 +281,12 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         _tag.AddTag(args.Target, MansusLinkTag);
 
         var activeRadio = EnsureComp<ActiveRadioComponent>(args.Target);
-        activeRadio.Channels.Add(ent.Comp.Channel);
+        activeRadio.Channels.Add(MansusLinkChannel);
 
         EnsureComp<IntrinsicRadioReceiverComponent>(args.Target);
 
         var intrinsicRadioTransmitter = EnsureComp<IntrinsicRadioTransmitterComponent>(args.Target);
-        intrinsicRadioTransmitter.Channels.Add(ent.Comp.Channel);
+        intrinsicRadioTransmitter.Channels.Add(MansusLinkChannel);
 
         // this "* 1000f" (divided by 1000 in FlashSystem) is gonna age like fine wine :clueless:
         _flash.Flash(args.Target, null, null, TimeSpan.FromSeconds(2f), 0f, false, true, stunDuration: TimeSpan.FromSeconds(1f));
