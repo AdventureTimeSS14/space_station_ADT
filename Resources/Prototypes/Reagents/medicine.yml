@@ -1275,8 +1275,8 @@
       - !type:HealthChange
         damage:
           types:
-            Slash: -0.6 # 8 per u
-            Heat: 0.2 # 0.8 per u
+            Slash: -0.6 # ADT-Tweak 6 per u
+            Heat: 0.2 # ADT-Tweak 2 per u
       - !type:HealthChange
         conditions:
         - !type:ReagentCondition
