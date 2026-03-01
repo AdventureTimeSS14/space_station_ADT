@@ -140,6 +140,7 @@ public sealed partial class IngestionSystem
     /// </summary>
     /// <param name="entity">The entity doing the action who has the utensils.</param>
     /// <param name="types">The types of utensils we need.</param>
+    /// <param name="showPopup">If should show popup if utensil is not present.</param>
     /// <returns>Returns true if we have the utensils we need.</returns>
     // ADT-Tweak-Start: showPopup
     public bool HasRequiredUtensils(EntityUid entity, UtensilType types, bool showPopup = true)
