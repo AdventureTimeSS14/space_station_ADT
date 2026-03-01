@@ -1,0 +1,1505 @@
+# Frontier - scrap pile with ore
+
+- type: entity
+  id: WallRockScrapPile
+  parent: WallRockAndesite
+  name: scrap pile
+  description: A pile of scrap.
+  suffix: Scrap
+  components:
+  - type: OreVein
+    oreChance: 1.0
+    currentOre: NFOreScrap
+  - type: Icon
+    sprite: _NF/Structures/Walls/rock.rsi
+    state: scraprock01
+  - type: Sprite
+    sprite: _NF/Structures/Walls/rock.rsi
+    layers:
+    - state: scraprock01
+      map: [ "scraprock_variant" ]
+    - map: [ "enum.EdgeLayer.South" ]
+      state: scraprock_south
+    - map: [ "enum.EdgeLayer.East" ]
+      state: scraprock_east
+    - map: [ "enum.EdgeLayer.North" ]
+      state: scraprock_north
+    - map: [ "enum.EdgeLayer.West" ]
+      state: scraprock_west
+    - state: rock_scrap
+      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+  - type: RandomSprite
+    available:
+      - scraprock_variant:
+          scraprock01: ""
+          scraprock02: ""
+          scraprock03: ""
+          scraprock04: ""
+          scraprock05: ""
+          scraprock06: ""
+          scraprock07: ""
+
+- type: entity
+  id: WallRockScrapPileCoal
+  parent: WallRockScrapPile
+  description: An ore vein with coal.
+  suffix: Coal
+  components:
+  - type: OreVein
+    oreChance: 1.0
+    currentOre: OreCoal
+  - type: Sprite
+    layers:
+    - state: scraprock01
+      map: [ "scraprock_variant" ]
+    - map: [ "enum.EdgeLayer.South" ]
+      state: scraprock_south
+    - map: [ "enum.EdgeLayer.East" ]
+      state: scraprock_east
+    - map: [ "enum.EdgeLayer.North" ]
+      state: scraprock_north
+    - map: [ "enum.EdgeLayer.West" ]
+      state: scraprock_west
+    - sprite: Structures/Walls/rock.rsi
+      state: rock_coal
+      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+
+- type: entity
+  id: WallRockScrapPileGold
+  parent: WallRockScrapPile
+  description: An ore vein with gold.
+  suffix: Gold
+  components:
+  - type: OreVein
+    oreChance: 1.0
+    currentOre: OreGold
+  - type: Sprite
+    layers:
+    - state: scraprock01
+      map: [ "scraprock_variant" ]
+    - map: [ "enum.EdgeLayer.South" ]
+      state: scraprock_south
+    - map: [ "enum.EdgeLayer.East" ]
+      state: scraprock_east
+    - map: [ "enum.EdgeLayer.North" ]
+      state: scraprock_north
+    - map: [ "enum.EdgeLayer.West" ]
+      state: scraprock_west
+    - sprite: Structures/Walls/rock.rsi
+      state: rock_gold
+      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+
+- type: entity
+  id: WallRockScrapPileDiamond
+  parent: WallRockScrapPile
+  description: An ore vein with diamond.
+  suffix: Diamond
+  components:
+  - type: OreVein
+    oreChance: 1.0
+    currentOre: OreDiamond
+  - type: Sprite
+    layers:
+    - state: scraprock01
+      map: [ "scraprock_variant" ]
+    - map: [ "enum.EdgeLayer.South" ]
+      state: scraprock_south
+    - map: [ "enum.EdgeLayer.East" ]
+      state: scraprock_east
+    - map: [ "enum.EdgeLayer.North" ]
+      state: scraprock_north
+    - map: [ "enum.EdgeLayer.West" ]
+      state: scraprock_west
+    - sprite: Structures/Walls/rock.rsi
+      state: rock_diamond
+      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+
+- type: entity
+  id: WallRockScrapPilePlasma
+  parent: WallRockScrapPile
+  description: An ore vein with plasma.
+  suffix: Plasma
+  components:
+  - type: OreVein
+    oreChance: 1.0
+    currentOre: OrePlasma
+  - type: Sprite
+    layers:
+    - state: scraprock01
+      map: [ "scraprock_variant" ]
+    - map: [ "enum.EdgeLayer.South" ]
+      state: scraprock_south
+    - map: [ "enum.EdgeLayer.East" ]
+      state: scraprock_east
+    - map: [ "enum.EdgeLayer.North" ]
+      state: scraprock_north
+    - map: [ "enum.EdgeLayer.West" ]
+      state: scraprock_west
+    - sprite: Structures/Walls/rock.rsi
+      state: rock_phoron
+      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+
+- type: entity
+  id: WallRockScrapPileQuartz
+  parent: WallRockScrapPile
+  description: An ore vein with quartz.
+  suffix: Quartz
+  components:
+  - type: OreVein
+    oreChance: 1.0
+    currentOre: OreSpaceQuartz
+  - type: Sprite
+    layers:
+    - state: scraprock01
+      map: [ "scraprock_variant" ]
+    - map: [ "enum.EdgeLayer.South" ]
+      state: scraprock_south
+    - map: [ "enum.EdgeLayer.East" ]
+      state: scraprock_east
+    - map: [ "enum.EdgeLayer.North" ]
+      state: scraprock_north
+    - map: [ "enum.EdgeLayer.West" ]
+      state: scraprock_west
+    - sprite: Structures/Walls/rock.rsi
+      state: rock_quartz
+      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+
+- type: entity
+  id: WallRockScrapPileSilver
+  parent: WallRockScrapPile
+  description: An ore vein with silver.
+  suffix: Silver
+  components:
+  - type: OreVein
+    oreChance: 1.0
+    currentOre: OreSilver
+  - type: Sprite
+    layers:
+    - state: scraprock01
+      map: [ "scraprock_variant" ]
+    - map: [ "enum.EdgeLayer.South" ]
+      state: scraprock_south
+    - map: [ "enum.EdgeLayer.East" ]
+      state: scraprock_east
+    - map: [ "enum.EdgeLayer.North" ]
+      state: scraprock_north
+    - map: [ "enum.EdgeLayer.West" ]
+      state: scraprock_west
+    - sprite: Structures/Walls/rock.rsi
+      state: rock_silver
+      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+
+- type: entity
+  id: WallRockScrapPileIron
+  parent: WallRockScrapPile
+  description: An ore vein with iron.
+  suffix: Iron
+  components:
+  - type: OreVein
+    oreChance: 1.0
+    currentOre: OreSteel
+  - type: Sprite
+    layers:
+    - state: scraprock01
+      map: [ "scraprock_variant" ]
+    - map: [ "enum.EdgeLayer.South" ]
+      state: scraprock_south
+    - map: [ "enum.EdgeLayer.East" ]
+      state: scraprock_east
+    - map: [ "enum.EdgeLayer.North" ]
+      state: scraprock_north
+    - map: [ "enum.EdgeLayer.West" ]
+      state: scraprock_west
+    - sprite: Structures/Walls/rock.rsi
+      state: rock_tin
+      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+
+- type: entity
+  id: WallRockScrapPileUranium
+  parent: WallRockScrapPile
+  description: An ore vein with uranium.
+  suffix: Uranium
+  components:
+  - type: OreVein
+    oreChance: 1.0
+    currentOre: OreUranium
+  - type: Sprite
+    layers:
+    - state: scraprock01
+      map: [ "scraprock_variant" ]
+    - map: [ "enum.EdgeLayer.South" ]
+      state: scraprock_south
+    - map: [ "enum.EdgeLayer.East" ]
+      state: scraprock_east
+    - map: [ "enum.EdgeLayer.North" ]
+      state: scraprock_north
+    - map: [ "enum.EdgeLayer.West" ]
+      state: scraprock_west
+    - sprite: Structures/Walls/rock.rsi
+      state: rock_uranium
+      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+
+- type: entity
+  id: WallRockScrapPileBananium
+  parent: WallRockScrapPile
+  description: An ore vein with bananium.
+  suffix: Bananium
+  components:
+  - type: OreVein
+    oreChance: 1.0
+    currentOre: OreBananium
+  - type: Sprite
+    layers:
+    - state: scraprock01
+      map: [ "scraprock_variant" ]
+    - map: [ "enum.EdgeLayer.South" ]
+      state: scraprock_south
+    - map: [ "enum.EdgeLayer.East" ]
+      state: scraprock_east
+    - map: [ "enum.EdgeLayer.North" ]
+      state: scraprock_north
+    - map: [ "enum.EdgeLayer.West" ]
+      state: scraprock_west
+    - sprite: Structures/Walls/rock.rsi
+      state: rock_bananium
+      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+
+- type: entity
+  id: WallRockScrapPileSalt
+  parent: WallRockScrapPile
+  description: An ore vein with salt.
+  suffix: Salt
+  components:
+  - type: OreVein
+    oreChance: 1.0
+    currentOre: OreSalt
+  - type: Sprite
+    layers:
+    - state: scraprock01
+      map: [ "scraprock_variant" ]
+    - map: [ "enum.EdgeLayer.South" ]
+      state: scraprock_south
+    - map: [ "enum.EdgeLayer.East" ]
+      state: scraprock_east
+    - map: [ "enum.EdgeLayer.North" ]
+      state: scraprock_north
+    - map: [ "enum.EdgeLayer.West" ]
+      state: scraprock_west
+    - sprite: Structures/Walls/rock.rsi
+      state: rock_salt
+      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+
+- type: entity
+  id: WallRockScrapPileArtifactFragment
+  parent: WallRockScrapPile
+  description: A scrap pile. What's that sticking out of it?
+  suffix: Artifact Fragment
+  components:
+  - type: OreVein
+    oreChance: 1.0
+    currentOre: OreArtifactFragment
+  - type: Sprite
+    layers:
+    - state: scraprock01
+      map: [ "scraprock_variant" ]
+    - map: [ "enum.EdgeLayer.South" ]
+      state: scraprock_south
+    - map: [ "enum.EdgeLayer.East" ]
+      state: scraprock_east
+    - map: [ "enum.EdgeLayer.North" ]
+      state: scraprock_north
+    - map: [ "enum.EdgeLayer.West" ]
+      state: scraprock_west
+    - sprite: Structures/Walls/rock.rsi
+      state: rock_artifact_fragment
+      map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+
+- type: entity
+  id: AsteroidScrapPileMining
+  parent: WallRockScrapPile
+  suffix: higher ore yield .33
+  components:
+  - type: OreVein
+    oreChance: 0.33
+    oreRarityPrototypeId: RandomOreDistributionStandard
+
+# Frontier - Mobs
+- type: entity
+  id: AsteroidRockQuartzCrabNF
+  parent: AsteroidRockQuartzCrab
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreQuartzCrab
+
+- type: entity
+  id: AsteroidRockSilverCrabNF
+  parent: AsteroidRockSilverCrab
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreSilverCrab
+
+- type: entity
+  id: AsteroidRockTinCrabNF
+  parent: AsteroidRockTinCrab
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreIronCrab
+
+- type: entity
+  id: AsteroidRockUraniumCrabNF
+  parent: AsteroidRockUraniumCrab
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreUraniumCrab
+
+# Bananium
+## Bananium CrabNFs
+
+- type: entity
+  id: WallRockAndesiteBananiumCrabNF
+  parent: WallRockAndesiteBananium
+  suffix: Bananium Crab
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreBananiumCrab
+
+- type: entity
+  id: WallRockBasaltBananiumCrabNF
+  parent: WallRockBasaltBananium
+  suffix: Bananium Crab
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreBananiumCrab
+
+- type: entity
+  id: AsteroidRockBananiumCrabNF
+  parent: AsteroidRockBananium
+  suffix: Bananium Crab
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreBananiumCrab
+
+- type: entity
+  id: WallRockBananiumCrabNF
+  parent: WallRockBananium
+  suffix: Bananium Crab
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreBananiumCrab
+
+- type: entity
+  id: WallRockSandBananiumCrabNF
+  parent: WallRockSandBananium
+  suffix: Bananium Crab
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreBananiumCrab
+
+- type: entity
+  id: WallRockSnowBananiumCrabNF
+  parent: WallRockSnowBananium
+  suffix: Bananium Crab
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreBananiumCrab
+
+- type: entity
+  id: WallRockChromiteBananiumCrabNF
+  parent: WallRockChromiteBananium
+  suffix: Bananium Crab
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreBananiumCrab
+
+## Bananium golems
+
+- type: entity
+  id: WallRockAndesiteBananiumGolem
+  parent: WallRockAndesiteBananium
+  suffix: Bananium Golem
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreBananiumCrab
+
+- type: entity
+  id: WallRockBasaltBananiumGolem
+  parent: WallRockBasaltBananium
+  suffix: Bananium Golem
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreBananiumCrab
+
+- type: entity
+  id: AsteroidRockBananiumGolem
+  parent: AsteroidRockBananium
+  suffix: Bananium Golem
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreBananiumCrab
+
+- type: entity
+  id: WallRockBananiumGolem
+  parent: WallRockBananium
+  suffix: Bananium Golem
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreBananiumCrab
+
+- type: entity
+  id: WallRockSandBananiumGolem
+  parent: WallRockSandBananium
+  suffix: Bananium Golem
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreBananiumCrab
+
+- type: entity
+  id: WallRockSnowBananiumGolem
+  parent: WallRockSnowBananium
+  suffix: Bananium Golem
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreBananiumCrab
+
+- type: entity
+  id: WallRockChromiteBananiumGolem
+  parent: WallRockChromiteBananium
+  suffix: Bananium Golem
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreBananiumCrab
+
+# Coal
+## Coal crabs
+
+- type: entity
+  id: WallRockAndesiteCoalCrabNF
+  parent: WallRockAndesiteCoal
+  suffix: Coal Crab
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreCoalCrab
+
+- type: entity
+  id: WallRockBasaltCoalCrabNF
+  parent: WallRockBasaltCoal
+  suffix: Coal Crab
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreCoalCrab
+
+- type: entity
+  id: AsteroidRockCoalCrabNF
+  parent: AsteroidRockCoal
+  suffix: Coal Crab
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreCoalCrab
+
+- type: entity
+  id: WallRockCoalCrabNF
+  parent: WallRockCoal
+  suffix: Coal Crab
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreCoalCrab
+
+- type: entity
+  id: WallRockSandCoalCrabNF
+  parent: WallRockSandCoal
+  suffix: Coal Crab
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreCoalCrab
+
+- type: entity
+  id: WallRockSnowCoalCrabNF
+  parent: WallRockSnowCoal
+  suffix: Coal Crab
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreCoalCrab
+
+- type: entity
+  id: WallRockChromiteCoalCrabNF
+  parent: WallRockChromiteCoal
+  suffix: Coal Crab
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreCoalCrab
+
+## Coal golems
+
+- type: entity
+  id: WallRockAndesiteCoalGolem
+  parent: WallRockAndesiteCoal
+  suffix: Coal Golem
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreCoalCrab
+
+- type: entity
+  id: WallRockBasaltCoalGolem
+  parent: WallRockBasaltCoal
+  suffix: Coal Golem
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreCoalCrab
+
+- type: entity
+  id: AsteroidRockCoalGolem
+  parent: AsteroidRockCoal
+  suffix: Coal Golem
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreCoalCrab
+
+- type: entity
+  id: WallRockCoalGolem
+  parent: WallRockCoal
+  suffix: Coal Golem
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreCoalCrab
+
+- type: entity
+  id: WallRockSandCoalGolem
+  parent: WallRockSandCoal
+  suffix: Coal Golem
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreCoalCrab
+
+- type: entity
+  id: WallRockSnowCoalGolem
+  parent: WallRockSnowCoal
+  suffix: Coal Golem
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreCoalCrab
+
+- type: entity
+  id: WallRockChromiteCoalGolem
+  parent: WallRockChromiteCoal
+  suffix: Coal Golem
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreCoalCrab
+
+# Gold
+## Gold crabs
+
+- type: entity
+  id: WallRockAndesiteGoldCrabNF
+  parent: WallRockAndesiteGold
+  suffix: Gold Crab
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreGoldCrab
+
+- type: entity
+  id: WallRockBasaltGoldCrabNF
+  parent: WallRockBasaltGold
+  suffix: Gold Crab
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreGoldCrab
+
+- type: entity
+  id: AsteroidRockGoldCrabNF
+  parent: AsteroidRockGold
+  suffix: Gold Crab
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreGoldCrab
+
+- type: entity
+  id: WallRockGoldCrabNF
+  parent: WallRockGold
+  suffix: Gold Crab
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreGoldCrab
+
+- type: entity
+  id: WallRockSandGoldCrabNF
+  parent: WallRockSandGold
+  suffix: Gold Crab
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreGoldCrab
+
+- type: entity
+  id: WallRockSnowGoldCrabNF
+  parent: WallRockSnowGold
+  suffix: Gold Crab
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreGoldCrab
+
+- type: entity
+  id: WallRockChromiteGoldCrabNF
+  parent: WallRockChromiteGold
+  suffix: Gold Crab
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreGoldCrab
+
+## Gold golems
+
+- type: entity
+  id: WallRockAndesiteGoldGolem
+  parent: WallRockAndesiteGold
+  suffix: Gold Golem
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreGoldCrab
+
+- type: entity
+  id: WallRockBasaltGoldGolem
+  parent: WallRockBasaltGold
+  suffix: Gold Golem
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreGoldCrab
+
+- type: entity
+  id: AsteroidRockGoldGolem
+  parent: AsteroidRockGold
+  suffix: Gold Golem
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreGoldCrab
+
+- type: entity
+  id: WallRockGoldGolem
+  parent: WallRockGold
+  suffix: Gold Golem
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreGoldCrab
+
+- type: entity
+  id: WallRockSandGoldGolem
+  parent: WallRockSandGold
+  suffix: Gold Golem
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreGoldCrab
+
+- type: entity
+  id: WallRockSnowGoldGolem
+  parent: WallRockSnowGold
+  suffix: Gold Golem
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreGoldCrab
+
+- type: entity
+  id: WallRockChromiteGoldGolem
+  parent: WallRockChromiteGold
+  suffix: Gold Golem
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreGoldCrab
+
+# Iron. Steel?
+## Iron crabs
+
+- type: entity
+  id: WallRockAndesiteIronCrabNF
+  parent: WallRockAndesiteTin
+  suffix: Iron Crab
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreIronCrab
+
+- type: entity
+  id: WallRockBasaltIronCrabNF
+  parent: WallRockBasaltTin
+  suffix: Iron Crab
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreIronCrab
+
+- type: entity
+  id: WallRockIronCrabNF
+  parent: WallRockTin
+  suffix: Iron Crab
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreIronCrab
+
+- type: entity
+  id: WallRockSandIronCrabNF
+  parent: WallRockSandTin
+  suffix: Iron Crab
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreIronCrab
+
+- type: entity
+  id: WallRockSnowIronCrabNF
+  parent: WallRockSnowTin
+  suffix: Iron Crab
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreIronCrab
+
+- type: entity
+  id: WallRockChromiteIronCrabNF
+  parent: WallRockChromiteTin
+  suffix: Iron Crab
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreIronCrab
+
+## Iron golems
+
+- type: entity
+  id: WallRockAndesiteIronGolem
+  parent: WallRockAndesiteTin
+  suffix: Iron Golem
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreIronCrab
+
+- type: entity
+  id: WallRockBasaltIronGolem
+  parent: WallRockBasaltTin
+  suffix: Iron Golem
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreIronCrab
+
+- type: entity
+  id: AsteroidRockIronGolem
+  parent: AsteroidRockTin
+  suffix: Iron Golem
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreIronCrab
+
+- type: entity
+  id: WallRockIronGolem
+  parent: WallRockTin
+  suffix: Iron Golem
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreIronCrab
+
+- type: entity
+  id: WallRockSandIronGolem
+  parent: WallRockSandTin
+  suffix: Iron Golem
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreIronCrab
+
+- type: entity
+  id: WallRockSnowIronGolem
+  parent: WallRockSnowTin
+  suffix: Iron Golem
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreIronCrab
+
+- type: entity
+  id: WallRockChromiteIronGolem
+  parent: WallRockChromiteTin
+  suffix: Iron Golem
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreIronCrab
+
+# Plasma
+## Plasma crabs
+
+- type: entity
+  id: WallRockAndesitePlasmaCrabNF
+  parent: WallRockAndesitePlasma
+  suffix: Plasma Crab
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OrePlasma
+
+- type: entity
+  id: WallRockBasaltPlasmaCrabNF
+  parent: WallRockBasaltPlasma
+  suffix: Plasma Crab
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OrePlasma
+
+- type: entity
+  id: AsteroidRockPlasmaCrabNF
+  parent: AsteroidRockPlasma
+  suffix: Plasma Crab
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OrePlasma
+
+- type: entity
+  id: WallRockPlasmaCrabNF
+  parent: WallRockPlasma
+  suffix: Plasma Crab
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OrePlasma
+
+- type: entity
+  id: WallRockSandPlasmaCrabNF
+  parent: WallRockSandPlasma
+  suffix: Plasma Crab
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OrePlasma
+
+- type: entity
+  id: WallRockSnowPlasmaCrabNF
+  parent: WallRockSnowPlasma
+  suffix: Plasma Crab
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OrePlasma
+
+- type: entity
+  id: WallRockChromitePlasmaCrabNF
+  parent: WallRockChromitePlasma
+  suffix: Plasma Crab
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OrePlasma
+
+## Plasma golems
+
+- type: entity
+  id: WallRockAndesitePlasmaGolem
+  parent: WallRockAndesitePlasma
+  suffix: Plasma Golem
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OrePlasma
+
+- type: entity
+  id: WallRockBasaltPlasmaGolem
+  parent: WallRockBasaltPlasma
+  suffix: Plasma Golem
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OrePlasma
+
+- type: entity
+  id: AsteroidRockPlasmaGolem
+  parent: AsteroidRockPlasma
+  suffix: Plasma Golem
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OrePlasma
+
+- type: entity
+  id: WallRockPlasmaGolem
+  parent: WallRockPlasma
+  suffix: Plasma Golem
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OrePlasma
+
+- type: entity
+  id: WallRockSandPlasmaGolem
+  parent: WallRockSandPlasma
+  suffix: Plasma Golem
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OrePlasma
+
+- type: entity
+  id: WallRockSnowPlasmaGolem
+  parent: WallRockSnowPlasma
+  suffix: Plasma Golem
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OrePlasma
+
+- type: entity
+  id: WallRockChromitePlasmaGolem
+  parent: WallRockChromitePlasma
+  suffix: Plasma Golem
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OrePlasma
+
+# Quartz
+## Quartz crabs
+
+- type: entity
+  id: WallRockAndesiteQuartzCrabNF
+  parent: WallRockAndesiteQuartz
+  suffix: Quartz Crab
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreQuartzCrab
+
+- type: entity
+  id: WallRockBasaltQuartzCrabNF
+  parent: WallRockBasaltQuartz
+  suffix: Quartz Crab
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreQuartzCrab
+
+- type: entity
+  id: WallRockQuartzCrabNF
+  parent: WallRockQuartz
+  suffix: Quartz Crab
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreQuartzCrab
+
+- type: entity
+  id: WallRockSandQuartzCrabNF
+  parent: WallRockSandQuartz
+  suffix: Quartz Crab
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreQuartzCrab
+
+- type: entity
+  id: WallRockSnowQuartzCrabNF
+  parent: WallRockSnowQuartz
+  suffix: Quartz Crab
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreQuartzCrab
+
+- type: entity
+  id: WallRockChromiteQuartzCrabNF
+  parent: WallRockChromiteQuartz
+  suffix: Quartz Crab
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreQuartzCrab
+
+## Quartz golems
+
+- type: entity
+  id: WallRockAndesiteQuartzGolem
+  parent: WallRockAndesiteQuartz
+  suffix: Quartz Golem
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreQuartzCrab
+
+- type: entity
+  id: WallRockBasaltQuartzGolem
+  parent: WallRockBasaltQuartz
+  suffix: Quartz Golem
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreQuartzCrab
+
+- type: entity
+  id: AsteroidRockQuartzGolem
+  parent: AsteroidRockQuartz
+  suffix: Quartz Golem
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreQuartzCrab
+
+- type: entity
+  id: WallRockQuartzGolem
+  parent: WallRockQuartz
+  suffix: Quartz Golem
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreQuartzCrab
+
+- type: entity
+  id: WallRockSandQuartzGolem
+  parent: WallRockSandQuartz
+  suffix: Quartz Golem
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreQuartzCrab
+
+- type: entity
+  id: WallRockSnowQuartzGolem
+  parent: WallRockSnowQuartz
+  suffix: Quartz Golem
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreQuartzCrab
+
+- type: entity
+  id: WallRockChromiteQuartzGolem
+  parent: WallRockChromiteQuartz
+  suffix: Quartz Golem
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreQuartzCrab
+
+# Salt
+## Salt crabs
+
+- type: entity
+  id: WallRockAndesiteSaltCrabNF
+  parent: WallRockAndesiteSalt
+  suffix: Salt Crab
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreSalt
+
+- type: entity
+  id: WallRockBasaltSaltCrabNF
+  parent: WallRockBasaltSalt
+  suffix: Salt Crab
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreSalt
+
+- type: entity
+  id: AsteroidRockSaltCrabNF
+  parent: AsteroidRockSalt
+  suffix: Salt Crab
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreSalt
+
+- type: entity
+  id: WallRockSaltCrabNF
+  parent: WallRockSalt
+  suffix: Salt Crab
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreSalt
+
+- type: entity
+  id: WallRockSandSaltCrabNF
+  parent: WallRockSandSalt
+  suffix: Salt Crab
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreSalt
+
+- type: entity
+  id: WallRockSnowSaltCrabNF
+  parent: WallRockSnowSalt
+  suffix: Salt Crab
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreSalt
+
+- type: entity
+  id: WallRockChromiteSaltCrabNF
+  parent: WallRockChromiteSalt
+  suffix: Salt Crab
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreSalt
+
+## Salt golems
+
+- type: entity
+  id: WallRockAndesiteSaltGolem
+  parent: WallRockAndesiteSalt
+  suffix: Salt Golem
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreSalt
+
+- type: entity
+  id: WallRockBasaltSaltGolem
+  parent: WallRockBasaltSalt
+  suffix: Salt Golem
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreSalt
+
+- type: entity
+  id: AsteroidRockSaltGolem
+  parent: AsteroidRockSalt
+  suffix: Salt Golem
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreSalt
+
+- type: entity
+  id: WallRockSaltGolem
+  parent: WallRockSalt
+  suffix: Salt Golem
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreSalt
+
+- type: entity
+  id: WallRockSandSaltGolem
+  parent: WallRockSandSalt
+  suffix: Salt Golem
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreSalt
+
+- type: entity
+  id: WallRockSnowSaltGolem
+  parent: WallRockSnowSalt
+  suffix: Salt Golem
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreSalt
+
+- type: entity
+  id: WallRockChromiteSaltGolem
+  parent: WallRockChromiteSalt
+  suffix: Salt Golem
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreSalt
+
+ # Silver
+## Silver crabs
+
+- type: entity
+  id: WallRockAndesiteSilverCrabNF
+  parent: WallRockAndesiteSilver
+  suffix: Silver Crab
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreSilverCrab
+
+- type: entity
+  id: WallRockBasaltSilverCrabNF
+  parent: WallRockBasaltSilver
+  suffix: Silver Crab
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreSilverCrab
+
+- type: entity
+  id: WallRockSilverCrabNF
+  parent: WallRockSilver
+  suffix: Silver Crab
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreSilverCrab
+
+- type: entity
+  id: WallRockSandSilverCrabNF
+  parent: WallRockSandSilver
+  suffix: Silver Crab
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreSilverCrab
+
+- type: entity
+  id: WallRockSnowSilverCrabNF
+  parent: WallRockSnowSilver
+  suffix: Silver Crab
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreSilverCrab
+
+- type: entity
+  id: WallRockChromiteSilverCrabNF
+  parent: WallRockChromiteSilver
+  suffix: Silver Crab
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreSilverCrab
+
+## Silver golems
+
+- type: entity
+  id: WallRockAndesiteSilverGolem
+  parent: WallRockAndesiteSilver
+  suffix: Silver Golem
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreSilverCrab
+
+- type: entity
+  id: WallRockBasaltSilverGolem
+  parent: WallRockBasaltSilver
+  suffix: Silver Golem
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreSilverCrab
+
+- type: entity
+  id: AsteroidRockSilverGolem
+  parent: AsteroidRockSilver
+  suffix: Silver Golem
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreSilverCrab
+
+- type: entity
+  id: WallRockSilverGolem
+  parent: WallRockSilver
+  suffix: Silver Golem
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreSilverCrab
+
+- type: entity
+  id: WallRockSandSilverGolem
+  parent: WallRockSandSilver
+  suffix: Silver Golem
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreSilverCrab
+
+- type: entity
+  id: WallRockSnowSilverGolem
+  parent: WallRockSnowSilver
+  suffix: Silver Golem
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreSilverCrab
+
+- type: entity
+  id: WallRockChromiteSilverGolem
+  parent: WallRockChromiteSilver
+  suffix: Silver Golem
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreSilverCrab
+
+ # Uranium
+## Uranium crabs
+
+- type: entity
+  id: WallRockAndesiteUraniumCrabNF
+  parent: WallRockAndesiteUranium
+  suffix: Uranium Crab
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreUraniumCrab
+
+- type: entity
+  id: WallRockBasaltUraniumCrabNF
+  parent: WallRockBasaltUranium
+  suffix: Uranium Crab
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreUraniumCrab
+
+- type: entity
+  id: WallRockUraniumCrabNF
+  parent: WallRockUranium
+  suffix: Uranium Crab
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreUraniumCrab
+
+- type: entity
+  id: WallRockSandUraniumCrabNF
+  parent: WallRockSandUranium
+  suffix: Uranium Crab
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreUraniumCrab
+
+- type: entity
+  id: WallRockSnowUraniumCrabNF
+  parent: WallRockSnowUranium
+  suffix: Uranium Crab
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreUraniumCrab
+
+- type: entity
+  id: WallRockChromiteUraniumCrabNF
+  parent: WallRockChromiteUranium
+  suffix: Uranium Crab
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreUraniumCrab
+
+## Uranium golems
+
+- type: entity
+  id: WallRockAndesiteUraniumGolem
+  parent: WallRockAndesiteUranium
+  suffix: Uranium Golem
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreUraniumCrab
+
+- type: entity
+  id: WallRockBasaltUraniumGolem
+  parent: WallRockBasaltUranium
+  suffix: Uranium Golem
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreUraniumCrab
+
+- type: entity
+  id: AsteroidRockUraniumGolem
+  parent: AsteroidRockUranium
+  suffix: Uranium Golem
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreUraniumCrab
+
+- type: entity
+  id: WallRockUraniumGolem
+  parent: WallRockUranium
+  suffix: Uranium Golem
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreUraniumCrab
+
+- type: entity
+  id: WallRockSandUraniumGolem
+  parent: WallRockSandUranium
+  suffix: Uranium Golem
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreUraniumCrab
+
+- type: entity
+  id: WallRockSnowUraniumGolem
+  parent: WallRockSnowUranium
+  suffix: Uranium Golem
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreUraniumCrab
+
+- type: entity
+  id: WallRockChromiteUraniumGolem
+  parent: WallRockChromiteUranium
+  suffix: Uranium Golem
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreUraniumCrab
+
+
+
+
+
