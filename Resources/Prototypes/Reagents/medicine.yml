@@ -1270,7 +1270,7 @@
   color: "#283332"
   metabolisms:
     Medicine:
-      metabolismRate: 0.1 # ADT-Tweak 0.25 -> 0.2
+      metabolismRate: 0.1 # ADT-Tweak 0.25 -> 0.1
       effects:
       - !type:HealthChange
         damage:
@@ -1296,7 +1296,7 @@
   color: "#b9bf93"
   metabolisms:
     Medicine:
-      metabolismRate: 0.1 # ADT-Tweak 0.25 -> 0.2
+      metabolismRate: 0.1 # ADT-Tweak 0.25 -> 0.1
       effects:
       - !type:HealthChange
         damage:
