@@ -1,3 +1,5 @@
+using Content.Shared.Body.Components;
+using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Damage.Systems;
@@ -10,12 +12,10 @@ using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
-using Content.Shared.Chemistry.Components.SolutionManager;
-using Content.Shared.Body.Components;
 
 namespace Content.Shared.ADT.Medical.IV;
 
-public abstract class SharedIVDripSystem : EntitySystem
+public abstract class SharedIvDripSystem : EntitySystem
 {
     [Dependency] private readonly SharedContainerSystem _containers = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;

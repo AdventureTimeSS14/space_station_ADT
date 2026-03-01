@@ -10,7 +10,7 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace Content.Server.ADT.Medical.IV;
 
-public sealed class IvDripSystem : SharedIVDripSystem
+public sealed class IvDripSystem : SharedIvDripSystem
 {
     [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
     [Dependency] private readonly IGameTiming _timing = default!;

@@ -1,10 +1,9 @@
 using Content.Shared.ADT.Medical.IV;
 using Robust.Client.GameObjects;
-using Robust.Client.Graphics;
 
 namespace Content.Client.ADT.Medical.IV;
 
-public sealed class IVDripSystem : SharedIVDripSystem
+public sealed class IVDripSystem : SharedIvDripSystem
 {
     // [Dependency] private readonly SpriteSystem _spriteSystem = default!;
     // [Dependency] private readonly IOverlayManager _overlay = default!;
