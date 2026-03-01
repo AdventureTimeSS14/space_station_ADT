@@ -1,21 +1,18 @@
-using Content.Shared.Atmos;
+using System.Linq;
+using System.Threading.Tasks;
+using Content.Server.Atmos.Components;
+using Content.Server.Body.Components;
+using Content.Shared.Atmos.Components;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
 using Content.Shared.Heretic;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Temperature.Components;
-using Content.Server.Atmos.Components;
-using Content.Server.Body.Components;
-using Content.Server.Temperature.Components;
-using Content.Shared.Damage.Components;
-using Content.Shared.Atmos.Components;
-using Robust.Shared.Map.Components;
 using Robust.Server.GameObjects;
+using Robust.Shared.Map.Components;
 using Robust.Shared.Prototypes;
-using System.Linq;
-using System.Threading.Tasks;
-using Content.Shared.Damage.Systems;
 
 namespace Content.Server.Heretic.Abilities;
 
