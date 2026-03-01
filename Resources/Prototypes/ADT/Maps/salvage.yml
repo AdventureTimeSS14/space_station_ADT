@@ -111,6 +111,18 @@
   sizeString: salvage-map-wreck-size-medium
   sizeTag: MediumMagnetTargets
 
+- type: salvageMap
+  id: ADT_DerelictVagabondPoor
+  mapPath: /Maps/ADTMaps/Salvage/derelictVagabondPoor.yml
+  sizeString: salvage-map-wreck-size-medium
+  sizeTag: MediumMagnetTargets
+
+- type: salvageMap
+  id: ADT_DerelictVagabondRich
+  mapPath: /Maps/ADTMaps/Salvage/derelictVagabondRich.yml
+  sizeString: salvage-map-wreck-size-medium
+  sizeTag: MediumMagnetTargets
+
 # """Large""" maps
 
 - type: salvageMap
