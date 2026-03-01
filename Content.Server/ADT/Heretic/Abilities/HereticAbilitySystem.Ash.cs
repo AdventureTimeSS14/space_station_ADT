@@ -119,7 +119,10 @@ public sealed partial class HereticAbilitySystem : EntitySystem
                     if (mobstat.CurrentState == MobState.Critical && damageable)
                     {
                         if (!_mobThresholdSystem.TryGetThresholdForState(look, MobState.Dead, out var damage))
+                        {
+                            args.Handled = true;
                             return;
+                        }
 
                         DamageSpecifier dspec = new();
                         dspec.DamageDict.Add("Heat", dmgc!.TotalDamage - damage.Value);
