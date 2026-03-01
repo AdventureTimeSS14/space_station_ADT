@@ -1,0 +1,63 @@
+# Base prototype is in Resources\Prototypes\_NF\Recipes\Lathes\sheet.yml
+
+# ADT Scrap Smelting Recipe Packs
+- type: latheRecipePack
+  id: ScrapSmeltingBasic
+  recipes:
+  # - SmeltScrap
+  - ScrapSheetSteel1
+  - ScrapSheetGlass1
+  - ScrapSheetRGlass1
+  - ScrapSheetPlastic1
+  - ScrapMaterialCloth1
+
+- type: latheRecipePack
+  id: ScrapSmeltingAdvanced
+  recipes:
+  - ScrapSheetBrass1
+  - ScrapSheetPlasteel1
+  - ScrapSheetPlasma1
+  - ScrapSheetUranium1
+  - ScrapIngotSilver1
+  - ScrapIngotGold1
+  - ScrapMaterialBananium1
+  - ScrapMaterialDurathread1
+  - ScrapSheetUGlass1
+  - ScrapSheetPGlass1
+  - ScrapSheetRUGlass1
+  - ScrapSheetRPGlass1
+  - ScrapSheetClockworkGlass1
+  - ScrapMaterialDiamond1
+  - ScrapMaterialCopper1
+  - ScrapMaterialLead1
+  - ScrapMaterialZinc1
+
+# Raw mats
+- type: latheRecipe
+  id: Durathread
+  result: MaterialDurathread1
+  parent: BaseMaterialsNoDiscountRecipe
+  materials:
+    Plastic: 100
+    Cloth: 100
+
+- type: latheRecipe # TODO: move somewhere else
+  id: PaperFromSheetPaper
+  result: Paper
+  parent: BaseMaterialsNoDiscountRecipe
+  materials:
+    Paper: 10
+
+# - type: latheRecipe
+#   id: SmeltScrap
+#   result: SpawnRandomRefinedScrap
+#   parent: BaseMaterialsNoDiscountRecipe
+#   completetime: 0.1
+#   icon:
+#     sprite: _NF/Objects/Materials/ore.rsi
+#     state: scrapore
+#   materials:
+#     RawScrap: 1000
+
+
+
