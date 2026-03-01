@@ -146,6 +146,7 @@
     tallscale: 1.05
     short: true
     shortscale: 0.95
+  - type: Geras
   #End ADT tweak
 
 - type: entity

@@ -103,17 +103,8 @@ public sealed class GerasSystem : SharedGerasSystem
             return;
         }
 
-        if (TryComp<HandsComponent>(uid, out var handsComp))
-        {
-            foreach (var hand in handsComp.Hands.Values)
-            {
-                if (hand.HeldEntity != null)
-                {
-                    EjectForbiddenRecursive(hand.HeldEntity.Value, uid);
-                    _handsSystem.TryDrop(uid, hand.HeldEntity.Value);
-                }
-            }
-        }
+        if (TryComp<HandsComponent>(uid, out var hands))
+            _handsSystem.TryDrop(uid, Transform(uid).Coordinates);
 
         if (TryComp<InventoryComponent>(uid, out var inventoryComp))
         {

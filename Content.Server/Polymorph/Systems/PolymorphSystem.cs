@@ -20,6 +20,7 @@ using Content.Shared.Storage.Components;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Temperature.Systems;
 using Content.Shared.Atmos.Components;
+using Content.Shared.Temperature.Components;
 //ADT-Geras-Tweak-End
 using Content.Server.Inventory;
 using Content.Server.Polymorph.Components;
