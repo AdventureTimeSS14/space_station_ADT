@@ -1,7 +1,5 @@
 - type: npcFaction
   id: Ursus
-  friendly:
-  - ADTSpaceMobs
   hostile:
   - SimpleHostile
   - Syndicate
@@ -12,8 +10,6 @@
 
 - type: npcFaction
   id: ADTSpaceMobs
-  friendly:
-  - Ursus
   hostile:
   - NanoTrasen
   - Syndicate
@@ -21,7 +17,7 @@
   - PetsNT
   - Zombie
   - Revolutionary
-  - Heretic
+  - Heretic 
   - AllHostile
   - Wizard
   - DroneAntag
