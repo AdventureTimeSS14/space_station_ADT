@@ -148,7 +148,7 @@ public sealed partial class IngestionSystem
     public bool HasRequiredUtensils(EntityUid entity, UtensilType types, bool showPopup = true)
     // ADT-Tweak-End
     {
-        return TryGetUtensils(entity, types, types, out _, showPopup);
+        return TryGetUtensils(entity, types, types, out _, showPopup); // ADT-Tweak: showPopup
     }
 
     private void OnGetEdibleUtensils(Entity<EdibleComponent> entity, ref GetUtensilsEvent args)
