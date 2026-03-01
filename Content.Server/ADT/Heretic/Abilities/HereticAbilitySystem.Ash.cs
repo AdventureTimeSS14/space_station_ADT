@@ -15,6 +15,7 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Prototypes;
 using System.Linq;
 using System.Threading.Tasks;
+using Content.Shared.Damage.Systems;
 
 namespace Content.Server.Heretic.Abilities;
 
@@ -22,6 +23,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
 {
     [Dependency] private readonly MapSystem _map = default!;
     [Dependency] private readonly TransformSystem _xform = default!;
+    [Dependency] private readonly MobThresholdSystem _mobThresholdSystem = default!;
 
     private void SubscribeAsh()
     {
@@ -96,11 +98,12 @@ public sealed partial class HereticAbilitySystem : EntitySystem
 
             if (TryComp<FlammableComponent>(look, out var flam))
             {
-                if (flam.OnFire && TryComp<DamageableComponent>(ent, out var dmgc))
+                bool damageable = TryComp<DamageableComponent>(ent, out var dmgc);
+                if (flam.OnFire && damageable)
                 {
                     // heals everything by base + power for each burning target
                     _stam.TryTakeStamina(ent, -(10 + power));
-                    var dmgdict = dmgc.Damage.DamageDict;
+                    var dmgdict = dmgc!.Damage.DamageDict;
                     foreach (var key in dmgdict.Keys)
                         dmgdict[key] -= 10f + power;
 
@@ -112,8 +115,17 @@ public sealed partial class HereticAbilitySystem : EntitySystem
                     _flammable.AdjustFireStacks(look, power, flam, true);
 
                 if (TryComp<MobStateComponent>(look, out var mobstat))
-                    if (mobstat.CurrentState == MobState.Critical)
-                        _mobstate.ChangeMobState(look, MobState.Dead, mobstat);
+                {
+                    if (mobstat.CurrentState == MobState.Critical && damageable)
+                    {
+                        if (!_mobThresholdSystem.TryGetThresholdForState(look, MobState.Dead, out var damage))
+                            return;
+
+                        DamageSpecifier dspec = new();
+                        dspec.DamageDict.Add("Heat", dmgc!.TotalDamage - damage.Value);
+                        _damageable.ChangeDamage(look, dspec, true, origin: ent);
+                    }
+                }
             }
         }
 
