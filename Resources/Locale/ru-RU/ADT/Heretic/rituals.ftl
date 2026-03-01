@@ -31,13 +31,15 @@ heretic-ritual-basic-codex-desc = Преобразуйте пару глаз, к
 heretic-ritual-recipe-required-items = Требуемые предметы:
 heretic-ritual-recipe-required-entities = Требуемые сущности:
 heretic-ritual-recipe-required-corpses = Требуется трупов: {$min}-{$max}
+heretic-ritual-recipe-required-corpses-ascension = Требуется трупов (возвышение): {$min}-{$max}
+heretic-ritual-recipe-required-items-knowledge = Требуется: 5 случайных предметов (будут выбраны при первом использовании)
 heretic-ritual-recipe-requirement-cold = Требование: Холод (ниже {$temp}°C)
 heretic-ritual-recipe-requirement-hot = Требование: Жара (выше {$temp}°C)
 heretic-ritual-recipe-required-reagent = Требуемый реагент: {$reagent}
 
 ## side quests
 heretic-ritual-side-knowledge = Ритуал Знания
-heretic-ritual-side-knowledge-desc = Одноразовый ритуал получения знаний. Требует 5 случайных предметов. Может быть использован только одним еретиком.
+heretic-ritual-side-knowledge-desc = Одноразовый ритуал получения знаний. Требует 5 случайных предметов. Может быть использован еретиком один раз.
 heretic-ritual-side-shark = Обжигающая Акула
 heretic-ritual-side-cloak = Пустотный Плащ
 heretic-ritual-side-ghoul = Ритуал Обращения

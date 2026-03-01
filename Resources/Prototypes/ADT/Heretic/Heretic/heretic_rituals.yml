@@ -9,7 +9,7 @@
     state: heart-on
   customBehaviors:
   - !type:RitualSacrificeBehavior
-    onlyTargets: false
+    onlyTargets: true
 
 - type: hereticRitual
   id: AmberFocus

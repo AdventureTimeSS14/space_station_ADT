@@ -53,9 +53,10 @@ public sealed partial class RitualAshAscendBehavior : RitualSacrificeBehavior
             }
         }
 
+        uids = burningUids;
+        base.Finalize(args);
+
         // reset it because blehhh
         burningUids = new();
-
-        base.Finalize(args);
     }
 }

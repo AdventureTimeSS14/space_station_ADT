@@ -78,6 +78,10 @@ public sealed partial class HereticRitualSystem : EntitySystem
                 {
                     sb.AppendLine($"[color=#AAAAAA]{Loc.GetString("heretic-ritual-recipe-required-corpses", ("min", sacrifice.Min), ("max", sacrifice.Max))}[/color]");
                 }
+                if (behavior is RitualAscensionSacrificeBehavior ascensionSacrifice)
+                {
+                    sb.AppendLine($"[color=#AAAAAA]{Loc.GetString("heretic-ritual-recipe-required-corpses-ascension", ("min", ascensionSacrifice.Min), ("max", ascensionSacrifice.Max))}[/color]");
+                }
                 if (behavior is RitualTemperatureBehavior temp)
                 {
                     if (temp.MinThreshold <= 0)
@@ -106,7 +110,7 @@ public sealed partial class HereticRitualSystem : EntitySystem
                     }
                     else
                     {
-                        sb.AppendLine($"[color=#AAAAAA]Требуется: 5 случайных предметов (будут выбраны при первом использовании)[/color]");
+                        sb.AppendLine($"[color=#AAAAAA]{Loc.GetString("heretic-ritual-recipe-required-items-knowledge")}[/color]");
                     }
                 }
             }
