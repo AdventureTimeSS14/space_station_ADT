@@ -66,8 +66,6 @@
       map: ["enum.SolutionContainerLayers.Fill"]
       visible: false
     - state: bloodpack
-    - state: blank
-      map: ["enum.BloodPackVisuals.Label"]
   - type: Item
     sprite: ADT/Objects/Medical/blood_pack.rsi
   - type: SolutionContainerManager

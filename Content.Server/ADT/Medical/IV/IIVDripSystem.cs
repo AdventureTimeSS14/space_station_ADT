@@ -1,18 +1,21 @@
+using Content.Server.Body.Systems;
 using Content.Server.Chemistry.Containers.EntitySystems;
 using Content.Shared.ADT.Medical.IV;
 using Content.Shared.Body.Components;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Containers.ItemSlots;
+using Content.Shared.FixedPoint;
 using Robust.Shared.Timing;
 using System.Diagnostics.CodeAnalysis;
 
 namespace Content.Server.ADT.Medical.IV;
 
-public sealed class IVDripSystem : SharedIVDripSystem
+public sealed class IvDripSystem : SharedIVDripSystem
 {
     [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SolutionContainerSystem _solutionContainer = default!;
+    [Dependency] private readonly BloodstreamSystem _bloodstream = default!;
 
     private bool TryGetBloodstream(
         EntityUid attachedTo,
@@ -25,9 +28,7 @@ public sealed class IVDripSystem : SharedIVDripSystem
         bloodstreamSolution = default;
         if (!TryComp(attachedTo, out BloodstreamComponent? attachedStream) ||
             !_solutionContainer.TryGetSolution(attachedTo, attachedStream.BloodSolutionName, out solEnt, out solution))
-        {
             return false;
-        }
 
         bloodstreamSolution = attachedStream.BloodSolution;
         return true;
@@ -44,10 +45,7 @@ public sealed class IVDripSystem : SharedIVDripSystem
                 continue;
 
             if (!InRange((ivId, ivComp), ivComp.AttachedTo))
-            {
-                Logger.Warning($"[IV] Out of range -> detaching. IV={ivId} Target={ivComp.AttachedTo}");
                 Detach((ivId, ivComp), true, false);
-            }
 
             if (time < ivComp.TransferAt)
                 continue;
@@ -69,22 +67,42 @@ public sealed class IVDripSystem : SharedIVDripSystem
             if (ivComp.Injecting)
             {
                 if (attachedStream is { } bloodSolutionEnt &&
-                    bloodSolutionEnt.Comp.Solution.Volume < bloodSolutionEnt.Comp.Solution.MaxVolume)
+                    TryComp(attachedTo, out BloodstreamComponent? bloodstream))
                 {
                     var beforePack = packSol.Volume;
                     var beforeBlood = bloodSolutionEnt.Comp.Solution.Volume;
 
-                    // Don't transfer non-blood reagants
-                    Solution excludedSolution = packSol.SplitSolutionWithout(packSol.MaxVolume, packComponent.TransferableReagents);
-                    _solutionContainer.TryTransferSolution(bloodSolutionEnt, packSol, ivComp.TransferAmount);
-                    _solutionContainer.TryAddSolution(packSolEnt.Value, excludedSolution);
+                    var transferAmount = FixedPoint2.Min(ivComp.TransferAmount, packSol.Volume);
+                    if (transferAmount > FixedPoint2.Zero)
+                    {
+                        var stepSolution = _solutionContainer.SplitSolution(packSolEnt.Value, transferAmount);
+
+                        var nonBloodSolution = stepSolution.SplitSolutionWithout(stepSolution.Volume, packComponent.TransferableReagents);
+                        var bloodOnlySolution = stepSolution;
+
+                        if (bloodOnlySolution.Volume > FixedPoint2.Zero)
+                        {
+                            var addedBlood = _solutionContainer.AddSolution(bloodSolutionEnt, bloodOnlySolution);
+                            var remainingBlood = bloodOnlySolution.Volume - addedBlood;
+                            if (remainingBlood > FixedPoint2.Zero)
+                            {
+                                var overflow = bloodOnlySolution.Clone();
+                                overflow.SplitSolution(addedBlood);
+                                _solutionContainer.AddSolution(packSolEnt.Value, overflow);
+                            }
+                        }
+
+                        if (nonBloodSolution.Volume > FixedPoint2.Zero)
+                        {
+                            if (!_bloodstream.TryAddToChemicals((attachedTo, bloodstream), nonBloodSolution))
+                            {
+                                _solutionContainer.AddSolution(packSolEnt.Value, nonBloodSolution);
+                            }
+                        }
+                    }
 
                     var afterPack = packSol.Volume;
                     var afterBlood = bloodSolutionEnt.Comp.Solution.Volume;
-
-                    Logger.Warning($"[IV TRANSFER -> PATIENT] IV={ivId} " +
-                                   $"Pack: {beforePack:F2}->{afterPack:F2} " +
-                                   $"Blood: {beforeBlood:F2}->{afterBlood:F2}");
 
                     Dirty(packSolEnt.Value);
                 }
@@ -100,10 +118,6 @@ public sealed class IVDripSystem : SharedIVDripSystem
 
                     var afterPack = packSol.Volume;
                     var afterBlood = streamSol.Volume;
-
-                    Logger.Warning($"[IV TRANSFER <- PATIENT] IV={ivId} " +
-                                   $"Pack: {beforePack:F2}->{afterPack:F2} " +
-                                   $"Blood: {beforeBlood:F2}->{afterBlood:F2}");
 
                     Dirty(streamSolEnt.Value);
                 }
