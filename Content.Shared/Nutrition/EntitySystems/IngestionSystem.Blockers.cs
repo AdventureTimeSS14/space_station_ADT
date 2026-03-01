@@ -71,7 +71,9 @@ public sealed partial class IngestionSystem
         if (args.Cancelled || args.Solution != null)
             return;
 
-        if (entity.Comp.UtensilRequired && !HasRequiredUtensils(args.User, entity.Comp.Utensil))
+        // ADT-Tweak-Start: ShowUtensilPopup
+        if (entity.Comp.UtensilRequired && !HasRequiredUtensils(args.User, entity.Comp.Utensil, entity.Comp.ShowUtensilPopup))
+        // ADT-Tweak-End
         {
             args.Cancelled = true;
             return;
