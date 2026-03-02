@@ -67,21 +67,23 @@ public sealed class GerasSystem : SharedGerasSystem
 
     private void EjectForbiddenRecursive(EntityUid item, EntityUid owner)
     {
-        if (!TryComp<StorageComponent>(item, out var storage))
+        if (!TryComp<ContainerManagerComponent>(item, out var containerManager))
             return;
 
-        var containedList = storage.Container.ContainedEntities.ToArray();
-
-        foreach (var contained in containedList)
+        foreach (var container in containerManager.Containers.Values)
         {
-            if (HasForbiddenComponent(contained))
+            var containedList = container.ContainedEntities.ToArray();
+            foreach (var contained in containedList)
             {
-                _container.Remove(contained, storage.Container, force: true);
-                _transform.DropNextTo(contained, owner);
-            }
-            else
-            {
-                EjectForbiddenRecursive(contained, owner);
+                if (HasForbiddenComponent(contained))
+                {
+                    _container.Remove(contained, container, force: true);
+                    _transform.DropNextTo(contained, owner);
+                }
+                else
+                {
+                    EjectForbiddenRecursive(contained, owner);
+                }
             }
         }
     }

@@ -197,7 +197,6 @@
     thermalRegulationTemperatureThreshold: 2
   - type: StunVisuals
     postingSayDamage: blood-cough
-  - type: TimeDespawnDamage
   - type: Reactive
     groups:
       Flammable: [ Touch ]
