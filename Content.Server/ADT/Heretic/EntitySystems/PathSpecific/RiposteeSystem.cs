@@ -7,14 +7,15 @@ using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
 using Content.Server.Hands.Systems;
 using Content.Shared.Weapons.Melee;
+using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
-using System.Linq;
 
 namespace Content.Server.Heretic.EntitySystems.PathSpecific;
 
 public sealed partial class RiposteeSystem : EntitySystem
 {
+    [Dependency] private readonly SharedMeleeWeaponSystem _meleeWeapon = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
@@ -23,6 +24,7 @@ public sealed partial class RiposteeSystem : EntitySystem
     {
         base.Initialize();
 
+        SubscribeLocalEvent<RiposteeComponent, AttackedEvent>(OnRiposteeAttacked);
         SubscribeLocalEvent<RiposteeComponent, BeforeDamageChangedEvent>(OnRiposteeBeforeDamage);
     }
 
@@ -51,18 +53,35 @@ public sealed partial class RiposteeSystem : EntitySystem
         }
     }
 
+    private void OnRiposteeAttacked(EntityUid uid, RiposteeComponent riposte, AttackedEvent args)
+    {
+        if (!riposte.CanRiposte)
+            return;
+
+        if (args.User == uid)
+            return;
+
+        if (!HasTwoHandedWeaponOrDualWield(uid))
+            return;
+
+        var weaponDamage = _meleeWeapon.GetDamage(args.Used, args.User);
+        if (weaponDamage.Empty)
+            return;
+
+        riposte.PendingRiposte = true;
+    }
+
     private void OnRiposteeBeforeDamage(EntityUid uid, RiposteeComponent riposte, ref BeforeDamageChangedEvent args)
     {
-        if (!args.Damage.AnyPositive())
+        if (!riposte.PendingRiposte)
             return;
+
+        riposte.PendingRiposte = false;
 
         if (!riposte.CanRiposte)
             return;
 
-        if (args.Origin == null || args.Origin == uid)
-            return;
-
-        if (!HasTwoHandedWeaponOrDualWield(uid))
+        if (!args.Damage.AnyPositive())
             return;
 
         args.Cancelled = true;

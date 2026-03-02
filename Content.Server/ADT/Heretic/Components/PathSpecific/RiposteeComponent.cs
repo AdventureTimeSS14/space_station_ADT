@@ -7,4 +7,6 @@ public sealed partial class RiposteeComponent : Component
     [ViewVariables(VVAccess.ReadWrite)] public float Timer = 5f;
 
     [DataField] public bool CanRiposte = true;
+
+    [ViewVariables(VVAccess.ReadWrite)] public bool PendingRiposte;
 }
