@@ -8,3 +8,8 @@ reagent-effect-guidebook-teleport =
         [1] Вызвать
         *[other] вызвать
     } неконтролируемое перемещение
+reagent-effect-guidebook-purge-allergies =
+    { $chance ->
+        [1] Лечит
+        *[other] лечат
+    } аллергию

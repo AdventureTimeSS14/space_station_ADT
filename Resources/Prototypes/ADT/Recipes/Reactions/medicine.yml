@@ -253,3 +253,13 @@
       amount: 1
   products:
     ADTDevazigon: 3
+
+- type: reaction
+  id: ADTSanallergium
+  reactants:
+    Diphenhydramine:
+      amount: 2
+    Dylovene:
+      amount: 1
+  products:
+    ADTSanallergium: 3

@@ -1,4 +1,5 @@
-using System.Threading;
+using Content.Shared.Chemistry.Reagent;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.Botany
 {
@@ -15,5 +16,13 @@ namespace Content.Server.Botany
         /// SeedData from the first plant that got swabbed.
         /// </summary>
         public SeedData? SeedData;
+
+        /// ADT-Tweak-Start
+        /// <summary>
+        /// Allergic triggers from players swabbed.
+        /// </summary>
+        /// ADT-Tweak-End
+        [DataField]
+        public List<ProtoId<ReagentPrototype>>? AllergicTriggers;
     }
 }
