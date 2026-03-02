@@ -7,8 +7,25 @@ namespace Content.Server.ADT.PunchingBag;
 
 public sealed class PunchingBagAnimationsSystem : SharedPunchingBagAnimationsSystem
 {
-    // Отслеживание прогресса силы для каждого игрока
     private readonly Dictionary<EntityUid, float> _playerPullStrength = new();
+
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        SubscribeLocalEvent<PullerComponent, ComponentShutdown>(OnPullerShutdown);
+        SubscribeLocalEvent<PullerComponent, EntityTerminatingEvent>(OnPullerTerminating);
+    }
+
+    private void OnPullerShutdown(EntityUid uid, PullerComponent component, ComponentShutdown args)
+    {
+        _playerPullStrength.Remove(uid);
+    }
+
+    private void OnPullerTerminating(EntityUid uid, PullerComponent component, EntityTerminatingEvent args)
+    {
+        _playerPullStrength.Remove(uid);
+    }
 
     protected override void PlayAnimation(EntityUid uid, EntityUid attacker, string animationState)
     {
@@ -22,37 +39,24 @@ public sealed class PunchingBagAnimationsSystem : SharedPunchingBagAnimationsSys
         PullerComponent? pullerComp = null;
         if (Resolve(attacker, ref pullerComp))
         {
-            // Увеличиваем прогресс силы на 0.02 при каждом ударе
             if (!_playerPullStrength.TryGetValue(attacker, out var currentStrength))
-            {
                 currentStrength = 0f;
-            }
 
             currentStrength += 0.02f;
             _playerPullStrength[attacker] = currentStrength;
 
-            // Устанавливаем уровень PulledDensityReduction на основе накопленной силы
             float targetReduction;
             if (currentStrength >= 1.0f)
-            {
-                targetReduction = 1.0f; // Последний уровень (максимум 90%)
-            }
+                targetReduction = 1.0f;
             else if (currentStrength >= 0.70f)
-            {
-                targetReduction = 0.70f; // Второй уровень
-            }
+                targetReduction = 0.70f;
             else if (currentStrength >= 0.40f)
-            {
-                targetReduction = 0.40f; // Первый уровень
-            }
+                targetReduction = 0.40f;
             else
-            {
-                targetReduction = pullerComp.PulledDensityReduction; // Оставляем текущее значение
-            }
+                targetReduction = pullerComp.PulledDensityReduction;
 
             pullerComp.PulledDensityReduction = targetReduction;
             Dirty(attacker, pullerComp);
         }
     }
 }
-

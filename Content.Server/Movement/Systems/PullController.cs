@@ -102,6 +102,7 @@ public sealed class PullController : VirtualController
         // ADT-tweak start
         SubscribeLocalEvent<PullableComponent, PullStartedMessage>(OnPullStarted);
         SubscribeLocalEvent<PullableComponent, PullStoppedMessage>(OnPullStopped);
+        SubscribeLocalEvent<PullableComponent, EntityTerminatingEvent>(OnPullableTerminating);
         // ADT-tweak end
         SubscribeLocalEvent<PullMovingComponent, PullStoppedMessage>(OnPullStop);
         SubscribeLocalEvent<ActivePullerComponent, MoveEvent>(OnPullerMove);
@@ -129,6 +130,11 @@ public sealed class PullController : VirtualController
     private void OnPullStopped(Entity<PullableComponent> ent, ref PullStoppedMessage args)
     {
         RestoreDensity(ent);
+    }
+
+    private void OnPullableTerminating(Entity<PullableComponent> ent, ref EntityTerminatingEvent args)
+    {
+        _originalDensities.Remove(ent);
     }
     // ADT-tweak end
 
@@ -314,13 +320,23 @@ public sealed class PullController : VirtualController
     {
         base.UpdateBeforeSolve(prediction, frameTime);
 
-        // ADT-tweak start
-        var pulledQuery = EntityQueryEnumerator<PullableComponent, PhysicsComponent>();
-        while (pulledQuery.MoveNext(out var pullableEnt, out var pullable, out var physics))
+        // ADT-tweak start: only check entities with modified densities instead of iterating all pullables
+        if (_originalDensities.Count > 0)
         {
-            if (pullable.Puller is not { Valid: true } puller || physics.BodyType == BodyType.Static)
+            var toRestore = new List<EntityUid>();
+            foreach (var trackedUid in _originalDensities.Keys)
             {
-                RestoreDensity(pullableEnt);
+                if (!_pullableQuery.TryComp(trackedUid, out var pullable) ||
+                    pullable.Puller is not { Valid: true } ||
+                    (_physicsQuery.TryComp(trackedUid, out var phys) && phys.BodyType == BodyType.Static))
+                {
+                    toRestore.Add(trackedUid);
+                }
+            }
+
+            foreach (var uid in toRestore)
+            {
+                RestoreDensity(uid);
             }
         }
         // ADT-tweak end
