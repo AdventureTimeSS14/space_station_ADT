@@ -18,3 +18,6 @@ trait-unadapted-to-space-desc = Из-за особого строения ваш
 
 trait-touchy-name = Зрительная агнозия
 trait-touchy-desc = Вы определяете вещи и их внешний вид на ощупь. (examine работает только с теми предметами которые в пределах вашей досягаемости)
+
+trait-allergic-name = Аллергик
+trait-allergic-desc = У вас есть аллергия.

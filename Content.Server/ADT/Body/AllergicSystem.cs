@@ -56,7 +56,7 @@ public sealed class AllergicSystem : EntitySystem
 
     public void OnInit(EntityUid uid, AllergicComponent component, ComponentInit args)
     {
-        component.Triggers = GetRandomAllergies(3, 5);
+        component.Triggers = GetRandomAllergies(component.Min, component.Max);
     }
 
     public void OnGetReagentEffects(EntityUid uid, AllergicComponent component, ref GetReagentEffectsEvent ev)

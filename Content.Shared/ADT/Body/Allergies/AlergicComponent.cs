@@ -9,4 +9,16 @@ public sealed partial class AllergicComponent : Component
 {
     [DataField]
     public List<ProtoId<ReagentPrototype>> Triggers = new();
+
+    /// <summary>
+    /// Минимальное количество назначенных аллергенов при инициализации компонента.
+    /// </summary>
+    [DataField(readOnly: true)]
+    public int Min = 1;
+
+    /// <summary>
+    /// Максимальное количество назначенных аллергенов при инициализации компонента.
+    /// </summary>
+    [DataField(readOnly: true)]
+    public int Max = 3;
 }

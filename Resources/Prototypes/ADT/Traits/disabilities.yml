@@ -82,3 +82,18 @@
   quirk: true
   speciesBlacklist:
   - IPC
+
+- type: trait
+  id: Allergic
+  name: trait-allergic-name
+  description: trait-allergic-desc
+  category: Quirks
+  component:
+    - type: Allergic
+  cost: -1
+  quirk: true
+  speciesBlacklist:
+  - NovakidSpecies
+  - Diona
+  - SlimePerson
+  - IPC
