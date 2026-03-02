@@ -1,6 +1,6 @@
 - type: entity
   parent: [BaseStructure]
-  id: CMIV
+  id: ADTIVDrip
   name: iv
   description: Allows you to inject blood into a patient or extract blood from them to do a blood transfusion.
   suffix: IV, empty
