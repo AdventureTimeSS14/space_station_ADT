@@ -61,7 +61,6 @@ public sealed class GerasSystem : SharedGerasSystem
     {
         return HasComp<NukeDiskComponent>(uid) ||
                HasComp<GhostRoleComponent>(uid) ||
-               HasComp<MindContainerComponent>(uid) ||
                HasComp<MobStateComponent>(uid);
     }
 
