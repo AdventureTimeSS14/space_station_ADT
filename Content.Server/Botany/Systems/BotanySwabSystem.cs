@@ -54,9 +54,27 @@ public sealed class BotanySwabSystem : EntitySystem
     /// </summary>
     private void OnAfterInteract(EntityUid uid, BotanySwabComponent swab, AfterInteractEvent args)
     {
-        if (args.Target == null || !args.CanReach ||
-            !HasComp<PlantHolderComponent>(args.Target) && !HasComp<BodyComponent>(args.Target)) // ADT-Tweak
+        // ADT-Tweak-Start
+        bool isTargetPlant = HasComp<PlantHolderComponent>(args.Target);
+        bool isTargetBody = HasComp<BodyComponent>(args.Target);
+        // ADT-Tweak-End
+
+        if (args.Target == null || !args.CanReach || !isTargetPlant && !isTargetBody) // ADT-Tweak
             return;
+
+        // ADT-Tweak-Start
+        if (isTargetPlant && swab.AllergicTriggers != null)
+        {
+            _popupSystem.PopupEntity(Loc.GetString("botany-swab-unusable-plant"), args.User, args.User);
+            return;
+        }
+
+        if (isTargetBody && swab.SeedData != null)
+        {
+            _popupSystem.PopupEntity(Loc.GetString("botany-swab-unusable-bio"), args.User, args.User);
+            return;
+        }
+        // ADT-Tweak-End
 
         _doAfterSystem.TryStartDoAfter(new DoAfterArgs(EntityManager, args.User, swab.SwabDelay, new BotanySwabDoAfterEvent(), uid, target: args.Target, used: uid)
         {
@@ -72,12 +90,6 @@ public sealed class BotanySwabSystem : EntitySystem
     /// </summary>
     private void OnPlantDoAfter(EntityUid uid, BotanySwabComponent swab, PlantHolderComponent plant, DoAfterEvent args)
     {
-        if (swab.AllergicTriggers != null)
-        {
-            _popupSystem.PopupEntity(Loc.GetString("botany-swab-unusable-plant"), args.Args.Target!.Value, args.Args.User);
-            return;
-        }
-
         if (swab.SeedData == null)
         {
             // Pick up pollen
@@ -102,12 +114,6 @@ public sealed class BotanySwabSystem : EntitySystem
     /// </summary>
     private void OnCreatureDoAfter(EntityUid uid, BotanySwabComponent swab, DoAfterEvent args)
     {
-        if (swab.SeedData != null)
-        {
-            _popupSystem.PopupEntity(Loc.GetString("botany-swab-unusable-bio"), args.Args.Target!.Value, args.Args.User);
-            return;
-        }
-
         if (TryComp<AllergicComponent>(args.Args.Target!.Value, out var allergic))
             if (swab.AllergicTriggers == null)
                 swab.AllergicTriggers = allergic.Triggers;
@@ -119,7 +125,7 @@ public sealed class BotanySwabSystem : EntitySystem
         if (swab.AllergicTriggers == null)
             swab.AllergicTriggers = new();
 
-        _popupSystem.PopupEntity(Loc.GetString("botany-swab-used-bio"), args.Args.Target!.Value, args.Args.User);
+        _popupSystem.PopupEntity(Loc.GetString("botany-swab-used-bio"), args.Args.User, args.Args.User);
     }
     // ADT-Tweak-End
 
