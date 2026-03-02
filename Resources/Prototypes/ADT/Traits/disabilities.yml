@@ -88,7 +88,7 @@
   name: trait-allergic-name
   description: trait-allergic-desc
   category: Quirks
-  component:
+  components:
     - type: Allergic
   cost: -1
   quirk: true
