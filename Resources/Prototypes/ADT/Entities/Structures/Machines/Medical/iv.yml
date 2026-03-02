@@ -1,62 +1,9 @@
 - type: entity
-  parent: [BaseStructure]
-  id: CMIV
-  name: iv
-  description: Allows you to inject blood into a patient or extract blood from them to do a blood transfusion.
-  suffix: IV, empty
-  components:
-  - type: Physics
-    bodyType: Dynamic
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.45,-0.45,0.45,0.45"
-        density: 60
-        mask:
-        - MobMask
-  - type: Transform
-    anchored: false
-    noRot: true
-  - type: InteractionOutline
-  - type: Clickable
-  - type: Sprite
-    noRot: true
-    sprite: ADT/Structures/Machines/Medical/iv_drip.rsi
-    layers:
-    - state: unhooked
-      map: [ "enum.IVDripVisualLayers.Base" ]
-    - state: reagent0
-      map: [ "enum.IVDripVisualLayers.Reagent" ]
-  - type: IVDrip
-    reagentStates:
-    - 0: reagent0
-    - 10: reagent10
-    - 25: reagent25
-    - 50: reagent50
-    - 75: reagent75
-    - 80: reagent80
-    - 100: reagent100
-    ripDamage:
-      types:
-        Piercing: 3
-  - type: ItemSlots
-    slots:
-      pack:
-        name: pack
-        whitelist:
-          components:
-          - BloodPack
-  - type: ContainerContainer
-    containers:
-      pack: !type:ContainerSlot {}
-
-- type: entity
   parent: BaseItem
-  id: CMBloodPack # TODO CM14 blood types
+  id: ADTBloodPack
   name: blood pack
-  suffix: Full
+  description: An empty blood pack ready to be filled.
+  suffix: Empty
   components:
   - type: BloodPack
   - type: Sprite
@@ -71,11 +18,8 @@
   - type: SolutionContainerManager
     solutions:
       pack:
-        maxVol: 300
+        maxVol: 100
         canMix: false
-        reagents:
-        - ReagentId: Blood
-          Quantity: 300
   - type: FitsInDispenser
     solution: pack
   - type: RefillableSolution
@@ -90,49 +34,39 @@
     solution: pack
   - type: SolutionTransfer
     canChangeTransferAmount: true
-  - type: Edible
-    edible: Drink # Namesake. This entity is a sort of cup you can drink directly from.
-    destroyOnEmpty: false
-    utensil: None # Spoons don't fit in cups, also conflicts with bar spoon stirring
-    solution: &sol drink # solution name alias
   - type: Appearance
   - type: SolutionContainerVisuals
     maxFillLevels: 7
     fillBaseName: bloodpack
-  - type: Damageable
-    damageContainer: Inorganic
-    damageModifierSet: Glass
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 5
-      behaviors:
-      - !type:SpillBehavior
-        solution: pack
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-  - type: DamageOnHighSpeedImpact
-    minimumSpeed: 2
-    damage:
-      types:
-        Blunt: 5
   - type: StaticPrice
     price: 30
 
 - type: entity
-  parent: CMBloodPack
-  id: CMBloodPackTest # TODO CM14 blood types
-  name: blood pack 2
+  parent: ADTBloodPack
+  id: ADTBloodPackFull
   suffix: Full
   components:
   - type: SolutionContainerManager
     solutions:
       pack:
-        maxVol: 300
+        maxVol: 100
         canMix: false
         reagents:
         - ReagentId: Blood
-          Quantity: 10
-        - ReagentId: Bicaridine
-          Quantity: 10
+          Quantity: 100
+
+#- type: entity
+#  parent: ADTBloodPack
+#  id: ADTBloodPackMixed
+#  suffix: Mixed
+#  components:
+#  - type: SolutionContainerManager
+#    solutions:
+#      pack:
+#        maxVol: 100
+#        canMix: false
+#        reagents:
+#        - ReagentId: Blood
+#          Quantity: 80
+#        - ReagentId: Bicaridine
+#          Quantity: 20
