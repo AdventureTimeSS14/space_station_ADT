@@ -1,7 +1,6 @@
 using Content.Shared.ADT.Silicon;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
-using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Popups;
 
 namespace Content.Shared.ADT.Training;
@@ -22,25 +21,9 @@ public sealed class TrainingProgressSystem : EntitySystem
         if (HasComp<MobIpcComponent>(performer))
             return;
 
-        if (!TryComp<PullerComponent>(performer, out var pullerComp))
-            return;
-
         var training = EnsureComp<TrainingProgressComponent>(performer);
         var previousStrength = training.Strength;
         training.Strength += StrengthPerAction;
-
-        float targetReduction;
-        if (training.Strength >= Tier3Threshold)
-            targetReduction = Tier3Threshold;
-        else if (training.Strength >= Tier2Threshold)
-            targetReduction = Tier2Threshold;
-        else if (training.Strength >= Tier1Threshold)
-            targetReduction = Tier1Threshold;
-        else
-            targetReduction = pullerComp.PulledDensityReduction;
-
-        pullerComp.PulledDensityReduction = targetReduction;
-        Dirty(performer, pullerComp);
         Dirty(performer, training);
 
         var crossedThreshold =

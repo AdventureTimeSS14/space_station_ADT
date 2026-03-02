@@ -5,6 +5,7 @@ using Content.Shared.ActionBlocker;
 using Content.Shared.Conveyor;
 using Content.Shared.Gravity;
 using Content.Shared.Input;
+using Content.Shared.ADT.Training;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Events;
 using Content.Shared.Movement.Pulling.Systems;
@@ -119,12 +120,21 @@ public sealed class PullController : VirtualController
     // ADT-tweak start
     private void OnPullStarted(Entity<PullableComponent> ent, ref PullStartedMessage args)
     {
-        if (args.PullerUid is not { Valid: true } puller ||
-            !_pullerQuery.TryComp(puller, out var pullerComp) ||
-            pullerComp.PulledDensityReduction <= 0f)
+        if (args.PullerUid is not { Valid: true } puller)
             return;
 
-        ApplyDensityReduction(ent, pullerComp.PulledDensityReduction);
+        if (!TryComp<TrainingProgressComponent>(puller, out var training) || training.Strength < 0.40f)
+            return;
+
+        float reduction;
+        if (training.Strength >= 1.00f)
+            reduction = 1.00f;
+        else if (training.Strength >= 0.70f)
+            reduction = 0.70f;
+        else
+            reduction = 0.40f;
+
+        ApplyDensityReduction(ent, reduction);
     }
 
     private void OnPullStopped(Entity<PullableComponent> ent, ref PullStoppedMessage args)
