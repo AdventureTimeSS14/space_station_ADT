@@ -85,6 +85,7 @@ public sealed class PullController : VirtualController
     private EntityQuery<FixturesComponent> _fixturesQuery;
 
     private readonly Dictionary<EntityUid, Dictionary<string, float>> _originalDensities = new();
+    private readonly List<EntityUid> _densityRestoreBuffer = new();
     // ADT-tweak end
 
     public override void Initialize()
@@ -333,18 +334,18 @@ public sealed class PullController : VirtualController
         // ADT-tweak start: only check entities with modified densities instead of iterating all pullables
         if (_originalDensities.Count > 0)
         {
-            var toRestore = new List<EntityUid>();
+            _densityRestoreBuffer.Clear();
             foreach (var trackedUid in _originalDensities.Keys)
             {
                 if (!_pullableQuery.TryComp(trackedUid, out var pullable) ||
                     pullable.Puller is not { Valid: true } ||
                     (_physicsQuery.TryComp(trackedUid, out var phys) && phys.BodyType == BodyType.Static))
                 {
-                    toRestore.Add(trackedUid);
+                    _densityRestoreBuffer.Add(trackedUid);
                 }
             }
 
-            foreach (var uid in toRestore)
+            foreach (var uid in _densityRestoreBuffer)
             {
                 RestoreDensity(uid);
             }
