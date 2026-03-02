@@ -710,7 +710,6 @@
         whitelist:
           tags:
           - ConstructionMaterial
-          - SheetSteel
           - ADTSteelSheet
           - Sheet
           - Metal
@@ -720,7 +719,6 @@
         whitelist:
           tags:
           - ConstructionMaterial
-          - SheetSteel
           - ADTSteelSheet
           - Sheet
           - Metal
@@ -730,7 +728,6 @@
         whitelist:
           tags:
           - ConstructionMaterial
-          - SheetSteel
           - ADTSteelSheet
           - Sheet
           - Metal
