@@ -410,7 +410,6 @@
       visible: false
   - type: BarbellBench
     overlayPrototype: ADTBarbellBenchOverlay
-    repSoundMaxDistance: 6
   - type: BarbellBenchVisuals
     attachedState: barbell_chair-overlay
     overlayBaseState: barbell_chair-overlay
