@@ -116,7 +116,7 @@ public sealed class BotanySwabSystem : EntitySystem
     {
         if (TryComp<AllergicComponent>(args.Args.Target!.Value, out var allergic))
             if (swab.AllergicTriggers == null)
-                swab.AllergicTriggers = allergic.Triggers;
+                swab.AllergicTriggers = allergic.Triggers.ToList();
             else
                 /** Snowball unique allergies on swab */
                 swab.AllergicTriggers = swab.AllergicTriggers.Concat(allergic.Triggers).Distinct().ToList();

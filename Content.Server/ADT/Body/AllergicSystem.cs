@@ -32,16 +32,22 @@ public sealed class AllergicSystem : EntitySystem
 
     private List<ProtoId<ReagentPrototype>> GetRandomAllergies(int min, int max)
     {
-        var reagentsCount = _proto.Count<ReagentPrototype>();
+        int reagentsCount = _proto.Count<ReagentPrototype>();
 
         if (reagentsCount == 0)
             return new();
 
-        int allergiesCount = _random.Next(min, max);
+        int safeMin = Math.Clamp(min, 0, reagentsCount);
+        int safeMax = Math.Clamp(max, safeMin, reagentsCount);
+        int allergiesCount = _random.Next(safeMin, safeMax + 1);
 
-        List<int> picked = Enumerable.Range(0, allergiesCount).Select(_ => _random.Next(reagentsCount)).ToList();
-        var index = 0;
+        var picked = new HashSet<int>();
+        while (picked.Count < allergiesCount)
+        {
+            picked.Add(_random.Next(reagentsCount));
+        }
 
+        int index = 0;
         List<ProtoId<ReagentPrototype>> allergies = new();
 
         foreach (var proto in _proto.EnumeratePrototypes<ReagentPrototype>())

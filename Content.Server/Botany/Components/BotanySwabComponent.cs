@@ -17,12 +17,12 @@ namespace Content.Server.Botany
         /// </summary>
         public SeedData? SeedData;
 
-        /// ADT-Tweak-Start
         /// <summary>
         /// Allergic triggers from players swabbed.
         /// </summary>
-        /// ADT-Tweak-End
+        // ADT-Tweak-Start
         [DataField]
         public List<ProtoId<ReagentPrototype>>? AllergicTriggers;
+        // ADT-Tweak-End
     }
 }

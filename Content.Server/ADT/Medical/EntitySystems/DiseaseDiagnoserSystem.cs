@@ -131,6 +131,9 @@ public sealed class DiseaseDiagnoserSystem : EntitySystem
             || !_container.TryGetContainer(uid, comp.ContainerId, out var container))
             return;
 
+        if (container.ContainedEntities.Count == 0)
+            return;
+
         var swabEnt = container.ContainedEntities.First();
         if (!TryComp<BotanySwabComponent>(swabEnt, out var swabComponent))
             return;
