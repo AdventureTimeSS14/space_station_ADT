@@ -147,11 +147,6 @@ public sealed class BarbellBenchSystem : SharedBarbellBenchSystem
         UpdateAppearance(uid, component);
     }
 
-    protected override void OnStrapped(Entity<BarbellBenchComponent> bench, ref StrappedEvent args)
-    {
-        base.OnStrapped(bench, ref args);
-    }
-
     private void OnShutdown(EntityUid uid, BarbellBenchComponent component, ComponentShutdown args)
     {
         if (component.OverlayEntity is { } overlay && Exists(overlay))
