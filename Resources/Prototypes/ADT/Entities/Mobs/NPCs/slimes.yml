@@ -3,7 +3,8 @@
   description: A slime.
   id: ADTMobSlimesGeras
   parent:
-  - BaseSimpleMob
+  - BaseMob
+  - MobDamageable
   - MobCombat
   - MobBloodstream
   - MobFlammable
@@ -100,16 +101,12 @@
     speedModifier: 1
     useSound:
       path: /Audio/Items/crowbar.ogg
-  - type: Internals
   - type: Buckle
-  # - type: StandingState #зачем им ползать? хз они даже не готовы
   - type: ProjectileIgnoreCrawling
   - type: NpcFactionMember
     factions:
     - NanoTrasen
   - type: Climbing
-  - type: NameIdentifier
-    group: GenericNumber
   - type: SlowOnDamage
     speedModifierThresholds:
       60: 0.7
@@ -176,7 +173,7 @@
   - type: ComplexInteraction
   - type: Temperature
     heatDamageThreshold: 325
-    coldDamageThreshold: 285
+    coldDamageThreshold: 260
     currentTemperature: 310.15
     specificHeat: 42
     coldDamage:
@@ -187,6 +184,38 @@
         Heat: 1.5
   - type: TemperatureSpeed
     thresholds:
-      293: 0.8
+      293: 0.9
       260: 0.6
       230: 0.4
+  - type: ThermalRegulator
+    metabolismHeat: 800
+    radiatedHeat: 100
+    implicitHeatRegulation: 500
+    sweatHeatRegulation: 2000
+    shiveringHeatRegulation: 2000
+    normalBodyTemperature: 310.15
+    thermalRegulationTemperatureThreshold: 2
+  - type: StunVisuals
+    postingSayDamage: blood-cough
+  - type: TimeDespawnDamage
+  - type: Reactive
+    groups:
+      Flammable: [ Touch ]
+      Extinguish: [ Touch ]
+    reactions:
+    - reagents: [ Water, SpaceCleaner ]
+      methods: [ Touch ]
+      effects:
+      - !type:WashCreamPie
+    - reagents: [ Water ]
+      methods: [ Touch ]
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Heat: 0.05
+      - !type:PopupMessage
+        type: Local
+        visualType: Large
+        messages: [ "slime-hurt-by-water-popup" ]
+        probability: 0.25
