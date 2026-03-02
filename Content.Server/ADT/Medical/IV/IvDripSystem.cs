@@ -1,12 +1,15 @@
 using Content.Server.Body.Systems;
-using Content.Server.Chemistry.Containers.EntitySystems;
 using Content.Shared.ADT.Medical.IV;
 using Content.Shared.Body.Components;
 using Content.Shared.Chemistry.Components;
+using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.FixedPoint;
 using Robust.Shared.Timing;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
+using Robust.Shared.Prototypes;
+using Content.Shared.Chemistry.Reagent;
 
 namespace Content.Server.ADT.Medical.IV;
 
@@ -14,7 +17,7 @@ public sealed class IvDripSystem : SharedIvDripSystem
 {
     [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SolutionContainerSystem _solutionContainer = default!;
+    [Dependency] private readonly SharedSolutionContainerSystem _sharedSolutionContainer = default!;
     [Dependency] private readonly BloodstreamSystem _bloodstream = default!;
 
     private bool TryGetBloodstream(
@@ -27,7 +30,7 @@ public sealed class IvDripSystem : SharedIvDripSystem
         solution = default;
         bloodstreamSolution = default;
         if (!TryComp(attachedTo, out BloodstreamComponent? attachedStream) ||
-            !_solutionContainer.TryGetSolution(attachedTo, attachedStream.BloodSolutionName, out solEnt, out solution))
+            !_sharedSolutionContainer.TryGetSolution(attachedTo, attachedStream.BloodSolutionName, out solEnt, out solution))
             return false;
 
         bloodstreamSolution = attachedStream.BloodSolution;
@@ -58,7 +61,7 @@ public sealed class IvDripSystem : SharedIvDripSystem
 
             ivComp.TransferAt = time + ivComp.TransferDelay;
 
-            if (!_solutionContainer.TryGetSolution(pack, packComponent.Solution, out var packSolEnt, out var packSol))
+            if (!_sharedSolutionContainer.TryGetSolution(pack, packComponent.Solution, out var packSolEnt, out var packSol))
                 continue;
 
             if (!TryGetBloodstream(attachedTo, out var streamSolEnt, out var streamSol, out var attachedStream))
@@ -75,20 +78,23 @@ public sealed class IvDripSystem : SharedIvDripSystem
                     var transferAmount = FixedPoint2.Min(ivComp.TransferAmount, packSol.Volume);
                     if (transferAmount > FixedPoint2.Zero)
                     {
-                        var stepSolution = _solutionContainer.SplitSolution(packSolEnt.Value, transferAmount);
+                        var stepSolution = _sharedSolutionContainer.SplitSolution(packSolEnt.Value, transferAmount);
+                        var nonBloodSolution = stepSolution.SplitSolutionWithout(
+                            stepSolution.Volume,
+                            packComponent.TransferableReagents.Select(r => new ProtoId<ReagentPrototype>(r)).ToArray()
+                        );
 
-                        var nonBloodSolution = stepSolution.SplitSolutionWithout(stepSolution.Volume, packComponent.TransferableReagents);
                         var bloodOnlySolution = stepSolution;
 
                         if (bloodOnlySolution.Volume > FixedPoint2.Zero)
                         {
-                            var addedBlood = _solutionContainer.AddSolution(bloodSolutionEnt, bloodOnlySolution);
+                            var addedBlood = _sharedSolutionContainer.AddSolution(bloodSolutionEnt, bloodOnlySolution);
                             var remainingBlood = bloodOnlySolution.Volume - addedBlood;
                             if (remainingBlood > FixedPoint2.Zero)
                             {
                                 var overflow = bloodOnlySolution.Clone();
                                 overflow.SplitSolution(addedBlood);
-                                _solutionContainer.AddSolution(packSolEnt.Value, overflow);
+                                _sharedSolutionContainer.AddSolution(packSolEnt.Value, overflow);
                             }
                         }
 
@@ -96,7 +102,7 @@ public sealed class IvDripSystem : SharedIvDripSystem
                         {
                             if (!_bloodstream.TryAddToChemicals((attachedTo, bloodstream), nonBloodSolution))
                             {
-                                _solutionContainer.AddSolution(packSolEnt.Value, nonBloodSolution);
+                                _sharedSolutionContainer.AddSolution(packSolEnt.Value, nonBloodSolution);
                             }
                         }
                     }
@@ -114,7 +120,7 @@ public sealed class IvDripSystem : SharedIvDripSystem
                     var beforePack = packSol.Volume;
                     var beforeBlood = streamSol.Volume;
 
-                    _solutionContainer.TryTransferSolution(packSolEnt.Value, streamSol, ivComp.TransferAmount);
+                    _sharedSolutionContainer.TryTransferSolution(packSolEnt.Value, streamSol, ivComp.TransferAmount);
 
                     var afterPack = packSol.Volume;
                     var afterBlood = streamSol.Volume;
