@@ -7,7 +7,6 @@ using Robust.Client.Placement;
 using Robust.Client.Player;
 using Robust.Shared.Enums;
 using Content.Shared.Hands.EntitySystems;
-using Robust.Shared.Prototypes;
 
 namespace Content.Client.ADT.RPD;
 
@@ -19,7 +18,6 @@ public sealed class RPDConstructionGhostSystem : EntitySystem
     [Dependency] private readonly RPDSystem _rpdSystem = default!;
     [Dependency] private readonly IPlacementManager _placementManager = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
-    [Dependency] private readonly IPrototypeManager _protoManager = default!;
     private Direction _placementDirection = default;
 
     public override void Update(float frameTime)
@@ -51,8 +49,6 @@ public sealed class RPDConstructionGhostSystem : EntitySystem
 
             return;
         }
-
-        var prototype = _protoManager.Index(rpd.ProtoId);
 
         // Update the direction the RPD prototype based on the placer direction
         if (_placementDirection != _placementManager.Direction)
