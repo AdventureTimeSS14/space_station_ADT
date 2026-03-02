@@ -59,7 +59,9 @@
         - PillCanisterCharcoal
         - PillCanisterHyronalin
         - PillCanisterIron
+#        - Bloodpack
         - Bloodpack
+        -
         - MedkitFilled
       chance: 0.9
       offset: 0.0

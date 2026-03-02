@@ -868,3 +868,6 @@ ADTSpawnMobXenoBurrower: SpawnMobXenoBurrower
 ADTSpawnMobXenoDrone: SpawnMobXenoDrone
 ADTSpawnMobXenoQueen: SpawnMobXenoQueen
 ADTSpawnMobXenoRavager: SpawnMobXenoRavager
+
+# ADT 2026-03-02
+Bloodpack: ADTBloodPackTransfusionFull
