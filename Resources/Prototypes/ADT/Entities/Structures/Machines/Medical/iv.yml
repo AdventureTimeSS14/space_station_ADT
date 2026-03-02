@@ -1,6 +1,6 @@
 - type: entity
   parent: BaseItem
-  id: ADTBloodPack
+  id: ADTBloodPackTransfusion
   name: blood pack
   description: An empty blood pack ready to be filled.
   suffix: Empty
@@ -42,8 +42,8 @@
     price: 30
 
 - type: entity
-  parent: ADTBloodPack
-  id: ADTBloodPackFull
+  parent: ADTBloodPackTransfusion
+  id: ADTBloodPackTransfusionFull
   suffix: Full
   components:
   - type: SolutionContainerManager
@@ -56,8 +56,8 @@
           Quantity: 100
 
 #- type: entity
-#  parent: ADTBloodPack
-#  id: ADTBloodPackMixed
+#  parent: ADTBloodPackTransfusion
+#  id: ADTBloodPackTransfusionMixed
 #  suffix: Mixed
 #  components:
 #  - type: SolutionContainerManager

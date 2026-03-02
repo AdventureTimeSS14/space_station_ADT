@@ -1,8 +1,8 @@
-ent-ADTBloodPack = пакет крови
+ent-ADTBloodPackTransfusion = пакет крови
     .desc = Пустой пакет для сбора или переливания крови.
     .suffix = Пустой, Переливания
 
-ent-ADTBloodPackFull = { ent-ADTBloodPack }
-    .desc = { ent-ADTBloodPack.desc }
+ent-ADTBloodPackTransfusionFull = { ent-ADTBloodPackTransfusion }
+    .desc = { ent-ADTBloodPackTransfusion.desc }
     .suffix = Полный, Переливания
 
