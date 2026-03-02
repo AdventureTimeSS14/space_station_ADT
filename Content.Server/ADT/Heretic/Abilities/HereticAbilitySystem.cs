@@ -73,7 +73,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
     [Dependency] private readonly VoidCurseSystem _voidcurse = default!;
     [Dependency] private readonly TagSystem _tag = default!;
 
-    public ProtoId<RadioChannelPrototype> MansusLinkChannel = "Mansus";
+    private ProtoId<RadioChannelPrototype> MansusLinkChannel = "Mansus";
 
     private List<EntityUid> GetNearbyPeople(Entity<HereticComponent> ent, float range)
     {
