@@ -30,7 +30,7 @@ public sealed class GerasSystem : SharedGerasSystem
     [Dependency] private readonly PopupSystem _popupSystem = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
-    [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
+    [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly InventorySystem _inventorySystem = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
@@ -104,7 +104,12 @@ public sealed class GerasSystem : SharedGerasSystem
         }
 
         if (TryComp<HandsComponent>(uid, out var hands))
-            _handsSystem.TryDrop(uid, Transform(uid).Coordinates);
+        {
+            foreach (var held in _hands.EnumerateHeld(uid))
+            {
+                _hands.TryDrop(uid, held, Transform(uid).Coordinates);
+            }
+        }
 
         if (TryComp<InventoryComponent>(uid, out var inventoryComp))
         {
