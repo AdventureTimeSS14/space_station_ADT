@@ -20,6 +20,9 @@
   id: ADTLasgunRevolverCell
 
 - type: Tag
+  id: RPD
+
+- type: Tag
   id: PhantomEctoplasm
 
 - type: Tag
