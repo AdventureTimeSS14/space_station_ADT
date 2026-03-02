@@ -18,6 +18,9 @@ public sealed class TrainingProgressSystem : EntitySystem
 
     public void AddTrainingProgress(EntityUid performer)
     {
+        if (!performer.Valid || TerminatingOrDeleted(performer))
+            return;
+
         if (HasComp<MobIpcComponent>(performer))
             return;
 
