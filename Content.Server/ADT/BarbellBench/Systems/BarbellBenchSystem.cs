@@ -8,6 +8,7 @@ using Content.Shared.ADT.BarbellBench.Components;
 using Content.Shared.ADT.BarbellBench.Systems;
 using Content.Shared.ADT.Damage.Events;
 using Content.Shared.ADT.Silicon;
+using Content.Shared.ADT.Training;
 using Content.Shared.Damage.Events;
 using Content.Shared.Alert;
 using Content.Shared.Buckle;
@@ -45,10 +46,7 @@ public sealed class BarbellBenchSystem : SharedBarbellBenchSystem
     [Dependency] private readonly AlertsSystem _alerts = default!;
     [Dependency] private readonly SharedVirtualItemSystem _virtualItem = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
-
-    private readonly Dictionary<EntityUid, float> _playerPullStrength = new();
-
-    private readonly Dictionary<EntityUid, bool> _staminaBonusMaxLevelApplied = new();
+    [Dependency] private readonly TrainingProgressSystem _training = default!;
 
     private readonly HashSet<EntityUid> _performingReps = new();
 
@@ -77,8 +75,6 @@ public sealed class BarbellBenchSystem : SharedBarbellBenchSystem
         SubscribeLocalEvent<BarbellPinnedComponent, GetVerbsEvent<InteractionVerb>>(OnPinnedGetVerbs,
             before: new[] { typeof(SharedBuckleSystem) });
 
-        SubscribeLocalEvent<PullerComponent, ComponentShutdown>(OnPullerShutdown);
-        SubscribeLocalEvent<PullerComponent, EntityTerminatingEvent>(OnPullerTerminating);
         SubscribeLocalEvent<BarbellBenchComponent, UnstrappedEvent>(OnUnstrapped);
         SubscribeLocalEvent<StaminaComponent, EntityTerminatingEvent>(OnPlayerTerminating);
     }
@@ -195,57 +191,7 @@ public sealed class BarbellBenchSystem : SharedBarbellBenchSystem
                 _stamina.TakeStaminaDamage(args.Performer, lift.StaminaCost, source: args.Performer, with: barbell, visual: true);
                 _popup.PopupEntity(Loc.GetString(lift.EmoteLocSelf), args.Performer, args.Performer, PopupType.Medium);
 
-                if (!HasComp<MobIpcComponent>(args.Performer))
-                {
-                    PullerComponent? pullerComp = null;
-                    if (Resolve(args.Performer, ref pullerComp))
-                    {
-                        if (!_playerPullStrength.TryGetValue(args.Performer, out var currentStrength))
-                            currentStrength = 0f;
-
-                        var previousStrength = currentStrength;
-                        currentStrength += 0.02f;
-                        _playerPullStrength[args.Performer] = currentStrength;
-
-                        float targetReduction;
-                        if (currentStrength >= 1.00f)
-                            targetReduction = 1.00f;
-                        else if (currentStrength >= 0.70f)
-                            targetReduction = 0.70f;
-                        else if (currentStrength >= 0.40f)
-                            targetReduction = 0.40f;
-                        else
-                            targetReduction = pullerComp.PulledDensityReduction;
-
-                        pullerComp.PulledDensityReduction = targetReduction;
-                        Dirty(args.Performer, pullerComp);
-
-                        var crossedThreshold =
-                            (previousStrength < 0.40f && currentStrength >= 0.40f) ||
-                            (previousStrength < 0.70f && currentStrength >= 0.70f) ||
-                            (previousStrength < 1.00f && currentStrength >= 1.00f);
-
-                        if (crossedThreshold)
-                        {
-                            var performer = args.Performer;
-                            Timer.Spawn(TimeSpan.FromSeconds(0.5f), () =>
-                            {
-                                if (Exists(performer))
-                                    _popup.PopupEntity(Loc.GetString("barbell-bench-strength-increased"), performer, performer, PopupType.Medium);
-                            });
-                        }
-
-                        if (currentStrength >= 1.00f && !_staminaBonusMaxLevelApplied.GetValueOrDefault(args.Performer, false))
-                        {
-                            if (TryComp<StaminaComponent>(args.Performer, out var staminaComp))
-                            {
-                                staminaComp.CritThreshold += 25f;
-                                _staminaBonusMaxLevelApplied[args.Performer] = true;
-                                Dirty(args.Performer, staminaComp);
-                            }
-                        }
-                    }
-                }
+                _training.AddTrainingProgress(args.Performer);
             }
         }
 
@@ -420,22 +366,6 @@ public sealed class BarbellBenchSystem : SharedBarbellBenchSystem
         {
             args.Value *= 0.02f;
         }
-    }
-
-    private void CleanupPullerData(EntityUid uid)
-    {
-        _playerPullStrength.Remove(uid);
-        _staminaBonusMaxLevelApplied.Remove(uid);
-    }
-
-    private void OnPullerShutdown(EntityUid uid, PullerComponent component, ComponentShutdown args)
-    {
-        CleanupPullerData(uid);
-    }
-
-    private void OnPullerTerminating(EntityUid uid, PullerComponent component, EntityTerminatingEvent args)
-    {
-        CleanupPullerData(uid);
     }
 
     protected override void OnUnstrapped(Entity<BarbellBenchComponent> bench, ref UnstrappedEvent args)
