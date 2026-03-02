@@ -80,7 +80,7 @@ public sealed class BarbellBenchSystem : SharedBarbellBenchSystem
         SubscribeLocalEvent<PullerComponent, ComponentShutdown>(OnPullerShutdown);
         SubscribeLocalEvent<PullerComponent, EntityTerminatingEvent>(OnPullerTerminating);
         SubscribeLocalEvent<BarbellBenchComponent, UnstrappedEvent>(OnUnstrapped);
-        SubscribeLocalEvent<EntityTerminatingEvent>(OnEntityTerminating);
+        SubscribeLocalEvent<StaminaComponent, EntityTerminatingEvent>(OnPlayerTerminating);
     }
 
     private void OnAttachableAltered(EntityUid uid, BarbellBenchComponent component, ref AttachableHolderAttachablesAlteredEvent args)
@@ -275,12 +275,13 @@ public sealed class BarbellBenchSystem : SharedBarbellBenchSystem
         UpdateAppearance(uid, component);
 
         var sound = new SoundCollectionSpecifier(component.RepSoundCollection);
+        var audioParams = AudioParams.Default.WithMaxDistance(component.RepSoundMaxDistance);
         Timer.Spawn(TimeSpan.FromSeconds(component.RepSoundDelay), () =>
         {
             if (Exists(uid))
             {
                 var filter = Filter.Pvs(uid, entityManager: EntityManager);
-                _audio.PlayGlobal(sound, filter, recordReplay: true);
+                _audio.PlayEntity(sound, filter, uid, recordReplay: true, audioParams);
             }
         });
 
@@ -485,9 +486,9 @@ public sealed class BarbellBenchSystem : SharedBarbellBenchSystem
         _performingReps.Remove(args.Buckle.Owner);
     }
 
-    private void OnEntityTerminating(ref EntityTerminatingEvent ev)
+    private void OnPlayerTerminating(EntityUid uid, StaminaComponent comp, ref EntityTerminatingEvent ev)
     {
-        _performingReps.Remove(ev.Entity.Owner);
+        _performingReps.Remove(uid);
     }
 
     public override void Update(float frameTime)
@@ -554,9 +555,7 @@ public sealed class BarbellBenchSystem : SharedBarbellBenchSystem
                             {
                                 _respirator.UpdateSaturation(uid, -2f, respirator);
 
-                                _damageable.TryChangeDamage(uid, respirator.Damage, interruptsDoAfters: false);
-                                _damageable.TryChangeDamage(uid, respirator.Damage, interruptsDoAfters: false);
-                                _damageable.TryChangeDamage(uid, respirator.Damage, interruptsDoAfters: false);
+                                _damageable.TryChangeDamage(uid, respirator.Damage * 3, interruptsDoAfters: false);
                             }
 
                             if (!stunPassed)
