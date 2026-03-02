@@ -196,7 +196,6 @@
     normalBodyTemperature: 310.15
     thermalRegulationTemperatureThreshold: 2
   - type: StunVisuals
-    postingSayDamage: blood-cough
   - type: Reactive
     groups:
       Flammable: [ Touch ]
