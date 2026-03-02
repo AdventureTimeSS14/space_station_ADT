@@ -218,3 +218,4 @@
         visualType: Large
         messages: [ "slime-hurt-by-water-popup" ]
         probability: 0.25
+  - type: PickupHumans
