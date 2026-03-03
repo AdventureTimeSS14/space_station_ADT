@@ -6,11 +6,14 @@
   - node: start
     actions:
     - !type:SpawnPrototype
+      prototype: SheetSteel1
+      amount: 5
+    - !type:SpawnPrototype
       prototype: PartRodMetal1
       amount: 2
     - !type:SpawnPrototype
       prototype: SheetPlastic1
-      amount: 1
+      amount: 5
     - !type:DeleteEntity {}
     edges:
     - to: IVDripNode
@@ -20,8 +23,10 @@
       - material: MetalRod
         amount: 2
         doAfter: 1
+      - material: Steel
+        amount: 5
       - material: Plastic
-        amount: 1
+        amount: 5
   - node: IVDripNode
     entity: ADTIVDrip
     edges:
