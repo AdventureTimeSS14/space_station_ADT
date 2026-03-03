@@ -19,7 +19,6 @@
     solutions:
       pack:
         maxVol: 100
-        canMix: false
   - type: FitsInDispenser
     solution: pack
   - type: RefillableSolution
@@ -79,7 +78,6 @@
     solutions:
       pack:
         maxVol: 100
-        canMix: false
         reagents:
         - ReagentId: Blood
           Quantity: 100
@@ -93,7 +91,6 @@
 #    solutions:
 #      pack:
 #        maxVol: 100
-#        canMix: false
 #        reagents:
 #        - ReagentId: Blood
 #          Quantity: 80
