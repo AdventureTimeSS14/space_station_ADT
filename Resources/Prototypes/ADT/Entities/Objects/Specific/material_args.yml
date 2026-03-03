@@ -39,6 +39,7 @@
                       types:
                         Blunt: 20
                   - !type:ComboFallEffect
+                    dropItems: false
                   - !type:ComboAudioEffect
                     sound:
                       collection: GenericHit
@@ -161,8 +162,8 @@
                 - !type:ComboPopupEffect
                   localeText: combo-gnashingteeth-end
             - actionsNeeds:
-                - Disarm
                 - Hit
+                - Disarm
               comboEvent:
                 - !type:ComboDamageEffect
                   damage:
@@ -278,12 +279,11 @@
             - actionsNeeds:
                 - Disarm
                 - Grab
-                - Hit
               comboEvent:
                 - !type:ComboPopupEffect
                   localeText: combo-cookbook-unwinding-end
-                - !type:ComboEffectSleep
-                  time: 5
+                - !type:ComboStaminaDamageEffect
+                  staminaDamage: 35
             - actionsNeeds:
                 - Grab
                 - Grab

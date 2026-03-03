@@ -71,7 +71,7 @@
       - ADTJumpSuitSacrifice
       - WhitelistChameleon
   - type: HidesSlots
-    hidesSlots: [ UNDERWEART, UNDERWEARB ]
+    hidesSlots: [ UNDERWEART, UNDERWEARB, POCKET ]
   #ADT-Tweak-End
 
 - type: entity

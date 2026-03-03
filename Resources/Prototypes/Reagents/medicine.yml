@@ -1302,8 +1302,8 @@
         damage:
           types:
       # ADT-Tweak-Start
-            Piercing: -0.8 # 8 per u
-            Blunt: 0.15 # 0.5 -> 1.5 per u
+            Piercing: -2
+            Blunt: 0.2
       - !type:Vomit
         conditions:
         - !type:ReagentCondition
@@ -1336,8 +1336,8 @@
         damage:
           types:
       # ADT-Tweak-Start
-            Blunt: -0.7 # 7 per u
-            Piercing: 0.15 # 1.5 per u
+            Blunt: -2
+            Piercing: 0.2
       - !type:Vomit
         conditions:
         - !type:ReagentCondition
