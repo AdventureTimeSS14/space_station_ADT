@@ -48,7 +48,10 @@ public sealed class IvDripSystem : SharedIvDripSystem
                 continue;
 
             if (!InRange((ivId, ivComp), ivComp.AttachedTo))
+            {
                 Detach((ivId, ivComp), true, false);
+                continue;
+            }
 
             if (time < ivComp.TransferAt)
                 continue;
