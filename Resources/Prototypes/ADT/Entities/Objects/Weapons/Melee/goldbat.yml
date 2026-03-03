@@ -7,8 +7,8 @@
   - type: MeleeWeapon
     damage:
       types:
-        Blunt: 10
-        Structural: 5
+        Blunt: 12.5
+        Structural: 7.5
     soundHit: "/Audio/ADT/Weapons/Melee/bat.ogg"
   - type: Sprite
     sprite: ADT/Objects/Weapons/Melee/goldbat.rsi
@@ -16,8 +16,8 @@
   - type: IncreaseDamageOnWield
     damage:
       types:
-        Blunt: 5
-        Structural: 10
+        Blunt: 7.5
+        Structural: 12.5
   - type: UseDelay
     delay: 1
   - type: Construction
