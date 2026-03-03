@@ -13,16 +13,7 @@
       - tag: Arrow
         icon:
           sprite: Objects/Weapons/Guns/Projectiles/arrows.rsi
-          layers:
-          - state: tail
-            color: white
-          - state: rod
-            color: darkgray
-          - state: tip
-            color: lightblue
-          - state: solution1
-            map: ["enum.SolutionContainerLayers.Fill"]
-            visible: false
+          state: icon_craft
         name: construction-graph-tag-medkit
       - material: Steel
         amount: 5
@@ -30,7 +21,5 @@
       - material: Cable
         amount: 10
         doAfter: 4
-
-
   - node: ADTArrowGranade
     entity: ADTArrowGranade
