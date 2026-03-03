@@ -5,6 +5,7 @@ namespace Content.Client.ADT.Medical.IV;
 
 public sealed class IvDripSystem : SharedIvDripSystem
 {
+    // TODO: Добавить оверлей для капельницы, добавляет нитку от капельницы к пациенту. https://github.com/RMC-14/RMC-14
     // [Dependency] private readonly SpriteSystem _spriteSystem = default!;
     // [Dependency] private readonly IOverlayManager _overlay = default!;
     //

@@ -1,3 +1,4 @@
+// TODO: Добавить оверлей для капельницы, добавляет нитку от капельницы к пациенту. https://github.com/RMC-14/RMC-14
 // using Content.Shared.ADT.Medical.IV;
 // using Robust.Client.GameObjects;
 // using Robust.Client.Graphics;
