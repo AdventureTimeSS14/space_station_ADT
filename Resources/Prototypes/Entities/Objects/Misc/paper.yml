@@ -123,6 +123,7 @@
     delay: 7
     forceFeedDelay: 7
     utensilRequired: true # ADT-Tweak. Чтобы при открытии бумаги не могли её скушать
+    showUtensilPopup: false # ADT-Tweak
   - type: FlavorProfile
     flavors:
     - paper
