@@ -14,6 +14,6 @@
     sprite: ADT/Structures/Machines/PTL/pt_laser.rsi
     state: base
   product: ADTMachinePowerTransmissionLaserCrate
-  cost: 5000
+  cost: 100000
   category: cargoproduct-category-name-engineering
   group: market

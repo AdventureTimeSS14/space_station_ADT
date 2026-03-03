@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from ShipTest https://github.com/shiptest-ss13/Shiptest?tab=readme-ov-file",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "equipped-FEET",
+      "directions": 4
+    },
+    {
+      "name": "icon"
+    }
+  ]
+}

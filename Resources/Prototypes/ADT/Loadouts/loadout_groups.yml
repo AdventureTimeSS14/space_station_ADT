@@ -417,6 +417,7 @@
   maxLimit: 1
   loadouts:
   - ADTBlueshieldCloak
+  - ADTBlueshieldCloakSecond
 
 - type: loadoutGroup
   id: ADTBlueshieldBack
@@ -832,6 +833,14 @@
   maxLimit: 1
   loadouts:
   - ADTClothingUniformJumpsuitSalvageSpecialist
+
+- type: loadoutGroup
+  id: ADTSalvageSpecialistNeck
+  name: loadout-salvage-specialist-neck-adt
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - ADTNeckSalvageSpecialistCape
 
 # ШАХТЁР
 - type: loadoutGroup
@@ -1289,6 +1298,24 @@
   - ADTCMOPDA
 
 # Alts PDA end
+
+# Miscellaneous
+
+- type: loadoutGroup
+  id: ADTSprayPaints
+  name: loadout-group-spray-paints
+  minLimit: 0
+  maxLimit: 2
+  loadouts:
+  - ADTSprayPaintRed
+  - ADTSprayPaintOrange
+  - ADTFunnyPaintYellow
+  - ADTSprayPaintGreen
+  - ADTSprayPaintBlue
+  - ADTSprayPaintPurple
+  - ADTFunnyPaint
+  - ADTSprayPaintWhite
+  - ADTSprayPaintBlack
 
 # ОЧЕНЬ ПРОШУ ДЕЛАТЬ НОВЫЕ ГРУППЫ НАД НИЖНИМ БЕЛЬЁМ А НЕ ПОД НИМ. ИНАЧЕ Я ЁЖИКОВ НА ВАС НАТРАВЛЮ И ВАМ КАПУТ.
 # Н А Д Е Ю С Ь  В Ы  М Е Н Я  У С Л Ы Ш А Л И ! ! !
