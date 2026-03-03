@@ -23,7 +23,6 @@
           - state: solution1
             map: ["enum.SolutionContainerLayers.Fill"]
             visible: false
-        name: construction-graph-tag-medkit
       - material: Steel
         amount: 5
         doAfter: 4
