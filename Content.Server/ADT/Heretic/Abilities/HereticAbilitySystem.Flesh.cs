@@ -33,7 +33,6 @@ public sealed partial class HereticAbilitySystem : EntitySystem
     [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
-    [Dependency] private readonly MobThresholdSystem _threshold = default!;
     [Dependency] private readonly WeldableSystem _weldable = default!;
     [Dependency] private readonly StandingStateSystem _standing = default!;
     private void SubscribeFlesh()

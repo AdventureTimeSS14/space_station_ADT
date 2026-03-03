@@ -9,8 +9,9 @@
     state: icon
   - type: Item
     size: Small
-  - type: GrantLanguageOnUse
-    language: Dev
+  - type: GrantLanguagesOnUse
+    languages:
+    - Dev
   - type: Tag
     tags:
     - Book

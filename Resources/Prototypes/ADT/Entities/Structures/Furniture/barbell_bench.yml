@@ -7,6 +7,7 @@
     noRot: true
     drawdepth: HighFloorObjects
   - type: BarbellBench
+    repSoundMaxDistance: 6
   - type: BarbellBenchVisuals
     attachedState: barbell-overlay-up
     overlayBaseState: barbell-overlay-up
@@ -127,8 +128,12 @@
     attachDoAfter: 2.0
     attachSound:
       path: /Audio/ADT/Furniture/barbell/sound_for_barbell_3.ogg
+      params:
+        maxDistance: 6
     detachSound:
       path: /Audio/ADT/Furniture/barbell/sound_for_barbell_2.ogg
+      params:
+        maxDistance: 6
   - type: AttachableVisuals
     rsi: ADT/Objects/Fun/barbell.rsi
     prefix: barbell-overlay-up
