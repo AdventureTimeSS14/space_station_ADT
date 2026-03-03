@@ -21,6 +21,28 @@
             },
             "problemMatcher": "$msCompile"
         },
+        //# ADT-UPD-Start 03032026-ToolsBuilder Добавление режима TOOLS для сборки маппинга и прототипирования.
+        {
+            "label": "build (Tools)",
+            "command": "dotnet",
+            "type": "shell",
+            "args": [
+                "build",
+                "--configuration",
+                "Tools",
+                "/property:GenerateFullPaths=true", // Ask dotnet build to generate full paths for file names.
+                "/consoleloggerparameters:NoSummary" // Do not generate summary otherwise it leads to duplicate errors in Problems panel
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "presentation": {
+                "reveal": "silent"
+            },
+            "problemMatcher": "$msCompile"
+        },
+        //# ADT-UPD-End
         {
             "label": "build-yaml-linter",
             "command": "dotnet",
