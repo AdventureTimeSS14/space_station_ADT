@@ -24,3 +24,7 @@ ent-ChemDispenserMachineCircuitboard = раздатчик химикатов (м
     .desc = Машинная плата, используемая для создания раздатчика химикатов.
 ent-EnergyChemDispenserMachineCircuitboard = энерго-раздатчик химикатов (машинная плата)
     .desc = Машинная плата, используемая для создания раздатчика химикатов.
+ent-ADTEnergyBoozeDispenserMachineCircuitboard = энерго-раздатчик алкоголя (машинная плата)
+    .desc = Печатная плата энерго-раздатчика алкоголя.
+ent-ADTEnergySodaDispenserMachineCircuitboard = энерго-раздатчик безалкоголя (машинная плата)
+    .desc = Печатная плата энерго-раздатчика безалкоголя.
