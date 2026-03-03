@@ -660,3 +660,33 @@
           - !type:ReagentCondition
             reagent: ADTSanallergium
             min: 10
+ 
+- type: reagent
+  id: ADTDiphalazidone
+  name: reagent-name-diphalazidone
+  group: Medicine
+  desc: reagent-desc-diphalazidone
+  physicalDesc: reagent-physical-desc-sickly
+  flavor: acid
+  color: "#213200"
+  worksOnTheDead: true
+  metabolisms:
+    Medicine:
+      effects:
+        - !type:ReduceRotting
+          seconds: 10
+          conditions:
+          - !type:TemperatureCondition
+            max: 150.0
+          - !type:MobStateCondition
+            mobstate: Dead
+        - !type:HealthChange
+          damage:
+            types:
+              Cellular: 0.5
+              Radiation: 0.25
+          conditions:
+          - !type:TemperatureCondition
+            max: 150.0
+          - !type:MobStateCondition
+            mobstate: Dead

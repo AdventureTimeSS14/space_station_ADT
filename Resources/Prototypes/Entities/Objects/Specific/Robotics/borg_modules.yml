@@ -710,18 +710,27 @@
         whitelist:
           tags:
           - ConstructionMaterial
+          - ADTSteelSheet
+          - Sheet
+          - Metal
     - hand:
         emptyRepresentative: BorgModuleConstructionMaterialPlaceholder
         emptyLabel: borg-slot-construction-empty
         whitelist:
           tags:
           - ConstructionMaterial
+          - ADTSteelSheet
+          - Sheet
+          - Metal
     - hand:
         emptyRepresentative: BorgModuleConstructionMaterialPlaceholder
         emptyLabel: borg-slot-construction-empty
         whitelist:
           tags:
           - ConstructionMaterial
+          - ADTSteelSheet
+          - Sheet
+          - Metal
     - hand:
         emptyRepresentative: DoorElectronics
         emptyLabel: borg-slot-circuitboards-empty
