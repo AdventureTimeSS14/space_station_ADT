@@ -29,25 +29,22 @@ using Robust.Shared.Random;
 namespace Content.Server.Heretic.Ritual;
 
 /// <summary>
-///     Checks for a nearest dead body,
-///     gibs it and gives the heretic knowledge points.
-///     no longer gibs it, just teleports -space
+///     Поведение для ритуалов возвышения.
+///     Принимает ЛЮБЫЕ трупы гуманоидов, а не только цели.
 /// </summary>
-// these classes should be lead out and shot
-[Virtual]
-public partial class RitualSacrificeBehavior : RitualCustomBehavior
+public sealed partial class RitualAscensionSacrificeBehavior : RitualCustomBehavior
 {
     /// <summary>
     ///     Minimal amount of corpses.
     /// </summary>
     [DataField]
-    public float Min = 1;
+    public float Min = 3;
 
     /// <summary>
     ///     Maximum amount of corpses.
     /// </summary>
     [DataField]
-    public float Max = 1;
+    public float Max = 4;
 
     protected List<EntityUid> uids = new();
 
@@ -63,6 +60,7 @@ public partial class RitualSacrificeBehavior : RitualCustomBehavior
             return false;
         }
 
+        // Увеличенный радиус поиска трупов (1.5 метра)
         var res = lookupSystem.GetEntitiesInRange(args.Platform, 1.5f);
         if (res.Count == 0)
         {
@@ -70,7 +68,7 @@ public partial class RitualSacrificeBehavior : RitualCustomBehavior
             return false;
         }
 
-        // get all the dead ones
+        // get all the dead ones - принимаем ЛЮБЫЕ трупы для возвышения
         foreach (var look in res)
         {
             if (!args.EntityManager.TryGetComponent<MobStateComponent>(look, out var mobstate)
@@ -78,12 +76,7 @@ public partial class RitualSacrificeBehavior : RitualCustomBehavior
                 || mobstate.CurrentState != Shared.Mobs.MobState.Dead)
                 continue;
 
-            var isTarget = hereticComp.SacrificeTargets.Any(x => x.Entity == args.EntityManager.GetNetEntity(look));
-            var isAntag = IsAntagonist(args.EntityManager, look);
-
-            if (!isTarget && !isAntag)
-                continue;
-
+            // Принимаем любые трупы для ритуала возвышения
             uids.Add(look);
         }
 
@@ -98,19 +91,12 @@ public partial class RitualSacrificeBehavior : RitualCustomBehavior
         return true;
     }
 
-    private bool IsAntagonist(IEntityManager entMan, EntityUid uid)
-    {
-        return entMan.HasComponent<HereticComponent>(uid)
-            || entMan.HasComponent<ChangelingComponent>(uid)
-            || entMan.HasComponent<BloodBrotherLeaderComponent>(uid)
-            || entMan.HasComponent<HeadRevolutionaryComponent>(uid);
-    }
-
     public override void Finalize(RitualData args)
     {
         var hereticSystem = args.EntityManager.System<HereticSystem>();
         var mindSystem = args.EntityManager.System<SharedMindSystem>();
 
+        // Обрабатываем от Min до Max трупов (или сколько есть)
         var processedCount = 0;
         for (var i = 0; i < uids.Count && processedCount < Max; i++)
         {
@@ -118,7 +104,11 @@ public partial class RitualSacrificeBehavior : RitualCustomBehavior
                 continue;
 
             processedCount++;
+
+            // Базовое очко знаний за любой труп
             var knowledgeGain = 2f;
+
+            // Бонусы за особые цели
             if (args.EntityManager.HasComponent<CommandStaffComponent>(uids[i]))
                 knowledgeGain += 2f;
             if (args.EntityManager.TryGetComponent<HereticComponent>(uids[i], out var heretic))
@@ -129,6 +119,7 @@ public partial class RitualSacrificeBehavior : RitualCustomBehavior
                 knowledgeGain += bro.ConvertedCount / 2;
             if (args.EntityManager.TryGetComponent<HeadRevolutionaryComponent>(uids[i], out var rev))
                 knowledgeGain += rev.ConvertedCount / 3;
+
             // Ganimed
             // start the sacrifing process -space
             if (args.EntityManager.TryGetComponent<TransformComponent>(uids[i], out var transform))
