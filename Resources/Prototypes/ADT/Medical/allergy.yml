@@ -1,0 +1,6 @@
+- type: allergicReaction
+  id: mildAllergicReaction
+  threshold: 5
+  effects:
+    - !type:Jitter
+      time: 5

@@ -7,17 +7,16 @@ using Content.Shared.Damage.Prototypes;
 using Content.Shared.EntityEffects.Effects;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Robust.Shared.Timing;
 
 namespace Content.Server.ADT.Body;
 
-public sealed class AllergicSystem : EntitySystem
+public sealed partial class AllergicSystem : EntitySystem
 {
     [Dependency] private readonly IRobustRandom _random = default!;
-
     [Dependency] private readonly IPrototypeManager _proto = default!;
 
     private ProtoId<DamageGroupPrototype> _allergyDamageGroup = "Poison";
-
     private DamageTypePrototype? _allergyDamageTypeProto;
 
     public override void Initialize()
@@ -27,7 +26,42 @@ public sealed class AllergicSystem : EntitySystem
         SubscribeLocalEvent<AllergicComponent, ComponentInit>(OnInit);
         SubscribeLocalEvent<AllergicComponent, GetReagentEffectsEvent>(OnGetReagentEffects);
 
+        SubscribeLocalEvent<AllergicComponent, AllergyTriggeredEvent>(OnAllergyTriggered);
+
+        InitializeShock();
+
         _allergyDamageTypeProto = _proto.Index<DamageTypePrototype>(_allergyDamageGroup);
+    }
+
+    public void OnInit(EntityUid uid, AllergicComponent component, ComponentInit args)
+    {
+        component.Triggers = GetRandomAllergies(component.Min, component.Max);
+    }
+
+    public void OnGetReagentEffects(EntityUid uid, AllergicComponent component, ref GetReagentEffectsEvent ev)
+    {
+        if (!component.Triggers.Contains(ev.Reagent.Prototype))
+            return;
+
+        var damageSpecifier = new DamageSpecifier(_allergyDamageTypeProto!, 0.25);
+        var damageEffect = new HealthChange
+        {
+            Damage = damageSpecifier
+        };
+
+        AllergyTriggeredEvent triggered = new();
+        RaiseLocalEvent(uid, ref triggered);
+
+        Log.Debug("We got some nasty shit inside!");
+
+        ev.Effects = ev.Effects.Append(damageEffect).ToArray();
+    }
+
+    private void OnAllergyTriggered(EntityUid uid, AllergicComponent allergic, ref AllergyTriggeredEvent ev)
+    {
+        Log.Debug("We got trigger event");
+        ShockOnTrigger(uid, allergic, ref ev);
+        IncrementStackOnTrigger(uid, allergic, ref ev);
     }
 
     private List<ProtoId<ReagentPrototype>> GetRandomAllergies(int min, int max)
@@ -60,22 +94,16 @@ public sealed class AllergicSystem : EntitySystem
         return allergies;
     }
 
-    public void OnInit(EntityUid uid, AllergicComponent component, ComponentInit args)
+    public override void Update(float frameTime)
     {
-        component.Triggers = GetRandomAllergies(component.Min, component.Max);
-    }
+        base.Update(frameTime);
 
-    public void OnGetReagentEffects(EntityUid uid, AllergicComponent component, ref GetReagentEffectsEvent ev)
-    {
-        if (!component.Triggers.Contains(ev.Reagent.Prototype))
-            return;
+        var query = EntityQueryEnumerator<AllergicComponent>();
 
-        var damageSpecifier = new DamageSpecifier(_allergyDamageTypeProto!, 0.5);
-        var damageEffect = new HealthChange
+        while (query.MoveNext(out var uid, out var allergic))
         {
-            Damage = damageSpecifier
-        };
-
-        ev.Effects = ev.Effects.Append(damageEffect).ToArray();
+            UpdateStack(uid, allergic);
+            UpdateShock(uid, allergic);
+        }
     }
 }
