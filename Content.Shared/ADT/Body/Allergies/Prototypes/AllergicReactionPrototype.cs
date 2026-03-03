@@ -12,6 +12,6 @@ public sealed partial class AllergicReactionPrototype : IPrototype
     [DataField("effects")]
     public EntityEffect[] Effects = default!;
 
-    [DataField]
+    [DataField("threshold", required: true)]
     public float StackThreshold;
 }

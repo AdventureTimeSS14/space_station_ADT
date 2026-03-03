@@ -19,25 +19,19 @@ public sealed partial class AllergicSystem : EntitySystem
         _reactions = _proto.EnumeratePrototypes<AllergicReactionPrototype>().ToList();
     }
 
-    private void ShockOnTrigger(EntityUid uid, AllergicComponent allergic, ref AllergyTriggeredEvent ev)
-    {
-        if (!allergic.InShock)
-            allergic.InShock = true;
-    }
-
     private void Unshock(EntityUid uid, AllergicComponent allergic, ref AllergyFadedEvent ev)
     {
-        allergic.InShock = false;
+        allergic.NextShockEvent = TimeSpan.Zero;
     }
 
     private void AssignNextShockTiming(AllergicComponent allergic)
     {
-        allergic.NextShockEvent = _timing.CurTime + TimeSpan.FromMilliseconds(_random.NextFloat(2000, 4000));
+        allergic.NextShockEvent = _timing.CurTime + TimeSpan.FromSeconds(_random.NextFloat(allergic.MinimumTimeTilNextShockEvent, allergic.MaximumTimeTilNextShockEvent));
     }
 
     private void UpdateShock(EntityUid uid, AllergicComponent allergic)
     {
-        if (!allergic.InShock)
+        if (allergic.AllergyStack <= 0)
             return;
 
         if (allergic.NextShockEvent == TimeSpan.Zero)
@@ -46,7 +40,7 @@ public sealed partial class AllergicSystem : EntitySystem
             return;
         }
 
-        if (_timing.CurTime > allergic.NextShockEvent)
+        if (allergic.NextShockEvent > _timing.CurTime)
             return;
 
         AllergicReactionPrototype? picked = null;

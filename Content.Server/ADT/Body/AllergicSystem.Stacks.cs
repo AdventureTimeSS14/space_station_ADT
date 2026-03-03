@@ -11,7 +11,6 @@ public sealed partial class AllergicSystem : EntitySystem
 
     private void IncrementStackOnTrigger(EntityUid uid, AllergicComponent allergic, ref AllergyTriggeredEvent ev)
     {
-        Log.Debug("Adjusting stack");
         AdjustAllergyStack(uid, allergic.StackGrow, allergic);
     }
 

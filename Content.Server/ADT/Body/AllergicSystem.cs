@@ -16,7 +16,7 @@ public sealed partial class AllergicSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
 
-    private ProtoId<DamageGroupPrototype> _allergyDamageGroup = "Poison";
+    private ProtoId<DamageTypePrototype> _allergyDamageType = "Poison";
     private DamageTypePrototype? _allergyDamageTypeProto;
 
     public override void Initialize()
@@ -30,7 +30,7 @@ public sealed partial class AllergicSystem : EntitySystem
 
         InitializeShock();
 
-        _allergyDamageTypeProto = _proto.Index<DamageTypePrototype>(_allergyDamageGroup);
+        _allergyDamageTypeProto = _proto.Index<DamageTypePrototype>(_allergyDamageType);
     }
 
     public void OnInit(EntityUid uid, AllergicComponent component, ComponentInit args)
@@ -52,15 +52,11 @@ public sealed partial class AllergicSystem : EntitySystem
         AllergyTriggeredEvent triggered = new();
         RaiseLocalEvent(uid, ref triggered);
 
-        Log.Debug("We got some nasty shit inside!");
-
         ev.Effects = ev.Effects.Append(damageEffect).ToArray();
     }
 
     private void OnAllergyTriggered(EntityUid uid, AllergicComponent allergic, ref AllergyTriggeredEvent ev)
     {
-        Log.Debug("We got trigger event");
-        ShockOnTrigger(uid, allergic, ref ev);
         IncrementStackOnTrigger(uid, allergic, ref ev);
     }
 

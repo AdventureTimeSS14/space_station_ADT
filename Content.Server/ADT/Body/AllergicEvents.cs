@@ -7,13 +7,7 @@ namespace Content.Server.ADT.Body;
 /// When allergy triggered by allergens in bloodstream.
 /// </summary>
 [ByRefEvent]
-public struct AllergyTriggeredEvent
-{
-    /// <summary>
-    /// Allergen.
-    /// </summary>
-    public ProtoId<ReagentPrototype> Reagent;
-}
+public struct AllergyTriggeredEvent;
 
 /// <summary>
 /// When allergy stack has faded to zero.
