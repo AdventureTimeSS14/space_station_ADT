@@ -118,8 +118,8 @@
   id: ADTSecurityArrows
   name: research-technology-arrows-security
   icon:
-    sprite: ADT/Objects/Weapons/Guns/Bow/compound_bow_security.rsi
-    state: unwielded
+    sprite: Objects/Weapons/Guns/Projectiles/arrows.rsi
+    state: icon_craft
   discipline: Arsenal
   tier: 2
   cost: 4000
