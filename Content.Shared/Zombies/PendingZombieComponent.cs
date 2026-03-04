@@ -17,7 +17,7 @@ public sealed partial class PendingZombieComponent : Component
     {
         DamageDict = new ()
         {
-            { "Poison", 0.3 },
+            { "Poison", 2.0 }, // ADT-Tweak
         }
     };
 
@@ -47,6 +47,26 @@ public sealed partial class PendingZombieComponent : Component
     /// </summary>
     [DataField]
     public TimeSpan MaxInitialInfectedGrace = TimeSpan.FromMinutes(15f);
+
+    // ADT-Tweak start
+    /// <summary>
+    /// The time after which zombification becomes inevitable (cannot be cured).
+    /// </summary>
+    [DataField("inevitableZombificationTime")]
+    public TimeSpan InevitableZombificationTime = TimeSpan.FromMinutes(4);
+
+    /// <summary>
+    /// If true, this infection was caused by Romerol and should not show warnings.
+    /// </summary>
+    [DataField("romerolInfection")]
+    public bool RomerolInfection = false;
+
+    /// <summary>
+    /// The time left until zombification becomes inevitable.
+    /// </summary>
+    [DataField("timeUntilInevitable", customTypeSerializer:typeof(TimeOffsetSerializer))]
+    public TimeSpan TimeUntilInevitable;
+    // ADT-Tweak end
 
     /// <summary>
     /// The chance each second that a warning will be shown.

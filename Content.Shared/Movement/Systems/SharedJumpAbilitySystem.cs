@@ -7,6 +7,7 @@ using Content.Shared.Popups;
 using Content.Shared.Standing;
 using Content.Shared.Stunnable;
 using Content.Shared.Throwing;
+using Content.Shared.Zombies;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Physics.Events;
 
@@ -53,7 +54,13 @@ public sealed partial class SharedJumpAbilitySystem : EntitySystem
 
     private void OnLeaperCollide(Entity<ActiveLeaperComponent> entity, ref StartCollideEvent args)
     {
-        _stun.TryKnockdown(entity.Owner, entity.Comp.KnockdownDuration, force: true);
+        // ADT-Tweak start: Knock down the entity we collided with (if it's not a zombie)
+        if (args.OtherEntity != entity.Owner && !HasComp<ZombieComponent>(args.OtherEntity))
+        {
+            _stun.TryKnockdown(args.OtherEntity, entity.Comp.KnockdownDuration, force: true);
+        }
+        // ADT-Tweak end
+
         RemCompDeferred<ActiveLeaperComponent>(entity);
     }
 

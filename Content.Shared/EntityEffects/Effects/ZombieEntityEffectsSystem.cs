@@ -17,7 +17,9 @@ public sealed partial class CauseZombieInfectionEntityEffectsSystem : EntityEffe
             return;
 
         EnsureComp<ZombifyOnDeathComponent>(entity);
-        EnsureComp<PendingZombieComponent>(entity);
+        var pendingComp = EnsureComp<PendingZombieComponent>(entity); // ADT-Tweak
+
+        pendingComp.RomerolInfection = true; // ADT-Tweak: Mark as Romerol infection (no warnings)
     }
 }
 
@@ -32,6 +34,12 @@ public sealed partial class CureZombieInfectionEntityEffectsSystem : EntityEffec
     {
         if (HasComp<IncurableZombieComponent>(entity))
             return;
+
+        // ADT-Tweak start: Cannot cure if zombification is inevitable
+        if (TryComp<PendingZombieComponent>(entity, out var pendingComp) &&
+            pendingComp.TimeUntilInevitable <= TimeSpan.Zero)
+            return;
+        // ADT-Tweak emd
 
         RemComp<ZombifyOnDeathComponent>(entity);
         RemComp<PendingZombieComponent>(entity);

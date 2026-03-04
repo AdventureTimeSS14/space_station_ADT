@@ -35,7 +35,10 @@ using Content.Shared.Weapons.Melee;
 using Content.Shared.Zombies;
 using Content.Shared.Prying.Components;
 using Content.Shared.Traits.Assorted;
+using Content.Shared.Movement.Components;
 using Robust.Shared.Audio.Systems;
+using Content.Server.ADT.ZombieJump;
+using Content.Shared.ADT.ZombieJump;
 using Content.Shared.Ghost.Roles.Components;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Tag;
@@ -218,10 +221,27 @@ public sealed partial class ZombieSystem
             pryComp.PryPowered = true;
             pryComp.Force = true;
 
+            // ADT-Tweak start: Zombies get special jump ability with collision knockdown
+            var jumpComp = EnsureComp<ZombieJumpComponent>(target);
+            jumpComp.JumpDistance = zombiecomp.JumpDistance;
+            jumpComp.JumpThrowSpeed = zombiecomp.JumpThrowSpeed;
+            jumpComp.CollideKnockdown = zombiecomp.JumpCollideKnockdown;
+            // ADT-Tweak end
+
             Dirty(target, pryComp);
         }
 
         Dirty(target, melee);
+
+        // ADT-Tweak start: Non-humanoid zombies also get jump ability
+        if (!HasComp<HumanoidAppearanceComponent>(target))
+        {
+            var jumpComp = EnsureComp<ZombieJumpComponent>(target);
+            jumpComp.JumpDistance = zombiecomp.JumpDistance;
+            jumpComp.JumpThrowSpeed = zombiecomp.JumpThrowSpeed;
+            jumpComp.CollideKnockdown = zombiecomp.JumpCollideKnockdown;
+        }
+        // ADT-Tweak end
 
         //The zombie gets the assigned damage weaknesses and strengths
         _damageable.SetDamageModifierSetId(target, "Zombie");
@@ -260,8 +280,10 @@ public sealed partial class ZombieSystem
         _identity.QueueIdentityUpdate(target);
 
         var htn = EnsureComp<HTNComponent>(target);
-        htn.RootTask = new HTNCompoundTask() { Task = "SimpleHostileCompound" };
+        htn.RootTask = new HTNCompoundTask() { Task = "ZombieHostileCompound" };
         htn.Blackboard.SetValue(NPCBlackboard.Owner, target);
+        // Добавляем дальность прыжка для HTN
+        htn.Blackboard.SetValue("JumpRange", zombiecomp.JumpDistance);
         _npc.SleepNPC(target, htn);
 
         //He's gotta have a mind
