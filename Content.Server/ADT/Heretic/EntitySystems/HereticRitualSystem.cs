@@ -1,4 +1,6 @@
 using Content.Server.Heretic.Components;
+using Content.Server.Heretic.Ritual;
+using Content.Server.Chat.Managers;
 using Content.Shared.Heretic.Prototypes;
 using Content.Shared.Heretic;
 using Content.Shared.Interaction;
@@ -13,6 +15,8 @@ using Robust.Shared.Serialization.Manager;
 using Content.Shared.Examine;
 using Content.Shared.ADT.Heretic.Components;
 using Robust.Shared.Containers;
+using Content.Shared.Chat;
+using Robust.Server.Player;
 
 namespace Content.Server.Heretic.EntitySystems;
 
@@ -26,8 +30,106 @@ public sealed partial class HereticRitualSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _uiSystem = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
+    [Dependency] private readonly IChatManager _chatManager = default!;
+    [Dependency] private readonly IPlayerManager _playerManager = default!;
 
     public SoundSpecifier RitualSuccessSound = new SoundPathSpecifier("/Audio/ADT/Heretic/castsummon.ogg");
+
+    /// <summary>
+    ///     Отправляет рецепт ритуала в чат игроку
+    /// </summary>
+    private void SendRitualRecipeToChat(EntityUid performer, HereticRitualPrototype ritual)
+    {
+        var sb = new StringBuilder();
+
+        // Заголовок ритуала
+        var ritualName = Loc.GetString(ritual.LocName);
+        sb.AppendLine($"[color=#FF6B35]═══ {ritualName} ═══[/color]");
+
+        // Требуемые предметы (теги)
+        if (ritual.RequiredTags != null && ritual.RequiredTags.Count > 0)
+        {
+            sb.AppendLine($"[color=#AAAAAA]{Loc.GetString("heretic-ritual-recipe-required-items")}[/color]");
+            foreach (var tag in ritual.RequiredTags)
+            {
+                var tagKey = $"names_eligibleTags-{tag.Key.Id}";
+                var tagName = Loc.HasString(tagKey) ? Loc.GetString(tagKey) : tag.Key.Id;
+                var countStr = tag.Value > 1 ? $" x{tag.Value}" : "";
+                sb.AppendLine($"  • {tagName}{countStr}");
+            }
+        }
+
+        // Требуемые имена сущностей
+        if (ritual.RequiredEntityNames != null && ritual.RequiredEntityNames.Count > 0)
+        {
+            sb.AppendLine($"[color=#AAAAAA]{Loc.GetString("heretic-ritual-recipe-required-entities")}[/color]");
+            foreach (var entityName in ritual.RequiredEntityNames)
+            {
+                var countStr = entityName.Value > 1 ? $" x{entityName.Value}" : "";
+                sb.AppendLine($"  • {entityName.Key}{countStr}");
+            }
+        }
+
+        if (ritual.CustomBehaviors != null && ritual.CustomBehaviors.Count > 0)
+        {
+            foreach (var behavior in ritual.CustomBehaviors)
+            {
+                if (behavior is RitualSacrificeBehavior sacrifice)
+                {
+                    sb.AppendLine($"[color=#AAAAAA]{Loc.GetString("heretic-ritual-recipe-required-corpses", ("min", sacrifice.Min), ("max", sacrifice.Max))}[/color]");
+                }
+                if (behavior is RitualAscensionSacrificeBehavior ascensionSacrifice)
+                {
+                    sb.AppendLine($"[color=#AAAAAA]{Loc.GetString("heretic-ritual-recipe-required-corpses-ascension", ("min", ascensionSacrifice.Min), ("max", ascensionSacrifice.Max))}[/color]");
+                }
+                if (behavior is RitualTemperatureBehavior temp)
+                {
+                    if (temp.MinThreshold <= 0)
+                        sb.AppendLine($"[color=#AAAAAA]{Loc.GetString("heretic-ritual-recipe-requirement-cold", ("temp", temp.MinThreshold))}[/color]");
+                    else
+                        sb.AppendLine($"[color=#AAAAAA]{Loc.GetString("heretic-ritual-recipe-requirement-hot", ("temp", temp.MinThreshold))}[/color]");
+                }
+                if (behavior is RitualReagentPuddleBehavior reagent && reagent.Reagent != null)
+                {
+                    sb.AppendLine($"[color=#AAAAAA]{Loc.GetString("heretic-ritual-recipe-required-reagent", ("reagent", reagent.Reagent.Value))}[/color]");
+                }
+                // Обработка ритуала знаний - показывает текущие требуемые предметы
+                if (behavior is RitualKnowledgeBehavior)
+                {
+                    var knowledgeTags = RitualKnowledgeBehavior.GetRequiredTags();
+                    if (knowledgeTags.Count > 0)
+                    {
+                        sb.AppendLine($"[color=#AAAAAA]{Loc.GetString("heretic-ritual-recipe-required-items")}[/color]");
+                        foreach (var tag in knowledgeTags)
+                        {
+                            var tagKey = $"names_eligibleTags-{tag.Key.Id}";
+                            var tagName = Loc.HasString(tagKey) ? Loc.GetString(tagKey) : tag.Key.Id;
+                            var countStr = tag.Value > 1 ? $" x{tag.Value}" : "";
+                            sb.AppendLine($"  • {tagName}{countStr}");
+                        }
+                    }
+                    else
+                    {
+                        sb.AppendLine($"[color=#AAAAAA]{Loc.GetString("heretic-ritual-recipe-required-items-knowledge")}[/color]");
+                    }
+                }
+            }
+        }
+
+        var message = sb.ToString();
+        var wrappedMessage = Loc.GetString("chat-manager-server-wrap-message", ("message", message));
+
+        if (_playerManager.TryGetSessionByEntity(performer, out var session))
+        {
+            _chatManager.ChatMessageToOne(ChatChannel.Server,
+                message,
+                wrappedMessage,
+                default,
+                false,
+                session.Channel,
+                Color.FromHex("#FF9632"));
+        }
+    }
 
     public HereticRitualPrototype GetRitual(ProtoId<HereticRitualPrototype>? id)
     {
@@ -183,8 +285,10 @@ public sealed partial class HereticRitualSystem : EntitySystem
 
         heretic.ChosenRitual = args.ProtoId;
 
-        var ritualName = Loc.GetString(GetRitual(heretic.ChosenRitual).LocName);
+        var ritual = GetRitual(heretic.ChosenRitual);
+        var ritualName = Loc.GetString(ritual.LocName);
         _popup.PopupEntity(Loc.GetString("heretic-ritual-switch", ("name", ritualName)), user, user);
+        SendRitualRecipeToChat(user, ritual);
     }
 
     private void OnInteractUsing(Entity<HereticRitualRuneComponent> ent, ref InteractUsingEvent args)
