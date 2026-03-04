@@ -5,6 +5,7 @@ using Content.Shared.Gravity;
 using Content.Shared.Movement.Components;
 using Content.Shared.Popups;
 using Content.Shared.Standing;
+using Content.Shared.Stunnable;
 using Content.Shared.Throwing;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Physics.Events;
@@ -17,6 +18,7 @@ public sealed partial class SharedJumpAbilitySystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedGravitySystem _gravity = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
+    [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly StandingStateSystem _standing = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
 
@@ -51,6 +53,7 @@ public sealed partial class SharedJumpAbilitySystem : EntitySystem
 
     private void OnLeaperCollide(Entity<ActiveLeaperComponent> entity, ref StartCollideEvent args)
     {
+        _stun.TryKnockdown(entity.Owner, entity.Comp.KnockdownDuration, force: true);
         RemCompDeferred<ActiveLeaperComponent>(entity);
     }
 
