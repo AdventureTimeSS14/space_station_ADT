@@ -241,6 +241,7 @@ public sealed partial class ZombieSystem
             jumpComp.JumpDistance = zombiecomp.JumpDistance;
             jumpComp.JumpThrowSpeed = zombiecomp.JumpThrowSpeed;
             jumpComp.CollideKnockdown = zombiecomp.JumpCollideKnockdown;
+            Dirty(target, jumpComp);
         }
         // ADT-Tweak end
 
@@ -281,7 +282,7 @@ public sealed partial class ZombieSystem
         _identity.QueueIdentityUpdate(target);
 
         var htn = EnsureComp<HTNComponent>(target);
-        htn.RootTask = new HTNCompoundTask() { Task = "ZombieHostileCompound" };
+        htn.RootTask = new HTNCompoundTask() { Task = "ZombieHostileCompound" }; // ADT-Tweak
         htn.Blackboard.SetValue(NPCBlackboard.Owner, target);
         // Добавляем дальность прыжка для HTN
         htn.Blackboard.SetValue("JumpRange", zombiecomp.JumpDistance);
