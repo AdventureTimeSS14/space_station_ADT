@@ -368,14 +368,18 @@ public sealed partial class MechSystem : SharedMechSystem
 
     public override void BreakMech(EntityUid uid, MechComponent? component = null)
     {
+        if (!Resolve(uid, ref component))
+            return;
+
+        // ADT-Tweak start: stop move zero power cell - обновляем ДО катапультирования
+        if (component.PilotSlot.ContainedEntity != null)
+            _actionBlocker.UpdateCanMove(component.PilotSlot.ContainedEntity.Value);
+        // ADT-Tweak end
+
         base.BreakMech(uid, component);
 
         _ui.CloseUi(uid, MechUiKey.Key);
         _actionBlocker.UpdateCanMove(uid);
-        // ADT-Tweak start: stop move zero power cell
-        if (component?.PilotSlot.ContainedEntity != null)
-            _actionBlocker.UpdateCanMove(component.PilotSlot.ContainedEntity.Value);
-        // ADT-Tweak end
     }
 
     public override bool TryChangeEnergy(EntityUid uid, FixedPoint2 delta, MechComponent? component = null)
