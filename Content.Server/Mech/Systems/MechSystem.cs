@@ -73,6 +73,7 @@ public sealed partial class MechSystem : SharedMechSystem
         SubscribeLocalEvent<MechComponent, MechEquipmentRemoveMessage>(OnRemoveEquipmentMessage);
 
         SubscribeLocalEvent<MechComponent, UpdateCanMoveEvent>(OnMechCanMoveEvent);
+        SubscribeLocalEvent<MechPilotComponent, UpdateCanMoveEvent>(OnMechPilotCanMoveEvent); // ADT-Tweak
 
 
         SubscribeLocalEvent<MechPilotComponent, ToolUserAttemptUseEvent>(OnToolUseAttempt);
@@ -95,6 +96,14 @@ public sealed partial class MechSystem : SharedMechSystem
         if (component.Broken || component.Integrity <= 0 || component.Energy <= 0)
             args.Cancel();
     }
+
+    // ADT-Tweak start: stop move zero power cell
+    private void OnMechPilotCanMoveEvent(EntityUid uid, MechPilotComponent component, UpdateCanMoveEvent args)
+    {
+        if (TryComp<MechComponent>(component.Mech, out var mech) && mech.Energy <= 0)
+            args.Cancel();
+    }
+     // ADT-Tweak end
 
     private void OnInteractUsing(EntityUid uid, MechComponent component, InteractUsingEvent args)
     {
@@ -298,6 +307,12 @@ public sealed partial class MechSystem : SharedMechSystem
             var damage = args.DamageDelta * component.MechToPilotDamageMultiplier;
             _damageable.ChangeDamage(component.PilotSlot.ContainedEntity.Value, damage);
         }
+
+        // ADT-Tweak start: stop move zero power cell
+        _actionBlocker.UpdateCanMove(uid);
+        if (component.PilotSlot.ContainedEntity != null)
+            _actionBlocker.UpdateCanMove(component.PilotSlot.ContainedEntity.Value);
+        // ADT-Tweak end
     }
 
     private void ToggleMechUi(EntityUid uid, MechComponent? component = null, EntityUid? user = null)
@@ -357,6 +372,10 @@ public sealed partial class MechSystem : SharedMechSystem
 
         _ui.CloseUi(uid, MechUiKey.Key);
         _actionBlocker.UpdateCanMove(uid);
+        // ADT-Tweak start: stop move zero power cell
+        if (component?.PilotSlot.ContainedEntity != null)
+            _actionBlocker.UpdateCanMove(component.PilotSlot.ContainedEntity.Value);
+        // ADT-Tweak end
     }
 
     public override bool TryChangeEnergy(EntityUid uid, FixedPoint2 delta, MechComponent? component = null)
@@ -382,6 +401,11 @@ public sealed partial class MechSystem : SharedMechSystem
             Dirty(uid, component);
         }
         _actionBlocker.UpdateCanMove(uid);
+        // ADT-Tweak start: stop move zero power cell
+        if (component.PilotSlot.ContainedEntity != null)
+            _actionBlocker.UpdateCanMove(component.PilotSlot.ContainedEntity.Value);
+        // ADT-Tweak end
+
         return true;
     }
 
@@ -398,6 +422,10 @@ public sealed partial class MechSystem : SharedMechSystem
         component.MaxEnergy = battery.MaxCharge;
 
         _actionBlocker.UpdateCanMove(uid);
+        // ADT-Tweak start: stop move zero power cell
+        if (component.PilotSlot.ContainedEntity != null)
+            _actionBlocker.UpdateCanMove(component.PilotSlot.ContainedEntity.Value);
+        // ADT-Tweak end
 
         Dirty(uid, component);
         UpdateUserInterface(uid, component);
@@ -413,6 +441,10 @@ public sealed partial class MechSystem : SharedMechSystem
         component.MaxEnergy = 0;
 
         _actionBlocker.UpdateCanMove(uid);
+        // ADT-Tweak start: stop move zero power cell
+        if (component.PilotSlot.ContainedEntity != null)
+            _actionBlocker.UpdateCanMove(component.PilotSlot.ContainedEntity.Value);
+        // ADT-Tweak end
 
         Dirty(uid, component);
         UpdateUserInterface(uid, component);
