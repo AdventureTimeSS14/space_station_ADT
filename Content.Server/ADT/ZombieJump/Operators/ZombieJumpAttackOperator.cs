@@ -72,8 +72,20 @@ public sealed partial class ZombieJumpAttackOperator : HTNOperator
             return (false, null);
 
         var owner = blackboard.GetValue<EntityUid>(NPCBlackboard.Owner);
-        var ownerXform = _entManager.GetComponent<TransformComponent>(owner);
-        var targetXform = _entManager.GetComponent<TransformComponent>(target);
+
+        if (!_entManager.HasComponent<ZombieJumpComponent>(owner))
+            return (false, null);
+
+        if (blackboard.TryGetValue<double>("LastJumpTime", out var lastJumpTime, _entManager))
+        {
+            var currentTime = _gameTiming.CurTime.TotalSeconds;
+            if (currentTime - lastJumpTime < Cooldown)
+                return (false, null);
+        }
+
+        if (!_entManager.TryGetComponent<TransformComponent>(owner, out var ownerXform) ||
+            !_entManager.TryGetComponent<TransformComponent>(target, out var targetXform))
+            return (false, null);
 
         if (ownerXform.MapID != targetXform.MapID)
             return (false, null);

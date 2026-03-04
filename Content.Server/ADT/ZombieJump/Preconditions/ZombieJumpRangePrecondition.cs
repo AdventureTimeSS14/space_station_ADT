@@ -35,6 +35,10 @@ public sealed partial class ZombieJumpRangePrecondition : HTNPrecondition
                 return false;
 
             var jumpRange = blackboard.GetValueOrDefault<float>(RangeKey, _entManager);
+
+            if (jumpRange <= 0f)
+                return false;
+
             return _transformSystem.InRange(coordinates, targetXform.Coordinates, jumpRange);
         }
         catch

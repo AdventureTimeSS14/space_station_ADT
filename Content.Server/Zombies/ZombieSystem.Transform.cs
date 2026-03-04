@@ -226,6 +226,7 @@ public sealed partial class ZombieSystem
             jumpComp.JumpDistance = zombiecomp.JumpDistance;
             jumpComp.JumpThrowSpeed = zombiecomp.JumpThrowSpeed;
             jumpComp.CollideKnockdown = zombiecomp.JumpCollideKnockdown;
+            Dirty(target, jumpComp);
             // ADT-Tweak end
 
             Dirty(target, pryComp);

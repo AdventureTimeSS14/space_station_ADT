@@ -39,7 +39,7 @@ public sealed partial class CureZombieInfectionEntityEffectsSystem : EntityEffec
         if (TryComp<PendingZombieComponent>(entity, out var pendingComp) &&
             pendingComp.TimeUntilInevitable <= TimeSpan.Zero)
             return;
-        // ADT-Tweak emd
+        // ADT-Tweak end
 
         RemComp<ZombifyOnDeathComponent>(entity);
         RemComp<PendingZombieComponent>(entity);

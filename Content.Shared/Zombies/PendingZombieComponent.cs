@@ -64,8 +64,8 @@ public sealed partial class PendingZombieComponent : Component
     /// <summary>
     /// The time left until zombification becomes inevitable.
     /// </summary>
-    [DataField("timeUntilInevitable", customTypeSerializer:typeof(TimeOffsetSerializer))]
-    public TimeSpan TimeUntilInevitable;
+    [DataField("timeUntilInevitable")]
+    public TimeSpan TimeUntilInevitable = TimeSpan.FromMinutes(4);
     // ADT-Tweak end
 
     /// <summary>
