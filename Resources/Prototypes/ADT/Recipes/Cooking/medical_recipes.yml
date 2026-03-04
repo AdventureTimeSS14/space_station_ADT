@@ -105,6 +105,19 @@
     DexalinPlus: 20
   recipeType: MedicalAssembler
 
+- type: microwaveMealRecipe
+  id: RecipeCombatMedipen
+  name: combat medipen
+  result: CombatMedipen
+  time: 5
+  group: Medicinal
+  solids:
+    ADTBlankMediPen: 1
+  reagents:
+    Omnizine: 25
+    TranexamicAcid: 5
+  recipeType: MedicalAssembler
+
 #Frontier pen recipes
 
 - type: microwaveMealRecipe
@@ -183,17 +196,4 @@
   reagents:
     Ethylredoxrazine: 15
     Dylovene: 5
-  recipeType: MedicalAssembler
-
-- type: microwaveMealRecipe
-  id: RecipeCombatMedipen
-  name: combat medipen
-  result: CombatMedipen
-  time: 5
-  group: Medicinal
-  solids:
-    ADTBlankMediPen: 1
-  reagents:
-    Omnizine: 25
-    TranexamicAcid: 5
   recipeType: MedicalAssembler
