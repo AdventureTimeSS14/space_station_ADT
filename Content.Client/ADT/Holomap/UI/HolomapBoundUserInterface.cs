@@ -27,10 +27,6 @@ public sealed class HolomapBoundUserInterface : BoundUserInterface
     protected override void UpdateState(BoundUserInterfaceState state)
     {
         base.UpdateState(state);
-        if (state is HolomapBoundUserInterfaceState uiState)
-        {
-            _window?.UpdateState(uiState);
-        }
     }
 
     private void OnModeSelected(HolomapMode mode)

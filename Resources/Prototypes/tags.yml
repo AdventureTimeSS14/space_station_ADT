@@ -294,7 +294,6 @@
 - type: Tag
   id: ChefPilot # Tagged entity can control someone wearing a Chef's hat if inside their hat.
 
-# Allowed to control someone wearing a Chef's hat if inside their hat.
 - type: Tag
   id: ChemDispensable # Storage whitelist: ChemDispenserEmpty, SmartFridge, BorgModuleAdvancedChemical
 

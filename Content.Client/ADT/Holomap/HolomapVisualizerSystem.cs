@@ -1,7 +1,6 @@
 using Content.Shared.ADT.Holomap;
 using Content.Shared.Power;
 using Robust.Client.GameObjects;
-using Robust.Shared.Utility;
 
 namespace Content.Client.ADT.Holomap;
 
@@ -66,7 +65,6 @@ public sealed class HolomapVisualizerSystem : VisualizerSystem<HolomapComponent>
 
             case HolomapMode.Lavaland:
                 SpriteSystem.LayerSetVisible(sprite, HolomapVisualLayers.Lavaland, true);
-                SpriteSystem.LayerSetRsi(sprite, HolomapVisualLayers.Lavaland, new ResPath("ADT/Structures/Specific/holomap_lavaland.rsi"));
                 SpriteSystem.LayerSetRsiState(sprite, HolomapVisualLayers.Lavaland, "lavaland");
                 SpriteSystem.LayerSetAutoAnimated(sprite, HolomapVisualLayers.Lavaland, true);
                 break;

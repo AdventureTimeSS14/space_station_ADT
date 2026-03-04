@@ -18,9 +18,4 @@ public sealed partial class HolomapWindow : BaseWindow
         BattlemapButton.OnPressed += _ => OnModeSelected?.Invoke(HolomapMode.Battlemap);
         LavalandButton.OnPressed += _ => OnModeSelected?.Invoke(HolomapMode.Lavaland);
     }
-
-    public void UpdateState(HolomapBoundUserInterfaceState state)
-    {
-        // Update button states if needed
-    }
 }
