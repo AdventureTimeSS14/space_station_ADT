@@ -57,9 +57,14 @@
       - ADTGygaxLLeg
       - ADTGygaxRLeg
       - ADTGygaxHead
+    containerId: mech-assembly-container
   - type: Sprite
     state: gygax_harness+o
     noRot: true
+  - type: Construction
+    graph: ADTGygax
+    node: start
+    defaultTarget: gygax
 
 - type: entity
   parent: ADTBaseGygaxPartItem
@@ -148,7 +153,3 @@
   - type: Sprite
     noRot: true
     state: gygax0
-  - type: Construction
-    graph: ADTGygax
-    node: start
-    defaultTarget: gygax
