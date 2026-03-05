@@ -261,6 +261,12 @@ public sealed class AttachableToggleableSystem : EntitySystem
         if (!attachable.Comp.NeedHand || !attachable.Comp.Active)
             return;
 
+        if (_attachableHolderSystem.TryGetHolder(attachable.Owner, out var holderUid) &&
+            _handsSystem.IsHolding(args.User, holderUid.Value))
+        {
+            return;
+        }
+
         Toggle(attachable, args.User, attachable.Comp.DoInterrupt);
     }
 
