@@ -33,7 +33,7 @@
   - type: Organ
   - type: Metabolizer
     maxReagents: 1
-    metabolizerTypes: [ Animal ]
+    metabolizerTypes: [ Vulpkanin ]
     groups:
     - id: Alcohol
       rateModifier: 0.1
