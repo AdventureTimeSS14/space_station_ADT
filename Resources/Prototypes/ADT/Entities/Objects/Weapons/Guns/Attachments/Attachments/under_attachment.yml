@@ -134,8 +134,6 @@
       state: masterkey-on
     doAfter: 0
   - type: AttachableVisuals
-  - type: UniqueAction
-  - type: PumpAction
   - type: Item
     sprite: ADT/Objects/Weapons/Guns/Attachments/under.rsi
     storedRotation: -90
