@@ -48,7 +48,6 @@
           !type:PhysShapeCircle
           radius: 0.35
         density: 0
-        canCollide: false
         layer: []
   # ADT-Tweak end
   - type: Access
