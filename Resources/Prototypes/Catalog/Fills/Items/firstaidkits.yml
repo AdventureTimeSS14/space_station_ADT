@@ -35,8 +35,8 @@
     contents:
       - id: Brutepack
       - id: Gauze
-      - id: PillCanisterIron
-      - id: PillCanisterCopper
+      - id: PillCanisterBicaridine #ADT-Tweak PillCanisterIron > PillCanisterBicaridine
+      - id: PillCanisterTricordrazine #ADT-Tweak PillCanisterCopper > PillCanisterTricordrazine
       - id: BruteAutoInjector #ADT-Tweak
       - id: ADTPatchHealing #ADT-Tweak
 

@@ -142,7 +142,7 @@
   - type: SolutionContainerManager
     solutions:
       pen:
-        maxVol: 15
+        maxVol: 20
         reagents:
         - ReagentId: Lacerinol
           Quantity: 10
@@ -168,7 +168,7 @@
   - type: SolutionContainerManager
     solutions:
       pen:
-        maxVol: 15
+        maxVol: 20
         reagents:
         - ReagentId: Bruizine
           Quantity: 10
