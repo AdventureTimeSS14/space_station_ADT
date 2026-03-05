@@ -184,3 +184,29 @@
     Ethylredoxrazine: 15
     Dylovene: 5
   recipeType: MedicalAssembler
+
+- type: microwaveMealRecipe
+  id: RecipeSigynateAutoInjector
+  name: sigynate auto-injector
+  result: ADTSigynateAutoInjector
+  time: 5
+  group: Medicinal
+  solids:
+    ADTBlankMediPen: 1
+  reagents:
+    Sigynate: 15
+    Dermaline: 5
+  recipeType: MedicalAssembler
+
+- type: microwaveMealRecipe
+  id: RecipePolypyryliumOligomersAutoInjector
+  name: polypyrylium oligomers auto-injector
+  result: ADTPolypyryliumOligomersAutoInjector
+  time: 5
+  group: Medicinal
+  solids:
+    ADTBlankMediPen: 1
+  reagents:
+    PolypyryliumOligomers: 10
+    ADTStypticPowder: 10
+  recipeType: MedicalAssembler
