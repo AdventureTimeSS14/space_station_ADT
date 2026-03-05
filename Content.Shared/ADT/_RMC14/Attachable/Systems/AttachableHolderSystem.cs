@@ -752,7 +752,14 @@ public sealed class AttachableHolderSystem : EntitySystem
 
     public void RelayEvent<T>(Entity<AttachableHolderComponent> holder, ref T args) where T : notnull
     {
-        var ev = new AttachableRelayedEvent<T>(args, holder.Owner);
+        EntityUid user = default;
+        
+        if (args is EquippedHandEvent equippedEvent)
+            user = equippedEvent.User;
+        else if (args is UnequippedHandEvent unequippedEvent)
+            user = unequippedEvent.User;
+
+        var ev = new AttachableRelayedEvent<T>(args, holder.Owner, user);
 
         foreach (var slot in holder.Comp.Slots.Keys)
         {
