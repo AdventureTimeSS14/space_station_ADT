@@ -157,7 +157,7 @@ public sealed class TapeRecorderSystem : SharedTapeRecorderSystem
             if (_proto.Index(language).LanguageType is not Generic gen)
                 return;
 
-            var languagedMessage = _language.CanUnderstand(uid, language) ? message.Message : _language.ObfuscateMessage(uid, message.Message, gen.Replacement, gen.ObfuscateSyllables);
+            var languagedMessage = _language.CanUnderstand(uid, language) ? message.Message : _language.ObfuscateMessage(uid, message.Message, gen.Replacement, gen.ObfuscateSyllables, gen.ReplaceEntireMessage);
 
             text.AppendLine(Loc.GetString("tape-recorder-print-message-text",
                 ("time", time.ToString(@"hh\:mm\:ss")),
