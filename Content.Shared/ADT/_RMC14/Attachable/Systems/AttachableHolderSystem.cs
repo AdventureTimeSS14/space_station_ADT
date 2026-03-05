@@ -754,9 +754,9 @@ public sealed class AttachableHolderSystem : EntitySystem
     {
         EntityUid user = default;
         
-        if (args is EquippedHandEvent equippedEvent)
+        if (args is GotEquippedHandEvent equippedEvent)
             user = equippedEvent.User;
-        else if (args is UnequippedHandEvent unequippedEvent)
+        else if (args is GotUnequippedHandEvent unequippedEvent)
             user = unequippedEvent.User;
 
         var ev = new AttachableRelayedEvent<T>(args, holder.Owner, user);

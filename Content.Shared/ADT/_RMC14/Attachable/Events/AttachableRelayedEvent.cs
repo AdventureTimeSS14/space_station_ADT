@@ -16,9 +16,9 @@ public sealed class AttachableRelayedEvent<TEvent> : EntityEventArgs
         Args = args;
         Holder = holder;
         
-        if (args is EquippedHandEvent equippedEvent)
+        if (args is GotEquippedHandEvent equippedEvent)
             User = equippedEvent.User;
-        else if (args is UnequippedHandEvent unequippedEvent)
+        else if (args is GotUnequippedHandEvent unequippedEvent)
             User = unequippedEvent.User;
         else
             User = user;

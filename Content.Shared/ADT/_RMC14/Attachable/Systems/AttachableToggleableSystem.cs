@@ -382,12 +382,11 @@ public sealed class AttachableToggleableSystem : EntitySystem
         // Instant toggle if doAfter is 0 or negative
         if (attachable.Comp.DoAfter <= 0f)
         {
-            if (!TryComp(args.Holder, out AttachableHolderComponent? holderComponent) ||
-                !_attachableHolderSystem.TryGetSlotId(args.Holder, attachable.Owner, out var slotId))
-            {
+            if (!TryComp(args.Holder, out AttachableHolderComponent? holderComponent))
                 return;
-            }
-            FinishToggle(attachable, (args.Holder, holderComponent), slotId, args.User, popupText);
+
+            FinishToggle(attachable, (args.Holder, holderComponent), args.SlotId, args.User, popupText);
+            Dirty(attachable);
             return;
         }
 
