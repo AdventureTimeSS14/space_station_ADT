@@ -39,6 +39,16 @@
   - type: Physics
     ignorePaused: true
     bodyType: Kinematic
+    canCollide: false
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 0
+        canCollide: false
+        layer: []
   - type: Access
     groups:
     - Silicon
