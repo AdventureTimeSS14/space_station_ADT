@@ -53,7 +53,6 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
 
     private ActionButtonContainer? _container;
     private readonly List<EntityUid?> _actions = new();
-    private readonly HashSet<EntityUid> _hiddenActions = new(); // ADT-Tweak: Actions that the user has explicitly hidden from the hotbar
     private readonly DragDropHelper<ActionButton> _menuDragHelper;
     private readonly TextureRect _dragShadow;
     private ActionsWindow? _window;
@@ -98,7 +97,6 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
     private void OnScreenUnload()
     {
         UnloadGui();
-        _hiddenActions.Clear(); // ADT-Tweak: Clear hidden actions when unloading the game screen
     }
 
     public void OnStateEntered(GameplayState state)
@@ -437,29 +435,17 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
 
         if (actionId == null)
         {
+            button.ClearData();
             if (_container?.TryGetButtonIndex(button, out position) ?? false)
             {
                 if (_actions.Count > position && position >= 0)
-                // ADT-Tweak start: // user is removing an action from the hotbar - add it to the hidden list
-                {
-                    var removedAction = _actions[position];
-                    if (removedAction.HasValue)
-                    {
-                        _hiddenActions.Add(removedAction.Value);
-                    }
-                }
-                // ADT-Tweak end
-                _actions.RemoveAt(position);
+                    _actions.RemoveAt(position);
             }
-            button.ClearData(); // ADT-Tweak
         }
         else if (button.TryReplaceWith(actionId.Value, _actionsSystem) &&
             _container != null &&
             _container.TryGetButtonIndex(button, out position))
         {
-            // User is adding an action to the hotbar - remove it from the hidden list
-            _hiddenActions.Remove(actionId.Value);
-
             if (position >= _actions.Count)
             {
                 _actions.Add(actionId);
@@ -709,7 +695,6 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
     private void ClearActions()
     {
         _container?.ClearActionData();
-        _hiddenActions.Clear(); // ADT-Tweak
     }
 
     private void AssignSlots(List<SlotAssignment> assignments)
@@ -767,7 +752,6 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
     private void OnComponentUnlinked()
     {
         _container?.ClearActionData();
-        // Don't clear _hiddenActions - we want to preserve user's hotbar customizations across polymorphs
         QueueWindowUpdate();
         StopTargeting();
     }
@@ -780,14 +764,9 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         var actions = _actionsSystem.GetClientActions().Where(action => action.Comp.AutoPopulate).ToList();
         actions.Sort(ActionComparer);
 
-        // Don't clear the list - only add actions that aren't already present
-        // This preserves user's hotbar customizations
+        _actions.Clear();
         foreach (var (action, _) in actions)
         {
-            // ADT-Tweak start: Skip actions that the user has explicitly hidden from the hotbar
-            if (_hiddenActions.Contains(action))
-                continue;
-            // ADT-Tweak end
             if (!_actions.Contains(action))
                 _actions.Add(action);
         }
