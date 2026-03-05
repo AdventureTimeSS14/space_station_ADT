@@ -39,7 +39,8 @@
   - type: Physics
     ignorePaused: true
     bodyType: Kinematic
-    canCollide: false
+    canCollide: false # ADT-Tweak
+  # ADT-Tweak start: новая физика, чтоб не ломать физику других
   - type: Fixtures
     fixtures:
       fix1:
@@ -49,6 +50,7 @@
         density: 0
         canCollide: false
         layer: []
+  # ADT-Tweak end
   - type: Access
     groups:
     - Silicon
