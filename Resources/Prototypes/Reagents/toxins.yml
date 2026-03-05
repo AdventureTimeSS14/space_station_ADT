@@ -581,7 +581,7 @@
       - !type:AdjustReagent
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Animal, Ursus ]
+          type: [ Animal, Ursus ] # ADT-Tweak
 # ADT-Tweak-Start
         - !type:MetabolizerTypeCondition
           type: [ Felinid ]
