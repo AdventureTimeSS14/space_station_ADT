@@ -118,7 +118,7 @@
       pen:
         maxVol: 20
         reagents:
-        - ReagentId: Inaprovaline
+        - ReagentId: Epinephrine
           Quantity: 10
         - ReagentId: DexalinPlus
           Quantity: 10
@@ -146,8 +146,8 @@
         reagents:
         - ReagentId: Lacerinol
           Quantity: 10
-        - ReagentId: TranexamicAcid
-          Quantity: 5
+        - ReagentId: ADTStypticPowder
+          Quantity: 10
   - type: Tag
     tags:
     - ADTMedipen
@@ -172,8 +172,8 @@
         reagents:
         - ReagentId: Bruizine
           Quantity: 10
-        - ReagentId: TranexamicAcid
-          Quantity: 5
+        - ReagentId: ADTStypticPowder
+          Quantity: 10
   - type: Tag
     tags:
     - ADTMedipen

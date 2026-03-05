@@ -228,12 +228,12 @@
   - type: SolutionContainerManager
     solutions:
       pen:
-        maxVol: 15
+        maxVol: 20 #ADT-Tweak 15 > 20
         reagents:
-        - ReagentId: Ultravasculine
+        - ReagentId: Diphenhydramine #ADT-Tweak Ultravasculine > Diphenhydramine
           Quantity: 10
-        - ReagentId: Epinephrine
-          Quantity: 5
+        - ReagentId: Dylovene #ADT-Tweak Epinephrine > Dylovene
+          Quantity: 10 #ADT-Tweak 5 > 10
     #ADT Tweak Start
   - type: Tag
     tags:
@@ -278,9 +278,9 @@
         maxVol: 20
         reagents:
         - ReagentId: Bicaridine
-          Quantity: 15
-        - ReagentId: TranexamicAcid
-          Quantity: 5
+          Quantity: 10 #ADT-Tweak 15 > 10
+        - ReagentId: ADTStypticPowder #ADT-Tweak TranexamicAcid > ADTStypticPowder
+          Quantity: 10 #ADT-Tweak 5 > 10
     #ADT Tweak Start
   - type: Tag
     tags:
@@ -420,8 +420,8 @@
         reagents:
         - ReagentId: Puncturase
           Quantity: 10
-        - ReagentId: TranexamicAcid
-          Quantity: 5
+        - ReagentId: ADTStypticPowder #ADT-Tweak TranexamicAcid > ADTStypticPowder
+          Quantity: 10 #ADT-Tweak 5 > 10
     #ADT Tweak Start
   - type: Tag
     tags:
@@ -515,7 +515,7 @@
         - ReagentId: Saline
           Quantity: 10
         - ReagentId: DexalinPlus
-          Quantity: 20
+          Quantity: 10 #ADT-Tweak 20 > 10
     #ADT Tweak Start
   - type: Tag
     tags:
