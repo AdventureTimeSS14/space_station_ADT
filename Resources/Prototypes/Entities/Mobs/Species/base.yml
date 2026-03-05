@@ -120,15 +120,11 @@
       Extinguish: [ Touch ]
       Acidic: [Touch, Ingestion]
     reactions:
-    - reagents: [Water, SpaceCleaner]
-      methods: [Touch]
-      effects:
-      - !type:WashCreamPieReaction
     #ADT-Tweak=Start
     - reagents: [Water, SpaceCleaner]
       methods: [Touch]
       effects:
-      - !type:WashStampReaction
+      - !type:WashStamp
     #ADT-Tweak-End
     - reagents: [Water, SpaceCleaner]
       methods: [Touch]

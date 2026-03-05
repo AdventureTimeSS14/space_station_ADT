@@ -70,10 +70,6 @@
       Flammable: [ Touch ]
       Extinguish: [ Touch ]
     reactions:
-    - reagents: [ Water, SpaceCleaner ]
-      methods: [ Touch ]
-      effects:
-      - !type:WashCreamPieReaction
     - reagents: [Water, SpaceCleaner]
       methods: [Touch]
       effects:
