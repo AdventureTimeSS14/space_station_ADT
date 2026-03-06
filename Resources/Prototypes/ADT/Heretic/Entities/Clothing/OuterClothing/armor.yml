@@ -31,3 +31,5 @@
   - type: ClothingGrantComponent
     component:
     - type: GrabProtection
+  - type: HidesSlots
+    hidesSlots: [ INNERCLOTHING, UNDERWEART, UNDERWEARB, POCKET ]
