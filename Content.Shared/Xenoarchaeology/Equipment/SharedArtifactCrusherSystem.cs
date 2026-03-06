@@ -128,13 +128,16 @@ public abstract class SharedArtifactCrusherSystem : EntitySystem
             return;
 
         //ADT-Tweak-Start
-        foreach (var contained in storage.Contents.ContainedEntities)
+        if (crusher.SafetyProtocols)
         {
-            if (TryComp<BodyComponent>(contained, out _))
+            foreach (var contained in storage.Contents.ContainedEntities)
             {
-                _popup.PopupPredicted(Loc.GetString("artifact-crusher-verb-denied"), uid, user);
-                PlayDenySound(ent);
-                return;
+                if (TryComp<BodyComponent>(contained, out _))
+                {
+                    _popup.PopupPredicted(Loc.GetString("artifact-crusher-verb-denied"), uid, user);
+                    PlayDenySound(ent);
+                    return;
+                }
             }
         }
         //ADT-Tweak-End

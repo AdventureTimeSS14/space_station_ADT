@@ -168,3 +168,13 @@
   components:
   - type: Sprite
     sprite: Structures/Machines/body_crusher.rsi
+  #ADT-Tweak-Start
+  - type: ArtifactCrusher
+    safetyProtocols: false
+    crushingWhitelist:
+      components:
+      - XenoArtifact
+    crushingDamage:
+      types:
+        Blunt: 10
+  #ADT-Tweak-End

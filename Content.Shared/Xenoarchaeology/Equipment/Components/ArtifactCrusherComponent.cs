@@ -131,6 +131,12 @@ public sealed partial class ArtifactCrusherComponent : Component
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
     [AutoNetworkedField, AutoPausedField]
     public TimeSpan NextDenySoundTime;
+
+    /// <summary>
+    /// Next time a deny sound can be played.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool SafetyProtocols = true;
     //ADT-Tweak-End
 }
 
