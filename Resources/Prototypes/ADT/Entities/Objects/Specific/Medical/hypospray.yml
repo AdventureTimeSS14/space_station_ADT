@@ -239,7 +239,7 @@
     - ADTMedipen
 
 - type: entity
-  name: sigynate auto-injector
+  name: polypyrylium oligomers auto-injector
   parent: ChemicalMedipen
   id: ADTPolypyryliumOligomersAutoInjector
   description: A rapid dose of polypyrylium oligomers and styptic powder, intended for combat applications.

@@ -225,6 +225,13 @@
     maxFillLevels: 1
     changeColor: false
     emptySpriteName: diphenhydramine_empty #ADT-Tweak
+  #ADT-Tweak-Start
+  - type: Hypospray
+    solutionName: pen
+    transferAmount: 20
+    onlyAffectsMobs: false
+    injectOnly: true
+  #ADT-Tweak-End
   - type: SolutionContainerManager
     solutions:
       pen:
@@ -410,7 +417,7 @@
     emptySpriteName: punctpen_empty
   - type: Hypospray
     solutionName: pen
-    transferAmount: 15
+    transferAmount: 20 #ADT-Tweak 15 > 20
     onlyAffectsMobs: false
     injectOnly: true
   - type: SolutionContainerManager
