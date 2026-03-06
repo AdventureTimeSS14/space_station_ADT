@@ -124,6 +124,7 @@ public sealed partial class HereticBladeSystem : EntitySystem
                 return;
 
             _teleport.RandomTeleport(args.User, rtp);
+            _audio.PlayPvs(new SoundPathSpecifier("/Audio/Effects/tesla_consume.ogg"), args.User);
             args.Handled = true;
             return;
         }
