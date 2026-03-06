@@ -106,7 +106,6 @@ public sealed partial class HereticAbilitySystem : EntitySystem
             if (TryComp<FlammableComponent>(look, out var flam))
             {
                 bool targetDamageable = TryComp<DamageableComponent>(look, out var targetDmgc);
-                bool hereticDamageable = TryComp<DamageableComponent>(ent.Owner, out var hereticDmgc);
 
                 if (flam.OnFire && targetDamageable)
                 {
@@ -115,33 +114,36 @@ public sealed partial class HereticAbilitySystem : EntitySystem
                     var fireDamage = new DamageSpecifier();
                     fireDamage.DamageDict["Heat"] = power * 2;
                     _damageable.TryChangeDamage((look, targetDmgc), fireDamage, true, false, origin: ent.Owner);
-                }
 
-                if (hereticDamageable)
-                {
-                    _stam.TryTakeStamina(ent.Owner, -(10 + power));
-
-                    var healSpec = new DamageSpecifier();
-                    foreach (var key in hereticDmgc!.Damage.DamageDict.Keys)
+                    // Лечим еретика за каждую подожжённую цель
+                    bool hereticDamageable = TryComp<DamageableComponent>(ent.Owner, out var hereticDmgc);
+                    if (hereticDamageable)
                     {
-                        healSpec.DamageDict[key] = -(10f + power);
+                        _stam.TryTakeStamina(ent.Owner, -(10 + power));
+
+                        var healSpec = new DamageSpecifier();
+                        foreach (var key in hereticDmgc!.Damage.DamageDict.Keys)
+                        {
+                            healSpec.DamageDict[key] = -(10f + power);
+                        }
+
+                        _damageable.TryChangeDamage((ent.Owner, hereticDmgc), healSpec, true, false, origin: ent.Owner);
                     }
 
-                    _damageable.TryChangeDamage((ent.Owner, hereticDmgc), healSpec, true, false, origin: ent.Owner);
-                }
-
-                if (targetDamageable && TryComp<MobStateComponent>(look, out var mobstat))
-                {
-                    if (mobstat.CurrentState == MobState.Critical)
+                    // Проверяем, не перешла ли цель в крит после получения урона, и добиваем её
+                    if (TryComp<MobStateComponent>(look, out var mobstat))
                     {
-                        if (_mobThresholdSystem.TryGetThresholdForState(look, MobState.Dead, out var damage))
+                        if (mobstat.CurrentState == MobState.Critical)
                         {
-                            var damageNeeded = damage.Value - targetDmgc!.TotalDamage;
-                            if (damageNeeded > 0)
+                            if (_mobThresholdSystem.TryGetThresholdForState(look, MobState.Dead, out var damage))
                             {
-                                DamageSpecifier dspec = new();
-                                dspec.DamageDict["Heat"] = damageNeeded;
-                                _damageable.ChangeDamage(look, dspec, true, origin: ent.Owner);
+                                var damageNeeded = damage.Value - targetDmgc!.TotalDamage;
+                                if (damageNeeded > 0)
+                                {
+                                    DamageSpecifier dspec = new();
+                                    dspec.DamageDict["Heat"] = damageNeeded;
+                                    _damageable.ChangeDamage(look, dspec, true, origin: ent.Owner);
+                                }
                             }
                         }
                     }
