@@ -98,8 +98,17 @@ public sealed partial class HereticBladeSystem : EntitySystem
             var look = _lookupSystem.GetEntitiesInRange<HereticCombatMarkComponent>(Transform(ent).Coordinates, 20f);
             if (look.Count > 0)
             {
+                // Teleport to marked target
                 var targetCoords = Transform(look.ToList()[0]).Coordinates;
                 _xform.SetCoordinates(args.User, targetCoords);
+            }
+            else
+            {
+                // No marks - teleport to safe location
+                if (!TryComp<RandomTeleportComponent>(ent, out var rtp))
+                    return;
+
+                _teleport.RandomTeleport(args.User, rtp);
             }
         }
         else
@@ -108,10 +117,10 @@ public sealed partial class HereticBladeSystem : EntitySystem
                 return;
 
             _teleport.RandomTeleport(args.User, rtp);
-            QueueDel(ent);
         }
 
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Effects/tesla_consume.ogg"), args.User);
+        QueueDel(ent);
 
         args.Handled = true;
     }
