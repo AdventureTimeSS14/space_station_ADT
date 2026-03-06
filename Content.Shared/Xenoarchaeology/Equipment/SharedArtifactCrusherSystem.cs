@@ -1,3 +1,4 @@
+using Content.Shared.Body.Components; //ADT-Tweak
 using Content.Shared.Damage.Systems;
 using Content.Shared.Emag.Systems;
 using Content.Shared.Examine;
@@ -108,12 +109,35 @@ public abstract class SharedArtifactCrusherSystem : EntitySystem
             StopCrushing(ent);
     }
 
+    //ADT-Tweak-Start
+    private void PlayDenySound(Entity<ArtifactCrusherComponent> ent)
+    {
+        if (_timing.CurTime >= ent.Comp.NextDenySoundTime)
+        {
+            ent.Comp.NextDenySoundTime = _timing.CurTime + ent.Comp.DenySoundDelay;
+            AudioSystem.PlayPvs(ent.Comp.DenySound, ent);
+        }
+    }
+    //ADT-Tweak-End
+
     public void StartCrushing(Entity<ArtifactCrusherComponent, EntityStorageComponent> ent, EntityUid? user = null)
     {
-        var (uid, crusher, _) = ent;
+        var (uid, crusher, storage) = ent; //ADT-Tweak
 
         if (crusher.Crushing)
             return;
+
+        //ADT-Tweak-Start
+        foreach (var contained in storage.Contents.ContainedEntities)
+        {
+            if (TryComp<BodyComponent>(contained, out _))
+            {
+                _popup.PopupPredicted(Loc.GetString("artifact-crusher-verb-denied"), uid, user);
+                PlayDenySound(ent);
+                return;
+            }
+        }
+        //ADT-Tweak-End
 
         if (crusher.AutoLock)
             _popup.PopupPredicted(Loc.GetString("artifact-crusher-autolocks-enable"), uid, user);

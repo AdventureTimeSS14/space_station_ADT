@@ -98,6 +98,14 @@ public sealed partial class ArtifactCrusherComponent : Component
     [DataField, AutoNetworkedField]
     public SoundSpecifier? CrushingSound = new SoundPathSpecifier("/Audio/Effects/hydraulic_press.ogg");
 
+    //ADT-Tweak-Start
+    /// <summary>
+    /// Sound played at the deny of crushing.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public SoundSpecifier? DenySound = new SoundPathSpecifier("/Audio/Effects/Cargo/buzz_sigh.ogg");
+    //ADT-Tweak-End
+
     /// <summary>
     /// Stores entity of <see cref="CrushingSound"/> to allow ending it early.
     /// </summary>
@@ -109,6 +117,21 @@ public sealed partial class ArtifactCrusherComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool AutoLock = false;
+
+    //ADT-Tweak-Start
+    /// <summary>
+    /// Delay between deny sounds.
+    /// </summary>
+    [DataField]
+    public TimeSpan DenySoundDelay = TimeSpan.FromSeconds(1);
+
+    /// <summary>
+    /// Next time a deny sound can be played.
+    /// </summary>
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
+    [AutoNetworkedField, AutoPausedField]
+    public TimeSpan NextDenySoundTime;
+    //ADT-Tweak-End
 }
 
 [Serializable, NetSerializable]
