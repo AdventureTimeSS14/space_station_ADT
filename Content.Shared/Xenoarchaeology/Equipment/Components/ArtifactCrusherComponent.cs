@@ -133,7 +133,7 @@ public sealed partial class ArtifactCrusherComponent : Component
     public TimeSpan NextDenySoundTime;
 
     /// <summary>
-    /// When enabled, stops the artifact crusher from gib creatures.
+    /// When enabled, stops the artifact crusher from gibbing creatures.
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool SafetyProtocols = true;
