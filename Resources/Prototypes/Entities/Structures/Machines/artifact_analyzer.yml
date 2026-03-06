@@ -171,6 +171,7 @@
   #ADT-Tweak-Start
   - type: ArtifactCrusher
     safetyProtocols: false
+    autoLock: false
     crushingWhitelist:
       components:
       - XenoArtifact
