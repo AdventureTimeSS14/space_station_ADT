@@ -101,6 +101,7 @@ public sealed partial class HereticBladeSystem : EntitySystem
                 // Teleport to marked target (blade does not break)
                 var targetCoords = Transform(look.ToList()[0]).Coordinates;
                 _xform.SetCoordinates(args.User, targetCoords);
+                _audio.PlayPvs(new SoundPathSpecifier("/Audio/Effects/tesla_consume.ogg"), args.User);
                 args.Handled = true;
                 return;
             }
@@ -111,6 +112,7 @@ public sealed partial class HereticBladeSystem : EntitySystem
                     return;
 
                 _teleport.RandomTeleport(args.User, rtp);
+                _audio.PlayPvs(new SoundPathSpecifier("/Audio/Effects/tesla_consume.ogg"), args.User);
                 QueueDel(ent);
                 args.Handled = true;
                 return;
@@ -125,9 +127,6 @@ public sealed partial class HereticBladeSystem : EntitySystem
             args.Handled = true;
             return;
         }
-
-        _audio.PlayPvs(new SoundPathSpecifier("/Audio/Effects/tesla_consume.ogg"), args.User);
-            QueueDel(ent);
 
         args.Handled = true;
     }
