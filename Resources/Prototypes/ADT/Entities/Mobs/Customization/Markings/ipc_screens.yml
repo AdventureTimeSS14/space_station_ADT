@@ -731,3 +731,12 @@
     - sprite: ADT/Mobs/Customization/Ipc/ipc_screens.rsi
       state: ipc_screen_monoeye_alt
   shader: unshaded
+
+- type: marking
+  speciesRestriction: []
+  id: ADTIPCScreenBroken
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  sprites:
+    - sprite: ADT/Mobs/Customization/Ipc/ipc_screens.rsi
+      state: ipc_screen_broken

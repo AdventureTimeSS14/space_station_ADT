@@ -277,6 +277,7 @@
         [0.2, 0.2]]},
     {"name": "ipc_screen_pacifist_1", "directions": 4},
     {"name": "ipc_screen_pacifist_2", "directions": 4},
-    {"name": "ipc_screen_monoeye_alt", "directions": 4}
+    {"name": "ipc_screen_monoeye_alt", "directions": 4},
+    {"name": "ipc_screen_broken", "directions": 4}
   ]
 }
