@@ -20,7 +20,6 @@ public sealed partial class HereticAbilitySystem : EntitySystem
 {
     [Dependency] private readonly MapSystem _map = default!;
     [Dependency] private readonly TransformSystem _xform = default!;
-    [Dependency] private readonly MobThresholdSystem _mobThresholdSystem = default!;
 
     private void SubscribeAsh()
     {
@@ -84,43 +83,67 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         if (!TryUseAbility(ent, args))
             return;
 
+        if (TryComp<FlammableComponent>(ent, out var flamComp) && flamComp.OnFire)
+        {
+            _flammable.Extinguish(ent.Owner, flamComp);
+
+            if (TryComp<TemperatureComponent>(ent, out var tempComp))
+                _temperature.ForceChangeTemperature(ent.Owner, 293.15f, tempComp); // 20°C
+        }
+
         var power = ent.Comp.CurrentPath == "Ash" ? ent.Comp.PathStage : 4f;
         var lookup = _lookup.GetEntitiesInRange(ent, power);
 
         foreach (var look in lookup)
         {
-            if (TryComp<HereticComponent>(look, out var th) && th.CurrentPath == ent.Comp.CurrentPath
+            if (look == ent.Owner)
+                continue;
+
+            if ((TryComp<HereticComponent>(look, out var th) && th.CurrentPath == ent.Comp.CurrentPath)
             || HasComp<GhoulComponent>(look))
                 continue;
 
             if (TryComp<FlammableComponent>(look, out var flam))
             {
-                bool damageable = TryComp<DamageableComponent>(ent, out var dmgc);
-                if (flam.OnFire && damageable)
-                {
-                    // heals everything by base + power for each burning target
-                    _stam.TryTakeStamina(ent, -(10 + power));
-                    var dmgdict = dmgc!.Damage.DamageDict;
-                    foreach (var key in dmgdict.Keys)
-                        dmgdict[key] -= 10f + power;
+                bool targetDamageable = TryComp<DamageableComponent>(look, out var targetDmgc);
+                bool hereticDamageable = TryComp<DamageableComponent>(ent.Owner, out var hereticDmgc);
 
-                    var dmgspec = new DamageSpecifier() { DamageDict = dmgdict };
-                    _damageable.TryChangeDamage((ent.Owner, dmgc), dmgspec, true, false, look);
+                if (flam.OnFire && targetDamageable)
+                {
+                    _flammable.AdjustFireStacks(look, power, flam, ignite: true);
+
+                    var fireDamage = new DamageSpecifier();
+                    fireDamage.DamageDict["Heat"] = power * 2;
+                    _damageable.TryChangeDamage((look, targetDmgc), fireDamage, true, false, origin: ent.Owner);
                 }
 
-                if (flam.OnFire)
-                    _flammable.AdjustFireStacks(look, power, flam, true);
-
-                if (TryComp<MobStateComponent>(look, out var mobstat))
+                if (hereticDamageable)
                 {
-                    if (mobstat.CurrentState == MobState.Critical && damageable)
-                    {
-                        if (!_mobThresholdSystem.TryGetThresholdForState(look, MobState.Dead, out var damage))
-                            continue;
+                    _stam.TryTakeStamina(ent.Owner, -(10 + power));
 
-                        DamageSpecifier dspec = new();
-                        dspec.DamageDict.Add("Heat", dmgc!.TotalDamage - damage.Value);
-                        _damageable.ChangeDamage(look, dspec, true, origin: ent);
+                    var healSpec = new DamageSpecifier();
+                    foreach (var key in hereticDmgc!.Damage.DamageDict.Keys)
+                    {
+                        healSpec.DamageDict[key] = -(10f + power);
+                    }
+
+                    _damageable.TryChangeDamage((ent.Owner, hereticDmgc), healSpec, true, false, origin: ent.Owner);
+                }
+
+                if (targetDamageable && TryComp<MobStateComponent>(look, out var mobstat))
+                {
+                    if (mobstat.CurrentState == MobState.Critical)
+                    {
+                        if (_mobThresholdSystem.TryGetThresholdForState(look, MobState.Dead, out var damage))
+                        {
+                            var damageNeeded = damage.Value - targetDmgc!.TotalDamage;
+                            if (damageNeeded > 0)
+                            {
+                                DamageSpecifier dspec = new();
+                                dspec.DamageDict["Heat"] = damageNeeded;
+                                _damageable.ChangeDamage(look, dspec, true, origin: ent.Owner);
+                            }
+                        }
                     }
                 }
             }
