@@ -36,6 +36,12 @@ public sealed partial class Generic : ILanguageType
     [DataField("obfuscateSyllables")]
     public bool ObfuscateSyllables { get; private set; } = false;
 
+    /// <summary>
+    /// Если true, всё сообщение заменяется одним случайным словом из Replacement (Мар - для сумеречников).
+    /// </summary>
+    [DataField("replaceEntireMessage")]
+    public bool ReplaceEntireMessage { get; private set; } = false;
+
     /// <inheritdoc/>
     [DataField("verbs")]
     public Dictionary<string, List<string>> SuffixSpeechVerbs { get; set; } = new()
@@ -69,7 +75,7 @@ public sealed partial class Generic : ILanguageType
         message = chat.TransformSpeech(uid, message);
 
         string coloredMessage = lang.AccentuateMessage(uid, Language, message);
-        string coloredLanguageMessage = lang.ObfuscateMessage(uid, message, Replacement, ObfuscateSyllables);
+        string coloredLanguageMessage = lang.ObfuscateMessage(uid, message, Replacement, ObfuscateSyllables, ReplaceEntireMessage);
         resultMessage = FormattedMessage.EscapeText(coloredMessage);
         if (string.IsNullOrEmpty(coloredMessage))
             return;
@@ -134,7 +140,7 @@ public sealed partial class Generic : ILanguageType
         message = chat.TransformSpeech(uid, message);
 
         var accentMessage = lang.AccentuateMessage(uid, Language, message);
-        var languageMessage = lang.ObfuscateMessage(uid, message, Replacement, ObfuscateSyllables);
+        var languageMessage = lang.ObfuscateMessage(uid, message, Replacement, ObfuscateSyllables, ReplaceEntireMessage);
         var obfuscatedMessage = chat.ObfuscateMessageReadability(accentMessage, 0.2f);
         var obfuscatedLanguageMessage = chat.ObfuscateMessageReadability(languageMessage, 0.2f);
         resultMessage = FormattedMessage.EscapeText(accentMessage);
