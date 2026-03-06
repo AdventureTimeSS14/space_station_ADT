@@ -50,20 +50,17 @@
     sound:
       collection: NovakidLaugh
 
-# Spoken by the Shadekin race.
+# Spoken by the Shadekin race. Вся фраза сводится к одному слову — Мар.
 - type: language
   id: Mar
   uiColor: "#9000ff"
   parent: BaseVocalLanguage
   speech: !type:Generic
-    obfuscateSyllables: true
+    replaceEntireMessage: true
     color: "#9000ff"
     whisperColor: "#9b61d4"
     replacement:
-    - mar
-    - maar
-    - mara
-    - marr
+    - Мар
     font: CaesarDressing
     fontSize: 13
 

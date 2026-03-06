@@ -2,6 +2,7 @@ using System.Numerics;
 using Content.Client.Gameplay;
 using Content.Shared.Hands.Components;
 using Content.Shared.Interaction;
+using Content.Shared.ADT.RPD;
 using Content.Shared.ADT.RPD.Components;
 using Content.Shared.ADT.RPD.Systems;
 using Robust.Client.Placement;
@@ -113,15 +114,31 @@ public sealed class AlignRPDConstruction : PlacementMode
 
         var target = screen.GetClickedEntity(_unalignedMouseCoords.ToMap(_entityManager, _transformSystem));
 
-        if (!_entityManager.TryGetComponent<MapGridComponent>(mapGridData.Value.GridUid, out var mapGrid) || target == null)
+        if (!_entityManager.TryGetComponent<MapGridComponent>(mapGridData.Value.GridUid, out var mapGrid))
         {
             return false;
         }
-        var tile = _mapSystem.GetTileRef(mapGridData.Value.GridUid, mapGrid, target.Value.ToCoordinates());
-        var position2 = _mapSystem.TileIndicesFor(mapGridData.Value.GridUid, mapGrid, target.Value.ToCoordinates());
-        // Determine if the RPD operation is valid or not
-        if (!_rpdSystem.IsRPDOperationStillValid(heldEntity.Value, rpd, mapGridData.Value.GridUid, mapGrid, tile, position2, target, player.Value, false))
+
+        if (rpd.CachedPrototype.Mode == RpdMode.Deconstruct && target == null)
+        {
             return false;
+        }
+
+        if (target != null)
+        {
+            var tile = _mapSystem.GetTileRef(mapGridData.Value.GridUid, mapGrid, target.Value.ToCoordinates());
+            var position2 = _mapSystem.TileIndicesFor(mapGridData.Value.GridUid, mapGrid, target.Value.ToCoordinates());
+            // Determine if the RPD operation is valid or not
+            if (!_rpdSystem.IsRPDOperationStillValid(heldEntity.Value, rpd, mapGridData.Value.GridUid, mapGrid, tile, position2, target, player.Value, false))
+                return false;
+        }
+        else
+        {
+            var tile = _mapSystem.GetTileRef(mapGridData.Value.GridUid, mapGrid, mapGridData.Value.Location);
+            var position2 = _mapSystem.TileIndicesFor(mapGridData.Value.GridUid, mapGrid, mapGridData.Value.Location);
+            if (!_rpdSystem.IsRPDOperationStillValid(heldEntity.Value, rpd, mapGridData.Value.GridUid, mapGrid, tile, position2, null, player.Value, false))
+                return false;
+        }
 
         return true;
     }

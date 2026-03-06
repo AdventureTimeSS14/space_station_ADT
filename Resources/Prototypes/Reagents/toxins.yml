@@ -546,7 +546,7 @@
       - !type:PopupMessage
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Animal, Vox ]
+          type: [ Animal, Vox, Vulpkanin ]
           inverted: true
 # ADT-Tweak-Start
         - !type:MetabolizerTypeCondition

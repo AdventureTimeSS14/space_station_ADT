@@ -68,3 +68,102 @@
   sprites:
   - sprite: ADT/Mobs/Customization/Drask/custom.rsi
     state: roughness_legs
+
+- type: marking
+  id: DraskHeadBase
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  followSkinColor: true
+  forcedColoring: true
+  speciesRestriction: [DraskSpecies]
+  sprites:
+  - sprite: ADT/Mobs/Species/Drask/parts.rsi
+    state: head
+
+- type: marking
+  id: FaceDrask
+  bodyPart: Snout
+  markingCategory: Snout
+  followSkinColor: true
+  forcedColoring: true
+  speciesRestriction: [DraskSpecies]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Drask/Face.rsi
+    state: tentacles
+
+- type: marking
+  id: FaceDraskBig
+  bodyPart: Snout
+  markingCategory: Snout
+  followSkinColor: true
+  forcedColoring: true
+  speciesRestriction: [DraskSpecies]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Drask/Face.rsi
+    state: tentacles_big
+
+- type: marking
+  id: FaceDraskDouble
+  bodyPart: Snout
+  markingCategory: Snout
+  followSkinColor: true
+  forcedColoring: true
+  speciesRestriction: [DraskSpecies]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Drask/Face.rsi
+    state: tentacles_double
+
+- type: marking
+  id: DraskHeadBig
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  followSkinColor: true
+  forcedColoring: true
+  speciesRestriction: [DraskSpecies]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Drask/Head.rsi
+    state: head_big
+
+- type: marking
+  id: DraskHeadSquid
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  followSkinColor: true
+  forcedColoring: true
+  speciesRestriction: [DraskSpecies]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Drask/Head.rsi
+    state: squid
+
+- type: marking
+  id: DraskHeadSquidTent
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  followSkinColor: true
+  forcedColoring: true
+  speciesRestriction: [DraskSpecies]
+  sprites:
+  - sprite: ADT/Mobs/Customization/Drask/Head.rsi
+    state: squid_tent
+
+- type: marking
+  id: DraskBodyTentaclesSmall
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [DraskSpecies]
+  followSkinColor: true
+  forcedColoring: true
+  sprites:
+  - sprite: ADT/Mobs/Customization/Drask/Body.rsi
+    state: tentacles_small
+
+- type: marking
+  id: DraskBodyTentaclesMany
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [DraskSpecies]
+  followSkinColor: true
+  forcedColoring: true
+  sprites:
+  - sprite: ADT/Mobs/Customization/Drask/Body.rsi
+    state: tentacles_many
