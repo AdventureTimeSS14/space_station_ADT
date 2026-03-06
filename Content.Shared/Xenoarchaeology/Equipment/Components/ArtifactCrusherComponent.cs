@@ -116,7 +116,7 @@ public sealed partial class ArtifactCrusherComponent : Component
     /// When enabled, stops the artifact crusher from being opened when it is being crushed.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public bool AutoLock = false;
+    public bool AutoLock = true; //ADT-Tweak
 
     //ADT-Tweak-Start
     /// <summary>

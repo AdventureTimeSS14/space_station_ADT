@@ -62,10 +62,10 @@ public abstract class SharedArtifactCrusherSystem : EntitySystem
         if (_emag.CheckFlag(ent, EmagType.Interaction))
             return;
 
-        if (ent.Comp.AutoLock)
+        if (!ent.Comp.SafetyProtocols) //ADT-Tweak
             return;
 
-        ent.Comp.AutoLock = true;
+        ent.Comp.SafetyProtocols = false; //ADT-Tweak
         args.Handled = true;
         Dirty(ent);
     }
@@ -140,10 +140,10 @@ public abstract class SharedArtifactCrusherSystem : EntitySystem
                 }
             }
         }
-        //ADT-Tweak-End
 
-        if (crusher.AutoLock)
-            _popup.PopupPredicted(Loc.GetString("artifact-crusher-autolocks-enable"), uid, user);
+        //if (crusher.AutoLock)
+        //    _popup.PopupPredicted(Loc.GetString("artifact-crusher-autolocks-enable"), uid, user);
+        //ADT-Tweak-End
 
         crusher.Crushing = true;
         crusher.NextSecond = _timing.CurTime + TimeSpan.FromSeconds(1);
