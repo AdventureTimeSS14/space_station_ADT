@@ -137,6 +137,9 @@
   id: Stomach
 
 - type: Tag
+  id: Storage
+
+- type: Tag
   id: Stunbaton
 
 - type: Tag
