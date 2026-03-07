@@ -1,4 +1,4 @@
-﻿- type: body
+- type: body
   name: "reptilian"
   id: Reptilian
   root: torso
@@ -16,7 +16,7 @@
         heart: ADTOrganReptilianHeart # ADT tweak
         lungs: OrganHumanLungs
         stomach: OrganReptilianStomach
-        liver: OrganAnimalLiver
+        liver: ADTOrganReptilianLiver # ADT-Tweak
         kidneys: OrganHumanKidneys
       connections:
       - right arm

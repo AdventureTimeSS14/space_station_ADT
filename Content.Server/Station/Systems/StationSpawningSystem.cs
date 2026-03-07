@@ -118,6 +118,7 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
             if (loadout != null)
             {
                 EquipRoleName(jobEntity, loadout, roleProto!);
+                ApplyLoadoutExtras(jobEntity, loadout); // ADT-Tweak
             }
 
             DoJobSpecials(job, jobEntity);

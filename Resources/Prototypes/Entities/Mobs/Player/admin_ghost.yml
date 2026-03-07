@@ -39,6 +39,17 @@
   - type: Physics
     ignorePaused: true
     bodyType: Kinematic
+    canCollide: false # ADT-Tweak
+  # ADT-Tweak start: новая физика, чтоб не ломать физику других
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 0
+        layer: []
+  # ADT-Tweak end
   - type: Access
     groups:
     - Silicon

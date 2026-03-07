@@ -50,8 +50,11 @@
           Quantity: 5
   - type: Metabolizer
     updateInterval: 1.5
+    metabolizerTypes: [ Arachnid ] # ADT-Tweak
     # ADT-Tweak start.
     groups:
+    - id: Food
+    - id: Drink
     - id: Alcohol
     # ADT-Tweak end
   - type: Tag # goob edit
@@ -76,7 +79,7 @@
     removeEmpty: true
     solutionOnBody: false
     solution: "Lung"
-    metabolizerTypes: [ Human ]
+    metabolizerTypes: [ Arachnid ] # ADT-Tweak
     groups:
     - id: Gas
       rateModifier: 100.0
@@ -141,7 +144,7 @@
   - type: Metabolizer # The liver metabolizes certain chemicals only, like alcohol.
     updateInterval: 1.5
     maxReagents: 1
-    metabolizerTypes: [Animal]
+    metabolizerTypes: [Arachnid] # ADT-Tweak
     groups:
     - id: Alcohol
       rateModifier: 0.1 # removes alcohol very slowly along with the stomach removing it as a drink
@@ -171,7 +174,7 @@
   - type: Metabolizer
     updateInterval: 1.5
     maxReagents: 5
-    metabolizerTypes: [Animal]
+    metabolizerTypes: [Arachnid] # ADT-Tweak
     removeEmpty: true
   - type: Tag # goob edit
     tags:

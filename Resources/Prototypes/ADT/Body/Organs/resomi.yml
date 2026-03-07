@@ -7,3 +7,41 @@
   components:
   - type: Metabolizer
     metabolizerTypes: [ Resomi ]
+
+- type: entity
+  id: ADTOrganResomiStomach
+  parent: OrganAnimalStomach
+  name: resomi stomach
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Metabolizer
+    maxReagents: 3
+    metabolizerTypes: [ Resomi ]
+    groups:
+    - id: Food
+    - id: Drink
+    - id: Alcohol
+
+- type: entity
+  id: ADTOrganResomiLiver
+  parent: OrganAnimalLiver
+  name: resomi liver
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Metabolizer
+    maxReagents: 1
+    metabolizerTypes: [ Resomi ]
+    groups:
+    - id: Alcohol
+      rateModifier: 0.1
+
+- type: entity
+  id: ADTOrganResomiKidneys
+  parent: OrganAnimalKidneys
+  name: resomi kidneys
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Metabolizer
+    maxReagents: 5
+    metabolizerTypes: [ Resomi ]
+    removeEmpty: true
