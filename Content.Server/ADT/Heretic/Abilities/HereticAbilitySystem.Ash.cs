@@ -121,13 +121,19 @@ public sealed partial class HereticAbilitySystem : EntitySystem
                     {
                         _stam.TryTakeStamina(ent.Owner, -(10 + power));
 
+                        var totalHeal = 10f + power;
                         var healSpec = new DamageSpecifier();
-                        foreach (var key in hereticDmgc!.Damage.DamageDict.Keys)
+                        var damageTypes = hereticDmgc!.Damage.DamageDict.Keys.ToList();
+                        if (damageTypes.Count > 0)
                         {
-                            healSpec.DamageDict[key] = -(10f + power);
-                        }
+                            var healPerType = totalHeal / damageTypes.Count;
+                            foreach (var key in damageTypes)
+                            {
+                                healSpec.DamageDict[key] = -healPerType;
+                            }
 
-                        _damageable.TryChangeDamage((ent.Owner, hereticDmgc), healSpec, true, false, origin: ent.Owner);
+                            _damageable.TryChangeDamage((ent.Owner, hereticDmgc), healSpec, true, false, origin: ent.Owner);
+                        }
                     }
 
                     // Проверяем, не перешла ли цель в крит после получения урона, и добиваем её
