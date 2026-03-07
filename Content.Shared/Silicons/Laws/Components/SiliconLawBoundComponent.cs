@@ -60,13 +60,57 @@ public enum SiliconLawsUiKey : byte
 [Serializable, NetSerializable]
 public sealed class SiliconLawBuiState : BoundUserInterfaceState
 {
-    public List<SiliconLaw> Laws;
+    public List<SiliconLawData> Laws; // ADT-Tweak
     public HashSet<ProtoId<RadioChannelPrototype>>? RadioChannels;
 
-    public SiliconLawBuiState(List<SiliconLaw> laws, HashSet<ProtoId<RadioChannelPrototype>>? radioChannels)
+    public SiliconLawBuiState(List<SiliconLawData> laws, HashSet<ProtoId<RadioChannelPrototype>>? radioChannels) // ADT-Tweak
     {
         Laws = laws;
         RadioChannels = radioChannels;
     }
 }
+
+// ADT-Tweak start
+/// <summary>
+/// Serializable data for a silicon law, used for UI state.
+/// </summary>
+[NetSerializable, Serializable]
+public sealed class SiliconLawData
+{
+    public string LawString = string.Empty;
+    public string Order = string.Empty;
+    public string? LawIdentifierOverride;
+
+    public SiliconLawData()
+    {
+    }
+
+    public SiliconLawData(string lawString, string order, string? lawIdentifierOverride)
+    {
+        LawString = lawString;
+        Order = order;
+        LawIdentifierOverride = lawIdentifierOverride;
+    }
+
+    public static SiliconLawData FromSiliconLaw(SiliconLaw law)
+    {
+        return new SiliconLawData(law.LawString, law.Order.ToString(), law.LawIdentifierOverride);
+    }
+
+    public override bool Equals(object? obj)
+    {
+        if (obj is not SiliconLawData other)
+            return false;
+
+        return LawString == other.LawString
+               && Order == other.Order
+               && LawIdentifierOverride == other.LawIdentifierOverride;
+    }
+
+    public override int GetHashCode()
+    {
+        return HashCode.Combine(LawString, Order, LawIdentifierOverride);
+    }
+}
+// ADT-Tweak end
 

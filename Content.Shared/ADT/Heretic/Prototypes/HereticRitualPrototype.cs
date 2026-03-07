@@ -24,7 +24,7 @@ public sealed partial class HereticRitualPrototype : IPrototype, ICloneable
     /// <summary>
     ///     Is there a custom behavior that needs to be executed?
     /// </summary>
-    [DataField] public List<RitualCustomBehavior>? CustomBehaviors;
+    [DataField(serverOnly: true)] public List<RitualCustomBehavior>? CustomBehaviors;
 
     /// <summary>
     ///     How many other entities will be created from the ritual?
