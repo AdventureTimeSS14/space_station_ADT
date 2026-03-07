@@ -16,16 +16,15 @@ public abstract partial class SharedStampHitSystem : EntitySystem
     {
         var locUser = ("user", Identity.Entity(examinedUid, EntityManager));
         List<string> readyListStamped = [];
-        if (stampedComp.StampToEntity.Count!=0 && stampedComp.StampToEntity.Count!>10)
+        if (stampedComp.StampToEntity.Count==0)
+            return;
+        for (var i = 0; i < stampedComp.StampToEntity.Count && i < 10; i++)
         {
-            foreach (var stamp in stampedComp.StampToEntity)
-            {
-                readyListStamped.Add(Loc.GetString(stamp));
-            }
-           
-            var locStamps = ("stamps", ContentLocalizationManager.FormatList(readyListStamped));
-            args.PushMarkup(Loc.GetString("comp-stamp-examine", locUser, locStamps));
+            readyListStamped.Add(Loc.GetString(stampedComp.StampToEntity[i]));
         }
+           
+        var locStamps = ("stamps", ContentLocalizationManager.FormatList(readyListStamped));
+        args.PushMarkup(Loc.GetString("comp-stamp-examine", locUser, locStamps));
     }
 
     public static void RemoveStamps(Entity<StampedEntityComponent> ent)
