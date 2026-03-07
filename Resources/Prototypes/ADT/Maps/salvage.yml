@@ -425,13 +425,13 @@
 
 - type: salvageMap
   id: ADT_old_shutlle_two
-  mapPath: /Maps/ADTMaps/Salvage/old_shutlle_two.yml
+  mapPath: /Maps/ADTMaps/Salvage/old_shuttle_two.yml
   sizeString: salvage-map-wreck-size-medium
   sizeTag: MediumMagnetTargets
 
 - type: salvageMap
   id: ADT_old_shutlle_ytilizators
-  mapPath: /Maps/ADTMaps/Salvage/old_shutlle_ytilizators.yml
+  mapPath: /Maps/ADTMaps/Salvage/old_shuttle_ytilizators.yml
   sizeString: salvage-map-wreck-size-medium
   sizeTag: MediumMagnetTargets
 
