@@ -30,11 +30,6 @@ public sealed partial class ExpendedBowsComponent : Component
     public int StepOfTension=0;
 
     /// <summary>
-    /// Slot in bow for arrow
-    /// </summary>
-    public string ItemSlot="projectiles";
-
-    /// <summary>
     /// Tension and loc for it
     /// </summary>
     public Dictionary<int, string> TensionAndLoc = new Dictionary<int, string>
@@ -55,11 +50,6 @@ public sealed partial class ExpendedBowsComponent : Component
         {2, 1.4f},
         {3, 3f},
     };
-
-    /// <summary>
-    /// Damage that have bonus
-    /// </summary>
-    public string DamageToModifying = "Piercing";
 
     /// <summary>
     /// Max tension in bow

@@ -10,10 +10,10 @@ public sealed partial class BowsSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<ExpendedBowsComponent, ShotAttemptedEvent>(OnShootAttemp);
+        SubscribeLocalEvent<ExpendedBowsComponent, ShotAttemptedEvent>(OnShootAttempt);
     }
 
-    public void OnShootAttemp(Entity<ExpendedBowsComponent> bow,ref ShotAttemptedEvent args)
+    public void OnShootAttempt(Entity<ExpendedBowsComponent> bow,ref ShotAttemptedEvent args)
     {
         if(bow.Comp.StepOfTension==0)
             args.Cancel();

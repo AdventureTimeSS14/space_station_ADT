@@ -29,12 +29,12 @@ public sealed partial class BowsSystem : EntitySystem
         SubscribeLocalEvent<ExpendedBowsComponent, GunRefreshModifiersEvent>(EditSpeed);
     }
     
-    public void OnShoot(Entity<ExpendedBowsComponent> bow, ref GunShotEvent args)
+    private void OnShoot(Entity<ExpendedBowsComponent> bow, ref GunShotEvent args)
     {
         bow.Comp.StepOfTension=bow.Comp.MinTension;
     }
 
-    public void OnUseInHand(Entity<ExpendedBowsComponent> bow, ref UseInHandEvent args)
+    private void OnUseInHand(Entity<ExpendedBowsComponent> bow, ref UseInHandEvent args)
     {
         bow.Comp.coldownStart = _timing.CurTime + TimeSpan.FromSeconds(bow.Comp.floatToColdown);
     }
@@ -57,7 +57,7 @@ public sealed partial class BowsSystem : EntitySystem
                 continue;
             }
             if (wieldedcomp.User is not {} owner)
-                return;
+                continue;
             if (comp.StepOfTension >= comp.MaxTension)
                 continue;
 
@@ -68,7 +68,7 @@ public sealed partial class BowsSystem : EntitySystem
         }
     }
 
-    public void EditSpeed(Entity<ExpendedBowsComponent> bow, ref GunRefreshModifiersEvent args)
+    private void EditSpeed(Entity<ExpendedBowsComponent> bow, ref GunRefreshModifiersEvent args)
     {
         args.ProjectileSpeed =args.ProjectileSpeed * bow.Comp.TensionAndModieferSpeed[bow.Comp.StepOfTension];
     }
