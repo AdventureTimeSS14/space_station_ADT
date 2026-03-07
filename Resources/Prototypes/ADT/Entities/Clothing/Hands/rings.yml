@@ -10,9 +10,7 @@
   - type: Clothing
     slots: [finger]
     sprite: ADT/Clothing/Hands/Rings/Rings.rsi
-    clothingVisuals:
-      finger:
-      - state: equipped-FINGER-blood
+    state: equipped-FINGER-blood
   - type: Item
     sprite: ADT/Clothing/Hands/Rings/Rings.rsi
     inhandVisuals:
@@ -36,9 +34,7 @@
   - type: Clothing
     slots: [finger]
     sprite: ADT/Clothing/Hands/Rings/Rings.rsi
-    clothingVisuals:
-      finger:
-      - state: equipped-FINGER-emerald
+    state: equipped-FINGER-emerald
   - type: Item
     sprite: ADT/Clothing/Hands/Rings/Rings.rsi
     inhandVisuals:
@@ -62,9 +58,7 @@
   - type: Clothing
     slots: [finger]
     sprite: ADT/Clothing/Hands/Rings/Rings.rsi
-    clothingVisuals:
-      finger:
-      - state: equipped-FINGER-plazma
+    state: equipped-FINGER-plazma
   - type: Item
     sprite: ADT/Clothing/Hands/Rings/Rings.rsi
     inhandVisuals:
@@ -88,9 +82,7 @@
   - type: Clothing
     slots: [finger]
     sprite: ADT/Clothing/Hands/Rings/Rings.rsi
-    clothingVisuals:
-      finger:
-      - state: equipped-FINGER-turk
+    state: equipped-FINGER-turk
   - type: Item
     sprite: ADT/Clothing/Hands/Rings/Rings.rsi
     inhandVisuals:
