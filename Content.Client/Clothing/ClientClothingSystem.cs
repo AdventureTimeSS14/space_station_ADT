@@ -44,13 +44,13 @@ public sealed class ClientClothingSystem : ClothingSystem
         {"pocket1", "POCKET1"},
         {"pocket2", "POCKET2"},
         {"suitstorage", "SUITSTORAGE"},
-        // ADT-TWEAK-START
+        // ADT-Tweak-Start
         {"socks", "SOCKS"},
         {"underweart", "UNDERWEART"},
         {"underwearb", "UNDERWEARB"},
         {"finger", "FINGER"},
         {"ears2", "EARS2"},
-        // ADT-TWEAK-END
+        // ADT-Tweak-End
     };
 
     [Dependency] private readonly IResourceCache _cache = default!;

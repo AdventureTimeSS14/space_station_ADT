@@ -2,13 +2,12 @@ using Content.Shared.Examine;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Localizations;
 using Content.Shared.ADT.StampHit;
-using System.Reflection.Metadata;
 
 namespace Content.Shared.ADT.StampHit;
 
 public abstract partial class SharedStampHitSystem : EntitySystem
 {
-    private void Initialize()
+    public void Initialize()
     {
         base.Initialize();
         SubscribeLocalEvent<StampedEntityComponent, ExaminedEvent>(Examined);
@@ -17,7 +16,7 @@ public abstract partial class SharedStampHitSystem : EntitySystem
     {
         var locUser = ("user", Identity.Entity(examinedUid, EntityManager));
         List<string> readyListStamped = [];
-        if (stampedComp.StampToEntity.Count!=0)
+        if (stampedComp.StampToEntity.Count!=0 && stampedComp.StampToEntity.Count!>10)
         {
             foreach (var stamp in stampedComp.StampToEntity)
             {

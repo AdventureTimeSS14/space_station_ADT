@@ -16,13 +16,13 @@ public sealed class StampHitSystem : EntitySystem
         SubscribeLocalEvent<StampComponent, MeleeHitEvent>(OnMeleeHit);
     }
 
-    public void OnMeleeHit(EntityUid uid, StampComponent comp, MeleeHitEvent args)
+    private void OnMeleeHit(EntityUid uid, StampComponent comp, MeleeHitEvent args)
     {
         foreach (var i in args.HitEntities)
         {
             if (!TryComp<HumanoidAppearanceComponent>(i, out var speciesComp))
                 continue;
-            if (speciesComp.Species != default || speciesComp.Species == "SlimePerson" && speciesComp.Species == "NovakidSpecies")
+            if (speciesComp.Species != default && speciesComp.Species == "SlimePerson" || speciesComp.Species == "NovakidSpecies")
                 continue;
             if (HasComp<HumanoidAppearanceComponent>(i))
             {
