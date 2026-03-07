@@ -47,8 +47,7 @@
   id: QuartermasterGear
   equipment:
     # id: QuartermasterPDA # ADT: different PDAs in loadouts
-    # ears: ClothingHeadsetQM # ADT tweak
-    ears: ClothingHeadsetQM
+    # ears: ClothingHeadsetQM # ADT tweak - выдаются через loadout ADTQuartermasterEars
     belt: BoxFolderClipboardThreePapers
     pocket1: AppraisalTool
   storage:
