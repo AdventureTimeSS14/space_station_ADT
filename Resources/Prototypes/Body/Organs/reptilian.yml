@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   id: OrganReptilianStomach
   parent: OrganAnimalStomach
   categories: [ HideSpawnMenu ]
@@ -21,3 +21,12 @@
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 5
+  # ADT-Tweak start
+  - type: Metabolizer
+    maxReagents: 3
+    metabolizerTypes: [ Reptilian ]
+    groups:
+    - id: Food
+    - id: Drink
+    - id: Alcohol
+  # ADT-Tweak end

@@ -61,6 +61,7 @@ public abstract partial class SharedMoverController : VirtualController
     protected EntityQuery<TransformComponent> XformQuery;
 
     private static readonly ProtoId<TagPrototype> FootstepSoundTag = "FootstepSound";
+    private static readonly ProtoId<TagPrototype> SiliconFootstepSoundTag = "SiliconFootstepSound"; //ADT-Tweak
 
     private bool _relativeMovement;
     private float _minDamping;
@@ -495,7 +496,7 @@ public abstract partial class SharedMoverController : VirtualController
     {
         sound = null;
 
-        if (!CanSound() || !_tags.HasTag(uid, FootstepSoundTag))
+        if (!CanSound() || !(_tags.HasTag(uid, FootstepSoundTag) || _tags.HasTag(uid, SiliconFootstepSoundTag))) //ADT-Tweak
             return false;
 
         var coordinates = xform.Coordinates;
@@ -543,7 +544,10 @@ public abstract partial class SharedMoverController : VirtualController
             return sound != null;
         }
 
-        return TryGetFootstepSound(uid, xform, shoes != null, out sound, tileDef: tileDef);
+        //ADT-Tweak-Start
+        bool haveShoes = shoes != null || _tags.HasTag(uid, SiliconFootstepSoundTag);
+        return TryGetFootstepSound(uid, xform, haveShoes, out sound, tileDef: tileDef);
+        //ADT-Tweak-End
     }
 
     private bool TryGetFootstepSound(
