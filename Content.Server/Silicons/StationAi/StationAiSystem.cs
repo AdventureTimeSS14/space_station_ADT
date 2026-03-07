@@ -121,6 +121,12 @@ public sealed class StationAiSystem : SharedStationAiSystem
             {
                 QueueDel(aiBrain);
             }
+            // ADT-Tweak start
+            else
+            {
+                SetLoadoutOnTakeover(ent.Owner, aiBrain);
+            }
+            // ADT-Tweak end
         }
 
         // TODO: We should consider keeping the borg brain inside the AI core.
@@ -187,6 +193,8 @@ public sealed class StationAiSystem : SharedStationAiSystem
 
             if (SetupEye(aiCoreEnt))
                 AttachEye(aiCoreEnt);
+
+            SetLoadoutOnTakeover(aiCore.Owner, ent.Owner); // ADT-Tweak
         }
 
         SetStationAiState(ent, state);

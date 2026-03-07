@@ -109,7 +109,16 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
         TryComp(uid, out IntrinsicRadioTransmitterComponent? intrinsicRadio);
         var radioChannels = intrinsicRadio?.Channels;
 
-        var state = new SiliconLawBuiState(GetLaws(uid).Laws, radioChannels);
+        // ADT-Tweak start
+        var laws = GetLaws(uid).Laws;
+        var lawData = new List<SiliconLawData>(laws.Count);
+        foreach (var law in laws)
+        {
+            lawData.Add(SiliconLawData.FromSiliconLaw(law));
+        }
+        // ADT-Tweak end
+
+        var state = new SiliconLawBuiState(lawData, radioChannels);
         _userInterface.SetUiState(args.Entity, SiliconLawsUiKey.Key, state);
     }
 
