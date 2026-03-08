@@ -89,6 +89,7 @@
   parent: ClosetSteelBase
   categories: [ HideSpawnMenu ]
   components:
+  - type: MagicProjectile # ADT-Tweak
   - type: ResistLocker
     resistTime: 30
   - type: StoreOnCollide
@@ -295,6 +296,7 @@
   components:
   - type: Sprite
     sprite: Structures/Specific/Anomalies/ice_anom.rsi
+  - type: MagicProjectile # ADT-Tweak
   - type: Projectile
     damage:
       types:

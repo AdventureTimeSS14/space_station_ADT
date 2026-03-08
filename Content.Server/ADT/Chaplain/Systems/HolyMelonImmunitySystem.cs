@@ -9,7 +9,7 @@ namespace Content.Server.Bible;
 
 /// <summary>
 /// Система отслеживает предметы с <see cref="HolyMelonImmunityComponent"/> в руках игроков
-/// и выдаёт им компонент <see cref="MagicImmunityComponent"/> для иммунитета к магии.
+/// и выдаёт им временный компонент <see cref="HolyMelonMagicImmunityComponent"/> для иммунитета к магии.
 /// Иммунитет работает только пока предмет находится в руке.
 /// </summary>
 public sealed class HolyMelonImmunitySystem : EntitySystem
@@ -20,6 +20,7 @@ public sealed class HolyMelonImmunitySystem : EntitySystem
     {
         base.Initialize();
 
+        // Подписываемся на события экипировки/снятия арбуза
         SubscribeLocalEvent<HolyMelonImmunityComponent, GotEquippedHandEvent>(OnGotEquippedHand);
         SubscribeLocalEvent<HolyMelonImmunityComponent, GotUnequippedHandEvent>(OnGotUnequippedHand);
     }
@@ -30,12 +31,16 @@ public sealed class HolyMelonImmunitySystem : EntitySystem
         if (HasComp<ChaplainComponent>(args.User))
             return;
 
-        // Используем EnsureComp для предотвращения исключения при повторном добавлении
+        // Добавляем временный маркер иммунитета от арбуза
+        EnsureComp<HolyMelonMagicImmunityComponent>(args.User);
+        
+        // Основной компонент иммунитета (если ещё не добавлен)
         EnsureComp<MagicImmunityComponent>(args.User);
     }
 
     private void OnGotUnequippedHand(EntityUid uid, HolyMelonImmunityComponent component, GotUnequippedHandEvent args)
     {
+        // НЕ снимаем иммунитет у священников — у них он врождённый
         if (HasComp<ChaplainComponent>(args.User))
             return;
 
@@ -44,7 +49,7 @@ public sealed class HolyMelonImmunitySystem : EntitySystem
 
     private void RemoveImmunityIfNoOtherMelons(EntityUid holder, EntityUid? excludeItem = null)
     {
-        if (!HasComp<MagicImmunityComponent>(holder))
+        if (!HasComp<HolyMelonMagicImmunityComponent>(holder))
             return;
 
         if (!TryComp<HandsComponent>(holder, out var hands))
@@ -60,6 +65,14 @@ public sealed class HolyMelonImmunitySystem : EntitySystem
                 return;
         }
 
-        RemComp<MagicImmunityComponent>(holder);
+        // Нет других арбузов в руках - удаляем временный маркер
+        RemComp<HolyMelonMagicImmunityComponent>(holder);
+        
+        // Удаляем основной компонент иммунитета, только если нет других источников
+        // (священник имеет ChaplainComponent, который не удаляется)
+        if (!HasComp<ChaplainComponent>(holder))
+        {
+            RemComp<MagicImmunityComponent>(holder);
+        }
     }
 }

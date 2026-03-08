@@ -296,11 +296,13 @@ public abstract class SharedMagicSystem : EntitySystem
         if (ev.Handled || !PassesSpellPrerequisites(ev.Action, ev.Performer))
             return;
 
+        // ADT-Tweak start
         if (HasComp<MagicImmunityComponent>(ev.Target))
         {
             ev.Handled = true;
             return;
         }
+        // ADT-Tweak end
 
         ev.Handled = true;
 
@@ -334,11 +336,13 @@ public abstract class SharedMagicSystem : EntitySystem
         if (ev.Handled || !PassesSpellPrerequisites(ev.Action, ev.Performer))
             return;
 
+        // ADT-Tweak start
         if (HasComp<MagicImmunityComponent>(ev.Target))
         {
             ev.Handled = true;
             return;
         }
+        // ADT-Tweak end
 
         ev.Handled = true;
 
@@ -397,7 +401,7 @@ public abstract class SharedMagicSystem : EntitySystem
         if (ev.Handled || !PassesSpellPrerequisites(ev.Action, ev.Performer))
             return;
 
-        if (HasComp<MagicImmunityComponent>(ev.Target))
+        if (HasComp<MagicImmunityComponent>(ev.Target)) // ADT-Tweak
         {
             ev.Handled = true;
             return;
