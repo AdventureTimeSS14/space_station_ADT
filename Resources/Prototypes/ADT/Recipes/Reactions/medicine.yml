@@ -270,3 +270,17 @@
       amount: 1
   products:
     ADTDiphalazidone: 3
+
+- type: reaction
+  id: ADTOmnizineBreakdown
+  source: true
+  requiredMixerCategories:
+  - Centrifuge
+  reactants:
+    Omnizine:
+      amount: 1
+  products:
+    Siderlac: 0.25
+    Diphenhydramine: 0.25
+    PolypyryliumOligomers: 0.25
+    Sigynate: 0.25
