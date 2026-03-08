@@ -278,9 +278,9 @@
   - Centrifuge
   reactants:
     Omnizine:
-      amount: 1
+      amount: 4
   products:
-    Siderlac: 0.25
-    Diphenhydramine: 0.25
-    PolypyryliumOligomers: 0.25
-    Sigynate: 0.25
+    Siderlac: 1
+    Diphenhydramine: 1
+    PolypyryliumOligomers: 1
+    Sigynate: 1
