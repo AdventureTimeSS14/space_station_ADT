@@ -11,6 +11,7 @@ using Content.Server.Polymorph.Systems;
 using Content.Server.Popups;
 using Content.Server.Station.Systems;
 using Content.Server.Store.Systems;
+using Content.Shared.ADT.Chaplain.Components;
 using Content.Shared.Actions;
 using Content.Shared.Body.Systems;
 using Content.Shared.Chat;
@@ -84,7 +85,8 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         {
             // ignore heretics with the same path*, affect everyone else
             if ((TryComp<HereticComponent>(look, out var th) && th.CurrentPath == ent.Comp.CurrentPath)
-            || HasComp<GhoulComponent>(look))
+            || HasComp<GhoulComponent>(look)
+            || HasComp<MagicImmunityComponent>(look))
                 continue;
 
             if (!HasComp<StatusEffectsComponent>(look))

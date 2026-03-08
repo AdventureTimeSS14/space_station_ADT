@@ -1,5 +1,5 @@
 using Content.Server.Heretic.Components;
-using Content.Shared.Bible.Components;
+using Content.Shared.ADT.Chaplain.Components;
 using Content.Shared.Heretic;
 using Content.Shared.Maps;
 using Content.Shared.Stunnable;

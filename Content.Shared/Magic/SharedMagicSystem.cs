@@ -1,4 +1,5 @@
 using System.Numerics;
+using Content.Shared.ADT.Chaplain.Components;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Systems;
 using Content.Shared.Charges.Components;
@@ -295,6 +296,12 @@ public abstract class SharedMagicSystem : EntitySystem
         if (ev.Handled || !PassesSpellPrerequisites(ev.Action, ev.Performer))
             return;
 
+        if (HasComp<MagicImmunityComponent>(ev.Target))
+        {
+            ev.Handled = true;
+            return;
+        }
+
         ev.Handled = true;
 
         RemoveComponents(ev.Target, ev.ToRemove);
@@ -326,6 +333,12 @@ public abstract class SharedMagicSystem : EntitySystem
     {
         if (ev.Handled || !PassesSpellPrerequisites(ev.Action, ev.Performer))
             return;
+
+        if (HasComp<MagicImmunityComponent>(ev.Target))
+        {
+            ev.Handled = true;
+            return;
+        }
 
         ev.Handled = true;
 
@@ -383,6 +396,12 @@ public abstract class SharedMagicSystem : EntitySystem
     {
         if (ev.Handled || !PassesSpellPrerequisites(ev.Action, ev.Performer))
             return;
+
+        if (HasComp<MagicImmunityComponent>(ev.Target))
+        {
+            ev.Handled = true;
+            return;
+        }
 
         ev.Handled = true;
 

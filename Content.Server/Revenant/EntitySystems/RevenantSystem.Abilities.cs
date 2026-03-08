@@ -1,3 +1,4 @@
+using Content.Shared.ADT.Chaplain.Components;
 using Content.Shared.Popups;
 using Content.Shared.Damage;
 using Content.Shared.Revenant;
@@ -104,7 +105,10 @@ public sealed partial class RevenantSystem
             return;
         }
 
-        if (!HasComp<MobStateComponent>(target) || !HasComp<HumanoidAppearanceComponent>(target) || HasComp<RevenantComponent>(target))
+        if (!HasComp<MobStateComponent>(target)
+            || !HasComp<HumanoidAppearanceComponent>(target)
+            || HasComp<RevenantComponent>(target)
+            || HasComp<MagicImmunityComponent>(target))
             return;
 
         args.Handled = true;
@@ -282,9 +286,13 @@ public sealed partial class RevenantSystem
         var entityStorage = GetEntityQuery<EntityStorageComponent>();
         var items = GetEntityQuery<ItemComponent>();
         var lights = GetEntityQuery<PoweredLightComponent>();
+        var magicImmunity = GetEntityQuery<MagicImmunityComponent>();
 
         foreach (var ent in lookup)
         {
+            if (magicImmunity.HasComponent(ent))
+                continue;
+
             //break windows
             if (tags.HasComponent(ent) && _tag.HasTag(ent, WindowTag))
             {
@@ -331,11 +339,12 @@ public sealed partial class RevenantSystem
         var xform = Transform(uid);
         var poweredLights = GetEntityQuery<PoweredLightComponent>();
         var mobState = GetEntityQuery<MobStateComponent>();
+        var magicImmunity = GetEntityQuery<MagicImmunityComponent>();
         var lookup = _lookup.GetEntitiesInRange(uid, component.OverloadRadius);
         //TODO: feels like this might be a sin and a half
         foreach (var ent in lookup)
         {
-            if (!mobState.HasComponent(ent) || !_mobState.IsAlive(ent))
+            if (!mobState.HasComponent(ent) || !_mobState.IsAlive(ent) || magicImmunity.HasComponent(ent))
                 continue;
 
             var nearbyLights = _lookup.GetEntitiesInRange(ent, component.OverloadZapRadius)
@@ -400,6 +409,9 @@ public sealed partial class RevenantSystem
 
         foreach (var ent in _lookup.GetEntitiesInRange(uid, component.HysteriaRadius))
         {
+            if (HasComp<MagicImmunityComponent>(ent))
+                continue;
+
             _status.TryAddStatusEffect<TemporaryBlindnessComponent>(ent, TemporaryBlindnessSystem.BlindingStatusEffect, TimeSpan.FromSeconds(3), true);
             _hallucinations.StartHallucinations(ent, "ADTHallucinations", component.HysteriaDuration, true, component.HysteriaProto);
             if (!_mind.TryGetMind(ent, out var mindId, out var mind) || !_player.TryGetSessionById(mind.UserId, out var session))
