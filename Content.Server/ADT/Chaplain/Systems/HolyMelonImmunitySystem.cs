@@ -3,9 +3,8 @@ using Content.Shared.Hands;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Robust.Shared.GameObjects;
-using Robust.Shared.Utility;
 
-namespace Content.Server.Bible;
+namespace Content.Server.ADT.Chaplain.Systems;
 
 /// <summary>
 /// Система отслеживает предметы с <see cref="HolyMelonImmunityComponent"/> в руках игроков
