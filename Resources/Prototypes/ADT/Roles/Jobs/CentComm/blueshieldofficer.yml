@@ -67,6 +67,7 @@
                       types:
                         Blunt: 20
                   - !type:ComboFallEffect
+                    dropItems: false
                   - !type:ComboAudioEffect
                     sound:
                       collection: GenericHit
@@ -100,6 +101,7 @@
                   localeText: combo-cqc-pressure-end
                 - !type:ComboStaminaDamageEffect
                   staminaDamage: 35
+                - !type:ComboHandsRetakeEffect
             - actionsNeeds:
                 - Grab
                 - Grab
@@ -110,7 +112,7 @@
                 - !type:ComboFallEffect
                   dropItems: true
                 - !type:ComboStaminaDamageEffect
-                  staminaDamage: 30
+                  staminaDamage: 55
             - actionsNeeds:
                 - Disarm
                 - Disarm
@@ -121,10 +123,10 @@
                 - !type:ComboMoreDamageToDownedEffect
                   damage:
                     types:
-                      Blunt: 35
+                      Blunt: 25
                 - !type:ComboFallEffect
                 - !type:ComboStaminaDamageEffect
-                  staminaDamage: 45
+                  staminaDamage: 60
                 - !type:ComboAudioEffect
                   sound:
                     collection: GenericHit
