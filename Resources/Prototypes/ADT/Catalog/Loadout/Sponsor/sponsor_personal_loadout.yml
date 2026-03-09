@@ -164,7 +164,7 @@
 ## Schrodinger
 - type: sponsorPersonalLoadout
   id: SponsorPersonalLoadoutSchrodinger
-  userName: Schrodinger
+  userName: SchrodingerCutie
   equipment: SponsorPersonalLoadoutSchrodinger
 
 - type: startingGear
@@ -312,17 +312,18 @@
     back:
     - ToyFigurinePlushSamoobladania
 
-## Filo
-- type: sponsorPersonalLoadout
-  id: SponsorPersonalLoadoutFilo
-  userName: Filo
-  equipment: SponsorPersonalLoadoutFilo
-
-- type: startingGear
-  id: SponsorPersonalLoadoutFilo
-  storage:
-    back:
-    - ADTOwlScimitar
+### Filo
+# TODO: Такого энтити нет ADTOwlScimitar, ни в этом ни в старом репозитории, нужно уточнить у Фило, что он хотел там видеть
+#- type: sponsorPersonalLoadout
+#  id: SponsorPersonalLoadoutFilo
+#  userName: Filo
+#  equipment: SponsorPersonalLoadoutFilo
+#
+#- type: startingGear
+#  id: SponsorPersonalLoadoutFilo
+#  storage:
+#    back:
+#    - ADTOwlScimitar
 
 ## Moon_so_red
 - type: sponsorPersonalLoadout
@@ -722,6 +723,7 @@
     jumpsuit: ADTClothingUniformWCTR829
 
 ### Faust Netzach
+# TODO: Уточнить, такого никнейма не существует
 #- type: sponsorPersonalLoadout
 #  id: SponsorPersonalLoadoutFaust Netzach
 #  userName: Faust Netzach
