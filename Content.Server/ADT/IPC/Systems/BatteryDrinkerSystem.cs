@@ -158,7 +158,7 @@ public sealed class BatteryDrinkerSystem : EntitySystem
             return;
         }
 
-        var tryUse = _battery.TryUseCharge(source, amountToDrink);
+        var tryUse = _battery.TryUseCharge((source, sourceBattery), amountToDrink);
         if (tryUse)
         {
             _battery.SetCharge(drinkerBatteryUid, drinkerBattery.CurrentCharge + amountToDrink);
@@ -173,8 +173,6 @@ public sealed class BatteryDrinkerSystem : EntitySystem
         }
         else
         {
-            _battery.SetCharge(drinker, sourceBattery.CurrentCharge + drinkerBattery.CurrentCharge);
-            _battery.SetCharge(source, 0);
             args.Repeat = false;
         }
     }
