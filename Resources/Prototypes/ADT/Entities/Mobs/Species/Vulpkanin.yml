@@ -14,6 +14,13 @@
         Starving: 75
         Dead: 0
     - type: Thirst
+      baseDecayRate: 0.04
+      thresholds:
+        OverHydrated: 200
+        Okay: 150
+        Thirsty: 100
+        Parched: 50
+        Dead: 0
     - type: Speech
       speechSounds: Vulpa
     - type: Vocal

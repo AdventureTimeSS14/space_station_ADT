@@ -29,3 +29,20 @@
     groups:
     - id: Food
     - id: Drink
+
+- type: entity
+  id: ADTOrganFelinidLiver
+  parent: OrganHumanLiver
+  name: felinid liver
+  components:
+  - type: Metabolizer
+    maxReagents: 1
+    metabolizerTypes: [ Felinid ]
+    groups:
+    - id: Alcohol
+      rateModifier: 0.1
+  - type: Tag
+    tags:
+    - Meat
+    - Organ
+    - Liver

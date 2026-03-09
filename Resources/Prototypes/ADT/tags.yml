@@ -20,6 +20,9 @@
   id: ADTLasgunRevolverCell
 
 - type: Tag
+  id: RPD
+
+- type: Tag
   id: PhantomEctoplasm
 
 - type: Tag
@@ -753,3 +756,9 @@
 
 - type: Tag
   id: GunUpgradeVampirism
+
+- type: Tag
+  id: MansusLinkMind
+
+- type: Tag
+  id: SiliconFootstepSound

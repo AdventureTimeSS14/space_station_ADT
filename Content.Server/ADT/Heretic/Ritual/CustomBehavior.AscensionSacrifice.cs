@@ -1,0 +1,237 @@
+using System.Linq;
+using Content.Server.Atmos.EntitySystems;
+using Content.Server.Body.Systems;
+using Content.Server.Chat.Managers;
+using Content.Server.Heretic.EntitySystems;
+using Content.Server.Medical.SuitSensors;
+using Content.Server.Objectives.Components;
+using Content.Server.Revolutionary.Components;
+using Content.Shared.ADT.BloodBrothers;
+using Content.Shared.Changeling.Components;
+using Content.Shared.Chat;
+using Content.Shared.Damage.Systems;
+using Content.Shared.Heretic;
+using Content.Shared.Heretic.Prototypes;
+using Content.Shared.Humanoid;
+using Content.Shared.Inventory;
+using Content.Shared.Medical.SuitSensor;
+using Content.Shared.Mind;
+using Content.Shared.Mobs;
+using Content.Shared.Mobs.Components;
+using Content.Shared.Mobs.Systems;
+using Content.Shared.Movement.Pulling.Components;
+using Content.Shared.Movement.Pulling.Systems;
+using Content.Shared.Revolutionary.Components;
+using Robust.Server.GameObjects;
+using Robust.Server.Player;
+using Robust.Shared.Random;
+
+namespace Content.Server.Heretic.Ritual;
+
+/// <summary>
+///     Поведение для ритуалов возвышения.
+///     Принимает ЛЮБЫЕ трупы гуманоидов, а не только цели.
+/// </summary>
+public sealed partial class RitualAscensionSacrificeBehavior : RitualCustomBehavior
+{
+    /// <summary>
+    ///     Minimal amount of corpses.
+    /// </summary>
+    [DataField]
+    public float Min = 3;
+
+    /// <summary>
+    ///     Maximum amount of corpses.
+    /// </summary>
+    [DataField]
+    public float Max = 4;
+
+    protected List<EntityUid> uids = new();
+
+    public override bool Execute(RitualData args, out string? outstr)
+    {
+        var lookupSystem = args.EntityManager.System<EntityLookupSystem>();
+
+        uids = new();
+
+        if (!args.EntityManager.TryGetComponent<HereticComponent>(args.Performer, out var hereticComp))
+        {
+            outstr = string.Empty;
+            return false;
+        }
+
+        // Увеличенный радиус поиска трупов (1.5 метра)
+        var res = lookupSystem.GetEntitiesInRange(args.Platform, 1.5f);
+        if (res.Count == 0)
+        {
+            outstr = Loc.GetString("heretic-ritual-fail-sacrifice");
+            return false;
+        }
+
+        // get all the dead ones - принимаем ЛЮБЫЕ трупы для возвышения
+        foreach (var look in res)
+        {
+            if (!args.EntityManager.TryGetComponent<MobStateComponent>(look, out var mobstate)
+                || !args.EntityManager.HasComponent<HumanoidAppearanceComponent>(look)
+                || mobstate.CurrentState != Shared.Mobs.MobState.Dead)
+                continue;
+
+            // Принимаем любые трупы для ритуала возвышения
+            uids.Add(look);
+        }
+
+        if (uids.Count < Min)
+        {
+            var needed = (int)Min - uids.Count;
+            outstr = Loc.GetString("heretic-ritual-fail-sacrifice-count", ("current", uids.Count), ("required", (int)Min), ("needed", needed), ("max", (int)Max));
+            return false;
+        }
+
+        outstr = null;
+        return true;
+    }
+
+    public override void Finalize(RitualData args)
+    {
+        var hereticSystem = args.EntityManager.System<HereticSystem>();
+        var mindSystem = args.EntityManager.System<SharedMindSystem>();
+
+        // Обрабатываем от Min до Max трупов (или сколько есть)
+        var processedCount = 0;
+        for (var i = 0; i < uids.Count && processedCount < Max; i++)
+        {
+            if (args.EntityManager.HasComponent<SacrificedComponent>(uids[i]))
+                continue;
+
+            processedCount++;
+
+            // Базовое очко знаний за любой труп
+            var knowledgeGain = 2f;
+
+            // Бонусы за особые цели
+            if (args.EntityManager.HasComponent<CommandStaffComponent>(uids[i]))
+                knowledgeGain += 2f;
+            if (args.EntityManager.TryGetComponent<HereticComponent>(uids[i], out var heretic))
+                knowledgeGain += Math.Min(2, heretic.PathStage / 2 - 1);
+            if (args.EntityManager.HasComponent<ChangelingComponent>(uids[i]))
+                knowledgeGain += 2;
+            if (args.EntityManager.TryGetComponent<BloodBrotherLeaderComponent>(uids[i], out var bro))
+                knowledgeGain += bro.ConvertedCount / 2;
+            if (args.EntityManager.TryGetComponent<HeadRevolutionaryComponent>(uids[i], out var rev))
+                knowledgeGain += rev.ConvertedCount / 3;
+
+            // Ganimed
+            // start the sacrifing process -space
+            if (args.EntityManager.TryGetComponent<TransformComponent>(uids[i], out var transform))
+            {
+                var uid = uids[i];
+                SafeSacrifice(args, uid);
+            }
+
+            if (args.EntityManager.TryGetComponent<HereticComponent>(args.Performer, out var hereticComp))
+                hereticSystem.UpdateKnowledge(args.Performer, hereticComp, knowledgeGain);
+
+            // update objectives
+            if (mindSystem.TryGetMind(args.Performer, out var mindId, out var mind))
+            {
+                // this is godawful dogshit. but it works :)
+                if (mindSystem.TryFindObjective((mindId, mind), "HereticSacrificeObjective", out var crewObj)
+                && args.EntityManager.TryGetComponent<HereticSacrificeConditionComponent>(crewObj, out var crewObjComp))
+                    crewObjComp.Sacrificed += 1;
+
+                if (mindSystem.TryFindObjective((mindId, mind), "HereticSacrificeHeadObjective", out var crewHeadObj)
+                && args.EntityManager.TryGetComponent<HereticSacrificeConditionComponent>(crewHeadObj, out var crewHeadObjComp)
+                && args.EntityManager.HasComponent<CommandStaffComponent>(uids[i]))
+                    crewHeadObjComp.Sacrificed += 1;
+            }
+        }
+
+        // reset it because it refuses to work otherwise.
+        uids = new();
+        args.EntityManager.EventBus.RaiseLocalEvent(args.Performer, new EventHereticUpdateTargets());
+    }
+
+    // Ganimed
+    // sacrifice function to safely teleport them away -space
+    private void SafeSacrifice(RitualData args, EntityUid uid)
+    {
+        var suitSensorSystem = args.EntityManager.System<SuitSensorSystem>();
+        var transformSystem = args.EntityManager.System<TransformSystem>();
+        var inventorySystem = args.EntityManager.System<InventorySystem>();
+        var sharedMindSystem = args.EntityManager.System<SharedMindSystem>();
+        var bloodSystem = args.EntityManager.System<BloodstreamSystem>();
+        var mobStateSystem = args.EntityManager.System<MobStateSystem>();
+        var damageSystem = args.EntityManager.System<DamageableSystem>();
+        var chatManager = IoCManager.Resolve<IChatManager>();
+        var player = IoCManager.Resolve<IPlayerManager>();
+        if (!args.EntityManager.TryGetComponent<MobStateComponent>(uid, out var mobstate))
+            return;
+
+        if (mobstate.CurrentState == MobState.Dead)
+        {
+            // check if DEAD
+            TeleportRandomly(args, uid); //send the loop over to a function -space
+
+            // tell them they've been sacrificed -space
+            var message = Loc.GetString("sacrificed-description");
+            var wrappedMessage = Loc.GetString("chat-manager-server-wrap-message", ("message", message));
+
+            if (message is not null &&
+                sharedMindSystem.TryGetMind(uid, out _, out var mindComponent) &&
+                player.TryGetSessionByEntity(uid, out var session))
+            {
+                chatManager.ChatMessageToOne(ChatChannel.Server,
+                    message,
+                    wrappedMessage,
+                    default,
+                    false,
+                     session.Channel,
+                     Color.FromSrgb(new Color(255, 100, 255)));
+            }
+
+            args.EntityManager.EnsureComponent<SacrificedComponent>(uid);
+        }
+
+        suitSensorSystem.SetAllSensors(uid, SuitSensorMode.SensorCords);
+
+    }
+
+    private void TeleportRandomly(RitualData args, EntityUid uid) // start le teleporting loop -space
+    {
+        var transformSystem = args.EntityManager.System<SharedTransformSystem>();
+        var lookupSystem = args.EntityManager.System<EntityLookupSystem>();
+        var xformSystem = args.EntityManager.System<TransformSystem>();
+        var randomSystem = IoCManager.Resolve<IRobustRandom>();
+        var sharedXformSystem = args.EntityManager.System<SharedTransformSystem>();
+        var atmosSystem = args.EntityManager.System<AtmosphereSystem>();
+        var pullSystem = args.EntityManager.System<PullingSystem>();
+
+        var maxrandomtp = 50; // this is how many attempts it will try before breaking the loop -space
+        var maxrandomradius = 40; // this is the max range it will do -space
+
+        if (!args.EntityManager.TryGetComponent<TransformComponent>(uid, out var transformComponent))
+            return;
+
+        // Stop the heretic to being pulled with the sacrificed target (or anything else who is pulling it) -space
+        if (args.EntityManager.TryGetComponent<PullableComponent>(uid, out var pull))
+            pullSystem.TryStopPull(uid, pull);
+
+
+        var coords = transformComponent.Coordinates;
+        var newCoords = coords.Offset(randomSystem.NextVector2(maxrandomradius));
+        for (var i = 0; i < maxrandomtp; i++) //start of the loop -space
+        {
+            var randVector = randomSystem.NextVector2(maxrandomradius);
+            newCoords = coords.Offset(randVector);
+
+            xformSystem.SetCoordinates(uid, newCoords); //move person teleported to check if they're under a tile (the tiles intersecting doesnt account for this so we need to do this) -space
+
+            var air = atmosSystem.GetContainingMixture((uid, transformComponent)); //check if the room has any sort of atmos (this prevents getting teleported into solars and grilles outta the station) -space
+
+            // if they're not in space and not in wall, it will choose these coords and end the loop -space
+            if (transformComponent.GridUid != null && air != null && !lookupSystem.GetEntitiesIntersecting(newCoords.ToMap(args.EntityManager, sharedXformSystem), LookupFlags.Static).Any())
+                break;
+        }
+
+    }
+}
