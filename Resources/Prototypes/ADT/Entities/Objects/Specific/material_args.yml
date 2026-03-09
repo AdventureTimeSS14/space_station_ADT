@@ -82,6 +82,10 @@
                 - Disarm
                 - Hit
               comboEvent:
+                - !type:ComboDamageEffect
+                  damage:
+                    types:
+                      Blunt: 10
                 - !type:ComboPopupEffect
                   localeText: combo-cqc-consecutive-end
                 - !type:ComboMoreDamageToDownedEffect
