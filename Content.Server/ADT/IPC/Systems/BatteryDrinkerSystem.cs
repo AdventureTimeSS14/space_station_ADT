@@ -158,10 +158,24 @@ public sealed class BatteryDrinkerSystem : EntitySystem
             return;
         }
 
+        // Проверка на NaN/Infinity для предотвращения поломки ЛКП
+        if (float.IsNaN(amountToDrink) || float.IsInfinity(amountToDrink))
+        {
+            _popup.PopupEntity(Loc.GetString("battery-drinker-empty", ("target", source)), drinker, drinker);
+            return;
+        }
+
         var tryUse = _battery.TryUseCharge((source, sourceBattery), amountToDrink);
         if (tryUse)
         {
-            _battery.SetCharge(drinkerBatteryUid, drinkerBattery.CurrentCharge + amountToDrink);
+            var newCharge = drinkerBattery.CurrentCharge + amountToDrink;
+            // Проверка на NaN/Infinity перед установкой заряда
+            if (float.IsNaN(newCharge) || float.IsInfinity(newCharge))
+            {
+                _popup.PopupEntity(Loc.GetString("battery-drinker-empty", ("target", source)), drinker, drinker);
+                return;
+            }
+            _battery.SetCharge(drinkerBatteryUid, newCharge);
             if (drinkerBattery.CurrentCharge < drinkerBattery.MaxCharge * 0.95f)
             {
                 args.Repeat = true;
