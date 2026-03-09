@@ -233,6 +233,24 @@
     - ADTJumpsuitAidan
     - ADTClothingOuterCoatAidan
 
+## RedLis
+- type: sponsorPersonalLoadout
+  id: SponsorPersonalLoadoutRedLis
+  userName: RedLis
+  equipment: SponsorPersonalLoadoutRedLis
+
+- type: startingGear
+  id: SponsorPersonalLoadoutRedLis
+  storage:
+    back:
+    - ADTBookAidan
+    - ADTClothingUniformShipTestAltiusRedLis
+    - ADTClothingNeckShipTestAltiusRedLis
+    - ADTClothingShoesShipTestAltiusRedLis
+    - ADTClothingHeadHatsShipTestAltiusRedLis
+    - ADTClothingOuterCoatShipTestAltiusRedLis
+    - ADTClothingOuterCoatJacketShipTestAltiusRedLis
+
 ## Maestro_HLT
 - type: sponsorPersonalLoadout
   id: SponsorPersonalLoadoutMaestro_HLT
@@ -280,6 +298,7 @@
   storage:
     back:
     - ADTPlushieIlumi
+    - ADTPlushieLo
 
 ## coldangel
 - type: sponsorPersonalLoadout
@@ -702,21 +721,21 @@
   equipment:
     jumpsuit: ADTClothingUniformWCTR829
 
-## Faust Netzach
-- type: sponsorPersonalLoadout
-  id: SponsorPersonalLoadoutFaust Netzach
-  userName: Faust Netzach
-  equipment: SponsorPersonalLoadoutFaust Netzach
-
-- type: startingGear
-  id: SponsorPersonalLoadoutFaust Netzach
-  storage:
-    back:
-    - ADTClothingBeltFaustSheath
-    - ADTDrinkFlecheCan
-    - ADTClothingHeadHatsFaustCap
-    - ADTClothingHandsCuffsFaust
-    - ADTClothingUniformGothic
+### Faust Netzach
+#- type: sponsorPersonalLoadout
+#  id: SponsorPersonalLoadoutFaust Netzach
+#  userName: Faust Netzach
+#  equipment: SponsorPersonalLoadoutFaust Netzach
+#
+#- type: startingGear
+#  id: SponsorPersonalLoadoutFaust Netzach
+#  storage:
+#    back:
+#    - ADTClothingBeltFaustSheath
+#    - ADTDrinkFlecheCan
+#    - ADTClothingHeadHatsFaustCap
+#    - ADTClothingHandsCuffsFaust
+#    - ADTClothingUniformGothic
 
 ## kimer_k
 - type: sponsorPersonalLoadout
@@ -771,10 +790,10 @@
     - ADTPlushieGlide
     - ADTPlushieVictor
 
-## luckyrat
+## karmafom
 - type: sponsorPersonalLoadout
   id: SponsorPersonalLoadoutLuckyrat
-  userName: luckyrat
+  userName: karmafom
   equipment: SponsorPersonalLoadoutLuckyrat
 
 - type: startingGear
