@@ -101,6 +101,18 @@
 
 #Пары из антагов
 - type: entity
+  id: ChangelingDuo
+  parent: Changeling
+  components:
+  - type: GameRule
+    minPlayers: 25
+  - type: AntagSelection
+    definitions:
+    - prefRoles: [ Changeling ]
+      max: 2
+      playerRatio: 15
+
+- type: entity
   parent: BaseTraitorRule
   id: TraitorDuoGameRule
   components:
@@ -206,12 +218,12 @@
       - id: HereticSoloGameRule
         cost: 15
         rerollChance: 0.5
-      - id: Changeling
-        cost: 15
       - id: TraitorDuoGameRule
         cost: 15
       - id: TraitorLightGameRule
         cost: 15
+      - id: Changeling
+        cost: 25
       - id: BloodBrother
         cost: 25
       - id: Heretic
@@ -248,14 +260,14 @@
     roundstartRules:
       - id: Thief
         cost: 10
-      - id: Changeling
-        cost: 10
       - id: TraitorDuoGameRule
         cost: 10
       - id: BloodBrother
         cost: 25
       - id: TraitorLightGameRule
         cost: 15
+      - id: Changeling
+        cost: 25
     midroundAntags:
       - id: DragonSpawn
         cost: 110

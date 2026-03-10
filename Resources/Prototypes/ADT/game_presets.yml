@@ -59,7 +59,7 @@
   showInVote: false
   rules:
     - TraitorDuoGameRule
-    - Changeling
+    - ChangelingDuo # ADT tweak
     - HereticDuoGameRule
     - SubGamemodesRule
     - BasicStationEventScheduler
