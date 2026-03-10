@@ -264,9 +264,6 @@ public abstract partial class SharedStunSystem : EntitySystem
         }
         else
         {
-            // ADT-Tweak start: Always refresh movement modifiers when knocked down, even if component already exists
-            RefreshKnockedMovement((uid, component));
-            // ADT-Tweak end
 
             // Only drop items the first time we want to fall...
             if (drop)
