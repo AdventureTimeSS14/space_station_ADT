@@ -15,7 +15,7 @@
       time: 10h
     - !type:OverallPlaytimeRequirement
       time: 144000 #40 hrs
-     # DT-Tweak start
+     # ADT-Tweak start
     - !type:TraitsRequirement
       inverted: true
       traits:
