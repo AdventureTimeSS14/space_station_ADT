@@ -1902,6 +1902,25 @@
     tags:
     - ADTLighter
 
+ # Mina0, От Арчи и Пани для глупеньке Мио на 8-ое марта
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieMio
+  name: Mio plushie
+  description: Soft plushie
+  suffix: Именное, Mina0
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/mina0/minaplushie.rsi
+    state: icon
+    scale: 0.8, 0.8
+  - type: Clothing
+    quickEquip: false
+    sprite: ADT/Personalization/mina0/minaplushie.rsi
+    slots:
+    - HEAD
+
 #ADT-TEAM-ITEMS-END
 
 #SPONSOR-ITEMS-START
