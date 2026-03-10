@@ -97,7 +97,7 @@ public sealed partial class ComboFallEffect : IComboEffect
         if (!standing.IsDown(target))
         {
             var stun = entMan.System<SharedStunSystem>();
-            stun.TryKnockdown(target, time: null, drop: DropItems, force: true);
+            stun.TryKnockdown(target, time: null, drop: DropItems, force: false);
         }
     }
 }
@@ -143,8 +143,9 @@ public sealed partial class ComboStunEffect : IComboEffect
         var down = entMan.System<SharedStunSystem>();
         down.TryUpdateParalyzeDuration(target, TimeSpan.FromSeconds(StunTime));
 
-        if (!Fall)
+        if (Fall)
         {
+            down.TryKnockdown(target, time: null, drop: DropItems, force: false);
         }
     }
 }

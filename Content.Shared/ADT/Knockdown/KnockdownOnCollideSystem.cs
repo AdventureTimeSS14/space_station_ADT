@@ -39,6 +39,6 @@ public sealed class KnockdownOnCollideSystem : EntitySystem
 
     private void ApplyEffects(EntityUid target, KnockdownOnCollideComponent component)
     {
-        _stun.TryKnockdown(target, time: null, drop: false, force: true);
+        _stun.TryKnockdown(target, time: null, drop: false, force: false);
     }
 }
