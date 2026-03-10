@@ -15,12 +15,12 @@
       time: 10h
     - !type:OverallPlaytimeRequirement
       time: 144000 #40 hrs
-    #ADT tweak start
+     # DT-Tweak start
     - !type:TraitsRequirement
       inverted: true
       traits:
       - Muted
-    - !type:SpeciesRequiremen
+    - !type:SpeciesRequirement
       inverted: true
       species:
       - Vox
