@@ -1,32 +1,32 @@
 {
-  "version": 2,
+  "version": 3,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from goonstation https://github.com/goonstation/goonstation/blob/master/icons/obj/foodNdrink/espresso.dmi and edited by QWERTY",
+  "copyright": "Taken from goonstation https://github.com/goonstation/goonstation/blob/master/icons/obj/foodNdrink/espresso.dmi, edited by QWERTY and by orange6775 (discord)",
   "size": {
     "x": 32,
     "y": 32
   },
   "states": [
     {
-      "name": "command"
+      "name": "command", "directions": 4
     },
     {
-      "name": "engineer"
+      "name": "engineer", "directions": 4
     },
     {
-      "name": "common"
+      "name": "common", "directions": 4
     },
     {
-      "name": "hydroponics"
+      "name": "hydroponics", "directions": 4
     },
     {
-      "name": "medicine"
+      "name": "medicine", "directions": 4
     },
     {
-      "name": "science"
+      "name": "science", "directions": 4
     },
     {
-      "name": "cargo"
+      "name": "cargo", "directions": 4
     },
     {
       "name": "bluespace",
@@ -36,11 +36,29 @@
           0.3,
           0.3,
           0.3
+        ],
+        [
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ],
+        [
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ],
+        [
+          0.3,
+          0.3,
+          0.3,
+          0.3
         ]
-      ]
+      ], "directions": 4
     },
     {
-      "name": "security"
+      "name": "security", "directions": 4
     }
   ]
 }

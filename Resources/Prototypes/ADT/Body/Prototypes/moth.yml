@@ -16,7 +16,7 @@
         heart: OrganMothHeart
         lungs: OrganHumanLungs
         stomach: OrganMothStomach
-        liver: OrganAnimalLiver
+        liver: OrganMothLiver
         kidneys: OrganHumanKidneys
       connections:
       - right arm

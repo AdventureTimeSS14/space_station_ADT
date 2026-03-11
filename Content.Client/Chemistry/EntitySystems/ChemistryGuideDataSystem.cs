@@ -53,10 +53,12 @@ public sealed class ChemistryGuideDataSystem : SharedChemistryGuideDataSystem
     {
         // this doesn't check what prototypes are being reloaded because, to be frank, we use a lot of them.
         _reagentSources.Clear();
+        // ADT-Fix-Start: инициализация всех известных реагентов
         foreach (var reagent in PrototypeManager.EnumeratePrototypes<ReagentPrototype>())
         {
-            _reagentSources.Add(reagent.ID, new());
+            _reagentSources[reagent.ID] = new();
         }
+        // ADT-Fix-End
 
         foreach (var reaction in PrototypeManager.EnumeratePrototypes<ReactionPrototype>())
         {
@@ -68,7 +70,14 @@ public sealed class ChemistryGuideDataSystem : SharedChemistryGuideDataSystem
                 reaction);
             foreach (var product in reaction.Products.Keys)
             {
-                _reagentSources[product].Add(data);
+                // ADT-Fix-Start: добавление неизвестных реагентов чтобы не падало
+                if (!_reagentSources.TryGetValue(product, out var list))
+                {
+                    list = new List<ReagentSourceData>();
+                    _reagentSources[product] = list;
+                }
+                // ADT-Fix-End
+                list.Add(data);
             }
         }
 
@@ -80,7 +89,14 @@ public sealed class ChemistryGuideDataSystem : SharedChemistryGuideDataSystem
             var data = new ReagentGasSourceData(
                 new () { DefaultCondenseCategory },
                 gas);
-            _reagentSources[gas.Reagent].Add(data);
+            // ADT-Fix-Start: аналогично — создаем список если реагента нет
+            if (!_reagentSources.TryGetValue(gas.Reagent, out var list))
+            {
+                list = new List<ReagentSourceData>();
+                _reagentSources[gas.Reagent] = list;
+            }
+            // ADT-Fix-End
+            list.Add(data);
         }
 
         // store the names of the entities used so we don't get repeats in the guide.
@@ -93,12 +109,7 @@ public sealed class ChemistryGuideDataSystem : SharedChemistryGuideDataSystem
             if (!entProto.TryGetComponent<ExtractableComponent>(out var extractableComponent, EntityManager.ComponentFactory))
                 continue;
 
-            //these bloat the hell out of blood/fat
-            if (entProto.HasComponent<BodyPartComponent>())
-                continue;
-
-            //these feel obvious...
-            if (entProto.HasComponent<PillComponent>())
+            if (entProto.HasComponent<BodyPartComponent>() || entProto.HasComponent<PillComponent>()) // ADT-Tweak
                 continue;
 
             if (extractableComponent.JuiceSolution is { } juiceSolution)
@@ -109,7 +120,14 @@ public sealed class ChemistryGuideDataSystem : SharedChemistryGuideDataSystem
                     juiceSolution);
                 foreach (var (id, _) in juiceSolution.Contents)
                 {
-                    _reagentSources[id.Prototype].Add(data);
+                    // ADT-Fix-Start
+                    if (!_reagentSources.TryGetValue(id.Prototype, out var list))
+                    {
+                        list = new List<ReagentSourceData>();
+                        _reagentSources[id.Prototype] = list;
+                    }
+                    // ADT-Fix-End
+                    list.Add(data);
                 }
 
                 usedNames.Add(entProto.Name);
@@ -126,7 +144,14 @@ public sealed class ChemistryGuideDataSystem : SharedChemistryGuideDataSystem
                     grindableSolution);
                 foreach (var (id, _) in grindableSolution.Contents)
                 {
-                    _reagentSources[id.Prototype].Add(data);
+                    // ADT-Fix-Start
+                    if (!_reagentSources.TryGetValue(id.Prototype, out var list))
+                    {
+                        list = new List<ReagentSourceData>();
+                        _reagentSources[id.Prototype] = list;
+                    }
+                    // ADT-Fix-End
+                    list.Add(data);
                 }
                 usedNames.Add(entProto.Name);
             }

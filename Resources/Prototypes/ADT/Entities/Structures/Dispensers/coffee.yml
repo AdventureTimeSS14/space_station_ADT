@@ -20,6 +20,7 @@
     sprite: ADT/Structures/coffeemachine.rsi
     drawdepth: SmallObjects
     state: common
+    noRot: true
   - type: Storage
     openOnActivate: false
     whitelist:

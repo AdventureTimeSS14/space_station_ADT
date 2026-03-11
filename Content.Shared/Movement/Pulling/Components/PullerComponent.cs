@@ -1,4 +1,4 @@
-﻿using Content.Shared.ADT.Grab;
+using Content.Shared.ADT.Grab;
 using Content.Shared.Alert;
 using Content.Shared.DoAfter;
 using Content.Shared.Hands.EntitySystems;
@@ -47,6 +47,7 @@ public sealed partial class PullerComponent : Component
 
     [DataField]
     public ProtoId<AlertPrototype> PullingAlert = "ADTPulling"; // ADT Grab
+
 
     // ADT Grab start
     [ViewVariables]

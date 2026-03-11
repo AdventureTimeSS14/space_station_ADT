@@ -1,3 +1,155 @@
+# ADT: Open barrels construction graphs — 8 steel each (construction menu)
+- type: constructionGraph
+  id: ADTBarrelChemWaterOpen
+  start: start
+  graph:
+    - node: start
+      actions:
+        - !type:DestroyEntity {}
+      edges:
+        - to: barrel
+          steps:
+            - material: Steel
+              amount: 8
+              doAfter: 10
+    - node: barrel
+      entity: ADTBarrelChemWaterOpenEmpty
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 6
+          steps:
+            - tool: Prying
+              doAfter: 8
+
+- type: constructionGraph
+  id: ADTBarrelChemWeldingOpen
+  start: start
+  graph:
+    - node: start
+      actions:
+        - !type:DestroyEntity {}
+      edges:
+        - to: barrel
+          steps:
+            - material: Steel
+              amount: 8
+              doAfter: 10
+    - node: barrel
+      entity: ADTBarrelChemWeldingOpenEmpty
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 6
+          steps:
+            - tool: Prying
+              doAfter: 8
+
+- type: constructionGraph
+  id: ADTBarrelChemSilicateOpen
+  start: start
+  graph:
+    - node: start
+      actions:
+        - !type:DestroyEntity {}
+      edges:
+        - to: barrel
+          steps:
+            - material: Steel
+              amount: 8
+              doAfter: 10
+    - node: barrel
+      entity: ADTBarrelChemSilicateOpen
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 6
+          steps:
+            - tool: Prying
+              doAfter: 8
+
+- type: constructionGraph
+  id: ADTBarrelWoodenOpen
+  start: start
+  graph:
+    - node: start
+      actions:
+        - !type:DestroyEntity {}
+      edges:
+        - to: barrel
+          steps:
+            - material: WoodPlank
+              amount: 8
+              doAfter: 10
+    - node: barrel
+      entity: ADTBarrelWoodenOpenEmpty
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialWoodPlank1
+              amount: 6
+          steps:
+            - tool: Prying
+              doAfter: 8
+
+- type: constructionGraph
+  id: ADTBarrelMetalOpen
+  start: start
+  graph:
+    - node: start
+      actions:
+        - !type:DestroyEntity {}
+      edges:
+        - to: barrel
+          steps:
+            - material: Steel
+              amount: 8
+              doAfter: 10
+    - node: barrel
+      entity: ADTBarrelMetalOpen
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 6
+          steps:
+            - tool: Prying
+              doAfter: 8
+
+- type: constructionGraph
+  id: ADTBarrelRadOpen
+  start: start
+  graph:
+    - node: start
+      actions:
+        - !type:DestroyEntity {}
+      edges:
+        - to: barrel
+          steps:
+            - material: Steel
+              amount: 8
+              doAfter: 10
+    - node: barrel
+      entity: ADTBarrelRadOpenEmpty
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 6
+          steps:
+            - tool: Prying
+              doAfter: 8
+
+# ADT: Decorative barrels construction graphs
 - type: constructionGraph
   id: ADTBaseBarrel
   start: start
@@ -9,21 +161,19 @@
         - to: adtbasebarrel
           steps:
             - material: Steel
-              amount: 5
-              doAfter: 5
-        
+              amount: 8
+              doAfter: 10
     - node: adtbasebarrel
       entity: ADTBaseBarrel
       edges:
         - to: start
-          steps:
-            - tool: Screwing
-              doAfter: 2
           completed:
             - !type:SpawnPrototype
               prototype: SheetSteel1
-              amount: 5
-            - !type:DeleteEntity {}
+              amount: 6
+          steps:
+            - tool: Prying
+              doAfter: 8
 
 - type: constructionGraph
   id: ADTBarrelPlanks
@@ -35,28 +185,23 @@
       edges:
         - to: adtbarrelplanks
           steps:
-            - material: Steel
-              amount: 5
-              doAfter: 5
             - material: WoodPlank
-              amount: 4
-              doAfter: 5
-
+              amount: 3
+              doAfter: 10
     - node: adtbarrelplanks
       entity: ADTBarrelPlanks
       edges:
         - to: start
-          steps:
-            - tool: Screwing
-              doAfter: 2
           completed:
             - !type:SpawnPrototype
               prototype: SheetSteel1
-              amount: 5
+              amount: 6
             - !type:SpawnPrototype
               prototype: MaterialWoodPlank1
-              amount: 4
-            - !type:DeleteEntity {}
+              amount: 2
+          steps:
+            - tool: Prying
+              doAfter: 8
 
 - type: constructionGraph
   id: ADTBarrelFire
@@ -69,24 +214,21 @@
         - to: adtbarrelfire
           steps:
             - material: Steel
-              amount: 5
-              doAfter: 5
-            - material: WoodPlank
+              amount: 8
+            - material: Coal
               amount: 3
-              doAfter: 5
-
+              doAfter: 10
     - node: adtbarrelfire
       entity: ADTBarrelFire
       edges:
         - to: start
-          steps:
-            - tool: Screwing
-              doAfter: 2
           completed:
             - !type:SpawnPrototype
               prototype: SheetSteel1
-              amount: 5
+              amount: 6
             - !type:SpawnPrototype
               prototype: Coal1
-              amount: 4
-            - !type:DeleteEntity {}
+              amount: 2
+          steps:
+            - tool: Prying
+              doAfter: 8

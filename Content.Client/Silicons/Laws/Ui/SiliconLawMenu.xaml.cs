@@ -16,7 +16,7 @@ public sealed partial class SiliconLawMenu : FancyWindow
 
     public void Update(EntityUid uid, SiliconLawBuiState state)
     {
-        state.Laws.Sort();
+        state.Laws.Sort((a, b) => string.Compare(a.Order, b.Order, StringComparison.Ordinal)); // ADT-Tweak
         LawDisplayContainer.Children.Clear();
 
         foreach (var law in state.Laws)

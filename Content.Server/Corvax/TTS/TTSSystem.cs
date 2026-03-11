@@ -1,4 +1,5 @@
 using System.Threading.Tasks;
+using Content.Shared.Chat;
 using Content.Server.Chat.Systems;
 using Content.Shared.Corvax.CCCVars;
 using Content.Shared.Corvax.TTS;
@@ -119,7 +120,7 @@ public sealed partial class TTSSystem : EntitySystem
         if (soundData is null) return;
 
         // ADT Languages start
-        var languageSoundData = await GenerateTTS(_language.ObfuscateMessage(uid, message, gen.Replacement, gen.ObfuscateSyllables), speaker);
+        var languageSoundData = await GenerateTTS(_language.ObfuscateMessage(uid, message, gen.Replacement, gen.ObfuscateSyllables, gen.ReplaceEntireMessage), speaker);
         if (languageSoundData is null) return;
         // ADT Languages end
 
@@ -140,10 +141,10 @@ public sealed partial class TTSSystem : EntitySystem
         if (obfSoundData is null) return;
 
         // ADT Languages start
-        var fullLangSoundData = await GenerateTTS(_language.ObfuscateMessage(uid, message, gen.Replacement, gen.ObfuscateSyllables), speaker, true);
+        var fullLangSoundData = await GenerateTTS(_language.ObfuscateMessage(uid, message, gen.Replacement, gen.ObfuscateSyllables, gen.ReplaceEntireMessage), speaker, true);
         if (fullLangSoundData is null) return;
 
-        var obfLangSoundData = await GenerateTTS(_language.ObfuscateMessage(uid, obfMessage, gen.Replacement, gen.ObfuscateSyllables), speaker, true);
+        var obfLangSoundData = await GenerateTTS(_language.ObfuscateMessage(uid, obfMessage, gen.Replacement, gen.ObfuscateSyllables, gen.ReplaceEntireMessage), speaker, true);
         if (obfLangSoundData is null) return;
         // ADT Languages end
 

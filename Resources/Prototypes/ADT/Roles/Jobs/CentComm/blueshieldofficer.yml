@@ -20,6 +20,7 @@
       species:
       - Resomi
       - Vox
+      - Shadekin
   weight: 15
   startingGear: ADTBlueShieldOfficerGear
   icon: "JobIconADTBlueShieldOfficer"
@@ -44,12 +45,6 @@
     implants: [ MindShieldImplant ]
   - !type:AddComponentSpecial
       components:
-        - type: BlueShield
-        - type: CantShoot
-          popup: combo-cantshoot
-          whitelist:
-            tags:
-            - ADTBsoWeapon
         - type: Necksnap
         - type: Combo
           availableMoves:

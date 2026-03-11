@@ -23,6 +23,10 @@
     walkModifier: 0.9
     sprintModifier: 0.9
   - type: HeldSpeedModifier
+  # ADT-Tweak-Start
+  - type: HidesSlots
+    hidesSlots: [ INNERCLOTHING, GLOVES, LEGS, FEET, SOCKS, UNDERWEART, UNDERWEARB, POCKET ]
+  #ADT-Tweak-End
 
 - type: entity
   abstract: true
@@ -146,9 +150,14 @@
       flatReductions:
         Heat: 10 # the average lightbulb only does around four damage!
     slots: OUTERCLOTHING
+  # - type: HideLayerClothing # ADT-Tweak: fix-tail
+  #   slots:
+  #   - Tail
   #ADT-Tweak-Start
   - type: CoveredSlot
     slots: [innerclothing, gloves, feet, underwearb, underweart, socks]
+  - type: HidesSlots
+    hidesSlots: [ INNERCLOTHING, GLOVES, LEGS, FEET, SOCKS, UNDERWEART, UNDERWEARB, POCKET ]
   #ADT-Tweak-End
 
 - type: entity
@@ -179,9 +188,14 @@
       flatReductions:
         Heat: 10 # the average lightbulb only does around four damage!
     slots: OUTERCLOTHING
+  # - type: HideLayerClothing # ADT-Tweak: fix-tail
+  #   slots:
+  #   - Tail
   #ADT-Tweak-Start
   - type: CoveredSlot
     slots: [innerclothing, gloves, feet, underwearb, underweart, socks]
+  - type: HidesSlots
+    hidesSlots: [ INNERCLOTHING, GLOVES, LEGS, FEET, SOCKS, UNDERWEART, UNDERWEARB, POCKET ]
   #ADT-Tweak-End
 
 - type: entity

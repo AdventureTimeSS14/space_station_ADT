@@ -109,6 +109,6 @@
   cost: 10000
   recipeUnlocks:
   - ADTClothingBeltManipulator
-  position: 6,1
+  position: 5,1
   requiredTech:
-  - ADTProtectionPseudoscience
+  - FauxAstroTiles

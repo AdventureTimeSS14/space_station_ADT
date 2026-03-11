@@ -15,14 +15,6 @@
   metabolisms:
     Medicine:
       effects:
-      - !type:ModifyBloodLevel
-        amount: 2
-        conditions:
-        - !type:HasComponentCondition
-          components:
-            - Heretic
-            - Ghoul
-          guidebookComponentName: reagent-comp-condition-heretic-or-ghoul
       - !type:HealthChange
         damage:
           groups:
@@ -37,15 +29,15 @@
             - Heretic
             - Ghoul
           guidebookComponentName: reagent-comp-condition-heretic-or-ghoul
-      - !type:ModifyBleedAmount
-        amount: -1
+      - !type:ModifyBleed
+        amount: -5
         conditions:
         - !type:HasComponentCondition
           components:
             - Heretic
             - Ghoul
           guidebookComponentName: reagent-comp-condition-heretic-or-ghoul
-      - !type:ChemCleanBloodstream
+      - !type:CleanBloodstream
         cleanseRate: 3
         conditions:
         - !type:HasComponentCondition

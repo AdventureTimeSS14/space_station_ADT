@@ -4,6 +4,7 @@ using Content.Shared.Research.Prototypes;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization;
 
 namespace Content.Shared.Lathe
 {
@@ -26,10 +27,14 @@ namespace Content.Shared.Lathe
         // Otherwise the material arbitrage test and/or LatheSystem.GetAllBaseRecipes needs to be updated
 
         /// <summary>
-        /// The lathe's construction queue
+        /// The lathe's construction queue.
         /// </summary>
+        /// <remarks>
+        /// This is a LinkedList to allow for constant time insertion/deletion (vs a List), and more efficient
+        /// moves (vs a Queue).
+        /// </remarks>
         [DataField]
-        public Queue<ProtoId<LatheRecipePrototype>> Queue = new();
+        public LinkedList<LatheRecipeBatch> Queue = new();
 
         /// <summary>
         /// The sound that plays when the lathe is producing an item, if any
@@ -96,6 +101,34 @@ namespace Content.Shared.Lathe
             GetUnavailable = forced;
         }
     }
+
+    [Serializable]
+    public sealed partial class LatheRecipeBatch
+    {
+        public ProtoId<LatheRecipePrototype> Recipe;
+        public int ItemsPrinted;
+        public int ItemsRequested;
+
+        public LatheRecipeBatch(ProtoId<LatheRecipePrototype> recipe, int itemsPrinted, int itemsRequested)
+        {
+            Recipe = recipe;
+            ItemsPrinted = itemsPrinted;
+            ItemsRequested = itemsRequested;
+        }
+    }
+
+    //Corvax
+    [Serializable]
+    public sealed partial class LatheGetResultEvent : EntityEventArgs
+    {
+        public readonly EntityUid ResultItem;
+
+        public LatheGetResultEvent(EntityUid result)
+        {
+            ResultItem = result;
+        }
+    }
+    //Corvax
 
     /// <summary>
     /// Event raised on a lathe when it starts producing a recipe.

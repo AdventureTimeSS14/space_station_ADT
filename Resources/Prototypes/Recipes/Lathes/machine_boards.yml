@@ -253,6 +253,11 @@
   id: DawInstrumentMachineCircuitboard
   result: DawInstrumentMachineCircuitboard
 
+- type: latheRecipe
+  parent: [BaseCircuitboardRecipe]
+  id: SmartFridgeCircuitboard
+  result: SmartFridgeCircuitboard
+  
 # Bar
 - type: latheRecipe
   parent: [ BaseCircuitboardRecipe, BaseServiceMachineRecipeCategory ]
@@ -261,13 +266,13 @@
 
 - type: latheRecipe
   parent: [ BaseCircuitboardRecipe, BaseServiceMachineRecipeCategory ]
-  id: BoozeDispenserMachineCircuitboard
-  result: BoozeDispenserMachineCircuitboard
+  id: ADTEnergyBoozeDispenserMachineCircuitboard #ADT-Tweak
+  result: ADTEnergyBoozeDispenserMachineCircuitboard #ADT-Tweak
 
 - type: latheRecipe
   parent: [ BaseCircuitboardRecipe, BaseServiceMachineRecipeCategory ]
-  id: SodaDispenserMachineCircuitboard
-  result: SodaDispenserMachineCircuitboard
+  id: ADTEnergySodaDispenserMachineCircuitboard #ADT-Tweak
+  result: ADTEnergySodaDispenserMachineCircuitboard #ADT-Tweak
 
 # Hydroponics
 - type: latheRecipe

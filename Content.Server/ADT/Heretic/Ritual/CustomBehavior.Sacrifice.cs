@@ -1,35 +1,30 @@
 using System.Linq;
-using Content.Server.Body.Systems;
-using Content.Server.Heretic.Components;
-using Content.Shared.Heretic.Prototypes;
-using Content.Shared.Changeling;
-using Content.Shared.Mobs.Components;
-using Content.Shared.Humanoid;
-using Content.Server.Revolutionary.Components;
-using Content.Server.Objectives.Components;
-using Content.Shared.Mind;
-using Content.Shared.Damage;
-using Content.Shared.Heretic;
-using Content.Server.Heretic.EntitySystems;
-using Content.Server.Chat.Managers;
 using Content.Server.Atmos.EntitySystems;
-using Robust.Shared.Random;
-using Content.Shared.Mobs.Systems;
-using Content.Shared.Mobs;
 using Content.Server.Body.Systems;
-using Content.Shared.Inventory;
-using Robust.Server.GameObjects;
+using Content.Server.Chat.Managers;
+using Content.Server.Heretic.EntitySystems;
+using Content.Server.Medical.SuitSensors;
+using Content.Server.Objectives.Components;
+using Content.Server.Revolutionary.Components;
+using Content.Shared.ADT.BloodBrothers;
+using Content.Shared.Changeling.Components;
 using Content.Shared.Chat;
-using System.Linq;
-using Robust.Shared.Physics;
+using Content.Shared.Damage.Systems;
+using Content.Shared.Heretic;
+using Content.Shared.Heretic.Prototypes;
+using Content.Shared.Humanoid;
+using Content.Shared.Inventory;
+using Content.Shared.Medical.SuitSensor;
+using Content.Shared.Mind;
+using Content.Shared.Mobs;
+using Content.Shared.Mobs.Components;
+using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Systems;
-using Content.Server.Medical.SuitSensors;
-using Content.Shared.Medical.SuitSensor;
-using Robust.Server.Player;
-using Content.Shared.Changeling.Components;
-using Content.Shared.ADT.BloodBrothers;
 using Content.Shared.Revolutionary.Components;
+using Robust.Server.GameObjects;
+using Robust.Server.Player;
+using Robust.Shared.Random;
 
 namespace Content.Server.Heretic.Ritual;
 
@@ -68,7 +63,7 @@ public partial class RitualSacrificeBehavior : RitualCustomBehavior
             return false;
         }
 
-        var res = lookupSystem.GetEntitiesInRange(args.Platform, .75f);
+        var res = lookupSystem.GetEntitiesInRange(args.Platform, 1.5f);
         if (res.Count == 0)
         {
             outstr = Loc.GetString("heretic-ritual-fail-sacrifice");
@@ -78,8 +73,8 @@ public partial class RitualSacrificeBehavior : RitualCustomBehavior
         // get all the dead ones
         foreach (var look in res)
         {
-            if (!args.EntityManager.TryGetComponent<MobStateComponent>(look, out var mobstate) 
-                || !args.EntityManager.HasComponent<HumanoidAppearanceComponent>(look) 
+            if (!args.EntityManager.TryGetComponent<MobStateComponent>(look, out var mobstate)
+                || !args.EntityManager.HasComponent<HumanoidAppearanceComponent>(look)
                 || mobstate.CurrentState != Shared.Mobs.MobState.Dead)
                 continue;
 
@@ -94,7 +89,8 @@ public partial class RitualSacrificeBehavior : RitualCustomBehavior
 
         if (uids.Count < Min)
         {
-            outstr = Loc.GetString("heretic-ritual-fail-sacrifice-ineligible");
+            var needed = (int)Min - uids.Count;
+            outstr = Loc.GetString("heretic-ritual-fail-sacrifice-count", ("current", uids.Count), ("required", (int)Min), ("needed", needed), ("max", (int)Max));
             return false;
         }
 
@@ -115,13 +111,16 @@ public partial class RitualSacrificeBehavior : RitualCustomBehavior
         var hereticSystem = args.EntityManager.System<HereticSystem>();
         var mindSystem = args.EntityManager.System<SharedMindSystem>();
 
-        for (var i = 0; i < Max; i++)
+        var processedCount = 0;
+        for (var i = 0; i < uids.Count && processedCount < Max; i++)
         {
             if (args.EntityManager.HasComponent<SacrificedComponent>(uids[i]))
                 continue;
 
-            var isCommand = args.EntityManager.HasComponent<CommandStaffComponent>(uids[i]);
-            var knowledgeGain = isCommand ? 4f : 2f;
+            processedCount++;
+            var knowledgeGain = 2f;
+            if (args.EntityManager.HasComponent<CommandStaffComponent>(uids[i]))
+                knowledgeGain += 2f;
             if (args.EntityManager.TryGetComponent<HereticComponent>(uids[i], out var heretic))
                 knowledgeGain += Math.Min(2, heretic.PathStage / 2 - 1);
             if (args.EntityManager.HasComponent<ChangelingComponent>(uids[i]))
@@ -151,7 +150,7 @@ public partial class RitualSacrificeBehavior : RitualCustomBehavior
 
                 if (mindSystem.TryFindObjective((mindId, mind), "HereticSacrificeHeadObjective", out var crewHeadObj)
                 && args.EntityManager.TryGetComponent<HereticSacrificeConditionComponent>(crewHeadObj, out var crewHeadObjComp)
-                && isCommand)
+                && args.EntityManager.HasComponent<CommandStaffComponent>(uids[i]))
                     crewHeadObjComp.Sacrificed += 1;
             }
         }

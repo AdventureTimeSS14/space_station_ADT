@@ -49,17 +49,22 @@
   - type: ContainerContainer
     containers:
       mech-assembly-container: !type:Container
-  - type: MechAssembly
-    finishedPrototype: ADTGygaxChassis
-    requiredParts:
-      ADTGygaxLArm: false
-      ADTGygaxRArm: false
-      ADTGygaxLLeg: false
-      ADTGygaxRLeg: false
-      ADTGygaxHead: false
+  - type: PartAssembly
+    parts:
+      ADTGygaxChassis:
+      - ADTGygaxLArm
+      - ADTGygaxRArm
+      - ADTGygaxLLeg
+      - ADTGygaxRLeg
+      - ADTGygaxHead
+    containerId: mech-assembly-container
   - type: Sprite
     state: gygax_harness+o
     noRot: true
+  - type: Construction
+    graph: ADTGygax
+    node: start
+    defaultTarget: gygax
 
 - type: entity
   parent: ADTBaseGygaxPartItem
@@ -148,7 +153,3 @@
   - type: Sprite
     noRot: true
     state: gygax0
-  - type: Construction
-    graph: ADTGygax
-    node: start
-    defaultTarget: gygax

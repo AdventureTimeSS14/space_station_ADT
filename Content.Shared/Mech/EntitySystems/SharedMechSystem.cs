@@ -14,6 +14,7 @@ using Content.Shared.Mech.Equipment.Components;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Popups;
+using Content.Shared.Storage.Components;
 using Content.Shared.Weapons.Melee;
 using Robust.Shared.Containers;
 using Robust.Shared.Network;
@@ -50,6 +51,7 @@ public abstract partial class SharedMechSystem : EntitySystem   // ADT - partial
         SubscribeLocalEvent<MechComponent, UserActivateInWorldEvent>(RelayInteractionEvent);
         SubscribeLocalEvent<MechComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<MechComponent, DestructionEventArgs>(OnDestruction);
+        SubscribeLocalEvent<MechComponent, EntityStorageIntoContainerAttemptEvent>(OnEntityStorageDump);
         SubscribeLocalEvent<MechComponent, GetAdditionalAccessEvent>(OnGetAdditionalAccess);
         SubscribeLocalEvent<MechComponent, DragDropTargetEvent>(OnDragDrop);
         SubscribeLocalEvent<MechComponent, CanDropTargetEvent>(OnCanDragDrop);
@@ -95,6 +97,11 @@ public abstract partial class SharedMechSystem : EntitySystem   // ADT - partial
         if (!_timing.IsFirstTimePredicted)
             return;
 
+        // ADT-Tweak start: disable move 0 cell
+        if (component.Energy <= 0)
+            return;
+        // ADT-Tweak end
+
         if (component.CurrentSelectedEquipment != null)
         {
             RaiseLocalEvent(component.CurrentSelectedEquipment.Value, args);
@@ -112,6 +119,12 @@ public abstract partial class SharedMechSystem : EntitySystem   // ADT - partial
     private void OnDestruction(EntityUid uid, MechComponent component, DestructionEventArgs args)
     {
         BreakMech(uid, component);
+    }
+
+    private void OnEntityStorageDump(Entity<MechComponent> entity, ref EntityStorageIntoContainerAttemptEvent args)
+    {
+        // There's no reason we should dump into /any/ of the mech's containers.
+        args.Cancelled = true;
     }
 
     private void OnGetAdditionalAccess(EntityUid uid, MechComponent component, ref GetAdditionalAccessEvent args)
@@ -164,7 +177,7 @@ public abstract partial class SharedMechSystem : EntitySystem   // ADT - partial
     }
 
     /// <summary>
-    /// Destroys the mech, removing the user and ejecting all installed equipment.
+    /// Destroys the mech, removing the user and ejecting anything contained.
     /// </summary>
     /// <param name="uid"></param>
     /// <param name="component"></param>
@@ -262,14 +275,19 @@ public abstract partial class SharedMechSystem : EntitySystem   // ADT - partial
     /// <param name="toRemove"></param>
     /// <param name="component"></param>
     /// <param name="equipmentComponent"></param>
-    /// <param name="forced">Whether or not the removal can be cancelled</param>
+    /// <param name="forced">
+    ///     Whether or not the removal can be cancelled, and if non-mech equipment should be ejected.
+    /// </param>
     public void RemoveEquipment(EntityUid uid, EntityUid toRemove, MechComponent? component = null,
         MechEquipmentComponent? equipmentComponent = null, bool forced = false)
     {
         if (!Resolve(uid, ref component))
             return;
 
-        if (!Resolve(toRemove, ref equipmentComponent))
+        // When forced, we also want to handle the possibility that the "equipment" isn't actually equipment.
+        // This /shouldn't/ be possible thanks to OnEntityStorageDump, but there's been quite a few regressions
+        // with entities being hardlock stuck inside mechs.
+        if (!Resolve(toRemove, ref equipmentComponent) && !forced)
             return;
 
         if (!forced)
@@ -286,7 +304,9 @@ public abstract partial class SharedMechSystem : EntitySystem   // ADT - partial
         if (component.CurrentSelectedEquipment == toRemove)
             CycleEquipment(uid, component);
 
-        equipmentComponent.EquipmentOwner = null;
+        if (forced && equipmentComponent != null)
+            equipmentComponent.EquipmentOwner = null;
+
         _container.Remove(toRemove, component.EquipmentContainer);
         UpdateUserInterface(uid, component);
     }
@@ -309,6 +329,9 @@ public abstract partial class SharedMechSystem : EntitySystem   // ADT - partial
         component.Energy = FixedPoint2.Clamp(component.Energy + delta, 0, component.MaxEnergy);
         Dirty(uid, component);
         UpdateUserInterface(uid, component);
+
+        _actionBlocker.UpdateCanMove(uid); // ADT-Tweak: disable move 0 cell
+
         return true;
     }
 
@@ -452,6 +475,11 @@ public abstract partial class SharedMechSystem : EntitySystem   // ADT - partial
     {
         if (args.Target == component.Mech)
             args.Cancel();
+
+        // ADT-Tweak start: disable attack 0 cell
+        if (TryComp<MechComponent>(component.Mech, out var mech) && mech.Energy <= 0)
+            args.Cancel();
+        // ADT-Tweak end
     }
 
     private void UpdateAppearance(EntityUid uid, MechComponent? component = null,

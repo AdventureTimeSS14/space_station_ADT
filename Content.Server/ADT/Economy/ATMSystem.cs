@@ -70,7 +70,7 @@ public sealed class ATMSystem : SharedATMSystem
         if (_random.Prob(component.ErrorChance))
         {
             Del(args.Used);
-            _stackSystem.Spawn(amount, _prototypeManager.Index<StackPrototype>(component.CreditStackPrototype), Transform(uid).Coordinates);
+            _stackSystem.SpawnAtPosition(amount, _prototypeManager.Index<StackPrototype>(component.CreditStackPrototype), Transform(uid).Coordinates);
             _audioSystem.PlayPvs(component.SoundWithdrawCurrency, uid);
             _popupSystem.PopupEntity(Loc.GetString("atm-error"), uid);
             return;
@@ -123,7 +123,7 @@ public sealed class ATMSystem : SharedATMSystem
             return;
         }
 
-        _stackSystem.Spawn(args.Amount, _prototypeManager.Index<StackPrototype>(component.CreditStackPrototype), Transform(uid).Coordinates);
+        _stackSystem.SpawnAtPosition(args.Amount, _prototypeManager.Index<StackPrototype>(component.CreditStackPrototype), Transform(uid).Coordinates);
         _audioSystem.PlayPvs(component.SoundWithdrawCurrency, uid);
 
         UpdateUiState(uid, account.Balance, true, Loc.GetString("atm-ui-select-withdraw-amount"));

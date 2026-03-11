@@ -1,6 +1,6 @@
-﻿- type: entity
+- type: entity
   id: BaseBarSign
-  parent: [ BaseWallmountGlass, BaseWallmountMetallic ]
+  parent: [ BaseWallmountGlass, BaseWallmountMachine ]
   name: bar sign
   abstract: true
   components:
@@ -9,6 +9,10 @@
   - type: Sprite
     sprite: Structures/Wallmounts/barsign.rsi
     state: empty
+  #ADT-Tweak Fix
+  - type: ApcPowerReceiver
+  - type: ExtensionCableReceiver
+  #ADT-Tweak End
   - type: BarSign
   - type: AccessReader
     access: [["Bar"]]
@@ -45,6 +49,10 @@
   id: BarSign
   name: bar sign
   suffix: Random
+  components:
+  - type: Construction
+    graph: ADTBarSignGraph
+    node: barSign
 
 # Missing appearance components & various other sprite issues.
 #- type: entity

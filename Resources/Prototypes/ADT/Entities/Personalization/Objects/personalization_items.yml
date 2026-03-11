@@ -412,7 +412,7 @@
       Female: Mouse
       Unsexed: Mouse
     wilhelmProbability: 0.001
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
     useSound:
       collection: ToySqueak
@@ -1129,7 +1129,7 @@
   - type: EmitSoundOnActivate
     sound:
       path: /Audio/Voice/Reptilian/reptilian_scream.ogg
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
     useSound:
       path: /Audio/Voice/Reptilian/reptilian_scream.ogg
@@ -1805,6 +1805,122 @@
       layers:
       - state: icon
 
+# Archeron, заслуженный модератор
+
+- type: entity
+  parent: BaseItem
+  id: ADTLighterArcher
+  name: Red gold-plated lighter
+  description: A zippo lighter with a red metal coating.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/archeron/lighter.rsi
+    layers:
+    - state: closed
+      map: ["base"]
+    - state: open
+      map: ["top"]
+      visible: false
+    - state: open
+      map: ["open"]
+      visible: false
+    - state: lighter_flame
+      map: ["flame"]
+      visible: false
+      shader: unshaded
+  - type: ItemToggle
+    predictable: false
+    soundActivate:
+      path: /Audio/Items/Lighters/zippo_open.ogg
+      params:
+        volume: -5
+    soundDeactivate:
+      path: /Audio/Items/Lighters/zippo_close.ogg
+      params:
+        volume: -5
+  - type: ItemToggleMeleeWeapon
+    activatedDamage:
+        types:
+            Heat: 1
+  - type: ItemToggleSize
+    activatedSize: Small
+  - type: ItemToggleHot
+  - type: Item
+    size: Tiny
+    sprite: ADT/Personalization/archeron/lighter.rsi
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleableVisuals.Enabled:
+        flame:
+          True: { visible: true }
+          False: { visible: false }
+        open:
+          True: { visible: true }
+          False: { visible: false }
+        top:
+          True: { visible: true }
+          False: { visible: false }
+        base:
+          True: { visible: false }
+          False: { visible: true }
+  - type: SolutionContainerManager
+    solutions:
+      Welder:
+        reagents:
+        - ReagentId: WeldingFuel
+          Quantity: 32
+        maxVol: 32
+  - type: Welder
+    fuelConsumption: 0.01
+    fuelLitCost: 0.1
+    tankSafe: true
+  - type: ToggleableVisuals
+    spriteLayer: lighter_flame
+    inhandVisuals:
+      left:
+      - state: inhand-left-lit
+        shader: unshaded
+      right:
+      - state: inhand-right-lit
+        shader: unshaded
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    damage:
+      types:
+        Blunt: 1
+  - type: PointLight
+    enabled: false
+    netsync: false
+    radius: 1.6
+    color: "#ef2e4b"
+  - type: ItemTogglePointLight
+  - type: UseDelay
+  - type: IgnitionSource
+    ignited: false
+  - type: Tag
+    tags:
+    - ADTLighter
+
+ # Mina0, От Арчи и Пани для глупеньке Мио на 8-ое марта
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieMio
+  name: Mio plushie
+  description: Soft plushie
+  suffix: Именное, Mina0
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/mina0/minaplushie.rsi
+    state: icon
+    scale: 0.8, 0.8
+  - type: Clothing
+    quickEquip: false
+    sprite: ADT/Personalization/mina0/minaplushie.rsi
+    slots:
+    - HEAD
+
 #ADT-TEAM-ITEMS-END
 
 #SPONSOR-ITEMS-START
@@ -2065,7 +2181,7 @@
     wideAnimationRotation: 180
     soundHit:
       path: /Audio/Items/Toys/toy_rustle.ogg
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
     useSound:
       path: /Audio/Items/Toys/toy_rustle.ogg
@@ -2105,7 +2221,7 @@
     wideAnimationRotation: 180
     soundHit:
       path: /Audio/ADT/Items/TheManWhoSoldTheWorld/alert.ogg
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
     useSound:
       path: /Audio/Items/Toys/toy_rustle.ogg
@@ -2178,7 +2294,7 @@
   - type: EmitSoundOnActivate
     sound:
       path: /Audio/Voice/Reptilian/reptilian_scream.ogg
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
     useSound:
       path: /Audio/Voice/Reptilian/reptilian_scream.ogg
@@ -2234,7 +2350,7 @@
   # - type: EmitSoundOnActivate
   #   sound:
   #     path: /Audio/Voice/Reptilian/reptilian_scream.ogg
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
     useSound:
       path: /Audio/Voice/Reptilian/reptilian_scream.ogg
@@ -2848,4 +2964,168 @@
       - bez_dvux
       - bez_loshki
 
+#Faust Netzach
+- type: entity
+  parent: ClothingBeltSheath
+  id: ADTClothingBeltFaustSheath
+  name: Faust`s dirk sheath
+  description: An ornate sheath designed to hold an officer's blade.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/FaustNetzach/faust_sheath.rsi
+    state: sheath
+  - type: Clothing
+    sprite: ADT/Personalization/FaustNetzach/faust_sheath.rsi
+  - type: Item
+    size: Ginormous
+  - type: ItemSlots
+    slots:
+      item:
+        name: Sabre
+        insertVerbText: sheath-insert-verb
+        ejectVerbText: sheath-eject-verb
+        whitelist:
+          tags:
+          - CaptainSabre
+  - type: ItemMapper
+    mapLayers:
+      sheath-sabre:
+        whitelist:
+          tags:
+          - CaptainSabre
+  - type: ContainerFill
+    containers:
+      item:
+      - ADTFaustDirk
+  - type: Appearance
+
+- type: entity
+  name: Faust dirk
+  parent: [ BaseSword, BaseCommandContraband ]
+  id: ADTFaustDirk
+  description: A ceremonial weapon
+  components:
+  - type: Sharp
+  - type: Sprite
+    sprite: ADT/Personalization/FaustNetzach/faust_dirk.rsi
+    state: icon
+  - type: MeleeWeapon
+    attackRate: 1.5
+    damage:
+      types:
+        Slash: 17
+    soundHit:
+        path: /Audio/Weapons/bladeslice.ogg
+  - type: Reflect
+    reflectProb: .1
+    spread: 90
+  - type: Item
+    size: Large
+    sprite: ADT/Personalization/FaustNetzach/faust_dirk.rsi
+    shape:
+    - 0,0,0,2
+  - type: DisarmMalus
+  - type: Tag
+    tags:
+    - CaptainSabre
+
+#FaustNetzachDrink
+- type: entity
+  parent: DrinkCanBaseFull
+  id: ADTDrinkFlecheCan
+  name: банка Flèche
+  description: Освежающее кофе в баночке!
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: ADTFlecheDrink
+          Quantity: 30
+      grindable:
+        reagents:
+        - ReagentId: Aluminium
+          Quantity: 4
+        - ReagentId: Iron
+          Quantity: 1
+  - type: Sprite
+    sprite: ADT/Personalization/FaustNetzach/faust_drink.rsi
+  - type: Item
+    sprite: ADT/Personalization/FaustNetzach/faust_drink.rsi
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeCircle
+          radius: 0.2
+        density: 5
+        mask:
+        - ItemMask
+        restitution: 0.3
+        friction: 0.2
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.1,-0.1,0.1,0.1"
+        hard: false
+        mask:
+        - Impassable
+        - BulletImpassable
+  - type: EmbeddableProjectile
+    sound: /Audio/Weapons/punch1.ogg
+    embedOnThrow: True
+  - type: ThrowingAngle
+    angle: 0
+  - type: LandAtCursor
+  - type: Ammo
+    muzzleFlash: null
+  - type: Projectile
+    deleteOnCollide: false
+    onlyCollideWhenShot: true
+    damage:
+      types:
+        Blunt: 1
+        Cold: 3 # Refreshing
+
+- type: reagent
+  id: ADTFlecheDrink
+  name: fleche-name
+  parent: BaseDrink
+  desc: fleche-desc
+  physicalDesc: reagent-physical-desc-whitecoffee
+  flavor: adtfleche
+  color: "#d2b48c"
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 5
+      - !type:GenericStatusEffect
+        key: Drowsiness
+        time: 3.0
+        type: Remove
+      - !type:AdjustReagent
+        reagent: Theobromine
+        amount: 0.01
+      - !type:AdjustReagent
+        reagent: Epinephrine
+        amount: 0.1
+      - !type:AdjustReagent 
+        reagent: Sugar
+        amount: 0.3
+      - !type:HealthChange
+        damage:
+          types:
+             Heat: -0.005
+  metamorphicSprite:
+    sprite: Objects/Consumable/Drinks/coffeeglass.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+
+- type: flavor
+  id: adtfleche
+  flavorType: Complex
+  description: кофейно и освежающе
 #SPONSOR-ITEMS-END
