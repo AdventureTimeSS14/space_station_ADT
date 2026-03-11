@@ -61,3 +61,70 @@
   - type: Climbable
   - type: StaticPrice
     price: 30
+
+# Деревянные ящики
+- type: entity
+  parent: BaseStructure
+  id: ADTWoodenBoxRandom
+  name: wooden box
+  description: wooden box.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Storage/wooden_box.rsi
+    snapCardinals: true
+    layers:
+    - state: box-1
+      map: [ "box" ]
+  - type: RandomSprite
+    available:
+      - box:
+          "box-1": ""
+          "box-2": ""
+          "box-3": ""
+          "box-4": ""
+          "box-5": ""
+          "box-6": ""
+  - type: InteractionOutline
+  - type: Physics
+    bodyType: Static
+  - type: Anchorable
+  - type: Pullable
+  - type: Transform
+    anchored: false
+    noRot: true
+  - type: Damageable
+    damageContainer: Box
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 30
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WoodDestroyHeavy
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          MaterialWoodPlank:
+            min: 1
+            max: 3
+          MaintenanceToolSpawner:
+            min: 1
+            max: 1
+          MaintenanceFluffSpawner:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,-0.4,0.4,0.4"
+        density: 100
+        mask:
+          - MobMask
+        layer:
+          - MobLayer
+        hard: true

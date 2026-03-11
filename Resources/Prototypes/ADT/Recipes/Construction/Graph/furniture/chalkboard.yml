@@ -1,0 +1,27 @@
+- type: constructionGraph
+  id: ADTChalkboard
+  start: start
+  graph:
+    - node: start
+      actions:
+        - !type:DeleteEntity {}
+      edges:
+        - to: adtchalkboard
+          completed:
+            - !type:SnapToGrid {}
+          steps:
+            - material: WoodPlank
+              amount: 5
+              doAfter: 5
+    - node: adtchalkboard
+      entity: ADTChalkboard
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialWoodPlank1
+              amount: 3
+            - !type:DeleteEntity {}
+          steps:
+            - tool: Prying
+              doAfter: 5

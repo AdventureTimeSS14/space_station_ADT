@@ -505,3 +505,103 @@
           steps:
             - tool: Prying
               doAfter: 10
+
+- type: constructionGraph
+  id: ADTBustHelios
+  start: start
+  graph:
+    - node: start
+      actions:
+        - !type:DestroyEntity {}
+      edges:
+        - to: bust
+          steps:
+            - material: ADTmarbleStack
+              amount: 8
+              doAfter: 15
+    - node: bust
+      entity: ADTBustHelios
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: ADTmarble1
+              amount: 6
+          steps:
+            - tool: Prying
+              doAfter: 10
+
+- type: constructionGraph
+  id: ADTBustLenin
+  start: start
+  graph:
+    - node: start
+      actions:
+        - !type:DestroyEntity {}
+      edges:
+        - to: bust
+          steps:
+            - material: ADTmarbleStack
+              amount: 8
+              doAfter: 15
+    - node: bust
+      entity: ADTBustLenin
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: ADTmarble1
+              amount: 6
+          steps:
+            - tool: Prying
+              doAfter: 10
+
+- type: constructionGraph
+  id: ADTBustDarwin
+  start: start
+  graph:
+    - node: start
+      actions:
+        - !type:DestroyEntity {}
+      edges:
+        - to: bust
+          steps:
+            - material: ADTmarbleStack
+              amount: 8
+              doAfter: 15
+    - node: bust
+      entity: ADTBustDarwin
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: ADTmarble1
+              amount: 6
+          steps:
+            - tool: Prying
+              doAfter: 10
+
+- type: constructionGraph
+  id: ADTBustPompeii
+  start: start
+  graph:
+    - node: start
+      actions:
+        - !type:DestroyEntity {}
+      edges:
+        - to: bust
+          steps:
+            - material: ADTmarbleStack
+              amount: 8
+              doAfter: 15
+    - node: bust
+      entity: ADTBustPompeii
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: ADTmarble1
+              amount: 6
+          steps:
+            - tool: Prying
+              doAfter: 10

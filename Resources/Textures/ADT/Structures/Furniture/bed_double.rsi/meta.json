@@ -1,18 +1,17 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Created by discord:unlumy",
+    "copyright": "Created by prazat911 for ADT",
     "size": {
         "x": 32,
         "y": 32
     },
     "states": [
         {
-            "name": "top"
+            "name": "bedual-1"
         },
         {
-            "name": "bottom"
+            "name": "bedual-3"
         }
     ]
 }
-

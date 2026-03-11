@@ -14,6 +14,7 @@
     offset: 0
     prototypes:
       - ADTBoxMaintenanceRandom
+      - ADTWoodenBoxRandom
     rarePrototypes:
       - ADTBarrelFire
       - ADTBaseBarrel
