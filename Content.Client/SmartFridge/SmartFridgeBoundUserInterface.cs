@@ -19,7 +19,7 @@ public sealed class SmartFridgeBoundUserInterface : BoundUserInterface
 
         _menu = this.CreateWindow<SmartFridgeMenu>();
         _menu.OnItemSelected += OnItemSelected;
-        _menu.OnDeleteEmpty += OnDeleteEmpty; Комментарий // ADT-Tweak
+        _menu.OnDeleteEmpty += OnDeleteEmpty; // ADT-Tweak
         Refresh();
     }
 
