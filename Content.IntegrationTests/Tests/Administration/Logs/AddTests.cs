@@ -171,6 +171,7 @@ public sealed class AddTests
         var server = pair.Server;
 
         var sPlayers = server.ResolveDependency<IPlayerManager>();
+        var sEntities = server.ResolveDependency<IEntityManager>();
 
         var sAdminLogSystem = server.ResolveDependency<IAdminLogManager>();
         Guid playerGuid = default;

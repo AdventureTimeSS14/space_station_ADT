@@ -47,6 +47,16 @@ public sealed class EntityStorageVisualizerSystem : VisualizerSystem<EntityStora
                 if (proto.TryGetComponent(out SpriteComponent? sprite, _componentFactory))
                 {
                     SpriteSystem.SetBaseRsi((uid, args.Sprite), sprite.BaseRSI);
+                    // Workaround for RobustToolbox bug: SetBaseRsi doesn't mark bounds as dirty
+                    // Force bounds to be recalculated by touching layer states
+                    for (var i = 0; SpriteSystem.TryGetLayer(uid, i, out _, false); i++)
+                    {
+                        if (SpriteSystem.TryGetLayer(uid, i, out var layer, false) &&
+                            layer.State.IsValid && layer.RSI == null)
+                        {
+                            SpriteSystem.LayerSetRsiState(uid, i, layer.State);
+                        }
+                    }
                 }
                 if (proto.TryGetComponent(out EntityStorageVisualsComponent? visuals, _componentFactory))
                 {
