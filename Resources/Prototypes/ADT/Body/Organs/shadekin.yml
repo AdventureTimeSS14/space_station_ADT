@@ -13,7 +13,7 @@
     removeEmpty: true
     solutionOnBody: false
     solution: "Lung"
-    metabolizerTypes: [ Animal ]
+    metabolizerTypes: [ Shadekin ]
     groups:
     - id: Gas
       rateModifier: 20.0
@@ -84,7 +84,7 @@
   - type: Stomach
   - type: Metabolizer
     maxReagents: 3
-    metabolizerTypes: [ Animal ]
+    metabolizerTypes: [ Shadekin ]
     groups:
     - id: Food
     - id: Drink
@@ -107,7 +107,7 @@
   - type: Organ
   - type: Metabolizer
     maxReagents: 1
-    metabolizerTypes: [ Animal ]
+    metabolizerTypes: [ Shadekin ]
     groups:
     - id: Alcohol
       rateModifier: 0.1

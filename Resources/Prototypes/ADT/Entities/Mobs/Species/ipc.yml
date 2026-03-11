@@ -133,7 +133,7 @@
   - type: Tag
     tags:
     - CanPilot
-    - FootstepSound
+    - SiliconFootstepSound
     - DoorBumpOpener
     - ChangelingBlacklist
     - ADTSiliconStealthWhitelist
@@ -185,6 +185,7 @@
     defaultSkinColoring: false
   - type: AnimatedEmotes
   - type: Posing
+  - type: SoftWalk
 
 - type: entity
   save: false

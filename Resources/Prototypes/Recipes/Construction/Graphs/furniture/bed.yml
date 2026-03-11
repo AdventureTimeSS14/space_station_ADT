@@ -47,6 +47,43 @@
           steps:
             - tool: Screwing
               doAfter: 1
+        # ADT-Tweak-Start
+        - to: double_bed_complete
+          completed:
+            - !type:SnapToGrid { }
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 1
+            - material: Cloth
+              amount: 2
+              doAfter: 1
+    - node: double_bed_complete
+      entity: ADTDoubleBed
+      edges:
+        - to: bed
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 2
+            - !type:SpawnPrototype
+              prototype: MaterialCloth1
+              amount: 2
+          steps:
+            - tool: Screwing
+              doAfter: 1
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 4
+            - !type:SpawnPrototype
+              prototype: MaterialCloth1
+              amount: 4
+          steps:
+            - tool: Screwing
+              doAfter: 1
+        # ADT-Tweak-End
     - node: dogbed
       entity: DogBed
       edges:

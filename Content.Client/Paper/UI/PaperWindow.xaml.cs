@@ -163,6 +163,10 @@ namespace Content.Client.Paper.UI
             PaperContent.ModulateSelfOverride = visuals.ContentImageModulate;
             WrittenTextLabel.ModulateSelfOverride = visuals.FontAccentColor;
             FillStatus.ModulateSelfOverride = visuals.FontAccentColor;
+            // ADT-Tweak Start: Chalkboard
+            DefaultTextColor = visuals.FontDefaultColor;
+            BlankPaperIndicator.SetMessage(Loc.GetString("paper-ui-blank-page-message"), null, DefaultTextColor);
+            // ADT-Tweak End
 
             var contentImage = visuals.ContentImagePath != null ? _resCache.GetResource<TextureResource>(visuals.ContentImagePath) : null;
             if (contentImage != null)
