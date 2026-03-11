@@ -96,7 +96,6 @@
                     types:
                       Blunt: 35
                 - !type:ComboFallEffect
-                  dropItems: false
                 - !type:ComboStaminaDamageEffect
                   staminaDamage: 45
                 - !type:ComboAudioEffect
@@ -109,7 +108,6 @@
                 - !type:ComboPopupEffect
                   localeText: combo-leg-sweep-end
                 - !type:ComboFallEffect
-                  dropItems: false
                 - !type:ComboAudioEffect
                   sound:
                     collection: GenericHit
@@ -251,7 +249,7 @@
     - type: SpawnItemsOnUse
       items:
       - id: Ash
-      sound: 
+      sound:
         path: /Audio/Items/Lighters/lighter3.ogg
     - type: AddComponentsOnUse
       components:
