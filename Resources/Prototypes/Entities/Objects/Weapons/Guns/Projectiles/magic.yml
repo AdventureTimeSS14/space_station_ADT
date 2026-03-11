@@ -5,6 +5,7 @@
   parent: BulletRocket
   categories: [ HideSpawnMenu ]
   components:
+  - type: MagicProjectile # ADT-Tweak
   - type: PointLight
     color: "#E25822"
     radius: 2.0
@@ -37,6 +38,7 @@
   name: dragon's breath
   description: Try not to get toasted.
   components:
+  - type: MagicProjectile # ADT-Tweak
   - type: PointLight
     color: "#E25822"
     radius: 3.0
@@ -87,6 +89,7 @@
   parent: ClosetSteelBase
   categories: [ HideSpawnMenu ]
   components:
+  - type: MagicProjectile # ADT-Tweak
   - type: ResistLocker
     resistTime: 30
   - type: StoreOnCollide
@@ -166,6 +169,7 @@
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
+  - type: MagicProjectile # ADT-Tweak
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
     layers:
@@ -240,6 +244,7 @@
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
+  - type: MagicProjectile # ADT-Tweak
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
     layers:
@@ -261,6 +266,7 @@
   categories: [ HideSpawnMenu ]
   description: This looks familiar.
   components:
+  - type: MagicProjectile  # ADT-Tweak
   - type: Projectile
     damage:
       types:
@@ -290,6 +296,7 @@
   components:
   - type: Sprite
     sprite: Structures/Specific/Anomalies/ice_anom.rsi
+  - type: MagicProjectile # ADT-Tweak
   - type: Projectile
     damage:
       types:
