@@ -264,7 +264,6 @@ public abstract partial class SharedStunSystem : EntitySystem
         }
         else
         {
-
             // Only drop items the first time we want to fall...
             if (drop)
             {
