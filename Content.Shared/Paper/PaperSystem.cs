@@ -7,6 +7,7 @@ using Content.Shared.Interaction;
 using Content.Shared.Random.Helpers;
 using Content.Shared.Popups;
 using Content.Shared.Tag;
+using Content.Shared.ADT.Chalkboard; // ADT-Tweak: Chalkboard
 using Robust.Shared.Player;
 using Robust.Shared.Audio.Systems;
 using static Content.Shared.Paper.PaperComponent;
@@ -30,6 +31,7 @@ public sealed class PaperSystem : EntitySystem
 
     private static readonly ProtoId<TagPrototype> WriteIgnoreStampsTag = "WriteIgnoreStamps";
     private static readonly ProtoId<TagPrototype> WriteTag = "Write";
+    private static readonly ProtoId<TagPrototype> CrayonTag = "Crayon"; // ADT-Tweak: Chalkboard
 
     private EntityQuery<PaperComponent> _paperQuery;
 
@@ -117,6 +119,15 @@ public sealed class PaperSystem : EntitySystem
         var editable = entity.Comp.StampedBy.Count == 0 || _tagSystem.HasTag(args.Used, WriteIgnoreStampsTag);
         if (_tagSystem.HasTag(args.Used, WriteTag))
         {
+            // ADT-Tweak Start: Chalkboard
+            if (HasComp<ChalkboardComponent>(entity) && !_tagSystem.HasTag(args.Used, CrayonTag))
+            {
+                _popupSystem.PopupClient(Loc.GetString("chalkboard-only-chalk"), entity.Owner, args.User);
+                args.Handled = true;
+                return;
+            }
+            // ADT-Tweak End
+
             if (editable)
             {
                 if (entity.Comp.EditingDisabled)
