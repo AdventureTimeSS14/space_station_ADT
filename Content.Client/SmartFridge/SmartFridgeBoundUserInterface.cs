@@ -42,9 +42,10 @@ public sealed class SmartFridgeBoundUserInterface : BoundUserInterface
         SendMessage(new SmartFridgeDispenseItemMessage(entry.Entry));
     }
 
-    // ADT-Tweak: Delete
+    // ADT-Tweak start: Delete
     private void OnDeleteEmpty(SmartFridgeEntry entry)
     {
         SendMessage(new SmartFridgeDeleteEmptyMessage(entry));
     }
+    Комментарий // ADT-Tweak end
 }
