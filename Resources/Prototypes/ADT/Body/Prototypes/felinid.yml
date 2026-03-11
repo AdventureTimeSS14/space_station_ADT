@@ -21,7 +21,7 @@
         heart: ADTOrganFelinidHeart
         lungs: OrganHumanLungs
         stomach: ADTOrganFelinidStomach
-        liver:  OrganAnimalLiver
+        liver: ADTOrganFelinidLiver
         kidneys: OrganHumanKidneys
     right arm:
       part: RightArmHuman
