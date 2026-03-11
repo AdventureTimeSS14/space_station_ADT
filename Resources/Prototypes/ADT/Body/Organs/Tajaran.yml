@@ -7,6 +7,13 @@
     solutions:
       stomach:
         maxVol: 50
+  - type: Metabolizer
+    maxReagents: 3
+    metabolizerTypes: [ Tajaran ]
+    groups:
+    - id: Food
+    - id: Drink
+    - id: Alcohol
 
 - type: entity
   id: ADTOrganTajaranHeart
@@ -14,8 +21,32 @@
   components:
   - type: Metabolizer
     maxReagents: 2
-    metabolizerTypes: [ Tajaran, Animal ]
+    metabolizerTypes: [ Tajaran ]
     groups:
     - id: Medicine
     - id: Poison
     - id: Narcotic
+
+- type: entity
+  id: ADTOrganTajaranLiver
+  parent: BaseAnimalOrgan
+  name: tajaran liver
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    state: liver
+  - type: Organ
+  - type: Metabolizer
+    maxReagents: 1
+    metabolizerTypes: [ Tajaran ]
+    groups:
+    - id: Alcohol
+      rateModifier: 0.1
+  - type: Item
+    size: Small
+    heldPrefix: liver
+  - type: Tag
+    tags:
+    - Meat
+    - Organ
+    - Liver

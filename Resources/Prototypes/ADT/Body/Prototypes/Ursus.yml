@@ -18,10 +18,10 @@
       - right_leg
       - left_leg
       organs:
-        heart: OrganAnimalHeart
+        heart: ADTOrganUrsusHeart
         lungs: OrganHumanLungs
-        stomach: OrganAnimalStomach
-        liver: OrganAnimalLiver
+        stomach: ADTOrganUrsusStomach
+        liver: ADTOrganUrsusLiver
         kidneys: OrganHumanKidneys
     right_arm:
       part: ADTRightArmUrsus

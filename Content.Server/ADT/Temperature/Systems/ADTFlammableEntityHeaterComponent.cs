@@ -8,4 +8,6 @@ namespace Content.Server.ADT.Temperature;
 [RegisterComponent, Access(typeof(EntityHeaterSystem))]
 public sealed partial class ADTFlammableEntityHeaterComponent : Component
 {
+    [DataField]
+    public float Power = 0f;
 }

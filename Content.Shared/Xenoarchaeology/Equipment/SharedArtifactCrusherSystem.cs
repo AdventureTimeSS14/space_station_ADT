@@ -1,3 +1,4 @@
+using Content.Shared.Body.Components; //ADT-Tweak
 using Content.Shared.Damage.Systems;
 using Content.Shared.Emag.Systems;
 using Content.Shared.Examine;
@@ -61,10 +62,10 @@ public abstract class SharedArtifactCrusherSystem : EntitySystem
         if (_emag.CheckFlag(ent, EmagType.Interaction))
             return;
 
-        if (ent.Comp.AutoLock)
+        if (!ent.Comp.SafetyProtocols) //ADT-Tweak
             return;
 
-        ent.Comp.AutoLock = true;
+        ent.Comp.SafetyProtocols = false; //ADT-Tweak
         args.Handled = true;
         Dirty(ent);
     }
@@ -108,15 +109,41 @@ public abstract class SharedArtifactCrusherSystem : EntitySystem
             StopCrushing(ent);
     }
 
+    //ADT-Tweak-Start
+    private void PlayDenySound(Entity<ArtifactCrusherComponent> ent)
+    {
+        if (_timing.CurTime >= ent.Comp.NextDenySoundTime)
+        {
+            ent.Comp.NextDenySoundTime = _timing.CurTime + ent.Comp.DenySoundDelay;
+            AudioSystem.PlayPvs(ent.Comp.DenySound, ent);
+        }
+    }
+    //ADT-Tweak-End
+
     public void StartCrushing(Entity<ArtifactCrusherComponent, EntityStorageComponent> ent, EntityUid? user = null)
     {
-        var (uid, crusher, _) = ent;
+        var (uid, crusher, storage) = ent; //ADT-Tweak
 
         if (crusher.Crushing)
             return;
 
-        if (crusher.AutoLock)
-            _popup.PopupPredicted(Loc.GetString("artifact-crusher-autolocks-enable"), uid, user);
+        //ADT-Tweak-Start
+        if (crusher.SafetyProtocols)
+        {
+            foreach (var contained in storage.Contents.ContainedEntities)
+            {
+                if (TryComp<BodyComponent>(contained, out _))
+                {
+                    _popup.PopupPredicted(Loc.GetString("artifact-crusher-verb-denied"), uid, user);
+                    PlayDenySound(ent);
+                    return;
+                }
+            }
+        }
+
+        //if (crusher.AutoLock)
+        //    _popup.PopupPredicted(Loc.GetString("artifact-crusher-autolocks-enable"), uid, user);
+        //ADT-Tweak-End
 
         crusher.Crushing = true;
         crusher.NextSecond = _timing.CurTime + TimeSpan.FromSeconds(1);

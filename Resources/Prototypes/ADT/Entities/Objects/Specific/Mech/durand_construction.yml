@@ -57,9 +57,14 @@
       - ADTDurandLLeg
       - ADTDurandRLeg
       - ADTDurandHead
+    containerId: mech-assembly-container
   - type: Sprite
     state: durand_harness+o
     noRot: true
+  - type: Construction
+    graph: ADTDurand
+    node: start
+    defaultTarget: durand
 
 - type: entity
   parent: ADTBaseDurandPartItem
@@ -148,7 +153,3 @@
   - type: Sprite
     noRot: true
     state: durand0
-  - type: Construction
-    graph: ADTDurand
-    node: start
-    defaultTarget: durand

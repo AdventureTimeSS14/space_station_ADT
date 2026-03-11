@@ -11,6 +11,7 @@ using Content.Shared.Interaction;
 using Content.Shared.Mech;
 using Content.Shared.Mech.Components;
 using Content.Shared.Mech.EntitySystems;
+using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Events;
 using Content.Shared.Popups;
 using Content.Shared.Power.Components;
@@ -74,6 +75,7 @@ public sealed partial class MechSystem : SharedMechSystem
 
         SubscribeLocalEvent<MechComponent, UpdateCanMoveEvent>(OnMechCanMoveEvent);
         SubscribeLocalEvent<MechPilotComponent, UpdateCanMoveEvent>(OnMechPilotCanMoveEvent); // ADT-Tweak
+        SubscribeLocalEvent<MovementRelayTargetComponent, UpdateCanMoveEvent>(OnMechRelayTargetCanMoveEvent); // ADT-Tweak
 
 
         SubscribeLocalEvent<MechPilotComponent, ToolUserAttemptUseEvent>(OnToolUseAttempt);
@@ -101,6 +103,12 @@ public sealed partial class MechSystem : SharedMechSystem
     private void OnMechPilotCanMoveEvent(EntityUid uid, MechPilotComponent component, UpdateCanMoveEvent args)
     {
         if (TryComp<MechComponent>(component.Mech, out var mech) && mech.Energy <= 0)
+            args.Cancel();
+    }
+
+    private void OnMechRelayTargetCanMoveEvent(EntityUid uid, MovementRelayTargetComponent component, UpdateCanMoveEvent args)
+    {
+        if (TryComp<MechComponent>(uid, out var mech) && mech.Energy <= 0)
             args.Cancel();
     }
      // ADT-Tweak end
@@ -273,6 +281,7 @@ public sealed partial class MechSystem : SharedMechSystem
 
         TryInsert(uid, args.Args.User, component);
         _actionBlocker.UpdateCanMove(uid);
+        _actionBlocker.UpdateCanMove(args.Args.User); // ADT-Tweak
 
         args.Handled = true;
     }
