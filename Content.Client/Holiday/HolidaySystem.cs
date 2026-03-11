@@ -30,6 +30,18 @@ public sealed class HolidaySystem : EntitySystem
 
         var path = SpriteSpecifierSerializer.TextureRoot / rsistring;
         if (_rescache.TryGetResource(path, out RSIResource? rsi))
+        {
             _sprite.SetBaseRsi((ent.Owner, args.Sprite), rsi.RSI);
+            // Workaround for RobustToolbox bug: SetBaseRsi doesn't mark bounds as dirty
+            // Force bounds to be recalculated by touching layer states
+            for (var i = 0; _sprite.TryGetLayer(ent.Owner, i, out _, false); i++)
+            {
+                if (_sprite.TryGetLayer(ent.Owner, i, out var layer, false) &&
+                    layer.State.IsValid && layer.RSI == null)
+                {
+                    _sprite.LayerSetRsiState(ent.Owner, i, layer.State);
+                }
+            }
+        }
     }
 }

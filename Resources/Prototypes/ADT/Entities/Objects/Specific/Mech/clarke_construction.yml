@@ -57,9 +57,14 @@
       - ADTClarkeLTread
       - ADTClarkeRTread
       - ADTClarkeHead
+    containerId: mech-assembly-container
   - type: Sprite
     state: clarke_harness+o
     noRot: true
+  - type: Construction
+    graph: ADTClarke
+    node: start
+    defaultTarget: clarke
 
 - type: entity
   parent: ADTBaseClarkePartItem
@@ -136,7 +141,3 @@
   - type: Sprite
     noRot: true
     state: clarke_chassis
-  - type: Construction
-    graph: ADTClarke
-    node: start
-    defaultTarget: clarke

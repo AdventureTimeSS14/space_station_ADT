@@ -14,6 +14,7 @@
       sprite: ADT/Objects/Weapons/Guns/Attachments/scope_actions.rsi
       state: sniperscope
     useDelay: 0.25
+    raiseOnUser: false
   - type: InstantAction
     event: !type:ToggleActionEvent
 
@@ -27,6 +28,7 @@
     icon:
       sprite: ADT/Objects/Weapons/Guns/Attachments/scope_actions.rsi
       state: sniperscope
+    raiseOnUser: false
     useDelay: 0.25
   - type: InstantAction
     event: !type:ScopeCycleZoomLevelEvent
@@ -44,6 +46,7 @@
     icon:
       sprite: ADT/Objects/Weapons/Guns/Attachments/scope_actions.rsi
       state: sniperscope
+    raiseOnUser: false
   - type: InstantAction
     event: !type:AttachableToggleActionEvent
 

@@ -34,7 +34,17 @@ public sealed partial class AtmosPipeLayersSystem : SharedAtmosPipeLayersSystem
         if (_appearance.TryGetData<string>(ent, AtmosPipeLayerVisuals.Sprite, out var spriteRsi) &&
             _resourceCache.TryGetResource(SpriteSpecifierSerializer.TextureRoot / spriteRsi, out RSIResource? resource))
         {
-            _sprite.SetBaseRsi((ent, sprite), resource.RSI);
+            _sprite.SetBaseRsi((ent.Owner, sprite), resource.RSI);
+            // Workaround for RobustToolbox bug: SetBaseRsi doesn't mark bounds as dirty
+            // Force bounds to be recalculated by touching layer states
+            for (var i = 0; _sprite.TryGetLayer(ent.Owner, i, out _, false); i++)
+            {
+                if (_sprite.TryGetLayer(ent.Owner, i, out var layer, false) &&
+                    layer.State.IsValid && layer.RSI == null)
+                {
+                    _sprite.LayerSetRsiState(ent.Owner, i, layer.State);
+                }
+            }
         }
 
         if (_appearance.TryGetData<Dictionary<string, string>>(ent, AtmosPipeLayerVisuals.SpriteLayers, out var pipeState))

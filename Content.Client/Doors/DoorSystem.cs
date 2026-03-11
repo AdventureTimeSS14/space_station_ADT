@@ -155,5 +155,15 @@ public sealed class DoorSystem : SharedDoorSystem
             return;
 
         _sprite.SetBaseRsi(sprite.AsNullable(), targetSprite.BaseRSI);
+        // Workaround for RobustToolbox bug: SetBaseRsi doesn't mark bounds as dirty
+        // Force bounds to be recalculated by touching layer states
+        for (var i = 0; _sprite.TryGetLayer(sprite.AsNullable(), i, out _, false); i++)
+        {
+            if (_sprite.TryGetLayer(sprite.AsNullable(), i, out var layer, false) &&
+                layer.State.IsValid && layer.RSI == null)
+            {
+                _sprite.LayerSetRsiState(sprite.AsNullable(), i, layer.State);
+            }
+        }
     }
 }
