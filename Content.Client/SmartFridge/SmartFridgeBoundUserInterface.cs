@@ -47,5 +47,5 @@ public sealed class SmartFridgeBoundUserInterface : BoundUserInterface
     {
         SendMessage(new SmartFridgeDeleteEmptyMessage(entry));
     }
-    Комментарий // ADT-Tweak end
+    // ADT-Tweak end
 }
