@@ -158,7 +158,7 @@
     anchored: true
     noRot: false
   - type: Machine
-    board: SodaDispenserMachineCircuitboard
+    board: ADTEnergySodaDispenserMachineCircuitboard
   - type: GuideHelp
     guides:
     - Bartender
@@ -224,7 +224,7 @@
     anchored: true
     noRot: false
   - type: Machine
-    board: BoozeDispenserMachineCircuitboard
+    board: ADTEnergyBoozeDispenserMachineCircuitboard
   - type: GuideHelp
     guides:
     - Bartender
