@@ -1,5 +1,6 @@
 using Content.Server.Atmos.Components;
 using Content.Server.Body.Components;
+using Content.Shared.Alert;
 using Content.Shared.Chat.Prototypes;
 using Content.Shared.Damage;
 using Content.Shared.FixedPoint;
@@ -48,7 +49,17 @@ internal sealed class RespiratorData
     public DamageSpecifier Damage = new();
     public DamageSpecifier DamageRecovery = new();
     public TimeSpan GaspEmoteCooldown;
+    public TimeSpan LastGaspEmoteTime;
     public ProtoId<EmotePrototype>? GaspEmote;
+    public int SuffocationCycles;
+    public int SuffocationCycleThreshold;
+    public RespiratorStatus Status;
+
+    public RespiratorData()
+    {
+        Damage = new();
+        DamageRecovery = new();
+    }
 }
 
 /// <summary>
@@ -59,10 +70,15 @@ internal sealed class BarotraumaData
     public DamageSpecifier Damage = new();
     public FixedPoint2 MaxDamage;
     public List<string> ProtectionSlots = new();
+    public bool TakingDamage;
     public float HighPressureMultiplier;
     public float HighPressureModifier;
     public float LowPressureMultiplier;
     public float LowPressureModifier;
+    public bool HasImmunity;
+    public ProtoId<AlertPrototype> HighPressureAlert;
+    public ProtoId<AlertPrototype> LowPressureAlert;
+    public ProtoId<AlertCategoryPrototype> PressureAlertCategory;
 
     public BarotraumaData()
     {
@@ -77,17 +93,25 @@ internal sealed class BarotraumaData
 internal sealed class HungerData
 {
     public float LastAuthoritativeHungerValue;
+    public TimeSpan LastAuthoritativeHungerChangeTime;
     public float BaseDecayRate;
     public float ActualDecayRate;
     public HungerThreshold LastThreshold;
     public HungerThreshold CurrentThreshold;
     public Dictionary<HungerThreshold, float> Thresholds;
+    public Dictionary<HungerThreshold, ProtoId<AlertPrototype>> HungerThresholdAlerts;
+    public ProtoId<AlertCategoryPrototype> HungerAlertCategory;
+    public Dictionary<HungerThreshold, float> HungerThresholdDecayModifiers;
     public float StarvingSlowdownModifier;
     public DamageSpecifier? StarvationDamage;
+    public TimeSpan NextThresholdUpdateTime;
+    public TimeSpan ThresholdUpdateRate;
 
     public HungerData()
     {
         Thresholds = new();
+        HungerThresholdAlerts = new();
+        HungerThresholdDecayModifiers = new();
     }
 }
 
@@ -101,7 +125,10 @@ internal sealed class ThirstData
     public ThirstThreshold CurrentThirstThreshold;
     public ThirstThreshold LastThirstThreshold;
     public float CurrentThirst;
+    public TimeSpan NextUpdateTime;
+    public TimeSpan UpdateRate;
     public Dictionary<ThirstThreshold, float> ThirstThresholds;
+    public ProtoId<AlertCategoryPrototype> ThirstyCategory;
 
     public ThirstData()
     {
@@ -167,6 +194,9 @@ internal sealed class TemperatureData
     public DamageSpecifier ColdDamage;
     public DamageSpecifier HeatDamage;
     public FixedPoint2 DamageCap;
+    public bool TakingDamage;
+    public ProtoId<AlertPrototype> HotAlert;
+    public ProtoId<AlertPrototype> ColdAlert;
 
     public TemperatureData()
     {

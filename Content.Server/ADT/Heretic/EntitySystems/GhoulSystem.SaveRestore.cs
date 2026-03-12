@@ -1,5 +1,6 @@
 using Content.Server.Atmos.Components;
 using Content.Server.Body.Components;
+using Content.Shared.Alert;
 using Content.Shared.Damage;
 using Content.Shared.Heretic;
 using Content.Shared.Humanoid;
@@ -43,7 +44,11 @@ public sealed partial class GhoulSystem
                 Damage = respirator.Damage != null ? new DamageSpecifier(respirator.Damage) : new DamageSpecifier(),
                 DamageRecovery = respirator.DamageRecovery != null ? new DamageSpecifier(respirator.DamageRecovery) : new DamageSpecifier(),
                 GaspEmoteCooldown = respirator.GaspEmoteCooldown,
+                LastGaspEmoteTime = respirator.LastGaspEmoteTime,
                 GaspEmote = respirator.GaspEmote,
+                SuffocationCycles = respirator.SuffocationCycles,
+                SuffocationCycleThreshold = respirator.SuffocationCycleThreshold,
+                Status = respirator.Status,
             };
         }
 
@@ -55,10 +60,15 @@ public sealed partial class GhoulSystem
                 Damage = baro.Damage != null ? new DamageSpecifier(baro.Damage) : new DamageSpecifier(),
                 MaxDamage = baro.MaxDamage,
                 ProtectionSlots = new List<string>(baro.ProtectionSlots),
+                TakingDamage = baro.TakingDamage,
                 HighPressureMultiplier = baro.HighPressureMultiplier,
                 HighPressureModifier = baro.HighPressureModifier,
                 LowPressureMultiplier = baro.LowPressureMultiplier,
                 LowPressureModifier = baro.LowPressureModifier,
+                HasImmunity = baro.HasImmunity,
+                HighPressureAlert = baro.HighPressureAlert,
+                LowPressureAlert = baro.LowPressureAlert,
+                PressureAlertCategory = baro.PressureAlertCategory,
             };
         }
 
@@ -68,13 +78,23 @@ public sealed partial class GhoulSystem
             stored.Hunger = new HungerData
             {
                 LastAuthoritativeHungerValue = hunger.LastAuthoritativeHungerValue,
+                LastAuthoritativeHungerChangeTime = hunger.LastAuthoritativeHungerChangeTime,
                 BaseDecayRate = hunger.BaseDecayRate,
                 ActualDecayRate = hunger.ActualDecayRate,
                 LastThreshold = hunger.LastThreshold,
                 CurrentThreshold = hunger.CurrentThreshold,
                 Thresholds = new Dictionary<HungerThreshold, float>(hunger.Thresholds),
+                HungerThresholdAlerts = hunger.HungerThresholdAlerts != null 
+                    ? new Dictionary<HungerThreshold, ProtoId<AlertPrototype>>(hunger.HungerThresholdAlerts) 
+                    : new Dictionary<HungerThreshold, ProtoId<AlertPrototype>>(),
+                HungerAlertCategory = hunger.HungerAlertCategory,
+                HungerThresholdDecayModifiers = hunger.HungerThresholdDecayModifiers != null
+                    ? new Dictionary<HungerThreshold, float>(hunger.HungerThresholdDecayModifiers)
+                    : new Dictionary<HungerThreshold, float>(),
                 StarvingSlowdownModifier = hunger.StarvingSlowdownModifier,
                 StarvationDamage = hunger.StarvationDamage,
+                NextThresholdUpdateTime = hunger.NextThresholdUpdateTime,
+                ThresholdUpdateRate = hunger.ThresholdUpdateRate,
             };
         }
 
@@ -88,7 +108,10 @@ public sealed partial class GhoulSystem
                 CurrentThirstThreshold = thirst.CurrentThirstThreshold,
                 LastThirstThreshold = thirst.LastThirstThreshold,
                 CurrentThirst = thirst.CurrentThirst,
+                NextUpdateTime = thirst.NextUpdateTime,
+                UpdateRate = thirst.UpdateRate,
                 ThirstThresholds = new Dictionary<ThirstThreshold, float>(thirst.ThirstThresholds),
+                ThirstyCategory = thirst.ThirstyCategory,
             };
         }
 
@@ -145,6 +168,9 @@ public sealed partial class GhoulSystem
                 ColdDamage = new DamageSpecifier(temp.ColdDamage),
                 HeatDamage = new DamageSpecifier(temp.HeatDamage),
                 DamageCap = temp.DamageCap,
+                TakingDamage = temp.TakingDamage,
+                HotAlert = temp.HotAlert,
+                ColdAlert = temp.ColdAlert,
             };
         }
 
@@ -183,7 +209,11 @@ public sealed partial class GhoulSystem
             respirator.Damage = new DamageSpecifier(stored.Respirator.Damage);
             respirator.DamageRecovery = new DamageSpecifier(stored.Respirator.DamageRecovery);
             respirator.GaspEmoteCooldown = stored.Respirator.GaspEmoteCooldown;
+            respirator.LastGaspEmoteTime = stored.Respirator.LastGaspEmoteTime;
             respirator.GaspEmote = stored.Respirator.GaspEmote;
+            respirator.SuffocationCycles = stored.Respirator.SuffocationCycles;
+            respirator.SuffocationCycleThreshold = stored.Respirator.SuffocationCycleThreshold;
+            respirator.Status = stored.Respirator.Status;
             Dirty(ent, respirator);
         }
 
@@ -194,10 +224,15 @@ public sealed partial class GhoulSystem
             baro.Damage = new DamageSpecifier(stored.Barotrauma.Damage);
             baro.MaxDamage = stored.Barotrauma.MaxDamage;
             baro.ProtectionSlots = new List<string>(stored.Barotrauma.ProtectionSlots);
+            baro.TakingDamage = stored.Barotrauma.TakingDamage;
             baro.HighPressureMultiplier = stored.Barotrauma.HighPressureMultiplier;
             baro.HighPressureModifier = stored.Barotrauma.HighPressureModifier;
             baro.LowPressureMultiplier = stored.Barotrauma.LowPressureMultiplier;
             baro.LowPressureModifier = stored.Barotrauma.LowPressureModifier;
+            baro.HasImmunity = stored.Barotrauma.HasImmunity;
+            baro.HighPressureAlert = stored.Barotrauma.HighPressureAlert;
+            baro.LowPressureAlert = stored.Barotrauma.LowPressureAlert;
+            baro.PressureAlertCategory = stored.Barotrauma.PressureAlertCategory;
             Dirty(ent, baro);
         }
 
@@ -206,13 +241,19 @@ public sealed partial class GhoulSystem
         {
             var hunger = AddComp<HungerComponent>(ent);
             hunger.LastAuthoritativeHungerValue = stored.Hunger.LastAuthoritativeHungerValue;
+            hunger.LastAuthoritativeHungerChangeTime = stored.Hunger.LastAuthoritativeHungerChangeTime;
             hunger.BaseDecayRate = stored.Hunger.BaseDecayRate;
             hunger.ActualDecayRate = stored.Hunger.ActualDecayRate;
             hunger.LastThreshold = stored.Hunger.LastThreshold;
             hunger.CurrentThreshold = stored.Hunger.CurrentThreshold;
             hunger.Thresholds = new Dictionary<HungerThreshold, float>(stored.Hunger.Thresholds);
+            hunger.HungerThresholdAlerts = new Dictionary<HungerThreshold, ProtoId<AlertPrototype>>(stored.Hunger.HungerThresholdAlerts);
+            hunger.HungerAlertCategory = stored.Hunger.HungerAlertCategory;
+            hunger.HungerThresholdDecayModifiers = new Dictionary<HungerThreshold, float>(stored.Hunger.HungerThresholdDecayModifiers);
             hunger.StarvingSlowdownModifier = stored.Hunger.StarvingSlowdownModifier;
             hunger.StarvationDamage = stored.Hunger.StarvationDamage;
+            hunger.NextThresholdUpdateTime = stored.Hunger.NextThresholdUpdateTime;
+            hunger.ThresholdUpdateRate = stored.Hunger.ThresholdUpdateRate;
             Dirty(ent, hunger);
         }
 
@@ -225,7 +266,10 @@ public sealed partial class GhoulSystem
             thirst.CurrentThirstThreshold = stored.Thirst.CurrentThirstThreshold;
             thirst.LastThirstThreshold = stored.Thirst.LastThirstThreshold;
             thirst.CurrentThirst = stored.Thirst.CurrentThirst;
+            thirst.NextUpdateTime = stored.Thirst.NextUpdateTime;
+            thirst.UpdateRate = stored.Thirst.UpdateRate;
             thirst.ThirstThresholds = new Dictionary<ThirstThreshold, float>(stored.Thirst.ThirstThresholds);
+            thirst.ThirstyCategory = stored.Thirst.ThirstyCategory;
             Dirty(ent, thirst);
         }
 
@@ -275,6 +319,9 @@ public sealed partial class GhoulSystem
             temp.ColdDamage = new DamageSpecifier(stored.Temperature.ColdDamage);
             temp.HeatDamage = new DamageSpecifier(stored.Temperature.HeatDamage);
             temp.DamageCap = stored.Temperature.DamageCap;
+            temp.TakingDamage = stored.Temperature.TakingDamage;
+            temp.HotAlert = stored.Temperature.HotAlert;
+            temp.ColdAlert = stored.Temperature.ColdAlert;
             Dirty(ent, temp);
         }
 
