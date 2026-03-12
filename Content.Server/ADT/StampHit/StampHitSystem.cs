@@ -28,7 +28,7 @@ public sealed class StampHitSystem : EntitySystem
             {
                 if (!HasComp<StampedEntityComponent>(i))
                 {
-                    AddComp<StampedEntityComponent>(i);
+                    EnsureComp<StampedEntityComponent>(i);
                     if (TryComp<StampedEntityComponent>(i, out var entStamped))
                     {
                         entStamped.StampToEntity.Add(comp.StampedName);
