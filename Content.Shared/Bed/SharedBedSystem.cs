@@ -53,9 +53,10 @@ public abstract class SharedBedSystem : EntitySystem
         bed.Comp.NextHealTime = Timing.CurTime + TimeSpan.FromSeconds(bed.Comp.HealTime);
         _actionsSystem.AddAction(args.Buckle, ref bed.Comp.SleepAction, SleepingSystem.SleepActionId, bed);
         Dirty(bed);
-
+        /* ADT-Tweak: Deprecated by DoubleBedSystem - cannot assert to just one entity on bed.
         // Single action entity, cannot strap multiple entities to the same bed.
         DebugTools.AssertEqual(args.Strap.Comp.BuckledEntities.Count, 1);
+        */
     }
 
     private void OnUnstrapped(Entity<HealOnBuckleComponent> bed, ref UnstrappedEvent args)
@@ -67,7 +68,7 @@ public abstract class SharedBedSystem : EntitySystem
                 _actionsSystem.RemoveAction(args.Buckle.Owner, bed.Comp.SleepAction);
             _sleepingSystem.TryWaking(args.Buckle.Owner);
         }
-        
+
         RemComp<HealOnBuckleHealingComponent>(bed);
     }
 

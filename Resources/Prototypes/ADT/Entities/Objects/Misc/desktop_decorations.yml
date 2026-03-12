@@ -1,0 +1,221 @@
+### Настольные флаги
+
+- type: entity
+  id: ADTElysium
+  parent: BaseItem
+  name: elysium desk flag
+  description: God save the Emperor!
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/flags.rsi
+    state: elysium
+  - type: Item
+    size: Small
+  - type: Anchorable
+
+- type: entity
+  id: ADTKmt
+  parent: BaseItem
+  name: KMT desk flag
+  description: Down with the federal power!
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/flags.rsi
+    state: kmt
+  - type: Item
+    size: Small
+  - type: Anchorable
+
+- type: entity
+  id: ADTNt
+  parent: BaseItem
+  name: NanoTrasen desk flag
+  description: Why do corporations need flags?
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/flags.rsi
+    state: nt
+  - type: Item
+    size: Small
+  - type: Anchorable
+
+- type: entity
+  id: ADTTsf
+  parent: BaseItem
+  name: TSF desk flag
+  description: For democracy!
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/flags.rsi
+    state: tsf
+  - type: Item
+    size: Small
+  - type: Anchorable
+
+- type: entity
+  id: ADTUssp
+  parent: BaseItem
+  name: USSP desk flag
+  description: Workers of all planets, unite!
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/flags.rsi
+    state: ussp
+  - type: Item
+    size: Small
+  - type: Anchorable
+
+### Прочие декорации
+
+- type: entity
+  id: ADTShipBottle
+  parent: BaseItem
+  name: ship in a bottle
+  description: The riddle of the century - how can you fit a ship in a bottle?
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/ship_bottle.rsi
+    state: ship_bottle
+  - type: Item
+    size: Small
+  - type: Anchorable
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Glass
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 5
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          MaterialWoodPlank1:
+            min: 1
+            max: 1
+          ShardGlass:
+            min: 2
+            max: 2
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+- type: entity
+  id: ADTGlobeTerra
+  parent: BaseItem
+  name: Earth globe
+  description: Earth - the home planet of the human race. The globe shows the capitals of many OPZ member states, some of which are underwater.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/globes.rsi
+    state: terra
+  - type: Item
+    size: Small
+  - type: Anchorable
+
+- type: entity
+  id: ADTGlobeMoon
+  parent: BaseItem
+  name: Moon globe
+  description: Where is the space owl?
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/globes.rsi
+    state: moon
+  - type: Item
+    size: Small
+  - type: Anchorable
+
+- type: entity
+  id: ADTGlobeEurope
+  parent: BaseItem
+  name: Europa globe
+  description: A globe of Jupiter's moon. By the way, the locals live underwater and ride submarines.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/globes.rsi
+    state: europe
+  - type: Item
+    size: Small
+  - type: Anchorable
+
+- type: entity
+  id: ADTGoldPhone
+  parent: BaseItem
+  name: gold phone
+  description: A luxurious phone made of gold. A symbol of status and wealth.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/gold_phone.rsi
+    state: gold_phone
+  - type: Item
+    size: Small
+  - type: Anchorable
+
+- type: entity
+  id: ADTDesktopClock
+  parent: BaseItem
+  name: desk clock
+  description: How much longer until the end of the shift?...
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/desktop_clock.rsi
+    state: clock
+  - type: Item
+    size: Small
+  - type: Anchorable
+
+- type: entity
+  id: ADTDesktopTableCaptain
+  parent: BaseItem
+  name: desk plaque "Captain"
+  description: I'M THE BOSS!
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/desktop_table.rsi
+    state: desktop_table
+  - type: Anchorable
+
+- type: entity
+  id: ADTServingCart
+  parent: BaseStructure
+  name: serving cart
+  description: Needed to conveniently bring drinks, large dishes and many drinks!
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/serving_cart.rsi
+    state: cart
+  - type: Item
+    size: Large
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,6,3
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,-0.4,0.4,0.4"
+        density: 60
+        mask:
+        - MachineMask
+        layer:
+        - MidImpassable
+        - LowImpassable
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 100
+        behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
