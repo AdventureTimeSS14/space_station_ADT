@@ -250,6 +250,7 @@ public sealed partial class GhoulSystem
             repro.MakeOffspringInfant = stored.Reproductive.MakeOffspringInfant;
             if (stored.Reproductive.PartnerWhitelist != null)
             {
+                repro.PartnerWhitelist ??= new EntityWhitelist();
                 repro.PartnerWhitelist.Components = stored.Reproductive.PartnerWhitelist.Components;
                 repro.PartnerWhitelist.Sizes = stored.Reproductive.PartnerWhitelist.Sizes;
                 repro.PartnerWhitelist.Tags = stored.Reproductive.PartnerWhitelist.Tags;
