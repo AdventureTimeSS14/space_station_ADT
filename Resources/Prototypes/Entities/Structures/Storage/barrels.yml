@@ -231,3 +231,428 @@
         reagents:
         - ReagentId: Uranium
           Quantity: 500
+
+
+# ADT-Tweak Start: New open barrels with fill stages sprites
+- type: entity
+  parent: BaseBarrelChem
+  id: ADTBarrelChemWater
+  suffix: Water
+  name: water barrel
+  description: A barrel filled with water.
+  components:
+  - type: Sprite
+    state: waterbarrel
+  - type: SolutionContainerManager
+    solutions:
+      tank:
+        maxVol: 500
+        reagents:
+        - ReagentId: Water
+          Quantity: 500
+
+- type: entity
+  parent: BaseBarrelChem
+  id: ADTBarrelChemWelding
+  suffix: Welding
+  name: welding fuel barrel
+  description: A barrel filled with welding fuel.
+  components:
+  - type: Sprite
+    state: weldbarrel
+  - type: Explosive
+    explosionType: Default
+    totalIntensity: 10
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Heat
+        damage: 5
+      behaviors:
+      - !type:SolutionExplosionBehavior
+        solution: tank
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Piercing
+        damage: 5
+      behaviors:
+      - !type:SolutionExplosionBehavior
+        solution: tank
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 25
+      behaviors:
+      - !type:SpillBehavior
+        solution: tank
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: SolutionContainerManager
+    solutions:
+      tank:
+        maxVol: 500
+        reagents:
+        - ReagentId: WeldingFuel
+          Quantity: 500
+
+- type: entity
+  parent: BaseBarrelChem
+  id: ADTBarrelWooden
+  name: wooden barrel
+  description: A simple wooden barrel.
+  components:
+  - type: Sprite
+    state: woodenbarrel
+  - type: PhysicalComposition
+    materialComposition:
+      Wood: 2000
+  - type: SolutionContainerManager
+    solutions:
+      tank:
+        maxVol: 500
+
+- type: entity
+  parent: BaseBarrelChem
+  id: ADTBarrelIED
+  name: IED barrel
+  description: A suspicious barrel with welding fuel. It looks dangerous.
+  components:
+  - type: Sprite
+    state: iedweldbarrel
+  - type: Explosive
+    explosionType: Default
+    totalIntensity: 20
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Heat
+        damage: 5
+      behaviors:
+      - !type:SolutionExplosionBehavior
+        solution: tank
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Piercing
+        damage: 5
+      behaviors:
+      - !type:SolutionExplosionBehavior
+        solution: tank
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 25
+      behaviors:
+      - !type:SpillBehavior
+        solution: tank
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: SolutionContainerManager
+    solutions:
+      tank:
+        maxVol: 500
+        reagents:
+        - ReagentId: WeldingFuel
+          Quantity: 500
+
+- type: entity
+  parent: BaseBarrelChem
+  id: BaseBarrelChemOpen
+  abstract: true
+  name: open barrel
+  description: An open barrel that can be filled with liquids.
+  components:
+  - type: Appearance
+  - type: Openable
+    opened: true
+  - type: SolutionContainerVisuals
+    maxFillLevels: 5
+    fillBaseName: "fill-"
+    solutionName: tank
+  - type: Edible
+    solution: tank
+    utensil: None
+  - type: MixableSolution
+    solution: tank
+  - type: SolutionTransfer
+    canChangeTransferAmount: true
+  - type: DrawableSolution
+    solution: tank
+  - type: RefillableSolution
+    solution: tank
+  - type: DrainableSolution
+    solution: tank
+  - type: Spillable
+    solution: tank
+  - type: ExaminableSolution
+    solution: tank
+  - type: ReagentTank
+
+- type: entity
+  parent: BaseBarrelChemOpen
+  id: ADTBarrelChemWaterOpen
+  name: open water barrel
+  description: An open barrel that can be filled with liquids.
+  components:
+  - type: Sprite
+    sprite: Structures/Storage/barrels.rsi
+    state: waterbarrel-open
+    noRot: true
+    layers:
+    - state: waterbarrel-open
+    - map: ["enum.SolutionContainerLayers.Fill"]
+      state: fill-1
+      visible: false
+  - type: SolutionContainerManager
+    solutions:
+      tank:
+        maxVol: 500
+        reagents:
+        - ReagentId: Water
+          Quantity: 500
+
+- type: entity
+  parent: BaseBarrelChemOpen
+  id: ADTBarrelChemWeldingOpen
+  name: open welding fuel barrel
+  description: An open barrel that can be filled with welding fuel.
+  components:
+  - type: Sprite
+    sprite: Structures/Storage/barrels.rsi
+    state: weldbarrel-open
+    noRot: true
+    layers:
+    - state: weldbarrel-open
+    - map: ["enum.SolutionContainerLayers.Fill"]
+      state: fill-1
+      visible: false
+  - type: Explosive
+    explosionType: Default
+    totalIntensity: 10
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Heat
+        damage: 5
+      behaviors:
+      - !type:SolutionExplosionBehavior
+        solution: tank
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Piercing
+        damage: 5
+      behaviors:
+      - !type:SolutionExplosionBehavior
+        solution: tank
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 25
+      behaviors:
+      - !type:SpillBehavior
+        solution: tank
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: SolutionContainerManager
+    solutions:
+      tank:
+        maxVol: 500
+        reagents:
+        - ReagentId: WeldingFuel
+          Quantity: 500
+
+- type: entity
+  parent: BaseBarrelChemOpen
+  id: ADTBarrelChemSilicateOpen
+  name: open silicate barrel
+  description: An open barrel that can be filled with silicate or lubricant.
+  components:
+  - type: Construction
+    graph: ADTBarrelChemSilicateOpen
+    node: barrel
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 800
+  - type: Sprite
+    sprite: Structures/Storage/barrels.rsi
+    state: silicatebarrel-open
+    noRot: true
+    layers:
+    - state: silicatebarrel-open
+    - map: ["enum.SolutionContainerLayers.Fill"]
+      state: fill-1
+      visible: false
+  - type: SolutionContainerManager
+    solutions:
+      tank:
+        maxVol: 500
+
+- type: entity
+  parent: BaseBarrelChemOpen
+  id: ADTBarrelWoodenOpen
+  name: open wooden barrel
+  description: An open wooden barrel that can be filled with liquids.
+  components:
+  - type: Sprite
+    sprite: Structures/Storage/barrels.rsi
+    state: woodenbarrel-open
+    noRot: true
+    layers:
+    - state: woodenbarrel-open
+    - map: ["enum.SolutionContainerLayers.Fill"]
+      state: fill-1
+      visible: false
+  - type: PhysicalComposition
+    materialComposition:
+      Wood: 2000
+  - type: SolutionContainerManager
+    solutions:
+      tank:
+        maxVol: 500
+        reagents:
+        - ReagentId: Water
+          Quantity: 500
+
+- type: entity
+  parent: BaseBarrelChemOpen
+  id: ADTBarrelMetalOpen
+  name: open metal barrel
+  description: An open metal barrel that can be filled with chemicals.
+  components:
+  - type: Construction
+    graph: ADTBarrelMetalOpen
+    node: barrel
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 800
+  - type: Sprite
+    sprite: Structures/Storage/barrels.rsi
+    state: metalbarrel-open
+    noRot: true
+    layers:
+    - state: metalbarrel-open
+    - map: ["enum.SolutionContainerLayers.Fill"]
+      state: fill-1
+      visible: false
+  - type: SolutionContainerManager
+    solutions:
+      tank:
+        maxVol: 500
+
+- type: entity
+  parent: [ BaseBarrelChemRadioactive, BaseBarrelChemOpen ]
+  id: ADTBarrelRadOpen
+  name: open radioactive barrel
+  description: An open radioactive barrel that can be filled with dangerous materials.
+  components:
+  - type: Sprite
+    sprite: Structures/Storage/barrels.rsi
+    state: radbarrel-open
+    noRot: true
+    layers:
+    - state: radbarrel-open
+    - map: ["enum.SolutionContainerLayers.Fill"]
+      state: fill-1
+      visible: false
+  - type: SolutionContainerManager
+    solutions:
+      tank:
+        maxVol: 500
+        reagents:
+        - ReagentId: Radium
+          Quantity: 500
+
+- type: entity
+  parent: ADTBarrelChemWaterOpen
+  id: ADTBarrelChemWaterOpenEmpty
+  name: open water barrel (empty)
+  description: An empty open barrel for liquids.
+  components:
+  - type: Construction
+    graph: ADTBarrelChemWaterOpen
+    node: barrel
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 800
+  - type: SolutionContainerManager
+    solutions:
+      tank:
+        maxVol: 500
+
+- type: entity
+  parent: ADTBarrelChemWeldingOpen
+  id: ADTBarrelChemWeldingOpenEmpty
+  name: open welding fuel barrel (empty)
+  description: An empty open barrel for welding fuel.
+  components:
+  - type: Construction
+    graph: ADTBarrelChemWeldingOpen
+    node: barrel
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 800
+  - type: SolutionContainerManager
+    solutions:
+      tank:
+        maxVol: 500
+
+- type: entity
+  parent: ADTBarrelWoodenOpen
+  id: ADTBarrelWoodenOpenEmpty
+  name: open wooden barrel (empty)
+  description: An empty open wooden barrel.
+  components:
+  - type: Construction
+    graph: ADTBarrelWoodenOpen
+    node: barrel
+  - type: PhysicalComposition
+    materialComposition:
+      Wood: 800
+  - type: SolutionContainerManager
+    solutions:
+      tank:
+        maxVol: 500
+
+- type: entity
+  parent: ADTBarrelRadOpen
+  id: ADTBarrelRadOpenEmpty
+  name: open radioactive barrel (empty)
+  description: An empty open radioactive barrel.
+  components:
+  - type: Construction
+    graph: ADTBarrelRadOpen
+    node: barrel
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 800
+  - type: SolutionContainerManager
+    solutions:
+      tank:
+        maxVol: 500
+# ADT-Tweak End
