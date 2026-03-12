@@ -1,11 +1,9 @@
 using Content.Server.Atmos.Components;
 using Content.Server.Body.Components;
 using Content.Shared.Damage;
-using Content.Shared.FixedPoint;
 using Content.Shared.Heretic;
 using Content.Shared.Humanoid;
 using Content.Shared.Item;
-using Content.Shared.NPC.Components;
 using Content.Shared.Nutrition.AnimalHusbandry;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Storage;
