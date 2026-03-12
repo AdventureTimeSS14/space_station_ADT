@@ -42,8 +42,8 @@ public sealed partial class GhoulSystem
                 SuffocationThreshold = respirator.SuffocationThreshold,
                 MaxSaturation = respirator.MaxSaturation,
                 MinSaturation = respirator.MinSaturation,
-                Damage = new DamageSpecifier(respirator.Damage),
-                DamageRecovery = new DamageSpecifier(respirator.DamageRecovery),
+                Damage = respirator.Damage != null ? new DamageSpecifier(respirator.Damage) : new DamageSpecifier(),
+                DamageRecovery = respirator.DamageRecovery != null ? new DamageSpecifier(respirator.DamageRecovery) : new DamageSpecifier(),
                 GaspEmoteCooldown = respirator.GaspEmoteCooldown,
                 GaspEmote = respirator.GaspEmote,
             };
@@ -54,7 +54,7 @@ public sealed partial class GhoulSystem
         {
             stored.Barotrauma = new BarotraumaData
             {
-                Damage = new DamageSpecifier(baro.Damage),
+                Damage = baro.Damage != null ? new DamageSpecifier(baro.Damage) : new DamageSpecifier(),
                 MaxDamage = baro.MaxDamage,
                 ProtectionSlots = new List<string>(baro.ProtectionSlots),
                 HighPressureMultiplier = baro.HighPressureMultiplier,
@@ -105,7 +105,7 @@ public sealed partial class GhoulSystem
                 BreedRange = repro.BreedRange,
                 Capacity = repro.Capacity,
                 BreedChance = repro.BreedChance,
-                Offspring = repro.Offspring.ToList(),
+                Offspring = repro.Offspring?.ToList() ?? new List<EntitySpawnEntry>(),
                 Gestating = repro.Gestating,
                 GestationEndTime = repro.GestationEndTime,
                 GestationDuration = repro.GestationDuration,
