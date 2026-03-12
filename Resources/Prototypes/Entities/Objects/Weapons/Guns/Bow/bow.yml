@@ -46,6 +46,7 @@
       projectiles: !type:ContainerSlot
   - type: ContainerAmmoProvider
     container: projectiles
+  - type: ExpendedBows # ADT-Tweak
 
 - type: entity
   id: BowImprovised

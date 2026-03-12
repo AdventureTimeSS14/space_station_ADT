@@ -1,0 +1,79 @@
+- type: entity
+  parent: BaseArrow
+  id: ADTArrowSecurity
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/arrows.rsi
+    layers:
+    - state: tail
+      color: red
+    - state: rod
+      color: white
+    - state: tip
+      color: white
+    - state: solution1
+      map: ["enum.SolutionContainerLayers.Fill"]
+      visible: false
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 35
+
+- type: entity
+  parent: BaseArrow
+  id: ADTArrowFlashSecurity
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/arrows.rsi
+    layers:
+    - state: tail
+      color: yellow
+    - state: rod
+      color: white
+    - state: tip
+      color: white
+    - state: solution1
+      map: ["enum.SolutionContainerLayers.Fill"]
+      visible: false
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 20
+        Heat: 5
+  - type: AmbientSound
+    enabled: true
+    volume: 0
+    range: 7
+    sound:
+      path: /Audio/Machines/sonar-ping.ogg
+      params:
+        loop: true
+  - type: IgniteOnCollide
+    fireStacks: 1
+  - type: PointLight
+    enabled: true
+    color: "#ffee00"
+    radius: 15.0
+    energy: 9.0
+
+- type: entity
+  parent: BaseArrow
+  id: ADTArrowGranade
+  components:
+  - type: TriggerOnCollide
+    fixtureID: fix1
+    maxTriggers: 1
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Projectiles/arrows_custom.rsi
+    layers:
+      - state: grenade
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: DemolitionCharge
+    totalIntensity: 150
+    intensitySlope: 25
+    maxIntensity: 50
+    canCreateVacuum: false
+  - type: Construction
+    graph: ADTArrowGranade
+    node: ADTArrowGranade

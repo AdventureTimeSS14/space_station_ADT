@@ -1,0 +1,15 @@
+- type: construction
+  id: HandmadeCompoundBow
+  graph: HandmadeCompoundBow
+  startNode: start
+  targetNode: HandmadeCompoundBow
+  category: construction-category-weapons
+  objectType: Item
+
+- type: construction
+  id: ADTArrowGranade
+  graph: ADTArrowGranade
+  startNode: start
+  targetNode: ADTArrowGranade
+  category: construction-category-weapons
+  objectType: Item

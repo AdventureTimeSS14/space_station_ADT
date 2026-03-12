@@ -96,3 +96,36 @@
   position: 0,2
   requiredTech:
   - SalvageWeapons
+
+# Луки 
+- type: technology
+  id: ADTBowSecurity
+  name: research-technology-bow-security
+  icon:
+    sprite: ADT/Objects/Weapons/Guns/Bow/compound_bow_security.rsi
+    state: unwielded
+  discipline: Arsenal
+  tier: 2
+  cost: 6000
+  recipeUnlocks:
+  - ADTSecurityCompoundBow
+  - ADTArrowSecurity
+  position: 6,-2
+  requiredTech:
+  - WaveParticleHarnessing
+
+- type: technology
+  id: ADTSecurityArrows
+  name: research-technology-arrows-security
+  icon:
+    sprite: Objects/Weapons/Guns/Projectiles/arrows.rsi
+    state: icon_craft
+  discipline: Arsenal
+  tier: 2
+  cost: 4000
+  recipeUnlocks:
+  - ADTSecurityCompoundBow
+  - ADTArrowSecurity
+  position: 7,-2
+  requiredTech:
+  - ADTBowSecurity

@@ -212,7 +212,7 @@ public sealed partial class GunComponent : Component
     /// <summary>
     /// The base value for how fast the projectile moves.
     /// </summary>
-    [DataField]
+    [DataField] 
     public float ProjectileSpeed = 30f; // ADT-Tweak 42f -> 30f
 
     /// <summary>

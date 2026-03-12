@@ -111,3 +111,21 @@
   materials:
     Lead : 300 #ADT-BFUU-Tweak
     Plastic: 200
+
+- type: latheRecipe
+  id: ADTSecurityCompoundBow
+  result: ADTSecurityCompoundBow
+  completetime: 10
+  materials:
+    Steel : 1100
+    Silver: 500
+    Lead: 300
+
+- type: latheRecipe
+  id: ADTArrowSecurity
+  result: ADTArrowSecurity
+  completetime: 2
+  materials:
+    Steel : 100
+    Plastic: 200
+    Lead: 100

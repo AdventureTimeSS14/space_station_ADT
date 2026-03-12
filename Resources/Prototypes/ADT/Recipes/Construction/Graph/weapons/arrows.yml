@@ -1,0 +1,26 @@
+- type: constructionGraph
+  id: ADTArrowGranade
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: ADTArrowGranade
+      steps:
+      - tag: C4
+        icon:
+          sprite: Objects/Weapons/Bombs/c4.rsi
+          state: icon
+        name: construction-graph-tag-arrow
+      - tag: Arrow
+        icon:
+          sprite: Objects/Weapons/Guns/Projectiles/arrows.rsi
+          state: icon_craft
+        name: construction-graph-tag-c4
+      - material: Steel
+        amount: 5
+        doAfter: 4
+      - material: Cable
+        amount: 10
+        doAfter: 4
+  - node: ADTArrowGranade
+    entity: ADTArrowGranade

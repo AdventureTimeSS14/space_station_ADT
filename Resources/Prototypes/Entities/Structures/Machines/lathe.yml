@@ -481,6 +481,7 @@
     - ADTAttachmentPack
     - ADT40mmGrenadePack
     - ADTMechEquipmentSecTechfabPack
+    - ADTBowEquipmentPack
     # ADT-tweak-end
   - type: EmagLatheRecipes
     emagStaticPacks:
