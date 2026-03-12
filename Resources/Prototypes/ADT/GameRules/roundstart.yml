@@ -205,8 +205,8 @@
   components:
   - type: DynamicRule
     maxEventsBeforeAntag: 9
-    maxChaos: 60
-    minChaos: 50
+    maxChaos: 80
+    minChaos: 70
     scheduledGameRules: !type:NestedSelector
       tableId: RampingGameRulesTable
     roundstartRules:
