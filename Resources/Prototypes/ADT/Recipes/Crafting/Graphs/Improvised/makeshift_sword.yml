@@ -1,0 +1,18 @@
+- type: constructionGraph
+  id: SwordMakeshiftGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: sword
+      steps:
+      - material: MetalRod
+        amount: 1
+      - material: Steel
+        amount: 4
+        doAfter: 10
+      - material: Cloth
+        amount: 2
+        doAfter: 5
+  - node: sword
+    entity: SwordMakeshift

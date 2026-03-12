@@ -1,0 +1,32 @@
+{
+  "version": 2,
+  "license": "CC-BY-NC-SA-3.0",
+  "copyright": "Made by Killer Tamashi (Discord)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "wrenching"
+    },
+    {
+      "name": "cutters"
+    },
+    {
+      "name": "prying"
+    },
+    {
+      "name": "icon"
+    },
+    {
+      "name": "pulsing"
+    },
+    {
+      "name": "screwing"
+    },
+    {
+      "name": "unfinished"
+    }
+  ]
+}

@@ -47,7 +47,7 @@
     proto: CartridgeLightRifle
   - type: Sprite
     layers:
-    - state: base
+    - state: base-b
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]

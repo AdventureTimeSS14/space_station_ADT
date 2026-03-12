@@ -1,0 +1,81 @@
+- type: entity
+  id: MagazinePistolSubMachineGunImprovised
+  name: Improvised SMG magazine (.35 auto)
+  parent: [ BaseMagazinePistolSubMachineGun, BaseMinorContraband ]
+  components:
+  - type: BallisticAmmoProvider
+    proto: null
+    capacity: 20
+    whitelist:
+      tags:
+        - CartridgePistol
+        - CartridgePistolImprovised
+  - type: Sprite
+    sprite: /Textures/ADT/Objects/Weapons/Guns/Ammunition/Magazine/SMG/improvised_smg_magazine.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 3
+  - type: Tag
+    tags:
+      - MagazineSMGImprovised
+  - type: Construction
+    graph: ImprovisedMagazinePistolSubMachineGunGraph
+    node: shell
+
+- type: entity
+  id: MagazinePistolSubMachineGunImprovisedFull
+  name: Improvised SMG magazine (.35 auto)
+  parent: [ MagazinePistolSubMachineGunImprovised]
+  suffix: Full
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgePistolImprovised
+    capacity: 20
+
+- type: entity
+  id: MagazinePistolImprovised
+  name: "Improvised Pistol Magazine (.35)"
+  parent: [ BaseItem, BaseMinorContraband ]
+  components:
+  - type: Tag
+    tags:
+      - MagazinePistol
+      - MagazinePistolImprovised
+  - type: BallisticAmmoProvider
+    proto: null
+    mayTransfer: true
+    whitelist:
+      tags:
+        - CartridgePistol
+        - CartridgePistolImprovised
+    capacity: 6
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-mag
+      right:
+      - state: inhand-right-mag
+    size: Tiny
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/improvised_pistol_magazine.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 6
+    zeroVisible: false
+  - type: Appearance
+  - type: Construction
+    graph: ImprovisedPistolMagazineGraph
+    node: shell

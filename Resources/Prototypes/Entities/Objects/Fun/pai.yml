@@ -26,38 +26,38 @@
       enum.StationMapUiKey.Key:
         type: StationMapBoundUserInterface
         requireInputValidation: false
-  # ADT-Tweak-start      
+  # ADT-Tweak-start
   - type: Destructible
     thresholds:
     - trigger:
-        !type:DamageTrigger 
+        !type:DamageTrigger
         damage: 135
-      behaviors:      
+      behaviors:
       - !type:SpawnEntitiesBehavior
         spawn:
           SheetSteel1:
             min: 1
-            max: 5                         
+            max: 5
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
       - !type:PlaySoundBehavior
         sound:
           collection: MetalSlam
-    - trigger:        
-        !type:DamageTrigger 
+    - trigger:
+        !type:DamageTrigger
         damage: 75
       behaviors:
       - !type:SpawnEntitiesBehavior
         spawn:
           ScrapPAI:
             min: 1
-            max: 1    
+            max: 1
       - !type:DoActsBehavior
-        acts: [ "Destruction" ]       
+        acts: [ "Destruction" ]
       - !type:PlaySoundBehavior
         sound:
           collection: MetalSlam
-  # ADT-Tweak-end        
+  # ADT-Tweak-end
   - type: Sprite
     sprite: Objects/Fun/pai.rsi
     layers:
@@ -153,34 +153,34 @@
   name: syndicate personal ai device
   description: Your Syndicate pal who's fun to be with!
   components:
-  # ADT-Tweak-start      
+  # ADT-Tweak-start
   - type: Destructible
     thresholds:
     - trigger:
-        !type:DamageTrigger 
+        !type:DamageTrigger
         damage: 135
-      behaviors:      
+      behaviors:
       - !type:SpawnEntitiesBehavior
         spawn:
           SheetSteel1:
             min: 1
-            max: 5                         
+            max: 5
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
       - !type:PlaySoundBehavior
         sound:
           collection: MetalSlam
-    - trigger:        
-        !type:DamageTrigger 
+    - trigger:
+        !type:DamageTrigger
         damage: 75
       behaviors:
       - !type:SpawnEntitiesBehavior
         spawn:
           ScrapPAI:
             min: 1
-            max: 1    
+            max: 1
       - !type:DoActsBehavior
-        acts: [ "Destruction" ]       
+        acts: [ "Destruction" ]
       - !type:PlaySoundBehavior
         sound:
           collection: MetalSlam
@@ -245,20 +245,20 @@
   - type: Destructible
     thresholds:
     - trigger:
-        !type:DamageTrigger 
+        !type:DamageTrigger
         damage: 75
       behaviors:
-      - !type:SpawnEntitiesBehavior 
+      - !type:SpawnEntitiesBehavior
         spawn:
           FoodPotato:
             min: 1
-            max: 1  
+            max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
       - !type:PlaySoundBehavior
         sound:
           collection: MetalSlam
-  # ADT-Tweak-end       
+  # ADT-Tweak-end
   - type: Sprite
     sprite: Objects/Fun/pai.rsi
     layers:

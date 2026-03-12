@@ -6,11 +6,13 @@
     edges:
     - to: shotgun
       steps:
-      - tag: Pipe
+      # ADT-Tweak-Start
+      - tag: ModularBarrel
         icon:
-          sprite: Structures/Piping/Atmospherics/pipe.rsi
-          state: pipeStraight
-        name: construction-graph-tag-pipe
+          sprite: ADT/Objects/Misc/modular_barrel.rsi
+          state: icon
+        name: crafting-menu-name-MB
+      # ADT-Tweak-End
       - tag: ModularReceiver
         icon:
           sprite: Objects/Misc/modular_receiver.rsi

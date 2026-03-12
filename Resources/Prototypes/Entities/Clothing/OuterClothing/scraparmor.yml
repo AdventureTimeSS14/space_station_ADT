@@ -71,8 +71,8 @@
       coefficients:
         Blunt: 0.5
         Slash: 0.5
-        Piercing: 0.5 #Some nukie tier physical protection...
-        Heat: 0.8
+        Piercing: 0.4 # ADT-Tweak 0.5 -> 0.4 #Some nukie tier physical protection...
+        Heat: 0.6 # ADT-Tweak 0.8 -> 0.6
         Radiation: 0.8 #Hey, it's a bunch of solid steel.
   - type: ExplosionResistance
     damageCoefficient: 0.80

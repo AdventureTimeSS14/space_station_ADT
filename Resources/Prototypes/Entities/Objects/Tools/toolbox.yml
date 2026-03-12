@@ -52,6 +52,7 @@
   - type: Tag
     tags:
     - ADTToolboxRedSacrifice
+    - Toolbox
 ### End ADT Tweak
 
 - type: entity
@@ -69,6 +70,7 @@
   - type: Tag
     tags:
     - ADTToolboxBlueSacrifice
+    - Toolbox
 ### End ADT Tweak
 
 - type: entity

@@ -192,3 +192,81 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.8
+
+# Перенос самоделок Start
+
+- type: entity
+  parent: [ClothingHeadHelmetBase, BaseMinorContraband]
+  id: ClothingHeadHelmetMakeshift
+  name: makeshift helmet
+  description: Cobbled together steel held together with lv cables in the vauge shape of a helmet. Barely does anything.
+  components:
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.97
+        Slash: 0.96
+        Piercing: 0.97
+        Heat: 0.98
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Helmets/makeshift.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Helmets/makeshift.rsi
+  - type: Construction
+    graph: ClothingHeadHelmetMakeshiftGraph
+    node: helmet
+
+- type: entity
+  parent: [ClothingHeadHelmetBase, BaseMinorContraband]
+  id: ClothingHeadHelmetImprovised
+  name: improvised helmet
+  description: Interlocking steel plates provides some decent protection, but is still barely better than nothing.
+  components:
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.93
+        Piercing: 0.95
+        Heat: 0.96
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Helmets/improvised.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Helmets/improvised.rsi
+
+- type: entity
+  parent: [ClothingHeadHelmetBase, BaseMinorContraband]
+  id: ClothingHeadHelmetForged
+  name: forged helmet
+  description: A high-quality helmet made by some of the best Tidersmiths, it is finally worthwhile to have it on your head.
+  components:
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.88
+        Slash: 0.92
+        Piercing: 0.92
+        Heat: 0.88
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Helmets/forged.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Helmets/forged.rsi
+
+- type: entity
+  parent: [ClothingHeadHelmetBase, BaseMajorContraband]
+  id: ClothingHeadHelmetPaladin
+  name: paladin helmet
+  description: No true paladin can go without their helmet!
+  components:
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.92
+        Slash: 0.88
+        Piercing: 0.88
+        Heat: 0.92
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Helmets/paladin.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Helmets/paladin.rsi
+# End

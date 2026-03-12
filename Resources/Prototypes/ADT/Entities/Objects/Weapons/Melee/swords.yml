@@ -377,7 +377,7 @@
     state: icon
   - type: MeleeWeapon
     wideAnimationRotation: -135
-    attackRate: 1.0
+    attackRate: 1.5
     damage:
       types:
         Slash: 12
@@ -388,7 +388,7 @@
   - type: DamageOtherOnHit
     damage:
       types:
-        Slash: 4
+        Slash: 24
   - type: ThrowingAngle
     angle: 225
   - type: Construction
@@ -408,7 +408,7 @@
     attackRate: 0.7
     damage:
       types:
-        Slash: 16
+        Slash: 20
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
   - type: Construction
@@ -424,10 +424,10 @@
   - type: Sprite
     sprite: ADT/Objects/Weapons/Melee/gladius.rsi
   - type: MeleeWeapon
-    attackRate: 0.75
+    attackRate: 0.8
     damage:
       types:
-        Slash: 20
+        Slash: 24
     soundHit:
         path: /Audio/Weapons/bladeslice.ogg
   - type: Item
@@ -445,7 +445,7 @@
     attackRate: 0.6
     damage:
       types:
-        Slash: 17
+        Slash: 26
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
   - type: Construction
@@ -464,7 +464,7 @@
     delay: 1
   - type: MeleeWeapon
     wideAnimationRotation: -135
-    attackRate: 0.6
+    attackRate: 0.45
     damage:
       types:
         Slash: 10
@@ -473,9 +473,279 @@
   - type: IncreaseDamageOnWield
     damage:
       types:
-        Blunt: 15
-        Structural: 15
+        Blunt: 25
+        Structural: 25
   - type: Wieldable
   - type: Construction
     graph: ADTBBattleaxe
     node: ADTBoneCompBattleaxe
+
+# Самоделки Start
+- type: entity
+  name: makeshift sword
+  parent: [ BaseSword, BaseMinorContraband ]
+  id: SwordMakeshift
+  description: Some sharp steel affixed to a metal rod, it can hardly be called a sword.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Melee/makeshift_sword.rsi
+  - type: MeleeWeapon
+    attackRate: 1.25
+    damage:
+      types:
+        Slash: 14
+        Structural: 15
+    soundHit:
+        path: /Audio/Weapons/bladeslice.ogg
+  - type: Item
+  - type: DisarmMalus
+  - type: Clothing
+    sprite: ADT/Objects/Weapons/Melee/makeshift_sword.rsi
+    slots:
+    - suitStorage
+    quickEquip: false
+  - type: DamageOnHit
+    damage:
+      types:
+        Blunt: 10
+    ignoreResistances: true
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 80
+      behaviors:
+        - !type:PlaySoundBehavior
+          sound:
+            path: /Audio/ADT/Weapons/Melee/sundowner.ogg
+        - !type:SpawnEntitiesBehavior
+          spawn:
+            SheetSteel:
+              min: 1
+              max: 4
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+  - type: Construction
+    graph: SwordMakeshiftGraph
+    node: sword
+
+- type: entity
+  name: improvised sword
+  parent: [ BaseSword, BaseMinorContraband ]
+  id: SwordImprovised
+  description: Not too sharp, but it does the job just fine.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Melee/improvised_sword.rsi
+  - type: MeleeWeapon
+    attackRate: 1.25
+    damage:
+      types:
+        Slash: 18
+    soundHit:
+        path: /Audio/Weapons/bladeslice.ogg
+  - type: DamageOnHit
+    damage:
+      types:
+        Blunt: 10
+    ignoreResistances: true
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+        - !type:PlaySoundBehavior
+          sound:
+            path: /Audio/ADT/Weapons/Melee/sundowner.ogg
+        - !type:SpawnEntitiesBehavior
+            spawn:
+              SheetSteel:
+                min: 1
+                max: 4
+        - !type:SpawnEntitiesBehavior
+            spawn:
+              BladeSteel:
+                min: 1
+                max: 1
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+  - type: Item
+  - type: DisarmMalus
+  - type: Clothing
+    sprite: ADT/Objects/Weapons/Melee/improvised_sword.rsi
+    slots:
+    - suitStorage
+    quickEquip: false
+  - type: Construction
+    graph: SwordImprovisedGraph
+    node: sword
+
+- type: entity
+  name: forged sword
+  parent: [ BaseSword, BaseMinorContraband ]
+  id: SwordForged
+  description: Made with plasteel, a single touch of the blade is enough to draw blood.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Melee/forged_sword.rsi
+  - type: Reflect
+    reflectProb: 0.20
+    spread: 90
+  - type: MeleeWeapon
+    attackRate: 1.25
+    damage:
+      types:
+        Slash: 22
+    soundHit:
+        path: /Audio/Weapons/bladeslice.ogg
+  - type: Item
+  - type: DisarmMalus
+  - type: Clothing
+    sprite: ADT/Objects/Weapons/Melee/forged_sword.rsi
+    slots:
+    - suitStorage
+    quickEquip: false
+  - type: Tag
+    tags:
+    - SwordForged
+
+- type: entity
+  name: dawnbreaker
+  parent: [ BaseSword, BaseMajorContraband, Welder ]
+  id: SwordFlaming
+  description: How do you perfect upon perfection? Why, use fire of course! Be the shining light through maints and fight valiantly!
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Melee/dawnbreaker.rsi
+    layers:
+    - state: icon
+    - state: welder_flame
+      visible: false
+      shader: unshaded
+      map: ["enum.ToggleableVisuals.Layer"]
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleableVisuals.Enabled:
+        enum.ToggleableVisuals.Layer:
+          True: { visible: true }
+          False: { visible: false }
+  - type: PointLight
+    enabled: false
+    radius: 3
+  - type: Reflect
+    reflectProb: 0.25
+    spread: 90
+  - type: UseDelay
+    delay: 1.0
+  - type: SolutionContainerManager
+    solutions:
+      Welder:
+        reagents:
+        - ReagentId: WeldingFuel
+          Quantity: 80
+        maxVol: 80 #uses less fuel than a welder, so this isnt as bad as it looks
+  - type: Welder
+    fuelConsumption: 3
+    fuelLitCost: 10
+    tankSafe: false
+  - type: ItemToggle
+    predictable: false
+    soundActivate:
+      collection: WelderOn
+      params:
+        variation: 0.125
+        volume: -5
+    soundDeactivate:
+      collection: WelderOff
+      params:
+        variation: 0.125
+        volume: -5
+  - type: ItemToggleMeleeWeapon
+    activatedSoundOnHit:
+      path: /Audio/Weapons/Guns/Hits/energy_meat1.ogg
+      params:
+        variation: 0.250
+        volume: -10
+    activatedSoundOnHitNoDamage:
+      path: /Audio/Weapons/Guns/Hits/energy_meat1.ogg
+      params:
+        variation: 0.250
+        volume: -12
+    deactivatedSoundOnHitNoDamage:
+      path: /Audio/Weapons/bladeslice.ogg
+    activatedDamage:
+        types:
+            Heat: 22
+            Slash: 10
+  - type: Execution
+    doAfterDuration: 3.0
+  - type: MeleeWeapon
+    attackRate: 0.75
+    damage:
+      types:
+        Slash: 16
+    soundHit:
+        path: /Audio/Weapons/bladeslice.ogg
+  - type: ComponentToggler
+    components:
+    - type: IgniteOnMeleeHit
+      fireStacks: 3
+    - type: Execution
+      doAfterDuration: 4.0
+  - type: Item
+    sprite: ADT/Objects/Weapons/Melee/dawnbreaker.rsi
+  - type: DisarmMalus
+  - type: Clothing
+    sprite: ADT/Objects/Weapons/Melee/dawnbreaker.rsi
+    quickEquip: false
+    slots:
+    - suitStorage
+  - type: Construction
+    graph: SwordFlamingGraph
+    node: sword
+
+- type: entity
+  name: tidebreaker
+  parent: [ BaseSword, BaseMajorContraband ]
+  id: ClaymoreForged
+  description: The perfect weapon for an aspiring maints knight!
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Melee/tidebreaker.rsi
+  - type: UseDelay
+    delay: 2
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    attackRate: 0.55
+    damage:
+      types:
+        Slash: 8
+        Blunt: 7
+        Structural: 5
+    soundHit:
+        path: /Audio/Weapons/bladeslice.ogg
+  - type: Reflect
+    reflectProb: 0.35
+    spread: 90
+  - type: Wieldable
+    useDelayOnWield: true
+  - type: IncreaseDamageOnWield #they don't call it an axe for nothing
+    damage:
+      types:
+        Slash: 23
+        Blunt: 7
+        Structural: 25
+  - type: Item
+    size: Ginormous
+  - type: Clothing
+    sprite: ADT/Objects/Weapons/Melee/tidebreaker.rsi
+    quickEquip: false
+    slots:
+    - suitStorage
+  - type: DisarmMalus
+# End

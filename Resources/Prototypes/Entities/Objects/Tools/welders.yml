@@ -105,6 +105,11 @@
     price: 40
   - type: IgnitionSource
     temperature: 700
+# ADT-Tweak-Start
+  - type: Tag
+    tags:
+    - Welder
+# ADT-Tweak-End
 
 - type: entity
   name: industrial welding tool
@@ -200,6 +205,11 @@
     enabled: false
     radius: 1.0
     color: orange
+# ADT-Tweak-Start
+  - type: Tag
+    tags:
+      - EmergencyWelder
+# ADT-Tweak-End
 
 - type: entity
   parent: [ Welder, BaseXenoborgContraband ]

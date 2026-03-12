@@ -86,6 +86,25 @@
         whitelist:
           tags:
             - ShellShotgun
+            - ShellShotgunLight # ADT-Tweak
   - type: Tag
     tags:
     - Sidearm
+  # ADT-Tweak-Start
+  - type: WeaponDismantleOnShoot
+    dismantleChance: 0.05
+    selfDamage:
+      types:
+        Blunt: 6
+        Heat: 6
+    items:
+      - id: ModularReceiver
+        launchAngle: 90
+        prob: 0.10
+      - id: SheetSteel1
+        launchAngle: 87
+        prob: 0.20
+      - id: SheetSteel1
+        launchAngle: 270
+        prob: 0.20
+  # ADT-Tweak-End

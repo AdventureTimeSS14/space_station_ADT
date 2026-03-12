@@ -1,0 +1,23 @@
+- type: entity
+  id: LightRifleImprovised
+  name: improvised cartridge (7.62х39)
+  description: A handmade pistol bullet, uses phosphorus as a propellent instead of gunpowder which makes it much less effective.
+  parent: [BaseCartridgePistol, BaseMinorContraband]
+  components:
+  - type: CartridgeAmmo
+    proto: BulletLightRifleImprovised
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Ammunition/Casings/improvised_casing.rsi
+    layers:
+      - state: base
+        map: [ "enum.AmmoVisualLayers.Base" ]
+      - state: tip
+        map: [ "enum.AmmoVisualLayers.Tip" ]
+        color: "#717171"
+  - type: Tag
+    tags:
+      - Cartridge
+      - CartridgeLightRifleImprovised
+  - type: Construction
+    graph: ImprovisedLightRifleBulletGraph
+    node: shell

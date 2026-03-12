@@ -20,8 +20,8 @@
       edges:
       - to: steelapron
         steps:
-        - material: Steel
-          amount: 30
+        - material: Plasteel # ADT-Tweak Steel -> Plasteel
+          amount: 20 # ADT-Tweak 30 -> 20
           doAfter: 15
 
     - node: steelapron

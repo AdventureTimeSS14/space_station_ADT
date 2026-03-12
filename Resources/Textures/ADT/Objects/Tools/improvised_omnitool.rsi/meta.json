@@ -1,0 +1,35 @@
+{
+  "version": 2,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "This unholy abomination was made by Killer Tamashi (Discord)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "icon"
+    },
+    {
+      "name": "welder_flame",
+      "delays": [
+        [
+          0.2,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "pulsing"
+    },
+    {
+      "name": "yellow-unlit"
+    },
+    {
+      "name": "red-unlit"
+    },
+    {
+      "name": "unfinished"
+    }
+  ]
+}

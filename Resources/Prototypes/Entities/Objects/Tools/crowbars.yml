@@ -37,9 +37,9 @@
     slots:
     - Belt
   # ADT Tweak start
-  - type: Construction
-    graph: ADTHandmadeCrowbarGraph
-    node: HandmadeCrowbar
+  #- type: Construction
+  #  graph: ADTHandmadeCrowbarGraph
+  #  node: HandmadeCrowbar
   # ADT Tweak end
   - type: Item
     sprite: Objects/Tools/crowbar.rsi

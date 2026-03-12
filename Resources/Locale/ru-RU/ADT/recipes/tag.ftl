@@ -96,6 +96,9 @@ construction-graph-tag-aloe = алоэ
 construction-graph-door-electronics = микросхема шлюза
 construction-graph-intercom-electronics = плата интеркома
 
+# Инструменты
+construction-graph-tag-welder = сварочный аппарат
+
 # Другое
 construction-graph-voice-trigger = голосовой триггер
 construction-graph-tag-toy-blaster = игрушечный бластер
