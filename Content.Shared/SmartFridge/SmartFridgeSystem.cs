@@ -46,6 +46,7 @@ public sealed class SmartFridgeSystem : EntitySystem
             sub =>
             {
                 sub.Event<SmartFridgeDispenseItemMessage>(OnDispenseItem);
+                sub.Event<SmartFridgeDeleteEmptyMessage>(OnDeleteEmpty); // ADt-Tweak - Delete Unnessesary entries
             });
     }
 
@@ -142,8 +143,10 @@ public sealed class SmartFridgeSystem : EntitySystem
         if (_accessReader.IsAllowed(user, machine))
             return true;
 
-        _popup.PopupPredicted(Loc.GetString("smart-fridge-component-try-eject-access-denied"), machine, user);
-        _audio.PlayPredicted(machine.Comp.SoundDeny, machine, user);
+        // ADT-Tweak Start: Predicted -> Server
+        _popup.PopupEntity(Loc.GetString("smart-fridge-component-try-eject-access-denied"), machine, user);
+        _audio.PlayPvs(machine.Comp.SoundDeny, machine);
+        // ADT-Tweak End
         return false;
     }
 
@@ -157,9 +160,11 @@ public sealed class SmartFridgeSystem : EntitySystem
 
         if (!ent.Comp.ContainedEntries.TryGetValue(args.Entry, out var contained))
         {
-            _audio.PlayPredicted(ent.Comp.SoundDeny, ent, args.Actor);
-            _popup.PopupPredicted(Loc.GetString("smart-fridge-component-try-eject-unknown-entry"), ent, args.Actor);
+            // ADT-Tweak Start: Predicted -> Server
+            _popup.PopupEntity(Loc.GetString("smart-fridge-component-try-eject-unknown-entry"), ent, args.Actor);
+             _audio.PlayPvs(ent.Comp.SoundDeny, ent);
             return;
+            // ADT-Tweak End
         }
 
         //ADT-Tweak-Start
@@ -175,7 +180,7 @@ public sealed class SmartFridgeSystem : EntitySystem
                 continue;
             }
 
-            _audio.PlayPredicted(ent.Comp.SoundVend, ent, args.Actor);
+            _audio.PlayPvs(ent.Comp.SoundVend, ent); //ADT-Tweak
             contained.Remove(item);
             dispensed = true;
             Dirty(ent);
@@ -189,14 +194,31 @@ public sealed class SmartFridgeSystem : EntitySystem
 
         if (!dispensed)
         {
-            _audio.PlayPredicted(ent.Comp.SoundDeny, ent, args.Actor);
-            _popup.PopupPredicted(Loc.GetString("smart-fridge-component-try-eject-out-of-stock"), ent, args.Actor);
-            ent.Comp.ContainedEntries.Remove(args.Entry);
-            ent.Comp.Entries.Remove(args.Entry);
-            Dirty(ent);
+            // ADT-Tweak Start: Predicted -> Server
+            _popup.PopupEntity(Loc.GetString("smart-fridge-component-try-eject-out-of-stock"), ent, args.Actor);
+            _audio.PlayPvs(ent.Comp.SoundDeny, ent);
+            // ADT-Tweak End
+
         }
         //ADT-Tweak-End
     }
+
+    //ADT-Tweak Start: Delete Unnessesary entries
+    private void OnDeleteEmpty(Entity<SmartFridgeComponent> ent, ref SmartFridgeDeleteEmptyMessage args)
+    {
+
+        if (ent.Comp.ContainedEntries.TryGetValue(args.Entry, out var contained) &&
+            contained.Count > 0)
+        {
+            return;
+        }
+
+        ent.Comp.ContainedEntries.Remove(args.Entry);
+        ent.Comp.Entries.Remove(args.Entry);
+
+        Dirty(ent);
+    }
+    //ADT-Tweak End
 
     private void OnGetAltVerb(Entity<SmartFridgeComponent> ent, ref GetVerbsEvent<AlternativeVerb> args)
     {
