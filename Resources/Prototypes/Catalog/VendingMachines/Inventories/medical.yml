@@ -5,7 +5,8 @@
     Gauze: 3
     Brutepack: 3
     Ointment: 3
-    Bloodpack: 3
+#    Bloodpack: 3 # ADT Tweak
+    ADTBloodPackTransfusionFull: 3 # ADT Tweak: Blood IV
     ChemistryBottleEpinephrine: 3
     Syringe: 3
     PillCanisterTricordrazine: 2
@@ -21,7 +22,8 @@
     Gauze: 3
     Brutepack: 3
     Ointment: 2
-    Bloodpack: 3
+#    Bloodpack: 3 # ADT Tweak
+    ADTBloodPackTransfusionFull: 3 # ADT Tweak: Blood IV
     ChemistryBottleEpinephrine: 3
     Syringe: 3
     PillCanisterTricordrazine: 2
@@ -40,7 +42,8 @@
     Ointment: 4
     ADTAntibioticOintment: 4
     # ADT tweak end
-    Bloodpack: 5
+#    Bloodpack: 5 # ADT Tweak
+    ADTBloodPackTransfusionFull: 5 # ADT Tweak: Blood IV
     Tourniquet: 2
     ChemistryBottleEpinephrine: 3
     ChemistryBottleBicaridine: 1
@@ -72,7 +75,8 @@
     Gauze: 5
     Brutepack: 5
     Ointment: 4
-    Bloodpack: 5
+#    Bloodpack: 5 # ADT Tweak
+    ADTBloodPackTransfusionFull: 5 # ADT Tweak: Blood IV
     Tourniquet: 1
     ChemistryBottleEpinephrine: 3
     Syringe: 5

@@ -1,0 +1,96 @@
+- type: entity
+  id: ADTMangal
+  parent: BaseStructure
+  name: mangal
+  description: metal mangal for grilling food. Load it with charcoal and light it up to start cooking.
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: ADT/Structures/Decoration/mangal.rsi
+    drawdepth: HighFloorObjects
+    layers:
+      - state: mangal
+        map: ["enum.MangalVisualLayers.Main"]
+      - state: mangal_coat
+        map: ["enum.MangalVisualLayers.Coals"]
+        visible: false
+      - state: mangal_fire
+        map: ["enum.MangalVisualLayers.Fire"]
+        shader: unshaded
+        visible: false
+  - type: Appearance
+  - type: MangalVisualizer
+  - type: Fuelable
+    fuelCapacitySeconds: 900
+    maxFireStacks: 10
+    insertDelay: 1.5
+  - type: PointLight
+    enabled: false
+    radius: 4.5
+    energy: 3.0
+    color: "#FF6F00"
+  - type: Anchorable
+    delay: 2
+  - type: ItemPlacer
+    maxEntities: 6
+    whitelist:
+      components:
+      - Temperature
+  - type: Fixtures
+    fixtures:
+      itemcollide:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.35,-0.35,0.35,0.35"
+        layer:
+        - HighImpassable
+        hard: false
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.35,-0.35,0.35,0.35"
+        density: 100
+        mask:
+        - MachineMask
+        layer:
+        - MidImpassable
+        - LowImpassable
+  - type: Reactive
+    groups:
+      Flammable: [ Touch ]
+      Extinguish: [ Touch ]
+  - type: Flammable
+    fireSpread: false
+    canResistFire: false
+    alwaysCombustible: true
+    canExtinguish: true
+    firestacksOnIgnite: 0.0
+    firestackFade: 0.0
+    firestackFadeOnIgnite: 0.0
+    firestackFadeFade: 0.0
+    damage:
+      types:
+        Heat: 0.01
+  - type: ADTFlammableEntityHeater
+    power: 1000
+  - type: ADTFlammableAmbientSound
+  - type: AmbientSound
+    enabled: false
+    volume: -5
+    range: 5
+    sound:
+      path: /Audio/Ambience/Objects/fireplace.ogg
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 150
+        behaviors:
+          - !type:DoActsBehavior
+            acts: ["Destruction"]
+  - type: Tag
+    tags:
+      - NoPaint
