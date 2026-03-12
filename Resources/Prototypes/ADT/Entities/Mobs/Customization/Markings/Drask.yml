@@ -88,7 +88,7 @@
   forcedColoring: true
   speciesRestriction: [DraskSpecies]
   sprites:
-  - sprite: ADT\Mobs\Species\Drask\parts.rsi
+  - sprite: ADT/Mobs/Species/Drask/parts.rsi
     state: Face
 
 - type: marking
