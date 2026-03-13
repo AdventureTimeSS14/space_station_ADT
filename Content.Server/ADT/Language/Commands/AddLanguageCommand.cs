@@ -37,7 +37,8 @@ public sealed class AddLanguageCommand : LocalizedEntityCommands
         var knowledge = LanguageKnowledge.Speak;
         if (args.Length >= 3)
         {
-            if (!Enum.TryParse(args[2], true, out LanguageKnowledge parsedKnowledge))
+            if (!Enum.TryParse(args[2], true, out LanguageKnowledge parsedKnowledge)
+                || !Enum.IsDefined(parsedKnowledge))
             {
                 shell.WriteLine(Loc.GetString("cmd-languageadd-invalid-knowledge"));
                 return;
