@@ -10,7 +10,7 @@
     - id: Ointment
       amount: !type:ConstantNumberSelector
         value: 2
-    - id: ADTBloodPackTransfusionFull # ADT tweak: Blood IV
+    - id: Bloodpack
       amount: !type:ConstantNumberSelector
         value: 2
     - id: Gauze
@@ -35,7 +35,7 @@
       - id: ADTPatchPackFilled
         amount: 1
       # ADT tweak End
-      - id: ADTBloodPackTransfusionFull # ADT-Tweak: Blood IV
+      - id: Bloodpack
         amount: 2
       - id: Gauze
 
@@ -60,7 +60,7 @@
       - id: ADTPatchPackFilled
         amount: 1
       # ADT tweak End
-      - id: ADTBloodPackTransfusionFull # ADT tweak: Blood IV
+      - id: Bloodpack
         amount: 2
       - id: Gauze
 
