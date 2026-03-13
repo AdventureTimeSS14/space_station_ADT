@@ -14,9 +14,9 @@ public sealed class AddLanguageCommand : LocalizedEntityCommands
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IEntitySystemManager _systemManager = default!;
 
-    public override string Command => "addlanguage";
+    public override string Command => "languageadd";
 
-    public override string Description => Loc.GetString("cmd-addlanguage-desc");
+    public override string Description => Loc.GetString("cmd-languageadd-desc");
 
     public override void Execute(IConsoleShell shell, string argStr, string[] args)
     {
@@ -39,7 +39,7 @@ public sealed class AddLanguageCommand : LocalizedEntityCommands
         {
             if (!Enum.TryParse(args[2], true, out LanguageKnowledge parsedKnowledge))
             {
-                shell.WriteLine(Loc.GetString("cmd-addlanguage-invalid-knowledge"));
+                shell.WriteLine(Loc.GetString("cmd-languageadd-invalid-knowledge"));
                 return;
             }
             knowledge = parsedKnowledge;
@@ -47,7 +47,7 @@ public sealed class AddLanguageCommand : LocalizedEntityCommands
 
         if (!_prototypeManager.TryIndex<LanguagePrototype>(languageId, out var languageProto))
         {
-            shell.WriteLine(Loc.GetString("cmd-addlanguage-invalid-language", ("language", languageId)));
+            shell.WriteLine(Loc.GetString("cmd-languageadd-invalid-language", ("language", languageId)));
             return;
         }
 
@@ -82,7 +82,7 @@ public sealed class AddLanguageCommand : LocalizedEntityCommands
         var languageSystem = _systemManager.GetEntitySystem<LanguageSystem>();
         languageSystem.UpdateUi(uidVal, languageComponent);
 
-        shell.WriteLine(Loc.GetString("cmd-addlanguage-success",
+        shell.WriteLine(Loc.GetString("cmd-languageadd-success",
             ("entity", uidVal.ToString()),
             ("language", languageProto.LocalizedName),
             ("knowledge", knowledge)));
@@ -95,13 +95,13 @@ public sealed class AddLanguageCommand : LocalizedEntityCommands
             var languages = _prototypeManager.EnumeratePrototypes<LanguagePrototype>()
                 .Select(x => x.ID)
                 .ToList();
-            return CompletionResult.FromHintOptions(languages, "Language");
+            return CompletionResult.FromHintOptions(languages, Loc.GetString("cmd-language-hint"));
         }
 
         if (args.Length == 3)
         {
             var knowledgeLevels = Enum.GetNames<LanguageKnowledge>().ToList();
-            return CompletionResult.FromHintOptions(knowledgeLevels, "Knowledge");
+            return CompletionResult.FromHintOptions(knowledgeLevels, Loc.GetString("cmd-knowledge-hint"));
         }
 
         return CompletionResult.Empty;

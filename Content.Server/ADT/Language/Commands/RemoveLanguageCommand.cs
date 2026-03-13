@@ -14,9 +14,9 @@ public sealed class RemoveLanguageCommand : LocalizedEntityCommands
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IEntitySystemManager _systemManager = default!;
 
-    public override string Command => "removelanguage";
+    public override string Command => "languageremove";
 
-    public override string Description => Loc.GetString("cmd-removelanguage-desc");
+    public override string Description => Loc.GetString("cmd-languageremove-desc");
 
     public override void Execute(IConsoleShell shell, string argStr, string[] args)
     {
@@ -36,7 +36,7 @@ public sealed class RemoveLanguageCommand : LocalizedEntityCommands
 
         if (!_prototypeManager.TryIndex<LanguagePrototype>(languageId, out var languageProto))
         {
-            shell.WriteLine(Loc.GetString("cmd-removelanguage-invalid-language", ("language", languageId)));
+            shell.WriteLine(Loc.GetString("cmd-languageremove-invalid-language", ("language", languageId)));
             return;
         }
 
@@ -52,7 +52,7 @@ public sealed class RemoveLanguageCommand : LocalizedEntityCommands
 
         if (!EntityManager.HasComponent<LanguageSpeakerComponent>(uidVal))
         {
-            shell.WriteLine(Loc.GetString("cmd-removelanguage-no-language-component", ("entity", uidVal.ToString())));
+            shell.WriteLine(Loc.GetString("cmd-languageremove-no-language-component", ("entity", uidVal.ToString())));
             return;
         }
 
@@ -60,7 +60,7 @@ public sealed class RemoveLanguageCommand : LocalizedEntityCommands
 
         if (!languageComponent.Languages.ContainsKey(languageId))
         {
-            shell.WriteLine(Loc.GetString("cmd-removelanguage-not-known",
+            shell.WriteLine(Loc.GetString("cmd-languageremove-not-known",
                 ("entity", uidVal.ToString()),
                 ("language", languageProto.LocalizedName)));
             return;
@@ -78,7 +78,7 @@ public sealed class RemoveLanguageCommand : LocalizedEntityCommands
         var languageSystem = _systemManager.GetEntitySystem<LanguageSystem>();
         languageSystem.UpdateUi(uidVal, languageComponent);
 
-        shell.WriteLine(Loc.GetString("cmd-removelanguage-success",
+        shell.WriteLine(Loc.GetString("cmd-languageremove-success",
             ("entity", uidVal.ToString()),
             ("language", languageProto.LocalizedName)));
     }
@@ -90,7 +90,7 @@ public sealed class RemoveLanguageCommand : LocalizedEntityCommands
             var languages = _prototypeManager.EnumeratePrototypes<LanguagePrototype>()
                 .Select(x => x.ID)
                 .ToList();
-            return CompletionResult.FromHintOptions(languages, "Language");
+            return CompletionResult.FromHintOptions(languages, Loc.GetString("cmd-language-hint"));
         }
 
         return CompletionResult.Empty;
