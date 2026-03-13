@@ -1,6 +1,7 @@
 cmd-languageadd-desc = Добавляет язык сущности.
-cmd-languageadd-help = Использование: languageadd <entity uid> <язык> [уровень]
+cmd-languageadd-help = Использование: languageadd <entity uid> <язык|all> [уровень]
 cmd-languageadd-success = Язык { $language } ({ $knowledge }) добавлен сущности { $entity }.
+cmd-languageadd-all-success = Добавлено { $count } языков сущности { $entity } с уровнем { $knowledge }.
 cmd-languageadd-invalid-language = Язык { $language } не найден.
 cmd-languageadd-invalid-knowledge = Неверный уровень знания языка. Используйте: Understand, BadSpeak, Speak.
 cmd-languageadd-no-language-component = У сущности нет компонента языка.
@@ -14,8 +15,9 @@ cmd-languageslist-line =  - { $proto } ({ $id }): { $knowledge }{ $current }
 cmd-languageslist-current-suffix =  [Текущий]
 
 cmd-languageremove-desc = Удаляет язык у сущности.
-cmd-languageremove-help = Использование: languageremove <entity uid> <язык>
+cmd-languageremove-help = Использование: languageremove <entity uid> <язык|all>
 cmd-languageremove-success = Язык { $language } удалён у сущности { $entity }.
+cmd-languageremove-all-success = Удалено { $count } языков у сущности { $entity }.
 cmd-languageremove-invalid-language = Язык { $language } не найден.
 cmd-languageremove-no-language-component = У сущности { $entity } нет компонента языка.
 cmd-languageremove-not-known = Сущность { $entity } не знает язык { $language }.

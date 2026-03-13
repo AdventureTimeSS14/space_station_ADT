@@ -1,4 +1,5 @@
 using System.Linq;
+using System.Text;
 using Content.Server.Administration;
 using Content.Shared.ADT.Language;
 using Content.Shared.Administration;
@@ -46,12 +47,6 @@ public sealed class AddLanguageCommand : LocalizedEntityCommands
             knowledge = parsedKnowledge;
         }
 
-        if (!_prototypeManager.TryIndex<LanguagePrototype>(languageId, out var languageProto))
-        {
-            shell.WriteLine(Loc.GetString("cmd-languageadd-invalid-language", ("language", languageId)));
-            return;
-        }
-
         var nent = new NetEntity(entInt);
 
         if (!EntityManager.TryGetEntity(nent, out var uid))
@@ -69,6 +64,42 @@ public sealed class AddLanguageCommand : LocalizedEntityCommands
 
         var languageComponent = EntityManager.GetComponent<LanguageSpeakerComponent>(uidVal);
 
+        if (languageId.Equals("all", StringComparison.OrdinalIgnoreCase))
+        {
+            var allLanguages = _prototypeManager.EnumeratePrototypes<LanguagePrototype>().ToList();
+            var addedCount = 0;
+
+            foreach (var langProto in allLanguages)
+            {
+                if (languageComponent.Languages.ContainsKey(langProto.ID))
+                {
+                    languageComponent.Languages[langProto.ID] = knowledge;
+                }
+                else
+                {
+                    languageComponent.Languages.Add(langProto.ID, knowledge);
+                }
+                addedCount++;
+            }
+
+            EntityManager.Dirty(uidVal, languageComponent);
+
+            var languageSystem = _systemManager.GetEntitySystem<LanguageSystem>();
+            languageSystem.UpdateUi(uidVal, languageComponent);
+
+            shell.WriteLine(Loc.GetString("cmd-languageadd-all-success",
+                ("entity", uidVal.ToString()),
+                ("count", addedCount),
+                ("knowledge", knowledge)));
+            return;
+        }
+
+        if (!_prototypeManager.TryIndex<LanguagePrototype>(languageId, out var languageProto))
+        {
+            shell.WriteLine(Loc.GetString("cmd-languageadd-invalid-language", ("language", languageId)));
+            return;
+        }
+
         if (languageComponent.Languages.ContainsKey(languageId))
         {
             languageComponent.Languages[languageId] = knowledge;
@@ -80,8 +111,8 @@ public sealed class AddLanguageCommand : LocalizedEntityCommands
 
         EntityManager.Dirty(uidVal, languageComponent);
 
-        var languageSystem = _systemManager.GetEntitySystem<LanguageSystem>();
-        languageSystem.UpdateUi(uidVal, languageComponent);
+        var languageSystem2 = _systemManager.GetEntitySystem<LanguageSystem>();
+        languageSystem2.UpdateUi(uidVal, languageComponent);
 
         shell.WriteLine(Loc.GetString("cmd-languageadd-success",
             ("entity", uidVal.ToString()),
@@ -96,7 +127,9 @@ public sealed class AddLanguageCommand : LocalizedEntityCommands
             var languages = _prototypeManager.EnumeratePrototypes<LanguagePrototype>()
                 .Select(x => x.ID)
                 .ToList();
-            return CompletionResult.FromHintOptions(languages, Loc.GetString("cmd-language-hint"));
+            var options = new List<string> { "all" };
+            options.AddRange(languages);
+            return CompletionResult.FromHintOptions(options, Loc.GetString("cmd-language-hint"));
         }
 
         if (args.Length == 3)
