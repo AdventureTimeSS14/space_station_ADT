@@ -33,7 +33,7 @@
         amount: 2
       - id: Ointment
         amount: 1
-      - id: ADTBloodPackTransfusionFull # ADT tweak: Blood IV
+      - id: Bloodpack
         amount: 1
       - id: Gauze
       - id: EmergencyMedipen
@@ -47,7 +47,7 @@
     contents:
       - id: Brutepack
       - id: Ointment
-      - id: ADTBloodPackTransfusionFull # ADT tweak: Blood IV
+      - id: Bloodpack
       - id: Gauze
       - id: EmergencyMedipen
         amount: 3
@@ -76,7 +76,7 @@
       - id: ADTCombatHypospray
       - id: MedicatedSuture
       - id: RegenerativeMesh
-      - id: ADTBloodPackTransfusionFull # ADT tweak: Blood IV
+      - id: Bloodpack
       - id: ChemistryBottleOmnizine
       - id: ChemistryBottleEpinephrine
       - id: ChemistryBottleEpinephrine
