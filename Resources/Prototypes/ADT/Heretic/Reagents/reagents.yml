@@ -18,11 +18,11 @@
       - !type:HealthChange
         damage:
           groups:
-            Burn: -3
-            Toxin: -3
-            Airloss: -3
-            Brute: -3
-            Genetic: -3
+            Burn: -1
+            Toxin: -1
+            Airloss: -1
+            Brute: -1
+            Genetic: -1
         conditions:
         - !type:HasComponentCondition
           components:
