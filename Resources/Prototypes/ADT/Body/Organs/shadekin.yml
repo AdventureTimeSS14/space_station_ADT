@@ -8,7 +8,6 @@
     sprite: ADT/Mobs/Species/Shadekin/organs.rsi
     state: lung
   - type: Organ
-  - type: Lung
   - type: Metabolizer
     removeEmpty: true
     solutionOnBody: false
@@ -31,7 +30,6 @@
     tags:
     - Meat
     - Organ
-    - Lungs
 
 - type: entity
   id: ADTOrganShadekinBrain
