@@ -7,6 +7,9 @@ namespace Content.Shared.ADT.Body.Allergies;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class AllergicComponent : Component
 {
+    /// <summary>
+    /// Список реагентов-аллергенов.
+    /// </summary>
     [DataField]
     public List<ProtoId<ReagentPrototype>> Triggers = new();
 
@@ -66,7 +69,6 @@ public sealed partial class AllergicComponent : Component
     /// <summary>
     /// Значение роста стака при метаболизме аллергена.
     /// </summary>
-
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField]
     public float StackGrow = 0.5f;

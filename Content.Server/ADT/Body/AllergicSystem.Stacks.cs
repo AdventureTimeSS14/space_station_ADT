@@ -1,7 +1,4 @@
-using System.Linq;
 using Content.Shared.ADT.Body.Allergies;
-using Content.Shared.Chemistry.Reagent;
-using Robust.Shared.Prototypes;
 
 namespace Content.Server.ADT.Body;
 
@@ -42,6 +39,12 @@ public sealed partial class AllergicSystem : EntitySystem
 
     #region API
 
+    /// <summary>
+    /// Метод для изменения стака аллергии на относительное значение.
+    /// </summary>
+    /// <param name="uid"></param>
+    /// <param name="relativeStack"></param>
+    /// <param name="allergic"></param>
     public void AdjustAllergyStack(EntityUid uid, float relativeStack, AllergicComponent? allergic = null)
     {
         if (!Resolve(uid, ref allergic))
@@ -50,6 +53,12 @@ public sealed partial class AllergicSystem : EntitySystem
         SetAllergyStack(uid, allergic.AllergyStack + relativeStack, allergic);
     }
 
+    /// <summary>
+    /// Метод для изменения стака аллергии.
+    /// </summary>
+    /// <param name="uid"></param>
+    /// <param name="stack"></param>
+    /// <param name="allergic"></param>
     public void SetAllergyStack(EntityUid uid, float stack, AllergicComponent? allergic = null)
     {
         if (!Resolve(uid, ref allergic))

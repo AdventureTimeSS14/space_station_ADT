@@ -1,4 +1,3 @@
-using System.Linq;
 using Content.Server.Body.Systems;
 using Content.Shared.ADT.Body.Allergies;
 using Content.Shared.Chemistry.Reagent;
@@ -7,7 +6,7 @@ using Content.Shared.Damage.Prototypes;
 using Content.Shared.EntityEffects.Effects;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
-using Robust.Shared.Timing;
+using System.Linq;
 
 namespace Content.Server.ADT.Body;
 
@@ -33,12 +32,19 @@ public sealed partial class AllergicSystem : EntitySystem
         _allergyDamageTypeProto = _proto.Index<DamageTypePrototype>(_allergyDamageType);
     }
 
-    public void OnInit(EntityUid uid, AllergicComponent component, ComponentInit args)
+    private void OnInit(EntityUid uid, AllergicComponent component, ComponentInit args)
     {
         component.Triggers = GetRandomAllergies(component.Min, component.Max);
     }
 
-    public void OnGetReagentEffects(EntityUid uid, AllergicComponent component, ref GetReagentEffectsEvent ev)
+    /// <summary>
+    /// Метод для обработки метаболизма реагента.
+    /// При наличии аллергена, добавляет эффект изменения здоровья и вызывает AllergyTriggeredEvent.
+    /// </summary>
+    /// <param name="uid"></param>
+    /// <param name="component"></param>
+    /// <param name="ev"></param>
+    private void OnGetReagentEffects(EntityUid uid, AllergicComponent component, ref GetReagentEffectsEvent ev)
     {
         if (!component.Triggers.Contains(ev.Reagent.Prototype))
             return;
@@ -60,6 +66,12 @@ public sealed partial class AllergicSystem : EntitySystem
         IncrementStackOnTrigger(uid, allergic, ref ev);
     }
 
+    /// <summary>
+    /// Метод для получения рандомных аллергенов.
+    /// </summary>
+    /// <param name="min">Максимальное кол-во</param>
+    /// <param name="max">Минимальное кол-во</param>
+    /// <returns></returns>
     private List<ProtoId<ReagentPrototype>> GetRandomAllergies(int min, int max)
     {
         int reagentsCount = _proto.Count<ReagentPrototype>();

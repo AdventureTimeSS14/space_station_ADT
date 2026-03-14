@@ -1,8 +1,8 @@
-using System.Linq;
 using Content.Shared.ADT.Body.Allergies;
 using Content.Shared.ADT.Body.Allergies.Prototypes;
 using Content.Shared.EntityEffects;
 using Robust.Shared.Timing;
+using System.Linq;
 
 namespace Content.Server.ADT.Body;
 
