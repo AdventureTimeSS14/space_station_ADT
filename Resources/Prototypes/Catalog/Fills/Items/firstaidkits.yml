@@ -86,11 +86,10 @@
       - id: BruteAutoInjector
       - id: RadAutoInjector
       - id: AntiPoisonMedipen
-      - id: ADTBloodPackTransfusionFull # ADT Tweak: Blood IV
       # ADT Tweak End
       - id: MedicatedSuture
       - id: RegenerativeMesh
-      # - id: Bloodpack # ADT Tweak: Blood IV
+      - id: Bloodpack
 
 - type: entity
   id: MedkitCombatFilled
