@@ -97,6 +97,11 @@ public abstract partial class SharedMechSystem : EntitySystem   // ADT - partial
         if (!_timing.IsFirstTimePredicted)
             return;
 
+        // ADT-Tweak start: disable move 0 cell
+        if (component.Energy <= 0)
+            return;
+        // ADT-Tweak end
+
         if (component.CurrentSelectedEquipment != null)
         {
             RaiseLocalEvent(component.CurrentSelectedEquipment.Value, args);
@@ -324,6 +329,9 @@ public abstract partial class SharedMechSystem : EntitySystem   // ADT - partial
         component.Energy = FixedPoint2.Clamp(component.Energy + delta, 0, component.MaxEnergy);
         Dirty(uid, component);
         UpdateUserInterface(uid, component);
+
+        _actionBlocker.UpdateCanMove(uid); // ADT-Tweak: disable move 0 cell
+
         return true;
     }
 
@@ -467,6 +475,11 @@ public abstract partial class SharedMechSystem : EntitySystem   // ADT - partial
     {
         if (args.Target == component.Mech)
             args.Cancel();
+
+        // ADT-Tweak start: disable attack 0 cell
+        if (TryComp<MechComponent>(component.Mech, out var mech) && mech.Energy <= 0)
+            args.Cancel();
+        // ADT-Tweak end
     }
 
     private void UpdateAppearance(EntityUid uid, MechComponent? component = null,

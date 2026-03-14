@@ -76,37 +76,6 @@
     scheduledGameRules: !type:NestedSelector
       tableId: ExtendedGameRulesTable
 
-- type: entity
-  parent: BaseGameRule
-  id: ChangelingGameRule
-  components:
-  - type: ChangelingRule
-  - type: GameRule
-    minPlayers: 25
-    delay:
-      min: 30
-      max: 60
-  - type: AntagSelection
-    definitions:
-    - prefRoles: [ Changeling ]
-      max: 5
-      playerRatio: 15
-      blacklist:
-        components:
-        - AntagImmune
-        tags:
-        - ChangelingBlacklist
-      lateJoinAdditional: true
-      mindRoles:
-      - MindRoleChangeling
-      components:
-      - type: Changeling
-    agentName: ling-round-end-name
-  - type: AntagRandomObjectives
-    sets:
-    - groups: ChangelingObjectiveGroups
-    maxDifficulty: 8
-
 #Облегченное число агентов
 - type: entity
   parent: BaseTraitorRule
@@ -121,8 +90,8 @@
     selectionTime: IntraPlayerSpawn
     definitions:
     - prefRoles: [ Traitor ]
-      max: 4          
-      playerRatio: 15 
+      max: 4
+      playerRatio: 15
       blacklist:
         components:
         - AntagImmune
@@ -131,6 +100,18 @@
       - MindRoleTraitor
 
 #Пары из антагов
+- type: entity
+  id: ChangelingDuo
+  parent: Changeling
+  components:
+  - type: GameRule
+    minPlayers: 25
+  - type: AntagSelection
+    definitions:
+    - prefRoles: [ Changeling ]
+      max: 2
+      playerRatio: 15
+
 - type: entity
   parent: BaseTraitorRule
   id: TraitorDuoGameRule
@@ -144,7 +125,7 @@
     selectionTime: IntraPlayerSpawn
     definitions:
     - prefRoles: [ Traitor ]
-      max: 2       
+      max: 2
       playerRatio: 10
       blacklist:
         components:
@@ -152,37 +133,6 @@
       lateJoinAdditional: true
       mindRoles:
       - MindRoleTraitor
-
-- type: entity
-  parent: BaseGameRule
-  id: ChangelingDuoGameRule
-  components:
-  - type: ChangelingRule
-  - type: GameRule
-    minPlayers: 20
-    delay:
-      min: 30
-      max: 60
-  - type: AntagSelection
-    definitions:
-    - prefRoles: [ Changeling ]
-      max: 2
-      playerRatio: 15
-      blacklist:
-        components:
-        - AntagImmune
-        tags:
-        - ChangelingBlacklist
-      lateJoinAdditional: true
-      mindRoles:
-      - MindRoleChangeling
-      components:
-      - type: Changeling
-    agentName: ling-round-end-name
-  - type: AntagRandomObjectives
-    sets:
-    - groups: ChangelingObjectiveGroups
-    maxDifficulty: 8
 
 - type: entity
   parent: BaseHereticRule
@@ -220,13 +170,11 @@
       - id: HereticSoloGameRule
         cost: 10
         rerollChance: 0.5
-      - id: ChangelingDuoGameRule
-        cost: 10
       - id: TraitorDuoGameRule
         cost: 10
       - id: TraitorLightGameRule
         cost: 15
-      - id: ChangelingGameRule
+      - id: Changeling
         cost: 25
       - id: Heretic
         cost: 30
@@ -270,13 +218,11 @@
       - id: HereticSoloGameRule
         cost: 15
         rerollChance: 0.5
-      - id: ChangelingDuoGameRule
-        cost: 15
       - id: TraitorDuoGameRule
         cost: 15
       - id: TraitorLightGameRule
         cost: 15
-      - id: ChangelingGameRule
+      - id: Changeling
         cost: 25
       - id: BloodBrother
         cost: 25
@@ -314,15 +260,13 @@
     roundstartRules:
       - id: Thief
         cost: 10
-      - id: ChangelingDuoGameRule
-        cost: 10
       - id: TraitorDuoGameRule
         cost: 10
       - id: BloodBrother
         cost: 25
       - id: TraitorLightGameRule
         cost: 15
-      - id: ChangelingGameRule
+      - id: Changeling
         cost: 25
     midroundAntags:
       - id: DragonSpawn

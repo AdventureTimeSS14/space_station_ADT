@@ -119,9 +119,9 @@ public sealed partial class ModSuitSystem
 
         if (TryComp<PowerCellDrawComponent>(suit, out var celldraw))
         {
-            var energy = (float)Math.Round(suit.Comp.ModEnergyBaseUsing + module.Comp.EnergyUsing, 3);
+            suit.Comp.ModEnergyBaseUsing = (float)Math.Round(suit.Comp.ModEnergyBaseUsing + module.Comp.EnergyUsing, 3);
             var attachedCount = GetAttachedToggleCount(suit);
-            celldraw.DrawRate = energy * attachedCount;
+            celldraw.DrawRate = suit.Comp.ModEnergyBaseUsing * attachedCount;
         }
     }
 

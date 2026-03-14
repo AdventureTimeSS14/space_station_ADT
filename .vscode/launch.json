@@ -12,8 +12,20 @@
             "args": [],
             "console": "internalConsole",
             "stopAtEntry": false,
-            "brokeredServicePipeName": "undefined"
+            //Warning fix by 03032026-ToolsBuilder "brokeredServicePipeName": "undefined"
         },
+        //# ADT-UPD-Start 03032026-ToolsBuilder Добавление режима TOOLS для сборки маппинга и прототипирования.
+        {
+            "name": "Client (Tools)",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build (Tools)",
+            "program": "${workspaceFolder}/bin/Content.Client/Content.Client.dll",
+            "args": [],
+            "console": "internalConsole",
+            "stopAtEntry": false
+        },
+        //# ADT-UPD-End
         {
             "name": "Client (Compatibility renderer)",
             "type": "coreclr",
@@ -31,8 +43,20 @@
             "args": [],
             "console": "integratedTerminal",
             "stopAtEntry": false,
-            "brokeredServicePipeName": "undefined"
+            //Warning fix by 03032026-ToolsBuilder "brokeredServicePipeName": "undefined"
         },
+        //# ADT-UPD-Start 03032026-ToolsBuilder Добавление режима TOOLS для сборки маппинга и прототипирования.
+        {
+            "name": "Server (Tools)",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build (Tools)",
+            "program": "${workspaceFolder}/bin/Content.Server/Content.Server.dll",
+            "args": [],
+            "console": "internalConsole",
+            "stopAtEntry": false
+        },
+        //# ADT-UPD-End
         {
             "name": "YAML Linter",
             "type": "coreclr",
@@ -52,6 +76,16 @@
                 "Client"
             ],
             "preLaunchTask": "build"
+        },
+        //# ADT-UPD-Start 03032026-ToolsBuilder Добавление режима TOOLS для сборки маппинга и прототипирования.
+        {
+            "name": "Server/Client (Tools)",
+            "configurations": [
+                "Server (Tools)",
+                "Client (Tools)"
+            ],
+            "preLaunchTask": "build (Tools)"
         }
+        //# ADT-UPD-End
     ]
 }

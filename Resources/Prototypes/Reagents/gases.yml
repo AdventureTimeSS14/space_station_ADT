@@ -16,7 +16,7 @@
       - !type:Oxygenate
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Human, Animal, Rat, Plant ]
+          type: [ Human, Animal, Rat, Plant, Arachnid ] # ADT-Tweak
       # Convert Oxygen into CO2.
       - !type:ModifyLungGas
         conditions:
@@ -47,7 +47,7 @@
       - !type:Oxygenate
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Human, Animal, Rat, Plant ]
+          type: [ Human, Animal, Rat, Plant, Arachnid ] # ADT-Tweak
       # Start ADT tweak
       - !type:Oxygenate
         conditions:
@@ -155,11 +155,11 @@
         ignoreResistances: true
         damage:
           types:
-            Blunt: -0.25
-            Slash: -0.25
-            Piercing: -0.25
-            Heat: -0.25
-            Poison: -0.25
+            Blunt: -0.04
+            Slash: -0.04
+            Piercing: -0.04
+            Heat: -0.04
+            Poison: -0.04
       - !type:GenericStatusEffect
         conditions:
         - !type:MetabolizerTypeCondition

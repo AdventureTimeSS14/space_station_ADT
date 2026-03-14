@@ -14,3 +14,170 @@
     position: Down
     rotation: -90
     buckleOffset: "0,-0.15"
+
+- type: entity
+  parent: Bed
+  id: ADTBedFrame
+  name: bed frame
+  description: A simple bed frame for sleeping.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/bed-frame.rsi
+    state: bed-frame
+
+- type: entity
+  parent: Bed
+  id: ADTBedFrame2
+  name: bed frame
+  description: A simple bed frame for sleeping.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/bed-frame.rsi
+    state: bed-frame2
+
+- type: entity
+  parent: Bed
+  id: ADTCarBed
+  name: car bed
+  description: A bed made from a car. Comfortable and stylish.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/carbed.rsi
+    state: carbed
+
+- type: entity
+  parent: [BaseItem, BaseDeployFoldable]
+  id: ADTBedroll
+  name: bedroll
+  description: A portable sleeping bag that can be deployed on the ground. Can be folded back into an item.
+  components:
+  - type: Transform
+    noRot: true
+  - type: Item
+    size: Normal
+    heldPrefix: bedroll
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/bedroll.rsi
+    drawdepth: HighFloorObjects
+    noRot: true
+    layers:
+    - state: bedroll
+      map: ["unfoldedLayer"]
+    - state: bedroll_rolled
+      map: ["foldedLayer"]
+      visible: false
+  - type: Icon
+    sprite: ADT/Structures/Furniture/bedroll.rsi
+    state: bedroll_rolled
+  - type: MovedByPressure
+  - type: InteractionOutline
+  - type: Physics
+    bodyType: Dynamic
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 20
+        mask:
+        - MobMask
+  - type: Pullable
+  - type: Strap
+    position: Down
+    rotation: -90
+  - type: HealOnBuckle
+    damage:
+      types:
+        Poison: -0.1
+        Blunt: -0.1
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.FoldedVisuals.State:
+        foldedLayer:
+          True: {visible: true}
+          False: {visible: false}
+        unfoldedLayer:
+          True: {visible: false}
+          False: {visible: true}
+
+- type: entity
+  parent: Bed
+  id: ADTDoubleBed
+  name: double bed
+  description: A large bed for two people. Can place two bedsheets and buckle two people.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/bed_double.rsi
+    state: bedual-3
+  - type: Construction
+    graph: bed
+    node: double_bed_complete
+  - type: DoubleBed
+  - type: Appearance
+  - type: Strap
+    position: Down
+    rotation: -90
+    size: 200
+    buckleOffset: "0,-0.25"
+  - type: PlaceableSurface
+    placeCentered: true
+
+- type: entity
+  parent: Bed
+  id: ADTMattressClean
+  name: clean mattress
+  description: A clean mattress for sleeping.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/mattress.rsi
+    state: mattress_clean
+  - type: Construction
+    graph: adt_mattress
+    node: mattress_clean
+  - type: Strap
+    position: Down
+    rotation: -90
+
+- type: entity
+  parent: Bed
+  id: ADTMattressCleanFull
+  name: clean mattress
+  description: A large clean mattress for two people.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/mattress.rsi
+    state: mattress_clean_full
+  - type: Construction
+    graph: adt_mattress
+    node: mattress_clean_full
+  - type: DoubleBed
+  - type: Strap
+    position: Down
+    rotation: -90
+    size: 200
+    buckleOffset: "0,-0.25"
+  - type: PlaceableSurface
+    placeCentered: true
+
+- type: entity
+  parent: Bed
+  id: ADTMattressFull
+  name: wide mattress
+  description: A large mattress for two people.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/mattress.rsi
+    state: mattress_full
+  - type: Construction
+    graph: adt_mattress
+    node: mattress_full
+  - type: DoubleBed
+  - type: Strap
+    position: Down
+    rotation: -90
+    size: 200
+    buckleOffset: "0,-0.25"
+  - type: PlaceableSurface
+    placeCentered: true

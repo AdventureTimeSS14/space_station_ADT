@@ -75,6 +75,7 @@ public sealed class RPDMenuBoundUserInterface : BoundUserInterface
             {
                 var topLevelActionOption = new RadialMenuActionOption<RPDPrototype>(HandleMenuOptionClick, prototype)
                 {
+                    IconSpecifier = RadialMenuIconSpecifier.With(prototype.Sprite),
                     ToolTip = GetTooltip(prototype)
                 };
                 topLevelActions.Add(topLevelActionOption);
@@ -92,6 +93,7 @@ public sealed class RPDMenuBoundUserInterface : BoundUserInterface
 
             var actionOption = new RadialMenuActionOption<RPDPrototype>(HandleMenuOptionClick, prototype)
             {
+                IconSpecifier = RadialMenuIconSpecifier.With(prototype.Sprite),
                 ToolTip = GetTooltip(prototype)
             };
             list.Add(actionOption);
@@ -104,6 +106,7 @@ public sealed class RPDMenuBoundUserInterface : BoundUserInterface
             var groupInfo = PrototypesGroupingInfo[key];
             models[i] = new RadialMenuNestedLayerOption(list)
             {
+                IconSpecifier = RadialMenuIconSpecifier.With(groupInfo.Sprite),
                 ToolTip = Loc.GetString(groupInfo.Tooltip)
             };
             i++;
