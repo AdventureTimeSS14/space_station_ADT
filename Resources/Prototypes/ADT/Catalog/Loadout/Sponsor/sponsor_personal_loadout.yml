@@ -290,7 +290,7 @@
 ## Unlumination
 - type: sponsorPersonalLoadout
   id: SponsorPersonalLoadoutUnlumination
-  userName: Unlumination
+  userName: Illumy
   equipment: SponsorPersonalLoadoutUnlumination
 
 - type: startingGear
