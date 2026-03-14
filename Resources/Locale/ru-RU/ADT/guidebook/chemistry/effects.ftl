@@ -28,3 +28,8 @@ reagent-effect-guidebook-adjust-allergic-stack =
             [true] [color=green]{$amount}[/color]
             *[false] [color=red]{$amount}[/color]
     } ед.
+reagent-effect-guidebook-wash-stamp-reaction =
+    { $chance ->
+        [1] Смывает
+       *[other] смывают
+    } печати с лица

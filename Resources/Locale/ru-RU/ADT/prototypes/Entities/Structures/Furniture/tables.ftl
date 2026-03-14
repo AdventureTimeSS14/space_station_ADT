@@ -45,3 +45,4 @@ ent-ADTTableReinforcedUraniumGlass = стол из уранового броне
 
 ent-ADTTableRoulette = игровой стол с рулеткой
     .desc = Смотри не проиграй свою зарплату.
+

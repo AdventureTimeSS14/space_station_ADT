@@ -7,6 +7,7 @@
   - type: Sprite
     sprite: ADT/Clothing/Hands/Rings/RingBlood.rsi
   - type: Clothing
+    slots: [finger]
     sprite: ADT/Clothing/Hands/Rings/RingBlood.rsi
   - type: Item
     size: Tiny
@@ -22,6 +23,7 @@
   - type: Sprite
     sprite: ADT/Clothing/Hands/Rings/RingEmerald.rsi
   - type: Clothing
+    slots: [finger]
     sprite: ADT/Clothing/Hands/Rings/RingEmerald.rsi
   - type: Item
     size: Tiny
@@ -37,6 +39,7 @@
   - type: Sprite
     sprite: ADT/Clothing/Hands/Rings/RingPlazma.rsi
   - type: Clothing
+    slots: [finger]
     sprite: ADT/Clothing/Hands/Rings/RingPlazma.rsi
   - type: Item
     size: Tiny
@@ -52,6 +55,7 @@
   - type: Sprite
     sprite: ADT/Clothing/Hands/Rings/RingTurk.rsi
   - type: Clothing
+    slots: [finger]
     sprite: ADT/Clothing/Hands/Rings/RingTurk.rsi
   - type: Item
     size: Tiny

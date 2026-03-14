@@ -7,7 +7,7 @@ heretic-ritual-norituals = Вы не знаете ни одного ритуал
 heretic-ritual-noritual = Ритуал не выбран!
 
 heretic-ritual-basic-sacrifice = Сердцебиение Мансуса
-heretic-ritual-basic-sacrifice-desc = Используйте одну из целей в критическом или мертвом состоянии, чтобы принести ее в жертву Мансусу, получив за это одно очко знаний. Принесение в жертву глав отделов дает бонусное очко.
+heretic-ritual-basic-sacrifice-desc = Используйте одну из целей в критическом или мертвом состоянии, чтобы принести ее в жертву Мансусу, получив за это одно очко знаний. Принесение в жертву глав отделов дает бонусное очко. Базовый ритуал для всех путей еретика.
 
 heretic-ritual-basic-focus = Янтарная Призма
 heretic-ritual-basic-focus-desc = Преобразуйте осколок стекла и пару глаз в Янтарную Призму. Небольшое ожерелье, позволяющее произносить сложные заклинания без необходимости держать в руке Кодекс.
@@ -21,12 +21,27 @@ heretic-ritual-fail-temperature-hot = Здесь слишком жарко.
 heretic-ritual-fail-temperature-cold = Здесь недостаточно холодно.
 heretic-ritual-fail-sacrifice-ash = Недостаточно мертвых или горящих.
 heretic-ritual-fail-sacrifice-ineligible = Руна отказывается принять эту жертву.
+heretic-ritual-fail-sacrifice-count = На руне {$current} из {$required} трупов. Нужно ещё: {$needed}. (Максимум: {$max})
+heretic-ritual-knowledge-already-used = Вы уже использовали этот ритуал знаний.
+
+heretic-ritual-fail-ghoulify = Условия для проведения ритуала не соблюдены.
 
 heretic-ritual-basic-codex = Кодекс Цикатрикс
 heretic-ritual-basic-codex-desc = Преобразуйте пару глаз, книгу и перо в Кодекс Цикатрикс. Он позволяет произносить продвинутые заклинания, пока вы держите его открытым, и получать в два раза больше влияния от разломов реальности. Вы держите один прямо сейчас.
 
+## chat recipe display
+heretic-ritual-recipe-required-items = Требуемые предметы:
+heretic-ritual-recipe-required-entities = Требуемые сущности:
+heretic-ritual-recipe-required-corpses = Требуется трупов: {$min}-{$max}
+heretic-ritual-recipe-required-corpses-ascension = Требуется трупов (возвышение): {$min}-{$max}
+heretic-ritual-recipe-required-items-knowledge = Требуется: 5 случайных предметов (будут выбраны при первом использовании)
+heretic-ritual-recipe-requirement-cold = Требование: Холод (ниже {$temp}°C)
+heretic-ritual-recipe-requirement-hot = Требование: Жара (выше {$temp}°C)
+heretic-ritual-recipe-required-reagent = Требуемый реагент: {$reagent}
+
 ## side quests
 heretic-ritual-side-knowledge = Ритуал Знания
+heretic-ritual-side-knowledge-desc = Одноразовый ритуал получения знаний. Требует 5 случайных предметов. Может быть использован еретиком один раз.
 heretic-ritual-side-shark = Обжигающая Акула
 heretic-ritual-side-cloak = Пустотный Плащ
 heretic-ritual-side-ghoul = Ритуал Обращения

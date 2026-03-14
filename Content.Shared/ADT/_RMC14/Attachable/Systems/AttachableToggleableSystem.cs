@@ -185,9 +185,7 @@ public sealed class AttachableToggleableSystem : EntitySystem
         if (!attachable.Comp.Attached)
             return;
 
-        args.Args.Handled = true;
-
-        var addEv = new GrantAttachableActionsEvent(args.Args.User);
+        var addEv = new GrantAttachableActionsEvent(args.User);
         RaiseLocalEvent(attachable, ref addEv);
     }
 
@@ -229,8 +227,8 @@ public sealed class AttachableToggleableSystem : EntitySystem
 
     private void OnGunShot(Entity<AttachableToggleableComponent> attachable, ref AttachableRelayedEvent<GunShotEvent> args)
     {
-        CheckUserBreakOnRotate(args.Args.User);
-        CheckUserBreakOnFullRotate(args.Args.User, args.Args.FromCoordinates, args.Args.ToCoordinates);
+        CheckUserBreakOnRotate(args.User);
+        CheckUserBreakOnFullRotate(args.User, args.Args.FromCoordinates, args.Args.ToCoordinates);
     }
 
     private void OnGunShot(Entity<AttachableToggleableComponent> attachable, ref GunShotEvent args)
@@ -260,12 +258,16 @@ public sealed class AttachableToggleableSystem : EntitySystem
         if (!attachable.Comp.Attached)
             return;
 
-        args.Args.Handled = true;
-
         if (!attachable.Comp.NeedHand || !attachable.Comp.Active)
             return;
 
-        Toggle(attachable, args.Args.User, attachable.Comp.DoInterrupt);
+        if (_attachableHolderSystem.TryGetHolder(attachable.Owner, out var holderUid) &&
+            _handsSystem.IsHolding(args.User, holderUid.Value))
+        {
+            return;
+        }
+
+        Toggle(attachable, args.User, attachable.Comp.DoInterrupt);
     }
 
     private void OnAttachableToggleableInterrupt(Entity<AttachableToggleableComponent> attachable, ref AttachableToggleableInterruptEvent args)
@@ -281,13 +283,10 @@ public sealed class AttachableToggleableSystem : EntitySystem
         if (!attachable.Comp.Attached)
             return;
 
-        args.Args.Handled = true;
-
         if (attachable.Comp.NeedHand && attachable.Comp.Active)
-            Toggle(attachable, args.Args.User, attachable.Comp.DoInterrupt);
+            Toggle(attachable, args.User, attachable.Comp.DoInterrupt);
 
-
-        var removeEv = new RemoveAttachableActionsEvent(args.Args.User);
+        var removeEv = new RemoveAttachableActionsEvent(args.User);
         RaiseLocalEvent(attachable, ref removeEv);
     }
 
@@ -381,11 +380,21 @@ public sealed class AttachableToggleableSystem : EntitySystem
 #region Toggling
     private void OnAttachableToggleStarted(Entity<AttachableToggleableComponent> attachable, ref AttachableToggleStartedEvent args)
     {
-
         if (!CanStartToggleDoAfter(attachable, ref args))
             return;
 
         var popupText = Loc.GetString(attachable.Comp.Active ? attachable.Comp.DeactivatePopupText : attachable.Comp.ActivatePopupText, ("attachable", attachable.Owner));
+
+        // Instant toggle if doAfter is 0 or negative
+        if (attachable.Comp.DoAfter <= 0f)
+        {
+            if (!TryComp(args.Holder, out AttachableHolderComponent? holderComponent))
+                return;
+
+            FinishToggle(attachable, (args.Holder, holderComponent), args.SlotId, args.User, popupText);
+            Dirty(attachable);
+            return;
+        }
 
         _doAfterSystem.TryStartDoAfter(new DoAfterArgs(
             EntityManager,
