@@ -51,9 +51,11 @@ public sealed partial class AllergicSystem : EntitySystem
                 picked = reaction;
         }
 
-        if (picked != null)
+        if (picked == null)
+            return;
+
+        foreach (var effect in picked.Effects)
         {
-            EntityEffect effect = picked.Effects[_random.Next(0, picked.Effects.Count())];
             _effectSystem.ApplyEffect(uid, effect);
         }
 

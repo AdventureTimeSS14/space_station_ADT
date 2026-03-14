@@ -40,7 +40,7 @@ public sealed partial class AllergicComponent : Component
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField]
-    public float MaximumStack = 30f;
+    public float MaximumStack = 50f;
 
     /// <summary>
     /// Значение затухания (декремента) стака.

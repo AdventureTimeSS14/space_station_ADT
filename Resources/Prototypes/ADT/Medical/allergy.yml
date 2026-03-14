@@ -4,3 +4,52 @@
   effects:
     - !type:Jitter
       time: 5
+      probability: 0.3
+    - !type:Emote
+      emote: Cough
+      showInChat: true
+      probability: 0.3
+
+- type: allergicReaction
+  id: midAllergicReaction
+  threshold: 15
+  effects:
+    - !type:Jitter
+      time: 5
+    - !type:HealthChange
+        damage:
+          groups:
+            Airloss: -3
+        probability: 0.5
+    - !type:Emote
+      emote: Cough
+      showInChat: true
+      probability: 0.7
+
+- type: allergicReaction
+  id: highAllergicReaction
+  threshold: 25
+  effects:
+    - !type:Jitter
+      time: 5
+    - !type:HealthChange
+        damage:
+          groups:
+            Airloss: -5
+    - !type:Emote
+      emote: Cough
+      showInChat: true
+
+- type: allergicReaction
+  id: itsOverAllergicReaction
+  threshold: 35
+  effects:
+    - !type:Jitter
+      time: 5
+    - !type:HealthChange
+        damage:
+          groups:
+            Airloss: -10
+    - !type:Emote
+      emote: Cough
+      showInChat: true

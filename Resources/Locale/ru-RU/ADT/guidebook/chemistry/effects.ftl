@@ -11,5 +11,20 @@ reagent-effect-guidebook-teleport =
 reagent-effect-guidebook-purge-allergies =
     { $chance ->
         [1] Лечит
-        *[other] лечат
+        *[other] лечит
     } аллергию
+reagent-effect-guidebook-adjust-allergic-stack =
+    { $chance ->
+        [1] { $positive ->
+                [true] Ослабляет
+                *[false] Ухудшает
+        }
+        *[other] { $positive ->
+                [true] ослабляет
+                *[false] ухудшает
+        }
+    } симптомы аллергии на {
+        $positive ->
+            [true] [color=green]{$amount}[/color]
+            *[false] [color=red]{$amount}[/color]
+    } ед.
