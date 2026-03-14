@@ -10,7 +10,7 @@
         amount: 2
       - id: Gauze
         amount: 2
-      - id: ADTBloodPackTransfusionFull # ADT tweak: Blood IV
+      - id: Bloodpack
         amount: 2
       - id: BoxLatexGloves
       - id: BoxSterileMask

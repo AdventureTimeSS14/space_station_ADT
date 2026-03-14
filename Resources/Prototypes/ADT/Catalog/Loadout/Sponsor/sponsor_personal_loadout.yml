@@ -52,3 +52,798 @@
   storage:
     back:
     - ADTPlushieSchrodinger
+
+# Персональные
+## armorkillerd
+- type: sponsorPersonalLoadout
+  id: SponsorPersonalLoadoutArmorkillerd
+  userName: armorkillerd
+  equipment: SponsorPersonalLoadoutArmorkillerd
+
+- type: startingGear
+  id: SponsorPersonalLoadoutArmorkillerd
+  storage:
+    back:
+    - ADTClothingHeadHatsMendozaCap
+
+## Ale_xan_der
+- type: sponsorPersonalLoadout
+  id: SponsorPersonalLoadoutAle_xan_der
+  userName: Ale_xan_der
+  equipment: SponsorPersonalLoadoutAle_xan_der
+
+- type: startingGear
+  id: SponsorPersonalLoadoutAle_xan_der
+  storage:
+    back:
+    - ADTPlushieMa
+
+## Kivchik
+- type: sponsorPersonalLoadout
+  id: SponsorPersonalLoadoutKivchik
+  userName: Kivchik
+  equipment: SponsorPersonalLoadoutKivchik
+
+- type: startingGear
+  id: SponsorPersonalLoadoutKivchik
+  storage:
+    back:
+    - ADTClothingNeckKivchikCloak
+    - ADTClothingUniformKivchikJumpskirt
+    - ADTClothingHeadHatKivchikBerete
+    - ADTClothingHandsKivchikGloves
+    - ADTClothingShoesKivchikBoots
+
+## PushnoY
+- type: sponsorPersonalLoadout
+  id: SponsorPersonalLoadoutPushnoY
+  userName: PushnoY
+  equipment: SponsorPersonalLoadoutPushnoY
+
+- type: startingGear
+  id: SponsorPersonalLoadoutPushnoY
+  storage:
+    back:
+    - ADTPlushieEvgeniy
+    - ADTClothingHandsPushnoYGloves
+    - ADTClothingUniformPushnoYJumpsuit
+
+## Conjurer
+- type: sponsorPersonalLoadout
+  id: SponsorPersonalLoadoutConjurer
+  userName: Conjurer
+  equipment: SponsorPersonalLoadoutConjurer
+
+- type: startingGear
+  id: SponsorPersonalLoadoutConjurer
+  storage:
+    back:
+    - ADTPlushieIohan
+    - FlippoJohanLighter
+    - ADTClothingUniformAJohanPants
+    - ADTClothingHeadHatsJohanCap
+    - ADTClothingOuterCoatJohanCoat
+
+## Sipay
+- type: sponsorPersonalLoadout
+  id: SponsorPersonalLoadoutSipay
+  userName: Sipay
+  equipment: SponsorPersonalLoadoutSipay
+
+- type: startingGear
+  id: SponsorPersonalLoadoutSipay
+  storage:
+    back:
+    - ADTEntityRockGuitarInstrument
+
+## eddiemercury
+- type: sponsorPersonalLoadout
+  id: SponsorPersonalLoadoutEddiemercury
+  userName: eddiemercury
+  equipment: SponsorPersonalLoadoutEddiemercury
+
+- type: startingGear
+  id: SponsorPersonalLoadoutEddiemercury
+  storage:
+    back:
+    - ADTPlushieMigel
+    - ADTPlushieJungar
+
+## Archeron
+- type: sponsorPersonalLoadout
+  id: SponsorPersonalLoadoutArcheron
+  userName: Archeron
+  equipment: SponsorPersonalLoadoutArcheron
+
+- type: startingGear
+  id: SponsorPersonalLoadoutArcheron
+  storage:
+    back:
+    - ADTLighterArcher
+
+## Schrodinger
+- type: sponsorPersonalLoadout
+  id: SponsorPersonalLoadoutSchrodinger
+  userName: SchrodingerCutie
+  equipment: SponsorPersonalLoadoutSchrodinger
+
+- type: startingGear
+  id: SponsorPersonalLoadoutSchrodinger
+  storage:
+    back:
+    - FlippoSchrodingerLighter
+    - ADTCigarSchrodingerCase
+    - ADTBriefcaseBrownSchrodinger
+    - ADTPlushieSchrodinger
+    - ADTClothingUniformSatanSuit
+    - ADTClothingHeadHatsSatanHoop
+    - ADTClothingOuterCoatSchroCoat
+
+## CombatBibis
+- type: sponsorPersonalLoadout
+  id: SponsorPersonalLoadoutCombatBibis
+  userName: CombatBibis
+  equipment: SponsorPersonalLoadoutCombatBibis
+
+- type: startingGear
+  id: SponsorPersonalLoadoutCombatBibis
+  storage:
+    back:
+    - ADTBriefcaseCentcomm
+
+## Big_Chungus
+- type: sponsorPersonalLoadout
+  id: SponsorPersonalLoadoutBig_Chungus
+  userName: Big_Chungus
+  equipment: SponsorPersonalLoadoutBig_Chungus
+
+- type: startingGear
+  id: SponsorPersonalLoadoutBig_Chungus
+  storage:
+    back:
+    - ADTClothingUniformPyotrJumpsuit
+    - ADTClothingUniformPyotrOfficialSuit
+    - ADTBriefcaseBrownPyotr
+    - ADTPlushiePeter
+    - ADTClothingUniformPyotrUniform
+    - ADTClothingNeckPyotrCloak
+    - ADTClothingHeadHatsPyotrCap
+    - ADTClothingOuterCoatPyotrCoat
+
+## Altius
+- type: sponsorPersonalLoadout
+  id: SponsorPersonalLoadoutAltius
+  userName: Altius
+  equipment: SponsorPersonalLoadoutAltius
+
+- type: startingGear
+  id: SponsorPersonalLoadoutAltius
+  storage:
+    back:
+    - ADTBookAidan
+    - ADTClothingUniformShipTestAltiusRedLis
+    - ADTClothingNeckShipTestAltiusRedLis
+    - ADTClothingShoesShipTestAltiusRedLis
+    - ADTClothingHeadHatsShipTestAltiusRedLis
+    - ADTClothingOuterCoatShipTestAltiusRedLis
+    - ADTClothingOuterCoatJacketShipTestAltiusRedLis
+    - ADTClothingHandsAidanWatch
+    - ADTClothingMaskAidan
+    - ADTClothingNeckAidan
+    - ADTJumpsuitAidan
+    - ADTClothingOuterCoatAidan
+
+## RedLis
+- type: sponsorPersonalLoadout
+  id: SponsorPersonalLoadoutRedLis
+  userName: RedLis
+  equipment: SponsorPersonalLoadoutRedLis
+
+- type: startingGear
+  id: SponsorPersonalLoadoutRedLis
+  storage:
+    back:
+    - ADTBookAidan
+    - ADTClothingUniformShipTestAltiusRedLis
+    - ADTClothingNeckShipTestAltiusRedLis
+    - ADTClothingShoesShipTestAltiusRedLis
+    - ADTClothingHeadHatsShipTestAltiusRedLis
+    - ADTClothingOuterCoatShipTestAltiusRedLis
+    - ADTClothingOuterCoatJacketShipTestAltiusRedLis
+
+## Maestro_HLT
+- type: sponsorPersonalLoadout
+  id: SponsorPersonalLoadoutMaestro_HLT
+  userName: Maestro_HLT
+  equipment: SponsorPersonalLoadoutMaestro_HLT
+
+- type: startingGear
+  id: SponsorPersonalLoadoutMaestro_HLT
+  storage:
+    back:
+    - ADTPlushieFritz
+
+## Slasher67
+- type: sponsorPersonalLoadout
+  id: SponsorPersonalLoadoutSlasher67
+  userName: Slasher67
+  equipment: SponsorPersonalLoadoutSlasher67
+
+- type: startingGear
+  id: SponsorPersonalLoadoutSlasher67
+  storage:
+    back:
+    - ADTPlushieRebecca
+
+## Feylly
+- type: sponsorPersonalLoadout
+  id: SponsorPersonalLoadoutFeylly
+  userName: Feylly
+  equipment: SponsorPersonalLoadoutFeylly
+
+- type: startingGear
+  id: SponsorPersonalLoadoutFeylly
+  storage:
+    back:
+    - ADTPlushieBob
+
+## Unlumination
+- type: sponsorPersonalLoadout
+  id: SponsorPersonalLoadoutUnlumination
+  userName: Illumy
+  equipment: SponsorPersonalLoadoutUnlumination
+
+- type: startingGear
+  id: SponsorPersonalLoadoutUnlumination
+  storage:
+    back:
+    - ADTPlushieIlumi
+    - ADTPlushieLo
+
+## coldangel
+- type: sponsorPersonalLoadout
+  id: SponsorPersonalLoadoutColdangel
+  userName: coldangel
+  equipment: SponsorPersonalLoadoutColdangel
+
+- type: startingGear
+  id: SponsorPersonalLoadoutColdangel
+  storage:
+    back:
+    - ToyFigurinePlushSamoobladania
+
+### Filo
+# TODO: Такого энтити нет ADTOwlScimitar, ни в этом ни в старом репозитории, нужно уточнить у Фило, что он хотел там видеть
+#- type: sponsorPersonalLoadout
+#  id: SponsorPersonalLoadoutFilo
+#  userName: Filo
+#  equipment: SponsorPersonalLoadoutFilo
+#
+#- type: startingGear
+#  id: SponsorPersonalLoadoutFilo
+#  storage:
+#    back:
+#    - ADTOwlScimitar
+
+## Moon_so_red
+- type: sponsorPersonalLoadout
+  id: SponsorPersonalLoadoutMoon_so_red
+  userName: Moon_so_red
+  equipment: SponsorPersonalLoadoutMoon_so_red
+
+- type: startingGear
+  id: SponsorPersonalLoadoutMoon_so_red
+  storage:
+    back:
+    - ADTMoon_so_redWand
+    - ADTClothingOuterMoon_so_redCoat
+    - ADTClothingEyesMoon_so_redGlasses
+    - ADTClothingHeadHatMoon_so_redHat
+
+## Rip_Zoro
+- type: sponsorPersonalLoadout
+  id: SponsorPersonalLoadoutRip_Zoro
+  userName: Rip_Zoro
+  equipment: SponsorPersonalLoadoutRip_Zoro
+
+- type: startingGear
+  id: SponsorPersonalLoadoutRip_Zoro
+  storage:
+    back:
+    - ADTClothingBeltZoroSheath
+    - ADTClothingUniformZoroJumpsuit
+    - ADTClothingNeckRipZoroMantle
+
+## Vladylya
+- type: sponsorPersonalLoadout
+  id: SponsorPersonalLoadoutVladylya
+  userName: Vladylya
+  equipment: SponsorPersonalLoadoutVladylya
+
+- type: startingGear
+  id: SponsorPersonalLoadoutVladylya
+  storage:
+    back:
+    - ADTBartenderIDCardUrog
+
+## Sh4zik
+- type: sponsorPersonalLoadout
+  id: SponsorPersonalLoadoutSh4zik
+  userName: Sh4zik
+  equipment: SponsorPersonalLoadoutSh4zik
+
+- type: startingGear
+  id: SponsorPersonalLoadoutSh4zik
+  storage:
+    back:
+    - ToyFigurineLirBattlstorm
+
+## Inconnu
+- type: sponsorPersonalLoadout
+  id: SponsorPersonalLoadoutInconnu
+  userName: Inconnu
+  equipment: SponsorPersonalLoadoutInconnu
+
+- type: startingGear
+  id: SponsorPersonalLoadoutInconnu
+  storage:
+    back:
+    - ToyFigurineApatiaVeystu
+
+## 04karik
+- type: sponsorPersonalLoadout
+  id: SponsorPersonalLoadout04karik
+  userName: 04karik
+  equipment: SponsorPersonalLoadout04karik
+
+- type: startingGear
+  id: SponsorPersonalLoadout04karik
+  storage:
+    back:
+    - ToyFigurineYukerNighthauzer
+
+## kugooergooer
+- type: sponsorPersonalLoadout
+  id: SponsorPersonalLoadoutKugooergooer
+  userName: kugooergooer
+  equipment: SponsorPersonalLoadoutKugooergooer
+
+- type: startingGear
+  id: SponsorPersonalLoadoutKugooergooer
+  storage:
+    back:
+    - ADTPlushieGiPatter
+    - ADTGiPatterHardhat
+
+## Bolper
+- type: sponsorPersonalLoadout
+  id: SponsorPersonalLoadoutBolper
+  userName: Bolper
+  equipment: SponsorPersonalLoadoutBolper
+
+- type: startingGear
+  id: SponsorPersonalLoadoutBolper
+  storage:
+    back:
+    - ADTClothingBackBolperSheath
+    - ADTClothingHandsBolperGloves
+    - ADTClothingUniformBolperJumpsuit
+    - ADTClothingNeckBolperCloak
+    - ADTClothingShoesBolperBoots
+    - ADTClothingOuterBolperCoat
+
+## Pangaari
+- type: sponsorPersonalLoadout
+  id: SponsorPersonalLoadoutPangaari
+  userName: Pangaari
+  equipment: SponsorPersonalLoadoutPangaari
+
+- type: startingGear
+  id: SponsorPersonalLoadoutPangaari
+  storage:
+    back:
+    - ADTVehicleKeyPangaariBike
+    - ADTVehiclePangaariBike
+    - ADTClothingHandsPangaariBracelet
+    - ADTClothingUniformPanjaariJacket
+    - ADTClothingUniformPangaariAmericanSleeveless
+
+## Syrel
+- type: sponsorPersonalLoadout
+  id: SponsorPersonalLoadoutSyrel
+  userName: Syrel
+  equipment: SponsorPersonalLoadoutSyrel
+
+- type: startingGear
+  id: SponsorPersonalLoadoutSyrel
+  storage:
+    back:
+    - ADTPlushieAyus
+    - ADTSyrelClothingBeltSheath
+    - ADTClothingUniformSensors
+
+## Maki_gg
+- type: sponsorPersonalLoadout
+  id: SponsorPersonalLoadoutMaki_gg
+  userName: Maki_gg
+  equipment: SponsorPersonalLoadoutMaki_gg
+
+- type: startingGear
+  id: SponsorPersonalLoadoutMaki_gg
+  equipment:
+    outerClothing: ADTClothingOuterCoatMaki
+
+## Levontiy
+- type: sponsorPersonalLoadout
+  id: SponsorPersonalLoadoutLevontiy
+  userName: Levontiy
+  equipment: SponsorPersonalLoadoutLevontiy
+
+- type: startingGear
+  id: SponsorPersonalLoadoutLevontiy
+  storage:
+    back:
+    - ADTBibleContemplator
+
+## descente
+- type: sponsorPersonalLoadout
+  id: SponsorPersonalLoadoutDescente
+  userName: descente
+  equipment: SponsorPersonalLoadoutDescente
+
+- type: startingGear
+  id: SponsorPersonalLoadoutDescente
+  storage:
+    back:
+    - ADTBibleContemplator
+
+## 767Sikon
+- type: sponsorPersonalLoadout
+  id: SponsorPersonalLoadout767Sikon
+  userName: 767Sikon
+  equipment: SponsorPersonalLoadout767Sikon
+
+- type: startingGear
+  id: SponsorPersonalLoadout767Sikon
+  storage:
+    back:
+    - ADTPlushiePrazat
+    - ADTWeaponCasePrazat
+    - ADTClothingBeltPrazatSheath
+    - ADTClothingOuterCoatPrazat
+    - ADTClothingUniformJumpsuitPrazat
+    - ADTClothingHeadHatPrazatBeret
+
+## Egflaer
+- type: sponsorPersonalLoadout
+  id: SponsorPersonalLoadoutEgflaer
+  userName: Egflaer
+  equipment: SponsorPersonalLoadoutEgflaer
+
+- type: startingGear
+  id: SponsorPersonalLoadoutEgflaer
+  storage:
+    back:
+    - ADTEgflaerFoldingKnife
+
+## Anvel
+- type: sponsorPersonalLoadout
+  id: SponsorPersonalLoadoutAnvel
+  userName: Anvel
+  equipment: SponsorPersonalLoadoutAnvel
+
+- type: startingGear
+  id: SponsorPersonalLoadoutAnvel
+  storage:
+    back:
+    - ADTShabbyPolaroidAnvel
+
+## kiwi_fruit
+- type: sponsorPersonalLoadout
+  id: SponsorPersonalLoadoutKiwi_fruit
+  userName: kiwi_fruit
+  equipment: SponsorPersonalLoadoutKiwi_fruit
+
+- type: startingGear
+  id: SponsorPersonalLoadoutKiwi_fruit
+  storage:
+    back:
+    - ADTFoodKiwiTartaliokiwi_fruit
+    - ADTClothingHandsKiwiFruitBracelet
+    - ADTSponsorClothingUniformSkirtKiwi
+    - ADTClothingHeadFeatherHairpin
+
+## ineedpizza486
+- type: sponsorPersonalLoadout
+  id: SponsorPersonalLoadoutIneedpizza486
+  userName: ineedpizza486
+  equipment: SponsorPersonalLoadoutIneedpizza486
+
+- type: startingGear
+  id: SponsorPersonalLoadoutIneedpizza486
+  storage:
+    back:
+    - ADTPlushieDionaIneedPizza486
+
+## Anagiri
+- type: sponsorPersonalLoadout
+  id: SponsorPersonalLoadoutAnagiri
+  userName: Anagiri
+  equipment: SponsorPersonalLoadoutAnagiri
+
+- type: startingGear
+  id: SponsorPersonalLoadoutAnagiri
+  storage:
+    back:
+    - ADTPlushieAnagiri
+    - ADTClothingBackpackDuffelAnagiri
+    - ADTClothingHandsAnagiriGloves
+
+## MleM
+- type: sponsorPersonalLoadout
+  id: SponsorPersonalLoadoutMleM
+  userName: MleM
+  equipment: SponsorPersonalLoadoutMleM
+
+- type: startingGear
+  id: SponsorPersonalLoadoutMleM
+  equipment:
+    outerClothing: ADTClothingOuterCoatOktyabrina
+
+## Pushnidze
+- type: sponsorPersonalLoadout
+  id: SponsorPersonalLoadoutPushnidze
+  userName: Pushnidze
+  equipment: SponsorPersonalLoadoutPushnidze
+
+- type: startingGear
+  id: SponsorPersonalLoadoutPushnidze
+  storage:
+    back:
+    - ADTWeaponPistolTP17
+
+## BLAD
+- type: sponsorPersonalLoadout
+  id: SponsorPersonalLoadoutBLAD
+  userName: BLAD
+  equipment: SponsorPersonalLoadoutBLAD
+
+- type: startingGear
+  id: SponsorPersonalLoadoutBLAD
+  storage:
+    back:
+    - ADTWeaponCutterBLAD
+
+## MagmaShow
+- type: sponsorPersonalLoadout
+  id: SponsorPersonalLoadoutMagmaShow
+  userName: MagmaShow
+  equipment: SponsorPersonalLoadoutMagmaShow
+
+- type: startingGear
+  id: SponsorPersonalLoadoutMagmaShow
+  storage:
+    back:
+    - StarlightDoubleStunbatonMagmaShow
+
+## KonnorSmith
+- type: sponsorPersonalLoadout
+  id: SponsorPersonalLoadoutKonnorSmith
+  userName: KonnorSmith
+  equipment: SponsorPersonalLoadoutKonnorSmith
+
+- type: startingGear
+  id: SponsorPersonalLoadoutKonnorSmith
+  storage:
+    back:
+    - ADTPortableYV2Recharger
+
+## Rache11
+- type: sponsorPersonalLoadout
+  id: SponsorPersonalLoadoutRache11
+  userName: Rache11
+  equipment: SponsorPersonalLoadoutRache11
+
+- type: startingGear
+  id: SponsorPersonalLoadoutRache11
+  equipment:
+    outerClothing: ADTClothingOuterHardsuitRachell
+    head: ADTClothingHeadHelmetRachell
+
+## KapitanOgonek
+- type: sponsorPersonalLoadout
+  id: SponsorPersonalLoadoutKapitanOgonek
+  userName: KapitanOgonek
+  equipment: SponsorPersonalLoadoutKapitanOgonek
+
+- type: startingGear
+  id: SponsorPersonalLoadoutKapitanOgonek
+  storage:
+    back:
+    - ADTPlushieKapitanOgonek
+
+## maksim_soko
+- type: sponsorPersonalLoadout
+  id: SponsorPersonalLoadoutMaksim_soko
+  userName: maksim_soko
+  equipment: SponsorPersonalLoadoutMaksim_soko
+
+- type: startingGear
+  id: SponsorPersonalLoadoutMaksim_soko
+  storage:
+    back:
+    - ADTRingSoko
+
+## Sir_talter
+- type: sponsorPersonalLoadout
+  id: SponsorPersonalLoadoutSir_talter
+  userName: Sir_talter
+  equipment: SponsorPersonalLoadoutSir_talter
+
+- type: startingGear
+  id: SponsorPersonalLoadoutSir_talter
+  equipment:
+    outerClothing: ADTClothingOuterArmorMinerSirtalter
+    head: ADTClothingHeadHelmetMinerSirtalter
+    jumpsuit: ADTClothingUniformMiningSirtalter
+
+## Couatl
+- type: sponsorPersonalLoadout
+  id: SponsorPersonalLoadoutCouatl
+  userName: Couatl
+  equipment: SponsorPersonalLoadoutCouatl
+
+- type: startingGear
+  id: SponsorPersonalLoadoutCouatl
+  storage:
+    back:
+    - ADTPlushieAzil
+
+## antillion
+- type: sponsorPersonalLoadout
+  id: SponsorPersonalLoadoutAntillion
+  userName: antillion
+  equipment: SponsorPersonalLoadoutAntillion
+
+- type: startingGear
+  id: SponsorPersonalLoadoutAntillion
+  equipment:
+    head: ADTClothingHeadBandMercAntillion
+    eyes: ADTClothingEyesGlassesMercenaryAntillion
+
+## WCTR829
+- type: sponsorPersonalLoadout
+  id: SponsorPersonalLoadoutWCTR829
+  userName: WCTR829
+  equipment: SponsorPersonalLoadoutWCTR829
+
+- type: startingGear
+  id: SponsorPersonalLoadoutWCTR829
+  equipment:
+    jumpsuit: ADTClothingUniformWCTR829
+
+### Faust Netzach
+# TODO: Уточнить, такого никнейма не существует
+#- type: sponsorPersonalLoadout
+#  id: SponsorPersonalLoadoutFaust Netzach
+#  userName: Faust Netzach
+#  equipment: SponsorPersonalLoadoutFaust Netzach
+#
+#- type: startingGear
+#  id: SponsorPersonalLoadoutFaust Netzach
+#  storage:
+#    back:
+#    - ADTClothingBeltFaustSheath
+#    - ADTDrinkFlecheCan
+#    - ADTClothingHeadHatsFaustCap
+#    - ADTClothingHandsCuffsFaust
+#    - ADTClothingUniformGothic
+
+## kimer_k
+- type: sponsorPersonalLoadout
+  id: SponsorPersonalLoadoutKimer_k
+  userName: kimer_k
+  equipment: SponsorPersonalLoadoutKimer_k
+
+- type: startingGear
+  id: SponsorPersonalLoadoutKimer_k
+  storage:
+    back:
+    - ADTGoldPlatedDrinkShaker
+    - ADTGoldPlatedBarSpoon
+    - ADTGoldPlatedDrinkJigger
+    - ADTPremiumCaseKimerk
+    - ADTClothingUniformKimerK
+
+## k236v2
+- type: sponsorPersonalLoadout
+  id: SponsorPersonalLoadoutK236v2
+  userName: k236v2
+  equipment: SponsorPersonalLoadoutK236v2
+
+- type: startingGear
+  id: SponsorPersonalLoadoutK236v2
+  storage:
+    back:
+    - ADTPlushieMorulu
+
+## LemonLimeLord
+- type: sponsorPersonalLoadout
+  id: SponsorPersonalLoadoutLemonLimeLord
+  userName: LemonLimeLord
+  equipment: SponsorPersonalLoadoutLemonLimeLord
+
+- type: startingGear
+  id: SponsorPersonalLoadoutLemonLimeLord
+  equipment:
+    outerClothing: ADTClothingOuterHardsuitParamedLemon
+    head: ADTClothingHeadHelmetParamedLemon
+
+## Glide
+- type: sponsorPersonalLoadout
+  id: SponsorPersonalLoadoutGlide
+  userName: Glide
+  equipment: SponsorPersonalLoadoutGlide
+
+- type: startingGear
+  id: SponsorPersonalLoadoutGlide
+  storage:
+    back:
+    - ADTPlushieGlide
+    - ADTPlushieVictor
+
+## karmafom
+- type: sponsorPersonalLoadout
+  id: SponsorPersonalLoadoutLuckyrat
+  userName: karmafom
+  equipment: SponsorPersonalLoadoutLuckyrat
+
+- type: startingGear
+  id: SponsorPersonalLoadoutLuckyrat
+  equipment:
+    jumpsuit: ADTClothingUniformLuckyrat
+    head: ADTClothingHeadHatsLuckyrat
+    neck: ADTClothingNeckLuckyratCloak
+    shoes: ADTClothingShoesLuckyrat
+
+## Nelderiss
+- type: sponsorPersonalLoadout
+  id: SponsorPersonalLoadoutNelderiss
+  userName: Nelderiss
+  equipment: SponsorPersonalLoadoutNelderiss
+
+- type: startingGear
+  id: SponsorPersonalLoadoutNelderiss
+  storage:
+    back:
+    - ADTPlushieDianaSaeros
+    - ADTPlushieMelimaSaeros
+    - ADTSaerosKlevetz
+    - ADTClothingUniformMelimaDress
+
+## Farrellka
+- type: sponsorPersonalLoadout
+  id: SponsorPersonalLoadoutFarrellka
+  userName: Farrellka
+  equipment: SponsorPersonalLoadoutFarrellka
+
+- type: startingGear
+  id: SponsorPersonalLoadoutFarrellka
+  storage:
+    back:
+    - ADTPlushieDianaSaeros
+    - ADTPlushieMelimaSaeros
+    - ADTSaerosKlevetz
+    - ADTClothingUniformMelimaDress
+
+## Hollowing
+- type: sponsorPersonalLoadout
+  id: SponsorPersonalLoadoutHollowing
+  userName: Hollowing
+  equipment: SponsorPersonalLoadoutHollowing
+
+- type: startingGear
+  id: SponsorPersonalLoadoutHollowing
+  storage:
+    back:
+    - ADTPlushieHollowing

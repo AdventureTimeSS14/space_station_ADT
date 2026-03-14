@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   parent: BaseGameRule
   id: DynamicRule
   components:
@@ -32,6 +32,13 @@
           conditions:
           - !type:HasBudgetCondition
           - !type:MaxRuleOccurenceCondition
+        - id: Changeling
+          weight: 5
+          conditions:
+          - !type:HasBudgetCondition
+          - !type:MaxRuleOccurenceCondition
+          - !type:PlayerCountCondition
+            min: 25
         - id: Zombie
           weight: 5
           conditions:
