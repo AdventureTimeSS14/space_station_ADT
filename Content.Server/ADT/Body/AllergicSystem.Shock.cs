@@ -16,7 +16,9 @@ public sealed partial class AllergicSystem : EntitySystem
     public void InitializeShock()
     {
         SubscribeLocalEvent<AllergicComponent, AllergyFadedEvent>(Unshock);
-        _reactions = _proto.EnumeratePrototypes<AllergicReactionPrototype>().ToList();
+        _reactions = _proto.EnumeratePrototypes<AllergicReactionPrototype>()
+            .OrderBy(r => r.StackThreshold)
+            .ToList();
     }
 
     private void Unshock(EntityUid uid, AllergicComponent allergic, ref AllergyFadedEvent ev)
