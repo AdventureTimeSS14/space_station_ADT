@@ -313,7 +313,7 @@
     Eyes: 1
     Flare: 1
   output:
-    ADTClothingEldritchMedalion: 1
+    ClothingEldritchMedalion: 1
 
 - type: hereticRitual
   id: PriestRitual
