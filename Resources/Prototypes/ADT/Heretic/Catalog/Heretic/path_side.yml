@@ -1,5 +1,21 @@
 # store catalog
 - type: listing
+  id: HereticSidePath3Armor
+  name: knowledge-path-side-s3-armor-name
+  description: knowledge-path-side-s3-armor-desc
+  icon: { sprite: ADT/Heretic/eldritch_hood.rsi, state: icon }
+  productHereticKnowledge: ArmorerRitual
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathSide
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 20 # заглушка
+
+- type: listing
   id: HereticSidePath3ArmorBlade
   name: knowledge-path-side-s3-armor-name
   description: knowledge-path-side-s3-armor-desc
