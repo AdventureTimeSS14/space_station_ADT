@@ -55,7 +55,7 @@
 - type: reagent
   id: ADTHungoverAngel
   name: hungover-angel-name
-  parent: ADTSummerShade
+  parent: BaseDrink
   desc: hungover-angel-desc
   physicalDesc: reagent-physical-desc-exhilarating
   flavor: adt_hungoverangel
@@ -66,12 +66,15 @@
       effects:
       - !type:SatiateThirst
         factor: 3
-    Medicine:
-      effects:
+      - !type:AdjustTemperature
+        conditions:
+        - !type:TemperatureCondition
+          min: 290 #дает легкую прохладу
+        amount: -2500
       - !type:HealthChange
         damage:
-          types:
-            Poison: -1
+          groups:
+            Toxin: -1
       - !type:PopupMessage
         type: Local
         visualType: Small

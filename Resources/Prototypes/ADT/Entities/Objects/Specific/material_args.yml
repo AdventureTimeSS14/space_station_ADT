@@ -169,7 +169,7 @@
                 - !type:ComboFallEffect
                   dropItems: false
                 - !type:ComboEffectSleep
-                  time: 2
+                  time: 1
                 - !type:ComboSpeechEffect
                   speech: speech-carp-throw
                 - !type:ComboTrowTargetEffect
