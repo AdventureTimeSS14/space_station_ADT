@@ -74,6 +74,10 @@
   - ADTHandheldStationMapUnpowered
   - ADTModStorageVoucher
   - ADTClothingGeorgeRibbonPin
+  - ADTFlowerWreath1
+  - ADTFlowerWreath2
+  - ADTFlowerWreath3
+  - ADTFlowerWreath4
   # ADT-Tweak-End
 
 - type: loadoutGroup
