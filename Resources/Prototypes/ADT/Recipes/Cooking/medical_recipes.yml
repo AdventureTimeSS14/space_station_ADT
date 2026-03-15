@@ -23,8 +23,8 @@
   solids:
     ADTBlankMediPen: 1
   reagents:
-    Ultravasculine: 10
-    Epinephrine: 5
+    Diphenhydramine: 10
+    Dylovene: 10
   recipeType: MedicalAssembler
 
 - type: microwaveMealRecipe
@@ -36,8 +36,8 @@
   solids:
     ADTBlankMediPen: 1
   reagents:
-    Bicaridine: 15
-    TranexamicAcid: 5
+    Bicaridine: 10
+    ADTStypticPowder: 10
   recipeType: MedicalAssembler
 
 - type: microwaveMealRecipe
@@ -76,7 +76,7 @@
     ADTBlankMediPen: 1
   reagents:
     Puncturase: 10
-    TranexamicAcid: 5
+    ADTStypticPowder: 10
   recipeType: MedicalAssembler
 
 - type: microwaveMealRecipe
@@ -101,8 +101,34 @@
   solids:
     ADTBlankMediPen: 1
   reagents:
-    Saline: 20
-    DexalinPlus: 20
+    Saline: 10
+    DexalinPlus: 10
+  recipeType: MedicalAssembler
+
+- type: microwaveMealRecipe
+  id: RecipeSigynateAutoInjector
+  name: sigynate auto-injector
+  result: ADTSigynateAutoInjector
+  time: 5
+  group: Medicinal
+  solids:
+    ADTBlankMediPen: 1
+  reagents:
+    Sigynate: 15
+    Dermaline: 5
+  recipeType: MedicalAssembler
+
+- type: microwaveMealRecipe
+  id: RecipePolypyryliumOligomersAutoInjector
+  name: polypyrylium oligomers auto-injector
+  result: ADTPolypyryliumOligomersAutoInjector
+  time: 5
+  group: Medicinal
+  solids:
+    ADTBlankMediPen: 1
+  reagents:
+    PolypyryliumOligomers: 10
+    ADTStypticPowder: 10
   recipeType: MedicalAssembler
 
 #Frontier pen recipes
@@ -142,7 +168,7 @@
   solids:
     ADTBlankMediPen: 1
   reagents:
-    Inaprovaline: 10
+    Epinephrine: 10
     DexalinPlus: 10
   recipeType: MedicalAssembler
 
@@ -156,7 +182,7 @@
     ADTBlankMediPen: 1
   reagents:
     Lacerinol: 10
-    TranexamicAcid: 5
+    ADTStypticPowder: 10
   recipeType: MedicalAssembler
 
 - type: microwaveMealRecipe
@@ -169,7 +195,7 @@
     ADTBlankMediPen: 1
   reagents:
     Bruizine: 10
-    TranexamicAcid: 5
+    ADTStypticPowder: 10
   recipeType: MedicalAssembler
 
 - type: microwaveMealRecipe

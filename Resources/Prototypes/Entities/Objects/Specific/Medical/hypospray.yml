@@ -217,23 +217,30 @@
         color: "#573d9e"
       - state: base-colorB-inhand-right
   - type: Sprite
-    sprite: Objects/Specific/Medical/medipen.rsi
+    sprite: ADT/Objects/Specific/Medical/medipen.rsi #ADT-Tweak
     layers:
-    - state: penacid
+    - state: diphenhydramine #ADT-Tweak
       map: ["enum.SolutionContainerLayers.Fill"]
   - type: SolutionContainerVisuals
     maxFillLevels: 1
     changeColor: false
-    emptySpriteName: penacid_empty
+    emptySpriteName: diphenhydramine_empty #ADT-Tweak
+  #ADT-Tweak-Start
+  - type: Hypospray
+    solutionName: pen
+    transferAmount: 20
+    onlyAffectsMobs: false
+    injectOnly: true
+  #ADT-Tweak-End
   - type: SolutionContainerManager
     solutions:
       pen:
-        maxVol: 15
+        maxVol: 20 #ADT-Tweak 15 > 20
         reagents:
-        - ReagentId: Ultravasculine
+        - ReagentId: Diphenhydramine #ADT-Tweak Ultravasculine > Diphenhydramine
           Quantity: 10
-        - ReagentId: Epinephrine
-          Quantity: 5
+        - ReagentId: Dylovene #ADT-Tweak Epinephrine > Dylovene
+          Quantity: 10 #ADT-Tweak 5 > 10
     #ADT Tweak Start
   - type: Tag
     tags:
@@ -278,9 +285,9 @@
         maxVol: 20
         reagents:
         - ReagentId: Bicaridine
-          Quantity: 15
-        - ReagentId: TranexamicAcid
-          Quantity: 5
+          Quantity: 10 #ADT-Tweak 15 > 10
+        - ReagentId: ADTStypticPowder #ADT-Tweak TranexamicAcid > ADTStypticPowder
+          Quantity: 10 #ADT-Tweak 5 > 10
     #ADT Tweak Start
   - type: Tag
     tags:
@@ -410,18 +417,18 @@
     emptySpriteName: punctpen_empty
   - type: Hypospray
     solutionName: pen
-    transferAmount: 15
+    transferAmount: 20 #ADT-Tweak 15 > 20
     onlyAffectsMobs: false
     injectOnly: true
   - type: SolutionContainerManager
     solutions:
       pen:
-        maxVol: 15
+        maxVol: 20 #ADT-Tweak 15 > 20
         reagents:
         - ReagentId: Puncturase
           Quantity: 10
-        - ReagentId: TranexamicAcid
-          Quantity: 5
+        - ReagentId: ADTStypticPowder #ADT-Tweak TranexamicAcid > ADTStypticPowder
+          Quantity: 10 #ADT-Tweak 5 > 10
     #ADT Tweak Start
   - type: Tag
     tags:
@@ -515,7 +522,7 @@
         - ReagentId: Saline
           Quantity: 10
         - ReagentId: DexalinPlus
-          Quantity: 20
+          Quantity: 10 #ADT-Tweak 20 > 10
     #ADT Tweak Start
   - type: Tag
     tags:
