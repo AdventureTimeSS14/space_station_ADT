@@ -260,7 +260,7 @@
     Table: 1
     GasMask: 1
   output:
-    ClothingOuterArmorHereticBlade: 1
+    ADTClothingOuterArmorHereticBlade: 1
 
 - type: hereticRitual
   id: ArmorerRitualFlesh
@@ -273,7 +273,7 @@
     Table: 1
     GasMask: 1
   output:
-    ClothingOuterArmorHereticFlesh: 1
+    ADTClothingOuterArmorHereticFlesh: 1
 
 - type: hereticRitual
   id: ArmorerRitualVoid
@@ -286,7 +286,7 @@
     Table: 1
     GasMask: 1
   output:
-    ClothingOuterArmorHereticVoid: 1
+    ADTClothingOuterArmorHereticVoid: 1
 
 - type: hereticRitual
   id: ArmorerRitualAsh
@@ -299,7 +299,7 @@
     Table: 1
     GasMask: 1
   output:
-    ClothingOuterArmorHereticAsh: 1
+    ADTClothingOuterArmorHereticAsh: 1
 
 - type: hereticRitual
   id: AshenEyesRitual
@@ -313,7 +313,7 @@
     Eyes: 1
     Flare: 1
   output:
-    ClothingEldritchMedalion: 1
+    ADTClothingEldritchMedalion: 1
 
 - type: hereticRitual
   id: PriestRitual

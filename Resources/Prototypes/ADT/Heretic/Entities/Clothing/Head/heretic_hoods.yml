@@ -1,5 +1,5 @@
 - type: entity
-  id: ClothingHeadHatHoodHereticBlade
+  id: ADTClothingHeadHatHoodHereticBlade
   parent: ClothingHeadHatHoodHeretic
   name: blade heretic hood
   description: A torn hood favored by heretics of the Blade path. Strange eyes line the inside.
@@ -11,7 +11,7 @@
     sprite: ADT/Heretic/HereticHoods/blade_hood.rsi
 
 - type: entity
-  id: ClothingHeadHatHoodHereticFlesh
+  id: ADTClothingHeadHatHoodHereticFlesh
   parent: ClothingHeadHatHoodHeretic
   name: flesh heretic hood
   description: A disturbing hood favored by heretics of the Flesh path. Strange eyes line the inside.
@@ -23,7 +23,7 @@
     sprite: ADT/Heretic/HereticHoods/flesh_hood.rsi
 
 - type: entity
-  id: ClothingHeadHatHoodHereticVoid
+  id: ADTClothingHeadHatHoodHereticVoid
   parent: ClothingHeadHatHoodHeretic
   name: void heretic hood
   description: A cold hood favored by heretics of the Void path. Strange eyes line the inside.
@@ -35,7 +35,7 @@
     sprite: ADT/Heretic/HereticHoods/void_hood.rsi
 
 - type: entity
-  id: ClothingHeadHatHoodHereticAsh
+  id: ADTClothingHeadHatHoodHereticAsh
   parent: ClothingHeadHatHoodHeretic
   name: ashen heretic hood
   description: A scorched hood favored by heretics of the Ash path. Strange eyes line the inside.
