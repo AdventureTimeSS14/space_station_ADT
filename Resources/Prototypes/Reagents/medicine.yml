@@ -97,6 +97,8 @@
         damage:
           types:
             Poison: -3
+      - !type:AdjustAllergicStack
+        amount: -1
 
 - type: reagent
   id: Ethylredoxrazine
