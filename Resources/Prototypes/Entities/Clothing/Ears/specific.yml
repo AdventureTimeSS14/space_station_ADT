@@ -12,5 +12,5 @@
     - type: Clothing
       sprite: Clothing/Ears/Headsets/base.rsi
     - type: ChameleonClothing
-      slot: [ears]
+      slot: [ears] # ADT-Tweak
       default: ClothingHeadsetGrey
