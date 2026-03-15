@@ -237,6 +237,19 @@
 
 ## stage 3
 - type: hereticRitual
+  id: ArmorerRitual
+  locName: knowledge-path-side-s3-armor-name
+  locDesc: knowledge-path-side-s3-armor-desc
+  icon:
+    sprite: ADT/Heretic/eldritch_armor.rsi
+    state: icon
+  requiredTags:
+    Table: 1
+    GasMask: 1
+  output:
+    ClothingOuterArmorHeretic: 1
+
+- type: hereticRitual
   id: ArmorerRitualBlade
   locName: knowledge-path-side-s3-armor-name
   locDesc: knowledge-path-side-s3-armor-desc
