@@ -309,11 +309,36 @@
 
 ## stage 3
 - type: hereticKnowledge
-  id: ArmorerRitual
+  id: ArmorerRitualBlade
+  path: Blade
   sideKnowledge: true
   stage: 3
   ritualPrototypes:
-  - ArmorerRitual
+  - ArmorerRitualBlade
+
+- type: hereticKnowledge
+  id: ArmorerRitualFlesh
+  path: Flesh
+  sideKnowledge: true
+  stage: 3
+  ritualPrototypes:
+  - ArmorerRitualFlesh
+
+- type: hereticKnowledge
+  id: ArmorerRitualVoid
+  path: Void
+  sideKnowledge: true
+  stage: 3
+  ritualPrototypes:
+  - ArmorerRitualVoid
+
+- type: hereticKnowledge
+  id: ArmorerRitualAsh
+  path: Ash
+  sideKnowledge: true
+  stage: 3
+  ritualPrototypes:
+  - ArmorerRitualAsh
 
 - type: hereticKnowledge
   id: PriestRitual

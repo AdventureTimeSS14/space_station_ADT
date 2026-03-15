@@ -237,17 +237,56 @@
 
 ## stage 3
 - type: hereticRitual
-  id: ArmorerRitual
+  id: ArmorerRitualBlade
   locName: knowledge-path-side-s3-armor-name
   locDesc: knowledge-path-side-s3-armor-desc
   icon:
-    sprite: ADT/Heretic/eldritch_armor.rsi
+    sprite: ADT/Heretic/HereticRobes/blade_armor.rsi
     state: icon
   requiredTags:
     Table: 1
     GasMask: 1
   output:
-    ClothingOuterArmorHeretic: 1
+    ClothingOuterArmorHereticBlade: 1
+
+- type: hereticRitual
+  id: ArmorerRitualFlesh
+  locName: knowledge-path-side-s3-armor-name
+  locDesc: knowledge-path-side-s3-armor-desc
+  icon:
+    sprite: ADT/Heretic/HereticRobes/flesh_armor.rsi
+    state: icon
+  requiredTags:
+    Table: 1
+    GasMask: 1
+  output:
+    ClothingOuterArmorHereticFlesh: 1
+
+- type: hereticRitual
+  id: ArmorerRitualVoid
+  locName: knowledge-path-side-s3-armor-name
+  locDesc: knowledge-path-side-s3-armor-desc
+  icon:
+    sprite: ADT/Heretic/HereticRobes/void_armor.rsi
+    state: icon
+  requiredTags:
+    Table: 1
+    GasMask: 1
+  output:
+    ClothingOuterArmorHereticVoid: 1
+
+- type: hereticRitual
+  id: ArmorerRitualAsh
+  locName: knowledge-path-side-s3-armor-name
+  locDesc: knowledge-path-side-s3-armor-desc
+  icon:
+    sprite: ADT/Heretic/HereticRobes/ashen_armor.rsi
+    state: icon
+  requiredTags:
+    Table: 1
+    GasMask: 1
+  output:
+    ClothingOuterArmorHereticAsh: 1
 
 - type: hereticRitual
   id: AshenEyesRitual
