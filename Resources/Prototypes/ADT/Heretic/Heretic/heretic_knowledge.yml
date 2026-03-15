@@ -309,6 +309,13 @@
 
 ## stage 3
 - type: hereticKnowledge
+  id: ArmorerRitual
+  sideKnowledge: true
+  stage: 20 # заглушка
+  ritualPrototypes:
+  - ArmorerRitual
+
+- type: hereticKnowledge
   id: ArmorerRitualBlade
   path: Blade
   sideKnowledge: true
