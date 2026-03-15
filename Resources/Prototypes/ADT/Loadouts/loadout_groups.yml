@@ -214,6 +214,15 @@
   - ADTMedicalBelt
   - ADTMedicalBeltBag
 
+- type: loadoutGroup
+  id: ADTChemistBelt
+  name: loadout-group-chemist-belt
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ADTClothingChemdisBelt
+  - ADTClothingEnergyChemdisBelt
+
 # PARAMEDIC
 
 - type: loadoutGroup

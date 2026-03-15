@@ -127,6 +127,7 @@ loadout-group-patholog-shoes = Патологоанатом, обувь
 loadout-group-patholog-backpack = Патологоанатом, рюкзак
 loadout-group-medical-belt-adt = Врач, пояс
 loadout-group-medical-intern-id-adt = Интерн, ID
+loadout-group-chemist-belt = Химик, пояс
 
 # Wildcards
 loadout-group-psychologist-id-adt = Психолог, ID

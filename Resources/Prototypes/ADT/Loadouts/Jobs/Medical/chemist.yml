@@ -1,0 +1,23 @@
+- type: loadoutEffectGroup
+  id: ADTMasterChemist
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobChemist
+      time: 36000 #10 часов
+
+# Belt
+
+- type: loadout
+  id: ADTClothingChemdisBelt
+  equipment:
+    belt: ADTClothingChemdisBelt
+
+- type: loadout
+  id: ADTClothingEnergyChemdisBelt
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTMasterChemist
+  equipment:
+    belt: ADTClothingEnergyChemdisBelt

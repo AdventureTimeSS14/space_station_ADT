@@ -569,3 +569,83 @@
         type: ReagentDispenserBoundUserInterface
       enum.StorageUiKey.Key:
         type: StorageBoundUserInterface
+
+- type: entity
+  parent: ClothingBeltBase
+  id: ADTClothingEnergyChemdisBelt
+  name: energy chemdis belt 4000
+  description: Compactt version of chemical dispencer, based on new versions of it.
+  suffix: Energy
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Belt/energychemdis.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Belt/energychemdis.rsi
+    slots: [belt]
+    equipSound:
+      path: /Audio/Items/belt_equip.ogg
+    quickEquip: false
+  - type: Battery
+    maxCharge: 750 #В два раза меньше чем у обычного энерго-раздатчика
+    startingCharge: 0
+  - type: ApcPowerReceiverBattery
+    idleLoad: 0
+    batteryRechargeRate: 15 #В два раза меньше чем у обычного энерго-раздатчика
+    batteryRechargeEfficiency: 1.0
+  - type: ApcPowerReceiver
+    powerLoad: 0
+  - type: ContainerContainer
+    containers:
+      machine_board: !type:Container
+      machine_parts: !type:Container
+      energyBeakerSlot: !type:ContainerSlot
+      storagebase: !type:Container
+  - type: GuideHelp
+    guides:
+    - Chemicals
+    - Chemist
+  - type: ActivatableUI
+    key: enum.EnergyReagentDispenserUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.EnergyReagentDispenserUiKey.Key:
+        type: EnergyReagentDispenserBoundUserInterface
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+  - type: EnergyReagentDispenser
+    energyBeakerSlot:
+      whitelistFailPopup: reagent-dispenser-component-cannot-put-entity-message
+      whitelist:
+        components:
+        - FitsInDispenser
+    reagents:
+      Aluminium: 8
+      Carbon: 3
+      Chlorine: 12
+      Copper: 5
+      Ethanol: 8
+      Fluorine: 12
+      Hydrogen: 3
+      Iodine: 8
+      Iron: 5
+      Lithium: 12
+      Mercury: 12
+      Nitrogen: 3
+      Oxygen: 3
+      Phosphorus: 5
+      Potassium: 8
+      Radium: 15
+      Silicon: 3
+      Sodium: 5
+      Sugar: 5
+      Sulfur: 5
+    reagentsEmagged:
+      Puncturase: 15
+      Pyrazine: 15
+      TranexamicAcid: 5
+      Epinephrine: 5
+      Aloxadone: 10
+      Cryoxadone: 5
+      Ephedrine: 10
+      ADTMorphine: 3
+  - type: Appearance

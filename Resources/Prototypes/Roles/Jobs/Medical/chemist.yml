@@ -20,7 +20,6 @@
   equipment:
     id: ChemistryPDA
     ears: ClothingHeadsetMedical
-    belt: ADTClothingChemdisBelt #ADT-tweak: так круче
     pocket1: HandLabeler
     eyes: ClothingEyesGlassesChemical
   #storage:
