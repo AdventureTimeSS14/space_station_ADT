@@ -15,7 +15,7 @@
 
 - type: entity
   id: ADTClothingOuterArmorHereticFlesh
-  parent: ADTClothingOuterArmorHeretic
+  parent: ClothingOuterArmorHeretic
   name: flesh heretic robe
   description: A disturbing set of robes favored by heretics of the Flesh path. Strange eyes line the inside. The fabric seems to pulse faintly.
   components:
