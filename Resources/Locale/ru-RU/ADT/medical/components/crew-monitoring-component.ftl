@@ -4,7 +4,6 @@ crew-monitoring-ui-title = Консоль мониторинга экипажа
 
 crew-monitoring-ui-filter-line-placeholder = Фильтр
 
-crew-monitoring-ui-job-label = Job:
 crew-monitoring-ui-no-server-label = Сервер не найден
 
 crew-monitoring-ui-no-department-label = Неизвестные
