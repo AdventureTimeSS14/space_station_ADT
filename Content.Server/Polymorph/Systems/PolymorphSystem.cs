@@ -17,6 +17,10 @@ using Content.Server.Traits.Assorted;
 using Content.Shared.Speech.Muting;
 using Content.Shared.ADT.Traits;
 using Content.Shared.Storage.Components;
+using Content.Server.Atmos.EntitySystems;
+using Content.Server.Temperature.Systems;
+using Content.Shared.Atmos.Components;
+using Content.Shared.Temperature.Components;
 //ADT-Geras-Tweak-End
 using Content.Server.Inventory;
 using Content.Server.Polymorph.Components;
@@ -69,6 +73,9 @@ public sealed partial class PolymorphSystem : EntitySystem
     [Dependency] private readonly SharedMindSystem _mindSystem = default!;
     [Dependency] private readonly MetaDataSystem _metaData = default!;
     [Dependency] private readonly FollowerSystem _follow = default!; // goob edit
+    [Dependency] private readonly FlammableSystem _flammable = default!; //ADT-Geras-Tweak
+    [Dependency] private readonly SharedStaminaSystem _stamina = default!; //ADT-Geras-Tweak
+    [Dependency] private readonly TemperatureSystem _temperatureSystem = default!; //ADT-Geras-Tweak
 
     [Dependency] private readonly ISerializationManager _serialization = default!; // ADT-Changeling-Tweak
     private const string RevertPolymorphId = "ActionRevertPolymorph";
@@ -207,11 +214,16 @@ public sealed partial class PolymorphSystem : EntitySystem
     /// <returns>The new entity, or null if the polymorph failed.</returns>
     public EntityUid? PolymorphEntity(EntityUid uid, PolymorphConfiguration configuration)
     {
-        // If they're morphed, check their current config to see if they can be
-        // morphed again
-        if (!configuration.IgnoreAllowRepeatedMorphs
-            && TryComp<PolymorphedEntityComponent>(uid, out var currentPoly)
-            && !currentPoly.Configuration.AllowRepeatedMorphs)
+        //ADT-Geras-Tweak-Start
+        if (configuration.CanNotPolymorphInStorage && HasComp<InsideEntityStorageComponent>(uid))
+        {
+            _popup.PopupEntity(Loc.GetString("polymorph-in-storage-forbidden"), uid, uid);
+            return null;
+        }
+        //ADT-Geras-Tweak-End
+
+        // if it's already morphed, don't allow it again with this condition active.
+        if (!configuration.AllowRepeatedMorphs && HasComp<PolymorphedEntityComponent>(uid))
             return null;
 
         // If this polymorph has a cooldown, check if that amount of time has passed since the
@@ -391,6 +403,30 @@ public sealed partial class PolymorphSystem : EntitySystem
                     var childQuirkComp = (Component)_serialization.CreateCopy(originalQuirkComp, notNullableOverride: true);
                     EntityManager.AddComponent(child, childQuirkComp);
                 }
+            }
+        }
+
+        if (configuration.TransferFlame && TryComp<FlammableComponent>(uid, out var parentFlame))
+        {
+            var childFlame = EnsureComp<FlammableComponent>(child);
+            _flammable.SetFireStacks(child, parentFlame.FireStacks, childFlame, parentFlame.OnFire);
+        }
+
+        if (configuration.TransferStaminaDamage && TryComp<StaminaComponent>(uid, out var parentStam))
+        {
+            var childStam = EnsureComp<StaminaComponent>(child);
+            var parentEffective = _stamina.GetStaminaDamage(uid, parentStam);
+            var fraction = parentEffective / parentStam.CritThreshold;
+            var childTarget = fraction * childStam.CritThreshold;
+            _stamina.TakeStaminaDamage(child, childTarget, childStam, visual: false, ignoreResist: true);
+        }
+
+        if (configuration.TransferTemperature)
+        {
+            if (TryComp<TemperatureComponent>(uid, out var parentTemp))
+            {
+                var childTemp = EnsureComp<TemperatureComponent>(child);
+                _temperatureSystem.ForceChangeTemperature(child, parentTemp.CurrentTemperature, childTemp);
             }
         }
         // ADT-Geras-Tweak-End
@@ -588,6 +624,34 @@ public sealed partial class PolymorphSystem : EntitySystem
 
         if (TryComp<PolymorphableComponent>(parent, out var polymorphableComponent))
             polymorphableComponent.LastPolymorphEnd = _gameTiming.CurTime;
+
+        //ADT-Geras-Tweak-Start
+        if (component.Configuration.TransferFlame && TryComp<FlammableComponent>(uid, out var childFlame))
+        {
+            var parentFlame = EnsureComp<FlammableComponent>(parent);
+            _flammable.SetFireStacks(parent, childFlame.FireStacks, parentFlame, childFlame.OnFire);
+        }
+
+        if (component.Configuration.TransferStaminaDamage && TryComp<StaminaComponent>(uid, out var childStam))
+        {
+            var parentStam = EnsureComp<StaminaComponent>(parent);
+            var childEffective = _stamina.GetStaminaDamage(uid, childStam);
+            var fraction = childEffective / childStam.CritThreshold;
+            var parentTarget = fraction * parentStam.CritThreshold;
+            var parentCurrent = _stamina.GetStaminaDamage(parent, parentStam);
+            var delta = parentTarget - parentCurrent;
+            _stamina.TakeStaminaDamage(parent, delta, parentStam, visual: false, ignoreResist: true);
+        }
+
+        if (component.Configuration.TransferTemperature)
+        {
+            if (TryComp<TemperatureComponent>(uid, out var childTemp))
+            {
+                var parentTemp = EnsureComp<TemperatureComponent>(parent);
+                _temperatureSystem.ForceChangeTemperature(parent, childTemp.CurrentTemperature, parentTemp);
+            }
+        }
+        //ADT-Geras-Tweak-End
 
         // if an item polymorph was picked up, put it back down after reverting
         _transform.AttachToGridOrMap(parent, parentXform);

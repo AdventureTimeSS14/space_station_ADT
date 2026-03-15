@@ -554,3 +554,6 @@
     transferDamage: true
     revertOnDeath: true
     revertOnCrit: true
+    transferFlame: true
+    transferStaminaDamage: true
+    transferTemperature: true
