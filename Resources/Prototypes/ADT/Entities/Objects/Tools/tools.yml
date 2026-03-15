@@ -120,3 +120,85 @@
     sprite: ADT/Objects/Tools/supermatter_scalpel.rsi
     storedRotation: 90
   - type : SupermatterImmune
+
+#рукодельные инструменты
+
+- type: entity
+  parent: BaseCrowbar
+  name: cамодельная монтировка
+  id: ADTHandMadeCrowbar
+  description: А это надёжно?..
+  components:
+  - type: Sprite
+    state: icon
+  - type: Item
+    storedSprite:
+      sprite: Objects/Tools/crowbar.rsi
+      state: storage
+  - type: MeleeWeapon
+    wideAnimationRotation: -100
+    damage:
+      types:
+        Blunt: 4
+    soundHit:
+      collection: MetalThud
+  - type: Prying
+    speedModifier: 0.4
+
+
+- type: entity
+  parent: Wirecutter
+  name: cамодельные кусачки
+  id: ADTHandMadeWirecutter
+  description: Это кусачки или щипчики?
+  components:
+  - type: MeleeWeapon
+    damage:
+      types:
+        Piercing: 0
+  - type: Tool
+    qualities:
+      - Cutting
+    speedModifier: 0.4
+    # ADT add
+  - type: Construction
+    graph: ADTHandmadeWirecutterGraph
+    node: HandmadeWirecutter
+
+- type: entity
+  parent: Screwdriver
+  name: cамодельная отвёртка
+  id: ADTHandMadeScrewdriver
+  description: Оно точно не сломается
+  components:
+  - type: MeleeWeapon
+    damage:
+      types:
+        Piercing: 0
+  - type: Tool
+    qualities:
+      - Screwing
+    speedModifier: 0.4
+      #ADT add
+  - type: Construction
+    graph: ADTHandmadeScrewdriver
+    node: HandmadeScrewdriver
+
+- type: entity
+  parent: Wrench
+  name: cамодельный гаечный ключ
+  id: ADTHandMadeWrench
+  description: Слабое и не надёжное
+  components:
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 2
+  - type: Tool
+    qualities:
+      - Anchoring
+    speedModifier: 0.4
+  - type: Construction
+    graph: ADTHandmadeWrench
+    node: HandmadeWrench
+
