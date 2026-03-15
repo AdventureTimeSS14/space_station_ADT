@@ -536,7 +536,7 @@
   id: ADTClothingChemdisBelt
   parent: ClothingBeltStorageBase
   name: chemdis belt 4000
-  description: Compact version of chemical dispencer, based on old versions of it.
+  description: Compact version of chemical dispenser, based on old versions of it.
   components:
   - type: Sprite
     sprite: ADT/Clothing/Belt/chemdis.rsi
@@ -574,7 +574,7 @@
   parent: ClothingBeltBase
   id: ADTClothingEnergyChemdisBelt
   name: energy chemdis belt 4000
-  description: Compact version of chemical dispencer, based on new versions of it.
+  description: Compact version of chemical dispenser, based on new versions of it.
   suffix: Energy
   components:
   - type: Sprite
@@ -596,8 +596,6 @@
     powerLoad: 0
   - type: ContainerContainer
     containers:
-      machine_board: !type:Container
-      machine_parts: !type:Container
       energyBeakerSlot: !type:ContainerSlot
       storagebase: !type:Container
   - type: GuideHelp
