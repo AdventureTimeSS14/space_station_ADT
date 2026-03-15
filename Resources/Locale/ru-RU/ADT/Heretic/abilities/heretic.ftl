@@ -37,6 +37,10 @@ heretic-speech-blade-furioussteel = F'LSH'NG S'LV'R!
 
 heretic-speech-flesh-surgery = CL'M M'N!
 heretic-speech-flesh-worm = REALITY UNCOIL!!
+heretic-speech-ghoul-call = C'M' T'M M'!!
+
+heretic-ghoul-call-success = {$count} гуль(ей) телепортировано к вам!
+heretic-ghoul-call-no-ghouls = У вас нет гулей!
 
 heretic-speech-rust-spread = A'GRSV SPR'D
 heretic-speech-rust-plume = 'NTR'P'C PL'M'
