@@ -250,6 +250,58 @@
     ClothingOuterArmorHeretic: 1
 
 - type: hereticRitual
+  id: ArmorerRitualBlade
+  locName: knowledge-path-side-s3-armor-name
+  locDesc: knowledge-path-side-s3-armor-desc
+  icon:
+    sprite: ADT/Heretic/HereticRobes/blade_armor.rsi
+    state: icon
+  requiredTags:
+    Table: 1
+    GasMask: 1
+  output:
+    ADTClothingOuterArmorHereticBlade: 1
+
+- type: hereticRitual
+  id: ArmorerRitualFlesh
+  locName: knowledge-path-side-s3-armor-name
+  locDesc: knowledge-path-side-s3-armor-desc
+  icon:
+    sprite: ADT/Heretic/HereticRobes/flesh_armor.rsi
+    state: icon
+  requiredTags:
+    Table: 1
+    GasMask: 1
+  output:
+    ADTClothingOuterArmorHereticFlesh: 1
+
+- type: hereticRitual
+  id: ArmorerRitualVoid
+  locName: knowledge-path-side-s3-armor-name
+  locDesc: knowledge-path-side-s3-armor-desc
+  icon:
+    sprite: ADT/Heretic/HereticRobes/void_armor.rsi
+    state: icon
+  requiredTags:
+    Table: 1
+    GasMask: 1
+  output:
+    ADTClothingOuterArmorHereticVoid: 1
+
+- type: hereticRitual
+  id: ArmorerRitualAsh
+  locName: knowledge-path-side-s3-armor-name
+  locDesc: knowledge-path-side-s3-armor-desc
+  icon:
+    sprite: ADT/Heretic/HereticRobes/ashen_armor.rsi
+    state: icon
+  requiredTags:
+    Table: 1
+    GasMask: 1
+  output:
+    ADTClothingOuterArmorHereticAsh: 1
+
+- type: hereticRitual
   id: AshenEyesRitual
   locName: knowledge-path-side-s3-ashen-eyes-name
   locDesc: knowledge-path-side-s3-ashen-eyes-desc
