@@ -14,7 +14,7 @@
       slotFlags: SOCKS
       stripTime: 6
       uiWindowPos: 4,0 # измененно из-за добавление новых слотов
-      strippingWindowPos: 2,5 # измененно из-за добавление новых слотов
+      strippingWindowPos: 2,4 # измененно из-за добавление новых слотов
       displayName: Socks
       whitelist:
         tags:
@@ -24,7 +24,7 @@
       slotFlags: UNDERWEARB
       stripTime: 6
       uiWindowPos: 4,1 # измененно из-за добавление новых слотов
-      strippingWindowPos: 1,5 # измененно из-за добавление новых слотов
+      strippingWindowPos: 1,4 # измененно из-за добавление новых слотов
       displayName: Panties
       whitelist:
         tags:
@@ -34,7 +34,7 @@
       slotFlags: UNDERWEART
       stripTime: 6
       uiWindowPos: 4,2 # измененно из-за добавление новых слотов
-      strippingWindowPos: 0,5 # измененно из-за добавление новых слотов
+      strippingWindowPos: 0,4 # измененно из-за добавление новых слотов
       displayName: Bra
       whitelist:
         tags:
