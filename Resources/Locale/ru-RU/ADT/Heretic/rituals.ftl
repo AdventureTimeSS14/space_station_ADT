@@ -46,6 +46,7 @@ heretic-ritual-side-shark = Обжигающая Акула
 heretic-ritual-side-cloak = Пустотный Плащ
 heretic-ritual-side-ghoul = Ритуал Обращения
 heretic-ritual-side-armor = Ритуал Бронника
+heretic-ritual-side-armor-desc = Создаёт уникальную робу и капюшон в зависимости от пути еретика. Путь Клинка — робу клинка, путь Плоти — робу плоти, и т.д.
 heretic-ritual-side-water = Ритуал Жреца
 heretic-ritual-side-knife = Ритуальный Нож
 heretic-ritual-side-crucible = Колдовской Котёл

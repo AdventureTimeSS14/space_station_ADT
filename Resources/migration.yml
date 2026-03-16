@@ -869,9 +869,6 @@ ADTSpawnMobXenoDrone: SpawnMobXenoDrone
 ADTSpawnMobXenoQueen: SpawnMobXenoQueen
 ADTSpawnMobXenoRavager: SpawnMobXenoRavager
 
-# ADT 2026-03-02
-Bloodpack: ADTBloodPackTransfusionFull
-
 # ADT 2026-02-27
 BoozeDispenserMachineCircuitboard: ADTEnergyBoozeDispenserMachineCircuitboard
 BoozeDispenser: ADTEnergyBoozeDispenser
