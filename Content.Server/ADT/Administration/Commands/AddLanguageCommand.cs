@@ -1,13 +1,13 @@
 using System.Linq;
-using System.Text;
 using Content.Server.Administration;
+using Content.Server.ADT.Language;
 using Content.Shared.ADT.Language;
 using Content.Shared.Administration;
 using Robust.Shared.Console;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server.ADT.Language.Commands;
+namespace Content.Server.ADT.Administration.Commands;
 
 [AdminCommand(AdminFlags.Admin)]
 public sealed class AddLanguageCommand : LocalizedEntityCommands

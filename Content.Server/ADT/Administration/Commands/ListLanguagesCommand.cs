@@ -6,7 +6,7 @@ using Content.Shared.Administration;
 using Robust.Shared.Console;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server.ADT.Language.Commands;
+namespace Content.Server.ADT.Administration.Commands;
 
 [AdminCommand(AdminFlags.Admin)]
 public sealed class ListLanguagesCommand : LocalizedEntityCommands
