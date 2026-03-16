@@ -48,6 +48,7 @@ public abstract partial class SharedMoverController : VirtualController
 
     protected EntityQuery<CanMoveInAirComponent> CanMoveInAirQuery;
     protected EntityQuery<FootstepModifierComponent> FootstepModifierQuery;
+    protected EntityQuery<MovementAlwaysTouchingComponent> AlwaysTouchingQuery; // ADT-Tweak
     protected EntityQuery<InputMoverComponent> MoverQuery;
     protected EntityQuery<MapComponent> MapQuery;
     protected EntityQuery<MapGridComponent> MapGridQuery;
@@ -90,6 +91,7 @@ public abstract partial class SharedMoverController : VirtualController
         XformQuery = GetEntityQuery<TransformComponent>();
         NoRotateQuery = GetEntityQuery<NoRotateOnMoveComponent>();
         CanMoveInAirQuery = GetEntityQuery<CanMoveInAirComponent>();
+        AlwaysTouchingQuery = GetEntityQuery<MovementAlwaysTouchingComponent>(); // ADT-Tweak
         FootstepModifierQuery = GetEntityQuery<FootstepModifierComponent>();
         MapGridQuery = GetEntityQuery<MapGridComponent>();
         MapQuery = GetEntityQuery<MapComponent>();
@@ -199,7 +201,22 @@ public abstract partial class SharedMoverController : VirtualController
         var weightless = _gravity.IsWeightless(uid);
         var inAirHelpless = false;
 
-        if (physicsComponent.BodyStatus != BodyStatus.OnGround && !CanMoveInAirQuery.HasComponent(uid))
+        // ADT-Tweak start: Check if we're in space (no gravity) and don't have the ability to move in air
+        var hasGravity = _gravity.EntityGridOrMapHaveGravity(uid);
+        var canMoveInAir = CanMoveInAirQuery.HasComponent(uid);
+
+        // If there's no gravity and we can't move in air, then we can't move
+        // unless we have MovementAlwaysTouching
+        var hasAlwaysTouching = AlwaysTouchingQuery.HasComponent(uid);
+
+        if (!hasGravity && !canMoveInAir && !hasAlwaysTouching)
+        {
+            UsedMobMovement[uid] = false;
+            return;
+        }
+
+        if (physicsComponent.BodyStatus != BodyStatus.OnGround && !canMoveInAir)
+        // ADT-Tweak end
         {
             if (!weightless)
             {
