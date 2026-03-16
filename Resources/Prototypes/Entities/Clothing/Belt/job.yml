@@ -30,6 +30,7 @@
       - WeldingMask
       - RemoteSignaller
       - UtilityKnife
+      - RPD # ADT-Tweak
       components:
       - StationMap
       - SprayPainter
@@ -183,6 +184,7 @@
       - DiscreteHealthAnalyzer
       - SurgeryTool
       - Dropper
+      - ADTMobileDefibrillator # ADT-Tweak
       components:
       - Hypospray
       - Injector

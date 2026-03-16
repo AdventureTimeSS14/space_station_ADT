@@ -16,7 +16,7 @@
         heart: ADTOrganTajaranHeart
         lungs: OrganHumanLungs
         stomach: ADTOrganTajaranStomach
-        liver: OrganAnimalLiver
+        liver: ADTOrganTajaranLiver
         kidneys: OrganHumanKidneys
       connections:
         - right arm

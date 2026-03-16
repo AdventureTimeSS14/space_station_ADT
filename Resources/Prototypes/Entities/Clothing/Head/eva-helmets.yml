@@ -14,6 +14,10 @@
     - HelmetEVA
     - WhitelistChameleon
     - CorgiWearable
+  #ADT-Tweak-Start
+  - type: HidesSlots
+    hidesSlots: [ EYES, EARS, MASK ]
+  #ADT-Tweak-End
 
 #Large EVA Helmet
 - type: entity

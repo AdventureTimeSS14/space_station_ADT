@@ -6,8 +6,58 @@
   components:
   - type: HumanoidAppearance
     species: DraskSpecies
+    hideLayersOnEquip:
+    - HeadSide
   - type: Sprite
     scale: 1.07, 1.07
+    drawdepth: Mobs
+    noRot: true
+    layers:
+    - map: [ "enum.HumanoidVisualLayers.Chest" ]
+    - map: [ "enum.HumanoidVisualLayers.Head" ]
+    - map: [ "enum.HumanoidVisualLayers.Eyes" ]
+      shader: unshaded
+      sprite: ADT/Mobs/Species/Drask/parts.rsi
+      state: eyes
+    - map: [ "enum.HumanoidVisualLayers.RArm" ]
+    - map: [ "enum.HumanoidVisualLayers.LArm" ]
+    - map: [ "enum.HumanoidVisualLayers.RLeg" ]
+    - map: [ "enum.HumanoidVisualLayers.LLeg" ]
+    - map: [ "enum.HumanoidVisualLayers.UndergarmentBottom" ]
+    - map: [ "enum.HumanoidVisualLayers.UndergarmentTop" ]
+    - map: [ "underwearb" ]
+    - map: [ "underweart" ]
+    - map: [ "enum.HumanoidVisualLayers.LFoot" ]
+    - map: [ "enum.HumanoidVisualLayers.RFoot" ]
+    - map: [ "socks" ]
+    - map: ["jumpsuit"]
+    - map: ["enum.HumanoidVisualLayers.LHand"]
+    - map: ["enum.HumanoidVisualLayers.RHand"]
+    - map: ["enum.HumanoidVisualLayers.Handcuffs"]
+      color: "#ffffff"
+      sprite: Objects/Misc/handcuffs.rsi
+      state: body-overlay-2
+      visible: false
+    - map: [ "gloves" ]
+    - map: [ "shoes" ]
+    - map: [ "ears" ]
+    - map: [ "eyes" ]
+    - map: [ "belt" ]
+    - map: [ "id" ]
+    - map: [ "outerClothing" ]
+    - map: [ "back" ]
+    - map: [ "neck" ]
+    - map: [ "enum.HumanoidVisualLayers.SnoutCover" ]
+    - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
+    - map: [ "enum.HumanoidVisualLayers.Hair" ]
+    - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
+    - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
+    - map: [ "enum.HumanoidVisualLayers.Tail" ]
+    - map: [ "enum.HumanoidVisualLayers.Snout" ]
+    - map: [ "mask" ]
+    - map: [ "head" ]
+    - map: [ "pocket1" ]
+    - map: [ "pocket2" ]
   - type: Hunger
   - type: Thirst
   - type: Icon
@@ -59,7 +109,7 @@
     baseSprintSpeed : 4.3
   - type: Temperature
     heatDamageThreshold: 313.15 # 40C
-    coldDamageThreshold: 243.15 # -30C
+    coldDamageThreshold: -800 # Иммунитет к холоду - не получают урон и алерты
     currentTemperature: 273.15
     coldDamage: #per second, scales with temperature & other constants
       groups:
@@ -119,108 +169,109 @@
       Unsexed: MaleDrask
   - type: Inventory
     speciesId: drask
-    displacements:
-      head:
-        sizeMaps:
-          32:
-            sprite: ADT/Mobs/Species/Drask/displacement.rsi
-            state: head
-      eyes:
-        sizeMaps:
-          32:
-            sprite: ADT/Mobs/Species/Drask/displacement.rsi
-            state: eyes
-      ears:
-        sizeMaps:
-          32:
-            sprite: ADT/Mobs/Species/Drask/displacement.rsi
-            state: ears
-      gloves:
-        sizeMaps:
-          32:
-            sprite: ADT/Mobs/Species/Drask/displacement.rsi
-            state: gloves
-      belt:
-        sizeMaps:
-          32:
-            sprite: ADT/Mobs/Species/Drask/displacement.rsi
-            state: belt
-      jumpsuit:
-        sizeMaps:
-          32:
-            sprite: ADT/Mobs/Species/Drask/displacement.rsi
-            state: jumpsuit
-      socks:
-        sizeMaps:
-          32:
-            sprite: ADT/Mobs/Species/Drask/displacement.rsi
-            state: jumpsuit
-      underweart:
-        sizeMaps:
-          32:
-            sprite: ADT/Mobs/Species/Drask/displacement.rsi
-            state: underweart
-      underwearb:
-        sizeMaps:
-          32:
-            sprite: ADT/Mobs/Species/Drask/displacement.rsi
-            state: underwearb
-      outerClothing:
-        sizeMaps:
-          32:
-            sprite: ADT/Mobs/Species/Drask/displacement.rsi
-            state: outerclothing
-    femaleDisplacements:
-      head:
-        sizeMaps:
-          32:
-            sprite: ADT/Mobs/Species/Drask/displacement.rsi
-            state: head
-      eyes:
-        sizeMaps:
-          32:
-            sprite: ADT/Mobs/Species/Drask/displacement.rsi
-            state: eyes
-      ears:
-        sizeMaps:
-          32:
-            sprite: ADT/Mobs/Species/Drask/displacement.rsi
-            state: ears
-      gloves:
-        sizeMaps:
-          32:
-            sprite: ADT/Mobs/Species/Drask/displacement.rsi
-            state: gloves
-      belt:
-        sizeMaps:
-          32:
-            sprite: ADT/Mobs/Species/Drask/displacement.rsi
-            state: belt
-      jumpsuit:
-        sizeMaps:
-          32:
-            sprite: ADT/Mobs/Species/Drask/displacement.rsi
-            state: jumpsuit
-      socks:
-        sizeMaps:
-          32:
-            sprite: ADT/Mobs/Species/Drask/displacement.rsi
-            state: jumpsuit
-      underweart:
-        sizeMaps:
-          32:
-            sprite: ADT/Mobs/Species/Drask/displacement.rsi
-            state: underweart
-      underwearb:
-        sizeMaps:
-          32:
-            sprite: ADT/Mobs/Species/Drask/displacement.rsi
-            state: underwearb
-      outerClothing:
-        sizeMaps:
-          32:
-            sprite: ADT/Mobs/Species/Drask/displacement.rsi
-            state: outerclothing
+# Обновлён спрайт, дисплейсменты не нужны
+#    displacements:
+#      head:
+#        sizeMaps:
+#          32:
+#            sprite: ADT/Mobs/Species/Drask/displacement.rsi
+#            state: head
+#      eyes:
+#        sizeMaps:
+#          32:
+#            sprite: ADT/Mobs/Species/Drask/displacement.rsi
+#            state: eyes
+#      ears:
+#        sizeMaps:
+#          32:
+#            sprite: ADT/Mobs/Species/Drask/displacement.rsi
+#            state: ears
+#      gloves:
+#        sizeMaps:
+#          32:
+#            sprite: ADT/Mobs/Species/Drask/displacement.rsi
+#            state: gloves
+#      belt:
+#        sizeMaps:
+#          32:
+#            sprite: ADT/Mobs/Species/Drask/displacement.rsi
+#            state: belt
+#      jumpsuit:
+#        sizeMaps:
+#          32:
+#            sprite: ADT/Mobs/Species/Drask/displacement.rsi
+#            state: jumpsuit
+#      socks:
+#        sizeMaps:
+#          32:
+#            sprite: ADT/Mobs/Species/Drask/displacement.rsi
+#            state: jumpsuit
+#      underweart:
+#        sizeMaps:
+#          32:
+#            sprite: ADT/Mobs/Species/Drask/displacement.rsi
+#            state: underweart
+#      underwearb:
+#        sizeMaps:
+#          32:
+#            sprite: ADT/Mobs/Species/Drask/displacement.rsi
+#            state: underwearb
+#      outerClothing:
+#        sizeMaps:
+#          32:
+#            sprite: ADT/Mobs/Species/Drask/displacement.rsi
+#            state: outerclothing
+#    femaleDisplacements:
+#      head:
+#        sizeMaps:
+#          32:
+#            sprite: ADT/Mobs/Species/Drask/displacement.rsi
+#            state: head
+#      eyes:
+#        sizeMaps:
+#          32:
+#            sprite: ADT/Mobs/Species/Drask/displacement.rsi
+#            state: eyes
+#      ears:
+#        sizeMaps:
+#          32:
+#            sprite: ADT/Mobs/Species/Drask/displacement.rsi
+#            state: ears
+#      gloves:
+#        sizeMaps:
+#          32:
+#            sprite: ADT/Mobs/Species/Drask/displacement.rsi
+#            state: gloves
+#      belt:
+#        sizeMaps:
+#          32:
+#            sprite: ADT/Mobs/Species/Drask/displacement.rsi
+#            state: belt
+#      jumpsuit:
+#        sizeMaps:
+#          32:
+#            sprite: ADT/Mobs/Species/Drask/displacement.rsi
+#            state: jumpsuit
+#      socks:
+#        sizeMaps:
+#          32:
+#            sprite: ADT/Mobs/Species/Drask/displacement.rsi
+#            state: jumpsuit
+#      underweart:
+#        sizeMaps:
+#          32:
+#            sprite: ADT/Mobs/Species/Drask/displacement.rsi
+#            state: underweart
+#      underwearb:
+#        sizeMaps:
+#          32:
+#            sprite: ADT/Mobs/Species/Drask/displacement.rsi
+#            state: underwearb
+#      outerClothing:
+#        sizeMaps:
+#          32:
+#            sprite: ADT/Mobs/Species/Drask/displacement.rsi
+#            state: outerclothing
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Drask
@@ -243,111 +294,157 @@
   components:
   - type: HumanoidAppearance
     species: DraskSpecies
+    hideLayersOnEquip:
+    - HeadSide
   - type: Sprite
     scale: 1.07, 1.07
+    drawdepth: Mobs
+    noRot: true
+    layers:
+    - map: [ "enum.HumanoidVisualLayers.Chest" ]
+    - map: [ "enum.HumanoidVisualLayers.Head" ]
+    - map: [ "enum.HumanoidVisualLayers.Eyes" ]
+    - map: [ "enum.HumanoidVisualLayers.RArm" ]
+    - map: [ "enum.HumanoidVisualLayers.LArm" ]
+    - map: [ "enum.HumanoidVisualLayers.RLeg" ]
+    - map: [ "enum.HumanoidVisualLayers.LLeg" ]
+    - map: [ "enum.HumanoidVisualLayers.UndergarmentBottom" ]
+    - map: [ "enum.HumanoidVisualLayers.UndergarmentTop" ]
+    - map: [ "underwearb" ]
+    - map: [ "underweart" ]
+    - map: [ "enum.HumanoidVisualLayers.LFoot" ]
+    - map: [ "enum.HumanoidVisualLayers.RFoot" ]
+    - map: [ "socks" ]
+    - map: ["jumpsuit"]
+    - map: ["enum.HumanoidVisualLayers.LHand"]
+    - map: ["enum.HumanoidVisualLayers.RHand"]
+    - map: ["enum.HumanoidVisualLayers.Handcuffs"]
+      color: "#ffffff"
+      sprite: Objects/Misc/handcuffs.rsi
+      state: body-overlay-2
+      visible: false
+    - map: [ "gloves" ]
+    - map: [ "shoes" ]
+    - map: [ "ears" ]
+    - map: [ "eyes" ]
+    - map: [ "belt" ]
+    - map: [ "id" ]
+    - map: [ "outerClothing" ]
+    - map: [ "back" ]
+    - map: [ "neck" ]
+    - map: [ "enum.HumanoidVisualLayers.SnoutCover" ]
+    - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
+    - map: [ "enum.HumanoidVisualLayers.Hair" ]
+    - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
+    - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
+    - map: [ "enum.HumanoidVisualLayers.Tail" ]
+    - map: [ "enum.HumanoidVisualLayers.Snout" ]
+    - map: [ "mask" ]
+    - map: [ "head" ]
+    - map: [ "pocket1" ]
+    - map: [ "pocket2" ]
   - type: Inventory
     speciesId: drask
-    displacements:
-      head:
-        sizeMaps:
-          32:
-            sprite: ADT/Mobs/Species/Drask/displacement.rsi
-            state: head
-      eyes:
-        sizeMaps:
-          32:
-            sprite: ADT/Mobs/Species/Drask/displacement.rsi
-            state: eyes
-      ears:
-        sizeMaps:
-          32:
-            sprite: ADT/Mobs/Species/Drask/displacement.rsi
-            state: ears
-      gloves:
-        sizeMaps:
-          32:
-            sprite: ADT/Mobs/Species/Drask/displacement.rsi
-            state: gloves
-      belt:
-        sizeMaps:
-          32:
-            sprite: ADT/Mobs/Species/Drask/displacement.rsi
-            state: belt
-      jumpsuit:
-        sizeMaps:
-          32:
-            sprite: ADT/Mobs/Species/Drask/displacement.rsi
-            state: jumpsuit
-      socks:
-        sizeMaps:
-          32:
-            sprite: ADT/Mobs/Species/Drask/displacement.rsi
-            state: jumpsuit
-      underweart:
-        sizeMaps:
-          32:
-            sprite: ADT/Mobs/Species/Drask/displacement.rsi
-            state: underweart
-      underwearb:
-        sizeMaps:
-          32:
-            sprite: ADT/Mobs/Species/Drask/displacement.rsi
-            state: underwearb
-      outerClothing:
-        sizeMaps:
-          32:
-            sprite: ADT/Mobs/Species/Drask/displacement.rsi
-            state: outerclothing
-    femaleDisplacements:
-      head:
-        sizeMaps:
-          32:
-            sprite: ADT/Mobs/Species/Drask/displacement.rsi
-            state: head
-      eyes:
-        sizeMaps:
-          32:
-            sprite: ADT/Mobs/Species/Drask/displacement.rsi
-            state: eyes
-      ears:
-        sizeMaps:
-          32:
-            sprite: ADT/Mobs/Species/Drask/displacement.rsi
-            state: ears
-      gloves:
-        sizeMaps:
-          32:
-            sprite: ADT/Mobs/Species/Drask/displacement.rsi
-            state: gloves
-      belt:
-        sizeMaps:
-          32:
-            sprite: ADT/Mobs/Species/Drask/displacement.rsi
-            state: belt
-      jumpsuit:
-        sizeMaps:
-          32:
-            sprite: ADT/Mobs/Species/Drask/displacement.rsi
-            state: jumpsuit
-      socks:
-        sizeMaps:
-          32:
-            sprite: ADT/Mobs/Species/Drask/displacement.rsi
-            state: jumpsuit
-      underweart:
-        sizeMaps:
-          32:
-            sprite: ADT/Mobs/Species/Drask/displacement.rsi
-            state: underweart
-      underwearb:
-        sizeMaps:
-          32:
-            sprite: ADT/Mobs/Species/Drask/displacement.rsi
-            state: underwearb
-      outerClothing:
-        sizeMaps:
-          32:
-            sprite: ADT/Mobs/Species/Drask/displacement.rsi
-            state: outerclothing
-
-
+# Обновлён спрайт, дисплейсменты не нужны
+#    displacements:
+#      head:
+#        sizeMaps:
+#          32:
+#            sprite: ADT/Mobs/Species/Drask/displacement.rsi
+#            state: head
+#      eyes:
+#        sizeMaps:
+#          32:
+#            sprite: ADT/Mobs/Species/Drask/displacement.rsi
+#            state: eyes
+#      ears:
+#        sizeMaps:
+#          32:
+#            sprite: ADT/Mobs/Species/Drask/displacement.rsi
+#            state: ears
+#      gloves:
+#        sizeMaps:
+#          32:
+#            sprite: ADT/Mobs/Species/Drask/displacement.rsi
+#            state: gloves
+#      belt:
+#        sizeMaps:
+#          32:
+#            sprite: ADT/Mobs/Species/Drask/displacement.rsi
+#            state: belt
+#      jumpsuit:
+#        sizeMaps:
+#          32:
+#            sprite: ADT/Mobs/Species/Drask/displacement.rsi
+#            state: jumpsuit
+#      socks:
+#        sizeMaps:
+#          32:
+#            sprite: ADT/Mobs/Species/Drask/displacement.rsi
+#            state: jumpsuit
+#      underweart:
+#        sizeMaps:
+#          32:
+#            sprite: ADT/Mobs/Species/Drask/displacement.rsi
+#            state: underweart
+#      underwearb:
+#        sizeMaps:
+#          32:
+#            sprite: ADT/Mobs/Species/Drask/displacement.rsi
+#            state: underwearb
+#      outerClothing:
+#        sizeMaps:
+#          32:
+#            sprite: ADT/Mobs/Species/Drask/displacement.rsi
+#            state: outerclothing
+#    femaleDisplacements:
+#      head:
+#        sizeMaps:
+#          32:
+#            sprite: ADT/Mobs/Species/Drask/displacement.rsi
+#            state: head
+#      eyes:
+#        sizeMaps:
+#          32:
+#            sprite: ADT/Mobs/Species/Drask/displacement.rsi
+#            state: eyes
+#      ears:
+#        sizeMaps:
+#          32:
+#            sprite: ADT/Mobs/Species/Drask/displacement.rsi
+#            state: ears
+#      gloves:
+#        sizeMaps:
+#          32:
+#            sprite: ADT/Mobs/Species/Drask/displacement.rsi
+#            state: gloves
+#      belt:
+#        sizeMaps:
+#          32:
+#            sprite: ADT/Mobs/Species/Drask/displacement.rsi
+#            state: belt
+#      jumpsuit:
+#        sizeMaps:
+#          32:
+#            sprite: ADT/Mobs/Species/Drask/displacement.rsi
+#            state: jumpsuit
+#      socks:
+#        sizeMaps:
+#          32:
+#            sprite: ADT/Mobs/Species/Drask/displacement.rsi
+#            state: jumpsuit
+#      underweart:
+#        sizeMaps:
+#          32:
+#            sprite: ADT/Mobs/Species/Drask/displacement.rsi
+#            state: underweart
+#      underwearb:
+#        sizeMaps:
+#          32:
+#            sprite: ADT/Mobs/Species/Drask/displacement.rsi
+#            state: underwearb
+#      outerClothing:
+#        sizeMaps:
+#          32:
+#            sprite: ADT/Mobs/Species/Drask/displacement.rsi
+#            state: outerclothing

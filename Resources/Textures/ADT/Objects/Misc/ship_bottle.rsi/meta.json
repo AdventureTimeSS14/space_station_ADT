@@ -1,0 +1,14 @@
+{
+    "version": 2,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "made by discord:prazat911 for AdventureTime",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "ship_bottle"
+        }
+    ]
+}

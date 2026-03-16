@@ -76,7 +76,7 @@
     shoes: ClothingShoesColorBrown
     id: HoPPDA
     gloves: ClothingHandsGlovesHop
-    ears: ClothingHeadsetAltCommand
+    # ears: ClothingHeadsetAltCommand # ADT tweak - выдаются через loadout ADTHoP
     belt: BoxFolderClipboardThreePapers
     eyes: ClothingEyesHudCommand
   storage:

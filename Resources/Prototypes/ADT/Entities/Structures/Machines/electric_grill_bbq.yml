@@ -1,0 +1,46 @@
+- type: entity
+  parent: BaseHeaterMachine
+  id: ADTElectricGrillBBQ
+  name: electric grill
+  description: Good thing for barbecue in the yard!
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Machines/electric_grill_bbq.rsi
+    drawdepth: SmallObjects
+    snapCardinals: true
+    layers:
+    - map: ["GrillBase"]
+      state: close
+      shader: unshaded
+    - map: ["GrillOverlay"]
+      shader: unshaded
+      visible: false
+  - type: ApcPowerReceiver
+    powerLoad: 0
+  - type: EntityHeater
+    settingSound:
+      path: /Audio/Weapons/click.ogg
+      params:
+        volume: -6
+  - type: ItemPlacer
+    maxEntities: 4
+    whitelist:
+      components:
+      - Temperature
+  - type: PlaceableSurface
+  - type: Machine
+    board: ElectricGrillMachineCircuitboard
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.EntityHeaterVisuals.Setting:
+        GrillBase:
+          Off: { state: close }
+          Low: { state: icon }
+          Medium: { state: icon }
+          High: { state: icon }
+        GrillOverlay:
+          Off: { visible: false }
+          Low: { visible: true, state: low }
+          Medium: { visible: true, state: medium }
+          High: { visible: true, state: high }

@@ -47,3 +47,645 @@
   - type: Construction
     graph: ADTDiscoBallGraph
     node: adtdiscoball
+
+# Боксёрская груша
+
+- type: entity
+  id: ADTPunchingBag
+  parent: BaseStructure
+  name: punching bag
+  description: A heavy bag for boxing practice.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/PunchingBag/punchingbag.rsi
+    drawdepth: HighFloorObjects
+    noRot: true
+    layers:
+    - state: punchingbag
+      map: ["base"]
+  - type: Transform
+    anchored: true
+    noRot: true
+  - type: InteractionOutline
+  - type: Anchorable
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.5,0.25,0.5"
+        density: 50
+        mask:
+        - TableMask
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: Pullable
+  - type: PunchingBagAnimations
+    animationState: swinging
+
+# Часовой шкаф
+
+- type: entity
+  name: часовой шкаф
+  id: ADTClockCabinet
+  parent: BaseStructure
+  description: Тик. Так. Тик. Так.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/clock_cabinet.rsi # made by prazat911 for ADT
+    layers:
+    - state: clock-off
+      map: ["enum.ToggleableVisuals.Layer"]
+    noRot: true
+  - type: Transform
+    anchored: true
+  - type: Anchorable
+  - type: Rotatable
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.3,-0.3,0.6,0.6"
+        density: 190
+        mask:
+        - TableMask
+  - type: Appearance
+  - type: Clickable
+  - type: InteractionOutline
+  - type: ItemToggle
+    onActivate: true
+    predictable: true
+  - type: ItemToggleActiveSound
+    activeSound:
+      path: /Audio/ADT/Furniture/clock_ticktack.ogg
+      params:
+        volume: -8
+        maxDistance: 5
+  - type: Clock
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleableVisuals.Enabled:
+        enum.ToggleableVisuals.Layer:
+          True: {state: clock-on}
+          False: {state: clock-off}
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 100
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+      - trigger:
+          !type:DamageTrigger
+          damage: 50
+        behaviors:
+          - !type:DoActsBehavior
+            acts: ["Destruction"]
+          - !type:PlaySoundBehavior
+            sound:
+              collection: MetalBreak
+
+# Мемориалы
+
+- type: entity
+  id: ADTColumn
+  parent: Memorial
+  name: alien column
+  description: A tall column with carved hieroglyphs in an unknown language.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Memorials/column.rsi
+    state: full
+    drawdepth: OverMobs
+    noRot: true
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.225,-0.95,0.225,0.05"
+        density: 85
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+
+- type: entity
+  id: ADTColumnDamaged
+  parent: Memorial
+  name: alien column
+  description: A tall column with carved hieroglyphs in an unknown language. Looks old.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Memorials/column.rsi
+    state: column_damaged
+    drawdepth: OverMobs
+    noRot: true
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.225,-0.95,0.225,0.05"
+        density: 85
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+
+- type: entity
+  id: ADTMemorialTombstone1
+  parent: Memorial
+  name: tombstone
+  description: Rest in peace.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Memorials/tombstone.rsi
+    state: tombstone1
+    noRot: true
+
+- type: entity
+  id: ADTMemorialTombstone2
+  parent: Memorial
+  name: tombstone
+  description: Rest in peace.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Memorials/tombstone.rsi
+    state: tombstone2
+    noRot: true
+
+- type: entity
+  id: ADTMemorialTombstone3
+  parent: Memorial
+  name: tombstone
+  description: Rest in peace.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Memorials/tombstone.rsi
+    state: tombstone3
+    noRot: true
+
+- type: entity
+  id: ADTMemorialTombstone4
+  parent: Memorial
+  name: tombstone
+  description: Rest in peace.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Memorials/tombstone.rsi
+    state: tombstone4
+    noRot: true
+
+- type: entity
+  id: ADTMemorialTombstone5
+  parent: Memorial
+  name: tombstone
+  description: Rest in peace.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Memorials/tombstone.rsi
+    state: tombstone5
+    noRot: true
+
+- type: entity
+  id: ADTMemorialVeterans
+  parent: Memorial
+  name: fallen memorial
+  description: A memorial plaque with names of fallen marines and peacekeepers.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Memorials/veterans_64x32.rsi
+    state: full
+    drawdepth: OverMobs
+    noRot: true
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-1.0,-0.5,1.0,0.5"
+        density: 85
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+
+- type: entity
+  id: ADTMemorialVeteransCivilWar
+  parent: Memorial
+  name: civil war veterans memorial
+  description: A massive black granite slab covered with countless names of fallen soldiers.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/Memorials/veterans_192x64.rsi
+    state: full
+    drawdepth: OverMobs
+    noRot: true
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-3.0,-1.0,3.0,0.0"
+        density: 85
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+
+- type: entity
+  id: ADTPit
+  parent: BaseStructure
+  name: well
+  description: A source of drinking water.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/pit.rsi
+    state: pit
+  - type: Icon
+    sprite: ADT/Structures/Furniture/pit.rsi
+    state: pit
+  - type: SolutionContainerManager
+    solutions:
+      tank:
+        maxVol: 10000
+        reagents:
+        - ReagentId: Water
+          Quantity: 10000
+  - type: DrainableSolution
+    solution: tank
+  - type: Edible
+    solution: tank
+    transferAmount: 5
+    delay: 1
+    utensil: None
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+          params:
+            volume: -6
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetSteel1:
+            min: 2
+            max: 4
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Anchorable
+  - type: Rotatable
+  - type: InteractionOutline
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.45,-0.45,0.45,0.45"
+        density: 100
+        mask:
+        - MachineMask
+        layer:
+        - MidImpassable
+        - LowImpassable
+
+- type: entity
+  id: ADTStandKatana
+  parent: BaseStructure
+  name: katana stand
+  description: A stand for displaying a katana.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/stand_katana.rsi
+    state: stand-katana
+  - type: Icon
+    sprite: ADT/Structures/Furniture/stand_katana.rsi
+    state: stand-katana
+  - type: Storage
+    grid:
+    - 0,0,2,2
+    maxItemSize: Normal
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+          params:
+            volume: -6
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetSteel1:
+            min: 1
+            max: 2
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Anchorable
+  - type: Rotatable
+  - type: InteractionOutline
+  - type: Clickable
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.3,-0.3,0.3,0.3"
+        density: 100
+        mask:
+        - MachineMask
+        layer:
+        - MidImpassable
+        - LowImpassable
+
+- type: entity
+  id: ADTStandKatanaFwo
+  parent: ADTStandKatana
+  name: katana stand
+  suffix: Fwo
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/stand_katana_fwo.rsi
+    state: stand-katana-fwo
+  - type: Icon
+    sprite: ADT/Structures/Furniture/stand_katana_fwo.rsi
+    state: stand-katana-fwo
+
+- type: entity
+  id: ADTFloorGlobus
+  parent: BaseStructure
+  name: floor globe
+  description: A decorative floor globe.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/floor_globus.rsi
+    state: floor_globus
+  - type: Icon
+    sprite: ADT/Structures/Furniture/floor_globus.rsi
+    state: floor_globus
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+          params:
+            volume: -6
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetGlass1:
+            min: 1
+            max: 2
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Anchorable
+  - type: Rotatable
+  - type: InteractionOutline
+  - type: Clickable
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.3,-0.3,0.3,0.3"
+        density: 100
+        mask:
+        - MachineMask
+        layer:
+        - MidImpassable
+        - LowImpassable
+
+- type: entity
+  id: ADTPitPoisoned
+  parent: ADTPit
+  name: poisoned well
+  description: A source of poisoned water. Drinking from this is not recommended.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      tank:
+        maxVol: 10000
+        reagents:
+        - ReagentId: Toxin
+          Quantity: 10000
+  - type: SolutionRegeneration
+    solution: tank
+    duration: 0.1
+    generated:
+      reagents:
+      - ReagentId: Toxin
+        Quantity: 100
+
+- type: entity
+  id: ADTPitDried
+  parent: ADTPit
+  name: dried well
+  description: A dried up well. No water left.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      tank:
+        maxVol: 10000
+  - type: DrainableSolution
+    solution: tank
+  - type: Edible
+    solution: tank
+    transferAmount: 5
+    delay: 1
+    destroyOnEmpty: false
+    utensil: None
+
+- type: entity
+  id: ADTCableReel
+  parent: BaseStructure
+  name: cable reel
+  description: A large reel for storing and organizing cables.
+  components:
+  - type: Animateable
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Wood
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 15
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WoodDestroy
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          MaterialWoodPlank:
+            min: 1
+            max: 5
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.5
+        density: 55
+        mask:
+        - TableMask
+        layer:
+        - TableLayer
+  - type: SpriteFade
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/cable_reel.rsi
+    state: cable_reel
+  - type: Climbable
+  - type: Bonkable
+    bonkDamage:
+      types:
+        Blunt: 4
+    bonkSound: !type:SoundCollectionSpecifier
+      collection: TrayHit
+  - type: Clickable
+  - type: Anchorable
+  - type: Rotatable
+  - type: InteractionOutline
+  - type: Physics
+    bodyType: Static
+  - type: Transform
+    anchored: true
+  - type: Construction
+    graph: ADTTable
+    node: adtcablereel
+  - type: Tag
+    tags:
+    - ForceFixRotations
+
+- type: entity
+  parent: BaseStructure
+  id: ADTChalkboard
+  name: chalkboard
+  description: A blackboard for writing messages with chalk.
+  components:
+  - type: Transform
+    noRot: true
+  - type: Sprite
+    sprite: ADT/Structures/Furniture/chalkboard.rsi
+    noRot: true
+    layers:
+    - state: chalkboard
+    - state: chalkboard-text
+      map: ["enum.PaperVisualLayers.Writing"]
+      visible: false
+  - type: Icon
+    sprite: ADT/Structures/Furniture/chalkboard.rsi
+    state: chalkboard
+  - type: Paper
+    contentSize: 10000
+  - type: Chalkboard
+    baseDescription: black chalk deck
+  - type: ActivatableUI
+    key: enum.PaperUiKey.Key
+    requiresComplex: false
+  - type: UserInterface
+    interfaces:
+      enum.PaperUiKey.Key:
+        type: PaperBoundUserInterface
+  - type: PaperVisuals
+    backgroundImagePath: "/Textures/Interface/Paper/paper_background_default.svg.96dpi.png"
+    backgroundPatchMargin: 16.0, 16.0, 16.0, 16.0
+    contentMargin: 16.0, 16.0, 16.0, 16.0
+    backgroundModulate: "#202421"
+    fontAccentColor: "#ffffff"
+    fontDefaultColor: "#ffffff"
+  - type: Appearance
+  - type: InteractionOutline
+  - type: Anchorable
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Wood
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WoodDestroy
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          MaterialWoodPlank:
+            min: 3
+            max: 5
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: Construction
+    graph: ADTChalkboard
+    node: adtchalkboard

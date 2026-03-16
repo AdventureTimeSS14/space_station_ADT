@@ -91,7 +91,9 @@ public sealed partial class IngestionSystem
         return TryGetUtensils(entity, ev.Types, ev.RequiredTypes, out utensils);
     }
 
-    public bool TryGetUtensils(Entity<HandsComponent?> entity, UtensilType types, UtensilType requiredTypes, out List<EntityUid> utensils)
+    // ADT-Tweak-Start: showPopup
+    public bool TryGetUtensils(Entity<HandsComponent?> entity, UtensilType types, UtensilType requiredTypes, out List<EntityUid> utensils, bool showPopup = true)
+    // ADT-Tweak-End
     {
         utensils = new List<EntityUid>();
 
@@ -126,7 +128,8 @@ public sealed partial class IngestionSystem
         if (!required || (usedTypes & requiredTypes) == requiredTypes)
             return true;
 
-        _popup.PopupClient(Loc.GetString("ingestion-you-need-to-hold-utensil", ("utensil", requiredTypes ^ usedTypes)), entity, entity);
+        if (showPopup) // ADT-Tweak
+            _popup.PopupClient(Loc.GetString("ingestion-you-need-to-hold-utensil", ("utensil", requiredTypes ^ usedTypes)), entity, entity);
         return false;
 
     }
@@ -137,10 +140,15 @@ public sealed partial class IngestionSystem
     /// </summary>
     /// <param name="entity">The entity doing the action who has the utensils.</param>
     /// <param name="types">The types of utensils we need.</param>
+    /// ADT-Tweak-Start
+    /// <param name="showPopup">If should show popup if utensil is not present.</param>
+    /// ADT-Tweak-End
     /// <returns>Returns true if we have the utensils we need.</returns>
-    public bool HasRequiredUtensils(EntityUid entity, UtensilType types)
+    // ADT-Tweak-Start: showPopup
+    public bool HasRequiredUtensils(EntityUid entity, UtensilType types, bool showPopup = true)
+    // ADT-Tweak-End
     {
-        return TryGetUtensils(entity, types, types, out _);
+        return TryGetUtensils(entity, types, types, out _, showPopup); // ADT-Tweak: showPopup
     }
 
     private void OnGetEdibleUtensils(Entity<EdibleComponent> entity, ref GetUtensilsEvent args)

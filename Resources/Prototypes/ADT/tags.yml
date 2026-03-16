@@ -20,6 +20,9 @@
   id: ADTLasgunRevolverCell
 
 - type: Tag
+  id: RPD
+
+- type: Tag
   id: PhantomEctoplasm
 
 - type: Tag
@@ -195,6 +198,9 @@
 
 - type: Tag
   id: ADTArmorSacrafice
+
+- type: Tag
+  id: ADTBarbellAttachment
 
 - type: Tag
   id: ADTSyndieThingies
@@ -854,6 +860,9 @@
   id: ShellShotgunUranium
 
 - type: Tag
+  id: ADTDrill
+  
+- type: Tag
   id: Katana
 
 - type: Tag
@@ -870,3 +879,9 @@
 
 - type: Tag
   id: GunUpgradeVampirism
+
+- type: Tag
+  id: MansusLinkMind
+
+- type: Tag
+  id: SiliconFootstepSound

@@ -136,6 +136,7 @@
     interfaces:
       enum.GhostInfoUiKey.Key:
         type: GhostInfoBoundUserInterface
+  - type: BypassHidesSlots
   # ADT-Tweak-end
 
 # proto for player ghosts specifically

@@ -81,6 +81,7 @@
   # ADT underwear tweak end
   - Survival
   - Trinkets
+  - ADTSprayPaints # ADT-Tweak
   - PassengerJobTrinkets
   - GroupSpeciesBreathTool
 
@@ -103,6 +104,7 @@
   # ADT underwear tweak end
   - Survival
   - Trinkets
+  - ADTSprayPaints # ADT-Tweak
   - BartenderJobTrinkets
   - GroupSpeciesBreathTool
 
@@ -123,6 +125,7 @@
   # ADT underwear tweak end
   - Survival
   - Trinkets
+  - ADTSprayPaints # ADT-Tweak
   - ServiceWorkerJobTrinkets
   - GroupSpeciesBreathTool
 
@@ -150,6 +153,7 @@
   # ADT underwear tweak end
   - Survival
   - Trinkets
+  - ADTSprayPaints # ADT-Tweak
   - ChefJobTrinkets
   - GroupSpeciesBreathTool
 
@@ -169,6 +173,7 @@
   # ADT underwear tweak end
   - Survival
   - Trinkets
+  - ADTSprayPaints # ADT-Tweak
   - LibrarianJobTrinkets
   - GroupSpeciesBreathTool
 
@@ -191,6 +196,7 @@
   # ADT underwear tweak end
   - Survival
   - Trinkets
+  - ADTSprayPaints # ADT-Tweak
   - LawyerJobTrinkets
   - GroupSpeciesBreathTool
 
@@ -215,6 +221,7 @@
   # ADT underwear tweak end
   - Survival
   - Trinkets
+  - ADTSprayPaints # ADT-Tweak
   - ChaplainJobTrinkets
   - GroupSpeciesBreathTool
   # ADT chaplain update
@@ -239,6 +246,7 @@
   # ADT underwear tweak end
   - Survival
   - Trinkets
+  - ADTSprayPaints # ADT-Tweak
   - JanitorJobTrinkets
   - GroupSpeciesBreathTool
 
@@ -260,6 +268,7 @@
   # ADT underwear tweak end
   - Survival
   - Trinkets
+  - ADTSprayPaints # ADT-Tweak
   - BotanistJobTrinkets
   - GroupSpeciesBreathTool
 
@@ -287,6 +296,7 @@
   # ADT underwear tweak end
   - SurvivalClown
   - Trinkets
+  - ADTSprayPaints # ADT-Tweak
   - ClownJobTrinkets
 
 - type: roleLoadout
@@ -309,6 +319,7 @@
   # ADT underwear tweak end
   - SurvivalMime
   - Trinkets
+  - ADTSprayPaints # ADT-Tweak
   - MimeJobTrinkets
 
 - type: roleLoadout
@@ -330,6 +341,7 @@
   # ADT underwear tweak end
   - Survival
   - Trinkets
+  - ADTSprayPaints # ADT-Tweak
   - MusicianJobTrinkets
   - Instruments
   - GroupSpeciesBreathTool
@@ -379,6 +391,7 @@
   # ADT underwear tweak end
   - Survival
   - Trinkets
+  - ADTSprayPaints # ADT-Tweak
   - CargoTechnicianJobTrinkets
   - GroupSpeciesBreathTool
 
@@ -387,7 +400,10 @@
   groups:
   - Inventory # Corvax-Loadouts
   - GroupTankHarness
-  - ADTSalvageSpecialistJumpsuit #ADT Loadouts
+    #ADT Loadouts Start
+  - ADTSalvageSpecialistJumpsuit
+  - ADTSalvageSpecialistNeck
+    #ADT Loadouts End
   - SalvageSpecialistBackpack
   - ADTSalvageSpecialistEars # ADT tweak
   - SalvageSpecialistOuterClothing
@@ -401,6 +417,7 @@
   # ADT underwear tweak end
   - Survival
   - Trinkets
+  - ADTSprayPaints # ADT-Tweak
   - SalvageSpecialistJobTrinkets
   - GroupSpeciesBreathTool
 
@@ -444,6 +461,7 @@
   # ADT underwear tweak end
   - SurvivalExtended
   - Trinkets
+  - ADTSprayPaints # ADT-Tweak
   - TechnicalAssistantJobTrinkets
   - GroupSpeciesBreathTool
 
@@ -467,6 +485,7 @@
   # ADT underwear tweak end
   - SurvivalExtended
   - Trinkets
+  - ADTSprayPaints # ADT-Tweak
   - StationEngineerJobTrinkets
   - GroupSpeciesBreathTool
 
@@ -492,6 +511,7 @@
   # ADT underwear tweak end
   - SurvivalExtended
   - Trinkets
+  - ADTSprayPaints # ADT-Tweak
   - AtmosphericTechnicianJobTrinkets
   - GroupSpeciesBreathTool
 
@@ -542,6 +562,7 @@
   # ADT underwear tweak end
   - Survival
   - Trinkets
+  - ADTSprayPaints # ADT-Tweak
   - ScientistJobTrinkets
   - GroupSpeciesBreathTool
 
@@ -560,6 +581,7 @@
   # ADT underwear tweak end
   - Survival
   - Trinkets
+  - ADTSprayPaints # ADT-Tweak
   - ResearchAssistantJobTrinkets
   - GroupSpeciesBreathTool
 
@@ -721,6 +743,7 @@
   # ADT underwear tweak end
   - SurvivalMedical
   - Trinkets
+  - ADTSprayPaints # ADT-Tweak
   - MedicalDoctorJobTrinkets
   - GroupSpeciesBreathToolMedical
 
@@ -741,6 +764,7 @@
   # ADT underwear tweak end
   - SurvivalMedical
   - Trinkets
+  - ADTSprayPaints # ADT-Tweak
   - MedicalInternJobTrinkets
   - GroupSpeciesBreathToolMedical
 
@@ -762,6 +786,7 @@
   # ADT underwear tweak end
   - SurvivalMedical
   - Trinkets
+  - ADTSprayPaints # ADT-Tweak
   - ChemistJobTrinkets
   - GroupSpeciesBreathToolMedical
 
@@ -789,6 +814,7 @@
   # ADT underwear tweak end
   - SurvivalMedical
   - Trinkets
+  - ADTSprayPaints # ADT-Tweak
   - ParamedicJobTrinkets
   - GroupSpeciesBreathToolMedical
 
@@ -807,6 +833,7 @@
   # ADT underwear tweak end
   - Survival
   - Trinkets
+  - ADTSprayPaints # ADT-Tweak
   - ZookeeperJobTrinkets
   - GroupSpeciesBreathTool
 
@@ -826,6 +853,7 @@
   # ADT underwear tweak end
   - Survival
   - Trinkets
+  - ADTSprayPaints # ADT-Tweak
   - ReporterJobTrinkets
   - GroupSpeciesBreathTool
 
@@ -845,6 +873,7 @@
   # ADT underwear tweak end
   - Survival
   - Trinkets
+  - ADTSprayPaints # ADT-Tweak
   - PsychologistJobTrinkets
   - GroupSpeciesBreathTool
 
@@ -866,6 +895,7 @@
   # ADT underwear tweak end
   - Survival
   - Trinkets
+  - ADTSprayPaints # ADT-Tweak
   - BoxerJobTrinkets
   - GroupSpeciesBreathTool
 
