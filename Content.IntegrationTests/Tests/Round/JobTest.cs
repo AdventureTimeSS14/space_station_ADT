@@ -1,4 +1,7 @@
 #nullable enable
+using System.Collections.Generic;
+using System.Linq;
+using Robust.Shared.Log; // ADT-tweak
 using Content.IntegrationTests.Pair;
 using Content.Server.GameTicking;
 using Content.Server.Mind;
@@ -6,13 +9,10 @@ using Content.Server.Roles;
 using Content.Shared.CCVar;
 using Content.Shared.GameTicking;
 using Content.Shared.Preferences;
-using Content.Shared.Roles.Jobs;
 using Content.Shared.Roles;
-using Robust.Shared.GameObjects;
+using Content.Shared.Roles.Jobs;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace Content.IntegrationTests.Tests.Round;
 
@@ -75,8 +75,7 @@ public sealed class JobTest
         Assert.That(ticker.RunLevel, Is.EqualTo(GameRunLevel.InRound), $"Round not in progress while checking job {job}");
         Assert.That(ticker.PlayerGameStatuses[user.Value], Is.EqualTo(PlayerGameStatus.JoinedGame), $"Player {user} is not in game when checking job {job}");
 
-        EntityUid mindId = default;
-        if (uid != null && !mindSys.TryGetMind(uid.Value, out mindId, out _))
+        if (!mindSys.TryGetMind(uid.Value, out var mindId, out _))
         {
             Console.WriteLine($"ERROR: Entity {uid} has no mind! Cannot verify job {job}.");
             Assert.Fail($"Entity {uid} has no mind. Cannot verify job {job}.");
