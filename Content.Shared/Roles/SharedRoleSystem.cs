@@ -119,6 +119,13 @@ public abstract class SharedRoleSystem : EntitySystem
                 $"Job Role of {ToPrettyString(mind.OwnedEntity)} changed from '{jobRole.Value.Comp1.JobPrototype}' to '{jobPrototype}'");
 
             jobRole.Value.Comp1.JobPrototype = jobPrototype;
+            // ADT-Tweak start: Also update MindRoleComponent for playtime tracking
+            if (TryComp<MindRoleComponent>(jobRole.Value.Owner, out var mindRole))
+            {
+                mindRole.JobPrototype = jobPrototype;
+                Dirty(jobRole.Value.Owner, mindRole);
+            }
+            // ADT-Tweak end
         }
         else
             MindAddRoleDo(mindId, "MindRoleJob", mind, silent, jobPrototype);
