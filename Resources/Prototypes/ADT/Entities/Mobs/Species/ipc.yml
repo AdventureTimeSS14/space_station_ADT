@@ -118,12 +118,9 @@
       Male: UnisexIPC
       Female: UnisexIPC
       Unsexed: UnisexIPC
-  - type: TriggerOnMobstateChange
-    mobState:
-    - Dead
-  - type: EmitSoundOnTrigger
-    sound:
-      path: /Audio/ADT/IPC/borg_deathsound.ogg
+  - type: Deathgasp
+    prototype: ADTIpcDeathgasp
+    onAnyState: true
   - type: TTS # Corvax-TTS
   - type: LanguageSpeaker
     languages:

@@ -425,6 +425,8 @@
       path: /Audio/Items/bikehorn.ogg
     Ping:
       path: /Audio/Effects/Cargo/ping.ogg
+    ADTIpcDeathgasp:
+      path: /Audio/ADT/IPC/borg_deathsound.ogg
   params:
     variation: 0.125
 

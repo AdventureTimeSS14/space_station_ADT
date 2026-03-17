@@ -126,6 +126,7 @@
     - вздохнул
     - вздохнула
     # Corvax-Localization-End
+    - выдыхает #ADT-Tweak
 
 - type: emote
   id: Whistle
@@ -530,6 +531,11 @@
    - gasp
    - gasps
    - gasped
+   #ADT-Tweak-Start
+   - задыхается
+   - вдыхает
+   - жадно глотает воздух
+   #ADT-Tweak-End
 
 - type: emote
   id: DefaultDeathgasp
@@ -538,6 +544,11 @@
   whitelist:
     components:
     - MobState
+  #ADT-Tweak-Start
+  blacklist:
+    components:
+    - MobIpc
+  #ADT-Tweak-End
   chatMessages: ["chat-emote-msg-deathgasp"]
   chatTriggers:
   - deathgasp
