@@ -14,6 +14,8 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
 using System.Linq;
+using Content.Shared.Mobs;
+using Content.Shared.Mobs.Components;
 
 namespace Content.Server.ADT.MidroundCustomization;
 
@@ -52,6 +54,8 @@ public sealed partial class MidroundCustomizationSystem : EntitySystem
 
         SubscribeLocalEvent<MidroundCustomizationComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<MidroundCustomizationComponent, ComponentShutdown>(OnShutdown);
+
+        SubscribeLocalEvent<MidroundCustomizationComponent, MobStateChangedEvent>(OnMobStateChanged);
 
         SubscribeLocalEvent<MidroundCustomizationComponent, SlimeHairSelectDoAfterEvent>(OnSelectSlotDoAfter);
         SubscribeLocalEvent<MidroundCustomizationComponent, SlimeHairChangeColorDoAfterEvent>(OnChangeColorDoAfter);
@@ -437,6 +441,96 @@ public sealed partial class MidroundCustomizationSystem : EntitySystem
     private void OnMapInit(EntityUid uid, MidroundCustomizationComponent component, MapInitEvent args)
     {
         _action.AddAction(uid, ref component.ActionEntity, component.Action);
+
+        if (component.ChangeSlotOnState.Count == 0)
+            return;
+
+        if (!TryComp<MobStateComponent>(uid, out var mobState) ||
+            !TryComp<HumanoidAppearanceComponent>(uid, out var humanoid))
+            return;
+
+        var current = mobState.CurrentState;
+        if (component.ChangeSlotOnState.Any(e => e.State == current))
+        {
+            RecordOriginals(uid, component, humanoid);
+            ApplyStateChanges(uid, component, current, humanoid);
+        }
+    }
+
+    private void OnMobStateChanged(EntityUid uid, MidroundCustomizationComponent component, MobStateChangedEvent args)
+    {
+        if (component.ChangeSlotOnState.Count == 0)
+            return;
+
+        if (!TryComp<HumanoidAppearanceComponent>(uid, out var humanoid))
+            return;
+
+        var oldManaged = component.ChangeSlotOnState.Any(e => e.State == args.OldMobState);
+        var newManaged = component.ChangeSlotOnState.Any(e => e.State == args.NewMobState);
+
+        if (!oldManaged && newManaged)
+        {
+            RecordOriginals(uid, component, humanoid);
+        }
+
+        if (newManaged)
+        {
+            ApplyStateChanges(uid, component, args.NewMobState, humanoid);
+        }
+
+        if (oldManaged && !newManaged)
+        {
+            RevertToOriginals(uid, component, humanoid);
+        }
+    }
+
+    private void RecordOriginals(EntityUid uid, MidroundCustomizationComponent component, HumanoidAppearanceComponent humanoid)
+    {
+        component.OriginalMarkings.Clear();
+
+        var managedSlots = component.ChangeSlotOnState
+            .Select(e => (e.Category, e.Slot))
+            .Distinct()
+            .ToList();
+
+        foreach (var (category, slot) in managedSlots)
+        {
+            if (!humanoid.MarkingSet.TryGetCategory(category, out var list) || slot >= list.Count)
+                continue;
+
+            var current = list[slot];
+            component.OriginalMarkings[(category, slot)] = (current.MarkingId, current.MarkingColors.ToList());
+        }
+    }
+
+    private void ApplyStateChanges(EntityUid uid, MidroundCustomizationComponent component, MobState state, HumanoidAppearanceComponent humanoid)
+    {
+        var defaultColor = component.DefaultSkinColoring ? humanoid.SkinColor : Color.White;
+
+        foreach (var entry in component.ChangeSlotOnState)
+        {
+            if (entry.State != state) continue;
+
+            _humanoid.SetMarkingId(uid, entry.Category, entry.Slot, entry.Marking, force: false, defaultColor: defaultColor);
+
+            if (entry.Colors.Count > 0)
+            {
+                _humanoid.SetMarkingColor(uid, entry.Category, entry.Slot, entry.Colors, force: false);
+            }
+        }
+    }
+
+    private void RevertToOriginals(EntityUid uid, MidroundCustomizationComponent component, HumanoidAppearanceComponent humanoid)
+    {
+        var defaultColor = component.DefaultSkinColoring ? humanoid.SkinColor : Color.White;
+
+        foreach (var ((cat, slot), (origMarking, origColors)) in component.OriginalMarkings)
+        {
+            if (string.IsNullOrEmpty(origMarking)) continue;
+
+            _humanoid.SetMarkingId(uid, cat, slot, origMarking, force: false, defaultColor: defaultColor);
+            _humanoid.SetMarkingColor(uid, cat, slot, origColors, force: false);
+        }
     }
 
     private void OnShutdown(EntityUid uid, MidroundCustomizationComponent component, ComponentShutdown args)

@@ -183,6 +183,12 @@
     customizableCategories:
     - FacialHair
     defaultSkinColoring: false
+    changeSlotOnState:
+    - state: Dead
+      category: FacialHair
+      slot: 0
+      marking: ADTIPCScreenBroken
+      colors: ["#ffffff"]
   - type: AnimatedEmotes
   - type: Posing
   - type: SoftWalk

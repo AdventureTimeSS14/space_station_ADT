@@ -2,12 +2,32 @@ using Content.Shared.DoAfter;
 using Content.Shared.Humanoid.Markings;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
+using Content.Shared.Mobs;
 
 namespace Content.Server.ADT.MidroundCustomization;
 
 /// <summary>
 /// Allows humanoids to change their appearance mid-round.
 /// </summary>
+[DataDefinition]
+public sealed partial class ChangeSlotOnStateEntry
+{
+    [DataField(required: true)]
+    public MobState State { get; set; }
+
+    [DataField(required: true)]
+    public MarkingCategories Category { get; set; }
+
+    [DataField(required: true)]
+    public int Slot { get; set; }
+
+    [DataField(required: true)]
+    public string Marking { get; set; } = string.Empty;
+
+    [DataField]
+    public List<Color> Colors { get; set; } = new();
+}
+
 [RegisterComponent]
 public sealed partial class MidroundCustomizationComponent : Component
 {
@@ -74,4 +94,11 @@ public sealed partial class MidroundCustomizationComponent : Component
     [DataField, AutoNetworkedField]
     public EntityUid? ActionEntity;
 
+    /// <summary>
+    /// Changes slot on state.
+    /// </summary>
+    [DataField]
+    public List<ChangeSlotOnStateEntry> ChangeSlotOnState { get; set; } = new();
+
+    public Dictionary<(MarkingCategories Category, int Slot), (string Marking, List<Color> Colors)> OriginalMarkings = new();
 }
