@@ -80,5 +80,11 @@ public sealed partial class TraitPrototype : IPrototype
 
     [DataField]
     public bool SponsorOnly = false;
+
+    /// <summary>
+    /// if true will rewrite components.
+    /// </summary>
+    [DataField]
+    public bool RewriteComponents = false;
     //ADT-Tweak-End
 }

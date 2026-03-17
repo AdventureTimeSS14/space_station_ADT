@@ -338,8 +338,6 @@
     - MobState
     - MobIpc
   chatMessages: ["chat-emote-msg-deathgasp-ipc"]
-  chatTriggers:
-  - deathgasp
 
   #Vox
 

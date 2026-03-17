@@ -163,8 +163,16 @@
   description: trait-disproportionate-desc
   category: Quirks
   cost: 0
+  rewriteComponents: true
   components:
-    - type: FastLockers
+  - type: Inventory
+    templateId: ipcDisproportionate
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Human/displacement.rsi
+            state: jumpsuit-female
   quirk: true
   speciesWhitelist:
   - IPC
