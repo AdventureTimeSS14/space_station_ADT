@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Shared.ADT.Silicon;
 using Content.Shared.Body.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
@@ -31,6 +32,7 @@ public abstract class SharedIvDripSystem : EntitySystem
     public override void Initialize()
     {
         SubscribeLocalEvent<IVDripComponent, EntInsertedIntoContainerMessage>(OnIVDripEntInserted);
+        SubscribeLocalEvent<IVDripComponent, GetVerbsEvent<AlternativeVerb>>(AddSetTransferAmountIVDripVerbs);
         SubscribeLocalEvent<IVDripComponent, EntRemovedFromContainerMessage>(OnIVDripEntRemoved);
         SubscribeLocalEvent<IVDripComponent, AfterAutoHandleStateEvent>(OnIVDripAfterHandleState);
         SubscribeLocalEvent<IVDripComponent, EntityUnpausedEvent>(OnIVDripUnPaused);
@@ -46,6 +48,61 @@ public abstract class SharedIvDripSystem : EntitySystem
 
         SubscribeLocalEvent<BloodPackComponent, MapInitEvent>(OnBloodPackMapInitEvent);
         SubscribeLocalEvent<BloodPackComponent, SolutionChangedEvent>(OnBloodPackSolutionChanged);
+    }
+
+    private void AddSetTransferAmountIVDripVerbs(Entity<IVDripComponent> ent, ref GetVerbsEvent<AlternativeVerb> args)
+    {
+        if (!args.CanAccess || !args.CanInteract || args.Hands == null)
+            return;
+
+        if (ent.Comp.TransferAmounts.Count <= 1)
+            return;
+
+        var user = args.User;
+
+        var min = ent.Comp.TransferAmounts.Min();
+        var max = ent.Comp.TransferAmounts.Max();
+        var cur = ent.Comp.CurrentTransferAmount;
+        var toggleAmount = cur == max ? min : max;
+
+        var priority = 0;
+        AlternativeVerb toggleVerb = new()
+        {
+            Text = Loc.GetString("comp-solution-transfer-verb-toggle", ("amount", toggleAmount)),
+            Category = VerbCategory.SetTransferAmount,
+            Act = () =>
+            {
+                ent.Comp.CurrentTransferAmount = toggleAmount;
+                _popup.PopupClient(Loc.GetString("comp-solution-transfer-set-amount", ("amount", toggleAmount)), user, user);
+                Dirty(ent);
+            },
+
+            Priority = priority
+        };
+        args.Verbs.Add(toggleVerb);
+
+        priority -= 1;
+
+        foreach (var amount in ent.Comp.TransferAmounts)
+        {
+            AlternativeVerb verb = new()
+            {
+                Text = Loc.GetString("comp-solution-transfer-verb-amount", ("amount", amount)),
+                Category = VerbCategory.SetTransferAmount,
+                Act = () =>
+                {
+                    ent.Comp.CurrentTransferAmount = amount;
+                    _popup.PopupClient(Loc.GetString("comp-solution-transfer-set-amount", ("amount", amount)), user, user);
+                    Dirty(ent);
+                },
+
+                Priority = priority
+            };
+
+            priority -= 1;
+
+            args.Verbs.Add(verb);
+        }
     }
 
     private void OnIVDripEntInserted(Entity<IVDripComponent> iv, ref EntInsertedIntoContainerMessage args)

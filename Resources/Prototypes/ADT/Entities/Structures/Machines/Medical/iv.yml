@@ -40,6 +40,11 @@
     ripDamage:
       types:
         Piercing: 3
+    transferAmounts:
+    - 1
+    - 5
+    - 10
+    - 15
   - type: ItemSlots
     slots:
       pack:

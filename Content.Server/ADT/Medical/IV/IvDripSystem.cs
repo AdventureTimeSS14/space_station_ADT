@@ -78,7 +78,7 @@ public sealed class IvDripSystem : SharedIvDripSystem
                     var beforePack = packSol.Volume;
                     var beforeBlood = bloodSolutionEnt.Comp.Solution.Volume;
 
-                    var transferAmount = FixedPoint2.Min(ivComp.TransferAmount, packSol.Volume);
+                    var transferAmount = FixedPoint2.Min(ivComp.CurrentTransferAmount, packSol.Volume);
                     if (transferAmount > FixedPoint2.Zero)
                     {
                         var stepSolution = _sharedSolutionContainer.SplitSolution(packSolEnt.Value, transferAmount);
@@ -123,7 +123,7 @@ public sealed class IvDripSystem : SharedIvDripSystem
                     var beforePack = packSol.Volume;
                     var beforeBlood = streamSol.Volume;
 
-                    _sharedSolutionContainer.TryTransferSolution(packSolEnt.Value, streamSol, ivComp.TransferAmount);
+                    _sharedSolutionContainer.TryTransferSolution(packSolEnt.Value, streamSol, ivComp.CurrentTransferAmount);
 
                     var afterPack = packSol.Volume;
                     var afterBlood = streamSol.Volume;
