@@ -226,13 +226,13 @@
         factor: 1
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [Vox]
+          type: [Vox, Novakid] # ADT-Tweak
     Poison:
       effects:
       - !type:HealthChange
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [Vox]
+          type: [Vox, Novakid] # ADT-Tweak
           inverted: true
         damage:
           types:

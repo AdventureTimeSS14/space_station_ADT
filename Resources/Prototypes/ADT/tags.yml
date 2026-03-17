@@ -743,6 +743,9 @@
   id: ADTClosedRadio
 
 - type: Tag
+  id: ADTDrill
+  
+- type: Tag
   id: Katana
 
 - type: Tag
@@ -762,3 +765,6 @@
 
 - type: Tag
   id: MansusLinkMind
+
+- type: Tag
+  id: SiliconFootstepSound

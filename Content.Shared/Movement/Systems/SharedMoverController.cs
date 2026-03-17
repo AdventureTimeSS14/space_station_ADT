@@ -48,6 +48,7 @@ public abstract partial class SharedMoverController : VirtualController
 
     protected EntityQuery<CanMoveInAirComponent> CanMoveInAirQuery;
     protected EntityQuery<FootstepModifierComponent> FootstepModifierQuery;
+    protected EntityQuery<MovementAlwaysTouchingComponent> AlwaysTouchingQuery; // ADT-Tweak
     protected EntityQuery<InputMoverComponent> MoverQuery;
     protected EntityQuery<MapComponent> MapQuery;
     protected EntityQuery<MapGridComponent> MapGridQuery;
@@ -61,6 +62,7 @@ public abstract partial class SharedMoverController : VirtualController
     protected EntityQuery<TransformComponent> XformQuery;
 
     private static readonly ProtoId<TagPrototype> FootstepSoundTag = "FootstepSound";
+    private static readonly ProtoId<TagPrototype> SiliconFootstepSoundTag = "SiliconFootstepSound"; //ADT-Tweak
 
     private bool _relativeMovement;
     private float _minDamping;
@@ -89,6 +91,7 @@ public abstract partial class SharedMoverController : VirtualController
         XformQuery = GetEntityQuery<TransformComponent>();
         NoRotateQuery = GetEntityQuery<NoRotateOnMoveComponent>();
         CanMoveInAirQuery = GetEntityQuery<CanMoveInAirComponent>();
+        AlwaysTouchingQuery = GetEntityQuery<MovementAlwaysTouchingComponent>(); // ADT-Tweak
         FootstepModifierQuery = GetEntityQuery<FootstepModifierComponent>();
         MapGridQuery = GetEntityQuery<MapGridComponent>();
         MapQuery = GetEntityQuery<MapComponent>();
@@ -198,7 +201,22 @@ public abstract partial class SharedMoverController : VirtualController
         var weightless = _gravity.IsWeightless(uid);
         var inAirHelpless = false;
 
-        if (physicsComponent.BodyStatus != BodyStatus.OnGround && !CanMoveInAirQuery.HasComponent(uid))
+        // ADT-Tweak start: Check if we're in space (no gravity) and don't have the ability to move in air
+        var hasGravity = _gravity.EntityGridOrMapHaveGravity(uid);
+        var canMoveInAir = CanMoveInAirQuery.HasComponent(uid);
+
+        // If there's no gravity and we can't move in air, then we can't move
+        // unless we have MovementAlwaysTouching
+        var hasAlwaysTouching = AlwaysTouchingQuery.HasComponent(uid);
+
+        if (!hasGravity && !canMoveInAir && !hasAlwaysTouching)
+        {
+            UsedMobMovement[uid] = false;
+            return;
+        }
+
+        if (physicsComponent.BodyStatus != BodyStatus.OnGround && !canMoveInAir)
+        // ADT-Tweak end
         {
             if (!weightless)
             {
@@ -495,7 +513,7 @@ public abstract partial class SharedMoverController : VirtualController
     {
         sound = null;
 
-        if (!CanSound() || !_tags.HasTag(uid, FootstepSoundTag))
+        if (!CanSound() || !(_tags.HasTag(uid, FootstepSoundTag) || _tags.HasTag(uid, SiliconFootstepSoundTag))) //ADT-Tweak
             return false;
 
         var coordinates = xform.Coordinates;
@@ -543,7 +561,10 @@ public abstract partial class SharedMoverController : VirtualController
             return sound != null;
         }
 
-        return TryGetFootstepSound(uid, xform, shoes != null, out sound, tileDef: tileDef);
+        //ADT-Tweak-Start
+        bool haveShoes = shoes != null || _tags.HasTag(uid, SiliconFootstepSoundTag);
+        return TryGetFootstepSound(uid, xform, haveShoes, out sound, tileDef: tileDef);
+        //ADT-Tweak-End
     }
 
     private bool TryGetFootstepSound(

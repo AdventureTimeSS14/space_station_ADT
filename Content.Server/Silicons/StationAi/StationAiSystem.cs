@@ -28,6 +28,7 @@ using Content.Shared.Power;
 using Content.Shared.Power.Components;
 using Content.Shared.Rejuvenate;
 using Content.Shared.Roles;
+using Content.Shared.Roles.Components;
 using Content.Shared.Silicons.Laws;
 using Content.Shared.Silicons.StationAi;
 using Content.Shared.Speech.Components;
@@ -121,6 +122,12 @@ public sealed class StationAiSystem : SharedStationAiSystem
             {
                 QueueDel(aiBrain);
             }
+            // ADT-Tweak start
+            else
+            {
+                SetLoadoutOnTakeover(ent.Owner, aiBrain);
+            }
+            // ADT-Tweak end
         }
 
         // TODO: We should consider keeping the borg brain inside the AI core.
@@ -164,6 +171,14 @@ public sealed class StationAiSystem : SharedStationAiSystem
             accent.OverrideTotalDamage = null;
             accent.DamageAtMaxCorruption = null;
         }
+
+        // ADT-Tweak start: Remove StationAI job role when leaving the AI core
+        if (_mind.TryGetMind(args.Entity, out var mindId, out var mind))
+        {
+            if (_roles.MindHasRole<JobRoleComponent>(mindId))
+                _roles.MindRemoveRole<JobRoleComponent>(mindId);
+        }
+        // ADT-Tweak end
     }
 
     protected override void OnMobStateChanged(Entity<StationAiCustomizationComponent> ent, ref MobStateChangedEvent args)
@@ -187,6 +202,8 @@ public sealed class StationAiSystem : SharedStationAiSystem
 
             if (SetupEye(aiCoreEnt))
                 AttachEye(aiCoreEnt);
+
+            SetLoadoutOnTakeover(aiCore.Owner, ent.Owner); // ADT-Tweak
         }
 
         SetStationAiState(ent, state);

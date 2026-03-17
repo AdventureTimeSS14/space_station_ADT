@@ -37,6 +37,39 @@
     },
     {
       "name": "radbarrel"
+    },
+    {
+      "name": "waterbarrel-open"
+    },
+    {
+      "name": "weldbarrel-open"
+    },
+    {
+      "name": "silicatebarrel-open"
+    },
+    {
+      "name": "woodenbarrel-open"
+    },
+    {
+      "name": "metalbarrel-open"
+    },
+    {
+      "name": "radbarrel-open"
+    },
+    {
+      "name": "fill-1"
+    },
+    {
+      "name": "fill-2"
+    },
+    {
+      "name": "fill-3"
+    },
+    {
+      "name": "fill-4"
+    },
+    {
+      "name": "fill-5"
     }
   ]
 }

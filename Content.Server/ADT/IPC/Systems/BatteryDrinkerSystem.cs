@@ -158,10 +158,25 @@ public sealed class BatteryDrinkerSystem : EntitySystem
             return;
         }
 
-        var tryUse = _battery.TryUseCharge(source, amountToDrink);
+        // Проверка на NaN/Infinity для предотвращения поломки ЛКП
+        if (float.IsNaN(amountToDrink) || float.IsInfinity(amountToDrink))
+        {
+            _popup.PopupEntity(Loc.GetString("battery-drinker-empty", ("target", source)), drinker, drinker);
+            return;
+        }
+
+        // Проверка на NaN/Infinity перед установкой заряда
+        var newCharge = drinkerBattery.CurrentCharge + amountToDrink;
+        if (float.IsNaN(newCharge) || float.IsInfinity(newCharge))
+        {
+            _popup.PopupEntity(Loc.GetString("battery-drinker-error", ("target", source)), drinker, drinker);
+            return;
+        }
+
+        var tryUse = _battery.TryUseCharge((source, sourceBattery), amountToDrink);
         if (tryUse)
         {
-            _battery.SetCharge(drinkerBatteryUid, drinkerBattery.CurrentCharge + amountToDrink);
+            _battery.SetCharge(drinkerBatteryUid, newCharge);
             if (drinkerBattery.CurrentCharge < drinkerBattery.MaxCharge * 0.95f)
             {
                 args.Repeat = true;
@@ -173,8 +188,6 @@ public sealed class BatteryDrinkerSystem : EntitySystem
         }
         else
         {
-            _battery.SetCharge(drinker, sourceBattery.CurrentCharge + drinkerBattery.CurrentCharge);
-            _battery.SetCharge(source, 0);
             args.Repeat = false;
         }
     }
