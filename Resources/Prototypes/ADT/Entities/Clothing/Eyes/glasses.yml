@@ -17,7 +17,7 @@
 
 - type: entity
   parent: [ClothingEyesGlassesThermal, BaseChameleon]
-  id: ClothingEyesGlassesThermalChameleon
+  id: ADTClothingEyesGlassesThermalChameleon
   name: optical thermal scanner
   description: Thermals in the shape of glasses.
   suffix: Chameleon

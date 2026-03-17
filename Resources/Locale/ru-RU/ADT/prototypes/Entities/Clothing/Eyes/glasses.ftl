@@ -1,7 +1,7 @@
 ent-ADTClothingEyesGlassesBlueshield = очки офицера синего щита
     .desc = Продвинутые охранные очки, оснащённые не только охранным HUD, но и медицинским, давая не только полные показатели здоровья цели, но и защищая от вспышек.
 
-ent-ClothingEyesGlassesThermalChameleon = оптический термальный сканер
+ent-ADTClothingEyesGlassesThermalChameleon = оптический термальный сканер
     .desc = Термалы в форме очков.
     .suffix = Хамелеон
 
