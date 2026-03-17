@@ -157,6 +157,18 @@
   speciesBlacklist:
   - IPC
 
+- type: trait
+  id: ADTDisproportionate
+  name: trait-disproportionate-name
+  description: trait-disproportionate-desc
+  category: Quirks
+  cost: 0
+  components:
+    - type: FastLockers
+  quirk: true
+  speciesWhitelist:
+  - IPC
+
 # - type: trait
 #   id: ADTPotentialPoltergeist
 #   name: trait-poltergeist-name
