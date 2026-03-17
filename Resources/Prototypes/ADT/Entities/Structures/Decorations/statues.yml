@@ -39,7 +39,7 @@
 - type: entity
   id: ADTDrakeStatue
   parent: BaseStructure
-  name: old statue of an ash drake 
+  name: old statue of an ash drake
   suffix: Lavaland
   description: A majestic basalt sculpture of an ash dragon. Its eyes are six glowing gems.
   components:
@@ -244,3 +244,161 @@
   - type: Construction
     graph: ADTStatueHadii
     node: statue
+
+### Бюсты
+
+- type: entity
+  id: ADTBustHelios
+  parent: BaseStructure
+  name: bust of Helios
+  description: A sculpture in the form of the ancient Greek God of the Sun.
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: ADT/Structures/Decoration/Statues/busts.rsi
+    state: helios
+    drawdepth: Mobs
+    offset: "0.0,0.5"
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.3,-0.3,0.3,0.8"
+        density: 60
+        mask:
+        - MachineMask
+        layer:
+        - MidImpassable
+        - LowImpassable
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 100
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+  - type: Construction
+    graph: ADTBustHelios
+    node: bust
+
+- type: entity
+  id: ADTBustLenin
+  parent: BaseStructure
+  name: bust of Lenin
+  description: A bust of the creator of the Bolshevik Party and one of the organizers and leaders of the October Revolution of 1917 in Russia.
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: ADT/Structures/Decoration/Statues/busts.rsi
+    state: lenin
+    drawdepth: Mobs
+    offset: "0.0,0.5"
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.3,-0.3,0.3,0.8"
+        density: 60
+        mask:
+        - MachineMask
+        layer:
+        - MidImpassable
+        - LowImpassable
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 100
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+  - type: Construction
+    graph: ADTBustLenin
+    node: bust
+
+- type: entity
+  id: ADTBustDarwin
+  parent: BaseStructure
+  name: bust of Darwin
+  description: A prize was named after him!
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: ADT/Structures/Decoration/Statues/busts.rsi
+    state: darwin
+    drawdepth: Mobs
+    offset: "0.0,0.5"
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.3,-0.3,0.3,0.8"
+        density: 60
+        mask:
+        - MachineMask
+        layer:
+        - MidImpassable
+        - LowImpassable
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 100
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+  - type: Construction
+    graph: ADTBustDarwin
+    node: bust
+
+- type: entity
+  id: ADTBustPompeii
+  parent: BaseStructure
+  name: bust of Pompey
+  description: A sculpture in the form of Pompeia Plotina, daughter of Lucius Pompey.
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: ADT/Structures/Decoration/Statues/busts.rsi
+    state: pompeii
+    drawdepth: Mobs
+    offset: "0.0,0.5"
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.3,-0.3,0.3,0.8"
+        density: 60
+        mask:
+        - MachineMask
+        layer:
+        - MidImpassable
+        - LowImpassable
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 100
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+  - type: Construction
+    graph: ADTBustPompeii
+    node: bust

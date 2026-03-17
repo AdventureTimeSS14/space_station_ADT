@@ -16,6 +16,9 @@
     - map: [ "enum.HumanoidVisualLayers.Chest" ]
     - map: [ "enum.HumanoidVisualLayers.Head" ]
     - map: [ "enum.HumanoidVisualLayers.Eyes" ]
+      shader: unshaded
+      sprite: ADT/Mobs/Species/Drask/parts.rsi
+      state: eyes
     - map: [ "enum.HumanoidVisualLayers.RArm" ]
     - map: [ "enum.HumanoidVisualLayers.LArm" ]
     - map: [ "enum.HumanoidVisualLayers.RLeg" ]
@@ -106,7 +109,7 @@
     baseSprintSpeed : 4.3
   - type: Temperature
     heatDamageThreshold: 313.15 # 40C
-    coldDamageThreshold: 243.15 # -30C
+    coldDamageThreshold: -800 # Иммунитет к холоду - не получают урон и алерты
     currentTemperature: 273.15
     coldDamage: #per second, scales with temperature & other constants
       groups:

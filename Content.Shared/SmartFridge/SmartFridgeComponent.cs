@@ -97,3 +97,11 @@ public sealed class SmartFridgeDispenseItemMessage(SmartFridgeEntry entry) : Bou
 {
     public SmartFridgeEntry Entry = entry;
 }
+
+// ADT-Tweak Start: Delete Unnessesary entries
+[Serializable, NetSerializable]
+public sealed class SmartFridgeDeleteEmptyMessage(SmartFridgeEntry entry) : BoundUserInterfaceMessage
+{
+    public SmartFridgeEntry Entry = entry;
+}
+// ADT-Tweak End

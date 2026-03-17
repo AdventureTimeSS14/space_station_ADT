@@ -1902,6 +1902,40 @@
     tags:
     - ADTLighter
 
+- type: entity
+  parent: ClothingHandsBase
+  id: ADTClothingHandsGlovesPowergloveArcher
+  name: power gloves
+  description: Now I'm playin' with power! Wait... they're turned off. #Use "Now I'm playin' with power! BAM!" for when they're turned on
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/archeron/powerglove_archer.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/archeron/powerglove_archer.rsi
+  - type: Fiber
+    fiberMaterial: fibers-nanomachines
+  - type: FingerprintMask
+
+
+ # Mina0, От Арчи и Пани для глупеньке Мио на 8-ое марта
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieMio
+  name: Mio plushie
+  description: Soft plushie
+  suffix: Именное, Mina0
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/mina0/minaplushie.rsi
+    state: icon
+    scale: 0.8, 0.8
+  - type: Clothing
+    quickEquip: false
+    sprite: ADT/Personalization/mina0/minaplushie.rsi
+    slots:
+    - HEAD
+
 #ADT-TEAM-ITEMS-END
 
 #SPONSOR-ITEMS-START
@@ -2729,7 +2763,7 @@
     toggleFlashlightSound: /Audio/Effects/eye_close.ogg
   - type: Item
     size: Small
-    sprite: ADT/Objects/Misc/contemplator_tome.rsi  
+    sprite: ADT/Objects/Misc/contemplator_tome.rsi
   - type: Wieldable
     useDelayOnWield: false
   - type: Clothing
@@ -2749,8 +2783,8 @@
     interfaces:
       enum.PaperUiKey.Key:
         type: PaperBoundUserInterface
-  
-  
+
+
 - type: entity
   parent: MobWatcherPride
   id: ADTMobWatcherBible
@@ -2837,7 +2871,7 @@
       head:
       - state: equipped-HELMET
         offset: "0, 0.04"
-        
+
 #kimer_k
 - type: entity
   parent: DrinkShaker
@@ -3091,7 +3125,7 @@
       - !type:AdjustReagent
         reagent: Epinephrine
         amount: 0.1
-      - !type:AdjustReagent 
+      - !type:AdjustReagent
         reagent: Sugar
         amount: 0.3
       - !type:HealthChange
