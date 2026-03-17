@@ -740,6 +740,9 @@
   id: ADTClosedRadio
 
 - type: Tag
+  id: ADTDrill
+  
+- type: Tag
   id: Katana
 
 - type: Tag
