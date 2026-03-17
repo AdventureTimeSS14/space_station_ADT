@@ -1,13 +1,10 @@
 using Content.Shared.Damage;
-using Content.Shared.DoAfter;
 using Content.Shared.Heretic;
-using Content.Shared.Popups;
 using Robust.Shared.Audio;
 using Content.Server.Humanoid;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Actions;
 using Content.Shared.Damage.Prototypes;
-using Content.Shared.Mobs.Systems;
 using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.Polymorph.Systems;
 using Content.Shared.Standing;
@@ -29,34 +26,31 @@ public sealed partial class HereticAbilitySystem : EntitySystem
     [Dependency] private readonly SharedChameleonProjectorSystem _chameleon = default!;
     [Dependency] private readonly HungerSystem _hunger = default!;
     [Dependency] private readonly HumanoidAppearanceSystem _humanoid = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
-    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
     [Dependency] private readonly WeldableSystem _weldable = default!;
     [Dependency] private readonly StandingStateSystem _standing = default!;
     private void SubscribeFlesh()
     {
         SubscribeLocalEvent<HereticComponent, EventHereticFleshSurgery>(OnFleshSurgery);
-        SubscribeLocalEvent<HereticComponent, EventHereticFleshSurgeryDoAfter>(OnFleshSurgeryDoAfter);
+        SubscribeLocalEvent<HereticComponent, EventHereticGhoulCall>(OnGhoulCall);
         SubscribeLocalEvent<HereticComponent, HereticAscensionFleshEvent>(OnFleshAscendPolymorph);
     }
 
     private void OnFleshSurgery(Entity<HereticComponent> ent, ref EventHereticFleshSurgery args)
     {
+        if (args.Target == ent.Owner)
+            return;
+
         if (!TryUseAbility(ent, args))
             return;
 
         if (HasComp<GhoulComponent>(args.Target)
         || (TryComp<HereticComponent>(args.Target, out var th) && th.CurrentPath == ent.Comp.CurrentPath))
         {
-            var dargs = new DoAfterArgs(EntityManager, ent, 10f, new EventHereticFleshSurgeryDoAfter(args.Target), ent, args.Target)
+            if (TryComp<DamageableComponent>(args.Target, out var dmg))
             {
-                BreakOnDamage = true,
-                BreakOnMove = true,
-                BreakOnHandChange = false,
-                BreakOnDropItem = false,
-            };
-            _doafter.TryStartDoAfter(dargs);
+                _damageable.SetAllDamage(args.Target, 0);
+            }
             args.Handled = true;
             return;
         }
@@ -75,21 +69,6 @@ public sealed partial class HereticAbilitySystem : EntitySystem
             _damageable.SetAllDamage(args.Target, damage);
             args.Handled = true;
         }
-    }
-    private void OnFleshSurgeryDoAfter(Entity<HereticComponent> ent, ref EventHereticFleshSurgeryDoAfter args)
-    {
-        if (args.Cancelled)
-            return;
-
-        if (args.Target == null) // shouldn't really happen. just in case
-            return;
-
-        if (!TryComp<DamageableComponent>(args.Target, out var dmg))
-            return;
-
-        // heal teammates, mostly ghouls
-        _damageable.SetAllDamage((EntityUid)args.Target, 0);
-        args.Handled = true;
     }
     private void OnFleshAscendPolymorph(Entity<HereticComponent> ent, ref HereticAscensionFleshEvent args)
     {

@@ -254,7 +254,7 @@
   - type: GroupExamine
   - type: IdentityBlocker
     coverage: EYES
-  - type: ThermalVisionItem # ADT tweak
+  - type: ThermalVisionItem # ADT-tweak
 
 - type: entity
   parent: ClothingEyesBase

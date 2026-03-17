@@ -7,6 +7,12 @@
     - !type:DepartmentTimeRequirement
       department: Security
       time: 50h # Corvax-RoleTime
+    # ADT-Tweak start
+    - !type:TraitsRequirement
+      inverted: true
+      traits:
+      - Muted
+    # ADT-Tweak end
     - !type:SpeciesRequirement  # ADT Restrict Start
       inverted: true
       species:
