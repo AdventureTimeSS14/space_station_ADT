@@ -845,3 +845,51 @@ ent-ADTClothingOuterCoatShipTestAltiusRedLis = траншейное пальто
 ent-ADTClothingOuterCoatJacketShipTestAltiusRedLis = куртка
     .desc = Куртка, изготовленная из материалов повышенной прочности, выполнена в тёмных тонах и имеет заметную эмблему на спине.
     .suffix = { "Спонсорское, Altius, RedLis" }
+
+ent-ADTClothingHandsMathemat1kaGloves = белые капитанские перчатки
+    .desc = Элегантные белые капитанские перчатки с золотой отделкой.
+    .suffix = { "Именное, Mathemat1ka" }
+
+ent-ADTClothingBeltMathemat1kaSheath = белые ножны для сабли
+    .desc = Резные белые ножны, предназначенные для вашего личного клинка.
+    .suffix = { "Именное, Mathemat1ka" }
+
+ent-ADTClothingBeltMathemat1kaSheathFilled = { ent-ADTClothingBeltMathemat1kaSheath  }
+    .desc = Резные белые ножны, предназначенные для вашего личного клинка.
+    .suffix = { "Заполнены, Именное, Mathemat1ka" }
+
+ent-ADTClothingOuterMathemat1kaCoat = белая капитанская куртка
+    .desc = Безупречная белая капитанская куртка с золотыми вставками.
+    .suffix = { "Именное, Mathemat1ka" }
+
+ent-ADTClothingUniformMathemat1kaJumpsuit = белый капитанский комбинезон
+    .desc = Белый капитанский комбинезон с утончёнными золотыми отметками.
+    .suffix = { "Именное, Mathemat1ka" }
+
+ent-ADTClothingShoesMathemat1kaBoots = белые шнурованные ботинки
+    .desc = Элегантные белые шнурованные ботинки с улучшенным сцеплением.
+    .suffix = { "Именное, Mathemat1ka" }
+
+ent-ADTClothingBackMathemat1kaSatchel = белая капитанская сумка
+    .desc = Особая белая сумка с золотыми акцентами.
+    .suffix = { "Именное, Mathemat1ka" }
+
+ent-ADTClothingHeadMathemat1kaHat = белая капитанская фуражка
+    .desc = Особенная белая капитанская фуражка с золотой отделкой.
+    .suffix = { "Именное, Mathemat1ka" }
+
+ent-ADTClothingNeckMathemat1kaMantle = белая капитанская мантия
+    .desc = Формальная белая мантия для ношения на плечах.
+    .suffix = { "Именное, Mathemat1ka" }
+
+ent-ADTClothingNeckMathemat1kaCloak = белый капитанский плащ
+    .desc = Помпезный и уютный белый плащ с золотой отделкой.
+    .suffix = { "Именное, Mathemat1ka" }
+
+ent-ADTClothingUniformMathemat1kaDress = белое капитанское платье
+    .desc = Белое платье для особых случаев с золотыми акцентами.
+    .suffix = { "Именное, Mathemat1ka" }
+
+ent-ADTClothingHeadMathemat1kaCapCap = белая капитанская кепка
+    .desc = Величественная белая кепка капитана. Показывает станции, кто здесь главный.
+    .suffix = { "Именное, Mathemat1ka" }
