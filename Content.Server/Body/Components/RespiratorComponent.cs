@@ -1,4 +1,5 @@
 using Content.Server.Body.Systems;
+using Content.Server.Heretic.EntitySystems;
 using Content.Shared.Atmos;
 using Content.Shared.Chat.Prototypes;
 using Content.Shared.Damage;
@@ -7,7 +8,7 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Server.Body.Components
 {
-    [RegisterComponent, Access(typeof(RespiratorSystem)), AutoGenerateComponentPause]
+    [RegisterComponent, Access(typeof(RespiratorSystem), typeof(GhoulSystem)), AutoGenerateComponentPause] // ADT-Tweak
     public sealed partial class RespiratorComponent : Component
     {
         /// <summary>

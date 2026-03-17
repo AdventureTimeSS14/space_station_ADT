@@ -1,33 +1,21 @@
 using System.Linq;
+using Content.Server.Atmos.EntitySystems;
 using Content.Shared.Heretic;
 using Content.Shared.Heretic.Prototypes;
 using Content.Shared.Humanoid;
+using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Speech.Muting;
 
 namespace Content.Server.Heretic.Ritual;
 
-public sealed partial class RitualMuteGhoulifyBehavior : RitualCustomBehavior
+public sealed partial class RitualMuteGhoulifyBehavior : RitualSacrificeBehavior
 {
-    /// <summary>
-    ///     Minimal amount of corpses.
-    /// </summary>
-    [DataField]
-    public int Min = 1;
-
-    /// <summary>
-    ///     Maximum amount of corpses.
-    /// </summary>
-    [DataField]
-    public int Max = 1;
-
-    private List<EntityUid> _targets = new();
-
     public override bool Execute(RitualData args, out string? outstr)
     {
         var lookupSystem = args.EntityManager.System<EntityLookupSystem>();
 
-        _targets = new();
+        uids = new();
 
         if (!args.EntityManager.TryGetComponent<HereticComponent>(args.Performer, out var hereticComp))
         {
@@ -35,14 +23,13 @@ public sealed partial class RitualMuteGhoulifyBehavior : RitualCustomBehavior
             return false;
         }
 
-        var res = lookupSystem.GetEntitiesInRange(args.Platform, .75f);
+        var res = lookupSystem.GetEntitiesInRange(args.Platform, 1.5f);
         if (res.Count == 0)
         {
-            outstr = Loc.GetString("heretic-ritual-fail-ghoulify");
+            outstr = Loc.GetString("heretic-ritual-fail-sacrifice");
             return false;
         }
 
-        // get all the dead ones
         foreach (var look in res)
         {
             if (!args.EntityManager.TryGetComponent<MobStateComponent>(look, out var mobstate)
@@ -50,12 +37,13 @@ public sealed partial class RitualMuteGhoulifyBehavior : RitualCustomBehavior
                 || mobstate.CurrentState != Shared.Mobs.MobState.Dead)
                 continue;
 
-            _targets.Add(look);
+            uids.Add(look);
         }
 
-        if (_targets.Count < Min)
+        if (uids.Count < Min)
         {
-            outstr = Loc.GetString("heretic-ritual-fail-sacrifice-ineligible");
+            var needed = (int)Min - uids.Count;
+            outstr = Loc.GetString("heretic-ritual-fail-sacrifice-count", ("current", uids.Count), ("required", (int)Min), ("needed", needed), ("max", (int)Max));
             return false;
         }
 
@@ -65,11 +53,11 @@ public sealed partial class RitualMuteGhoulifyBehavior : RitualCustomBehavior
 
     public override void Finalize(RitualData args)
     {
-        foreach (var uid in _targets.Take(Max))
+        foreach (var uid in uids)
         {
             var ghoul = new GhoulComponent()
             {
-                TotalHealth = 100,
+                TotalHealth = 125f,
             };
             args.EntityManager.AddComponent(uid, ghoul, overwrite: true);
             args.EntityManager.EnsureComponent<MutedComponent>(uid);

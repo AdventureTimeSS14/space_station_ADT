@@ -1,4 +1,5 @@
-﻿using System.Linq;
+using System.Linq;
+using Content.Shared.ADT.Traits;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Clothing;
 using Content.Shared.Containers.ItemSlots;
@@ -89,7 +90,16 @@ public sealed partial class IngestionSystem
         }
 
         // Time is additive because I said so.
-        args.Time += entity.Comp.Delay;
+        // ADT-Tweak start
+        var delay = entity.Comp.Delay;
+
+        if (TryComp<FoodConsumptionSpeedModifierComponent>(args.User, out var foodSpeedMod))
+        {
+            delay *= foodSpeedMod.Modifier;
+        }
+
+        args.Time += delay;
+        // ADT-Tweak end
     }
 
     private void OnStorageEdible(Entity<StorageComponent> ent, ref EdibleEvent args)
