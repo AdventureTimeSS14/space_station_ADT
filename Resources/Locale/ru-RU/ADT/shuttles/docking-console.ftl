@@ -5,3 +5,5 @@ mining-console-window-title = Консоль управления шахтёрс
 
 shuttle-destination-lavaland = Лаваленд
 shuttle-destination-icemoon = Айсмун
+
+docking-console-port-occupied = Невозможно, высадка занята другим шаттлом

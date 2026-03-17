@@ -5,6 +5,7 @@ using Content.Server.Station.Systems;
 using Content.Shared.ADT.Shuttles;
 using Content.Shared.ADT.Shuttles.Components;
 using Content.Shared.ADT.Shuttles.Systems;
+using Content.Shared.Popups;
 using Content.Shared.Shuttles.Components;
 using Content.Shared.Shuttles.Systems;
 using Content.Shared.Station.Components;
@@ -22,6 +23,8 @@ public sealed class DockingConsoleSystem : SharedDockingConsoleSystem
     [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
     [Dependency] private readonly ShuttleSystem _shuttle = default!;
     [Dependency] private readonly StationSystem _station = default!;
+    [Dependency] private readonly DockingSystem _dockSystem = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
 
     public override void Initialize()
     {
@@ -117,6 +120,13 @@ public sealed class DockingConsoleSystem : SharedDockingConsoleSystem
 
         if (FindLargestGrid(map) is not { } grid)
             return;
+
+        var dockingConfig = _dockSystem.GetDockingConfig(shuttle, grid, priorityTag: ent.Comp.DockTag);
+        if (dockingConfig == null)
+        {
+            _popup.PopupCursor(Loc.GetString("docking-console-port-occupied"), args.Actor, PopupType.Medium);
+            return;
+        }
 
         Log.Debug($"{ToPrettyString(args.Actor):user} is FTL-docking {ToPrettyString(shuttle):shuttle} to {ToPrettyString(grid):grid}");
 

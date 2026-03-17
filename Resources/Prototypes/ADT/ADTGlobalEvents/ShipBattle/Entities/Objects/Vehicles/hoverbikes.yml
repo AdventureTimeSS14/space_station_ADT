@@ -1,5 +1,5 @@
 - type: entity
-  parent: ADTVehicleATV
+  parent: [ ADTVehicleATV, FlyingMobBase ]
   id: ADTVehicleHoverbikeTSF
   name: hoverbike TSF
   description: A turbine with bike handles. Very safe.
