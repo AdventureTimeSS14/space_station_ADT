@@ -13,6 +13,7 @@ using Content.Shared.PowerCell;
 using Content.Shared.Verbs;
 using Content.Shared.Wires;
 using Robust.Shared.Containers;
+using Robust.Shared.Map;
 using Robust.Shared.Utility;
 
 namespace Content.Shared.ADT.ModSuits;
@@ -323,18 +324,16 @@ public sealed partial class ModSuitSystem
 
     private void StartupClothing(Entity<ModSuitComponent> ent)
     {
-        var xform = Transform(ent);
-
         foreach (var prototype in ent.Comp.ClothingPrototypes)
         {
-            var spawned = Spawn(prototype.Value, xform.Coordinates);
+            var spawned = Spawn(prototype.Value, MapCoordinates.Nullspace);
             var attachedClothing = EnsureComp<ModPartComponent>(spawned);
             attachedClothing.AttachedUid = GetNetEntity(ent.Owner);
 
             EnsureComp<ContainerManagerComponent>(spawned);
 
             ent.Comp.ClothingUids.Add(GetNetEntity(spawned), prototype.Key);
-            _containerSystem.Insert(spawned, ent.Comp.PartsContainer, containerXform: xform);
+            _containerSystem.Insert(spawned, ent.Comp.PartsContainer);
 
             Dirty(spawned, attachedClothing);
         }
@@ -344,7 +343,7 @@ public sealed partial class ModSuitSystem
     {
         foreach (var module in ent.Comp.StartingModules)
         {
-            var spawned = Spawn(module, ent.Owner.ToCoordinates());
+            var spawned = Spawn(module, MapCoordinates.Nullspace);
             if (!TryComp<ModSuitModComponent>(spawned, out var moduleComp))
                 continue;
 
