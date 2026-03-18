@@ -457,26 +457,24 @@
       path: /Audio/Effects/Cargo/ping.ogg
     IPCDeathgasp:
       path: /Audio/ADT/IPC/borg_deathsound.ogg
-    Laugh:
-      collection: MaleLaugh
-    Sneeze:
-      collection: MaleSneezes
-    Cough:
-      collection: MaleCoughs
-    Yawn:
-      collection: MaleYawn
-    Snore:
-      collection: Snores
-    Sigh:
-      collection: MaleSigh
-    Crying:
-      collection: MaleCry
-    Whistle:
-      collection: Whistles
-    Gasp:
-      collection: MaleGasp
-    Spit:
-      collection: HumanSpits
+    IPCLaugh:
+      collection: IPCMaleLaugh
+    IPCSneeze:
+      collection: IPCMaleSneezes
+    IPCCough:
+      collection: IPCMaleCoughs
+    IPCYawn:
+      collection: IPCMaleYawn
+    IPCSigh:
+      collection: IPCMaleSigh
+    IPCCrying:
+      collection: IPCMaleCry
+    IPCWhistle:
+      collection: IPCWhistles
+    IPCGasp:
+      collection: IPCMaleGasp
+    IPCSpit:
+      collection: IPCSpits
 
 - type: emoteSounds
   id: FemaleIPC
@@ -507,27 +505,24 @@
       path: /Audio/Effects/Cargo/ping.ogg
     IPCDeathgasp:
       path: /Audio/ADT/IPC/borg_deathsound.ogg
-    Laugh:
-      collection: FemaleLaugh
-    Sneeze:
-      collection: FemaleSneezes
-    Cough:
-      collection: FemaleCoughs
-    Yawn:
-      collection: FemaleYawn
-    Snore:
-      collection: Snores
-    Sigh:
-      collection: FemaleSigh
-    Crying:
-      collection: FemaleCry
-    Whistle:
-      collection: Whistles
-    Gasp:
-      collection: FemaleGasp
-    Spit:
-      collection: HumanSpits
-
+    IPCLaugh:
+      collection: IPCFemaleLaugh
+    IPCSneeze:
+      collection: IPCFemaleSneezes
+    IPCCough:
+      collection: IPCFemaleCoughs
+    IPCYawn:
+      collection: IPCFemaleYawn
+    IPCSigh:
+      collection: IPCFemaleSigh
+    IPCCrying:
+      collection: IPCFemaleCry
+    IPCWhistle:
+      collection: IPCWhistles
+    IPCGasp:
+      collection: IPCFemaleGasp
+    IPCSpit:
+      collection: IPCSpits
 
 - type: emoteSounds
   id: MaleUrsus
