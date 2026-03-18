@@ -5,7 +5,6 @@ using Content.Server.Station.Systems;
 using Content.Shared.ADT.Shuttles;
 using Content.Shared.ADT.Shuttles.Components;
 using Content.Shared.ADT.Shuttles.Systems;
-using Content.Shared.Popups;
 using Content.Shared.Shuttles.Components;
 using Content.Shared.Shuttles.Systems;
 using Content.Shared.Station.Components;
@@ -23,8 +22,6 @@ public sealed class DockingConsoleSystem : SharedDockingConsoleSystem
     [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
     [Dependency] private readonly ShuttleSystem _shuttle = default!;
     [Dependency] private readonly StationSystem _station = default!;
-    [Dependency] private readonly DockingSystem _dockSystem = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
 
     public override void Initialize()
     {
