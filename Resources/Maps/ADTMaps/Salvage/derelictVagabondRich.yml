@@ -957,7 +957,6 @@ entities:
     - type: RadiationGridResistance
     - type: IFF
       flags: HideLabel
-    - type: ShuttleDeed
 - proto: AirAlarm
   entities:
   - uid: 2
