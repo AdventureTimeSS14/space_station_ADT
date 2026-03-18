@@ -19,6 +19,11 @@
     solutions:
       pack:
         maxVol: 100
+      drink:
+        temperature: 293.15
+        canReact: true
+        maxVol: 0
+        name: drink
   - type: FitsInDispenser
     solution: pack
   - type: RefillableSolution
