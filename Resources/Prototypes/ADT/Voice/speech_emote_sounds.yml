@@ -411,8 +411,6 @@
       path: /Audio/ADT/IPC/buzz-sigh.ogg
     SighBuzz:
       path: /Audio/ADT/IPC/buzz-two.ogg
-    Sigh:
-      path: /Audio/ADT/IPC/buzz-two.ogg
     Scream:
       path: /Audio/ADT/IPC/synth_scream.ogg
     Beep:
