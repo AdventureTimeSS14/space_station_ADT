@@ -3,14 +3,12 @@
   id: ADTOrganNovakidStomach
   suffix: "novakid"
   categories: [ HideSpawnMenu ]
-  mapSavable: false
   components:
     - type: Stomach
     - type: SolutionContainerManager
       solutions:
         stomach:
           maxVol: 50.0
-          reagents: []
     - type: Metabolizer
       maxReagents: 7
       metabolizerTypes: [ Novakid ]
@@ -48,7 +46,6 @@
         maxVol: 100
         name: Lung
         canReact: false
-        reagents: []
   - type: Metabolizer
     removeEmpty: true
     solutionOnBody: false

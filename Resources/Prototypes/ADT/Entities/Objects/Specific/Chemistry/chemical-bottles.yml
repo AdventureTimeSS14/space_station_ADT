@@ -108,7 +108,6 @@
     solutions:
       drink:
         maxVol: 30
-        reagents: []
 
 ##стеклянная
 

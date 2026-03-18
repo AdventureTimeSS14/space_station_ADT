@@ -2374,7 +2374,6 @@
     solutions:
       drink:
         maxVol: 0
-        reagents: []
   - type: MeleeWeapon
     wideAnimationRotation: 180
     soundHit:

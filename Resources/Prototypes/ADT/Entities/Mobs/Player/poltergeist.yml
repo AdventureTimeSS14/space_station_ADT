@@ -2,7 +2,6 @@
   id: ADTMobPoltergeist
   name: poltergeist
   description: A spooky ghostie.
-  mapSavable: false
   components:
   - type: MindContainer
   - type: InputMover
