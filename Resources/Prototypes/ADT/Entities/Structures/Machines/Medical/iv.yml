@@ -45,7 +45,6 @@
     - 5
     - 10
     - 15
-    attachedTo: null
   - type: ItemSlots
     slots:
       pack:
