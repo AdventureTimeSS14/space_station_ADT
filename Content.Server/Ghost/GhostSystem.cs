@@ -589,15 +589,13 @@ namespace Content.Server.Ghost
             // Make sure the new point is valid too
             if (!IsValidSpawnPosition(spawnPosition))
             {
-                // No valid spawn point found - spawn in nullspace as fallback
                 Log.Warning($"No spawn valid ghost spawn position found for {mind.Comp.CharacterName}"
-                    + $" \"{ToPrettyString(mind)}\". Spawning in nullspace.");
-                // Use MapCoordinates.Nullspace directly since EntityCoordinates.Invalid causes errors
-                var fallbackGhost = Spawn(GameTicker.ObserverPrototypeName, MapCoordinates.Nullspace);
-                return SetupGhost(mind, fallbackGhost, canReturn);
+                    + $" \"{ToPrettyString(mind)}\"");
+                _minds.TransferTo(mind.Owner, null, createGhost: false, mind: mind.Comp);
+                return null;
             }
             // ADT Poltergeist start
-            if (mind.Comp.OwnedEntity != null && HasComp<PotentialPoltergeistComponent>(mind.Comp.OwnedEntity))
+            if (HasComp<PotentialPoltergeistComponent>(mind.Comp.OwnedEntity))
             {
                 var polter = SpawnAtPosition("ADTMobPoltergeist", spawnPosition.Value);
                 _minds.TransferTo(mind.Owner, polter, mind: mind.Comp);
@@ -606,17 +604,12 @@ namespace Content.Server.Ghost
             // ADT Poltergeist end
 
             var ghost = SpawnAtPosition(GameTicker.ObserverPrototypeName, spawnPosition.Value);
-            return SetupGhost(mind, ghost, canReturn);
-        }
-
-        private EntityUid SetupGhost(Entity<MindComponent?> mind, EntityUid ghost, bool canReturn)
-        {
             var ghostComponent = Comp<GhostComponent>(ghost);
 
             // Try setting the ghost entity name to either the character name or the player name.
             // If all else fails, it'll default to the default entity prototype name, "observer".
             // However, that should rarely happen.
-            if (!string.IsNullOrWhiteSpace(mind.Comp!.CharacterName))
+            if (!string.IsNullOrWhiteSpace(mind.Comp.CharacterName))
                 _metaData.SetEntityName(ghost, mind.Comp.CharacterName);
             else if (mind.Comp.UserId is { } userId && _player.TryGetSessionById(userId, out var session))
                 _metaData.SetEntityName(ghost, session.Name);

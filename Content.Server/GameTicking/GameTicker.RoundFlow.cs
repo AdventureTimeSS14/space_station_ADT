@@ -837,10 +837,6 @@ namespace Content.Server.GameTicking
             RunLevel = GameRunLevel.PreRoundLobby;
             RandomizeLobbyBackground();
             ResettingCleanup();
-
-            // Check if the GamePreset needs to be reset
-            TryResetPreset();
-
             IncrementRoundNumber();
             SendRoundStartingDiscordMessage();
 
