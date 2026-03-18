@@ -4,6 +4,7 @@
   name: blood pack
   description: An empty blood pack ready to be filled.
   suffix: Empty
+  save: false # убираем из теста
   components:
   - type: BloodPack
   - type: Sprite
@@ -72,7 +73,7 @@
   name: blood pack
   description: An empty blood pack ready to be filled.
   suffix: Full
-  categories: [ HideSpawnMenu ]
+  save: false
   components:
   - type: SolutionContainerManager
     solutions:
