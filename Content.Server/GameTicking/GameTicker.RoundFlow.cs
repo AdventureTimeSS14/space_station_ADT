@@ -823,6 +823,9 @@ namespace Content.Server.GameTicking
             if (_serverUpdates.RoundEnded())
                 return;
 
+            // Check if the GamePreset needs to be reset
+            TryResetPreset();
+
             _sawmill.Info("Restarting round!");
 
             SendServerMessage(Loc.GetString("game-ticker-restart-round"));
@@ -834,11 +837,12 @@ namespace Content.Server.GameTicking
             RunLevel = GameRunLevel.PreRoundLobby;
             RandomizeLobbyBackground();
             ResettingCleanup();
+
+            // Check if the GamePreset needs to be reset
+            TryResetPreset();
+
             IncrementRoundNumber();
             SendRoundStartingDiscordMessage();
-
-            // Check if the GamePreset needs to be reset (after cleanup to avoid re-adding rules)
-            TryResetPreset();
 
             if (!LobbyEnabled)
             {
@@ -899,15 +903,17 @@ namespace Content.Server.GameTicking
             // So clients' entity systems can clean up too...
             RaiseNetworkEvent(ev);
 
-            // Clear up any game rules.
-            ClearGameRules();
-            CurrentPreset = null;
+            EntityManager.FlushEntities();
 
             _mapManager.Restart();
 
             _banManager.Restart();
 
             _gameMapManager.ClearSelectedMap();
+
+            // Clear up any game rules.
+            ClearGameRules();
+            CurrentPreset = null;
 
             _allPreviousGameRules.Clear();
 
