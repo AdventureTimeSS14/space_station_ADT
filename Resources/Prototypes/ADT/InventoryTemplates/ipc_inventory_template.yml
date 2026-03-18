@@ -53,6 +53,13 @@
       uiWindowPos: 2,1
       strippingWindowPos: 2,1
       displayName: Gloves
+    - name: finger
+      slotTexture: finger
+      slotFlags: FINGER
+      stripTime: 2
+      uiWindowPos: 3,1
+      strippingWindowPos: 3,2
+      displayName: Finger
     - name: neck
       slotTexture: neck
       slotFlags: NECK

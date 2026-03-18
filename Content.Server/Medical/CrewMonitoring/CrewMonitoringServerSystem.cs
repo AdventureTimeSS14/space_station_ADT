@@ -77,12 +77,21 @@ public sealed class CrewMonitoringServerSystem : EntitySystem
         if (!Resolve(uid, ref component))
             return;
 
+        //ADT-Tweak-Start
+        // Без этих изменений, в мониторинге остаётся ремнант сущности с OnMob: true. Надеюсь это ничего не сломает.
+        var toRemove = new List<string>();
         foreach (var (address, sensor) in component.SensorStatus)
         {
             var dif = _gameTiming.CurTime - sensor.Timestamp;
             if (dif.Seconds > component.SensorTimeout)
-                component.SensorStatus.Remove(address);
+                toRemove.Add(address);
         }
+
+        foreach (var address in toRemove)
+        {
+            component.SensorStatus.Remove(address);
+        }
+        //ADT-Tweak-End
     }
 
     /// <summary>

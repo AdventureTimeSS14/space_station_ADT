@@ -47,6 +47,7 @@ public abstract class SharedSuitSensorSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<SuitSensorComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<SuitSensorComponent, ComponentStartup>(OnStartup); //ADT-Tweak
         SubscribeLocalEvent<PlayerSpawnCompleteEvent>(OnPlayerSpawn);
         SubscribeLocalEvent<SuitSensorComponent, ClothingGotEquippedEvent>(OnEquipped);
         SubscribeLocalEvent<SuitSensorComponent, ClothingGotUnequippedEvent>(OnUnequipped);
@@ -79,7 +80,17 @@ public abstract class SharedSuitSensorSystem : EntitySystem
     private void OnMapInit(Entity<SuitSensorComponent> ent, ref MapInitEvent args)
     {
         // Fallback
-        ent.Comp.StationId ??= _stationSystem.GetOwningStation(ent.Owner);
+        //ADT-Tweak-Start
+        if (ent.Comp.OnMob)
+        {
+            ent.Comp.User = ent.Owner;
+            Dirty(ent);
+        }
+        else
+        {
+            ent.Comp.StationId ??= _stationSystem.GetOwningStation(ent.Owner);
+        }
+        //ADT-Tweak-End
 
         // generate random mode
         if (ent.Comp.RandomMode)
@@ -98,6 +109,17 @@ public abstract class SharedSuitSensorSystem : EntitySystem
         ent.Comp.NextUpdate = _timing.CurTime;
         Dirty(ent);
     }
+
+    //ADT-Tweak-Start
+    private void OnStartup(Entity<SuitSensorComponent> ent, ref ComponentStartup args)
+    {
+        if (ent.Comp.OnMob && ent.Comp.User == null)
+        {
+            ent.Comp.User = ent.Owner;
+            Dirty(ent);
+        }
+    }
+    //ADT-Tweak-End
 
     private void OnPlayerSpawn(PlayerSpawnCompleteEvent ev)
     {
@@ -126,12 +148,22 @@ public abstract class SharedSuitSensorSystem : EntitySystem
 
     private void OnEquipped(Entity<SuitSensorComponent> ent, ref ClothingGotEquippedEvent args)
     {
+        //ADT-Tweak-Start
+        if (ent.Comp.OnMob)
+            return;
+        //ADT-Tweak-End
+
         ent.Comp.User = args.Wearer;
         Dirty(ent);
     }
 
     private void OnUnequipped(Entity<SuitSensorComponent> ent, ref ClothingGotUnequippedEvent args)
     {
+        //ADT-Tweak-Start
+        if (ent.Comp.OnMob)
+            return;
+        //ADT-Tweak-End
+
         ent.Comp.User = null;
         Dirty(ent);
     }
@@ -195,9 +227,14 @@ public abstract class SharedSuitSensorSystem : EntitySystem
         if (!_interactionSystem.InRangeUnobstructed(args.User, args.Target))
             return;
 
-        // check if target is incapacitated (cuffed, dead, etc)
-        if (ent.Comp.User != null && args.User != ent.Comp.User && _actionBlocker.CanInteract(ent.Comp.User.Value, null))
-            return;
+        //ADT-Tweak-Start
+        if (!ent.Comp.OnMob)
+        {
+            // check if target is incapacitated (cuffed, dead, etc)
+            if (ent.Comp.User != null && args.User != ent.Comp.User && _actionBlocker.CanInteract(ent.Comp.User.Value, null))
+                return;
+        }
+        //ADT-Tweak-End
 
         args.Verbs.UnionWith(new[]
         {
@@ -210,6 +247,11 @@ public abstract class SharedSuitSensorSystem : EntitySystem
 
     private void OnInsert(Entity<SuitSensorComponent> ent, ref EntGotInsertedIntoContainerMessage args)
     {
+        //ADT-Tweak-Start
+        if (ent.Comp.OnMob)
+            return;
+        //ADT-Tweak-End
+
         if (args.Container.ID != ent.Comp.ActivationContainer)
             return;
 
@@ -219,6 +261,11 @@ public abstract class SharedSuitSensorSystem : EntitySystem
 
     private void OnRemove(Entity<SuitSensorComponent> ent, ref EntGotRemovedFromContainerMessage args)
     {
+        //ADT-Tweak-Start
+        if (ent.Comp.OnMob)
+            return;
+        //ADT-Tweak-End
+
         if (args.Container.ID != ent.Comp.ActivationContainer)
             return;
 
