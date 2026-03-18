@@ -4,6 +4,9 @@
   suffix: "novakid"
   categories: [ HideSpawnMenu ]
   components:
+    - type: Sprite
+      sprite: Mobs/Species/Human/organs.rsi
+      state: stomach
     - type: Stomach
     - type: SolutionContainerManager
       solutions:
@@ -37,6 +40,9 @@
   suffix: "novakid"
   categories: [ HideSpawnMenu ]
   components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/organs.rsi
+    state: lung-l
   - type: Lung
   - type: SolutionContainerManager
     solutions:
@@ -75,6 +81,9 @@
   suffix: "novakid"
   categories: [ HideSpawnMenu ]
   components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/organs.rsi
+    state: heart-on
   - type: Metabolizer
     maxReagents: 3
     metabolizerTypes: [ Novakid ]
