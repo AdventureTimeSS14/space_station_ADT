@@ -34,6 +34,14 @@ public sealed partial class TestPair
 
     protected override async Task Recycle(PairSettings next, TextWriter testOut)
     {
+        // Wipe all minds first to prevent spawning issues
+        await Server.WaitAssertion(() =>
+        {
+            var mindSystem = Server.System<SharedMindSystem>();
+            mindSystem.WipeAllMinds();
+        });
+        await RunTicksSync(5);
+
         // Move to pre-round lobby. Required to toggle dummy ticker on and off
         var gameTicker = Server.System<GameTicker>();
         if (gameTicker.RunLevel != GameRunLevel.PreRoundLobby)
@@ -43,7 +51,7 @@ public sealed partial class TestPair
             Assert.That(gameTicker.DummyTicker, Is.False);
             Server.CfgMan.SetCVar(CCVars.GameLobbyEnabled, true);
             await Server.WaitPost(() => gameTicker.RestartRound());
-            await RunTicksSync(1);
+            await RunTicksSync(10);
         }
 
         //Apply Cvars
