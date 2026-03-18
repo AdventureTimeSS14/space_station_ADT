@@ -56,6 +56,7 @@ public sealed class IvDripSystem : SharedIvDripSystem
             return;
 
         // TODO CM14 blood types
-        sprite.LayerSetVisible(BloodPackVisuals.Label, false);
+        if (sprite.LayerMapTryGet(BloodPackVisuals.Label, out var labelLayer))
+            sprite.LayerSetVisible(labelLayer, false); // у наших пакетов нет состояние Laber
     }
 }

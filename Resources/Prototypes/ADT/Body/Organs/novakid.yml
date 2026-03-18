@@ -9,6 +9,7 @@
       solutions:
         stomach:
           maxVol: 50.0
+          reagents: []
     - type: Metabolizer
       maxReagents: 7
       metabolizerTypes: [ Novakid ]
@@ -28,6 +29,25 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Lung
+  - type: SolutionContainerManager
+    solutions:
+      organ:
+        maxVol: 10
+        reagents:
+        - data: []
+          ReagentId: Nutriment
+          Quantity: 10
+      food:
+        maxVol: 5
+        reagents:
+        - data: []
+          ReagentId: UncookedAnimalProteins
+          Quantity: 5
+      Lung:
+        maxVol: 100
+        name: Lung
+        canReact: false
+        reagents: []
   - type: Metabolizer
     removeEmpty: true
     solutionOnBody: false

@@ -36,6 +36,8 @@
         mask:
         - GhostImpassable
   - type: MovementIgnoreGravity
+    weightless: true
+  - type: GravityAffected
   - type: Damageable
     damageContainer: Biological
   - type: Examiner
@@ -93,7 +95,20 @@
     - state: reincarnation
   - type: Clickable
   - type: InteractionOutline
+  - type: Physics
+    bodyType: KinematicController
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.40
+        density: 80
+        mask:
+        - GhostImpassable
   - type: MovementIgnoreGravity
+    weightless: true
+  - type: GravityAffected
   - type: Examiner
   - type: NoSlip
   - type: Actions
