@@ -17,6 +17,7 @@ using Content.Shared.Parallax.Biomes;
 using Content.Shared.Parallax.Biomes.Layers;
 using Content.Shared.Parallax.Biomes.Markers;
 using Content.Shared.Tag;
+using Content.Shared.ADT.CCVar;
 using Microsoft.Extensions.ObjectPool;
 using Robust.Server.Player;
 using Robust.Shared;
@@ -1007,6 +1008,11 @@ public sealed partial class BiomeSystem : SharedBiomeSystem
     /// </summary>
     public void EnsurePlanet(EntityUid mapUid, BiomeTemplatePrototype biomeTemplate, int? seed = null, MetaDataComponent? metadata = null, Color? mapLight = null, bool dayCycle = true) //ADT-tweak
     {
+        // ADT-tweak start: Check if biome generation is enabled
+        if (!_configManager.GetCVar(ADTCCVars.BiomeGenerationEnabled))
+            return;
+        // ADT-tweak end
+
         if (!Resolve(mapUid, ref metadata))
             return;
 

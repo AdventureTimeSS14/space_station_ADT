@@ -106,8 +106,8 @@ public sealed partial class ModSuitSystem
             {
                 try
                 {
-                    EntityManager.AddComponents(suit, defaultComps);
-                    EntityManager.InitializeComponents(suit);
+                    EntityManager.AddComponents(suit, defaultComps, removeExisting: false);
+                    EntityManager.InitializeEntity(suit);
                 }
                 catch (Exception ex)
                 {
@@ -129,9 +129,8 @@ public sealed partial class ModSuitSystem
                 {
                     try
                     {
-                        EntityManager.AddComponents(part, comps);
-                        EntityManager.InitializeComponents(part);
-                        RaiseLocalEvent(part, new MapInitEvent());
+                        EntityManager.AddComponents(part, comps, removeExisting: false);
+                        EntityManager.InitializeEntity(part);
                     }
                     catch (Exception ex)
                     {
@@ -206,9 +205,8 @@ public sealed partial class ModSuitSystem
                 {
                     try
                     {
-                        EntityManager.AddComponents(part, remComps);
-                        EntityManager.InitializeComponents(part);
-                        RaiseLocalEvent(part, new MapInitEvent());
+                        EntityManager.AddComponents(part, remComps, removeExisting: false);
+                        EntityManager.InitializeEntity(part);
                     }
                     catch (Exception ex)
                     {

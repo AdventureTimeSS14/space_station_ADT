@@ -1,11 +1,14 @@
 using Content.Server.ADT.Planet;
 using Content.Server.ADT.Station.Components;
+using Robust.Shared.Configuration;
+using Content.Shared.ADT.CCVar;
 
 namespace Content.Server.ADT.Station.Systems;
 
 public sealed class StationPlanetSpawnerSystem : EntitySystem
 {
     [Dependency] private readonly PlanetSystem _planet = default!;
+    [Dependency] private readonly IConfigurationManager _cfg = default!; // ADT-tweak
 
     public override void Initialize()
     {
@@ -17,6 +20,11 @@ public sealed class StationPlanetSpawnerSystem : EntitySystem
 
     private void OnMapInit(Entity<StationPlanetSpawnerComponent> ent, ref MapInitEvent args)
     {
+        // ADT-tweak start: Check if planet spawner is enabled
+        if (!_cfg.GetCVar(ADTCCVars.PlanetSpawnerEnabled))
+            return;
+        // ADT-tweak end
+
         if (ent.Comp.GridPath is not {} path)
             return;
 
