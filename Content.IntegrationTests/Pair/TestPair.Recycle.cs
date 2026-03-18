@@ -51,11 +51,12 @@ public sealed partial class TestPair
         await ApplySettings(next);
         await RunTicksSync(1);
 
-        // Restart server.
+        // Restart server and flush all entities to ensure clean state
         await testOut.WriteLineAsync($"Recycling: {Watch.Elapsed.TotalMilliseconds} ms: Restarting server again");
-        await Server.WaitPost(() => Server.EntMan.FlushEntities());
         await Server.WaitPost(() => gameTicker.RestartRound());
-        await RunTicksSync(1);
+        await RunTicksSync(10);
+        await Server.WaitPost(() => Server.EntMan.FlushEntities());
+        await RunTicksSync(5);
     }
 
     public override void ValidateSettings(PairSettings s)
