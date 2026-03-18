@@ -2,7 +2,6 @@
   id: ADTMedicalMiscStaticPack
   recipes:
   - ADTAntibioticOintment
-  - ADTBloodPackTransfusionLatheRecipe
   - ADTSmallSyringe
   - ADTPillCanister
   - ADTPillPack
