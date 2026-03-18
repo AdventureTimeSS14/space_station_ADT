@@ -899,6 +899,10 @@ namespace Content.Server.GameTicking
             // So clients' entity systems can clean up too...
             RaiseNetworkEvent(ev);
 
+            // Clear up any game rules.
+            ClearGameRules();
+            CurrentPreset = null;
+
             EntityManager.FlushEntities();
 
             _mapManager.Restart();
@@ -906,10 +910,6 @@ namespace Content.Server.GameTicking
             _banManager.Restart();
 
             _gameMapManager.ClearSelectedMap();
-
-            // Clear up any game rules.
-            ClearGameRules();
-            CurrentPreset = null;
 
             _allPreviousGameRules.Clear();
 

@@ -270,6 +270,7 @@ public sealed partial class GameTicker
         foreach (var rule in GetAddedGameRules())
         {
             EndGameRule(rule);
+            EntityManager.DeleteEntity(rule);
         }
     }
 
