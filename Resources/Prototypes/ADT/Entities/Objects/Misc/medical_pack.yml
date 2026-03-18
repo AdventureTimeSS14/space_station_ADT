@@ -15,15 +15,6 @@
     - state: bloodpack
   - type: Item
     sprite: ADT/Objects/Medical/blood_pack.rsi
-  - type: SolutionContainerManager
-    solutions:
-      pack:
-        maxVol: 100
-      drink:
-        temperature: 293.15
-        canReact: true
-        maxVol: 0
-        name: drink
   - type: FitsInDispenser
     solution: pack
   - type: RefillableSolution
@@ -70,6 +61,8 @@
     destroyOnEmpty: false
     utensil: None
     solution: &sol drink # solution name alias
+  - type: InjectableSolution
+    solution: drink
   - type: SolutionContainerManager
     solutions:
       pack:
