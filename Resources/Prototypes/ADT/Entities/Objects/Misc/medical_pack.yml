@@ -4,6 +4,7 @@
   name: blood pack
   description: An empty blood pack ready to be filled.
   suffix: Empty
+  mapSavable: false
   components:
   - type: BloodPack
   - type: Sprite
@@ -72,6 +73,7 @@
   name: blood pack
   description: An empty blood pack ready to be filled.
   suffix: Full
+  mapSavable: false
   components:
   - type: SolutionContainerManager
     solutions:

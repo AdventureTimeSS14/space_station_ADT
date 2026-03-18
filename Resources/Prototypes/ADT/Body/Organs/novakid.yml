@@ -3,6 +3,7 @@
   id: ADTOrganNovakidStomach
   suffix: "novakid"
   categories: [ HideSpawnMenu ]
+  mapSavable: false
   components:
     - type: Stomach
     - type: SolutionContainerManager
