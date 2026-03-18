@@ -268,19 +268,32 @@ public sealed partial class GameTicker
     public void ClearGameRules()
     {
         // ADT-tweak start: First, end all game rules (this raises GameRuleEndedEvent)
+        // Collect ALL game rule entities first (including ended ones) to avoid modification during iteration
+        var allRules = new List<EntityUid>();
         var query = EntityQueryEnumerator<GameRuleComponent>();
-        while (query.MoveNext(out var uid, out var ruleData))
+        while (query.MoveNext(out var uid, out _))
         {
-            if (IsGameRuleAdded(uid, ruleData))
-                EndGameRule(uid, ruleData);
+            allRules.Add(uid);
         }
 
-        // Then delete all game rule entities (including ended ones)
-        var deleteQuery = EntityQueryEnumerator<GameRuleComponent>();
-        while (deleteQuery.MoveNext(out var uid, out _))
+        // First, end all active game rules (this raises GameRuleEndedEvent)
+        foreach (var rule in allRules)
         {
-            EntityManager.DeleteEntity(uid);
+            if (IsGameRuleAdded(rule))
+                EndGameRule(rule);
         }
+
+        // Then delete all game rule entities directly
+        foreach (var rule in allRules)
+        {
+            if (Deleted(rule))
+                continue;
+            
+            EntityManager.DeleteEntity(rule);
+        }
+
+        // Flush entities to ensure they are removed
+        EntityManager.FlushEntities();
         // ADT-tweak end
     }
 

@@ -823,9 +823,6 @@ namespace Content.Server.GameTicking
             if (_serverUpdates.RoundEnded())
                 return;
 
-            // Check if the GamePreset needs to be reset
-            TryResetPreset();
-
             _sawmill.Info("Restarting round!");
 
             SendServerMessage(Loc.GetString("game-ticker-restart-round"));
@@ -839,6 +836,9 @@ namespace Content.Server.GameTicking
             ResettingCleanup();
             IncrementRoundNumber();
             SendRoundStartingDiscordMessage();
+
+            // Check if the GamePreset needs to be reset (after cleanup to avoid re-adding rules)
+            TryResetPreset();
 
             if (!LobbyEnabled)
             {
@@ -902,8 +902,6 @@ namespace Content.Server.GameTicking
             // Clear up any game rules.
             ClearGameRules();
             CurrentPreset = null;
-
-            EntityManager.FlushEntities();
 
             _mapManager.Restart();
 
