@@ -315,7 +315,7 @@
     components:
     - BorgChassis
     tags:
-    - ADTSiliconEmotes
+    - SiliconEmotes
   chatMessages: ["chat-emote-msg-spit"]
   chatTriggers:
     - spit

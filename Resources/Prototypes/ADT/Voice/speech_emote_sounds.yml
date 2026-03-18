@@ -457,23 +457,23 @@
       path: /Audio/Effects/Cargo/ping.ogg
     IPCDeathgasp:
       path: /Audio/ADT/IPC/borg_deathsound.ogg
-    IPCLaugh:
+    Laugh:
       collection: IPCMaleLaugh
-    IPCSneeze:
+    Sneeze:
       collection: IPCMaleSneezes
-    IPCCough:
+    Cough:
       collection: IPCMaleCoughs
-    IPCYawn:
+    Yawn:
       collection: IPCMaleYawn
-    IPCSigh:
+    Sigh:
       collection: IPCMaleSigh
-    IPCCrying:
+    Crying:
       collection: IPCMaleCry
-    IPCWhistle:
+    Whistle:
       collection: IPCWhistles
-    IPCGasp:
+    Gasp:
       collection: IPCMaleGasp
-    IPCSpit:
+    Spit:
       collection: IPCSpits
 
 - type: emoteSounds
@@ -505,23 +505,23 @@
       path: /Audio/Effects/Cargo/ping.ogg
     IPCDeathgasp:
       path: /Audio/ADT/IPC/borg_deathsound.ogg
-    IPCLaugh:
+    Laugh:
       collection: IPCFemaleLaugh
-    IPCSneeze:
+    Sneeze:
       collection: IPCFemaleSneezes
-    IPCCough:
+    Cough:
       collection: IPCFemaleCoughs
-    IPCYawn:
+    Yawn:
       collection: IPCFemaleYawn
-    IPCSigh:
+    Sigh:
       collection: IPCFemaleSigh
-    IPCCrying:
+    Crying:
       collection: IPCFemaleCry
-    IPCWhistle:
+    Whistle:
       collection: IPCWhistles
-    IPCGasp:
+    Gasp:
       collection: IPCFemaleGasp
-    IPCSpit:
+    Spit:
       collection: IPCSpits
 
 - type: emoteSounds
