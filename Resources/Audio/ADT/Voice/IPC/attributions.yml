@@ -77,3 +77,68 @@
   license: "CC-BY-4.0"
   copyright: "Taken from https://freesound.org/. Converted from FLAC to OGG, some part of the sound is taken, modified by orange6775 (discord)"
   source: "https://freesound.org/people/qubodup/sounds/200428/"
+
+- files:
+  - i_female_laugh_1.ogg
+  license: "CC-BY-SA-3.0"
+  copyright: "/tg/station, modified by orange6775 (discord)"
+  source: "https://github.com/tgstation/tgstation/commit/3d049e69fe71a0be2133005e65ea469135d648c8"
+
+- files: ["i_female_giggle_1.ogg", "i_female_giggle_2.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Sounds by https://github.com/BlueMoon-Labs/MOLOT-BlueMoon-Station, modified by orange6775 (discord)"
+  source: "https://github.com/BlueMoon-Labs/MOLOT-BlueMoon-Station"
+
+- files: ["i_female_laugh_2.ogg"]
+  license: "CC0-1.0"
+  copyright: "https://zvukogram.com/zvuk/86551/ edited by discord:filokini, modified by orange6775 (discord)"
+  source: "https://zvukogram.com/zvuk/86551/"
+
+- files: ["i_female_sneeze_1.ogg"]
+  license: "CC0-1.0"
+  copyright: "sherby168 on freesound.org, modified by orange6775 (discord)"
+  source: "https://freesound.org/people/sherby168/sounds/540771/"
+
+- files: ["i_female_sneeze_2.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Sounds by https://github.com/TauCetiStation/TauCetiClassic/pull/12835, modified by orange6775 (discord)"
+  source: "https://github.com/Project-IS12/IS12-Warfare"
+
+- files: ["i_female_cough_1.ogg"]
+  license: "CC0-1.0"
+  copyright: "Ashe Kirk, modified by orange6775 (discord)"
+  source: "https://freesound.org/people/OwlStorm/sounds/151213/"
+
+- files: ["i_female_cough_2.ogg"]
+  license: "CC0-1.0"
+  copyright: "thatkellytrna on freesound.org, modified by orange6775 (discord)"
+  source: "https://freesound.org/people/thatkellytrna/sounds/425777/"
+
+- files: ["i_female_yawn.ogg"]
+  license: "CC0-1.0"
+  copyright: "Reitanna on freesound.org, modified by orange6775 (discord)"
+  source: "https://freesound.org/people/Reitanna/sounds/252239/"
+
+- files: ["i_female_sigh_1.ogg"]
+  license: "CC-BY-3.0"
+  copyright: "https://github.com/ss220-space/Paradise/, modified by orange6775 (discord)"
+  source: "https://github.com/ss220-space/Paradise/commit/89943a231ced9fc8db0aef65ff87093efee16b4e"
+
+- files: ["i_female_sigh_2.ogg"]
+  license: "CC-BY-NC-4.0"
+  copyright: "Original sound by https://freesound.org/people/biawinter/sounds/408090/ - cleaned up, converted to ogg by https://github.com/BasiaBelov, modified by orange6775 (discord)"
+  source: "https://freesound.org/people/biawinter/sounds/408090/"
+
+- files:
+  - i_female_cry_1.ogg
+  - i_female_cry_2.ogg
+  license: "CC-BY-NC-3.0"
+  copyright: "Taken from https://freesound.org/. Convert from WAV to OGG, is divided into several parts, modified by orange6775 (discord)"
+  source: "https://freesound.org/people/Luzanne0/sounds/445299/"
+
+- files:
+  - i_female_cry_3.ogg
+  - i_female_cry_4.ogg
+  license: "CC-BY-NC-4.0"
+  copyright: "Taken from https://freesound.org/. Convert from WAV to OGG, is divided into several parts, modified by orange6775 (discord)"
+  source: "https://freesound.org/people/Idalize/sounds/408211/"

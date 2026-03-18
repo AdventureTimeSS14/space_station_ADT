@@ -103,6 +103,46 @@
     - /Audio/ADT/Voice/IPC/i_male_cry_3.ogg
     - /Audio/ADT/Voice/IPC/i_male_cry_4.ogg
 
+- type: soundCollection
+  id: IPCFemaleLaugh
+  files:
+    - /Audio/ADT/Voice/IPC/i_female_laugh_1.ogg
+    - /Audio/ADT/Voice/IPC/i_female_laugh_2.ogg
+    - /Audio/ADT/Voice/IPC/i_female_giggle_1.ogg
+    - /Audio/ADT/Voice/IPC/i_female_giggle_2.ogg
+
+- type: soundCollection
+  id: IPCFemaleSneezes
+  files:
+    - /Audio/ADT/Voice/IPC/i_female_sneeze_1.ogg
+    - /Audio/ADT/Voice/IPC/i_female_sneeze_2.ogg
+    - /Audio/ADT/Voice/IPC/i_neutral_sneeze.ogg
+
+- type: soundCollection
+  id: IPCFemaleCoughs
+  files:
+  - /Audio/ADT/Voice/IPC/i_female_cough_1.ogg
+  - /Audio/ADT/Voice/IPC/i_female_cough_2.ogg
+
+- type: soundCollection
+  id: IPCFemaleYawn
+  files:
+  - /Audio/ADT/Voice/IPC/i_female_yawn.ogg
+
+- type: soundCollection
+  id: IPCFemaleSigh
+  files:
+    - /Audio/ADT/Voice/IPC/i_female_sigh_1.ogg
+    - /Audio/ADT/Voice/IPC/i_female_sigh_2.ogg
+
+- type: soundCollection
+  id: IPCFemaleCry
+  files:
+    - /Audio/ADT/Voice/IPC/i_female_cry_1.ogg
+    - /Audio/ADT/Voice/IPC/i_female_cry_2.ogg
+    - /Audio/ADT/Voice/IPC/i_female_cry_3.ogg
+    - /Audio/ADT/Voice/IPC/i_female_cry_4.ogg
+
 # Novakid
 
 - type: soundCollection
