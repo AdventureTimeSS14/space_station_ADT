@@ -589,13 +589,13 @@ namespace Content.Server.Ghost
             // Make sure the new point is valid too
             if (!IsValidSpawnPosition(spawnPosition))
             {
+                // No valid spawn point found - spawn in nullspace as fallback
                 Log.Warning($"No spawn valid ghost spawn position found for {mind.Comp.CharacterName}"
-                    + $" \"{ToPrettyString(mind)}\"");
-                _minds.TransferTo(mind.Owner, null, createGhost: false, mind: mind.Comp);
-                return null;
+                    + $" \"{ToPrettyString(mind)}\". Spawning in nullspace.");
+                spawnPosition = EntityCoordinates.Invalid;
             }
             // ADT Poltergeist start
-            if (HasComp<PotentialPoltergeistComponent>(mind.Comp.OwnedEntity))
+            if (mind.Comp.OwnedEntity != null && HasComp<PotentialPoltergeistComponent>(mind.Comp.OwnedEntity))
             {
                 var polter = SpawnAtPosition("ADTMobPoltergeist", spawnPosition.Value);
                 _minds.TransferTo(mind.Owner, polter, mind: mind.Comp);
