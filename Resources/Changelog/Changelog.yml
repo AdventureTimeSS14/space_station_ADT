@@ -1,12 +1,4 @@
 ﻿Entries:
-- author: Centronias
-  changes:
-  - message: The HugBot, which is similar in purpose and construction to other small
-      robots like the CleanBot.
-    type: Add
-  id: 9071
-  time: '2025-10-11T01:05:08.0000000+00:00'
-  url: https://github.com/space-wizards/space-station-14/pull/37557
 - author: PicklOH
   changes:
   - message: Added more Syndie ammo to the EMAG lathe inventory
@@ -4029,3 +4021,11 @@
   id: 9582
   time: '2026-03-17T23:05:16.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/37719
+- author: Buunie099
+  changes:
+  - message: Fixed guidebook showing the wrong value for the maximum temperature of
+      hellfire heaters.
+    type: Tweak
+  id: 9583
+  time: '2026-03-18T06:31:14.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/43285
