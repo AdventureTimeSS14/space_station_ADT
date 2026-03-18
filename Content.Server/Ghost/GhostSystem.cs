@@ -595,7 +595,7 @@ namespace Content.Server.Ghost
                 return null;
             }
             // ADT Poltergeist start
-            if (HasComp<PotentialPoltergeistComponent>(mind.Comp.OwnedEntity))
+            if (mind.Comp.OwnedEntity != null && HasComp<PotentialPoltergeistComponent>(mind.Comp.OwnedEntity))
             {
                 var polter = SpawnAtPosition("ADTMobPoltergeist", spawnPosition.Value);
                 _minds.TransferTo(mind.Owner, polter, mind: mind.Comp);
