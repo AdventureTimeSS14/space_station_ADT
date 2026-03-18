@@ -1,0 +1,79 @@
+- files:
+  - i_whistle_1.ogg
+  - i_whistle_2.ogg
+  - i_whistle_3.ogg
+  license: "CC0-1.0"
+  copyright: "Taken from https://freesound.org/, modified by orange6775 (discord)"
+  source: "https://freesound.org/people/taure/sounds/411638/"
+
+- files:
+  - i_whistle_4.ogg
+  license: "Custom"
+  copyright: "Sampling Plus 1.0 license. Taken from https://freesound.org/, modified by orange6775 (discord)"
+  source: "https://freesound.org/people/jackstrebor/sounds/34782/"
+
+- files: ["i_spit_1.ogg", "i_spit_2.ogg"]
+  license: "CC0-1.0"
+  copyright: "Sounds by https://github.com/TauCetiStation/TauCetiClassic/pull/12835, modified by orange6775 (discord)"
+  source: "https://github.com/Project-IS12/IS12-Warfare"
+
+- files:
+  - i_male_laugh_1.ogg
+  - i_male_laugh_2.ogg
+  license: "CC-BY-SA-3.0"
+  copyright: "/tg/station, modified by orange6775 (discord)"
+  source: "https://github.com/tgstation/tgstation/commit/3d049e69fe71a0be2133005e65ea469135d648c8"
+
+- files: ["i_male_sneeze_1.ogg"]
+  license: "CC-BY-4.0"
+  copyright: "InspectorJ (www.jshaw.co.uk) of Freesound.org, modified by orange6775 (discord)"
+  source: "https://freesound.org/people/InspectorJ/sounds/352177/"
+
+- files: ["i_male_sneeze_2.ogg", "i_neutral_sneeze.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Sounds by https://github.com/TauCetiStation/TauCetiClassic/pull/12835, modified by orange6775 (discord)"
+  source: "https://github.com/Project-IS12/IS12-Warfare"
+
+- files: ["i_male_cough_1.ogg"]
+  license: "CC0-1.0"
+  copyright: "dastudiospr on freesound.org, modified by orange6775 (discord)"
+  source: "https://freesound.org/people/dastudiospr/sounds/537150/"
+
+- files: ["i_male_cough_2.ogg"]
+  license: "CC0-1.0"
+  copyright: "qubodup on freesound.org, modified by orange6775 (discord)"
+  source: "https://freesound.org/people/qubodup/sounds/743360/"
+
+- files: ["i_male_yawn.ogg"]
+  license: "CC-BY-4.0"
+  copyright: "ckvoiceover on freesound.org, modified by orange6775 (discord)"
+  source: "https://freesound.org/people/ckvoiceover/sounds/401338/"
+
+- files: ["i_male_sigh_1.ogg"]
+  license: "CC-BY-3.0"
+  copyright: "https://github.com/ss220-space/Paradise/, modified by orange6775 (discord)"
+  source: "https://github.com/ss220-space/Paradise/commit/89943a231ced9fc8db0aef65ff87093efee16b4e"
+
+- files: ["i_male_sigh_2.ogg"]
+  license: "CC-BY-NC-3.0"
+  copyright: "Original sound by https://freesound.org/people/Kash15/sounds/409785/ - cleaned up, converted to ogg by https://github.com/BasiaBelov, modified by orange6775 (discord)"
+  source: "https://freesound.org/people/Kash15/sounds/409785/"
+
+- files:
+  - [i_male_cry_1.ogg"]
+  - [i_male_cry_2.ogg"]
+  license: "CC-BY-4.0"
+  copyright: "Taken from https://freesound.org/. Convert from WAV to OGG, is divided into several parts, modified by orange6775 (discord)"
+  source: "https://freesound.org/people/jacobmathiassen/sounds/254869/"
+
+- files:
+  - [i_male_cry_3.ogg"]
+  license: "CC0-1.0"
+  copyright: "Taken from https://freesound.org/, modified by orange6775 (discord)"
+  source: "https://freesound.org/people/scottemoil/sounds/263776/"
+
+- files:
+  - [i_male_cry_4.ogg"]
+  license: "CC-BY-4.0"
+  copyright: "Taken from https://freesound.org/. Converted from FLAC to OGG, some part of the sound is taken, modified by orange6775 (discord)"
+  source: "https://freesound.org/people/qubodup/sounds/200428/"

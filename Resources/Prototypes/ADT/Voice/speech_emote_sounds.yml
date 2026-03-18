@@ -471,8 +471,6 @@
       collection: IPCMaleCry
     Whistle:
       collection: IPCWhistles
-    Gasp:
-      collection: IPCMaleGasp
     Spit:
       collection: IPCSpits
 
@@ -519,8 +517,6 @@
       collection: IPCFemaleCry
     Whistle:
       collection: IPCWhistles
-    Gasp:
-      collection: IPCFemaleGasp
     Spit:
       collection: IPCSpits
 

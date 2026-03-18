@@ -525,12 +525,7 @@
   name: chat-emote-name-gasp
   whitelist:
     components:
-  #ADT-Tweak-Start
-      - Vocal
-  blacklist:
-    tags:
-    - SiliconEmotes
-  #ADT-Tweak-End
+    - Respirator
   chatMessages: ["chat-emote-msg-gasp"]
   chatTriggers:
    - gasp

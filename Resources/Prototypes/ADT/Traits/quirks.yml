@@ -187,6 +187,62 @@
   speciesWhitelist:
   - IPC
 
+- type: trait
+  id: ADTFemaleIPC
+  name: trait-female-ipc-name
+  description: trait-female-ipc-desc
+  category: Quirks
+  cost: 0
+  rewriteComponents: true
+  components:
+  - type: Vocal
+    sounds:
+      Male: FemaleIPC
+      Female: FemaleIPC
+      Unsexed: FemaleIPC
+  - type: Tag
+    tags:
+    - CanPilot
+    - SiliconFootstepSound
+    - DoorBumpOpener
+    - ChangelingBlacklist
+    - ADTSiliconStealthWhitelist
+    - ADTSiliconEmotes
+    - ADTIgnoreChokeSpeechBlocking
+    - Unimplantable
+    - AnomalyHost
+  quirk: true
+  speciesWhitelist:
+  - IPC
+
+- type: trait
+  id: ADTMaleIPC
+  name: trait-male-ipc-name
+  description: trait-male-ipc-desc
+  category: Quirks
+  cost: 0
+  rewriteComponents: true
+  components:
+  - type: Vocal
+    sounds:
+      Male: MaleIPC
+      Female: MaleIPC
+      Unsexed: MaleIPC
+  - type: Tag
+    tags:
+    - CanPilot
+    - SiliconFootstepSound
+    - DoorBumpOpener
+    - ChangelingBlacklist
+    - ADTSiliconStealthWhitelist
+    - ADTSiliconEmotes
+    - ADTIgnoreChokeSpeechBlocking
+    - Unimplantable
+    - AnomalyHost
+  quirk: true
+  speciesWhitelist:
+  - IPC
+
 # - type: trait
 #   id: ADTPotentialPoltergeist
 #   name: trait-poltergeist-name
