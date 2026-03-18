@@ -4,6 +4,7 @@ using Content.Shared.Interaction;
 using Content.Shared.PowerCell;
 using Robust.Shared.Containers;
 using Robust.Shared.GameObjects;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared.ADT.ModSuits;
 
@@ -20,6 +21,18 @@ public sealed partial class ModSuitSystem
         SubscribeLocalEvent<ModSuitComponent, ModModuleRemoveMessage>(OnEject);
         SubscribeLocalEvent<ModSuitComponent, ModModuleActivateMessage>(OnActivate);
         SubscribeLocalEvent<ModSuitComponent, ModModuleDeactivateMessage>(OnDeactivate);
+    }
+
+    private void AddComponentsSafe(EntityUid uid, ComponentRegistry components, string entityName)
+    {
+        try
+        {
+            EntityManager.AddComponents(uid, components, removeExisting: false);
+        }
+        catch (Exception ex)
+        {
+            Log.Debug($"Failed to add components to {entityName} (may already exist): {ex.Message}");
+        }
     }
 
     private void OnEject(Entity<ModSuitComponent> ent, ref ModModuleRemoveMessage args)
@@ -104,15 +117,7 @@ public sealed partial class ModSuitSystem
         {
             if (module.Comp.Components.TryGetValue("MODcore", out var defaultComps))
             {
-                try
-                {
-                    EntityManager.AddComponents(suit, defaultComps, removeExisting: false);
-                    EntityManager.InitializeEntity(suit);
-                }
-                catch (Exception ex)
-                {
-                    Log.Warning($"Failed to add MODcore components to suit {ToPrettyString(suit)}: {ex.Message}");
-                }
+                AddComponentsSafe(suit, defaultComps, ToPrettyString(suit));
             }
 
             module.Comp.Active = true;
@@ -127,15 +132,7 @@ public sealed partial class ModSuitSystem
 
                 if (module.Comp.Components.TryGetValue(attached.Value, out var comps))
                 {
-                    try
-                    {
-                        EntityManager.AddComponents(part, comps, removeExisting: false);
-                        EntityManager.InitializeEntity(part);
-                    }
-                    catch (Exception ex)
-                    {
-                        Log.Warning($"Failed to add components to part {ToPrettyString(part)}: {ex.Message}");
-                    }
+                    AddComponentsSafe(part, comps, ToPrettyString(part));
                 }
 
                 if (module.Comp.RemoveComponents != null && module.Comp.RemoveComponents.TryGetValue(attached.Value, out var remComps))
@@ -203,15 +200,7 @@ public sealed partial class ModSuitSystem
 
                 if (module.Comp.RemoveComponents != null && module.Comp.RemoveComponents.TryGetValue(attached.Value, out var remComps))
                 {
-                    try
-                    {
-                        EntityManager.AddComponents(part, remComps, removeExisting: false);
-                        EntityManager.InitializeEntity(part);
-                    }
-                    catch (Exception ex)
-                    {
-                        Log.Warning($"Failed to add components to part {ToPrettyString(part)}: {ex.Message}");
-                    }
+                    AddComponentsSafe(part, remComps, ToPrettyString(part));
                 }
             }
         }
