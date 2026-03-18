@@ -121,13 +121,6 @@ public sealed class DockingConsoleSystem : SharedDockingConsoleSystem
         if (FindLargestGrid(map) is not { } grid)
             return;
 
-        var dockingConfig = _dockSystem.GetDockingConfig(shuttle, grid, priorityTag: ent.Comp.DockTag);
-        if (dockingConfig == null)
-        {
-            _popup.PopupCursor(Loc.GetString("docking-console-port-occupied"), args.Actor, PopupType.Medium);
-            return;
-        }
-
         Log.Debug($"{ToPrettyString(args.Actor):user} is FTL-docking {ToPrettyString(shuttle):shuttle} to {ToPrettyString(grid):grid}");
 
         _shuttle.FTLToDock(shuttle, Comp<ShuttleComponent>(shuttle), grid, priorityTag: ent.Comp.DockTag);
