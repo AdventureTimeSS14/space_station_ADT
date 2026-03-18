@@ -1,7 +1,9 @@
+using System;
 using Content.Shared.Examine;
 using Content.Shared.Interaction;
 using Content.Shared.PowerCell;
 using Robust.Shared.Containers;
+using Robust.Shared.GameObjects;
 
 namespace Content.Shared.ADT.ModSuits;
 
@@ -101,7 +103,17 @@ public sealed partial class ModSuitSystem
         if (_netMan.IsServer)
         {
             if (module.Comp.Components.TryGetValue("MODcore", out var defaultComps))
-                EntityManager.AddComponents(suit, defaultComps);
+            {
+                try
+                {
+                    EntityManager.AddComponents(suit, defaultComps);
+                    EntityManager.InitializeComponents(suit);
+                }
+                catch (Exception ex)
+                {
+                    Log.Warning($"Failed to add MODcore components to suit {ToPrettyString(suit)}: {ex.Message}");
+                }
+            }
 
             module.Comp.Active = true;
             UpdateUserInterface(suit, suit.Comp);
@@ -109,11 +121,35 @@ public sealed partial class ModSuitSystem
             foreach (var attached in suit.Comp.ClothingUids)
             {
                 var part = GetEntity(attached.Key);
+
+                if (!Exists(part))
+                    continue;
+
                 if (module.Comp.Components.TryGetValue(attached.Value, out var comps))
-                    EntityManager.AddComponents(part, comps);
+                {
+                    try
+                    {
+                        EntityManager.AddComponents(part, comps);
+                        EntityManager.InitializeComponents(part);
+                        RaiseLocalEvent(part, new MapInitEvent());
+                    }
+                    catch (Exception ex)
+                    {
+                        Log.Warning($"Failed to add components to part {ToPrettyString(part)}: {ex.Message}");
+                    }
+                }
 
                 if (module.Comp.RemoveComponents != null && module.Comp.RemoveComponents.TryGetValue(attached.Value, out var remComps))
-                    EntityManager.RemoveComponents(part, remComps);
+                {
+                    try
+                    {
+                        EntityManager.RemoveComponents(part, remComps);
+                    }
+                    catch (Exception ex)
+                    {
+                        Log.Warning($"Failed to remove components from part {ToPrettyString(part)}: {ex.Message}");
+                    }
+                }
             }
         }
 
@@ -133,7 +169,16 @@ public sealed partial class ModSuitSystem
         if (_netMan.IsServer)
         {
             if (module.Comp.Components.TryGetValue("MODcore", out var defaultComps))
-                EntityManager.RemoveComponents(suit, defaultComps);
+            {
+                try
+                {
+                    EntityManager.RemoveComponents(suit, defaultComps);
+                }
+                catch (Exception ex)
+                {
+                    Log.Warning($"Failed to remove MODcore components from suit {ToPrettyString(suit)}: {ex.Message}");
+                }
+            }
 
             module.Comp.Active = false;
             UpdateUserInterface(suit, suit.Comp);
@@ -141,11 +186,35 @@ public sealed partial class ModSuitSystem
             foreach (var attached in suit.Comp.ClothingUids)
             {
                 var part = GetEntity(attached.Key);
+
+                if (!Exists(part))
+                    continue;
+
                 if (module.Comp.Components.TryGetValue(attached.Value, out var comps))
-                    EntityManager.RemoveComponents(part, comps);
+                {
+                    try
+                    {
+                        EntityManager.RemoveComponents(part, comps);
+                    }
+                    catch (Exception ex)
+                    {
+                        Log.Warning($"Failed to remove components from part {ToPrettyString(part)}: {ex.Message}");
+                    }
+                }
 
                 if (module.Comp.RemoveComponents != null && module.Comp.RemoveComponents.TryGetValue(attached.Value, out var remComps))
-                    EntityManager.AddComponents(part, remComps);
+                {
+                    try
+                    {
+                        EntityManager.AddComponents(part, remComps);
+                        EntityManager.InitializeComponents(part);
+                        RaiseLocalEvent(part, new MapInitEvent());
+                    }
+                    catch (Exception ex)
+                    {
+                        Log.Warning($"Failed to add components to part {ToPrettyString(part)}: {ex.Message}");
+                    }
+                }
             }
         }
 
