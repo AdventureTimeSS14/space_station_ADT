@@ -119,7 +119,7 @@
       Female: UnisexIPC
       Unsexed: UnisexIPC
   - type: Deathgasp
-    prototype: ADTIpcDeathgasp
+    prototype: IPCDeathgasp
     onAnyState: true
   - type: TTS # Corvax-TTS
   - type: LanguageSpeaker

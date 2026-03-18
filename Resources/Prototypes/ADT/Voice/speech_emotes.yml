@@ -330,7 +330,7 @@
     - делает харчок
 
 - type: emote
-  id: ADTIpcDeathgasp
+  id: IPCDeathgasp
   name: chat-emote-name-deathgasp
   icon: Interface/Emotes/deathgasp.png
   whitelist:
