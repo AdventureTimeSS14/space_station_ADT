@@ -190,6 +190,8 @@ public abstract class SharedRoleSystem : EntitySystem
         else
         {
             // This can happen when a mind is created before it has a body (e.g., observer spawn)
+            // Changed from Log.Error to avoid spamming logs during normal operation
+            Log.Debug($"{ToPrettyString(mindId)} does not have an OwnedEntity yet!");
             _adminLogger.Add(LogType.Mind,
                 LogImpact.Low,
                 $"{name} added to {ToPrettyString(mindId)}");
@@ -274,6 +276,8 @@ public abstract class SharedRoleSystem : EntitySystem
         if (comp.OwnedEntity is null)
         {
             // This can happen when a mind is created before it has a body (e.g., observer spawn)
+            // Changed from Log.Error to avoid spamming logs during normal operation
+            Log.Debug($"{ToPrettyString(mind)} does not have an OwnedEntity yet!");
             _adminLogger.Add(LogType.Mind,
                 LogImpact.Medium,
                 $"Role Type of {ToPrettyString(mind)} changed to {roleTypeId}, {subtype}");
