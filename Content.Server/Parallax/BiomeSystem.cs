@@ -1008,11 +1008,6 @@ public sealed partial class BiomeSystem : SharedBiomeSystem
     /// </summary>
     public void EnsurePlanet(EntityUid mapUid, BiomeTemplatePrototype biomeTemplate, int? seed = null, MetaDataComponent? metadata = null, Color? mapLight = null, bool dayCycle = true) //ADT-tweak
     {
-        // ADT-tweak start: Check if biome generation is enabled
-        if (!_configManager.GetCVar(ADTCCVars.BiomeGenerationEnabled))
-            return;
-        // ADT-tweak end
-
         if (!Resolve(mapUid, ref metadata))
             return;
 
