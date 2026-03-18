@@ -15,6 +15,7 @@ using Content.Shared.CCVar;
 using Content.Shared.Damage.Components;
 using Content.Shared.FixedPoint;
 using Content.Shared.GameTicking;
+using Content.Shared.GameTicking.Components;
 using Content.Shared.Hands.Components;
 using Content.Shared.Inventory;
 using Content.Shared.NPC.Prototypes;
@@ -269,6 +270,16 @@ public sealed class NukeOpsTest
 
             Assert.That(roundEndSys.IsRoundEndRequested,
                 "All nukies were deleted, but the round didn't end!");
+        });
+
+        // ADT-tweak: Clean up game rules to prevent leftover components affecting other tests
+        await server.WaitAssertion(() =>
+        {
+            var rules = entMan.AllComponents<GameRuleComponent>().ToArray();
+            foreach (var rule in rules)
+            {
+                entMan.DeleteEntity(rule.Uid);
+            }
         });
 
         ticker.SetGamePreset((GamePresetPrototype?) null);
