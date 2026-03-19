@@ -209,6 +209,13 @@
   - RawRitual
 
 - type: hereticKnowledge
+  id: CallOfFlesh
+  path: Flesh
+  stage: 6
+  actionPrototypes:
+  - ActionHereticGhoulCall
+
+- type: hereticKnowledge
   id: BleedingSteel
   path: Flesh
   stage: 7

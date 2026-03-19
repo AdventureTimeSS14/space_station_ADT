@@ -6,12 +6,14 @@ using Content.Shared.Tools.Components;
 using Content.Shared.Whitelist;
 using Content.Shared.Lock;
 using Content.Shared.Storage.Components;
+using Robust.Shared.Timing;
 
 namespace Content.Client.ADT.Traits;
 
 public sealed class QuirksSystem : SharedQuirksSystem
 {
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
 
     public override void Initialize()
     {
@@ -33,6 +35,9 @@ public sealed class QuirksSystem : SharedQuirksSystem
         if (_whitelist.IsWhitelistFail(comp.Whitelist, args.User))
             return;
         if (TryComp<LockComponent>(uid, out var lockComponent) && lockComponent.Locked)
+            return;
+
+        if (TryComp<FastLockersComponent>(args.User, out var fastLockers) && fastLockers.CooldownEnd > _timing.CurTime)
             return;
 
         AlternativeVerb verb = new()
