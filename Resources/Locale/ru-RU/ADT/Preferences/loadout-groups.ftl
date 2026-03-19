@@ -4,6 +4,8 @@
 loadout-group-top-adt = Нижнее белье(Верх)
 loadout-group-bottom-adt = Нижнее белье(Низ)
 loadout-group-socks-adt = Носки
+loadout-group-spray-paints = Баллончики с краской
+
 # Command
 ent-MagistratNeck = Галстуки
 ent-MagistratJumpsuit = Костюмы
@@ -44,7 +46,7 @@ loadout-group-chef-gloves-adt = Шеф-Повар, перчатки
 loadout-group-chef-neck-adt = Шеф-Повар, шея
 
 # Cargo
-loadout-group-quartermaster-id = Квартирмейстер, ID
+loadout-group-quartermaster-id-adt = Квартирмейстер, ID
 loadout-quartermaster-ears-adt = Квартирмейстер, ухо
 loadout-salvage-specialist-jumpsuit-adt = Утилизатор, комбинезон
 loadout-salvage-specialist-neck-adt = Утилизатор, шея

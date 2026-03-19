@@ -79,11 +79,33 @@ public abstract partial class SharedScopeSystem : EntitySystem
 
     private void OnUnequip(Entity<ScopeComponent> ent, ref GotUnequippedHandEvent args)
     {
+        if (ent.Comp.Attachment)
+        {
+            if (TryGetActiveEntity(ent, out var active) && _hands.IsHolding(args.User, active))
+                return;
+        }
+        else
+        {
+            if (_hands.IsHolding(args.User, ent.Owner))
+                return;
+        }
+
         Unscope(ent);
     }
 
     private void OnDeselectHand(Entity<ScopeComponent> ent, ref HandDeselectedEvent args)
     {
+        if (ent.Comp.Attachment)
+        {
+            if (TryGetActiveEntity(ent, out var active) && _hands.IsHolding(args.User, active))
+                return;
+        }
+        else
+        {
+            if (_hands.IsHolding(args.User, ent.Owner))
+                return;
+        }
+
         Unscope(ent);
     }
 
@@ -140,6 +162,10 @@ public abstract partial class SharedScopeSystem : EntitySystem
 
     private void OnGunShot(Entity<ScopeComponent> ent, ref GunShotEvent args)
     {
+        var zoomLevel = GetCurrentZoomLevel(ent);
+        if (zoomLevel.AllowMovement)
+            return;
+
         var dir = Transform(args.User).LocalRotation.GetCardinalDir();
         if (ent.Comp.ScopingDirection != dir)
             Unscope(ent);
@@ -170,6 +196,9 @@ public abstract partial class SharedScopeSystem : EntitySystem
 
     private void OnGunUnequip(Entity<GunScopingComponent> ent, ref GotUnequippedHandEvent args)
     {
+        if (_hands.IsHolding(args.User, ent.Owner))
+            return;
+
         UnscopeGun(ent);
     }
 
@@ -180,13 +209,23 @@ public abstract partial class SharedScopeSystem : EntitySystem
 
     private void OnGunUnwielded(Entity<GunScopingComponent> ent, ref ItemUnwieldedEvent args)
     {
+        if (_hands.IsHolding(args.User, ent.Owner))
+            return;
+
         UnscopeGun(ent);
     }
 
     private void OnGunGunShot(Entity<GunScopingComponent> ent, ref GunShotEvent args)
     {
+        if (!TryComp(ent.Comp.Scope, out ScopeComponent? scope))
+            return;
+
+        var zoomLevel = GetCurrentZoomLevel((ent.Comp.Scope.Value, scope));
+        if (zoomLevel.AllowMovement)
+            return;
+
         var dir = Transform(args.User).LocalRotation.GetCardinalDir();
-        if (TryComp(ent.Comp.Scope, out ScopeComponent? scope) && scope.ScopingDirection != dir)
+        if (scope.ScopingDirection != dir)
             UnscopeGun(ent);
     }
 

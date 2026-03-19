@@ -263,3 +263,168 @@
     layers:
     - state: internals
     - state: extendedtank
+
+- type: entity
+  parent: BoxCardboard
+  id: ADTBoxSurvivalSiliconMime
+  name: survival silicon box
+  description: It's a box with basic internals inside.
+  suffix: Mime, IPC
+  components:
+  - type: StorageFill
+    contents:
+    - id: Flare
+    - id: CableMVStack10
+    - id: WelderMini
+    - id: PowerCellMedium
+    - id: FoodBreadBaguette
+  - type: Sprite
+    layers:
+    - state: internals
+    - state: emergencytank
+
+#Аварийный запас для новакидов
+- type: entity
+  parent: BoxCardboard
+  id: ADTBoxSurvivalNovakid
+  name: survival novakid box
+  description: It's a box with basic internals inside.
+  suffix: Standard
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingMaskBreath
+    - id: EmergencyOxygenTankFilled
+    - id: EmergencyMedipen
+    - id: Flare
+    - id: FoodSnackNutribrick
+    - id: SpaceMedipen # ADT rework - add SpaceMedipen in all survival box
+  - type: Sprite
+    layers:
+    - state: internals
+    - state: emergencytank
+
+- type: entity
+  parent: BoxCardboard
+  id: ADTBoxNovakidHug
+  name: box of novakid hugs
+  description: A special box for sensitive people.
+  suffix: Emergency, Novakid
+  components:
+  - type: Sprite
+    layers:
+    - state: box_hug
+    - state: heart
+  - type: Item
+    heldPrefix: hug
+  - type: StorageFill
+    contents:
+    - id: ClothingMaskBreath
+    - id: EmergencyFunnyOxygenTankFilled
+    - id: EmergencyMedipen
+    - id: Flare
+    - id: FoodSnackNutribrick
+    - id: SpaceMedipen
+  - type: Tag
+    tags:
+    - BoxHug
+
+- type: entity
+  parent: BoxCardboard
+  id: ADTBoxSurvivalNovakidEngineering
+  name: extended-capacity novakid survival box
+  description: It's a box with basic internals inside. This one is labelled to contain an extended-capacity tank.
+  suffix: Extended, Novakid
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingMaskBreath
+    - id: ExtendedEmergencyOxygenTankFilled
+    - id: EmergencyMedipen
+    - id: Flare
+    - id: FoodSnackNutribrick
+    - id: SpaceMedipen
+  - type: Sprite
+    layers:
+    - state: internals
+    - state: extendedtank
+
+- type: entity
+  parent: BoxCardboard
+  id: ADTBoxSurvivalNovakidSecurity
+  name: survival novakid box
+  description: It's a box with basic internals inside.
+  suffix: Security, Novakid
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingMaskGasSecurity
+    - id: EmergencyOxygenTankFilled
+    - id: EmergencyMedipen
+    - id: Flare
+    - id: FoodSnackNutribrick
+    - id: SpaceMedipen
+  - type: Sprite
+    layers:
+    - state: internals
+    - state: emergencytank
+
+- type: entity
+  parent: BoxCardboard
+  id: ADTBoxSurvivalNovakidMedical
+  name: survival novakid box
+  description: It's a box with basic internals inside.
+  suffix: Medical, Novakid
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingMaskBreathMedical
+    - id: EmergencyOxygenTankFilled
+    - id: EmergencyMedipen
+    - id: Flare
+    - id: FoodSnackNutribrick
+    - id: SpaceMedipen
+  - type: Sprite
+    layers:
+    - state: internals
+    - state: emergencytank
+
+- type: entity
+  parent: BoxCardboard
+  id: ADTBoxSurvivalNovakidSyndicate
+  name: extended-capacity survival novakid box
+  description: It's a box with basic internals inside. This one is labelled to contain an extended-capacity tank.
+  suffix: Syndicate, Novakid
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingMaskGasSyndicate
+    - id: ExtendedEmergencyOxygenTankFilled
+    - id: EmergencyMedipen
+    - id: Flare
+    - id: FoodSnackNutribrick
+    - id: SpaceMedipen
+  - type: Sprite
+    layers:
+    - state: internals
+    - state: extendedtank
+
+- type: entity
+  parent: BoxCardboard
+  id: ADTBoxSurvivalNovakidMime
+  name: survival novakid box
+  description: It's a box with basic internals inside.
+  suffix: Mime, Novakid
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingMaskBreath
+    - id: EmergencyOxygenTankFilled
+    - id: EmergencyMedipen
+    - id: Flare
+    - id: FoodBreadBaguette
+    - id: SpaceMedipen # ADT rework - add SpaceMedipen in all survival box
+  - type: Sprite
+    layers:
+    - state: internals
+    - state: emergencytank

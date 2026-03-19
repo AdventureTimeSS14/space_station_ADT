@@ -128,3 +128,8 @@
   - ADTStationRadioServerCircuitboard
   - ADTStationRadioRigCircuitboard
   - ADTStationRadioCircuitboard
+
+- type: latheRecipePack
+  id: ADTBeltManipulatorPack
+  recipes:
+  - ADTClothingBeltManipulator

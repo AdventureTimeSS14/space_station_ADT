@@ -724,6 +724,18 @@
   recipeType:
   - Oven
 
+- type: microwaveMealRecipe
+  id: ADTFoodMealChocolateMedalRecipe
+  name: chocolate medal
+  result: ADTFoodSnackChocolateBarMedalPack
+  time: 5
+  group: Dessert
+  solids:
+    FoodSnackChocolateBar: 1
+    MaterialCloth1: 1
+  recipeType:
+  - Assembler
+
 # Kebabs
 - type: microwaveMealRecipe
   id: RecipeMeatKebab
@@ -894,7 +906,7 @@
   id: ADTFoodFrozenOrangePopsicle
   name: orange popsicle recipe
   result: ADTFoodFrozenOrangePopsicle
-  time: 10
+  time: 5
   group: Icecreams
   solids:
     FoodOrange: 1
@@ -908,7 +920,7 @@
   id: ADTFoodFrozenWatermelonPopsicle
   name: watermelon popsicle recipe
   result: ADTFoodFrozenWatermelonPopsicle
-  time: 10
+  time: 5
   group: Icecreams
   solids:
     FoodWatermelonSlice: 1
@@ -922,7 +934,7 @@
   id: ADTFoodFrozenPopsicleApple
   name: apple popsicle recipe
   result: ADTFoodFrozenPopsicleApple
-  time: 10
+  time: 5
   group: Icecreams
   solids:
     FoodApple: 1
@@ -936,7 +948,7 @@
   id: ADTFoodFrozenPopsicleGrapeFruitIce
   name: grape popsicle recipe
   result: ADTFoodFrozenPopsicleGrapeFruitIce
-  time: 10
+  time: 5
   group: Icecreams
   solids:
     FoodGrape: 1
@@ -949,7 +961,7 @@
   id: ADTFoodFrozenPopsicleStrawberryFruitIce
   name: strawberry popsicle recipe
   result: ADTFoodFrozenPopsicleStrawberryFruitIce
-  time: 10
+  time: 5
   group: Icecreams
   solids:
     ADTFoodStrawberry: 1
@@ -962,7 +974,7 @@
   id: ADTFoodFrozenPopsicleBananaFruitIce
   name: banana fruit ice recipe
   result: ADTFoodFrozenPopsicleBananaFruitIce
-  time: 10
+  time: 5
   group: Icecreams
   solids:
     FoodBanana: 1
@@ -975,7 +987,7 @@
   id: ADTFoodFrozenPopsicleBanana
   name: banana popsicle recipe
   result: ADTFoodFrozenPopsicleBanana
-  time: 10
+  time: 5
   group: Icecreams
   solids:
     FoodBanana: 1
@@ -989,7 +1001,7 @@
   id: ADTFoodFrozenPopsicleBerryFruitIce
   name: berry popsicle recipe
   result: ADTFoodFrozenPopsicleBerryFruitIce
-  time: 10
+  time: 5
   group: Icecreams
   solids:
     FoodBerries: 1
@@ -1002,7 +1014,7 @@
   id: ADTFoodFrozenChocolatePopsicle
   name: chocolate popsicle recipe
   result: ADTFoodFrozenChocolatePopsicle
-  time: 10
+  time: 5
   group: Icecreams
   solids:
     ADTFoodSnackChocolateBarChunk: 1
@@ -1016,7 +1028,7 @@
   id: ADTFoodFrozenPineappleChocolate
   name: pineapple chocolate popsicle recipe
   result: ADTFoodFrozenPineappleChocolate
-  time: 10
+  time: 5
   group: Icecreams
   solids:
     ADTFoodSnackChocolateBarChunk: 1
@@ -1031,7 +1043,7 @@
   id: ADTFoodFrozenPopsicleMole
   name: mole popsicle recipe
   result: ADTFoodFrozenPopsicleMole
-  time: 10
+  time: 5
   group: Icecreams
   solids:
     CottonBol: 1
@@ -1045,7 +1057,7 @@
   id: ADTFoodFrozenPopsicleSeaSalt
   name: seasalt icecream recipe
   result: ADTFoodFrozenPopsicleSeaSalt
-  time: 10
+  time: 5
   group: Icecreams
   reagents:
     Ice: 5
@@ -1058,7 +1070,7 @@
   id: ADTFoodFrozenPopsicleSlime
   name: slime popsicle recipe
   result: ADTFoodFrozenPopsicleSlime
-  time: 10
+  time: 5
   group: Icecreams
   reagents:
     Ice: 5
@@ -1071,7 +1083,7 @@
   id: ADTFoodFrozenVanillaIceCream
   name: vanilla icecream recipe
   result: ADTFoodFrozenVanillaIceCream
-  time: 10
+  time: 5
   group: Icecreams
   solids:
     ADTFoodFrozenIceCreamCone: 1
@@ -1084,7 +1096,7 @@
   id: ADTFoodFrozenStrawberryIceCream
   name: strawberry icecream recipe
   result: ADTFoodFrozenStrawberryIceCream
-  time: 10
+  time: 5
   group: Icecreams
   solids:
     ADTFoodFrozenIceCreamCone: 1
@@ -1098,7 +1110,7 @@
   id: ADTFoodFrozenSpaceIceCream
   name: space icecream recipe
   result: ADTFoodFrozenSpaceIceCream
-  time: 10
+  time: 5
   group: Icecreams
   solids:
     ADTFoodFrozenIceCreamCone: 1
@@ -1112,7 +1124,7 @@
   id: ADTFoodFrozenChocolateIceCream
   name: chocolate icecream recipe
   result: ADTFoodFrozenChocolateIceCream
-  time: 10
+  time: 5
   group: Icecreams
   solids:
     ADTFoodFrozenIceCreamCone: 1
@@ -1126,7 +1138,7 @@
   id: ADTFoodFrozenIceCreamWafflecone
   name: wafflecone icecream recipe
   result: ADTFoodFrozenIceCreamWafflecone
-  time: 10
+  time: 5
   group: Icecreams
   solids:
     ADTFoodFrozenIceCreamCone: 1
@@ -1141,7 +1153,7 @@
   id: ADTFoodFrozenSundae
   name: sundae icecream recipe
   result: ADTFoodFrozenSundae
-  time: 10
+  time: 5
   group: Icecreams
   solids:
     ADTFoodFrozenIceCreamCone: 1
@@ -1156,7 +1168,7 @@
   id: ADTFoodFrozenHonkdae
   name: honkdae icecream recipe
   result: ADTFoodFrozenHonkdae
-  time: 10
+  time: 5
   group: Icecreams
   solids:
     ADTFoodFrozenIceCreamCone: 1
@@ -1171,7 +1183,7 @@
   id: ADTFoodFrozenSandwich
   name: sandwich icecream recipe
   result: FoodFrozenSandwich
-  time: 10
+  time: 5
   group: Icecreams
   solids:
     ADTFoodSnackChocolateBarChunk: 2
@@ -1184,7 +1196,7 @@
   id: ADTFoodFrozenSandwichStrawberry
   name: strawberry sandwich icecream recipe
   result: FoodFrozenSandwichStrawberry
-  time: 10
+  time: 5
   group: Icecreams
   solids:
     ADTFoodSnackChocolateBarChunk: 2
@@ -1198,7 +1210,7 @@
   id: ADTFoodFrozenVanillaFreezy
   name: vanilla freezy recipe
   result: ADTFoodFrozenVanillaFreezy
-  time: 10
+  time: 5
   group: Icecreams
   solids:
     ADTFoodFrozenIceCreamCone: 1
@@ -1212,7 +1224,7 @@
   id: ADTFoodFrozenVanillaFreezyCaramel
   name: vanilla caramel freezy recipe
   result: ADTFoodFrozenVanillaFreezyCaramel
-  time: 10
+  time: 5
   group: Icecreams
   solids:
     ADTFoodFrozenIceCreamCone: 1
@@ -1227,7 +1239,7 @@
   id: ADTFoodFrozenSpaceFreezy
   name: space freezy recipe
   result: ADTFoodFrozenSpaceFreezy
-  time: 10
+  time: 5
   group: Icecreams
   solids:
     ADTFoodFrozenIceCreamCone: 1
@@ -1242,7 +1254,7 @@
   id: ADTFoodFrozenSpaceFreezyCaramel
   name: space caramel freezy recipe
   result: ADTFoodFrozenSpaceFreezyCaramel
-  time: 10
+  time: 5
   group: Icecreams
   solids:
     ADTFoodFrozenIceCreamCone: 1
@@ -1258,7 +1270,7 @@
   id: ADTFoodFrozenThreeFlavorsFreezy
   name: three flavors freezy recipe
   result: ADTFoodFrozenThreeFlavorsFreezy
-  time: 10
+  time: 5
   group: Icecreams
   solids:
     ADTFoodFrozenIceCreamCone: 1
@@ -1274,7 +1286,7 @@
   id: ADTFoodFrozenThreeFlavorsFreezyCaramel
   name: three flavors caramel freezy recipe
   result: ADTFoodFrozenThreeFlavorsFreezyCaramel
-  time: 10
+  time: 5
   group: Icecreams
   solids:
     ADTFoodFrozenIceCreamCone: 1
@@ -1291,7 +1303,7 @@
   id: ADTFoodFrozenChocolateFreezy
   name: chocolate freezy recipe
   result: ADTFoodFrozenChocolateFreezy
-  time: 10
+  time: 5
   group: Icecreams
   solids:
     ADTFoodFrozenIceCreamCone: 1
@@ -1306,7 +1318,7 @@
   id: ADTFoodFrozenChocolateFreezyCaramel
   name: chocolate caramel freezy recipe
   result: ADTFoodFrozenChocolateFreezyCaramel
-  time: 10
+  time: 5
   group: Icecreams
   solids:
     ADTFoodFrozenIceCreamCone: 1

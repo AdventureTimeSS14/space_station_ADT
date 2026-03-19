@@ -490,7 +490,7 @@
     layers:
       - state: icon
         map: [ "enum.SolutionContainerLayers.Base" ]
-      - state: fill1
+      - state: fill-1
         map: [ "enum.SolutionContainerLayers.Fill" ]
         visible: false
       - state: icon-front

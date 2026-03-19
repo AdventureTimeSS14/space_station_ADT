@@ -1,6 +1,7 @@
 using System.Linq;
 using Content.Server.Antag.Components;
 using Content.Server.GameTicking;
+using Content.Server.GameTicking.Presets;
 using Content.Server.GameTicking.Rules;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Server.Mind;
@@ -79,6 +80,19 @@ public sealed class TraitorRuleTest
         // Opt-in the player for the traitor role
         await pair.SetAntagPreference(TraitorAntagRoleName, true);
 
+        // ADT-tweak start: Clear any existing game rules and disable preset to prevent conflicts
+        await server.WaitAssertion(() =>
+        {
+            var existingRules = entMan.AllComponents<GameRuleComponent>().ToArray();
+            foreach (var rule in existingRules)
+            {
+                entMan.DeleteEntity(rule.Uid);
+            }
+            // Disable preset so StartRound() doesn't create conflicting rules
+            ticker.SetGamePreset((GamePresetPrototype?) null);
+        });
+        // ADT-tweak end
+
         // Add the game rule
         TraitorRuleComponent traitorRule = null;
         await server.WaitPost(() =>
@@ -124,6 +138,16 @@ public sealed class TraitorRuleTest
         Assert.That(mindComp.Objectives, Is.Not.Empty,
             $"No objectives assigned!");
 
+        // ADT-tweak start: Clean up game rules to prevent leftover components affecting other tests
+        await server.WaitAssertion(() =>
+        {
+            var rules = entMan.AllComponents<GameRuleComponent>().ToArray();
+            foreach (var rule in rules)
+            {
+                entMan.DeleteEntity(rule.Uid);
+            }
+        });
+        // ADT-tweak end
 
         await pair.CleanReturnAsync();
     }

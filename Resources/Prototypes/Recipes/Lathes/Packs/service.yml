@@ -41,8 +41,9 @@
   - MicrowaveMachineCircuitboard
   - ReagentGrinderMachineCircuitboard
   - ElectricGrillMachineCircuitboard
-  - BoozeDispenserMachineCircuitboard
-  - SodaDispenserMachineCircuitboard
+  - ADTEnergyBoozeDispenserMachineCircuitboard #ADT-Tweak
+  - ADTEnergySodaDispenserMachineCircuitboard #ADT-Tweak
+  - SmartFridgeCircuitboard
   - PrinterDocMachineCircuitboard # Corvax-Printer
   - ADTCoffeeMachineCircuitboard # ADT Tweak
 

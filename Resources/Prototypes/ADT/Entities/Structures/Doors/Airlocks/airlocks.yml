@@ -234,6 +234,24 @@
   - type: Sprite
     sprite: ADT/Structures/Doors/Airlocks/Standard/corporate.rsi
 
+- type: entity
+  parent: Airlock
+  id: ADTAlwaysPoweredUraniumAirlock
+  suffix: Gluttony, Always powered up
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Doors/Airlocks/Standard/uranium.rsi
+  - type: ApcPowerReceiver
+    needsPower: false
+
+- type: entity
+  parent: Airlock
+  id: ADTUraniumAirlock
+  suffix: Gluttony
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Doors/Airlocks/Standard/uranium.rsi
+
 #Glass
 - type: entity
   parent: AirlockGlass

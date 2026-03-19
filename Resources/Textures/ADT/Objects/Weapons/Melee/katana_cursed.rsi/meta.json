@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "license": "CC-BY-SA-3.0",
   "copyright": "Taken from tgstation at https://github.com/tgstation/tgstation/commit/b3e8eebdc9d822ad70bf0cdbe2f26850d4a7bbe7",
   "size": {
@@ -25,16 +25,6 @@
         [
           0.2,
           0.2,
-          0.2,
-          0.2,
-          0.2
-        ]
-      ]
-    },
-    {
-      "name": "katana-shard",
-      "delays": [
-        [
           0.2,
           0.2,
           0.2

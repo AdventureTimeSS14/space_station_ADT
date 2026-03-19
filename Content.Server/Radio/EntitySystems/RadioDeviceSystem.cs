@@ -4,27 +4,29 @@ using Content.Server.Interaction;
 using Content.Server.ADT.Language;
 using Robust.Shared.Audio.Systems;
 using Content.Server.Popups;
-using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
-using Content.Server.Radio.Components;
-using Content.Server.Speech;
-using Content.Server.Speech.Components;
+using Content.Shared.Chat;
 using Content.Shared.Examine;
 using Content.Shared.Interaction;
 using Content.Shared.Power;
 using Content.Shared.Radio;
-using Content.Shared.Chat;
 using Content.Shared.Radio.Components;
 using Content.Shared.Verbs;
 using Content.Shared.ADT.StationRadio.Components;
 using Content.Shared.ADT.StationRadio.Systems;
 using Content.Shared.ADT.StationRadio.Events;
+using Content.Shared.Radio.EntitySystems;
+using Content.Shared.Speech;
+using Content.Shared.Speech.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.GameStates;
 
 namespace Content.Server.Radio.EntitySystems;
 
-public sealed class RadioDeviceSystem : EntitySystem
+/// <summary>
+///     This system handles radio speakers and microphones (which together form a hand-held radio).
+/// </summary>
+public sealed class RadioDeviceSystem : SharedRadioDeviceSystem
 {
     [Dependency] private readonly IPrototypeManager _protoMan = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
@@ -156,7 +158,8 @@ public sealed class RadioDeviceSystem : EntitySystem
     }
     #endregion
 
-    public void SetMicrophoneEnabled(EntityUid uid, EntityUid? user, bool enabled, bool quiet = false, RadioMicrophoneComponent? component = null)
+
+    public override void SetMicrophoneEnabled(EntityUid uid, EntityUid? user, bool enabled, bool quiet = false, RadioMicrophoneComponent? component = null)
     {
         if (!Resolve(uid, ref component, false))
             return;
@@ -185,47 +188,6 @@ public sealed class RadioDeviceSystem : EntitySystem
             RemCompDeferred<ActiveListenerComponent>(uid);
     }
 
-    public void SetSpeakerEnabled(EntityUid uid, EntityUid? user, bool enabled, bool quiet = false, RadioSpeakerComponent? component = null)
-    {
-        if (!Resolve(uid, ref component))
-            return;
-
-        if (component.PowerRequired && !this.IsPowered(uid, EntityManager))
-        {
-            if (enabled && user != null)
-                _popup.PopupEntity(Loc.GetString("handheld-radio-component-no-power"), uid, user.Value);
-            return;
-        }
-
-        var wasEnabled = component.Enabled;
-        component.Enabled = enabled;
-
-        if (!quiet && user != null)
-        {
-            var state = Loc.GetString(component.Enabled ? "handheld-radio-component-on-state" : "handheld-radio-component-off-state");
-            var message = Loc.GetString("handheld-radio-component-on-use", ("radioState", state));
-            _popup.PopupEntity(message, user.Value, user.Value);
-        }
-
-        _appearance.SetData(uid, RadioDeviceVisuals.Speaker, component.Enabled);
-
-        if (component.Enabled || wasEnabled)
-            UpdateSpeakerActiveChannels(uid, component);
-    }
-
-    private void UpdateSpeakerActiveChannels(EntityUid uid, RadioSpeakerComponent component)
-    {
-        if (component.Enabled && (!component.PowerRequired || this.IsPowered(uid, EntityManager)))
-        {
-            var activeComp = EnsureComp<ActiveRadioComponent>(uid);
-            activeComp.Channels.Clear();
-            activeComp.Channels.UnionWith(component.Channels);
-        }
-        else
-        {
-            RemCompDeferred<ActiveRadioComponent>(uid);
-        }
-    }
     #endregion
 
     private void OnExamine(EntityUid uid, RadioMicrophoneComponent component, ExaminedEvent args)
@@ -350,9 +312,9 @@ public sealed class RadioDeviceSystem : EntitySystem
         }
 
         if (TryComp<RadioMicrophoneComponent>(ent, out var mic))
-            mic.BroadcastChannel = channel;
+            mic.BroadcastChannel = channel.Value;
         if (TryComp<RadioSpeakerComponent>(ent, out var speaker))
-            speaker.Channels = new() { channel };
+            speaker.Channels = new() { channel.Value };
         Dirty(ent);
     }
 

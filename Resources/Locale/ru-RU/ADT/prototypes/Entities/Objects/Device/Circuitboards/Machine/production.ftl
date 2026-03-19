@@ -24,6 +24,7 @@ ent-ChemDispenserMachineCircuitboard = раздатчик химикатов (м
     .desc = Машинная плата, используемая для создания раздатчика химикатов.
 ent-EnergyChemDispenserMachineCircuitboard = энерго-раздатчик химикатов (машинная плата)
     .desc = Машинная плата, используемая для создания раздатчика химикатов.
+
 ent-ADTVinylPlayerCircuitboard = виниловый проигрыватель (машинная плата)
     .desc = Машинная плата, используемая для создания винилового проигрывателя.
 ent-ADTTapeDeckCircuitboard = магнитофонная дека (машинная плата)
@@ -33,4 +34,8 @@ ent-ADTStationRadioRigCircuitboard = микшер радиостанции (ма
 ent-ADTStationRadioServerCircuitboard = радио сервер (машинная плата)
     .desc = Машинная плата, используемая для создания радио сервера.
 ent-ADTStationRadioCircuitboard = радио (машинная плата)
-    .desc = Машинная плата, используемая для создания радио.
+
+ent-ADTEnergyBoozeDispenserMachineCircuitboard = энерго-раздатчик алкоголя (машинная плата)
+    .desc = Печатная плата энерго-раздатчика алкоголя.
+ent-ADTEnergySodaDispenserMachineCircuitboard = энерго-раздатчик безалкоголя (машинная плата)
+    .desc = Печатная плата энерго-раздатчика безалкоголя.

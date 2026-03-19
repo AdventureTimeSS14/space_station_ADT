@@ -1,0 +1,63 @@
+- type: barSign
+  id: AlohaSnackbar
+  name: barsign-prototype-name-aloha-snackbar
+  icon:
+    sprite: ADT/Structures/Wallmounts/barsign.rsi
+    state: aloha_snackbar
+  description: barsign-prototype-description-aloha-snackbar
+
+- type: barSign
+  id: LittleTreats
+  name: barsign-prototype-name-little-treats
+  icon:
+    sprite: ADT/Structures/Wallmounts/barsign.rsi
+    state: littletreats
+  description: barsign-prototype-description-little-treats
+
+- type: barSign
+  id: AssemblyLine
+  name: barsign-prototype-name-assembly-line
+  icon:
+    sprite: ADT/Structures/Wallmounts/barsign.rsi
+    state: assembly_line
+  description: barsign-prototype-description-assembly-line
+
+- type: barSign
+  id: OrangeJuice
+  name: barsign-prototype-name-orange-juice
+  icon:
+    sprite: ADT/Structures/Wallmounts/barsign.rsi
+    state: orangejuice
+  description: barsign-prototype-description-orange-juice
+
+- type: barSign
+  id: NeonFlamingo
+  name: barsign-prototype-name-neon-flamingo
+  icon:
+    sprite: ADT/Structures/Wallmounts/barsign.rsi
+    state: nf
+  description: barsign-prototype-description-neon-flamingo
+
+- type: barSign
+  id: SleuthsLounge
+  name: barsign-prototype-name-sleuths-lounge
+  icon:
+    sprite: ADT/Structures/Wallmounts/barsign.rsi
+    state: sleuths_lounge
+  description: barsign-prototype-description-sleuths-lounge
+
+- type: barSign
+  id: CafeSilentieux
+  name: barsign-prototype-name-cafe-silentieux
+  icon:
+    sprite: ADT/Structures/Wallmounts/barsign.rsi
+    state: cafe_silentieux
+  description: barsign-prototype-description-cafe-silentieux
+
+- type: barSign
+  id: TheRune
+  name: barsign-prototype-name-the-rune
+  icon:
+    sprite: ADT/Structures/Wallmounts/barsign.rsi
+    state: therune_kayunderkay
+  description: barsign-prototype-description-the-rune

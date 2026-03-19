@@ -476,7 +476,10 @@
     sprite: ADT/Clothing/Head/Hats/drink_cap.rsi
   - type: StaticPrice
     price: 120
-  - type: Drink
+  - type: Edible
+    edible: Drink
+    destroyOnEmpty: false
+    solution: drink
   - type: SolutionContainerManager
     solutions:
       drink:

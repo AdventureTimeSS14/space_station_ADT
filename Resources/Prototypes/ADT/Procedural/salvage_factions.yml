@@ -1,0 +1,20 @@
+- type: salvageFaction
+  id: OreCrab
+  desc: salvage-faction-crab
+  entries:
+    - proto: MobIronCrab
+    - proto: MobQuartzCrab
+    - proto: AsteroidRockTinCrab
+      prob: 0.4
+    - proto: AsteroidRockQuartzCrab
+      prob: 0.4
+    - proto: AsteroidRockUraniumCrab
+      cost: 2
+      prob: 0.4
+    - proto: AsteroidRockSilverCrab
+      cost: 2
+      prob: 0.4
+    - proto: MobUraniumCrab
+      cost: 3
+    - proto: MobSilverCrab
+      cost: 3

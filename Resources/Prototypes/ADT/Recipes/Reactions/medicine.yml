@@ -253,3 +253,34 @@
       amount: 1
   products:
     ADTDevazigon: 3
+
+- type: reaction
+  id: ADTDiphalazidone
+  minTemp: 400
+  reactants:
+    Diphenhydramine:
+      amount: 1
+    UnstableMutagen:
+      amount: 2
+    CarpoToxin:
+      amount: 1
+    Uranium:
+      amount: 2
+    Doxarubixadone:
+      amount: 1
+  products:
+    ADTDiphalazidone: 3
+
+- type: reaction
+  id: ADTOmnizineBreakdown
+  source: true
+  requiredMixerCategories:
+  - Centrifuge
+  reactants:
+    Omnizine:
+      amount: 4
+  products:
+    Siderlac: 1
+    Diphenhydramine: 1
+    PolypyryliumOligomers: 1
+    Sigynate: 1

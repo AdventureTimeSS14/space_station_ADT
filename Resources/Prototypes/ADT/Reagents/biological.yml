@@ -28,9 +28,8 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType
-          type: Reptilian
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Reptilian ]
         damage:
           groups:
             Brute: -0.2
@@ -39,10 +38,9 @@
             Poison: 0.4
       - !type:AdjustTemperature
         conditions:
-        - !type:OrganType
-          type: Reptilian
-          shouldHave: false
-        - !type:Temperature
+        - !type:MetabolizerTypeCondition
+          type: [ Reptilian ]
+        - !type:TemperatureCondition
           max: 370
         amount: 10000 # thermal energy, not temperature!
 
@@ -62,9 +60,8 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType
-          type: Reptilian
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Reptilian ]
         damage:
           groups:
             Brute: -0.4
@@ -73,9 +70,8 @@
             Poison: 0.6
       - !type:AdjustTemperature
         conditions:
-        - !type:OrganType
-          type: Reptilian
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Reptilian ]
       - !type:GenericStatusEffect
         key: Stutter
         component: StutteringAccent
@@ -119,7 +115,8 @@
       - !type:Polymorph
         prototype: ADTGondolaMorph
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: ADTGondolium
           min: 25
 
 # Проклятая кровь

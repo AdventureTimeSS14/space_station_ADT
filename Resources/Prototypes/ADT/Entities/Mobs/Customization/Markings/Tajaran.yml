@@ -197,6 +197,15 @@
     - sprite: ADT/Mobs/Customization/Tajaran/tajaran_chest.rsi
       state: white_furr_male
 
+- type: marking
+  id: HeadMane
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [TajaranSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_chest.rsi #Спрайты от moroz_3
+      state: mane_head
+
 #Наложение.
 - type: marking
   id: BodyStripes
@@ -548,15 +557,6 @@
   sprites:
     - sprite: ADT/Mobs/Customization/Tajaran/tajaran_head.rsi #Спрайты от moroz_3
       state: raccoon-head
-
-- type: marking
-  id: HeadMane
-  bodyPart: Head
-  markingCategory: Head
-  speciesRestriction: [TajaranSpecies]
-  sprites:
-    - sprite: ADT/Mobs/Customization/Tajaran/tajaran_head.rsi #Спрайты от moroz_3
-      state: mane_head
 
 - type: marking
   id: HeadEyesWide

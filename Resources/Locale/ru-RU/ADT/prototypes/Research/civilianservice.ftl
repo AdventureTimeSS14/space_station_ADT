@@ -15,3 +15,5 @@ research-technology-electrical-range = Электрическая печь
 research-technology-hydra = Уборочный гранатомёт
 
 research-technology-radio-music-communication = радио-телекоммуникация
+
+research-technology-manipulator-belt = Роботизированные конечности

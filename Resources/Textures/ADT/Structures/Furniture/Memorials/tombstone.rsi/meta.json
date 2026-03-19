@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Imported from furniture_cut for ADT",
+  "states": [
+    {
+      "name": "tombstone1"
+    },
+    {
+      "name": "tombstone2"
+    },
+    {
+      "name": "tombstone3"
+    },
+    {
+      "name": "tombstone4"
+    },
+    {
+      "name": "tombstone5"
+    }
+  ]
+}

@@ -416,6 +416,47 @@
   - type: Clothing
     sprite: ADT/Personalization/suit_aidan.rsi
 
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingNeckAidan
+  name: Aidan neck
+  description:
+  suffix: Personal, Aidan
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/aidan_neck.rsi
+    state: icon
+  - type: Clothing
+    sprite: ADT/Personalization/aidan_neck.rsi
+    equippedState: equipped-NECK
+
+- type: entity
+  parent: ClothingMaskBase
+  id: ADTClothingMaskAidan
+  name: Aidan mask
+  description:
+  suffix: Personal, Aidan
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/aidan_mask.rsi
+    state: icon
+  - type: Clothing
+    sprite: ADT/Personalization/aidan_mask.rsi
+    equippedState: equipped-MASK
+
+- type: entity
+  parent: ADTClothingSponsorHandsBase
+  id: ADTClothingHandsAidanWatch
+  name: Aidan Watch
+  description: Aidan Watch
+  suffix: Personal, Aidan
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/aidan_watch.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/aidan_watch.rsi
+  - type: Clock
+
 # Bolper
 - type: entity
   parent: ADTSponsorClothingOuterStorageBase
@@ -549,6 +590,18 @@
     sprite: ADT/Personalization/pangaari_american_sleeveless.rsi
   - type: Clothing
     sprite: ADT/Personalization/pangaari_american_sleeveless.rsi
+
+- type: entity
+  parent: ADTClothingSponsorHandsBase
+  id: ADTClothingHandsPangaariBracelet
+  suffix: Personal, Pangaari
+  name: blue bead bracelet
+  description: A bracelet made of beads on a strong fishing line. It is clearly handmade with great care. The alternating use of regular and long blue beads forms a message in Morse code.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/pangaari_bracelet.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/pangaari_bracelet.rsi
 
 #tweak
 - type: entity
@@ -882,20 +935,24 @@
   suffix: Personal, saint_madman
   components:
   - type: Sprite
-    sprite: ADT/Personalization/saintmadman-uniform.rsi
+    sprite: ADT/Personalization/saint_madman_uniform.rsi
   - type: Clothing
-    sprite: ADT/Personalization/saintmadman-uniform.rsi
+    sprite: ADT/Personalization/saint_madman_uniform.rsi
 
 - type: entity
-  parent: ADTSponsorClothingHeadBase
-  id: ClothingHeadHatSaintMadmanthingy
-  name: yeaaaaa
+  parent: ADTSponsorClothingNeckBase
+  id: ADTClothingNeckSaintMadmanMantle
   suffix: Personal, saint_madman
+  name: SaintMadmanNeck
+  description: The Aristocrat's neck
   components:
   - type: Sprite
-    sprite: ADT/Personalization/saintmadman-headthingy.rsi
+    sprite: ADT/Personalization/saint_madman_neck.rsi
+    state: icon
   - type: Clothing
-    sprite: ADT/Personalization/saintmadman-headthingy.rsi
+    sprite: ADT/Personalization/saint_madman_neck.rsi
+  - type: Item
+    size: Normal
 
 - type: entity
   parent: ADTSponsorClothingOuterStorageBase
@@ -905,32 +962,14 @@
   suffix: Personal, saint_madman
   components:
   - type: Sprite
-    sprite: ADT/Personalization/saintmadman-coat.rsi
+    sprite: ADT/Personalization/saint_madman_coat.rsi
   - type: Clothing
-    sprite: ADT/Personalization/saintmadman-coat.rsi
+    sprite: ADT/Personalization/saint_madman_coat.rsi
   - type: Storage
     grid:
     - 0,0,4,2
     maxItemSize: Normal
 
-- type: entity
-  parent: ADTSponsorClothingOuterBase
-  id: ADTClothingOuterCoatViaDeus
-  name: SaintMadmanCoat
-  description: yeaaaaagain
-  suffix: Personal, saint_madman
-  components:
-  - type: Sprite
-    sprite: ADT/Personalization/saintmadman-coatViaDeus.rsi
-  - type: Clothing
-    sprite: ADT/Personalization/saintmadman-coatViaDeus.rsi
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.95
-        Slash: 0.95
-        Piercing: 0.95
-        Heat: 0.95
 
 #kringe
 
@@ -977,7 +1016,7 @@
   components:
   - type: Action
     icon: { sprite: ADT/Personalization/kringe-magboots.rsi, state: icon }
-    iconOn: ADT/Personalization/kringe-magboots.rsi/icon-on.png
+    iconOn: { sprite: ADT/Personalization/kringe-magboots.rsi, state: icon-on }
 
 - type: entity
   parent: ADTClothingSponsorHandsBase
@@ -1169,6 +1208,18 @@
     sprite: ADT/Personalization/feather_hairpin.rsi
   - type: Clothing
     sprite: ADT/Personalization/feather_hairpin.rsi
+
+- type: entity
+  parent: ADTClothingSponsorHandsBase
+  id: ADTClothingHandsKiwiFruitBracelet
+  suffix: Personal, kiwi_fruit
+  name: green bead bracelet
+  description: A beaded bracelet on a strong fishing line. Clearly handmade, and though not very skillfully, but diligently. Alternation of the usual and long beads of green color makes up a certain message in Morse code.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/kiwi_fruit_bracelet.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/kiwi_fruit_bracelet.rsi
 
 #Sir_talter
 - type: entity
@@ -1424,3 +1475,291 @@
   - type: Clothing
     sprite: ADT/Personalization/luckyrat/luckyrat_boots.rsi
   - type: Matchbox
+
+#Faust Netzach
+- type: entity
+  parent: ADTSponsorClothingUniformBase
+  id: ADTClothingUniformGothic
+  name: gothic dress
+  description: A gothic dress is an elegant and mysterious garment characterized by its dark and intriguing style. Deep, dark shades like black, burgundy, or navy blue add an aura of mystery and aristocratic allure. Delicate lace accents, luxurious drapery, and ruffles evoke a sense of ancient romance. Keyhole or high neckline cuts give the gothic dress uniqueness and opulence. This dress is perfect for those who want to stand out and emphasize their individuality and mystique. In it, every woman feels refined and captivating, ready to enchant at first sight.
+  suffix: Personal, Faust Netzach
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/FaustNetzach/faust_gothic_dress.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/FaustNetzach/faust_gothic_dress.rsi
+
+- type: entity
+  parent: ADTClothingSponsorHandsBase
+  id: ADTClothingHandsCuffsFaust
+  name: mangette
+  description: mangette
+  suffix: Personal, Faust Netzach
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/FaustNetzach/faust_cuffs.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/FaustNetzach/faust_cuffs.rsi
+  - type: Fiber
+    fiberColor: fibers-white
+
+- type: entity
+  parent: ADTSponsorClothingHeadBase
+  id: ADTClothingHeadHatsFaustCap
+  name: Faust cap
+  description: Standart officer`s cap
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/FaustNetzach/faust_cap.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/FaustNetzach/faust_cap.rsi
+
+#kimer_k
+- type: entity
+  parent: ADTSponsorClothingUniformBase
+  id: ADTClothingUniformKimerK
+  name: pink suit
+  description: A lightweight classic shirt with a delicate tie, complemented by a button-down vest with a V-neck.
+  suffix: Personal, kimer_k
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/Kimer_k/kimer_k_suit.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/Kimer_k/kimer_k_suit.rsi
+
+#WCTR829
+- type: entity
+  parent: ADTSponsorClothingUniformBase
+  id: ADTClothingUniformWCTR829
+  name: radio equipment overalls
+  description: The jumpsuit is a deep anthracite color, with white accents on the chest, shoulders, and forearms, emphasizing the sleek, technical silhouette.
+  suffix: Personal, WCTR829
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/WCTR829/WCTR829_suit.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/WCTR829/WCTR829_suit.rsi
+
+# Altius and RedLis
+
+- type: entity
+  parent: ADTSponsorClothingUniformBase
+  id: ADTClothingUniformShipTestAltiusRedLis
+  name: jumpsuit
+  description: A military jumpsuit with multiple pockets and a solid color scheme consisting of a red top and a dark bottom.
+  suffix: Personal, Altius, RedLis
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/Altius_RedLis/shiptest_jumpsuit.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/Altius_RedLis/shiptest_jumpsuit.rsi
+
+- type: entity
+  parent: ADTSponsorClothingNeckBase
+  id: ADTClothingNeckShipTestAltiusRedLis
+  name: dark-red shamag
+  description: A large square cotton handkerchief, dyed in a dark color, without any decorative elements such as a plaid or fringe.
+  suffix: Personal, Altius, RedLis
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/Altius_RedLis/shiptest_shamag.rsi
+
+- type: entity
+  parent: ADTSponsorClothingShoesBase
+  id: ADTClothingShoesShipTestAltiusRedLis
+  name: army boots
+  description: These boots have a high shaft and a thick tread, with reinforced toe and heel areas for added foot protection.
+  suffix: Personal, Altius, RedLis
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/Altius_RedLis/shiptest_boots.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/Altius_RedLis/shiptest_boots.rsi
+  - type: Matchbox
+
+- type: entity
+  parent: ADTSponsorClothingHeadBase
+  id: ADTClothingHeadHatsShipTestAltiusRedLis
+  name: beret
+  description: A hat with a golden symbol, possibly belonging to a specific branch of the military.
+  suffix: Personal, Altius, RedLis
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/Altius_RedLis/shiptest_beret.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/Altius_RedLis/shiptest_beret.rsi
+
+- type: entity
+  parent: ADTSponsorClothingOuterStorageBase
+  id: ADTClothingOuterCoatShipTestAltiusRedLis
+  name: trench coat
+  description: A trench coat with a turn-down collar, a double-breasted closure, and a red belt that has no practical use.
+  suffix: Personal, Altius, RedLis
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/Altius_RedLis/shiptest_trenchcoat.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/Altius_RedLis/shiptest_trenchcoat.rsi
+  - type: Storage
+    grid:
+    - 0,0,4,2
+    maxItemSize: Normal
+
+- type: entity
+  parent: ADTSponsorClothingOuterStorageBase
+  id: ADTClothingOuterCoatJacketShipTestAltiusRedLis
+  name: jacket
+  description: The jacket, made of high-strength materials, is dark in color and features a prominent emblem on the back.
+  suffix: Personal, Altius, RedLis
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/Altius_RedLis/shiptest_jacket.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/Altius_RedLis/shiptest_jacket.rsi
+  - type: Storage
+    grid:
+    - 0,0,4,2
+    maxItemSize: Normal
+
+- type: entity
+  parent: [ClothingHeadCaptainHat, ADTSponsorClothing]
+  id: ADTClothingHeadMathemat1kaHat
+  name: white captain's hat
+  description: A special white captain's hat with gold trim.
+  suffix: Personal, Mathemat1ka
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/mathemat1ka_hat.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/mathemat1ka_hat.rsi
+
+- type: entity
+  parent: [ClothingNeckMantleCap, ADTSponsorClothing]
+  id: ADTClothingNeckMathemat1kaMantle
+  name: white captain's mantle
+  description: A formal white mantle to drape around the shoulders.
+  suffix: Personal, Mathemat1ka
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/mathemat1ka_mantle.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/mathemat1ka_mantle.rsi
+
+- type: entity
+  parent: [ClothingNeckCloakCap, ADTSponsorClothing]
+  id: ADTClothingNeckMathemat1kaCloak
+  name: white captain's cloak
+  description: A pompous and comfy white cloak with gold trim.
+  suffix: Personal, Mathemat1ka
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/mathemat1ka_cloak.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/mathemat1ka_cloak.rsi
+
+- type: entity
+  parent: [ClothingUniformJumpskirtCapFormalDress, ADTSponsorClothingUniformBase]
+  id: ADTClothingUniformMathemat1kaDress
+  name: white captain's formal dress
+  description: A white dress for special occasions with gold accents.
+  suffix: Personal, Mathemat1ka
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/mathemat1ka_dress.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/mathemat1ka_dress.rsi
+
+- type: entity
+  parent: [ClothingHandsGlovesCaptain, ADTClothingSponsorHandsBase]
+  id: ADTClothingHandsMathemat1kaGloves
+  name: white captain gloves
+  description: Elegant white captain's gloves with gold trim.
+  suffix: Personal, Mathemat1ka
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/mathemat1ka_gloves.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/mathemat1ka_gloves.rsi
+
+- type: entity
+  parent: [ClothingBeltSheath, ADTSponsorClothing]
+  id: ADTClothingBeltMathemat1kaSheath
+  name: white sabre sheath
+  description: An ornate white sheath designed to hold your personal blade.
+  suffix: Personal, Mathemat1ka
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/mathemat1ka_sheath.rsi
+    state: sheath
+  - type: Clothing
+    sprite: ADT/Personalization/mathemat1ka_sheath.rsi
+
+- type: entity
+  id: ADTClothingBeltMathemat1kaSheathFilled
+  parent: ADTClothingBeltMathemat1kaSheath
+  suffix: Filled, Personal, Mathemat1ka
+  components:
+  - type: ContainerFill
+    containers:
+      item:
+      - CaptainSabre
+
+- type: entity
+  parent: [ClothingOuterCoatCaptain, ADTSponsorClothingOuterStorageBase]
+  id: ADTClothingOuterMathemat1kaCoat
+  name: white captain's jacket
+  description: A pristine white captain's jacket with gold inlays.
+  suffix: Personal, Mathemat1ka
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/mathemat1ka_coat.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/mathemat1ka_coat.rsi
+
+- type: entity
+  parent: [ClothingUniformJumpsuitCaptain, ADTSponsorClothingUniformBase]
+  id: ADTClothingUniformMathemat1kaJumpsuit
+  name: white captain's jumpsuit
+  description: A white captain's jumpsuit with refined gold markings.
+  suffix: Personal, Mathemat1ka
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/mathemat1ka_jumpsuit.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/mathemat1ka_jumpsuit.rsi
+
+- type: entity
+  parent: [ClothingShoesBootsLaceup, ADTSponsorClothingShoesBase]
+  id: ADTClothingShoesMathemat1kaBoots
+  name: white laceup shoes
+  description: Elegant white laceup shoes with enhanced grip and comfort.
+  suffix: Personal, Mathemat1ka
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/mathemat1ka_boots.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/mathemat1ka_boots.rsi
+
+- type: entity
+  parent: [ClothingBackpackSatchelCaptain, ADTSponsorClothingBackpackSatchel]
+  id: ADTClothingBackMathemat1kaSatchel
+  name: white captain's satchel
+  description: An exclusive white satchel with gold accents.
+  suffix: Personal, Mathemat1ka
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/mathemat1ka_satchel.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/mathemat1ka_satchel.rsi
+
+- type: entity
+  parent: [ClothingHeadHatCapcap, ADTSponsorClothingHeadBase]
+  id: ADTClothingHeadMathemat1kaCapCap
+  name: white captain's cap cap
+  description: A grand, stylish white cap worn by the Captain. Shows the station who's in charge.
+  suffix: Personal, Mathemat1ka
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/mathemat1ka_capcap.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/mathemat1ka_capcap.rsi

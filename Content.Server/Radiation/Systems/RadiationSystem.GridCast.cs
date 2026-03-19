@@ -21,7 +21,8 @@ public partial class RadiationSystem
         Vector2 WorldPosition)
     {
         public EntityUid? GridUid => Entity.Comp2.GridUid;
-        public float Slope => Entity.Comp1.Slope;
+        public float TerminalDecaySlope => Entity.Comp1.TerminalDecaySlope; // ADT-Tweak
+        public float TerminalDecayDistance => Entity.Comp1.TerminalDecayDistance; // ADT-Tweak
         public TransformComponent Transform => Entity.Comp2;
     }
 
@@ -139,10 +140,16 @@ public partial class RadiationSystem
         var dir = destWorld - source.WorldPosition;
 
         // ADT-Tweak start
-        var dist = Math.Max(dir.Length(),0.5f);
+        var dist = Math.Max(dir.Length(), 0.5f);
         if (TryComp(source.Entity.Owner, out EventHorizonComponent? horizon)) // if we have a horizon emit radiation from the horizon,
             dist = Math.Max(dist - horizon.Radius, 0.5f);
-        var rads = source.Intensity / (dist );
+        // Ray enters terminal decay if the distance between source->receiver >TerminalDecayDistance.
+        // Decays at an additional linear rate of TerminalDecaySlope rads per tile past TerminalDecayDistance ontop of the existing hyperbolic function.
+        // Hyperbolic function
+        var rads = source.Intensity / (dist)
+        // Terminal decay function
+        - (dist - source.TerminalDecayDistance > 0 ? (source.TerminalDecaySlope * (dist - source.TerminalDecayDistance)) : 0);
+
         if (rads < 0.01)
             return null;
         // ADT-Tweak end
@@ -190,8 +197,8 @@ public partial class RadiationSystem
 
         return ray;
     }
-    
-    /// ADT-Tweak start    
+
+    /// ADT-Tweak start
     /// <summary>
     /// Similar to GridLineEnumerator, but also returns the distance the ray traveled in each cell
     /// </summary>
@@ -348,7 +355,7 @@ public partial class RadiationSystem
             if (_blockerQuery.TryComp(xform.ParentUid, out var blocker))
             {
                 // ADT-Tweak start
-                var ratio =blocker.RadResistance>2? 1 / (blocker.RadResistance/2):1; 
+                var ratio =blocker.RadResistance>2? 1 / (blocker.RadResistance/2):1;
                 rads *= ratio;
                 // ADT-Tweak end
                 if (rads < 0)

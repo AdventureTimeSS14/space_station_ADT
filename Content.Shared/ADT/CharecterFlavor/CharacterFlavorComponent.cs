@@ -35,3 +35,32 @@ public sealed partial class SetHeadshotUiMessage : EntityEventArgs
         Image = image;
     }
 }
+
+/// <summary>
+/// Запрос предпросмотра хэдшота (например, из лобби).
+/// Клиент не может ходить в интернет напрямую, поэтому просит сервер скачать картинку.
+/// </summary>
+[Serializable, NetSerializable]
+public sealed partial class RequestHeadshotPreviewEvent : EntityEventArgs
+{
+    public readonly string Url;
+
+    public RequestHeadshotPreviewEvent(string url)
+    {
+        Url = url;
+    }
+}
+
+/// <summary>
+/// Ответ сервера с уже загруженным изображением хэдшота для предпросмотра.
+/// </summary>
+[Serializable, NetSerializable]
+public sealed partial class HeadshotPreviewEvent : EntityEventArgs
+{
+    public readonly byte[] Image;
+
+    public HeadshotPreviewEvent(byte[] image)
+    {
+        Image = image;
+    }
+}

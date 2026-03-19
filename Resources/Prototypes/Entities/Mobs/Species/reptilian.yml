@@ -12,6 +12,7 @@
     - HeadTop
     - HeadSide
     - SnoutOverlay # ADT Tweak
+    - Tail
     # undergarmentBottom: UndergarmentBottomBoxersReptilian # ADT-No-More-Useless-Feature
   - type: Hunger
   - type: Puller
@@ -78,6 +79,48 @@
           32:
             sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
+      head:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Reptilian/displacement.rsi
+            state: head
+      mask:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Reptilian/displacement.rsi
+            state: mask
+    # ADT-Tweak Start
+    #   # Corvax-Digitigrade-Start
+    #   shoes:
+    #     sizeMaps:
+    #       32:
+    #         sprite: Corvax/Mobs/Species/displacement.rsi
+    #         state: shoes
+    #   # Corvax-Displacements-End
+    # displacements:
+    #   head:
+    #     sizeMaps:
+    #       32:
+    #         sprite: Mobs/Species/Reptilian/displacement.rsi
+    #         state: head
+    #   mask:
+    #     sizeMaps:
+    #       32:
+    #         sprite: Mobs/Species/Reptilian/displacement.rsi
+    #         state: mask
+    # # Corvax-Digitigrade-Start
+    #   jumpsuit:
+    #     sizeMaps:
+    #       32:
+    #         sprite: Corvax/Mobs/Species/displacement.rsi
+    #         state: jumpsuit
+    #   shoes:
+    #     sizeMaps:
+    #       32:
+    #         sprite: Corvax/Mobs/Species/displacement.rsi
+    #         state: shoes
+    # Corvax-Displacements-End
+    # ADT-Tweak End
   # ADT tweak start
   - type: LanguageSpeaker
     languages:
@@ -150,13 +193,37 @@
           32:
             sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
-    # # Corvax-Digitigrade-Start
-    #   shoes:
+      head:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Reptilian/displacement.rsi
+            state: head
+      mask:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Reptilian/displacement.rsi
+            state: mask
+      # Corvax-Digitigrade-Start
+      shoes:
+        sizeMaps:
+          32:
+            sprite: Corvax/Mobs/Species/displacement.rsi
+            state: shoes
+    # ADT-Tweak Start
+    # Нам не нужны кривоногие унати
+    #   # Corvax-Digitigrade-Ens
+    # displacements:
+    #   head:
     #     sizeMaps:
     #       32:
-    #         sprite: Corvax/Mobs/Species/displacement.rsi
-    #         state: shoes
-    # displacements:
+    #         sprite: Mobs/Species/Reptilian/displacement.rsi
+    #         state: head
+    #   mask:
+    #     sizeMaps:
+    #       32:
+    #         sprite: Mobs/Species/Reptilian/displacement.rsi
+    #         state: mask
+    # # Corvax-Digitigrade-Start
     #   jumpsuit:
     #     sizeMaps:
     #       32:
@@ -168,5 +235,6 @@
     #         sprite: Corvax/Mobs/Species/displacement.rsi
     #         state: shoes
     # # Corvax-Digitigrade-End
+    # ADT-Tweak End
 
 #Weh

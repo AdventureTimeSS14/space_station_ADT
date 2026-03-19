@@ -1,0 +1,7 @@
+- type: soundCollection
+  id: BarbellBenchRep
+  files:
+    - /Audio/ADT/Furniture/barbell/sound_for_barbell_1.ogg
+    - /Audio/ADT/Furniture/barbell/sound_for_barbell_2.ogg
+    - /Audio/ADT/Furniture/barbell/sound_for_barbell_3.ogg
+

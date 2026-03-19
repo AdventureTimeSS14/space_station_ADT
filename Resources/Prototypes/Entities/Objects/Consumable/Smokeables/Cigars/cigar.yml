@@ -1,6 +1,3 @@
-- type: Tag
-  id: Cigar
-
 - type: entity
   id: Cigar
   parent: BaseCigar
@@ -16,7 +13,7 @@
       - Trash
   - type: Clothing
     sprite: Objects/Consumable/Smokeables/Cigars/cigar.rsi
-    slots: [ mask ]
+    slots: [ mask , ears , ears2 ] # ADT-Tweak
     equippedPrefix: unlit
   - type: Item
     size: Tiny
@@ -53,7 +50,7 @@
     state: unlit-icon
   - type: Clothing
     sprite: Objects/Consumable/Smokeables/Cigars/cigar-gold.rsi
-    slots: [ mask ]
+    slots: [ mask , ears2 ] # ADT-Tweak
     equippedPrefix: unlit
   - type: Item
     size: Tiny

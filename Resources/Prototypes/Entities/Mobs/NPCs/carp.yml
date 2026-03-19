@@ -15,7 +15,7 @@
           true
     - type: NpcFactionMember
       factions:
-      - Dragon
+      - ADTSpaceMobs # ADT-tweak: Космическая фауна дружелюбна к урсам
     - type: Sprite
       drawdepth: Mobs
       sprite: Mobs/Aliens/Carps/space.rsi
@@ -95,6 +95,7 @@
         GalacticCommon: Speak
         CarpCollectiveMind: Speak
     - type: GrabProtection
+    - type: StandingState # Фикс костылём
     # ADT-tweak-start
 
 - type: entity
@@ -157,7 +158,7 @@
   components:
   - type: PointLight
     radius: 1.5
-    energy: 0.5
+    energy: 2
   - type: RgbLightController
     layers: [ 0 ]
 
@@ -178,6 +179,10 @@
   suffix: DragonBrood
   parent: MobCarp
   components:
+    # ADT-tweak: нужно для расы Урсов, чтоб карпы дракона не были frandly для Урсы
+    - type: NpcFactionMember
+      factions:
+      - Dragon
     - type: GhostRole
       allowMovement: true
       allowSpeech: true

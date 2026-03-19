@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made by discord:prazat911 for ADT",
+  "size": {
+    "x": 64,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "assassination_caesar64x"
+    },
+    {
+      "name": "caesar_in_senate64x"
+    },
+    {
+      "name": "drink_food64x"
+    }
+  ]
+}

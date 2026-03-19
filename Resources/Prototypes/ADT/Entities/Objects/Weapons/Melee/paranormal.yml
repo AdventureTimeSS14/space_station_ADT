@@ -259,6 +259,7 @@
   - type: Tool
     qualities:
     - Prying
+  - type: Prying
   - type: Unremoveable
   - type: Clothing
     sprite: ADT/Objects/Weapons/Melee/godhand.rsi

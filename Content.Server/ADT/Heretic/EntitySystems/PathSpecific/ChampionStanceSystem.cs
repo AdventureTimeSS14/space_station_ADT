@@ -1,6 +1,7 @@
 using Content.Server.Heretic.Components.PathSpecific;
 using Content.Shared.Body.Part;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
 
 namespace Content.Server.Heretic.EntitySystems.PathSpecific;

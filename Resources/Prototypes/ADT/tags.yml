@@ -20,6 +20,9 @@
   id: ADTLasgunRevolverCell
 
 - type: Tag
+  id: RPD
+
+- type: Tag
   id: PhantomEctoplasm
 
 - type: Tag
@@ -134,6 +137,9 @@
   id: Stomach
 
 - type: Tag
+  id: Storage
+
+- type: Tag
   id: Stunbaton
 
 - type: Tag
@@ -195,6 +201,9 @@
 
 - type: Tag
   id: ADTArmorSacrafice
+
+- type: Tag
+  id: ADTBarbellAttachment
 
 - type: Tag
   id: ADTSyndieThingies
@@ -513,6 +522,9 @@
   id: ADTVinylSleeveFit
 
 - type: Tag
+  id: ADTNovakidEmotes
+
+- type: Tag
   id: ADTDogEmotes
 
 - type: Tag
@@ -531,6 +543,17 @@
 - type: Tag
   id: ADTWeaponMeleePrasatChainsword
 
+- type: Tag
+  id: ADTKeyPangaariBike
+
+- type: Tag
+  id: ADTGoldPlatedDrinkJiggerTag
+
+- type: Tag
+  id: ADTGoldPlatedBarSpoonTag
+
+- type: Tag
+  id: ADTGoldPlatedDrinkShakerTag
 #sponsor_items - End
 
 - type: Tag
@@ -722,3 +745,29 @@
 - type: Tag
   id: ADTClosedRadio
 
+- type: Tag
+  id: ADTDrill
+
+- type: Tag
+  id: Katana
+
+- type: Tag
+  id: MagazineLightRiflePan
+
+- type: Tag
+  id: SecwayKeys
+
+- type: Tag
+  id: ATVKeys
+
+- type: Tag
+  id: SyndicateSegwayKeys
+
+- type: Tag
+  id: GunUpgradeVampirism
+
+- type: Tag
+  id: MansusLinkMind
+
+- type: Tag
+  id: SiliconFootstepSound

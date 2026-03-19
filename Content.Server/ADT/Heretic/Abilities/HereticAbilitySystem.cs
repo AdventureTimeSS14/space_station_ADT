@@ -1,39 +1,43 @@
+using Content.Server.ADT.Heretic.EntitySystems.PathSpecific;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Chat.Systems;
 using Content.Server.DoAfter;
 using Content.Server.Flash;
 using Content.Server.Hands.Systems;
+using Content.Server.Heretic.Components;
+using Content.Server.Heretic.EntitySystems;
 using Content.Server.Magic;
 using Content.Server.Polymorph.Systems;
 using Content.Server.Popups;
+using Content.Server.Station.Systems;
 using Content.Server.Store.Systems;
+using Content.Server.Temperature.Systems;
 using Content.Shared.Actions;
+using Content.Shared.Body.Systems;
+using Content.Shared.Chat;
 using Content.Shared.Damage.Systems;
 using Content.Shared.DoAfter;
-using Content.Shared.Heretic;
-using Content.Shared.Mind.Components;
-using Content.Shared.Mobs.Systems;
-using Content.Shared.Store.Components;
-using Robust.Shared.Audio.Systems;
-using Content.Shared.Popups;
-using Robust.Shared.Random;
-using Content.Shared.Body.Systems;
-using Content.Server.Medical;
-using Robust.Server.GameObjects;
-using Content.Shared.Stunnable;
-using Robust.Shared.Map;
-using Content.Shared.StatusEffect;
-using Content.Shared.Throwing;
-using Content.Server.Station.Systems;
-using Content.Shared.Localizations;
-using Robust.Shared.Audio;
-using Content.Shared.Mobs.Components;
-using Robust.Shared.Prototypes;
-using Content.Server.Heretic.EntitySystems;
-using Content.Server.ADT.Heretic.EntitySystems.PathSpecific;
-using Content.Server.Heretic.Components;
 using Content.Shared.Hands.Components;
+using Content.Shared.Mobs.Systems;
+using Content.Shared.Heretic;
+using Content.Shared.Localizations;
+using Content.Shared.Medical;
+using Content.Shared.Mind.Components;
+using Content.Shared.Mobs.Components;
+using Content.Shared.Popups;
+using Content.Shared.Radio;
+using Content.Shared.Radio.Components;
+using Content.Shared.StatusEffect;
+using Content.Shared.Store.Components;
+using Content.Shared.Stunnable;
 using Content.Shared.Tag;
+using Content.Shared.Throwing;
+using Robust.Server.GameObjects;
+using Robust.Shared.Audio;
+using Robust.Shared.Audio.Systems;
+using Robust.Shared.Map;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
 
 namespace Content.Server.Heretic.Abilities;
 
@@ -48,7 +52,10 @@ public sealed partial class HereticAbilitySystem : EntitySystem
     [Dependency] private readonly ChainFireballSystem _splitball = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly MobStateSystem _mobstate = default!;
+    [Dependency] private readonly MobThresholdSystem _mobThresholdSystem = default!;
     [Dependency] private readonly FlammableSystem _flammable = default!;
+    [Dependency] private readonly DamageableSystem _damageable = default!;
+    [Dependency] private readonly TemperatureSystem _temperature = default!;
     [Dependency] private readonly SharedStaminaSystem _stam = default!;
     [Dependency] private readonly AtmosphereSystem _atmos = default!;
     [Dependency] private readonly SharedAudioSystem _aud = default!;
@@ -69,6 +76,8 @@ public sealed partial class HereticAbilitySystem : EntitySystem
     [Dependency] private readonly StatusEffectsSystem _statusEffect = default!;
     [Dependency] private readonly VoidCurseSystem _voidcurse = default!;
     [Dependency] private readonly TagSystem _tag = default!;
+
+    private ProtoId<RadioChannelPrototype> MansusLinkChannel = "Mansus";
 
     private List<EntityUid> GetNearbyPeople(Entity<HereticComponent> ent, float range)
     {
@@ -272,7 +281,21 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         if (args.Cancelled)
             return;
 
-        _tag.AddTag(ent, MansusLinkTag);
+        if (!HasComp<MindContainerComponent>(args.Target))
+            return;
+
+        if (_tag.HasTag(args.Target, MansusLinkTag))
+            return;
+
+        _tag.AddTag(args.Target, MansusLinkTag);
+
+        var activeRadio = EnsureComp<ActiveRadioComponent>(args.Target);
+        activeRadio.Channels.Add(MansusLinkChannel);
+
+        EnsureComp<IntrinsicRadioReceiverComponent>(args.Target);
+
+        var intrinsicRadioTransmitter = EnsureComp<IntrinsicRadioTransmitterComponent>(args.Target);
+        intrinsicRadioTransmitter.Channels.Add(MansusLinkChannel);
 
         // this "* 1000f" (divided by 1000 in FlashSystem) is gonna age like fine wine :clueless:
         _flash.Flash(args.Target, null, null, TimeSpan.FromSeconds(2f), 0f, false, true, stunDuration: TimeSpan.FromSeconds(1f));

@@ -36,6 +36,8 @@ public sealed class MiningOverlay : Overlay
 
         _spriteQuery = _entityManager.GetEntityQuery<SpriteComponent>();
         _xformQuery = _entityManager.GetEntityQuery<TransformComponent>();
+
+        ZIndex = 100; // ADT-Tweak 
     }
 
     protected override void Draw(in OverlayDrawArgs args)

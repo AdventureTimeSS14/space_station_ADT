@@ -2,6 +2,9 @@ using Content.Server.Atmos.Components;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Heretic.Prototypes;
+using Content.Shared.Damage.Components;
+using Content.Shared.Atmos.Components;
+using Content.Shared.Damage.Systems;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.Heretic.Ritual;
@@ -16,11 +19,12 @@ public sealed partial class RitualAshAscendBehavior : RitualSacrificeBehavior
         if (!base.Execute(args, out outstr))
             return false;
 
-        for (int i = 0; i < Max; i++)
+        burningUids = new();
+
+        foreach (var uid in uids)
         {
-            if (args.EntityManager.TryGetComponent<FlammableComponent>(uids[i], out var flam))
-                if (flam.OnFire)
-                    burningUids.Add(uids[i]);
+            if (args.EntityManager.TryGetComponent<FlammableComponent>(uid, out var flam) && flam.OnFire)
+                burningUids.Add(uid);
         }
 
         if (burningUids.Count < Min)
@@ -37,18 +41,22 @@ public sealed partial class RitualAshAscendBehavior : RitualSacrificeBehavior
     {
         var damageableSystem = args.EntityManager.System<DamageableSystem>();
         var prototypeManager = IoCManager.Resolve<IPrototypeManager>();
-        for (int i = 0; i < Max; i++)
+
+        foreach (var uid in burningUids)
         {
             // YES!!! ASH!!!
-            if (args.EntityManager.TryGetComponent<DamageableComponent>(uids[i], out var dmg))
+            if (args.EntityManager.TryGetComponent<DamageableComponent>(uid, out var dmg))
             {
                 var prot = (ProtoId<DamageGroupPrototype>)"Burn";
                 var dmgtype = prototypeManager.Index(prot);
-                damageableSystem.TryChangeDamage(uids[i], new DamageSpecifier(dmgtype, 3984f), true);
+                damageableSystem.TryChangeDamage(uid, new DamageSpecifier(dmgtype, 3984f), true);
             }
         }
 
+        uids = burningUids;
+        base.Finalize(args);
+
         // reset it because blehhh
-        uids = new();
+        burningUids = new();
     }
 }

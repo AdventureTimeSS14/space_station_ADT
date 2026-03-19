@@ -54,3 +54,7 @@ ent-ADTClothingBackpackDuffelSyndicateFilledChinaLikeGrenadeLauncher = набо�
 
 ent-ADTClothingBackpackDuffelSyndicateFilledGrenadeLauncher = набор РПГ-7
     .desc = Отличное решение всех семейных конфликтов!
+
+ent-ADTClothingBackpackChameleonThiefFill = { ent-ClothingBackpackDuffelSyndicate }
+    .suffix = Заполненный, Хамелеон, Вор
+    .desc = { ent-ClothingBackpackDuffelSyndicate.desc }

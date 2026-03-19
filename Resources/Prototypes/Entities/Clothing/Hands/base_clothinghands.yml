@@ -11,7 +11,7 @@
     equipSound:
       path: /Audio/ADT/Entities/glove_equip.ogg
     # ADT End
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
   - type: Item
     size: Small
@@ -67,7 +67,7 @@
   id: RingBase
   components:
   - type: Clothing
-    slots: [ gloves, neck ]
+    slots: [ finger] # ADT-Tweak
   - type: Sprite
     sprite: Clothing/Hands/Rings/basic.rsi
   - type: Appearance
