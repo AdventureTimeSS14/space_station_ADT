@@ -2,7 +2,7 @@ using Content.Shared.Actions;
 using Content.Shared.DoAfter;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared.ADT.Chaplain.Components;
+namespace Content.Shared.Bible.Components;
 
 public sealed partial class ChaplainMakeBelieverActionEvent : EntityTargetActionEvent
 {

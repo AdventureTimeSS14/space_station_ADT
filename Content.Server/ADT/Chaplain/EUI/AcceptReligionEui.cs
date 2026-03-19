@@ -1,7 +1,7 @@
 using Content.Server.EUI;
 using Content.Shared.Chaplain;
 using Content.Shared.Eui;
-using Content.Shared.ADT.Chaplain.Components;
+using Content.Shared.Bible.Components;
 using Content.Server.Bible;
 
 namespace Content.Server.Chaplain;

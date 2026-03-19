@@ -1,5 +1,4 @@
 using Content.Server.Popups;
-using Content.Shared.ADT.Chaplain.Components;
 using Content.Shared.Projectiles;
 using Content.Shared.StatusEffect;
 using Content.Shared.Weapons.Ranged.Systems;
@@ -31,12 +30,6 @@ public sealed partial class ChainFireballSystem : EntitySystem
         if (_random.Prob(ent.Comp.DisappearChance))
             return;
 
-        if (HasComp<MagicImmunityComponent>(args.Target))
-        {
-            QueueDel(ent);
-            return;
-        }
-
         // spawn new fireball on target
         Spawn(args.Target, ent.Comp.IgnoredTargets);
 
@@ -51,8 +44,7 @@ public sealed partial class ChainFireballSystem : EntitySystem
         foreach (var look in lookup)
         {
             if (ignoredTargets.Contains(look)
-            || !HasComp<StatusEffectsComponent>(look) // ignore non mobs
-            || HasComp<MagicImmunityComponent>(look)) // иммун к магии
+            || !HasComp<StatusEffectsComponent>(look)) // ignore non mobs
                 continue;
 
             mobs.Add(look);

@@ -21,7 +21,7 @@ using Content.Shared.ADT.Phantom;
 using Content.Shared.ADT.Phantom.Components;
 using Content.Shared.ADT.Silicon.Components;
 using Content.Shared.Alert;
-using Content.Shared.ADT.Chaplain.Components;
+using Content.Shared.Bible.Components;
 using Content.Shared.Chat;
 using Content.Shared.CombatMode;
 using Content.Shared.Cuffs.Components;
