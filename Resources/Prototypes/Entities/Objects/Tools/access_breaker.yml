@@ -1,5 +1,3 @@
-  - type: Sprite
-    sprite: Objects/Tools/access_breaker.rsi
 # ADT-Tweak - Удалён нахуй взломщик доступов. За место него кое что другое
 # - type: entity
 #   parent: [BaseItem, BaseSyndicateContraband]
