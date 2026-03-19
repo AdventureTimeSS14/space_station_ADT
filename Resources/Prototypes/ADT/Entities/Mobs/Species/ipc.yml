@@ -189,6 +189,7 @@
       slot: 0
       marking: ADTIPCScreenBroken
       colors: ["#ffffff"]
+    pointLightColor: true
   - type: AnimatedEmotes
   - type: Posing
   - type: SoftWalk

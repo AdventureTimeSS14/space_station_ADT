@@ -19,6 +19,9 @@
             <ScrollContainer HorizontalExpand="True" VerticalExpand="True" VScrollEnabled="False" HScrollEnabled="True">
                 <BoxContainer Name="MarkingsContainer" VerticalExpand="True" HorizontalExpand="True" Orientation="Horizontal" Margin="4"/>
             </ScrollContainer>
+            <CheckBox Name="PointLightColorCheckBox"
+                      Text="{Loc 'midround-customization-pointlight-color'}"
+                      Margin="8 12 8 8" />
         </BoxContainer>
     </ScrollContainer>
 </DefaultWindow>

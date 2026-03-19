@@ -16,6 +16,7 @@ using Robust.Shared.Prototypes;
 using System.Linq;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
+using Robust.Shared.GameObjects;
 
 namespace Content.Server.ADT.MidroundCustomization;
 
@@ -33,6 +34,7 @@ public sealed partial class MidroundCustomizationSystem : EntitySystem
     [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
     [Dependency] private readonly ActionsSystem _action = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly SharedPointLightSystem _pointLight = default!;
 
     public override void Initialize()
     {
@@ -50,6 +52,7 @@ public sealed partial class MidroundCustomizationSystem : EntitySystem
             subs.Event<MidroundCustomizationChangeBarkPitchMessage>(OnTryChangeBarkPitch);
             subs.Event<MidroundCustomizationChangeBarkMinVarMessage>(OnTryChangeBarkMinVar);
             subs.Event<MidroundCustomizationChangeBarkMaxVarMessage>(OnTryChangeBarkMaxVar);
+            subs.Event<MidroundCustomizationPointLightColorToggleMessage>(OnPointLightColorToggle);
         });
 
         SubscribeLocalEvent<MidroundCustomizationComponent, MapInitEvent>(OnMapInit);
@@ -155,6 +158,9 @@ public sealed partial class MidroundCustomizationSystem : EntitySystem
             return;
 
         _humanoid.SetMarkingColor(uid, args.Category, args.Slot, args.Colors, force: false);
+
+        if (args.Category == MarkingCategories.FacialHair && component.PointLightColorEnabled)
+            UpdatePointLightColorIfEnabled(uid, component);
 
         // using this makes the UI feel like total ass
         // que
@@ -464,7 +470,9 @@ public sealed partial class MidroundCustomizationSystem : EntitySystem
             humanoid.Bark.MinVar,
             humanoid.Bark.MaxVar,
             markingDict,
-            slotsDict);
+            slotsDict,
+            component.PointLightColor,
+            component.PointLightColorEnabled);
 
         _uiSystem.SetUiState(uid, MidroundCustomizationUiKey.Key, state);
     }
@@ -486,6 +494,49 @@ public sealed partial class MidroundCustomizationSystem : EntitySystem
             RecordOriginals(uid, component, humanoid);
             ApplyStateChanges(uid, component, current, humanoid);
         }
+    }
+
+    private void OnPointLightColorToggle(EntityUid uid, MidroundCustomizationComponent component, MidroundCustomizationPointLightColorToggleMessage args)
+    {
+        if (component.PointLightColorEnabled == args.Enabled)
+            return;
+
+        if (args.Enabled)
+        {
+            // сохраняем оригинальный цвет при первом включении
+            if (!component.PointLightColorEnabled)
+            {
+                if (_pointLight.TryGetLight(uid, out var light))
+                    component.OriginalPointLightColor = light.Color;
+            }
+
+            component.PointLightColorEnabled = true;
+            UpdatePointLightColorIfEnabled(uid, component);
+        }
+        else
+        {
+            if (component.PointLightColorEnabled)
+            {
+                _pointLight.SetColor(uid, component.OriginalPointLightColor);
+            }
+            component.PointLightColorEnabled = false;
+        }
+
+        UpdateInterface(uid, component);
+    }
+
+    private void UpdatePointLightColorIfEnabled(EntityUid uid, MidroundCustomizationComponent component)
+    {
+        if (!component.PointLightColorEnabled)
+            return;
+
+        if (!TryComp<HumanoidAppearanceComponent>(uid, out var humanoid) ||
+            !humanoid.MarkingSet.TryGetCategory(MarkingCategories.FacialHair, out var markings) ||
+            markings.Count == 0 || markings[0].MarkingColors.Count == 0)
+            return;
+
+        var facialColor = markings[0].MarkingColors[0];
+        _pointLight.SetColor(uid, facialColor);
     }
 
     private void OnMobStateChanged(EntityUid uid, MidroundCustomizationComponent component, MobStateChangedEvent args)
@@ -549,6 +600,8 @@ public sealed partial class MidroundCustomizationSystem : EntitySystem
                 _humanoid.SetMarkingColor(uid, entry.Category, entry.Slot, entry.Colors, force: false);
             }
         }
+
+        UpdatePointLightColorIfEnabled(uid, component);
     }
 
     private void RevertToOriginals(EntityUid uid, MidroundCustomizationComponent component, HumanoidAppearanceComponent humanoid)
@@ -562,6 +615,8 @@ public sealed partial class MidroundCustomizationSystem : EntitySystem
             _humanoid.SetMarkingId(uid, cat, slot, origMarking, force: false, defaultColor: defaultColor);
             _humanoid.SetMarkingColor(uid, cat, slot, origColors, force: false);
         }
+
+        UpdatePointLightColorIfEnabled(uid, component);
     }
 
     private void OnShutdown(EntityUid uid, MidroundCustomizationComponent component, ComponentShutdown args)
