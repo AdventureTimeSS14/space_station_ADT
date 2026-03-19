@@ -4,7 +4,7 @@ using Content.Server.Cargo.Systems;
 using Content.Server.Popups;
 using Content.Shared.Body.Systems;
 using Content.Shared.Body.Part;
-using Content.Shared.ADT.Chaplain.Components;
+using Content.Shared.Bible.Components;
 using Content.Shared.DoAfter;
 using Content.Shared.Cargo;
 using Content.Shared.Database;

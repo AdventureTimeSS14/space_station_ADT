@@ -1,5 +1,5 @@
 using Content.Server.Heretic.Components;
-using Content.Shared.ADT.Chaplain.Components;
+using Content.Shared.Bible.Components;
 using Content.Shared.Heretic;
 using Content.Shared.Maps;
 using Content.Shared.Stunnable;
@@ -54,8 +54,7 @@ public sealed partial class ImmovableVoidRodSystem : EntitySystem
     private void OnCollide(Entity<ImmovableVoidRodComponent> ent, ref StartCollideEvent args)
     {
         if ((TryComp<HereticComponent>(args.OtherEntity, out var th) && th.CurrentPath == "Void")
-        || HasComp<GhoulComponent>(args.OtherEntity)
-        || HasComp<MagicImmunityComponent>(args.OtherEntity))
+        || HasComp<GhoulComponent>(args.OtherEntity) || HasComp<ChaplainComponent>(args.OtherEntity))
             return;
 
         var power = 1f;

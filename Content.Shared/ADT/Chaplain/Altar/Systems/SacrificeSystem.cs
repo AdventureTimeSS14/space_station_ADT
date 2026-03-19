@@ -1,5 +1,5 @@
 /// Updated Sacrifice System with guaranteed priority handling
-using Content.Shared.ADT.Chaplain.Components;
+using Content.Shared.Bible.Components;
 using Content.Shared.Coordinates.Helpers;
 using Content.Shared.Interaction;
 using Content.Shared.Storage;

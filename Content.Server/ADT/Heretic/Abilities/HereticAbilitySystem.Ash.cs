@@ -2,7 +2,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using Content.Server.Atmos.Components;
 using Content.Server.Body.Components;
-using Content.Shared.ADT.Chaplain.Components;
 using Content.Shared.Atmos.Components;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
@@ -101,8 +100,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
                 continue;
 
             if ((TryComp<HereticComponent>(look, out var th) && th.CurrentPath == ent.Comp.CurrentPath)
-            || HasComp<GhoulComponent>(look)
-            || HasComp<MagicImmunityComponent>(look))
+            || HasComp<GhoulComponent>(look))
                 continue;
 
             if (TryComp<FlammableComponent>(look, out var flam))
