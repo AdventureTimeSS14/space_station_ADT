@@ -192,13 +192,14 @@ public sealed partial class MidroundCustomizationSystem : EntitySystem
         if (args.Handled || args.Target == null || args.Cancelled)
             return;
 
-        if (TryComp<HumanoidAppearanceComponent>(uid, out var humanoid) &&
-            humanoid.MarkingSet.TryGetCategory(args.Category, out var markings) &&
-            args.Slot < markings.Count)
-        {
-            var current = markings[args.Slot];
-            component.RemovedMarkingsBuffer[args.Category] = (current.MarkingId, current.MarkingColors.ToList());
-        }
+        if (!TryComp<HumanoidAppearanceComponent>(uid, out var humanoid) ||
+            !humanoid.MarkingSet.TryGetCategory(args.Category, out var markings) ||
+            args.Slot < 0 ||
+            args.Slot >= markings.Count)
+            return;
+
+        var current = markings[args.Slot];
+        component.RemovedMarkingsBuffer[args.Category] = (current.MarkingId, current.MarkingColors.ToList());
 
         _humanoid.RemoveMarking(uid, args.Category, args.Slot);
         if (args.Category == MarkingCategories.FacialHair)
@@ -565,15 +566,17 @@ public sealed partial class MidroundCustomizationSystem : EntitySystem
             RecordOriginals(uid, component, humanoid);
         }
 
-        if (newManaged)
-        {
-            ApplyStateChanges(uid, component, args.NewMobState, humanoid);
-        }
-
         if (oldManaged && !newManaged)
         {
             RevertToOriginals(uid, component, humanoid);
+            return;
         }
+
+        if (oldManaged && newManaged)
+            RevertToOriginals(uid, component, humanoid);
+
+        if (newManaged)
+            ApplyStateChanges(uid, component, args.NewMobState, humanoid);
     }
 
     private void RecordOriginals(EntityUid uid, MidroundCustomizationComponent component, HumanoidAppearanceComponent humanoid)
@@ -587,7 +590,7 @@ public sealed partial class MidroundCustomizationSystem : EntitySystem
 
         foreach (var (category, slot) in managedSlots)
         {
-            if (!humanoid.MarkingSet.TryGetCategory(category, out var list) || slot >= list.Count)
+            if (!humanoid.MarkingSet.TryGetCategory(category, out var list) || slot < 0 || slot >= list.Count)
                 continue;
 
             var current = list[slot];
@@ -601,7 +604,13 @@ public sealed partial class MidroundCustomizationSystem : EntitySystem
 
         foreach (var entry in component.ChangeSlotOnState)
         {
-            if (entry.State != state) continue;
+            if (entry.State != state)
+                continue;
+
+            if (!humanoid.MarkingSet.TryGetCategory(entry.Category, out var list) ||
+                entry.Slot < 0 ||
+                entry.Slot >= list.Count)
+                continue;
 
             _humanoid.SetMarkingId(uid, entry.Category, entry.Slot, entry.Marking, force: false, defaultColor: defaultColor);
 
