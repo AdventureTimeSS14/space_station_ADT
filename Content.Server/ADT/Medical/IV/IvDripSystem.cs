@@ -43,11 +43,10 @@ public sealed class IvDripSystem : SharedIvDripSystem
         var query = EntityQueryEnumerator<IVDripComponent>();
         while (query.MoveNext(out var ivId, out var ivComp))
         {
-            var attachedTo = ivComp.AttachedTo;
-            if (attachedTo == EntityUid.Invalid)
+            if (ivComp.AttachedTo is not { } attachedTo)
                 continue;
 
-            if (!InRange((ivId, ivComp), ivComp.AttachedTo))
+            if (!InRange((ivId, ivComp), attachedTo))
             {
                 Detach((ivId, ivComp), true, false);
                 continue;

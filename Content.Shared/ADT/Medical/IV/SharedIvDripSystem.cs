@@ -156,7 +156,7 @@ public abstract class SharedIvDripSystem : EntitySystem
         if (args.Handled)
             return;
 
-        if (iv.Comp.AttachedTo == default)
+        if (iv.Comp.AttachedTo is null)
             Attach(iv, args.User, args.Target);
         else
             Detach(iv, false, true);
@@ -225,11 +225,10 @@ public abstract class SharedIvDripSystem : EntitySystem
 
     protected void Detach(Entity<IVDripComponent> iv, bool rip, bool predict)
     {
-        if (iv.Comp.AttachedTo == default)
+        if (iv.Comp.AttachedTo is not { } target)
             return;
 
-        var target = iv.Comp.AttachedTo;
-        iv.Comp.AttachedTo = default;
+        iv.Comp.AttachedTo = null;
         Dirty(iv);
 
         if (!_timing.IsFirstTimePredicted)

@@ -23,7 +23,7 @@ public sealed class IvDripSystem : SharedIvDripSystem
         if (!TryComp(iv, out SpriteComponent? sprite))
             return;
 
-        var hookedState = iv.Comp.AttachedTo == default
+        var hookedState = iv.Comp.AttachedTo is null
             ? iv.Comp.UnattachedState
             : iv.Comp.AttachedState;
         sprite.LayerSetState(IVDripVisualLayers.Base, hookedState);
