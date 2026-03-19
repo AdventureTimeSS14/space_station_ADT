@@ -100,5 +100,7 @@ public sealed partial class MidroundCustomizationComponent : Component
     [DataField]
     public List<ChangeSlotOnStateEntry> ChangeSlotOnState { get; set; } = new();
 
+    public Dictionary<MarkingCategories, (string Marking, List<Color> Colors)> RemovedMarkingsBuffer { get; set; } = new();
+
     public Dictionary<(MarkingCategories Category, int Slot), (string Marking, List<Color> Colors)> OriginalMarkings = new();
 }

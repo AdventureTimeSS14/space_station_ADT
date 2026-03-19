@@ -175,6 +175,8 @@
     selectSlotTime: 0
     changeSlotTime: 0
     changeVoiceTime: 0
+    addSlotTime: 0
+    removeSlotTime: 0
     changeMarkingSound:
       path: /Audio/Machines/beep.ogg
     playSoundForVoiceChange: false

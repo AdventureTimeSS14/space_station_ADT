@@ -186,6 +186,14 @@ public sealed partial class MidroundCustomizationSystem : EntitySystem
         if (args.Handled || args.Target == null || args.Cancelled)
             return;
 
+        if (TryComp<HumanoidAppearanceComponent>(uid, out var humanoid) &&
+            humanoid.MarkingSet.TryGetCategory(args.Category, out var markings) &&
+            args.Slot < markings.Count)
+        {
+            var current = markings[args.Slot];
+            component.RemovedMarkingsBuffer[args.Category] = (current.MarkingId, current.MarkingColors.ToList());
+        }
+
         _humanoid.RemoveMarking(uid, args.Category, args.Slot);
 
         _audio.PlayPvs(component.ChangeMarkingSound, uid);
@@ -215,15 +223,38 @@ public sealed partial class MidroundCustomizationSystem : EntitySystem
         if (args.Handled || args.Target == null || args.Cancelled || !TryComp(uid, out HumanoidAppearanceComponent? humanoid))
             return;
 
-        var marking = _markings.MarkingsByCategoryAndSpecies(args.Category, humanoid.Species).Keys.FirstOrDefault();
+        string markingId;
+        List<Color> colors;
 
-        if (string.IsNullOrEmpty(marking))
+        if (component.RemovedMarkingsBuffer.TryGetValue(args.Category, out var removed) &&
+            !string.IsNullOrEmpty(removed.Marking))
+        {
+            markingId = removed.Marking;
+            colors = removed.Colors;
+            component.RemovedMarkingsBuffer.Remove(args.Category);
+        }
+        else
+        {
+            markingId = _markings.MarkingsByCategoryAndSpecies(args.Category, humanoid.Species).Keys.FirstOrDefault() ?? string.Empty;
+            if (string.IsNullOrEmpty(markingId))
+                return;
+
+            var defaultColor = component.DefaultSkinColoring ? humanoid.SkinColor : Color.White;
+            colors = new List<Color> { defaultColor };
+        }
+
+        if (string.IsNullOrEmpty(markingId))
             return;
 
-        Color color = component.DefaultSkinColoring ? humanoid.SkinColor : Color.White;
-
         _audio.PlayPvs(component.ChangeMarkingSound, uid);
-        _humanoid.AddMarking(uid, marking, color);
+
+        int newSlotIndex = 0;
+        if (humanoid.MarkingSet.TryGetCategory(args.Category, out var currentList))
+            newSlotIndex = currentList.Count;
+
+        _humanoid.AddMarking(uid, markingId, colors.Count > 0 ? colors[0] : Color.White);
+        _humanoid.SetMarkingColor(uid, args.Category, newSlotIndex, colors, force: false);
+
         UpdateInterface(uid, component);
     }
 
