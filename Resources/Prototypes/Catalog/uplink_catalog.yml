@@ -976,9 +976,9 @@
   productEntity: Emag
   discountCategory: veryRareDiscounts
   discountDownTo:
-    Telecrystal: 6 # ADT-Tweak
+    Telecrystal: 5 # ADT-Tweak
   cost:
-    Telecrystal: 8 # ADT-Tweak
+    Telecrystal: 7 # ADT-Tweak
   categories:
   - UplinkDisruption
 
