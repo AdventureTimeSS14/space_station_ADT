@@ -979,8 +979,8 @@
   productEntity: ADTEhack
   discountCategory: veryRareDiscounts
   discountDownTo:
-    Telecrystal: 3 # ADT-Tweak
+    Telecrystal: 2 # ADT-Tweak
   cost:
-    Telecrystal: 4 # ADT-Tweak
+    Telecrystal: 3 # ADT-Tweak
   categories:
   - UplinkDisruption
