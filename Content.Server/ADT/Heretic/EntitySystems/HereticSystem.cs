@@ -24,6 +24,7 @@ using Robust.Shared.Prototypes;
 using Content.Shared.Damage.Components;
 using Content.Shared.ADT.Chaplain.Components;
 using Robust.Shared.Utility;
+using Content.Shared.Eye;
 
 namespace Content.Server.Heretic.EntitySystems;
 
