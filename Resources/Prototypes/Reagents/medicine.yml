@@ -97,8 +97,10 @@
         damage:
           types:
             Poison: -3
+      # ADT-Tweak-Start
       - !type:AdjustAllergicStack
         amount: -1
+      # ADT-Tweak-End
 
 - type: reagent
   id: Ethylredoxrazine
