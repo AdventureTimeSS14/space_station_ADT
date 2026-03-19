@@ -43,11 +43,10 @@ public sealed class IvDripSystem : SharedIvDripSystem
         var query = EntityQueryEnumerator<IVDripComponent>();
         while (query.MoveNext(out var ivId, out var ivComp))
         {
-            var attachedTo = ivComp.AttachedTo;
-            if (attachedTo == EntityUid.Invalid)
+            if (ivComp.AttachedTo is not { } attachedTo)
                 continue;
 
-            if (!InRange((ivId, ivComp), ivComp.AttachedTo))
+            if (!InRange((ivId, ivComp), attachedTo))
             {
                 Detach((ivId, ivComp), true, false);
                 continue;
@@ -78,7 +77,7 @@ public sealed class IvDripSystem : SharedIvDripSystem
                     var beforePack = packSol.Volume;
                     var beforeBlood = bloodSolutionEnt.Comp.Solution.Volume;
 
-                    var transferAmount = FixedPoint2.Min(ivComp.TransferAmount, packSol.Volume);
+                    var transferAmount = FixedPoint2.Min(ivComp.CurrentTransferAmount, packSol.Volume);
                     if (transferAmount > FixedPoint2.Zero)
                     {
                         var stepSolution = _sharedSolutionContainer.SplitSolution(packSolEnt.Value, transferAmount);
@@ -123,7 +122,7 @@ public sealed class IvDripSystem : SharedIvDripSystem
                     var beforePack = packSol.Volume;
                     var beforeBlood = streamSol.Volume;
 
-                    _sharedSolutionContainer.TryTransferSolution(packSolEnt.Value, streamSol, ivComp.TransferAmount);
+                    _sharedSolutionContainer.TryTransferSolution(packSolEnt.Value, streamSol, ivComp.CurrentTransferAmount);
 
                     var afterPack = packSol.Volume;
                     var afterBlood = streamSol.Volume;

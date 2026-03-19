@@ -15,7 +15,11 @@
       time: 10h
     - !type:OverallPlaytimeRequirement
       time: 144000 #40 hrs
-      #ADT tweak start
+     # ADT-Tweak start
+    - !type:TraitsRequirement
+      inverted: true
+      traits:
+      - Muted
     - !type:SpeciesRequirement
       inverted: true
       species:

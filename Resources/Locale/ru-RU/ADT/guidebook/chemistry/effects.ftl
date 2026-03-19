@@ -8,3 +8,9 @@ reagent-effect-guidebook-teleport =
         [1] Вызвать
         *[other] вызвать
     } неконтролируемое перемещение
+
+reagent-effect-guidebook-wash-stamp-reaction =
+    { $chance ->
+        [1] Смывает
+       *[other] смывают
+    } печати с лица

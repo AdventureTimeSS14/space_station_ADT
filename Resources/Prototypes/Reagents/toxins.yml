@@ -548,12 +548,8 @@
         - !type:MetabolizerTypeCondition
           type: [ Animal, Vox, Vulpkanin, Ursus ] # ADT-Tweak
           inverted: true
-# ADT-Tweak-Start
         - !type:MetabolizerTypeCondition
-          type: [ Felinid ]
-        - !type:MetabolizerTypeCondition
-          type: [  Plant ]
-# ADT-Tweak-End
+          type: [ Plant ]
         type: Local
         visualType: MediumCaution
         messages: [ "generic-reagent-effect-sick" ]
@@ -561,19 +557,15 @@
       - !type:Vomit
         probability: 0.1
         conditions:
-# ADT-Tweak-Start
-          - !type:MetabolizerTypeCondition
-            type: [ Felinid ]
           - !type:MetabolizerTypeCondition
             type: [ Plant ]
-# ADT-Tweak-End
           - !type:MetabolizerTypeCondition
             type: [ Animal, Vox, Ursus ] # ADT-Tweak
             inverted: true
       - !type:HealthChange
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Animal, Vox, Ursus ] # ADT-Tweak
+          type: [ Animal, Vox, Ursus, Felinid ] # ADT-Tweak
           inverted: true
         damage:
           types:

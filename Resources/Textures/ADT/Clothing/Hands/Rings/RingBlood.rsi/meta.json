@@ -1,5 +1,5 @@
 {
-    "version": 1,
+    "version": 2,
     "license": "CC-BY-SA-3.0",
     "copyright": "Created by discord:KING_DICE#4881",
     "size": {
@@ -11,7 +11,7 @@
             "name": "icon"
         },
         {
-            "name": "equipped-HAND",
+            "name": "equipped-FINGER",
             "directions": 4
         },
         {

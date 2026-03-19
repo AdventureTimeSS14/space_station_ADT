@@ -137,6 +137,9 @@
   id: Stomach
 
 - type: Tag
+  id: Storage
+
+- type: Tag
   id: Stunbaton
 
 - type: Tag
@@ -739,6 +742,9 @@
 - type: Tag
   id: ADTClosedRadio
 
+- type: Tag
+  id: ADTDrill
+  
 - type: Tag
   id: Katana
 

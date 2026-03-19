@@ -10,6 +10,7 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Events;
 using Content.Shared.Tag;
+using Content.Shared.Vehicle.Components;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Configuration;
@@ -199,7 +200,18 @@ public abstract partial class SharedMoverController : VirtualController
         var weightless = _gravity.IsWeightless(uid);
         var inAirHelpless = false;
 
+        // ADT-Tweak start: Block vehicles from moving in space
+        var hasGravity = _gravity.EntityGridOrMapHaveGravity(uid);
+        var isVehicle = HasComp<VehicleComponent>(uid);
+
+        if (!hasGravity && isVehicle)
+        {
+            UsedMobMovement[uid] = false;
+            return;
+        }
+
         if (physicsComponent.BodyStatus != BodyStatus.OnGround && !CanMoveInAirQuery.HasComponent(uid))
+        // ADT-Tweak end
         {
             if (!weightless)
             {
