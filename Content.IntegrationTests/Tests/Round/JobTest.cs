@@ -126,11 +126,24 @@ public sealed class JobTest
         Assert.That(pair.Client.AttachedEntity, Is.Null);
         Assert.That(ticker.PlayerGameStatuses[pair.Client.User!.Value], Is.EqualTo(PlayerGameStatus.NotReadyToPlay));
 
+        pair.Server.CfgMan.SetCVar(CCVars.GameLobbyFallbackEnabled, false); // ADT-tweak: Disable fallback to prevent round restart if preset fails
+
         // Ready up and start the round
         ticker.ToggleReadyAll(true);
         Assert.That(ticker.PlayerGameStatuses[pair.Client.User!.Value], Is.EqualTo(PlayerGameStatus.ReadyToPlay));
         await pair.Server.WaitPost(() => ticker.StartRound());
-        await pair.RunTicksSync(20); // ADT-tweak
+
+        /// ADT-tweak start
+        for (int i = 0; i < 100 && (ticker.RunLevel != GameRunLevel.InRound || pair.Client.AttachedEntity == null); i++)
+        {
+            await pair.RunTicksSync(10);
+        }
+
+        Assert.That(ticker.RunLevel, Is.EqualTo(GameRunLevel.InRound),
+            $"Round did not start after waiting. Current level: {ticker.RunLevel}");
+        Assert.That(pair.Client.AttachedEntity, Is.Not.Null,
+            $"Client has no attached entity after round start. RunLevel: {ticker.RunLevel}");
+         /// ADT-tweak start
 
         AssertJob(pair, Passenger);
 
@@ -156,10 +169,23 @@ public sealed class JobTest
         Assert.That(ticker.RunLevel, Is.EqualTo(GameRunLevel.PreRoundLobby));
         Assert.That(pair.Client.AttachedEntity, Is.Null);
 
+        pair.Server.CfgMan.SetCVar(CCVars.GameLobbyFallbackEnabled, false); // ADT-tweak: Disable fallback to prevent round restart if preset fails
+
         await pair.SetJobPriorities((Passenger, JobPriority.Medium), (Engineer, JobPriority.High));
         ticker.ToggleReadyAll(true);
         await pair.Server.WaitPost(() => ticker.StartRound());
-        await pair.RunTicksSync(20); // ADT-tweak
+
+         /// ADT-tweak start
+        for (int i = 0; i < 100 && (ticker.RunLevel != GameRunLevel.InRound || pair.Client.AttachedEntity == null); i++)
+        {
+            await pair.RunTicksSync(10);
+        }
+
+        Assert.That(ticker.RunLevel, Is.EqualTo(GameRunLevel.InRound),
+            $"Round did not start after waiting. Current level: {ticker.RunLevel}");
+        Assert.That(pair.Client.AttachedEntity, Is.Not.Null,
+            $"Client has no attached entity after round start. RunLevel: {ticker.RunLevel}");
+        /// ADT-tweak start
 
         AssertJob(pair, Engineer);
 
@@ -168,7 +194,18 @@ public sealed class JobTest
         await pair.SetJobPriorities((Passenger, JobPriority.High), (Engineer, JobPriority.Medium));
         ticker.ToggleReadyAll(true);
         await pair.Server.WaitPost(() => ticker.StartRound());
-        await pair.RunTicksSync(20); // ADT-tweak
+
+        /// ADT-tweak start
+        for (int i = 0; i < 100 && (ticker.RunLevel != GameRunLevel.InRound || pair.Client.AttachedEntity == null); i++)
+        {
+            await pair.RunTicksSync(10);
+        }
+
+        Assert.That(ticker.RunLevel, Is.EqualTo(GameRunLevel.InRound),
+            $"Round did not start after waiting. Current level: {ticker.RunLevel}");
+        Assert.That(pair.Client.AttachedEntity, Is.Not.Null,
+            $"Client has no attached entity after round start. RunLevel: {ticker.RunLevel}");
+         /// ADT-tweak end
 
         AssertJob(pair, Passenger);
 
@@ -201,10 +238,23 @@ public sealed class JobTest
         Assert.That(captain.Weight, Is.GreaterThan(engineer.Weight));
         Assert.That(engineer.Weight, Is.EqualTo(passenger.Weight));
 
+        pair.Server.CfgMan.SetCVar(CCVars.GameLobbyFallbackEnabled, false); // ADT-tweak: Disable fallback to prevent round restart if preset fails
+
         await pair.SetJobPriorities((Passenger, JobPriority.Medium), (Engineer, JobPriority.High), (Captain, JobPriority.Low));
         ticker.ToggleReadyAll(true);
         await pair.Server.WaitPost(() => ticker.StartRound());
-        await pair.RunTicksSync(20); // ADT-tweak
+
+        /// ADT-tweak start
+        for (int i = 0; i < 100 && (ticker.RunLevel != GameRunLevel.InRound || pair.Client.AttachedEntity == null); i++)
+        {
+            await pair.RunTicksSync(10);
+        }
+
+        Assert.That(ticker.RunLevel, Is.EqualTo(GameRunLevel.InRound),
+            $"Round did not start after waiting. Current level: {ticker.RunLevel}");
+        Assert.That(pair.Client.AttachedEntity, Is.Not.Null,
+            $"Client has no attached entity after round start. RunLevel: {ticker.RunLevel}");
+         /// ADT-tweak end
 
         AssertJob(pair, Captain);
 
@@ -230,6 +280,8 @@ public sealed class JobTest
         Assert.That(ticker.RunLevel, Is.EqualTo(GameRunLevel.PreRoundLobby));
         Assert.That(pair.Client.AttachedEntity, Is.Null);
 
+        pair.Server.CfgMan.SetCVar(CCVars.GameLobbyFallbackEnabled, false); // ADT-tweak: Disable fallback to prevent round restart if preset fails
+
         await pair.Server.AddDummySessions(5);
         await pair.RunTicksSync(5);
 
@@ -245,7 +297,18 @@ public sealed class JobTest
 
         ticker.ToggleReadyAll(true);
         await pair.Server.WaitPost(() => ticker.StartRound());
-        await pair.RunTicksSync(20); // ADT-tweak
+
+         /// ADT-tweak start
+        for (int i = 0; i < 100 && (ticker.RunLevel != GameRunLevel.InRound || pair.Client.AttachedEntity == null); i++)
+        {
+            await pair.RunTicksSync(10);
+        }
+
+        Assert.That(ticker.RunLevel, Is.EqualTo(GameRunLevel.InRound),
+            $"Round did not start after waiting. Current level: {ticker.RunLevel}");
+        Assert.That(pair.Client.AttachedEntity, Is.Not.Null,
+            $"Client has no attached entity after round start. RunLevel: {ticker.RunLevel}");
+         /// ADT-tweak end
 
         AssertJob(pair, Captain, captain);
         Assert.Multiple(() =>

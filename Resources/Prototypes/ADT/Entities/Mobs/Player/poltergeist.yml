@@ -32,6 +32,7 @@
         - GhostImpassable
   - type: MovementIgnoreGravity
     weightless: true
+  - type: GravityAffected
   - type: Damageable
     damageContainer: Biological
   - type: Examiner
