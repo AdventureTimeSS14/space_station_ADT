@@ -39,11 +39,12 @@ namespace Content.IntegrationTests.Tests
                 .EnumeratePrototypes<EntityPrototype>()
                 .Where(p => !p.Abstract)
                 .Where(p => !pair.IsTestPrototype(p))
-                .Where(p => !p.Components.ContainsKey("XenoArtifactNodeComponent")) // ADT-tweak 
+                .Where(p => !p.Components.ContainsKey("XenoArtifactNodeComponent")) // ADT-tweak
                 .Where(p => !p.Components.ContainsKey("MapGrid")) // This will smash stuff otherwise.
                 .Where(p => !p.Components.ContainsKey("MobReplacementRule")) // ADT-tweak - fuck them mimics
                 .Where(p => !p.Components.ContainsKey("Supermatter")) // ADT-tweak - Supermatter eats everything, oh no!
                 .Where(p => !p.Components.ContainsKey("RoomFill")) // This comp can delete all entities, and spawn others
+                .Where(p => !p.Components.ContainsKey("TechAnomaly")) // ADT-tweak - TechAnomaly can trigger guns via DeviceLink, causing spawn on invalid coords
                 .Select(p => p.ID)
                 .ToList();
             // ADT-tweak end
@@ -146,6 +147,7 @@ namespace Content.IntegrationTests.Tests
                     .Where(p => !p.Components.ContainsKey("MapGrid")) // This will smash stuff otherwise.
                     .Where(p => !p.Components.ContainsKey("Supermatter")) // ADT-tweak - Supermatter eats everything, oh no!
                     .Where(p => !p.Components.ContainsKey("RoomFill")) // This comp can delete all entities, and spawn others
+                    .Where(p => !p.Components.ContainsKey("TechAnomaly")) // ADT-tweak - TechAnomaly can trigger guns via DeviceLink, causing spawn on invalid coords
                     .Select(p => p.ID)
                     .ToList();
                 foreach (var protoId in protoIds)
@@ -206,7 +208,7 @@ namespace Content.IntegrationTests.Tests
                 .Where(p => !p.Abstract)
                 .Where(p => !pair.IsTestPrototype(p))
                 .Where(p => !p.Components.ContainsKey("MapGrid")) // This will smash stuff otherwise.
-                .Where(p => !p.Components.ContainsKey("XenoArtifactNodeComponent")) // ADT-tweak 
+                .Where(p => !p.Components.ContainsKey("XenoArtifactNodeComponent")) // ADT-tweak
                 .Where(p => !p.Components.ContainsKey("MobReplacementRule")) // ADT-tweak - fuck them mimics
                 .Where(p => !p.Components.ContainsKey("Supermatter")) // ADT-tweak - Supermatter eats everything, oh no!
                 .Select(p => p.ID)
@@ -216,7 +218,7 @@ namespace Content.IntegrationTests.Tests
             {
                 foreach (var protoId in protoIds)
                 {
-                    mapSys.CreateMap(out var mapId);
+                    mapSys.CreateMap(out var mapId, runMapInit: true); // ADT-Tweak
                     var grid = mapManager.CreateGridEntity(mapId);
                     var ent = sEntMan.SpawnEntity(protoId, new EntityCoordinates(grid.Owner, 0.5f, 0.5f));
                     foreach (var (_, component) in sEntMan.GetNetComponents(ent))
@@ -372,7 +374,7 @@ namespace Content.IntegrationTests.Tests
                     // Check that the number of entities has increased.
                     Assert.That(Count(server.EntMan), Is.GreaterThan(count), $"Server prototype {protoId} failed on spawning as entity count didn't increase\n" +
                         BuildDiffString(serverEntities, Entities(server.EntMan), server.EntMan));
-                    
+
                     // Skip client check if entity doesn't exist on server (deleted itself)
                     if (server.EntMan.EntityExists(uid))
                     {
@@ -456,6 +458,7 @@ namespace Content.IntegrationTests.Tests
                 "DebugExceptionStartup",
                 "GridFill",
                 "RoomFill",
+                "TechAnomaly", // ADT-tweak - TechAnomaly can trigger guns via DeviceLink, causing spawn on invalid coords
                 "Map", // We aren't testing a map entity in this test
                 "MapGrid",
                 "Broadphase",

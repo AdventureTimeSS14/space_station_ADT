@@ -53,6 +53,22 @@
   - type: Sprite
     sprite: Clothing/Back/Satchels/smuggler.rsi
     state: icon
+  # ADT-Tweak start
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,2,3
+  - type: Storage
+    grid:
+    - 0,0,6,3
+    maxItemSize: Normal
+    blacklist:
+      tags:
+      - Storage
+  - type: Tag
+    tags:
+    - Storage
+  # ADT-Tweak end
 
 - type: entity
   parent: [ BaseSubfloorAnchorStorageAnchored, BriefcaseSyndie, BaseMinorContraband ]
