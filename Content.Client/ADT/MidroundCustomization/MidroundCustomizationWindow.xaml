@@ -5,7 +5,7 @@
     <ScrollContainer HorizontalExpand="True" VerticalExpand="True" HScrollEnabled="False">
         <BoxContainer Name="VoiceContainer" Orientation="Vertical" Margin="8">
             <BoxContainer Orientation="Vertical" Margin="4" >
-                <Label Text="{Loc 'humanoid-profile-editor-voice-label'}" />
+                <Label Text="{Loc 'humanoid-profile-editor-voice-tab'}" />
                 <BoxContainer Orientation="Horizontal" Margin="0 4 0 0">
                     <OptionButton Name="VoiceButton" HorizontalExpand="True" />
                     <Button Name="VoicePlayButton" Text="{Loc 'humanoid-profile-editor-voice-play'}" MaxWidth="80" />
