@@ -8,14 +8,18 @@ namespace Content.Shared.ADT.Medical.IV;
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true)]
 public sealed partial class IVDripComponent : Component
 {
+
+    [DataField(required: true), AutoNetworkedField, ViewVariables(VVAccess.ReadWrite)]
+    public List<FixedPoint2> TransferAmounts = new() { 1, 5, 10, 15 };
+
     [DataField, AutoNetworkedField]
-    public EntityUid AttachedTo;
+    public FixedPoint2 CurrentTransferAmount = FixedPoint2.New(5);
+
+    [DataField, AutoNetworkedField]
+    public EntityUid? AttachedTo;
 
     [DataField, AutoNetworkedField, ViewVariables(VVAccess.ReadWrite)]
     public string Slot = "pack";
-
-    [DataField, AutoNetworkedField, ViewVariables(VVAccess.ReadWrite)]
-    public FixedPoint2 TransferAmount = FixedPoint2.New(5);
 
     [DataField, AutoNetworkedField, ViewVariables(VVAccess.ReadWrite)]
     public TimeSpan TransferDelay = TimeSpan.FromSeconds(3);

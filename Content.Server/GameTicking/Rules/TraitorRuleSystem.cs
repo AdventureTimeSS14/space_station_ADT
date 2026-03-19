@@ -121,7 +121,6 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
             Log.Debug($"MakeBrother {ToPrettyString(traitor)} - Sent the Briefing");
             EnsureComp<BloodBrotherLeaderComponent>(traitor); //лидера ВСЕГДА должно выдавать прежде чем простого брата
             EnsureComp<BloodBrotherComponent>(traitor);
-            RemComp<CanEnterCryostorageComponent>(traitor);
             _npcFaction.AddFaction(traitor, component.BloodBrotherFaction);
             _npcFaction.AddFaction(traitor, component.BloodBrotherLeaderFaction);
         }

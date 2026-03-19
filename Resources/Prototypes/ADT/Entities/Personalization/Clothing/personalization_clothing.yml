@@ -420,7 +420,7 @@
   parent: ClothingNeckBase
   id: ADTClothingNeckAidan
   name: Aidan neck
-  description: 
+  description:
   suffix: Personal, Aidan
   components:
   - type: Sprite
@@ -434,7 +434,7 @@
   parent: ClothingMaskBase
   id: ADTClothingMaskAidan
   name: Aidan mask
-  description: 
+  description:
   suffix: Personal, Aidan
   components:
   - type: Sprite
@@ -1620,3 +1620,146 @@
     grid:
     - 0,0,4,2
     maxItemSize: Normal
+
+- type: entity
+  parent: [ClothingHeadCaptainHat, ADTSponsorClothing]
+  id: ADTClothingHeadMathemat1kaHat
+  name: white captain's hat
+  description: A special white captain's hat with gold trim.
+  suffix: Personal, Mathemat1ka
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/mathemat1ka_hat.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/mathemat1ka_hat.rsi
+
+- type: entity
+  parent: [ClothingNeckMantleCap, ADTSponsorClothing]
+  id: ADTClothingNeckMathemat1kaMantle
+  name: white captain's mantle
+  description: A formal white mantle to drape around the shoulders.
+  suffix: Personal, Mathemat1ka
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/mathemat1ka_mantle.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/mathemat1ka_mantle.rsi
+
+- type: entity
+  parent: [ClothingNeckCloakCap, ADTSponsorClothing]
+  id: ADTClothingNeckMathemat1kaCloak
+  name: white captain's cloak
+  description: A pompous and comfy white cloak with gold trim.
+  suffix: Personal, Mathemat1ka
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/mathemat1ka_cloak.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/mathemat1ka_cloak.rsi
+
+- type: entity
+  parent: [ClothingUniformJumpskirtCapFormalDress, ADTSponsorClothingUniformBase]
+  id: ADTClothingUniformMathemat1kaDress
+  name: white captain's formal dress
+  description: A white dress for special occasions with gold accents.
+  suffix: Personal, Mathemat1ka
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/mathemat1ka_dress.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/mathemat1ka_dress.rsi
+
+- type: entity
+  parent: [ClothingHandsGlovesCaptain, ADTClothingSponsorHandsBase]
+  id: ADTClothingHandsMathemat1kaGloves
+  name: white captain gloves
+  description: Elegant white captain's gloves with gold trim.
+  suffix: Personal, Mathemat1ka
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/mathemat1ka_gloves.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/mathemat1ka_gloves.rsi
+
+- type: entity
+  parent: [ClothingBeltSheath, ADTSponsorClothing]
+  id: ADTClothingBeltMathemat1kaSheath
+  name: white sabre sheath
+  description: An ornate white sheath designed to hold your personal blade.
+  suffix: Personal, Mathemat1ka
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/mathemat1ka_sheath.rsi
+    state: sheath
+  - type: Clothing
+    sprite: ADT/Personalization/mathemat1ka_sheath.rsi
+
+- type: entity
+  id: ADTClothingBeltMathemat1kaSheathFilled
+  parent: ADTClothingBeltMathemat1kaSheath
+  suffix: Filled, Personal, Mathemat1ka
+  components:
+  - type: ContainerFill
+    containers:
+      item:
+      - CaptainSabre
+
+- type: entity
+  parent: [ClothingOuterCoatCaptain, ADTSponsorClothingOuterStorageBase]
+  id: ADTClothingOuterMathemat1kaCoat
+  name: white captain's jacket
+  description: A pristine white captain's jacket with gold inlays.
+  suffix: Personal, Mathemat1ka
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/mathemat1ka_coat.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/mathemat1ka_coat.rsi
+
+- type: entity
+  parent: [ClothingUniformJumpsuitCaptain, ADTSponsorClothingUniformBase]
+  id: ADTClothingUniformMathemat1kaJumpsuit
+  name: white captain's jumpsuit
+  description: A white captain's jumpsuit with refined gold markings.
+  suffix: Personal, Mathemat1ka
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/mathemat1ka_jumpsuit.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/mathemat1ka_jumpsuit.rsi
+
+- type: entity
+  parent: [ClothingShoesBootsLaceup, ADTSponsorClothingShoesBase]
+  id: ADTClothingShoesMathemat1kaBoots
+  name: white laceup shoes
+  description: Elegant white laceup shoes with enhanced grip and comfort.
+  suffix: Personal, Mathemat1ka
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/mathemat1ka_boots.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/mathemat1ka_boots.rsi
+
+- type: entity
+  parent: [ClothingBackpackSatchelCaptain, ADTSponsorClothingBackpackSatchel]
+  id: ADTClothingBackMathemat1kaSatchel
+  name: white captain's satchel
+  description: An exclusive white satchel with gold accents.
+  suffix: Personal, Mathemat1ka
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/mathemat1ka_satchel.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/mathemat1ka_satchel.rsi
+
+- type: entity
+  parent: [ClothingHeadHatCapcap, ADTSponsorClothingHeadBase]
+  id: ADTClothingHeadMathemat1kaCapCap
+  name: white captain's cap cap
+  description: A grand, stylish white cap worn by the Captain. Shows the station who's in charge.
+  suffix: Personal, Mathemat1ka
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/mathemat1ka_capcap.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/mathemat1ka_capcap.rsi

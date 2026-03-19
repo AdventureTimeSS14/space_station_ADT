@@ -1,4 +1,4 @@
-﻿using Content.Shared.Containers.ItemSlots;
+using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Mind.Components;
 using Content.Shared.Roles;
 using Content.Shared.Roles.Components;
@@ -51,6 +51,11 @@ public sealed partial class BorgSystem
 
             if (!_roles.MindHasRole<SiliconBrainRoleComponent>(mindId))
                 _roles.MindAddRole(mindId, "MindRoleSiliconBrain", silent: true);
+
+            // ADT-Tweak start: Add Borg job role for playtime tracking
+            if (!_roles.MindHasRole<JobRoleComponent>(mindId))
+                _roles.MindAddJobRole(mindId, mind, silent: true, BorgJobId);
+            // ADT-Tweak end
         }
 
         _appearance.SetData(uid, MMIVisuals.BrainPresent, true);
@@ -88,6 +93,11 @@ public sealed partial class BorgSystem
         {
             if (_roles.MindHasRole<SiliconBrainRoleComponent>(mindId))
                 _roles.MindRemoveRole<SiliconBrainRoleComponent>(mindId);
+
+            // ADT-Tweak start: Remove Borg job role when leaving the borg
+            if (_roles.MindHasRole<JobRoleComponent>(mindId))
+                _roles.MindRemoveRole<JobRoleComponent>(mindId);
+            // ADT-Tweak end
 
             _mind.TransferTo(mindId, uid, true, mind: mind);
         }

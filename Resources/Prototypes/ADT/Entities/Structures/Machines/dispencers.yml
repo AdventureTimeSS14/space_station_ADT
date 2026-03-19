@@ -154,11 +154,12 @@
     drawdepth: SmallObjects
     state: soda
     noRot: true
+    snapCardinals: false
   - type: Transform
     anchored: true
     noRot: false
   - type: Machine
-    board: SodaDispenserMachineCircuitboard
+    board: ADTEnergySodaDispenserMachineCircuitboard
   - type: GuideHelp
     guides:
     - Bartender
@@ -220,11 +221,12 @@
     drawdepth: SmallObjects
     state: booze
     noRot: true
+    snapCardinals: false
   - type: Transform
     anchored: true
     noRot: false
   - type: Machine
-    board: BoozeDispenserMachineCircuitboard
+    board: ADTEnergyBoozeDispenserMachineCircuitboard
   - type: GuideHelp
     guides:
     - Bartender

@@ -54,6 +54,8 @@
         mask:
         - GhostImpassable
   - type: MovementIgnoreGravity
+    weightless: true
+  - type: GravityAffected
   - type: Actions
   - type: NoSlip
   - type: Eye

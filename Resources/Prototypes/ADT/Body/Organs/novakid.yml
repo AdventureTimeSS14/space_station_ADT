@@ -4,11 +4,21 @@
   suffix: "novakid"
   categories: [ HideSpawnMenu ]
   components:
+    - type: Sprite
+      sprite: Mobs/Species/Human/organs.rsi
+      state: stomach
     - type: Stomach
     - type: SolutionContainerManager
       solutions:
         stomach:
+          temperature: 293.15
+          canReact: true
           maxVol: 50.0
+        food:
+          temperature: 293.15
+          canReact: true
+          maxVol: 0
+          name: food
     - type: Metabolizer
       maxReagents: 7
       metabolizerTypes: [ Novakid ]
@@ -27,7 +37,28 @@
   suffix: "novakid"
   categories: [ HideSpawnMenu ]
   components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/organs.rsi
+    state: lung-l
   - type: Lung
+  - type: SolutionContainerManager
+    solutions:
+      organ:
+        maxVol: 10
+        reagents:
+        - data: []
+          ReagentId: Nutriment
+          Quantity: 10
+      food:
+        maxVol: 5
+        reagents:
+        - data: []
+          ReagentId: UncookedAnimalProteins
+          Quantity: 5
+      Lung:
+        maxVol: 100
+        name: Lung
+        canReact: false
   - type: Metabolizer
     removeEmpty: true
     solutionOnBody: false
@@ -47,6 +78,9 @@
   suffix: "novakid"
   categories: [ HideSpawnMenu ]
   components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/organs.rsi
+    state: heart-on
   - type: Metabolizer
     maxReagents: 3
     metabolizerTypes: [ Novakid ]

@@ -32,8 +32,9 @@
     maxFillLevels: 7
     fillBaseName: fill
   - type: Edible
-    edible: Drink # slurping sounds!
+    edible: Drink
     destroyOnEmpty: false
+    solution: drink
   - type: SolutionContainerManager
     solutions:
       drink:
@@ -98,6 +99,15 @@
   id: ADTPlasticBottle
   name: plastic bottle
   parent: ADTBaseChemistryEmptyPlasticBottle
+  components:
+  - type: Edible
+    edible: Drink
+    destroyOnEmpty: false
+    solution: drink
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
 
 ##стеклянная
 
