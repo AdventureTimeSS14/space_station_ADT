@@ -121,7 +121,7 @@ public sealed partial class AdminVerbSystem
             {
                 Text = superBoostSpeedName,
                 Category = VerbCategory.Smite,
-                Icon = new SpriteSpecifier.Texture(new("Interface/Alerts/walking.rsi/walking.png")),
+                Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/Alerts/walking.rsi/walking.png")),
                 Act = () =>
                 {
                     var hadSlipComponent = TryComp<SpeedBoostWakeComponent>(args.Target, out var _);

@@ -6,6 +6,8 @@
   - type: Clickable
   - type: InteractionOutline
   - type: MovementIgnoreGravity
+    weightless: true
+  - type: GravityAffected
   - type: Sprite
     sprite: ADT/Heretic/abilities_heretic.rsi
     state: immovable_rod
