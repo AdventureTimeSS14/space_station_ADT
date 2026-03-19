@@ -266,6 +266,11 @@
     - type: HTN
       rootTask:
         task: SimpleHumanoidHostileCompound
+    # ADT Tweak start
+    - type: LanguageSpeaker
+      languages:
+        GalacticCommon: Speak
+    # ADT Tweak end
 
 - type: entity
   parent: BaseMentalAction

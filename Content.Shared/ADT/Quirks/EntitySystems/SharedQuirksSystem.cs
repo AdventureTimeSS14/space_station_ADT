@@ -14,6 +14,7 @@ using Content.Shared.Movement.Systems;
 using Content.Shared.Damage.Systems;
 using Content.Shared.StepTrigger.Components;
 using Content.Shared.Damage;
+using Robust.Shared.Timing;
 
 namespace Content.Shared.ADT.Traits;
 
@@ -24,6 +25,7 @@ public abstract class SharedQuirksSystem : EntitySystem
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeed = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly TagSystem _tag = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
 
     public override void Initialize()
     {
@@ -42,6 +44,12 @@ public abstract class SharedQuirksSystem : EntitySystem
         if (_storage.Insert(uid, closet))
         {
             _popup.PopupClient(Loc.GetString("quirk-fast-locker-hide-success"), uid);
+
+            if (TryComp<FastLockersComponent>(uid, out var fastLockers))
+            {
+                fastLockers.CooldownEnd = _timing.CurTime + TimeSpan.FromSeconds(FastLockersComponent.CooldownTime);
+                Dirty(uid, fastLockers);
+            }
         }
         else
             _popup.PopupCursor(Loc.GetString("quirk-fast-locker-hide-fail"), uid);
