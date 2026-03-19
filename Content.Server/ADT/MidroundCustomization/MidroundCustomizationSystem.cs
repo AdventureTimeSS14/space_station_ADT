@@ -157,6 +157,12 @@ public sealed partial class MidroundCustomizationSystem : EntitySystem
         if (args.Handled || args.Target == null || args.Cancelled)
             return;
 
+        if (!TryComp<HumanoidAppearanceComponent>(uid, out var humanoid) ||
+            !humanoid.MarkingSet.TryGetCategory(args.Category, out var markings) ||
+            args.Slot < 0 ||
+            args.Slot >= markings.Count)
+            return;
+
         _humanoid.SetMarkingColor(uid, args.Category, args.Slot, args.Colors, force: false);
 
         if (args.Category == MarkingCategories.FacialHair && component.PointLightColorEnabled)
