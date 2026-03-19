@@ -137,6 +137,10 @@
   parent: [ BaseBorgModuleMedical, BaseProviderBorgModule ]
   name: rescue cyborg module
   components:
+  - type: Sprite
+    sprite: Objects/Specific/Robotics/borgmodule.rsi
+    layers:
+    - state: medical
   - type: ItemBorgModule
     hands:
     - item: HandheldHealthAnalyzerUnpowered
