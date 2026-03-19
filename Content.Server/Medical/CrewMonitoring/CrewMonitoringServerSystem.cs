@@ -78,7 +78,7 @@ public sealed class CrewMonitoringServerSystem : EntitySystem
             return;
 
         //ADT-Tweak-Start
-        // Без этих изменений, в мониторинге остаётся ремнант сущности с OnMob: true. Надеюсь это ничего не сломает.
+        // Было изменено для переменной: "OnMob" у: "SuitSensor". Без этого, в мониторинге остаётся "ремнант" сущности.
         var toRemove = new List<string>();
         foreach (var (address, sensor) in component.SensorStatus)
         {

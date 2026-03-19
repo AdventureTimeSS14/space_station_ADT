@@ -511,22 +511,15 @@ public sealed partial class MidroundCustomizationSystem : EntitySystem
 
         if (args.Enabled)
         {
-            // сохраняем оригинальный цвет при первом включении
-            if (!component.PointLightColorEnabled)
-            {
-                if (_pointLight.TryGetLight(uid, out var light))
-                    component.OriginalPointLightColor = light.Color;
-            }
+            if (_pointLight.TryGetLight(uid, out var light))
+                component.OriginalPointLightColor = light.Color;
 
             component.PointLightColorEnabled = true;
             UpdatePointLightColorIfEnabled(uid, component);
         }
         else
         {
-            if (component.PointLightColorEnabled)
-            {
-                _pointLight.SetColor(uid, component.OriginalPointLightColor);
-            }
+            _pointLight.SetColor(uid, component.OriginalPointLightColor);
             component.PointLightColorEnabled = false;
         }
 
