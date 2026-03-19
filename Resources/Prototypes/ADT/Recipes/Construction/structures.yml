@@ -425,6 +425,157 @@
   conditions:
     - !type:TileNotBlocked
 
+
+- type: construction
+  name: construction-name-bust-helios
+  description: construction-desc-bust-helios
+  id: ADTBustHelios
+  graph: ADTBustHelios
+  startNode: start
+  targetNode: bust
+  category: construction-category-structures
+  placementMode: SnapgridCenter
+  objectType: Structure
+  canBuildInImpassable: false
+  canRotate: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: construction-name-bust-lenin
+  description: construction-desc-bust-lenin
+  id: ADTBustLenin
+  graph: ADTBustLenin
+  startNode: start
+  targetNode: bust
+  category: construction-category-structures
+  placementMode: SnapgridCenter
+  objectType: Structure
+  canBuildInImpassable: false
+  canRotate: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: construction-name-bust-darwin
+  description: construction-desc-bust-darwin
+  id: ADTBustDarwin
+  graph: ADTBustDarwin
+  startNode: start
+  targetNode: bust
+  category: construction-category-structures
+  placementMode: SnapgridCenter
+  objectType: Structure
+  canBuildInImpassable: false
+  canRotate: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: construction-name-bust-pompeii
+  description: construction-desc-bust-pompeii
+  id: ADTBustPompeii
+  graph: ADTBustPompeii
+  startNode: start
+  targetNode: bust
+  category: construction-category-structures
+  placementMode: SnapgridCenter
+  objectType: Structure
+  canBuildInImpassable: false
+  canRotate: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: construction-name-barrel-water-open
+  description: construction-desc-barrel-water-open
+  id: ADTBarrelChemWaterOpen
+  graph: ADTBarrelChemWaterOpen
+  startNode: start
+  targetNode: barrel
+  category: construction-category-structures
+  placementMode: SnapgridCenter
+  objectType: Structure
+  canBuildInImpassable: false
+  canRotate: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: construction-name-barrel-welding-open
+  description: construction-desc-barrel-welding-open
+  id: ADTBarrelChemWeldingOpen
+  graph: ADTBarrelChemWeldingOpen
+  startNode: start
+  targetNode: barrel
+  category: construction-category-structures
+  placementMode: SnapgridCenter
+  objectType: Structure
+  canBuildInImpassable: false
+  canRotate: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: construction-name-barrel-silicate-open
+  description: construction-desc-barrel-silicate-open
+  id: ADTBarrelChemSilicateOpen
+  graph: ADTBarrelChemSilicateOpen
+  startNode: start
+  targetNode: barrel
+  category: construction-category-structures
+  placementMode: SnapgridCenter
+  objectType: Structure
+  canBuildInImpassable: false
+  canRotate: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: construction-name-barrel-wooden-open
+  description: construction-desc-barrel-wooden-open
+  id: ADTBarrelWoodenOpen
+  graph: ADTBarrelWoodenOpen
+  startNode: start
+  targetNode: barrel
+  category: construction-category-structures
+  placementMode: SnapgridCenter
+  objectType: Structure
+  canBuildInImpassable: false
+  canRotate: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: construction-name-barrel-metal-open
+  description: construction-desc-barrel-metal-open
+  id: ADTBarrelMetalOpen
+  graph: ADTBarrelMetalOpen
+  startNode: start
+  targetNode: barrel
+  category: construction-category-structures
+  placementMode: SnapgridCenter
+  objectType: Structure
+  canBuildInImpassable: false
+  canRotate: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: construction-name-barrel-rad-open
+  description: construction-desc-barrel-rad-open
+  id: ADTBarrelRadOpen
+  graph: ADTBarrelRadOpen
+  startNode: start
+  targetNode: barrel
+  category: construction-category-structures
+  placementMode: SnapgridCenter
+  objectType: Structure
+  canBuildInImpassable: false
+  canRotate: false
+  conditions:
+    - !type:TileNotBlocked
+
 - type: construction
   id: ADTBaseBarrel
   graph: ADTBaseBarrel
@@ -515,4 +666,30 @@
   canRotate: false
   conditions:
     - !type:TileNotBlocked
+
+- type: construction
+  id: ADTOpenSignRecipe
+  graph: ADTOpenSignGraph
+  startNode: start
+  targetNode: ADTOpenSignNode
+  category: construction-category-machines
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: true
+  conditions:
+    - !type:WallmountCondition
+
+- type: construction
+  id: ADTBarSignRecipe
+  name: construction-name-bar-sign
+  description: construction-desc-bar-sign
+  graph: ADTBarSignGraph
+  startNode: start
+  targetNode: barSign
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: true
+  conditions:
+    - !type:WallmountCondition
 

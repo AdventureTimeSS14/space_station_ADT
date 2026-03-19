@@ -202,3 +202,54 @@ ent-ADTPosterHalloweenSpiderWeb1 = паутина
 ent-ADTPosterHalloweenSpiderWeb2 = паутина
     .suffix = Хеллоуин
     .desc = Дом паука Аркадия.
+
+ent-ADTPosterContrabandLostParadise = Потерянный рай
+    .desc = Контрабандный плакат ныне замороженной группы «Потерянный рай».
+
+ent-ADTPosterContrabandSlimeBarmaid = Слаймолюдка барменша
+    .desc = Плакат с изображением слайма в костюме барменши, подающего напитки.
+
+ent-ADTPosterLegitGrowFood = Выращивай еду, а не травку!
+    .desc = Плакат, напоминающий ботаникам, что их главная задача - выращивать еду для поваров. И только потом всё остальное.
+
+ent-ADTPosterContrabandHonkminator = Хонкминатор
+    .desc = Рекламный плакат для научно-фантастического фильма о клоуне-киборге, прибывшем из будущего, чтобы убить молодого главу службы безопасности.
+
+ent-ADTPosterContrabandHonkDance = Хонк-Дэнс
+    .desc = Плакат курса танцев на мехе Х.О.Н.К.
+
+ent-ADTPosterContrabandBorgBro = БроБорг
+    .desc = Инновационная разработка! Борг, что может поддержать базар и даже курнуть вместе с тобой шмаль!
+
+ent-ADTPosterContrabandLadyRnd = Мисс РНД
+    .desc = Она как огненная аномалия - горячая штучка!
+
+ent-ADTPosterLegitMissNT1 = Конкурс мисс NanoTrasen
+    .desc = Старый плакат, рекламирующий конкурс красоты среди сотрудников станции.
+
+ent-ADTPosterLegitMissNT2 = Мисс NanoTrasen
+    .desc = Старый плакат, рекламирующий NanoTrasen.
+
+ent-ADTPosterContrabandSkrellSinger = Скреллианская певица
+    .desc = Плакат с изображением певицы Ла'лиа'вузо Сейур'а, самой известной артистки среди скреллов.
+
+ent-ADTPosterContrabandSpaceNinja = Космический ниндзя
+    .desc = Плакат с изображением скрытной космической ниндзя в действии.
+
+ent-ADTPosterCalendarNT = Календарь
+    .desc = Фирменный календарь NanoTrasen. Выглядит очень дёшево.
+
+ent-ADTPosterContrabandAnime = Конец Евангелиона
+    .desc = Рекламный плакат, японская драма-боевик про школьников, управляющих гигантскими био-роботами.
+
+ent-ADTPosterContrabandUnati = Похотливая унати дева
+    .desc = Рекламный плакат серии книг про Унати-горничную.
+
+ent-ADTPosterContrabandPinning = Прикрепи хвост Иану!
+    .desc = Хвост не входит в комплект.
+
+ent-ADTPosterLegitObjection = OBJECTION
+    .desc = Ваша честь: Первое слово съела корова. Первое слово дороже второго.
+
+ent-ADTPosterContrabandGorlaxSanta = С Новым годом
+    .desc = Новогодний плакат, поздравляющий всех агентов синдиката с Новым годом.

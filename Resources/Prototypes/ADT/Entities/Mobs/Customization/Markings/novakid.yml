@@ -375,7 +375,7 @@
     state: head_novakid_defolt
 
 - type: marking
-  id: TorsoNovakidDefolt
+  id: TorsoNovakidDefoltMale
   bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [NovakidSpecies]
@@ -387,7 +387,22 @@
           color: "#FFFFFF"
   sprites:
   - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
-    state: torso_novakid_defolt
+    state: torso_novakid_defolt_m
+
+- type: marking
+  id: TorsoNovakidDefoltFemale
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [NovakidSpecies]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
+    state: torso_novakid_defolt_f
 
 - type: marking
   id: NovakidFace19

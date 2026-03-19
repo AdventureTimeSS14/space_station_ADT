@@ -26,7 +26,39 @@
     state: vavilon_book
   - type: Item
     size: Small
-  - type: GrantAllLanguagesOnUse
+  - type: GrantLanguagesOnUse
+    languages:
+    # Common
+    - GalacticCommon
+    - Arachnid
+    - Nekomimetic
+    - Draconic
+    - Canilunzt
+    - SikTaj
+    - Nian
+    - SolCommon
+    - BorgTalk
+    - Drask
+    - Urs
+    - Arkane
+    - Dwarf
+    - CintaTaj
+    - Gutter
+    - NeoRusskiya
+    - Clownish
+    - Scratches
+    - Elysian
+    # exclusive
+    - RootSpeak
+    - Bubblish
+    - Fire
+    - Mar
+    - VoxPidgin
+    - RobotTalk
+    # other
+    - CodeSpeak
+    - Dev
+    - SignLanguage
   - type: Tag
     tags:
     - Book
@@ -40,11 +72,11 @@
     sprite: ADT/Objects/Specific/Lavaland/loot.rsi
     state: crystal
   - type: GunUpgrade
-    tags: [ GunUpgradeReloadSpeed ]
+    tags: [ GunUpgradeVampirism ]
     examineText: gun-upgrade-examine-text-vampirism
-#  - type: GunUpgradeVampirism
-#    damageOnHit:
-#      types:
-#        Slash: -1.5
-#        Piercing: -1.5
-#        Blunt: -1.5
+  - type: GunUpgradeVampirism
+    damageOnHit:
+      types:
+        Slash: -1.5
+        Piercing: -1.5
+        Blunt: -1.5

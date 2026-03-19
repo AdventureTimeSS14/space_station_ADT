@@ -11,3 +11,7 @@ combo-gnashingteeth-end = { CAPITALIZE($user) } разрывает плоть { 
 combo-twisthand-end = { CAPITALIZE($user) } скручивает руку { $target }!
 combo-ptrc-stun-end = { CAPITALIZE($user) } заламывает { $target }!
 combo-leg-sweep-end = { CAPITALIZE($user) } хватает за ногу { $target }!
+combo-cookbook-battre-end = { CAPITALIZE($user) } отбивает { $target } как говядину!
+combo-cookbook-unwinding-end = { CAPITALIZE($user) } раскручивает { $target } как пиццу!
+combo-cookbook-rolling-end = { CAPITALIZE($user) } раскатывает { $target } как тесто!
+combo-cookbook-squeezing-end = { CAPITALIZE($user) } сжимает { $target } как арбуз!

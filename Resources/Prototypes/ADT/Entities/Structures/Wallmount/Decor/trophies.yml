@@ -1,0 +1,48 @@
+- type: entity
+  id: ADTWallmountTrophyBase
+  abstract: true
+  parent: BaseWallmountMetallic
+  components:
+  - type: WallMount
+    arc: 360
+  - type: Rotatable
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/trophies.rsi
+    snapCardinals: true
+
+- type: entity
+  parent: ADTWallmountTrophyBase
+  id: ADTWallmountHuntingRifle
+  name: wall-mounted hunting rifle
+  description: An old hunting rifle. Unfortunately, it's not suitable for shooting.
+  components:
+  - type: Sprite
+    state: bolt
+
+- type: entity
+  parent: ADTWallmountTrophyBase
+  id: ADTWallmountSkullCow
+  name: cow skull
+  description: Mooo!
+  components:
+  - type: Sprite
+    state: skull_cow
+
+- type: entity
+  parent: ADTWallmountTrophyBase
+  id: ADTWallmountSkullDeer
+  name: deer skull
+  description: It smells like the Wild West. Yeehaw!
+  components:
+  - type: Sprite
+    state: skull_deer
+
+- type: entity
+  parent: ADTWallmountTrophyBase
+  id: ADTWallmountSkullWolf
+  name: wolf skull
+  description: Bit the wrong person's side.
+  components:
+  - type: Sprite
+    state: skull_wolf
+

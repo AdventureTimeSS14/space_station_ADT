@@ -1,0 +1,20 @@
+- type: entity
+  parent: BaseSign
+  id: ADTSignSmoking
+  name: smoking sign
+  description: A sign permitting smoking in the immediate vicinity.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/signs.rsi
+    state: smoking
+
+- type: entity
+  parent: BaseSign
+  id: ADTSignPeacekeeper
+  name: Peacekeeper sign
+  description: A sign of the TSF colonies peacekeeping forces.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/signs.rsi
+    state: peacekeeper
+

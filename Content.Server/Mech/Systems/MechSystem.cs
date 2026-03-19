@@ -2,18 +2,19 @@ using System.Linq;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Body.Systems;
 using Content.Server.Mech.Components;
-using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Shared.ActionBlocker;
-using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.DoAfter;
 using Content.Shared.FixedPoint;
 using Content.Shared.Interaction;
 using Content.Shared.Mech;
 using Content.Shared.Mech.Components;
 using Content.Shared.Mech.EntitySystems;
+using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Events;
 using Content.Shared.Popups;
+using Content.Shared.Power.Components;
 using Content.Shared.Tools;
 using Content.Shared.Tools.Components;
 using Content.Shared.Tools.Systems;
@@ -73,6 +74,8 @@ public sealed partial class MechSystem : SharedMechSystem
         SubscribeLocalEvent<MechComponent, MechEquipmentRemoveMessage>(OnRemoveEquipmentMessage);
 
         SubscribeLocalEvent<MechComponent, UpdateCanMoveEvent>(OnMechCanMoveEvent);
+        SubscribeLocalEvent<MechPilotComponent, UpdateCanMoveEvent>(OnMechPilotCanMoveEvent); // ADT-Tweak
+        SubscribeLocalEvent<MovementRelayTargetComponent, UpdateCanMoveEvent>(OnMechRelayTargetCanMoveEvent); // ADT-Tweak
 
 
         SubscribeLocalEvent<MechPilotComponent, ToolUserAttemptUseEvent>(OnToolUseAttempt);
@@ -95,6 +98,20 @@ public sealed partial class MechSystem : SharedMechSystem
         if (component.Broken || component.Integrity <= 0 || component.Energy <= 0)
             args.Cancel();
     }
+
+    // ADT-Tweak start: stop move zero power cell
+    private void OnMechPilotCanMoveEvent(EntityUid uid, MechPilotComponent component, UpdateCanMoveEvent args)
+    {
+        if (TryComp<MechComponent>(component.Mech, out var mech) && mech.Energy <= 0)
+            args.Cancel();
+    }
+
+    private void OnMechRelayTargetCanMoveEvent(EntityUid uid, MovementRelayTargetComponent component, UpdateCanMoveEvent args)
+    {
+        if (TryComp<MechComponent>(uid, out var mech) && mech.Energy <= 0)
+            args.Cancel();
+    }
+     // ADT-Tweak end
 
     private void OnInteractUsing(EntityUid uid, MechComponent component, InteractUsingEvent args)
     {
@@ -264,6 +281,7 @@ public sealed partial class MechSystem : SharedMechSystem
 
         TryInsert(uid, args.Args.User, component);
         _actionBlocker.UpdateCanMove(uid);
+        _actionBlocker.UpdateCanMove(args.Args.User); // ADT-Tweak
 
         args.Handled = true;
     }
@@ -296,8 +314,14 @@ public sealed partial class MechSystem : SharedMechSystem
             component.PilotSlot.ContainedEntity != null)
         {
             var damage = args.DamageDelta * component.MechToPilotDamageMultiplier;
-            _damageable.TryChangeDamage(component.PilotSlot.ContainedEntity, damage);
+            _damageable.ChangeDamage(component.PilotSlot.ContainedEntity.Value, damage);
         }
+
+        // ADT-Tweak start: stop move zero power cell
+        _actionBlocker.UpdateCanMove(uid);
+        if (component.PilotSlot.ContainedEntity != null)
+            _actionBlocker.UpdateCanMove(component.PilotSlot.ContainedEntity.Value);
+        // ADT-Tweak end
     }
 
     private void ToggleMechUi(EntityUid uid, MechComponent? component = null, EntityUid? user = null)
@@ -353,6 +377,14 @@ public sealed partial class MechSystem : SharedMechSystem
 
     public override void BreakMech(EntityUid uid, MechComponent? component = null)
     {
+        if (!Resolve(uid, ref component))
+            return;
+
+        // ADT-Tweak start: stop move zero power cell - обновляем ДО катапультирования
+        if (component.PilotSlot.ContainedEntity != null)
+            _actionBlocker.UpdateCanMove(component.PilotSlot.ContainedEntity.Value);
+        // ADT-Tweak end
+
         base.BreakMech(uid, component);
 
         _ui.CloseUi(uid, MechUiKey.Key);
@@ -374,7 +406,7 @@ public sealed partial class MechSystem : SharedMechSystem
         if (!TryComp<BatteryComponent>(battery, out var batteryComp))
             return false;
 
-        _battery.SetCharge(battery!.Value, batteryComp.CurrentCharge + delta.Float(), batteryComp);
+        _battery.SetCharge((battery.Value, batteryComp), batteryComp.CurrentCharge + delta.Float());
         if (batteryComp.CurrentCharge != component.Energy) //if there's a discrepency, we have to resync them
         {
             Log.Debug($"Battery charge was not equal to mech charge. Battery {batteryComp.CurrentCharge}. Mech {component.Energy}");
@@ -382,6 +414,11 @@ public sealed partial class MechSystem : SharedMechSystem
             Dirty(uid, component);
         }
         _actionBlocker.UpdateCanMove(uid);
+        // ADT-Tweak start: stop move zero power cell
+        if (component.PilotSlot.ContainedEntity != null)
+            _actionBlocker.UpdateCanMove(component.PilotSlot.ContainedEntity.Value);
+        // ADT-Tweak end
+
         return true;
     }
 
@@ -398,6 +435,10 @@ public sealed partial class MechSystem : SharedMechSystem
         component.MaxEnergy = battery.MaxCharge;
 
         _actionBlocker.UpdateCanMove(uid);
+        // ADT-Tweak start: stop move zero power cell
+        if (component.PilotSlot.ContainedEntity != null)
+            _actionBlocker.UpdateCanMove(component.PilotSlot.ContainedEntity.Value);
+        // ADT-Tweak end
 
         Dirty(uid, component);
         UpdateUserInterface(uid, component);
@@ -413,6 +454,10 @@ public sealed partial class MechSystem : SharedMechSystem
         component.MaxEnergy = 0;
 
         _actionBlocker.UpdateCanMove(uid);
+        // ADT-Tweak start: stop move zero power cell
+        if (component.PilotSlot.ContainedEntity != null)
+            _actionBlocker.UpdateCanMove(component.PilotSlot.ContainedEntity.Value);
+        // ADT-Tweak end
 
         Dirty(uid, component);
         UpdateUserInterface(uid, component);

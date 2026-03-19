@@ -10,6 +10,7 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Events;
 using Content.Shared.Tag;
+using Content.Shared.Vehicle.Components;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Configuration;
@@ -61,6 +62,7 @@ public abstract partial class SharedMoverController : VirtualController
     protected EntityQuery<TransformComponent> XformQuery;
 
     private static readonly ProtoId<TagPrototype> FootstepSoundTag = "FootstepSound";
+    private static readonly ProtoId<TagPrototype> SiliconFootstepSoundTag = "SiliconFootstepSound"; //ADT-Tweak
 
     private bool _relativeMovement;
     private float _minDamping;
@@ -195,11 +197,21 @@ public abstract partial class SharedMoverController : VirtualController
         }
 
         // If the body is in air but isn't weightless then it can't move
-        // TODO: MAKE ISWEIGHTLESS EVENT BASED
-        var weightless = _gravity.IsWeightless(uid, physicsComponent, xform);
+        var weightless = _gravity.IsWeightless(uid);
         var inAirHelpless = false;
 
+        // ADT-Tweak start: Block vehicles from moving in space
+        var hasGravity = _gravity.EntityGridOrMapHaveGravity(uid);
+        var isVehicle = HasComp<VehicleComponent>(uid);
+
+        if (!hasGravity && isVehicle)
+        {
+            UsedMobMovement[uid] = false;
+            return;
+        }
+
         if (physicsComponent.BodyStatus != BodyStatus.OnGround && !CanMoveInAirQuery.HasComponent(uid))
+        // ADT-Tweak end
         {
             if (!weightless)
             {
@@ -332,7 +344,8 @@ public abstract partial class SharedMoverController : VirtualController
             if (!weightless && MobMoverQuery.TryGetComponent(uid, out var mobMover) &&
                 TryGetSound(weightless, uid, mover, mobMover, xform, out var sound, tileDef: tileDef))
             {
-                var soundModifier = mover.Sprinting ? 3.5f : 1.5f;
+                var soundModifier = mover.Sprinting ? InputMoverComponent.SprintingSoundModifier
+                    : InputMoverComponent.WalkingSoundModifier;
 
                 var audioParams = sound.Params
                     .WithVolume(sound.Params.Volume + soundModifier)
@@ -495,7 +508,7 @@ public abstract partial class SharedMoverController : VirtualController
     {
         sound = null;
 
-        if (!CanSound() || !_tags.HasTag(uid, FootstepSoundTag))
+        if (!CanSound() || !(_tags.HasTag(uid, FootstepSoundTag) || _tags.HasTag(uid, SiliconFootstepSoundTag))) //ADT-Tweak
             return false;
 
         var coordinates = xform.Coordinates;
@@ -543,7 +556,10 @@ public abstract partial class SharedMoverController : VirtualController
             return sound != null;
         }
 
-        return TryGetFootstepSound(uid, xform, shoes != null, out sound, tileDef: tileDef);
+        //ADT-Tweak-Start
+        bool haveShoes = shoes != null || _tags.HasTag(uid, SiliconFootstepSoundTag);
+        return TryGetFootstepSound(uid, xform, haveShoes, out sound, tileDef: tileDef);
+        //ADT-Tweak-End
     }
 
     private bool TryGetFootstepSound(
@@ -624,8 +640,7 @@ public abstract partial class SharedMoverController : VirtualController
         if (!TryComp<PhysicsComponent>(ent, out var physicsComponent) || !XformQuery.TryComp(ent, out var xform))
             return;
 
-        // TODO: Make IsWeightless event based!!!
-        if (physicsComponent.BodyStatus != BodyStatus.OnGround || _gravity.IsWeightless(ent, physicsComponent, xform))
+        if (physicsComponent.BodyStatus != BodyStatus.OnGround || _gravity.IsWeightless(ent.Owner))
             args.Modifier *= ent.Comp.BaseWeightlessFriction;
         else
             args.Modifier *= ent.Comp.BaseFriction;

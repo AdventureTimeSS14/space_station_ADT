@@ -39,8 +39,7 @@
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-  - type: Food
-    solution: food
+  - type: Edible
     delay: 7
     forceFeedDelay: 7
   - type: FlavorProfile
@@ -119,10 +118,12 @@
               max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-  - type: Food
+  - type: Edible
     solution: food
     delay: 7
     forceFeedDelay: 7
+    utensilRequired: true # ADT-Tweak. Чтобы при открытии бумаги не могли её скушать
+    showUtensilPopup: false # ADT-Tweak
   - type: FlavorProfile
     flavors:
     - paper
@@ -208,9 +209,6 @@
     - state: paper_stamp-generic
       map: ["enum.PaperVisualLayers.Stamp"]
       visible: false
-  - type: GuideHelp
-    guides:
-    - ArtifactReports
   - type: PaperVisuals
     headerImagePath: "/Textures/Interface/Paper/paper_heading_artifact_analyzer.svg.96dpi.png"
     headerMargin: 0.0, 0.0, 0.0, 16.0
@@ -520,6 +518,7 @@
         whitelist:
           tags:
             - Paper
+            - SpaceCash # ADT-Tweak
   - type: ActivatableUI
     key: enum.PaperUiKey.Key
     requiresComplex: false

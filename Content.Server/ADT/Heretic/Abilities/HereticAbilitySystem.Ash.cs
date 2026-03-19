@@ -1,18 +1,18 @@
-using Content.Shared.Atmos;
+using System.Linq;
+using System.Threading.Tasks;
+using Content.Server.Atmos.Components;
+using Content.Server.Body.Components;
+using Content.Shared.Atmos.Components;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
 using Content.Shared.Heretic;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Temperature.Components;
-using Content.Server.Atmos.Components;
-using Content.Server.Body.Components;
-using Content.Server.Temperature.Components;
-using Robust.Shared.Map.Components;
 using Robust.Server.GameObjects;
+using Robust.Shared.Map.Components;
 using Robust.Shared.Prototypes;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Content.Server.Heretic.Abilities;
 
@@ -83,35 +83,77 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         if (!TryUseAbility(ent, args))
             return;
 
+        if (TryComp<FlammableComponent>(ent, out var flamComp) && flamComp.OnFire)
+        {
+            _flammable.Extinguish(ent.Owner, flamComp);
+
+            if (TryComp<TemperatureComponent>(ent, out var tempComp))
+                _temperature.ForceChangeTemperature(ent.Owner, 293.15f, tempComp); // 20°C
+        }
+
         var power = ent.Comp.CurrentPath == "Ash" ? ent.Comp.PathStage : 4f;
         var lookup = _lookup.GetEntitiesInRange(ent, power);
 
         foreach (var look in lookup)
         {
-            if (TryComp<HereticComponent>(look, out var th) && th.CurrentPath == ent.Comp.CurrentPath
+            if (look == ent.Owner)
+                continue;
+
+            if ((TryComp<HereticComponent>(look, out var th) && th.CurrentPath == ent.Comp.CurrentPath)
             || HasComp<GhoulComponent>(look))
                 continue;
 
             if (TryComp<FlammableComponent>(look, out var flam))
             {
-                if (flam.OnFire && TryComp<DamageableComponent>(ent, out var dmgc))
+                bool targetDamageable = TryComp<DamageableComponent>(look, out var targetDmgc);
+
+                if (flam.OnFire && targetDamageable)
                 {
-                    // heals everything by base + power for each burning target
-                    _stam.TryTakeStamina(ent, -(10 + power));
-                    var dmgdict = dmgc.Damage.DamageDict;
-                    foreach (var key in dmgdict.Keys)
-                        dmgdict[key] -= 10f + power;
+                    _flammable.AdjustFireStacks(look, power, flam, ignite: true);
 
-                    var dmgspec = new DamageSpecifier() { DamageDict = dmgdict };
-                    _damageable.TryChangeDamage(ent, dmgspec, true, false, dmgc);
+                    var fireDamage = new DamageSpecifier();
+                    fireDamage.DamageDict["Heat"] = power * 2;
+                    _damageable.TryChangeDamage((look, targetDmgc), fireDamage, true, false, origin: ent.Owner);
+
+                    // Лечим еретика за каждую подожжённую цель
+                    bool hereticDamageable = TryComp<DamageableComponent>(ent.Owner, out var hereticDmgc);
+                    if (hereticDamageable)
+                    {
+                        _stam.TryTakeStamina(ent.Owner, -(10 + power));
+
+                        var totalHeal = 10f + power;
+                        var healSpec = new DamageSpecifier();
+                        var damageTypes = hereticDmgc!.Damage.DamageDict.Keys.ToList();
+                        if (damageTypes.Count > 0)
+                        {
+                            var healPerType = totalHeal / damageTypes.Count;
+                            foreach (var key in damageTypes)
+                            {
+                                healSpec.DamageDict[key] = -healPerType;
+                            }
+
+                            _damageable.TryChangeDamage((ent.Owner, hereticDmgc), healSpec, true, false, origin: ent.Owner);
+                        }
+                    }
+
+                    // Проверяем, не перешла ли цель в крит после получения урона, и добиваем её
+                    if (TryComp<MobStateComponent>(look, out var mobstat))
+                    {
+                        if (mobstat.CurrentState == MobState.Critical)
+                        {
+                            if (_mobThresholdSystem.TryGetThresholdForState(look, MobState.Dead, out var damage))
+                            {
+                                var damageNeeded = damage.Value - targetDmgc!.TotalDamage;
+                                if (damageNeeded > 0)
+                                {
+                                    DamageSpecifier dspec = new();
+                                    dspec.DamageDict["Heat"] = damageNeeded;
+                                    _damageable.ChangeDamage(look, dspec, true, origin: ent.Owner);
+                                }
+                            }
+                        }
+                    }
                 }
-
-                if (flam.OnFire)
-                    _flammable.AdjustFireStacks(look, power, flam, true);
-
-                if (TryComp<MobStateComponent>(look, out var mobstat))
-                    if (mobstat.CurrentState == MobState.Critical)
-                        _mobstate.ChangeMobState(look, MobState.Dead, mobstat);
             }
         }
 

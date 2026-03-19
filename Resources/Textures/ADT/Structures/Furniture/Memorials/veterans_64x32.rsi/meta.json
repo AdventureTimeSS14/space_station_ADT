@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "size": {
+    "x": 64,
+    "y": 32
+  },
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Imported from furniture_cut for ADT",
+  "states": [
+    {
+      "name": "full"
+    }
+  ]
+}

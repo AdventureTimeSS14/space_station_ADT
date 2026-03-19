@@ -30,6 +30,8 @@
   placement:
     mode: SnapgridCenter
   components:
+  - type: TimedDespawn
+    lifetime: 120
   - type: InteractionOutline
   - type: Sprite
     sprite: ADT/Heretic/reality_fracture.rsi

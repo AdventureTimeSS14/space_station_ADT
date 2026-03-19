@@ -21,9 +21,9 @@
       organs:
         heart: OrganHumanHeart
         lungs: ADTOrganResomiLungs
-        stomach: OrganAnimalStomach
-        liver:  OrganAnimalLiver
-        kidneys: OrganAnimalKidneys
+        stomach: ADTOrganResomiStomach
+        liver: ADTOrganResomiLiver
+        kidneys: ADTOrganResomiKidneys
     right arm:
       part: ADTRightArmResomi
       connections:

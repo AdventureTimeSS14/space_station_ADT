@@ -173,7 +173,7 @@ public sealed partial class MinesweeperWindow : FancyWindow
                 {
                     MinSize = new Vector2(32, 32),
                     MaxSize = new Vector2(32, 32),
-                    StyleClasses = { StyleBase.ButtonSquare },
+                    StyleClasses = { StyleNano.ButtonSquare },
                     Text = string.Empty,
                     Disabled = false,
                     Modulate = Color.White

@@ -8,12 +8,11 @@
     sprite: ADT/Mobs/Species/Shadekin/organs.rsi
     state: lung
   - type: Organ
-  - type: Lung
   - type: Metabolizer
     removeEmpty: true
     solutionOnBody: false
     solution: "Lung"
-    metabolizerTypes: [ Animal ]
+    metabolizerTypes: [ Shadekin ]
     groups:
     - id: Gas
       rateModifier: 20.0
@@ -31,7 +30,6 @@
     tags:
     - Meat
     - Organ
-    - Lungs
 
 - type: entity
   id: ADTOrganShadekinBrain
@@ -84,10 +82,11 @@
   - type: Stomach
   - type: Metabolizer
     maxReagents: 3
-    metabolizerTypes: [ Animal ]
+    metabolizerTypes: [ Shadekin ]
     groups:
     - id: Food
     - id: Drink
+    - id: Alcohol
   - type: Tag # goob edit
     tags:
     - Meat
@@ -106,7 +105,7 @@
   - type: Organ
   - type: Metabolizer
     maxReagents: 1
-    metabolizerTypes: [ Animal ]
+    metabolizerTypes: [ Shadekin ]
     groups:
     - id: Alcohol
       rateModifier: 0.1

@@ -162,6 +162,16 @@
 
 - type: entity
   parent: Airlock
+  id: AirlockXenoborg
+  name: xenoborg airlock
+  components:
+  - type: Sprite
+    sprite: Structures/Doors/Airlocks/Standard/xenoborg.rsi
+  - type: Paintable
+    group: null
+
+- type: entity
+  parent: Airlock
   id: AirlockHatchMaintenance
   name: maintenance hatch
   components:
@@ -169,6 +179,23 @@
     sprite: Structures/Doors/Airlocks/Standard/hatch_maint.rsi
   - type: Paintable
     group: null
+
+- type: entity
+  parent: Airlock
+  id: AirlockHatchSyndicate
+  name: airtight hatch
+  suffix: Syndicate
+  components:
+  - type: Sprite
+    sprite: Structures/Doors/Airlocks/Standard/hatch_syndicate.rsi
+  # ADT-Tweak start
+  - type: Airlock
+    openUnlitVisible: false # У текущего шлюза нет Unlit
+    openingSpriteState: opening
+    closingSpriteState: closing
+    openSpriteState: open
+    closedSpriteState: closed
+  # ADT-Tweak end
 
 # Glass
 - type: entity

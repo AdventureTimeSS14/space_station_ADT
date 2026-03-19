@@ -19,6 +19,7 @@ public sealed class SmartFridgeBoundUserInterface : BoundUserInterface
 
         _menu = this.CreateWindow<SmartFridgeMenu>();
         _menu.OnItemSelected += OnItemSelected;
+        _menu.OnDeleteEmpty += OnDeleteEmpty; // ADT-Tweak
         Refresh();
     }
 
@@ -38,6 +39,13 @@ public sealed class SmartFridgeBoundUserInterface : BoundUserInterface
 
         if (data is not SmartFridgeListData entry)
             return;
-        SendPredictedMessage(new SmartFridgeDispenseItemMessage(entry.Entry));
+        SendMessage(new SmartFridgeDispenseItemMessage(entry.Entry));
     }
+
+    // ADT-Tweak start: Delete
+    private void OnDeleteEmpty(SmartFridgeEntry entry)
+    {
+        SendMessage(new SmartFridgeDeleteEmptyMessage(entry));
+    }
+    // ADT-Tweak end
 }

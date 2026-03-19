@@ -1,0 +1,71 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Resprite of tgstation flags, original at https://github.com/tgstation/tgstation/commit/d0d81185f09ca30d3b0856d476544240dba0de53, resprited by discord:prazat911 for ADT",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "blank_flag"
+    },
+    {
+      "name": "NT_flag"
+    },
+    {
+      "name": "syndie_flag"
+    },
+    {
+      "name": "lgbtq_flag"
+    },
+    {
+      "name": "pirate_flag"
+    },
+    {
+      "name": "blank2_flag"
+    },
+    {
+      "name": "NT2_flag"
+    },
+    {
+      "name": "syndie2_flag"
+    },
+    {
+      "name": "pirate2_flag"
+    },
+    {
+      "name": "rastaman_flag"
+    },
+    {
+      "name": "roman_flag"
+    },
+    {
+      "name": "ussp_flag"
+    },
+    {
+      "name": "ussp2_flag"
+    },
+    {
+      "name": "ussp3_flag"
+    },
+    {
+      "name": "kmt_flag"
+    },
+    {
+      "name": "kmt2_flag"
+    },
+    {
+      "name": "tsf_flag"
+    },
+    {
+      "name": "tsf2_flag"
+    },
+    {
+      "name": "elysium_flag"
+    },
+    {
+      "name": "elysium2_flag"
+    }
+  ]
+}

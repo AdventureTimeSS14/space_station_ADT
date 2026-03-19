@@ -49,17 +49,22 @@
   - type: ContainerContainer
     containers:
       mech-assembly-container: !type:Container
-  - type: MechAssembly
-    finishedPrototype: ADTDurandChassis
-    requiredParts:
-      ADTDurandLArm: false
-      ADTDurandRArm: false
-      ADTDurandLLeg: false
-      ADTDurandRLeg: false
-      ADTDurandHead: false
+  - type: PartAssembly
+    parts:
+      ADTDurandChassis:
+      - ADTDurandLArm
+      - ADTDurandRArm
+      - ADTDurandLLeg
+      - ADTDurandRLeg
+      - ADTDurandHead
+    containerId: mech-assembly-container
   - type: Sprite
     state: durand_harness+o
     noRot: true
+  - type: Construction
+    graph: ADTDurand
+    node: start
+    defaultTarget: durand
 
 - type: entity
   parent: ADTBaseDurandPartItem
@@ -148,7 +153,3 @@
   - type: Sprite
     noRot: true
     state: durand0
-  - type: Construction
-    graph: ADTDurand
-    node: start
-    defaultTarget: durand
