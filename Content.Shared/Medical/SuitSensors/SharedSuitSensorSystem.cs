@@ -82,14 +82,8 @@ public abstract class SharedSuitSensorSystem : EntitySystem
         // Fallback
         //ADT-Tweak-Start
         if (ent.Comp.OnMob)
-        {
             ent.Comp.User = ent.Owner;
-            Dirty(ent);
-        }
-        else
-        {
-            ent.Comp.StationId ??= _stationSystem.GetOwningStation(ent.Owner);
-        }
+        ent.Comp.StationId ??= _stationSystem.GetOwningStation(ent.Owner);
         //ADT-Tweak-End
 
         // generate random mode
@@ -113,11 +107,24 @@ public abstract class SharedSuitSensorSystem : EntitySystem
     //ADT-Tweak-Start
     private void OnStartup(Entity<SuitSensorComponent> ent, ref ComponentStartup args)
     {
-        if (ent.Comp.OnMob && ent.Comp.User == null)
+        if (!ent.Comp.OnMob)
+            return;
+
+        var dirty = false;
+        if (ent.Comp.User == null)
         {
             ent.Comp.User = ent.Owner;
-            Dirty(ent);
+            dirty = true;
         }
+
+        if (ent.Comp.StationId == null)
+        {
+            ent.Comp.StationId = _stationSystem.GetOwningStation(ent.Owner);
+            dirty = true;
+        }
+
+        if (dirty)
+            Dirty(ent);
     }
     //ADT-Tweak-End
 

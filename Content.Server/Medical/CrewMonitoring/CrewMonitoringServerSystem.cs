@@ -83,7 +83,7 @@ public sealed class CrewMonitoringServerSystem : EntitySystem
         foreach (var (address, sensor) in component.SensorStatus)
         {
             var dif = _gameTiming.CurTime - sensor.Timestamp;
-            if (dif.Seconds > component.SensorTimeout)
+            if (dif.TotalSeconds > component.SensorTimeout)
                 toRemove.Add(address);
         }
 

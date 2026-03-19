@@ -201,6 +201,8 @@ public sealed partial class MidroundCustomizationSystem : EntitySystem
         }
 
         _humanoid.RemoveMarking(uid, args.Category, args.Slot);
+        if (args.Category == MarkingCategories.FacialHair)
+            UpdatePointLightColorIfEnabled(uid, component);
 
         _audio.PlayPvs(component.ChangeMarkingSound, uid);
         UpdateInterface(uid, component);
@@ -260,6 +262,8 @@ public sealed partial class MidroundCustomizationSystem : EntitySystem
 
         _humanoid.AddMarking(uid, markingId, colors.Count > 0 ? colors[0] : Color.White);
         _humanoid.SetMarkingColor(uid, args.Category, newSlotIndex, colors, force: false);
+        if (args.Category == MarkingCategories.FacialHair)
+            UpdatePointLightColorIfEnabled(uid, component);
 
         UpdateInterface(uid, component);
     }
@@ -498,6 +502,9 @@ public sealed partial class MidroundCustomizationSystem : EntitySystem
 
     private void OnPointLightColorToggle(EntityUid uid, MidroundCustomizationComponent component, MidroundCustomizationPointLightColorToggleMessage args)
     {
+        if (!component.PointLightColor)
+            return;
+
         if (component.PointLightColorEnabled == args.Enabled)
             return;
 
@@ -533,7 +540,10 @@ public sealed partial class MidroundCustomizationSystem : EntitySystem
         if (!TryComp<HumanoidAppearanceComponent>(uid, out var humanoid) ||
             !humanoid.MarkingSet.TryGetCategory(MarkingCategories.FacialHair, out var markings) ||
             markings.Count == 0 || markings[0].MarkingColors.Count == 0)
+        {
+            _pointLight.SetColor(uid, component.OriginalPointLightColor);
             return;
+        }
 
         var facialColor = markings[0].MarkingColors[0];
         _pointLight.SetColor(uid, facialColor);
