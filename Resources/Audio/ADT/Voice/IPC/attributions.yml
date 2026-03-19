@@ -60,20 +60,20 @@
   source: "https://freesound.org/people/Kash15/sounds/409785/"
 
 - files:
-  - ["i_male_cry_1.ogg"]
-  - ["i_male_cry_2.ogg"]
+  - i_male_cry_1.ogg
+  - i_male_cry_2.ogg
   license: "CC-BY-4.0"
   copyright: "Taken from https://freesound.org/. Convert from WAV to OGG, is divided into several parts, modified by orange6775 (discord)"
   source: "https://freesound.org/people/jacobmathiassen/sounds/254869/"
 
 - files:
-  - ["i_male_cry_3.ogg"]
+  - i_male_cry_3.ogg
   license: "CC0-1.0"
   copyright: "Taken from https://freesound.org/, modified by orange6775 (discord)"
   source: "https://freesound.org/people/scottemoil/sounds/263776/"
 
 - files:
-  - ["i_male_cry_4.ogg"]
+  - i_male_cry_4.ogg
   license: "CC-BY-4.0"
   copyright: "Taken from https://freesound.org/. Converted from FLAC to OGG, some part of the sound is taken, modified by orange6775 (discord)"
   source: "https://freesound.org/people/qubodup/sounds/200428/"
