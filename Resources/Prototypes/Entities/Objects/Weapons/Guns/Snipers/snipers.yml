@@ -46,6 +46,7 @@
   components:
   - type: Sprite
     sprite: ADT/ADTGlobalEvents/WorldWar1/Objects/Weapons/Guns/Rifles/mosin.rsi  #ADT_Tweak
+  - type: GunRequiresWield
 #ADT_Tweak START
   - type: AttachableHolder
     slots:

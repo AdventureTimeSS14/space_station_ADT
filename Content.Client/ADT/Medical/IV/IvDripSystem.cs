@@ -23,7 +23,7 @@ public sealed class IvDripSystem : SharedIvDripSystem
         if (!TryComp(iv, out SpriteComponent? sprite))
             return;
 
-        var hookedState = iv.Comp.AttachedTo == default
+        var hookedState = iv.Comp.AttachedTo is null
             ? iv.Comp.UnattachedState
             : iv.Comp.AttachedState;
         sprite.LayerSetState(IVDripVisualLayers.Base, hookedState);
@@ -56,6 +56,7 @@ public sealed class IvDripSystem : SharedIvDripSystem
             return;
 
         // TODO CM14 blood types
-        sprite.LayerSetVisible(BloodPackVisuals.Label, false);
+        if (sprite.LayerMapTryGet(BloodPackVisuals.Label, out var labelLayer))
+            sprite.LayerSetVisible(labelLayer, false); // у наших пакетов нет состояние Laber
     }
 }

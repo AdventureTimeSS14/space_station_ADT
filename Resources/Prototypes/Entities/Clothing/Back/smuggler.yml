@@ -55,7 +55,7 @@
     state: icon
   # ADT-Tweak start
   - type: Item
-    size: Small
+    size: Normal
     shape:
     - 0,0,2,3
   - type: Storage

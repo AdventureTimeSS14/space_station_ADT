@@ -154,6 +154,7 @@
     drawdepth: SmallObjects
     state: soda
     noRot: true
+    snapCardinals: false
   - type: Transform
     anchored: true
     noRot: false
@@ -220,6 +221,7 @@
     drawdepth: SmallObjects
     state: booze
     noRot: true
+    snapCardinals: false
   - type: Transform
     anchored: true
     noRot: false
