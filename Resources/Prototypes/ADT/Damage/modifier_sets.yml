@@ -85,12 +85,12 @@
     Cellular: 1
 
 - type: damageModifierSet
-  id: Drask # большие и хп больше + лечение, но медленнее и слабость к жаре
+  id: Drask # большие и хп больше + лечение и имунитет к холоду, но медленнее и слабость к жаре
   coefficients:
     Blunt: 1.05
     Piercing: 0.85
     Slash: 0.9
-    Cold: 0.5
+    Cold: 0
     Heat: 1.5
     Asphyxiation: 2.0
 

@@ -1,3 +1,5 @@
+using System.Linq;
+using Content.Shared.ADT.Silicon;
 using Content.Shared.Body.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.Components;
@@ -7,6 +9,7 @@ using Content.Shared.DragDrop;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
 using Content.Shared.Verbs;
+using Content.Shared.Ghost;
 using Robust.Shared.Containers;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
@@ -29,6 +32,7 @@ public abstract class SharedIvDripSystem : EntitySystem
     public override void Initialize()
     {
         SubscribeLocalEvent<IVDripComponent, EntInsertedIntoContainerMessage>(OnIVDripEntInserted);
+        SubscribeLocalEvent<IVDripComponent, GetVerbsEvent<AlternativeVerb>>(AddSetTransferAmountIVDripVerbs);
         SubscribeLocalEvent<IVDripComponent, EntRemovedFromContainerMessage>(OnIVDripEntRemoved);
         SubscribeLocalEvent<IVDripComponent, AfterAutoHandleStateEvent>(OnIVDripAfterHandleState);
         SubscribeLocalEvent<IVDripComponent, EntityUnpausedEvent>(OnIVDripUnPaused);
@@ -44,6 +48,61 @@ public abstract class SharedIvDripSystem : EntitySystem
 
         SubscribeLocalEvent<BloodPackComponent, MapInitEvent>(OnBloodPackMapInitEvent);
         SubscribeLocalEvent<BloodPackComponent, SolutionChangedEvent>(OnBloodPackSolutionChanged);
+    }
+
+    private void AddSetTransferAmountIVDripVerbs(Entity<IVDripComponent> ent, ref GetVerbsEvent<AlternativeVerb> args)
+    {
+        if (!args.CanAccess || !args.CanInteract || args.Hands == null)
+            return;
+
+        if (ent.Comp.TransferAmounts.Count <= 1)
+            return;
+
+        var user = args.User;
+
+        var min = ent.Comp.TransferAmounts.Min();
+        var max = ent.Comp.TransferAmounts.Max();
+        var cur = ent.Comp.CurrentTransferAmount;
+        var toggleAmount = cur == max ? min : max;
+
+        var priority = 0;
+        AlternativeVerb toggleVerb = new()
+        {
+            Text = Loc.GetString("comp-solution-transfer-verb-toggle", ("amount", toggleAmount)),
+            Category = VerbCategory.SetTransferAmount,
+            Act = () =>
+            {
+                ent.Comp.CurrentTransferAmount = toggleAmount;
+                _popup.PopupClient(Loc.GetString("comp-solution-transfer-set-amount", ("amount", toggleAmount)), user, user);
+                Dirty(ent);
+            },
+
+            Priority = priority
+        };
+        args.Verbs.Add(toggleVerb);
+
+        priority -= 1;
+
+        foreach (var amount in ent.Comp.TransferAmounts)
+        {
+            AlternativeVerb verb = new()
+            {
+                Text = Loc.GetString("comp-solution-transfer-verb-amount", ("amount", amount)),
+                Category = VerbCategory.SetTransferAmount,
+                Act = () =>
+                {
+                    ent.Comp.CurrentTransferAmount = amount;
+                    _popup.PopupClient(Loc.GetString("comp-solution-transfer-set-amount", ("amount", amount)), user, user);
+                    Dirty(ent);
+                },
+
+                Priority = priority
+            };
+
+            priority -= 1;
+
+            args.Verbs.Add(verb);
+        }
     }
 
     private void OnIVDripEntInserted(Entity<IVDripComponent> iv, ref EntInsertedIntoContainerMessage args)
@@ -97,7 +156,7 @@ public abstract class SharedIvDripSystem : EntitySystem
         if (args.Handled)
             return;
 
-        if (iv.Comp.AttachedTo == default)
+        if (iv.Comp.AttachedTo is null)
             Attach(iv, args.User, args.Target);
         else
             Detach(iv, false, true);
@@ -110,6 +169,9 @@ public abstract class SharedIvDripSystem : EntitySystem
 
     private void OnIVVerbs(Entity<IVDripComponent> iv, ref GetVerbsEvent<InteractionVerb> args)
     {
+        if (HasComp<GhostComponent>(args.User))
+            return;
+
         var user = args.User;
         args.Verbs.Add(new InteractionVerb
         {
@@ -143,6 +205,9 @@ public abstract class SharedIvDripSystem : EntitySystem
 
     protected void Attach(Entity<IVDripComponent> iv, EntityUid user, EntityUid to)
     {
+        if (HasComp<MobIpcComponent>(to))
+            return;
+
         if (!InRange(iv, to))
             return;
 
@@ -160,11 +225,10 @@ public abstract class SharedIvDripSystem : EntitySystem
 
     protected void Detach(Entity<IVDripComponent> iv, bool rip, bool predict)
     {
-        if (iv.Comp.AttachedTo == default)
+        if (iv.Comp.AttachedTo is not { } target)
             return;
 
-        var target = iv.Comp.AttachedTo;
-        iv.Comp.AttachedTo = default;
+        iv.Comp.AttachedTo = null;
         Dirty(iv);
 
         if (!_timing.IsFirstTimePredicted)
@@ -180,8 +244,7 @@ public abstract class SharedIvDripSystem : EntitySystem
             {
                 _popup.PopupClient(message, target, target);
 
-                var others = Filter.PvsExcept(target);
-                _popup.PopupEntity(message, target, others, true);
+                _popup.PopupEntity(message, target);
             }
             else
             {
@@ -196,8 +259,7 @@ public abstract class SharedIvDripSystem : EntitySystem
             else
                 _popup.PopupEntity(selfMessage, target);
 
-            var others = Filter.PvsExcept(target);
-            _popup.PopupEntity(Loc.GetString("cm-iv-detach-others", ("target", others)), target, others, true);
+            _popup.PopupEntity(Loc.GetString("cm-iv-detach-others", ("target", target)), target);
         }
     }
 

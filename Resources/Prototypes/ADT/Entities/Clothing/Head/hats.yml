@@ -477,8 +477,9 @@
   - type: StaticPrice
     price: 120
   - type: Edible
-    edible: Drink # slurping sounds!
+    edible: Drink
     destroyOnEmpty: false
+    solution: drink
   - type: SolutionContainerManager
     solutions:
       drink:

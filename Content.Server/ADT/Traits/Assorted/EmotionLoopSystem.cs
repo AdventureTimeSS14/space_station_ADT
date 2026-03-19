@@ -20,7 +20,8 @@ public sealed class EmotionLoopSystem : EntitySystem
 
     private void SetupTimer(Entity<EmotionLoopComponent> entity, ref ComponentStartup args)
     {
-        entity.Comp.NextIncidentTime = _random.Next(entity.Comp.MinTimeBetweenEmotions, entity.Comp.MaxTimeBetweenEmotions);
+        var delaySeconds = _random.Next((int)entity.Comp.MinTimeBetweenEmotions.TotalSeconds, (int)entity.Comp.MaxTimeBetweenEmotions.TotalSeconds);
+        entity.Comp.NextIncidentTime = _timing.CurTime + TimeSpan.FromSeconds(delaySeconds);
     }
 
     public override void Update(float frameTime)
@@ -36,7 +37,7 @@ public sealed class EmotionLoopSystem : EntitySystem
             if (_timing.CurTime < emotionLoop.NextIncidentTime)
                 continue;
 
-            emotionLoop.NextIncidentTime += _random.Next(emotionLoop.MinTimeBetweenEmotions, emotionLoop.MaxTimeBetweenEmotions);
+            emotionLoop.NextIncidentTime = _timing.CurTime + TimeSpan.FromSeconds(_random.Next((int)emotionLoop.MinTimeBetweenEmotions.TotalSeconds, (int)emotionLoop.MaxTimeBetweenEmotions.TotalSeconds));
 
             // Play the emotion by random index.
             _chat.TryEmoteWithChat(uid, emotionLoop.Emotes[_random.Next(0, emotionLoop.Emotes.Count)], ignoreActionBlocker: false);

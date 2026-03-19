@@ -13,3 +13,18 @@
   - type: HereticAction
     messageLoc: heretic-speech-flesh-surgery
 
+- type: entity
+  id: ActionHereticGhoulCall
+  components:
+  - type: Action
+    useDelay: 60
+    itemIconStyle: NoItem
+    icon:
+      sprite: ADT/Heretic/abilities_heretic.rsi
+      state: ghoul_voiceles
+  - type: InstantAction
+    event: !type:EventHereticGhoulCall
+  - type: HereticAction
+    messageLoc: heretic-speech-ghoul-call
+    requireMagicItem: false
+

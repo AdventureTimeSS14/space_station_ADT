@@ -209,6 +209,13 @@
   - RawRitual
 
 - type: hereticKnowledge
+  id: CallOfFlesh
+  path: Flesh
+  stage: 6
+  actionPrototypes:
+  - ActionHereticGhoulCall
+
+- type: hereticKnowledge
   id: BleedingSteel
   path: Flesh
   stage: 7
@@ -311,9 +318,41 @@
 - type: hereticKnowledge
   id: ArmorerRitual
   sideKnowledge: true
-  stage: 3
+  stage: 20 # заглушка
   ritualPrototypes:
   - ArmorerRitual
+
+- type: hereticKnowledge
+  id: ArmorerRitualBlade
+  path: Blade
+  sideKnowledge: true
+  stage: 3
+  ritualPrototypes:
+  - ArmorerRitualBlade
+
+- type: hereticKnowledge
+  id: ArmorerRitualFlesh
+  path: Flesh
+  sideKnowledge: true
+  stage: 3
+  ritualPrototypes:
+  - ArmorerRitualFlesh
+
+- type: hereticKnowledge
+  id: ArmorerRitualVoid
+  path: Void
+  sideKnowledge: true
+  stage: 3
+  ritualPrototypes:
+  - ArmorerRitualVoid
+
+- type: hereticKnowledge
+  id: ArmorerRitualAsh
+  path: Ash
+  sideKnowledge: true
+  stage: 3
+  ritualPrototypes:
+  - ArmorerRitualAsh
 
 - type: hereticKnowledge
   id: PriestRitual
