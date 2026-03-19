@@ -2370,6 +2370,10 @@
     useSound:
       path: /Audio/Voice/Reptilian/reptilian_scream.ogg
     solution: drink
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 0
   - type: MeleeWeapon
     wideAnimationRotation: 180
     soundHit:

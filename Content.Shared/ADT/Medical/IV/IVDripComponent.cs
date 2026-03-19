@@ -16,7 +16,7 @@ public sealed partial class IVDripComponent : Component
     public FixedPoint2 CurrentTransferAmount = FixedPoint2.New(5);
 
     [DataField, AutoNetworkedField]
-    public EntityUid AttachedTo;
+    public EntityUid AttachedTo = EntityUid.Invalid;
 
     [DataField, AutoNetworkedField, ViewVariables(VVAccess.ReadWrite)]
     public string Slot = "pack";
