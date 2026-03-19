@@ -18,11 +18,11 @@
       - !type:HealthChange
         damage:
           groups:
-            Burn: -3
-            Toxin: -3
-            Airloss: -3
-            Brute: -3
-            Genetic: -3
+            Burn: -1
+            Toxin: -1
+            Airloss: -1
+            Brute: -1
+            Genetic: -1
         conditions:
         - !type:HasComponentCondition
           components:
@@ -30,7 +30,7 @@
             - Ghoul
           guidebookComponentName: reagent-comp-condition-heretic-or-ghoul
       - !type:ModifyBleed
-        amount: -5
+        amount: -1.5
         conditions:
         - !type:HasComponentCondition
           components:
@@ -38,7 +38,7 @@
             - Ghoul
           guidebookComponentName: reagent-comp-condition-heretic-or-ghoul
       - !type:CleanBloodstream
-        cleanseRate: 3
+        cleanseRate: 1
         conditions:
         - !type:HasComponentCondition
           components:
@@ -47,7 +47,7 @@
           guidebookComponentName: reagent-comp-condition-heretic-or-ghoul
       - !type:GenericStatusEffect
         key: SeeingRainbows
-        time: 50.0
+        time: 15.0
         type: Remove
         conditions:
         - !type:HasComponentCondition

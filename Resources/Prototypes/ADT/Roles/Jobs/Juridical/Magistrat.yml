@@ -15,6 +15,12 @@
       time: 108000 # 30 hrs
     - !type:AgeRequirement
       requiredAge: 30
+    # ADT-Tweak start
+    - !type:TraitsRequirement
+      inverted: true
+      traits:
+      - Muted
+    # ADT-Tweak end
     - !type:SpeciesRequirement
       inverted: true
       species:

@@ -329,11 +329,6 @@ entities:
     - type: Transform
       pos: -0.5,2.5
       parent: 1
-    - type: UserInterface
-      actors:
-        enum.StorageUiKey.Key:
-        - invalid
-    - type: ActiveUserInterface
   - uid: 50
     components:
     - type: Transform

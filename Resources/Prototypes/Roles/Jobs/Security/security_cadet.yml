@@ -10,6 +10,12 @@
       department: Security
       time: 20h # Corvax-RoleTime 5
       inverted: true # stop playing intern if you're good at security!
+    # ADT-Tweak start
+    - !type:TraitsRequirement
+      inverted: true
+      traits:
+      - Muted
+    # ADT-Tweak end
 # ADT Restrict Start
     - !type:SpeciesRequirement
       inverted: true
