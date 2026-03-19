@@ -14,14 +14,11 @@
           temperature: 293.15
           canReact: true
           maxVol: 50.0
-          name: null
-          reagents: []
         food:
           temperature: 293.15
           canReact: true
           maxVol: 0
           name: food
-          reagents: []
     - type: Metabolizer
       maxReagents: 7
       metabolizerTypes: [ Novakid ]

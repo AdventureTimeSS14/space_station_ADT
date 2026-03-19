@@ -245,13 +245,13 @@ public sealed class NukeOpsTest
                 {
                     Assert.Warn($"SuffocationCycles ({resp.SuffocationCycles}) exceeded threshold ({resp.SuffocationCycleThreshold}) at tick {tick}. This may be a timing issue.");
                 }
-                //ADT-tweak-end
             }
-            // ADT-tweak: Allow minor damage due to timing issues, only fail on significant damage
+            // Allow minor damage due to timing issues, only fail on significant damage
             if (damage.TotalDamage > FixedPoint2.New(5))
             {
                 Assert.Warn($"Nukie commander has non-zero damage ({damage.TotalDamage}) at tick {tick}. This may be acceptable for integration tests.");
             }
+            //ADT-tweak-end
         }
 
         // Check that the round does not end prematurely when agents are deleted in the outpost

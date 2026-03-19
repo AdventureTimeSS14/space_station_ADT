@@ -17,7 +17,6 @@ using Content.Shared.Parallax.Biomes;
 using Content.Shared.Parallax.Biomes.Layers;
 using Content.Shared.Parallax.Biomes.Markers;
 using Content.Shared.Tag;
-using Content.Shared.ADT.CCVar;
 using Microsoft.Extensions.ObjectPool;
 using Robust.Server.Player;
 using Robust.Shared;
