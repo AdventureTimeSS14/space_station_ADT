@@ -119,6 +119,13 @@ public abstract class SharedRoleSystem : EntitySystem
                 $"Job Role of {ToPrettyString(mind.OwnedEntity)} changed from '{jobRole.Value.Comp1.JobPrototype}' to '{jobPrototype}'");
 
             jobRole.Value.Comp1.JobPrototype = jobPrototype;
+            // ADT-Tweak start: Also update MindRoleComponent for playtime tracking
+            if (TryComp<MindRoleComponent>(jobRole.Value.Owner, out var mindRole))
+            {
+                mindRole.JobPrototype = jobPrototype;
+                Dirty(jobRole.Value.Owner, mindRole);
+            }
+            // ADT-Tweak end
         }
         else
             MindAddRoleDo(mindId, "MindRoleJob", mind, silent, jobPrototype);
@@ -184,7 +191,7 @@ public abstract class SharedRoleSystem : EntitySystem
         {
             //TODO: This is not tied to the player on the Admin Log filters.
             //Probably only happens when Job Role is added on initial spawn, before the mind entity is put in a mob
-            Log.Error($"{ToPrettyString(mindId)} does not have an OwnedEntity!");
+            Log.Debug($"{ToPrettyString(mindId)} does not have an OwnedEntity!"); // ADT-Tweak
             _adminLogger.Add(LogType.Mind,
                 LogImpact.Low,
                 $"{name} added to {ToPrettyString(mindId)}");
