@@ -137,7 +137,8 @@ namespace Content.Server.GameTicking
                         await _discord.CreateMessage(identifier, payload);
                     }
                     // ADT-Tweak-end
-                    RaiseNetworkEvent(GetConnectionStatusMsg(), session.Channel);
+                    if (session.Channel.IsConnected) // ADT-Tweak
+                        RaiseNetworkEvent(GetConnectionStatusMsg(), session.Channel);
 
                     if (firstConnection && _cfg.GetCVar(CCVars.AdminNewPlayerJoinSound))
                         _audio.PlayGlobal(new SoundPathSpecifier("/Audio/Effects/newplayerping.ogg"),
@@ -272,7 +273,8 @@ namespace Content.Server.GameTicking
                 }
             }
 
-            RaiseNetworkEvent(new TickerJoinGameEvent(), session.Channel);
+            if (session.Channel.IsConnected) // ADT-Tweak
+                RaiseNetworkEvent(new TickerJoinGameEvent(), session.Channel);
         }
 
         private void PlayerJoinLobby(ICommonSession session)
@@ -281,9 +283,14 @@ namespace Content.Server.GameTicking
             _db.AddRoundPlayers(RoundId, session.UserId);
 
             var client = session.Channel;
-            RaiseNetworkEvent(new TickerJoinLobbyEvent(), client);
-            RaiseNetworkEvent(GetStatusMsg(session), client);
-            RaiseNetworkEvent(GetInfoMsg(), client);
+            // ADT-Tweak start
+            if (client.IsConnected)
+            {
+            // ADT-Tweak end
+                RaiseNetworkEvent(new TickerJoinLobbyEvent(), client);
+                RaiseNetworkEvent(GetStatusMsg(session), client);
+                RaiseNetworkEvent(GetInfoMsg(), client);
+            } // ADT-Tweak
             RaiseLocalEvent(new PlayerJoinedLobbyEvent(session));
         }
 
