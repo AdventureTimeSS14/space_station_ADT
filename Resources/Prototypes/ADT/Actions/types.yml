@@ -80,8 +80,8 @@
 - type: entity
   parent: BaseAction
   id: ActionZombieJump
-  name: ent-ActionZombieJump
-  description: ent-ActionZombieJump-desc
+  name: zombie jump
+  description:  A powerful leap forward. On collision with a living entity, it will be knocked down!
   components:
   - type: Action
     useDelay: 10
