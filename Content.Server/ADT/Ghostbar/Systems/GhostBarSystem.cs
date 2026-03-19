@@ -20,6 +20,8 @@ using Robust.Shared.EntitySerialization;
 using Robust.Shared.Map.Components;
 using System.Linq;
 using Robust.Shared.Utility;
+using Robust.Shared.Configuration;
+using Content.Shared.ADT.CCVar;
 
 namespace Content.Server.ADT.Ghostbar;
 
@@ -34,6 +36,7 @@ public sealed class GhostBarSystem : EntitySystem
     [Dependency] private readonly MindSystem _mindSystem = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly StealthSystem _stealth = default!;
+    [Dependency] private readonly IConfigurationManager _cfg = default!;
     public GhostBarMapPrototype? GhostBarMap;   // Существует для того, чтобы посетители гост бара спавнились соответственно его настройкам. Если значение равно null во время раунда - что-то сломано
 
 
@@ -47,6 +50,10 @@ public sealed class GhostBarSystem : EntitySystem
 
     private void OnRoundStart(RoundStartingEvent ev)
     {
+        // Check if ghostbar is enabled
+        if (!_cfg.GetCVar(ADTCCVars.GhostbarEnabled))
+            return;
+
         // _mapSystem.CreateMap(out var mapId);
         var opts = new DeserializationOptions
         {

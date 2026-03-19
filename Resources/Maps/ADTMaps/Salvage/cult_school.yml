@@ -884,7 +884,7 @@ entities:
       pos: 15.5,2.5
       parent: 1
     - type: ItemToggleActiveSound
-      playingStream: invalid
+      playingStream: null
     - type: PointLight
       enabled: True
     - type: ItemToggle
