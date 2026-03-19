@@ -4,7 +4,6 @@
   name: iv
   description: Allows you to inject blood into a patient or extract blood from them to do a blood transfusion.
   suffix: IV, empty
-  save: false # убираем из теста
   components:
   - type: Physics
     bodyType: Dynamic

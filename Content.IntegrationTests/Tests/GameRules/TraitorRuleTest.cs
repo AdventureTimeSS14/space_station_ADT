@@ -104,7 +104,7 @@ public sealed class TraitorRuleTest
             ticker.ToggleReadyAll(true);
             Assert.That(ticker.PlayerGameStatuses.Values.All(x => x == PlayerGameStatus.ReadyToPlay));
 
-            // Start the round - preset is disabled so only our rule will run
+            // Start the round
             ticker.StartRound();
             // Force traitor mode to start (skip the delay)
             ticker.StartGameRule(gameRuleEnt);

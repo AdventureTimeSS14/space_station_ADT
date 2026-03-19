@@ -272,7 +272,7 @@ public sealed class NukeOpsTest
                 "All nukies were deleted, but the round didn't end!");
         });
 
-        // ADT-tweak: Clean up game rules to prevent leftover components affecting other tests
+        // ADT-tweak start: Clean up game rules to prevent leftover components affecting other tests
         await server.WaitAssertion(() =>
         {
             var rules = entMan.AllComponents<GameRuleComponent>().ToArray();
@@ -281,6 +281,7 @@ public sealed class NukeOpsTest
                 entMan.DeleteEntity(rule.Uid);
             }
         });
+        // ADT-Tweak end
 
         ticker.SetGamePreset((GamePresetPrototype?) null);
         await pair.CleanReturnAsync();

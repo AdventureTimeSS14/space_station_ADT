@@ -20,10 +20,8 @@ public sealed class StationPlanetSpawnerSystem : EntitySystem
 
     private void OnMapInit(Entity<StationPlanetSpawnerComponent> ent, ref MapInitEvent args)
     {
-        // ADT-tweak start: Check if planet spawner is enabled
         if (!_cfg.GetCVar(ADTCCVars.PlanetSpawnerEnabled))
             return;
-        // ADT-tweak end
 
         if (ent.Comp.GridPath is not {} path)
             return;
