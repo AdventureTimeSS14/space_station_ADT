@@ -945,7 +945,7 @@
   description: uplink-syndicate-cd-disk-advanced-desc
   productEntity: ADTCdDiskSyndicateAd
   cost:
-    Telecrystal: 1
+    Telecrystal: 0
   categories:
   - UplinkJob
   conditions:
