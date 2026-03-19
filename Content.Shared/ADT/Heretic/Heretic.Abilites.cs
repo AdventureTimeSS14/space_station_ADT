@@ -43,15 +43,6 @@ public sealed partial class HereticActionComponent : Component
         Target = target;
     }
 }
-[Serializable, NetSerializable] public sealed partial class EventHereticFleshSurgeryDoAfter : SimpleDoAfterEvent
-{
-    [NonSerialized] public EntityUid? Target;
-
-    public EventHereticFleshSurgeryDoAfter(EntityUid target)
-    {
-        Target = target;
-    }
-}
 
 #endregion
 
@@ -92,6 +83,7 @@ public sealed partial class EventHereticCascade : InstantActionEvent { }
 
 // flesh
 public sealed partial class EventHereticFleshSurgery : EntityTargetActionEvent { }
+public sealed partial class EventHereticGhoulCall : InstantActionEvent { }
 
 // void (+ upgrades)
 [Serializable, NetSerializable, DataDefinition] public sealed partial class HereticAristocratWayEvent : EntityEventArgs { }

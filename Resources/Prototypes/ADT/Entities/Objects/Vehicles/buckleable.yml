@@ -53,6 +53,7 @@
   - type: Pullable
   - type: Physics
     bodyType: KinematicController
+    bodyStatus: OnGround
   - type: Clickable
   - type: Fixtures
     fixtures:

@@ -7,11 +7,13 @@ using Content.Server.Humanoid;
 using Content.Server.Mind.Commands;
 using Content.Server.Roles;
 using Content.Server.Temperature.Components;
+using Content.Shared.Temperature.Components;
 using Content.Shared.Administration.Systems;
 using Content.Shared.Body.Systems;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Examine;
+using Content.Shared.FixedPoint;
 using Content.Shared.Ghost.Roles.Components;
 using Content.Shared.Heretic;
 using Content.Shared.Humanoid;
@@ -22,12 +24,19 @@ using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.NPC.Systems;
+using Content.Shared.NPC.Components;
 using Content.Shared.Nutrition.AnimalHusbandry;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Roles;
 using Content.Shared.Roles.Components;
-using Content.Shared.Temperature.Components;
+using Content.Shared.Storage;
+using Content.Shared.Tag;
+using Content.Shared.Whitelist;
 using Robust.Shared.Audio;
+using Robust.Shared.Prototypes;
+using System.Linq;
+using Content.Shared.Popups;
+using Robust.Shared.Log;
 
 namespace Content.Server.Heretic.EntitySystems;
 
@@ -43,9 +52,24 @@ public sealed partial class GhoulSystem : EntitySystem
     [Dependency] private readonly MobThresholdSystem _threshold = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly SharedBodySystem _body = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
+
+    private readonly Dictionary<EntityUid, GhoulStoredComponents> _storedComponents = new();
 
     public void GhoulifyEntity(Entity<GhoulComponent> ent)
     {
+        // Защита от повторного вызова
+        if (_storedComponents.ContainsKey(ent))
+        {
+            Log.Warning($"[GhoulSystem] GhoulifyEntity вызван повторно для {ToPrettyString(ent)}! Пропускаем.");
+            return;
+        }
+
+        // Сохраняем компоненты
+        var stored = SaveComponents(ent);
+        _storedComponents[ent] = stored;
+
+        // Удаляем компоненты
         RemComp<RespiratorComponent>(ent);
         RemComp<BarotraumaComponent>(ent);
         RemComp<HungerComponent>(ent);
@@ -53,6 +77,12 @@ public sealed partial class GhoulSystem : EntitySystem
         RemComp<ReproductiveComponent>(ent);
         RemComp<ReproductivePartnerComponent>(ent);
         RemComp<TemperatureComponent>(ent);
+
+        // Сохраняем оригинальные фракции перед заменой
+        if (TryComp<NpcFactionMemberComponent>(ent, out var factionComp))
+        {
+            ent.Comp.OriginalFactions = factionComp.Factions.Select(f => f.Id).ToList();
+        }
 
         var hasMind = _mind.TryGetMind(ent, out var mindId, out var mind);
         if (hasMind && ent.Comp.BoundHeretic != null)
@@ -155,6 +185,33 @@ public sealed partial class GhoulSystem : EntitySystem
     private void OnMobStateChange(Entity<GhoulComponent> ent, ref MobStateChangedEvent args)
     {
         if (args.NewMobState == MobState.Dead)
-            _body.GibBody(ent);
+            RevertFromGhoul(ent);
+    }
+
+    public void RevertFromGhoul(Entity<GhoulComponent> ent)
+    {
+        var originalFactions = new List<string>(ent.Comp.OriginalFactions);
+
+        // Восстанавливаем сохранённые компоненты
+        if (_storedComponents.TryGetValue(ent, out var stored))
+        {
+            RestoreComponents(ent, stored);
+            _storedComponents.Remove(ent);
+        }
+
+        RemComp<GhoulComponent>(ent);
+
+        if (_mind.TryGetMind(ent, out var mindId, out _))
+        {
+            RemComp<GhoulRoleComponent>(mindId);
+        }
+
+        _faction.ClearFactions((ent, null));
+        foreach (var faction in originalFactions)
+        {
+            _faction.AddFaction((ent, null), faction);
+        }
+
+        _popup.PopupEntity(Loc.GetString("ghoul-death-revert"), ent, PopupType.LargeCaution);
     }
 }
