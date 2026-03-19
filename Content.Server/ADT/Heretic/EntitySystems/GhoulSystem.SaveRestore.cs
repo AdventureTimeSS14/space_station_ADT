@@ -84,8 +84,8 @@ public sealed partial class GhoulSystem
                 LastThreshold = hunger.LastThreshold,
                 CurrentThreshold = hunger.CurrentThreshold,
                 Thresholds = new Dictionary<HungerThreshold, float>(hunger.Thresholds),
-                HungerThresholdAlerts = hunger.HungerThresholdAlerts != null 
-                    ? new Dictionary<HungerThreshold, ProtoId<AlertPrototype>>(hunger.HungerThresholdAlerts) 
+                HungerThresholdAlerts = hunger.HungerThresholdAlerts != null
+                    ? new Dictionary<HungerThreshold, ProtoId<AlertPrototype>>(hunger.HungerThresholdAlerts)
                     : new Dictionary<HungerThreshold, ProtoId<AlertPrototype>>(),
                 HungerAlertCategory = hunger.HungerAlertCategory,
                 HungerThresholdDecayModifiers = hunger.HungerThresholdDecayModifiers != null
@@ -214,7 +214,6 @@ public sealed partial class GhoulSystem
             respirator.SuffocationCycles = stored.Respirator.SuffocationCycles;
             respirator.SuffocationCycleThreshold = stored.Respirator.SuffocationCycleThreshold;
             respirator.Status = stored.Respirator.Status;
-            Dirty(ent, respirator);
         }
 
         // Восстанавливаем Barotrauma
@@ -233,7 +232,6 @@ public sealed partial class GhoulSystem
             baro.HighPressureAlert = stored.Barotrauma.HighPressureAlert;
             baro.LowPressureAlert = stored.Barotrauma.LowPressureAlert;
             baro.PressureAlertCategory = stored.Barotrauma.PressureAlertCategory;
-            Dirty(ent, baro);
         }
 
         // Восстанавливаем Hunger
@@ -298,7 +296,6 @@ public sealed partial class GhoulSystem
                 repro.PartnerWhitelist.Tags = stored.Reproductive.PartnerWhitelist.Tags;
                 repro.PartnerWhitelist.RequireAll = stored.Reproductive.PartnerWhitelist.RequireAll;
             }
-            Dirty(ent, repro);
         }
 
         // Восстанавливаем ReproductivePartner
@@ -322,7 +319,6 @@ public sealed partial class GhoulSystem
             temp.TakingDamage = stored.Temperature.TakingDamage;
             temp.HotAlert = stored.Temperature.HotAlert;
             temp.ColdAlert = stored.Temperature.ColdAlert;
-            Dirty(ent, temp);
         }
 
         // Восстанавливаем цвет кожи и глаз
