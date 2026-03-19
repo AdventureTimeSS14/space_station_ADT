@@ -7,6 +7,12 @@
     - !type:DepartmentTimeRequirement
       department: Security
       time: 108000 #30 hrs
+    # ADT-Tweak start
+    - !type:TraitsRequirement
+      inverted: true
+      traits:
+      - Muted
+    # ADT-Tweak end
     - !type:SpeciesRequirement
       inverted: true
       species:

@@ -789,7 +789,7 @@
     pocket1: Ointment
     pocket2: Brutepack
   inhand:
-  - Bloodpack
+  - ADTBloodPackTransfusionFull # ADT-Tweak: Blood IV
   - Gauze
 
 - type: startingGear
@@ -806,7 +806,7 @@
     pocket1: Ointment
     pocket2: Brutepack
   inhand:
-  - Bloodpack
+  - ADTBloodPackTransfusionFull # ADT-Tweak: Blood IV
   - Gauze
 
 - type: startingGear
