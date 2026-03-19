@@ -29,6 +29,7 @@
     itemSlot: cell_slot
   - type: PickupHumans
   - type: MobIpc
+    disablePointLightOnDeath: true
   - type: InteractionPopup
     interactSuccessString: petting-success-ipc
     interactSuccessSound:
