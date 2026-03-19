@@ -734,7 +734,7 @@
   id: ADTUplinkThermalVision
   name: uplink-thermal-name
   description: uplink-thermal-desc
-  productEntity: ClothingEyesGlassesThermal
+  productEntity: ADTClothingEyesGlassesThermalChameleon
   cost:
     Telecrystal: 2
   categories:

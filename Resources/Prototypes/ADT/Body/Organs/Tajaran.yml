@@ -7,6 +7,9 @@
     solutions:
       stomach:
         maxVol: 50
+      food:
+        maxVol: 0
+        name: food
   - type: Metabolizer
     maxReagents: 3
     metabolizerTypes: [ Tajaran ]

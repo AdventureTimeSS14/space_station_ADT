@@ -957,7 +957,6 @@ entities:
     - type: RadiationGridResistance
     - type: IFF
       flags: HideLabel
-    - type: ShuttleDeed
 - proto: AirAlarm
   entities:
   - uid: 2
@@ -3928,8 +3927,6 @@ entities:
       pos: -3.5,0.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
     - type: Door
       secondsUntilStateChange: -6668.8003
       state: Closing
@@ -3942,8 +3939,6 @@ entities:
       pos: -3.5,-0.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
     - type: Door
       secondsUntilStateChange: -6667.818
       state: Closing
@@ -3956,8 +3951,6 @@ entities:
       pos: -3.5,-7.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
   - uid: 549
     components:
     - type: Transform
@@ -3965,8 +3958,6 @@ entities:
       pos: -3.5,-8.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
   - uid: 550
     components:
     - type: Transform
@@ -4889,8 +4880,6 @@ entities:
       pos: 0.5,-0.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
     - type: AtmosPipeColor
       color: '#0055CCFF'
   - uid: 663
@@ -4914,8 +4903,6 @@ entities:
       pos: -4.5,14.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
     - type: AtmosPipeColor
       color: '#990000FF'
   - uid: 665
@@ -4925,8 +4912,6 @@ entities:
       pos: 2.5,8.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 2
     - type: AtmosPipeColor
@@ -4938,8 +4923,6 @@ entities:
       pos: 0.5,-4.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
     - type: AtmosPipeColor
       color: '#990000FF'
   - uid: 667
@@ -4948,8 +4931,6 @@ entities:
       pos: -7.5,16.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
     - type: AtmosPipeColor
       color: '#990000FF'
   - uid: 668
@@ -4960,8 +4941,6 @@ entities:
       pos: -7.5,6.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
     - type: AtmosPipeColor
       color: '#990000FF'
     - type: Physics
@@ -4974,8 +4953,6 @@ entities:
       pos: -7.5,-5.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
     - type: AtmosPipeColor
       color: '#990000FF'
 - proto: GasVolumePump
