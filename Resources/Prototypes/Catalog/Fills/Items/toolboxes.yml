@@ -22,7 +22,7 @@
         prob: 0.15
       - id: HarmonicaInstrument
         prob: 0.15
-  - type: Tag
+  - type: Tag # ADT-Tweak
     tags:
     - Toolbox
 
@@ -46,7 +46,7 @@
         orGroup: GlovesOrWires
       - id: CableHVStack10
         orGroup: GlovesOrWires
-  - type: Tag
+  - type: Tag # ADT-Tweak
     tags:
     - Toolbox
 
@@ -70,7 +70,7 @@
         orGroup: GlovesOrWires
       - id: CableHVStack10
         orGroup: GlovesOrWires
-  - type: Tag
+  - type: Tag # ADT-Tweak
     tags:
     - Toolbox
 
@@ -94,7 +94,7 @@
       amount: 2
     - id: CrayonMime
     - id: CrayonRainbow
-  - type: Tag
+  - type: Tag # ADT-Tweak
     tags:
     - Toolbox
 
@@ -116,7 +116,7 @@
         prob: 0.7
       - id: ClothingHeadHatHardhatBlue
         prob: 0.5
-  - type: Tag
+  - type: Tag # ADT-Tweak
     tags:
     - Toolbox
 
@@ -134,7 +134,7 @@
     - id: Wirecutter
     - id: Welder
     - id: Multitool
-  - type: Tag
+  - type: Tag # ADT-Tweak
     tags:
     - Toolbox
 
@@ -155,7 +155,7 @@
     - id: ClothingMaskGasSyndicate
   - type: StaticPrice
     price: 1000
-  - type: Tag
+  - type: Tag # ADT-Tweak
     tags:
     - Toolbox
 
@@ -170,6 +170,6 @@
       - id: IngotGold
       - id: DrinkGoldenCup
         prob: 0.05
-  - type: Tag
+  - type: Tag # ADT-Tweak
     tags:
     - Toolbox
