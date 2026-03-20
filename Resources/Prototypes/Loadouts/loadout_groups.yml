@@ -439,17 +439,17 @@
   - LibrarianJumpskirt
   - CuratorJumpsuit
   - CuratorJumpskirt
+  # ADT tweak start
+  - ADTClothingUniformJumpsuitTurtleneckRed
+  - ADTClothingUniformJumpskirtTurtleneckRed
+  # ADT tweak end
+
 - type: loadoutGroup
   id: LibrarianJobTrinkets
   name: loadout-group-jobtrinkets
   minLimit: 0
   loadouts:
   - LizardPlushieLibrarian
-
-  # ADT tweak start
-  - ADTClothingUniformJumpsuitTurtleneckRed
-  - ADTClothingUniformJumpskirtTurtleneckRed
-  # ADT tweak end
 # ADT-Loadouts-Start
 - type: loadoutGroup
   id: LibrarianBackpack
