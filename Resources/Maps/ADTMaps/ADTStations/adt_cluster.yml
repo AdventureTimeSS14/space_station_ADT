@@ -4849,7 +4849,7 @@ entities:
     - type: RadiationGridResistance
     - type: NavMap
     - type: BecomesStation
-      id: ADT_Cluster_Legacy
+      id: ADT_Cluster
     - type: SupermatterSpreaderGrid
     - type: ImplicitRoof
   - uid: 5
