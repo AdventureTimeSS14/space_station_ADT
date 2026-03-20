@@ -24,6 +24,9 @@ public sealed partial class SpawnRandomEntityEntityEffectSystem : EntityEffectSy
         if (!args.Effect.Predicted && !_net.IsServer)
             return;
 
+        if (args.Effect.Prototypes == null || args.Effect.Prototypes.Count == 0)
+            return;
+
         for (var i = 0; i < quantity; i++)
         {
             var protoId = _random.Pick(args.Effect.Prototypes);
@@ -42,7 +45,7 @@ public sealed partial class SpawnRandomEntityEntityEffectSystem : EntityEffectSy
 /// <summary>
 /// Effect that spawns a random entity from a list of prototypes.
 /// </summary>
-[Serializable, NetSerializable]
+[DataDefinition]
 public sealed partial class SpawnRandomEntity : EntityEffectBase<SpawnRandomEntity>
 {
     /// <summary>
@@ -67,6 +70,6 @@ public sealed partial class SpawnRandomEntity : EntityEffectBase<SpawnRandomEnti
     public override string EntityEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
         => Loc.GetString("entity-effect-guidebook-spawn-entity",
             ("chance", Probability),
-            ("entname", "random crystal"),
+            ("entname", Loc.GetString("entity-effect-random-item")),
             ("amount", Number));
 }

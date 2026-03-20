@@ -117,7 +117,7 @@ public sealed partial class ComboFallEffect : IComboEffect
 
         var adminLogger = IoCManager.Resolve<ISharedAdminLogManager>();
         adminLogger.Add(LogType.MeleeHit, LogImpact.Low,
-            $"{entMan.ToPrettyString(user):actor} performed combo fall effect on {entMan.ToPrettyString(target):subject} (dropItems: {DropItems})");
+            $"{entMan.ToPrettyString(user):actor} attempted combo fall effect on {entMan.ToPrettyString(target):subject} (dropItems: {DropItems})");
     }
 }
 
@@ -175,7 +175,7 @@ public sealed partial class ComboStunEffect : IComboEffect
 
         var adminLogger = IoCManager.Resolve<ISharedAdminLogManager>();
         adminLogger.Add(LogType.MeleeHit, LogImpact.Medium,
-            $"{entMan.ToPrettyString(user):actor} performed combo stun effect on {entMan.ToPrettyString(target):subject} (stunTime: {StunTime}s, fall: {Fall}, dropItems: {DropItems})");
+            $"{entMan.ToPrettyString(user):actor} attempted combo stun effect on {entMan.ToPrettyString(target):subject} (stunTime: {StunTime}s, fall: {Fall}, dropItems: {DropItems})");
     }
 }
 
@@ -210,7 +210,7 @@ public sealed partial class ComboDropFromHandsEffect : IComboEffect
 
         var adminLogger = IoCManager.Resolve<ISharedAdminLogManager>();
         adminLogger.Add(LogType.Action, LogImpact.Low,
-            $"{entMan.ToPrettyString(user):actor} performed combo drop from hands effect on {entMan.ToPrettyString(target):subject}");
+            $"{entMan.ToPrettyString(user):actor} attempted combo drop from hands effect on {entMan.ToPrettyString(target):subject}");
     }
 }
 
@@ -422,11 +422,11 @@ public sealed partial class ComboEffectToDowned : IComboEffect
             {
                 comboEvent.DoEffect(user, target, entMan);
             }
-        }
 
-        var adminLogger = IoCManager.Resolve<ISharedAdminLogManager>();
-        adminLogger.Add(LogType.Action, LogImpact.Low,
-            $"{entMan.ToPrettyString(user):actor} performed combo effect to downed on {entMan.ToPrettyString(target):subject} ({ComboEvents.Count} events)");
+            var adminLogger = IoCManager.Resolve<ISharedAdminLogManager>();
+            adminLogger.Add(LogType.Action, LogImpact.Low,
+                $"{entMan.ToPrettyString(user):actor} performed combo effect to downed on {entMan.ToPrettyString(target):subject} ({ComboEvents.Count} events)");
+        }
     }
 }
 [Serializable]
@@ -508,11 +508,11 @@ public sealed partial class ComboEffectTeleportOnVictim : IComboEffect
         if (entMan.HasComponent<MobStateComponent>(target))
         {
             transform.SetCoordinates(user, transform.GetMoverCoordinates(target));
-        }
 
-        var adminLogger = IoCManager.Resolve<ISharedAdminLogManager>();
-        adminLogger.Add(LogType.Action, LogImpact.Medium,
-            $"{entMan.ToPrettyString(user):actor} performed combo teleport on victim effect to {entMan.ToPrettyString(target):subject}");
+            var adminLogger = IoCManager.Resolve<ISharedAdminLogManager>();
+            adminLogger.Add(LogType.Action, LogImpact.Medium,
+                $"{entMan.ToPrettyString(user):actor} performed combo teleport on victim effect to {entMan.ToPrettyString(target):subject}");
+        }
     }
 }
 
@@ -528,11 +528,11 @@ public sealed partial class ComboEffectSwapPostion : IComboEffect
         if (entMan.HasComponent<MobStateComponent>(target))
         {
             transform.SwapPositions(user, target);
-        }
 
-        var adminLogger = IoCManager.Resolve<ISharedAdminLogManager>();
-        adminLogger.Add(LogType.Action, LogImpact.Medium,
-            $"{entMan.ToPrettyString(user):actor} performed combo swap position effect with {entMan.ToPrettyString(target):subject}");
+            var adminLogger = IoCManager.Resolve<ISharedAdminLogManager>();
+            adminLogger.Add(LogType.Action, LogImpact.Medium,
+                $"{entMan.ToPrettyString(user):actor} performed combo swap position effect with {entMan.ToPrettyString(target):subject}");
+        }
     }
 }
 
@@ -553,7 +553,7 @@ public sealed partial class ComboEffectSleep: IComboEffect
 
         var adminLogger = IoCManager.Resolve<ISharedAdminLogManager>();
         adminLogger.Add(LogType.MeleeHit, LogImpact.Medium,
-            $"{entMan.ToPrettyString(user):actor} performed combo sleep effect on {entMan.ToPrettyString(target):subject} (time: {Time}s)");
+            $"{entMan.ToPrettyString(user):actor} attempted combo sleep effect on {entMan.ToPrettyString(target):subject} (time: {Time}s)");
     }
 }
 
