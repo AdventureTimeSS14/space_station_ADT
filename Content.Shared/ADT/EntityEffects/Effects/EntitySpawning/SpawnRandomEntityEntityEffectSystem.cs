@@ -5,7 +5,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared.ADT.EntityEffects.Effects.EntitySpawning;
+namespace Content.Shared.EntityEffects.Effects.EntitySpawning;
 
 /// <summary>
 /// Spawns a random entity from a list of prototypes at the coordinates of this entity.
