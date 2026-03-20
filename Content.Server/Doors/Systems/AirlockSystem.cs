@@ -64,8 +64,8 @@ public sealed class AirlockSystem : SharedAirlockSystem
                 docking.Docked &&
                 door.State == DoorState.Closed)
             {
-                DoorSystem.TryOpen(uid, door);
-                if (TryComp<DoorBoltComponent>(uid, out var doorBolt))
+                if (DoorSystem.TryOpen(uid, door) &&
+                    TryComp<DoorBoltComponent>(uid, out var doorBolt))
                 {
                     DoorSystem.SetBoltsDown((uid, doorBolt), true);
                 }
