@@ -181,3 +181,6 @@
     - id: Mooltitool
     - id: Cowelder
     - id: Milkalyzer
+  - type: Tag
+    tags:
+    - Toolbox
