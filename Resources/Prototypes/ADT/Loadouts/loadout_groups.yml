@@ -130,6 +130,7 @@
   - LaceupShoes
   - LizardSkinShoes
   # ADT tweak start
+  - BootsLaceup
   - ADTFootWrapsW
   - ADTFootWrapsHighW
   - ADTFootWrapsBr
@@ -203,6 +204,7 @@
   maxLimit: 1
   loadouts:
   - BlueShoes
+  - BootsLaceup
   - MedicalWinterBoots
 
 - type: loadoutGroup
@@ -904,6 +906,7 @@
   loadouts:
   - SalvageBoots
   - CargoWinterBoots
+  - BootsLaceup
   - ADTFootWrapsW
   - ADTFootWrapsHighW
   - ADTFootWrapsBr
@@ -922,12 +925,103 @@
   - JackBoots
   - SecurityWinterBoots
   - ADTDetectiveBootsOld
+  - BootsLaceup
   - ADTFootWrapsW
   - ADTFootWrapsHighW
   - ADTFootWrapsBr
   - ADTFootWrapsHighBr
   - ADTFootWrapsBl
   - ADTFootWrapsHighBl
+
+- type: loadoutGroup
+  id: ADTHoPShoes
+  name: loadout-HoP-shoes
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - BrownShoes
+  - BootsLaceup
+
+- type: loadoutGroup
+  id: ADTBarberShoes
+  name: loadout-barber-shoes-adt
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - BlackShoes
+  - BootsLaceup
+
+- type: loadoutGroup
+  id: ADTPsychologistShoes
+  name: loadout-group-psychologist-shoes-adt
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ADTBootsLeather
+  - BootsLaceup
+
+- type: loadoutGroup
+  id: ADTReporterShoes
+  name: loadout-group-reporter-shoes-adt
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - WhiteShoes
+  - BootsLaceup
+
+- type: loadoutGroup
+  id: ADTBartenderShoes
+  name: loadout-group-bartender-shoes-adt
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - BlackShoes
+  - BootsLaceup
+
+- type: loadoutGroup
+  id: ADTBotanistShoes
+  name: loadout-group-botanist-shoes-adt
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - BrownShoes
+  - BootsLaceup
+
+- type: loadoutGroup
+  id: ADTChaplainShoes
+  name: loadout-group-chaplain-shoes-adt
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - BlackShoes
+  - BootsLaceup
+
+- type: loadoutGroup
+  id: ADTChefShoes
+  name: loadout-group-chef-shoes-adt
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - BlackShoes
+  - BootsLaceup
+
+- type: loadoutGroup
+  id: ADTMimeShoes
+  name: loadout-group-mime-shoes-adt
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - WhiteShoes
+  - BootsLaceup
+
+- type: loadoutGroup
+  id: ADTServiceWorkerShoes
+  name: loadout-group-service-worker-shoes-adt
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - BlackShoes
+  - BootsLaceup
 
 ## Парикмахер
 
