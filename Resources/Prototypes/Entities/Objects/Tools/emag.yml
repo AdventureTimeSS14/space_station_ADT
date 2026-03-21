@@ -6,6 +6,7 @@
   description: The all-in-one hacking solution. Friend of any syndicate. The iconic EMAG.
   components:
   - type: Emag
+    emagType: All # ADT-Tweak - ревёртаю нахуй емаг.
   - type: Sprite
     sprite: Objects/Tools/emag.rsi
     state: icon
