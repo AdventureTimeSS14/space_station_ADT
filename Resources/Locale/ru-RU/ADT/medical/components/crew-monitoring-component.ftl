@@ -1,4 +1,3 @@
-#Ui
 crew-monitoring-ui-title = Консоль мониторинга экипажа
 
 crew-monitoring-ui-filter-line-placeholder = Фильтр
@@ -13,5 +12,4 @@ crew-monitoring-ui-flavor-left-label = В случае чрезвычайной 
 
 crew-monitoring-ui-flavor-right-label = v1.7
 
-#Misc
 crew-monitoring-component-upgrade-emag = Карточка замыкает что-то внутри устройства.
