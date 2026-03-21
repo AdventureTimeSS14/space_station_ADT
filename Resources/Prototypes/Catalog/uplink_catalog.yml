@@ -955,19 +955,19 @@
   - UplinkDeception
 
 # Disruption
-
-- type: listing
-  id: UplinkAccessBreaker
-  name: uplink-access-breaker-name
-  description: uplink-access-breaker-desc
-  productEntity: AccessBreaker
-  discountCategory: rareDiscounts
-  discountDownTo:
-    Telecrystal: 2
-  cost:
-    Telecrystal: 4
-  categories:
-  - UplinkDisruption
+# ADT-Tweak: Вместо взламывателя доступов - криптографический модулятор
+# - type: listing
+#   id: UplinkAccessBreaker
+#   name: uplink-access-breaker-name
+#   description: uplink-access-breaker-desc
+#   productEntity: AccessBreaker
+#   discountCategory: rareDiscounts
+#   discountDownTo:
+#     Telecrystal: 2
+#   cost:
+#     Telecrystal: 4
+#   categories:
+#   - UplinkDisruption
 
 - type: listing
   id: UplinkEmag
@@ -976,9 +976,9 @@
   productEntity: Emag
   discountCategory: veryRareDiscounts
   discountDownTo:
-    Telecrystal: 2 # ADT-Tweak
+    Telecrystal: 5 # ADT-Tweak
   cost:
-    Telecrystal: 3 # ADT-Tweak
+    Telecrystal: 7 # ADT-Tweak
   categories:
   - UplinkDisruption
 
