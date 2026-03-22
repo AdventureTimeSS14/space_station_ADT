@@ -42,7 +42,47 @@
             },
             "problemMatcher": "$msCompile"
         },
-        //# ADT-UPD-End
+        {
+            "label": "build (Release)",
+            "command": "dotnet",
+            "type": "shell",
+            "args": [
+                "build",
+                "--configuration",
+                "Release",
+                "/property:GenerateFullPaths=true", // Ask dotnet build to generate full paths for file names.
+                "/consoleloggerparameters:NoSummary" // Do not generate summary otherwise it leads to duplicate errors in Problems panel
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "presentation": {
+                "reveal": "silent"
+            },
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "build (DebugOpt)",
+            "command": "dotnet",
+            "type": "shell",
+            "args": [
+                "build",
+                "--configuration",
+                "DebugOpt",
+                "/property:GenerateFullPaths=true", // Ask dotnet build to generate full paths for file names.
+                "/consoleloggerparameters:NoSummary" // Do not generate summary otherwise it leads to duplicate errors in Problems panel
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "presentation": {
+                "reveal": "silent"
+            },
+            "problemMatcher": "$msCompile"
+        },
+        //# ADT-UPD-End 03032026-ToolsBuilder
         {
             "label": "build-yaml-linter",
             "command": "dotnet",
