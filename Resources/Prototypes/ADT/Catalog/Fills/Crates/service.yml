@@ -34,7 +34,7 @@
   - type: EntityTableContainerFill
     containers:
       entity_storage: !type:NestedSelector
-        tableId: RandomCDDisk
+        tableId: ADTRandomCDDisk
         rolls: 6
 
 - type: entity
@@ -46,11 +46,11 @@
   - type: EntityTableContainerFill
     containers:
       entity_storage: !type:NestedSelector
-        tableId: RandomVinylSleeve
+        tableId: ADTRandomVinylSleeve
         rolls: 12
 
 - type: entityTable
-  id: RandomCDDisk
+  id: ADTRandomCDDisk
   table: !type:GroupSelector
     children:
     - id: ADTCdDiskDudesInUniform
@@ -142,7 +142,7 @@
       weight: 0.2
 
 - type: entityTable
-  id: RandomVinylSleeve
+  id: ADTRandomVinylSleeve
   table: !type:GroupSelector
     children:
     - id: ADTVinylSleeveAI

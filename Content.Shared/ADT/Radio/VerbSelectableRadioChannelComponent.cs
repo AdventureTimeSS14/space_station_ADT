@@ -1,25 +1,26 @@
 using System.Collections.Generic;
+using Content.Shared.Radio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.List;
 
-namespace Content.Shared.Radio.Components;
+namespace Content.Shared.ADT.Radio.Components;
 
 /// <summary>
-/// Универсальный компонент для выбора радио-канала через verbs.
-/// Добавляется к сущностям, у которых есть RadioMicrophoneComponent и/или RadioSpeakerComponent.
+/// Universal component for selecting radio channels via verbs.
+/// Added to entities that have RadioMicrophoneComponent and/or RadioSpeakerComponent.
 /// </summary>
 [RegisterComponent, NetworkedComponent]
 public sealed partial class VerbSelectableRadioChannelComponent : Component
 {
     /// <summary>
-    /// Список разрешённых каналов. Если пустой — разрешены все RadioChannelPrototype.
+    /// List of allowed radio channels that can be selected. If empty, all channels are allowed.
     /// </summary>
     [DataField("allowedChannels", customTypeSerializer: typeof(PrototypeIdListSerializer<RadioChannelPrototype>))]
     public List<string> AllowedChannelIds = new();
 
     /// <summary>
-    /// Текущий выбранный канал.
+    /// Currently selected channel.
     /// </summary>
     [DataField]
     public string SelectedChannelId = "Common";

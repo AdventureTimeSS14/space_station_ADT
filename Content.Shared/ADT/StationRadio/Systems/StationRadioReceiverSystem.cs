@@ -15,6 +15,7 @@ using Robust.Shared.Timing;
 using Content.Shared.Radio.Components;
 using Robust.Shared.Serialization;
 using Robust.Shared.GameStates;
+using Content.Shared.ADT.Radio.Components;
 
 namespace Content.Shared.ADT.StationRadio.Systems;
 
@@ -316,25 +317,5 @@ public sealed class StationRadioReceiverSystem : EntitySystem
             };
             args.Verbs.Add(verb);
         }
-    }
-}
-
-[Serializable, NetSerializable]
-public sealed class StationRadioReceiverComponentState : ComponentState
-{
-    public bool Active { get; }
-    public string? SelectedChannelId { get; }
-    public SoundPathSpecifier? CurrentMedia { get; }
-    public TimeSpan? StartTime { get; }
-    public Guid? CurrentTrackId { get; }
-
-    public StationRadioReceiverComponentState(bool active, string? selectedChannelId,
-        SoundPathSpecifier? currentMedia, TimeSpan? startTime, Guid? currentTrackId)
-    {
-        Active = active;
-        SelectedChannelId = selectedChannelId;
-        CurrentMedia = currentMedia;
-        StartTime = startTime;
-        CurrentTrackId = currentTrackId;
     }
 }

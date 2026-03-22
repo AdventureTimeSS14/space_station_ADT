@@ -36,7 +36,7 @@
 
 ### ДИДЖЕЙ ЗДЕСЬ И ВОТ ОБНОВА ДЛЯ РАДИО!!!
 - type: cargoProduct
-  id: RadioAdsCrateCargo
+  id: ADTRadioAdsCrateCargo
   icon:
     sprite: Objects/Misc/cd.rsi
     state: icon
@@ -46,7 +46,7 @@
   group: market
 
 - type: cargoProduct
-  id: RadioVinylCrateCargo
+  id: ADTRadioVinylCrateCargo
   icon:
     sprite: ADT/Objects/Misc/RadioStation/vinyls.rsi
     state: red-vinyl-disk

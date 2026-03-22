@@ -72,7 +72,7 @@ public sealed partial class IdCardConsoleComponent : Component
         "Security",
         "Service",
         "Theatre",
-        "Journalism",  //ADT-tweak: репортёр тоже заслуживает свой доступ.
+        "ADTJournalism",  //ADT-tweak: репортёр тоже заслуживает свой доступ.
         "ADTExtended", //ADT-tweak: расширенный доступ
     };
 

@@ -280,7 +280,7 @@
   components:
   - type: ContainerFill
     containers:
-      board: [ DoorElectronicsJournalism ]
+      board: [ ADRDoorElectronicsJournalism ]
 
 - type: entity
   parent: ADTJournalistAirlockGlass
@@ -289,4 +289,4 @@
   components:
   - type: ContainerFill
     containers:
-      board: [ DoorElectronicsJournalism ]
+      board: [ ADTDoorElectronicsJournalism ]
