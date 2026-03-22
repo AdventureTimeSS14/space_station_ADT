@@ -153,8 +153,19 @@
     Ethanol:
       amount: 5
   effects:
-    - !type:SpawnEntity
-      entity: ShardCrystalRandom
+  # ADT-Tweak start
+    - !type:SpawnRandomEntity
+      prototypes:
+        - ShardCrystalGreen
+        - ShardCrystalPink
+        - ShardCrystalYellow
+        - ShardCrystalBlack
+        - ShardCrystalOrange
+        - ShardCrystalBlue
+        - ShardCrystalCyan
+        - ShardCrystalRed
+      predicted: false
+    # ADT-Tweak end
 
 - type: reaction
   id: Gunpowder
