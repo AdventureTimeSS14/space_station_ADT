@@ -20,7 +20,7 @@
 - type: startingGear
   id: ChaplainGear
   equipment:
-    shoes: ClothingShoesColorBlack
+    #shoes: ClothingShoesColorBlack ADT-Tweak
     # id: ChaplainPDA ADT: different PDAs in loadouts
     ears: ClothingHeadsetService
   storage:

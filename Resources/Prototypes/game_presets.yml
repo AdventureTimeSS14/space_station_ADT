@@ -128,7 +128,7 @@
     - secret
     - sekrit
   name: secret-title
-  showInVote: true
+  showInVote: false # ADT-Tweak
   description: secret-description
   rules:
     - Secret

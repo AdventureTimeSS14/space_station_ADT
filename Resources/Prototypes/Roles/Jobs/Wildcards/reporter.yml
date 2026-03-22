@@ -14,7 +14,7 @@
 - type: startingGear
   id: ReporterGear
   equipment:
-    shoes: ClothingShoesColorWhite
+    #shoes: ClothingShoesColorWhite ADT-Tweak
     #id: ReporterPDA # ADT: different PDAs in loadouts
     ears: ClothingHeadsetService
   # ADT start

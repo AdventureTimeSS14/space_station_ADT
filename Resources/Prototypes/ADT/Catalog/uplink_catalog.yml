@@ -985,3 +985,16 @@
       blacklist:
         tags:
           - NukeOpsUplink
+
+- type: listing
+  id: UplinkEhack
+  name: uplink-ehack-name
+  description: uplink-ehack-desc
+  productEntity: ADTEhack
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 2 # ADT-Tweak
+  cost:
+    Telecrystal: 3 # ADT-Tweak
+  categories:
+  - UplinkDisruption
