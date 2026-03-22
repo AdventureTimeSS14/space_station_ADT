@@ -103,7 +103,7 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
 
             if (allowedDepartmentNames.Count > 0)
             {
-                allSensors = allSensors.Where(s => s.JobDepartments != null &&
+                allSensors = allSensors.Where(s => !s.JobDepartments.Any() ||
                     s.JobDepartments.Any(dept => allowedDepartmentNames.Contains(dept))).ToList();
             }
         }
