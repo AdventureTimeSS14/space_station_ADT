@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: HTMLSystem
-  changes:
-  - message: Added infectious anom sprites for moths and arachnids.
-    type: Add
-  id: 9074
-  time: '2025-10-11T18:01:49.0000000+00:00'
-  url: https://github.com/space-wizards/space-station-14/pull/39508
 - author: ScarKy0
   changes:
   - message: Mice, cockroaches and other small mobs can no longer unwrap parcels.
@@ -4029,3 +4022,10 @@
   id: 9585
   time: '2026-03-21T17:02:28.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/43307
+- author: SlartiBartFast, Verin
+  changes:
+  - message: Welders no longer perform an extra pass after a repair has completed.
+    type: Fix
+  id: 9586
+  time: '2026-03-22T22:57:42.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/43321
