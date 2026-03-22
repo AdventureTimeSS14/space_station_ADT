@@ -116,7 +116,6 @@
       - id: ParadoxCloneSpawn
       - id: SleeperAgents
       - id: LoneOpsSpawn
-      - id: MorphSpawn
       - id: VoxRaidersEvent
       - !type:NestedSelector
         tableId: DerelictBorgEventTable
