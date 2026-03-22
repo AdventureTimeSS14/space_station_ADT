@@ -81,6 +81,17 @@
     state: head
 
 - type: marking
+  id: FaceDraskBase
+  bodyPart: Snout
+  markingCategory: Snout
+  followSkinColor: true
+  forcedColoring: true
+  speciesRestriction: [DraskSpecies]
+  sprites:
+  - sprite: ADT/Mobs/Species/Drask/parts.rsi
+    state: Face
+
+- type: marking
   id: FaceDrask
   bodyPart: Snout
   markingCategory: Snout
