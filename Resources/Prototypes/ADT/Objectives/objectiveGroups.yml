@@ -79,3 +79,44 @@
     HereticKnowledgeObjective: 1
     HereticSacrificeObjective: 1
     HereticSacrificeHeadObjective: 1
+
+# TraitorLight - облегчённые цели без полноценных убийств
+- type: weightedRandom
+  id: TraitorLightObjectiveGroups
+  weights:
+    TraitorLightObjectiveGroupSteal: 1
+    TraitorLightObjectiveGroupTeachLesson: 1
+    TraitorLightObjectiveGroupState: 1
+    TraitorLightObjectiveGroupSocial: 1
+
+- type: weightedRandom
+  id: TraitorLightObjectiveGroupSteal
+  weights:
+    CaptainIDStealObjective: 1
+    CMOHyposprayStealObjective: 1
+    CMOCrewMonitorStealObjective: 1
+    RDHardsuitStealObjective: 1
+    MagbootsStealObjective: 1
+    CorgiMeatStealObjective: 1
+    ClipboardStealObjective: 1
+    KnuckleDustersStealObjective: 1
+    CaptainGunStealObjective: 0.5
+    CaptainJetpackStealObjective: 0.5
+    HandTeleporterStealObjective: 0.5
+    ADTMobileDefibrillatorStealObjective: 1
+
+- type: weightedRandom
+  id: TraitorLightObjectiveGroupTeachLesson
+  weights:
+    TeachLessonRandomPersonObjective: 1
+
+- type: weightedRandom
+  id: TraitorLightObjectiveGroupState
+  weights:
+    EscapeShuttleObjective: 0.6
+    DieObjective: 0.05
+
+- type: weightedRandom
+  id: TraitorLightObjectiveGroupSocial
+  weights:
+    RandomTraitorProgressObjective: 1
