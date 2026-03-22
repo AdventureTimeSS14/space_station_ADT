@@ -14,3 +14,6 @@ brother-briefing =
 role-subtype-brother = Кровный Брат
 role-subtype-brother-lead = Кровный Старший Брат
 admin-verb-make-brother = Сделать кровным братом
+
+traitorlight-title = Лайт-предатели
+traitorlight-description = Облегчённый режим предателей. Цели только на преподать урок и кражу вещей. Mid-Game антогонисты ослаблены. Среди нас есть предатели...
