@@ -9,6 +9,7 @@
   access:
   - Service
   - Maintenance
+  - ADTJournalism # ADT-Tweak
 
 - type: startingGear
   id: ReporterGear
