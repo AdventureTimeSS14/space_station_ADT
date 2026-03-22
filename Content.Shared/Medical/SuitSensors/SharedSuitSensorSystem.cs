@@ -401,6 +401,19 @@ public abstract class SharedSuitSensorSystem : EntitySystem
         var sensor = ent.Comp1;
         var transform = ent.Comp2;
 
+        //ADT-Tweak-Start
+        // check if sensor is not on a mob but has a user, ensure no OnMob sensor exists for the same user
+        if (!sensor.OnMob && sensor.User != null)
+        {
+            var query = EntityManager.EntityQuery<SuitSensorComponent>();
+            foreach (var other in query)
+            {
+                if (other.User == sensor.User && other.OnMob)
+                    return null;
+            }
+        }
+        //ADT-Tweak-End
+
         // check if sensor is enabled and worn by user
         if (sensor.Mode == SuitSensorMode.SensorOff || sensor.User == null || !HasComp<MobStateComponent>(sensor.User) || transform.GridUid == null)
             return null;
