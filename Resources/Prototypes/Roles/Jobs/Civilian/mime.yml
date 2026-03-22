@@ -31,7 +31,7 @@
   id: MimeGear
   equipment:
     gloves: ClothingHandsGlovesColorWhite
-    shoes: ClothingShoesColorWhite
+    #shoes: ClothingShoesColorWhite ADT-Tweak
     id: MimePDA
     pocket1: CrayonMime
     ears: ClothingHeadsetService

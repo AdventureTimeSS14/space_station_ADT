@@ -13,3 +13,9 @@
   id: ADTPsychotherapistPDA
   equipment:
     id: ADTPsychotherapistPDA
+
+#Shoes
+- type: loadout
+  id: ADTBootsLeather
+  equipment:
+    shoes: ClothingShoesLeather
