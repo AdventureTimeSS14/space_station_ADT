@@ -77,21 +77,12 @@ public sealed class CrewMonitoringServerSystem : EntitySystem
         if (!Resolve(uid, ref component))
             return;
 
-        //ADT-Tweak-Start
-        // Было изменено для переменной: "OnMob" у: "SuitSensor". Без этого, в мониторинге остаётся "ремнант" сущности.
-        var toRemove = new List<string>();
         foreach (var (address, sensor) in component.SensorStatus)
         {
             var dif = _gameTiming.CurTime - sensor.Timestamp;
             if (dif.Seconds > component.SensorTimeout)
-                toRemove.Add(address);
+                component.SensorStatus.Remove(address);
         }
-
-        foreach (var address in toRemove)
-        {
-            component.SensorStatus.Remove(address);
-        }
-        //ADT-Tweak-End
     }
 
     /// <summary>
