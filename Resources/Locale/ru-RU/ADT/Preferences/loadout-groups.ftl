@@ -18,8 +18,8 @@ loadout-group-blueshield-back = ОСЩ, рюкзак
 loadout-group-blueshield-outer-clothing = ОСЩ, верхняя одежда
 
 # Civilian
-loadout-chef-pocket1-adt = Шеф Повар, карман 1
-loadout-group-chef-id-adt = Шеф-Повар, ID
+loadout-chef-pocket1-adt = Шеф-повар, карман 1
+loadout-group-chef-id-adt = Шеф-повар, ID
 loadout-group-librarian-backpack = Библиотекарь, рюкзак
 loadout-group-librarian-id-adt = Библиотекарь, ID
 loadout-group-passenger-id-adt = Ассистент, ID
@@ -42,8 +42,15 @@ loadout-group-boxer-head-adt = Боксёр, голова
 loadout-group-service-worker-gloves-adt = Сервисный работник, перчатки
 loadout-group-service-worker-id-adt = Сервисный работник, ID
 loadout-group-service-worker-jumpsuit-adt = Сервисный работник, комбинезон
-loadout-group-chef-gloves-adt = Шеф-Повар, перчатки
-loadout-group-chef-neck-adt = Шеф-Повар, шея
+loadout-group-chef-gloves-adt = Шеф-повар, перчатки
+loadout-group-chef-neck-adt = Шеф-повар, шея
+loadout-group-chef-shoes-adt = Шеф-повар, обувь
+loadout-group-bartender-shoes-adt = Бармен, обувь
+loadout-group-botanist-shoes-adt = Ботаник, обувь
+loadout-barber-shoes-adt = Парикмахер, обувь
+loadout-group-reporter-shoes-adt = Репортёр, обувь
+loadout-group-service-worker-shoes-adt = Сервисный работник, обувь
+loadout-group-mime-shoes-adt = Мим, обувь
 
 # Cargo
 loadout-group-quartermaster-id-adt = Квартирмейстер, ID
@@ -65,6 +72,7 @@ loadout-miner-id-adt = Шахтёр, ID
 # Chaplain
 loadout-chaplain-blessedbook-adt = Священник, священная книга
 loadout-group-chaplain-id-adt = Священник, ID
+loadout-group-chaplain-shoes-adt = Священник, обувь
 
 # Engineering
 loadout-chief-engineer-ears-adt = Старший инженер, ухо
@@ -130,6 +138,7 @@ loadout-group-medical-intern-id-adt = Интерн, ID
 
 # Wildcards
 loadout-group-psychologist-id-adt = Психолог, ID
+loadout-group-psychologist-shoes-adt = Психолог, обувь
 
 # Juridical
 loadout-group-lawyer-id-adt = Адвокат, ID
@@ -139,6 +148,7 @@ loadout-group-lawyer-backpack = Магистрат, рюкзак
 # Command
 loadout-captain-ears-adt = Капитан, ухо
 loadout-HoP-ears-adt = Глава персонала, ухо
+loadout-HoP-shoes = Глава персонала, обувь
 
 # Consultant Centcom
 loadout-ccc-ears-adt = консультант Центком, ухо

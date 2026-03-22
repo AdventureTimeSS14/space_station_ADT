@@ -54,7 +54,7 @@
   - RadioJammer
   - TraitorCodePaper
   - Emag
-  - AccessBreaker
+  # - AccessBreaker # ADT-Tweak - Удалён взломщик доступов
   - Lighter
   - CigPackSyndicate
   - Telecrystal10 #The thief cannot use them, but it may induce communication with traitors
