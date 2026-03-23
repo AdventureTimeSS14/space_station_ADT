@@ -81,8 +81,6 @@
   parent: BaseTraitorRule
   id: TraitorLightGameRule
   components:
-  - type: TraitorRule
-    bloodBrotherChance: 0
   - type: GameRule
     minPlayers: 5
     delay:
