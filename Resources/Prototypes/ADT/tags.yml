@@ -519,6 +519,9 @@
   id: ADTShadekinEmotes
 
 - type: Tag
+  id: ADTVinylSleeveFit
+
+- type: Tag
   id: ADTNovakidEmotes
 
 - type: Tag
@@ -744,7 +747,7 @@
 
 - type: Tag
   id: ADTDrill
-  
+
 - type: Tag
   id: Katana
 
