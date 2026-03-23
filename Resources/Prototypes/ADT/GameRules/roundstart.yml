@@ -179,8 +179,6 @@
       - id: Heretic
         cost: 30
         rerollChance: 0.5
-      - id: BloodBrother
-        cost: 20
       - id: Revolutionary
         cost: 45
       # - id: Zombie вернуть после баффов
@@ -224,8 +222,6 @@
         cost: 15
       - id: Changeling
         cost: 25
-      - id: BloodBrother
-        cost: 25
       - id: Heretic
         cost: 30
         rerollChance: 0.5
@@ -262,8 +258,6 @@
         cost: 10
       - id: TraitorDuoGameRule
         cost: 10
-      - id: BloodBrother
-        cost: 25
       - id: TraitorLightGameRule
         cost: 15
       - id: Changeling
@@ -289,34 +283,6 @@
   - type: GameRule
   - type: DynamicRandomRule
 
-- type: entity
-  parent: BaseTraitorRule
-  id: BloodBrother
-  components:
-  - type: GameRule
-    minPlayers: 20
-    delay:
-      min: 240
-      max: 420
-  - type: AntagSelection
-    selectionTime: IntraPlayerSpawn
-    definitions:
-    - prefRoles: [ BloodBrotherLeader ]
-      max: 4
-      playerRatio: 20
-      blacklist:
-        components:
-        - AntagImmune
-      lateJoinAdditional: true
-      mindRoles:
-      - MindRoleTraitor
-  - type: TraitorRule
-    bloodBrotherChance: 1
-  - type: AntagRandomObjectives
-    sets:
-    - groups: BloodBrothersObjectiveGroups
-    maxDifficulty: 12
-
 #этот геймрул сделан только для выдачи трейтора
 - type: entity
   parent: BaseTraitorRule
@@ -337,4 +303,3 @@
       mindRoles:
       - MindRoleTraitor
   - type: TraitorRule
-    bloodBrotherChance: 0
