@@ -117,3 +117,11 @@
   components:
   - type: AccessReader
     access: [["CentralCommand"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: ADTDoorElectronicsJournalism
+  suffix: Journalism, Locked
+  components:
+  - type: AccessReader
+    access: [["ADTJournalism"]]
