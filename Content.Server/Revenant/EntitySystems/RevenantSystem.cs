@@ -26,6 +26,9 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Random;
 using Content.Server.Singularity.Events;
 using Robust.Shared.Prototypes;
+using Content.Shared.Mobs;
+using Content.Shared.Mobs.Components;
+using Content.Shared.Mobs.Events;
 
 namespace Content.Server.Revenant.EntitySystems;
 
@@ -60,6 +63,7 @@ public sealed partial class RevenantSystem : EntitySystem
         SubscribeLocalEvent<RevenantComponent, ExaminedEvent>(OnExamine);
         SubscribeLocalEvent<RevenantComponent, StatusEffectAddedEvent>(OnStatusAdded);
         SubscribeLocalEvent<RevenantComponent, StatusEffectEndedEvent>(OnStatusEnded);
+        SubscribeLocalEvent<RevenantComponent, MobStateChangedEvent>(OnMobStateChanged); // ADT-Tweak
         SubscribeLocalEvent<RoundEndTextAppendEvent>(_ => MakeVisible(true));
 
         SubscribeLocalEvent<RevenantComponent, EventHorizonAttemptConsumeEntityEvent>(OnSinguloConsumeAttempt);  // ADT
@@ -108,6 +112,35 @@ public sealed partial class RevenantSystem : EntitySystem
     {
         if (args.Key == "Stun")
             _appearance.SetData(uid, RevenantVisuals.Stunned, false);
+    }
+
+    // ADT-Tweak start
+    private void OnMobStateChanged(EntityUid uid, RevenantComponent component, MobStateChangedEvent args)
+    {
+        if (args.NewMobState != MobState.Dead)
+            return;
+
+        if (!Exists(uid))
+            return;
+
+        if (TryComp<RevenantShieldComponent>(uid, out var shield) && !shield.Used)
+        {
+            if (component.Essence + 50 > 0)
+            {
+                shield.Used = true;
+                _status.TryRemoveStatusEffect(uid, "Stun");
+                _status.TryRemoveStatusEffect(uid, "Corporeal");
+
+                _mobState.ChangeMobState(uid, MobState.Alive);
+                ChangeEssenceAmount(uid, 50, component, allowDeath: false);
+
+                _popup.PopupEntity(Loc.GetString("revenant-shield-activated"), uid, uid);
+                return;
+            }
+        }
+
+        if (Exists(uid))
+            Spawn(component.SpawnOnDeathPrototype, Transform(uid).Coordinates);
     }
 
     private void OnExamine(EntityUid uid, RevenantComponent component, ExaminedEvent args)
@@ -163,16 +196,20 @@ public sealed partial class RevenantSystem : EntitySystem
             // ADT-Tweak-Start
             if (TryComp<RevenantShieldComponent>(uid, out var shield) && !shield.Used)
             {
-                shield.Used = true;
-                _status.TryRemoveStatusEffect(uid, "Stun");
-                _status.TryRemoveStatusEffect(uid, "Corporeal");
-                ChangeEssenceAmount(uid, 50, allowDeath: false);
-                return true;
+                if (component.Essence + 50 > 0)
+                {
+                    shield.Used = true;
+                    _status.TryRemoveStatusEffect(uid, "Stun");
+                    _status.TryRemoveStatusEffect(uid, "Corporeal");
+                    ChangeEssenceAmount(uid, 50, allowDeath: false);
+                    return true;
+                }
             }
             // ADT-Tweak-End
 
             Spawn(component.SpawnOnDeathPrototype, Transform(uid).Coordinates);
             QueueDel(uid);
+            return false;
         }
         return true;
     }
