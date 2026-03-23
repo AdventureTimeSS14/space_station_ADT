@@ -22,6 +22,8 @@ public sealed class BorgSystem : SharedBorgSystem
 
     private void OnBorgAppearanceChanged(EntityUid uid, BorgChassisComponent component, ref AppearanceChangeEvent args)
     {
+        if (component.Ipc) return; //ADT-Tweak
+
         if (args.Sprite == null)
             return;
         UpdateBorgAppearance(uid, component, args.Component, args.Sprite);
@@ -52,6 +54,8 @@ public sealed class BorgSystem : SharedBorgSystem
     {
         if (!Resolve(uid, ref component, ref appearance, ref sprite))
             return;
+
+        if (component.Ipc) return; //ADT-Tweak
 
         if (_appearance.TryGetData<MobState>(uid, MobStateVisuals.State, out var state, appearance))
         {

@@ -98,7 +98,7 @@ public sealed partial class BorgSystem : SharedBorgSystem
 
     private void OnChassisInteractUsing(EntityUid uid, BorgChassisComponent component, AfterInteractUsingEvent args)
     {
-        if (!args.CanReach || args.Handled || uid == args.User)
+        if (!args.CanReach || args.Handled || (uid == args.User && !component.Ipc)) //ADT-Tweak
             return;
 
         var used = args.Used;
@@ -114,7 +114,7 @@ public sealed partial class BorgSystem : SharedBorgSystem
             return;
         }
 
-        if (component.BrainEntity == null && brain != null &&
+        if (!component.Ipc && component.BrainEntity == null && brain != null && //ADT-Tweak
             _whitelistSystem.IsWhitelistPassOrNull(component.BrainWhitelist, used))
         {
             if (_mind.TryGetMind(used, out _, out var mind) &&
@@ -160,6 +160,8 @@ public sealed partial class BorgSystem : SharedBorgSystem
     // todo: consider transferring over the ghost role? managing that might suck.
     protected override void OnInserted(EntityUid uid, BorgChassisComponent component, EntInsertedIntoContainerMessage args)
     {
+        if (component.Ipc) return; //ADT-Tweak
+
         base.OnInserted(uid, component, args);
 
         if (HasComp<BorgBrainComponent>(args.Entity) && _mind.TryGetMind(args.Entity, out var mindId, out var mind) && args.Container == component.BrainContainer)
@@ -180,16 +182,22 @@ public sealed partial class BorgSystem : SharedBorgSystem
 
     private void OnMindAdded(EntityUid uid, BorgChassisComponent component, MindAddedMessage args)
     {
+        if (component.Ipc) return; //ADT-Tweak
+
         BorgActivate(uid, component);
     }
 
     private void OnMindRemoved(EntityUid uid, BorgChassisComponent component, MindRemovedMessage args)
     {
+        if (component.Ipc) return; //ADT-Tweak
+
         BorgDeactivate(uid, component);
     }
 
     private void OnMobStateChanged(EntityUid uid, BorgChassisComponent component, MobStateChangedEvent args)
     {
+        if (component.Ipc) return; //ADT-Tweak
+
         if (args.NewMobState == MobState.Alive)
         {
             if (_mind.TryGetMind(uid, out _, out _))
@@ -203,6 +211,8 @@ public sealed partial class BorgSystem : SharedBorgSystem
 
     private void OnBeingGibbed(EntityUid uid, BorgChassisComponent component, ref BeingGibbedEvent args)
     {
+        if (component.Ipc) return; //ADT-Tweak
+
         TryEjectPowerCell(uid, component, out var _);
 
         _container.EmptyContainer(component.BrainContainer);
@@ -211,6 +221,8 @@ public sealed partial class BorgSystem : SharedBorgSystem
 
     private void OnPowerCellChanged(EntityUid uid, BorgChassisComponent component, PowerCellChangedEvent args)
     {
+        if (component.Ipc) return; //ADT-Tweak
+
         UpdateBatteryAlert((uid, component));
 
         // if we aren't drawing and suddenly get enough power to draw again, reeanble.
@@ -224,12 +236,16 @@ public sealed partial class BorgSystem : SharedBorgSystem
 
     private void OnPowerCellSlotEmpty(EntityUid uid, BorgChassisComponent component, ref PowerCellSlotEmptyEvent args)
     {
+        if (component.Ipc) return; //ADT-Tweak
+
         Toggle.TryDeactivate(uid);
         UpdateUI(uid, component);
     }
 
     private void OnGetDeadIC(EntityUid uid, BorgChassisComponent component, ref GetCharactedDeadIcEvent args)
     {
+        if (component.Ipc) return; //ADT-Tweak
+
         args.Dead = true;
     }
 
@@ -247,10 +263,14 @@ public sealed partial class BorgSystem : SharedBorgSystem
             DisableAllModules(uid, comp);
 
         // only enable the powerdraw if there is a player in the chassis
-        var drawing = _mind.TryGetMind(uid, out _, out _) && _mobState.IsAlive(ent);
-        _powerCell.SetDrawEnabled(uid, drawing);
-
-        UpdateUI(uid, comp);
+        //ADT-Tweak-Start
+        if (!comp.Ipc)
+        {
+            var drawing = _mind.TryGetMind(uid, out _, out _) && _mobState.IsAlive(ent);
+            _powerCell.SetDrawEnabled(uid, drawing);
+            UpdateUI(uid, comp);
+        }
+        //ADT-Tweak-End
 
         _movementSpeedModifier.RefreshMovementSpeedModifiers(uid);
     }
@@ -288,6 +308,8 @@ public sealed partial class BorgSystem : SharedBorgSystem
 
     private void UpdateBatteryAlert(Entity<BorgChassisComponent> ent, PowerCellSlotComponent? slotComponent = null)
     {
+        if (ent.Comp.Ipc) return; //ADT-Tweak
+
         if (!_powerCell.TryGetBatteryFromSlot(ent, out var battery, slotComponent))
         {
             _alerts.ClearAlert(ent.Owner, ent.Comp.BatteryAlert);
@@ -310,6 +332,14 @@ public sealed partial class BorgSystem : SharedBorgSystem
 
     public bool TryEjectPowerCell(EntityUid uid, BorgChassisComponent component, [NotNullWhen(true)] out List<EntityUid>? ents)
     {
+        //ADT-Tweak-Start
+        if (component.Ipc)
+        {
+            ents = null;
+            return false;
+        }
+        //ADT-Tweak-End
+
         ents = null;
 
         if (!TryComp<PowerCellSlotComponent>(uid, out var slotComp) ||
@@ -327,6 +357,8 @@ public sealed partial class BorgSystem : SharedBorgSystem
     /// </summary>
     public void BorgActivate(EntityUid uid, BorgChassisComponent component)
     {
+        if (component.Ipc) return; //ADT-Tweak
+
         Popup.PopupEntity(Loc.GetString("borg-mind-added", ("name", Identity.Name(uid, EntityManager))), uid);
         if (_powerCell.HasDrawCharge(uid))
         {
@@ -341,6 +373,8 @@ public sealed partial class BorgSystem : SharedBorgSystem
     /// </summary>
     public void BorgDeactivate(EntityUid uid, BorgChassisComponent component)
     {
+        if (component.Ipc) return; //ADT-Tweak
+
         Popup.PopupEntity(Loc.GetString("borg-mind-removed", ("name", Identity.Name(uid, EntityManager))), uid);
         Toggle.TryDeactivate(uid);
         _powerCell.SetDrawEnabled(uid, false);

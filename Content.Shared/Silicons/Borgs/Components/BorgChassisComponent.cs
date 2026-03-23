@@ -84,6 +84,14 @@ public sealed partial class BorgChassisComponent : Component
     /// </summary>
     [DataField]
     public bool CanOpenSelfUi;
+
+    //ADT-Tweak-Start
+    #region IPC
+    [DataField("ipc")]
+    [AutoNetworkedField]
+    public bool Ipc;
+    #endregion
+    //ADT-Tweak-End
 }
 
 [Serializable, NetSerializable]
