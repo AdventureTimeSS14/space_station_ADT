@@ -124,7 +124,7 @@
   id: Hemophilia
   name: trait-hemophilia-name
   description: trait-hemophilia-desc
-  category: Disabilities
+  category: Quirks #ADT Quirks; fix by Prunt
   components:
   - type: Hemophilia
   speciesBlacklist: # ADT Quirks
@@ -137,6 +137,6 @@
   name: trait-impaired-mobility-name
   description: trait-impaired-mobility-desc
   traitGear: OffsetCane
-  category: Disabilities
+  category: Quirks #ADT Quirks; fix by Prunt
   components:
     - type: ImpairedMobility
