@@ -546,7 +546,7 @@
       - !type:PopupMessage
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Animal, Vox, Vulpkanin, Ursus ] # ADT-Tweak
+          type: [ Animal, Vox, Vulpkanin, Ursus, Reptilian ] # ADT-Tweak
           inverted: true
         - !type:MetabolizerTypeCondition
           type: [ Plant ]
@@ -560,12 +560,12 @@
           - !type:MetabolizerTypeCondition
             type: [ Plant ]
           - !type:MetabolizerTypeCondition
-            type: [ Animal, Vox, Ursus ] # ADT-Tweak
+            type: [ Animal, Vox, Ursus, Reptilian ] # ADT-Tweak
             inverted: true
       - !type:HealthChange
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Animal, Vox, Ursus, Felinid ] # ADT-Tweak
+          type: [ Animal, Vox, Ursus, Felinid, Reptilian ] # ADT-Tweak
           inverted: true
         damage:
           types:
@@ -573,7 +573,7 @@
       - !type:AdjustReagent
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Animal, Ursus ] # ADT-Tweak
+          type: [ Animal, Ursus, Reptilian ] # ADT-Tweak
 # ADT-Tweak-Start
         - !type:MetabolizerTypeCondition
           type: [ Felinid ]
