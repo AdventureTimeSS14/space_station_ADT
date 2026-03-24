@@ -7,6 +7,10 @@
   - type: Edible
   - type: Sprite
     sprite: Mobs/Species/Human/organs.rsi
+  # ADT-Tweak start
+  - type: Extractable
+    grindableSolutionName: food
+  # ADT-Tweak end
   - type: StaticPrice
     price: 50
   - type: SolutionContainerManager

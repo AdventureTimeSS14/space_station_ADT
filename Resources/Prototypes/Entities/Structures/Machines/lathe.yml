@@ -226,6 +226,7 @@
     - Instruments
     - Equipment
     #ADT-tweak-start
+    - ADTServiceBoards
     - ADTRCDPack
     - ADTPKAPack
     - ADTServiceHydroponics

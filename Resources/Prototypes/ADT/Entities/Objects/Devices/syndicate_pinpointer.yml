@@ -14,9 +14,6 @@
       visible: false
   - type: Icon
     state: pinpointer-syndicate-way
-  - type: Pinpointer
-    updateTargetName: true
-    canRetarget: true
   - type: ObjectivePinpointer
   - type: UserInterface
     interfaces:
