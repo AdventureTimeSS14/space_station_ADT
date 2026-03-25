@@ -274,7 +274,7 @@
     capacity: 1
     count: 1
   - type: RechargeBasicEntityAmmo
-    rechargeCooldown: 4 #2 seconds of KD, should always have CD > KD
+    rechargeCooldown: 4
     rechargeSound:
       path: /Audio/Weapons/Guns/MagIn/energycrossbow_reload.ogg
   - type: MagazineVisuals
