@@ -142,6 +142,7 @@ public sealed partial class RevenantSystem : EntitySystem
         if (Exists(uid))
             Spawn(component.SpawnOnDeathPrototype, Transform(uid).Coordinates);
     }
+    // ADT-Tweak end
 
     private void OnExamine(EntityUid uid, RevenantComponent component, ExaminedEvent args)
     {
@@ -209,7 +210,7 @@ public sealed partial class RevenantSystem : EntitySystem
 
             Spawn(component.SpawnOnDeathPrototype, Transform(uid).Coordinates);
             QueueDel(uid);
-            return false;
+            return false; // ADT-Tweak
         }
         return true;
     }
