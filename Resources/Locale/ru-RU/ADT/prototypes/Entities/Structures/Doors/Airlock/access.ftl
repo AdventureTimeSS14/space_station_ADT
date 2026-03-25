@@ -40,6 +40,9 @@ ent-AirlockMagistrateLocked = шлюз
 ent-AirlockIAALocked = шлюз
     .desc = Он открывается, он закрывается, и он может вас раздавить.
     .suffix = Агент внутренних дел, Закрытый
+ent-ADTAirlockJournalismLocked = шлюз
+    .desc = Он открывается, он закрывается, и он может вас раздавить.
+    .suffix = репортёр, Закрытый
 
 
 ent-ADTSpaceSecAirlockShuttle = стыковочный шлюз
@@ -88,3 +91,6 @@ ent-AirlockMagistrateGlassLocked = стеклянный шлюз
 ent-AirlockIAAGlassLocked = стеклянный шлюз
     .desc = Он открывается, он закрывается, и он может вас раздавить.
     .suffix = Агент внутренних дел, Закрытый
+ent-ADTAirlockJournalismGlassLocked = стеклянный шлюз
+    .desc = Он открывается, он закрывается, и он может вас раздавить.
+    .suffix = репортёр, Закрытый

@@ -218,6 +218,17 @@ public abstract partial class SharedStackSystem : EntitySystem
 
             args.Verbs.Add(verb);
         }
+
+        // ADT-Tweak start: Add custom split amount option
+        AlternativeVerb custom = new()
+        {
+            Text = Loc.GetString("comp-stack-split-custom"),
+            Category = VerbCategory.Split,
+            Act = () => RequestCustomSplit(ent, user),
+            Priority = int.MinValue
+        };
+        args.Verbs.Add(custom);
+        // ADT-Tweak end
     }
 
     /// <remarks>
@@ -230,6 +241,14 @@ public abstract partial class SharedStackSystem : EntitySystem
     protected virtual void UserSplit(Entity<StackComponent> stack, Entity<TransformComponent?> user, int amount)
     {
 
+    }
+
+    /// <summary>
+    /// ADT-Tweak: Request custom split amount from user
+    /// </summary>
+    protected virtual void RequestCustomSplit(Entity<StackComponent> stack, Entity<TransformComponent?> user)
+    {
+        // Implemented on server
     }
 }
 
