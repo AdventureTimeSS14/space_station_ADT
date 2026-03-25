@@ -4850,7 +4850,7 @@ entities:
     - type: RadiationGridResistance
     - type: NavMap
     - type: BecomesStation
-      id: ADT_Cluster_Legacy
+      id: ADT_Cluster
     - type: SupermatterSpreaderGrid
     - type: ImplicitRoof
   - uid: 5
@@ -44299,7 +44299,7 @@ entities:
         [bold]Уважаемый получатель! Данная выписка предоставляет вам возможность обналичить 1.000.993 гамлет-кредита. Для получения денег обратитесь по номеру 88005553535![/bold]
 
         ==============================================
-                                    [italic]Место для печатей[/italic] 
+                                    [italic]Место для печатей[/italic]
 
 - proto: PaperBin20
   entities:

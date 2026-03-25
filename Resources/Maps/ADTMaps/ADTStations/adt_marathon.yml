@@ -14466,7 +14466,6 @@ entities:
       parent: 2
     - type: DeviceNetwork
       configurators:
-      - invalid
       deviceLists:
       - 432
 - proto: AltarConvert
@@ -68803,7 +68802,6 @@ entities:
       parent: 2
     - type: DeviceNetwork
       configurators:
-      - invalid
       deviceLists:
       - 432
   - uid: 10840
@@ -93383,7 +93381,6 @@ entities:
       parent: 2
     - type: DeviceNetwork
       configurators:
-      - invalid
       deviceLists:
       - 432
     - type: AtmosPipeColor
@@ -93436,7 +93433,6 @@ entities:
       parent: 2
     - type: DeviceNetwork
       configurators:
-      - invalid
       deviceLists:
       - 431
     - type: AtmosPipeColor
@@ -93451,7 +93447,6 @@ entities:
       parent: 2
     - type: DeviceNetwork
       configurators:
-      - invalid
       deviceLists:
       - 432
     - type: AtmosPipeColor
