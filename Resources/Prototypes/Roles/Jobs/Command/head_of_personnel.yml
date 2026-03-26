@@ -73,7 +73,7 @@
 - type: startingGear
   id: HoPGear
   equipment:
-    shoes: ClothingShoesColorBrown
+    #shoes: ClothingShoesColorBrown ADT-Tweak
     id: HoPPDA
     gloves: ClothingHandsGlovesHop
     # ears: ClothingHeadsetAltCommand # ADT tweak - выдаются через loadout ADTHoP
