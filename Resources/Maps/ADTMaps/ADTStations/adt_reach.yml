@@ -3,9 +3,9 @@ meta:
   category: Map
   engineVersion: 268.0.0
   forkId: SS14_DEV
-  forkVersion: 56964975c32a37d967fd901cc010e3c54a595674
-  time: 02/26/2026 22:57:55
-  entityCount: 4185
+  forkVersion: c1f609c1aee35c0c28f18aea2cc4ba4f2945afb7
+  time: 03/20/2026 11:48:36
+  entityCount: 4191
 maps:
 - 1
 grids:
@@ -4218,6 +4218,10 @@ entities:
       parent: 2
 - proto: ADTBarbellBenchOverlay
   entities:
+  - uid: 2296
+    components:
+    - type: Transform
+      parent: 4116
   - uid: 4117
     components:
     - type: Transform
@@ -4242,6 +4246,26 @@ entities:
     components:
     - type: Transform
       parent: 4146
+  - uid: 4186
+    components:
+    - type: Transform
+      parent: 4118
+  - uid: 4187
+    components:
+    - type: Transform
+      parent: 4120
+  - uid: 4188
+    components:
+    - type: Transform
+      parent: 4146
+  - uid: 4189
+    components:
+    - type: Transform
+      parent: 4140
+  - uid: 4190
+    components:
+    - type: Transform
+      parent: 4142
 - proto: ADTBarbellChair
   entities:
   - uid: 4140
@@ -4351,6 +4375,22 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 18.5,58.5
+      parent: 2
+- proto: ADTEnergyBoozeDispenser
+  entities:
+  - uid: 228
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 25.5,34.5
+      parent: 2
+- proto: ADTEnergySodaDispenser
+  entities:
+  - uid: 2616
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 24.5,34.5
       parent: 2
 - proto: ADTFoodFrozenPackedChocolateFreezy
   entities:
@@ -6524,14 +6564,6 @@ entities:
     components:
     - type: Transform
       pos: 34.5,51.5
-      parent: 2
-- proto: BoozeDispenser
-  entities:
-  - uid: 228
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 25.5,34.5
       parent: 2
 - proto: BorgCharger
   entities:
@@ -22610,13 +22642,18 @@ entities:
     - type: Transform
       pos: 17.5,1.5
       parent: 3391
-- proto: NitrousOxideCanister
-  entities:
-  - uid: 2296
+  - uid: 4191
     components:
     - type: Transform
       pos: 46.5,68.5
       parent: 2
+    - type: AccessReader
+      accessListsOriginal:
+      - - Atmospherics
+      - - Engineering
+      - - Research
+- proto: NitrousOxideCanister
+  entities:
   - uid: 2297
     components:
     - type: Transform
@@ -25501,14 +25538,6 @@ entities:
     components:
     - type: Transform
       pos: 31.5,26.5
-      parent: 2
-- proto: SodaDispenser
-  entities:
-  - uid: 2616
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 24.5,34.5
       parent: 2
 - proto: SolarPanel
   entities:
