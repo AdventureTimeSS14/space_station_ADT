@@ -183,6 +183,9 @@ public sealed class StationProximitySystem : EntitySystem
         if (_spawned)
             return;
 
+        if (_mobCaller.HasValue)
+            return;
+
         _popup.PopupEntity(
             Loc.GetString("station-proximity-far-from-station"),
             entity,
@@ -193,20 +196,19 @@ public sealed class StationProximitySystem : EntitySystem
             entity,
             AudioParams.Default.WithVolume(1f));
 
-        if (_mobCaller.HasValue)
-            return;
-
         // Spawn a dummy entity at the player's location and lock it onto the player
         _mobCaller = Spawn(null, Transform(entity).Coordinates);
         _transform.SetParent(_mobCaller.Value, entity);
         var mobCaller = new MobCallerComponent()
         {
-
             SpawnProto = "ADTSpaceLeviathan",
             MaxAlive = 1,
             NeedAnchored = false,
             NeedPower = false,
             MinDistance = 100f,
+            MaxDistance = 200f,
+            OcclusionDistance = 200f,
+            GridOcclusionDistance = 200f,
             SpawnSpacing = TimeSpan.FromSeconds(30),
         };
 

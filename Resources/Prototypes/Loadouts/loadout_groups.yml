@@ -326,6 +326,7 @@
   name: loadout-group-passenger-shoes
   loadouts:
   - BlackShoes
+  - BootsLaceup #ADT-Tweak
   - WinterBoots
 
 - type: loadoutGroup
@@ -439,17 +440,17 @@
   - LibrarianJumpskirt
   - CuratorJumpsuit
   - CuratorJumpskirt
+  # ADT tweak start
+  - ADTClothingUniformJumpsuitTurtleneckRed
+  - ADTClothingUniformJumpskirtTurtleneckRed
+  # ADT tweak end
+
 - type: loadoutGroup
   id: LibrarianJobTrinkets
   name: loadout-group-jobtrinkets
   minLimit: 0
   loadouts:
   - LizardPlushieLibrarian
-
-  # ADT tweak start
-  - ADTClothingUniformJumpsuitTurtleneckRed
-  - ADTClothingUniformJumpskirtTurtleneckRed
-  # ADT tweak end
 # ADT-Loadouts-Start
 - type: loadoutGroup
   id: LibrarianBackpack
@@ -904,6 +905,7 @@
   - BrownShoes
   - CargoWinterBoots
   # ADT tweak start
+  - BootsLaceup
   - ADTFootWrapsW
   - ADTFootWrapsHighW
   - ADTFootWrapsBr
@@ -963,6 +965,7 @@
   - BlackShoes
   - CargoWinterBoots
   # ADT tweak start
+  - BootsLaceup
   - ADTFootWrapsW
   - ADTFootWrapsHighW
   - ADTFootWrapsBr
@@ -1010,6 +1013,7 @@
   - SalvageBoots
   - CargoWinterBoots
   # ADT tweak start
+  - BootsLaceup
   - ADTFootWrapsW
   - ADTFootWrapsHighW
   - ADTFootWrapsBr
@@ -1066,6 +1070,7 @@
   - BrownShoes
   - EngineeringWinterBoots
   # ADT tweak start
+  - BootsLaceup
   - ADTFootWrapsW
   - ADTFootWrapsHighW
   - ADTFootWrapsBr
@@ -1142,6 +1147,7 @@
   - WorkBoots
   - EngineeringWinterBoots
   # ADT tweak start
+  - BootsLaceup
   - ADTFootWrapsW
   - ADTFootWrapsHighW
   - ADTFootWrapsBr
@@ -1200,6 +1206,7 @@
   - WhiteShoes
   - EngineeringWinterBoots
   # ADT tweak start
+  - BootsLaceup
   - ADTFootWrapsW
   - ADTFootWrapsHighW
   - ADTFootWrapsBr
@@ -1275,6 +1282,7 @@
   - ScienceWinterBoots
   # ADT tweak start
   - PurpleShoes
+  - BootsLaceup
   - ADTFootWrapsW
   - ADTFootWrapsHighW
   - ADTFootWrapsBr
@@ -1351,6 +1359,7 @@
   - ScienceWinterBoots
   # ADT tweak start
   - PurpleShoes
+  - BootsLaceup
   - ADTFootWrapsW
   - ADTFootWrapsHighW
   - ADTFootWrapsBr
@@ -1543,6 +1552,7 @@
   - JackBoots
   - SecurityWinterBoots
   # ADT tweak start
+  - BootsLaceup
   - ADTFootWrapsW
   - ADTFootWrapsHighW
   - ADTFootWrapsBr
@@ -1707,6 +1717,7 @@
   - MedicalWinterBoots
   - ADTCMOHighBoots # ADT tweak
   # ADT tweak start
+  - BootsLaceup
   - ADTFootWrapsW
   - ADTFootWrapsHighW
   - ADTFootWrapsBr
@@ -1767,6 +1778,7 @@
   - WhiteShoes
   - MedicalWinterBoots
   # ADT tweak start
+  - BootsLaceup
   - ADTFootWrapsW
   - ADTFootWrapsHighW
   - ADTFootWrapsBr
@@ -1893,6 +1905,7 @@
   - WhiteShoes
   - MedicalWinterBoots
   # ADT tweak start
+  - BootsLaceup
   - ADTFootWrapsW
   - ADTFootWrapsHighW
   - ADTFootWrapsBr

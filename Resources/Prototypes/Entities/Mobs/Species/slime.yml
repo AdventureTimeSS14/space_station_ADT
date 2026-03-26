@@ -94,8 +94,14 @@
       Flammable: [ Touch ]
       Extinguish: [ Touch ]
     reactions:
-    - reagents: [ Water, SpaceCleaner ]
-      methods: [ Touch ]
+    #ADT=Tweak=start
+    - reagents: [Water, SpaceCleaner]
+      methods: [Touch]
+      effects:
+      - !type:WashStamp
+    #ADT=Tweak=end
+    - reagents: [Water, SpaceCleaner]
+      methods: [Touch]
       effects:
       - !type:WashCreamPie
     - reagents: [ Water ]

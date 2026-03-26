@@ -17,6 +17,7 @@ using Content.Shared.Standing;
 using Robust.Shared.Audio;
 using Robust.Shared.Configuration;
 using Robust.Shared.Input.Binding;
+using Robust.Shared.Maths;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Player;
@@ -82,7 +83,7 @@ public abstract partial class SharedStunSystem
     }
 
     public override void Update(float frameTime)
-    {   //ADT-tweak-start 
+    {   //ADT-tweak-start
         // base.Update(frameTime);
 
         // var query = EntityQueryEnumerator<KnockedDownComponent>();
@@ -272,15 +273,6 @@ public abstract partial class SharedStunSystem
 
         var stand = !entity.Comp2.DoAfterId.HasValue;
         // SetAutoStand((entity, entity.Comp2), stand);
-        //ADT tweak start
-        if (_standingState.IsDown(entity.Owner) && !HasComp<StunnedComponent>(entity) && TryStanding(entity.Owner, DoDoAfter: false))
-        {
-            ForceStandUp(entity.Owner);
-            return;
-        }
-        //ADT tweak end
-        // var stand = !component.DoAfterId.HasValue;
-        // SetAutoStand(playerEnt, stand); //ADT-tweak
 
         if (!stand || !TryStanding((entity, entity.Comp2)))
             CancelKnockdownDoAfter((entity, entity.Comp2));
@@ -309,7 +301,20 @@ public abstract partial class SharedStunSystem
         if (!TryStand((entity, entity.Comp)))
             return false;
 
-        var ev = new GetStandUpTimeEvent(crawler.StandTime);
+        // ADT-Tweak start
+        var baseTime = crawler.StandTime;
+        if (TryComp<StaminaComponent>(entity, out var stamina))
+        {
+            // Чем больше стамины, тем быстрее подъём
+            // staminaDamageRatio: 0 = полная стамина (быстро), 1 = нет стамины (медленно)
+            var staminaDamageRatio = Math.Clamp(stamina.StaminaDamage / stamina.CritThreshold, 0f, 1f);
+            // Множитель времени: от 0.5x (полная стамина) до 2.0x (нет стамины)
+            var timeMultiplier = MathHelper.Lerp(0.5f, 2.0f, staminaDamageRatio);
+            baseTime *= timeMultiplier;
+        }
+
+        var ev = new GetStandUpTimeEvent(baseTime);
+        // ADT-Tweak end
         RaiseLocalEvent(entity, ref ev);
 
         var doAfterArgs = new DoAfterArgs(EntityManager, entity, ev.DoAfterTime, new TryStandDoAfterEvent(), entity, entity)
@@ -445,7 +450,10 @@ public abstract partial class SharedStunSystem
         if (!Resolve(entity, ref entity.Comp, false))
             return false;
 
-        var ev = new TryForceStandEvent(entity.Comp.ForceStandStamina);
+        // ADT-Tweak start: Быстрое поднятие отнимает 30% от порога стамины
+        var staminaCost = entity.Comp.CritThreshold * 0.30f;
+        var ev = new TryForceStandEvent(staminaCost);
+        // ADT-Tweak end
         RaiseLocalEvent(entity, ref ev);
 
         if (!Stamina.TryTakeStamina(entity, ev.Stamina, entity.Comp, visual: true))

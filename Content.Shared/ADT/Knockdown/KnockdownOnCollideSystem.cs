@@ -23,6 +23,7 @@ namespace Content.Shared.ADT.Collision.Knockdown;
 public sealed class KnockdownOnCollideSystem : EntitySystem
 {
     [Dependency] private readonly StandingStateSystem _standing = default!;
+    [Dependency] private readonly SharedStunSystem _stun = default!;
 
     public override void Initialize()
     {
@@ -38,6 +39,6 @@ public sealed class KnockdownOnCollideSystem : EntitySystem
 
     private void ApplyEffects(EntityUid target, KnockdownOnCollideComponent component)
     {
-        _standing.Down(target, dropHeldItems: false);
+        _stun.TryKnockdown(target, time: null, drop: false, force: false);
     }
 }

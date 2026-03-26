@@ -15,7 +15,11 @@
       time: 10h
     - !type:OverallPlaytimeRequirement
       time: 144000 #40 hrs
-      #ADT tweak start
+     # ADT-Tweak start
+    - !type:TraitsRequirement
+      inverted: true
+      traits:
+      - Muted
     - !type:SpeciesRequirement
       inverted: true
       species:
@@ -47,8 +51,7 @@
   id: QuartermasterGear
   equipment:
     # id: QuartermasterPDA # ADT: different PDAs in loadouts
-    # ears: ClothingHeadsetQM # ADT tweak
-    ears: ClothingHeadsetQM
+    # ears: ClothingHeadsetQM # ADT tweak - выдаются через loadout ADTQuartermasterEars
     belt: BoxFolderClipboardThreePapers
     pocket1: AppraisalTool
   storage:

@@ -734,7 +734,7 @@
   id: ADTUplinkThermalVision
   name: uplink-thermal-name
   description: uplink-thermal-desc
-  productEntity: ClothingEyesGlassesThermal
+  productEntity: ADTClothingEyesGlassesThermalChameleon
   cost:
     Telecrystal: 2
   categories:
@@ -940,6 +940,20 @@
     - AtmosphericTechnician
 
 - type: listing
+  id: uplinkSyndicateAdCDdisk
+  name: uplink-syndicate-cd-disk-advanced-name
+  description: uplink-syndicate-cd-disk-advanced-desc
+  productEntity: ADTCdDiskSyndicateAd
+  cost:
+    Telecrystal: 0
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Reporter
+
+- type: listing
   id: UplinkClothingNoSoundShoes
   name: uplink-clothing-no-sound-shoes-name
   description: uplink-clothing-no-sound-shoes-desc
@@ -971,3 +985,16 @@
       blacklist:
         tags:
           - NukeOpsUplink
+
+- type: listing
+  id: UplinkEhack
+  name: uplink-ehack-name
+  description: uplink-ehack-desc
+  productEntity: ADTEhack
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 2 # ADT-Tweak
+  cost:
+    Telecrystal: 3 # ADT-Tweak
+  categories:
+  - UplinkDisruption

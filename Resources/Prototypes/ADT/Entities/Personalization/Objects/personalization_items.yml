@@ -1805,6 +1805,137 @@
       layers:
       - state: icon
 
+# Archeron, заслуженный модератор
+
+- type: entity
+  parent: BaseItem
+  id: ADTLighterArcher
+  name: Red gold-plated lighter
+  description: A zippo lighter with a red metal coating.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/archeron/lighter.rsi
+    layers:
+    - state: closed
+      map: ["base"]
+    - state: open
+      map: ["top"]
+      visible: false
+    - state: open
+      map: ["open"]
+      visible: false
+    - state: lighter_flame
+      map: ["flame"]
+      visible: false
+      shader: unshaded
+  - type: ItemToggle
+    predictable: false
+    soundActivate:
+      path: /Audio/Items/Lighters/zippo_open.ogg
+      params:
+        volume: -5
+    soundDeactivate:
+      path: /Audio/Items/Lighters/zippo_close.ogg
+      params:
+        volume: -5
+  - type: ItemToggleMeleeWeapon
+    activatedDamage:
+        types:
+            Heat: 1
+  - type: ItemToggleSize
+    activatedSize: Small
+  - type: ItemToggleHot
+  - type: Item
+    size: Tiny
+    sprite: ADT/Personalization/archeron/lighter.rsi
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleableVisuals.Enabled:
+        flame:
+          True: { visible: true }
+          False: { visible: false }
+        open:
+          True: { visible: true }
+          False: { visible: false }
+        top:
+          True: { visible: true }
+          False: { visible: false }
+        base:
+          True: { visible: false }
+          False: { visible: true }
+  - type: SolutionContainerManager
+    solutions:
+      Welder:
+        reagents:
+        - ReagentId: WeldingFuel
+          Quantity: 32
+        maxVol: 32
+  - type: Welder
+    fuelConsumption: 0.01
+    fuelLitCost: 0.1
+    tankSafe: true
+  - type: ToggleableVisuals
+    spriteLayer: lighter_flame
+    inhandVisuals:
+      left:
+      - state: inhand-left-lit
+        shader: unshaded
+      right:
+      - state: inhand-right-lit
+        shader: unshaded
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    damage:
+      types:
+        Blunt: 1
+  - type: PointLight
+    enabled: false
+    netsync: false
+    radius: 1.6
+    color: "#ef2e4b"
+  - type: ItemTogglePointLight
+  - type: UseDelay
+  - type: IgnitionSource
+    ignited: false
+  - type: Tag
+    tags:
+    - ADTLighter
+
+- type: entity
+  parent: ClothingHandsBase
+  id: ADTClothingHandsGlovesPowergloveArcher
+  name: power gloves
+  description: Now I'm playin' with power! Wait... they're turned off. #Use "Now I'm playin' with power! BAM!" for when they're turned on
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/archeron/powerglove_archer.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/archeron/powerglove_archer.rsi
+  - type: Fiber
+    fiberMaterial: fibers-nanomachines
+  - type: FingerprintMask
+
+
+ # Mina0, От Арчи и Пани для глупеньке Мио на 8-ое марта
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieMio
+  name: Mio plushie
+  description: Soft plushie
+  suffix: Именное, Mina0
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/mina0/minaplushie.rsi
+    state: icon
+    scale: 0.8, 0.8
+  - type: Clothing
+    quickEquip: false
+    sprite: ADT/Personalization/mina0/minaplushie.rsi
+    slots:
+    - HEAD
+
 #ADT-TEAM-ITEMS-END
 
 #SPONSOR-ITEMS-START
@@ -2238,6 +2369,11 @@
     requiresSpecialDigestion: true
     useSound:
       path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+    solution: drink
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 0
   - type: MeleeWeapon
     wideAnimationRotation: 180
     soundHit:
@@ -2632,7 +2768,7 @@
     toggleFlashlightSound: /Audio/Effects/eye_close.ogg
   - type: Item
     size: Small
-    sprite: ADT/Objects/Misc/contemplator_tome.rsi  
+    sprite: ADT/Objects/Misc/contemplator_tome.rsi
   - type: Wieldable
     useDelayOnWield: false
   - type: Clothing
@@ -2652,8 +2788,8 @@
     interfaces:
       enum.PaperUiKey.Key:
         type: PaperBoundUserInterface
-  
-  
+
+
 - type: entity
   parent: MobWatcherPride
   id: ADTMobWatcherBible
@@ -2740,7 +2876,7 @@
       head:
       - state: equipped-HELMET
         offset: "0, 0.04"
-        
+
 #kimer_k
 - type: entity
   parent: DrinkShaker
@@ -2994,7 +3130,7 @@
       - !type:AdjustReagent
         reagent: Epinephrine
         amount: 0.1
-      - !type:AdjustReagent 
+      - !type:AdjustReagent
         reagent: Sugar
         amount: 0.3
       - !type:HealthChange
