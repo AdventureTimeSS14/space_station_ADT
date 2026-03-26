@@ -1167,16 +1167,12 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.05
-      - !type:HealthChange
+      - !type:EvenHealthChange # ADT-Tweak: HealthChange -> EvenHealthChange
         damage:
-          groups:
-            Brute: -1
-          # ADT-Tweak start
-          types:
-            Poison: -0.5
-            Shock: -0.33
-            Cold: -0.33
-          # ADT-Tweak end
+          Burn: -1
+          Brute: -1
+          Airloss: -1
+          Toxin: -1
 
 - type: reagent
   id: DriestMartini
