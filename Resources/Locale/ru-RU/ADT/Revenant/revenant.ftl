@@ -35,7 +35,7 @@ revenant-lock-action-desc = Стоит [color=#f605fa]50 эссенции[/color
 
 revenant-shield-effect-name = Неколебимость
 revenant-shield-effect-desc = Получите возможность обмануть смерть ещё один раз.
-revenant-shield-activated = Непоколебимость активирована! Вы обманули смерть.
+revenant-shield-activated = Неколебимость активирована! Вы обманули смерть.
 
 revenant-misery-effect-name = Ненастье
 revenant-misery-effect-desc = Прокляните всю станцию, заставляя несчастья происходить невероятно часто.
