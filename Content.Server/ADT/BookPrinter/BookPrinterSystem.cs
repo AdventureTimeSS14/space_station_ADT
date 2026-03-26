@@ -74,13 +74,12 @@ namespace Content.Server.ADT.BookPrinter
         {
             base.Update(frameTime);
 
-            var query = EntityQueryEnumerator<BookPrinterComponent, ApcPowerReceiverComponent, UserInterfaceComponent>();
-            while (query.MoveNext(out var uid, out var printer, out var receiver, out var ui))
+            var query = EntityQueryEnumerator<BookPrinterComponent, UserInterfaceComponent>();
+            while (query.MoveNext(out var uid, out var printer, out var ui))
             {
-                if (!Transform(uid).Anchored || !receiver.Powered)
+                if (!Transform(uid).Anchored)
                 {
                     FlushTask((uid, printer));
-                    SetLockOnAllSlots((uid, printer), !receiver.Powered && Transform(uid).Anchored);
                     continue;
                 }
 
@@ -88,7 +87,10 @@ namespace Content.Server.ADT.BookPrinter
                 {
                     printer.WorkTimeRemaining -= frameTime * printer.TimeMultiplier;
                     if (printer.WorkTimeRemaining <= 0.0f)
+                    {
+                        printer.WorkTimeRemaining = 0.0f;
                         ProcessTask((uid, printer));
+                    }
                 }
 
                 if (printer.LastUiUpdate + BookPrinterComponent.VisualsChangeDelay < _gameTiming.CurTime
@@ -298,25 +300,27 @@ namespace Content.Server.ADT.BookPrinter
             var bookContainer = _itemSlotsSystem.GetItemOrNull(bookPrinter, "bookSlot");
             if (bookContainer is not { Valid: true })
                 return;
-            if (BookPrinterEntries.Count() < 1)
-                return;
 
             if (message.Actor is not { Valid: true } entity || Deleted(entity))
                 return;
 
+            if (!IsAuthorized(bookPrinter, entity, bookPrinter))
+                return;
+
             RefreshBookContent();
 
-            if (IsAuthorized(bookPrinter, entity, bookPrinter))
+            if (bookPrinter.Comp.PrintBookEntry is null)
             {
-                if (bookPrinter.Comp.PrintBookEntry is null)
+                var content = GetContent(bookContainer.Value);
+                if (content is not null)
                 {
-                    bookPrinter.Comp.PrintBookEntry = GetContent(bookContainer.Value);
+                    bookPrinter.Comp.PrintBookEntry = content;
+                    _popupSystem.PopupEntity(Loc.GetString("book-printer-copied"), bookPrinter);
                 }
-                else if (TryLowerCartridgeCharge(bookPrinter))
-                {
-                    SetupTask(bookPrinter, "Printing");
-                }
-
+            }
+            else if (TryLowerCartridgeCharge(bookPrinter))
+            {
+                SetupTask(bookPrinter, "Printing");
             }
 
             UpdateUiState(bookPrinter);
@@ -328,19 +332,20 @@ namespace Content.Server.ADT.BookPrinter
 
             if (bookContainer is { Valid: true })
             {
-                if (bookPrinter.Comp.WorkType == "Clearing" || bookPrinter.Comp.WorkType == "Printing")
+                if (bookPrinter.Comp.WorkType == "Clearing")
                     ClearContent(bookContainer.Value);
 
                 if (bookPrinter.Comp.WorkType == "Printing" && bookPrinter.Comp.PrintBookEntry is not null)
+                {
+                    ClearContent(bookContainer.Value);
                     SetContent(bookContainer.Value, bookPrinter.Comp.PrintBookEntry, bookPrinter);
-
+                }
             }
 
             FlushTask(bookPrinter);
             UpdateUiState(bookPrinter);
 
             _audio.PlayPvs(bookPrinter.Comp.ClickSound, bookPrinter, AudioParams.Default.WithVolume(5f));
-
         }
 
         private void SetupTask(Entity<BookPrinterComponent> bookPrinter, string? taskName)
