@@ -79,7 +79,8 @@ namespace Content.Server.ADT.BookPrinter
             {
                 if (!Transform(uid).Anchored)
                 {
-                    FlushTask((uid, printer));
+                    if (printer.WorkType is not null)
+                        FlushTask((uid, printer));
                     continue;
                 }
 
