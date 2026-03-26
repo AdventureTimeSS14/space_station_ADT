@@ -14465,7 +14465,6 @@ entities:
       pos: 1.5,43.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
       deviceLists:
       - 432
 - proto: AltarConvert
@@ -68801,7 +68800,6 @@ entities:
       pos: 4.5,38.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
       deviceLists:
       - 432
   - uid: 10840
@@ -93380,7 +93378,6 @@ entities:
       pos: -1.5,38.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
       deviceLists:
       - 432
     - type: AtmosPipeColor
@@ -93432,7 +93429,6 @@ entities:
       pos: -40.5,-19.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
       deviceLists:
       - 431
     - type: AtmosPipeColor
@@ -93446,7 +93442,6 @@ entities:
       pos: 2.5,38.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
       deviceLists:
       - 432
     - type: AtmosPipeColor
