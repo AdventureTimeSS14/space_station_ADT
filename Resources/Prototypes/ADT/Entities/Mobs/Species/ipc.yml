@@ -191,13 +191,13 @@
     moduleWhitelist:
       tags:
       - BorgModuleGeneric
-      - BorgModuleService
-      - BorgModuleJanitor
-      - BorgModuleMedical
-      - BorgModuleScience
-      - BorgModuleEngineering
-      - BorgModuleCargo
-      - ADTBorgModuleSecurity
+      #- BorgModuleService
+      #- BorgModuleJanitor
+      #- BorgModuleMedical
+      #- BorgModuleScience
+      #- BorgModuleEngineering
+      #- BorgModuleCargo
+      #- ADTBorgModuleSecurity
     ipc: true
 
 - type: entity
