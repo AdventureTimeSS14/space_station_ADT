@@ -12,6 +12,7 @@ using Robust.Shared.Containers;
 using Robust.Shared.Map;
 using Robust.Shared.Timing;
 using Robust.Shared.Map.Components;
+using Content.Shared.ADT.Mime;
 
 namespace Content.Shared.Abilities.Mime;
 
@@ -193,6 +194,20 @@ public sealed class MimePowersSystem : EntitySystem
         _alertsSystem.ClearAlert(uid, mimePowers.VowAlert);
         _alertsSystem.ShowAlert(uid, mimePowers.VowBrokenAlert);
         _actionsSystem.RemoveAction(uid, mimePowers.InvisibleWallActionEntity);
+
+        // ADT-Tweak start
+        if (TryComp<MimeFingerGunComponent>(uid, out var fingerGun))
+        {
+            _actionsSystem.RemoveAction(uid, fingerGun.FingerGunActionEntity);
+            Dirty(uid, fingerGun);
+        }
+
+        if (TryComp<MimeThroatPunchComponent>(uid, out var throatPunch))
+        {
+            _actionsSystem.RemoveAction(uid, throatPunch.ThroatPunchActionEntity);
+            Dirty(uid, throatPunch);
+        }
+        // ADT-Tweak end
     }
 
     /// <summary>
@@ -224,5 +239,19 @@ public sealed class MimePowersSystem : EntitySystem
         _alertsSystem.ClearAlert(uid, mimePowers.VowBrokenAlert);
         _alertsSystem.ShowAlert(uid, mimePowers.VowAlert);
         _actionsSystem.AddAction(uid, ref mimePowers.InvisibleWallActionEntity, mimePowers.InvisibleWallAction, uid);
+
+        // ADT-Tweak start
+        if (TryComp<MimeFingerGunComponent>(uid, out var fingerGun))
+        {
+            _actionsSystem.AddAction(uid, ref fingerGun.FingerGunActionEntity, fingerGun.FingerGunAction, uid);
+            Dirty(uid, fingerGun);
+        }
+
+        if (TryComp<MimeThroatPunchComponent>(uid, out var throatPunch))
+        {
+            _actionsSystem.AddAction(uid, ref throatPunch.ThroatPunchActionEntity, throatPunch.ThroatPunchAction, uid);
+            Dirty(uid, throatPunch);
+        }
+        // ADT-Tweak end
     }
 }

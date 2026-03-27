@@ -7,10 +7,8 @@
     icon:
       sprite: ADT/Interface/Actions/mime.rsi
       state: fingergun
-    useDelay: 10
-  - type: TargetAction
-    range: 15
-  - type: WorldTargetAction
+    useDelay: 60
+  - type: InstantAction
     event: !type:MimeFingerGunActionEvent
 
 - type: entity

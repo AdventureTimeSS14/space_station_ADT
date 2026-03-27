@@ -1,0 +1,14 @@
+- type: entity
+  id: ADTCartridgeMime
+  name: mime cartridge
+  description: An invisible cartridge for an invisible revolver. Only a mime could love it.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Tag
+    tags:
+      - Cartridge
+      - CartridgeMagnum
+  - type: CartridgeAmmo
+    proto: ADTMimeInvisibleBullet
+    caseless: true
+  - type: Appearance

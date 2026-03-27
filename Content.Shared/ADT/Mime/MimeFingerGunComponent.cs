@@ -1,7 +1,7 @@
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
-namespace Content.Server.ADT.Mime;
+namespace Content.Shared.ADT.Mime;
 
 [RegisterComponent]
 public sealed partial class MimeFingerGunComponent : Component
@@ -11,4 +11,10 @@ public sealed partial class MimeFingerGunComponent : Component
 
     [DataField("fingerGunActionEntity")]
     public EntityUid? FingerGunActionEntity;
+
+    [DataField("fingerGunEntity")]
+    public EntityUid? FingerGunEntity;
+
+    [DataField("fingerGunPrototype")]
+    public string FingerGunPrototype = "ADTMimeFingerGun";
 }

@@ -1,31 +1,23 @@
-using Content.Shared.Abilities.Mime;
 using Content.Server.Chat.Managers;
+using Content.Server.Hands.Systems;
 using Content.Server.Popups;
+using Content.Shared.Abilities.Mime;
 using Content.Shared.Actions;
 using Content.Shared.ADT.Mime;
 using Content.Shared.Chat;
-using Content.Shared.Weapons.Ranged.Systems;
 using Robust.Server.Player;
-using Robust.Shared.Containers;
-using Robust.Shared.Map;
-using Robust.Shared.Physics.Systems;
-using Robust.Shared.Random;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.ADT.Mime;
 
 public sealed class MimeFingerGunSystem : EntitySystem
 {
+    [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
+    [Dependency] private readonly HandsSystem _handsSystem = default!;
+    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IChatManager _chatManager = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly SharedGunSystem _gunSystem = default!;
-    [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly PopupSystem _popupSystem = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly IMapManager _mapManager = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly SharedMapSystem _mapSystem = default!;
 
     public override void Initialize()
     {
@@ -47,24 +39,48 @@ public sealed class MimeFingerGunSystem : EntitySystem
         if (!mimePowers.Enabled)
             return;
 
-        if (_container.IsEntityOrParentInContainer(uid))
+        if (component.FingerGunEntity.HasValue && Exists(component.FingerGunEntity.Value))
+        {
+            args.Handled = true;
             return;
+        }
 
-        var xform = Transform(uid);
-        var fromCoords = xform.Coordinates;
-        var toCoords = args.Target;
-        var userVelocity = _physics.GetMapLinearVelocity(uid);
+        var gunPrototype = component.FingerGunPrototype;
+        if (!_prototypeManager.TryIndex<EntityPrototype>(gunPrototype, out var prototype))
+        {
+            Log.Error($"[MimeFingerGun] Не найден прототип {gunPrototype}");
+            args.Handled = true;
+            return;
+        }
 
-        var fromMap = _transform.ToMapCoordinates(fromCoords);
-        var spawnCoords = _mapManager.TryFindGridAt(fromMap, out var gridUid, out _)
-            ? _transform.WithEntityId(fromCoords, gridUid)
-            : new(_mapSystem.GetMap(fromMap.MapId), fromMap.Position);
+        var gunEntity = Spawn(gunPrototype, Transform(uid).Coordinates);
+        component.FingerGunEntity = gunEntity;
+        Dirty(uid, component);
 
-        var projectile = Spawn("ADTMimeInvisibleBullet", spawnCoords);
-        var direction = _transform.ToMapCoordinates(toCoords).Position -
-                         _transform.ToMapCoordinates(spawnCoords).Position;
-        _gunSystem.ShootProjectile(projectile, direction, userVelocity, uid, uid);
+        if (TryComp<MimeFingerGunItemComponent>(gunEntity, out var gunItem))
+        {
+            gunItem.MimeUid = uid;
+            gunItem.RemainingShots = gunItem.MaxShots;
+            Dirty(gunEntity, gunItem);
+        }
 
+        if (!_handsSystem.TryPickupAnyHand(uid, gunEntity))
+        {
+            _popupSystem.PopupEntity(Loc.GetString("mime-finger-gun-no-hands"), uid, uid);
+            Del(gunEntity);
+            component.FingerGunEntity = null;
+            Dirty(uid, component);
+            args.Handled = true;
+            return;
+        }
+
+        ShowFingerGunEmote(uid);
+
+        args.Handled = true;
+    }
+
+    private void ShowFingerGunEmote(EntityUid uid)
+    {
         var message = Loc.GetString("mime-finger-gun-emote", ("entity", uid));
         var wrappedMessage = Loc.GetString("chat-manager-entity-me-wrap-message",
             ("entityName", Name(uid)),
@@ -74,17 +90,5 @@ public sealed class MimeFingerGunSystem : EntitySystem
         {
             _chatManager.ChatMessageToOne(ChatChannel.Emotes, message, wrappedMessage, uid, false, session.Channel);
         }
-
-        var soundVariants = new[]
-        {
-            Loc.GetString("mime-finger-gun-popup-1"),
-            Loc.GetString("mime-finger-gun-popup-2"),
-            Loc.GetString("mime-finger-gun-popup-3"),
-            Loc.GetString("mime-finger-gun-popup-4")
-        };
-        var randomSound = _random.Pick(soundVariants);
-        _popupSystem.PopupEntity(randomSound, uid);
-
-        args.Handled = true;
     }
 }
