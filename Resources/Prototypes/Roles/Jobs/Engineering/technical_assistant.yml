@@ -28,6 +28,7 @@
   - Engineering
   - External
   #ADT-Tweak-Start
+  special:
   - !type:AddSpeciesComponentSpecial
     species: IPC
     components:

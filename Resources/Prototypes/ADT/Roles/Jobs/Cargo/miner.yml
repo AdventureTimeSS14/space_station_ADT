@@ -19,6 +19,7 @@
   - Salvage
   - Maintenance
   - External
+  special:
   - !type:AddSpeciesComponentSpecial
     species: IPC
     components:

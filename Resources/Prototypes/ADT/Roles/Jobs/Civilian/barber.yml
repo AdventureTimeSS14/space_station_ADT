@@ -12,6 +12,7 @@
   access:
   - Service
   - Maintenance
+  special:
   - !type:AddSpeciesComponentSpecial
     species: IPC
     components:
