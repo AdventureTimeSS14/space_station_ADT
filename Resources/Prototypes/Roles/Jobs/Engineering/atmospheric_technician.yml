@@ -20,6 +20,18 @@
   - !type:GiveItemOnHolidaySpecial
     holiday: FirefighterDay
     prototype: FireAxe
+  #ADT-Tweak-Start
+  - !type:AddSpeciesComponentSpecial
+    species: IPC
+    components:
+      - type: BorgChassis
+        maxModules: 1
+        moduleWhitelist:
+          tags:
+          - BorgModuleGeneric
+          - BorgModuleEngineering
+        ipc: true
+  #ADT-Tweak-Start
 
 - type: startingGear
   id: AtmosphericTechnicianGear
