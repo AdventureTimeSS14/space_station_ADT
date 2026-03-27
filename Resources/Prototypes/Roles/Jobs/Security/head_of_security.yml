@@ -56,6 +56,18 @@
       # ADT-Tweak-Start: метка персонала службы безопасности
       - type: SecurityStaff
       # ADT-Tweak-End
+  #ADT-Tweak-Start
+  - !type:AddSpeciesComponentSpecial
+    species: IPC
+    components:
+      - type: BorgChassis
+        maxModules: 1
+        moduleWhitelist:
+          tags:
+          - BorgModuleGeneric
+          - ADTBorgModuleSecurity
+        ipc: true
+  #ADT-Tweak-End
 
 - type: startingGear
   id: HoSGear

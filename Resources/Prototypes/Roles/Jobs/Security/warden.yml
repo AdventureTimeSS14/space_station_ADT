@@ -40,6 +40,18 @@
   - !type:AddComponentSpecial # goobstation
     components:
       - type: SecurityStaff
+  #ADT-Tweak-Start
+  - !type:AddSpeciesComponentSpecial
+    species: IPC
+    components:
+      - type: BorgChassis
+        maxModules: 1
+        moduleWhitelist:
+          tags:
+          - BorgModuleGeneric
+          - ADTBorgModuleSecurity
+        ipc: true
+  #ADT-Tweak-End
 
 - type: startingGear
   id: WardenGear
