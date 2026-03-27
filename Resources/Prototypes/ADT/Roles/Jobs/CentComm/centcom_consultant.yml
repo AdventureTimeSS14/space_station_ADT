@@ -50,6 +50,22 @@
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
+  - !type:AddSpeciesComponentSpecial
+    species: IPC
+    components:
+      - type: BorgChassis
+        maxModules: 1
+        moduleWhitelist:
+          tags:
+          - BorgModuleGeneric
+          - BorgModuleService
+          - BorgModuleJanitor
+          - BorgModuleMedical
+          - BorgModuleScience
+          - BorgModuleEngineering
+          - BorgModuleCargo
+          - ADTBorgModuleSecurity
+        ipc: true
 
 - type: startingGear
   id: ADTCentcomConsultantGear
