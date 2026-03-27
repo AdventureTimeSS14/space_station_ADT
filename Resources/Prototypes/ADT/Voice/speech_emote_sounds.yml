@@ -458,21 +458,21 @@
     IPCDeathgasp:
       path: /Audio/ADT/IPC/borg_deathsound.ogg
     Laugh:
-      collection: IPCMaleLaugh
+      collection: MaleLaugh
     Sneeze:
-      collection: IPCMaleSneezes
+      collection: MaleSneezes
     Cough:
-      collection: IPCMaleCoughs
+      collection: MaleCoughs
     Yawn:
-      collection: IPCMaleYawn
+      collection: MaleYawn
     Sigh:
-      collection: IPCMaleSigh
+      collection: MaleSigh
     Crying:
-      collection: IPCMaleCry
+      collection: MaleCry
     Whistle:
-      collection: IPCWhistles
+      collection: Whistles
     Spit:
-      collection: IPCSpits
+      collection: HumanSpits
 
 - type: emoteSounds
   id: FemaleIPC
@@ -504,21 +504,21 @@
     IPCDeathgasp:
       path: /Audio/ADT/IPC/borg_deathsound.ogg
     Laugh:
-      collection: IPCFemaleLaugh
+      collection: FemaleLaugh
     Sneeze:
-      collection: IPCFemaleSneezes
+      collection: FemaleSneezes
     Cough:
-      collection: IPCFemaleCoughs
+      collection: FemaleCoughs
     Yawn:
-      collection: IPCFemaleYawn
+      collection: FemaleYawn
     Sigh:
-      collection: IPCFemaleSigh
+      collection: FemaleSigh
     Crying:
-      collection: IPCFemaleCry
+      collection: FemaleCry
     Whistle:
-      collection: IPCWhistles
+      collection: Whistles
     Spit:
-      collection: IPCSpits
+      collection: HumanSpits
 
 - type: emoteSounds
   id: MaleUrsus
