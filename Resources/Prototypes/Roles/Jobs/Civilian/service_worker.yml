@@ -28,7 +28,7 @@
           - BorgModuleGeneric
           - BorgModuleService
         ipc: true
-  #ADT-Tweak-Start
+  #ADT-Tweak-End
 
 - type: startingGear
   id: ServiceWorkerGear

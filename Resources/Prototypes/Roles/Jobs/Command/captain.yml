@@ -62,7 +62,7 @@
           - BorgModuleCargo
           - ADTBorgModuleSecurity
         ipc: true
-  #ADT-Tweak-Start
+  #ADT-Tweak-End
       # - type: PhantomTyranyTarget # ADT Phantom
 
 - type: startingGear

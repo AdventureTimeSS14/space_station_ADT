@@ -12,12 +12,10 @@
   - AllAccess
   access:
   - CentralCommand
-  # Start ADT Tweak
+  #ADT-Tweak-Start
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
-  # End ADT Tweak
-  #ADT-Tweak-Start
   - !type:AddSpeciesComponentSpecial
     species: IPC
     components:
@@ -34,7 +32,7 @@
           - BorgModuleCargo
           - ADTBorgModuleSecurity
         ipc: true
-  #ADT-Tweak-Start
+  #ADT-Tweak-End
 
 - type: startingGear
   id: CentcomGear

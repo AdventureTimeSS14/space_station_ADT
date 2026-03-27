@@ -10,11 +10,11 @@
   startingGear: ParamedicGear
   icon: "JobIconParamedic"
   supervisors: job-supervisors-cmo
-  canBeAntag: false # ADT tweak?
+  canBeAntag: false #ADT-Tweak
   access:
   - Medical
   - Maintenance
-  - External # ADT tweak
+  - External #ADT-Tweak
   extendedAccess:
   - Chemistry
   #ADT-Tweak-Start
@@ -28,7 +28,7 @@
           - BorgModuleGeneric
           - BorgModuleMedical
         ipc: true
-  #ADT-Tweak-Start
+  #ADT-Tweak-End
 
 - type: startingGear
   id: ParamedicGear

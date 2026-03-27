@@ -31,7 +31,7 @@
           - BorgModuleGeneric
           - BorgModuleEngineering
         ipc: true
-  #ADT-Tweak-Start
+  #ADT-Tweak-End
 
 - type: startingGear
   id: AtmosphericTechnicianGear

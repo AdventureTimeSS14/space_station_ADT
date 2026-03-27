@@ -30,7 +30,7 @@
           tags:
           - BorgModuleGeneric
         ipc: true
-  #ADT-Tweak-Start
+  #ADT-Tweak-End
 
 - type: startingGear
   id: LawyerGear

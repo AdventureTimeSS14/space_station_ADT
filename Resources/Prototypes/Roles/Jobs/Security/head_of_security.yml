@@ -53,10 +53,8 @@
     components:
       - type: CommandStaff
       # - type: PhantomTyranyTarget # ADT Phantom
-      # ADT-Tweak-Start: метка персонала службы безопасности
-      - type: SecurityStaff
-      # ADT-Tweak-End
   #ADT-Tweak-Start
+      - type: SecurityStaff
   - !type:AddSpeciesComponentSpecial
     species: IPC
     components:
