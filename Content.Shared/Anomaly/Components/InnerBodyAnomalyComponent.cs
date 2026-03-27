@@ -24,6 +24,14 @@ public sealed partial class InnerBodyAnomalyComponent : Component
     public EntProtoId? InjectionProto;
 
     /// <summary>
+    /// ADT-Tweak
+    /// List of component UIDs that were added by the anomaly.
+    /// Used to remove only the specific components added by the anomaly, not all components of the same type.
+    /// </summary>
+    [ViewVariables]
+    public List<ushort> AddedComponentNetIds = new();
+
+    /// <summary>
     /// Duration of stun from the effect of the anomaly
     /// </summary>
     [DataField]
