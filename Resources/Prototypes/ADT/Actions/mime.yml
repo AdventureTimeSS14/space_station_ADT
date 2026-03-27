@@ -6,7 +6,7 @@
   - type: Action
     icon:
       sprite: ADT/Interface/Actions/mime.rsi
-      state: pistol
+      state: fingergun
     useDelay: 10
   - type: TargetAction
     range: 15
@@ -21,7 +21,7 @@
   - type: Action
     icon:
       sprite: ADT/Interface/Actions/mime.rsi
-      state: thhhh
+      state: mime_silence
     useDelay: 12
   - type: TargetAction
     range: 1.5

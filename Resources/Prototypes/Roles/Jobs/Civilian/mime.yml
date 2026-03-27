@@ -49,8 +49,8 @@
     priority: -1
     useDelay: 30
     icon:
-      sprite: Structures/Walls/solid.rsi
-      state: full
+      sprite: ADT/Interface/Actions/mime.rsi
+      state: mime_bigwall
   - type: InstantAction
     event: !type:InvisibleWallActionEvent
 
