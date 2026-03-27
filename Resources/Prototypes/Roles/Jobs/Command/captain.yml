@@ -45,6 +45,24 @@
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
+  #ADT-Tweak-Start
+  - !type:AddSpeciesComponentSpecial
+    species: IPC
+    components:
+      - type: BorgChassis
+        maxModules: 1
+        moduleWhitelist:
+          tags:
+          - BorgModuleGeneric
+          - BorgModuleService
+          - BorgModuleJanitor
+          - BorgModuleMedical
+          - BorgModuleScience
+          - BorgModuleEngineering
+          - BorgModuleCargo
+          - ADTBorgModuleSecurity
+        ipc: true
+  #ADT-Tweak-Start
       # - type: PhantomTyranyTarget # ADT Phantom
 
 - type: startingGear

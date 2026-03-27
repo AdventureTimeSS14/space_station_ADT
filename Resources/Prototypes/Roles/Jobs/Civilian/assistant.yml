@@ -8,6 +8,17 @@
   supervisors: job-supervisors-everyone
   access:
   - Maintenance
+  #ADT-Tweak-Start
+  - !type:AddSpeciesComponentSpecial
+    species: IPC
+    components:
+      - type: BorgChassis
+        maxModules: 1
+        moduleWhitelist:
+          tags:
+          - BorgModuleGeneric
+        ipc: true
+  #ADT-Tweak-Start
 
 - type: startingGear
   id: PassengerGear

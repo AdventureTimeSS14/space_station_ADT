@@ -14,3 +14,14 @@
   extendedAccess:
   - External
   - Maintenance # Corvax-MRP
+  #ADT-Tweak-Start
+  - !type:AddSpeciesComponentSpecial
+    species: IPC
+    components:
+      - type: BorgChassis
+        maxModules: 1
+        moduleWhitelist:
+          tags:
+          - BorgModuleGeneric
+        ipc: true
+  #ADT-Tweak-Start
