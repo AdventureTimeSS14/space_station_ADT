@@ -9,6 +9,18 @@
   access:
   - Service
   - Maintenance
+  #ADT-Tweak-Start
+  - !type:AddSpeciesComponentSpecial
+    species: IPC
+    components:
+      - type: BorgChassis
+        maxModules: 1
+        moduleWhitelist:
+          tags:
+          - BorgModuleGeneric
+          - BorgModuleService
+        ipc: true
+  #ADT-Tweak-Start
 
 - type: startingGear
   id: ReporterGear

@@ -16,6 +16,18 @@
   - Maintenance
   extendedAccess:
   - Chemistry
+  #ADT-Tweak-Start
+  - !type:AddSpeciesComponentSpecial
+    species: IPC
+    components:
+      - type: BorgChassis
+        maxModules: 1
+        moduleWhitelist:
+          tags:
+          - BorgModuleGeneric
+          - BorgModuleMedical
+        ipc: true
+  #ADT-Tweak-Start
 
 - type: startingGear
   id: PsychologistGear
