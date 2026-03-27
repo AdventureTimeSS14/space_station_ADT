@@ -14,5 +14,6 @@ namespace Content.Shared.Eye
         Narcotic = 1 << 2, // ADT-Changeling-Tweak
         Schizo = 1 << 3, // ADT-Changeling-Tweak
         LingToxin = 1 << 4, // ADT-Changeling-Tweak
+        Eldritch = 1 << 5, // ADT-Tweak Heretic
     }
 }
