@@ -49,8 +49,10 @@
     priority: -1
     useDelay: 30
     icon:
+    # ADT-Tweak start
       sprite: ADT/Interface/Actions/mime.rsi
       state: mime_bigwall
+    # ADT-Tweak end
   - type: InstantAction
     event: !type:InvisibleWallActionEvent
 
