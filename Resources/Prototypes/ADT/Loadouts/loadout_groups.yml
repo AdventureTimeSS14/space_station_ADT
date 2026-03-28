@@ -1418,6 +1418,7 @@
   name: loadout-ipc-module-adt
   minLimit: 0
   maxLimit: 1
+  species: IPC
   loadouts:
   - ADTModuleTool
   - ADTModuleCable

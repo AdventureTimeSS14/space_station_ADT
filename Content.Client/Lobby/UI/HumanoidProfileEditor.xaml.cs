@@ -1270,6 +1270,10 @@ namespace Content.Client.Lobby.UI
             if (collection == null || _playerManager.LocalSession == null || Profile == null)
                 return;
 
+            //ADT-Tweak-Start
+            roleLoadout.EnsureValid(Profile, _playerManager.LocalSession, collection);
+            //ADT-Tweak-End
+
             JobOverride = jobProto;
             var session = _playerManager.LocalSession;
 
@@ -1330,6 +1334,14 @@ namespace Content.Client.Lobby.UI
         {
             _loadoutWindow?.Dispose();
             _loadoutWindow = null;
+            //ADT-Tweak-Start
+            var collection = IoCManager.Instance;
+
+            if (collection == null || _playerManager.LocalSession == null || Profile == null)
+                return;
+
+            roleLoadout.EnsureValid(Profile, _playerManager.LocalSession, collection);
+            //ADT-Tweak-End
 
             _loadoutWindow = _factory.CreateInstance(Type.GetType($"Content.Client.Lobby.UI.Loadouts.{windowName}")!) as BaseLoadoutWindow;
             if (_loadoutWindow is not ILoadoutOverride loadoutWindow)

@@ -1,5 +1,6 @@
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Array;
+using Content.Shared.Humanoid.Prototypes; //ADT-Tweak
 
 namespace Content.Shared.Preferences.Loadouts;
 
@@ -54,4 +55,9 @@ public sealed partial class LoadoutGroupPrototype : IPrototype, IInheritingProto
     [AlwaysPushInheritance]
     [DataField(required: true)]
     public List<ProtoId<LoadoutPrototype>> Loadouts = new();
+
+    //ADT-Tweak-Start
+    [DataField]
+    public ProtoId<SpeciesPrototype>? Species; //ADT-Tweak
+    //ADT-Tweak-End
 }
