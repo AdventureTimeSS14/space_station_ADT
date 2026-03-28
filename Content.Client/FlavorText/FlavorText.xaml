@@ -8,6 +8,26 @@
                   VerticalExpand="True"
                   SeparationOverride="10">
 
+        <PanelContainer HorizontalExpand="True">
+            <PanelContainer.PanelOverride>
+                <gfx:StyleBoxFlat BackgroundColor="#2d2d2d"/>
+            </PanelContainer.PanelOverride>
+            <BoxContainer Orientation="Vertical" Margin="10">
+                <ui:Label Text="{Loc 'flavor-interface-rules-title'}"
+                          Margin="0 0 0 8"
+                          StyleClasses="LabelHeading"/>
+                <BoxContainer Orientation="Horizontal">
+                    <Button Name="RulesButton"
+                            Text="{Loc 'flavor-interface-rules-button'}"
+                            HorizontalExpand="True"/>
+                    <ui:Label Name="RulesStatusLabel"
+                              Text="{Loc 'flavor-interface-rules-not-accepted'}"
+                              HorizontalExpand="True"
+                              HorizontalAlignment="Right"/>
+                </BoxContainer>
+            </BoxContainer>
+        </PanelContainer>
+
         <!-- Flavor Text Section -->
         <PanelContainer HorizontalExpand="True" VerticalExpand="True">
             <PanelContainer.PanelOverride>
@@ -24,25 +44,8 @@
                           Access="Public"
                           MinSize="220 100"
                           HorizontalExpand="True"
-                          VerticalExpand="True"/>
-            </BoxContainer>
-        </PanelContainer>
-
-        <!-- OOC Notes Section -->
-        <PanelContainer HorizontalExpand="True" VerticalExpand="True">
-            <PanelContainer.PanelOverride>
-                <gfx:StyleBoxFlat BackgroundColor="#2d2d2d"/>
-            </PanelContainer.PanelOverride>
-            <BoxContainer Orientation="Vertical" Margin="10">
-                <ui:Label Text="{Loc 'flavor-interface-OOC-notes'}"
-                          Margin="0 0 0 8"
-                          StyleClasses="LabelHeading"/>
-
-                <TextEdit Name="COOCTextInput"
-                          Access="Public"
-                          MinSize="220 100"
-                          HorizontalExpand="True"
-                          VerticalExpand="True"/>
+                          VerticalExpand="True"
+                          Editable="False"/>
             </BoxContainer>
         </PanelContainer>
 
@@ -61,7 +64,8 @@
                              Access="Public"
                              HorizontalExpand="True"
                              PlaceHolder="Вставьте сюда ссылку"
-                             MinSize="0 30"/>
+                             MinSize="0 30"
+                             Editable="False"/>
             </BoxContainer>
         </PanelContainer>
     </BoxContainer>
