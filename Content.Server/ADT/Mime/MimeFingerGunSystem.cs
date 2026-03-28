@@ -41,16 +41,12 @@ public sealed class MimeFingerGunSystem : EntitySystem
             return;
 
         if (component.FingerGunEntity.HasValue && Exists(component.FingerGunEntity.Value))
-        {
-            args.Handled = true;
             return;
-        }
 
         var gunPrototype = component.FingerGunPrototype;
         if (!_prototypeManager.TryIndex<EntityPrototype>(gunPrototype, out var prototype))
         {
             Log.Error($"[MimeFingerGun] Не найден прототип {gunPrototype}");
-            args.Handled = true;
             return;
         }
 
@@ -72,7 +68,6 @@ public sealed class MimeFingerGunSystem : EntitySystem
             Del(gunEntity);
             component.FingerGunEntity = null;
             Dirty(uid, component);
-            args.Handled = true;
             return;
         }
 
