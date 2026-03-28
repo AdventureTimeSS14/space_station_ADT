@@ -30,5 +30,3 @@
     whitelist:
       tags: []
   - type: MimeFingerGunItem
-    maxShots: 4
-    remainingShots: 4

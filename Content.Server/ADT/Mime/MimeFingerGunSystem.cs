@@ -5,6 +5,7 @@ using Content.Shared.Abilities.Mime;
 using Content.Shared.Actions;
 using Content.Shared.ADT.Mime;
 using Content.Shared.Chat;
+using Content.Shared.Weapons.Ranged.Components;
 using Robust.Server.Player;
 using Robust.Shared.Prototypes;
 
@@ -60,8 +61,9 @@ public sealed class MimeFingerGunSystem : EntitySystem
         if (TryComp<MimeFingerGunItemComponent>(gunEntity, out var gunItem))
         {
             gunItem.MimeUid = uid;
-            gunItem.RemainingShots = gunItem.MaxShots;
             Dirty(gunEntity, gunItem);
+
+            ResetRevolver(gunEntity);
         }
 
         if (!_handsSystem.TryPickupAnyHand(uid, gunEntity))
@@ -77,6 +79,19 @@ public sealed class MimeFingerGunSystem : EntitySystem
         ShowFingerGunEmote(uid);
 
         args.Handled = true;
+    }
+
+    private void ResetRevolver(EntityUid uid)
+    {
+        if (!TryComp<RevolverAmmoProviderComponent>(uid, out var revolver))
+            return;
+
+        for (var i = 0; i < revolver.Chambers.Length; i++)
+        {
+            revolver.Chambers[i] = true;
+        }
+
+        Dirty(uid, revolver);
     }
 
     private void ShowFingerGunEmote(EntityUid uid)

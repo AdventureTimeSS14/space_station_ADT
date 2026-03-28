@@ -7,10 +7,4 @@ public sealed partial class MimeFingerGunItemComponent : Component
 {
     [DataField("mimeUid")]
     public EntityUid? MimeUid;
-
-    [DataField("maxShots")]
-    public int MaxShots = 4;
-
-    [DataField("remainingShots")]
-    public int RemainingShots = 4;
 }

@@ -59,7 +59,10 @@ public sealed class MimeSilenceSystem : EntitySystem
             EnsureComp<MutedComponent>(entity);
             _alertsSystem.ShowAlert(entity, "Muted");
             _popupSystem.PopupEntity(Loc.GetString("mime-silence-target", ("duration", args.MuteDuration)), entity, entity);
-            AddComp<MutedTimerComponent>(entity).ExpiryTime = _timing.CurTime + TimeSpan.FromSeconds(args.MuteDuration);
+
+            var timer = EnsureComp<MutedTimerComponent>(entity);
+            timer.ExpiryTime = _timing.CurTime + TimeSpan.FromSeconds(args.MuteDuration);
+            Dirty(entity, timer);
         }
 
         args.Handled = true;
