@@ -12,20 +12,17 @@
     event: !type:MimeFingerGunActionEvent
 
 - type: entity
-  id: ADTActionMimeThroatPunch
-  name: Throat Punch
-  description: Silence your target with a swift strike to the throat!
+  id: ADTActionMimeSilence
+  name: Silence
+  description: Silence everyone around you with a theatrical gesture!
   components:
   - type: Action
     icon:
       sprite: ADT/Interface/Actions/mime.rsi
       state: mime_silence
-    useDelay: 12
-  - type: TargetAction
-    range: 1.5
-  - type: EntityTargetAction
-    canTargetSelf: false
-    whitelist:
-      components:
-      - Body
-    event: !type:MimeThroatPunchActionEvent
+    useDelay: 60
+  - type: InstantAction
+    event:
+      !type:MimeSilenceActionEvent
+      range: 5
+      muteDuration: 10

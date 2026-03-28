@@ -202,10 +202,10 @@ public sealed class MimePowersSystem : EntitySystem
             Dirty(uid, fingerGun);
         }
 
-        if (TryComp<MimeThroatPunchComponent>(uid, out var throatPunch))
+        if (TryComp<MimeSilenceComponent>(uid, out var silence))
         {
-            _actionsSystem.RemoveAction(uid, throatPunch.ThroatPunchActionEntity);
-            Dirty(uid, throatPunch);
+            _actionsSystem.RemoveAction(uid, silence.SilenceActionEntity);
+            Dirty(uid, silence);
         }
         // ADT-Tweak end
     }
@@ -247,10 +247,10 @@ public sealed class MimePowersSystem : EntitySystem
             Dirty(uid, fingerGun);
         }
 
-        if (TryComp<MimeThroatPunchComponent>(uid, out var throatPunch))
+        if (TryComp<MimeSilenceComponent>(uid, out var silence))
         {
-            _actionsSystem.AddAction(uid, ref throatPunch.ThroatPunchActionEntity, throatPunch.ThroatPunchAction, uid);
-            Dirty(uid, throatPunch);
+            _actionsSystem.AddAction(uid, ref silence.SilenceActionEntity, silence.SilenceAction, uid);
+            Dirty(uid, silence);
         }
         // ADT-Tweak end
     }
