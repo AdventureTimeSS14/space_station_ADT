@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: Princess-Cheeseballs
-  changes:
-  - message: Meat Kudzu gasps less often.
-    type: Tweak
-  id: 9082
-  time: '2025-10-12T10:47:30.0000000+00:00'
-  url: https://github.com/space-wizards/space-station-14/pull/39304
 - author: PJB3005
   changes:
   - message: The patrons list in the in-game credits works again.
@@ -4034,3 +4027,11 @@
   id: 9593
   time: '2026-03-28T16:01:16.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/43362
+- author: M4rchy-S
+  changes:
+  - message: '"Reduce motion of visual effects" now works for drunk and blood loss
+      status'
+    type: Add
+  id: 9594
+  time: '2026-03-28T22:19:17.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/41878
