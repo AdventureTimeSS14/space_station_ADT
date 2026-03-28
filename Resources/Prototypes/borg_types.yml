@@ -159,7 +159,7 @@
   defaultModules:
   - BorgModuleTool
   # ADT-Tweak-Start: "MedborgModuleUpdate"
-  - ADTBorgModuleChemical
+  - ADTBorgModuleMedicinal
   - BorgModuleTopicals
   - ADTBorgModuleRescue
   # ADT-Tweak-end

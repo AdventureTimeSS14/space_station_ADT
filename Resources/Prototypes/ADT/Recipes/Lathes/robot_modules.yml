@@ -1,7 +1,7 @@
 - type: latheRecipe
   parent: BaseGoldBorgModuleRecipe
-  id: ADTBorgModuleChemical
-  result: ADTBorgModuleChemical
+  id: ADTBorgModuleMedicinal
+  result: ADTBorgModuleMedicinal
 
 - type: latheRecipe
   parent: BaseGoldBorgModuleRecipe

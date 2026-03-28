@@ -879,3 +879,6 @@ BoozeDispenserEmpty: ADTEnergyBoozeDispenser
 SodaDispenserMachineCircuitboard: ADTEnergySodaDispenserMachineCircuitboard
 SodaDispenser: ADTEnergySodaDispenser
 SodaDispenserEmpty: ADTEnergySodaDispenser
+
+# ADT 2026-03-29
+ADTBorgModuleChemical: ADTModuleMedicinal

@@ -1426,6 +1426,263 @@
   - ADTModuleFireExtinguisher
   - ADTModuleArtistry
 
+- type: loadoutGroup
+  id: ADTIpcModulesJanitor
+  name: loadout-ipc-module-adt
+  minLimit: 0
+  maxLimit: 1
+  species: IPC
+  loadouts:
+  - ADTModuleCustodial
+  - ADTModuleCleaning
+  - ADTModuleTool
+  - ADTModuleCable
+  - ADTModuleInflatable
+  - ADTModuleFireExtinguisher
+  - ADTModuleArtistry
+
+- type: loadoutGroup
+  id: ADTIpcModulesMiner
+  name: loadout-ipc-module-adt
+  minLimit: 0
+  maxLimit: 1
+  species: IPC
+  loadouts:
+  - ADTModuleAppraisal
+  - ADTModuleSalvage
+  - ADTModuleMining
+  - ADTModuleTool
+  - ADTModuleCable
+  - ADTModuleInflatable
+  - ADTModuleFireExtinguisher
+  - ADTModuleArtistry
+
+- type: loadoutGroup
+  id: ADTIpcModulesCargo
+  name: loadout-ipc-module-adt
+  minLimit: 0
+  maxLimit: 1
+  species: IPC
+  loadouts:
+  - ADTModuleAppraisal
+  - ADTModuleTool
+  - ADTModuleCable
+  - ADTModuleInflatable
+  - ADTModuleFireExtinguisher
+  - ADTModuleArtistry
+
+- type: loadoutGroup
+  id: ADTIpcModulesHoP
+  name: loadout-ipc-module-adt
+  minLimit: 0
+  maxLimit: 1
+  species: IPC
+  loadouts:
+  - BorgModuleMusique
+  - BorgModuleGardening
+  - BorgModuleHarvesting
+  - BorgModuleService
+  - ADTModuleCustodial
+  - ADTModuleCleaning
+  - ADTModuleTool
+  - ADTModuleCable
+  - ADTModuleInflatable
+  - ADTModuleFireExtinguisher
+  - ADTModuleArtistry
+
+- type: loadoutGroup
+  id: ADTIpcModulesClown
+  name: loadout-ipc-module-adt
+  minLimit: 0
+  maxLimit: 1
+  species: IPC
+  loadouts:
+  - ADTModuleClowning
+  - ADTModuleTool
+  - ADTModuleCable
+  - ADTModuleInflatable
+  - ADTModuleFireExtinguisher
+  - ADTModuleArtistry
+
+- type: loadoutGroup
+  id: ADTIpcModulesMusician
+  name: loadout-ipc-module-adt
+  minLimit: 0
+  maxLimit: 1
+  species: IPC
+  loadouts:
+  - BorgModuleMusique
+  - ADTModuleTool
+  - ADTModuleCable
+  - ADTModuleInflatable
+  - ADTModuleFireExtinguisher
+  - ADTModuleArtistry
+
+- type: loadoutGroup
+  id: ADTIpcModulesBotanist
+  name: loadout-ipc-module-adt
+  minLimit: 0
+  maxLimit: 1
+  species: IPC
+  loadouts:
+  - BorgModuleGardening
+  - BorgModuleHarvesting
+  - ADTModuleTool
+  - ADTModuleCable
+  - ADTModuleInflatable
+  - ADTModuleFireExtinguisher
+  - ADTModuleArtistry
+
+- type: loadoutGroup
+  id: ADTIpcModulesService
+  name: loadout-ipc-module-adt
+  minLimit: 0
+  maxLimit: 1
+  species: IPC
+  loadouts:
+  - BorgModuleService
+  - ADTModuleTool
+  - ADTModuleCable
+  - ADTModuleInflatable
+  - ADTModuleFireExtinguisher
+  - ADTModuleArtistry
+
+- type: loadoutGroup
+  id: ADTIpcModulesTechnicalAssistant
+  name: loadout-ipc-module-adt
+  minLimit: 0
+  maxLimit: 1
+  species: IPC
+  loadouts:
+  - ADTModuleRCD
+  - ADTModuleTool
+  - ADTModuleCable
+  - ADTModuleInflatable
+  - ADTModuleFireExtinguisher
+  - ADTModuleArtistry
+
+- type: loadoutGroup
+  id: ADTIpcModulesEngineer
+  name: loadout-ipc-module-adt
+  minLimit: 0
+  maxLimit: 1
+  species: IPC
+  loadouts:
+  - ADTModuleRCD
+  - ADTModuleConstruction
+  - ADTModuleTool
+  - ADTModuleCable
+  - ADTModuleInflatable
+  - ADTModuleFireExtinguisher
+  - ADTModuleArtistry
+
+- type: loadoutGroup
+  id: ADTIpcModulesAtmosphericTechnician
+  name: loadout-ipc-module-adt
+  minLimit: 0
+  maxLimit: 1
+  species: IPC
+  loadouts:
+  - ADTModuleRCD
+  - ADTModuleConstruction
+  - ADTModuleRPD
+  - ADTModuleTool
+  - ADTModuleCable
+  - ADTModuleInflatable
+  - ADTModuleFireExtinguisher
+  - ADTModuleArtistry
+
+- type: loadoutGroup
+  id: ADTIpcModulesScientist
+  name: loadout-ipc-module-adt
+  minLimit: 0
+  maxLimit: 1
+  species: IPC
+  loadouts:
+  - ADTModuleAnomaly
+  - ADTModuleArtifact
+  - ADTModuleTool
+  - ADTModuleCable
+  - ADTModuleInflatable
+  - ADTModuleFireExtinguisher
+  - ADTModuleArtistry
+
+- type: loadoutGroup
+  id: ADTIpcModulesIntern
+  name: loadout-ipc-module-adt
+  minLimit: 0
+  maxLimit: 1
+  species: IPC
+  loadouts:
+  - ADTModuleTopicals
+  - ADTModuleTool
+  - ADTModuleCable
+  - ADTModuleInflatable
+  - ADTModuleFireExtinguisher
+  - ADTModuleArtistry
+
+- type: loadoutGroup
+  id: ADTIpcModulesPathologist
+  name: loadout-ipc-module-adt
+  minLimit: 0
+  maxLimit: 1
+  species: IPC
+  loadouts:
+  - ADTModuleTopicals
+  - ADTModuleMedicinal
+  - ADTModuleTool
+  - ADTModuleCable
+  - ADTModuleInflatable
+  - ADTModuleFireExtinguisher
+  - ADTModuleArtistry
+
+- type: loadoutGroup
+  id: ADTIpcModulesMedicalDoctor
+  name: loadout-ipc-module-adt
+  minLimit: 0
+  maxLimit: 1
+  species: IPC
+  loadouts:
+  - ADTModuleTopicals
+  - ADTModuleMedicinal
+  - ADTModuleRescue
+  - ADTModuleTool
+  - ADTModuleCable
+  - ADTModuleInflatable
+  - ADTModuleFireExtinguisher
+  - ADTModuleArtistry
+
+- type: loadoutGroup
+  id: ADTIpcModulesChemist
+  name: loadout-ipc-module-adt
+  minLimit: 0
+  maxLimit: 1
+  species: IPC
+  loadouts:
+  - ADTModuleTopicals
+  - ADTModuleMedicinal
+  - ADTModuleRescue
+  - ADTModuleChemical
+  - ADTModuleTool
+  - ADTModuleCable
+  - ADTModuleInflatable
+  - ADTModuleFireExtinguisher
+  - ADTModuleArtistry
+
+- type: loadoutGroup
+  id: ADTIpcModulesSecurity
+  name: loadout-ipc-module-adt
+  minLimit: 0
+  maxLimit: 1
+  species: IPC
+  loadouts:
+  - ADTModuleDetention
+  - ADTModuleTool
+  - ADTModuleCable
+  - ADTModuleInflatable
+  - ADTModuleFireExtinguisher
+  - ADTModuleArtistry
+
 # ОЧЕНЬ ПРОШУ ДЕЛАТЬ НОВЫЕ ГРУППЫ НАД НИЖНИМ БЕЛЬЁМ А НЕ ПОД НИМ. ИНАЧЕ Я ЁЖИКОВ НА ВАС НАТРАВЛЮ И ВАМ КАПУТ.
 # Н А Д Е Ю С Ь  В Ы  М Е Н Я  У С Л Ы Ш А Л И ! ! !
 
