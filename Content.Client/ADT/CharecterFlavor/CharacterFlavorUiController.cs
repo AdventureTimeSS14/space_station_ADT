@@ -1,3 +1,5 @@
+using System.Collections.Concurrent;
+using Content.Shared.ADT.CharecterFlavor;
 using Robust.Client.UserInterface;
 using JetBrains.Annotations;
 using Robust.Client.UserInterface.Controllers;
@@ -14,10 +16,17 @@ public sealed class CharacterFlavorUiController : UIController, IOnStateEntered<
 
     private NetEntity _currentEntity;
 
+    /// <summary>
+    /// Кэш последних загруженных изображений для предотвращения дублирования
+    /// </summary>
+    private readonly ConcurrentDictionary<NetEntity, int> _lastImageHash = new();
+
     public void OnStateEntered(GameplayState state)
     {
         _window?.Close();
         _window = null;
+        _lastImageHash.Clear();
+        HeadshotTextureCache.Clear();
     }
 
     public void OpenMenu(EntityUid target)
@@ -49,6 +58,15 @@ public sealed class CharacterFlavorUiController : UIController, IOnStateEntered<
         if (target != _currentEntity)
             return;
 
+        // Проверка на дубликат — если хэш совпадает, не обновляем
+        var hash = HeadshotHashHelper.ComputeHash(image);
+        if (_lastImageHash.TryGetValue(target, out var lastHash) && lastHash == hash)
+        {
+            Logger.Debug($"Headshot duplicate detected, skipping update for {target}");
+            return;
+        }
+
+        _lastImageHash[target] = hash;
         _window?.SetHeadshot(image);
     }
 

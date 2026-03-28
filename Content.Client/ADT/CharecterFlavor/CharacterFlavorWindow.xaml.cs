@@ -1,4 +1,5 @@
 using System.Numerics;
+using System.Threading;
 using Content.Client.Humanoid;
 using Content.Client.Message;
 using Content.Client.UserInterface.Controls;
@@ -24,16 +25,36 @@ public sealed partial class CharacterFlavorWindow : FancyWindow
     /// </summary>
     public bool IsPreviewMode { get; set; }
 
+    /// <summary>
+    /// Токен для отмены предыдущей загрузки изображения
+    /// </summary>
+    private CancellationTokenSource? _loadCts;
+
     public CharacterFlavorWindow()
     {
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
 
         HeadshotLoadingLabel.SetMarkup(Loc.GetString("headshot-loading"));
+
+        OnClose += OnWindowClosed;
+    }
+
+    private void OnWindowClosed()
+    {
+        // Отмена загрузки при закрытии окна
+        _loadCts?.Cancel();
+        _loadCts?.Dispose();
+        _loadCts = null;
     }
 
     public void SetEntity(EntityUid uid)
     {
+        // Отмена предыдущей загрузки при смене сущности
+        _loadCts?.Cancel();
+        _loadCts?.Dispose();
+        _loadCts = null;
+
         if (!_entityManager.TryGetComponent<CharacterFlavorComponent>(uid, out var flavor))
             return;
 
@@ -63,7 +84,7 @@ public sealed partial class CharacterFlavorWindow : FancyWindow
 
     public void SetHeadshot(byte[] image)
     {
-        var headshot = LoadTextureFromBytes(image);
+        var headshot = HeadshotTextureCache.GetOrLoadTexture(image, _clyde);
 
         if (headshot != null)
         {
@@ -74,19 +95,5 @@ public sealed partial class CharacterFlavorWindow : FancyWindow
         }
         else
             HeadshotContainer.Visible = false;
-    }
-
-    private Texture? LoadTextureFromBytes(byte[] imageBytes)
-    {
-        try
-        {
-            using var memoryStream = new System.IO.MemoryStream(imageBytes);
-            using var image = SixLabors.ImageSharp.Image.Load<SixLabors.ImageSharp.PixelFormats.Rgba32>(memoryStream);
-            return _clyde.LoadTextureFromImage(image);
-        }
-        catch
-        {
-            return null;
-        }
     }
 }

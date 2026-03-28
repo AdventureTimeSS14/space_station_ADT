@@ -1,6 +1,7 @@
 using System.IO;
 using System.Linq;
 using System.Numerics;
+using System.Threading;
 using Content.Client.ADT.Lobby.UI;
 using Content.Client.Corvax.Sponsors;
 using Content.Client.Guidebook;
@@ -38,6 +39,8 @@ using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
 using Robust.Client.Utility;
 using Robust.Shared.Configuration;
+using Robust.Shared.Timing;
+using Timer = Robust.Shared.Timing.Timer;
 using Robust.Shared.ContentPack;
 using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
@@ -1375,13 +1378,62 @@ namespace Content.Client.Lobby.UI
         }
 
         //ADT-tweak-start: Юрл для хэдшота
-        private void OnHeadshotUrlChange(string content)
+        private CancellationTokenSource? _headshotRequestCts;
+        private string? _lastHeadshotUrl;
+
+        private async void OnHeadshotUrlChange(string content)
         {
             if (Profile is null)
                 return;
 
             Profile = Profile.WithHeadshotUrl(content);
             SetDirty();
+
+            // Отменяем предыдущий запрос
+            _headshotRequestCts?.Cancel();
+            _headshotRequestCts?.Dispose();
+            _headshotRequestCts = new CancellationTokenSource();
+
+            var url = content.Trim();
+            var cts = _headshotRequestCts.Token;
+
+            // Не запрашиваем превью, если URL не изменился
+            if (url == _lastHeadshotUrl)
+                return;
+
+            try
+            {
+                // Debounce: ждём 500мс перед запросом
+                await Timer.Delay(500, cts);
+                OnHeadshotPreviewRequestedDelayed(url);
+            }
+            catch (OperationCanceledException)
+            {
+                // Запрос отменён — это нормально
+            }
+        }
+
+        private void OnHeadshotPreviewRequestedDelayed(string url)
+        {
+            if (Profile is null)
+                return;
+
+            if (!_entManager.EntityExists(PreviewDummy))
+                return;
+
+            var flavor = _entManager.EnsureComponent<CharacterFlavorComponent>(PreviewDummy);
+            flavor.FlavorText = Profile.FlavorText ?? string.Empty;
+            flavor.HeadshotUrl = url;
+
+            var controller = UserInterfaceManager.GetUIController<CharacterFlavorUiController>();
+            controller.OpenPreviewMenu(PreviewDummy);
+
+            // Попросить сервер скачать и прислать картинку для предпросмотра хэдшота.
+            if (!string.IsNullOrWhiteSpace(url))
+            {
+                _entManager.System<CharecterFlavorSystem>().RequestHeadshotPreview(url);
+                _lastHeadshotUrl = url;
+            }
         }
 
         private void OnFlavorPreviewRequested()

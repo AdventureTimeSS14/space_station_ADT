@@ -1,33 +1,102 @@
 // Inspired by Nyanotrasen
-using Content.Shared.ADT.CCVar;
-using Content.Shared.ADT.CharecterFlavor;
-using Robust.Shared.Configuration;
-using System.Net;
-using System.IO;
+using System.Collections.Concurrent;
 using System.Net.Http;
+using System.Security.Cryptography;
+using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
+using Content.Server.Players.RateLimiting;
 using Content.Shared.ADT.CCVar;
 using Content.Shared.ADT.CharecterFlavor;
+using Content.Shared.Players.RateLimiting;
+using Prometheus;
 using Robust.Shared.Configuration;
+using Robust.Shared.Network;
 using Robust.Shared.Player;
+using Robust.Shared.Timing;
 
 namespace Content.Server.ADT.CharecterFlavor;
 
 public sealed class CharecterFlavorSystem : SharedCharecterFlavorSystem
 {
     [Dependency] private readonly IConfigurationManager _config = default!;
-    private static readonly HttpClient HttpClient = new();
+
+    /// <summary>
+    /// Вычисление SHA256 хэша для ключа кэша (только сервер, клиент не имеет доступа к криптографии)
+    /// </summary>
+    private static string ComputeSha256(string input)
+    {
+        var keyData = Encoding.UTF8.GetBytes(input);
+        var sha256 = SHA256.Create();
+        var bytes = sha256.ComputeHash(keyData);
+        return Convert.ToHexString(bytes);
+    }
+
+    [Dependency] private readonly IHttpClientHolder _httpClient = default!;
+    [Dependency] private readonly IGameTiming _gameTiming = default!;
+    [Dependency] private readonly PlayerRateLimitManager _rateLimitManager = default!;
+
+    private static readonly Histogram RequestTimings = Metrics.CreateHistogram(
+        "headshot_req_timings",
+        "Timings of headshot image requests",
+        new HistogramConfiguration
+        {
+            LabelNames = new[] { "type" },
+            Buckets = Histogram.ExponentialBuckets(0.1, 1.5, 10),
+        });
+
+    private static readonly Counter ReusedCount = Metrics.CreateCounter(
+        "headshot_reused_count",
+        "Amount of reused headshot images from cache.");
+
+    /// <summary>
+    /// Кэш изображений: SHA256 хэш URL → (данные, время истечения)
+    /// </summary>
+    private readonly ConcurrentDictionary<string, (byte[] Data, TimeSpan Expires)> _imageCache = new();
+    private readonly List<string> _cacheKeysSeq = new();
+
+    /// <summary>
+    /// Максимальное количество записей в кэше (по аналогии с TTSManager)
+    /// </summary>
+    private int _maxCachedCount = 100;
+
+    private const string RateLimitKey = "Headshot";
 
     public override void Initialize()
     {
         base.Initialize();
 
-        if (HttpClient.DefaultRequestHeaders.UserAgent.Count == 0)
-        {
-            HttpClient.DefaultRequestHeaders.UserAgent.ParseAdd("Mozilla/5.0");
-        }
+        _config.OnValueChanged(ADTCCVars.HeadshotCacheDuration, _ => PurgeExpiredCache(), true);
+        _config.OnValueChanged(ADTCCVars.HeadshotMaxCacheCount, OnMaxCacheCountChanged, true);
+
+        _rateLimitManager.Register(RateLimitKey,
+            new RateLimitRegistration(
+                ADTCCVars.HeadshotRateLimitPeriod,
+                ADTCCVars.HeadshotRateLimitCount,
+                playerLimitedAction: null));
 
         SubscribeNetworkEvent<RequestHeadshotPreviewEvent>(OnRequestHeadshotPreview);
+    }
+
+    private void OnMaxCacheCountChanged(int newValue)
+    {
+        _maxCachedCount = newValue;
+        Logger.Debug($"Headshot max cache count changed to {newValue}");
+        
+        // Если кэш больше лимита, удаляем лишние записи
+        while (_cacheKeysSeq.Count > _maxCachedCount && _cacheKeysSeq.Count > 0)
+        {
+            var firstKey = _cacheKeysSeq[0];
+            _imageCache.TryRemove(firstKey, out _);
+            _cacheKeysSeq.RemoveAt(0);
+        }
+    }
+
+    public override void Shutdown()
+    {
+        _imageCache.Clear();
+        _cacheKeysSeq.Clear();
+        base.Shutdown();
     }
 
     protected override async void OpenFlavor(EntityUid actor, EntityUid target)
@@ -40,89 +109,180 @@ public sealed class CharecterFlavorSystem : SharedCharecterFlavorSystem
         if (flavor.HeadshotUrl == string.Empty)
             return;
 
-        var image = await DownloadImageAsync(flavor.HeadshotUrl);
-
-        if (image == null)
+        var allowedDomain = _config.GetCVar(ADTCCVars.HeadshotDomain);
+        if (!IsValidHeadshotUrl(flavor.HeadshotUrl, allowedDomain))
             return;
 
-        var ev = new SetHeadshotUiMessage(GetNetEntity(target), image);
-        RaiseNetworkEvent(ev, actor);
+        try
+        {
+            var image = await GetImageAsync(flavor.HeadshotUrl);
+            if (image == null)
+                return;
+
+            var ev = new SetHeadshotUiMessage(GetNetEntity(target), image);
+            RaiseNetworkEvent(ev, actor);
+        }
+        catch (Exception ex)
+        {
+            Logger.Error($"Failed to open flavor for {target}: {ex}");
+        }
     }
 
     private async void OnRequestHeadshotPreview(RequestHeadshotPreviewEvent ev, EntitySessionEventArgs args)
     {
-        if (!IsValidHeadshotUrl(ev.Url))
+        // Rate limiting
+        if (_rateLimitManager.CountAction(args.SenderSession, RateLimitKey) != RateLimitStatus.Allowed)
+        {
+            Logger.Debug($"Headshot request rate limited for player {args.SenderSession.Name}");
             return;
+        }
 
-        var image = await DownloadImageAsync(ev.Url);
-        if (image == null)
+        var allowedDomain = _config.GetCVar(ADTCCVars.HeadshotDomain);
+        if (!IsValidHeadshotUrl(ev.Url, allowedDomain))
+        {
+            Logger.Debug($"Invalid headshot URL from {args.SenderSession.Name}: {ev.Url}");
             return;
+        }
 
-        RaiseNetworkEvent(new HeadshotPreviewEvent(image), Filter.SinglePlayer(args.SenderSession));
-    }
-
-    public async Task<byte[]?> DownloadImageAsync(string url)
-    {
         try
         {
-            using var response = await HttpClient.GetAsync(url, HttpCompletionOption.ResponseHeadersRead);
-
-            if (!response.IsSuccessStatusCode)
-                return null;
-
-            // лимит 5 MB
-            const int maxSize = 5 * 1024 * 1024;
-
-            await using var stream = await response.Content.ReadAsStreamAsync();
-            using var ms = new MemoryStream();
-
-            var buffer = new byte[8192];
-            int totalRead = 0;
-
-            while (true)
+            var image = await GetImageAsync(ev.Url);
+            if (image == null)
             {
-                var read = await stream.ReadAsync(buffer);
-                if (read == 0)
-                    break;
-
-                totalRead += read;
-                if (totalRead > maxSize)
-                    return null;
-
-                ms.Write(buffer, 0, read);
+                Logger.Debug($"Failed to download headshot for {args.SenderSession.Name}: {ev.Url}");
+                return;
             }
 
-            return ms.ToArray();
+            RaiseNetworkEvent(new HeadshotPreviewEvent(image), Filter.SinglePlayer(args.SenderSession));
         }
         catch (Exception ex)
         {
-            Logger.Error($"Failed to download image from {url}: {ex}");
-            return null;
+            Logger.Error($"Failed to process headshot preview for {args.SenderSession.Name}: {ex}");
         }
     }
 
-    private bool IsValidHeadshotUrl(string url)
+    /// <summary>
+    /// Получить изображение из кэша или загрузить
+    /// </summary>
+    private async Task<byte[]?> GetImageAsync(string url)
     {
-        if (string.IsNullOrWhiteSpace(url))
-            return false;
+        // Используем SHA256 хэш URL как ключ кэша (как в TTSManager)
+        var cacheKey = ComputeSha256(url);
 
-        if (url.Length > 500)
-            return false;
+        // Проверка кэша
+        var now = _gameTiming.RealTime;
+        if (_imageCache.TryGetValue(cacheKey, out var cached) && cached.Expires > now)
+        {
+            Logger.Debug($"Headshot cache hit: {cacheKey}");
+            ReusedCount.Inc();
+            return cached.Data;
+        }
 
-        if (!Uri.TryCreate(url, UriKind.Absolute, out var uri))
-            return false;
+        // Загрузка
+        Logger.Debug($"Headshot cache miss, downloading: {url}");
+        var image = await DownloadImageAsync(url);
 
-        // только http/https
-        if (uri.Scheme != Uri.UriSchemeHttp &&
-            uri.Scheme != Uri.UriSchemeHttps)
-            return false;
+        if (image != null)
+        {
+            // Сохранение в кэш с LRU eviction
+            var cacheDuration = TimeSpan.FromMinutes(_config.GetCVar(ADTCCVars.HeadshotCacheDuration));
 
-        var allowedDomain = _config.GetCVar(ADTCCVars.HeadshotDomain);
+            // Удаляем старые записи если кэш переполнен
+            while (_cacheKeysSeq.Count >= _maxCachedCount && _cacheKeysSeq.Count > 0)
+            {
+                var firstKey = _cacheKeysSeq[0];
+                _imageCache.TryRemove(firstKey, out _);
+                _cacheKeysSeq.RemoveAt(0);
+            }
 
-        if (!uri.Host.Equals(allowedDomain, StringComparison.OrdinalIgnoreCase) &&
-            !uri.Host.EndsWith("." + allowedDomain, StringComparison.OrdinalIgnoreCase))
-            return false;
+            _imageCache[cacheKey] = (image, now + cacheDuration);
+            _cacheKeysSeq.Add(cacheKey);
+        }
 
-        return true;
+        return image;
+    }
+
+    /// <summary>
+    /// Очистка просроченных записей кэша
+    /// </summary>
+    private void PurgeExpiredCache()
+    {
+        var now = _gameTiming.RealTime;
+        var keysToRemove = new List<string>();
+
+        foreach (var kvp in _imageCache)
+        {
+            if (kvp.Value.Expires < now)
+            {
+                keysToRemove.Add(kvp.Key);
+            }
+        }
+
+        foreach (var key in keysToRemove)
+        {
+            _imageCache.TryRemove(key, out _);
+            _cacheKeysSeq.Remove(key);
+        }
+
+        Logger.Debug($"Purged {keysToRemove.Count} expired headshot cache entries");
+    }
+
+    /// <summary>
+    /// Загрузка изображения с сервера (использует ReadAsByteArrayAsync по аналогии с TTSManager)
+    /// </summary>
+    private async Task<byte[]?> DownloadImageAsync(string url)
+    {
+        var reqTime = DateTime.UtcNow;
+        try
+        {
+            var maxSize = _config.GetCVar(ADTCCVars.HeadshotMaxSize);
+            var timeout = (float)_config.GetCVar(ADTCCVars.HeadshotCacheDuration) * 60 * 1000; // ms
+            using var cts = new CancellationTokenSource(TimeSpan.FromMilliseconds(timeout));
+
+            using var response = await _httpClient.Client.GetAsync(url, HttpCompletionOption.ResponseHeadersRead, cts.Token);
+
+            if (!response.IsSuccessStatusCode)
+            {
+                Logger.Debug($"Headshot download failed with status: {response.StatusCode}");
+                RequestTimings.WithLabels("Error").Observe((DateTime.UtcNow - reqTime).TotalSeconds);
+                return null;
+            }
+
+            // Проверка Content-Length
+            if (response.Content.Headers.ContentLength.HasValue &&
+                response.Content.Headers.ContentLength.Value > maxSize)
+            {
+                Logger.Debug($"Headshot too large: {response.Content.Headers.ContentLength.Value} bytes");
+                RequestTimings.WithLabels("Error").Observe((DateTime.UtcNow - reqTime).TotalSeconds);
+                return null;
+            }
+
+            // Используем ReadAsByteArrayAsync вместо ручного чтения (по аналогии с TTSManager)
+            var image = await response.Content.ReadAsByteArrayAsync(cts.Token);
+
+            if (image.Length > maxSize)
+            {
+                Logger.Debug($"Headshot exceeds max size after download: {image.Length} bytes");
+                RequestTimings.WithLabels("Error").Observe((DateTime.UtcNow - reqTime).TotalSeconds);
+                return null;
+            }
+
+            Logger.Debug($"Headshot downloaded: {image.Length} bytes");
+            RequestTimings.WithLabels("Success").Observe((DateTime.UtcNow - reqTime).TotalSeconds);
+
+            return image;
+        }
+        catch (TaskCanceledException)
+        {
+            RequestTimings.WithLabels("Timeout").Observe((DateTime.UtcNow - reqTime).TotalSeconds);
+            Logger.Debug($"Headshot download timeout: {url}");
+            return null;
+        }
+        catch (Exception ex)
+        {
+            RequestTimings.WithLabels("Error").Observe((DateTime.UtcNow - reqTime).TotalSeconds);
+            Logger.Error($"Failed to download headshot from {url}: {ex}");
+            return null;
+        }
     }
 }
