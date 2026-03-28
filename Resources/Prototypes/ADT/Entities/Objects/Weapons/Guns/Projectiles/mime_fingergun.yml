@@ -18,7 +18,6 @@
     fireRate: 4
     availableModes:
     - SemiAuto
-    projectile: ADTMimeInvisibleBullet
     projectileSpeed: 30
     soundGunshot: null
     soundEmpty: null

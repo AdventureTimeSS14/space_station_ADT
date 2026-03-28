@@ -10,5 +10,5 @@
       - CartridgeMagnum
   - type: CartridgeAmmo
     proto: ADTMimeInvisibleBullet
-    caseless: true
+    deleteOnSpawn: true
   - type: Appearance
