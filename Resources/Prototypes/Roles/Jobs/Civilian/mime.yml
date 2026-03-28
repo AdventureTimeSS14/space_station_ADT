@@ -47,7 +47,7 @@
   components:
   - type: Action
     priority: -1
-    useDelay: 30
+    useDelay: 25
     icon:
     # ADT-Tweak start
       sprite: ADT/Interface/Actions/mime.rsi
