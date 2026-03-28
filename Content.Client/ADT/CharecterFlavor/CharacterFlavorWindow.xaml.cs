@@ -59,7 +59,6 @@ public sealed partial class CharacterFlavorWindow : FancyWindow
 
         Title = metaData.EntityName;
         FlavorTextLabel.SetMarkup(flavor.FlavorText);
-        OOCNotesLabel.SetMarkup(flavor.OOCNotes);
     }
 
     public void SetHeadshot(byte[] image)
