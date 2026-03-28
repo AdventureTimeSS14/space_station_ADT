@@ -30,3 +30,4 @@
     whitelist:
       tags: []
   - type: MimeFingerGunItem
+  - type: ContainerContainer
