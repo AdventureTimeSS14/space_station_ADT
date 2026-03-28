@@ -536,7 +536,7 @@
   id: ADTClothingChemdisBelt
   parent: ClothingBeltStorageBase
   name: chemdis belt 4000
-  description: Compactt version of chemical dispencer, based on old versions of it.
+  description: Compact version of chemical dispencer, based on old versions of it.
   components:
   - type: Sprite
     sprite: ADT/Clothing/Belt/chemdis.rsi
