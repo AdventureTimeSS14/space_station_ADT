@@ -31,3 +31,5 @@
       tags: []
   - type: MimeFingerGunItem
   - type: ContainerContainer
+    containers:
+      revolver-ammo: !type:Container
