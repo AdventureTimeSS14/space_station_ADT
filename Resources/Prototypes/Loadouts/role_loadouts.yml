@@ -42,6 +42,7 @@
   - Trinkets
   - HoPJobTrinkets
   - GroupSpeciesBreathTool
+  - ADTIpcModulesHoP #ADT-Tweak
 
 # Silicons
 - type: roleLoadout
@@ -85,6 +86,7 @@
   - ADTSprayPaints # ADT-Tweak
   - PassengerJobTrinkets
   - GroupSpeciesBreathTool
+  - ADTIpcModules #ADT-Tweak
 
 - type: roleLoadout
   id: JobBartender
@@ -109,6 +111,7 @@
   - ADTSprayPaints # ADT-Tweak
   - BartenderJobTrinkets
   - GroupSpeciesBreathTool
+  - ADTIpcModulesService #ADT-Tweak
 
 - type: roleLoadout
   id: JobServiceWorker
@@ -131,6 +134,7 @@
   - ADTSprayPaints # ADT-Tweak
   - ServiceWorkerJobTrinkets
   - GroupSpeciesBreathTool
+  - ADTIpcModulesService #ADT-Tweak
 
 - type: roleLoadout
   id: JobChef
@@ -160,6 +164,7 @@
   - ADTSprayPaints # ADT-Tweak
   - ChefJobTrinkets
   - GroupSpeciesBreathTool
+  - ADTIpcModulesService #ADT-Tweak
 
 - type: roleLoadout
   id: JobLibrarian
@@ -180,6 +185,7 @@
   - ADTSprayPaints # ADT-Tweak
   - LibrarianJobTrinkets
   - GroupSpeciesBreathTool
+  - ADTIpcModulesService #ADT-Tweak
 
 - type: roleLoadout
   id: JobLawyer
@@ -203,6 +209,7 @@
   - ADTSprayPaints # ADT-Tweak
   - LawyerJobTrinkets
   - GroupSpeciesBreathTool
+  - ADTIpcModules #ADT-Tweak
 
 - type: roleLoadout
   id: JobChaplain
@@ -231,6 +238,7 @@
   - GroupSpeciesBreathTool
   # ADT chaplain update
   - ADTChaplainBelt
+  - ADTIpcModules #ADT-Tweak
 
 - type: roleLoadout
   id: JobJanitor
@@ -254,6 +262,7 @@
   - ADTSprayPaints # ADT-Tweak
   - JanitorJobTrinkets
   - GroupSpeciesBreathTool
+  - ADTIpcModulesJanitor #ADT-Tweak
 
 - type: roleLoadout
   id: JobBotanist
@@ -277,6 +286,7 @@
   - ADTSprayPaints # ADT-Tweak
   - BotanistJobTrinkets
   - GroupSpeciesBreathTool
+  - ADTIpcModulesBotanist #ADT-Tweak
 
 - type: roleLoadout
   id: JobClown
@@ -304,6 +314,7 @@
   - Trinkets
   - ADTSprayPaints # ADT-Tweak
   - ClownJobTrinkets
+  - ADTIpcModulesClown #ADT-Tweak
 
 - type: roleLoadout
   id: JobMime
@@ -328,6 +339,7 @@
   - Trinkets
   - ADTSprayPaints # ADT-Tweak
   - MimeJobTrinkets
+  - ADTIpcModules #ADT-Tweak
 
 - type: roleLoadout
   id: JobMusician
@@ -352,6 +364,7 @@
   - MusicianJobTrinkets
   - Instruments
   - GroupSpeciesBreathTool
+  - ADTIpcModulesMusician #ADT-Tweak
 
 # Cargo
 - type: roleLoadout
@@ -377,6 +390,7 @@
   - Trinkets
   - QuartermasterJobTrinkets
   - GroupSpeciesBreathTool
+  - ADTIpcModulesCargo #ADT-Tweak
 
 - type: roleLoadout
   id: JobCargoTechnician
@@ -401,6 +415,7 @@
   - ADTSprayPaints # ADT-Tweak
   - CargoTechnicianJobTrinkets
   - GroupSpeciesBreathTool
+  - ADTIpcModulesCargo #ADT-Tweak
 
 - type: roleLoadout
   id: JobSalvageSpecialist
@@ -427,6 +442,7 @@
   - ADTSprayPaints # ADT-Tweak
   - SalvageSpecialistJobTrinkets
   - GroupSpeciesBreathTool
+  - ADTIpcModulesMiner #ADT-Tweak
 
 # Engineering
 - type: roleLoadout
@@ -452,6 +468,7 @@
   - Trinkets
   - ChiefEngineerJobTrinkets
   - GroupSpeciesBreathTool
+  - ADTIpcModulesAtmosphericTechnician #ADT-Tweak
 
 - type: roleLoadout
   id: JobTechnicalAssistant
@@ -471,6 +488,7 @@
   - ADTSprayPaints # ADT-Tweak
   - TechnicalAssistantJobTrinkets
   - GroupSpeciesBreathTool
+  - ADTIpcModulesTechnicalAssistant #ADT-Tweak
 
 - type: roleLoadout
   id: JobStationEngineer
@@ -495,6 +513,7 @@
   - ADTSprayPaints # ADT-Tweak
   - StationEngineerJobTrinkets
   - GroupSpeciesBreathTool
+  - ADTIpcModulesEngineer #ADT-Tweak
 
 - type: roleLoadout
   id: JobAtmosphericTechnician
@@ -521,6 +540,7 @@
   - ADTSprayPaints # ADT-Tweak
   - AtmosphericTechnicianJobTrinkets
   - GroupSpeciesBreathTool
+  - ADTIpcModulesAtmosphericTechnician #ADT-Tweak
 
 # Science
 - type: roleLoadout
@@ -547,6 +567,7 @@
   - Trinkets
   - ResearchDirectorJobTrinkets
   - GroupSpeciesBreathTool
+  - ADTIpcModulesScientist #ADT-Tweak
 
 - type: roleLoadout
   id: JobScientist
@@ -572,6 +593,7 @@
   - ADTSprayPaints # ADT-Tweak
   - ScientistJobTrinkets
   - GroupSpeciesBreathTool
+  - ADTIpcModulesScientist #ADT-Tweak
 
 - type: roleLoadout
   id: JobResearchAssistant
@@ -591,6 +613,7 @@
   - ADTSprayPaints # ADT-Tweak
   - ResearchAssistantJobTrinkets
   - GroupSpeciesBreathTool
+  - ADTIpcModules #ADT-Tweak
 
 # Security
 - type: roleLoadout
@@ -615,6 +638,7 @@
   # - SecurityStar #ADT_Tweak - закомментил это издевательство
   - HeadofSecurityJobTrinkets
   - GroupSpeciesBreathToolSecurity
+  - ADTIpcModulesSecurity #ADT-Tweak
 
 - type: roleLoadout
   id: JobWarden
@@ -637,6 +661,7 @@
   - WardenJobTrinkets
   # - SecurityStar #ADT_Tweak - закомментил это издевательство
   - GroupSpeciesBreathToolSecurity
+  - ADTIpcModulesSecurity #ADT-Tweak
 
 - type: roleLoadout
   id: JobSecurityOfficer
@@ -660,6 +685,7 @@
   - SecurityJobTrinkets
   # - SecurityStar #ADT_Tweak - закомментил это издевательство
   - GroupSpeciesBreathToolSecurity
+  - ADTIpcModulesSecurity #ADT-Tweak
 
 - type: roleLoadout
   id: JobDetective
@@ -682,6 +708,7 @@
   - DetectiveJobTrinkets
   # - SecurityStar #ADT_Tweak - закомментил это издевательство
   - GroupSpeciesBreathToolSecurity
+  - ADTIpcModulesSecurity #ADT-Tweak
 
 - type: roleLoadout
   id: JobSecurityCadet
@@ -699,6 +726,7 @@
   - ADTSocks
   # ADT underwear tweak end
   - GroupSpeciesBreathToolSecurity
+  - ADTIpcModulesSecurity #ADT-Tweak
 
 # Medical
 - type: roleLoadout
@@ -727,6 +755,7 @@
   - Trinkets
   - ChiefMedicalOfficerJobTrinkets
   - GroupSpeciesBreathToolMedical
+  - ADTIpcModulesChemist #ADT-Tweak
 
 - type: roleLoadout
   id: JobMedicalDoctor
@@ -753,6 +782,7 @@
   - ADTSprayPaints # ADT-Tweak
   - MedicalDoctorJobTrinkets
   - GroupSpeciesBreathToolMedical
+  - ADTIpcModulesMedicalDoctor #ADT-Tweak
 
 - type: roleLoadout
   id: JobMedicalIntern
@@ -774,6 +804,7 @@
   - ADTSprayPaints # ADT-Tweak
   - MedicalInternJobTrinkets
   - GroupSpeciesBreathToolMedical
+  - ADTIpcModulesIntern #ADT-Tweak
 
 - type: roleLoadout
   id: JobChemist
@@ -796,6 +827,7 @@
   - ADTSprayPaints # ADT-Tweak
   - ChemistJobTrinkets
   - GroupSpeciesBreathToolMedical
+  - ADTIpcModulesChemist #ADT-Tweak
 
 - type: roleLoadout
   id: JobParamedic
@@ -824,6 +856,7 @@
   - ADTSprayPaints # ADT-Tweak
   - ParamedicJobTrinkets
   - GroupSpeciesBreathToolMedical
+  - ADTIpcModulesMedicalDoctor #ADT-Tweak
 
 # Wildcards
 - type: roleLoadout
@@ -843,6 +876,7 @@
   - ADTSprayPaints # ADT-Tweak
   - ZookeeperJobTrinkets
   - GroupSpeciesBreathTool
+  - ADTIpcModules #ADT-Tweak
 
 - type: roleLoadout
   id: JobReporter
@@ -864,6 +898,7 @@
   - ADTSprayPaints # ADT-Tweak
   - ReporterJobTrinkets
   - GroupSpeciesBreathTool
+  - ADTIpcModules #ADT-Tweak
 
 - type: roleLoadout
   id: JobPsychologist
@@ -885,6 +920,7 @@
   - ADTSprayPaints # ADT-Tweak
   - PsychologistJobTrinkets
   - GroupSpeciesBreathTool
+  - ADTIpcModulesIntern #ADT-Tweak
 
 - type: roleLoadout
   id: JobBoxer
@@ -907,6 +943,7 @@
   - ADTSprayPaints # ADT-Tweak
   - BoxerJobTrinkets
   - GroupSpeciesBreathTool
+  - ADTIpcModules #ADT-Tweak
 
 # These loadouts are used for non-crew spawns, like off-station antags and event mobs
 # They will be used without player configuration, thus they will only ever apply what is forced by MinLimit

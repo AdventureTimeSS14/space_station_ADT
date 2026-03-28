@@ -1478,10 +1478,10 @@
   maxLimit: 1
   species: IPC
   loadouts:
-  - BorgModuleMusique
-  - BorgModuleGardening
-  - BorgModuleHarvesting
-  - BorgModuleService
+  - ADTModuleMusique
+  - ADTModuleGardening
+  - ADTModuleHarvesting
+  - ADTModuleService
   - ADTModuleCustodial
   - ADTModuleCleaning
   - ADTModuleTool
@@ -1511,7 +1511,7 @@
   maxLimit: 1
   species: IPC
   loadouts:
-  - BorgModuleMusique
+  - ADTModuleMusique
   - ADTModuleTool
   - ADTModuleCable
   - ADTModuleInflatable
@@ -1525,8 +1525,8 @@
   maxLimit: 1
   species: IPC
   loadouts:
-  - BorgModuleGardening
-  - BorgModuleHarvesting
+  - ADTModuleGardening
+  - ADTModuleHarvesting
   - ADTModuleTool
   - ADTModuleCable
   - ADTModuleInflatable
@@ -1540,7 +1540,7 @@
   maxLimit: 1
   species: IPC
   loadouts:
-  - BorgModuleService
+  - ADTModuleService
   - ADTModuleTool
   - ADTModuleCable
   - ADTModuleInflatable
@@ -1554,7 +1554,7 @@
   maxLimit: 1
   species: IPC
   loadouts:
-  - ADTModuleRCD
+  - ADTModuleConstruction
   - ADTModuleTool
   - ADTModuleCable
   - ADTModuleInflatable
@@ -1568,8 +1568,8 @@
   maxLimit: 1
   species: IPC
   loadouts:
-  - ADTModuleRCD
   - ADTModuleConstruction
+  - ADTModuleRCD
   - ADTModuleTool
   - ADTModuleCable
   - ADTModuleInflatable
@@ -1583,8 +1583,8 @@
   maxLimit: 1
   species: IPC
   loadouts:
-  - ADTModuleRCD
   - ADTModuleConstruction
+  - ADTModuleRCD
   - ADTModuleRPD
   - ADTModuleTool
   - ADTModuleCable
