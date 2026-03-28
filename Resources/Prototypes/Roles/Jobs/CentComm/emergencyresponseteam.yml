@@ -14,6 +14,7 @@
   access:
   - CentralCommand
   #ADT-Tweak-Start
+  special:
   - !type:AddSpeciesComponentSpecial
     species: IPC
     components:
@@ -135,6 +136,24 @@
     - type: BibleUser #Lets them heal with bibles
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
+  #ADT-Tweak-Start
+  - !type:AddSpeciesComponentSpecial
+    species: IPC
+    components:
+      - type: BorgChassis
+        maxModules: 1
+        moduleWhitelist:
+          tags:
+          - BorgModuleGeneric
+          - BorgModuleService
+          - BorgModuleJanitor
+          - BorgModuleMedical
+          - BorgModuleScience
+          - BorgModuleEngineering
+          - BorgModuleCargo
+          - ADTBorgModuleSecurity
+        ipc: true
+  #ADT-Tweak-End
 
 - type: startingGear
   id: ERTChaplainGear
@@ -226,6 +245,24 @@
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
+  #ADT-Tweak-Start
+  - !type:AddSpeciesComponentSpecial
+    species: IPC
+    components:
+      - type: BorgChassis
+        maxModules: 1
+        moduleWhitelist:
+          tags:
+          - BorgModuleGeneric
+          - BorgModuleService
+          - BorgModuleJanitor
+          - BorgModuleMedical
+          - BorgModuleScience
+          - BorgModuleEngineering
+          - BorgModuleCargo
+          - ADTBorgModuleSecurity
+        ipc: true
+  #ADT-Tweak-End
 
 # - type: startingGear
 #   id: ERTEngineerGear
@@ -309,6 +346,24 @@
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
+  #ADT-Tweak-Start
+  - !type:AddSpeciesComponentSpecial
+    species: IPC
+    components:
+      - type: BorgChassis
+        maxModules: 1
+        moduleWhitelist:
+          tags:
+          - BorgModuleGeneric
+          - BorgModuleService
+          - BorgModuleJanitor
+          - BorgModuleMedical
+          - BorgModuleScience
+          - BorgModuleEngineering
+          - BorgModuleCargo
+          - ADTBorgModuleSecurity
+        ipc: true
+  #ADT-Tweak-End
 
 # - type: startingGear
 #   id: ERTSecurityGear
@@ -410,6 +465,24 @@
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
+  #ADT-Tweak-Start
+  - !type:AddSpeciesComponentSpecial
+    species: IPC
+    components:
+      - type: BorgChassis
+        maxModules: 1
+        moduleWhitelist:
+          tags:
+          - BorgModuleGeneric
+          - BorgModuleService
+          - BorgModuleJanitor
+          - BorgModuleMedical
+          - BorgModuleScience
+          - BorgModuleEngineering
+          - BorgModuleCargo
+          - ADTBorgModuleSecurity
+        ipc: true
+  #ADT-Tweak-End
 
 # - type: startingGear
 #   id: ERTMedicalGear
@@ -485,6 +558,24 @@
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
+  #ADT-Tweak-Start
+  - !type:AddSpeciesComponentSpecial
+    species: IPC
+    components:
+      - type: BorgChassis
+        maxModules: 1
+        moduleWhitelist:
+          tags:
+          - BorgModuleGeneric
+          - BorgModuleService
+          - BorgModuleJanitor
+          - BorgModuleMedical
+          - BorgModuleScience
+          - BorgModuleEngineering
+          - BorgModuleCargo
+          - ADTBorgModuleSecurity
+        ipc: true
+  #ADT-Tweak-End
 
 # - type: startingGear
 #   id: ERTJanitorGear
