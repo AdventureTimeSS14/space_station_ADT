@@ -1,0 +1,29 @@
+- type: loadout
+  id: ADTModuleTool
+  storage:
+    back:
+    - BorgModuleTool
+
+- type: loadout
+  id: ADTModuleCable
+  storage:
+    back:
+    - BorgModuleCable
+
+- type: loadout
+  id: ADTModuleInflatable
+  storage:
+    back:
+    - BorgModuleInflatable
+
+- type: loadout
+  id: ADTModuleFireExtinguisher
+  storage:
+    back:
+    - BorgModuleFireExtinguisher
+
+- type: loadout
+  id: ADTModuleArtistry
+  storage:
+    back:
+    - BorgModuleArtistry
