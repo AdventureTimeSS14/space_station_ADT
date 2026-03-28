@@ -592,7 +592,6 @@ namespace Content.Client.Lobby.UI
                 _flavorTextEdit = _flavorText.CFlavorTextInput;
 
                 // ADT-tweak-start
-                _flavorText.OnOOCNotesChanged += OnOOCNotesChange;
                 _flavorText.OnHeadshotUrlChanged += OnHeadshotUrlChange;
                 _flavorText.OnPreviewRequested += OnFlavorPreviewRequested;
                 // ADT-tweak-end
@@ -606,7 +605,6 @@ namespace Content.Client.Lobby.UI
                 TabContainer.RemoveChild(_flavorText);
                 _flavorText.OnFlavorTextChanged -= OnFlavorTextChange;
                 // ADT-tweak-start
-                _flavorText.OnOOCNotesChanged -= OnOOCNotesChange;
                 _flavorText.OnHeadshotUrlChanged -= OnHeadshotUrlChange;
                 _flavorText.OnPreviewRequested -= OnFlavorPreviewRequested;
                 // ADT-tweak-end
@@ -1376,16 +1374,7 @@ namespace Content.Client.Lobby.UI
             SetDirty();
         }
 
-        //ADT-tweak-start: ООС заметки и юрл
-        private void OnOOCNotesChange(string content)
-        {
-            if (Profile is null)
-                return;
-
-            Profile = Profile.WithOOCNotes(content);
-            SetDirty();
-        }
-
+        //ADT-tweak-start: Юрл для хэдшота
         private void OnHeadshotUrlChange(string content)
         {
             if (Profile is null)
@@ -1405,7 +1394,6 @@ namespace Content.Client.Lobby.UI
 
             var flavor = _entManager.EnsureComponent<CharacterFlavorComponent>(PreviewDummy);
             flavor.FlavorText = Profile.FlavorText ?? string.Empty;
-            flavor.OOCNotes = Profile.OOCNotes ?? string.Empty;
             flavor.HeadshotUrl = Profile.HeadshotUrl ?? string.Empty;
 
             var controller = UserInterfaceManager.GetUIController<CharacterFlavorUiController>();
@@ -1624,7 +1612,6 @@ namespace Content.Client.Lobby.UI
                 if (_flavorText == null)
                     return;
 
-                _flavorText.COOCTextInput.TextRope = new Rope.Leaf(Profile?.OOCNotes ?? "");
                 _flavorText.CHeadshotUrlInput.Text = Profile?.HeadshotUrl ?? "";
                 // ADT-Tweak-end
             }
