@@ -101,7 +101,17 @@
       "name": "double_sheetusa"
     },
     {
-      "name": "double_sheetcosmos"
+      "name": "double_sheetcosmos",
+      "delays": [
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ]
+      ]
     }
   ]
 }
