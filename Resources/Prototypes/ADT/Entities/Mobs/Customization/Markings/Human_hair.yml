@@ -656,8 +656,6 @@
   bodyPart: Hair
   markingCategory: Hair
   sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: e
     - sprite: ADT/Mobs/Customization/human_hair.rsi
       state: e_secondary
 
@@ -666,8 +664,6 @@
   bodyPart: Hair
   markingCategory: Hair
   sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: bedhead
     - sprite: ADT/Mobs/Customization/human_hair.rsi
       state: bedhead_secondary
 
