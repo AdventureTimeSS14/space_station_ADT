@@ -52,8 +52,8 @@ namespace Content.Server.NodeContainer.NodeGroups
             _atmosphereSystem?.React(Air, this);
 
             // // ADT-Tweak start
-            // var overpressureSystem = _entMan?.EntitySysManager.GetEntitySystem<OverpressurePipeDamageSystem>();
-            // overpressureSystem?.Update(this);
+            var overpressureSystem = _entMan?.EntitySysManager.GetEntitySystem<OverpressurePipeDamageSystem>();
+            overpressureSystem?.Update(this);
             // // ADT-Tweak end
         }
 
