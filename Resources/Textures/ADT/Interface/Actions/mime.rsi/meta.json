@@ -1,17 +1,23 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Made by discord:Minokaa",
+  "copyright": "Taken from Paradise at https://github.com/ParadiseSS13/Paradise/blob/394c3b0108b3995bc446f3365a0d4c80d87faede/icons/mob/actions/actions.dmi",
   "size": {
     "x": 32,
     "y": 32
   },
   "states": [
     {
-      "name": "pistol"
+      "name": "fingergun"
     },
     {
-      "name": "thhhh"
+      "name": "mime_silence"
+    },
+    {
+      "name": "mime_bigwall"
+    },
+    {
+      "name": "mime"
     }
   ]
 }
