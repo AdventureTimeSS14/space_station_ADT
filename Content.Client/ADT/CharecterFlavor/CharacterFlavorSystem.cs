@@ -13,15 +13,10 @@ public sealed class CharecterFlavorSystem : SharedCharecterFlavorSystem
     [Dependency] private readonly IUserInterfaceManager _ui = default!;
 
     /// <summary>
-    /// Кэш последних запрошенных URL для предотвращения дублирования запросов
+    /// Кэш последних запрошенных URL для предотвращения дублирования запросов (для лобби)
     /// </summary>
     private readonly ConcurrentDictionary<string, TimeSpan> _lastRequestTime = new();
     private TimeSpan _lastRequestCheckTime;
-
-    /// <summary>
-    /// Кэш хэшей URL для проверки уже загруженных изображений
-    /// </summary>
-    private readonly ConcurrentDictionary<string, bool> _urlCache = new();
 
     public override void Initialize()
     {
@@ -35,7 +30,7 @@ public sealed class CharecterFlavorSystem : SharedCharecterFlavorSystem
     {
         base.Update(frameTime);
 
-        // Очистка старых записей кэша (старше 1 минуты)
+        // Очистка старых записей кэша (старше 1 минуты) - только для лобби
         var now = _timing.RealTime;
         if (now - _lastRequestCheckTime > TimeSpan.FromSeconds(10))
         {
@@ -50,9 +45,6 @@ public sealed class CharecterFlavorSystem : SharedCharecterFlavorSystem
                     _lastRequestTime.TryRemove(kvp.Key, out _);
                 }
             }
-
-            // Очистка кэша URL
-            _urlCache.Clear();
         }
     }
 
@@ -66,15 +58,6 @@ public sealed class CharecterFlavorSystem : SharedCharecterFlavorSystem
     {
         var controller = _ui.GetUIController<CharacterFlavorUiController>();
         controller.SetPreviewHeadshot(ev.Image);
-
-        // Кэшируем факт успешной загрузки (по URL будет проверено при следующем запросе)
-        // Для упрощения просто очищаем последний запрос из таймера
-        if (_lastRequestTime.Count > 0)
-        {
-            var lastKey = _lastRequestTime.Keys.Last();
-            _urlCache[lastKey] = true;
-            _lastRequestTime.TryRemove(lastKey, out _);
-        }
     }
 
     /// <summary>
@@ -92,14 +75,7 @@ public sealed class CharecterFlavorSystem : SharedCharecterFlavorSystem
             return;
         }
 
-        // Проверка: если URL уже был успешно загружен, не запрашиваем повторно
-        if (_urlCache.ContainsKey(url))
-        {
-            Logger.Debug($"Headshot already cached, skipping request: {url}");
-            return;
-        }
-
-        // Проверка на дублирование запросов (не чаще 1 секунды на один URL)
+        // Проверка на дублирование запросов (не чаще 1 секунды на один URL) - только для лобби
         var now = _timing.RealTime;
         if (_lastRequestTime.TryGetValue(url, out var lastTime) && now - lastTime < TimeSpan.FromSeconds(1))
         {

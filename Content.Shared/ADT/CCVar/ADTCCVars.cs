@@ -313,18 +313,6 @@ public sealed class ADTCCVars
         CVarDef.Create("ic.headshot_cache_duration", 30f, CVar.SERVER);
 
     /// <summary>
-    /// Maximum number of headshot requests per player per period.
-    /// </summary>
-    public static readonly CVarDef<int> HeadshotRateLimitCount =
-        CVarDef.Create("ic.headshot_rate_limit_count", 5, CVar.SERVER);
-
-    /// <summary>
-    /// Headshot rate limit period in seconds.
-    /// </summary>
-    public static readonly CVarDef<float> HeadshotRateLimitPeriod =
-        CVarDef.Create("ic.headshot_rate_limit_period", 60f, CVar.SERVER);
-
-    /// <summary>
     /// Maximum number of headshot images in cache (default: 100).
     /// </summary>
     public static readonly CVarDef<int> HeadshotMaxCacheCount =

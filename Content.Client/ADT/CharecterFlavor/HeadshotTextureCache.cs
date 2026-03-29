@@ -1,16 +1,14 @@
 using System.Collections.Concurrent;
 using Robust.Client.Graphics;
-using Robust.Shared.Utility;
 
 namespace Content.Client.ADT.CharecterFlavor;
 
 /// <summary>
 /// Глобальный кэш текстур для headshot изображений.
-/// Использует WeakReference для возможности сборки мусора.
 /// </summary>
 public static class HeadshotTextureCache
 {
-    private static readonly ConcurrentDictionary<int, WeakReference<Texture>> _textureCache = new();
+    private static readonly ConcurrentDictionary<int, Texture> _textureCache = new();
 
     /// <summary>
     /// Получить текстуру из кэша или загрузить новую
@@ -26,19 +24,19 @@ public static class HeadshotTextureCache
             var hash = Shared.ADT.CharecterFlavor.HeadshotHashHelper.ComputeHash(imageBytes);
 
             // Проверка кэша
-            if (_textureCache.TryGetValue(hash, out var weakRef) && weakRef.TryGetTarget(out var cachedTexture))
+            if (_textureCache.TryGetValue(hash, out var cachedTexture))
             {
                 Logger.DebugS("headshot", $"Headshot texture cache hit: {hash}");
                 return cachedTexture;
             }
 
-            // Загрузка текстуры с использованием ArrayPool для снижения аллокаций
+            // Загрузка текстуры
             using var stream = new System.IO.MemoryStream(imageBytes, writable: false);
             using var image = SixLabors.ImageSharp.Image.Load<SixLabors.ImageSharp.PixelFormats.Rgba32>(stream);
             var texture = clyde.LoadTextureFromImage(image);
 
-            // Сохранение в кэш (слабая ссылка для GC)
-            _textureCache[hash] = new WeakReference<Texture>(texture);
+            // Сохранение в кэш
+            _textureCache[hash] = texture;
             Logger.DebugS("headshot", $"Headshot texture cache miss, loaded: {hash}");
 
             return texture;
@@ -51,7 +49,7 @@ public static class HeadshotTextureCache
     }
 
     /// <summary>
-    /// Очистить кэш текстур (вызывается при смене состояния)
+    /// Очистить кэш текстур
     /// </summary>
     public static void Clear()
     {

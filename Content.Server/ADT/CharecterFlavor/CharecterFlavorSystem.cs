@@ -5,11 +5,8 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using Content.Server.Players.RateLimiting;
 using Content.Shared.ADT.CCVar;
 using Content.Shared.ADT.CharecterFlavor;
-using Content.Shared.Players.RateLimiting;
-using Prometheus;
 using Robust.Shared.Configuration;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
@@ -34,20 +31,6 @@ public sealed class CharecterFlavorSystem : SharedCharecterFlavorSystem
 
     [Dependency] private readonly IHttpClientHolder _httpClient = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
-    [Dependency] private readonly PlayerRateLimitManager _rateLimitManager = default!;
-
-    private static readonly Histogram RequestTimings = Metrics.CreateHistogram(
-        "headshot_req_timings",
-        "Timings of headshot image requests",
-        new HistogramConfiguration
-        {
-            LabelNames = new[] { "type" },
-            Buckets = Histogram.ExponentialBuckets(0.1, 1.5, 10),
-        });
-
-    private static readonly Counter ReusedCount = Metrics.CreateCounter(
-        "headshot_reused_count",
-        "Amount of reused headshot images from cache.");
 
     /// <summary>
     /// Кэш изображений: SHA256 хэш URL → (данные, время истечения)
@@ -60,20 +43,12 @@ public sealed class CharecterFlavorSystem : SharedCharecterFlavorSystem
     /// </summary>
     private int _maxCachedCount = 100;
 
-    private const string RateLimitKey = "Headshot";
-
     public override void Initialize()
     {
         base.Initialize();
 
         _config.OnValueChanged(ADTCCVars.HeadshotCacheDuration, _ => PurgeExpiredCache(), true);
         _config.OnValueChanged(ADTCCVars.HeadshotMaxCacheCount, OnMaxCacheCountChanged, true);
-
-        _rateLimitManager.Register(RateLimitKey,
-            new RateLimitRegistration(
-                ADTCCVars.HeadshotRateLimitPeriod,
-                ADTCCVars.HeadshotRateLimitCount,
-                playerLimitedAction: null));
 
         SubscribeNetworkEvent<RequestHeadshotPreviewEvent>(OnRequestHeadshotPreview);
     }
@@ -82,7 +57,7 @@ public sealed class CharecterFlavorSystem : SharedCharecterFlavorSystem
     {
         _maxCachedCount = newValue;
         Logger.Debug($"Headshot max cache count changed to {newValue}");
-        
+
         // Если кэш больше лимита, удаляем лишние записи
         while (_cacheKeysSeq.Count > _maxCachedCount && _cacheKeysSeq.Count > 0)
         {
@@ -130,13 +105,6 @@ public sealed class CharecterFlavorSystem : SharedCharecterFlavorSystem
 
     private async void OnRequestHeadshotPreview(RequestHeadshotPreviewEvent ev, EntitySessionEventArgs args)
     {
-        // Rate limiting
-        if (_rateLimitManager.CountAction(args.SenderSession, RateLimitKey) != RateLimitStatus.Allowed)
-        {
-            Logger.Debug($"Headshot request rate limited for player {args.SenderSession.Name}");
-            return;
-        }
-
         var allowedDomain = _config.GetCVar(ADTCCVars.HeadshotDomain);
         if (!IsValidHeadshotUrl(ev.Url, allowedDomain))
         {
@@ -174,7 +142,6 @@ public sealed class CharecterFlavorSystem : SharedCharecterFlavorSystem
         if (_imageCache.TryGetValue(cacheKey, out var cached) && cached.Expires > now)
         {
             Logger.Debug($"Headshot cache hit: {cacheKey}");
-            ReusedCount.Inc();
             return cached.Data;
         }
 
@@ -232,7 +199,6 @@ public sealed class CharecterFlavorSystem : SharedCharecterFlavorSystem
     /// </summary>
     private async Task<byte[]?> DownloadImageAsync(string url)
     {
-        var reqTime = DateTime.UtcNow;
         try
         {
             var maxSize = _config.GetCVar(ADTCCVars.HeadshotMaxSize);
@@ -244,7 +210,6 @@ public sealed class CharecterFlavorSystem : SharedCharecterFlavorSystem
             if (!response.IsSuccessStatusCode)
             {
                 Logger.Debug($"Headshot download failed with status: {response.StatusCode}");
-                RequestTimings.WithLabels("Error").Observe((DateTime.UtcNow - reqTime).TotalSeconds);
                 return null;
             }
 
@@ -253,7 +218,6 @@ public sealed class CharecterFlavorSystem : SharedCharecterFlavorSystem
                 response.Content.Headers.ContentLength.Value > maxSize)
             {
                 Logger.Debug($"Headshot too large: {response.Content.Headers.ContentLength.Value} bytes");
-                RequestTimings.WithLabels("Error").Observe((DateTime.UtcNow - reqTime).TotalSeconds);
                 return null;
             }
 
@@ -263,24 +227,20 @@ public sealed class CharecterFlavorSystem : SharedCharecterFlavorSystem
             if (image.Length > maxSize)
             {
                 Logger.Debug($"Headshot exceeds max size after download: {image.Length} bytes");
-                RequestTimings.WithLabels("Error").Observe((DateTime.UtcNow - reqTime).TotalSeconds);
                 return null;
             }
 
             Logger.Debug($"Headshot downloaded: {image.Length} bytes");
-            RequestTimings.WithLabels("Success").Observe((DateTime.UtcNow - reqTime).TotalSeconds);
 
             return image;
         }
         catch (TaskCanceledException)
         {
-            RequestTimings.WithLabels("Timeout").Observe((DateTime.UtcNow - reqTime).TotalSeconds);
             Logger.Debug($"Headshot download timeout: {url}");
             return null;
         }
         catch (Exception ex)
         {
-            RequestTimings.WithLabels("Error").Observe((DateTime.UtcNow - reqTime).TotalSeconds);
             Logger.Error($"Failed to download headshot from {url}: {ex}");
             return null;
         }
