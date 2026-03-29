@@ -12,11 +12,6 @@ public sealed partial class CharacterFlavorComponent : Component
     [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
     public string FlavorText = string.Empty;
     /// <summary>
-    /// ООС заметки
-    /// </summary>
-    [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
-    public string OOCNotes = string.Empty;
-    /// <summary>
     /// ссылка на изображение, что будет использоваться в качестве хэдшота
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
