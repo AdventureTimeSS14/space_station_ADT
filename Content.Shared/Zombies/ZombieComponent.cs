@@ -175,4 +175,24 @@ public sealed partial class ZombieComponent : Component
     /// </summary>
     [DataField("newBloodReagent", customTypeSerializer: typeof(PrototypeIdSerializer<ReagentPrototype>))]
     public string NewBloodReagent = "ZombieBlood";
+
+    // ADT-Tweak start
+    /// <summary>
+    /// Jump distance for zombies (in tiles).
+    /// </summary>
+    [DataField("jumpDistance")]
+    public float JumpDistance = 5f;
+
+    /// <summary>
+    /// Jump throw speed for zombies.
+    /// </summary>
+    [DataField("jumpThrowSpeed")]
+    public float JumpThrowSpeed = 15f;
+
+    /// <summary>
+    /// Knockdown duration when zombie collides with entity during jump.
+    /// </summary>
+    [DataField("jumpCollideKnockdown")]
+    public TimeSpan JumpCollideKnockdown = TimeSpan.FromSeconds(1);
+    // ADT-Tweak end
 }

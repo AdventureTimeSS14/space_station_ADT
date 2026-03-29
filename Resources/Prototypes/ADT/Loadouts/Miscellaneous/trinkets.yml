@@ -66,9 +66,38 @@
   storage:
     back:
     - ADTClothingMaskPaperBlank
-    
+
 - type: loadout
   id: ADTHandheldStationMapUnpowered
   storage:
     back:
     - HandheldStationMapUnpowered
+
+# Flowers
+- type: loadout
+  id: ADTFlowerWreath1
+  storage:
+    back:
+    - ADTClothingHeadHatBlackroseFlowerWreath
+  groupBy: "flowerwreath"
+
+- type: loadout
+  id: ADTFlowerWreath2
+  storage:
+    back:
+    - ADTClothingHeadHatMacFlowerWreath
+  groupBy: "flowerwreath"
+
+- type: loadout
+  id: ADTFlowerWreath3
+  storage:
+    back:
+    - ADTClothingHeadHatRoseFlowerWreath
+  groupBy: "flowerwreath"
+
+- type: loadout
+  id: ADTFlowerWreath4
+  storage:
+    back:
+    - ADTClothingHeadHatDandelionFlowerWreath
+  groupBy: "flowerwreath"
