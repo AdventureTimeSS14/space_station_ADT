@@ -1,5 +1,4 @@
 // Inspired by Nyanotrasen
-using System.Collections.Concurrent;
 using Content.Shared.Examine;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Verbs;

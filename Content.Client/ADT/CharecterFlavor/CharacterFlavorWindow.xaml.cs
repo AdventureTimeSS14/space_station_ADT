@@ -1,5 +1,4 @@
 using System.Numerics;
-using System.Threading;
 using Content.Client.Humanoid;
 using Content.Client.Message;
 using Content.Client.UserInterface.Controls;
@@ -25,36 +24,16 @@ public sealed partial class CharacterFlavorWindow : FancyWindow
     /// </summary>
     public bool IsPreviewMode { get; set; }
 
-    /// <summary>
-    /// Токен для отмены предыдущей загрузки изображения
-    /// </summary>
-    private CancellationTokenSource? _loadCts;
-
     public CharacterFlavorWindow()
     {
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
 
         HeadshotLoadingLabel.SetMarkup(Loc.GetString("headshot-loading"));
-
-        OnClose += OnWindowClosed;
-    }
-
-    private void OnWindowClosed()
-    {
-        // Отмена загрузки при закрытии окна
-        _loadCts?.Cancel();
-        _loadCts?.Dispose();
-        _loadCts = null;
     }
 
     public void SetEntity(EntityUid uid)
     {
-        // Отмена предыдущей загрузки при смене сущности
-        _loadCts?.Cancel();
-        _loadCts?.Dispose();
-        _loadCts = null;
-
         if (!_entityManager.TryGetComponent<CharacterFlavorComponent>(uid, out var flavor))
             return;
 
