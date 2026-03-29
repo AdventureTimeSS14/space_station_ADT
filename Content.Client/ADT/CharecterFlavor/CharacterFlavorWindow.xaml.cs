@@ -63,7 +63,7 @@ public sealed partial class CharacterFlavorWindow : FancyWindow
 
     public void SetHeadshot(byte[] image)
     {
-        var headshot = LoadTextureFromBytes(image);
+        var headshot = HeadshotTextureCache.GetOrLoadTexture(image, _clyde);
 
         if (headshot != null)
         {
@@ -74,19 +74,5 @@ public sealed partial class CharacterFlavorWindow : FancyWindow
         }
         else
             HeadshotContainer.Visible = false;
-    }
-
-    private Texture? LoadTextureFromBytes(byte[] imageBytes)
-    {
-        try
-        {
-            using var memoryStream = new System.IO.MemoryStream(imageBytes);
-            using var image = SixLabors.ImageSharp.Image.Load<SixLabors.ImageSharp.PixelFormats.Rgba32>(memoryStream);
-            return _clyde.LoadTextureFromImage(image);
-        }
-        catch
-        {
-            return null;
-        }
     }
 }
