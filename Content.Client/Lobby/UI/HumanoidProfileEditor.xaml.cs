@@ -1524,7 +1524,6 @@ namespace Content.Client.Lobby.UI
             _loadoutWindow = null;
 
             _headshotRequestCts?.Cancel();
-            _headshotRequestCts?.Dispose();
             _headshotRequestCts = null;
         }
 
