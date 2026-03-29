@@ -164,15 +164,19 @@ public sealed class CharecterFlavorSystem : SharedCharecterFlavorSystem
             // Удаляем старые записи если кэш переполнен
             lock (_cacheKeysLock)
             {
-                while (_cacheKeysSeq.Count >= _maxCachedCount && _cacheKeysSeq.Count > 0)
+                if (!_imageCache.ContainsKey(cacheKey))
                 {
-                    var firstKey = _cacheKeysSeq[0];
-                    _imageCache.TryRemove(firstKey, out _);
-                    _cacheKeysSeq.RemoveAt(0);
+                    while (_cacheKeysSeq.Count >= _maxCachedCount && _cacheKeysSeq.Count > 0)
+                    {
+                        var firstKey = _cacheKeysSeq[0];
+                        _imageCache.TryRemove(firstKey, out _);
+                        _cacheKeysSeq.RemoveAt(0);
+                    }
+
+                    _cacheKeysSeq.Add(cacheKey);
                 }
 
                 _imageCache[cacheKey] = (image, now + cacheDuration);
-                _cacheKeysSeq.Add(cacheKey);
             }
         }
 

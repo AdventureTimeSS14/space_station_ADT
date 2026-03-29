@@ -8,7 +8,7 @@ namespace Content.Client.ADT.CharecterFlavor;
 /// </summary>
 public static class HeadshotTextureCache
 {
-    private static readonly ConcurrentDictionary<int, Texture> _textureCache = new();
+    private static readonly ConcurrentDictionary<int, (Texture Texture, byte[] Bytes)> _textureCache = new();
 
     /// <summary>
     /// Получить текстуру из кэша или загрузить новую
@@ -20,14 +20,17 @@ public static class HeadshotTextureCache
     {
         try
         {
-            // Вычисляем хэш для кэширования
-            var hash = Shared.ADT.CharecterFlavor.HeadshotHashHelper.ComputeHash(imageBytes);
+            // Вычисляем быстрый int хэш
+            var hash = ComputeHash(imageBytes);
 
             // Проверка кэша
-            if (_textureCache.TryGetValue(hash, out var cachedTexture))
+            if (_textureCache.TryGetValue(hash, out var cached))
             {
-                Logger.DebugS("headshot", $"Headshot texture cache hit: {hash}");
-                return cachedTexture;
+                if (ByteArraysEqual(cached.Bytes, imageBytes))
+                {
+                    Logger.DebugS("headshot", $"Headshot texture cache hit: {hash}");
+                    return cached.Texture;
+                }
             }
 
             // Загрузка текстуры
@@ -36,7 +39,7 @@ public static class HeadshotTextureCache
             var texture = clyde.LoadTextureFromImage(image);
 
             // Сохранение в кэш
-            _textureCache[hash] = texture;
+            _textureCache[hash] = (texture, imageBytes);
             Logger.DebugS("headshot", $"Headshot texture cache miss, loaded: {hash}");
 
             return texture;
@@ -46,6 +49,39 @@ public static class HeadshotTextureCache
             Logger.DebugS("headshot", $"Failed to load headshot texture: {ex}");
             return null;
         }
+    }
+
+    /// <summary>
+    /// Быстрый хэш для кэширования
+    /// </summary>
+    private static int ComputeHash(byte[] data)
+    {
+        unchecked
+        {
+            int hash = 17;
+            foreach (var b in data)
+            {
+                hash = hash * 31 + b;
+            }
+            return hash;
+        }
+    }
+
+    /// <summary>
+    /// Сравнение двух байтовых массивов
+    /// </summary>
+    private static bool ByteArraysEqual(byte[] a, byte[] b)
+    {
+        if (a.Length != b.Length)
+            return false;
+
+        for (int i = 0; i < a.Length; i++)
+        {
+            if (a[i] != b[i])
+                return false;
+        }
+
+        return true;
     }
 
     /// <summary>

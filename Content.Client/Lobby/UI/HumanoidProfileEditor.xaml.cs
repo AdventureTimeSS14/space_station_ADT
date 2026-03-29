@@ -1386,7 +1386,9 @@ namespace Content.Client.Lobby.UI
             if (Profile is null)
                 return;
 
-            Profile = Profile.WithHeadshotUrl(content);
+            var url = content.Trim();
+
+            Profile = Profile.WithHeadshotUrl(url);
             SetDirty();
 
             // Отменяем предыдущий запрос
@@ -1394,7 +1396,6 @@ namespace Content.Client.Lobby.UI
             _headshotRequestCts?.Dispose();
             _headshotRequestCts = new CancellationTokenSource();
 
-            var url = content.Trim();
             var cts = _headshotRequestCts.Token;
 
             // Не запрашиваем превью, если URL не изменился

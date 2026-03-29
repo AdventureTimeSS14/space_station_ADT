@@ -110,23 +110,22 @@ public static class HeadshotHashHelper
             return false;
 
         // Простая проверка: URL должен начинаться с http:// или https://
-        if (!url.StartsWith("http://", StringComparison.OrdinalIgnoreCase) &&
-            !url.StartsWith("https://", StringComparison.OrdinalIgnoreCase))
+        if (!url.StartsWith("http://", StringComparison.Ordinal) &&
+            !url.StartsWith("https://", StringComparison.Ordinal))
             return false;
 
-        // Проверка домена (если указан) - простая строковая проверка
         if (!string.IsNullOrEmpty(allowedDomain))
         {
             // Извлекаем хост из URL (между :// и первым /)
-            var schemeEnd = url.IndexOf("://", StringComparison.OrdinalIgnoreCase);
+            var schemeEnd = url.IndexOf("://", StringComparison.Ordinal);
             if (schemeEnd < 0)
                 return false;
 
             var pathStart = url.IndexOf('/', schemeEnd + 3);
             var host = pathStart > 0 ? url.Substring(schemeEnd + 3, pathStart - schemeEnd - 3) : url.Substring(schemeEnd + 3);
 
-            if (!host.Equals(allowedDomain, StringComparison.OrdinalIgnoreCase) &&
-                !host.EndsWith("." + allowedDomain, StringComparison.OrdinalIgnoreCase))
+            if (!host.Equals(allowedDomain, StringComparison.Ordinal) &&
+                !host.EndsWith("." + allowedDomain, StringComparison.Ordinal))
                 return false;
         }
 
