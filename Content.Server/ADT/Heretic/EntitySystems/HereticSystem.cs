@@ -205,11 +205,11 @@ public sealed class HereticSystem : EntitySystem
         if (!_mind.TryGetMind(uid, out var mind, out _) || !_job.MindTryGetJobId(mind, out var jobId) || jobId == null)
             return null;
 
-        var hair = (HairStyles.DefaultHairStyle, humanoid.CachedHairColor ?? Color.Black);
+        var hair = (HairStyles.DefaultHairStyle, humanoid.CachedHairColor ?? new List<Color> { Color.Black });
         if (humanoid.MarkingSet.TryGetCategory(MarkingCategories.Hair, out var hairMarkings) && hairMarkings.Count > 0)
         {
             var hairMarking = hairMarkings[0];
-            hair = (hairMarking.MarkingId, hairMarking.MarkingColors.FirstOrNull() ?? Color.Black);
+            hair = (hairMarking.MarkingId, new List<Color>(hairMarking.MarkingColors));
         }
 
         var facialHair = (HairStyles.DefaultFacialHairStyle, humanoid.CachedFacialHairColor ?? Color.Black);
@@ -221,7 +221,7 @@ public sealed class HereticSystem : EntitySystem
         }
 
         var appearance = new HumanoidCharacterAppearance(hair.Item1,
-            hair.Item2,
+            hair.Item2, // Corvax-Wega-Hair-Extended
             facialHair.Item1,
             facialHair.Item2,
             humanoid.EyeColor,
