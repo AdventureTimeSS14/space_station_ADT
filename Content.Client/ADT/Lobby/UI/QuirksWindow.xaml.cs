@@ -41,7 +41,12 @@ public sealed partial class QuirksWindow : FancyWindow
         else
             SelectedQuirksLabel.SetMessage(Loc.GetString("quirks-window-selected-none"), null, Color.White);
 
-        var protoList = _proto.EnumeratePrototypes<TraitPrototype>().Where(x => x.Quirk && !x.SpeciesBlacklist.Contains(profile.Species)).ToList();
+        var protoList = _proto.EnumeratePrototypes<TraitPrototype>()
+            .Where(x => x.Quirk
+                        && (x.SpeciesWhitelist.Count == 0 || x.SpeciesWhitelist.Contains(profile.Species))
+                        && !x.SpeciesBlacklist.Contains(profile.Species))
+            .ToList();
+
         protoList.Sort((x, y) => Loc.GetString(x.Name)[0].CompareTo(Loc.GetString(y.Name)[0]));
         protoList.Sort((x, y) => x.Cost.CompareTo(y.Cost));
 
