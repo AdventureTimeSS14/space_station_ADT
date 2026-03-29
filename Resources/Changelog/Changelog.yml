@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: Callmore
-  changes:
-  - message: Bullet casings can now be picked up again.
-    type: Fix
-  id: 9085
-  time: '2025-10-12T18:45:39.0000000+00:00'
-  url: https://github.com/space-wizards/space-station-14/pull/40829
 - author: CoconutThunder
   changes:
   - message: Fixed lubed items being thrown when looking at the pickup verb.
@@ -4034,3 +4027,10 @@
   id: 9596
   time: '2026-03-29T23:26:46.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/43392
+- author: aada
+  changes:
+  - message: The value of tier 1 tech disks has been lowered.
+    type: Tweak
+  id: 9597
+  time: '2026-03-29T23:41:45.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/43395
