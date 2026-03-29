@@ -24,7 +24,7 @@ public sealed class CharecterFlavorSystem : SharedCharecterFlavorSystem
     private static string ComputeSha256(string input)
     {
         var keyData = Encoding.UTF8.GetBytes(input);
-        var sha256 = SHA256.Create();
+        using var sha256 = SHA256.Create();
         var bytes = sha256.ComputeHash(keyData);
         return Convert.ToHexString(bytes);
     }
@@ -37,6 +37,7 @@ public sealed class CharecterFlavorSystem : SharedCharecterFlavorSystem
     /// </summary>
     private readonly ConcurrentDictionary<string, (byte[] Data, TimeSpan Expires)> _imageCache = new();
     private readonly List<string> _cacheKeysSeq = new();
+    private readonly object _cacheKeysLock = new();
 
     /// <summary>
     /// Максимальное количество записей в кэше (по аналогии с TTSManager)
@@ -59,18 +60,24 @@ public sealed class CharecterFlavorSystem : SharedCharecterFlavorSystem
         Logger.Debug($"Headshot max cache count changed to {newValue}");
 
         // Если кэш больше лимита, удаляем лишние записи
-        while (_cacheKeysSeq.Count > _maxCachedCount && _cacheKeysSeq.Count > 0)
+        lock (_cacheKeysLock)
         {
-            var firstKey = _cacheKeysSeq[0];
-            _imageCache.TryRemove(firstKey, out _);
-            _cacheKeysSeq.RemoveAt(0);
+            while (_cacheKeysSeq.Count > _maxCachedCount && _cacheKeysSeq.Count > 0)
+            {
+                var firstKey = _cacheKeysSeq[0];
+                _imageCache.TryRemove(firstKey, out _);
+                _cacheKeysSeq.RemoveAt(0);
+            }
         }
     }
 
     public override void Shutdown()
     {
         _imageCache.Clear();
-        _cacheKeysSeq.Clear();
+        lock (_cacheKeysLock)
+        {
+            _cacheKeysSeq.Clear();
+        }
         base.Shutdown();
     }
 
@@ -155,15 +162,18 @@ public sealed class CharecterFlavorSystem : SharedCharecterFlavorSystem
             var cacheDuration = TimeSpan.FromMinutes(_config.GetCVar(ADTCCVars.HeadshotCacheDuration));
 
             // Удаляем старые записи если кэш переполнен
-            while (_cacheKeysSeq.Count >= _maxCachedCount && _cacheKeysSeq.Count > 0)
+            lock (_cacheKeysLock)
             {
-                var firstKey = _cacheKeysSeq[0];
-                _imageCache.TryRemove(firstKey, out _);
-                _cacheKeysSeq.RemoveAt(0);
-            }
+                while (_cacheKeysSeq.Count >= _maxCachedCount && _cacheKeysSeq.Count > 0)
+                {
+                    var firstKey = _cacheKeysSeq[0];
+                    _imageCache.TryRemove(firstKey, out _);
+                    _cacheKeysSeq.RemoveAt(0);
+                }
 
-            _imageCache[cacheKey] = (image, now + cacheDuration);
-            _cacheKeysSeq.Add(cacheKey);
+                _imageCache[cacheKey] = (image, now + cacheDuration);
+                _cacheKeysSeq.Add(cacheKey);
+            }
         }
 
         return image;
@@ -185,10 +195,13 @@ public sealed class CharecterFlavorSystem : SharedCharecterFlavorSystem
             }
         }
 
-        foreach (var key in keysToRemove)
+        lock (_cacheKeysLock)
         {
-            _imageCache.TryRemove(key, out _);
-            _cacheKeysSeq.Remove(key);
+            foreach (var key in keysToRemove)
+            {
+                _imageCache.TryRemove(key, out _);
+                _cacheKeysSeq.Remove(key);
+            }
         }
 
         Logger.Debug($"Purged {keysToRemove.Count} expired headshot cache entries");

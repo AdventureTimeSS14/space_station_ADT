@@ -1401,6 +1401,8 @@ namespace Content.Client.Lobby.UI
             if (url == _lastHeadshotUrl)
                 return;
 
+            _lastHeadshotUrl = url;
+
             try
             {
                 // Debounce: ждём 500мс перед запросом
@@ -1432,7 +1434,6 @@ namespace Content.Client.Lobby.UI
             if (!string.IsNullOrWhiteSpace(url))
             {
                 _entManager.System<CharecterFlavorSystem>().RequestHeadshotPreview(url);
-                _lastHeadshotUrl = url;
             }
         }
 
