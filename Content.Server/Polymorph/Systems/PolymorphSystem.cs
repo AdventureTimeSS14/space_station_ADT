@@ -722,7 +722,6 @@ public sealed partial class PolymorphSystem : EntitySystem
         {
             var newDesc = EnsureComp<CharacterFlavorComponent>(newEntityUid);
             newDesc.FlavorText = flavor.FlavorText;
-            newDesc.OOCNotes = flavor.OOCNotes;
             newDesc.HeadshotUrl = flavor.HeadshotUrl;
         }
         //ADT-tweak-end
