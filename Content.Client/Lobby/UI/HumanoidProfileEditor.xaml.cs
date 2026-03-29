@@ -1388,6 +1388,11 @@ namespace Content.Client.Lobby.UI
 
             var url = content.Trim();
 
+            if (url == _lastHeadshotUrl)
+                return;
+
+            _lastHeadshotUrl = url;
+
             Profile = Profile.WithHeadshotUrl(url);
             SetDirty();
 
@@ -1399,12 +1404,6 @@ namespace Content.Client.Lobby.UI
             _headshotRequestCts = new CancellationTokenSource();
 
             var cts = _headshotRequestCts.Token;
-
-            // Не запрашиваем превью, если URL не изменился
-            if (url == _lastHeadshotUrl)
-                return;
-
-            _lastHeadshotUrl = url;
 
             try
             {
