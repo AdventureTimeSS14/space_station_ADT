@@ -1394,6 +1394,8 @@ namespace Content.Client.Lobby.UI
             // Отменяем предыдущий запрос
             _headshotRequestCts?.Cancel();
             _headshotRequestCts?.Dispose();
+            _headshotRequestCts = null;
+
             _headshotRequestCts = new CancellationTokenSource();
 
             var cts = _headshotRequestCts.Token;
@@ -1521,6 +1523,10 @@ namespace Content.Client.Lobby.UI
 
             _loadoutWindow?.Dispose();
             _loadoutWindow = null;
+
+            _headshotRequestCts?.Cancel();
+            _headshotRequestCts?.Dispose();
+            _headshotRequestCts = null;
         }
 
         protected override void EnteredTree()
