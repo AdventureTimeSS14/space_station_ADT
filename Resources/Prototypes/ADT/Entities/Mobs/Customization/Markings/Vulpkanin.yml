@@ -153,10 +153,12 @@
 
 - type: marking
   id: ADTVulpkaninear
-  bodyPart: Head
-  markingCategory: Head
+  bodyPart: HeadTop
+  markingCategory: HeadTop
   speciesRestriction: [VulpkaninSpecies]
   sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_head.rsi
+      state: ear_back
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_head.rsi
       state: ear
 
@@ -170,14 +172,14 @@
       state: eyesglow
   shader: unshaded
 
-- type: marking
-  id: ADTVulpkaninearBack
-  bodyPart: Head
-  markingCategory: Head
-  speciesRestriction: [VulpkaninSpecies]
-  sprites:
-    - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_head.rsi
-      state: ear_back
+#- type: marking
+#  id: ADTVulpkaninearBack
+#  bodyPart: HeadSide
+#  markingCategory: HeadSide
+#  speciesRestriction: [VulpkaninSpecies]
+#  sprites:
+#    - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_head.rsi
+#      state: ear_back
 
 - type: marking
   id: ADTVulpkaninruff
@@ -1010,3 +1012,67 @@
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/_DV/body_markings.rsi
       state: points_sharp-arms
+
+# Ear Markings (ADT custom)
+- type: marking
+  id: ADTVulpkaninEarCat
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_ears.rsi
+      state: cat
+
+- type: marking
+  id: ADTVulpkaninEarCat2
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_ears.rsi
+      state: cat2
+
+- type: marking
+  id: ADTVulpkaninEarFinnik1
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_ears.rsi
+      state: finnik-1
+
+- type: marking
+  id: ADTVulpkaninEarFinnik2
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_ears.rsi
+      state: finnik-2
+
+- type: marking
+  id: ADTVulpkaninEarSharp1
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_ears.rsi
+      state: sharp1
+
+- type: marking
+  id: ADTVulpkaninEarSharp2
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_ears.rsi
+      state: sharp2
+
+- type: marking
+  id: ADTVulpkaninEarSharp3
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [VulpkaninSpecies]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_ears.rsi
+      state: sharp3

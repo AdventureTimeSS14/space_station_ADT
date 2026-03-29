@@ -305,6 +305,27 @@ marking-ADTVulpPointsSharpArms-points_sharp-arms = Пятна (острая)
 marking-ADTVulpPointsSharpArms = Вульпканин, Пятна Рук (острая)
 
 
+marking-ADTVulpkaninEarCat = Вульпканин, уши (Кошачьи)
+marking-ADTVulpkaninEarCat-cat = Кошачьи уши
+
+marking-ADTVulpkaninEarCat2 = Вульпканин, уши (Кошачьи 2)
+marking-ADTVulpkaninEarCat2-cat2 = Кошачьи уши
+
+marking-ADTVulpkaninEarFinnik1 = Вульпканин, уши (Фенёк 1)
+marking-ADTVulpkaninEarFinnik1-finnik-1 = Уши фенька
+
+marking-ADTVulpkaninEarFinnik2 = Вульпканин, уши (Фенёк 2)
+marking-ADTVulpkaninEarFinnik2-finnik-2 = Уши фенька
+
+marking-ADTVulpkaninEarSharp1 = Вульпканин, уши (Острые 1)
+marking-ADTVulpkaninEarSharp1-sharp1 = Острые уши
+
+marking-ADTVulpkaninEarSharp2 = Вульпканин, уши (Острые 2)
+marking-ADTVulpkaninEarSharp2-sharp2 = Острые уши
+
+marking-ADTVulpkaninEarSharp3 = Вульпканин, уши (Острые 3)
+marking-ADTVulpkaninEarSharp3-sharp3 = Острые уши
+
 marking-ADTVulpHairAdhara = Адара
 marking-ADTVulpHairAnita = Анита
 marking-ADTVulpHairApollo = Аполло
