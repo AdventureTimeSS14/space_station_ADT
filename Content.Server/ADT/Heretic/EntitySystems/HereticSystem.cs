@@ -221,7 +221,7 @@ public sealed class HereticSystem : EntitySystem
         }
 
         var appearance = new HumanoidCharacterAppearance(hair.Item1,
-            hair.Item2, // Corvax-Wega-Hair-Extended
+            hair.Item2,
             facialHair.Item1,
             facialHair.Item2,
             humanoid.EyeColor,

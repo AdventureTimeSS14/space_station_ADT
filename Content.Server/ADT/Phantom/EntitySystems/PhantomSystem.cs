@@ -2247,7 +2247,7 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
                 if (hair.TryGetValue(0, out var marking))
                 {
                     hca = hca.WithHairStyleName(marking.MarkingId);
-                    hca = hca.WithHairColor(new List<Color>(marking.MarkingColors)); // Corvax-Wega-Hair-Extended
+                    hca = hca.WithHairColor(new List<Color>(marking.MarkingColors));
                 }
             if (humanoid.MarkingSet.Markings.TryGetValue(MarkingCategories.Head, out var head))
                 hca = hca.WithMarkings(head);
