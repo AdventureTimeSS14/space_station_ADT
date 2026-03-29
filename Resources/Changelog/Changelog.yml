@@ -1,12 +1,4 @@
 ﻿Entries:
-- author: DrSmugleaf
-  changes:
-  - message: Fixed species not being ordered alphabetically in the character customization
-      UI.
-    type: Fix
-  id: 9084
-  time: '2025-10-12T11:14:46.0000000+00:00'
-  url: https://github.com/space-wizards/space-station-14/pull/39359
 - author: Callmore
   changes:
   - message: Bullet casings can now be picked up again.
@@ -4035,3 +4027,10 @@
   id: 9595
   time: '2026-03-29T02:36:35.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/42973
+- author: HoofedEar
+  changes:
+  - message: Lathe machine interfaces now display their proper names
+    type: Tweak
+  id: 9596
+  time: '2026-03-29T23:26:46.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/43392
