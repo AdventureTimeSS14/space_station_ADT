@@ -46,7 +46,7 @@
                     <ui:LineEdit Name="CHeadshotUrlInput"
                                  Access="Public"
                                  HorizontalExpand="True"
-                                 PlaceHolder="Вставьте сюда ссылку"
+                                 PlaceHolder="{Loc 'flavor-interface-headshot-url-placeholder'}"
                                  MinSize="0 30"
                                  Editable="False"/>
                 </BoxContainer>
