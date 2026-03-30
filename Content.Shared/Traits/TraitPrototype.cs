@@ -62,17 +62,29 @@ public sealed partial class TraitPrototype : IPrototype
     [DataField]
     public ProtoId<TraitCategoryPrototype>? Category;
 
-    // ADT Tweak start
+    //ADT-Tweak-Start
     /// <summary>
     /// Will not be selectable if current species equals any of these
     /// </summary>
     [DataField]
     public List<ProtoId<SpeciesPrototype>> SpeciesBlacklist = new();
 
+    /// <summary>
+    /// Will ONLY be selectable if current species equals any of these.
+    /// </summary>
+    [DataField]
+    public List<ProtoId<SpeciesPrototype>> SpeciesWhitelist = new();
+
     [DataField]
     public bool Quirk = false;
 
     [DataField]
     public bool SponsorOnly = false;
-    // ADT Tweak end
+
+    /// <summary>
+    /// if true will rewrite components.
+    /// </summary>
+    [DataField]
+    public bool RewriteComponents = false;
+    //ADT-Tweak-End
 }
