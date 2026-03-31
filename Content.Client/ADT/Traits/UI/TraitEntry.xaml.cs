@@ -67,12 +67,12 @@ public sealed partial class TraitEntry : PanelContainer
             if (_trait.SpeciesWhitelist.Count > 0 && !_trait.SpeciesWhitelist.Contains(profile.Species))
             {
                 MeetsConditions = false;
-                requirements = FormattedMessage.FromUnformatted("Недоступно для вашего вида");
+                requirements = FormattedMessage.FromUnformatted(Loc.GetString("trait-species-unavailable"));
             }
             else if (_trait.SpeciesBlacklist.Contains(profile.Species))
             {
                 MeetsConditions = false;
-                requirements = FormattedMessage.FromUnformatted("Недоступно для вашего вида");
+                requirements = FormattedMessage.FromUnformatted(Loc.GetString("trait-species-unavailable"));
             }
         }
 

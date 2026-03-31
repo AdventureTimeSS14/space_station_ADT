@@ -16,5 +16,5 @@ trait-background-petty-criminal-name = Petty Criminal
 trait-background-petty-criminal-description = You were involved in criminal circles and know which items on the station are valuable to thieves.
 trait-background-burned-name = Burned
 trait-background-burned-description = You are a shadekin with irreparably damaged core, unable to return home.
-trait-background-exterminator-name = Hunted
-trait-background-exterminator-description = You saw something dreadful - a relentless killing machine in human form.
+trait-background-hunted-name = Hunted
+trait-background-hunted-description = You saw something dreadful - a relentless killing machine in human form.

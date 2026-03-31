@@ -16,5 +16,5 @@ trait-background-petty-criminal-name = Мелкий преступник
 trait-background-petty-criminal-description = Вы были связаны с преступным миром и знаете, какие предметы на станции ценны для воров.
 trait-background-burned-name = Сожжённый
 trait-background-burned-description = Вы шейдкин с необратимо повреждённым ядром, неспособный вернуться домой.
-trait-background-exterminator-name = Преследуемый
-trait-background-exterminator-description = Вы видели нечто ужасное - неумолимую машину для убийства в человеческом облике.
+trait-background-hunted-name = Преследуемый
+trait-background-hunted-description = Вы видели нечто ужасное - неумолимую машину для убийства в человеческом облике.

@@ -1,4 +1,4 @@
-// Система полностью переписана под ADT, под ноыве трейты
+// Система полностью переписана под ADT, под новые трейты
 
 using Content.Shared.ADT.CCVar;
 using Content.Shared.ADT.Traits.Effects;
@@ -284,4 +284,4 @@ public sealed class TraitSystem : EntitySystem
             Log.Debug($"Could not pick up trait item {effect.Item}, leaving at feet");
     }
 }
-// Система полностью переписана под ADT, под ноыве трейты
+// Система полностью переписана под ADT, под новые трейты

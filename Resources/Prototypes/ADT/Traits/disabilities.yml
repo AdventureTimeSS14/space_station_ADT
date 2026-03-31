@@ -60,5 +60,4 @@
       components:
         - type: UnadaptedToSpace
   speciesBlacklist:
-    - IPC
     - NovakidSpecies

@@ -80,8 +80,8 @@
 
 - type: trait
   id: Hunted
-  name: trait-background-exterminator-name
-  description: trait-background-exterminator-description
+  name: trait-background-hunted-name
+  description: trait-background-hunted-description
   category: BackgroundTraits
   cost: 0
   effects:

@@ -152,7 +152,7 @@
                 </BoxContainer>
                 <BoxContainer Orientation="Vertical" Margin="10">
                     <!-- Traits -->
-                    <!-- ADT Trait End -->
+                    <!-- ADT Trait start-->
                     <traits:TraitsTab Name="Traits" />
                     <!-- ADT Trait End -->
                 </BoxContainer>
