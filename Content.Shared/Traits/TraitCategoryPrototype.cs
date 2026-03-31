@@ -17,9 +17,10 @@ public sealed partial class TraitCategoryPrototype : IPrototype
     /// <summary>
     ///     Name of the trait category displayed in the UI
     /// </summary>
-    [DataField(required: true)]
+    [DataField(required: true)] // ADT-Tweak new Traits
     public LocId Name { get; private set; } = string.Empty;
 
+    // ADT-Tweak start new Traits
     /// <summary>
     /// Display order priority. Lower values appear first.
     /// </summary>
@@ -50,5 +51,6 @@ public sealed partial class TraitCategoryPrototype : IPrototype
     /// Whether this category starts expanded or collapsed.
     /// </summary>
     [DataField]
-    public bool DefaultExpanded = true;
+    public bool DefaultExpanded = true; 
 }
+// ADT-Tweak new Traits - End

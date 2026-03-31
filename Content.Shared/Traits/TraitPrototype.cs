@@ -19,15 +19,16 @@ public sealed partial class TraitPrototype : IPrototype
     /// <summary>
     /// The name of this trait.
     /// </summary>
-    [DataField(required: true)]
+    [DataField(required: true)] // ADT-Tweak new Traits
     public LocId Name { get; private set; } = string.Empty;
 
     /// <summary>
     /// The description of this trait.
     /// </summary>
-    [DataField(required: true)]
+    [DataField(required: true)] // ADT-Tweak new Traits
     public LocId? Description { get; private set; }
 
+    // ADT-Tweak start new Traits
     /// <summary>
     /// The category this trait belongs to.
     /// </summary>
@@ -39,6 +40,7 @@ public sealed partial class TraitPrototype : IPrototype
     /// </summary>
     [DataField]
     public int Cost = 1;
+    // ADT-Tweak end new Traits
 
     /// <summary>
     /// Don't apply this trait to entities this whitelist IS NOT valid for.
@@ -57,7 +59,7 @@ public sealed partial class TraitPrototype : IPrototype
     /// Legacy system - use Effects instead.
     /// </summary>
     [DataField]
-    public ComponentRegistry Components { get; private set; } = new();
+    public ComponentRegistry Components { get; private set; } = new(); // ADT-Tweak new Traits
 
     /// <summary>
     /// Gear that is given to the player, when they pick this trait.
@@ -71,20 +73,20 @@ public sealed partial class TraitPrototype : IPrototype
     /// Effects are applied in order.
     /// </summary>
     [DataField]
-    public List<BaseTraitEffect> Effects = new();
+    public List<BaseTraitEffect> Effects = new(); // ADT-Tweak new Traits
 
     /// <summary>
     /// Other traits that are mutually exclusive with this one.
     /// </summary>
     [DataField]
-    public List<ProtoId<TraitPrototype>> Conflicts = new();
+    public List<ProtoId<TraitPrototype>> Conflicts = new(); // ADT-Tweak new Traits
 
     /// <summary>
     /// Conditions that must be met for this trait to be selectable and applied.
     /// All conditions must pass for the trait to be valid.
     /// </summary>
     [DataField]
-    public HashSet<JobRequirement>? Requirements;
+    public HashSet<JobRequirement>? Requirements; // ADT-Tweak new Traits
 
     //ADT-Tweak-Start
     /// <summary>

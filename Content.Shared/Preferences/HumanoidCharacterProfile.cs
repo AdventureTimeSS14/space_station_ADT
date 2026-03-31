@@ -526,13 +526,14 @@ namespace Content.Shared.Preferences
             var category = traitProto.Category;
 
             // Category not found so dump it.
-            if (!protoManager.Resolve(category, out var traitCategory))
+            if (!protoManager.Resolve(category, out var traitCategory)) // ADT-Tweak new Traits
                 return new(this);
 
             var list = new HashSet<ProtoId<TraitPrototype>>(_traitPreferences) { traitId };
 
             // Check category points limit if applicable
-            if (traitCategory.MaxPoints.HasValue)
+             // ADT-Tweak start new Traits - система полностью переписана
+            if (traitCategory.MaxPoints.HasValue) 
             {
                 var count = 0;
                 foreach (var trait in list)
@@ -558,6 +559,7 @@ namespace Content.Shared.Preferences
                 _traitPreferences = list,
             };
         }
+         // ADT-Tweak end new Traits
 
         public HumanoidCharacterProfile WithoutTraitPreference(ProtoId<TraitPrototype> traitId, IPrototypeManager protoManager)
         {
