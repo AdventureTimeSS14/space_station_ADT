@@ -34,9 +34,10 @@
   - ADT_Saltern
   - ADT_Aspid
   - ADT_Cluster
+# Exclusion 0 - 35
+  - ADT_Pump
 # Micropop 0 - 20
   - ADT_Reach
-  - ADT_Silly
 
 # ADT Maps Выведенные на переработку
   # - ADT_Gate пока минока не начнёт нормально работать
