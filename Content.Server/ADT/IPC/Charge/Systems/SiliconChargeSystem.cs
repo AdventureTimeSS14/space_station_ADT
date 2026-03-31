@@ -24,6 +24,7 @@ using Robust.Shared.Physics.Components;
 using Content.Shared.Power.Components;
 using Content.Shared.Temperature.Components;
 using Content.Shared.Atmos.Components;
+using Content.Shared.ADT.Silicons;
 
 namespace Content.Server.ADT.Silicon.Charge;
 
@@ -124,6 +125,7 @@ public sealed class SiliconChargeSystem : EntitySystem
             {
                 drainRateFinalAddi += SiliconHeatEffects(silicon, siliconComp, frameTime) - 1; // This will need to be changed at some point if we allow external batteries, since the heat of the Silicon might not be applicable.
                 drainRateFinalAddi += SiliconMovementEffects(silicon, siliconComp); // TheDen - IPC Dynamic Power draw // Removes between 90% and 0% of the total power draw.
+                drainRateFinalAddi += SiliconColdDrainEffects(silicon, siliconComp); // Cold drain multiplier
             }
 
             // Ensures that the drain rate is at least 10% of normal,
@@ -222,5 +224,24 @@ public sealed class SiliconChargeSystem : EntitySystem
             siliconComp.DrainPerSecond * ((physics.LinearVelocity.Length() / movement.CurrentSprintSpeed) - 1), // Power draw changes as a negative percentage of the movement
             siliconComp.DrainPerSecond * siliconComp.IdleDrainReduction * (-1), // Should be a maximum of the idle drain reduction (negative)
             0f); // Minimum reduction is no change to power draw
+    }
+
+    private float SiliconColdDrainEffects(EntityUid silicon, SiliconComponent siliconComp)
+    {
+        if (!TryComp<IpcVulnerabilityComponent>(silicon, out var vuln))
+            return 0;
+
+        if (!TryComp<TemperatureComponent>(silicon, out var temperComp)
+            || !TryComp<ThermalRegulatorComponent>(silicon, out var thermalComp))
+            return 0;
+
+        if (temperComp.CurrentTemperature >= vuln.ColdDrainThreshold)
+            return 0;
+
+        var tempRatio = temperComp.CurrentTemperature / vuln.ColdDrainThreshold;
+        var drainMultiplier = 1.0f + (vuln.MaxColdDrainMultiplier - 1.0f) * (1.0f - tempRatio);
+        drainMultiplier = Math.Clamp(drainMultiplier, 1.0f, vuln.MaxColdDrainMultiplier);
+
+        return siliconComp.DrainPerSecond * (drainMultiplier - 1.0f);
     }
 }
