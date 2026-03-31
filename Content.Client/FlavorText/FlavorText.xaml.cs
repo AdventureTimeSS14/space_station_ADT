@@ -52,7 +52,7 @@ public sealed partial class FlavorText : Control
 
         _rulesPopup = new FlavorTextRulesPopup
         {
-            Timer = 5f
+            Timer = 1f
         };
 
         _rulesPopup.OnAcceptPressed += OnRulesAccepted;
@@ -82,7 +82,7 @@ public sealed partial class FlavorText : Control
 
         _rulesPopup.OnAcceptPressed -= OnRulesAccepted;
         _rulesPopup.OnCancelPressed -= OnRulesPopupClosed;
-        
+
         _rulesPopup.Orphan();
         _rulesPopup = null;
     }
@@ -96,6 +96,8 @@ public sealed partial class FlavorText : Control
         RulesStatusLabel.Text = _rulesAccepted
             ? _rulesAcceptedText
             : _rulesNotAcceptedText;
+
+        RulesOverlay.Visible = !_rulesAccepted;
         // ADT-Tweak-end
     }
 
