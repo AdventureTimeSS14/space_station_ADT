@@ -33,7 +33,6 @@
       components:
         - type: PermanentBlindness
           blindness: 4
-          glassesFixable: true
     - !type:SpawnItemInHandEffect
       item: ClothingEyesGlasses
 

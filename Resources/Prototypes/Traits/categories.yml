@@ -16,7 +16,7 @@
   maxPoints: 2
   accentColor: "#38bdf8"
   defaultExpanded: true
-  # ADT-Tweak end new Traits
+  # ADT-Tweak end new Traitsа
 
 - type: traitCategory
   id: Quirks
@@ -25,5 +25,4 @@
   priority: 20
   accentColor: "#a855f7"
   defaultExpanded: true
-  maxTraitPoints: 0
   # ADT-Tweak end new Traits
