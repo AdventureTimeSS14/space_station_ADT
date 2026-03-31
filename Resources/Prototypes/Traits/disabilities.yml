@@ -5,7 +5,6 @@
   id: Blindness
   name: trait-blindness-name
   description: trait-blindness-desc
-  traitGear: WhiteCane
   category: Disabilities
   cost: -1
   whitelist:
@@ -22,7 +21,6 @@
   id: PoorVision
   name: trait-poor-vision-name
   description: trait-poor-vision-desc
-  traitGear: ClothingEyesGlasses
   category: Disabilities
   cost: -1
   whitelist:
@@ -134,7 +132,6 @@
   id: ImpairedMobility
   name: trait-impaired-mobility-name
   description: trait-impaired-mobility-desc
-  traitGear: OffsetCane
   category: Disabilities
   cost: -1
   effects:
