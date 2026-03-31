@@ -1,84 +1,64 @@
 - type: trait
-  id: ADTDeaf
+  id: Deaf
   name: trait-deaf-name
   description: trait-deaf-description
-  category: Quirks
-  components:
-    - type: DeafTrait
+  category: Disabilities
   cost: -2
-  quirk: true
+  effects:
+    - !type:AddCompsEffect
+      components:
+        - type: DeafTrait
 
 - type: trait
-  id: ADTDamagedThroat
-  name: trait-damaged-throat-name
-  description: trait-damaged-throat-description
-  category: Quirks
-  components:
-    - type: DamagedThroat
+  id: Dysgraphia
+  name: trait-dysgraphia-name
+  description: trait-dysgraphia-desc
+  category: Disabilities
   cost: -1
-  quirk: true
-  speciesBlacklist:
-  - IPC
-  - NovakidSpecies
-  - Diona
-  - SlimePerson
-# Simple Station
-
-- type: trait
-  id: ADTTouchy
-  name: trait-touchy-name
-  description: trait-touchy-desc
-  category: Quirks
-  components:
-  - type: Touchy
-  cost: -1
-  quirk: true
-
-- type: trait
-  id: ColorBlindnessMonochrome
-  name: trait-monochromacy-name
-  description: trait-monochromacy-description
-  category: Quirks
-  components:
-    - type: Monochromacy
-  cost: -1
-  quirk: true
+  effects:
+    - !type:AddCompsEffect
+      components:
+        - type: BlockWriting
 
 - type: trait
   id: Frail
   name: trait-frail-name
   description: trait-frail-description
-  category: Quirks
-  components:
-    - type: Frail
-      modifiers:
-        Blunt: 1.5
-        Slash: 1.5
-        Piercing: 1.5
-        Heat: 1.2
-        Cold: 1.2
-        Shock: 1.2
+  category: Disabilities
   cost: -2
-  quirk: true
+  effects:
+    - !type:AddCompsEffect
+      components:
+        - type: Frail
+          modifiers:
+            Blunt: 1.5
+            Slash: 1.5
+            Piercing: 1.5
+            Heat: 1.2
+            Cold: 1.2
+            Shock: 1.2
 
 - type: trait
-  id: SoftHands #I don't fucking know how it works, but it works
+  id: SoftHands
   name: trait-soft-hands-name
   description: trait-soft-hands-desc
-  category: Quirks
-  components:
-    - type: WieldingBlocker
+  category: Disabilities
   cost: -2
-  quirk: true
+  effects:
+    - !type:AddCompsEffect
+      components:
+        - type: WieldingBlocker
 
 - type: trait
   id: UnadaptedToSpace
   name: trait-unadapted-to-space-name
   description: trait-unadapted-to-space-desc
-  category: Quirks
-  components:
-    - type: UnadaptedToSpace
+  category: Disabilities
   cost: -2
-  quirk: true
+  effects:
+    - !type:AddCompsEffect
+      components:
+        - type: UnadaptedToSpace
   speciesBlacklist:
-  - IPC
+    - IPC
+    - NovakidSpecies

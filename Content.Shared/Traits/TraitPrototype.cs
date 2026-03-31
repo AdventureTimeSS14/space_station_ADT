@@ -1,4 +1,6 @@
+using Content.Shared.ADT.Traits.Effects;
 using Content.Shared.Humanoid.Prototypes;
+using Content.Shared.Roles;
 using Content.Shared.Whitelist;
 using Robust.Shared.Prototypes;
 
@@ -17,14 +19,26 @@ public sealed partial class TraitPrototype : IPrototype
     /// <summary>
     /// The name of this trait.
     /// </summary>
-    [DataField]
+    [DataField(required: true)]
     public LocId Name { get; private set; } = string.Empty;
 
     /// <summary>
     /// The description of this trait.
     /// </summary>
-    [DataField]
+    [DataField(required: true)]
     public LocId? Description { get; private set; }
+
+    /// <summary>
+    /// The category this trait belongs to.
+    /// </summary>
+    [DataField(required: true)]
+    public ProtoId<TraitCategoryPrototype> Category;
+
+    /// <summary>
+    /// How many trait points this trait costs (positive) or grants (negative).
+    /// </summary>
+    [DataField]
+    public int Cost = 1;
 
     /// <summary>
     /// Don't apply this trait to entities this whitelist IS NOT valid for.
@@ -40,27 +54,37 @@ public sealed partial class TraitPrototype : IPrototype
 
     /// <summary>
     /// The components that get added to the player, when they pick this trait.
+    /// Legacy system - use Effects instead.
     /// </summary>
     [DataField]
-    public ComponentRegistry Components { get; private set; } = default!;
+    public ComponentRegistry Components { get; private set; } = new();
 
     /// <summary>
     /// Gear that is given to the player, when they pick this trait.
+    /// Legacy system - use SpawnItemInHandEffect instead.
     /// </summary>
     [DataField]
     public EntProtoId? TraitGear;
 
     /// <summary>
-    /// Trait Price. If negative number, points will be added.
+    /// Effects to apply to the entity when this trait is selected.
+    /// Effects are applied in order.
     /// </summary>
     [DataField]
-    public int Cost = 0;
+    public List<BaseTraitEffect> Effects = new();
 
     /// <summary>
-    /// Adds a trait to a category, allowing you to limit the selection of some traits to the settings of that category.
+    /// Other traits that are mutually exclusive with this one.
     /// </summary>
     [DataField]
-    public ProtoId<TraitCategoryPrototype>? Category;
+    public List<ProtoId<TraitPrototype>> Conflicts = new();
+
+    /// <summary>
+    /// Conditions that must be met for this trait to be selectable and applied.
+    /// All conditions must pass for the trait to be valid.
+    /// </summary>
+    [DataField]
+    public HashSet<JobRequirement>? Requirements;
 
     //ADT-Tweak-Start
     /// <summary>
