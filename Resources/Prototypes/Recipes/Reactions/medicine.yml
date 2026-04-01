@@ -423,8 +423,12 @@
       amount: 4
     TableSalt:
       amount: 1
+    # ADT-Tweak-Start
+    Blood:
+      amount: 1
+    # ADT-Tweak-End
   products:
-    Saline: 5
+    Saline: 6
 
 - type: reaction
   id: Lacerinol
