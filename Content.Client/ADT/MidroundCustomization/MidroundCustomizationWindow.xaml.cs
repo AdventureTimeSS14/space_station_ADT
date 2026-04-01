@@ -29,6 +29,7 @@ public sealed partial class MidroundCustomizationWindow : DefaultWindow
     public Action<(MarkingCategories Category, int Slot, List<Color> Colors)>? OnSlotColorChanged;
     public Action<(MarkingCategories Category, int Slot)>? OnSlotRemoved;
     public Action<MarkingCategories>? OnSlotAdded;
+    public Action<bool>? OnPointLightColorToggled;
 
     public Action<string>? OnVoiceChanged;
     public Action<string>? OnBarkProtoChanged;
@@ -75,6 +76,10 @@ public sealed partial class MidroundCustomizationWindow : DefaultWindow
 
         BarkProtoButton.OnPressed += _ => OpenBarkWindow();
         BarkPlayButton.OnPressed += _ => PlayPreviewBark();
+        PointLightColorCheckBox.OnToggled += args =>
+        {
+            OnPointLightColorToggled?.Invoke(args.Pressed);
+        };
 
         _voiceList = _prototypeManager
             .EnumeratePrototypes<TTSVoicePrototype>()
@@ -175,6 +180,12 @@ public sealed partial class MidroundCustomizationWindow : DefaultWindow
                 OnSlotAdded?.Invoke(item.Key);
             };
             MarkingsContainer.AddChild(picker);
+        }
+
+        PointLightColorCheckBox.Visible = state.PointLightColor;
+        if (state.PointLightColor)
+        {
+            PointLightColorCheckBox.Pressed = state.PointLightColorEnabled;
         }
 
         if (state.TTS != null)

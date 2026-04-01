@@ -1,6 +1,7 @@
 using System.IO;
 using System.Linq;
 using System.Numerics;
+using System.Threading;
 using Content.Client.ADT.Lobby.UI;
 using Content.Client.Corvax.Sponsors;
 using Content.Client.Guidebook;
@@ -38,6 +39,8 @@ using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
 using Robust.Client.Utility;
 using Robust.Shared.Configuration;
+using Robust.Shared.Timing;
+using Timer = Robust.Shared.Timing.Timer;
 using Robust.Shared.ContentPack;
 using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
@@ -348,8 +351,9 @@ namespace Content.Client.Lobby.UI
             {
                 if (Profile is null)
                     return;
+                var hairColorList = new List<Robust.Shared.Maths.Color>(newColor.marking.MarkingColors); // ADT-tweak
                 Profile = Profile.WithCharacterAppearance(
-                    Profile.Appearance.WithHairColor(newColor.marking.MarkingColors[0]));
+                    Profile.Appearance.WithHairColor(hairColorList));// ADT-tweak
                 UpdateCMarkingsHair();
                 ReloadPreview();
             };
@@ -592,7 +596,6 @@ namespace Content.Client.Lobby.UI
                 _flavorTextEdit = _flavorText.CFlavorTextInput;
 
                 // ADT-tweak-start
-                _flavorText.OnOOCNotesChanged += OnOOCNotesChange;
                 _flavorText.OnHeadshotUrlChanged += OnHeadshotUrlChange;
                 _flavorText.OnPreviewRequested += OnFlavorPreviewRequested;
                 // ADT-tweak-end
@@ -606,7 +609,6 @@ namespace Content.Client.Lobby.UI
                 TabContainer.RemoveChild(_flavorText);
                 _flavorText.OnFlavorTextChanged -= OnFlavorTextChange;
                 // ADT-tweak-start
-                _flavorText.OnOOCNotesChanged -= OnOOCNotesChange;
                 _flavorText.OnHeadshotUrlChanged -= OnHeadshotUrlChange;
                 _flavorText.OnPreviewRequested -= OnFlavorPreviewRequested;
                 // ADT-tweak-end
@@ -1376,23 +1378,66 @@ namespace Content.Client.Lobby.UI
             SetDirty();
         }
 
-        //ADT-tweak-start: ООС заметки и юрл
-        private void OnOOCNotesChange(string content)
+        //ADT-tweak-start: Юрл для хэдшота
+        private CancellationTokenSource? _headshotRequestCts;
+        private string? _lastHeadshotUrl;
+
+        private async void OnHeadshotUrlChange(string content)
         {
             if (Profile is null)
                 return;
 
-            Profile = Profile.WithOOCNotes(content);
+            var url = content.Trim();
+
+            if (url == _lastHeadshotUrl)
+                return;
+
+            _lastHeadshotUrl = url;
+
+            Profile = Profile.WithHeadshotUrl(url);
             SetDirty();
+
+            // Отменяем предыдущий запрос
+            _headshotRequestCts?.Cancel();
+            _headshotRequestCts?.Dispose();
+            _headshotRequestCts = null;
+
+            _headshotRequestCts = new CancellationTokenSource();
+
+            var cts = _headshotRequestCts.Token;
+
+            try
+            {
+                // Debounce: ждём 500мс перед запросом
+                await Timer.Delay(500, cts);
+                OnHeadshotPreviewRequestedDelayed(url);
+            }
+            catch (OperationCanceledException)
+            {
+                // Запрос отменён — это нормально
+            }
         }
 
-        private void OnHeadshotUrlChange(string content)
+        private void OnHeadshotPreviewRequestedDelayed(string url)
         {
             if (Profile is null)
                 return;
 
-            Profile = Profile.WithHeadshotUrl(content);
-            SetDirty();
+            if (!_entManager.EntityExists(PreviewDummy))
+                return;
+
+            var flavor = _entManager.EnsureComponent<CharacterFlavorComponent>(PreviewDummy);
+            flavor.FlavorText = Profile.FlavorText ?? string.Empty;
+            flavor.HeadshotUrl = url;
+
+            var controller = UserInterfaceManager.GetUIController<CharacterFlavorUiController>();
+            controller.OpenPreviewMenu(PreviewDummy);
+
+            // Попросить сервер скачать и прислать картинку для предпросмотра хэдшота.
+            if (!string.IsNullOrWhiteSpace(url))
+            {
+                _entManager.System<CharecterFlavorSystem>().RequestHeadshotPreview(url);
+            }
         }
 
         private void OnFlavorPreviewRequested()
@@ -1405,7 +1450,6 @@ namespace Content.Client.Lobby.UI
 
             var flavor = _entManager.EnsureComponent<CharacterFlavorComponent>(PreviewDummy);
             flavor.FlavorText = Profile.FlavorText ?? string.Empty;
-            flavor.OOCNotes = Profile.OOCNotes ?? string.Empty;
             flavor.HeadshotUrl = Profile.HeadshotUrl ?? string.Empty;
 
             var controller = UserInterfaceManager.GetUIController<CharacterFlavorUiController>();
@@ -1479,6 +1523,9 @@ namespace Content.Client.Lobby.UI
 
             _loadoutWindow?.Dispose();
             _loadoutWindow = null;
+
+            _headshotRequestCts?.Cancel();
+            _headshotRequestCts = null;
         }
 
         protected override void EnteredTree()
@@ -1624,7 +1671,6 @@ namespace Content.Client.Lobby.UI
                 if (_flavorText == null)
                     return;
 
-                _flavorText.COOCTextInput.TextRope = new Rope.Leaf(Profile?.OOCNotes ?? "");
                 _flavorText.CHeadshotUrlInput.Text = Profile?.HeadshotUrl ?? "";
                 // ADT-Tweak-end
             }
@@ -1777,7 +1823,7 @@ namespace Content.Client.Lobby.UI
             }
             var hairMarking = Profile.Appearance.HairStyleId == HairStyles.DefaultHairStyle
                 ? new List<Marking>()
-                : new() { new(Profile.Appearance.HairStyleId, new List<Color>() { Profile.Appearance.HairColor }) };
+                : new() { new(Profile.Appearance.HairStyleId, Profile.Appearance.HairColor) }; // ADT-tweak
 
             var facialHairMarking = Profile.Appearance.FacialHairStyleId == HairStyles.DefaultFacialHairStyle
                 ? new List<Marking>()
@@ -1801,26 +1847,28 @@ namespace Content.Client.Lobby.UI
             }
 
             // hair color
-            Color? hairColor = null;
+            List<Color>? hairColor = null;
             if ( Profile.Appearance.HairStyleId != HairStyles.DefaultHairStyle &&
                 _markingManager.Markings.TryGetValue(Profile.Appearance.HairStyleId, out var hairProto)
             )
             {
                 if (_markingManager.CanBeApplied(Profile.Species, Profile.Sex, hairProto, _prototypeManager))
                 {
-                    if (_markingManager.MustMatchSkin(Profile.Species, HumanoidVisualLayers.Hair, out var _, _prototypeManager))
+                    if (_markingManager.MustMatchSkin(Profile.Species, HumanoidVisualLayers.Hair, out var hairAlpha, _prototypeManager))
                     {
-                        hairColor = Profile.Appearance.SkinColor;
+                        hairColor = new List<Color> { Profile.Appearance.SkinColor.WithAlpha(hairAlpha) };
+                        if (Profile.Appearance.HairColor.Count > 1)
+                            hairColor.AddRange(Profile.Appearance.HairColor.Skip(1));
                     }
                     else
                     {
-                        hairColor = Profile.Appearance.HairColor;
+                        hairColor = Profile.Appearance.HairColor.ToList();
                     }
                 }
             }
             if (hairColor != null)
             {
-                Markings.HairMarking = new (Profile.Appearance.HairStyleId, new List<Color>() { hairColor.Value });
+                Markings.HairMarking = new (Profile.Appearance.HairStyleId, hairColor);
             }
             else
             {
@@ -1842,7 +1890,7 @@ namespace Content.Client.Lobby.UI
             {
                 if (_markingManager.CanBeApplied(Profile.Species, Profile.Sex, facialHairProto, _prototypeManager))
                 {
-                    if (_markingManager.MustMatchSkin(Profile.Species, HumanoidVisualLayers.Hair, out var _, _prototypeManager))
+                    if (_markingManager.MustMatchSkin(Profile.Species, HumanoidVisualLayers.FacialHair, out var _, _prototypeManager))
                     {
                         facialHairColor = Profile.Appearance.SkinColor;
                     }

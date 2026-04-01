@@ -48,7 +48,7 @@ public sealed class MorphSystem : SharedMorphSystem
     [Dependency] protected readonly ChatSystem ChatSystem = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly SharedChameleonProjectorSystem _chameleon = default!;
-    [Dependency] protected readonly SharedContainerSystem container = default!;
+    [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
@@ -120,7 +120,7 @@ public sealed class MorphSystem : SharedMorphSystem
         }
         else if (_random.Prob(ent.Comp.EatWeaponChanceOnHited) && _hunger.GetHunger(hunger) >= ent.Comp.EatWeaponHungerReq)
         {
-            container.Insert(args.Used, ent.Comp.Container);
+            _container.Insert(args.Used, ent.Comp.Container);
             _audioSystem.PlayPvs(ent.Comp.SoundDevour, ent);
             _hunger.ModifyHunger(ent, -ent.Comp.EatWeaponHungerReq, hunger);
         }
@@ -134,7 +134,7 @@ public sealed class MorphSystem : SharedMorphSystem
             return;
         if (_hands.TryGetActiveItem((args.HitEntities[0], hands), out var item) && _random.Prob(ent.Comp.EatWeaponChanceOnHit))
         {
-            container.Insert(item.Value, ent.Comp.Container);
+            _container.Insert(item.Value, ent.Comp.Container);
             _audioSystem.PlayPvs(ent.Comp.SoundDevour, ent);
             _hunger.ModifyHunger(ent, -ent.Comp.EatWeaponHungerReq, hunger);
         }
@@ -149,7 +149,7 @@ public sealed class MorphSystem : SharedMorphSystem
     {
         if (!TryComp<HungerComponent>(uid, out var hunger))
             return;
-        if (container.IsEntityInContainer(uid))
+        if (_container.IsEntityInContainer(uid))
             return;
         if (comp.OpenVentFoodReq > _hunger.GetHunger(hunger))
             return;
@@ -173,8 +173,23 @@ public sealed class MorphSystem : SharedMorphSystem
         if (!TryComp<ChameleonProjectorComponent>(uid, out var chamel))
             return;
         var targ = GetEntity(args.Target);
-        if (targ != null)
-            MimicryNonHumanoid((uid, chamel), targ.Value);
+        if (targ == null)
+            return;
+
+        if (_container.IsEntityInContainer(uid))
+        {
+            _popupSystem.PopupCursor(Loc.GetString("morph-mimicry-container"), uid);
+            return;
+        }
+
+        if (_chameleon.IsInvalid(chamel, targ.Value))
+        {
+            _popupSystem.PopupCursor(Loc.GetString("morph-mimicry-invalid"), uid);
+            return;
+        }
+
+        _popupSystem.PopupCursor(Loc.GetString("morph-mimicry-success"), uid);
+        MimicryNonHumanoid((uid, chamel), targ.Value);
     }
     private void OnAmbushAction(EntityUid uid, MorphComponent component, MorphAmbushActionEvent args)
     {
@@ -231,7 +246,7 @@ public sealed class MorphSystem : SharedMorphSystem
     private void OnMimicryRadialMenu(EntityUid uid, MorphComponent component, MorphOpenRadialMenuEvent args)
     {
         // Инциализируем контейнер мимикрии
-        component.MimicryContainer = container.EnsureContainer<Container>(uid, component.MimicryContainerId);
+        component.MimicryContainer = _container.EnsureContainer<Container>(uid, component.MimicryContainerId);
 
         if (!TryComp<UserInterfaceComponent>(uid, out var uic))
             return;
