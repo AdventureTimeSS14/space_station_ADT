@@ -38,6 +38,7 @@ public abstract class SharedAnomalySystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly IComponentFactory _comp = default!;
+    [Dependency] private readonly IMapManager _mapManager = default!;
 
     public override void Initialize()
     {
@@ -396,19 +397,27 @@ public abstract class SharedAnomalySystem : EntitySystem
         var mapCoords = _transform.GetMapCoordinates(uid);
 
         EntityUid? gridUid = xform.GridUid;
-        if (gridUid == null || !TryComp(gridUid, out MapGridComponent? grid))
+        MapGridComponent? grid = null;
+
+        if (gridUid == null || !TryComp(gridUid, out grid))
         {
-            gridUid = _map.FindGridAt(mapCoords);
-            if (gridUid == null || !TryComp(gridUid, out grid))
+            if (_mapManager.TryFindGridAt(mapCoords.MapId, worldPos, out var foundGridUid, out var foundGrid))
             {
-                var gridsQuery = EntityQuery<MapGridComponent>();
-                while (gridsQuery.MoveNext(out var gUid, out _))
+                gridUid = foundGridUid;
+                grid = foundGrid;
+            }
+            else
+            {
+                foreach (var gUid in _mapManager.GetAllGrids(mapCoords.MapId))
                 {
+                    if (!TryComp(gUid, out MapGridComponent? gComp))
+                        continue;
+
                     var gridPos = _transform.GetWorldPosition(gUid);
                     if (Vector2.Distance(gridPos, worldPos) <= settings.MaxRange)
                     {
                         gridUid = gUid;
-                        grid = _comp.GetComponent<MapGridComponent>(gUid);
+                        grid = gComp;
                         break;
                     }
                 }
