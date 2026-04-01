@@ -1,23 +1,23 @@
 # If you add a new trait, make sure to add the corresponding component to the whitelist in \Resources\Prototypes\Entities\Mobs\Player\clone.yml so it gets copied to clones correctly!
-
-# Free
+# ADT - Трейты изменены под новую систему трейтов
 
 - type: trait
   id: Accentless
   name: trait-accentless-name
   description: trait-accentless-desc
   category: SpeechTraits
-  cost: 2
-  components:
-  - type: Accentless
-    removes:
-    - type: LizardAccent
-    - type: MothAccent
-    - type: RoarAccent # ADT-Tweak
-    - type: NyaAccent # ADT-Tweak
-    - type: ReplacementAccent
-      accent: dwarf
-    - type: GrowlingAccent # Corvax-Vulps
+  cost: 0
+  effects:
+    - !type:AddCompsEffect
+      components:
+        - type: Accentless
+          removes:
+            - type: OwOAccent
+            - type: LizardAccent
+            - type: MothAccent
+            - type: GrowlingAccent
+            - type: ReplacementAccent
+              accent: dwarf
 
 # 1 Cost
 
@@ -26,75 +26,91 @@
   name: trait-southern-name
   description: trait-southern-desc
   category: SpeechTraits
-  cost: 1
-  components:
-  - type: SouthernAccent
+  cost: 0
+  effects:
+    - !type:AddCompsEffect
+      components:
+        - type: SouthernAccent
 
 - type: trait
   id: PirateAccent
   name: trait-pirate-accent-name
   description: trait-pirate-accent-desc
   category: SpeechTraits
-  cost: 1
-  components:
-  - type: PirateAccent
+  cost: 0
+  effects:
+    - !type:AddCompsEffect
+      components:
+        - type: PirateAccent
 
 - type: trait
   id: CowboyAccent
   name: trait-cowboy-name
   description: trait-cowboy-desc
   category: SpeechTraits
-  cost: 1
-  components:
-  - type: ReplacementAccent
-    accent: cowboy
+  cost: 0
+  effects:
+    - !type:AddCompsEffect
+      components:
+        - type: ReplacementAccent
+          accent: cowboy
 
 - type: trait
   id: GermanAccent
   name: trait-german-name
   description: trait-german-desc
   category: SpeechTraits
-  cost: 1
-  components:
-  - type: GermanAccent
+  cost: 0
+  effects:
+    - !type:AddCompsEffect
+      components:
+        - type: GermanAccent
 
 - type: trait
   id: ItalianAccent
   name: trait-italian-name
   description: trait-italian-desc
   category: SpeechTraits
-  cost: 1
-  components:
-  - type: ReplacementAccent
-    accent: italian
+  cost: 0
+  effects:
+    - !type:AddCompsEffect
+      components:
+        - type: ReplacementAccent
+          accent: italian
 
 - type: trait
   id: FrenchAccent
   name: trait-french-name
   description: trait-french-desc
   category: SpeechTraits
-  cost: 1
-  components:
-  - type: FrenchAccent
+  cost: 0
+  effects:
+    - !type:AddCompsEffect
+      components:
+        - type: FrenchAccent
 
 - type: trait
   id: SpanishAccent
   name: trait-spanish-name
   description: trait-spanish-desc
   category: SpeechTraits
-  cost: 1
-  components:
-  - type: SpanishAccent
+  cost: 0
+  effects:
+    - !type:AddCompsEffect
+      components:
+        - type: SpanishAccent
 
 - type: trait
   id: Liar
   name: trait-liar-name
   description: trait-liar-desc
   category: SpeechTraits
-  cost: 1
-  components:
-  - type: ReplacementAccent
-    accent: liar
+  cost: 0
+  effects:
+    - !type:AddCompsEffect
+      components:
+        - type: ReplacementAccent
+          accent: mobster
 
 # 2 Cost
 
@@ -104,12 +120,14 @@
   description: trait-socialanxiety-desc
   category: SpeechTraits
   cost: 2
-  components:
-  - type: StutteringAccent
-    matchRandomProb: 0.1
-    fourRandomProb: 0
-    threeRandomProb: 0
-    cutRandomProb: 0
+  effects:
+    - !type:AddCompsEffect
+      components:
+        - type: StutteringAccent
+          matchRandomProb: 0.1
+          fourRandomProb: 0
+          threeRandomProb: 0
+          cutRandomProb: 0
 
 - type: trait
   id: FrontalLisp
@@ -117,21 +135,7 @@
   description: trait-frontal-lisp-desc
   category: SpeechTraits
   cost: 2
-  components:
-  - type: FrontalLisp
-
-- type: trait
-  id: ADTShitcureAccent
-  name: trait-shitcure-name
-  description: trait-shitcure-desc
-  category: SpeechTraits
-  cost: 2
-  components:
-  - type: ReplacementAccent
-    accent: shitcure
-  speciesBlacklist:
-  - KoboltSpecies
-  - Moth
-  - TajaranSpecies
-  - VulpkaninSpecies
-  - Reptilian
+  effects:
+    - !type:AddCompsEffect
+      components:
+        - type: FrontalLisp
