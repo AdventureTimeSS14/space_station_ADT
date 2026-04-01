@@ -37,6 +37,7 @@ public abstract class SharedAnomalySystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
+    [Dependency] private readonly IComponentFactory _comp = default!;
 
     public override void Initialize()
     {
@@ -94,7 +95,9 @@ public abstract class SharedAnomalySystem : EntitySystem
 
         AdminLog.Add(LogType.Anomaly, LogImpact.Medium, $"Anomaly {ToPrettyString(uid)} pulsed with severity {component.Severity}.");
         if (_net.IsServer)
+        {
             Audio.PlayPvs(component.PulseSound, uid);
+        }
 
         var pulse = EnsureComp<AnomalyPulsingComponent>(uid);
         pulse.EndTime  = Timing.CurTime + pulse.PulseDuration;
@@ -388,20 +391,40 @@ public abstract class SharedAnomalySystem : EntitySystem
     {
         var xform = Transform(uid);
 
-        if (!TryComp<MapGridComponent>(xform.GridUid, out var grid))
-            return null;
+        // ADT-Tweak start
+        var worldPos = _transform.GetWorldPosition(uid);
+        var mapCoords = _transform.GetMapCoordinates(uid);
+
+        EntityUid? gridUid = xform.GridUid;
+        if (gridUid == null || !TryComp(gridUid, out MapGridComponent? grid))
+        {
+            gridUid = _map.FindGridAt(mapCoords);
+            if (gridUid == null || !TryComp(gridUid, out grid))
+            {
+                var gridsQuery = EntityQuery<MapGridComponent>();
+                while (gridsQuery.MoveNext(out var gUid, out _))
+                {
+                    var gridPos = _transform.GetWorldPosition(gUid);
+                    if (Vector2.Distance(gridPos, worldPos) <= settings.MaxRange)
+                    {
+                        gridUid = gUid;
+                        grid = _comp.GetComponent<MapGridComponent>(gUid);
+                        break;
+                    }
+                }
+
+                if (gridUid == null || grid == null)
+                    return null;
+            }
+        }
+        // ADT-Tweak end
 
         // How many spawn points we will be aiming to return
         var amount = (int) (MathHelper.Lerp(settings.MinAmount, settings.MaxAmount, severity * stability * powerModifier) + 0.5f);
 
-        // When the entity is in a container or buckled (such as a hosted anomaly), local coordinates will not be comparable
-        // to tile coordinates.
-        // Get the world coordinates for the anomalous entity
-        var worldPos = _transform.GetWorldPosition(uid);
-
         // Get a list of the tiles within the maximum range of the effect
         var tilerefs = _map.GetTilesIntersecting(
-                xform.GridUid.Value,
+                gridUid.Value, // ADT-Tweak
                 grid,
                 new Box2(worldPos + new Vector2(-settings.MaxRange), worldPos + new Vector2(settings.MaxRange)))
             .ToList();
@@ -419,7 +442,7 @@ public abstract class SharedAnomalySystem : EntitySystem
             var tileref = Random.Pick(tilerefs);
 
             // Get the world position of the tile to calculate the distance to the anomalous object
-            var tileWorldPos = _map.GridTileToWorldPos(xform.GridUid.Value, grid, tileref.GridIndices);
+            var tileWorldPos = _map.GridTileToWorldPos(gridUid.Value, grid, tileref.GridIndices); // ADT-Tweak
             var distance = Vector2.Distance(tileWorldPos, worldPos);
 
             //cut outer & inner circle
@@ -432,7 +455,7 @@ public abstract class SharedAnomalySystem : EntitySystem
             if (!settings.CanSpawnOnEntities)
             {
                 var valid = true;
-                foreach (var ent in _map.GetAnchoredEntities(xform.GridUid.Value, grid, tileref.GridIndices))
+                foreach (var ent in _map.GetAnchoredEntities(gridUid.Value, grid, tileref.GridIndices)) // ADT-Tweak
                 {
                     if (!physQuery.TryGetComponent(ent, out var body))
                         continue;
