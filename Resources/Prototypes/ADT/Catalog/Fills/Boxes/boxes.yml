@@ -358,3 +358,30 @@
       - id: FoodBreadBaguette
         amount: 2
 
+- type: entity
+  parent: BoxCardboard
+  id: ADTBoxFakeMindShield
+  name: fake mindshield box
+  description: A box of 10 fake mindshield implants.
+  components:
+  - type: Storage
+    grid:
+    - 0,0,4,3
+  - type: StorageFill
+    contents:
+    - id: FakeMindShieldImplanter
+      amount: 10
+
+- type: entity
+  parent: BoxCardboard
+  id: ADTBoxImplanters
+  name: implant extractor box
+  description: A box of 10 implant extractors.
+  components:
+  - type: Storage
+    grid:
+    - 0,0,4,3
+  - type: StorageFill
+    contents:
+    - id: Implanter
+      amount: 10

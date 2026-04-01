@@ -1,6 +1,3 @@
-trait-monochromacy-name = Монохромный дальтонизм
-trait-monochromacy-description = Из-за мутаций вашего зрения, вы не способны воспринимать никакие цвета.
-
 trait-frail-name = Слабое тело
 trait-frail-description = Ваше тело невероятно слабо, из-за чего вы получаете гораздо больше урона от травм.
 
@@ -8,7 +5,7 @@ trait-deaf-name = Глухота
 trait-deaf-description = Вы совершенно глухи и можете общаться только языком жестов.
 
 trait-damaged-throat-name = Поврежденное горло
-trait-damaged-throat-description = Ваше горло повреждено, что вызывает боль и кашель при нормальной речи. Шепот позволяет избежать этой проблемы.
+trait-damaged-throat-desc = Ваше горло повреждено, что вызывает боль и кашель при нормальной речи. Шепот позволяет избежать этой проблемы.
 
 trait-soft-hands-name = Слабые руки
 trait-soft-hands-desc = Ваши руки слишком слабы, чтобы крепко держать что-либо в обоих сразу.
@@ -21,3 +18,15 @@ trait-touchy-desc = Вы определяете вещи и их внешний 
 
 trait-allergic-name = Аллергик
 trait-allergic-desc = У вас есть аллергия.
+
+trait-highlightsensitivity-name = Высокая светочувствительность
+trait-highlightsensitivity-desc = Вы гораздо более чувствительны к свету, чем большинство шейдкинов.
+
+trait-extremelightsensitivity-name = Экстремальная светочувствительность
+trait-extremelightsensitivity-desc = Вы чрезвычайно чувствительны к свету, гораздо больше чем большинство шейдкинов.
+
+trait-dysgraphia-name = Дисграфия
+trait-dysgraphia-desc = Вы не способны излагать свои мысли в письменном виде.
+
+trait-clumsy-name = Неуклюжий
+trait-clumsy-desc = Вы немного склонны к несчастным случаям.

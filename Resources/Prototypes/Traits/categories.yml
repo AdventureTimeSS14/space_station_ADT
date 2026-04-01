@@ -1,13 +1,28 @@
 - type: traitCategory
   id: Disabilities
   name: trait-category-disabilities
+  # ADT-Tweak start new Traits
+  priority: 10
+  accentColor: "#64748b"
+  defaultExpanded: true
+  # ADT-Tweak end new Traits
 
 - type: traitCategory
   id: SpeechTraits
   name: trait-category-speech
-  maxTraitPoints: 2
+  # ADT-Tweak start new Traits
+  priority: 30
+  maxTraits: 3
+  maxPoints: 2
+  accentColor: "#38bdf8"
+  defaultExpanded: true
+  # ADT-Tweak end new Traitsа
 
 - type: traitCategory
   id: Quirks
   name: trait-category-quirks
-  maxTraitPoints: 0 # ADT quirks
+  # ADT-Tweak start new Traits
+  priority: 20
+  accentColor: "#a855f7"
+  defaultExpanded: true
+  # ADT-Tweak end new Traits
