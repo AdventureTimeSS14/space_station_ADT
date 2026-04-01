@@ -120,6 +120,21 @@
         - type: SickTeethAccent
 
 - type: trait
+  id: Paraplegic
+  name: trait-paraplegic-name
+  description: trait-paraplegic-desc
+  category: Disabilities
+  cost: -4
+  speciesBlacklist:
+    - IPC
+  effects:
+    - !type:AddCompsEffect
+      components:
+        - type: LegsParalyzed
+    - !type:SpawnItemInHandEffect
+      item: ADTVehicleWheelchairFolded
+
+- type: trait
   id: BurrinessAccent
   name: trait-burriness-accent-name
   description: trait-burriness-accent-desc
