@@ -51,9 +51,3 @@ trait-hushed-desc = Вы говорите очень тихо.
 
 trait-pseudobulbar-affect-name = Псевдобульбарный аффект
 trait-pseudobulbar-affect-desc = Вы испытываете неконтролируемые приступы смеха или плача.
-
-trait-echolalia-name = Эхолалия
-trait-echolalia-desc = Вы непроизвольно повторяете слова и фразы других людей.
-
-trait-touchy-name = Зрительная агнозия
-trait-touchy-desc = Вы определяете вещи и их внешний вид на ощупь. (examine работает только с теми предметами которые в пределах вашей досягаемости)

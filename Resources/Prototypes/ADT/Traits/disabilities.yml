@@ -3,11 +3,51 @@
   name: trait-deaf-name
   description: trait-deaf-description
   category: Disabilities
-  cost: -2
+  cost: -1
   effects:
     - !type:AddCompsEffect
       components:
         - type: DeafTrait
+
+- type: trait
+  id: Echolalia
+  name: trait-echolalia-name
+  description: trait-echolalia-desc
+  category: Disabilities
+  cost: -1
+  effects:
+    - !type:AddCompsEffect
+      components:
+        - type: ActiveListener
+          range: 5
+        - type: ParrotSpeech
+          maximumPhraseLength: 24
+          minimumWait: 300
+          maximumWait: 900
+          learnChance: 0.1
+
+- type: trait
+  id: Touchy
+  name: trait-touchy-name
+  description: trait-touchy-desc
+  category: Disabilities
+  cost: -1
+  effects:
+    - !type:AddCompsEffect
+      components:
+        - type: Touchy
+
+- type: trait
+  id: Sheltered
+  name: trait-sheltered-name
+  description: trait-sheltered-desc
+  category: Disabilities
+  cost: -4
+  effects:
+    - !type:OverrideCompsEffect
+      components:
+        - type: LanguageSpeaker
+          languages: {}
 
 - type: trait
   id: Dysgraphia
@@ -43,7 +83,7 @@
   name: trait-soft-hands-name
   description: trait-soft-hands-desc
   category: Disabilities
-  cost: -2
+  cost: -1
   effects:
     - !type:AddCompsEffect
       components:
@@ -54,7 +94,7 @@
   name: trait-unadapted-to-space-name
   description: trait-unadapted-to-space-desc
   category: Disabilities
-  cost: -2
+  cost: -3
   effects:
     - !type:AddCompsEffect
       components:
