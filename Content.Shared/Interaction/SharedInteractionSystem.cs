@@ -350,8 +350,13 @@ namespace Content.Shared.Interaction
         public bool CombatModeCanHandInteract(EntityUid user, EntityUid? target)
         {
             // Always allow attack in these cases
-            if (target == null || !_handsQuery.TryComp(user, out var hands) || _hands.GetActiveItem((user, hands)) is not null)
+            if (target == null || !_handsQuery.TryComp(user, out var hands)) // ADT-Tweak
                 return false;
+
+            // ADT-Tweak start
+            if (_hands.GetActiveItem((user, hands)) is not null)
+                return true;
+            // ADT-Tweak end
 
             // Only eat input if:
             // - Target isn't an item
