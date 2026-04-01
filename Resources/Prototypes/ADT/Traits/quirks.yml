@@ -126,19 +126,6 @@
           modifier: 0.5
 
 - type: trait
-  id: DrunkenResilience
-  name: trait-drunk-heal-name
-  description: trait-drunk-heal-desc
-  category: Quirks
-  cost: 3
-  speciesBlacklist:
-    - IPC
-  effects:
-    - !type:AddCompsEffect
-      components:
-        - type: DrunkenResilience
-
-- type: trait
   id: AlcoholTolerance
   name: trait-drunk-tolerance-name
   description: trait-drunk-tolerance-desc

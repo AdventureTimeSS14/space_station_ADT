@@ -19,8 +19,5 @@ trait-poltergeist-desc = After death you become a poltergeist, ooo! However, you
 trait-voracious-name = Voracious
 trait-voracious-desc = Nothing will stand between you and your food! You eat much faster.
 
-trait-drunk-heal-name = Drunken Healing
-trait-drunk-heal-desc = You've drunk so much that your body has adapted, turning alcohol into a folk remedy for you.
-
 trait-drunk-tolerance-name = Alcohol Tolerance
 trait-drunk-tolerance-desc = Alcohol has less effect on you.
