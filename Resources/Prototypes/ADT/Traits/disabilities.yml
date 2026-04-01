@@ -60,6 +60,7 @@
       components:
         - type: UnadaptedToSpace
   speciesBlacklist:
+  - NovakidSpecies
 
 - type: trait
   id: Allergic
