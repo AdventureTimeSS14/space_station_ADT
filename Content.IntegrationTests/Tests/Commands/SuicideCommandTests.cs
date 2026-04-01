@@ -22,7 +22,6 @@ using Robust.Shared.Prototypes;
 namespace Content.IntegrationTests.Tests.Commands;
 
 [TestFixture]
-[Ignore("Весь тестовый класс временно отключен")] // ADT-Tweak
 public sealed class SuicideCommandTests : GameTest
 {
 
@@ -115,7 +114,6 @@ public sealed class SuicideCommandTests : GameTest
     /// This should only deal as much damage as necessary to get to the dead threshold
     /// </summary>
     [Test]
-    [Ignore("Временное решение")] // ADT-тестовое временное решение
     public async Task TestSuicideWhileDamaged()
     {
         var pair = Pair;
@@ -215,7 +213,6 @@ public sealed class SuicideCommandTests : GameTest
     /// Run the suicide command while the player is holding an execution-capable weapon
     /// </summary>
     [Test]
-    [Ignore("Временное решение")] // ADT-тестовое временное решение
     public async Task TestSuicideByHeldItem()
     {
         var pair = Pair;
@@ -284,7 +281,6 @@ public sealed class SuicideCommandTests : GameTest
     /// with damage spread between slash and blunt
     /// </summary>
     [Test]
-    [Ignore("Временное решение")] // ADT-тестовое временное решение
     public async Task TestSuicideByHeldItemSpreadDamage()
     {
         var pair = Pair;
