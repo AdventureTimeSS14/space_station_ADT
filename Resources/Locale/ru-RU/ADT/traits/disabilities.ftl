@@ -31,8 +31,8 @@ trait-echolalia-desc = Вы непроизвольно повторяете сл
 trait-dysgraphia-name = Дисграфия
 trait-dysgraphia-desc = Вы не способны излагать свои мысли в письменном виде.
 
-trait-paraplegic-name = Инвалидность
-trait-paraplegic-desc = Вы не можете передвигаться, ваши ноги отказали.
+trait-paralyzed-name = Парализованный
+trait-paralyzed-desc = Ваши ноги парализованы. Вы не можете ходить, но можете использовать инвалидную коляску.
 
 trait-clumsy-name = Неуклюжий
 trait-clumsy-desc = Вы немного склонны к несчастным случаям.

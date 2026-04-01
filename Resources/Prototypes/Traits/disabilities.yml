@@ -78,6 +78,20 @@
   - IPC
   - NovakidSpecies
 
+  id: Paralyzed
+  name: trait-paralyzed-name
+  description: trait-paralyzed-desc
+  category: Disabilities
+  cost: -4
+  speciesBlacklist:
+    - IPC
+  effects:
+    - !type:AddCompsEffect
+      components:
+        - type: LegsParalyzed
+    - !type:SpawnItemInHandEffect
+      item: ADTVehicleWheelchairFolded
+
 - type: trait
   id: Monochromacy
   name: trait-monochromacy-name
