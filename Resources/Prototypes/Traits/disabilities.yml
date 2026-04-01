@@ -54,12 +54,29 @@
   name: trait-unrevivable-name
   description: trait-unrevivable-desc
   category: Disabilities
-  cost: -1
+  cost: -2
   effects:
     - !type:AddCompsEffect
       components:
         - type: Unrevivable
           cloneable: true
+  speciesBlacklist:
+  - IPC
+  - NovakidSpecies
+
+- type: trait
+  id: Uncloneable
+  name: trait-uncloneable-name
+  description: trait-uncloneable-desc
+  category: Disabilities
+  cost: -2
+  effects:
+    - !type:AddCompsEffect
+      components:
+        - type: Uncloneable
+  speciesBlacklist:
+  - IPC
+  - NovakidSpecies
 
 - type: trait
   id: Monochromacy
