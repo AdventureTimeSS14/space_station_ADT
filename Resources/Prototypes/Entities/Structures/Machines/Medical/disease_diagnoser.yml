@@ -37,6 +37,8 @@
   - type: ContainerContainer
     containers:
       swab: !type:ContainerSlot
+      machine_board: !type:Container
+      machine_parts: !type:Container
   - type: DiseaseDiagnoser
     workDuration: 5
     workingSound:
