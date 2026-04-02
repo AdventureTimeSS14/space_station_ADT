@@ -63,11 +63,11 @@ public sealed class PainNumbnessOverlaySystem : EntitySystem
     {
         if (_damageOverlay == null)
         {
-            _damageOverlay = _overlayManager.GetOverlay<DamageOverlay>();
-        }
+            if (!_overlayManager.TryGetOverlay(out DamageOverlay? overlay))
+                return;
 
-        if (_damageOverlay == null)
-            return;
+            _damageOverlay = overlay;
+        }
 
         if (_hasPainNumbness && _currentMobState == MobState.Alive)
         {
