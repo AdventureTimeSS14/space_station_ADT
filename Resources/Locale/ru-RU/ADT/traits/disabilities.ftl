@@ -7,6 +7,12 @@ trait-deaf-description = Вы совершенно глухи и можете о
 trait-touchy-name = Зрительная агнозия
 trait-touchy-desc = Вы определяете вещи и их внешний вид на ощупь. (examine работает только с теми предметами которые в пределах вашей досягаемости)
 
+trait-pseudobulbar-affect-name = Псевдобульбарный аффект
+trait-pseudobulbar-affect-desc = Вы испытываете неконтролируемые приступы смеха или плача.
+
+trait-hushed-name = Приглушённый
+trait-hushed-desc = Вы говорите очень тихо.
+
 trait-sheltered-name = Унесённым взрывом
 trait-sheltered-desc = По тем или иным причинам вы либо не можете говорить на языках, либо не выучили этот же самый язык.
 

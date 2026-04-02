@@ -45,9 +45,3 @@ trait-archaic-accent-desc = Вы говорите так, как многие с
 
 trait-scottish-accent-name = Шотландский акцент
 trait-scottish-accent-desc = Вы говорите, словно собираетесь отправиться к Лох-Несс!
-
-trait-hushed-name = Приглушённый
-trait-hushed-desc = Вы говорите очень тихо.
-
-trait-pseudobulbar-affect-name = Псевдобульбарный аффект
-trait-pseudobulbar-affect-desc = Вы испытываете неконтролируемые приступы смеха или плача.
