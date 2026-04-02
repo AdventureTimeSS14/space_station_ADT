@@ -13,7 +13,6 @@ using Content.Shared.Traits.Assorted;
 using Content.Shared.CombatMode.Pacification;
 using Content.Shared.Bed.Sleep;
 using Content.Shared.Eye.Blinding.Components;
-using Robust.Shared.GameObjects;
 using Content.Server.Traits.Assorted;
 using Content.Shared.Speech.Muting;
 using Content.Shared.ADT.Traits;
@@ -23,6 +22,16 @@ using Content.Server.Temperature.Systems;
 using Content.Shared.Atmos.Components;
 using Content.Shared.Temperature.Components;
 using Content.Server.ADT.Speech.Components;
+using Content.Shared.Overlays;
+using Content.Shared.ADT.Traits.Assorted;
+using Content.Shared.Clumsy;
+using Content.Shared.Speech.Hushing;
+using Content.Shared.ADT.Examine;
+using Content.Shared.Paper;
+using Content.Shared.Wieldable.Components;
+using Content.Shared.ADT.Body.Allergies;
+using Content.Server.ADT.SizeAttribute;
+using Content.Server.ADT.Traits.Assorted;
 //ADT-Geras-Tweak-End
 using Content.Server.Inventory;
 using Content.Server.Polymorph.Components;
@@ -406,7 +415,23 @@ public sealed partial class PolymorphSystem : EntitySystem
                 typeof(FastLockersComponent),
                 typeof(HardThrowerComponent),
                 typeof(FoodConsumptionSpeedModifierComponent),
-                typeof(DrunkenResilienceComponent)
+                typeof(DrunkenResilienceComponent),
+                typeof(LegsParalyzedComponent),
+                typeof(BlackAndWhiteOverlayComponent),
+                typeof(PainNumbnessStatusEffectComponent),
+                typeof(HemophiliaStatusEffectComponent),
+                typeof(ImpairedMobilityComponent),
+                typeof(ClumsyComponent),
+                typeof(DamagedThroatComponent),
+                typeof(HushedComponent),
+                typeof(ActiveListenerComponent),
+                typeof(ParrotSpeechComponent),
+                typeof(TouchyComponent),
+                typeof(BlockWritingComponent),
+                typeof(WieldingBlockerComponent),
+                typeof(UnadaptedToSpaceComponent),
+                typeof(AllergicComponent),
+                typeof(SizeAttributeComponent)
             };
 
             foreach (var quirkType in quirkComponents)
