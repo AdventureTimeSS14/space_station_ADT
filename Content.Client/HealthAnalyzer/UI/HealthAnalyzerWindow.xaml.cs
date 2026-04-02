@@ -22,6 +22,7 @@ using Robust.Client.UserInterface.Controls;
 using Robust.Client.ResourceManagement;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
+using Content.Shared.ADT.Body.Allergies;
 
 namespace Content.Client.HealthAnalyzer.UI
 {
@@ -130,6 +131,11 @@ namespace Content.Client.HealthAnalyzer.UI
             // Total Damage
 
             DamageLabel.Text = damageable.TotalDamage.ToString();
+
+            // ADT-Tweak-Start
+            bool allergic = _entityManager.HasComponent<AllergicComponent>(target.Value);
+            AllergyText.Visible = allergic;
+            // ADT-Tweak-End
 
             // Alerts
 

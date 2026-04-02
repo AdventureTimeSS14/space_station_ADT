@@ -13,6 +13,9 @@ trait-soft-hands-desc = Ваши руки слишком слабы, чтобы 
 trait-unadapted-to-space-name = Несовместимость с космосом
 trait-unadapted-to-space-desc = Из-за особого строения ваше тело не подготовлено к нагрузкам от космического вакуума, потому вы испытываете колоссальные перегрузки при контакте с ним.
 
+trait-allergic-name = Аллергик
+trait-allergic-desc = У вас есть аллергия.
+
 trait-highlightsensitivity-name = Высокая светочувствительность
 trait-highlightsensitivity-desc = Вы гораздо более чувствительны к свету, чем большинство шейдкинов.
 

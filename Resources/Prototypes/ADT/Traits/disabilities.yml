@@ -60,4 +60,19 @@
       components:
         - type: UnadaptedToSpace
   speciesBlacklist:
-    - NovakidSpecies
+  - NovakidSpecies
+
+- type: trait
+  id: Allergic
+  name: trait-allergic-name
+  description: trait-allergic-desc
+  category: Disabilities
+  components:
+    - type: Allergic
+  cost: -1
+  quirk: true
+  speciesBlacklist:
+  - NovakidSpecies
+  - Diona
+  - SlimePerson
+  - IPC
