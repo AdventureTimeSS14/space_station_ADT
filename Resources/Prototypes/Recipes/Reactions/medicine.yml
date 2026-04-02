@@ -428,7 +428,7 @@
       amount: 1
     # ADT-Tweak-End
   products:
-    Saline: 6
+    Saline: 6 # ADT-Tweak 5 -> 6
 
 - type: reaction
   id: Lacerinol
