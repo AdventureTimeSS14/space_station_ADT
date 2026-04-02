@@ -35,6 +35,7 @@ public sealed class GerasSystem : SharedGerasSystem
     [Dependency] private readonly InventorySystem _inventorySystem = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly ModSuitSystem _modSuitSystem = default!;
 
     public override void Initialize()
     {
@@ -103,6 +104,14 @@ public sealed class GerasSystem : SharedGerasSystem
         {
             _popupSystem.PopupEntity(Loc.GetString("geras-popup-cant-use"), uid, uid);
             return;
+        }
+
+        if (_inventorySystem.TryGetSlotEntity(uid, "back", out var maybeModSuit) && maybeModSuit.HasValue)
+        {
+            if (TryComp<ModSuitComponent>(maybeModSuit.Value, out var modSuitComp))
+            {
+                _modSuitSystem.RemoveAllParts((maybeModSuit.Value, modSuitComp));
+            }
         }
 
         if (_inventorySystem.TryGetSlotEntity(uid, "back", out var backItem) && backItem.HasValue)
