@@ -458,7 +458,6 @@
       baseSprintSpeed: 2
     - type: Strap
       buckleOffset: "0,0"
-      maxBuckleDistance: 1.5
     - type: Fixtures
       fixtures:
         fix1:
