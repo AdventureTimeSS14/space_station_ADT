@@ -15,7 +15,8 @@ public sealed class MidroundCustomizationUiState : BoundUserInterfaceState
 {
     public MidroundCustomizationUiState(string species, Sex sex, bool allowColors, string tts,
                             string barkProto, float barkPitch, float barkMinVar, float barkMaxVar,
-                            Dictionary<MarkingCategories, List<Marking>> markings, Dictionary<MarkingCategories, int> slotsTotal)
+                            Dictionary<MarkingCategories, List<Marking>> markings, Dictionary<MarkingCategories, int> slotsTotal,
+                            bool pointLightColor, bool pointLightColorEnabled)
     {
         Species = species;
         Sex = sex;
@@ -29,6 +30,9 @@ public sealed class MidroundCustomizationUiState : BoundUserInterfaceState
         BarkPitch = barkPitch;
         BarkMinVar = barkMinVar;
         BarkMaxVar = barkMaxVar;
+
+        PointLightColor = pointLightColor;
+        PointLightColorEnabled = pointLightColorEnabled;
     }
 
     public string Species;
@@ -43,6 +47,8 @@ public sealed class MidroundCustomizationUiState : BoundUserInterfaceState
     public float BarkPitch;
     public float BarkMinVar;
     public float BarkMaxVar;
+    public bool PointLightColor;
+    public bool PointLightColorEnabled;
 }
 
 [Serializable, NetSerializable]
@@ -154,4 +160,15 @@ public sealed class MidroundCustomizationChangeBarkMaxVarMessage : BoundUserInte
     }
 
     public float MaxVar { get; }
+}
+
+[Serializable, NetSerializable]
+public sealed class MidroundCustomizationPointLightColorToggleMessage : BoundUserInterfaceMessage
+{
+    public bool Enabled { get; }
+
+    public MidroundCustomizationPointLightColorToggleMessage(bool enabled)
+    {
+        Enabled = enabled;
+    }
 }

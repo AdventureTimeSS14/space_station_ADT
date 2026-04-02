@@ -226,7 +226,6 @@
     - Instruments
     - Equipment
     #ADT-tweak-start
-    - ADTServiceBoards
     - ADTRCDPack
     - ADTPKAPack
     - ADTServiceHydroponics
@@ -613,6 +612,7 @@
     - ADTSatchels
     - ADTDuffel
     - ADTStandards
+    - ADTDoubleBedsheets
     # ADT tweak end
   - type: EmagLatheRecipes
     emagStaticPacks:

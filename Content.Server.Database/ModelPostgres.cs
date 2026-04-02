@@ -68,6 +68,11 @@ namespace Content.Server.Database
                         property.SetColumnType("timestamp with time zone");
                 }
             }
+
+            // HairColor is stored as JSONB for efficient querying
+            modelBuilder.Entity<Profile>()
+                .Property(p => p.HairColor)
+                .HasColumnType("jsonb");
         }
 
         public override IQueryable<AdminLog> SearchLogs(IQueryable<AdminLog> query, string searchText)
