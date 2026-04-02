@@ -311,11 +311,9 @@ marking-ADTVulpkaninEarCat-cat = Кошачьи уши
 marking-ADTVulpkaninEarCat2 = Вульпканин, уши (Кошачьи 2)
 marking-ADTVulpkaninEarCat2-cat2 = Кошачьи уши
 
-marking-ADTVulpkaninEarFinnik1 = Вульпканин, уши (Фенёк 1)
-marking-ADTVulpkaninEarFinnik1-finnik-1 = Уши фенька
-
-marking-ADTVulpkaninEarFinnik2 = Вульпканин, уши (Фенёк 2)
-marking-ADTVulpkaninEarFinnik2-finnik-2 = Уши фенька
+marking-ADTVulpkaninEarFinnik = Вульпканин, уши (Фенёк)
+marking-ADTVulpkaninEarFinnik-finnik-1 = Уши фенька (основа)
+marking-ADTVulpkaninEarFinnik-finnik-2 = Уши фенька (наложение)
 
 marking-ADTVulpkaninEarSharp1 = Вульпканин, уши (Острые 1)
 marking-ADTVulpkaninEarSharp1-sharp1 = Острые уши

@@ -1033,20 +1033,13 @@
       state: cat2
 
 - type: marking
-  id: ADTVulpkaninEarFinnik1
+  id: ADTVulpkaninEarFinnik
   bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [VulpkaninSpecies]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_ears.rsi
       state: finnik-1
-
-- type: marking
-  id: ADTVulpkaninEarFinnik2
-  bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [VulpkaninSpecies]
-  sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_ears.rsi
       state: finnik-2
 
