@@ -5,8 +5,8 @@
   id: Pacifist
   name: trait-pacifist-name
   description: trait-pacifist-desc
-  category: Quirks
-  cost: -2
+  category: Disabilities
+  cost: -4
   effects:
     - !type:AddCompsEffect
       components:
@@ -16,7 +16,7 @@
   id: LightweightDrunk
   name: trait-lightweight-name
   description: trait-lightweight-desc
-  category: Quirks
+  category: Disabilities
   cost: -1
   speciesBlacklist:
     - IPC
@@ -31,7 +31,7 @@
   id: Snoring
   name: trait-snoring-name
   description: trait-snoring-desc
-  category: Quirks
+  category: Disabilities
   cost: 0
   speciesBlacklist:
     - IPC
@@ -45,8 +45,8 @@
   id: Clumsy
   name: trait-clumsy-name
   description: trait-clumsy-desc
-  category: Quirks
-  cost: 0
+  category: Disabilities
+  cost: -1
   effects:
     - !type:AddCompsEffect
       components:

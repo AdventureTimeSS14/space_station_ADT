@@ -3,11 +3,109 @@
   name: trait-deaf-name
   description: trait-deaf-description
   category: Disabilities
-  cost: -2
+  cost: -1
   effects:
     - !type:AddCompsEffect
       components:
         - type: DeafTrait
+
+- type: trait
+  id: PseudobulbarAffect
+  name: trait-pseudobulbar-affect-name
+  description: trait-pseudobulbar-affect-desc
+  category: Disabilities
+  cost: -1
+  speciesBlacklist:
+    - IPC
+  effects:
+    - !type:AddCompsEffect
+      components:
+        - type: EmotionallyUnstableAccent
+          triggerEmotionChance: 0.2
+          exclamatorySentenceChance: 0.5
+          changeMessageChance: 0.3
+          emotes:
+            - Laugh
+            - Scream
+            - Crying
+        - type: EmotionLoop
+          minTimeBetweenEmotions: 60
+          maxTimeBetweenEmotions: 90
+          emotes:
+            - Laugh
+            - Scream
+            - Crying
+
+- type: trait
+  id: DamagedThroat
+  name: trait-damaged-throat-name
+  description: trait-damaged-throat-desc
+  category: SpeechTraits
+  cost: -1
+  effects:
+    - !type:AddCompsEffect
+      components:
+        - type: DamagedThroat
+  speciesBlacklist:
+    - IPC
+
+- type: trait
+  id: Hushed
+  name: trait-hushed-name
+  description: trait-hushed-desc
+  category: SpeechTraits
+  cost: -1
+  blacklist:
+    components:
+      - BorgChassis
+  effects:
+    - !type:AddCompsEffect
+      components:
+        - type: Hushed
+
+- type: trait
+  id: Echolalia
+  name: trait-echolalia-name
+  description: trait-echolalia-desc
+  category: Disabilities
+  cost: -1
+  effects:
+    - !type:AddCompsEffect
+      components:
+        - type: ActiveListener
+          range: 5
+        - type: ParrotSpeech
+          maximumPhraseLength: 24
+          minimumWait: 300
+          maximumWait: 900
+          learnChance: 0.1
+
+- type: trait
+  id: Touchy
+  name: trait-touchy-name
+  description: trait-touchy-desc
+  category: Disabilities
+  cost: -1
+  effects:
+    - !type:AddCompsEffect
+      components:
+        - type: Touchy
+
+- type: trait
+  id: Sheltered
+  name: trait-sheltered-name
+  description: trait-sheltered-desc
+  category: Disabilities
+  cost: -4
+  effects:
+    - !type:OverrideCompsEffect
+      components:
+        - type: LanguageSpeaker
+          languages: {}
+  departmentBlacklist:
+    - Command
+    - Security
+    - CentcomSpecialists
 
 - type: trait
   id: Dysgraphia
@@ -43,7 +141,7 @@
   name: trait-soft-hands-name
   description: trait-soft-hands-desc
   category: Disabilities
-  cost: -2
+  cost: -1
   effects:
     - !type:AddCompsEffect
       components:
@@ -54,7 +152,7 @@
   name: trait-unadapted-to-space-name
   description: trait-unadapted-to-space-desc
   category: Disabilities
-  cost: -2
+  cost: -3
   effects:
     - !type:AddCompsEffect
       components:

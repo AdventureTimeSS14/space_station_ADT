@@ -38,22 +38,10 @@ trait-nerd-accent-name = Ботаник
 trait-nerd-accent-desc = Вы говорите техническим жаргоном чаще, чем кто-либо хочет слышать!
 
 trait-chav-accent-name = Кокни
-trait-chav-accent-desc = Эй, приятель, что ты там сказал про мою бабушку?
+trait-chav-accent-desc = Эй, приятель, что ты там сказал про мою бабушку? (Вы будите только мычать, как в наморднике)
 
 trait-archaic-accent-name = Архаичный
 trait-archaic-accent-desc = Вы говорите так, как многие считают устаревшим.
 
 trait-scottish-accent-name = Шотландский акцент
 trait-scottish-accent-desc = Вы говорите, словно собираетесь отправиться к Лох-Несс!
-
-trait-hushed-name = Приглушённый
-trait-hushed-desc = Вы говорите очень тихо.
-
-trait-pseudobulbar-affect-name = Псевдобульбарный аффект
-trait-pseudobulbar-affect-desc = Вы испытываете неконтролируемые приступы смеха или плача.
-
-trait-echolalia-name = Эхолалия
-trait-echolalia-desc = Вы непроизвольно повторяете слова и фразы других людей.
-
-trait-touchy-name = Зрительная агнозия
-trait-touchy-desc = Вы определяете вещи и их внешний вид на ощупь. (examine работает только с теми предметами которые в пределах вашей досягаемости)

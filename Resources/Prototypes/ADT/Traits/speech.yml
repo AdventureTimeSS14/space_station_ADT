@@ -1,38 +1,17 @@
 - type: trait
-  id: DamagedThroat
-  name: trait-damaged-throat-name
-  description: trait-damaged-throat-desc
-  category: SpeechTraits
-  cost: -1
-  effects:
-    - !type:AddCompsEffect
-      components:
-        - type: DamagedThroat
-  speciesBlacklist:
-    - IPC
-    - NovakidSpecies
-
-- type: trait
-  id: NerdAccent
-  name: trait-nerd-accent-name
-  description: trait-nerd-accent-desc
-  category: SpeechTraits
-  cost: 0
-  effects:
-    - !type:AddCompsEffect
-      components:
-        - type: MumbleAccent
-
-- type: trait
   id: ChavAccent
   name: trait-chav-accent-name
   description: trait-chav-accent-desc
   category: SpeechTraits
-  cost: 0
+  cost: -2
   effects:
     - !type:AddCompsEffect
       components:
         - type: MumbleAccent
+  departmentBlacklist:
+    - Command
+    - Security
+    - CentcomSpecialists
 
 - type: trait
   id: ArchaicAccent
@@ -57,47 +36,6 @@
         - type: SlurredAccent
 
 - type: trait
-  id: Hushed
-  name: trait-hushed-name
-  description: trait-hushed-desc
-  category: SpeechTraits
-  cost: 0
-  blacklist:
-    components:
-      - BorgChassis
-  effects:
-    - !type:AddCompsEffect
-      components:
-        - type: Hushed
-
-- type: trait
-  id: PseudobulbarAffect
-  name: trait-pseudobulbar-affect-name
-  description: trait-pseudobulbar-affect-desc
-  category: SpeechTraits
-  cost: 0
-  speciesBlacklist:
-    - IPC
-  effects:
-    - !type:AddCompsEffect
-      components:
-        - type: EmotionallyUnstableAccent
-          triggerEmotionChance: 0.2
-          exclamatorySentenceChance: 0.5
-          changeMessageChance: 0.3
-          emotes:
-            - Laugh
-            - Scream
-            - Crying
-        - type: EmotionLoop
-          minTimeBetweenEmotions: 60
-          maxTimeBetweenEmotions: 90
-          emotes:
-            - Laugh
-            - Scream
-            - Crying
-
-- type: trait
   id: MothAccent
   name: trait-moth-accent-name
   description: trait-moth-accent-desc
@@ -107,6 +45,8 @@
     - !type:AddCompsEffect
       components:
         - type: MothAccent
+  speciesBlacklist:
+    - Moth
 
 - type: trait
   id: SickTeethAccent
@@ -118,6 +58,9 @@
     - !type:AddCompsEffect
       components:
         - type: SickTeethAccent
+  speciesBlacklist:
+    - IPC
+
 
 - type: trait
   id: BurrinessAccent

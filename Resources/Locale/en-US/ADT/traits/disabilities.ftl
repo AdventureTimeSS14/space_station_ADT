@@ -10,6 +10,12 @@ trait-damaged-throat-desc = Your throat is damaged, causing pain and coughing wh
 trait-soft-hands-name = Soft Hands
 trait-soft-hands-desc = Your hands are too weak to grip anything firmly in both at once.
 
+trait-hushed-name = Hushed
+trait-hushed-desc = You speak very quietly.
+
+trait-pseudobulbar-affect-name = Pseudobulbar Affect
+trait-pseudobulbar-affect-desc = You experience uncontrollable episodes of laughing or crying.
+
 trait-unadapted-to-space-name = Unadapted to Space
 trait-unadapted-to-space-desc = Due to your unique physiology, your body is not prepared for the stresses of space vacuum, causing you to experience tremendous overload when exposed to it.
 
