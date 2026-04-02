@@ -13,21 +13,6 @@
     - NovakidSpecies
 
 - type: trait
-  id: NerdAccent
-  name: trait-nerd-accent-name
-  description: trait-nerd-accent-desc
-  category: SpeechTraits
-  cost: -2
-  effects:
-    - !type:AddCompsEffect
-      components:
-        - type: MumbleAccent
-  departmentBlacklist:
-    - Command
-    - Security
-    - CentcomSpecialists
-
-- type: trait
   id: ChavAccent
   name: trait-chav-accent-name
   description: trait-chav-accent-desc
@@ -115,6 +100,8 @@
     - !type:AddCompsEffect
       components:
         - type: MothAccent
+  speciesBlacklist:
+    - Moth
 
 - type: trait
   id: SickTeethAccent
@@ -126,6 +113,8 @@
     - !type:AddCompsEffect
       components:
         - type: SickTeethAccent
+  speciesBlacklist:
+    - IPC
 
 
 - type: trait

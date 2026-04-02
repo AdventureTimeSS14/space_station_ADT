@@ -38,7 +38,7 @@ trait-nerd-accent-name = Ботаник
 trait-nerd-accent-desc = Вы говорите техническим жаргоном чаще, чем кто-либо хочет слышать!
 
 trait-chav-accent-name = Кокни
-trait-chav-accent-desc = Эй, приятель, что ты там сказал про мою бабушку?
+trait-chav-accent-desc = Эй, приятель, что ты там сказал про мою бабушку? (Вы будите только мычать, как в наморднике)
 
 trait-archaic-accent-name = Архаичный
 trait-archaic-accent-desc = Вы говорите так, как многие считают устаревшим.
