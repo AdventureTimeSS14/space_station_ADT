@@ -43,9 +43,7 @@
     baseSprintSpeed: 5
   - type: FootstepModifier
     footstepSoundCollection:
-      path: /Audio/Effects/Footsteps/slime1.ogg
-      params:
-        volume: 3
+      collection: FootstepSlime
   - type: Tag
     tags:
     - ADTSlimeEmotes
@@ -219,3 +217,15 @@
         probability: 0.25
   - type: PickupHumans
   - type: Posing
+  - type: AtmosExposed
+  - type: RangedDamageSound
+    soundGroups:
+      Brute:
+        collection:
+          MeatBulletImpact
+    soundTypes:
+      Heat:
+        collection:
+          MeatLaserImpact
+  - type: DamageForceSay
+  - type: FloorOcclusion
