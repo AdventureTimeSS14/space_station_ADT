@@ -300,7 +300,7 @@
     sprite: ADT/Structures/Furniture/Memorials/veterans_192x64.rsi
     state: full
     drawdepth: OverMobs
-    noRot: true
+    noRot: false
   - type: Fixtures
     fixtures:
       fix1:
