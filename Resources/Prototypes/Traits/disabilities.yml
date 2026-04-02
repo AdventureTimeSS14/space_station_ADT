@@ -16,6 +16,10 @@
         - type: PermanentBlindness
     - !type:SpawnItemInHandEffect
       item: WhiteCane
+  departmentBlacklist:
+    - Security
+  jobBlacklist:
+    - ADTBlueShieldOfficer
 
 - type: trait
   id: PoorVision
@@ -87,9 +91,9 @@
   speciesBlacklist:
     - IPC
   departmentBlacklist:
-    - Command
     - Security
-    - CentcomSpecialists
+  jobBlacklist:
+    - ADTBlueShieldOfficer
   effects:
     - !type:AddCompsEffect
       components:
@@ -181,6 +185,6 @@
     - !type:SpawnItemInHandEffect
       item: OffsetCane
   departmentBlacklist:
-    - Command
     - Security
-    - CentcomSpecialists
+  jobBlacklist:
+    - ADTBlueShieldOfficer
