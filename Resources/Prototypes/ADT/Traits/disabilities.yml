@@ -48,7 +48,7 @@
       components:
         - type: LanguageSpeaker
           languages: {}
-  DepartmentBlacklist:
+  departmentBlacklist:
     - Command
     - Security
     - CentcomSpecialists

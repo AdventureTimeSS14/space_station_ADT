@@ -22,7 +22,7 @@
     - !type:AddCompsEffect
       components:
         - type: MumbleAccent
-  DepartmentBlacklist:
+  departmentBlacklist:
     - Command
     - Security
     - CentcomSpecialists
@@ -37,7 +37,7 @@
     - !type:AddCompsEffect
       components:
         - type: MumbleAccent
-  DepartmentBlacklist:
+  departmentBlacklist:
     - Command
     - Security
     - CentcomSpecialists
