@@ -136,6 +136,12 @@ public sealed partial record PolymorphConfiguration
     /// </summary>
     [DataField(serverOnly: true)]
     public bool CanNotPolymorphInStorage;
+
+    /// <summary>
+    /// Whether to transfer bloodstream state (blood reagents, chemicals, bleeding amount).
+    /// </summary>
+    [DataField(serverOnly: true)]
+    public bool TransferBloodstream;
     // ADT-Geras-Tweak-End
 
     /// <summary>

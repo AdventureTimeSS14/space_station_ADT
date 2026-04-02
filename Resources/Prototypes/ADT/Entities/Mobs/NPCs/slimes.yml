@@ -54,15 +54,12 @@
     damageModifierSet: Slime
   - type: Bloodstream
     bloodReagent: Slime
-    bloodMaxVolume: 150
     bloodlossDamage:
       types:
-        Bloodloss:
-          0.5
+        Bloodloss: 0.5
     bloodlossHealDamage:
       types:
-        Bloodloss:
-          -0.25
+        Bloodloss: -1
   - type: Body
     prototype: ADTGeras
     requiredLegs: 1

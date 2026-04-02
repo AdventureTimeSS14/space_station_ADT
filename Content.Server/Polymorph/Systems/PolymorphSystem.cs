@@ -32,6 +32,9 @@ using Content.Shared.Wieldable.Components;
 using Content.Shared.ADT.Body.Allergies;
 using Content.Server.ADT.SizeAttribute;
 using Content.Server.ADT.Traits.Assorted;
+using Content.Shared.Chemistry.EntitySystems;
+using Content.Shared.Body.Components;
+using Content.Shared.Body.Systems;
 //ADT-Geras-Tweak-End
 using Content.Server.Inventory;
 using Content.Server.Polymorph.Components;
@@ -87,9 +90,13 @@ public sealed partial class PolymorphSystem : EntitySystem
     [Dependency] private readonly FollowerSystem _follow = default!; // goob edit
     [Dependency] private readonly SharedEyeSystem _eye = default!; // ADT-Tweak Heretic
     [Dependency] private readonly ISerializationManager _serialization = default!; // ADT-Changeling-Tweak
-    [Dependency] private readonly FlammableSystem _flammable = default!; //ADT-Geras-Tweak
-    [Dependency] private readonly SharedStaminaSystem _stamina = default!; //ADT-Geras-Tweak
-    [Dependency] private readonly TemperatureSystem _temperatureSystem = default!; //ADT-Geras-Tweak
+    //ADT-Geras-Tweak-Start
+    [Dependency] private readonly FlammableSystem _flammable = default!;
+    [Dependency] private readonly SharedStaminaSystem _stamina = default!;
+    [Dependency] private readonly TemperatureSystem _temperatureSystem = default!;
+    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
+    [Dependency] private readonly SharedBloodstreamSystem _bloodstream = default!;
+    //ADT-Geras-Tweak-End
 
     private const string RevertPolymorphId = "ActionRevertPolymorph";
 
@@ -218,6 +225,36 @@ public sealed partial class PolymorphSystem : EntitySystem
         var config = _proto.Index(protoId).Configuration;
         return PolymorphEntity(uid, config);
     }
+
+    //ADT-Geras-Tweak-Start
+    private void TransferBloodstreamState(EntityUid source, EntityUid target)
+    {
+        if (!TryComp<BloodstreamComponent>(source, out var sourceBlood) ||
+            !TryComp<BloodstreamComponent>(target, out var targetBlood))
+            return;
+
+        var delta = sourceBlood.BleedAmount - targetBlood.BleedAmount;
+        if (Math.Abs(delta) > 0.01f)
+            _bloodstream.TryModifyBleedAmount(target, delta);
+
+        CopySolution(source, sourceBlood.BloodSolutionName, target, targetBlood.BloodSolutionName);
+        CopySolution(source, sourceBlood.ChemicalSolutionName, target, targetBlood.ChemicalSolutionName);
+        CopySolution(source, sourceBlood.BloodTemporarySolutionName, target, targetBlood.BloodTemporarySolutionName);
+    }
+    private void CopySolution(EntityUid source, string sourceSolutionName, EntityUid target, string targetSolutionName)
+    {
+        if (!_solutionContainer.TryGetSolution(source, sourceSolutionName, out var sourceSoln, out var sourceSolution))
+            return;
+        if (!_solutionContainer.TryGetSolution(target, targetSolutionName, out var targetSoln, out var targetSolution))
+            return;
+
+        _solutionContainer.RemoveAllSolution(targetSoln.Value);
+        foreach (var (reagent, quantity) in sourceSolution.Contents)
+        {
+            _solutionContainer.TryAddReagent(targetSoln.Value, reagent, quantity, out _);
+        }
+    }
+    //ADT-Geras-Tweak-End
 
     /// <summary>
     /// Polymorphs the target entity into another.
@@ -468,6 +505,11 @@ public sealed partial class PolymorphSystem : EntitySystem
                 _temperatureSystem.ForceChangeTemperature(child, parentTemp.CurrentTemperature, childTemp);
             }
         }
+
+        if (configuration.TransferBloodstream)
+        {
+            TransferBloodstreamState(uid, child);
+        }
         // ADT-Geras-Tweak-End
 
         if (configuration.TransferHumanoidAppearance)
@@ -689,6 +731,11 @@ public sealed partial class PolymorphSystem : EntitySystem
                 var parentTemp = EnsureComp<TemperatureComponent>(parent);
                 _temperatureSystem.ForceChangeTemperature(parent, childTemp.CurrentTemperature, parentTemp);
             }
+        }
+
+        if (component.Configuration.TransferBloodstream)
+        {
+            TransferBloodstreamState(uid, parent);
         }
         //ADT-Geras-Tweak-End
 

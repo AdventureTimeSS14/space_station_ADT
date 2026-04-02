@@ -557,3 +557,4 @@
     transferFlame: true
     transferStaminaDamage: true
     transferTemperature: true
+    transferBloodstream: true
