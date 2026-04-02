@@ -22,6 +22,7 @@ using Content.Server.Atmos.EntitySystems;
 using Content.Server.Temperature.Systems;
 using Content.Shared.Atmos.Components;
 using Content.Shared.Temperature.Components;
+using Content.Server.ADT.Speech.Components;
 //ADT-Geras-Tweak-End
 using Content.Server.Inventory;
 using Content.Server.Polymorph.Components;
@@ -336,7 +337,9 @@ public sealed partial class PolymorphSystem : EntitySystem
                 typeof(BackwardsAccentComponent),
                 typeof(BarkAccentComponent),
                 typeof(BleatingAccentComponent),
+                typeof(BurrinessAccentComponent),
                 typeof(DamagedSiliconAccentComponent),
+                typeof(EmotionallyUnstableAccentComponent),
                 typeof(FrenchAccentComponent),
                 typeof(GermanAccentComponent),
                 typeof(GrowlingAccentComponent),
@@ -354,7 +357,9 @@ public sealed partial class PolymorphSystem : EntitySystem
                 typeof(RoarAccentComponent),
                 typeof(RussianAccentComponent),
                 typeof(ScrambledAccentComponent),
+                typeof(SickTeethAccentComponent),
                 typeof(SkeletonAccentComponent),
+                typeof(SlowAccentComponent),
                 typeof(SlurredAccentComponent),
                 typeof(SouthernAccentComponent),
                 typeof(SpanishAccentComponent),
