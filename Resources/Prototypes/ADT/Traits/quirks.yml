@@ -158,27 +158,26 @@
   cost: 0
   speciesWhitelist:
     - IPC
-  effects:
-    - !type:AddCompsEffect
-      components:
-        - type: SuitSensor
-          onMob: true
-          sensorsTime: 6
-        - type: DeviceNetwork
-          deviceNetId: Wireless
-          transmitFrequencyId: SuitSensor
-          savableAddress: false
-        - type: WirelessNetworkConnection
-          range: 1200
-        - type: StationLimitedNetwork
-        - type: Inventory
-          templateId: ipcDisproportionate
-          displacements:
-            jumpsuit:
-              sizeMaps:
-                32:
-                  sprite: Mobs/Species/Human/displacement.rsi
-                  state: jumpsuit-female
+  rewriteComponents: true
+  components:
+  - type: SuitSensor
+    onMob: true
+    sensorsTime: 6
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    transmitFrequencyId: SuitSensor
+    savableAddress: false
+  - type: WirelessNetworkConnection
+    range: 1200
+  - type: StationLimitedNetwork
+  - type: Inventory
+    templateId: ipcDisproportionate
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Human/displacement.rsi
+            state: jumpsuit-female
 
 - type: trait
   id: ADTFemaleIPC
@@ -188,25 +187,24 @@
   cost: 0
   speciesWhitelist:
     - IPC
-  effects:
-    - !type:AddCompsEffect
-      components:
-        - type: Vocal
-          sounds:
-            Male: FemaleIPC
-            Female: FemaleIPC
-            Unsexed: FemaleIPC
-        - type: Tag
-          tags:
-            - CanPilot
-            - SiliconFootstepSound
-            - DoorBumpOpener
-            - ChangelingBlacklist
-            - ADTSiliconStealthWhitelist
-            - ADTSiliconEmotes
-            - ADTIgnoreChokeSpeechBlocking
-            - Unimplantable
-            - AnomalyHost
+  rewriteComponents: true
+  components:
+  - type: Vocal
+    sounds:
+      Male: FemaleIPC
+      Female: FemaleIPC
+      Unsexed: FemaleIPC
+  - type: Tag
+    tags:
+    - CanPilot
+    - SiliconFootstepSound
+    - DoorBumpOpener
+    - ChangelingBlacklist
+    - ADTSiliconStealthWhitelist
+    - ADTSiliconEmotes
+    - ADTIgnoreChokeSpeechBlocking
+    - Unimplantable
+    - AnomalyHost
 
 - type: trait
   id: ADTMaleIPC
@@ -216,22 +214,21 @@
   cost: 0
   speciesWhitelist:
     - IPC
-  effects:
-    - !type:AddCompsEffect
-      components:
-        - type: Vocal
-          sounds:
-            Male: MaleIPC
-            Female: MaleIPC
-            Unsexed: MaleIPC
-        - type: Tag
-          tags:
-            - CanPilot
-            - SiliconFootstepSound
-            - DoorBumpOpener
-            - ChangelingBlacklist
-            - ADTSiliconStealthWhitelist
-            - ADTSiliconEmotes
-            - ADTIgnoreChokeSpeechBlocking
-            - Unimplantable
-            - AnomalyHost
+  rewriteComponents: true
+  components:
+  - type: Vocal
+    sounds:
+      Male: MaleIPC
+      Female: MaleIPC
+      Unsexed: MaleIPC
+  - type: Tag
+    tags:
+    - CanPilot
+    - SiliconFootstepSound
+    - DoorBumpOpener
+    - ChangelingBlacklist
+    - ADTSiliconStealthWhitelist
+    - ADTSiliconEmotes
+    - ADTIgnoreChokeSpeechBlocking
+    - Unimplantable
+    - AnomalyHost
