@@ -575,7 +575,7 @@
 
 
 - type: entity
-  parent: DrinkGlassBase
+  parent: [DrinkVisualsAllFilled, DrinkBottleGlassBaseFull]
   id: ADTDrinkCocoaGlass
   name: hot cocoa
   description: A heated drink consisting cocoa powder.

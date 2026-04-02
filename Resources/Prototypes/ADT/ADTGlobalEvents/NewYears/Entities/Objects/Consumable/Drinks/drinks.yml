@@ -1,6 +1,6 @@
 #New Years
 - type: entity
-  parent: DrinkGlassBase
+  parent: [DrinkVisualsAllFilled, DrinkBottleGlassBaseFull]
   id: ADTMulledWineGlass
   name: mulled-wine-name
   description: mulled-wine-desc
@@ -19,7 +19,7 @@
     state: mulled_wine
 
 - type: entity
-  parent: DrinkGlassBase
+  parent: [DrinkVisualsAllFilled, DrinkBottleGlassBaseFull]
   id: ADTMulledWineColdGlass
   name: mulled-wine-cold-name
   description: mulled-wine-cold-desc
@@ -38,7 +38,7 @@
     state: mulled_wine_cold
 
 - type: entity
-  parent: DrinkGlassBase
+  parent: [DrinkVisualsAllFilled, DrinkBottleGlassBaseFull]
   id: ADTChampagneMandarinGlass
   name: champagne-mandarin-name
   description: champagne-mandarin-desc
@@ -57,7 +57,7 @@
     state: champagne_mandarin
 
 - type: entity
-  parent: DrinkGlassBase
+  parent: [DrinkVisualsAllFilled, DrinkBottleGlassBaseFull]
   id: ADTChristmasMilkshakeGlass
   name: christmas-milkshake-name
   description: christmas-milkshake-desc
@@ -76,7 +76,7 @@
     state: christmas_milkshake
 
 - type: entity
-  parent: DrinkGlassBase
+  parent: [DrinkVisualsAllFilled, DrinkBottleGlassBaseFull]
   id: ADTTeaCinnamonLemonGlass
   name: tea-cinnamon-lemon-name
   description: tea-cinnamon-lemon-desc
@@ -95,7 +95,7 @@
     state: warm_tea_cinnamon_lemon
 
 - type: entity
-  parent: DrinkGlassBase
+  parent: [DrinkVisualsAllFilled, DrinkBottleGlassBaseFull]
   id: ADTSbitenCinnamonLemonGlass
   name: sbiten-cinnamon-lemon-name
   description: sbiten-cinnamon-lemon-desc
@@ -114,7 +114,7 @@
     state: sbiten_cinnamon_lemon
 
 - type: entity
-  parent: DrinkGlassBase
+  parent: [DrinkVisualsAllFilled, DrinkBottleGlassBaseFull]
   id: ADTHotCocoaGlass
   name: hot-cocoa-name
   description: hot-cocoa-desc
@@ -133,7 +133,7 @@
     state: hot_cocoa
 
 - type: entity
-  parent: DrinkGlassBase
+  parent: [DrinkVisualsAllFilled, DrinkBottleGlassBaseFull]
   id: ADTHotChocolateGlass
   name: hot-chocolate-name
   description: hot-chocolate-desc
@@ -152,7 +152,7 @@
     state: hot_chocolate
 
 - type: entity
-  parent: DrinkGlassBase
+  parent: [DrinkVisualsAllFilled, DrinkBottleGlassBaseFull]
   id: ADTHotChocolateAllergicGlass
   name: hot-chocolate-name-allergic
   description: hot-chocolate-desc-allergic
