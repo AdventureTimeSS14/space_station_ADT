@@ -132,16 +132,16 @@ public sealed partial record PolymorphConfiguration
     public bool TransferTemperature = true;
 
     /// <summary>
-    /// Whether or not the entity can polymorph between forms in storage.
-    /// </summary>
-    [DataField(serverOnly: true)]
-    public bool CanNotPolymorphInStorage;
-
-    /// <summary>
     /// Whether to transfer bloodstream state (blood reagents, chemicals, bleeding amount).
     /// </summary>
     [DataField(serverOnly: true)]
     public bool TransferBloodstream;
+
+    /// <summary>
+    /// Whether or not the entity can polymorph between forms in storage.
+    /// </summary>
+    [DataField(serverOnly: true)]
+    public bool CanNotPolymorphInStorage;
     // ADT-Geras-Tweak-End
 
     /// <summary>
