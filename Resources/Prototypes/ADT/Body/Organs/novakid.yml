@@ -1,32 +1,86 @@
 - type: entity
+  parent: BaseHumanOrgan
   id: ADTOrganNovakidStomach
-  parent: OrganAnimalStomach
+  suffix: "novakid"
   categories: [ HideSpawnMenu ]
   components:
+    - type: Sprite
+      sprite: Mobs/Species/Human/organs.rsi
+      state: stomach
     - type: Stomach
     - type: SolutionContainerManager
       solutions:
         stomach:
+          temperature: 293.15
+          canReact: true
           maxVol: 50.0
+        food:
+          temperature: 293.15
+          canReact: true
+          maxVol: 0
+          name: food
     - type: Metabolizer
       maxReagents: 7
       metabolizerTypes: [ Novakid ]
+      groups:
+      - id: Food
+      - id: Drink
+      - id: Alcohol
+    - type: Tag # goob edit
+      tags:
+      - Organ
+      - Stomach
 
 - type: entity
+  parent: BaseHumanOrgan
   id: ADTOrganNovakidLungs
-  parent: OrganHumanLungs
-  categories: [ HideSpawnMenu ]
   suffix: "novakid"
+  categories: [ HideSpawnMenu ]
   components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/organs.rsi
+    state: lung-l
+  - type: Lung
+  - type: SolutionContainerManager
+    solutions:
+      organ:
+        maxVol: 10
+        reagents:
+        - data: []
+          ReagentId: Nutriment
+          Quantity: 10
+      food:
+        maxVol: 5
+        reagents:
+        - data: []
+          ReagentId: UncookedAnimalProteins
+          Quantity: 5
+      Lung:
+        maxVol: 100
+        name: Lung
+        canReact: false
   - type: Metabolizer
+    removeEmpty: true
+    solutionOnBody: false
+    solution: "Lung"
     metabolizerTypes: [ Novakid ]
+    groups:
+    - id: Gas
+      rateModifier: 100.0
+  - type: Tag # goob edit
+    tags:
+    - Organ
+    - Lungs
 
 - type: entity
+  parent: BaseHumanOrgan
   id: ADTOrganNovakidHeart
-  parent: OrganAnimalHeart
-  categories: [ HideSpawnMenu ]
   suffix: "novakid"
+  categories: [ HideSpawnMenu ]
   components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/organs.rsi
+    state: heart-on
   - type: Metabolizer
     maxReagents: 3
     metabolizerTypes: [ Novakid ]
@@ -34,12 +88,16 @@
     - id: Medicine
     - id: Poison
     - id: Narcotic
+  - type: Tag # goob edit
+    tags:
+    - Organ
+    - Heart
 
 - type: entity
-  id: ADTOrganNovakidKidneys
   parent: BaseHumanOrgan
-  categories: [ HideSpawnMenu ]
+  id: ADTOrganNovakidKidneys
   suffix: "novakid"
+  categories: [ HideSpawnMenu ]
   name: kidneys
   components:
   - type: Sprite
@@ -50,13 +108,17 @@
     maxReagents: 1
     metabolizerTypes: [ Novakid ]
     removeEmpty: true
+  - type: Tag # goob edit
+    tags:
+    - Organ
+    - Kidneys
 
 - type: entity
+  parent: BaseHumanOrgan
   id: ADTOrganNovakidLiver
-  parent: BaseAnimalOrgan
   name: liver
-  categories: [ HideSpawnMenu ]
   suffix: "novakid"
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     state: liver
@@ -68,3 +130,7 @@
     groups:
     - id: Alcohol
       rateModifier: 0.1
+  - type: Tag # goob edit
+    tags:
+    - Organ
+    - Liver

@@ -8,6 +8,19 @@
       solutions:
         stomach:
           maxVol: 50.0
+        food:
+          maxVol: 5
+          reagents:
+          - ReagentId: UncookedAnimalProteins
+            Quantity: 5
+    - type: Metabolizer
+      maxReagents: 3
+      metabolizerTypes: [ Vulpkanin ]
+      groups:
+      - id: Food
+      - id: Drink
+      - id: Alcohol
+
 
 - type: entity
   id: ADTOrganVulpkaninLiver
@@ -20,7 +33,7 @@
   - type: Organ
   - type: Metabolizer
     maxReagents: 1
-    metabolizerTypes: [ Animal ]
+    metabolizerTypes: [ Vulpkanin ]
     groups:
     - id: Alcohol
       rateModifier: 0.1

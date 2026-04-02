@@ -17,6 +17,9 @@ namespace Content.Server.Database
     {
         public SqliteServerDbContext(DbContextOptions<SqliteServerDbContext> options) : base(options)
         {
+#if USE_SYSTEM_SQLITE
+            SQLitePCL.raw.SetProvider(new SQLitePCL.SQLite3Provider_sqlite3());
+#endif
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
@@ -81,6 +84,11 @@ namespace Content.Server.Database
             modelBuilder.Entity<Profile>()
                 .Property(log => log.Markings)
                 .HasConversion(jsonByteArrayConverter);
+
+            // HairColor is stored as JSON text string
+            modelBuilder.Entity<Profile>()
+                .Property(p => p.HairColor)
+                .HasColumnType("TEXT");
 
             // EF core can make this automatically unique on sqlite but not psql.
             modelBuilder.Entity<IPIntelCache>()

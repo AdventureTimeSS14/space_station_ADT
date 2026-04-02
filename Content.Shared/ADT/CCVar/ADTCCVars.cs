@@ -12,9 +12,6 @@ public sealed class ADTCCVars
     /*
     * Barks
     */
-    public static readonly CVarDef<string> HeadshotUrl =
-        CVarDef.Create("ic.headshot_url", "https://media.discordapp.net/attachments/1446603657255850085", CVar.SERVER | CVar.REPLICATED);
-
     public static readonly CVarDef<bool> BarksEnabled =
         CVarDef.Create("barks.enabled", true, CVar.SERVER | CVar.REPLICATED | CVar.ARCHIVE);
 
@@ -294,5 +291,54 @@ public sealed class ADTCCVars
     /// </summary>
     public static readonly CVarDef<int> SpaceWhaleSpawnDistance =
         CVarDef.Create("misc.space_whale_spawn_distance", 1965, CVar.SERVER);
+
+    /*
+    * Headshot
+    */
+    // public static readonly CVarDef<string> HeadshotUrl =
+    // CVarDef.Create("ic.headshot_url", "https://discord.com/channels/901772674865455115/1446603657255850085", CVar.SERVER | CVar.REPLICATED);
+    public static readonly CVarDef<string> HeadshotDomain =
+        CVarDef.Create("ic.headshot_domain", "i.pinimg.com", CVar.SERVER | CVar.REPLICATED);
+
+    /// <summary>
+    /// Maximum size of headshot images in bytes (default: 5MB).
+    /// </summary>
+    public static readonly CVarDef<int> HeadshotMaxSize =
+        CVarDef.Create("ic.headshot_max_size", 5 * 1024 * 1024, CVar.SERVER);
+
+    /// <summary>
+    /// Headshot cache duration in minutes (default: 30 minutes).
+    /// </summary>
+    public static readonly CVarDef<float> HeadshotCacheDuration =
+        CVarDef.Create("ic.headshot_cache_duration", 30f, CVar.SERVER);
+
+    /// <summary>
+    /// Maximum number of headshot images in cache (default: 100).
+    /// </summary>
+    public static readonly CVarDef<int> HeadshotMaxCacheCount =
+        CVarDef.Create("ic.headshot_max_cache_count", 100, CVar.SERVER);
+
+    /*
+    * Fix PoolManager. Cvars
+    */
+
+    /// <summary>
+    /// Whether ghostbar is enabled.
+    /// </summary>
+    public static readonly CVarDef<bool> GhostbarEnabled =
+        CVarDef.Create("ghostbar.enabled", true, CVar.SERVERONLY);
+
+    /// <summary>
+    /// Whether planet spawning is enabled.
+    /// </summary>
+    public static readonly CVarDef<bool> PlanetSpawnerEnabled =
+        CVarDef.Create("planet_spawner.enabled", true, CVar.SERVERONLY);
+
+    /// <summary>
+    /// Whether biome generation on planets is enabled.
+    /// </summary>
+    public static readonly CVarDef<bool> BiomeGenerationEnabled =
+        CVarDef.Create("biome.generation_enabled", true, CVar.SERVERONLY);
+
 }
 

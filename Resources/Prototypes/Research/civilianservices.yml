@@ -128,9 +128,55 @@
   - FauxTileAstroGrass
   - FauxTileMowedAstroGrass
   - FauxTileJungleAstroGrass
+  - FauxTileDarkAstroGrass
+  - FauxTileLightAstroGrass
   - FauxTileAstroIce
   - FauxTileAstroSnow
   - FauxTileAstroAsteroidSand
+  - FauxTileDesertAstroSand
+  # ADT-tweak start: Additional floor tile recipes
+  - FloorTileItemWoodParquet
+  - FloorTileItemWoodLargeRed
+  - FloorTileItemWoodParquetRed
+  - FloorTileItemWoodRed
+  - FloorTileItemWoodChessRed
+  - FloorTileItemWoodLargeLight
+  - FloorTileItemWoodParquetLight
+  - FloorTileItemWoodLight
+  - FloorTileItemWoodChessLight
+  - FloorTileItemWoodLargeDark
+  - FloorTileItemWoodParquetDark
+  - FloorTileItemWoodDark
+  - FloorTileItemWoodChessDark
+  - FloorTileItemWoodLargeBlack
+  - FloorTileItemWoodParquetBlack
+  - FloorTileItemWoodBlack
+  - FloorTileItemWoodChessBlack
+  - FloorTileItemClown
+  - FloorTileItemMime
+  - FloorTileItemKitchen
+  - FloorTileItemLime
+  - FloorTileItemFreezer
+  - FloorTileItemMono
+  - FloorTileItemArcadeRed
+  - FloorTileItemArcadeBlue
+  - FloorTileItemArcadeBlue2
+  - FloorTileItemLaundry
+  - FloorTileItemElevatorShaft
+  - FloorTileItemMetalDiamond
+  - FloorTileItemMining
+  - FloorTileItemMiningDark
+  - FloorTileItemMiningLight
+  - FloorTileItemRockVault
+  - FloorTileItemBlue
+  - FloorTileItemHydro
+  - FloorTileItemBar
+  - FloorTileItemShuttleBlue
+  - FloorTileItemShuttleGrey
+  - FloorTileItemShuttlePurple
+  - FloorTileItemShuttleBlack
+  - FloorTileItemShuttleRed
+  # ADT-tweak end
   # ADT Research Console Rework start
   position: 4,0
   requiredTech:
@@ -271,10 +317,11 @@
   cost: 5000
   recipeUnlocks:
   - PushHorn
+  - BorgModuleAdvancedClowning
   # ADT Research Console Rework start
-  position: 6,-1
+  position: 5,-1
   requiredTech:
-  - ADTProtectionPseudoscience
+  - FauxAstroTiles
   # ADT Research Console Rework end
 
 # Tier 3

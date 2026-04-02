@@ -41,6 +41,13 @@ public sealed class JukeboxBoundUserInterface : BoundUserInterface
             SendMessage(new JukeboxStopMessage());
         };
 
+        // ADT-Tweak start
+        _menu.OnLoopToggled += () =>
+        {
+            SendMessage(new JukeboxToggleLoopMessage());
+        };
+        // ADT-Tweak end
+
         _menu.OnSongSelected += SelectSong;
         _menu.SetTime += SetTime;
         _menu.SetVolume += SetVolume; // ADT-Tweak
@@ -58,7 +65,8 @@ public sealed class JukeboxBoundUserInterface : BoundUserInterface
 
         _menu.SetAudioStream(jukebox.AudioStream);
         _menu.SetVolumeSlider(jukebox.Volume); // ADT-Tweak
-        if (_protoManager.TryIndex(jukebox.SelectedSongId, out var songProto))
+        _menu.SetLoopButton(jukebox.LoopEnabled); // ADT-Tweak
+        if (_protoManager.Resolve(jukebox.SelectedSongId, out var songProto))
         {
             var length = EntMan.System<AudioSystem>().GetAudioLength(songProto.Path.Path.ToString());
             _menu.SetSelectedSong(songProto.Name, (float)length.TotalSeconds); // ADT-Tweak

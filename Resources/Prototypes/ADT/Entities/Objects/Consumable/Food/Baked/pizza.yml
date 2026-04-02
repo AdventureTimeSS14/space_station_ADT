@@ -7,7 +7,7 @@
     flavors:
       - oily
       - bread
-  - type: Food
+  - type: Edible
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/Baked/pizza.rsi
   - type: SolutionContainerManager
@@ -53,7 +53,7 @@
   - type: FlavorProfile
     flavors:
       - ADTSindiPizza
-  - type: Food
+  - type: Edible
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/Baked/pizza.rsi
   - type: SolutionContainerManager
@@ -102,7 +102,7 @@
     flavors:
       - oily
       - bread
-  - type: Food
+  - type: Edible
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/Baked/prazatpizza.rsi
     state: bbq
@@ -137,7 +137,7 @@
     flavors:
       - oily
       - bread
-  - type: Food
+  - type: Edible
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/Baked/prazatpizza.rsi
     state: bbq-slice
@@ -166,7 +166,7 @@
   name: bolognesePizza
   description: A bolognesse pizza
   components:
-  - type: Food
+  - type: Edible
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/Baked/prazatpizza.rsi
     state: bolognese
@@ -194,7 +194,7 @@
   name: caesar pizza
   description: A caesar pizza
   components:
-  - type: Food
+  - type: Edible
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/Baked/prazatpizza.rsi
     state: caesar
@@ -220,7 +220,7 @@
   name: cheese pizza
   description: A cheese pizza
   components:
-  - type: Food
+  - type: Edible
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/Baked/prazatpizza.rsi
     state: cheese
@@ -245,7 +245,7 @@
   name: chicago pizza
   description: A Chicago pizza
   components:
-  - type: Food
+  - type: Edible
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/Baked/prazatpizza.rsi
     state: chicago
@@ -271,7 +271,7 @@
   name: chicken pizza
   description: A chicken pizza
   components:
-  - type: Food
+  - type: Edible
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/Baked/prazatpizza.rsi
     state: chicken
@@ -297,7 +297,7 @@
   name: classic pizza
   description: A classic pizza
   components:
-  - type: Food
+  - type: Edible
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/Baked/prazatpizza.rsi
     state: classic
@@ -324,7 +324,7 @@
   name: diablo pizza
   description: The diablo pizza
   components:
-  - type: Food
+  - type: Edible
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/Baked/prazatpizza.rsi
     state: diablo
@@ -350,7 +350,7 @@
   name: four cheese pizza
   description: A four cheese pizza
   components:
-  - type: Food
+  - type: Edible
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/Baked/prazatpizza.rsi
     state: fourcheese
@@ -377,7 +377,7 @@
   name: mexican pizza
   description: A mexican pizza
   components:
-  - type: Food
+  - type: Edible
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/Baked/prazatpizza.rsi
     state: mexican
@@ -404,7 +404,7 @@
   name: mushroom chicken pizza
   description: A mushroom chicken pizza
   components:
-  - type: Food
+  - type: Edible
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/Baked/prazatpizza.rsi
     state: mushroomchicken
@@ -430,7 +430,7 @@
   name: sea pizza
   description: A sea pizza
   components:
-  - type: Food
+  - type: Edible
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/Baked/prazatpizza.rsi
     state: sea

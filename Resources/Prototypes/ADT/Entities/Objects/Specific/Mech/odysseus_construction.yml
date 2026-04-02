@@ -49,17 +49,22 @@
   - type: ContainerContainer
     containers:
       mech-assembly-container: !type:Container
-  - type: MechAssembly
-    finishedPrototype: ADTOdysseusChassis
-    requiredParts:
-      ADTOdysseusLArm: false
-      ADTOdysseusRArm: false
-      ADTOdysseusLLeg: false
-      ADTOdysseusRLeg: false
-      ADTOdysseusHead: false
+  - type: PartAssembly
+    parts:
+      ADTOdysseusChassis:
+      - ADTOdysseusLArm
+      - ADTOdysseusRArm
+      - ADTOdysseusLLeg
+      - ADTOdysseusRLeg
+      - ADTOdysseusHead
+    containerId: mech-assembly-container
   - type: Sprite
     state: odysseus_torso+o
     noRot: true
+  - type: Construction
+    graph: ADTOdysseus
+    node: start
+    defaultTarget: odysseus
 
 - type: entity
   parent: ADTBaseOdysseusPartItem
@@ -148,7 +153,3 @@
   - type: Sprite
     noRot: true
     state: odysseus0
-  - type: Construction
-    graph: ADTOdysseus
-    node: start
-    defaultTarget: odysseus

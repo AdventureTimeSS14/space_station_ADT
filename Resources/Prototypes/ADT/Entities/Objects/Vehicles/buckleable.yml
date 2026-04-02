@@ -53,6 +53,7 @@
   - type: Pullable
   - type: Physics
     bodyType: KinematicController
+    bodyStatus: OnGround
   - type: Clickable
   - type: Fixtures
     fixtures:
@@ -457,7 +458,6 @@
       baseSprintSpeed: 2
     - type: Strap
       buckleOffset: "0,0"
-      #maxBuckleDistance: 1
     - type: Fixtures
       fixtures:
         fix1:

@@ -1,19 +1,16 @@
-using Content.Server.Administration.Logs;
 using Content.Server.Antag;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Server.Mind;
 using Content.Server.Objectives;
 using Content.Server.PDA.Ringer;
-using Content.Server.Roles;
 using Content.Server.Traitor.Uplink;
-using Content.Shared.Database;
 using Content.Shared.FixedPoint;
-using Content.Shared.GameTicking.Components;
 using Content.Shared.Mind;
 using Content.Shared.NPC.Systems;
 using Content.Shared.PDA;
 using Content.Shared.Random.Helpers;
 using Content.Shared.Roles;
+using Content.Shared.Roles.Components;
 using Content.Shared.Roles.Jobs;
 using Content.Shared.Roles.RoleCodeword;
 using Robust.Shared.Prototypes;
@@ -21,7 +18,6 @@ using Robust.Shared.Random;
 using System.Linq;
 using System.Text;
 using Content.Server.Codewords;
-using Content.Shared.ADT.BloodBrothers;
 using Content.Shared.Bed.Cryostorage;
 
 namespace Content.Server.GameTicking.Rules;
@@ -67,11 +63,9 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
             Log.Debug($"MakeTraitor {ToPrettyString(traitor)}  - failed, no Mind found");
             return false;
         }
-        var bloodBrother = _random.Prob(component.BloodBrotherChance);//ADT-tweak
         var briefing = "";
 
-        if (component.GiveCodewords
-         && !bloodBrother) //ADT-tweak
+        if (component.GiveCodewords)
         {
             Log.Debug($"MakeTraitor {ToPrettyString(traitor)} - added codewords flufftext to briefing");
             briefing = Loc.GetString("traitor-role-codewords-short", ("codewords", string.Join(", ", factionCodewords)));
@@ -82,8 +76,7 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
         // Uplink code will go here if applicable, but we still need the variable if there aren't any
         Note[]? code = null;
 
-        if (component.GiveUplink
-        && !bloodBrother)//ADT-tweak
+        if (component.GiveUplink)
         {
             Log.Debug($"MakeTraitor {ToPrettyString(traitor)} - Uplink start");
             // Calculate the amount of currency on the uplink.
@@ -105,30 +98,17 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
         }
 
         string[]? codewords = null;
-        if (component.GiveCodewords
-         && !bloodBrother) //ADT-tweak
+        if (component.GiveCodewords)
         {
             Log.Debug($"MakeTraitor {ToPrettyString(traitor)} - set codewords from component");
             codewords = factionCodewords;
         }
 
-        if (component.GiveBriefing && !bloodBrother) //ADT-tweak
+        if (component.GiveBriefing)
         {
             _antag.SendBriefing(traitor, GenerateBriefing(codewords, code, issuer), null, component.GreetSoundNotification);
             Log.Debug($"MakeTraitor {ToPrettyString(traitor)} - Sent the Briefing");
         }
-        //ADT-tweak-start
-        else if (component.GiveBriefing && bloodBrother)
-        {
-            _antag.SendBriefing(traitor, Loc.GetString("brother-lead-briefing"), null, component.GreetSoundNotification);
-            Log.Debug($"MakeBrother {ToPrettyString(traitor)} - Sent the Briefing");
-            EnsureComp<BloodBrotherLeaderComponent>(traitor); //лидера ВСЕГДА должно выдавать прежде чем простого брата
-            EnsureComp<BloodBrotherComponent>(traitor);
-            RemComp<CanEnterCryostorageComponent>(traitor);
-            _npcFaction.AddFaction(traitor, component.BloodBrotherFaction);
-            _npcFaction.AddFaction(traitor, component.BloodBrotherLeaderFaction);
-        }
-        //ADT-tweak-end
 
         Log.Debug($"MakeTraitor {ToPrettyString(traitor)} - Adding TraitorMind");
         component.TraitorMinds.Add(mindId);
@@ -189,11 +169,17 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
                     Loc.GetString("traitor-role-uplink-code-short", ("code", string.Join("-", code).Replace("sharp", "#"))));
                 return (code, briefing);
             }
+
+            Log.Error($"MakeTraitor {ToPrettyString(traitor)} failed to generate an uplink code on {ToPrettyString(pda)}.");
         }
         else if (pda is null && uplinked)
         {
             Log.Debug($"MakeTraitor {ToPrettyString(traitor)} - Uplink is implant");
             briefing += "\n" + Loc.GetString("traitor-role-uplink-implant-short");
+        }
+        else
+        {
+            Log.Error($"MakeTraitor failed on {ToPrettyString(traitor)} - No uplink could be added");
         }
 
         return (null, briefing);

@@ -1,3 +1,4 @@
+using Content.Shared.ADT.CharecterFlavor;
 using Robust.Client.UserInterface;
 using JetBrains.Annotations;
 using Robust.Client.UserInterface.Controllers;
@@ -22,8 +23,22 @@ public sealed class CharacterFlavorUiController : UIController, IOnStateEntered<
 
     public void OpenMenu(EntityUid target)
     {
+        OpenInternal(target, previewMode: false);
+    }
+
+    /// <summary>
+    /// Открыть окно флавора в режиме предпросмотра (из лобби, без загрузки headshot с сервера).
+    /// </summary>
+    public void OpenPreviewMenu(EntityUid target)
+    {
+        OpenInternal(target, previewMode: true);
+    }
+
+    private void OpenInternal(EntityUid target, bool previewMode)
+    {
         _window?.Close();
         _window = UIManager.CreateWindow<CharacterFlavorWindow>();
+        _window.IsPreviewMode = previewMode;
         _window.SetEntity(target);
         _window.OpenCentered();
 
@@ -36,5 +51,17 @@ public sealed class CharacterFlavorUiController : UIController, IOnStateEntered<
             return;
 
         _window?.SetHeadshot(image);
+    }
+
+    /// <summary>
+    /// Установить хэдшот для окна предпросмотра (из лобби).
+    /// Не использует NetEntity, просто берёт текущее preview-окно, если оно открыто.
+    /// </summary>
+    public void SetPreviewHeadshot(byte[] image)
+    {
+        if (_window == null || !_window.IsPreviewMode)
+            return;
+
+        _window.SetHeadshot(image);
     }
 }

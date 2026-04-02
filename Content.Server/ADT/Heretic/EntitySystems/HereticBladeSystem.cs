@@ -19,6 +19,9 @@ using Robust.Shared.Random;
 using System.Linq;
 using System.Text;
 using Content.Shared.ADT.Combat;
+using Content.Shared.Damage.Systems;
+using Content.Shared.Damage.Components;
+using Content.Shared.Temperature.Components;
 
 namespace Content.Server.Heretic.EntitySystems;
 
@@ -95,8 +98,24 @@ public sealed partial class HereticBladeSystem : EntitySystem
             var look = _lookupSystem.GetEntitiesInRange<HereticCombatMarkComponent>(Transform(ent).Coordinates, 20f);
             if (look.Count > 0)
             {
+                // Teleport to marked target (blade does not break)
                 var targetCoords = Transform(look.ToList()[0]).Coordinates;
                 _xform.SetCoordinates(args.User, targetCoords);
+                _audio.PlayPvs(new SoundPathSpecifier("/Audio/Effects/tesla_consume.ogg"), args.User);
+                args.Handled = true;
+                return;
+            }
+            else
+            {
+                // No marks - teleport to safe location and break the blade
+                if (!TryComp<RandomTeleportComponent>(ent, out var rtp))
+                    return;
+
+                _teleport.RandomTeleport(args.User, rtp);
+                _audio.PlayPvs(new SoundPathSpecifier("/Audio/Effects/tesla_consume.ogg"), args.User);
+                QueueDel(ent);
+                args.Handled = true;
+                return;
             }
         }
         else
@@ -105,10 +124,11 @@ public sealed partial class HereticBladeSystem : EntitySystem
                 return;
 
             _teleport.RandomTeleport(args.User, rtp);
+            _audio.PlayPvs(new SoundPathSpecifier("/Audio/Effects/tesla_consume.ogg"), args.User);
             QueueDel(ent);
+            args.Handled = true;
+            return;
         }
-
-        _audio.PlayPvs(new SoundPathSpecifier("/Audio/Effects/tesla_consume.ogg"), args.User);
 
         args.Handled = true;
     }
@@ -168,7 +188,7 @@ public sealed partial class HereticBladeSystem : EntitySystem
                 foreach (var k in orig.Keys)
                     orig[k] = MathF.Max((float) orig[k] - bonusHeal, 0f);
 
-                _damage.SetDamage(args.User, dmg, new() { DamageDict = orig });
+                _damage.SetDamage((args.User, dmg), new() { DamageDict = orig });
             }
         }
     }

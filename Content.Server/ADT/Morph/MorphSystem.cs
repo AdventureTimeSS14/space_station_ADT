@@ -1,44 +1,44 @@
-using Content.Shared.Actions;
+using System.Linq;
 using System.Numerics;
+using Content.Server.Body.Components;
+using Content.Server.Chat.Systems;
+using Content.Server.Humanoid;
+using Content.Server.Stunnable;
+using Content.Shared.ActionBlocker;
+using Content.Shared.Actions;
 using Content.Shared.ADT.Morph;
-using Content.Shared.Weapons.Melee.Events;
-using Content.Shared.Mobs.Systems;
-using Content.Shared.Nutrition.Components;
-using Content.Shared.Nutrition.EntitySystems;
+using Content.Shared.Body.Events;
+using Content.Shared.Damage;
+using Content.Shared.Damage.Prototypes;
+using Content.Shared.Damage.Systems;
 using Content.Shared.DoAfter;
-using Robust.Shared.Player;
-using Robust.Shared.Random;
+using Content.Shared.Examine;
+using Content.Shared.Hands.Components;
+using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Humanoid;
+using Content.Shared.Interaction;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
+using Content.Shared.Mobs.Systems;
+using Content.Shared.Movement.Components;
+using Content.Shared.Movement.Events;
+using Content.Shared.Nutrition.Components;
+using Content.Shared.Nutrition.EntitySystems;
+using Content.Shared.Polymorph.Components;
+using Content.Shared.Polymorph.Systems;
 using Content.Shared.Popups;
+using Content.Shared.Standing;
+using Content.Shared.Tools.Components;
+using Content.Shared.Tools.Systems;
+using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Whitelist;
+using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
-using Content.Shared.Damage;
-using Content.Shared.Hands.EntitySystems;
-using Content.Shared.Hands.Components;
-using System.Linq;
-using Content.Shared.Examine;
-using Robust.Shared.Prototypes;
-using Content.Shared.Damage.Prototypes;
-using Content.Shared.Destructible;
-using Content.Server.Humanoid;
-using Content.Shared.Polymorph.Components;
-using Content.Shared.Interaction;
-using Content.Shared.Polymorph.Systems;
-using Content.Server.Chat.Systems;
-using Content.Server.Stunnable;
-using Content.Shared.Tools.Systems;
-using Content.Shared.Tools.Components;
-using Content.Shared.ActionBlocker;
-using Content.Shared.Movement.Events;
-using Content.Shared.Movement.Components;
-using Content.Shared.Standing;
-using Content.Server.Body.Components;
-using Robust.Server.GameObjects;
 using Robust.Shared.Map;
-using Content.Shared.Body.Events;
+using Robust.Shared.Player;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
 
 namespace Content.Server.ADT.Morph;
 
@@ -48,7 +48,7 @@ public sealed class MorphSystem : SharedMorphSystem
     [Dependency] protected readonly ChatSystem ChatSystem = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly SharedChameleonProjectorSystem _chameleon = default!;
-    [Dependency] protected readonly SharedContainerSystem container = default!;
+    [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
@@ -120,7 +120,7 @@ public sealed class MorphSystem : SharedMorphSystem
         }
         else if (_random.Prob(ent.Comp.EatWeaponChanceOnHited) && _hunger.GetHunger(hunger) >= ent.Comp.EatWeaponHungerReq)
         {
-            container.Insert(args.Used, ent.Comp.Container);
+            _container.Insert(args.Used, ent.Comp.Container);
             _audioSystem.PlayPvs(ent.Comp.SoundDevour, ent);
             _hunger.ModifyHunger(ent, -ent.Comp.EatWeaponHungerReq, hunger);
         }
@@ -134,7 +134,7 @@ public sealed class MorphSystem : SharedMorphSystem
             return;
         if (_hands.TryGetActiveItem((args.HitEntities[0], hands), out var item) && _random.Prob(ent.Comp.EatWeaponChanceOnHit))
         {
-            container.Insert(item.Value, ent.Comp.Container);
+            _container.Insert(item.Value, ent.Comp.Container);
             _audioSystem.PlayPvs(ent.Comp.SoundDevour, ent);
             _hunger.ModifyHunger(ent, -ent.Comp.EatWeaponHungerReq, hunger);
         }
@@ -149,7 +149,7 @@ public sealed class MorphSystem : SharedMorphSystem
     {
         if (!TryComp<HungerComponent>(uid, out var hunger))
             return;
-        if (container.IsEntityInContainer(uid))
+        if (_container.IsEntityInContainer(uid))
             return;
         if (comp.OpenVentFoodReq > _hunger.GetHunger(hunger))
             return;
@@ -173,8 +173,23 @@ public sealed class MorphSystem : SharedMorphSystem
         if (!TryComp<ChameleonProjectorComponent>(uid, out var chamel))
             return;
         var targ = GetEntity(args.Target);
-        if (targ != null)
-            MimicryNonHumanoid((uid, chamel), targ.Value);
+        if (targ == null)
+            return;
+
+        if (_container.IsEntityInContainer(uid))
+        {
+            _popupSystem.PopupCursor(Loc.GetString("morph-mimicry-container"), uid);
+            return;
+        }
+
+        if (_chameleon.IsInvalid(chamel, targ.Value))
+        {
+            _popupSystem.PopupCursor(Loc.GetString("morph-mimicry-invalid"), uid);
+            return;
+        }
+
+        _popupSystem.PopupCursor(Loc.GetString("morph-mimicry-success"), uid);
+        MimicryNonHumanoid((uid, chamel), targ.Value);
     }
     private void OnAmbushAction(EntityUid uid, MorphComponent component, MorphAmbushActionEvent args)
     {
@@ -225,13 +240,13 @@ public sealed class MorphSystem : SharedMorphSystem
         if (args.User == null)
             return;
         _stun.TryUpdateStunDuration(args.User.Value, TimeSpan.FromSeconds(component.StunTimeInteract)); //при интеракции станим, при ударе морфом клокдауним
-        _damageable.TryChangeDamage(args.User, component.DamageOnTouch);
+        _damageable.TryChangeDamage(args.User.Value, component.DamageOnTouch);
         AmbushBreak(uid);
     }
     private void OnMimicryRadialMenu(EntityUid uid, MorphComponent component, MorphOpenRadialMenuEvent args)
     {
         // Инциализируем контейнер мимикрии
-        component.MimicryContainer = container.EnsureContainer<Container>(uid, component.MimicryContainerId);
+        component.MimicryContainer = _container.EnsureContainer<Container>(uid, component.MimicryContainerId);
 
         if (!TryComp<UserInterfaceComponent>(uid, out var uic))
             return;

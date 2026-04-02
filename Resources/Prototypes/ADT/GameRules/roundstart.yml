@@ -76,37 +76,6 @@
     scheduledGameRules: !type:NestedSelector
       tableId: ExtendedGameRulesTable
 
-- type: entity
-  parent: BaseGameRule
-  id: ChangelingGameRule
-  components:
-  - type: ChangelingRule
-  - type: GameRule
-    minPlayers: 25
-    delay:
-      min: 30
-      max: 60
-  - type: AntagSelection
-    definitions:
-    - prefRoles: [ Changeling ]
-      max: 5
-      playerRatio: 15
-      blacklist:
-        components:
-        - AntagImmune
-        tags:
-        - ChangelingBlacklist
-      lateJoinAdditional: true
-      mindRoles:
-      - MindRoleChangeling
-      components:
-      - type: Changeling
-    agentName: ling-round-end-name
-  - type: AntagRandomObjectives
-    sets:
-    - groups: ChangelingObjectiveGroups
-    maxDifficulty: 8
-
 #Облегченное число агентов
 - type: entity
   parent: BaseTraitorRule
@@ -121,16 +90,64 @@
     selectionTime: IntraPlayerSpawn
     definitions:
     - prefRoles: [ Traitor ]
-      max: 4          
-      playerRatio: 15 
+      max: 4
+      playerRatio: 15
       blacklist:
         components:
         - AntagImmune
       lateJoinAdditional: true
       mindRoles:
       - MindRoleTraitor
+  - type: AntagRandomObjectives
+    sets:
+    - groups: TraitorLightObjectiveGroups
+    maxDifficulty: 8
+
+- type: entityTable
+  id: TraitorLightGameRulesTable
+  table: !type:AllSelector
+    children:
+      - !type:NestedSelector
+        tableId: BasicCalmEventsTable
+      - !type:NestedSelector
+        tableId: BasicAntagEventsTable
+      - id: ParadoxCloneSpawn
+      - id: SleeperAgents
+      - id: LoneOpsSpawn
+      - id: VoxRaidersEvent
+      - !type:NestedSelector
+        tableId: DerelictBorgEventTable
+      - !type:NestedSelector
+        tableId: CargoGiftsTable
+      - !type:NestedSelector
+        tableId: CalmPestEventsTable
+      - !type:NestedSelector
+        tableId: SpicyPestEventsTable
+
+- type: entity
+  id: TraitorLightStationEventScheduler
+  parent: BaseGameRule
+  components:
+  - type: BasicStationEventScheduler
+    scheduledGameRules: !type:NestedSelector
+      tableId: TraitorLightGameRulesTable
+    minMaxEventTiming:
+      min: 300
+      max: 900
 
 #Пары из антагов
+- type: entity
+  id: ChangelingDuo
+  parent: Changeling
+  components:
+  - type: GameRule
+    minPlayers: 25
+  - type: AntagSelection
+    definitions:
+    - prefRoles: [ Changeling ]
+      max: 2
+      playerRatio: 15
+
 - type: entity
   parent: BaseTraitorRule
   id: TraitorDuoGameRule
@@ -144,7 +161,7 @@
     selectionTime: IntraPlayerSpawn
     definitions:
     - prefRoles: [ Traitor ]
-      max: 2       
+      max: 2
       playerRatio: 10
       blacklist:
         components:
@@ -152,37 +169,6 @@
       lateJoinAdditional: true
       mindRoles:
       - MindRoleTraitor
-
-- type: entity
-  parent: BaseGameRule
-  id: ChangelingDuoGameRule
-  components:
-  - type: ChangelingRule
-  - type: GameRule
-    minPlayers: 20
-    delay:
-      min: 30
-      max: 60
-  - type: AntagSelection
-    definitions:
-    - prefRoles: [ Changeling ]
-      max: 2
-      playerRatio: 15
-      blacklist:
-        components:
-        - AntagImmune
-        tags:
-        - ChangelingBlacklist
-      lateJoinAdditional: true
-      mindRoles:
-      - MindRoleChangeling
-      components:
-      - type: Changeling
-    agentName: ling-round-end-name
-  - type: AntagRandomObjectives
-    sets:
-    - groups: ChangelingObjectiveGroups
-    maxDifficulty: 8
 
 - type: entity
   parent: BaseHereticRule
@@ -220,19 +206,15 @@
       - id: HereticSoloGameRule
         cost: 10
         rerollChance: 0.5
-      - id: ChangelingDuoGameRule
-        cost: 10
       - id: TraitorDuoGameRule
         cost: 10
       - id: TraitorLightGameRule
         cost: 15
-      - id: ChangelingGameRule
+      - id: Changeling
         cost: 25
       - id: Heretic
         cost: 30
         rerollChance: 0.5
-      - id: BloodBrother
-        cost: 20
       - id: Revolutionary
         cost: 45
       # - id: Zombie вернуть после баффов
@@ -257,7 +239,7 @@
   components:
   - type: DynamicRule
     maxEventsBeforeAntag: 9
-    maxChaos: 60
+    maxChaos: 80
     minChaos: 50
     scheduledGameRules: !type:NestedSelector
       tableId: RampingGameRulesTable
@@ -270,15 +252,11 @@
       - id: HereticSoloGameRule
         cost: 15
         rerollChance: 0.5
-      - id: ChangelingDuoGameRule
-        cost: 15
       - id: TraitorDuoGameRule
         cost: 15
       - id: TraitorLightGameRule
         cost: 15
-      - id: ChangelingGameRule
-        cost: 25
-      - id: BloodBrother
+      - id: Changeling
         cost: 25
       - id: Heretic
         cost: 30
@@ -314,15 +292,11 @@
     roundstartRules:
       - id: Thief
         cost: 10
-      - id: ChangelingDuoGameRule
-        cost: 10
       - id: TraitorDuoGameRule
         cost: 10
-      - id: BloodBrother
-        cost: 25
       - id: TraitorLightGameRule
         cost: 15
-      - id: ChangelingGameRule
+      - id: Changeling
         cost: 25
     midroundAntags:
       - id: DragonSpawn
@@ -345,34 +319,6 @@
   - type: GameRule
   - type: DynamicRandomRule
 
-- type: entity
-  parent: BaseTraitorRule
-  id: BloodBrother
-  components:
-  - type: GameRule
-    minPlayers: 20
-    delay:
-      min: 240
-      max: 420
-  - type: AntagSelection
-    selectionTime: IntraPlayerSpawn
-    definitions:
-    - prefRoles: [ BloodBrotherLeader ]
-      max: 4
-      playerRatio: 20
-      blacklist:
-        components:
-        - AntagImmune
-      lateJoinAdditional: true
-      mindRoles:
-      - MindRoleTraitor
-  - type: TraitorRule
-    bloodBrotherChance: 1
-  - type: AntagRandomObjectives
-    sets:
-    - groups: BloodBrothersObjectiveGroups
-    maxDifficulty: 12
-
 #этот геймрул сделан только для выдачи трейтора
 - type: entity
   parent: BaseTraitorRule
@@ -393,4 +339,3 @@
       mindRoles:
       - MindRoleTraitor
   - type: TraitorRule
-    bloodBrotherChance: 0

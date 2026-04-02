@@ -23,8 +23,8 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Content.Shared.Damage.Components;
 using Content.Shared.ADT.Chaplain.Components;
-using Content.Shared.ADT.Damage.Components;
 using Robust.Shared.Utility;
+using Content.Shared.Eye;
 
 namespace Content.Server.Heretic.EntitySystems;
 
@@ -59,7 +59,6 @@ public sealed class HereticSystem : EntitySystem
     private void OnHereticStartup(EntityUid uid, HereticComponent component, ComponentStartup args)
     {
         EnsureComp<PassiveHolyHealingComponent>(uid);
-        EnsureComp<ChangeDamageContainerComponent>(uid);
         EnsureComp<HolyDamageMultiplierComponent>(uid);
     }
 
@@ -206,11 +205,11 @@ public sealed class HereticSystem : EntitySystem
         if (!_mind.TryGetMind(uid, out var mind, out _) || !_job.MindTryGetJobId(mind, out var jobId) || jobId == null)
             return null;
 
-        var hair = (HairStyles.DefaultHairStyle, humanoid.CachedHairColor ?? Color.Black);
+        var hair = (HairStyles.DefaultHairStyle, humanoid.CachedHairColor ?? new List<Color> { Color.Black });
         if (humanoid.MarkingSet.TryGetCategory(MarkingCategories.Hair, out var hairMarkings) && hairMarkings.Count > 0)
         {
             var hairMarking = hairMarkings[0];
-            hair = (hairMarking.MarkingId, hairMarking.MarkingColors.FirstOrNull() ?? Color.Black);
+            hair = (hairMarking.MarkingId, new List<Color>(hairMarking.MarkingColors));
         }
 
         var facialHair = (HairStyles.DefaultFacialHairStyle, humanoid.CachedFacialHairColor ?? Color.Black);

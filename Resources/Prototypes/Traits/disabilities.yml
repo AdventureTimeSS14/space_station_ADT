@@ -1,140 +1,194 @@
 # If you add a new trait, make sure to add the corresponding component to the whitelist in \Resources\Prototypes\Entities\Mobs\Player\clone.yml so it gets copied to clones correctly!
+# ADT - Трейты изменены под новую систему трейтов
 
 - type: trait
   id: Blindness
   name: trait-blindness-name
   description: trait-blindness-desc
-  traitGear: WhiteCane
-  category: Quirks  # ADT Quirks
+  category: Disabilities
+  cost: -1
   whitelist:
     components:
       - Blindable
-  components:
-    - type: PermanentBlindness
-  cost: -3  # ADT Quirks
-  quirk: true  # ADT Quirks
+  effects:
+    - !type:AddCompsEffect
+      components:
+        - type: PermanentBlindness
+    - !type:SpawnItemInHandEffect
+      item: WhiteCane
+  departmentBlacklist:
+    - Security
+  jobBlacklist:
+    - ADTBlueShieldOfficer
 
 - type: trait
   id: PoorVision
   name: trait-poor-vision-name
   description: trait-poor-vision-desc
-  traitGear: ClothingEyesGlasses
-  category: Quirks  # ADT Quirks
+  category: Disabilities
+  cost: -1
   whitelist:
     components:
       - Blindable
-  components:
-    - type: PermanentBlindness
-      blindness: 4
-  cost: -2  # ADT Quirks
-  quirk: true  # ADT Quirks
-
-- type: trait
-  id: Uncloneable
-  name: trait-uncloneable-name
-  description: trait-uncloneable-desc
-  category: Quirks  # ADT Quirks
-  components:
-    - type: Uncloneable
-  cost: -1  # ADT Quirks
-  speciesBlacklist:
-  - IPC
-  - Vox
-  - NovakidSpecies
-  quirk: true  # ADT Quirks
+  effects:
+    - !type:AddCompsEffect
+      components:
+        - type: PermanentBlindness
+          blindness: 4
+    - !type:SpawnItemInHandEffect
+      item: ClothingEyesGlasses
 
 - type: trait
   id: Narcolepsy
   name: trait-narcolepsy-name
   description: trait-narcolepsy-desc
-  category: Quirks  # ADT Quirks
-  components:
-    - type: Narcolepsy
-      timeBetweenIncidents: 300, 600
-      durationOfIncident: 10, 30
-  cost: -1  # ADT Quirks
-  quirk: true  # ADT Quirks
+  category: Disabilities
+  cost: -1
+  effects:
+    - !type:AddCompsEffect
+      components:
+        - type: Narcolepsy
+          maxTimeBetweenIncidents: 600
+          minTimeBetweenIncidents: 300
+          maxDurationOfIncident: 30
+          minDurationOfIncident: 10
 
 - type: trait
   id: Unrevivable
   name: trait-unrevivable-name
   description: trait-unrevivable-desc
-  category: Quirks  # ADT Quirks
-  components:
-    - type: Unrevivable
-  cost: -3  # ADT Quirks Tweak -1 -> -3
+  category: Disabilities
+  cost: -2
+  effects:
+    - !type:AddCompsEffect
+      components:
+        - type: Unrevivable
+          cloneable: true
   speciesBlacklist:
   - IPC
   - NovakidSpecies
-  quirk: true  # ADT Quirks
 
-# - type: trait
-#   id: Monochromacy
-#   name: trait-monochromacy-name
-#   description: trait-monochromacy-desc
-#   category: Disabilities
-#   components:
-#   - type: BlackAndWhiteOverlay
+- type: trait
+  id: Uncloneable
+  name: trait-uncloneable-name
+  description: trait-uncloneable-desc
+  category: Disabilities
+  cost: -2
+  effects:
+    - !type:AddCompsEffect
+      components:
+        - type: Uncloneable
+  speciesBlacklist:
+  - IPC
+  - NovakidSpecies
+
+- type: trait
+  id: Paralyzed
+  name: trait-paralyzed-name
+  description: trait-paralyzed-desc
+  category: Disabilities
+  cost: -4
+  speciesBlacklist:
+    - IPC
+  departmentBlacklist:
+    - Security
+  jobBlacklist:
+    - ADTBlueShieldOfficer
+  effects:
+    - !type:AddCompsEffect
+      components:
+        - type: LegsParalyzed
+    - !type:SpawnItemInHandEffect
+      item: ADTVehicleWheelchairFolded
+
+- type: trait
+  id: Monochromacy
+  name: trait-monochromacy-name
+  description: trait-monochromacy-desc
+  category: Disabilities
+  cost: -1
+  effects:
+    - !type:AddCompsEffect
+      components:
+        - type: BlackAndWhiteOverlay
 
 - type: trait
   id: Muted
   name: trait-muted-name
   description: trait-muted-desc
-  category: Quirks  # ADT Quirks
+  category: Disabilities
+  cost: -1
   blacklist:
     components:
       - BorgChassis
-# ADT-Tweak start
-  speciesBlacklist:
-  - SlimePerson
-# ADT-Tweak end
-  components:
-    - type: Muted
-  cost: -2  # ADT Quirks
-  quirk: true  # ADT Quirks
+  departmentBlacklist:
+    - Command
+    - Security
+    - CentcomSpecialists
+  effects:
+    - !type:AddCompsEffect
+      components:
+        - type: Muted
 
 - type: trait
   id: Paracusia
   name: trait-paracusia-name
   description: trait-paracusia-desc
-  category: Quirks  # ADT Quirks
-  components:
-    - type: Paracusia
-      minTimeBetweenIncidents: 0.1
-      maxTimeBetweenIncidents: 300
-      maxSoundDistance: 7
-      sounds:
-        collection: Paracusia
-  cost: -1  # ADT Quirks
-  quirk: true  # ADT Quirks
+  category: Disabilities
+  cost: -1
+  effects:
+    - !type:AddCompsEffect
+      components:
+        - type: Paracusia
+          minTimeBetweenIncidents: 0.1
+          maxTimeBetweenIncidents: 300
+          maxSoundDistance: 7
+          sounds:
+            collection: Paracusia
 
 - type: trait
   id: PainNumbness
   name: trait-painnumbness-name
   description: trait-painnumbness-desc
-  category: Quirks #ADT Quirks; fix by Prunt
-  components:
-  - type: PainNumbness
-  cost: -2 # ADT Quirks; add by Prunt
-  quirk: true # ADT Quirks; add by Prunt
+  category: Disabilities
+  cost: -1
+  effects:
+    - !type:AddCompsEffect
+      components:
+        - type: PainNumbnessStatusEffect
+          hideHealthAlert: true
+          hidePainOverlay: true
 
 - type: trait
   id: Hemophilia
   name: trait-hemophilia-name
   description: trait-hemophilia-desc
-  category: Quirks # ADT Disabilities -> Quirks
-  components:
-  - type: Hemophilia
-  speciesBlacklist: # ADT Quirks
-  - IPC
-  quirk: true
-  cost: -2 # ADT Quirks
+  category: Disabilities
+  cost: -1
+  effects:
+    - !type:AddCompsEffect
+      components:
+        - type: HemophiliaStatusEffect
+          bleedReductionMultiplier: 0.33
+          bleedAmountMultiplier: 1.0
+  speciesBlacklist:
+    - IPC
+    - NovakidSpecies
+    - Shadekin
 
-# - type: trait
-#   id: ImpairedMobility
-#   name: trait-impaired-mobility-name
-#   description: trait-impaired-mobility-desc
-#   traitGear: OffsetCane
-#   category: Disabilities
-#   components:
-#     - type: ImpairedMobility
+- type: trait
+  id: ImpairedMobility
+  name: trait-impaired-mobility-name
+  description: trait-impaired-mobility-desc
+  category: Disabilities
+  cost: -1
+  effects:
+    - !type:AddCompsEffect
+      components:
+        - type: ImpairedMobility
+    - !type:SpawnItemInHandEffect
+      item: OffsetCane
+  departmentBlacklist:
+    - Security
+  jobBlacklist:
+    - ADTBlueShieldOfficer

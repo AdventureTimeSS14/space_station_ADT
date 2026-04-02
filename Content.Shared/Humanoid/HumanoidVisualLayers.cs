@@ -1,4 +1,4 @@
-﻿using Content.Shared.Humanoid.Markings;
+using Content.Shared.Humanoid.Markings;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.Humanoid
@@ -15,8 +15,9 @@ namespace Content.Shared.Humanoid
         Chest,
         Head,
         Snout,
-        SnoutOverlay, // for animated tongue for ADT
+        SnoutCover, // things layered over snouts (i.e. noses)
         HeadSide, // side parts (i.e., frills)
+        SnoutOverlay, //ADT-tweak
         HeadTop,  // top parts (i.e., ears)
         Eyes,
         RArm,

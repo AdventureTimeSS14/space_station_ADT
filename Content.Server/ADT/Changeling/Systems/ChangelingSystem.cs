@@ -110,7 +110,7 @@ public sealed partial class ChangelingSystem : EntitySystem
         SubscribeLocalEvent<ChangelingComponent, ChangelingRefreshEvent>(OnRefresh);
 
         SubscribeLocalEvent<ChangelingComponent, ChangelingEvolutionMenuActionEvent>(OnShop);
-        SubscribeLocalEvent<ChangelingComponent, ChangelingTransformActionEvent>(OnTransform);
+        SubscribeLocalEvent<ChangelingComponent, ADTChangelingTransformActionEvent>(OnTransform);
 
         SubscribeNetworkEvent<SelectChangelingFormEvent>(OnSelectChangelingForm);
 
@@ -182,7 +182,7 @@ public sealed partial class ChangelingSystem : EntitySystem
         _store.ToggleUi(uid, uid, store);
     }
 
-    public void OnTransform(EntityUid uid, ChangelingComponent component, ChangelingTransformActionEvent args)
+    public void OnTransform(EntityUid uid, ChangelingComponent component, ADTChangelingTransformActionEvent args)
     {
         if (args.Handled)
             return;
@@ -368,7 +368,7 @@ public sealed partial class ChangelingSystem : EntitySystem
             if (hair.TryGetValue(0, out var marking))
             {
                 hca = hca.WithHairStyleName(marking.MarkingId);
-                hca = hca.WithHairColor(marking.MarkingColors.First());
+                hca = hca.WithHairColor(new List<Color>(marking.MarkingColors));
             }
         if (humanoid.MarkingSet.Markings.TryGetValue(MarkingCategories.Head, out var head))
             hca = hca.WithMarkings(head);

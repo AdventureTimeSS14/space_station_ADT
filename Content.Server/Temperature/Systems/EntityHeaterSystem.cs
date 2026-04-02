@@ -1,6 +1,6 @@
-using Content.Server.Atmos.Components; //ADT-Tweak-Start
 using Content.Server.ADT.Temperature;
 using Content.Server.Power.Components;
+using Content.Shared.Atmos.Components;
 using Content.Shared.Placeable;
 using Content.Shared.Temperature;
 using Content.Shared.Temperature.Components;
@@ -49,12 +49,22 @@ public sealed class EntityHeaterSystem : SharedEntityHeaterSystem
 
         //ADT bonfire
         var flammbaleQuery = EntityQueryEnumerator<ADTFlammableEntityHeaterComponent, ItemPlacerComponent, FlammableComponent>();
-        while (flammbaleQuery.MoveNext(out var uid, out _, out var placer, out var flammable))
+        while (flammbaleQuery.MoveNext(out var uid, out var heaterComp, out var placer, out var flammable))
         {
             if (!flammable.OnFire)
-                return;
+                continue;
 
-            var energy = flammable.FireStacks * deltaTime * 300;
+            float energy;
+            if (heaterComp.Power > 0f)
+            {
+                energy = heaterComp.Power * deltaTime;
+            }
+            else
+            {
+
+                energy = flammable.FireStacks * deltaTime * 300;
+            }
+
             foreach (var ent in placer.PlacedEntities)
             {
                 _temperature.ChangeHeat(ent, energy);

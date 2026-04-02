@@ -29,6 +29,7 @@
     itemSlot: cell_slot
   - type: PickupHumans
   - type: MobIpc
+    disablePointLightOnDeath: true
   - type: InteractionPopup
     interactSuccessString: petting-success-ipc
     interactSuccessSound:
@@ -118,12 +119,9 @@
       Male: UnisexIPC
       Female: UnisexIPC
       Unsexed: UnisexIPC
-  - type: TriggerOnMobstateChange
-    mobState:
-    - Dead
-  - type: EmitSoundOnTrigger
-    sound:
-      path: /Audio/ADT/IPC/borg_deathsound.ogg
+  - type: Deathgasp
+    prototype: IPCDeathgasp
+    onAnyState: true
   - type: TTS # Corvax-TTS
   - type: LanguageSpeaker
     languages:
@@ -133,7 +131,7 @@
   - type: Tag
     tags:
     - CanPilot
-    - FootstepSound
+    - SiliconFootstepSound
     - DoorBumpOpener
     - ChangelingBlacklist
     - ADTSiliconStealthWhitelist
@@ -177,14 +175,24 @@
     selectSlotTime: 0
     changeSlotTime: 0
     changeVoiceTime: 0
+    addSlotTime: 0
+    removeSlotTime: 0
     changeMarkingSound:
       path: /Audio/Machines/beep.ogg
     playSoundForVoiceChange: false
     customizableCategories:
     - FacialHair
     defaultSkinColoring: false
+    changeSlotOnState:
+    - state: Dead
+      category: FacialHair
+      slot: 0
+      marking: ADTIPCScreenBroken
+      colors: ["#ffffff"]
+    pointLightColor: true
   - type: AnimatedEmotes
   - type: Posing
+  - type: SoftWalk
 
 - type: entity
   save: false

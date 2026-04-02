@@ -21,10 +21,15 @@
     size: Tiny
   - type: StealTarget
     stealGroup: Stamp
-    # ADT-Tweak start
+  # ADT-Tweak start
   - type: Tag
     tags:
     - ADTStamp
+  - type: MeleeWeapon
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 1
     # ADT-Tweak end
 
 - type: entity
@@ -106,9 +111,6 @@
     stampState: "paper_stamp-clown"
   - type: Sprite
     state: stamp-clown
-  - type: Tag
-    tags:
-      - ClownRubberStamp
 
 - type: entity
   name: chief engineer's rubber stamp

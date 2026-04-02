@@ -69,7 +69,7 @@ public sealed partial class CollectiveMind : ILanguageType
         var chatMan = IoCManager.Resolve<IChatManager>();
 
         success = false;
-        chat.TryProccessRadioMessage(uid, message, out message, out _);
+        chat.TryProcessRadioMessage(uid, message, out message, out _);
         resultMessage = message;
 
         if (string.IsNullOrEmpty(message))
@@ -165,7 +165,7 @@ public sealed partial class CollectiveMind : ILanguageType
         var chatMan = IoCManager.Resolve<IChatManager>();
 
         success = false;
-        chat.TryProccessRadioMessage(uid, message, out message, out _);
+        chat.TryProcessRadioMessage(uid, message, out message, out _);
         resultMessage = message;
         resultObfMessage = message;
 

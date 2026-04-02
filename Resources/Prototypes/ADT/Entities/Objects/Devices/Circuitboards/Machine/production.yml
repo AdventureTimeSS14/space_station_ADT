@@ -267,7 +267,7 @@
     stackRequirements:
       Manipulator: 12
       Steel: 15
-      ADTBScrystalArt: 6
+      ADTBScrystal: 3
 
 - type: entity
   id: ADTMachineBigThrusterCircuitboard #3x3
@@ -281,7 +281,7 @@
     stackRequirements:
       Manipulator: 36
       Steel: 45
-      ADTBScrystalArt: 18
+      ADTBScrystal: 9
 
 - type: entity
   id: ADTMachineMediumThrusterCircuitboard #2x2
@@ -295,7 +295,7 @@
     stackRequirements:
       Manipulator: 16
       Steel: 20
-      ADTBScrystalArt: 8
+      ADTBScrystal: 4
 
 - type: entity
   id: ADTAdvancedMedicalBedCircuitboard
@@ -337,6 +337,8 @@
     - type: StaticPrice
       price: 15
 
+#Энерго зарядники
+
 - type: entity
   id: EnergyChemDispenserMachineCircuitboard
   parent: BaseMachineCircuitboard
@@ -355,3 +357,37 @@
         GlassBeaker:
           amount: 2
           defaultPrototype: Beaker
+
+- type: entity
+  id: ADTEnergySodaDispenserMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: soda dispenser machine board
+  description: A machine printed circuit board for a soda dispenser.
+  components:
+    - type: Sprite
+      state: service
+    - type: MachineBoard
+      prototype: ADTEnergySodaDispenser
+      stackRequirements:
+        Steel: 5
+      tagRequirements:
+          GlassBeaker:
+            amount: 1
+            defaultPrototype: Beaker
+
+- type: entity
+  id: ADTEnergyBoozeDispenserMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: booze dispenser machine board
+  description: A machine printed circuit board for a booze dispenser.
+  components:
+    - type: Sprite
+      state: service
+    - type: MachineBoard
+      prototype: ADTEnergyBoozeDispenser
+      stackRequirements:
+        Steel: 5
+      tagRequirements:
+          GlassBeaker:
+            amount: 1
+            defaultPrototype: Beaker

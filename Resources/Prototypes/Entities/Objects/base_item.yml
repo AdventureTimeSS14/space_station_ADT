@@ -24,6 +24,7 @@
     soundHit:
       collection: MetalThud
   - type: CollisionWake
+  - type: GravityAffected
   - type: Physics
     bodyType: Dynamic
     fixedRotation: false
@@ -59,6 +60,11 @@
     containers:
       storagebase: !type:Container
         ents: []
+  # ADT-Tweak start
+  - type: Tag
+    tags:
+    - Storage
+  # ADT-Tweak end
 
 - type: entity
   id: BaseBagOpenClose

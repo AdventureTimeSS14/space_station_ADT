@@ -18,7 +18,13 @@ public sealed partial class PolymorphedEntityComponent : Component
     /// The original entity that the player will revert back into
     /// </summary>
     [DataField(required: true)]
-    public EntityUid Parent;
+    public EntityUid? Parent;
+
+    /// <summary>
+    /// Whether this polymorph has been reverted.
+    /// </summary>
+    [DataField]
+    public bool Reverted;
 
     /// <summary>
     /// The amount of time that has passed since the entity was created
@@ -29,4 +35,9 @@ public sealed partial class PolymorphedEntityComponent : Component
 
     [DataField]
     public EntityUid? Action;
+
+    // ADT-Tweak start
+    [DataField]
+    public int? ParentVisibilityMask;
+    // ADT-Tweak end
 }

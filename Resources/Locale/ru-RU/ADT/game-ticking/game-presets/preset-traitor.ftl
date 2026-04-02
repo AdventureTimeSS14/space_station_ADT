@@ -14,3 +14,6 @@ brother-briefing =
 role-subtype-brother = Кровный Брат
 role-subtype-brother-lead = Кровный Старший Брат
 admin-verb-make-brother = Сделать кровным братом
+
+traitorlight-title = Лайт-предатели
+traitorlight-description = Среди нас есть предатель.

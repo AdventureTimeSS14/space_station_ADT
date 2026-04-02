@@ -181,3 +181,20 @@
   - ADTStasisBedFlatpack
   - RollerBedSpawnFolded
   - RollerBedSpawnFolded
+
+- type: thiefBackpackSet
+  id: ADTFakeMindShieldRev
+  name: revolution-toolbox-category-fake-mindshieldrev-name
+  description: revolution-toolbox-category-fake-mindshieldrev-description
+  sprite:
+    sprite: /Textures/Interface/Actions/actions_fakemindshield.rsi
+    state: icon-on
+  content:
+  - ADTBoxImplanters
+  - ADTBoxFakeMindShield
+  - RadioJammer
+  - RadioJammer
+  - RadioJammer
+  - PowerCellHyper
+  - PowerCellHyper
+  - PowerCellHyper

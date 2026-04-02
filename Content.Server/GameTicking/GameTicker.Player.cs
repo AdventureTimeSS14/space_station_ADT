@@ -58,7 +58,7 @@ namespace Content.Server.GameTicking
 
                     // Make the player actually join the game.
                     // timer time must be > tick length
-                    // Timer.Spawn(0, args.Session.JoinGame); // Corvax-Queue: Moved to `JoinQueueManager`
+                    // Timer.Spawn(0, () => _playerManager.JoinGame(session)); // Corvax-Queue: Moved to `JoinQueueManager`
 
                     var record = await _db.GetPlayerRecordByUserId(args.Session.UserId);
                     var firstConnection = record != null &&
@@ -137,7 +137,7 @@ namespace Content.Server.GameTicking
                         await _discord.CreateMessage(identifier, payload);
                     }
                     // ADT-Tweak-end
-                    RaiseNetworkEvent(GetConnectionStatusMsg(), session.Channel);
+                        RaiseNetworkEvent(GetConnectionStatusMsg(), session.Channel);
 
                     if (firstConnection && _cfg.GetCVar(CCVars.AdminNewPlayerJoinSound))
                         _audio.PlayGlobal(new SoundPathSpecifier("/Audio/Effects/newplayerping.ogg"),
@@ -272,7 +272,7 @@ namespace Content.Server.GameTicking
                 }
             }
 
-            RaiseNetworkEvent(new TickerJoinGameEvent(), session.Channel);
+                RaiseNetworkEvent(new TickerJoinGameEvent(), session.Channel);
         }
 
         private void PlayerJoinLobby(ICommonSession session)
@@ -281,9 +281,9 @@ namespace Content.Server.GameTicking
             _db.AddRoundPlayers(RoundId, session.UserId);
 
             var client = session.Channel;
-            RaiseNetworkEvent(new TickerJoinLobbyEvent(), client);
-            RaiseNetworkEvent(GetStatusMsg(session), client);
-            RaiseNetworkEvent(GetInfoMsg(), client);
+                RaiseNetworkEvent(new TickerJoinLobbyEvent(), client);
+                RaiseNetworkEvent(GetStatusMsg(session), client);
+                RaiseNetworkEvent(GetInfoMsg(), client);
             RaiseLocalEvent(new PlayerJoinedLobbyEvent(session));
         }
 

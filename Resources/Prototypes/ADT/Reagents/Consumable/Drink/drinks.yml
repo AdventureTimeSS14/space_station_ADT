@@ -16,7 +16,7 @@
         factor: 5
       - !type:AdjustTemperature
         conditions:
-        - !type:Temperature
+        - !type:TemperatureCondition
           min: 290 #дает легкую прохладу
         amount: -2500
   metamorphicSprite:
@@ -42,7 +42,7 @@
         factor: 2
       - !type:AdjustTemperature
         conditions:
-        - !type:Temperature
+        - !type:TemperatureCondition
           max: 320 #слегка согревает
         amount: 2500
   metamorphicSprite:
@@ -55,7 +55,7 @@
 - type: reagent
   id: ADTHungoverAngel
   name: hungover-angel-name
-  parent: ADTSummerShade
+  parent: BaseDrink
   desc: hungover-angel-desc
   physicalDesc: reagent-physical-desc-exhilarating
   flavor: adt_hungoverangel
@@ -66,12 +66,15 @@
       effects:
       - !type:SatiateThirst
         factor: 3
-    Medicine:
-      effects:
+      - !type:AdjustTemperature
+        conditions:
+        - !type:TemperatureCondition
+          min: 290 #дает легкую прохладу
+        amount: -2500
       - !type:HealthChange
         damage:
-          types:
-            Poison: -1
+          groups:
+            Toxin: -1
       - !type:PopupMessage
         type: Local
         visualType: Small
@@ -146,8 +149,8 @@
         factor: 4
       - !type:AdjustTemperature
         conditions:
-        - !type:Temperature
-          min: 290 #дает легкую прохладу
+        - !type:TemperatureCondition
+          min: 290  #дает легкую прохладу
         amount: -2500
   metamorphicSprite:
     sprite: ADT/Objects/Consumable/Drinks/milkeclipse.rsi
@@ -172,7 +175,7 @@
         factor: 3
       - !type:AdjustTemperature
         conditions:
-        - !type:Temperature
+        - !type:TemperatureCondition
           min: 285 #дает среднюю прохладу
         amount: -2500
   metamorphicSprite:
@@ -326,12 +329,12 @@
         component: StaminaModifier
         time: 1.15
         type: Add
-      - !type:MovespeedModifier
+      - !type:MovementSpeedModifier
         walkSpeedModifier: 1.03
         sprintSpeedModifier: 1.05
       - !type:AdjustTemperature
         conditions:
-        - !type:Temperature
+        - !type:TemperatureCondition
           max: 310
         amount: 2500
 
@@ -355,14 +358,16 @@
       - !type:AdjustReagent
         reagent: Theobromine
         amount: 0.05
-      - !type:ChemVomit
+      - !type:Vomit
         probability: 0.04
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: ADTCoffeePowder
           min: 10
       - !type:PopupMessage
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: ADTCoffeePowder
           min: 5
         type: Local
         visualType: Medium

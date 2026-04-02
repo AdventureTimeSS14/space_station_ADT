@@ -93,7 +93,7 @@ public sealed partial class HereticRitualRuneRadialMenu : RadialMenu
         }
     }
 
-    public sealed class HereticRitualMenuButton : RadialMenuTextureButtonWithSector
+    public sealed class HereticRitualMenuButton : RadialMenuButtonWithSector
     {
         public ProtoId<HereticRitualPrototype> ProtoId { get; set; }
     }

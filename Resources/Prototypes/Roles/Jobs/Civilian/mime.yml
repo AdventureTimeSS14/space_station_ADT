@@ -4,8 +4,8 @@
   description: job-description-mime
   playTimeTracker: JobMime
   requirements:
-  - !type:OverallPlaytimeRequirement
-      time: 3600 #1 hrs # Corvax-RoleTime
+    - !type:OverallPlaytimeRequirement
+      time: 1h # Corvax-RoleTime 4
   startingGear: MimeGear
   icon: "JobIconMime"
   supervisors: job-supervisors-hop
@@ -31,7 +31,7 @@
   id: MimeGear
   equipment:
     gloves: ClothingHandsGlovesColorWhite
-    shoes: ClothingShoesColorWhite
+    #shoes: ClothingShoesColorWhite ADT-Tweak
     id: MimePDA
     pocket1: CrayonMime
     ears: ClothingHeadsetService
@@ -47,10 +47,12 @@
   components:
   - type: Action
     priority: -1
-    useDelay: 30
+    useDelay: 25
     icon:
-      sprite: Structures/Walls/solid.rsi
-      state: full
+    # ADT-Tweak start
+      sprite: ADT/Interface/Actions/mime.rsi
+      state: mime_bigwall
+    # ADT-Tweak end
   - type: InstantAction
     event: !type:InvisibleWallActionEvent
 

@@ -158,7 +158,7 @@
         amount: 0.1
       - !type:AdjustTemperature
         conditions:
-        - !type:Temperature
+        - !type:TemperatureCondition
           min: 290 #дает легкую прохладу
         amount: -2500
 
@@ -397,7 +397,8 @@
       - !type:RandomTeleport
         probability: 0.35
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: ADTLimeShade
           min: 20
 
 #Пиво октоберфеста
@@ -816,7 +817,8 @@
         probability: 0.5
       - !type:PopupMessage
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: ADTJackieWelles
           min: 10
         type: Local
         visualType: Medium
@@ -852,7 +854,8 @@
           amount: 0.2
         - !type:PopupMessage
           conditions:
-            - !type:ReagentThreshold
+            - !type:ReagentCondition
+              reagent: ADTTheSilverhand
               min: 5
               max: 15
           type: Local
@@ -861,7 +864,8 @@
           probability: 0.1
         - !type:PopupMessage
           conditions:
-            - !type:ReagentThreshold
+            - !type:ReagentCondition
+              reagent: ADTTheSilverhand
               min: 15
               max: 20
           type: Local
@@ -870,7 +874,8 @@
           probability: 0.1
         - !type:PopupMessage
           conditions:
-            - !type:ReagentThreshold
+            - !type:ReagentCondition
+              reagent: ADTTheSilverhand
               min: 20
           type: Local
           visualType: Medium

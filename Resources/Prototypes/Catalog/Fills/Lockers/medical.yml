@@ -10,7 +10,7 @@
     - id: Ointment
       amount: !type:ConstantNumberSelector
         value: 2
-    - id: Bloodpack
+    - id: ADTBloodPackTransfusionFull # ADT tweak: Blood IV
       amount: !type:ConstantNumberSelector
         value: 2
     - id: Gauze
@@ -35,7 +35,7 @@
       - id: ADTPatchPackFilled
         amount: 1
       # ADT tweak End
-      - id: Bloodpack
+      - id: ADTBloodPackTransfusionFull # ADT-Tweak: Blood IV
         amount: 2
       - id: Gauze
 
@@ -60,7 +60,7 @@
       - id: ADTPatchPackFilled
         amount: 1
       # ADT tweak End
-      - id: Bloodpack
+      - id: ADTBloodPackTransfusionFull # ADT tweak: Blood IV
         amount: 2
       - id: Gauze
 
@@ -171,11 +171,14 @@
   components:
   - type: StorageFill
     contents:
-      - id: ADTClothingModsuitBackMedical #ADT tweak
       - id: ClothingOuterCoatParamedicWB
       - id: ClothingHeadHatParamedicsoft
-      - id: ADTClothingHeadHatsParamedicBeret # ADT tweak
-      - id: ADTHighVoltageDefibrillator # ADT Tweak
+      #ADT-Tweak-Start
+      - id: ADTClothingHeadHatsParamedicBeret
+      - id: ADTHighVoltageDefibrillator
+      - id: OxygenTankFilled
+      - id: ClothingMaskBreathMedical
+      #ADT-Tweak-End
       - id: ClothingOuterWinterPara
       - id: ClothingUniformJumpsuitParamedic
       - id: ClothingUniformJumpskirtParamedic
@@ -189,3 +192,13 @@
     # ADT-WikiBooks-Start
       - id: ADTBookSRPmed
     # ADT-WikiBooks-End
+  #ADT-Tweak-Start
+  - type: UserInterface
+    interfaces:
+      enum.SuitStorageUiKey.Key:
+        type: SuitStorageBoundUserInterface
+  - type: SuitStorage
+    options:
+    - ADTClothingModsuitBackMedical
+    - ClothingOuterHardsuitVoidParamed
+  #ADT-Tweak-End

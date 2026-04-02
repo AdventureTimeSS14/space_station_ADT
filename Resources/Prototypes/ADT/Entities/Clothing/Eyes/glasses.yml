@@ -16,6 +16,20 @@
     - Biological
 
 - type: entity
+  parent: [ClothingEyesGlassesThermal, BaseChameleon]
+  id: ADTClothingEyesGlassesThermalChameleon
+  name: optical thermal scanner
+  description: Thermals in the shape of glasses.
+  suffix: Chameleon
+  components:
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+  - type: ChameleonClothing
+    slot: [eyes]
+    default: ClothingEyesGlassesThermal
+
+- type: entity
   parent: ClothingEyesBase
   id: ADTClothingEyesGlassesPink
   name: pink glasses

@@ -20,7 +20,7 @@ using Content.Shared.Chemistry.Components;
 using Content.Shared.ADT.Stealth.Components;
 using Content.Server.Medical;
 using Content.Shared.Heretic;
-using Content.Shared.ADT.BloodBrothers;
+using Content.Shared.Medical;
 
 namespace Content.Server.Changeling.EntitySystems;
 
@@ -186,16 +186,6 @@ public sealed partial class ChangelingSystem
                 if (TryComp<StoreComponent>(uid, out var store))
                 {
                     _store.TryAddCurrency(new Dictionary<string, FixedPoint2> { { "EvolutionPoints", heretic.PathStage } }, uid, store);
-                    _store.UpdateUserInterface(uid, uid, store);
-                }
-            }
-            if (TryComp<BloodBrotherLeaderComponent>(target, out var bro))
-            {
-                var selfMessage = Loc.GetString("changeling-dna-success-bro", ("target", Identity.Entity(target, EntityManager)));
-                _popup.PopupEntity(selfMessage, uid, uid, PopupType.Medium);
-                if (TryComp<StoreComponent>(uid, out var store))
-                {
-                    _store.TryAddCurrency(new Dictionary<string, FixedPoint2> { { "EvolutionPoints", bro.ConvertedCount } }, uid, store);
                     _store.UpdateUserInterface(uid, uid, store);
                 }
             }
@@ -623,9 +613,10 @@ public sealed partial class ChangelingSystem
         }
         if (!TryComp<CuffableComponent>(target, out var cuffs) || cuffs.Container.ContainedEntities.Count < 1)
             return;
-        if (!TryComp<HandcuffComponent>(cuffs.LastAddedCuffs, out var handcuffs) || cuffs.Container.ContainedEntities.Count < 1)
-            return;
-        _cuffable.Uncuff(target, uid, cuffs.LastAddedCuffs, cuffs, handcuffs);
+        //R.A.T. shitfix: визарды сломали систему, надо починить потом
+        // if (!TryComp<HandcuffComponent>(cuffs.LastAddedCuffs, out var handcuffs) || cuffs.Container.ContainedEntities.Count < 1)
+        //     return;
+        // _cuffable.Uncuff(target, uid, cuffs.LastAddedCuffs, cuffs, handcuffs);
     }
 
     public void OnTransformSting(EntityUid uid, ChangelingComponent component, TransformationStingEvent args)

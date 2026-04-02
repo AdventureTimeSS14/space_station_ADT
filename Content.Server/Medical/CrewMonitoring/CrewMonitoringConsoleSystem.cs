@@ -103,12 +103,12 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
 
             if (allowedDepartmentNames.Count > 0)
             {
-                allSensors = allSensors.Where(s => s.JobDepartments != null &&
+                allSensors = allSensors.Where(s => !s.JobDepartments.Any() ||
                     s.JobDepartments.Any(dept => allowedDepartmentNames.Contains(dept))).ToList();
             }
         }
         // ADT-Tweak-End
-        _uiSystem.SetUiState(uid, CrewMonitoringUIKey.Key, new CrewMonitoringState(allSensors, component.IsEmagged)); // ADT-Tweak
+        _uiSystem.SetUiState(uid, CrewMonitoringUIKey.Key, new CrewMonitoringState(allSensors, true)); // ADT-Tweak
     }
 
     // ADT-Tweak-Start

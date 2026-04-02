@@ -33,6 +33,7 @@
   - Glasses
   - SurvivalMedical
   - Trinkets
+  - ADTSprayPaints # ADT-Tweak
   - GroupSpeciesBreathToolMedical
   # ADT underwear tweak start
   - ADTTop
@@ -56,6 +57,7 @@
   - ADTRoboticistPDALoadout
   - Survival
   - Trinkets
+  - ADTSprayPaints # ADT-Tweak
   - GroupSpeciesBreathTool
   # ADT underwear tweak start
   - ADTTop
@@ -118,6 +120,7 @@
   - MedicalBackpack
   - SeniorPhysicianOuterClothing # ADT-Tweak-senior
   - Trinkets
+  - ADTSprayPaints # ADT-Tweak
   - SurvivalMedical
   - GroupSpeciesBreathToolMedical
   - MedicalShoes
@@ -141,6 +144,7 @@
   - ScientistShoes
   - Survival
   - Trinkets
+  - ADTSprayPaints # ADT-Tweak
   # ADT tweak start
   - ADTTop
   - ADTBottom
@@ -162,6 +166,7 @@
   - StationEngineerShoes
   - SurvivalExtended
   - Trinkets
+  - ADTSprayPaints # ADT-Tweak
   # ADT tweak start
   - ADTTop
   - ADTBottom
@@ -253,6 +258,7 @@
   - Glasses
   - ADTBarberJumpsuit
   - ADTBarberOtherClothing
+  - ADTBarberShoes
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom
@@ -260,6 +266,7 @@
   # ADT underwear tweak end
   - Survival
   - Trinkets
+  - ADTSprayPaints # ADT-Tweak
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -282,4 +289,5 @@
   # ADT underwear tweak end
   - Survival
   - Trinkets
+  - ADTSprayPaints # ADT-Tweak
   - GroupSpeciesBreathTool

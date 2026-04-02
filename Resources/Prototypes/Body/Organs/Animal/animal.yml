@@ -4,9 +4,13 @@
   abstract: true
   components:
   - type: Organ
-  - type: Food
+  - type: Edible
   - type: Sprite
     sprite: Mobs/Species/Human/organs.rsi
+  # ADT-Tweak start
+  - type: Extractable
+    grindableSolutionName: food
+  # ADT-Tweak end
   - type: StaticPrice
     price: 50
   - type: SolutionContainerManager
@@ -56,7 +60,7 @@
 - type: entity
   id: OrganAnimalLungs
   parent: BaseAnimalOrgan
-  name: lungs
+  name: animal lungs
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -96,7 +100,7 @@
 - type: entity
   id: OrganAnimalStomach
   parent: BaseAnimalOrgan
-  name: stomach
+  name: animal stomach
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -131,13 +135,17 @@
 - type: entity
   id: OrganMouseStomach
   parent: OrganAnimalStomach
-  name: stomach
   categories: [ HideSpawnMenu ]
   components:
   - type: SolutionContainerManager
     solutions:
       stomach:
         maxVol: 30
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 5
   - type: Item
     size: Small
     heldPrefix: stomach
@@ -145,7 +153,7 @@
 - type: entity
   id: OrganAnimalLiver
   parent: BaseAnimalOrgan
-  name: liver
+  name: animal liver
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -156,7 +164,6 @@
     metabolizerTypes: [ Animal ]
     groups:
     - id: Alcohol
-      rateModifier: 0.1
   - type: Item
     size: Small
     heldPrefix: liver
@@ -170,7 +177,7 @@
 - type: entity
   id: OrganAnimalHeart
   parent: BaseAnimalOrgan
-  name: heart
+  name: animal heart
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -196,7 +203,7 @@
 - type: entity
   id: OrganAnimalKidneys
   parent: BaseAnimalOrgan
-  name: kidneys
+  name: animal kidneys
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite

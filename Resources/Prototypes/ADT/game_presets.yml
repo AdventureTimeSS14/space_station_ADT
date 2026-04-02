@@ -23,7 +23,7 @@
   showInVote: false
   description: changelings-description
   rules:
-    - ChangelingGameRule
+    - Changeling
     - BasicRoundstartVariation
     - SubGamemodesRule
     - BasicStationEventScheduler
@@ -39,11 +39,11 @@
     - tatorlight
   name: traitorlight-title
   description: traitorlight-description
-  showInVote: false
+  showInVote: true
   rules:
     - TraitorLightGameRule
     - SubGamemodesRule
-    - BasicStationEventScheduler
+    - TraitorLightStationEventScheduler
     - MeteorSwarmScheduler
     - SpaceTrafficControlEventScheduler
     - BasicRoundstartVariation
@@ -59,7 +59,7 @@
   showInVote: false
   rules:
     - TraitorDuoGameRule
-    - ChangelingDuoGameRule
+    - ChangelingDuo # ADT tweak
     - HereticDuoGameRule
     - SubGamemodesRule
     - BasicStationEventScheduler
@@ -80,7 +80,7 @@
     - MeteorSwarmScheduler
     - SpaceTrafficControlEventScheduler
     - BasicRoundstartVariation
-  bannedRound: 3
+  bannedRound: 1
 
 - type: gamePreset
   id: DynamicLight
@@ -107,7 +107,7 @@
     - MeteorSwarmScheduler
     - SpaceTrafficControlEventScheduler
     - BasicRoundstartVariation
-  bannedRound: 2
+  bannedRound: 1
 
 - type: gamePreset
   id: DynamicRandom
@@ -119,4 +119,4 @@
   showInVote: true
   rules:
     - DynamicRandomGamerule
-  bannedRound: 2
+  bannedRound: 1

@@ -243,7 +243,7 @@ public sealed partial class CargoSystem
                     Dictionary<ProtoId<CargoAccountPrototype>, double> distribution;
                     totalprice += (int)Math.Round(value);
                 }
-                _stack.Spawn(totalprice, stackPrototype, xform.Coordinates);
+                _stack.SpawnAtPosition(totalprice, stackPrototype, xform.Coordinates);
                 _audio.PlayPvs(ApproveSound, uid);
             }
         }

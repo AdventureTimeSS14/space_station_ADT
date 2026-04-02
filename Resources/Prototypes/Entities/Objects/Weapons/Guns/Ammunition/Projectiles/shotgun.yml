@@ -25,10 +25,8 @@
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
-#ADT tweak start
     layers:
-    - state: rubber
-#ADT tweak end
+    - state: rubber # ADT-Tweak bullet -> rubber
   - type: Projectile
     damage:
       types:
@@ -42,12 +40,12 @@
   categories: [ HideSpawnMenu ]
   parent: BaseBullet
   components:
+  # ADT-Tweak-Start
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
-#ADT tweak start
     layers:
     - state: buckshot
-#ADT tweak end
+  # ADT-Tweak-End
   - type: Projectile
     damage:
       types:
@@ -71,19 +69,17 @@
   categories: [ HideSpawnMenu ]
   parent: BaseBulletIncendiary
   components:
+  # ADT-Tweak-Start
   - type: Sprite
-#ADT tweak start
     sprite: ADT/Objects/Weapons/Guns/Projectiles/shotgun-ammo.rsi
     layers:
     - state: buckshot-incendiary
-#ADT tweak end
+  # ADT-Tweak-End
   - type: Projectile
     damage:
       types:
         Piercing: 7
         Structural: 15  #ADT tweak Structural 0 -> 15
-        # Blunt: 3 ADT tweak
-        # Heat: 7 ADT tweak
   - type: IgnitionSource
     ignited: true
 
@@ -103,12 +99,12 @@
   categories: [ HideSpawnMenu ]
   parent: BaseBulletPractice
   components:
+  # ADT-Tweak-Start
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
-#ADT tweak start
     layers:
     - state: practice
-#ADT tweak end
+  # ADT-Tweak-End
   - type: Projectile
     damage:
       types:
@@ -132,10 +128,11 @@
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
-#ADT tweak start
+    # ADT-Tweak-Start
     layers:
     - state: shard
-#ADT tweak end
+    # ADT-Tweak-End
+      shader: unshaded
   - type: Projectile
     damage:
       types:
@@ -158,12 +155,12 @@
   categories: [ HideSpawnMenu ]
   parent: BaseBulletPractice
   components:
+  # ADT-Tweak-Start
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
-#ADT tweak start
     layers:
     - state: piercing
-#ADT tweak end
+  # ADT-Tweak-End
   - type: Projectile
     damage:
       types:
@@ -172,14 +169,8 @@
     solutions:
       ammo:
         maxVol: 15
-  - type: RefillableSolution
-    solution: ammo
-  - type: DrainableSolution
-    solution: ammo
   - type: SolutionInjectOnProjectileHit
     transferAmount: 15
-    solution: ammo
-  - type: InjectableSolution
     solution: ammo
 
 - type: entity
@@ -236,14 +227,14 @@
   id: PelletShotgunUranium
   name: pellet (.50 uranium)
   categories: [ HideSpawnMenu ]
-  parent: BaseBullet
+  parent: BaseBulletUranium
   components:
+  #ADT-Tweak-Start
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
-#ADT tweak start
     layers:
     - state: uranium
-#ADT tweak end
+  #ADT-Tweak-End
   - type: Projectile
     damage:
       types:
@@ -299,7 +290,6 @@
     sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
     layers:
     - state: shard
-      shader: unshaded
   - type: EmbeddableProjectile
     deleteOnRemove: true
   - type: Projectile

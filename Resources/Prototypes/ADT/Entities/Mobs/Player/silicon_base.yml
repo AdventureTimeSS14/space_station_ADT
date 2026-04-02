@@ -96,12 +96,14 @@
       thermalRegulationTemperatureThreshold: 125
     - type: ComplexInteraction
     - type: MobCollision
+    - type: GravityAffected
 
 - type: entity
   parent: ADTPlayerSiliconBase
   id: PlayerSiliconHumanoidBase
   abstract: true
   components:
+    - type: Crawler
     - type: StatusIcon
     - type: SSDIndicator
     - type: MobState
@@ -340,7 +342,7 @@
         - reagents: [Water, SpaceCleaner]
           methods: [Touch]
           effects:
-            - !type:WashCreamPieReaction
+            - !type:WashCreamPie
     - type: BodyEmotes
       soundsId: GeneralBodyEmotes
     - type: DamageVisuals
