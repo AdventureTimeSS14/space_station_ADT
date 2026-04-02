@@ -258,8 +258,6 @@
     slice: ADTFoodMeatChickenBakedSlice
   - type: Item
     size: Normal
-  - type: Food
-    transferAmount: 6
 
 - type: entity
   name: stuffed chicken with vegetables
@@ -289,9 +287,6 @@
     slice: ADTFoodMeatChickenBakedStuffedSlice
   - type: Item
     size: Normal
-  - type: Food
-    transferAmount: 6
-    # trash: FoodPlate
 
 - type: entity
   name: baked chicken wing
@@ -316,8 +311,6 @@
           Quantity: 3
   - type: Item
     size: Small
-  - type: Food
-    transferAmount: 6
 
 - type: entity
   name: baked chicken leg
@@ -342,8 +335,6 @@
           Quantity: 3
   - type: Item
     size: Small
-  - type: Food
-    transferAmount: 7
 
 - type: entity
   name: slice of baked chicken
@@ -368,8 +359,6 @@
           Quantity: 2
   - type: Item
     size: Small
-  - type: Food
-    transferAmount: 4
 
 - type: entity
   name: slice of stuffed baked chicken
@@ -394,8 +383,6 @@
           Quantity: 2
   - type: Item
     size: Small
-  - type: Food
-    transferAmount: 5
 
 - type: entity
   name: raw fish fillet

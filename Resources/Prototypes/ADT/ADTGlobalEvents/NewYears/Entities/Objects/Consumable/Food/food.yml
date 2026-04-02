@@ -9,7 +9,6 @@
   - type: FlavorProfile
     flavors:
       - savory
-  - type: Food
   - type: SolutionContainerManager
     solutions:
       food:
@@ -45,7 +44,6 @@
   - type: FlavorProfile
     flavors:
       - sweet
-  - type: Food
   - type: SolutionContainerManager
     solutions:
       food:

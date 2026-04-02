@@ -5,7 +5,6 @@
   description: The usual pretzel, a popular snack at Oktoberfest.
   suffix: Oktoberfest
   components:
-  - type: Food
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/Baked/misc.rsi #спрайты от празата
     layers:
@@ -33,7 +32,6 @@
   description: The brezel with poppy seeds, a popular snack at Oktoberfest.
   suffix: Oktoberfest
   components:
-  - type: Food
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/Baked/misc.rsi #спрайты от празата
     layers:
@@ -62,7 +60,6 @@
   description: The brezel with salt, a popular snack at Oktoberfest.
   suffix: Oktoberfest
   components:
-  - type: Food
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/Baked/misc.rsi #спрайты от празата
     layers:
@@ -91,7 +88,6 @@
   description: The brezel with chocolate, a sweet snack for Oktoberfest.
   suffix: Oktoberfest
   components:
-  - type: Food
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/Baked/misc.rsi #спрайты от празата
     layers:
@@ -121,7 +117,6 @@
   description: Brezel with vanilla glaze, a sweet snack for Oktoberfest
   suffix: Oktoberfest
   components:
-  - type: Food
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/Baked/misc.rsi #спрайты от празата
     layers:
@@ -162,7 +157,6 @@
   description: muffin pumpkin
   suffix: Halloween
   components:
-  - type: Food
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/Baked/misc.rsi
     state: muffin_pumpkin

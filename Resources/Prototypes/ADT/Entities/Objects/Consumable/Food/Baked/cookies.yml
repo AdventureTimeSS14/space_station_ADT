@@ -5,7 +5,6 @@
   description: ADTCandy-catDesc
   suffix: Halloween
   components:
-  - type: Food
   - type: FlavorProfile
     flavors:
       - sweet

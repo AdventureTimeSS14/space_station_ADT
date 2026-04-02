@@ -4,10 +4,6 @@
   id: ADTStrawberryMousse
   description: It helps to improve blood circulation.
   components:
-  - type: Food
-    trash:
-    - DrinkGlass
-    utensil: Fork
   - type: FlavorProfile
     flavors:
       - sweet

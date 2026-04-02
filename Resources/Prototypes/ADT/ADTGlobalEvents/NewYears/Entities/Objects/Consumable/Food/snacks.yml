@@ -51,7 +51,6 @@
     bodyType: Static
   - type: Anchorable
   - type: Appearance
-  - type: Food
   - type: InjectableSolution
     solution: food
   - type: RefillableSolution

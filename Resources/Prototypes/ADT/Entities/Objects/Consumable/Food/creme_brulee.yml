@@ -4,10 +4,6 @@
   id: ADTBrouletTorched
   description: A creme brulee with a crispy and toasty caramel-like crust.
   components:
-  - type: Food
-    trash:
-    - FoodPlateTin
-    utensil: Fork
   - type: FlavorProfile
     flavors:
       - sweet
