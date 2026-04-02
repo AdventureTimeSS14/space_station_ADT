@@ -63,7 +63,8 @@ flavor-base-adtmushroompasta = как паста и грибы
 flavor-base-adtsalmonpasta = как рыба с лапшой
 flavor-base-adttomatomeatballpasta = замечательно и мясисто
 flavor-base-nigiri = как нежный рис с рыбой
-
+flavor-base-adtcake-bananaboom = как ваша скорая смерть от переедания бананами 
+flavor-base-adtchak-chak = как обжаренное тесто в и медовуха как заменитель мёда
 
 flavor-base-adtstrawberryflavor = клубнично
 
