@@ -59,6 +59,4 @@
       interfaces:
         enum.StorageUiKey.Key:
           type: StorageBoundUserInterface
-    - type: Drink
-      solution: bucket
     - type: DnaSubstanceTrace

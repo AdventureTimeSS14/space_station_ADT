@@ -6,7 +6,6 @@
   description: mulled-wine-desc
   suffix: New Year
   components:
-  - type: Drink
   - type: SolutionContainerManager
     solutions:
       drink:
@@ -25,7 +24,6 @@
   description: mulled-wine-cold-desc
   suffix: New Year
   components:
-  - type: Drink
   - type: SolutionContainerManager
     solutions:
       drink:
@@ -44,7 +42,6 @@
   description: champagne-mandarin-desc
   suffix: New Year
   components:
-  - type: Drink
   - type: SolutionContainerManager
     solutions:
       drink:
@@ -63,7 +60,6 @@
   description: christmas-milkshake-desc
   suffix: New Year
   components:
-  - type: Drink
   - type: SolutionContainerManager
     solutions:
       drink:
@@ -82,7 +78,6 @@
   description: tea-cinnamon-lemon-desc
   suffix: New Year
   components:
-  - type: Drink
   - type: SolutionContainerManager
     solutions:
       drink:
@@ -101,7 +96,6 @@
   description: sbiten-cinnamon-lemon-desc
   suffix: New Year
   components:
-  - type: Drink
   - type: SolutionContainerManager
     solutions:
       drink:
@@ -120,7 +114,6 @@
   description: hot-cocoa-desc
   suffix: New Year
   components:
-  - type: Drink
   - type: SolutionContainerManager
     solutions:
       drink:
@@ -139,7 +132,6 @@
   description: hot-chocolate-desc
   suffix: New Year
   components:
-  - type: Drink
   - type: SolutionContainerManager
     solutions:
       drink:
@@ -158,7 +150,6 @@
   description: hot-chocolate-desc-allergic
   suffix: New Year
   components:
-  - type: Drink
   - type: SolutionContainerManager
     solutions:
       drink:

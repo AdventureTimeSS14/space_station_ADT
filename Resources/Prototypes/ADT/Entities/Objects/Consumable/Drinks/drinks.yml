@@ -580,7 +580,6 @@
   name: hot cocoa
   description: A heated drink consisting cocoa powder.
   components:
-    - type: Drink
     - type: SolutionContainerManager
       solutions:
         drink:
