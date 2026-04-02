@@ -312,6 +312,8 @@
         - FullTileMask
         layer:
         - WallLayer
+  - type: Transform
+    noRot: false
 
 - type: entity
   id: ADTPit
