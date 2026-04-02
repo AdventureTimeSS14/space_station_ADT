@@ -484,9 +484,8 @@
         amount: 0.2
       - !type:HealthChange
         conditions:
-        - !type:OrganType
-          type: Novakid
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Novakid ]
         damage:
           types:
             Poison: 0.3
@@ -609,7 +608,7 @@
         amount: 0.25
       - !type:AdjustTemperature
         conditions:
-        - !type:Temperature
+        - !type:TemperatureCondition
           max: 360 #очень греет
         amount: 5000
   metamorphicSprite:
@@ -665,7 +664,7 @@
         amount: 0.25
       - !type:AdjustTemperature
         conditions:
-        - !type:Temperature
+        - !type:TemperatureCondition
           min: 263.15
         amount: -10000
   metamorphicSprite:
@@ -692,15 +691,11 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.25
-      - !type:MovespeedModifier
-        walkSpeedModifier: 1.1
-        sprintSpeedModifier: 1.1
       - !type:GenericStatusEffect
         key: SeeingRainbows
         component: SeeingRainbows
         type: Add
         time: 5
-        refresh: false
   metamorphicSprite:
     sprite: ADT/Objects/Consumable/Drinks/luckyjonny.rsi
     state: icon_empty
@@ -725,9 +720,6 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.3
-      - !type:MovespeedModifier
-        walkSpeedModifier: 0.85
-        sprintSpeedModifier: 0.85
   metamorphicSprite:
     sprite: ADT/Objects/Consumable/Drinks/secbeer.rsi
     state: icon_empty
@@ -901,7 +893,7 @@
         amount: 0.25
       - !type:AdjustTemperature
         conditions:
-        - !type:Temperature
+        - !type:TemperatureCondition
           max: 320
         amount: 2500
   metamorphicSprite:

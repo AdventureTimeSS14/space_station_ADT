@@ -22,6 +22,5 @@
       amount: 2
     Dylovene:
       amount: 1
-  effects:
-    - !type:CreateEntityReactionEffect
-      entity: ADTHypoAllergenChocolateBar
+  products:
+    ADTHypoAllergenChocolateBar: 8

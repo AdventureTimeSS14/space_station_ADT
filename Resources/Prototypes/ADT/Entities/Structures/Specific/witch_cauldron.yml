@@ -30,9 +30,6 @@
       solution: bucket
     - type: ExaminableSolution
       solution: bucket
-    - type: Tag
-      tags:
-        - Wringer
     - type: Damageable
       damageContainer: Inorganic
       damageModifierSet: Metallic

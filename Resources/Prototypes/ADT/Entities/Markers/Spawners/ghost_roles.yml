@@ -354,9 +354,6 @@
     rules: ghost-role-information-Santa-rules
     raffle:
       settings: default
-    requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 54000 # 15h
   - type: GhostRoleMobSpawner
     prototype: ADTSanta
   - type: Sprite
