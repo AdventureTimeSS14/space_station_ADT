@@ -78,6 +78,7 @@
   - IPC
   - NovakidSpecies
 
+- type: trait
   id: Paralyzed
   name: trait-paralyzed-name
   description: trait-paralyzed-desc
@@ -85,6 +86,10 @@
   cost: -4
   speciesBlacklist:
     - IPC
+  departmentBlacklist:
+    - Command
+    - Security
+    - CentcomSpecialists
   effects:
     - !type:AddCompsEffect
       components:
@@ -112,6 +117,10 @@
   blacklist:
     components:
       - BorgChassis
+  departmentBlacklist:
+    - Command
+    - Security
+    - CentcomSpecialists
   effects:
     - !type:AddCompsEffect
       components:
@@ -171,3 +180,7 @@
         - type: ImpairedMobility
     - !type:SpawnItemInHandEffect
       item: OffsetCane
+  departmentBlacklist:
+    - Command
+    - Security
+    - CentcomSpecialists

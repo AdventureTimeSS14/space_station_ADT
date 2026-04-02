@@ -22,6 +22,10 @@
     - !type:AddCompsEffect
       components:
         - type: MumbleAccent
+  DepartmentBlacklist:
+    - Command
+    - Security
+    - CentcomSpecialists
 
 - type: trait
   id: ChavAccent
@@ -33,6 +37,10 @@
     - !type:AddCompsEffect
       components:
         - type: MumbleAccent
+  DepartmentBlacklist:
+    - Command
+    - Security
+    - CentcomSpecialists
 
 - type: trait
   id: ArchaicAccent

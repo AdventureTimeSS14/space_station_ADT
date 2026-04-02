@@ -48,6 +48,10 @@
       components:
         - type: LanguageSpeaker
           languages: {}
+  DepartmentBlacklist:
+    - Command
+    - Security
+    - CentcomSpecialists
 
 - type: trait
   id: Dysgraphia
