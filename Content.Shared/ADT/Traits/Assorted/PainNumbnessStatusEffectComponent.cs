@@ -16,5 +16,17 @@ public sealed partial class PainNumbnessStatusEffectComponent : Component
     /// This is only active for those who have the pain numbness status effect. Set to null to prevent changing.
     /// </summary>
     [DataField]
-    public ProtoId<LocalizedDatasetPrototype>? ForceSayNumbDataset = "ForceSayNumbDataset";
+    public ProtoId<LocalizedDatasetPrototype>? ForceSayNumbDataset;
+
+    /// <summary>
+    /// Whether to hide the health alert (HumanHealth) from the player.
+    /// </summary>
+    [DataField]
+    public bool HideHealthAlert = true;
+
+    /// <summary>
+    /// Whether to hide the pain overlay (red screen effect) from the player.
+    /// </summary>
+    [DataField]
+    public bool HidePainOverlay = true;
 }

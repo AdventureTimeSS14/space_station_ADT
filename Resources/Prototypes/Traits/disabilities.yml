@@ -153,9 +153,11 @@
   category: Disabilities
   cost: -1
   effects:
-    - !type:AddStatusEffect
-      statusEffects:
-        - PainNumbnessTraitStatusEffect
+    - !type:AddCompsEffect
+      components:
+        - type: PainNumbnessStatusEffect
+          hideHealthAlert: true
+          hidePainOverlay: true
 
 - type: trait
   id: Hemophilia
@@ -164,9 +166,11 @@
   category: Disabilities
   cost: -1
   effects:
-    - !type:AddStatusEffect
-      statusEffects:
-        - StatusEffectHemophiliaTrait
+    - !type:AddCompsEffect
+      components:
+        - type: HemophiliaStatusEffect
+          bleedReductionMultiplier: 0.33
+          bleedAmountMultiplier: 1.0
   speciesBlacklist:
     - IPC
     - NovakidSpecies
