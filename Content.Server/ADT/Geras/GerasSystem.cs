@@ -15,8 +15,9 @@ using Content.Shared.Anomaly.Components;
 using Content.Shared.Inventory;
 using Content.Shared.Nuke;
 using Content.Server.Ghost.Roles.Components;
-using Content.Shared.Mind.Components;
-using Content.Shared.Storage;
+using Content.Shared.Clothing;
+using Content.Shared.ADT.ModSuits;
+using Content.Shared.ADT.Clothing.Components;
 using Robust.Shared.Containers;
 using System.Linq;
 
@@ -102,6 +103,15 @@ public sealed class GerasSystem : SharedGerasSystem
         {
             _popupSystem.PopupEntity(Loc.GetString("geras-popup-cant-use"), uid, uid);
             return;
+        }
+
+        if (_inventorySystem.TryGetSlotEntity(uid, "back", out var backItem) && backItem.HasValue)
+        {
+            var item = backItem.Value;
+            if (HasComp<ClothingSpeedModifierComponent>(item) || HasComp<ModSuitComponent>(item) || HasComp<StorageOfHoldingComponent>(item))
+            {
+                _inventorySystem.TryUnequip(uid, "back", force: true);
+            }
         }
 
         if (TryComp<HandsComponent>(uid, out var hands))

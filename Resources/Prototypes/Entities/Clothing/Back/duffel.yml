@@ -257,6 +257,7 @@
   - type: ClothingSpeedModifier
     sprintModifier: 1 # makes its stats identical to other variants of bag of holding
   - type: HeldSpeedModifier
+  - type: StorageOfHolding #ADT-Geras-Tweak
 
 - type: entity
   parent: [ ClothingBackpackDuffel, BaseCentcommContraband ]
