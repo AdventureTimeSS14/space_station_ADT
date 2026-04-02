@@ -14,7 +14,7 @@
   name: trait-pseudobulbar-affect-name
   description: trait-pseudobulbar-affect-desc
   category: Disabilities
-  cost: 1
+  cost: -1
   speciesBlacklist:
     - IPC
   effects:
