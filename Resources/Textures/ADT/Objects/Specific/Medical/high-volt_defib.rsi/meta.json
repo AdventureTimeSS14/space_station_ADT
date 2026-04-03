@@ -1,5 +1,5 @@
 {
-    "version": 1,
+    "version": 2,
     "size": {
         "x": 32,
         "y": 32
@@ -23,6 +23,10 @@
         },
         {
             "name": "inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "equipped-SUITSTORAGE",
             "directions": 4
         }
     ]
