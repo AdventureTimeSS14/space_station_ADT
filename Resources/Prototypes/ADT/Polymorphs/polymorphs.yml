@@ -558,3 +558,4 @@
     transferStaminaDamage: true
     transferTemperature: true
     transferBloodstream: true
+    revertDelay: 7

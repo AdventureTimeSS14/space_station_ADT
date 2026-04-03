@@ -35,6 +35,7 @@ using Content.Server.ADT.Traits.Assorted;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Systems;
+using Content.Shared.DoAfter;
 //ADT-Geras-Tweak-End
 using Content.Server.Inventory;
 using Content.Server.Polymorph.Components;
@@ -96,6 +97,7 @@ public sealed partial class PolymorphSystem : EntitySystem
     [Dependency] private readonly TemperatureSystem _temperatureSystem = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
     [Dependency] private readonly SharedBloodstreamSystem _bloodstream = default!;
+    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     //ADT-Geras-Tweak-End
 
     private const string RevertPolymorphId = "ActionRevertPolymorph";
@@ -112,6 +114,7 @@ public sealed partial class PolymorphSystem : EntitySystem
         SubscribeLocalEvent<PolymorphedEntityComponent, DestructionEventArgs>(OnDestruction);
         SubscribeLocalEvent<PolymorphedEntityComponent, EntityTerminatingEvent>(OnPolymorphedTerminating);
 
+        SubscribeLocalEvent<PolymorphedEntityComponent, RevertPolymorphDoAfterEvent>(OnRevertDoAfter); //ADT-Geras-Tweak
         InitializeMap();
     }
 
@@ -175,11 +178,49 @@ public sealed partial class PolymorphSystem : EntitySystem
         args.Handled = true;
     }
 
-    private void OnRevertPolymorphActionEvent(Entity<PolymorphedEntityComponent> ent,
-        ref RevertPolymorphActionEvent args)
+    // ADT-Geras-Tweak-Start
+    private void OnRevertPolymorphActionEvent(Entity<PolymorphedEntityComponent> ent, ref RevertPolymorphActionEvent args)
     {
-        Revert((ent, ent));
+        if (IsRevertDoAfterRunning(ent))
+            return;
+
+        if (ent.Comp.Configuration.RevertDelay <= 0f)
+        {
+            Revert((ent, ent.Comp));
+            return;
+        }
+
+        var delay = TimeSpan.FromSeconds(ent.Comp.Configuration.RevertDelay);
+        var doAfterArgs = new DoAfterArgs(EntityManager, ent, delay, new RevertPolymorphDoAfterEvent(), ent)
+        {
+            NeedHand = false,
+            BreakOnMove = true,
+            BreakOnDamage = true,
+            MovementThreshold = 0.01f,
+        };
+
+        if (_doAfter.TryStartDoAfter(doAfterArgs, out var doAfterId))
+        {
+            ent.Comp.RevertDoAfterId = doAfterId;
+        }
     }
+
+    private void OnRevertDoAfter(Entity<PolymorphedEntityComponent> ent, ref RevertPolymorphDoAfterEvent args)
+    {
+        if (args.Cancelled)
+            return;
+
+        Revert((ent, ent.Comp));
+    }
+
+    private bool IsRevertDoAfterRunning(EntityUid uid)
+    {
+        if (!TryComp<PolymorphedEntityComponent>(uid, out var comp) || comp.RevertDoAfterId == null)
+            return false;
+
+        return _doAfter.IsRunning(comp.RevertDoAfterId);
+    }
+    // ADT-Geras-Tweak-End
 
     private void OnBeforeFullySliced(Entity<PolymorphedEntityComponent> ent, ref BeforeFullySlicedEvent args)
     {
@@ -204,6 +245,11 @@ public sealed partial class PolymorphSystem : EntitySystem
 
     private void OnPolymorphedTerminating(Entity<PolymorphedEntityComponent> ent, ref EntityTerminatingEvent args)
     {
+        // ADT-Geras-Tweak-Start
+        if (ent.Comp.RevertDoAfterId is { } doAfterId)
+            _doAfter.Cancel(doAfterId);
+        // ADT-Geras-Tweak-End
+
         if (ent.Comp.Reverted)
             return;
 

@@ -142,6 +142,9 @@ public sealed partial record PolymorphConfiguration
     /// </summary>
     [DataField(serverOnly: true)]
     public bool CanNotPolymorphInStorage;
+
+    [DataField(serverOnly: true)]
+    public float RevertDelay = 0f;
     // ADT-Geras-Tweak-End
 
     /// <summary>
