@@ -6,16 +6,22 @@
   name: trait-accentless-name
   description: trait-accentless-desc
   category: SpeechTraits
-  cost: 0
+  cost: 1
   effects:
     - !type:AddCompsEffect
       components:
         - type: Accentless
           removes:
             - type: OwOAccent
+            - type: NyaAccent
             - type: LizardAccent
             - type: MothAccent
             - type: GrowlingAccent
+            - type: RoarAccent
+            - type: ResomiAccent
+            - type: VoxAccent
+            - type: SkeletonAccent
+            - type: DamagedSiliconAccent
             - type: ReplacementAccent
               accent: dwarf
 
@@ -26,7 +32,7 @@
   name: trait-southern-name
   description: trait-southern-desc
   category: SpeechTraits
-  cost: 0
+  cost: 1
   effects:
     - !type:AddCompsEffect
       components:
@@ -37,7 +43,7 @@
   name: trait-pirate-accent-name
   description: trait-pirate-accent-desc
   category: SpeechTraits
-  cost: 0
+  cost: 1
   effects:
     - !type:AddCompsEffect
       components:
@@ -48,7 +54,7 @@
   name: trait-cowboy-name
   description: trait-cowboy-desc
   category: SpeechTraits
-  cost: 0
+  cost: 1
   effects:
     - !type:AddCompsEffect
       components:
@@ -60,7 +66,7 @@
   name: trait-german-name
   description: trait-german-desc
   category: SpeechTraits
-  cost: 0
+  cost: 1
   effects:
     - !type:AddCompsEffect
       components:
@@ -71,7 +77,7 @@
   name: trait-italian-name
   description: trait-italian-desc
   category: SpeechTraits
-  cost: 0
+  cost: 1
   effects:
     - !type:AddCompsEffect
       components:
@@ -83,7 +89,7 @@
   name: trait-french-name
   description: trait-french-desc
   category: SpeechTraits
-  cost: 0
+  cost: 1
   effects:
     - !type:AddCompsEffect
       components:
@@ -94,7 +100,7 @@
   name: trait-spanish-name
   description: trait-spanish-desc
   category: SpeechTraits
-  cost: 0
+  cost: 1
   effects:
     - !type:AddCompsEffect
       components:
@@ -105,7 +111,7 @@
   name: trait-liar-name
   description: trait-liar-desc
   category: SpeechTraits
-  cost: 0
+  cost: 1
   effects:
     - !type:AddCompsEffect
       components:

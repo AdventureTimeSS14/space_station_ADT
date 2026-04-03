@@ -3,7 +3,7 @@
   name: trait-tall-name
   description: trait-tall-desc
   category: Quirks
-  cost: 0
+  cost: 1
   whitelist:
     components:
       - SizeAttributeWhitelist
@@ -21,7 +21,7 @@
   name: trait-short-name
   description: trait-short-desc
   category: Quirks
-  cost: 0
+  cost: 1
   whitelist:
     components:
       - SizeAttributeWhitelist
@@ -33,23 +33,6 @@
       components:
         - type: SizeAttribute
           short: true
-
-- type: trait
-  id: Echolalia
-  name: trait-echolalia-name
-  description: trait-echolalia-desc
-  category: Quirks
-  cost: 0
-  effects:
-    - !type:AddCompsEffect
-      components:
-        - type: ActiveListener
-          range: 5
-        - type: ParrotSpeech
-          maximumPhraseLength: 24
-          minimumWait: 300
-          maximumWait: 900
-          learnChance: 0.1
 
 - type: trait
   id: SoftWalk
@@ -70,7 +53,7 @@
   name: trait-freerunning-name
   description: trait-freerunning-desc
   category: Quirks
-  cost: 1
+  cost: 2
   effects:
     - !type:AddCompsEffect
       components:
@@ -116,7 +99,7 @@
   name: trait-voracious-name
   description: trait-voracious-desc
   category: Quirks
-  cost: 1
+  cost: 2
   speciesBlacklist:
     - IPC
   effects:
@@ -140,22 +123,11 @@
           boozeStrengthMultiplier: 0.5
 
 - type: trait
-  id: Touchy
-  name: trait-touchy-name
-  description: trait-touchy-desc
-  category: Quirks
-  cost: -1
-  effects:
-    - !type:AddCompsEffect
-      components:
-        - type: Touchy
-
-- type: trait
   id: ADTDisproportionate
   name: trait-disproportionate-name
   description: trait-disproportionate-desc
   category: Quirks
-  cost: 0
+  cost: 2
   speciesWhitelist:
     - IPC
   rewriteComponents: true

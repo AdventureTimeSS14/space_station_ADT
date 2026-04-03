@@ -49,7 +49,7 @@ public sealed class TraitSystem : EntitySystem
             return;
 
         // Validate and collect valid traits
-        var validTraits = ValidateTraits(args.Mob, args.Profile.TraitPreferences, args.Player, args.Profile);
+        var validTraits = ValidateTraits(args.Mob, args.Profile.TraitPreferences, args.Player, args.Profile, args.JobId);
 
         // Apply valid traits
         foreach (var traitId in validTraits)
@@ -64,9 +64,9 @@ public sealed class TraitSystem : EntitySystem
     /// <summary>
     /// Applies traits to an entity.
     /// </summary>
-    public void ApplyTraits(EntityUid mob, HumanoidCharacterProfile profile, ICommonSession session)
+    public void ApplyTraits(EntityUid mob, HumanoidCharacterProfile profile, ICommonSession session, ProtoId<JobPrototype>? jobId = null)
     {
-        var validTraits = ValidateTraits(mob, profile.TraitPreferences, session, profile);
+        var validTraits = ValidateTraits(mob, profile.TraitPreferences, session, profile, jobId);
 
         foreach (var traitId in validTraits)
         {
@@ -84,7 +84,8 @@ public sealed class TraitSystem : EntitySystem
         EntityUid player,
         IReadOnlySet<ProtoId<TraitPrototype>> selectedTraits,
         ICommonSession? session,
-        HumanoidCharacterProfile? profile)
+        HumanoidCharacterProfile? profile,
+        ProtoId<JobPrototype>? jobId = null)
     {
         var validTraits = new HashSet<ProtoId<TraitPrototype>>();
         var totalPoints = 0;
@@ -168,6 +169,71 @@ public sealed class TraitSystem : EntitySystem
                 {
                     Log.Warning($"Trait {traitId} rejected: species {profile.Species} in blacklist");
                     continue;
+                }
+            }
+
+            if (jobId.HasValue)
+            {
+                if (trait.JobWhitelist.Count > 0 && !trait.JobWhitelist.Contains(jobId.Value))
+                {
+                    Log.Warning($"Trait {traitId} rejected: job {jobId} not in whitelist");
+                    continue;
+                }
+
+                if (trait.JobBlacklist.Contains(jobId.Value))
+                {
+                    Log.Warning($"Trait {traitId} rejected: job {jobId} in blacklist");
+                    continue;
+                }
+
+                if (trait.DepartmentWhitelist.Count > 0 || trait.DepartmentBlacklist.Count > 0)
+                {
+                    var jobProto = _prototype.Index(jobId.Value);
+                    var allDepartments = new List<ProtoId<DepartmentPrototype>>();
+
+                    foreach (var deptProto in _prototype.EnumeratePrototypes<DepartmentPrototype>())
+                    {
+                        if (deptProto.Roles.Contains(jobId.Value))
+                            allDepartments.Add(deptProto.ID);
+                    }
+
+                    if (trait.DepartmentWhitelist.Count > 0)
+                    {
+                        var hasWhitelistedDept = false;
+                        foreach (var deptId in allDepartments)
+                        {
+                            if (trait.DepartmentWhitelist.Contains(deptId))
+                            {
+                                hasWhitelistedDept = true;
+                                break;
+                            }
+                        }
+
+                        if (!hasWhitelistedDept)
+                        {
+                            Log.Warning($"Trait {traitId} rejected: job {jobId} departments not in whitelist");
+                            continue;
+                        }
+                    }
+
+                    if (trait.DepartmentBlacklist.Count > 0)
+                    {
+                        var hasBlacklistedDept = false;
+                        foreach (var deptId in allDepartments)
+                        {
+                            if (trait.DepartmentBlacklist.Contains(deptId))
+                            {
+                                hasBlacklistedDept = true;
+                                break;
+                            }
+                        }
+
+                        if (hasBlacklistedDept)
+                        {
+                            Log.Warning($"Trait {traitId} rejected: job {jobId} has blacklisted department");
+                            continue;
+                        }
+                    }
                 }
             }
 

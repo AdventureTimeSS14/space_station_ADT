@@ -42,10 +42,7 @@ trait-archaic-accent-name = Archaic
 trait-archaic-accent-desc = You speak in a way that many others find outdated.
 trait-scottish-accent-name = Scottish Accent
 trait-scottish-accent-desc = You speak like ye aboot ta go ta the Loch!
-trait-hushed-name = Hushed
-trait-hushed-desc = You speak very quietly.
-trait-pseudobulbar-affect-name = Pseudobulbar Affect
-trait-pseudobulbar-affect-desc = You experience uncontrollable episodes of laughing or crying.
+
 
 trait-echolalia-name = Echolalia
 trait-echolalia-desc = You involuntarily repeat words and phrases spoken by others.

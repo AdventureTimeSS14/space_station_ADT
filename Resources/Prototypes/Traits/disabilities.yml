@@ -16,6 +16,10 @@
         - type: PermanentBlindness
     - !type:SpawnItemInHandEffect
       item: WhiteCane
+  departmentBlacklist:
+    - Security
+  jobBlacklist:
+    - ADTBlueShieldOfficer
 
 - type: trait
   id: PoorVision
@@ -54,12 +58,48 @@
   name: trait-unrevivable-name
   description: trait-unrevivable-desc
   category: Disabilities
-  cost: -1
+  cost: -2
   effects:
     - !type:AddCompsEffect
       components:
         - type: Unrevivable
           cloneable: true
+  speciesBlacklist:
+  - IPC
+  - NovakidSpecies
+
+- type: trait
+  id: Uncloneable
+  name: trait-uncloneable-name
+  description: trait-uncloneable-desc
+  category: Disabilities
+  cost: -2
+  effects:
+    - !type:AddCompsEffect
+      components:
+        - type: Uncloneable
+  speciesBlacklist:
+  - IPC
+  - NovakidSpecies
+
+- type: trait
+  id: Paralyzed
+  name: trait-paralyzed-name
+  description: trait-paralyzed-desc
+  category: Disabilities
+  cost: -4
+  speciesBlacklist:
+    - IPC
+  departmentBlacklist:
+    - Security
+  jobBlacklist:
+    - ADTBlueShieldOfficer
+  effects:
+    - !type:AddCompsEffect
+      components:
+        - type: LegsParalyzed
+    - !type:SpawnItemInHandEffect
+      item: ADTVehicleWheelchairFolded
 
 - type: trait
   id: Monochromacy
@@ -81,6 +121,10 @@
   blacklist:
     components:
       - BorgChassis
+  departmentBlacklist:
+    - Command
+    - Security
+    - CentcomSpecialists
   effects:
     - !type:AddCompsEffect
       components:
@@ -109,9 +153,11 @@
   category: Disabilities
   cost: -1
   effects:
-    - !type:AddStatusEffect
-      statusEffects:
-        - PainNumbnessTraitStatusEffect
+    - !type:AddCompsEffect
+      components:
+        - type: PainNumbnessStatusEffect
+          hideHealthAlert: true
+          hidePainOverlay: true
 
 - type: trait
   id: Hemophilia
@@ -120,9 +166,11 @@
   category: Disabilities
   cost: -1
   effects:
-    - !type:AddStatusEffect
-      statusEffects:
-        - StatusEffectHemophiliaTrait
+    - !type:AddCompsEffect
+      components:
+        - type: HemophiliaStatusEffect
+          bleedReductionMultiplier: 0.33
+          bleedAmountMultiplier: 1.0
   speciesBlacklist:
     - IPC
     - NovakidSpecies
@@ -140,3 +188,7 @@
         - type: ImpairedMobility
     - !type:SpawnItemInHandEffect
       item: OffsetCane
+  departmentBlacklist:
+    - Security
+  jobBlacklist:
+    - ADTBlueShieldOfficer

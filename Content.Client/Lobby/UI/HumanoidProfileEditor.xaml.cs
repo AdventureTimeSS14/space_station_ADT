@@ -689,7 +689,7 @@ namespace Content.Client.Lobby.UI
                 }
 
                 Traits.SetSelectedTraits(selectedTraits, Profile);
-                Traits.UpdateRequirements(Profile);
+                Traits.UpdateRequirements(Profile, jobId: null);
             }
             else
             {
