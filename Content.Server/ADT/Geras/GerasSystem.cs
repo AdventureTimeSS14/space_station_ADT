@@ -44,7 +44,7 @@ public sealed class GerasSystem : SharedGerasSystem
         SubscribeLocalEvent<GerasComponent, MorphIntoGeras>(OnMorphIntoGeras);
         SubscribeLocalEvent<GerasComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<GerasComponent, EntityZombifiedEvent>(OnZombification);
-        SubscribeLocalEvent<GerasForbiddenStorageComponent, RevertPolymorphActionEvent>(OnRevertFromGeras);
+        SubscribeLocalEvent<GerasForbiddenStorageComponent, PolymorphedEvent>(OnGerasReverted);
     }
 
     private void OnZombification(EntityUid uid, GerasComponent component, EntityZombifiedEvent args)
@@ -54,7 +54,6 @@ public sealed class GerasSystem : SharedGerasSystem
 
     private void OnMapInit(EntityUid uid, GerasComponent component, MapInitEvent args)
     {
-        // try to add geras action to non geras
         if (!component.NoAction)
         {
             _actionsSystem.AddAction(uid, ref component.GerasActionEntity, component.GerasAction);
@@ -208,7 +207,7 @@ public sealed class GerasSystem : SharedGerasSystem
         args.Handled = true;
     }
 
-    private void OnRevertFromGeras(EntityUid uid, GerasForbiddenStorageComponent component, RevertPolymorphActionEvent args)
+    private void OnGerasReverted(EntityUid uid, GerasForbiddenStorageComponent component, PolymorphedEvent args)
     {
         if (component.StoredForbidden.Count == 0 || !component.OriginalBody.IsValid() || !Exists(component.OriginalBody))
             return;
