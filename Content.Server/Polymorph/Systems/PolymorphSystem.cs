@@ -1,7 +1,7 @@
 using Content.Server.Actions;
 using Content.Server.Humanoid;
 using Content.Shared.Humanoid; // ADT-Changeling-Tweak
-//ADT-Geras-Tweak-Start
+// ADT-Geras-Tweak-Start
 using Content.Shared.ADT.Language;
 using Content.Shared.ADT.SpeechBarks;
 using Content.Shared.Corvax.TTS;
@@ -36,7 +36,7 @@ using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Systems;
 using Content.Shared.DoAfter;
-//ADT-Geras-Tweak-End
+// ADT-Geras-Tweak-End
 using Content.Server.Inventory;
 using Content.Server.Polymorph.Components;
 using Content.Shared.Buckle;
@@ -91,14 +91,14 @@ public sealed partial class PolymorphSystem : EntitySystem
     [Dependency] private readonly FollowerSystem _follow = default!; // goob edit
     [Dependency] private readonly SharedEyeSystem _eye = default!; // ADT-Tweak Heretic
     [Dependency] private readonly ISerializationManager _serialization = default!; // ADT-Changeling-Tweak
-    //ADT-Geras-Tweak-Start
+    // ADT-Geras-Tweak-Start
     [Dependency] private readonly FlammableSystem _flammable = default!;
     [Dependency] private readonly SharedStaminaSystem _stamina = default!;
     [Dependency] private readonly TemperatureSystem _temperatureSystem = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
     [Dependency] private readonly SharedBloodstreamSystem _bloodstream = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    //ADT-Geras-Tweak-End
+    // ADT-Geras-Tweak-End
 
     private const string RevertPolymorphId = "ActionRevertPolymorph";
 
@@ -114,7 +114,7 @@ public sealed partial class PolymorphSystem : EntitySystem
         SubscribeLocalEvent<PolymorphedEntityComponent, DestructionEventArgs>(OnDestruction);
         SubscribeLocalEvent<PolymorphedEntityComponent, EntityTerminatingEvent>(OnPolymorphedTerminating);
 
-        SubscribeLocalEvent<PolymorphedEntityComponent, RevertPolymorphDoAfterEvent>(OnRevertDoAfter); //ADT-Geras-Tweak
+        SubscribeLocalEvent<PolymorphedEntityComponent, RevertPolymorphDoAfterEvent>(OnRevertDoAfter); // ADT-Geras-Tweak
         InitializeMap();
     }
 
@@ -272,7 +272,7 @@ public sealed partial class PolymorphSystem : EntitySystem
         return PolymorphEntity(uid, config);
     }
 
-    //ADT-Geras-Tweak-Start
+    // ADT-Geras-Tweak-Start
     private void TransferBloodstreamState(EntityUid source, EntityUid target)
     {
         if (!TryComp<BloodstreamComponent>(source, out var sourceBlood) ||
@@ -300,7 +300,7 @@ public sealed partial class PolymorphSystem : EntitySystem
             _solutionContainer.TryAddReagent(targetSoln.Value, reagent, quantity, out _);
         }
     }
-    //ADT-Geras-Tweak-End
+    // ADT-Geras-Tweak-End
 
     /// <summary>
     /// Polymorphs the target entity into another.
@@ -310,13 +310,13 @@ public sealed partial class PolymorphSystem : EntitySystem
     /// <returns>The new entity, or null if the polymorph failed.</returns>
     public EntityUid? PolymorphEntity(EntityUid uid, PolymorphConfiguration configuration)
     {
-        //ADT-Geras-Tweak-Start
+        // ADT-Geras-Tweak-Start
         if (configuration.CanNotPolymorphInStorage && HasComp<InsideEntityStorageComponent>(uid))
         {
             _popup.PopupEntity(Loc.GetString("polymorph-in-storage-forbidden"), uid, uid);
             return null;
         }
-        //ADT-Geras-Tweak-End
+        // ADT-Geras-Tweak-End
 
         // if it's already morphed, don't allow it again with this condition active.
         if (!configuration.AllowRepeatedMorphs && HasComp<PolymorphedEntityComponent>(uid))
@@ -681,13 +681,13 @@ public sealed partial class PolymorphSystem : EntitySystem
         if (!Resolve(ent, ref component))
             return null;
 
-        //ADT-Geras-Tweak-Start
+        // ADT-Geras-Tweak-Start
         if (component.Configuration.CanNotPolymorphInStorage && HasComp<InsideEntityStorageComponent>(uid))
         {
             _popup.PopupEntity(Loc.GetString("revert-in-storage-forbidden"), uid, uid);
             return null;
         }
-        //ADT-Geras-Tweak-End
+        // ADT-Geras-Tweak-End
 
         if (Deleted(uid))
             return null;
@@ -752,7 +752,7 @@ public sealed partial class PolymorphSystem : EntitySystem
         if (TryComp<PolymorphableComponent>(parent, out var polymorphableComponent))
             polymorphableComponent.LastPolymorphEnd = _gameTiming.CurTime;
 
-        //ADT-Geras-Tweak-Start
+        // ADT-Geras-Tweak-Start
         if (component.Configuration.TransferFlame && TryComp<FlammableComponent>(uid, out var childFlame))
         {
             var parentFlame = EnsureComp<FlammableComponent>(parent);
@@ -783,7 +783,7 @@ public sealed partial class PolymorphSystem : EntitySystem
         {
             TransferBloodstreamState(uid, parent);
         }
-        //ADT-Geras-Tweak-End
+        // ADT-Geras-Tweak-End
 
         // ADT-Tweak start Heretic
         if (component.ParentVisibilityMask.HasValue && TryComp<EyeComponent>(parent, out var parentEye))
