@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: TrixxedHeart
-  changes:
-  - message: Renamed "trash" reagent to "reprocessed material"
-    type: Tweak
-  id: 9090
-  time: '2025-10-13T17:18:40.0000000+00:00'
-  url: https://github.com/space-wizards/space-station-14/pull/39761
 - author: ScarKy0
   changes:
   - message: Station AI can no longer control bolts, emergency access and electrify
@@ -4030,3 +4023,13 @@
   id: 9601
   time: '2026-04-03T06:18:14.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/42399
+- author: alexalexmax
+  changes:
+  - message: Added a new uplink category for objective items.
+    type: Add
+  - message: 'Added a new objective for traitors: Hijack the Automated Trade Station.
+      Your uplink will have a hijack beacon for you to use if you have this objective'
+    type: Add
+  id: 9602
+  time: '2026-04-03T10:35:56.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/42135
