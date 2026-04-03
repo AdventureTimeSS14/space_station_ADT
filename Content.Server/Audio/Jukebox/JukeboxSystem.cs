@@ -159,6 +159,7 @@ public sealed class JukeboxSystem : SharedJukeboxSystem
         if (entity.Comp.AudioStream.HasValue && !TerminatingOrDeleted(entity.Comp.AudioStream.Value))
         {
             Audio.SetState(entity.Comp.AudioStream, AudioState.Stopped);
+            entity.Comp.AudioStream = null;
         }
         // ADT-Tweak end
 
