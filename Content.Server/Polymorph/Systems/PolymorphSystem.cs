@@ -36,6 +36,7 @@ using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Systems;
 using Content.Shared.DoAfter;
+using Content.Shared.ADT.Damage.Events;
 // ADT-Geras-Tweak-End
 using Content.Server.Inventory;
 using Content.Server.Polymorph.Components;
@@ -114,7 +115,10 @@ public sealed partial class PolymorphSystem : EntitySystem
         SubscribeLocalEvent<PolymorphedEntityComponent, DestructionEventArgs>(OnDestruction);
         SubscribeLocalEvent<PolymorphedEntityComponent, EntityTerminatingEvent>(OnPolymorphedTerminating);
 
-        SubscribeLocalEvent<PolymorphedEntityComponent, RevertPolymorphDoAfterEvent>(OnRevertDoAfter); // ADT-Geras-Tweak
+        // ADT-Geras-Tweak-Start
+        SubscribeLocalEvent<PolymorphedEntityComponent, RevertPolymorphDoAfterEvent>(OnRevertDoAfter);
+        SubscribeLocalEvent<PolymorphedEntityComponent, BeforeStaminaCritEvent>(OnStaminaCrit);
+        // ADT-Geras-Tweak-End
         InitializeMap();
     }
 
@@ -219,6 +223,15 @@ public sealed partial class PolymorphSystem : EntitySystem
             return false;
 
         return _doAfter.IsRunning(comp.RevertDoAfterId);
+    }
+
+    private void OnStaminaCrit(Entity<PolymorphedEntityComponent> ent, ref BeforeStaminaCritEvent args)
+    {
+        if (ent.Comp.Configuration.RevertOnStaminaCrit && !ent.Comp.Reverted)
+        {
+            args.Cancelled = true;
+            Revert((ent, ent));
+        }
     }
     // ADT-Geras-Tweak-End
 

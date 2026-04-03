@@ -148,6 +148,12 @@ public sealed partial record PolymorphConfiguration
     /// </summary>
     [DataField(serverOnly: true)]
     public float RevertDelay = 0f;
+
+    /// <summary>
+    /// Whether or not the polymorph reverts when the entity goes into stamina crit.
+    /// </summary>
+    [DataField(serverOnly: true)]
+    public bool RevertOnStaminaCrit;
     // ADT-Geras-Tweak-End
 
     /// <summary>
