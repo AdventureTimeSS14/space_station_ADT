@@ -326,7 +326,7 @@
     trash:
     - FoodPlateSmall
   - type: Sprite
-    sprite: ADT/Objects/Consumable/Food/сhak-сhak.rsi
+    sprite: ADT/Objects/Consumable/Food/chak-chak.rsi
     state: chak-chak
   - type: SolutionContainerManager
     solutions:
