@@ -90,7 +90,6 @@ construction-name-wooden-stool-2 = деревянная табуретка
 construction-name-church-bench-left-side = левая сторона церковной скамьи
 construction-name-church-bench-middle = средняя часть церковной скамьи
 construction-name-church-bench-right-side = правая сторона церковной скамьи
-construction-name-oktoberfest-chair = стул для Октоберфеста
 construction-name-oktoberfest-table = стол для Октоберфеста
 construction-name-oktoberfest-orange-table = оранжевый стол для Октоберфеста
 construction-name-fireplace = камин
