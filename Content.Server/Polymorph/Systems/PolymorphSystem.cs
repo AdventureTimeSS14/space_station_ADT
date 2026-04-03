@@ -466,7 +466,9 @@ public sealed partial class PolymorphSystem : EntitySystem
                 {
                     var originalAccentComp = EntityManager.GetComponent(uid, accentType);
                     var childAccentComp = (Component)_serialization.CreateCopy(originalAccentComp, notNullableOverride: true);
-            EntityManager.AddComponent(child, childAccentComp);
+                    if (EntityManager.HasComponent(child, accentType))
+                        EntityManager.RemoveComponent(child, accentType);
+                    EntityManager.AddComponent(child, childAccentComp);
                 }
             }
         }
@@ -523,6 +525,8 @@ public sealed partial class PolymorphSystem : EntitySystem
                 {
                     var originalQuirkComp = EntityManager.GetComponent(uid, quirkType);
                     var childQuirkComp = (Component)_serialization.CreateCopy(originalQuirkComp, notNullableOverride: true);
+                    if (EntityManager.HasComponent(child, quirkType))
+                        EntityManager.RemoveComponent(child, quirkType);
                     EntityManager.AddComponent(child, childQuirkComp);
                 }
             }
