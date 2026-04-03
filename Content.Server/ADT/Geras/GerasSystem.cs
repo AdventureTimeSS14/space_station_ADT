@@ -19,6 +19,7 @@ using Content.Shared.Clothing;
 using Content.Shared.ADT.ModSuits;
 using Content.Shared.ADT.Clothing.Components;
 using Robust.Shared.Containers;
+using Content.Shared.Polymorph;
 using System.Linq;
 
 namespace Content.Server.ADT.Geras;
@@ -43,6 +44,7 @@ public sealed class GerasSystem : SharedGerasSystem
         SubscribeLocalEvent<GerasComponent, MorphIntoGeras>(OnMorphIntoGeras);
         SubscribeLocalEvent<GerasComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<GerasComponent, EntityZombifiedEvent>(OnZombification);
+        SubscribeLocalEvent<GerasForbiddenStorageComponent, RevertPolymorphActionEvent>(OnRevertFromGeras);
     }
 
     private void OnZombification(EntityUid uid, GerasComponent component, EntityZombifiedEvent args)
@@ -66,7 +68,37 @@ public sealed class GerasSystem : SharedGerasSystem
                HasComp<MobStateComponent>(uid);
     }
 
-    private void EjectForbiddenRecursive(EntityUid item, EntityUid owner)
+    private Dictionary<EntityUid, RestoreInfo> CollectForbiddenFromEntity(EntityUid owner)
+    {
+        var collected = new Dictionary<EntityUid, RestoreInfo>();
+
+        if (TryComp<InventoryComponent>(owner, out var inventoryComp))
+        {
+            foreach (var slot in inventoryComp.Slots)
+            {
+                if (_inventorySystem.TryGetSlotEntity(owner, slot.Name, out var itemUid) && itemUid.HasValue)
+                {
+                    var item = itemUid.Value;
+
+                    if (HasForbiddenComponent(item))
+                    {
+                        collected[item] = new RestoreInfo { SlotName = slot.Name };
+                        _inventorySystem.TryUnequip(owner, slot.Name, force: true);
+                    }
+                    else
+                    {
+                        CollectForbiddenRecursive(item, collected);
+                    }
+                }
+            }
+        }
+
+        CollectForbiddenRecursive(owner, collected);
+
+        return collected;
+    }
+
+    private void CollectForbiddenRecursive(EntityUid item, Dictionary<EntityUid, RestoreInfo> collected)
     {
         if (!TryComp<ContainerManagerComponent>(item, out var containerManager))
             return;
@@ -78,12 +110,17 @@ public sealed class GerasSystem : SharedGerasSystem
             {
                 if (HasForbiddenComponent(contained))
                 {
+                    collected[contained] = new RestoreInfo
+                    {
+                        ContainerEntity = item,
+                        ContainerId = container.ID
+                    };
+
                     _container.Remove(contained, container, force: true);
-                    _transform.DropNextTo(contained, owner);
                 }
                 else
                 {
-                    EjectForbiddenRecursive(contained, owner);
+                    CollectForbiddenRecursive(contained, collected);
                 }
             }
         }
@@ -131,28 +168,7 @@ public sealed class GerasSystem : SharedGerasSystem
             }
         }
 
-        if (TryComp<InventoryComponent>(uid, out var inventoryComp))
-        {
-            _inventorySystem.TryUnequip(uid, "outerClothing", force: true);
-
-            foreach (var slot in inventoryComp.Slots)
-            {
-                if (_inventorySystem.TryGetSlotEntity(uid, slot.Name, out var itemUid) && itemUid.HasValue)
-                {
-                    var item = itemUid.Value;
-                    if (HasForbiddenComponent(item))
-                    {
-                        _inventorySystem.TryUnequip(uid, slot.Name, force: true);
-                    }
-                    else
-                    {
-                        EjectForbiddenRecursive(item, uid);
-                    }
-                }
-            }
-        }
-
-        EjectForbiddenRecursive(uid, uid);
+        var forbiddenCollected = CollectForbiddenFromEntity(uid);
 
         var ent = _polymorphSystem.PolymorphEntity(uid, component.GerasPolymorphId);
 
@@ -171,9 +187,61 @@ public sealed class GerasSystem : SharedGerasSystem
             _appearance.SetData(ent.Value, GeraColor.Color, skinColor, appearanceComp);
         }
 
+        if (forbiddenCollected.Count > 0)
+        {
+            var storageComp = EnsureComp<GerasForbiddenStorageComponent>(ent.Value);
+            storageComp.OriginalBody = uid;
+            storageComp.StoredForbidden = forbiddenCollected;
+
+            var forbiddenContainer = _container.EnsureContainer<Container>(ent.Value, "geras_forbidden_storage");
+
+            foreach (var forbidden in forbiddenCollected.Keys)
+            {
+                if (Exists(forbidden))
+                    _container.Insert(forbidden, forbiddenContainer, force: true);
+            }
+        }
+
         _popupSystem.PopupEntity(Loc.GetString("geras-popup-morph-message-others", ("entity", ent.Value)), ent.Value, Filter.PvsExcept(ent.Value), true);
         _popupSystem.PopupEntity(Loc.GetString("geras-popup-morph-message-user"), ent.Value, ent.Value);
 
         args.Handled = true;
+    }
+
+    private void OnRevertFromGeras(EntityUid uid, GerasForbiddenStorageComponent component, RevertPolymorphActionEvent args)
+    {
+        if (component.StoredForbidden.Count == 0 || !component.OriginalBody.IsValid() || !Exists(component.OriginalBody))
+            return;
+
+        var original = component.OriginalBody;
+
+        foreach (var (forbidden, info) in component.StoredForbidden.ToArray())
+        {
+            if (!Exists(forbidden)) continue;
+
+            if (_container.TryGetContainingContainer(forbidden, out var currentCont))
+                _container.Remove(forbidden, currentCont, force: true);
+
+            bool restored = false;
+
+            if (info.SlotName != null)
+            {
+                restored = _inventorySystem.TryEquip(original, forbidden, info.SlotName, force: true);
+            }
+
+            if (!restored && info.ContainerEntity.HasValue && info.ContainerId != null)
+            {
+                if (TryComp<ContainerManagerComponent>(info.ContainerEntity.Value, out var contMan) &&
+                    contMan.Containers.TryGetValue(info.ContainerId, out var targetContainer))
+                {
+                    restored = _container.Insert(forbidden, targetContainer, force: true);
+                }
+            }
+
+            if (!restored)
+                _transform.DropNextTo(forbidden, original);
+        }
+
+        component.StoredForbidden.Clear();
     }
 }
