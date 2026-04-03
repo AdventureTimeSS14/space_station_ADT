@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: KittyCat432
-  changes:
-  - message: Slime guidebook is more representative of their actual strengths.
-    type: Tweak
-  id: 9093
-  time: '2025-10-14T04:21:07.0000000+00:00'
-  url: https://github.com/space-wizards/space-station-14/pull/40842
 - author: MilenVolf
   changes:
   - message: Fixed some physics bugs that could cause the grappling hook to teleport
@@ -4031,3 +4024,10 @@
   id: 9604
   time: '2026-04-03T18:16:55.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/43400
+- author: slarticodefast
+  changes:
+  - message: You can now throw banana cream pies at the station AI.
+    type: Add
+  id: 9605
+  time: '2026-04-03T18:35:41.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/43388
