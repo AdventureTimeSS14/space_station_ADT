@@ -80,7 +80,14 @@ public sealed class JukeboxSystem : SharedJukeboxSystem
     private void OnJukeboxPause(Entity<JukeboxComponent> ent, ref JukeboxPauseMessage args)
     {
         // ADT-Tweak start: Validate AudioStream before using
-        if (!ent.Comp.AudioStream.HasValue || TerminatingOrDeleted(ent.Comp.AudioStream.Value))
+        if (ent.Comp.AudioStream.HasValue && TerminatingOrDeleted(ent.Comp.AudioStream.Value))
+        {
+            ent.Comp.AudioStream = null;
+            Dirty(ent);
+            return;
+        }
+
+        if (!ent.Comp.AudioStream.HasValue)
             return;
         // ADT-Tweak end
 
@@ -102,7 +109,14 @@ public sealed class JukeboxSystem : SharedJukeboxSystem
         if (TryComp(args.Actor, out ActorComponent? actorComp))
         {
             // ADT-Tweak start: Validate AudioStream before using
-            if (!component.AudioStream.HasValue || TerminatingOrDeleted(component.AudioStream.Value))
+            if (component.AudioStream.HasValue && TerminatingOrDeleted(component.AudioStream.Value))
+            {
+                component.AudioStream = null;
+                Dirty(uid, component);
+                return;
+            }
+
+            if (!component.AudioStream.HasValue)
                 return;
             // ADT-Tweak end
 
@@ -121,6 +135,12 @@ public sealed class JukeboxSystem : SharedJukeboxSystem
     /// ADT-Tweak start
     private void OnJukeboxSetVolume(EntityUid uid, JukeboxComponent component, JukeboxSetVolumeMessage args)
     {
+        if (component.AudioStream.HasValue && TerminatingOrDeleted(component.AudioStream.Value))
+        {
+            component.AudioStream = null;
+            Dirty(uid, component);
+        }
+
         SetJukeboxVolume(uid, component, args.Volume);
 
         if (!component.AudioStream.HasValue || TerminatingOrDeleted(component.AudioStream.Value))
