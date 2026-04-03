@@ -1,12 +1,4 @@
 ﻿Entries:
-- author: MilenVolf
-  changes:
-  - message: Fixed some physics bugs that could cause the grappling hook to teleport
-      entities.
-    type: Fix
-  id: 9094
-  time: '2025-10-14T10:35:38.0000000+00:00'
-  url: https://github.com/space-wizards/space-station-14/pull/40899
 - author: SirWarock
   changes:
   - message: Made Bodybags slightly harder to drag, and rollerbeds slightly easier.
@@ -4031,3 +4023,11 @@
   id: 9605
   time: '2026-04-03T18:35:41.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/43388
+- author: Samuka
+  changes:
+  - message: When reloading guns or magazines with stack items, it only reloads one
+      at the time, instead of inserting the whole stack.
+    type: Fix
+  id: 9606
+  time: '2026-04-03T21:44:59.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/41503
