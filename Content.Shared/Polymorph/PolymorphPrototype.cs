@@ -143,6 +143,9 @@ public sealed partial record PolymorphConfiguration
     [DataField(serverOnly: true)]
     public bool CanNotPolymorphInStorage;
 
+    /// <summary>
+    /// Time in seconds when the polymorph reverts the entity.
+    /// </summary>
     [DataField(serverOnly: true)]
     public float RevertDelay = 0f;
     // ADT-Geras-Tweak-End
