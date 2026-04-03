@@ -360,5 +360,6 @@
     sprite: Markers/jobs.rsi
     layers:
       - state: green
+  - type: GhostRoleAntagSpawner
 
 

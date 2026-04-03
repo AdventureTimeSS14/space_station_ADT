@@ -42,7 +42,7 @@
     sprite: ADT/Objects/Storage/Boxes/halloween_box.rsi
     state: pennywise
   product: ADTCrateHalloweenCloth
-  cost: 8310
+  cost: 8350
   category: cargoproduct-category-name-fun
   group: market
 

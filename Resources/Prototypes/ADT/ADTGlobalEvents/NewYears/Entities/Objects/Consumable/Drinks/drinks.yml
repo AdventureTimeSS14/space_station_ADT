@@ -50,7 +50,7 @@
         - ReagentId: ADTChampagneMandarin
           Quantity: 30
   - type: SolutionContainerVisuals
-    maxFillLevels: 1
+    maxFillLevels: 0
   - type: Sprite
     sprite: ADT/ADTGlobalEvents/NewYears/Objects/Consumable/Drinks/new_year.rsi
     state: champagne_mandarin
@@ -124,7 +124,7 @@
         - ReagentId: ADTHotCocoa
           Quantity: 30
   - type: SolutionContainerVisuals
-    maxFillLevels: 1
+    maxFillLevels: 0
   - type: Sprite
     sprite: ADT/ADTGlobalEvents/NewYears/Objects/Consumable/Drinks/new_year.rsi
     state: hot_cocoa
