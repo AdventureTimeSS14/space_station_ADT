@@ -194,8 +194,15 @@ public sealed class MetabolizerSystem : SharedMetabolizerSystem
 
                 var actualEntity = ent.Comp2?.Body ?? solutionEntityUid.Value;
 
+                // ADT-Tweak-Start
+                var ev = new GetReagentEffectsEvent(reagent, entry.Effects);
+                RaiseLocalEvent(solutionEntityUid.Value, ref ev);
+
+                var effects = ev.Effects;
+                // ADT-Tweak-End
+
                 // do all effects, if conditions apply
-                foreach (var effect in entry.Effects)
+                foreach (var effect in effects) // ADT-Tweak: effects
                 {
                     if (scale < effect.MinScale)
                         continue;
@@ -280,3 +287,7 @@ public sealed class MetabolizerSystem : SharedMetabolizerSystem
     }
 }
 
+// ADT-Tweak-Start
+[ByRefEvent]
+public record struct GetReagentEffectsEvent(ReagentId Reagent, EntityEffect[] Effects);
+// ADT-Tweak-End

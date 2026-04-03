@@ -8,6 +8,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
+using Content.Server.ADT;
 using Content.Shared.Administration.Logs;
 using Content.Shared.ADT.Language;
 using Content.Shared.ADT.SpeechBarks;
@@ -296,7 +297,7 @@ namespace Content.Server.Database
                 new HumanoidCharacterAppearance
                 (
                     profile.HairName,
-                    Color.FromHex(profile.HairColor),
+                    HairColorSerializer.Deserialize(profile.HairColor), // ADT-tweak
                     profile.FacialHairName,
                     Color.FromHex(profile.FacialHairColor),
                     Color.FromHex(profile.EyeColor),
@@ -337,7 +338,7 @@ namespace Content.Server.Database
             profile.Sex = humanoid.Sex.ToString();
             profile.Gender = humanoid.Gender.ToString();
             profile.HairName = appearance.HairStyleId;
-            profile.HairColor = appearance.HairColor.ToHex();
+            profile.HairColor = HairColorSerializer.Serialize(appearance.HairColor); // ADT-tweak
             profile.FacialHairName = appearance.FacialHairStyleId;
             profile.FacialHairColor = appearance.FacialHairColor.ToHex();
             profile.EyeColor = appearance.EyeColor.ToHex();

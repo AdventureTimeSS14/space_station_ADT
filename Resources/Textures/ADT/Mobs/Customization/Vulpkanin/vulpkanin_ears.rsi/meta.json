@@ -1,0 +1,39 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Created for ADT, Vulpkanin ear markings made by prazat911",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "cat",
+            "directions": 4
+        },
+        {
+            "name": "cat2",
+            "directions": 4
+        },
+        {
+            "name": "finnik-1",
+            "directions": 4
+        },
+        {
+            "name": "finnik-2",
+            "directions": 4
+        },
+        {
+            "name": "sharp1",
+            "directions": 4
+        },
+        {
+            "name": "sharp2",
+            "directions": 4
+        },
+        {
+            "name": "sharp3",
+            "directions": 4
+        }
+    ]
+}

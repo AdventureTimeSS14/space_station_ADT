@@ -90,7 +90,7 @@ public sealed partial class HumanoidAppearanceComponent : Component
     ///     Hair color of this humanoid. Used to avoid looping through all markings
     /// </summary>
     [ViewVariables(VVAccess.ReadOnly)]
-    public Color? CachedHairColor;
+    public List<Color>? CachedHairColor; // ADT-tweak
 
     /// <summary>
     ///     Facial Hair color of this humanoid. Used to avoid looping through all markings
