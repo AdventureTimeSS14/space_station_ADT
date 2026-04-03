@@ -79,6 +79,11 @@ public sealed class JukeboxSystem : SharedJukeboxSystem
 
     private void OnJukeboxPause(Entity<JukeboxComponent> ent, ref JukeboxPauseMessage args)
     {
+        // ADT-Tweak start: Validate AudioStream before using
+        if (!ent.Comp.AudioStream.HasValue || TerminatingOrDeleted(ent.Comp.AudioStream.Value))
+            return;
+        // ADT-Tweak end
+
         Audio.SetState(ent.Comp.AudioStream, AudioState.Paused);
 
         // ADT-Tweak start
@@ -96,6 +101,11 @@ public sealed class JukeboxSystem : SharedJukeboxSystem
     {
         if (TryComp(args.Actor, out ActorComponent? actorComp))
         {
+            // ADT-Tweak start: Validate AudioStream before using
+            if (!component.AudioStream.HasValue || TerminatingOrDeleted(component.AudioStream.Value))
+                return;
+            // ADT-Tweak end
+
             var offset = actorComp.PlayerSession.Channel.Ping * 1.5f / 1000f;
             // ADT-Tweak start
             var newPosition = args.SongTime + offset;
@@ -112,6 +122,9 @@ public sealed class JukeboxSystem : SharedJukeboxSystem
     private void OnJukeboxSetVolume(EntityUid uid, JukeboxComponent component, JukeboxSetVolumeMessage args)
     {
         SetJukeboxVolume(uid, component, args.Volume);
+
+        if (!component.AudioStream.HasValue || TerminatingOrDeleted(component.AudioStream.Value))
+            return;
 
         if (!TryComp<AudioComponent>(component.AudioStream, out var audioComponent))
             return;
@@ -142,7 +155,13 @@ public sealed class JukeboxSystem : SharedJukeboxSystem
 
     private void Stop(Entity<JukeboxComponent> entity)
     {
-        Audio.SetState(entity.Comp.AudioStream, AudioState.Stopped);
+        // ADT-Tweak start: Validate AudioStream before using
+        if (entity.Comp.AudioStream.HasValue && !TerminatingOrDeleted(entity.Comp.AudioStream.Value))
+        {
+            Audio.SetState(entity.Comp.AudioStream, AudioState.Stopped);
+        }
+        // ADT-Tweak end
+
         // ADT-Tweak start
         entity.Comp.CurrentPlaybackOffset = 0f;
         entity.Comp.PlaybackStartTime = null;
@@ -170,6 +189,15 @@ public sealed class JukeboxSystem : SharedJukeboxSystem
         var query = EntityQueryEnumerator<JukeboxComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {
+            // ADT-Tweak start: Clean up invalid AudioStream references to prevent PVS errors
+            if (comp.AudioStream.HasValue && TerminatingOrDeleted(comp.AudioStream.Value))
+            {
+                comp.AudioStream = null;
+                Dirty(uid, comp);
+                continue;
+            }
+            // ADT-Tweak end
+
             if (comp.Selecting)
             {
                 comp.SelectAccumulator += frameTime;
