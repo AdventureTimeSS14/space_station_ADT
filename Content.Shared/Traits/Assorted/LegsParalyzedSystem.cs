@@ -1,5 +1,6 @@
 ﻿using Content.Shared.Body.Systems;
 using Content.Shared.Buckle.Components;
+using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Events;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Standing;
@@ -50,6 +51,9 @@ public sealed class LegsParalyzedSystem : EntitySystem
     {
         // ADT-Tweak start
         if (HasComp<RiderComponent>(uid))
+            return;
+
+        if (HasComp<RelayInputMoverComponent>(uid))
             return;
         // ADT-Tweak end
 
