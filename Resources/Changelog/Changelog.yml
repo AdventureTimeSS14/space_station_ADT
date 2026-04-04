@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: SlamBamActionman
-  changes:
-  - message: Lying trait now features more grammatically correct lying.
-    type: Fix
-  id: 9101
-  time: '2025-10-14T23:13:02.0000000+00:00'
-  url: https://github.com/space-wizards/space-station-14/pull/39370
 - author: Winkarst-cpu
   changes:
   - message: Now doors play an animation while being emagged.
@@ -4032,3 +4025,11 @@
   id: 9612
   time: '2026-04-04T18:35:44.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/43296
+- author: VanderslootAssgiraffe
+  changes:
+  - message: Added new lobby art depicting a mime mocking nukies trapped behind an
+      invisible wall as the mime defuses the nuke
+    type: Add
+  id: 9613
+  time: '2026-04-04T19:38:12.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/42947
