@@ -1,4 +1,6 @@
 using Content.Shared.Atmos;
+using Content.Shared.Damage.Systems;
+using Content.Shared.Damage.Components;
 using Content.Shared.Damage;
 using Content.Server.NodeContainer.Nodes;
 using Content.Server.NodeContainer.NodeGroups;
@@ -28,30 +30,43 @@ namespace Content.Server.ADT.Atmos.EntityDamage.Systems
         public void HandleOverpressure(PipeNode pipe, GasMixture netAir)
         {
             // Проверяем наличие давления в трубе.
-            if (netAir == null ||
-                !EntityManager.TryGetComponent(pipe.Owner, out OverpressurePipeDamageComponent? comp) ||
-                comp.LimitPressure <= 0)
+            if (netAir == null)
+                return;
+
+            if (!EntityManager.TryGetComponent(pipe.Owner, out OverpressurePipeDamageComponent? comp) || comp == null)
+                return;
+
+            if (comp.LimitPressure <= 0)
                 return;
 
             float pressure = netAir.Pressure;
             float limit = comp.LimitPressure;
             float over = pressure - limit;
 
-            if (over <= 0) return;
+            if (over <= 0)
+                return;
 
             // Наносим урон с случайным шансом, чтобы труба не ломалась моментально.
-            float chance = EntityManager.TryGetComponent(pipe.Owner, out DamageableComponent? dmg)
-                ? Math.Clamp(0.5f + (float)dmg.TotalDamage * 0.5f, 0f, 1f)
-                : 0.5f;
+            float chance = 0.5f;
 
-            if (_random.Prob(1 - chance)) return;
+            if (EntityManager.TryGetComponent(pipe.Owner, out DamageableComponent? dmg) && dmg != null)
+            {
+                float totalDamage = (float)dmg.TotalDamage;
+                chance = Math.Clamp(0.5f + totalDamage * 0.5f, 0f, 1f);
+            }
+
+            if (_random.Prob(1 - chance))
+                return;
 
             // Чем больше давление - тем больше урона.
             int dmgAmt = (int)(10f * MathF.Exp(over / limit));
             if (dmgAmt <= 0)
                 return;
 
-            _damage.TryChangeDamage(pipe.Owner, new DamageSpecifier { DamageDict = { ["Structural"] = dmgAmt } });
+            var spec = new DamageSpecifier();
+            spec.DamageDict["Structural"] = dmgAmt;
+
+            _damage.TryChangeDamage(pipe.Owner, spec);
         }
     }
 }
