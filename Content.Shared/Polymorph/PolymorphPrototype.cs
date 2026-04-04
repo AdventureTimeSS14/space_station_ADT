@@ -138,6 +138,13 @@ public sealed partial record PolymorphConfiguration
     public bool TransferBloodstream;
 
     /// <summary>
+    /// Whether or not the entity transfers the contents of its stomach
+    /// and lungs between forms when the organs exist on both sides.
+    /// </summary>
+    [DataField(serverOnly: true)]
+    public bool TransferOrganContent;
+
+    /// <summary>
     /// Whether or not the entity can polymorph between forms in storage.
     /// </summary>
     [DataField(serverOnly: true)]

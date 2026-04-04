@@ -28,9 +28,11 @@ using Content.Shared.Atmos.Components;
 using Content.Shared.Bed.Sleep;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Systems;
+using Content.Shared.Body.Organ;
 // ADT-Geras-Tweak-End
 using Content.Shared.Buckle;
 // ADT-Geras-Tweak-Start
+using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Clumsy;
 using Content.Shared.CombatMode.Pacification;
@@ -109,6 +111,7 @@ public sealed partial class PolymorphSystem : EntitySystem
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
     [Dependency] private readonly SharedBloodstreamSystem _bloodstream = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private readonly StomachSystem _stomachSystem = default!;
     // ADT-Geras-Tweak-End
 
     private const string RevertPolymorphId = "ActionRevertPolymorph";
@@ -306,11 +309,11 @@ public sealed partial class PolymorphSystem : EntitySystem
         if (Math.Abs(delta) > 0.01f)
             _bloodstream.TryModifyBleedAmount(target, delta);
 
-        CopySolution(source, sourceBlood.BloodSolutionName, target, targetBlood.BloodSolutionName);
-        CopySolution(source, sourceBlood.ChemicalSolutionName, target, targetBlood.ChemicalSolutionName);
-        CopySolution(source, sourceBlood.BloodTemporarySolutionName, target, targetBlood.BloodTemporarySolutionName);
+        TransferSolution(source, sourceBlood.BloodSolutionName, target, targetBlood.BloodSolutionName);
+        TransferSolution(source, sourceBlood.ChemicalSolutionName, target, targetBlood.ChemicalSolutionName);
+        TransferSolution(source, sourceBlood.BloodTemporarySolutionName, target, targetBlood.BloodTemporarySolutionName);
     }
-    private void CopySolution(EntityUid source, string sourceSolutionName, EntityUid target, string targetSolutionName)
+    private void TransferSolution(EntityUid source, string sourceSolutionName, EntityUid target, string targetSolutionName)
     {
         if (!_solutionContainer.TryGetSolution(source, sourceSolutionName, out var sourceSoln, out var sourceSolution))
             return;
@@ -322,6 +325,47 @@ public sealed partial class PolymorphSystem : EntitySystem
         {
             _solutionContainer.TryAddReagent(targetSoln.Value, reagent, quantity, out _);
         }
+        _solutionContainer.RemoveAllSolution(sourceSoln.Value);
+    }
+
+    private void TransferOrganContents(EntityUid fromBody, EntityUid toBody)
+    {
+        if (TryGetOrganWithComponent<StomachComponent>(fromBody, out var sourceStomach) &&
+            TryGetOrganWithComponent<StomachComponent>(toBody, out var targetStomach))
+        {
+            if (_solutionContainer.TryGetSolution(sourceStomach.Owner, StomachSystem.DefaultSolutionName, out var sourceSoln, out var sourceSolution) &&
+                sourceSolution.Volume > 0)
+            {
+                var transferSol = new Solution();
+                foreach (var (reagent, quantity) in sourceSolution.Contents)
+                    transferSol.AddReagent(reagent, quantity);
+
+                _solutionContainer.RemoveAllSolution(sourceSoln.Value);
+                _stomachSystem.TryTransferSolution(targetStomach.Owner, transferSol);
+            }
+        }
+
+        if (TryGetOrganWithComponent<LungComponent>(fromBody, out var sourceLung) &&
+            TryGetOrganWithComponent<LungComponent>(toBody, out var targetLung))
+        {
+            TransferSolution(sourceLung.Owner, sourceLung.Comp.SolutionName, targetLung.Owner, targetLung.Comp.SolutionName);
+        }
+    }
+
+    private bool TryGetOrganWithComponent<T>(EntityUid body, out Entity<T> organ)
+        where T : IComponent
+    {
+        organ = default;
+        var query = EntityQueryEnumerator<OrganComponent, T>();
+        while (query.MoveNext(out var uid, out var orgComp, out var comp))
+        {
+            if (orgComp.Body == body)
+            {
+                organ = (uid, comp);
+                return true;
+            }
+        }
+        return false;
     }
     // ADT-Geras-Tweak-End
 
@@ -586,6 +630,10 @@ public sealed partial class PolymorphSystem : EntitySystem
         {
             TransferBloodstreamState(uid, child);
         }
+        if (configuration.TransferOrganContent)
+        {
+            TransferOrganContents(uid, child);
+        }
         // ADT-Geras-Tweak-End
 
         if (configuration.TransferHumanoidAppearance)
@@ -812,6 +860,10 @@ public sealed partial class PolymorphSystem : EntitySystem
         if (component.Configuration.TransferBloodstream)
         {
             TransferBloodstreamState(uid, parent);
+        }
+        if (component.Configuration.TransferOrganContent)
+        {
+            TransferOrganContents(uid, parent);
         }
         // ADT-Geras-Tweak-End
 
