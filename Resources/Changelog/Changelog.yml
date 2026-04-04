@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: Winkarst-cpu
-  changes:
-  - message: Now doors play an animation while being emagged.
-    type: Fix
-  id: 9102
-  time: '2025-10-14T23:31:16.0000000+00:00'
-  url: https://github.com/space-wizards/space-station-14/pull/40350
 - author: slarticodefast
   changes:
   - message: Zombified arachnids can no longer spam infinite silk due to having no
@@ -4033,3 +4026,10 @@
   id: 9613
   time: '2026-04-04T19:38:12.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/42947
+- author: 0-Anon
+  changes:
+  - message: Rat Kings can now pull objects.
+    type: Tweak
+  id: 9614
+  time: '2026-04-04T19:58:35.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/42701
