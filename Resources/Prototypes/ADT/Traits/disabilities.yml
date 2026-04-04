@@ -1,84 +1,176 @@
 - type: trait
-  id: ADTDeaf
+  id: Deaf
   name: trait-deaf-name
   description: trait-deaf-description
-  category: Quirks
-  components:
-    - type: DeafTrait
-  cost: -2
-  quirk: true
-
-- type: trait
-  id: ADTDamagedThroat
-  name: trait-damaged-throat-name
-  description: trait-damaged-throat-description
-  category: Quirks
-  components:
-    - type: DamagedThroat
+  category: Disabilities
   cost: -1
-  quirk: true
-  speciesBlacklist:
-  - IPC
-  - NovakidSpecies
-  - Diona
-  - SlimePerson
-# Simple Station
+  effects:
+    - !type:AddCompsEffect
+      components:
+        - type: DeafTrait
 
 - type: trait
-  id: ADTTouchy
+  id: PseudobulbarAffect
+  name: trait-pseudobulbar-affect-name
+  description: trait-pseudobulbar-affect-desc
+  category: Disabilities
+  cost: -1
+  speciesBlacklist:
+    - IPC
+  effects:
+    - !type:AddCompsEffect
+      components:
+        - type: EmotionallyUnstableAccent
+          triggerEmotionChance: 0.2
+          exclamatorySentenceChance: 0.5
+          changeMessageChance: 0.3
+          emotes:
+            - Laugh
+            - Scream
+            - Crying
+        - type: EmotionLoop
+          minTimeBetweenEmotions: 60
+          maxTimeBetweenEmotions: 90
+          emotes:
+            - Laugh
+            - Scream
+            - Crying
+
+- type: trait
+  id: DamagedThroat
+  name: trait-damaged-throat-name
+  description: trait-damaged-throat-desc
+  category: SpeechTraits
+  cost: -1
+  effects:
+    - !type:AddCompsEffect
+      components:
+        - type: DamagedThroat
+  speciesBlacklist:
+    - IPC
+
+- type: trait
+  id: Hushed
+  name: trait-hushed-name
+  description: trait-hushed-desc
+  category: SpeechTraits
+  cost: -1
+  blacklist:
+    components:
+      - BorgChassis
+  effects:
+    - !type:AddCompsEffect
+      components:
+        - type: Hushed
+
+- type: trait
+  id: Echolalia
+  name: trait-echolalia-name
+  description: trait-echolalia-desc
+  category: Disabilities
+  cost: -1
+  effects:
+    - !type:AddCompsEffect
+      components:
+        - type: ActiveListener
+          range: 5
+        - type: ParrotSpeech
+          maximumPhraseLength: 24
+          minimumWait: 300
+          maximumWait: 900
+          learnChance: 0.1
+
+- type: trait
+  id: Touchy
   name: trait-touchy-name
   description: trait-touchy-desc
-  category: Quirks
-  components:
-  - type: Touchy
+  category: Disabilities
   cost: -1
-  quirk: true
+  effects:
+    - !type:AddCompsEffect
+      components:
+        - type: Touchy
 
 - type: trait
-  id: ColorBlindnessMonochrome
-  name: trait-monochromacy-name
-  description: trait-monochromacy-description
-  category: Quirks
-  components:
-    - type: Monochromacy
+  id: Sheltered
+  name: trait-sheltered-name
+  description: trait-sheltered-desc
+  category: Disabilities
+  cost: -4
+  effects:
+    - !type:OverrideCompsEffect
+      components:
+        - type: LanguageSpeaker
+          languages: {}
+  departmentBlacklist:
+    - Command
+    - Security
+    - CentcomSpecialists
+
+- type: trait
+  id: Dysgraphia
+  name: trait-dysgraphia-name
+  description: trait-dysgraphia-desc
+  category: Disabilities
   cost: -1
-  quirk: true
+  effects:
+    - !type:AddCompsEffect
+      components:
+        - type: BlockWriting
 
 - type: trait
   id: Frail
   name: trait-frail-name
   description: trait-frail-description
-  category: Quirks
-  components:
-    - type: Frail
-      modifiers:
-        Blunt: 1.5
-        Slash: 1.5
-        Piercing: 1.5
-        Heat: 1.2
-        Cold: 1.2
-        Shock: 1.2
+  category: Disabilities
   cost: -2
-  quirk: true
+  effects:
+    - !type:AddCompsEffect
+      components:
+        - type: Frail
+          modifiers:
+            Blunt: 1.5
+            Slash: 1.5
+            Piercing: 1.5
+            Heat: 1.2
+            Cold: 1.2
+            Shock: 1.2
 
 - type: trait
-  id: SoftHands #I don't fucking know how it works, but it works
+  id: SoftHands
   name: trait-soft-hands-name
   description: trait-soft-hands-desc
-  category: Quirks
-  components:
-    - type: WieldingBlocker
-  cost: -2
-  quirk: true
+  category: Disabilities
+  cost: -1
+  effects:
+    - !type:AddCompsEffect
+      components:
+        - type: WieldingBlocker
 
 - type: trait
   id: UnadaptedToSpace
   name: trait-unadapted-to-space-name
   description: trait-unadapted-to-space-desc
-  category: Quirks
+  category: Disabilities
+  cost: -3
+  effects:
+    - !type:AddCompsEffect
+      components:
+        - type: UnadaptedToSpace
+  speciesBlacklist:
+  - NovakidSpecies
+
+- type: trait
+  id: Allergic
+  name: trait-allergic-name
+  description: trait-allergic-desc
+  category: Disabilities
   components:
-    - type: UnadaptedToSpace
-  cost: -2
+    - type: Allergic
+  cost: -1
   quirk: true
   speciesBlacklist:
+  - NovakidSpecies
+  - Diona
+  - SlimePerson
   - IPC
