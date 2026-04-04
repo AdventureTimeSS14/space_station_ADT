@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: kontakt
-  changes:
-  - message: Singulo now consumes carpet tiles.
-    type: Fix
-  id: 9097
-  time: '2025-10-14T18:27:58.0000000+00:00'
-  url: https://github.com/space-wizards/space-station-14/pull/40896
 - author: B_Kirill
   changes:
   - message: Fixed blocked rotation of zombie NPCs.
@@ -4032,3 +4025,10 @@
   id: 9608
   time: '2026-04-04T07:15:23.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/40645
+- author: ThatGuyUSA
+  changes:
+  - message: Midround Wizards now show up on the end results screen.
+    type: Fix
+  id: 9609
+  time: '2026-04-04T15:51:14.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/42766
