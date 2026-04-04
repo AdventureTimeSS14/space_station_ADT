@@ -167,6 +167,11 @@ public sealed class GerasSystem : SharedGerasSystem
             }
         }
 
+        if (TryComp<InventoryComponent>(uid, out var inventoryComp))
+        {
+            _inventorySystem.TryUnequip(uid, "outerClothing", force: true);
+        }
+
         var forbiddenCollected = CollectForbiddenFromEntity(uid);
 
         var ent = _polymorphSystem.PolymorphEntity(uid, component.GerasPolymorphId);
@@ -200,9 +205,6 @@ public sealed class GerasSystem : SharedGerasSystem
                     _container.Insert(forbidden, forbiddenContainer, force: true);
             }
         }
-
-        _popupSystem.PopupEntity(Loc.GetString("geras-popup-morph-message-others", ("entity", ent.Value)), ent.Value, Filter.PvsExcept(ent.Value), true);
-        _popupSystem.PopupEntity(Loc.GetString("geras-popup-morph-message-user"), ent.Value, ent.Value);
 
         args.Handled = true;
     }

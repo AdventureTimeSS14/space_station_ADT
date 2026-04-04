@@ -46,7 +46,7 @@
   components:
     - type: Action
       itemIconStyle: BigAction
-      useDelay: 5 # prevent spam
+      useDelay: 1
       priority: -20
       checkCanInteract: true
       icon:

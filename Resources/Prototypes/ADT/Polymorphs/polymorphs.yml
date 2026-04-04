@@ -559,4 +559,8 @@
     transferStaminaDamage: true
     transferTemperature: true
     transferBloodstream: true
+    exitPolymorphSound: !type:SoundPathSpecifier
+      path: /Audio/ADT/slime-hair.ogg
+    polymorphPopup: geras-popup-polymorph
+    exitPolymorphPopup: geras-popup-polymorph-exit
     canNotPolymorphInStorage: true
