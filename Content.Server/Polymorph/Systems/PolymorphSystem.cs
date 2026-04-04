@@ -341,8 +341,11 @@ public sealed partial class PolymorphSystem : EntitySystem
         }
         // ADT-Geras-Tweak-End
 
-        // if it's already morphed, don't allow it again with this condition active.
-        if (!configuration.AllowRepeatedMorphs && HasComp<PolymorphedEntityComponent>(uid))
+        // If they're morphed, check their current config to see if they can be
+        // morphed again
+        if (!configuration.IgnoreAllowRepeatedMorphs
+            && TryComp<PolymorphedEntityComponent>(uid, out var currentPoly)
+            && !currentPoly.Configuration.AllowRepeatedMorphs)
             return null;
 
         // If this polymorph has a cooldown, check if that amount of time has passed since the
