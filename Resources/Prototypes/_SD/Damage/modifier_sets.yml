@@ -23,3 +23,11 @@
 #     Poison: 0
 #   flatReductions:
 #     Blunt: 5
+
+- type: damageModifierSet
+  id: SDBorgChassisUnderPressure     # Used for hard-working Borgs, such as: Miner, Sec-Borg
+  coefficients:
+    Blunt: 0.7
+    Piercing: 0.7
+    Slash: 0.7
+    Heat: 0.6

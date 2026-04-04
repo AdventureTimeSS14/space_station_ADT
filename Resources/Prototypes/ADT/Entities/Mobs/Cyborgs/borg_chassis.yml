@@ -10,6 +10,11 @@
     voice: sentrybot
   - type: BorgSwitchableSubtype
     borgSubtype: default_security
+    #SD-REBALANCE-Start
+  - type: Damageable
+    damageModifierSet: SDBorgChassisUnderPressure
+  - type: ShowMindShieldIcons
+    #SD-REBALANCE-END
 
 - type: entity
   id: ADTBorgChassisKerfusNT

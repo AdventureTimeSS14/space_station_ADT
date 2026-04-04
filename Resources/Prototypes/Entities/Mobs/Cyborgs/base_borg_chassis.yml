@@ -45,8 +45,8 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      100: Critical
-      200: Dead
+      150: Critical #SD-REBALANCE 100 -> 150
+      250: Dead     #SD-REBALANCE 200 -> 250
     stateAlertDict:
       Alive: BorgHealth
       Critical: BorgCrit
@@ -156,7 +156,7 @@
   - type: Body
   - type: StatusEffects
     allowed:
-    - Flashed
+    # - Flashed    # SD-REBALANCE
     - SeeingStatic # ADT IPC (shaders)
   - type: TypingIndicator
     proto: robot
