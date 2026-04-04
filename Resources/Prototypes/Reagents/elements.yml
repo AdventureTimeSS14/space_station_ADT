@@ -197,11 +197,7 @@
         - !type:MetabolizerTypeCondition
           type: [ Arachnid ]
           inverted: true
-        # ADT tweak start
-        - !type:MetabolizerTypeCondition
-          type: [ Drask, Human ]
-        # ADT tweak end
-        amount: 0.4
+        amount: 1.5 #ADT-Tweak 0.4 > 1.5
     # ADT Start
     Food:
       effects:
