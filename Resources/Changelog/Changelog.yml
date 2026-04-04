@@ -1,12 +1,4 @@
 ﻿Entries:
-- author: slarticodefast
-  changes:
-  - message: Zombified arachnids can no longer spam infinite silk due to having no
-      hunger.
-    type: Fix
-  id: 9103
-  time: '2025-10-14T23:31:16.0000000+00:00'
-  url: https://github.com/space-wizards/space-station-14/pull/40279
 - author: telavivgamers
   changes:
   - message: You may put ashes and matchsticks into ashtrays.
@@ -4033,3 +4025,13 @@
   id: 9614
   time: '2026-04-04T19:58:35.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/42701
+- author: SlamBamActionman
+  changes:
+  - message: Uplink PDA codes are now universal. This means any PDA can open an uplink
+      store, as long as they have the correct code.
+    type: Tweak
+  - message: PDA ringtones now feature more notes.
+    type: Tweak
+  id: 9615
+  time: '2026-04-04T20:14:15.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/38712
