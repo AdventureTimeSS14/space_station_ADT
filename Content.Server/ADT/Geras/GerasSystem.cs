@@ -3,7 +3,6 @@ using Content.Server.Ghost.Roles.Components;
 using Content.Server.Polymorph.Systems;
 using Content.Server.Popups;
 using Content.Shared.ActionBlocker;
-using Content.Shared.ADT.Clothing.Components;
 using Content.Shared.ADT.Geras;
 using Content.Shared.ADT.ModSuits;
 using Content.Shared.Anomaly.Components;
@@ -153,7 +152,7 @@ public sealed class GerasSystem : SharedGerasSystem
         if (_inventorySystem.TryGetSlotEntity(uid, "back", out var backItem) && backItem.HasValue)
         {
             var item = backItem.Value;
-            if (HasComp<ClothingSpeedModifierComponent>(item) || HasComp<ModSuitComponent>(item) || HasComp<StorageOfHoldingComponent>(item))
+            if (HasComp<ClothingSpeedModifierComponent>(item))
             {
                 _inventorySystem.TryUnequip(uid, "back", force: true);
             }

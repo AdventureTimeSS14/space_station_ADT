@@ -187,7 +187,6 @@
     maxItemSize: Huge
     grid:
     - 0,0,19,9
-  - type: StorageOfHolding #ADT-Geras-Tweak
 
 - type: entity
   parent: ClothingBackpackSatchelHolding
