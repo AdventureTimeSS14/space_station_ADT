@@ -18,7 +18,6 @@ using Content.Shared.Nuke;
 using Content.Shared.Polymorph;
 using Content.Shared.Zombies;
 using Robust.Shared.Containers;
-using Robust.Shared.Player;
 using Robust.Shared.Utility;
 using System.Linq;
 
