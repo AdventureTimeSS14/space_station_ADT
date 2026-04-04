@@ -140,6 +140,7 @@ public sealed partial record PolymorphConfiguration
     /// <summary>
     /// Whether or not the entity transfers the contents of its stomach
     /// and lungs between forms when the organs exist on both sides.
+    /// Also transfers hunger and thirst.
     /// </summary>
     [DataField(serverOnly: true)]
     public bool TransferOrganContent;

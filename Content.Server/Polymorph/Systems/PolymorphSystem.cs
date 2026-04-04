@@ -57,6 +57,8 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Nutrition;
 // ADT-Geras-Tweak-Start
+using Content.Shared.Nutrition.Components;
+using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.Overlays;
 using Content.Shared.Paper;
 // ADT-Geras-Tweak-End
@@ -112,6 +114,8 @@ public sealed partial class PolymorphSystem : EntitySystem
     [Dependency] private readonly SharedBloodstreamSystem _bloodstream = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly StomachSystem _stomachSystem = default!;
+    [Dependency] private readonly HungerSystem _hungerSystem = default!;
+    [Dependency] private readonly ThirstSystem _thirstSystem = default!;
     // ADT-Geras-Tweak-End
 
     private const string RevertPolymorphId = "ActionRevertPolymorph";
@@ -349,6 +353,19 @@ public sealed partial class PolymorphSystem : EntitySystem
             TryGetOrganWithComponent<LungComponent>(toBody, out var targetLung))
         {
             TransferSolution(sourceLung.Owner, sourceLung.Comp.SolutionName, targetLung.Owner, targetLung.Comp.SolutionName);
+        }
+
+        if (TryComp<HungerComponent>(fromBody, out var sourceHunger) &&
+            TryComp<HungerComponent>(toBody, out var targetHunger))
+        {
+            var currentHungerValue = _hungerSystem.GetHunger(sourceHunger);
+            _hungerSystem.SetHunger(toBody, currentHungerValue, targetHunger);
+        }
+
+        if (TryComp<ThirstComponent>(fromBody, out var sourceThirst) &&
+            TryComp<ThirstComponent>(toBody, out var targetThirst))
+        {
+            _thirstSystem.SetThirst(toBody, targetThirst, sourceThirst.CurrentThirst);
         }
     }
 
