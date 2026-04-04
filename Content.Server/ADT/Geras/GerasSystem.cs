@@ -53,6 +53,7 @@ public sealed class GerasSystem : SharedGerasSystem
 
     private void OnMapInit(EntityUid uid, GerasComponent component, MapInitEvent args)
     {
+        // try to add geras action to non geras
         if (!component.NoAction)
         {
             _actionsSystem.AddAction(uid, ref component.GerasActionEntity, component.GerasAction);
