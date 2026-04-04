@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: aada
-  changes:
-  - message: Geiger counters can now be placed on a utility belt.
-    type: Fix
-  id: 9096
-  time: '2025-10-14T12:12:06.0000000+00:00'
-  url: https://github.com/space-wizards/space-station-14/pull/40898
 - author: kontakt
   changes:
   - message: Singulo now consumes carpet tiles.
@@ -4031,3 +4024,11 @@
   id: 9607
   time: '2026-04-04T04:06:27.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/43057
+- author: spanky-spanky
+  changes:
+  - message: Cell rechargers, weapon rechargers and turbo rechargers can now be picked
+      up to transport them when unanchored.
+    type: Tweak
+  id: 9608
+  time: '2026-04-04T07:15:23.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/40645
