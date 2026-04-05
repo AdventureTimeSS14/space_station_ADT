@@ -29,6 +29,10 @@
             <!-- Populated in LoadVerbs -->
         </BoxContainer>
         <!-- ADT Barks end -->
+        <!-- ADT Job Icon Start -->
+        <Label Text="{Loc 'voice-mask-job-icon-label'}" Margin="0 5 0 0"/>
+        <GridContainer Name="JobIconGrid" Columns="8" HorizontalExpand="True"/>
+        <!-- ADT Job Icon End -->
 
     </BoxContainer>
 </controls:FancyWindow>
