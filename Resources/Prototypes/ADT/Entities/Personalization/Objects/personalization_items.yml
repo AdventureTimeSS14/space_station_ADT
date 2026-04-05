@@ -3148,4 +3148,17 @@
   id: adtfleche
   flavorType: Complex
   description: кофейно и освежающе
+
+#AginiMoto
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieRose
+  name: plushie Rose
+  description: The symbol of atmosia. A girl who smells like freon, home, and comfort. The cutest felinidka. The well-deserved atmos of 2024 and the best girlfriend, wife, and mother.
+  suffix: Personal, AginiMoto
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_rozik
+
 #SPONSOR-ITEMS-END
