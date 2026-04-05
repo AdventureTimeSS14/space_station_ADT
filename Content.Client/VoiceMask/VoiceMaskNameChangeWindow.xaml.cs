@@ -224,12 +224,12 @@ public sealed partial class VoiceMaskNameChangeWindow : FancyWindow
         else
             _currentJobIconId = null;
 
-        if (_jobIconPrototypes == null || JobIconGrid.Children.Count == 0)
+        if (_jobIconPrototypes == null || JobIconGrid.ChildCount == 0)
             return;
 
-        for (var i = 0; i < JobIconGrid.Children.Count && i < _jobIconPrototypes.Count; i++)
+        for (var i = 0; i < JobIconGrid.ChildCount && i < _jobIconPrototypes.Count; i++)
         {
-            if (JobIconGrid.Children[i] is Button button)
+            if (JobIconGrid.GetChild(i) is Button button)
             {
                 button.Pressed = _currentJobIconId.HasValue && _jobIconPrototypes[i].ID == _currentJobIconId.Value.Id;
             }
