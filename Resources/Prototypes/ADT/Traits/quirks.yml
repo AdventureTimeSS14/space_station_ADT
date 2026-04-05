@@ -3,7 +3,7 @@
   name: trait-tall-name
   description: trait-tall-desc
   category: Quirks
-  cost: 1
+  cost: 0
   whitelist:
     components:
       - SizeAttributeWhitelist
@@ -21,7 +21,7 @@
   name: trait-short-name
   description: trait-short-desc
   category: Quirks
-  cost: 1
+  cost: 0
   whitelist:
     components:
       - SizeAttributeWhitelist
@@ -53,7 +53,7 @@
   name: trait-freerunning-name
   description: trait-freerunning-desc
   category: Quirks
-  cost: 2
+  cost: 1
   effects:
     - !type:AddCompsEffect
       components:
@@ -99,7 +99,7 @@
   name: trait-voracious-name
   description: trait-voracious-desc
   category: Quirks
-  cost: 2
+  cost: 1
   speciesBlacklist:
     - IPC
   effects:
@@ -127,7 +127,7 @@
   name: trait-disproportionate-name
   description: trait-disproportionate-desc
   category: Quirks
-  cost: 2
+  cost: 0
   speciesWhitelist:
     - IPC
   rewriteComponents: true
