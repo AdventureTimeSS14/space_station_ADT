@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: redmushie
-  changes:
-  - message: Fixed power sensors not respecting their configured network setting
-    type: Fix
-  id: 9108
-  time: '2025-10-16T12:38:04.0000000+00:00'
-  url: https://github.com/space-wizards/space-station-14/pull/40934
 - author: Quasr
   changes:
   - message: Sky blue fancy tables and curtains are now construct-able
@@ -4039,3 +4032,10 @@
   id: 9619
   time: '2026-04-05T15:17:21.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/43466
+- author: Princess-Cheeseballs
+  changes:
+  - message: Web vests have new more visible sprites.
+    type: Add
+  id: 9620
+  time: '2026-04-05T21:58:02.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/43486
