@@ -38,8 +38,6 @@ public sealed partial class VoiceMaskNameChangeWindow : FancyWindow
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IEntitySystemManager _entitySystemManager = default!;
     private SpriteSystem? _spriteSystem;
-
-    private const int JobIconColumnCount = 8;
     // ADT-Tweak end
 
     public VoiceMaskNameChangeWindow()
