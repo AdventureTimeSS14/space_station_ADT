@@ -144,6 +144,17 @@
   categories:
   - ADTUplinkERTWeapon
 
+- type: listing
+  id: ADTBoberSteelTonfa
+  name: boobr-steel-tonfa-name
+  description: boobr-steel-tonfa-desc
+  icon: { sprite: ADT/Objects/Weapons/Melee/steel_tonfa.rsi, state: icon-of }
+  productEntity: ADTWeaponTonfaSteel
+  cost:
+    Productunit: 4
+  categories:
+  - ADTUplinkERTWeapon
+
 #region ammo
 
 - type: listing
