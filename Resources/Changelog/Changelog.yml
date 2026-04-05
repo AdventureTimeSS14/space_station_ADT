@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: telavivgamers
-  changes:
-  - message: You may put ashes and matchsticks into ashtrays.
-    type: Tweak
-  id: 9104
-  time: '2025-10-15T12:38:14.0000000+00:00'
-  url: https://github.com/space-wizards/space-station-14/pull/40926
 - author: slarticodefast, Davyei
   changes:
   - message: You can now use parcelwrap on humanoids.
@@ -4035,3 +4028,11 @@
   id: 9615
   time: '2026-04-04T20:14:15.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/38712
+- author: Naxel
+  changes:
+  - message: Heavily optimized the radiation system to prevent severe server lag when
+      a large number of radiation sources are active.
+    type: Fix
+  id: 9616
+  time: '2026-04-05T04:53:47.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/39173
