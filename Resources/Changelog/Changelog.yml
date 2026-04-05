@@ -1,12 +1,4 @@
 ﻿Entries:
-- author: aada
-  changes:
-  - message: Grenade penguins have new AI. They won't bite your hand while holding
-      them, and hone in on a single target when released.
-    type: Tweak
-  id: 9106
-  time: '2025-10-15T23:59:05.0000000+00:00'
-  url: https://github.com/space-wizards/space-station-14/pull/34935
 - author: DinnerCalzone
   changes:
   - message: ID card sprites have been tweaked to unsquish their job icons.
@@ -4036,3 +4028,12 @@
   id: 9617
   time: '2026-04-05T05:36:30.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/43458
+- author: K-Dynamic
+  changes:
+  - message: Clowns may change their loadout to start with the honkmother mitre.
+    type: Add
+  - message: Renames robes of the honkmother to honkmother coat.
+    type: Tweak
+  id: 9618
+  time: '2026-04-05T10:17:20.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/35237
