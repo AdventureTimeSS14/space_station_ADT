@@ -96,12 +96,11 @@
   name: trait-sheltered-name
   description: trait-sheltered-desc
   category: Disabilities
-  cost: -4
+  cost: -2
   effects:
-    - !type:OverrideCompsEffect
-      components:
-        - type: LanguageSpeaker
-          languages: {}
+    - !type:RemoveLanguagesEffect
+      preserveLanguages:
+      - SignLanguage
   departmentBlacklist:
     - Command
     - Security
