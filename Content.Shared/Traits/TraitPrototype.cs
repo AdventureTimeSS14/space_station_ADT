@@ -101,6 +101,34 @@ public sealed partial class TraitPrototype : IPrototype
     [DataField]
     public List<ProtoId<SpeciesPrototype>> SpeciesWhitelist = new();
 
+    /// <summary>
+    /// Will not be selectable if current job equals any of these.
+    /// Checked during spawn when job is assigned.
+    /// </summary>
+    [DataField]
+    public List<ProtoId<JobPrototype>> JobBlacklist = new();
+
+    /// <summary>
+    /// Will ONLY be selectable if current job equals any of these.
+    /// Checked during spawn when job is assigned.
+    /// </summary>
+    [DataField]
+    public List<ProtoId<JobPrototype>> JobWhitelist = new();
+
+    /// <summary>
+    /// Will not be selectable if current job's department equals any of these.
+    /// Checked during spawn when job is assigned.
+    /// </summary>
+    [DataField]
+    public List<ProtoId<DepartmentPrototype>> DepartmentBlacklist = new();
+
+    /// <summary>
+    /// Will ONLY be selectable if current job's department equals any of these.
+    /// Checked during spawn when job is assigned.
+    /// </summary>
+    [DataField]
+    public List<ProtoId<DepartmentPrototype>> DepartmentWhitelist = new();
+
     [DataField]
     public bool Quirk = false;
 

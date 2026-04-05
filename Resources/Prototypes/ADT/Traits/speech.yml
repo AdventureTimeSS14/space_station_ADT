@@ -1,38 +1,31 @@
 - type: trait
-  id: DamagedThroat
-  name: trait-damaged-throat-name
-  description: trait-damaged-throat-desc
-  category: SpeechTraits
-  cost: -1
-  effects:
-    - !type:AddCompsEffect
-      components:
-        - type: DamagedThroat
-  speciesBlacklist:
-    - IPC
-    - NovakidSpecies
-
-- type: trait
-  id: NerdAccent
-  name: trait-nerd-accent-name
-  description: trait-nerd-accent-desc
-  category: SpeechTraits
-  cost: 0
-  effects:
-    - !type:AddCompsEffect
-      components:
-        - type: MumbleAccent
-
-- type: trait
   id: ChavAccent
   name: trait-chav-accent-name
   description: trait-chav-accent-desc
   category: SpeechTraits
-  cost: 0
+  cost: -2
   effects:
     - !type:AddCompsEffect
       components:
         - type: MumbleAccent
+  departmentBlacklist:
+    - Command
+    - Security
+    - CentcomSpecialists
+
+- type: trait
+  id: Hushed
+  name: trait-hushed-name
+  description: trait-hushed-desc
+  category: SpeechTraits
+  cost: -1
+  blacklist:
+    components:
+      - BorgChassis
+  effects:
+    - !type:AddCompsEffect
+      components:
+        - type: Hushed
 
 - type: trait
   id: ArchaicAccent
@@ -57,18 +50,42 @@
         - type: SlurredAccent
 
 - type: trait
-  id: Hushed
-  name: trait-hushed-name
-  description: trait-hushed-desc
+  id: MothAccent
+  name: trait-moth-accent-name
+  description: trait-moth-accent-desc
   category: SpeechTraits
-  cost: 0
-  blacklist:
-    components:
-      - BorgChassis
+  cost: 1
   effects:
     - !type:AddCompsEffect
       components:
-        - type: Hushed
+        - type: MothAccent
+  speciesBlacklist:
+    - Moth
+
+- type: trait
+  id: SickTeethAccent
+  name: trait-sick-teeth-accent-name
+  description: trait-sick-teeth-accent-desc
+  category: SpeechTraits
+  cost: 1
+  effects:
+    - !type:AddCompsEffect
+      components:
+        - type: SickTeethAccent
+  speciesBlacklist:
+    - IPC
+
+
+- type: trait
+  id: BurrinessAccent
+  name: trait-burriness-accent-name
+  description: trait-burriness-accent-desc
+  category: SpeechTraits
+  cost: 1
+  effects:
+    - !type:AddCompsEffect
+      components:
+        - type: BurrinessAccent
 
 - type: trait
   id: PseudobulbarAffect
@@ -96,36 +113,3 @@
             - Laugh
             - Scream
             - Crying
-
-- type: trait
-  id: MothAccent
-  name: trait-moth-accent-name
-  description: trait-moth-accent-desc
-  category: SpeechTraits
-  cost: 1
-  effects:
-    - !type:AddCompsEffect
-      components:
-        - type: MothAccent
-
-- type: trait
-  id: SickTeethAccent
-  name: trait-sick-teeth-accent-name
-  description: trait-sick-teeth-accent-desc
-  category: SpeechTraits
-  cost: 1
-  effects:
-    - !type:AddCompsEffect
-      components:
-        - type: SickTeethAccent
-
-- type: trait
-  id: BurrinessAccent
-  name: trait-burriness-accent-name
-  description: trait-burriness-accent-desc
-  category: SpeechTraits
-  cost: 1
-  effects:
-    - !type:AddCompsEffect
-      components:
-        - type: BurrinessAccent

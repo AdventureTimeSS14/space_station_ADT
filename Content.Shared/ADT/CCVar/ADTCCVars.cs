@@ -340,5 +340,16 @@ public sealed class ADTCCVars
     public static readonly CVarDef<bool> BiomeGenerationEnabled =
         CVarDef.Create("biome.generation_enabled", true, CVar.SERVERONLY);
 
+    /*
+     * Atmos
+     */
+
+    /// <summary>
+    /// Whether overpressure pipe damage is enabled.
+    /// When enabled, pipes with OverpressurePipeDamageComponent will take damage when pressure exceeds the limit.
+    /// </summary>
+    public static readonly CVarDef<bool> OverpressurePipeDamageEnabled =
+        CVarDef.Create("atmos.overpressure_pipe_damage_enabled", true, CVar.SERVERONLY);
+
 }
 

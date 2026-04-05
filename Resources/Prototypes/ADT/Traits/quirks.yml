@@ -35,23 +35,6 @@
           short: true
 
 - type: trait
-  id: Echolalia
-  name: trait-echolalia-name
-  description: trait-echolalia-desc
-  category: Quirks
-  cost: 0
-  effects:
-    - !type:AddCompsEffect
-      components:
-        - type: ActiveListener
-          range: 5
-        - type: ParrotSpeech
-          maximumPhraseLength: 24
-          minimumWait: 300
-          maximumWait: 900
-          learnChance: 0.1
-
-- type: trait
   id: SoftWalk
   name: trait-soft-walk-name
   description: trait-soft-walk-desc
@@ -140,17 +123,6 @@
           boozeStrengthMultiplier: 0.5
 
 - type: trait
-  id: Touchy
-  name: trait-touchy-name
-  description: trait-touchy-desc
-  category: Quirks
-  cost: -1
-  effects:
-    - !type:AddCompsEffect
-      components:
-        - type: Touchy
-
-- type: trait
   id: ADTDisproportionate
   name: trait-disproportionate-name
   description: trait-disproportionate-desc
@@ -158,27 +130,26 @@
   cost: 0
   speciesWhitelist:
     - IPC
-  effects:
-    - !type:AddCompsEffect
-      components:
-        - type: SuitSensor
-          onMob: true
-          sensorsTime: 6
-        - type: DeviceNetwork
-          deviceNetId: Wireless
-          transmitFrequencyId: SuitSensor
-          savableAddress: false
-        - type: WirelessNetworkConnection
-          range: 1200
-        - type: StationLimitedNetwork
-        - type: Inventory
-          templateId: ipcDisproportionate
-          displacements:
-            jumpsuit:
-              sizeMaps:
-                32:
-                  sprite: Mobs/Species/Human/displacement.rsi
-                  state: jumpsuit-female
+  rewriteComponents: true
+  components:
+  - type: SuitSensor
+    onMob: true
+    sensorsTime: 6
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    transmitFrequencyId: SuitSensor
+    savableAddress: false
+  - type: WirelessNetworkConnection
+    range: 1200
+  - type: StationLimitedNetwork
+  - type: Inventory
+    templateId: ipcDisproportionate
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Human/displacement.rsi
+            state: jumpsuit-female
 
 - type: trait
   id: ADTFemaleIPC
@@ -188,25 +159,24 @@
   cost: 0
   speciesWhitelist:
     - IPC
-  effects:
-    - !type:AddCompsEffect
-      components:
-        - type: Vocal
-          sounds:
-            Male: FemaleIPC
-            Female: FemaleIPC
-            Unsexed: FemaleIPC
-        - type: Tag
-          tags:
-            - CanPilot
-            - SiliconFootstepSound
-            - DoorBumpOpener
-            - ChangelingBlacklist
-            - ADTSiliconStealthWhitelist
-            - ADTSiliconEmotes
-            - ADTIgnoreChokeSpeechBlocking
-            - Unimplantable
-            - AnomalyHost
+  rewriteComponents: true
+  components:
+  - type: Vocal
+    sounds:
+      Male: FemaleIPC
+      Female: FemaleIPC
+      Unsexed: FemaleIPC
+  - type: Tag
+    tags:
+    - CanPilot
+    - SiliconFootstepSound
+    - DoorBumpOpener
+    - ChangelingBlacklist
+    - ADTSiliconStealthWhitelist
+    - ADTSiliconEmotes
+    - ADTIgnoreChokeSpeechBlocking
+    - Unimplantable
+    - AnomalyHost
 
 - type: trait
   id: ADTMaleIPC
@@ -216,22 +186,21 @@
   cost: 0
   speciesWhitelist:
     - IPC
-  effects:
-    - !type:AddCompsEffect
-      components:
-        - type: Vocal
-          sounds:
-            Male: MaleIPC
-            Female: MaleIPC
-            Unsexed: MaleIPC
-        - type: Tag
-          tags:
-            - CanPilot
-            - SiliconFootstepSound
-            - DoorBumpOpener
-            - ChangelingBlacklist
-            - ADTSiliconStealthWhitelist
-            - ADTSiliconEmotes
-            - ADTIgnoreChokeSpeechBlocking
-            - Unimplantable
-            - AnomalyHost
+  rewriteComponents: true
+  components:
+  - type: Vocal
+    sounds:
+      Male: MaleIPC
+      Female: MaleIPC
+      Unsexed: MaleIPC
+  - type: Tag
+    tags:
+    - CanPilot
+    - SiliconFootstepSound
+    - DoorBumpOpener
+    - ChangelingBlacklist
+    - ADTSiliconStealthWhitelist
+    - ADTSiliconEmotes
+    - ADTIgnoreChokeSpeechBlocking
+    - Unimplantable
+    - AnomalyHost
