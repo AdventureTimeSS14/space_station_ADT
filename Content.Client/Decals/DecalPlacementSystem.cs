@@ -187,7 +187,7 @@ public sealed class DecalPlacementSystem : EntitySystem
         CommandBinds.Unregister<DecalPlacementSystem>();
     }
 
-    public void UpdateDecalInfo(string id, Color color, float rotation, bool snap, int zIndex, bool cleanable, bool singleErase = false)
+    public void UpdateDecalInfo(string id, Color color, float rotation, bool snap, int zIndex, bool cleanable, bool singleErase = false) // ADT-Tweak
     {
         _decalId = id;
         _decalColor = color;
