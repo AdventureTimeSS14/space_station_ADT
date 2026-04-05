@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: DinnerCalzone
-  changes:
-  - message: ID card sprites have been tweaked to unsquish their job icons.
-    type: Tweak
-  id: 9107
-  time: '2025-10-16T03:35:01.0000000+00:00'
-  url: https://github.com/space-wizards/space-station-14/pull/40414
 - author: redmushie
   changes:
   - message: Fixed power sensors not respecting their configured network setting
@@ -4037,3 +4030,12 @@
   id: 9618
   time: '2026-04-05T10:17:20.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/35237
+- author: ScarKy0
+  changes:
+  - message: Cameras show as in-use when AI is nearby.
+    type: Add
+  - message: AI can no longer enable lights on cameras.
+    type: Remove
+  id: 9619
+  time: '2026-04-05T15:17:21.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/43466
