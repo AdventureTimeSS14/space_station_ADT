@@ -5,8 +5,11 @@ using Content.Shared.Damage;
 using Content.Server.NodeContainer.Nodes;
 using Content.Server.NodeContainer.NodeGroups;
 using Content.Shared.ADT.Atmos.EntityDamage.Components;
+using Content.Shared.ADT.CCVar;
 using Robust.Shared.Random;
 using Robust.Shared.GameObjects;
+using Robust.Shared.Configuration;
+using Robust.Shared.Timing;
 
 namespace Content.Server.ADT.Atmos.EntityDamage.Systems
 {
@@ -17,13 +20,33 @@ namespace Content.Server.ADT.Atmos.EntityDamage.Systems
     {
         [Dependency] private readonly DamageableSystem _damage = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
+        [Dependency] private readonly IConfigurationManager _cfg = default!;
+        [Dependency] private readonly IGameTiming _timing = default!;
+
+        private bool _enabled;
+
+        public override void Initialize()
+        {
+            base.Initialize();
+            Subs.CVar(_cfg, ADTCCVars.OverpressurePipeDamageEnabled, value => _enabled = value, true);
+        }
 
         public void Update(IPipeNet pipeNet)
         {
+            // Быстрая проверка: если система отключена, ничего не делаем
+            if (!_enabled)
+                return;
+
             foreach (var node in pipeNet.Nodes)
             {
-                if (node is PipeNode pipe)
-                    HandleOverpressure(pipe, pipeNet.Air);
+                if (node is not PipeNode pipe)
+                    continue;
+
+                // Валидность а где
+                if (Terminating(pipe.Owner))
+                    continue;
+
+                HandleOverpressure(pipe, pipeNet.Air);
             }
         }
 
@@ -39,6 +62,11 @@ namespace Content.Server.ADT.Atmos.EntityDamage.Systems
             if (comp.LimitPressure <= 0)
                 return;
 
+            // Проверка КД
+            var currentTime = (float)_timing.CurTime.TotalSeconds;
+            if (currentTime - comp.LastDamageTime < comp.Cooldown)
+                return;
+
             float pressure = netAir.Pressure;
             float limit = comp.LimitPressure;
             float over = pressure - limit;
@@ -47,19 +75,19 @@ namespace Content.Server.ADT.Atmos.EntityDamage.Systems
                 return;
 
             // Наносим урон с случайным шансом, чтобы труба не ломалась моментально.
-            float chance = 0.5f;
+            float chance = comp.BaseChance;
 
             if (EntityManager.TryGetComponent(pipe.Owner, out DamageableComponent? dmg) && dmg != null)
             {
                 float totalDamage = (float)dmg.TotalDamage;
-                chance = Math.Clamp(0.5f + totalDamage * 0.5f, 0f, 1f);
+                chance = Math.Clamp(comp.BaseChance + totalDamage * 0.5f, 0f, 1f);
             }
 
             if (_random.Prob(1 - chance))
                 return;
 
             // Чем больше давление - тем больше урона.
-            int dmgAmt = (int)(10f * MathF.Exp(over / limit));
+            int dmgAmt = (int)(comp.BaseDamage * MathF.Exp(over / limit));
             if (dmgAmt <= 0)
                 return;
 
@@ -67,6 +95,8 @@ namespace Content.Server.ADT.Atmos.EntityDamage.Systems
             spec.DamageDict["Structural"] = dmgAmt;
 
             _damage.TryChangeDamage(pipe.Owner, spec);
+
+            comp.LastDamageTime = currentTime;
         }
     }
 }

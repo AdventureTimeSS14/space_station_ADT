@@ -6,7 +6,7 @@
   name: trait-blindness-name
   description: trait-blindness-desc
   category: Disabilities
-  cost: -1
+  cost: -3
   whitelist:
     components:
       - Blindable
@@ -58,7 +58,7 @@
   name: trait-unrevivable-name
   description: trait-unrevivable-desc
   category: Disabilities
-  cost: -2
+  cost: -3
   effects:
     - !type:AddCompsEffect
       components:
@@ -81,7 +81,7 @@
   speciesBlacklist:
   - IPC
   - NovakidSpecies
-
+  - Vox
 - type: trait
   id: Paralyzed
   name: trait-paralyzed-name
@@ -174,7 +174,6 @@
   speciesBlacklist:
     - IPC
     - NovakidSpecies
-    - Shadekin
 
 - type: trait
   id: ImpairedMobility
