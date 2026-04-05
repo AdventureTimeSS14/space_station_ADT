@@ -113,6 +113,7 @@
         tableId: BasicAntagEventsTable
       - id: ParadoxCloneSpawn
       - id: SleeperAgents
+      - id: LoneOpsSpawn
       - id: VoxRaidersEvent
       - !type:NestedSelector
         tableId: DerelictBorgEventTable
