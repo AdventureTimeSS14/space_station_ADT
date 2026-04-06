@@ -11,4 +11,11 @@ public sealed partial class DamagedByContactComponent : Component
 
     [ViewVariables]
     public DamageSpecifier? Damage;
+
+    /// <summary>
+    /// The specific entity that is dealing damage on contact.
+    /// Used to properly remove this component when the source is deleted.
+    /// </summary>
+    [ViewVariables]
+    public EntityUid Source = EntityUid.Invalid;
 }
