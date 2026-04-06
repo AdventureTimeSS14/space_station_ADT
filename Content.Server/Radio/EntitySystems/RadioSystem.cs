@@ -3,6 +3,7 @@ using Content.Server.Access.Systems;
 using Content.Server.Administration.Logs;
 using Content.Server.Chat.Systems;
 using Content.Server.Power.Components;
+using Content.Server.Research.Components;
 using Content.Server.VoiceMask;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
@@ -16,6 +17,7 @@ using Content.Shared.Roles;
 using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Speech;
 using Content.Shared.StatusIcon;
+using Content.Shared.VendingMachines;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
@@ -321,6 +323,18 @@ public sealed class RadioSystem : EntitySystem
         {
             iconId = "JobIconStationAi";
             jobName = Loc.GetString("job-name-station-ai");
+        }
+
+        if (iconId == "JobIconNoId" && HasComp<ResearchConsoleComponent>(messageSource))
+        {
+            iconId = "JobIconMachine";
+            jobName = Loc.GetString("job-name-machine");
+        }
+
+        if (iconId == "JobIconNoId" && HasComp<VendingMachineComponent>(messageSource))
+        {
+            iconId = "JobIconMachine";
+            jobName = Loc.GetString("job-name-machine");
         }
 
         return (iconId, jobName ?? string.Empty);
