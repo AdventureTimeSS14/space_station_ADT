@@ -34,6 +34,7 @@ public sealed partial class TraitsTab : BoxContainer
 
     private string _currentSearchText = string.Empty;
     private bool _awaitingLayoutUpdate;
+    private bool _suppressTraitsChangedEvent;
 
     public TraitsTab()
     {
@@ -191,7 +192,7 @@ public sealed partial class TraitsTab : BoxContainer
     private void UpdateGlobalStats()
     {
         GlobalTraitCountLabel.Text = $"{_currentTraitCount} / {_maxGlobalTraits}";
-        
+
         // Calculate remaining points (clamped to not go below 0 in display)
         var remainingPoints = _maxGlobalPoints - _currentPointsSpent;
         GlobalPointsLabel.Text = $"{remainingPoints} / {_maxGlobalPoints}";
@@ -304,8 +305,8 @@ public sealed partial class TraitsTab : BoxContainer
             UpdateCategoryStats(categoryId);
         }
 
-        // Fire event if selection changed
-        if (!_selectedTraits.SetEquals(previouslySelected))
+        // Fire event if selection changed and not suppressed
+        if (!_suppressTraitsChangedEvent && !_selectedTraits.SetEquals(previouslySelected))
         {
             OnTraitsChanged?.Invoke(_selectedTraits);
         }
@@ -316,36 +317,47 @@ public sealed partial class TraitsTab : BoxContainer
     /// </summary>
     public void SetSelectedTraits(IEnumerable<ProtoId<TraitPrototype>> traits, HumanoidCharacterProfile? profile)
     {
-        // Clear current selection
-        foreach (var (_, categoryUi) in _categoryUis)
+        _suppressTraitsChangedEvent = true;
+
+        try
         {
-            categoryUi.ClearSelection();
-        }
-
-        _selectedTraits.Clear();
-        _currentTraitCount = 0;
-        _currentPointsSpent = 0;
-
-        // Apply new selection
-        foreach (var traitId in traits)
-        {
-            if (!_prototype.TryIndex(traitId, out var trait))
-                continue;
-
-            _selectedTraits.Add(traitId);
-            _currentTraitCount++;
-            _currentPointsSpent += trait.Cost;
-
-            if (_categoryUis.TryGetValue(trait.Category, out var categoryUi))
+            // Clear current selection
+            foreach (var (_, categoryUi) in _categoryUis)
             {
-                categoryUi.SetTraitSelected(traitId, true);
+                categoryUi.ClearSelection();
+            }
+
+            _selectedTraits.Clear();
+            _currentTraitCount = 0;
+            _currentPointsSpent = 0;
+
+            UpdateRequirements(profile, jobId: null);
+
+            // Apply new selection
+            foreach (var traitId in traits)
+            {
+                if (!_prototype.TryIndex(traitId, out var trait))
+                    continue;
+
+                _selectedTraits.Add(traitId);
+                _currentTraitCount++;
+                _currentPointsSpent += trait.Cost;
+
+                if (_categoryUis.TryGetValue(trait.Category, out var categoryUi))
+                {
+                    categoryUi.SetTraitSelected(traitId, true);
+                }
+            }
+
+            UpdateGlobalStats();
+            foreach (var (categoryId, _) in _categoryUis)
+            {
+                UpdateCategoryStats(categoryId);
             }
         }
-
-        UpdateGlobalStats();
-        foreach (var (categoryId, _) in _categoryUis)
+        finally
         {
-            UpdateCategoryStats(categoryId);
+            _suppressTraitsChangedEvent = false;
         }
     }
 }
