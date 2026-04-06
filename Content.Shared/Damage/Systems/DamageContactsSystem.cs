@@ -19,6 +19,44 @@ public sealed class DamageContactsSystem : EntitySystem
         base.Initialize();
         SubscribeLocalEvent<DamageContactsComponent, StartCollideEvent>(OnEntityEnter);
         SubscribeLocalEvent<DamageContactsComponent, EndCollideEvent>(OnEntityExit);
+        SubscribeLocalEvent<DamageContactsComponent, ComponentShutdown>(OnDamageContactShutdown); // ADT-Tweak
+        SubscribeLocalEvent<DamagedByContactComponent, MapInitEvent>(OnDamagedByContactMapInit); // ADT-Tweak
+    }
+
+    // ADT-Tweak start
+    private void OnDamageContactShutdown(Entity<DamageContactsComponent> ent, ref ComponentShutdown args)
+    {
+        var query = EntityQueryEnumerator<DamagedByContactComponent>();
+        while (query.MoveNext(out var damagedEnt, out _))
+        {
+            if (!HasActiveDamageContact(damagedEnt))
+            {
+                RemComp<DamagedByContactComponent>(damagedEnt);
+            }
+        }
+    }
+
+    private void OnDamagedByContactMapInit(Entity<DamagedByContactComponent> ent, ref MapInitEvent args)
+    {
+        if (!HasActiveDamageContact(ent))
+        {
+            RemComp<DamagedByContactComponent>(ent);
+        }
+    }
+
+    private bool HasActiveDamageContact(EntityUid uid)
+    {
+        if (!TryComp<PhysicsComponent>(uid, out var body))
+            return false;
+
+        var damageQuery = GetEntityQuery<DamageContactsComponent>();
+        foreach (var ent in _physics.GetContactingEntities(uid, body))
+        {
+            if (damageQuery.HasComponent(ent))
+                return true;
+        }
+        return false;
+    // ADT-Tweak end
     }
 
     public override void Update(float frameTime)
@@ -31,6 +69,15 @@ public sealed class DamageContactsSystem : EntitySystem
         {
             if (_timing.CurTime < damaged.NextSecond)
                 continue;
+
+            // ADT-Tweak start
+            if (!HasActiveDamageContact(ent))
+            {
+                RemComp<DamagedByContactComponent>(ent);
+                continue;
+            }
+            // ADT-Tweak end
+
             damaged.NextSecond = _timing.CurTime + TimeSpan.FromSeconds(1);
 
             if (damaged.Damage != null)
