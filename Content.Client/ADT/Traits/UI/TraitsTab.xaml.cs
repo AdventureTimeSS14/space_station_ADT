@@ -170,6 +170,13 @@ public sealed partial class TraitsTab : BoxContainer
         }
         else
         {
+            var pointsAfterDeselect = _currentPointsSpent - trait.Cost;
+            if (pointsAfterDeselect < 0)
+            {
+                RevertTraitToggle(traitId);
+                return;
+            }
+
             _selectedTraits.Remove(traitId);
             _currentTraitCount--;
             _currentPointsSpent -= trait.Cost;
