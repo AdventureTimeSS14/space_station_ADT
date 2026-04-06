@@ -13,6 +13,7 @@ public sealed partial class DamagedByContactComponent : Component
     public DamageSpecifier? Damage;
 
     /// <summary>
+    /// ADT-Tweak
     /// The specific entity that is dealing damage on contact.
     /// Used to properly remove this component when the source is deleted.
     /// </summary>

@@ -1,0 +1,117 @@
+using Content.Shared.Damage.Components;
+using Content.Shared.Whitelist;
+using Robust.Shared.Physics.Components;
+using Robust.Shared.Physics.Events;
+using Robust.Shared.Physics.Systems;
+using Robust.Shared.Timing;
+
+namespace Content.Shared.Damage.Systems;
+
+public sealed class DamageContactsSystem : EntitySystem
+{
+    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly DamageableSystem _damageable = default!;
+    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
+    [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
+
+    public override void Initialize()
+    {
+        base.Initialize();
+        SubscribeLocalEvent<DamageContactsComponent, StartCollideEvent>(OnEntityEnter);
+        SubscribeLocalEvent<DamageContactsComponent, EndCollideEvent>(OnEntityExit);
+        SubscribeLocalEvent<DamageContactsComponent, ComponentShutdown>(OnDamageContactShutdown); // ADT-Tweak
+        SubscribeLocalEvent<DamagedByContactComponent, MapInitEvent>(OnDamagedByContactMapInit); // ADT-Tweak
+    }
+
+    // ADT-Tweak start
+    private void OnDamageContactShutdown(Entity<DamageContactsComponent> ent, ref ComponentShutdown args)
+    {
+        var query = EntityQueryEnumerator<DamagedByContactComponent>();
+        while (query.MoveNext(out var damagedEnt, out var damaged))
+        {
+            if (damaged.Source == ent.Owner)
+            {
+                RemComp<DamagedByContactComponent>(damagedEnt);
+            }
+        }
+    }
+
+    private void OnDamagedByContactMapInit(Entity<DamagedByContactComponent> ent, ref MapInitEvent args)
+    {
+        if (ent.Comp.Source == EntityUid.Invalid || !Exists(ent.Comp.Source))
+        {
+            RemComp<DamagedByContactComponent>(ent);
+        }
+    }
+
+    private bool HasActiveDamageContact(EntityUid damagedUid, EntityUid sourceUid)
+    {
+        if (!TryComp<PhysicsComponent>(damagedUid, out var body))
+            return false;
+
+        var contactingEntities = _physics.GetContactingEntities(damagedUid, body);
+        return contactingEntities.Contains(sourceUid);
+    }
+    // ADT-Tweak end
+
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+
+        var query = EntityQueryEnumerator<DamagedByContactComponent>();
+
+        while (query.MoveNext(out var ent, out var damaged))
+        {
+            if (_timing.CurTime < damaged.NextSecond)
+                continue;
+
+            // ADT-Tweak start
+            if (damaged.Source == EntityUid.Invalid || !Exists(damaged.Source) || !HasActiveDamageContact(ent, damaged.Source))
+            {
+                RemComp<DamagedByContactComponent>(ent);
+                continue;
+            }
+            // ADT-Tweak end
+
+            damaged.NextSecond = _timing.CurTime + TimeSpan.FromSeconds(1);
+
+            if (damaged.Damage != null)
+                _damageable.TryChangeDamage(ent, damaged.Damage, interruptsDoAfters: false);
+        }
+    }
+
+    private void OnEntityExit(EntityUid uid, DamageContactsComponent component, ref EndCollideEvent args)
+    {
+        var otherUid = args.OtherEntity;
+
+        if (!TryComp<PhysicsComponent>(otherUid, out var body))
+            return;
+
+        var damageQuery = GetEntityQuery<DamageContactsComponent>();
+        foreach (var ent in _physics.GetContactingEntities(otherUid, body))
+        {
+            if (ent == uid)
+                continue;
+
+            if (damageQuery.HasComponent(ent))
+                return;
+        }
+
+        RemComp<DamagedByContactComponent>(otherUid);
+    }
+
+    private void OnEntityEnter(EntityUid uid, DamageContactsComponent component, ref StartCollideEvent args)
+    {
+        var otherUid = args.OtherEntity;
+
+        if (HasComp<DamagedByContactComponent>(otherUid))
+            return;
+
+        if (_whitelistSystem.IsWhitelistPass(component.IgnoreWhitelist, otherUid))
+            return;
+
+        var damagedByContact = EnsureComp<DamagedByContactComponent>(otherUid);
+        damagedByContact.Damage = component.Damage;
+        damagedByContact.Source = uid; // ADT-Tweak
+    }
+}
