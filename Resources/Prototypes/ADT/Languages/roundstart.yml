@@ -33,6 +33,9 @@
   roundstart: true
   uiColor: "#b34444"
   parent: BaseVocalLanguage
+  icon:
+    sprite: /Textures/ADT/Interface/Language.rsi
+    state: Arachnid
   speech: !type:Generic
     obfuscateSyllables: true
     color: "#b34444"
@@ -102,6 +105,9 @@
   roundstart: true
   uiColor: "#ff78e8"
   parent: BaseVocalLanguage
+  icon:
+    sprite: /Textures/ADT/Interface/Language.rsi
+    state: Nekomimetic
   speech: !type:Generic
     obfuscateSyllables: true
     color: "#ff78e8"
@@ -164,6 +170,9 @@
   roundstart: true
   uiColor: "#0ea600"
   parent: BaseVocalLanguage
+  icon:
+    sprite: /Textures/ADT/Interface/Language.rsi
+    state: Draconic
   speech: !type:Generic
     obfuscateSyllables: true
     color: "#0ea600"
@@ -262,6 +271,9 @@
   roundstart: true
   uiColor: "#ff9a3b"
   parent: BaseVocalLanguage
+  icon:
+    sprite: /Textures/ADT/Interface/Language.rsi
+    state: Canilunzt
   speech: !type:Generic
     obfuscateSyllables: true
     color: "#ff9a3b"
@@ -332,6 +344,9 @@
   roundstart: true
   uiColor: "#ff683b"
   parent: BaseVocalLanguage
+  icon:
+    sprite: /Textures/ADT/Interface/Language.rsi
+    state: SikTaj
   speech: !type:Generic
     obfuscateSyllables: true
     color: "#ff683b"
@@ -402,6 +417,9 @@
   roundstart: true
   uiColor: "#ffdd61"
   parent: BaseVocalLanguage
+  icon:
+    sprite: /Textures/ADT/Interface/Language.rsi
+    state: Nian
   speech: !type:Generic
     obfuscateSyllables: true
     color: "#ffdd61"
@@ -444,6 +462,9 @@
   roundstart: true
   uiColor: "#00fc65"
   parent: BaseVocalLanguage
+  icon:
+    sprite: /Textures/ADT/Interface/Language.rsi
+    state: SolCommon
   speech: !type:Generic
     obfuscateSyllables: true
     color: "#00fc65"
@@ -473,6 +494,9 @@
   roundstart: true
   uiColor: "#9faffc"
   parent: BaseVocalLanguage
+  icon:
+    sprite: /Textures/ADT/Interface/Language.rsi
+    state: BorgTalk
   speech: !type:Generic
     obfuscateSyllables: true
     color: "#9faffc"
@@ -493,6 +517,9 @@
   roundstart: true
   uiColor: "#0074c7"
   parent: BaseVocalLanguage
+  icon:
+    sprite: /Textures/ADT/Interface/Language.rsi
+    state: Drask
   speech: !type:Generic
     obfuscateSyllables: true
     color: "#0074c7"
@@ -522,6 +549,9 @@
   roundstart: true
   uiColor: "#b36b00"
   parent: BaseVocalLanguage
+  icon:
+    sprite: /Textures/ADT/Interface/Language.rsi
+    state: Urs
   speech: !type:Generic
     obfuscateSyllables: true
     color: "#b36b00"
@@ -557,6 +587,9 @@
   roundstart: true
   uiColor: "#e478ff"
   parent: BaseVocalLanguage
+  icon:
+    sprite: /Textures/ADT/Interface/Language.rsi
+    state: Arkane
   speech: !type:Generic
     obfuscateSyllables: true
     color: "#e478ff"
@@ -586,6 +619,9 @@
   roundstart: true
   uiColor: "#f5e238"
   parent: BaseVocalLanguage
+  icon:
+    sprite: /Textures/ADT/Interface/Language.rsi
+    state: Dwarf
   speech: !type:Generic
     obfuscateSyllables: true
     color: "#f5e238"
@@ -614,6 +650,9 @@
   roundstart: true
   uiColor: "#88d424"
   parent: BaseVocalLanguage
+  icon:
+    sprite: /Textures/ADT/Interface/Language.rsi
+    state: CintaTaj
   speech: !type:Generic
     obfuscateSyllables: true
     color: "#88d424"
@@ -768,6 +807,9 @@
   roundstart: true
   uiColor: "#0030db"
   parent: BaseVocalLanguage
+  icon:
+    sprite: /Textures/ADT/Interface/Language.rsi
+    state: Gutter
   speech: !type:Generic
     obfuscateSyllables: true
     color: "#0030db"
@@ -796,6 +838,9 @@
   roundstart: true
   uiColor: "#ff1212"
   parent: BaseVocalLanguage
+  icon:
+    sprite: /Textures/ADT/Interface/Language.rsi
+    state: NeoRusskiya
   speech: !type:Generic
     obfuscateSyllables: true
     color: "#ff1212"
@@ -808,6 +853,9 @@
   roundstart: true
   uiColor: "#fff700"
   parent: BaseVocalLanguage
+  icon:
+    sprite: /Textures/ADT/Interface/Language.rsi
+    state: Clownish
   speech: !type:Generic
     obfuscateSyllables: true
     color: "#fff700"
@@ -830,6 +878,9 @@
   roundstart: true
   uiColor: "#52ffcb"
   parent: BaseVocalLanguage
+  icon:
+    sprite: /Textures/ADT/Interface/Language.rsi
+    state: Scratches
   speech: !type:Generic
     obfuscateSyllables: true
     color: "#52ffcb"
@@ -843,6 +894,9 @@
   roundstart: true
   uiColor: "#00fc65"
   parent: BaseVocalLanguage
+  icon:
+    sprite: /Textures/ADT/Interface/Language.rsi
+    state: Elysian
   speech: !type:Generic
     obfuscateSyllables: true
     color: "#FFF575"

@@ -171,7 +171,12 @@ public sealed class RadioSystem : EntitySystem
             verbStrings = defaultStrings;
         // ADT Languages end
 
-        var nameWithIcon = WrapNameWithJobIcon(messageSource, name); // ADT-Tweak
+        // ADT-Tweak start
+        var (iconId, jobName) = GetJobIcon(messageSource);
+        var (langIconPath, langIconState) = GetLanguageIcon(language);
+
+        var nameWithIcons = BuildNameWithIcons(name, iconId, jobName, langIconPath, langIconState, language);
+        // ADT-Tweak end
 
         var wrappedMessage = Loc.GetString("chat-radio-message-wrap",   // ADT Languages tweak - remove bold
             ("color", channel.Color),
@@ -181,7 +186,7 @@ public sealed class RadioSystem : EntitySystem
             ("defaultFont", speech.FontId), // ADT Languages
             ("defaultSize", speech.FontSize),   // ADT Languages
             ("channel", $"\\[{channel.LocalizedName}\\]"),
-            ("name", nameWithIcon), // ADT-Tweak
+            ("name", nameWithIcons), // ADT-Tweak
             ("message", content));
 
         // ADT Languages start
@@ -193,7 +198,7 @@ public sealed class RadioSystem : EntitySystem
             ("defaultFont", speech.FontId),
             ("defaultSize", speech.FontSize),
             ("channel", $"\\[{channel.LocalizedName}\\]"),
-            ("name", nameWithIcon), // ADT-Tweak
+            ("name", nameWithIcons), // ADT-Tweak
             ("message", languageEncodedContent));
         // ADT Languages end
 
@@ -313,28 +318,23 @@ public sealed class RadioSystem : EntitySystem
             }
         }
 
-        if (iconId == "JobIconNoId" && HasComp<BorgChassisComponent>(messageSource))
+        if (iconId == "JobIconNoId")
         {
-            iconId = "JobIconBorg";
-            jobName = Loc.GetString("job-name-borg");
-        }
-
-        if (iconId == "JobIconNoId" && HasComp<StationAiHeldComponent>(messageSource))
-        {
-            iconId = "JobIconStationAi";
-            jobName = Loc.GetString("job-name-station-ai");
-        }
-
-        if (iconId == "JobIconNoId" && HasComp<ResearchConsoleComponent>(messageSource))
-        {
-            iconId = "JobIconMachine";
-            jobName = Loc.GetString("job-name-machine");
-        }
-
-        if (iconId == "JobIconNoId" && HasComp<VendingMachineComponent>(messageSource))
-        {
-            iconId = "JobIconMachine";
-            jobName = Loc.GetString("job-name-machine");
+            if (HasComp<BorgChassisComponent>(messageSource))
+            {
+                iconId = "JobIconBorg";
+                jobName = Loc.GetString("job-name-borg");
+            }
+            else if (HasComp<StationAiHeldComponent>(messageSource))
+            {
+                iconId = "JobIconStationAi";
+                jobName = Loc.GetString("job-name-station-ai");
+            }
+            else if (HasComp<ResearchConsoleComponent>(messageSource) || HasComp<VendingMachineComponent>(messageSource))
+            {
+                iconId = "JobIconMachine";
+                jobName = Loc.GetString("job-name-machine");
+            }
         }
 
         return (iconId, jobName ?? string.Empty);
@@ -372,6 +372,33 @@ public sealed class RadioSystem : EntitySystem
         var (iconId, jobName) = GetJobIcon(messageSource);
 
         jobName = FormattedMessage.EscapeText(jobName);
+
+        return Loc.GetString("chat-radio-name-with-job-icon",
+            ("iconId", iconId),
+            ("jobName", jobName),
+            ("name", name));
+    }
+
+    private (string? path, string? state) GetLanguageIcon(LanguagePrototype language)
+    {
+        if (language.Icon is SpriteSpecifier.Rsi rsi)
+        {
+            return (rsi.RsiPath.ToString(), rsi.RsiState);
+        }
+        return (null, null);
+    }
+
+    private string BuildNameWithIcons(string name, string iconId, string jobName, string? langIconPath, string? langIconState, LanguagePrototype language)
+    {
+        jobName = FormattedMessage.EscapeText(jobName);
+        var languageName = FormattedMessage.EscapeText(language.LocalizedName);
+
+        if (langIconPath != null && langIconState != null)
+        {
+            var jobIconTag = $"[icon src=\"{iconId}\" tooltip=\"{jobName}\"]";
+            var langIconTag = $"[icon src=\"{langIconPath}:{langIconState}\" tooltip=\"{languageName}\"]";
+            return $"{langIconTag} {jobIconTag} {name}";
+        }
 
         return Loc.GetString("chat-radio-name-with-job-icon",
             ("iconId", iconId),

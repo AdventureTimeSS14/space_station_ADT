@@ -1,0 +1,99 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "ADT Language Icons, created by Злыдень(DS ID 1003755531665686599)",
+
+    "size": {
+        "x": 8,
+        "y": 8
+    },
+    "states": [
+        {
+            "name": "Universal"
+        },
+        {
+            "name": "CodeSpeak"
+        },
+        {
+            "name": "SignLanguage"
+        },
+        {
+            "name": "Arachnid"
+        },
+        {
+            "name": "Arkane"
+        },
+        {
+            "name": "BorgTalk"
+        },
+        {
+            "name": "Bubblish"
+        },
+        {
+            "name": "Canilunzt"
+        },
+        {
+            "name": "CintaTaj"
+        },
+        {
+            "name": "Clownish"
+        },
+        {
+            "name": "Draconic"
+        },
+        {
+            "name": "Drask"
+        },
+        {
+            "name": "Dwarf"
+        },
+        {
+            "name": "Elysian"
+        },
+        {
+            "name": "Fire"
+        },
+        {
+            "name": "GalacticCommon"
+        },
+        {
+            "name": "Gutter"
+        },
+        {
+            "name": "Mar"
+        },
+        {
+            "name": "Nekomimetic"
+        },
+        {
+            "name": "NeoRusskiya"
+        },
+        {
+            "name": "Nian"
+        },
+        {
+            "name": "RobotTalk"
+        },
+        {
+            "name": "RootSpeak"
+        },
+        {
+            "name": "Scratches"
+        },
+        {
+            "name": "Shadekin"
+        },
+        {
+            "name": "SikTaj"
+        },
+        {
+            "name": "SolCommon"
+        },
+        {
+            "name": "Urs"
+        },
+        {
+            "name": "VoxPidgin"
+        }
+    ]
+}

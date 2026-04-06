@@ -11,6 +11,9 @@
   id: CodeSpeak
   uiColor: Crimson
   parent: BaseVocalLanguage
+  icon:
+    sprite: /Textures/ADT/Interface/Language.rsi
+    state: CodeSpeak
   speech: !type:Generic
     obfuscateSyllables: true
     color: Crimson
@@ -327,6 +330,9 @@
   roundstart: true
   uiColor: White
   parent: BaseEmoteLanguage
+  icon:
+    sprite: /Textures/ADT/Interface/Language.rsi
+    state: SignLanguage
   speech: !type:Emotes
     color: White
     whisperColor: White

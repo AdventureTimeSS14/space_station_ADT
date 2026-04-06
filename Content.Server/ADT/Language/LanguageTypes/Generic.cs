@@ -107,9 +107,13 @@ public sealed partial class Generic : ILanguageType
 
         name = FormattedMessage.EscapeText(name);
 
+        // ADT-Tweak start
+        var nameWithIcon = BuildNameWithLanguageIcon(name, entMan);
+        // ADT-Tweak end
+
         // Build messages
         var wrappedMessage = Loc.GetString(verb.Bold && Font == null ? "chat-manager-entity-say-bold-wrap-message" : "chat-manager-entity-say-wrap-message",
-            ("entityName", name),
+            ("entityName", nameWithIcon), // ADT-Tweak
             ("verb", Loc.GetString(random.Pick(verbStrings))),
             ("fontType", font),
             ("fontSize", fontSize),
@@ -118,7 +122,7 @@ public sealed partial class Generic : ILanguageType
             ("message", coloredMessage));
 
         var wrappedLanguageMessage = Loc.GetString(verb.Bold && Font == null ? "chat-manager-entity-say-bold-wrap-message" : "chat-manager-entity-say-wrap-message",
-            ("entityName", name),
+            ("entityName", nameWithIcon), // ADT-Tweak
             ("verb", Loc.GetString(random.Pick(verbStrings))),
             ("fontType", font),
             ("fontSize", fontSize),
@@ -158,8 +162,12 @@ public sealed partial class Generic : ILanguageType
 
         name = FormattedMessage.EscapeText(name);
 
+        // ADT-Tweak start
+        var nameWithIcon = BuildNameWithLanguageIcon(name, entMan);
+        // ADT-Tweak end
+
         var wrappedMessage = Loc.GetString("chat-manager-entity-whisper-wrap-message",
-            ("entityName", name),
+            ("entityName", nameWithIcon), // ADT-Tweak
             ("fontType", Font ?? "NotoSansDisplayItalic"),
             ("fontSize", FontSize ?? 11),
             ("defaultFont", "NotoSansDisplayItalic"),
@@ -167,7 +175,7 @@ public sealed partial class Generic : ILanguageType
             ("message", accentMessage));
 
         var wrappedobfuscatedMessage = Loc.GetString("chat-manager-entity-whisper-wrap-message",
-            ("entityName", nameIdentity),
+            ("entityName", nameWithIcon), // ADT-Tweak
             ("fontType", Font ?? "NotoSansDisplayItalic"),
             ("fontSize", FontSize ?? 11),
             ("defaultFont", "NotoSansDisplayItalic"),
@@ -207,4 +215,24 @@ public sealed partial class Generic : ILanguageType
                         wrappedLanguageMessage, wrappedobfuscatedLanguageMessage, wrappedUnknownLanguageMessage);
         success = true;
     }
+
+    // ADT-Tweak start
+    private string BuildNameWithLanguageIcon(string name, IEntityManager entMan)
+    {
+        var langSystem = entMan.System<SharedLanguageSystem>();
+        var langProto = langSystem.GetLanguage(Language);
+        var languageIconName = FormattedMessage.EscapeText(langProto.LocalizedName);
+
+        if (langProto.Icon is SpriteSpecifier.Rsi rsi)
+        {
+            return Loc.GetString("chat-language-name-with-icon",
+                ("iconPath", rsi.RsiPath.ToString()),
+                ("iconState", rsi.RsiState),
+                ("iconName", languageIconName),
+                ("name", name));
+        }
+
+        return name;
+    }
+    // ADT-Tweak end
 }

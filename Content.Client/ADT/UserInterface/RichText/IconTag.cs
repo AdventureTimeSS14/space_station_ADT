@@ -32,13 +32,27 @@ public sealed class IconTag : IMarkupTag
 
         _spriteSystem ??= _entitySystem.GetEntitySystem<SpriteSystem>();
 
-        if (!_prototype.TryIndex<JobIconPrototype>(id.StringValue, out var jobProto))
-            return false;
-
-        var spec = jobProto.Icon;
-        var enableJobAnim = _cfg.GetCVar(ADTCCVars.EnableJobIconAnimation);
-
-        control = CreateIconControl(spec, enableJobAnim);
+        if (_prototype.TryIndex<JobIconPrototype>(id.StringValue, out var jobProto))
+        {
+            var spec = jobProto.Icon;
+            var enableJobAnim = _cfg.GetCVar(ADTCCVars.EnableJobIconAnimation);
+            control = CreateIconControl(spec, enableJobAnim);
+        }
+        else
+        {
+            var parts = id.StringValue.Split(':');
+            if (parts.Length == 2)
+            {
+                var spritePath = parts[0];
+                var stateName = parts[1];
+                var spec = new SpriteSpecifier.Rsi(new ResPath(spritePath), stateName);
+                control = CreateStaticIcon(spec);
+            }
+            else
+            {
+                return false;
+            }
+        }
 
         if (control != null && node.Attributes.TryGetValue("tooltip", out var tooltip) && tooltip.StringValue != null)
             control.ToolTip = tooltip.StringValue;
@@ -54,13 +68,13 @@ public sealed class IconTag : IMarkupTag
 
             if (state.IsAnimated && enableAnimation)
                 return CreateAnimatedIcon(spec);
-
-            return CreateStaticIcon(spec);
         }
         catch
         {
-            return CreateStaticIconSafe(spec);
+            // Fall back to static icon on any error
         }
+
+        return CreateStaticIcon(spec);
     }
 
     private static AnimatedTextureRect CreateAnimatedIcon(SpriteSpecifier spec)
@@ -74,13 +88,7 @@ public sealed class IconTag : IMarkupTag
         return anim;
     }
 
-    private TextureRect CreateStaticIcon(SpriteSpecifier spec)
-    {
-        var texture = _spriteSystem!.Frame0(spec);
-        return CreateTextureControl(texture);
-    }
-
-    private TextureRect? CreateStaticIconSafe(SpriteSpecifier spec)
+    private TextureRect? CreateStaticIcon(SpriteSpecifier spec)
     {
         try
         {

@@ -3,6 +3,9 @@
   id: RootSpeak
   uiColor: "#76ff61"
   parent: BaseVocalLanguage
+  icon:
+    sprite: /Textures/ADT/Interface/Language.rsi
+    state: RootSpeak
   speech: !type:Emotes
     color: "#76ff61"
     whisperColor: "#7fc474"
@@ -20,6 +23,9 @@
   id: Bubblish
   uiColor: "#61daff"
   parent: BaseVocalLanguage
+  icon:
+    sprite: /Textures/ADT/Interface/Language.rsi
+    state: Bubblish
   speech: !type:Emotes
     color: "#61daff"
     whisperColor: "#5f9db0"
@@ -37,6 +43,9 @@
   id: Fire
   uiColor: "#ff6a00"
   parent: BaseVocalLanguage
+  icon:
+    sprite: /Textures/ADT/Interface/Language.rsi
+    state: Fire
   speech: !type:Emotes
     color: "#ff6a00"
     whisperColor: "#e0894a"
@@ -55,6 +64,9 @@
   id: Mar
   uiColor: "#9000ff"
   parent: BaseVocalLanguage
+  icon:
+    sprite: /Textures/ADT/Interface/Language.rsi
+    state: Mar
   speech: !type:Generic
     replaceEntireMessage: true
     color: "#9000ff"
@@ -69,6 +81,9 @@
   id: VoxPidgin
   uiColor: "#419167"
   parent: BaseVocalLanguage
+  icon:
+    sprite: /Textures/ADT/Interface/Language.rsi
+    state: VoxPidgin
   speech: !type:Generic
     obfuscateSyllables: true
     color: "#419167"
@@ -112,6 +127,9 @@
   id: RobotTalk
   uiColor: "#5773ff"
   parent: BaseVocalLanguage
+  icon:
+    sprite: /Textures/ADT/Interface/Language.rsi
+    state: RobotTalk
   speech: !type:Generic
     obfuscateSyllables: true
     color: "#5773ff"

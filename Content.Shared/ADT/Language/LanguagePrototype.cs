@@ -1,6 +1,7 @@
 using System.Linq;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Array;
+using Robust.Shared.Utility;
 
 namespace Content.Shared.ADT.Language;
 
@@ -33,6 +34,11 @@ public sealed class LanguagePrototype : IPrototype, IInheritingPrototype
 
     [DataField]
     public Color? UiColor;
+
+    // ADT-Tweak start
+    [DataField]
+    public SpriteSpecifier? Icon;
+    // ADT-Tweak end
 
     public ILanguageType LanguageType
     {
