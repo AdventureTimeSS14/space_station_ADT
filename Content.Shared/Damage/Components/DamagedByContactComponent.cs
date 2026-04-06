@@ -14,9 +14,9 @@ public sealed partial class DamagedByContactComponent : Component
 
     /// <summary>
     /// ADT-Tweak
-    /// The specific entity that is dealing damage on contact.
-    /// Used to properly remove this component when the source is deleted.
+    /// Set of entities that are dealing damage on contact.
+    /// Using a set to properly handle multiple simultaneous damage sources.
     /// </summary>
     [ViewVariables]
-    public EntityUid Source = EntityUid.Invalid;
+    public HashSet<EntityUid> Sources = new();
 }
