@@ -14,6 +14,7 @@
   storage:
     back:
     - ClothingHeadHatFlowerWreath
+  groupBy: "flowerwreath" #ADT-Tweak
 
 - type: loadout
   id: Hairflower

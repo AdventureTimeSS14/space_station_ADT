@@ -1,0 +1,9 @@
+- type: trait
+  id: Civilian
+  name: trait-background-civilian-name
+  description: trait-background-civilian-description
+  category: BackgroundTraits
+  cost: 0
+  effects:
+    - !type:BackgroundEffect
+      background: Civilian

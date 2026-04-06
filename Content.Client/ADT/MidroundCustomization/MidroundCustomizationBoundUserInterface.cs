@@ -22,6 +22,7 @@ public sealed class MidroundCustomizationBoundUserInterface : BoundUserInterface
         _window.OnSlotColorChanged += args => SendMessage(new MidroundCustomizationChangeColorMessage(args.Category, args.Colors, args.Slot));
         _window.OnSlotAdded += args => SendMessage(new MidroundCustomizationAddSlotMessage(args));
         _window.OnSlotRemoved += args => SendMessage(new MidroundCustomizationRemoveSlotMessage(args.Category, args.Slot));
+        _window.OnPointLightColorToggled += enabled => SendMessage(new MidroundCustomizationPointLightColorToggleMessage(enabled));
 
         _window.OnVoiceChanged += voiceId => SendMessage(new MidroundCustomizationChangeVoiceMessage(voiceId, voiceId));
         _window.OnBarkProtoChanged += proto => SendMessage(new MidroundCustomizationChangeBarkProtoMessage(proto));

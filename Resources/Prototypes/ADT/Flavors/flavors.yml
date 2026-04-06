@@ -456,3 +456,13 @@
   id: ADTNigiriFlavor
   flavorType: Base
   description: flavor-base-nigiri
+
+- type: flavor
+  id: ADTCakeBananaBoomFlavor
+  flavorType: Base
+  description: flavor-base-adtcake-bananaboom
+
+- type: flavor
+  id: ADTChakChakFlavor
+  flavorType: Base
+  description: flavor-base-adtchak-chak

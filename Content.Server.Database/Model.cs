@@ -451,7 +451,7 @@ namespace Content.Server.Database
         public float HighBarkVar { get; set; } = 0.5f; // ADT Barks
         [Column(TypeName = "jsonb")] public JsonDocument? Markings { get; set; } = null!;
         public string HairName { get; set; } = null!;
-        public string HairColor { get; set; } = null!;
+        [Column(TypeName = "json")] public string HairColor { get; set; } = null!; // ADT-Tweak Hair Color Gradient
         public string FacialHairName { get; set; } = null!;
         public string FacialHairColor { get; set; } = null!;
         public string EyeColor { get; set; } = null!;

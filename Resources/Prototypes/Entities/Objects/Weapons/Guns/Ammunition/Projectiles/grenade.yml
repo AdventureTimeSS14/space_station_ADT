@@ -26,6 +26,12 @@
   categories: [ HideSpawnMenu ]
   parent: BaseBullet
   components:
+  # ADT-Tweak-Start
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+    - state: buckshot
+  # ADT-Tweak-End
   - type: Projectile
     deleteOnCollide: false
     damage:
@@ -40,6 +46,12 @@
   categories: [ HideSpawnMenu ]
   parent: BaseBulletIncendiary
   components:
+  # ADT-Tweak-Start
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Projectiles/shotgun-ammo.rsi
+    layers:
+    - state: buckshot-incendiary
+  # ADT-Tweak-End
   - type: Projectile
     deleteOnCollide: false
     damage:

@@ -83,10 +83,10 @@
     path: /Audio/ADT/Jukebox/lateraligator.ogg
 
 - type: jukebox
-  id: SCMJ
-  name: Smooth Criminal - Michael Jackson
+  id: MJSC
+  name: Michael Jackson - Smooth Criminal
   path:
-    path: /Audio/ADT/Jukebox/SCMJ.ogg
+    path: /Audio/ADT/Jukebox/MJSC.ogg
 
 - type: jukebox
   id: ESCPMidnightRoom
@@ -225,6 +225,42 @@
   name: Home - We're Finally Landing
   path:
     path: /Audio/ADT/Lobby/Home_-_Were_Finally_Landing.ogg
+
+- type: jukebox
+  id: CCTRFKAP
+  name: Chris Christodoulou - The Rain Formerly Known as Purple
+  path:
+    path: /Audio/ADT/Jukebox/CCTRFKAP.ogg
+
+- type: jukebox
+  id: CCCLP
+  name: Chris Christodoulou - …con lentitud poderosa
+  path:
+    path: /Audio/ADT/Jukebox/CCCLP.ogg
+
+- type: jukebox
+  id: MJB
+  name: Michael Jackson - Bad
+  path:
+    path: /Audio/ADT/Jukebox/MJB.ogg
+
+- type: jukebox
+  id: GTBTTB
+  name: George Thorogood - Bad To The Bone
+  path:
+    path: /Audio/ADT/Jukebox/GTBTTB.ogg
+
+- type: jukebox
+  id: ACDCBIB
+  name: "AC/DC - Back In Black"
+  path:
+    path: /Audio/ADT/Jukebox/ACDCBIB.ogg
+
+- type: jukebox
+  id: ACDCHTH
+  name: "AC/DC - Highway To Hell"
+  path:
+    path: /Audio/ADT/Jukebox/ACDCHTH.ogg
 
 # START 9 МАЯ
 # - type: jukebox

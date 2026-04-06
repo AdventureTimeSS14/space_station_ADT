@@ -31,6 +31,7 @@
   - HoPJumpsuit
   - HoPBackpack
   - HoPOuterClothing
+  - ADTHoPShoes #ADT-Tweak
   - Glasses
   # ADT underwear tweak start
   - ADTTopHOP
@@ -95,6 +96,7 @@
   - CommonBackpack
   - ADTBartenderGloves #ADT-tweak
   - BartenderOuterClothing
+  - ADTBartenderShoes #ADT-Tweak
   - Glasses
   - ADTBartenderPDA # ADT tweak
   # ADT underwear tweak start
@@ -116,6 +118,7 @@
   - ADTServiceWorkerJumpsuit #ADT-tweak
   - CommonBackpack
   - ADTServiceWorkerGloves #ADT-tweak
+  - ADTServiceWorkerShoes #ADT-Tweak
   - Glasses
   - ADTServiceWorkerPDA # ADT tweak
   # ADT underwear tweak start
@@ -139,8 +142,9 @@
   - ChefMask
   - ChefJumpsuit
   - CommonBackpack
-  - ADTChefGloves # ADT-Tweak
   - ChefOuterClothing
+  - ADTChefGloves # ADT-Tweak
+  - ADTChefShoes #ADT-Tweak
   - Glasses
   # ADT-Tweak-Start
   - ADTChefPocket1
@@ -211,6 +215,7 @@
   - ChaplainJumpsuit
   - CommonBackpack
   - ChaplainOuterClothing
+  - ADTChaplainShoes #ADT-Tweak
   - ChaplainBible
   - Glasses
   - ADTChaplainPDA # ADT tweak
@@ -261,6 +266,7 @@
   - BotanistOuterClothing
   - Glasses
   - ADTBotanistPDA # ADT tweak
+  - ADTBotanistShoes #ADT-Tweak
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom
@@ -310,6 +316,7 @@
   - MimeJumpsuit
   - MimeBackpack
   - MimeOuterClothing
+  - ADTMimeShoes #ADT-Tweak
   - MimeBelt
   - Glasses
   # ADT underwear tweak start
@@ -846,6 +853,7 @@
   - CommonBackpack
   - Glasses
   - ADTReporterPDA #ADT-tweak
+  - ADTReporterShoes #ADT-Tweak
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom
@@ -866,6 +874,7 @@
   - MedicalBackpack
   - Glasses
   - ADTPsychologistPDA # ADT tweak
+  - ADTPsychologistShoes #ADT-Tweak
   # ADT underwear tweak start
   - ADTTop
   - ADTBottom

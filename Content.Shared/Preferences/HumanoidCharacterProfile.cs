@@ -1,6 +1,7 @@
 using System.Linq;
 using System.Text.RegularExpressions;
 using Content.Shared.ADT.CCVar;
+using Content.Shared.ADT.CharecterFlavor;
 using Content.Shared.ADT.Language;
 using Content.Shared.ADT.SpeechBarks;
 using Content.Shared.CCVar;
@@ -85,7 +86,18 @@ namespace Content.Shared.Preferences
         /// ссылка на хэдшот персонажа
         /// </summary>
         [DataField]
-        public string HeadshotUrl { get; set; } = string.Empty;
+        public string HeadshotUrl { get; private set; } = string.Empty;
+
+        /// <summary>
+        /// Установить URL хэдшота с валидацией.
+        /// Валидация происходит один раз при установке, а не при каждом спавне.
+        /// </summary>
+        public void SetHeadshotUrl(string url, string allowedDomain)
+        {
+            HeadshotUrl = HeadshotHashHelper.IsValidHeadshotUrl(url, allowedDomain)
+                ? url
+                : string.Empty;
+        }
         //ADT-tweak-end
 
         /// <summary>
@@ -508,44 +520,38 @@ namespace Content.Shared.Preferences
 
         public HumanoidCharacterProfile WithTraitPreference(ProtoId<TraitPrototype> traitId, IPrototypeManager protoManager)
         {
-            // null category is assumed to be default.
             if (!protoManager.TryIndex(traitId, out var traitProto))
                 return new(this);
 
             var category = traitProto.Category;
 
             // Category not found so dump it.
-            TraitCategoryPrototype? traitCategory = null;
-
-            if (category != null && !protoManager.Resolve(category, out traitCategory))
+            if (!protoManager.Resolve(category, out var traitCategory)) // ADT-Tweak new Traits
                 return new(this);
 
             var list = new HashSet<ProtoId<TraitPrototype>>(_traitPreferences) { traitId };
 
-            if (traitCategory == null || traitCategory.MaxTraitPoints < 0)
+            // Check category points limit if applicable
+             // ADT-Tweak start new Traits - система полностью переписана
+            if (traitCategory.MaxPoints.HasValue) 
             {
-                return new(this)
+                var count = 0;
+                foreach (var trait in list)
                 {
-                    _traitPreferences = list,
-                };
-            }
+                    // If trait not found or another category don't count its points.
+                    if (!protoManager.TryIndex<TraitPrototype>(trait, out var otherProto) ||
+                        otherProto.Category != category)
+                    {
+                        continue;
+                    }
 
-            var count = 0;
-            foreach (var trait in list)
-            {
-                // If trait not found or another category don't count its points.
-                if (!protoManager.TryIndex<TraitPrototype>(trait, out var otherProto) ||
-                    otherProto.Category != traitCategory)
-                {
-                    continue;
+                    count += otherProto.Cost;
                 }
 
-                count += otherProto.Cost;
-            }
-
-            if (count > traitCategory.MaxTraitPoints && traitProto.Cost != 0)
-            {
-                return new(this);
+                if (count > traitCategory.MaxPoints.Value && traitProto.Cost != 0)
+                {
+                    return new(this);
+                }
             }
 
             return new(this)
@@ -553,6 +559,7 @@ namespace Content.Shared.Preferences
                 _traitPreferences = list,
             };
         }
+         // ADT-Tweak end new Traits
 
         public HumanoidCharacterProfile WithoutTraitPreference(ProtoId<TraitPrototype> traitId, IPrototypeManager protoManager)
         {
@@ -694,20 +701,6 @@ namespace Content.Shared.Preferences
             {
                 oocNotes = FormattedMessage.RemoveMarkupOrThrow(oocNotes);
             }
-
-            string headshoturl = HeadshotUrl;
-            var allowedDomain = configManager.GetCVar(ADTCCVars.HeadshotDomain);
-
-            // Простая проверка URL
-            if (string.IsNullOrWhiteSpace(headshoturl) ||
-                headshoturl.Length > 500 ||
-                !(headshoturl.StartsWith("http://", StringComparison.OrdinalIgnoreCase) ||
-                headshoturl.StartsWith("https://", StringComparison.OrdinalIgnoreCase)) ||
-                !headshoturl.Contains(allowedDomain, StringComparison.OrdinalIgnoreCase))
-            {
-                headshoturl = string.Empty;
-            }
-            //максимальная длина ООЦ заметок не больше чем длина флавора
             //ADT-tweak-end
 
             var appearance = HumanoidCharacterAppearance.EnsureValid(Appearance, Species, Sex, sponsorPrototypes);
@@ -760,7 +753,7 @@ namespace Content.Shared.Preferences
             FlavorText = flavortext;
             //ADT-tweak-start
             OOCNotes = oocNotes;
-            HeadshotUrl = headshoturl;
+            // HeadshotUrl уже валидирован при установке через SetHeadshotUrl
             //ADT-tweak-end
             Age = age;
             Sex = sex;
@@ -834,8 +827,8 @@ namespace Content.Shared.Preferences
         /// </summary>
         public List<ProtoId<TraitPrototype>> GetValidTraits(IEnumerable<ProtoId<TraitPrototype>> traits, IPrototypeManager protoManager)
         {
-            // Track points count for each group.
-            var groups = new Dictionary<string, int>();
+            // Track points count for each category.
+            var groups = new Dictionary<ProtoId<TraitCategoryPrototype>, int>();
             var result = new List<ProtoId<TraitPrototype>>();
 
             foreach (var trait in traits)
@@ -843,33 +836,26 @@ namespace Content.Shared.Preferences
                 if (!protoManager.TryIndex(trait, out var traitProto))
                     continue;
 
-                // Always valid.
-                if (traitProto.Category == null)
+                var category = traitProto.Category;
+
+                // No category so skip it.
+                if (!protoManager.Resolve(category, out var traitCategory))
+                    continue;
+
+                // Always valid if no category limit.
+                if (!traitCategory.MaxPoints.HasValue)
                 {
                     result.Add(trait);
                     continue;
                 }
 
-                // No category so dump it.
-                if (!protoManager.Resolve(traitProto.Category, out var category))
-                    continue;
-
-                // ADT-Tweak start
-                if (category.MaxTraitPoints < 0)
-                {
-                    result.Add(trait);
-                    continue;
-                }
-
-                var total = groups.GetOrNew(category.ID);
+                var total = groups.GetOrNew(category);
                 var newTotal = total + traitProto.Cost;
-                // Ganimed edit trait points end
 
-                if (newTotal > category.MaxTraitPoints)
-                // ADT-Tweak end
+                if (newTotal > traitCategory.MaxPoints.Value)
                     continue;
 
-                groups[category.ID] = newTotal; //  ADT-Tweak trait points
+                groups[category] = newTotal;
                 result.Add(trait);
             }
 

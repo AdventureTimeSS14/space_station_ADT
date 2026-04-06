@@ -48,6 +48,12 @@
         {"name": "slime-inhand-right", "directions": 4},
         {"name": "spaceman"},
         {"name": "spaceman-inhand-left", "directions": 4},
-        {"name": "spaceman-inhand-right", "directions": 4}
+        {"name": "spaceman-inhand-right", "directions": 4},
+        {"name": "bananaboom"},
+        {"name": "bananaboom-inhand-left", "directions": 4},
+        {"name": "bananaboom-inhand-right", "directions": 4},
+        {"name": "bananaboom-slice"},
+        {"name": "bananaboom-slice-inhand-left", "directions": 4},
+        {"name": "bananaboom-slice-inhand-right", "directions": 4}
     ]
 }

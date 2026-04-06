@@ -300,6 +300,24 @@ public sealed class ADTCCVars
     public static readonly CVarDef<string> HeadshotDomain =
         CVarDef.Create("ic.headshot_domain", "i.pinimg.com", CVar.SERVER | CVar.REPLICATED);
 
+    /// <summary>
+    /// Maximum size of headshot images in bytes (default: 5MB).
+    /// </summary>
+    public static readonly CVarDef<int> HeadshotMaxSize =
+        CVarDef.Create("ic.headshot_max_size", 5 * 1024 * 1024, CVar.SERVER);
+
+    /// <summary>
+    /// Headshot cache duration in minutes (default: 30 minutes).
+    /// </summary>
+    public static readonly CVarDef<float> HeadshotCacheDuration =
+        CVarDef.Create("ic.headshot_cache_duration", 30f, CVar.SERVER);
+
+    /// <summary>
+    /// Maximum number of headshot images in cache (default: 100).
+    /// </summary>
+    public static readonly CVarDef<int> HeadshotMaxCacheCount =
+        CVarDef.Create("ic.headshot_max_cache_count", 100, CVar.SERVER);
+
     /*
     * Fix PoolManager. Cvars
     */
@@ -321,6 +339,17 @@ public sealed class ADTCCVars
     /// </summary>
     public static readonly CVarDef<bool> BiomeGenerationEnabled =
         CVarDef.Create("biome.generation_enabled", true, CVar.SERVERONLY);
+
+    /*
+     * Atmos
+     */
+
+    /// <summary>
+    /// Whether overpressure pipe damage is enabled.
+    /// When enabled, pipes with OverpressurePipeDamageComponent will take damage when pressure exceeds the limit.
+    /// </summary>
+    public static readonly CVarDef<bool> OverpressurePipeDamageEnabled =
+        CVarDef.Create("atmos.overpressure_pipe_damage_enabled", true, CVar.SERVERONLY);
 
 }
 

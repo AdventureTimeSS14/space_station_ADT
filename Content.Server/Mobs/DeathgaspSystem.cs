@@ -20,9 +20,14 @@ public sealed class DeathgaspSystem: EntitySystem
 
     private void OnMobStateChanged(EntityUid uid, DeathgaspComponent component, MobStateChangedEvent args)
     {
-        // don't deathgasp if they arent going straight from crit to dead
-        if (args.NewMobState != MobState.Dead || args.OldMobState != MobState.Critical)
+        //ADT-Tweak-Start
+        // deathgasp if they going from any mob state to dead
+        if (args.NewMobState != MobState.Dead)
             return;
+        // don't deathgasp if they arent going straight from crit to dead
+        if (!component.OnAnyState && args.OldMobState != MobState.Critical)
+            return;
+        //ADT-Tweak-End
 
         Deathgasp(uid, component);
     }

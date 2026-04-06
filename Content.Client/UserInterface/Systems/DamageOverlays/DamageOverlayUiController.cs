@@ -3,7 +3,7 @@ using Content.Shared.FixedPoint;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
-using Content.Shared.Traits.Assorted;
+using Content.Shared.ADT.Traits.Assorted;
 using JetBrains.Annotations;
 using Robust.Client.Graphics;
 using Robust.Client.Player;
@@ -98,7 +98,7 @@ public sealed class DamageOverlayUiController : UIController
                 FixedPoint2 painLevel = 0;
                 _overlay.PainLevel = 0;
 
-                if (!EntityManager.HasComponent<PainNumbnessComponent>(entity))
+                if (!EntityManager.HasComponent<PainNumbnessStatusEffectComponent>(entity)) // ADT-Tweak
                 {
                     foreach (var painDamageType in damageable.PainDamageGroups)
                     {
@@ -129,7 +129,16 @@ public sealed class DamageOverlayUiController : UIController
                     return;
                 _overlay.CritLevel = critLevel.Value.Float();
 
-                _overlay.PainLevel = 0;
+                // ADT-Tweak start
+                FixedPoint2 painLevel = 0;
+                foreach (var painDamageType in damageable.PainDamageGroups)
+                {
+                    damageable.DamagePerGroup.TryGetValue(painDamageType, out var painDamage);
+                    painLevel += painDamage;
+                }
+                _overlay.PainLevel = FixedPoint2.Min(1f, painLevel / critThreshold).Float();
+                // ADT-Tweak end
+
                 _overlay.DeadLevel = 0;
                 break;
             }
