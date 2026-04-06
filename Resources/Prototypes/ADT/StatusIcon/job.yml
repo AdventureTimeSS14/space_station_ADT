@@ -18,7 +18,7 @@
   parent: JobIcon
   id: JobIconMachine
   icon:
-    sprite: *icon-rsi
+    sprite: /Textures/ADT/Interface/Misc/job_icons.rsi
     state: Machine
   jobName: job-name-machine
 
