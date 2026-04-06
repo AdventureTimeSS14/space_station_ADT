@@ -184,7 +184,11 @@ public sealed partial class TraitsTab : BoxContainer
 
         UpdateGlobalStats();
         UpdateCategoryStats(trait.Category);
-        OnTraitsChanged?.Invoke(_selectedTraits);
+
+        if (!_suppressTraitsChangedEvent)
+        {
+            OnTraitsChanged?.Invoke(_selectedTraits);
+        }
     }
 
     private void RevertTraitToggle(ProtoId<TraitPrototype> traitId)
@@ -346,9 +350,12 @@ public sealed partial class TraitsTab : BoxContainer
                 if (!_prototype.TryIndex(traitId, out var trait))
                     continue;
 
-                _selectedTraits.Add(traitId);
-                _currentTraitCount++;
-                _currentPointsSpent += trait.Cost;
+                if (!_selectedTraits.Contains(traitId))
+                {
+                    _selectedTraits.Add(traitId);
+                    _currentTraitCount++;
+                    _currentPointsSpent += trait.Cost;
+                }
 
                 if (_categoryUis.TryGetValue(trait.Category, out var categoryUi))
                 {
