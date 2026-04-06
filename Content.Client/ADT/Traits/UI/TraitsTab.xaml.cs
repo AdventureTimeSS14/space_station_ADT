@@ -171,7 +171,7 @@ public sealed partial class TraitsTab : BoxContainer
         else
         {
             var pointsAfterDeselect = _currentPointsSpent - trait.Cost;
-            if (pointsAfterDeselect < 0)
+            if (pointsAfterDeselect > _maxGlobalPoints)
             {
                 RevertTraitToggle(traitId);
                 return;

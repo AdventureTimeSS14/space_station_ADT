@@ -108,16 +108,8 @@ public sealed class TraitSystem : EntitySystem
                 continue;
             }
 
-            // Check global points limit (both min and max)
+            // Check global points limit
             var newTotal = totalPoints + trait.Cost;
-
-            if (newTotal < 0)
-            {
-                Log.Warning(
-                    $"Trait {traitId} rejected: global points would go below minimum (0), current: {totalPoints}, cost: {trait.Cost}");
-                continue;
-            }
-
             if (newTotal > _maxTraitPoints)
             {
                 Log.Warning(
