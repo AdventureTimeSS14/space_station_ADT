@@ -151,7 +151,7 @@
   icon: { sprite: ADT/Objects/Weapons/Melee/steel_tonfa.rsi, state: icon-of }
   productEntity: ADTWeaponTonfaSteel
   cost:
-    Productunit: 4
+    Productunit: 7
   categories:
   - ADTUplinkERTWeapon
 
@@ -473,6 +473,17 @@
   productEntity: C4
   cost:
     Productunit: 1
+  categories:
+  - ADTUplinkERTMisc
+
+- type: listing
+  id: ADTBoberCombatMedkit
+  name: boobr-combat-medkit-name
+  description: boobr-combat-medkit-desc
+  icon: { sprite: Objects/Specific/Medical/firstaidkits.rsi, state: blackkit }
+  productEntity: MedkitCombatFilled
+  cost:
+    Productunit: 2
   categories:
   - ADTUplinkERTMisc
 
