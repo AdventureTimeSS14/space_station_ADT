@@ -108,15 +108,17 @@ namespace Content.Server.Administration.Systems
 
                 if (TryComp(args.Target, out ActorComponent? targetActor))
                 {
-                    // AdminHelp
-                    Verb verb = new();
-                    verb.Text = Loc.GetString("ahelp-verb-get-data-text");
-                    verb.Category = VerbCategory.Admin;
-                    verb.Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/gavel.svg.192dpi.png"));
-                    verb.Act = () =>
-                        _console.RemoteExecuteCommand(player, $"openahelp \"{targetActor.PlayerSession.UserId}\"");
-                    verb.Impact = LogImpact.Low;
-                    args.Verbs.Add(verb);
+                    if (_adminManager.HasAdminFlag(player, AdminFlags.Adminhelp)) // ADT-Tweak
+                    {
+                        Verb verb = new();
+                        verb.Text = Loc.GetString("ahelp-verb-get-data-text");
+                        verb.Category = VerbCategory.Admin;
+                        verb.Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/gavel.svg.192dpi.png"));
+                        verb.Act = () =>
+                            _console.RemoteExecuteCommand(player, $"openahelp \"{targetActor.PlayerSession.UserId}\"");
+                        verb.Impact = LogImpact.Low;
+                        args.Verbs.Add(verb);
+                    }
 
                     // Subtle Messages
                     Verb prayerVerb = new();
