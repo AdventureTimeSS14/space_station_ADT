@@ -58,30 +58,29 @@ public sealed class TraitorRuleTest
             Assert.That(protoMan.TryIndex<EntityPrototype>(TraitorGameRuleProtoId, out var gameRuleEntProto),
                 $"Failed to lookup traitor game rule entity prototype with ID \"{TraitorGameRuleProtoId}\"!");
 
+            // Получаем компоненты
             Assert.That(gameRuleEntProto.TryGetComponent<GameRuleComponent>(out var gameRule, compFact),
                 $"Game rule entity {TraitorGameRuleProtoId} does not have a GameRuleComponent!");
 
             Assert.That(gameRuleEntProto.TryGetComponent<AntagRandomObjectivesComponent>(out var randomObjectives, compFact),
                 $"Game rule entity {TraitorGameRuleProtoId} does not have an AntagRandomObjectivesComponent!");
 
+            // Теперь гарантированно не null
             minPlayers = gameRule!.MinPlayers;
             maxDifficulty = randomObjectives!.MaxDifficulty;
         });
 
-        // Initially in the lobby
+        // Остальной код без изменений
         Assert.That(ticker.RunLevel, Is.EqualTo(GameRunLevel.PreRoundLobby));
         Assert.That(client.AttachedEntity, Is.Null);
         Assert.That(ticker.PlayerGameStatuses[client.User!.Value], Is.EqualTo(PlayerGameStatus.NotReadyToPlay));
 
-        // Add enough dummy players for the game rule
         var dummies = await pair.Server.AddDummySessions(minPlayers);
         await pair.RunTicksSync(5);
 
-        // Initially, the players have no attached entities
         Assert.That(pair.Player?.AttachedEntity, Is.Null);
         Assert.That(dummies.All(x => x.AttachedEntity == null));
 
-        // Opt-in the player for the traitor role
         await pair.SetAntagPreference(TraitorAntagRoleName, true);
 
         // ADT-tweak: Clear any existing game rules and disable preset
@@ -110,7 +109,6 @@ public sealed class TraitorRuleTest
 
         await pair.RunTicksSync(10);
 
-        // Game should have started
         Assert.That(ticker.RunLevel, Is.EqualTo(GameRunLevel.InRound));
         Assert.That(ticker.PlayerGameStatuses.Values.All(x => x == PlayerGameStatus.JoinedGame));
         Assert.That(client.EntMan.EntityExists(client.AttachedEntity));
@@ -121,7 +119,6 @@ public sealed class TraitorRuleTest
         Assert.That(entMan.EntityExists(player));
         Assert.That(dummyEnts.All(entMan.EntityExists));
 
-        // Make sure the player is a traitor
         var mind = mindSys.GetMind(player)!.Value;
 
         Assert.That(roleSys.MindIsAntagonist(mind));
