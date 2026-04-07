@@ -265,31 +265,25 @@ public sealed class RadioSystem : EntitySystem
     /// </summary>
     private string GetWrappedNameWithJobIcon(EntityUid messageSource, string name)
     {
-        if (!_radioJobIconQuery.HasComp(messageSource))
-        {
-            var (iconId, jobName) = GetJobIconFallback(messageSource);
-            if (iconId != "JobIconNoId")
-            {
-                jobName = FormattedMessage.EscapeText(jobName);
-                return Loc.GetString("chat-radio-name-with-job-icon",
-                    ("iconId", iconId),
-                    ("jobName", jobName),
-                    ("name", name));
-            }
-            return name;
-        }
+        string iconId;
+        string jobName;
 
         if (_radioJobIconQuery.TryComp(messageSource, out var radioJobIcon)
             && Exists(messageSource) && !Deleted(messageSource) && !Terminating(messageSource))
         {
-            var jobName = FormattedMessage.EscapeText(radioJobIcon.JobName);
-            return Loc.GetString("chat-radio-name-with-job-icon",
-                ("iconId", radioJobIcon.JobIconId),
-                ("jobName", jobName),
-                ("name", name));
+            iconId = radioJobIcon.JobIconId;
+            jobName = radioJobIcon.JobName;
+        }
+        else
+        {
+            (iconId, jobName) = GetJobIconFallback(messageSource);
         }
 
-        return name;
+        jobName = FormattedMessage.EscapeText(jobName);
+        return Loc.GetString("chat-radio-name-with-job-icon",
+            ("iconId", iconId),
+            ("jobName", jobName),
+            ("name", name));
     }
 
     /// <summary>
