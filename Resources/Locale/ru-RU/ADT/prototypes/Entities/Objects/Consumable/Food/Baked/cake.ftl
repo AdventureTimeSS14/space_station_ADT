@@ -5,16 +5,7 @@ ent-ADTFoodCakeChocolateGlazeHeartSlice = кусочек торта в виде 
     .desc = Небольшая часть шоколадного торта в виде сердца.
     .suffix = { "День Святого Валентина" }
 
-ent-ADTFoodCakeChocolateHeart = торт в виде сердечка
-    .desc = Шоколадный торт в виде большого сердца, покрытый розовой глазурью.
-    .suffix = { "День Святого Валентина" }
-ent-ADTFoodCakeChocolateHeartSlice = кусочек торта в виде сердечка
-    .desc = Небольшая часть шоколадного торта в виде сердца.
-    .suffix = { "День Святого Валентина" }
-
-ent-ADTFoodCakeStrawberryHeart = торт в виде сердечка
-    .desc = Шоколадный торт в виде большого сердца, покрытый розовой глазурью.
-    .suffix = { "День Святого Валентина" }
-ent-ADTFoodCakeStrawberryHeartSlice = кусочек торта в виде сердечка
-    .desc = Небольшая часть шоколадного торта в виде сердца.
-    .suffix = { "День Святого Валентина" }
+ent-ADTFoodCakeBananaBoom = торт банановый бум
+    .desc = Банановая шкала зашкаливает!
+ent-ADTFoodCakeBananaBoomSlice = кусок торта банановый бум
+    .desc = Кусочек безопасной порции бананов.

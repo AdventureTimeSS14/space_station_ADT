@@ -1,3 +1,5 @@
+using Content.Shared.StatusIcon;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.VoiceMask;
@@ -16,14 +18,16 @@ public sealed class VoiceMaskBuiState : BoundUserInterfaceState
     public readonly string Voice; // Corvax-TTS
     public readonly string Bark; // ADT Barks
     public readonly float Pitch; // ADT Barks
-    public VoiceMaskBuiState(string name, string voice, string bark, float pitch, string? verb)
-    // public VoiceMaskBuiState(string name, string voice, string? verb)
+    public readonly string? JobIconId; // ADT-Tweak start
+
+    public VoiceMaskBuiState(string name, string voice, string bark, float pitch, string? verb, string? jobIconId = null) // ADT-Tweak start
     {
         Name = name;
         Verb = verb;
         Voice = voice;  // Corvax-TTS
         Bark = bark; // ADT Barks
         Pitch = pitch; // ADT Barks
+        JobIconId = jobIconId; // ADT-Tweak start
     }
 }
 
@@ -49,5 +53,20 @@ public sealed class VoiceMaskChangeVerbMessage : BoundUserInterfaceMessage
     public VoiceMaskChangeVerbMessage(string? verb)
     {
         Verb = verb;
+    }
+}
+
+/// <summary>
+/// ADT-Tweak
+/// Change the job icon that will be displayed in radio chat.
+/// </summary>
+[Serializable, NetSerializable]
+public sealed class VoiceMaskChangeJobIconMessage : BoundUserInterfaceMessage
+{
+    public readonly ProtoId<JobIconPrototype>? JobIconId;
+
+    public VoiceMaskChangeJobIconMessage(ProtoId<JobIconPrototype>? jobIconId)
+    {
+        JobIconId = jobIconId;
     }
 }

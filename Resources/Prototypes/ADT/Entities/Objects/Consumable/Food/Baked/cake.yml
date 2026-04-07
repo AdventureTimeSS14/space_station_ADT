@@ -124,3 +124,43 @@
           Quantity: 1
         - ReagentId: Vitamin
           Quantity: 1
+
+- type: entity
+  name: cheese cake
+  parent: FoodCakeBase
+  id: ADTFoodCakeBananaBoom
+  description: The banana scale is off the charts!
+  components:
+  - type: FlavorProfile
+    flavors:
+      - ADTCakeBananaBoomFlavor
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/cake.rsi
+    state: bananaboom
+  - type: SliceableFood
+    slice: ADTFoodCakeBananaBoomSlice
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: bananaboom-inhand-left
+      right:
+      - state: bananaboom-inhand-right
+      
+- type: entity
+  name: slice of cheese cake
+  parent: FoodCakeSliceBase
+  id: ADTFoodCakeBananaBoomSlice
+  description: A piece of a safe serving of bananas.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - ADTCakeBananaBoomFlavor
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/cake.rsi
+    state: bananaboom-slice
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: bananaboom-slice-inhand-left
+      right:
+      - state: bananaboom-slice-inhand-right
