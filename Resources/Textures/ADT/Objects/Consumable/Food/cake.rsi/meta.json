@@ -52,7 +52,7 @@
         {"name": "chocolate-heart"},
         {"name": "chocolate-slice-heart"},
         {"name": "strawberry-heart"},
-        {"name": "strawberry-slice-heart"}
+        {"name": "strawberry-slice-heart"},
 
         {"name": "bananaboom"},
         {"name": "bananaboom-inhand-left", "directions": 4},
