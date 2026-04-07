@@ -45,6 +45,7 @@ public sealed class RadioSystem : EntitySystem
     private readonly HashSet<string> _messages = new();
 
     private EntityQuery<TelecomExemptComponent> _exemptQuery;
+    private EntityQuery<RadioJobIconComponent> _radioJobIconQuery; // ADT-Tweak
 
     public override void Initialize()
     {
@@ -53,6 +54,7 @@ public sealed class RadioSystem : EntitySystem
         SubscribeLocalEvent<IntrinsicRadioTransmitterComponent, EntitySpokeEvent>(OnIntrinsicSpeak);
 
         _exemptQuery = GetEntityQuery<TelecomExemptComponent>();
+        _radioJobIconQuery = GetEntityQuery<RadioJobIconComponent>(); // ADT-Tweak
     }
 
     private void OnIntrinsicSpeak(EntityUid uid, IntrinsicRadioTransmitterComponent component, EntitySpokeEvent args)
@@ -267,7 +269,7 @@ public sealed class RadioSystem : EntitySystem
     /// </summary>
     private string GetWrappedNameWithJobIcon(EntityUid messageSource, string name)
     {
-        if (!HasComp<RadioJobIconComponent>(messageSource))
+        if (!_radioJobIconQuery.HasComp(messageSource))
         {
             var (iconId, jobName) = GetJobIconFallback(messageSource);
             if (iconId != "JobIconNoId")
@@ -281,7 +283,7 @@ public sealed class RadioSystem : EntitySystem
             return name;
         }
 
-        if (TryComp<RadioJobIconComponent>(messageSource, out var radioJobIcon)
+        if (_radioJobIconQuery.TryComp(messageSource, out var radioJobIcon)
             && Exists(messageSource) && !Deleted(messageSource) && !Terminating(messageSource))
         {
             var jobName = FormattedMessage.EscapeText(radioJobIcon.JobName);

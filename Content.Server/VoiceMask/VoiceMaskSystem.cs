@@ -31,12 +31,16 @@ public sealed partial class VoiceMaskSystem : EntitySystem
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedRadioJobIconSystem _radioJobIcon = default!; // ADT-Tweak: Update radio job icon cache
 
+    private EntityQuery<RadioJobIconComponent> _radioJobIconQuery; // ADT-Tweak
+
     // CCVar.
     private int _maxNameLength;
 
     public override void Initialize()
     {
         base.Initialize();
+
+        _radioJobIconQuery = GetEntityQuery<RadioJobIconComponent>(); // ADT-Tweak
         SubscribeLocalEvent<VoiceMaskComponent, InventoryRelayedEvent<TransformSpeakerNameEvent>>(OnTransformSpeakerName);
         SubscribeLocalEvent<VoiceMaskComponent, LockToggledEvent>(OnLockToggled);
         SubscribeLocalEvent<VoiceMaskComponent, VoiceMaskChangeNameMessage>(OnChangeName);
@@ -174,7 +178,7 @@ public sealed partial class VoiceMaskSystem : EntitySystem
 
         if (_container.TryGetContainingContainer(voiceMaskUid, out var container))
         {
-            if (!HasComp<RadioJobIconComponent>(container.Owner))
+            if (!_radioJobIconQuery.HasComp(container.Owner))
                 EnsureComp<RadioJobIconComponent>(container.Owner);
 
             _radioJobIcon.UpdateRadioJobIcon(container.Owner);

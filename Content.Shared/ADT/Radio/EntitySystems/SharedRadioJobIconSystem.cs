@@ -18,10 +18,13 @@ public abstract class SharedRadioJobIconSystem : EntitySystem
     [Dependency] protected readonly AccessReaderSystem AccessReader = default!;
     [Dependency] protected readonly InventorySystem InventorySystem = default!;
 
+    private EntityQuery<RadioJobIconComponent> _radioJobIconQuery;
+
     public override void Initialize()
     {
         base.Initialize();
 
+        _radioJobIconQuery = GetEntityQuery<RadioJobIconComponent>();
         SubscribeLocalEvent<RadioJobIconComponent, MapInitEvent>(OnMapInit);
     }
 
@@ -47,10 +50,10 @@ public abstract class SharedRadioJobIconSystem : EntitySystem
         if (!Exists(uid) || Deleted(uid) || Terminating(uid))
             return;
 
-        if (!HasComp<RadioJobIconComponent>(uid))
+        if (!_radioJobIconQuery.HasComp(uid))
             EnsureComp<RadioJobIconComponent>(uid);
 
-        var component = Comp<RadioJobIconComponent>(uid);
+        var component = _radioJobIconQuery.GetComponent(uid);
         var (iconId, jobName) = GetJobIcon(uid);
 
         if (component.JobIconId.Id != iconId || component.JobName != jobName)

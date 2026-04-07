@@ -16,10 +16,13 @@ public sealed class ServerRadioJobIconSystem : SharedRadioJobIconSystem
 {
     [Dependency] private readonly SharedContainerSystem _container = default!;
 
+    private EntityQuery<RadioJobIconComponent> _radioJobIconQuery;
+
     public override void Initialize()
     {
         base.Initialize();
 
+        _radioJobIconQuery = GetEntityQuery<RadioJobIconComponent>();
         SubscribeLocalEvent<IdCardComponent, IdCardJobChangedEvent>(OnIdCardJobChanged);
     }
 
@@ -88,7 +91,7 @@ public sealed class ServerRadioJobIconSystem : SharedRadioJobIconSystem
 
         if (_container.TryGetContainingContainer(voiceMaskUid, out var container))
         {
-            if (!HasComp<RadioJobIconComponent>(container.Owner))
+            if (!_radioJobIconQuery.HasComp(container.Owner))
                 EnsureComp<RadioJobIconComponent>(container.Owner);
 
             UpdateRadioJobIcon(container.Owner);
