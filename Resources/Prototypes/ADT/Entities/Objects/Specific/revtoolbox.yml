@@ -18,6 +18,7 @@
     - ADTCluwneRev
     - ADTDisarm
     - ADTMedRev
+    - ADTFakeMindShieldRev
   - type: ActivatableUI
     key: enum.ThiefBackpackUIKey.Key
   - type: UserInterface

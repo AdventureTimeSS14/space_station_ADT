@@ -1,4 +1,38 @@
 - type: traitCategory
-  id: Height
-  name: trait-category-height
-  maxTraitPoints: 1
+  id: BackgroundTraits
+  name: trait-category-background
+  priority: 0
+  maxTraits: 1
+  accentColor: "#ffffff"
+  defaultExpanded: true
+
+- type: traitCategory
+  id: EthnicityTraits
+  name: trait-category-ethnicity
+  priority: 5
+  maxTraits: 1
+  accentColor: "#efc0a3"
+  defaultExpanded: true
+
+- type: traitCategory
+  id: LanguageTraits
+  name: trait-category-languages
+  priority: 50
+  maxTraits: 4
+  maxPoints: 2
+  accentColor: "#fffb00"
+  defaultExpanded: true
+
+- type: traitCategory
+  id: PhysicalTraits
+  name: trait-category-physical
+  priority: 40
+  accentColor: "#f59e0b"
+  defaultExpanded: true
+
+- type: traitCategory
+  id: MentalTraits
+  name: trait-category-mental
+  priority: 60
+  accentColor: "#10b981"
+  defaultExpanded: true
