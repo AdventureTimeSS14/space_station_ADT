@@ -58,19 +58,15 @@ public sealed class TraitorRuleTest
             Assert.That(protoMan.TryIndex<EntityPrototype>(TraitorGameRuleProtoId, out var gameRuleEntProto),
                 $"Failed to lookup traitor game rule entity prototype with ID \"{TraitorGameRuleProtoId}\"!");
 
-            // Получаем компоненты
-            Assert.That(gameRuleEntProto.TryGetComponent<GameRuleComponent>(out var gameRule, compFact),
-                $"Game rule entity {TraitorGameRuleProtoId} does not have a GameRuleComponent!");
+            // Используем GetComponent — если компонента нет, тест упадёт с понятной ошибкой
+            var gameRule = gameRuleEntProto.GetComponent<GameRuleComponent>(compFact);
+            var randomObjectives = gameRuleEntProto.GetComponent<AntagRandomObjectivesComponent>(compFact);
 
-            Assert.That(gameRuleEntProto.TryGetComponent<AntagRandomObjectivesComponent>(out var randomObjectives, compFact),
-                $"Game rule entity {TraitorGameRuleProtoId} does not have an AntagRandomObjectivesComponent!");
-
-            // Теперь гарантированно не null
-            minPlayers = gameRule!.MinPlayers;
-            maxDifficulty = randomObjectives!.MaxDifficulty;
+            minPlayers = gameRule.MinPlayers;
+            maxDifficulty = randomObjectives.MaxDifficulty;
         });
 
-        // Остальной код без изменений
+        // Остальной тест без изменений
         Assert.That(ticker.RunLevel, Is.EqualTo(GameRunLevel.PreRoundLobby));
         Assert.That(client.AttachedEntity, Is.Null);
         Assert.That(ticker.PlayerGameStatuses[client.User!.Value], Is.EqualTo(PlayerGameStatus.NotReadyToPlay));
