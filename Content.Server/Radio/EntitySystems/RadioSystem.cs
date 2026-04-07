@@ -268,8 +268,7 @@ public sealed class RadioSystem : EntitySystem
         string iconId;
         string jobName;
 
-        if (_radioJobIconQuery.TryComp(messageSource, out var radioJobIcon)
-            && Exists(messageSource) && !Deleted(messageSource) && !Terminating(messageSource))
+        if (_radioJobIconQuery.TryComp(messageSource, out var radioJobIcon))
         {
             iconId = radioJobIcon.JobIconId;
             jobName = radioJobIcon.JobName;

@@ -49,10 +49,9 @@ public abstract class SharedRadioJobIconSystem : EntitySystem
         if (!Exists(uid) || Deleted(uid) || Terminating(uid))
             return;
 
-        if (!_radioJobIconQuery.HasComp(uid))
-            EnsureComp<RadioJobIconComponent>(uid);
+        if (!_radioJobIconQuery.TryGetComponent(uid, out var component))
+            component = EnsureComp<RadioJobIconComponent>(uid);
 
-        var component = _radioJobIconQuery.GetComponent(uid);
         var (iconId, jobName) = GetJobIcon(uid);
 
         if (component.JobIconId.Id != iconId || component.JobName != jobName)
@@ -117,7 +116,7 @@ public abstract class SharedRadioJobIconSystem : EntitySystem
 
         if (containerSystem.TryGetContainingContainer(itemUid, out var container))
         {
-            if (!RadioJobIconQuery.HasComp(container.Owner))
+            if (!RadioJobIconQuery.TryGetComponent(container.Owner, out _))
                 EnsureComp<RadioJobIconComponent>(container.Owner);
 
             UpdateRadioJobIcon(container.Owner);
