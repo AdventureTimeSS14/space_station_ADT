@@ -1,7 +1,6 @@
 using System.Globalization;
 using Content.Shared.Access.Components;
 using Content.Shared.Administration.Logs;
-using Content.Shared.ADT.Radio.Components;
 using Content.Shared.ADT.Radio.EntitySystems;
 using Content.Shared.CCVar;
 using Content.Shared.Database;
@@ -30,8 +29,6 @@ public abstract class SharedIdCardSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly SharedRadioJobIconSystem _radioJobIcon = default!; // ADT-Tweak
 
-    private EntityQuery<RadioJobIconComponent> _radioJobIconQuery; // ADT-Tweak
-
     // CCVar.
     private int _maxNameLength;
     private int _maxIdJobLength;
@@ -40,7 +37,6 @@ public abstract class SharedIdCardSystem : EntitySystem
     {
         base.Initialize();
 
-        _radioJobIconQuery = GetEntityQuery<RadioJobIconComponent>(); // ADT-Tweak
         SubscribeLocalEvent<IdCardComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<TryGetIdentityShortInfoEvent>(OnTryGetIdentityShortInfo);
         SubscribeLocalEvent<EntityRenamedEvent>(OnRename);
@@ -192,13 +188,8 @@ public abstract class SharedIdCardSystem : EntitySystem
         }
 
         // ADT-Tweak start
-        if (player.HasValue && Exists(player.Value) && !Deleted(player.Value))
-        {
-            if (!_radioJobIconQuery.HasComp(player.Value))
-                EnsureComp<RadioJobIconComponent>(player.Value);
-
+        if (player.HasValue && Exists(player.Value) && !Deleted(player.Value) && !Terminating(player.Value))
             _radioJobIcon.UpdateRadioJobIcon(player.Value);
-        }
         // ADT-Tweak end
 
         return true;

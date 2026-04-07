@@ -1,6 +1,5 @@
 using Content.Shared.Actions;
 using Content.Shared.Administration.Logs;
-using Content.Shared.ADT.Radio.Components;
 using Content.Shared.ADT.Radio.EntitySystems;
 using Content.Shared.CCVar;
 using Content.Shared.Chat;
@@ -11,7 +10,6 @@ using Content.Shared.Lock;
 using Content.Shared.Popups;
 using Content.Shared.Preferences;
 using Content.Shared.Speech;
-using Content.Shared.StatusIcon;
 using Content.Shared.VoiceMask;
 using Robust.Shared.Configuration;
 using Robust.Shared.Containers;
@@ -31,16 +29,12 @@ public sealed partial class VoiceMaskSystem : EntitySystem
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedRadioJobIconSystem _radioJobIcon = default!; // ADT-Tweak: Update radio job icon cache
 
-    private EntityQuery<RadioJobIconComponent> _radioJobIconQuery; // ADT-Tweak
-
     // CCVar.
     private int _maxNameLength;
 
     public override void Initialize()
     {
         base.Initialize();
-
-        _radioJobIconQuery = GetEntityQuery<RadioJobIconComponent>(); // ADT-Tweak
         SubscribeLocalEvent<VoiceMaskComponent, InventoryRelayedEvent<TransformSpeakerNameEvent>>(OnTransformSpeakerName);
         SubscribeLocalEvent<VoiceMaskComponent, LockToggledEvent>(OnLockToggled);
         SubscribeLocalEvent<VoiceMaskComponent, VoiceMaskChangeNameMessage>(OnChangeName);
@@ -115,7 +109,7 @@ public sealed partial class VoiceMaskSystem : EntitySystem
 
         _popupSystem.PopupEntity(Loc.GetString("voice-mask-popup-success"), entity, msg.Actor);
 
-        UpdateWearerRadioJobIcon(entity.Owner);
+        _radioJobIcon.UpdateWearerRadioJobIcon(entity.Owner, _container); // ADT-Tweak
 
         UpdateUI(entity);
     }
@@ -169,21 +163,5 @@ public sealed partial class VoiceMaskSystem : EntitySystem
     {
         return entity.Comp.VoiceMaskName ?? Loc.GetString("voice-mask-default-name-override");
     }
-
-    // ADT-Tweak start
-    private void UpdateWearerRadioJobIcon(EntityUid voiceMaskUid)
-    {
-        if (!Exists(voiceMaskUid) || Deleted(voiceMaskUid) || Terminating(voiceMaskUid))
-            return;
-
-        if (_container.TryGetContainingContainer(voiceMaskUid, out var container))
-        {
-            if (!_radioJobIconQuery.HasComp(container.Owner))
-                EnsureComp<RadioJobIconComponent>(container.Owner);
-
-            _radioJobIcon.UpdateRadioJobIcon(container.Owner);
-        }
-    }
-    // ADT-Tweak end
     #endregion
 }

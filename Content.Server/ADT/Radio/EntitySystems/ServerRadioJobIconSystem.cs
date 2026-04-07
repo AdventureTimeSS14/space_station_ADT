@@ -1,28 +1,27 @@
 using Content.Server.Research.Components;
-using Content.Shared.ADT.Radio;
-using Content.Shared.ADT.Radio.Components;
-using Content.Shared.ADT.Radio.EntitySystems;
+using Content.Server.VoiceMask;
 using Content.Shared.Access.Components;
+using Content.Shared.ADT.Radio;
+using Content.Shared.ADT.Radio.EntitySystems;
 using Content.Shared.Inventory;
+using Content.Shared.Silicons.Borgs.Components;
+using Content.Shared.Silicons.StationAi;
 using Content.Shared.StatusIcon;
 using Content.Shared.VendingMachines;
 using Robust.Shared.Containers;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Prototypes;
-using Content.Server.VoiceMask;
 
 namespace Content.Server.ADT.Radio.EntitySystems;
+
 public sealed class ServerRadioJobIconSystem : SharedRadioJobIconSystem
 {
     [Dependency] private readonly SharedContainerSystem _container = default!;
-
-    private EntityQuery<RadioJobIconComponent> _radioJobIconQuery;
 
     public override void Initialize()
     {
         base.Initialize();
 
-        _radioJobIconQuery = GetEntityQuery<RadioJobIconComponent>();
         SubscribeLocalEvent<IdCardComponent, IdCardJobChangedEvent>(OnIdCardJobChanged);
     }
 
@@ -33,6 +32,7 @@ public sealed class ServerRadioJobIconSystem : SharedRadioJobIconSystem
             UpdateRadioJobIcon(args.PlayerUid.Value);
         }
     }
+
     protected override (string iconId, string jobName) GetJobIcon(EntityUid entity)
     {
         if (TryGetActiveVoiceMaskJobIcon(entity, out var maskIconId, out var maskJobName))
@@ -41,17 +41,24 @@ public sealed class ServerRadioJobIconSystem : SharedRadioJobIconSystem
         }
 
         var (iconId, jobName) = base.GetJobIcon(entity);
-
-        if (iconId == "JobIconNoId" && HasComp<ResearchConsoleComponent>(entity))
+        if (iconId != "JobIconNoId")
         {
-            iconId = "JobIconMachine";
-            jobName = Loc.GetString("job-name-machine");
+            return (iconId, jobName);
         }
 
-        if (iconId == "JobIconNoId" && HasComp<VendingMachineComponent>(entity))
+        if (HasComp<BorgChassisComponent>(entity))
         {
-            iconId = "JobIconMachine";
-            jobName = Loc.GetString("job-name-machine");
+            return ("JobIconBorg", Loc.GetString("job-name-borg"));
+        }
+
+        if (HasComp<StationAiHeldComponent>(entity))
+        {
+            return ("JobIconStationAi", Loc.GetString("job-name-station-ai"));
+        }
+
+        if (HasComp<ResearchConsoleComponent>(entity) || HasComp<VendingMachineComponent>(entity))
+        {
+            return ("JobIconMachine", Loc.GetString("job-name-machine"));
         }
 
         return (iconId, jobName);
@@ -84,17 +91,8 @@ public sealed class ServerRadioJobIconSystem : SharedRadioJobIconSystem
         return false;
     }
 
-    private void UpdateWearerRadioJobIcon(EntityUid voiceMaskUid)
+    public void UpdateWearerRadioJobIcon(EntityUid voiceMaskUid)
     {
-        if (!Exists(voiceMaskUid) || Deleted(voiceMaskUid))
-            return;
-
-        if (_container.TryGetContainingContainer(voiceMaskUid, out var container))
-        {
-            if (!_radioJobIconQuery.HasComp(container.Owner))
-                EnsureComp<RadioJobIconComponent>(container.Owner);
-
-            UpdateRadioJobIcon(container.Owner);
-        }
+        base.UpdateWearerRadioJobIcon(voiceMaskUid, _container);
     }
 }

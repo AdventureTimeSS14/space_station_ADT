@@ -3,10 +3,8 @@ using Content.Shared.Access.Systems;
 using Content.Shared.ADT.Radio.Components;
 using Content.Shared.Inventory;
 using Content.Shared.PDA;
-using Content.Shared.Roles;
-using Content.Shared.Silicons.Borgs.Components;
-using Content.Shared.Silicons.StationAi;
 using Content.Shared.StatusIcon;
+using Robust.Shared.Containers;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
@@ -18,6 +16,7 @@ public abstract class SharedRadioJobIconSystem : EntitySystem
     [Dependency] protected readonly AccessReaderSystem AccessReader = default!;
     [Dependency] protected readonly InventorySystem InventorySystem = default!;
 
+    protected EntityQuery<RadioJobIconComponent> RadioJobIconQuery => _radioJobIconQuery;
     private EntityQuery<RadioJobIconComponent> _radioJobIconQuery;
 
     public override void Initialize()
@@ -103,18 +102,25 @@ public abstract class SharedRadioJobIconSystem : EntitySystem
             }
         }
 
-        if (iconId == "JobIconNoId" && HasComp<BorgChassisComponent>(entity))
-        {
-            iconId = "JobIconBorg";
-            jobName = Loc.GetString("job-name-borg");
-        }
-
-        if (iconId == "JobIconNoId" && HasComp<StationAiHeldComponent>(entity))
-        {
-            iconId = "JobIconStationAi";
-            jobName = Loc.GetString("job-name-station-ai");
-        }
-
         return (iconId, jobName ?? string.Empty);
+    }
+
+    public (string iconId, string jobName) GetJobIconPublic(EntityUid entity)
+    {
+        return GetJobIcon(entity);
+    }
+
+    public void UpdateWearerRadioJobIcon(EntityUid itemUid, SharedContainerSystem containerSystem)
+    {
+        if (!Exists(itemUid) || Deleted(itemUid) || Terminating(itemUid))
+            return;
+
+        if (containerSystem.TryGetContainingContainer(itemUid, out var container))
+        {
+            if (!RadioJobIconQuery.HasComp(container.Owner))
+                EnsureComp<RadioJobIconComponent>(container.Owner);
+
+            UpdateRadioJobIcon(container.Owner);
+        }
     }
 }

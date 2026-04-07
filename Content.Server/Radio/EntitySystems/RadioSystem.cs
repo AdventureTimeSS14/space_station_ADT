@@ -3,16 +3,12 @@ using Content.Server.Chat.Systems;
 using Content.Server.Power.Components;
 using Content.Shared.Access.Components;
 using Content.Shared.ADT.Radio.Components;
+using Content.Shared.ADT.Radio.EntitySystems;
 using Content.Shared.Chat;
 using Content.Shared.Database;
-using Content.Shared.Inventory;
-using Content.Shared.PDA;
 using Content.Shared.Radio;
 using Content.Shared.Radio.Components;
-using Content.Shared.Roles;
-using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Speech;
-using Content.Shared.Silicons.StationAi;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
@@ -39,7 +35,7 @@ public sealed class RadioSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly LanguageSystem _language = default!;  // ADT Languages
-    [Dependency] private readonly InventorySystem InventorySystem = default!; // ADT-Tweak: For fallback lookup
+    [Dependency] private readonly SharedRadioJobIconSystem _radioJobIcon = default!; // ADT-Tweak
 
     // set used to prevent radio feedback loops.
     private readonly HashSet<string> _messages = new();
@@ -302,54 +298,7 @@ public sealed class RadioSystem : EntitySystem
     /// </summary>
     private (string iconId, string jobName) GetJobIconFallback(EntityUid entity)
     {
-        var iconId = "JobIconNoId";
-        string? jobName = null;
-
-        if (!Exists(entity) || Deleted(entity) || Terminating(entity))
-            return (iconId, string.Empty);
-
-        if (TryComp<InventoryComponent>(entity, out var _))
-        {
-            var enumerator = InventorySystem.GetSlotEnumerator(entity);
-            while (enumerator.NextItem(out var item, out var slot))
-            {
-                if (slot == null || !Exists(item) || Deleted(item) || Terminating(item))
-                    continue;
-
-                if (TryComp<IdCardComponent>(item, out var idCard))
-                {
-                    iconId = idCard.JobIcon;
-                    jobName = idCard.LocalizedJobTitle;
-                    break;
-                }
-
-                if (TryComp<PdaComponent>(item, out var pda) && pda.ContainedId.HasValue)
-                {
-                    var containedId = pda.ContainedId.Value;
-                    if (Exists(containedId) && !Deleted(containedId) && !Terminating(containedId)
-                        && TryComp<IdCardComponent>(containedId, out var pdaIdCard))
-                    {
-                        iconId = pdaIdCard.JobIcon;
-                        jobName = pdaIdCard.LocalizedJobTitle;
-                        break;
-                    }
-                }
-            }
-        }
-
-        if (iconId == "JobIconNoId" && HasComp<BorgChassisComponent>(entity))
-        {
-            iconId = "JobIconBorg";
-            jobName = Loc.GetString("job-name-borg");
-        }
-
-        if (iconId == "JobIconNoId" && HasComp<StationAiHeldComponent>(entity))
-        {
-            iconId = "JobIconStationAi";
-            jobName = Loc.GetString("job-name-station-ai");
-        }
-
-        return (iconId, jobName ?? string.Empty);
+        return _radioJobIcon.GetJobIconPublic(entity);
     }
     // ADT-Tweak end
 
