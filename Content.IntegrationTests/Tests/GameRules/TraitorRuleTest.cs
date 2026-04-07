@@ -14,6 +14,7 @@ using Content.Shared.NPC.Systems;
 using Content.Shared.Objectives.Components;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Prototypes;
+#nullable enable
 
 namespace Content.IntegrationTests.Tests.GameRules;
 
