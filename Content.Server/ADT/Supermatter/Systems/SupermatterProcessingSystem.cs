@@ -172,7 +172,7 @@ public sealed partial class SupermatterSystem
             Math.Min(gasReleased.Temperature, 2500f * sm.HeatModifier));
 
         gasReleased.AdjustMoles(
-            Gas.Plasma,
+            Gas.AntiNoblium,
             Math.Max(energy * sm.HeatModifier / _config.GetCVar(ADTCCVars.SupermatterPlasmaReleaseModifier), 0f));
         gasReleased.AdjustMoles(
             Gas.Oxygen,
