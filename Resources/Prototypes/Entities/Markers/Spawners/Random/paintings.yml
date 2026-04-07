@@ -28,6 +28,7 @@
       - PaintingHelloWorld
       #ADT tweak vvv
       - ADTPaintingGagarin
+      - ADTPaintingTheSonOfVulp
       #ADT tweak ^^^
     chance: 1
     rarePrototypes:

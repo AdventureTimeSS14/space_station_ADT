@@ -1,7 +1,7 @@
 using Content.Server.Popups;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Actions;
-using Content.Shared.Bible.Components;
+using Content.Shared.ADT.Chaplain.Components;
 using Content.Shared.Damage;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Inventory;
