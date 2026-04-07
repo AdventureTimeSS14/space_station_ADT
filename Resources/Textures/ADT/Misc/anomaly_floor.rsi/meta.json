@@ -1,0 +1,56 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "sand.png taken from /tg/station at commit 6665eec76c98a4f3f89bebcd10b34b47dcc0b8ae, meat.png created by EmoGarbage404 (github) for space-station-14, grass.png created by Ko4erga (discord), sand/meat/grass_south/east/north/west sprited by orange6775 (discord)",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "sand"
+        },
+        {
+            "name": "sand_south"
+        },
+        {
+            "name": "sand_east"
+        },
+        {
+            "name": "sand_north"
+        },
+        {
+            "name": "sand_west"
+        },
+        {
+            "name": "meat"
+        },
+        {
+            "name": "meat_south"
+        },
+        {
+            "name": "meat_east"
+        },
+        {
+            "name": "meat_north"
+        },
+        {
+            "name": "meat_west"
+        },
+        {
+            "name": "grass"
+        },
+        {
+            "name": "grass_south"
+        },
+        {
+            "name": "grass_east"
+        },
+        {
+            "name": "grass_north"
+        },
+        {
+            "name": "grass_west"
+        }
+    ]
+}
