@@ -82,7 +82,7 @@ public sealed partial class TraitEntry : PanelContainer
         if (MeetsConditions && profile != null)
         {
             var jobsToCheck = new List<ProtoId<JobPrototype>>();
-            
+
             // If jobId is provided, use it; otherwise check high-priority jobs from profile
             if (jobId.HasValue)
             {
@@ -138,7 +138,7 @@ public sealed partial class TraitEntry : PanelContainer
             if (_trait.DepartmentWhitelist.Count > 0 || _trait.DepartmentBlacklist.Count > 0)
             {
                 var allDepartments = new List<ProtoId<DepartmentPrototype>>();
-                
+
                 // Get all departments for this job
                 foreach (var deptProto in _prototype.EnumeratePrototypes<DepartmentPrototype>())
                 {
@@ -239,6 +239,11 @@ public sealed partial class TraitEntry : PanelContainer
         TraitCheckbox.Pressed = selected && MeetsConditions;
         UpdateSelectedStyle();
         _isUpdating = false;
+
+        if (selected && !MeetsConditions && TraitCheckbox.Pressed == false)
+        {
+            OnToggled?.Invoke(false);
+        }
     }
 
     private void UpdateSelectedStyle()
