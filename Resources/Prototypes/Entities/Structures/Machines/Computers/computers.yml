@@ -402,6 +402,8 @@
   - type: GuideHelp
     guides:
     - CriminalRecords
+  - type: RadioJobIconOverride # ADT-Tweak
+    iconId: JobIconProtector
   - type: StationAiWhitelist #ADT-Tweak
 
 - type: entity
@@ -490,6 +492,8 @@
       state: generic_panel_open
   - type: ResearchClient
   - type: ResearchConsole
+  - type: RadioJobIconOverride # ADT-Tweak
+    iconId: JobIconMachine
   - type: ActiveRadio
     channels:
     - Science
@@ -917,6 +921,8 @@
   - type: GuideHelp
     guides:
     - Cargo
+  - type: RadioJobIconOverride # ADT-Tweak
+    iconId: JobIconCargoniator
 
 # Request console variants.
 - type: entity

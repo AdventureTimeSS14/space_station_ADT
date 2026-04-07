@@ -16,6 +16,30 @@
 
 - type: jobIcon
   parent: JobIcon
+  id: JobIconAnomalist
+  icon:
+    sprite: /Textures/ADT/Interface/Misc/job_icons.rsi
+    state: Anomalist
+  jobName: job-name-machine
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconCargoniator
+  icon:
+    sprite: /Textures/ADT/Interface/Misc/job_icons.rsi
+    state: Cargoniator
+  jobName: job-name-machine
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconProtector
+  icon:
+    sprite: /Textures/ADT/Interface/Misc/job_icons.rsi
+    state: Protector
+  jobName: job-name-machine
+
+- type: jobIcon
+  parent: JobIcon
   id: JobIconMachine
   icon:
     sprite: /Textures/ADT/Interface/Misc/job_icons.rsi

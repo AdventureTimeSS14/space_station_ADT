@@ -290,6 +290,8 @@
   id: BaseBorgChassis
   components:
   - type: IonStormTarget
+  - type: RadioJobIconOverride # ADT-Tweak
+    iconId: JobIconBorg
 
 - type: entity
   abstract: true

@@ -1,19 +1,15 @@
-using Content.Server.Research.Components;
 using Content.Server.VoiceMask;
 using Content.Shared.Access.Components;
 using Content.Shared.ADT.Radio;
+using Content.Shared.ADT.Radio.Components;
 using Content.Shared.ADT.Radio.EntitySystems;
 using Content.Shared.Inventory;
-using Content.Shared.Silicons.Borgs.Components;
-using Content.Shared.Silicons.StationAi;
 using Content.Shared.StatusIcon;
-using Content.Shared.VendingMachines;
 using Robust.Shared.Containers;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.ADT.Radio.EntitySystems;
-
 public sealed class ServerRadioJobIconSystem : SharedRadioJobIconSystem
 {
     [Dependency] private readonly SharedContainerSystem _container = default!;
@@ -46,19 +42,14 @@ public sealed class ServerRadioJobIconSystem : SharedRadioJobIconSystem
             return (iconId, jobName);
         }
 
-        if (HasComp<BorgChassisComponent>(entity))
+        if (TryComp<RadioJobIconOverrideComponent>(entity, out var overrideComp))
         {
-            return ("JobIconBorg", Loc.GetString("job-name-borg"));
-        }
-
-        if (HasComp<StationAiHeldComponent>(entity))
-        {
-            return ("JobIconStationAi", Loc.GetString("job-name-station-ai"));
-        }
-
-        if (HasComp<ResearchConsoleComponent>(entity) || HasComp<VendingMachineComponent>(entity))
-        {
-            return ("JobIconMachine", Loc.GetString("job-name-machine"));
+            iconId = overrideComp.IconId;
+            jobName = overrideComp.JobNameOverride
+                ?? (Prototype.TryIndex<JobIconPrototype>(iconId, out var proto)
+                    ? proto.LocalizedJobName
+                    : string.Empty);
+            return (iconId, jobName);
         }
 
         return (iconId, jobName);
