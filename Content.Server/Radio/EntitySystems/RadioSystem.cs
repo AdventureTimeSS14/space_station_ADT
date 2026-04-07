@@ -1,12 +1,8 @@
-using Content.Server.Access.Components;
-using Content.Server.Access.Systems;
 using Content.Server.Administration.Logs;
 using Content.Server.Chat.Systems;
 using Content.Server.Power.Components;
-using Content.Server.Research.Components;
-using Content.Server.VoiceMask;
 using Content.Shared.Access.Components;
-using Content.Shared.Access.Systems;
+using Content.Shared.ADT.Radio.Components;
 using Content.Shared.Chat;
 using Content.Shared.Database;
 using Content.Shared.Inventory;
@@ -16,8 +12,8 @@ using Content.Shared.Radio.Components;
 using Content.Shared.Roles;
 using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Speech;
-using Content.Shared.StatusIcon;
-using Content.Shared.VendingMachines;
+using Content.Shared.Silicons.StationAi;
+using Robust.Shared.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
@@ -28,7 +24,6 @@ using Robust.Shared.Utility;
 using Content.Server.ADT.Language;  // ADT Languages
 using Content.Shared.ADT.Language;  // ADT Languages
 using Content.Shared.ADT.Loudspeaker.Events;
-using Content.Shared.Silicons.StationAi;
 
 namespace Content.Server.Radio.EntitySystems;
 
@@ -44,8 +39,7 @@ public sealed class RadioSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly LanguageSystem _language = default!;  // ADT Languages
-    [Dependency] private readonly AccessReaderSystem _accessReader = default!; // ADT-Tweak
-    [Dependency] private readonly InventorySystem _inventorySystem = default!; // ADT-Tweak
+    [Dependency] private readonly InventorySystem InventorySystem = default!; // ADT-Tweak: For fallback lookup
 
     // set used to prevent radio feedback loops.
     private readonly HashSet<string> _messages = new();
@@ -171,7 +165,7 @@ public sealed class RadioSystem : EntitySystem
             verbStrings = defaultStrings;
         // ADT Languages end
 
-        var nameWithIcon = WrapNameWithJobIcon(messageSource, name); // ADT-Tweak
+        var nameWithIcon = GetWrappedNameWithJobIcon(messageSource, name); // ADT-Tweak
 
         var wrappedMessage = Loc.GetString("chat-radio-message-wrap",   // ADT Languages tweak - remove bold
             ("color", channel.Color),
@@ -268,29 +262,56 @@ public sealed class RadioSystem : EntitySystem
 
     // ADT-Tweak start
     /// <summary>
-    /// Gets the job icon ID and localized job name for an entity.
-    /// Voice mask has highest priority, then ID cards/PDAs, then borg/AI.
+    ///     Gets the wrapped name with job icon markup using cached <see cref="RadioJobIconComponent"/>.
+    ///     This is much faster than the previous implementation which did inventory scans on every radio message.
     /// </summary>
-    /// <param name="messageSource">The entity to get job icon info for</param>
-    /// <returns>Tuple of (jobIconId, localizedJobName)</returns>
-    private (string iconId, string jobName) GetJobIcon(EntityUid messageSource)
+    private string GetWrappedNameWithJobIcon(EntityUid messageSource, string name)
+    {
+        if (!HasComp<RadioJobIconComponent>(messageSource))
+        {
+            var (iconId, jobName) = GetJobIconFallback(messageSource);
+            if (iconId != "JobIconNoId")
+            {
+                jobName = FormattedMessage.EscapeText(jobName);
+                return Loc.GetString("chat-radio-name-with-job-icon",
+                    ("iconId", iconId),
+                    ("jobName", jobName),
+                    ("name", name));
+            }
+            return name;
+        }
+
+        if (TryComp<RadioJobIconComponent>(messageSource, out var radioJobIcon)
+            && Exists(messageSource) && !Deleted(messageSource) && !Terminating(messageSource))
+        {
+            var jobName = FormattedMessage.EscapeText(radioJobIcon.JobName);
+            return Loc.GetString("chat-radio-name-with-job-icon",
+                ("iconId", radioJobIcon.JobIconId),
+                ("jobName", jobName),
+                ("name", name));
+        }
+
+        return name;
+    }
+
+    /// <summary>
+    ///     Fallback job icon lookup for when RadioJobIconComponent doesn't exist yet.
+    ///     This is only used as a safety net - normally the component should always exist.
+    /// </summary>
+    private (string iconId, string jobName) GetJobIconFallback(EntityUid entity)
     {
         var iconId = "JobIconNoId";
         string? jobName = null;
 
-        if (!Exists(messageSource) || Deleted(messageSource))
-            return (iconId, jobName ?? string.Empty);
+        if (!Exists(entity) || Deleted(entity) || Terminating(entity))
+            return (iconId, string.Empty);
 
-        if (TryGetActiveVoiceMaskJobIcon(messageSource, out var maskIconId, out var maskJobName))
+        if (TryComp<InventoryComponent>(entity, out var _))
         {
-            return (maskIconId, maskJobName);
-        }
-
-        if (_accessReader.FindAccessItemsInventory(messageSource, out var items))
-        {
-            foreach (var item in items)
+            var enumerator = InventorySystem.GetSlotEnumerator(entity);
+            while (enumerator.NextItem(out var item, out var slot))
             {
-                if (!Exists(item) || Deleted(item))
+                if (slot == null || !Exists(item) || Deleted(item) || Terminating(item))
                     continue;
 
                 if (TryComp<IdCardComponent>(item, out var idCard))
@@ -303,7 +324,8 @@ public sealed class RadioSystem : EntitySystem
                 if (TryComp<PdaComponent>(item, out var pda) && pda.ContainedId.HasValue)
                 {
                     var containedId = pda.ContainedId.Value;
-                    if (Exists(containedId) && !Deleted(containedId) && TryComp<IdCardComponent>(containedId, out var pdaIdCard))
+                    if (Exists(containedId) && !Deleted(containedId) && !Terminating(containedId)
+                        && TryComp<IdCardComponent>(containedId, out var pdaIdCard))
                     {
                         iconId = pdaIdCard.JobIcon;
                         jobName = pdaIdCard.LocalizedJobTitle;
@@ -313,70 +335,19 @@ public sealed class RadioSystem : EntitySystem
             }
         }
 
-        if (iconId == "JobIconNoId" && HasComp<BorgChassisComponent>(messageSource))
+        if (iconId == "JobIconNoId" && HasComp<BorgChassisComponent>(entity))
         {
             iconId = "JobIconBorg";
             jobName = Loc.GetString("job-name-borg");
         }
 
-        if (iconId == "JobIconNoId" && HasComp<StationAiHeldComponent>(messageSource))
+        if (iconId == "JobIconNoId" && HasComp<StationAiHeldComponent>(entity))
         {
             iconId = "JobIconStationAi";
             jobName = Loc.GetString("job-name-station-ai");
         }
 
-        if (iconId == "JobIconNoId" && HasComp<ResearchConsoleComponent>(messageSource))
-        {
-            iconId = "JobIconMachine";
-            jobName = Loc.GetString("job-name-machine");
-        }
-
-        if (iconId == "JobIconNoId" && HasComp<VendingMachineComponent>(messageSource))
-        {
-            iconId = "JobIconMachine";
-            jobName = Loc.GetString("job-name-machine");
-        }
-
         return (iconId, jobName ?? string.Empty);
-    }
-
-    private bool TryGetActiveVoiceMaskJobIcon(EntityUid entity, out string iconId, out string jobName)
-    {
-        iconId = string.Empty;
-        jobName = string.Empty;
-
-        if (!TryComp<InventoryComponent>(entity, out var _))
-            return false;
-
-        var enumerator = _inventorySystem.GetSlotEnumerator(entity);
-        while (enumerator.NextItem(out var item, out var slot))
-        {
-            if (slot == null || Deleted(item))
-                continue;
-
-            if (TryComp<VoiceMaskComponent>(item, out var voiceMask) && voiceMask.VoiceMaskJobIcon.HasValue)
-            {
-                iconId = voiceMask.VoiceMaskJobIcon.Value;
-                jobName = _prototype.TryIndex<JobIconPrototype>(iconId, out var proto)
-                    ? proto.LocalizedJobName
-                    : Loc.GetString("voice-mask-job-icon-none");
-                return true;
-            }
-        }
-
-        return false;
-    }
-
-    private string WrapNameWithJobIcon(EntityUid messageSource, string name)
-    {
-        var (iconId, jobName) = GetJobIcon(messageSource);
-
-        jobName = FormattedMessage.EscapeText(jobName);
-
-        return Loc.GetString("chat-radio-name-with-job-icon",
-            ("iconId", iconId),
-            ("jobName", jobName),
-            ("name", name));
     }
     // ADT-Tweak end
 

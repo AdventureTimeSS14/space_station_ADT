@@ -1,5 +1,7 @@
 using Content.Shared.Actions;
 using Content.Shared.Administration.Logs;
+using Content.Shared.ADT.Radio.Components;
+using Content.Shared.ADT.Radio.EntitySystems;
 using Content.Shared.CCVar;
 using Content.Shared.Chat;
 using Content.Shared.Clothing;
@@ -13,6 +15,7 @@ using Content.Shared.StatusIcon;
 using Content.Shared.VoiceMask;
 using Robust.Shared.Configuration;
 using Robust.Shared.Containers;
+using Robust.Shared.GameObjects;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.VoiceMask;
@@ -26,6 +29,7 @@ public sealed partial class VoiceMaskSystem : EntitySystem
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly LockSystem _lock = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
+    [Dependency] private readonly SharedRadioJobIconSystem _radioJobIcon = default!; // ADT-Tweak: Update radio job icon cache
 
     // CCVar.
     private int _maxNameLength;
@@ -107,6 +111,8 @@ public sealed partial class VoiceMaskSystem : EntitySystem
 
         _popupSystem.PopupEntity(Loc.GetString("voice-mask-popup-success"), entity, msg.Actor);
 
+        UpdateWearerRadioJobIcon(entity.Owner);
+
         UpdateUI(entity);
     }
     // ADT-Tweak end
@@ -119,6 +125,8 @@ public sealed partial class VoiceMaskSystem : EntitySystem
             return;
 
         _actions.AddAction(args.Wearer, ref component.ActionEntity, component.Action.Value.Id, uid); // ADT-Tweak
+
+        _radioJobIcon.UpdateRadioJobIcon(args.Wearer); // ADT-Tweak
     }
 
     // ADT-Tweak start
@@ -126,6 +134,8 @@ public sealed partial class VoiceMaskSystem : EntitySystem
     {
         _actions.RemoveAction(component.ActionEntity);
         component.ActionEntity = null;
+
+        _radioJobIcon.UpdateRadioJobIcon(args.Wearer);
     }
     // ADT-Tweak end
 
@@ -155,5 +165,21 @@ public sealed partial class VoiceMaskSystem : EntitySystem
     {
         return entity.Comp.VoiceMaskName ?? Loc.GetString("voice-mask-default-name-override");
     }
+
+    // ADT-Tweak start
+    private void UpdateWearerRadioJobIcon(EntityUid voiceMaskUid)
+    {
+        if (!Exists(voiceMaskUid) || Deleted(voiceMaskUid) || Terminating(voiceMaskUid))
+            return;
+
+        if (_container.TryGetContainingContainer(voiceMaskUid, out var container))
+        {
+            if (!HasComp<RadioJobIconComponent>(container.Owner))
+                EnsureComp<RadioJobIconComponent>(container.Owner);
+
+            _radioJobIcon.UpdateRadioJobIcon(container.Owner);
+        }
+    }
+    // ADT-Tweak end
     #endregion
 }
