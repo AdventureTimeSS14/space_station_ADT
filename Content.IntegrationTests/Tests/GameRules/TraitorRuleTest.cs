@@ -48,7 +48,6 @@ public sealed class TraitorRuleTest
         var mindSys = server.System<MindSystem>();
         var roleSys = server.System<RoleSystem>();
         var factionSys = server.System<NpcFactionSystem>();
-        var traitorRuleSys = server.System<TraitorRuleSystem>();
 
         // Look up the minimum player count and max total objective difficulty for the game rule
         var minPlayers = 1;
@@ -85,7 +84,7 @@ public sealed class TraitorRuleTest
         // Opt-in the player for the traitor role
         await pair.SetAntagPreference(TraitorAntagRoleName, true);
 
-        // ADT-tweak start: Clear any existing game rules and disable preset to prevent conflicts
+        // ADT-tweak: Clear any existing game rules and disable preset
         await server.WaitAssertion(() =>
         {
             var existingRules = entMan.AllComponents<GameRuleComponent>().ToArray();
@@ -93,12 +92,10 @@ public sealed class TraitorRuleTest
             {
                 entMan.DeleteEntity(rule.Uid);
             }
-            // Disable preset so StartRound() doesn't create conflicting rules
             ticker.SetGamePreset((GamePresetPrototype?)null);
         });
-        // ADT-tweak end
 
-        TraitorRuleComponent? traitorRule = null;   // явно nullable
+        TraitorRuleComponent? traitorRule = null;
 
         await server.WaitPost(() =>
         {
@@ -106,14 +103,8 @@ public sealed class TraitorRuleTest
             Assert.That(entMan.TryGetComponent(gameRuleEnt, out traitorRule),
                 "Failed to get TraitorRuleComponent after adding the game rule");
 
-            // Ready up
             ticker.ToggleReadyAll(true);
-            Assert.That(ticker.PlayerGameStatuses.Values.All(x => x == PlayerGameStatus.ReadyToPlay));
-
-            // Start the round
             ticker.StartRound();
-
-            // Force traitor mode to start (skip the delay)
             ticker.StartGameRule(gameRuleEnt);
         });
 
@@ -124,21 +115,20 @@ public sealed class TraitorRuleTest
         Assert.That(ticker.PlayerGameStatuses.Values.All(x => x == PlayerGameStatus.JoinedGame));
         Assert.That(client.EntMan.EntityExists(client.AttachedEntity));
 
-        // Check the player and dummies are spawned
-        var dummyEnts = dummies.Select(x => x.AttachedEntity ?? default).ToArray();
         var player = pair.Player!.AttachedEntity!.Value;
+        var dummyEnts = dummies.Select(x => x.AttachedEntity ?? default).ToArray();
 
         Assert.That(entMan.EntityExists(player));
         Assert.That(dummyEnts.All(entMan.EntityExists));
 
-        // Make sure the player is a traitor.
+        // Make sure the player is a traitor
         var mind = mindSys.GetMind(player)!.Value;
 
         Assert.That(roleSys.MindIsAntagonist(mind));
         Assert.That(factionSys.IsMember(player, SyndicateFaction), Is.True);
         Assert.That(factionSys.IsMember(player, NanotrasenFaction), Is.False);
 
-        Assert.That(traitorRule!.TotalTraitors, Is.EqualTo(1));           // ! — Assert выше гарантирует наличие
+        Assert.That(traitorRule!.TotalTraitors, Is.EqualTo(1));
         Assert.That(traitorRule.TraitorMinds[0], Is.EqualTo(mind));
 
         // Check total objective difficulty
@@ -146,12 +136,11 @@ public sealed class TraitorRuleTest
         var totalDifficulty = mindComp!.Objectives.Sum(o => entMan.GetComponent<ObjectiveComponent>(o).Difficulty);
 
         Assert.That(totalDifficulty, Is.AtMost(maxDifficulty),
-            $"MaxDifficulty exceeded! Objectives: {string.Join(", ", mindComp.Objectives.Select(o => FormatObjective(new Entity<ObjectiveComponent>(o, entMan), entMan)))}");
+            $"MaxDifficulty exceeded! Objectives: {string.Join(", ", mindComp.Objectives.Select(o => FormatObjective(o, entMan)))}");
 
-        Assert.That(mindComp.Objectives, Is.Not.Empty,
-            $"No objectives assigned!");
+        Assert.That(mindComp.Objectives, Is.Not.Empty, "No objectives assigned!");
 
-        // ADT-tweak start: Clean up game rules to prevent leftover components affecting other tests
+        // ADT-tweak: Clean up game rules
         await server.WaitAssertion(() =>
         {
             var rules = entMan.AllComponents<GameRuleComponent>().ToArray();
@@ -160,15 +149,14 @@ public sealed class TraitorRuleTest
                 entMan.DeleteEntity(rule.Uid);
             }
         });
-        // ADT-tweak end
 
         await pair.CleanReturnAsync();
     }
 
-    private static string FormatObjective(Entity<ObjectiveComponent> entity, IEntityManager entMan)
+    private static string FormatObjective(EntityUid objectiveUid, IEntityManager entMan)
     {
-        var meta = entMan.GetComponent<MetaDataComponent>(entity);
-        var objective = entMan.GetComponent<ObjectiveComponent>(entity);
+        var meta = entMan.GetComponent<MetaDataComponent>(objectiveUid);
+        var objective = entMan.GetComponent<ObjectiveComponent>(objectiveUid);
         return $"{meta.EntityName} ({objective.Difficulty})";
     }
 }
