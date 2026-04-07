@@ -319,7 +319,8 @@ namespace Content.Server.Administration.Systems
             _typingUpdateTimestamps[args.SenderSession.UserId] = (_timing.RealTime, msg.Typing);
 
             // Non-admins can only ever type on their own ahelp, guard against fake messages
-            var isAdmin = _adminManager.GetAdminData(args.SenderSession)?.HasFlag(AdminFlags.Adminhelp) ?? false;
+            // AhelpView can see typing indicator but can't type themselves
+            var isAdmin = (_adminManager.GetAdminData(args.SenderSession)?.HasFlag(AdminFlags.Adminhelp) ?? false); // ADT-Tweak
             var channel = isAdmin ? msg.Channel : args.SenderSession.UserId;
             var update = new BwoinkPlayerTypingUpdated(channel, args.SenderSession.Name, msg.Typing);
 
@@ -805,10 +806,19 @@ namespace Content.Server.Administration.Systems
         private IList<INetChannel> GetTargetAdmins()
         {
             return _adminManager.ActiveAdmins
-                .Where(p => _adminManager.GetAdminData(p)?.HasFlag(AdminFlags.Adminhelp) ?? false)
+                .Where(HasAhelpAccess) // ADT-Tweak
                 .Select(p => p.Channel)
                 .ToList();
         }
+
+        // ADT-Tweak start
+        private bool HasAhelpAccess(ICommonSession session)
+        {
+            var adminData = _adminManager.GetAdminData(session);
+            return (adminData?.HasFlag(AdminFlags.Adminhelp) ?? false) ||
+                   (adminData?.HasFlag(AdminFlags.AhelpView) ?? false);
+        }
+        // ADT-Tweak end
 
         private DiscordRelayedData GenerateAHelpMessage(AHelpMessageParams parameters)
         {

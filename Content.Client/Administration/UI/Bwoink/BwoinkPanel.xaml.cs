@@ -20,6 +20,7 @@ namespace Content.Client.Administration.UI.Bwoink
         public int LastTagId { get; private set; } = -1; // Переменная для хранения последнего выбора тега
         // ADT-Tweak end.
         private readonly Action<string> _messageSender;
+        private readonly bool _canSendMessages; // ADT-Tweak
 
         public int Unread { get; private set; } = 0;
         public DateTime LastMessage { get; private set; } = DateTime.MinValue;
@@ -28,11 +29,13 @@ namespace Content.Client.Administration.UI.Bwoink
 
         /* ADT-Tweak. Система тегов в АХелп.
         В конструктор добавлен параметр по умолчанию bool isUserAHelp = false */
-        public BwoinkPanel(Action<string> messageSender, bool isUserAHelp = false)
+        public BwoinkPanel(Action<string> messageSender, bool isUserAHelp = false, bool canSendMessages = true)
         {
             RobustXamlLoader.Load(this);
 
-            InitializeAHelpPanel(isUserAHelp); // ADT-Tweak start. Система тегов в АХелп
+            _canSendMessages = canSendMessages;
+
+            InitializeAHelpPanel(isUserAHelp, canSendMessages); // ADT-Tweak start. Система тегов в АХелп
 
             var msg = new FormattedMessage();
             msg.PushColor(Color.LightGray);
@@ -54,8 +57,25 @@ namespace Content.Client.Administration.UI.Bwoink
 
         // ADT-Tweak start. Система тегов в АХелп
         // Функция для проверки на то, какой интерфейс АХелпа открыт(игрока, админа)
-        private void InitializeAHelpPanel(bool isAHelp)
+        private void InitializeAHelpPanel(bool isAHelp, bool canSendMessages)
         {
+            // Hide input controls if cannot send messages (viewer mode)
+            if (!canSendMessages)
+            {
+                SenderLineEdit.Visible = false;
+                TypeTag.Visible = false;
+                AHelpUserTagName.Visible = false;
+
+                // Show viewer notice message
+                var noticeMsg = new FormattedMessage();
+                noticeMsg.PushColor(Color.Gray);
+                noticeMsg.AddText(Loc.GetString("bwoink-viewer-notice"));
+                noticeMsg.Pop();
+                ViewerNoticeLabel.SetMessage(noticeMsg);
+                ViewerNoticeLabel.Visible = true;
+                return;
+            }
+
             if (isAHelp)
             {
                 // Перебор и добавление тегов в список
@@ -90,11 +110,15 @@ namespace Content.Client.Administration.UI.Bwoink
             if (string.IsNullOrWhiteSpace(args.Text))
                 return;
 
+            if (!_canSendMessages) // ADT-Tweak
+                return;
+
             // ADT-Tweak start. Система тегов в АХелп
             var uiController = IoCManager.Resolve<IUserInterfaceManager>().GetUIController<AHelpUIController>();
 
             // Добавление [Tag:X] к отправленному сообщению от ИГРОКА, если сообщение из ПОЛЬЗОВАТЕЛЬСКОГО АХелпа
-            if (uiController.UIHelper is AdminAHelpUIHandler adminAhelp)
+            // ViewerAHelpUIHandler sends without tags (like admin)
+            if (uiController.UIHelper is AdminAHelpUIHandler || uiController.UIHelper is ViewerAHelpUIHandler)
             {
                 _messageSender.Invoke(args.Text);
             }

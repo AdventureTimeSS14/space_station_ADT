@@ -292,6 +292,13 @@ public sealed class ADTCCVars
     public static readonly CVarDef<int> SpaceWhaleSpawnDistance =
         CVarDef.Create("misc.space_whale_spawn_distance", 1965, CVar.SERVER);
 
+    /// <summary>
+    /// If enabled, job icons in chat and status icons are animated.
+    /// When disabled, only static icons will be shown.
+    /// </summary>
+    public static readonly CVarDef<bool> EnableJobIconAnimation =
+        CVarDef.Create("adt.job_icon_animation_enabled", true, CVar.CLIENTONLY | CVar.ARCHIVE);
+
     /*
     * Headshot
     */
