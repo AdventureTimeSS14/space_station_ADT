@@ -113,11 +113,10 @@
     showColdAlert: false
     currentTemperature: 293.15 # 20C - нормальная температура тела
     coldDamage: #per second, scales with temperature & other constants
-      groups:
+      types:
         Brute: -0.25
         Burn: -0.25
         Toxin: -0.1
-      types:
         Cellular: -0.05
     specificHeat: 42
     heatDamage: #per second, scales with temperature & other constants
