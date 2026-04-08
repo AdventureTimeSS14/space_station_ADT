@@ -191,7 +191,7 @@
     - Balloon
 
 - type: entity
-  parent: ADTBalloon
+  parent: [ADTBalloon, ToyHammer]
   id: ADTBalloonSword
   name: sword balloon
   description: It's too safe to attack ships.
