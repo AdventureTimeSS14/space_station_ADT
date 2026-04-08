@@ -1,49 +1,28 @@
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Temperature.Components;
 using Content.Shared.Atmos;
-<<<<<<< HEAD
-using Content.Shared.Damage.Components;
-using Content.Shared.Damage.Systems;
-using Content.Shared.Database;
 using Content.Shared.Inventory;
 using Content.Shared.Rejuvenate;
 using Content.Shared.Temperature;
-using Robust.Shared.Prototypes;
-=======
-using Content.Shared.Inventory;
-using Content.Shared.Rejuvenate;
-using Content.Shared.Temperature;
->>>>>>> upstreamwiz/master
 using Content.Shared.Projectiles;
 using Content.Shared.Temperature.Components;
 using Content.Shared.Temperature.Systems;
 
 namespace Content.Server.Temperature.Systems;
 
-<<<<<<< HEAD
-public sealed class TemperatureSystem : SharedTemperatureSystem
-=======
 public sealed partial class TemperatureSystem : SharedTemperatureSystem
->>>>>>> upstreamwiz/master
 {
-    [Dependency] private readonly AtmosphereSystem _atmosphere = default!;
+    [Dependency]
+    private readonly AtmosphereSystem _atmosphere = default!;
 
     public override void Initialize()
     {
         base.Initialize();
-
-<<<<<<< HEAD
-        SubscribeLocalEvent<TemperatureComponent, OnTemperatureChangeEvent>(EnqueueDamage);
-=======
->>>>>>> upstreamwiz/master
-        SubscribeLocalEvent<TemperatureComponent, AtmosExposedUpdateEvent>(OnAtmosExposedUpdate);
-        SubscribeLocalEvent<TemperatureComponent, RejuvenateEvent>(OnRejuvenate);
-        Subs.SubscribeWithRelay<TemperatureProtectionComponent, ModifyChangedTemperatureEvent>(OnTemperatureChangeAttempt, held: false);
-
-        SubscribeLocalEvent<InternalTemperatureComponent, MapInitEvent>(OnInit);
-
-        SubscribeLocalEvent<ChangeTemperatureOnCollideComponent, ProjectileHitEvent>(ChangeTemperatureOnCollide);
-
+        SubscribeLocalEvent(OnAtmosExposedUpdate);
+        SubscribeLocalEvent(OnRejuvenate);
+        Subs.SubscribeWithRelay(OnTemperatureChangeAttempt, held: false);
+        SubscribeLocalEvent(OnInit);
+        SubscribeLocalEvent(ChangeTemperatureOnCollide);
         InitializeDamage();
     }
 
@@ -52,7 +31,7 @@ public sealed partial class TemperatureSystem : SharedTemperatureSystem
         base.Update(frameTime);
 
         // conduct heat from the surface to the inside of entities with internal temperatures
-        var query = EntityQueryEnumerator<InternalTemperatureComponent, TemperatureComponent>();
+        var query = EntityQueryEnumerator();
         while (query.MoveNext(out var uid, out var comp, out var temp))
         {
             // don't do anything if they equalised
@@ -66,6 +45,7 @@ public sealed partial class TemperatureSystem : SharedTemperatureSystem
             // convert to J then K
             var joules = q * comp.Area * frameTime;
             var degrees = joules / GetHeatCapacity(uid, temp);
+
             if (temp.CurrentTemperature < comp.Temperature)
                 degrees *= -1;
 
@@ -103,35 +83,28 @@ public sealed partial class TemperatureSystem : SharedTemperatureSystem
         float lastTemp = temperature.CurrentTemperature;
         temperature.CurrentTemperature += heatAmount / GetHeatCapacity(uid, temperature);
         float delta = temperature.CurrentTemperature - lastTemp;
-
         RaiseLocalEvent(uid, new OnTemperatureChangeEvent(temperature.CurrentTemperature, lastTemp, delta), broadcast: true);
     }
 
     private void OnAtmosExposedUpdate(EntityUid uid, TemperatureComponent temperature, ref AtmosExposedUpdateEvent args)
     {
         var transform = args.Transform;
-
         if (transform.MapUid == null)
             return;
 
         var temperatureDelta = args.GasMixture.Temperature - temperature.CurrentTemperature;
         var airHeatCapacity = _atmosphere.GetHeatCapacity(args.GasMixture, false);
         var heatCapacity = GetHeatCapacity(uid, temperature);
+
         // TODO ATMOS: This heat transfer formula is really really wrong, it needs to be pulled out. Pending on HeatContainers.
-        var heat = temperatureDelta * (airHeatCapacity * heatCapacity /
-                                       (airHeatCapacity + heatCapacity));
+        var heat = temperatureDelta * (airHeatCapacity * heatCapacity / (airHeatCapacity + heatCapacity));
+
         ChangeHeat(uid, heat * temperature.AtmosTemperatureTransferEfficiency, temperature: temperature);
     }
 
-<<<<<<< HEAD
-    private void OnInit(EntityUid uid, InternalTemperatureComponent comp, MapInitEvent args)
-    {
-        if (!TryComp<TemperatureComponent>(uid, out var temp))
-=======
-    private void OnInit(Entity<InternalTemperatureComponent> entity, ref MapInitEvent args)
+    private void OnInit(Entity entity, ref MapInitEvent args)
     {
         if (!TemperatureQuery.TryComp(entity, out var temp))
->>>>>>> upstreamwiz/master
             return;
 
         entity.Comp.Temperature = temp.CurrentTemperature;
@@ -144,18 +117,14 @@ public sealed partial class TemperatureSystem : SharedTemperatureSystem
 
     private void OnTemperatureChangeAttempt(EntityUid uid, TemperatureProtectionComponent component, ModifyChangedTemperatureEvent args)
     {
-        var coefficient = args.TemperatureDelta < 0
-            ? component.CoolingCoefficient
-            : component.HeatingCoefficient;
-
+        var coefficient = args.TemperatureDelta < 0 ? component.CoolingCoefficient : component.HeatingCoefficient;
         var ev = new GetTemperatureProtectionEvent(coefficient);
         RaiseLocalEvent(uid, ref ev);
-
         args.TemperatureDelta *= ev.Coefficient;
     }
 
-    private void ChangeTemperatureOnCollide(Entity<ChangeTemperatureOnCollideComponent> ent, ref ProjectileHitEvent args)
+    private void ChangeTemperatureOnCollide(Entity ent, ref ProjectileHitEvent args)
     {
-        ChangeHeat(args.Target, ent.Comp.Heat, ent.Comp.IgnoreHeatResistance);// adjust the temperature
+        ChangeHeat(args.Target, ent.Comp.Heat, ent.Comp.IgnoreHeatResistance); // adjust the temperature
     }
 }
