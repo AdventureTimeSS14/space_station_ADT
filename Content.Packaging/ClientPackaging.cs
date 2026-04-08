@@ -86,11 +86,7 @@ public static class ClientPackaging
             new[] { "Content.Client", "Content.Shared", "Content.Shared.Database" },
             cancel: cancel);
 
-<<<<<<< HEAD
-        await WriteClientResources(
-=======
         await RobustClientPackaging.WriteClientResources(
->>>>>>> upstreamwiz/master
             contentDir,
             inputPass,
             SharedPackaging.AdditionalIgnoredResources,
