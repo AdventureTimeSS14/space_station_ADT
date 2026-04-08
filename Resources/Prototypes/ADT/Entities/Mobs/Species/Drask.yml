@@ -136,6 +136,12 @@
     shiveringHeatRegulation: 500
     normalBodyTemperature: 273.15
     thermalRegulationTemperatureThreshold: 25
+  - type: DraskColdHealing
+    temperatureThreshold: -30
+    interval: 1
+    healing:
+      types:
+        Blunt: -0.5
   - type: Fixtures
     fixtures:
       fix1:
