@@ -1,5 +1,5 @@
 - type: entity
-  parent: BaseStructureDynamic
+  parent: [ BaseStructureDynamic, BasePaperLabelableVisualized ]
   id: CrateGeneric
   categories: [ HideSpawnMenu ]
   name: crate
@@ -55,10 +55,10 @@
       - !type:PlaySoundBehavior
         sound:
           collection: MetalBreak
-  - type: Appearance
   - type: EntityStorageVisuals
     stateDoorOpen: open
     stateDoorClosed: closed
+<<<<<<< HEAD
   - type: GenericVisualizer
     visuals:
       enum.PaperLabelVisuals.HasLabel:
@@ -81,11 +81,12 @@
       blacklist:
         tags:
         - Book
+=======
+>>>>>>> upstreamwiz/master
   - type: ContainerContainer
     containers:
       entity_storage: !type:Container
       paper_label: !type:ContainerSlot
-  - type: ItemSlots
   - type: StaticPrice
     price: 75
   - type: Construction

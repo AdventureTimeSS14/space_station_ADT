@@ -1,8 +1,13 @@
 - type: marking
   id: CatEars
+<<<<<<< HEAD
   bodyPart: HeadTop # Corvax-Sponsors
   markingCategory: HeadTop # Corvax-Sponsors
   speciesRestriction: [Human]
+=======
+  bodyPart: Special
+  groupWhitelist: [Human]
+>>>>>>> upstreamwiz/master
   coloring:
     default:
       type:
@@ -24,8 +29,7 @@
 - type: marking
   id: CatTail
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [Human]
+  groupWhitelist: [Human]
   coloring:
     default:
       type:

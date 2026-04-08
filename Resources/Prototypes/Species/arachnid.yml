@@ -3,10 +3,8 @@
   name: species-name-arachnid
   roundStart: true
   prototype: MobArachnid
-  sprites: MobArachnidSprites
   defaultSkinTone: "#385878"
-  markingLimits: MobArachnidMarkingLimits
-  dollPrototype: MobArachnidDummy
+  dollPrototype: AppearanceArachnid
   skinColoration: Hues
   maleFirstNames: NamesArachnidFirst
   femaleFirstNames: NamesArachnidFirst
@@ -14,6 +12,7 @@
   femaleLastNames: NamesArachnidLast # Corvax-LastnameGender
   sexes:
   - Unsexed
+<<<<<<< HEAD
   # ADT start
   shortDesc: species-short-desc-spider
   pros:
@@ -175,3 +174,5 @@
   baseSprite:
     sprite: Mobs/Species/Arachnid/parts.rsi
     state: r_foot
+=======
+>>>>>>> upstreamwiz/master

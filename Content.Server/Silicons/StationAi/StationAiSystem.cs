@@ -1,4 +1,5 @@
 using Content.Server.Chat.Systems;
+<<<<<<< HEAD
 using Content.Server.GameTicking;
 using Content.Server.Silicons.Laws;
 using Content.Shared.Chat;
@@ -9,6 +10,15 @@ using Content.Server.Ghost;
 using Content.Server.Mind;
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
+=======
+using Content.Server.Construction;
+using Content.Server.Destructible;
+using Content.Server.Ghost;
+using Content.Server.Ghost.Roles;
+using Content.Server.Ghost.Roles.Components;
+using Content.Server.Mind;
+using Content.Server.Power.Components;
+>>>>>>> upstreamwiz/master
 using Content.Server.Roles;
 using Content.Server.Spawners.Components;
 using Content.Server.Spawners.EntitySystems;
@@ -25,6 +35,10 @@ using Content.Shared.Mobs;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Power;
+<<<<<<< HEAD
+=======
+using Content.Shared.Power.EntitySystems;
+>>>>>>> upstreamwiz/master
 using Content.Shared.Power.Components;
 using Content.Shared.Rejuvenate;
 using Content.Shared.Roles;
@@ -33,9 +47,12 @@ using Content.Shared.Silicons.Laws;
 using Content.Shared.Silicons.StationAi;
 using Content.Shared.Speech.Components;
 using Content.Shared.StationAi;
+<<<<<<< HEAD
 using Robust.Server.Containers;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
+=======
+>>>>>>> upstreamwiz/master
 using Content.Shared.Turrets;
 using Content.Shared.Weapons.Ranged.Events;
 using Robust.Server.Containers;
@@ -56,9 +73,16 @@ public sealed class StationAiSystem : SharedStationAiSystem
     [Dependency] private readonly RoleSystem _roles = default!;
     [Dependency] private readonly ItemSlotsSystem _slots = default!;
     [Dependency] private readonly GhostSystem _ghost = default!;
+<<<<<<< HEAD
     [Dependency] private readonly AlertsSystem _alerts = default!;
     [Dependency] private readonly DestructibleSystem _destructible = default!;
     [Dependency] private readonly BatterySystem _battery = default!;
+=======
+    [Dependency] private readonly ToggleableGhostRoleSystem _ghostrole = default!;
+    [Dependency] private readonly AlertsSystem _alerts = default!;
+    [Dependency] private readonly DestructibleSystem _destructible = default!;
+    [Dependency] private readonly SharedBatterySystem _battery = default!;
+>>>>>>> upstreamwiz/master
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly SharedPopupSystem _popups = default!;
     [Dependency] private readonly StationSystem _station = default!;
@@ -66,9 +90,12 @@ public sealed class StationAiSystem : SharedStationAiSystem
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+<<<<<<< HEAD
     [Dependency] private readonly ISharedPlayerManager _player = default!; // ADT-Tweak
     [Dependency] private readonly SiliconLawSystem _law = default!; // ADT-Tweak
     [Dependency] private readonly GameTicker _ticker = default!; // ADT-Tweak
+=======
+>>>>>>> upstreamwiz/master
 
     private readonly HashSet<Entity<StationAiCoreComponent>> _stationAiCores = new();
 
@@ -80,7 +107,11 @@ public sealed class StationAiSystem : SharedStationAiSystem
     private readonly ProtoId<JobPrototype> _stationAiJob = "StationAi";
     private readonly EntProtoId _stationAiBrain = "StationAiBrain";
 
+<<<<<<< HEAD
     private readonly ProtoId<AlertPrototype> _batteryAlert = "BorgBattery";
+=======
+    private readonly ProtoId<AlertPrototype> _batteryAlert = "AiBattery";
+>>>>>>> upstreamwiz/master
     private readonly ProtoId<AlertPrototype> _damageAlert = "BorgHealth";
 
     public override void Initialize()
@@ -109,6 +140,7 @@ public sealed class StationAiSystem : SharedStationAiSystem
         }
 
         var brain = container.ContainedEntities[0];
+<<<<<<< HEAD
 
         if (_mind.TryGetMind(brain, out var mindId, out var mind))
         {
@@ -117,17 +149,46 @@ public sealed class StationAiSystem : SharedStationAiSystem
             _roles.MindAddJobRole(mindId, mind, false, _stationAiJob);
             _mind.TransferTo(mindId, aiBrain);
 
+=======
+        var hasMind = _mind.TryGetMind(brain, out var mindId, out var mind);
+
+        if (hasMind || HasComp<GhostRoleComponent>(brain))
+        {
+            var aiBrain = Spawn(_stationAiBrain, Transform(ent.Owner).Coordinates);
+
+            if (hasMind)
+            {
+                // Found an existing mind to transfer into the AI core
+                _roles.MindAddJobRole(mindId, mind, false, _stationAiJob);
+                _mind.TransferTo(mindId, aiBrain);
+            }
+            else
+            {
+                // If the brain had a ghost role attached, activate the station AI ghost role
+                _ghostrole.ActivateGhostRole(aiBrain);
+
+                // Set the new AI brain to the 'rebooting' state
+                if (TryComp<StationAiCustomizationComponent>(aiBrain, out var customization))
+                    SetStationAiState((aiBrain, customization), StationAiState.Rebooting);
+
+            }
+
+            // Delete the new AI brain if it cannot be inserted into the core
+>>>>>>> upstreamwiz/master
             if (!TryComp<StationAiHolderComponent>(ent, out var targetHolder) ||
                 !_slots.TryInsert(ent, targetHolder.Slot, aiBrain, null))
             {
                 QueueDel(aiBrain);
             }
+<<<<<<< HEAD
             // ADT-Tweak start
             else
             {
                 SetLoadoutOnTakeover(ent.Owner, aiBrain);
             }
             // ADT-Tweak end
+=======
+>>>>>>> upstreamwiz/master
         }
 
         // TODO: We should consider keeping the borg brain inside the AI core.
@@ -171,6 +232,7 @@ public sealed class StationAiSystem : SharedStationAiSystem
             accent.OverrideTotalDamage = null;
             accent.DamageAtMaxCorruption = null;
         }
+<<<<<<< HEAD
 
         // ADT-Tweak start: Remove StationAI job role when leaving the AI core
         if (_mind.TryGetMind(args.Entity, out var mindId, out var mind))
@@ -179,6 +241,8 @@ public sealed class StationAiSystem : SharedStationAiSystem
                 _roles.MindRemoveRole<JobRoleComponent>(mindId);
         }
         // ADT-Tweak end
+=======
+>>>>>>> upstreamwiz/master
     }
 
     protected override void OnMobStateChanged(Entity<StationAiCustomizationComponent> ent, ref MobStateChangedEvent args)
@@ -202,8 +266,11 @@ public sealed class StationAiSystem : SharedStationAiSystem
 
             if (SetupEye(aiCoreEnt))
                 AttachEye(aiCoreEnt);
+<<<<<<< HEAD
 
             SetLoadoutOnTakeover(aiCore.Owner, ent.Owner); // ADT-Tweak
+=======
+>>>>>>> upstreamwiz/master
         }
 
         SetStationAiState(ent, state);
@@ -248,6 +315,10 @@ public sealed class StationAiSystem : SharedStationAiSystem
         UpdateDamagedAccent(entity);
     }
 
+<<<<<<< HEAD
+=======
+    // TODO: This should just read the current damage and charge when speaking instead of updating the component all the time even if we don't even use it.
+>>>>>>> upstreamwiz/master
     private void UpdateDamagedAccent(Entity<StationAiCoreComponent> ent)
     {
         if (!TryGetHeld((ent.Owner, ent.Comp), out var held))
@@ -257,10 +328,17 @@ public sealed class StationAiSystem : SharedStationAiSystem
             return;
 
         if (TryComp<BatteryComponent>(ent, out var battery))
+<<<<<<< HEAD
             accent.OverrideChargeLevel = battery.CurrentCharge / battery.MaxCharge;
 
         if (TryComp<DamageableComponent>(ent, out var damageable))
             accent.OverrideTotalDamage = damageable.TotalDamage;
+=======
+            accent.OverrideChargeLevel = _battery.GetChargeLevel((ent.Owner, battery));
+
+        if (TryComp<DamageableComponent>(ent, out var damageable))
+            accent.OverrideTotalDamage = _damageable.GetTotalDamage((ent, damageable));
+>>>>>>> upstreamwiz/master
 
         if (TryComp<DestructibleComponent>(ent, out var destructible))
             accent.DamageAtMaxCorruption = _destructible.DestroyedAt(ent, destructible);
@@ -279,7 +357,11 @@ public sealed class StationAiSystem : SharedStationAiSystem
         if (!_proto.TryIndex(_batteryAlert, out var proto))
             return;
 
+<<<<<<< HEAD
         var chargePercent = battery.CurrentCharge / battery.MaxCharge;
+=======
+        var chargePercent = _battery.GetChargeLevel((ent.Owner, battery));
+>>>>>>> upstreamwiz/master
         var chargeLevel = Math.Round(chargePercent * proto.MaxSeverity);
 
         _alerts.ShowAlert(held.Value, _batteryAlert, (short)Math.Clamp(chargeLevel, 0, proto.MaxSeverity));
@@ -307,7 +389,11 @@ public sealed class StationAiSystem : SharedStationAiSystem
         if (!_proto.TryIndex(_damageAlert, out var proto))
             return;
 
+<<<<<<< HEAD
         var damagePercent = damageable.TotalDamage / _destructible.DestroyedAt(ent, destructible);
+=======
+        var damagePercent = _damageable.GetTotalDamage((ent, damageable)) / _destructible.DestroyedAt(ent, destructible);
+>>>>>>> upstreamwiz/master
         var damageLevel = Math.Round(damagePercent.Float() * proto.MaxSeverity);
 
         _alerts.ShowAlert(held.Value, _damageAlert, (short)Math.Clamp(damageLevel, 0, proto.MaxSeverity));

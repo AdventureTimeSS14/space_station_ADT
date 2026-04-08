@@ -1,7 +1,10 @@
+# Medical supply lockers
+
 - type: entityTable
   id: LockerFillMedicine
   table: !type:AllSelector
     children:
+<<<<<<< HEAD
     - id: BoxSyringe
     - id: ChemistryBottleEpinephrine
     - id: Brutepack
@@ -14,6 +17,19 @@
       amount: !type:ConstantNumberSelector
         value: 2
     - id: Gauze
+=======
+    - !type:NestedSelector
+      tableId: CoreMedicineReagentBottleTable
+      rolls: 2
+    - !type:GroupSelector # Basic topicals
+      rolls: 7
+      children:
+      - id: Brutepack
+      - id: Ointment
+      - id: Bloodpack
+      - id: Gauze
+        weight: 0.5
+>>>>>>> upstreamwiz/master
 
 - type: entity
   parent: LockerMedicine
@@ -64,6 +80,27 @@
         amount: 2
       - id: Gauze
 
+<<<<<<< HEAD
+=======
+# Medical role lockers
+
+- type: entityTable
+  id: LockerFillMedicalDoctor
+  table: !type:AllSelector
+    children:
+    - id: ClothingEyesHudMedical
+    - id: ClothingBeltMedicalFilled
+    - id: JetInjector
+    - id: HandheldHealthAnalyzer
+    - id: ChemistryBottleLaughter # Widely recognized as the best medicine :o)
+      prob: 0.01
+    - id: PlushieLizardJobMedicaldoctor
+      prob: 0.02
+    - id: PlushieLizardJobMedicalintern
+      prob: 0.02
+    - id: PlushieLizardJobPsychologist
+      prob: 0.02
+>>>>>>> upstreamwiz/master
 
 - type: entity
   id: LockerMedicalFilled
@@ -108,6 +145,7 @@
   name: medical doctor's wall locker
   suffix: Filled
   components:
+<<<<<<< HEAD
   - type: StorageFill
     contents:
       - id: HandheldHealthAnalyzer
@@ -134,12 +172,45 @@
         prob: 0.05
         orGroup: Surgshrubs
       - id: ClothingMaskSterile
+=======
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: LockerFillMedicalDoctor
+
+- type: entityTable
+  id: LockerFillChemistry
+  table: !type:AllSelector
+    children:
+    - id: ClothingEyesGlassesChemical
+    - id: ChemBag
+    - id: Dropper
+    - id: HandLabeler
+    - id: BarSpoon # Should be replaced by a stirring tool with medical theming, like a glass rod
+    - id: PlasmaChemistryVial
+    - !type:AllSelector # The wonderful world of chemical storage
+      children:
+      - id: BoxSyringe
+      - id: BoxBottle
+      - id: BoxVial
+      - id: BoxBeaker
+      - id: BoxPillCanister
+      - !type:GroupSelector # Remind chemists once in a while of alternate storage options
+        prob: 0.2
+        children:
+        - id: SprayBottle
+        - id: Bucket
+        - id: DrinkCartonMilk
+    - id: PlushieLizardJobChemist
+      prob: 0.02
+>>>>>>> upstreamwiz/master
 
 - type: entity
   id: LockerChemistryFilled
   suffix: Filled
   parent: LockerChemistry
   components:
+<<<<<<< HEAD
   - type: StorageFill
     contents:
       - id: BoxSyringe
@@ -163,6 +234,30 @@
     # ADT-Druglordupdate-Start
       - id: ADTChemistryColdplateFlatpack
     # ADT-Druglordupdate-End
+=======
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: LockerFillChemistry
+
+- type: entityTable
+  id: LockerFillParamedic
+  table: !type:AllSelector
+    children:
+    - id: ClothingEyesHudMedical
+    - id: ClothingOuterHardsuitVoidParamed
+    - id: ClothingBeltMedicalEMTFilled
+    - id: JetInjector
+    - id: HandheldHealthAnalyzer
+    - id: BoxBodyBag
+    - !type:GroupSelector
+      children:
+      - id: RollerBedSpawnFolded
+      - id: CheapRollerBedSpawnFolded
+      - id: EmergencyRollerBedSpawnFolded
+    - id: PlushieLizardJobParamedic
+      prob: 0.02
+>>>>>>> upstreamwiz/master
 
 - type: entity
   id: LockerParamedicFilled

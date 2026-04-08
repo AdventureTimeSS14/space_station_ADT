@@ -19,6 +19,10 @@
       whitelist:
         components:
         - Delivery
+<<<<<<< HEAD
+=======
+        - WrappedParcel
+>>>>>>> upstreamwiz/master
         tags:
         - Paper
         - Document

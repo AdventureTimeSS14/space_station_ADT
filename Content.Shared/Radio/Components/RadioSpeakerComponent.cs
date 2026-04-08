@@ -1,6 +1,11 @@
+<<<<<<< HEAD
 using Content.Shared.Chat;
 using Content.Shared.Radio.EntitySystems;
 using Robust.Shared.Audio;
+=======
+using Content.Shared.Radio.EntitySystems;
+using Content.Shared.Chat;
+>>>>>>> upstreamwiz/master
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
@@ -25,6 +30,7 @@ public sealed partial class RadioSpeakerComponent : Component
 
     [DataField, AutoNetworkedField]
     public bool Enabled;
+<<<<<<< HEAD
 
     /// Start ADT Tweak
     [DataField("speechMode")]
@@ -36,4 +42,6 @@ public sealed partial class RadioSpeakerComponent : Component
     [DataField]
     public SoundSpecifier SoundOnReceive = new SoundPathSpecifier("/Audio/ADT/Effects/silence.ogg");
     /// End ADT Tweak
+=======
+>>>>>>> upstreamwiz/master
 }

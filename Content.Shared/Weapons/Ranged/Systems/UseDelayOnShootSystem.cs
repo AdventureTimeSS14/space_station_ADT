@@ -13,6 +13,7 @@ public sealed class UseDelayOnShootSystem : EntitySystem
         SubscribeLocalEvent<UseDelayOnShootComponent, AttemptShootEvent>(OnUseShoot);//ADT tweak
     }
 
+<<<<<<< HEAD
     private void OnUseShoot(EntityUid uid, UseDelayOnShootComponent component, ref AttemptShootEvent args)//ADT tweak
     {
         //ADT-tweak-start
@@ -24,5 +25,11 @@ public sealed class UseDelayOnShootSystem : EntitySystem
         //ADT-tweak-end
         if (TryComp(uid, out UseDelayComponent? useDelay))
             _delay.TryResetDelay((uid, useDelay));
+=======
+    private void OnUseShoot(Entity<UseDelayOnShootComponent> ent, ref GunShotEvent args)
+    {
+        if (TryComp(ent, out UseDelayComponent? useDelay))
+            _delay.TryResetDelay((ent, useDelay));
+>>>>>>> upstreamwiz/master
     }
 }

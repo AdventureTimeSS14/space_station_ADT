@@ -1,11 +1,18 @@
 using Content.Shared.Administration.Logs;
+<<<<<<< HEAD
 using Content.Shared.Body.Systems;
+=======
+>>>>>>> upstreamwiz/master
 using Content.Shared.Damage.Systems;
 using Content.Shared.Database;
 using Content.Shared.Destructible;
 using Content.Shared.DoAfter;
 using Content.Shared.DragDrop;
 using Content.Shared.Examine;
+<<<<<<< HEAD
+=======
+using Content.Shared.Gibbing;
+>>>>>>> upstreamwiz/master
 using Content.Shared.Hands;
 using Content.Shared.Humanoid;
 using Content.Shared.IdentityManagement;
@@ -41,7 +48,11 @@ public sealed class SharedKitchenSpikeSystem : EntitySystem
     [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearanceSystem = default!;
     [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
+<<<<<<< HEAD
     [Dependency] private readonly SharedBodySystem _bodySystem = default!;
+=======
+    [Dependency] private readonly GibbingSystem _gibbing = default!;
+>>>>>>> upstreamwiz/master
     [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
     [Dependency] private readonly SharedInteractionSystem _interaction = default!;
@@ -70,7 +81,10 @@ public sealed class SharedKitchenSpikeSystem : EntitySystem
 
         // Prevent the victim from doing anything while on the spike.
         SubscribeLocalEvent<KitchenSpikeHookedComponent, ChangeDirectionAttemptEvent>(OnAttempt);
+<<<<<<< HEAD
         SubscribeLocalEvent<KitchenSpikeHookedComponent, UpdateCanMoveEvent>(OnAttempt);
+=======
+>>>>>>> upstreamwiz/master
         SubscribeLocalEvent<KitchenSpikeHookedComponent, UseAttemptEvent>(OnAttempt);
         SubscribeLocalEvent<KitchenSpikeHookedComponent, ThrowAttemptEvent>(OnAttempt);
         SubscribeLocalEvent<KitchenSpikeHookedComponent, DropAttemptEvent>(OnAttempt);
@@ -240,7 +254,11 @@ public sealed class SharedKitchenSpikeSystem : EntitySystem
                 ent);
 
             // normally medium severity, but for humanoids high severity, so new players get relay'd to admin alerts.
+<<<<<<< HEAD
             var logSeverity = HasComp<HumanoidAppearanceComponent>(args.Target) ? LogImpact.High : LogImpact.Medium;
+=======
+            var logSeverity = HasComp<HumanoidProfileComponent>(args.Target) ? LogImpact.High : LogImpact.Medium;
+>>>>>>> upstreamwiz/master
 
             _logger.Add(LogType.Action,
                 logSeverity,
@@ -291,10 +309,14 @@ public sealed class SharedKitchenSpikeSystem : EntitySystem
             PopupType.MediumCaution);
 
         // Get a random entry to spawn.
+<<<<<<< HEAD
         // TODO: Replace with RandomPredicted once the engine PR is merged
         var seed = SharedRandomExtensions.HashCodeCombine((int)_gameTiming.CurTick.Value, GetNetEntity(ent).Id);
         var rand = new System.Random(seed);
 
+=======
+        var rand = SharedRandomExtensions.PredictedRandom(_gameTiming, GetNetEntity(ent));
+>>>>>>> upstreamwiz/master
         var index = rand.Next(butcherable.SpawnedEntities.Count);
         var entry = butcherable.SpawnedEntities[index];
 
@@ -318,9 +340,15 @@ public sealed class SharedKitchenSpikeSystem : EntitySystem
         // Gib the victim if there is nothing else to butcher.
         if (butcherable.SpawnedEntities.Count == 0)
         {
+<<<<<<< HEAD
             _bodySystem.GibBody(args.Target.Value, true);
 
             var logSeverity = HasComp<HumanoidAppearanceComponent>(args.Target) ? LogImpact.Extreme : LogImpact.High;
+=======
+            _gibbing.Gib(args.Target.Value);
+
+            var logSeverity = HasComp<HumanoidProfileComponent>(args.Target) ? LogImpact.Extreme : LogImpact.High;
+>>>>>>> upstreamwiz/master
 
             _logger.Add(LogType.Gib,
                 logSeverity,

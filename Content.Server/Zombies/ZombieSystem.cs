@@ -278,12 +278,19 @@ namespace Content.Server.Zombies
                     _damageable.TryChangeDamage(args.User, entity.Comp.HealingOnBite, true, false);
 
                     // If we cannot infect the living target, the zed will just heal itself.
+<<<<<<< HEAD
                     if (HasComp<ZombieImmuneComponent>(uid) || cannotSpread || _random.Prob(GetZombieInfectionChance(uid, entity.Comp)))
                         continue;
 
                     var pendingComp = EnsureComp<PendingZombieComponent>(uid);
                     // Zombie bites are NOT Romerol infections - warnings will show
                     pendingComp.RomerolInfection = false; // ADT-Tweak
+=======
+                    if (HasComp<ZombieImmuneComponent>(uid) || cannotSpread || !_random.Prob(GetZombieInfectionChance(uid, entity.Comp)))
+                        continue;
+
+                    EnsureComp<PendingZombieComponent>(uid);
+>>>>>>> upstreamwiz/master
                     EnsureComp<ZombifyOnDeathComponent>(uid);
                 }
                 else
@@ -313,17 +320,10 @@ namespace Content.Server.Zombies
             if (!Resolve(source, ref zombiecomp))
                 return false;
 
-            foreach (var (layer, info) in zombiecomp.BeforeZombifiedCustomBaseLayers)
-            {
-                _humanoidAppearance.SetBaseLayerColor(target, layer, info.Color);
-                _humanoidAppearance.SetBaseLayerId(target, layer, info.Id);
-            }
-            if (TryComp<HumanoidAppearanceComponent>(target, out var appcomp))
-            {
-                appcomp.EyeColor = zombiecomp.BeforeZombifiedEyeColor;
-            }
-            _humanoidAppearance.SetSkinColor(target, zombiecomp.BeforeZombifiedSkinColor, false);
-            _bloodstream.ChangeBloodReagent(target, zombiecomp.BeforeZombifiedBloodReagent);
+            _visualBody.ApplyProfiles(target, zombiecomp.BeforeZombifiedProfiles);
+            _visualBody.ApplyMarkings(target, zombiecomp.BeforeZombifiedMarkings);
+
+            _bloodstream.ChangeBloodReagents(target, zombiecomp.BeforeZombifiedBloodReagents);
 
             return true;
         }

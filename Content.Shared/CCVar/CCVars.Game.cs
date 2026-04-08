@@ -410,6 +410,7 @@ public sealed partial class CCVars
     public static readonly CVarDef<bool> GameHostnameInTitlebar =
         CVarDef.Create("game.hostname_in_titlebar", true, CVar.SERVER | CVar.REPLICATED);
 
+<<<<<<< HEAD
     // ADT-Tweak-Start
     /// <summary>
     ///     The prototype to use for dynamic random.
@@ -417,4 +418,14 @@ public sealed partial class CCVars
     public static readonly CVarDef<string> DynamicRandomWeightPrototype =
         CVarDef.Create("game.dynamic_weight_prototype", "DynamicRandom", CVar.SERVERONLY);
     //ADT-Tweak-End
+=======
+    /// <summary>
+    /// The maximum amount of tiles you can stack on top of each other. 0 is unlimited.
+    /// </summary>
+    /// <remarks>
+    /// Having it too high can result in "doomstacking" tiles - this messes with efficiency of explosions, deconstruction of tiles, and might result in memory problems.
+    /// </remarks>
+    public static readonly CVarDef<int> TileStackLimit =
+        CVarDef.Create("game.tile_stack_limit", 5, CVar.SERVER | CVar.REPLICATED);
+>>>>>>> upstreamwiz/master
 }

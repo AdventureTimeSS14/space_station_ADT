@@ -1,48 +1,8 @@
-using Content.Server.Kitchen.Components;
-using Content.Server.Power.Components;
-using Content.Server.Power.EntitySystems;
-using Content.Server.Stack;
-using Content.Shared.Chemistry.EntitySystems;
-using Content.Shared.Chemistry.Components;
-using Content.Shared.Containers.ItemSlots;
-using Content.Shared.Destructible;
-using Content.Shared.FixedPoint;
-using Content.Shared.Interaction;
-using Content.Shared.Kitchen;
-using Content.Shared.Kitchen.Components;
-using Content.Shared.Popups;
-using Content.Shared.Random;
-using Content.Shared.Stacks;
-using JetBrains.Annotations;
-using Robust.Server.GameObjects;
-using Robust.Shared.Audio;
-using Robust.Shared.Audio.Systems;
-using Robust.Shared.Containers;
-using Robust.Shared.Timing;
-using System.Linq;
-using Content.Server.Construction.Completions;
-using Content.Server.Jittering;
-using Content.Shared.Jittering;
-using Content.Shared.Power;
+using Content.Shared.Kitchen.EntitySystems;
 
-namespace Content.Server.Kitchen.EntitySystems
-{
-    [UsedImplicitly]
-    internal sealed class ReagentGrinderSystem : EntitySystem
-    {
-        [Dependency] private readonly IGameTiming _timing = default!;
-        [Dependency] private readonly SharedSolutionContainerSystem _solutionContainersSystem = default!;
-        [Dependency] private readonly ItemSlotsSystem _itemSlotsSystem = default!;
-        [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-        [Dependency] private readonly UserInterfaceSystem _userInterfaceSystem = default!;
-        [Dependency] private readonly StackSystem _stackSystem = default!;
-        [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
-        [Dependency] private readonly SharedAppearanceSystem _appearanceSystem = default!;
-        [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
-        [Dependency] private readonly SharedDestructibleSystem _destructible = default!;
-        [Dependency] private readonly RandomHelperSystem _randomHelper = default!;
-        [Dependency] private readonly JitteringSystem _jitter = default!;
+namespace Content.Server.Kitchen.EntitySystems;
 
+<<<<<<< HEAD
         public override void Initialize()
         {
             base.Initialize();
@@ -343,3 +303,6 @@ namespace Content.Server.Kitchen.EntitySystems
         }
     }
 }
+=======
+public sealed class ReagentGrinderSystem : SharedReagentGrinderSystem;
+>>>>>>> upstreamwiz/master

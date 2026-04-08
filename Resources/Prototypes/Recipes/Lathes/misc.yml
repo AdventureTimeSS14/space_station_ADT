@@ -9,7 +9,10 @@
   materials:
     Steel: 50
     Glass: 200
+<<<<<<< HEAD
     Copper: 50  #ADT-BFUU-Tweak
+=======
+>>>>>>> upstreamwiz/master
 
 # Recipes
 

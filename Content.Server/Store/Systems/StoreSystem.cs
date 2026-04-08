@@ -5,26 +5,27 @@ using Content.Shared.Implants.Components;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
 using Content.Shared.Stacks;
+using Content.Shared.Store;
 using Content.Shared.Store.Components;
 using Content.Shared.Store.Events;
 using Content.Shared.UserInterface;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+<<<<<<< HEAD
 using Content.Shared.Mind;
 using Content.Shared.Store; // ADT-Changeling-Tweak
+=======
+>>>>>>> upstreamwiz/master
 
 namespace Content.Server.Store.Systems;
 
-/// <summary>
-/// Manages general interactions with a store and different entities,
-/// getting listings for stores, and interfacing with the store UI.
-/// </summary>
-public sealed partial class StoreSystem : EntitySystem
+public sealed partial class StoreSystem : SharedStoreSystem
 {
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly SharedUserInterfaceSystem _uiSystem = default!;
 
     public override void Initialize()
     {
@@ -37,8 +38,14 @@ public sealed partial class StoreSystem : EntitySystem
         SubscribeLocalEvent<StoreComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<StoreComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<StoreComponent, ComponentShutdown>(OnShutdown);
+<<<<<<< HEAD
         SubscribeLocalEvent<StoreComponent, OpenUplinkImplantEvent>(OnImplantActivate);
         SubscribeLocalEvent<StoreComponent, IntrinsicStoreActionEvent>(OnIntrinsicStoreAction);
+=======
+        SubscribeLocalEvent<StoreComponent, IntrinsicStoreActionEvent>(OnIntrinsicStoreAction);
+
+        SubscribeLocalEvent<RemoteStoreComponent, OpenUplinkImplantEvent>(OnImplantActivate);
+>>>>>>> upstreamwiz/master
 
         InitializeUi();
         InitializeCommand();
@@ -49,6 +56,10 @@ public sealed partial class StoreSystem : EntitySystem
     {
         RefreshAllListings(component);
         component.StartingMap = Transform(uid).MapUid;
+
+        // Add the bui key if it does not exist already (the check is needed to make sure that we don't overwrite existing InterfaceData).
+        if (!_uiSystem.HasUi(uid, StoreUiKey.Key))
+            _uiSystem.SetUi(uid, StoreUiKey.Key, new InterfaceData("StoreBoundUserInterface"));
     }
 
     private void OnStartup(EntityUid uid, StoreComponent component, ComponentStartup args)
@@ -83,34 +94,39 @@ public sealed partial class StoreSystem : EntitySystem
         if (component.AccountOwner == mind)
             return;
 
-        _popup.PopupEntity(Loc.GetString("store-not-account-owner", ("store", uid)), uid, args.User);
+        if (!args.Silent)
+            _popup.PopupEntity(Loc.GetString("store-not-account-owner", ("store", uid)), uid, args.User);
+
         args.Cancel();
     }
 
     private void OnAfterInteract(EntityUid uid, CurrencyComponent component, AfterInteractEvent args)
     {
-        if (args.Handled || !args.CanReach)
+        if (args.Handled || !args.CanReach || args.Target is not { } target)
             return;
 
-        if (!TryComp<StoreComponent>(args.Target, out var store))
+        if (!TryGetStore(target, out var store))
             return;
 
-        var ev = new CurrencyInsertAttemptEvent(args.User, args.Target.Value, args.Used, store);
-        RaiseLocalEvent(args.Target.Value, ev);
+        var ev = new CurrencyInsertAttemptEvent(args.User, target, args.Used, store.Value.Comp);
+        RaiseLocalEvent(target, ev);
         if (ev.Cancelled)
             return;
 
-        if (!TryAddCurrency((uid, component), (args.Target.Value, store)))
+        if (!TryAddCurrency((uid, component), (store.Value, store.Value.Comp)))
             return;
 
         args.Handled = true;
-        var msg = Loc.GetString("store-currency-inserted", ("used", args.Used), ("target", args.Target));
-        _popup.PopupEntity(msg, args.Target.Value, args.User);
+        var msg = Loc.GetString("store-currency-inserted", ("used", args.Used), ("target", target));
+        _popup.PopupEntity(msg, target, args.User);
     }
 
-    private void OnImplantActivate(EntityUid uid, StoreComponent component, OpenUplinkImplantEvent args)
+    private void OnImplantActivate(Entity<RemoteStoreComponent> entity, ref OpenUplinkImplantEvent args)
     {
-        ToggleUi(args.Performer, uid, component);
+        if (GetRemoteStore(entity.AsNullable()) is not { } store)
+            return;
+
+        ToggleUi(args.Performer, store, store.Comp, entity, entity.Comp);
     }
 
     /// <summary>
@@ -195,6 +211,7 @@ public sealed partial class StoreSystem : EntitySystem
         ToggleUi(args.Performer, ent.Owner, ent.Comp);
     }
 
+<<<<<<< HEAD
     // ADT changeling start
     public bool TrySetCurrency(Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> currency, EntityUid uid, StoreComponent? store = null)
     {
@@ -233,6 +250,8 @@ public sealed partial class StoreSystem : EntitySystem
     }
 
     // ADT changeling end
+=======
+>>>>>>> upstreamwiz/master
 }
 
 public sealed class CurrencyInsertAttemptEvent : CancellableEntityEventArgs

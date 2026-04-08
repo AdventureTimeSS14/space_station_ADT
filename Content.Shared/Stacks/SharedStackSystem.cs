@@ -218,6 +218,7 @@ public abstract partial class SharedStackSystem : EntitySystem
 
             args.Verbs.Add(verb);
         }
+<<<<<<< HEAD
 
         // ADT-Tweak start: Add custom split amount option
         AlternativeVerb custom = new()
@@ -249,6 +250,20 @@ public abstract partial class SharedStackSystem : EntitySystem
     protected virtual void RequestCustomSplit(Entity<StackComponent> stack, Entity<TransformComponent?> user)
     {
         // Implemented on server
+=======
+    }
+
+    /// <remarks>
+    ///     OnStackAlternativeInteract() was moved to shared in order to faciliate prediction of stack splitting verbs.
+    ///     However, prediction of interacitons with spawned entities is non-functional (or so i'm told)
+    ///     So, UserSplit() and Split() should remain on the server for the time being.
+    ///     This empty virtual method allows for UserSplit() to be called on the server from the client.
+    ///     When prediction is improved, those two methods should be moved to shared, in order to predict the splitting itself (not just the verbs)
+    /// </remarks>
+    protected virtual void UserSplit(Entity<StackComponent> stack, Entity<TransformComponent?> user, int amount)
+    {
+
+>>>>>>> upstreamwiz/master
     }
 }
 

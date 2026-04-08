@@ -46,8 +46,14 @@
           - !type:DoActsBehavior
             acts: [ "Destruction" ]
   - type: AlwaysHot
+<<<<<<< HEAD
   # Start ADT tweak
   - type: Construction
     graph: ADTFireplace
     node: fireplace
   # End ADT tweak
+=======
+  - type: IgnitionSource
+    temperature: 700
+    ignited: true
+>>>>>>> upstreamwiz/master

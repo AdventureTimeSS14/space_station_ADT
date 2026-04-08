@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+using Content.IntegrationTests.Fixtures;
+>>>>>>> upstreamwiz/master
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Prototypes;
@@ -13,12 +17,12 @@ namespace Content.IntegrationTests.Tests.Destructible
     [TestFixture]
     [TestOf(typeof(DamageGroupTrigger))]
     [TestOf(typeof(AndTrigger))]
-    public sealed class DestructibleDamageGroupTest
+    public sealed class DestructibleDamageGroupTest : GameTest
     {
         [Test]
         public async Task AndTest()
         {
-            await using var pair = await PoolManager.GetServerClient();
+            var pair = Pair;
             var server = pair.Server;
 
             var testMap = await pair.CreateTestMap();
@@ -117,7 +121,7 @@ namespace Content.IntegrationTests.Tests.Destructible
                 sDamageableSystem.TryChangeDamage(sDestructibleEntity, bruteDamage * -10);
                 Assert.Multiple(() =>
                 {
-                    Assert.That(sDamageableComponent.TotalDamage, Is.EqualTo(FixedPoint2.New(20)));
+                    Assert.That(sDamageableSystem.GetTotalDamage(sDestructibleEntity), Is.EqualTo(FixedPoint2.New(20)));
 
                     // No new thresholds reached, healing should not trigger it
                     Assert.That(sTestThresholdListenerSystem.ThresholdsReached, Is.Empty);
@@ -193,7 +197,6 @@ namespace Content.IntegrationTests.Tests.Destructible
                 // No new thresholds reached as triggers once is set to true and it already triggered before
                 Assert.That(sTestThresholdListenerSystem.ThresholdsReached, Is.Empty);
             });
-            await pair.CleanReturnAsync();
         }
     }
 }

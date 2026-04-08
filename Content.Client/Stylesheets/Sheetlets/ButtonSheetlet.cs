@@ -19,6 +19,10 @@ public sealed class ButtonSheetlet<T> : Sheetlet<T> where T : PalettedStylesheet
 
         var crossTex = sheet.GetTextureOr(iconCfg.CrossIconPath, NanotrasenStylesheet.TextureRoot);
         var refreshTex = sheet.GetTextureOr(iconCfg.RefreshIconPath, NanotrasenStylesheet.TextureRoot);
+<<<<<<< HEAD
+=======
+        var helpTex = sheet.GetTextureOr(iconCfg.HelpIconPath, NanotrasenStylesheet.TextureRoot);
+>>>>>>> upstreamwiz/master
 
         var rules = new List<StyleRule>
         {
@@ -56,6 +60,14 @@ public sealed class ButtonSheetlet<T> : Sheetlet<T> where T : PalettedStylesheet
                 .Class(StyleClass.RefreshButton)
                 .Prop(TextureButton.StylePropertyTexture, refreshTex),
 
+<<<<<<< HEAD
+=======
+            // Help button
+            E<TextureButton>()
+                .Class(StyleClass.HelpButton)
+                .Prop(TextureButton.StylePropertyTexture, helpTex),
+
+>>>>>>> upstreamwiz/master
             // Ensure labels in buttons are aligned.
             E<Label>()
                 // ReSharper disable once AccessToStaticMemberViaDerivedType

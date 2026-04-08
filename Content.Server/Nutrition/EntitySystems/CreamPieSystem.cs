@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 using Content.Server.Fluids.EntitySystems;
 using Content.Server.Nutrition.Components;
 using Content.Server.Popups;
@@ -101,3 +102,10 @@ namespace Content.Server.Nutrition.EntitySystems
         }
     }
 }
+=======
+using Content.Shared.Nutrition.EntitySystems;
+
+namespace Content.Server.Nutrition.EntitySystems;
+
+public sealed class CreamPieSystem : SharedCreamPieSystem;
+>>>>>>> upstreamwiz/master

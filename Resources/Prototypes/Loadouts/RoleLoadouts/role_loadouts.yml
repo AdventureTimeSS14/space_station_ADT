@@ -1,0 +1,1119 @@
+# Command
+- type: roleLoadout
+  id: JobCaptain
+  groups:
+  - Inventory # Corvax-Loadouts
+  - CaptainHead
+  - CaptainNeck
+  - ADTCaptainEars # ADT tweak
+  - CaptainJumpsuit
+  - CaptainBackpack
+  - CaptainOuterClothing
+  # ADT underwear tweak start
+  - ADTTopCap
+  - ADTBottomCap
+  - ADTSocksCaptain
+  # ADT underwear tweak end
+  - Survival
+  - Trinkets
+<<<<<<< HEAD:Resources/Prototypes/Loadouts/role_loadouts.yml
+  - CaptainJobTrinkets
+=======
+  #- CaptainJobTrinkets
+>>>>>>> upstreamwiz/master:Resources/Prototypes/Loadouts/RoleLoadouts/role_loadouts.yml
+  - GroupSpeciesBreathTool
+
+
+- type: roleLoadout
+  id: JobHeadOfPersonnel
+  groups:
+  - Inventory # Corvax-Loadouts
+  - GroupTankHarness
+  - HoPHead
+  - HoPNeck
+  - ADTHoP # ADT tweak
+  - HoPJumpsuit
+  - HoPBackpack
+  - HoPOuterClothing
+  - ADTHoPShoes #ADT-Tweak
+  - Glasses
+  # ADT underwear tweak start
+  - ADTTopHOP
+  - ADTBottomHOP
+  - ADTSocksHOP
+  # ADT underwear tweak end
+  - Survival
+  - Trinkets
+<<<<<<< HEAD:Resources/Prototypes/Loadouts/role_loadouts.yml
+  - HoPJobTrinkets
+=======
+  #- HoPJobTrinkets
+>>>>>>> upstreamwiz/master:Resources/Prototypes/Loadouts/RoleLoadouts/role_loadouts.yml
+  - GroupSpeciesBreathTool
+
+# Silicons
+- type: roleLoadout
+  id: JobBorg
+  nameDataset: NamesBorg
+  canCustomizeName: true
+
+- type: roleLoadout
+  id: JobStationAi
+  nameDataset: NamesAI
+  canCustomizeName: true
+  # ADT SAI Custom start
+  allowedExtras:
+  - ai-screen
+  - ai-lawset
+  - ai-name
+  # ADT SAI Custom end
+
+# Civilian
+- type: roleLoadout
+  id: JobPassenger
+  groups:
+  - Inventory # Corvax-Loadouts
+  - GroupTankHarness
+  - PassengerJumpsuit
+  - CommonBackpack
+  - PassengerNeck
+  - PassengerFace
+  - PassengerGloves
+  - PassengerOuterClothing
+  - PassengerShoes
+  - Glasses
+  - ADTPassengerPDA # ADT tweak
+  # ADT underwear tweak start
+  - ADTTop
+  - ADTBottom
+  - ADTSocks
+  # ADT underwear tweak end
+  - Survival
+  - Trinkets
+<<<<<<< HEAD:Resources/Prototypes/Loadouts/role_loadouts.yml
+  - ADTSprayPaints # ADT-Tweak
+  - PassengerJobTrinkets
+=======
+  #- PassengerJobTrinkets
+>>>>>>> upstreamwiz/master:Resources/Prototypes/Loadouts/RoleLoadouts/role_loadouts.yml
+  - GroupSpeciesBreathTool
+
+- type: roleLoadout
+  id: JobBartender
+  groups:
+  - Inventory # Corvax-Loadouts
+  - GroupTankHarness
+  - BartenderHead
+  - BartenderJumpsuit
+  - CommonBackpack
+  - ADTBartenderGloves #ADT-tweak
+  - BartenderOuterClothing
+  - ADTBartenderShoes #ADT-Tweak
+  - Glasses
+  - ADTBartenderPDA # ADT tweak
+  # ADT underwear tweak start
+  - ADTTop
+  - ADTBottom
+  - ADTSocks
+  # ADT underwear tweak end
+  - Survival
+  - Trinkets
+<<<<<<< HEAD:Resources/Prototypes/Loadouts/role_loadouts.yml
+  - ADTSprayPaints # ADT-Tweak
+=======
+>>>>>>> upstreamwiz/master:Resources/Prototypes/Loadouts/RoleLoadouts/role_loadouts.yml
+  - BartenderJobTrinkets
+  - GroupSpeciesBreathTool
+
+- type: roleLoadout
+  id: JobServiceWorker
+  groups:
+  - Inventory # Corvax-Loadouts
+  - GroupTankHarness
+  - ADTServiceWorkerJumpsuit #ADT-tweak
+  - CommonBackpack
+  - ADTServiceWorkerGloves #ADT-tweak
+  - ADTServiceWorkerShoes #ADT-Tweak
+  - Glasses
+  - ADTServiceWorkerPDA # ADT tweak
+  # ADT underwear tweak start
+  - ADTTop
+  - ADTBottom
+  - ADTSocks
+  # ADT underwear tweak end
+  - Survival
+  - Trinkets
+<<<<<<< HEAD:Resources/Prototypes/Loadouts/role_loadouts.yml
+  - ADTSprayPaints # ADT-Tweak
+  - ServiceWorkerJobTrinkets
+=======
+  #- ServiceWorkerJobTrinkets
+>>>>>>> upstreamwiz/master:Resources/Prototypes/Loadouts/RoleLoadouts/role_loadouts.yml
+  - GroupSpeciesBreathTool
+
+- type: roleLoadout
+  id: JobChef
+  groups:
+  - Inventory # Corvax-Loadouts
+  - GroupTankHarness
+  - ChefHead
+  - ADTChefNeck # ADT-Tweak
+  - ChefMask
+  - ChefJumpsuit
+  - CommonBackpack
+  - ChefOuterClothing
+  - ADTChefGloves # ADT-Tweak
+  - ADTChefShoes #ADT-Tweak
+  - Glasses
+  # ADT-Tweak-Start
+  - ADTChefPocket1
+  - ADTChefPDA
+  # ADT-Tweak-End
+  # ADT underwear tweak start
+  - ADTTop
+  - ADTBottom
+  - ADTSocks
+  # ADT underwear tweak end
+  - Survival
+  - Trinkets
+<<<<<<< HEAD:Resources/Prototypes/Loadouts/role_loadouts.yml
+  - ADTSprayPaints # ADT-Tweak
+  - ChefJobTrinkets
+=======
+  #- ChefJobTrinkets
+>>>>>>> upstreamwiz/master:Resources/Prototypes/Loadouts/RoleLoadouts/role_loadouts.yml
+  - GroupSpeciesBreathTool
+
+- type: roleLoadout
+  id: JobLibrarian
+  groups:
+  - Inventory # Corvax-Loadouts
+  - GroupTankHarness
+  - LibrarianJumpsuit
+  - LibrarianBackpack # ADT tweak
+  - Glasses
+  - ADTLibrarianPDA # ADT tweak
+  # ADT underwear tweak start
+  - ADTTop
+  - ADTBottom
+  - ADTSocks
+  # ADT underwear tweak end
+  - Survival
+  - Trinkets
+<<<<<<< HEAD:Resources/Prototypes/Loadouts/role_loadouts.yml
+  - ADTSprayPaints # ADT-Tweak
+  - LibrarianJobTrinkets
+=======
+  #- LibrarianJobTrinkets
+>>>>>>> upstreamwiz/master:Resources/Prototypes/Loadouts/RoleLoadouts/role_loadouts.yml
+  - GroupSpeciesBreathTool
+
+- type: roleLoadout
+  id: JobLawyer
+  groups:
+  - Inventory # Corvax-Loadouts
+  - GroupTankHarness
+  - LawyerNeck
+  - LawyerJumpsuit
+  - CommonBackpack
+  - ADTLawyerGloves # ADT-Tweak
+  - LawyerShoes # ADT tweak
+  - Glasses
+  - ADTlawyerID # ADT tweak
+  # ADT underwear tweak start
+  - ADTTop
+  - ADTBottom
+  - ADTSocks
+  # ADT underwear tweak end
+  - Survival
+  - Trinkets
+<<<<<<< HEAD:Resources/Prototypes/Loadouts/role_loadouts.yml
+  - ADTSprayPaints # ADT-Tweak
+  - LawyerJobTrinkets
+=======
+  #- LawyerJobTrinkets
+>>>>>>> upstreamwiz/master:Resources/Prototypes/Loadouts/RoleLoadouts/role_loadouts.yml
+  - GroupSpeciesBreathTool
+
+- type: roleLoadout
+  id: JobChaplain
+  canCustomizeName: true
+  groups:
+  - Inventory # Corvax-Loadouts
+  - GroupTankHarness
+  - ChaplainHead
+  - ChaplainMask
+  - ChaplainNeck
+  - ChaplainJumpsuit
+  - CommonBackpack
+  - ChaplainOuterClothing
+  - ADTChaplainShoes #ADT-Tweak
+  - ChaplainBible
+  - Glasses
+  - ADTChaplainPDA # ADT tweak
+  # ADT underwear tweak start
+  - ADTTop
+  - ADTBottom
+  - ADTSocks
+  # ADT underwear tweak end
+  - Survival
+  - Trinkets
+<<<<<<< HEAD:Resources/Prototypes/Loadouts/role_loadouts.yml
+  - ADTSprayPaints # ADT-Tweak
+  - ChaplainJobTrinkets
+=======
+  #- ChaplainJobTrinkets
+>>>>>>> upstreamwiz/master:Resources/Prototypes/Loadouts/RoleLoadouts/role_loadouts.yml
+  - GroupSpeciesBreathTool
+  # ADT chaplain update
+  - ADTChaplainBelt
+
+- type: roleLoadout
+  id: JobJanitor
+  groups:
+  - Inventory # Corvax-Loadouts
+  - GroupTankHarness
+  - JanitorHead
+  - JanitorJumpsuit
+  - JanitorGloves
+  - CommonBackpack
+  - JanitorOuterClothing
+  - Glasses
+  - ADTJanitorPDA # ADT tweak
+  # ADT underwear tweak start
+  - ADTTop
+  - ADTBottom
+  - ADTSocks
+  # ADT underwear tweak end
+  - Survival
+  - Trinkets
+<<<<<<< HEAD:Resources/Prototypes/Loadouts/role_loadouts.yml
+  - ADTSprayPaints # ADT-Tweak
+=======
+>>>>>>> upstreamwiz/master:Resources/Prototypes/Loadouts/RoleLoadouts/role_loadouts.yml
+  - JanitorJobTrinkets
+  - GroupSpeciesBreathTool
+
+- type: roleLoadout
+  id: JobBotanist
+  groups:
+  - Inventory # Corvax-Loadouts
+  - GroupTankHarness
+  - BotanistHead
+  - BotanistJumpsuit
+  - BotanistBackpack
+  - BotanistOuterClothing
+  - Glasses
+  - ADTBotanistPDA # ADT tweak
+  - ADTBotanistShoes #ADT-Tweak
+  # ADT underwear tweak start
+  - ADTTop
+  - ADTBottom
+  - ADTSocks
+  # ADT underwear tweak end
+  - Survival
+  - Trinkets
+<<<<<<< HEAD:Resources/Prototypes/Loadouts/role_loadouts.yml
+  - ADTSprayPaints # ADT-Tweak
+  - BotanistJobTrinkets
+=======
+  #- BotanistJobTrinkets
+>>>>>>> upstreamwiz/master:Resources/Prototypes/Loadouts/RoleLoadouts/role_loadouts.yml
+  - GroupSpeciesBreathTool
+
+- type: roleLoadout
+  id: JobClown
+  canCustomizeName: true
+  groups:
+  - Inventory # Corvax-Loadouts
+  - GroupTankHarness
+  - ClownHead
+  - ADTClownMask #ADT-tweak
+  - ClownJumpsuit
+  - ClownBackpack
+  - ClownOuterClothing
+  - ADTClownGloves #ADT-tweak
+  - ClownShoes
+  - Glasses
+  - ADTClownPocket1 #ADT-tweak
+  - ADTClownPocket2 #ADT-tweak
+  - ADTClownPDA # ADT tweak
+  # ADT underwear tweak start
+  - ADTTop
+  - ADTBottom
+  - ADTSocksClown
+  # ADT underwear tweak end
+  - SurvivalClown
+  - Trinkets
+<<<<<<< HEAD:Resources/Prototypes/Loadouts/role_loadouts.yml
+  - ADTSprayPaints # ADT-Tweak
+=======
+>>>>>>> upstreamwiz/master:Resources/Prototypes/Loadouts/RoleLoadouts/role_loadouts.yml
+  - ClownJobTrinkets
+
+- type: roleLoadout
+  id: JobMime
+  canCustomizeName: true
+  groups:
+  - Inventory # Corvax-Loadouts
+  - GroupTankHarness
+  - MimeHead
+  - MimeMask
+  - MimeJumpsuit
+  - MimeBackpack
+  - MimeOuterClothing
+  - ADTMimeShoes #ADT-Tweak
+  - MimeBelt
+  - Glasses
+  # ADT underwear tweak start
+  - ADTTop
+  - ADTBottom
+  - ADTSocksMime
+  # ADT underwear tweak end
+  - SurvivalMime
+  - Trinkets
+<<<<<<< HEAD:Resources/Prototypes/Loadouts/role_loadouts.yml
+  - ADTSprayPaints # ADT-Tweak
+  - MimeJobTrinkets
+=======
+  #- MimeJobTrinkets
+>>>>>>> upstreamwiz/master:Resources/Prototypes/Loadouts/RoleLoadouts/role_loadouts.yml
+
+- type: roleLoadout
+  id: JobMusician
+  canCustomizeName: true
+  groups:
+  - Inventory # Corvax-Loadouts
+  - GroupTankHarness
+  - MusicianJumpsuit
+  - CommonBackpack
+  - ADTMusicianGloves # ADT-tweak
+  - MusicianOuterClothing
+  - Glasses
+  - ADTMusicianPDA # ADT-tweak
+  # ADT underwear tweak start
+  - ADTTop
+  - ADTBottom
+  - ADTSocks
+  # ADT underwear tweak end
+  - Survival
+  - Trinkets
+<<<<<<< HEAD:Resources/Prototypes/Loadouts/role_loadouts.yml
+  - ADTSprayPaints # ADT-Tweak
+  - MusicianJobTrinkets
+=======
+  #- MusicianJobTrinkets
+>>>>>>> upstreamwiz/master:Resources/Prototypes/Loadouts/RoleLoadouts/role_loadouts.yml
+  - Instruments
+  - GroupSpeciesBreathTool
+
+# Cargo
+- type: roleLoadout
+  id: JobQuartermaster
+  groups:
+  - Inventory # Corvax-Loadouts
+  - GroupTankHarness
+  - QuartermasterHead
+  - ADTQuartermasterEars # ADT tweak
+  - QuartermasterNeck
+  - QuartermasterJumpsuit
+  - CargoTechnicianBackpack
+  - QuartermasterOuterClothing
+  - QuartermasterShoes
+  - Glasses
+  - ADTQuartermasterPDA # ADT tweak
+  # ADT underwear tweak start
+  - ADTTopQM
+  - ADTBottomQM
+  - ADTSocks
+  # ADT underwear tweak end
+  - Survival
+  - Trinkets
+<<<<<<< HEAD:Resources/Prototypes/Loadouts/role_loadouts.yml
+  - QuartermasterJobTrinkets
+=======
+  #- QuartermasterJobTrinkets
+>>>>>>> upstreamwiz/master:Resources/Prototypes/Loadouts/RoleLoadouts/role_loadouts.yml
+  - GroupSpeciesBreathTool
+
+- type: roleLoadout
+  id: JobCargoTechnician
+  groups:
+  - Inventory # Corvax-Loadouts
+  - GroupTankHarness
+  - CargoTechnicianHead
+  - CargoTechnicianJumpsuit
+  - CargoTechnicianBackpack
+  - CargoTechnicianOuterClothing
+  - CargoTechnicianShoes
+<<<<<<< HEAD:Resources/Prototypes/Loadouts/role_loadouts.yml
+  # - CargoTechnicianID # ADT tweak - убрал, чтобы не было дубляжа с КПК
+=======
+  - CargoTechnicianID
+>>>>>>> upstreamwiz/master:Resources/Prototypes/Loadouts/RoleLoadouts/role_loadouts.yml
+  - Glasses
+  - ADTCargoPDA # ADT tweak
+  # ADT underwear tweak start
+  - ADTTop
+  - ADTBottom
+  - ADTSocks
+  # ADT underwear tweak end
+  - Survival
+  - Trinkets
+<<<<<<< HEAD:Resources/Prototypes/Loadouts/role_loadouts.yml
+  - ADTSprayPaints # ADT-Tweak
+  - CargoTechnicianJobTrinkets
+=======
+  #- CargoTechnicianJobTrinkets
+>>>>>>> upstreamwiz/master:Resources/Prototypes/Loadouts/RoleLoadouts/role_loadouts.yml
+  - GroupSpeciesBreathTool
+
+- type: roleLoadout
+  id: JobSalvageSpecialist
+  groups:
+  - Inventory # Corvax-Loadouts
+  - GroupTankHarness
+    #ADT Loadouts Start
+  - ADTSalvageSpecialistJumpsuit
+  - ADTSalvageSpecialistNeck
+    #ADT Loadouts End
+  - SalvageSpecialistBackpack
+  - ADTSalvageSpecialistEars # ADT tweak
+  - SalvageSpecialistOuterClothing
+  - SalvageSpecialistShoes
+  - Glasses
+  - ADTSalvagePDA # ADT tweak
+  # ADT underwear tweak start
+  - ADTTop
+  - ADTBottom
+  - ADTSocks
+  # ADT underwear tweak end
+  - Survival
+  - Trinkets
+<<<<<<< HEAD:Resources/Prototypes/Loadouts/role_loadouts.yml
+  - ADTSprayPaints # ADT-Tweak
+  - SalvageSpecialistJobTrinkets
+=======
+  #- SalvageSpecialistJobTrinkets
+>>>>>>> upstreamwiz/master:Resources/Prototypes/Loadouts/RoleLoadouts/role_loadouts.yml
+  - GroupSpeciesBreathTool
+
+# Engineering
+- type: roleLoadout
+  id: JobChiefEngineer
+  groups:
+  - Inventory # Corvax-Loadouts
+  - GroupTankHarness
+  - ChiefEngineerHead
+  - ChiefEngineerJumpsuit
+  - ADTChiefEngineerEars # ADT tweak
+  - ChiefEngineerBackpack # Corvax-Loadouts
+  - ADTEngineeringBelt # ADT-TWEAK
+  - ADTEngineeringGlasses # ADT-TWEAK
+  - ChiefEngineerNeck
+  - ChiefEngineerOuterClothing
+  - ChiefEngineerShoes
+  # ADT underwear tweak start
+  - ADTTopCE
+  - ADTBottomCE
+  - ADTSocks
+  # ADT underwear tweak end
+  - SurvivalExtended
+  - Trinkets
+<<<<<<< HEAD:Resources/Prototypes/Loadouts/role_loadouts.yml
+  - ChiefEngineerJobTrinkets
+=======
+  #- ChiefEngineerJobTrinkets
+>>>>>>> upstreamwiz/master:Resources/Prototypes/Loadouts/RoleLoadouts/role_loadouts.yml
+  - GroupSpeciesBreathTool
+
+- type: roleLoadout
+  id: JobTechnicalAssistant
+  groups:
+  - Inventory # Corvax-Loadouts
+  - GroupTankHarness
+  - TechnicalAssistantJumpsuit
+  - StationEngineerBackpack
+  - ADTEngineeringBelt # ADT-TWEAK
+  # ADT underwear tweak start
+  - ADTTop
+  - ADTBottom
+  - ADTSocks
+  # ADT underwear tweak end
+  - SurvivalExtended
+  - Trinkets
+<<<<<<< HEAD:Resources/Prototypes/Loadouts/role_loadouts.yml
+  - ADTSprayPaints # ADT-Tweak
+  - TechnicalAssistantJobTrinkets
+=======
+  #- TechnicalAssistantJobTrinkets
+>>>>>>> upstreamwiz/master:Resources/Prototypes/Loadouts/RoleLoadouts/role_loadouts.yml
+  - GroupSpeciesBreathTool
+
+- type: roleLoadout
+  id: JobStationEngineer
+  groups:
+  - Inventory # Corvax-Loadouts
+  - GroupTankHarness
+  - StationEngineerHead
+  - StationEngineerJumpsuit
+  - StationEngineerBackpack
+  - ADTEngineeringBelt # ADT-TWEAK
+  - ADTEngineeringGlasses # ADT-TWEAK
+  - StationEngineerOuterClothing
+  - StationEngineerShoes
+  - StationEngineerID
+  # ADT underwear tweak start
+  - ADTTop
+  - ADTBottom
+  - ADTSocks
+  # ADT underwear tweak end
+  - SurvivalExtended
+  - Trinkets
+<<<<<<< HEAD:Resources/Prototypes/Loadouts/role_loadouts.yml
+  - ADTSprayPaints # ADT-Tweak
+  - StationEngineerJobTrinkets
+=======
+  #- StationEngineerJobTrinkets
+>>>>>>> upstreamwiz/master:Resources/Prototypes/Loadouts/RoleLoadouts/role_loadouts.yml
+  - GroupSpeciesBreathTool
+
+- type: roleLoadout
+  id: JobAtmosphericTechnician
+  groups:
+  - Inventory # Corvax-Loadouts
+  - GroupTankHarness
+  - ADTAtmosphericTechnicianHead # ADT-Loadouts
+  - ADTAtmosphericTechnicianNeck # ADT-Loadouts
+  - ADTAtmosphericTechnicianGasMask # ADT-Loadouts
+  - AtmosphericTechnicianJumpsuit
+  - AtmosphericTechnicianBackpack
+  - ADTEngineeringBelt # ADT-TWEAK
+  - ADTEngineeringGlasses # ADT-TWEAK
+  - AtmosphericTechnicianOuterClothing
+  - AtmosphericTechnicianShoes
+  - ADTAtmosPDA # ADT tweak
+  # ADT underwear tweak start
+  - ADTTop
+  - ADTBottom
+  - ADTSocks
+  # ADT underwear tweak end
+  - SurvivalExtended
+  - Trinkets
+<<<<<<< HEAD:Resources/Prototypes/Loadouts/role_loadouts.yml
+  - ADTSprayPaints # ADT-Tweak
+  - AtmosphericTechnicianJobTrinkets
+=======
+  #- AtmosphericTechnicianJobTrinkets
+>>>>>>> upstreamwiz/master:Resources/Prototypes/Loadouts/RoleLoadouts/role_loadouts.yml
+  - GroupSpeciesBreathTool
+
+# Science
+- type: roleLoadout
+  id: JobResearchDirector
+  groups:
+  - Inventory # Corvax-Loadouts
+  - GroupTankHarness
+  - ResearchDirectorHead
+  - ResearchDirectorNeck
+  - ADTResearchDirectorEars # ADT tweak
+  - ResearchDirectorJumpsuit
+  - ScientistBackpack
+  - ResearchDirectorOuterClothing
+  - ScientistGloves
+  - ResearchDirectorShoes
+  - Glasses
+  - ADTRnDPDA # ADT tweak
+  # ADT underwear tweak start
+  - ADTTopRD
+  - ADTBottomRD
+  - ADTSocks
+  # ADT underwear tweak end
+  - Survival
+  - Trinkets
+<<<<<<< HEAD:Resources/Prototypes/Loadouts/role_loadouts.yml
+  - ResearchDirectorJobTrinkets
+=======
+  #- ResearchDirectorJobTrinkets
+>>>>>>> upstreamwiz/master:Resources/Prototypes/Loadouts/RoleLoadouts/role_loadouts.yml
+  - GroupSpeciesBreathTool
+
+- type: roleLoadout
+  id: JobScientist
+  groups:
+  - Inventory # Corvax-Loadouts
+  - GroupTankHarness
+  - ScientistHead
+  - ScientistNeck
+  - ScientistJumpsuit
+  - ScientistBackpack
+  - ScientistOuterClothing
+  - ScientistGloves
+  - ScientistShoes
+  - ScientistPDA
+  - Glasses
+  # ADT underwear tweak start
+  - ADTTop
+  - ADTBottom
+  - ADTSocks
+  # ADT underwear tweak end
+  - Survival
+  - Trinkets
+<<<<<<< HEAD:Resources/Prototypes/Loadouts/role_loadouts.yml
+  - ADTSprayPaints # ADT-Tweak
+  - ScientistJobTrinkets
+=======
+  #- ScientistJobTrinkets
+>>>>>>> upstreamwiz/master:Resources/Prototypes/Loadouts/RoleLoadouts/role_loadouts.yml
+  - GroupSpeciesBreathTool
+
+- type: roleLoadout
+  id: JobResearchAssistant
+  groups:
+  - Inventory # Corvax-Loadouts
+  - GroupTankHarness
+  - ResearchAssistantJumpsuit
+  - ScientistBackpack
+  - Glasses
+  # ADT underwear tweak start
+  - ADTTop
+  - ADTBottom
+  - ADTSocks
+  # ADT underwear tweak end
+  - Survival
+  - Trinkets
+<<<<<<< HEAD:Resources/Prototypes/Loadouts/role_loadouts.yml
+  - ADTSprayPaints # ADT-Tweak
+  - ResearchAssistantJobTrinkets
+=======
+  #- ResearchAssistantJobTrinkets
+>>>>>>> upstreamwiz/master:Resources/Prototypes/Loadouts/RoleLoadouts/role_loadouts.yml
+  - GroupSpeciesBreathTool
+
+# Security
+- type: roleLoadout
+  id: JobHeadOfSecurity
+  groups:
+  - Inventory # Corvax-Loadouts
+  - HeadofSecurityHead
+  - HeadofSecurityNeck
+  - HeadofSecurityJumpsuit
+  - SecurityBackpack
+  - SecurityBelt
+  - HeadofSecurityOuterClothing
+  - SecurityShoes
+  - ADTHosPDA # ADT tweak
+  # ADT underwear tweak start
+  - ADTTopHOS
+  - ADTBottomHOS
+  - ADTSocksHOS
+  # ADT underwear tweak end
+  - SurvivalSecurity
+  - Trinkets
+<<<<<<< HEAD:Resources/Prototypes/Loadouts/role_loadouts.yml
+  # - SecurityStar #ADT_Tweak - закомментил это издевательство
+=======
+>>>>>>> upstreamwiz/master:Resources/Prototypes/Loadouts/RoleLoadouts/role_loadouts.yml
+  - HeadofSecurityJobTrinkets
+  - GroupSpeciesBreathToolSecurity
+
+- type: roleLoadout
+  id: JobWarden
+  groups:
+  - Inventory # Corvax-Loadouts
+  - WardenHead
+  - WardenNeckADT # ADT-Loadouts
+  - WardenJumpsuit
+  - SecurityBackpack
+  - SecurityBelt
+  - WardenOuterClothing
+  - SecurityShoes
+  # ADT underwear tweak start
+  - ADTTop
+  - ADTBottom
+  - ADTSocks
+  # ADT underwear tweak end
+  - SurvivalSecurity
+  - Trinkets
+  - WardenJobTrinkets
+<<<<<<< HEAD:Resources/Prototypes/Loadouts/role_loadouts.yml
+  # - SecurityStar #ADT_Tweak - закомментил это издевательство
+=======
+>>>>>>> upstreamwiz/master:Resources/Prototypes/Loadouts/RoleLoadouts/role_loadouts.yml
+  - GroupSpeciesBreathToolSecurity
+
+- type: roleLoadout
+  id: JobSecurityOfficer
+  groups:
+  - Inventory # Corvax-Loadouts
+  - SecurityHead
+  - SecurityOfficerNeckADT # ADT-Loadouts
+  - SecurityJumpsuit
+  - SecurityBackpack
+  - SecurityOuterClothing
+  - SecurityShoes
+  - SecurityPDA
+  - SecurityBelt
+  # ADT underwear tweak start
+  - ADTTop
+  - ADTBottom
+  - ADTSocks
+  # ADT underwear tweak end
+  - SurvivalSecurity
+  - Trinkets
+  - SecurityJobTrinkets
+<<<<<<< HEAD:Resources/Prototypes/Loadouts/role_loadouts.yml
+  # - SecurityStar #ADT_Tweak - закомментил это издевательство
+=======
+>>>>>>> upstreamwiz/master:Resources/Prototypes/Loadouts/RoleLoadouts/role_loadouts.yml
+  - GroupSpeciesBreathToolSecurity
+
+- type: roleLoadout
+  id: JobDetective
+  groups:
+  - Inventory # Corvax-Loadouts
+  - DetectiveHead
+  - DetectiveNeck
+  - DetectiveJumpsuit
+  - SecurityBackpack
+  - DetectiveOuterClothing
+  - DetectiveShoes # ADT tweak
+  - ADTDetectivePDA #ADT tweak
+  # ADT underwear tweak start
+  - ADTTop
+  - ADTBottom
+  - ADTSocks
+  # ADT underwear tweak end
+  - SurvivalSecurity
+  - Trinkets
+  - DetectiveJobTrinkets
+<<<<<<< HEAD:Resources/Prototypes/Loadouts/role_loadouts.yml
+  # - SecurityStar #ADT_Tweak - закомментил это издевательство
+=======
+>>>>>>> upstreamwiz/master:Resources/Prototypes/Loadouts/RoleLoadouts/role_loadouts.yml
+  - GroupSpeciesBreathToolSecurity
+
+- type: roleLoadout
+  id: JobSecurityCadet
+  groups:
+  - Inventory # Corvax-Loadouts
+  - SecurityCadetNeckADT # ADT-Loadouts
+  - SecurityCadetJumpsuit
+  - SecurityBackpack
+  - SurvivalSecurity
+  - Trinkets
+<<<<<<< HEAD:Resources/Prototypes/Loadouts/role_loadouts.yml
+  - SecurityCadetJobTrinkets
+  # ADT underwear tweak start
+  - ADTTop
+  - ADTBottom
+  - ADTSocks
+  # ADT underwear tweak end
+  - GroupSpeciesBreathToolSecurity
+
+# Medical
+- type: roleLoadout
+  id: JobChiefMedicalOfficer
+  groups:
+  - Inventory # Corvax-Loadouts
+  - GroupTankHarness
+  - ChiefMedicalOfficerHead
+  - MedicalMask
+  - ChiefMedicalOfficerJumpsuit
+  - MedicalGloves
+  - MedicalBackpack
+  - ADTMedicalBelt # ADT tweak
+  - ChiefMedicalOfficerOuterClothing
+  - ChiefMedicalOfficerNeck
+  - ADTChiefMedicalOfficerEars # ADT tweak
+  - ChiefMedicalOfficerShoes
+  - MedicalEyewear
+  - ADTCMOPDA # ADT tweak
+  # ADT underwear tweak start
+  - ADTTopCMO
+  - ADTBottomCMO
+  - ADTSocks
+  # ADT underwear tweak end
+  - SurvivalMedical
+  - Trinkets
+  - ChiefMedicalOfficerJobTrinkets
+  - GroupSpeciesBreathToolMedical
+
+- type: roleLoadout
+  id: JobMedicalDoctor
+  groups:
+  - Inventory # Corvax-Loadouts
+  - GroupTankHarness
+  - MedicalDoctorHead
+  - MedicalMask
+  - MedicalDoctorJumpsuit
+  - MedicalGloves
+  - MedicalBackpack
+  - ADTMedicalBelt # ADT tweak
+  - MedicalDoctorOuterClothing
+  - MedicalShoes
+  - MedicalDoctorPDA
+  - MedicalEyewear
+  # ADT underwear tweak start
+  - ADTTop
+  - ADTBottom
+  - ADTSocks
+  # ADT underwear tweak end
+  - SurvivalMedical
+  - Trinkets
+  - ADTSprayPaints # ADT-Tweak
+  - MedicalDoctorJobTrinkets
+  - GroupSpeciesBreathToolMedical
+
+- type: roleLoadout
+  id: JobMedicalIntern
+  groups:
+  - Inventory # Corvax-Loadouts
+  - GroupTankHarness
+  - MedicalInternJumpsuit
+  - MedicalBackpack
+  - MedicalEyewear
+  - ADTMedicalBelt # ADT tweak
+  - ADTMedicalInternPDA # ADT tweak
+  # ADT underwear tweak start
+  - ADTTop
+  - ADTBottom
+  - ADTSocks
+  # ADT underwear tweak end
+  - SurvivalMedical
+  - Trinkets
+  - ADTSprayPaints # ADT-Tweak
+  - MedicalInternJobTrinkets
+  - GroupSpeciesBreathToolMedical
+
+- type: roleLoadout
+  id: JobChemist
+  groups:
+  - Inventory # Corvax-Loadouts
+  - GroupTankHarness
+  - MedicalMask
+  - ChemistJumpsuit
+  - MedicalGloves
+  - ChemistBackpack
+  - ChemistOuterClothing
+  - MedicalShoes
+  # ADT underwear tweak start
+  - ADTTop
+  - ADTBottom
+  - ADTSocks
+  # ADT underwear tweak end
+  - SurvivalMedical
+  - Trinkets
+  - ADTSprayPaints # ADT-Tweak
+  - ChemistJobTrinkets
+  - GroupSpeciesBreathToolMedical
+
+- type: roleLoadout
+  id: JobParamedic
+  groups:
+  - Inventory # Corvax-Loadouts
+  - GroupTankHarness
+  - ParamedicHead
+  - MedicalMask
+  - ParamedicJumpsuit
+  - MedicalGloves
+  # ADT tweak Start
+  - ADTParamedicBelt
+  - ADTParamedicBackpack
+#  - MedicalBackpack   Закоментил для нашего
+  # ADT tweak End
+  - ParamedicOuterClothing
+  - ParamedicShoes
+  - MedicalEyewear
+  # ADT underwear tweak start
+  - ADTTop
+  - ADTBottom
+  - ADTSocks
+  # ADT underwear tweak end
+  - SurvivalMedical
+  - Trinkets
+  - ADTSprayPaints # ADT-Tweak
+  - ParamedicJobTrinkets
+  - GroupSpeciesBreathToolMedical
+
+# Wildcards
+- type: roleLoadout
+  id: JobZookeeper
+  groups:
+  - Inventory # Corvax-Loadouts
+  - GroupTankHarness
+  - CommonBackpack
+  - Glasses
+  # ADT underwear tweak start
+  - ADTTop
+  - ADTBottom
+  - ADTSocks
+  # ADT underwear tweak end
+  - Survival
+  - Trinkets
+  - ADTSprayPaints # ADT-Tweak
+  - ZookeeperJobTrinkets
+  - GroupSpeciesBreathTool
+
+- type: roleLoadout
+=======
+  #- SecurityCadetJobTrinkets
+  - GroupSpeciesBreathToolSecurity
+
+# Wildcards
+- type: roleLoadout
+>>>>>>> upstreamwiz/master:Resources/Prototypes/Loadouts/RoleLoadouts/role_loadouts.yml
+  id: JobReporter
+  groups:
+  - Inventory # Corvax-Loadouts
+  - GroupTankHarness
+  - ReporterJumpsuit
+  - ReporterHead
+  - ReporterOuterClothing
+  - CommonBackpack
+  - Glasses
+  - ADTReporterPDA #ADT-tweak
+  - ADTReporterShoes #ADT-Tweak
+  # ADT underwear tweak start
+  - ADTTop
+  - ADTBottom
+  - ADTSocks
+  # ADT underwear tweak end
+  - Survival
+  - Trinkets
+<<<<<<< HEAD:Resources/Prototypes/Loadouts/role_loadouts.yml
+  - ADTSprayPaints # ADT-Tweak
+  - ReporterJobTrinkets
+=======
+  #- ReporterJobTrinkets
+>>>>>>> upstreamwiz/master:Resources/Prototypes/Loadouts/RoleLoadouts/role_loadouts.yml
+  - GroupSpeciesBreathTool
+
+- type: roleLoadout
+  id: JobPsychologist
+  groups:
+  - Inventory # Corvax-Loadouts
+  - GroupTankHarness
+  - PsychologistJumpsuit
+  - MedicalBackpack
+  - Glasses
+  - ADTPsychologistPDA # ADT tweak
+  - ADTPsychologistShoes #ADT-Tweak
+  # ADT underwear tweak start
+  - ADTTop
+  - ADTBottom
+  - ADTSocks
+  # ADT underwear tweak end
+  - Survival
+  - Trinkets
+<<<<<<< HEAD:Resources/Prototypes/Loadouts/role_loadouts.yml
+  - ADTSprayPaints # ADT-Tweak
+  - PsychologistJobTrinkets
+  - GroupSpeciesBreathTool
+
+- type: roleLoadout
+  id: JobBoxer
+  groups:
+  - Inventory # Corvax-Loadouts
+  - ADTBoxerHead #ADT-tweak
+  - GroupTankHarness
+  - BoxerJumpsuit
+  - BoxerGloves
+  - CommonBackpack
+  - Glasses
+  - ADTBoxerPDA #ADT-tweak
+  # ADT underwear tweak start
+  - ADTTop
+  - ADTBottom
+  - ADTSocks
+  # ADT underwear tweak end
+  - Survival
+  - Trinkets
+  - ADTSprayPaints # ADT-Tweak
+  - BoxerJobTrinkets
+=======
+  #- PsychologistJobTrinkets
+>>>>>>> upstreamwiz/master:Resources/Prototypes/Loadouts/RoleLoadouts/role_loadouts.yml
+  - GroupSpeciesBreathTool
+
+# These loadouts are used for non-crew spawns, like off-station antags and event mobs
+# They will be used without player configuration, thus they will only ever apply what is forced by MinLimit
+
+# gives vox a harness and breathing mask
+# nitrogen tank not included
+- type: roleLoadout
+  id: RoleSurvivalVoxSupport
+  groups:
+  - GroupSpeciesBreathTool
+  - GroupTankHarness
+
+# gives vox a nitrogen breathing tank
+# other species get nothing
+- type: roleLoadout
+  id: RoleSurvivalVoxTank
+  groups:
+  - GroupEVATankVox
+
+- type: roleLoadout
+  id: RoleSurvivalStandard
+  groups:
+  - Survival
+  - GroupSpeciesBreathTool
+  - GroupTankHarness
+
+- type: roleLoadout
+  id: RoleSurvivalClown
+  groups:
+  - SurvivalClown
+  - GroupTankHarness
+
+- type: roleLoadout
+  id: RoleSurvivalExtended
+  groups:
+  - SurvivalExtended
+  - GroupSpeciesBreathTool
+  - GroupTankHarness
+
+- type: roleLoadout
+  id: RoleSurvivalMedical
+  groups:
+  - SurvivalMedical
+  - GroupSpeciesBreathToolMedical
+  - GroupTankHarness
+
+- type: roleLoadout
+  id: RoleSurvivalSecurity
+  groups:
+  - SurvivalSecurity
+  - GroupSpeciesBreathToolSecurity
+  - GroupTankHarness
+
+- type: roleLoadout
+  id: RoleSurvivalSyndicate
+  groups:
+  - SurvivalSyndicate
+  - GroupSpeciesBreathTool
+  - GroupTankHarness
+
+- type: roleLoadout
+  id: RoleSurvivalMilitaryDouble
+  groups:
+  - SurvivalMilitaryDouble
+
+- type: roleLoadout
+  id: RoleSurvivalNukie
+  groups:
+  - SurvivalSyndicate
+  - GroupSpeciesBreathTool
+  - GroupPocketTankDouble
+
+- type: roleLoadout
+  id: RoleSurvivalEVA
+  groups:
+  - GroupEVATank
+  - SurvivalExtended
+
+- type: roleLoadout
+  id: RoleSurvivalSpaceNinja
+  groups:
+  - GroupEVATank

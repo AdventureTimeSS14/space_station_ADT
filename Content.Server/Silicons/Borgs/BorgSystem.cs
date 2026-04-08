@@ -1,9 +1,6 @@
-using System.Diagnostics.CodeAnalysis;
-using System.Linq;
-using Content.Server.Actions;
-using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
 using Content.Server.DeviceNetwork.Systems;
+<<<<<<< HEAD
 using Content.Server.Hands.Systems;
 using Content.Server.PowerCell;
 using Content.Shared.Alert;
@@ -15,13 +12,18 @@ using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs;
+=======
+using Content.Shared.Containers.ItemSlots;
+using Content.Shared.Damage.Systems;
+using Content.Shared.Emag.Systems;
+>>>>>>> upstreamwiz/master
 using Content.Shared.Mobs.Systems;
-using Content.Shared.Movement.Systems;
-using Content.Shared.Pointing;
+using Content.Shared.Popups;
+using Content.Shared.Power.EntitySystems;
 using Content.Shared.PowerCell;
-using Content.Shared.PowerCell.Components;
 using Content.Shared.Roles;
 using Content.Shared.Silicons.Borgs;
+<<<<<<< HEAD
 using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Throwing;
 using Content.Shared.Trigger.Systems;
@@ -29,10 +31,12 @@ using Content.Shared.Whitelist;
 using Content.Shared.Wires;
 using Robust.Server.GameObjects;
 using Robust.Shared.Configuration;
+=======
+using Content.Shared.Trigger.Systems;
+>>>>>>> upstreamwiz/master
 using Robust.Shared.Containers;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
 namespace Content.Server.Silicons.Borgs;
@@ -40,27 +44,19 @@ namespace Content.Server.Silicons.Borgs;
 /// <inheritdoc/>
 public sealed partial class BorgSystem : SharedBorgSystem
 {
-    [Dependency] private readonly IAdminLogManager _adminLog = default!;
     [Dependency] private readonly IBanManager _banManager = default!;
-    [Dependency] private readonly IConfigurationManager _cfgManager = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly ActionsSystem _actions = default!;
-    [Dependency] private readonly AlertsSystem _alerts = default!;
     [Dependency] private readonly DeviceNetworkSystem _deviceNetwork = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly TriggerSystem _trigger = default!;
-    [Dependency] private readonly HandsSystem _hands = default!;
-    [Dependency] private readonly MetaDataSystem _metaData = default!;
-    [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifier = default!;
-    [Dependency] private readonly PowerCellSystem _powerCell = default!;
-    [Dependency] private readonly ThrowingSystem _throwing = default!;
-    [Dependency] private readonly UserInterfaceSystem _ui = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
-    [Dependency] private readonly ISharedPlayerManager _player = default!;
+    [Dependency] private readonly SharedBatterySystem _battery = default!;
+    [Dependency] private readonly EmagSystem _emag = default!;
+    [Dependency] private readonly MobThresholdSystem _mobThresholdSystem = default!;
+    [Dependency] private readonly ItemSlotsSystem _itemSlotsSystem = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly PowerCellSystem _powerCell = default!;
+    [Dependency] private readonly DamageableSystem _damageable = default!;
 
     public static readonly ProtoId<JobPrototype> BorgJobId = "Borg";
 
@@ -69,27 +65,10 @@ public sealed partial class BorgSystem : SharedBorgSystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<BorgChassisComponent, MapInitEvent>(OnMapInit);
-        SubscribeLocalEvent<BorgChassisComponent, AfterInteractUsingEvent>(OnChassisInteractUsing);
-        SubscribeLocalEvent<BorgChassisComponent, MindAddedMessage>(OnMindAdded);
-        SubscribeLocalEvent<BorgChassisComponent, MindRemovedMessage>(OnMindRemoved);
-        SubscribeLocalEvent<BorgChassisComponent, MobStateChangedEvent>(OnMobStateChanged);
-        SubscribeLocalEvent<BorgChassisComponent, BeingGibbedEvent>(OnBeingGibbed);
-        SubscribeLocalEvent<BorgChassisComponent, PowerCellChangedEvent>(OnPowerCellChanged);
-        SubscribeLocalEvent<BorgChassisComponent, PowerCellSlotEmptyEvent>(OnPowerCellSlotEmpty);
-        SubscribeLocalEvent<BorgChassisComponent, GetCharactedDeadIcEvent>(OnGetDeadIC);
-        SubscribeLocalEvent<BorgChassisComponent, GetCharacterUnrevivableIcEvent>(OnGetUnrevivableIC);
-        SubscribeLocalEvent<BorgChassisComponent, ItemToggledEvent>(OnToggled);
-
-        SubscribeLocalEvent<BorgBrainComponent, MindAddedMessage>(OnBrainMindAdded);
-        SubscribeLocalEvent<BorgBrainComponent, PointAttemptEvent>(OnBrainPointAttempt);
-
-        InitializeModules();
-        InitializeMMI();
-        InitializeUI();
         InitializeTransponder();
     }
 
+<<<<<<< HEAD
     private void OnMapInit(EntityUid uid, BorgChassisComponent component, MapInitEvent args)
     {
         UpdateBatteryAlert((uid, component));
@@ -351,10 +330,20 @@ public sealed partial class BorgSystem : SharedBorgSystem
     /// Checks that a player has fulfilled the requirements for the borg job.
     /// </summary>
     public bool CanPlayerBeBorged(ICommonSession session)
+=======
+    public override bool CanPlayerBeBorged(ICommonSession session)
+>>>>>>> upstreamwiz/master
     {
         if (_banManager.GetJobBans(session.UserId)?.Contains(BorgJobId) == true)
             return false;
 
         return true;
+    }
+
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+
+        UpdateTransponder(frameTime);
     }
 }

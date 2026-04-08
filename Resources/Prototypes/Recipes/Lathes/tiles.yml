@@ -45,6 +45,19 @@
 - type: latheRecipe
   abstract: true
   parent: BaseSteelTileRecipe
+<<<<<<< HEAD
+=======
+  id: BaseIndustrialTileRecipe
+  categories:
+  - Tiles
+  - Industrial
+  materials:
+    Steel: 50
+
+- type: latheRecipe
+  abstract: true
+  parent: BaseSteelTileRecipe
+>>>>>>> upstreamwiz/master
   id: BaseCircuitTileRecipe
   categories:
   - Tiles
@@ -91,6 +104,46 @@
   materials:
     Steel: 25
     Glass: 25
+
+- type: latheRecipe
+  abstract: true
+  parent: BaseTileRecipe
+  id: BaseShuttleTileRecipe
+  categories:
+  - Tiles
+  - Shuttle
+  completetime: 1
+  materials:
+    Plasteel: 25
+
+- type: latheRecipe
+  abstract: true
+  parent: BaseTileRecipe
+  id: BasePlasticTileRecipe
+  categories:
+  - Tiles
+  - Plastic
+  materials:
+    Plastic: 25
+
+- type: latheRecipe
+  abstract: true
+  parent: BaseTileRecipe
+  id: BaseCarpetTileRecipe
+  categories:
+  - Tiles
+  - Carpets
+  materials:
+    Cloth: 25
+
+- type: latheRecipe
+  abstract: true
+  parent: BaseTileRecipe
+  id: BasePreciousTileRecipe
+  applyMaterialDiscount: false
+  categories:
+  - Tiles
+  - Precious
 
 ## Recipes
 
@@ -150,6 +203,21 @@
   id: FloorTileItemSteelPavementVertical
   result: FloorTileItemSteelPavementVertical
 
+- type: latheRecipe
+  parent: BaseSteelTileRecipe
+  id: FloorTileItemSteelSlatsContinuous
+  result: FloorTileItemSteelSlatsContinuous
+
+- type: latheRecipe
+  parent: BaseSteelTileRecipe
+  id: FloorTileItemSteelVerticalSlatsBordered
+  result: FloorTileItemSteelVerticalSlatsBordered
+
+- type: latheRecipe
+  parent: BaseSteelTileRecipe
+  id: FloorTileItemSteelHorizontalSlatsBordered
+  result: FloorTileItemSteelHorizontalSlatsBordered
+
 # Dark tiles
 - type: latheRecipe
   parent: BaseDarkTileRecipe
@@ -195,6 +263,21 @@
   parent: BaseDarkTileRecipe
   id: FloorTileItemDarkOffset
   result: FloorTileItemDarkOffset
+
+- type: latheRecipe
+  parent: BaseDarkTileRecipe
+  id: FloorTileItemDarkSlatsContinuous
+  result: FloorTileItemDarkSlatsContinuous
+
+- type: latheRecipe
+  parent: BaseDarkTileRecipe
+  id: FloorTileItemDarkVerticalSlatsBordered
+  result: FloorTileItemDarkVerticalSlatsBordered
+
+- type: latheRecipe
+  parent: BaseDarkTileRecipe
+  id: FloorTileItemDarkHorizontalSlatsBordered
+  result: FloorTileItemDarkHorizontalSlatsBordered
 
 - type: latheRecipe
   parent: BaseDarkTileRecipe
@@ -247,6 +330,24 @@
   id: FloorTileItemWhitePavementVertical
   result: FloorTileItemWhitePavementVertical
 
+<<<<<<< HEAD
+=======
+- type: latheRecipe
+  parent: BaseWhiteTileRecipe
+  id: FloorTileItemWhiteSlatsContinuous
+  result: FloorTileItemWhiteSlatsContinuous
+
+- type: latheRecipe
+  parent: BaseWhiteTileRecipe
+  id: FloorTileItemWhiteVerticalSlatsBordered
+  result: FloorTileItemWhiteVerticalSlatsBordered
+
+- type: latheRecipe
+  parent: BaseWhiteTileRecipe
+  id: FloorTileItemWhiteHorizontalSlatsBordered
+  result: FloorTileItemWhiteHorizontalSlatsBordered
+
+>>>>>>> upstreamwiz/master
 # Maints
 - type: latheRecipe
   parent: BaseMaintTileRecipe
@@ -268,6 +369,50 @@
   id: FloorTileItemTechmaintDark
   result: FloorTileItemTechmaintDark
 
+<<<<<<< HEAD
+=======
+# Industrial
+- type: latheRecipe
+  parent: BaseIndustrialTileRecipe
+  id: FloorTileItemMining
+  result: FloorTileItemMining
+
+- type: latheRecipe
+  parent: BaseIndustrialTileRecipe
+  id: FloorTileItemMiningDark
+  result: FloorTileItemMiningDark
+
+- type: latheRecipe
+  parent: BaseIndustrialTileRecipe
+  id: FloorTileItemMiningLight
+  result: FloorTileItemMiningLight
+
+- type: latheRecipe
+  parent: BaseIndustrialTileRecipe
+  id: FloorTileItemElevatorShaft
+  result: FloorTileItemElevatorShaft
+
+- type: latheRecipe
+  parent: BaseIndustrialTileRecipe
+  id: FloorTileItemRockVault
+  result: FloorTileItemRockVault
+
+- type: latheRecipe
+  parent: BaseIndustrialTileRecipe
+  id: FloorTileItemMetalDiamond
+  result: FloorTileItemMetalDiamond
+
+- type: latheRecipe
+  parent: BaseIndustrialTileRecipe
+  id: FloorTileItemShowroom
+  result: FloorTileItemShowroom
+
+- type: latheRecipe
+  parent: BaseIndustrialTileRecipe
+  id: FloorTileItemFreezer
+  result: FloorTileItemFreezer
+
+>>>>>>> upstreamwiz/master
 # Circuit
 - type: latheRecipe
   parent: BaseCircuitTileRecipe
@@ -432,6 +577,24 @@
   id: FloorTileItemOldConcreteSmooth
   result: FloorTileItemOldConcreteSmooth
 
+<<<<<<< HEAD
+=======
+- type: latheRecipe
+  parent: BaseConcreteTileRecipe
+  id: FloorTileItemIronsandConcrete
+  result: FloorTileItemIronsandConcrete
+
+- type: latheRecipe
+  parent: BaseConcreteTileRecipe
+  id: FloorTileItemIronsandConcreteMono
+  result: FloorTileItemIronsandConcreteMono
+
+- type: latheRecipe
+  parent: BaseConcreteTileRecipe
+  id: FloorTileItemIronsandConcreteSmooth
+  result: FloorTileItemIronsandConcreteSmooth
+
+>>>>>>> upstreamwiz/master
 # Faux
 - type: latheRecipe
   parent: BaseFauxTileRecipe
@@ -483,6 +646,19 @@
   id: FauxTileDesertAstroSand
   result: FloorTileItemDesertAstroSand
 
+<<<<<<< HEAD
+=======
+- type: latheRecipe
+  parent: BaseFauxTileRecipe
+  id: FauxTileAstroIronsand
+  result: FloorTileItemAstroIronsand
+
+- type: latheRecipe
+  parent: BaseFauxTileRecipe
+  id: FauxTileAstroIronsandBorderless
+  result: FloorTileItemAstroIronsandBorderless
+
+>>>>>>> upstreamwiz/master
 # Marble
 - type: latheRecipe
   parent: BaseMarbleTileRecipe
@@ -494,6 +670,7 @@
   id: FloorTileItemDarkMarble
   result: FloorTileItemDarkMarble
 
+<<<<<<< HEAD
 # ADT tweak start other steal
 
 - type: latheRecipe
@@ -593,20 +770,58 @@
 
 - type: latheRecipe
   parent: BaseSteelTileRecipe
+=======
+- type: latheRecipe
+  parent: BaseMarbleTileRecipe
+  id: FloorTileItemUraniumMarble
+  result: FloorTileItemUraniumMarble
+  materials:
+    Steel: 25
+    Glass: 25
+    Uranium: 25
+
+- type: latheRecipe
+  parent: BaseMarbleTileRecipe
+  id: FloorTileItemPlasmaMarble
+  result: FloorTileItemPlasmaMarble
+  materials:
+    Steel: 25
+    Glass: 25
+    Plasma: 25
+
+# Shuttle
+- type: latheRecipe
+  parent: BaseShuttleTileRecipe
+  id: FloorTileItemShuttleWhite
+  result: FloorTileItemShuttleWhite
+
+- type: latheRecipe
+  parent: BaseShuttleTileRecipe
+>>>>>>> upstreamwiz/master
   id: FloorTileItemShuttleBlue
   result: FloorTileItemShuttleBlue
 
 - type: latheRecipe
+<<<<<<< HEAD
   parent: BaseSteelTileRecipe
   id: FloorTileItemShuttleGrey
   result: FloorTileItemShuttleGrey
 
 - type: latheRecipe
   parent: BaseSteelTileRecipe
+=======
+  parent: BaseShuttleTileRecipe
+  id: FloorTileItemShuttleOrange
+  result: FloorTileItemShuttleOrange
+
+- type: latheRecipe
+  parent: BaseShuttleTileRecipe
+>>>>>>> upstreamwiz/master
   id: FloorTileItemShuttlePurple
   result: FloorTileItemShuttlePurple
 
 - type: latheRecipe
+<<<<<<< HEAD
   parent: BaseSteelTileRecipe
   id: FloorTileItemShuttleBlack
   result: FloorTileItemShuttleBlack
@@ -617,3 +832,80 @@
   result: FloorTileItemShuttleRed
 
 # ADT tweak end other steal
+=======
+  parent: BaseShuttleTileRecipe
+  id: FloorTileItemShuttleRed
+  result: FloorTileItemShuttleRed
+
+- type: latheRecipe
+  parent: BaseShuttleTileRecipe
+  id: FloorTileItemShuttleGrey
+  result: FloorTileItemShuttleGrey
+
+- type: latheRecipe
+  parent: BaseShuttleTileRecipe
+  id: FloorTileItemShuttleBlack
+  result: FloorTileItemShuttleBlack
+
+# Precious
+- type: latheRecipe
+  parent: BasePreciousTileRecipe
+  id: FloorTileItemGold
+  result: FloorTileItemGold
+  materials:
+    Gold: 50
+
+- type: latheRecipe
+  parent: BasePreciousTileRecipe
+  id: FloorTileItemSilver
+  result: FloorTileItemSilver
+  materials:
+    Silver: 50
+
+# Carpets
+- type: latheRecipe
+  parent: BaseCarpetTileRecipe
+  id: FloorTileItemArcadeBlue
+  result: FloorTileItemArcadeBlue
+
+- type: latheRecipe
+  parent: BaseCarpetTileRecipe
+  id: FloorTileItemArcadeBlue2
+  result: FloorTileItemArcadeBlue2
+
+- type: latheRecipe
+  parent: BaseCarpetTileRecipe
+  id: FloorTileItemArcadeRed
+  result: FloorTileItemArcadeRed
+
+- type: latheRecipe
+  parent: BaseCarpetTileRecipe
+  id: FloorTileItemEighties
+  result: FloorTileItemEighties
+
+- type: latheRecipe
+  parent: BaseCarpetTileRecipe
+  id: FloorTileItemCarpetClown
+  result: FloorTileItemCarpetClown
+
+- type: latheRecipe
+  parent: BaseCarpetTileRecipe
+  id: FloorTileItemCarpetOffice
+  result: FloorTileItemCarpetOffice
+
+# Plastic
+- type: latheRecipe
+  parent: BasePlasticTileRecipe
+  id: FloorTileItemLino
+  result: FloorTileItemLino
+
+- type: latheRecipe
+  parent: BasePlasticTileRecipe
+  id: FloorTileItemBoxing
+  result: FloorTileItemBoxing
+
+- type: latheRecipe
+  parent: BasePlasticTileRecipe
+  id: FloorTileItemGym
+  result: FloorTileItemGym
+>>>>>>> upstreamwiz/master

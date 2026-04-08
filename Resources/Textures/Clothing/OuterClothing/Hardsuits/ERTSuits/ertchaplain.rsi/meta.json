@@ -2,7 +2,10 @@
   "version": 1,
   "license": "CC-BY-SA-3.0",
   "copyright": "Created by IProduceWidgets. Tail sprites by Tiniest Shark (github)",
+<<<<<<< HEAD
   "copyright": "inhand resprited by inventor05(gh: inventor055, discord: qwerty05555)",
+=======
+>>>>>>> upstreamwiz/master
   "size": {
     "x": 32,
     "y": 32

@@ -1,6 +1,9 @@
 #nullable enable
 using Content.Shared.CCVar;
+<<<<<<< HEAD
 using Content.Shared.ADT.CCVar;
+=======
+>>>>>>> upstreamwiz/master
 
 namespace Content.IntegrationTests;
 
@@ -26,7 +29,6 @@ public static partial class PoolManager
         (CCVars.ArrivalsShuttles.Name,        "false"),
         (CCVars.EmergencyShuttleEnabled.Name, "false"),
         (CCVars.ProcgenPreload.Name,          "false"),
-        (CCVars.WorldgenEnabled.Name,         "false"),
         (CCVars.GatewayGeneratorEnabled.Name, "false"),
         (CCVars.GameDummyTicker.Name, "true"),
         (CCVars.GameLobbyEnabled.Name, "false"),

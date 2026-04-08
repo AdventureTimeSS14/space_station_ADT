@@ -65,10 +65,12 @@
     speedModifierThresholds:
       25: 0.5
   - type: Stamina
-    critThreshold: 200
+    baseCritThreshold: 200
   - type: Bloodstream
-    bloodReagent: FluorosulfuricAcid
-    bloodMaxVolume: 650
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: FluorosulfuricAcid
+        Quantity: 650
   - type: MeleeWeapon
     altDisarm: false
     angle: 0
@@ -76,6 +78,7 @@
      collection: AlienClaw
     animation: WeaponArcBite
     damage:
+<<<<<<< HEAD
     # ADT-Tweak start
       types:
         Slash: 20
@@ -84,6 +87,10 @@
     damageModifierSet: ADTXenoDamageSet
   - type: Fauna
     # ADT-Tweak end
+=======
+      types:
+        Piercing: 6
+>>>>>>> upstreamwiz/master
   - type: DamageStateVisuals
     states:
       Alive:
@@ -111,9 +118,10 @@
   - type: TypingIndicator
     proto: alien
   - type: Temperature
+    currentTemperature: 310.15
+  - type: TemperatureDamage
     heatDamageThreshold: 360
     coldDamageThreshold: -150
-    currentTemperature: 310.15
   - type: Tag
     tags:
       - CannotSuicide
@@ -151,7 +159,7 @@
       0: Alive
       350: Dead # ADT Tweak
   - type: Stamina
-    critThreshold: 300
+    baseCritThreshold: 300
   - type: SlowOnDamage
     speedModifierThresholds:
       50: 0.7
@@ -198,11 +206,16 @@
       40: 0.7
   - type: MeleeWeapon
     damage:
+<<<<<<< HEAD
   # ADT-Tweak start
       types:
         Blunt: 15
         Structural: 100
   # ADT-Tweak end
+=======
+      types:
+        Slash: 6
+>>>>>>> upstreamwiz/master
   - type: MovementSpeedModifier
     baseSprintSpeed: 4
   - type: Fixtures
@@ -244,8 +257,13 @@
   - type: MovementSpeedModifier
   - type: MeleeWeapon
     damage:
+<<<<<<< HEAD
      groups:
        Brute: 42 # ADT Tweak
+=======
+      types:
+        Slash: 12
+>>>>>>> upstreamwiz/master
   - type: Fixtures
     fixtures:
       fix1:
@@ -298,11 +316,16 @@
     # ADT-tweak end
   - type: MeleeWeapon
     damage:
+<<<<<<< HEAD
     # ADT-tweak start
      types:
        Slash: 27
        Blunt: 10
     # ADT-tweak end
+=======
+      types:
+        Slash: 10
+>>>>>>> upstreamwiz/master
   - type: SlowOnDamage
     speedModifierThresholds:
       50: 0.7
@@ -344,10 +367,15 @@
     baseSprintSpeed: 6.0 # ADT-Tweak
   - type: MeleeWeapon
     damage:
+<<<<<<< HEAD
     # ADT-Tweak start
      types:
        Piercing: 13
     # ADT-Tweak end
+=======
+      types:
+        Slash: 5
+>>>>>>> upstreamwiz/master
   - type: Fixtures
     fixtures:
       fix1:
@@ -567,10 +595,12 @@
   - type: ComplexInteraction
   - type: MobState
   - type: Stamina
-    critThreshold: 200
+    baseCritThreshold: 200
   - type: Bloodstream
-    bloodReagent: FluorosulfuricAcid
-    bloodMaxVolume: 300
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: FluorosulfuricAcid
+        Quantity: 300
   - type: MeleeWeapon
     altDisarm: false
     angle: 0
@@ -578,8 +608,8 @@
      collection: AlienClaw
     animation: WeaponArcBite
     damage:
-     groups:
-       Brute: 5
+      types:
+        Slash: 5
   - type: DamageStateVisuals
     states:
       Alive:
@@ -597,9 +627,10 @@
   - type: TypingIndicator
     proto: alien
   - type: Temperature
+    currentTemperature: 310.15
+  - type: TemperatureDamage
     heatDamageThreshold: 360
     coldDamageThreshold: -150
-    currentTemperature: 310.15
   - type: NoSlip
   - type: Perishable #Ummmm the acid kills a lot of the bacteria or something
     molsPerSecondPerUnitMass: 0.0005

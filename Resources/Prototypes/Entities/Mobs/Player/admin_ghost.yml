@@ -37,7 +37,9 @@
     needsHands: false
   - type: CombatMode
   - type: Physics
+    bodyType: Kinematic # Admin ghosts should ignore the laws of physics.
     ignorePaused: true
+<<<<<<< HEAD
     bodyType: Kinematic
     canCollide: false # ADT-Tweak
   # ADT-Tweak start: новая физика, чтоб не ломать физику других
@@ -50,6 +52,8 @@
         density: 0
         layer: []
   # ADT-Tweak end
+=======
+>>>>>>> upstreamwiz/master
   - type: Access
     groups:
     - Silicon
@@ -158,8 +162,13 @@
   description: View a Communications Interface.
   components:
   - type: Action
+<<<<<<< HEAD
     icon: { sprite: Corvax/Interface/adminactions.rsi, state: comms_console } # Corvax-Resprite
     iconOn: { sprite: Corvax/Interface/adminactions.rsi, state: comms_console }
+=======
+    icon: { sprite: Interface/Actions/actions_ai.rsi, state: comms_console }
+    iconOn: { sprite: Interface/Actions/actions_ai.rsi, state: comms_console }
+>>>>>>> upstreamwiz/master
     keywords: [ "AI", "console", "interface" ]
     priority: -4
   - type: InstantAction
@@ -172,8 +181,13 @@
   description: View a Mass Scanner Interface.
   components:
   - type: Action
+<<<<<<< HEAD
     icon: { sprite: Corvax/Interface/adminactions.rsi, state: mass_scanner } # Corvax-Resprite
     iconOn: { sprite: Corvax/Interface/adminactions.rsi, state: mass_scanner }
+=======
+    icon: { sprite: Interface/Actions/actions_ai.rsi, state: mass_scanner }
+    iconOn: { sprite: Interface/Actions/actions_ai.rsi, state: comms_console }
+>>>>>>> upstreamwiz/master
     keywords: [ "AI", "console", "interface" ]
     priority: -6
   - type: InstantAction
@@ -198,8 +212,13 @@
   description: View a Crew Monitoring Interface.
   components:
   - type: Action
+<<<<<<< HEAD
     icon: { sprite: Corvax/Interface/adminactions.rsi, state: crew_monitor } # Corvax-Resprite
     iconOn: { sprite: Corvax/Interface/adminactions.rsi, state: crew_monitor }
+=======
+    icon: { sprite: Interface/Actions/actions_ai.rsi, state: crew_monitor }
+    iconOn: { sprite: Interface/Actions/actions_ai.rsi, state: crew_monitor }
+>>>>>>> upstreamwiz/master
     keywords: [ "AI", "console", "interface" ]
     priority: -8
   - type: InstantAction
@@ -212,8 +231,13 @@
   description: View a Station Records Interface.
   components:
   - type: Action
+<<<<<<< HEAD
     icon: { sprite: Corvax/Interface/adminactions.rsi, state: station_records } # Corvax-Resprite
     iconOn: { sprite: Corvax/Interface/adminactions.rsi, state: station_records }
+=======
+    icon: { sprite: Interface/Actions/actions_ai.rsi, state: station_records }
+    iconOn: { sprite: Interface/Actions/actions_ai.rsi, state: station_records }
+>>>>>>> upstreamwiz/master
     keywords: [ "AI", "console", "interface" ]
     priority: -7
   - type: InstantAction

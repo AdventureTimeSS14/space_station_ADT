@@ -3,9 +3,12 @@ using Content.Shared.Projectiles;
 using Content.Shared.Standing;
 using Content.Shared.Weapons.Ranged.Components;
 using Robust.Shared.Containers;
+<<<<<<< HEAD
 using Content.Shared.ADT.Crawling; // ADT Anti-Lying-Warrior
 using Content.Shared.Mobs.Systems; // ADT Anti-Lying-Warrior
 using Content.Shared.ADT.Crawling.Components; // ADT Anti-Lying-Warrior
+=======
+>>>>>>> upstreamwiz/master
 using Robust.Shared.Physics.Events;
 
 namespace Content.Shared.Damage.Systems;

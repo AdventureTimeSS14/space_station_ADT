@@ -483,7 +483,10 @@
     tags:
     - Beer
     - DrinkCan
+<<<<<<< HEAD
     - ADTBeerCan #ADTTweak
+=======
+>>>>>>> upstreamwiz/master
 
 - type: entity
   parent: DrinkCanBaseFull

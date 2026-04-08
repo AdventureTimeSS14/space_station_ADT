@@ -4,6 +4,7 @@
   description: job-description-detective
   playTimeTracker: JobDetective
   requirements:
+<<<<<<< HEAD
     - !type:DepartmentTimeRequirement
       department: Security
       time: 25h # ADT-Tweak
@@ -19,6 +20,11 @@
       - Vox
       - Shadekin
     # ADT RESTRICT End
+=======
+  - !type:RoleTimeRequirement
+    role: JobSecurityOfficer
+    time: 5h
+>>>>>>> upstreamwiz/master
   startingGear: DetectiveGear
   icon: "JobIconDetective"
   supervisors: job-supervisors-hos

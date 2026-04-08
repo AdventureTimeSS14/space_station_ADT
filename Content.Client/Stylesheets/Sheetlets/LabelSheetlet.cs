@@ -69,10 +69,17 @@ public sealed class LabelSheetlet : Sheetlet<PalettedStylesheet>
                 .Class(StyleClass.LabelMonospaceText)
                 .Prop(Label.StylePropertyFont, robotoMonoBold11),
             E<Label>()
+<<<<<<< HEAD
                 .Class(StyleClass.LabelMonospaceHeading)
                 .Prop(Label.StylePropertyFont, robotoMonoBold12),
             E<Label>()
                 .Class(StyleClass.LabelMonospaceSubHeading)
+=======
+                .Class(StyleClass.LabelMonospaceSubHeading)
+                .Prop(Label.StylePropertyFont, robotoMonoBold12),
+            E<Label>()
+                .Class(StyleClass.LabelMonospaceHeading)
+>>>>>>> upstreamwiz/master
                 .Prop(Label.StylePropertyFont, robotoMonoBold14),
         ];
     }

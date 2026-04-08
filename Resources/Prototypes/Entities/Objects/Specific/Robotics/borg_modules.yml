@@ -454,6 +454,23 @@
 
 # generic modules
 - type: entity
+  id: BorgModulePrying
+  parent: [ BaseBorgModule ]
+  name: prying module
+  description: A universal cyborg module which allows the unit to pry open doors.
+  components:
+  - type: Sprite
+    layers:
+    - state: generic
+    - state: icon-tools
+  - type: ComponentBorgModule
+    components:
+    - type: Prying
+      speedModifier: 1.5
+      useSound:
+        path: /Audio/Items/jaws_pry.ogg
+
+- type: entity
   id: BorgModuleCable
   parent: [ BaseBorgModule, BaseProviderBorgModule ]
   name: cable cyborg module
@@ -545,7 +562,10 @@
     - item: Wirecutter
     - item: WelderIndustrial
     - item: Multitool
+<<<<<<< HEAD
     - item: HandheldStationMapUnpowered # ADT-tweak
+=======
+>>>>>>> upstreamwiz/master
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: tool-module }
 
@@ -612,11 +632,17 @@
   - type: ItemBorgModule
     hands:
     - item: MiningDrill
+<<<<<<< HEAD
     # - Shovel ADT tweak
     - item: MineralScannerUnpowered
     - item: BorgOreBag
     - item: BorgHandheldGPSBasic #ADT tweak: MineBorgModulesUpdate
     - item: HandheldStationMapUnpowered #ADT tweak: MineBorgModulesUpdate
+=======
+    - item: Shovel
+    - item: MineralScannerUnpowered
+    - item: BorgOreBag
+>>>>>>> upstreamwiz/master
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: mining-module }
 
@@ -636,6 +662,7 @@
     - item: Shovel
     - item: AdvancedMineralScannerUnpowered
     - item: OreBagOfHolding
+<<<<<<< HEAD
     - item: BorgHandheldGPSBasic #ADT tweak: MineBorgModulesUpdate
     - item: HandheldStationMapUnpowered #ADT tweak: MineBorgModulesUpdate
   - type: BorgModuleIcon
@@ -663,6 +690,28 @@
 #    icon: { sprite: Interface/Actions/actions_borg.rsi, state: grappling-module }
 
 #ADT tweak-End: MineBorgModulesUpdate
+=======
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: adv-mining-module }
+
+- type: entity
+  id: BorgModuleTraversal
+  parent: [ BaseBorgModuleCargo, BaseProviderBorgModule ]
+  name: traversal cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: cargo
+    - state: icon-grappling-gun
+  - type: ItemBorgModule
+    hands:
+    - item: WeaponGrapplingGun
+    - item: BorgFireExtinguisher
+    - item: BorgHandheldGPSBasic
+    - item: HandHeldMassScannerBorg
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: grappling-module }
+>>>>>>> upstreamwiz/master
 
 # engineering modules
 - type: entity
@@ -710,27 +759,36 @@
         whitelist:
           tags:
           - ConstructionMaterial
+<<<<<<< HEAD
           - ADTSteelSheet
           - Sheet
           - Metal
+=======
+>>>>>>> upstreamwiz/master
     - hand:
         emptyRepresentative: BorgModuleConstructionMaterialPlaceholder
         emptyLabel: borg-slot-construction-empty
         whitelist:
           tags:
           - ConstructionMaterial
+<<<<<<< HEAD
           - ADTSteelSheet
           - Sheet
           - Metal
+=======
+>>>>>>> upstreamwiz/master
     - hand:
         emptyRepresentative: BorgModuleConstructionMaterialPlaceholder
         emptyLabel: borg-slot-construction-empty
         whitelist:
           tags:
           - ConstructionMaterial
+<<<<<<< HEAD
           - ADTSteelSheet
           - Sheet
           - Metal
+=======
+>>>>>>> upstreamwiz/master
     - hand:
         emptyRepresentative: DoorElectronics
         emptyLabel: borg-slot-circuitboards-empty
@@ -830,6 +888,10 @@
   - type: ItemBorgModule
     hands:
     - item: MopItem
+<<<<<<< HEAD
+=======
+    - item: WireBrush
+>>>>>>> upstreamwiz/master
     - item: BorgBucket
     - item: BorgSprayBottle
     - item: HoloprojectorBorg
@@ -849,6 +911,10 @@
   - type: ItemBorgModule
     hands:
     - item: AdvMopItem
+<<<<<<< HEAD
+=======
+    - item: WireBrushElectrical
+>>>>>>> upstreamwiz/master
     - item: BorgMegaSprayBottle
     - item: HoloprojectorBorg
     - item: BorgDropper
@@ -863,6 +929,7 @@
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: adv-cleaning-module }
 
 # medical modules
+<<<<<<< HEAD
 # ADT-Tweak-Start "MedborgModuleUpdate":
 # ADT-Tweak-Start
 #- type: entity
@@ -881,11 +948,28 @@
 #  - type: BorgModuleIcon
 #    icon: { sprite: Interface/Actions/actions_borg.rsi, state: diagnosis-module }
   # ADT-Tweak-End
+=======
+- type: entity
+  id: BorgModuleDiagnosis # todo: reuse when med refractor is finished
+  parent: [ BaseBorgModuleMedical, BaseProviderBorgModule ]
+  name: diagnosis cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: medical
+    - state: icon-diagnosis
+  - type: ItemBorgModule
+    hands:
+    - item: HandheldHealthAnalyzer
+    - item: ClothingNeckStethoscope
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: diagnosis-module }
+>>>>>>> upstreamwiz/master
 
 - type: entity
   id: BorgModuleTopicals
   parent: [ BaseBorgModuleMedical, BaseProviderBorgModule ]
-  name: topicals cyborg module
+  name: first aid cyborg module
   components:
   - type: Sprite
     layers:
@@ -893,7 +977,12 @@
     - state: icon-treatment
   - type: ItemBorgModule
     hands:
+<<<<<<< HEAD
     - item: HandheldHealthAnalyzerUnpowered
+=======
+    - item: HandheldHealthAnalyzer
+    - item: AdvancedJetInjector
+>>>>>>> upstreamwiz/master
     - item: Gauze
       hand:
         emptyLabel: borg-slot-topicals-empty
@@ -915,6 +1004,7 @@
         whitelist:
           components:
           - Healing
+<<<<<<< HEAD
     - item: Bloodpack
       hand:
         emptyLabel: borg-slot-topicals-empty
@@ -922,6 +1012,8 @@
         whitelist:
           components:
           - Healing
+=======
+>>>>>>> upstreamwiz/master
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: treatment-module }
 
@@ -936,11 +1028,19 @@
     - state: icon-defib
   - type: ItemBorgModule
     hands:
+<<<<<<< HEAD
     - item: HandheldHealthAnalyzerUnpowered
     - item: DefibrillatorOneHandedUnpowered
     - item: BorgFireExtinguisher
     - item: BorgHandheldGPSBasic
     - item: HandLabeler
+=======
+    - item: HandheldHealthAnalyzer
+    - item: DefibrillatorOneHandedUnpowered
+    - item: Crowbar
+    - item: BorgFireExtinguisher
+    - item: BorgHandheldGPSBasic
+>>>>>>> upstreamwiz/master
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: defib-module }
 
@@ -958,7 +1058,11 @@
     - item: HandLabeler
     - item: Syringe
       hand:
+<<<<<<< HEAD
         emptyLabel: borg-slot-small-containers-empty
+=======
+        emptyLabel: borg-slot-injector-dropper-empty
+>>>>>>> upstreamwiz/master
         emptyRepresentative: Syringe
         whitelist:
           tags:
@@ -994,6 +1098,7 @@
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: chem-module }
 
+<<<<<<< HEAD
 # ADT-Tweak-Start: "MedborgModuleUpdate"   # новые модули сделал отдельно в папке ADT
 #- type: entity
 #  id: BorgModuleAdvancedChemical
@@ -1024,6 +1129,45 @@
 #    icon: { sprite: Interface/Actions/actions_borg.rsi, state: adv-chem-module }
 # ADT-Tweak-End
 # ADT-Tweak-End
+=======
+- type: entity
+  id: BorgModuleAdvancedTopical
+  parent: [ BaseBorgModuleMedical, BaseProviderBorgModule ]
+  name: advanced first aid cyborg module
+  description: Advanced medical module containing the cyborg adaptation of the highly coveted hypospray. Now your cyborgs can inject crew-harmers with chloral hydrate even faster!
+  components:
+  - type: Sprite
+    layers:
+    - state: medical
+    - state: icon-chem
+  - type: ItemBorgModule
+    hands:
+    - item: HandheldHealthAnalyzer
+    - item: BorgHypo
+    - item: Gauze
+      hand:
+        emptyLabel: borg-slot-topicals-empty
+        emptyRepresentative: Gauze
+        whitelist:
+          components:
+          - Healing
+    - item: Brutepack
+      hand:
+        emptyLabel: borg-slot-topicals-empty
+        emptyRepresentative: Brutepack
+        whitelist:
+          components:
+          - Healing
+    - item: Ointment
+      hand:
+        emptyLabel: borg-slot-topicals-empty
+        emptyRepresentative: Ointment
+        whitelist:
+          components:
+          - Healing
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: adv-chem-module }
+>>>>>>> upstreamwiz/master
 
 # science modules
 # todo: if science ever gets their own custom robot, add more "sci" modules.
@@ -1042,10 +1186,17 @@
     - item: SprayBottle
     - item: GasAnalyzer
     - item: BorgDropper
+<<<<<<< HEAD
     - item: BaseChemistryEmptyVial
       hand:
         emptyLabel: borg-slot-small-containers-empty
         emptyRepresentative: BaseChemistryEmptyVial
+=======
+    - item: ChemistryEmptyVial
+      hand:
+        emptyLabel: borg-slot-small-containers-empty
+        emptyRepresentative: ChemistryEmptyVial
+>>>>>>> upstreamwiz/master
         whitelist:
           components:
           - FitsInDispenser
@@ -1292,7 +1443,11 @@
       hands:
       - item: Crowbar
       - item: Emag
+<<<<<<< HEAD
       # - item: AccessBreaker # ADT tweak
+=======
+      - item: AccessBreaker
+>>>>>>> upstreamwiz/master
       - item: PinpointerSyndicateNuclear
     - type: BorgModuleIcon
       icon: { sprite: Interface/Actions/actions_borg.rsi, state: syndicate-operative-module }
@@ -1504,7 +1659,11 @@
     - state: icon-xenoborg-access-breaker
   - type: ItemBorgModule
     hands:
+<<<<<<< HEAD
     - item: Emag # ADT-Tweak
+=======
+    - item: AccessBreaker
+>>>>>>> upstreamwiz/master
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: xenoborg-access-breaker-module }
 
@@ -1523,6 +1682,40 @@
     - item: SelfRechargingFireExtinguisher
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: xenoborg-extinguisher-module }
+
+- type: entity
+  parent: [ BaseXenoborgModuleEngi, BaseProviderBorgModule, BaseXenoborgContraband ]
+  id: XenoborgModuleDoorControl
+  name: door control xenoborg module
+  description: Module that allows Xenoborgs to control airlocks.
+  components:
+  - type: Sprite
+    layers:
+    - state: xenoborg_engi
+    - state: icon-xenoborg-access-breaker
+  - type: ItemBorgModule
+    hands:
+    - item: DoorRemoteXenoborg
+    - item: AccessBreaker
+    - item: AccessConfiguratorXenoborg
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: xenoborg-door-remote-module }
+
+- type: entity
+  parent: [ BaseXenoborgModuleEngi, BaseProviderBorgModule, BaseXenoborgContraband ]
+  id: XenoborgModuleTileGun
+  name: tile gun xenoborg module
+  description: Module with a tile gun. wait, a what?
+  components:
+  - type: Sprite
+    layers:
+    - state: xenoborg_engi
+    - state: icon-xenoborg-tile
+  - type: ItemBorgModule
+    hands:
+    - item: WeaponTileGunEmpty
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: xenoborg-tile-module }
 
 - type: entity
   parent: [ BaseXenoborgModuleHeavy, BaseProviderBorgModule, BaseXenoborgContraband ]
@@ -1552,15 +1745,19 @@
     - state: icon-xenoborg-laser
   - type: ItemBorgModule
     hands:
+<<<<<<< HEAD
     - item: XenoborgLaserGun
+=======
+    - item: WeaponLaserGunXenoborg
+>>>>>>> upstreamwiz/master
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: xenoborg-laser-module }
 
 - type: entity
   parent: [ BaseXenoborgModuleHeavy, BaseProviderBorgModule, BaseXenoborgContraband ]
   id: XenoborgModuleHeavyLaser
-  name: heavy laser xenoborg module
-  description: Module with a heavy laser gun.
+  name: laser cannon xenoborg module
+  description: Module with a laser cannon.
   components:
   - type: Sprite
     layers:
@@ -1568,7 +1765,11 @@
     - state: icon-xenoborg-laser2
   - type: ItemBorgModule
     hands:
+<<<<<<< HEAD
     - item: XenoborgHeavyLaserGun
+=======
+    - item: WeaponLaserCannonXenoborg
+>>>>>>> upstreamwiz/master
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: xenoborg-laser2-module }
 
@@ -1594,9 +1795,26 @@
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: xenoborg-space-movement-module }
 
 - type: entity
+  parent: [ BaseXenoborgModuleScout, BaseXenoborgContraband ]
+  id: XenoborgModuleJump
+  name: xenoborg jump module
+  description: Module that allows a xenoborg to jump forward.
+  components:
+  - type: ComponentBorgModule
+    components:
+    - type: JumpAbility
+      action: ActionJumpBoost
+      jumpDistance: 4
+      jumpSound: /Audio/Effects/stealthoff.ogg
+  - type: Sprite
+    layers:
+    - state: xenoborg_scout
+    - state: icon-xenoborg-jump
+
+- type: entity
   parent: [ BaseXenoborgModuleScout, BaseProviderBorgModule, BaseXenoborgContraband ]
   id: XenoborgModuleSword
-  name: sword xenoborg module
+  name: knife xenoborg module
   description: Module with a kukri knife.
   components:
   - type: Sprite
@@ -1613,7 +1831,7 @@
 - type: entity
   parent: [ BaseXenoborgModuleScout, BaseProviderBorgModule, BaseXenoborgContraband ]
   id: XenoborgModuleEnergySword
-  name: energy sword xenoborg module
+  name: energy dagger xenoborg module
   description: Module with an energy dagger.
   components:
   - type: Sprite
@@ -1655,7 +1873,11 @@
     - state: icon-xenoborg-projector
   - type: ItemBorgModule
     hands:
+<<<<<<< HEAD
     - item: ChameleonProjector
+=======
+    - item: ChameleonProjectorNoBattery
+>>>>>>> upstreamwiz/master
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: xenoborg-projector-module }
 
@@ -1663,7 +1885,7 @@
   parent: [ BaseXenoborgModuleStealth, BaseProviderBorgModule, BaseXenoborgContraband ]
   id: XenoborgModuleCloakDevice
   name: cloaking device xenoborg module
-  description: Module with a device that allows xenoborgs to become invisible for some time.
+  description: Module with a device that allows xenoborgs to become semi-invisible for some time.
   components:
   - type: Sprite
     layers:
@@ -1678,8 +1900,13 @@
 - type: entity
   parent: [ BaseXenoborgModuleStealth, BaseProviderBorgModule, BaseXenoborgContraband ]
   id: XenoborgModuleSuperCloakDevice
+<<<<<<< HEAD
   name: cloaking device xenoborg module
   description: Module with a device that allows xenoborgs to become truly invisible for less time.
+=======
+  name: invisibility device xenoborg module
+  description: Module with a device that allows xenoborgs to become truly invisible for a short amount of time.
+>>>>>>> upstreamwiz/master
   components:
   - type: Sprite
     layers:

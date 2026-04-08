@@ -1,7 +1,18 @@
 <Document>
+<<<<<<< HEAD
 # Капитаны и клоуны
 Это руководство по редактированию внешности вашего персонажа. Сначала обязательно прочитайте "Создание персонажа".
 При создании персонажа вы можете быть напуганы огромным количеством возможностей.
+=======
+# The Captains and the Clowns
+This is a guide for editing your character's appearance. Make sure you read Character Creation first.
+Upon creating your character, you may be intimidated by your vast range of options.
+
+It's okay to make your first character [color=#a4885c]randomized[/color] and roll with it, even experienced players do it.
+Making your first character doesn't have to be precise, either. You can [color=#a4885c]wing it[/color] and see what happens.
+
+If you'd like to be [color=#a4885c]methodical[/color], though, creating a character is easy to do one step at a time.
+>>>>>>> upstreamwiz/master
 
 Вполне нормально сделать своего первого персонажа [color=#a4885c]случайным[/color] и начать с ним играть, так поступают даже опытные игроки.
 Создание первого персонажа также не обязательно должно быть точным. Вы можете [color=#a4885c]сымпровизировать[/color] и посмотреть, что получится.
@@ -27,11 +38,22 @@
 
 Это незначительные изменения, которые мало влияют на игровой процесс. Это то, что игроки будут читать, когда будут [color=#a4885c]осматривать вас[/color]. ("человек молодого возраста")
 
+<<<<<<< HEAD
 ## Волосы и лицевая растительность
 И снова вас может испугать огромное количество вариантов. Это нормально.
 
 [color=#a4885c]Не торопитесь с этим.[/color] Вы можете просмотреть или щелкнуть по каждому из вариантов и найти тот, который вам нравится.
 Иногда проще установить желаемый цвет волос, прежде чем просматривать варианты.
+=======
+If you really can't decide, some popular haircut options include Floorlength Bedhead, Modern, Business, CIA or simply bald.
+Alternatively, [color=#a4885c]randomize[/color] a separate character and see what kind of haircuts they're rocking with. Surprise yourself.
+
+Don't feel obligated to use any of these, though.
+
+## Markings
+Markings range from [color=#a4885c]scars and snouts[/color] to [color=#a4885c]tattoos and tails[/color].
+Think of them like [color=#a4885c]accessories[/color] that are a part of your body, for giving your character some extra flair and uniqueness. They cannot be changed during the round.
+>>>>>>> upstreamwiz/master
 
 Если вы не можете определиться с выбором, некоторые популярные варианты стрижек включают в себя "Небрежная", "Современная", "Деловая", "ЦРУ" или просто "Лысый".
 Как вариант, [color=#a4885c]сгенерируйте[/color] отдельного персонажа и посмотрите, с какими стрижками он ходит. Удивите себя.

@@ -6,7 +6,11 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Science
+<<<<<<< HEAD
       time: 2.5h # ADT-Tweak
+=======
+      time: 2.5h
+>>>>>>> upstreamwiz/master
   startingGear: ScientistGear
   icon: "JobIconScientist"
   supervisors: job-supervisors-rd

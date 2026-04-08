@@ -13,7 +13,10 @@
     tags:
     - Sheet
     - ConstructionMaterial
+<<<<<<< HEAD
     - NoPaint #ADT tweak
+=======
+>>>>>>> upstreamwiz/master
   - type: Damageable
     damageContainer: Inorganic
   - type: Destructible
@@ -114,10 +117,13 @@
         - ReagentId: Plasma
           Quantity: 10
         canReact: false
+<<<<<<< HEAD
   - type: Tag
     tags:
     - Sheet
     - NoPaint #ADT tweak
+=======
+>>>>>>> upstreamwiz/master
 
 - type: entity
   parent: SheetPlasma
@@ -151,7 +157,10 @@
     - Plastic
     - Sheet
     - ConstructionMaterial
+<<<<<<< HEAD
     - NoPaint #ADT tweak
+=======
+>>>>>>> upstreamwiz/master
   - type: Material
   - type: PhysicalComposition
     materialComposition:

@@ -17,11 +17,15 @@
     PaperCNCSheet: 6
     MysteryFigureBox: 2
     BooksBag: 3
+<<<<<<< HEAD
     #ADT-Tweak-Playing-Card-Start
     ADTCardBoxBlack: 3
     ADTCardBoxUno: 3
     ADTFunPokerBox: 3
     #ADT-Tweak-Playing-Card-End
+=======
+    Magic9Ball: 2
+>>>>>>> upstreamwiz/master
   contrabandInventory:
     #ADT-Tweak-Start
     ADTToyBlasterGunGreen: 1

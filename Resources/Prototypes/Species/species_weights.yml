@@ -5,7 +5,15 @@
     Human: 5
     Reptilian: 4
     SlimePerson: 4
+<<<<<<< HEAD
     #Vulpkanin: 4 # Corvax-Vulp
     VulpkaninSpecies: 4
     Diona: 2
     TajaranSpecies: 3
+=======
+    Moth: 4
+    Dwarf: 2
+    Diona: 2
+    Vox: 1
+    Vulpkanin: 4
+>>>>>>> upstreamwiz/master

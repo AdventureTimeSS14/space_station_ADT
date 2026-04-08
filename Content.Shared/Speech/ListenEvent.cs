@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 using Content.Shared.ADT.Language;
 
+=======
+>>>>>>> upstreamwiz/master
 namespace Content.Shared.Speech;
 
 public sealed class ListenEvent : EntityEventArgs

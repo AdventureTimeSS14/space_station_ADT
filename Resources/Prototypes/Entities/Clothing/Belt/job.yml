@@ -30,7 +30,10 @@
       - WeldingMask
       - RemoteSignaller
       - UtilityKnife
+<<<<<<< HEAD
       - RPD # ADT-Tweak
+=======
+>>>>>>> upstreamwiz/master
       components:
       - StationMap
       - SprayPainter
@@ -178,15 +181,23 @@
       - Bloodpack
       - Gauze
       - Ointment
+<<<<<<< HEAD
+=======
+      - Tourniquet
+>>>>>>> upstreamwiz/master
       - CigPack
       - PillCanister
       - Radio
       - DiscreteHealthAnalyzer
       - SurgeryTool
       - Dropper
+<<<<<<< HEAD
       - ADTMobileDefibrillator # ADT-Tweak
       components:
       - Hypospray
+=======
+      components:
+>>>>>>> upstreamwiz/master
       - Injector
       - Pill
       - HandLabeler
@@ -199,7 +210,11 @@
           - Bottle
       hypo:
         whitelist:
+<<<<<<< HEAD
           components:
+=======
+          tags:
+>>>>>>> upstreamwiz/master
           - Hypospray
       pill:
         whitelist:
@@ -389,10 +404,13 @@
       - CombatKnife
       - Truncheon
       - HandGrenade
+<<<<<<< HEAD
       # ADT-Tweak start.
       - ADTBola
       - ADTTelescopicBaton
       # ADT-Tweak end.
+=======
+>>>>>>> upstreamwiz/master
       components:
       - Stunbaton
       - FlashOnTrigger

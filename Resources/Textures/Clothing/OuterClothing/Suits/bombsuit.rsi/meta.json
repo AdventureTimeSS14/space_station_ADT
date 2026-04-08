@@ -1,7 +1,11 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
+<<<<<<< HEAD
   "copyright": "Taken from cev-eris at commit https://github.com/discordia-space/CEV-Eris/commit/760f0be7af33a31f5a08a3291864e91539d0ebb7. Vox state made by Flareguy for Space Station 14, equipped-OUTERCLOTHING-resomi made by Pofitlo",
+=======
+  "copyright": "Taken from cev-eris at commit https://github.com/discordia-space/CEV-Eris/commit/760f0be7af33a31f5a08a3291864e91539d0ebb7. Vox state made by Flareguy for Space Station 14. Tail sprites by Tiniest Shark (github)",
+>>>>>>> upstreamwiz/master
   "size": {
     "x": 32,
     "y": 32
@@ -19,7 +23,11 @@
       "directions": 4
     },
     {
+<<<<<<< HEAD
       "name": "equipped-OUTERCLOTHING-resomi",
+=======
+      "name": "equipped-OUTERCLOTHING-reptilian",
+>>>>>>> upstreamwiz/master
       "directions": 4
     },
     {

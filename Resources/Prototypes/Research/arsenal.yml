@@ -161,11 +161,14 @@
   - ChemicalPayload
   - CableDetStack1
   - EmptyDetonator
+<<<<<<< HEAD
   # ADT Research Console Rework start
   position: 2,-3
   requiredTech:
   - UraniumMunitions
   # ADT Research Console Rework end
+=======
+>>>>>>> upstreamwiz/master
 
 # - type: technology #ADT_Tweak - электрорюкзак перенесен в технологию контроля беспорядков
 #   id: SpecialMeans

@@ -11,7 +11,10 @@
     flags:
     - Anchorable
   - type: Rotatable
+<<<<<<< HEAD
   - type: StationAiWhitelist
+=======
+>>>>>>> upstreamwiz/master
   - type: Sprite
     sprite: Structures/Doors/Shutters/shutters.rsi
     drawdepth: BlastDoors

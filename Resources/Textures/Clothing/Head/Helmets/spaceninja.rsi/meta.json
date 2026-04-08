@@ -2,7 +2,10 @@
   "version": 1,
   "license": "CC-BY-SA-3.0",
   "copyright": "Taken from paradise https://github.com/ParadiseSS13/Paradise/tree/master/icons (unknown commit). Vox state by Flareguy for SS14. Vulpkanin version made by Floofers. Reptilian state by TiniestShark (Github).",
+<<<<<<< HEAD
   "copyright": "Taken from tgstation https://github.com/tgstation/tgstation (unknown commit). Vox state by Flareguy for SS14",
+=======
+>>>>>>> upstreamwiz/master
   "size": {
     "x": 32,
     "y": 32

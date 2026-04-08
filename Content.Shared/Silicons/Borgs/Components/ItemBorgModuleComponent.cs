@@ -1,6 +1,9 @@
 ﻿using Content.Shared.Hands.Components;
+<<<<<<< HEAD
 using Content.Shared.Whitelist;
 using Robust.Shared.Containers;
+=======
+>>>>>>> upstreamwiz/master
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
@@ -10,7 +13,8 @@ namespace Content.Shared.Silicons.Borgs.Components;
 /// <summary>
 /// This is used for a <see cref="BorgModuleComponent"/> that provides items to the entity it's installed into.
 /// </summary>
-[RegisterComponent, NetworkedComponent, Access(typeof(SharedBorgSystem))]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[Access(typeof(SharedBorgSystem))]
 public sealed partial class ItemBorgModuleComponent : Component
 {
     /// <summary>
@@ -18,6 +22,7 @@ public sealed partial class ItemBorgModuleComponent : Component
     /// </summary>
     [DataField(required: true)]
     public List<BorgHand> Hands = new();
+<<<<<<< HEAD
 
     /// <summary>
     /// ADT: The droppable items that are provided.
@@ -43,10 +48,26 @@ public sealed partial class ItemBorgModuleComponent : Component
     /// </summary>
     [DataField("droppableProvidedItems")]
     public SortedDictionary<string, (EntityUid, DroppableBorgItem)> DroppableProvidedItems = new();
+=======
 
     /// <summary>
-    /// Whether or not the items have been created and stored in <see cref="ProvidedContainer"/>
+    /// The items stored within the hands.
     /// </summary>
+    [DataField, AutoNetworkedField]
+    public Dictionary<string, EntityUid> StoredItems = new();
+
+    /// <summary>
+    /// Whether the provided items have been spawned.
+    /// This happens the first time the module is used.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool Spawned;
+>>>>>>> upstreamwiz/master
+
+    /// <summary>
+    /// An ID for the container where items are stored when not in use.
+    /// </summary>
+<<<<<<< HEAD
     [DataField("itemsCrated")]
     public bool ItemsCreated;
 
@@ -76,6 +97,27 @@ public partial record struct BorgHand
     [DataField]
     public EntProtoId? Item;
 
+=======
+    [DataField]
+    public string HoldingContainer = "holding_container";
+}
+
+/// <summary>
+/// A single hand provided by the module.
+/// </summary>
+[DataDefinition, Serializable, NetSerializable]
+public partial record struct BorgHand
+{
+    /// <summary>
+    /// The item to spawn in the hand, if any.
+    /// </summary>
+    [DataField]
+    public EntProtoId? Item;
+
+    /// <summary>
+    /// The settings for the hand, including a whitelist.
+    /// </summary>
+>>>>>>> upstreamwiz/master
     [DataField]
     public Hand Hand = new();
 
@@ -89,6 +131,7 @@ public partial record struct BorgHand
         ForceRemovable = forceRemovable;
     }
 }
+<<<<<<< HEAD
 // ADT: droppable borg item data definitions
 [DataDefinition]
 public sealed partial class DroppableBorgItem
@@ -99,3 +142,5 @@ public sealed partial class DroppableBorgItem
     [DataField]
     public EntityWhitelist Whitelist;
 }
+=======
+>>>>>>> upstreamwiz/master

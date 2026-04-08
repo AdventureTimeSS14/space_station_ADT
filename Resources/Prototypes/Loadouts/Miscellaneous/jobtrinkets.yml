@@ -1,6 +1,7 @@
 ﻿# Job-specific trinkets
 
 - type: loadout
+<<<<<<< HEAD
   id: LizardPlushieCaptain
   effects:
   - !type:JobRequirementLoadoutEffect
@@ -121,6 +122,8 @@
     - PlushieLizardJobJanitor
 
 - type: loadout
+=======
+>>>>>>> upstreamwiz/master
   id: JanitorGoldenPlunger
   effects:
   - !type:GroupLoadoutEffect
@@ -130,6 +133,7 @@
     - GoldenPlunger
 
 - type: loadout
+<<<<<<< HEAD
   id: LizardPlushieBotanist
   effects:
   - !type:JobRequirementLoadoutEffect
@@ -143,11 +147,15 @@
 
 - type: loadout
   id: LizardPlushieClown
+=======
+  id: FlowerWaterClown
+>>>>>>> upstreamwiz/master
   effects:
   - !type:JobRequirementLoadoutEffect
     requirement:
       !type:RoleTimeRequirement
       role: JobClown
+<<<<<<< HEAD
       time: 72000 # 20hr
   storage:
     back:
@@ -344,6 +352,12 @@
   storage:
     back:
     - PlushieLizardJobSecurityofficer
+=======
+      time: 4h
+  storage:
+    back:
+    - SprayFlowerPin
+>>>>>>> upstreamwiz/master
 
 - type: loadout
   id: SecStar
@@ -356,6 +370,7 @@
   storage:
     back:
     - Dinkystar
+<<<<<<< HEAD
 
 - type: loadout
   id: LizardPlushieSecurityCadet
@@ -476,3 +491,5 @@
   storage:
     back:
     - PlushieLizardJobZookeeper
+=======
+>>>>>>> upstreamwiz/master

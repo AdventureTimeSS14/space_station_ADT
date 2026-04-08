@@ -70,6 +70,7 @@
     fiberColor: fibers-white
 
 - type: entity
+<<<<<<< HEAD
   id: TowelColorPurple
   name: purple towel
   parent: BaseTowel
@@ -665,6 +666,8 @@
     fiberColor: fibers-white
 
 - type: entity
+=======
+>>>>>>> upstreamwiz/master
   id: TowelColorNT
   name: NanoTrasen brand towel
   parent: BaseTowel

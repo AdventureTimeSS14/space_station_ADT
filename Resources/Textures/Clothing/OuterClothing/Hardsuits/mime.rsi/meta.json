@@ -2,8 +2,11 @@
     "version": 1,
     "license": "CC-BY-SA-3.0",
     "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/4f6190e2895e09116663ef282d3ce1d8b35c032e, modified by brainfood1183 (github), sprited(resprited) by Fazansen(https://github.com/Fazansen). Tail sprites by Tiniest Shark (github), modified for Vox by TrixxedHeart",
+<<<<<<< HEAD
     "copyright": "Sprited by Roudenn(https://github.com/Roudenn)",
     "copyright": "inhand resprited by inventor05(gh: inventor055, discord: qwerty05555)",
+=======
+>>>>>>> upstreamwiz/master
     "size": {
         "x": 32,
         "y": 32
@@ -17,7 +20,11 @@
             "directions": 4
         },
         {
+<<<<<<< HEAD
             "name": "equipped-OUTERCLOTHING-resomi",
+=======
+            "name": "equipped-OUTERCLOTHING-reptilian",
+>>>>>>> upstreamwiz/master
             "directions": 4
         },
         {

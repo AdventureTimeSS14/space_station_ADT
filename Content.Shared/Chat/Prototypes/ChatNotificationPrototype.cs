@@ -6,7 +6,11 @@ namespace Content.Shared.Chat.Prototypes;
 /// <summary>
 /// A predefined notification used to warn a player of specific events.
 /// </summary>
+<<<<<<< HEAD
 [Prototype("chatNotification")]
+=======
+[Prototype]
+>>>>>>> upstreamwiz/master
 public sealed partial class ChatNotificationPrototype : IPrototype
 {
     [ViewVariables]

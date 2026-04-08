@@ -13,8 +13,11 @@
   categories:
   - Modules
   completetime: 2
+<<<<<<< HEAD
   materials:
     Glass: 3000
+=======
+>>>>>>> upstreamwiz/master
 
 # xenoborgs
 
@@ -51,17 +54,53 @@
 
 # modules
 
+<<<<<<< HEAD
+=======
+## engi xenoborg modules
+
+- type: latheRecipe
+  parent: BaseXenoborgModulesRecipe
+  id: XenoborgModuleDoorControlRecipe
+  result: XenoborgModuleDoorControl
+  materials:
+    Steel: 1500
+    Glass: 1500
+
+## heavy xenoborg modules
+
+>>>>>>> upstreamwiz/master
 - type: latheRecipe
   parent: BaseXenoborgModulesRecipe
   id: XenoborgModuleHeavyLaserRecipe
   result: XenoborgModuleHeavyLaser
+<<<<<<< HEAD
+=======
+  materials:
+    Steel: 1500
+    Glass: 1500
+
+## scout xenoborg modules
+>>>>>>> upstreamwiz/master
 
 - type: latheRecipe
   parent: BaseXenoborgModulesRecipe
   id: XenoborgModuleEnergySwordRecipe
   result: XenoborgModuleEnergySword
+<<<<<<< HEAD
+=======
+  materials:
+    Steel: 1500
+    Glass: 1500
+
+## stealth xenoborg modules
+>>>>>>> upstreamwiz/master
 
 - type: latheRecipe
   parent: BaseXenoborgModulesRecipe
   id: XenoborgModuleSuperCloakDeviceRecipe
   result: XenoborgModuleSuperCloakDevice
+<<<<<<< HEAD
+=======
+  materials:
+    Glass: 3000
+>>>>>>> upstreamwiz/master

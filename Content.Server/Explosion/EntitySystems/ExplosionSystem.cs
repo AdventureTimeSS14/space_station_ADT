@@ -17,6 +17,7 @@ using Content.Shared.Explosion.Components;
 using Content.Shared.Explosion.EntitySystems;
 using Content.Shared.GameTicking;
 using Content.Shared.Inventory;
+using Content.Shared.Maps;
 using Content.Shared.Projectiles;
 using Content.Shared.Throwing;
 using Robust.Server.GameStates;
@@ -28,6 +29,7 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
 namespace Content.Server.Explosion.EntitySystems;
@@ -41,6 +43,10 @@ public sealed partial class ExplosionSystem : SharedExplosionSystem
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
+<<<<<<< HEAD
+=======
+    [Dependency] private readonly IGameTiming _timing = default!;
+>>>>>>> upstreamwiz/master
 
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
@@ -54,6 +60,10 @@ public sealed partial class ExplosionSystem : SharedExplosionSystem
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly FlammableSystem _flammableSystem = default!;
     [Dependency] private readonly DestructibleSystem _destructibleSystem = default!;
+<<<<<<< HEAD
+=======
+    [Dependency] private readonly AtmosphereSystem _atmosphere = default!;
+>>>>>>> upstreamwiz/master
 
     private EntityQuery<FlammableComponent> _flammableQuery;
     private EntityQuery<PhysicsComponent> _physicsQuery;
@@ -62,6 +72,10 @@ public sealed partial class ExplosionSystem : SharedExplosionSystem
     private EntityQuery<DestructibleComponent> _destructibleQuery;
     private EntityQuery<DamageableComponent> _damageableQuery;
     private EntityQuery<AirtightComponent> _airtightQuery;
+<<<<<<< HEAD
+=======
+    private EntityQuery<TileHistoryComponent> _tileHistoryQuery;
+>>>>>>> upstreamwiz/master
 
     /// <summary>
     ///     "Tile-size" for space when there are no nearby grids to use as a reference.
@@ -104,6 +118,12 @@ public sealed partial class ExplosionSystem : SharedExplosionSystem
         _destructibleQuery = GetEntityQuery<DestructibleComponent>();
         _damageableQuery = GetEntityQuery<DamageableComponent>();
         _airtightQuery = GetEntityQuery<AirtightComponent>();
+<<<<<<< HEAD
+=======
+        _tileHistoryQuery = GetEntityQuery<TileHistoryComponent>();
+
+        _prototypeManager.PrototypesReloaded += ReloadExplosionPrototypes;
+>>>>>>> upstreamwiz/master
     }
 
     private void OnReset(RoundRestartCleanupEvent ev)
@@ -122,6 +142,7 @@ public sealed partial class ExplosionSystem : SharedExplosionSystem
         base.Shutdown();
         _nodeGroupSystem.PauseUpdating = false;
         _pathfindingSystem.PauseUpdating = false;
+        _prototypeManager.PrototypesReloaded -= ReloadExplosionPrototypes;
     }
 
     private void RelayedResistance(EntityUid uid, ExplosionResistanceComponent component,
@@ -393,7 +414,12 @@ public sealed partial class ExplosionSystem : SharedExplosionSystem
             visualEnt,
             queued.Cause,
             _map,
+<<<<<<< HEAD
             _damageableSystem);
+=======
+            _damageableSystem,
+            _tileHistoryQuery);
+>>>>>>> upstreamwiz/master
     }
 
     private void CameraShake(float range, MapCoordinates epicenter, float totalIntensity)

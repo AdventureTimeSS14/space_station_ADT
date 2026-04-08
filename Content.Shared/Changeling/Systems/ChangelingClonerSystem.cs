@@ -1,4 +1,8 @@
 using Content.Shared.Administration.Logs;
+<<<<<<< HEAD
+=======
+using Content.Shared.Body;
+>>>>>>> upstreamwiz/master
 using Content.Shared.Changeling.Components;
 using Content.Shared.Cloning;
 using Content.Shared.Database;
@@ -19,7 +23,10 @@ namespace Content.Shared.Changeling.Systems;
 public sealed class ChangelingClonerSystem : EntitySystem
 {
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
+<<<<<<< HEAD
     [Dependency] private readonly SharedHumanoidAppearanceSystem _humanoidAppearance = default!;
+=======
+>>>>>>> upstreamwiz/master
     [Dependency] private readonly MetaDataSystem _metaData = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
@@ -29,6 +36,10 @@ public sealed class ChangelingClonerSystem : EntitySystem
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedChangelingIdentitySystem _changelingIdentity = default!;
     [Dependency] private readonly SharedForensicsSystem _forensics = default!;
+<<<<<<< HEAD
+=======
+    [Dependency] private readonly SharedVisualBodySystem _visualBody = default!;
+>>>>>>> upstreamwiz/master
 
     public override void Initialize()
     {
@@ -132,7 +143,11 @@ public sealed class ChangelingClonerSystem : EntitySystem
         if (ent.Comp.State != ChangelingClonerState.Empty)
             return false;
 
+<<<<<<< HEAD
         if (!HasComp<HumanoidAppearanceComponent>(target))
+=======
+        if (!HasComp<HumanoidProfileComponent>(target))
+>>>>>>> upstreamwiz/master
             return false; // cloning only works for humanoids at the moment
 
         var args = new DoAfterArgs(EntityManager, user, ent.Comp.DoAfter, new ClonerDrawDoAfterEvent(), ent, target: target, used: ent)
@@ -168,7 +183,11 @@ public sealed class ChangelingClonerSystem : EntitySystem
         if (ent.Comp.State != ChangelingClonerState.Filled)
             return false;
 
+<<<<<<< HEAD
         if (!HasComp<HumanoidAppearanceComponent>(target))
+=======
+        if (!HasComp<HumanoidProfileComponent>(target))
+>>>>>>> upstreamwiz/master
             return false; // cloning only works for humanoids at the moment
 
         var args = new DoAfterArgs(EntityManager, user, ent.Comp.DoAfter, new ClonerInjectDoAfterEvent(), ent, target: target, used: ent)
@@ -205,7 +224,11 @@ public sealed class ChangelingClonerSystem : EntitySystem
         if (ent.Comp.State != ChangelingClonerState.Empty)
             return;
 
+<<<<<<< HEAD
         if (!HasComp<HumanoidAppearanceComponent>(target))
+=======
+        if (!HasComp<HumanoidProfileComponent>(target))
+>>>>>>> upstreamwiz/master
             return; // cloning only works for humanoids at the moment
 
         if (!_prototype.Resolve(ent.Comp.Settings, out var settings))
@@ -235,7 +258,11 @@ public sealed class ChangelingClonerSystem : EntitySystem
         if (ent.Comp.State != ChangelingClonerState.Filled)
             return;
 
+<<<<<<< HEAD
         if (!HasComp<HumanoidAppearanceComponent>(target))
+=======
+        if (!HasComp<HumanoidProfileComponent>(target))
+>>>>>>> upstreamwiz/master
             return; // cloning only works for humanoids at the moment
 
         if (!_prototype.Resolve(ent.Comp.Settings, out var settings))
@@ -258,7 +285,11 @@ public sealed class ChangelingClonerSystem : EntitySystem
             $"{user} is using {ent.Owner} to inject DNA into {target} changing their identity to {ent.Comp.ClonedBackup.Value}.");
 
         // Do the actual transformation.
+<<<<<<< HEAD
         _humanoidAppearance.CloneAppearance(ent.Comp.ClonedBackup.Value, target);
+=======
+        _visualBody.CopyAppearanceFrom(ent.Comp.ClonedBackup.Value, target);
+>>>>>>> upstreamwiz/master
         _cloning.CloneComponents(ent.Comp.ClonedBackup.Value, target, settings);
         _metaData.SetEntityName(target, Name(ent.Comp.ClonedBackup.Value), raiseEvents: ent.Comp.RaiseNameChangeEvents);
 

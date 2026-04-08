@@ -55,10 +55,14 @@ public sealed partial class CatchableSystem : EntitySystem
         if (attemptEv.Cancelled)
             return;
 
+<<<<<<< HEAD
         // TODO: Replace with RandomPredicted once the engine PR is merged
         var seed = SharedRandomExtensions.HashCodeCombine((int)_timing.CurTick.Value, GetNetEntity(ent).Id);
         var rand = new System.Random(seed);
         if (!rand.Prob(ent.Comp.CatchChance))
+=======
+        if (!SharedRandomExtensions.PredictedProb(_timing, ent.Comp.CatchChance, GetNetEntity(ent)))
+>>>>>>> upstreamwiz/master
             return;
 
         // Try to catch!

@@ -13,6 +13,7 @@
   - type: DoorRemote
     options:
     - mode: OpenClose
+<<<<<<< HEAD
       tooltip: door-remote-open-close-text
       icon:
         sprite: /Textures/Structures/Doors/Airlocks/Standard/basic.rsi
@@ -25,6 +26,20 @@
     - mode: ToggleEmergencyAccess
       tooltip: door-remote-emergency-access-text
       icon:
+=======
+      tooltip: &TextOpenClose door-remote-open-close-text
+      icon: &IconOpenClose
+        sprite: /Textures/Structures/Doors/Airlocks/Standard/basic.rsi
+        state: assembly
+    - mode: ToggleBolts
+      tooltip: &TextToggleBolt door-remote-toggle-bolt-text
+      icon: &IconToggleBolt
+        sprite: /Textures/Interface/Actions/actions_ai.rsi
+        state: bolt_door
+    - mode: ToggleEmergencyAccess
+      tooltip: &TextEmergencyAccess door-remote-emergency-access-text
+      icon: &IconEmergencyAccess
+>>>>>>> upstreamwiz/master
         sprite: /Textures/Interface/Actions/actions_ai.rsi
         state: emergency_on
   - type: StealTarget
@@ -36,6 +51,31 @@
     interfaces:
       enum.DoorRemoteUiKey.Key:
         type: DoorRemoteBoundUserInterface
+<<<<<<< HEAD
+=======
+
+- type: entity
+  parent: DoorRemoteDefault
+  id: DoorRemoteCanEletrifyDoors
+  abstract: true
+  components:
+  - type: DoorRemote
+    options:
+    - mode: ToggleOvercharge
+      tooltip: door-remote-toggle-eletrify-text
+      icon:
+        sprite: /Textures/Interface/Actions/actions_ai.rsi
+        state: door_overcharge_on
+    - mode: OpenClose
+      tooltip: *TextOpenClose
+      icon: *IconOpenClose
+    - mode: ToggleBolts
+      tooltip: *TextToggleBolt
+      icon: *IconToggleBolt
+    - mode: ToggleEmergencyAccess
+      tooltip: *TextEmergencyAccess
+      icon: *IconEmergencyAccess
+>>>>>>> upstreamwiz/master
 
 - type: entity
   parent: [DoorRemoteDefault, BaseCommandContraband]
@@ -193,9 +233,10 @@
     - Engineering
 
 - type: entity
-  parent: [DoorRemoteDefault, BaseCommandContraband]
+  parent: [DoorRemoteCanEletrifyDoors, BaseCommandContraband]
   id: DoorRemoteAll
   name: super door remote
+  description: A gadget which can open and bolt doors remotely. This one works even on wooden doors!
   suffix: Admeme
   components:
   - type: Sprite
@@ -207,6 +248,8 @@
       color: "#22871a"
   - type: DoorRemote
     includeUserAccess: true
+    requireInRangeUnoccluded: false
+    requireTagWhitelist: false
   - type: Access
     groups:
     - ADTOverallAccess # ADT-Tweak
@@ -218,7 +261,7 @@
     - Xenoborg
 
 - type: entity
-  parent: [ DoorRemoteDefault, BaseXenoborgContraband ]
+  parent: [DoorRemoteCanEletrifyDoors, BaseXenoborgContraband]
   id: DoorRemoteXenoborg
   name: xenoborg door remote
   components:

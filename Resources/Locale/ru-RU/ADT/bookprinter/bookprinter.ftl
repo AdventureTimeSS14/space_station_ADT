@@ -24,7 +24,6 @@ book-printer-info-panel-title = Информация о книге
 stamp-component-stamped-name-terminal = Скопировано
 book-printer-view = Посмотреть
 book-printer-copied = Скопировано в буфер
-
 book-printer-window-book-icon = 📚
 book-printer-window-book-icon-small = #{ $id } 🗂
 book-printer-window-view-icon = 👁

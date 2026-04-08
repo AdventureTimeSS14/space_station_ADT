@@ -3,4 +3,8 @@
   name: roles-antag-changeling-name
   antagonist: true
   setPreference: false # TODO: set this to true once Changeling exits WIP status
+<<<<<<< HEAD
   objective: roles-antag-changeling-objective
+=======
+  objective: roles-antag-changeling-objective
+>>>>>>> upstreamwiz/master

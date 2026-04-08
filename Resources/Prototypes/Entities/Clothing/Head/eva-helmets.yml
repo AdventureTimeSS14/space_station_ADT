@@ -90,11 +90,23 @@
     spriteLayer: light
     clothingVisuals:
       head:
+<<<<<<< HEAD
       - state: equipped-HELMET #ADT tweak start
   - type: Clothing
     clothingVisuals:
       head:
       - state: equipped-HELMET #ADT tweak end удалены головы воксов
+=======
+      - state: equipped-head-light
+      head-vox:
+      - state: equipped-head-light-vox
+  - type: Clothing
+    clothingVisuals:
+      head:
+      - state: equipped-head
+      head-vox:
+      - state: equipped-head-vox
+>>>>>>> upstreamwiz/master
   - type: TemperatureProtection
     heatingCoefficient: 0.1
     coolingCoefficient: 0.1
@@ -109,6 +121,5 @@
     color: "#00ffff"
   - type: Tag
     tags:
-    - CorgiWearable
     - HelmetEVA
     - WhitelistChameleon

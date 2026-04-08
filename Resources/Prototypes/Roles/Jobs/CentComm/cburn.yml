@@ -4,8 +4,13 @@
   description: job-description-cburn
   playTimeTracker: JobCBURN
   setPreference: false
+<<<<<<< HEAD
   startingGear: ADTCBURNGear # ADT tweak
   icon: "JobIconNanotrasen"
+=======
+  startingGear: CBURNGear
+  icon: "JobIconCBURN"
+>>>>>>> upstreamwiz/master
   supervisors: job-supervisors-centcom
   canBeAntag: false
   accessGroups:

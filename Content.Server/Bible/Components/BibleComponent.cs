@@ -55,9 +55,17 @@ namespace Content.Server.Bible.Components
         [DataField("locPrefix")]
         public string LocPrefix = "bible";
 
+<<<<<<< HEAD
         // ADT Chaplain
         [DataField("healCost")]
         [ViewVariables(VVAccess.ReadWrite)]
         public FixedPoint2 HealCost = 2;
+=======
+        /// <summary>
+        /// A short light effect to display when successfully healing someone
+        /// </summary>
+        [DataField]
+        public EntProtoId? HealingLightEffect = "HolyLightEffect";
+>>>>>>> upstreamwiz/master
     }
 }

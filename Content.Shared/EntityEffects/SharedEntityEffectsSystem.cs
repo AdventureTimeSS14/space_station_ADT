@@ -2,8 +2,13 @@ using Content.Shared.Administration.Logs;
 using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.Reaction;
 using Content.Shared.EntityConditions;
+<<<<<<< HEAD
 using Content.Shared.Random.Helpers;
 using Robust.Shared.Random;
+=======
+using Content.Shared.FixedPoint;
+using Content.Shared.Random.Helpers;
+>>>>>>> upstreamwiz/master
 using Robust.Shared.Timing;
 
 namespace Content.Shared.EntityEffects;
@@ -58,6 +63,15 @@ public sealed partial class SharedEntityEffectsSystem : EntitySystem, IEntityEff
         }
     }
 
+<<<<<<< HEAD
+=======
+    /// <inheritdoc cref="ApplyEffects(EntityUid,EntityEffect[],float,EntityUid?)"/>
+    public void ApplyEffects(EntityUid target, EntityEffect[] effects, FixedPoint2 scale, EntityUid? user = null)
+    {
+        ApplyEffects(target, effects, scale.Float());
+    }
+
+>>>>>>> upstreamwiz/master
     /// <summary>
     /// Applies a list of entity effects to a target entity.
     /// </summary>
@@ -88,6 +102,7 @@ public sealed partial class SharedEntityEffectsSystem : EntitySystem, IEntityEff
             return false;
 
         // TODO: Replace with proper random prediciton when it exists.
+<<<<<<< HEAD
         if (effect.Probability <= 1f)
         {
             var seed = SharedRandomExtensions.HashCodeCombine((int)_timing.CurTick.Value, GetNetEntity(target).Id, 0);
@@ -95,6 +110,10 @@ public sealed partial class SharedEntityEffectsSystem : EntitySystem, IEntityEff
             if (!rand.Prob(effect.Probability))
                 return false;
         }
+=======
+        if (effect.Probability <= 1f && !SharedRandomExtensions.PredictedProb(_timing, effect.Probability, GetNetEntity(target), GetNetEntity(user)))
+                return false;
+>>>>>>> upstreamwiz/master
 
         // See if conditions apply
         if (!_condition.TryConditions(target, effect.Conditions))

@@ -13,6 +13,7 @@ public sealed class RandomTriggerOnTriggerSystem : XOnTriggerSystem<RandomTrigge
 
     protected override void OnTrigger(Entity<RandomTriggerOnTriggerComponent> ent, EntityUid target, ref TriggerEvent args)
     {
+<<<<<<< HEAD
         // TODO: Replace with RandomPredicted once the engine PR is merged
         var hash = new List<int>
         {
@@ -23,6 +24,9 @@ public sealed class RandomTriggerOnTriggerSystem : XOnTriggerSystem<RandomTrigge
         var seed = SharedRandomExtensions.HashCodeCombine(hash);
         var rand = new System.Random(seed);
 
+=======
+        var rand = SharedRandomExtensions.PredictedRandom(_timing, GetNetEntity(ent), GetNetEntity(args.User));
+>>>>>>> upstreamwiz/master
         var keyOut = _prototypeManager.Index(ent.Comp.RandomKeyOut).Pick(rand);
 
         // Prevent recursive triggers

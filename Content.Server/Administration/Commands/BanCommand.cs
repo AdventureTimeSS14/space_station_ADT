@@ -96,6 +96,7 @@ public sealed class BanCommand : LocalizedCommands
         var targetUid = located.UserId;
         var targetHWid = located.LastHWId;
 
+<<<<<<< HEAD
         // ADT-Tweak-Start: Пользователя с флагом Permission не забанить
         var dbData = await _dbManager.GetAdminDataForAsync(targetUid);
         if (dbData != null && dbData.AdminRank != null)
@@ -124,6 +125,17 @@ public sealed class BanCommand : LocalizedCommands
 
         await _discordBanInfoSender.SendBanInfoAsync<ServerBanPayloadGenerator>(banInfo);
         //End-ADT-Tweak
+=======
+        var banInfo = new CreateServerBanInfo(reason);
+        banInfo.WithBanningAdmin(player?.UserId);
+        banInfo.AddUser(targetUid, target);
+        banInfo.AddHWId(targetHWid);
+        if (minutes > 0)
+            banInfo.WithMinutes(minutes);
+        banInfo.WithSeverity(severity);
+
+        _bans.CreateServerBan(banInfo);
+>>>>>>> upstreamwiz/master
     }
 
     public override CompletionResult GetCompletion(IConsoleShell shell, string[] args)

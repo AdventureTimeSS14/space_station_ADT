@@ -7,9 +7,12 @@ using Content.Shared.FixedPoint;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
 using Content.Shared.Verbs;
+<<<<<<< HEAD
 using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
+=======
+>>>>>>> upstreamwiz/master
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.Chemistry.EntitySystems;
@@ -24,7 +27,10 @@ public sealed class SolutionTransferSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
+<<<<<<< HEAD
     [Dependency] private readonly IGameTiming _gameTiming = default!; // ADT-Tweak
+=======
+>>>>>>> upstreamwiz/master
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
 
     private EntityQuery<RefillableSolutionComponent> _refillableQuery;
@@ -103,7 +109,11 @@ public sealed class SolutionTransferSystem : EntitySystem
         ent.Comp.TransferAmount = newTransferAmount;
 
         if (message.Actor is { Valid: true } user)
+<<<<<<< HEAD
             _popup.PopupEntity(Loc.GetString("comp-solution-transfer-set-amount", ("amount", newTransferAmount)), ent.Owner, user);
+=======
+            _popup.PopupClient(Loc.GetString("comp-solution-transfer-set-amount", ("amount", newTransferAmount)), ent.Owner, user);
+>>>>>>> upstreamwiz/master
 
         Dirty(ent.Owner, ent.Comp);
     }

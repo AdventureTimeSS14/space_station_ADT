@@ -1,7 +1,8 @@
 using Content.Server.Atmos.Components;
-using Content.Server.Atmos.Piping.Components;
 using Content.Shared.Atmos;
 using Content.Shared.Atmos.Components;
+using Content.Shared.Atmos.EntitySystems;
+using Content.Shared.Atmos.Piping.Components;
 using Content.Shared.Maps;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
@@ -265,6 +266,7 @@ namespace Content.Server.Atmos.EntitySystems
                 tile.ArchivedCycle = 0;
                 tile.LastShare = 0f;
                 tile.Hotspot = new Hotspot();
+                NotifyDeviceTileChanged((ent.Owner, ent.Comp1, ent.Comp3), tile.GridIndices);
                 return;
             }
 
@@ -275,6 +277,10 @@ namespace Content.Server.Atmos.EntitySystems
 
             if (data.FixVacuum)
                 GridFixTileVacuum(tile);
+
+            // Since we assigned the tile a new GasMixture we need to tell any devices
+            // on this tile that the reference has changed.
+            NotifyDeviceTileChanged((ent.Owner, ent.Comp1, ent.Comp3), tile.GridIndices);
         }
 
         private void QueueRunTiles(
@@ -480,6 +486,7 @@ namespace Content.Server.Atmos.EntitySystems
             {
                 atmosphere.DeltaPressureCursor = 0;
                 atmosphere.DeltaPressureDamageResults.Clear();
+<<<<<<< HEAD
             }
 
             var remaining = count - atmosphere.DeltaPressureCursor;
@@ -490,6 +497,18 @@ namespace Content.Server.Atmos.EntitySystems
             while (atmosphere.DeltaPressureCursor < count)
             {
                 var job = new DeltaPressureParallelJob(this,
+=======
+                _deltaPressureInvalidEntityQueue.Clear();
+            }
+
+            var timeCheck1 = 0;
+            while (atmosphere.DeltaPressureCursor < count)
+            {
+                var remaining = count - atmosphere.DeltaPressureCursor;
+                var toProcess = Math.Min(DeltaPressureParallelProcessPerIteration, remaining);
+
+                var job = new DeltaPressureParallelBulkJob(this,
+>>>>>>> upstreamwiz/master
                     atmosphere,
                     atmosphere.DeltaPressureCursor,
                     DeltaPressureParallelBatchSize);
@@ -523,6 +542,16 @@ namespace Content.Server.Atmos.EntitySystems
                 }
             }
 
+<<<<<<< HEAD
+=======
+            // Ents may have been invalidated (missing AirtightComp) during parallel processing.
+            // Since we can't touch the ent list during parallel processing, we queue them up here to be removed.
+            while (_deltaPressureInvalidEntityQueue.TryDequeue(out var invalidEnt))
+            {
+                TryRemoveDeltaPressureEntity(ent.AsNullable(), invalidEnt);
+            }
+
+>>>>>>> upstreamwiz/master
             return true;
         }
 
@@ -815,6 +844,7 @@ namespace Content.Server.Atmos.EntitySystems
 
             return AtmosphereProcessingCompletionState.Finished;
         }
+<<<<<<< HEAD
     }
 
     /// <summary>
@@ -838,10 +868,18 @@ namespace Content.Server.Atmos.EntitySystems
         /// Method is finished with the GridAtmosphere.
         /// </summary>
         Finished,
+=======
+>>>>>>> upstreamwiz/master
     }
 
-    public enum AtmosphereProcessingState : byte
+    /// <summary>
+    /// An enum representing the completion state of a <see cref="GridAtmosphereComponent"/>'s processing steps.
+    /// The processing of a <see cref="GridAtmosphereComponent"/> spans over multiple stages and sticks,
+    /// with the method handling the processing having multiple return types.
+    /// </summary>
+    public enum AtmosphereProcessingCompletionState : byte
     {
+<<<<<<< HEAD
         Revalidate,
         TileEqualize,
         ActiveTiles,
@@ -853,5 +891,21 @@ namespace Content.Server.Atmos.EntitySystems
         PipeNet,
         AtmosDevices,
         NumStates
+=======
+        /// <summary>
+        /// Method is returning, ex. due to delegating processing to the next tick.
+        /// </summary>
+        Return,
+
+        /// <summary>
+        /// Method is continuing, ex. due to finishing a single processing stage.
+        /// </summary>
+        Continue,
+
+        /// <summary>
+        /// Method is finished with the GridAtmosphere.
+        /// </summary>
+        Finished,
+>>>>>>> upstreamwiz/master
     }
 }

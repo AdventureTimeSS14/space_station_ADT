@@ -17,14 +17,12 @@
                 <Control HorizontalExpand="True" MinWidth="5" />
                 <Button Visible="True" Name="PopOut" Access="Public" Text="{Loc 'admin-logs-pop-out'}" StyleClasses="OpenBoth" HorizontalAlignment="Left" />
                 <Control HorizontalExpand="True" />
-                <Button Visible="False" Name="Bans" Access="Public" Text="{Loc 'admin-player-actions-bans'}" StyleClasses="OpenRight" /> <!-- ADT-Tweak -->
+                <Button Visible="False" Name="Bans" Text="{Loc 'admin-player-actions-bans'}" StyleClasses="OpenRight" />
                 <Button Visible="False" Access="Public" Name="Notes" Text="{Loc 'admin-player-actions-notes'}" StyleClasses="OpenBoth" />
-                <controls:ConfirmButton Visible="False" Name="Kick" Access="Public" Text="{Loc 'admin-player-actions-kick'}" ConfirmationText="{Loc 'admin-player-actions-confirm'}" StyleClasses="OpenBoth" /> <!-- ADT-Tweak -->
-                <Button Visible="False" Name="Ban" Access="Public" Text="{Loc 'admin-player-actions-ban'}" StyleClasses="OpenBoth" /> <!-- ADT-Tweak -->
-                <Button Visible="True" Name="Logs" Access="Public" Text="{Loc 'admin-player-actions-open-logs'}" StyleClasses="OpenBoth" HorizontalAlignment="Left" /> <!-- ADT-Tweak -->
-                <Button Visible="True" Name="Playerpanel" Access="Public" Text="{Loc 'admin-player-actions-open-playerpanel'}" StyleClasses="OpenBoth" HorizontalAlignment="Left" /> <!-- ADT-Tweak -->
-                <Button Visible="False" Name="Respawn" Access="Public" Text="{Loc 'admin-player-actions-respawn'}" StyleClasses="OpenBoth" /> <!-- ADT-Tweak -->
-                <Button Visible="False" Name="Follow" Access="Public" Text="{Loc 'admin-player-actions-follow'}" StyleClasses="OpenLeft" /> <!-- ADT-Tweak -->
+                <controls:ConfirmButton Visible="False" Name="Kick" Text="{Loc 'admin-player-actions-kick'}" ConfirmationText="{Loc 'admin-player-actions-confirm'}" StyleClasses="OpenBoth" />
+                <Button Visible="False" Name="Ban" Text="{Loc 'admin-player-actions-ban'}" StyleClasses="OpenBoth" />
+                <controls:ConfirmButton Visible="False" Name="Respawn" Text="{Loc 'admin-player-actions-respawn'}" ConfirmationText="{Loc 'admin-player-actions-confirm'}" StyleClasses="OpenBoth" />
+                <Button Visible="False" Name="Follow" Text="{Loc 'admin-player-actions-follow'}" StyleClasses="OpenLeft" />
             </BoxContainer>
         </SplitContainer>
     </PanelContainer>

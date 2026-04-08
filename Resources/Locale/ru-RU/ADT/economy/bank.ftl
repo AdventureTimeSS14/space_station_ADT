@@ -26,5 +26,5 @@ bank-program-ui-transfer-error-no-account = [color=red]Ошибка: аккау�
 bank-program-ui-transfer-error-pin = [color=red]Ошибка: неверный PIN[/color]
 bank-program-ui-transfer-error-target = [color=red]Ошибка: счёт получателя не найден[/color]
 bank-program-ui-transfer-error-funds = [color=red]Ошибка: недостаточно средств[/color]
-bank-program-ui-transfer-success = [color=green]Переведено {$amount}$ для {$target}[/color]
+bank-program-ui-transfer-success = [color=green]Переведено { $amount }$ для { $target }[/color]
 bank-transfer = Перевод

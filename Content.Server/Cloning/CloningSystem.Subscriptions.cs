@@ -53,7 +53,11 @@ public sealed partial class CloningSystem
         SubscribeLocalEvent<VocalComponent, CloningEvent>(OnCloneVocal);
         SubscribeLocalEvent<StorageComponent, CloningEvent>(OnCloneStorage);
         SubscribeLocalEvent<InventoryComponent, CloningEvent>(OnCloneInventory);
+<<<<<<< HEAD
         SubscribeLocalEvent<MovementSpeedModifierComponent, CloningEvent>(OnCloneInventory);
+=======
+        SubscribeLocalEvent<MovementSpeedModifierComponent, CloningEvent>(OnCloneMovementSpeedModifier);
+>>>>>>> upstreamwiz/master
     }
 
     private void OnCloneItemStack(Entity<StackComponent> ent, ref CloningItemEvent args)
@@ -120,7 +124,11 @@ public sealed partial class CloningSystem
         _inventory.CopyComponent(ent.AsNullable(), args.CloneUid);
     }
 
+<<<<<<< HEAD
     private void OnCloneInventory(Entity<MovementSpeedModifierComponent> ent, ref CloningEvent args)
+=======
+    private void OnCloneMovementSpeedModifier(Entity<MovementSpeedModifierComponent> ent, ref CloningEvent args)
+>>>>>>> upstreamwiz/master
     {
         if (!args.Settings.EventComponents.Contains(Factory.GetRegistration(ent.Comp.GetType()).Name))
             return;

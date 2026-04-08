@@ -42,3 +42,12 @@
     icon: { sprite : Interface/Actions/changeling.rsi, state: "transform" }
   - type: InstantAction
     event: !type:ChangelingTransformActionEvent
+<<<<<<< HEAD
+=======
+
+- type: entity
+  parent: ActionIntrinsicStore
+  id: ActionChangelingStore
+  name: DNA Store
+  description: Opens the ability store.
+>>>>>>> upstreamwiz/master

@@ -5,10 +5,17 @@
   playTimeTracker: JobSecurityCadet
   requirements:
     - !type:OverallPlaytimeRequirement
+<<<<<<< HEAD
       time: 54000 #15 hrs # ADT-RoleTime
     - !type:DepartmentTimeRequirement
       department: Security
       time: 20h # Corvax-RoleTime 5
+=======
+      time: 10h
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 10h
+>>>>>>> upstreamwiz/master
       inverted: true # stop playing intern if you're good at security!
     # ADT-Tweak start
     - !type:TraitsRequirement

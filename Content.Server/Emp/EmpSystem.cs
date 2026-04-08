@@ -1,16 +1,25 @@
+<<<<<<< HEAD
 using Content.Server.ADT.EMP;
+=======
+>>>>>>> upstreamwiz/master
 using Content.Server.Power.EntitySystems;
 using Content.Server.Radio;
 using Content.Server.SurveillanceCamera;
 using Content.Shared.Emp;
+<<<<<<< HEAD
 using Content.Shared.Projectiles;
+=======
+>>>>>>> upstreamwiz/master
 
 namespace Content.Server.Emp;
 
 public sealed class EmpSystem : SharedEmpSystem
 {
+<<<<<<< HEAD
     [Dependency] private readonly ChargerSystem _charger = default!;    // ADT-Tweak
 
+=======
+>>>>>>> upstreamwiz/master
     public override void Initialize()
     {
         base.Initialize();
@@ -20,9 +29,12 @@ public sealed class EmpSystem : SharedEmpSystem
         SubscribeLocalEvent<EmpDisabledComponent, ApcToggleMainBreakerAttemptEvent>(OnApcToggleMainBreaker);
         SubscribeLocalEvent<EmpDisabledComponent, SurveillanceCameraSetActiveAttemptEvent>(OnCameraSetActive);
 
+<<<<<<< HEAD
         SubscribeLocalEvent<EmpOnCollideComponent, ProjectileHitEvent>(OnProjectileHit); // ADT-Tweak
     }
 
+=======
+>>>>>>> upstreamwiz/master
     private void OnRadioSendAttempt(EntityUid uid, EmpDisabledComponent component, ref RadioSendAttemptEvent args)
     {
         args.Cancelled = true;

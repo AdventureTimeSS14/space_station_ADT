@@ -1,7 +1,10 @@
 using System.Collections.Frozen;
 using System.Text.RegularExpressions;
 using Content.Shared.ActionBlocker;
+<<<<<<< HEAD
 using Content.Shared.ADT.Language;
+=======
+>>>>>>> upstreamwiz/master
 using Content.Shared.Chat.Prototypes;
 using Content.Shared.Popups;
 using Content.Shared.Radio;
@@ -33,6 +36,12 @@ public abstract partial class SharedChatSystem : EntitySystem
     public const char AdminPrefix = ']';
     public const char WhisperPrefix = ',';
     public const char DefaultChannelKey = 'р'; // Corvax-Localization
+
+    public const int VoiceRange = 10; // how far voice goes in world units
+    public const int WhisperClearRange = 2; // how far whisper goes while still being understandable, in world units
+    public const int WhisperMuffledRange = 5; // how far whisper goes at all, in world units
+    public static readonly SoundSpecifier DefaultAnnouncementSound
+        = new SoundPathSpecifier("/Audio/Announcements/announce.ogg");
 
     public const int VoiceRange = 10; // how far voice goes in world units
     public const int WhisperClearRange = 2; // how far whisper goes while still being understandable, in world units
@@ -299,7 +308,10 @@ public abstract partial class SharedChatSystem : EntitySystem
     public static string InjectTagAroundString(ChatMessage message, string targetString, string tag, string? tagParameter)
     {
         var rawmsg = message.WrappedMessage;
+        // TODO: Figure out if there's any way we can cache this, and if not then rewrite this to not use regex.
+#pragma warning disable RA0026
         rawmsg = Regex.Replace(rawmsg, "(?i)(" + targetString + ")(?-i)(?![^[]*])", $"[{tag}={tagParameter}]$1[/{tag}]");
+#pragma warning restore RA0026
         return rawmsg;
     }
 
@@ -349,8 +361,12 @@ public abstract partial class SharedChatSystem : EntitySystem
         ICommonSession? player = null,
         string? nameOverride = null,
         bool checkRadioPrefix = true,
+<<<<<<< HEAD
         bool ignoreActionBlocker = false,
         LanguagePrototype? language = null) // ADT Languages
+=======
+        bool ignoreActionBlocker = false)
+>>>>>>> upstreamwiz/master
     { }
 
     /// <summary>
@@ -375,8 +391,12 @@ public abstract partial class SharedChatSystem : EntitySystem
         ICommonSession? player = null,
         string? nameOverride = null,
         bool checkRadioPrefix = true,
+<<<<<<< HEAD
         bool ignoreActionBlocker = false,
         LanguagePrototype? language = null // ADT Languages
+=======
+        bool ignoreActionBlocker = false
+>>>>>>> upstreamwiz/master
         )
     { }
 
@@ -453,6 +473,7 @@ public abstract partial class SharedChatSystem : EntitySystem
         SoundSpecifier? announcementSound = null,
         Color? colorOverride = null)
     { }
+<<<<<<< HEAD
 
     // ADT-Tweak-Start: возможность выделять сообщения в чате
     public static bool MessageTextContains(ChatMessage msg, string text)
@@ -460,6 +481,8 @@ public abstract partial class SharedChatSystem : EntitySystem
         return Regex.IsMatch(msg.Message, "(?>^|[ ,.!?])(" + text + ")(?>$|[ ,.!?])", RegexOptions.IgnoreCase);
     }
     // ADT-Tweak-End
+=======
+>>>>>>> upstreamwiz/master
 }
 
 /// <summary>

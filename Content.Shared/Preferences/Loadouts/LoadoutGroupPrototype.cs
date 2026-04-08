@@ -13,13 +13,22 @@ public sealed partial class LoadoutGroupPrototype : IPrototype, IInheritingProto
     public string ID { get; private set; } = string.Empty;
 
     /// <inheritdoc />
+<<<<<<< HEAD
     [ParentDataFieldAttribute(typeof(AbstractPrototypeIdArraySerializer<LoadoutGroupPrototype>))]
     public string[]? Parents { get; }
+=======
+    [ParentDataField(typeof(AbstractPrototypeIdArraySerializer<LoadoutGroupPrototype>))]
+    public string[]? Parents { get; private set; }
+>>>>>>> upstreamwiz/master
 
     /// <inheritdoc />
     [NeverPushInheritance]
     [AbstractDataField]
+<<<<<<< HEAD
     public bool Abstract { get; }
+=======
+    public bool Abstract { get; private set; }
+>>>>>>> upstreamwiz/master
 
     /// <summary>
     /// User-friendly name for the group.
@@ -33,6 +42,12 @@ public sealed partial class LoadoutGroupPrototype : IPrototype, IInheritingProto
     [DataField]
     public int MinLimit = 1;
     
+    /// <summary>
+    /// Number of loadouts that are selected by default.
+    /// </summary>
+    [DataField]
+    public int DefaultSelected = 0;
+
     /// <summary>
     /// Number of loadouts that are selected by default.
     /// </summary>

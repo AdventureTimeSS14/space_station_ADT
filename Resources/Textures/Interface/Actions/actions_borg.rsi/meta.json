@@ -2,7 +2,10 @@
     "version": 1,
     "license": "CC-BY-SA-3.0",
     "copyright": "Taken from vgstation at commit https://github.com/vgstation-coders/vgstation13/commit/cdbcb1e858b11f083994a7a269ed67ef5b452ce9, inflatable module by FungiFellow (GitHub), Module actions by Scarky0. chem, adv-chem, and adv-mining by mubururu_, xenoborg actions by Samuka-C (github), advclown by ThatGuyUSA.  c20r and esword by RedBookcase on Github, artistry-module by Kittygyat, with help from TiniestShark",
+<<<<<<< HEAD
     "copyright": "select-type, clowning-module changed by lzk228",
+=======
+>>>>>>> upstreamwiz/master
     "size": {
         "x": 32,
         "y": 32
@@ -135,12 +138,24 @@
             "name":"xenoborg-basic-module"
         },
         {
+<<<<<<< HEAD
+=======
+            "name":"xenoborg-jump-module"
+        },
+        {
+>>>>>>> upstreamwiz/master
             "name":"xenoborg-camera-computer"
         },
         {
             "name":"xenoborg-control-computer"
         },
         {
+<<<<<<< HEAD
+=======
+            "name":"xenoborg-door-remote-module"
+        },
+        {
+>>>>>>> upstreamwiz/master
             "name":"xenoborg-extinguisher-module"
         },
         {
@@ -175,6 +190,9 @@
         },
         {
             "name":"xenoborg-sword2-module"
+        },
+        {
+            "name":"xenoborg-tile-module"
         },
         {
             "name":"xenoborg-tool-module"

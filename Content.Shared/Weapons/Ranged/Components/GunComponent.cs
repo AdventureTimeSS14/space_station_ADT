@@ -213,7 +213,11 @@ public sealed partial class GunComponent : Component
     /// The base value for how fast the projectile moves.
     /// </summary>
     [DataField]
+<<<<<<< HEAD
     public float ProjectileSpeed = 30f; // ADT-Tweak 42f -> 30f
+=======
+    public float ProjectileSpeed = SharedGunSystem.ProjectileSpeed;
+>>>>>>> upstreamwiz/master
 
     /// <summary>
     /// How fast the projectile moves.
@@ -226,7 +230,7 @@ public sealed partial class GunComponent : Component
     /// When the gun is next available to be shot.
     /// Can be set multiple times in a single tick due to guns firing faster than a single tick time.
     /// </summary>
-    [DataField(customTypeSerializer:typeof(TimeOffsetSerializer))]
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
     [AutoNetworkedField]
     [AutoPausedField]
     public TimeSpan NextFire = TimeSpan.Zero;

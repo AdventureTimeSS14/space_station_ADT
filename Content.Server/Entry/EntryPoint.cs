@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using Content.Server.Acz;
 using Content.Server.Administration;
 using Content.Server.Administration.Logs;
@@ -13,6 +14,7 @@ using Content.Server.Corvax.TTS;
 using Content.Server.Database;
 using Content.Server.Discord.DiscordLink;
 using Content.Server.EUI;
+using Content.Server.FeedbackSystem;
 using Content.Server.GameTicking;
 using Content.Server.GhostKick;
 using Content.Server.GuideGenerator;
@@ -28,6 +30,7 @@ using Content.Server.ServerInfo;
 using Content.Server.ServerUpdates;
 using Content.Server.Voting.Managers;
 using Content.Shared.CCVar;
+using Content.Shared.FeedbackSystem;
 using Content.Shared.Kitchen;
 using Content.Shared.Localizations;
 using Robust.Server;
@@ -35,6 +38,7 @@ using Robust.Server.ServerStatus;
 using Robust.Shared.Configuration;
 using Robust.Shared.ContentPack;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using Content.Server.ADT.Export;
@@ -83,6 +87,10 @@ namespace Content.Server.Entry
         [Dependency] private readonly ServerApi _serverApi = default!;
         [Dependency] private readonly ServerInfoManager _serverInfo = default!;
         [Dependency] private readonly ServerUpdateManager _updateManager = default!;
+<<<<<<< HEAD
+=======
+        [Dependency] private readonly ServerFeedbackManager _feedbackManager = null!;
+>>>>>>> upstreamwiz/master
 
         public override void PreInit()
         {
@@ -92,6 +100,11 @@ namespace Content.Server.Entry
                 var cast = (ServerModuleTestingCallbacks)callback;
                 cast.ServerBeforeIoC?.Invoke();
             }
+<<<<<<< HEAD
+=======
+
+            Dependencies.Resolve<IRobustSerializer>().FloatFlags = SerializerFloatFlags.RemoveReadNan;
+>>>>>>> upstreamwiz/master
         }
 
         /// <inheritdoc />
@@ -137,11 +150,14 @@ namespace Content.Server.Entry
             _watchlistWebhookManager.Initialize();
             _job.Initialize();
             _rateLimit.Initialize();
+<<<<<<< HEAD
             IoCManager.Resolve<ExportManager>().Initialize(); // ADT-tweak: export
             IoCManager.Resolve<TTSManager>().Initialize(); // Corvax-TTS
 
             IoCManager.Resolve<SponsorsManager>().Initialize(); // Corvax-Sponsors
             IoCManager.Resolve<JoinQueueManager>().Initialize(); // Corvax-Queue
+=======
+>>>>>>> upstreamwiz/master
         }
 
         public override void PostInit()
@@ -160,6 +176,7 @@ namespace Content.Server.Entry
                 file = _res.UserData.OpenWriteText(resPath.WithName("react_" + dest));
                 ReactionJsonGenerator.PublishJson(file);
                 file.Flush();
+<<<<<<< HEAD
                 // Corvax-Wiki-Start
                 file = _res.UserData.OpenWriteText(resPath.WithName("entity_" + dest));
                 EntityJsonGenerator.PublishJson(file);
@@ -171,6 +188,8 @@ namespace Content.Server.Entry
                 HealthChangeReagentsJsonGenerator.PublishJson(file);
                 file.Flush();
                 // Corvax-Wiki-End
+=======
+>>>>>>> upstreamwiz/master
                 Dependencies.Resolve<IBaseServer>().Shutdown("Data generation done");
                 return;
             }
@@ -188,6 +207,10 @@ namespace Content.Server.Entry
             _connection.PostInit();
             _multiServerKick.Initialize();
             _cvarCtrl.Initialize();
+<<<<<<< HEAD
+=======
+            _feedbackManager.Initialize();
+>>>>>>> upstreamwiz/master
         }
 
         public override void Update(ModUpdateLevel level, FrameEventArgs frameEventArgs)
@@ -223,8 +246,13 @@ namespace Content.Server.Entry
 
             _serverApi.Shutdown();
 
+<<<<<<< HEAD
             // TODO Should this be awaited?
             _discordLink.Shutdown();
+=======
+            // We don't care when or how this finishes, just spin the task off into the void.
+            _ = _discordLink.Shutdown();
+>>>>>>> upstreamwiz/master
             _discordChatLink.Shutdown();
         }
 

@@ -1,5 +1,8 @@
 using System.Collections.Frozen;
+<<<<<<< HEAD
 using Content.Shared.Chat;
+=======
+>>>>>>> upstreamwiz/master
 using Content.Shared.Chat.Prototypes;
 using Content.Shared.Speech;
 using Robust.Shared.Audio;
@@ -194,7 +197,11 @@ public abstract partial class SharedChatSystem
 
         // Check the whitelist and blacklist
         if (_whitelist.IsWhitelistFail(emote.Whitelist, source) ||
+<<<<<<< HEAD
             _whitelist.IsBlacklistPass(emote.Blacklist, source))
+=======
+            _whitelist.IsWhitelistPass(emote.Blacklist, source))
+>>>>>>> upstreamwiz/master
         {
             return false;
         }

@@ -678,7 +678,10 @@
     equippedPrefix: baguette
     quickEquip: false
   - type: Item
+<<<<<<< HEAD
     size: Tiny # ADT-Tweak
+=======
+>>>>>>> upstreamwiz/master
     shape:
     - 0,0,0,3
     storedRotation: -45
@@ -1024,8 +1027,13 @@
       path: /Audio/Animals/dog_bark1.ogg
     hidden: true
     damage:
+<<<<<<< HEAD
       groups:
         Brute: 1
+=======
+      types:
+        Blunt: 1
+>>>>>>> upstreamwiz/master
 
 - type: entity
   parent: FoodBreadBase

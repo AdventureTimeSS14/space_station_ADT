@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 using Content.Shared.Body.Components; //ADT-Tweak
+=======
+>>>>>>> upstreamwiz/master
 using Content.Shared.Damage.Systems;
 using Content.Shared.Emag.Systems;
 using Content.Shared.Examine;
@@ -109,6 +112,7 @@ public abstract class SharedArtifactCrusherSystem : EntitySystem
             StopCrushing(ent);
     }
 
+<<<<<<< HEAD
     //ADT-Tweak-Start
     private void PlayDenySound(Entity<ArtifactCrusherComponent> ent)
     {
@@ -123,10 +127,16 @@ public abstract class SharedArtifactCrusherSystem : EntitySystem
     public void StartCrushing(Entity<ArtifactCrusherComponent, EntityStorageComponent> ent, EntityUid? user = null)
     {
         var (uid, crusher, storage) = ent; //ADT-Tweak
+=======
+    public void StartCrushing(Entity<ArtifactCrusherComponent, EntityStorageComponent> ent, EntityUid? user = null)
+    {
+        var (uid, crusher, _) = ent;
+>>>>>>> upstreamwiz/master
 
         if (crusher.Crushing)
             return;
 
+<<<<<<< HEAD
         //ADT-Tweak-Start
         if (crusher.SafetyProtocols)
         {
@@ -144,11 +154,19 @@ public abstract class SharedArtifactCrusherSystem : EntitySystem
         //if (crusher.AutoLock)
         //    _popup.PopupPredicted(Loc.GetString("artifact-crusher-autolocks-enable"), uid, user);
         //ADT-Tweak-End
+=======
+        if (crusher.AutoLock)
+            _popup.PopupPredicted(Loc.GetString("artifact-crusher-autolocks-enable"), uid, user);
+>>>>>>> upstreamwiz/master
 
         crusher.Crushing = true;
         crusher.NextSecond = _timing.CurTime + TimeSpan.FromSeconds(1);
         crusher.CrushEndTime = _timing.CurTime + crusher.CrushDuration;
+<<<<<<< HEAD
         crusher.CrushingSoundEntity = AudioSystem.PlayPvs(crusher.CrushingSound, ent)?.Entity;
+=======
+        crusher.CrushingSoundEntity = AudioSystem.PlayPredicted(crusher.CrushingSound, ent, user)?.Entity ?? crusher.CrushingSoundEntity;
+>>>>>>> upstreamwiz/master
         _appearance.SetData(ent, ArtifactCrusherVisuals.Crushing, true);
         Dirty(ent, ent.Comp1);
     }
@@ -162,10 +180,14 @@ public abstract class SharedArtifactCrusherSystem : EntitySystem
         _appearance.SetData(ent, ArtifactCrusherVisuals.Crushing, false);
 
         if (early)
+<<<<<<< HEAD
         {
             AudioSystem.Stop(ent.Comp.CrushingSoundEntity);
             ent.Comp.CrushingSoundEntity = null;
         }
+=======
+            ent.Comp.CrushingSoundEntity = AudioSystem.Stop(ent.Comp.CrushingSoundEntity);
+>>>>>>> upstreamwiz/master
 
         Dirty(ent, ent.Comp);
     }

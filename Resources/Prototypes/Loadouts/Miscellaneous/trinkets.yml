@@ -264,6 +264,7 @@
   groupBy: "canes"
 
 - type: loadout
+<<<<<<< HEAD
   id: OffsetCaneClown
   effects:
   - !type:JobRequirementLoadoutEffect
@@ -390,18 +391,154 @@
 
 - type: loadout
   id: TowelColorYellow
+=======
+  id: ClothingNeckAromanticPin
+  storage:
+    back:
+    - ClothingNeckAromanticPin
+  groupBy: "pin"
+
+- type: loadout
+  id: ClothingNeckAsexualPin
+  storage:
+    back:
+    - ClothingNeckAsexualPin
+  groupBy: "pin"
+
+- type: loadout
+  id: ClothingNeckBisexualPin
+  storage:
+    back:
+    - ClothingNeckBisexualPin
+  groupBy: "pin"
+
+- type: loadout
+  id: ClothingNeckGayPin
+  storage:
+    back:
+    - ClothingNeckGayPin
+  groupBy: "pin"
+
+- type: loadout
+  id: ClothingNeckIntersexPin
+  storage:
+    back:
+    - ClothingNeckIntersexPin
+  groupBy: "pin"
+
+- type: loadout
+  id: ClothingNeckLesbianPin
+  storage:
+    back:
+    - ClothingNeckLesbianPin
+  groupBy: "pin"
+
+- type: loadout
+  id: ClothingNeckNonBinaryPin
+  storage:
+    back:
+    - ClothingNeckNonBinaryPin
+  groupBy: "pin"
+
+- type: loadout
+  id: ClothingNeckPansexualPin
+  storage:
+    back:
+    - ClothingNeckPansexualPin
+  groupBy: "pin"
+
+- type: loadout
+  id: ClothingNeckOmnisexualPin
+  storage:
+    back:
+    - ClothingNeckOmnisexualPin
+  groupBy: "pin"
+
+- type: loadout
+  id: ClothingNeckGenderqueerPin
+  storage:
+    back:
+    - ClothingNeckGenderqueerPin
+  groupBy: "pin"
+
+- type: loadout
+  id: ClothingNeckTransPin
+  storage:
+    back:
+    - ClothingNeckTransPin
+  groupBy: "pin"
+
+- type: loadout
+  id: ClothingNeckAutismPin
+  storage:
+    back:
+    - ClothingNeckAutismPin
+  groupBy: "pin"
+
+- type: loadout
+  id: ClothingNeckGoldAutismPin
+  storage:
+    back:
+    - ClothingNeckGoldAutismPin
+  groupBy: "pin"
+
+- type: loadout
+  id: ClothingNeckAroacePin
+  storage:
+    back:
+    - ClothingNeckAroacePin
+  groupBy: "pin"
+
+- type: loadout
+  id: ClothingNeckPluralPin
+  storage:
+    back:
+    - ClothingNeckPluralPin
+  groupBy: "pin"
+
+- type: loadout
+  id: ClothingNeckGenderfluidPin
+  storage:
+    back:
+    - ClothingNeckGenderfluidPin
+  groupBy: "pin"
+
+# Canes
+# The white cane is intentionally not included here. Thats for the blind.
+- type: loadout
+  id: OffsetCane
+  storage:
+    back:
+    - OffsetCane
+  groupBy: "canes"
+
+- type: loadout
+  id: OffsetCaneWood
+  storage:
+    back:
+    - OffsetCaneWood
+  groupBy: "canes"
+
+- type: loadout
+  id: OffsetCaneClown
+>>>>>>> upstreamwiz/master
   effects:
   - !type:JobRequirementLoadoutEffect
     requirement:
       !type:RoleTimeRequirement
       role: JobClown
+<<<<<<< HEAD
       time: 100h
+=======
+      time: 3600 # 1hr
+>>>>>>> upstreamwiz/master
   storage:
     back:
-    - TowelColorYellow
-  groupBy: "towels"
+    - OffsetCaneClown
+  groupBy: "canes"
 
 - type: loadout
+<<<<<<< HEAD
   id: TowelColorDarkGreen
   effects:
   - !type:JobRequirementLoadoutEffect
@@ -481,15 +618,57 @@
 
 - type: loadout
   id: TowelColorMime
+=======
+  id: OffsetCaneMime
+>>>>>>> upstreamwiz/master
   effects:
   - !type:JobRequirementLoadoutEffect
     requirement:
       !type:RoleTimeRequirement
+<<<<<<< HEAD
       role: JobIAA # Corvax-IAA
       time: 100h
+=======
+      role: JobMime
+      time: 3600 # 1hr
+>>>>>>> upstreamwiz/master
   storage:
     back:
-    - TowelColorMime
+    - OffsetCaneMime
+  groupBy: "canes"
+
+- type: loadout
+  id: OffsetCaneNT
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:DepartmentTimeRequirement
+      department: Command
+      time: 18000 # 5hr
+  storage:
+    back:
+    - OffsetCaneNT
+  groupBy: "canes"
+
+- type: loadout
+  id: Cane
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobLibrarian
+      time: 3600 # 1hr same as Jamjar.
+  storage:
+    back:
+    - Cane
+  groupBy: "canes"
+
+# Towels
+- type: loadout
+  id: TowelColorWhite
+  storage:
+    back:
+    - TowelColorWhite
   groupBy: "towels"
 
 - type: loadout

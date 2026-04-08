@@ -1,8 +1,12 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
+<<<<<<< HEAD
     "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/4f6190e2895e09116663ef282d3ce1d8b35c032e. Vox states made by Flareguy for SS14. Dog states modified from base states by Sparlight (GitHub). Vulpkanin and Reptilian states by TiniestShark (Github).",
   "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/97ec5ed1a0fc8263df5df5a5afbb653d4684992e & light version made by github:Morb0. Vox states made by Flareguy for SS14",
+=======
+    "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/4f6190e2895e09116663ef282d3ce1d8b35c032e. Vox states made by Flareguy for SS14. Vulpkanin and Reptilian states by TiniestShark (Github).",
+>>>>>>> upstreamwiz/master
     "size": {
         "x": 32,
         "y": 32
@@ -32,6 +36,7 @@
         },
         {
             "name": "on-equipped-HELMET-vulpkanin",
+<<<<<<< HEAD
             "directions": 4
         },
         {
@@ -48,10 +53,20 @@
         },
         {
             "name": "off-equipped-HELMET-dog",
+=======
+>>>>>>> upstreamwiz/master
             "directions": 4
         },
         {
-            "name": "on-equipped-HELMET-dog",
+            "name": "off-equipped-HELMET-vulpkanin",
+            "directions": 4
+        },
+        {
+            "name": "off-equipped-HELMET-reptilian",
+            "directions": 4
+        },
+        {
+            "name": "on-equipped-HELMET-reptilian",
             "directions": 4
         }
     ]

@@ -17,7 +17,11 @@ public sealed partial class PendingZombieComponent : Component
     {
         DamageDict = new ()
         {
+<<<<<<< HEAD
             { "Poison", 2.0 }, // ADT-Tweak
+=======
+            { "Poison", 0.3 },
+>>>>>>> upstreamwiz/master
         }
     };
 

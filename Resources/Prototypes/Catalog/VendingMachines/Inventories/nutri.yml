@@ -18,11 +18,18 @@
     Bucket: 3
     BoxMouthSwab: 1
     BoxAgrichem: 1
+<<<<<<< HEAD
     # ADT tweak Start
     ADTPlantAnalyzer: 1
     ADTSoilPacked: 2
     ADTBotanicalSeedDNADisk: 10
     # ADT tweak End
+=======
+    MortarAndPestle: 1
+    HandheldJuicer: 1
+    #TO DO:
+    #plant analyzer
+>>>>>>> upstreamwiz/master
   contrabandInventory:
     ChemistryBottleUnstableMutagen: 1
     Joint: 1

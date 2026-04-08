@@ -3,11 +3,10 @@
   name: species-name-moth
   roundStart: true
   prototype: MobMoth
-  sprites: MobMothSprites
   defaultSkinTone: "#ffda93"
-  markingLimits: MobMothMarkingLimits
-  dollPrototype: MobMothDummy
+  dollPrototype: AppearanceMoth
   skinColoration: Hues
+<<<<<<< HEAD
   # ADT-name-custom
   shortDesc: species-short-desc-moth
   maleFirstNames: first_male_moth
@@ -188,3 +187,8 @@
   baseSprite:
     sprite: Mobs/Species/Moth/parts.rsi
     state: r_foot
+=======
+  maleFirstNames: NamesMothFirstMale
+  femaleFirstNames: NamesMothFirstFemale
+  lastNames: NamesMothLast
+>>>>>>> upstreamwiz/master

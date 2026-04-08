@@ -8,7 +8,9 @@
   color: "#664300"
   recognizable: true
   metabolisms:
-    Drink:
+    Digestion:
+      metabolites:
+        Theobromine: 0.1
       effects:
       - !type:SatiateThirst
         factor: 2
@@ -16,6 +18,7 @@
         effectProto: StatusEffectDrowsiness
         time: 2
         type: Remove
+<<<<<<< HEAD
       - !type:AdjustReagent
         reagent: Theobromine
         amount: 0.05
@@ -34,6 +37,8 @@
           max: 310
         amount: 2500
       # End ADT tweak
+=======
+>>>>>>> upstreamwiz/master
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/coffeeglass.rsi
     state: icon_empty
@@ -51,6 +56,7 @@
   color: "#664300"
   recognizable: true
   metabolisms:
+<<<<<<< HEAD
     Drink:
       effects:
       - !type:SatiateThirst
@@ -65,6 +71,11 @@
           max: 310
         amount: 2500
       # End ADT tweak
+=======
+    Digestion:
+      metabolites:
+        Theobromine: 0.1
+>>>>>>> upstreamwiz/master
 
 - type: reagent
   id: Cream
@@ -75,7 +86,7 @@
   flavor: creamy
   color: "#DFD7AF"
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 1
@@ -89,7 +100,7 @@
   flavor: nutty
   color: "#f4eadb"
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 4 # Coconut water is 94% water
@@ -103,7 +114,7 @@
   flavor: creamy
   color: "#FFEABF"
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 2
@@ -123,7 +134,7 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 2
@@ -212,7 +223,9 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
+    Digestion:
+      metabolites:
+        Theobromine: 0.1
       effects:
       - !type:SatiateThirst
         factor: 2
@@ -280,6 +293,7 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
+<<<<<<< HEAD
     Drink:
       effects:
       - !type:SatiateThirst
@@ -294,6 +308,12 @@
           min: 280
         amount: -2500
       # End ADT tweak
+=======
+    Digestion:
+      metabolites:
+        Theobromine: 0.1
+
+>>>>>>> upstreamwiz/master
 
 - type: reagent
   id: JuiceBerryPoison
@@ -305,11 +325,9 @@
   flavor: bitter
   color: "#6600CC"
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
-    Poison:
-      effects:
       - !type:HealthChange
         damage:
           types:
@@ -331,7 +349,7 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 2
@@ -358,7 +376,7 @@
     - !type:PlantAdjustWater
       amount: 0.9
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 4
@@ -379,7 +397,7 @@
   color: "#DEDACD"
   recognizable: true
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 4
@@ -402,7 +420,7 @@
   flavor: terrible
   color: "#faffba"
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: -2
@@ -414,7 +432,7 @@
   group: Drinks
   physicalDesc: reagent-physical-desc-nothing
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 2
@@ -436,7 +454,7 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 6
@@ -444,8 +462,6 @@
         effectProto: StatusEffectDrowsiness
         time: 3
         type: Remove
-    Poison:
-      effects:
       - !type:HealthChange
         damage:
           types:
@@ -488,7 +504,7 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 2
@@ -507,6 +523,7 @@
   color: "#8a5a3a"
   recognizable: true
   metabolisms:
+<<<<<<< HEAD
     Drink:
       effects:
       - !type:SatiateThirst
@@ -535,6 +552,11 @@
           max: 310
         amount: 2500
       # End ADT tweak
+=======
+    Digestion:
+      metabolites:
+        Theobromine: 0.1
+>>>>>>> upstreamwiz/master
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/teaglass.rsi
     state: icon_empty
@@ -573,10 +595,11 @@
   meltingPoint: 0.0
   friction: 0.4
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 4
+<<<<<<< HEAD
 #ADT Add starts
     Poison:
       effects:
@@ -590,6 +613,9 @@
           type: [ Novakid ]
 #ADT add ends
     Gas:
+=======
+    Respiration:
+>>>>>>> upstreamwiz/master
       effects:
       - !type:HealthChange
         ignoreResistances: true
@@ -614,6 +640,14 @@
   meltingPoint: 0.0
   boilingPoint: 100.0
   friction: 0.05 # Copied from Ice Crust
+<<<<<<< HEAD
+=======
+  metabolisms:
+    Digestion:
+      effects:
+      - !type:SatiateThirst
+        factor: 3 # Slightly worse for quenching thirst than just straight water
+>>>>>>> upstreamwiz/master
   plantMetabolism:
   - !type:PlantAdjustWater
     amount: 1 # The internet tells me I should avoid watering plants with ice, but mostly because of temperature, so this value being the same as water should probably be fine?
@@ -643,7 +677,7 @@
   flavor: cheapnoodles
   color: "#664300"
   metabolisms:
-    Food:
+    Digestion:
       effects:
       - !type:SatiateHunger
         factor: 1
@@ -657,7 +691,7 @@
   flavor: cheapnoodles
   color: "#664300"
   metabolisms:
-    Food:
+    Digestion:
       effects:
       - !type:SatiateHunger
         factor: 4
@@ -684,10 +718,13 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
+    Digestion:
+      metabolites:
+        Theobromine: 0.1
       effects:
       - !type:SatiateThirst
         factor: 4
+<<<<<<< HEAD
       - !type:AdjustReagent
         reagent: Theobromine
         amount: 0.05
@@ -698,6 +735,8 @@
           min: 280
         amount: -2500
       # End ADT tweak
+=======
+>>>>>>> upstreamwiz/master
 
 - type: reagent
   id: Pilk
@@ -708,7 +747,7 @@
   flavor: pilk
   color: "#e7c69f"
   metabolisms:
-    Drink:
+    Digestion:
       effects:
         - !type:SatiateThirst
           factor: 1
@@ -778,7 +817,7 @@
   flavor: mopwata
   color: "#59502b"
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 0.6

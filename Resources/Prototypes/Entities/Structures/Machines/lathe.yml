@@ -49,6 +49,11 @@
     price: 800
   - type: ResearchClient
   - type: TechnologyDatabase
+  - type: ApcPowerReceiver
+    powerLoad: 150
+  - type: PowerState
+    idlePowerDraw: 150
+    workingPowerDraw: 1000
 
 # a lathe that can be sped up with space lube / slowed down with glue
 - type: entity
@@ -225,6 +230,7 @@
     - Janitor
     - Instruments
     - Equipment
+<<<<<<< HEAD
     #ADT-tweak-start
     - ADTRCDPack
     - ADTPKAPack
@@ -239,6 +245,8 @@
     - ADTBeltManipulatorPack
     #ADT-tweak-end
     - ADTBluespaceCrystalTech #ADT Tweak
+=======
+>>>>>>> upstreamwiz/master
   - type: EmagLatheRecipes
     emagDynamicPacks:
     - SecurityAmmo
@@ -300,8 +308,11 @@
     - CargoBoardsStatic
     - MedicalBoardsStatic
     - EngineeringBoardsStatic
+<<<<<<< HEAD
     - CircuitFloorsStatic
     - ElectronicsStatic # ADT-Tweak
+=======
+>>>>>>> upstreamwiz/master
     dynamicPacks:
     - EngineeringBoards
     - CargoBoards
@@ -461,6 +472,8 @@
   - type: Lathe
     idleState: icon
     runningState: icon
+    unlitIdleState: unlit
+    unlitRunningState: unlit-building
     staticPacks:
     - SecurityEquipmentStatic
     - SecurityPracticeStatic
@@ -476,12 +489,15 @@
     - SecurityAmmo
     - SecurityWeapons
     - SecurityDisablers
+<<<<<<< HEAD
     # ADT-tweak-start
     - ADTMagazineUraniumPack
     - ADTAttachmentPack
     - ADT40mmGrenadePack
     - ADTMechEquipmentSecTechfabPack
     # ADT-tweak-end
+=======
+>>>>>>> upstreamwiz/master
   - type: EmagLatheRecipes
     emagStaticPacks:
     - SyndicateAmmoStatic
@@ -515,6 +531,8 @@
     - type: Lathe
       idleState: icon
       runningState: icon
+      unlitIdleState: unlit
+      unlitRunningState: unlit-building
       staticPacks:
       - SecurityAmmoStatic
     - type: EmagLatheRecipes
@@ -546,6 +564,8 @@
   - type: Lathe
     idleState: icon
     runningState: icon
+    unlitIdleState: unlit
+    unlitRunningState: unlit-building
     staticPacks:
     - TopicalsStatic
     - ChemistryStatic
@@ -799,10 +819,21 @@
     - FloorSteelTilesStatic
     - FloorWhiteTilesStatic
     - FloorMaintsTilesStatic
+<<<<<<< HEAD
+=======
+    - FloorIndustrialTilesStatic
+>>>>>>> upstreamwiz/master
     - FloorWoodTilesStatic
     - FloorConcreteTilesStatic
     - CircuitFloorsStatic
     - FloorMarbleTilesStatic
+<<<<<<< HEAD
+=======
+    - FloorShuttleTilesStatic
+    - PlasticTilesStatic
+    - CarpetTilesStatic
+    - PreciousTilesStatic
+>>>>>>> upstreamwiz/master
     dynamicPacks:
     - FauxTiles
   - type: MaterialStorage

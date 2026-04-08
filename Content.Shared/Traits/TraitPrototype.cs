@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 using Content.Shared.ADT.Traits.Effects;
 using Content.Shared.Humanoid.Prototypes;
+=======
+>>>>>>> upstreamwiz/master
 using Content.Shared.Roles;
 using Content.Shared.Whitelist;
 using Robust.Shared.Prototypes;
@@ -56,10 +59,24 @@ public sealed partial class TraitPrototype : IPrototype
 
     /// <summary>
     /// The components that get added to the player, when they pick this trait.
+<<<<<<< HEAD
     /// Legacy system - use Effects instead.
     /// </summary>
     [DataField]
     public ComponentRegistry Components { get; private set; } = new(); // ADT-Tweak new Traits
+=======
+    /// NOTE: When implementing a new trait, it's preferable to add it as a status effect instead if possible.
+    /// </summary>
+    [DataField]
+    [Obsolete("Use JobSpecial instead.")]
+    public ComponentRegistry Components { get; private set; } = new();
+
+    /// <summary>
+    /// Special effects applied to the player who takes this Trait.
+    /// </summary>
+    [DataField(serverOnly: true)]
+    public List<JobSpecial> Specials { get; private set; } = new();
+>>>>>>> upstreamwiz/master
 
     /// <summary>
     /// Gear that is given to the player, when they pick this trait.

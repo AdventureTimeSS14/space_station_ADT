@@ -9,9 +9,15 @@
     - Document
     - Paper
   - type: Appearance
+  - type: Reactive
+    groups:
+      Flammable: [ Touch ]
+      Extinguish: [ Touch ]
+  - type: ExtinguishableSetCollisionWake
   - type: Flammable
     fireSpread: true
     alwaysCombustible: true
+    canExtinguish: true
     damage:
       types:
         Heat: 1
@@ -90,6 +96,7 @@
         type: PaperBoundUserInterface
   - type: FaxableObject
   - type: PaperVisuals
+<<<<<<< HEAD
     backgroundModulate: "#cccccc" # ADT CHANGES START --->
     contentImageModulate: "#cccccc"
     backgroundPatchMargin: 16.0, 16.0, 16.0, 16.0 #Уголки бумаги
@@ -152,6 +159,9 @@
     sound:
       path: /Audio/ADT/Entities/paper_drop.ogg
   # ADT End
+=======
+  - type: StationAiWhitelist
+>>>>>>> upstreamwiz/master
 
 - type: entity
   name: paper scrap
@@ -516,6 +526,8 @@
         insertSound: /Audio/Effects/packetrip.ogg
         ejectSound: /Audio/Effects/packetrip.ogg
         whitelist:
+          components:
+            - Cash
           tags:
             - Paper
             - SpaceCash # ADT-Tweak
@@ -555,8 +567,12 @@
       - !type:EmptyAllContainersBehaviour
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+<<<<<<< HEAD
 # ADT-tweak start
   - type: Construction
     graph: PaperEnvelope
     node: done
 # ADT-tweak end
+=======
+  - type: StationAiWhitelist
+>>>>>>> upstreamwiz/master

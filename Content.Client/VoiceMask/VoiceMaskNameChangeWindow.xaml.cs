@@ -22,10 +22,15 @@ public sealed partial class VoiceMaskNameChangeWindow : FancyWindow
 {
     public Action<string>? OnNameChange;
     public Action<string?>? OnVerbChange;
+<<<<<<< HEAD
     public Action<string>? OnVoiceChange; // Corvax-TTS
     public Action<string>? OnBarkChange; // Corvax-TTS
     public Action<string>? OnPitchChange; // Corvax-TTS
     public Action<ProtoId<JobIconPrototype>?>? OnJobIconChange; // ADT-Tweak
+=======
+    public Action? OnToggle;
+    public Action? OnAccentToggle;
+>>>>>>> upstreamwiz/master
 
     private List<(string, string)> _verbs = new();
     private List<TTSVoicePrototype> _voices = new(); // Corvax-TTS
@@ -59,6 +64,7 @@ public sealed partial class VoiceMaskNameChangeWindow : FancyWindow
             SpeechVerbSelector.SelectId(args.Id);
         };
 
+<<<<<<< HEAD
         // Corvax-TTS-Start
         if (IoCManager.Resolve<IConfigurationManager>().GetCVar(CCCVars.TTSEnabled))
         {
@@ -76,6 +82,10 @@ public sealed partial class VoiceMaskNameChangeWindow : FancyWindow
         // ADT Barks end
 
         AddVerbs();
+=======
+        ToggleButton.OnPressed += args => OnToggle?.Invoke();
+        ToggleAccentButton.OnPressed += args => OnAccentToggle?.Invoke();
+>>>>>>> upstreamwiz/master
     }
 
     // ADT-Tweak start
@@ -117,6 +127,7 @@ public sealed partial class VoiceMaskNameChangeWindow : FancyWindow
             SpeechVerbSelector.SelectId(id);
     }
 
+<<<<<<< HEAD
     // Corvax-TTS-Start
     private void ReloadVoices(IPrototypeManager proto)
     {
@@ -236,9 +247,14 @@ public sealed partial class VoiceMaskNameChangeWindow : FancyWindow
     // ADT-Tweak end Job Icons
 
     public void UpdateState(string name, string voice, string barkId, float barkPitch, string? verb, string? jobIconId = null) // ADT-Tweak
+=======
+    public void UpdateState(string name, string? verb, bool active, bool accentHide)
+>>>>>>> upstreamwiz/master
     {
         NameSelector.Text = name;
         _verb = verb;
+        ToggleButton.Pressed = active;
+        ToggleAccentButton.Pressed = accentHide;
 
         for (int id = 0; id < SpeechVerbSelector.ItemCount; id++)
         {

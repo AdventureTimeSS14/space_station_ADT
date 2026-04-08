@@ -3,16 +3,22 @@
   name: species-name-vox
   roundStart: true
   prototype: MobVox
+<<<<<<< HEAD
   sprites: MobVoxSprites
   markingLimits: MobVoxMarkingLimits
   dollPrototype: MobVoxDummy
   skinColoration: Hues #ADT_Tweak
+=======
+  dollPrototype: AppearanceVox
+  skinColoration: VoxFeathers
+>>>>>>> upstreamwiz/master
   defaultSkinTone: "#6c741d"
   maleFirstNames: NamesVox
   femaleFirstNames: NamesVox
   naming: First
   sexes:
   - Unsexed
+<<<<<<< HEAD
   # ADT start
   shortDesc: species-short-desc-vox
   description: "/ServerInfo/ADT/SpeciesDescriptions/Vox.xml"
@@ -194,3 +200,5 @@
   baseSprite:
     sprite: Mobs/Species/Vox/parts.rsi
     state: r_foot
+=======
+>>>>>>> upstreamwiz/master

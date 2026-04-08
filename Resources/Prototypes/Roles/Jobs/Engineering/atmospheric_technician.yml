@@ -4,9 +4,15 @@
   description: job-description-atmostech
   playTimeTracker: JobAtmosphericTechnician
   requirements:
+<<<<<<< HEAD
     - !type:DepartmentTimeRequirement
       department: Engineering
       time: 2.5h # ADT-Tweak 2.5
+=======
+  - !type:DepartmentTimeRequirement
+    department: Engineering
+    time: 2.5h
+>>>>>>> upstreamwiz/master
   startingGear: AtmosphericTechnicianGear
   icon: "JobIconAtmosphericTechnician"
   supervisors: job-supervisors-ce

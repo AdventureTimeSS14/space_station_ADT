@@ -58,7 +58,11 @@ public sealed partial class KitchenSpikeComponent : Component
     [DataField, AutoNetworkedField]
     public DamageSpecifier SpikeDamage = new()
     {
+<<<<<<< HEAD
         DamageDict = new Dictionary<string, FixedPoint2>
+=======
+        DamageDict = new()
+>>>>>>> upstreamwiz/master
         {
             { "Piercing", 10 },
         },
@@ -70,7 +74,11 @@ public sealed partial class KitchenSpikeComponent : Component
     [DataField, AutoNetworkedField]
     public DamageSpecifier ButcherDamage = new()
     {
+<<<<<<< HEAD
         DamageDict = new Dictionary<string, FixedPoint2>
+=======
+        DamageDict = new()
+>>>>>>> upstreamwiz/master
         {
             { "Slash", 20 },
         },
@@ -82,7 +90,11 @@ public sealed partial class KitchenSpikeComponent : Component
     [DataField, AutoNetworkedField]
     public DamageSpecifier TimeDamage = new()
     {
+<<<<<<< HEAD
         DamageDict = new Dictionary<string, FixedPoint2>
+=======
+        DamageDict = new()
+>>>>>>> upstreamwiz/master
         {
             { "Blunt", 1 }, // Mobs are only gibbed from blunt (at least for now).
         },

@@ -9,7 +9,11 @@ public sealed class EmpOnTriggerSystem : XOnTriggerSystem<EmpOnTriggerComponent>
 
     protected override void OnTrigger(Entity<EmpOnTriggerComponent> ent, EntityUid target, ref TriggerEvent args)
     {
+<<<<<<< HEAD
         _emp.EmpPulse(Transform(target).Coordinates, ent.Comp.Range, ent.Comp.EnergyConsumption, ent.Comp.DisableDuration, args.User);
+=======
+        _emp.EmpPulse(Transform(target).Coordinates, ent.Comp.Range, ent.Comp.EnergyConsumption, ent.Comp.DisableDuration, args.User, predicted: args.Predicted);
+>>>>>>> upstreamwiz/master
         args.Handled = true;
     }
 }

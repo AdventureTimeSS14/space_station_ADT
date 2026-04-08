@@ -13,7 +13,10 @@
   completetime: 4
   materials:
     Steel: 500
+<<<<<<< HEAD
     Copper: 100  #ADT-BFUU-Tweak
+=======
+>>>>>>> upstreamwiz/master
 
 - type: latheRecipe
   id: UtilityKnife

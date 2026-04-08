@@ -2,7 +2,10 @@
     "version": 1,
     "license": "CC-BY-SA-3.0",
     "copyright": "Modifications made by [scrivoy], Dispenser originally taken from paradise at https://github.com/ParadiseSS13/Paradise/commit/846ce475b2258a4336d8895f07f2c0f4053963bc",
+<<<<<<< HEAD
     "copyright": "dispensers taken from paradise at https://github.com/ParadiseSS13/Paradise/commit/846ce475b2258a4336d8895f07f2c0f4053963bc",
+=======
+>>>>>>> upstreamwiz/master
     "size": {
         "x": 32,
         "y": 32

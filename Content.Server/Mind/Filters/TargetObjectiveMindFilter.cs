@@ -33,7 +33,11 @@ public sealed partial class TargetObjectiveMindFilter : MindFilter
             if (entMan.TryGetComponent<TargetObjectiveComponent>(objective, out var kill) && kill.Target == mind.Owner)
             {
                 // remove the mind if this objective is blacklisted
+<<<<<<< HEAD
                 if (whitelistSys.IsBlacklistPassOrNull(Blacklist, objective))
+=======
+                if (whitelistSys.IsWhitelistPassOrNull(Blacklist, objective))
+>>>>>>> upstreamwiz/master
                     return true;
             }
         }

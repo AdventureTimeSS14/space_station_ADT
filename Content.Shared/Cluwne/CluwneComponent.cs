@@ -26,7 +26,11 @@ public sealed partial class CluwneComponent : Component
     {
         DamageDict = new()
         {
+<<<<<<< HEAD
             { "Genetic", 300.0 },
+=======
+            { "Cellular", 300.0 },
+>>>>>>> upstreamwiz/master
         },
     };
 

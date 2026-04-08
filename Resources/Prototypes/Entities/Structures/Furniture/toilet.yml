@@ -33,12 +33,16 @@
     rotation: 0 # ADT CHANGE sleep
     whitelist:
       components:
+<<<<<<< HEAD
       - HumanoidAppearance
     forceBuckle: false
+=======
+      - HumanoidProfile
+>>>>>>> upstreamwiz/master
   - type: DisposalUnit
     blacklist:
       components:
-      - HumanoidAppearance
+      - HumanoidProfile
       - Plunger
       - SolutionTransfer
       - EntityStorage
@@ -119,12 +123,15 @@
         SeatVisualState.SeatUp:
           SeatUp: { state: disposal-up }
           SeatDown: { state: disposal-down }
+<<<<<<< HEAD
   - type: Anchorable # ADT CHANGE sleep START
   - type: HealOnBuckle
     damage:
       types:
         Poison: 0 # ADT CHANGE sleep END
   - type: Climbable # ADT-Tweak
+=======
+>>>>>>> upstreamwiz/master
 
 - type: entity
   parent: BaseToilet

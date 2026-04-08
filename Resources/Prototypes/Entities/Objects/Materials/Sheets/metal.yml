@@ -16,7 +16,10 @@
     - Sheet
     - Metal
     - ConstructionMaterial
+<<<<<<< HEAD
     - NoPaint #ADT tweak
+=======
+>>>>>>> upstreamwiz/master
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: Metallic

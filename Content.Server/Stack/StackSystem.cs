@@ -28,7 +28,13 @@ namespace Content.Server.Stack
         /// Spawns a new entity and moves an amount to it from the stack.
         /// Moves nothing if amount is greater than ent's stack count.
         /// </summary>
+<<<<<<< HEAD
         /// <param name="amount"> How much to move to the new entity. </param>
+=======
+        /// <param name="ent">Entity to split in a new stack.</param>
+        /// <param name="amount">How much to move to the new entity.</param>
+        /// <param name="spawnPosition">Where to spawn the new stack</param>
+>>>>>>> upstreamwiz/master
         /// <returns>Null if StackComponent doesn't resolve, or amount to move is greater than ent has available.</returns>
         [PublicAPI]
         public EntityUid? Split(Entity<StackComponent?> ent, int amount, EntityCoordinates spawnPosition)
@@ -306,6 +312,7 @@ namespace Content.Server.Stack
 
             Popup.PopupCursor(Loc.GetString("comp-stack-split"), user.Owner);
         }
+<<<<<<< HEAD
 
         // ADT-Tweak start
         protected override void RequestCustomSplit(Entity<StackComponent> stack, Entity<TransformComponent?> user)
@@ -345,6 +352,8 @@ namespace Content.Server.Stack
                 });
         }
         // ADT-Tweak end
+=======
+>>>>>>> upstreamwiz/master
         #endregion
     }
 }

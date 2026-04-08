@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 using Content.Shared.ADT.Language;
+=======
+>>>>>>> upstreamwiz/master
 using Content.Shared.Inventory;
 using Content.Shared.Radio;
 using Content.Shared.Speech;
@@ -28,8 +31,14 @@ public sealed class TransformSpeakerNameEvent : EntityEventArgs, IInventoryRelay
 /// <summary>
 /// Raised broadcast in order to transform speech.transmit
 /// </summary>
+<<<<<<< HEAD
 public sealed class TransformSpeechEvent : EntityEventArgs
 {
+=======
+public sealed class TransformSpeechEvent : CancellableEntityEventArgs, IInventoryRelayEvent
+{
+    public SlotFlags TargetSlots { get; } = SlotFlags.WITHOUT_POCKET;
+>>>>>>> upstreamwiz/master
     public EntityUid Sender;
     public string Message;
 
@@ -60,8 +69,11 @@ public sealed class EntitySpokeEvent : EntityEventArgs
     public readonly EntityUid Source;
     public readonly string Message;
     public readonly string? ObfuscatedMessage; // not null if this was a whisper
+<<<<<<< HEAD
     public readonly string OriginalMessage; // Corvax-TTS
     public readonly LanguagePrototype Language; // ADT-Tweak - languages
+=======
+>>>>>>> upstreamwiz/master
 
     /// <summary>
     /// If the entity was trying to speak into a radio, this was the channel they were trying to access. If a radio
@@ -69,6 +81,7 @@ public sealed class EntitySpokeEvent : EntityEventArgs
     /// </summary>
     public RadioChannelPrototype? Channel;
 
+<<<<<<< HEAD
     public EntitySpokeEvent(EntityUid source, string message, string originalMessage, LanguagePrototype language, RadioChannelPrototype? channel, string? obfuscatedMessage)// Corvax-TTS originalMessage   // ADT-Tweak - languages
     {
         Source = source;
@@ -77,5 +90,13 @@ public sealed class EntitySpokeEvent : EntityEventArgs
         Channel = channel;
         ObfuscatedMessage = obfuscatedMessage;
         Language = language;    // ADT-Tweak - languages
+=======
+    public EntitySpokeEvent(EntityUid source, string message, RadioChannelPrototype? channel, string? obfuscatedMessage)
+    {
+        Source = source;
+        Message = message;
+        Channel = channel;
+        ObfuscatedMessage = obfuscatedMessage;
+>>>>>>> upstreamwiz/master
     }
 }

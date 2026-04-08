@@ -1,4 +1,5 @@
 using Content.Shared.Item;
+using Content.Shared.ParcelWrap.Systems;
 using Content.Shared.Whitelist;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
@@ -18,6 +19,7 @@ public sealed partial class ParcelWrapComponent : Component
     /// The <see cref="EntityPrototype"/> of the parcel created by using this component.
     /// </summary>
     [DataField(required: true), AutoNetworkedField]
+<<<<<<< HEAD
     public EntProtoId ParcelPrototype;
 
     /// <summary>
@@ -40,6 +42,9 @@ public sealed partial class ParcelWrapComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool WrappedItemsMaintainShape;
+=======
+    public EntProtoId<WrappedParcelComponent> ParcelPrototype;
+>>>>>>> upstreamwiz/master
 
     /// <summary>
     /// How long it takes to use this to wrap something.

@@ -4,15 +4,19 @@ using Content.Server.Advertise.EntitySystems;
 using Content.Server.ADT.Economy;
 using Content.Server.Cargo.Systems;
 using Content.Server.Power.Components;
+<<<<<<< HEAD
 using Content.Server.Power.EntitySystems;
 using Content.Server.Stack;
 using Content.Server.Store.Components;
+=======
+>>>>>>> upstreamwiz/master
 using Content.Server.Vocalization.Systems;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
 using Content.Shared.Advertise.Components;
 using Content.Shared.ADT.Economy;
 using Content.Shared.Cargo;
+<<<<<<< HEAD
 using Content.Shared.Damage.Systems;
 using Content.Shared.Destructible;
 using Content.Shared.DoAfter;
@@ -22,19 +26,25 @@ using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
 using Content.Shared.PDA;
 using Content.Shared.Popups;
+=======
+using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
+using Content.Shared.Emp;
+>>>>>>> upstreamwiz/master
 using Content.Shared.Power;
 using Content.Shared.Stacks;
 using Content.Shared.Tag;
 using Content.Shared.Throwing;
-using Content.Shared.UserInterface;
 using Content.Shared.VendingMachines;
 using Content.Shared.Wall;
+<<<<<<< HEAD
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Player;
+=======
+>>>>>>> upstreamwiz/master
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
-using Robust.Shared.Timing;
 
 namespace Content.Server.VendingMachines
 {
@@ -45,6 +55,7 @@ namespace Content.Server.VendingMachines
         [Dependency] private readonly AppearanceSystem _appearanceSystem = default!;
         [Dependency] private readonly PricingSystem _pricing = default!;
         [Dependency] private readonly ThrowingSystem _throwingSystem = default!;
+<<<<<<< HEAD
         [Dependency] private readonly IGameTiming _timing = default!;
         [Dependency] private readonly SpeakOnUIClosedSystem _speakOnUIClosed = default!;
         //ADT-Economy-Start
@@ -55,6 +66,8 @@ namespace Content.Server.VendingMachines
         //ADT-Economy-End
         [Dependency] private readonly SharedPointLightSystem _light = default!;
         [Dependency] private readonly EmagSystem _emag = default!;
+=======
+>>>>>>> upstreamwiz/master
 
         private const float WallVendEjectDistanceFromWall = 1f;
 
@@ -63,12 +76,16 @@ namespace Content.Server.VendingMachines
             base.Initialize();
 
             SubscribeLocalEvent<VendingMachineComponent, PowerChangedEvent>(OnPowerChanged);
+<<<<<<< HEAD
             SubscribeLocalEvent<VendingMachineComponent, BreakageEventArgs>(OnBreak);
             SubscribeLocalEvent<VendingMachineComponent, DamageChangedEvent>(OnDamage); //ADT-Economy
+=======
+            SubscribeLocalEvent<VendingMachineComponent, DamageChangedEvent>(OnDamageChanged);
+>>>>>>> upstreamwiz/master
             SubscribeLocalEvent<VendingMachineComponent, PriceCalculationEvent>(OnVendingPrice);
-            SubscribeLocalEvent<VendingMachineComponent, EmpPulseEvent>(OnEmpPulse);
             SubscribeLocalEvent<VendingMachineComponent, TryVocalizeEvent>(OnTryVocalize);
 
+<<<<<<< HEAD
             SubscribeLocalEvent<VendingMachineComponent, ActivatableUIOpenAttemptEvent>(OnActivatableUIOpenAttempt);
 
             Subs.BuiEvents<VendingMachineComponent>(VendingMachineUiKey.Key, subs =>
@@ -86,6 +103,10 @@ namespace Content.Server.VendingMachines
             SubscribeLocalEvent<VendingMachineComponent, VendingMachineWithdrawMessage>(OnWithdrawMessage);
             //ADT-Economy-End
 
+=======
+            SubscribeLocalEvent<VendingMachineComponent, VendingMachineSelfDispenseEvent>(OnSelfDispense);
+
+>>>>>>> upstreamwiz/master
             SubscribeLocalEvent<VendingMachineRestockComponent, PriceCalculationEvent>(OnPriceCalculation);
         }
 
@@ -117,6 +138,7 @@ namespace Content.Server.VendingMachines
             }
         }
 
+<<<<<<< HEAD
         private void OnActivatableUIOpenAttempt(EntityUid uid, VendingMachineComponent component, ActivatableUIOpenAttemptEvent args)
         {
             if (component.Broken)
@@ -142,11 +164,14 @@ namespace Content.Server.VendingMachines
             AuthorizedVend(uid, entity, args.Type, args.ID, component, 1);  // ADT vending eject count
         }
 
+=======
+>>>>>>> upstreamwiz/master
         private void OnPowerChanged(EntityUid uid, VendingMachineComponent component, ref PowerChangedEvent args)
         {
             TryUpdateVisualState(uid, component);
         }
 
+<<<<<<< HEAD
         private void OnBreak(EntityUid uid, VendingMachineComponent vendComponent, BreakageEventArgs eventArgs)
         {
             vendComponent.Broken = true;
@@ -155,6 +180,18 @@ namespace Content.Server.VendingMachines
 
         private void OnDamage(EntityUid uid, VendingMachineComponent component, DamageChangedEvent args) //ADT-Economy
         {
+=======
+        private void OnDamageChanged(EntityUid uid, VendingMachineComponent component, DamageChangedEvent args)
+        {
+            if (!args.DamageIncreased && component.Broken)
+            {
+                component.Broken = false;
+                Dirty(uid, component);
+                TryUpdateVisualState((uid, component));
+                return;
+            }
+
+>>>>>>> upstreamwiz/master
             if (component.Broken || component.DispenseOnHitCoolingDown ||
                 component.DispenseOnHitChance == null || args.DamageDelta == null)
                 return;
@@ -177,6 +214,7 @@ namespace Content.Server.VendingMachines
             EjectRandom(uid, throwItem: true, forceEject: false, component);
         }
 
+<<<<<<< HEAD
         private void OnDoAfter(EntityUid uid, VendingMachineComponent component, DoAfterEvent args)
         {
             if (args.Handled || args.Cancelled || args.Args.Used == null)
@@ -257,6 +295,8 @@ namespace Content.Server.VendingMachines
 
         //ADT-Economy-End
 
+=======
+>>>>>>> upstreamwiz/master
         /// <summary>
         /// Sets the <see cref="VendingMachineComponent.CanShoot"/> property of the vending machine.
         /// </summary>
@@ -601,7 +641,7 @@ namespace Content.Server.VendingMachines
             var disabled = EntityQueryEnumerator<EmpDisabledComponent, VendingMachineComponent>();
             while (disabled.MoveNext(out var uid, out _, out var comp))
             {
-                if (comp.NextEmpEject < _timing.CurTime)
+                if (comp.NextEmpEject < Timing.CurTime)
                 {
                     EjectRandom(uid, true, false, comp);
                     comp.NextEmpEject += TimeSpan.FromSeconds(5 * comp.EjectDelay);
@@ -609,6 +649,7 @@ namespace Content.Server.VendingMachines
             }
         }
 
+<<<<<<< HEAD
         public void TryRestockInventory(EntityUid uid, VendingMachineComponent? vendComponent = null)
         {
             if (!Resolve(uid, ref vendComponent))
@@ -620,6 +661,8 @@ namespace Content.Server.VendingMachines
             TryUpdateVisualState(uid, vendComponent);
         }
 
+=======
+>>>>>>> upstreamwiz/master
         private void OnPriceCalculation(EntityUid uid, VendingMachineRestockComponent component, ref PriceCalculationEvent args)
         {
             List<double> priceSets = new();
@@ -642,16 +685,6 @@ namespace Content.Server.VendingMachines
             }
 
             args.Price += priceSets.Max();
-        }
-
-        private void OnEmpPulse(EntityUid uid, VendingMachineComponent component, ref EmpPulseEvent args)
-        {
-            if (!component.Broken && this.IsPowered(uid, EntityManager))
-            {
-                args.Affected = true;
-                args.Disabled = true;
-                component.NextEmpEject = _timing.CurTime;
-            }
         }
 
         private void OnTryVocalize(Entity<VendingMachineComponent> ent, ref TryVocalizeEvent args)

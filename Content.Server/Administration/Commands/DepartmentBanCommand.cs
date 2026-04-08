@@ -102,6 +102,7 @@ public sealed class DepartmentBanCommand : IConsoleCommand
         var targetUid = located.UserId;
         var targetHWid = located.LastHWId;
 
+<<<<<<< HEAD
         // If you are trying to remove the following variable, please don't. It's there because the note system groups role bans by time, reason and banning admin.
         // Without it the note list will get needlessly cluttered.
         var now = DateTimeOffset.UtcNow;
@@ -130,6 +131,22 @@ public sealed class DepartmentBanCommand : IConsoleCommand
 
         await _discordBanInfoSender.SendBanInfoAsync<DepartmentBanPayloadGenerator>(banInfo);
         //End-ADT-Tweak
+=======
+        var banInfo = new CreateRoleBanInfo(reason);
+        if (minutes > 0)
+            banInfo.WithMinutes(minutes);
+        banInfo.AddUser(targetUid, located.Username);
+        banInfo.WithBanningAdmin(shell.Player?.UserId);
+        banInfo.AddHWId(targetHWid);
+        banInfo.WithSeverity(severity);
+
+        foreach (var job in departmentProto.Roles)
+        {
+            banInfo.AddJob(job);
+        }
+
+        _banManager.CreateRoleBan(banInfo);
+>>>>>>> upstreamwiz/master
     }
 
     public CompletionResult GetCompletion(IConsoleShell shell, string[] args)

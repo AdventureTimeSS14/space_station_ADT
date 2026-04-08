@@ -99,6 +99,7 @@
     initialBeepDelay: 0
     beepInterval: 2
     delay: 3.5
+<<<<<<< HEAD
   # ADT-Tweak-Start Лудше вобще без звука чем с этим.
   #- type: EmitSoundOnTrigger
   #  keysIn:
@@ -107,6 +108,14 @@
   #    path: "/Audio/Weapons/Guns/Gunshots/batrifle.ogg"
   #  positional: true
   # ADT-Tweak-End
+=======
+  - type: EmitSoundOnTrigger
+    keysIn:
+    - timer
+    sound:
+      path: "/Audio/Weapons/Guns/Gunshots/batrifle.ogg"
+    positional: true
+>>>>>>> upstreamwiz/master
   - type: StaticPrice
     price: 1500
 
@@ -133,6 +142,7 @@
     initialBeepDelay: 0
     beepInterval: 2
     delay: 3.5
+<<<<<<< HEAD
   # ADT-Tweak-Start Лудше вобще без звука чем с этим.
   #- type: EmitSoundOnTrigger
   #  keysIn:
@@ -141,5 +151,13 @@
   #    path: "/Audio/Weapons/Guns/Gunshots/batrifle.ogg"
   #  positional: true
   # ADT-Tweak-End
+=======
+  - type: EmitSoundOnTrigger
+    keysIn:
+    - timer
+    sound:
+      path: "/Audio/Weapons/Guns/Gunshots/batrifle.ogg"
+    positional: true
+>>>>>>> upstreamwiz/master
   - type: StaticPrice
     price: 1500

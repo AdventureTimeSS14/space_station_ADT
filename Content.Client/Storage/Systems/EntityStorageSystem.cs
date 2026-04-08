@@ -1,17 +1,8 @@
-﻿using System.Diagnostics.CodeAnalysis;
-using Content.Client.Storage.Components;
-using Content.Shared.Destructible;
-using Content.Shared.Foldable;
-using Content.Shared.Interaction;
-using Content.Shared.Lock;
-using Content.Shared.Movement.Events;
-using Content.Shared.Storage.Components;
-using Content.Shared.Storage.EntitySystems;
-using Content.Shared.Verbs;
-using Robust.Shared.GameStates;
+﻿using Content.Shared.Storage.EntitySystems;
 
 namespace Content.Client.Storage.Systems;
 
+<<<<<<< HEAD
 public sealed class EntityStorageSystem : SharedEntityStorageSystem
 {
     public override void Initialize()
@@ -41,3 +32,6 @@ public sealed class EntityStorageSystem : SharedEntityStorageSystem
         return component != null;
     }
 }
+=======
+public sealed class EntityStorageSystem : SharedEntityStorageSystem;
+>>>>>>> upstreamwiz/master

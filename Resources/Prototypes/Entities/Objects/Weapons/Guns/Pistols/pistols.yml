@@ -59,10 +59,10 @@
         whitelist:
           tags:
             - MagazinePistol
+            - MagazinePistolHighCapacity
         whitelistFailPopup: gun-magazine-whitelist-fail
       gun_chamber:
         name: Chamber
-        startingItem: CartridgePistol
         priority: 1
         whitelist:
           tags:
@@ -92,7 +92,7 @@
     slots:
       gun_magazine:
         name: Magazine
-        startingItem: MagazinePistol
+        startingItem: MagazinePistolHighCapacity
         insertSound: /Audio/Weapons/Guns/MagIn/pistol_magin.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
         priority: 2
@@ -103,7 +103,6 @@
         whitelistFailPopup: gun-magazine-whitelist-fail
       gun_chamber:
         name: Chamber
-        startingItem: CartridgePistol
         priority: 1
         whitelist:
           tags:
@@ -143,11 +142,11 @@
   description: A cyborg-mounted weapon system based on the Viper pistol. Creates ammunition on the fly from an internal fabricator, which slowly self-charges.
   components:
   - type: Gun
-    fireRate: 5
+    fireRate: 6
     selectedMode: SemiAuto
     availableModes:
-      - SemiAuto
-      - FullAuto
+    - SemiAuto
+    - FullAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/pistol.ogg
   - type: Sprite
@@ -160,6 +159,7 @@
   - type: ContainerContainer
     containers:
       ballistic-ammo: !type:Container
+<<<<<<< HEAD
   # ADT-Tweak-Start
   - type: RunAndGunSpreadModifier
     modifier: 0.1
@@ -172,6 +172,18 @@
     startingCharge: 1000
   - type: BatterySelfRecharger
     autoRechargeRate: 25
+=======
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+      - CartridgePistol
+    capacity: 10
+    proto: CartridgePistol
+    cycleable: false # No synthesizing ammo for your syndicate masters.
+  - type: BallisticAmmoSelfRefiller
+    autoRefillRate: 2s
+    affectedByEmp: true
+>>>>>>> upstreamwiz/master
   - type: AmmoCounter
 
 - type: entity
@@ -215,7 +227,6 @@
         whitelistFailPopup: gun-magazine-whitelist-fail
       gun_chamber:
         name: Chamber
-        startingItem: CartridgeCaselessRifle
         priority: 1
         whitelist:
           tags:
@@ -282,6 +293,7 @@
       path: /Audio/Weapons/Guns/Gunshots/mk58.ogg
   - type: StealTarget
     stealGroup: OfficerHandgun
+<<<<<<< HEAD
 # ADT TWEAK START
   - type: AttachableHolder
     slots:
@@ -303,6 +315,8 @@
     - Sidearm
     - ADTBsoWeapon
 # ADT TWEAK END
+=======
+>>>>>>> upstreamwiz/master
 
 - type: entity
   name: N1984
@@ -347,7 +361,6 @@
         whitelistFailPopup: gun-magazine-whitelist-fail
       gun_chamber:
         name: Chamber
-        startingItem: CartridgeMagnum
         priority: 1
         whitelist:
           tags:

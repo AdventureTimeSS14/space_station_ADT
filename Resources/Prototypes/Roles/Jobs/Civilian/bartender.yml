@@ -6,7 +6,11 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Civilian
+<<<<<<< HEAD
       time: 1h # Corvax-RoleTime
+=======
+      time: 0.5h
+>>>>>>> upstreamwiz/master
   startingGear: BartenderGear
   icon: "JobIconBartender"
   supervisors: job-supervisors-hop

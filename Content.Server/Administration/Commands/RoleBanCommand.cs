@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿using System.Linq;
 using System.Text;
 using Content.Server.Administration.Managers;
@@ -5,6 +6,9 @@ using Content.Server.ADT.Discord;
 using Content.Server.ADT.Discord.Bans;
 using Content.Server.ADT.Discord.Bans.PayloadGenerators;
 using Content.Server.Database;
+=======
+﻿using Content.Server.Administration.Managers;
+>>>>>>> upstreamwiz/master
 using Content.Shared.Administration;
 using Content.Shared.CCVar;
 using Content.Shared.Database;
@@ -109,6 +113,7 @@ public sealed class RoleBanCommand : IConsoleCommand
         var newRoleBanId = lastRoleBan is not null ? lastRoleBan.Id + 1 : 1;
         //End-ADT-Tweak
 
+<<<<<<< HEAD
         if (_proto.HasIndex<JobPrototype>(role))
             _bans.CreateRoleBan<JobPrototype>(targetUid, located.Username, shell.Player?.UserId, null, targetHWid, role, minutes, severity, reason, DateTimeOffset.UtcNow);
         else if (_proto.HasIndex<AntagPrototype>(role))
@@ -129,6 +134,31 @@ public sealed class RoleBanCommand : IConsoleCommand
 
         await _discordBanInfoSender.SendBanInfoAsync<RoleBanPayloadGenerator>(banInfo);
         //End-ADT-Tweak
+=======
+        var banInfo = new CreateRoleBanInfo(reason);
+        if (minutes > 0)
+            banInfo.WithMinutes(minutes);
+        banInfo.AddUser(targetUid, located.Username);
+        banInfo.WithBanningAdmin(shell.Player?.UserId);
+        banInfo.AddHWId(targetHWid);
+        banInfo.WithSeverity(severity);
+
+        if (_proto.HasIndex<JobPrototype>(role))
+        {
+            banInfo.AddJob(new ProtoId<JobPrototype>(role));
+        }
+        else if (_proto.HasIndex<AntagPrototype>(role))
+        {
+            banInfo.AddAntag(new ProtoId<AntagPrototype>(role));
+        }
+        else
+        {
+            shell.WriteError(Loc.GetString("cmd-roleban-job-parse", ("job", role)));
+            return;
+        }
+
+        _bans.CreateRoleBan(banInfo);
+>>>>>>> upstreamwiz/master
     }
 
     public CompletionResult GetCompletion(IConsoleShell shell, string[] args)

@@ -65,11 +65,15 @@ public sealed partial class IngestionSystem
         if (!Resolve(entity, ref entity.Comp))
             return;
 
+<<<<<<< HEAD
         // TODO: Once we have predicted randomness delete this for something sane...
         var seed = SharedRandomExtensions.HashCodeCombine((int)_timing.CurTick.Value, GetNetEntity(entity).Id, GetNetEntity(userUid).Id);
         var rand = new System.Random(seed);
 
         if (!rand.Prob(entity.Comp.BreakChance))
+=======
+        if (!SharedRandomExtensions.PredictedProb(_timing, entity.Comp.BreakChance, GetNetEntity(entity), GetNetEntity(userUid)))
+>>>>>>> upstreamwiz/master
             return;
 
         _audio.PlayPredicted(entity.Comp.BreakSound, userUid, userUid, AudioParams.Default.WithVolume(-2f));
@@ -91,9 +95,13 @@ public sealed partial class IngestionSystem
         return TryGetUtensils(entity, ev.Types, ev.RequiredTypes, out utensils);
     }
 
+<<<<<<< HEAD
     // ADT-Tweak-Start: showPopup
     public bool TryGetUtensils(Entity<HandsComponent?> entity, UtensilType types, UtensilType requiredTypes, out List<EntityUid> utensils, bool showPopup = true)
     // ADT-Tweak-End
+=======
+    public bool TryGetUtensils(Entity<HandsComponent?> entity, UtensilType types, UtensilType requiredTypes, out List<EntityUid> utensils)
+>>>>>>> upstreamwiz/master
     {
         utensils = new List<EntityUid>();
 
@@ -128,8 +136,12 @@ public sealed partial class IngestionSystem
         if (!required || (usedTypes & requiredTypes) == requiredTypes)
             return true;
 
+<<<<<<< HEAD
         if (showPopup) // ADT-Tweak
             _popup.PopupClient(Loc.GetString("ingestion-you-need-to-hold-utensil", ("utensil", requiredTypes ^ usedTypes)), entity, entity);
+=======
+        _popup.PopupClient(Loc.GetString("ingestion-you-need-to-hold-utensil", ("utensil", requiredTypes ^ usedTypes)), entity, entity);
+>>>>>>> upstreamwiz/master
         return false;
 
     }
@@ -140,6 +152,7 @@ public sealed partial class IngestionSystem
     /// </summary>
     /// <param name="entity">The entity doing the action who has the utensils.</param>
     /// <param name="types">The types of utensils we need.</param>
+<<<<<<< HEAD
     /// ADT-Tweak-Start
     /// <param name="showPopup">If should show popup if utensil is not present.</param>
     /// ADT-Tweak-End
@@ -149,6 +162,12 @@ public sealed partial class IngestionSystem
     // ADT-Tweak-End
     {
         return TryGetUtensils(entity, types, types, out _, showPopup); // ADT-Tweak: showPopup
+=======
+    /// <returns>Returns true if we have the utensils we need.</returns>
+    public bool HasRequiredUtensils(EntityUid entity, UtensilType types)
+    {
+        return TryGetUtensils(entity, types, types, out _);
+>>>>>>> upstreamwiz/master
     }
 
     private void OnGetEdibleUtensils(Entity<EdibleComponent> entity, ref GetUtensilsEvent args)

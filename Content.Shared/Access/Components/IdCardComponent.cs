@@ -9,8 +9,13 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared.Access.Components;
 
 [RegisterComponent, NetworkedComponent]
+<<<<<<< HEAD
 [AutoGenerateComponentState]
 [Access(typeof(SharedIdCardSystem), typeof(SharedPdaSystem), typeof(SharedAgentIdCardSystem), typeof(SharedAlertAccessLevel), Other = AccessPermissions.ReadWrite)] //ADT-tweak: добавила typeof(SharedAlertAccessLevel)
+=======
+[AutoGenerateComponentState(true)]
+[Access(typeof(SharedIdCardSystem), typeof(SharedPdaSystem), typeof(SharedAgentIdCardSystem), Other = AccessPermissions.ReadWrite)]
+>>>>>>> upstreamwiz/master
 public sealed partial class IdCardComponent : Component
 {
     [DataField]
@@ -28,7 +33,7 @@ public sealed partial class IdCardComponent : Component
     private string? _jobTitle;
 
     [Access(typeof(SharedIdCardSystem), typeof(SharedPdaSystem), typeof(SharedAgentIdCardSystem), Other = AccessPermissions.ReadWriteExecute)]
-    public string? LocalizedJobTitle { set => _jobTitle = value; get => _jobTitle ?? Loc.GetString(JobTitle ?? string.Empty); }
+    public string? LocalizedJobTitle { set => _jobTitle = value; get => _jobTitle ?? (JobTitle != null ? Loc.GetString(JobTitle) : string.Empty); }
 
     /// <summary>
     /// The state of the job icon rsi.

@@ -1,4 +1,4 @@
-﻿admin-smite-chess-self = Вы чувствуете себя необычайно маленьким.
+admin-smite-chess-self = Вы чувствуете себя необычайно маленьким.
 admin-smite-chess-others = { CAPITALIZE($name) } уменьшается до шахматной доски!
 admin-smite-set-alight-self = Вы загораетесь пламенем!
 admin-smite-set-alight-others = { CAPITALIZE($name) } загорается пламенем!

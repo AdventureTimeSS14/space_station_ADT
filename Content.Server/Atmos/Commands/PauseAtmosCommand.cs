@@ -1,7 +1,13 @@
 using Content.Server.Administration;
+<<<<<<< HEAD
 using Content.Server.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
 using Content.Shared.Administration;
+=======
+using Content.Server.Atmos.EntitySystems;
+using Content.Shared.Administration;
+using Content.Shared.Atmos.Components;
+>>>>>>> upstreamwiz/master
 using Robust.Shared.Console;
 
 namespace Content.Server.Atmos.Commands;

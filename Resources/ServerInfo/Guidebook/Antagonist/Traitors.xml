@@ -61,9 +61,15 @@
   <Box>
     <GuideEntityEmbed Entity="ClothingOuterHardsuitRd" Caption="Скафандр Научрука"/>
   </Box>
+<<<<<<< HEAD
   - Украсть у Научного Руководителя [color=#a4885c]Ручной Телепорт[/color].
   <Box>
     <GuideEntityEmbed Entity="HandTeleporter" Caption="Ручной Телепорт"/>
+=======
+  - Stealing the [color=#cb0000]Head of Security[/color]'s [bold]energy magnum[/bold].
+  <Box>
+    <GuideEntityEmbed Entity="WeaponEnergyMagnum" Caption=""/>
+>>>>>>> upstreamwiz/master
   </Box>
   - Украсть [color=#a4885c]ID карту главы персонала[/color].
   <Box>

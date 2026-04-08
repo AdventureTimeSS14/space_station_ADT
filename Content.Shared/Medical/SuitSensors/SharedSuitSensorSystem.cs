@@ -3,6 +3,10 @@ using Content.Shared.Access.Systems;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Clothing;
 using Content.Shared.Damage.Components;
+<<<<<<< HEAD
+=======
+using Content.Shared.Damage.Systems;
+>>>>>>> upstreamwiz/master
 using Content.Shared.DeviceNetwork;
 using Content.Shared.DoAfter;
 using Content.Shared.Emp;
@@ -40,6 +44,10 @@ public abstract class SharedSuitSensorSystem : EntitySystem
     [Dependency] private readonly SharedIdCardSystem _idCardSystem = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+<<<<<<< HEAD
+=======
+    [Dependency] private readonly DamageableSystem _damageable = default!;
+>>>>>>> upstreamwiz/master
 
     private EntityQuery<SuitSensorComponent> _sensorQuery;
     public override void Initialize()
@@ -47,7 +55,10 @@ public abstract class SharedSuitSensorSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<SuitSensorComponent, MapInitEvent>(OnMapInit);
+<<<<<<< HEAD
         SubscribeLocalEvent<SuitSensorComponent, ComponentStartup>(OnStartup); //ADT-Tweak
+=======
+>>>>>>> upstreamwiz/master
         SubscribeLocalEvent<PlayerSpawnCompleteEvent>(OnPlayerSpawn);
         SubscribeLocalEvent<SuitSensorComponent, ClothingGotEquippedEvent>(OnEquipped);
         SubscribeLocalEvent<SuitSensorComponent, ClothingGotUnequippedEvent>(OnUnequipped);
@@ -80,11 +91,15 @@ public abstract class SharedSuitSensorSystem : EntitySystem
     private void OnMapInit(Entity<SuitSensorComponent> ent, ref MapInitEvent args)
     {
         // Fallback
+<<<<<<< HEAD
         //ADT-Tweak-Start
         if (ent.Comp.OnMob)
             ent.Comp.User = ent.Owner;
         ent.Comp.StationId ??= _stationSystem.GetOwningStation(ent.Owner);
         //ADT-Tweak-End
+=======
+        ent.Comp.StationId ??= _stationSystem.GetOwningStation(ent.Owner);
+>>>>>>> upstreamwiz/master
 
         // generate random mode
         if (ent.Comp.RandomMode)
@@ -104,6 +119,7 @@ public abstract class SharedSuitSensorSystem : EntitySystem
         Dirty(ent);
     }
 
+<<<<<<< HEAD
     //ADT-Tweak-Start
     private void OnStartup(Entity<SuitSensorComponent> ent, ref ComponentStartup args)
     {
@@ -128,6 +144,8 @@ public abstract class SharedSuitSensorSystem : EntitySystem
     }
     //ADT-Tweak-End
 
+=======
+>>>>>>> upstreamwiz/master
     private void OnPlayerSpawn(PlayerSpawnCompleteEvent ev)
     {
         // If the player spawns in arrivals then the grid underneath them may not be appropriate.
@@ -155,22 +173,28 @@ public abstract class SharedSuitSensorSystem : EntitySystem
 
     private void OnEquipped(Entity<SuitSensorComponent> ent, ref ClothingGotEquippedEvent args)
     {
+<<<<<<< HEAD
         //ADT-Tweak-Start
         if (ent.Comp.OnMob)
             return;
         //ADT-Tweak-End
 
+=======
+>>>>>>> upstreamwiz/master
         ent.Comp.User = args.Wearer;
         Dirty(ent);
     }
 
     private void OnUnequipped(Entity<SuitSensorComponent> ent, ref ClothingGotUnequippedEvent args)
     {
+<<<<<<< HEAD
         //ADT-Tweak-Start
         if (ent.Comp.OnMob)
             return;
         //ADT-Tweak-End
 
+=======
+>>>>>>> upstreamwiz/master
         ent.Comp.User = null;
         Dirty(ent);
     }
@@ -234,6 +258,7 @@ public abstract class SharedSuitSensorSystem : EntitySystem
         if (!_interactionSystem.InRangeUnobstructed(args.User, args.Target))
             return;
 
+<<<<<<< HEAD
         //ADT-Tweak-Start
         if (!ent.Comp.OnMob)
         {
@@ -242,6 +267,11 @@ public abstract class SharedSuitSensorSystem : EntitySystem
                 return;
         }
         //ADT-Tweak-End
+=======
+        // check if target is incapacitated (cuffed, dead, etc)
+        if (ent.Comp.User != null && args.User != ent.Comp.User && _actionBlocker.CanInteract(ent.Comp.User.Value, null))
+            return;
+>>>>>>> upstreamwiz/master
 
         args.Verbs.UnionWith(new[]
         {
@@ -254,11 +284,14 @@ public abstract class SharedSuitSensorSystem : EntitySystem
 
     private void OnInsert(Entity<SuitSensorComponent> ent, ref EntGotInsertedIntoContainerMessage args)
     {
+<<<<<<< HEAD
         //ADT-Tweak-Start
         if (ent.Comp.OnMob)
             return;
         //ADT-Tweak-End
 
+=======
+>>>>>>> upstreamwiz/master
         if (args.Container.ID != ent.Comp.ActivationContainer)
             return;
 
@@ -268,11 +301,14 @@ public abstract class SharedSuitSensorSystem : EntitySystem
 
     private void OnRemove(Entity<SuitSensorComponent> ent, ref EntGotRemovedFromContainerMessage args)
     {
+<<<<<<< HEAD
         //ADT-Tweak-Start
         if (ent.Comp.OnMob)
             return;
         //ADT-Tweak-End
 
+=======
+>>>>>>> upstreamwiz/master
         if (args.Container.ID != ent.Comp.ActivationContainer)
             return;
 
@@ -401,6 +437,7 @@ public abstract class SharedSuitSensorSystem : EntitySystem
         var sensor = ent.Comp1;
         var transform = ent.Comp2;
 
+<<<<<<< HEAD
         //ADT-Tweak-Start
         // check if sensor is not on a mob but has a user, ensure no OnMob sensor exists for the same user
         if (!sensor.OnMob && sensor.User != null)
@@ -414,6 +451,8 @@ public abstract class SharedSuitSensorSystem : EntitySystem
         }
         //ADT-Tweak-End
 
+=======
+>>>>>>> upstreamwiz/master
         // check if sensor is enabled and worn by user
         if (sensor.Mode == SuitSensorMode.SensorOff || sensor.User == null || !HasComp<MobStateComponent>(sensor.User) || transform.GridUid == null)
             return null;
@@ -442,9 +481,13 @@ public abstract class SharedSuitSensorSystem : EntitySystem
             isAlive = !_mobStateSystem.IsDead(sensor.User.Value, mobState);
 
         // get mob total damage
+<<<<<<< HEAD
         var totalDamage = 0;
         if (TryComp<DamageableComponent>(sensor.User.Value, out var damageable))
             totalDamage = damageable.TotalDamage.Int();
+=======
+        var totalDamage = _damageable.GetTotalDamage(sensor.User.Value).Int();
+>>>>>>> upstreamwiz/master
 
         // Get mob total damage crit threshold
         int? totalDamageThreshold = null;

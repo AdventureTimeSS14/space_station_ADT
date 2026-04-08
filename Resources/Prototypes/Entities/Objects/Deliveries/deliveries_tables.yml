@@ -104,7 +104,11 @@
       - id: Brutepack
       - id: Ointment
       - id: Gauze
+<<<<<<< HEAD
       - id: ADTBloodPackTransfusionFull # ADT tweak: Blood IV
+=======
+      - id: Bloodpack
+>>>>>>> upstreamwiz/master
     - id: SyndicateBusinessCard
       weight: 0.5
 
@@ -162,4 +166,8 @@
     - !type:NestedSelector
       tableId: SyndieMaintLoot
       weight: 0.5
+<<<<<<< HEAD
 
+=======
+      
+>>>>>>> upstreamwiz/master

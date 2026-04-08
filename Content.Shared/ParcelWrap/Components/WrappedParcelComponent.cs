@@ -1,3 +1,4 @@
+using Content.Shared.Item;
 using Content.Shared.ParcelWrap.Systems;
 using Robust.Shared.Audio;
 using Robust.Shared.Containers;
@@ -46,6 +47,24 @@ public sealed partial class WrappedParcelComponent : Component
     public string ContainerId = "contents";
 
     /// <summary>
+<<<<<<< HEAD
+=======
+    /// If true, the owner of this entity has its <see cref="ItemComponent.Size"/> set to the size of any item inserted
+    /// into <see cref="Container"/>. If the contents do not have a size,
+    /// <see cref="ParcelWrappingSystem._fallbackParcelSize"/> is used instead.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool GetsSizeFromContent = true;
+
+    /// <summary>
+    /// If true, the owner of this entity has its <see cref="ItemComponent.Shape"/> set to the shape of any item
+    /// inserted into <see cref="Container"/>.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool GetsShapeFromContent;
+
+    /// <summary>
+>>>>>>> upstreamwiz/master
     /// If a player trapped inside this parcel can escape from it by unwrapping it.
     /// This is set by the <see cref="ParcelWrapComponent" /> used to create the parcel.
     /// </summary>

@@ -2,8 +2,11 @@ using System.Numerics;
 using Content.Server.Stack;
 using Content.Server.Stunnable;
 using Content.Shared.ActionBlocker;
+<<<<<<< HEAD
 using Content.Shared.ADT.Hands;
 using Content.Shared.Body.Part;
+=======
+>>>>>>> upstreamwiz/master
 using Content.Shared.CombatMode;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Explosion;
@@ -52,9 +55,6 @@ namespace Content.Server.Hands.Systems
             base.Initialize();
 
             SubscribeLocalEvent<HandsComponent, DisarmedEvent>(OnDisarmed, before: new[] {typeof(StunSystem), typeof(SharedStaminaSystem)});
-
-            SubscribeLocalEvent<HandsComponent, BodyPartAddedEvent>(HandleBodyPartAdded);
-            SubscribeLocalEvent<HandsComponent, BodyPartRemovedEvent>(HandleBodyPartRemoved);
 
             SubscribeLocalEvent<HandsComponent, ComponentGetState>(GetComponentState);
 
@@ -112,6 +112,7 @@ namespace Content.Server.Hands.Systems
             args.Handled = true; // no shove/stun.
         }
 
+<<<<<<< HEAD
         private void HandleBodyPartAdded(Entity<HandsComponent> ent, ref BodyPartAddedEvent args)
         {
             if (args.Part.Comp.PartType != BodyPartType.Hand)
@@ -185,6 +186,8 @@ namespace Content.Server.Hands.Systems
 
         #endregion
 
+=======
+>>>>>>> upstreamwiz/master
         #region interactions
 
         private bool HandleThrowItem(ICommonSession? playerSession, EntityCoordinates coordinates, EntityUid entity)
@@ -213,6 +216,7 @@ namespace Content.Server.Hands.Systems
             // ADT Grab start
             if (TryComp<VirtualItemComponent>(throwEnt, out var virtualItem))
             {
+<<<<<<< HEAD
                 var userEv = new BeforeVirtualItemThrownEvent(virtualItem.BlockingEntity, player, coordinates);
                 RaiseLocalEvent(player, userEv);
 
@@ -227,6 +231,8 @@ namespace Content.Server.Hands.Systems
 
             if (EntityManager.TryGetComponent(throwEnt, out StackComponent? stack) && stack.Count > 1 && stack.ThrowIndividually)
             {
+=======
+>>>>>>> upstreamwiz/master
                 var splitStack = _stackSystem.Split((throwEnt.Value, stack), 1, Comp<TransformComponent>(player).Coordinates);
 
                 if (splitStack is not {Valid: true})

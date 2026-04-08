@@ -6,6 +6,7 @@
   name: trait-accentless-name
   description: trait-accentless-desc
   category: SpeechTraits
+<<<<<<< HEAD
   cost: 1
   effects:
     - !type:AddCompsEffect
@@ -24,6 +25,16 @@
             - type: DamagedSiliconAccent
             - type: ReplacementAccent
               accent: dwarf
+=======
+  cost: 2
+  components:
+  - type: Accentless
+    removes:
+    - type: LizardAccent
+    - type: MothAccent
+    - type: ReplacementAccent
+      accent: scottish
+>>>>>>> upstreamwiz/master
 
 # 1 Cost
 
@@ -39,6 +50,7 @@
         - type: SouthernAccent
 
 - type: trait
+<<<<<<< HEAD
   id: PirateAccent
   name: trait-pirate-accent-name
   description: trait-pirate-accent-desc
@@ -62,6 +74,8 @@
           accent: cowboy
 
 - type: trait
+=======
+>>>>>>> upstreamwiz/master
   id: GermanAccent
   name: trait-german-name
   description: trait-german-desc
@@ -73,6 +87,7 @@
         - type: GermanAccent
 
 - type: trait
+<<<<<<< HEAD
   id: ItalianAccent
   name: trait-italian-name
   description: trait-italian-desc
@@ -85,6 +100,8 @@
           accent: italian
 
 - type: trait
+=======
+>>>>>>> upstreamwiz/master
   id: FrenchAccent
   name: trait-french-name
   description: trait-french-desc
@@ -117,6 +134,16 @@
       components:
         - type: ReplacementAccent
           accent: mobster
+
+- type: trait
+  id: ScottishAccent
+  name: trait-scottish-name
+  description: trait-scottish-desc
+  category: SpeechTraits
+  cost: 1
+  components:
+  - type: ReplacementAccent
+    accent: scottish
 
 # 2 Cost
 

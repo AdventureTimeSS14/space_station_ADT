@@ -9,8 +9,14 @@ namespace Content.Shared.Trigger;
 /// Setting this to null will activate all triggers.
 /// </param>
 /// <param name="Handled">Marks the event as handled if at least one trigger effect was activated.</param>
+<<<<<<< HEAD
 [ByRefEvent]
 public record struct TriggerEvent(EntityUid? User = null, string? Key = null, bool Handled = false);
+=======
+/// <param name="Predicted">Marks that this trigger is being replicated on the client.</param>
+[ByRefEvent]
+public record struct TriggerEvent(EntityUid? User = null, string? Key = null, bool Predicted = true, bool Handled = false);
+>>>>>>> upstreamwiz/master
 
 /// <summary>
 /// Raised before a trigger is activated.

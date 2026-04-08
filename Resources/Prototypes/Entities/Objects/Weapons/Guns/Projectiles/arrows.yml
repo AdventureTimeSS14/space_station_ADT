@@ -201,6 +201,12 @@
       color: brown
     - state: tip
       color: brown
+<<<<<<< HEAD
+=======
+    - state: solution1
+      map: ["enum.SolutionContainerLayers.Fill"]
+      visible: false
+>>>>>>> upstreamwiz/master
   - type: Projectile
     damage:
       types:

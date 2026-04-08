@@ -36,6 +36,7 @@ namespace Content.Server.Chemistry.Components
         [DataField("clickSound"), ViewVariables(VVAccess.ReadWrite)]
         public SoundSpecifier ClickSound = new SoundPathSpecifier("/Audio/Machines/machine_switch.ogg");
 
+<<<<<<< HEAD
         // ADT-Tweak-Start
 
         [DataField]
@@ -80,5 +81,12 @@ namespace Content.Server.Chemistry.Components
         [DataField]
         public Dictionary<ReagentId, float> SelectedReagentAmounts { get; set; } = new();
         // ADT-Tweak-End
+=======
+        /// <summary>
+        /// Which source the chem master should draw from when making pills/bottles.
+        /// </summary>
+        [DataField]
+        public ChemMasterDrawSource DrawSource = ChemMasterDrawSource.Internal;
+>>>>>>> upstreamwiz/master
     }
 }

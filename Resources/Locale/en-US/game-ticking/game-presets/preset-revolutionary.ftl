@@ -19,6 +19,8 @@ head-rev-break-mindshield = The mindshield implant was destroyed!
 roles-antag-rev-name = Revolutionary
 roles-antag-rev-objective = Your objective is to ensure the safety and follow the orders of the head revolutionaries, and to help them take over the station by eliminating all members of Command.
 
+rev-break-control = {$name} has remembered their true allegiance!
+
 rev-role-greeting =
     You are a revolutionary. You are tasked with protecting the head revolutionaries and helping them take over the station.
     The revolution must work together to kill, restrain, or convert all members of Command.

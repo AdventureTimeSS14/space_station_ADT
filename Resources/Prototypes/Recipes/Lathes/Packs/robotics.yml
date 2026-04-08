@@ -42,9 +42,13 @@
   - BorgModuleAdvancedCleaning
   - BorgModuleAdvancedTool
   - BorgModuleAdvancedClowning
+<<<<<<< HEAD
   # ADT-Tweak-Start: "MedborgModuleUpdate"
   #- BorgModuleAdvancedChemical  # новые модули сделал отдельно в папке ADT
   # ADT-Tweak-End
+=======
+  - BorgModuleAdvancedTopical
+>>>>>>> upstreamwiz/master
   - BorgModuleAdvancedMining
   - ADTBorgModuleRPD # ADT-Tweak
 

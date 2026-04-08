@@ -63,14 +63,14 @@
       shader: unshaded
   - type: Physics
     bodyType: Dynamic
-    linearDamping: 0
-    angularDamping: 0
+  - type: TileFrictionModifier
+    modifier: 0
   - type: Fixtures
     fixtures:
       projectile:
         shape:
           !type:PhysShapeAabb
-          bounds: "-0.1,-0.1,0.1,0.1"
+          bounds: "-0.1,-0.10,0.1,0.30"
         hard: false
         mask:
         - Impassable
@@ -295,11 +295,17 @@
           bounds: "-0.15,-0.3,0.15,0.3"
         hard: false
         mask:
+<<<<<<< HEAD
 # Start ADT Tweak
         # - Impassable
         # - BulletImpassable
         - Opaque # ADT add
 # End ADT Tweak
+=======
+        - Opaque
+        - Impassable
+        - BulletImpassable
+>>>>>>> upstreamwiz/master
       fly-by: *flybyfixture
   - type: Ammo
   - type: StaminaDamageOnCollide
@@ -338,11 +344,17 @@
           bounds: "-0.15,-0.3,0.15,0.3"
         hard: false
         mask:
+<<<<<<< HEAD
 # Start ADT Tweak
         # - Impassable
         # - BulletImpassable
         - Opaque # ADT add
 # End ADT Tweak
+=======
+        - Opaque
+        - Impassable
+        - BulletImpassable
+>>>>>>> upstreamwiz/master
       fly-by: *flybyfixture
   - type: Ammo
   - type: StaminaDamageOnCollide
@@ -1043,8 +1055,8 @@
   - type: Clickable
   - type: Physics
     bodyType: Dynamic
-    linearDamping: 0
-    angularDamping: 0
+  - type: TileFrictionModifier
+    modifier: 0
   - type: TimedDespawn
     lifetime: 10
   - type: Projectile
@@ -1127,8 +1139,8 @@
         - state: hook
     - type: Physics
       bodyType: Dynamic
-      linearDamping: 0
-      angularDamping: 0
+    - type: TileFrictionModifier
+      modifier: 0
     - type: Projectile
       deleteOnCollide: false
       damage:
@@ -1145,6 +1157,17 @@
             - Impassable
             - HighImpassable
     - type: GrapplingProjectile
+
+- type: entity
+  parent: GrapplingHook
+  id: StickyHandPalm
+  name: sticky hand palm
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Launchers/sticky_hand.rsi
+  - type: Ammo
+    muzzleFlash: null
 
 - type: entity
   name : disabler bolt smg
@@ -1174,11 +1197,17 @@
           bounds: "-0.15,-0.3,0.15,0.3"
         hard: false
         mask:
+<<<<<<< HEAD
 # Start ADT Tweak
         # - Impassable
         # - BulletImpassable
         - Opaque # ADT add
 # End ADT Tweak
+=======
+        - Opaque
+        - Impassable
+        - BulletImpassable
+>>>>>>> upstreamwiz/master
       fly-by: *flybyfixture
   - type: Ammo
   - type: StaminaDamageOnCollide
@@ -1328,11 +1357,17 @@
           bounds: "-0.15,-0.3,0.15,0.3"
         hard: false
         mask:
+<<<<<<< HEAD
 # Start ADT Tweak
         # - Impassable
         # - BulletImpassable
         - Opaque # ADT add
 # End ADT Tweak
+=======
+        - Opaque
+        - Impassable
+        - BulletImpassable
+>>>>>>> upstreamwiz/master
       fly-by: *flybyfixture
   - type: Ammo
   - type: Projectile
@@ -1463,6 +1498,7 @@
   - type: SolutionInjectOnProjectileHit
     transferAmount: 1.5
     solution: bolt
+<<<<<<< HEAD
 
 # ADT-Tweak-start
 - type: entity
@@ -1487,3 +1523,5 @@
     count: 4 #60 heat damage if you hit all your shots, but narrower spread
     spread: 10
 # ADT-Tweak-end
+=======
+>>>>>>> upstreamwiz/master

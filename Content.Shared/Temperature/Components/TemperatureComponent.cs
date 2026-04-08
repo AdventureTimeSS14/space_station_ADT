@@ -1,15 +1,23 @@
+<<<<<<< HEAD
 using Content.Shared.Alert;
 using Content.Shared.Atmos;
 using Content.Shared.Damage;
 using Content.Shared.FixedPoint;
 using Robust.Shared.Prototypes;
+=======
+using Content.Shared.Atmos;
+>>>>>>> upstreamwiz/master
 
 namespace Content.Shared.Temperature.Components;
 
 /// <summary>
 /// Handles changing temperature,
+<<<<<<< HEAD
 /// informing others of the current temperature,
 /// and taking fire damage from high temperature.
+=======
+/// informing others of the current temperature.
+>>>>>>> upstreamwiz/master
 /// </summary>
 [RegisterComponent]
 public sealed partial class TemperatureComponent : Component
@@ -20,6 +28,7 @@ public sealed partial class TemperatureComponent : Component
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public float CurrentTemperature = Atmospherics.T20C;
 
+<<<<<<< HEAD
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public float HeatDamageThreshold = 360f;
 
@@ -38,6 +47,8 @@ public sealed partial class TemperatureComponent : Component
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public float? ParentColdDamageThreshold;
 
+=======
+>>>>>>> upstreamwiz/master
     /// <summary>
     /// Heat capacity per kg of mass.
     /// </summary>
@@ -49,6 +60,7 @@ public sealed partial class TemperatureComponent : Component
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public float AtmosTemperatureTransferEfficiency = 0.1f;
+<<<<<<< HEAD
 
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public DamageSpecifier ColdDamage = new();
@@ -76,4 +88,6 @@ public sealed partial class TemperatureComponent : Component
 
     [DataField]
     public ProtoId<AlertPrototype> ColdAlert = "Cold";
+=======
+>>>>>>> upstreamwiz/master
 }

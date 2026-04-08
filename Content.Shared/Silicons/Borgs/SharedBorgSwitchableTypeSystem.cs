@@ -122,6 +122,7 @@ public abstract class SharedBorgSwitchableTypeSystem : EntitySystem
             footstepModifier.FootstepSoundCollection = prototype.FootstepCollection;
         }
 
+<<<<<<< HEAD
         // Corvax-TTS-start
         if (TryComp(entity, out TTSComponent? tts))
         {
@@ -129,6 +130,8 @@ public abstract class SharedBorgSwitchableTypeSystem : EntitySystem
         }
         // Corvax-TTS-end
 
+=======
+>>>>>>> upstreamwiz/master
         if (prototype.SpriteBodyMovementState is { } movementState)
         {
             var spriteMovement = EnsureComp<SpriteMovementComponent>(entity);

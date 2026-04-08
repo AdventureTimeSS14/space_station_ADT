@@ -162,6 +162,7 @@ namespace Content.Server.Kitchen.Components
         public MicrowaveUiKey Key = MicrowaveUiKey.Key;
         // End ADT-Tweak
     }
+<<<<<<< HEAD
 
     public sealed class BeingMicrowavedEvent : HandledEntityEventArgs
     {
@@ -187,5 +188,7 @@ namespace Content.Server.Kitchen.Components
             BeingIrradiated = irradiating;
         }
     }
+=======
+>>>>>>> upstreamwiz/master
 }
 

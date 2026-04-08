@@ -42,7 +42,11 @@
         - to: chairRitual
           completed:
             - !type:SpawnPrototype
+<<<<<<< HEAD
               prototype: HeadSkeleton
+=======
+              prototype: OrganSkeletonPersonHead
+>>>>>>> upstreamwiz/master
               amount: 1
           steps:
             - tool: Prying

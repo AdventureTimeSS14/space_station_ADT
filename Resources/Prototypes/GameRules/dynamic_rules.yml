@@ -1,12 +1,21 @@
+<<<<<<< HEAD
 - type: entity
+=======
+﻿- type: entity
+>>>>>>> upstreamwiz/master
   parent: BaseGameRule
   id: DynamicRule
   components:
   - type: GameRule
     minPlayers: 5 # <5 is greenshift hours, buddy.
   - type: DynamicRule
+<<<<<<< HEAD
     # startingBudgetMin: 200
     # startingBudgetMax: 350
+=======
+    startingBudgetMin: 200
+    startingBudgetMax: 350
+>>>>>>> upstreamwiz/master
     table: !type:AllSelector
       children:
       # Roundstart Major Rules
@@ -32,6 +41,7 @@
           conditions:
           - !type:HasBudgetCondition
           - !type:MaxRuleOccurenceCondition
+<<<<<<< HEAD
         - id: Changeling
           weight: 5
           conditions:
@@ -39,6 +49,8 @@
           - !type:MaxRuleOccurenceCondition
           - !type:PlayerCountCondition
             min: 25
+=======
+>>>>>>> upstreamwiz/master
         - id: Zombie
           weight: 5
           conditions:
@@ -99,6 +111,7 @@
             max: 2
           - !type:RoundDurationCondition
             min: 600 # 10 minutes
+<<<<<<< HEAD
         # - id: ZombieOutbreak # ADT-Tweak
         #   weight: 2.5
         #   conditions:
@@ -108,6 +121,17 @@
         #     min: 20
         #   - !type:RoundDurationCondition
         #     min: 2700 # 45 minutes
+=======
+        - id: ZombieOutbreak
+          weight: 2.5
+          conditions:
+          - !type:HasBudgetCondition
+          - !type:MaxRuleOccurenceCondition
+          - !type:PlayerCountCondition
+            min: 20
+          - !type:RoundDurationCondition
+            min: 2700 # 45 minutes
+>>>>>>> upstreamwiz/master
         - id: LoneOpsSpawn
           weight: 5
           conditions:
@@ -117,5 +141,8 @@
             min: 20
           - !type:RoundDurationCondition
             min: 2100 # 35 minutes
+<<<<<<< HEAD
     scheduledGameRules: !type:NestedSelector
       tableId: DynamicGameRulesTable
+=======
+>>>>>>> upstreamwiz/master

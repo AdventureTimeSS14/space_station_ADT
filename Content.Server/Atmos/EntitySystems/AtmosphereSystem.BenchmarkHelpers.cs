@@ -1,5 +1,9 @@
 using Content.Server.Atmos.Components;
 using Content.Shared.Atmos.Components;
+<<<<<<< HEAD
+=======
+using Content.Shared.Atmos.EntitySystems;
+>>>>>>> upstreamwiz/master
 using Robust.Shared.Map.Components;
 
 namespace Content.Server.Atmos.EntitySystems;

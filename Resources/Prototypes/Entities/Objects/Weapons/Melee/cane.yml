@@ -41,6 +41,7 @@
   components:
   - type: Sprite
     sprite: Objects/Weapons/Melee/cane_blade.rsi
+<<<<<<< HEAD
   # ADT-Tweak-Start
     layers:
     - state: icon-of
@@ -49,6 +50,8 @@
     reflectProb: 0.25
     spread: 90
   # ADT-Tweak-End
+=======
+>>>>>>> upstreamwiz/master
   - type: MeleeWeapon
     wideAnimationRotation: 65
     attackRate: 1.5

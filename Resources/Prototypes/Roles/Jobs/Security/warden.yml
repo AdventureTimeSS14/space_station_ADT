@@ -4,6 +4,7 @@
   description: job-description-warden
   playTimeTracker: JobWarden
   requirements:
+<<<<<<< HEAD
     - !type:DepartmentTimeRequirement
       department: Security
       time: 50h # Corvax-RoleTime
@@ -20,6 +21,15 @@
       - Vox
       - Shadekin
   # ADT RESTRICT End
+=======
+    - !type:RoleTimeRequirement
+      role: JobSecurityOfficer
+      time: 5h
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 10h
+  weight: 5
+>>>>>>> upstreamwiz/master
   startingGear: WardenGear
   icon: "JobIconWarden"
   supervisors: job-supervisors-hos

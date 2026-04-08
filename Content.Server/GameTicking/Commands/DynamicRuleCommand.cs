@@ -1,6 +1,9 @@
 ﻿using System.Linq;
 using Content.Server.Administration;
+<<<<<<< HEAD
 using Content.Server.ADT.GameTicking.Rules;
+=======
+>>>>>>> upstreamwiz/master
 using Content.Server.GameTicking.Rules;
 using Content.Shared.Administration;
 using Robust.Shared.Prototypes;

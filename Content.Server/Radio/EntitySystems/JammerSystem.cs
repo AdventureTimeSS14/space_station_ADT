@@ -1,28 +1,18 @@
-using Content.Server.Power.EntitySystems;
-using Content.Server.PowerCell;
-using Content.Shared.DeviceNetwork.Components;
-using Content.Shared.Interaction;
-using Content.Shared.PowerCell.Components;
 using Content.Shared.Radio.EntitySystems;
 using Content.Shared.Radio.Components;
-using Content.Shared.DeviceNetwork.Systems;
 
 namespace Content.Server.Radio.EntitySystems;
 
 public sealed class JammerSystem : SharedJammerSystem
 {
-    [Dependency] private readonly PowerCellSystem _powerCell = default!;
-    [Dependency] private readonly BatterySystem _battery = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SharedDeviceNetworkJammerSystem _jammer = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<RadioJammerComponent, ActivateInWorldEvent>(OnActivate);
-        SubscribeLocalEvent<ActiveRadioJammerComponent, PowerCellChangedEvent>(OnPowerCellChanged);
         SubscribeLocalEvent<RadioSendAttemptEvent>(OnRadioSendAttempt);
+<<<<<<< HEAD
     }
 
     public override void Update(float frameTime)
@@ -101,17 +91,33 @@ public sealed class JammerSystem : SharedJammerSystem
             ChangeLEDState(ent.Owner, false);
             RemCompDeferred<ActiveRadioJammerComponent>(ent);
         }
+=======
+        SubscribeLocalEvent<RadioReceiveAttemptEvent>(OnRadioReceiveAttempt);
+>>>>>>> upstreamwiz/master
     }
 
     private void OnRadioSendAttempt(ref RadioSendAttemptEvent args)
     {
+<<<<<<< HEAD
         if (ShouldCancelSend(args.RadioSource, args.Channel.Frequency))
         {
+=======
+        if (ShouldCancel(args.RadioSource, args.Channel.Frequency))
+>>>>>>> upstreamwiz/master
             args.Cancelled = true;
-        }
     }
 
+<<<<<<< HEAD
     private bool ShouldCancelSend(EntityUid sourceUid, int frequency)
+=======
+    private void OnRadioReceiveAttempt(ref RadioReceiveAttemptEvent args)
+    {
+        if (ShouldCancel(args.RadioReceiver, args.Channel.Frequency))
+            args.Cancelled = true;
+    }
+
+    private bool ShouldCancel(EntityUid sourceUid, int frequency)
+>>>>>>> upstreamwiz/master
     {
         var source = Transform(sourceUid).Coordinates;
         var query = EntityQueryEnumerator<ActiveRadioJammerComponent, RadioJammerComponent, TransformComponent>();
@@ -119,7 +125,11 @@ public sealed class JammerSystem : SharedJammerSystem
         while (query.MoveNext(out var uid, out _, out var jam, out var transform))
         {
             // Check if this jammer excludes the frequency
+<<<<<<< HEAD
             if (jam.FrequenciesExcluded != null && jam.FrequenciesExcluded.Contains(frequency))
+=======
+            if (jam.FrequenciesExcluded.Contains(frequency))
+>>>>>>> upstreamwiz/master
                 continue;
 
             if (_transform.InRange(source, transform.Coordinates, GetCurrentRange((uid, jam))))

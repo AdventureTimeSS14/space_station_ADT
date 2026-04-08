@@ -1,9 +1,6 @@
-using Content.Server.Atmos.Rotting;
-using Content.Server.Chat.Systems;
-using Content.Server.DoAfter;
-using Content.Server.Electrocution;
 using Content.Server.EUI;
 using Content.Server.Ghost;
+<<<<<<< HEAD
 using Content.Server.Popups;
 using Content.Server.PowerCell;
 using Content.Shared.Traits.Assorted;
@@ -20,6 +17,10 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Timing;
 using Robust.Shared.Audio.Systems;
+=======
+using Content.Shared.Medical;
+using Content.Shared.Mind;
+>>>>>>> upstreamwiz/master
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
 using Content.Shared.ADT.Atmos.Miasma;
@@ -30,17 +31,11 @@ using Content.Server.Resist; //ADT-Medicine
 
 namespace Content.Server.Medical;
 
-/// <summary>
-/// This handles interactions and logic relating to <see cref="DefibrillatorComponent"/>
-/// </summary>
-public sealed class DefibrillatorSystem : EntitySystem
+public sealed class DefibrillatorSystem : SharedDefibrillatorSystem
 {
-    [Dependency] private readonly ChatSystem _chatManager = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly DoAfterSystem _doAfter = default!;
-    [Dependency] private readonly ElectrocutionSystem _electrocution = default!;
-    [Dependency] private readonly EuiManager _euiManager = default!;
+    [Dependency] private readonly EuiManager _eui = default!;
     [Dependency] private readonly ISharedPlayerManager _player = default!;
+<<<<<<< HEAD
     [Dependency] private readonly RottingSystem _rotting = default!;
     [Dependency] private readonly ItemToggleSystem _toggle = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
@@ -272,5 +267,12 @@ public sealed class DefibrillatorSystem : EntitySystem
         // TODO clean up this clown show above
         var ev = new TargetDefibrillatedEvent(user, (uid, component));
         RaiseLocalEvent(target, ref ev);
+=======
+    [Dependency] private readonly SharedMindSystem _mind = default!;
+
+    protected override void OpenReturnToBodyEui(Entity<MindComponent> mind, ICommonSession session)
+    {
+        _eui.OpenEui(new ReturnToBodyEui(mind, _mind, _player), session);
+>>>>>>> upstreamwiz/master
     }
 }

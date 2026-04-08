@@ -53,6 +53,7 @@ public sealed class PlantHolderSystem : EntitySystem
 
     public const float HydroponicsSpeedMultiplier = 1f;
     public const float HydroponicsConsumptionMultiplier = 2f;
+    public readonly FixedPoint2 PlantMetabolismRate = FixedPoint2.New(1);
 
     private static readonly ProtoId<TagPrototype> HoeTag = "Hoe";
     private static readonly ProtoId<TagPrototype> PlantSampleTakerTag = "PlantSampleTaker";
@@ -302,6 +303,7 @@ public sealed class PlantHolderSystem : EntitySystem
             {
                 healthOverride = component.Health;
             }
+            component.Seed.Unique = false;
             var packetSeed = component.Seed;
             var seed = _botany.SpawnSeedPacket(packetSeed, Transform(args.User).Coordinates, args.User, healthOverride);
             _randomHelper.RandomOffset(seed, 0.25f);
@@ -885,13 +887,29 @@ public sealed class PlantHolderSystem : EntitySystem
 
         if (solution.Volume > 0 && component.MutationLevel < 25)
         {
+<<<<<<< HEAD
             foreach (var entry in component.SoilSolution.Value.Comp.Solution.Contents)
+=======
+            // Don't apply any effects to a non-unique seed ever! Remove this when botany code is sane...
+            EnsureUniqueSeed(uid, component);
+            foreach (var entry in solution.Contents)
+>>>>>>> upstreamwiz/master
             {
+                if (entry.Quantity < PlantMetabolismRate)
+                    continue;
+
                 var reagentProto = _prototype.Index<ReagentPrototype>(entry.Reagent.Prototype);
+<<<<<<< HEAD
                 _entityEffects.ApplyEffects(uid, reagentProto.PlantMetabolisms.ToArray(), entry.Quantity.Float());
             }
 
             _solutionContainerSystem.RemoveEachReagent(component.SoilSolution.Value, FixedPoint2.New(1));
+=======
+                _entityEffects.ApplyEffects(uid, reagentProto.PlantMetabolisms.ToArray(), entry.Quantity);
+            }
+
+            _solutionContainerSystem.RemoveEachReagent(component.SoilSolution.Value, PlantMetabolismRate);
+>>>>>>> upstreamwiz/master
         }
 
         CheckLevelSanity(uid, component);

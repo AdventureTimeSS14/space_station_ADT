@@ -1,9 +1,14 @@
 ﻿using System.Text;
 using Content.Server.Destructible;
-using Content.Server.PowerCell;
 using Content.Shared.Speech.Components;
 using Content.Shared.Damage.Components;
+<<<<<<< HEAD
+=======
+using Content.Shared.Damage.Systems;
+>>>>>>> upstreamwiz/master
 using Content.Shared.FixedPoint;
+using Content.Shared.Power.EntitySystems;
+using Content.Shared.PowerCell;
 using Content.Shared.Speech;
 using Robust.Shared.Random;
 using Robust.Shared.Audio.Systems;
@@ -14,9 +19,14 @@ namespace Content.Server.Speech.EntitySystems;
 public sealed class DamagedSiliconAccentSystem : EntitySystem
 {
     [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly SharedBatterySystem _battery = default!;
     [Dependency] private readonly PowerCellSystem _powerCell = default!;
     [Dependency] private readonly DestructibleSystem _destructibleSystem = default!;
+<<<<<<< HEAD
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+=======
+    [Dependency] private readonly DamageableSystem _damageable = default!;
+>>>>>>> upstreamwiz/master
 
     public override void Initialize()
     {
@@ -36,10 +46,22 @@ public sealed class DamagedSiliconAccentSystem : EntitySystem
         bool messageChanged = false;
         if (ent.Comp.EnableChargeCorruption)
         {
+<<<<<<< HEAD
             float currentChargeLevel = ent.Comp.OverrideChargeLevel ?? 0f;
             if (_powerCell.TryGetBatteryFromSlot(uid, out var battery))
                 currentChargeLevel = battery.CurrentCharge / battery.MaxCharge;
 
+=======
+            var currentChargeLevel = 0.0f;
+            if (ent.Comp.OverrideChargeLevel.HasValue)
+            {
+                currentChargeLevel = ent.Comp.OverrideChargeLevel.Value;
+            }
+            else if (_powerCell.TryGetBatteryFromSlot(uid, out var battery))
+            {
+                currentChargeLevel = _battery.GetChargeLevel(battery.Value.AsNullable());
+            }
+>>>>>>> upstreamwiz/master
             currentChargeLevel = Math.Clamp(currentChargeLevel, 0.0f, 1.0f);
 
             var corrupted = CorruptPower(message, currentChargeLevel, ent.Comp);
@@ -52,6 +74,7 @@ public sealed class DamagedSiliconAccentSystem : EntitySystem
 
         if (ent.Comp.EnableDamageCorruption)
         {
+<<<<<<< HEAD
             FixedPoint2 damage = ent.Comp.OverrideTotalDamage ?? FixedPoint2.Zero;
             if (TryComp<DamageableComponent>(uid, out var damageable))
                 damage = damageable.TotalDamage;
@@ -61,6 +84,16 @@ public sealed class DamagedSiliconAccentSystem : EntitySystem
             {
                 message = corrupted;
                 messageChanged = true;
+=======
+            var damage = FixedPoint2.Zero;
+            if (ent.Comp.OverrideTotalDamage.HasValue)
+            {
+                damage = ent.Comp.OverrideTotalDamage.Value;
+            }
+            else if (TryComp<DamageableComponent>(uid, out var damageable))
+            {
+                damage = _damageable.GetTotalDamage((uid, damageable));
+>>>>>>> upstreamwiz/master
             }
         }
 

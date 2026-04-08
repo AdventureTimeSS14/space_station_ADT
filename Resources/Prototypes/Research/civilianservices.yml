@@ -133,6 +133,7 @@
   - FauxTileAstroIce
   - FauxTileAstroSnow
   - FauxTileAstroAsteroidSand
+<<<<<<< HEAD
   - FauxTileDesertAstroSand
   # ADT-tweak start: Additional floor tile recipes
   - FloorTileItemWoodParquet
@@ -182,6 +183,12 @@
   requiredTech:
   - AdvancedEntertainment
   # ADT Research Console Rework end
+=======
+  - FauxTileAstroAsteroidSandBorderless
+  - FauxTileDesertAstroSand
+  - FauxTileAstroIronsand
+  - FauxTileAstroIronsandBorderless
+>>>>>>> upstreamwiz/master
 
 # Перенесено в ADT/Research/biochemical.yml
 # - type: technology
@@ -204,6 +211,7 @@
 #   - ADTCloning
 #   # ADT Research Console Rework end
 
+<<<<<<< HEAD
 # Перенесено в ADT/Research/biochemical.yml
 # - type: technology
 #   id: MechanizedTreatment
@@ -222,6 +230,20 @@
 #   requiredTech:
 #   - ADTMedicalMODsuit
 #   # ADT Research Console Rework end
+=======
+- type: technology # Merge with other T2 medical research if possible!
+  id: MechanizedTreatment
+  name: research-technology-mechanized-treatment
+  icon:
+    sprite: Mobs/Silicon/chassis.rsi
+    state: medical
+  discipline: CivilianServices
+  tier: 2
+  cost: 5000
+  recipeUnlocks:
+  - BorgModuleAdvancedTopical
+  - AdvancedJetInjector
+>>>>>>> upstreamwiz/master
 
 - type: technology
   id: AdvancedCleaning
@@ -318,11 +340,14 @@
   recipeUnlocks:
   - PushHorn
   - BorgModuleAdvancedClowning
+<<<<<<< HEAD
   # ADT Research Console Rework start
   position: 5,-1
   requiredTech:
   - FauxAstroTiles
   # ADT Research Console Rework end
+=======
+>>>>>>> upstreamwiz/master
 
 # Tier 3
 

@@ -3,6 +3,7 @@
   name: job-name-intern
   description: job-description-intern
   playTimeTracker: JobMedicalIntern
+<<<<<<< HEAD
 # ADT-Tweak
   # requirements:
   #   - !type:DepartmentTimeRequirement
@@ -10,6 +11,13 @@
   #     time: 36000 #10 hrs # Corvax-RoleTime
   #     inverted: true # stop playing intern if you're good at med!
 # ADT-Tweak
+=======
+  requirements:
+    - !type:DepartmentTimeRequirement
+      department: Medical
+      time: 10h
+      inverted: true # stop playing intern if you're good at med!
+>>>>>>> upstreamwiz/master
   startingGear: MedicalInternGear
   icon: "JobIconMedicalIntern"
   supervisors: job-supervisors-medicine
@@ -24,11 +32,11 @@
     shoes: ClothingShoesColorWhite
     #id: MedicalInternPDA # ADT: different PDAs in loadouts
     ears: ClothingHeadsetMedical
+<<<<<<< HEAD
 #    belt: ClothingBeltMedicalFilled ADT tweak
+=======
+>>>>>>> upstreamwiz/master
     pocket2: BookMedicalReferenceBook
-  #storage:
-    #back:
-    #- Stuff
 
 - type: chameleonOutfit
   id: MedicalInternChameleonOutfit

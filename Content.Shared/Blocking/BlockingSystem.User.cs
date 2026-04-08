@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
@@ -53,11 +54,19 @@ public sealed partial class BlockingSystem
             return;
 
         var blockFraction = blocking.IsBlocking ? blocking.ActiveBlockFraction : blocking.PassiveBlockFraction;
+<<<<<<< HEAD
+=======
+        var modifier = blocking.IsBlocking ? blocking.ActiveBlockDamageModifier : blocking.PassiveBlockDamageModifer;
+>>>>>>> upstreamwiz/master
         blockFraction = Math.Clamp(blockFraction, 0, 1);
         _damageable.TryChangeDamage((item, dmgComp), blockFraction * args.OriginalDamage);
 
         var modify = new DamageModifierSet();
+<<<<<<< HEAD
         foreach (var key in dmgComp.Damage.DamageDict.Keys)
+=======
+        foreach (var key in modifier.Coefficients.Keys.Concat(modifier.FlatReduction.Keys))
+>>>>>>> upstreamwiz/master
         {
             modify.Coefficients.TryAdd(key, 1 - blockFraction);
         }

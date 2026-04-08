@@ -11,6 +11,10 @@ namespace Content.Shared.Damage.Systems;
 public sealed class SlowOnDamageSystem : EntitySystem
 {
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifierSystem = default!;
+<<<<<<< HEAD
+=======
+    [Dependency] private readonly DamageableSystem _damage = default!;
+>>>>>>> upstreamwiz/master
 
     public override void Initialize()
     {
@@ -34,12 +38,22 @@ public sealed class SlowOnDamageSystem : EntitySystem
         if (!TryComp<DamageableComponent>(uid, out var damage))
             return;
 
+<<<<<<< HEAD
         if (damage.TotalDamage == FixedPoint2.Zero)
+=======
+        var totalDamage = _damage.GetTotalDamage((uid, damage));
+
+        if (totalDamage == FixedPoint2.Zero)
+>>>>>>> upstreamwiz/master
             return;
 
         // Get closest threshold
         FixedPoint2 closest = FixedPoint2.Zero;
+<<<<<<< HEAD
         var total = damage.TotalDamage;
+=======
+        var total = totalDamage;
+>>>>>>> upstreamwiz/master
         foreach (var thres in component.SpeedModifierThresholds)
         {
             if (total >= thres.Key && thres.Key > closest)

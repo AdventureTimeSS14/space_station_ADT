@@ -1,17 +1,23 @@
 ﻿using System.Linq;
 using System.Numerics;
+<<<<<<< HEAD
+=======
+using Content.Shared.Body;
+>>>>>>> upstreamwiz/master
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.Humanoid.Prototypes;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Serialization;
+using Robust.Shared.Utility;
 
 namespace Content.Shared.Humanoid;
 
 [DataDefinition]
 [Serializable, NetSerializable]
-public sealed partial class HumanoidCharacterAppearance : ICharacterAppearance, IEquatable<HumanoidCharacterAppearance>
+public sealed partial class HumanoidCharacterAppearance : IEquatable<HumanoidCharacterAppearance>
 {
+<<<<<<< HEAD
     [DataField("hair")]
     public string HairStyleId { get; set; } = HairStyles.DefaultHairStyle;
 
@@ -24,6 +30,8 @@ public sealed partial class HumanoidCharacterAppearance : ICharacterAppearance, 
     [DataField]
     public Color FacialHairColor { get; set; } = Color.Black;
 
+=======
+>>>>>>> upstreamwiz/master
     [DataField]
     public Color EyeColor { get; set; } = Color.Black;
 
@@ -31,31 +39,39 @@ public sealed partial class HumanoidCharacterAppearance : ICharacterAppearance, 
     public Color SkinColor { get; set; } = Color.FromHsv(new Vector4(0.07f, 0.2f, 1f, 1f));
 
     [DataField]
-    public List<Marking> Markings { get; set; } = new();
+    public Dictionary<ProtoId<OrganCategoryPrototype>, Dictionary<HumanoidVisualLayers, List<Marking>>> Markings { get; set; } = new();
 
+<<<<<<< HEAD
     public HumanoidCharacterAppearance(string hairStyleId,
         List<Color> hairColor, // ADT-tweak
         string facialHairStyleId,
         Color facialHairColor,
+=======
+    public HumanoidCharacterAppearance(
+>>>>>>> upstreamwiz/master
         Color eyeColor,
         Color skinColor,
-        List<Marking> markings)
+        Dictionary<ProtoId<OrganCategoryPrototype>, Dictionary<HumanoidVisualLayers, List<Marking>>> markings)
     {
+<<<<<<< HEAD
         HairStyleId = hairStyleId;
         HairColor = hairColor.Select(ClampColor).ToList(); // ADT-tweak
         FacialHairStyleId = facialHairStyleId;
         FacialHairColor = ClampColor(facialHairColor);
+=======
+>>>>>>> upstreamwiz/master
         EyeColor = ClampColor(eyeColor);
         SkinColor = ClampColor(skinColor);
         Markings = markings;
     }
 
     public HumanoidCharacterAppearance(HumanoidCharacterAppearance other) :
-        this(other.HairStyleId, other.HairColor, other.FacialHairStyleId, other.FacialHairColor, other.EyeColor, other.SkinColor, new(other.Markings))
+        this(other.EyeColor, other.SkinColor, new(other.Markings))
     {
 
     }
 
+<<<<<<< HEAD
     public HumanoidCharacterAppearance WithHairStyleName(string newName)
     {
         return new(newName, HairColor, FacialHairStyleId, FacialHairColor, EyeColor, SkinColor, Markings);
@@ -76,22 +92,24 @@ public sealed partial class HumanoidCharacterAppearance : ICharacterAppearance, 
         return new(HairStyleId, HairColor, FacialHairStyleId, newColor, EyeColor, SkinColor, Markings);
     }
 
+=======
+>>>>>>> upstreamwiz/master
     public HumanoidCharacterAppearance WithEyeColor(Color newColor)
     {
-        return new(HairStyleId, HairColor, FacialHairStyleId, FacialHairColor, newColor, SkinColor, Markings);
+        return new(newColor, SkinColor, Markings);
     }
 
     public HumanoidCharacterAppearance WithSkinColor(Color newColor)
     {
-        return new(HairStyleId, HairColor, FacialHairStyleId, FacialHairColor, EyeColor, newColor, Markings);
+        return new(EyeColor, newColor, Markings);
     }
 
-    public HumanoidCharacterAppearance WithMarkings(List<Marking> newMarkings)
+    public HumanoidCharacterAppearance WithMarkings(Dictionary<ProtoId<OrganCategoryPrototype>, Dictionary<HumanoidVisualLayers, List<Marking>>> newMarkings)
     {
-        return new(HairStyleId, HairColor, FacialHairStyleId, FacialHairColor, EyeColor, SkinColor, newMarkings);
+        return new(EyeColor, SkinColor, newMarkings);
     }
 
-    public static HumanoidCharacterAppearance DefaultWithSpecies(string species)
+    public static HumanoidCharacterAppearance DefaultWithSpecies(ProtoId<SpeciesPrototype> species, Sex sex)
     {
         var protoMan = IoCManager.Resolve<IPrototypeManager>();
         var speciesPrototype = protoMan.Index<SpeciesPrototype>(species);
@@ -103,15 +121,20 @@ public sealed partial class HumanoidCharacterAppearance : ICharacterAppearance, 
             _ => skinColoration.ClosestSkinColor(speciesPrototype.DefaultSkinTone),
         };
 
+<<<<<<< HEAD
         return new(
             HairStyles.DefaultHairStyle,
             new List<Color> { Color.Black }, // ADT-tweak
             HairStyles.DefaultFacialHairStyle,
             Color.Black,
+=======
+        var appearance = new HumanoidCharacterAppearance(
+>>>>>>> upstreamwiz/master
             Color.Black,
             skinColor,
             new()
         );
+        return EnsureValid(appearance, species, sex);
     }
 
     private static IReadOnlyList<Color> _realisticEyeColors = new List<Color>
@@ -127,22 +150,6 @@ public sealed partial class HumanoidCharacterAppearance : ICharacterAppearance, 
     {
         var random = IoCManager.Resolve<IRobustRandom>();
         var markingManager = IoCManager.Resolve<MarkingManager>();
-        var hairStyles = markingManager.MarkingsByCategoryAndSpecies(MarkingCategories.Hair, species).Keys.ToList();
-        var facialHairStyles = markingManager.MarkingsByCategoryAndSpecies(MarkingCategories.FacialHair, species).Keys.ToList();
-
-        var newHairStyle = hairStyles.Count > 0
-            ? random.Pick(hairStyles)
-            : HairStyles.DefaultHairStyle.Id;
-
-        var newFacialHairStyle = facialHairStyles.Count == 0 || sex == Sex.Female
-            ? HairStyles.DefaultFacialHairStyle.Id
-            : random.Pick(facialHairStyles);
-
-        var newHairColor = random.Pick(HairStyles.RealisticHairColors);
-        newHairColor = newHairColor
-            .WithRed(RandomizeColor(newHairColor.R))
-            .WithGreen(RandomizeColor(newHairColor.G))
-            .WithBlue(RandomizeColor(newHairColor.B));
 
         // TODO: Add random markings
 
@@ -159,12 +166,16 @@ public sealed partial class HumanoidCharacterAppearance : ICharacterAppearance, 
             _ => strategy.ClosestSkinColor(new Color(random.NextFloat(1), random.NextFloat(1), random.NextFloat(1), 1)),
         };
 
+<<<<<<< HEAD
         return new HumanoidCharacterAppearance(newHairStyle, new List<Color> { newHairColor }, newFacialHairStyle, newHairColor, newEyeColor, newSkinColor, new()); // ADT-tweak
 
         float RandomizeColor(float channel)
         {
             return MathHelper.Clamp01(channel + random.Next(-25, 25) / 100f);
         }
+=======
+        return new HumanoidCharacterAppearance(newEyeColor, newSkinColor, new());
+>>>>>>> upstreamwiz/master
     }
 
     public static Color ClampColor(Color color)
@@ -172,6 +183,7 @@ public sealed partial class HumanoidCharacterAppearance : ICharacterAppearance, 
         return new(color.RByte, color.GByte, color.BByte);
     }
 
+<<<<<<< HEAD
     public static HumanoidCharacterAppearance EnsureValid(HumanoidCharacterAppearance appearance, string species, Sex sex, string[] sponsorPrototypes)
     {
         var hairStyleId = appearance.HairStyleId;
@@ -179,11 +191,16 @@ public sealed partial class HumanoidCharacterAppearance : ICharacterAppearance, 
 
         var hairColor = appearance.HairColor.Select(ClampColor).ToList(); // ADT-tweak
         var facialHairColor = ClampColor(appearance.FacialHairColor);
+=======
+    public static HumanoidCharacterAppearance EnsureValid(HumanoidCharacterAppearance appearance, ProtoId<SpeciesPrototype> species, Sex sex)
+    {
+>>>>>>> upstreamwiz/master
         var eyeColor = ClampColor(appearance.EyeColor);
 
         var proto = IoCManager.Resolve<IPrototypeManager>();
         var markingManager = IoCManager.Resolve<MarkingManager>();
 
+<<<<<<< HEAD
         if (!markingManager.MarkingsByCategory(MarkingCategories.Hair).ContainsKey(hairStyleId))
         {
             hairStyleId = HairStyles.DefaultHairStyle;
@@ -213,27 +230,55 @@ public sealed partial class HumanoidCharacterAppearance : ICharacterAppearance, 
         // Corvax-Sponsors-End
 
         var markingSet = new MarkingSet();
+=======
+>>>>>>> upstreamwiz/master
         var skinColor = appearance.SkinColor;
-        if (proto.TryIndex(species, out SpeciesPrototype? speciesProto))
-        {
-            markingSet = new MarkingSet(appearance.Markings, speciesProto.MarkingPoints, markingManager, proto);
-            markingSet.EnsureValid(markingManager);
+        var validatedMarkings = appearance.Markings.ShallowClone();
 
+<<<<<<< HEAD
             var strategy = proto.Index(speciesProto.SkinColoration).Strategy;
             skinColor = strategy.EnsureVerified(skinColor);
 
             markingSet.EnsureSpecies(species, skinColor, markingManager);
             markingSet.EnsureSexes(sex, markingManager);
             markingSet.FilterSponsor(sponsorPrototypes, markingManager); // Corvax-Sponsors
+=======
+        if (proto.TryIndex(species, out var speciesProto))
+        {
+            var strategy = proto.Index(speciesProto.SkinColoration).Strategy;
+            var organs = markingManager.GetOrgans(species);
+            skinColor = strategy.EnsureVerified(skinColor);
+
+            foreach (var (organ, markings) in appearance.Markings)
+            {
+                if (!organs.ContainsKey(organ))
+                    validatedMarkings.Remove(organ);
+            }
+
+            foreach (var (organ, organProtoID) in organs)
+            {
+                if (!markingManager.TryGetMarkingData(organProtoID, out var organData))
+                {
+                    validatedMarkings.Remove(organ);
+                    continue;
+                }
+
+                var actualMarkings = appearance.Markings.GetValueOrDefault(organ)?.ShallowClone() ?? [];
+
+                markingManager.EnsureValidColors(actualMarkings);
+                markingManager.EnsureValidGroupAndSex(actualMarkings, organData.Value.Group, sex);
+                markingManager.EnsureValidLayers(actualMarkings, organData.Value.Layers);
+                markingManager.EnsureValidLimits(actualMarkings, organData.Value.Group, organData.Value.Layers, skinColor, eyeColor);
+
+                validatedMarkings[organ] = actualMarkings;
+            }
+>>>>>>> upstreamwiz/master
         }
 
         return new HumanoidCharacterAppearance(
-            hairStyleId,
-            hairColor,
-            facialHairStyleId,
-            facialHairColor,
             eyeColor,
             skinColor,
+<<<<<<< HEAD
             markingSet.GetForwardEnumerator().ToList());
     }
 
@@ -248,19 +293,26 @@ public sealed partial class HumanoidCharacterAppearance : ICharacterAppearance, 
         if (!SkinColor.Equals(other.SkinColor)) return false;
         if (!Markings.SequenceEqual(other.Markings)) return false;
         return true;
+=======
+            validatedMarkings);
+>>>>>>> upstreamwiz/master
     }
 
     public bool Equals(HumanoidCharacterAppearance? other)
     {
         if (ReferenceEquals(null, other)) return false;
         if (ReferenceEquals(this, other)) return true;
+<<<<<<< HEAD
         return HairStyleId == other.HairStyleId &&
                HairColor.SequenceEqual(other.HairColor) && // ADT-tweak
                FacialHairStyleId == other.FacialHairStyleId &&
                FacialHairColor.Equals(other.FacialHairColor) &&
                EyeColor.Equals(other.EyeColor) &&
+=======
+        return EyeColor.Equals(other.EyeColor) &&
+>>>>>>> upstreamwiz/master
                SkinColor.Equals(other.SkinColor) &&
-               Markings.SequenceEqual(other.Markings);
+               MarkingManager.MarkingsAreEqual(Markings, other.Markings);
     }
 
     public override bool Equals(object? obj)
@@ -270,7 +322,7 @@ public sealed partial class HumanoidCharacterAppearance : ICharacterAppearance, 
 
     public override int GetHashCode()
     {
-        return HashCode.Combine(HairStyleId, HairColor, FacialHairStyleId, FacialHairColor, EyeColor, SkinColor, Markings);
+        return HashCode.Combine(EyeColor, SkinColor, Markings);
     }
 
     public HumanoidCharacterAppearance Clone()

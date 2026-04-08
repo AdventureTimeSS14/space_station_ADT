@@ -67,7 +67,11 @@ public sealed partial class DeltaPressureComponent : Component
     [DataField]
     public DamageSpecifier BaseDamage = new()
     {
+<<<<<<< HEAD
         DamageDict = new Dictionary<string, FixedPoint2>
+=======
+        DamageDict = new ()
+>>>>>>> upstreamwiz/master
         {
             { "Structural", 10 },
         },

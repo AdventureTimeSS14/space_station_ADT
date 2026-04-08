@@ -1,6 +1,8 @@
-## Base stash
+# When adding new toys, also add it somewhere nested in id: AllToysTable
+# Catchall file for toys which don't have a strong grouping (only 1 or 2 prototypes)
 
 - type: entity
+<<<<<<< HEAD
   id: BaseStash
   abstract: true
   components:
@@ -55,42 +57,53 @@
   id: ToyRubberDuck
   name: rubber ducky
   description: Not carried here by ocean currents.
+=======
+  parent: BaseItem
+  id: SnapPop
+  name: snap pop
+  description: Throw it at the floor and listen to it POP!
+>>>>>>> upstreamwiz/master
   components:
   - type: Sprite
-    sprite: Objects/Fun/ducky.rsi
+    sprite: Objects/Fun/snap_pops.rsi
     state: icon
-  - type: Clothing
-    quickEquip: false
-    sprite: Objects/Fun/ducky.rsi
-    slots:
-    - HEAD
   - type: Item
     size: Tiny
-  - type: EmitSoundOnUse
-    sound:
-      path: /Audio/Items/Toys/quack.ogg
-  - type: EmitSoundOnLand
-    sound:
-      path: /Audio/Items/Toys/quack.ogg
-  - type: EmitSoundOnActivate
-    sound:
-      path: /Audio/Items/Toys/quack.ogg
-  - type: EmitSoundOnTrigger
-    sound:
-      path: /Audio/Items/Toys/quack.ogg
-  - type: EmitSoundOnCollide
-    sound:
-      path: /Audio/Items/Toys/quack.ogg
-  - type: Tag
-    tags:
-    - ToyRubberDuck
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Effects/snap.ogg
+      - !type:ExplodeBehavior
+  - type: DamageOnLand
+    damage:
+      types:
+        Blunt: 3
+  - type: Explosive
+    explosionType: Default
+    # Cosmetic explosion :tf:
+    maxIntensity: 0.01
+    intensitySlope: 1
+    totalIntensity: 0.01
+  - type: Construction
+    graph: SnapPopExplosiveGraph
+    node: snapPop
 
 - type: entity
-  parent: BaseRubberToy
-  id: RubberChicken
-  name: rubber chicken
-  description: A stress inducing parody of nature's most delectable avian.
+  parent: BaseStorageItem
+  id: SnapPopBox
+  name: snap pop box
+  description: Contains snap pops for a few minutes of popping fun!
   components:
+<<<<<<< HEAD
   - type: Sprite
     sprite: Objects/Fun/rubber_chicken.rsi
     state: icon
@@ -1031,10 +1044,31 @@
 
 - type: entity
   name: banana
+=======
+  - type: Item
+    size: Normal
+  - type: Sprite
+    sprite: Objects/Fun/snap_pops.rsi
+    state: box
+  - type: Storage
+    grid:
+    - 0,0,4,3
+    areaInsert: true
+    maxItemSize: Tiny
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: SnapPop
+        amount: 5
+  - type: Dumpable
+
+- type: entity
+>>>>>>> upstreamwiz/master
   parent: FoodProduceBase
   id: PlasticBanana
-  description: A plastic banana.
+  name: banana
   suffix: Plastic
+  description: A plastic banana.
   components:
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/banana.rsi
@@ -1119,32 +1153,149 @@
   - type: Lube
   - type: TrashOnSolutionEmpty
     solution: drink
+<<<<<<< HEAD
+=======
+
+- type: entity
+  parent: [ BaseItem, MobCombat ]
+  id: MrChips
+  name: mr chips
+  suffix: Dummy
+  description: It's a dummy, dummy!
+  components:
+  - type: Sprite
+    sprite: Objects/Fun/mrchips.rsi
+    layers:
+    - state: icon
+  - type: Input
+    context: "human"
+  - type: DoAfter
+  - type: VentriloquistPuppet
+  - type: Item
+    size: Normal
+  - type: Muted
+  - type: TypingIndicator
+    proto: robot
+  - type: Actions
+  - type: MobState
+    allowedStates:
+    - Alive
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Weapons/boxingpunch1.ogg
+    angle: 30
+    animation: WeaponArcPunch
+    damage:
+      types:
+        Blunt: 2
+
+- type: entity
+  parent: MrChips
+  id: MrDips
+  name: mr dips
+  components:
+  - type: Sprite
+    sprite: Objects/Fun/mrdips.rsi
+>>>>>>> upstreamwiz/master
 
 - type: entity
   parent: BaseItem
-  id: NewtonCradle
-  name: newton cradle
-  description: A device bored paper pushers use to remind themselves that time did not stop yet. Contains gravity.
+  id: Error
+  name: error
+  description: Hmmmm. Something went wrong.
   components:
   - type: Sprite
-    sprite: Objects/Fun/newton_cradle.rsi
-    state: icon-off
-  - type: Item
-    sprite: Objects/Fun/newton_cradle.rsi
-    storedRotation: -90
+    sprite: error.rsi
+    state: error
+  - type: Edible
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 26
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5
+  - type: Slippery
+    slipData:
+      knockdownTime: 3
+      launchForwardsMultiplier: 3
+  - type: StepTrigger
+    intersectRatio: 0.2
+  - type: CollisionWake
+    enabled: false
+  - type: Physics
+    bodyType: Dynamic
+  - type: Fixtures
+    fixtures:
+      slips:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,-0.3,0.4,0.3"
+        hard: false
+        layer:
+        - SlipLayer
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,-0.3,0.4,0.3"
+        density: 30
+        mask:
+        - ItemMask
+
+- type: entity
+  parent: BaseItem
+  id: SpectralLocatorUnpowered
+  name: spectral locator
+  suffix: Always Powered
+  description: Appears to be a modified anomaly locator. Seems very old.
+  components:
+  - type: Sprite
+    sprite: Objects/Fun/spectrallocator.rsi
+    layers:
+    - state: icon
+    - state: screen
+      shader: unshaded
+      visible: false
+      map: ["enum.ToggleableVisuals.Layer"]
   - type: Appearance
   - type: GenericVisualizer
     visuals:
       enum.ToggleableVisuals.Enabled:
         enum.ToggleableVisuals.Layer:
-          True: { state: icon }
-          False: { state: icon-off }
+          True: { visible: true }
+          False: { visible: false }
   - type: ItemToggle
-  - type: UseDelay
-    delay: 1
-  - type: ItemToggleActiveSound
-    activeSound:
-      path: /Audio/Items/newton_cradle.ogg
+  - type: ProximityBeeper
+  - type: ProximityDetector
+    range: 12
+    components:
+    - type: Spectral # ghosts, jaunts, reventants
+  - type: Beeper
+    isMuted: true
+    minBeepInterval: 0.25
+    maxBeepInterval: 0.5
+    beepSound:
+      path: "/Audio/Items/locator_beep.ogg"
       params:
-        volume: -9
-        maxDistance: 3
+        maxDistance: 1
+        volume: -8
+
+- type: entity
+  parent: [ SpectralLocatorUnpowered, PowerCellSlotSmallItem ]
+  id: SpectralLocator
+  suffix: ""
+  components:
+  - type: PowerCellDraw
+    drawRate: 1
+    useCharge: 0
+  - type: ToggleCellDraw
+
+- type: entity
+  parent: SpectralLocator
+  id: SpectralLocatorEmpty
+  suffix: Empty
+  components:
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default

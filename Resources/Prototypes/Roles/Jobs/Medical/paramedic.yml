@@ -22,6 +22,7 @@
   id: ParamedicGear
   equipment:
     id: ParamedicPDA
+<<<<<<< HEAD
 # ADT tweak Start
     ears: ADTClothingHeadsetParamedic
 #    belt: ClothingBeltMedicalEMTFilled
@@ -29,6 +30,9 @@
   storage:
     back:
     - EmergencyRollerBedSpawnFolded
+=======
+    ears: ClothingHeadsetMedical
+>>>>>>> upstreamwiz/master
 
 - type: chameleonOutfit
   id: ParamedicChameleonOutfit

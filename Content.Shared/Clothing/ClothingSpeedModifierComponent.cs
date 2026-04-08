@@ -5,7 +5,7 @@ namespace Content.Shared.Clothing;
 
 /// <summary>
 /// Modifies speed when worn and activated.
-/// Supports <c>ItemToggleComponent</c>.
+/// Supports <see cref="ItemToggleComponent"/>.
 /// </summary>
 [RegisterComponent, NetworkedComponent, Access(typeof(ClothingSpeedModifierSystem))]
 public sealed partial class ClothingSpeedModifierComponent : Component
@@ -17,6 +17,16 @@ public sealed partial class ClothingSpeedModifierComponent : Component
     public float SprintModifier = 1.0f;
 
     /// <summary>
+<<<<<<< HEAD
+=======
+    /// Defines if the speed modifier requires <see cref="ItemToggleComponent"/> activation to apply.
+    /// This will have no effect without an <see cref="ItemToggleComponent"/> on the entity.
+    /// </summary>
+    [DataField]
+    public bool RequireActivated = true;
+
+    /// <summary>
+>>>>>>> upstreamwiz/master
     /// An optional required standing state.
     /// Set to true if you need to be standing, false if you need to not be standing, null if you don't care.
     /// </summary>

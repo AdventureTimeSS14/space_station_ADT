@@ -9,9 +9,16 @@
   - FloorTileItemDarkHerringbone
   - FloorTileItemDarkMini
   - FloorTileItemDarkMono
+  - FloorTileItemDarkSlatsContinuous
+  - FloorTileItemDarkVerticalSlatsBordered
+  - FloorTileItemDarkHorizontalSlatsBordered
   - FloorTileItemDarkPavement
   - FloorTileItemDarkPavementVertical
   - FloorTileItemDarkOffset
+<<<<<<< HEAD
+=======
+  - FloorTileItemDarkSquiggly
+>>>>>>> upstreamwiz/master
 
 - type: latheRecipePack
   id: FloorSteelTilesStatic
@@ -22,6 +29,9 @@
   - FloorTileItemSteelDiagonal
   - FloorTileItemSteelHerringbone
   - FloorTileItemSteelMini
+  - FloorTileItemSteelSlatsContinuous
+  - FloorTileItemSteelVerticalSlatsBordered
+  - FloorTileItemSteelHorizontalSlatsBordered
   - FloorTileItemSteelMono
   - FloorTileItemSteelPavement
   - FloorTileItemSteelPavementVertical
@@ -38,6 +48,9 @@
   - FloorTileItemWhiteHerringbone
   - FloorTileItemWhiteMini
   - FloorTileItemWhiteMono
+  - FloorTileItemWhiteSlatsContinuous
+  - FloorTileItemWhiteVerticalSlatsBordered
+  - FloorTileItemWhiteHorizontalSlatsBordered
   - FloorTileItemWhitePavement
   - FloorTileItemWhitePavementVertical
 
@@ -50,6 +63,21 @@
   - FloorTileItemTechmaintDark
 
 - type: latheRecipePack
+<<<<<<< HEAD
+=======
+  id: FloorIndustrialTilesStatic
+  recipes:
+  - FloorTileItemMining
+  - FloorTileItemMiningDark
+  - FloorTileItemMiningLight
+  - FloorTileItemElevatorShaft
+  - FloorTileItemRockVault
+  - FloorTileItemMetalDiamond
+  - FloorTileItemFreezer
+  - FloorTileItemShowroom
+
+- type: latheRecipePack
+>>>>>>> upstreamwiz/master
   id: FloorWoodTilesStatic
   recipes:
   - FloorTileItemWood
@@ -68,6 +96,12 @@
   - FloorTileItemOldConcrete
   - FloorTileItemOldConcreteMono
   - FloorTileItemOldConcreteSmooth
+<<<<<<< HEAD
+=======
+  - FloorTileItemIronsandConcrete
+  - FloorTileItemIronsandConcreteMono
+  - FloorTileItemIronsandConcreteSmooth
+>>>>>>> upstreamwiz/master
 
 - type: latheRecipePack
   id: CircuitFloorsStatic
@@ -81,6 +115,45 @@
   recipes:
   - FloorTileItemWhiteMarble
   - FloorTileItemDarkMarble
+<<<<<<< HEAD
+=======
+  - FloorTileItemUraniumMarble
+  - FloorTileItemPlasmaMarble
+
+- type: latheRecipePack
+  id: FloorShuttleTilesStatic
+  recipes:
+  - FloorTileItemShuttleWhite
+  - FloorTileItemShuttleBlue
+  - FloorTileItemShuttleOrange
+  - FloorTileItemShuttlePurple
+  - FloorTileItemShuttleRed
+  - FloorTileItemShuttleGrey
+  - FloorTileItemShuttleBlack
+
+- type: latheRecipePack
+  id: PlasticTilesStatic
+  recipes:
+  - FloorTileItemLino
+  - FloorTileItemBoxing
+  - FloorTileItemGym
+
+- type: latheRecipePack
+  id: CarpetTilesStatic
+  recipes:
+  - FloorTileItemArcadeBlue
+  - FloorTileItemArcadeBlue2
+  - FloorTileItemArcadeRed
+  - FloorTileItemEighties
+  - FloorTileItemCarpetClown
+  - FloorTileItemCarpetOffice
+
+- type: latheRecipePack
+  id: PreciousTilesStatic
+  recipes:
+  - FloorTileItemGold
+  - FloorTileItemSilver
+>>>>>>> upstreamwiz/master
 
 ## Dynamic
 
@@ -95,6 +168,7 @@
   - FauxTileAstroIce
   - FauxTileAstroSnow
   - FauxTileAstroAsteroidSand
+<<<<<<< HEAD
   - FauxTileDesertAstroSand
 # ADT tweak start
 
@@ -141,3 +215,9 @@
   - FloorTileItemShuttleRed
 
 # ADT tweak end
+=======
+  - FauxTileAstroAsteroidSandBorderless
+  - FauxTileDesertAstroSand
+  - FauxTileAstroIronsand
+  - FauxTileAstroIronsandBorderless
+>>>>>>> upstreamwiz/master

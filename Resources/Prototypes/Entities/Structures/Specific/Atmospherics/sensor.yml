@@ -25,6 +25,7 @@
       Ammonia: stationAmmonia
       NitrousOxide: stationNO
       Frezon: danger
+<<<<<<< HEAD
       # ADT-Gas-Start
       BZ: danger
       Pluoxium: unwanted
@@ -38,6 +39,8 @@
       Helium: unwanted
       AntiNoblium: danger
       # ADT-Gas-End
+=======
+>>>>>>> upstreamwiz/master
   - type: GuideHelp
     guides:
     - DeviceMonitoringAndControl

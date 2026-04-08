@@ -1,5 +1,7 @@
+using Content.Shared.Roles;
 using Lidgren.Network;
 using Robust.Shared.Network;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.Players;
@@ -11,8 +13,13 @@ public sealed class MsgRoleBans : NetMessage
 {
     public override MsgGroups MsgGroup => MsgGroups.EntityEvent;
 
+<<<<<<< HEAD
     public List<string> JobBans = new();
     public List<string> AntagBans = new();
+=======
+    public List<ProtoId<JobPrototype>> JobBans = new();
+    public List<ProtoId<AntagPrototype>> AntagBans = new();
+>>>>>>> upstreamwiz/master
 
     public override void ReadFromBuffer(NetIncomingMessage buffer, IRobustSerializer serializer)
     {

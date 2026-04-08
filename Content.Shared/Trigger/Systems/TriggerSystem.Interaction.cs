@@ -16,11 +16,23 @@ public sealed partial class TriggerSystem
         SubscribeLocalEvent<TriggerOnActivateComponent, ActivateInWorldEvent>(OnActivate);
         SubscribeLocalEvent<TriggerOnUseComponent, UseInHandEvent>(OnUse);
         SubscribeLocalEvent<TriggerOnInteractHandComponent, InteractHandEvent>(OnInteractHand);
+<<<<<<< HEAD
         SubscribeLocalEvent<TriggerOnInteractUsingComponent, InteractUsingEvent>(OnInteractUsing);
+=======
+        SubscribeLocalEvent<TriggerOnUserInteractHandComponent, UserInteractHandEvent>(OnUserInteractHand);
+        SubscribeLocalEvent<TriggerOnInteractUsingComponent, InteractUsingEvent>(OnInteractUsing);
+        SubscribeLocalEvent<TriggerOnUserInteractUsingComponent, UserInteractUsingEvent>(OnUserInteractUsing);
+>>>>>>> upstreamwiz/master
 
         SubscribeLocalEvent<TriggerOnThrowComponent, ThrowEvent>(OnThrow);
         SubscribeLocalEvent<TriggerOnThrownComponent, ThrownEvent>(OnThrown);
 
+<<<<<<< HEAD
+=======
+        SubscribeLocalEvent<TriggerOnUiOpenComponent, BoundUIOpenedEvent>(OnUiOpened);
+        SubscribeLocalEvent<TriggerOnUiCloseComponent, BoundUIClosedEvent>(OnUiClosed);
+
+>>>>>>> upstreamwiz/master
         SubscribeLocalEvent<ItemToggleOnTriggerComponent, TriggerEvent>(HandleItemToggleOnTrigger);
         SubscribeLocalEvent<AnchorOnTriggerComponent, TriggerEvent>(HandleAnchorOnTrigger);
         SubscribeLocalEvent<UseDelayOnTriggerComponent, TriggerEvent>(HandleUseDelayOnTrigger);
@@ -61,6 +73,20 @@ public sealed partial class TriggerSystem
         args.Handled = true;
     }
 
+<<<<<<< HEAD
+=======
+    private void OnUserInteractHand(Entity<TriggerOnUserInteractHandComponent> ent, ref UserInteractHandEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        Trigger(ent.Owner, args.Target, ent.Comp.KeyOut);
+
+        if (ent.Comp.Handle)
+            args.Handled = true;
+    }
+
+>>>>>>> upstreamwiz/master
     private void OnInteractUsing(Entity<TriggerOnInteractUsingComponent> ent, ref InteractUsingEvent args)
     {
         if (args.Handled)
@@ -73,6 +99,23 @@ public sealed partial class TriggerSystem
         args.Handled = true;
     }
 
+<<<<<<< HEAD
+=======
+    private void OnUserInteractUsing(Entity<TriggerOnUserInteractUsingComponent> ent, ref UserInteractUsingEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        if (!_whitelist.CheckBoth(args.Used, ent.Comp.Blacklist, ent.Comp.Whitelist))
+            return;
+
+        Trigger(ent.Owner, ent.Comp.TargetUsed ? args.Used : args.Target, ent.Comp.KeyOut);
+
+        if (ent.Comp.Handle)
+            args.Handled = true;
+    }
+
+>>>>>>> upstreamwiz/master
     private void OnThrow(Entity<TriggerOnThrowComponent> ent, ref ThrowEvent args)
     {
         Trigger(ent.Owner, args.Thrown, ent.Comp.KeyOut);
@@ -83,6 +126,25 @@ public sealed partial class TriggerSystem
         Trigger(ent.Owner, args.User, ent.Comp.KeyOut);
     }
 
+<<<<<<< HEAD
+=======
+    private void OnUiOpened(Entity<TriggerOnUiOpenComponent> ent, ref BoundUIOpenedEvent args)
+    {
+        if (ent.Comp.UiKeys == null || ent.Comp.UiKeys.Contains(args.UiKey))
+        {
+            Trigger(ent, args.Actor, ent.Comp.KeyOut);
+        }
+    }
+
+    private void OnUiClosed(Entity<TriggerOnUiCloseComponent> ent, ref BoundUIClosedEvent args)
+    {
+        if (ent.Comp.UiKeys == null || ent.Comp.UiKeys.Contains(args.UiKey))
+        {
+            Trigger(ent, args.Actor, ent.Comp.KeyOut);
+        }
+    }
+
+>>>>>>> upstreamwiz/master
     private void HandleItemToggleOnTrigger(Entity<ItemToggleOnTriggerComponent> ent, ref TriggerEvent args)
     {
         if (args.Key != null && !ent.Comp.KeysIn.Contains(args.Key))

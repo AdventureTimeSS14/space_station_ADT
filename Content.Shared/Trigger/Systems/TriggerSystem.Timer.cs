@@ -2,6 +2,10 @@
 using Content.Shared.Trigger.Components.Triggers;
 using Content.Shared.Examine;
 using Content.Shared.Verbs;
+<<<<<<< HEAD
+=======
+using Robust.Shared.Random;
+>>>>>>> upstreamwiz/master
 
 namespace Content.Shared.Trigger.Systems;
 

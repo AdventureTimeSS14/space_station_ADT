@@ -1,16 +1,13 @@
-using Content.Server.StationEvents.Components;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
-using Content.Shared.Dataset;
 using Content.Shared.FixedPoint;
-using Content.Shared.GameTicking.Components;
-using Content.Shared.Random;
-using Content.Shared.Random.Helpers;
 using Content.Shared.Silicons.Laws;
 using Content.Shared.Silicons.Laws.Components;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using System.Linq;
+using Content.Shared.Random;
+using Content.Shared.Random.Helpers;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.Silicons.Laws;
 
@@ -20,6 +17,7 @@ public sealed class IonStormSystem : EntitySystem
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private readonly SiliconLawSystem _siliconLaw = default!;
     [Dependency] private readonly IRobustRandom _robustRandom = default!;
+<<<<<<< HEAD
 
     // funny
     private static readonly ProtoId<LocalizedDatasetPrototype> Threats = "IonStormThreats";
@@ -40,6 +38,9 @@ public sealed class IonStormSystem : EntitySystem
     private static readonly ProtoId<LocalizedDatasetPrototype> Concepts = "IonStormConcepts";
     private static readonly ProtoId<LocalizedDatasetPrototype> Drinks = "IonStormDrinks";
     private static readonly ProtoId<LocalizedDatasetPrototype> Foods = "IonStormFoods";
+=======
+    [Dependency] private readonly IonLawSystem _ionLaw = default!;
+>>>>>>> upstreamwiz/master
 
     /// <summary>
     /// Randomly alters the laws of an individual silicon.
@@ -93,7 +94,10 @@ public sealed class IonStormSystem : EntitySystem
         }
 
         // generate a new law...
-        var newLaw = GenerateLaw();
+        var newLaw = _ionLaw.GetIonLaw();
+
+        if (string.IsNullOrEmpty(newLaw))
+            return;
 
         // see if the law we add will replace a random existing law or be a new glitched order one
         if (laws.Laws.Count > 0 && _robustRandom.Prob(target.ReplaceChance))
@@ -142,6 +146,7 @@ public sealed class IonStormSystem : EntitySystem
         var ev = new IonStormLawsEvent(laws);
         RaiseLocalEvent(ent, ref ev);
     }
+<<<<<<< HEAD
 
     // for your own sake direct your eyes elsewhere
     private string GenerateLaw()
@@ -259,4 +264,6 @@ public sealed class IonStormSystem : EntitySystem
         var dataset = _proto.Index<LocalizedDatasetPrototype>(name); //ADT_Fix - DatasetPrototype to LocalizedDatasetPrototype
         return Loc.GetString(_robustRandom.Pick(dataset.Values));
     }
+=======
+>>>>>>> upstreamwiz/master
 }

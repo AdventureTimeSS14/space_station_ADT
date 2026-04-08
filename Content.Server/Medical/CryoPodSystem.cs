@@ -1,11 +1,11 @@
 using Content.Server.Atmos.EntitySystems;
-using Content.Server.Atmos.Piping.Components;
 using Content.Server.Atmos.Piping.Unary.EntitySystems;
 using Content.Server.Medical.Components;
 using Content.Server.NodeContainer.EntitySystems;
 using Content.Server.NodeContainer.NodeGroups;
 using Content.Server.NodeContainer.Nodes;
 using Content.Shared.Atmos;
+<<<<<<< HEAD
 using Content.Shared.Body.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Medical.Cryogenics;
@@ -13,6 +13,11 @@ using Content.Shared.MedicalScanner;
 using Content.Shared.Temperature.Components;
 using Content.Shared.UserInterface;
 using Robust.Shared.Containers;
+=======
+using Content.Shared.Atmos.Components;
+using Content.Shared.Damage.Systems;
+using Content.Shared.Medical.Cryogenics;
+>>>>>>> upstreamwiz/master
 
 namespace Content.Server.Medical;
 
@@ -20,14 +25,23 @@ public sealed partial class CryoPodSystem : SharedCryoPodSystem
 {
     [Dependency] private readonly AtmosphereSystem _atmosphereSystem = default!;
     [Dependency] private readonly GasCanisterSystem _gasCanisterSystem = default!;
+<<<<<<< HEAD
     [Dependency] private readonly NodeContainerSystem _nodeContainer = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _uiSystem = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
+=======
+    [Dependency] private readonly GasAnalyzerSystem _gasAnalyzerSystem = default!;
+    [Dependency] private readonly HealthAnalyzerSystem _healthAnalyzerSystem = default!;
+    [Dependency] private readonly NodeContainerSystem _nodeContainer = default!;
+    [Dependency] private readonly DamageableSystem _damageable = default!;
+
+>>>>>>> upstreamwiz/master
 
     public override void Initialize()
     {
         base.Initialize();
 
+<<<<<<< HEAD
         SubscribeLocalEvent<CryoPodComponent, AfterActivatableUIOpenEvent>(OnActivateUI);
         SubscribeLocalEvent<CryoPodComponent, AtmosDeviceUpdateEvent>(OnCryoPodUpdateAtmosphere);
         SubscribeLocalEvent<CryoPodComponent, GasAnalyzerScanEvent>(OnGasAnalyzed);
@@ -49,18 +63,48 @@ public sealed partial class CryoPodSystem : SharedCryoPodSystem
 
         // TODO: This should be a state my dude
         _uiSystem.ServerSendUiMessage(
+=======
+        SubscribeLocalEvent<CryoPodComponent, AtmosDeviceUpdateEvent>(OnCryoPodUpdateAtmosphere);
+        SubscribeLocalEvent<CryoPodComponent, GasAnalyzerScanEvent>(OnGasAnalyzed);
+    }
+
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+
+        var query = EntityQueryEnumerator<ActiveCryoPodComponent, CryoPodComponent>();
+
+        while (query.MoveNext(out var uid, out _, out var cryoPod))
+        {
+            if (Timing.CurTime < cryoPod.NextUiUpdateTime)
+                continue;
+
+            cryoPod.NextUiUpdateTime += cryoPod.UiUpdateInterval;
+            Dirty(uid, cryoPod);
+            UpdateUi((uid, cryoPod));
+        }
+    }
+
+    protected override void UpdateUi(Entity<CryoPodComponent> entity)
+    {
+        if (!UI.IsUiOpen(entity.Owner, CryoPodUiKey.Key)
+            || !TryComp(entity, out CryoPodAirComponent? air))
+            return;
+
+        var patient = entity.Comp.BodyContainer.ContainedEntity;
+        var gasMix = _gasAnalyzerSystem.GenerateGasMixEntry("Cryo pod", air.Air);
+        var (beakerCapacity, beaker) = GetBeakerInfo(entity);
+        var injecting = GetInjectingReagents(entity);
+        var health = _healthAnalyzerSystem.GetHealthAnalyzerUiState(patient);
+        health.ScanMode = true;
+        var hasDamage = patient is null ? false : _damageable.GetTotalDamage(patient.Value) > 0;
+
+        UI.ServerSendUiMessage(
+>>>>>>> upstreamwiz/master
             entity.Owner,
-            HealthAnalyzerUiKey.Key,
-            new HealthAnalyzerScannedUserMessage(GetNetEntity(entity.Comp.BodyContainer.ContainedEntity),
-            temp?.CurrentTemperature ?? 0,
-            (bloodstream != null && _solutionContainerSystem.ResolveSolution(entity.Comp.BodyContainer.ContainedEntity.Value,
-                bloodstream.BloodSolutionName, ref bloodstream.BloodSolution, out var bloodSolution))
-                ? bloodSolution.FillFraction
-                : 0,
-            null,
-            null,
-            null
-        ));
+            CryoPodUiKey.Key,
+            new CryoPodUserMessage(gasMix, health, beakerCapacity, beaker, injecting, hasDamage)
+        );
     }
 
     private void OnCryoPodUpdateAtmosphere(Entity<CryoPodComponent> entity, ref AtmosDeviceUpdateEvent args)
@@ -96,6 +140,7 @@ public sealed partial class CryoPodSystem : SharedCryoPodSystem
             args.GasMixtures.Add((entity.Comp.PortName, portAirLocal));
         }
     }
+<<<<<<< HEAD
 
     private void OnEjected(Entity<CryoPodComponent> cryoPod, ref EntRemovedFromContainerMessage args)
     {
@@ -108,3 +153,6 @@ public sealed partial class CryoPodSystem : SharedCryoPodSystem
         _uiSystem.CloseUi(cryoPod.Owner, HealthAnalyzerUiKey.Key);
     }
 }
+=======
+}
+>>>>>>> upstreamwiz/master

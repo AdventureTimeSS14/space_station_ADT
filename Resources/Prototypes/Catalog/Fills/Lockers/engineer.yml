@@ -92,15 +92,24 @@
         children:
         - !type:NestedSelector
           tableId: FillWelderSupplies
-          rolls: !type:ConstantNumberSelector
-            value: 3
+          rolls: 3
         - !type:NestedSelector
           tableId: FillWelderSuppliesMask
-          rolls: !type:ConstantNumberSelector
-            value: 3
+          rolls: 3
 
 - type: entityTable
   id: FillWelderSupplies
+  table: !type:GroupSelector
+    children:
+    - id: WelderMini
+    - id: Welder
+    - id: WelderIndustrial
+      weight: 0.25
+    - id: WelderIndustrialAdvanced
+      weight: 0.05
+
+- type: entityTable
+  id: FillWelderSuppliesMask
   table: !type:GroupSelector
     children:
     - id: ClothingHeadHatWelding
@@ -110,17 +119,6 @@
       weight: 0.25
     - id: ClothingHeadHatWeldingMaskPainted
       weight: 0.25
-
-- type: entityTable
-  id: FillWelderSuppliesMask
-  table: !type:GroupSelector
-    children:
-    - id: WelderMini
-    - id: Welder
-    - id: WelderIndustrial
-      weight: 0.25
-    - id: WelderIndustrialAdvanced
-      weight: 0.05
 
 - type: entity
   id: LockerAtmosphericsFilledHardsuit
@@ -167,6 +165,7 @@
     - id: MedkitOxygenFilled
     - id: HolofanProjector
     - id: AirGrenade
+<<<<<<< HEAD
     # ADT-Tweak-Start
     - id: ADTDoorRemoteFirefight
     - id: ADTRPD
@@ -174,6 +173,10 @@
     - id: ADTBookSRPeng
     - id: ADTBookAtmosSupermatter
     # ADT-Tweak-End
+=======
+    - id: PlushieLizardJobAtmospherictechnician
+      prob: 0.02
+>>>>>>> upstreamwiz/master
 
 - type: entityTable
   id: FillAtmosphericsHardsuit
@@ -227,11 +230,18 @@
     - id: RCD
     - id: RCDAmmo
     - id: MetalFoamGrenade
+<<<<<<< HEAD
     # ADT-Tweak-Start
     - id: ADTBookSRPeng
     - id: ADTEngiInducerBattery
       prob: 0.3
     # ADT-Tweak-End
+=======
+    - id: PlushieLizardJobTechnicalassistant
+      prob: 0.02
+    - id: PlushieLizardJobStationengineer
+      prob: 0.02
+>>>>>>> upstreamwiz/master
 
 - type: entityTable
   id: FillEngineerHardsuit
@@ -257,11 +267,11 @@
   table: !type:AllSelector
     children:
     - id: ClothingOuterSuitRad
-      amount: !type:ConstantNumberSelector
-        value: 2
+      amount: 2
     - id: GeigerCounter
-      amount: !type:ConstantNumberSelector
-        value: 2
+      amount: 2
+    - id: PillCanisterPotassiumIodide
+      prob: 0.75
 
 - type: entity
   parent: LockerEvacRepair

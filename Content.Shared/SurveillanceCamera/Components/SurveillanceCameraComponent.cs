@@ -8,6 +8,7 @@ namespace Content.Shared.SurveillanceCamera.Components;
 [Access(typeof(SharedSurveillanceCameraSystem))]
 public sealed partial class SurveillanceCameraComponent : Component
 {
+<<<<<<< HEAD
     // List of active viewers. This is for bookkeeping purposes,
     // so that when a camera shuts down, any entity viewing it
     // will immediately have their subscription revoked.
@@ -20,6 +21,25 @@ public sealed partial class SurveillanceCameraComponent : Component
     // Monitors are grouped sets of viewers, and may be
     // completely different monitor types (e.g., monitor console,
     // AI, etc.)
+=======
+    /// <summary>
+    /// List of active viewers who have a PVS view subscription on this camera.
+    /// This is for bookkeeping purposes,
+    /// so that when a camera shuts down, any entity viewing it
+    /// will immediately have their subscription revoked.
+    /// </summary>
+    [ViewVariables]
+    public HashSet<EntityUid> ActivePvsViewers { get; } = new();
+
+    /// <summary>
+    /// Monitors != Viewers, as viewers are entities that are tied
+    /// to a player session that's viewing from this camera
+    ///
+    /// Monitors are grouped sets of viewers, and may be
+    /// completely different monitor types (e.g., monitor console,
+    /// AI, etc.)
+    /// </summary>
+>>>>>>> upstreamwiz/master
     [ViewVariables]
     public HashSet<EntityUid> ActiveMonitors { get; } = new();
 
@@ -34,6 +54,15 @@ public sealed partial class SurveillanceCameraComponent : Component
     [DataField("id")]
     public string CameraId = "camera";
 
+<<<<<<< HEAD
+=======
+    /// <summary>
+    /// If true, instead of showing the camera id it will show the entity name
+    /// </summary>
+    [DataField]
+    public bool UseEntityNameAsCameraId = false;
+
+>>>>>>> upstreamwiz/master
     [DataField, AutoNetworkedField]
     public bool NameSet;
 

@@ -1,11 +1,19 @@
 meta:
   format: 7
   category: Map
+<<<<<<< HEAD
   engineVersion: 267.3.0
   forkId: ""
   forkVersion: ""
   time: 11/04/2025 19:56:01
   entityCount: 26497
+=======
+  engineVersion: 272.0.0
+  forkId: ""
+  forkVersion: ""
+  time: 02/07/2026 03:19:06
+  entityCount: 26504
+>>>>>>> upstreamwiz/master
 maps:
 - 1
 grids:
@@ -9901,6 +9909,9 @@ entities:
       id: Plasma
     - type: ImplicitRoof
     - type: NavMap
+    - type: TileHistory
+      chunkHistory: {}
+    - type: ExplosionAirtightGrid
 - proto: AccordionInstrument
   entities:
   - uid: 25884
@@ -14621,7 +14632,11 @@ entities:
       pos: -131.5,-45.5
       parent: 2
     - type: Door
+<<<<<<< HEAD
       secondsUntilStateChange: -62428.875
+=======
+      secondsUntilStateChange: -62983.973
+>>>>>>> upstreamwiz/master
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -16744,6 +16759,17 @@ entities:
       parent: 2
     - type: Fixtures
       fixtures: {}
+<<<<<<< HEAD
+=======
+  - uid: 24471
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -88.5,-9.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+>>>>>>> upstreamwiz/master
   - uid: 25110
     components:
     - type: MetaData
@@ -24545,18 +24571,6 @@ entities:
     components:
     - type: Transform
       pos: -118.34879,31.563398
-      parent: 2
-- proto: BaseChemistryEmptyVial
-  entities:
-  - uid: 881
-    components:
-    - type: Transform
-      pos: -94.74149,-71.37663
-      parent: 2
-  - uid: 2159
-    components:
-    - type: Transform
-      pos: -94.53837,-71.20476
       parent: 2
 - proto: BaseComputer
   entities:
@@ -40114,6 +40128,14 @@ entities:
     - type: Transform
       pos: -104.5,-25.5
       parent: 2
+<<<<<<< HEAD
+=======
+  - uid: 26405
+    components:
+    - type: Transform
+      pos: -88.5,-9.5
+      parent: 2
+>>>>>>> upstreamwiz/master
   - uid: 26430
     components:
     - type: Transform
@@ -55707,6 +55729,36 @@ entities:
     - type: Transform
       pos: -122.5,-69.5
       parent: 2
+  - uid: 26499
+    components:
+    - type: Transform
+      pos: -88.5,-9.5
+      parent: 2
+  - uid: 26500
+    components:
+    - type: Transform
+      pos: -88.5,-8.5
+      parent: 2
+  - uid: 26501
+    components:
+    - type: Transform
+      pos: -87.5,-8.5
+      parent: 2
+  - uid: 26502
+    components:
+    - type: Transform
+      pos: -86.5,-8.5
+      parent: 2
+  - uid: 26503
+    components:
+    - type: Transform
+      pos: -85.5,-8.5
+      parent: 2
+  - uid: 26504
+    components:
+    - type: Transform
+      pos: -84.5,-8.5
+      parent: 2
 - proto: CableMVStack
   entities:
   - uid: 4379
@@ -64755,6 +64807,18 @@ entities:
     components:
     - type: Transform
       pos: -36.404404,-30.261925
+      parent: 2
+- proto: ChemistryEmptyVial
+  entities:
+  - uid: 881
+    components:
+    - type: Transform
+      pos: -94.74149,-71.37663
+      parent: 2
+  - uid: 2159
+    components:
+    - type: Transform
+      pos: -94.53837,-71.20476
       parent: 2
 - proto: ChemistryHotplate
   entities:
@@ -131575,6 +131639,23 @@ entities:
     - type: Transform
       pos: -107.48633,-20.615337
       parent: 2
+- proto: PlushieSpawner50
+  entities:
+  - uid: 14357
+    components:
+    - type: Transform
+      pos: -21.5,11.5
+      parent: 2
+  - uid: 14359
+    components:
+    - type: Transform
+      pos: -20.5,11.5
+      parent: 2
+  - uid: 24648
+    components:
+    - type: Transform
+      pos: -19.5,11.5
+      parent: 2
 - proto: PortableFlasher
   entities:
   - uid: 2394
@@ -145958,7 +146039,7 @@ entities:
     - type: Transform
       pos: -107.5,-2.5
       parent: 2
-- proto: SpacemenFigureSpawner
+- proto: SpacemenFigurineSpawner90
   entities:
   - uid: 26079
     components:
@@ -152727,23 +152808,6 @@ entities:
     components:
     - type: Transform
       pos: -42.5,-1.5
-      parent: 2
-- proto: ToySpawner
-  entities:
-  - uid: 14357
-    components:
-    - type: Transform
-      pos: -21.5,11.5
-      parent: 2
-  - uid: 14359
-    components:
-    - type: Transform
-      pos: -20.5,11.5
-      parent: 2
-  - uid: 24648
-    components:
-    - type: Transform
-      pos: -19.5,11.5
       parent: 2
 - proto: TrainingBomb
   entities:
@@ -170769,7 +170833,11 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
+<<<<<<< HEAD
       secondsUntilStateChange: -262535.62
+=======
+      secondsUntilStateChange: -263090.72
+>>>>>>> upstreamwiz/master
       state: Opening
     - type: Airlock
       autoClose: False

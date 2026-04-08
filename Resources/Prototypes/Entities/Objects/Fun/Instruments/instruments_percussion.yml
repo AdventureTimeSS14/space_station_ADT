@@ -61,7 +61,14 @@
     sprite: Objects/Fun/Instruments/microphone.rsi
   - type: Item
     size: Small
+<<<<<<< HEAD
     storedRotation: -45
+=======
+    storedSprite:
+      state: storage
+      sprite: Objects/Fun/Instruments/microphone.rsi
+
+>>>>>>> upstreamwiz/master
 
 - type: entity
   parent: BasePercussionInstrument

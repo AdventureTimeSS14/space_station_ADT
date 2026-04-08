@@ -1,8 +1,12 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
+<<<<<<< HEAD
     "copyright": "Taken from Paradise SS13 at commit https://github.com/ParadiseSS13/Paradise/commit/a67c929b7394f78e7787114457ba42f4df6cc3a1. Vox state by Flareguy for SS14. monkey state made by MercerBray for Ss14. equipped-HELMET-dog modified from equipped-HELMET by casiliuscestus (GitHub) for SS14. Reptilian state by TiniestShark (Github)",
   "copyright": "Created by discord:IAmRasputin#5242. Vox state by Flareguy for SS14",
+=======
+    "copyright": "Taken from Paradise SS13 at commit https://github.com/ParadiseSS13/Paradise/commit/a67c929b7394f78e7787114457ba42f4df6cc3a1. Vox state by Flareguy for SS14. monkey state made by MercerBray for Ss14. Reptilian state by TiniestShark (Github)",
+>>>>>>> upstreamwiz/master
     "size": {
         "x": 32,
         "y": 32
@@ -24,14 +28,17 @@
         },
         {
             "name": "equipped-HELMET-reptilian",
+<<<<<<< HEAD
             "directions": 4
         },
         {
             "name": "equipped-HELMET-monkey",
+=======
+>>>>>>> upstreamwiz/master
             "directions": 4
         },
         {
-            "name": "equipped-HELMET-dog",
+            "name": "equipped-HELMET-monkey",
             "directions": 4
         },
         {

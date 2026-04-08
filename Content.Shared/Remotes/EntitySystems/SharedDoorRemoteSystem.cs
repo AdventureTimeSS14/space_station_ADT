@@ -3,11 +3,20 @@ using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
 using Content.Shared.Doors.Components;
 using Content.Shared.Doors.Systems;
+<<<<<<< HEAD
+=======
+using Content.Shared.Electrocution;
+>>>>>>> upstreamwiz/master
 using Content.Shared.Examine;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
 using Content.Shared.Power.EntitySystems;
 using Content.Shared.Remotes.Components;
+<<<<<<< HEAD
+=======
+using Content.Shared.Tag;
+using Robust.Shared.Audio.Systems;
+>>>>>>> upstreamwiz/master
 using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
 
@@ -16,11 +25,21 @@ namespace Content.Shared.Remotes.EntitySystems;
 public abstract class SharedDoorRemoteSystem : EntitySystem
 {
     [Dependency] private readonly SharedAirlockSystem _airlock = default!;
+<<<<<<< HEAD
     [Dependency] private readonly SharedDoorSystem _doorSystem = default!;
+=======
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly SharedDoorSystem _doorSystem = default!;
+    [Dependency] private readonly SharedElectrocutionSystem _electrify = default!;
+>>>>>>> upstreamwiz/master
     [Dependency] private readonly ExamineSystemShared _examine = default!;
     [Dependency] private readonly SharedPowerReceiverSystem _powerReceiver = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
+<<<<<<< HEAD
+=======
+    [Dependency] private readonly TagSystem _tagSystem = default!;
+>>>>>>> upstreamwiz/master
     [Dependency] protected readonly IGameTiming Timing = default!;
 
 
@@ -48,10 +67,17 @@ public abstract class SharedDoorRemoteSystem : EntitySystem
             || !TryComp<DoorComponent>(args.Target, out var doorComp) // If it isn't a door we don't use it
                                                                       // Only able to control doors if they are within your vision and within your max range.
                                                                       // Not affected by mobs or machines anymore.
+<<<<<<< HEAD
             || !_examine.InRangeUnOccluded(args.User,
                 args.Target.Value,
                 SharedInteractionSystem.MaxRaycastRange,
                 null))
+=======
+            || (entity.Comp.RequireInRangeUnoccluded && !_examine.InRangeUnOccluded(args.User,
+                args.Target.Value,
+                SharedInteractionSystem.MaxRaycastRange,
+                null)))
+>>>>>>> upstreamwiz/master
 
         {
             return;
@@ -73,6 +99,7 @@ public abstract class SharedDoorRemoteSystem : EntitySystem
             // This covers the accesses the USER has, which always includes the remote's access since holding a remote acts like holding an ID card.
         }
 
+<<<<<<< HEAD
         if (TryComp<AccessReaderComponent>(args.Target, out var accessComponent)
             && !_doorSystem.HasAccess(args.Target.Value, accessTarget, doorComp, accessComponent))
         {
@@ -82,6 +109,24 @@ public abstract class SharedDoorRemoteSystem : EntitySystem
             _popup.PopupClient(Loc.GetString("door-remote-denied"), args.User, args.User);
             return;
         }
+=======
+        // Only let remote work on doors that have AccessReader; otherwise, it works on anything with a Door component (curtains, fence gates, etc)
+        if (TryComp<AccessReaderComponent>(args.Target, out var accessComponent) && _tagSystem.HasTag(args.Target.Value, entity.Comp.TargetTag))
+        {
+            // Has an access reader component. Check access.
+            if (!_doorSystem.HasAccess(args.Target.Value, accessTarget, doorComp, accessComponent))
+            {
+                if (isAirlock)
+                    _doorSystem.Deny(args.Target.Value, doorComp, user: args.User, predicted: true);
+
+                _popup.PopupClient(Loc.GetString("door-remote-denied"), args.User, args.User);
+                return;
+            }
+        }
+        // Unless allowed to bypass by the flag on the component.
+        else if (entity.Comp.RequireTagWhitelist)
+            return;
+>>>>>>> upstreamwiz/master
 
         switch (entity.Comp.Mode)
         {
@@ -113,6 +158,23 @@ public abstract class SharedDoorRemoteSystem : EntitySystem
                         $"{ToPrettyString(args.User):player} used {ToPrettyString(args.Used)} on {ToPrettyString(args.Target.Value)} to set emergency access {(airlockComp.EmergencyAccess ? "on" : "off")}");
                 }
 
+<<<<<<< HEAD
+=======
+                break;
+            case OperatingMode.ToggleOvercharge:
+                if (TryComp<ElectrifiedComponent>(args.Target, out var eletrifiedComp))
+                {
+                    _electrify.SetElectrified((args.Target.Value, eletrifiedComp), !eletrifiedComp.Enabled);
+                    var soundToPlay = eletrifiedComp.Enabled
+                        ? eletrifiedComp.AirlockElectrifyEnabled
+                        : eletrifiedComp.AirlockElectrifyDisabled;
+                    _audio.PlayLocal(soundToPlay, args.Target.Value, args.User);
+                    _adminLogger.Add(LogType.Action,
+                        LogImpact.Medium,
+                        $"{ToPrettyString(args.User):player} used {ToPrettyString(args.Used)} on {ToPrettyString(args.Target.Value)} to {(eletrifiedComp.Enabled ? "" : "un")}electrify it");
+                }
+
+>>>>>>> upstreamwiz/master
                 break;
             default:
                 throw new InvalidOperationException(

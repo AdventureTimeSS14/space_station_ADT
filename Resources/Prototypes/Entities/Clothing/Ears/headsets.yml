@@ -315,3 +315,8 @@
     sprite: Clothing/Ears/Headsets/ninja.rsi
   - type: Clothing
     sprite: Clothing/Ears/Headsets/ninja.rsi
+<<<<<<< HEAD
+=======
+  - type: EmpResistance
+    strengthMultiplier: 0
+>>>>>>> upstreamwiz/master

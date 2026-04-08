@@ -5,7 +5,11 @@
         "y": 32
     },
     "license": "CC-BY-SA-3.0",
+<<<<<<< HEAD
     "copyright": "Taken from /tg/station at commit 9065b811726ae52be5d1889f436c01a24efbf47a, edited by github user @Flareguy for Space Station 14, modified by Vermidia, resprited by @mishutka09, inhand by @mishutka09",
+=======
+    "copyright": "Taken from /tg/station at commit 9065b811726ae52be5d1889f436c01a24efbf47a, edited by github user @Flareguy for Space Station 14, modified by Vermidia, inhands by BoskiYourk (GitHub)",
+>>>>>>> upstreamwiz/master
     "states": [
         {
             "name": "mw"
@@ -39,6 +43,7 @@
             "name": "mwbloody1"
         },
         {
+<<<<<<< HEAD
             "name": "mwo",
             "delays": [
                 [
@@ -46,6 +51,9 @@
                     0.1
                 ]
             ]
+=======
+            "name": "mwo"
+>>>>>>> upstreamwiz/master
         },
         {
             "name": "inhand-right",

@@ -9,7 +9,6 @@
     - MeteorSwarmScheduler
     - RampingStationEventScheduler
     - SpaceTrafficControlEventScheduler
-    - SpaceTrafficControlFriendlyEventScheduler
     - BasicRoundstartVariation
     - CrewTransferScheduler #ADT tweak
   bannedRound: 2 #ADT tweak
@@ -73,7 +72,6 @@
     - MeteorSwarmScheduler
     - RampingStationEventScheduler
     - SpaceTrafficControlEventScheduler
-    - SpaceTrafficControlFriendlyEventScheduler
     - BasicRoundstartVariation
     - CrewTransferScheduler #ADT tweak
 
@@ -101,7 +99,23 @@
   showInVote: false #ADT_Tweak
   description: greenshift-description
   rules:
-  - SpaceTrafficControlFriendlyEventScheduler
+  - BasicRoundstartVariation
+
+- type: gamePreset
+  id: Dynamic
+  alias:
+  - dynamic
+  - multiantag
+  - director
+  name: dynamic-title
+  showInVote: false # admin-only for now until we fix some bugs
+  description: dynamic-description
+  rules:
+  - DynamicRule
+  - DummyNonAntag
+  - DynamicStationEventScheduler
+  - MeteorSwarmScheduler
+  - SpaceTrafficControlEventScheduler
   - BasicRoundstartVariation
   - CrewTransferScheduler #ADT tweak
 
@@ -235,13 +249,20 @@
   rules:
   - Xenoborgs
   - DummyNonAntagChance
+<<<<<<< HEAD
   - SubGamemodesRuleNoXenoborg # no two motherships
+=======
+  - SubGamemodesRuleNoWizardNoXenoborg # no two motherships
+>>>>>>> upstreamwiz/master
   - BasicStationEventScheduler
   - MeteorSwarmScheduler
   - SpaceTrafficControlEventScheduler
   - BasicRoundstartVariation
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> upstreamwiz/master
 - type: gamePreset
   id: Zombie
   alias:

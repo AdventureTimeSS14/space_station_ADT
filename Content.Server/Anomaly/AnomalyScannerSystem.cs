@@ -41,12 +41,20 @@ public sealed class AnomalyScannerSystem : SharedAnomalyScannerSystem
 
         Appearance.SetData(scanner, AnomalyScannerVisuals.HasAnomaly, true, appearanceComp);
 
+<<<<<<< HEAD
         var stability = _secretData.IsSecret(anomaly, AnomalySecretData.Stability, secretDataComp)
+=======
+        var stability = _secretData.IsSecret(anomaly, AnomalySecretData.Stability, secretDataComp) && !scannerComp.IgnoreSecret
+>>>>>>> upstreamwiz/master
             ? AnomalyStabilityVisuals.Stable
             : _anomaly.GetStabilityVisualOrStable((anomaly, anomalyComp));
         Appearance.SetData(scanner, AnomalyScannerVisuals.AnomalyStability, stability, appearanceComp);
 
+<<<<<<< HEAD
         var severity = _secretData.IsSecret(anomaly, AnomalySecretData.Severity, secretDataComp)
+=======
+        var severity = _secretData.IsSecret(anomaly, AnomalySecretData.Severity, secretDataComp) && !scannerComp.IgnoreSecret
+>>>>>>> upstreamwiz/master
             ? 0
             : anomalyComp.Severity;
         Appearance.SetData(scanner, AnomalyScannerVisuals.AnomalySeverity, severity, appearanceComp);
@@ -109,13 +117,21 @@ public sealed class AnomalyScannerSystem : SharedAnomalyScannerSystem
 
     private void OnScannerAnomalySeverityChanged(ref AnomalySeverityChangedEvent args)
     {
+<<<<<<< HEAD
         var severity = _secretData.IsSecret(args.Anomaly, AnomalySecretData.Severity) ? 0 : args.Severity;
+=======
+>>>>>>> upstreamwiz/master
         var query = EntityQueryEnumerator<AnomalyScannerComponent>();
         while (query.MoveNext(out var uid, out var component))
         {
             if (component.ScannedAnomaly != args.Anomaly)
                 continue;
 
+<<<<<<< HEAD
+=======
+            var severity = _secretData.IsSecret(args.Anomaly, AnomalySecretData.Severity) && !component.IgnoreSecret ? 0 : args.Severity;
+
+>>>>>>> upstreamwiz/master
             UpdateScannerUi(uid, component);
             Appearance.SetData(uid, AnomalyScannerVisuals.AnomalySeverity, severity);
         }
@@ -123,15 +139,25 @@ public sealed class AnomalyScannerSystem : SharedAnomalyScannerSystem
 
     private void OnScannerAnomalyStabilityChanged(ref AnomalyStabilityChangedEvent args)
     {
+<<<<<<< HEAD
         var stability = _secretData.IsSecret(args.Anomaly, AnomalySecretData.Stability)
             ? AnomalyStabilityVisuals.Stable
             : _anomaly.GetStabilityVisualOrStable(args.Anomaly);
+=======
+>>>>>>> upstreamwiz/master
         var query = EntityQueryEnumerator<AnomalyScannerComponent>();
         while (query.MoveNext(out var uid, out var component))
         {
             if (component.ScannedAnomaly != args.Anomaly)
                 continue;
 
+<<<<<<< HEAD
+=======
+            var stability = _secretData.IsSecret(args.Anomaly, AnomalySecretData.Stability) && !component.IgnoreSecret
+                ? AnomalyStabilityVisuals.Stable
+                : _anomaly.GetStabilityVisualOrStable(args.Anomaly);
+
+>>>>>>> upstreamwiz/master
             UpdateScannerUi(uid, component);
             Appearance.SetData(uid, AnomalyScannerVisuals.AnomalyStability, stability);
         }
@@ -154,12 +180,20 @@ public sealed class AnomalyScannerSystem : SharedAnomalyScannerSystem
             TryComp<AppearanceComponent>(uid, out var appearanceComp);
             TryComp<SecretDataAnomalyComponent>(args.Anomaly, out var secretDataComp);
 
+<<<<<<< HEAD
             var severity = _secretData.IsSecret(args.Anomaly, AnomalySecretData.Severity, secretDataComp)
+=======
+            var severity = _secretData.IsSecret(args.Anomaly, AnomalySecretData.Severity, secretDataComp) && !component.IgnoreSecret
+>>>>>>> upstreamwiz/master
                 ? 0
                 : anomalyComp.Severity;
             Appearance.SetData(uid, AnomalyScannerVisuals.AnomalySeverity, severity, appearanceComp);
 
+<<<<<<< HEAD
             var stability = _secretData.IsSecret(args.Anomaly, AnomalySecretData.Stability, secretDataComp)
+=======
+            var stability = _secretData.IsSecret(args.Anomaly, AnomalySecretData.Stability, secretDataComp) && !component.IgnoreSecret
+>>>>>>> upstreamwiz/master
                 ? AnomalyStabilityVisuals.Stable
                 : _anomaly.GetStabilityVisualOrStable((args.Anomaly, anomalyComp));
             Appearance.SetData(uid, AnomalyScannerVisuals.AnomalyStability, stability, appearanceComp);

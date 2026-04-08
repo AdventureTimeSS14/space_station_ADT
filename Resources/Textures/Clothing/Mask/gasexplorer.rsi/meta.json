@@ -1,7 +1,11 @@
 {
   "version": 2,
   "license": "CC-BY-SA-3.0",
+<<<<<<< HEAD
   "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/4f6190e2895e09116663ef282d3ce1d8b35c032e. Reptilian edit by Nairod(Github). Vox state by Flareguy for SS14. icon, equipped-MASK, equipped-MASK-reptilian taken from Shiptest https://github.com/shiptest-ss13/Shiptest edited by .redlis (discord), equipped-MASK-vox, up-equipped-MASK created by .redlis (discord)",
+=======
+  "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/4f6190e2895e09116663ef282d3ce1d8b35c032e. Reptilian edit by Nairod(Github). Vox state by Flareguy for SS14 | vulpkanin version edited by Floofers | Vox unequipped by MissKay1994(Github)",
+>>>>>>> upstreamwiz/master
   "size": {
     "x": 32,
     "y": 32
@@ -36,6 +40,10 @@
     },
     {
       "name": "equipped-MASK-reptilian",
+      "directions": 4
+    },
+    {
+      "name": "up-equipped-MASK-vox",
       "directions": 4
     }
   ]

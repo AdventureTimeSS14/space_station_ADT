@@ -60,10 +60,17 @@ public enum SiliconLawsUiKey : byte
 [Serializable, NetSerializable]
 public sealed class SiliconLawBuiState : BoundUserInterfaceState
 {
+<<<<<<< HEAD
     public List<SiliconLawData> Laws; // ADT-Tweak
     public HashSet<ProtoId<RadioChannelPrototype>>? RadioChannels;
 
     public SiliconLawBuiState(List<SiliconLawData> laws, HashSet<ProtoId<RadioChannelPrototype>>? radioChannels) // ADT-Tweak
+=======
+    public List<SiliconLaw> Laws;
+    public HashSet<ProtoId<RadioChannelPrototype>>? RadioChannels;
+
+    public SiliconLawBuiState(List<SiliconLaw> laws, HashSet<ProtoId<RadioChannelPrototype>>? radioChannels)
+>>>>>>> upstreamwiz/master
     {
         Laws = laws;
         RadioChannels = radioChannels;

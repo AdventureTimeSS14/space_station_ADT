@@ -6,7 +6,11 @@
     TraitorObjectiveGroupKill: 1
     TraitorObjectiveGroupState: 1 #As in, something about your character. Alive, dead, arrested, gained an ability...
     TraitorObjectiveGroupSocial: 1 #Involves helping/harming others without killing them or stealing their stuff
+<<<<<<< HEAD
     TraitorObjectiveGroupNukieDisk: 0.05  #Corvax
+=======
+    TraitorObjectiveGroupOther: 1
+>>>>>>> upstreamwiz/master
 
 - type: weightedRandom
   id: TraitorObjectiveGroupSteal
@@ -23,8 +27,12 @@
     CaptainGunStealObjective: 0.5
     CaptainJetpackStealObjective: 0.5
     HandTeleporterStealObjective: 0.5
+<<<<<<< HEAD
 #    EnergyShotgunStealObjective: 0.5 # ADT objective
     ADTMobileDefibrillatorStealObjective: 1 # ADT Objective
+=======
+    EnergyMagnumStealObjective: 0.5
+>>>>>>> upstreamwiz/master
 
 - type: weightedRandom
   id: TraitorObjectiveGroupKill
@@ -38,16 +46,29 @@
 - type: weightedRandom
   id: TraitorObjectiveGroupState
   weights:
+<<<<<<< HEAD
     EscapeShuttleObjective: 0.6 #ADT-tweak
     DieObjective: 0.05
     HijackShuttleObjective: 0.01 #Corvax-Hijack //ADT-tweak
     ADTDoCascade: 0.02 # ADT Objective
+=======
+    EscapeShuttleObjective: 1
+    DieObjective: 0.2
+    #HijackShuttleObjective: 0.02
+>>>>>>> upstreamwiz/master
 
 - type: weightedRandom
   id: TraitorObjectiveGroupSocial
   weights:
 #    RandomTraitorAliveObjective: 1 - Removed because the objective was boring and didn't progress the round.
     RandomTraitorProgressObjective: 1
+
+#misc objectives that don't fall other another category
+- type: weightedRandom
+  id: TraitorObjectiveGroupOther
+  weights:
+    HijackTradeStationObjective: 1
+
 
 #Thief groups
 - type: weightedRandom
@@ -92,7 +113,10 @@
     ADTClothingMaskGasCEStealObjective: 1    # ADT Tweak: add gas mask CE
 # ADT-Tweak до убирал ибо вызывало ошибки. "Corvax-StealTarget"  ExpeditionsCircuitboardStealObjective: 1            #sup
     CargoShuttleCircuitboardStealObjective: 1
+<<<<<<< HEAD
     ClothingEyesHudBeerStealObjective: 0.5              #srv, beer goggles less common cause its so easy
+=======
+>>>>>>> upstreamwiz/master
     BibleStealObjective: 1
     ClothingNeckGoldmedalStealObjective: 1              #other
     ClothingNeckClownmedalStealObjective: 0.5

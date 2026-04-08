@@ -27,9 +27,15 @@
     - WhitelistChameleon
   - type: ProtectedFromStepTriggers
     slots: WITHOUT_POCKET
+<<<<<<< HEAD
   # - type: HideLayerClothing # ADT-Tweak: fix-tail
   #   slots:
   #     - Tail
+=======
+  - type: HideLayerClothing
+    slots:
+      - Tail
+>>>>>>> upstreamwiz/master
 
 - type: entity
   parent: ClothingOuterSuitBomb
@@ -73,9 +79,15 @@
   - type: GroupExamine
   - type: ProtectedFromStepTriggers
     slots: WITHOUT_POCKET
+<<<<<<< HEAD
   # - type: HideLayerClothing # ADT-Tweak: fix-tail
   #   slots:
   #   - Tail
+=======
+  - type: HideLayerClothing
+    slots:
+    - Tail
+>>>>>>> upstreamwiz/master
 
 - type: entity
   parent: [ClothingOuterBaseLarge, AllowSuitStorageClothing]
@@ -110,11 +122,16 @@
     slots: WITHOUT_POCKET
   - type: Tag
     tags:
-    - CorgiWearable
     - WhitelistChameleon
+<<<<<<< HEAD
   # - type: HideLayerClothing # ADT-Tweak: fix-tail
   #   slots:
   #   - Tail
+=======
+  - type: HideLayerClothing
+    slots:
+    - Tail
+>>>>>>> upstreamwiz/master
 
 - type: entity
   parent: [ClothingOuterBaseLarge, GeigerCounterClothing, AllowSuitStorageClothing]
@@ -140,9 +157,15 @@
       toggleable-clothing: !type:ContainerSlot {}
   - type: ProtectedFromStepTriggers
     slots: WITHOUT_POCKET
+<<<<<<< HEAD
   # - type: HideLayerClothing # ADT-Tweak: fix-tail
   #   slots:
   #   - Tail
+=======
+  - type: HideLayerClothing
+    slots:
+    - Tail
+>>>>>>> upstreamwiz/master
 
 - type: entity
   parent: [ClothingOuterBaseLarge, AllowSuitStorageClothing, BaseToggleClothing, BaseHighlyIllegalContraband]
@@ -188,7 +211,12 @@
     noPowerPopup: ninja-no-power
   # core ninja suit stuff
   - type: NinjaSuit
+<<<<<<< HEAD
   - type: EmpProtection # ADT-Tweak
+=======
+  - type: EmpResistance
+    strengthMultiplier: 0
+>>>>>>> upstreamwiz/master
   - type: UseDelay
     delay: 5 # disable time
   - type: PowerCellSlot
@@ -207,9 +235,15 @@
         whitelist:
           tags:
             - PowerCell
+<<<<<<< HEAD
   # - type: HideLayerClothing # ADT-Tweak: fix-tail
   #   slots:
   #   - Tail
+=======
+  - type: HideLayerClothing
+    slots:
+    - Tail
+>>>>>>> upstreamwiz/master
 
 - type: entity
   parent: ClothingOuterBase
@@ -286,7 +320,6 @@
     slots: WITHOUT_POCKET
   - type: Tag
     tags:
-    - CorgiWearable
     - WhitelistChameleon
   - type: AddAccentClothing
     accent: BarkAccent

@@ -16,8 +16,11 @@
     tags:
     - Sheet
     - ConstructionMaterial
+<<<<<<< HEAD
     - NoPaint #ADT tweak
     - ADTGlassSheet #ADT tweak
+=======
+>>>>>>> upstreamwiz/master
   - type: Material
   - type: Damageable
     damageContainer: Inorganic
@@ -614,7 +617,7 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: Extractable
-    grindableSolutionName: brassglass
+    grindableSolutionName: cglass
   - type: SolutionContainerManager
     solutions:
       cglass:

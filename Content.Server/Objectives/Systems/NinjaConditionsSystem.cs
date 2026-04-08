@@ -59,7 +59,11 @@ public sealed class NinjaConditionsSystem : EntitySystem
 
         while (allEnts.MoveNext(out var warpUid, out var warp))
         {
+<<<<<<< HEAD
             if (_whitelist.IsBlacklistFail(bombingBlacklist, warpUid)
+=======
+            if (_whitelist.IsWhitelistFail(bombingBlacklist, warpUid)
+>>>>>>> upstreamwiz/master
                 && !string.IsNullOrWhiteSpace(warp.Location))
             {
                 warps.Add(warpUid);

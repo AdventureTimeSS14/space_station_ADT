@@ -14,11 +14,15 @@
             "name": "icon"
         },
         {
+<<<<<<< HEAD
             "name": "head_f",
             "directions": 4
         },
         {
             "name": "head_m",
+=======
+            "name": "head",
+>>>>>>> upstreamwiz/master
             "directions": 4
         },
         {

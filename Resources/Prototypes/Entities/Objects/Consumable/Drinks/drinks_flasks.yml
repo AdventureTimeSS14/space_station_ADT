@@ -7,10 +7,13 @@
     sprite: Objects/Consumable/Drinks/flask.rsi
   - type: FitsInDispenser
     solution: drink
+<<<<<<< HEAD
   - type: SolutionContainerManager ##ADT-Tweak start
     solutions:
       drink:
         maxVol: 60 ##ADT-Tweak end
+=======
+>>>>>>> upstreamwiz/master
   - type: Openable
     sound:
       collection: flaskOpenSounds
@@ -115,10 +118,13 @@
   components:
   - type: Sprite
     sprite: Objects/Consumable/Drinks/vacuumflask.rsi
+<<<<<<< HEAD
   - type: SolutionContainerManager ##ADT-Tweak start
     solutions:
       drink:
         maxVol: 90 ##ADT-Tweak end
+=======
+>>>>>>> upstreamwiz/master
   - type: Tool
     qualities:
     - Rolling # Perfectly cylindrical flask

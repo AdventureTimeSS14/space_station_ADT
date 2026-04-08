@@ -7,7 +7,11 @@
   guides: [ Zombies ]
   requirements:
   - !type:OverallPlaytimeRequirement
+<<<<<<< HEAD
     time: 30h # Corvax-RoleTime 1
+=======
+    time: 1h
+>>>>>>> upstreamwiz/master
 
 - type: antag
   id: Zombie

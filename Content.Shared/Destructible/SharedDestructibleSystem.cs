@@ -1,7 +1,15 @@
+<<<<<<< HEAD
+=======
+using Content.Shared.Damage.Systems;
+
+>>>>>>> upstreamwiz/master
 namespace Content.Shared.Destructible;
 
 public abstract class SharedDestructibleSystem : EntitySystem
 {
+    // TODO: I don't really like this but this is out of scope to re-do destructible triggers while refactoring damageable
+    [Dependency] public readonly DamageableSystem Damageable = default!;
+
     /// <summary>
     /// Force entity to be destroyed and deleted.
     /// </summary>

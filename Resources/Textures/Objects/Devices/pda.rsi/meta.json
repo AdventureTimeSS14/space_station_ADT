@@ -1,7 +1,11 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
+<<<<<<< HEAD
     "copyright": "Taken from tgstation at https://github.com/tgstation/tgstation/commit/59f2a4e10e5ba36033c9734ddebfbbdc6157472d, pda-cluwne made by brainfood1183 (github) ss14 | pda-brigmedic and pda-centcom made by PuroSlavKing (Github) | pda-brigemdic resprited by Hülle#2562 (Discord), pda-pirate made by brainfood1183 (Github), pda-syndi-agent drawn by Ubaser, pda-wizard recolour by Velken, pda-syndi-commander/operative by Archee1 (Github). pda-centcom, pda-ert, pda-captain and pda-ds made by Tamioki.",
+=======
+    "copyright": "Taken from tgstation at https://github.com/tgstation/tgstation/commit/59f2a4e10e5ba36033c9734ddebfbbdc6157472d, pda-cluwne made by brainfood1183 (github) ss14 | pda-brigmedic and pda-centcom made by PuroSlavKing (Github) | pda-brigemdic resprited by Hülle#2562 (Discord), pda-pirate made by brainfood1183 (Github), pda-syndi-agent drawn by Ubaser, pda-wizard recolour by Velken, pda-syndi-commander/operative by Archee1 (Github), pda-ninja by ThatGuyUSA (github)",
+>>>>>>> upstreamwiz/master
     "size": {
         "x": 32,
         "y": 32
@@ -14,10 +18,13 @@
             "name": "id_overlay_wide"
         },
         {
+<<<<<<< HEAD
             "name": "equipped-BELT",
             "directions": 4
         },
         {
+=======
+>>>>>>> upstreamwiz/master
             "name": "inhand-left",
             "directions": 4
         },
@@ -121,6 +128,12 @@
             "name": "pda-miner"
         },
         {
+<<<<<<< HEAD
+=======
+            "name": "pda-ninja"
+        },
+        {
+>>>>>>> upstreamwiz/master
             "name": "pda-pirate"
         },
         {
@@ -224,6 +237,7 @@
             "name": "pda-ert"
         },
         {
+<<<<<<< HEAD
             "name": "pda-ds",
             "delays": [
                 [
@@ -235,6 +249,8 @@
             ]
         },
         {
+=======
+>>>>>>> upstreamwiz/master
             "name": "pda-cluwne"
         },
         {
@@ -262,10 +278,13 @@
                     0.3
                 ]
             ]
+<<<<<<< HEAD
         },
         {
             "name": "equipped-IDCARD",
             "directions": 4
+=======
+>>>>>>> upstreamwiz/master
         }
     ]
 }

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 using Content.Shared.ADT.Language;
+=======
+using Content.Shared.Body;
+>>>>>>> upstreamwiz/master
 using Content.Shared.Dataset;
 using Content.Shared.Humanoid.Markings;
 using Robust.Shared.Prototypes;
@@ -36,6 +40,7 @@ public sealed partial class SpeciesPrototype : IPrototype
     [DataField(required: true)]
     public bool RoundStart { get; private set; } = false;
 
+<<<<<<< HEAD
     // Corvax-Sponsors-Start
     /// <summary>
     /// Whether the species is available only for sponsors
@@ -56,6 +61,8 @@ public sealed partial class SpeciesPrototype : IPrototype
     [DataField("sprites")]
     public ProtoId<HumanoidSpeciesBaseSpritesPrototype> SpriteSet { get; private set; } = default!;
 
+=======
+>>>>>>> upstreamwiz/master
     /// <summary>
     ///     Default skin tone for this species. This applies for non-human skin tones.
     /// </summary>
@@ -68,12 +75,6 @@ public sealed partial class SpeciesPrototype : IPrototype
     /// </summary>
     [DataField]
     public int DefaultHumanSkinTone { get; private set; } = 20;
-
-    /// <summary>
-    ///     The limit of body markings that you can place on this species.
-    /// </summary>
-    [DataField("markingLimits")]
-    public ProtoId<MarkingPointsPrototype> MarkingPoints { get; private set; } = default!;
 
     /// <summary>
     ///     Humanoid species variant used by this entity.

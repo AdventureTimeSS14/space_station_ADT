@@ -254,7 +254,11 @@
   - type: GroupExamine
   - type: IdentityBlocker
     coverage: EYES
+<<<<<<< HEAD
   - type: ThermalVisionItem # ADT-tweak
+=======
+  - type: ThermalSight
+>>>>>>> upstreamwiz/master
 
 - type: entity
   parent: ClothingEyesBase

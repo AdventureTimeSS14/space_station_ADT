@@ -20,7 +20,11 @@ public sealed class StorageCommand : ToolshedCommand
     public IEnumerable<EntityUid> StorageInsert([PipedArgument] IEnumerable<EntityUid> entsToInsert,
         EntityUid targetEnt) => entsToInsert.Where(x => StorageInsert(x, targetEnt) != null);
 
+<<<<<<< HEAD
     public EntityUid? StorageInsert(EntityUid entToInsert, EntityUid targetEnt)
+=======
+    private EntityUid? StorageInsert(EntityUid entToInsert, EntityUid targetEnt)
+>>>>>>> upstreamwiz/master
     {
         _storage ??= GetSys<SharedStorageSystem>();
 
@@ -32,7 +36,10 @@ public sealed class StorageCommand : ToolshedCommand
             : null;
     }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> upstreamwiz/master
     [CommandImplementation("fasttake")]
     public IEnumerable<EntityUid> StorageFastTake([PipedArgument] IEnumerable<EntityUid> storageEnts) =>
         storageEnts.Select(StorageFastTake).OfType<EntityUid>();
@@ -53,6 +60,34 @@ public sealed class StorageCommand : ToolshedCommand
         return null;
     }
 
+<<<<<<< HEAD
 
 
+=======
+    [CommandImplementation("query")]
+    public IEnumerable<EntityUid> StorageQuery([PipedArgument] IEnumerable<EntityUid> storageEnts, bool recursive) =>
+        storageEnts.SelectMany(x => StorageQueryRecursiveBase(x, recursive));
+
+    public IEnumerable<EntityUid> StorageQueryRecursiveBase(EntityUid storageEnt, bool recursive)
+    {
+        _storage ??= GetSys<SharedStorageSystem>();
+        _container ??= GetSys<SharedContainerSystem>();
+
+        if (!EntityManager.TryGetComponent<StorageComponent>(storageEnt, out var storage))
+            return [];
+
+        IEnumerable<EntityUid> containedEntities = storage.Container.ContainedEntities;
+
+        if (recursive)
+        {
+            foreach (var ent in containedEntities)
+            {
+                containedEntities = containedEntities.Concat(StorageQueryRecursiveBase(ent, true));
+            }
+
+        }
+
+        return containedEntities;
+    }
+>>>>>>> upstreamwiz/master
 }

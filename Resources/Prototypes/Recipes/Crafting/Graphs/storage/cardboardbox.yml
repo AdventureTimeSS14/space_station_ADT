@@ -7,12 +7,33 @@
     - to: boxcardboard
       steps:
       - material: Cardboard
+<<<<<<< HEAD
         amount: 1
+=======
+        amount: 2
+>>>>>>> upstreamwiz/master
         doAfter: 4
   - node: boxcardboard
     entity: BoxCardboard
 
 - type: constructionGraph
+<<<<<<< HEAD
+=======
+  id: BoxCardboardSmall
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: boxcardboardsmall
+      steps:
+      - material: Cardboard
+        amount: 1
+        doAfter: 4
+  - node: boxcardboardsmall
+    entity: BoxCardboardSmall
+
+- type: constructionGraph
+>>>>>>> upstreamwiz/master
   id: ToteBase
   start: start
   graph:

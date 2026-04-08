@@ -830,6 +830,7 @@
           Quantity: 2
         - ReagentId: Vitamin
           Quantity: 1
+<<<<<<< HEAD
   - type: DamageOtherOnHit
     damage:
       types:
@@ -837,6 +838,8 @@
   - type: Tag
     tags:
     - ADTMothFriendlyFood #ADT_Tweak - делаем круассаны съедобными для молей
+=======
+>>>>>>> upstreamwiz/master
 
 - type: entity
   parent: FoodBakedCroissant

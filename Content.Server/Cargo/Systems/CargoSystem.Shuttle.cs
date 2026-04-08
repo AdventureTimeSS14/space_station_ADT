@@ -6,7 +6,11 @@ using Content.Shared.Cargo.Components;
 using Content.Shared.Cargo.Events;
 using Content.Shared.Cargo.Prototypes;
 using Content.Shared.CCVar;
+<<<<<<< HEAD
 using Content.Shared.Stacks;
+=======
+using Content.Shared.HijackBeacon;
+>>>>>>> upstreamwiz/master
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
@@ -15,7 +19,7 @@ namespace Content.Server.Cargo.Systems;
 public sealed partial class CargoSystem
 {
     /*
-     * Handles cargo shuttle / trade mechanics.
+     * Handles automated trade station / trade mechanics.
      */
 
     private static readonly SoundPathSpecifier ApproveSound = new("/Audio/Effects/Cargo/ping.ogg");

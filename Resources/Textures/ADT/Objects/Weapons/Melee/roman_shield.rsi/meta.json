@@ -1,7 +1,11 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
+<<<<<<<< HEAD:Resources/Textures/ADT/Objects/Weapons/Melee/roman_shield.rsi/meta.json
   "copyright": "Taken from SS1984",
+========
+  "copyright": "Made by brainfood1183 (github) for ss14. Edited by huaqas (github).",
+>>>>>>>> upstreamwiz/master:Resources/Textures/Objects/Fun/lube.rsi/meta.json
   "size": {
     "x": 32,
     "y": 32
@@ -9,6 +13,9 @@
   "states": [
     {
       "name": "icon"
+    },
+    {
+      "name": "icon_open"
     },
     {
       "name": "inhand-left",
@@ -20,4 +27,3 @@
     }
   ]
 }
-

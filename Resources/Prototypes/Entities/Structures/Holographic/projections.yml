@@ -15,10 +15,12 @@
     state: icon
   - type: TimedDespawn
     lifetime: 90
+  - type: Clickable
   - type: Damageable
     damageContainer: Inorganic
   - type: Destructible
     thresholds:
+<<<<<<< HEAD
       - trigger:
           !type:DamageTrigger
           damage: 30
@@ -29,6 +31,14 @@
   - type: Tag #ADT tweak
     tags:
       - NoPaint
+=======
+    - trigger:
+        !type:DamageTrigger
+        damage: 30
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+>>>>>>> upstreamwiz/master
 
 - type: entity
   id: HoloFan
@@ -78,6 +88,7 @@
         - SlipLayer
   - type: TimedDespawn
     lifetime: 30
+<<<<<<< HEAD
   - type: Clickable
   - type: Destructible
     thresholds:
@@ -87,6 +98,16 @@
         behaviors:
           - !type:DoActsBehavior
             acts: [ "Destruction" ]
+=======
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 10
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+>>>>>>> upstreamwiz/master
 
 - type: entity
   id: HolosignSecurity
@@ -117,7 +138,6 @@
       radius: 3
       color: red
     - type: Climbable
-    - type: Clickable
 
 - type: entity
   id: HolosignForcefield
@@ -147,14 +167,13 @@
     enabled: true
     radius: 3
     color: blue
-  - type: Clickable
   - type: ContainmentField
     throwForce: 0
   - type: Destructible
     thresholds:
-      - trigger:
-          !type:DamageTrigger
-          damage: 60
-        behaviors:
-          - !type:DoActsBehavior
-            acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 60
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]

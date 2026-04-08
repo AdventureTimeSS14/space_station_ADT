@@ -3,6 +3,7 @@ using System.Numerics;
 using Content.Client.Construction;
 using Content.Client.Examine;
 using Content.Client.Gameplay;
+using Content.Client.Interaction;
 using Content.IntegrationTests.Pair;
 using Content.Server.Hands.Systems;
 using Content.Server.Stack;
@@ -134,6 +135,7 @@ public abstract partial class InteractionTest
     protected InteractionTestSystem CTestSystem = default!;
     protected ISawmill CLogger = default!;
     protected SharedUserInterfaceSystem CUiSys = default!;
+    protected DragDropSystem CDragDropSys = default!;
 
     // player components
     protected HandsComponent? Hands;
@@ -173,7 +175,11 @@ public abstract partial class InteractionTest
     [SetUp]
     public virtual async Task Setup()
     {
+<<<<<<< HEAD
         Pair = await PoolManager.GetServerClient(Settings);
+=======
+        Pair = await PoolManager.GetServerClient(Settings, new NUnitTestContextWrap(TestContext.CurrentContext, TestContext.Out));
+>>>>>>> upstreamwiz/master
 
         // server dependencies
         SEntMan = Server.ResolveDependency<IEntityManager>();
@@ -208,6 +214,10 @@ public abstract partial class InteractionTest
         CConSys = CEntMan.System<ConstructionSystem>();
         ExamineSys = CEntMan.System<ExamineSystem>();
         CUiSys = CEntMan.System<SharedUserInterfaceSystem>();
+<<<<<<< HEAD
+=======
+        CDragDropSys = CEntMan.System<DragDropSystem>();
+>>>>>>> upstreamwiz/master
 
         // Setup map.
         if (TestMapPath == null)
