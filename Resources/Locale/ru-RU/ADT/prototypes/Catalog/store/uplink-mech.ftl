@@ -56,3 +56,6 @@ uplink-syndimech-ammo-hades-name = Коробка патронов для FNX-99
 uplink-syndimech-ammo-hades-desc = Боекомплект для перезарядки орудия меха. Для применения положить во внутренние хранилище машины.
 uplink-syndimech-ammo-srm-name = Короб универсальных гранат
 uplink-syndimech-ammo-srm-desc = Боекомплект для перезарядки орудия меха. Для применения положить во внутренние хранилище машины.
+
+boobr-sandevistan-autosurgeon-name = САПО.Г. "Сандевистан"
+boobr-sandevistan-autosurgeon-desc = Медицинский прибор ОБР, для проведения операций по вживлению военного кибер-импланта "Сандевистан".
