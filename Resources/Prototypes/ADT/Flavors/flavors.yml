@@ -456,3 +456,8 @@
   id: ADTNigiriFlavor
   flavorType: Base
   description: flavor-base-nigiri
+
+- type: flavor
+  id: ADTCakeCakeWaffleFlavor
+  flavorType: complex
+  description: flavor-complex-waffle-cake
