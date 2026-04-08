@@ -10,37 +10,10 @@
         - type: DeafTrait
 
 - type: trait
-  id: PseudobulbarAffect
-  name: trait-pseudobulbar-affect-name
-  description: trait-pseudobulbar-affect-desc
-  category: Disabilities
-  cost: -1
-  speciesBlacklist:
-    - IPC
-  effects:
-    - !type:AddCompsEffect
-      components:
-        - type: EmotionallyUnstableAccent
-          triggerEmotionChance: 0.2
-          exclamatorySentenceChance: 0.5
-          changeMessageChance: 0.3
-          emotes:
-            - Laugh
-            - Scream
-            - Crying
-        - type: EmotionLoop
-          minTimeBetweenEmotions: 60
-          maxTimeBetweenEmotions: 90
-          emotes:
-            - Laugh
-            - Scream
-            - Crying
-
-- type: trait
   id: DamagedThroat
   name: trait-damaged-throat-name
   description: trait-damaged-throat-desc
-  category: SpeechTraits
+  category: Disabilities
   cost: -1
   effects:
     - !type:AddCompsEffect
@@ -49,19 +22,6 @@
   speciesBlacklist:
     - IPC
 
-- type: trait
-  id: Hushed
-  name: trait-hushed-name
-  description: trait-hushed-desc
-  category: SpeechTraits
-  cost: -1
-  blacklist:
-    components:
-      - BorgChassis
-  effects:
-    - !type:AddCompsEffect
-      components:
-        - type: Hushed
 
 - type: trait
   id: Echolalia
@@ -96,12 +56,11 @@
   name: trait-sheltered-name
   description: trait-sheltered-desc
   category: Disabilities
-  cost: -4
+  cost: -2
   effects:
-    - !type:OverrideCompsEffect
-      components:
-        - type: LanguageSpeaker
-          languages: {}
+    - !type:RemoveLanguagesEffect
+      preserveLanguages:
+      - SignLanguage
   departmentBlacklist:
     - Command
     - Security

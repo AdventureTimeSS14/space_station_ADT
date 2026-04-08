@@ -209,7 +209,8 @@ public sealed class PlayerPanelEui : BaseEui
             _canFreeze = false;
         }
 
-        if (_admins.HasAdminFlag(Player, AdminFlags.Adminhelp))
+        if (_admins.HasAdminFlag(Player, AdminFlags.Adminhelp) ||
+            _admins.HasAdminFlag(Player, AdminFlags.AhelpView)) // ADT-Tweak
         {
             _canAhelp = true;
         }

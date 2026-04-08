@@ -307,3 +307,13 @@
   - type: Sprite
     sprite: ADT/Structures/Wallmounts/paintings.rsi
     state: zima_blue
+
+- type: entity
+  parent: PaintingBase
+  id: ADTPaintingTheSonOfVulp
+  name: The Son of Vulp
+  description: Placeholder
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/paintings.rsi
+    state: the_son_of_vulp
