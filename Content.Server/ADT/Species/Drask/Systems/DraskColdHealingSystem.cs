@@ -46,7 +46,7 @@ public sealed class DraskColdHealingSystem : EntitySystem
             if (!HasComp<DamageableComponent>(uid))
                 continue;
 
-            var currentTempCelsius = tempComp.CurrentTemperature - 273.15f;
+            var currentTempCelsius = tempComp.CurrentTemperature - 295.15f;
 
             if (currentTempCelsius <= comp.TemperatureThreshold)
             {

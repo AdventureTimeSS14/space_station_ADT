@@ -134,7 +134,7 @@
   - type: ThermalRegulator
     sweatHeatRegulation: 1500
     shiveringHeatRegulation: 500
-    normalBodyTemperature: 273.15
+    normalBodyTemperature: 295.15
     thermalRegulationTemperatureThreshold: 25
   - type: DraskColdHealing
     temperatureThreshold: -30
