@@ -109,8 +109,9 @@
     baseSprintSpeed : 4.3
   - type: Temperature
     heatDamageThreshold: 313.15 # 40C
-    coldDamageThreshold: -800 # Иммунитет к холоду - не получают урон и алерты
-    currentTemperature: 273.15
+    coldDamageThreshold: -30 # мы всё равно урона не получаем, порог когда активируется coldDamage с лечением.
+    showColdAlert: false
+    currentTemperature: 293.15
     coldDamage: #per second, scales with temperature & other constants
       groups:
         Brute: -0.25
