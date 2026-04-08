@@ -109,9 +109,9 @@
     baseSprintSpeed : 4.3
   - type: Temperature
     heatDamageThreshold: 313.15 # 40C
-    coldDamageThreshold: 243.15 # -30C — порог когда активируется coldDamage с лечением.
+    coldDamageThreshold: 243.15 # -30C - порог когда активируется coldDamage с лечением.
     showColdAlert: false
-    currentTemperature: 243.15 # -30C
+    currentTemperature: 293.15 # 20C - нормальная температура тела
     coldDamage: #per second, scales with temperature & other constants
       groups:
         Brute: -0.25
