@@ -458,6 +458,16 @@
   description: flavor-base-nigiri
 
 - type: flavor
+  id: ADTCakeBananaBoomFlavor
+  flavorType: Base
+  description: flavor-base-adtcake-bananaboom
+
+- type: flavor
+  id: ADTChakChakFlavor
+  flavorType: Base
+  description: flavor-base-adtchak-chak
+
+- type: flavor
   id: ADTCakeCakeWaffleFlavor
   flavorType: complex
   description: flavor-complex-waffle-cake

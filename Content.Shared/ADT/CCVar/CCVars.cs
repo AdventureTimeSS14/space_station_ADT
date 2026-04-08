@@ -52,6 +52,6 @@ public sealed class SimpleStationCCVars
     /// Traits with positive cost consume points, negative cost traits grant points.
     /// </summary>
     public static readonly CVarDef<int> MaxTraitPoints =
-        CVarDef.Create("ic.traits.max_points", 1, CVar.SERVER | CVar.REPLICATED);
+        CVarDef.Create("ic.traits.max_points", 0, CVar.SERVER | CVar.REPLICATED);
 
 }

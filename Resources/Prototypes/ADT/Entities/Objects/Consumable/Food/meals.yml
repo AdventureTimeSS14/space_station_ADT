@@ -282,3 +282,60 @@
           Quantity: 3
         - ReagentId: Protein
           Quantity: 4
+
+# Сыр косичка
+- type: entity
+  name: string cheese
+  parent: ADTFoodMealBase
+  id: ADTStringCheese
+  description: A salty treat to go with your beer, although you can eat it without beer.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - salty
+      - cheesy
+  - type: Edible
+    transferAmount: 5
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/meals.rsi
+    state: string-cheese
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 25
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 15
+        - ReagentId: Vitamin
+          Quantity: 3
+        - ReagentId: Protein
+          Quantity: 3
+
+# Чак-чак
+- type: entity
+  name: chak chak
+  parent: ADTFoodMealBase
+  id: ADTChakChak
+  description: An oriental dessert made from fried pieces of dough and mead, as the apiary was not brought to the station.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - ADTChakChakFlavor
+  - type: Edible
+    transferAmount: 5
+    trash:
+    - FoodPlateSmall
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/chak-chak.rsi
+    state: chak-chak
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 25
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 15
+        - ReagentId: Vitamin
+          Quantity: 3
+        - ReagentId: Protein
+          Quantity: 3

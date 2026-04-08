@@ -109,7 +109,8 @@ public sealed class TraitSystem : EntitySystem
             }
 
             // Check global points limit
-            if (totalPoints + trait.Cost > _maxTraitPoints)
+            var newTotal = totalPoints + trait.Cost;
+            if (newTotal > _maxTraitPoints)
             {
                 Log.Warning(
                     $"Trait {traitId} rejected: global points limit ({_maxTraitPoints}) would be exceeded");
