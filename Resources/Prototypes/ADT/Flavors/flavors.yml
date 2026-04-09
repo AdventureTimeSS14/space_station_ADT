@@ -564,3 +564,8 @@
   id: ADTChakChakFlavor
   flavorType: Base
   description: flavor-base-adtchak-chak
+
+- type: flavor
+  id: ADTCakeCakeWaffleFlavor
+  flavorType: complex
+  description: flavor-complex-waffle-cake
