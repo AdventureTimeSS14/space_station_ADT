@@ -1,6 +1,7 @@
 using System.Globalization;
 using Content.Shared.Access.Components;
 using Content.Shared.Administration.Logs;
+using Content.Shared.ADT.Radio.EntitySystems;
 using Content.Shared.CCVar;
 using Content.Shared.Database;
 using Content.Shared.Hands.EntitySystems;
@@ -10,6 +11,7 @@ using Content.Shared.PDA;
 using Content.Shared.Roles;
 using Content.Shared.StatusIcon;
 using Robust.Shared.Configuration;
+using Robust.Shared.GameObjects;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
@@ -25,6 +27,7 @@ public abstract class SharedIdCardSystem : EntitySystem
     [Dependency] private readonly InventorySystem _inventorySystem = default!;
     [Dependency] private readonly MetaDataSystem _metaSystem = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private readonly SharedRadioJobIconSystem _radioJobIcon = default!; // ADT-Tweak
 
     // CCVar.
     private int _maxNameLength;
@@ -183,6 +186,11 @@ public abstract class SharedIdCardSystem : EntitySystem
             _adminLogger.Add(LogType.Identity, LogImpact.Low,
                 $"{ToPrettyString(player.Value):player} has changed the job icon of {ToPrettyString(uid):entity} to {jobIcon} ");
         }
+
+        // ADT-Tweak start
+        if (player.HasValue && Exists(player.Value) && !Deleted(player.Value) && !Terminating(player.Value))
+            _radioJobIcon.UpdateRadioJobIcon(player.Value);
+        // ADT-Tweak end
 
         return true;
     }
