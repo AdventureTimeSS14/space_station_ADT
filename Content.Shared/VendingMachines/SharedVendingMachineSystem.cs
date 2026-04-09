@@ -1,27 +1,20 @@
 using System.Linq;
-<<<<<<< HEAD
-=======
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
 using Content.Shared.Advertise.Components;
 using Content.Shared.Advertise.Systems;
 using Content.Shared.Destructible;
->>>>>>> upstreamwiz/master
 using Content.Shared.DoAfter;
 using Content.Shared.Emag.Components;
 using Content.Shared.Emag.Systems;
 using Content.Shared.Emp;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
-<<<<<<< HEAD
-using Robust.Shared.Audio.Systems;
-=======
 using Content.Shared.Power.EntitySystems;
 using Content.Shared.UserInterface;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.GameStates;
->>>>>>> upstreamwiz/master
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
@@ -37,6 +30,11 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
     [Dependency] protected readonly SharedPopupSystem Popup = default!;
     [Dependency] protected readonly IRobustRandom Randomizer = default!;
     [Dependency] private readonly EmagSystem _emag = default!;
+    [Dependency] private readonly AccessReaderSystem _accessReader = default!;
+    [Dependency] private readonly ApcPowerReceiverSystem _receiver = default!;
+    [Dependency] private readonly SharedAppearanceSystem _appearanceSystem = default!;
+    [Dependency] private readonly SharedPointLightSystem Light = default!;
+    [Dependency] private readonly SpeakOnUIClosedSystem _speakOnUIClosed = default!;
 
     public override void Initialize()
     {
@@ -47,10 +45,9 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
         SubscribeLocalEvent<VendingMachineComponent, RestockDoAfterEvent>(OnRestockDoAfter);
         SubscribeLocalEvent<VendingMachineComponent, ActivatableUIOpenAttemptEvent>(OnActivatableUIOpenAttempt);
         SubscribeLocalEvent<VendingMachineComponent, BreakageEventArgs>(OnBreak);
+        SubscribeLocalEvent<VendingMachineComponent, ComponentGetState>(OnVendingGetState);
 
         SubscribeLocalEvent<VendingMachineRestockComponent, AfterInteractEvent>(OnAfterInteract);
-<<<<<<< HEAD
-=======
 
         Subs.BuiEvents<VendingMachineComponent>(VendingMachineUiKey.Key, subs =>
         {
@@ -146,16 +143,8 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
             return;
 
         AuthorizedVend(entity.Owner, actor, args.Type, args.ID, entity.Comp);
->>>>>>> upstreamwiz/master
     }
 
-    protected virtual void OnMapInit(EntityUid uid, VendingMachineComponent component, MapInitEvent args)
-    {
-        RestockInventoryFromPrototype(uid, component, component.InitialStockQuality);
-    }
-
-<<<<<<< HEAD
-=======
     private void OnEmpPulse(Entity<VendingMachineComponent> ent, ref EmpPulseEvent args)
     {
         if (!ent.Comp.Broken && _receiver.IsPowered(ent.Owner))
@@ -322,7 +311,6 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
         }
     }
 
->>>>>>> upstreamwiz/master
     public void RestockInventoryFromPrototype(EntityUid uid,
         VendingMachineComponent? component = null, float restockQuality = 1f)
     {
@@ -451,14 +439,13 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
         }
     }
 
-<<<<<<< HEAD
-    //ADT-Economy-Stat
+    //ADT-Economy-Start
     protected virtual int GetEntryPrice(EntityPrototype proto)
     {
         return 25;
     }
     //ADT-Economy-End
-=======
+
     private void OnActivatableUIOpenAttempt(EntityUid uid, VendingMachineComponent component, ActivatableUIOpenAttemptEvent args)
     {
         if (component.Broken)
@@ -473,5 +460,4 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
 
         UISystem.CloseUi(uid, VendingMachineUiKey.Key);
     }
->>>>>>> upstreamwiz/master
 }

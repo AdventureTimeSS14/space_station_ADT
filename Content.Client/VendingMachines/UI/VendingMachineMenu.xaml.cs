@@ -27,6 +27,9 @@ namespace Content.Client.VendingMachines.UI
         private readonly Dictionary<EntProtoId, uint> _amounts = new();
 
         private readonly Dictionary<EntProtoId, EntityUid> _dummies = [];
+        private EntityUid _entityUid;
+        private int _credits; // ADT Tweak
+
         public event Action<GUIBoundKeyEventArgs, ListData>? OnItemSelected;
         public Action<VendingMachineWithdrawMessage>? OnWithdraw; //ADT-Economy
         // ADT vending eject count start
@@ -44,6 +47,16 @@ namespace Content.Client.VendingMachines.UI
             VendingContents.DataFilterCondition += DataFilterCondition;
             VendingContents.GenerateItem += GenerateButton;
             VendingContents.ItemKeyBindDown += (args, data) => OnItemSelected?.Invoke(args, data);
+
+            // ADT Tweak start: Economy: Moved to constructor to avoid duplicate handler subscriptions
+            WithdrawButton.OnPressed += _ =>
+            {
+                if (_credits == 0)
+                    return;
+
+                OnWithdraw?.Invoke(new VendingMachineWithdrawMessage());
+            };
+            // ADT Tweak end
         }
 
         protected override void Dispose(bool disposing)
@@ -113,16 +126,12 @@ namespace Content.Client.VendingMachines.UI
         /// </summary>
         public void Populate(EntityUid entityUid, List<VendingMachineInventoryEntry> inventory, double priceMultiplier, int credits)
         {
+            _entityUid = entityUid;
+            _credits = credits; // ADT Tweak
+
             //ADT-Economy-Start
             CreditsLabel.Text = Loc.GetString("vending-ui-credits-amount", ("credits", credits));
             WithdrawButton.Disabled = credits == 0;
-            WithdrawButton.OnPressed += _ =>
-            {
-                if (credits == 0)
-                    return;
-
-                OnWithdraw?.Invoke(new VendingMachineWithdrawMessage());
-            };
             var vendComp = _entityManager.GetComponent<VendingMachineComponent>(entityUid); //ADT-Economy
             //ADT-Economy-End
 
