@@ -126,7 +126,6 @@
           Quantity: 1
 
 - type: entity
-  name: cheese cake
   name: banana boom cake
   parent: FoodCakeBase
   id: ADTFoodCakeBananaBoom
