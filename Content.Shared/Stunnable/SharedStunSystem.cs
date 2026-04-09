@@ -275,11 +275,7 @@ public abstract partial class SharedStunSystem : EntitySystem
             }
 
             // Only update Autostand value if it's our first time being knocked down...
-<<<<<<< HEAD
             // SetAutoStand((uid, component), autoStand); //ADT-tweak
-=======
-            SetAutoStand((uid, component), autoStand);
->>>>>>> upstreamwiz/master
         }
 
         var knockedEv = new KnockedDownEvent();

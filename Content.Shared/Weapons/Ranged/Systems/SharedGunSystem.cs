@@ -64,23 +64,16 @@ public abstract partial class SharedGunSystem : EntitySystem
     [Dependency] protected readonly SharedAppearanceSystem Appearance = default!;
     [Dependency] protected readonly SharedAudioSystem Audio = default!;
     [Dependency] protected readonly SharedContainerSystem Containers = default!;
-<<<<<<< HEAD
-=======
     [Dependency] protected readonly SharedPhysicsSystem Physics = default!;
->>>>>>> upstreamwiz/master
     [Dependency] protected readonly SharedPointLightSystem Lights = default!;
     [Dependency] protected readonly SharedPopupSystem PopupSystem = default!;
     [Dependency] protected readonly SharedProjectileSystem Projectiles = default!;
     [Dependency] protected readonly SharedTransformSystem TransformSystem = default!;
     [Dependency] protected readonly TagSystem TagSystem = default!;
     [Dependency] protected readonly ThrowingSystem ThrowingSystem = default!;
-<<<<<<< HEAD
-    [Dependency] private   readonly UseDelaySystem _useDelay = default!;
-    [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
     // ADT-Tweak-Start
     [Dependency] private readonly SharedElectrocutionSystem _electrocutionSystem = default!;
     // ADT-Tweak-End
-=======
 
     /// <summary>
     /// Default projectile speed
@@ -96,7 +89,6 @@ public abstract partial class SharedGunSystem : EntitySystem
     ///     Name of the container slot used as the gun's magazine
     /// </summary>
     public const string MagazineSlot = "gun_magazine";
->>>>>>> upstreamwiz/master
 
     private static readonly ProtoId<TagPrototype> TrashTag = "Trash";
 
@@ -171,7 +163,6 @@ public abstract partial class SharedGunSystem : EntitySystem
         if (gun.Owner != GetEntity(msg.Gun))
             return;
 
-<<<<<<< HEAD
         // ADT Content start
         if (TryComp<MechPilotComponent>(user.Value, out var mechPilot))
         {
@@ -179,16 +170,11 @@ public abstract partial class SharedGunSystem : EntitySystem
         }
         // ADT Content end
 
-        gun.ShootCoordinates = GetCoordinates(msg.Coordinates);
-        gun.Target = GetEntity(msg.Target);
-        AttemptShoot(user.Value, ent, gun);
-=======
         gun.Comp.ShootCoordinates = GetCoordinates(msg.Coordinates);
         gun.Comp.Target = GetEntity(msg.Target);
         AttemptShoot(user.Value, gun);
         if (msg.Continuous)
             gun.Comp.ShotCounter = 0;
->>>>>>> upstreamwiz/master
     }
 
     private void OnStopShootRequest(RequestStopShootEvent ev, EntitySessionEventArgs args)
@@ -232,8 +218,7 @@ public abstract partial class SharedGunSystem : EntitySystem
             mech.CurrentSelectedEquipment.HasValue &&
             TryComp<GunComponent>(mech.CurrentSelectedEquipment.Value, out var mechGun))
         {
-            gunEntity = mech.CurrentSelectedEquipment.Value;
-            gunComp = mechGun;
+            gun = (mech.CurrentSelectedEquipment.Value, mechGun);
             return true;
         }
         // ADT Content end
@@ -268,15 +253,6 @@ public abstract partial class SharedGunSystem : EntitySystem
     /// <summary>
     /// Attempts to shoot at the target coordinates. Resets the shot counter after every shot.
     /// </summary>
-<<<<<<< HEAD
-    public bool AttemptShoot(EntityUid user, EntityUid gunUid, GunComponent gun, EntityCoordinates toCoordinates, EntityUid? target = null)
-    {
-        gun.ShootCoordinates = toCoordinates;
-        gun.Target = target;
-        var result = AttemptShoot(user, gunUid, gun);
-        gun.ShotCounter = 0;
-        DirtyField(gunUid, gun, nameof(GunComponent.ShotCounter));
-=======
     public bool AttemptShoot(EntityUid user, Entity<GunComponent> gun, EntityCoordinates toCoordinates, EntityUid? target = null)
     {
         gun.Comp.ShootCoordinates = toCoordinates;
@@ -284,25 +260,12 @@ public abstract partial class SharedGunSystem : EntitySystem
         var result = AttemptShoot(user, gun);
         gun.Comp.ShotCounter = 0;
         DirtyField(gun.AsNullable(), nameof(GunComponent.ShotCounter));
->>>>>>> upstreamwiz/master
         return result;
     }
 
     /// <summary>
     /// Shoots by assuming the gun is the user at default coordinates.
     /// </summary>
-<<<<<<< HEAD
-    public bool AttemptShoot(EntityUid gunUid, GunComponent gun)
-    {
-        var coordinates = new EntityCoordinates(gunUid, gun.DefaultDirection);
-        gun.ShootCoordinates = coordinates;
-        var result = AttemptShoot(gunUid, gunUid, gun);
-        gun.ShotCounter = 0;
-        return result;
-    }
-
-    private bool AttemptShoot(EntityUid user, EntityUid gunUid, GunComponent gun)
-=======
     public bool AttemptShoot(Entity<GunComponent> gun)
     {
         var coordinates = new EntityCoordinates(gun, gun.Comp.DefaultDirection);
@@ -313,7 +276,6 @@ public abstract partial class SharedGunSystem : EntitySystem
     }
 
     private bool AttemptShoot(EntityUid user, Entity<GunComponent> gun)
->>>>>>> upstreamwiz/master
     {
         if (gun.Comp.FireRateModified <= 0f ||
             !_actionBlockerSystem.CanAttack(user))
@@ -321,15 +283,14 @@ public abstract partial class SharedGunSystem : EntitySystem
             return false;
         }
 
-<<<<<<< HEAD
         ///ADT-Personal-Gun block start
-        if (TryComp<DNAGunLockerComponent>(gunUid, out var dnaGunComp) && !dnaGunComp.IsEmagged)
+        if (TryComp<DNAGunLockerComponent>(gun, out var dnaGunComp) && !dnaGunComp.IsEmagged)
         {
             if (dnaGunComp.GunOwner?.Id != user.Id)
             {
                 _electrocutionSystem.TryDoElectrocution(user, null, 10, TimeSpan.FromSeconds(15), refresh: true, ignoreInsulation: true);
                 PopupSystem.PopupClient(Loc.GetString("gun-personalize-fuck"), user);
-                Audio.PlayPredicted(dnaGunComp.ElectricSound, gunUid, user);
+                Audio.PlayPredicted(dnaGunComp.ElectricSound, gun, user);
 
                 if (TryComp<CombatModeComponent>(user, out var combatModeComp))
                     _combatMode.SetInCombatMode(user, false);
@@ -339,10 +300,7 @@ public abstract partial class SharedGunSystem : EntitySystem
         }
         ///ADT-Personal-Gun block end
 
-        var toCoordinates = gun.ShootCoordinates;
-=======
         var toCoordinates = gun.Comp.ShootCoordinates;
->>>>>>> upstreamwiz/master
 
         if (toCoordinates == null)
             return false;
@@ -365,11 +323,7 @@ public abstract partial class SharedGunSystem : EntitySystem
 
         // Need to do this to play the clicking sound for empty automatic weapons
         // but not play anything for burst fire.
-<<<<<<< HEAD
-        if (gun.NextFire > curTime)
-=======
         if (gun.Comp.NextFire > curTime)
->>>>>>> upstreamwiz/master
             return false;
 
         var fireRate = TimeSpan.FromSeconds(1f / gun.Comp.FireRateModified);
@@ -427,15 +381,9 @@ public abstract partial class SharedGunSystem : EntitySystem
             {
                 PopupSystem.PopupClient(attemptEv.Message, gun, user);
             }
-<<<<<<< HEAD
-            gun.BurstActivated = false;
-            gun.BurstShotsCount = 0;
-            gun.NextFire = TimeSpan.FromSeconds(Math.Max(lastFire.TotalSeconds + SafetyNextFire, gun.NextFire.TotalSeconds));
-=======
             gun.Comp.BurstActivated = false;
             gun.Comp.BurstShotsCount = 0;
             gun.Comp.NextFire = TimeSpan.FromSeconds(Math.Max(lastFire.TotalSeconds + SafetyNextFire, gun.Comp.NextFire.TotalSeconds));
->>>>>>> upstreamwiz/master
             return false;
         }
 
@@ -460,11 +408,7 @@ public abstract partial class SharedGunSystem : EntitySystem
         {
             // triggers effects on the gun if it's empty
             var emptyGunShotEvent = new OnEmptyGunShotEvent(user);
-<<<<<<< HEAD
-            RaiseLocalEvent(gunUid, ref emptyGunShotEvent);
-=======
             RaiseLocalEvent(gun, ref emptyGunShotEvent);
->>>>>>> upstreamwiz/master
 
             gun.Comp.BurstActivated = false;
             gun.Comp.BurstShotsCount = 0;
@@ -478,13 +422,8 @@ public abstract partial class SharedGunSystem : EntitySystem
 
                 // Don't spam safety sounds at gun fire rate, play it at a reduced rate.
                 // May cause prediction issues? Needs more tweaking
-<<<<<<< HEAD
-                gun.NextFire = TimeSpan.FromSeconds(Math.Max(lastFire.TotalSeconds + SafetyNextFire, gun.NextFire.TotalSeconds));
-                Audio.PlayPredicted(gun.SoundEmpty, gunUid, user);
-=======
                 gun.Comp.NextFire = TimeSpan.FromSeconds(Math.Max(lastFire.TotalSeconds + SafetyNextFire, gun.Comp.NextFire.TotalSeconds));
                 Audio.PlayPredicted(gun.Comp.SoundEmpty, gun, user);
->>>>>>> upstreamwiz/master
                 return false;
             }
 
@@ -507,17 +446,9 @@ public abstract partial class SharedGunSystem : EntitySystem
             }
         }
         var shotEv = new GunShotEvent(user, ev.Ammo, fromCoordinates, toCoordinates.Value); // ADT TWEAK
-        RaiseLocalEvent(gunUid, ref shotEv); //ADT tweak
+        RaiseLocalEvent(gun, ref shotEv); //ADT tweak
         // Shoot confirmed - sounds also played here in case it's invalid (e.g. cartridge already spent).
-<<<<<<< HEAD
-        Shoot(gunUid, gun, ev.Ammo, fromCoordinates, shotEv.ToCoordinates, out var userImpulse, user, throwItems: attemptEv.ThrowItems); //ADTR tweaked
-        // var shotEv = new GunShotEvent(user, ev.Ammo, fromCoordinates, toCoordinates.Value); // ADT TWEAK
-        // RaiseLocalEvent(gunUid, ref shotEv); //ADT tweak
-=======
-        Shoot(gun, ev.Ammo, fromCoordinates, toCoordinates.Value, out var userImpulse, user, throwItems: attemptEv.ThrowItems);
-        var shotEv = new GunShotEvent(user, ev.Ammo);
-        RaiseLocalEvent(gun, ref shotEv);
->>>>>>> upstreamwiz/master
+        Shoot(gun, ev.Ammo, fromCoordinates, shotEv.ToCoordinates, out var userImpulse, user, throwItems: attemptEv.ThrowItems); //ADTR tweaked
 
         if (!userImpulse || !TryComp<PhysicsComponent>(user, out var userPhysics))
             return true;
@@ -526,11 +457,7 @@ public abstract partial class SharedGunSystem : EntitySystem
         RaiseLocalEvent(user, ref shooterEv);
 
         if (shooterEv.Push)
-<<<<<<< HEAD
-            CauseImpulse(fromCoordinates, toCoordinates.Value, user, userPhysics);
-=======
             CauseImpulse(fromCoordinates, toCoordinates.Value, (user, userPhysics));
->>>>>>> upstreamwiz/master
         return true;
     }
 
@@ -794,26 +721,6 @@ public abstract partial class SharedGunSystem : EntitySystem
     {
         UpdateBattery(frameTime);
         UpdateBallistic(frameTime);
-    }
-
-    /// <summary>
-    /// Get the ammo count for a given EntityUid. Can be a firearm or magazine.
-    /// </summary>
-    public int GetAmmoCount(EntityUid uid)
-    {
-        var ammoEv = new GetAmmoCountEvent();
-        RaiseLocalEvent(uid, ref ammoEv);
-        return ammoEv.Count;
-    }
-
-    /// <summary>
-    /// Get the ammo capacity for a given EntityUid. Can be a firearm or magazine.
-    /// </summary>
-    public int GetAmmoCapacity(EntityUid uid)
-    {
-        var ammoEv = new GetAmmoCountEvent();
-        RaiseLocalEvent(uid, ref ammoEv);
-        return ammoEv.Capacity;
     }
 }
 

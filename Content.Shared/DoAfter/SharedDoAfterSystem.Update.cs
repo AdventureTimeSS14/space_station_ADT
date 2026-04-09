@@ -212,11 +212,7 @@ public abstract partial class SharedDoAfterSystem : EntitySystem
         if (args.Target is { } target && !TryComp(target, out targetXform))
             return true;
 
-<<<<<<< HEAD
-        if (args.Used is { } @using && !xformQuery.HasComp(@using))
-=======
         if (args.Used is { } @using && !Exists(@using))
->>>>>>> upstreamwiz/master
             return true;
 
         // TODO: Re-use existing xform query for these calculations.

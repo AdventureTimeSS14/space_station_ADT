@@ -21,11 +21,8 @@ public sealed partial class FlashImmunityComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool ShowInExamine = true;
-<<<<<<< HEAD
     // ADT-Tweak-Start
     [DataField]
     public bool IncludeExamine = true;
     // ADT-Tweak-End
-=======
->>>>>>> upstreamwiz/master
 }

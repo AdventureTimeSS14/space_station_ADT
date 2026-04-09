@@ -88,18 +88,10 @@ public abstract partial class SharedStunSystem
 
         // var query = EntityQueryEnumerator<KnockedDownComponent>();
 
-<<<<<<< HEAD
         // while (query.MoveNext(out var uid, out var knockedDown))
         // {
         //     if (!knockedDown.AutoStand || knockedDown.DoAfterId.HasValue || knockedDown.NextUpdate > GameTiming.CurTime)
         //         continue;
-=======
-        while (query.MoveNext(out var uid, out var knockedDown))
-        {
-            // If it's null then we don't want to stand up
-            if (!knockedDown.AutoStand || knockedDown.DoAfterId.HasValue || knockedDown.NextUpdate > GameTiming.CurTime)
-                continue;
->>>>>>> upstreamwiz/master
 
         //     TryStanding(uid);
         // }
@@ -280,28 +272,19 @@ public abstract partial class SharedStunSystem
         }
 
         var stand = !entity.Comp2.DoAfterId.HasValue;
-<<<<<<< HEAD
         // SetAutoStand((entity, entity.Comp2), stand);
-=======
-        SetAutoStand((entity, entity.Comp2), stand);
->>>>>>> upstreamwiz/master
 
         if (!stand || !TryStanding((entity, entity.Comp2)))
             CancelKnockdownDoAfter((entity, entity.Comp2));
     }
 
-<<<<<<< HEAD
     public bool TryStanding(Entity<KnockedDownComponent?> entity, bool DoDoAfter = true) //ADT-tweak: добавлен бул дудуафтер
-=======
-    public bool TryStanding(Entity<KnockedDownComponent?> entity)
->>>>>>> upstreamwiz/master
     {
         // If we aren't knocked down or can't be knocked down, then we did technically succeed in standing up
         if (!Resolve(entity, ref entity.Comp, false))
             return true;
 
         if (!KnockdownOver((entity, entity.Comp)))
-<<<<<<< HEAD
             return false;
         if (!DoDoAfter) return true; //ADT-tweak: если без дуафтера, то его не делаем
 
@@ -332,24 +315,6 @@ public abstract partial class SharedStunSystem
 
         var ev = new GetStandUpTimeEvent(baseTime);
         // ADT-Tweak end
-=======
-            return false;
-
-        if (!_crawlerQuery.TryComp(entity, out var crawler) || !_cfgManager.GetCVar(CCVars.MovementCrawling))
-        {
-            // If we can't crawl then just have us sit back up...
-            // In case you're wondering, the KnockdownOverCheck, returns if we're able to move, so if next update is null.
-            // An entity that can't crawl will stand up the next time they can move, which should prevent moving while knocked down.
-            RemComp<KnockedDownComponent>(entity);
-            _adminLogger.Add(LogType.Stamina, LogImpact.Medium, $"{ToPrettyString(entity):user} has stood up from knockdown.");
-            return true;
-        }
-
-        if (!TryStand((entity, entity.Comp)))
-            return false;
-
-        var ev = new GetStandUpTimeEvent(crawler.StandTime);
->>>>>>> upstreamwiz/master
         RaiseLocalEvent(entity, ref ev);
 
         var doAfterArgs = new DoAfterArgs(EntityManager, entity, ev.DoAfterTime, new TryStandDoAfterEvent(), entity, entity)

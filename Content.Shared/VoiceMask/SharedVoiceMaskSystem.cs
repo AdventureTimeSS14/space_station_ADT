@@ -15,31 +15,23 @@ public sealed class VoiceMaskBuiState : BoundUserInterfaceState
 {
     public readonly string Name;
     public readonly string? Verb;
-<<<<<<< HEAD
     public readonly string Voice; // Corvax-TTS
     public readonly string Bark; // ADT Barks
     public readonly float Pitch; // ADT Barks
     public readonly string? JobIconId; // ADT-Tweak start
-
-    public VoiceMaskBuiState(string name, string voice, string bark, float pitch, string? verb, string? jobIconId = null) // ADT-Tweak start
-    {
-        Name = name;
-        Verb = verb;
-        Voice = voice;  // Corvax-TTS
-        Bark = bark; // ADT Barks
-        Pitch = pitch; // ADT Barks
-        JobIconId = jobIconId; // ADT-Tweak start
-=======
     public readonly bool Active;
     public readonly bool AccentHide;
 
-    public VoiceMaskBuiState(string name, string? verb, bool active, bool accentHide)
+    public VoiceMaskBuiState(string name, string voice, string bark, float pitch, string? verb, bool active, bool accentHide, string? jobIconId = null)
     {
         Name = name;
         Verb = verb;
+        Voice = voice;
+        Bark = bark;
+        Pitch = pitch;
+        JobIconId = jobIconId;
         Active = active;
         AccentHide = accentHide;
->>>>>>> upstreamwiz/master
     }
 }
 
@@ -69,7 +61,6 @@ public sealed class VoiceMaskChangeVerbMessage : BoundUserInterfaceMessage
 }
 
 /// <summary>
-<<<<<<< HEAD
 /// ADT-Tweak
 /// Change the job icon that will be displayed in radio chat.
 /// </summary>
@@ -83,7 +74,8 @@ public sealed class VoiceMaskChangeJobIconMessage : BoundUserInterfaceMessage
         JobIconId = jobIconId;
     }
 }
-=======
+
+/// <summary>
 ///     Toggle the effects of the voice mask.
 /// </summary>
 [Serializable, NetSerializable]
@@ -94,4 +86,3 @@ public sealed class VoiceMaskToggleMessage : BoundUserInterfaceMessage;
 /// </summary>
 [Serializable, NetSerializable]
 public sealed class VoiceMaskAccentToggleMessage : BoundUserInterfaceMessage;
->>>>>>> upstreamwiz/master

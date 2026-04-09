@@ -3,17 +3,14 @@ using Content.Shared.Rejuvenate;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
-using Robust.Shared.Timing;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
-<<<<<<< HEAD
-=======
+using Robust.Shared.Timing;
 using Robust.Shared.Utility;
->>>>>>> upstreamwiz/master
 
 namespace Content.Shared.Emp;
 
-public abstract partial class SharedEmpSystem : EntitySystem    // ADT-Tweak - partial class
+public abstract partial class SharedEmpSystem : EntitySystem // ADT-Tweak - partial class
 {
     [Dependency] protected readonly IGameTiming Timing = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
@@ -21,11 +18,8 @@ public abstract partial class SharedEmpSystem : EntitySystem    // ADT-Tweak - p
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
 
-    private HashSet<EntityUid> _entSet = new();
-<<<<<<< HEAD
-=======
+    private readonly HashSet<EntityUid> _entSet = new();
     private EntityQuery<EmpResistanceComponent> _resistanceQuery;
->>>>>>> upstreamwiz/master
 
     public override void Initialize()
     {
@@ -34,14 +28,10 @@ public abstract partial class SharedEmpSystem : EntitySystem    // ADT-Tweak - p
         SubscribeLocalEvent<EmpDisabledComponent, ExaminedEvent>(OnExamine);
         SubscribeLocalEvent<EmpDisabledComponent, ComponentRemove>(OnRemove);
         SubscribeLocalEvent<EmpDisabledComponent, RejuvenateEvent>(OnRejuvenate);
-
-<<<<<<< HEAD
-        InitializeADT();    // ADT-Tweak
-=======
         SubscribeLocalEvent<EmpResistanceComponent, EmpAttemptEvent>(OnResistEmpAttempt);
 
         _resistanceQuery = GetEntityQuery<EmpResistanceComponent>();
->>>>>>> upstreamwiz/master
+        InitializeADT(); // ADT-Tweak
     }
 
     public static readonly EntProtoId EmpPulseEffectPrototype = "EffectEmpPulse";
@@ -62,6 +52,7 @@ public abstract partial class SharedEmpSystem : EntitySystem    // ADT-Tweak - p
         {
             TryEmpEffects(uid, energyConsumption, duration, user);
         }
+
         // TODO: replace with PredictedSpawn once it works with animated sprites
         if (_net.IsServer)
             Spawn(EmpPulseEffectPrototype, mapCoordinates);
@@ -78,12 +69,8 @@ public abstract partial class SharedEmpSystem : EntitySystem    // ADT-Tweak - p
     /// <param name="energyConsumption">The amount of energy consumed by the EMP pulse.</param>
     /// <param name="duration">The duration of the EMP effects.</param>
     /// <param name="user">The player that caused the effect. Used for predicted audio.</param>
-<<<<<<< HEAD
-    public void EmpPulse(EntityCoordinates coordinates, float range, float energyConsumption, TimeSpan duration, EntityUid? user = null)
-=======
     /// <param name="predicted">Whether this pulse is being replicated on the client.</param>
     public void EmpPulse(EntityCoordinates coordinates, float range, float energyConsumption, TimeSpan duration, EntityUid? user = null, bool predicted = true)
->>>>>>> upstreamwiz/master
     {
         _entSet.Clear();
         _lookup.GetEntitiesInRange(coordinates, range, _entSet);
@@ -91,28 +78,20 @@ public abstract partial class SharedEmpSystem : EntitySystem    // ADT-Tweak - p
         {
             TryEmpEffects(uid, energyConsumption, duration, user);
         }
+
         // TODO: replace with PredictedSpawn once it works with animated sprites
         if (_net.IsServer)
             Spawn(EmpPulseEffectPrototype, coordinates);
 
-<<<<<<< HEAD
-        _audio.PlayPredicted(EmpSound, coordinates, user);
-=======
         if (predicted)
             _audio.PlayPredicted(EmpSound, coordinates, user);
         else
             _audio.PlayPvs(EmpSound, coordinates);
->>>>>>> upstreamwiz/master
     }
 
     /// <summary>
     /// Attempts to apply the effects of an EMP pulse onto an entity by first raising an <see cref="EmpAttemptEvent"/>, followed by raising a <see cref="EmpPulseEvent"/> on it.
     /// </summary>
-    /// <param name="uid">The entity to apply the EMP effects on.</param>
-    /// <param name="energyConsumption">The amount of energy consumed by the EMP.</param>
-    /// <param name="duration">The duration of the EMP effects.</param>
-    /// <param name="user">The player that caused the EMP. For prediction purposes.</param>
-    /// <returns>If the entity was affected by the EMP.</returns>
     public bool TryEmpEffects(EntityUid uid, float energyConsumption, TimeSpan duration, EntityUid? user = null)
     {
         var attemptEv = new EmpAttemptEvent();
@@ -126,16 +105,8 @@ public abstract partial class SharedEmpSystem : EntitySystem    // ADT-Tweak - p
     /// <summary>
     /// Applies the effects of an EMP pulse onto an entity by raising a <see cref="EmpPulseEvent"/> on it.
     /// </summary>
-    /// <param name="uid">The entity to apply the EMP effects on.</param>
-    /// <param name="energyConsumption">The amount of energy consumed by the EMP.</param>
-    /// <param name="duration">The duration of the EMP effects.</param>
-    /// <param name="user">The player that caused the EMP. For prediction purposes.</param>
-    /// <returns>If the entity was affected by the EMP.</returns>
     public bool DoEmpEffects(EntityUid uid, float energyConsumption, TimeSpan duration, EntityUid? user = null)
     {
-<<<<<<< HEAD
-        var ev = new EmpPulseEvent(energyConsumption, false, false, duration, user);
-=======
         var strMultiplier = 1f;
         var durMultiplier = 1f;
         if (_resistanceQuery.TryComp(uid, out var resistance))
@@ -143,8 +114,8 @@ public abstract partial class SharedEmpSystem : EntitySystem    // ADT-Tweak - p
             strMultiplier = resistance.StrengthMultiplier;
             durMultiplier = resistance.DurationMultiplier;
         }
+
         var ev = new EmpPulseEvent(energyConsumption * strMultiplier, false, false, duration * durMultiplier, user);
->>>>>>> upstreamwiz/master
         RaiseLocalEvent(uid, ref ev);
 
         // TODO: replace with PredictedSpawn once it works with animated sprites
@@ -155,11 +126,7 @@ public abstract partial class SharedEmpSystem : EntitySystem    // ADT-Tweak - p
             return ev.Affected;
 
         var disabled = EnsureComp<EmpDisabledComponent>(uid);
-<<<<<<< HEAD
-        disabled.DisabledUntil = Timing.CurTime + duration;
-=======
         disabled.DisabledUntil = Timing.CurTime + duration * durMultiplier;
->>>>>>> upstreamwiz/master
         Dirty(uid, disabled);
 
         return ev.Affected;
@@ -195,8 +162,6 @@ public abstract partial class SharedEmpSystem : EntitySystem    // ADT-Tweak - p
     {
         RemCompDeferred<EmpDisabledComponent>(ent);
     }
-<<<<<<< HEAD
-=======
 
     private void OnResistEmpAttempt(Entity<EmpResistanceComponent> ent, ref EmpAttemptEvent args)
     {
@@ -205,7 +170,6 @@ public abstract partial class SharedEmpSystem : EntitySystem    // ADT-Tweak - p
         if (ent.Comp.StrengthMultiplier <= 0)
             args.Cancelled = true;
     }
->>>>>>> upstreamwiz/master
 }
 
 /// <summary>
@@ -217,12 +181,6 @@ public record struct EmpAttemptEvent(bool Cancelled);
 /// <summary>
 /// Raised on an entity when it gets hit by an EMP Pulse.
 /// </summary>
-/// <param name="EnergyConsumption">The amount of energy to remove from batteries. In Joule.</param>
-/// <param name="Affected">Set this is true in the subscription to spawn a visual effect at the entity's location.</param>
-/// <param name="Disabled">Set this to ture in the subscription to add <see cref="EmpDisabledComponent"/> to the entity.</param>
-/// <param name="Duration">The duration the entity will be disabled.</param>
-/// <param name="User">The player that caused the EMP. For prediction purposes.</param>
-
 [ByRefEvent]
 public record struct EmpPulseEvent(float EnergyConsumption, bool Affected, bool Disabled, TimeSpan Duration, EntityUid? User);
 

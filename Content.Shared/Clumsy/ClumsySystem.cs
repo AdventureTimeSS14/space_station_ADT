@@ -167,15 +167,8 @@ public sealed class ClumsySystem : EntitySystem
         if (!ent.Comp.ClumsyVaulting)
             return;
 
-<<<<<<< HEAD
-        // TODO: Replace with RandomPredicted once the engine PR is merged
-        var seed = SharedRandomExtensions.HashCodeCombine((int)_timing.CurTick.Value, GetNetEntity(ent).Id);
-        var rand = new System.Random(seed);
-        if (!_cfg.GetCVar(CCVars.GameTableBonk) && !rand.Prob(ent.Comp.ClumsyDefaultCheck))
-=======
         if (!_cfg.GetCVar(CCVars.GameTableBonk)
             && !SharedRandomExtensions.PredictedProb(_timing, ent.Comp.ClumsyDefaultCheck, GetNetEntity(ent)))
->>>>>>> upstreamwiz/master
             return;
 
         HitHeadClumsy(ent, args.BeingClimbedOn);

@@ -11,11 +11,7 @@ public sealed partial class DamageableSystem
     {
         foreach (var (uid, damageable) in damageables)
         {
-<<<<<<< HEAD
-            TryChangeDamage((uid, damageable), damage);
-=======
             ChangeDamage((uid, damageable), damage);
->>>>>>> upstreamwiz/master
         }
     }
 }

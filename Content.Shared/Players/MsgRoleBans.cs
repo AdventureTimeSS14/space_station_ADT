@@ -13,13 +13,8 @@ public sealed class MsgRoleBans : NetMessage
 {
     public override MsgGroups MsgGroup => MsgGroups.EntityEvent;
 
-<<<<<<< HEAD
-    public List<string> JobBans = new();
-    public List<string> AntagBans = new();
-=======
     public List<ProtoId<JobPrototype>> JobBans = new();
     public List<ProtoId<AntagPrototype>> AntagBans = new();
->>>>>>> upstreamwiz/master
 
     public override void ReadFromBuffer(NetIncomingMessage buffer, IRobustSerializer serializer)
     {

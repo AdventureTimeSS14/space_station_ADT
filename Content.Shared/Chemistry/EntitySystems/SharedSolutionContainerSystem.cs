@@ -11,10 +11,6 @@ using Content.Shared.Examine;
 using Content.Shared.FixedPoint;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Localizations;
-<<<<<<< HEAD
-using Content.Shared.Nutrition.Components;
-=======
->>>>>>> upstreamwiz/master
 using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.Verbs;
 using JetBrains.Annotations;
@@ -82,10 +78,7 @@ public abstract partial class SharedSolutionContainerSystem : EntitySystem
     [Dependency] protected readonly SharedContainerSystem ContainerSystem = default!;
     [Dependency] protected readonly MetaDataSystem MetaDataSys = default!;
     [Dependency] protected readonly INetManager NetManager = default!;
-<<<<<<< HEAD
-=======
     [Dependency] private readonly IGameTiming _timing = default!;
->>>>>>> upstreamwiz/master
 
     public override void Initialize()
     {

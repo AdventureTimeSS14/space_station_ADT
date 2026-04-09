@@ -1,8 +1,5 @@
-<<<<<<< HEAD
-=======
 using Content.Shared.Damage.Systems;
 
->>>>>>> upstreamwiz/master
 namespace Content.Shared.Destructible;
 
 public abstract class SharedDestructibleSystem : EntitySystem

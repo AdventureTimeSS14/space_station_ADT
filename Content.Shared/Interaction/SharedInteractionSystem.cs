@@ -534,12 +534,6 @@ namespace Content.Shared.Interaction
                 return;
             }
 
-<<<<<<< HEAD
-            // DebugTools.Assert(!IsDeleted(user) && !IsDeleted(target));
-            // all interactions should only happen when in range / unobstructed, so no range check is needed
-            var message = new InteractHandEvent(user, target);
-            RaiseLocalEvent(target, message, true);
-=======
             DebugTools.Assert(!IsDeleted(user) && !IsDeleted(target));
 
             // all interactions should only happen when in range / unobstructed, so no range check is needed
@@ -548,7 +542,6 @@ namespace Content.Shared.Interaction
             var userMessage = new UserInteractHandEvent(user, target);
             RaiseLocalEvent(user, userMessage, true);
 
->>>>>>> upstreamwiz/master
             _adminLogger.Add(LogType.InteractHand, LogImpact.Low, $"{user} interacted with {target}");
             DoContactInteraction(user, target, message);
             if (message.Handled || userMessage.Handled)

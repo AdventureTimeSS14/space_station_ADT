@@ -1,5 +1,4 @@
 ﻿using Content.Shared.ActionBlocker;
-<<<<<<< HEAD
 using Content.Shared.ADT.Salvage.Components;
 //ADT-Tweak-Start
 //using Content.Shared.Buckle.Components;
@@ -14,13 +13,7 @@ using Robust.Shared.Network;
 //using Robust.Shared.Audio.Systems;
 //ADT-Tweak-End
 //using Robust.Shared.Physics.Components; ADT-Tweak
-=======
-using Content.Shared.Movement.Events;
-using Content.Shared.StepTrigger.Systems;
-using Content.Shared.Weapons.Misc;
-using Robust.Shared.Audio.Systems;
-using Robust.Shared.Network;
->>>>>>> upstreamwiz/master
+
 using Robust.Shared.Timing;
 
 namespace Content.Shared.Chasm;
@@ -33,15 +26,10 @@ public sealed class ChasmSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly ActionBlockerSystem _blocker = default!;
     [Dependency] private readonly INetManager _net = default!;
-<<<<<<< HEAD
     [Dependency] private readonly SharedGrapplingGunSystem _grapple = default!;
     //ADT-Tweak-Start
     //[Dependency] private readonly SharedAudioSystem _audio = default!;
     //ADT-Tweak-End
-=======
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedGrapplingGunSystem _grapple = default!;
->>>>>>> upstreamwiz/master
 
     public override void Initialize()
     {

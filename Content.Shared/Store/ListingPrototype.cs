@@ -42,11 +42,8 @@ public partial class ListingData : IEquatable<ListingData>
         other.RestockTime,
         other.DiscountDownTo,
         other.DisableRefund,
-<<<<<<< HEAD
-        other.ProductHereticKnowledge ///goob edit
-=======
+        other.ProductHereticKnowledge,
         other.ApplyToMob
->>>>>>> upstreamwiz/master
     )
     {
 
@@ -72,11 +69,8 @@ public partial class ListingData : IEquatable<ListingData>
         TimeSpan restockTime,
         Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> dataDiscountDownTo,
         bool disableRefund,
-<<<<<<< HEAD
-        ProtoId<HereticKnowledgePrototype>? productHereticKnowledge ///goob edit
-=======
+        ProtoId<HereticKnowledgePrototype>? productHereticKnowledge,
         bool applyToMob
->>>>>>> upstreamwiz/master
     )
     {
         Name = name;
@@ -328,11 +322,8 @@ public sealed partial class ListingDataWithCostModifiers : ListingData
             listingData.RestockTime,
             listingData.DiscountDownTo,
             listingData.DisableRefund,
-<<<<<<< HEAD
-            listingData.ProductHereticKnowledge  //goob edit
-=======
+            listingData.ProductHereticKnowledge,
             listingData.ApplyToMob
->>>>>>> upstreamwiz/master
         )
     {
     }

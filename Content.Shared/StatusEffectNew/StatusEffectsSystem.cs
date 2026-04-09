@@ -65,8 +65,6 @@ public sealed partial class StatusEffectsSystem : EntitySystem
                 continue;
 
             PredictedQueueDel(ent);
-<<<<<<< HEAD
-=======
         }
     }
 
@@ -86,7 +84,6 @@ public sealed partial class StatusEffectsSystem : EntitySystem
         {
             if (ent.TryGetComponent<StatusEffectComponent>(out _, _factory))
                 StatusEffectPrototypes.Add(ent.ID);
->>>>>>> upstreamwiz/master
         }
     }
 
@@ -230,11 +227,7 @@ public sealed partial class StatusEffectsSystem : EntitySystem
 
         var endTime = delay == null ? _timing.CurTime + duration : _timing.CurTime + delay + duration;
         SetStatusEffectEndTime((effect.Value, effectComp), endTime);
-<<<<<<< HEAD
-        var startTime = delay == null ? TimeSpan.Zero : _timing.CurTime + delay.Value;
-=======
         var startTime = delay == null ? _timing.CurTime : _timing.CurTime + delay.Value;
->>>>>>> upstreamwiz/master
         SetStatusEffectStartTime(effect.Value, startTime);
 
         TryApplyStatusEffect((statusEffect.Value, effectComp));

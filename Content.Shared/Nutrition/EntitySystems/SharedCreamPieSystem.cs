@@ -59,20 +59,6 @@ public abstract class SharedCreamPieSystem : EntitySystem
             _audio.PlayPvs(creamPie.Comp.Sound, coordinates);
         }
 
-<<<<<<< HEAD
-        public void SplatCreamPie(Entity<CreamPieComponent> creamPie)
-        {
-            // Already splatted! Do nothing.
-            if (creamPie.Comp.Splatted)
-                return;
-
-            creamPie.Comp.Splatted = true;
-
-            SplattedCreamPie(creamPie);
-        }
-
-        protected virtual void SplattedCreamPie(Entity<CreamPieComponent, EdibleComponent?> entity) { }
-=======
         if (TryComp<EdibleComponent>(creamPie, out var edibleComp))
         {
             if (_solutions.TryGetSolution(creamPie.Owner, edibleComp.Solution, out _, out var solution))
@@ -84,7 +70,6 @@ public abstract class SharedCreamPieSystem : EntitySystem
         ActivatePayload(creamPie);
         PredictedQueueDel(creamPie);
     }
->>>>>>> upstreamwiz/master
 
     /// <summary>
     /// Drop any item hidden in the cream pie and trigger it.
@@ -111,23 +96,11 @@ public abstract class SharedCreamPieSystem : EntitySystem
         if (!Resolve(ent, ref ent.Comp))
             return;
 
-<<<<<<< HEAD
-        private void OnCreamPieLand(Entity<CreamPieComponent> entity, ref LandEvent args)
-        {
-            SplatCreamPie(entity);
-        }
-
-        private void OnCreamPieHit(Entity<CreamPieComponent> entity, ref ThrowDoHitEvent args)
-        {
-            SplatCreamPie(entity);
-        }
-=======
         if (value == ent.Comp.CreamPied)
             return;
 
         ent.Comp.CreamPied = value;
         Dirty(ent);
->>>>>>> upstreamwiz/master
 
         _appearance.SetData(ent.Owner, CreamPiedVisuals.Creamed, value);
     }

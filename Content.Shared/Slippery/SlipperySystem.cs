@@ -132,12 +132,8 @@ public sealed class SlipperySystem : EntitySystem
         // Preventing from playing the slip sound and stunning when you are already knocked down.
         if (!knockedDown)
         {
-<<<<<<< HEAD
-=======
             var evDropHands = new DropHandItemsEvent();
             RaiseLocalEvent(uid, ref evDropHands);
-
->>>>>>> upstreamwiz/master
             // Status effects should handle a TimeSpan of 0 properly...
             _stun.TryUpdateStunDuration(other, component.SlipData.StunTime);
 

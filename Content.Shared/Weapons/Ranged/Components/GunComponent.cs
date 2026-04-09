@@ -213,11 +213,7 @@ public sealed partial class GunComponent : Component
     /// The base value for how fast the projectile moves.
     /// </summary>
     [DataField]
-<<<<<<< HEAD
     public float ProjectileSpeed = 30f; // ADT-Tweak 42f -> 30f
-=======
-    public float ProjectileSpeed = SharedGunSystem.ProjectileSpeed;
->>>>>>> upstreamwiz/master
 
     /// <summary>
     /// How fast the projectile moves.

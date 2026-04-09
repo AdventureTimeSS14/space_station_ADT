@@ -42,10 +42,7 @@ public abstract partial class SharedPuddleSystem : EntitySystem
     [Dependency] private readonly SpeedModifierContactsSystem _speedModContacts = default!;
     [Dependency] private readonly StepTriggerSystem _stepTrigger = default!;
     [Dependency] private readonly TileFrictionController _tile = default!;
-<<<<<<< HEAD
-=======
     [Dependency] private readonly INetManager _net = default!;
->>>>>>> upstreamwiz/master
 
     private ProtoId<ReagentPrototype>[] _standoutReagents = [];
 
@@ -87,40 +84,6 @@ public abstract partial class SharedPuddleSystem : EntitySystem
     }
 
     public override void Update(float frameTime)
-<<<<<<< HEAD
-    {
-        base.Update(frameTime);
-
-        foreach (var ent in _deletionQueue)
-        {
-            // It's possible to have items in the queue that are already being deleted but threw a
-            // SolutionContainerChangedEvent as a part of their shutdown, like during a round restart.
-            if (!TerminatingOrDeleted(ent))
-                PredictedDel(ent);
-        }
-
-        _deletionQueue.Clear();
-
-        TickEvaporation();
-    }
-
-    private void OnPrototypesReloaded(PrototypesReloadedEventArgs ev)
-    {
-        if (ev.WasModified<ReagentPrototype>())
-            CacheStandsout();
-    }
-
-    /// <summary>
-    /// Used to cache standout reagents for future use.
-    /// </summary>
-    private void CacheStandsout()
-    {
-        _standoutReagents = [.. _prototypeManager.EnumeratePrototypes<ReagentPrototype>().Where(x => x.Standsout).Select(x => x.ID)];
-    }
-
-    private void OnSolutionUpdate(Entity<PuddleComponent> entity, ref SolutionContainerChangedEvent args)
-=======
->>>>>>> upstreamwiz/master
     {
         base.Update(frameTime);
 

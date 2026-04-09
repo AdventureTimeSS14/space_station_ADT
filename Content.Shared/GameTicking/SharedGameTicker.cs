@@ -7,12 +7,9 @@ using Robust.Shared.Serialization.Markdown.Mapping;
 using Robust.Shared.Serialization.Markdown.Value;
 using Robust.Shared.Timing;
 using Robust.Shared.Audio;
-<<<<<<< HEAD
 using Content.Shared.Mobs;
 using Content.Shared.FixedPoint;
-=======
 using Content.Shared.GameTicking.Prototypes;
->>>>>>> upstreamwiz/master
 
 namespace Content.Shared.GameTicking
 {

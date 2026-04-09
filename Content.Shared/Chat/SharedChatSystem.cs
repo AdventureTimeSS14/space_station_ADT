@@ -1,10 +1,7 @@
 using System.Collections.Frozen;
 using System.Text.RegularExpressions;
 using Content.Shared.ActionBlocker;
-<<<<<<< HEAD
 using Content.Shared.ADT.Language;
-=======
->>>>>>> upstreamwiz/master
 using Content.Shared.Chat.Prototypes;
 using Content.Shared.Popups;
 using Content.Shared.Radio;
@@ -361,12 +358,8 @@ public abstract partial class SharedChatSystem : EntitySystem
         ICommonSession? player = null,
         string? nameOverride = null,
         bool checkRadioPrefix = true,
-<<<<<<< HEAD
         bool ignoreActionBlocker = false,
         LanguagePrototype? language = null) // ADT Languages
-=======
-        bool ignoreActionBlocker = false)
->>>>>>> upstreamwiz/master
     { }
 
     /// <summary>
@@ -391,12 +384,8 @@ public abstract partial class SharedChatSystem : EntitySystem
         ICommonSession? player = null,
         string? nameOverride = null,
         bool checkRadioPrefix = true,
-<<<<<<< HEAD
         bool ignoreActionBlocker = false,
         LanguagePrototype? language = null // ADT Languages
-=======
-        bool ignoreActionBlocker = false
->>>>>>> upstreamwiz/master
         )
     { }
 
@@ -473,7 +462,6 @@ public abstract partial class SharedChatSystem : EntitySystem
         SoundSpecifier? announcementSound = null,
         Color? colorOverride = null)
     { }
-<<<<<<< HEAD
 
     // ADT-Tweak-Start: возможность выделять сообщения в чате
     public static bool MessageTextContains(ChatMessage msg, string text)
@@ -481,8 +469,6 @@ public abstract partial class SharedChatSystem : EntitySystem
         return Regex.IsMatch(msg.Message, "(?>^|[ ,.!?])(" + text + ")(?>$|[ ,.!?])", RegexOptions.IgnoreCase);
     }
     // ADT-Tweak-End
-=======
->>>>>>> upstreamwiz/master
 }
 
 /// <summary>

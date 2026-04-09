@@ -30,10 +30,6 @@ public sealed partial class CreateGas : EntityEffectBase<CreateGas>
         return Loc.GetString("entity-effect-guidebook-create-gas",
             ("chance", Probability),
             ("moles", Moles),
-<<<<<<< HEAD
-            ("gas", gasProto.Name));
-=======
             ("gas", Loc.GetString(gasProto.Name)));
->>>>>>> upstreamwiz/master
     }
 }

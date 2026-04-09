@@ -72,12 +72,8 @@ public sealed class BedSystem : EntitySystem
         // If the entity being unbuckled is terminating, we shouldn't try to act upon it, as some components may be gone
         if (!Terminating(args.Buckle.Owner))
         {
-<<<<<<< HEAD:Content.Shared/Bed/SharedBedSystem.cs
             if (_actionsSystem.GetAction(bed.Comp.SleepAction) is { } act && act.Comp.AttachedEntity == args.Buckle.Owner) //ADT-Tweak: Barbell
                 _actionsSystem.RemoveAction(args.Buckle.Owner, bed.Comp.SleepAction);
-=======
-            _actionsSystem.RemoveAction(args.Buckle.Owner, bed.Comp.SleepAction);
->>>>>>> upstreamwiz/master:Content.Shared/Bed/BedSystem.cs
             _sleepingSystem.TryWaking(args.Buckle.Owner);
         }
 

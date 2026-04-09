@@ -28,11 +28,7 @@ namespace Content.Shared.Entry
 
         public override void PreInit()
         {
-<<<<<<< HEAD
-            IoCManager.InjectDependencies(this);
-=======
             Dependencies.InjectDependencies(this);
->>>>>>> upstreamwiz/master
         }
 
         public override void Shutdown()

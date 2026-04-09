@@ -26,15 +26,9 @@ public sealed partial class IdCardConsoleComponent : Component
         public readonly string FullName;
         public readonly string JobTitle;
         public readonly List<ProtoId<AccessLevelPrototype>> AccessList;
-<<<<<<< HEAD
-        public readonly ProtoId<JobPrototype> JobPrototype;
-
-        public WriteToTargetIdMessage(string fullName, string jobTitle, List<ProtoId<AccessLevelPrototype>> accessList, ProtoId<JobPrototype> jobPrototype)
-=======
         public readonly ProtoId<JobPrototype>? JobPrototype;
 
         public WriteToTargetIdMessage(string fullName, string jobTitle, List<ProtoId<AccessLevelPrototype>> accessList, ProtoId<JobPrototype>? jobPrototype)
->>>>>>> upstreamwiz/master
         {
             FullName = fullName;
             JobTitle = jobTitle;
@@ -80,7 +74,7 @@ public sealed partial class IdCardConsoleComponent : Component
         "Security",
         "Service",
         "Theatre",
-        "ADTExtended", //ADT-tweak: расширенный доступ
+        "ADTExtended", // ADT-tweak: расширенный доступ
     };
 
     [Serializable, NetSerializable]

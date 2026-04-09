@@ -4,11 +4,6 @@ using Content.Shared.DoAfter;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Inventory;
-<<<<<<< HEAD
-using Content.Shared.Mobs.Components;
-using Content.Shared.Throwing; 
-=======
->>>>>>> upstreamwiz/master
 using Content.Shared.Throwing;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
@@ -140,11 +135,7 @@ public abstract partial class SharedProjectileSystem : EntitySystem
         if (component.EmbeddedIntoUid == null)
             return; // the entity is not embedded, so do nothing
 
-<<<<<<< HEAD
-=======
         var embeddedInto = component.EmbeddedIntoUid;
-
->>>>>>> upstreamwiz/master
         if (TryComp<EmbeddedContainerComponent>(component.EmbeddedIntoUid.Value, out var embeddedContainer))
         {
             embeddedContainer.EmbeddedObjects.Remove(uid);

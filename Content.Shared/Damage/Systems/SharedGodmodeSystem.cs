@@ -77,14 +77,6 @@ public abstract class SharedGodmodeSystem : EntitySystem
         if (!Resolve(uid, ref godmode, false))
             return;
 
-<<<<<<< HEAD
-        if (godmode.OldDamage != null)
-        {
-            _damageable.SetDamage(uid, godmode.OldDamage);
-        }
-
-=======
->>>>>>> upstreamwiz/master
         RemComp<GodmodeComponent>(uid);
     }
 

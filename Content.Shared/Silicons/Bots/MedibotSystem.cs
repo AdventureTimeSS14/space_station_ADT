@@ -3,10 +3,7 @@ using Robust.Shared.Serialization;
 using System.Diagnostics.CodeAnalysis;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Damage.Components;
-<<<<<<< HEAD
-=======
 using Content.Shared.Damage.Systems;
->>>>>>> upstreamwiz/master
 using Content.Shared.DoAfter;
 using Content.Shared.Emag.Components;
 using Content.Shared.Emag.Systems;

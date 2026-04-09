@@ -46,11 +46,7 @@ public abstract class SharedEntityStorageSystem : EntitySystem
 
     public const string ContainerName = "entity_storage";
 
-<<<<<<< HEAD
-    protected void OnEntityUnpausedEvent(EntityUid uid, EntityStorageComponent component, EntityUnpausedEvent args)
-=======
     public override void Initialize()
->>>>>>> upstreamwiz/master
     {
         base.Initialize();
 
@@ -68,32 +64,6 @@ public abstract class SharedEntityStorageSystem : EntitySystem
 
         SubscribeLocalEvent<InsideEntityStorageComponent, EntGotRemovedFromContainerMessage>(OnRemoved);
     }
-
-<<<<<<< HEAD
-    protected void OnGetState(EntityUid uid, EntityStorageComponent component, ref ComponentGetState args)
-    {
-        args.State = new EntityStorageComponentState(component.Open,
-            component.Capacity,
-            component.IsCollidableWhenOpen,
-            component.OpenOnMove,
-            component.EnteringRange,
-            component.NextInternalOpenAttempt);
-    }
-
-    protected void OnHandleState(EntityUid uid, EntityStorageComponent component, ref ComponentHandleState args)
-    {
-        if (args.Current is not EntityStorageComponentState state)
-            return;
-        component.Open = state.Open;
-        component.Capacity = state.Capacity;
-        component.IsCollidableWhenOpen = state.IsCollidableWhenOpen;
-        component.OpenOnMove = state.OpenOnMove;
-        component.EnteringRange = state.EnteringRange;
-        component.NextInternalOpenAttempt = state.NextInternalOpenAttempt;
-    }
-
-=======
->>>>>>> upstreamwiz/master
     protected virtual void OnComponentInit(EntityUid uid, EntityStorageComponent component, ComponentInit args)
     {
         component.Contents = _container.EnsureContainer<Container>(uid, ContainerName);
@@ -101,20 +71,12 @@ public abstract class SharedEntityStorageSystem : EntitySystem
         component.Contents.OccludesLight = component.OccludesLight;
     }
 
-<<<<<<< HEAD
-    protected virtual void OnComponentStartup(EntityUid uid, EntityStorageComponent component, ComponentStartup args)
-=======
     private void OnComponentStartup(EntityUid uid, EntityStorageComponent component, ComponentStartup args)
->>>>>>> upstreamwiz/master
     {
         _appearance.SetData(uid, StorageVisuals.Open, component.Open);
     }
 
-<<<<<<< HEAD
-    protected void OnInteract(EntityUid uid, EntityStorageComponent component, ActivateInWorldEvent args)
-=======
     private void OnInteract(EntityUid uid, EntityStorageComponent component, ActivateInWorldEvent args)
->>>>>>> upstreamwiz/master
     {
         if (args.Handled || !args.Complex)
             return;
@@ -123,13 +85,7 @@ public abstract class SharedEntityStorageSystem : EntitySystem
         ToggleOpen(args.User, uid, component);
     }
 
-<<<<<<< HEAD
-    public abstract bool ResolveStorage(EntityUid uid, [NotNullWhen(true)] ref EntityStorageComponent? component);
-
-    protected void OnLockToggleAttempt(EntityUid uid, EntityStorageComponent target, ref LockToggleAttemptEvent args)
-=======
     private void OnLockToggleAttempt(EntityUid uid, EntityStorageComponent target, ref LockToggleAttemptEvent args)
->>>>>>> upstreamwiz/master
     {
         // Cannot (un)lock open lockers.
         if (target.Open)
@@ -140,11 +96,7 @@ public abstract class SharedEntityStorageSystem : EntitySystem
             args.Cancelled = true;
     }
 
-<<<<<<< HEAD
-    protected void OnDestruction(EntityUid uid, EntityStorageComponent component, DestructionEventArgs args)
-=======
     private void OnDestruction(EntityUid uid, EntityStorageComponent component, DestructionEventArgs args)
->>>>>>> upstreamwiz/master
     {
         component.Open = true;
         Dirty(uid, component);
@@ -160,11 +112,7 @@ public abstract class SharedEntityStorageSystem : EntitySystem
         }
     }
 
-<<<<<<< HEAD
-    protected void OnRelayMovement(EntityUid uid, EntityStorageComponent component, ref ContainerRelayMovementEntityEvent args)
-=======
     private void OnRelayMovement(EntityUid uid, EntityStorageComponent component, ref ContainerRelayMovementEntityEvent args)
->>>>>>> upstreamwiz/master
     {
         if (!HasComp<HandsComponent>(args.Entity))
             return;
@@ -175,22 +123,14 @@ public abstract class SharedEntityStorageSystem : EntitySystem
         if (_timing.CurTime < component.NextInternalOpenAttempt)
             return;
 
-<<<<<<< HEAD
-        component.NextInternalOpenAttempt = _timing.CurTime + EntityStorageComponent.InternalOpenAttemptDelay;
-=======
         component.NextInternalOpenAttempt = _timing.CurTime + component.InternalOpenAttemptDelay;
->>>>>>> upstreamwiz/master
         Dirty(uid, component);
 
         if (component.OpenOnMove)
             TryOpenStorage(args.Entity, uid);
     }
 
-<<<<<<< HEAD
-    protected void OnFoldAttempt(EntityUid uid, EntityStorageComponent component, ref FoldAttemptEvent args)
-=======
     private void OnFoldAttempt(EntityUid uid, EntityStorageComponent component, ref FoldAttemptEvent args)
->>>>>>> upstreamwiz/master
     {
         if (args.Cancelled)
             return;
@@ -198,9 +138,6 @@ public abstract class SharedEntityStorageSystem : EntitySystem
         args.Cancelled = component.Open || component.Contents.ContainedEntities.Count != 0;
     }
 
-<<<<<<< HEAD
-    protected void AddToggleOpenVerb(EntityUid uid, EntityStorageComponent component, GetVerbsEvent<InteractionVerb> args)
-=======
     private void OnWeldableAttempt(EntityUid uid, EntityStorageComponent component, WeldableAttemptEvent args)
     {
         if (component.Open)
@@ -234,7 +171,6 @@ public abstract class SharedEntityStorageSystem : EntitySystem
     }
 
     private void AddToggleOpenVerb(EntityUid uid, EntityStorageComponent component, GetVerbsEvent<InteractionVerb> args)
->>>>>>> upstreamwiz/master
     {
         if (!args.CanAccess || !args.CanInteract)
             return;
@@ -440,17 +376,8 @@ public abstract class SharedEntityStorageSystem : EntitySystem
         if (containerAttemptEvent.Cancelled)
             return false;
 
-<<<<<<< HEAD
-        // Consult the whitelist. The whitelist ignores the default assumption about how entity storage works.
-        if (component.Whitelist != null)
-            return _whitelistSystem.IsValid(component.Whitelist, toInsert);
-
-        // The inserted entity must be a mob or an item.
-        return HasComp<MobStateComponent>(toInsert) || HasComp<ItemComponent>(toInsert);
-=======
         // Check the whitelist/blacklist.
         return _whitelistSystem.CheckBoth(toInsert, component.Blacklist, component.Whitelist);
->>>>>>> upstreamwiz/master
     }
 
     public bool TryOpenStorage(EntityUid user, EntityUid target, bool silent = false)
@@ -566,19 +493,7 @@ public abstract class SharedEntityStorageSystem : EntitySystem
         _appearance.SetData(uid, StorageVisuals.HasContents, component.Contents.ContainedEntities.Count > 0);
     }
 
-<<<<<<< HEAD
-    protected virtual void TakeGas(EntityUid uid, EntityStorageComponent component)
-    {
-
-    }
-
-    public virtual void ReleaseGas(EntityUid uid, EntityStorageComponent component)
-    {
-
-    }
-=======
     protected virtual void TakeGas(EntityUid uid, EntityStorageComponent component) { }
 
     public virtual void ReleaseGas(EntityUid uid, EntityStorageComponent component) { }
->>>>>>> upstreamwiz/master
 }

@@ -1,19 +1,10 @@
 using Content.Shared.Power.Components;
-<<<<<<< HEAD
-=======
 using Content.Shared.Power.EntitySystems;
->>>>>>> upstreamwiz/master
 using Content.Shared.PowerCell.Components;
 
 namespace Content.Shared.Power;
 
 /// <summary>
-<<<<<<< HEAD
-/// Raised when a battery's charge or capacity changes (capacity affects relative charge percentage).
-/// </summary>
-[ByRefEvent]
-public readonly record struct ChargeChangedEvent(float Charge, float MaxCharge);
-=======
 /// Raised when a battery's charge, charge rate or capacity was updated (capacity affects relative charge percentage).
 /// If a battery uses <see cref="BatteryComponent.ChargeRate"/> to (dis)charge this is NOT raised every single tick, but only when the charge rate is updated.
 /// For instantaneous charge changes using <see cref="SharedBatterySystem.SetCharge"/>, <see cref="SharedBatterySystem.ChangeCharge"/> or similar this DOES get raised, but
@@ -61,7 +52,6 @@ public record struct RefreshChargeRateEvent(float MaxCharge)
     public readonly float MaxCharge = MaxCharge;
     public float NewChargeRate;
 }
->>>>>>> upstreamwiz/master
 
 /// <summary>
 /// Event that supports multiple battery types.

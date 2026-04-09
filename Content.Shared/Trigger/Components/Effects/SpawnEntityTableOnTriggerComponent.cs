@@ -14,11 +14,7 @@ public sealed partial class SpawnEntityTableOnTriggerComponent : BaseXOnTriggerC
     /// <summary>
     /// The table to spawn.
     /// </summary>
-<<<<<<< HEAD
     [DataField(required: true), AutoNetworkedField]
-=======
-    [DataField(required: true)]
->>>>>>> upstreamwiz/master
     public EntityTableSelector Table;
 
     /// <summary>

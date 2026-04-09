@@ -1,9 +1,6 @@
 using Content.Shared.Cargo.Components;
 using Content.Shared.Cargo.Prototypes;
-<<<<<<< HEAD
-=======
 using Content.Shared.HijackBeacon;
->>>>>>> upstreamwiz/master
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;

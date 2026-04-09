@@ -9,13 +9,8 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared.Access.Components;
 
 [RegisterComponent, NetworkedComponent]
-<<<<<<< HEAD
-[AutoGenerateComponentState]
-[Access(typeof(SharedIdCardSystem), typeof(SharedPdaSystem), typeof(SharedAgentIdCardSystem), typeof(SharedAlertAccessLevel), Other = AccessPermissions.ReadWrite)] //ADT-tweak: добавила typeof(SharedAlertAccessLevel)
-=======
 [AutoGenerateComponentState(true)]
-[Access(typeof(SharedIdCardSystem), typeof(SharedPdaSystem), typeof(SharedAgentIdCardSystem), Other = AccessPermissions.ReadWrite)]
->>>>>>> upstreamwiz/master
+[Access(typeof(SharedIdCardSystem), typeof(SharedPdaSystem), typeof(SharedAgentIdCardSystem), typeof(SharedAlertAccessLevel), Other = AccessPermissions.ReadWrite)] // ADT-tweak: added typeof(SharedAlertAccessLevel)
 public sealed partial class IdCardComponent : Component
 {
     [DataField]

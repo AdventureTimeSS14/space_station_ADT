@@ -1,6 +1,7 @@
 using Content.Shared.Body;
 using Content.Shared.Chat.Prototypes;
 using Content.Shared.Chemistry.Components;
+using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Damage;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Markings;
@@ -156,7 +157,6 @@ public sealed partial class ZombieComponent : Component
     /// <summary>
     /// The blood reagents to give the zombie. In case you want zombies that bleed milk, or something.
     /// </summary>
-<<<<<<< HEAD
     [DataField("newBloodReagent", customTypeSerializer: typeof(PrototypeIdSerializer<ReagentPrototype>))]
     public string NewBloodReagent = "ZombieBlood";
 
@@ -179,8 +179,4 @@ public sealed partial class ZombieComponent : Component
     [DataField("jumpCollideKnockdown")]
     public TimeSpan JumpCollideKnockdown = TimeSpan.FromSeconds(1);
     // ADT-Tweak end
-=======
-    [DataField("newBloodReagents")]
-    public Solution NewBloodReagents = new([new("ZombieBlood", 1)]);
->>>>>>> upstreamwiz/master
 }

@@ -43,15 +43,11 @@ namespace Content.Shared.Cargo.Prototypes
                 if (_name.Trim().Length != 0)
                     return _name;
 
-<<<<<<< HEAD
-                if (IoCManager.Resolve<IPrototypeManager>().Resolve(Product, out EntityPrototype? prototype))
-=======
                 if (_nameLoc is { } nameLoc)
                 {
                     _name = Loc.GetString(nameLoc);
                 }
                 else if (IoCManager.Resolve<IPrototypeManager>().Resolve(Product, out var prototype))
->>>>>>> upstreamwiz/master
                 {
                     _name = prototype.Name;
                 }
@@ -71,15 +67,11 @@ namespace Content.Shared.Cargo.Prototypes
                 if (_description.Trim().Length != 0)
                     return _description;
 
-<<<<<<< HEAD
-                if (IoCManager.Resolve<IPrototypeManager>().Resolve(Product, out EntityPrototype? prototype))
-=======
                 if (_descLoc is { } descLoc)
                 {
                     _description = Loc.GetString(descLoc);
                 }
                 else if (IoCManager.Resolve<IPrototypeManager>().Resolve(Product, out var prototype))
->>>>>>> upstreamwiz/master
                 {
                     _description = prototype.Description;
                 }

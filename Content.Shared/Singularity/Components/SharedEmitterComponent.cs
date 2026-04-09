@@ -97,8 +97,6 @@ public sealed partial class EmitterComponent : Component
     /// </summary>
     [DataField]
     public Dictionary<ProtoId<SinkPortPrototype>, EntProtoId> SetTypePorts = new();
-<<<<<<< HEAD
-=======
 
     /// <summary>
     /// The radio channel to broadcast on when something happens to this emitter
@@ -135,7 +133,6 @@ public sealed partial class EmitterComponent : Component
     /// </summary>
     [DataField]
     public LocId LocUnpowered = "emitter-unpowered-broadcast";
->>>>>>> upstreamwiz/master
 }
 
 [NetSerializable, Serializable]

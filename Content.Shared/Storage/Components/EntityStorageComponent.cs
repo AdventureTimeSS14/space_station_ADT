@@ -8,17 +8,13 @@ using Robust.Shared.GameStates;
 
 namespace Content.Shared.Storage.Components;
 
-<<<<<<< HEAD
-[RegisterComponent, NetworkedComponent]
-=======
 /// <summary>
 /// A storage component that stores nearby entities in a container when this object is opened or closed.
 /// This does not have an UI like grid storage, but just makes them disappear inside.
 /// Used for lockers, crates etc.
 /// </summary>
 [RegisterComponent, NetworkedComponent]
-[AutoGenerateComponentState, AutoGenerateComponentPause] // TODO: Field deltas
->>>>>>> upstreamwiz/master
+[AutoGenerateComponentState, AutoGenerateComponentPause]
 public sealed partial class EntityStorageComponent : Component, IGasMixtureHolder
 {
     /// <summary>
@@ -42,17 +38,9 @@ public sealed partial class EntityStorageComponent : Component, IGasMixtureHolde
     /// <summary>
     /// Collision masks that get removed when the storage gets opened.
     /// </summary>
-<<<<<<< HEAD
     // ADT-Tweak-Start: разрешаем изменение масок коллизий через прототипы
-    /// <summary>
-    ///     Collision masks that get removed when the storage gets opened.
-    /// </summary>
-    [DataField]
-    public int MasksToRemove = (int) (
-=======
     [DataField]
     public int MasksToRemove = (int)(
->>>>>>> upstreamwiz/master
         CollisionGroup.MidImpassable |
         CollisionGroup.HighImpassable |
         CollisionGroup.LowImpassable);
@@ -67,74 +55,43 @@ public sealed partial class EntityStorageComponent : Component, IGasMixtureHolde
     /// <summary>
     /// The total amount of items that can fit in one entitystorage.
     /// </summary>
-<<<<<<< HEAD
-    [DataField]
-=======
     [DataField, AutoNetworkedField]
->>>>>>> upstreamwiz/master
     public int Capacity = 30;
 
     /// <summary>
     /// Whether or not the entity still has collision when open.
     /// </summary>
-<<<<<<< HEAD
-    [DataField]
-=======
     [DataField, AutoNetworkedField]
->>>>>>> upstreamwiz/master
     public bool IsCollidableWhenOpen;
 
     /// <summary>
-    /// If true, it opens the storage when the entity inside of it moves
+    /// If true, it opens the storage when the entity inside of it moves.
     /// If false, it prevents the storage from opening when the entity inside of it moves.
-    /// This is for objects that you want the player to move while inside, like large cardboard boxes, without opening the storage.
     /// </summary>
-<<<<<<< HEAD
-    [DataField]
-=======
     [DataField, AutoNetworkedField]
->>>>>>> upstreamwiz/master
     public bool OpenOnMove = true;
 
-    //The offset for where items are emptied/vacuumed for the EntityStorage.
     [DataField]
     public Vector2 EnteringOffset = new(0, 0);
 
-    //The collision groups checked, so that items are depositied or grabbed from inside walls.
     [DataField]
     public CollisionGroup EnteringOffsetCollisionFlags = CollisionGroup.Impassable | CollisionGroup.MidImpassable;
 
     /// <summary>
     /// How close you have to be to the "entering" spot to be able to enter.
     /// </summary>
-<<<<<<< HEAD
-    [DataField]
-=======
     [DataField, AutoNetworkedField]
->>>>>>> upstreamwiz/master
     public float EnteringRange = 0.18f;
 
-    /// <summary>
-    /// Whether or not to show the contents when the storage is closed.
-    /// </summary>
     [DataField]
     public bool ShowContents;
 
-    /// <summary>
-    /// Whether or not light is occluded by the storage.
-    /// </summary>
     [DataField]
     public bool OccludesLight = true;
 
-    /// <summary>
-    /// Whether or not all the contents stored should be deleted with the entitystorage.
-    /// </summary>
     [DataField]
     public bool DeleteContentsOnDestruction;
 
-    /// <summary>
-    /// Whether or not the container is sealed and traps air inside of it.
-    /// </summary>
     [DataField]
     public bool Airtight = true;
 
@@ -144,21 +101,14 @@ public sealed partial class EntityStorageComponent : Component, IGasMixtureHolde
     [DataField, AutoNetworkedField]
     public bool Open;
 
-    /// <summary>
-    /// The sound made when closed.
-    /// </summary>
     [DataField]
     public SoundSpecifier CloseSound = new SoundPathSpecifier("/Audio/Effects/closetclose.ogg");
 
-    /// <summary>
-    /// The sound made when opened.
-    /// </summary>
     [DataField]
     public SoundSpecifier OpenSound = new SoundPathSpecifier("/Audio/Effects/closetopen.ogg");
 
     /// <summary>
-    /// Whitelist for what entities are allowed to be inserted into this container. If this is not null, the
-    /// standard requirement that the entity must be an item or mob is waived.
+    /// Whitelist for what entities are allowed to be inserted into this container.
     /// </summary>
     [DataField]
     public EntityWhitelist? Whitelist = new()
@@ -171,28 +121,13 @@ public sealed partial class EntityStorageComponent : Component, IGasMixtureHolde
     };
 
     /// <summary>
-    ///     Blacklist for what entities are not allowed to be inserted into this container.
-    ///     Blacklist takes priority over whitelist.
+    /// Blacklist for what entities are not allowed to be inserted into this container.
     /// </summary>
     [DataField]
     public EntityWhitelist? Blacklist;
 
-    /// <summary>
-    /// The contents of the storage.
-    /// </summary>
     [ViewVariables]
     public Container Contents = default!;
-<<<<<<< HEAD
-
-    /// <summary>
-    /// Gas currently contained in this entity storage.
-    /// None while open. Grabs gas from the atmosphere when closed, and exposes any entities inside to it.
-    /// </summary>
-    [DataField]
-    public GasMixture Air { get; set; } = new(200);
-}
-=======
->>>>>>> upstreamwiz/master
 
     /// <summary>
     /// Gas currently contained in this entity storage.
@@ -215,15 +150,7 @@ public record struct InsertIntoEntityStorageAttemptEvent(BaseContainer Container
 public record struct EntityStorageInsertedIntoAttemptEvent(BaseContainer Container, EntityUid ItemToInsert, bool Cancelled = false);
 
 /// <summary>
-/// Raised on the Container's owner whenever an entity storage tries to dump its
-/// contents while within a container.
-/// </summary>
-[ByRefEvent]
-public record struct EntityStorageIntoContainerAttemptEvent(BaseContainer Container, bool Cancelled = false);
-
-/// <summary>
-/// Raised on the Container's owner whenever an entity storage tries to dump its
-/// contents while within a container.
+/// Raised on the container's owner whenever an entity storage tries to dump its contents while within a container.
 /// </summary>
 [ByRefEvent]
 public record struct EntityStorageIntoContainerAttemptEvent(BaseContainer Container, bool Cancelled = false);

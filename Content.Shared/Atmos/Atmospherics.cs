@@ -181,7 +181,6 @@ namespace Content.Shared.Atmos
         /// </summary>
         public const float SpaceHeatCapacity = 7000f;
 
-<<<<<<< HEAD
         /// <summary>
         ///     Dictionary of chemical abbreviations for <see cref="Gas"/>
         /// </summary>
@@ -211,8 +210,6 @@ namespace Content.Shared.Atmos
             // ADT-Gas-End
         };
 
-=======
->>>>>>> upstreamwiz/master
         #region Excited Groups
 
         /// <summary>

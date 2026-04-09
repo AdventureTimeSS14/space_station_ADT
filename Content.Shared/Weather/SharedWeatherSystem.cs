@@ -36,7 +36,6 @@ public abstract class SharedWeatherSystem : EntitySystem
         _weatherQuery = GetEntityQuery<WeatherStatusEffectComponent>();
     }
 
-<<<<<<< HEAD
     private void OnWeatherUnpaused(EntityUid uid, WeatherComponent component, ref EntityUnpausedEvent args)
     {
         foreach (var weather in component.Weather.Values)
@@ -50,17 +49,11 @@ public abstract class SharedWeatherSystem : EntitySystem
     }
 
     public bool CanWeatherAffect(EntityUid uid, MapGridComponent grid, TileRef tileRef, RoofComponent? roofComp = null)
-=======
-    public bool CanWeatherAffect(Entity<MapGridComponent?, RoofComponent?> ent, TileRef tileRef)
->>>>>>> upstreamwiz/master
     {
         if (tileRef.Tile.IsEmpty)
             return true;
 
-        if (!Resolve(ent, ref ent.Comp1))
-            return false;
-
-        if (Resolve(ent, ref ent.Comp2, false) && _roof.IsRooved((ent, ent.Comp1, ent.Comp2), tileRef.GridIndices))
+        if (Resolve(uid, ref roofComp, false) && _roof.IsRooved((uid, grid, roofComp), tileRef.GridIndices))
             return false;
 
         var tileDef = (ContentTileDefinition)_tileDefManager[tileRef.Tile.TypeId];
@@ -68,7 +61,7 @@ public abstract class SharedWeatherSystem : EntitySystem
         if (!tileDef.Weather)
             return false;
 
-        var anchoredEntities = _mapSystem.GetAnchoredEntitiesEnumerator(ent, ent.Comp1, tileRef.GridIndices);
+        var anchoredEntities = _mapSystem.GetAnchoredEntitiesEnumerator(uid, grid, tileRef.GridIndices);
 
         while (anchoredEntities.MoveNext(out var anchored))
         {
@@ -94,14 +87,8 @@ public abstract class SharedWeatherSystem : EntitySystem
         else if (elapsed < StartupTime)
             return (float)(elapsed / StartupTime);
         else
-<<<<<<< HEAD
-        {
-            alpha = 1f;
-        }
-
-        return alpha;
+            return 1f;
     }
-
 
     public override void Update(float frameTime)
     {
@@ -147,26 +134,18 @@ public abstract class SharedWeatherSystem : EntitySystem
                 // Starting up
                 else
                 {
-                    var startTime = weather.StartTime;
-                    var elapsed = Timing.CurTime - startTime;
+                    var weatherElapsed = Timing.CurTime - weather.StartTime;
 
-                    if (elapsed < WeatherComponent.StartupTime)
-                    {
+                    if (weatherElapsed < WeatherComponent.StartupTime)
                         SetState(uid, WeatherState.Starting, comp, weather, weatherProto);
-                    }
-                    else // ADT: Set state to Running when it finishes the starting time
-                    {
+                    else
                         SetState(uid, WeatherState.Running, comp, weather, weatherProto);
-                    }
                 }
 
                 // Run whatever code we need.
                 Run(uid, weather, weatherProto, frameTime);
             }
         }
-=======
-            return 1f;
->>>>>>> upstreamwiz/master
     }
 
     /// <summary>

@@ -6,13 +6,11 @@ public abstract class SharedJukeboxSystem : EntitySystem
 {
     /// ADT-Tweak start
     [Dependency] protected readonly SharedAudioSystem Audio = default!;
-<<<<<<< HEAD
     public static float MapToRange(float value, float leftMin, float leftMax, float rightMin, float rightMax) /// ADT-Tweak
     {
         return rightMin + (value - leftMin) * (rightMax - rightMin) / (leftMax - leftMin);
     }
     /// ADT-Tweak end
-=======
 
     /// <summary>
     /// Returns whether or not the given jukebox is currently playing a song.
@@ -24,5 +22,4 @@ public abstract class SharedJukeboxSystem : EntitySystem
 
         return entity.Comp.AudioStream is { } audio && Audio.IsPlaying(audio);
     }
->>>>>>> upstreamwiz/master
 }

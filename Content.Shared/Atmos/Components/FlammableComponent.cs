@@ -7,11 +7,7 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Shared.Atmos.Components
 {
-<<<<<<< HEAD
-    [RegisterComponent, NetworkedComponent]
-=======
     [RegisterComponent, NetworkedComponent, AutoGenerateComponentPause] // TODO: Access restriction so that other systems have to use the API to modify fire stacks
->>>>>>> upstreamwiz/master
     public sealed partial class FlammableComponent : Component
     {
         /// <summary>
@@ -104,7 +100,6 @@ namespace Content.Shared.Atmos.Components
         [ViewVariables(VVAccess.ReadWrite)]
         [DataField]
         public float FirestacksOnIgnite = 2.0f;
-
 
         /// <summary>
         /// Set FirestackFade on Ingite to this value

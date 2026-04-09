@@ -29,17 +29,16 @@ public sealed partial class VoiceMaskComponent : Component
     public ProtoId<SpeechVerbPrototype>? VoiceMaskSpeechVerb;
 
     /// <summary>
-<<<<<<< HEAD:Content.Server/VoiceMask/VoiceMaskComponent.cs
     ///  ADT-Tweak Job Icon
     /// </summary>
     [DataField]
     public ProtoId<JobIconPrototype>? VoiceMaskJobIcon;
-=======
+
+    /// <summary>
     ///     If true will override the users identity with whatever <see cref="VoiceMaskName"/> is.
     /// </summary>
     [DataField]
     public bool OverrideIdentity;
->>>>>>> upstreamwiz/master:Content.Shared/VoiceMask/VoiceMaskComponent.cs
 
     /// <summary>
     ///     The action that gets displayed when the voice mask is equipped.

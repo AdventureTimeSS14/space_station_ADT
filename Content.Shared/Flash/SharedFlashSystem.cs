@@ -23,13 +23,10 @@ using System.Linq;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Random.Helpers;
 using Content.Shared.Clothing.Components;
-<<<<<<< HEAD
 // ADT-Tweak-Start. Убираем надпись защиты от вспышек из описания новакида, КПБ
 using Content.Shared.ADT.Novakid;
 using Content.Shared.ADT.Silicon;
 // ADT-Tweak-End
-=======
->>>>>>> upstreamwiz/master
 
 namespace Content.Shared.Flash;
 
@@ -219,14 +216,7 @@ public abstract class SharedFlashSystem : EntitySystem
         _entityLookup.GetEntitiesInRange(transform.Coordinates, range, _entSet);
         foreach (var entity in _entSet)
         {
-<<<<<<< HEAD
-            // TODO: Use RandomPredicted https://github.com/space-wizards/RobustToolbox/pull/5849
-            var seed = SharedRandomExtensions.HashCodeCombine((int)_timing.CurTick.Value, GetNetEntity(entity).Id);
-            var rand = new System.Random(seed);
-            if (!rand.Prob(probability))
-=======
             if (!SharedRandomExtensions.PredictedProb(_timing, probability, GetNetEntity(entity)))
->>>>>>> upstreamwiz/master
                 continue;
 
             // Is the entity affected by the flash either through status effects or by taking damage?
@@ -286,7 +276,6 @@ public abstract class SharedFlashSystem : EntitySystem
 
     private void OnExamine(Entity<FlashImmunityComponent> ent, ref ExaminedEvent args)
     {
-<<<<<<< HEAD
         // ADT-Tweak-Start. Убираем надпись защиты от вспышек из описания новакида
         if (HasComp<NovakidGlowingComponent>(ent))
             return;
@@ -300,9 +289,5 @@ public abstract class SharedFlashSystem : EntitySystem
             args.PushMarkup(Loc.GetString("flash-protection"));
         }
         // ADT-Tweak-End
-=======
-        if (ent.Comp.ShowInExamine)
-            args.PushMarkup(Loc.GetString("flash-protection"));
->>>>>>> upstreamwiz/master
     }
 }

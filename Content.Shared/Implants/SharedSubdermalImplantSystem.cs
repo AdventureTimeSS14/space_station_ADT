@@ -91,7 +91,7 @@ public abstract partial class SharedSubdermalImplantSystem : EntitySystem
     /// </summary>
     /// <returns>
     /// The implant, if it was successfully created. Otherwise, null.
-    /// </returns>>
+    /// </returns>
     public EntityUid? AddImplant(EntityUid target, EntProtoId implantId)
     {
         if (_net.IsClient)
@@ -173,11 +173,6 @@ public readonly record struct ImplantImplantedEvent
     /// The implant itself
     /// </summary>
     public readonly EntityUid Implant;
-<<<<<<< HEAD
-    public readonly EntityUid Implanted;
-
-    public ImplantImplantedEvent(EntityUid implant, EntityUid implanted)
-=======
 
     /// <summary>
     /// The entity getting implanted
@@ -185,25 +180,6 @@ public readonly record struct ImplantImplantedEvent
     public readonly EntityUid Implanted;
 
     public ImplantImplantedEvent(EntityUid implant, EntityUid implanted)
-    {
-        Implant = implant;
-        Implanted = implanted;
-    }
-}
-
-/// <summary>
-/// Event that is raised whenever an implant is removed from someone.
-/// Raised on the the implant entity.
-/// </summary>
-
-[ByRefEvent]
-public readonly record struct ImplantRemovedEvent
-{
-    public readonly EntityUid Implant;
-    public readonly EntityUid Implanted;
-
-    public ImplantRemovedEvent(EntityUid implant, EntityUid implanted)
->>>>>>> upstreamwiz/master
     {
         Implant = implant;
         Implanted = implanted;
