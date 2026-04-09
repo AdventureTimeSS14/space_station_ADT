@@ -245,6 +245,8 @@
     - SecurityExplosives
     - SecurityEquipment
     - SecurityWeapons
+  - type: RadioJobIconOverride # ADT-Tweak
+    iconId: JobIconMachine
 
 - type: entity
   id: ProtolatheHyperConvection
