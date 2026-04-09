@@ -4,8 +4,8 @@ meta:
   engineVersion: 268.0.0
   forkId: ""
   forkVersion: ""
-  time: 04/09/2026 08:47:12
-  entityCount: 10415
+  time: 04/09/2026 17:21:20
+  entityCount: 10422
 maps:
 - 1
 grids:
@@ -6657,6 +6657,19 @@ entities:
     - type: Transform
       pos: -29.5,20.5
       parent: 2
+- proto: ADTATM
+  entities:
+  - uid: 10415
+    components:
+    - type: Transform
+      pos: -46.5,36.5
+      parent: 2
+  - uid: 10417
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -35.5,34.5
+      parent: 2
 - proto: ADTBannerTSFOld
   entities:
   - uid: 7292
@@ -6787,10 +6800,18 @@ entities:
     components:
     - type: Transform
       parent: 8198
+  - uid: 331
+    components:
+    - type: Transform
+      parent: 8196
   - uid: 539
     components:
     - type: Transform
       parent: 8196
+  - uid: 1030
+    components:
+    - type: Transform
+      parent: 8198
   - uid: 1100
     components:
     - type: Transform
@@ -7216,6 +7237,18 @@ entities:
     - type: Transform
       parent: 8194
   - uid: 10410
+    components:
+    - type: Transform
+      parent: 8200
+  - uid: 10411
+    components:
+    - type: Transform
+      parent: 8202
+  - uid: 10412
+    components:
+    - type: Transform
+      parent: 8194
+  - uid: 10413
     components:
     - type: Transform
       parent: 8200
@@ -8537,13 +8570,6 @@ entities:
       fixtures: {}
 - proto: ADTPaintingStilllife1
   entities:
-  - uid: 1030
-    components:
-    - type: Transform
-      pos: -48.5,37.5
-      parent: 2
-    - type: Fixtures
-      fixtures: {}
   - uid: 6388
     components:
     - type: Transform
@@ -8554,11 +8580,10 @@ entities:
       fixtures: {}
 - proto: ADTPaintingTheSonOfVulp
   entities:
-  - uid: 331
+  - uid: 10414
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -46.5,36.5
+      pos: -48.5,37.5
       parent: 2
     - type: Fixtures
       fixtures: {}
@@ -9143,10 +9168,10 @@ entities:
       parent: 2
 - proto: ADTSheetZinc
   entities:
-  - uid: 1104
+  - uid: 602
     components:
     - type: Transform
-      pos: -20.07937,48.61241
+      pos: -20.156675,48.616005
       parent: 2
   - uid: 2372
     components:
@@ -50530,6 +50555,13 @@ entities:
     components:
     - type: Transform
       pos: -88.5,44.5
+      parent: 2
+- proto: HolopadCargoFront
+  entities:
+  - uid: 10416
+    components:
+    - type: Transform
+      pos: -17.5,44.5
       parent: 2
 - proto: HolopadCommandBridge
   entities:
