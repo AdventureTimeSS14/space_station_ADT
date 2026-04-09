@@ -31946,8 +31946,6 @@ entities:
       pos: -65.5,40.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 4425
   - uid: 3835
@@ -32049,8 +32047,6 @@ entities:
       pos: -66.5,38.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 4425
   - uid: 4194
@@ -32059,8 +32055,6 @@ entities:
       pos: -66.5,42.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 4425
       - 4367
@@ -48249,8 +48243,6 @@ entities:
       pos: -63.5,39.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 4425
     - type: AtmosPipeLayers
@@ -49217,8 +49209,6 @@ entities:
       pos: -63.5,41.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 4425
     - type: AtmosPipeLayers
