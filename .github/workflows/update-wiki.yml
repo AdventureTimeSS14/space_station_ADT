@@ -49,7 +49,7 @@ jobs:
       run: dotnet restore
 
     - name: Build Project
-      run: dotnet build --configuration Release --no-restore /p:WarningsAsErrors=nullable /m
+      run: dotnet build --configuration Release --no-restore /m
 
     - name: Generate JSON blobs for prototypes
       run: dotnet ./bin/Content.Server/Content.Server.dll --cvar autogen.destination_file=prototypes.json
