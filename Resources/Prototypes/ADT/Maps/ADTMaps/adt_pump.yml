@@ -80,6 +80,7 @@
             Musician: [ 1, 1 ]
             Reporter: [ 1, 1 ]
             ServiceWorker: [ 2, 2 ]
+            ADTBarber: [ 1, 1 ]
             Passenger: [ -1, -1 ]
 
             # silicon
