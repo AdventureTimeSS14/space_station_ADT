@@ -38,7 +38,7 @@
     requireAnchored: false
     joinSystem: true
   - type: DoAfter
-  - type: Repairable 
+  - type: Repairable
     fuelCost: 60 # ADT-Tweak 25 to 75 -> 60
     doAfterDelay: 30 # ADT-tweak 10 to 30
   - type: UserInterface
@@ -124,6 +124,7 @@
       1000: Critical
   - type: MobState
   - type: GrabProtection # ADT-tweak-end
+  - type: ZombieImmune # ADT-Tweak
 
 - type: entity
   id: MechRipley
