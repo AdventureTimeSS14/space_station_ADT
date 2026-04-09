@@ -42,7 +42,7 @@
   showInVote: true
   rules:
     - TraitorLightGameRule
-    - SubGamemodesRule
+    - SubGamemodesRuleNoXenoborg
     - TraitorLightStationEventScheduler
     - MeteorSwarmScheduler
     - SpaceTrafficControlEventScheduler

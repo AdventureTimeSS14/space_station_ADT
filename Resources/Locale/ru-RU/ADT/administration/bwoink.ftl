@@ -4,3 +4,5 @@ ahelp-user-type-tag-2 = Жалоба
 ahelp-user-type-tag-3 = Вопрос
 ahelp-user-type-tag-4 = Ивент
 ahelp-user-type-tag-5 = Набегатор
+bwoink-viewer-title = Просмотр административной помощи
+bwoink-viewer-notice = Вы просматриваете обращения в режиме только для чтения.

@@ -76,4 +76,12 @@ public sealed partial class TemperatureComponent : Component
 
     [DataField]
     public ProtoId<AlertPrototype> ColdAlert = "Cold";
+
+    // ADT-Tweak start
+    [DataField]
+    public bool ShowHotAlert = true;
+
+    [DataField]
+    public bool ShowColdAlert = true;
+    // ADT-Tweak end
 }
