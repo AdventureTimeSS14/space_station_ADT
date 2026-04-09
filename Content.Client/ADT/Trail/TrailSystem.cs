@@ -6,6 +6,7 @@ using Robust.Client.Graphics;
 using Robust.Shared.Animations;
 using Robust.Shared.Map;
 using Robust.Shared.Physics.Components;
+using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Spawners;
 using Robust.Shared.Timing;
@@ -18,12 +19,14 @@ public sealed class TrailSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IPrototypeManager _protoMan = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
+    [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
     private EntityQuery<TransformComponent> _xformQuery;
     private EntityQuery<PhysicsComponent> _physicsQuery;
     public override void Initialize()
     {
         base.Initialize();
         _overlay.AddOverlay(new TrailOverlay(EntityManager, _protoMan, _timing));
+        _overlay.AddOverlay(new SandevistanTrailOverlay(EntityManager, _playerManager, _timing));
         SubscribeLocalEvent<TrailComponent, ComponentRemove>(OnRemove);
         SubscribeLocalEvent<TrailComponent, ComponentStartup>(OnStartup);
         _xformQuery = GetEntityQuery<TransformComponent>();

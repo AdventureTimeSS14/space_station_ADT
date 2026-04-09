@@ -1,23 +1,24 @@
 using System.Numerics;
+using Content.Shared.ADT.Abilities;
 using Content.Shared.ADT.Trail;
+using Content.Shared.DrawDepth;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Shared.Enums;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Maths;
-using Robust.Shared.Prototypes;
+using Robust.Shared.Player;
 using Robust.Shared.Timing;
 using DrawDepth = Content.Shared.DrawDepth.DrawDepth;
 
 namespace Content.Client.ADT.Trail;
-
-public sealed class TrailOverlay : Overlay
+public sealed class SandevistanTrailOverlay : Overlay
 {
     public override OverlaySpace Space => OverlaySpace.WorldSpace;
 
     private readonly IEntityManager _entManager;
-    private readonly IPrototypeManager _protoMan;
+    private readonly ISharedPlayerManager _playerManager;
     private readonly IGameTiming _timing;
 
     private readonly SpriteSystem _sprite;
@@ -25,12 +26,12 @@ public sealed class TrailOverlay : Overlay
     private OccluderSystem _occluderSystem = default!;
     private const float OcclusionCheckRange = 100f;
 
-    public TrailOverlay(IEntityManager entManager, IPrototypeManager protoMan, IGameTiming timing)
+    public SandevistanTrailOverlay(IEntityManager entManager, ISharedPlayerManager playerManager, IGameTiming timing)
     {
-        ZIndex = (int) DrawDepth.Effects + 10;
+        ZIndex = (int)DrawDepth.Effects + 25;
 
         _entManager = entManager;
-        _protoMan = protoMan;
+        _playerManager = playerManager;
         _timing = timing;
         _sprite = _entManager.System<SpriteSystem>();
         _transform = _entManager.System<TransformSystem>();
@@ -40,8 +41,11 @@ public sealed class TrailOverlay : Overlay
     protected override void Draw(in OverlayDrawArgs args)
     {
         var eye = args.Viewport.Eye;
-
         if (eye == null)
+            return;
+
+        var localPlayer = _playerManager.LocalEntity;
+        if (!localPlayer.HasValue || !localPlayer.Value.Valid)
             return;
 
         var eyeRot = eye.Rotation;
@@ -57,33 +61,17 @@ public sealed class TrailOverlay : Overlay
         var cameraPos = cameraMapPos.Position;
 
         var query = _entManager.EntityQueryEnumerator<TrailComponent, TransformComponent>();
-        while (query.MoveNext(out _, out var trail, out var xform))
+        while (query.MoveNext(out var uid, out var trail, out var xform))
         {
+            if (uid != localPlayer.Value)
+                continue;
+
             if (trail.TrailData.Count == 0)
                 continue;
 
             var (position, rotation) = _transform.GetWorldPositionRotation(xform, xformQuery);
 
             handle.UseShader(null);
-
-            if (trail.Shader != null && _protoMan.TryIndex<ShaderPrototype>(trail.Shader, out var shaderProto))
-            {
-                var shader = shaderProto.InstanceUnique();
-                foreach (var (key, data) in trail.ShaderData)
-                {
-                    switch (data)
-                    {
-                        case GetShaderLocalPositionData:
-                            shader.SetParameter(key, args.Viewport.WorldToLocal(position));
-                            break;
-                        case GetShaderFloatParam f:
-                            if (float.TryParse(f.Param, out var fValue))
-                                shader.SetParameter(key, fValue);
-                            break;
-                    }
-                }
-                handle.UseShader(shader);
-            }
 
             if (trail.RenderedEntity != null)
             {
@@ -99,19 +87,25 @@ public sealed class TrailOverlay : Overlay
 
                 if (spriteQuery.TryComp(trail.RenderedEntity.Value, out var sprite))
                 {
+                    var ownerPos = _transform.GetWorldPosition(trail.RenderedEntity.Value);
+                    const float ownerOverlapRadius = 0.4f;
+
                     handle.SetTransform(Matrix3x2.Identity);
-                    var useTrailColor = trail.Color != Color.White;
+                    var trailColor = trail.Color;
 
                     foreach (var data in trail.TrailData)
                     {
-                        var color = useTrailColor ? trail.Color : data.Color;
-                        var scale = useTrailColor && trail.Scale != 1f ? trail.Scale : data.Scale;
+                        var scale = trail.Scale != 1f ? trail.Scale : data.Scale;
 
-                        if (color.A <= 0.01f || scale <= 0.01f || data.MapId != args.MapId)
+                        if (trailColor.A <= 0.01f || scale <= 0.01f || data.MapId != args.MapId)
                             continue;
 
                         var worldPosition = data.Position;
                         if (!bounds.Contains(worldPosition))
+                            continue;
+
+                        var distToOwner = Vector2.Distance(worldPosition, ownerPos);
+                        if (distToOwner < ownerOverlapRadius)
                             continue;
 
                         if (IsOccluded(cameraPos, worldPosition, data.MapId))
@@ -125,7 +119,7 @@ public sealed class TrailOverlay : Overlay
 
                         var originalColor = sprite.Color;
                         var originalScale = sprite.Scale;
-                        sprite.Color = color;
+                        sprite.Color = trailColor;
                         sprite.Scale *= scale;
                         sprite.Render(handle, eyeRot, rot, direction, worldPosition);
                         sprite.Color = originalColor;
@@ -139,15 +133,14 @@ public sealed class TrailOverlay : Overlay
             if (trail.Sprite == null)
             {
                 handle.SetTransform(Matrix3x2.Identity);
-                var useTrailColor = trail.Color != Color.White;
+                var trailColor = trail.Color;
 
                 if (xform.MapID == args.MapId)
                 {
                     var start = trail.TrailData[^1].Position;
-                    var color = useTrailColor ? trail.Color : trail.TrailData[^1].Color;
-                    var scale = useTrailColor && trail.Scale != 1f ? trail.Scale : trail.TrailData[^1].Scale;
+                    var scale = trail.Scale != 1f ? trail.Scale : trail.TrailData[^1].Scale;
                     if (!IsOccluded(cameraPos, start, xform.MapID))
-                        DrawTrailLine(start, position, color, scale, bounds, handle);
+                        DrawTrailLine(start, position, trailColor, scale, bounds, handle);
                 }
 
                 for (var i = 1; i < trail.TrailData.Count; i++)
@@ -158,10 +151,9 @@ public sealed class TrailOverlay : Overlay
                     if (data.MapId == args.MapId && prevData.MapId == args.MapId)
                     {
                         var midpoint = (data.Position + prevData.Position) * 0.5f;
-                        var color = useTrailColor ? trail.Color : data.Color;
-                        var scale = useTrailColor && trail.Scale != 1f ? trail.Scale : data.Scale;
+                        var scale = trail.Scale != 1f ? trail.Scale : data.Scale;
                         if (!IsOccluded(cameraPos, midpoint, data.MapId))
-                            DrawTrailLine(prevData.Position, data.Position, color, scale, bounds, handle);
+                            DrawTrailLine(prevData.Position, data.Position, trailColor, scale, bounds, handle);
                     }
                 }
                 handle.UseShader(null);
@@ -169,15 +161,14 @@ public sealed class TrailOverlay : Overlay
             }
 
             var textureSize = _sprite.Frame0(trail.Sprite).Size;
-            var pos = -(Vector2) textureSize / 2f / EyeManager.PixelsPerMeter;
-            var useTextureTrailColor = trail.Color != Color.White;
+            var pos = -(Vector2)textureSize / 2f / EyeManager.PixelsPerMeter;
+            var trailTextureColor = trail.Color;
 
             foreach (var data in trail.TrailData)
             {
-                var color = useTextureTrailColor ? trail.Color : data.Color;
-                var scale = useTextureTrailColor && trail.Scale != 1f ? trail.Scale : data.Scale;
+                var scale = trail.Scale != 1f ? trail.Scale : data.Scale;
 
-                if (color.A <= 0.01f || scale <= 0.01f || data.MapId != args.MapId)
+                if (trailTextureColor.A <= 0.01f || scale <= 0.01f || data.MapId != args.MapId)
                     continue;
 
                 var worldPosition = data.Position;
@@ -194,7 +185,7 @@ public sealed class TrailOverlay : Overlay
                 var texture = _sprite.GetFrame(trail.Sprite, time);
 
                 handle.SetTransform(Matrix3x2.Multiply(scaleMatrix, worldMatrix));
-                handle.DrawTexture(texture, pos, data.Angle, color);
+                handle.DrawTexture(texture, pos, data.Angle, trailTextureColor);
             }
             handle.UseShader(null);
         }
