@@ -16,6 +16,14 @@
 
 - type: jobIcon
   parent: JobIcon
+  id: JobIconSuperpupermattery
+  icon:
+    sprite: /Textures/ADT/Interface/Misc/job_icons.rsi
+    state: Superpupermattery
+  jobName: job-name-machine
+
+- type: jobIcon
+  parent: JobIcon
   id: JobIconScavengeator
   icon:
     sprite: /Textures/ADT/Interface/Misc/job_icons.rsi

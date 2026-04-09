@@ -68,6 +68,8 @@
     interactSuccessString: petting-success-supermatter
     interactFailureString: petting-failure-supermatter
     interactSuccessSpawn: EffectHearts
+  - type: RadioJobIconOverride
+    iconId: JobIconSuperpupermattery
 
 - type: entity
   parent: BaseSupermatter
