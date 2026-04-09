@@ -327,6 +327,8 @@
     price: 5000
   - type: AccessReader
     access: [["Research"]]
+  - type: RadioJobIconOverride # ADT-Tweak
+    iconId: JobIconAnomalist
   - type: GuideHelp
     guides:
     - AnomalousResearch
