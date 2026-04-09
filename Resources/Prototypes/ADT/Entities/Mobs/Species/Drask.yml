@@ -109,14 +109,14 @@
     baseSprintSpeed : 4.3
   - type: Temperature
     heatDamageThreshold: 313.15 # 40C
-    coldDamageThreshold: -800 # Иммунитет к холоду - не получают урон и алерты
-    currentTemperature: 273.15
+    coldDamageThreshold: 243.15 # -30C - порог когда активируется coldDamage с лечением.
+    showColdAlert: false
+    currentTemperature: 293.15 # 20C - нормальная температура тела
     coldDamage: #per second, scales with temperature & other constants
-      groups:
+      types:
         Brute: -0.25
         Burn: -0.25
         Toxin: -0.1
-      types:
         Cellular: -0.05
     specificHeat: 42
     heatDamage: #per second, scales with temperature & other constants
