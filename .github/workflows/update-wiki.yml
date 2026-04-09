@@ -55,6 +55,11 @@ jobs:
       run: dotnet ./bin/Content.Server/Content.Server.dll --cvar autogen.destination_file=prototypes.json
       continue-on-error: true
 
+    - name: Check generated files
+      run: |
+        ls -la ./bin/Content.Server/data/*.json
+        test -f ./bin/Content.Server/data/chem_prototypes.json || (echo "chem_prototypes.json not generated!" && exit 1)
+
     - name: Upload chem_prototypes.json to wiki
       uses: jtmullen/mediawiki-edit-action@v0.1.1
       with:
