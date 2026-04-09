@@ -119,7 +119,6 @@
         - Ingot
         # ADT-Tweak start. Разрешаем блюспейс кристаллы и фантомным кристаллам пихать в автолат
         - ADTBSCrystal
-        - PhantomEctoplasm
         #ADT-Tweak end
   - type: StationAiWhitelist
   - type: OreSiloClient

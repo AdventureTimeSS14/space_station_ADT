@@ -37,7 +37,6 @@
       - Sheet
       - RawMaterial
       - Ingot
-      - PhantomEctoplasm
       - ConstructionMaterial
   - type: Dumpable
 

@@ -384,12 +384,6 @@
   id: MeteorInstaExplosion
   components:
   - type: TriggerOnSpawn
-  - type: Sprite
-    sprite: ADT/Mobs/Phantom/phantom.rsi
-    drawdepth: Effects
-    layers:
-    - state: haunt
-      map: ["base"]
   - type: Explosive
     explosionType: FireBomb
     totalIntensity: 2
@@ -408,10 +402,9 @@
   components:
   - type: TriggerOnSpawn
   - type: Sprite
-    sprite: ADT/Mobs/Phantom/phantom.rsi
     drawdepth: Effects
     layers:
-    - state: haunt
+    - state: hazard
       map: ["base"]
   - type: Explosive
     explosionType: FireBomb
@@ -534,11 +527,6 @@
   - type: RechargeBasicEntityAmmo
     rechargeCooldown: 4
   - type: Unremoveable
-  - type: Sprite
-    sprite: ADT/Mobs/Phantom/phantom.rsi
-    drawdepth: Effects
-    layers:
-    - state: haunt
 
 - type: entity
   id: WeaponDragonMeteorites
@@ -560,11 +548,6 @@
   - type: RechargeBasicEntityAmmo
     rechargeCooldown: 25
   - type: Unremoveable
-  - type: Sprite
-    sprite: ADT/Mobs/Phantom/phantom.rsi
-    drawdepth: Effects
-    layers:
-    - state: haunt
 
 - type: entity
   name: дыхание дракона
@@ -589,7 +572,6 @@
         ents: []
   - type: Unremoveable
   - type: Sprite
-    sprite: ADT/Mobs/Phantom/phantom.rsi
     drawdepth: Effects
     layers:
-    - state: haunt
+    - state: hazard

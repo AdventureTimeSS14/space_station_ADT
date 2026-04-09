@@ -16,7 +16,6 @@ using Content.Shared.DoAfter;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Server.Chemistry.Containers.EntitySystems;
 using Robust.Shared.Prototypes;
-using Content.Shared.ADT.Phantom.Components;
 using Content.Shared.Revenant.Components;
 using Content.Shared.Body.Components;
 using Content.Shared.Damage.Prototypes;
@@ -381,7 +380,7 @@ public sealed class ChaplainSystem : EntitySystem
             return;
         }
 
-        if (HasComp<PhantomComponent>(target) || HasComp<RevenantComponent>(target))
+        if (HasComp<RevenantComponent>(target))
         {
             var damage = new DamageSpecifier(_proto.Index(BruteDamageGroup), 50);
             var damageSelf = new DamageSpecifier(_proto.Index(BruteDamageGroup), 10);

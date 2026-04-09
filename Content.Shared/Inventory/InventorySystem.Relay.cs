@@ -37,7 +37,6 @@ using Content.Shared.VoiceMask;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Wieldable;
 using Content.Shared.Zombies;
-using Content.Shared.ADT.Phantom.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Corvax.TTS;
 using Content.Shared.ADT.SpeechBarks;
@@ -118,11 +117,7 @@ public partial class InventorySystem
         SubscribeLocalEvent<InventoryComponent, RefreshEquipmentHudEvent<ShowCriminalRecordIconsComponent>>(RefRelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, RefreshEquipmentHudEvent<BlackAndWhiteOverlayComponent>>(RefRelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, RefreshEquipmentHudEvent<NoirOverlayComponent>>(RefRelayInventoryEvent);
-<<<<<<< HEAD
-        SubscribeLocalEvent<InventoryComponent, RefreshEquipmentHudEvent<ShowHauntedIconsComponent>>(RelayInventoryEvent);  // ADT Phantom
-=======
         SubscribeLocalEvent<InventoryComponent, RefreshEquipmentHudEvent<ThermalSightComponent>>(RefRelayInventoryEvent);
->>>>>>> upstreamwiz/master
 
         SubscribeLocalEvent<InventoryComponent, GetVerbsEvent<EquipmentVerb>>(OnGetEquipmentVerbs);
         SubscribeLocalEvent<InventoryComponent, GetVerbsEvent<InnateVerb>>(OnGetInnateVerbs);

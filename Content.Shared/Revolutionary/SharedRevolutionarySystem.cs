@@ -6,7 +6,6 @@ using Content.Shared.Stunnable;
 using Robust.Shared.GameStates;
 using Robust.Shared.Player;
 using Content.Shared.Antag;
-using Content.Shared.ADT.Phantom.Components;
 
 namespace Content.Shared.Revolutionary;
 
@@ -46,21 +45,6 @@ public abstract class SharedRevolutionarySystem : EntitySystem
             _sharedStun.TryUpdateParalyzeDuration(uid, stunTime);
             _popupSystem.PopupEntity(Loc.GetString("rev-break-control", ("name", name)), uid);
         }
-
-        // who and why have done it THIS way
-        // ADT phantom start
-        if (HasComp<VesselComponent>(uid))
-        {
-            if (HasComp<PhantomPuppetComponent>(uid))
-                RemCompDeferred<MindShieldComponent>(uid);
-            else
-            {
-                var stunTime = TimeSpan.FromSeconds(4);
-                RemComp<VesselComponent>(uid);
-                _sharedStun.TryUpdateParalyzeDuration(uid, stunTime);
-            }
-        }
-        // ADT phantom end
     }
 
     /// <summary>

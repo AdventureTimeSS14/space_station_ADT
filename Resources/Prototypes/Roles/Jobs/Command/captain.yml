@@ -59,7 +59,6 @@
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
-      # - type: PhantomTyranyTarget # ADT Phantom
 
 - type: startingGear
   id: CaptainGear

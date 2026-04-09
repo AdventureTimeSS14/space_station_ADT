@@ -1,5 +1,4 @@
 using Content.Shared.ADT.Chaplain.Components;
-using Content.Shared.ADT.Phantom.Components;
 using Robust.Client.GameObjects;
 using Robust.Client.Player;
 using Robust.Shared.Player;

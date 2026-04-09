@@ -14,11 +14,7 @@ using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Database;
-<<<<<<< HEAD
-using Content.Shared.ADT.Poltergeist;
 using Content.Shared.Examine;
-=======
->>>>>>> upstreamwiz/master
 using Content.Shared.Eye;
 using Content.Shared.Preferences;
 using Content.Shared.FixedPoint;
@@ -561,13 +557,13 @@ namespace Content.Server.Ghost
             catch (Exception ex)
             {
                 Log.Warning($"Failed to spawn ghost for mind {mind.Owner}: {ex.Message}");
-                
+
                 // Попытка трансфера без создания призрака
                 if (Resolve(mind, ref mind.Comp))
                 {
                     _minds.TransferTo(mind.Owner, null, createGhost: false, mind: mind.Comp);
                 }
-                
+
                 return null;
             }
         }
@@ -594,14 +590,6 @@ namespace Content.Server.Ghost
                 _minds.TransferTo(mind.Owner, null, createGhost: false, mind: mind.Comp);
                 return null;
             }
-            // ADT Poltergeist start
-            if (HasComp<PotentialPoltergeistComponent>(mind.Comp.OwnedEntity))
-            {
-                var polter = SpawnAtPosition("ADTMobPoltergeist", spawnPosition.Value);
-                _minds.TransferTo(mind.Owner, polter, mind: mind.Comp);
-                return polter;
-            }
-            // ADT Poltergeist end
 
             var ghost = SpawnAtPosition(GameTicker.ObserverPrototypeName, spawnPosition.Value);
             var ghostComponent = Comp<GhostComponent>(ghost);
