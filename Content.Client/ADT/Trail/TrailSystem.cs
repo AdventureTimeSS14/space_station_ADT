@@ -91,6 +91,7 @@ public sealed class TrailSystem : EntitySystem
     {
         base.Shutdown();
         _overlay.RemoveOverlay<TrailOverlay>();
+        _overlay.RemoveOverlay<SandevistanTrailOverlay>();
     }
     public override void Update(float frameTime)
     {
