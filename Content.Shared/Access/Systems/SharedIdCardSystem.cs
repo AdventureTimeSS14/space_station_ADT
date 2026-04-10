@@ -166,7 +166,7 @@ public abstract class SharedIdCardSystem : EntitySystem
         return true;
     }
 
-    public bool TryChangeJobIcon(EntityUid uid, JobIconPrototype jobIcon, IdCardComponent? id = null, EntityUid? player = null)
+    public bool TryChangeJobIcon(EntityUid uid, JobIconPrototype jobIcon, IdCardComponent? id = null, EntityUid? player = null, string? jobNameOverride = null) // ADT-Tweak
     {
         if (!Resolve(uid, ref id))
         {
@@ -189,7 +189,10 @@ public abstract class SharedIdCardSystem : EntitySystem
 
         // ADT-Tweak start
         if (player.HasValue && Exists(player.Value) && !Deleted(player.Value) && !Terminating(player.Value))
-            _radioJobIcon.UpdateRadioJobIcon(player.Value);
+        {
+            var displayName = jobNameOverride ?? jobIcon.LocalizedJobName;
+            _radioJobIcon.UpdateRadioJobIcon(player.Value, jobIcon.ID, displayName);
+        }
         // ADT-Tweak end
 
         return true;
