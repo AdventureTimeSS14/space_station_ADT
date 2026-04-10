@@ -26,11 +26,7 @@ public sealed class WormSystem : EntitySystem
     {
         EnsureComp<KnockedDownComponent>(ent, out var knocked);
         _alerts.ShowAlert(ent.Owner, SharedStunSystem.KnockdownAlert);
-<<<<<<< HEAD
         // _stun.SetAutoStand((ent, knocked)); //ADT-tweak
-=======
-        _stun.SetAutoStand((ent, knocked));
->>>>>>> upstreamwiz/master
     }
 
     private void OnRejuvenate(Entity<WormComponent> ent, ref RejuvenateEvent args)

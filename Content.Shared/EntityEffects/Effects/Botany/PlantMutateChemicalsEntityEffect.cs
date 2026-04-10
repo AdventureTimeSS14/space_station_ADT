@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-=======
 using Content.Shared.Localizations;
->>>>>>> upstreamwiz/master
 using Content.Shared.Random;
 using Robust.Shared.Prototypes;
 
@@ -17,8 +14,6 @@ public sealed partial class PlantMutateChemicals : EntityEffectBase<PlantMutateC
     /// </summary>
     [DataField]
     public ProtoId<WeightedRandomFillSolutionPrototype> RandomPickBotanyReagent = "RandomPickBotanyReagent";
-<<<<<<< HEAD
-=======
 
     /// <inheritdoc/>
     public override string EntityEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
@@ -44,5 +39,4 @@ public sealed partial class PlantMutateChemicals : EntityEffectBase<PlantMutateC
 
         return Loc.GetString("entity-effect-guidebook-plant-mutate-chemicals", ("chance", Probability), ("name", names));
     }
->>>>>>> upstreamwiz/master
 }

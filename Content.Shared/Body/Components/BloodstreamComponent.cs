@@ -193,15 +193,12 @@ public sealed partial class BloodstreamComponent : Component
     public Entity<SolutionComponent>? TemporarySolution;
 
     /// <summary>
-<<<<<<< HEAD
-=======
     /// Internal solution for metabolite storage
     /// </summary>
     [ViewVariables]
     public Entity<SolutionComponent>? MetabolitesSolution;
 
     /// <summary>
->>>>>>> upstreamwiz/master
     /// Alert to show when bleeding.
     /// </summary>
     [DataField]

@@ -1,10 +1,7 @@
 using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
-<<<<<<< HEAD
-=======
 using Content.Shared.Chemistry.Prototypes;
->>>>>>> upstreamwiz/master
 using Content.Shared.Chemistry.Reaction;
 using Content.Shared.CombatMode.Pacification;
 using Content.Shared.Database;
@@ -26,10 +23,7 @@ namespace Content.Shared.Fluids;
 public abstract partial class SharedPuddleSystem
 {
     private static readonly FixedPoint2 MeleeHitTransferProportion = 0.25;
-<<<<<<< HEAD
-=======
     [Dependency] private readonly InjectorSystem _injectorSystem = default!;
->>>>>>> upstreamwiz/master
 
     protected virtual void InitializeSpillable()
     {
@@ -84,13 +78,9 @@ public abstract partial class SharedPuddleSystem
 
                 // TODO: Make this an event subscription once spilling puddles is predicted.
                 // Injectors should not be hardcoded here.
-<<<<<<< HEAD
-                if (TryComp<InjectorComponent>(entity, out var injectorComp))
-=======
                 if (TryComp<InjectorComponent>(entity, out var injectorComp)
                     && _prototypeManager.Resolve(injectorComp.ActiveModeProtoId, out var activeMode)
                     && !activeMode.Behavior.HasAnyFlag(InjectorBehavior.Draw | InjectorBehavior.Dynamic))
->>>>>>> upstreamwiz/master
                 {
                     foreach (var mode in injectorComp.AllowedModes)
                     {

@@ -1,20 +1,12 @@
 using System.Numerics;
-<<<<<<< HEAD
 using Content.Shared.ADT.Chaplain.Components;
-using Content.Shared.Body.Components;
-using Content.Shared.Body.Systems;
-=======
->>>>>>> upstreamwiz/master
 using Content.Shared.Charges.Components;
 using Content.Shared.Charges.Systems;
 using Content.Shared.Coordinates.Helpers;
 using Content.Shared.Doors.Components;
 using Content.Shared.Doors.Systems;
 using Content.Shared.Examine;
-<<<<<<< HEAD
-=======
 using Content.Shared.Gibbing;
->>>>>>> upstreamwiz/master
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
@@ -489,11 +481,7 @@ public abstract class SharedMagicSystem : EntitySystem
             return;
 
         if (TryComp<BasicEntityAmmoProviderComponent>(wand, out var basicAmmoComp) && basicAmmoComp.Count != null)
-<<<<<<< HEAD
-            _gunSystem.UpdateBasicEntityAmmoCount(wand.Value, basicAmmoComp.Count.Value + ev.Charge, basicAmmoComp);
-=======
             _gunSystem.UpdateBasicEntityAmmoCount((wand.Value, basicAmmoComp), basicAmmoComp.Count.Value + ev.Charge);
->>>>>>> upstreamwiz/master
         else if (TryComp<LimitedChargesComponent>(wand, out var charges))
             _charges.AddCharges((wand.Value, charges), ev.Charge);
     }

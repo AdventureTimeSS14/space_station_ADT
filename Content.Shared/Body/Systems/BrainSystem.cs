@@ -1,8 +1,4 @@
 ﻿using Content.Shared.Body.Components;
-<<<<<<< HEAD
-using Content.Shared.Body.Events;
-=======
->>>>>>> upstreamwiz/master
 using Content.Shared.Ghost;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
@@ -19,13 +15,8 @@ public sealed class BrainSystem : EntitySystem
     {
         base.Initialize();
 
-<<<<<<< HEAD
-        SubscribeLocalEvent<BrainComponent, OrganAddedToBodyEvent>((uid, _, args) => HandleMind(args.Body, uid));
-        SubscribeLocalEvent<BrainComponent, OrganRemovedFromBodyEvent>((uid, _, args) => HandleMind(uid, args.OldBody));
-=======
         SubscribeLocalEvent<BrainComponent, OrganGotInsertedEvent>((uid, _, args) => HandleMind(args.Target, uid));
         SubscribeLocalEvent<BrainComponent, OrganGotRemovedEvent>((uid, _, args) => HandleMind(uid, args.Target));
->>>>>>> upstreamwiz/master
         SubscribeLocalEvent<BrainComponent, PointAttemptEvent>(OnPointAttempt);
     }
 

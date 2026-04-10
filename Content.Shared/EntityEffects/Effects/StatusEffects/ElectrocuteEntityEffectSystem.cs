@@ -4,10 +4,6 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared.EntityEffects.Effects.StatusEffects;
 
-<<<<<<< HEAD
-// TODO: When Electrocution is moved to new Status, make this use StatusEffectsContainerComponent.
-=======
->>>>>>> upstreamwiz/master
 /// <summary>
 /// Electrocutes this entity for a given amount of damage and time.
 /// The shock damage applied by this effect is modified by scale.
@@ -22,9 +18,6 @@ public sealed partial class ElectrocuteEntityEffectSystem : EntityEffectSystem<S
     {
         var effect = args.Effect;
 
-<<<<<<< HEAD
-        _electrocution.TryDoElectrocution(entity, null, (int)(args.Scale * effect.ShockDamage), effect.ElectrocuteTime, effect.Refresh, ignoreInsulation: effect.BypassInsulation);
-=======
         _electrocution.TryDoElectrocution(entity,
             null,
             (int)(args.Scale * effect.ShockDamage),
@@ -32,7 +25,6 @@ public sealed partial class ElectrocuteEntityEffectSystem : EntityEffectSystem<S
             effect.Refresh,
             siemensCoefficient: effect.SiemensCoefficient,
             ignoreInsulation: effect.BypassInsulation);
->>>>>>> upstreamwiz/master
     }
 }
 
@@ -42,42 +34,24 @@ public sealed partial class Electrocute : EntityEffectBase<Electrocute>
     /// <summary>
     /// Time we electrocute this entity
     /// </summary>
-<<<<<<< HEAD
-    [DataField] public TimeSpan ElectrocuteTime = TimeSpan.FromSeconds(2);
-=======
     [DataField]
     public TimeSpan ElectrocuteTime = TimeSpan.FromSeconds(2);
->>>>>>> upstreamwiz/master
 
     /// <summary>
     /// Shock damage we apply to the entity.
     /// </summary>
-<<<<<<< HEAD
-    [DataField] public int ShockDamage = 5;
-=======
     [DataField]
     public int ShockDamage = 5;
->>>>>>> upstreamwiz/master
 
     /// <summary>
     /// Do we refresh the duration? Or add more duration if it already exists.
     /// </summary>
-<<<<<<< HEAD
-    [DataField] public bool Refresh = true;
-=======
     [DataField]
     public bool Refresh = true;
->>>>>>> upstreamwiz/master
 
     /// <summary>
     /// Should we by bypassing insulation?
     /// </summary>
-<<<<<<< HEAD
-    [DataField] public bool BypassInsulation = true;
-
-    public override string EntityEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
-        => Loc.GetString("entity-effect-guidebook-electrocute", ("chance", Probability), ("time", ElectrocuteTime.TotalSeconds));
-=======
     [DataField]
     public bool BypassInsulation = true;
 
@@ -89,5 +63,4 @@ public sealed partial class Electrocute : EntityEffectBase<Electrocute>
 
     public override string EntityEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
         => Loc.GetString("entity-effect-guidebook-electrocute", ("chance", Probability), ("time", ElectrocuteTime.TotalSeconds), ("stuns", SiemensCoefficient > 0.5f));
->>>>>>> upstreamwiz/master
 }

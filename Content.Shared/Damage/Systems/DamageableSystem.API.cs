@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-=======
 using System.Linq;
->>>>>>> upstreamwiz/master
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.FixedPoint;
@@ -11,8 +8,6 @@ namespace Content.Shared.Damage.Systems;
 
 public sealed partial class DamageableSystem
 {
-<<<<<<< HEAD
-=======
     /// <returns>If the damage container can take the given damage type</returns>
     private bool SupportsType(ProtoId<DamageContainerPrototype>? container, ProtoId<DamageTypePrototype> type)
     {
@@ -22,7 +17,6 @@ public sealed partial class DamageableSystem
         return _supportedTypesByContainer[container.Value].Contains(type);
     }
 
->>>>>>> upstreamwiz/master
     /// <summary>
     ///     Directly sets the damage in a damageable component.
     ///     This method keeps the damage types supported by the DamageContainerPrototype in the component.
@@ -40,32 +34,6 @@ public sealed partial class DamageableSystem
 
         foreach (var type in ent.Comp.Damage.DamageDict.Keys)
         {
-<<<<<<< HEAD
-            if (damage.DamageDict.TryGetValue(type, out var value))
-                ent.Comp.Damage.DamageDict[type] = value;
-            else
-                ent.Comp.Damage.DamageDict[type] = 0;
-        }
-
-        OnEntityDamageChanged((ent, ent.Comp));
-    }
-
-    /// <summary>
-    ///     Directly sets the damage specifier of a damageable component.
-    ///     This will overwrite the complete damage dict, meaning it will bulldoze the supported damage types.
-    /// </summary>
-    /// <remarks>
-    ///     This may break persistance as the supported types are reset in case the component is initialized again.
-    ///     So this only makes sense if you also change the DamageContainerPrototype in the component at the same time.
-    ///     Only use this method if you know what you are doing.
-    /// </remarks>
-    public void SetDamageSpecifier(Entity<DamageableComponent?> ent, DamageSpecifier damage)
-    {
-        if (!_damageableQuery.Resolve(ent, ref ent.Comp, false))
-            return;
-
-        ent.Comp.Damage = damage;
-=======
             if (!damage.DamageDict.ContainsKey(type))
                 ent.Comp.Damage.DamageDict.Remove(type);
         }
@@ -75,7 +43,6 @@ public sealed partial class DamageableSystem
             if (SupportsType(ent.Comp.DamageContainerID, type))
                 ent.Comp.Damage.DamageDict[type] = amount;
         }
->>>>>>> upstreamwiz/master
 
         OnEntityDamageChanged((ent, ent.Comp));
     }
@@ -102,11 +69,7 @@ public sealed partial class DamageableSystem
     {
         //! Empty just checks if the DamageSpecifier is _literally_ empty, as in, is internal dictionary of damage types is empty.
         // If you deal 0.0 of some damage type, Empty will be false!
-<<<<<<< HEAD
-        return !TryChangeDamage(ent, damage, out _, ignoreResistances, interruptsDoAfters, origin, ignoreGlobalModifiers);
-=======
         return TryChangeDamage(ent, damage, out _, ignoreResistances, interruptsDoAfters, origin, ignoreGlobalModifiers);
->>>>>>> upstreamwiz/master
     }
 
     /// <summary>
@@ -133,11 +96,7 @@ public sealed partial class DamageableSystem
         //! Empty just checks if the DamageSpecifier is _literally_ empty, as in, is internal dictionary of damage types is empty.
         // If you deal 0.0 of some damage type, Empty will be false!
         newDamage = ChangeDamage(ent, damage, ignoreResistances, interruptsDoAfters, origin, ignoreGlobalModifiers);
-<<<<<<< HEAD
-        return !damage.Empty;
-=======
         return !newDamage.Empty;
->>>>>>> upstreamwiz/master
     }
 
     /// <summary>
@@ -202,17 +161,10 @@ public sealed partial class DamageableSystem
         var dict = ent.Comp.Damage.DamageDict;
         foreach (var (type, value) in damage.DamageDict)
         {
-<<<<<<< HEAD
-            // CollectionsMarshal my beloved.
-            if (!dict.TryGetValue(type, out var oldValue))
-                continue;
-
-=======
             if (!SupportsType(ent.Comp.DamageContainerID, type))
                 continue;
 
             var oldValue = dict.GetValueOrDefault(type);
->>>>>>> upstreamwiz/master
             var newValue = FixedPoint2.Max(FixedPoint2.Zero, oldValue + value);
             if (newValue == oldValue)
                 continue;
@@ -228,8 +180,6 @@ public sealed partial class DamageableSystem
     }
 
     /// <summary>
-<<<<<<< HEAD
-=======
     /// Will reduce the damage on the entity exactly by <see cref="amount"/> as close as equally distributed among all damage types the entity has.
     /// If one of the damage types of the entity is too low. it will heal that completly and distribute the excess healing among the other damage types.
     /// If the <see cref="amount"/> is larger than the total damage of the entity then it just clears all damage.
@@ -403,7 +353,6 @@ public sealed partial class DamageableSystem
     }
 
     /// <summary>
->>>>>>> upstreamwiz/master
     /// Applies the two universal "All" modifiers, if set.
     /// Individual damage source modifiers are set in their respective code.
     /// </summary>
@@ -479,8 +428,6 @@ public sealed partial class DamageableSystem
 
         Dirty(ent);
     }
-<<<<<<< HEAD
-=======
 
     /// <summary>
     /// Gets the damages currently sustained by an entity.
@@ -529,5 +476,4 @@ public sealed partial class DamageableSystem
 
         return SupportsType(ent.Comp.DamageContainerID, type);
     }
->>>>>>> upstreamwiz/master
 }

@@ -2,10 +2,6 @@ using Content.Shared.Atmos;
 using Content.Shared.Atmos.Components;
 using Content.Shared.Atmos.EntitySystems;
 using Content.Shared.Body.Components;
-<<<<<<< HEAD
-using Content.Shared.Body.Prototypes;
-=======
->>>>>>> upstreamwiz/master
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Inventory.Events;

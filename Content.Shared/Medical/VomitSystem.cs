@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-=======
 using Content.Shared.Body;
->>>>>>> upstreamwiz/master
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Systems;
 using Content.Shared.Chemistry.Components;
@@ -32,10 +29,6 @@ public sealed class VomitSystem : EntitySystem
     [Dependency] private readonly ThirstSystem _thirst = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedBloodstreamSystem _bloodstream = default!;
-<<<<<<< HEAD
-    [Dependency] private readonly SharedBodySystem _body = default!;
-=======
->>>>>>> upstreamwiz/master
     [Dependency] private readonly SharedForensicsSystem _forensics = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedPuddleSystem _puddle = default!;
@@ -45,11 +38,7 @@ public sealed class VomitSystem : EntitySystem
     {
         base.Initialize();
 
-<<<<<<< HEAD
-        SubscribeLocalEvent<BodyComponent, TryVomitEvent>(TryBodyVomitSolution);
-=======
         SubscribeLocalEvent<StomachComponent, BodyRelayedEvent<TryVomitEvent>>(TryVomitSolution);
->>>>>>> upstreamwiz/master
     }
 
     private const float ChemMultiplier = 0.1f;
@@ -61,26 +50,6 @@ public sealed class VomitSystem : EntitySystem
     private readonly SoundSpecifier _vomitSound = new SoundCollectionSpecifier(VomitCollection,
         AudioParams.Default.WithVariation(0.2f).WithVolume(-4f));
 
-<<<<<<< HEAD
-    private void TryBodyVomitSolution(Entity<BodyComponent> ent, ref TryVomitEvent args)
-    {
-        if (args.Handled)
-            return;
-
-        // Main requirement: You have a stomach
-        var stomachList = _body.GetBodyOrganEntityComps<StomachComponent>((ent, null));
-        if (stomachList.Count == 0)
-            return;
-
-        // Empty the stomach out into it
-        foreach (var stomach in stomachList)
-        {
-            if (_solutionContainer.ResolveSolution(stomach.Owner, StomachSystem.DefaultSolutionName, ref stomach.Comp1.Solution, out var sol))
-                _solutionContainer.TryTransferSolution(stomach.Comp1.Solution.Value, args.Sol, sol.AvailableVolume);
-        }
-
-        args.Handled = true;
-=======
     private void TryVomitSolution(Entity<StomachComponent> ent, ref BodyRelayedEvent<TryVomitEvent> args)
     {
         if (!_solutionContainer.ResolveSolution(ent.Owner,
@@ -96,7 +65,6 @@ public sealed class VomitSystem : EntitySystem
         // Remind the stomach that it's empty.
         _solutionContainer.UpdateChemicals(ent.Comp.Solution.Value);
         args.Args = args.Args with { Handled = true };
->>>>>>> upstreamwiz/master
     }
 
     /// <summary>
@@ -136,20 +104,6 @@ public sealed class VomitSystem : EntitySystem
         {
             var vomitAmount = solutionSize;
 
-<<<<<<< HEAD
-            // Takes 10% of the chemicals removed from the chem stream
-            if (_solutionContainer.ResolveSolution(uid, bloodStream.ChemicalSolutionName, ref bloodStream.ChemicalSolution))
-            {
-                var vomitChemstreamAmount = _solutionContainer.SplitSolution(bloodStream.ChemicalSolution.Value, vomitAmount);
-                vomitChemstreamAmount.ScaleSolution(ChemMultiplier);
-                solution.AddSolution(vomitChemstreamAmount, _proto);
-
-                vomitAmount -= (float)vomitChemstreamAmount.Volume;
-            }
-
-            // Makes a vomit solution the size of 90% of the chemicals removed from the chemstream
-            solution.AddReagent(new ReagentId(VomitPrototype, _bloodstream.GetEntityBloodData(uid)), vomitAmount);
-=======
             // Flushes small portion of the chemicals removed from the bloodstream stream
             if (_solutionContainer.ResolveSolution(uid, bloodStream.BloodSolutionName, ref bloodStream.BloodSolution))
             {
@@ -165,7 +119,6 @@ public sealed class VomitSystem : EntitySystem
 
             // Makes a vomit solution the size of 90% of the chemicals removed from the chemstream
             solution.AddReagent(new ReagentId(VomitPrototype, _bloodstream.GetEntityBloodData((uid, bloodStream))), vomitAmount);
->>>>>>> upstreamwiz/master
         }
 
         if (_puddle.TrySpillAt(uid, solution, out var puddle, false))

@@ -1,21 +1,11 @@
-<<<<<<< HEAD:Content.Server/Thief/Systems/ThiefBeaconSystem.cs
-using Content.Server.Mind;
-using Content.Server.Objectives.Components;
-using Content.Server.Thief.Components;
-=======
 using Content.Shared.Mind;
 using Content.Shared.Objectives.Components;
 using Content.Shared.Roles;
 using Content.Shared.Thief.Components;
->>>>>>> upstreamwiz/master:Content.Shared/Thief/Systems/ThiefBeaconSystem.cs
 using Content.Shared.Examine;
 using Content.Shared.Foldable;
 using Content.Shared.Popups;
 using Content.Shared.Verbs;
-<<<<<<< HEAD:Content.Server/Thief/Systems/ThiefBeaconSystem.cs
-using Content.Shared.Roles;
-=======
->>>>>>> upstreamwiz/master:Content.Shared/Thief/Systems/ThiefBeaconSystem.cs
 using Content.Shared.Roles.Components;
 using Robust.Shared.Audio.Systems;
 

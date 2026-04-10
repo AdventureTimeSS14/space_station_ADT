@@ -2,18 +2,11 @@ using System.Collections.Frozen;
 using System.Linq;
 using Content.Shared.FixedPoint;
 using System.Text.Json.Serialization;
-<<<<<<< HEAD
-using Content.Shared.Body.Prototypes;
-=======
->>>>>>> upstreamwiz/master
 using Content.Shared.Chemistry.Reaction;
 using Content.Shared.Contraband;
 using Content.Shared.EntityEffects;
 using Content.Shared.Localizations;
-<<<<<<< HEAD
-=======
 using Content.Shared.Metabolism;
->>>>>>> upstreamwiz/master
 using Content.Shared.Nutrition;
 using Content.Shared.Roles;
 using Content.Shared.Slippery;
@@ -216,11 +209,7 @@ namespace Content.Shared.Chemistry.Reagent
             return removed;
         }
 
-<<<<<<< HEAD
-        public IEnumerable<string> GuidebookReagentEffectsDescription(IPrototypeManager prototype, IEntitySystemManager entSys, IEnumerable<EntityEffect> effects, FixedPoint2? metabolism = null)
-=======
         public IEnumerable<string> GuidebookReagentEffectsDescription(IPrototypeManager prototype, IEntitySystemManager entSys, IEnumerable<EntityEffect> effects, FixedPoint2 metabolism)
->>>>>>> upstreamwiz/master
         {
             return effects.Select(x => GuidebookReagentEffectDescription(prototype, entSys, x, metabolism))
                 .Where(x => x is not null)
@@ -228,20 +217,12 @@ namespace Content.Shared.Chemistry.Reagent
                 .ToArray();
         }
 
-<<<<<<< HEAD
-        public string? GuidebookReagentEffectDescription(IPrototypeManager prototype, IEntitySystemManager entSys, EntityEffect effect, FixedPoint2? metabolism)
-=======
         public string? GuidebookReagentEffectDescription(IPrototypeManager prototype, IEntitySystemManager entSys, EntityEffect effect, FixedPoint2 metabolism)
->>>>>>> upstreamwiz/master
         {
             if (effect.EntityEffectGuidebookText(prototype, entSys) is not { } description)
                 return null;
 
-<<<<<<< HEAD
-            var quantity = metabolism == null ? 0f : (double)(effect.MinScale * metabolism);
-=======
             var quantity = (double)(effect.MinScale * metabolism);
->>>>>>> upstreamwiz/master
 
             return Loc.GetString(
                 "guidebook-reagent-effect-description",
@@ -262,33 +243,20 @@ namespace Content.Shared.Chemistry.Reagent
     {
         public string ReagentPrototype;
 
-<<<<<<< HEAD
-        // TODO: Kill Metabolism groups!
-        public Dictionary<ProtoId<MetabolismGroupPrototype>, ReagentEffectsGuideEntry>? GuideEntries;
-=======
         public Dictionary<ProtoId<MetabolismStagePrototype>, ReagentEffectsGuideEntry>? GuideEntries;
->>>>>>> upstreamwiz/master
 
         public List<string>? PlantMetabolisms = null;
 
         public ReagentGuideEntry(ReagentPrototype proto, IPrototypeManager prototype, IEntitySystemManager entSys)
         {
             ReagentPrototype = proto.ID;
-<<<<<<< HEAD
-            GuideEntries = proto.Metabolisms?
-=======
             GuideEntries = proto.Metabolisms?.Metabolisms
->>>>>>> upstreamwiz/master
                 .Select(x => (x.Key, x.Value.MakeGuideEntry(prototype, entSys, proto)))
                 .ToDictionary(x => x.Key, x => x.Item2);
             if (proto.PlantMetabolisms.Count > 0)
             {
                 PlantMetabolisms =
-<<<<<<< HEAD
-                    new List<string>(proto.GuidebookReagentEffectsDescription(prototype, entSys, proto.PlantMetabolisms));
-=======
                     new List<string>(proto.GuidebookReagentEffectsDescription(prototype, entSys, proto.PlantMetabolisms, FixedPoint2.New(1f)));
->>>>>>> upstreamwiz/master
             }
         }
     }
@@ -317,24 +285,17 @@ namespace Content.Shared.Chemistry.Reagent
         [DataField]
         public EntityEffect[] Effects = Array.Empty<EntityEffect>();
 
-<<<<<<< HEAD
-=======
         /// <summary>
         ///     Ratio of this reagent to metabolites for transfer to the next solution by a metabolizer
         /// </summary>
         [DataField]
         public Dictionary<ProtoId<ReagentPrototype>, FixedPoint2>? Metabolites;
 
->>>>>>> upstreamwiz/master
         public string EntityEffectFormat => "guidebook-reagent-effect-description";
 
         public ReagentEffectsGuideEntry MakeGuideEntry(IPrototypeManager prototype, IEntitySystemManager entSys, ReagentPrototype proto)
         {
-<<<<<<< HEAD
-            return new ReagentEffectsGuideEntry(MetabolismRate, proto.GuidebookReagentEffectsDescription(prototype, entSys, Effects, MetabolismRate).ToArray());
-=======
             return new ReagentEffectsGuideEntry(MetabolismRate, proto.GuidebookReagentEffectsDescription(prototype, entSys, Effects, MetabolismRate).ToArray(), Metabolites);
->>>>>>> upstreamwiz/master
         }
     }
 

@@ -1,10 +1,6 @@
-<<<<<<< HEAD
-﻿using System.Numerics;
-=======
 ﻿using System.Linq;
 using System.Numerics;
 using Content.Shared.Body;
->>>>>>> upstreamwiz/master
 using Content.Shared.Changeling.Components;
 using Content.Shared.Cloning;
 using Content.Shared.Humanoid;
@@ -24,20 +20,11 @@ public abstract class SharedChangelingIdentitySystem : EntitySystem
     [Dependency] private readonly MetaDataSystem _metaSystem = default!;
     [Dependency] private readonly NameModifierSystem _nameMod = default!;
     [Dependency] private readonly SharedCloningSystem _cloningSystem = default!;
-<<<<<<< HEAD
-    [Dependency] private readonly SharedHumanoidAppearanceSystem _humanoidSystem = default!;
-    [Dependency] private readonly SharedMapSystem _map = default!;
-    [Dependency] private readonly SharedPvsOverrideSystem _pvsOverrideSystem = default!;
-
-    public MapId? PausedMapId;
-    private int _numberOfStoredIdentities = 0; // TODO: remove this
-=======
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly SharedVisualBodySystem _visualBody = default!;
     [Dependency] private readonly SharedPvsOverrideSystem _pvsOverrideSystem = default!;
 
     public MapId? PausedMapId;
->>>>>>> upstreamwiz/master
 
     public override void Initialize()
     {
@@ -48,11 +35,8 @@ public abstract class SharedChangelingIdentitySystem : EntitySystem
         SubscribeLocalEvent<ChangelingIdentityComponent, PlayerAttachedEvent>(OnPlayerAttached);
         SubscribeLocalEvent<ChangelingIdentityComponent, PlayerDetachedEvent>(OnPlayerDetached);
         SubscribeLocalEvent<ChangelingStoredIdentityComponent, ComponentRemove>(OnStoredRemove);
-<<<<<<< HEAD
-=======
 
         SubscribeLocalEvent<ChangelingDevouredComponent, ComponentShutdown>(OnDevouredShutdown);
->>>>>>> upstreamwiz/master
     }
 
     private void OnPlayerAttached(Entity<ChangelingIdentityComponent> ent, ref PlayerAttachedEvent args)
@@ -76,9 +60,6 @@ public abstract class SharedChangelingIdentitySystem : EntitySystem
     {
         if (TryComp<ActorComponent>(ent, out var actor))
             CleanupPvsOverride(ent, actor.PlayerSession);
-<<<<<<< HEAD
-        CleanupChangelingNullspaceIdentities(ent);
-=======
 
         CleanupChangelingNullspaceIdentities(ent);
         CleanupDevouredReferences(ent);
@@ -105,7 +86,6 @@ public abstract class SharedChangelingIdentitySystem : EntitySystem
 
             Dirty(ling, identityComp);
         }
->>>>>>> upstreamwiz/master
     }
 
     private void OnStoredRemove(Entity<ChangelingStoredIdentityComponent> ent, ref ComponentRemove args)
@@ -126,9 +106,6 @@ public abstract class SharedChangelingIdentitySystem : EntitySystem
 
         foreach (var consumedIdentity in ent.Comp.ConsumedIdentities)
         {
-<<<<<<< HEAD
-            QueueDel(consumedIdentity);
-=======
             QueueDel(consumedIdentity.Key);
         }
     }
@@ -146,7 +123,6 @@ public abstract class SharedChangelingIdentitySystem : EntitySystem
 
             if (devouredComp.DevouredBy.Remove(ent.Owner))
                 Dirty(devouredUid.Value, devouredComp);
->>>>>>> upstreamwiz/master
         }
     }
 
@@ -162,24 +138,12 @@ public abstract class SharedChangelingIdentitySystem : EntitySystem
         if (_net.IsClient)
             return null;
 
-<<<<<<< HEAD
-        if (!TryComp<HumanoidAppearanceComponent>(target, out var humanoid)
-=======
         if (!TryComp<HumanoidProfileComponent>(target, out var humanoid)
->>>>>>> upstreamwiz/master
             || !_prototype.Resolve(humanoid.Species, out var speciesPrototype))
             return null;
 
         EnsurePausedMap();
-<<<<<<< HEAD
-        // TODO: Setting the spawn location is a shitty bandaid to prevent admins from crashing our servers.
-        // Movercontrollers and mob collisions are currently being calculated even for paused entities.
-        // Spawning all of them in the same spot causes severe performance problems.
-        // Cryopods and Polymorph have the same problem.
-        var clone = Spawn(speciesPrototype.Prototype, new MapCoordinates(new Vector2(2 * _numberOfStoredIdentities++, 0), PausedMapId!.Value));
-=======
         var clone = Spawn(speciesPrototype.Prototype, new MapCoordinates(Vector2.Zero, PausedMapId!.Value));
->>>>>>> upstreamwiz/master
 
         var storedIdentity = EnsureComp<ChangelingStoredIdentityComponent>(clone);
         storedIdentity.OriginalEntity = target; // TODO: network this once we have WeakEntityReference or the autonetworking source gen is fixed
@@ -187,11 +151,7 @@ public abstract class SharedChangelingIdentitySystem : EntitySystem
         if (TryComp<ActorComponent>(target, out var actor))
             storedIdentity.OriginalSession = actor.PlayerSession;
 
-<<<<<<< HEAD
-        _humanoidSystem.CloneAppearance(target, clone);
-=======
         _visualBody.CopyAppearanceFrom(target, clone);
->>>>>>> upstreamwiz/master
         _cloningSystem.CloneComponents(target, clone, settings);
 
         var targetName = _nameMod.GetBaseName(target);
@@ -216,11 +176,7 @@ public abstract class SharedChangelingIdentitySystem : EntitySystem
         if (clone == null)
             return null;
 
-<<<<<<< HEAD
-        ent.Comp.ConsumedIdentities.Add(clone.Value);
-=======
         ent.Comp.ConsumedIdentities.Add(clone.Value, target);
->>>>>>> upstreamwiz/master
 
         Dirty(ent);
         HandlePvsOverride(ent, clone.Value);
@@ -245,20 +201,12 @@ public abstract class SharedChangelingIdentitySystem : EntitySystem
     /// Cleanup all PVS overrides for the owner of the ChangelingIdentity
     /// </summary>
     /// <param name="ent">The changeling storing the identities.</param>
-<<<<<<< HEAD
-    /// <param name="entityUid"The session you wish to remove the overrides from.</param>
-=======
     /// <param name="session">The session you wish to remove the overrides from.</param>
->>>>>>> upstreamwiz/master
     private void CleanupPvsOverride(Entity<ChangelingIdentityComponent> ent, ICommonSession session)
     {
         foreach (var identity in ent.Comp.ConsumedIdentities)
         {
-<<<<<<< HEAD
-            _pvsOverrideSystem.RemoveSessionOverride(identity, session);
-=======
             _pvsOverrideSystem.RemoveSessionOverride(identity.Key, session);
->>>>>>> upstreamwiz/master
         }
     }
 
@@ -271,11 +219,7 @@ public abstract class SharedChangelingIdentitySystem : EntitySystem
     {
         foreach (var identity in ent.Comp.ConsumedIdentities)
         {
-<<<<<<< HEAD
-            _pvsOverrideSystem.AddSessionOverride(identity, session);
-=======
             _pvsOverrideSystem.AddSessionOverride(identity.Key, session);
->>>>>>> upstreamwiz/master
         }
     }
 

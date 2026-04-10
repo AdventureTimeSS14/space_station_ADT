@@ -15,12 +15,8 @@ using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Toolshed.TypeParsers;
 using System.Diagnostics.CodeAnalysis;
 using Content.Shared.Damage.Systems;
-<<<<<<< HEAD
-using Content.Shared.Stunnable;
-=======
 using Content.Shared.Item.ItemToggle;
 using Content.Shared.Item.ItemToggle.Components;
->>>>>>> upstreamwiz/master
 
 namespace Content.Shared.Polymorph.Systems;
 
@@ -41,11 +37,8 @@ public abstract class SharedChameleonProjectorSystem : EntitySystem
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedTransformSystem _xform = default!;
-<<<<<<< HEAD
-=======
     [Dependency] private readonly ItemToggleSystem _toggle = default!;
 
->>>>>>> upstreamwiz/master
     public override void Initialize()
     {
         base.Initialize();

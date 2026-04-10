@@ -117,7 +117,6 @@ namespace Content.Shared.Lathe
         }
     }
 
-<<<<<<< HEAD
     //Corvax
     [Serializable]
     public sealed partial class LatheGetResultEvent : EntityEventArgs
@@ -131,8 +130,6 @@ namespace Content.Shared.Lathe
     }
     //Corvax
 
-=======
->>>>>>> upstreamwiz/master
     /// <summary>
     /// Event raised on a lathe when it starts producing a recipe.
     /// </summary>

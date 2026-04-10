@@ -18,10 +18,7 @@ using Content.Shared.Popups;
 using Content.Shared.Random.Helpers;
 using Content.Shared.Rejuvenate;
 using Content.Shared.StatusEffectNew;
-<<<<<<< HEAD
 using Content.Shared.ADT.Speech.EntitySystems; //ADT-Weakness-Tweak
-=======
->>>>>>> upstreamwiz/master
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
@@ -34,10 +31,7 @@ public abstract class SharedBloodstreamSystem : EntitySystem
 {
     public static readonly EntProtoId Bloodloss = "StatusEffectBloodloss";
 
-<<<<<<< HEAD
-=======
     [Dependency] protected readonly IPrototypeManager PrototypeManager = default!;
->>>>>>> upstreamwiz/master
     [Dependency] protected readonly SharedSolutionContainerSystem SolutionContainer = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
@@ -47,10 +41,7 @@ public abstract class SharedBloodstreamSystem : EntitySystem
     [Dependency] private readonly AlertsSystem _alertsSystem = default!;
     [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
-<<<<<<< HEAD
     [Dependency] private readonly SharedWeaknessSystem _weaknessSystem = default!; //ADT-Weakness-Tweak
-=======
->>>>>>> upstreamwiz/master
 
     public override void Initialize()
     {
@@ -105,6 +96,7 @@ public abstract class SharedBloodstreamSystem : EntitySystem
                     // The effect is applied in a way that it will never be cleared without being healthy.
                     // Multiplying by 2 is arbitrary but works for this case, it just prevents the time from running out
                     _status.TrySetStatusEffectDuration(uid, Bloodloss);
+                    _weaknessSystem.DoWeakness(uid, bloodstream.AdjustedUpdateInterval * 2, refresh: false); // ADT-Weakness-Tweak
                 }
                 else
                 {
@@ -112,49 +104,12 @@ public abstract class SharedBloodstreamSystem : EntitySystem
                     _damageableSystem.TryChangeDamage(uid, bloodstream.BloodlossHealDamage * bloodPercentage, ignoreResistances: true, interruptsDoAfters: false);
 
                     _status.TryRemoveStatusEffect(uid, Bloodloss);
+                    _weaknessSystem.DoRemoveWeakness(uid); // ADT-Weakness-Tweak
                 }
             }
             else
             {
-<<<<<<< HEAD
-                var ev = new BleedModifierEvent(bloodstream.BleedAmount, bloodstream.BleedReductionAmount);
-                RaiseLocalEvent(uid, ref ev);
-
-                // Blood is removed from the bloodstream at a 1-1 rate with the bleed amount
-                TryModifyBloodLevel((uid, bloodstream), -ev.BleedAmount);
-
-                // Bleed rate is reduced by the bleed reduction amount in the bloodstream component.
-                TryModifyBleedAmount((uid, bloodstream), -ev.BleedReductionAmount);
-            }
-
-            // deal bloodloss damage if their blood level is below a threshold.
-            var bloodPercentage = GetBloodLevelPercentage((uid, bloodstream));
-            if (bloodPercentage < bloodstream.BloodlossThreshold && !_mobStateSystem.IsDead(uid))
-            {
-                // bloodloss damage is based on the base value, and modified by how low your blood level is.
-                var amt = bloodstream.BloodlossDamage / (0.1f + bloodPercentage);
-
-                _damageableSystem.TryChangeDamage(uid, amt, ignoreResistances: false, interruptsDoAfters: false);
-
-                // Apply dizziness as a symptom of bloodloss.
-                // The effect is applied in a way that it will never be cleared without being healthy.
-                // Multiplying by 2 is arbitrary but works for this case, it just prevents the time from running out
-                // _status.TrySetStatusEffectDuration(uid, Bloodloss);//ADT-Weakness-Tweak
-                _weaknessSystem.DoWeakness(uid, bloodstream.AdjustedUpdateInterval * 2, refresh: false); //ADT-Weakness-Tweak
-            }
-            else if (!_mobStateSystem.IsDead(uid))
-            {
-                // If they're healthy, we'll try and heal some bloodloss instead.
-                _damageableSystem.TryChangeDamage(
-                    uid,
-                    bloodstream.BloodlossHealDamage * bloodPercentage,
-                    ignoreResistances: true, interruptsDoAfters: false);
-
-                // _status.TryRemoveStatusEffect(uid, Bloodloss); //ADT-Weakness-Tweak
-                _weaknessSystem.DoRemoveWeakness(uid); //ADT-Weakness-Tweak
-=======
                 TickBleed((uid, bloodstream));
->>>>>>> upstreamwiz/master
             }
         }
     }
@@ -229,11 +184,7 @@ public abstract class SharedBloodstreamSystem : EntitySystem
         }
 
         // TODO probably cache this or something. humans get hurt a lot
-<<<<<<< HEAD
-        if (!_prototypeManager.Resolve(ent.Comp.DamageBleedModifiers, out var modifiers))
-=======
         if (!PrototypeManager.Resolve(ent.Comp.DamageBleedModifiers, out var modifiers))
->>>>>>> upstreamwiz/master
             return;
 
         // some reagents may deal and heal different damage types in the same tick, which means DamageIncreased will be true
@@ -255,11 +206,6 @@ public abstract class SharedBloodstreamSystem : EntitySystem
         // Higher damage weapons have a higher chance to crit!
 
         // Use both the receiver and the damage causing entity for the seed so that we have different results for multiple attacks in the same tick
-<<<<<<< HEAD
-        var seed = SharedRandomExtensions.HashCodeCombine((int)_timing.CurTick.Value, GetNetEntity(ent).Id, GetNetEntity(args.Origin)?.Id ?? 0 );
-        var rand = new System.Random(seed);
-=======
->>>>>>> upstreamwiz/master
         var prob = Math.Clamp(totalFloat / 25, 0, 1);
         if (totalFloat > 0 && SharedRandomExtensions.PredictedProb(_timing, prob, GetNetEntity(ent), GetNetEntity(args.Origin)))
         {

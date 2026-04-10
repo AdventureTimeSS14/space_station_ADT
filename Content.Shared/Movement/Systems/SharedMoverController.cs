@@ -377,12 +377,7 @@ public abstract partial class SharedMoverController : VirtualController
             if (!weightless && MobMoverQuery.TryGetComponent(uid, out var mobMover) &&
                 TryGetSound(weightless, uid, mover, mobMover, xform, out var sound, tileDef: tileDef))
             {
-<<<<<<< HEAD
-                var soundModifier = mover.Sprinting ? InputMoverComponent.SprintingSoundModifier
-                    : InputMoverComponent.WalkingSoundModifier;
-=======
                 var soundModifier = mover.Sprinting ? InputMoverComponent.SprintingSoundModifier : InputMoverComponent.WalkingSoundModifier;
->>>>>>> upstreamwiz/master
 
                 var audioParams = sound.Params
                     .WithVolume(sound.Params.Volume + soundModifier)

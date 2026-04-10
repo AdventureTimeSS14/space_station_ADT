@@ -72,10 +72,6 @@ public abstract class SharedGrapplingGunSystem : VirtualController
             DirtyField(uid, component, nameof(GrapplingGunComponent.Projectile));
             var visuals = EnsureComp<JointVisualsComponent>(shotUid.Value);
             visuals.Sprite = component.RopeSprite;
-<<<<<<< HEAD
-            visuals.OffsetA = new Vector2(0f, 0.5f);
-=======
->>>>>>> upstreamwiz/master
             visuals.Target = uid;
             Dirty(shotUid.Value, visuals);
         }
@@ -133,11 +129,7 @@ public abstract class SharedGrapplingGunSystem : VirtualController
     /// <param name="user">The user responsible for the ungrapple. Optional</param>
     public void Ungrapple(Entity<GrapplingGunComponent> grapple, bool isBreak, EntityUid? user = null)
     {
-<<<<<<< HEAD
-        if (!Timing.IsFirstTimePredicted || args.Handled || !args.Complex || component.Projectile is not { } projectile)
-=======
         if (!Timing.IsFirstTimePredicted || grapple.Comp.Projectile is not { } projectile)
->>>>>>> upstreamwiz/master
             return;
 
         if(isBreak)
@@ -148,11 +140,6 @@ public abstract class SharedGrapplingGunSystem : VirtualController
         if (_netManager.IsServer)
             QueueDel(projectile);
 
-<<<<<<< HEAD
-        component.Projectile = null;
-        SetReeling(uid, component, false, args.User);
-        _gun.ChangeBasicEntityAmmoCount(uid, 1);
-=======
         SetReeling(grapple.Owner, grapple.Comp, false, user);
         grapple.Comp.Projectile = null;
         DirtyField(grapple.Owner, grapple.Comp, nameof(GrapplingGunComponent.Projectile));
@@ -166,7 +153,6 @@ public abstract class SharedGrapplingGunSystem : VirtualController
 
         _audio.PlayPredicted(component.CycleSound, uid, args.User);
         Ungrapple((uid, component), false, args.User);
->>>>>>> upstreamwiz/master
 
         args.Handled = true;
     }
@@ -314,27 +300,13 @@ public abstract class SharedGrapplingGunSystem : VirtualController
 
     private void OnGrappleCollide(EntityUid uid, GrapplingProjectileComponent component, ref ProjectileEmbedEvent args)
     {
-<<<<<<< HEAD
-        if (!Timing.IsFirstTimePredicted || !args.Weapon.HasValue)
-=======
         if (!Timing.IsFirstTimePredicted || !args.Weapon.HasValue || !_entities.TryGetComponent<GrapplingGunComponent>(args.Weapon, out var grapple))
->>>>>>> upstreamwiz/master
             return;
         // ADT fix start
         if (!args.Shooter.HasValue || !args.Weapon.HasValue)
             return;
         // ADT fix end
 
-<<<<<<< HEAD
-        var jointComp = EnsureComp<JointComponent>(uid);
-        var joint = _joints.CreateDistanceJoint(uid, args.Weapon.Value, anchorA: new Vector2(0f, 0.5f), id: GrapplingJoint);
-        joint.MaxLength = joint.Length + 0.2f;
-        joint.Stiffness = 1f;
-        joint.MinLength = 0.35f;
-        // Setting velocity directly for mob movement fucks this so need to make them aware of it.
-        // joint.Breakpoint = 4000f;
-        Dirty(uid, jointComp);
-=======
         var grapplePos = _transform.GetWorldPosition(args.Weapon.Value);
         var hookPos = _transform.GetWorldPosition(uid);
         if ((grapplePos - hookPos).Length() >= grapple.RopeMaxLength)
@@ -354,7 +326,6 @@ public abstract class SharedGrapplingGunSystem : VirtualController
 
         _joints.SetRelay(uid, args.Embedded, jointCompHook);
         _joints.RefreshRelay(args.Weapon.Value, jointCompGrapple);
->>>>>>> upstreamwiz/master
     }
 
     [Serializable, NetSerializable]

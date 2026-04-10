@@ -1,11 +1,7 @@
-<<<<<<< HEAD
-using Content.Shared.FixedPoint;
-=======
 using Content.Shared.Atmos.Components;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.FixedPoint;
 using Content.Shared.MedicalScanner;
->>>>>>> upstreamwiz/master
 using Content.Shared.Tools;
 using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
@@ -28,14 +24,11 @@ public sealed partial class CryoPodComponent : Component
     public const string BodyContainerName = "scanner-body";
 
     /// <summary>
-<<<<<<< HEAD
-=======
     /// The name of the solution container for the injection chamber.
     /// </summary>
     public const string InjectionBufferSolutionName = "injectionBuffer";
 
     /// <summary>
->>>>>>> upstreamwiz/master
     /// Specifies the name of the atmospherics port to draw gas from.
     /// </summary>
     [DataField]
@@ -52,11 +45,7 @@ public sealed partial class CryoPodComponent : Component
     /// (injection interval)
     /// </summary>
     [DataField]
-<<<<<<< HEAD
-    public TimeSpan BeakerTransferTime = TimeSpan.FromSeconds(1);
-=======
     public TimeSpan BeakerTransferTime = TimeSpan.FromSeconds(2);
->>>>>>> upstreamwiz/master
 
     /// <summary>
     /// The timestamp for the next injection.
@@ -64,13 +53,6 @@ public sealed partial class CryoPodComponent : Component
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
     [AutoNetworkedField, AutoPausedField]
     public TimeSpan NextInjectionTime = TimeSpan.Zero;
-<<<<<<< HEAD
-
-    /// <summary>
-    /// How many units to transfer per injection from the beaker to the mob?
-    /// </summary>
-    [DataField]
-=======
 
 
     /// <summary>
@@ -90,7 +72,6 @@ public sealed partial class CryoPodComponent : Component
     /// How many units to transfer per injection from the beaker to the mob?
     /// </summary>
     [DataField]
->>>>>>> upstreamwiz/master
     public FixedPoint2 BeakerTransferAmount = 1;
 
     /// <summary>
@@ -135,8 +116,6 @@ public enum CryoPodVisuals : byte
 {
     ContainsEntity,
     IsOn
-<<<<<<< HEAD
-=======
 }
 
 [Serializable, NetSerializable]
@@ -194,5 +173,4 @@ public sealed class CryoPodInjectUiMessage : BoundUserInterfaceMessage
     {
         Quantity = quantity;
     }
->>>>>>> upstreamwiz/master
 }

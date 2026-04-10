@@ -54,12 +54,9 @@ public abstract class SharedPoweredLightSystem : EntitySystem
         SubscribeLocalEvent<PoweredLightComponent, PoweredLightDoAfterEvent>(OnDoAfter);
         SubscribeLocalEvent<PoweredLightComponent, DamageChangedEvent>(HandleLightDamaged);
         SubscribeLocalEvent<PoweredLightComponent, EmpPulseEvent>(OnEmpPulse);
-<<<<<<< HEAD
-=======
 
         SubscribeLocalEvent<BlinkingPoweredLightComponent, MapInitEvent>(OnBlinkingMapInit);
         SubscribeLocalEvent<BlinkingPoweredLightComponent, ComponentShutdown>(OnBlinkingShutdown);
->>>>>>> upstreamwiz/master
     }
 
     private void OnInit(EntityUid uid, PoweredLightComponent light, ComponentInit args)
@@ -359,23 +356,6 @@ public abstract class SharedPoweredLightSystem : EntitySystem
             args.Affected = true;
     }
 
-<<<<<<< HEAD
-    public void ToggleBlinkingLight(EntityUid uid, PoweredLightComponent light, bool isNowBlinking)
-    {
-        if (light.IsBlinking == isNowBlinking)
-            return;
-
-        light.IsBlinking = isNowBlinking;
-        Dirty(uid, light);
-
-        if (!TryComp<AppearanceComponent>(uid, out var appearance))
-            return;
-
-        _appearance.SetData(uid, PoweredLightVisuals.Blinking, isNowBlinking, appearance);
-    }
-
-=======
->>>>>>> upstreamwiz/master
     private void SetLight(EntityUid uid, bool value, Color? color = null, PoweredLightComponent? light = null, float? radius = null, float? energy = null, float? softness = null)
     {
         if (!Resolve(uid, ref light))
@@ -436,8 +416,6 @@ public abstract class SharedPoweredLightSystem : EntitySystem
 
         args.Handled = true;
     }
-<<<<<<< HEAD
-=======
 
     private void OnBlinkingMapInit(Entity<BlinkingPoweredLightComponent> ent, ref MapInitEvent args)
     {
@@ -461,5 +439,4 @@ public abstract class SharedPoweredLightSystem : EntitySystem
                 RemCompDeferred<BlinkingPoweredLightComponent>(uid);
         }
     }
->>>>>>> upstreamwiz/master
 }

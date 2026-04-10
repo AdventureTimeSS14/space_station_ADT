@@ -14,8 +14,6 @@ public sealed partial class ChangelingTransformActionEvent : InstantActionEvent;
 /// </summary>
 [Serializable, NetSerializable]
 public sealed partial class ChangelingTransformDoAfterEvent : SimpleDoAfterEvent;
-<<<<<<< HEAD
-=======
 
 /// <summary>
 /// Raised on a changeling before they transform into a stored identity.
@@ -39,4 +37,3 @@ public readonly record struct AfterChangelingTransformEvent(EntityUid StoredIden
     /// </summary>
     public readonly EntityUid StoredIdentity = StoredIdentity;
 };
->>>>>>> upstreamwiz/master

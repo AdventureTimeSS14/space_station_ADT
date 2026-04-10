@@ -240,11 +240,7 @@ public sealed class HealingSystem : EntitySystem
         if (!_mobThresholdSystem.TryGetThresholdForState(ent, MobState.Critical, out var amount, ent.Comp2))
             return 1;
 
-<<<<<<< HEAD
-        var percentDamage = (float)(ent.Comp1.TotalDamage / amount);
-=======
         var percentDamage = (float)(_damageable.GetTotalDamage(ent) / amount);
->>>>>>> upstreamwiz/master
         //basically make it scale from 1 to the multiplier.
 
         var output = percentDamage * (mod - 1) + 1;

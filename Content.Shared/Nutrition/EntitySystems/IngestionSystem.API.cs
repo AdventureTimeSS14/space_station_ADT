@@ -220,11 +220,7 @@ public sealed partial class IngestionSystem
             if (reagent.Metabolisms == null)
                 continue;
 
-<<<<<<< HEAD
-            foreach (var entry in reagent.Metabolisms.Values)
-=======
             foreach (var entry in reagent.Metabolisms.Metabolisms.Values)
->>>>>>> upstreamwiz/master
             {
                 foreach (var effect in entry.Effects)
                 {
@@ -275,11 +271,7 @@ public sealed partial class IngestionSystem
             if (reagent.Metabolisms == null)
                 continue;
 
-<<<<<<< HEAD
-            foreach (var entry in reagent.Metabolisms.Values)
-=======
             foreach (var entry in reagent.Metabolisms.Metabolisms.Values)
->>>>>>> upstreamwiz/master
             {
                 foreach (var effect in entry.Effects)
                 {

@@ -7,10 +7,7 @@ using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.EntitySystems;
-<<<<<<< HEAD
-=======
 using Content.Shared.Chemistry.Reagent;
->>>>>>> upstreamwiz/master
 using Content.Shared.Climbing.Systems;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Database;
@@ -18,11 +15,8 @@ using Content.Shared.DoAfter;
 using Content.Shared.DragDrop;
 using Content.Shared.Emag.Systems;
 using Content.Shared.Examine;
-<<<<<<< HEAD
-=======
 using Content.Shared.FixedPoint;
 using Content.Shared.Hands.EntitySystems;
->>>>>>> upstreamwiz/master
 using Content.Shared.Interaction;
 using Content.Shared.MedicalScanner;
 using Content.Shared.Mobs.Components;
@@ -37,33 +31,10 @@ using Content.Shared.Verbs;
 using Robust.Shared.Containers;
 using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
-<<<<<<< HEAD
-
-=======
->>>>>>> upstreamwiz/master
 namespace Content.Shared.Medical.Cryogenics;
 
 public abstract partial class SharedCryoPodSystem : EntitySystem
 {
-<<<<<<< HEAD
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly StandingStateSystem _standingState = default!;
-    [Dependency] private readonly EmagSystem _emag = default!;
-    [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly SharedPointLightSystem _light = default!;
-    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
-    [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly ClimbSystem _climb = default!;
-    [Dependency] private readonly SharedBloodstreamSystem _bloodstream = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
-    [Dependency] private readonly SharedToolSystem _tool = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly ReactiveSystem _reactive = default!;
-=======
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
     [Dependency] protected readonly IGameTiming Timing = default!;
     [Dependency] private readonly ClimbSystem _climb = default!;
@@ -82,16 +53,11 @@ public abstract partial class SharedCryoPodSystem : EntitySystem
     [Dependency] private readonly SharedToolSystem _tool = default!;
     [Dependency] protected readonly SharedUserInterfaceSystem UI = default!;
     [Dependency] private readonly StandingStateSystem _standingState = default!;
->>>>>>> upstreamwiz/master
 
     private EntityQuery<BloodstreamComponent> _bloodstreamQuery;
     private EntityQuery<ItemSlotsComponent> _itemSlotsQuery;
     private EntityQuery<FitsInDispenserComponent> _dispenserQuery;
     private EntityQuery<SolutionContainerManagerComponent> _solutionContainerQuery;
-<<<<<<< HEAD
-=======
-
->>>>>>> upstreamwiz/master
 
     public override void Initialize()
     {
@@ -108,11 +74,8 @@ public abstract partial class SharedCryoPodSystem : EntitySystem
         SubscribeLocalEvent<CryoPodComponent, InteractUsingEvent>(OnInteractUsing);
         SubscribeLocalEvent<CryoPodComponent, PowerChangedEvent>(OnPowerChanged);
         SubscribeLocalEvent<CryoPodComponent, ActivatableUIOpenAttemptEvent>(OnActivateUIAttempt);
-<<<<<<< HEAD
-=======
         SubscribeLocalEvent<CryoPodComponent, EntRemovedFromContainerMessage>(OnEjected);
         SubscribeLocalEvent<CryoPodComponent, EntInsertedIntoContainerMessage>(OnBodyInserted);
->>>>>>> upstreamwiz/master
 
         _bloodstreamQuery = GetEntityQuery<BloodstreamComponent>();
         _itemSlotsQuery = GetEntityQuery<ItemSlotsComponent>();
@@ -424,13 +387,8 @@ public abstract partial class SharedCryoPodSystem : EntitySystem
         if (!Resolve(uid, ref appearance))
             return;
 
-<<<<<<< HEAD
-        _appearance.SetData(uid, CryoPodVisuals.ContainsEntity, cryoPod.BodyContainer?.ContainedEntity == null, appearance);
-        _appearance.SetData(uid, CryoPodVisuals.IsOn, cryoPodEnabled, appearance);
-=======
         Appearance.SetData(uid, CryoPodVisuals.ContainsEntity, cryoPod.BodyContainer?.ContainedEntity == null, appearance);
         Appearance.SetData(uid, CryoPodVisuals.IsOn, cryoPodEnabled, appearance);
->>>>>>> upstreamwiz/master
     }
 
     public bool InsertBody(EntityUid uid, EntityUid target, CryoPodComponent cryoPodComponent)
@@ -642,10 +600,6 @@ public abstract partial class SharedCryoPodSystem : EntitySystem
         args.Handled = true;
     }
 
-<<<<<<< HEAD
-    [Serializable, NetSerializable]
-    public sealed partial class CryoPodPryFinished : SimpleDoAfterEvent;
-=======
     private void OnSimpleUiMessage(Entity<CryoPodComponent> cryoPod, ref CryoPodSimpleUiMessage msg)
     {
         switch (msg.Type)
@@ -660,7 +614,6 @@ public abstract partial class SharedCryoPodSystem : EntitySystem
 
         UpdateUi(cryoPod);
     }
->>>>>>> upstreamwiz/master
 
     private void OnInjectUiMessage(Entity<CryoPodComponent> cryoPod, ref CryoPodInjectUiMessage msg)
     {
@@ -697,11 +650,8 @@ public abstract partial class SharedCryoPodSystem : EntitySystem
     protected abstract void UpdateUi(Entity<CryoPodComponent> cryoPod);
 
     [Serializable, NetSerializable]
-<<<<<<< HEAD
-=======
     public sealed partial class CryoPodPryFinished : SimpleDoAfterEvent;
 
     [Serializable, NetSerializable]
->>>>>>> upstreamwiz/master
     public sealed partial class CryoPodDragFinished : SimpleDoAfterEvent;
 }
