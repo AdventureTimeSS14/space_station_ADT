@@ -5,8 +5,6 @@ using Robust.Shared.Prototypes;
 using Content.Shared.ADT.Abilities;
 using Robust.Client.GameObjects;
 using System.Numerics;
-using Robust.Shared.GameObjects;
-using Robust.Shared.Map;
 
 namespace Content.Client.ADT.Overlays;
 
@@ -20,8 +18,6 @@ public sealed partial class SandevistanVisionOverlay : Overlay
     public override OverlaySpace Space => OverlaySpace.WorldSpace;
     private readonly ShaderInstance _sandevistanVisionShader;
     private readonly TransformSystem _transformSystem = default!;
-    private OccluderSystem _occluderSystem = default!;
-    private const float OcclusionCheckRange = 100f;
 
     public SandevistanVisionOverlay()
     {
@@ -29,7 +25,6 @@ public sealed partial class SandevistanVisionOverlay : Overlay
         ZIndex = (int)Content.Shared.DrawDepth.DrawDepth.Effects + 20;
         _sandevistanVisionShader = _prototypeManager.Index<ShaderPrototype>("SandevistanVision").Instance().Duplicate();
         _transformSystem = _entityManager.System<TransformSystem>();
-        _occluderSystem = _entityManager.System<OccluderSystem>();
     }
 
     protected override bool BeforeDraw(in OverlayDrawArgs args)

@@ -24,7 +24,6 @@ public sealed class SandevistanTrailOverlay : Overlay
     private readonly SpriteSystem _sprite;
     private readonly TransformSystem _transform;
     private OccluderSystem _occluderSystem = default!;
-    private const float OcclusionCheckRange = 100f;
 
     public SandevistanTrailOverlay(IEntityManager entManager, ISharedPlayerManager playerManager, IGameTiming timing)
     {
@@ -108,7 +107,7 @@ public sealed class SandevistanTrailOverlay : Overlay
                         if (distToOwner < ownerOverlapRadius)
                             continue;
 
-                        if (IsOccluded(cameraPos, worldPosition, data.MapId))
+                        if (_occluderSystem.IsOccluded(cameraPos, worldPosition, data.MapId))
                             continue;
 
                         if (trail.RenderedEntityRotationStrategy == RenderedEntityRotationStrategy.Particle)
@@ -139,7 +138,7 @@ public sealed class SandevistanTrailOverlay : Overlay
                 {
                     var start = trail.TrailData[^1].Position;
                     var scale = trail.Scale != 1f ? trail.Scale : trail.TrailData[^1].Scale;
-                    if (!IsOccluded(cameraPos, start, xform.MapID))
+                    if (!_occluderSystem.IsOccluded(cameraPos, start, xform.MapID))
                         DrawTrailLine(start, position, trailColor, scale, bounds, handle);
                 }
 
@@ -152,7 +151,7 @@ public sealed class SandevistanTrailOverlay : Overlay
                     {
                         var midpoint = (data.Position + prevData.Position) * 0.5f;
                         var scale = trail.Scale != 1f ? trail.Scale : data.Scale;
-                        if (!IsOccluded(cameraPos, midpoint, data.MapId))
+                        if (!_occluderSystem.IsOccluded(cameraPos, midpoint, data.MapId))
                             DrawTrailLine(prevData.Position, data.Position, trailColor, scale, bounds, handle);
                     }
                 }
@@ -175,7 +174,7 @@ public sealed class SandevistanTrailOverlay : Overlay
                 if (!bounds.Contains(worldPosition))
                     continue;
 
-                if (IsOccluded(cameraPos, worldPosition, data.MapId))
+                if (_occluderSystem.IsOccluded(cameraPos, worldPosition, data.MapId))
                     continue;
 
                 var scaleMatrix = Matrix3x2.CreateScale(new Vector2(scale, scale));
@@ -214,19 +213,5 @@ public sealed class SandevistanTrailOverlay : Overlay
             start + new Vector2(direction.Length(), halfScale));
         var boxRotated = new Box2Rotated(box, angle, start);
         handle.DrawRect(boxRotated, color);
-    }
-
-    private bool IsOccluded(Vector2 cameraPos, Vector2 targetPos, MapId mapId)
-    {
-        if (mapId == MapId.Nullspace)
-            return false;
-
-        var distance = Vector2.Distance(cameraPos, targetPos);
-        var checkRange = distance > OcclusionCheckRange ? distance : OcclusionCheckRange;
-
-        var origin = new MapCoordinates(cameraPos, mapId);
-        var target = new MapCoordinates(targetPos, mapId);
-
-        return !_occluderSystem.InRangeUnoccluded(origin, target, checkRange, ignoreTouching: true);
     }
 }
