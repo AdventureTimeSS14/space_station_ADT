@@ -4,8 +4,8 @@ meta:
   engineVersion: 268.0.0
   forkId: ""
   forkVersion: ""
-  time: 04/10/2026 17:45:30
-  entityCount: 10494
+  time: 04/10/2026 18:10:13
+  entityCount: 10497
 maps:
 - 1
 grids:
@@ -7369,6 +7369,22 @@ entities:
     components:
     - type: Transform
       parent: 8200
+  - uid: 7735
+    components:
+    - type: Transform
+      parent: 8196
+  - uid: 7737
+    components:
+    - type: Transform
+      parent: 8198
+  - uid: 7738
+    components:
+    - type: Transform
+      parent: 8202
+  - uid: 7739
+    components:
+    - type: Transform
+      parent: 8194
   - uid: 7741
     components:
     - type: Transform
@@ -7654,6 +7670,10 @@ entities:
     - type: Transform
       parent: 8194
   - uid: 10472
+    components:
+    - type: Transform
+      parent: 8200
+  - uid: 10490
     components:
     - type: Transform
       parent: 8200
@@ -59222,6 +59242,18 @@ entities:
         10476:
         - - Pressed
           - Toggle
+        3841:
+        - - Pressed
+          - Toggle
+        3840:
+        - - Pressed
+          - Toggle
+        1358:
+        - - Pressed
+          - Toggle
+        244:
+        - - Pressed
+          - Toggle
     - type: Fixtures
       fixtures: {}
   - uid: 3843
@@ -61991,12 +62023,6 @@ entities:
     - type: Transform
       pos: -19.5,46.5
       parent: 2
-  - uid: 7735
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -16.5,52.5
-      parent: 2
   - uid: 7736
     components:
     - type: Transform
@@ -62114,23 +62140,6 @@ entities:
       parent: 2
 - proto: SurveillanceCameraSupply
   entities:
-  - uid: 7737
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -13.5,46.5
-      parent: 2
-  - uid: 7738
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -15.5,40.5
-      parent: 2
-  - uid: 7739
-    components:
-    - type: Transform
-      pos: -17.5,42.5
-      parent: 2
   - uid: 7740
     components:
     - type: Transform
@@ -62142,6 +62151,17 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -11.5,34.5
+      parent: 2
+  - uid: 10491
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -15.5,40.5
+      parent: 2
+  - uid: 10492
+    components:
+    - type: Transform
+      pos: -17.5,42.5
       parent: 2
 - proto: SurveillanceCameraWirelessRouterEntertainment
   entities:
