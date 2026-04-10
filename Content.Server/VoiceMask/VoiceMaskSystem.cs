@@ -29,10 +29,7 @@ public sealed partial class VoiceMaskSystem : EntitySystem
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly LockSystem _lock = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
-<<<<<<< HEAD
-=======
     [Dependency] private readonly IdentitySystem _identity = default!;
->>>>>>> upstreamwiz/master
 
     // CCVar.
     private int _maxNameLength;
@@ -40,13 +37,6 @@ public sealed partial class VoiceMaskSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-<<<<<<< HEAD
-        SubscribeLocalEvent<VoiceMaskComponent, InventoryRelayedEvent<TransformSpeakerNameEvent>>(OnTransformSpeakerName);
-        SubscribeLocalEvent<VoiceMaskComponent, LockToggledEvent>(OnLockToggled);
-        SubscribeLocalEvent<VoiceMaskComponent, VoiceMaskChangeNameMessage>(OnChangeName);
-        SubscribeLocalEvent<VoiceMaskComponent, VoiceMaskChangeVerbMessage>(OnChangeVerb);
-        SubscribeLocalEvent<VoiceMaskComponent, VoiceMaskChangeJobIconMessage>(OnChangeJobIcon); // ADT-Tweak
-=======
         SubscribeLocalEvent<VoiceMaskComponent, InventoryRelayedEvent<TransformSpeakerNameEvent>>(OnTransformSpeakerNameInventory);
         SubscribeLocalEvent<VoiceMaskComponent, ImplantRelayEvent<TransformSpeakerNameEvent>>(OnTransformSpeakerNameImplant);
         SubscribeLocalEvent<VoiceMaskComponent, ImplantRelayEvent<SeeIdentityAttemptEvent>>(OnSeeIdentityAttemptEvent);
@@ -55,23 +45,19 @@ public sealed partial class VoiceMaskSystem : EntitySystem
         SubscribeLocalEvent<VoiceMaskComponent, LockToggledEvent>(OnLockToggled);
         SubscribeLocalEvent<VoiceMaskComponent, VoiceMaskChangeNameMessage>(OnChangeName);
         SubscribeLocalEvent<VoiceMaskComponent, VoiceMaskChangeVerbMessage>(OnChangeVerb);
+        SubscribeLocalEvent<VoiceMaskComponent, VoiceMaskChangeJobIconMessage>(OnChangeJobIcon); // ADT-Tweak
         SubscribeLocalEvent<VoiceMaskComponent, VoiceMaskToggleMessage>(OnToggle);
         SubscribeLocalEvent<VoiceMaskComponent, VoiceMaskAccentToggleMessage>(OnAccentToggle);
->>>>>>> upstreamwiz/master
         SubscribeLocalEvent<VoiceMaskComponent, ClothingGotEquippedEvent>(OnEquip);
         SubscribeLocalEvent<VoiceMaskComponent, ClothingGotUnequippedEvent>(OnUnequip); // ADT-Tweak
         SubscribeLocalEvent<VoiceMaskSetNameEvent>(OpenUI);
-<<<<<<< HEAD
-        Subs.CVar(_cfg, CCVars.MaxNameLength, value => _maxNameLength = value, true);
-        InitializeTTS(); // Corvax-TTS
-        InitializeBarks(); // ADT Barks
-=======
         SubscribeLocalEvent<VoiceMaskComponent, TransformSpeechEvent>(OnTransformSpeech, before: [typeof(AccentSystem)]);
         SubscribeLocalEvent<VoiceMaskComponent, InventoryRelayedEvent<TransformSpeechEvent>>(OnTransformSpeechInventory, before: [typeof(AccentSystem)]);
         SubscribeLocalEvent<VoiceMaskComponent, ImplantRelayEvent<TransformSpeechEvent>>(OnTransformSpeechImplant, before: [typeof(AccentSystem)]);
 
-        Subs.CVar(_cfgManager, CCVars.MaxNameLength, value => _maxNameLength = value, true);
->>>>>>> upstreamwiz/master
+        Subs.CVar(_cfg, CCVars.MaxNameLength, value => _maxNameLength = value, true);
+        InitializeTTS(); // Corvax-TTS
+        InitializeBarks(); // ADT Barks
     }
 
     /// <summary>
@@ -129,14 +115,6 @@ public sealed partial class VoiceMaskSystem : EntitySystem
     private void OnLockToggled(Entity<VoiceMaskComponent> ent, ref LockToggledEvent args)
     {
         if (args.Locked)
-            _actions.RemoveAction(ent.Comp.ActionEntity);
-        else if (_container.TryGetContainingContainer(ent.Owner, out var container))
-            _actions.AddAction(container.Owner, ref ent.Comp.ActionEntity, ent.Comp.Action, ent);
-    }
-
-    private void OnLockToggled(Entity<VoiceMaskComponent> ent, ref LockToggledEvent args)
-    {
-        if (args.Locked)
         {
             _actions.RemoveAction(ent.Comp.ActionEntity);
         }
@@ -179,7 +157,6 @@ public sealed partial class VoiceMaskSystem : EntitySystem
         UpdateUI(entity);
     }
 
-<<<<<<< HEAD
     // ADT-Tweak start
     private void OnChangeJobIcon(Entity<VoiceMaskComponent> entity, ref VoiceMaskChangeJobIconMessage msg)
     {
@@ -196,7 +173,7 @@ public sealed partial class VoiceMaskSystem : EntitySystem
         UpdateUI(entity);
     }
     // ADT-Tweak end
-=======
+
     private void OnToggle(Entity<VoiceMaskComponent> entity, ref VoiceMaskToggleMessage args)
     {
         _popupSystem.PopupEntity(Loc.GetString("voice-mask-popup-toggle"), entity, args.Actor);
@@ -211,23 +188,15 @@ public sealed partial class VoiceMaskSystem : EntitySystem
         _popupSystem.PopupEntity(Loc.GetString("voice-mask-popup-accent-toggle"), entity, args.Actor);
         entity.Comp.AccentHide = !entity.Comp.AccentHide;
     }
->>>>>>> upstreamwiz/master
     #endregion
 
     #region UI
     private void OnEquip(EntityUid uid, VoiceMaskComponent component, ClothingGotEquippedEvent args)
     {
-<<<<<<< HEAD
         if (_lock.IsLocked(uid) || !component.Action.HasValue || component.ActionEntity.HasValue) // ADT-Tweak
             return;
 
         _actions.AddAction(args.Wearer, ref component.ActionEntity, component.Action.Value.Id, uid); // ADT-Tweak
-=======
-        if (_lock.IsLocked(uid))
-            return;
-
-        _actions.AddAction(args.Wearer, ref component.ActionEntity, component.Action, uid);
->>>>>>> upstreamwiz/master
     }
 
     // ADT-Tweak start
@@ -255,11 +224,7 @@ public sealed partial class VoiceMaskSystem : EntitySystem
     private void UpdateUI(Entity<VoiceMaskComponent> entity)
     {
         if (_uiSystem.HasUi(entity, VoiceMaskUIKey.Key))
-<<<<<<< HEAD
-            _uiSystem.SetUiState(entity.Owner, VoiceMaskUIKey.Key, new VoiceMaskBuiState(GetCurrentVoiceName(entity), entity.Comp.VoiceId, entity.Comp.BarkId, entity.Comp.BarkPitch, entity.Comp.VoiceMaskSpeechVerb, entity.Comp.VoiceMaskJobIcon)); // ADT-Tweak start
-=======
-            _uiSystem.SetUiState(entity.Owner, VoiceMaskUIKey.Key, new VoiceMaskBuiState(GetCurrentVoiceName(entity), entity.Comp.VoiceMaskSpeechVerb, entity.Comp.Active, entity.Comp.AccentHide));
->>>>>>> upstreamwiz/master
+            _uiSystem.SetUiState(entity.Owner, VoiceMaskUIKey.Key, new VoiceMaskBuiState(GetCurrentVoiceName(entity), entity.Comp.VoiceId, entity.Comp.BarkId, entity.Comp.BarkPitch, entity.Comp.VoiceMaskSpeechVerb, entity.Comp.Active, entity.Comp.AccentHide, entity.Comp.VoiceMaskJobIcon)); // ADT-Tweak
     }
     #endregion
 

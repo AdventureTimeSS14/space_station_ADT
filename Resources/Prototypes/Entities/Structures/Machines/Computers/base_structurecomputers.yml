@@ -38,6 +38,9 @@
     - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
       state: generic_panel_open
   - type: Appearance
+  - type: EdgeConnection # ADT-Tweak
+    connectionKey: computer-console
+    allowedDirections: East, West
   - type: GenericVisualizer
     visuals:
       enum.ComputerVisuals.Powered:
@@ -51,6 +54,14 @@
         enum.WiresVisualLayers.MaintenancePanel:
           True: { visible: false }
           False: { visible: true }
+      # ADT-Tweak start
+      enum.EdgeConnectionVisuals.ConnectionMask:
+        computerLayerBody:
+          None: { state: computer, sprite: Structures/Machines/computers.rsi }
+          West: { state: computer_r, sprite: ADT/Structures/Machines/computers.rsi }
+          East: { state: computer_l, sprite: ADT/Structures/Machines/computers.rsi }
+          East, West: { state: computer_l_r, sprite: ADT/Structures/Machines/computers.rsi }
+      # ADT-Tweak end
   - type: LitOnPowered
   - type: PointLight
     radius: 1.5

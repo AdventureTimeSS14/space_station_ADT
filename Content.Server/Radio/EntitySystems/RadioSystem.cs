@@ -1,26 +1,15 @@
-using Content.Server.Access.Components;
-using Content.Server.Access.Systems;
 using Content.Server.Administration.Logs;
 using Content.Server.Chat.Systems;
 using Content.Server.Power.Components;
-<<<<<<< HEAD
-using Content.Server.Research.Components;
-using Content.Server.VoiceMask;
 using Content.Shared.Access.Components;
-using Content.Shared.Access.Systems;
-=======
->>>>>>> upstreamwiz/master
+using Content.Shared.ADT.Radio.Components;
+using Content.Shared.ADT.Radio.EntitySystems;
 using Content.Shared.Chat;
 using Content.Shared.Database;
-using Content.Shared.Inventory;
-using Content.Shared.PDA;
 using Content.Shared.Radio;
 using Content.Shared.Radio.Components;
-using Content.Shared.Roles;
-using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Speech;
-using Content.Shared.StatusIcon;
-using Content.Shared.VendingMachines;
+using Robust.Shared.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
@@ -31,7 +20,6 @@ using Robust.Shared.Utility;
 using Content.Server.ADT.Language;  // ADT Languages
 using Content.Shared.ADT.Language;  // ADT Languages
 using Content.Shared.ADT.Loudspeaker.Events;
-using Content.Shared.Silicons.StationAi;
 
 namespace Content.Server.Radio.EntitySystems;
 
@@ -47,13 +35,13 @@ public sealed class RadioSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly LanguageSystem _language = default!;  // ADT Languages
-    [Dependency] private readonly AccessReaderSystem _accessReader = default!; // ADT-Tweak
-    [Dependency] private readonly InventorySystem _inventorySystem = default!; // ADT-Tweak
+    [Dependency] private readonly SharedRadioJobIconSystem _radioJobIcon = default!; // ADT-Tweak
 
     // set used to prevent radio feedback loops.
     private readonly HashSet<string> _messages = new();
 
     private EntityQuery<TelecomExemptComponent> _exemptQuery;
+    private EntityQuery<RadioJobIconComponent> _radioJobIconQuery; // ADT-Tweak
 
     public override void Initialize()
     {
@@ -62,6 +50,7 @@ public sealed class RadioSystem : EntitySystem
         SubscribeLocalEvent<IntrinsicRadioTransmitterComponent, EntitySpokeEvent>(OnIntrinsicSpeak);
 
         _exemptQuery = GetEntityQuery<TelecomExemptComponent>();
+        _radioJobIconQuery = GetEntityQuery<RadioJobIconComponent>(); // ADT-Tweak
     }
 
     private void OnIntrinsicSpeak(EntityUid uid, IntrinsicRadioTransmitterComponent component, EntitySpokeEvent args)
@@ -174,7 +163,7 @@ public sealed class RadioSystem : EntitySystem
             verbStrings = defaultStrings;
         // ADT Languages end
 
-        var nameWithIcon = WrapNameWithJobIcon(messageSource, name); // ADT-Tweak
+        var nameWithIcon = GetWrappedNameWithJobIcon(messageSource, name); // ADT-Tweak
 
         var wrappedMessage = Loc.GetString("chat-radio-message-wrap",   // ADT Languages tweak - remove bold
             ("color", channel.Color),
@@ -271,115 +260,38 @@ public sealed class RadioSystem : EntitySystem
 
     // ADT-Tweak start
     /// <summary>
-    /// Gets the job icon ID and localized job name for an entity.
-    /// Voice mask has highest priority, then ID cards/PDAs, then borg/AI.
+    ///     Gets the wrapped name with job icon markup using cached <see cref="RadioJobIconComponent"/>.
+    ///     This is much faster than the previous implementation which did inventory scans on every radio message.
     /// </summary>
-    /// <param name="messageSource">The entity to get job icon info for</param>
-    /// <returns>Tuple of (jobIconId, localizedJobName)</returns>
-    private (string iconId, string jobName) GetJobIcon(EntityUid messageSource)
+    private string GetWrappedNameWithJobIcon(EntityUid messageSource, string name)
     {
-        var iconId = "JobIconNoId";
-        string? jobName = null;
+        string iconId;
+        string jobName;
 
-        if (!Exists(messageSource) || Deleted(messageSource))
-            return (iconId, jobName ?? string.Empty);
-
-        if (TryGetActiveVoiceMaskJobIcon(messageSource, out var maskIconId, out var maskJobName))
+        if (_radioJobIconQuery.TryComp(messageSource, out var radioJobIcon))
         {
-            return (maskIconId, maskJobName);
+            iconId = radioJobIcon.JobIconId;
+            jobName = radioJobIcon.JobName;
         }
-
-        if (_accessReader.FindAccessItemsInventory(messageSource, out var items))
+        else
         {
-            foreach (var item in items)
-            {
-                if (!Exists(item) || Deleted(item))
-                    continue;
-
-                if (TryComp<IdCardComponent>(item, out var idCard))
-                {
-                    iconId = idCard.JobIcon;
-                    jobName = idCard.LocalizedJobTitle;
-                    break;
-                }
-
-                if (TryComp<PdaComponent>(item, out var pda) && pda.ContainedId.HasValue)
-                {
-                    var containedId = pda.ContainedId.Value;
-                    if (Exists(containedId) && !Deleted(containedId) && TryComp<IdCardComponent>(containedId, out var pdaIdCard))
-                    {
-                        iconId = pdaIdCard.JobIcon;
-                        jobName = pdaIdCard.LocalizedJobTitle;
-                        break;
-                    }
-                }
-            }
+            (iconId, jobName) = GetJobIconFallback(messageSource);
         }
-
-        if (iconId == "JobIconNoId" && HasComp<BorgChassisComponent>(messageSource))
-        {
-            iconId = "JobIconBorg";
-            jobName = Loc.GetString("job-name-borg");
-        }
-
-        if (iconId == "JobIconNoId" && HasComp<StationAiHeldComponent>(messageSource))
-        {
-            iconId = "JobIconStationAi";
-            jobName = Loc.GetString("job-name-station-ai");
-        }
-
-        if (iconId == "JobIconNoId" && HasComp<ResearchConsoleComponent>(messageSource))
-        {
-            iconId = "JobIconMachine";
-            jobName = Loc.GetString("job-name-machine");
-        }
-
-        if (iconId == "JobIconNoId" && HasComp<VendingMachineComponent>(messageSource))
-        {
-            iconId = "JobIconMachine";
-            jobName = Loc.GetString("job-name-machine");
-        }
-
-        return (iconId, jobName ?? string.Empty);
-    }
-
-    private bool TryGetActiveVoiceMaskJobIcon(EntityUid entity, out string iconId, out string jobName)
-    {
-        iconId = string.Empty;
-        jobName = string.Empty;
-
-        if (!TryComp<InventoryComponent>(entity, out var _))
-            return false;
-
-        var enumerator = _inventorySystem.GetSlotEnumerator(entity);
-        while (enumerator.NextItem(out var item, out var slot))
-        {
-            if (slot == null || Deleted(item))
-                continue;
-
-            if (TryComp<VoiceMaskComponent>(item, out var voiceMask) && voiceMask.VoiceMaskJobIcon.HasValue)
-            {
-                iconId = voiceMask.VoiceMaskJobIcon.Value;
-                jobName = _prototype.TryIndex<JobIconPrototype>(iconId, out var proto)
-                    ? proto.LocalizedJobName
-                    : Loc.GetString("voice-mask-job-icon-none");
-                return true;
-            }
-        }
-
-        return false;
-    }
-
-    private string WrapNameWithJobIcon(EntityUid messageSource, string name)
-    {
-        var (iconId, jobName) = GetJobIcon(messageSource);
 
         jobName = FormattedMessage.EscapeText(jobName);
-
         return Loc.GetString("chat-radio-name-with-job-icon",
             ("iconId", iconId),
             ("jobName", jobName),
             ("name", name));
+    }
+
+    /// <summary>
+    ///     Fallback job icon lookup for when RadioJobIconComponent doesn't exist yet.
+    ///     This is only used as a safety net - normally the component should always exist.
+    /// </summary>
+    private (string iconId, string jobName) GetJobIconFallback(EntityUid entity)
+    {
+        return _radioJobIcon.GetJobIconPublic(entity);
     }
     // ADT-Tweak end
 
