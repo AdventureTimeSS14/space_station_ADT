@@ -3,7 +3,7 @@
   id: ArcadeBase
   description: An arcade cabinet.
   name: arcade
-  parent: BaseComputer
+  parent: ADTBaseComputer # ADT-Tweak
   components:
   - type: ApcPowerReceiver
     powerLoad: 350
