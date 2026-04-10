@@ -3,14 +3,10 @@ using Content.Server.Explosion.EntitySystems;
 using Content.Server.Power.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Database;
-<<<<<<< HEAD
-using Content.Shared.Power.Components;
-=======
 using Content.Shared.Kitchen;
 using Content.Shared.Power;
 using Content.Shared.Power.Components;
 using Content.Shared.Power.EntitySystems;
->>>>>>> upstreamwiz/master
 using Content.Shared.Rejuvenate;
 
 namespace Content.Server.Power.EntitySystems;

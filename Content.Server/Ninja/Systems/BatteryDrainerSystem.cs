@@ -6,10 +6,7 @@ using Content.Shared.Ninja.Components;
 using Content.Shared.Ninja.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Power.Components;
-<<<<<<< HEAD
-=======
 using Content.Shared.Power.EntitySystems;
->>>>>>> upstreamwiz/master
 using Robust.Shared.Audio.Systems;
 
 namespace Content.Server.Ninja.Systems;
@@ -102,11 +99,7 @@ public sealed class BatteryDrainerSystem : SharedBatteryDrainerSystem
             return false;
 
         var output = input * comp.DrainEfficiency;
-<<<<<<< HEAD
-        _battery.SetCharge((comp.BatteryUid.Value, battery), battery.CurrentCharge + output);
-=======
         _battery.ChangeCharge((comp.BatteryUid.Value, battery), output);
->>>>>>> upstreamwiz/master
         // TODO: create effect message or something
         Spawn("EffectSparks", Transform(target).Coordinates);
         _audio.PlayPvs(comp.SparkSound, target);

@@ -7,7 +7,6 @@ using Content.Server.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Popups;
 using Content.Shared.Popups;
-using Content.Server.PowerCell;
 using Content.Shared.PowerCell.Components;
 using Content.Shared.Alert;
 using Content.Shared.ADT.Silicon.Systems;
@@ -24,6 +23,8 @@ using Robust.Shared.Physics.Components;
 using Content.Shared.Power.Components;
 using Content.Shared.Temperature.Components;
 using Content.Shared.Atmos.Components;
+using Content.Shared.Power.EntitySystems;
+using Content.Shared.PowerCell;
 
 namespace Content.Server.ADT.Silicon.Charge;
 
@@ -36,9 +37,10 @@ public sealed class SiliconChargeSystem : EntitySystem
     [Dependency] private readonly MovementSpeedModifierSystem _moveMod = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IConfigurationManager _config = default!;
-    [Dependency] private readonly PowerCellSystem _powerCell = default!;
+    [Dependency] private readonly SharedBatterySystem _battery = default!;
     [Dependency] private readonly AlertsSystem _alerts = default!;
     [Dependency] private readonly SharedJetpackSystem _jetpack = default!;
+    [Dependency] private readonly PowerCellSystem _powerCell = default!;
 
     public override void Initialize()
     {
@@ -56,9 +58,14 @@ public sealed class SiliconChargeSystem : EntitySystem
             return false;
 
         // try get a battery directly on the inserted entity
-        if (TryComp(silicon, out batteryComp)
-            || _powerCell.TryGetBatteryFromSlot(silicon, out batteryComp))
+        if (TryComp(silicon, out batteryComp))
             return true;
+
+        if (_powerCell.TryGetBatteryFromSlot(silicon, out var battery))
+        {
+            batteryComp = battery;
+            return true;
+        }
 
         return false;
     }
@@ -95,7 +102,7 @@ public sealed class SiliconChargeSystem : EntitySystem
             }
 
             // If you can't find a battery, set the indicator and skip it.
-            if (!TryGetSiliconBattery(silicon, out var batteryComp, out var _))
+            if (!TryGetSiliconBattery(silicon, out var batteryComp, out var batteryUid))
             {
                 UpdateChargeState(silicon, 0, siliconComp);
                 if (_alerts.IsShowingAlert(silicon, siliconComp.BatteryAlert))
@@ -134,7 +141,7 @@ public sealed class SiliconChargeSystem : EntitySystem
             _powerCell.TryUseCharge(silicon, frameTime * drainRate);
 
             // Figure out the current state of the Silicon.
-            var chargePercent = (short)MathF.Round(batteryComp.CurrentCharge / batteryComp.MaxCharge * 10f);
+            var chargePercent = (short)MathF.Round(_battery.GetChargeLevel((batteryUid, batteryComp)) * 10f);
 
             UpdateChargeState(silicon, chargePercent, siliconComp);
         }

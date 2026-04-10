@@ -1,30 +1,13 @@
 using Content.Shared.Power.EntitySystems;
-<<<<<<< HEAD
-using Content.Shared.Guidebook;
-=======
 using Content.Shared.PowerCell.Components;
 using Content.Shared.Guidebook;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
->>>>>>> upstreamwiz/master
 
 namespace Content.Shared.Power.Components;
 
 /// <summary>
-<<<<<<< HEAD
-/// Battery node on the pow3r network. Needs other components to connect to actual networks.
-/// </summary>
-[RegisterComponent]
-[Virtual]
-[Access(typeof(SharedBatterySystem))]
-public partial class BatteryComponent : Component
-{
-    /// <summary>
-    /// Maximum charge of the battery in joules (i.e. watt seconds)
-    /// </summary>
-    [DataField]
-=======
 /// Used for any sort of battery that stores electical power.
 /// Can be used as a battery node on the pow3r network. Needs other components to connect to actual networks, see PowerNetworkBatteryComponent.
 /// Also used for power cells using <see cref="PowerCellComponent"/> or battery powered guns with intrinsic battery.
@@ -45,27 +28,14 @@ public sealed partial class BatteryComponent : Component
     /// Maximum charge of the battery in joules (ie. watt seconds)
     /// </summary>
     [DataField, AutoNetworkedField, ViewVariables]
->>>>>>> upstreamwiz/master
     [GuidebookData]
     public float MaxCharge;
 
     /// <summary>
-<<<<<<< HEAD
-    /// Current charge of the battery in joules (ie. watt seconds)
-    /// </summary>
-    [DataField("startingCharge")] // TODO: rename this datafield to currentCharge
-    public float CurrentCharge;
-
-    /// <summary>
-=======
->>>>>>> upstreamwiz/master
     /// The price per one joule. Default is 1 speso for 10kJ.
     /// </summary>
     [DataField]
     public float PricePerJoule = 0.0001f;
-<<<<<<< HEAD
-}
-=======
 
     /// <summary>
     /// Time stamp of the last networked update.
@@ -125,5 +95,3 @@ public enum BatteryState : byte
     /// </summary>
     Neither,
 }
-
->>>>>>> upstreamwiz/master

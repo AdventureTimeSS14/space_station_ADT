@@ -358,21 +358,13 @@ namespace Content.Server.Power.EntitySystems
 
                     if (requireBattery)
                     {
-<<<<<<< HEAD
-                        _battery.SetCharge((uid, battery), battery.CurrentCharge - apcBattery.IdleLoad * frameTime);
-=======
                         _battery.ChangeCharge((uid, battery), -apcBattery.IdleLoad * frameTime);
->>>>>>> upstreamwiz/master
                     }
                     // Otherwise try to charge the battery
                     else if (powered && !_battery.IsFull((uid, battery)))
                     {
                         apcReceiver.Load += apcBattery.BatteryRechargeRate * apcBattery.BatteryRechargeEfficiency;
-<<<<<<< HEAD
-                        _battery.SetCharge((uid, battery), battery.CurrentCharge + apcBattery.BatteryRechargeRate * frameTime);
-=======
                         _battery.ChangeCharge((uid, battery), apcBattery.BatteryRechargeRate * frameTime);
->>>>>>> upstreamwiz/master
                     }
 
                     // Enable / disable the battery if the state changed

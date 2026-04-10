@@ -3,10 +3,7 @@ using Content.Server.Power.Components;
 using Content.Shared.Database;
 using Content.Shared.Power;
 using Content.Shared.Power.Components;
-<<<<<<< HEAD
-=======
 using Content.Shared.Power.EntitySystems;
->>>>>>> upstreamwiz/master
 using Robust.Server.GameObjects;
 
 namespace Content.Server.Power.EntitySystems;

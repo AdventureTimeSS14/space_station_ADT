@@ -8,10 +8,7 @@ using Content.Shared.Pinpointer;
 using Content.Shared.Station.Components;
 using Content.Shared.Power;
 using Content.Shared.Power.Components;
-<<<<<<< HEAD
-=======
 using Content.Shared.Power.EntitySystems;
->>>>>>> upstreamwiz/master
 using JetBrains.Annotations;
 using Robust.Server.GameObjects;
 using Robust.Shared.Map.Components;

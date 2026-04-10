@@ -315,10 +315,7 @@ public sealed class StationAiSystem : SharedStationAiSystem
         UpdateDamagedAccent(entity);
     }
 
-<<<<<<< HEAD
-=======
     // TODO: This should just read the current damage and charge when speaking instead of updating the component all the time even if we don't even use it.
->>>>>>> upstreamwiz/master
     private void UpdateDamagedAccent(Entity<StationAiCoreComponent> ent)
     {
         if (!TryGetHeld((ent.Owner, ent.Comp), out var held))
@@ -328,17 +325,10 @@ public sealed class StationAiSystem : SharedStationAiSystem
             return;
 
         if (TryComp<BatteryComponent>(ent, out var battery))
-<<<<<<< HEAD
-            accent.OverrideChargeLevel = battery.CurrentCharge / battery.MaxCharge;
-
-        if (TryComp<DamageableComponent>(ent, out var damageable))
-            accent.OverrideTotalDamage = damageable.TotalDamage;
-=======
             accent.OverrideChargeLevel = _battery.GetChargeLevel((ent.Owner, battery));
 
         if (TryComp<DamageableComponent>(ent, out var damageable))
             accent.OverrideTotalDamage = _damageable.GetTotalDamage((ent, damageable));
->>>>>>> upstreamwiz/master
 
         if (TryComp<DestructibleComponent>(ent, out var destructible))
             accent.DamageAtMaxCorruption = _destructible.DestroyedAt(ent, destructible);
@@ -357,11 +347,7 @@ public sealed class StationAiSystem : SharedStationAiSystem
         if (!_proto.TryIndex(_batteryAlert, out var proto))
             return;
 
-<<<<<<< HEAD
-        var chargePercent = battery.CurrentCharge / battery.MaxCharge;
-=======
         var chargePercent = _battery.GetChargeLevel((ent.Owner, battery));
->>>>>>> upstreamwiz/master
         var chargeLevel = Math.Round(chargePercent * proto.MaxSeverity);
 
         _alerts.ShowAlert(held.Value, _batteryAlert, (short)Math.Clamp(chargeLevel, 0, proto.MaxSeverity));

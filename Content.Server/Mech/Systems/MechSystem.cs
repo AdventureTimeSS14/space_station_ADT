@@ -1,10 +1,6 @@
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Body.Systems;
 using Content.Server.Mech.Components;
-<<<<<<< HEAD
-using Content.Server.Power.EntitySystems;
-=======
->>>>>>> upstreamwiz/master
 using Content.Shared.ActionBlocker;
 using Content.Shared.Damage.Systems;
 using Content.Shared.DoAfter;
@@ -18,10 +14,7 @@ using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Events;
 using Content.Shared.Popups;
 using Content.Shared.Power.Components;
-<<<<<<< HEAD
-=======
 using Content.Shared.Power.EntitySystems;
->>>>>>> upstreamwiz/master
 using Content.Shared.Tools;
 using Content.Shared.Tools.Components;
 using Content.Shared.Tools.Systems;
@@ -33,19 +26,12 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Containers;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
-<<<<<<< HEAD
-using Content.Shared.Whitelist;
-using Content.Server.Emp;
-using Robust.Server.Audio;
-using Content.Shared.Access.Systems;
-using Content.Shared.Access.Components;
-using Robust.Shared.Random;
-using Content.Shared.ADT.Mech;
-using Content.Shared.Mech.Equipment.Components;
-=======
 using System.Linq;
 using Content.Shared.Atmos;
->>>>>>> upstreamwiz/master
+using Content.Shared.Access.Components;
+using Robust.Server.Audio;
+using Robust.Shared.Random;
+using Content.Shared.Access.Systems;
 
 namespace Content.Server.Mech.Systems;
 
@@ -418,15 +404,9 @@ public sealed partial class MechSystem : SharedMechSystem
         if (!TryComp<BatteryComponent>(battery, out var batteryComp))
             return false;
 
-<<<<<<< HEAD
-        _battery.SetCharge((battery.Value, batteryComp), batteryComp.CurrentCharge + delta.Float());
-        if (batteryComp.CurrentCharge != component.Energy) //if there's a discrepency, we have to resync them
-=======
-        _battery.SetCharge((battery.Value, batteryComp), _battery.GetCharge((battery.Value, batteryComp)) + delta.Float());
-        // TODO: Power cells are predicted now, so no need to duplicate the charge level
+        _battery.ChangeCharge((battery.Value, batteryComp), delta.Float());
         var charge = _battery.GetCharge((battery.Value, batteryComp));
         if (charge != component.Energy) //if there's a discrepency, we have to resync them
->>>>>>> upstreamwiz/master
         {
             Log.Debug($"Battery charge was not equal to mech charge. Battery {charge}. Mech {component.Energy}");
             component.Energy = charge;

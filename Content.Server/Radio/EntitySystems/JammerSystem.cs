@@ -1,18 +1,22 @@
 using Content.Shared.Radio.EntitySystems;
 using Content.Shared.Radio.Components;
+using Content.Shared.PowerCell.Components;
+using Content.Shared.Power.EntitySystems;
+using Content.Shared.PowerCell;
 
 namespace Content.Server.Radio.EntitySystems;
 
 public sealed class JammerSystem : SharedJammerSystem
 {
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly SharedBatterySystem _battery = default!;
+    [Dependency] private readonly PowerCellSystem _powerCell = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<RadioSendAttemptEvent>(OnRadioSendAttempt);
-<<<<<<< HEAD
     }
 
     public override void Update(float frameTime)
@@ -22,9 +26,9 @@ public sealed class JammerSystem : SharedJammerSystem
         while (query.MoveNext(out var uid, out var _, out var jam))
         {
 
-            if (_powerCell.TryGetBatteryFromSlot(uid, out var batteryUid, out var battery))
+            if (_powerCell.TryGetBatteryFromSlot(uid, out var battery))
             {
-                if (!_battery.TryUseCharge((batteryUid.Value, battery), GetCurrentWattage((uid, jam)) * frameTime))
+                if (!_battery.TryUseCharge(battery!.Value.AsNullable(), GetCurrentWattage((uid, jam)) * frameTime))
                 {
                     ChangeLEDState(uid, false);
                     RemComp<ActiveRadioJammerComponent>(uid);
@@ -32,7 +36,7 @@ public sealed class JammerSystem : SharedJammerSystem
                 }
                 else
                 {
-                    var percentCharged = battery.CurrentCharge / battery.MaxCharge;
+                    var percentCharged = _battery.GetChargeLevel(battery.Value.AsNullable());
                     var chargeLevel = percentCharged switch
                     {
                         > 0.50f => RadioJammerChargeLevel.High,
@@ -54,7 +58,7 @@ public sealed class JammerSystem : SharedJammerSystem
 
         var activated = !HasComp<ActiveRadioJammerComponent>(ent) &&
             _powerCell.TryGetBatteryFromSlot(ent.Owner, out var battery) &&
-            battery.CurrentCharge > GetCurrentWattage(ent);
+            _battery.GetCharge((ent.Owner, battery)) > GetCurrentWattage(ent);
         if (activated)
         {
             ChangeLEDState(ent.Owner, true);
@@ -91,33 +95,15 @@ public sealed class JammerSystem : SharedJammerSystem
             ChangeLEDState(ent.Owner, false);
             RemCompDeferred<ActiveRadioJammerComponent>(ent);
         }
-=======
-        SubscribeLocalEvent<RadioReceiveAttemptEvent>(OnRadioReceiveAttempt);
->>>>>>> upstreamwiz/master
     }
 
     private void OnRadioSendAttempt(ref RadioSendAttemptEvent args)
     {
-<<<<<<< HEAD
-        if (ShouldCancelSend(args.RadioSource, args.Channel.Frequency))
-        {
-=======
         if (ShouldCancel(args.RadioSource, args.Channel.Frequency))
->>>>>>> upstreamwiz/master
-            args.Cancelled = true;
-    }
-
-<<<<<<< HEAD
-    private bool ShouldCancelSend(EntityUid sourceUid, int frequency)
-=======
-    private void OnRadioReceiveAttempt(ref RadioReceiveAttemptEvent args)
-    {
-        if (ShouldCancel(args.RadioReceiver, args.Channel.Frequency))
             args.Cancelled = true;
     }
 
     private bool ShouldCancel(EntityUid sourceUid, int frequency)
->>>>>>> upstreamwiz/master
     {
         var source = Transform(sourceUid).Coordinates;
         var query = EntityQueryEnumerator<ActiveRadioJammerComponent, RadioJammerComponent, TransformComponent>();
@@ -125,11 +111,7 @@ public sealed class JammerSystem : SharedJammerSystem
         while (query.MoveNext(out var uid, out _, out var jam, out var transform))
         {
             // Check if this jammer excludes the frequency
-<<<<<<< HEAD
             if (jam.FrequenciesExcluded != null && jam.FrequenciesExcluded.Contains(frequency))
-=======
-            if (jam.FrequenciesExcluded.Contains(frequency))
->>>>>>> upstreamwiz/master
                 continue;
 
             if (_transform.InRange(source, transform.Coordinates, GetCurrentRange((uid, jam))))

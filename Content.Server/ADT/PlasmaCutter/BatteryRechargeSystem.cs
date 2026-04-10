@@ -3,10 +3,10 @@
 using Content.Server.Materials;
 using Content.Shared.Materials;
 using Content.Server.Power.EntitySystems;
-using Content.Server.PowerCell;
 using Content.Shared.PowerCell.Components;
 using Content.Shared.Power;
 using Content.Shared.Power.Components;
+using Content.Shared.PowerCell;
 
 namespace Content.Server.AruMoon.Plasmacutter
 {
@@ -52,7 +52,7 @@ namespace Content.Server.AruMoon.Plasmacutter
         {
             if (!Resolve(uid, ref battery) && !HasComp<PowerCellSlotComponent>(uid))
                 return;
-            if (battery != null && battery.CurrentCharge == battery.MaxCharge)
+            if (battery != null && _batterySystem.IsFull((uid, battery)))
                 value = 0;
             _materialStorage.TryChangeStorageLimit(uid, value);
         }
@@ -64,9 +64,9 @@ namespace Content.Server.AruMoon.Plasmacutter
         {
             var availableMaterial = _materialStorage.GetMaterialAmount(uid, fuelType);
             var chargePerMaterial = availableMaterial * recharge.Multiplier;
-            if (TryComp<PowerCellSlotComponent>(uid, out var slot) && _powerCell.TryGetBatteryFromSlot(uid, out var batteryEnt, out var battery, slot))
+            if (TryComp<PowerCellSlotComponent>(uid, out var slot) && _powerCell.TryGetBatteryFromSlot((uid, slot), out var battery))
             {
-                _batterySystem.ChangeCharge(batteryEnt.Value, chargePerMaterial);
+                _batterySystem.ChangeCharge(battery!.Value.AsNullable(), chargePerMaterial);
             }
             if (_materialStorage.TryChangeMaterialAmount(uid, fuelType, -availableMaterial))
             {

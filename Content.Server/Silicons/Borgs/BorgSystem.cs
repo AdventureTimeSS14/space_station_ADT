@@ -267,14 +267,23 @@ public sealed partial class BorgSystem : SharedBorgSystem
 
     private void UpdateBatteryAlert(Entity<BorgChassisComponent> ent, PowerCellSlotComponent? slotComponent = null)
     {
-        if (!_powerCell.TryGetBatteryFromSlot(ent, out var battery, slotComponent))
+        if (slotComponent != null)
+        {
+            if (!_powerCell.TryGetBatteryFromSlot((ent.Owner, slotComponent), out var battery))
+            {
+                _alerts.ClearAlert(ent.Owner, ent.Comp.BatteryAlert);
+                _alerts.ShowAlert(ent.Owner, ent.Comp.NoBatteryAlert);
+                return;
+            }
+        }
+        else if (!_powerCell.TryGetBatteryFromSlot(ent, out var battery))
         {
             _alerts.ClearAlert(ent.Owner, ent.Comp.BatteryAlert);
             _alerts.ShowAlert(ent.Owner, ent.Comp.NoBatteryAlert);
             return;
         }
 
-        var chargePercent = (short) MathF.Round(battery.CurrentCharge / battery.MaxCharge * 10f);
+        var chargePercent = (short) MathF.Round(_battery.GetChargeLevel(battery!.Value.AsNullable()) * 10f);
 
         // we make sure 0 only shows if they have absolutely no battery.
         // also account for floating point imprecision

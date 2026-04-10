@@ -46,12 +46,6 @@ public sealed class DamagedSiliconAccentSystem : EntitySystem
         bool messageChanged = false;
         if (ent.Comp.EnableChargeCorruption)
         {
-<<<<<<< HEAD
-            float currentChargeLevel = ent.Comp.OverrideChargeLevel ?? 0f;
-            if (_powerCell.TryGetBatteryFromSlot(uid, out var battery))
-                currentChargeLevel = battery.CurrentCharge / battery.MaxCharge;
-
-=======
             var currentChargeLevel = 0.0f;
             if (ent.Comp.OverrideChargeLevel.HasValue)
             {
@@ -61,7 +55,6 @@ public sealed class DamagedSiliconAccentSystem : EntitySystem
             {
                 currentChargeLevel = _battery.GetChargeLevel(battery.Value.AsNullable());
             }
->>>>>>> upstreamwiz/master
             currentChargeLevel = Math.Clamp(currentChargeLevel, 0.0f, 1.0f);
 
             var corrupted = CorruptPower(message, currentChargeLevel, ent.Comp);
