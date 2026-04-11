@@ -46,16 +46,6 @@ public sealed class AdminFrozenSystem : EntitySystem
         Dirty(uid, comp);
     }
 
-    /// <summary>
-    /// Freezes and mutes the given entity.
-    /// </summary>
-    public void FreezeAndMute(EntityUid uid)
-    {
-        var comp = EnsureComp<AdminFrozenComponent>(uid);
-        comp.Muted = true;
-        Dirty(uid, comp);
-    }
-
     private void OnInteractAttempt(Entity<AdminFrozenComponent> ent, ref InteractionAttemptEvent args)
     {
         args.Cancelled = true;
