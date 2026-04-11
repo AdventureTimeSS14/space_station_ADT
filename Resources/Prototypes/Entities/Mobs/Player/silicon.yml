@@ -29,6 +29,8 @@
     - Supply
   - type: IgnoreUIRange
   - type: StationAiHeld
+  - type: RadioJobIconOverride # ADT-Tweak
+    iconId: JobIconStationAi
   - type: StationAiOverlay
   - type: ShowElectrocutionHUD
   - type: ActionGrant
