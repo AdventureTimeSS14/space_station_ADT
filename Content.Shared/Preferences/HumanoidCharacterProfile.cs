@@ -35,12 +35,8 @@ namespace Content.Shared.Preferences
     [Serializable, NetSerializable]
     public sealed partial class HumanoidCharacterProfile
     {
-<<<<<<< HEAD
-        private static readonly Regex RestrictedNameRegex = new("[^A-Za-zА-Яа-яёЁ0-9' _.<>^%~ -]"); //ADT-Tweak
-=======
         public static readonly ProtoId<SpeciesPrototype> DefaultSpecies = "Human";
-        private static readonly Regex RestrictedNameRegex = new(@"[^A-Za-z0-9 '\-]");
->>>>>>> upstreamwiz/master
+        private static readonly Regex RestrictedNameRegex = new("[^A-Za-zА-Яа-яёЁ0-9' _.<>^%~ -]"); //ADT-Tweak
         private static readonly Regex ICNameCaseRegex = new(@"^(?<word>\w)|\b(?<word>\w)(?=\w*$)");
 
         public const int MaxNameLength = 96;    // ну тип ADT
@@ -274,16 +270,8 @@ namespace Content.Shared.Preferences
         /// <returns>Humanoid character profile with default settings.</returns>
         public static HumanoidCharacterProfile DefaultWithSpecies(ProtoId<SpeciesPrototype>? species = null, Sex? sex = null)
         {
-<<<<<<< HEAD
-            var proto = IoCManager.Resolve<IPrototypeManager>();    // ADT Languages
-            species ??= SharedHumanoidAppearanceSystem.DefaultSpecies;
+            var proto = IoCManager.Resolve<IPrototypeManager>(); // ADT Languages
 
-            return new()
-            {
-                Species = species,
-                Appearance = HumanoidCharacterAppearance.DefaultWithSpecies(species),
-                _languages = proto.Index<SpeciesPrototype>(species).DefaultLanguages.ToHashSet()    // ADT Languages
-=======
             species ??= HumanoidCharacterProfile.DefaultSpecies;
             sex ??= Sex.Male;
 
@@ -292,7 +280,7 @@ namespace Content.Shared.Preferences
                 Species = species.Value,
                 Sex = sex.Value,
                 Appearance = HumanoidCharacterAppearance.DefaultWithSpecies(species.Value, sex.Value),
->>>>>>> upstreamwiz/master
+                _languages = proto.Index<SpeciesPrototype>(species).DefaultLanguages.ToHashSet()    // ADT Languages
             };
         }
 
@@ -543,13 +531,9 @@ namespace Content.Shared.Preferences
             var category = traitProto.Category;
 
             // Category not found so dump it.
-<<<<<<< HEAD
-            if (!protoManager.Resolve(category, out var traitCategory)) // ADT-Tweak new Traits
-=======
             TraitCategoryPrototype? traitCategory = null;
 
             if (category != null && !protoManager.Resolve(category, out traitCategory))
->>>>>>> upstreamwiz/master
                 return new(this);
 
             var list = new HashSet<ProtoId<TraitPrototype>>(_traitPreferences) { traitId };
@@ -619,16 +603,12 @@ namespace Content.Shared.Preferences
             if (!_languages.SequenceEqual(other._languages)) return false;  // ADT Languages
             if (!Loadouts.SequenceEqual(other.Loadouts)) return false;
             if (FlavorText != other.FlavorText) return false;
-<<<<<<< HEAD
             // ADT-tweak-start
             if (OOCNotes != other.OOCNotes) return false;
             if (HeadshotUrl != other.HeadshotUrl) return false;
             if (!Bark.MemberwiseEquals(other.Bark)) return false;
             // ADT-tweak-end
-            return Appearance.MemberwiseEquals(other.Appearance);
-=======
             return Appearance.Equals(other.Appearance);
->>>>>>> upstreamwiz/master
         }
 
         public void EnsureValid(ICommonSession session, IDependencyCollection collection, string[] sponsorPrototypes)
@@ -875,15 +855,10 @@ namespace Content.Shared.Preferences
                     continue;
                 }
 
-<<<<<<< HEAD
                 var total = groups.GetOrNew(category);
                 var newTotal = total + traitProto.Cost;
 
                 if (newTotal > traitCategory.MaxPoints.Value)
-=======
-                // No category so dump it.
-                if (!protoManager.Resolve(traitProto.Category, out var category))
->>>>>>> upstreamwiz/master
                     continue;
 
                 groups[category] = newTotal;
@@ -893,7 +868,6 @@ namespace Content.Shared.Preferences
             return result;
         }
 
-<<<<<<< HEAD
         // Corvax-TTS-Start
         // SHOULD BE NOT PUBLIC, BUT....
         public static bool CanHaveVoice(TTSVoicePrototype voice, Sex sex, ProtoId<SpeciesPrototype> species)
@@ -910,10 +884,7 @@ namespace Content.Shared.Preferences
         }
         // Corvax-TTS-End
 
-        public ICharacterProfile Validated(ICommonSession session, IDependencyCollection collection, string[] sponsorPrototypes)
-=======
         public HumanoidCharacterProfile Validated(ICommonSession session, IDependencyCollection collection)
->>>>>>> upstreamwiz/master
         {
             var profile = new HumanoidCharacterProfile(this);
             profile.EnsureValid(session, collection, sponsorPrototypes);
@@ -1005,7 +976,6 @@ namespace Content.Shared.Preferences
             return new HumanoidCharacterProfile(this);
         }
 
-<<<<<<< HEAD
         // ADT start
         public HumanoidCharacterProfile WithLanguage(ProtoId<LanguagePrototype> language)
         {
@@ -1084,7 +1054,6 @@ namespace Content.Shared.Preferences
             return -count;
         }
         // ADT end
-=======
         public DataNode ToDataNode(ISerializationManager? serialization = null, IConfigurationManager? configuration = null)
         {
             IoCManager.Resolve(ref serialization);
@@ -1130,6 +1099,5 @@ namespace Content.Shared.Preferences
             profile.EnsureValid(session, collection!);
             return profile;
         }
->>>>>>> upstreamwiz/master
     }
 }
