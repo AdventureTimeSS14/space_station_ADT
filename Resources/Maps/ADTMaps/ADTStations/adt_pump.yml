@@ -4,8 +4,8 @@ meta:
   engineVersion: 268.0.0
   forkId: ""
   forkVersion: ""
-  time: 04/10/2026 18:10:13
-  entityCount: 10497
+  time: 04/11/2026 10:18:55
+  entityCount: 10502
 maps:
 - 1
 grids:
@@ -7233,6 +7233,10 @@ entities:
     components:
     - type: Transform
       parent: 8200
+  - uid: 1630
+    components:
+    - type: Transform
+      parent: 8196
   - uid: 1670
     components:
     - type: Transform
@@ -7674,6 +7678,22 @@ entities:
     - type: Transform
       parent: 8200
   - uid: 10490
+    components:
+    - type: Transform
+      parent: 8200
+  - uid: 10493
+    components:
+    - type: Transform
+      parent: 8198
+  - uid: 10494
+    components:
+    - type: Transform
+      parent: 8202
+  - uid: 10495
+    components:
+    - type: Transform
+      parent: 8194
+  - uid: 10496
     components:
     - type: Transform
       parent: 8200
@@ -27250,12 +27270,6 @@ entities:
       parent: 2
 - proto: ComputerSolarControl
   entities:
-  - uid: 1630
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -55.5,39.5
-      parent: 2
   - uid: 5434
     components:
     - type: Transform
@@ -27267,6 +27281,12 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 7.5,69.5
+      parent: 2
+  - uid: 10497
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -55.5,39.5
       parent: 2
 - proto: ComputerStationRecords
   entities:
