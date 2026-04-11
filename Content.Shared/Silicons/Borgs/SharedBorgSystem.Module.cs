@@ -173,7 +173,7 @@ public abstract partial class SharedBorgSystem
             return;
 
         var xform = Transform(chassis);
-        // ADT-Tweak: include extra removable borg items as dedicated temporary hands.
+        // ADT-Tweak start
         foreach (var slot in EnumerateModuleSlots(module))
         {
             _hands.AddHand((chassis.Owner, hands), slot.HandId, slot.Hand);
@@ -201,6 +201,7 @@ public abstract partial class SharedBorgSystem
                 }
             }
         }
+        // ADT-Tweak end
 
         module.Comp.Spawned = true;
         Dirty(module);
@@ -220,7 +221,7 @@ public abstract partial class SharedBorgSystem
         if (TerminatingOrDeleted(module))
             return;
 
-        // ADT-Tweak: preserve extra removable borg items when the module is unselected.
+        // ADT-Tweak start
         foreach (var slot in EnumerateModuleSlots(module))
         {
             if (_hands.TryGetHeldItem((chassis.Owner, hands), slot.HandId, out var held))
@@ -236,6 +237,7 @@ public abstract partial class SharedBorgSystem
 
             _hands.RemoveHand((chassis.Owner, hands), slot.HandId);
         }
+        // ADT-Tweak end
 
         Dirty(module);
     }
@@ -253,7 +255,7 @@ public abstract partial class SharedBorgSystem
         for (var i = 0; i < module.Comp.DroppableItems.Count; i++)
         {
             var droppable = module.Comp.DroppableItems[i];
-            // ADT-Tweak: droppable borg items are represented as removable hands with a whitelist.
+            // ADT-Tweak
             var hand = new Hand(
                 HandLocation.Middle,
                 emptyRepresentative: droppable.ID,
