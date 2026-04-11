@@ -369,15 +369,12 @@ namespace Content.Server.Database
         public string Sex { get; set; } = null!;
         public string Gender { get; set; } = null!;
         public string Species { get; set; } = null!;
-<<<<<<< HEAD
         public string Voice { get; set; } = null!; // Corvax-TTS
         public string BarkProto { get; set; } = null!; // ADT Barks
         public float BarkPitch { get; set; } = 1f; // ADT Barks
         public float LowBarkVar { get; set; } = 0.1f; // ADT Barks
         public float HighBarkVar { get; set; } = 0.5f; // ADT Barks
-=======
         [Column(TypeName = "jsonb")] public JsonDocument? OrganMarkings { get; set; } = null!;
->>>>>>> upstreamwiz/master
         [Column(TypeName = "jsonb")] public JsonDocument? Markings { get; set; } = null!;
         public string HairName { get; set; } = null!;
         [Column(TypeName = "json")] public string HairColor { get; set; } = null!; // ADT-Tweak Hair Color Gradient

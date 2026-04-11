@@ -79,16 +79,13 @@ namespace Content.Server.Database
                 .Property(log => log.Markings)
                 .HasConversion(jsonByteArrayConverter);
 
-<<<<<<< HEAD
             // HairColor is stored as JSON text string
             modelBuilder.Entity<Profile>()
                 .Property(p => p.HairColor)
                 .HasColumnType("TEXT");
-=======
             modelBuilder.Entity<Profile>()
                 .Property(log => log.OrganMarkings)
                 .HasConversion(jsonByteArrayConverter);
->>>>>>> upstreamwiz/master
 
             // EF core can make this automatically unique on sqlite but not psql.
             modelBuilder.Entity<IPIntelCache>()

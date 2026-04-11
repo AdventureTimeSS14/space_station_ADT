@@ -1164,16 +1164,13 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasColumnType("jsonb")
                         .HasColumnName("markings");
 
-<<<<<<< HEAD
                     b.Property<string>("OOCNotes")
                         .IsRequired()
                         .HasColumnType("TEXT")
                         .HasColumnName("oocnotes");
-=======
                     b.Property<byte[]>("OrganMarkings")
                         .HasColumnType("jsonb")
                         .HasColumnName("organ_markings");
->>>>>>> upstreamwiz/master
 
                     b.Property<int>("PreferenceId")
                         .HasColumnType("INTEGER")
@@ -1407,7 +1404,6 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.ToTable("server_ban_hit", (string)null);
                 });
 
-<<<<<<< HEAD
             modelBuilder.Entity("Content.Server.Database.ServerRoleBan", b =>
                 {
                     b.Property<int>("Id")
@@ -1622,8 +1618,6 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.ToTable("stamped_data", (string)null);
                 });
 
-=======
->>>>>>> upstreamwiz/master
             modelBuilder.Entity("Content.Server.Database.Trait", b =>
                 {
                     b.Property<int>("Id")
@@ -2277,7 +2271,6 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.Navigation("Connection");
                 });
 
-<<<<<<< HEAD
             modelBuilder.Entity("Content.Server.Database.ServerRoleBan", b =>
                 {
                     b.HasOne("Content.Server.Database.Player", "CreatedBy")
@@ -2366,8 +2359,6 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasConstraintName("FK_stamped_data_book_printer_entry_book_printer_entry_id");
                 });
 
-=======
->>>>>>> upstreamwiz/master
             modelBuilder.Entity("Content.Server.Database.Trait", b =>
                 {
                     b.HasOne("Content.Server.Database.Profile", "Profile")
@@ -2426,11 +2417,10 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.Navigation("Flags");
                 });
 
-<<<<<<< HEAD
             modelBuilder.Entity("Content.Server.Database.BookPrinterEntry", b =>
                 {
                     b.Navigation("StampedBy");
-=======
+                });
             modelBuilder.Entity("Content.Server.Database.Ban", b =>
                 {
                     b.Navigation("Addresses");
@@ -2446,7 +2436,6 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.Navigation("Rounds");
 
                     b.Navigation("Unban");
->>>>>>> upstreamwiz/master
                 });
 
             modelBuilder.Entity("Content.Server.Database.ConnectionLog", b =>
