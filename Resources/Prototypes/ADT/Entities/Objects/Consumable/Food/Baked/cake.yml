@@ -1,4 +1,131 @@
 - type: entity
+  name: chocolate glaze cake
+  parent: FoodCakeBase
+  id: ADTFoodCakeChocolateGlazeHeart
+  description: A cake with added chocolate.
+  components:
+  - type: Sprite
+    state: chocolate_heart
+  - type: SliceableFood
+    slice: ADTFoodCakeChocolateGlazeHeartSlice
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 35
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 20
+        - ReagentId: Theobromine
+          Quantity: 5
+        - ReagentId: Vitamin
+          Quantity: 5
+
+- type: entity
+  name: slice of chocolate cake
+  parent: FoodCakeSliceBase
+  id: ADTFoodCakeChocolateGlazeHeartSlice
+  components:
+  - type: Sprite
+    state: chocolate-slice-heart
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 8
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 4
+        - ReagentId: Theobromine
+          Quantity: 1
+        - ReagentId: Vitamin
+          Quantity: 1
+
+- type: entity
+  name: chocolate heart cake
+  parent: FoodCakeBase
+  id: ADTFoodCakeChocolateHeart
+  description: The heart-shaped cake is made from chocolate sponge cake, covered with chocolate cream and ganache, and decorated with icing.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/cake.rsi
+    state: chocolate-heart
+  - type: SliceableFood
+    slice: ADTFoodCakeChocolateHeartSlice
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 35
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 20
+        - ReagentId: Theobromine
+          Quantity: 5
+        - ReagentId: Vitamin
+          Quantity: 5
+
+- type: entity
+  name: slice of chocolate cake
+  parent: FoodCakeSliceBase
+  id: ADTFoodCakeChocolateHeartSlice
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/cake.rsi
+    state: chocolate-slice-heart
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 8
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 4
+        - ReagentId: Theobromine
+          Quantity: 1
+        - ReagentId: Vitamin
+          Quantity: 1
+
+- type: entity
+  name: strawberry heart cake
+  parent: FoodCakeBase
+  id: ADTFoodCakeStrawberryHeart
+  description: A dessert made from cookies, filled with cottage cheese and strawberries, and topped with chocolate cream and fresh strawberries. Perfect for your significant other.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/cake.rsi
+    state: strawberry-heart
+  - type: SliceableFood
+    slice: ADTFoodCakeStrawberryHeartSlice
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 35
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 20
+        - ReagentId: Theobromine
+          Quantity: 5
+        - ReagentId: Vitamin
+          Quantity: 5
+
+- type: entity
+  name: slice of strawberry cake
+  parent: FoodCakeSliceBase
+  id: ADTFoodCakeStrawberryHeartSlice
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/cake.rsi
+    state: strawberry-slice-heart
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 8
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 4
+        - ReagentId: Theobromine
+          Quantity: 1
+        - ReagentId: Vitamin
+          Quantity: 1
+
+- type: entity
   name: banana boom cake
   parent: FoodCakeBase
   id: ADTFoodCakeBananaBoom

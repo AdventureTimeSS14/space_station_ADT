@@ -28,6 +28,7 @@
     - id: VentClog
     - id: WormholesSpawn # ADT-Tweak Wormholes Spawns now correctly without admin abuse
     - id: SpaceEmperorSpawn # ADT Tweak
+    - id: SantaSpawn # ADT Tweak New Year
 
 - type: entityTable
   id: BasicAntagEventsTable

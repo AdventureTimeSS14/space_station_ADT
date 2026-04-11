@@ -440,7 +440,7 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
         {
             if (!TryComp<GhostRoleAntagSpawnerComponent>(player, out var spawnerComp))
             {
-                Log.Error($"Antag spawner {player} does not have a GhostRoleAntagSpawnerComponent.");
+                Log.Error($"Antag spawner {player} - id: ({player.Id}) - name: ({Name(player)}) does not have a GhostRoleAntagSpawnerComponent."); // ADT_Tweak. Добавил - id: ({player.Id}) - name: ({Name(player)})
                 _adminLogger.Add(LogType.AntagSelection, $"Antag spawner {player} in gamerule {ToPrettyString(ent)} failed due to not having GhostRoleAntagSpawnerComponent.");
                 if (session != null)
                 {

@@ -1,0 +1,201 @@
+- type: entity
+  parent: BaseItem
+  id: ValentineCardsBase
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+    - Paper
+  - type: Appearance
+  - type: Flammable
+    fireSpread: true
+    alwaysCombustible: true
+    damage:
+      types:
+        Heat: 1
+  - type: FireVisuals
+    sprite: Effects/fire.rsi
+    normalState: fire
+  - type: Damageable
+    damageModifierSet: Wood
+  - type: Destructible
+    thresholds:
+    - trigger: # Excess damage, don't spawn entities
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+    - trigger:
+        !type:DamageTrigger
+        damage: 15
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          Ash:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: FlavorProfile
+    flavors:
+    - paper
+  - type: BadFood
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 1
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 1
+  - type: Item
+    size: Tiny
+  - type: PhysicalComposition
+
+- type: entity
+  name: valentine card
+  parent: ValentineCardsBase
+  id: ADTValentineCard1
+  description: A valentine's card where you can write words of love to your significant other
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/valentine_cards.rsi
+    layers:
+    - state: val1
+  - type: Paper
+  - type: PaperLabelType
+  - type: ActivatableUI
+    key: enum.PaperUiKey.Key
+    requiresComplex: false
+  - type: UserInterface
+    interfaces:
+      enum.PaperUiKey.Key:
+        type: PaperBoundUserInterface
+  - type: FaxableObject
+  - type: PaperVisuals
+    backgroundModulate: "#cccccc" # ADT CHANGES START --->
+    contentImageModulate: "#cccccc"
+    backgroundPatchMargin: 16.0, 16.0, 16.0, 16.0 #Уголки бумаги
+    contentMargin: 16.0, 16.0, 16.0, 16.0 # ADT CHANGES END <--
+  - type: Flammable
+    fireSpread: true
+    alwaysCombustible: true
+    damage:
+      types:
+        Heat: 1
+  - type: FireVisuals
+    sprite: Effects/fire.rsi
+    normalState: fire
+  - type: Damageable
+    damageModifierSet: Wood
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 15
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+            Ash:
+              min: 1
+              max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: FlavorProfile
+    flavors:
+    - paper
+  - type: BadFood
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 1
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 1
+# Corvax-Printer-Start
+  - type: Material
+  - type: PhysicalComposition
+    materialComposition:
+      PrinterPaper: 100
+  - type: Stack
+    stackType: ADTPaper
+    count: 1
+# Corvax-Printer-End
+  # ADT Start
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/ADT/Entities/paper_pickup.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/ADT/Entities/paper_drop.ogg
+  # ADT End
+
+- type: entity
+  name: valentine card
+  parent: ADTValentineCard1
+  id: ADTValentineCard2
+  description: A valentine's card where you can write words of love to your significant other
+  components:
+  - type: Sprite
+    layers:
+    - state: val2
+    
+- type: entity
+  name: valentine card
+  parent: ADTValentineCard1
+  id: ADTValentineCard3
+  description: A valentine's card where you can write words of love to your significant other
+  components:
+  - type: Sprite
+    layers:
+    - state: val3
+    
+- type: entity
+  name: valentine card
+  parent: ADTValentineCard1
+  id: ADTValentineCard4
+  description: A valentine's card where you can write words of love to your significant other
+  components:
+  - type: Sprite
+    layers:
+    - state: val4
+    
+- type: entity
+  name: valentine card
+  parent: ADTValentineCard1
+  id: ADTValentineCard5
+  description: A valentine's card where you can write words of love to your significant other
+  components:
+  - type: Sprite
+    layers:
+    - state: val5
+
+- type: entity
+  name: valentine card
+  parent: ADTValentineCard1
+  id: ADTValentineCard6
+  description: A valentine's card where you can write words of love to your significant other
+  components:
+  - type: Sprite
+    layers:
+    - state: val6
+    
+- type: entity
+  name: valentine card
+  parent: ADTValentineCard1
+  id: ADTValentineCard7
+  description: A valentine's card where you can write words of love to your significant other
+  components:
+  - type: Sprite
+    layers:
+    - state: val7
+    
+- type: entity
+  name: valentine card
+  parent: ADTValentineCard1
+  id: ADTValentineCard8
+  description: A valentine's card where you can write words of love to your significant other
+  components:
+  - type: Sprite
+    layers:
+    - state: val8

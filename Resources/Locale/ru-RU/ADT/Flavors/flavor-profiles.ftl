@@ -38,8 +38,15 @@ flavor-complex-leafloverbeer = На вкус как слабость
 flavor-complex-scientificale = На вкус как плазма и хмель
 flavor-complex-uraniumale = На вкус радиактивно, небезопасно и рак.
 flavor-complex-goldenale = как эль, золото и исцеление
-flavor-complex-adtrelaxing = как довольно сильный наркотик
+flavor-base-adtsuperscout = - На вкус как суперматерия
+flavor-base-adtfunnyclown = как анекдот
 
+flavor-base-adtpoppy = маково
+flavor-complex-adtrelaxing = как довольно сильный наркотик
+flavor-base-adtvanilla = ванильно
+flavor-base-mandarin = сочная мандаринка
+
+flavor-complex-ADTChocolateDrinkFlavor = как теплый растопленный шоколад
 flavor-complex-ADTCocoaDrink = как тепло, уют и какао
 
 flavor-base-adtsindipizza = зловеще сырно

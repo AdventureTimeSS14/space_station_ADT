@@ -1,0 +1,23 @@
+- type: entity
+  name: strawberry mousse
+  parent: FoodInjectableBase
+  id: ADTStrawberryMousse
+  description: It helps to improve blood circulation.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - sweet
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/strawberry_mousse.rsi
+    state: strawberry_mousse
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 26
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+        - ReagentId: Theobromine
+          Quantity: 5
+        - ReagentId: Vitamin
+          Quantity: 5
