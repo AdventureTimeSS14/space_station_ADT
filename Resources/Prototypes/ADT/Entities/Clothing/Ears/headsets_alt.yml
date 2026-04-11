@@ -14,5 +14,5 @@
   id: ADTClothingHeadsetAltLoudspeaker
   components:
   - type: Loudspeaker
-    canToggle: false
-    affectRadio: false
+    canToggle: true
+    affectRadio: true
