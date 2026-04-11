@@ -4,6 +4,10 @@ using Content.Server.GameTicking.Presets;
 using Content.Shared.Administration;
 using Robust.Shared.Console;
 using Robust.Shared.Prototypes;
+// ADT-Tweak start
+using Content.Server.Administration.Logs;
+using Content.Shared.Database;
+// ADT-Tweak end
 
 namespace Content.Server.GameTicking.Commands
 {
@@ -12,11 +16,14 @@ namespace Content.Server.GameTicking.Commands
     {
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly GameTicker _ticker = default!;
+        [Dependency] private readonly IAdminLogManager _adminLogger = default!; // ADT-Tweak
 
         public override string Command => "forcepreset";
 
         public override void Execute(IConsoleShell shell, string argStr, string[] args)
         {
+            var playerId = shell.Player?.ToString() ?? "server"; // ADT-Tweak
+
             if (_ticker.RunLevel != GameRunLevel.PreRoundLobby)
             {
                 shell.WriteLine(Loc.GetString($"cmd-forcepreset-preround-lobby-only"));
@@ -38,6 +45,11 @@ namespace Content.Server.GameTicking.Commands
 
             _ticker.SetGamePreset(type, true);
             shell.WriteLine(Loc.GetString($"cmd-forcepreset-success", ("preset", name)));
+            // ADT-Tweak start
+            _adminLogger.Add(LogType.AdminCommands,
+                    LogImpact.Low,
+                    $"[FORCEPRESET] {playerId} установил режим игры на {name}");
+            // ADT-Tweak end
             _ticker.UpdateInfoText();
         }
 
