@@ -249,24 +249,6 @@ public abstract class SharedSmartFridgeSystem : EntitySystem
         });
     }
 
-    private void OnGetAltVerb(Entity<SmartFridgeComponent> ent, ref GetVerbsEvent<AlternativeVerb> args)
-    {
-        var user = args.User;
-
-        if (!args.CanInteract
-            || args.Using is not { } item
-            || !_hands.CanDrop(user, item)
-            || !_whitelist.CheckBoth(item, ent.Comp.Blacklist, ent.Comp.Whitelist))
-            return;
-
-        args.Verbs.Add(new AlternativeVerb
-        {
-            Act = () => DoInsert(ent, user, [item], true),
-            Text = Loc.GetString("verb-categories-insert"),
-            Icon = new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/VerbIcons/insert.svg.192dpi.png")),
-        });
-    }
-
     private void OnRemoveEntry(Entity<SmartFridgeComponent> ent, ref SmartFridgeRemoveEntryMessage args)
     {
         if (!Allowed(ent, args.Actor))
