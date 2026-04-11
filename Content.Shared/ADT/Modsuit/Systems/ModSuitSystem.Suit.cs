@@ -10,6 +10,7 @@ using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Popups;
 using Content.Shared.PowerCell;
+using Content.Shared.PowerCell.Components;
 using Content.Shared.Verbs;
 using Content.Shared.Wires;
 using Robust.Shared.Containers;
@@ -39,7 +40,6 @@ public sealed partial class ModSuitSystem
         SubscribeLocalEvent<ModSuitComponent, ModLockMessage>(OnLocked);
 
         SubscribeLocalEvent<ModSuitComponent, PowerCellSlotEmptyEvent>(OnPowercellEmpty);
-        SubscribeLocalEvent<ModSuitComponent, InventoryRelayedEvent<FindInventoryBatteryEvent>>(OnFindInventoryBatteryEvent);
     }
 
     private void OnModSuitInit(Entity<ModSuitComponent> ent, ref ComponentInit args)
@@ -73,9 +73,9 @@ public sealed partial class ModSuitSystem
 
         Dirty(ent);
 
-        if (HasComp<PowerCellDrawComponent>(ent))
+        if (TryComp<PowerCellDrawComponent>(ent, out var drawComp))
         {
-            _cell.SetDrawEnabled(ent.Owner, false);
+            _cell.SetDrawEnabled((ent.Owner, drawComp), false);
         }
 
         UpdateUserInterface(ent.Owner, ent.Comp);
@@ -274,20 +274,6 @@ public sealed partial class ModSuitSystem
         RemoveAllParts((uid, component));
     }
 
-    /// <summary>
-    /// Tries to find battery for charger
-    /// </summary>
-    private void OnFindInventoryBatteryEvent(Entity<ModSuitComponent> entity, ref InventoryRelayedEvent<FindInventoryBatteryEvent> args)
-    {
-        UpdateUserInterface(entity.Owner, entity.Comp);
-
-        if (args.Args.FoundBattery.HasValue)
-            return;
-
-        if (_itemSlotsSystem.TryGetSlot(entity.Owner, "cell_slot", out ItemSlot? slot))
-            args.Args.FoundBattery = slot.Item;
-    }
-
     private bool CanUseMod(Entity<ModSuitComponent> ent, EntityUid? user, bool checkLock = true)
     {
         if (ent.Comp.ClothingUids.Count == 0 || ent.Comp.PartsContainer == null)
@@ -307,7 +293,9 @@ public sealed partial class ModSuitSystem
 
     private bool CanToggleClothing(EntityUid user, Entity<ModSuitComponent> ent)
     {
-        if (!_cell.HasDrawCharge(ent.Owner, user: user))
+        if (!TryComp<PowerCellDrawComponent>(ent, out var drawComp)
+            || !TryComp<PowerCellSlotComponent>(ent, out var slotComp)
+            || !_cell.HasDrawCharge((ent.Owner, drawComp, slotComp), user: user))
             return false;
 
         if (ent.Comp.ClothingUids.Count <= 0)
@@ -393,13 +381,12 @@ public sealed partial class ModSuitSystem
 
         if (attachedCount <= 0)
         {
-            _cell.SetDrawEnabled(ent.Owner, false);
+            _cell.SetDrawEnabled((ent.Owner, draw), false);
         }
         else
         {
-            _cell.SetDrawEnabled(ent.Owner, true);
+            _cell.SetDrawEnabled((ent.Owner, draw), true);
             draw.DrawRate = ent.Comp.ModEnergyBaseUsing * attachedCount;
         }
-
     }
 }

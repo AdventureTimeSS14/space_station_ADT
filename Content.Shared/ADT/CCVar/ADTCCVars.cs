@@ -280,11 +280,19 @@ public sealed class ADTCCVars
         CVarDef.Create("misc.space_whale_spawn_distance", 1965, CVar.SERVER);
 
     /// <summary>
-    /// If enabled, job icons in chat and status icons are animated.
-    /// When disabled, only static icons will be shown.
+    /// If enabled, job icons in chat and status icons are available.
+    /// When disabled on server, icons will not be shown for anyone.
+    /// Players can also disable icons in their client settings.
     /// </summary>
     public static readonly CVarDef<bool> EnableJobIconAnimation =
-        CVarDef.Create("adt.job_icon_animation_enabled", true, CVar.CLIENTONLY | CVar.ARCHIVE);
+        CVarDef.Create("adt.job_icon_animation_enabled", true, CVar.SERVER | CVar.REPLICATED | CVar.ARCHIVE);
+
+    /// <summary>
+    /// Client-side setting to toggle job icons in chat.
+    /// Icons are only shown if both server and client allow them.
+    /// </summary>
+    public static readonly CVarDef<bool> EnableChatJobIcons =
+        CVarDef.Create("adt.chat_job_icons_enabled", true, CVar.CLIENTONLY | CVar.ARCHIVE);
 
     /*
     * Headshot

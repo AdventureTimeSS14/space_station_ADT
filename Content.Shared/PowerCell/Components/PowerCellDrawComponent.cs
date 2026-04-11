@@ -9,7 +9,7 @@ namespace Content.Shared.PowerCell.Components;
 /// With ActivatableUI it will activate and deactivate when the ui is opened and closed, drawing power inbetween.
 /// </remarks>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
-[Access(typeof(PowerCellSystem))]
+[Access(typeof(PowerCellSystem), Other = AccessPermissions.ReadWrite)] // ADT-Tweak
 public sealed partial class PowerCellDrawComponent : Component
 {
     /// <summary>
