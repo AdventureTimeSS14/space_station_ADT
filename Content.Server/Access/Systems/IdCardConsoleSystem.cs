@@ -7,17 +7,11 @@ using Content.Shared.Access;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
 using Content.Shared.Administration.Logs;
-<<<<<<< HEAD
 using Content.Shared.Chat;
 using Content.Shared.Construction;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Damage;
-=======
 using Content.Shared.CCVar;
-using Content.Shared.Chat;
-using Content.Shared.Construction;
-using Content.Shared.Containers.ItemSlots;
->>>>>>> upstreamwiz/master
 using Content.Shared.Damage.Systems;
 using Content.Shared.Database;
 using Content.Shared.Roles;
@@ -142,11 +136,7 @@ public sealed class IdCardConsoleSystem : SharedIdCardConsoleSystem
         string newFullName,
         string newJobTitle,
         List<ProtoId<AccessLevelPrototype>> newAccessList,
-<<<<<<< HEAD
         ProtoId<JobPrototype> newJobProto,
-=======
-        ProtoId<JobPrototype>? newJobProto,
->>>>>>> upstreamwiz/master
         EntityUid player,
         IdCardConsoleComponent? component = null)
     {
@@ -169,14 +159,15 @@ public sealed class IdCardConsoleSystem : SharedIdCardConsoleSystem
         _idCard.TryChangeFullName(targetId, newFullName, player: player);
         _idCard.TryChangeJobTitle(targetId, newJobTitle, player: player);
 
-<<<<<<< HEAD
-        if (_prototype.Resolve(newJobProto, out var job)
-=======
-        if (_prototype.TryIndex(newJobProto, out var job)
->>>>>>> upstreamwiz/master
-            && _prototype.Resolve(job.Icon, out var jobIcon))
+        // ADT-Tweak start: Используем TryIndex вместо Resolve для корректной обработки пустых ID
+        JobPrototype? job = null;
+        if (newJobProto.Id != string.Empty)
+            _prototype.TryIndex(newJobProto, out job);
+
+        if (job != null && _prototype.Resolve(job.Icon, out var jobIcon))
         {
-            _idCard.TryChangeJobIcon(targetId, jobIcon, player: player);
+            _idCard.TryChangeJobIcon(targetId, jobIcon);
+            // ADT-Tweak end
             _idCard.TryChangeJobDepartment(targetId, job);
         }
 
@@ -196,15 +187,9 @@ public sealed class IdCardConsoleSystem : SharedIdCardConsoleSystem
         }
 
         var oldTags = _access.TryGetTags(targetId)?.ToList() ?? new List<ProtoId<AccessLevelPrototype>>();
-<<<<<<< HEAD
-        oldTags = oldTags.ToList();
 
         /* ADT-Tweak: Для доступов, которые консоль не может изменить, не менять их. */
         newAccessList.AddRange(oldTags.Except(component.AccessLevels.Intersect(oldTags)));
-
-        // var privilegedId = component.PrivilegedIdSlot.Item; // ADT-Tweak: Такая переменная уже есть
-=======
->>>>>>> upstreamwiz/master
 
         if (oldTags.SequenceEqual(newAccessList))
             return;

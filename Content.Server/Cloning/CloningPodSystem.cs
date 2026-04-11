@@ -8,6 +8,7 @@ using Content.Server.Materials;
 using Content.Server.Popups;
 using Content.Server.Power.EntitySystems;
 using Content.Server.Traits.Assorted;
+using Content.Shared.ADT.Sleeping;
 using Content.Shared.Atmos;
 using Content.Shared.CCVar;
 using Content.Shared.Chemistry.Components;
@@ -22,6 +23,8 @@ using Content.Shared.GameTicking;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs.Systems;
+using Content.Shared.StatusEffectNew;
+using Content.Shared.Bed.Sleep;
 using Robust.Server.Containers;
 using Robust.Server.Player;
 using Robust.Shared.Audio.Systems;
@@ -30,11 +33,9 @@ using Robust.Shared.Containers;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Robust.Shared.Timing;
 using Content.Shared.Chemistry.Reagent;
-<<<<<<< HEAD
-=======
 using Content.Shared.Damage.Systems;
->>>>>>> upstreamwiz/master
 
 namespace Content.Server.Cloning;
 
@@ -61,11 +62,21 @@ public sealed class CloningPodSystem : EntitySystem
     [Dependency] private readonly CloningSystem _cloning = default!;
     [Dependency] private readonly EmagSystem _emag = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
+    // ADT-Tweak start
+    [Dependency] private readonly SleepingSystem _sleepingSystem = default!;
+    [Dependency] private readonly StatusEffectsSystem _statusEffectsSystem = default!;
+    [Dependency] private readonly IGameTiming _gameTiming = default!;
+    // ADT-Tweak end
 
     public readonly Dictionary<MindComponent, EntityUid> ClonesWaitingForMind = new();
     public readonly ProtoId<CloningSettingsPrototype> SettingsId = "CloningPod";
     public const float EasyModeCloningCost = 0.7f;
     private static readonly ProtoId<ReagentPrototype> BloodId = "Blood";
+
+    // ADT-Tweak start
+    private const float PostCloneSleepTimeMin = 25f;
+    private const float PostCloneSleepTimeMax = 50f;
+    // ADT-Tweak end
 
     public override void Initialize()
     {
@@ -155,7 +166,7 @@ public sealed class CloningPodSystem : EntitySystem
             return false;
         }
         // ADT-Clone
-        
+
         var mind = mindEnt.Comp;
         if (ClonesWaitingForMind.TryGetValue(mind, out var clone))
         {
@@ -284,6 +295,18 @@ public sealed class CloningPodSystem : EntitySystem
         args.Handled = true;
     }
 
+    // ADT-Tweak start
+    private void ApplyPostCloneSleep(EntityUid clone)
+    {
+        if (!Exists(clone))
+            return;
+
+        var sleepDuration = TimeSpan.FromSeconds(_robustRandom.NextFloat(PostCloneSleepTimeMin, PostCloneSleepTimeMax));
+
+        _statusEffectsSystem.TryAddStatusEffectDuration(clone, SleepingSystem.StatusEffectForcedSleeping, sleepDuration);
+    }
+    // ADT-Tweak end
+
     public void Eject(EntityUid uid, CloningPodComponent? clonePod)
     {
         if (!Resolve(uid, ref clonePod))
@@ -298,6 +321,8 @@ public sealed class CloningPodSystem : EntitySystem
         clonePod.UsedBiomass = 0;
         UpdateStatus(uid, CloningPodStatus.Idle, clonePod);
         RemCompDeferred<ActiveCloningPodComponent>(uid);
+
+        ApplyPostCloneSleep(entity); // ADT-Tweak
     }
 
     private void EndFailedCloning(EntityUid uid, CloningPodComponent clonePod)
