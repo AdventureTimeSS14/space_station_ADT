@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-=======
 using System;
->>>>>>> upstreamwiz/master
 using System.Numerics;
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
@@ -26,11 +23,7 @@ public sealed partial class SkinColorationPrototype : IPrototype
 }
 
 /// <summary>
-<<<<<<< HEAD
-/// The type of input taken by a <see cref="SkinColorationStrategy" />
-=======
 /// The type of input taken by a <see cref="ISkinColorationStrategy" />
->>>>>>> upstreamwiz/master
 /// </summary>
 [Serializable, NetSerializable]
 public enum SkinColorationStrategyInput
@@ -159,18 +152,12 @@ public sealed partial class HumanTonedSkinColoration : ISkinColorationStrategy
 
         if (rangeOffset <= 0)
         {
-<<<<<<< HEAD
-=======
             // First 20 values adjust hue.
->>>>>>> upstreamwiz/master
             hue += Math.Abs(rangeOffset);
         }
         else
         {
-<<<<<<< HEAD
-=======
             // Remaining 80 values adjust saturation and value.
->>>>>>> upstreamwiz/master
             sat += rangeOffset;
             val -= rangeOffset;
         }
@@ -198,23 +185,15 @@ public sealed partial class HumanTonedSkinColoration : ISkinColorationStrategy
 }
 
 /// <summary>
-<<<<<<< HEAD
-/// Unary coloration strategy that clamps the color within the HSV colorspace
-=======
 /// Coloration strategy that clamps the color within the HSV colorspace.
->>>>>>> upstreamwiz/master
 /// </summary>
 [DataDefinition]
 [Serializable, NetSerializable]
 public sealed partial class ClampedHsvColoration : ISkinColorationStrategy
 {
     /// <summary>
-<<<<<<< HEAD
-    /// The (min, max) of the hue channel.
-=======
     /// Defines the valid (min, max) range for the hue channel (0.0 to 1.0).
     /// If min > max, the range wraps around 1.0 (e.g., for reds).
->>>>>>> upstreamwiz/master
     /// </summary>
     [DataField]
     public (float, float)? Hue;
@@ -237,15 +216,6 @@ public sealed partial class ClampedHsvColoration : ISkinColorationStrategy
     {
         var hsv = Color.ToHsv(color);
 
-<<<<<<< HEAD
-        if (Hue is (var minHue, var maxHue) && (hsv.X < minHue || hsv.X > maxHue))
-            return false;
-
-        if (Saturation is (var minSaturation, var maxSaturation) && (hsv.Y < minSaturation || hsv.Y > maxSaturation))
-            return false;
-
-        if (Value is (var minValue, var maxValue) && (hsv.Z < minValue || hsv.Z > maxValue))
-=======
         if (Hue is (var minHue, var maxHue) && !SkinColorationUtils.IsHueInRange(hsv.X, minHue, maxHue))
             return false;
 
@@ -253,7 +223,6 @@ public sealed partial class ClampedHsvColoration : ISkinColorationStrategy
             return false;
 
         if (Value is (var minVal, var maxVal) && (hsv.Z < minVal - SkinColorationUtils.Epsilon || hsv.Z > maxVal + SkinColorationUtils.Epsilon))
->>>>>>> upstreamwiz/master
             return false;
 
         return true;
@@ -264,44 +233,26 @@ public sealed partial class ClampedHsvColoration : ISkinColorationStrategy
         var hsv = Color.ToHsv(color);
 
         if (Hue is (var minHue, var maxHue))
-<<<<<<< HEAD
-            hsv.X = Math.Clamp(hsv.X, minHue, maxHue);
-
-        if (Saturation is (var minSaturation, var maxSaturation))
-            hsv.Y = Math.Clamp(hsv.Y, minSaturation, maxSaturation);
-
-        if (Value is (var minValue, var maxValue))
-            hsv.Z = Math.Clamp(hsv.Z, minValue, maxValue);
-=======
             hsv.X = SkinColorationUtils.ClampHue(hsv.X, minHue, maxHue);
         if (Saturation is (var minSat, var maxSat))
             hsv.Y = Math.Clamp(hsv.Y, minSat, maxSat);
         if (Value is (var minVal, var maxVal))
             hsv.Z = Math.Clamp(hsv.Z, minVal, maxVal);
->>>>>>> upstreamwiz/master
 
         return Color.FromHsv(hsv);
     }
 }
 
 /// <summary>
-<<<<<<< HEAD
-/// Unary coloration strategy that clamps the color within the HSL colorspace
-=======
 /// Coloration strategy that clamps the color within the HSL colorspace.
->>>>>>> upstreamwiz/master
 /// </summary>
 [DataDefinition]
 [Serializable, NetSerializable]
 public sealed partial class ClampedHslColoration : ISkinColorationStrategy
 {
     /// <summary>
-<<<<<<< HEAD
-    /// The (min, max) of the hue channel.
-=======
     /// Defines the valid (min, max) range for the hue channel (0.0 to 1.0).
     /// If min > max, the range wraps around 1.0 (e.g., for reds).
->>>>>>> upstreamwiz/master
     /// </summary>
     [DataField]
     public (float, float)? Hue;
@@ -324,15 +275,6 @@ public sealed partial class ClampedHslColoration : ISkinColorationStrategy
     {
         var hsl = Color.ToHsl(color);
 
-<<<<<<< HEAD
-        if (Hue is (var minHue, var maxHue) && (hsl.X < minHue || hsl.X > maxHue))
-            return false;
-
-        if (Saturation is (var minSaturation, var maxSaturation) && (hsl.Y < minSaturation || hsl.Y > maxSaturation))
-            return false;
-
-        if (Lightness is (var minValue, var maxValue) && (hsl.Z < minValue || hsl.Z > maxValue))
-=======
         if (Hue is (var minHue, var maxHue) && !SkinColorationUtils.IsHueInRange(hsl.X, minHue, maxHue))
             return false;
 
@@ -340,7 +282,6 @@ public sealed partial class ClampedHslColoration : ISkinColorationStrategy
             return false;
 
         if (Lightness is (var minLight, var maxLight) && (hsl.Z < minLight - SkinColorationUtils.Epsilon || hsl.Z > maxLight + SkinColorationUtils.Epsilon))
->>>>>>> upstreamwiz/master
             return false;
 
         return true;
@@ -351,27 +292,15 @@ public sealed partial class ClampedHslColoration : ISkinColorationStrategy
         var hsl = Color.ToHsl(color);
 
         if (Hue is (var minHue, var maxHue))
-<<<<<<< HEAD
-            hsl.X = Math.Clamp(hsl.X, minHue, maxHue);
-
-        if (Saturation is (var minSaturation, var maxSaturation))
-            hsl.Y = Math.Clamp(hsl.Y, minSaturation, maxSaturation);
-
-        if (Lightness is (var minValue, var maxValue))
-            hsl.Z = Math.Clamp(hsl.Z, minValue, maxValue);
-=======
             hsl.X = SkinColorationUtils.ClampHue(hsl.X, minHue, maxHue);
         if (Saturation is (var minSat, var maxSat))
             hsl.Y = Math.Clamp(hsl.Y, minSat, maxSat);
         if (Lightness is (var minLight, var maxLight))
             hsl.Z = Math.Clamp(hsl.Z, minLight, maxLight);
->>>>>>> upstreamwiz/master
 
         return Color.FromHsl(hsl);
     }
 }
-<<<<<<< HEAD
-=======
 
 /// <summary>
 /// Contains shared utility methods for handling color manipulations in skin coloration strategies.
@@ -424,4 +353,3 @@ internal static class SkinColorationUtils
         return Math.Clamp(hue, minHue, maxHue);
     }
 }
->>>>>>> upstreamwiz/master
