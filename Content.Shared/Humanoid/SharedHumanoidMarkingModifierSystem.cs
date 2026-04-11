@@ -36,19 +36,8 @@ public sealed class HumanoidMarkingModifierState : BoundUserInterfaceState
         OrganData = organData;
         OrganProfileData = organProfileData;
     }
-
-<<<<<<< HEAD
-    public MarkingSet MarkingSet { get; }
-    public string Species { get; }
-    public Sex Sex { get; }
-    public Color SkinColor { get; }
-    public Color EyeColor { get; }
     public List<Color>? HairColor { get; } // ADT-tweak
-    public Color? FacialHairColor { get; }
-    public Dictionary<HumanoidVisualLayers, CustomBaseLayerInfo> CustomBaseLayers { get; }
-=======
     public Dictionary<ProtoId<OrganCategoryPrototype>, Dictionary<HumanoidVisualLayers, List<Marking>>> Markings { get; }
     public Dictionary<ProtoId<OrganCategoryPrototype>, OrganMarkingData> OrganData { get; }
     public Dictionary<ProtoId<OrganCategoryPrototype>, OrganProfileData> OrganProfileData { get; }
->>>>>>> upstreamwiz/master
 }
