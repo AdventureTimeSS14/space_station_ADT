@@ -26,13 +26,14 @@ public partial class ChassisSpriteSelection : Control
     public void FillContainer(BorgTypePrototype parentPrototype)
     {
         OptionsContainer.RemoveAllChildren();
+        SelectedBorgSubtype = null;
 
         var group = new ButtonGroup();
 
         MainContainer.Visible = true;
         var subtypes = _prototype
                         .EnumeratePrototypes<BorgSubtypePrototype>()
-                        .Where(s => s.ParentBorgType == parentPrototype)
+                        .Where(s => s.ParentBorgType == parentPrototype.ID)
                         .ToList();
 
         if (subtypes.Count == 0)

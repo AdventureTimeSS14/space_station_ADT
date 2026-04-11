@@ -4,6 +4,7 @@ using Content.Shared.Interaction.Components;
 using Content.Shared.Localizations;
 using Content.Shared.Silicons.Borgs.Components;
 using Robust.Shared.Containers;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Silicons.Borgs;
 
@@ -172,32 +173,29 @@ public abstract partial class SharedBorgSystem
             return;
 
         var xform = Transform(chassis);
-
-        for (var i = 0; i < module.Comp.Hands.Count; i++)
+        // ADT-Tweak: include extra removable borg items as dedicated temporary hands.
+        foreach (var slot in EnumerateModuleSlots(module))
         {
-            var hand = module.Comp.Hands[i];
-            var handId = $"{GetNetEntity(module.Owner)}-hand-{i}";
-
-            _hands.AddHand((chassis.Owner, hands), handId, hand.Hand);
+            _hands.AddHand((chassis.Owner, hands), slot.HandId, slot.Hand);
             EntityUid? item = null;
 
             if (module.Comp.Spawned)
             {
-                if (module.Comp.StoredItems.TryGetValue(handId, out var storedItem))
+                if (module.Comp.StoredItems.TryGetValue(slot.HandId, out var storedItem))
                 {
                     item = storedItem;
                     // DoPickup handles removing the item from the container.
                 }
             }
-            else if (hand.Item is { } itemProto)
+            else if (slot.Item is { } itemProto)
             {
                 item = PredictedSpawnAtPosition(itemProto, xform.Coordinates);
             }
 
             if (item is { } pickUp)
             {
-                _hands.DoPickup(chassis, handId, pickUp, hands);
-                if (!hand.ForceRemovable && hand.Hand.Whitelist == null && hand.Hand.Blacklist == null)
+                _hands.DoPickup(chassis, slot.HandId, pickUp, hands);
+                if (!slot.ForceRemovable && slot.Hand.Whitelist == null && slot.Hand.Blacklist == null)
                 {
                     EnsureComp<UnremoveableComponent>(pickUp);
                 }
@@ -222,25 +220,47 @@ public abstract partial class SharedBorgSystem
         if (TerminatingOrDeleted(module))
             return;
 
-        for (var i = 0; i < module.Comp.Hands.Count; i++)
+        // ADT-Tweak: preserve extra removable borg items when the module is unselected.
+        foreach (var slot in EnumerateModuleSlots(module))
         {
-            var handId = $"{GetNetEntity(module.Owner)}-hand-{i}";
-
-            if (_hands.TryGetHeldItem((chassis.Owner, hands), handId, out var held))
+            if (_hands.TryGetHeldItem((chassis.Owner, hands), slot.HandId, out var held))
             {
                 RemComp<UnremoveableComponent>(held.Value);
                 _container.Insert(held.Value, container);
-                module.Comp.StoredItems[handId] = held.Value;
+                module.Comp.StoredItems[slot.HandId] = held.Value;
             }
             else
             {
-                module.Comp.StoredItems.Remove(handId);
+                module.Comp.StoredItems.Remove(slot.HandId);
             }
 
-            _hands.RemoveHand((chassis.Owner, hands), handId);
+            _hands.RemoveHand((chassis.Owner, hands), slot.HandId);
         }
 
         Dirty(module);
+    }
+
+    private IEnumerable<(string HandId, Hand Hand, EntProtoId? Item, bool ForceRemovable)> EnumerateModuleSlots(Entity<ItemBorgModuleComponent?> module)
+    {
+        var netEntity = GetNetEntity(module.Owner);
+
+        for (var i = 0; i < module.Comp.Hands.Count; i++)
+        {
+            var hand = module.Comp.Hands[i];
+            yield return ($"{netEntity}-hand-{i}", hand.Hand, hand.Item, hand.ForceRemovable);
+        }
+
+        for (var i = 0; i < module.Comp.DroppableItems.Count; i++)
+        {
+            var droppable = module.Comp.DroppableItems[i];
+            // ADT-Tweak: droppable borg items are represented as removable hands with a whitelist.
+            var hand = new Hand(
+                HandLocation.Middle,
+                emptyRepresentative: droppable.ID,
+                whitelist: droppable.Whitelist);
+
+            yield return ($"{netEntity}-droppable-{i}", hand, droppable.ID, true);
+        }
     }
     #endregion
 

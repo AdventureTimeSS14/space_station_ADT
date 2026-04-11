@@ -1,9 +1,5 @@
-﻿using Content.Shared.Hands.Components;
-<<<<<<< HEAD
+using Content.Shared.Hands.Components;
 using Content.Shared.Whitelist;
-using Robust.Shared.Containers;
-=======
->>>>>>> upstreamwiz/master
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
@@ -22,7 +18,6 @@ public sealed partial class ItemBorgModuleComponent : Component
     /// </summary>
     [DataField(required: true)]
     public List<BorgHand> Hands = new();
-<<<<<<< HEAD
 
     /// <summary>
     /// ADT: The droppable items that are provided.
@@ -31,30 +26,16 @@ public sealed partial class ItemBorgModuleComponent : Component
     public List<DroppableBorgItem> DroppableItems = new();
 
     /// <summary>
-    /// The entities from <see cref="Items"/> that were spawned.
-    /// The items stored within the hands. Null until the first time items are stored.
-    /// </summary>
-    [DataField]
-    public Dictionary<string, EntityUid>? StoredItems;
-
-    /// <summary>
-    /// An ID for the container where items are stored when not in use.
-    /// </summary>
-    [DataField]
-    public string HoldingContainer = "holding_container";
-
-    /// <summary>
-    /// ADT: The entities from <see cref="Items"/> that were spawned.
-    /// </summary>
-    [DataField("droppableProvidedItems")]
-    public SortedDictionary<string, (EntityUid, DroppableBorgItem)> DroppableProvidedItems = new();
-=======
-
-    /// <summary>
     /// The items stored within the hands.
     /// </summary>
     [DataField, AutoNetworkedField]
     public Dictionary<string, EntityUid> StoredItems = new();
+
+    /// <summary>
+    /// ADT: The droppable entities that were spawned for this module.
+    /// </summary>
+    [DataField("droppableProvidedItems")]
+    public SortedDictionary<string, (EntityUid, DroppableBorgItem)> DroppableProvidedItems = new();
 
     /// <summary>
     /// Whether the provided items have been spawned.
@@ -62,42 +43,10 @@ public sealed partial class ItemBorgModuleComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool Spawned;
->>>>>>> upstreamwiz/master
 
     /// <summary>
     /// An ID for the container where items are stored when not in use.
     /// </summary>
-<<<<<<< HEAD
-    [DataField("itemsCrated")]
-    public bool ItemsCreated;
-
-    /// <summary>
-    /// A container where provided items are stored when not being used.
-    /// This is helpful as it means that items retain state.
-    /// </summary>
-    [ViewVariables]
-    public Container ProvidedContainer = default!;
-
-    /// <summary>
-    /// An ID for the container where provided items are stored when not used.
-    /// </summary>
-    [DataField("providedContainerId")]
-    public string ProvidedContainerId = "provided_container";
-
-    /// <summary>
-    /// A counter that ensures a unique
-    /// </summary>
-    [DataField("handCounter")]
-    public int HandCounter;
-}
-
-[DataDefinition, Serializable, NetSerializable]
-public partial record struct BorgHand
-{
-    [DataField]
-    public EntProtoId? Item;
-
-=======
     [DataField]
     public string HoldingContainer = "holding_container";
 }
@@ -117,7 +66,6 @@ public partial record struct BorgHand
     /// <summary>
     /// The settings for the hand, including a whitelist.
     /// </summary>
->>>>>>> upstreamwiz/master
     [DataField]
     public Hand Hand = new();
 
@@ -131,7 +79,7 @@ public partial record struct BorgHand
         ForceRemovable = forceRemovable;
     }
 }
-<<<<<<< HEAD
+
 // ADT: droppable borg item data definitions
 [DataDefinition]
 public sealed partial class DroppableBorgItem
@@ -142,5 +90,3 @@ public sealed partial class DroppableBorgItem
     [DataField]
     public EntityWhitelist Whitelist;
 }
-=======
->>>>>>> upstreamwiz/master

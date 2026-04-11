@@ -1,19 +1,15 @@
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.DeviceNetwork;
+using Content.Shared.DeviceNetwork.Components;
+using Content.Shared.DeviceNetwork.Events;
 using Content.Shared.Damage.Components;
+using Content.Shared.Emag.Systems;
 using Content.Shared.FixedPoint;
 using Content.Shared.Mobs;
-<<<<<<< HEAD
-using Content.Shared.Mobs.Systems;
-=======
->>>>>>> upstreamwiz/master
 using Content.Shared.Movement.Components;
 using Content.Shared.Popups;
 using Content.Shared.Robotics;
 using Content.Shared.Silicons.Borgs.Components;
-using Content.Shared.DeviceNetwork.Components;
-using Content.Shared.DeviceNetwork.Events;
-using Content.Shared.Emag.Systems;
 using Robust.Shared.Utility;
 
 namespace Content.Server.Silicons.Borgs;
@@ -21,13 +17,6 @@ namespace Content.Server.Silicons.Borgs;
 /// <inheritdoc/>
 public sealed partial class BorgSystem
 {
-<<<<<<< HEAD
-    [Dependency] private readonly EmagSystem _emag = default!;
-    [Dependency] private readonly MobThresholdSystem _mobThresholdSystem = default!;
-    [Dependency] private readonly ItemSlotsSystem _itemSlotsSystem = default!;
-
-=======
->>>>>>> upstreamwiz/master
     private void InitializeTransponder()
     {
         SubscribeLocalEvent<BorgTransponderComponent, DeviceNetworkPacketEvent>(OnPacketReceived);
@@ -58,11 +47,7 @@ public sealed partial class BorgSystem
                 comp.Sprite,
                 comp.Name,
                 meta.EntityName,
-<<<<<<< HEAD
-                charge,
-=======
                 chargeFraction,
->>>>>>> upstreamwiz/master
                 hpPercent,
                 chassis.ModuleCount,
                 hasBrain,
@@ -144,11 +129,7 @@ public sealed partial class BorgSystem
         }
 
         var message = Loc.GetString(ent.Comp.DestroyingPopup, ("name", Name(ent)));
-<<<<<<< HEAD
-        Popup.PopupEntity(message, ent);
-=======
         _popup.PopupEntity(message, ent);
->>>>>>> upstreamwiz/master
         _trigger.ActivateTimerTrigger(ent.Owner);
 
         // prevent a shitter borg running into people
@@ -199,11 +180,7 @@ public sealed partial class BorgSystem
             return 1;
         }
 
-<<<<<<< HEAD
-        return 1 - ((FixedPoint2)(damageable.TotalDamage / threshold)).Float();
-=======
         return 1 - ((FixedPoint2)(_damageable.GetTotalDamage((uid, damageable)) / threshold)).Float();
->>>>>>> upstreamwiz/master
     }
 
     /// <summary>
