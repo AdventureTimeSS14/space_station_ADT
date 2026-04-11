@@ -20,7 +20,6 @@ namespace Content.Shared.Humanoid.Markings
         [DataField("sexRestriction")]
         public Sex? SexRestriction { get; private set; }
 
-<<<<<<< HEAD
         // Corvax-Sponsors-Start
         [DataField("sponsorOnly")]
         public bool SponsorOnly = false;
@@ -29,8 +28,6 @@ namespace Content.Shared.Humanoid.Markings
         [DataField("followSkinColor")]
         public bool FollowSkinColor { get; private set; } = false;
 
-=======
->>>>>>> upstreamwiz/master
         [DataField("forcedColoring")]
         public bool ForcedColoring { get; private set; } = false;
 
