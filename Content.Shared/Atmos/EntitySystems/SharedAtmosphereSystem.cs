@@ -26,37 +26,9 @@ public abstract partial class SharedAtmosphereSystem : EntitySystem
         base.Initialize();
 
         _internalsQuery = GetEntityQuery<InternalsComponent>();
-
-<<<<<<< HEAD
-        public string?[] GasReagents = new string[Atmospherics.TotalNumberOfGases];
-
-        protected readonly GasPrototype[] GasPrototypes = new GasPrototype[Atmospherics.TotalNumberOfGases];
-
-        public override void Initialize()
-        {
-            base.Initialize();
-
-            _internalsQuery = GetEntityQuery<InternalsComponent>();
-
-            InitializeBreathTool();
-
-            for (var i = 0; i < Atmospherics.TotalNumberOfGases; i++)
-            {
-                GasPrototypes[i] = _prototypeManager.Index<GasPrototype>(i.ToString());
-                GasReagents[i] = GasPrototypes[i].Reagent;
-            }
-        }
-
-        public GasPrototype GetGas(int gasId) => GasPrototypes[gasId];
-
-        public GasPrototype GetGas(Gas gasId) => GasPrototypes[(int) gasId];
-
-        public IEnumerable<GasPrototype> Gases => GasPrototypes;
-=======
         InitializeBreathTool();
         InitializeGases();
         InitializeCVars();
->>>>>>> upstreamwiz/master
     }
 
     /// <summary>

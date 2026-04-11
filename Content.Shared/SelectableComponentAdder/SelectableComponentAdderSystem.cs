@@ -58,11 +58,7 @@ public sealed partial class SelectableComponentAdderSystem : EntitySystem
                 // disable the verb if all components already exist
                 foreach (var component in registry)
                 {
-<<<<<<< HEAD
-                    if (!EntityManager.HasComponent(target, Factory.GetComponent(component.Key).GetType()))
-=======
                     if (!HasComp(target, Factory.GetComponent(component.Key).GetType()))
->>>>>>> upstreamwiz/master
                         return false;
                 }
                 return true;
@@ -73,11 +69,7 @@ public sealed partial class SelectableComponentAdderSystem : EntitySystem
                 // disable the verb if any component already exists.
                 foreach (var component in registry)
                 {
-<<<<<<< HEAD
-                    if (EntityManager.HasComponent(target, Factory.GetComponent(component.Key).GetType()))
-=======
                     if (HasComp(target, Factory.GetComponent(component.Key).GetType()))
->>>>>>> upstreamwiz/master
                         return true;
                 }
                 return false;
@@ -93,11 +85,7 @@ public sealed partial class SelectableComponentAdderSystem : EntitySystem
 
         foreach (var component in registry)
         {
-<<<<<<< HEAD
-            if (EntityManager.HasComponent(target, Factory.GetComponent(component.Key).GetType()) &&
-=======
             if (HasComp(target, Factory.GetComponent(component.Key).GetType()) &&
->>>>>>> upstreamwiz/master
                 setting is ComponentExistsSetting.Skip or ComponentExistsSetting.Block)
                 continue;
 

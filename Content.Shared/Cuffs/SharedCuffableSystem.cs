@@ -529,16 +529,11 @@ namespace Content.Shared.Cuffs
                 return false;
 
             // Success!
-<<<<<<< HEAD
             //ADT secborg start
             TrySpawnCuffSplitStack(handcuff, user, target, out EntityUid? handcuffsplit);
 
             if (handcuffsplit.HasValue)
             {
-=======
-            _hands.TryDrop(user, handcuff);
-
->>>>>>> upstreamwiz/master
             _container.Insert(handcuff, component.Container);
 
             var ev = new TargetHandcuffedEvent();

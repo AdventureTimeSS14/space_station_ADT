@@ -3,12 +3,6 @@ using Content.Shared.Actions;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Body.Events;
 using Content.Shared.Containers.ItemSlots;
-<<<<<<< HEAD
-using Content.Shared.Examine;
-using Content.Shared.IdentityManagement;
-using Content.Shared.Item.ItemToggle;
-using Content.Shared.Localizations;
-=======
 using Content.Shared.Database;
 using Content.Shared.Gibbing;
 using Content.Shared.Hands.EntitySystems;
@@ -20,7 +14,6 @@ using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Systems;
->>>>>>> upstreamwiz/master
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Pointing;
@@ -95,10 +88,6 @@ public abstract partial class SharedBorgSystem : EntitySystem
         SubscribeLocalEvent<BorgChassisComponent, AfterInteractUsingEvent>(OnChassisInteractUsing);
         SubscribeLocalEvent<BorgChassisComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMovementSpeedModifiers);
         SubscribeLocalEvent<BorgChassisComponent, ActivatableUIOpenAttemptEvent>(OnUIOpenAttempt);
-<<<<<<< HEAD
-        SubscribeLocalEvent<TryGetIdentityShortInfoEvent>(OnTryGetIdentityShortInfo);
-        SubscribeLocalEvent<BorgModuleComponent, ExaminedEvent>(OnModuleExamine);
-=======
         SubscribeLocalEvent<BorgChassisComponent, MobStateChangedEvent>(OnMobStateChanged);
         SubscribeLocalEvent<BorgChassisComponent, GibbedBeforeDeletionEvent>(OnBeingGibbed);
         SubscribeLocalEvent<BorgChassisComponent, GetCharactedDeadIcEvent>(OnGetDeadIC);
@@ -108,7 +97,6 @@ public abstract partial class SharedBorgSystem : EntitySystem
 
         SubscribeLocalEvent<BorgBrainComponent, MindAddedMessage>(OnBrainMindAdded);
         SubscribeLocalEvent<BorgBrainComponent, PointAttemptEvent>(OnBrainPointAttempt);
->>>>>>> upstreamwiz/master
 
     }
 
@@ -212,15 +200,8 @@ public abstract partial class SharedBorgSystem : EntitySystem
 
     protected virtual void OnRemoved(Entity<BorgChassisComponent> chassis, ref EntRemovedFromContainerMessage args)
     {
-<<<<<<< HEAD
-        // borgs generaly can't view their own ui
-        if (args.User == uid && !component.CanOpenSelfUi)
-            args.Cancel();
-    }
-=======
         if (_timing.ApplyingState)
             return; // The changes are already networked with the same game state
->>>>>>> upstreamwiz/master
 
         if (args.Container != chassis.Comp.BrainContainer)
             return;

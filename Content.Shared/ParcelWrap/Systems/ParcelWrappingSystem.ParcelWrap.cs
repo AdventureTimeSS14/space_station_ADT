@@ -89,14 +89,9 @@ public sealed partial class ParcelWrappingSystem
     {
         var duration = wrapper.Comp.WrapDelay;
 
-<<<<<<< HEAD
-        if (TryComp<ParcelWrapOverrideComponent>(target, out var overrideComp) && overrideComp.WrapDelay != null)
-            duration = overrideComp.WrapDelay.Value;
-=======
         if (TryComp<ParcelWrapOverrideComponent>(target, out var overrideComp) &&
             overrideComp.WrapDelay is { } wrapDelayOverride)
             duration = wrapDelayOverride;
->>>>>>> upstreamwiz/master
 
         // In case the target is a player inform them with a popup.
         if (target == user)
@@ -106,14 +101,10 @@ public sealed partial class ParcelWrappingSystem
         }
         else
         {
-<<<<<<< HEAD
-            var othersMsg = Loc.GetString("parcel-wrap-popup-being-wrapped", ("user", Identity.Entity(user, EntityManager)));
-=======
             var othersMsg = Loc.GetString(
                 "parcel-wrap-popup-being-wrapped",
                 ("user", Identity.Entity(user, EntityManager))
             );
->>>>>>> upstreamwiz/master
             _popup.PopupEntity(othersMsg, target, target, PopupType.MediumCaution);
         }
 
@@ -143,52 +134,6 @@ public sealed partial class ParcelWrappingSystem
         _charges.TryUseCharges(wrapper.Owner, 1);
         if (_charges.IsEmpty(wrapper.Owner))
             PredictedQueueDel(wrapper);
-<<<<<<< HEAD
-
-        // Play a wrapping sound.
-        _audio.PlayPredicted(wrapper.Comp.WrapSound, target, user);
-
-        if (_net.IsClient)
-            return; // Predicted spawns can't be interacted with yet.
-
-        EntityUid spawned;
-        var targetTransform = Transform(target);
-        // Check if the target has a pre-defined parcel type to be used.
-        if (TryComp<ParcelWrapOverrideComponent>(target, out var overrideComp))
-        {
-            spawned = Spawn(overrideComp.ParcelPrototype, targetTransform.Coordinates);
-        }
-        else // Create a parcel with the same size and generic sprites instead.
-        {
-            spawned = Spawn(wrapper.Comp.ParcelPrototype, targetTransform.Coordinates);
-
-            // If this wrap maintains the size when wrapping, set the parcel's size to the target's size. Otherwise use the
-            // wrap's fallback size.
-            TryComp(target, out ItemComponent? targetItemComp);
-            var size = wrapper.Comp.FallbackItemSize;
-            if (wrapper.Comp.WrappedItemsMaintainSize && targetItemComp is not null)
-                size = targetItemComp.Size;
-
-            // ParcelWrap's spawned entity should always have an `ItemComp`. As of writing, the only use has it hardcoded on
-            // its prototype.
-            var item = Comp<ItemComponent>(spawned);
-            _item.SetSize(spawned, size, item);
-            _appearance.SetData(spawned, WrappedParcelVisuals.Size, size.Id);
-
-            // If this wrap maintains the shape when wrapping and the item has a shape override, copy the shape override to
-            // the parcel.
-            if (wrapper.Comp.WrappedItemsMaintainShape && targetItemComp is { Shape: { } shape })
-                _item.SetShape(spawned, shape, item);
-        }
-
-        _transform.SetLocalRotation(spawned, targetTransform.LocalRotation);
-
-        // If the target is in a container, try to put the parcel in its place in the container.
-        if (_container.TryGetContainingContainer((target, null, null), out var containerOfTarget))
-        {
-            _container.Remove(target, containerOfTarget);
-            _container.InsertOrDrop((spawned, null, null), containerOfTarget);
-=======
 
         // Play a wrapping sound.
         _audio.PlayPredicted(wrapper.Comp.WrapSound, target, user);
@@ -206,7 +151,6 @@ public sealed partial class ParcelWrappingSystem
         {
             _container.Remove(target, containerOfTarget);
             _container.InsertOrDrop(spawned, containerOfTarget);
->>>>>>> upstreamwiz/master
         }
 
         // Insert the target into the parcel.
@@ -220,8 +164,6 @@ public sealed partial class ParcelWrappingSystem
                 $"Failed to insert target entity into newly spawned parcel. target={PrettyPrint.PrintUserFacing(target)}");
             PredictedDel(spawned);
         }
-<<<<<<< HEAD
-=======
     }
 
     private EntProtoId<WrappedParcelComponent> GetParcelPrototype(
@@ -234,6 +176,5 @@ public sealed partial class ParcelWrappingSystem
             return target.Comp.ParcelPrototype;
 
         return wrapper.Comp.ParcelPrototype;
->>>>>>> upstreamwiz/master
     }
 }

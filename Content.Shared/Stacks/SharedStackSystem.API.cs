@@ -7,8 +7,6 @@ namespace Content.Shared.Stacks;
 // Partial for public API functions.
 public abstract partial class SharedStackSystem
 {
-<<<<<<< HEAD
-=======
     #region Spawning
     // Interactions with spawned entities can not currently be predicted.
     // This means that when spawning a stack it should not be given directly to the player, but have some intermediary.
@@ -32,7 +30,6 @@ public abstract partial class SharedStackSystem
     }
 
     #endregion
->>>>>>> upstreamwiz/master
     #region Merge Stacks
 
     /// <summary>

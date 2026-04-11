@@ -33,10 +33,6 @@ namespace Content.Shared.Mind;
 public abstract partial class SharedMindSystem : EntitySystem
 {
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-<<<<<<< HEAD
-    [Dependency] private readonly INetManager _net = default!;
-=======
->>>>>>> upstreamwiz/master
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly SharedObjectivesSystem _objectives = default!;
@@ -44,10 +40,7 @@ public abstract partial class SharedMindSystem : EntitySystem
     [Dependency] private readonly MetaDataSystem _metadata = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
-<<<<<<< HEAD
-=======
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
->>>>>>> upstreamwiz/master
 
     [ViewVariables]
     protected readonly Dictionary<NetUserId, EntityUid> UserMinds = new();
@@ -620,13 +613,8 @@ public abstract partial class SharedMindSystem : EntitySystem
     /// </summary>
     public void AddAliveHumans(HashSet<Entity<MindComponent>> allHumans, EntityUid? exclude = null)
     {
-<<<<<<< HEAD
-        // HumanoidAppearanceComponent is used to prevent mice, pAIs, etc from being chosen
-        var query = EntityQueryEnumerator<HumanoidAppearanceComponent, MobStateComponent>();
-=======
         // HumanoidProfileComponent is used to prevent mice, pAIs, etc from being chosen
         var query = EntityQueryEnumerator<HumanoidProfileComponent, MobStateComponent>();
->>>>>>> upstreamwiz/master
         while (query.MoveNext(out var uid, out _, out var mobState))
         {
             // the player needs to have a mind and not be the excluded one +

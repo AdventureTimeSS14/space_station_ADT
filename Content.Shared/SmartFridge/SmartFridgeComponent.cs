@@ -105,7 +105,6 @@ public sealed class SmartFridgeDispenseItemMessage(SmartFridgeEntry entry) : Bou
     public SmartFridgeEntry Entry = entry;
 }
 
-<<<<<<< HEAD
 // ADT-Tweak Start: Delete Unnessesary entries
 [Serializable, NetSerializable]
 public sealed class SmartFridgeDeleteEmptyMessage(SmartFridgeEntry entry) : BoundUserInterfaceMessage
@@ -113,13 +112,3 @@ public sealed class SmartFridgeDeleteEmptyMessage(SmartFridgeEntry entry) : Boun
     public SmartFridgeEntry Entry = entry;
 }
 // ADT-Tweak End
-=======
-/// <summary>
-/// Sent by the client when trying to remove an empty smart fridge entry from the list of items in the UI.
-/// </summary>
-[Serializable, NetSerializable]
-public sealed class SmartFridgeRemoveEntryMessage(SmartFridgeEntry entry) : BoundUserInterfaceMessage
-{
-    public SmartFridgeEntry Entry = entry;
-}
->>>>>>> upstreamwiz/master

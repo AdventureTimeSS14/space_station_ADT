@@ -11,13 +11,10 @@ using Content.Shared.Whitelist;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Timing;
-<<<<<<< HEAD:Content.Shared/SmartFridge/SmartFridgeSystem.cs
 //ADT-Tweak-Start
 using Content.Shared.Storage;
 using System.Linq;
 //ADT-Tweak-End
-=======
->>>>>>> upstreamwiz/master:Content.Shared/SmartFridge/SharedSmartFridgeSystem.cs
 using Robust.Shared.Utility;
 
 namespace Content.Shared.SmartFridge;
@@ -37,10 +34,7 @@ public abstract class SharedSmartFridgeSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<SmartFridgeComponent, InteractUsingEvent>(OnInteractUsing, after: [typeof(AnchorableSystem)]);
-<<<<<<< HEAD:Content.Shared/SmartFridge/SmartFridgeSystem.cs
-=======
         SubscribeLocalEvent<SmartFridgeComponent, EntInsertedIntoContainerMessage>(OnItemInserted);
->>>>>>> upstreamwiz/master:Content.Shared/SmartFridge/SharedSmartFridgeSystem.cs
         SubscribeLocalEvent<SmartFridgeComponent, EntRemovedFromContainerMessage>(OnItemRemoved);
         SubscribeLocalEvent<SmartFridgeComponent, AfterAutoHandleStateEvent>((ent, ref _) => UpdateUI(ent));
 
@@ -54,11 +48,7 @@ public abstract class SharedSmartFridgeSystem : EntitySystem
             sub =>
             {
                 sub.Event<SmartFridgeDispenseItemMessage>(OnDispenseItem);
-<<<<<<< HEAD:Content.Shared/SmartFridge/SmartFridgeSystem.cs
                 sub.Event<SmartFridgeDeleteEmptyMessage>(OnDeleteEmpty); // ADt-Tweak - Delete Unnessesary entries
-=======
-                sub.Event<SmartFridgeRemoveEntryMessage>(OnRemoveEntry);
->>>>>>> upstreamwiz/master:Content.Shared/SmartFridge/SharedSmartFridgeSystem.cs
             });
     }
 
@@ -205,7 +195,6 @@ public abstract class SharedSmartFridgeSystem : EntitySystem
             contained.Remove(item);
             dispensed = true;
             Dirty(ent);
-<<<<<<< HEAD:Content.Shared/SmartFridge/SmartFridgeSystem.cs
             break;
         }
 
@@ -232,9 +221,6 @@ public abstract class SharedSmartFridgeSystem : EntitySystem
         if (ent.Comp.ContainedEntries.TryGetValue(args.Entry, out var contained) &&
             contained.Count > 0)
         {
-=======
-            UpdateUI(ent);
->>>>>>> upstreamwiz/master:Content.Shared/SmartFridge/SharedSmartFridgeSystem.cs
             return;
         }
 

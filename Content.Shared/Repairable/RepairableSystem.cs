@@ -31,17 +31,9 @@ public sealed partial class RepairableSystem : EntitySystem
         if (!TryComp(ent.Owner, out DamageableComponent? damageable))
             return;
 
-<<<<<<< HEAD
-        if (ent.Comp.Damage != null)
-        {
-            var damageChanged = _damageableSystem.ChangeDamage(ent.Owner, ent.Comp.Damage, true, false, origin: args.User);
-            _adminLogger.Add(LogType.Healed, $"{ToPrettyString(args.User):user} repaired {ToPrettyString(ent.Owner):target} by {damageChanged.GetTotal()}");
-        }
-=======
         var totalDamage = _damageableSystem.GetTotalDamage((ent.Owner, damageable));
         if (totalDamage == 0)
             return;
->>>>>>> upstreamwiz/master
 
         if (ent.Comp.DamageValue != null)
             RepairSomeDamage((ent, damageable), ent.Comp.DamageValue.Value, args.User);
@@ -58,17 +50,11 @@ public sealed partial class RepairableSystem : EntitySystem
 
         if (!args.Repeat)
         {
-<<<<<<< HEAD
-            // Repair all damage
-            _damageableSystem.SetAllDamage((ent.Owner, damageable), 0);
-            _adminLogger.Add(LogType.Healed, $"{ToPrettyString(args.User):user} repaired {ToPrettyString(ent.Owner):target} back to full health");
-=======
             var str = Loc.GetString("comp-repairable-repair", ("target", ent.Owner), ("tool", args.Used!));
             _popup.PopupClient(str, ent.Owner, args.User);
 
             var ev = new RepairedEvent(ent, args.User);
             RaiseLocalEvent(ent.Owner, ref ev);
->>>>>>> upstreamwiz/master
         }
     }
 

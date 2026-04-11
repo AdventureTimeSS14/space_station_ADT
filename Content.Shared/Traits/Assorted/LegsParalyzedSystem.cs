@@ -1,10 +1,4 @@
-<<<<<<< HEAD
-﻿using Content.Shared.Body.Systems;
-using Content.Shared.Buckle.Components;
-using Content.Shared.Movement.Components;
-=======
 ﻿using Content.Shared.Buckle.Components;
->>>>>>> upstreamwiz/master
 using Content.Shared.Movement.Events;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Standing;

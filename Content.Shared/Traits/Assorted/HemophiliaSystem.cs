@@ -1,8 +1,5 @@
 ﻿using Content.Shared.Body.Events;
-<<<<<<< HEAD
-=======
 using Content.Shared.StatusEffectNew;
->>>>>>> upstreamwiz/master
 
 namespace Content.Shared.Traits.Assorted;
 
@@ -10,14 +7,6 @@ public sealed class HemophiliaSystem : EntitySystem
 {
     public override void Initialize()
     {
-<<<<<<< HEAD
-        SubscribeLocalEvent<HemophiliaComponent, BleedModifierEvent>(OnBleedModifier);
-    }
-
-    private void OnBleedModifier(Entity<HemophiliaComponent> ent, ref BleedModifierEvent args)
-    {
-        args.BleedReductionAmount *= ent.Comp.HemophiliaBleedReductionMultiplier;
-=======
         SubscribeLocalEvent<HemophiliaStatusEffectComponent, StatusEffectRelayedEvent<BleedModifierEvent>>(OnBleedModifier);
     }
 
@@ -27,6 +16,5 @@ public sealed class HemophiliaSystem : EntitySystem
         ev.BleedReductionAmount *= ent.Comp.BleedReductionMultiplier;
         ev.BleedAmount *= ent.Comp.BleedAmountMultiplier;
         args.Args = ev;
->>>>>>> upstreamwiz/master
     }
 }

@@ -9,11 +9,8 @@ namespace Content.Shared.Silicons.StationAi;
 // Handles airlock radial
 public abstract partial class SharedStationAiSystem
 {
-<<<<<<< HEAD:Content.Shared/Silicons/StationAi/Systems/SharedStationAiSystem.Airlock.cs
-=======
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
 
->>>>>>> upstreamwiz/master:Content.Shared/Silicons/StationAi/SharedStationAiSystem.Airlock.cs
     private void InitializeAirlock()
     {
         SubscribeLocalEvent<DoorBoltComponent, StationAiBoltEvent>(OnAirlockBolt);
@@ -108,18 +105,12 @@ public abstract partial class SharedStationAiSystem
         if (!_access.IsAllowed(args.User, ent))
         {
             ShowDeviceNoAccessPopup(args.User);
-<<<<<<< HEAD:Content.Shared/Silicons/StationAi/Systems/SharedStationAiSystem.Airlock.cs
-            return;
-        }
-
-=======
             _adminLogger.Add(LogType.Action,
                 $"{args.User} was unable to change electrified status on {ent} to [{args.Electrified}] using the Station AI radial because they had no access.");
             return;
         }
 
         _adminLogger.Add(LogType.Action, $"{args.User} set electrified status on {ent} to [{args.Electrified}] using the Station AI radial.");
->>>>>>> upstreamwiz/master:Content.Shared/Silicons/StationAi/SharedStationAiSystem.Airlock.cs
         _electrify.SetElectrified((ent, component), args.Electrified);
         var soundToPlay = component.Enabled
             ? component.AirlockElectrifyEnabled

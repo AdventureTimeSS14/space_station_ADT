@@ -5,11 +5,7 @@ using Robust.Shared.Serialization;
 
 namespace Content.Shared.SurveillanceCamera;
 
-<<<<<<< HEAD
-public abstract class SharedSurveillanceCameraSystem : EntitySystem
-=======
 public abstract partial class SharedSurveillanceCameraSystem : EntitySystem
->>>>>>> upstreamwiz/master
 {
     public override void Initialize()
     {

@@ -1,9 +1,5 @@
-<<<<<<< HEAD
 using System.Linq;
 using Content.Shared.ADT.Traits;
-=======
-﻿using System.Linq;
->>>>>>> upstreamwiz/master
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Clothing;
 using Content.Shared.Containers.ItemSlots;
@@ -76,13 +72,9 @@ public sealed partial class IngestionSystem
         if (args.Cancelled || args.Solution != null)
             return;
 
-<<<<<<< HEAD
         // ADT-Tweak-Start: ShowUtensilPopup
         if (entity.Comp.UtensilRequired && !HasRequiredUtensils(args.User, entity.Comp.Utensil, entity.Comp.ShowUtensilPopup))
         // ADT-Tweak-End
-=======
-        if (entity.Comp.UtensilRequired && !HasRequiredUtensils(args.User, entity.Comp.Utensil))
->>>>>>> upstreamwiz/master
         {
             args.Cancelled = true;
             return;
@@ -98,7 +90,6 @@ public sealed partial class IngestionSystem
         }
 
         // Time is additive because I said so.
-<<<<<<< HEAD
         // ADT-Tweak start
         var delay = entity.Comp.Delay;
 
@@ -109,9 +100,6 @@ public sealed partial class IngestionSystem
 
         args.Time += delay;
         // ADT-Tweak end
-=======
-        args.Time += entity.Comp.Delay;
->>>>>>> upstreamwiz/master
     }
 
     private void OnStorageEdible(Entity<StorageComponent> ent, ref EdibleEvent args)
