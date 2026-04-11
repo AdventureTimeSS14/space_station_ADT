@@ -65,6 +65,25 @@ public abstract class SharedRadioJobIconSystem : EntitySystem
         }
     }
 
+    public void UpdateRadioJobIcon(EntityUid uid, ProtoId<JobIconPrototype> iconId, string jobName)
+    {
+        if (!Exists(uid) || Deleted(uid))
+            return;
+
+        if (!_radioJobIconQuery.TryGetComponent(uid, out var component))
+            component = EnsureComp<RadioJobIconComponent>(uid);
+
+        if (component.JobIconId.Id != iconId.Id || component.JobName != jobName)
+        {
+            component.JobIconId = iconId;
+            component.JobName = jobName;
+            Dirty(uid, component);
+
+            var ev = new RadioJobIconUpdatedEvent(iconId.Id, jobName);
+            RaiseLocalEvent(uid, ref ev);
+        }
+    }
+
     protected virtual (string iconId, string jobName) GetJobIcon(EntityUid entity)
     {
         var iconId = "JobIconNoId";
