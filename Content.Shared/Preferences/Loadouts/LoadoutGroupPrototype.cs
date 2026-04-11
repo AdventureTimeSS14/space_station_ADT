@@ -32,12 +32,6 @@ public sealed partial class LoadoutGroupPrototype : IPrototype, IInheritingProto
     /// </summary>
     [DataField]
     public int MinLimit = 1;
-    
-    /// <summary>
-    /// Number of loadouts that are selected by default.
-    /// </summary>
-    [DataField]
-    public int DefaultSelected = 0;
 
     /// <summary>
     /// Number of loadouts that are selected by default.
