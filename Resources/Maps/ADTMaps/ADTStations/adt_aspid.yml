@@ -54987,8 +54987,6 @@ entities:
       pos: 62.5,74.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 15890
   - uid: 8119
@@ -58013,8 +58011,6 @@ entities:
       pos: 67.5,70.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 15890
 - proto: Fireplace
@@ -75901,8 +75897,6 @@ entities:
       pos: 63.5,74.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 15890
     - type: AtmosPipeColor
@@ -78948,8 +78942,6 @@ entities:
       pos: 65.5,76.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 15890
     - type: AtmosPipeColor
