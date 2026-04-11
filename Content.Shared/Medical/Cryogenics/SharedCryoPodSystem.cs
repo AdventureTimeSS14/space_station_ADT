@@ -229,42 +229,6 @@ public abstract partial class SharedCryoPodSystem : EntitySystem
         }
     }
 
-    public override void Update(float frameTime)
-    {
-        base.Update(frameTime);
-
-        var curTime = _timing.CurTime;
-        var query = EntityQueryEnumerator<ActiveCryoPodComponent, CryoPodComponent>();
-
-        while (query.MoveNext(out var uid, out _, out var cryoPod))
-        {
-            if (curTime < cryoPod.NextInjectionTime)
-                continue;
-
-            cryoPod.NextInjectionTime += cryoPod.BeakerTransferTime;
-            Dirty(uid, cryoPod);
-
-            if (!_itemSlotsQuery.TryComp(uid, out var itemSlotsComponent))
-                continue;
-
-            var container = _itemSlots.GetItemOrNull(uid, cryoPod.SolutionContainerName, itemSlotsComponent);
-            var patient = cryoPod.BodyContainer.ContainedEntity;
-            if (container != null
-                && container.Value.Valid
-                && patient != null
-                && _dispenserQuery.TryComp(container, out var fitsInDispenserComponent)
-                && _solutionContainerQuery.TryComp(container, out var solutionContainerManagerComponent)
-                && _solutionContainer.TryGetFitsInDispenser((container.Value, fitsInDispenserComponent, solutionContainerManagerComponent),
-                    out var containerSolution, out _)
-                && _bloodstreamQuery.TryComp(patient, out var bloodstream))
-            {
-                var solutionToInject = _solutionContainer.SplitSolution(containerSolution.Value, cryoPod.BeakerTransferAmount);
-                _bloodstream.TryAddToChemicals((patient.Value, bloodstream), solutionToInject);
-                _reactive.DoEntityReaction(patient.Value, solutionToInject, ReactionMethod.Injection);
-            }
-        }
-    }
-
     private void HandleDragDropOn(Entity<CryoPodComponent> ent, ref DragDropTargetEvent args)
     {
         if (ent.Comp.BodyContainer.ContainedEntity != null)
