@@ -1107,6 +1107,9 @@
   - type: FoodSequenceElement
     entries:
       CottonBurger: PenguinPlushie
+  - type: Tag
+    tags:
+    - ADTPenguinToy
 
 - type: entity
   parent: BasePlushie
