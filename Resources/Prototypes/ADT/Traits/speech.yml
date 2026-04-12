@@ -14,6 +14,20 @@
     - CentcomSpecialists
 
 - type: trait
+  id: Hushed
+  name: trait-hushed-name
+  description: trait-hushed-desc
+  category: SpeechTraits
+  cost: -1
+  blacklist:
+    components:
+      - BorgChassis
+  effects:
+    - !type:AddCompsEffect
+      components:
+        - type: Hushed
+
+- type: trait
   id: ArchaicAccent
   name: trait-archaic-accent-name
   description: trait-archaic-accent-desc
@@ -72,3 +86,30 @@
     - !type:AddCompsEffect
       components:
         - type: BurrinessAccent
+
+- type: trait
+  id: PseudobulbarAffect
+  name: trait-pseudobulbar-affect-name
+  description: trait-pseudobulbar-affect-desc
+  category: SpeechTraits
+  cost: 0
+  speciesBlacklist:
+    - IPC
+  effects:
+    - !type:AddCompsEffect
+      components:
+        - type: EmotionallyUnstableAccent
+          triggerEmotionChance: 0.2
+          exclamatorySentenceChance: 0.5
+          changeMessageChance: 0.3
+          emotes:
+            - Laugh
+            - Scream
+            - Crying
+        - type: EmotionLoop
+          minTimeBetweenEmotions: 60
+          maxTimeBetweenEmotions: 90
+          emotes:
+            - Laugh
+            - Scream
+            - Crying

@@ -43,6 +43,10 @@ namespace Content.Client.Administration.UI.Bwoink
         // ADT-Tweak end. Система тегов в АХелп
 
         private PlayerInfo? _currentPlayer;
+        // ADT-Tweak start
+        public ViewerAHelpUIHandler ViewerHelper = default!;
+        private bool _isViewerMode = false;
+        // ADT-Tweak end
 
         public BwoinkControl()
         {
@@ -50,10 +54,23 @@ namespace Content.Client.Administration.UI.Bwoink
             IoCManager.InjectDependencies(this);
 
             var uiController = _ui.GetUIController<AHelpUIController>();
-            if (uiController.UIHelper is not AdminAHelpUIHandler helper)
-                return;
 
-            AHelpHelper = helper;
+            // ADT-Tweak start
+            if (uiController.UIHelper is AdminAHelpUIHandler adminHelper)
+            {
+                AHelpHelper = adminHelper;
+            }
+            else if (uiController.UIHelper is ViewerAHelpUIHandler viewerHelper)
+            {
+                ViewerHelper = viewerHelper;
+                InitializeViewerMode();
+                return;
+            }
+            else
+            {
+                return;
+            }
+            // ADT-Tweak end
 
             _adminManager.AdminStatusUpdated += UpdateButtons;
             UpdateButtons();
@@ -295,14 +312,27 @@ namespace Content.Client.Administration.UI.Bwoink
         }
 
         private void SwitchToChannel(NetUserId? ch)
+        // ADT-Tweak start
         {
-            UpdateButtons();
-
-            AHelpHelper.HideAllPanels();
-            if (ch != null)
+            if (_isViewerMode)
             {
-                var panel = AHelpHelper.EnsurePanel(ch.Value);
-                panel.Visible = true;
+                ViewerHelper.HideAllPanels();
+                if (ch != null)
+                {
+                    var panel = ViewerHelper.EnsurePanel(ch.Value);
+                    panel.Visible = true;
+                }
+            }
+            else
+        // ADT-Tweak end
+            {
+                UpdateButtons();
+                AHelpHelper.HideAllPanels();
+                if (ch != null)
+                {
+                    var panel = AHelpHelper.EnsurePanel(ch.Value);
+                    panel.Visible = true;
+                }
             }
         }
 
@@ -322,7 +352,94 @@ namespace Content.Client.Administration.UI.Bwoink
                 }
             }
 
-            UpdateButtons();
+            if (!_isViewerMode) // ADT-Tweak
+            {
+                UpdateButtons();
+            }
+        }
+
+        // ADT-Tweak start
+        public void SetViewerMode()
+        {
+            Bans.Visible = false;
+            Notes.Visible = false;
+            Ban.Visible = false;
+            Kick.Visible = false;
+            Respawn.Visible = false;
+            Follow.Visible = false;
+            Logs.Visible = false;
+            Playerpanel.Visible = false;
+            PopOut.Visible = false;
+
+            AdminOnly.Visible = false;
+            PlaySound.Visible = false;
+        }
+
+        private void InitializeViewerMode()
+        {
+            _isViewerMode = true;
+
+            ChannelSelector.OnSelectionChanged += sel =>
+            {
+                _currentPlayer = sel;
+                SwitchToChannel(sel?.SessionId);
+                ChannelSelector.PlayerListContainer.DirtyList();
+            };
+
+            ChannelSelector.OverrideText += (info, text) =>
+            {
+                var sb = new StringBuilder();
+
+                if (info.Connected)
+                    sb.Append('●');
+                else
+                    sb.Append(info.ActiveThisRound ? '○' : '·');
+
+                sb.Append(' ');
+                if (ViewerHelper.TryGetChannel(info.SessionId, out var panel) && panel.Unread > 0)
+                {
+                    if (panel.Unread < 11)
+                        sb.Append(new Rune('➀' + (panel.Unread-1)));
+                    else
+                        sb.Append(new Rune(0x2639)); // ☹
+                    sb.Append(' ');
+                }
+
+                if (info.Antag && info.ActiveThisRound)
+                    sb.Append(new Rune(0x1F5E1)); // 🗡
+
+                if (info.OverallPlaytime <= TimeSpan.FromMinutes(_cfg.GetCVar(CCVars.NewPlayerThreshold)))
+                    sb.Append(new Rune(0x23F2)); // ⏲
+
+                sb.AppendFormat("\"{0}\"", text);
+
+                return sb.ToString();
+            };
+
+            ChannelSelector.Comparison = (a, b) =>
+            {
+                var ach = ViewerHelper.EnsurePanel(a.SessionId);
+                var bch = ViewerHelper.EnsurePanel(b.SessionId);
+
+                if (a.IsPinned != b.IsPinned)
+                    return a.IsPinned ? -1 : 1;
+
+                var aUnread = ach.Unread > 0;
+                var bUnread = bch.Unread > 0;
+                if (aUnread != bUnread)
+                    return aUnread ? -1 : 1;
+
+                var aRecent = a.ActiveThisRound && ach.LastMessage != DateTime.MinValue;
+                var bRecent = b.ActiveThisRound && bch.LastMessage != DateTime.MinValue;
+                if (aRecent != bRecent)
+                    return aRecent ? -1 : 1;
+
+                if (a.Connected != b.Connected)
+                    return a.Connected ? -1 : 1;
+
+                return bch.LastMessage.CompareTo(ach.LastMessage);
+            };
+        // ADT-Tweak end
         }
     }
 }

@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Taken from tgstation and modified by Swept at https://github.com/tgstation/tgstation/commit/40d75cc340c63582fb66ce15bf75a36115f6bdaa, resprited by orange6775 (discord)",
+    "copyright": "Taken from tgstation and modified by Swept at https://github.com/tgstation/tgstation/commit/40d75cc340c63582fb66ce15bf75a36115f6bdaa, resprited by orange6775 (discord) and waffle cake created by pangaari (discord)",
     "size": {
         "x": 32,
         "y": 32
@@ -48,6 +48,14 @@
         {"name": "slime-inhand-right", "directions": 4},
         {"name": "spaceman"},
         {"name": "spaceman-inhand-left", "directions": 4},
-        {"name": "spaceman-inhand-right", "directions": 4}
+        {"name": "spaceman-inhand-right", "directions": 4},
+        {"name": "bananaboom"},
+        {"name": "bananaboom-inhand-left", "directions": 4},
+        {"name": "bananaboom-inhand-right", "directions": 4},
+        {"name": "bananaboom-slice"},
+        {"name": "bananaboom-slice-inhand-left", "directions": 4},
+        {"name": "bananaboom-slice-inhand-right", "directions": 4},
+        {"name": "waffle"},
+        {"name": "waffle-slice"}
     ]
 }
