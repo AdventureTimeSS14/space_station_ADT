@@ -41,10 +41,10 @@ public sealed class WeatherSchedulerSystem : EntitySystem
                 var ending = comp.NextUpdate;
                 // crossfade weather so as one ends the next starts
                 if (HasWeather(comp, comp.Stage - 1))
-                    ending += WeatherComponent.ShutdownTime;
+                    ending += SharedWeatherSystem.ShutdownTime;
                 if (HasWeather(comp, comp.Stage + 1))
-                    ending += WeatherComponent.StartupTime;
-                _weather.SetWeather(mapId, _proto.Index(weather), ending);
+                    ending += SharedWeatherSystem.StartupTime;
+                _weather.TrySetWeather(mapId, weather, out _, ending);
             }
 
             if (stage.Message is {} message)

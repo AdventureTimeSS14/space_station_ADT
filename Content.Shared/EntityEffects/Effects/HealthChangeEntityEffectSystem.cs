@@ -51,10 +51,10 @@ public sealed partial class HealthChange : EntityEffectBase<HealthChange>
 
             var damageSpec = new DamageSpecifier(Damage);
 
-            var universalReagentDamageModifier = entSys.GetEntitySystem<Damage.Systems.DamageableSystem>().UniversalReagentDamageModifier;
-            var universalReagentHealModifier = entSys.GetEntitySystem<Damage.Systems.DamageableSystem>().UniversalReagentHealModifier;
+            var universalReagentDamageModifier = entSys.GetEntitySystem<DamageableSystem>().UniversalReagentDamageModifier;
+            var universalReagentHealModifier = entSys.GetEntitySystem<DamageableSystem>().UniversalReagentHealModifier;
 
-            damageSpec = entSys.GetEntitySystem<Damage.Systems.DamageableSystem>().ApplyUniversalAllModifiers(damageSpec);
+            damageSpec = entSys.GetEntitySystem<DamageableSystem>().ApplyUniversalAllModifiers(damageSpec);
 
             foreach (var (kind, amount) in damageSpec.DamageDict)
             {

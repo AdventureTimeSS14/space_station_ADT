@@ -101,25 +101,6 @@ public abstract partial class SharedBorgSystem : EntitySystem
 
     }
 
-    private void OnModuleExamine(Entity<BorgModuleComponent> ent, ref ExaminedEvent args)
-    {
-        if (ent.Comp.BorgFitTypes == null)
-            return;
-
-        if (ent.Comp.BorgFitTypes.Count == 0)
-            return;
-
-        var typeList = new List<string>();
-
-        foreach (var type in ent.Comp.BorgFitTypes)
-        {
-            typeList.Add(Loc.GetString(type));
-        }
-
-        var types = ContentLocalizationManager.FormatList(typeList);
-        args.PushMarkup(Loc.GetString("borg-module-fit", ("types", types)));
-    }
-
     private void OnTryGetIdentityShortInfo(TryGetIdentityShortInfoEvent args)
     {
         if (args.Handled)

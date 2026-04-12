@@ -8,6 +8,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
+using Content.Shared.Body;
 using Content.Shared.Body.Components;
 using Content.Shared.Tools.Components;
 using Content.Shared.Item;

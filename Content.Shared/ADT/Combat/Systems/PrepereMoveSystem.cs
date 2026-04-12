@@ -39,7 +39,7 @@ public abstract class SharedPrepareActionSystem : EntitySystem
         if (!args.IsHit || !args.HitEntities.Any())
             return;
 
-        if (!TryComp<HumanoidAppearanceComponent>(args.HitEntities[0], out _))
+        if (!TryComp<HumanoidProfileComponent>(args.HitEntities[0], out _))
             return;
         UseEventOnTarget(uid, args.HitEntities[0], comp.PreparedMove);
         comp.PreparedMove = null;

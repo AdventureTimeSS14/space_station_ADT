@@ -4,20 +4,20 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototy
 
 namespace Content.Shared.ADT.Language;
 
-[Prototype("language")]
-public sealed class LanguagePrototype : IPrototype, IInheritingPrototype
+[Prototype("language"), DataDefinition]
+public sealed partial class LanguagePrototype : IPrototype, IInheritingPrototype
 {
     [IdDataField]
     public string ID { get; private set; } = default!;
 
     /// <inheritdoc />
     [ParentDataField(typeof(AbstractPrototypeIdArraySerializer<LanguagePrototype>))]
-    public string[]? Parents { get; }
+    public string[]? Parents { get; private set; }
 
     /// <inheritdoc />
     [NeverPushInheritance]
     [AbstractDataField]
-    public bool Abstract { get; }
+    public bool Abstract { get; private set; }
 
     [DataField]
     public int Priority = 1;

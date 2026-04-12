@@ -8,14 +8,14 @@ using Robust.Shared.Serialization;
 namespace Content.Shared._RMC14.Attachable;
 
 [DataRecord, Serializable, NetSerializable]
-public record struct AttachableSlot(
+public partial record struct AttachableSlot(
     bool Locked,
     EntityWhitelist Whitelist,
     ProtoId<EntityPrototype>? StartingAttachable
 );
 
 [DataRecord, Serializable, NetSerializable]
-public record struct AttachableModifierConditions(
+public partial record struct AttachableModifierConditions(
     bool UnwieldedOnly,
     bool WieldedOnly,
     bool ActiveOnly,
@@ -25,14 +25,14 @@ public record struct AttachableModifierConditions(
 );
 
 [DataRecord, Serializable, NetSerializable]
-public record struct AttachableWeaponMeleeModifierSet(
+public partial record struct AttachableWeaponMeleeModifierSet(
     AttachableModifierConditions? Conditions,
     DamageSpecifier? BonusDamage,
     DamageSpecifier? DecreaseDamage
 );
 
 [DataRecord, Serializable, NetSerializable]
-public record struct AttachableWeaponRangedModifierSet(
+public partial record struct AttachableWeaponRangedModifierSet(
     AttachableModifierConditions? Conditions,
     FixedPoint2 AccuracyAddMult, // Not implemented yet. Added to have all the values already on our attachments, so whoever implements this doesn't need to dig through CM13. Remove this comment once implemented.
     FixedPoint2 AccuracyMovementPenaltyAddMult, // As above.
@@ -47,7 +47,7 @@ public record struct AttachableWeaponRangedModifierSet(
 );
 
 [DataRecord, Serializable, NetSerializable]
-public record struct AttachableWeaponFireModesModifierSet(
+public partial record struct AttachableWeaponFireModesModifierSet(
     AttachableModifierConditions? Conditions,
     SelectiveFire ExtraFireModes,
     SelectiveFire SetFireMode
@@ -60,20 +60,20 @@ public record struct AttachableWeaponFireModesModifierSet(
 // We then add the ss13 move delay, and divide 1 by the result to convert it back into speed.
 // Then we divide it by the original speed and subtract 1 from the result to get the additive multiplier.
 [DataRecord, Serializable, NetSerializable]
-public record struct AttachableSpeedModifierSet(
+public partial record struct AttachableSpeedModifierSet(
     AttachableModifierConditions? Conditions,
     float Walk, // Default human walk speed: 2.5f
     float Sprint // Default human sprint speed: 4.5f
 );
 
 [DataRecord, Serializable, NetSerializable]
-public record struct AttachableSizeModifierSet(
+public partial record struct AttachableSizeModifierSet(
     AttachableModifierConditions? Conditions,
     int Size
 );
 
 [DataRecord, Serializable, NetSerializable]
-public record struct AttachableWieldDelayModifierSet(
+public partial record struct AttachableWieldDelayModifierSet(
     AttachableModifierConditions? Conditions,
     TimeSpan Delay
 );

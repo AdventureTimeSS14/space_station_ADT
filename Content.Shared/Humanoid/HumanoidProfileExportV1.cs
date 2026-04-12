@@ -81,7 +81,7 @@ public sealed partial class HumanoidCharacterProfileV1
 
     public HumanoidCharacterProfile ToV2()
     {
-        return new(Name, FlavorText, Species, Age, Sex, Gender, Appearance.ToV2(Species), SpawnPriority, JobPriorities, PreferenceUnavailable, AntagPreferences, TraitPreferences, Loadouts);
+        return new(Name, FlavorText, Species, HumanoidCharacterProfile.DefaultVoice, Age, Sex, Gender, Appearance.ToV2(Species), SpawnPriority, JobPriorities, PreferenceUnavailable, AntagPreferences, TraitPreferences, new(), new(), new(), string.Empty, string.Empty);
     }
 }
 
@@ -120,6 +120,6 @@ public sealed partial class HumanoidCharacterAppearanceV1
         if (FacialHairStyleId != string.Empty)
             incomingMarkings.Add(new(FacialHairStyleId, new List<Color>() { FacialHairColor }));
 
-        return new HumanoidCharacterAppearance(EyeColor, SkinColor, markingManager.ConvertMarkings(incomingMarkings, species));
+        return new HumanoidCharacterAppearance(EyeColor, new List<Color> { HairColor }, SkinColor, markingManager.ConvertMarkings(incomingMarkings, species));
     }
 }

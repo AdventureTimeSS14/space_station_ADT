@@ -244,6 +244,9 @@ public abstract partial class SharedBorgSystem
 
     private IEnumerable<(string HandId, Hand Hand, EntProtoId? Item, bool ForceRemovable)> EnumerateModuleSlots(Entity<ItemBorgModuleComponent?> module)
     {
+        if (!Resolve(module, ref module.Comp))
+            yield break;
+
         var netEntity = GetNetEntity(module.Owner);
 
         for (var i = 0; i < module.Comp.Hands.Count; i++)

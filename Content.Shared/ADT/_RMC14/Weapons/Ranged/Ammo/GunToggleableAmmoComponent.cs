@@ -27,6 +27,11 @@ public sealed partial class GunToggleableAmmoComponent : Component
     public SoundSpecifier ToggleSound = new SoundPathSpecifier("/Audio/Items/beep.ogg");
 }
 
-[DataRecord]
-[Serializable, NetSerializable]
-public readonly record struct GunToggleableAmmoSetting(DamageSpecifier Damage, int ArmorPiercing, LocId Name, SpriteSpecifier.Rsi Icon);
+[DataDefinition, Serializable, NetSerializable]
+public partial record struct GunToggleableAmmoSetting
+{
+    [DataField] public DamageSpecifier Damage;
+    [DataField] public int ArmorPiercing;
+    [DataField] public LocId Name;
+    [DataField] public SpriteSpecifier.Rsi Icon;
+}

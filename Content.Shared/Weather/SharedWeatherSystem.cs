@@ -22,38 +22,21 @@ public abstract class SharedWeatherSystem : EntitySystem
     [Dependency] private readonly SharedRoofSystem _roof = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
 
-    private EntityQuery<BlockWeatherComponent> _blockQuery;
-    private EntityQuery<WeatherStatusEffectComponent> _weatherQuery;
+    [Dependency] private readonly EntityQuery<BlockWeatherComponent> _blockQuery = default!;
+    [Dependency] private readonly EntityQuery<WeatherStatusEffectComponent> _weatherQuery = default!;
 
     public static readonly TimeSpan StartupTime = TimeSpan.FromSeconds(15);
     public static readonly TimeSpan ShutdownTime = TimeSpan.FromSeconds(15);
 
-    public override void Initialize()
-    {
-        base.Initialize();
-
-        _blockQuery = GetEntityQuery<BlockWeatherComponent>();
-        _weatherQuery = GetEntityQuery<WeatherStatusEffectComponent>();
-    }
-
-    private void OnWeatherUnpaused(EntityUid uid, WeatherComponent component, ref EntityUnpausedEvent args)
-    {
-        foreach (var weather in component.Weather.Values)
-        {
-            weather.StartTime += args.PausedTime;
-
-            if (weather.EndTime != null)
-                weather.EndTime = weather.EndTime.Value + args.PausedTime;
-        }
-        component.NextUpdate += args.PausedTime; // ADT tweak
-    }
-
-    public bool CanWeatherAffect(EntityUid uid, MapGridComponent grid, TileRef tileRef, RoofComponent? roofComp = null)
+    public bool CanWeatherAffect(Entity<MapGridComponent?, RoofComponent?> ent, TileRef tileRef)
     {
         if (tileRef.Tile.IsEmpty)
             return true;
 
-        if (Resolve(uid, ref roofComp, false) && _roof.IsRooved((uid, grid, roofComp), tileRef.GridIndices))
+        if (!Resolve(ent, ref ent.Comp1))
+            return false;
+
+        if (Resolve(ent, ref ent.Comp2, false) && _roof.IsRooved((ent, ent.Comp1, ent.Comp2), tileRef.GridIndices))
             return false;
 
         var tileDef = (ContentTileDefinition)_tileDefManager[tileRef.Tile.TypeId];
@@ -61,7 +44,7 @@ public abstract class SharedWeatherSystem : EntitySystem
         if (!tileDef.Weather)
             return false;
 
-        var anchoredEntities = _mapSystem.GetAnchoredEntitiesEnumerator(uid, grid, tileRef.GridIndices);
+        var anchoredEntities = _mapSystem.GetAnchoredEntitiesEnumerator(ent, ent.Comp1, tileRef.GridIndices);
 
         while (anchoredEntities.MoveNext(out var anchored))
         {
@@ -88,64 +71,6 @@ public abstract class SharedWeatherSystem : EntitySystem
             return (float)(elapsed / StartupTime);
         else
             return 1f;
-    }
-
-    public override void Update(float frameTime)
-    {
-        base.Update(frameTime);
-
-        if (!Timing.IsFirstTimePredicted)
-            return;
-
-        var curTime = Timing.CurTime;
-
-        var query = EntityQueryEnumerator<WeatherComponent>();
-        while (query.MoveNext(out var uid, out var comp))
-        {
-            if (comp.Weather.Count == 0)
-                continue;
-
-            foreach (var (proto, weather) in comp.Weather)
-            {
-                var endTime = weather.EndTime;
-
-                // Ended
-                if (endTime != null && endTime < curTime)
-                {
-                    EndWeather(uid, comp, proto);
-                    continue;
-                }
-
-                var remainingTime = endTime - curTime;
-
-                // Admin messed up or the likes.
-                if (!ProtoMan.TryIndex<WeatherPrototype>(proto, out var weatherProto))
-                {
-                    Log.Error($"Unable to find weather prototype for {comp.Weather}, ending!");
-                    EndWeather(uid, comp, proto);
-                    continue;
-                }
-
-                // Shutting down
-                if (endTime != null && remainingTime < WeatherComponent.ShutdownTime)
-                {
-                    SetState(uid, WeatherState.Ending, comp, weather, weatherProto);
-                }
-                // Starting up
-                else
-                {
-                    var weatherElapsed = Timing.CurTime - weather.StartTime;
-
-                    if (weatherElapsed < WeatherComponent.StartupTime)
-                        SetState(uid, WeatherState.Starting, comp, weather, weatherProto);
-                    else
-                        SetState(uid, WeatherState.Running, comp, weather, weatherProto);
-                }
-
-                // Run whatever code we need.
-                Run(uid, weather, weatherProto, frameTime);
-            }
-        }
     }
 
     /// <summary>

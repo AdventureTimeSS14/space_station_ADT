@@ -216,7 +216,7 @@ public struct PolymorphHumanoidData
 {
     public EntityPrototype EntityPrototype;
     public MetaDataComponent MetaDataComponent;
-    public HumanoidAppearanceComponent HumanoidAppearanceComponent;
+    public HumanoidProfileComponent HumanoidProfileComponent;
     public string DNA;
     public EntityUid EntityUid;
 }

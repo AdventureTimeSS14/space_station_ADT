@@ -41,34 +41,6 @@ public sealed class WeatherSystem : SharedWeatherSystem
         base.Update(frameTime);
 
         if (!Timing.IsFirstTimePredicted)
-<<<<<<< HEAD
-            return true;
-
-        // ADT-Tweak-Start: (P4A) Исправление звука погоды в лобби (PORT from DeltaV-Station/Delta-v (2978)
-        if (_playerManager.LocalEntity is not { } ent)
-            return false;
- 
-        var map = Transform(uid).MapUid;
-        var entMap = Transform(ent).MapUid;
- 
-        if (map == null || entMap != map)
-        {
-            weather.Stream = _audio.Stop(weather.Stream);
-            return false;
-        }
-        // ADT-Tweak-End
-
-        // TODO: Fades (properly)
-        weather.Stream = _audio.Stop(weather.Stream);
-        weather.Stream = _audio.PlayGlobal(weatherProto.Sound, Filter.Local(), true)?.Entity;
-        return true;
-    }
-
-    private void OnWeatherHandleState(EntityUid uid, WeatherComponent component, ref ComponentHandleState args)
-    {
-        if (args.Current is not WeatherComponentState state)
-=======
->>>>>>> upstreamwiz/master
             return;
 
         var player = _playerManager.LocalEntity;
@@ -84,13 +56,13 @@ public sealed class WeatherSystem : SharedWeatherSystem
             if (weather.Sound == null || status.AppliedTo != playerXform.MapUid)
             {
                 weather.Stream = _audio.Stop(weather.Stream);
-                return;
+                continue;
             }
 
             weather.Stream ??= _audio.PlayGlobal(weather.Sound, Filter.Local(), true)?.Entity;
 
             if (!_audioQuery.TryComp(weather.Stream, out var audio))
-                return;
+                continue;
 
             var occlusion = 0f;
 

@@ -38,7 +38,7 @@ public sealed class SharedWeaponComboSystem : EntitySystem
             return;
         if (!args.IsHit || !args.HitEntities.Any())
             return;
-        if (!HasComp<HumanoidAppearanceComponent>(args.HitEntities[0]))
+        if (!HasComp<HumanoidProfileComponent>(args.HitEntities[0]))
             return;
 
         var move = GetWeaponAction(args.Iswide, comp.CurrentStand);

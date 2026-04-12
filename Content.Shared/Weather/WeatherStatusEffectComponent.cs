@@ -43,4 +43,16 @@ public sealed partial class WeatherStatusEffectComponent : Component
     /// </summary>
     [ViewVariables]
     public EntityUid? Stream;
+
+    /// <summary>
+    /// Time until the next damage/effect update.
+    /// </summary>
+    [DataField]
+    public TimeSpan NextUpdate;
+
+    /// <summary>
+    /// How often to apply effects (e.g. damage).
+    /// </summary>
+    [DataField]
+    public TimeSpan UpdateDelay = TimeSpan.FromSeconds(1);
 }

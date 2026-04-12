@@ -2,11 +2,11 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared.ADT.Economy;
 
-[Prototype("salary")]
-public sealed class SalaryPrototype : IPrototype
+[Prototype("salary"), DataDefinition]
+public sealed partial class SalaryPrototype : IPrototype
 {
     [IdDataField]
-    public string ID { get; } = default!;
+    public string ID { get; private set; } = default!;
 
     [DataField("salaries")]
     public Dictionary<string, int> Salaries = new();

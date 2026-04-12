@@ -36,6 +36,13 @@ namespace Content.Shared.Preferences
     public sealed partial class HumanoidCharacterProfile
     {
         public static readonly ProtoId<SpeciesPrototype> DefaultSpecies = "Human";
+        public const string DefaultVoice = "VoiceHuman";
+        public static readonly Dictionary<Sex, string> DefaultSexVoice = new()
+        {
+            { Sex.Male, "VoiceHumanMale" },
+            { Sex.Female, "VoiceHumanFemale" },
+            { Sex.Unsexed, "VoiceHuman" }
+        };
         private static readonly Regex RestrictedNameRegex = new("[^A-Za-zА-Яа-яёЁ0-9' _.<>^%~ -]"); //ADT-Tweak
         private static readonly Regex ICNameCaseRegex = new(@"^(?<word>\w)|\b(?<word>\w)(?=\w*$)");
 
@@ -113,7 +120,7 @@ namespace Content.Shared.Preferences
         public ProtoId<SpeciesPrototype> Species { get; set; } = DefaultSpecies;
 
         [DataField]
-        public string Voice { get; set; } = SharedHumanoidAppearanceSystem.DefaultVoice;
+        public string Voice { get; set; } = DefaultVoice;
 
         [DataField]
         public int Age { get; set; } = 18;
@@ -533,14 +540,14 @@ namespace Content.Shared.Preferences
             // Category not found so dump it.
             TraitCategoryPrototype? traitCategory = null;
 
-            if (category != null && !protoManager.Resolve(category, out traitCategory))
+            if (category == null || !protoManager.Resolve(category, out traitCategory))
                 return new(this);
 
             var list = new HashSet<ProtoId<TraitPrototype>>(_traitPreferences) { traitId };
 
             // Check category points limit if applicable
              // ADT-Tweak start new Traits - система полностью переписана
-            if (traitCategory.MaxPoints.HasValue) 
+            if (category.HasValue && traitCategory.MaxPoints.HasValue)
             {
                 var count = 0;
                 foreach (var trait in list)
@@ -625,7 +632,7 @@ namespace Content.Shared.Preferences
             // Corvax-Sponsors-Start: Reset to human if player not sponsor
             if (speciesPrototype.SponsorOnly && !sponsorPrototypes.Contains(Species.Id))
             {
-                Species = SharedHumanoidAppearanceSystem.DefaultSpecies;
+                Species = DefaultSpecies;
                 speciesPrototype = prototypeManager.Index(Species);
             }
             // Corvax-Sponsors-End
@@ -709,7 +716,7 @@ namespace Content.Shared.Preferences
             }
             //ADT-tweak-end
 
-            var appearance = HumanoidCharacterAppearance.EnsureValid(Appearance, Species, Sex, sponsorPrototypes);
+            var appearance = HumanoidCharacterAppearance.EnsureValid(Appearance, Species, Sex);
 
             var prefsUnavailableMode = PreferenceUnavailable switch
             {
@@ -785,7 +792,7 @@ namespace Content.Shared.Preferences
             // Corvax-TTS-Start
             prototypeManager.TryIndex<TTSVoicePrototype>(Voice, out var voice);
             if (voice is null || !CanHaveVoice(voice, Sex, Species)) // ADT-Tweak
-                Voice = SharedHumanoidAppearanceSystem.DefaultSexVoice[sex];
+                Voice = DefaultSexVoice[sex];
             // Corvax-TTS-End
 
             // Checks prototypes exist for all loadouts and dump / set to default if not.
@@ -884,7 +891,7 @@ namespace Content.Shared.Preferences
         }
         // Corvax-TTS-End
 
-        public HumanoidCharacterProfile Validated(ICommonSession session, IDependencyCollection collection)
+        public HumanoidCharacterProfile Validated(ICommonSession session, IDependencyCollection collection, string[] sponsorPrototypes)
         {
             var profile = new HumanoidCharacterProfile(this);
             profile.EnsureValid(session, collection, sponsorPrototypes);
@@ -1096,7 +1103,7 @@ namespace Content.Shared.Preferences
             }
 
             var collection = IoCManager.Instance;
-            profile.EnsureValid(session, collection!);
+            profile.EnsureValid(session, collection!, Array.Empty<string>());
             return profile;
         }
     }

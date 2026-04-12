@@ -28,6 +28,7 @@ public abstract class SharedIdCardSystem : EntitySystem
     [Dependency] private readonly MetaDataSystem _metaSystem = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly SharedRadioJobIconSystem _radioJobIcon = default!; // ADT-Tweak
+    [Dependency] private readonly SharedJobStatusSystem _jobStatus = default!;
 
     // CCVar.
     private int _maxNameLength;
