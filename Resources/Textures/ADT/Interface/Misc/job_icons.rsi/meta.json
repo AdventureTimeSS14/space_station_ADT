@@ -9,7 +9,25 @@
     },
     "states": [
         {
+            "name": "Superpupermattery"
+        },
+        {
+            "name": "Scavengeator"
+        },
+        {
+            "name": "Anomalist"
+        },
+        {
+            "name": "Cargoniator"
+        },
+        {
+            "name": "Protector"
+        },
+        {
             "name": "Magistrat"
+        },
+        {
+            "name": "Machine"
         },
         {
             "name": "ADTPathologist"
@@ -43,12 +61,6 @@
         },
         {
             "name": "Taumaturg"
-        },
-        {
-            "name": "BloodBrother"
-        },
-        {
-            "name": "BloodBrotherLead"
         }
     ]
 }

@@ -42,7 +42,7 @@
   showInVote: true
   rules:
     - TraitorLightGameRule
-    - SubGamemodesRule
+    - SubGamemodesRuleNoXenoborg
     - TraitorLightStationEventScheduler
     - MeteorSwarmScheduler
     - SpaceTrafficControlEventScheduler
@@ -80,7 +80,7 @@
     - MeteorSwarmScheduler
     - SpaceTrafficControlEventScheduler
     - BasicRoundstartVariation
-  bannedRound: 3
+  bannedRound: 1
 
 - type: gamePreset
   id: DynamicLight
@@ -107,7 +107,7 @@
     - MeteorSwarmScheduler
     - SpaceTrafficControlEventScheduler
     - BasicRoundstartVariation
-  bannedRound: 2
+  bannedRound: 1
 
 - type: gamePreset
   id: DynamicRandom
@@ -119,4 +119,4 @@
   showInVote: true
   rules:
     - DynamicRandomGamerule
-  bannedRound: 2
+  bannedRound: 1

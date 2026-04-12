@@ -1,0 +1,115 @@
+name: Create Release ADT
+
+concurrency:
+  group: release
+  cancel-in-progress: true
+
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v4.2.2
+        with:
+          submodules: 'recursive'
+          fetch-depth: 0
+
+      - name: Get version info
+        id: version
+        shell: pwsh
+        run: |
+          $lastTag = git describe --tags --abbrev=0 2>$null
+          if ($LASTEXITCODE -ne 0) {
+            $lastTag = $null
+            $global:LASTEXITCODE = 0
+          }
+
+          Write-Host "Last tag: $lastTag"
+          echo "LAST_TAG=$lastTag" >> $env:GITHUB_ENV
+
+          if ($lastTag -and $lastTag -match '^v(\d+)\.(\d+)$') {
+            $major = [int]$matches[1]
+            $minor = [int]$matches[2]
+            $minor++
+            $newVersion = "$major.$minor"
+          } else {
+            $newVersion = "1.0"
+          }
+
+          $newTag = "v$newVersion"
+          Write-Host "New version: $newVersion"
+          Write-Host "New tag: $newTag"
+
+          echo "VERSION=$newVersion" >> $env:GITHUB_OUTPUT
+          echo "TAG=$newTag" >> $env:GITHUB_OUTPUT
+          $global:LASTEXITCODE = 0
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4.1.0
+        with:
+          dotnet-version: 9.0.x
+
+      - name: Restore
+        run: dotnet restore
+
+      - name: Build
+        run: dotnet build Content.Packaging --configuration Release --no-restore /m
+
+      - name: Package
+        run: dotnet run --project Content.Packaging server --platform win-x64 --hybrid-acz
+
+      - name: Create release archive
+        id: archive
+        shell: pwsh
+        run: |
+          $serverZip = Get-ChildItem -Path "release" -Filter "SS14.Server_win-x64.zip" | Select-Object -First 1
+          if (-not $serverZip) {
+            Write-Error "Archive not found!"
+            exit 1
+          }
+          $newName = "SS14.Server_${{ steps.version.outputs.VERSION }}.zip"
+          Copy-Item $serverZip.FullName -Destination ".\$newName"
+          echo "SERVER_ZIP=$newName" >> $env:GITHUB_ENV
+          echo "SERVER_ZIP=$newName" >> $env:GITHUB_OUTPUT
+
+      - name: Generate changelog
+        id: changelog
+        shell: pwsh
+        run: |
+          $lastTag = "${env:LAST_TAG}"
+
+          if ($lastTag) {
+            $commits = git log "$lastTag..HEAD" -50 --pretty=format:"- %s"
+          } else {
+            $commits = git log -50 --pretty=format:"- %s"
+          }
+
+          echo "CHANGELOG<<EOF" >> $env:GITHUB_OUTPUT
+          $commits | ForEach-Object { echo $_ } >> $env:GITHUB_OUTPUT
+          echo "EOF" >> $env:GITHUB_OUTPUT
+
+      - name: Create tag
+        shell: pwsh
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git tag ${{ steps.version.outputs.TAG }}
+          git push origin ${{ steps.version.outputs.TAG }}
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ steps.version.outputs.TAG }}
+          name: Версия ${{ steps.version.outputs.VERSION }}
+          files: ${{ steps.archive.outputs.SERVER_ZIP }}
+          body: |
+            ## Изменения
+            ${{ steps.changelog.outputs.CHANGELOG }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

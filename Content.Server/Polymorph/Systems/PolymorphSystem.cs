@@ -13,6 +13,7 @@ using Content.Shared.Traits.Assorted;
 using Content.Shared.CombatMode.Pacification;
 using Content.Shared.Bed.Sleep;
 using Content.Shared.Eye.Blinding.Components;
+using Robust.Shared.GameObjects;
 using Content.Server.Traits.Assorted;
 using Content.Shared.Speech.Muting;
 using Content.Shared.ADT.Traits;
@@ -25,6 +26,7 @@ using Content.Shared.Coordinates;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Destructible;
+using Content.Shared.Eye;
 using Content.Shared.Follower;
 using Content.Shared.Follower.Components;
 using Content.Shared.Hands.EntitySystems;
@@ -69,6 +71,7 @@ public sealed partial class PolymorphSystem : EntitySystem
     [Dependency] private readonly SharedMindSystem _mindSystem = default!;
     [Dependency] private readonly MetaDataSystem _metaData = default!;
     [Dependency] private readonly FollowerSystem _follow = default!; // goob edit
+    [Dependency] private readonly SharedEyeSystem _eye = default!; // ADT-Tweak Heretic
 
     [Dependency] private readonly ISerializationManager _serialization = default!; // ADT-Changeling-Tweak
     private const string RevertPolymorphId = "ActionRevertPolymorph";
@@ -242,6 +245,12 @@ public sealed partial class PolymorphSystem : EntitySystem
         var polymorphedComp = Factory.GetComponent<PolymorphedEntityComponent>();
         polymorphedComp.Parent = uid;
         polymorphedComp.Configuration = configuration;
+
+        // ADT-Tweak start Heretic
+        if (TryComp<EyeComponent>(uid, out var parentEye))
+            polymorphedComp.ParentVisibilityMask = parentEye.VisibilityMask;
+        // ADT-Tweak end
+
         AddComp(child, polymorphedComp);
 
         var childXform = Transform(child);
@@ -589,6 +598,13 @@ public sealed partial class PolymorphSystem : EntitySystem
         if (TryComp<PolymorphableComponent>(parent, out var polymorphableComponent))
             polymorphableComponent.LastPolymorphEnd = _gameTiming.CurTime;
 
+        // ADT-Tweak start Heretic
+        if (component.ParentVisibilityMask.HasValue && TryComp<EyeComponent>(parent, out var parentEye))
+        {
+            _eye.SetVisibilityMask(parent, component.ParentVisibilityMask.Value, parentEye);
+        }
+        // ADT-Tweak end
+
         // if an item polymorph was picked up, put it back down after reverting
         _transform.AttachToGridOrMap(parent, parentXform);
 
@@ -706,7 +722,6 @@ public sealed partial class PolymorphSystem : EntitySystem
         {
             var newDesc = EnsureComp<CharacterFlavorComponent>(newEntityUid);
             newDesc.FlavorText = flavor.FlavorText;
-            newDesc.OOCNotes = flavor.OOCNotes;
             newDesc.HeadshotUrl = flavor.HeadshotUrl;
         }
         //ADT-tweak-end

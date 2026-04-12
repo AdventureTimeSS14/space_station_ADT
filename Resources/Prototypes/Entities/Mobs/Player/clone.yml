@@ -45,11 +45,6 @@
   - OwOAccent
   - ParrotAccent
   - PirateAccent
-  - SickTeethAccent
-  # - ReplacementAccent
-  # Not supported at the moment because AddAccentClothingComponent will make it permanent when cloned.
-  # TODO: AddAccentClothingComponent should use an inventory relay event.
-  # Also ZombieComponent overwrites the old replacement accent, because you can only have one at a time.
   - RussianAccent
   - ScrambledAccent
   - SkeletonAccent
@@ -57,6 +52,11 @@
   - SouthernAccent
   - SpanishAccent
   - StutteringAccent
+  - VoxAccent
+  # - ReplacementAccent
+  # Not supported at the moment because AddAccentClothingComponent will make it permanent when cloned.
+  # TODO: AddAccentClothingComponent should use an inventory relay event.
+  # Also ZombieComponent overwrites the old replacement accent, because you can only have one at a time.
   - TTS # Corvax-TTS
   # ADT-fix-clone-start
   - BurrinessAccent
@@ -77,6 +77,9 @@
   - NyaAccent
   - EmotionallyUnstableAccent
   - WeaknessAccent
+  - ResomiAccent
+  - RoarAccent
+  - SickTeethAccent
   - WieldingBlocker
   - UnadaptedToSpace
   - DamagedThroat

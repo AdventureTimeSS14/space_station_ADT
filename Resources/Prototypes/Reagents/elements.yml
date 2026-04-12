@@ -199,7 +199,7 @@
           inverted: true
         # ADT tweak start
         - !type:MetabolizerTypeCondition
-          type: [ Drask ]
+          type: [ Drask, Human ]
         # ADT tweak end
         amount: 0.4
     # ADT Start

@@ -292,6 +292,21 @@ public sealed class ADTCCVars
     public static readonly CVarDef<int> SpaceWhaleSpawnDistance =
         CVarDef.Create("misc.space_whale_spawn_distance", 1965, CVar.SERVER);
 
+    /// <summary>
+    /// If enabled, job icons in chat and status icons are available.
+    /// When disabled on server, icons will not be shown for anyone.
+    /// Players can also disable icons in their client settings.
+    /// </summary>
+    public static readonly CVarDef<bool> EnableJobIconAnimation =
+        CVarDef.Create("adt.job_icon_animation_enabled", true, CVar.SERVER | CVar.REPLICATED | CVar.ARCHIVE);
+
+    /// <summary>
+    /// Client-side setting to toggle job icons in chat.
+    /// Icons are only shown if both server and client allow them.
+    /// </summary>
+    public static readonly CVarDef<bool> EnableChatJobIcons =
+        CVarDef.Create("adt.chat_job_icons_enabled", true, CVar.CLIENTONLY | CVar.ARCHIVE);
+
     /*
     * Headshot
     */
@@ -299,6 +314,24 @@ public sealed class ADTCCVars
     // CVarDef.Create("ic.headshot_url", "https://discord.com/channels/901772674865455115/1446603657255850085", CVar.SERVER | CVar.REPLICATED);
     public static readonly CVarDef<string> HeadshotDomain =
         CVarDef.Create("ic.headshot_domain", "i.pinimg.com", CVar.SERVER | CVar.REPLICATED);
+
+    /// <summary>
+    /// Maximum size of headshot images in bytes (default: 5MB).
+    /// </summary>
+    public static readonly CVarDef<int> HeadshotMaxSize =
+        CVarDef.Create("ic.headshot_max_size", 5 * 1024 * 1024, CVar.SERVER);
+
+    /// <summary>
+    /// Headshot cache duration in minutes (default: 30 minutes).
+    /// </summary>
+    public static readonly CVarDef<float> HeadshotCacheDuration =
+        CVarDef.Create("ic.headshot_cache_duration", 30f, CVar.SERVER);
+
+    /// <summary>
+    /// Maximum number of headshot images in cache (default: 100).
+    /// </summary>
+    public static readonly CVarDef<int> HeadshotMaxCacheCount =
+        CVarDef.Create("ic.headshot_max_cache_count", 100, CVar.SERVER);
 
     /*
     * Fix PoolManager. Cvars
@@ -321,6 +354,17 @@ public sealed class ADTCCVars
     /// </summary>
     public static readonly CVarDef<bool> BiomeGenerationEnabled =
         CVarDef.Create("biome.generation_enabled", true, CVar.SERVERONLY);
+
+    /*
+     * Atmos
+     */
+
+    /// <summary>
+    /// Whether overpressure pipe damage is enabled.
+    /// When enabled, pipes with OverpressurePipeDamageComponent will take damage when pressure exceeds the limit.
+    /// </summary>
+    public static readonly CVarDef<bool> OverpressurePipeDamageEnabled =
+        CVarDef.Create("atmos.overpressure_pipe_damage_enabled", true, CVar.SERVERONLY);
 
 }
 

@@ -943,20 +943,6 @@
     - AtmosphericTechnician
 
 - type: listing
-  id: uplinkSyndicateAdCDdisk
-  name: uplink-syndicate-cd-disk-advanced-name
-  description: uplink-syndicate-cd-disk-advanced-desc
-  productEntity: ADTCdDiskSyndicateAd
-  cost:
-    Telecrystal: 0
-  categories:
-  - UplinkJob
-  conditions:
-  - !type:BuyerJobCondition
-    whitelist:
-    - Reporter
-
-- type: listing
   id: UplinkClothingNoSoundShoes
   name: uplink-clothing-no-sound-shoes-name
   description: uplink-clothing-no-sound-shoes-desc

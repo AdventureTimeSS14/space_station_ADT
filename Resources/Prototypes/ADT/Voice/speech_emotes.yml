@@ -315,7 +315,7 @@
     components:
     - BorgChassis
     tags:
-    - ADTSiliconEmotes
+    - SiliconEmotes
   chatMessages: ["chat-emote-msg-spit"]
   chatTriggers:
     - spit
@@ -328,6 +328,20 @@
     - харкнуло
     - харкает
     - делает харчок
+
+- type: emote
+  id: IPCDeathgasp
+  name: chat-emote-name-deathgasp
+  icon: Interface/Emotes/deathgasp.png
+  whitelist:
+    requireAll: true
+    components:
+    - MobState
+    tags:
+    - ADTSiliconEmotes
+  chatMessages: ["chat-emote-msg-deathgasp-ipc"]
+  chatTriggers:
+  - ipcdeathgasp
 
   #Vox
 
