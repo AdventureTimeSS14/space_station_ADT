@@ -77,7 +77,6 @@ public sealed class JukeboxSystem : SharedJukeboxSystem
         var audioParams = AudioParams.Default
             .WithMaxDistance(10f)
             .WithVolume(MapToRange(component.Volume, component.MinSlider, component.MaxSlider, component.MinVolume, component.MaxVolume))
-            .WithLoop(component.LoopEnabled)
             .WithPlayOffset(component.CurrentPlaybackOffset);
 
         component.AudioStream = Audio.PlayPvs(jukeboxProto.Path, uid, audioParams)?.Entity;
@@ -241,6 +240,37 @@ public sealed class JukeboxSystem : SharedJukeboxSystem
                 }
             }
 
+            // ADT-Tweak start
+            if (!comp.PlaybackStartTime.HasValue || !comp.SelectedSongId.HasValue || !Exists(comp.AudioStream))
+                continue;
+
+            var elapsed = (float)(_gameTiming.CurTime - comp.PlaybackStartTime.Value).TotalSeconds;
+            var currentPosition = comp.CurrentPlaybackOffset + elapsed;
+
+            if (!TryComp<AudioComponent>(comp.AudioStream, out var audioComp))
+                continue;
+
+            var audioLength = Audio.GetAudioLength(audioComp.FileName).TotalSeconds;
+
+            if (currentPosition < audioLength)
+                continue;
+
+            if (comp.LoopEnabled)
+            {
+                comp.CurrentPlaybackOffset = 0f;
+                comp.PlaybackStartTime = _gameTiming.CurTime;
+                Audio.SetPlaybackPosition(comp.AudioStream, 0f);
+                Audio.SetState(comp.AudioStream, AudioState.Playing);
+            }
+            else
+            {
+                comp.AudioStream = Audio.Stop(comp.AudioStream);
+                comp.CurrentPlaybackOffset = 0f;
+                comp.PlaybackStartTime = null;
+            }
+
+            Dirty(uid, comp);
+            // ADT-Tweak  end
         }
     }
 
@@ -254,19 +284,6 @@ public sealed class JukeboxSystem : SharedJukeboxSystem
     private void ToggleLoop(EntityUid uid, JukeboxComponent component)
     {
         component.LoopEnabled = !component.LoopEnabled;
-
-        if (component.AudioStream.HasValue && Exists(component.AudioStream.Value) && component.SelectedSongId != null)
-        {
-            if (component.PlaybackStartTime.HasValue)
-            {
-                component.CurrentPlaybackOffset += (float)(_gameTiming.CurTime - component.PlaybackStartTime.Value).TotalSeconds;
-            }
-
-            component.AudioStream = Audio.Stop(component.AudioStream);
-            component.PlaybackStartTime = null;
-            PlayTrack(uid, component);
-        }
-
         Dirty(uid, component);
     }
     /// ADT-Tweak end
