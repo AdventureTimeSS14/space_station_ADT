@@ -31,15 +31,15 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
     [Dependency] protected readonly IRobustRandom Randomizer = default!;
     [Dependency] private readonly EmagSystem _emag = default!;
     [Dependency] private readonly AccessReaderSystem _accessReader = default!;
-    [Dependency] private readonly ApcPowerReceiverSystem _receiver = default!;
+    [Dependency] private readonly SharedPowerReceiverSystem _receiver = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearanceSystem = default!;
-    [Dependency] private readonly SharedPointLightSystem Light = default!;
-    [Dependency] private readonly SpeakOnUIClosedSystem _speakOnUIClosed = default!;
+    [Dependency] private readonly SharedPointLightSystem _lightSystem = default!;
+    [Dependency] private readonly SharedUserInterfaceSystem _uiSystem = default!;
+    [Dependency] private readonly SharedSpeakOnUIClosedSystem _speakOnUIClosed = default!;
 
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<VendingMachineComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<VendingMachineComponent, GotEmaggedEvent>(OnEmagged);
         SubscribeLocalEvent<VendingMachineComponent, EmpPulseEvent>(OnEmpPulse);
         SubscribeLocalEvent<VendingMachineComponent, RestockDoAfterEvent>(OnRestockDoAfter);
@@ -65,17 +65,17 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
 
         foreach (var weh in component.Inventory)
         {
-            inventory[weh.Key] = new(weh.Value);
+            inventory[weh.Key] = new(weh.Value.Type, weh.Value.ID, weh.Value.Amount, weh.Value.Price);
         }
 
         foreach (var weh in component.EmaggedInventory)
         {
-            emaggedInventory[weh.Key] = new(weh.Value);
+            emaggedInventory[weh.Key] = new(weh.Value.Type, weh.Value.ID, weh.Value.Amount, weh.Value.Price);
         }
 
         foreach (var weh in component.ContrabandInventory)
         {
-            contrabandInventory[weh.Key] = new(weh.Value);
+            contrabandInventory[weh.Key] = new(weh.Value.Type, weh.Value.ID, weh.Value.Amount, weh.Value.Price);
         }
 
         args.State = new VendingMachineComponentState()
@@ -234,7 +234,7 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
         vendComponent.ThrowNextItem = throwItem;
 
         if (TryComp(uid, out SpeakOnUIClosedComponent? speakComponent))
-            _speakOn.TrySetFlag((uid, speakComponent));
+            _speakOnUIClosed.TrySetFlag((uid, speakComponent));
 
         entry.Amount--;
         Dirty(uid, vendComponent);
@@ -286,10 +286,10 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
         }
 
         // TODO: You know this should really live on the client with netsync off because client knows the state.
-        if (Light.TryGetLight(entity.Owner, out var pointlight))
+        if (_lightSystem.TryGetLight(entity.Owner, out var pointlight))
         {
             var lightEnabled = finalState != VendingMachineVisualState.Broken && finalState != VendingMachineVisualState.Off;
-            Light.SetEnabled(entity.Owner, lightEnabled, pointlight);
+            _lightSystem.SetEnabled(entity.Owner, lightEnabled, pointlight);
         }
 
         _appearanceSystem.SetData(entity.Owner, VendingMachineVisuals.VisualState, finalState);
@@ -458,6 +458,6 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
         Dirty(uid, vendComponent);
         TryUpdateVisualState((uid, vendComponent));
 
-        UISystem.CloseUi(uid, VendingMachineUiKey.Key);
+        _uiSystem.CloseUi(uid, VendingMachineUiKey.Key);
     }
 }
