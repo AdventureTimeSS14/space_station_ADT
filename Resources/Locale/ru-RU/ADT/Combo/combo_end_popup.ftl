@@ -15,3 +15,6 @@ combo-cookbook-battre-end = { CAPITALIZE($user) } отбивает { $target } �
 combo-cookbook-unwinding-end = { CAPITALIZE($user) } раскручивает { $target } как пиццу!
 combo-cookbook-rolling-end = { CAPITALIZE($user) } раскатывает { $target } как тесто!
 combo-cookbook-squeezing-end = { CAPITALIZE($user) } сжимает { $target } как арбуз!
+combo-aikido-head = { CAPITALIZE($user) } Бьёт хай-кик { $target }!
+combo-aikido-leg = { CAPITALIZE($user) } Ударяет лоу-кик { $target }!
+combo-aikido-hand = { CAPITALIZE($user) } Ударяет { $target } открытой ладонью!

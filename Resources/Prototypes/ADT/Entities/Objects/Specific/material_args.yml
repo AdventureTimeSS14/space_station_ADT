@@ -305,3 +305,85 @@
                 - !type:ComboAudioEffect
                   sound:
                     collection: GenericHit
+
+- type: entity
+  id: SDAikidoBookManual
+  name: Manual Cosmic Aikido
+  description: Bring back the popularity of Jackie Chan!
+  parent: BaseItem
+  components:
+    - type: Sprite
+      sprite: ADT/Objects/Specific/material_art_book.rsi
+      state: aikido
+    - type: SpawnItemsOnUse
+      items:
+      - id: Ash
+      sound:
+        path: /Audio/Items/Lighters/lighter3.ogg
+    - type: GuideHelp
+      guides:
+      - ADTMartialArts
+    - type: AddComponentsOnUse
+      components:
+        - type: MeleeWeapon
+          animation: WeaponArcDisarm
+          attackRate: 3.0
+          damage:
+            types:
+              Blunt: 1
+
+        - type: Combo
+          availableMoves:
+            - actionsNeeds:
+                - Hit
+                - Disarm
+                - Hit
+                - Grab              
+              stopGrab: false
+              comboEvent:
+                - !type:ComboPopupEffect
+                  localeText: combo-aikido-leg
+                - !type:ComboFallEffect
+                  dropItems: true
+                - !type:ComboStaminaDamageEffect
+                  staminaDamage: 70
+            - actionsNeeds:
+                - Hit
+                - Hit
+                - Hit
+                - Hit                                
+              comboEvent:
+                - !type:ComboPopupEffect
+                  localeText: combo-aikido-hand
+                - !type:ComboDamageEffect
+                  damage:
+                    types:
+                      Blunt: 6
+                - !type:ComboStopGrabEffect
+                - !type:ComboAudioEffect
+                  sound:
+                    collection: GenericHit
+                - !type:ComboStaminaDamageEffect
+                  staminaDamage: 20
+            - actionsNeeds:
+                - Disarm
+                - Disarm
+                - Disarm
+                - Disarm
+              comboEvent:
+                - !type:ComboPopupEffect
+                  localeText: combo-aikido-head
+                - !type:ComboDamageEffect
+                  damage:
+                    types:
+                      Blunt: 5
+                - !type:ComboStopGrabEffect
+                - !type:ComboAudioEffect
+                  sound:
+                    collection: GenericHit
+                - !type:ComboStaminaDamageEffect
+                  staminaDamage: 35
+                - !type:ComboTrowTargetEffect
+                  thrownSpeed: 5
+                - !type:ComboFallEffect
+                  dropItems: false
