@@ -35,7 +35,6 @@ using Content.Server.Voting.Managers;
 using Content.Shared.Voting;
 using Content.Shared.FixedPoint;
 using Content.Shared.ADT.LastWords;
-using Content.Server.GameTicking.Presets;
 
 namespace Content.Server.GameTicking
 {
@@ -461,21 +460,7 @@ namespace Content.Server.GameTicking
             // Добавляем текущий пресет в бан-лист, если у него указан BannedRound > 0
             if (CurrentPreset != null && CurrentPreset.BannedRound.HasValue && CurrentPreset.BannedRound.Value > 0)
             {
-                // Если у пресета есть группа бана, блокируем все пресеты из этой группы
-                if (!string.IsNullOrEmpty(CurrentPreset.BannedGroup))
-                {
-                    foreach (var preset in _prototypeManager.EnumeratePrototypes<GamePresetPrototype>())
-                    {
-                        if (preset.BannedGroup == CurrentPreset.BannedGroup)
-                        {
-                            PlayedPresets[preset.ID] = CurrentPreset.BannedRound.Value;
-                        }
-                    }
-                }
-                else
-                {
-                    PlayedPresets[CurrentPreset.ID] = CurrentPreset.BannedRound.Value;
-                }
+                PlayedPresets[CurrentPreset.ID] = CurrentPreset.BannedRound.Value;
             }
             // ADT-Tweak-end
 

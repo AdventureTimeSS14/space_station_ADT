@@ -48,8 +48,6 @@
     - SpaceTrafficControlEventScheduler
     - BasicRoundstartVariation
     - CrewTransferScheduler #ADT tweak
-  bannedRound: 1
-  bannedGroup: ExtendedLike
 
 #Версия всего понемногу
 - type: gamePreset

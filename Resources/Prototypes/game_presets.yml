@@ -91,10 +91,6 @@
   - SpaceTrafficControlEventScheduler
   - BasicRoundstartVariation
   - CrewTransferScheduler #ADT tweak
-  # ADT-Tweak start
-  bannedRound: 1
-  bannedGroup: ExtendedLike
-  # ADT-Tweak end
 
 - type: gamePreset
   id: Greenshift
