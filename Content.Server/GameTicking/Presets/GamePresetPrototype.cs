@@ -55,6 +55,21 @@ namespace Content.Server.GameTicking.Presets
         /// </example>
         [DataField]
         public int? BannedRound = 0;
+
+        /// <summary>
+        /// Группа режимов, которые блокируются вместе после использования любого режима из этой группы.
+        /// </summary>
+        /// <remarks>
+        /// Если указан BannedGroup, то при использовании любого режима из этой группы, все режимы группы
+        /// будут заблокированы на количество раундов, указанное в BannedRound.
+        /// Это позволяет создавать категории взаимозаменяемых режимов.
+        /// </remarks>
+        /// <example>
+        /// Например, "Extended" и "TraitorLight" могут быть в одной группе "ExtendedLike".
+        /// После игры в один из них, оба будут недоступны для голосования.
+        /// </example>
+        [DataField]
+        public string? BannedGroup;
         //ADT-Tweak-End
     }
 }
