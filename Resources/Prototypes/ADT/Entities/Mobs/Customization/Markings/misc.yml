@@ -223,7 +223,7 @@
   id: ADTVitiligoHeadL
   bodyPart: Head
   markingCategory: Head
-  speciesRestriction: [ Human, Dwarf, Felinid ]
+  speciesRestriction: [ Human, Aegi, Dwarf, Felinid ]
   forcedColoring: true
   coloring:
     default:
@@ -238,7 +238,7 @@
   id: ADTVitiligoHeadR
   bodyPart: Head
   markingCategory: Head
-  speciesRestriction: [ Human, Dwarf, Felinid ]
+  speciesRestriction: [ Human, Aegi, Dwarf, Felinid ]
   forcedColoring: true
   coloring:
     default:
@@ -253,7 +253,7 @@
   id: ADTVitiligoHeadJaw
   bodyPart: Head
   markingCategory: Head
-  speciesRestriction: [ Human, Dwarf, Felinid ]
+  speciesRestriction: [ Human, Aegi, Dwarf, Felinid ]
   forcedColoring: true
   coloring:
     default:
@@ -268,7 +268,7 @@
   id: ADTVitiligoChestF
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [ Human, Dwarf, Felinid ]
+  speciesRestriction: [ Human, Aegi, Dwarf, Felinid ]
   forcedColoring: true
   coloring:
     default:
@@ -283,7 +283,7 @@
   id: ADTVitiligoChestSpots
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [ Human, Dwarf, Felinid ]
+  speciesRestriction: [ Human, Aegi, Dwarf, Felinid ]
   forcedColoring: true
   coloring:
     default:
@@ -298,7 +298,7 @@
   id: ADTVitiligoArmR
   bodyPart: RArm
   markingCategory: Arms
-  speciesRestriction: [ Human, Dwarf, Felinid ]
+  speciesRestriction: [ Human, Aegi, Dwarf, Felinid ]
   forcedColoring: true
   coloring:
     default:
@@ -313,7 +313,7 @@
   id: ADTVitiligoArmL
   bodyPart: LArm
   markingCategory: Arms
-  speciesRestriction: [ Human, Dwarf, Felinid ]
+  speciesRestriction: [ Human, Aegi, Dwarf, Felinid ]
   forcedColoring: true
   coloring:
     default:
@@ -328,7 +328,7 @@
   id: ADTVitiligoHandR
   bodyPart: RHand
   markingCategory: Arms
-  speciesRestriction: [ Human, Dwarf, Felinid ]
+  speciesRestriction: [ Human, Aegi, Dwarf, Felinid ]
   forcedColoring: true
   coloring:
     default:
@@ -343,7 +343,7 @@
   id: ADTVitiligoHandL
   bodyPart: LHand
   markingCategory: Arms
-  speciesRestriction: [ Human, Dwarf, Felinid ]
+  speciesRestriction: [ Human, Aegi, Dwarf, Felinid ]
   forcedColoring: true
   coloring:
     default:
@@ -358,7 +358,7 @@
   id: ADTVitiligoLegR
   bodyPart: RLeg
   markingCategory: Legs
-  speciesRestriction: [ Human, Dwarf, Felinid ]
+  speciesRestriction: [ Human, Aegi, Dwarf, Felinid ]
   forcedColoring: true
   coloring:
     default:
@@ -373,7 +373,7 @@
   id: ADTVitiligoLegL
   bodyPart: LLeg
   markingCategory: Legs
-  speciesRestriction: [ Human, Dwarf, Felinid ]
+  speciesRestriction: [ Human, Aegi, Dwarf, Felinid ]
   forcedColoring: true
   coloring:
     default:
@@ -390,7 +390,7 @@
   id: HumanPiercingEarL
   bodyPart: Head
   markingCategory: HeadSide
-  speciesRestriction: [Human, Felinid]
+  speciesRestriction: [Human, Aegi, Felinid]
   sprites:
   - sprite: ADT/Mobs/Customization/Human/custom.rsi
     state: piercing_ear_l
@@ -399,7 +399,7 @@
   id: HumanPiercingEarR
   bodyPart: Head
   markingCategory: HeadSide
-  speciesRestriction: [Human, Felinid]
+  speciesRestriction: [Human, Aegi, Felinid]
   sprites:
   - sprite: ADT/Mobs/Customization/Human/custom.rsi
     state: piercing_ear_r
@@ -408,7 +408,7 @@
   id: HumanPiercingNavel
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [Human, Felinid, DemonSpecies]
+  speciesRestriction: [Human, Aegi, Felinid, DemonSpecies]
   sprites:
   - sprite: ADT/Mobs/Customization/Human/custom.rsi
     state: piercing_navel
@@ -417,7 +417,7 @@
   id: HumanPiercingNippleL
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [Human, Felinid, DemonSpecies]
+  speciesRestriction: [Human, Aegi, Felinid, DemonSpecies]
   sprites:
   - sprite: ADT/Mobs/Customization/Human/custom.rsi
     state: piercing_nipple_l
@@ -426,7 +426,7 @@
   id: HumanPiercingNippleR
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [Human, Felinid, DemonSpecies]
+  speciesRestriction: [Human, Aegi, Felinid, DemonSpecies]
   sprites:
   - sprite: ADT/Mobs/Customization/Human/custom.rsi
     state: piercing_nipple_r
@@ -435,7 +435,7 @@
   id: HumanPiercingNipple
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [Human, Felinid, DemonSpecies]
+  speciesRestriction: [Human, Aegi, Felinid, DemonSpecies]
   sprites:
   - sprite: ADT/Mobs/Customization/Human/custom.rsi
     state: piercing_nipple

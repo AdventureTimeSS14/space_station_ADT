@@ -2,7 +2,7 @@
   id: ADTArmTwistingLeft
   bodyPart: LArm
   markingCategory: Arms
-  speciesRestriction: [Human, Dwarf, Reptilian, DemonSpecies, Arachnid, Felinid]
+  speciesRestriction: [Human, Aegi, Dwarf, Reptilian, DemonSpecies, Arachnid, Felinid]
   followSkinColor: false
   sprites:
   - sprite: ADT/Mobs/Customization/Frontier/scars.rsi
@@ -12,7 +12,7 @@
   id: ADTArmTwistingRight
   bodyPart: RArm
   markingCategory: Arms
-  speciesRestriction: [Human, Dwarf, Reptilian, DemonSpecies, Arachnid, Felinid]
+  speciesRestriction: [Human, Aegi, Dwarf, Reptilian, DemonSpecies, Arachnid, Felinid]
   followSkinColor: false
   sprites:
   - sprite: ADT/Mobs/Customization/Frontier/scars.rsi
@@ -22,7 +22,7 @@
   id: ADTChestBackstabbed
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [Human, Dwarf, Reptilian, DemonSpecies, Arachnid, Felinid]
+  speciesRestriction: [Human, Aegi, Dwarf, Reptilian, DemonSpecies, Arachnid, Felinid]
   followSkinColor: false
   sprites:
   - sprite: ADT/Mobs/Customization/Frontier/scars.rsi
@@ -32,7 +32,7 @@
   id: ADTChestTwistingLeft
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [Human, Dwarf, Reptilian, DemonSpecies, Arachnid, Felinid]
+  speciesRestriction: [Human, Aegi, Dwarf, Reptilian, DemonSpecies, Arachnid, Felinid]
   followSkinColor: false
   sprites:
   - sprite: ADT/Mobs/Customization/Frontier/scars.rsi
@@ -42,7 +42,7 @@
   id: ADTChestTwistingRight
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [Human, Dwarf, Reptilian, DemonSpecies, Arachnid, Felinid]
+  speciesRestriction: [Human, Aegi, Dwarf, Reptilian, DemonSpecies, Arachnid, Felinid]
   followSkinColor: false
   sprites:
   - sprite: ADT/Mobs/Customization/Frontier/scars.rsi
@@ -52,7 +52,7 @@
   id: ADTChestStar
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [Human, Dwarf, Reptilian, DemonSpecies, Arachnid, Felinid]
+  speciesRestriction: [Human, Aegi, Dwarf, Reptilian, DemonSpecies, Arachnid, Felinid]
   followSkinColor: false
   sprites:
   - sprite: ADT/Mobs/Customization/Frontier/scars.rsi
@@ -62,7 +62,7 @@
   id: ADTHandTwistingLeft
   bodyPart: LHand
   markingCategory: Arms
-  speciesRestriction: [Human, Dwarf, Reptilian, DemonSpecies, Arachnid, Felinid]
+  speciesRestriction: [Human, Aegi, Dwarf, Reptilian, DemonSpecies, Arachnid, Felinid]
   followSkinColor: false
   sprites:
   - sprite: ADT/Mobs/Customization/Frontier/scars.rsi
@@ -72,7 +72,7 @@
   id: ADTHandTwistingRight
   bodyPart: RHand
   markingCategory: Arms
-  speciesRestriction: [Human, Dwarf, Reptilian, DemonSpecies, Arachnid, Felinid]
+  speciesRestriction: [Human, Aegi, Dwarf, Reptilian, DemonSpecies, Arachnid, Felinid]
   followSkinColor: false
   sprites:
   - sprite: ADT/Mobs/Customization/Frontier/scars.rsi
@@ -82,7 +82,7 @@
   id: ADTSmileScars
   bodyPart: Head
   markingCategory: Head
-  speciesRestriction: [Human, Dwarf, Reptilian, DemonSpecies, Arachnid, Felinid]
+  speciesRestriction: [Human, Aegi, Dwarf, Reptilian, DemonSpecies, Arachnid, Felinid]
   followSkinColor: false
   sprites:
   - sprite: ADT/Mobs/Customization/Frontier/scars.rsi
@@ -92,7 +92,7 @@
   id: ADTHeadTwisting
   bodyPart: Head
   markingCategory: Head
-  speciesRestriction: [Human, Dwarf, Reptilian, DemonSpecies, Arachnid, Felinid]
+  speciesRestriction: [Human, Aegi, Dwarf, Reptilian, DemonSpecies, Arachnid, Felinid]
   followSkinColor: false
   sprites:
   - sprite: ADT/Mobs/Customization/Frontier/scars.rsi
@@ -102,7 +102,7 @@
   id: ADTLegTwistingLeft
   bodyPart: LLeg
   markingCategory: Legs
-  speciesRestriction: [Human, Dwarf, Reptilian, DemonSpecies, Arachnid, Felinid]
+  speciesRestriction: [Human, Aegi, Dwarf, Reptilian, DemonSpecies, Arachnid, Felinid]
   followSkinColor: false
   sprites:
   - sprite: ADT/Mobs/Customization/Frontier/scars.rsi
@@ -112,7 +112,7 @@
   id: ADTLegTwistingRight
   bodyPart: RLeg
   markingCategory: Legs
-  speciesRestriction: [Human, Dwarf, Reptilian, DemonSpecies, Arachnid, Felinid]
+  speciesRestriction: [Human, Aegi, Dwarf, Reptilian, DemonSpecies, Arachnid, Felinid]
   followSkinColor: false
   sprites:
   - sprite: ADT/Mobs/Customization/Frontier/scars.rsi
@@ -122,7 +122,7 @@
   id: ADTTorsoIncision
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [Human, Dwarf, Reptilian, DemonSpecies, Arachnid, Felinid]
+  speciesRestriction: [Human, Aegi, Dwarf, Reptilian, DemonSpecies, Arachnid, Felinid]
   followSkinColor: false
   sprites:
   - sprite: ADT/Mobs/Customization/Frontier/scars.rsi
