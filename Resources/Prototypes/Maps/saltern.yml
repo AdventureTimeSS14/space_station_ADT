@@ -1,10 +1,10 @@
 - type: gameMap
   id: Saltern
   mapName: 'Saltern'
-  mapPath: /Maps/ADTMaps/ADTStations/adt_saltern.yml # ADT-Tweak
+  mapPath: /Maps/saltern.yml
   # Corvax-start
-  minPlayers: 20
-  maxPlayers: 35
+  minPlayers: 0
+  maxPlayers: 25
   # Corvax-end
   fallback: true
   stations:
