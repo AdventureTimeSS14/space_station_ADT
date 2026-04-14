@@ -27,6 +27,9 @@ public sealed class IconTag : IMarkupTag
     {
         control = null;
 
+        if (!_cfg.GetCVar(ADTCCVars.EnableJobIconAnimation) || !_cfg.GetCVar(ADTCCVars.EnableChatJobIcons))
+            return false;
+
         if (!node.Attributes.TryGetValue("src", out var id) || id.StringValue == null)
             return false;
 
@@ -36,9 +39,8 @@ public sealed class IconTag : IMarkupTag
             return false;
 
         var spec = jobProto.Icon;
-        var enableJobAnim = _cfg.GetCVar(ADTCCVars.EnableJobIconAnimation);
 
-        control = CreateIconControl(spec, enableJobAnim);
+        control = CreateIconControl(spec);
 
         if (control != null && node.Attributes.TryGetValue("tooltip", out var tooltip) && tooltip.StringValue != null)
             control.ToolTip = tooltip.StringValue;
@@ -46,13 +48,13 @@ public sealed class IconTag : IMarkupTag
         return control != null;
     }
 
-    private Control? CreateIconControl(SpriteSpecifier spec, bool enableAnimation)
+    private Control? CreateIconControl(SpriteSpecifier spec)
     {
         try
         {
             var state = _spriteSystem!.RsiStateLike(spec);
 
-            if (state.IsAnimated && enableAnimation)
+            if (state.IsAnimated)
                 return CreateAnimatedIcon(spec);
 
             return CreateStaticIcon(spec);
