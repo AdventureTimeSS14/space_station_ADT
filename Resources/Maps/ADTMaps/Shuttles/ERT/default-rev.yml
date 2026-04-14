@@ -4569,8 +4569,6 @@ entities:
       pos: -6.5,-5.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
     - type: AtmosPipeColor
       color: '#0000FFFF'
 - proto: GasVentScrubber
