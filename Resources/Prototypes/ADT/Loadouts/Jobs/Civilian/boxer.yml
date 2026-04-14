@@ -1,3 +1,20 @@
+- type: loadoutEffectGroup
+  id: ADTMasterBoxer
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobBoxer
+      time: 36000 #10 часов
+
+- type: loadout
+  id: ADTBoxerManual
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ADTMasterBoxer
+  equipment:
+    pocket1: SDAikidoBookManual
+    
 # PDA
 
 - type: loadout

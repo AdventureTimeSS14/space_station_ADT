@@ -1149,6 +1149,14 @@
   loadouts:
   - ADTClothingHeadHatGladiator
 
+- type: loadoutGroup
+  id: ADTBoxerpocket1
+  name: loadout-group-boxer-pocket1-adt
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - ADTBoxerManual
+
 # Alts PDA start
 - type: loadoutGroup
   id: ADTPassengerPDA

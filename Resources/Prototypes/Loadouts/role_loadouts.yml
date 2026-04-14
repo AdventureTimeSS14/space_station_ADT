@@ -891,6 +891,7 @@
   groups:
   - Inventory # Corvax-Loadouts
   - ADTBoxerHead #ADT-tweak
+  - ADTBoxerpocket1 
   - GroupTankHarness
   - BoxerJumpsuit
   - BoxerGloves
