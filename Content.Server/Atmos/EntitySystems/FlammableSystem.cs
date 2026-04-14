@@ -437,10 +437,22 @@ namespace Content.Server.Atmos.EntitySystems
                 // process all fire events
                 foreach (var (flammable, deltaTemp) in _fireEvents)
                 {
+                    var flammableEntity = flammable.Owner;
+
+                    // ADT-Tweak start OPTIMIZATION: Validate that the entity still exists and is still valid for ignition
+                    if (!Exists(flammableEntity) || Deleted(flammableEntity))
+                        continue;
+
+                    if (!flammable.Comp.OnFire && flammable.Comp.FireStacks <= 0)
+                    {
+                        // Entity was extinguished or fire stacks removed - skip ignition
+                        continue;
+                    }
+                    // ADT-Tweak end OPTIMIZATION
+
                     // 100 -> 1, 200 -> 2, 400 -> 3...
                     var fireStackMod = Math.Max(MathF.Log2(deltaTemp / 100) + 1, 0);
                     var fireStackDelta = fireStackMod - flammable.Comp.FireStacks;
-                    var flammableEntity = flammable.Owner;
                     if (fireStackDelta > 0)
                     {
                         AdjustFireStacks(flammableEntity, fireStackDelta, flammable);

@@ -27,6 +27,8 @@ public sealed partial class HeavyWindSystem : VirtualController
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
 
     private readonly HashSet<EntityUid> _pullableCache = new();
+
+    private readonly List<EntityUid> _toRemove = new();
     private float _windUpdateTimer;
     private const float WindUpdateInterval = 0.25f;
 
@@ -61,6 +63,12 @@ public sealed partial class HeavyWindSystem : VirtualController
     public override void UpdateBeforeSolve(bool prediction, float frameTime)
     {
         base.UpdateBeforeSolve(prediction, frameTime);
+
+        _windUpdateTimer += frameTime;
+        if (_windUpdateTimer < WindUpdateInterval)
+            return;
+        _windUpdateTimer -= WindUpdateInterval;
+
         var query = EntityQueryEnumerator<HeavyWindComponent>();
         while (query.MoveNext(out var map, out var wind))
         {
@@ -70,14 +78,7 @@ public sealed partial class HeavyWindSystem : VirtualController
 
     private void Move(EntityUid map, HeavyWindComponent wind, bool prediction, float frameTime)
     {
-        // OPTIMIZATION: Only update wind physics periodically
-        _windUpdateTimer += frameTime;
-        if (_windUpdateTimer < WindUpdateInterval)
-            return;
-        _windUpdateTimer -= WindUpdateInterval;
-
-        // OPTIMIZATION: Iterate cached pullables instead of ALL entities
-        var toRemove = new List<EntityUid>();
+        _toRemove.Clear();
         foreach (var uid in _pullableCache)
         {
             if (!Exists(uid) ||
@@ -85,7 +86,7 @@ public sealed partial class HeavyWindSystem : VirtualController
                 !TryComp<PhysicsComponent>(uid, out var physics) ||
                 !TryComp<TransformComponent>(uid, out var xform))
             {
-                toRemove.Add(uid);
+                _toRemove.Add(uid);
                 continue;
             }
 
@@ -112,7 +113,7 @@ public sealed partial class HeavyWindSystem : VirtualController
         }
 
         // Clean up removed entities
-        foreach (var uid in toRemove)
+        foreach (var uid in _toRemove)
         {
             _pullableCache.Remove(uid);
         }

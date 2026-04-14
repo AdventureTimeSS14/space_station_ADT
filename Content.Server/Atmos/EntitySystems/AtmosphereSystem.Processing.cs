@@ -8,6 +8,7 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using System.Collections.Concurrent;
 
 namespace Content.Server.Atmos.EntitySystems
 {
@@ -489,7 +490,7 @@ namespace Content.Server.Atmos.EntitySystems
                 atmosphere.DeltaPressureDamageResults.Clear();
             }
 
-            var localQueue = new Queue<DeltaPressureDamageResult>(); // ADT-Tweak OPTIMIZATION: Use a local queue per batch to reduce contention
+            var localQueue = new ConcurrentQueue<DeltaPressureDamageResult>();  // ADT-Tweak OPTIMIZATION: Use a local queue per batch to reduce contention
 
             var remaining = count - atmosphere.DeltaPressureCursor;
             var batchSize = Math.Max(50, DeltaPressureParallelProcessPerIteration);
@@ -498,7 +499,6 @@ namespace Content.Server.Atmos.EntitySystems
             var timeCheck1 = 0;
             while (atmosphere.DeltaPressureCursor < count)
             {
-                localQueue.Clear(); // ADT-Tweak OPTIMIZATION
                 var job = new DeltaPressureParallelJob(this,
                     atmosphere,
                     atmosphere.DeltaPressureCursor,

@@ -43,6 +43,12 @@ public sealed partial class WeatherEffectsSystem : EntitySystem
     {
         base.Update(frameTime);
 
+        // OPTIMIZATION: Only update weather damage periodically - check once per tick, not per-weather
+        _weatherUpdateTimer += (float)_timing.TickPeriod.TotalSeconds;
+        if (_weatherUpdateTimer < WeatherUpdateInterval)
+            return;
+        _weatherUpdateTimer -= WeatherUpdateInterval;
+
         var now = _timing.CurTime;
         var query = EntityQueryEnumerator<WeatherComponent>();
         while (query.MoveNext(out var map, out var weather))
@@ -68,12 +74,6 @@ public sealed partial class WeatherEffectsSystem : EntitySystem
         var weather = _proto.Index(id);
         if (weather.Damage is not {} damage)
             return;
-
-        // OPTIMIZATION: Only update weather damage periodically instead of every tick
-        _weatherUpdateTimer += (float)_timing.TickPeriod.TotalSeconds;
-        if (_weatherUpdateTimer < WeatherUpdateInterval)
-            return;
-        _weatherUpdateTimer -= WeatherUpdateInterval;
 
         // OPTIMIZATION: Collect mobs into cache first to avoid repeated enumerator overhead
         _mobCache.Clear();

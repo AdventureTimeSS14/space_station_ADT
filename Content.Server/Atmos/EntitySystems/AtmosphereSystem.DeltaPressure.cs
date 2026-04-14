@@ -4,6 +4,7 @@ using Content.Shared.Atmos.Components;
 using Content.Shared.Damage;
 using Robust.Shared.Random;
 using Robust.Shared.Threading;
+using System.Collections.Concurrent;
 
 namespace Content.Server.Atmos.EntitySystems;
 
@@ -28,7 +29,7 @@ public sealed partial class AtmosphereSystem
     /// <param name="ent">The entity to process.</param>
     /// <param name="gridAtmosComp">The <see cref="GridAtmosphereComponent"/> that belongs to the entity's GridUid.</param>
     /// <param name="damageResults">Queue to enqueue damage results into (avoiding allocation).</param>
-    private void ProcessDeltaPressureEntity(Entity<DeltaPressureComponent> ent, GridAtmosphereComponent gridAtmosComp, Queue<DeltaPressureDamageResult> damageResults) // ADT-Tweak OPTIMIZATION
+    private void ProcessDeltaPressureEntity(Entity<DeltaPressureComponent> ent, GridAtmosphereComponent gridAtmosComp, ConcurrentQueue<DeltaPressureDamageResult> damageResults) // ADT-Tweak OPTIMIZATION
     {
         if (!_random.Prob(ent.Comp.RandomDamageChance))
             return;
@@ -180,7 +181,7 @@ public sealed partial class AtmosphereSystem
     /// <param name="delta">The current delta pressure being experienced by the entity.</param>
     private void EnqueueDeltaPressureDamage(Entity<DeltaPressureComponent> ent,
         GridAtmosphereComponent gridAtmosComp,
-        Queue<DeltaPressureDamageResult> damageResults, // ADT-Tweak OPTIMIZATION
+        ConcurrentQueue<DeltaPressureDamageResult> damageResults,
         float pressure,
         float delta)
     {
@@ -212,7 +213,7 @@ public sealed partial class AtmosphereSystem
         GridAtmosphereComponent atmosphere,
         int startIndex,
         int cvarBatchSize,
-        Queue<DeltaPressureDamageResult> localDamageQueue) // ADT-Tweak OPTIMIZATION
+        ConcurrentQueue<DeltaPressureDamageResult> localDamageQueue) // ADT-Tweak OPTIMIZATION
         : IParallelRobustJob
     {
         public int BatchSize => cvarBatchSize;
