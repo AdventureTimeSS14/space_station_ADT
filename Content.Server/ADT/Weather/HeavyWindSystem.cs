@@ -26,6 +26,10 @@ public sealed partial class HeavyWindSystem : VirtualController
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
 
+    private readonly HashSet<EntityUid> _pullableCache = new();
+    private float _windUpdateTimer;
+    private const float WindUpdateInterval = 0.25f;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -33,6 +37,18 @@ public sealed partial class HeavyWindSystem : VirtualController
         _gridQuery = GetEntityQuery<MapGridComponent>();
 
         SubscribeLocalEvent<HeavyWindComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<PullableComponent, ComponentInit>(OnPullableInit);
+        SubscribeLocalEvent<PullableComponent, ComponentShutdown>(OnPullableShutdown);
+    }
+
+    private void OnPullableInit(EntityUid uid, PullableComponent component, ComponentInit args)
+    {
+        _pullableCache.Add(uid);
+    }
+
+    private void OnPullableShutdown(EntityUid uid, PullableComponent component, ComponentShutdown args)
+    {
+        _pullableCache.Remove(uid);
     }
 
     private void OnStartup(EntityUid uid, HeavyWindComponent comp, ComponentStartup args)
@@ -54,9 +70,25 @@ public sealed partial class HeavyWindSystem : VirtualController
 
     private void Move(EntityUid map, HeavyWindComponent wind, bool prediction, float frameTime)
     {
-        var entQuery = EntityQueryEnumerator<PullableComponent, PhysicsComponent, TransformComponent>();
-        while (entQuery.MoveNext(out var uid, out var pullable, out var physics, out var xform))
+        // OPTIMIZATION: Only update wind physics periodically
+        _windUpdateTimer += frameTime;
+        if (_windUpdateTimer < WindUpdateInterval)
+            return;
+        _windUpdateTimer -= WindUpdateInterval;
+
+        // OPTIMIZATION: Iterate cached pullables instead of ALL entities
+        var toRemove = new List<EntityUid>();
+        foreach (var uid in _pullableCache)
         {
+            if (!Exists(uid) ||
+                !TryComp<PullableComponent>(uid, out var pullable) ||
+                !TryComp<PhysicsComponent>(uid, out var physics) ||
+                !TryComp<TransformComponent>(uid, out var xform))
+            {
+                toRemove.Add(uid);
+                continue;
+            }
+
             if (xform.MapUid != map)
                 continue;
             if (!physics.Predict && prediction)
@@ -77,6 +109,12 @@ public sealed partial class HeavyWindSystem : VirtualController
             _transform.SetLocalPosition(uid, localPos);
             _physics.SetAwake((uid, physics), true);
             _physics.SetSleepTime(physics, 0f);
+        }
+
+        // Clean up removed entities
+        foreach (var uid in toRemove)
+        {
+            _pullableCache.Remove(uid);
         }
     }
 }

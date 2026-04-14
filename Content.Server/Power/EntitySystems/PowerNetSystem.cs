@@ -4,6 +4,7 @@ using Content.Server.Power.Components;
 using Content.Server.Power.NodeGroups;
 using Content.Server.Power.Pow3r;
 using Content.Shared.CCVar;
+using Content.Shared.GameTicking;
 using Content.Shared.Power;
 using Content.Shared.Power.Components;
 using Content.Shared.Power.EntitySystems;
@@ -32,6 +33,13 @@ namespace Content.Server.Power.EntitySystems
 
         private EntityQuery<ApcPowerReceiverBatteryComponent> _apcBatteryQuery;
         private EntityQuery<BatteryComponent> _batteryQuery;
+
+        // ADT-Tweak start OPTIMIZATION: Cache of power components to avoid AllEntityQuery every tick
+        private readonly List<ApcPowerReceiverComponent> _apcReceivers = new();
+        private readonly List<PowerConsumerComponent> _powerConsumers = new();
+        private readonly List<PowerNetworkBatteryComponent> _networkBatteries = new();
+        private bool _powerCacheDirty = true;
+        // ADT-Tweak end OPTIMIZATION
 
         private BatteryRampPegSolver _solver = new();
 
@@ -67,6 +75,8 @@ namespace Content.Server.Power.EntitySystems
             SubscribeLocalEvent<PowerSupplierComponent, EntityPausedEvent>(PowerSupplierPaused);
             SubscribeLocalEvent<PowerSupplierComponent, EntityUnpausedEvent>(PowerSupplierUnpaused);
 
+            SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundRestartCleanup); // ADT-Tweak OPTIMIZATION
+
             Subs.CVar(_cfg, CCVars.DebugPow3rDisableParallel, DebugPow3rDisableParallelChanged);
         }
 
@@ -74,6 +84,27 @@ namespace Content.Server.Power.EntitySystems
         {
             _solver = new(val);
         }
+
+        /// <summary>
+        /// ADT-Tweak start OPTIMIZATION
+        /// Clears all power state caches on round restart to prevent memory leaks.
+        /// This prevents OutOfMemory from accumulating across rounds (e.g., after NukeArm explosions).
+        /// Note: GenIdStorage (Loads/Supplies/Batteries/Networks) cannot be cleared directly -
+        /// it's a generational index storage that resets when entities are flushed.
+        /// We only clear our component caches and mark dirty for rebuild.
+        /// </summary>
+        private void OnRoundRestartCleanup(RoundRestartCleanupEvent ev)
+        {
+            _apcReceivers.Clear();
+            _powerConsumers.Clear();
+            _networkBatteries.Clear();
+            _powerCacheDirty = true;
+
+            _powerNetReconnectQueue.Clear();
+            _apcNetReconnectQueue.Clear();
+            _powerState.GroupedNets = null;
+        }
+        // ADT-Tweak end OPTIMIZATION
 
         private void ApcPowerReceiverMapInit(Entity<ApcPowerReceiverComponent> ent, ref MapInitEvent args)
         {
@@ -83,12 +114,17 @@ namespace Content.Server.Power.EntitySystems
         private void ApcPowerReceiverInit(EntityUid uid, ApcPowerReceiverComponent component, ComponentInit args)
         {
             AllocLoad(component.NetworkLoad);
+            // ADT-Tweak start OPTIMIZATION
+            _apcReceivers.Add(component);
+            _powerCacheDirty = true;
+            // ADT-Tweak end OPTIMIZATION
         }
 
         private void ApcPowerReceiverShutdown(EntityUid uid, ApcPowerReceiverComponent component,
             ComponentShutdown args)
         {
             _powerState.Loads.Free(component.NetworkLoad.Id);
+            _apcReceivers.Remove(component); // ADT-Tweak OPTIMIZATION
         }
 
         private void ApcPowerReceiverRemove(EntityUid uid, ApcPowerReceiverComponent component, ComponentRemove args)
@@ -115,11 +151,13 @@ namespace Content.Server.Power.EntitySystems
         private void BatteryInit(EntityUid uid, PowerNetworkBatteryComponent component, ComponentInit args)
         {
             AllocBattery(component.NetworkBattery);
+            _networkBatteries.Add(component); // ADT-Tweak OPTIMIZATION
         }
 
         private void BatteryShutdown(EntityUid uid, PowerNetworkBatteryComponent component, ComponentShutdown args)
         {
             _powerState.Batteries.Free(component.NetworkBattery.Id);
+            _networkBatteries.Remove(component); // ADT-Tweak OPTIMIZATION
         }
 
         private static void BatteryPaused(EntityUid uid, PowerNetworkBatteryComponent component, ref EntityPausedEvent args)
@@ -136,11 +174,13 @@ namespace Content.Server.Power.EntitySystems
         {
             _powerNetConnector.BaseNetConnectorInit(component);
             AllocLoad(component.NetworkLoad);
+            _powerConsumers.Add(component); // ADT-Tweak OPTIMIZATION
         }
 
         private void PowerConsumerShutdown(EntityUid uid, PowerConsumerComponent component, ComponentShutdown args)
         {
             _powerState.Loads.Free(component.NetworkLoad.Id);
+            _powerConsumers.Remove(component); // ADT-Tweak OPTIMIZATION
         }
 
         private static void PowerConsumerPaused(EntityUid uid, PowerConsumerComponent component, ref EntityPausedEvent args)
@@ -290,9 +330,36 @@ namespace Content.Server.Power.EntitySystems
             // Synchronize batteries, the other way around.
             RaiseLocalEvent(new NetworkBatteryPostSync());
 
+            // ADT-Tweak start OPTIMIZATION: Populate cache on first tick if needed
+            if (_powerCacheDirty)
+            {
+                _apcReceivers.Clear();
+                _powerConsumers.Clear();
+                _networkBatteries.Clear();
+
+                var receiverQuery = AllEntityQuery<ApcPowerReceiverComponent>();
+                while (receiverQuery.MoveNext(out var _, out var receiver))
+                {
+                    _apcReceivers.Add(receiver);
+                }
+
+                var consumerQuery = EntityQueryEnumerator<PowerConsumerComponent>();
+                while (consumerQuery.MoveNext(out var _, out var consumer))
+                {
+                    _powerConsumers.Add(consumer);
+                }
+
+                var batteryQuery = EntityQueryEnumerator<PowerNetworkBatteryComponent>();
+                while (batteryQuery.MoveNext(out var _, out var battery))
+                {
+                    _networkBatteries.Add(battery);
+                }
+
+                _powerCacheDirty = false;
+            }
+            // ADT-Tweak emd OPTIMIZATION
+
             // Send events where necessary.
-            // TODO: Instead of querying ALL power components every tick, and then checking if an event needs to be
-            // raised, should probably assemble a list of entity Uids during the actual solver steps.
             UpdateApcPowerReceiver(frameTime);
             UpdatePowerConsumer();
             UpdateNetworkBattery();
@@ -336,9 +403,12 @@ namespace Content.Server.Power.EntitySystems
 
         private void UpdateApcPowerReceiver(float frameTime)
         {
-            var enumerator = AllEntityQuery<ApcPowerReceiverComponent>();
-            while (enumerator.MoveNext(out var uid, out var apcReceiver))
+            // ADT-Tweak start OPTIMIZATION: Use cached component list instead of AllEntityQuery
+            for (var i = 0; i < _apcReceivers.Count; i++)
             {
+                var apcReceiver = _apcReceivers[i];
+                var uid = apcReceiver.Owner;
+            // ADT-Tweak end OPTIMIZATION
                 var powered = IsPoweredCalculate(apcReceiver);
 
                 MetaDataComponent? metadata = null;
@@ -402,9 +472,12 @@ namespace Content.Server.Power.EntitySystems
 
         private void UpdatePowerConsumer()
         {
-            var enumerator = EntityQueryEnumerator<PowerConsumerComponent>();
-            while (enumerator.MoveNext(out var uid, out var consumer))
+            // ADT-Tweak start OPTIMIZATION: Use cached component list instead of EntityQueryEnumerator
+            for (var i = 0; i < _powerConsumers.Count; i++)
             {
+                var consumer = _powerConsumers[i];
+                var uid = consumer.Owner;
+            // ADT-Tweak end OPTIMIZATION
                 var newRecv = consumer.NetworkLoad.ReceivingPower;
                 ref var lastRecv = ref consumer.LastReceived;
                 if (MathHelper.CloseToPercent(lastRecv, newRecv))
@@ -418,9 +491,12 @@ namespace Content.Server.Power.EntitySystems
 
         private void UpdateNetworkBattery()
         {
-            var enumerator = EntityQueryEnumerator<PowerNetworkBatteryComponent>();
-            while (enumerator.MoveNext(out var uid, out var powerNetBattery))
+            // ADT-Tweak start OPTIMIZATION: Use cached component list instead of EntityQueryEnumerator
+            for (var i = 0; i < _networkBatteries.Count; i++)
             {
+                var powerNetBattery = _networkBatteries[i];
+                var uid = powerNetBattery.Owner;
+            // ADT-Tweak end OPTIMIZATION
                 var lastSupply = powerNetBattery.LastSupply;
                 var currentSupply = powerNetBattery.CurrentSupply;
 

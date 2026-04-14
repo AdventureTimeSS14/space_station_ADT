@@ -327,12 +327,55 @@ public sealed partial class BiomeSystem : SharedBiomeSystem
         return !_ghostQuery.HasComp(uid) || _tags.HasTag(uid, AllowBiomeLoadingTag);
     }
 
+    // ADT-Tweak start OPTIMIZATION: Only update biome chunks periodically instead of every tick
+    private float _biomeUpdateTimer;
+    private const float BiomeUpdateInterval = 0.5f; // Update every 0.5 seconds
+    // ADT-Tweak end OPTIMIZATION
+
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
-        var biomes = AllEntityQuery<BiomeComponent>();
 
-        while (biomes.MoveNext(out var biome))
+        // ADT-Tweak start OPTIMIZATION: Only process biomes periodically instead of every tick
+        _biomeUpdateTimer += frameTime;
+        if (_biomeUpdateTimer < BiomeUpdateInterval)
+        {
+            // Still need to maintain _activeChunks for grids that are already loaded
+            var biomes = AllEntityQuery<BiomeComponent>();
+            while (biomes.MoveNext(out var biome))
+            {
+                if (biome.LifeStage < ComponentLifeStage.Running)
+                    continue;
+
+                _activeChunks.Add(biome, _tilePool.Get());
+                _markerChunks.GetOrNew(biome);
+            }
+
+            var loadBiomes = AllEntityQuery<BiomeComponent, MapGridComponent>();
+            while (loadBiomes.MoveNext(out var gridUid, out var biome, out var grid))
+            {
+                if (biome.LifeStage < ComponentLifeStage.Running || !biome.Enabled)
+                    continue;
+
+                LoadChunks(biome, gridUid, grid, biome.Seed);
+                UnloadChunks(biome, gridUid, grid, biome.Seed);
+            }
+
+            _handledEntities.Clear();
+            foreach (var tiles in _activeChunks.Values)
+            {
+                _tilePool.Return(tiles);
+            }
+            _activeChunks.Clear();
+            _markerChunks.Clear();
+            return;
+        }
+        _biomeUpdateTimer -= BiomeUpdateInterval;
+
+        var biomesFull = AllEntityQuery<BiomeComponent>();
+
+        while (biomesFull.MoveNext(out var biome))
+        // ADT-Tweak end OPTIMIZATION
         {
             if (biome.LifeStage < ComponentLifeStage.Running)
                 continue;
@@ -382,9 +425,9 @@ public sealed partial class BiomeSystem : SharedBiomeSystem
             }
         }
 
-        var loadBiomes = AllEntityQuery<BiomeComponent, MapGridComponent>();
+        var loadBiomesFull = AllEntityQuery<BiomeComponent, MapGridComponent>(); // ADT-Tweak OPTIMIZATION
 
-        while (loadBiomes.MoveNext(out var gridUid, out var biome, out var grid))
+        while (loadBiomesFull.MoveNext(out var gridUid, out var biome, out var grid)) // ADT-Tweak OPTIMIZATION
         {
             // If not MapInit don't run it.
             if (biome.LifeStage < ComponentLifeStage.Running)

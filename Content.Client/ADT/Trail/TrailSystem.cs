@@ -240,10 +240,13 @@ public sealed class TrailSystem : EntitySystem
         if (trail.LerpAccumulator <= trail.LerpTime)
             return;
         trail.LerpAccumulator = 0;
-        foreach (var data in trail.TrailData)
+
+        var count = trail.TrailData.Count;
+        for (var i = 0; i < count; i++)
         {
+            var data = trail.TrailData[i];
             if (trail.LerpDelay > _timing.CurTime - data.SpawnTime)
-                return;
+                continue;
             if (trail.AlphaLerpAmount > 0f)
             {
                 var alphaTarget = trail.AlphaLerpTarget is >= 0f and <= 1f ? trail.AlphaLerpTarget : 0f;
@@ -260,8 +263,13 @@ public sealed class TrailSystem : EntitySystem
             if (trail.VelocityLerpAmount > 0f)
                 data.Velocity = float.Lerp(data.Velocity, trail.VelocityLerpTarget, trail.VelocityLerpAmount);
         }
-        foreach (var lerpData in trail.AdditionalLerpData.Where(x => x.LerpAmount > 0f))
+
+        for (var i = 0; i < trail.AdditionalLerpData.Count; i++)
         {
+            var lerpData = trail.AdditionalLerpData[i];
+            if (lerpData.LerpAmount <= 0f)
+                continue;
+
             lerpData.Value = float.Lerp(lerpData.Value, lerpData.LerpTarget, lerpData.LerpAmount);
             AnimationHelper.SetAnimatableProperty(trail, lerpData.Property, lerpData.Value);
         }

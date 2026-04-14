@@ -14,6 +14,7 @@ public sealed partial class AtmosphereSystem
     private void InitializeGridAtmosphere()
     {
         SubscribeLocalEvent<GridAtmosphereComponent, ComponentInit>(OnGridAtmosphereInit);
+        SubscribeLocalEvent<GridAtmosphereComponent, ComponentShutdown>(OnGridAtmosphereShutdown); // ADT-Tweak OPTIMIZATION
         SubscribeLocalEvent<GridAtmosphereComponent, ComponentStartup>(OnGridAtmosphereStartup);
         SubscribeLocalEvent<GridAtmosphereComponent, ComponentRemove>(OnAtmosphereRemove);
         SubscribeLocalEvent<GridAtmosphereComponent, GridSplitEvent>(OnGridSplit);
@@ -31,6 +32,7 @@ public sealed partial class AtmosphereSystem
 
     private void OnAtmosphereRemove(EntityUid uid, GridAtmosphereComponent component, ComponentRemove args)
     {
+        _gridAtmosphereCacheDirty = true; // ADT-Tweak OPTIMIZATION
         for (var i = 0; i < _currentRunAtmosphere.Count; i++)
         {
             if (_currentRunAtmosphere[i].Owner != uid)
@@ -44,12 +46,20 @@ public sealed partial class AtmosphereSystem
 
     private void OnGridAtmosphereInit(EntityUid uid, GridAtmosphereComponent component, ComponentInit args)
     {
+        _gridAtmosphereCacheDirty = true; // ADT-Tweak OPTIMIZATION
         EnsureComp<GasTileOverlayComponent>(uid);
         foreach (var tile in component.Tiles.Values)
         {
             tile.GridIndex = uid;
         }
     }
+
+    // ADT-Tweak start OPTIMIZATION: Mark cache dirty when grid atmosphere is removed
+    private void OnGridAtmosphereShutdown(EntityUid uid, GridAtmosphereComponent component, ComponentShutdown args)
+    {
+        _gridAtmosphereCacheDirty = true;
+    }
+    // ADT-Tweak end OPTIMIZATION
 
     private void OnGridAtmosphereStartup(EntityUid uid, GridAtmosphereComponent component, ComponentStartup args)
     {

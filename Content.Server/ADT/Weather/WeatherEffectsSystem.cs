@@ -4,6 +4,7 @@ using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Weather;
 using Content.Shared.Whitelist;
+using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
@@ -23,6 +24,13 @@ public sealed partial class WeatherEffectsSystem : EntitySystem
     [Dependency] private readonly SharedWeatherSystem _weather = default!;
 
     private EntityQuery<MapGridComponent> _gridQuery;
+
+    // OPTIMIZATION: Timer to update weather damage periodically instead of every tick
+    private float _weatherUpdateTimer;
+    private const float WeatherUpdateInterval = 0.5f;
+
+    // OPTIMIZATION: Cache to avoid allocating list every update
+    private readonly List<(EntityUid Uid, MobStateComponent Mob, TransformComponent Xform)> _mobCache = new(256);
 
     public override void Initialize()
     {
@@ -61,14 +69,28 @@ public sealed partial class WeatherEffectsSystem : EntitySystem
         if (weather.Damage is not {} damage)
             return;
 
+        // OPTIMIZATION: Only update weather damage periodically instead of every tick
+        _weatherUpdateTimer += (float)_timing.TickPeriod.TotalSeconds;
+        if (_weatherUpdateTimer < WeatherUpdateInterval)
+            return;
+        _weatherUpdateTimer -= WeatherUpdateInterval;
+
+        // OPTIMIZATION: Collect mobs into cache first to avoid repeated enumerator overhead
+        _mobCache.Clear();
         var query = EntityQueryEnumerator<MobStateComponent, TransformComponent>();
         while (query.MoveNext(out var uid, out var mob, out var xform))
         {
-            // don't give dead bodies 10000 burn, that's not fun for anyone
+            // Early exit for dead mobs and wrong map
             if (xform.MapUid != map || mob.CurrentState == MobState.Dead)
                 continue;
 
-            // if not in space, check for being indoors
+            _mobCache.Add((uid, mob, xform));
+        }
+
+        // OPTIMIZATION: Process cached mobs - reduces enumerator overhead
+        foreach (var (uid, mob, xform) in _mobCache)
+        {
+            // if on a grid, check if indoors
             if (xform.GridUid is {} gridUid && _gridQuery.TryComp(gridUid, out var grid))
             {
                 var tile = _map.GetTileRef((gridUid, grid), xform.Coordinates);

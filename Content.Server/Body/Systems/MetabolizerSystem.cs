@@ -77,27 +77,28 @@ public sealed class MetabolizerSystem : SharedMetabolizerSystem
     {
         base.Update(frameTime);
 
-        var metabolizers = new ValueList<(EntityUid Uid, MetabolizerComponent Component)>(Count<MetabolizerComponent>());
+        // ADT-Tweak OPTIMIZATION: Process metabolizers directly without copying to ValueList first
+        // This avoids double iteration and unnecessary allocations
         var query = EntityQueryEnumerator<MetabolizerComponent>();
 
-        while (query.MoveNext(out var uid, out var comp))
-        {
-            metabolizers.Add((uid, comp));
-        }
-
-        foreach (var (uid, metab) in metabolizers)
+        while (query.MoveNext(out var uid, out var metab))
         {
             // Only update as frequently as it should
             if (_gameTiming.CurTime < metab.NextUpdate)
                 continue;
 
             metab.NextUpdate += metab.AdjustedUpdateInterval;
-            TryMetabolize((uid, metab));
+            TryMetabolize(uid, metab);
         }
     }
 
-    private void TryMetabolize(Entity<MetabolizerComponent, OrganComponent?, SolutionContainerManagerComponent?> ent)
+    // ADT-Tweak start OPTIMIZATION
+    private void TryMetabolize(EntityUid uid, MetabolizerComponent metab)
     {
+        var organ = _organQuery.CompOrNull(uid);
+        var solManager = _solutionQuery.CompOrNull(uid);
+        var ent = new Entity<MetabolizerComponent, OrganComponent?, SolutionContainerManagerComponent?>(uid, metab, organ, solManager);
+    // ADT-Tweak end OPTIMIZATION
         _organQuery.Resolve(ent, ref ent.Comp2, logMissing: false);
 
         // First step is get the solution we actually care about
