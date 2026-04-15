@@ -100,7 +100,6 @@
   - type: GhostTakeoverAvailable
   # ADT-Tweak start буст метаболизма
   - type: Metabolizer
-    solutionOnBody: false
     updateInterval: 0.25
     groups:
     - id: Food

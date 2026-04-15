@@ -68,6 +68,9 @@
       enum.AtmosAlertsComputerUiKey.Key:
         toggleAction: ActionStationAiAtmosphericAlerts
   - type: AtmosAlertsComputer
+  - type: StationAiInfo
+  - type: CrewManifestViewer
+    ownerKey: enum.StationAiInfoUiKey.Key
     # ADT End
   - type: CrewMonitoringConsole
   - type: GeneralStationRecordConsole
