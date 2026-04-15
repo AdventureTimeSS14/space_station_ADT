@@ -291,7 +291,7 @@
     duration: null
     earliestStart: 20
     reoccurrenceDelay: 20
-    minimumPlayers: 15
+    minimumPlayers: 25 # ADT tweak 15 > 25
   - type: ParadoxCloneRule
     objectiveBlacklist:
       tags:
@@ -318,7 +318,7 @@
       mindRoles:
       - MindRoleParadoxClone
   - type: DynamicRuleCost
-    cost: 50
+    cost: 75 # ADT tweak 50 > 75
 
 - type: entity
   parent: BaseGameRule
