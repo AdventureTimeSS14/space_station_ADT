@@ -12,6 +12,7 @@ using Robust.Client.Graphics;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
+using Robust.Shared.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
@@ -215,12 +216,15 @@ public sealed partial class CrewMonitoringWindow : FancyWindow
             // Add a button that will hold a username and other details
             NavMap.LocalizedNames.TryAdd(sensor.SuitSensorUid, sensor.Name + ", " + sensor.Job);
 
+            var statusColor = GetStatusColor(sensor, out var isCritical); // ADT-Tweak
+
             var sensorButton = new CrewMonitoringButton()
             {
                 SuitSensorUid = sensor.SuitSensorUid,
                 Coordinates = coordinates,
                 Disabled = (coordinates == null),
                 HorizontalExpand = true,
+                StatusColor = statusColor ?? Color.LimeGreen, // ADT-Tweak
             };
 
             if (sensor.SuitSensorUid == _trackedEntity)
@@ -252,12 +256,22 @@ public sealed partial class CrewMonitoringWindow : FancyWindow
             {
                 Texture = _blipTexture,
                 TextureScale = new Vector2(0.25f, 0.25f),
-                Modulate = coordinates != null ? Color.LimeGreen : Color.DarkRed,
                 HorizontalAlignment = HAlignment.Center,
                 VerticalAlignment = VAlignment.Center,
             };
 
-            statusContainer.AddChild(suitCoordsIndicator);
+            // ADT-Tweak start
+            if (statusColor == null)
+            {
+                suitCoordsIndicator.Visible = false;
+                statusContainer.AddChild(suitCoordsIndicator);
+            }
+            else
+            {
+                suitCoordsIndicator.Modulate = statusColor.Value;
+                statusContainer.AddChild(suitCoordsIndicator);
+            }
+            // ADT-Tweak end
 
             // Specify texture for the user status icon
             var specifier = new SpriteSpecifier.Rsi(new ResPath("Interface/Alerts/human_crew_monitoring.rsi"), "alive");
@@ -337,11 +351,16 @@ public sealed partial class CrewMonitoringWindow : FancyWindow
             // Add user coordinates to the navmap
             if (coordinates != null && NavMap.Visible && _blipTexture != null)
             {
+                // ADT-Tweak start
+                var statusColorValue = GetStatusColor(sensor, out _);
+                var blipColor = (_trackedEntity == null || sensor.SuitSensorUid == _trackedEntity) ? statusColorValue : statusColorValue * Color.DimGray;
+                // ADT-Tweak end
+
                 NavMap.TrackedEntities.TryAdd(sensor.SuitSensorUid,
                     new NavMapBlip
                     (CoordinatesToLocal(coordinates.Value),
                     _blipTexture,
-                    (_trackedEntity == null || sensor.SuitSensorUid == _trackedEntity) ? Color.LimeGreen : Color.LimeGreen * Color.DimGray,
+                    blipColor ?? Color.LimeGreen, // ADT-Tweak
                     sensor.SuitSensorUid == _trackedEntity));
 
                 NavMap.Focus = _trackedEntity;
@@ -404,10 +423,16 @@ public sealed partial class CrewMonitoringWindow : FancyWindow
 
             if (NavMap.TrackedEntities.TryGetValue(castSensor.SuitSensorUid, out var data))
             {
+                // ADT-Tweak start
+                var blipColor = (currTrackedEntity == null || castSensor.SuitSensorUid == currTrackedEntity)
+                    ? castSensor.StatusColor
+                    : castSensor.StatusColor * Color.DimGray;
+                // ADT-Tweak end
+
                 data = new NavMapBlip
                     (CoordinatesToLocal(data.Coordinates),
                     data.Texture,
-                    (currTrackedEntity == null || castSensor.SuitSensorUid == currTrackedEntity) ? Color.LimeGreen : Color.LimeGreen * Color.DimGray,
+                    blipColor, // ADT-Tweak
                     castSensor.SuitSensorUid == currTrackedEntity);
 
                 NavMap.TrackedEntities[castSensor.SuitSensorUid] = data;
@@ -471,6 +496,30 @@ public sealed partial class CrewMonitoringWindow : FancyWindow
         }
     }
 
+    // ADT-Tweak start
+    private Color? GetStatusColor(SuitSensorStatus sensor, out bool isCritical)
+    {
+        isCritical = false;
+
+        if (sensor.Coordinates == null)
+            return null;
+
+        if (!sensor.IsAlive)
+            return Color.Gray;
+
+        if (sensor.DamagePercentage != null && sensor.DamagePercentage.Value >= 0.8f)
+        {
+            isCritical = true;
+            return Color.Red;
+        }
+
+        if (sensor.DamagePercentage != null && sensor.DamagePercentage.Value >= 0.5f)
+            return Color.Gold;
+
+        return Color.LimeGreen;
+    }
+    // ADT-Tweak end
+
     private void ClearOutDatedData()
     {
         SensorsTable.RemoveAllChildren();
@@ -485,4 +534,5 @@ public sealed class CrewMonitoringButton : Button
     public int IndexInTable;
     public NetEntity SuitSensorUid;
     public EntityCoordinates? Coordinates;
+    public Color StatusColor; // ADT-Tweak
 }
