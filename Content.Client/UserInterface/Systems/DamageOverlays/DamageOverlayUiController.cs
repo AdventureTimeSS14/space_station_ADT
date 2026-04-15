@@ -1,18 +1,11 @@
 using Content.Shared.Damage.Components;
-<<<<<<< HEAD
-=======
 using Content.Shared.Damage.Systems;
->>>>>>> upstreamwiz/master
 using Content.Shared.FixedPoint;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
-<<<<<<< HEAD
-using Content.Shared.ADT.Traits.Assorted;
-=======
 using Content.Shared.StatusEffectNew;
 using Content.Shared.Traits.Assorted;
->>>>>>> upstreamwiz/master
 using JetBrains.Annotations;
 using Robust.Client.Graphics;
 using Robust.Client.Player;
@@ -110,11 +103,7 @@ public sealed class DamageOverlayUiController : UIController
                 FixedPoint2 painLevel = 0;
                 _overlay.PainLevel = 0;
 
-<<<<<<< HEAD
-                if (!EntityManager.HasComponent<PainNumbnessStatusEffectComponent>(entity)) // ADT-Tweak
-=======
                 if (!_statusEffects.TryEffectsWithComp<PainNumbnessStatusEffectComponent>(entity, out _))
->>>>>>> upstreamwiz/master
                 {
                     foreach (var painDamageType in damageable.PainDamageGroups)
                     {

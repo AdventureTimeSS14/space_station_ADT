@@ -223,26 +223,6 @@ public sealed class HandsUIController : UIController, IOnStateEntered<GameplaySt
         if (_playerHandsComponent != null &&
             _player.LocalSession?.AttachedEntity is { } playerEntity &&
             _handsSystem.TryGetHand((playerEntity, _playerHandsComponent), name, out var handData))
-<<<<<<< HEAD
-        {
-            UpdateHandStatus(hand, null, handData);
-            if (handData?.EmptyRepresentative is { } representative)
-            {
-                SetRepresentative(hand, representative);
-                return;
-            }
-        }
-
-        hand.SetEntity(null);
-    }
-
-    private HandsContainer GetFirstAvailableContainer()
-    {
-        if (_handsContainers.Count == 0)
-            throw new Exception("Could not find an attached hand hud container");
-        foreach (var container in _handsContainers)
-=======
->>>>>>> upstreamwiz/master
         {
             UpdateHandStatus(hand, null, handData);
             if (handData.Value.EmptyRepresentative is { } representative)
@@ -331,11 +311,7 @@ public sealed class HandsUIController : UIController, IOnStateEntered<GameplaySt
         // If we don't have a status for this hand type yet, set it.
         // This means we have status filled by default in most scenarios,
         // otherwise the user'd need to switch hands to "activate" the hands the first time.
-<<<<<<< HEAD
-        if (hand.Location.GetUILocation() == HandUILocation.Left)
-=======
         if (hand.Location == HandLocation.Left)
->>>>>>> upstreamwiz/master
             _statusHandLeft ??= button;
         else
             _statusHandRight ??= button;

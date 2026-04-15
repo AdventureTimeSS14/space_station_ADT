@@ -12,7 +12,6 @@
             <Label Text="{Loc 'voice-mask-name-change-speech-style'}" />
             <OptionButton Name="SpeechVerbSelector" /> <!-- Populated in LoadVerbs -->
         </BoxContainer>
-<<<<<<< HEAD
         <!-- Corvax-TTS-Start -->
         <BoxContainer Orientation="Horizontal" Margin="5" Visible="False" Name="TTSContainer">
             <Label Text="{Loc 'voice-mask-TTS-voice-change-info'}" />
@@ -35,9 +34,7 @@
         <GridContainer Name="JobIconGrid" Columns="8" HorizontalExpand="True"/>
         <!-- ADT Job Icon End -->
 
-=======
         <Button Name="ToggleAccentButton" Text="{Loc 'voice-mask-name-change-accent-toggle'}" HorizontalExpand="True" ToggleMode="True" Margin="5"/>
         <Button Name="ToggleButton" Text="{Loc 'voice-mask-name-change-toggle'}" HorizontalExpand="True" ToggleMode="True" Margin="5"/>
->>>>>>> upstreamwiz/master
     </BoxContainer>
 </controls:FancyWindow>

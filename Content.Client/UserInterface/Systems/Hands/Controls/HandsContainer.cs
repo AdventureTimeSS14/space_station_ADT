@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-=======
 using System.Diagnostics.CodeAnalysis;
->>>>>>> upstreamwiz/master
 using System.Linq;
 using Content.Client.UserInterface.Systems.Inventory.Controls;
 using Content.Shared.Hands.Components;
@@ -53,33 +50,8 @@ public sealed class HandsContainer : ItemSlotUIContainer<HandButton>
 
     public override void ClearButtons()
     {
-<<<<<<< HEAD
-        if (Buttons.Count == 0)
-        {
-            control = null;
-            return false;
-        }
-
-        control = Buttons.Values.Last();
-        return true;
-    }
-
-    public bool TryRemoveLastHand(out HandButton? control)
-    {
-        var success = TryGetLastButton(out control);
-        if (control != null)
-            RemoveButton(control);
-        return success;
-    }
-
-    public void Clear()
-    {
-        ClearButtons();
-        _grid.RemoveAllChildren();
-=======
         base.ClearButtons();
         _orderedButtons.Clear();
->>>>>>> upstreamwiz/master
     }
 
     public IEnumerable<HandButton> GetButtons()

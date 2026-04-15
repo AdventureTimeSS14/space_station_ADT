@@ -66,7 +66,7 @@ public sealed class VendingMachineSystem : SharedVendingMachineSystem
         }
     }
 
-    protected override void UpdateUI(Entity entity)
+    protected override void UpdateUI(Entity<VendingMachineComponent?> entity)
     {
         if (!Resolve(entity, ref entity.Comp))
             return;

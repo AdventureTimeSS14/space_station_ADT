@@ -31,10 +31,7 @@ namespace Content.Server.Access.Systems
         [Dependency] private readonly ChameleonClothingSystem _chameleon = default!;
         [Dependency] private readonly ChameleonControllerSystem _chamController = default!;
         [Dependency] private readonly LockSystem _lock = default!;
-<<<<<<< HEAD
-=======
         [Dependency] private readonly SharedJobStatusSystem _jobStatus = default!;
->>>>>>> upstreamwiz/master
 
         public override void Initialize()
         {
@@ -46,11 +43,8 @@ namespace Content.Server.Access.Systems
             SubscribeLocalEvent<AgentIDCardComponent, AgentIDCardJobChangedMessage>(OnJobChanged);
             SubscribeLocalEvent<AgentIDCardComponent, AgentIDCardJobIconChangedMessage>(OnJobIconChanged);
             SubscribeLocalEvent<AgentIDCardComponent, InventoryRelayedEvent<ChameleonControllerOutfitSelectedEvent>>(OnChameleonControllerOutfitChangedItem);
-<<<<<<< HEAD
             SubscribeLocalEvent<AgentIDCardComponent, AgentIDCardNumberChangedMessage>(OnNumberChanged); // ADT-tweak: наночат
-=======
             SubscribeLocalEvent<AgentIDCardComponent, InventoryRelayedEvent<VoiceMaskNameUpdatedEvent>>(OnVoiceMaskNameChanged);
->>>>>>> upstreamwiz/master
         }
         // ADT-tweak-start: наночат
         private void OnNumberChanged(Entity<AgentIDCardComponent> ent, ref AgentIDCardNumberChangedMessage args)
@@ -189,7 +183,7 @@ namespace Content.Server.Access.Systems
                 idCard.FullName ?? "",
                 idCard.LocalizedJobTitle ?? "",
                 idCard.JobIcon,
-                currentNumber); 
+                currentNumber);
             // ADT-tweak-end
 
             _uiSystem.SetUiState(uid, AgentIDCardUiKey.Key, state);

@@ -27,15 +27,12 @@ public sealed class VoiceMaskBoundUserInterface : BoundUserInterface
 
         _window.OnNameChange += OnNameSelected;
         _window.OnVerbChange += verb => SendMessage(new VoiceMaskChangeVerbMessage(verb));
-<<<<<<< HEAD
         _window.OnVoiceChange += voice => SendMessage(new VoiceMaskChangeVoiceMessage(voice)); // Corvax-TTS
         _window.OnBarkChange += bark => SendMessage(new VoiceMaskChangeBarkMessage(bark)); // ADT Barks
         _window.OnPitchChange += pitch => SendMessage(new VoiceMaskChangeBarkPitchMessage(pitch)); // ADT Barks
         _window.OnJobIconChange += jobIconId => SendMessage(new VoiceMaskChangeJobIconMessage(jobIconId)); // ADT-Tweak
-=======
         _window.OnToggle += OnToggle;
         _window.OnAccentToggle += OnAccentToggle;
->>>>>>> upstreamwiz/master
     }
 
     private void OnNameSelected(string name)
@@ -59,12 +56,8 @@ public sealed class VoiceMaskBoundUserInterface : BoundUserInterface
         {
             return;
         }
-<<<<<<< HEAD
-         _window.UpdateState(cast.Name, cast.Voice, cast.Bark, cast.Pitch, cast.Verb, cast.JobIconId); // ADT-Tweak
-=======
 
-        _window.UpdateState(cast.Name, cast.Verb, cast.Active, cast.AccentHide);
->>>>>>> upstreamwiz/master
+        _window.UpdateState(cast.Name, cast.Voice, cast.Bark, cast.Pitch, cast.Verb, cast.JobIconId, cast.Active, cast.AccentHide);
     }
 
     protected override void Dispose(bool disposing)

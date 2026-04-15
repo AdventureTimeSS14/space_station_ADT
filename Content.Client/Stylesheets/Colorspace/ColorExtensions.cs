@@ -14,17 +14,10 @@ public static class ColorExtensions
     {
         DebugTools.Assert(lightness is >= 0.0f and <= 1.0f);
 
-<<<<<<< HEAD
-        var oklab = Color.ToLab(c);
-        oklab.X = lightness;
-
-        return Color.FromLab(oklab);
-=======
         var oklab = c.LabFromSrgb();
         oklab.X = lightness;
 
         return oklab.LabToSrgb();
->>>>>>> upstreamwiz/master
     }
 
     /// <summary>
@@ -32,17 +25,10 @@ public static class ColorExtensions
     /// </summary>
     public static Color NudgeLightness(this Color c, float lightnessShift)
     {
-<<<<<<< HEAD
-        var oklab = Color.ToLab(c);
-        oklab.X = Math.Clamp(oklab.X + lightnessShift, 0, 1);
-
-        return Color.FromLab(oklab);
-=======
         var oklab = c.LabFromSrgb();
         oklab.X = Math.Clamp(oklab.X + lightnessShift, 0, 1);
 
         return oklab.LabToSrgb();
->>>>>>> upstreamwiz/master
     }
 
     /// <summary>
@@ -53,20 +39,12 @@ public static class ColorExtensions
     /// </remarks>
     public static Color NudgeChroma(this Color c, float chromaShift)
     {
-<<<<<<< HEAD
-        var oklab = Color.ToLab(c);
-=======
         var oklab = c.LabFromSrgb();
->>>>>>> upstreamwiz/master
         var oklch = Color.ToLch(oklab);
 
         oklch.Y = Math.Clamp(oklch.Y + chromaShift, 0, 1);
 
-<<<<<<< HEAD
-        return Color.FromLab(Color.FromLch(oklch));
-=======
         return Color.FromLch(oklch).LabToSrgb();
->>>>>>> upstreamwiz/master
     }
 
     /// <summary>
@@ -76,13 +54,6 @@ public static class ColorExtensions
     {
         DebugTools.Assert(factor is >= 0.0f and <= 1.0f);
 
-<<<<<<< HEAD
-        var okFrom = Color.ToLab(from);
-        var okTo = Color.ToLab(to);
-
-        var blended = Vector4.Lerp(okFrom, okTo, factor);
-        return Color.FromLab(blended);
-=======
         var okFrom = from.LabFromSrgb();
         var okTo = to.LabFromSrgb();
 
@@ -121,6 +92,5 @@ public static class ColorExtensions
             B = Math.Clamp(from.B, 0, 1),
             A = from.A,
         };
->>>>>>> upstreamwiz/master
     }
 }

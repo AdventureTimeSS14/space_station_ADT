@@ -228,10 +228,6 @@ public class RadialMenu : BaseWindow
 /// Base class for radial menu buttons. Excludes all actions except clicks and alt-clicks
 /// from interactions.
 /// </summary>
-<<<<<<< HEAD
-[Virtual]
-=======
->>>>>>> upstreamwiz/master
 public abstract class RadialMenuButtonBase : BaseButton
 {
     /// <inheritdoc />

@@ -24,12 +24,9 @@ public sealed class EmotesUIController : UIController, IOnStateChanged<GameplayS
 {
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
-<<<<<<< HEAD
     [Dependency] private readonly IClyde _displayManager = default!;
     [Dependency] private readonly IInputManager _inputManager = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!; // ADT Radial menu settings
-=======
->>>>>>> upstreamwiz/master
 
     private MenuButton? EmotesButton => UIManager.GetActiveUIWidgetOrNull<MenuBar.Widgets.GameTopMenuBar>()?.EmotesButton;
     private SimpleRadialMenu? _menu;

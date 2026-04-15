@@ -1640,13 +1640,6 @@ namespace Content.Client.Stylesheets
                 // Silicon law edit ui
                 Element<Label>().Class(SiliconLawContainer.StyleClassSiliconLawPositionLabel)
                     .Prop(Label.StylePropertyFontColor, NanoGold),
-<<<<<<< HEAD
-
-                Element<PanelContainer>()
-                    .Class(StyleClassInset)
-                    .Prop(PanelContainer.StylePropertyPanel, insetBack),
-=======
->>>>>>> upstreamwiz/master
             }).ToList());
         }
     }
