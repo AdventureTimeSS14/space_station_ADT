@@ -650,7 +650,7 @@
     node: barrel
   - type: PhysicalComposition
     materialComposition:
-      Steel: 800
+      Steel: 600 # ADT-Tweak
   - type: SolutionContainerManager
     solutions:
       tank:
