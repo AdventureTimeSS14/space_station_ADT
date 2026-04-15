@@ -655,4 +655,6 @@
     solutions:
       tank:
         maxVol: 500
+  - type: RadiationSource # ADT-Tweak
+    intensity: 0 # ADT-Tweak
 # ADT-Tweak End
