@@ -78,6 +78,22 @@ public sealed class TraitSystem : EntitySystem
     }
 
     /// <summary>
+    /// Applies traits to an entity without requiring a player session (for admin spawning).
+    /// </summary>
+    public void ApplyTraits(EntityUid mob, HumanoidCharacterProfile profile, ProtoId<JobPrototype>? jobId = null)
+    {
+        var validTraits = ValidateTraits(mob, profile.TraitPreferences, null, profile, jobId);
+
+        foreach (var traitId in validTraits)
+        {
+            if (!_prototype.TryIndex(traitId, out var trait))
+                continue;
+
+            ApplyTrait(mob, trait);
+        }
+    }
+
+    /// <summary>
     /// Validates a set of trait selections against all rules and returns the valid subset.
     /// </summary>
     private HashSet<ProtoId<TraitPrototype>> ValidateTraits(

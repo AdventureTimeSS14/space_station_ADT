@@ -1,6 +1,7 @@
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Events;
 using Content.Server.Station.Systems;
+using Content.Server.Traits;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
@@ -33,6 +34,7 @@ public sealed class GhostBarSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly GameTicker _ticker = default!;
     [Dependency] private readonly StationSpawningSystem _spawningSystem = default!;
+    [Dependency] private readonly TraitSystem _traits = default!;
     [Dependency] private readonly MindSystem _mindSystem = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly StealthSystem _stealth = default!;
@@ -111,6 +113,7 @@ public sealed class GhostBarSystem : EntitySystem
         var randomJob = _random.Pick(GhostBarMap.Jobs);
         var profile = _ticker.GetPlayerProfile(args.SenderSession);
         var mobUid = _spawningSystem.SpawnPlayerMob(randomSpawnPoint, randomJob, profile, null);
+        _traits.ApplyTraits(mobUid, profile, randomJob);
 
         EnsureComp<GhostBarPlayerComponent>(mobUid);
         EnsureComp<MindShieldComponent>(mobUid);

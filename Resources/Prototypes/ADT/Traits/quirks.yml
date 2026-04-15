@@ -7,11 +7,10 @@
   whitelist:
     components:
       - SizeAttributeWhitelist
-  blacklist:
-    components:
-      - SizeAttribute
+  conflicts:
+    - Short
   effects:
-    - !type:AddCompsEffect
+    - !type:OverrideCompsEffect
       components:
         - type: SizeAttribute
           tall: true
@@ -25,11 +24,10 @@
   whitelist:
     components:
       - SizeAttributeWhitelist
-  blacklist:
-    components:
-      - SizeAttribute
+  conflicts:
+    - Tall
   effects:
-    - !type:AddCompsEffect
+    - !type:OverrideCompsEffect
       components:
         - type: SizeAttribute
           short: true
@@ -69,7 +67,7 @@
     - !type:AddCompsEffect
       components:
         - type: Sprinter
-          modifier: 1.05
+          modifier: 1.10
 
 - type: trait
   id: FastLockers
