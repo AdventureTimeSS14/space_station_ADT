@@ -1,4 +1,3 @@
-using Content.Shared.GameTicking;
 using Robust.Shared.Serialization.Manager;
 
 namespace Content.Shared.Traits.Assorted;
@@ -13,25 +12,10 @@ public sealed class AccentlessSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<AccentlessComponent, PlayerSpawnCompleteEvent>(RemoveAccentsOnSpawn); // ADT-Tweak
         SubscribeLocalEvent<AccentlessComponent, ComponentStartup>(RemoveAccents);
     }
 
-    // ADT-Tweak start
-    private void RemoveAccentsOnSpawn(EntityUid uid, AccentlessComponent component, PlayerSpawnCompleteEvent args)
-    {
-        RemoveAccentsInternal(uid, component);
-    }
-    // ADT-Tweak end
-
     private void RemoveAccents(EntityUid uid, AccentlessComponent component, ComponentStartup args)
-    // ADT-Tweak start
-    {
-        RemoveAccentsInternal(uid, component);
-    }
-    // ADT-Tweak end
-
-    private void RemoveAccentsInternal(EntityUid uid, AccentlessComponent component) // ADT-Tweak
     {
         foreach (var accent in component.RemovedAccents.Values)
         {
