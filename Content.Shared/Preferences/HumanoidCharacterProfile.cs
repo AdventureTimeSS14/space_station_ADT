@@ -538,16 +538,14 @@ namespace Content.Shared.Preferences
             var category = traitProto.Category;
 
             // Category not found so dump it.
-            TraitCategoryPrototype? traitCategory = null;
-
-            if (category == null || !protoManager.Resolve(category, out traitCategory))
+            if (!protoManager.Resolve(category, out TraitCategoryPrototype? traitCategory))
                 return new(this);
 
             var list = new HashSet<ProtoId<TraitPrototype>>(_traitPreferences) { traitId };
 
             // Check category points limit if applicable
              // ADT-Tweak start new Traits - система полностью переписана
-            if (category.HasValue && traitCategory.MaxPoints.HasValue)
+            if (traitCategory.MaxPoints.HasValue)
             {
                 var count = 0;
                 foreach (var trait in list)

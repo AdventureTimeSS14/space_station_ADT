@@ -26,4 +26,25 @@ public sealed partial class TemperatureComponent : Component
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public float AtmosTemperatureTransferEfficiency = 0.1f;
+
+    // ADT start - Speed modifiers based on temperature
+    /// <summary>
+    /// Temperature thresholds and their corresponding speed modifiers.
+    /// Key is the temperature threshold, Value is the speed modifier.
+    /// </summary>
+    [DataField]
+    public Dictionary<float, float> Thresholds = new();
+
+    /// <summary>
+    /// When the next slowdown update should occur.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    public TimeSpan? NextSlowdownUpdate;
+
+    /// <summary>
+    /// Current speed modifier to apply.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    public float? CurrentSpeedModifier;
+    // ADT end
 }
