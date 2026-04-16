@@ -7,10 +7,7 @@ using Content.Server.Ghost.Roles.Components;
 using Content.Server.Parallax;
 using Content.Server.Procedural;
 using Content.Server.Salvage.Expeditions;
-<<<<<<< HEAD
-=======
 using Content.Server.Shuttles.Components;
->>>>>>> upstreamwiz/master
 using Content.Shared.Atmos;
 using Content.Shared.Atmos.Components;
 using Content.Shared.Construction.EntitySystems;

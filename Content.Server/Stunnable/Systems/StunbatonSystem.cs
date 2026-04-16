@@ -9,10 +9,7 @@ using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.Popups;
 using Content.Shared.Power;
 using Content.Shared.Power.Components;
-<<<<<<< HEAD
-=======
 using Content.Shared.Power.EntitySystems;
->>>>>>> upstreamwiz/master
 using Content.Shared.Stunnable;
 
 namespace Content.Server.Stunnable.Systems

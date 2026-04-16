@@ -11,10 +11,7 @@ using Content.Shared.Construction;
 using Content.Shared.Database;
 using Content.Shared.Destructible;
 using Content.Shared.DeviceLinking.Events;
-<<<<<<< HEAD
-=======
 using Content.Shared.Emag.Systems;
->>>>>>> upstreamwiz/master
 using Content.Shared.Interaction;
 using Content.Shared.Lock;
 using Content.Shared.Popups;

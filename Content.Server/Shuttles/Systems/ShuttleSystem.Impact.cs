@@ -255,13 +255,8 @@ public sealed partial class ShuttleSystem
 
             if (direction.LengthSquared() > minsq)
             {
-<<<<<<< HEAD
-                _stuns.TryCrawling(uid, knockdownTime);
-                _throwing.TryThrow(uid, direction, physics, Transform(uid), _projQuery, direction.Length(), playSound: false);
-=======
                 _stuns.TryCrawling(ent.Owner, knockdownTime);
                 _throwing.TryThrow(ent, direction, ent.Comp, Transform(ent), _projQuery, direction.Length(), playSound: false);
->>>>>>> upstreamwiz/master
             }
             else
             {

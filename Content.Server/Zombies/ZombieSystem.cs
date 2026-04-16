@@ -278,19 +278,12 @@ namespace Content.Server.Zombies
                     _damageable.TryChangeDamage(args.User, entity.Comp.HealingOnBite, true, false);
 
                     // If we cannot infect the living target, the zed will just heal itself.
-<<<<<<< HEAD
                     if (HasComp<ZombieImmuneComponent>(uid) || cannotSpread || _random.Prob(GetZombieInfectionChance(uid, entity.Comp)))
                         continue;
 
                     var pendingComp = EnsureComp<PendingZombieComponent>(uid);
                     // Zombie bites are NOT Romerol infections - warnings will show
                     pendingComp.RomerolInfection = false; // ADT-Tweak
-=======
-                    if (HasComp<ZombieImmuneComponent>(uid) || cannotSpread || !_random.Prob(GetZombieInfectionChance(uid, entity.Comp)))
-                        continue;
-
-                    EnsureComp<PendingZombieComponent>(uid);
->>>>>>> upstreamwiz/master
                     EnsureComp<ZombifyOnDeathComponent>(uid);
                 }
                 else

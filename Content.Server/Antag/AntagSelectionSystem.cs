@@ -13,11 +13,7 @@ using Content.Server.Players.PlayTimeTracking;
 using Content.Server.Preferences.Managers;
 using Content.Server.Roles;
 using Content.Server.Roles.Jobs;
-<<<<<<< HEAD
-using Content.Server.Shuttles.Components;
-=======
 using Content.Server.Shuttles.Systems;
->>>>>>> upstreamwiz/master
 using Content.Shared.Administration.Logs;
 using Content.Shared.Antag;
 using Content.Shared.Clothing;
@@ -397,7 +393,7 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
                 ent.Comp.PreSelectedSessions.Add(def, set = new HashSet<ICommonSession>());
             set.Add(session);
             ent.Comp.AssignedSessions.Add(session);
-            
+
             // Corvax-start
             if (def.RoundstartEntity != null && ent.Comp.SelectionTime == AntagSelectionTime.PrePlayerSpawn)
                 antagEnt = Spawn(def.RoundstartEntity);

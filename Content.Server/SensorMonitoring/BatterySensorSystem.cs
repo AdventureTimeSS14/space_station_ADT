@@ -3,10 +3,7 @@ using Content.Server.Power.Components;
 using Content.Shared.DeviceNetwork;
 using Content.Shared.DeviceNetwork.Events;
 using Content.Shared.Power.Components;
-<<<<<<< HEAD
-=======
 using Content.Shared.Power.EntitySystems;
->>>>>>> upstreamwiz/master
 
 namespace Content.Server.SensorMonitoring;
 

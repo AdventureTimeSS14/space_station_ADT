@@ -1,11 +1,5 @@
-<<<<<<< HEAD
-using Content.Server.Body.Systems;
-using Content.Server.Stack;
-using Content.Shared.Body.Components;
-=======
 using Content.Server.Stack;
 using Content.Shared.Gibbing;
->>>>>>> upstreamwiz/master
 using Content.Shared.Storage.Components;
 using Content.Shared.Whitelist;
 using Content.Shared.Xenoarchaeology.Equipment;
@@ -19,11 +13,7 @@ namespace Content.Server.Xenoarchaeology.Equipment.Systems;
 public sealed class ArtifactCrusherSystem : SharedArtifactCrusherSystem
 {
     [Dependency] private readonly IRobustRandom _random = default!;
-<<<<<<< HEAD
-    [Dependency] private readonly BodySystem _body = default!;
-=======
     [Dependency] private readonly GibbingSystem _gibbing = default!;
->>>>>>> upstreamwiz/master
     [Dependency] private readonly StackSystem _stack = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
 

@@ -162,7 +162,6 @@ public sealed class HeadsetSystem : SharedHeadsetSystem
         }
 
         if (TryComp(parent, out ActorComponent? actor))
-<<<<<<< HEAD
         {
             // ADT Languages start
             if (_language.CanUnderstand(Transform(uid).ParentUid, args.Language))
@@ -171,8 +170,5 @@ public sealed class HeadsetSystem : SharedHeadsetSystem
                 _netMan.ServerSendMessage(args.UnknownLanguageChatMsg, actor.PlayerSession.Channel);
             // ADT Languages end
         }
-=======
-            _netMan.ServerSendMessage(args.ChatMsg, actor.PlayerSession.Channel);
->>>>>>> upstreamwiz/master
     }
 }

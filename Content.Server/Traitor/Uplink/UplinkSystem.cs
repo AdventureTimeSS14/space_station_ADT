@@ -161,11 +161,7 @@ public sealed class UplinkSystem : EntitySystem
     /// </summary>
     public bool TryImplantUplink(EntityUid user, EntityUid storeEntity, FixedPoint2 balance, bool giveDiscounts)
     {
-<<<<<<< HEAD
-        if (!_proto.Resolve<ListingPrototype>(FallbackUplinkCatalog, out var catalog))
-=======
         if (!_proto.Resolve(FallbackUplinkCatalog, out var catalog))
->>>>>>> upstreamwiz/master
             return false;
 
         if (!catalog.Cost.TryGetValue(TelecrystalCurrencyPrototype, out var cost))
@@ -179,11 +175,7 @@ public sealed class UplinkSystem : EntitySystem
         SetUplink(user, storeEntity, balance, giveDiscounts);
         var implant = _subdermalImplant.AddImplant(user, FallbackUplinkImplant);
 
-<<<<<<< HEAD
-        if (!HasComp<StoreComponent>(implant))
-=======
         if (!HasComp<RemoteStoreComponent>(implant))
->>>>>>> upstreamwiz/master
         {
             Log.Error($"Implant does not have the store component {implant}");
             return false;
@@ -205,24 +197,15 @@ public sealed class UplinkSystem : EntitySystem
             {
                 var pdaUid = containerSlot.ContainedEntity;
 
-<<<<<<< HEAD
-                if (HasComp<PdaComponent>(pdaUid) && HasComp<StoreComponent>(pdaUid))
-                    return pdaUid;
-=======
                 if (HasComp<PdaComponent>(pdaUid) && HasComp<RemoteStoreComponent>(pdaUid))
                     return pdaUid.Value;
->>>>>>> upstreamwiz/master
             }
         }
 
         // Also check hands
         foreach (var item in _handsSystem.EnumerateHeld(user))
         {
-<<<<<<< HEAD
-            if (HasComp<PdaComponent>(item) && HasComp<StoreComponent>(item))
-=======
             if (HasComp<PdaComponent>(item) && HasComp<RemoteStoreComponent>(item))
->>>>>>> upstreamwiz/master
                 return item;
         }
 

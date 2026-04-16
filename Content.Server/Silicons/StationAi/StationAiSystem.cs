@@ -1,16 +1,4 @@
 using Content.Server.Chat.Systems;
-<<<<<<< HEAD
-using Content.Server.GameTicking;
-using Content.Server.Silicons.Laws;
-using Content.Shared.Chat;
-using Content.Shared.Mind;
-using Content.Server.Construction;
-using Content.Server.Destructible;
-using Content.Server.Ghost;
-using Content.Server.Mind;
-using Content.Server.Power.Components;
-using Content.Server.Power.EntitySystems;
-=======
 using Content.Server.Construction;
 using Content.Server.Destructible;
 using Content.Server.Ghost;
@@ -18,7 +6,6 @@ using Content.Server.Ghost.Roles;
 using Content.Server.Ghost.Roles.Components;
 using Content.Server.Mind;
 using Content.Server.Power.Components;
->>>>>>> upstreamwiz/master
 using Content.Server.Roles;
 using Content.Server.Spawners.Components;
 using Content.Server.Spawners.EntitySystems;
@@ -35,10 +22,7 @@ using Content.Shared.Mobs;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Power;
-<<<<<<< HEAD
-=======
 using Content.Shared.Power.EntitySystems;
->>>>>>> upstreamwiz/master
 using Content.Shared.Power.Components;
 using Content.Shared.Rejuvenate;
 using Content.Shared.Roles;
@@ -47,12 +31,6 @@ using Content.Shared.Silicons.Laws;
 using Content.Shared.Silicons.StationAi;
 using Content.Shared.Speech.Components;
 using Content.Shared.StationAi;
-<<<<<<< HEAD
-using Robust.Server.Containers;
-using Robust.Server.GameObjects;
-using Robust.Shared.Audio;
-=======
->>>>>>> upstreamwiz/master
 using Content.Shared.Turrets;
 using Content.Shared.Weapons.Ranged.Events;
 using Robust.Server.Containers;
@@ -73,16 +51,10 @@ public sealed class StationAiSystem : SharedStationAiSystem
     [Dependency] private readonly RoleSystem _roles = default!;
     [Dependency] private readonly ItemSlotsSystem _slots = default!;
     [Dependency] private readonly GhostSystem _ghost = default!;
-<<<<<<< HEAD
-    [Dependency] private readonly AlertsSystem _alerts = default!;
-    [Dependency] private readonly DestructibleSystem _destructible = default!;
-    [Dependency] private readonly BatterySystem _battery = default!;
-=======
     [Dependency] private readonly ToggleableGhostRoleSystem _ghostrole = default!;
     [Dependency] private readonly AlertsSystem _alerts = default!;
     [Dependency] private readonly DestructibleSystem _destructible = default!;
     [Dependency] private readonly SharedBatterySystem _battery = default!;
->>>>>>> upstreamwiz/master
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly SharedPopupSystem _popups = default!;
     [Dependency] private readonly StationSystem _station = default!;
@@ -90,12 +62,9 @@ public sealed class StationAiSystem : SharedStationAiSystem
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-<<<<<<< HEAD
     [Dependency] private readonly ISharedPlayerManager _player = default!; // ADT-Tweak
     [Dependency] private readonly SiliconLawSystem _law = default!; // ADT-Tweak
     [Dependency] private readonly GameTicker _ticker = default!; // ADT-Tweak
-=======
->>>>>>> upstreamwiz/master
 
     private readonly HashSet<Entity<StationAiCoreComponent>> _stationAiCores = new();
 
@@ -107,11 +76,7 @@ public sealed class StationAiSystem : SharedStationAiSystem
     private readonly ProtoId<JobPrototype> _stationAiJob = "StationAi";
     private readonly EntProtoId _stationAiBrain = "StationAiBrain";
 
-<<<<<<< HEAD
-    private readonly ProtoId<AlertPrototype> _batteryAlert = "BorgBattery";
-=======
     private readonly ProtoId<AlertPrototype> _batteryAlert = "AiBattery";
->>>>>>> upstreamwiz/master
     private readonly ProtoId<AlertPrototype> _damageAlert = "BorgHealth";
 
     public override void Initialize()
@@ -140,16 +105,6 @@ public sealed class StationAiSystem : SharedStationAiSystem
         }
 
         var brain = container.ContainedEntities[0];
-<<<<<<< HEAD
-
-        if (_mind.TryGetMind(brain, out var mindId, out var mind))
-        {
-            // Found an existing mind to transfer into the AI core
-            var aiBrain = Spawn(_stationAiBrain, Transform(ent.Owner).Coordinates);
-            _roles.MindAddJobRole(mindId, mind, false, _stationAiJob);
-            _mind.TransferTo(mindId, aiBrain);
-
-=======
         var hasMind = _mind.TryGetMind(brain, out var mindId, out var mind);
 
         if (hasMind || HasComp<GhostRoleComponent>(brain))
@@ -174,21 +129,17 @@ public sealed class StationAiSystem : SharedStationAiSystem
             }
 
             // Delete the new AI brain if it cannot be inserted into the core
->>>>>>> upstreamwiz/master
             if (!TryComp<StationAiHolderComponent>(ent, out var targetHolder) ||
                 !_slots.TryInsert(ent, targetHolder.Slot, aiBrain, null))
             {
                 QueueDel(aiBrain);
             }
-<<<<<<< HEAD
             // ADT-Tweak start
             else
             {
                 SetLoadoutOnTakeover(ent.Owner, aiBrain);
             }
             // ADT-Tweak end
-=======
->>>>>>> upstreamwiz/master
         }
 
         // TODO: We should consider keeping the borg brain inside the AI core.
@@ -232,7 +183,6 @@ public sealed class StationAiSystem : SharedStationAiSystem
             accent.OverrideTotalDamage = null;
             accent.DamageAtMaxCorruption = null;
         }
-<<<<<<< HEAD
 
         // ADT-Tweak start: Remove StationAI job role when leaving the AI core
         if (_mind.TryGetMind(args.Entity, out var mindId, out var mind))
@@ -241,8 +191,6 @@ public sealed class StationAiSystem : SharedStationAiSystem
                 _roles.MindRemoveRole<JobRoleComponent>(mindId);
         }
         // ADT-Tweak end
-=======
->>>>>>> upstreamwiz/master
     }
 
     protected override void OnMobStateChanged(Entity<StationAiCustomizationComponent> ent, ref MobStateChangedEvent args)
@@ -266,11 +214,8 @@ public sealed class StationAiSystem : SharedStationAiSystem
 
             if (SetupEye(aiCoreEnt))
                 AttachEye(aiCoreEnt);
-<<<<<<< HEAD
 
             SetLoadoutOnTakeover(aiCore.Owner, ent.Owner); // ADT-Tweak
-=======
->>>>>>> upstreamwiz/master
         }
 
         SetStationAiState(ent, state);
@@ -375,11 +320,7 @@ public sealed class StationAiSystem : SharedStationAiSystem
         if (!_proto.TryIndex(_damageAlert, out var proto))
             return;
 
-<<<<<<< HEAD
-        var damagePercent = damageable.TotalDamage / _destructible.DestroyedAt(ent, destructible);
-=======
         var damagePercent = _damageable.GetTotalDamage((ent, damageable)) / _destructible.DestroyedAt(ent, destructible);
->>>>>>> upstreamwiz/master
         var damageLevel = Math.Round(damagePercent.Float() * proto.MaxSeverity);
 
         _alerts.ShowAlert(held.Value, _damageAlert, (short)Math.Clamp(damageLevel, 0, proto.MaxSeverity));
