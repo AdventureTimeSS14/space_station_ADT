@@ -39,6 +39,8 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using static Content.Server.Chat.Systems.ChatSystem;
+using Content.Server.Silicons.Laws;
+using Content.Server.GameTicking;
 
 namespace Content.Server.Silicons.StationAi;
 
