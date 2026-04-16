@@ -1,8 +1,4 @@
 using Content.Server.Ninja.Events;
-<<<<<<< HEAD
-using Content.Server.Power.EntitySystems;
-=======
->>>>>>> upstreamwiz/master
 using Content.Shared.Damage.Systems;
 using Content.Shared.Interaction;
 using Content.Shared.Ninja.Components;

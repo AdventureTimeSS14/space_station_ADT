@@ -12,8 +12,6 @@ public sealed class InventoryCommand : ToolshedCommand
 {
     private InventorySystem? _inventorySystem;
 
-<<<<<<< HEAD
-=======
     [CommandImplementation("query")]
     public IEnumerable<EntityUid> InventoryQuery([PipedArgument] IEnumerable<EntityUid> entities) =>
         entities.SelectMany(InventoryQuery);
@@ -35,7 +33,6 @@ public sealed class InventoryCommand : ToolshedCommand
         return result;
     }
 
->>>>>>> upstreamwiz/master
     [CommandImplementation("getflags")]
     public IEnumerable<EntityUid> InventoryGetFlags([PipedArgument] IEnumerable<EntityUid> ents, SlotFlags slotFlag)
     {
@@ -134,10 +131,6 @@ public sealed class InventoryCommand : ToolshedCommand
     public EntityUid? InventoryTryPut([PipedArgument] IEnumerable<EntityUid> ents,
         EntityUid itemEnt,
         SlotFlags slotFlag) => InventoryPutEnumerableBase(ents, itemEnt, slotFlag, PutType.Put);
-<<<<<<< HEAD
-=======
-
->>>>>>> upstreamwiz/master
     [CommandImplementation("tryspawn")]
     public EntityUid? InventoryTrySpawn([PipedArgument] IEnumerable<EntityUid> ents,
         EntProtoId itemEnt,
@@ -147,19 +140,11 @@ public sealed class InventoryCommand : ToolshedCommand
     public EntityUid? InventoryEnsure([PipedArgument] IEnumerable<EntityUid> ents,
         EntityUid itemEnt,
         SlotFlags slotFlag) => InventoryPutEnumerableBase(ents, itemEnt, slotFlag, PutType.Ensure);
-<<<<<<< HEAD
-=======
-
->>>>>>> upstreamwiz/master
     [CommandImplementation("ensurespawn")]
     public EntityUid? InventoryEnsureSpawn([PipedArgument] IEnumerable<EntityUid> ents,
         EntProtoId itemEnt,
         SlotFlags slotFlag) => InventorySpawnEnumerableBase(ents, itemEnt, slotFlag, PutType.Ensure);
 
-<<<<<<< HEAD
-
-=======
->>>>>>> upstreamwiz/master
     private EntityUid? InventorySpawnEnumerableBase(IEnumerable<EntityUid> targetEnts,
         EntProtoId itemToInsert,
         SlotFlags slotFlags,
@@ -182,10 +167,6 @@ public sealed class InventoryCommand : ToolshedCommand
         Del(spawnedItem);
         return null;
     }
-<<<<<<< HEAD
-=======
-
->>>>>>> upstreamwiz/master
     private EntityUid? InventoryPutEnumerableBase(IEnumerable<EntityUid> targetEnts,
         EntityUid itemToInsert,
         SlotFlags slotFlags,

@@ -303,7 +303,6 @@ public sealed class FaxSystem : EntitySystem
                     args.Data.TryGetValue(FaxConstants.FaxPaperStampedByData, out List<StampDisplayInfo>? stampedBy);
                     args.Data.TryGetValue(FaxConstants.FaxPaperPrototypeData, out string? prototypeId);
                     args.Data.TryGetValue(FaxConstants.FaxPaperLockedData, out bool? locked);
-<<<<<<< HEAD
                     args.Data.TryGetValue(FaxConstants.FaxSenderNameData, out string? senderFaxName); // ADT-Tweak: Sender fax name for admin notifications
 
                     var printout = new FaxPrintout(content, name, label, prototypeId, stampState, stampedBy, locked ?? false);
@@ -316,12 +315,6 @@ public sealed class FaxSystem : EntitySystem
 
                     Receive(uid, printout, fromFaxName);
                     // ADT-Tweak end
-=======
-                    args.Data.TryGetValue(FaxConstants.FaxPaperSenderFaxNameData, out string? senderFaxName);
-
-                    var printout = new FaxPrintout(content, name, label, prototypeId, stampState, stampedBy, locked ?? false, senderFaxName);
-                    Receive(uid, printout, args.SenderAddress);
->>>>>>> upstreamwiz/master
 
                     break;
             }
@@ -569,11 +562,7 @@ public sealed class FaxSystem : EntitySystem
             { FaxConstants.FaxPaperLabelData, labelComponent?.CurrentLabel },
             { FaxConstants.FaxPaperContentData, content },
             { FaxConstants.FaxPaperLockedData, paper.EditingDisabled },
-<<<<<<< HEAD
             { FaxConstants.FaxSenderNameData, component.FaxName }, // ADT-Tweak start: Get sender fax name from payload or from known faxes or use unknown
-=======
-            { FaxConstants.FaxPaperSenderFaxNameData, component.FaxName ?? Loc.GetString("fax-machine-popup-source-unknown") }
->>>>>>> upstreamwiz/master
         };
 
         if (metadata.EntityPrototype != null)
@@ -616,12 +605,8 @@ public sealed class FaxSystem : EntitySystem
         if (!Resolve(uid, ref component))
             return;
 
-<<<<<<< HEAD
         // ADT-Tweak start
         var senderName = fromFaxName ?? Loc.GetString("fax-machine-popup-source-unknown");
-=======
-        var faxName = printout.SenderFaxName ?? Loc.GetString("fax-machine-popup-source-unknown");
->>>>>>> upstreamwiz/master
 
         _popupSystem.PopupEntity(Loc.GetString("fax-machine-popup-received", ("from", senderName)), uid);
         // ADT-Tweak end

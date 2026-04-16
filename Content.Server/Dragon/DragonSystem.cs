@@ -35,12 +35,7 @@ public sealed partial class DragonSystem : EntitySystem
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly TurfSystem _turf = default!;
-<<<<<<< HEAD
     [Dependency] private readonly DamageableSystem _damage = default!; // ADT-Tweak
-=======
-    [Dependency] private readonly GibbingSystem _gibbing = default!;
-    [Dependency] private readonly SmokeSystem _smoke = default!;
->>>>>>> upstreamwiz/master
 
     private EntityQuery<CarpRiftsConditionComponent> _objQuery;
 
@@ -108,7 +103,6 @@ public sealed partial class DragonSystem : EntitySystem
             if (!_mobState.IsDead(uid))
                 comp.RiftAccumulator += frameTime;
 
-<<<<<<< HEAD
             // ADT-Tweak start
             // TODO: сделать анимированную смерть, где дракон лопается, после чего трупы разлетяться в разные стороны.
             if (comp.RiftAccumulator >= comp.RiftMaxAccumulator)
@@ -119,16 +113,6 @@ public sealed partial class DragonSystem : EntitySystem
                 damage.DamageDict["Blunt"] = 10000;
 
                 _damage.TryChangeDamage(uid, damage, true);
-=======
-            // Gib it, naughty dragon!
-            if (comp.RiftAccumulator >= comp.RiftMaxAccumulator)
-            {
-                Roar(uid, comp, Transform(uid).Coordinates);
-                var smoke = Spawn(comp.SmokePrototype, Transform(uid).Coordinates);
-                if (TryComp<SmokeComponent>(smoke, out var smokeComp))
-                    _smoke.StartSmoke(smoke, comp.SmokeSolution, smokeComp.Duration, smokeComp.SpreadAmount, smokeComp);
-                _gibbing.Gib(uid);
->>>>>>> upstreamwiz/master
             }
             // ADT-Tweak end
         }

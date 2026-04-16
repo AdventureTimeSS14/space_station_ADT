@@ -1,8 +1,4 @@
 using Content.Server.Medical.Components;
-<<<<<<< HEAD
-using Content.Server.PowerCell;
-=======
->>>>>>> upstreamwiz/master
 using Content.Shared.Body.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Damage.Components;
@@ -16,10 +12,7 @@ using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.MedicalScanner;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
-<<<<<<< HEAD
-=======
 using Content.Shared.PowerCell;
->>>>>>> upstreamwiz/master
 using Content.Shared.Temperature.Components;
 using Content.Shared.Traits.Assorted;
 using Robust.Server.GameObjects;
@@ -256,7 +249,6 @@ public sealed class HealthAnalyzerSystem : EntitySystem
         if (TryComp<UnrevivableComponent>(entity, out var unrevivableComp) && unrevivableComp.Analyzable)
             unrevivable = true;
 
-<<<<<<< HEAD
         // ADT-Tweak start: - Get a list of metabolizing chemicals
         List<(string ReagentId, FixedPoint2 Quantity)>? metabolizingReagents = null;
         if (TryComp<BloodstreamComponent>(target, out var bloodstreamComp) &&
@@ -272,21 +264,12 @@ public sealed class HealthAnalyzerSystem : EntitySystem
 
         _uiSystem.ServerSendUiMessage(healthAnalyzer, HealthAnalyzerUiKey.Key, new HealthAnalyzerScannedUserMessage(
             GetNetEntity(target),
-=======
-        return new HealthAnalyzerUiState(
-            GetNetEntity(entity),
->>>>>>> upstreamwiz/master
             bodyTemperature,
             bloodAmount,
             null,
             bleeding,
-<<<<<<< HEAD
             unrevivable,
             metabolizingReagents // ADT-Tweak - add metabolizing chemicals to ui message
         ));
-=======
-            unrevivable
-        );
->>>>>>> upstreamwiz/master
     }
 }

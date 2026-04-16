@@ -193,11 +193,7 @@ public sealed class MaterialReclaimerSystem : SharedMaterialReclaimerSystem
             _adminLogger.Add(LogType.Gib, logImpact, $"{ToPrettyString(item):victim} was gibbed by {ToPrettyString(uid):entity} ");
             if (component.ReclaimSolutions)
                 SpawnChemicalsFromComposition(uid, item, completion, false, component, xform);
-<<<<<<< HEAD
-            _body.GibBody(item, true);
-=======
             _gibbing.Gib(item);
->>>>>>> upstreamwiz/master
             _appearance.SetData(uid, RecyclerVisuals.Bloody, true);
         }
         else

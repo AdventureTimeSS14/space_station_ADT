@@ -1,12 +1,8 @@
 using System.Linq;
 using Content.Server.DeviceNetwork;
 using Content.Server.DeviceNetwork.Systems;
-<<<<<<< HEAD
 using Content.Server.Popups;
-using Content.Server.PowerCell;
-=======
 using Content.Shared.PowerCell;
->>>>>>> upstreamwiz/master
 using Content.Shared.DeviceNetwork;
 using Content.Shared.DeviceNetwork.Events;
 using Content.Shared.Emag.Systems;

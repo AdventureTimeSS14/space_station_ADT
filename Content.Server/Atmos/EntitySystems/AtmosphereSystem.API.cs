@@ -1,11 +1,5 @@
-<<<<<<< HEAD
-using System.Diagnostics;
-using Content.Server.Atmos.Components;
-using Content.Server.Atmos.Piping.Components;
-=======
 using System.Buffers;
 using System.Diagnostics;
->>>>>>> upstreamwiz/master
 using Content.Server.NodeContainer.NodeGroups;
 using Content.Shared.Atmos;
 using Content.Shared.Atmos.Components;
@@ -21,27 +15,6 @@ public partial class AtmosphereSystem
 {
     /*
      General API for interacting with AtmosphereSystem.
-<<<<<<< HEAD
-
-     If you feel like you're stepping on eggshells because you can't access things in AtmosphereSystem,
-     consider adding a method here instead of making your own way to work around it.
-     */
-
-    /// <summary>
-    /// Gets the <see cref="GasMixture"/> that an entity is contained within.
-    /// </summary>
-    /// <param name="ent">The entity to get the mixture for.</param>
-    /// <param name="ignoreExposed">If true, will ignore mixtures that the entity is contained in
-    /// (ex. lockers and cryopods) and just get the tile mixture.</param>
-    /// <param name="excite">If true, will mark the tile as active for atmosphere processing.</param>
-    /// <returns>A <see cref="GasMixture"/> if one could be found, null otherwise.</returns>
-    [PublicAPI]
-    public GasMixture? GetContainingMixture(Entity<TransformComponent?> ent, bool ignoreExposed = false, bool excite = false)
-    {
-        if (!Resolve(ent, ref ent.Comp))
-            return null;
-=======
->>>>>>> upstreamwiz/master
 
      If you feel like you're stepping on eggshells because you can't access things in AtmosphereSystem,
      consider adding a method here instead of making your own way to work around it.
@@ -59,58 +32,6 @@ public partial class AtmosphereSystem
     }
 
     /// <summary>
-<<<<<<< HEAD
-    /// Gets the <see cref="GasMixture"/> that an entity is contained within.
-    /// </summary>
-    /// <param name="ent">The entity to get the mixture for.</param>
-    /// <param name="grid">The grid that the entity may be on.</param>
-    /// <param name="map">The map that the entity may be on.</param>
-    /// <param name="ignoreExposed">If true, will ignore mixtures that the entity is contained in
-    /// (ex. lockers and cryopods) and just get the tile mixture.</param>
-    /// <param name="excite">If true, will mark the tile as active for atmosphere processing.</param>
-    /// <returns>A <see cref="GasMixture"/> if one could be found, null otherwise.</returns>
-    [PublicAPI]
-    public GasMixture? GetContainingMixture(
-        Entity<TransformComponent?> ent,
-        Entity<GridAtmosphereComponent?, GasTileOverlayComponent?>? grid,
-        Entity<MapAtmosphereComponent?>? map,
-        bool ignoreExposed = false,
-        bool excite = false)
-    {
-        if (!Resolve(ent, ref ent.Comp))
-            return null;
-
-        if (!ignoreExposed && !ent.Comp.Anchored)
-        {
-            // Used for things like disposals/cryo to change which air people are exposed to.
-            var ev = new AtmosExposedGetAirEvent((ent, ent.Comp), excite);
-            RaiseLocalEvent(ent, ref ev);
-            if (ev.Handled)
-                return ev.Gas;
-
-            // TODO ATMOS: recursively iterate up through parents
-            // This really needs recursive InContainer metadata flag for performance
-            // And ideally some fast way to get the innermost airtight container.
-        }
-
-        var position = _transformSystem.GetGridTilePositionOrDefault((ent, ent.Comp));
-        return GetTileMixture(grid, map, position, excite);
-    }
-
-    /// <summary>
-    /// Checks if a grid has an atmosphere.
-    /// </summary>
-    /// <param name="gridUid">The grid to check.</param>
-    /// <returns>True if the grid has an atmosphere, false otherwise.</returns>
-    [PublicAPI]
-    public bool HasAtmosphere(EntityUid gridUid)
-    {
-        return _atmosQuery.HasComponent(gridUid);
-    }
-
-    /// <summary>
-=======
->>>>>>> upstreamwiz/master
     /// Sets whether a grid is simulated by Atmospherics.
     /// </summary>
     /// <param name="gridUid">The grid to set.</param>
@@ -178,8 +99,6 @@ public partial class AtmosphereSystem
     }
 
     /// <summary>
-<<<<<<< HEAD
-=======
     /// Gets the gas mixture for a specific tile that an entity is on.
     /// </summary>
     /// <param name="entity">The entity to get the tile mixture for.</param>
@@ -243,7 +162,6 @@ public partial class AtmosphereSystem
     }
 
     /// <summary>
->>>>>>> upstreamwiz/master
     /// Gets the gas mixtures for a list of tiles on a grid or map.
     /// </summary>
     /// <param name="grid">The grid to get mixtures from.</param>
@@ -316,36 +234,6 @@ public partial class AtmosphereSystem
         return mixtures;
     }
 
-<<<<<<< HEAD
-    /// <summary>
-    /// Gets the gas mixture for a specific tile that an entity is on.
-    /// </summary>
-    /// <param name="entity">The entity to get the tile mixture for.</param>
-    /// <param name="excite">Whether to mark the tile as active for atmosphere processing.</param>
-    /// <returns>A <see cref="GasMixture"/> if one could be found, null otherwise.</returns>
-    /// <remarks>This does not return the <see cref="GasMixture"/> that the entity
-    /// may be contained in, ex. if the entity is currently in a locker/crate with its own
-    /// <see cref="GasMixture"/>.</remarks>
-    [PublicAPI]
-    public GasMixture? GetTileMixture(Entity<TransformComponent?> entity, bool excite = false)
-    {
-        if (!Resolve(entity.Owner, ref entity.Comp))
-            return null;
-
-        var indices = _transformSystem.GetGridTilePositionOrDefault(entity);
-        return GetTileMixture(entity.Comp.GridUid, entity.Comp.MapUid, indices, excite);
-    }
-
-    /// <summary>
-    /// Gets the gas mixture for a specific tile on a grid or map.
-    /// </summary>
-    /// <param name="grid">The grid to get the mixture from.</param>
-    /// <param name="map">The map to get the mixture from.</param>
-    /// <param name="gridTile">The tile to get the mixture from.</param>
-    /// <param name="excite">Whether to mark the tile as active for atmosphere processing.</param>
-    /// <returns>>A <see cref="GasMixture"/> if one could be found, null otherwise.</returns>
-=======
->>>>>>> upstreamwiz/master
     [PublicAPI]
     public GasMixture? GetTileMixture(
         Entity<GridAtmosphereComponent?, GasTileOverlayComponent?>? grid,
@@ -374,8 +262,6 @@ public partial class AtmosphereSystem
         return GasMixture.SpaceGas;
     }
 
-<<<<<<< HEAD
-=======
     public override void MergeContainingMixture(Entity<TransformComponent?> entity, GasMixture mixture, bool ignoreExposed = false, bool excite = false)
     {
         if (GetContainingMixture(entity, ignoreExposed, excite) is not { } containingMixture)
@@ -493,7 +379,6 @@ public partial class AtmosphereSystem
         }
     }
 
->>>>>>> upstreamwiz/master
     /// <summary>
     /// Triggers a tile's <see cref="GasMixture"/> to react.
     /// </summary>
@@ -513,22 +398,16 @@ public partial class AtmosphereSystem
 
     /// <summary>
     /// Checks if a tile on a grid is air-blocked in the specified directions.
-<<<<<<< HEAD
-=======
     /// This only checks for if the current tile, and only the current tile, is blocking
     /// air.
->>>>>>> upstreamwiz/master
     /// </summary>
     /// <param name="gridUid">The grid to check.</param>
     /// <param name="tile">The tile on the grid to check.</param>
     /// <param name="directions">The directions to check for air-blockage.</param>
     /// <param name="mapGridComp">Optional map grid component associated with the grid.</param>
     /// <returns>True if the tile is air-blocked in the specified directions, false otherwise.</returns>
-<<<<<<< HEAD
-=======
     /// <remarks>This rebuilds airtight data on-the-fly. You should only use this if you've just
     /// invalidated airtight data, and you cannot wait one atmostick to revalidate it.</remarks>
->>>>>>> upstreamwiz/master
     [PublicAPI]
     public bool IsTileAirBlocked(EntityUid gridUid,
         Vector2i tile,
@@ -544,8 +423,6 @@ public partial class AtmosphereSystem
     }
 
     /// <summary>
-<<<<<<< HEAD
-=======
     /// Checks if a tile on a grid is air-blocked in the specified directions, using cached data.
     /// This only checks for if the current tile, and only the current tile, is blocking
     /// air.
@@ -596,7 +473,6 @@ public partial class AtmosphereSystem
     }
 
     /// <summary>
->>>>>>> upstreamwiz/master
     /// Checks if a tile on a grid or map is space as defined by a tile's definition of space.
     /// Some tiles can hold back space and others cannot - for example, plating can hold
     /// back space, whereas scaffolding cannot, exposing the map atmosphere beneath.

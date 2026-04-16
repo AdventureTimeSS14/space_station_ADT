@@ -19,36 +19,6 @@ public sealed class PoweredLightSystem : SharedPoweredLightSystem
 
     private void OnGhostBoo(EntityUid uid, PoweredLightComponent light, GhostBooEvent args)
     {
-<<<<<<< HEAD
-        if (light.IgnoreGhostsBoo)
-            return;
-
-        // check cooldown first to prevent abuse
-        var time = GameTiming.CurTime;
-        if (light.LastGhostBlink != null)
-        {
-            if (time <= light.LastGhostBlink + light.GhostBlinkingCooldown)
-                return;
-        }
-
-        light.LastGhostBlink = time;
-
-        ToggleBlinkingLight(uid, light, true);
-        uid.SpawnTimer(light.GhostBlinkingTime, () =>
-        {
-            ToggleBlinkingLight(uid, light, false);
-        });
-
-        args.Handled = true;
-    }
-
-    private void OnMapInit(EntityUid uid, PoweredLightComponent light, MapInitEvent args)
-    {
-        // TODO: Use ContainerFill dog
-        if (light.HasLampOnSpawn != null)
-        {
-            var entity = EntityManager.SpawnEntity(light.HasLampOnSpawn, EntityManager.GetComponent<TransformComponent>(uid).Coordinates);
-=======
         if (light.IgnoreGhostsBoo || HasComp<BlinkingPoweredLightComponent>(uid))
             return; // The light is immune or already blinking.
 
@@ -72,7 +42,6 @@ public sealed class PoweredLightSystem : SharedPoweredLightSystem
         if (light.HasLampOnSpawn != null)
         {
             var entity = Spawn(light.HasLampOnSpawn, Comp<TransformComponent>(uid).Coordinates);
->>>>>>> upstreamwiz/master
             ContainerSystem.Insert(entity, light.LightBulbContainer);
         }
         // need this to update visualizers

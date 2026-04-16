@@ -20,31 +20,12 @@ namespace Content.Server.Atmos.EntitySystems
         /// </summary>
         public IEnumerable<GasReactionPrototype> GasReactions => _gasReactions;
 
-<<<<<<< HEAD
-        /// <summary>
-        ///     Cached array of gas specific heats.
-        /// </summary>
-        public float[] GasSpecificHeats => _gasSpecificHeats;
-
-        private void InitializeGases()
-=======
         public override void InitializeGases()
->>>>>>> upstreamwiz/master
         {
             base.InitializeGases();
 
             _gasReactions = _protoMan.EnumeratePrototypes<GasReactionPrototype>().ToArray();
             Array.Sort(_gasReactions, (a, b) => b.Priority.CompareTo(a.Priority));
-<<<<<<< HEAD
-
-            Array.Resize(ref _gasSpecificHeats, MathHelper.NextMultipleOf(Atmospherics.TotalNumberOfGases, 4));
-
-            for (var i = 0; i < GasPrototypes.Length; i++)
-            {
-                _gasSpecificHeats[i] = GasPrototypes[i].SpecificHeat / HeatScale;
-            }
-=======
->>>>>>> upstreamwiz/master
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]

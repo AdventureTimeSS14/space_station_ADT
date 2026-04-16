@@ -1,19 +1,11 @@
 using Content.Server.Ninja.Events;
-<<<<<<< HEAD
-using Content.Server.Power.Components;
-using Content.Server.PowerCell;
-using Content.Shared.ADT.EMP;
-=======
->>>>>>> upstreamwiz/master
 using Content.Shared.Emp;
+using Content.Shared.ADT.EMP; // ADT-Tweak
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Ninja.Components;
 using Content.Shared.Ninja.Systems;
 using Content.Shared.Power.Components;
-<<<<<<< HEAD
-=======
 using Content.Shared.PowerCell;
->>>>>>> upstreamwiz/master
 using Content.Shared.PowerCell.Components;
 using Robust.Shared.Containers;
 
@@ -88,7 +80,7 @@ public sealed class NinjaSuitSystem : SharedNinjaSuitSystem
         }
 
         // ADT TWEAK START
-        RemCompDeferred<EmpProtectionComponent>(battery.Owner);
+        RemCompDeferred<EmpProtectionComponent>(battery.Value.Owner);
         EnsureComp<EmpProtectionComponent>(inserting.Owner);
         // ADT TWEAK END
 
@@ -106,11 +98,7 @@ public sealed class NinjaSuitSystem : SharedNinjaSuitSystem
     {
         // if a cell is able to automatically recharge, boost the score drastically depending on the recharge rate,
         // this is to ensure a ninja can still upgrade to a micro reactor cell even if they already have a medium or high.
-<<<<<<< HEAD
-        if (TryComp<BatterySelfRechargerComponent>(uid, out var selfcomp) && selfcomp.AutoRecharge)
-=======
         if (TryComp<BatterySelfRechargerComponent>(uid, out var selfcomp))
->>>>>>> upstreamwiz/master
             return battcomp.MaxCharge + selfcomp.AutoRechargeRate * AutoRechargeValue;
         return battcomp.MaxCharge;
     }
