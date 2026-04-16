@@ -29,10 +29,7 @@ using Robust.Shared.Utility;
 using Content.Shared.Atmos.Components;
 using System.Linq;
 using Content.Shared.Damage.Components;
-<<<<<<< HEAD
-=======
 using Content.Shared.Damage.Systems;
->>>>>>> upstreamwiz/master
 using Content.Shared.Temperature.Components;
 
 namespace Content.Server.NPC.Systems;
