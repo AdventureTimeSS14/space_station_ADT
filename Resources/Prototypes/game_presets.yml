@@ -128,7 +128,7 @@
     - secret
     - sekrit
   name: secret-title
-  showInVote: false # ADT-Tweak
+  showInVote: true # ADT-Tweak
   description: secret-description
   rules:
     - Secret
@@ -169,7 +169,7 @@
   name: death-match-title
   description: death-match-description
   maxPlayers: 15
-  showInVote: true
+  showInVote: false
   supportedMaps: DeathMatchMapPool
   rules:
     - DeathMatch31
