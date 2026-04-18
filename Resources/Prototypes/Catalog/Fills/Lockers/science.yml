@@ -21,6 +21,6 @@
     - id: NetworkConfigurator
       prob: 0.5
     # ADT-Tweak-Start
-    - id: ADTRNDInducerBattery
-      prob: 0.3
+    #- id: ADTRNDInducerBattery
+    #  prob: 0.3
     # ADT-Tweak-End
