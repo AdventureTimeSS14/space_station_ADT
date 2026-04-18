@@ -208,7 +208,7 @@
     - id: ADTClothingMaskGasCE
     - id: ADTUniversalPipeDispenserCircuitboard
     - id: ADTRPD
-    - id: ADTEngiInducerBattery
+    #- id: ADTEngiInducerBattery
     - id: ADTBookSRPcmd
     - id: ADTBookSRPeng
     - id: ADTBookPCDcmd
@@ -366,7 +366,7 @@
     - id: ADTBoxAICircuitBoard
     - id: ADTScienceBudgetCard
     - id: ADTScienceBudgetPinPaper
-    - id: ADTRNDInducerBattery
+    #- id: ADTRNDInducerBattery
     # ADT-Tweak-End
 
 # Hardsuit table, used for suit storage as well
