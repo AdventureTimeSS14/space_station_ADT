@@ -3161,9 +3161,7 @@
     sprite: ADT/Personalization/toys.rsi
     state: plushie_rozik
 
-#SPONSOR-ITEMS-END
-
-#Svet217
+#Blenik
 - type: entity
   parent: BasePlushie
   id: ADTPlushieNinaKonogar
@@ -3174,3 +3172,5 @@
   - type: Sprite
     sprite: ADT/Personalization/toys.rsi
     state: plushie_nina_konogar
+
+#SPONSOR-ITEMS-END
