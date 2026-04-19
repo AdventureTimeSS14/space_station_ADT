@@ -171,7 +171,11 @@
           - HitscanBatteryAmmoProvider
           - ProjectileBatteryAmmoProvider
           - Stunbaton
-        #  - PowerCell #ADT-Tweak
+        #ADT-Tweak-Start
+        #  - PowerCell
+          tags:
+            - ADTEnergyShield
+        #ADT-Tweak-End
         blacklist:
           tags:
           - PotatoBattery
@@ -193,6 +197,10 @@
       charger_slot:
         ejectOnInteract: true
         whitelist:
+        #ADT-Tweak-Start
+          tags:
+            - ADTEnergyShield
+        #ADT-Tweak-End
           components:
           - HitscanBatteryAmmoProvider
           - ProjectileBatteryAmmoProvider
@@ -233,6 +241,7 @@
           - HitscanBatteryAmmoProvider
           - ProjectileBatteryAmmoProvider
           - Stunbaton
+          - ADTEnergyShield # ADT-Tweak
         blacklist:
           tags:
           - PotatoBattery
