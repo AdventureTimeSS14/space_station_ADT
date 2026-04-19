@@ -1,10 +1,7 @@
 using System.Linq;
 using System.Runtime.InteropServices;
 using Content.Server.Atmos.Components;
-<<<<<<< HEAD
-=======
 using Content.Server.Explosion.Components;
->>>>>>> upstreamwiz/master
 using Content.Shared.Atmos;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Explosion;
@@ -19,9 +16,6 @@ namespace Content.Server.Explosion.EntitySystems;
 
 public sealed partial class ExplosionSystem
 {
-<<<<<<< HEAD
-    private readonly Dictionary<string, int> _explosionTypes = new();
-=======
     // We keep track of which tiles are airtight, and how much damage from explosions those airtight blockers can take.
     // This is quite complicated, as the data effectively needs to be tracked *per tile*, *per explosion type*.
     // To avoid wasting significant memory, we calculate the values and share the actual backing storage of it.
@@ -39,7 +33,6 @@ public sealed partial class ExplosionSystem
     // First free position in _toleranceData.
     // -1 indicates there are no free slots left and the storage must be expanded.
     private int _freeListHead = -1;
->>>>>>> upstreamwiz/master
 
     private void InitAirtightMap()
     {
@@ -60,26 +53,20 @@ public sealed partial class ExplosionSystem
         if (!prototypesReloadedEventArgs.Modified.Contains(typeof(ExplosionPrototype)))
             return;
 
-<<<<<<< HEAD
-=======
         InitAirtightMap();
         ReloadMap();
     }
 
->>>>>>> upstreamwiz/master
     public void UpdateAirtightMap(EntityUid gridId, Vector2i tile, MapGridComponent? grid = null)
     {
         if (Resolve(gridId, ref grid, false))
             UpdateAirtightMap(gridId, grid, tile);
-<<<<<<< HEAD
-=======
     }
 
     [Access(typeof(ExplosionGridTileFlood))]
     public ToleranceValues GetToleranceValues(int idx)
     {
         return _toleranceData[idx].Values;
->>>>>>> upstreamwiz/master
     }
 
     /// <summary>
@@ -101,31 +88,17 @@ public sealed partial class ExplosionSystem
         var tolerance = new FixedPoint2[_explosionTypes.Count];
         var blockedDirections = AtmosDirection.Invalid;
 
-<<<<<<< HEAD
-        if (!_airtightMap.ContainsKey(gridId))
-            _airtightMap[gridId] = new();
-
-=======
->>>>>>> upstreamwiz/master
         var anchoredEnumerator = _map.GetAnchoredEntitiesEnumerator(gridId, grid, tile);
 
         while (anchoredEnumerator.MoveNext(out var uid))
         {
             if (!_airtightQuery.TryGetComponent(uid, out var airtight) || !airtight.AirBlocked)
                 continue;
-            if (!airtight.BlockExplosions)  // ADT fan abuse fix 
-                continue;                   // ADT fan abuse fix 
+            if (!airtight.BlockExplosions)  // ADT fan abuse fix
+                continue;                   // ADT fan abuse fix
 
             blockedDirections |= airtight.AirBlockedDirection;
-<<<<<<< HEAD
-            var entityTolerances = GetExplosionTolerance(uid.Value);
-            for (var i = 0; i < tolerance.Length; i++)
-            {
-                tolerance[i] = Math.Max(tolerance[i], entityTolerances[i]);
-            }
-=======
             GetExplosionTolerance(uid.Value, tolerance);
->>>>>>> upstreamwiz/master
         }
 
         // Log.Info($"UPDATE {gridId}/{tile}: {blockedDirections}");
@@ -239,11 +212,7 @@ public sealed partial class ExplosionSystem
     /// <summary>
     ///     Return a dictionary that specifies how intense a given explosion type needs to be in order to destroy an entity.
     /// </summary>
-<<<<<<< HEAD
-    public float[] GetExplosionTolerance(EntityUid uid)
-=======
     private void GetExplosionTolerance(EntityUid uid, Span<FixedPoint2> explosionTolerance)
->>>>>>> upstreamwiz/master
     {
         // How much total damage is needed to destroy this entity? This also includes "break" behaviors. This ASSUMES
         // that this will result in a non-airtight entity.Entities that ONLY break via construction graph node changes
@@ -254,10 +223,6 @@ public sealed partial class ExplosionSystem
             totalDamageTarget = _destructibleSystem.DestroyedAt(uid, destructible);
         }
 
-<<<<<<< HEAD
-        var explosionTolerance = new float[_explosionTypes.Count];
-=======
->>>>>>> upstreamwiz/master
         if (totalDamageTarget == FixedPoint2.MaxValue || !_damageableQuery.TryGetComponent(uid, out var damageable))
         {
             for (var i = 0; i < explosionTolerance.Length; i++)
@@ -321,17 +286,6 @@ public sealed partial class ExplosionSystem
 
     public override void ReloadMap()
     {
-<<<<<<< HEAD
-        foreach (var(grid, dict) in _airtightMap)
-        {
-            var comp = Comp<MapGridComponent>(grid);
-            foreach (var index in dict.Keys)
-            {
-                UpdateAirtightMap(grid, comp, index);
-            }
-        }
-    }
-=======
         var enumerator = EntityQueryEnumerator<ExplosionAirtightGridComponent, MapGridComponent>();
         while (enumerator.MoveNext(out var uid, out var airtightComp, out var mapGrid))
         {
@@ -348,5 +302,4 @@ public sealed partial class ExplosionSystem
         public int RefCount; // Doubles as freelist chain
     }
 
->>>>>>> upstreamwiz/master
 }

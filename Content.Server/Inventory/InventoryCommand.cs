@@ -65,10 +65,6 @@ public sealed class InventoryCommand : ToolshedCommand
         return items;
     }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> upstreamwiz/master
     [CommandImplementation("getnamed")]
     public IEnumerable<EntityUid> InventoryGetNamed([PipedArgument] IEnumerable<EntityUid> ents, string slotName)
     {
@@ -105,10 +101,6 @@ public sealed class InventoryCommand : ToolshedCommand
     public EntityUid? InventoryForcePut([PipedArgument] IEnumerable<EntityUid> ents,
         EntityUid itemEnt,
         SlotFlags slotFlag) => InventoryPutEnumerableBase(ents, itemEnt, slotFlag, PutType.ForcePut);
-<<<<<<< HEAD
-=======
-
->>>>>>> upstreamwiz/master
     [CommandImplementation("forcespawn")]
     public EntityUid? InventoryForceSpawn([PipedArgument] IEnumerable<EntityUid> ents,
         EntProtoId itemEnt,
@@ -118,10 +110,6 @@ public sealed class InventoryCommand : ToolshedCommand
     public EntityUid? InventoryPut([PipedArgument] IEnumerable<EntityUid> ents,
         EntityUid itemEnt,
         SlotFlags slotFlag) => InventoryPutEnumerableBase(ents, itemEnt, slotFlag, PutType.Put);
-<<<<<<< HEAD
-=======
-
->>>>>>> upstreamwiz/master
     [CommandImplementation("spawn")]
     public EntityUid? InventorySpawn([PipedArgument] IEnumerable<EntityUid> ents,
         EntProtoId itemEnt,

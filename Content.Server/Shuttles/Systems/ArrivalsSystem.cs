@@ -62,11 +62,7 @@ public sealed class ArrivalsSystem : EntitySystem
     [Dependency] private readonly ShuttleSystem _shuttles = default!;
     [Dependency] private readonly StationSpawningSystem _stationSpawning = default!;
     [Dependency] private readonly StationSystem _station = default!;
-<<<<<<< HEAD
-    [Dependency] private readonly ContainerSpawnPointSystem _containerSpawnPointSystem = default!;
-=======
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
->>>>>>> upstreamwiz/master
 
     private EntityQuery<PendingClockInComponent> _pendingQuery;
     private EntityQuery<ArrivalsBlacklistComponent> _blacklistQuery;

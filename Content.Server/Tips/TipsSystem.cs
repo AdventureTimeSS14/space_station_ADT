@@ -137,8 +137,4 @@ public sealed class TipsSystem : SharedTipsSystem
                 Color.MediumPurple);
         }
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> upstreamwiz/master

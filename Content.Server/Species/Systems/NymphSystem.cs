@@ -22,11 +22,7 @@ public sealed partial class NymphSystem : EntitySystem
 
     private void OnRemovedFromPart(EntityUid uid, NymphComponent comp, ref OrganGotRemovedEvent args)
     {
-<<<<<<< HEAD
-        if (TerminatingOrDeleted(uid) || TerminatingOrDeleted(args.OldBody))
-=======
         if (TerminatingOrDeleted(uid) || TerminatingOrDeleted(args.Target))
->>>>>>> upstreamwiz/master
             return;
 
         if (!_protoManager.TryIndex<EntityPrototype>(comp.EntityPrototype, out var entityProto))

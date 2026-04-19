@@ -96,18 +96,6 @@ public sealed class PricingSystem : EntitySystem
             return;
         }
 
-<<<<<<< HEAD
-        var partPenalty = 0.0;
-        if (TryComp<BodyComponent>(uid, out var body))
-        {
-            var partList = _bodySystem.GetBodyChildren(uid, body).ToList();
-            var totalPartsPresent = partList.Sum(_ => 1);
-            var totalParts = partList.Count;
-
-            var partRatio = totalPartsPresent / (double) totalParts;
-            partPenalty = component.Price * (1 - partRatio) * component.MissingBodyPartPenalty;
-        }
-=======
         args.Price += component.Price * (_mobStateSystem.IsAlive(uid, state) ? 1.0 : component.DeathPenalty);
     }
 
@@ -128,7 +116,6 @@ public sealed class PricingSystem : EntitySystem
                     modifier = modifier * modifier * modifier;
                     break;
             }
->>>>>>> upstreamwiz/master
 
             entity.Comp.RandomPrice = modifier * entity.Comp.MaxRandomPrice;
         }

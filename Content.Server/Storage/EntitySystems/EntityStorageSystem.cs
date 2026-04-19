@@ -46,40 +46,6 @@ public sealed class EntityStorageSystem : SharedEntityStorageSystem
             _construction.AddContainer(uid, ContainerName, construction);
     }
 
-<<<<<<< HEAD
-    public override bool ResolveStorage(EntityUid uid, [NotNullWhen(true)] ref EntityStorageComponent? component)
-    {
-        if (component != null)
-            return true;
-
-        TryComp<EntityStorageComponent>(uid, out var storage);
-        component = storage;
-        return component != null;
-    }
-
-    private void OnWeldableAttempt(EntityUid uid, EntityStorageComponent component, WeldableAttemptEvent args)
-    {
-        if (component.Open)
-        {
-            args.Cancel();
-            return;
-        }
-
-        if (component.Contents.Contains(args.User))
-        {
-            var msg = Loc.GetString("entity-storage-component-already-contains-user-message");
-            Popup.PopupEntity(msg, args.User, args.User);
-            args.Cancel();
-        }
-    }
-
-    private void OnExploded(Entity<EntityStorageComponent> ent, ref BeforeExplodeEvent args)
-    {
-        args.Contents.AddRange(ent.Comp.Contents.ContainedEntities);
-    }
-
-=======
->>>>>>> upstreamwiz/master
     protected override void TakeGas(EntityUid uid, EntityStorageComponent component)
     {
         if (!component.Airtight)

@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-using System.Numerics;
-=======
->>>>>>> upstreamwiz/master
 using Content.Shared.CCVar;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
@@ -740,12 +736,8 @@ sealed class Explosion
         EntityUid visualEnt,
         EntityUid? cause,
         SharedMapSystem mapSystem,
-<<<<<<< HEAD
-        Shared.Damage.Systems.DamageableSystem damageable)
-=======
         DamageableSystem damageable,
         EntityQuery<TileHistoryComponent> historyQuery)
->>>>>>> upstreamwiz/master
     {
         VisualEnt = visualEnt;
         Cause = cause;

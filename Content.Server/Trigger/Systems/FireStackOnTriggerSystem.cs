@@ -1,8 +1,5 @@
 using Content.Server.Atmos.EntitySystems;
-<<<<<<< HEAD
-=======
 using Content.Shared.Atmos.Components;
->>>>>>> upstreamwiz/master
 using Content.Shared.Trigger;
 using Content.Shared.Trigger.Components.Effects;
 
@@ -35,14 +32,10 @@ public sealed class FireStackOnTriggerSystem : EntitySystem
         if (target == null)
             return;
 
-<<<<<<< HEAD
-        _flame.AdjustFireStacks(target.Value, ent.Comp.FireStacks, ignite: ent.Comp.DoIgnite);
-=======
         if (!TryComp<FlammableComponent>(target.Value, out var flammable))
             return;
 
         _flame.AdjustFireStacks(target.Value, ent.Comp.FireStacks, ignite: ent.Comp.DoIgnite, flammable: flammable);
->>>>>>> upstreamwiz/master
 
         args.Handled = true;
     }
@@ -57,14 +50,10 @@ public sealed class FireStackOnTriggerSystem : EntitySystem
         if (target == null)
             return;
 
-<<<<<<< HEAD
-        _flame.Extinguish(target.Value);
-=======
         if (!TryComp<FlammableComponent>(target.Value, out var flammable))
             return;
 
         _flame.Extinguish(target.Value, flammable: flammable);
->>>>>>> upstreamwiz/master
 
         args.Handled = true;
     }
