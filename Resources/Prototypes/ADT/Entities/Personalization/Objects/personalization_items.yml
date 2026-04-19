@@ -3162,3 +3162,15 @@
     state: plushie_rozik
 
 #SPONSOR-ITEMS-END
+
+#Svet217
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieNinaKonogar
+  name: plushie Nina Konogar
+  description: A beautiful fluffy plush toy of the captain, looking like a mix of a fox and a felinid, with a very large super fluffy tail. There is a small red ring on the hand. It is clear that the plush toy was made to order. It smells like some kind of pleasant perfume.
+  suffix: Personal, Blenik
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_nina_konogar
