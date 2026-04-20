@@ -4,7 +4,7 @@ namespace Content.Shared.Chat
     ///     Represents chat channels that the player can filter chat tabs by.
     /// </summary>
     [Flags]
-    public enum ChatChannel : uint
+    public enum ChatChannel : uint // SD Tweak
     {
         None = 0,
 
@@ -98,7 +98,7 @@ namespace Content.Shared.Chat
         /// <summary>
         ///     Channels considered to be IC.
         /// </summary>
-        IC = Local | Whisper | Radio | Dead | Emotes | AntiGhost| Damage | Visual | Notifications | CollectiveMind, // SD-ADT-CollectiveMind-Tweak
+        IC = Local | Whisper | Radio | Dead | Emotes | AntiGhost | Damage | Visual | Notifications | CollectiveMind, // SD-ADT-CollectiveMind-Tweak
 
         AdminRelated = Admin | AdminAlert | AdminChat,
     }

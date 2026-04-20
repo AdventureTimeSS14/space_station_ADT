@@ -75,6 +75,7 @@ public sealed partial class ChatSystem : SharedChatSystem
     // public const int WhisperClearRange = 2; // how far whisper goes while still being understandable, in world units
     // public const int WhisperMuffledRange = 5; // how far whisper goes at all, in world units
     // Corvax-TTS-End
+    public const int AntiGhostRange = 2; // SD Tweak
     public readonly SoundSpecifier DefaultAnnouncementSound = new SoundPathSpecifier("/Audio/ADT/Announcements/announce_dig.ogg"); // ADT-Tweak: замена звука оповещения на ADT версию
     public const string CentComAnnouncementSound = "/Audio/ADT/Announcements/announce_dig.ogg"; // ADT-Tweak: замена звука CentComm на ADT версию
 
@@ -662,11 +663,11 @@ public sealed partial class ChatSystem : SharedChatSystem
 
         if (checkEmote)
             TryEmoteChatInput(source, action);
-            // SendInVoiceRange(ChatChannel.AntiGhost, action, wrappedMessage, wrappedMessage, source, ChatTransmitRange.NoGhosts, author, ignoreLanguage: true, voiceRangeOverride: AntiGhostRange);
-            if (name != Name(source))
-                _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Hidden Emote from {ToPrettyString(source):user} as {name}: {action}");
-            else
-                _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Hidden Emote from {ToPrettyString(source):user}: {action}");
+        // SendInVoiceRange(ChatChannel.AntiGhost, action, wrappedMessage, wrappedMessage, source, ChatTransmitRange.NoGhosts, author, ignoreLanguage: true, voiceRangeOverride: AntiGhostRange);
+        if (name != Name(source))
+            _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Hidden Emote from {ToPrettyString(source):user} as {name}: {action}");
+        else
+            _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Hidden Emote from {ToPrettyString(source):user}: {action}");
     }
 
     // ReSharper disable once InconsistentNaming
@@ -789,12 +790,12 @@ public sealed partial class ChatSystem : SharedChatSystem
     /// <summary>
     ///     Sends a chat message to the given players in range of the source entity.
     /// </summary>
-    public void SendInVoiceRange(ChatChannel channel, string message, string wrappedMessage, string wrappedLanguageMessage, EntityUid source, ChatTransmitRange range, NetUserId? author = null, ProtoId<LanguagePrototype>? language = null, bool ignoreLanguage = false)  // ADT Languages
+    public void SendInVoiceRange(ChatChannel channel, string message, string wrappedMessage, string wrappedLanguageMessage, EntityUid source, ChatTransmitRange range, NetUserId? author = null, ProtoId<LanguagePrototype>? language = null, bool ignoreLanguage = false, float voiceRangeOverride = VoiceRange)  // ADT Languages
     {
         // ADT Languages start
         var lang = language != null ? _prototypeManager.Index(language.Value) : _language.GetCurrentLanguage(source);
 
-        foreach (var (session, data) in GetRecipients(source, VoiceRange))
+        foreach (var (session, data) in GetRecipients(source, voiceRangeOverride))
         {
             EntityUid listener;
 

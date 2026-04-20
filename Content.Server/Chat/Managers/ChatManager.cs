@@ -92,32 +92,32 @@ internal sealed partial class ChatManager : IChatManager
         DispatchServerAnnouncement(Loc.GetString(val ? "chat-manager-admin-ooc-chat-enabled-message" : "chat-manager-admin-ooc-chat-disabled-message"));
     }
 
-        public void DeleteMessagesBy(NetUserId uid)
-        {
-            if (!_players.TryGetValue(uid, out var user))
-                return;
+    public void DeleteMessagesBy(NetUserId uid)
+    {
+        if (!_players.TryGetValue(uid, out var user))
+            return;
 
         var msg = new MsgDeleteChatMessagesBy { Key = user.Key, Entities = user.Entities };
         _netManager.ServerSendToAll(msg);
     }
 
-        public void SendAntiGhostMessage(EntityUid source, string message, float range, bool hideLog = false)
-        {
-            var sourceTransform = _entityManager.GetComponent<TransformComponent>(source);
-            var filter = Filter.Entities()
-                .AddWhere(session =>
-                {
-                    var entityUid = session.AttachedEntity ?? EntityUid.Invalid;
-                    if (entityUid == EntityUid.Invalid)
-                        return false;
-                    var transform = _entityManager.GetComponent<TransformComponent>(entityUid);
-                    var distance = (transform.Coordinates.Position - sourceTransform.Coordinates.Position).Length();
-                    return distance <= range && !_entityManager.HasComponent<GhostComponent>(entityUid);
-                });
-            var name = _entityManager.GetComponentOrNull<MetaDataComponent>(source)?.EntityName ?? "Unknown";
-            var wrappedMessage = $"{name} {FormattedMessage.EscapeText(message)}";
-            ChatMessageToManyFiltered(filter, ChatChannel.AntiGhost, message, wrappedMessage, source, false, true);
-        }
+    public void SendAntiGhostMessage(EntityUid source, string message, float range, bool hideLog = false)
+    {
+        var sourceTransform = _entityManager.GetComponent<TransformComponent>(source);
+        var filter = Filter.Entities()
+            .AddWhere(session =>
+            {
+                var entityUid = session.AttachedEntity ?? EntityUid.Invalid;
+                if (entityUid == EntityUid.Invalid)
+                    return false;
+                var transform = _entityManager.GetComponent<TransformComponent>(entityUid);
+                var distance = (transform.Coordinates.Position - sourceTransform.Coordinates.Position).Length();
+                return distance <= range && !_entityManager.HasComponent<GhostComponent>(entityUid);
+            });
+        var name = _entityManager.GetComponentOrNull<MetaDataComponent>(source)?.EntityName ?? "Unknown";
+        var wrappedMessage = $"{name} {FormattedMessage.EscapeText(message)}";
+        ChatMessageToManyFiltered(filter, ChatChannel.AntiGhost, message, wrappedMessage, source, false, true);
+    }
 
     [return: NotNullIfNotNull(nameof(author))]
     public ChatUser? EnsurePlayer(NetUserId? author)

@@ -11,7 +11,6 @@ using Robust.Shared.Audio;
 using Robust.Shared.Input;
 using Robust.Shared.Player;
 using Robust.Shared.Utility;
-using Robust.Shared.Maths;
 using static Robust.Client.UserInterface.Controls.LineEdit;
 
 namespace Content.Client.UserInterface.Systems.Chat.Widgets;
@@ -56,7 +55,19 @@ public partial class ChatBox : UIWidget
 
     private void OnMessageAdded(ChatMessage msg)
     {
+        // Start SD AntiGhost chat
         _sawmill.Debug($"{msg.Channel}: {msg.Message}");
+        if (msg.Channel == ChatChannel.AntiGhost)
+        {
+            if (msg is { Read: false, AudioPath: { } })
+                _entManager.System<AudioSystem>().PlayGlobal(msg.AudioPath, Filter.Local(), false, AudioParams.Default.WithVolume(msg.AudioVolume));
+
+            msg.Read = true;
+            var agColor = msg.MessageColorOverride ?? Color.FromHex("#aa00ff");
+            AddLine(msg.WrappedMessage, agColor);
+            return;
+        }
+        // End SD AntiGhost chat
         if (!ChatInput.FilterButton.Popup.IsActive(msg.Channel))
         {
             return;

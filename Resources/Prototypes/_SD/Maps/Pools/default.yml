@@ -20,9 +20,9 @@
 
 # SD Maps Базовые Актуальные
 
-  # - SD_Sievert
   - SD_Flicker
-  # - SD_Lumen
   - SD_Newton
   - SD_Pascal
   - SD_Joule
+  - SD_Barracuda
+  - SD_Whiteout
