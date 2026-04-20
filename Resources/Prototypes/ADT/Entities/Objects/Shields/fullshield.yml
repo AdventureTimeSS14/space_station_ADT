@@ -150,6 +150,9 @@
       maxCharge: 1200
       startingCharge: 1200
     - type: PowerCell
+    - type: BatterySelfRecharger
+      autoRechargeRate: 10
+      autoRechargePauseTime: 5
     - type: StaticPrice
       price: 500
     - type: Tag

@@ -509,6 +509,7 @@
       reflects:
         - Energy
     - type: Blocking
+      isToggle: true #ADT-Tweak
       passiveBlockModifier:
         coefficients:
           Blunt: 1.0
@@ -613,7 +614,28 @@
       radius: 0
       energy: 2
       color: blue
+#ADT-Tweak-Start
     - type: ItemTogglePointLight # ADT END CHANGES
+    - type: Blocking
+      isToggle: true
+      passiveBlockModifier:
+        coefficients:
+          Blunt: 0.9
+          Slash: 0.9
+          Piercing: 3.5 # ADT shieldnerf
+          Heat: 3.5 # ADT shieldnerf
+      activeBlockModifier:
+        coefficients:
+          Blunt: 0.8
+          Slash: 0.8
+          Piercing: 3.5 # ADT shieldnerf
+          Heat: 3.5 # ADT shieldnerf
+        flatReductions:
+          Blunt: 1
+          Slash: 1
+          Piercing: 1
+          Heat: 1
+#ADT-Tweak-End
     - type: Appearance
     - type: Destructible
       thresholds:
