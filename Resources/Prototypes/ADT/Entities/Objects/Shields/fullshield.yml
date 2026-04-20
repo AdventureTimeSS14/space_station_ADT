@@ -74,10 +74,10 @@
       - ADTFullRiotShitmadeShield
 
 - type: entity
-  name: Бебебе
+  name: blue shield officer's energy shield
   parent: BaseItem
   id: ADTBlueShieldEnergyShield
-  description: Exotic energy shield, when folded, can even fit in your pocket.
+  description: An energy shield designed specifically for the Blue Shield corps. It has a portable renewable battery with self-healing capability. This shield is the face of your corps, don't lose it!
   components:
     - type: ItemToggle
       predictable: false
