@@ -76,10 +76,12 @@ public sealed partial class BlockingSystem
         var blockFraction = blocking.IsBlocking ? blocking.ActiveBlockFraction : blocking.PassiveBlockFraction;
         blockFraction = Math.Clamp(blockFraction, 0, 1);
 
+        //ADT-Tweak-Start
         blockFraction = ApplyBatteryLimitToBlockFraction(item, blocking, blockFraction, args.OriginalDamage);
 
         if (blockFraction <= 0)
             return;
+        //ADT-Tweak-End
 
         _damageable.TryChangeDamage((item, dmgComp), blockFraction * args.OriginalDamage);
 
