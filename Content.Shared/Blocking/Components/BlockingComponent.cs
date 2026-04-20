@@ -25,6 +25,20 @@ public sealed partial class BlockingComponent : Component
     [DataField, AutoNetworkedField]
     public bool IsBlocking;
 
+    //ADT-Tweak-Start
+    [DataField, AutoNetworkedField]
+    public bool IsCharging = false;
+
+    [DataField, AutoNetworkedField]
+    public bool IsHasBlockingToggle = true;
+
+    [DataField, AutoNetworkedField]
+    public bool IsToggle = false;
+
+    [DataField, AutoNetworkedField]
+    public float EnergyCostPerHit = 10f;
+    //ADT-Tweak-End
+
     /// <summary>
     /// The ID for the fixture that's dynamically created when blocking
     /// </summary>
