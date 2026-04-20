@@ -58,7 +58,7 @@ blueshield-voucher-tonfa-description =
 blueshield-voucher-saber-rev-name = набор с энергетическим мечом-револьвером
 blueshield-voucher-saber-rev-description =
     Прототип энергетического меча-револьвера.
-    Включает в себя энергетический меч-револьвер,3 дополнительных батареи, а также фаворитный щит корпуса синих щитов.
+    Включает в себя энергетический меч-револьвер, 3 дополнительных батареи, а также фаворитный щит корпуса синих щитов.
 
 hos-voucher-unika-name = Уника 6
 hos-voucher-unika-description =
