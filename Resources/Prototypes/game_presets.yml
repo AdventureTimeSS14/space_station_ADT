@@ -3,7 +3,7 @@
   alias:
     - survival
   name: survival-title
-  showInVote: true #ADT tweak
+  showInVote: true
   description: survival-description
   rules:
     - MeteorSwarmScheduler
