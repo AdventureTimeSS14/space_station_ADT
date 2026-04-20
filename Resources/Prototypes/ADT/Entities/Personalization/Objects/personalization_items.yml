@@ -3173,4 +3173,16 @@
     sprite: ADT/Personalization/toys.rsi
     state: plushie_nina_konogar
 
+#GG_Marshmelow
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieDell
+  name: Della's toy
+  description: He went through many legal procedures, was convicted of numerous violations in the security structures, but always sought to protect the crew at all costs. He drinks, but only when he can. You feel safer.
+  suffix: Personal, GG_Marshmelow
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_dell
+
 #SPONSOR-ITEMS-END
