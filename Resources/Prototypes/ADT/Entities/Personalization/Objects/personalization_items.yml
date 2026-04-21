@@ -3162,3 +3162,77 @@
     state: plushie_rozik
 
 #SPONSOR-ITEMS-END
+
+# Svet217
+- type: entity
+  name: pulse pistol
+  parent: [BaseWeaponBatterySmall, BaseCentcommContraband]
+  id: WeaponPulsePistolTypeSvet217
+  description: A state of the art energy pistol favoured as a sidearm by the NT operatives.
+  suffix: Svet217
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/svet217_pistol.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-4
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Item
+    storedOffset: -2,-5
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: false
+  - type: Appearance
+  - type: Clothing
+    sprite: ADT/Personalization/svet217_pistol.rsi
+  # ADT-Tweak start
+  # - type: RunAndGunSpreadModifier
+  #   modifier: 0.1
+  - type: MeleeWeapon
+    resetOnHandSelected: false
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 7
+    soundHit:
+      collection: GenericHit
+  - type: AltFireMelee
+  # ADT-Tweak end
+  - type: Gun
+    fireRate: 1 # ADT-Tweak 2 -> 1
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/ADT/Weapons/Guns/Gunshots/laser_gun_type.ogg
+  - type: HitscanBatteryAmmoProvider
+    proto: PulseType
+    fireCost: 100 # ADT tweak 200 -> 100
+  - type: Battery
+    maxCharge: 1000 # ADT tweak 2000->1000
+    startingCharge: 1000 # ADT tweak 2000 -> 1000
+  - type: BatterySelfRecharger
+    autoRechargeRate: 40
+
+- type: entity
+  parent: BasicHitscan
+  id: PulseType
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: HitscanBasicDamage
+    damage:
+      types:
+        Heat: 35
+  - type: HitscanBasicVisuals
+    muzzleFlash:
+      sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+      state: muzzle_blue
+    travelFlash:
+      sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+      state: beam_blue
+    impactFlash:
+      sprite: ADT/Personalization/svet217_pistol_projectiles.rsi
+      state: type_laser
