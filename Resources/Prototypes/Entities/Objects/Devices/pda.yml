@@ -58,6 +58,7 @@
   - type: ItemSlots
   - type: Clothing
     quickEquip: false
+    sprite: ADT/Objects/Devices/pda.rsi #ADT-Tweak
     slots:
     - idcard
     - Belt
