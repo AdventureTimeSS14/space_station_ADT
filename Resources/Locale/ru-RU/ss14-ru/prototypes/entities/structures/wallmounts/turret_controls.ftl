@@ -12,5 +12,5 @@ ent-WeaponEnergyTurretCommandControlPanel = { ent-WeaponEnergyTurretStationContr
     .suffix = Командование
     .desc = { ent-WeaponEnergyTurretStationControlPanelBase.desc }
 ent-ADTWeaponEnergyTurretCentralCommandControlPanel = { ent-WeaponEnergyTurretStationControlPanelBase }
-    .suffix = Центральное Командование
+    .suffix = Центральное командование
     .desc = { ent-WeaponEnergyTurretStationControlPanelBase.desc }
