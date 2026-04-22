@@ -74,10 +74,10 @@
       - ADTFullRiotShitmadeShield
 
 - type: entity
-  name: blue shield officer's energy shield
+  name: blueshield officer's energy shield
   parent: BaseItem
   id: ADTBlueShieldEnergyShield
-  description: An energy shield designed specifically for the Blue Shield corps. It has a portable renewable battery with self-healing capability. This shield is the face of your corps, don't lose it!
+  description: An energy shield designed specifically for the BlueShield corps. It has a portable renewable battery with self-healing capability. This shield is the face of your corps, don't lose it!
   components:
     - type: ItemToggle
       predictable: false
@@ -97,17 +97,17 @@
       - type: DisarmMalus
         malus: 0.6
     - type: Sprite
-      sprite: Objects/Weapons/Melee/e_shield.rsi
+      sprite: ADT/Objects/Weapons/Melee/blueshield_shield.rsi
       layers:
         - state: eshield-icon
-        - state: eshield-on
+        - state: eshield_on
           color: "#FFFFFF"
           visible: false
           shader: unshaded
           map: [ "shield" ]
     - type: Item
       size: Small
-      sprite: Objects/Weapons/Melee/e_shield.rsi
+      sprite: ADT/Objects/Weapons/Melee/blueshield_shield.rsi
       heldPrefix: eshield
     - type: UseDelay
       delay: 0.5

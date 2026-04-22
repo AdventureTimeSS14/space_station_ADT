@@ -53,7 +53,7 @@ blueshield-voucher-drozd-description =
 blueshield-voucher-tonfa-name = набор с тонфой
 blueshield-voucher-tonfa-description =
     Набор ближнего боя.
-    Включает в себя броню, усиленный бронежилет, шлем, а также фаворитный щит корпуса синих щитов.
+    Включает в себя усиленный набор брони, тонфу, а также фаворитный щит корпуса синих щитов.
 
 blueshield-voucher-saber-rev-name = набор с энергетическим мечом-револьвером
 blueshield-voucher-saber-rev-description =
