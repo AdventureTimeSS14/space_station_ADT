@@ -98,6 +98,26 @@
           map: ["enum.GunVisualLayers.Mag"]
     - type: Clothing
       sprite: ADT/Objects/Weapons/Guns/SMGs/blueshield_drozd.rsi
+    - type: AttachableHolder
+      slots:
+        rmc-aslot-underbarrel:
+          startingAttachable: ADTAttachmentVerticalGrip
+          whitelist:
+            tags:
+            - ADTAttachmentVerticalGrip
+            - ADTAttachmentLaserSight
+        rmc-aslot-rail:
+          startingAttachable: ADTAttachmentMagneticHarness
+          whitelist:
+            tags:
+            - ADTAttachmentMagneticHarness
+            - ADTAttachmentReflexSight
+            - ADTAttachmentT2Miniscope
+        rmc-aslot-barrel:
+          whitelist:
+              tags:
+              - ADTAttachmentSuppressor
+              - ADTAttachmentAntiLyingWarrior
     - type: ItemSlots
       slots:
         gun_magazine:

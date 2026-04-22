@@ -47,13 +47,11 @@
   - type: Storage
     maxItemSize: Large
     grid:
-    - 0,0,9,1
+    - 0,0,7,1
   - type: StorageFill
     contents:
      - id: ADTWeaponSubMachineGunDrozdBlueshield
      - id: WeaponPulsePistol
-     - id: ADTAttachmentVerticalGrip
-     - id: ADTAttachmentMagneticHarness
      - id: ADTBlueShieldMagazinePistolSubMachineGun
      - id: ADTBlueShieldMagazinePistolSubMachineGun
      - id: MagazineBoxPistol
