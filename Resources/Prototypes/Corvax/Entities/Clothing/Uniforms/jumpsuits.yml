@@ -96,3 +96,14 @@
       sprite: Corvax/Clothing/Uniforms/Jumpsuit/pilot.rsi
     - type: Clothing
       sprite: Corvax/Clothing/Uniforms/Jumpsuit/pilot.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitDSS
+  name: DSB tactical jumpsuit
+  description: Stylish and extremely comfortable tactical jumpsuit, made in the colors of the Department of Security.
+  components:
+  - type: Sprite
+    sprite: Corvax/Clothing/Uniforms/Jumpsuit/dss.rsi
+  - type: Clothing
+    sprite: Corvax/Clothing/Uniforms/Jumpsuit/dss.rsi

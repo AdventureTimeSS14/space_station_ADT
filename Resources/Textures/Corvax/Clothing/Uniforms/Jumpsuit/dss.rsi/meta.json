@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Created by discord:prazat.",
+    "copyright": "Made by MureixIoL for CorvaxWL",
     "size": {
         "x": 32,
         "y": 32
@@ -17,10 +17,10 @@
         {
             "name": "inhand-left",
             "directions": 4
-          },
-          {
+        },
+        {
             "name": "inhand-right",
             "directions": 4
-          }
+        }
     ]
 }
