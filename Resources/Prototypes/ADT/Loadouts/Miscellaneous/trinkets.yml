@@ -14,10 +14,24 @@
   groupBy: "instruments"
 
 - type: loadout
+  id: BassGuitarInstrument
+  storage:
+    back:
+    - BassGuitarInstrument
+  groupBy: "instruments"
+
+- type: loadout
   id: HarmonicaInstrument
   storage:
     back:
     - HarmonicaInstrument
+  groupBy: "instruments"
+
+- type: loadout
+  id: SynthesizerInstrument
+  storage:
+    back:
+    - SynthesizerInstrument
   groupBy: "instruments"
 
 - type: loadout
