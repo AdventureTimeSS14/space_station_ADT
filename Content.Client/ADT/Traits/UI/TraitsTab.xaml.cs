@@ -196,10 +196,12 @@ public sealed partial class TraitsTab : BoxContainer
 
     private void RevertTraitToggle(ProtoId<TraitPrototype> traitId)
     {
-        var trait = _prototype.Index(traitId);
+        if (!_prototype.TryIndex(traitId, out var trait))
+            return;
+
         if (_categoryUis.TryGetValue(trait.Category, out var categoryUi))
         {
-            categoryUi.SetTraitSelected(traitId, _selectedTraits.Contains(traitId));
+            categoryUi.SetTraitSelected(traitId, _selectedTraits.Contains(traitId), suppressToggle: true);
         }
     }
 
