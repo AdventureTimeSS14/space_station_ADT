@@ -317,7 +317,6 @@
   chatMessages: [включается.]
   chatTriggers:
     - включается
-    - включаеться
 
 - type: emote
   id: Spit
