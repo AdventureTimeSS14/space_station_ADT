@@ -4,8 +4,8 @@
   mapPath: /Maps/ADTMaps/ADTStations/adt_pump.yml
   maxRandomOffset: 0
   randomRotation: false
-  minPlayers: 0
-  maxPlayers: 20
+  minPlayers: 35
+  maxPlayers: 60
   stations:
     Pump:
       stationProto: StandardNanotrasenStation
