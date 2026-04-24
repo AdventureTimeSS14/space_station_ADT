@@ -34,9 +34,8 @@
   - ADT_Saltern
   - ADT_Aspid
   - ADT_Cluster
-# Exclusion 0 - 35
-  - ADT_Pump
 # Micropop 0 - 20
+  - ADT_Pump
   - ADT_Reach
 
 # ADT Maps Выведенные на переработку
