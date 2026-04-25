@@ -19,14 +19,14 @@
     ClothingHeadsetSecurity: 3
     ClothingOuterWinterSec: 2
     ClothingOuterArmorBasic: 2
-    ClothingOuterCoatSecurityOvercoat: 3 #ADT-Tweak
     ClothingNeckScarfStripedRed: 3
     ClothingOuterArmorBasicSlim: 2
     ClothingEyesBlindfold: 1
     ClothingShoesBootsCombat: 1
     ClothingShoesBootsWinterSec: 2
     ClothingHeadHelmetJustice: 1
-    #ADT Clothing 
+    #ADT Clothing
+    ClothingOuterCoatSecurityOvercoat: 3
     ADTClothingOuterCoatSecurity: 1
     ADTClothingKadet: 4
     ADTClothingUniformSecurityCadetLight: 2
@@ -41,6 +41,7 @@
     ClothingHeadHatCowboyWhite: 1
     ADTClothingShoesJackbootsCowboyWhite: 1
     ADTClothingShoesJackbootsCowboyFancy: 1
+    ADTClothingOuterArmorVestHidden: 4
     #ADT Clothing end
   contrabandInventory:
     ClothingMaskClownSecurity: 1
