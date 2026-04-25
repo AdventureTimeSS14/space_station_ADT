@@ -110,7 +110,7 @@
       - !type:HealthChange
         damage:
           types:
-            Heat: 0.20 # 0.05 - 0.50
+            Heat: 0.05
       - !type:PopupMessage
         type: Local
         visualType: Large
