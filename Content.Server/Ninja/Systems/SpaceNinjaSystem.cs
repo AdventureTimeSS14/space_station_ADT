@@ -2,11 +2,6 @@ using Content.Server.Communications;
 using Content.Server.CriminalRecords.Systems;
 using Content.Server.Objectives.Components;
 using Content.Server.Objectives.Systems;
-<<<<<<< HEAD
-using Content.Server.Power.EntitySystems;
-using Content.Server.PowerCell;
-=======
->>>>>>> upstreamwiz/master
 using Content.Server.Research.Systems;
 using Content.Shared.Alert;
 using Content.Shared.Doors.Components;
@@ -15,11 +10,8 @@ using Content.Shared.Mind;
 using Content.Shared.Ninja.Components;
 using Content.Shared.Ninja.Systems;
 using Content.Shared.Power.Components;
-<<<<<<< HEAD
-=======
 using Content.Shared.Power.EntitySystems;
 using Content.Shared.PowerCell;
->>>>>>> upstreamwiz/master
 using Content.Shared.Popups;
 using Content.Shared.Rounding;
 using System.Diagnostics.CodeAnalysis;
