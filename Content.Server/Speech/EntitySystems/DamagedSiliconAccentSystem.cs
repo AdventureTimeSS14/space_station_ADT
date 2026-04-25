@@ -2,10 +2,7 @@
 using Content.Server.Destructible;
 using Content.Shared.Speech.Components;
 using Content.Shared.Damage.Components;
-<<<<<<< HEAD
-=======
 using Content.Shared.Damage.Systems;
->>>>>>> upstreamwiz/master
 using Content.Shared.FixedPoint;
 using Content.Shared.Power.EntitySystems;
 using Content.Shared.PowerCell;
@@ -22,11 +19,7 @@ public sealed class DamagedSiliconAccentSystem : EntitySystem
     [Dependency] private readonly SharedBatterySystem _battery = default!;
     [Dependency] private readonly PowerCellSystem _powerCell = default!;
     [Dependency] private readonly DestructibleSystem _destructibleSystem = default!;
-<<<<<<< HEAD
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-=======
     [Dependency] private readonly DamageableSystem _damageable = default!;
->>>>>>> upstreamwiz/master
 
     public override void Initialize()
     {
@@ -67,17 +60,6 @@ public sealed class DamagedSiliconAccentSystem : EntitySystem
 
         if (ent.Comp.EnableDamageCorruption)
         {
-<<<<<<< HEAD
-            FixedPoint2 damage = ent.Comp.OverrideTotalDamage ?? FixedPoint2.Zero;
-            if (TryComp<DamageableComponent>(uid, out var damageable))
-                damage = damageable.TotalDamage;
-
-            var corrupted = CorruptDamage(message, damage, ent);
-            if (corrupted != message)
-            {
-                message = corrupted;
-                messageChanged = true;
-=======
             var damage = FixedPoint2.Zero;
             if (ent.Comp.OverrideTotalDamage.HasValue)
             {
@@ -86,7 +68,6 @@ public sealed class DamagedSiliconAccentSystem : EntitySystem
             else if (TryComp<DamageableComponent>(uid, out var damageable))
             {
                 damage = _damageable.GetTotalDamage((uid, damageable));
->>>>>>> upstreamwiz/master
             }
         }
 

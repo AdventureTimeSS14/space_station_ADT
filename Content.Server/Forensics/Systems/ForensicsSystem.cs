@@ -13,11 +13,8 @@ using Content.Shared.DoAfter;
 using Content.Shared.Forensics;
 using Content.Shared.Forensics.Components;
 using Content.Shared.Forensics.Systems;
-<<<<<<< HEAD
-=======
 using Content.Shared.Gibbing;
 using Content.Shared.IdentityManagement;
->>>>>>> upstreamwiz/master
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Inventory;
