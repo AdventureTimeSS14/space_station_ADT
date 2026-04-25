@@ -23930,7 +23930,7 @@ entities:
       anchored: True
       pos: 64.5,29.5
       parent: 1
-- proto: Bloodpack
+- proto: ADTBloodPackTransfusionFull
   entities:
   - uid: 208
     components:

@@ -400,7 +400,7 @@ entities:
     - type: Transform
       pos: 0.5,-2.5
       parent: 1
-- proto: Bloodpack
+- proto: ADTBloodPackTransfusionFull
   entities:
   - uid: 114
     components:

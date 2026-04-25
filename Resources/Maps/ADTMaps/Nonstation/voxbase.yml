@@ -7220,7 +7220,7 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -0.5,12.5
       parent: 2047
-- proto: Bloodpack
+- proto: ADTBloodPackTransfusionFull
   entities:
   - uid: 2079
     components:

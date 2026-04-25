@@ -27,11 +27,11 @@
       coefficients:
         Blunt: 0.7 # ADT-Tweak 0.9 -> 0.7
         Slash: 0.9
-        Piercing: 0.9   
+        Piercing: 0.9
         # ADT-Tweak-Start
         Heat: 0.4       # 0.8 -> 0.4
         Radiation: 0.4  # 0.5 -> 0.4
-        Caustic: 0.5    #  -> Caustic: 0.5 
+        Caustic: 0.5    #  -> Caustic: 0.5
         # ADT-Tweak-End
   - type: ClothingSpeedModifier
     walkModifier: 0.7
@@ -482,10 +482,11 @@
   - type: Armor
     modifiers:
       coefficients:
-        Caustic: 0.1
-  - type: ZombificationResistance
-    zombificationResistanceCoefficient: 0.4
   # ADT-Tweak-Start
+        Caustic: 0.2
+        Radiation: 0.7
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.1
   - type: FireProtection
     reduction: 0.1
   - type: ExplosionResistance
@@ -650,7 +651,9 @@
         Heat: 0.6
         Radiation: 0.3
         Caustic: 0.3
-  - type: ClothingSpeedModifier 
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.5
+  - type: ClothingSpeedModifier
     walkModifier: 1
     sprintModifier: 1
   # ADT-Tweak-End
@@ -691,10 +694,14 @@
     tags:
     - Hardsuit
     - WhitelistChameleon
-  - type: ClothingSpeedModifier # ADT tweak
+  # ADT-Tweak-Start
+  - type: ClothingSpeedModifier
     walkModifier: 1.0
     sprintModifier: 1.0
-  - type: DNALocker # ADT-Tweak
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.3
+  - type: DNALocker
+    # ADT-Tweak-End
 
 #Syndicate Elite Hardsuit
 - type: entity
@@ -729,6 +736,8 @@
         Heat: 0.2
         Radiation: 0.01
         Caustic: 0.5
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.5
   # ADT-Tweak-End
   - type: Item
     size: Huge
@@ -779,6 +788,8 @@
         Heat: 0.5
         Radiation: 0.25
         Caustic: 0.4
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.4
   - type: ClothingSpeedModifier
     walkModifier: 1 # 0.9 -> 1
     sprintModifier: 1 # 0.9 -> 1
@@ -827,10 +838,12 @@
         Heat: 0.2
         Radiation: 0.2
         Caustic: 0.2
-# Start ADT Tweak
+# ADT-Tweak-Start
   - type: StaminaResistance
     damageCoefficient: 0.15
-# End ADT Tweak 
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.2
+# ADT-Tweak-End
   - type: ClothingSpeedModifier
     walkModifier: 0.65
     sprintModifier: 0.65
@@ -905,7 +918,7 @@
     damageCoefficient: 0.2
   - type: Armor
     modifiers:
-      coefficients: 
+      coefficients:
         Blunt: 0.95
         Slash: 0.95
         Piercing: 1
@@ -1129,6 +1142,8 @@
         Heat: 0.1
         Radiation: 0.1
         Caustic: 0.1
+  - type: ZombificationResistance # ADT-Tweak
+    zombificationResistanceCoefficient: 0.1
   - type: ClothingSpeedModifier
     walkModifier: 1.0
     sprintModifier: 1.0

@@ -9,7 +9,10 @@
             - material: Gold
               amount: 5
               doAfter: 4
-        
+            - material: Plasteel
+              amount: 10
+              doAfter: 2
+
     - node: ADTincompleteGoldBat
       entity: ADTIncompleteGoldBaseBallBat
       edges:

@@ -3,7 +3,8 @@
   startingInventory:
     ADTBrutepack1: 40
     ADTOintment1: 40
-    ADTBloodpack1: 40
+    ADTBloodPackTransfusionFull: 5
+    SyringeSaline: 10
     ADTGauze1: 40
     ADTPillTricordrazine: 20
     ADTPatchHealingMini: 15

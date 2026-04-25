@@ -108,7 +108,7 @@
   - ADTMagazineShotgunUranium
   - ADTMagazineMagnumUranium
   - ADTSpeedLoaderMagnumLesserUranium
-  - ADTMagazineBoxMagnumLesserUranium 
+  - ADTMagazineBoxMagnumLesserUranium
   # ADT-Tweak end
   - MagazineBoxLightRifleUranium
   - MagazineBoxRifleUranium
@@ -153,12 +153,14 @@
   cost: 10000
   recipeUnlocks:
   - SignallerAdvanced
-  - SignalTrigger
-  - VoiceTrigger
-  - TimerTrigger
+  # ADT-Tweak-Start
+  #- SignalTrigger
+  #- VoiceTrigger
+  #- TimerTrigger
+  #- ChemicalPayload
+  # ADT-Tweak-End
   - FlashPayload
   - ExplosivePayload
-  - ChemicalPayload
   - CableDetStack1
   - EmptyDetonator
   # ADT Research Console Rework start
