@@ -5,11 +5,8 @@ using Content.Server.PDA;
 using Content.Server.Station.Components;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
-<<<<<<< HEAD
 using Content.Shared.ADT.CharecterFlavor;
-=======
 using Content.Shared.Body;
->>>>>>> upstreamwiz/master
 using Content.Shared.CCVar;
 using Content.Shared.Clothing;
 using Content.Shared.DetailExaminable;
