@@ -102,36 +102,6 @@ public sealed class DepartmentBanCommand : IConsoleCommand
         var targetUid = located.UserId;
         var targetHWid = located.LastHWId;
 
-<<<<<<< HEAD
-        // If you are trying to remove the following variable, please don't. It's there because the note system groups role bans by time, reason and banning admin.
-        // Without it the note list will get needlessly cluttered.
-        var now = DateTimeOffset.UtcNow;
-        //Start-ADT-Tweak: логи банов для диса
-        var lastRoleBan = await _dbManager.GetLastServerRoleBanAsync();
-        var startRoleBanId = lastRoleBan is not null ? lastRoleBan.Id + 1 : 1;
-        var currentRoleBanId = startRoleBanId;
-        var roleBanIds = new List<int?>();
-        //End-ADT-Tweak
-        foreach (var job in departmentProto.Roles)
-        {
-            roleBanIds.Add(currentRoleBanId++); //ADT-Tweak
-            _banManager.CreateRoleBan(targetUid, located.Username, shell.Player?.UserId, null, targetHWid, job, minutes, severity, reason, now);
-        }
-        //Start-ADT-Tweak: логи банов для диса
-        var banInfo = new BanInfo
-        {
-            BanId = roleBanIds.Count > 0 ? string.Join(", ", roleBanIds) : string.Empty,
-            Target = target,
-            Player = shell.Player,
-            Minutes = minutes,
-            Reason = reason,
-            Expires = DateTimeOffset.Now + TimeSpan.FromMinutes(minutes),
-            AdditionalInfo = new() { { "department", department } }
-        };
-
-        await _discordBanInfoSender.SendBanInfoAsync<DepartmentBanPayloadGenerator>(banInfo);
-        //End-ADT-Tweak
-=======
         var banInfo = new CreateRoleBanInfo(reason);
         if (minutes > 0)
             banInfo.WithMinutes(minutes);
@@ -146,7 +116,32 @@ public sealed class DepartmentBanCommand : IConsoleCommand
         }
 
         _banManager.CreateRoleBan(banInfo);
->>>>>>> upstreamwiz/master
+
+        //Start-ADT-Tweak: логи банов для диса
+        var lastRoleBan = await _dbManager.GetLastServerRoleBanAsync();
+        var startRoleBanId = lastRoleBan is not null ? lastRoleBan + 1 : 1;
+        var currentRoleBanId = startRoleBanId;
+        var roleBanIds = new List<int?>();
+
+        // Собираем ID банов для Discord
+        foreach (var _ in departmentProto.Roles)
+        {
+            roleBanIds.Add(currentRoleBanId++);
+        }
+
+        var discordBanInfo = new BanInfo
+        {
+            BanId = roleBanIds.Count > 0 ? string.Join(", ", roleBanIds) : string.Empty,
+            Target = target,
+            Player = shell.Player,
+            Minutes = minutes,
+            Reason = reason,
+            Expires = minutes > 0 ? DateTimeOffset.Now + TimeSpan.FromMinutes(minutes) : null,
+            AdditionalInfo = new() { { "department", department } }
+        };
+
+        await _discordBanInfoSender.SendBanInfoAsync<DepartmentBanPayloadGenerator>(discordBanInfo);
+        //End-ADT-Tweak
     }
 
     public CompletionResult GetCompletion(IConsoleShell shell, string[] args)
@@ -181,5 +176,4 @@ public sealed class DepartmentBanCommand : IConsoleCommand
             _ => CompletionResult.Empty
         };
     }
-
 }
