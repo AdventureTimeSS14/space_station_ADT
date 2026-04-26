@@ -22,21 +22,15 @@ using Content.Shared.Timing;
 using Content.Shared.Toggleable;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.FixedPoint;
-<<<<<<< HEAD
 using Content.Shared.Hands;
-=======
->>>>>>> upstreamwiz/master
 using Content.Shared.Temperature.Components;
 using Robust.Server.Audio;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Random;
-<<<<<<< HEAD
 using Content.Server.ADT.Temperature; //ADT-Tweak-Bonfire
-=======
 using Robust.Shared.Timing;
->>>>>>> upstreamwiz/master
 
 namespace Content.Server.Atmos.EntitySystems
 {
@@ -412,7 +406,7 @@ namespace Content.Server.Atmos.EntitySystems
             _popup.PopupEntity(Loc.GetString("flammable-component-resist-message"), uid, uid);
             _stunSystem.TryUpdateParalyzeDuration(uid, flammable.ResistTime);
         }
-        
+
         public override void Update(float frameTime)
         {
             // process all fire events
@@ -485,16 +479,11 @@ namespace Content.Server.Atmos.EntitySystems
 
                     _damageableSystem.TryChangeDamage(uid, flammable.Damage * flammable.FireStacks * ev.Multiplier, interruptsDoAfters: false);
 
-<<<<<<< HEAD
-                    AdjustFireStacks(uid, flammable.FirestackFade * (flammable.Resisting ? 10f : 1f), flammable, flammable.OnFire);
-
                     //ADT bonfire
                     if (flammable.FirestackFadeFade != 0)
                         flammable.FirestackFade += flammable.FirestackFadeFade * frameTime;
                     //ADT bonfire end
-=======
                     AdjustFireStacks(uid, flammable.FirestackFade * (flammable.Resisting ? 15f : 1f), flammable, flammable.OnFire);
->>>>>>> upstreamwiz/master
                 }
                 else
                 {
