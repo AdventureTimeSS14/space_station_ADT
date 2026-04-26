@@ -96,7 +96,6 @@ public sealed class BanCommand : LocalizedCommands
         var targetUid = located.UserId;
         var targetHWid = located.LastHWId;
 
-<<<<<<< HEAD
         // ADT-Tweak-Start: Пользователя с флагом Permission не забанить
         var dbData = await _dbManager.GetAdminDataForAsync(targetUid);
         if (dbData != null && dbData.AdminRank != null)
@@ -106,26 +105,7 @@ public sealed class BanCommand : LocalizedCommands
                 return;
         }
         // ADT-Tweak-End
-        //Start-ADT-Tweak: логи банов для диса
-        var lastServerBan = await _dbManager.GetLastServerBanAsync();
-        var newServerBanId = lastServerBan is not null ? lastServerBan.Id + 1 : 1;
-        //End-ADT-Tweak
 
-        _bans.CreateServerBan(targetUid, target, player?.UserId, null, targetHWid, minutes, severity, reason);
-        //Start-ADT-Tweak: логи банов для диса
-        var banInfo = new BanInfo
-        {
-            BanId = newServerBanId.ToString()!,
-            Target = target,
-            Player = player,
-            Minutes = minutes,
-            Reason = reason,
-            Expires = DateTimeOffset.Now + TimeSpan.FromMinutes(minutes)
-        };
-
-        await _discordBanInfoSender.SendBanInfoAsync<ServerBanPayloadGenerator>(banInfo);
-        //End-ADT-Tweak
-=======
         var banInfo = new CreateServerBanInfo(reason);
         banInfo.WithBanningAdmin(player?.UserId);
         banInfo.AddUser(targetUid, target);
@@ -135,7 +115,23 @@ public sealed class BanCommand : LocalizedCommands
         banInfo.WithSeverity(severity);
 
         _bans.CreateServerBan(banInfo);
->>>>>>> upstreamwiz/master
+
+        //Start-ADT-Tweak: логи банов для диса
+        var lastServerBan = await _dbManager.GetLastServerBanAsync();
+        var newServerBanId = lastServerBan is not null ? lastServerBan + 1 : 1;
+
+        var discordBanInfo = new BanInfo
+        {
+            BanId = newServerBanId.ToString()!,
+            Target = target,
+            Player = player,
+            Minutes = minutes,
+            Reason = reason,
+            Expires = minutes > 0 ? DateTimeOffset.Now + TimeSpan.FromMinutes(minutes) : null
+        };
+
+        await _discordBanInfoSender.SendBanInfoAsync<ServerBanPayloadGenerator>(discordBanInfo);
+        //End-ADT-Tweak
     }
 
     public override CompletionResult GetCompletion(IConsoleShell shell, string[] args)
