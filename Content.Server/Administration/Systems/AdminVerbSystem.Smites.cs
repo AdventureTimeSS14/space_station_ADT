@@ -1,10 +1,6 @@
-<<<<<<< HEAD
-using Content.Server.Administration.Components;
-=======
 using System.Linq;
 using System.Numerics;
 using System.Threading;
->>>>>>> upstreamwiz/master
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Body.Systems;
 using Content.Server.Electrocution;
@@ -17,23 +13,13 @@ using Content.Server.Polymorph.Systems;
 using Content.Server.Popups;
 using Content.Server.Roles;
 using Content.Server.Speech.Components;
+using Content.Shared.Speech.Components;
 using Content.Server.Storage.EntitySystems;
 using Content.Server.Tabletop;
 using Content.Server.Tabletop.Components;
 using Content.Shared.Actions;
 using Content.Shared.Administration;
 using Content.Shared.Administration.Components;
-<<<<<<< HEAD
-using Content.Shared.Atmos.Components;
-using Content.Shared.Body.Components;
-using Content.Shared.Body.Part;
-using Content.Shared.Clothing.Components;
-using Content.Shared.Clumsy;
-using Content.Shared.Cluwne;
-using Content.Shared.Damage.Systems;
-using Content.Shared.Database;
-using Content.Shared.Electrocution;
-=======
 using Content.Shared.Administration.Systems;
 using Content.Shared.Atmos.Components;
 using Content.Shared.Body;
@@ -46,7 +32,6 @@ using Content.Shared.Damage.Systems;
 using Content.Shared.Database;
 using Content.Shared.Electrocution;
 using Content.Shared.Gibbing;
->>>>>>> upstreamwiz/master
 using Content.Shared.Gravity;
 using Content.Shared.Interaction.Components;
 using Content.Shared.Inventory;
@@ -75,9 +60,6 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Spawners;
 using Robust.Shared.Utility;
-using System.Numerics;
-using System.Threading;
-using Content.Shared.Damage.Components;
 using Timer = Robust.Shared.Timing.Timer;
 
 namespace Content.Server.Administration.Systems;
@@ -115,12 +97,6 @@ public sealed partial class AdminVerbSystem
     [Dependency] private readonly SlipperySystem _slipperySystem = default!;
     [Dependency] private readonly GibbingSystem _gibbing = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
-
-    private readonly EntProtoId _actionViewLawsProtoId = "ActionViewLaws";
-    private readonly ProtoId<SiliconLawsetPrototype> _crewsimovLawset = "Crewsimov";
-
-    private readonly EntProtoId _siliconMindRole = "MindRoleSiliconBrain";
-    private const string SiliconLawBoundUserInterface = "SiliconLawBoundUserInterface";
 
     private readonly EntProtoId _actionViewLawsProtoId = "ActionViewLaws";
     private readonly ProtoId<SiliconLawsetPrototype> _crewsimovLawset = "Crewsimov";
@@ -264,19 +240,11 @@ public sealed partial class AdminVerbSystem
                         if (!_mobThresholdSystem.TryGetThresholdForState(args.Target, MobState.Dead,
                                 out var deadThreshold))
                             return;// whelp.
-<<<<<<< HEAD
-                        damageToDeal = deadThreshold.Value.Int() - (int)damageable.TotalDamage;
-                    }
-                    else
-                    {
-                        damageToDeal = criticalThreshold.Value.Int() - (int)damageable.TotalDamage;
-=======
                         damageToDeal = deadThreshold.Value.Int() - (int)totalDamage;
                     }
                     else
                     {
                         damageToDeal = criticalThreshold.Value.Int() - (int)totalDamage;
->>>>>>> upstreamwiz/master
                     }
 
                     if (damageToDeal <= 0)
