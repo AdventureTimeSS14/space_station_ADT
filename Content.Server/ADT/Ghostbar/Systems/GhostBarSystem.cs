@@ -75,7 +75,9 @@ public sealed class GhostBarSystem : EntitySystem
         _mapSystem.SetPaused(mapComponent.MapId, false);
 
         if (GhostBarMap.Weather.HasValue)
-            _weathersystem.SetWeather(mapComponent.MapId, _prototypeManager.Index(GhostBarMap.Weather.Value), null);
+        {
+            _weathersystem.TrySetWeather(mapComponent.MapId, GhostBarMap.Weather.Value.Id, out _);
+        }
     }
 
     private void OnPlayerGhosted(EntityUid uid, GhostBarPlayerComponent component, MindRemovedMessage args)
