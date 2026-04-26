@@ -29,10 +29,6 @@ public sealed partial class BanManager : IBanManager, IPostInjectInit
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly IChatManager _chat = default!;
     [Dependency] private readonly IServerDbManager _db = default!;
-<<<<<<< HEAD
-    [Dependency] private readonly ServerDbEntryManager _entryManager = default!;
-=======
->>>>>>> upstreamwiz/master
     [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly ILocalizationManager _localizationManager = default!;
     [Dependency] private readonly ILogManager _logManager = default!;
@@ -46,13 +42,8 @@ public sealed partial class BanManager : IBanManager, IPostInjectInit
     private ISawmill _sawmill = default!;
 
     public const string SawmillId = "admin.bans";
-<<<<<<< HEAD
-    public const string PrefixAntag = "Antag:";
-    public const string PrefixJob = "Job:";
-=======
     public const string DbTypeAntag = "Antag";
     public const string DbTypeJob = "Job";
->>>>>>> upstreamwiz/master
 
     private readonly Dictionary<ICommonSession, List<BanDef>> _cachedRoleBans = new();
     // Cached ban exemption flags are used to handle
@@ -231,59 +222,6 @@ public sealed partial class BanManager : IBanManager, IPostInjectInit
 
     #region Role Bans
 
-<<<<<<< HEAD
-    // If you are trying to remove timeOfBan, please don't. It's there because the note system groups role bans by time, reason and banning admin.
-    // Removing it will clutter the note list. Please also make sure that department bans are applied to roles with the same DateTimeOffset.
-    public async void CreateRoleBan<T>(
-        NetUserId? target,
-        string? targetUsername,
-        NetUserId? banningAdmin,
-        (IPAddress, int)? addressRange,
-        ImmutableTypedHwid? hwid,
-        ProtoId<T> role,
-        uint? minutes,
-        NoteSeverity severity,
-        string reason,
-        DateTimeOffset timeOfBan
-    ) where T : class, IPrototype
-    {
-        string encodedRole;
-
-        // TODO: Note that it's possible to clash IDs here between a job and an antag. The refactor that introduced
-        // this check has consciously avoided refactoring Job and Antag prototype.
-        // Refactor Job- and Antag- Prototype to introduce a common RolePrototype, which will fix this possible clash.
-
-        //TODO remove this check as part of the above refactor
-        if (_prototypeManager.HasIndex<JobPrototype>(role) && _prototypeManager.HasIndex<AntagPrototype>(role))
-        {
-            _sawmill.Error($"Creating role ban for {role}: cannot create role ban, role is both JobPrototype and AntagPrototype.");
-
-            return;
-        }
-
-        // Don't trust the input: make sure the job or antag actually exists.
-        if (_prototypeManager.HasIndex<JobPrototype>(role))
-            encodedRole = PrefixJob + role;
-        else if (_prototypeManager.HasIndex<AntagPrototype>(role))
-            encodedRole = PrefixAntag + role;
-        else
-        {
-            _sawmill.Error($"Creating role ban for {role}: cannot create role ban, role is not a JobPrototype or an AntagPrototype.");
-
-            return;
-        }
-
-        DateTimeOffset? expires = null;
-
-        if (minutes > 0)
-            expires = DateTimeOffset.Now + TimeSpan.FromMinutes(minutes.Value);
-
-        _systems.TryGetEntitySystem(out GameTicker? ticker);
-        int? roundId = ticker == null || ticker.RoundId == 0 ? null : ticker.RoundId;
-        var playtime = target == null ? TimeSpan.Zero : (await _db.GetPlayTimes(target.Value)).Find(p => p.Tracker == PlayTimeTrackingShared.TrackerOverall)?.TimeSpent ?? TimeSpan.Zero;
-
-        var banDef = new ServerRoleBanDef(
-=======
     public async void CreateRoleBan(CreateRoleBanInfo banInfo)
     {
         ImmutableArray<BanRoleDef> roleDefs =
@@ -348,7 +286,6 @@ public sealed partial class BanManager : IBanManager, IPostInjectInit
         }
 
         return (new BanDef(
->>>>>>> upstreamwiz/master
             null,
             type,
             [..banInfo.Users.Select(u => u.UserId)],
@@ -362,12 +299,8 @@ public sealed partial class BanManager : IBanManager, IPostInjectInit
             GetSeverityForServerBan(banInfo, CCVars.ServerBanDefaultSeverity),
             banInfo.BanningAdmin,
             null,
-<<<<<<< HEAD
-            encodedRole);
-=======
             roles: roleBans), expires);
     }
->>>>>>> upstreamwiz/master
 
     private async Task<TimeSpan> GetPlayTime(CreateBanInfo banInfo)
     {
@@ -384,12 +317,6 @@ public sealed partial class BanManager : IBanManager, IPostInjectInit
     {
         return protoIds.Select(protoId =>
         {
-<<<<<<< HEAD
-            _chat.SendAdminAlert(Loc.GetString("cmd-roleban-existing", ("target", targetUsername ?? "null"), ("role", role)));
-
-            return;
-        }
-=======
             // TODO: I have no idea if this check is necessary. The previous code was a complete mess,
             // so out of safety I'm leaving this in.
             if (_prototypeManager.HasIndex<JobPrototype>(protoId) && _prototypeManager.HasIndex<AntagPrototype>(protoId))
@@ -397,27 +324,11 @@ public sealed partial class BanManager : IBanManager, IPostInjectInit
                 throw new InvalidOperationException(
                     $"Creating role ban for {protoId}: cannot create role ban, role is both JobPrototype and AntagPrototype.");
             }
->>>>>>> upstreamwiz/master
 
             // Don't trust the input: make sure the role actually exists.
             if (!_prototypeManager.HasIndex(protoId))
                 throw new UnknownPrototypeException(protoId, typeof(T));
 
-<<<<<<< HEAD
-        if (target is not null && _playerManager.TryGetSessionById(target.Value, out var session))
-            SendRoleBans(session);
-    }
-
-    private async Task<bool> AddRoleBan(ServerRoleBanDef banDef)
-    {
-        banDef = await _db.AddServerRoleBanAsync(banDef);
-
-        if (banDef.UserId != null
-            && _playerManager.TryGetSessionById(banDef.UserId, out var player)
-            && _cachedRoleBans.TryGetValue(player, out var cachedBans))
-        {
-            cachedBans.Add(banDef);
-=======
             return new BanRoleDef(PrototypeKindToDbType<T>(), protoId);
         });
     }
@@ -444,10 +355,7 @@ public sealed partial class BanManager : IBanManager, IPostInjectInit
             {
                 cachedBans.Add(banDef);
             }
->>>>>>> upstreamwiz/master
         }
-
-        return true; //ADT Tweak
     }
 
     public async Task<string> PardonRoleBan(int banId, NetUserId? unbanningAdmin, DateTimeOffset unbanTime)
@@ -493,41 +401,23 @@ public sealed partial class BanManager : IBanManager, IPostInjectInit
 
     public HashSet<ProtoId<JobPrototype>>? GetJobBans(NetUserId playerUserId)
     {
-<<<<<<< HEAD
-        return GetRoleBans<JobPrototype>(playerUserId, PrefixJob);
-=======
         return GetRoleBans<JobPrototype>(playerUserId);
->>>>>>> upstreamwiz/master
     }
 
     public HashSet<ProtoId<AntagPrototype>>? GetAntagBans(NetUserId playerUserId)
     {
-<<<<<<< HEAD
-        return GetRoleBans<AntagPrototype>(playerUserId, PrefixAntag);
-    }
-
-    private HashSet<ProtoId<T>>? GetRoleBans<T>(NetUserId playerUserId, string prefix) where T : class, IPrototype
-=======
         return GetRoleBans<AntagPrototype>(playerUserId);
     }
 
     private HashSet<ProtoId<T>>? GetRoleBans<T>(NetUserId playerUserId) where T : class, IPrototype
->>>>>>> upstreamwiz/master
     {
         if (!_playerManager.TryGetSessionById(playerUserId, out var session))
             return null;
 
-<<<<<<< HEAD
-        return GetRoleBans<T>(session, prefix);
-    }
-
-    private HashSet<ProtoId<T>>? GetRoleBans<T>(ICommonSession playerSession, string prefix) where T : class, IPrototype
-=======
         return GetRoleBans<T>(session);
     }
 
     private HashSet<ProtoId<T>>? GetRoleBans<T>(ICommonSession playerSession) where T : class, IPrototype
->>>>>>> upstreamwiz/master
     {
         if (!_cachedRoleBans.TryGetValue(playerSession, out var roleBans))
             return null;
@@ -535,14 +425,6 @@ public sealed partial class BanManager : IBanManager, IPostInjectInit
         var dbType = PrototypeKindToDbType<T>();
 
         return roleBans
-<<<<<<< HEAD
-            .Where(ban => ban.Role.StartsWith(prefix, StringComparison.Ordinal))
-            .Select(ban => new ProtoId<T>(ban.Role[prefix.Length..]))
-            .ToHashSet();
-    }
-
-    public HashSet<string>? GetRoleBans(NetUserId playerUserId)
-=======
             .SelectMany(ban => ban.Roles!.Value)
             .Where(role => role.RoleType == dbType)
             .Select(role => new ProtoId<T>(role.RoleId))
@@ -550,61 +432,38 @@ public sealed partial class BanManager : IBanManager, IPostInjectInit
     }
 
     public HashSet<BanRoleDef>? GetRoleBans(NetUserId playerUserId)
->>>>>>> upstreamwiz/master
     {
         if (!_playerManager.TryGetSessionById(playerUserId, out var session))
             return null;
 
         return _cachedRoleBans.TryGetValue(session, out var roleBans)
-<<<<<<< HEAD
-            ? roleBans.Select(banDef => banDef.Role).ToHashSet()
-=======
             ? roleBans.SelectMany(banDef => banDef.Roles ?? []).ToHashSet()
->>>>>>> upstreamwiz/master
             : null;
     }
 
     public bool IsRoleBanned(ICommonSession player, List<ProtoId<JobPrototype>> jobs)
     {
-<<<<<<< HEAD
-        return IsRoleBanned(player, jobs, PrefixJob);
-=======
         return IsRoleBanned<JobPrototype>(player, jobs);
->>>>>>> upstreamwiz/master
     }
 
     public bool IsRoleBanned(ICommonSession player, List<ProtoId<AntagPrototype>> antags)
     {
-<<<<<<< HEAD
-        return IsRoleBanned(player, antags, PrefixAntag);
-    }
-
-    private bool IsRoleBanned<T>(ICommonSession player, List<ProtoId<T>> roles, string prefix) where T : class, IPrototype
-=======
         return IsRoleBanned<AntagPrototype>(player, antags);
     }
 
     private bool IsRoleBanned<T>(ICommonSession player, List<ProtoId<T>> roles) where T : class, IPrototype
->>>>>>> upstreamwiz/master
     {
         var bans = GetRoleBans(player.UserId);
 
         if (bans is null || bans.Count == 0)
             return false;
 
-<<<<<<< HEAD
-        // ReSharper disable once ForeachCanBeConvertedToQueryUsingAnotherGetEnumerator
-        foreach (var role in roles)
-        {
-            if (bans.Contains(prefix + role))
-=======
         var dbType = PrototypeKindToDbType<T>();
 
         // ReSharper disable once ForeachCanBeConvertedToQueryUsingAnotherGetEnumerator
         foreach (var role in roles)
         {
             if (bans.Contains(new BanRoleDef(dbType, role)))
->>>>>>> upstreamwiz/master
                 return true;
         }
 
@@ -613,41 +472,10 @@ public sealed partial class BanManager : IBanManager, IPostInjectInit
 
     public void SendRoleBans(ICommonSession pSession)
     {
-<<<<<<< HEAD
-        var jobBans = GetRoleBans<JobPrototype>(pSession, PrefixJob);
-        var jobBansList = new List<string>(jobBans?.Count ?? 0);
-
-        if (jobBans is not null)
-        {
-            // ReSharper disable once ForeachCanBeConvertedToQueryUsingAnotherGetEnumerator
-            foreach (var encodedId in jobBans)
-            {
-                jobBansList.Add(encodedId.ToString().Replace(PrefixJob, ""));
-            }
-        }
-
-        var antagBans = GetRoleBans<AntagPrototype>(pSession, PrefixAntag);
-        var antagBansList = new List<string>(antagBans?.Count ?? 0);
-
-        if (antagBans is not null)
-        {
-            // ReSharper disable once ForeachCanBeConvertedToQueryUsingAnotherGetEnumerator
-            foreach (var encodedId in antagBans)
-            {
-                antagBansList.Add(encodedId.ToString().Replace(PrefixAntag, ""));
-            }
-        }
-
-        var bans = new MsgRoleBans()
-        {
-            JobBans = jobBansList,
-            AntagBans = antagBansList,
-=======
         var bans = new MsgRoleBans()
         {
             JobBans = (GetRoleBans<JobPrototype>(pSession) ?? []).ToList(),
             AntagBans = (GetRoleBans<AntagPrototype>(pSession) ?? []).ToList(),
->>>>>>> upstreamwiz/master
         };
 
         _sawmill.Debug($"Sent role bans to {pSession.Name}");

@@ -8,14 +8,7 @@ using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
 using Content.Server.Administration.Logs;
-<<<<<<< HEAD
-using Content.Server.Administration.Managers;
-using Content.Server.ADT;
-=======
->>>>>>> upstreamwiz/master
 using Content.Shared.Administration.Logs;
-using Content.Shared.ADT.Language;
-using Content.Shared.ADT.SpeechBarks;
 using Content.Shared.Construction.Prototypes;
 using Content.Shared.Database;
 using Content.Shared.Humanoid;
@@ -57,8 +50,8 @@ namespace Content.Server.Database
                 // ADT Start
                 .Include(p => p.Profiles).ThenInclude(h => h.Languages)
                 .Include(p => p.Profiles)
-                    .ThenInclude(h => h.Loadouts)
-                    .ThenInclude(l => l.ExtraData)
+                .ThenInclude(h => h.Loadouts)
+                .ThenInclude(l => l.ExtraData)
                 // ADT End
                 .Include(p => p.Profiles)
                     .ThenInclude(h => h.Loadouts)
@@ -121,7 +114,7 @@ namespace Content.Server.Database
                 // ADT Start
                 .Include(p => p.Languages)
                 .Include(p => p.Loadouts)
-                    .ThenInclude(l => l.ExtraData)
+                .ThenInclude(l => l.ExtraData)
                 // ADT End
                 .Include(p => p.Loadouts)
                     .ThenInclude(l => l.Groups)
@@ -221,133 +214,19 @@ namespace Content.Server.Database
             prefs.SelectedCharacterSlot = newSlot;
         }
 
-<<<<<<< HEAD
-        private static HumanoidCharacterProfile ConvertProfiles(Profile profile)
-        {
-            var jobs = profile.Jobs.ToDictionary(j => new ProtoId<JobPrototype>(j.JobName), j => (JobPriority) j.Priority);
-            var antags = profile.Antags.Select(a => new ProtoId<AntagPrototype>(a.AntagName));
-            var traits = profile.Traits.Select(t => new ProtoId<TraitPrototype>(t.TraitName));
-            var languages = profile.Languages.Select(t => new ProtoId<LanguagePrototype>(t.LanguageName));  // ADT Languages
-
-            var sex = Sex.Male;
-            if (Enum.TryParse<Sex>(profile.Sex, true, out var sexVal))
-                sex = sexVal;
-
-            var spawnPriority = (SpawnPriorityPreference) profile.SpawnPriority;
-
-            var gender = sex == Sex.Male ? Gender.Male : Gender.Female;
-            if (Enum.TryParse<Gender>(profile.Gender, true, out var genderVal))
-                gender = genderVal;
-
-            // Corvax-TTS-Start
-            var voice = profile.Voice;
-            if (voice == String.Empty)
-                voice = SharedHumanoidAppearanceSystem.DefaultSexVoice[sex];
-            // Corvax-TTS-End
-
-            // ReSharper disable once ConditionalAccessQualifierIsNonNullableAccordingToAPIContract
-            var markingsRaw = profile.Markings?.Deserialize<List<string>>();
-
-            List<Marking> markings = new();
-            if (markingsRaw != null)
-            {
-                foreach (var marking in markingsRaw)
-                {
-                    var parsed = Marking.ParseFromDbString(marking);
-
-                    if (parsed is null) continue;
-
-                    markings.Add(parsed);
-                }
-            }
-
-            var loadouts = new Dictionary<string, RoleLoadout>();
-
-            foreach (var role in profile.Loadouts)
-            {
-                var loadout = new RoleLoadout(role.RoleName)
-                {
-                    EntityName = role.EntityName,
-                };
-
-                foreach (var group in role.Groups)
-                {
-                    var groupLoadouts = loadout.SelectedLoadouts.GetOrNew(group.GroupName);
-                    foreach (var profLoadout in group.Loadouts)
-                    {
-                        groupLoadouts.Add(new Loadout()
-                        {
-                            Prototype = profLoadout.LoadoutName,
-                        });
-                    }
-                }
-
-                // ADT SAI Custom start
-                for (var i = 0; i < role.ExtraData.Count; i++)
-                {
-                    loadout.ExtraData.Add(role.ExtraData[i].Key, role.ExtraData[i].Value);
-                }
-                // ADT SAI Custom end
-
-                loadouts[role.RoleName] = loadout;
-            }
-
-            return new HumanoidCharacterProfile(
-                profile.CharacterName,
-                profile.FlavorText,
-                profile.Species,
-                voice, // Corvax-TTS
-                profile.Age,
-                sex,
-                gender,
-                new HumanoidCharacterAppearance
-                (
-                    profile.HairName,
-                    HairColorSerializer.Deserialize(profile.HairColor), // ADT-tweak
-                    profile.FacialHairName,
-                    Color.FromHex(profile.FacialHairColor),
-                    Color.FromHex(profile.EyeColor),
-                    Color.FromHex(profile.SkinColor),
-                    markings
-                ),
-                spawnPriority,
-                jobs,
-                (PreferenceUnavailableMode) profile.PreferenceUnavailable,
-                antags.ToHashSet(),
-                traits.ToHashSet(),
-                loadouts,
-                // ADT start
-                new BarkData(profile.BarkProto, profile.BarkPitch, profile.LowBarkVar, profile.HighBarkVar),
-                languages.ToHashSet(),
-                profile.OOCNotes,
-                profile.HeadshotUrl
-                // ADT end
-            );
-        }
-
-        private static Profile ConvertProfiles(HumanoidCharacterProfile humanoid, int slot, Profile? profile = null)
-=======
         private Profile ConvertProfiles(HumanoidCharacterProfile humanoid, int slot, Profile? profile = null)
->>>>>>> upstreamwiz/master
         {
             profile ??= new Profile();
             var appearance = humanoid.Appearance;
             var dataNode = _serialization.WriteValue(appearance.Markings, alwaysWrite: true, notNullableOverride: true);
 
+            // profile.Languages = humanoid.Languages.ToList(); TODO: UPSTREAM260426: доделать БД языков и сохранение БАРКОВ
             profile.CharacterName = humanoid.Name;
             profile.FlavorText = humanoid.FlavorText;
             profile.Species = humanoid.Species;
-            profile.Voice = humanoid.Voice; // Corvax-TTS
             profile.Age = humanoid.Age;
             profile.Sex = humanoid.Sex.ToString();
             profile.Gender = humanoid.Gender.ToString();
-<<<<<<< HEAD
-            profile.HairName = appearance.HairStyleId;
-            profile.HairColor = HairColorSerializer.Serialize(appearance.HairColor); // ADT-tweak
-            profile.FacialHairName = appearance.FacialHairStyleId;
-            profile.FacialHairColor = appearance.FacialHairColor.ToHex();
-=======
->>>>>>> upstreamwiz/master
             profile.EyeColor = appearance.EyeColor.ToHex();
             profile.SkinColor = appearance.SkinColor.ToHex();
             profile.SpawnPriority = (int) humanoid.SpawnPriority;
@@ -402,13 +281,6 @@ namespace Content.Server.Database
                     EntityName = loadouts.EntityName ?? string.Empty,
                 };
 
-                // ADT SAI Custom start
-                for (var i = 0; i < loadouts.ExtraData.Count; i++)
-                {
-                    dz.ExtraData.Add(new() { Key = loadouts.ExtraData.Keys.ElementAt(i), Value = loadouts.ExtraData.Values.ElementAt(i) });
-                }
-                // ADT SAI Custom end
-
                 foreach (var (group, groupLoadouts) in loadouts.SelectedLoadouts)
                 {
                     var profileGroup = new ProfileLoadoutGroup()
@@ -429,20 +301,6 @@ namespace Content.Server.Database
 
                 profile.Loadouts.Add(dz);
             }
-            // ADT start
-            profile.BarkProto = humanoid.Bark.Proto;
-            profile.BarkPitch = humanoid.Bark.Pitch;
-            profile.LowBarkVar = humanoid.Bark.MinVar;
-            profile.HighBarkVar = humanoid.Bark.MaxVar;
-            profile.Languages.Clear();
-            profile.Languages.AddRange(
-                humanoid.Languages
-                        .Select(l => new Language {LanguageName = l.ToString()})
-            );
-
-            profile.OOCNotes = humanoid.OOCNotes;
-            profile.HeadshotUrl = humanoid.HeadshotUrl;
-            // ADT end
 
             return profile;
         }
@@ -470,7 +328,6 @@ namespace Content.Server.Database
             await db.DbContext.SaveChangesAsync();
         }
         #endregion
-
         #region Discord ADT
         public async Task<string?> GetDiscordIdAsync(Guid userId)
         {
@@ -540,14 +397,8 @@ namespace Content.Server.Database
             bool includeUnbanned,
             BanType type);
 
-<<<<<<< HEAD
-        public abstract Task<ServerBanDef?> GetLastServerBanAsync(); //ADT-Tweak: Логи банов для диса
-        public abstract Task AddServerBanAsync(ServerBanDef serverBan);
-        public abstract Task AddServerUnbanAsync(ServerUnbanDef serverUnban);
-=======
         public abstract Task<BanDef> AddBanAsync(BanDef ban);
         public abstract Task AddUnbanAsync(UnbanDef unban);
->>>>>>> upstreamwiz/master
 
         public async Task EditBan(int id, string reason, NoteSeverity severity, DateTimeOffset? expiration, Guid editedBy, DateTimeOffset editedAt)
         {
@@ -564,6 +415,29 @@ namespace Content.Server.Database
             await db.DbContext.SaveChangesAsync();
         }
 
+        // ADT-Tweak-Start
+        public async Task<int?> GetLastServerRoleBanAsync()
+        {
+            await using var db = await GetDb();
+            var lastBanId = await db.DbContext.BanRole
+                .OrderByDescending(r => r.BanId)
+                .Select(r => r.BanId)
+                .FirstOrDefaultAsync();
+
+            return lastBanId == 0 ? null : lastBanId;
+        }
+
+        public async Task<int?> GetLastServerBanAsync()
+        {
+            await using var db = await GetDb();
+            var lastBanId = await db.DbContext.Ban
+                .OrderByDescending(b => b.Id)
+                .Select(b => b.Id)
+                .FirstOrDefaultAsync();
+
+            return lastBanId == 0 ? null : lastBanId;
+        }
+        // ADT-Tweak-End
         protected static async Task<ServerBanExemptFlags?> GetBanExemptionCore(
             DbGuard db,
             NetUserId? userId,
@@ -612,46 +486,7 @@ namespace Content.Server.Database
             return flags ?? ServerBanExemptFlags.None;
         }
 
-<<<<<<< HEAD
-        #endregion
-
-        #region Role Bans
-        /*
-         * ROLE BANS
-         */
-        /// <summary>
-        ///     Looks up a role ban by id.
-        ///     This will return a pardoned role ban as well.
-        /// </summary>
-        /// <param name="id">The role ban id to look for.</param>
-        /// <returns>The role ban with the given id or null if none exist.</returns>
-        public abstract Task<ServerRoleBanDef?> GetServerRoleBanAsync(int id);
-
-        /// <summary>
-        ///     Looks up an user's role ban history.
-        ///     This will return pardoned role bans based on the <see cref="includeUnbanned"/> bool.
-        ///     Requires one of <see cref="address"/>, <see cref="userId"/>, or <see cref="hwId"/> to not be null.
-        /// </summary>
-        /// <param name="address">The IP address of the user.</param>
-        /// <param name="userId">The NetUserId of the user.</param>
-        /// <param name="hwId">The Hardware Id of the user.</param>
-        /// <param name="modernHWIds">The modern HWIDs of the user.</param>
-        /// <param name="includeUnbanned">Whether expired and pardoned bans are included.</param>
-        /// <returns>The user's role ban history.</returns>
-        public abstract Task<List<ServerRoleBanDef>> GetServerRoleBansAsync(IPAddress? address,
-            NetUserId? userId,
-            ImmutableArray<byte>? hwId,
-            ImmutableArray<ImmutableArray<byte>>? modernHWIds,
-            bool includeUnbanned);
-
-        public abstract Task<ServerRoleBanDef?> GetLastServerRoleBanAsync(); //ADT-Tweak: Логи банов для диса
-        public abstract Task<ServerRoleBanDef> AddServerRoleBanAsync(ServerRoleBanDef serverRoleBan);
-        public abstract Task AddServerRoleUnbanAsync(ServerRoleUnbanDef serverRoleUnban);
-
-        public async Task EditServerRoleBan(int id, string reason, NoteSeverity severity, DateTimeOffset? expiration, Guid editedBy, DateTimeOffset editedAt)
-=======
         protected static List<Expression<Func<Ban, object>>> GetBanDefIncludes(BanType? type = null)
->>>>>>> upstreamwiz/master
         {
             List<Expression<Func<Ban, object>>> list =
             [
@@ -1448,69 +1283,7 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
             if (ban is null)
                 return null;
 
-<<<<<<< HEAD
-            var player = await db.DbContext.Player.SingleOrDefaultAsync(p => p.UserId == ban.PlayerUserId);
-            return new ServerBanNoteRecord(
-                ban.Id,
-                MakeRoundRecord(ban.Round),
-                MakePlayerRecord(player),
-                ban.PlaytimeAtNote,
-                ban.Reason,
-                ban.Severity,
-                MakePlayerRecord(ban.CreatedBy),
-                ban.BanTime,
-                MakePlayerRecord(ban.LastEditedBy),
-                ban.LastEditedAt,
-                ban.ExpirationTime,
-                ban.Hidden,
-                MakePlayerRecord(ban.Unban?.UnbanningAdmin == null
-                    ? null
-                    : await db.DbContext.Player.SingleOrDefaultAsync(p =>
-                        p.UserId == ban.Unban.UnbanningAdmin.Value)),
-                ban.Unban?.UnbanTime);
-        }
-
-        public async Task<ServerRoleBanNoteRecord?> GetServerRoleBanAsNoteAsync(int id)
-        {
-            await using var db = await GetDb();
-
-            var ban = await db.DbContext.RoleBan
-                .Include(ban => ban.Unban)
-                .Include(ban => ban.Round)
-                .ThenInclude(r => r!.Server)
-                .Include(ban => ban.CreatedBy)
-                .Include(ban => ban.LastEditedBy)
-                .Include(ban => ban.Unban)
-                .SingleOrDefaultAsync(b => b.Id == id);
-
-            if (ban is null)
-                return null;
-
-            var player = await db.DbContext.Player.SingleOrDefaultAsync(p => p.UserId == ban.PlayerUserId);
-            var unbanningAdmin =
-                ban.Unban is null
-                ? null
-                : await db.DbContext.Player.SingleOrDefaultAsync(b => b.UserId == ban.Unban.UnbanningAdmin);
-
-            return new ServerRoleBanNoteRecord(
-                ban.Id,
-                MakeRoundRecord(ban.Round),
-                MakePlayerRecord(player),
-                ban.PlaytimeAtNote,
-                ban.Reason,
-                ban.Severity,
-                MakePlayerRecord(ban.CreatedBy),
-                ban.BanTime,
-                MakePlayerRecord(ban.LastEditedBy),
-                ban.LastEditedAt,
-                ban.ExpirationTime,
-                ban.Hidden,
-                new [] { ban.RoleId.Replace(BanManager.PrefixJob, null).Replace(BanManager.PrefixAntag, null) },
-                MakePlayerRecord(unbanningAdmin),
-                ban.Unban?.UnbanTime);
-=======
             return await MakeBanNoteRecord(db.DbContext, ban);
->>>>>>> upstreamwiz/master
         }
 
         public async Task<List<IAdminRemarksRecord>> GetAllAdminRemarks(Guid player)
@@ -1823,59 +1596,6 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
             return banNotes;
         }
 
-<<<<<<< HEAD
-        protected async Task<List<ServerRoleBanNoteRecord>> GetGroupedServerRoleBansAsNotesForUser(DbGuard db, Guid user)
-        {
-            // Server side query
-            var bansQuery = await db.DbContext.RoleBan
-                .Where(ban => ban.PlayerUserId == user && !ban.Hidden)
-                .Include(ban => ban.Unban)
-                .Include(ban => ban.Round)
-                .ThenInclude(r => r!.Server)
-                .Include(ban => ban.CreatedBy)
-                .Include(ban => ban.LastEditedBy)
-                .Include(ban => ban.Unban)
-                .ToArrayAsync();
-
-            // Client side query, as EF can't do groups yet
-            var bansEnumerable = bansQuery
-                    .GroupBy(ban => new { ban.BanTime, CreatedBy = (Player?)ban.CreatedBy, ban.Reason, Unbanned = ban.Unban == null })
-                    .Select(banGroup => banGroup)
-                    .ToArray();
-
-            List<ServerRoleBanNoteRecord> bans = new();
-            var player = await db.DbContext.Player.SingleOrDefaultAsync(p => p.UserId == user);
-            foreach (var banGroup in bansEnumerable)
-            {
-                var firstBan = banGroup.First();
-                Player? unbanningAdmin = null;
-
-                if (firstBan.Unban?.UnbanningAdmin is not null)
-                    unbanningAdmin = await db.DbContext.Player.SingleOrDefaultAsync(p => p.UserId == firstBan.Unban.UnbanningAdmin.Value);
-
-                bans.Add(new ServerRoleBanNoteRecord(
-                    firstBan.Id,
-                    MakeRoundRecord(firstBan.Round),
-                    MakePlayerRecord(player),
-                    firstBan.PlaytimeAtNote,
-                    firstBan.Reason,
-                    firstBan.Severity,
-                    MakePlayerRecord(firstBan.CreatedBy),
-                    NormalizeDatabaseTime(firstBan.BanTime),
-                    MakePlayerRecord(firstBan.LastEditedBy),
-                    NormalizeDatabaseTime(firstBan.LastEditedAt),
-                    NormalizeDatabaseTime(firstBan.ExpirationTime),
-                    firstBan.Hidden,
-                    banGroup.Select(ban => ban.RoleId.Replace(BanManager.PrefixJob, null).Replace(BanManager.PrefixAntag, null)).ToArray(),
-                    MakePlayerRecord(unbanningAdmin),
-                    NormalizeDatabaseTime(firstBan.Unban?.UnbanTime)));
-            }
-
-            return bans;
-        }
-
-=======
->>>>>>> upstreamwiz/master
         #endregion
 
         #region Job Whitelists

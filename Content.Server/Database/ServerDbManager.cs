@@ -1,5 +1,4 @@
 using System.Collections.Immutable;
-using System.Data.Common;
 using System.IO;
 using System.Net;
 using System.Text.Json;
@@ -61,6 +60,7 @@ namespace Content.Server.Database
         Task AssignUserIdAsync(string name, NetUserId userId);
         Task<NetUserId?> GetAssignedUserIdAsync(string name);
         #endregion
+
         #region Discord ADT
         Task<string?> GetDiscordIdAsync(Guid userId);
         Task<Guid?> GetUserIdByDiscordIdAsync(string discordId);
@@ -74,6 +74,11 @@ namespace Content.Server.Database
         /// <param name="id">The ban id to look for.</param>
         /// <returns>The ban with the given id or null if none exist.</returns>
         Task<BanDef?> GetBanAsync(int id);
+
+        // ADT-Tweak-Start
+        Task<int?> GetLastServerRoleBanAsync();
+        Task<int?> GetLastServerBanAsync();
+        // ADT-Tweak-End
 
         /// <summary>
         ///     Looks up an user's most recent received un-pardoned ban.
@@ -110,14 +115,8 @@ namespace Content.Server.Database
             bool includeUnbanned=true,
             BanType type = BanType.Server);
 
-<<<<<<< HEAD
-        Task<ServerBanDef?> GetLastServerBanAsync(); //ADT-Tweak: Логи банов для диса
-        Task AddServerBanAsync(ServerBanDef serverBan);
-        Task AddServerUnbanAsync(ServerUnbanDef serverBan);
-=======
         Task<BanDef> AddBanAsync(BanDef ban);
         Task AddUnbanAsync(UnbanDef ban);
->>>>>>> upstreamwiz/master
 
         public Task EditBan(
             int id,
@@ -145,49 +144,6 @@ namespace Content.Server.Database
 
         #endregion
 
-<<<<<<< HEAD
-        #region Role Bans
-        /// <summary>
-        ///     Looks up a role ban by id.
-        ///     This will return a pardoned role ban as well.
-        /// </summary>
-        /// <param name="id">The role ban id to look for.</param>
-        /// <returns>The role ban with the given id or null if none exist.</returns>
-        Task<ServerRoleBanDef?> GetServerRoleBanAsync(int id);
-
-        /// <summary>
-        ///     Looks up an user's role ban history.
-        ///     This will return pardoned role bans based on the <see cref="includeUnbanned"/> bool.
-        ///     Requires one of <see cref="address"/>, <see cref="userId"/>, or <see cref="hwId"/> to not be null.
-        /// </summary>
-        /// <param name="address">The IP address of the user.</param>
-        /// <param name="userId">The NetUserId of the user.</param>
-        /// <param name="hwId">The Hardware Id of the user.</param>
-        /// <param name="modernHWIds">The modern HWIDs of the user.</param>
-        /// <param name="includeUnbanned">Whether expired and pardoned bans are included.</param>
-        /// <returns>The user's role ban history.</returns>
-        Task<List<ServerRoleBanDef>> GetServerRoleBansAsync(
-            IPAddress? address,
-            NetUserId? userId,
-            ImmutableArray<byte>? hwId,
-            ImmutableArray<ImmutableArray<byte>>? modernHWIds,
-            bool includeUnbanned = true);
-
-        Task<ServerRoleBanDef?> GetLastServerRoleBanAsync(); //ADT-Tweak: Логи банов для диса
-        Task<ServerRoleBanDef> AddServerRoleBanAsync(ServerRoleBanDef serverBan);
-        Task AddServerRoleUnbanAsync(ServerRoleUnbanDef serverBan);
-
-        public Task EditServerRoleBan(
-            int id,
-            string reason,
-            NoteSeverity severity,
-            DateTimeOffset? expiration,
-            Guid editedBy,
-            DateTimeOffset editedAt);
-        #endregion
-
-=======
->>>>>>> upstreamwiz/master
         #region Playtime
 
         /// <summary>
@@ -573,6 +529,20 @@ namespace Content.Server.Database
             return RunDbCommand(() => _db.GetBanAsync(id));
         }
 
+        // ADT-Tweak-Start
+        public Task<int?> GetLastServerRoleBanAsync()
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.GetLastServerRoleBanAsync());
+        }
+
+        public Task<int?> GetLastServerBanAsync()
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.GetLastServerBanAsync());
+        }
+        // ADT-Tweak-End
+
         public Task<BanDef?> GetBanAsync(
             IPAddress? address,
             NetUserId? userId,
@@ -583,13 +553,6 @@ namespace Content.Server.Database
             DbReadOpsMetric.Inc();
             return RunDbCommand(() => _db.GetBanAsync(address, userId, hwId, modernHWIds, type));
         }
-        //Start-ADT-Tweak: логи банов для диса
-        public Task<ServerBanDef?> GetLastServerBanAsync()
-        {
-            DbReadOpsMetric.Inc();
-            return RunDbCommand(() => _db.GetLastServerBanAsync());
-        }
-        //End-ADT-Tweak
 
         public Task<List<BanDef>> GetBansAsync(
             IPAddress? address,
@@ -633,52 +596,6 @@ namespace Content.Server.Database
             return RunDbCommand(() => _db.GetBanExemption(userId, cancel));
         }
 
-<<<<<<< HEAD
-        #region Role Ban
-        public Task<ServerRoleBanDef?> GetServerRoleBanAsync(int id)
-        {
-            DbReadOpsMetric.Inc();
-            return RunDbCommand(() => _db.GetServerRoleBanAsync(id));
-        }
-
-        public Task<List<ServerRoleBanDef>> GetServerRoleBansAsync(
-            IPAddress? address,
-            NetUserId? userId,
-            ImmutableArray<byte>? hwId,
-            ImmutableArray<ImmutableArray<byte>>? modernHWIds,
-            bool includeUnbanned = true)
-        {
-            DbReadOpsMetric.Inc();
-            return RunDbCommand(() => _db.GetServerRoleBansAsync(address, userId, hwId, modernHWIds, includeUnbanned));
-        }
-
-        public Task<ServerRoleBanDef?> GetLastServerRoleBanAsync()
-        {
-            DbReadOpsMetric.Inc();
-            return RunDbCommand(() => _db.GetLastServerRoleBanAsync());
-        }
-
-        public Task<ServerRoleBanDef> AddServerRoleBanAsync(ServerRoleBanDef serverRoleBan)
-        {
-            DbWriteOpsMetric.Inc();
-            return RunDbCommand(() => _db.AddServerRoleBanAsync(serverRoleBan));
-        }
-
-        public Task AddServerRoleUnbanAsync(ServerRoleUnbanDef serverRoleUnban)
-        {
-            DbWriteOpsMetric.Inc();
-            return RunDbCommand(() => _db.AddServerRoleUnbanAsync(serverRoleUnban));
-        }
-
-        public Task EditServerRoleBan(int id, string reason, NoteSeverity severity, DateTimeOffset? expiration, Guid editedBy, DateTimeOffset editedAt)
-        {
-            DbWriteOpsMetric.Inc();
-            return RunDbCommand(() => _db.EditServerRoleBan(id, reason, severity, expiration, editedBy, editedAt));
-        }
-        #endregion
-
-=======
->>>>>>> upstreamwiz/master
         #region Playtime
 
         public Task<List<PlayTime>> GetPlayTimes(Guid player, CancellationToken cancel)
@@ -1111,6 +1028,7 @@ namespace Content.Server.Database
             return RunDbCommand(() => _db.UploadBookPrinterEntry(bookEntry));
         }
         // ADT-BookPrinter-Start
+
         public Task<bool> UpsertIPIntelCache(DateTime time, IPAddress ip, float score)
         {
             DbWriteOpsMetric.Inc();

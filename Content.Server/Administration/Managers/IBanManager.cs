@@ -29,9 +29,6 @@ public interface IBanManager
     /// <param name="minutes">Number of minutes to ban for. 0 and null mean permanent</param>
     /// <param name="severity">Severity of the resulting ban note</param>
     /// <param name="reason">Reason for the ban</param>
-<<<<<<< HEAD
-    public void CreateServerBan(NetUserId? target, string? targetUsername, NetUserId? banningAdmin, (IPAddress, int)? addressRange, ImmutableTypedHwid? hwid, uint? minutes, NoteSeverity severity, string reason);
-=======
     [Obsolete("Use CreateServerBan(CreateBanInfo) instead")]
     public void CreateServerBan(NetUserId? target,
         string? targetUsername,
@@ -65,16 +62,11 @@ public interface IBanManager
 
         CreateServerBan(info);
     }
->>>>>>> upstreamwiz/master
 
     /// <summary>
     /// Gets a list of prefixed prototype IDs with the player's role bans.
     /// </summary>
-<<<<<<< HEAD
-    public HashSet<string>? GetRoleBans(NetUserId playerUserId);
-=======
     public HashSet<BanRoleDef>? GetRoleBans(NetUserId playerUserId);
->>>>>>> upstreamwiz/master
 
     /// <summary>
     /// Checks if the player is currently banned from any of the listed roles.
@@ -99,39 +91,8 @@ public interface IBanManager
 
     /// <summary>
     /// Gets a list of prototype IDs with the player's antag bans.
-<<<<<<< HEAD
     /// </summary>
     public HashSet<ProtoId<AntagPrototype>>? GetAntagBans(NetUserId playerUserId);
-
-    /// <summary>
-    /// Creates a job ban for the specified target, username or GUID
-    /// </summary>
-    /// <param name="target">Target user, username or GUID, null for none</param>
-    /// <param name="targetUsername">The username of the target, if known</param>
-    /// <param name="banningAdmin">The responsible admin for the ban</param>
-    /// <param name="addressRange">The range of IPs that are to be banned, if known</param>
-    /// <param name="hwid">The HWID to be banned, if known</param>
-    /// <param name="role">The role ID to be banned from. Either an AntagPrototype or a JobPrototype</param>
-    /// <param name="minutes">Number of minutes to ban for. 0 and null mean permanent</param>
-    /// <param name="severity">Severity of the resulting ban note</param>
-    /// <param name="reason">Reason for the ban</param>
-    /// <param name="timeOfBan">Time when the ban was applied, used for grouping role bans</param>
-    public void CreateRoleBan<T>(
-        NetUserId? target,
-        string? targetUsername,
-        NetUserId? banningAdmin,
-        (IPAddress, int)? addressRange,
-        ImmutableTypedHwid? hwid,
-        ProtoId<T> role,
-        uint? minutes,
-        NoteSeverity severity,
-        string reason,
-        DateTimeOffset timeOfBan
-    ) where T : class, IPrototype;
-=======
-    /// </summary>
-    public HashSet<ProtoId<AntagPrototype>>? GetAntagBans(NetUserId playerUserId);
->>>>>>> upstreamwiz/master
 
     /// <summary>
     /// Creates a role ban, preventing matching players from playing said roles.

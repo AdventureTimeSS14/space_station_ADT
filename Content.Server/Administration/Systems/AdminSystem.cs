@@ -1,11 +1,7 @@
 using System.Linq;
 using Content.Server.Administration.Managers;
 using Content.Server.Chat.Managers;
-<<<<<<< HEAD
 using Content.Server.Corvax.Sponsors;
-using Content.Server.Forensics;
-=======
->>>>>>> upstreamwiz/master
 using Content.Server.GameTicking;
 using Content.Server.Hands.Systems;
 using Content.Server.Mind;
@@ -15,7 +11,6 @@ using Content.Server.StationRecords.Systems;
 using Content.Shared.Administration;
 using Content.Shared.Administration.Events;
 using Content.Shared.CCVar;
-using Content.Shared.Corvax.CCCVars;
 using Content.Shared.Corvax.Sponsors;
 using Content.Shared.Forensics.Components;
 using Content.Shared.GameTicking;
@@ -27,7 +22,6 @@ using Content.Shared.PDA;
 using Content.Shared.Players.PlayTimeTracking;
 using Content.Shared.Popups;
 using Content.Shared.Roles;
-using Content.Shared.Roles.Components;
 using Content.Shared.Roles.Jobs;
 using Content.Shared.StationRecords;
 using Content.Shared.Throwing;
