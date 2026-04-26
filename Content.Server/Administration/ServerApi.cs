@@ -71,7 +71,6 @@ public sealed partial class ServerApi : IPostInjectInit
     [Dependency] private readonly ILogManager _logManager = default!;
     [Dependency] private readonly IEntitySystemManager _entitySystemManager = default!;
     [Dependency] private readonly ILocalizationManager _loc = default!;
-<<<<<<< HEAD
     [Dependency] private readonly IAdminManager _admin = default!;
     [Dependency] private readonly INetConfigurationManager _netConfigManager = default!;
     [Dependency] private readonly IChatManager _chatManager = default!;
@@ -80,11 +79,6 @@ public sealed partial class ServerApi : IPostInjectInit
     [Dependency] private readonly IServerDbManager _dbManager = default!;
     [Dependency] private readonly IBanManager _bans = default!;
     [Dependency] private readonly IDiscordBanInfoSender _discordBanInfoSender = default!;
-=======
-    [Dependency] private readonly IPlayerLocator _locator = default!;
-    [Dependency] private readonly IBanManager _bans = default!;
-    [Dependency] private readonly IServerDbManager _db = default!;
->>>>>>> upstreamwiz/master
 
     private string _token = string.Empty;
     private ISawmill _sawmill = default!;
@@ -349,7 +343,7 @@ public sealed partial class ServerApi : IPostInjectInit
 
         await RunOnMainThread(async () =>
         {
-            var located = await _locator.LookupIdByNameOrIdAsync(body.Guid.ToString());
+            var located = await _playerLocator.LookupIdByNameOrIdAsync(body.Guid.ToString());
 
             if (located == null)
             {
@@ -361,7 +355,7 @@ public sealed partial class ServerApi : IPostInjectInit
                 return;
             }
 
-            var bans = await _db.GetBansAsync(userId: located.UserId,
+            var bans = await _dbManager.GetBansAsync(userId: located.UserId,
                 address: null,
                 hwId: null,
                 modernHWIds: null,
@@ -941,7 +935,7 @@ public sealed partial class ServerApi : IPostInjectInit
             }
 
             var lastServerBan = await _dbManager.GetLastServerBanAsync();
-            var newServerBanId = lastServerBan is not null ? lastServerBan.Id + 1 : 1;
+            var newServerBanId = lastServerBan is not null ? lastServerBan + 1 : 1;
 
             try
             {
