@@ -1,14 +1,8 @@
-<<<<<<< HEAD
-﻿using System.Linq;
-using System.Text;
 using Content.Server.Administration.Managers;
 using Content.Server.ADT.Discord;
 using Content.Server.ADT.Discord.Bans;
 using Content.Server.ADT.Discord.Bans.PayloadGenerators;
 using Content.Server.Database;
-=======
-﻿using Content.Server.Administration.Managers;
->>>>>>> upstreamwiz/master
 using Content.Shared.Administration;
 using Content.Shared.CCVar;
 using Content.Shared.Database;
@@ -108,33 +102,7 @@ public sealed class RoleBanCommand : IConsoleCommand
 
         var targetUid = located.UserId;
         var targetHWid = located.LastHWId;
-        //Start-ADT-Tweak: логи банов для диса
-        var lastRoleBan = await _dbManager.GetLastServerRoleBanAsync();
-        var newRoleBanId = lastRoleBan is not null ? lastRoleBan.Id + 1 : 1;
-        //End-ADT-Tweak
 
-<<<<<<< HEAD
-        if (_proto.HasIndex<JobPrototype>(role))
-            _bans.CreateRoleBan<JobPrototype>(targetUid, located.Username, shell.Player?.UserId, null, targetHWid, role, minutes, severity, reason, DateTimeOffset.UtcNow);
-        else if (_proto.HasIndex<AntagPrototype>(role))
-            _bans.CreateRoleBan<AntagPrototype>(targetUid, located.Username, shell.Player?.UserId, null, targetHWid, role, minutes, severity, reason, DateTimeOffset.UtcNow);
-        else
-            shell.WriteError(Loc.GetString("cmd-roleban-job-parse", ("job", role)));
-        //Start-ADT-Tweak: логи банов для диса
-        var banInfo = new BanInfo
-        {
-            BanId = newRoleBanId is not null ? newRoleBanId.ToString()! : string.Empty,
-            Target = target,
-            Player = shell.Player,
-            Minutes = minutes,
-            Reason = reason,
-            Expires = DateTimeOffset.Now + TimeSpan.FromMinutes(minutes),
-            AdditionalInfo = new() { { "role", role } }
-        };
-
-        await _discordBanInfoSender.SendBanInfoAsync<RoleBanPayloadGenerator>(banInfo);
-        //End-ADT-Tweak
-=======
         var banInfo = new CreateRoleBanInfo(reason);
         if (minutes > 0)
             banInfo.WithMinutes(minutes);
@@ -158,7 +126,24 @@ public sealed class RoleBanCommand : IConsoleCommand
         }
 
         _bans.CreateRoleBan(banInfo);
->>>>>>> upstreamwiz/master
+
+        //Start-ADT-Tweak: логи банов для диса
+        var lastRoleBan = await _dbManager.GetLastServerRoleBanAsync();
+        var newRoleBanId = lastRoleBan is not null ? lastRoleBan + 1 : 1;
+
+        var discordBanInfo = new BanInfo
+        {
+            BanId = newRoleBanId.ToString()!,
+            Target = target,
+            Player = shell.Player,
+            Minutes = minutes,
+            Reason = reason,
+            Expires = minutes > 0 ? DateTimeOffset.Now + TimeSpan.FromMinutes(minutes) : null,
+            AdditionalInfo = new() { { "role", role } }
+        };
+
+        await _discordBanInfoSender.SendBanInfoAsync<RoleBanPayloadGenerator>(discordBanInfo);
+        //End-ADT-Tweak
     }
 
     public CompletionResult GetCompletion(IConsoleShell shell, string[] args)
