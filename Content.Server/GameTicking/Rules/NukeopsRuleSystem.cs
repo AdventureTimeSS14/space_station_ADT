@@ -25,10 +25,6 @@ using Robust.Shared.Map;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
 using System.Linq;
-<<<<<<< HEAD
-using Content.Shared.CombatMode.Pacification;
-=======
->>>>>>> upstreamwiz/master
 using Content.Shared.Station.Components;
 using Content.Shared.Store.Components;
 using Robust.Shared.Prototypes;
@@ -117,15 +113,11 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
 
         foreach (var (_, sessionData, name) in antags)
         {
-<<<<<<< HEAD
-            args.AddLine(Loc.GetString($"{component.LocalePrefix}list-name-user", ("name", name), ("user", sessionData.UserName)));
-        } */
-        //ADT-tweak-end
-=======
             args.AddLine(Loc.GetString("nukeops-list-name-user", ("name", name), ("user", sessionData.UserName)));
         }
         args.AddLine("");
->>>>>>> upstreamwiz/master
+        */
+        //ADT-tweak-end
     }
 
     private void OnNukeExploded(NukeExplodedEvent ev)

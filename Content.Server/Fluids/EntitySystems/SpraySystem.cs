@@ -186,11 +186,7 @@ public sealed class SpraySystem : SharedSpraySystem
 
             if (TryComp<PhysicsComponent>(thingGettingPushed, out var body))
             {
-<<<<<<< HEAD
-                if (_gravity.IsWeightless(user))
-=======
                 if (_gravity.IsWeightless(thingGettingPushed))
->>>>>>> upstreamwiz/master
                 {
                     // push back the player
                     _physics.ApplyLinearImpulse(thingGettingPushed, -impulseDirection * entity.Comp.PushbackAmount, body: body);

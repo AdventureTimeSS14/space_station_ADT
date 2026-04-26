@@ -83,7 +83,7 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
 
             if (CheckCommandLose())
             {
-                _roundEnd.DoRoundEndBehavior(RoundEndBehavior.ShuttleCall, component.ShuttleCallTime); 
+                _roundEnd.DoRoundEndBehavior(RoundEndBehavior.ShuttleCall, component.ShuttleCallTime);
                 GameTicker.EndGameRule(uid, gameRule);
             }
         }
@@ -172,10 +172,6 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
                 LogImpact.Medium,
                 $"{ToPrettyString(ev.User.Value)} converted {ToPrettyString(ev.Target)} into a Revolutionary");
 
-<<<<<<< HEAD
-            role.Value.Comp2.ConvertedCount++;
-            Dirty(role.Value.Owner, role.Value.Comp2);
-=======
             if (_mind.TryGetMind(ev.User.Value, out var revMindId, out _))
             {
                 if (_role.MindHasRole<RevolutionaryRoleComponent>(revMindId, out var role))
@@ -184,7 +180,6 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
                     Dirty(role.Value.Owner, role.Value.Comp2);
                 }
             }
->>>>>>> upstreamwiz/master
         }
 
         if (mindId == default || !_role.MindHasRole<RevolutionaryRoleComponent>(mindId))

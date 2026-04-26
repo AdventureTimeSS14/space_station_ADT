@@ -105,14 +105,10 @@ public sealed partial class RevenantSystem
             return;
         }
 
-<<<<<<< HEAD
         if (!HasComp<MobStateComponent>(target)
             || !HasComp<HumanoidAppearanceComponent>(target)
             || HasComp<RevenantComponent>(target)
             || HasComp<MagicImmunityComponent>(target)) // ADT-Tweak
-=======
-        if (!HasComp<MobStateComponent>(target) || !HasComp<HumanoidProfileComponent>(target) || HasComp<RevenantComponent>(target))
->>>>>>> upstreamwiz/master
             return;
 
         args.Handled = true;

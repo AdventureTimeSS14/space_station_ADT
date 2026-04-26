@@ -3,10 +3,7 @@ using Content.Server.Destructible;
 using Content.Server.Effects;
 using Content.Server.Weapons.Ranged.Systems;
 using Content.Shared.Camera;
-<<<<<<< HEAD
-=======
 using Content.Shared.Damage;
->>>>>>> upstreamwiz/master
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Database;
@@ -79,53 +76,11 @@ public sealed class ProjectileSystem : SharedProjectileSystem
                 LogImpact.Medium,
                 $"Projectile {ToPrettyString(uid):projectile} shot by {ToPrettyString(component.Shooter!.Value):user} hit {otherName:target} and dealt {damage:damage} damage");
 
-<<<<<<< HEAD
-            // If penetration is to be considered, we need to do some checks to see if the projectile should stop.
-            if (component.PenetrationThreshold != 0)
-            {
-                // If a damage type is required, stop the bullet if the hit entity doesn't have that type.
-                if (component.PenetrationDamageTypeRequirement != null)
-                {
-                    var stopPenetration = false;
-                    foreach (var requiredDamageType in component.PenetrationDamageTypeRequirement)
-                    {
-                        if (!damage.DamageDict.Keys.Contains(requiredDamageType))
-                        {
-                            stopPenetration = true;
-                            break;
-                        }
-                    }
-                    if (stopPenetration)
-                        component.ProjectileSpent = true;
-                }
-
-                // If the object won't be destroyed, it "tanks" the penetration hit.
-                if (damage.GetTotal() < damageRequired)
-                {
-                    component.ProjectileSpent = true;
-                }
-
-                if (!component.ProjectileSpent)
-                {
-                    component.PenetrationAmount += damageRequired;
-                    // The projectile has dealt enough damage to be spent.
-                    if (component.PenetrationAmount >= component.PenetrationThreshold)
-                    {
-                        component.ProjectileSpent = true;
-                    }
-                }
-            }
-            else
-            {
-                component.ProjectileSpent = true;
-            }
-=======
             component.ProjectileSpent = !TryPenetrate((uid, component), damage, damageRequired);
         }
         else
         {
             component.ProjectileSpent = true;
->>>>>>> upstreamwiz/master
         }
 
         if (!deleted)

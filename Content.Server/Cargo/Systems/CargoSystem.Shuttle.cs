@@ -6,11 +6,7 @@ using Content.Shared.Cargo.Components;
 using Content.Shared.Cargo.Events;
 using Content.Shared.Cargo.Prototypes;
 using Content.Shared.CCVar;
-<<<<<<< HEAD
-using Content.Shared.Stacks;
-=======
 using Content.Shared.HijackBeacon;
->>>>>>> upstreamwiz/master
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
