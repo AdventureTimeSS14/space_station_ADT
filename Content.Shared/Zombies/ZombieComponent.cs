@@ -179,4 +179,10 @@ public sealed partial class ZombieComponent : Component
     [DataField("jumpCollideKnockdown")]
     public TimeSpan JumpCollideKnockdown = TimeSpan.FromSeconds(1);
     // ADT-Tweak end
+
+    /// <summary>
+    /// The blood reagents to give the zombie. In case you want zombies that bleed milk, or something.
+    /// </summary>
+    [DataField("newBloodReagents")]
+    public Solution NewBloodReagents = new([new("ZombieBlood", 1)]);
 }

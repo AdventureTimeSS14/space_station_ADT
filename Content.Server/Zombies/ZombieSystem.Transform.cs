@@ -1,7 +1,5 @@
-<<<<<<< HEAD
-=======
+
 using System.Linq;
->>>>>>> upstreamwiz/master
 using Content.Server.Administration.Managers;
 using Content.Server.Atmos.Components;
 using Content.Server.Body.Components;
@@ -17,17 +15,14 @@ using Content.Server.NPC.HTN;
 using Content.Server.NPC.Systems;
 using Content.Server.StationEvents.Components;
 using Content.Server.Speech.Components;
-<<<<<<< HEAD
 using Content.Shared.Body.Components;
 using Content.Shared.CombatMode;
 using Content.Shared.CombatMode.Pacification;
 using Content.Shared.Damage.Components;
-=======
 using Content.Shared.Body;
 using Content.Shared.Body.Components;
 using Content.Shared.CombatMode;
 using Content.Shared.CombatMode.Pacification;
->>>>>>> upstreamwiz/master
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.CombatMode.Pacification;
@@ -51,10 +46,7 @@ using Robust.Shared.Audio.Systems;
 using Content.Server.ADT.ZombieJump;
 using Content.Shared.ADT.ZombieJump;
 using Content.Shared.Ghost.Roles.Components;
-<<<<<<< HEAD
-=======
 using Content.Shared.Humanoid.Markings;
->>>>>>> upstreamwiz/master
 using Content.Shared.IdentityManagement;
 using Content.Shared.Tag;
 using Robust.Shared.Player;
@@ -62,10 +54,7 @@ using Robust.Shared.Prototypes;
 using Content.Shared.NPC.Prototypes;
 using Content.Shared.Roles;
 using Content.Shared.Temperature.Components;
-<<<<<<< HEAD
-=======
 using Robust.Shared.Utility;
->>>>>>> upstreamwiz/master
 
 namespace Content.Server.Zombies;
 
@@ -99,10 +88,7 @@ public sealed partial class ZombieSystem
     private static readonly ProtoId<NpcFactionPrototype> ZombieFaction = "Zombie";
     private static readonly string MindRoleZombie = "MindRoleZombie";
     private static readonly List<ProtoId<AntagPrototype>> BannableZombiePrototypes = ["Zombie"];
-<<<<<<< HEAD
-=======
     internal static readonly HashSet<HumanoidVisualLayers> AdditionalZombieLayers = [HumanoidVisualLayers.Tail, HumanoidVisualLayers.HeadSide, HumanoidVisualLayers.HeadTop, HumanoidVisualLayers.Snout];
->>>>>>> upstreamwiz/master
 
     /// <summary>
     /// Handles an entity turning into a zombie when they die or go into crit
@@ -280,7 +266,7 @@ public sealed partial class ZombieSystem
         Dirty(target, melee);
 
         // ADT-Tweak start: Non-humanoid zombies also get jump ability
-        if (!HasComp<HumanoidAppearanceComponent>(target))
+        if (!HasComp<HumanoidProfileComponent>(target))
         {
             var jumpComp = EnsureComp<ZombieJumpComponent>(target);
             jumpComp.JumpDistance = zombiecomp.JumpDistance;

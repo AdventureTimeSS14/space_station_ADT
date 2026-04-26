@@ -30,14 +30,9 @@ public sealed partial class AdminVerbSystem
     private static readonly EntProtoId DefaultThiefRule = "Thief";
     private static readonly EntProtoId DefaultChangelingRule = "Changeling";
     private static readonly EntProtoId ParadoxCloneRuleId = "ParadoxCloneSpawn";
-<<<<<<< HEAD
-    private static readonly ProtoId<StartingGearPrototype> PirateGearId = "PirateGear";
-
-=======
-    private static readonly EntProtoId DefaultWizardRule = "Wizard";
+    static readonly EntProtoId DefaultWizardRule = "Wizard";
     private static readonly EntProtoId DefaultNinjaRule = "NinjaSpawn";
     private static readonly ProtoId<StartingGearPrototype> PirateGearId = "PirateGear";
->>>>>>> upstreamwiz/master
 
     // All antag verbs have names so invokeverb works.
     private void AddAntagVerbs(GetVerbsEvent<Verb> args)
@@ -161,7 +156,6 @@ public sealed partial class AdminVerbSystem
         };
         args.Verbs.Add(thief);
 
-<<<<<<< HEAD
         // goobstation - heretics
         Verb heretic = new()
         {
@@ -177,38 +171,21 @@ public sealed partial class AdminVerbSystem
         };
         args.Verbs.Add(heretic);
 
-        // ADT-Changeling-Tweak-Start
-        Verb changeling = new()
-        {
-            Text = Loc.GetString("admin-verb-text-make-changeling"),
-            Category = VerbCategory.Antag,
-            Icon = new SpriteSpecifier.Rsi(new ResPath("/Textures/ADT/Changeling/Objects/armblade.rsi"), "icon"),
-=======
         var changelingName = Loc.GetString("admin-verb-text-make-changeling");
         Verb changeling = new()
         {
             Text = changelingName,
             Category = VerbCategory.Antag,
             Icon = new SpriteSpecifier.Rsi(new ResPath("/Textures/Objects/Weapons/Melee/armblade.rsi"), "icon"),
->>>>>>> upstreamwiz/master
             Act = () =>
             {
                 _antag.ForceMakeAntag<ChangelingRuleComponent>(targetPlayer, DefaultChangelingRule);
             },
             Impact = LogImpact.High,
-<<<<<<< HEAD
-            Message = Loc.GetString("admin-verb-make-changeling"),
-        };
-        args.Verbs.Add(changeling);
-        // ADT-Changeling-Tweak-End
-
-        // Paradox clone
-=======
             Message = string.Join(": ", changelingName, Loc.GetString("admin-verb-make-changeling")),
         };
         args.Verbs.Add(changeling);
 
->>>>>>> upstreamwiz/master
         var paradoxCloneName = Loc.GetString("admin-verb-text-make-paradox-clone");
         Verb paradox = new()
         {
