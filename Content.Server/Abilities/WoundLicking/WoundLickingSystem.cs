@@ -76,9 +76,16 @@ namespace Content.Server.Felinid
                 return;
             }
 
-            if (woundLicking.ReagentWhitelist.Any() &&
-                !woundLicking.ReagentWhitelist.Contains(bloodstream.BloodReagent)
-            ) return;
+            if (woundLicking.ReagentWhitelist.Any())
+            {
+                // Получаем основной реагент крови из BloodReferenceSolution
+                var bloodReagent = bloodstream.BloodReferenceSolution.Contents
+                    .FirstOrDefault()
+                    .Reagent.Prototype;
+
+                if (!woundLicking.ReagentWhitelist.Contains(bloodReagent))
+                    return;
+            }
 
             // Check bloodstream
             if (bloodstream.BleedAmount == 0)
