@@ -1,12 +1,9 @@
 ﻿using Content.Server.Actions;
-<<<<<<< HEAD
 using Content.Server.Humanoid;
 using Content.Shared.Cloning.Events;
 using Content.Shared.Humanoid;
-=======
 using Content.Shared.Body;
 using Content.Shared.Cloning.Events;
->>>>>>> upstreamwiz/master
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.Mobs;
 using Content.Shared.Toggleable;
@@ -34,17 +31,6 @@ public sealed class WaggingSystem : EntitySystem
         SubscribeLocalEvent<WaggingComponent, ToggleActionEvent>(OnWaggingToggle);
         SubscribeLocalEvent<WaggingComponent, MobStateChangedEvent>(OnMobStateChanged);
         SubscribeLocalEvent<WaggingComponent, CloningEvent>(OnCloning);
-<<<<<<< HEAD
-    }
-
-    private void OnCloning(Entity<WaggingComponent> ent, ref CloningEvent args)
-    {
-        if (!args.Settings.EventComponents.Contains(Factory.GetRegistration(ent.Comp.GetType()).Name))
-            return;
-
-        EnsureComp<WaggingComponent>(args.CloneUid);
-=======
->>>>>>> upstreamwiz/master
     }
 
     private void OnCloning(Entity<WaggingComponent> ent, ref CloningEvent args)
