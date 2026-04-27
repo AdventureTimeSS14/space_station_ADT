@@ -32,11 +32,6 @@ public sealed class SuitSensorSystem : SharedSuitSensorSystem
             if (!CheckSensorAssignedStation((uid, sensor)))
                 continue;
 
-<<<<<<< HEAD
-            sensor.NextUpdate += sensor.UpdateRate;
-
-=======
->>>>>>> upstreamwiz/master
             // get sensor status
             var status = GetSensorState((uid, sensor));
             if (status == null)
