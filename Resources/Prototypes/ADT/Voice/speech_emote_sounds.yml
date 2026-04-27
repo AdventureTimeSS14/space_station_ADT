@@ -425,6 +425,8 @@
       path: /Audio/Items/bikehorn.ogg
     Ping:
       path: /Audio/Effects/Cargo/ping.ogg
+    StartUp:
+      path: /Audio/ADT/IPC/startup.ogg
     IPCDeathgasp:
       path: /Audio/ADT/IPC/borg_deathsound.ogg
 
@@ -455,6 +457,8 @@
       path: /Audio/Items/bikehorn.ogg
     Ping:
       path: /Audio/Effects/Cargo/ping.ogg
+    StartUp:
+      path: /Audio/ADT/IPC/startup.ogg
     IPCDeathgasp:
       path: /Audio/ADT/IPC/borg_deathsound.ogg
     Laugh:
@@ -501,6 +505,8 @@
       path: /Audio/Items/bikehorn.ogg
     Ping:
       path: /Audio/Effects/Cargo/ping.ogg
+    StartUp:
+      path: /Audio/ADT/IPC/startup.ogg
     IPCDeathgasp:
       path: /Audio/ADT/IPC/borg_deathsound.ogg
     Laugh:

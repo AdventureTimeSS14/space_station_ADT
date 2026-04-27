@@ -304,6 +304,21 @@
     - искрит и раздраженно жужжит # ADT-Tweak-BloodCough
 
 - type: emote
+  id: StartUp
+  name: chat-emote-name-startup
+  category: Vocal
+  whitelist:
+    requireAll: true
+    components:
+    - Vocal
+    tags:
+    - ADTSiliconEmotes
+  icon: ADT/Interface/Emotes/Vocal/startup.png
+  chatMessages: [включается.]
+  chatTriggers:
+    - включается
+
+- type: emote
   id: Spit
   name: chat-emote-name-spit
   icon: ADT/Interface/Emotes/spit.png
