@@ -17,11 +17,8 @@ using Robust.Shared.Containers;
 using Robust.Shared.Map;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Prototypes;
-<<<<<<< HEAD
 using System.Linq;
 using Content.Shared.Damage.Systems;
-=======
->>>>>>> upstreamwiz/master
 using Robust.Shared.Threading;
 
 namespace Content.Server.Atmos.EntitySystems;
