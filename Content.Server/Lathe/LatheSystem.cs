@@ -34,7 +34,6 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Content.Shared.DocumentPrinter;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace Content.Server.Lathe
 {
