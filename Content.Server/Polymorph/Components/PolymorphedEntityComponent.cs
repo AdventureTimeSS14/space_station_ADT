@@ -1,5 +1,6 @@
 using Content.Server.Polymorph.Systems;
 using Content.Shared.Polymorph;
+using Content.Shared.DoAfter; // ADT-Geras-Tweak
 
 namespace Content.Server.Polymorph.Components;
 
@@ -39,5 +40,8 @@ public sealed partial class PolymorphedEntityComponent : Component
     // ADT-Tweak start
     [DataField]
     public int? ParentVisibilityMask;
+
+    [DataField]
+    public DoAfterId? RevertDoAfterId;
     // ADT-Tweak end
 }

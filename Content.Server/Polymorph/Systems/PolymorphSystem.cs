@@ -1,53 +1,86 @@
 using Content.Server.Actions;
-using Content.Server.Humanoid;
-using Content.Shared.Humanoid; // ADT-Changeling-Tweak
-//ADT-Geras-Tweak-Start
-using Content.Shared.ADT.Language;
-using Content.Shared.ADT.SpeechBarks;
-using Content.Shared.Corvax.TTS;
-using Content.Server.Speech.Components;
+// ADT-Geras-Tweak-Start
+using Content.Server.ADT.SizeAttribute;
+using Content.Server.ADT.Speech.Components;
+using Content.Server.ADT.Traits.Assorted;
+using Content.Server.Atmos.EntitySystems;
 using Content.Server.Corvax.Speech.Components;
-using Content.Shared.Speech.Components;
-using Content.Server._CorvaxNext.Speech.Components;
-using Content.Shared.Traits.Assorted;
-using Content.Shared.CombatMode.Pacification;
-using Content.Shared.Bed.Sleep;
-using Content.Shared.Eye.Blinding.Components;
-using Robust.Shared.GameObjects;
-using Content.Server.Traits.Assorted;
-using Content.Shared.Speech.Muting;
-using Content.Shared.ADT.Traits;
-using Content.Shared.Storage.Components;
-//ADT-Geras-Tweak-End
+// ADT-Geras-Tweak-End
+using Content.Server.Humanoid;
 using Content.Server.Inventory;
 using Content.Server.Polymorph.Components;
+// ADT-Geras-Tweak-Start
+using Content.Server.Speech.Components;
+using Content.Server.Temperature.Systems;
+using Content.Server.Traits.Assorted;
+using Content.Server._CorvaxNext.Speech.Components;
+using Content.Shared.ADT.Body.Allergies;
+// ADT-Geras-Tweak-End
+using Content.Shared.ADT.CharecterFlavor; // ADT-Changeling-Tweak
+// ADT-Geras-Tweak-Start
+using Content.Shared.ADT.Damage.Events;
+using Content.Shared.ADT.Examine;
+using Content.Shared.ADT.Language;
+using Content.Shared.ADT.SpeechBarks;
+using Content.Shared.ADT.Traits;
+using Content.Shared.ADT.Traits.Assorted;
+using Content.Shared.Atmos.Components;
+using Content.Shared.Bed.Sleep;
+using Content.Shared.Body.Components;
+using Content.Shared.Body.Systems;
+using Content.Shared.Body.Organ;
+// ADT-Geras-Tweak-End
 using Content.Shared.Buckle;
+// ADT-Geras-Tweak-Start
+using Content.Shared.Chemistry.Components;
+using Content.Shared.Chemistry.EntitySystems;
+using Content.Shared.Clumsy;
+using Content.Shared.CombatMode.Pacification;
+// ADT-Geras-Tweak-End
 using Content.Shared.Coordinates;
+using Content.Shared.Corvax.TTS; // ADT-Geras-Tweak
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Destructible;
+using Content.Shared.DoAfter; // ADT-Geras-Tweak
 using Content.Shared.Eye;
+using Content.Shared.Eye.Blinding.Components; // ADT-Geras-Tweak
 using Content.Shared.Follower;
 using Content.Shared.Follower.Components;
+using Content.Shared.Forensics.Components; // ADT-Changeling-Tweak
 using Content.Shared.Hands.EntitySystems;
+using Content.Shared.Humanoid; // ADT-Changeling-Tweak
 using Content.Shared.IdentityManagement;
 using Content.Shared.Mind;
+using Content.Shared.Mindshield.Components; // ADT-Changeling-Tweak
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Nutrition;
+// ADT-Geras-Tweak-Start
+using Content.Shared.Nutrition.Components;
+using Content.Shared.Nutrition.EntitySystems;
+using Content.Shared.Overlays;
+using Content.Shared.Paper;
+// ADT-Geras-Tweak-End
 using Content.Shared.Polymorph;
 using Content.Shared.Popups;
+// ADT-Geras-Tweak-Start
+using Content.Shared.Speech.Components;
+using Content.Shared.Speech.Hushing;
+using Content.Shared.Speech.Muting;
+using Content.Shared.Storage.Components;
+using Content.Shared.Temperature.Components;
+using Content.Shared.Traits.Assorted;
+using Content.Shared.Wieldable.Components;
+// ADT-Geras-Tweak-End
 using Robust.Server.Audio;
 using Robust.Server.Containers;
 using Robust.Server.GameObjects;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
-using Content.Shared.Forensics.Components; // ADT-Changeling-Tweak
-using Content.Shared.Mindshield.Components; // ADT-Changeling-Tweak
 using Robust.Shared.Serialization.Manager;
 using Content.Shared.DetailExaminable;
-using Content.Shared.ADT.CharecterFlavor; // ADT-Changeling-Tweak
 
 namespace Content.Server.Polymorph.Systems;
 
@@ -72,8 +105,19 @@ public sealed partial class PolymorphSystem : EntitySystem
     [Dependency] private readonly MetaDataSystem _metaData = default!;
     [Dependency] private readonly FollowerSystem _follow = default!; // goob edit
     [Dependency] private readonly SharedEyeSystem _eye = default!; // ADT-Tweak Heretic
-
     [Dependency] private readonly ISerializationManager _serialization = default!; // ADT-Changeling-Tweak
+    // ADT-Geras-Tweak-Start
+    [Dependency] private readonly FlammableSystem _flammable = default!;
+    [Dependency] private readonly SharedStaminaSystem _stamina = default!;
+    [Dependency] private readonly TemperatureSystem _temperatureSystem = default!;
+    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
+    [Dependency] private readonly SharedBloodstreamSystem _bloodstream = default!;
+    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private readonly StomachSystem _stomachSystem = default!;
+    [Dependency] private readonly HungerSystem _hungerSystem = default!;
+    [Dependency] private readonly ThirstSystem _thirstSystem = default!;
+    // ADT-Geras-Tweak-End
+
     private const string RevertPolymorphId = "ActionRevertPolymorph";
 
     public override void Initialize()
@@ -88,6 +132,10 @@ public sealed partial class PolymorphSystem : EntitySystem
         SubscribeLocalEvent<PolymorphedEntityComponent, DestructionEventArgs>(OnDestruction);
         SubscribeLocalEvent<PolymorphedEntityComponent, EntityTerminatingEvent>(OnPolymorphedTerminating);
 
+        // ADT-Geras-Tweak-Start
+        SubscribeLocalEvent<PolymorphedEntityComponent, RevertPolymorphDoAfterEvent>(OnRevertDoAfter);
+        SubscribeLocalEvent<PolymorphedEntityComponent, BeforeStaminaCritEvent>(OnStaminaCrit);
+        // ADT-Geras-Tweak-End
         InitializeMap();
     }
 
@@ -151,11 +199,58 @@ public sealed partial class PolymorphSystem : EntitySystem
         args.Handled = true;
     }
 
-    private void OnRevertPolymorphActionEvent(Entity<PolymorphedEntityComponent> ent,
-        ref RevertPolymorphActionEvent args)
+    // ADT-Geras-Tweak-Start
+    private void OnRevertPolymorphActionEvent(Entity<PolymorphedEntityComponent> ent, ref RevertPolymorphActionEvent args)
     {
-        Revert((ent, ent));
+        if (IsRevertDoAfterRunning(ent))
+            return;
+
+        if (ent.Comp.Configuration.RevertDelay <= 0f)
+        {
+            Revert((ent, ent.Comp));
+            return;
+        }
+
+        var delay = TimeSpan.FromSeconds(ent.Comp.Configuration.RevertDelay);
+        var doAfterArgs = new DoAfterArgs(EntityManager, ent, delay, new RevertPolymorphDoAfterEvent(), ent)
+        {
+            NeedHand = false,
+            BreakOnMove = true,
+            BreakOnDamage = true,
+            MovementThreshold = 0.01f,
+        };
+
+        if (_doAfter.TryStartDoAfter(doAfterArgs, out var doAfterId))
+        {
+            ent.Comp.RevertDoAfterId = doAfterId;
+        }
     }
+
+    private void OnRevertDoAfter(Entity<PolymorphedEntityComponent> ent, ref RevertPolymorphDoAfterEvent args)
+    {
+        if (args.Cancelled)
+            return;
+
+        Revert((ent, ent.Comp));
+    }
+
+    private bool IsRevertDoAfterRunning(EntityUid uid)
+    {
+        if (!TryComp<PolymorphedEntityComponent>(uid, out var comp) || comp.RevertDoAfterId == null)
+            return false;
+
+        return _doAfter.IsRunning(comp.RevertDoAfterId);
+    }
+
+    private void OnStaminaCrit(Entity<PolymorphedEntityComponent> ent, ref BeforeStaminaCritEvent args)
+    {
+        if (ent.Comp.Configuration.RevertOnStaminaCrit && !ent.Comp.Reverted)
+        {
+            args.Cancelled = true;
+            Revert((ent, ent));
+        }
+    }
+    // ADT-Geras-Tweak-End
 
     private void OnBeforeFullySliced(Entity<PolymorphedEntityComponent> ent, ref BeforeFullySlicedEvent args)
     {
@@ -180,6 +275,11 @@ public sealed partial class PolymorphSystem : EntitySystem
 
     private void OnPolymorphedTerminating(Entity<PolymorphedEntityComponent> ent, ref EntityTerminatingEvent args)
     {
+        // ADT-Geras-Tweak-Start
+        if (ent.Comp.RevertDoAfterId is { } doAfterId)
+            _doAfter.Cancel(doAfterId);
+        // ADT-Geras-Tweak-End
+
         if (ent.Comp.Reverted)
             return;
 
@@ -202,6 +302,90 @@ public sealed partial class PolymorphSystem : EntitySystem
         return PolymorphEntity(uid, config);
     }
 
+    // ADT-Geras-Tweak-Start
+    private void TransferBloodstreamState(EntityUid source, EntityUid target)
+    {
+        if (!TryComp<BloodstreamComponent>(source, out var sourceBlood) ||
+            !TryComp<BloodstreamComponent>(target, out var targetBlood))
+            return;
+
+        var delta = sourceBlood.BleedAmount - targetBlood.BleedAmount;
+        if (Math.Abs(delta) > 0.01f)
+            _bloodstream.TryModifyBleedAmount(target, delta);
+
+        TransferSolution(source, sourceBlood.BloodSolutionName, target, targetBlood.BloodSolutionName);
+        TransferSolution(source, sourceBlood.ChemicalSolutionName, target, targetBlood.ChemicalSolutionName);
+        TransferSolution(source, sourceBlood.BloodTemporarySolutionName, target, targetBlood.BloodTemporarySolutionName);
+    }
+    private void TransferSolution(EntityUid source, string sourceSolutionName, EntityUid target, string targetSolutionName)
+    {
+        if (!_solutionContainer.TryGetSolution(source, sourceSolutionName, out var sourceSoln, out var sourceSolution))
+            return;
+        if (!_solutionContainer.TryGetSolution(target, targetSolutionName, out var targetSoln, out var targetSolution))
+            return;
+
+        _solutionContainer.RemoveAllSolution(targetSoln.Value);
+        foreach (var (reagent, quantity) in sourceSolution.Contents)
+        {
+            _solutionContainer.TryAddReagent(targetSoln.Value, reagent, quantity, out _);
+        }
+        _solutionContainer.RemoveAllSolution(sourceSoln.Value);
+    }
+
+    private void TransferOrganContents(EntityUid fromBody, EntityUid toBody)
+    {
+        if (TryGetOrganWithComponent<StomachComponent>(fromBody, out var sourceStomach) &&
+            TryGetOrganWithComponent<StomachComponent>(toBody, out var targetStomach))
+        {
+            if (_solutionContainer.TryGetSolution(sourceStomach.Owner, StomachSystem.DefaultSolutionName, out var sourceSoln, out var sourceSolution) &&
+                sourceSolution.Volume > 0)
+            {
+                var transferSol = new Solution();
+                foreach (var (reagent, quantity) in sourceSolution.Contents)
+                    transferSol.AddReagent(reagent, quantity);
+
+                _solutionContainer.RemoveAllSolution(sourceSoln.Value);
+                _stomachSystem.TryTransferSolution(targetStomach.Owner, transferSol);
+            }
+        }
+
+        if (TryGetOrganWithComponent<LungComponent>(fromBody, out var sourceLung) &&
+            TryGetOrganWithComponent<LungComponent>(toBody, out var targetLung))
+        {
+            TransferSolution(sourceLung.Owner, sourceLung.Comp.SolutionName, targetLung.Owner, targetLung.Comp.SolutionName);
+        }
+
+        if (TryComp<HungerComponent>(fromBody, out var sourceHunger) &&
+            TryComp<HungerComponent>(toBody, out var targetHunger))
+        {
+            var currentHungerValue = _hungerSystem.GetHunger(sourceHunger);
+            _hungerSystem.SetHunger(toBody, currentHungerValue, targetHunger);
+        }
+
+        if (TryComp<ThirstComponent>(fromBody, out var sourceThirst) &&
+            TryComp<ThirstComponent>(toBody, out var targetThirst))
+        {
+            _thirstSystem.SetThirst(toBody, targetThirst, sourceThirst.CurrentThirst);
+        }
+    }
+
+    private bool TryGetOrganWithComponent<T>(EntityUid body, out Entity<T> organ)
+        where T : IComponent
+    {
+        organ = default;
+        var query = EntityQueryEnumerator<OrganComponent, T>();
+        while (query.MoveNext(out var uid, out var orgComp, out var comp))
+        {
+            if (orgComp.Body == body)
+            {
+                organ = (uid, comp);
+                return true;
+            }
+        }
+        return false;
+    }
+    // ADT-Geras-Tweak-End
+
     /// <summary>
     /// Polymorphs the target entity into another.
     /// </summary>
@@ -210,6 +394,14 @@ public sealed partial class PolymorphSystem : EntitySystem
     /// <returns>The new entity, or null if the polymorph failed.</returns>
     public EntityUid? PolymorphEntity(EntityUid uid, PolymorphConfiguration configuration)
     {
+        // ADT-Geras-Tweak-Start
+        if (configuration.CanNotPolymorphInStorage && HasComp<InsideEntityStorageComponent>(uid))
+        {
+            _popup.PopupEntity(Loc.GetString("polymorph-in-storage-forbidden"), uid, uid);
+            return null;
+        }
+        // ADT-Geras-Tweak-End
+
         // If they're morphed, check their current config to see if they can be
         // morphed again
         if (!configuration.IgnoreAllowRepeatedMorphs
@@ -324,7 +516,9 @@ public sealed partial class PolymorphSystem : EntitySystem
                 typeof(BackwardsAccentComponent),
                 typeof(BarkAccentComponent),
                 typeof(BleatingAccentComponent),
+                typeof(BurrinessAccentComponent),
                 typeof(DamagedSiliconAccentComponent),
+                typeof(EmotionallyUnstableAccentComponent),
                 typeof(FrenchAccentComponent),
                 typeof(GermanAccentComponent),
                 typeof(GrowlingAccentComponent),
@@ -342,7 +536,9 @@ public sealed partial class PolymorphSystem : EntitySystem
                 typeof(RoarAccentComponent),
                 typeof(RussianAccentComponent),
                 typeof(ScrambledAccentComponent),
+                typeof(SickTeethAccentComponent),
                 typeof(SkeletonAccentComponent),
+                typeof(SlowAccentComponent),
                 typeof(SlurredAccentComponent),
                 typeof(SouthernAccentComponent),
                 typeof(SpanishAccentComponent),
@@ -357,7 +553,9 @@ public sealed partial class PolymorphSystem : EntitySystem
                 {
                     var originalAccentComp = EntityManager.GetComponent(uid, accentType);
                     var childAccentComp = (Component)_serialization.CreateCopy(originalAccentComp, notNullableOverride: true);
-            EntityManager.AddComponent(child, childAccentComp);
+                    if (EntityManager.HasComponent(child, accentType))
+                        EntityManager.RemoveComponent(child, accentType);
+                    EntityManager.AddComponent(child, childAccentComp);
                 }
             }
         }
@@ -389,7 +587,23 @@ public sealed partial class PolymorphSystem : EntitySystem
                 typeof(FastLockersComponent),
                 typeof(HardThrowerComponent),
                 typeof(FoodConsumptionSpeedModifierComponent),
-                typeof(DrunkenResilienceComponent)
+                typeof(DrunkenResilienceComponent),
+                typeof(LegsParalyzedComponent),
+                typeof(BlackAndWhiteOverlayComponent),
+                typeof(PainNumbnessStatusEffectComponent),
+                typeof(HemophiliaStatusEffectComponent),
+                typeof(ImpairedMobilityComponent),
+                typeof(ClumsyComponent),
+                typeof(DamagedThroatComponent),
+                typeof(HushedComponent),
+                typeof(ActiveListenerComponent),
+                typeof(ParrotSpeechComponent),
+                typeof(TouchyComponent),
+                typeof(BlockWritingComponent),
+                typeof(WieldingBlockerComponent),
+                typeof(UnadaptedToSpaceComponent),
+                typeof(AllergicComponent),
+                typeof(SizeAttributeComponent)
             };
 
             foreach (var quirkType in quirkComponents)
@@ -398,9 +612,44 @@ public sealed partial class PolymorphSystem : EntitySystem
                 {
                     var originalQuirkComp = EntityManager.GetComponent(uid, quirkType);
                     var childQuirkComp = (Component)_serialization.CreateCopy(originalQuirkComp, notNullableOverride: true);
+                    if (EntityManager.HasComponent(child, quirkType))
+                        EntityManager.RemoveComponent(child, quirkType);
                     EntityManager.AddComponent(child, childQuirkComp);
                 }
             }
+        }
+
+        if (configuration.TransferFlame && TryComp<FlammableComponent>(uid, out var parentFlame))
+        {
+            var childFlame = EnsureComp<FlammableComponent>(child);
+            _flammable.SetFireStacks(child, parentFlame.FireStacks, childFlame, parentFlame.OnFire);
+        }
+
+        if (configuration.TransferStaminaDamage && TryComp<StaminaComponent>(uid, out var parentStam))
+        {
+            var childStam = EnsureComp<StaminaComponent>(child);
+            var parentEffective = _stamina.GetStaminaDamage(uid, parentStam);
+            var fraction = parentEffective / parentStam.CritThreshold;
+            var childTarget = fraction * childStam.CritThreshold;
+            _stamina.TakeStaminaDamage(child, childTarget, childStam, visual: false, ignoreResist: true);
+        }
+
+        if (configuration.TransferTemperature)
+        {
+            if (TryComp<TemperatureComponent>(uid, out var parentTemp))
+            {
+                var childTemp = EnsureComp<TemperatureComponent>(child);
+                _temperatureSystem.ForceChangeTemperature(child, parentTemp.CurrentTemperature, childTemp);
+            }
+        }
+
+        if (configuration.TransferBloodstream)
+        {
+            TransferBloodstreamState(uid, child);
+        }
+        if (configuration.TransferOrganContent)
+        {
+            TransferOrganContents(uid, child);
         }
         // ADT-Geras-Tweak-End
 
@@ -527,13 +776,13 @@ public sealed partial class PolymorphSystem : EntitySystem
         if (!Resolve(ent, ref component))
             return null;
 
-        //ADT-Geras-Tweak-Start
+        // ADT-Geras-Tweak-Start
         if (component.Configuration.CanNotPolymorphInStorage && HasComp<InsideEntityStorageComponent>(uid))
         {
             _popup.PopupEntity(Loc.GetString("revert-in-storage-forbidden"), uid, uid);
             return null;
         }
-        //ADT-Geras-Tweak-End
+        // ADT-Geras-Tweak-End
 
         if (Deleted(uid))
             return null;
@@ -597,6 +846,43 @@ public sealed partial class PolymorphSystem : EntitySystem
 
         if (TryComp<PolymorphableComponent>(parent, out var polymorphableComponent))
             polymorphableComponent.LastPolymorphEnd = _gameTiming.CurTime;
+
+        // ADT-Geras-Tweak-Start
+        if (component.Configuration.TransferFlame && TryComp<FlammableComponent>(uid, out var childFlame))
+        {
+            var parentFlame = EnsureComp<FlammableComponent>(parent);
+            _flammable.SetFireStacks(parent, childFlame.FireStacks, parentFlame, childFlame.OnFire);
+        }
+
+        if (component.Configuration.TransferStaminaDamage && TryComp<StaminaComponent>(uid, out var childStam))
+        {
+            var parentStam = EnsureComp<StaminaComponent>(parent);
+            var childEffective = _stamina.GetStaminaDamage(uid, childStam);
+            var fraction = childEffective / childStam.CritThreshold;
+            var parentTarget = fraction * parentStam.CritThreshold;
+            var parentCurrent = _stamina.GetStaminaDamage(parent, parentStam);
+            var delta = parentTarget - parentCurrent;
+            _stamina.TakeStaminaDamage(parent, delta, parentStam, visual: false, ignoreResist: true);
+        }
+
+        if (component.Configuration.TransferTemperature)
+        {
+            if (TryComp<TemperatureComponent>(uid, out var childTemp))
+            {
+                var parentTemp = EnsureComp<TemperatureComponent>(parent);
+                _temperatureSystem.ForceChangeTemperature(parent, childTemp.CurrentTemperature, parentTemp);
+            }
+        }
+
+        if (component.Configuration.TransferBloodstream)
+        {
+            TransferBloodstreamState(uid, parent);
+        }
+        if (component.Configuration.TransferOrganContent)
+        {
+            TransferOrganContents(uid, parent);
+        }
+        // ADT-Geras-Tweak-End
 
         // ADT-Tweak start Heretic
         if (component.ParentVisibilityMask.HasValue && TryComp<EyeComponent>(parent, out var parentEye))

@@ -542,15 +542,24 @@
   id: SlimeMorphGeras
   configuration:
     entity: ADTMobSlimesGeras
+    revertDelay: 7
+    revertOnDeath: true
+    revertOnCrit: true
+    revertOnStaminaCrit: true
+    inventory: None
     transferName: true
     transferLanguageSpeaker: true
     transferTTS: true
     transferSpeechBarks: true
     transferAccents: true
     transferQuirks: true
-    canNotPolymorphInStorage: true
     transferHumanoidAppearance: false
-    inventory: None
     transferDamage: true
-    revertOnDeath: true
-    revertOnCrit: true
+    transferFlame: true
+    transferStaminaDamage: true
+    transferTemperature: true
+    transferBloodstream: true
+    transferOrganContent: true
+    polymorphPopup: geras-popup-polymorph
+    exitPolymorphPopup: geras-popup-polymorph-exit
+    canNotPolymorphInStorage: true

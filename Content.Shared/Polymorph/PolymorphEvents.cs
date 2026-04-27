@@ -1,3 +1,8 @@
+// ADT-Geras-Tweak-Start
+using Robust.Shared.Serialization;
+using Content.Shared.DoAfter;
+// ADT-Geras-Tweak-End
+
 namespace Content.Shared.Polymorph;
 
 /// <summary>
@@ -8,3 +13,11 @@ namespace Content.Shared.Polymorph;
 /// <param name="IsRevert">Whether this polymorph event was a revert back to the original entity</param>
 [ByRefEvent]
 public record struct PolymorphedEvent(EntityUid OldEntity, EntityUid NewEntity, bool IsRevert);
+
+// ADT-Geras-Tweak-Start
+[Serializable, NetSerializable]
+public sealed partial class RevertPolymorphDoAfterEvent : DoAfterEvent
+{
+    public override DoAfterEvent Clone() => this;
+}
+// ADT-Geras-Tweak-End

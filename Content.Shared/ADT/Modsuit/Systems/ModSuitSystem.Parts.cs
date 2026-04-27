@@ -217,7 +217,7 @@ public sealed partial class ModSuitSystem
             UpdateUserInterface(ent.Owner, ent.Comp);
     }
 
-    private void RemoveAllParts(Entity<ModSuitComponent> ent)
+    public void RemoveAllParts(Entity<ModSuitComponent> ent)
     {
         foreach (var clothing in ent.Comp.ClothingUids)
         {

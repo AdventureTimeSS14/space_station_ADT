@@ -114,10 +114,54 @@ public sealed partial record PolymorphConfiguration
     public bool TransferQuirks;
 
     /// <summary>
+    /// Whether or not the entity transfers its flame between forms.
+    /// </summary>
+    [DataField(serverOnly: true)]
+    public bool TransferFlame = true;
+
+    /// <summary>
+    /// Whether or not the entity transfers its stamina damage between forms.
+    /// </summary>
+    [DataField(serverOnly: true)]
+    public bool TransferStaminaDamage = true;
+
+    /// <summary>
+    /// Whether or not the entity transfers its temperature between forms.
+    /// </summary>
+    [DataField(serverOnly: true)]
+    public bool TransferTemperature = true;
+
+    /// <summary>
+    /// Whether to transfer bloodstream state (blood reagents, chemicals, bleeding amount).
+    /// </summary>
+    [DataField(serverOnly: true)]
+    public bool TransferBloodstream;
+
+    /// <summary>
+    /// Whether or not the entity transfers the contents of its stomach
+    /// and lungs between forms when the organs exist on both sides.
+    /// Also transfers hunger and thirst.
+    /// </summary>
+    [DataField(serverOnly: true)]
+    public bool TransferOrganContent;
+
+    /// <summary>
     /// Whether or not the entity can polymorph between forms in storage.
     /// </summary>
     [DataField(serverOnly: true)]
     public bool CanNotPolymorphInStorage;
+
+    /// <summary>
+    /// Time in seconds when the polymorph reverts the entity.
+    /// </summary>
+    [DataField(serverOnly: true)]
+    public float RevertDelay = 0f;
+
+    /// <summary>
+    /// Whether or not the polymorph reverts when the entity goes into stamina crit.
+    /// </summary>
+    [DataField(serverOnly: true)]
+    public bool RevertOnStaminaCrit;
     // ADT-Geras-Tweak-End
 
     /// <summary>

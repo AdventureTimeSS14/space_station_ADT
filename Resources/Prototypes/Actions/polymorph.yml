@@ -4,8 +4,10 @@
   name: Revert
   description: Revert back into your original form.
   components:
-  - type: ConfirmableAction
-    popup: revert-polymorph-action-popup
+  #ADT-Geras-Tweak-Start
+  #- type: ConfirmableAction
+  #  popup: revert-polymorph-action-popup
+  #ADT-Geras-Tweak-End
   - type: InstantAction
     event: !type:RevertPolymorphActionEvent
 
