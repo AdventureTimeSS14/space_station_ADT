@@ -22,7 +22,6 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
 using Content.Shared.ADT.CCVar;
-using Serilog;
 
 /*
  * TODO: Remove baby jail code once a more mature gateway process is established. This code is only being issued as a stopgap to help with potential tiding in the immediate future.
@@ -256,7 +255,7 @@ namespace Content.Server.Connection
                 var discordId = await _db.GetDiscordIdAsync(userId);
                 if (discordId != null)
                 {
-                    Log.Debug($"Discord ID for user {userId.ToString()}: {discordId}");
+                    Logger.Debug($"Discord ID for user {userId.ToString()}: {discordId}");
                 }
                 else
                 {
