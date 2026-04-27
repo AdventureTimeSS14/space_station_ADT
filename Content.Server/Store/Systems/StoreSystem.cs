@@ -12,11 +12,8 @@ using Content.Shared.UserInterface;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
-<<<<<<< HEAD
 using Content.Shared.Mind;
 using Content.Shared.Store; // ADT-Changeling-Tweak
-=======
->>>>>>> upstreamwiz/master
 
 namespace Content.Server.Store.Systems;
 
@@ -38,14 +35,11 @@ public sealed partial class StoreSystem : SharedStoreSystem
         SubscribeLocalEvent<StoreComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<StoreComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<StoreComponent, ComponentShutdown>(OnShutdown);
-<<<<<<< HEAD
         SubscribeLocalEvent<StoreComponent, OpenUplinkImplantEvent>(OnImplantActivate);
         SubscribeLocalEvent<StoreComponent, IntrinsicStoreActionEvent>(OnIntrinsicStoreAction);
-=======
         SubscribeLocalEvent<StoreComponent, IntrinsicStoreActionEvent>(OnIntrinsicStoreAction);
 
         SubscribeLocalEvent<RemoteStoreComponent, OpenUplinkImplantEvent>(OnImplantActivate);
->>>>>>> upstreamwiz/master
 
         InitializeUi();
         InitializeCommand();
@@ -211,7 +205,6 @@ public sealed partial class StoreSystem : SharedStoreSystem
         ToggleUi(args.Performer, ent.Owner, ent.Comp);
     }
 
-<<<<<<< HEAD
     // ADT changeling start
     public bool TrySetCurrency(Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> currency, EntityUid uid, StoreComponent? store = null)
     {
@@ -248,10 +241,7 @@ public sealed partial class StoreSystem : SharedStoreSystem
         UpdateUserInterface(null, uid, store);
         return true;
     }
-
     // ADT changeling end
-=======
->>>>>>> upstreamwiz/master
 }
 
 public sealed class CurrencyInsertAttemptEvent : CancellableEntityEventArgs
