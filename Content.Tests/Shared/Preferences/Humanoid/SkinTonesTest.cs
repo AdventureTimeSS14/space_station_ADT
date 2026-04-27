@@ -21,14 +21,6 @@ public sealed class SkinTonesTest
     [OneTimeTearDown]
     public void OneTimeTearDown()
     {
-<<<<<<< HEAD
-        var strategy = new HumanTonedSkinColoration();
-
-        for (var i = 0; i <= 100; i++)
-        {
-            var color = strategy.FromUnary(i);
-            Assert.That(strategy.VerifySkinColor(color));
-=======
         // After all tests in this fixture run, print the final results.
         // This gives insight into the actual precision loss, even if VerifySkinColor passes.
         TestContext.Out.WriteLine("\n--- FINAL DRIFT SUMMARY FOR ALL CLAMPING TESTS ---");
@@ -52,7 +44,6 @@ public sealed class SkinTonesTest
             var unaryInput = i / 100f; // Test values like 0.0, 0.01, ..., 100.0
             var color = strategy.FromUnary(unaryInput);
             Assert.That(strategy.VerifySkinColor(color), $"Color {color} from unary value {unaryInput} failed verification.");
->>>>>>> upstreamwiz/master
         }
     }
 
@@ -63,10 +54,6 @@ public sealed class SkinTonesTest
     public void TestHumanTonedSkinColoration_RoundTrip()
     {
         var strategy = new HumanTonedSkinColoration();
-<<<<<<< HEAD
-
-        Assert.That(strategy.VerifySkinColor(strategy.ValidHumanSkinTone));
-=======
         // Test values across the full range, including transition points
         for (var i = 0; i <= 10000; i++)
         {
@@ -303,6 +290,5 @@ public sealed class SkinTonesTest
                 _maxHsvDrift = currentDrift;
             }
         }
->>>>>>> upstreamwiz/master
     }
 }
