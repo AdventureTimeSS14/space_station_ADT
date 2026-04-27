@@ -263,26 +263,30 @@
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
   - type: Gun
+    fireRate: 5
     resetOnHandSelected: false
     soundGunshot:
       path: /Audio/ADT/Weapons/Guns/Gunshots/heavy_shot_suppressed.ogg
       params:
         volume: -5
-  - type: ProjectileBatteryAmmoProvider
+  - type: BasicEntityAmmoProvider
     proto: ADTBulletMic
-    fireCost: 900
-  - type: BatterySelfRecharger
-    autoRecharge: true
-    autoRechargeRate: 300
+    capacity: 1
+    count: 1
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 4
+    rechargeSound:
+      path: /Audio/Weapons/Guns/MagIn/energycrossbow_reload.ogg
   - type: MagazineVisuals
     magState: mag
     steps: 2
     zeroVisible: true
+  - type: AmmoCounter
   - type: Appearance
 
 - type: entity
   name: Energy Crossbow
-  parent: ADTWeaponMiniatureEnergyCrossbow
+  parent: BaseWeaponBatterySmall
   id: ADTWeaponEnergyCrossbow
   description: Energy crossbow, big, powerful and stily.
   components:

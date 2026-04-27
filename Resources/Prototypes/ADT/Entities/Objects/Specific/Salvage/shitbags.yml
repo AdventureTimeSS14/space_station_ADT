@@ -16,7 +16,7 @@
       right:
       - state: inhand-right
         color: "#ac7536"
-    size: Large
+    size: Ginormous
     storedRotation: -90
   - type: Clothing
     quickEquip: false
@@ -28,7 +28,7 @@
         color: "#ac7536"
   - type: Storage
     grid:
-    - 0,0,11,3
+    - 0,0,8,3
     maxItemSize: Normal
     quickInsert: true
     areaInsert: true
