@@ -15,10 +15,7 @@ using Content.Shared.Database;
 using Content.Shared.Destructible;
 using Content.Shared.Destructible.Thresholds.Triggers;
 using Content.Shared.FixedPoint;
-<<<<<<< HEAD
-=======
 using Content.Shared.Gibbing;
->>>>>>> upstreamwiz/master
 using Content.Shared.Humanoid;
 using Content.Shared.Trigger.Systems;
 using JetBrains.Annotations;
