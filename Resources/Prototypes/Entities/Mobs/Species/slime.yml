@@ -110,12 +110,12 @@
       - !type:HealthChange
         damage:
           types:
-            Heat: 0.05
+            Heat: 0.30 #ADT-Tweak 0.05 > 0.30
       - !type:PopupMessage
         type: Local
         visualType: Large
         messages: [ "slime-hurt-by-water-popup" ]
-        probability: 0.25
+        probability: 0.35 #ADT-Tweak 0.25 > 0.35
   - type: Butcherable
     butcheringType: Spike
     spawned:
