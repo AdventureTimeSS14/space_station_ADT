@@ -432,26 +432,16 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
             if (user != null)
             {
                 AdminLogger.Add(LogType.Landed,
-<<<<<<< HEAD
-                    $"{ToPrettyString(user.Value):user} threw {ToPrettyString(uid):entity} which splashed a solution {SharedSolutionContainerSystem.ToPrettyString(solution):solution} onto {ToPrettyString(owner):target}");
-=======
                     $"{ToPrettyString(user.Value):user} threw {ToPrettyString(entity):entity} which splashed a solution {SharedSolutionContainerSystem.ToPrettyString(spilled):solution} onto {ToPrettyString(owner):target}");
->>>>>>> upstreamwiz/master
             }
 
             targets.Add(owner);
             Reactive.DoEntityReaction(owner, splitSolution, ReactionMethod.Touch);
-<<<<<<< HEAD
-            Popups.PopupEntity(
-                Loc.GetString("spill-land-spilled-on-other", ("spillable", uid),
-                    ("target", Identity.Entity(owner, EntityManager))), owner, PopupType.SmallCaution);
-=======
             Popups.PopupEntity(Loc.GetString("spill-land-spilled-on-other",
                     ("spillable", entity),
                     ("target", Identity.Entity(owner, EntityManager))),
                 owner,
                 PopupType.SmallCaution);
->>>>>>> upstreamwiz/master
         }
 
         _color.RaiseEffect(spilled.GetColor(_prototypeManager), targets,
