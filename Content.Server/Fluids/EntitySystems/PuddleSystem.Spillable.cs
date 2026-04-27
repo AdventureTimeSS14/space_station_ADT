@@ -37,12 +37,6 @@ public sealed partial class PuddleSystem
             AdminLogger.Add(LogType.Landed,
                 $"{ToPrettyString(entity.Owner):entity} spilled a solution {SharedSolutionContainerSystem.ToPrettyString(solution):solution} on landing");
         }
-<<<<<<< HEAD
-
-        var drainedSolution = _solutionContainerSystem.Drain(entity.Owner, soln.Value, solution.Volume);
-        TrySplashSpillAt(entity.Owner, Transform(entity).Coordinates, drainedSolution, out _);
-=======
->>>>>>> upstreamwiz/master
     }
 
     private void OnDoAfter(Entity<SpillableComponent> entity, ref SpillDoAfterEvent args)
