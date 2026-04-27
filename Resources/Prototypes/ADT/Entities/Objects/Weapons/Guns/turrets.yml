@@ -15,3 +15,24 @@
   - type: NpcFactionMember
     factions:
     - SpaceSecFaction
+
+- type: entity
+  parent: WeaponEnergyTurretStationBase
+  id: ADTWeaponEnergyTurretCentralCommand
+  suffix: CentralCommand
+  components:
+  - type: AccessReader
+    access: [["StationAi"], ["Command"]]
+  - type: TurretTargetSettings
+    exemptAccessLevels:
+    - CentralCommand
+    - BlueShield
+    - Magistrate
+    - IAA
+    - BasicSilicon
+    - Borg
+  - type: Machine
+    board: ADTWeaponEnergyTurretCentralCommandMachineCircuitboard
+  - type: DeviceNetwork
+    receiveFrequencyId: TurretControl
+    transmitFrequencyId: Turret

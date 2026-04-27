@@ -10,9 +10,10 @@
   canBeAntag: false
   accessGroups:
   - AllAccess
-  access:
-  - CentralCommand
   # Start ADT Tweak
+  - CentralCommand
+  # access:
+  # - CentralCommand
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]

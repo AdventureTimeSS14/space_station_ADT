@@ -1,0 +1,69 @@
+
+- type: entity
+  parent: WeaponEnergyTurretStationControlPanelBase
+  id: ADTWeaponEnergyTurretCentralCommandControlPanel
+  suffix: CentralCommand, AllGroups
+  components:
+  - type: AccessReader
+    access: [["StationAi"], ["CentralCommand"]]
+  - type: ContainerFill
+    containers:
+      board:
+      - ADTWeaponEnergyTurretCentralCommandControlPanelElectronics
+  - type: TurretTargetSettings
+    exemptAccessLevels:
+    - CentralCommand
+    - BlueShield
+    - Magistrate
+    - IAA
+    - BasicSilicon
+    - Borg
+  - type: DeployableTurretController
+    accessGroups:
+    - CentralCommand
+    - Cargo
+    - Command
+    - Engineering
+    - General
+    - Medical
+    - Research
+    - Security
+    - Service
+    - Silicon
+    accessLevels:
+    - CentralCommand
+    - BlueShield
+    - Magistrate
+    - IAA
+    - Armory
+    - Atmospherics
+    - Bar
+    - BasicSilicon
+    - Borg
+    - Brig
+    - Detective
+    - Captain
+    - Cargo
+    - Chapel
+    - Chemistry
+    - ChiefEngineer
+    - ChiefMedicalOfficer
+    - Command
+    - Cryogenics
+    - Engineering
+    - External
+    - HeadOfPersonnel
+    - HeadOfSecurity
+    - Hydroponics
+    - Janitor
+    - Kitchen
+    - Lawyer
+    - Maintenance
+    - Medical
+    - Quartermaster
+    - Research
+    - ResearchDirector
+    - Salvage
+    - Security
+    - Service
+    - Theatre
