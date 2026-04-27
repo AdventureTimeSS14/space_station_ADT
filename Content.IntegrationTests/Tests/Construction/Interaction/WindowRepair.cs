@@ -21,11 +21,7 @@ public sealed class WindowRepair : InteractionTest
         var sys = SEntMan.System<DamageableSystem>();
         var damageType = Server.ProtoMan.Index(BluntDamageType);
         var damage = new DamageSpecifier(damageType, FixedPoint2.New(10));
-<<<<<<< HEAD
-        Assert.That(comp.Damage.GetTotal(), Is.EqualTo(FixedPoint2.Zero));
-=======
         Assert.That(sys.GetTotalDamage(STarget.Value), Is.EqualTo(FixedPoint2.Zero));
->>>>>>> upstreamwiz/master
         await Server.WaitPost(() => sys.TryChangeDamage(SEntMan.GetEntity(Target).Value, damage, ignoreResistances: true));
         await RunTicks(5);
         Assert.That(sys.GetTotalDamage(STarget.Value), Is.GreaterThan(FixedPoint2.Zero));
@@ -46,4 +42,3 @@ public sealed class WindowRepair : InteractionTest
         await AssertEntityLookup((RGlass, 2));
     }
 }
-

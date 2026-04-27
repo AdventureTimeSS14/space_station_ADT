@@ -90,6 +90,7 @@ namespace Content.IntegrationTests.Tests.Damageable
   name: {TestDamageableEntityId}
   components:
   - type: Damageable
+  - type: Injurable
     damageContainer: testDamageContainer
 ";
 
@@ -227,15 +228,6 @@ namespace Content.IntegrationTests.Tests.Damageable
 
                 // Test SetAll and ClearAll function
                 sDamageableSystem.SetAllDamage((sDamageableEntity, sDamageableComponent), 10);
-<<<<<<< HEAD
-                Assert.That(sDamageableComponent.TotalDamage, Is.EqualTo(FixedPoint2.New(10 * sDamageableComponent.Damage.DamageDict.Count)));
-                sDamageableSystem.SetAllDamage((sDamageableEntity, sDamageableComponent), 0);
-                Assert.That(sDamageableComponent.TotalDamage, Is.EqualTo(FixedPoint2.Zero));
-                sDamageableSystem.SetAllDamage((sDamageableEntity, sDamageableComponent), 10);
-                Assert.That(sDamageableComponent.TotalDamage, Is.EqualTo(FixedPoint2.New(10 * sDamageableComponent.Damage.DamageDict.Count)));
-                sDamageableSystem.ClearAllDamage((sDamageableEntity, sDamageableComponent));
-                Assert.That(sDamageableComponent.TotalDamage, Is.EqualTo(FixedPoint2.Zero));
-=======
                 Assert.That(sDamageableSystem.GetTotalDamage(ent), Is.EqualTo(FixedPoint2.New(10 * sDamageableSystem.GetAllDamage(uid).DamageDict.Count)));
                 sDamageableSystem.SetAllDamage((sDamageableEntity, sDamageableComponent), 0);
                 Assert.That(sDamageableSystem.GetTotalDamage(ent), Is.EqualTo(FixedPoint2.Zero));
@@ -243,7 +235,6 @@ namespace Content.IntegrationTests.Tests.Damageable
                 Assert.That(sDamageableSystem.GetTotalDamage(ent), Is.EqualTo(FixedPoint2.New(10 * sDamageableSystem.GetAllDamage(uid).DamageDict.Count)));
                 sDamageableSystem.ClearAllDamage((sDamageableEntity, sDamageableComponent));
                 Assert.That(sDamageableSystem.GetTotalDamage(ent), Is.EqualTo(FixedPoint2.Zero));
->>>>>>> upstreamwiz/master
 
                 // Test 'wasted' healing
                 sDamageableSystem.ChangeDamage(uid, new DamageSpecifier(type3a, 5));

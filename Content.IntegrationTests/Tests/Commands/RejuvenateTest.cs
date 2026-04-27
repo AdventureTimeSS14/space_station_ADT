@@ -1,9 +1,5 @@
-<<<<<<< HEAD
-﻿using Content.Shared.Administration.Systems;
-=======
-﻿using Content.IntegrationTests.Fixtures;
+using Content.IntegrationTests.Fixtures;
 using Content.Shared.Administration.Systems;
->>>>>>> upstreamwiz/master
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Prototypes;
@@ -30,6 +26,7 @@ namespace Content.IntegrationTests.Tests.Commands
   id: DamageableDummy
   components:
   - type: Damageable
+  - type: Injurable
     damageContainer: Biological
   - type: MobState
   - type: MobThresholds
