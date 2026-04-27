@@ -82,7 +82,7 @@
       - !type:HealthChange
         damage:
           types:
-            Heat: 0.05 #Same as slime species
+            Heat: 0.60 #Same as slime species # ADT-Tweak 0.05 -> 0.60
       - !type:PopupMessage
         type: Local
         messages: [ "slime-hurt-by-water-popup" ]

@@ -7,6 +7,8 @@
   - type: Storage
     grid:
     - 0,0,8,2
+  - type: Item
+    size: Huge
   - type: StorageFill
     contents:
       - id: ADTObjectsSpecificBicaridineChemistryBottle
@@ -16,13 +18,16 @@
       - id: ChemistryBottleEpinephrine
       - id: ADTLacerinolChemistryBottle
       - id: ADTLacerinolChemistryBottle
-      - id: ADTLacerinolChemistryBottle
-      - id: ADTBruizineChemistryBottle
       - id: ADTBruizineChemistryBottle
       - id: ADTBruizineChemistryBottle
       - id: ADTPuncturaseChemistryBottle
       - id: ADTPuncturaseChemistryBottle
       - id: ADTPuncturaseChemistryBottle
+      - id: ChemistryBottlePyrazine
+      - id: ChemistryBottlePyrazine
+      - id: ChemistryBottlePyrazine
+      - id: ADTSilverSulfadiazineChemistryBottle
+      - id: ADTStypticPowderChemistryBottle
       - id: ADTDyloveneChemistryBottle
       - id: BruteAutoInjector
       - id: BurnAutoInjector
@@ -30,4 +35,5 @@
       - id: AntiPoisonMedipen
       - id: RegenerativeMesh
       - id: MedicatedSuture
-      - id: ADTBloodPackTransfusionFull # ADT Tweak: Blood IV
+      - id: ADTSalineChemistryBottle
+      - id: ADTSalineChemistryBottle

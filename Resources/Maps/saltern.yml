@@ -6495,7 +6495,7 @@ entities:
       parent: 31
     - type: SpamEmitSound
       enabled: False
-- proto: Bloodpack
+- proto: ADTBloodPackTransfusionFull
   entities:
   - uid: 4705
     components:

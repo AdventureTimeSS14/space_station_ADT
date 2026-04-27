@@ -213,6 +213,7 @@
     staticPacks:
     - ChemistryStatic
     - SurgeryStatic
+    - ADTModulargrenades # ADT-Tweak
     dynamicPacks:
     - AdvancedTools
     - ScienceEquipment
@@ -468,7 +469,10 @@
     - SecurityPracticeStatic
     - SecurityAmmoStatic
     - SecurityWeaponsStatic
-    - ADTMagazineStaticPack # ADT-tweak
+    # ADT-Tweak-Start
+    - ADTModulargrenades
+    - ADTMagazineStaticPack
+    # ADT-Tweak-End
     dynamicPacks:
     - SalvageSecurityBoards
     - SalvageSecurityWeapons

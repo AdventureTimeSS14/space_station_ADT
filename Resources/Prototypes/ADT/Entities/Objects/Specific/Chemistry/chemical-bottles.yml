@@ -512,3 +512,29 @@
         reagents:
         - ReagentId: Dylovene
           Quantity: 30
+
+- type: entity
+  id: ADTStypticPowderChemistryBottle
+  name: styptic powder bottle
+  parent: BaseChemistryEmptyBottle
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: ADTStypticPowder
+          Quantity: 30
+
+- type: entity
+  id: ADTSilverSulfadiazineChemistryBottle
+  name: silver sulfadiazine bottle
+  parent: BaseChemistryEmptyBottle
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: ADTSilverSulfadiazine
+          Quantity: 30
