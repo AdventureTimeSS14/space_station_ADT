@@ -1,12 +1,8 @@
 using System.Diagnostics;
 using Content.Server.Administration.Logs;
-<<<<<<< HEAD
 using Content.Server.GameTicking.Rules;
 using Content.Server.RoundEnd;
 using Content.Shared.ADT.GameTicking.Rules;
-=======
-using Content.Server.RoundEnd;
->>>>>>> upstreamwiz/master
 using Content.Shared.Database;
 using Content.Shared.EntityTable;
 using Content.Shared.EntityTable.Conditions;
@@ -15,7 +11,6 @@ using Content.Shared.GameTicking.Rules;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
-<<<<<<< HEAD
 namespace Content.Server.ADT.GameTicking.Rules;
 
 public sealed class DynamicRuleSystem : GameRuleSystem<ChaoticDynamicRuleComponent>

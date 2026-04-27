@@ -17,14 +17,10 @@ using Robust.Shared.Map;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
-<<<<<<< HEAD
 using Robust.Shared.Containers;
 using Content.Server.Body.Systems;
 using Content.Shared.Mech.Components;
 using Content.Server.PowerCell;
-=======
-using Robust.Shared.Random;
->>>>>>> upstreamwiz/master
 
 namespace Content.Server.Weapons.Ranged.Systems;
 

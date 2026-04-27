@@ -1,6 +1,5 @@
 using Content.Server.EUI;
 using Content.Server.Ghost;
-<<<<<<< HEAD
 using Content.Server.Popups;
 using Content.Server.PowerCell;
 using Content.Shared.Traits.Assorted;
@@ -17,10 +16,6 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Timing;
 using Robust.Shared.Audio.Systems;
-=======
-using Content.Shared.Medical;
-using Content.Shared.Mind;
->>>>>>> upstreamwiz/master
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
 using Content.Shared.ADT.Atmos.Miasma;

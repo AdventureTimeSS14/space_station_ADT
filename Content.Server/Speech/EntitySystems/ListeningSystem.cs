@@ -2,10 +2,7 @@ using Content.Server.Chat.Systems;
 using Content.Shared.Chat;
 using Content.Shared.Speech;
 using Content.Shared.Speech.Components;
-<<<<<<< HEAD
 using Content.Shared.ADT.Language;
-=======
->>>>>>> upstreamwiz/master
 
 namespace Content.Server.Speech.EntitySystems;
 

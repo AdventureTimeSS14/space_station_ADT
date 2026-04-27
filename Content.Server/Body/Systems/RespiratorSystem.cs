@@ -8,10 +8,7 @@ using Content.Shared.Atmos;
 using Content.Shared.Body;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Events;
-<<<<<<< HEAD
 using Content.Shared.Body.Prototypes;
-=======
->>>>>>> upstreamwiz/master
 using Content.Shared.Chat;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
@@ -21,14 +18,8 @@ using Content.Shared.Database;
 using Content.Shared.EntityConditions;
 using Content.Shared.EntityConditions.Conditions.Body;
 using Content.Shared.EntityEffects;
-<<<<<<< HEAD
 using Content.Shared.EntityEffects.Effects;
 using Content.Shared.EntityEffects.Effects.Body;
-=======
-using Content.Shared.EntityEffects.Effects.Body;
-using Content.Shared.EntityEffects.Effects.Damage;
-using Content.Shared.Metabolism;
->>>>>>> upstreamwiz/master
 using Content.Shared.Mobs.Systems;
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;

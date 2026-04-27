@@ -6,18 +6,10 @@ using Content.Server.Radiation.Components;
 using Content.Server.Radiation.Events;
 using Content.Shared.Radiation.Components;
 using Content.Shared.Radiation.Systems;
-<<<<<<< HEAD
 using Content.Shared.Singularity.Components; // ADT-Tweak
 using Robust.Shared.Collections;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Timing;
-=======
-using JetBrains.Annotations;
-using Robust.Shared.Map.Components;
-using Robust.Shared.Physics;
-using Robust.Shared.Threading;
-using Robust.Shared.Utility;
->>>>>>> upstreamwiz/master
 
 namespace Content.Server.Radiation.Systems;
 

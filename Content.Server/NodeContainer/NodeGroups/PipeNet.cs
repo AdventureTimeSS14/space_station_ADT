@@ -4,13 +4,10 @@ using Content.Server.NodeContainer.Nodes;
 using Content.Shared.Atmos;
 using Content.Shared.NodeContainer;
 using Content.Shared.NodeContainer.NodeGroups;
-<<<<<<< HEAD
 using Robust.Shared.Utility;
 using Robust.Shared.Random;
 using Robust.Shared.GameObjects;
 using Content.Server.ADT.Atmos.EntityDamage.Systems;
-=======
->>>>>>> upstreamwiz/master
 
 namespace Content.Server.NodeContainer.NodeGroups;
 

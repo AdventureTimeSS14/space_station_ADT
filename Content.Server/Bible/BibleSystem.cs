@@ -3,14 +3,9 @@ using Content.Server.Ghost.Roles.Events;
 using Content.Server.Popups;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Actions;
-<<<<<<< HEAD
 using Content.Shared.ADT.Chaplain.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Damage;
-=======
-using Content.Shared.Bible;
-using Content.Shared.Damage.Systems;
->>>>>>> upstreamwiz/master
 using Content.Shared.Ghost.Roles.Components;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;

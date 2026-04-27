@@ -5,11 +5,8 @@ using Content.Server.GameTicking;
 using Content.Server.Store.Systems;
 using Content.Shared.Alert;
 using Content.Shared.Damage.Systems;
-<<<<<<< HEAD
 using Content.Shared.Weapons.Melee.Events; // ADT-Tweak. Система нанесения урона бьющим ревенанта людям
 using Content.Shared.Damage;
-=======
->>>>>>> upstreamwiz/master
 using Content.Shared.DoAfter;
 using Content.Shared.Examine;
 using Content.Shared.Eye;
