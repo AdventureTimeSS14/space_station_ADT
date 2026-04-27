@@ -7,11 +7,10 @@
   whitelist:
     components:
       - SizeAttributeWhitelist
-  blacklist:
-    components:
-      - SizeAttribute
+  conflicts:
+    - Short
   effects:
-    - !type:AddCompsEffect
+    - !type:OverrideCompsEffect
       components:
         - type: SizeAttribute
           tall: true
@@ -25,11 +24,10 @@
   whitelist:
     components:
       - SizeAttributeWhitelist
-  blacklist:
-    components:
-      - SizeAttribute
+  conflicts:
+    - Tall
   effects:
-    - !type:AddCompsEffect
+    - !type:OverrideCompsEffect
       components:
         - type: SizeAttribute
           short: true

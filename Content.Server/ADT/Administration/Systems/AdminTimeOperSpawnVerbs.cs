@@ -60,6 +60,8 @@ public sealed partial class AdminVerbSystem
                         ProtoId<JobPrototype> job = "ADTJobTimePatrol";
                         var profile = _gameTicker.GetPlayerProfile(targetActor.PlayerSession);
                         var mobUid = _spawning.SpawnPlayerMob(coords.Value, job, profile, stationUid);
+                        _traits.ApplyTraits(mobUid, profile, job);
+
                         var targetMind = _mindSystem.GetMind(args.Target);
                         _audio.PlayPvs("/Audio/Magic/forcewall.ogg", mobUid);
 
