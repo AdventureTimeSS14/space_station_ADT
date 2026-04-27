@@ -92,7 +92,7 @@
 - type: ttsVoice
   name: Валтос
   description: Голос начинающего диктора Валтоса
-  sex: Female
+  sex: Male #ADT-Tweak
   speaker: valtos
   id: valtos
 
