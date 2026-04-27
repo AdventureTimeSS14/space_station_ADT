@@ -26,9 +26,12 @@ namespace Content.Server.Atmos.EntitySystems
 
         private readonly HashSet<Entity<MovedByPressureComponent>> _activePressures = new(8);
 
+        // ADT-Tweak OPTIMIZATION: Reuse removal queue to avoid allocations every UpdateHighPressure call
+        private readonly RemQueue<Entity<MovedByPressureComponent>> _highPressureRemoveQueue = new();
+
         private void UpdateHighPressure(float frameTime)
         {
-            var toRemove = new RemQueue<Entity<MovedByPressureComponent>>();
+            _highPressureRemoveQueue.Clear(); // ADT-Tweak OPTIMIZATION:  Clear and reuse queue instead of allocating new one every call
 
             foreach (var ent in _activePressures)
             {
@@ -37,7 +40,7 @@ namespace Content.Server.Atmos.EntitySystems
 
                 if (Deleted(uid, metadata))
                 {
-                    toRemove.Add((uid, comp));
+                    _highPressureRemoveQueue.Add((uid, comp)); // ADT-Tweak OPTIMIZATION
                     continue;
                 }
 
@@ -51,7 +54,7 @@ namespace Content.Server.Atmos.EntitySystems
 
                 // Reset it just for VV reasons even though it doesn't matter
                 comp.Accumulator = 0f;
-                toRemove.Add(ent);
+                _highPressureRemoveQueue.Add(ent); // ADT-Tweak OPTIMIZATION
 
                 if (HasComp<MobStateComponent>(uid) &&
                     TryComp<PhysicsComponent>(uid, out var body))
@@ -72,7 +75,7 @@ namespace Content.Server.Atmos.EntitySystems
                 }
             }
 
-            foreach (var comp in toRemove)
+            foreach (var comp in _highPressureRemoveQueue) // ADT-Tweak OPTIMIZATION
             {
                 _activePressures.Remove(comp);
             }

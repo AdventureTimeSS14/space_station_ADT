@@ -57,6 +57,11 @@ namespace Content.Server.Atmos.EntitySystems
         // This should probably be moved to the component, requires a rewrite, all fires tick at the same time
         private const float UpdateTime = 1f;
 
+        // ADT-Tweak start OPTIMIZATION: Separate timer for fire events to avoid processing every tick
+        private const float FireEventsUpdateTime = 0.25f; // Process fire events 4 times per second
+        private float _fireEventsTimer;
+        // ADT-Tweak end OPTIMIZATION
+
         private float _timer;
 
         private readonly Dictionary<Entity<FlammableComponent>, float> _fireEvents = new();
@@ -419,23 +424,43 @@ namespace Content.Server.Atmos.EntitySystems
                 UpdateAppearance(uid, flammable);
             });
         }
-        
+
         public override void Update(float frameTime)
         {
-            // process all fire events
-            foreach (var (flammable, deltaTemp) in _fireEvents)
+            // ADT-Tweak OPTIMIZATION: Process fire events periodically instead of every tick
+            _fireEventsTimer += frameTime;
+            if (_fireEventsTimer >= FireEventsUpdateTime)
             {
-                // 100 -> 1, 200 -> 2, 400 -> 3...
-                var fireStackMod = Math.Max(MathF.Log2(deltaTemp / 100) + 1, 0);
-                var fireStackDelta = fireStackMod - flammable.Comp.FireStacks;
-                var flammableEntity = flammable.Owner;
-                if (fireStackDelta > 0)
+                _fireEventsTimer -= FireEventsUpdateTime;
+            // ADT-Tweak end OPTIMIZATION
+
+                // process all fire events
+                foreach (var (flammable, deltaTemp) in _fireEvents)
                 {
-                    AdjustFireStacks(flammableEntity, fireStackDelta, flammable);
+                    var flammableEntity = flammable.Owner;
+
+                    // ADT-Tweak start OPTIMIZATION: Validate that the entity still exists and is still valid for ignition
+                    if (!Exists(flammableEntity) || Deleted(flammableEntity))
+                        continue;
+
+                    if (!flammable.Comp.OnFire && flammable.Comp.FireStacks <= 0)
+                    {
+                        // Entity was extinguished or fire stacks removed - skip ignition
+                        continue;
+                    }
+                    // ADT-Tweak end OPTIMIZATION
+
+                    // 100 -> 1, 200 -> 2, 400 -> 3...
+                    var fireStackMod = Math.Max(MathF.Log2(deltaTemp / 100) + 1, 0);
+                    var fireStackDelta = fireStackMod - flammable.Comp.FireStacks;
+                    if (fireStackDelta > 0)
+                    {
+                        AdjustFireStacks(flammableEntity, fireStackDelta, flammable);
+                    }
+                    Ignite(flammableEntity, flammableEntity, flammable);
                 }
-                Ignite(flammableEntity, flammableEntity, flammable);
+                _fireEvents.Clear();
             }
-            _fireEvents.Clear();
 
             _timer += frameTime;
 

@@ -5,6 +5,7 @@ using Content.Server.NPC.HTN.PrimitiveTasks.Operators.Combat.Ranged;
 using Content.Server.Power.Components;
 using Content.Server.TurretController;
 using Content.Shared.Access;
+using Content.Shared.CCVar;
 using Content.Shared.Destructible;
 using Content.Shared.DeviceNetwork;
 using Content.Shared.DeviceNetwork.Components;
@@ -17,7 +18,9 @@ using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Weapons.Ranged.Systems;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Configuration;
 using Robust.Shared.Prototypes;
+using Robust.Shared;
 using Robust.Shared.Timing;
 
 namespace Content.Server.Turrets;
@@ -28,6 +31,7 @@ public sealed partial class DeployableTurretSystem : SharedDeployableTurretSyste
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly DeviceNetworkSystem _deviceNetwork = default!;
+    [Dependency] private readonly IConfigurationManager _cfg = default!; // ADT-Tweak OPTIMIZATION
     [Dependency] private readonly BatteryWeaponFireModesSystem _fireModes = default!;
     [Dependency] private readonly TurretTargetSettingsSystem _turretTargetingSettings = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
@@ -43,6 +47,8 @@ public sealed partial class DeployableTurretSystem : SharedDeployableTurretSyste
         SubscribeLocalEvent<DeployableTurretComponent, RepairedEvent>(OnRepaired);
         SubscribeLocalEvent<DeployableTurretComponent, DeviceNetworkPacketEvent>(OnPacketReceived);
         SubscribeLocalEvent<DeployableTurretComponent, BeforeBroadcastAttemptEvent>(OnBeforeBroadcast);
+
+        Subs.CVar(_cfg, CCVars.NetTickrate, _ => UpdateTurretStateInterval(), true);  // ADT-Tweak OPTIMIZATION: Update turret state less frequently to reduce per-tick overhead
     }
 
     private void OnAmmoShot(Entity<DeployableTurretComponent> ent, ref AmmoShotEvent args)
@@ -189,9 +195,29 @@ public sealed partial class DeployableTurretSystem : SharedDeployableTurretSyste
         return ent.Comp.Enabled ? DeployableTurretState.Deployed : DeployableTurretState.Retracted;
     }
 
+    // ADT-Tweak start OPTIMIZATION: Cache turret state update interval based on tickrate
+    private float _turretStateUpdateInterval = 0.25f; // Update 4 times per second
+    private float _turretStateUpdateTimer;
+
+    private void UpdateTurretStateInterval()
+    {
+        var tickRate = _cfg.GetCVar(CVars.NetTickrate);
+        // Ensure we update at least 4 times per second, but not more than tickrate
+        _turretStateUpdateInterval = Math.Max(1f / tickRate, 0.25f);
+    }
+    // ADT-Tweak emd OPTIMIZATION
+
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
+
+        // ADT-Tweak start OPTIMIZATION: Only update turret state periodically instead of every tick
+        _turretStateUpdateTimer += frameTime;
+        if (_turretStateUpdateTimer < _turretStateUpdateInterval)
+            return;
+
+        _turretStateUpdateTimer -= _turretStateUpdateInterval;
+        // ADT-Tweak end OPTIMIZATION
 
         var query = EntityQueryEnumerator<DeployableTurretComponent, DestructibleComponent, HTNComponent>();
         while (query.MoveNext(out var uid, out var deployableTurret, out var destructible, out var htn))

@@ -8,6 +8,7 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using System.Collections.Concurrent;
 
 namespace Content.Server.Atmos.EntitySystems
 {
@@ -20,12 +21,18 @@ namespace Content.Server.Atmos.EntitySystems
         /// <summary>
         ///     Check current execution time every n instances processed.
         /// </summary>
-        private const int LagCheckIterations = 30;
+        /// <remarks>
+        ///     ADT-Tweak OPTIMIZATION
+        ///     Higher value reduces overhead from frequent stopwatch checks.
+        ///     At 80+ players with large grids, checking every 100 tiles instead of 30
+        ///     saves significant CPU time while still respecting time limits.
+        /// </remarks>
+        private const int LagCheckIterations = 100;
 
         /// <summary>
         ///     Check current execution time every n instances processed.
         /// </summary>
-        private const int InvalidCoordinatesLagCheckIterations = 50;
+        private const int InvalidCoordinatesLagCheckIterations = 100;
 
         private int _currentRunAtmosphereIndex;
         private bool _simulationPaused;
@@ -67,7 +74,8 @@ namespace Content.Server.Atmos.EntitySystems
             if (!atmosphere.ProcessingPaused)
             {
                 atmosphere.CurrentRunInvalidatedTiles.Clear();
-                atmosphere.CurrentRunInvalidatedTiles.EnsureCapacity(atmosphere.InvalidatedCoords.Count);
+                if (atmosphere.CurrentRunInvalidatedTiles.Capacity < atmosphere.InvalidatedCoords.Count) // ADT-Tweak OPTIMIZATION
+                    atmosphere.CurrentRunInvalidatedTiles.EnsureCapacity(atmosphere.InvalidatedCoords.Count);
                 foreach (var indices in atmosphere.InvalidatedCoords)
                 {
                     var tile = GetOrNewTile(uid, atmosphere, indices, invalidateNew: false);
@@ -281,9 +289,9 @@ namespace Content.Server.Atmos.EntitySystems
             Queue<TileAtmosphere> queue,
             HashSet<TileAtmosphere> tiles)
         {
-
             queue.Clear();
-            queue.EnsureCapacity(tiles.Count);
+            if (queue.Capacity < tiles.Count) // ADT-Tweak OPTIMIZATION: Capacity check prevents reallocation on every call
+                queue.EnsureCapacity(tiles.Count);
             foreach (var tile in tiles)
             {
                 queue.Enqueue(tile);
@@ -482,6 +490,8 @@ namespace Content.Server.Atmos.EntitySystems
                 atmosphere.DeltaPressureDamageResults.Clear();
             }
 
+            var localQueue = new ConcurrentQueue<DeltaPressureDamageResult>();  // ADT-Tweak OPTIMIZATION: Use a local queue per batch to reduce contention
+
             var remaining = count - atmosphere.DeltaPressureCursor;
             var batchSize = Math.Max(50, DeltaPressureParallelProcessPerIteration);
             var toProcess = Math.Min(batchSize, remaining);
@@ -492,8 +502,16 @@ namespace Content.Server.Atmos.EntitySystems
                 var job = new DeltaPressureParallelJob(this,
                     atmosphere,
                     atmosphere.DeltaPressureCursor,
-                    DeltaPressureParallelBatchSize);
+                    DeltaPressureParallelBatchSize,
+                    localQueue); // ADT-Tweak OPTIMIZATION
                 _parallel.ProcessNow(job, toProcess);
+
+                // ADT-Tweak start OPTIMIZATION: Merge local results into main queue
+                while (localQueue.TryDequeue(out var result))
+                {
+                    atmosphere.DeltaPressureDamageResults.Enqueue(result);
+                }
+                // ADT-Tweak end OPTIMIZATION
 
                 atmosphere.DeltaPressureCursor += toProcess;
 
@@ -620,13 +638,30 @@ namespace Content.Server.Atmos.EntitySystems
             if (!_simulationPaused)
             {
                 _currentRunAtmosphereIndex = 0;
-                _currentRunAtmosphere.Clear();
 
-                var query = EntityQueryEnumerator<GridAtmosphereComponent, GasTileOverlayComponent, MapGridComponent, TransformComponent>();
-                while (query.MoveNext(out var uid, out var atmos, out var overlay, out var grid, out var xform ))
+                // ADT-Tweak start OPTIMIZATION: Use cached grid atmospheres instead of rebuilding every tick
+                // Only rebuild when the cache is dirty (component init/shutdown)
+                if (_gridAtmosphereCacheDirty)
                 {
-                    _currentRunAtmosphere.Add((uid, atmos, overlay, grid, xform));
+                    _currentRunAtmosphere.Clear();
+                    var query = EntityQueryEnumerator<GridAtmosphereComponent, GasTileOverlayComponent, MapGridComponent, TransformComponent>();
+                    while (query.MoveNext(out var uid, out var atmos, out var overlay, out var grid, out var xform ))
+                    {
+                        _currentRunAtmosphere.Add((uid, atmos, overlay, grid, xform));
+                    }
+
+                    // Update cache
+                    _cachedGridAtmospheres.Clear();
+                    _cachedGridAtmospheres.AddRange(_currentRunAtmosphere);
+                    _gridAtmosphereCacheDirty = false;
                 }
+                else
+                {
+                    // Use cached list directly
+                    _currentRunAtmosphere.Clear();
+                    _currentRunAtmosphere.AddRange(_cachedGridAtmospheres);
+                }
+                // ADT-Tweak end OPTIMIZATION
             }
 
             // We set this to true just in case we have to stop processing due to time constraints.

@@ -6,7 +6,7 @@ using Robust.Shared.Player;
 
 namespace Content.Client.Drowsiness;
 
-public sealed class DrowsinessSystem : SharedDrowsinessSystem
+public class DrowsinessSystem : SharedDrowsinessSystem // ADT-Tweak OPTIMIZATION
 {
     [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly IOverlayManager _overlayMan = default!;
@@ -18,7 +18,9 @@ public sealed class DrowsinessSystem : SharedDrowsinessSystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<DrowsinessStatusEffectComponent, StatusEffectAppliedEvent>(OnDrowsinessApply);
+
+        // ADT-Tweak OPTIMIZATION Note: StatusEffectAppliedEvent is handled in Server DrowsinessSystem
+        // Client only needs overlay management
         SubscribeLocalEvent<DrowsinessStatusEffectComponent, StatusEffectRemovedEvent>(OnDrowsinessShutdown);
 
         SubscribeLocalEvent<DrowsinessStatusEffectComponent, StatusEffectRelayedEvent<LocalPlayerAttachedEvent>>(OnStatusEffectPlayerAttached);
@@ -27,11 +29,8 @@ public sealed class DrowsinessSystem : SharedDrowsinessSystem
         _overlay = new();
     }
 
-    private void OnDrowsinessApply(Entity<DrowsinessStatusEffectComponent> ent, ref StatusEffectAppliedEvent args)
-    {
-        if (_player.LocalEntity == args.Target)
-            _overlayMan.AddOverlay(_overlay);
-    }
+    // ADT-Tweak OPTIMIZATION: Client doesn't subscribe to StatusEffectAppliedEvent to avoid duplicates
+    // Server handles it. Client adds overlay when player attaches (OnStatusEffectPlayerAttached)
 
     private void OnDrowsinessShutdown(Entity<DrowsinessStatusEffectComponent> ent, ref StatusEffectRemovedEvent args)
     {

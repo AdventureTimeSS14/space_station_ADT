@@ -229,9 +229,9 @@ namespace Content.Server.Light.EntitySystems
             if (ent.Comp.CurrentState != ExpendableLightState.BrandNew)
                 return;
 
-            // Ignite the flare or make the glowstick glow.
-            // Also hot damn, those are some shitty glowsticks, we need to get a refund.
-            ActivationVerb verb = new()
+        // Ignite the flare or make the glowstick glow.
+        // Also hot damn, those are some shitty glowsticks, we need to get a refund.
+        ActivationVerb verb = new()
             {
                 Text = Loc.GetString("expendable-light-start-verb"),
                 Icon = new SpriteSpecifier.Texture(new ("/Textures/Interface/VerbIcons/light.svg.192dpi.png")),

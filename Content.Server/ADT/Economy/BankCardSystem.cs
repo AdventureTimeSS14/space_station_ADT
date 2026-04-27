@@ -83,11 +83,18 @@ public sealed class BankCardSystem : EntitySystem
         if (!_configManager.GetCVar(ADTCCVars.PaySalary))
             return;
 
-        foreach (var account in _accounts.Where(account =>
-                     account.Mind is { Comp.UserId: not null, Comp.CurrentEntity: not null } &&
-                     _playerManager.TryGetSessionById(account.Mind.Value.Comp.UserId!.Value, out _) &&
-                     !_mobState.IsDead(account.Mind.Value.Comp.CurrentEntity!.Value)))
+        for (var i = 0; i < _accounts.Count; i++)
         {
+            var account = _accounts[i];
+
+            if (account.Mind is not { Comp.UserId: not null, Comp.CurrentEntity: not null })
+                continue;
+            if (!_playerManager.TryGetSessionById(account.Mind.Value.Comp.UserId!.Value, out _))
+                continue;
+
+            if (_mobState.IsDead(account.Mind.Value.Comp.CurrentEntity!.Value))
+                continue;
+
             var salary = GetSalary(account.Mind);
             if (salary > 0)
                 TryChangeBalance(account.AccountId, salary);

@@ -5,17 +5,20 @@ using Content.Server.NodeContainer.EntitySystems;
 using Content.Shared.Atmos.EntitySystems;
 using Content.Shared.Decals;
 using Content.Shared.Doors.Components;
+using Content.Shared.GameTicking;
 using Content.Shared.Maps;
 using JetBrains.Annotations;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
+using Robust.Shared.Map.Components;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Prototypes;
 using System.Linq;
 using Content.Shared.Damage.Systems;
 using Robust.Shared.Threading;
+using Content.Shared.Atmos.Components;
 
 namespace Content.Server.Atmos.EntitySystems;
 
@@ -51,6 +54,12 @@ public sealed partial class AtmosphereSystem : SharedAtmosphereSystem
     private HashSet<EntityUid> _entSet = new();
 
     private string[] _burntDecals = [];
+
+    // ADT-Tweak start OPTIMIZATION: Cache grid atmospheres to avoid rebuilding list every tick
+    // This saves O(N) iteration over all grids every UpdateProcessing call
+    private readonly List<Entity<GridAtmosphereComponent, GasTileOverlayComponent, MapGridComponent, TransformComponent>> _cachedGridAtmospheres = new(64);
+    private bool _gridAtmosphereCacheDirty = true;
+    // ADT-Tweak end OPTIMIZATION
 
     public override void Initialize()
     {

@@ -117,6 +117,39 @@ namespace Content.Server.Zombies
             base.Update(frameTime);
             var curTime = _timing.CurTime;
 
+            // ADT-Tweak start OPTIMIZATION: Only process zombies once per second as intended by NextTick
+            // Check if ANY zombies need processing before creating enumerator
+            bool needsPendingProcessing = false;
+            bool needsZombieHealing = false;
+
+            var pendingCheck = EntityQueryEnumerator<PendingZombieComponent>();
+            while (pendingCheck.MoveNext(out var _, out var comp))
+            {
+                if (comp.NextTick <= curTime)
+                {
+                    needsPendingProcessing = true;
+                    break;
+                }
+            }
+
+            if (!needsPendingProcessing)
+            {
+                var zombieCheck = EntityQueryEnumerator<ZombieComponent>();
+                while (zombieCheck.MoveNext(out var _, out var comp))
+                {
+                    if (comp.NextTick + TimeSpan.FromSeconds(1) <= curTime)
+                    {
+                        needsZombieHealing = true;
+                        break;
+                    }
+                }
+            }
+
+            // Skip full processing if nothing needs updating this tick
+            if (!needsPendingProcessing && !needsZombieHealing)
+                return;
+            // ADT-Tweak end OPTIMIZATION
+
             // Hurt the living infected
             var query = EntityQueryEnumerator<PendingZombieComponent, Shared.Damage.Components.DamageableComponent, MobStateComponent>();
             while (query.MoveNext(out var uid, out var comp, out var damage, out var mobState))
