@@ -163,6 +163,7 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
             return;
         }
         //ADT rerev end
+
         _npcFaction.AddFaction(ev.Target, RevolutionaryNpcFaction);
         var revComp = EnsureComp<RevolutionaryComponent>(ev.Target);
 
@@ -172,9 +173,9 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
                 LogImpact.Medium,
                 $"{ToPrettyString(ev.User.Value)} converted {ToPrettyString(ev.Target)} into a Revolutionary");
 
-            if (_mind.TryGetMind(ev.User.Value, out var revMindId, out _))
+            if (_mind.TryGetMind(ev.User.Value, out var _, out _))
             {
-                if (_role.MindHasRole<RevolutionaryRoleComponent>(revMindId, out var role))
+                if (_role.MindHasRole<RevolutionaryRoleComponent>(revMindId, out role))
                 {
                     role.Value.Comp2.ConvertedCount++;
                     Dirty(role.Value.Owner, role.Value.Comp2);

@@ -18,11 +18,8 @@ using Robust.Shared.Random;
 using System.Linq;
 using System.Text;
 using Content.Server.Codewords;
-<<<<<<< HEAD
 using Content.Shared.Bed.Cryostorage;
-=======
 using Robust.Shared.Map;
->>>>>>> upstreamwiz/master
 
 namespace Content.Server.GameTicking.Rules;
 
