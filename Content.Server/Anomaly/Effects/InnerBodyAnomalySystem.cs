@@ -220,7 +220,6 @@ public sealed class InnerBodyAnomalySystem : SharedInnerBodyAnomalySystem
         if (!ent.Comp.Injected)
             return;
 
-<<<<<<< HEAD
         // ADT-tweak start: Remove only the specific components that were added by the anomaly
         var metadata = MetaData(ent);
         foreach (var netId in ent.Comp.AddedComponentNetIds)
@@ -232,10 +231,6 @@ public sealed class InnerBodyAnomalySystem : SharedInnerBodyAnomalySystem
         }
         ent.Comp.AddedComponentNetIds.Clear();
         // ADT-tweak end
-=======
-        if (_proto.Resolve(ent.Comp.InjectionProto, out var injectedAnom))
-            EntityManager.RemoveComponents(ent, injectedAnom.Components);
->>>>>>> upstreamwiz/master
 
         _stun.TryUpdateParalyzeDuration(ent, TimeSpan.FromSeconds(ent.Comp.StunDuration));
 
