@@ -17,3 +17,9 @@ ent-ShellShotgunBibis = картечь страйкбольных шариков
 ent-Syringecartridge = шприцевый картридж
     .desc = { ent-BaseCartridge.desc }
     .suffix = { "" }
+
+ent-ADTCartridgeMagnumHoly = патрон (.357 магнум освященный)
+    .desc = { ent-BaseCartridge.desc }
+
+ent-ADTCartridgeMagnumSilver = патрон (.357 магнум серебрянный)
+    .desc = { ent-BaseCartridge.desc }

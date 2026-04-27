@@ -96,9 +96,8 @@
         resultProto: BoxFolderCentCom
         soundPath: /Audio/Effects/kaching.ogg
         powerCost: 5
-      - requiredProto: MagazineBoxMagnum
+      - requiredProto: ADTMagazineBoxMagnumLesser
         resultProto: ADTMagazineBoxMagnumHoly
-        effectProto: ADTWeaponArcMantisSlash
         soundPath: /Audio/Magic/blink.ogg
         powerCost: 1
 ### End ADT Tweak
@@ -175,9 +174,8 @@
         effectProto: BulletImpactEffectOrangeDisabler
         soundPath: /Audio/Magic/knock.ogg
         powerCost: 5
-      - requiredProto: MagazineBoxMagnum
+      - requiredProto: ADTMagazineBoxMagnumLesser
         resultProto: ADTMagazineBoxMagnumHoly
-        effectProto: ADTWeaponArcMantisSlash
         soundPath: /Audio/Magic/blink.ogg
         powerCost: 1
 ### End ADT Tweak
@@ -280,9 +278,8 @@
         effectProto: ADTEffectKudzu
         powerCost: 2
         soundPath: /Audio/Magic/blink.ogg
-      - requiredProto: MagazineBoxMagnum
+      - requiredProto: ADTMagazineBoxMagnumLesser
         resultProto: ADTMagazineBoxMagnumHoly
-        effectProto: ADTWeaponArcMantisSlash
         soundPath: /Audio/Magic/blink.ogg
         powerCost: 1
 ### End ADT Tweak
@@ -330,9 +327,8 @@
         effectProto: ADTWeaponArcRedCrash
         soundPath: /Audio/Magic/blink.ogg
         powerCost: 1
-      - requiredProto: MagazineBoxMagnum
+      - requiredProto: ADTMagazineBoxMagnumLesser
         resultProto: ADTMagazineBoxMagnumHoly
-        effectProto: ADTWeaponArcMantisSlash
         soundPath: /Audio/Magic/blink.ogg
         powerCost: 1
 ### End ADT Tweak
@@ -382,9 +378,8 @@
         effectProto: BulletImpactEffectOrangeDisabler
         soundPath: /Audio/Effects/holy.ogg
         powerCost: 5
-      - requiredProto: MagazineBoxMagnum
+      - requiredProto: ADTMagazineBoxMagnumLesser
         resultProto: ADTMagazineBoxMagnumHoly
-        effectProto: ADTWeaponArcMantisSlash
         soundPath: /Audio/Magic/blink.ogg
         powerCost: 1
 ### End ADT Tweak
@@ -439,9 +434,8 @@
         effectProto: ADTCultistBubble
         soundPath: /Audio/Magic/Eldritch/voidblink.ogg
         powerCost: 1
-      - requiredProto: MagazineBoxMagnum
+      - requiredProto: ADTMagazineBoxMagnumLesser
         resultProto: ADTMagazineBoxMagnumHoly
-        effectProto: ADTWeaponArcMantisSlash
         soundPath: /Audio/Magic/blink.ogg
         powerCost: 1
 ### End ADT Tweak
@@ -486,9 +480,8 @@
         effectProto: EffectRCDConstruct0
         soundPath: /Audio/Items/Mining/fultext_launch.ogg
         powerCost: 3
-      - requiredProto: MagazineBoxMagnum
+      - requiredProto: ADTMagazineBoxMagnumLesser
         resultProto: ADTMagazineBoxMagnumHoly
-        effectProto: ADTWeaponArcMantisSlash
         soundPath: /Audio/Magic/blink.ogg
         powerCost: 1
 ### End ADT Tweak
@@ -547,9 +540,8 @@
         effectProto: ADTWeaponArcRedCrash
         soundPath: /Audio/Magic/blink.ogg
         powerCost: 3
-      - requiredProto: MagazineBoxMagnum
+      - requiredProto: ADTMagazineBoxMagnumLesser
         resultProto: ADTMagazineBoxMagnumHoly
-        effectProto: ADTWeaponArcMantisSlash
         soundPath: /Audio/Magic/blink.ogg
         powerCost: 1
 ### End ADT Tweak
@@ -740,9 +732,8 @@
         effectProto: BulletImpactEffectOrangeDisabler
         soundPath: /Audio/Effects/hallelujah.ogg
         powerCost: 2
-      - requiredProto: MagazineBoxMagnum
+      - requiredProto: ADTMagazineBoxMagnumLesser
         resultProto: ADTMagazineBoxMagnumHoly
-        effectProto: ADTWeaponArcMantisSlash
         soundPath: /Audio/Magic/blink.ogg
         powerCost: 1
 ### End ADT Tweak
@@ -783,9 +774,8 @@
         effectProto: BulletImpactEffectOrangeDisabler
         soundPath: /Audio/Magic/knock.ogg
         powerCost: 3
-      - requiredProto: MagazineBoxMagnum
+      - requiredProto: ADTMagazineBoxMagnumLesser
         resultProto: ADTMagazineBoxMagnumHoly
-        effectProto: ADTWeaponArcMantisSlash
         soundPath: /Audio/Magic/blink.ogg
         powerCost: 1
 ### End ADT Tweak
@@ -826,9 +816,8 @@
         resultProto: MaterialBananium1
         powerCost: 0.1
         soundPath: /Audio/Items/bikehorn.ogg
-      - requiredProto: MagazineBoxMagnum
+      - requiredProto: ADTMagazineBoxMagnumLesser
         resultProto: ADTMagazineBoxMagnumHoly
-        effectProto: ADTWeaponArcMantisSlash
         soundPath: /Audio/Magic/blink.ogg
         powerCost: 1
 ### End ADT Tweak

@@ -43,9 +43,8 @@
         resultProto: ClothingUnderSocksCoder
         powerCost: 2
         soundPath: /Audio/Magic/blink.ogg
-      - requiredProto: MagazineBoxMagnum
+      - requiredProto: ADTMagazineBoxMagnumLesser
         resultProto: ADTMagazineBoxMagnumHoly
-        effectProto: ADTWeaponArcMantisSlash
         soundPath: /Audio/Magic/blink.ogg
         powerCost: 1
 

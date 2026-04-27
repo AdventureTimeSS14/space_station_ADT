@@ -24,6 +24,11 @@ heretic-livingheart-offstation = {$state} в направлении к {$directi
 heretic-livingheart-onstation = {$state} в направелии к {$direction}у!
 heretic-livingheart-unknown = Он... не в этой реальности.
 
+ent-HereticProtectiveBlade = жуткий клинок
+    .desc = Ох еретик..
+ent-HereticProtectiveBladeProjectile = жуткий клинок
+    .desc = Эх еретик..
+
 ## speech
 heretic-speech-mansusgrasp = R'CH T'H TR'TH!
 

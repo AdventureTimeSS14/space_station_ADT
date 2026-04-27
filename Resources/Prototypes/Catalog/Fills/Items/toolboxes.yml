@@ -119,6 +119,7 @@
   - type: Tag # ADT-Tweak
     tags:
     - Toolbox
+    - ADTToolboxBlueSacrifice
 
 - type: entity
   id: ToolboxMechanicalFilledAllTools
@@ -137,6 +138,7 @@
   - type: Tag # ADT-Tweak
     tags:
     - Toolbox
+    - ADTToolboxBlueSacrifice
 
 - type: entity
   parent: ToolboxSyndicate
