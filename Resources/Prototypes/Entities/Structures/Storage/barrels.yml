@@ -498,7 +498,7 @@
     node: barrel
   - type: PhysicalComposition
     materialComposition:
-      Steel: 800
+      Steel: 600 # ADT-Tweak
   - type: Sprite
     sprite: Structures/Storage/barrels.rsi
     state: silicatebarrel-open
@@ -550,7 +550,7 @@
     node: barrel
   - type: PhysicalComposition
     materialComposition:
-      Steel: 800
+      Steel: 600 # ADT-Tweak
   - type: Sprite
     sprite: Structures/Storage/barrels.rsi
     state: metalbarrel-open
@@ -599,7 +599,7 @@
     node: barrel
   - type: PhysicalComposition
     materialComposition:
-      Steel: 800
+      Steel: 600 
   - type: SolutionContainerManager
     solutions:
       tank:
@@ -616,7 +616,7 @@
     node: barrel
   - type: PhysicalComposition
     materialComposition:
-      Steel: 800
+      Steel: 600 # ADT-Tweak
   - type: SolutionContainerManager
     solutions:
       tank:
@@ -650,9 +650,11 @@
     node: barrel
   - type: PhysicalComposition
     materialComposition:
-      Steel: 800
+      Steel: 600 # ADT-Tweak
   - type: SolutionContainerManager
     solutions:
       tank:
         maxVol: 500
+  - type: RadiationSource # ADT-Tweak
+    intensity: 0 # ADT-Tweak
 # ADT-Tweak End

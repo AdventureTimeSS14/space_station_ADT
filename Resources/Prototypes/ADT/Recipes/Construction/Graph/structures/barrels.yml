@@ -10,7 +10,7 @@
         - to: barrel
           steps:
             - material: Steel
-              amount: 8
+              amount: 6
               doAfter: 10
     - node: barrel
       entity: ADTBarrelChemWaterOpenEmpty
@@ -35,7 +35,7 @@
         - to: barrel
           steps:
             - material: Steel
-              amount: 8
+              amount: 6
               doAfter: 10
     - node: barrel
       entity: ADTBarrelChemWeldingOpenEmpty
@@ -60,7 +60,7 @@
         - to: barrel
           steps:
             - material: Steel
-              amount: 8
+              amount: 6
               doAfter: 10
     - node: barrel
       entity: ADTBarrelChemSilicateOpen
@@ -110,7 +110,7 @@
         - to: barrel
           steps:
             - material: Steel
-              amount: 8
+              amount: 6
               doAfter: 10
     - node: barrel
       entity: ADTBarrelMetalOpen
@@ -135,7 +135,7 @@
         - to: barrel
           steps:
             - material: Steel
-              amount: 8
+              amount: 6
               doAfter: 10
     - node: barrel
       entity: ADTBarrelRadOpenEmpty
@@ -161,7 +161,7 @@
         - to: adtbasebarrel
           steps:
             - material: Steel
-              amount: 8
+              amount: 6
               doAfter: 10
     - node: adtbasebarrel
       entity: ADTBaseBarrel
@@ -185,6 +185,8 @@
       edges:
         - to: adtbarrelplanks
           steps:
+            - material: Steel
+              amount: 6
             - material: WoodPlank
               amount: 3
               doAfter: 10
@@ -214,8 +216,8 @@
         - to: adtbarrelfire
           steps:
             - material: Steel
-              amount: 8
-            - material: Coal
+              amount: 6
+            - material: WoodPlank
               amount: 3
               doAfter: 10
     - node: adtbarrelfire
@@ -228,7 +230,7 @@
               amount: 6
             - !type:SpawnPrototype
               prototype: Coal1
-              amount: 2
+              amount: 5
           steps:
             - tool: Prying
               doAfter: 8
