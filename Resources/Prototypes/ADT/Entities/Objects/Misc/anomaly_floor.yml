@@ -1,0 +1,108 @@
+- type: entity
+  id: ADTSandFloor
+  name: sand floor
+  description: Placeholder
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    sprite: ADT/Misc/anomaly_floor.rsi
+    layers:
+    - state: sand
+    - map: [ "enum.EdgeLayer.South" ]
+      state: sand_south
+    - map: [ "enum.EdgeLayer.East" ]
+      state: sand_east
+    - map: [ "enum.EdgeLayer.North" ]
+      state: sand_north
+    - map: [ "enum.EdgeLayer.West" ]
+      state: sand_west
+    drawdepth: FloorObjects
+  - type: Clickable
+  - type: Transform
+    anchored: true
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        hard: false
+        density: 7
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,-0.4,0.4,0.4" 
+        layer:
+        - MidImpassable
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 10
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: IconSmooth
+    mode: NoSprite
+    key: sand_floor
+  - type: SmoothEdge
+
+- type: entity
+  parent: ADTSandFloor
+  id: ADTMeatFloor
+  name: meat floor
+  description: Placeholder
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    sprite: ADT/Misc/anomaly_floor.rsi
+    layers:
+    - state: meat
+    - map: [ "enum.EdgeLayer.South" ]
+      state: meat_south
+    - map: [ "enum.EdgeLayer.East" ]
+      state: meat_east
+    - map: [ "enum.EdgeLayer.North" ]
+      state: meat_north
+    - map: [ "enum.EdgeLayer.West" ]
+      state: meat_west
+    drawdepth: FloorObjects
+  - type: Damageable
+    damageModifierSet: Wood
+  - type: IconSmooth
+    mode: NoSprite
+    key: meat_floor
+
+- type: entity
+  parent: ADTSandFloor
+  id: ADTGrassFloor
+  name: grass floor
+  description: Placeholder
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: MeleeSound
+    soundGroups:
+      Brute:
+        path:
+          "/Audio/Weapons/slash.ogg"
+  - type: Sprite
+    sprite: ADT/Misc/anomaly_floor.rsi
+    layers:
+    - state: grass
+    - map: [ "enum.EdgeLayer.South" ]
+      state: grass_south
+    - map: [ "enum.EdgeLayer.East" ]
+      state: grass_east
+    - map: [ "enum.EdgeLayer.North" ]
+      state: grass_north
+    - map: [ "enum.EdgeLayer.West" ]
+      state: grass_west
+    drawdepth: FloorObjects
+  - type: Damageable
+    damageModifierSet: Wood
+  - type: IconSmooth
+    mode: NoSprite
+    key: grass_floor
