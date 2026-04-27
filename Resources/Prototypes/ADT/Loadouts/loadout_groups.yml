@@ -431,6 +431,13 @@
   - ADTBlueshieldDuffel
 
 - type: loadoutGroup
+  id: ADTBlueshieldTrinkets
+  name: loadout-group-blueshield-trinkets
+  minLimit: 0
+  loadouts:
+  - ADTBlueshieldVehicleWheelchair
+
+- type: loadoutGroup
   id: ADTBlueshieldOuterClothing
   name: loadout-group-blueshield-outer-clothing
   minLimit: 1

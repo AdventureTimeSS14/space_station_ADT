@@ -115,3 +115,6 @@
   - type: ProjectileBatteryAmmoProvider
     proto: ADTBulletLaserMK2
     fireCost: 100
+  - type: EnergySword
+    colorOptions: [ "#1E90FFFF" ]
+

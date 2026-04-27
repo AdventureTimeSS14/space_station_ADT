@@ -1,0 +1,29 @@
+- type: entity
+  id: ADTBlueShieldMagazinePistolSubMachineGun
+  name: SMG magazine (.35 auto)
+  parent: MagazinePistolSubMachineGun
+  description: 45-round double-stack magazine for submachine guns. Intended to hold general-purpose kinetic ammunition.
+  components:
+  - type: BallisticAmmoProvider
+    capacity: 45
+    proto: CartridgePistol
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/bullet_insert.ogg
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: stripe
+      color: "#1e40d8"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-mag
+      - state: inhand-left-stripe
+        color: "#1e40d8"
+      right:
+      - state: inhand-right-mag
+      - state: inhand-right-stripe
+        color: "#1e40d8"

@@ -26,6 +26,62 @@
      - id: ADTPowerCellLasgunRevolver
      - id: ADTPowerCellLasgunRevolver
      - id: ADTPowerCellLasgunRevolver
+     - id: ADTBlueShieldEnergyShield
+
+- type: entity
+  id: ADTBaseWeaponCaseNTDrozdBlueshield
+  name: weapon case
+  description: Weapon case, special designed for sophisticated and expensive weapons.
+  parent: [ BaseStorageItem, BaseBagOpenClose ]
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Storage/weaponcase.rsi
+    layers:
+    - state: closed
+    - state: open
+      map: ["openLayer"]
+  - type: Appearance
+  - type: Item
+    sprite: ADT/Objects/Storage/weaponcase.rsi
+    size: Ginormous
+  - type: Storage
+    maxItemSize: Large
+    grid:
+    - 0,0,7,1
+  - type: StorageFill
+    contents:
+     - id: ADTWeaponSubMachineGunDrozdBlueshield
+     - id: WeaponPulsePistol
+     - id: ADTBlueShieldMagazinePistolSubMachineGun
+     - id: ADTBlueShieldMagazinePistolSubMachineGun
+     - id: MagazineBoxPistol
+
+- type: entity
+  id: ADTBaseWeaponCaseNTTonfaBlueshield
+  name: weapon case
+  description: Weapon case, special designed for sophisticated and expensive weapons.
+  parent: [ BaseStorageItem, BaseBagOpenClose ]
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Storage/weaponcase.rsi
+    layers:
+    - state: closed
+    - state: open
+      map: ["openLayer"]
+  - type: Appearance
+  - type: Item
+    sprite: ADT/Objects/Storage/weaponcase.rsi
+    size: Ginormous
+  - type: Storage
+    maxItemSize: Huge
+    grid:
+    - 0,0,5,3
+  - type: StorageFill
+    contents:
+     - id: ADTClothingBlueshieldArmorElite
+     - id: ADTWeaponTonfaSteel
+     - id: ADTBlueShieldEnergyShield
+     - id: ADTClothingHeadHelmetBlueShield
 
 - type: entity
   id: ADTBaseWeaponCaseNT

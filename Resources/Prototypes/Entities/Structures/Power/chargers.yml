@@ -171,7 +171,11 @@
           - HitscanBatteryAmmoProvider
           - ProjectileBatteryAmmoProvider
           - Stunbaton
-        #  - PowerCell #ADT-Tweak
+        #ADT-Tweak-Start
+        #  - PowerCell
+          tags:
+            - ADTEnergyShield
+        #ADT-Tweak-End
         blacklist:
           tags:
           - PotatoBattery
@@ -204,7 +208,6 @@
           - ADTMegaCell # ADT-Tweak
           components: # ADT plasmacutters
           - BatteryRecharge # ADT plasmacutters
-          - BatterySelfRecharger # ADT-tweak
 
 - type: entity
   parent: [ BaseItemRecharger, BaseWallmount ]
@@ -233,6 +236,7 @@
           - HitscanBatteryAmmoProvider
           - ProjectileBatteryAmmoProvider
           - Stunbaton
+          - ADTEnergyShield # ADT-Tweak
         blacklist:
           tags:
           - PotatoBattery
