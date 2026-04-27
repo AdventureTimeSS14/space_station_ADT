@@ -25,9 +25,23 @@ public sealed partial class StampWidget : PanelContainer
 
     public StampDisplayInfo StampInfo {
         set {
-            StampedByLabel.Text = Loc.GetString(value.StampedName);
+            StampedByLabel.Text = value.Type is StampType.Signature ? value.StampedName : Loc.GetString(value.StampedName); // ADT-Tweak: If it's a signature, don't bother doing a string lookup.
             StampedByLabel.FontColorOverride = value.StampedColor;
             ModulateSelfOverride = value.StampedColor;
+            // ADT-Tweak: Start
+            if (value.Type == StampType.Signature && value.Font != null)
+            {
+                var resCache = IoCManager.Resolve<IResourceCache>();
+                var fontResource = resCache.GetResource<FontResource>(value.Font);
+                StampedByLabel.FontOverride = new VectorFont(fontResource, 45);
+            }
+            else
+            {
+                StampedByLabel.FontOverride = null;
+            }
+
+            PanelOverride = value.Type is StampType.Signature ? null : _borderTexture;
+            //ADT-Tweak: End. PanelOverride is the border texture, as inferred from ctor. Set null if the stamp is a signature to hide the border.
         }
     }
 
