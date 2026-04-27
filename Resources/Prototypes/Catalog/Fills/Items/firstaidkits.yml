@@ -23,6 +23,8 @@
         amount: 2
       - id: PillCanisterKelotane
       - id: PillCanisterDermaline
+      - id: BurnAutoInjector #ADT-Tweak
+      - id: ADTPatchBurn #ADT-Tweak
 
 - type: entity
   id: MedkitBruteFilled
@@ -33,8 +35,10 @@
     contents:
       - id: Brutepack
       - id: Gauze
-      - id: PillCanisterIron
-      - id: PillCanisterCopper
+      - id: PillCanisterBicaridine #ADT-Tweak PillCanisterIron > PillCanisterBicaridine
+      - id: PillCanisterTricordrazine #ADT-Tweak PillCanisterCopper > PillCanisterTricordrazine
+      - id: BruteAutoInjector #ADT-Tweak
+      - id: ADTPatchHealing #ADT-Tweak
 
 - type: entity
   id: MedkitToxinFilled

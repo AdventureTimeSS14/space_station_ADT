@@ -118,7 +118,7 @@
       pen:
         maxVol: 20
         reagents:
-        - ReagentId: Inaprovaline
+        - ReagentId: Epinephrine
           Quantity: 10
         - ReagentId: DexalinPlus
           Quantity: 10
@@ -139,15 +139,17 @@
       map: ["enum.SolutionContainerLayers.Fill"]
   - type: SolutionContainerVisuals
     emptySpriteName: lacerpen_empty
+  - type: Hypospray
+    transferAmount: 20
   - type: SolutionContainerManager
     solutions:
       pen:
-        maxVol: 15
+        maxVol: 20
         reagents:
         - ReagentId: Lacerinol
           Quantity: 10
-        - ReagentId: TranexamicAcid
-          Quantity: 5
+        - ReagentId: ADTStypticPowder
+          Quantity: 10
   - type: Tag
     tags:
     - ADTMedipen
@@ -165,15 +167,17 @@
       map: ["enum.SolutionContainerLayers.Fill"]
   - type: SolutionContainerVisuals
     emptySpriteName: bruizpen_empty
+  - type: Hypospray
+    transferAmount: 20
   - type: SolutionContainerManager
     solutions:
       pen:
-        maxVol: 15
+        maxVol: 20
         reagents:
         - ReagentId: Bruizine
           Quantity: 10
-        - ReagentId: TranexamicAcid
-          Quantity: 5
+        - ReagentId: ADTStypticPowder
+          Quantity: 10
   - type: Tag
     tags:
     - ADTMedipen
@@ -202,6 +206,62 @@
           Quantity: 15
         - ReagentId: Dylovene
           Quantity: 5
+  - type: Tag
+    tags:
+    - ADTMedipen
+
+- type: entity
+  name: sigynate auto-injector
+  parent: ChemicalMedipen
+  id: ADTSigynateAutoInjector
+  description: A rapid dose of sigynate, intended for combat applications.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Medical/medipen.rsi
+    layers:
+    - state: sigynate
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerVisuals
+    emptySpriteName: sigynate_empty
+  - type: Hypospray
+    transferAmount: 20
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 20
+        reagents:
+        - ReagentId: Sigynate
+          Quantity: 15
+        - ReagentId: Dermaline
+          Quantity: 5
+  - type: Tag
+    tags:
+    - ADTMedipen
+
+- type: entity
+  name: polypyrylium oligomers auto-injector
+  parent: ChemicalMedipen
+  id: ADTPolypyryliumOligomersAutoInjector
+  description: A rapid dose of polypyrylium oligomers and styptic powder, intended for combat applications.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Specific/Medical/medipen.rsi
+    layers:
+    - state: polypyrylium_oligomers
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerVisuals
+    emptySpriteName: polypyrylium_oligomers_empty
+  - type: Hypospray
+    transferAmount: 20
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 20
+        reagents:
+        - ReagentId: PolypyryliumOligomers
+          Quantity: 10
+        - ReagentId: ADTStypticPowder
+          Quantity: 10
   - type: Tag
     tags:
     - ADTMedipen
