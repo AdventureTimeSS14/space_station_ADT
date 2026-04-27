@@ -165,6 +165,7 @@
   components:
   - type: MindRole
     antagPrototype: ParadoxClone
+    roleType: FreeAgent # ADT tweak
     subtype: role-subtype-paradox-clone
   - type: ParadoxCloneRole
 
