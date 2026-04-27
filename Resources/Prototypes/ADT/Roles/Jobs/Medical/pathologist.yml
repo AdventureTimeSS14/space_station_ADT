@@ -12,8 +12,19 @@
   supervisors: job-supervisors-cmo
   canBeAntag: true
   access:
-    - Medical
-    - Maintenance
+  - Medical
+  - Maintenance
+  special:
+  - !type:AddSpeciesComponentSpecial
+    species: IPC
+    components:
+      - type: BorgChassis
+        maxModules: 1
+        moduleWhitelist:
+          tags:
+          - BorgModuleGeneric
+          - BorgModuleMedical
+        ipc: true
 
 - type: startingGear
   id: ADTPathologistGear

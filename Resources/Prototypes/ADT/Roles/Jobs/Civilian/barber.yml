@@ -12,6 +12,17 @@
   access:
   - Service
   - Maintenance
+  special:
+  - !type:AddSpeciesComponentSpecial
+    species: IPC
+    components:
+      - type: BorgChassis
+        maxModules: 1
+        moduleWhitelist:
+          tags:
+          - BorgModuleGeneric
+          - BorgModuleService
+        ipc: true
 
 - type: startingGear
   id: ADTBarberGear

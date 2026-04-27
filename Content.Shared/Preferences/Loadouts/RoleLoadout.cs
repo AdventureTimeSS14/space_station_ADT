@@ -115,6 +115,14 @@ public sealed partial class RoleLoadout : IEquatable<RoleLoadout>
             if (SelectedLoadouts.ContainsKey(groupProto))
                 continue;
 
+            //ADT-Tweak-Start: Species check - skip group if species doesn't match
+            if (!protoManager.TryIndex(groupProto, out var group))
+                continue;
+
+            if (group.Species != null && group.Species != profile.Species)
+                continue;
+            //ADT-Tweak-End
+
             // Data will get set below.
             SelectedLoadouts[groupProto] = new List<Loadout>();
         }
@@ -137,6 +145,14 @@ public sealed partial class RoleLoadout : IEquatable<RoleLoadout>
                 groupRemove.Add(group);
                 continue;
             }
+
+            //ADT-Tweak-Start: Species check - remove group if species doesn't match
+            if (groupProto.Species != null && groupProto.Species != profile.Species)
+            {
+                groupRemove.Add(group);
+                continue;
+            }
+            //ADT-Tweak-End
 
             var loadouts = groupLoadouts[..Math.Min(groupLoadouts.Count, groupProto.MaxLimit)];
 
@@ -263,6 +279,11 @@ public sealed partial class RoleLoadout : IEquatable<RoleLoadout>
 
             if (SelectedLoadouts.ContainsKey(group))
                 continue;
+
+            //ADT-Tweak-Start: Species check - skip group if species doesn't match
+            if (groupProto.Species != null && groupProto.Species != profile.Species)
+                continue;
+            //ADT-Tweak-End
 
             var loadouts = new List<Loadout>();
             SelectedLoadouts[group] = loadouts;

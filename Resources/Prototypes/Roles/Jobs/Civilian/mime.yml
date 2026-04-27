@@ -18,14 +18,22 @@
     - type: MimePowers
       preventWriting: true
     - type: FrenchAccent
-    # ADT-Tweak start. Акшон надувания шаров
+  #ADT-Tweak-Start
     - type: MimeBaloon
-    # ADT-Tweak end.
-  # ADT-Tweak start
   - !type:AddLanguageSpecial
     languages:
       SignLanguage: Speak
-  # ADT-Tweak end
+  - !type:AddSpeciesComponentSpecial
+    species: IPC
+    components:
+      - type: BorgChassis
+        maxModules: 1
+        moduleWhitelist:
+          tags:
+          - BorgModuleGeneric
+          - BorgModuleService
+        ipc: true
+  #ADT-Tweak-End
 
 - type: startingGear
   id: MimeGear

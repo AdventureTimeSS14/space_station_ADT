@@ -1,4 +1,4 @@
-ent-ADTBorgModuleChemical = лекарственный модуль киборга
+ent-ADTBorgModuleMedicinal = лекарственный модуль киборга
     .desc = { ent-BaseBorgModule.desc }
 ent-ADTBorgModuleAdvancedChemical = продвинутый лекарственный модуль киборга
     .desc = { ent-BaseBorgModule.desc }

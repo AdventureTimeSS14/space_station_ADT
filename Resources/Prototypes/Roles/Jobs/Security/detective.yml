@@ -35,11 +35,21 @@
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
-  # ADT-Tweak-Start: добавляем SecurityStaff для детектива
+  #ADT-Tweak-Start: добавляем SecurityStaff для детектива
   - !type:AddComponentSpecial # goobstation
     components:
       - type: SecurityStaff
-  # ADT-Tweak-End
+  - !type:AddSpeciesComponentSpecial
+    species: IPC
+    components:
+      - type: BorgChassis
+        maxModules: 1
+        moduleWhitelist:
+          tags:
+          - BorgModuleGeneric
+          - ADTBorgModuleSecurity
+        ipc: true
+  #ADT-Tweak-End
 
 - type: startingGear
   id: DetectiveGear

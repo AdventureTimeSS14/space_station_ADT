@@ -30,11 +30,15 @@ public sealed partial class BorgSystem
 
     private void OnBeforeBorgUiOpen(EntityUid uid, BorgChassisComponent component, BeforeActivatableUIOpenEvent args)
     {
+        if (component.Ipc) return; //ADT-Tweak
+
         UpdateUI(uid, component);
     }
 
     private void OnEjectBrainBuiMessage(EntityUid uid, BorgChassisComponent component, BorgEjectBrainBuiMessage args)
     {
+        if (component.Ipc) return; //ADT-Tweak
+
         if (component.BrainEntity is not { } brain)
             return;
 
@@ -47,12 +51,16 @@ public sealed partial class BorgSystem
 
     private void OnEjectBatteryBuiMessage(EntityUid uid, BorgChassisComponent component, BorgEjectBatteryBuiMessage args)
     {
+        if (component.Ipc) return; //ADT-Tweak
+
         if (TryEjectPowerCell(uid, component, out var ents))
             _hands.TryPickupAnyHand(args.Actor, ents.First());
     }
 
     private void OnSetNameBuiMessage(EntityUid uid, BorgChassisComponent component, BorgSetNameBuiMessage args)
     {
+        if (component.Ipc) return; //ADT-Tweak
+
         if (args.Name.Length > _maxNameLength ||
             args.Name.Length == 0 ||
             string.IsNullOrWhiteSpace(args.Name) ||
@@ -75,6 +83,8 @@ public sealed partial class BorgSystem
 
     private void OnRemoveModuleBuiMessage(EntityUid uid, BorgChassisComponent component, BorgRemoveModuleBuiMessage args)
     {
+        if (component.Ipc) return; //ADT-Tweak
+
         var module = GetEntity(args.Module);
 
         if (!component.ModuleContainer.Contains(module))
@@ -95,6 +105,8 @@ public sealed partial class BorgSystem
     {
         if (!Resolve(uid, ref component))
             return;
+
+        if (component.Ipc) return; //ADT-Tweak
 
         var chargePercent = 0f;
         var hasBattery = false;

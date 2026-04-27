@@ -226,7 +226,10 @@ public sealed partial class LoadoutGroupContainer : BoxContainer
     /// <returns>A fully initialized LoadoutContainer for UI display.</returns>
     private LoadoutContainer CreateLoadoutUI(LoadoutPrototype proto, HumanoidCharacterProfile profile, RoleLoadout loadout, ICommonSession session, IDependencyCollection collection, LoadoutSystem loadoutSystem)
     {
-        var selected = loadout.SelectedLoadouts[_groupProto.ID];
+        //ADT-Tweak-Start
+        if (!loadout.SelectedLoadouts.TryGetValue(_groupProto.ID, out var selected))
+            selected = new List<Loadout>();
+        //ADT-Tweak-End
 
         var pressed = selected.Any(e => e.Prototype == proto.ID);
 

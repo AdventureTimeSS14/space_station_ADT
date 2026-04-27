@@ -14,6 +14,19 @@
   - Medical
   - Chemistry
   - Maintenance
+  #ADT-Tweak-Start
+  special:
+  - !type:AddSpeciesComponentSpecial
+    species: IPC
+    components:
+      - type: BorgChassis
+        maxModules: 1
+        moduleWhitelist:
+          tags:
+          - BorgModuleGeneric
+          - BorgModuleMedical
+        ipc: true
+  #ADT-Tweak-End
 
 - type: startingGear
   id: ChemistGear

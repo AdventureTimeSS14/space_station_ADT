@@ -193,6 +193,19 @@
   - type: AnimatedEmotes
   - type: Posing
   - type: SoftWalk
+  - type: BorgChassis
+    maxModules: 1
+    moduleWhitelist:
+      tags:
+      - BorgModuleGeneric
+      #- BorgModuleService
+      #- BorgModuleJanitor
+      #- BorgModuleMedical
+      #- BorgModuleScience
+      #- BorgModuleEngineering
+      #- BorgModuleCargo
+      #- ADTBorgModuleSecurity
+    ipc: true
 
 - type: entity
   save: false

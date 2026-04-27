@@ -147,7 +147,7 @@
   - BorgModuleTopicals
   - ADTBorgModuleRescue
   - ADTBorgModuleAdvancedChemical # позже сделаю отдельное исследование, а пока просто сделаю крафт подороже тк мне лень
-  - ADTBorgModuleChemical
+  - ADTBorgModuleMedicinal
   # ADT-Tweak-end
   position: 6,0
   requiredTech:

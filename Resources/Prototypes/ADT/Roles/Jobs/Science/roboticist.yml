@@ -13,6 +13,17 @@
   access:
   - Research
   - Maintenance
+  special:
+  - !type:AddSpeciesComponentSpecial
+    species: IPC
+    components:
+      - type: BorgChassis
+        maxModules: 1
+        moduleWhitelist:
+          tags:
+          - BorgModuleGeneric
+          - BorgModuleScience
+        ipc: true
 
 - type: startingGear
   id: ADTRoboticistGear

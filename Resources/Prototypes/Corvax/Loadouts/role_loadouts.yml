@@ -16,6 +16,7 @@
   # ADT underwear tweak end
   - Trinkets
   - GroupSpeciesBreathTool
+  - ADTIpcModules #ADT-Tweak
 
 # Engineering
 # - type: roleLoadout
@@ -66,4 +67,4 @@
   # ADT underwear tweak end
   - Trinkets
   - GroupSpeciesBreathTool
-
+  - ADTIpcModules #ADT-Tweak

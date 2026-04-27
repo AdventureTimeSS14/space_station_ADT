@@ -16,6 +16,19 @@
   - External
   extendedAccess:
   - Atmospherics
+  #ADT-Tweak-Start
+  special:
+  - !type:AddSpeciesComponentSpecial
+    species: IPC
+    components:
+      - type: BorgChassis
+        maxModules: 1
+        moduleWhitelist:
+          tags:
+          - BorgModuleGeneric
+          - BorgModuleEngineering
+        ipc: true
+  #ADT-Tweak-End
 
 - type: startingGear
   id: StationEngineerGear

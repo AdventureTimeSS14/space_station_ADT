@@ -19,6 +19,17 @@
   - Salvage
   - Maintenance
   - External
+  special:
+  - !type:AddSpeciesComponentSpecial
+    species: IPC
+    components:
+      - type: BorgChassis
+        maxModules: 1
+        moduleWhitelist:
+          tags:
+          - BorgModuleGeneric
+          - BorgModuleCargo
+        ipc: true
 
 - type: startingGear
   id: ADTMinerGear

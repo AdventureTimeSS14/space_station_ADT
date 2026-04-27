@@ -96,7 +96,7 @@
 # Borg Modules Update start
 
 - type: entity
-  id: ADTBorgModuleChemical
+  id: ADTBorgModuleMedicinal
   parent: [ BaseBorgModuleMedical, BaseProviderBorgModule ]
   name: chemical cyborg module
   components:

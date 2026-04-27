@@ -12,11 +12,22 @@
   special:
   - !type:AddComponentSpecial
     components:
-    - type: Chaplain  # ADT Chaplain
-      statusIcon: ChaplainFaction
     - type: BibleUser #Lets them heal with bibles
-    - type: MagicImmunity  # ADT-Tweak
-
+  #ADT-Tweak-Start
+    - type: Chaplain
+      statusIcon: ChaplainFaction
+    - type: MagicImmunity
+  - !type:AddSpeciesComponentSpecial
+    species: IPC
+    components:
+      - type: BorgChassis
+        maxModules: 1
+        moduleWhitelist:
+          tags:
+          - BorgModuleGeneric
+          - BorgModuleService
+        ipc: true
+  #ADT-Tweak-End
 
 - type: startingGear
   id: ChaplainGear

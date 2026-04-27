@@ -160,3 +160,7 @@ loadout-group-ccc-outer-clothing = консультант Центком, вер
 loadout-group-ccc-shoes = консультант Центком, обувь
 loadout-group-ccc-hands = консультант Центком, перчатки
 loadout-group-ccc-socks = консультант Центком, носки
+
+# IPC
+
+loadout-ipc-module-adt = КПБ, модули

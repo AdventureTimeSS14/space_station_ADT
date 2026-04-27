@@ -2,9 +2,11 @@ using System.Linq;
 using Content.Shared.Hands.Components;
 using Content.Shared.Interaction.Components;
 using Content.Shared.Silicons.Borgs.Components;
+using Content.Shared.Verbs; //ADT-Tweak
 using Content.Shared.Whitelist;
+using Content.Shared.Wires; //ADT-Tweak
 using Robust.Shared.Containers;
-using Content.Shared.ADT.Interaction.Components; // ADT
+using Content.Shared.ADT.Interaction.Components; //ADT-Tweak
 
 namespace Content.Server.Silicons.Borgs;
 
@@ -23,6 +25,8 @@ public sealed partial class BorgSystem
         SubscribeLocalEvent<ItemBorgModuleComponent, ComponentStartup>(OnProvideItemStartup);
         SubscribeLocalEvent<ItemBorgModuleComponent, BorgModuleSelectedEvent>(OnItemModuleSelected);
         SubscribeLocalEvent<ItemBorgModuleComponent, BorgModuleUnselectedEvent>(OnItemModuleUnselected);
+
+        SubscribeLocalEvent<BorgChassisComponent, GetVerbsEvent<AlternativeVerb>>(AddModuleVerbs); //ADT-Tweak
     }
 
     private void OnModuleGotInserted(EntityUid uid, BorgModuleComponent component, EntGotInsertedIntoContainerMessage args)
@@ -34,7 +38,7 @@ public sealed partial class BorgSystem
             !Toggle.IsActivated(chassis))
             return;
 
-        if (!_powerCell.HasDrawCharge(uid))
+        if (!chassisComp.Ipc && !_powerCell.HasDrawCharge(uid)) //ADT-Tweak
             return;
 
         InstallModule(chassis, uid, chassisComp, component);
@@ -520,4 +524,34 @@ public sealed partial class BorgSystem
     {
         ent.Comp.ModuleWhitelist = whitelist;
     }
+
+    //ADT-Tweak-Start
+    private void AddModuleVerbs(EntityUid uid, BorgChassisComponent component, GetVerbsEvent<AlternativeVerb> args)
+    {
+        if (!args.CanAccess || !args.CanInteract)
+            return;
+
+        if (!TryComp<WiresPanelComponent>(uid, out var panel) || !panel.Open)
+            return;
+
+        foreach (var module in component.ModuleContainer.ContainedEntities)
+        {
+            if (!TryComp<BorgModuleComponent>(module, out var moduleComp))
+                continue;
+
+            if (moduleComp.DefaultModule)
+                continue;
+
+            var verb = new AlternativeVerb
+            {
+                Text = Loc.GetString("borg-eject-module-verb", ("module", Name(module))),
+                Category = VerbCategory.Eject,
+                Act = () => _container.Remove(module, component.ModuleContainer),
+                IconEntity = GetNetEntity(module),
+                Priority = 1
+            };
+            args.Verbs.Add(verb);
+        }
+    }
+    //ADT-Tweak-End
 }

@@ -1,0 +1,156 @@
+#region Общие
+- type: loadout
+  id: ADTModuleTool
+  storage:
+    back:
+    - BorgModuleTool
+
+- type: loadout
+  id: ADTModuleCable
+  storage:
+    back:
+    - BorgModuleCable
+
+- type: loadout
+  id: ADTModuleInflatable
+  storage:
+    back:
+    - BorgModuleInflatable
+
+- type: loadout
+  id: ADTModuleFireExtinguisher
+  storage:
+    back:
+    - BorgModuleFireExtinguisher
+
+- type: loadout
+  id: ADTModuleArtistry
+  storage:
+    back:
+    - BorgModuleArtistry
+
+#region Уборочные
+- type: loadout
+  id: ADTModuleCustodial
+  storage:
+    back:
+    - BorgModuleCustodial
+
+- type: loadout
+  id: ADTModuleCleaning
+  storage:
+    back:
+    - BorgModuleCleaning
+
+#region Утилизаторские
+- type: loadout
+  id: ADTModuleAppraisal
+  storage:
+    back:
+    - BorgModuleAppraisal
+
+- type: loadout
+  id: ADTModuleSalvage
+  storage:
+    back:
+    - ADTBorgModuleSalvage
+
+- type: loadout
+  id: ADTModuleMining
+  storage:
+    back:
+    - BorgModuleMining
+#region Сервисные
+- type: loadout
+  id: ADTModuleMusique
+  storage:
+    back:
+    - BorgModuleMusique
+
+- type: loadout
+  id: ADTModuleGardening
+  storage:
+    back:
+    - BorgModuleGardening
+
+- type: loadout
+  id: ADTModuleHarvesting
+  storage:
+    back:
+    - BorgModuleHarvesting
+
+- type: loadout
+  id: ADTModuleService
+  storage:
+    back:
+    - BorgModuleService
+
+- type: loadout
+  id: ADTModuleClowning
+  storage:
+    back:
+    - BorgModuleClowning
+
+#region Инженерные
+- type: loadout
+  id: ADTModuleRCD
+  storage:
+    back:
+    - BorgModuleRCD
+
+- type: loadout
+  id: ADTModuleConstruction
+  storage:
+    back:
+    - BorgModuleConstruction
+
+- type: loadout
+  id: ADTModuleRPD
+  storage:
+    back:
+    - ADTBorgModuleRPD
+
+#region Научные
+- type: loadout
+  id: ADTModuleAnomaly
+  storage:
+    back:
+    - BorgModuleAnomaly
+
+- type: loadout
+  id: ADTModuleArtifact
+  storage:
+    back:
+    - BorgModuleArtifact
+
+#region Медицинские
+- type: loadout
+  id: ADTModuleTopicals
+  storage:
+    back:
+    - BorgModuleTopicals
+
+- type: loadout
+  id: ADTModuleMedicinal
+  storage:
+    back:
+    - ADTBorgModuleMedicinal
+
+- type: loadout
+  id: ADTModuleRescue
+  storage:
+    back:
+    - BorgModuleRescue
+
+- type: loadout
+  id: ADTModuleChemical
+  storage:
+    back:
+    - BorgModuleChemical
+
+#region СБшные
+- type: loadout
+  id: ADTModuleDetention
+  storage:
+    back:
+    - ADTBorgModuleDetention

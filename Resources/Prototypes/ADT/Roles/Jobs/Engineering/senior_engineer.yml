@@ -22,6 +22,17 @@
   - Engineering
   - External
   - Atmospherics
+  special:
+  - !type:AddSpeciesComponentSpecial
+    species: IPC
+    components:
+      - type: BorgChassis
+        maxModules: 1
+        moduleWhitelist:
+          tags:
+          - BorgModuleGeneric
+          - BorgModuleEngineering
+        ipc: true
 
 - type: startingGear
   id: SeniorEngineerGear

@@ -17,6 +17,7 @@
   - ADTBottom
   - ADTSocks
   # ADT underwear tweak end
+  - ADTIpcModules #ADT-Tweak
 
 - type: roleLoadout
   id: JobADTPathologist
@@ -40,6 +41,7 @@
   - ADTBottom
   - ADTSocks
   # ADT underwear tweak end
+  - ADTIpcModulesPathologist #ADT-Tweak
 
 - type: roleLoadout
   id: JobADTRoboticist
@@ -64,6 +66,7 @@
   - ADTBottom
   - ADTSocks
   # ADT underwear tweak end
+  - ADTIpcModules
 
 - type: roleLoadout
   id: JobADTBlueShieldOfficer
@@ -84,6 +87,7 @@
   - ADTBottomBlueshield
   - ADTSocksBlueshield
   # ADT underwear tweak end
+  - ADTIpcModulesSecurity
 
 - type: roleLoadout
   id: JobADTCentcomConsultant
@@ -106,6 +110,7 @@
   - ADTTop
   - ADTBottom
   # ADT underwear tweak end
+  - ADTIpcModules
 
 - type: roleLoadout
   id: JobADTSeniorPhysician
@@ -129,6 +134,7 @@
   - ADTBottom
   - ADTSocks
   # ADT underwear tweak end
+  - ADTIpcModulesChemist
 
 - type: roleLoadout
   id: JobADTSeniorResearcher
@@ -151,6 +157,7 @@
   - ADTSocks
   - GroupSpeciesBreathTool
   # ADT tweak end
+  - ADTIpcModulesScientist
 
 - type: roleLoadout
   id: JobADTSeniorEngineer
@@ -173,6 +180,7 @@
   - ADTSocks
   - GroupSpeciesBreathTool
   # ADT tweak end
+  - ADTIpcModulesAtmosphericTechnician
 
 - type: roleLoadout
   id: JobADTSeniorOfficer
@@ -194,6 +202,7 @@
   - ADTSocks
   - GroupSpeciesBreathToolSecurity
   # ADT tweak end
+  - ADTIpcModulesSecurity
 
   # brigmedic
 - type: roleLoadout
@@ -222,6 +231,7 @@
   - ADTBottom
   - ADTSocks
   # ADT underwear tweak end
+  - ADTIpcModulesMedicalDoctor
 
 - type: roleLoadout
   id: JobADTCorrectionsOfficer
@@ -242,6 +252,7 @@
   - ADTSocks
   - GroupSpeciesBreathToolSecurity
   # ADT tweak end
+  - ADTIpcModulesSecurity
 
 - type: roleLoadout
   id: ADTRoleSurvivalCBURN
@@ -268,6 +279,7 @@
   - Trinkets
   - ADTSprayPaints # ADT-Tweak
   - GroupSpeciesBreathTool
+  - ADTIpcModules
 
 - type: roleLoadout
   id: JobADTMiner
@@ -291,3 +303,4 @@
   - Trinkets
   - ADTSprayPaints # ADT-Tweak
   - GroupSpeciesBreathTool
+  - ADTIpcModulesMiner

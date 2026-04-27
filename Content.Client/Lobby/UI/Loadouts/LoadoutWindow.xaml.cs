@@ -74,6 +74,11 @@ public sealed partial class LoadoutWindow : BaseLoadoutWindow   // ADT SAI Custo
                 if (!protoManager.Resolve(group, out var groupProto))
                     continue;
 
+                //ADT-Tweak-Start
+                if (groupProto.Species != null && groupProto.Species != profile.Species)
+                    continue;
+                //ADT-Tweak-End
+
                 if (groupProto.Hidden)
                     continue;
 

@@ -53,9 +53,19 @@
     components:
       - type: CommandStaff
       # - type: PhantomTyranyTarget # ADT Phantom
-      # ADT-Tweak-Start: метка персонала службы безопасности
+  #ADT-Tweak-Start
       - type: SecurityStaff
-      # ADT-Tweak-End
+  - !type:AddSpeciesComponentSpecial
+    species: IPC
+    components:
+      - type: BorgChassis
+        maxModules: 1
+        moduleWhitelist:
+          tags:
+          - BorgModuleGeneric
+          - ADTBorgModuleSecurity
+        ipc: true
+  #ADT-Tweak-End
 
 - type: startingGear
   id: HoSGear
