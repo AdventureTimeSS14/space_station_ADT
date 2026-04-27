@@ -5,7 +5,7 @@
         "y": 32
     },
     "license": "CC-BY-SA-3.0",
-    "copyright": "[shadekin, shadekin_big by https://github.com/SPLURT-Station/S.P.L.U.R.T-Station-13/commit/96703f76bccd8fe6a96b78524efb97a9af661767, Shadekin big fluff made by DSC@Cabbage#9633 (561159087765848084)], other made by discord:filokini",
+    "copyright": "[shadekin, shadekin_big by https://github.com/SPLURT-Station/S.P.L.U.R.T-Station-13/commit/96703f76bccd8fe6a96b78524efb97a9af661767, Shadekin big fluff made by DSC@Cabbage#9633 (561159087765848084)], experiment_brush and default_experiment made by discord:sadboiiiiiiiiiiiiiiiiiiiii, other made by discord:filokini",
     "states": [
         {
             "name": "shadekin",
@@ -41,6 +41,14 @@
         },
         {
             "name": "default_striped",
+            "directions": 4
+        },
+        {
+            "name": "default_experiment",
+            "directions": 4
+        },
+        {
+            "name": "experiment_brush",
             "directions": 4
         },
         {
