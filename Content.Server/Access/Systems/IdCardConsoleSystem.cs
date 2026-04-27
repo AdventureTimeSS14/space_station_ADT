@@ -136,7 +136,7 @@ public sealed class IdCardConsoleSystem : SharedIdCardConsoleSystem
         string newFullName,
         string newJobTitle,
         List<ProtoId<AccessLevelPrototype>> newAccessList,
-        ProtoId<JobPrototype> newJobProto,
+        ProtoId<JobPrototype>? newJobProto,
         EntityUid player,
         IdCardConsoleComponent? component = null)
     {
@@ -161,7 +161,7 @@ public sealed class IdCardConsoleSystem : SharedIdCardConsoleSystem
 
         // ADT-Tweak start: Используем TryIndex вместо Resolve для корректной обработки пустых ID
         JobPrototype? job = null;
-        if (newJobProto.Id != string.Empty)
+        if (newJobProto != string.Empty)
             _prototype.TryIndex(newJobProto, out job);
 
         if (job != null && _prototype.Resolve(job.Icon, out var jobIcon))

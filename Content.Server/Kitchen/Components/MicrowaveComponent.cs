@@ -163,29 +163,30 @@ namespace Content.Server.Kitchen.Components
         // End ADT-Tweak
     }
 
-    public sealed class BeingMicrowavedEvent : HandledEntityEventArgs
-    {
-        public EntityUid Microwave;
-        public EntityUid? User;
-        // ADT-Tweak: fields for whether or not the object is actually being heated or irradiated.
-        public bool BeingHeated;
-        public bool BeingIrradiated;
-        // End ADT-Tweak
-
-
-        public BeingMicrowavedEvent(EntityUid microwave, EntityUid? user)
-        {
-            Microwave = microwave;
-            User = user;
-
-        }
-        public BeingMicrowavedEvent(EntityUid microwave, EntityUid? user, bool heating, bool irradiating) // ADT-Tweak: added heating, irradiating
-        {
-            Microwave = microwave;
-            User = user;
-            BeingHeated = heating;
-            BeingIrradiated = irradiating;
-        }
-    }
+    // ADT-Tweak-Commented
+    // public sealed class BeingMicrowavedEvent : HandledEntityEventArgs
+    // {
+    //     public EntityUid Microwave;
+    //     public EntityUid? User;
+    //     // ADT-Tweak: fields for whether or not the object is actually being heated or irradiated.
+    //     public bool BeingHeated;
+    //     public bool BeingIrradiated;
+    //     // End ADT-Tweak
+    //
+    //
+    //     public BeingMicrowavedEvent(EntityUid microwave, EntityUid? user)
+    //     {
+    //         Microwave = microwave;
+    //         User = user;
+    //
+    //     }
+    //     public BeingMicrowavedEvent(EntityUid microwave, EntityUid? user, bool heating, bool irradiating) // ADT-Tweak: added heating, irradiating
+    //     {
+    //         Microwave = microwave;
+    //         User = user;
+    //         BeingHeated = heating;
+    //         BeingIrradiated = irradiating;
+    //     }
+    // }
 }
 

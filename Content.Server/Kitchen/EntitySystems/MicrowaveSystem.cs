@@ -37,15 +37,12 @@ using Content.Shared.Stacks;
 using Content.Server.Construction.Components;
 using Content.Shared.Chat;
 using Content.Shared.Damage.Components;
-<<<<<<< HEAD
 using Content.Shared.Temperature.Components;
 using Content.Shared.Damage;
 using Robust.Shared.Utility;
 using Content.Shared.ADT.Kitchem.Components; // ADT-Tweak
-=======
 using Content.Shared.Power.EntitySystems;
 using Content.Shared.Temperature.Components;
->>>>>>> upstreamwiz/master
 
 namespace Content.Server.Kitchen.EntitySystems
 {
