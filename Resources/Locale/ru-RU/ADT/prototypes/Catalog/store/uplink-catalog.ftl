@@ -273,13 +273,13 @@ uplink-mime-enhanced-book-desc = Эта книга написана велики
 # uplink-contraband-lighter-name = Подозрительная коробка с зажигалками или коробкой спичкек
 # uplink-contraband-lighter-desc = Таинственный набор, в котором гарантированно будет зажигалка с брендом Syndicate. Не требует заправки топлива.
 
-uplink-sandevistan-implant-name = Сандевистан
+uplink-sandevistan-implant-name = Shellguard "Сандевистан"
 uplink-sandevistan-implant-desc = Данный имплант позволяет вам ускорить ваши реакцию и скорость.
 
 uplink-davids-jacket-valid-name = Куртка эджраннера
 uplink-davids-jacket-valid-desc = Ты на самой грани. Покажи им, что ты готов на всё. Имеет защиту от различных типов урона.
 
-uplink-mantis-daggers-name = Клинки богомола
+uplink-mantis-daggers-name = Shellguard "Клинки богомола"
 uplink-mantis-daggers-desc = Позволяет выпускать из рук клинки богомола.
 
 uplink-cyberpsycho-bundle-name = Набор киберпсиха
