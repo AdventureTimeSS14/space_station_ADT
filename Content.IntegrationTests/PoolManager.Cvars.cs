@@ -1,9 +1,7 @@
 #nullable enable
 using Content.Shared.CCVar;
-<<<<<<< HEAD
 using Content.Shared.ADT.CCVar;
-=======
->>>>>>> upstreamwiz/master
+
 
 namespace Content.IntegrationTests;
 
