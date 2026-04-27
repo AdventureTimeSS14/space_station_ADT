@@ -140,6 +140,15 @@
     - ADTIgnoreChokeSpeechBlocking
     - Unimplantable
     - AnomalyHost
+  - type: IpcVulnerability
+    highVoltageDamage: 25
+    highVoltageStunDuration: 2.0
+    spaceDamagePerSecond: 2.5
+    spaceDamageType: Heat
+    spacePressureThreshold: 0.1
+    coldDrainThreshold: 260.0
+    maxColdDrainMultiplier: 6.0
+    radiationDamageMultiplier: 1.5
   - type: Inventory
     templateId: ipc
     displacements:
