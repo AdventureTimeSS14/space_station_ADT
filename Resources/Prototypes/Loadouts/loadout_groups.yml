@@ -44,8 +44,10 @@
   # - ClothingNeckWhiteListPin
   # # Corvax-Loadouts-End
   - AcousticGuitarInstrument
-  - RockGuitarInstrument #ADT-tweak
-  - HarmonicaInstrument #ADT-tweak
+  - RockGuitarInstrument
+  - BassGuitarInstrument
+  - HarmonicaInstrument
+  - SynthesizerInstrument
   - ADTModStorageVoucher
   - ADTClothingGeorgeRibbonPin
   - ADTClothingMaskPaperBlank

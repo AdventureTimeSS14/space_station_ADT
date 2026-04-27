@@ -18,6 +18,14 @@
     instrumentList:
       "Electro": {62: 0} #i needed generic sounding synth presets, sue me
       "Bubbles": {63: 0}
+      #ADT-Tweak-Start
+      "E. Piano": {4: 0}
+      "Square Wave": {80: 0}
+      "Saw Wave": {81: 0}
+      "Polysynth": {90: 0}
+      "Synth Bass": {38: 0}
+      "Bass & Lead": {87: 0}
+      #ADT-Tweak-End
   - type: Sprite
     sprite: Objects/Fun/Instruments/h_synthesizer.rsi
   - type: StaticPrice
