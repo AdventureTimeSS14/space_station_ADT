@@ -1,15 +1,12 @@
 using Content.Server.Destructible;
 using Content.Server.Polymorph.Components;
 using Content.Server.Popups;
-<<<<<<< HEAD
 using Content.Shared.Body.Components;
 using Content.Shared.Damage.Systems;
-=======
 using Content.Shared.Administration.Logs;
 using Content.Shared.Body;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Database;
->>>>>>> upstreamwiz/master
 using Content.Shared.Examine;
 using Content.Shared.Gibbing;
 using Content.Shared.Popups;
