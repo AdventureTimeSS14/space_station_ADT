@@ -170,3 +170,13 @@
     Glass: 3000
     Plasteel: 3000
     Copper: 800
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeSidearm
+  id: ADTWeaponLaserSvalinnRifle
+  result: ADTWeaponLaserSvalinnRifle
+  materials:
+    Steel: 2000
+    Glass: 800
+    Plastic: 500
+    Copper: 3000

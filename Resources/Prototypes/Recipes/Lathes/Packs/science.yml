@@ -56,7 +56,10 @@
   - PKAUpgradeFireRate
   - WeaponTetherGun
   - WeaponGauntletGorilla
-  - WeaponLaserSvalinn # ADT tweak
+  #ADT-Tweak-Start
+  - WeaponLaserSvalinn
+  - ADTWeaponLaserSvalinnRifle
+  #ADT-Tweak-End
 
 # Only contains parts for making basic modular grenades, no actual explosives
 - type: latheRecipePack
