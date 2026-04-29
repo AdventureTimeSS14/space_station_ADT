@@ -6,10 +6,13 @@
     sprite: Objects/Devices/chameleon_projector.rsi
     state: icon
   content:
+<<<<<<< HEAD
   - ADTClothingBackpackChameleonThiefFill # ADT-Tweak: ClothingBackpackChameleonFill --> ADTClothingBackpackChameleonThiefFill
+=======
+  - ClothingBackpackChameleonFillAgent
+>>>>>>> upstreamwiz/master
   - ChameleonProjector
   - FakeMindShieldImplanter
-  - AgentIDCard
 
 - type: thiefBackpackSet
   id: ToolsSet
@@ -84,7 +87,7 @@
   - EncryptionKeyStationMaster
   - CyberPen
   - BriefcaseThiefBribingBundleFilled
-  - ClothingMaskGasVoiceChameleon
+  - VoiceMaskImplanter
   #- todo Chameleon Stamp
 
 - type: thiefBackpackSet

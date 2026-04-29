@@ -14,7 +14,7 @@ using Content.Shared.Stacks;
 using Content.Shared.Tag;
 using Content.Shared.Weapons.Ranged;
 using Content.Shared.Weapons.Ranged.Components;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
+using Content.Shared.Power.EntitySystems;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
@@ -38,6 +38,7 @@ public sealed partial class PTLSystem : EntitySystem
     [Dependency] private readonly StackSystem _stack = default!;
     [Dependency] private readonly AudioSystem _aud = default!;
     [Dependency] private readonly EmagSystem _emag = default!;
+    [Dependency] private readonly SharedBatterySystem _batterySystem = default!;
 
     [ValidatePrototypeId<StackPrototype>] private readonly string _stackCredits = "Credit";
     [ValidatePrototypeId<TagPrototype>] private readonly string _tagScrewdriver = "Screwdriver";
@@ -93,10 +94,10 @@ public sealed partial class PTLSystem : EntitySystem
     private void Tick(Entity<PowerTransmissionLaserComponent> ent)
     {
         if (!TryComp<BatteryComponent>(ent, out var battery)
-        || battery.CurrentCharge < ent.Comp.MinShootPower)
+        || _batterySystem.GetCharge((ent.Owner, battery)) < ent.Comp.MinShootPower)
             return;
 
-        Shoot((ent, ent.Comp, battery));
+        Shoot((ent.Owner, ent.Comp, battery));
         Dirty(ent);
     }
 
@@ -104,7 +105,7 @@ public sealed partial class PTLSystem : EntitySystem
     {
         var megajoule = 1e6;
 
-        var charge = ent.Comp2.CurrentCharge / megajoule;
+        var charge = _batterySystem.GetCharge((ent.Owner, ent.Comp2)) / megajoule;
         // some random formula i found in bounty thread i popped it into desmos i think it looks good
         var spesos = (int) (charge * 500 / (Math.Log(charge * 5) + 1));
 
@@ -130,7 +131,7 @@ public sealed partial class PTLSystem : EntitySystem
 
             var targetCoords = xform.Coordinates.Offset(directionInParentSpace);
 
-            _gun.AttemptShoot(ent, ent, gun, targetCoords);
+            _gun.AttemptShoot(ent.Owner, (ent.Owner, gun), targetCoords);
         }
 
         // EVIL behavior......
@@ -139,7 +140,7 @@ public sealed partial class PTLSystem : EntitySystem
         if (TryComp<RadiationSourceComponent>(ent, out var rad))
             rad.Intensity = evil/8;
 
-        _flash.FlashArea(ent, ent, evil/2, TimeSpan.FromMilliseconds(evil/2));
+        _flash.FlashArea(ent.Owner, ent.Owner, evil/2, TimeSpan.FromMilliseconds(evil/2));
 
         ent.Comp1.SpesosHeld += spesos;
     }

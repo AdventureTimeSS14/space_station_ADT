@@ -24,7 +24,7 @@ public sealed partial class RemoveLanguagesEffect : BaseTraitEffect
 
         SpeciesPrototype? speciesPrototype = null;
 
-        if (ctx.EntMan.TryGetComponent<HumanoidAppearanceComponent>(ctx.Player, out var humanoid))
+        if (ctx.EntMan.TryGetComponent<HumanoidProfileComponent>(ctx.Player, out var humanoid))
         {
             if (ctx.Proto.TryIndex<SpeciesPrototype>(humanoid.Species, out var species))
             {

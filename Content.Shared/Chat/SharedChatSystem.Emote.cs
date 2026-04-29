@@ -1,5 +1,4 @@
 using System.Collections.Frozen;
-using Content.Shared.Chat;
 using Content.Shared.Chat.Prototypes;
 using Content.Shared.Speech;
 using Robust.Shared.Audio;
@@ -194,7 +193,7 @@ public abstract partial class SharedChatSystem
 
         // Check the whitelist and blacklist
         if (_whitelist.IsWhitelistFail(emote.Whitelist, source) ||
-            _whitelist.IsBlacklistPass(emote.Blacklist, source))
+            _whitelist.IsWhitelistPass(emote.Blacklist, source))
         {
             return false;
         }

@@ -1,5 +1,5 @@
 # If you add a new trait, make sure to add the corresponding component to the whitelist in \Resources\Prototypes\Entities\Mobs\Player\clone.yml so it gets copied to clones correctly!
-# ADT - Трейты изменены под новую систему трейтов, цента трейтов речи теперь равна нулю.
+# ADT - Трейты изменены под новую систему трейтов
 
 - type: trait
   id: Accentless
@@ -117,6 +117,16 @@
       components:
         - type: ReplacementAccent
           accent: mobster
+
+- type: trait
+  id: ScottishAccent
+  name: trait-scottish-name
+  description: trait-scottish-desc
+  category: SpeechTraits
+  cost: 1
+  components:
+  - type: ReplacementAccent
+    accent: scottish
 
 # 2 Cost
 

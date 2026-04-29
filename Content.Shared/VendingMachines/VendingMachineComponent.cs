@@ -23,7 +23,7 @@ namespace Content.Shared.VendingMachines
         /// Used by the client to determine how long the deny animation should be played.
         /// </summary>
         [DataField]
-        public float DenyDelay = 2.0f;
+        public TimeSpan DenyDelay = TimeSpan.FromSeconds(2.0f);
 
         /// <summary>
         /// Used by the server to determine how long the vending machine stays in the "Eject" state.
@@ -31,7 +31,7 @@ namespace Content.Shared.VendingMachines
         /// Used by the client to determine how long the deny animation should be played.
         /// </summary>
         [DataField]
-        public float EjectDelay = 1.2f;
+        public TimeSpan EjectDelay = TimeSpan.FromSeconds(1.2f);
 
         [DataField, AutoNetworkedField]
         public Dictionary<string, VendingMachineInventoryEntry> Inventory = new();
@@ -51,7 +51,12 @@ namespace Content.Shared.VendingMachines
 
         public string? NextItemToEject;
 
+        [DataField]
         public bool Broken;
+
+        public TimeSpan? EjectEnd;
+        public TimeSpan? DenyEnd;
+        public TimeSpan? DispenseOnHitEnd;
 
         /// <summary>
         /// When true, will forcefully throw any object it dispenses
@@ -109,10 +114,6 @@ namespace Content.Shared.VendingMachines
 
         public float NonLimitedEjectRange = 5f;
 
-        public float EjectAccumulator = 0f;
-        public float DenyAccumulator = 0f;
-        public float DispenseOnHitAccumulator = 0f;
-
         /// <summary>
         /// The quality of the stock in the vending machine on spawn.
         /// Represents the percentage chance (0.0f = 0%, 1.0f = 100%) each set of items in the machine is fully-stocked.
@@ -126,6 +127,12 @@ namespace Content.Shared.VendingMachines
         /// </summary>
         [DataField("nextEmpEject", customTypeSerializer: typeof(TimeOffsetSerializer))]
         public TimeSpan NextEmpEject = TimeSpan.Zero;
+
+        /// <summary>
+        /// Audio entity used during restock in case the doafter gets canceled.
+        /// </summary>
+        [DataField]
+        public EntityUid? RestockStream;
 
         #region Client Visuals
         /// <summary>
@@ -220,14 +227,16 @@ namespace Content.Shared.VendingMachines
         //ADT-Economy-End
     }
 
-    [Serializable, NetSerializable]
-    public sealed class VendingMachineInventoryEntry
+    [Serializable, NetSerializable, DataDefinition]
+    public sealed partial class VendingMachineInventoryEntry
     {
-        [ViewVariables(VVAccess.ReadWrite)]
+        [DataField]
         public InventoryType Type;
-        [ViewVariables(VVAccess.ReadWrite)]
+
+        [DataField]
         public string ID;
-        [ViewVariables(VVAccess.ReadWrite)]
+
+        [DataField]
         public uint Amount;
         //ADT-Economy-Start
         [ViewVariables(VVAccess.ReadWrite)]
@@ -300,4 +309,24 @@ namespace Content.Shared.VendingMachines
     {
 
     };
+
+    [Serializable, NetSerializable]
+    public sealed class VendingMachineComponentState : ComponentState
+    {
+        public Dictionary<string, VendingMachineInventoryEntry> Inventory = new();
+
+        public Dictionary<string, VendingMachineInventoryEntry> EmaggedInventory = new();
+
+        public Dictionary<string, VendingMachineInventoryEntry> ContrabandInventory = new();
+
+        public bool Contraband;
+
+        public TimeSpan? EjectEnd;
+
+        public TimeSpan? DenyEnd;
+
+        public TimeSpan? DispenseOnHitEnd;
+
+        public bool Broken;
+    }
 }

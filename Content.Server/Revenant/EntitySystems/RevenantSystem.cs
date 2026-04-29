@@ -49,10 +49,13 @@ public sealed partial class RevenantSystem : EntitySystem
     [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly VisibilitySystem _visibility = default!;
     [Dependency] private readonly TurfSystem _turf = default!;
+<<<<<<< HEAD
     [Dependency] private readonly ExplosionSystem _explotions = default!;
 
     private static readonly EntProtoId RevenantShopId = "ActionRevenantShop";
 
+=======
+>>>>>>> upstreamwiz/master
     public override void Initialize()
     {
         base.Initialize();
@@ -241,6 +244,7 @@ public sealed partial class RevenantSystem : EntitySystem
         return true;
     }
 
+<<<<<<< HEAD
     // private void OnShop(EntityUid uid, RevenantComponent component, RevenantShopActionEven args)
     // {
     //     if (!TryComp<StoreComponent>(uid, out var store))
@@ -253,6 +257,8 @@ public sealed partial class RevenantSystem : EntitySystem
         args.Cancelled = true;
     }
 
+=======
+>>>>>>> upstreamwiz/master
     public void MakeVisible(bool visible)
     {
         var query = EntityQueryEnumerator<RevenantComponent, VisibilityComponent>();

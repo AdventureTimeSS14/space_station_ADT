@@ -19,12 +19,16 @@
     - id: MouseMigration
     - id: PowerGridCheck
     - id: RandomSentience
+<<<<<<< HEAD
     - id: ADTNeutralSpiderSpawn # ADT Tweak нейтральные паучки
     - id: SlimesSpawn
+=======
+    - id: SlimesSpawnHorde
+>>>>>>> upstreamwiz/master
     - id: SolarFlare
-    - id: SnakeSpawn
-    - id: SpiderClownSpawn
-    - id: SpiderSpawn
+    - id: SnakeSpawnHorde
+    - id: SpiderClownSpawnHorde
+    - id: SpiderSpawnHorde
     - id: VentClog
     - id: WormholesSpawn # ADT-Tweak Wormholes Spawns now correctly without admin abuse
     - id: SpaceEmperorSpawn # ADT Tweak
@@ -47,6 +51,7 @@
     - id: NinjaSpawn
     - id: ParadoxCloneSpawn
     - id: SleeperAgents
+<<<<<<< HEAD
     # - id: ZombieOutbreak # ADT tweak
     - id: WizardSpawn
     - id: LoneOpsSpawn  # ADT tweak - вернул лон опса в список... АНТАГОВ
@@ -54,6 +59,11 @@
     - id: MorphSpawn #ADT tweak morph
     - id: VoxRaidersEvent # ADT tweak vox-raiders
     # - id: IanHeroEvent # ADT tweak heros
+=======
+    - id: ZombieOutbreak
+    - id: LoneOpsSpawn
+    - id: WizardSpawn
+>>>>>>> upstreamwiz/master
     - !type:NestedSelector
       tableId: DerelictBorgEventTable
 
@@ -258,7 +268,7 @@
       pickPlayer: false
       startingGear: SpaceNinjaGear
       roleLoadout:
-      - RoleSurvivalEVA
+      - RoleSurvivalSpaceNinja
       briefing:
         text: ninja-role-greeting
         color: Green
@@ -338,10 +348,17 @@
   components:
   - type: StationEvent
     weight: 1 # rare
+<<<<<<< HEAD
     duration: 1
     earliestStart: 40 # Corvax-MRP # 30
     reoccurrenceDelay: 60
     minimumPlayers: 1000  #ADT-Tweak - де факто отключаем визарда 10 > 1000
+=======
+    duration: null
+    earliestStart: 30
+    reoccurrenceDelay: 60
+    minimumPlayers: 30
+>>>>>>> upstreamwiz/master
   - type: AntagSelection
     agentName: wizard-round-end-name
     definitions:
@@ -480,59 +497,62 @@
     duration: 60
   - type: VentClogRule
 
-- type: entity
-  id: SlimesSpawn
-  parent: BaseStationEventShortDelay
-  components:
-  - type: StationEvent
-    startAnnouncement: station-event-vent-creatures-start-announcement
-    startAudio:
-      path: /Audio/ADT/Announcements/announce_dig.ogg #ADT-tweak
-    earliestStart: 30 # Corax-MRP # 20
-    minimumPlayers: 15
-    weight: 5
-    duration: 60
-  - type: VentCrittersRule
-    entries:
-    - id: MobAdultSlimesBlueAngry
-      prob: 0.02
-    - id: MobAdultSlimesGreenAngry
-      prob: 0.02
-    - id: MobAdultSlimesYellowAngry
-      prob: 0.02
+# Critters
 
 - type: entity
-  id: SnakeSpawn
+  id: SlimesSpawnHorde
   parent: BaseStationEventShortDelay
   components:
   - type: StationEvent
-    startAnnouncement: station-event-vent-creatures-start-announcement
+    startAnnouncement: station-event-vent-creatures-start-horde-announcement
     startAudio:
       path: /Audio/ADT/Announcements/announce_dig.ogg #ADT-tweak
     earliestStart: 30 # Corax-MRP # 20
     minimumPlayers: 15
     weight: 5
-    duration: 60
-  - type: VentCrittersRule
-    entries:
-    - id: MobPurpleSnake
-      prob: 0.02
-    - id: MobSmallPurpleSnake
-      prob: 0.02
-    - id: MobCobraSpace
-      prob: 0.02
+    duration: 5
+    maxDuration: 20
+  - type: VentHordeRule
+    table: !type:GroupSelector
+      rolls: 4, 8
+      children:
+      - id: MobAdultSlimesBlueAngry
+      - id: MobAdultSlimesGreenAngry
+      - id: MobAdultSlimesYellowAngry
 
 - type: entity
-  id: SpiderSpawn
+  id: SnakeSpawnHorde
   parent: BaseStationEventShortDelay
   components:
   - type: StationEvent
-    startAnnouncement: station-event-vent-creatures-start-announcement
+    startAnnouncement: station-event-vent-creatures-start-horde-announcement
     startAudio:
       path: /Audio/ADT/Announcements/announce_dig.ogg #ADT-tweak
     earliestStart: 30 # Corax-MRP # 20
     minimumPlayers: 15
     weight: 5
+    duration: 5
+    maxDuration: 20
+  - type: VentHordeRule
+    table: !type:GroupSelector
+      rolls: 4, 8
+      children:
+      - id: MobPurpleSnake
+      - id: MobSmallPurpleSnake
+      - id: MobCobraSpace
+
+- type: entity
+  id: SpiderSpawnHorde
+  parent: BaseStationEventShortDelay
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-vent-creatures-start-horde-announcement
+    startAudio:
+      path: /Audio/ADT/Announcements/announce_dig.ogg #ADT-tweak
+    earliestStart: 30 # Corax-MRP # 20
+    minimumPlayers: 15
+    weight: 5
+<<<<<<< HEAD
     duration: 60
   - type: VentCrittersRule
     entries:
@@ -548,18 +568,28 @@
     - id: ADTMobViperSpiderAngry
       prob: 0.005
 # ADT tweak end Разные пауки
+=======
+    duration: 5
+    maxDuration: 20
+  - type: VentHordeRule
+    table: !type:GroupSelector
+      rolls: 4, 8
+      children:
+      - id: MobGiantSpiderAngry
+>>>>>>> upstreamwiz/master
 
 - type: entity
-  id: SpiderClownSpawn
+  id: SpiderClownSpawnHorde
   parent: BaseStationEventShortDelay
   components:
   - type: StationEvent
-    startAnnouncement: station-event-vent-creatures-start-announcement
+    startAnnouncement: station-event-vent-creatures-start-horde-announcement
     startAudio:
       path: /Audio/ADT/Announcements/announce_dig.ogg #ADT-tweak
     earliestStart: 30 # Corax-MRP # 20
     minimumPlayers: 20
     weight: 1.5
+<<<<<<< HEAD
     duration: 60
   - type: VentCrittersRule
     entries:
@@ -605,6 +635,51 @@
 #       mindComponents:
 #       - type: InitialInfectedRole
 #         prototype: InitialInfected
+=======
+    duration: 5
+    maxDuration: 20
+  - type: VentHordeRule
+    table: !type:GroupSelector
+      rolls: 4, 8
+      children:
+      - id: MobClownSpider
+
+- type: entity
+  id: ZombieOutbreak
+  parent: BaseGameRule
+  components:
+  - type: StationEvent
+    earliestStart: 90
+    minimumPlayers: 40
+    weight: 1 # Zombies was happening basically every single survival round, so now it's super rare
+    duration: 1
+    occursDuringRoundEnd: false
+  - type: ZombieRule
+  - type: AntagSelection
+    definitions:
+    - prefRoles: [ InitialInfected ]
+      max: 3
+      playerRatio: 10
+      blacklist:
+        components:
+        - ZombieImmune
+        - AntagImmune
+      briefing:
+        text: zombie-patientzero-role-greeting
+        color: Plum
+        sound: "/Audio/Ambience/Antag/zombie_start.ogg"
+      components:
+      - type: PendingZombie #less time to prepare than normal
+        minInitialInfectedGrace: 300
+        maxInitialInfectedGrace: 450
+      - type: ZombifyOnDeath
+      - type: IncurableZombie
+      - type: InitialInfected
+      mindRoles:
+      - MindRoleInitialInfected
+  - type: DynamicRuleCost
+    cost: 200
+>>>>>>> upstreamwiz/master
 
 - type: entity
   parent: BaseNukeopsRule

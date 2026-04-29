@@ -2,7 +2,14 @@
   id: Sneeze
   name: chat-emote-name-sneeze
   category: Vocal
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    tags:
+    - SiliconEmotes
   chatMessages: ["chat-emote-msg-sneeze"]
+<<<<<<< HEAD
   # ADT tweak start
   icon: ADT/Interface/Emotes/sneeze.png
   whitelist:
@@ -23,6 +30,18 @@
     - чихнуло
     - чихает
   # ADT tweak end
+=======
+  chatTriggers:
+  - sneeze
+  - sneezes
+  - sneezed
+  - sneeze.
+  - sneezes.
+  - sneezed.
+  - sneeze!
+  - sneezes!
+  - sneezed!
+>>>>>>> upstreamwiz/master
 
 - type: emote
   id: Cough
@@ -41,6 +60,7 @@
     - cough
     - coughs
     - coughed
+<<<<<<< HEAD
     # Corvax-Localization-Start
     - кашель
     - кашляет
@@ -50,6 +70,14 @@
     - кашляет кровью
     - кашляет плазмой
     # End-ADT-Tweak-AddComp-BloodCough
+=======
+    - cough.
+    - coughs.
+    - coughed.
+    - cough!
+    - coughs!
+    - coughed!
+>>>>>>> upstreamwiz/master
 
 - type: emote
   id: CatMeow

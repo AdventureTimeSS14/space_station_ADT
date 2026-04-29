@@ -146,6 +146,7 @@
     - HeadTop
     - HeadSide
     - FacialHair
+<<<<<<< HEAD
   #ADT-Tweak-Start
   - type: CoveredSlot
     slots: [eyes, mask, ears]
@@ -153,6 +154,8 @@
     hidesSlots: [ EYES, EARS, MASK ]
   #ADT-Tweak-End
 
+=======
+>>>>>>> upstreamwiz/master
 
 - type: entity
   abstract: true
@@ -202,6 +205,7 @@
     - HeadTop
     - HeadSide
     - FacialHair
+<<<<<<< HEAD
     - SnoutOverlay # ADT Tweak
   #ADT-Tweak-Start
   - type: InjectorsBlocker
@@ -210,6 +214,8 @@
   - type: HidesSlots
     hidesSlots: [ EYES, EARS, MASK ]
   #ADT-Tweak-End
+=======
+>>>>>>> upstreamwiz/master
 
 - type: entity
   abstract: true

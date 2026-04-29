@@ -6,15 +6,23 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Engineering
+<<<<<<< HEAD
       time: 20h # Corvax-RoleTime 4
     - !type:DepartmentTimeRequirement
       department: Medical
       time: 20h # Corvax-RoleTime 4
+=======
+      time: 4h
+    - !type:DepartmentTimeRequirement
+      department: Medical
+      time: 4h
+>>>>>>> upstreamwiz/master
     - !type:DepartmentTimeRequirement
       department: Science
       time: 4h
     - !type:DepartmentTimeRequirement
       department: Security
+<<<<<<< HEAD
       time: 4h # ADT-Tweak 4
 #    - !type:DepartmentTimeRequirement
 #      department: Command
@@ -31,6 +39,12 @@
       - Resomi
       - Vox
   # ADT RESTRICT End
+=======
+      time: 4h
+    - !type:DepartmentTimeRequirement
+      department: Command
+      time: 4h
+>>>>>>> upstreamwiz/master
   weight: 20
   startingGear: CaptainGear
   icon: "JobIconCaptain"
@@ -45,7 +59,6 @@
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
-      # - type: PhantomTyranyTarget # ADT Phantom
 
 - type: startingGear
   id: CaptainGear

@@ -20,7 +20,14 @@
     - id: NodeScanner
     - id: NetworkConfigurator
       prob: 0.5
+<<<<<<< HEAD
     # ADT-Tweak-Start
     - id: ADTRNDInducerBattery
       prob: 0.3
     # ADT-Tweak-End
+=======
+    - id: PlushieLizardJobResearchassistant
+      prob: 0.02
+    - id: PlushieLizardJobScientist
+      prob: 0.02
+>>>>>>> upstreamwiz/master

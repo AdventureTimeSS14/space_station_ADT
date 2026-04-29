@@ -282,6 +282,11 @@
       path: /Audio/Voice/Vox/shriek1.ogg
     Laugh:
       path: /Audio/Voice/Vox/vox_laugh.ogg
+<<<<<<< HEAD
+=======
+    Sneeze:
+      path: /Audio/Voice/Vox/vox_sneeze.ogg
+>>>>>>> upstreamwiz/master
     Cough:
       path: /Audio/Voice/Vox/vox_cough.ogg
     Sigh:
@@ -292,12 +297,18 @@
       path: /Audio/Voice/Vox/vox_chitter.ogg
     Honk:
       collection: BikeHorn
+<<<<<<< HEAD
     # Crying:         # ADT-Tweak: Уже есть в ADT
     #   path: /Audio/Voice/Vox/vox_cry.ogg
+=======
+    Crying:
+      path: /Audio/Voice/Vox/vox_cry.ogg
+>>>>>>> upstreamwiz/master
     Weh:
       collection: Weh
     Hew:
       collection: Hew
+<<<<<<< HEAD
     # Gasp:           # ADT-Tweak: Уже есть в ADT
     #   path: /Audio/Effects/Gasp/vox_gasp.ogg
     DefaultDeathgasp:
@@ -322,6 +333,12 @@
       params:
         volume: -5
     # ADT-Tweak End
+=======
+    Gasp:
+      path: /Audio/Effects/Gasp/vox_gasp.ogg
+    DefaultDeathgasp:
+      path: /Audio/Effects/Gasp/vox_DeathGasp.ogg
+>>>>>>> upstreamwiz/master
   params:
     variation: 0.125
     # TODO: We need vox sounds for the other emotes
@@ -333,6 +350,8 @@
       path: /Audio/Voice/Diona/diona_scream.ogg
     Laugh:
       collection: DionaLaugh
+    Sneeze:
+      collection: DionaSneeze
     Chirp:
       path: /Audio/Animals/nymph_chirp.ogg
     Honk:
@@ -581,13 +600,22 @@
     Laugh:
       collection: MaleLaugh
     Sneeze:
+<<<<<<< HEAD
       collection: MaleSneezes
+=======
+      collection: VulpkaninSneeze
+>>>>>>> upstreamwiz/master
     Cough:
       collection: MaleCoughs
     Whistle:
       collection: Whistles
     Sigh:
       collection: MaleSigh
+<<<<<<< HEAD
+=======
+    Yawn:
+      collection: VulpkaninYawns
+>>>>>>> upstreamwiz/master
     Scream:
       collection: VulpkaninScreams
     Growl:
@@ -602,6 +630,15 @@
       collection: VulpkaninWhines
     Howl:
       collection: VulpkaninHowls
+<<<<<<< HEAD
+=======
+    Weh:
+      collection: Weh
+    Hew:
+      collection: Hew
+    Honk:
+      collection: BikeHorn
+>>>>>>> upstreamwiz/master
     Gasp:
       collection: MaleGasp
     DefaultDeathgasp:
@@ -615,13 +652,22 @@
     Laugh:
       collection: FemaleLaugh
     Sneeze:
+<<<<<<< HEAD
       collection: FemaleSneezes
+=======
+      collection: VulpkaninSneeze
+>>>>>>> upstreamwiz/master
     Cough:
       collection: FemaleCoughs
     Whistle:
       collection: Whistles
     Sigh:
       collection: FemaleSigh
+<<<<<<< HEAD
+=======
+    Yawn:
+      collection: VulpkaninYawns
+>>>>>>> upstreamwiz/master
     Scream:
       collection: VulpkaninScreams
     Growl:
@@ -636,6 +682,15 @@
       collection: VulpkaninWhines
     Howl:
       collection: VulpkaninHowls
+<<<<<<< HEAD
+=======
+    Weh:
+      collection: Weh
+    Hew:
+      collection: Hew
+    Honk:
+      collection: BikeHorn
+>>>>>>> upstreamwiz/master
     Gasp:
       collection: FemaleGasp
     DefaultDeathgasp:
@@ -680,6 +735,22 @@
       path: /Audio/Voice/Reptilian/reptilian_tailthump.ogg
       params:
         variation: 0.125
+    Clap:
+      collection: Claps
+    ClapSingle:
+      collection: ClapSingle
+    Snap:
+      collection: Snaps
+      params:
+        volume: -6
+    Salute:
+      collection: Salutes
+
+- type: emoteSounds
+  id: MothBodyEmotes
+  sounds:
+    Flap:
+      path: /Audio/Voice/Moth/moth_flap.ogg
     Clap:
       collection: Claps
     ClapSingle:

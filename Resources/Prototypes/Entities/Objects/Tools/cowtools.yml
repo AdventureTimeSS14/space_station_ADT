@@ -172,6 +172,7 @@
   suffix: Filled
   parent: CowToolbox
   components:
+<<<<<<< HEAD
   - type: StorageFill
     contents:
     - id: Haycutters
@@ -184,3 +185,16 @@
   - type: Tag # ADT-Tweak
     tags:
     - Toolbox
+=======
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: Haycutters
+        - id: Moodriver
+        - id: Wronch
+        - id: Cowbar
+        - id: Mooltitool
+        - id: Cowelder
+        - id: Milkalyzer
+>>>>>>> upstreamwiz/master

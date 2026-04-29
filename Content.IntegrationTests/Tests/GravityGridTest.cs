@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+using Content.IntegrationTests.Fixtures;
+>>>>>>> upstreamwiz/master
 using Content.Server.Power.Components;
 using Content.Shared.Gravity;
 using Robust.Shared.GameObjects;
@@ -11,7 +15,7 @@ namespace Content.IntegrationTests.Tests
     /// making sure that gravity is applied to the correct grids.
     [TestFixture]
     [TestOf(typeof(GravityGeneratorComponent))]
-    public sealed class GravityGridTest
+    public sealed class GravityGridTest : GameTest
     {
         [TestPrototypes]
         private const string Prototypes = @"
@@ -31,7 +35,7 @@ namespace Content.IntegrationTests.Tests
         [Test]
         public async Task Test()
         {
-            await using var pair = await PoolManager.GetServerClient();
+            var pair = Pair;
             var server = pair.Server;
 
             var testMap = await pair.CreateTestMap();
@@ -96,8 +100,6 @@ namespace Content.IntegrationTests.Tests
                     Assert.That(entityMan.GetComponent<GravityComponent>(grid2).Enabled, Is.False);
                 });
             });
-
-            await pair.CleanReturnAsync();
         }
     }
 }

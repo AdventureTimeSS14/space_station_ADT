@@ -165,7 +165,7 @@
     mechToPilotDamageMultiplier: 0.5 # ADT tweak 0.75 to 0.5
     pilotWhitelist:
       components:
-        - HumanoidAppearance
+        - HumanoidProfile
   - type: MeleeWeapon
     hidden: true
     attackRate: 1
@@ -229,6 +229,7 @@
     mechToPilotDamageMultiplier: 0.5 # ADT tweak 0.75 to 0.5
     pilotWhitelist:
       components:
+<<<<<<< HEAD
       - HumanoidAppearance
     # ADT Start
     equipmentWhitelist:
@@ -239,6 +240,9 @@
     baseWalkSpeed: 1.875
     baseSprintSpeed: 3.375
     # ADT End
+=======
+      - HumanoidProfile
+>>>>>>> upstreamwiz/master
 
 - type: entity
   parent: MechHonker

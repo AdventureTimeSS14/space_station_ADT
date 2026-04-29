@@ -171,6 +171,13 @@
     sprite: Objects/Tools/lantern.rsi
     state: lantern
 
+- type: stealTargetGroup
+  id: ClothingEyesHuds
+  name: steal-target-groups-huds
+  sprite:
+    sprite: Clothing/Eyes/Hud/sec.rsi
+    state: icon
+
 # Thief single item
 
 - type: stealTargetGroup
@@ -248,6 +255,16 @@
 - type: stealTargetGroup
   id: ChiefEngineerToolBelt
   name: steal-target-groups-belt-ce
+<<<<<<< HEAD
+=======
+  sprite:
+    sprite: Clothing/Belt/ce.rsi
+    state: icon
+
+- type: stealTargetGroup
+  id: SalvageExpeditionsComputerCircuitboard
+  name: steal-target-groups-salvage-expeditions-computer-circuitboard
+>>>>>>> upstreamwiz/master
   sprite:
     sprite: Clothing/Belt/ce.rsi
     state: icon
@@ -267,13 +284,6 @@
   sprite:
     sprite: Objects/Misc/module.rsi
     state: cpuboard
-
-- type: stealTargetGroup
-  id: ClothingEyesHudBeer
-  name: steal-target-groups-clothing-eyes-hud-beer
-  sprite:
-    sprite: Clothing/Eyes/Hud/beergoggles.rsi
-    state: icon
 
 - type: stealTargetGroup
   id: Bible

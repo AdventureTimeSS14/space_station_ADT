@@ -2,6 +2,7 @@
 using Content.Shared.CCVar;
 using Content.Shared.ADT.CCVar;
 
+
 namespace Content.IntegrationTests;
 
 // Partial class containing test cvars
@@ -26,7 +27,6 @@ public static partial class PoolManager
         (CCVars.ArrivalsShuttles.Name,        "false"),
         (CCVars.EmergencyShuttleEnabled.Name, "false"),
         (CCVars.ProcgenPreload.Name,          "false"),
-        (CCVars.WorldgenEnabled.Name,         "false"),
         (CCVars.GatewayGeneratorEnabled.Name, "false"),
         (CCVars.GameDummyTicker.Name, "true"),
         (CCVars.GameLobbyEnabled.Name, "false"),

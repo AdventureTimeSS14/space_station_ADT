@@ -3,10 +3,11 @@ using Robust.Server.GameObjects;
 using Content.Server.Actions;
 using Robust.Shared.Player;
 using Content.Server.AlertLevel;
+using Content.Server.Silicons.Borgs;
 using Content.Server.Station.Systems;
+using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.PowerCell.Components;
 using Content.Server.PowerCell;
-using Content.Shared.Item.ItemToggle;
 using Content.Shared.PowerCell;
 
 namespace Content.Server.ADT.Silicons.Borgs;
@@ -17,7 +18,7 @@ public sealed partial class BorgInfoSystem : EntitySystem
     [Dependency] private readonly ActionsSystem _action = default!;
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly PowerCellSystem _powerCell = default!;
-    [Dependency] private readonly ItemToggleSystem _toggle = default!;
+    [Dependency] private readonly BorgSystem _borg = default!;
     [Dependency] private readonly IEntityManager _entity = default!;
 
     public override void Initialize()
@@ -85,6 +86,9 @@ public sealed partial class BorgInfoSystem : EntitySystem
         if (!Resolve(uid, ref component, false))
             return;
 
+        UpdateStationName(uid, component);
+        UpdateAlertLevel(uid, component);
+
         if (!_uiSystem.HasUi(uid, BorgInfoUiKey.BorgInfo))
             return;
 
@@ -112,22 +116,25 @@ public sealed partial class BorgInfoSystem : EntitySystem
                 );
 
         _uiSystem.SetUiState(uid, BorgInfoUiKey.BorgInfo, state);
-        UpdateStationName(uid, component);
-        UpdateAlertLevel(uid, component);
     }
+
     private void OnPowerCellChanged(EntityUid uid, BorgInfoComponent component, PowerCellChangedEvent args)
     {
-
-        if (_powerCell.HasDrawCharge(uid))
+        if (TryComp<BorgChassisComponent>(uid, out var chassis))
         {
-            _toggle.TryActivate(uid);
+            _borg.TryActivate((uid, chassis));
         }
 
         UpdateWindow(uid, component);
     }
+
     private void OnPowerCellSlotEmpty(EntityUid uid, BorgInfoComponent component, ref PowerCellSlotEmptyEvent args)
     {
-        _toggle.TryDeactivate(uid);
+        if (TryComp<BorgChassisComponent>(uid, out var chassis))
+        {
+            _borg.SetActive((uid, chassis), false);
+        }
+
         UpdateWindow(uid, component);
     }
 

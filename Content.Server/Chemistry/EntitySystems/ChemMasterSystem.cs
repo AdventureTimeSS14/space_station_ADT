@@ -69,6 +69,7 @@ namespace Content.Server.Chemistry.EntitySystems
             SubscribeLocalEvent<ChemMasterComponent, ChemMasterReagentAmountButtonMessage>(OnReagentButtonMessage);
             SubscribeLocalEvent<ChemMasterComponent, ChemMasterCreatePillsMessage>(OnCreatePillsMessage);
             SubscribeLocalEvent<ChemMasterComponent, ChemMasterOutputToBottleMessage>(OnOutputToBottleMessage);
+<<<<<<< HEAD
 
             // ADT-Tweak Start: Subscriptions for all buttons
             // Handle client sort dropdown/button interactions.
@@ -106,6 +107,9 @@ namespace Content.Server.Chemistry.EntitySystems
             // Initialize when spawned in the world.
             SubscribeLocalEvent<ChemMasterComponent, MapInitEvent>(OnMapInit);
             // ADT-Tweak End
+=======
+            SubscribeLocalEvent<ChemMasterComponent, ChemMasterOutputDrawSourceMessage>(OnSetDrawSourceMessage);
+>>>>>>> upstreamwiz/master
         }
 
         private void OnAmountsUpdated(Entity<ChemMasterComponent> ent, ref ChemMasterAmountsUpdated args)
@@ -324,6 +328,7 @@ namespace Content.Server.Chemistry.EntitySystems
 
             // ADT-Tweak Start: Updated Constructor
             var state = new ChemMasterBoundUserInterfaceState(
+<<<<<<< HEAD
                 chemMaster.Mode,
                 BuildInputContainerInfo(container),
                 bufferReagents,
@@ -350,6 +355,10 @@ namespace Content.Server.Chemistry.EntitySystems
                 chemMaster.SelectedReagents,
                 chemMaster.SelectedReagentAmounts);
             //ADT-Tweak End
+=======
+                chemMaster.Mode, chemMaster.SortingType, BuildInputContainerInfo(inputContainer), BuildOutputContainerInfo(outputContainer),
+                bufferReagents, bufferCurrentVolume, chemMaster.PillType, chemMaster.PillDosageLimit, updateLabel, chemMaster.DrawSource);
+>>>>>>> upstreamwiz/master
 
             _userInterfaceSystem.SetUiState(owner, ChemMasterUiKey.Key, state);
         }
@@ -411,8 +420,23 @@ namespace Content.Server.Chemistry.EntitySystems
             ClickSound(chemMaster);
         }
 
+<<<<<<< HEAD
         // ADT-Tweak Start: Bottle buttons reagent transfer
         private void OnContainerInserted(Entity<ChemMasterComponent> chemMaster, ref EntInsertedIntoContainerMessage args)
+=======
+        private void OnSetDrawSourceMessage(Entity<ChemMasterComponent> chemMaster, ref ChemMasterOutputDrawSourceMessage message)
+        {
+            //Ensure draw source is valid, either from the internal buffer or the inserted beaker
+            if (!Enum.IsDefined(message.DrawSource))
+                return;
+
+            chemMaster.Comp.DrawSource = message.DrawSource;
+            UpdateUiState(chemMaster);
+            ClickSound(chemMaster);
+        }
+
+        private void TransferReagents(Entity<ChemMasterComponent> chemMaster, ReagentId id, FixedPoint2 amount, bool fromBuffer)
+>>>>>>> upstreamwiz/master
         {
             // Check if this insertion is into one of our pill container slots
             if (args.Container?.ID?.StartsWith("pillContainerSlot") == true)
@@ -789,8 +813,18 @@ namespace Content.Server.Chemistry.EntitySystems
             if (message.Label.Length > SharedChemMaster.LabelMaxLength)
                 return;
 
+<<<<<<< HEAD
             // ADT-Tweak Start: Use reagent amounts if available, otherwise fall back to selected reagents
             if (chemMaster.Comp.SelectedReagentAmounts.Count > 0)
+=======
+            var needed = message.Dosage * message.Number;
+
+            if (!WithdrawFromSource(chemMaster, needed, user, out var withdrawal))
+                return;
+            _labelSystem.Label(container, message.Label);
+
+            for (var i = 0; i < message.Number; i++)
+>>>>>>> upstreamwiz/master
             {
                 // Calculate total volume for dosage calculation
                 var totalVolume = FixedPoint2.Zero;
@@ -799,6 +833,7 @@ namespace Content.Server.Chemistry.EntitySystems
                     totalVolume += FixedPoint2.New(amount);
                 }
 
+<<<<<<< HEAD
                 // Calculate how many pills we can create based on available volume and dosage
 
                 var pillsToCreate = (int)message.Number;
@@ -810,6 +845,13 @@ namespace Content.Server.Chemistry.EntitySystems
 
 
                 if (pillsToCreate == 0)
+=======
+                _solutionContainerSystem.EnsureSolutionEntity(item,
+                    SharedChemMaster.PillSolutionName,
+                    out var itemSolution,
+                    message.Dosage);
+                if (!itemSolution.HasValue)
+>>>>>>> upstreamwiz/master
                     return;
 
                 // Find available slots for storage
@@ -1107,6 +1149,7 @@ namespace Content.Server.Chemistry.EntitySystems
             if (message.Label.Length > SharedChemMaster.LabelMaxLength)
                 return;
 
+<<<<<<< HEAD
             // ADT-Tweak Start: Use reagent amounts if available, otherwise fall back to selected reagents
             if (chemMaster.Comp.SelectedReagentAmounts.Count > 0)
             {
@@ -1116,6 +1159,10 @@ namespace Content.Server.Chemistry.EntitySystems
                 {
                     totalVolume += FixedPoint2.New(amount);
                 }
+=======
+            if (!WithdrawFromSource(chemMaster, message.Dosage, user, out var withdrawal))
+                return;
+>>>>>>> upstreamwiz/master
 
                 // Calculate how many bottles we can create based on available volume and dosage
                 var bottlesToCreate = (int)message.Number;
@@ -1394,23 +1441,33 @@ namespace Content.Server.Chemistry.EntitySystems
             ClickSound(chemMaster);
         }
 
+<<<<<<< HEAD
         private bool WithdrawSelectedReagentsFromBuffer(
+=======
+        private bool WithdrawFromSource(
+>>>>>>> upstreamwiz/master
             Entity<ChemMasterComponent> chemMaster,
-            FixedPoint2 neededVolume, EntityUid? user,
+            FixedPoint2 neededVolume,
+            EntityUid? user,
             [NotNullWhen(returnValue: true)] out Solution? outputSolution)
         {
             outputSolution = null;
 
+<<<<<<< HEAD
             if (!_solutionContainerSystem.TryGetSolution((EntityUid)chemMaster, SharedChemMaster.BufferSolutionName, out _, out var solution))
                 return false;
+=======
+            Solution? solution;
+            Entity<SolutionComponent>? soln = null;
+>>>>>>> upstreamwiz/master
 
-            if (solution.Volume == 0)
+            switch (chemMaster.Comp.DrawSource)
             {
-                if (user.HasValue)
-                    _popupSystem.PopupCursor(Loc.GetString("chem-master-window-buffer-empty-text"), user.Value);
-                return false;
-            }
+                case ChemMasterDrawSource.Internal:
+                    if (!_solutionContainerSystem.TryGetSolution(chemMaster.Owner, SharedChemMaster.BufferSolutionName, out _, out solution))
+                        return false;
 
+<<<<<<< HEAD
             // Get selected reagents for creation
             var selectedReagents = chemMaster.Comp.SelectedReagents;
 
@@ -1467,6 +1524,61 @@ namespace Content.Server.Chemistry.EntitySystems
                 outputSolution.AddReagent(reagent, actualAmount);
                 remainingNeeded -= actualAmount;
             }
+=======
+                    if (solution.Volume == 0)
+                    {
+                        if (user is { } uid)
+                            _popupSystem.PopupCursor(Loc.GetString("chem-master-window-buffer-empty-text"), uid);
+
+                        return false;
+                    }
+                    if (neededVolume > solution.Volume)
+                    {
+                        if (user is { } uid)
+                            _popupSystem.PopupCursor(Loc.GetString("chem-master-window-buffer-low-text"), uid);
+
+                        return false;
+                    }
+
+                    break;
+
+                case ChemMasterDrawSource.External:
+                    if (_itemSlotsSystem.GetItemOrNull(chemMaster, SharedChemMaster.InputSlotName) is not {} container)
+                    {
+                        if (user.HasValue)
+                            _popupSystem.PopupCursor(Loc.GetString("chem-master-window-no-beaker-text"), user.Value);
+                        return false;
+                    }
+
+                    if (!_solutionContainerSystem.TryGetFitsInDispenser(container, out soln, out solution))
+                        return false;
+
+                    if (solution.Volume == 0)
+                    {
+                        if (user is { } uid)
+                            _popupSystem.PopupCursor(Loc.GetString("chem-master-window-beaker-empty-text"), uid);
+
+                        return false;
+                    }
+                    if (neededVolume > solution.Volume)
+                    {
+                        if (user is { } uid)
+                            _popupSystem.PopupCursor(Loc.GetString("chem-master-window-beaker-low-text"), uid);
+
+                        return false;
+                    }
+
+                    break;
+
+                default:
+                    return false;
+            }
+
+            outputSolution = solution.SplitSolution(neededVolume);
+
+            if (soln.HasValue)
+                _solutionContainerSystem.UpdateChemicals(soln.Value);
+>>>>>>> upstreamwiz/master
 
             return true;
             // ADT-Tweak End

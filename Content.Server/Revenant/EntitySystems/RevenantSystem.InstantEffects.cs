@@ -20,14 +20,12 @@ public sealed partial class RevenantSystem  // ADT File
     private void OnBuyShield(EntityUid uid, RevenantComponent comp, AddRevenantShieldEvent args)
     {
         EnsureComp<RevenantShieldComponent>(uid);
-        _audio.PlayPvs(new SoundPathSpecifier("/Audio/ADT/Phantom/Sounds/injury.ogg"), Transform(uid).Coordinates);
         _stun.TryUpdateParalyzeDuration(uid, TimeSpan.FromSeconds(2.5f));
     }
 
     private void OnBuyMisery(EntityUid uid, RevenantComponent comp, StartRevenantMiseryEvent args)
     {
         EnsureComp<RevenantMiseryComponent>(uid);
-        _audio.PlayPvs(new SoundPathSpecifier("/Audio/ADT/Phantom/Sounds/puppeter.ogg"), Transform(uid).Coordinates);
         _stun.TryUpdateParalyzeDuration(uid, TimeSpan.FromSeconds(4.5f));
     }
 

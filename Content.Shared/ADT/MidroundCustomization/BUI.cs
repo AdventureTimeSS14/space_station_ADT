@@ -15,7 +15,7 @@ public sealed class MidroundCustomizationUiState : BoundUserInterfaceState
 {
     public MidroundCustomizationUiState(string species, Sex sex, bool allowColors, string tts,
                             string barkProto, float barkPitch, float barkMinVar, float barkMaxVar,
-                            Dictionary<MarkingCategories, List<Marking>> markings, Dictionary<MarkingCategories, int> slotsTotal,
+                            Dictionary<HumanoidVisualLayers, List<Marking>> markings, Dictionary<HumanoidVisualLayers, int> slotsTotal,
                             bool pointLightColor, bool pointLightColorEnabled)
     {
         Species = species;
@@ -38,8 +38,8 @@ public sealed class MidroundCustomizationUiState : BoundUserInterfaceState
     public string Species;
     public Sex Sex;
 
-    public Dictionary<MarkingCategories, List<Marking>> Markings = new();
-    public Dictionary<MarkingCategories, int> SlotsTotal = new();
+    public Dictionary<HumanoidVisualLayers, List<Marking>> Markings = new();
+    public Dictionary<HumanoidVisualLayers, int> SlotsTotal = new();
     public bool AllowColorChanges;
 
     public string? TTS;
@@ -54,20 +54,20 @@ public sealed class MidroundCustomizationUiState : BoundUserInterfaceState
 [Serializable, NetSerializable]
 public abstract class GenericMidroundCustomizationMessage : BoundUserInterfaceMessage
 {
-    public GenericMidroundCustomizationMessage(MarkingCategories category, int slot)
+    public GenericMidroundCustomizationMessage(HumanoidVisualLayers layer, int slot)
     {
-        Category = category;
+        Layer = layer;
         Slot = slot;
     }
 
-    public MarkingCategories Category { get; }
+    public HumanoidVisualLayers Layer { get; }
     public int Slot { get; }
 }
 
 [Serializable, NetSerializable]
 public sealed class MidroundCustomizationMarkingSelectMessage : GenericMidroundCustomizationMessage
 {
-    public MidroundCustomizationMarkingSelectMessage(MarkingCategories category, string marking, int slot) : base(category, slot)
+    public MidroundCustomizationMarkingSelectMessage(HumanoidVisualLayers layer, string marking, int slot) : base(layer, slot)
     {
         Marking = marking;
     }
@@ -78,7 +78,7 @@ public sealed class MidroundCustomizationMarkingSelectMessage : GenericMidroundC
 [Serializable, NetSerializable]
 public sealed class MidroundCustomizationChangeColorMessage : GenericMidroundCustomizationMessage
 {
-    public MidroundCustomizationChangeColorMessage(MarkingCategories category, List<Color> colors, int slot) : base(category, slot)
+    public MidroundCustomizationChangeColorMessage(HumanoidVisualLayers layer, List<Color> colors, int slot) : base(layer, slot)
     {
         Colors = colors;
     }
@@ -89,7 +89,7 @@ public sealed class MidroundCustomizationChangeColorMessage : GenericMidroundCus
 [Serializable, NetSerializable]
 public sealed class MidroundCustomizationRemoveSlotMessage : GenericMidroundCustomizationMessage
 {
-    public MidroundCustomizationRemoveSlotMessage(MarkingCategories category, int slot) : base(category, slot)
+    public MidroundCustomizationRemoveSlotMessage(HumanoidVisualLayers layer, int slot) : base(layer, slot)
     {
     }
 }
@@ -97,12 +97,12 @@ public sealed class MidroundCustomizationRemoveSlotMessage : GenericMidroundCust
 [Serializable, NetSerializable]
 public sealed class MidroundCustomizationAddSlotMessage : BoundUserInterfaceMessage
 {
-    public MidroundCustomizationAddSlotMessage(MarkingCategories category)
+    public MidroundCustomizationAddSlotMessage(HumanoidVisualLayers layer)
     {
-        Category = category;
+        Layer = layer;
     }
 
-    public MarkingCategories Category { get; }
+    public HumanoidVisualLayers Layer { get; }
 }
 
 [Serializable, NetSerializable]

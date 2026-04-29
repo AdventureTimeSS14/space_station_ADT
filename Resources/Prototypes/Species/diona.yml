@@ -3,16 +3,15 @@
   name: species-name-diona
   roundStart: true
   prototype: MobDiona
-  sprites: MobDionaSprites
   defaultSkinTone: "#cdb369"
-  markingLimits: MobDionaMarkingLimits
-  dollPrototype: MobDionaDummy
+  dollPrototype: AppearanceDiona
   skinColoration: Hues
   maleFirstNames: NamesDionaFirst
   femaleFirstNames: NamesDionaFirst
   maleLastNames: NamesDionaLast # Corvax-LastnameGender
   femaleLastNames: NamesDionaLast # Corvax-LastnameGender
   naming: TheFirstofLast
+<<<<<<< HEAD
   # ADT start
   shortDesc: species-short-desc-diona
   description: "/ServerInfo/ADT/SpeciesDescriptions/Diona.xml"
@@ -183,3 +182,7 @@
   baseSprite:
     sprite: Mobs/Species/Diona/parts.rsi
     state: r_foot
+=======
+  sexes:
+  - Unsexed
+>>>>>>> upstreamwiz/master

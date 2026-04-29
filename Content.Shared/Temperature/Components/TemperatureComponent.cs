@@ -1,15 +1,10 @@
-using Content.Shared.Alert;
 using Content.Shared.Atmos;
-using Content.Shared.Damage;
-using Content.Shared.FixedPoint;
-using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Temperature.Components;
 
 /// <summary>
 /// Handles changing temperature,
-/// informing others of the current temperature,
-/// and taking fire damage from high temperature.
+/// informing others of the current temperature.
 /// </summary>
 [RegisterComponent]
 public sealed partial class TemperatureComponent : Component
@@ -19,24 +14,6 @@ public sealed partial class TemperatureComponent : Component
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public float CurrentTemperature = Atmospherics.T20C;
-
-    [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public float HeatDamageThreshold = 360f;
-
-    [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public float ColdDamageThreshold = 260f;
-
-    /// <summary>
-    /// Overrides HeatDamageThreshold if the entity's within a parent with the TemperatureDamageThresholdsComponent component.
-    /// </summary>
-    [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public float? ParentHeatDamageThreshold;
-
-    /// <summary>
-    /// Overrides ColdDamageThreshold if the entity's within a parent with the TemperatureDamageThresholdsComponent component.
-    /// </summary>
-    [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public float? ParentColdDamageThreshold;
 
     /// <summary>
     /// Heat capacity per kg of mass.
@@ -50,38 +27,24 @@ public sealed partial class TemperatureComponent : Component
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public float AtmosTemperatureTransferEfficiency = 0.1f;
 
-    [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public DamageSpecifier ColdDamage = new();
-
-    [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public DamageSpecifier HeatDamage = new();
-
+    // ADT start - Speed modifiers based on temperature
     /// <summary>
-    /// Temperature won't do more than this amount of damage per second.
-    /// </summary>
-    /// <remarks>
-    /// Okay it genuinely reaches this basically immediately for a plasma fire.
-    /// </remarks>
-    [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public FixedPoint2 DamageCap = FixedPoint2.New(8);
-
-    /// <summary>
-    /// Used to keep track of when damage starts/stops. Useful for logs.
+    /// Temperature thresholds and their corresponding speed modifiers.
+    /// Key is the temperature threshold, Value is the speed modifier.
     /// </summary>
     [DataField]
-    public bool TakingDamage;
+    public Dictionary<float, float> Thresholds = new();
 
-    [DataField]
-    public ProtoId<AlertPrototype> HotAlert = "Hot";
+    /// <summary>
+    /// When the next slowdown update should occur.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    public TimeSpan? NextSlowdownUpdate;
 
-    [DataField]
-    public ProtoId<AlertPrototype> ColdAlert = "Cold";
-
-    // ADT-Tweak start
-    [DataField]
-    public bool ShowHotAlert = true;
-
-    [DataField]
-    public bool ShowColdAlert = true;
-    // ADT-Tweak end
+    /// <summary>
+    /// Current speed modifier to apply.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    public float? CurrentSpeedModifier;
+    // ADT end
 }

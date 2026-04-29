@@ -9,9 +9,15 @@
     sprite: Clothing/OuterClothing/Bio/general.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Bio/general.rsi
+<<<<<<< HEAD
   # - type: HideLayerClothing # ADT-Tweak: fix-tail
   #   slots:
   #   - Tail
+=======
+  - type: HideLayerClothing
+    slots:
+    - Tail
+>>>>>>> upstreamwiz/master
   - type: Armor
     modifiers:
       coefficients:
@@ -74,6 +80,9 @@
     sprite: Clothing/OuterClothing/Bio/security.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Bio/security.rsi
+  - type: HideLayerClothing
+    slots:
+    - Tail
   - type: Armor
     modifiers:
       coefficients:
@@ -86,7 +95,11 @@
   - type: ClothingSpeedModifier
     walkModifier: 0.95
     sprintModifier: 0.95
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> upstreamwiz/master
 - type: entity
   parent: ClothingOuterBioGeneral
   id: ClothingOuterBioVirology

@@ -3,71 +3,110 @@
 - type: marking
   id: VulpSnout
   bodyPart: Snout
+<<<<<<< HEAD
   markingCategory: Snout
   speciesRestriction: [ Vulpkanin ]
+=======
+  groupWhitelist: [ Vulpkanin ]
+>>>>>>> upstreamwiz/master
   sprites:
     - sprite: Mobs/Customization/Vulpkanin/snout_markings.rsi
       state: snout
 
 - type: marking
   id: VulpSnoutNose
+<<<<<<< HEAD
   bodyPart: Snout
   markingCategory: SnoutCover
   speciesRestriction: [ Vulpkanin ]
+=======
+  bodyPart: SnoutCover
+  groupWhitelist: [ Vulpkanin ]
+>>>>>>> upstreamwiz/master
   sprites:
     - sprite: Mobs/Customization/Vulpkanin/snout_markings.rsi
       state: snout-nose
 
 - type: marking
   id: VulpSnoutVulpine
+<<<<<<< HEAD
   bodyPart: Snout
   markingCategory: SnoutCover
   speciesRestriction: [ Vulpkanin ]
+=======
+  bodyPart: SnoutCover
+  groupWhitelist: [ Vulpkanin ]
+>>>>>>> upstreamwiz/master
   sprites:
     - sprite: Mobs/Customization/Vulpkanin/snout_markings.rsi
       state: vulpine
 
 - type: marking
   id: VulpSnoutVulpineLines
+<<<<<<< HEAD
   bodyPart: Snout
   markingCategory: SnoutCover
   speciesRestriction: [ Vulpkanin ]
+=======
+  bodyPart: SnoutCover
+  groupWhitelist: [ Vulpkanin ]
+>>>>>>> upstreamwiz/master
   sprites:
     - sprite: Mobs/Customization/Vulpkanin/snout_markings.rsi
       state: vulpine-lines
 
 - type: marking
   id: VulpSnoutBlaze
+<<<<<<< HEAD
   bodyPart: Snout
   markingCategory: SnoutCover
   speciesRestriction: [ Vulpkanin ]
+=======
+  bodyPart: SnoutCover
+  groupWhitelist: [ Vulpkanin ]
+>>>>>>> upstreamwiz/master
   sprites:
     - sprite: Mobs/Customization/Vulpkanin/snout_markings.rsi
       state: blaze
 
 - type: marking
   id: VulpSnoutMask
+<<<<<<< HEAD
   bodyPart: Snout
   markingCategory: SnoutCover
   speciesRestriction: [ Vulpkanin ]
+=======
+  bodyPart: SnoutCover
+  groupWhitelist: [ Vulpkanin ]
+>>>>>>> upstreamwiz/master
   sprites:
     - sprite: Mobs/Customization/Vulpkanin/snout_markings.rsi
       state: mask
 
 - type: marking
   id: VulpSnoutTop
+<<<<<<< HEAD
   bodyPart: Snout
   markingCategory: SnoutCover
   speciesRestriction: [ Vulpkanin ]
+=======
+  bodyPart: SnoutCover
+  groupWhitelist: [ Vulpkanin ]
+>>>>>>> upstreamwiz/master
   sprites:
     - sprite: Mobs/Customization/Vulpkanin/snout_markings.rsi
       state: snout-top
 
 - type: marking
   id: VulpSnoutPatch
+<<<<<<< HEAD
   bodyPart: Snout
   markingCategory: SnoutCover
   speciesRestriction: [ Vulpkanin ]
+=======
+  bodyPart: SnoutCover
+  groupWhitelist: [ Vulpkanin ]
+>>>>>>> upstreamwiz/master
   sprites:
     - sprite: Mobs/Customization/Vulpkanin/snout_markings.rsi
       state: patch

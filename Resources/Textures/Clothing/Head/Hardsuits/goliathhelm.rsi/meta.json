@@ -1,7 +1,11 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
+<<<<<<< HEAD
     "copyright": "Normal and vox sprites created by https://github.com/Pronana / princesscheeseballs (Discord). Dog states modified from base states by Sparlight (GitHub). Reptilian states by TiniestShark (Github)",
+=======
+    "copyright": "Normal and vox sprites created by https://github.com/Pronana / princesscheeseballs (Discord). Reptilian states by TiniestShark (Github)",
+>>>>>>> upstreamwiz/master
     "size": {
         "x": 32,
         "y": 32
@@ -45,6 +49,7 @@
         },
         {
             "name": "equipped-head-reptilian",
+<<<<<<< HEAD
             "directions": 4
         },
         {
@@ -57,14 +62,16 @@
         },
         {
             "name": "equipped-head-dog",
+=======
+>>>>>>> upstreamwiz/master
             "directions": 4
         },
         {
-            "name": "equipped-head-light-dog",
+            "name": "equipped-head-light-reptilian",
             "directions": 4
         },
         {
-            "name": "equipped-head-unshaded-dog",
+            "name": "equipped-head-unshaded-reptilian",
             "directions": 4
         }
     ]

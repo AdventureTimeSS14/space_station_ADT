@@ -188,6 +188,7 @@
   components:
   - type: Sprite
     sprite: Structures/Doors/Airlocks/Standard/hatch_syndicate.rsi
+<<<<<<< HEAD
   # ADT-Tweak start
   - type: Airlock
     openUnlitVisible: false # У текущего шлюза нет Unlit
@@ -196,6 +197,8 @@
     openSpriteState: open
     closedSpriteState: closed
   # ADT-Tweak end
+=======
+>>>>>>> upstreamwiz/master
 
 # Glass
 - type: entity

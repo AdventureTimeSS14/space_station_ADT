@@ -1,5 +1,9 @@
 - type: entity
+<<<<<<< HEAD
   parent: MobHuman
+=======
+  parent: [ MobHuman, StorePresetChangeling ]
+>>>>>>> upstreamwiz/master
   id: MobLing
   name: Urist McLing
   suffix: Non-Antag
@@ -9,4 +13,11 @@
   - type: ChangelingTransform
   - type: ActionGrant
     actions:
+<<<<<<< HEAD
     - ActionRetractableItemArmBlade # Temporary addition, will inevitably be a purchasable in the bio-store
+=======
+    - ActionChangelingStore
+  - type: Store
+    balance:
+      ChangelingDNA: 50
+>>>>>>> upstreamwiz/master

@@ -10,6 +10,7 @@
       prob: 0.50
     - id: ClothingHeadsetAltCargo
     - id: DoorRemoteCargo
+<<<<<<< HEAD
     - id: ADTHandheldShuttleConsoleSalvage # ADT-handheld-shuttle-console
     - id: RubberStampApproved
     - id: RubberStampDenied
@@ -30,6 +31,12 @@
     # ADT-Tweak Start - частичный откат нерфа утилей
     - id: ADTSalvageShuttleConsoleCircuitboard
     # ADT-Tweak End - частичный откат нерфа утилей
+=======
+    - id: AstroNavCartridge
+    - id: ClothingHandsKnuckleDustersQM
+    - id: PlushieLizardJobQuartermaster
+      prob: 0.02
+>>>>>>> upstreamwiz/master
 
 - type: entity
   id: LockerQuarterMasterFilled
@@ -63,14 +70,19 @@
     - id: SpaceCash1000
     - id: WeaponDisabler
     - id: ClothingEyesGlassesCommand
-    - id: HeadSkeleton # A skull to accompany your skeleton crew
+    - id: OrganSkeletonPersonHead # A skull to accompany your skeleton crew
       conditions:
       - !type:PlayerCountCondition
         max: 15
+<<<<<<< HEAD
     # Corvax-Resprite-Start
     - id: ClothingHeadCaptainHat
     - id: ClothingOuterCoatCaptain
     # Corvax-Resprite-End
+=======
+    - id: PlushieLizardJobCaptain
+      prob: 0.02
+>>>>>>> upstreamwiz/master
 
 # No laser table + Laser table
 - type: entityTable
@@ -162,6 +174,7 @@
     - id: HoPIDCard
     - id: WeaponDisabler
     - id: ClothingEyesHudCommand
+<<<<<<< HEAD
     - id: ClothingOuterCoatHOP # Corvax-Resprite
     - id: PrinterDocFlatpack # Corvax-Printer
     - id: ADTHoPClipboard #ADT-Tweak
@@ -169,6 +182,10 @@
     - id: ADTServiceBudgetCard
     - id: ADTServiceBudgetPinPaper
     # # ADT-Economy-End
+=======
+    - id: PlushieLizardJobHeadofpersonnel
+      prob: 0.02
+>>>>>>> upstreamwiz/master
 
 - type: entity
   id: LockerHeadOfPersonnelFilled
@@ -201,6 +218,7 @@
         range: 1, 3
     - id: RubberStampCE
     - id: MetalFoamGrenade
+<<<<<<< HEAD
     # ADT-Tweak-Start
     - id: OxygenTankFilled
     - id: NitrogenTankFilled
@@ -216,6 +234,10 @@
     - id: ADTEngineeringBudgetCard
     - id: ADTEngineeringBudgetPinPaper
     # # ADT-Tweak-End
+=======
+    - id: PlushieLizardJobChiefengineer
+      prob: 0.02
+>>>>>>> upstreamwiz/master
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
@@ -269,6 +291,7 @@
   id: LockerFillChiefMedicalOfficerNoHardsuit
   table: !type:AllSelector
     children:
+<<<<<<< HEAD
     - id: BoxEncryptionKeyMedical
     - id: ClothingBackpackDuffelSurgeryFilled
     - id: ClothingEyesHudMedical
@@ -298,6 +321,21 @@
     - id: ADTMedicalBudgetCard
     - id: ADTMedicalBudgetPinPaper
     # # ADT-Economy-End
+=======
+    - id: ClothingEyesHudMedical
+    - id: ClothingBeltMedicalFilled
+    - id: HandheldCrewMonitor
+    - id: Hypospray
+    - id: MedTekCartridge
+    # Standard command gear
+    - id: RubberStampCMO
+    - id: ClothingHeadsetAltMedical
+    - id: DoorRemoteMedical
+    - id: BoxEncryptionKeyMedical
+    - id: BoxCMOCircuitboards
+    - id: PlushieLizardJobChiefmedicalofficer
+      prob: 0.02
+>>>>>>> upstreamwiz/master
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
@@ -358,6 +396,7 @@
     - id: EncryptionKeyBinary
     - id: HandTeleporter
     - id: RubberStampRd
+<<<<<<< HEAD
     # ADT-Tweak-Start
     - id: ADTBookSRPcmd
     - id: ADTBookSRPrnd
@@ -368,6 +407,10 @@
     - id: ADTScienceBudgetPinPaper
     - id: ADTRNDInducerBattery
     # ADT-Tweak-End
+=======
+    - id: PlushieLizardJobResearchdirector
+      prob: 0.02
+>>>>>>> upstreamwiz/master
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
@@ -409,7 +452,11 @@
   id: LockerFillHeadOfSecurityNoHardsuit
   table: !type:AllSelector
     children:
+<<<<<<< HEAD
     # - id: WeaponEnergyMagnum ADT-tweak: не-а
+=======
+    - id: WeaponEnergyMagnum
+>>>>>>> upstreamwiz/master
     - id: BookSpaceLaw
     - id: ADTHosVoucher # ADT tweak
     - id: ADTBookSpaceLaw #ADT-WikiBooks
@@ -431,6 +478,7 @@
     - id: WeaponTaser
     - id: WantedListCartridge
     - id: DrinkHosFlask
+<<<<<<< HEAD
     - id: ClothingHeadHatCapHoS # Corvax-SecFashion
       prob: 0.5
     - id: ClothingOuterCoatHoSGreatcoat # Corvax-Resprite
@@ -450,6 +498,10 @@
     - id: ADTSecurityBudgetCard
     - id: ADTSecurityBudgetPinPaper
     # # ADT-Economy-End
+=======
+    - id: PlushieLizardJobHeadofsecurity
+      prob: 0.02
+>>>>>>> upstreamwiz/master
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
@@ -501,6 +553,7 @@
   id: LockerFillVault
   table: !type:AllSelector
     children:
+<<<<<<< HEAD
     - id: WeaponRevolverDeckard
     - id: JetpackBlue
     - id: BeachBall
@@ -520,8 +573,22 @@
         tableId: LockerFillVault
   - type: StorageFill
     contents:
+=======
+>>>>>>> upstreamwiz/master
     - id: WeaponRevolverDeckard
     - id: JetpackBlue
     #- id: SpaceCash1000 # ADT-Economy
     - id: BeachBall
     - id: BikeHorn
+
+- type: entity
+  id: LockerFreezerVaultFilled
+  suffix: Vault, Filled
+  parent: LockerFreezerBase
+  components:
+  - type: AccessReader
+    access: [ [ "Command" ] ]
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: LockerFillVault

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # ADT: Уже есть в Resources/Prototypes/ADT/Entities/Mobs/Species/Vulpkanin.yml
 # - type: species
 #   id: Vulpkanin
@@ -168,3 +169,16 @@
 #   baseSprite:
 #     sprite: Mobs/Species/Vulpkanin/parts.rsi
 #     state: r_foot
+=======
+- type: species
+  id: Vulpkanin
+  name: species-name-vulpkanin
+  roundStart: true
+  prototype: MobVulpkanin
+  defaultSkinTone: "#5a3f2d"
+  dollPrototype: AppearanceVulpkanin
+  skinColoration: VulpkaninColors
+  maleFirstNames: names_vulpkanin_male
+  femaleFirstNames: names_vulpkanin_female
+  lastNames: names_vulpkanin_last
+>>>>>>> upstreamwiz/master

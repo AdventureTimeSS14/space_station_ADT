@@ -40,7 +40,11 @@
   - [bold]Видимо уничтожаются при имплантации в [color=#5e9cff]Главы революции[/color][/bold], выдавая вас
   - НЕ защищают от дезориентации вспышкой
 
+<<<<<<< HEAD
     Предполагается, что вся [color=#cb0000]Служба Безопасности[/color] и [color=#1b67a5]Командный состав[/color] уже имеют импланты защиты разума, [bold]однако их можно удалить с помощью пустого имплантера, который можно получить в медицинском отделении в МедФабе.[/bold]
+=======
+  Assume all of [color=#cb0000]Security[/color] and [color=#1b67a5]Command[/color] are implanted with mindshields already, [bold]however they can be removed using an implant extractor, obtainable from the Medical department's MedFab.[/bold]
+>>>>>>> upstreamwiz/master
 
   <Box>
     <GuideEntityEmbed Entity="MindShieldImplanter"/>

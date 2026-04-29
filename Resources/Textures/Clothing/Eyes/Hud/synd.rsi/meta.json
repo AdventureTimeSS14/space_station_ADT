@@ -1,8 +1,12 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
+<<<<<<< HEAD
     "copyright": "Made by IntegerTempest. Equipped-EYES-arachnid modified from equipped-EYES by HTMLSystem. equipped-EYES-dog modified from equipped-EYES by Sparlight (GitHub).",
   "copyright": "Sprited by discord:@mishutka09 & Made by IntegerTempest. Equipped-EYES-arachnid modified from equipped-EYES by HTMLSystem",
+=======
+    "copyright": "Made by IntegerTempest. Equipped-EYES-arachnid modified from equipped-EYES by HTMLSystem.",
+>>>>>>> upstreamwiz/master
     "size": {
         "x": 32,
         "y": 32
@@ -17,10 +21,6 @@
         },
         {
             "name": "equipped-EYES-arachnid",
-            "directions": 4
-        },
-        {
-            "name": "equipped-EYES-dog",
             "directions": 4
         },
         {

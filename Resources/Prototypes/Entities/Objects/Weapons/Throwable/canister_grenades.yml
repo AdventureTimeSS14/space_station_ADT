@@ -1,5 +1,9 @@
 - type: entity
+<<<<<<< HEAD
   parent: [VolatileGrenadeBase, GrenadeBase, BaseSecurityContraband ]
+=======
+  parent: [VolatileGrenadeBase, TimerGrenadeBase, BaseSecurityContraband ]
+>>>>>>> upstreamwiz/master
   id: SmokeGrenade
   name: smoke grenade
   description: A tactical grenade that releases a large, long-lasting cloud of smoke when used.
@@ -81,7 +85,11 @@
     price: 350
 
 - type: entity
+<<<<<<< HEAD
   parent: [ BaseEngineeringContraband, VolatileGrenadeBase, GrenadeBase ] # Prevent inheriting DeleteOnTrigger from SmokeGrenade
+=======
+  parent: [ BaseEngineeringContraband, VolatileGrenadeBase, TimerGrenadeBase ] # Prevent inheriting DeleteOnTrigger from SmokeGrenade
+>>>>>>> upstreamwiz/master
   id: AirGrenade
   name: air grenade
   description: A special solid state chemical grenade used for quickly releasing standard air into a spaced area. Fills up to 30 tiles!
@@ -115,3 +123,13 @@
         enabled:
           True: { state: active }
           False: { state: spent }
+<<<<<<< HEAD
+=======
+  - type: RemoveComponentsOnTrigger # should prevent it from being re-triggered
+    keysIn:
+    - timer
+    triggerOnce: true
+    components:
+    - type: TriggerOnUse
+    - type: TimerTrigger
+>>>>>>> upstreamwiz/master

@@ -478,10 +478,16 @@ public enum LogType
     /// Events relating to midi playback.
     /// </summary>
     Instrument = 103,
+
+    /// <summary>
+    /// Events related to players connecting/disconnecting.
+    /// </summary>
+    Connection = 104,
+
     // ADT Start
     /// <summary>
     /// A player grabbed another player
     /// </summary>
-    Grab = 104
-    /// ADT End
+    Grab = 105,
+    // ADT End
 }

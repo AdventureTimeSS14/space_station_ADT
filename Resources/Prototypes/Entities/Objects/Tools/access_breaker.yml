@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # ADT-Tweak - Удалён нахуй взломщик доступов. За место него кое что другое
 # - type: entity
 #   parent: [BaseItem, BaseSyndicateContraband]
@@ -14,6 +15,23 @@
 #     state: icon
 #   - type: Item
 #     sprite: Objects/Tools/access_breaker.rsi
+=======
+- type: entity
+  parent: [BaseItem, BaseSyndicateContraband]
+  id: AccessBreakerUnlimited
+  suffix: Unlimited
+  name: authentication disruptor
+  description: A hacked access configurator, specialized to unlock and erase access from digital locks.
+  components:
+  - type: Emag
+    emagImmuneTag: AccessBreakerImmune
+    emagType: Access
+  - type: Sprite
+    sprite: Objects/Tools/access_breaker.rsi
+    state: icon
+  - type: Item
+    sprite: Objects/Tools/access_breaker.rsi
+>>>>>>> upstreamwiz/master
 
 # - type: entity
 #   parent: AccessBreakerUnlimited

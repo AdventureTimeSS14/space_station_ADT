@@ -22,6 +22,7 @@ public sealed partial class EvenHealthChangeEntityEffectSystem : EntityEffectSys
     protected override void Effect(Entity<DamageableComponent> entity, ref EntityEffectEvent<EvenHealthChange> args)
     {
         var damageSpec = new DamageSpecifier();
+        var damage = _damageable.GetAllDamage((entity.Owner, (DamageableComponent?)entity.Comp));
 
         foreach (var (group, amount) in args.Effect.Damage)
         {
@@ -29,7 +30,7 @@ public sealed partial class EvenHealthChangeEntityEffectSystem : EntityEffectSys
             var groupDamage = new Dictionary<string, FixedPoint2>();
             foreach (var damageId in groupProto.DamageTypes)
             {
-                var damageAmount = entity.Comp.Damage.DamageDict.GetValueOrDefault(damageId);
+                var damageAmount = damage.DamageDict.GetValueOrDefault(damageId);
                 if (damageAmount != FixedPoint2.Zero)
                     groupDamage.Add(damageId, damageAmount);
             }

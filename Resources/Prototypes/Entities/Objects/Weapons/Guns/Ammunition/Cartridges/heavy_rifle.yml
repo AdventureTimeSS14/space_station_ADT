@@ -1,8 +1,14 @@
 - type: entity
+<<<<<<< HEAD
   id: BaseCartridgeHeavyRifle
   name: cartridge (.10 rifle)
   parent: [ BaseCartridge, BaseSecurityContraband ]
+=======
+>>>>>>> upstreamwiz/master
   abstract: true
+  parent: [ BaseCartridge, BaseSecurityContraband ]
+  id: BaseCartridgeHeavyRifle
+  name: cartridge (.10 rifle)
   components:
   - type: Tag
     tags:
@@ -20,9 +26,9 @@
     price: 10
 
 - type: entity
+  parent: BaseCartridgeHeavyRifle
   id: CartridgeMinigun
   name: cartridge (.10 rifle)
-  parent: BaseCartridgeHeavyRifle
   components:
   - type: CartridgeAmmo
     proto: BulletMinigun

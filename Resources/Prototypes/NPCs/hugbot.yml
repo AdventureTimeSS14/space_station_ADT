@@ -118,7 +118,11 @@
   query:
   - !type:ComponentQuery
     components:
+<<<<<<< HEAD
     - type: HumanoidAppearance
+=======
+    - type: HumanoidProfile
+>>>>>>> upstreamwiz/master
       species: Human # This specific value isn't actually used, so don't worry about it being just `Human`.
   - !type:ComponentFilter
     retainWithComp: false

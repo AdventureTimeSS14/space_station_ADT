@@ -5,7 +5,11 @@
   playTimeTracker: JobDeathSquad
   setPreference: false
   startingGear: DeathSquadGear
+<<<<<<< HEAD
   icon: "ADTJobIconDeathSquad" #ADT-Tweak
+=======
+  icon: "JobIconDeathSquad"
+>>>>>>> upstreamwiz/master
   supervisors: job-supervisors-centcom
   canBeAntag: false
   accessGroups:

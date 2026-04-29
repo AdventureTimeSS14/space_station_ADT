@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "version": 1,
   "license": "CC-BY-SA-3.0",
   "copyright": "Taken from shiptest at commit https://github.com/shiptest-ss13/Shiptest/pull/1933/commits/c83640f260c822b4e5f6dfad19906df233f80fa7. Vox states by Flareguy for Space Station 14",
@@ -6,6 +7,15 @@
     "x": 32,
     "y": 32
   },
+=======
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/4f6190e2895e09116663ef282d3ce1d8b35c032e. Vox states by Flareguy for Space Station 14. Vulpkanin and Reptilian states by TiniestShark (github).",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+>>>>>>> upstreamwiz/master
     "states": [
         {
             "name": "icon"
@@ -45,6 +55,7 @@
         },
         {
             "name": "equipped-head-reptilian",
+<<<<<<< HEAD
             "directions": 4
         },
         {
@@ -57,14 +68,28 @@
         },
         {
             "name": "equipped-head-dog",
+=======
+>>>>>>> upstreamwiz/master
             "directions": 4
         },
         {
-            "name": "equipped-head-light-dog",
+            "name": "equipped-head-light-reptilian",
             "directions": 4
         },
         {
-            "name": "equipped-head-unshaded-dog",
+            "name": "equipped-head-unshaded-reptilian",
+            "directions": 4
+        },
+        {
+            "name": "equipped-head-light-vulpkanin",
+            "directions": 4
+        },
+        {
+            "name": "equipped-head-unshaded-vulpkanin",
+            "directions": 4
+        },
+        {
+            "name": "equipped-head-vulpkanin",
             "directions": 4
         },
         {

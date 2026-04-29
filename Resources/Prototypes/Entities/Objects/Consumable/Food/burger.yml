@@ -1239,9 +1239,12 @@
           Quantity: 8
         - ReagentId: Protein
           Quantity: 3
+<<<<<<< HEAD
   - type: Tag  #ADT_Tweak - делаем тофу-бургер съедобным для молей
     tags:
     - ADTMothFriendlyFood
+=======
+>>>>>>> upstreamwiz/master
   - type: Item
     inhandVisuals:
       left:

@@ -52,11 +52,21 @@
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
+<<<<<<< HEAD
   - type: HitscanBatteryAmmoProvider
+=======
+  - type: BatteryAmmoProvider
+>>>>>>> upstreamwiz/master
     proto: RedLaser
     fireCost: 62.5
   - type: StaticPrice
     price: 420
+<<<<<<< HEAD
+=======
+  - type: Tag
+    tags:
+    - LaserWeapon
+>>>>>>> upstreamwiz/master
 
 - type: entity
   id: BaseWeaponPowerCell
@@ -74,7 +84,7 @@
     - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser.ogg
-  - type: HitscanBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: RedLightLaser
     fireCost: 50
   - type: ItemSlots
@@ -157,6 +167,10 @@
     magState: mag
     steps: 5
     zeroVisible: true
+  - type: Tag
+    tags:
+    - Sidearm
+    - LaserWeapon
 
 - type: entity
   name: retro laser blaster
@@ -174,6 +188,7 @@
       shader: unshaded
   - type: Item
     storedOffset: 0,-5
+<<<<<<< HEAD
   # ADT-Tweak start
   # - type: RunAndGunSpreadModifier
   #   modifier: 0.3
@@ -189,12 +204,20 @@
   # ADT-Tweak end
   - type: HitscanBatteryAmmoProvider
     proto: RedLaser #ADT_Tweak - понерфил
+=======
+  - type: BatteryAmmoProvider
+    proto: RedMediumLaser
+>>>>>>> upstreamwiz/master
     fireCost: 62.5
   - type: MagazineVisuals
     magState: mag
     steps: 5
     zeroVisible: true
   - type: Appearance
+  - type: Tag
+    tags:
+    - Sidearm
+    - LaserWeapon
 
 - type: entity
   name: makeshift laser pistol
@@ -212,6 +235,7 @@
       shader: unshaded
   - type: Item
     storedOffset: 0,-4
+<<<<<<< HEAD
   - type: Gun #ADT Tweak Start
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser.ogg
@@ -230,6 +254,8 @@
       collection: GenericHit
   - type: AltFireMelee
   # ADT-Tweak end
+=======
+>>>>>>> upstreamwiz/master
   - type: MagazineVisuals
     magState: mag
     steps: 5
@@ -237,17 +263,24 @@
   - type: Appearance
   - type: Clothing
     sprite: Objects/Weapons/Guns/Battery/makeshift.rsi
-  - type: HitscanBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: RedLaser
     fireCost: 62.5
   - type: Battery
     maxCharge: 500
     startingCharge: 500
+<<<<<<< HEAD
 # ADT-tweak start
   - type: Construction
     graph: WeaponMakeshiftLaserGraph
     node: weaponlaser
 # ADT-tweak end
+=======
+  - type: Tag
+    tags:
+    - Sidearm
+    - LaserWeapon
+>>>>>>> upstreamwiz/master
 
 - type: entity
   name: tesla gun
@@ -273,7 +306,7 @@
       path: /Audio/Effects/Lightning/lightningshock.ogg
       params:
         variation: 0.2
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: TeslaGunBullet
     fireCost: 300
   - type: MagazineVisuals
@@ -283,6 +316,7 @@
   - type: Appearance
 
 - type: entity
+<<<<<<< HEAD
   name: practice laser rifle
   parent: [BaseWeaponBattery] #ADT Tweak - removed BaseGunWieldable
   id: WeaponLaserCarbinePractice
@@ -352,6 +386,25 @@
   components:
   - type: HitscanBatteryAmmoProvider
     proto: RedMediumLaser  
+=======
+  name: laser carbine
+  parent: [BaseLaserRifle, BaseGunWieldable, BaseSecurityContraband]
+  id: WeaponLaserCarbine
+  description: Favoured by Nanotrasen Security for being cheap and easy to use.
+
+- type: entity
+  name: practice laser carbine
+  parent: [BaseLaserRifle, BaseGunWieldable]
+  id: WeaponLaserCarbinePractice
+  description: This modified laser carbine fires nearly harmless beams in the 40-watt range, for target practice.
+  components:
+  - type: StaticPrice
+    price: 300
+  - type: BatteryAmmoProvider
+    proto: RedLaserPractice
+    fireCost: 62.5
+  - type: PacifismAllowedGun
+>>>>>>> upstreamwiz/master
 
 - type: entity
   name: pulse pistol
@@ -396,12 +449,21 @@
     - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
-  - type: HitscanBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: Pulse
     fireCost: 100 # ADT tweak 200 -> 100
   - type: Battery
+<<<<<<< HEAD
     maxCharge: 1000 # ADT tweak 2000->1000
     startingCharge: 1000 # ADT tweak 2000 -> 1000
+=======
+    maxCharge: 2000
+    startingCharge: 2000
+  - type: Tag
+    tags:
+    - Sidearm
+    - LaserWeapon
+>>>>>>> upstreamwiz/master
 
 - type: entity
   name: pulse carbine
@@ -447,6 +509,7 @@
       - FullAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
+<<<<<<< HEAD
   # ADT-Tweak start
   - type: AttachableHolder
     slots:
@@ -467,6 +530,9 @@
       rmc-aslot-rail: -0.03125, -0.06
   # ADT-Tweak end
   - type: HitscanBatteryAmmoProvider
+=======
+  - type: BatteryAmmoProvider
+>>>>>>> upstreamwiz/master
     proto: Pulse
     fireCost: 100 # ADT tweak 200 -> 100
   - type: Battery
@@ -515,6 +581,7 @@
     fireRate: 3 # ADT tweak 1.5 -> 3
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
+<<<<<<< HEAD
   # ADT-Tweak start
   - type: AttachableHolder
     slots:
@@ -535,6 +602,9 @@
       rmc-aslot-rail: -0.03125, -0.09375
   # ADT-Tweak end
   - type: HitscanBatteryAmmoProvider
+=======
+  - type: BatteryAmmoProvider
+>>>>>>> upstreamwiz/master
     proto: Pulse
     fireCost: 100
   - type: Battery
@@ -606,7 +676,7 @@
     fireRate: 2.0 #ADT_Tweak 1.5 to 2.0
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
-  - type: HitscanBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: RedHeavyLaser
     fireCost: 50 #ADT_Tweak 100 to 50
   - type: Tag
@@ -639,7 +709,7 @@
         path: /Audio/Weapons/emitter.ogg
         params:
           pitch: 2
-    - type: ProjectileBatteryAmmoProvider
+    - type: BatteryAmmoProvider
       proto: AntiParticlesProjectile
       fireCost: 500
     - type: Battery
@@ -700,7 +770,7 @@
   - type: Gun
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
-  - type: HitscanBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: XrayLaser
     fireCost: 75 #ADT_Tweak 100 to 75
   - type: MagazineVisuals
@@ -725,6 +795,7 @@
       shader: unshaded
   - type: Item
     storedOffset: -1,-5
+<<<<<<< HEAD
   # ADT-Tweak start
   # - type: RunAndGunSpreadModifier
   #   modifier: 0.2
@@ -739,6 +810,8 @@
   - type: AltFireMelee
   - type: GunExecutionBlacklist #ADT-Tweak
   # ADT-Tweak end
+=======
+>>>>>>> upstreamwiz/master
   - type: Clothing
     sprite: Objects/Weapons/Guns/Battery/practice_disabler.rsi
     quickEquip: false
@@ -756,15 +829,19 @@
     projectileSpeed: 35 # any higher and this causes issues in lag
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: BulletDisablerPractice
     fireCost: 100 #ADT_Tweak с 50 до 100, возвращаем станнер к старым параметрам
   - type: Tag
     tags:
     - Taser
     - Sidearm
+<<<<<<< HEAD
     - ADTBsoWeapon #ADT-tweak
   - type: PacifismAllowedGun #ADT-tweak
+=======
+  - type: PacifismAllowedGun
+>>>>>>> upstreamwiz/master
 
 - type: entity
   name: disabler
@@ -800,7 +877,7 @@
     slots:
       - suitStorage
       - Belt
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: BulletDisabler
     fireCost: 100 #ADT_Tweak с 50 до 100, возвращаем станнер к старым параметрам
   - type: GuideHelp
@@ -839,6 +916,7 @@
       - FullAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
+<<<<<<< HEAD
   # ADT-Tweak start
   - type: RunAndGunSpreadModifier
     modifier: 0.04
@@ -854,6 +932,9 @@
   - type: GunExecutionBlacklist #ADT-Tweak
   # ADT-Tweak end
   - type: ProjectileBatteryAmmoProvider
+=======
+  - type: BatteryAmmoProvider
+>>>>>>> upstreamwiz/master
     proto: BulletDisablerSmg
     fireCost: 25
   - type: MagazineVisuals
@@ -895,7 +976,8 @@
     fireRate: 0.5
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/taser.ogg
-  - type: ProjectileBatteryAmmoProvider
+    projectileSpeed: 25
+  - type: BatteryAmmoProvider
     proto: BulletTaser
     fireCost: 200
   - type: MagazineVisuals
@@ -918,7 +1000,7 @@
       path: /Audio/Effects/tesla_collapse.ogg # The wrath of god...
       params:
         volume: -6
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: BulletTaserSuper
     fireCost: 200
 
@@ -954,9 +1036,14 @@
   - type: Gun
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
+<<<<<<< HEAD
 # Start ADT Tweak
   - type: HitscanBatteryAmmoProvider
     proto: ADTCapitanRedLaser # Tweak RedMediumLaser -> ADTCapitanRedLaser
+=======
+  - type: BatteryAmmoProvider
+    proto: RedMediumLaser
+>>>>>>> upstreamwiz/master
     fireCost: 100
   - type: Battery # New - ADT TWEAK
     maxCharge: 1500
@@ -974,6 +1061,7 @@
     - HighRiskItem
     - Sidearm
     - WeaponAntiqueLaser
+    - LaserWeapon
   - type: StaticPrice
     price: 750
   - type: StealTarget
@@ -1019,7 +1107,7 @@
   - type: Gun
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
-  - type: HitscanBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: RedMediumLaser
     fireCost: 100
   - type: BatterySelfRecharger
@@ -1031,6 +1119,10 @@
   - type: Appearance
   - type: StaticPrice
     price: 63
+  - type: Tag
+    tags:
+    - Sidearm
+    - LaserWeapon
 
 - type: entity
   name: C.H.I.M.P. handcannon
@@ -1061,7 +1153,7 @@
     fireRate: 1.5
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: AnomalousParticleDeltaStrong
     fireCost: 100
   - type: BatteryWeaponFireModes
@@ -1081,10 +1173,14 @@
     price: 100
   - type: GunExecutionBlacklist #ADT-tweak
 - type: entity
+<<<<<<< HEAD
   name: experimental C.H.I.M.P. handcannon
   parent: [WeaponPistolCHIMP] #, BaseSyndicateContraband] # ADT Remove cringe
+=======
+  parent: [WeaponPistolCHIMP, BaseSyndicateContraband]
+>>>>>>> upstreamwiz/master
   id: WeaponPistolCHIMPUpgraded
-  description: This C.H.I.M.P. seems to have a greater punch than usual...
+  suffix: Syndicate
   components:
   - type: BatteryWeaponFireModes
     fireModes:
@@ -1116,13 +1212,17 @@
     fireRate: 1
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_clown.ogg
-  - type: HitscanBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: RedMediumLaser
     fireCost: 100
   - type: BatterySelfRecharger
     autoRechargeRate: 40
   - type: StaticPrice
     price: 750
+  - type: Tag
+    tags:
+    - Sidearm
+    - LaserWeapon
 
 - type: entity
   name: energy shotgun
@@ -1162,7 +1262,11 @@
     fireRate: 2
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
+<<<<<<< HEAD
   - type: ProjectileBatteryAmmoProvider
+=======
+  - type: BatteryAmmoProvider
+>>>>>>> upstreamwiz/master
     proto: BulletLaserSpreadNarrow
     fireCost: 80
   - type: BatteryWeaponFireModes
@@ -1212,7 +1316,11 @@
   - type: Gun
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
+<<<<<<< HEAD
   - type: ProjectileBatteryAmmoProvider
+=======
+  - type: BatteryAmmoProvider
+>>>>>>> upstreamwiz/master
     proto: BulletLaserMagnum
     fireCost: 150
   - type: BatteryWeaponFireModes
@@ -1280,7 +1388,7 @@
     fireRate: 1
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: BoltTempgunCold
     fireCost: 100
   - type: BatteryWeaponFireModes
@@ -1296,14 +1404,30 @@
     price: 100
 
 - type: entity
-  name: xenoborg laser gun
   parent: [WeaponAdvancedLaser, BaseXenoborgContraband]
-  id: XenoborgLaserGun
+  id: WeaponLaserGunXenoborg
+  name: xenoborg laser gun
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Battery/xenoborg_laser_gun.rsi
+    layers:
+    - state: base
+      map: [ "enum.GunVisualLayers.Base" ]
+    - state: mag-unshaded-4
+      map: [ "enum.GunVisualLayers.MagUnshaded" ]
 
 - type: entity
-  name: xenoborg heavy laser gun
-  parent: [WeaponAdvancedLaser, BaseXenoborgContraband]
-  id: XenoborgHeavyLaserGun
+  parent: [WeaponLaserCannon, BaseXenoborgContraband]
+  id: WeaponLaserCannonXenoborg
+  name: xenoborg laser cannon
   components:
-  - type: HitscanBatteryAmmoProvider
-    proto: RedHeavyLaser
+  - type: BatterySelfRecharger
+    autoRechargeRate: 30
+  # "remove" wield bonus and penalty so borgs can use it
+  - type: GunWieldBonus
+    minAngle: 0
+    maxAngle: 0
+  - type: Gun
+    fireRate: 2
+    minAngle: 1
+    maxAngle: 2

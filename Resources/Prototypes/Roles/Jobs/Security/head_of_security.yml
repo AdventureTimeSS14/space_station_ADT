@@ -6,6 +6,7 @@
   requirements:
     - !type:RoleTimeRequirement
       role: JobWarden
+<<<<<<< HEAD
       time: 15h # ADT-Tweak
     #- !type:RoleTimeRequirement
     #  role: JobDetective
@@ -27,6 +28,18 @@
       - Vox
       - Shadekin
   # ADT RESTRICT End
+=======
+      time: 3h
+    - !type:RoleTimeRequirement
+      role: JobDetective
+      time: 1h # knowing how to use the tools is important
+    - !type:RoleTimeRequirement
+      role: JobSecurityOfficer
+      time: 5h
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 10h
+>>>>>>> upstreamwiz/master
   weight: 10
   startingGear: HoSGear
   icon: "JobIconHeadOfSecurity"
@@ -42,17 +55,17 @@
   - External
   - Detective
   - Cryogenics
+  - GenpopEnter
+  - GenpopLeave
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
-      # - type: PhantomTyranyTarget # ADT Phantom
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
-      # - type: PhantomTyranyTarget # ADT Phantom
       # ADT-Tweak-Start: метка персонала службы безопасности
       - type: SecurityStaff
       # ADT-Tweak-End

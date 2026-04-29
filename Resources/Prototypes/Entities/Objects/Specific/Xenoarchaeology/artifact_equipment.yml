@@ -1,6 +1,6 @@
 - type: entity
+  parent: [ BaseStructureDynamic, BasePaperLabelableVisualized ]
   id: CrateArtifactContainer
-  parent: BaseStructureDynamic
   name: artifact container
   description: Used to safely contain and move artifacts.
   components:
@@ -63,6 +63,7 @@
           behaviors:
             - !type:DoActsBehavior
               acts: ["Destruction"]
+<<<<<<< HEAD
     - type: PaperLabel
       labelSlot:
         insertVerbText: paper-label-attach # ADT translate
@@ -73,6 +74,8 @@
         blacklist:
           tags:
           - Book
+=======
+>>>>>>> upstreamwiz/master
     - type: Appearance
     - type: EntityStorageVisuals
       stateDoorOpen: open
@@ -95,7 +98,6 @@
             True: { offset: "0.0,0.3125" }
             False: { offset: "0.0,0.0" }
     - type: LockVisuals
-    - type: ItemSlots
     - type: ContainerContainer
       containers:
         entity_storage: !type:Container

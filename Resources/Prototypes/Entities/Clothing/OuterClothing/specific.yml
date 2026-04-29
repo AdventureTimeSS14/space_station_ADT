@@ -1,5 +1,9 @@
 ﻿- type: entity
+<<<<<<< HEAD
   parent: [ClothingOuterBase, BaseChameleon]
+=======
+  parent: [ClothingOuterBase, AllowSuitStorageClothingGasTanks, BaseChameleon]
+>>>>>>> upstreamwiz/master
   id: ClothingOuterChameleon
   name: vest
   description: A thick vest with a rubbery, water-resistant shell.

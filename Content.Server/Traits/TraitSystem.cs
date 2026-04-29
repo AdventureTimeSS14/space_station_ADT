@@ -44,6 +44,7 @@ public sealed class TraitSystem : EntitySystem
     {
         // Check if player's job allows traits
         if (args.JobId == null ||
+<<<<<<< HEAD
             !_prototype.TryIndex<JobPrototype>(args.JobId, out var jobProto) ||
             !jobProto.ApplyTraits)
             return;
@@ -53,6 +54,10 @@ public sealed class TraitSystem : EntitySystem
 
         // Apply valid traits
         foreach (var traitId in validTraits)
+=======
+            !_prototypeManager.Resolve<JobPrototype>(args.JobId, out var protoJob) ||
+            !protoJob.ApplyTraits)
+>>>>>>> upstreamwiz/master
         {
             if (!_prototype.TryIndex(traitId, out var trait))
                 continue;
@@ -344,11 +349,50 @@ public sealed class TraitSystem : EntitySystem
             return;
         }
 
+<<<<<<< HEAD
         var coords = transform.Coordinates;
         var item = Spawn(effect.Item, coords);
 
         if (!_hands.TryPickup(player, item, checkActionBlocker: false, handsComp: hands))
             Log.Debug($"Could not pick up trait item {effect.Item}, leaving at feet");
+=======
+        foreach (var traitId in args.Profile.TraitPreferences)
+        {
+            if (!_prototypeManager.TryIndex<TraitPrototype>(traitId, out var traitPrototype))
+            {
+                Log.Error($"No trait found with ID {traitId}!");
+                return;
+            }
+
+            if (_whitelistSystem.IsWhitelistFail(traitPrototype.Whitelist, args.Mob) ||
+                _whitelistSystem.IsWhitelistPass(traitPrototype.Blacklist, args.Mob))
+                continue;
+
+            // Add all components required by the prototype
+            if (traitPrototype.Components.Count > 0)
+                EntityManager.AddComponents(args.Mob, traitPrototype.Components, false);
+
+            // Add all JobSpecials required by the prototype
+            foreach (var special in traitPrototype.Specials)
+            {
+                special.AfterEquip(args.Mob);
+            }
+
+            // Add item required by the trait
+            if (traitPrototype.TraitGear == null)
+                continue;
+
+            if (!TryComp(args.Mob, out HandsComponent? handsComponent))
+                continue;
+
+            var coords = Transform(args.Mob).Coordinates;
+            var inhandEntity = Spawn(traitPrototype.TraitGear, coords);
+            _sharedHandsSystem.TryPickup(args.Mob,
+                inhandEntity,
+                checkActionBlocker: false,
+                handsComp: handsComponent);
+        }
+>>>>>>> upstreamwiz/master
     }
 }
 // Система полностью переписана под ADT, под новые трейты

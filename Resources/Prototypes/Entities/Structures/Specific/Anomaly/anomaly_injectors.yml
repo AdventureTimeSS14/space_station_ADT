@@ -65,11 +65,14 @@
           Moth:
             sprite: Structures/Specific/Anomalies/inner_anom_layer.rsi
             state: fire_MOTH
+<<<<<<< HEAD
 # ADT-tweak start
           Resomi:
             sprite: ADT/Structures/Specific/Anomalies/inner_anom_layer.rsi
             state: fire_RESOMI
 # ADT-tweak end
+=======
+>>>>>>> upstreamwiz/master
 
 - type: entity
   parent: BaseAnomalyInjector
@@ -108,11 +111,14 @@
           Moth:
             sprite: Structures/Specific/Anomalies/inner_anom_layer.rsi
             state: shock_MOTH
+<<<<<<< HEAD
 # ADT-tweak start
           Resomi:
             sprite: ADT/Structures/Specific/Anomalies/inner_anom_layer.rsi
             state: shock_RESOMI
 # ADT-tweak end
+=======
+>>>>>>> upstreamwiz/master
 
 - type: entity
   parent: BaseAnomalyInjector
@@ -151,11 +157,14 @@
           Moth:
             sprite: Structures/Specific/Anomalies/inner_anom_layer.rsi
             state: shadow_MOTH
+<<<<<<< HEAD
 # ADT-tweak start
           Resomi:
             sprite: ADT/Structures/Specific/Anomalies/inner_anom_layer.rsi
             state: shadow_RESOMI
 # ADT-tweak end
+=======
+>>>>>>> upstreamwiz/master
 
 - type: entity
   parent: BaseAnomalyInjector
@@ -194,11 +203,14 @@
           Moth:
             sprite: Structures/Specific/Anomalies/inner_anom_layer.rsi
             state: frost_MOTH
+<<<<<<< HEAD
 # ADT-tweak start
           Resomi:
             sprite: ADT/Structures/Specific/Anomalies/inner_anom_layer.rsi
             state: frost_RESOMI
 # ADT-tweak end
+=======
+>>>>>>> upstreamwiz/master
 
 - type: entity
   parent: BaseAnomalyInjector
@@ -237,11 +249,14 @@
           Moth:
             sprite: Structures/Specific/Anomalies/inner_anom_layer.rsi
             state: flora_MOTH
+<<<<<<< HEAD
 # ADT-tweak start
           Resomi:
             sprite: ADT/Structures/Specific/Anomalies/inner_anom_layer.rsi
             state: flora_RESOMI
 # ADT-tweak end
+=======
+>>>>>>> upstreamwiz/master
 
 - type: entity
   parent: BaseAnomalyInjector
@@ -280,11 +295,14 @@
           Moth:
             sprite: Structures/Specific/Anomalies/inner_anom_layer.rsi
             state: bluespace_MOTH
+<<<<<<< HEAD
 # ADT-tweak start
           Resomi:
             sprite: ADT/Structures/Specific/Anomalies/inner_anom_layer.rsi
             state: bluespace_RESOMI
 # ADT-tweak end
+=======
+>>>>>>> upstreamwiz/master
 
 - type: entity
   parent: BaseAnomalyInjector
@@ -323,11 +341,14 @@
           Moth:
             sprite: Structures/Specific/Anomalies/inner_anom_layer.rsi
             state: flesh_MOTH
+<<<<<<< HEAD
 # ADT-tweak start
           Resomi:
             sprite: ADT/Structures/Specific/Anomalies/inner_anom_layer.rsi
             state: flesh_RESOMI
 # ADT-tweak end
+=======
+>>>>>>> upstreamwiz/master
 
 - type: entity
   parent: BaseAnomalyInjector
@@ -367,11 +388,14 @@
           Moth:
             sprite: Structures/Specific/Anomalies/inner_anom_layer.rsi
             state: grav_MOTH
+<<<<<<< HEAD
 # ADT-tweak start
           Resomi:
             sprite: ADT/Structures/Specific/Anomalies/inner_anom_layer.rsi
             state: grav_RESOMI
 # ADT-tweak end
+=======
+>>>>>>> upstreamwiz/master
 
 - type: entity
   parent: BaseAnomalyInjector
@@ -410,11 +434,14 @@
           Moth:
             sprite: Structures/Specific/Anomalies/inner_anom_layer.rsi
             state: tech_MOTH
+<<<<<<< HEAD
 # ADT-tweak start
           Resomi:
             sprite: ADT/Structures/Specific/Anomalies/inner_anom_layer.rsi
             state: tech_RESOMI
 # ADT-tweak end
+=======
+>>>>>>> upstreamwiz/master
 
 - type: entity
   parent: BaseAnomalyInjector
@@ -454,10 +481,13 @@
           Moth:
             sprite: Structures/Specific/Anomalies/inner_anom_layer.rsi
             state: rock_MOTH
+<<<<<<< HEAD
 # ADT-tweak start
           Resomi:
             sprite: ADT/Structures/Specific/Anomalies/inner_anom_layer.rsi
             state: rock_RESOMI
+=======
+>>>>>>> upstreamwiz/master
 
 - type: entity
   parent: BaseAnomalyInjector

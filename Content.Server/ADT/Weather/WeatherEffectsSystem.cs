@@ -2,6 +2,8 @@ using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
+using Content.Shared.StatusEffectNew;
+using Content.Shared.StatusEffectNew.Components;
 using Content.Shared.Weather;
 using Content.Shared.Whitelist;
 using Robust.Shared.Map.Components;
@@ -21,14 +23,17 @@ public sealed partial class WeatherEffectsSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly SharedWeatherSystem _weather = default!;
+    [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
 
     private EntityQuery<MapGridComponent> _gridQuery;
+    private EntityQuery<WeatherStatusEffectComponent> _weatherQuery;
 
     public override void Initialize()
     {
         base.Initialize();
 
         _gridQuery = GetEntityQuery<MapGridComponent>();
+        _weatherQuery = GetEntityQuery<WeatherStatusEffectComponent>();
     }
 
     public override void Update(float frameTime)
@@ -36,31 +41,36 @@ public sealed partial class WeatherEffectsSystem : EntitySystem
         base.Update(frameTime);
 
         var now = _timing.CurTime;
-        var query = EntityQueryEnumerator<WeatherComponent>();
-        while (query.MoveNext(out var map, out var weather))
+
+        var query = _weatherQuery.GetEnumerator();
+        while (query.MoveNext(out var uid, out var weatherComp))
         {
-            if (now < weather.NextUpdate)
+            if (now < weatherComp.NextUpdate)
                 continue;
 
-            weather.NextUpdate = now + weather.UpdateDelay;
+            weatherComp.NextUpdate = now + weatherComp.UpdateDelay;
+            Dirty(uid, weatherComp);
 
-            foreach (var (id, data) in weather.Weather)
-            {
-                // start and end do no damage
-                if (data.State != WeatherState.Running)
-                    continue;
+            var status = MetaData(uid);
+            if (!_statusEffects.TryGetStatusEffectComponent<WeatherStatusEffectComponent>(uid, out var statusComp))
+                continue;
 
-                UpdateDamage(map, id);
-            }
+            var weatherProto = _proto.TryIndex<WeatherPrototype>(statusComp.AppliedProtoId, out var weather) ? weather : null;
+            if (weather?.Damage is not {} damage)
+                continue;
+
+            // start and end do no damage
+            var percent = _weather.GetWeatherPercent((uid, statusComp));
+            if (percent < 1f)
+                continue;
+
+            var mapEnt = statusComp.AppliedTo ?? uid;
+            UpdateDamage(mapEnt, damage);
         }
     }
 
-    private void UpdateDamage(EntityUid map, ProtoId<WeatherPrototype> id)
+    private void UpdateDamage(EntityUid map, DamageSpecifier damage)
     {
-        var weather = _proto.Index(id);
-        if (weather.Damage is not {} damage)
-            return;
-
         var query = EntityQueryEnumerator<MobStateComponent, TransformComponent>();
         while (query.MoveNext(out var uid, out var mob, out var xform))
         {
@@ -72,12 +82,29 @@ public sealed partial class WeatherEffectsSystem : EntitySystem
             if (xform.GridUid is {} gridUid && _gridQuery.TryComp(gridUid, out var grid))
             {
                 var tile = _map.GetTileRef((gridUid, grid), xform.Coordinates);
-                if (!_weather.CanWeatherAffect(gridUid, grid, tile))
+                if (!_weather.CanWeatherAffect(gridUid, grid, tile, null))
                     continue;
             }
 
-            if (_whitelist.IsBlacklistFailOrNull(weather.DamageBlacklist, uid))
+            // Check if there's any active weather on this map
+            var weatherQuery = _weatherQuery.GetEnumerator();
+            while (weatherQuery.MoveNext(out var wUid, out var _))
+            {
+                if (!_statusEffects.TryGetStatusEffectComponent<WeatherStatusEffectComponent>(wUid, out var wStatusComp))
+                    continue;
+
+                if (wStatusComp.AppliedTo != map)
+                    continue;
+
+                var weatherProto = _proto.TryIndex<WeatherPrototype>(wStatusComp.AppliedProtoId, out var weather) ? weather : null;
+                if (weather == null)
+                    continue;
+
+                if (!_whitelist.IsWhitelistPassOrNull(weather.DamageBlacklist, uid))
+                    continue;
+
                 _damageable.TryChangeDamage(uid, damage, interruptsDoAfters: false);
+            }
         }
     }
 }

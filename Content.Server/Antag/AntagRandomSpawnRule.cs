@@ -1,6 +1,7 @@
 using Content.Server.Antag.Components;
 using Content.Shared.GameTicking.Components;
 using Content.Server.GameTicking.Rules;
+using Robust.Shared.Map;
 
 namespace Content.Server.Antag;
 
@@ -23,7 +24,7 @@ public sealed class AntagRandomSpawnSystem : GameRuleSystem<AntagRandomSpawnComp
         // once when a ghost role spawner is created and once when someone takes the ghost role
 
         if (TryFindRandomTile(out _, out _, out _, out var coords))
-            comp.Coords = coords;
+            comp.Coords = (EntityCoordinates)coords; // ADT-Tweak-Fix
     }
 
     private void OnSelectLocation(Entity<AntagRandomSpawnComponent> ent, ref AntagSelectLocationEvent args)

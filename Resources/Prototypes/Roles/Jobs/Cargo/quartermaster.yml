@@ -4,6 +4,7 @@
   description: job-description-qm
   playTimeTracker: JobQuartermaster
   requirements:
+<<<<<<< HEAD
 #    - !type:RoleTimeRequirement
 #      role: JobCargoTechnician
 #      time: 21600 #6 hrs
@@ -25,6 +26,17 @@
       species:
       - Vox
       #ADT tweak end
+=======
+    - !type:RoleTimeRequirement
+      role: JobCargoTechnician
+      time: 5h
+    - !type:RoleTimeRequirement
+      role: JobSalvageSpecialist
+      time: 2.5h
+    - !type:DepartmentTimeRequirement
+      department: Cargo
+      time: 10h
+>>>>>>> upstreamwiz/master
   weight: 10
   startingGear: QuartermasterGear
   icon: "JobIconQuarterMaster"
@@ -45,13 +57,17 @@
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
-      # - type: PhantomTyranyTarget # ADT Phantom
 
 - type: startingGear
   id: QuartermasterGear
   equipment:
+<<<<<<< HEAD
     # id: QuartermasterPDA # ADT: different PDAs in loadouts
     # ears: ClothingHeadsetQM # ADT tweak - выдаются через loadout ADTQuartermasterEars
+=======
+    id: QuartermasterPDA
+    ears: ClothingHeadsetQM
+>>>>>>> upstreamwiz/master
     belt: BoxFolderClipboardThreePapers
     pocket1: AppraisalTool
   storage:

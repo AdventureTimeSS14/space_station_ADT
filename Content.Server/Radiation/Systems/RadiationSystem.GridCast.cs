@@ -1,3 +1,6 @@
+using System.Buffers;
+using System.Collections.Concurrent;
+using System.Linq;
 using System.Numerics;
 using Content.Server.Radiation.Components;
 using Content.Server.Radiation.Events;
@@ -13,114 +16,68 @@ namespace Content.Server.Radiation.Systems;
 // main algorithm that fire radiation rays to target
 public partial class RadiationSystem
 {
-    private List<Entity<MapGridComponent>> _grids = new();
-
     private readonly record struct SourceData(
         float Intensity,
+        float Slope,
+        float MaxRange,
         Entity<RadiationSourceComponent, TransformComponent> Entity,
         Vector2 WorldPosition)
     {
+<<<<<<< HEAD
         public EntityUid? GridUid => Entity.Comp2.GridUid;
         public float TerminalDecaySlope => Entity.Comp1.TerminalDecaySlope; // ADT-Tweak
         public float TerminalDecayDistance => Entity.Comp1.TerminalDecayDistance; // ADT-Tweak
+=======
+        public EntityUid Uid => Entity.Owner;
+>>>>>>> upstreamwiz/master
         public TransformComponent Transform => Entity.Comp2;
     }
 
     private void UpdateGridcast()
     {
-        // should we save debug information into rays?
-        // if there is no debug sessions connected - just ignore it
         var debug = _debugSessions.Count > 0;
-
-        var stopwatch = new Stopwatch();
+        var stopwatch = new Robust.Shared.Timing.Stopwatch();
         stopwatch.Start();
 
-        _sources.Clear();
-        _sources.EnsureCapacity(Count<RadiationSourceComponent>());
-
-        var sources = EntityQueryEnumerator<RadiationSourceComponent, TransformComponent>();
-        var destinations = EntityQueryEnumerator<RadiationReceiverComponent, TransformComponent>();
-
-        while (sources.MoveNext(out var uid, out var source, out var xform))
+        var sourcesCount = _sourceDataMap.Count;
+        if (_activeReceivers.Count == 0 || sourcesCount == 0)
         {
-            if (!source.Enabled)
-                continue;
-
-            var worldPos = _transform.GetWorldPosition(xform);
-
-            // Intensity is scaled by stack size.
-            var intensity = source.Intensity * _stack.GetCount(uid);
-
-            // Apply rad modifier if the source is enclosed within a radiation blocking container
-            // Note that this also applies to receivers, and it doesn't bother to check if the container sits between them.
-            // I.e., a source & receiver in the same blocking container will get double-blocked, when no blocking should be applied.
-            intensity = GetAdjustedRadiationIntensity(uid, intensity);
-
-            _sources.Add(new(intensity, (uid, source, xform), worldPos));
+            RaiseLocalEvent(new RadiationSystemUpdatedEvent());
+            return;
         }
 
-        var debugRays = debug ? new List<DebugRadiationRay>() : null;
-        var receiversTotalRads = new ValueList<(Entity<RadiationReceiverComponent>, float)>();
+        var results = new float[_activeReceivers.Count];
+        var debugRays = debug ? new ConcurrentBag<DebugRadiationRay>() : null;
 
-        // TODO RADIATION Parallelize
-        // Would need to give receiversTotalRads a fixed size.
-        // Also the _grids list needs to be local to a job. (or better yet cached in SourceData)
-        // And I guess disable parallelization when debugging to make populating the debug List<RadiationRay> easier.
-        // Or just make it threadsafe?
-        while (destinations.MoveNext(out var destUid, out var dest, out var destTrs))
+        var job = new RadiationJob
         {
-            var destWorld = _transform.GetWorldPosition(destTrs);
+            System = this,
+            SourceTree = _sourceTree,
+            SourceDataMap = _sourceDataMap,
+            Destinations = _activeReceivers,
+            Results = results,
+            DebugRays = debugRays,
+            Debug = debug
+        };
 
-            var rads = 0f;
-            foreach (var source in _sources)
+        _parallel.ProcessNow(job, _activeReceivers.Count);
+
+        for (var i = 0; i < _activeReceivers.Count; i++)
+        {
+            var uid = _activeReceivers[i];
+            var rads = results[i];
+
+            if (_receiverQuery.TryComp(uid, out var receiver))
             {
-                // send ray towards destination entity
-                if (Irradiate(source, destUid, destTrs, destWorld, debug) is not { } ray)
-                    continue;
-
-                // add rads to total rad exposure
-                if (ray.ReachedDestination)
-                    rads += ray.Rads;
-
-                if (!debug)
-                    continue;
-
-                debugRays!.Add(new DebugRadiationRay(
-                    ray.MapId,
-                    GetNetEntity(ray.SourceUid),
-                    ray.Source,
-                    GetNetEntity(ray.DestinationUid),
-                    ray.Destination,
-                    ray.Rads,
-                    ray.Blockers ?? new())
-                );
+                receiver.CurrentRadiation = rads;
+                if (rads > 0)
+                    IrradiateEntity(uid, rads, GridcastUpdateRate);
             }
-
-            // Apply modifier if the destination entity is hidden within a radiation blocking container
-            rads = GetAdjustedRadiationIntensity(destUid, rads);
-
-            receiversTotalRads.Add(((destUid, dest), rads));
         }
 
-        // update information for debug overlay
-        var elapsedTime = stopwatch.Elapsed.TotalMilliseconds;
-        var totalSources = _sources.Count;
-        var totalReceivers = receiversTotalRads.Count;
-        UpdateGridcastDebugOverlay(elapsedTime, totalSources, totalReceivers, debugRays);
+        if (debugRays is not null)
+            UpdateGridcastDebugOverlay(stopwatch.Elapsed.TotalMilliseconds, sourcesCount, _activeReceivers.Count, debugRays.ToList());
 
-        // send rads to each entity
-        foreach (var (receiver, rads) in receiversTotalRads)
-        {
-            // update radiation value of receiver
-            // if no radiation rays reached target, that will set it to 0
-            receiver.Comp.CurrentRadiation = rads;
-
-            // also send an event with combination of total rad
-            if (rads > 0)
-                IrradiateEntity(receiver, rads, GridcastUpdateRate);
-        }
-
-        // raise broadcast event that radiation system has updated
         RaiseLocalEvent(new RadiationSystemUpdatedEvent());
     }
 
@@ -128,13 +85,11 @@ public partial class RadiationSystem
         EntityUid destUid,
         TransformComponent destTrs,
         Vector2 destWorld,
-        bool saveVisitedTiles)
+        bool saveVisitedTiles,
+        List<Entity<MapGridComponent>> gridList)
     {
-        // lets first check that source and destination on the same map
-        if (source.Transform.MapID != destTrs.MapID)
-            return null;
-
         var mapId = destTrs.MapID;
+<<<<<<< HEAD
 
         // get direction from rad source to destination and its distance
         var dir = destWorld - source.WorldPosition;
@@ -151,49 +106,26 @@ public partial class RadiationSystem
         - (dist - source.TerminalDecayDistance > 0 ? (source.TerminalDecaySlope * (dist - source.TerminalDecayDistance)) : 0);
 
         if (rads < 0.01)
+=======
+        var dist = (destWorld - source.WorldPosition).Length();
+        var rads = source.Intensity - source.Slope * dist;
+        if (rads < MinIntensity)
+>>>>>>> upstreamwiz/master
             return null;
         // ADT-Tweak end
 
-        // create a new radiation ray from source to destination
-        // at first we assume that it doesn't hit any radiation blockers
-        // and has only distance penalty
         var ray = new RadiationRay(mapId, source.Entity, source.WorldPosition, destUid, destWorld, rads);
 
-        // if source and destination on the same grid it's possible that
-        // between them can be another grid (ie. shuttle in center of donut station)
-        // however we can do simplification and ignore that case
-        if (GridcastSimplifiedSameGrid && destTrs.GridUid is { } gridUid && source.GridUid == gridUid)
-        {
-            if (!_gridQuery.TryGetComponent(gridUid, out var gridComponent))
-                return ray;
-            return Gridcast((gridUid, gridComponent, Transform(gridUid)), ref ray, saveVisitedTiles, source.Transform, destTrs);
-        }
-
-        // lets check how many grids are between source and destination
-        // do a box intersection test between target and destination
-        // it's not very precise, but really cheap
-
-        // TODO RADIATION
-        // Consider caching this in SourceData?
-        // I.e., make the lookup for grids as large as the sources's max distance and store the result in SourceData.
-        // Avoids having to do a lookup per source*receiver.
         var box = Box2.FromTwoPoints(source.WorldPosition, destWorld);
-        _grids.Clear();
-        _mapManager.FindGridsIntersecting(mapId, box, ref _grids, true);
+        gridList.Clear();
+        _mapManager.FindGridsIntersecting(mapId, box, ref gridList, true);
 
-        // gridcast through each grid and try to hit some radiation blockers
-        // the ray will be updated with each grid that has some blockers
-        foreach (var grid in _grids)
+        foreach (var grid in gridList)
         {
             ray = Gridcast((grid.Owner, grid.Comp, Transform(grid)), ref ray, saveVisitedTiles, source.Transform, destTrs);
-
-            // looks like last grid blocked all radiation
-            // we can return right now
             if (ray.Rads <= 0)
                 return ray;
         }
-
-        _grids.Clear();
 
         return ray;
     }
@@ -270,13 +202,13 @@ public partial class RadiationSystem
         TransformComponent destTrs)
     {
         var blockers = saveVisitedTiles ? new List<(Vector2i, float)>() : null;
-
-        // if grid doesn't have resistance map just apply distance penalty
         var gridUid = grid.Owner;
         if (!_resistanceQuery.TryGetComponent(gridUid, out var resistance))
             return ray;
+
         var resistanceMap = resistance.ResistancePerTile;
 
+<<<<<<< HEAD
         // ADT-Tweak start
 
         // get coordinate of source and destination in grid coordinates
@@ -285,6 +217,9 @@ public partial class RadiationSystem
         // If ever grids are allowed to overlap, this might no longer be true. In that case, this should precompute and cache
         // inverse world matrices.
         var srcLocal = sourceTrs.ParentUid == grid.Owner
+=======
+        Vector2 srcLocal = sourceTrs.ParentUid == grid.Owner
+>>>>>>> upstreamwiz/master
             ? sourceTrs.LocalPosition
             : Vector2.Transform(ray.Source, grid.Comp2.InvLocalMatrix);
 
@@ -292,10 +227,10 @@ public partial class RadiationSystem
             ? destTrs.LocalPosition
             : Vector2.Transform(ray.Destination, grid.Comp2.InvLocalMatrix);
 
-        Vector2i sourceGrid = new(
-            (int)Math.Floor(srcLocal.X / grid.Comp1.TileSize),
-            (int)Math.Floor(srcLocal.Y / grid.Comp1.TileSize));
+        Vector2i sourceGrid = new((int)Math.Floor(srcLocal.X / grid.Comp1.TileSize), (int)Math.Floor(srcLocal.Y / grid.Comp1.TileSize));
+        Vector2i destGrid = new((int)Math.Floor(dstLocal.X / grid.Comp1.TileSize), (int)Math.Floor(dstLocal.Y / grid.Comp1.TileSize));
 
+<<<<<<< HEAD
         Vector2i destGrid = new(
             (int)Math.Floor(dstLocal.X / grid.Comp1.TileSize),
             (int)Math.Floor(dstLocal.Y / grid.Comp1.TileSize));
@@ -303,6 +238,20 @@ public partial class RadiationSystem
         foreach (var (point,dist) in AdvancedGridRaycast(sourceGrid,destGrid))
         {
             if (resistanceMap.TryGetValue(point, out var resData))
+=======
+        var line = new GridLineEnumerator(sourceGrid, destGrid);
+        while (line.MoveNext())
+        {
+            var point = line.Current;
+            if (!resistanceMap.TryGetValue(point, out var resData))
+                continue;
+
+            ray.Rads -= resData;
+            if (saveVisitedTiles && blockers is not null)
+                blockers.Add((point, ray.Rads));
+
+            if (ray.Rads <= MinIntensity)
+>>>>>>> upstreamwiz/master
             {
                 var passRatioFromRadResistance = (1 / (resData > 1 ? (resData / 2) : 1));
 
@@ -323,14 +272,16 @@ public partial class RadiationSystem
         // ADT-Tweak end
         }
 
+<<<<<<< HEAD
 
         if (!saveVisitedTiles || blockers!.Count <= 0)
+=======
+        if (blockers is null || blockers.Count == 0)
+>>>>>>> upstreamwiz/master
             return ray;
 
-        // save data for debug if needed
         ray.Blockers ??= new();
         ray.Blockers.Add(GetNetEntity(gridUid), blockers);
-
         return ray;
     }
 
@@ -367,5 +318,93 @@ public partial class RadiationSystem
         }
 
         return rads;
+    }
+
+    [UsedImplicitly]
+    private readonly record struct RadiationJob : IParallelRobustJob
+    {
+        public int BatchSize => 5;
+        public required RadiationSystem System { get; init; }
+        public required B2DynamicTree<EntityUid> SourceTree { get; init; }
+        public required Dictionary<EntityUid, SourceData> SourceDataMap { get; init; }
+        public required List<EntityUid> Destinations { get; init; }
+        public required float[] Results { get; init; }
+        public required ConcurrentBag<DebugRadiationRay>? DebugRays { get; init; }
+        public required bool Debug { get; init; }
+
+        public void Execute(int index)
+        {
+            var destUid = Destinations[index];
+            if (System.Deleted(destUid) || !System.TryComp(destUid, out TransformComponent? destTrs))
+            {
+                Results[index] = 0;
+                return;
+            }
+
+            var nearbySourcesArray = ArrayPool<EntityUid>.Shared.Rent(256);
+
+            var gridList = new List<Entity<MapGridComponent>>(8);
+
+            try
+            {
+                var destWorld = System._transform.GetWorldPosition(destTrs);
+                var rads = 0f;
+                var destMapId = destTrs.MapID;
+
+                var queryAabb = new Box2(destWorld, destWorld);
+
+                var state = (nearbySourcesArray, 0, SourceTree);
+                SourceTree.Query(ref state,
+                    static (ref (EntityUid[] arr, int count, B2DynamicTree<EntityUid> tree) tuple,
+                        DynamicTree.Proxy proxy) =>
+                    {
+                        if (tuple.count >= tuple.arr.Length)
+                            return true;
+
+                        var uid = tuple.tree.GetUserData(proxy);
+                        tuple.arr[tuple.count++] = uid;
+                        return true;
+                    },
+                    in queryAabb);
+
+                var nearbySourcesSpan = nearbySourcesArray.AsSpan(0, state.Item2);
+
+                foreach (var sourceUid in nearbySourcesSpan)
+                {
+                    if (!SourceDataMap.TryGetValue(sourceUid, out var source)
+                        || source.Transform.MapID != destMapId)
+                        continue;
+                    var delta = source.WorldPosition - destWorld;
+                    if (delta.LengthSquared() > source.MaxRange * source.MaxRange)
+                        continue;
+                    var dist = delta.Length();
+                    var radsAfterDist = source.Intensity - source.Slope * dist;
+                    if (radsAfterDist < System.MinIntensity)
+                        continue;
+                    if (System.Irradiate(source, destUid, destTrs, destWorld, Debug, gridList) is not { } ray)
+                        continue;
+
+                    if (ray.ReachedDestination)
+                        rads += ray.Rads;
+
+                    DebugRays?.Add(new DebugRadiationRay(
+                        ray.MapId,
+                        System.GetNetEntity(ray.SourceUid),
+                        ray.Source,
+                        System.GetNetEntity(ray.DestinationUid),
+                        ray.Destination,
+                        ray.Rads,
+                        ray.Blockers ?? new Dictionary<NetEntity, List<(Vector2i, float)>>())
+                    );
+                }
+
+                rads = System.GetAdjustedRadiationIntensity(destUid, rads);
+                Results[index] = rads;
+            }
+            finally
+            {
+                ArrayPool<EntityUid>.Shared.Return(nearbySourcesArray);
+            }
+        }
     }
 }

@@ -1,8 +1,12 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
+<<<<<<< HEAD
     "copyright": "Original by Emisse, modified by EmoGarbage404. Vox state made by Flareguy for SS14. equipped-OUTERCLOTHING-dog modified from equipped-OUTERCLOTHING by Sparlight (GitHub). Tail sprites by Tiniest Shark (github).",
     "copyright": "Original by Emisse, modified by EmoGarbage404. equipped-OUTERCLOTHING-dog modified from equipped-OUTERCLOTHING by Sparlight (GitHub). inhand resprited by inventor05(gh: inventor055, discord: qwerty05555). icon made by github:Morb0, reptilian made by kuro(388673708753027083). Vox state made by Flareguy for SS14",
+=======
+    "copyright": "Original by Emisse, modified by EmoGarbage404. Vox state made by Flareguy for SS14. Tail sprites by Tiniest Shark (github).",
+>>>>>>> upstreamwiz/master
 
     "size": {
         "x": 32,
@@ -21,11 +25,15 @@
             "directions": 4
         },
         {
+<<<<<<< HEAD
             "name": "equipped-OUTERCLOTHING-resomi",
             "directions": 4
         },
         {
             "name": "equipped-OUTERCLOTHING-dog",
+=======
+            "name": "equipped-OUTERCLOTHING-reptilian",
+>>>>>>> upstreamwiz/master
             "directions": 4
         },
         {

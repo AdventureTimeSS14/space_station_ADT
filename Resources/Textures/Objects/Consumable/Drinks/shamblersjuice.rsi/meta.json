@@ -6,7 +6,10 @@
     },
     "license": "CC-BY-SA-3.0",
     "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/70ccd0f2305286a1312425a85365881fac16fcac. Modified by potato1234x (github) for SS14. Inhands by Tiniest Shark (Github)",
+<<<<<<< HEAD
     "copyright": "https://github.com/tgstation/tgstation/blob/e10fd978b89bbc951d3f3546426aa7e4191c6967/icons/obj/drinks/soda.dmi",
+=======
+>>>>>>> upstreamwiz/master
     "states": [
         {
             "name": "icon"

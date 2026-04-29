@@ -26,6 +26,8 @@ public sealed partial class VoiceMaskNameChangeWindow : FancyWindow
     public Action<string>? OnBarkChange; // Corvax-TTS
     public Action<string>? OnPitchChange; // Corvax-TTS
     public Action<ProtoId<JobIconPrototype>?>? OnJobIconChange; // ADT-Tweak
+    public Action? OnToggle;
+    public Action? OnAccentToggle;
 
     private List<(string, string)> _verbs = new();
     private List<TTSVoicePrototype> _voices = new(); // Corvax-TTS
@@ -76,6 +78,9 @@ public sealed partial class VoiceMaskNameChangeWindow : FancyWindow
         // ADT Barks end
 
         AddVerbs();
+
+        ToggleButton.OnPressed += args => OnToggle?.Invoke();
+        ToggleAccentButton.OnPressed += args => OnAccentToggle?.Invoke();
     }
 
     // ADT-Tweak start
@@ -235,10 +240,12 @@ public sealed partial class VoiceMaskNameChangeWindow : FancyWindow
     }
     // ADT-Tweak end Job Icons
 
-    public void UpdateState(string name, string voice, string barkId, float barkPitch, string? verb, string? jobIconId = null) // ADT-Tweak
+    public void UpdateState(string name, string voice, string barkId, float barkPitch, string? verb, string? jobIconId = null, bool active = false, bool accentHide = false)
     {
         NameSelector.Text = name;
         _verb = verb;
+        ToggleButton.Pressed = active;
+        ToggleAccentButton.Pressed = accentHide;
 
         for (int id = 0; id < SpeechVerbSelector.ItemCount; id++)
         {

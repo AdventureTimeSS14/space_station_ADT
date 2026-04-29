@@ -22,12 +22,17 @@
       prob: 0.3
       rolls: !type:ConstantNumberSelector
         value: 3
+<<<<<<< HEAD
 #ADT-Tweak Start - частичный откат нерфа утилей
     - id: ClothingEyesGlassesMeson
     # - id: SeismicCharge временно в ауте
     - id: OreBag
       prob: 0.5
 #ADT-Tweak End - частичный откат нерфа утилей
+=======
+    - id: PlushieLizardJobSalvagespecialist
+      prob: 0.02
+>>>>>>> upstreamwiz/master
 
 - type: entity
   id: LockerSalvageSpecialistFilledHardsuit

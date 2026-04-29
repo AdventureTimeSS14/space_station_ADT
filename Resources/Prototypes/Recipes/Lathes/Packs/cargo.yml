@@ -6,7 +6,10 @@
   - AppraisalTool
   - Pickaxe
   - UtilityKnife
+<<<<<<< HEAD
   - Flare  # ADT Tweak
+=======
+>>>>>>> upstreamwiz/master
 
 - type: latheRecipePack
   id: CargoBoardsStatic

@@ -16,17 +16,15 @@ using Content.Shared.Popups;
 using Content.Shared.Timing;
 using Content.Shared.Verbs;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Map;
 using Robust.Shared.Player;
 using Content.Shared.ADT.Controlled;
 using Content.Shared.Mind;
-using Content.Shared.ADT.Phantom.Components;
-using Content.Server.ADT.Phantom.EntitySystems;
 
 namespace Content.Server.Bible;
 
 public sealed class BibleSystem : EntitySystem
 {
-    [Dependency] private readonly PhantomSystem _phantom = default!;
     [Dependency] private readonly ActionBlockerSystem _blocker = default!;
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
     [Dependency] private readonly SharedControlledSystem _controlled = default!;
@@ -91,81 +89,64 @@ public sealed class BibleSystem : EntitySystem
             _damageableSystem.TryChangeDamage(target, component.DamageOnFail, true, origin: uid);
             _delay.TryResetDelay((uid, useDelay));
 
+<<<<<<< HEAD
             return;
+=======
+            if (!HasComp<BibleUserComponent>(args.User))
+            {
+                _popupSystem.PopupEntity(Loc.GetString("bible-sizzle"), args.User, args.User);
+
+                _audio.PlayPvs(component.SizzleSoundPath, args.User);
+                _damageableSystem.TryChangeDamage(args.User, component.DamageOnUntrainedUse, true, origin: uid);
+                _delay.TryResetDelay((uid, useDelay));
+
+                return;
+            }
+
+            var userEnt = Identity.Entity(args.User, EntityManager);
+            var targetEnt = Identity.Entity(args.Target.Value, EntityManager);
+
+            // This only has a chance to fail if the target is not wearing anything on their head and is not a familiar.
+            if (!_invSystem.TryGetSlotEntity(args.Target.Value, "head", out _) && !HasComp<FamiliarComponent>(args.Target.Value))
+            {
+                if (_random.Prob(component.FailChance))
+                {
+                    var othersFailMessage = Loc.GetString(component.LocPrefix + "-heal-fail-others", ("user", userEnt), ("target", targetEnt), ("bible", uid));
+                    _popupSystem.PopupEntity(othersFailMessage, args.User, Filter.PvsExcept(args.User), true, PopupType.SmallCaution);
+
+                    var selfFailMessage = Loc.GetString(component.LocPrefix + "-heal-fail-self", ("target", targetEnt), ("bible", uid));
+                    _popupSystem.PopupEntity(selfFailMessage, args.User, args.User, PopupType.MediumCaution);
+
+                    _audio.PlayPvs(component.BibleHitSound, args.User);
+                    _damageableSystem.TryChangeDamage(args.Target.Value, component.DamageOnFail, true, origin: uid);
+                    _delay.TryResetDelay((uid, useDelay));
+                    return;
+                }
+            }
+
+            string othersMessage;
+            string selfMessage;
+
+            if (_damageableSystem.TryChangeDamage(args.Target.Value, component.Damage, true, origin: uid))
+            {
+                othersMessage = Loc.GetString(component.LocPrefix + "-heal-success-others", ("user", userEnt), ("target", targetEnt), ("bible", uid));
+                selfMessage = Loc.GetString(component.LocPrefix + "-heal-success-self", ("target", targetEnt), ("bible", uid));
+
+                _audio.PlayPvs(component.HealSoundPath, args.User);
+                _delay.TryResetDelay((uid, useDelay));
+
+                if (component.HealingLightEffect.HasValue)
+                    Spawn(component.HealingLightEffect.Value, new EntityCoordinates(args.Target.Value, default));
+            }
+            else
+            {
+                othersMessage = Loc.GetString(component.LocPrefix + "-heal-success-none-others", ("user", userEnt), ("target", targetEnt), ("bible", uid));
+                selfMessage = Loc.GetString(component.LocPrefix + "-heal-success-none-self", ("target", targetEnt), ("bible", uid));
+            }
+
+            _popupSystem.PopupEntity(othersMessage, args.User, Filter.PvsExcept(args.User), true, PopupType.Medium);
+            _popupSystem.PopupEntity(selfMessage, args.User, args.User, PopupType.Large);
         }
-
-        bool checkPhantom = false;
-        if (TryComp<VesselComponent>(target, out var vessel) && !HasComp<PhantomPuppetComponent>(target))
-        {
-            var othersFailMessage = Loc.GetString(component.LocPrefix + "-phantom-out-others", ("user", Identity.Entity(user, EntityManager)), ("target", Identity.Entity(target, EntityManager)), ("bible", uid));
-            _popupSystem.PopupEntity(othersFailMessage, user, Filter.PvsExcept(user), true, PopupType.SmallCaution);
-
-            var selfFailMessage = Loc.GetString(component.LocPrefix + "-phantom-out-self", ("target", Identity.Entity(target, EntityManager)), ("bible", uid));
-            _popupSystem.PopupEntity(selfFailMessage, user, user, PopupType.MediumCaution);
-
-            _audio.PlayPvs(component.HealSoundPath, user);
-            RemComp<VesselComponent>(target);
-            _delay.TryResetDelay((uid, useDelay));
-
-            checkPhantom = true;
-        }
-
-        // Checks phantom components and removing it
-        if (TryComp<PhantomHolderComponent>(target, out var haunted))
-        {
-            var othersFailMessage = Loc.GetString(component.LocPrefix + "-phantom-out-others", ("user", Identity.Entity(user, EntityManager)), ("target", Identity.Entity(target, EntityManager)), ("bible", uid));
-            _popupSystem.PopupEntity(othersFailMessage, user, Filter.PvsExcept(user), true, PopupType.SmallCaution);
-
-            var selfFailMessage = Loc.GetString(component.LocPrefix + "-phantom-out-self", ("target", Identity.Entity(target, EntityManager)), ("bible", uid));
-            _popupSystem.PopupEntity(selfFailMessage, user, user, PopupType.MediumCaution);
-
-            _audio.PlayPvs(component.HealSoundPath, user);
-            _phantom.StopHaunt(haunted.Phantom, target);
-
-            _delay.TryResetDelay((uid, useDelay));
-
-            checkPhantom = true;
-        }
-
-        if (HasComp<PhantomPuppetComponent>(target))
-        {
-            var othersFailMessage = Loc.GetString(component.LocPrefix + "-phantom-puppet-others", ("user", Identity.Entity(user, EntityManager)), ("target", Identity.Entity(target, EntityManager)), ("bible", uid));
-            _popupSystem.PopupEntity(othersFailMessage, user, Filter.PvsExcept(user), true, PopupType.SmallCaution);
-
-            var selfFailMessage = Loc.GetString(component.LocPrefix + "-phantom-puppet-self", ("target", Identity.Entity(target, EntityManager)), ("bible", uid));
-            _popupSystem.PopupEntity(selfFailMessage, user, user, PopupType.MediumCaution);
-
-            _audio.PlayPvs("/Audio/Effects/hit_kick.ogg", user);
-            _damageableSystem.TryChangeDamage(target, component.DamageOnFail * 4, true, origin: uid);
-            _damageableSystem.TryChangeDamage(user, component.DamageOnFail, true, origin: uid);
-
-            _delay.TryResetDelay((uid, useDelay));
-
-            checkPhantom = true;
-        }
-
-        // If the body is controlled by a phantom
-        if (TryComp<ControlledComponent>(target, out var controlled) && controlled.Key == "Phantom")
-        {
-            var othersFailMessage = Loc.GetString(component.LocPrefix + "-phantom-controlled-others", ("user", Identity.Entity(user, EntityManager)), ("target", Identity.Entity(target, EntityManager)), ("bible", uid));
-            _popupSystem.PopupEntity(othersFailMessage, user, Filter.PvsExcept(user), true, PopupType.SmallCaution);
-
-            var selfFailMessage = Loc.GetString(component.LocPrefix + "-phantom-controlled-self", ("target", Identity.Entity(target, EntityManager)), ("bible", uid));
-            _popupSystem.PopupEntity(selfFailMessage, user, user, PopupType.MediumCaution);
-
-            _audio.PlayPvs("/Audio/Effects/hit_kick.ogg", user);
-            _damageableSystem.TryChangeDamage(target, component.DamageOnFail * 2, true, origin: uid);
-            _damageableSystem.TryChangeDamage(user, component.DamageOnFail / 2, true, origin: uid);
-
-            _controlled.StopControlling(target, key: "Phantom");
-
-            _delay.TryResetDelay((uid, useDelay));
-
-            checkPhantom = true;
-        }
-
-        if (checkPhantom)
-            return;
 
         var damage = _damageableSystem.TryChangeDamage(target, component.Damage, true, origin: uid);
 

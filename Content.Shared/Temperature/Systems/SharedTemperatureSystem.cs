@@ -13,8 +13,13 @@ namespace Content.Shared.Temperature.Systems;
 /// </summary>
 public abstract class SharedTemperatureSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifier = default!;
+    [Dependency]
+    private readonly IGameTiming _timing = default!;
+
+    [Dependency]
+    private readonly MovementSpeedModifierSystem _movementSpeedModifier = default!;
+
+    protected EntityQuery<TemperatureComponent> TemperatureQuery;
 
     /// <summary>
     /// Band-aid for unpredicted atmos. Delays the application for a short period so that laggy clients can get the replicated temperature.
@@ -25,11 +30,13 @@ public abstract class SharedTemperatureSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<TemperatureSpeedComponent, OnTemperatureChangeEvent>(OnTemperatureChanged);
-        SubscribeLocalEvent<TemperatureSpeedComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMovementSpeedModifiers);
+        SubscribeLocalEvent<TemperatureComponent, OnTemperatureChangeEvent>(OnTemperatureChanged);
+        SubscribeLocalEvent<TemperatureComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMovementSpeedModifiers);
+
+        TemperatureQuery = GetEntityQuery<TemperatureComponent>();
     }
 
-    private void OnTemperatureChanged(Entity<TemperatureSpeedComponent> ent, ref OnTemperatureChangeEvent args)
+    private void OnTemperatureChanged(Entity<TemperatureComponent> ent, ref OnTemperatureChangeEvent args)
     {
         foreach (var (threshold, modifier) in ent.Comp.Thresholds)
         {
@@ -38,7 +45,7 @@ public abstract class SharedTemperatureSystem : EntitySystem
             {
                 ent.Comp.NextSlowdownUpdate = _timing.CurTime + SlowdownApplicationDelay;
                 ent.Comp.CurrentSpeedModifier = modifier;
-                Dirty(ent);
+                Dirty(ent.Owner, ent.Comp);
                 break;
             }
         }
@@ -48,11 +55,11 @@ public abstract class SharedTemperatureSystem : EntitySystem
         {
             ent.Comp.NextSlowdownUpdate = _timing.CurTime + SlowdownApplicationDelay;
             ent.Comp.CurrentSpeedModifier = null;
-            Dirty(ent);
+            Dirty(ent.Owner, ent.Comp);
         }
     }
 
-    private void OnRefreshMovementSpeedModifiers(Entity<TemperatureSpeedComponent> ent, ref RefreshMovementSpeedModifiersEvent args)
+    private void OnRefreshMovementSpeedModifiers(Entity<TemperatureComponent> ent, ref RefreshMovementSpeedModifiersEvent args)
     {
         // Don't update speed and mispredict while we're compensating for lag.
         if (ent.Comp.NextSlowdownUpdate != null || ent.Comp.CurrentSpeedModifier == null)
@@ -65,7 +72,7 @@ public abstract class SharedTemperatureSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        var query = EntityQueryEnumerator<TemperatureSpeedComponent, MovementSpeedModifierComponent>();
+        var query = EntityQueryEnumerator<TemperatureComponent, MovementSpeedModifierComponent>();
         while (query.MoveNext(out var uid, out var temp, out var movement))
         {
             if (temp.NextSlowdownUpdate == null)
@@ -82,12 +89,11 @@ public abstract class SharedTemperatureSystem : EntitySystem
 
     public virtual void ChangeHeat(EntityUid uid, float heatAmount, bool ignoreHeatResistance = false, TemperatureComponent? temperature = null)
     {
-
     }
 
     public float GetHeatCapacity(EntityUid uid, TemperatureComponent? comp = null, PhysicsComponent? physics = null)
     {
-        if (!Resolve(uid, ref comp) || !Resolve(uid, ref physics, false) || physics.FixturesMass <= 0)
+        if (!TemperatureQuery.Resolve(uid, ref comp) || !Resolve(uid, ref physics, false) || physics.FixturesMass <= 0)
         {
             return Atmospherics.MinimumHeatCapacity;
         }

@@ -6,7 +6,11 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobWarden
+<<<<<<< HEAD
       time: 20h # Corvax-RoleTime
+=======
+      time: 6h
+>>>>>>> upstreamwiz/master
   - !type:JobRequirementLoadoutEffect
     requirement:
       !type:DepartmentTimeRequirement
@@ -125,6 +129,7 @@
   equipment:
     id: SecurityPDA
 
+<<<<<<< HEAD
 # ADT-Tweak: Dublicate ID
 # - type: loadout
 #   id: SeniorOfficerPDA
@@ -133,3 +138,12 @@
 #   #   proto: SeniorOfficer
 #   equipment:
 #     id: SeniorOfficerPDA
+=======
+- type: loadout
+  id: SeniorOfficerPDA
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorOfficer
+  equipment:
+    id: SeniorOfficerPDA
+>>>>>>> upstreamwiz/master

@@ -8,6 +8,7 @@
   requirements:
     - !type:RoleTimeRequirement
       role: JobChemist
+<<<<<<< HEAD
       time: 2.5h # ADT-Tweak 2.5h
 #    - !type:RoleTimeRequirement
 #      role: JobMedicalDoctor
@@ -21,6 +22,15 @@
       inverted: true
       traits:
       - Muted
+=======
+      time: 2.5h
+    - !type:RoleTimeRequirement
+      role: JobMedicalDoctor
+      time: 5h
+    - !type:DepartmentTimeRequirement
+      department: Medical
+      time: 10h
+>>>>>>> upstreamwiz/master
   weight: 10
   startingGear: CMOGear
   icon: "JobIconChiefMedicalOfficer"
@@ -40,14 +50,19 @@
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
-      # - type: PhantomTyranyTarget # ADT Phantom
 
 - type: startingGear
   id: CMOGear
+<<<<<<< HEAD
   # equipment: # ADT tweak
  #id: CMOPDA  # ADT Tweak
     # ears: ClothingHeadsetCMO # ADT tweak
 #    belt: ClothingBeltMedicalFilled ADT tweak
+=======
+  equipment:
+    id: CMOPDA
+    ears: ClothingHeadsetCMO
+>>>>>>> upstreamwiz/master
   storage:
     back:
     - Flash

@@ -1,6 +1,7 @@
 - type: gameMapPool
   id: DefaultMapPool
   maps:
+<<<<<<< HEAD
   # - Atlas
   # - Bagel
   # - Box
@@ -64,3 +65,17 @@
   # - ADT_GeminiNewYear
   # - ADT_PieNewYear
   # - ADT_SalternNewYear
+=======
+  - Bagel
+  - Box
+  - Elkridge
+  - Fland
+  - Marathon
+  - Oasis
+  - Packed
+  - Plasma
+  - Reach
+  - Exo
+  - Snowball
+  - Serpentcrest
+>>>>>>> upstreamwiz/master

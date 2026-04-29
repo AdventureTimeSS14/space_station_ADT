@@ -70,12 +70,19 @@
 
 # Medical Modules
 
+<<<<<<< HEAD
 # ADT-Tweak-Start: "MedborgModuleUpdate"
 #- type: latheRecipe
 #  parent: BaseGoldBorgModuleRecipe
 #  id: BorgModuleAdvancedChemical
 #  result: BorgModuleAdvancedChemical
 # ADT-Tweak-End
+=======
+- type: latheRecipe
+  parent: BaseGoldBorgModuleRecipe
+  id: BorgModuleAdvancedTopical
+  result: BorgModuleAdvancedTopical
+>>>>>>> upstreamwiz/master
 
 # Science Modules
 

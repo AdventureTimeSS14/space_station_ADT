@@ -1,4 +1,5 @@
 using Content.Shared.DoAfter;
+using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Markings;
 using Robust.Shared.Serialization;
 
@@ -8,7 +9,7 @@ namespace Content.Shared.ADT.MidroundCustomization;
 public sealed partial class SlimeHairRemoveSlotDoAfterEvent : DoAfterEvent
 {
     public override DoAfterEvent Clone() => this;
-    public MarkingCategories Category;
+    public HumanoidVisualLayers Layer;
     public int Slot;
 }
 
@@ -16,13 +17,13 @@ public sealed partial class SlimeHairRemoveSlotDoAfterEvent : DoAfterEvent
 public sealed partial class SlimeHairAddSlotDoAfterEvent : DoAfterEvent
 {
     public override DoAfterEvent Clone() => this;
-    public MarkingCategories Category;
+    public HumanoidVisualLayers Layer;
 }
 
 [Serializable, NetSerializable]
 public sealed partial class SlimeHairSelectDoAfterEvent : DoAfterEvent
 {
-    public MarkingCategories Category;
+    public HumanoidVisualLayers Layer;
     public int Slot;
     public string Marking = string.Empty;
 
@@ -33,7 +34,7 @@ public sealed partial class SlimeHairSelectDoAfterEvent : DoAfterEvent
 public sealed partial class SlimeHairChangeColorDoAfterEvent : DoAfterEvent
 {
     public override DoAfterEvent Clone() => this;
-    public MarkingCategories Category;
+    public HumanoidVisualLayers Layer;
     public int Slot;
     public List<Color> Colors = new List<Color>();
 }

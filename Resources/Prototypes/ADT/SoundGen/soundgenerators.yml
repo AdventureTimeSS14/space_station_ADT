@@ -170,7 +170,7 @@
   - type: EmitSoundOnSpawn
     sound:
       path: /Audio/ADT/SoundGen/scary_laugh.ogg
-    
+
 
 
 
@@ -504,19 +504,6 @@
   - type: EmitSoundOnSpawn
     sound:
       path: /Audio/Items/Geiger/ext.ogg
-
-- type: entity
-  parent: ADTSoundGenBaseAmbient
-  id: ADTSoundGenWhistleInTheDark
-  name: ADTSoundGenWhistleInTheDark
-  abstract: false
-  components:
-  - type: TimedDespawn
-    lifetime: 9
-  - type: EmitSoundOnSpawn
-    sound:
-      path: /Audio/ADT/Phantom/Hallucinations/WhistlingInTheDark.ogg
-
 
 # Новые Ambient от eddiemercury
 

@@ -5,7 +5,6 @@ using Robust.Shared.ContentPack;
 using Robust.Shared.Console;
 using Robust.Shared.Network;
 using Robust.Shared.Utility;
-using Serilog;
 using System.IO;
 using System.Linq;
 
@@ -40,7 +39,7 @@ public sealed class ExportCommand : LocalizedCommands
     {
         if (shell.Player == null)
         {
-            Log.Error("This command can not be executed by server.");
+            Logger.Error("This command can not be executed by server.");
             return;
         }
 
@@ -53,7 +52,7 @@ public sealed class ExportCommand : LocalizedCommands
         }
         if (!_resource.UserData.Exists(resPath))
         {
-            Log.Information($"No user map found: {resPath}");
+            Logger.Info($"No user map found: {resPath}");
 
             // fallback to content
             if (_resource.TryContentFileRead(resPath, out var contentReader))
@@ -62,7 +61,7 @@ public sealed class ExportCommand : LocalizedCommands
             }
             else
             {
-                Log.Error($"No map found: {resPath}");
+                Logger.Error($"No map found: {resPath}");
                 return;
             }
         }

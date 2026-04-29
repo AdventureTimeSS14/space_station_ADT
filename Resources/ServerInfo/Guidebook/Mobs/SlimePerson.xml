@@ -10,6 +10,7 @@
     ## Внутреннее хранилище
   Внутри оболочки слаймолюда есть внутреннее хранилище, объемом 2x3. Любой может видеть что находится внутри и забрать это без разрешения, так что будьте осторожнее.
 
+<<<<<<< HEAD
   ## Расовые особенности
   - Слаймолюды получают [color=#1e90ff]на 40% меньше урона от ушибов, на 80% меньше клеточного урона и на 20% меньше от ядов[/color], но [color=#ffa500]на 50% больше урона холодом, на 20% больше от порезов и уколов[/color].
   - Быстрее пьянеют.
@@ -23,5 +24,14 @@
   - Слизистая "кровь" не восстанавливается железом. Тем не менее, слизь является умеренно питательным источником пищи для других существ, но пить кровь своих товарищей по команде обычно считается неприемлемым.
   - Слаймолюды способны выживать в условиях вакуума дольше многих рас, хотя при этом получают повышенный урон от давления через ожоги.
   - Слаймолюды являются прозрачными существами за счёт своей слизистой структуры.
+=======
+  Slimepeople have roughly [color=#1e90ff]double[/color] regeneration compared to other humanoids and can regenerate from far greater wounds up to [color=#1e90ff]triple[/color] compared to others.
+
+  Their slime "blood" can not be regenerated from Iron. Slime Blood is technically a source of
+  moderately filling food for other species, although drinking the blood of your coworkers is usually frowned upon.
+  They suffocate 80% slower, but take pressure damage 9% faster. This makes them by far the species most capable to survive in hard vacuum. For a while.
+
+  They take [color=#1e90ff]40% less Blunt damage[/color], but [color=#ffa500]50% more Cold damage, 20% more Slash damage and 20% more Piercing damage[/color].
+>>>>>>> upstreamwiz/master
 
 </Document>

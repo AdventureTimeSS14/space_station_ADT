@@ -58,6 +58,18 @@
   objectType: Item
 
 - type: construction
+<<<<<<< HEAD
+=======
+  id: BoxCardboardSmall
+  name: construction-recipe-box-cardboard-small
+  graph: BoxCardboardSmall
+  startNode: start
+  targetNode: boxcardboardsmall
+  category: construction-category-storage
+  objectType: Item
+
+- type: construction
+>>>>>>> upstreamwiz/master
   id: ToteBase
   name: construction-recipe-box-tote
   graph: ToteBase

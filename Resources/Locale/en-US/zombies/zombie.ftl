@@ -11,7 +11,3 @@ zombie-permadeath = This time, you're dead for real.
 zombification-resistance-coefficient-value = - [color=violet]Infection[/color] chance reduced by [color=lightblue]{$value}%[/color].
 
 zombie-roleban-ghosted = You have been ghosted because you are banned from playing the Zombie role.
-
-# Zombie Jump (ADT)
-ent-ActionZombieJump = Zombie Jump
-ent-ActionZombieJump-desc = A powerful leap forward. On collision with a living entity, it will be knocked down!

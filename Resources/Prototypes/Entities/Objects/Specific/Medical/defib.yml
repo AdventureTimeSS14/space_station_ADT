@@ -53,7 +53,7 @@
   - type: MultiHandedItem
   - type: ToggleCellDraw
   - type: PowerCellDraw
-    useRate: 100
+    useCharge: 100
 
 - type: entity
   id: DefibrillatorEmpty
@@ -96,12 +96,16 @@
     size: Normal
   - type: ToggleCellDraw
   - type: PowerCellDraw
+<<<<<<< HEAD
     useRate: 100
   # ADT-Tweak-Start
   - type: Tag
     tags:
     - Defibrillator
   # ADT-Tweak-End 
+=======
+    useCharge: 100
+>>>>>>> upstreamwiz/master
   - type: Defibrillator
     zapHeal:
       types:

@@ -31,11 +31,14 @@
       collection: SadTrombone
       params:
         variation: 0.125
+<<<<<<< HEAD
   # ADT tweak start
   - type: TranslatorImplant
     languages:
       Clownish: Speak
   # ADT tweak end
+=======
+>>>>>>> upstreamwiz/master
 
 - type: entity
   parent: BaseSubdermalImplant
@@ -179,9 +182,7 @@
     whitelist:
       components:
       - Hands # prevent mouse buying grenade penguin since its not telepathic
-  - type: Store
-    balance:
-      Telecrystal: 0
+  - type: RemoteStore
   - type: UserInterface
     interfaces:
       enum.StoreUiKey.Key:
@@ -226,7 +227,11 @@
     implantAction: ActionActivateDnaScramblerImplant
     whitelist:
       components:
+<<<<<<< HEAD
       - HumanoidAppearance # syndies cant turn hamlet into a human
+=======
+      - HumanoidProfile # syndies cant turn hamlet into a human
+>>>>>>> upstreamwiz/master
   - type: TriggerOnActivateImplant
   - type: DnaScrambleOnTrigger
     targetUser: true
@@ -248,6 +253,26 @@
     interfaces:
       enum.ChameleonControllerKey.Key:
         type: ChameleonControllerBoundUserInterface
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: VoiceMaskImplant
+  name: identity mask implant
+  description: This implant allows you to change your identity at will.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SubdermalImplant
+    implantAction: ActionChangeVoiceMaskImplant
+  - type: VoiceMask
+    overrideIdentity: true
+    changeIDName: true
+  - type: UserInterface
+    interfaces:
+      enum.VoiceMaskUIKey.Key:
+        type: VoiceMaskBoundUserInterface
+  - type: Tag
+    tags:
+    - SubdermalImplant
 
 #Nuclear Operative/Special Exclusive implants
 

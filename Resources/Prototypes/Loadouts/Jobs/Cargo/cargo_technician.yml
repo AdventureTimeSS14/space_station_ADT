@@ -6,17 +6,29 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobCargoTechnician
+<<<<<<< HEAD
       time: 6h
+=======
+      time: 21600 #6 hrs
+>>>>>>> upstreamwiz/master
   - !type:JobRequirementLoadoutEffect
     requirement:
       !type:RoleTimeRequirement
       role: JobSalvageSpecialist
+<<<<<<< HEAD
       time: 6h
+=======
+      time: 21600 #6 hrs
+>>>>>>> upstreamwiz/master
   - !type:JobRequirementLoadoutEffect
     requirement:
       !type:DepartmentTimeRequirement
       department: Cargo
+<<<<<<< HEAD
       time: 6h
+=======
+      time: 216000 # 60 hrs
+>>>>>>> upstreamwiz/master
 
 # Head
 - type: loadout

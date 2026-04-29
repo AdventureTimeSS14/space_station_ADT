@@ -16,9 +16,7 @@ ent-ClothingBackpackSatchelChemistryFilled = { ent-ClothingBackpackSatchelChemis
     .desc = { ent-ClothingBackpackSatchelChemistry.desc }
 ent-ADTClothingBackpackSatchelSeniorSecurityFilled = { ent-ClothingBackpackSatchelSecurity }
     .desc = { ent-ClothingBackpackSatchelSecurity }
-
 ent-ADTClothingBackpackSatchelParamedicFilled = сумка парамедика
     .desc = Стерильная сумка для экстренных вызовов медицинской помощи.
-
 ent-ADTClothingBackpackSatchelCentcomFilled = { ent-ADTClothingBackpackSatchelCentcom }
     .desc = { ent-ADTClothingBackpackSatchelCentcom.desc }

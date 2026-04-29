@@ -210,6 +210,7 @@
     - 0,0,1,0
     - 0,1,0,1
     storedOffset: 0,-5
+<<<<<<< HEAD
   # ADT-Tweak start
   - type: RunAndGunSpreadModifier
     modifier: 3
@@ -223,6 +224,8 @@
       collection: GenericHit
   - type: AltFireMelee
   # ADT-Tweak end
+=======
+>>>>>>> upstreamwiz/master
   - type: Sprite
     sprite: Objects/Weapons/Guns/Snipers/flintlock.rsi
   - type: Clothing

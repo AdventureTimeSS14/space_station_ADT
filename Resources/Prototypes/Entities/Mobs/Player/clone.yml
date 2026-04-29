@@ -12,18 +12,24 @@
   - DetailExaminable
   - Dna
   - Fingerprint
+  - Grammar # Pronouns
+  - HumanoidProfile # Age, Sex, Gender
   - NpcFactionMember
+  - RandomPrice
+  - CreamPied
   # traits
   - BlackAndWhiteOverlay
   - Clumsy
+<<<<<<< HEAD
   - Hemophilia
+=======
+>>>>>>> upstreamwiz/master
   - ImpairedMobility
   # - LegsParalyzed (you get healed)
   - LightweightDrunk
   - Muted
   - Narcolepsy
   - Pacified
-  - PainNumbness
   - Paracusia
   - PermanentBlindness
   - Snoring
@@ -52,6 +58,7 @@
   - SouthernAccent
   - SpanishAccent
   - StutteringAccent
+<<<<<<< HEAD
   - VoxAccent
   # - ReplacementAccent
   # Not supported at the moment because AddAccentClothingComponent will make it permanent when cloned.
@@ -121,6 +128,40 @@
     - Implanter # they will spawn full again, but you already get the implant. And we can't do item slot copying yet
     - VirtualItem
 
+=======
+  eventComponents:
+  - Vocal # voice sounds
+
+# for job-specific traits etc.
+- type: cloningSettings
+  id: Special
+  components:
+  - BibleUser
+  - CommandStaff
+  - MindShield
+  - MimePowers
+  - SpaceNinja
+  - Thieving
+
+# antag roles
+- type: cloningSettings
+  id: Antag
+  components:
+  - HeadRevolutionary
+  - Revolutionary
+  - NukeOperative
+
+# a full clone with all traits and items, but no antag roles
+- type: cloningSettings
+  id: BaseClone
+  parent: [Body, Special]
+  blacklist:
+    components:
+    - AttachedClothing # helmets, which are part of the suit
+    - Implanter # they will spawn full again, but you already get the implant. And we can't do item slot copying yet
+    - VirtualItem
+
+>>>>>>> upstreamwiz/master
 # for cloning pods
 - type: cloningSettings
   id: CloningPod
@@ -156,7 +197,10 @@
   # these need special treatment in the event subscription
   - Inventory # arachnid pockets and diona feet
   - Wagging # lizard tails
+<<<<<<< HEAD
   - Vocal # voice sounds
+=======
+>>>>>>> upstreamwiz/master
   - Storage # slime storage
   - Rootable # diona
   - Sericulture # arachnids

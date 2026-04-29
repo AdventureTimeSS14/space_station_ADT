@@ -374,6 +374,7 @@
     sprite: Clothing/OuterClothing/WinterCoats/coathosarmored.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterHOS
+<<<<<<< HEAD
   # ADT tweak start
   - type: Armor
     modifiers:
@@ -398,6 +399,13 @@
         occludes: True
         ent: null
   # ADT tweak end
+=======
+  - type: ContainerContainer
+    containers:
+      toggleable-clothing: !type:ContainerSlot { }
+      storagebase: !type:Container
+        ents: [ ]
+>>>>>>> upstreamwiz/master
 ##########################################################
 
 - type: entity
@@ -757,6 +765,7 @@
     sprite: Clothing/OuterClothing/WinterCoats/coatwardenarmored.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterWarden
+<<<<<<< HEAD
   # ADT tweak start
   - type: Armor
     modifiers:
@@ -780,6 +789,13 @@
         occludes: True
         ent: null
   # ADT tweak end
+=======
+  - type: ContainerContainer
+    containers:
+      toggleable-clothing: !type:ContainerSlot { }
+      storagebase: !type:Container
+        ents: [ ]
+>>>>>>> upstreamwiz/master
 ################################################################
 
 - type: entity

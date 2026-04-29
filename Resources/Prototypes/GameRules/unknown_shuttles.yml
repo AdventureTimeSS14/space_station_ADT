@@ -1,6 +1,7 @@
 # Shuttle Game Rule Tables -- If you dont add your rules to these they wont be used by the games schedulers.
 
 - type: entityTable
+<<<<<<< HEAD
   id: UnknownShuttlesFriendlyTable
   table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
     children:
@@ -34,6 +35,14 @@
     # - id: LoneOpsSpawn
     # - id: UnknownShuttleManOWar
     # - id: UnknownShuttleInstigator
+=======
+  id: UnknownShuttlesHostileTable
+  table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
+    children:
+    - id: LoneOpsSpawn
+    - id: UnknownShuttleManOWar
+    - id: UnknownShuttleInstigator
+>>>>>>> upstreamwiz/master
 
 # Shuttle Game Rules
 
@@ -43,9 +52,12 @@
   id: BaseUnknownShuttleRule
   components:
   - type: StationEvent
+<<<<<<< HEAD
     startAnnouncement: station-event-unknown-shuttle-incoming
     startAudio:
       path: /Audio/ADT/Announcements/announce_dig.ogg #ADT-tweak
+=======
+>>>>>>> upstreamwiz/master
     weight: 10 # 10 default
     reoccurrenceDelay: 30
     duration: 1
@@ -54,7 +66,9 @@
   - type: LoadMapRule
 
 - type: entity
+  abstract: true
   parent: BaseUnknownShuttleRule
+<<<<<<< HEAD
   id: UnknownShuttleCargoLost
   components:
   - type: StationEvent
@@ -81,14 +95,21 @@
     maxOccurrences: 3
   - type: LoadMapRule
     gridPath: /Maps/Shuttles/ShuttleEvent/disaster_evacpod.yml
+=======
+  id: BaseUnknownShuttleAnnouncedRule
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-unknown-shuttle-incoming
+    startAudio:
+      path: /Audio/Announcements/attention.ogg
+>>>>>>> upstreamwiz/master
 
 # The power of 3 clowns proved too strong for the players and may need to be 1984'ed. Replace this with a more engaging clown shuttle.
 - type: entity
-  parent: BaseUnknownShuttleRule
+  parent: BaseUnknownShuttleAnnouncedRule
   id: UnknownShuttleHonki
   components:
   - type: StationEvent
-    startAnnouncement: station-event-unknown-shuttle-incoming #!!
     weight: 2
   - type: LoadMapRule
     gridPath: /Maps/Shuttles/ShuttleEvent/honki.yml
@@ -98,7 +119,6 @@
   id: UnknownShuttleSyndieEvacPod
   components:
   - type: StationEvent
-    startAnnouncement: null # It should be silent.
     weight: 5 # lower because weird freelance roles
     maxOccurrences: 2
   - type: LoadMapRule
@@ -109,12 +129,12 @@
   parent: BaseUnknownShuttleRule
   components:
   - type: StationEvent
-    startAnnouncement: null # It should be silent.
     weight: .5 # Hopefully this is uncommon enough, it needs to be uncommon enough that people wont waste time metaknowledging it.
     earliestStart: 45 # late to hopefully have enough ghosts to fill all roles quickly.
     minimumPlayers: 25
   - type: LoadMapRule
     gridPath: /Maps/Shuttles/ShuttleEvent/quark.yml
+<<<<<<< HEAD
 
 - type: entity
   id: UnknownShuttleCruiser
@@ -173,17 +193,18 @@
     earliestStart: 45 # late to hopefully have enough ghosts to fill all roles quickly. (5-6)
   - type: LoadMapRule
     gridPath: /Maps/Shuttles/ShuttleEvent/incorporation.yml
+=======
+>>>>>>> upstreamwiz/master
 
 - type: entity
   id: UnknownShuttleInstigator
   parent: BaseUnknownShuttleRule
   components:
   - type: StationEvent
-    startAnnouncement: null #dont nark on antags
-    weight: 1 #  lower because antags.
-    earliestStart: 50 # late to hopefully have enough ghosts to fill all roles quickly (3) and because antags
+    weight: 0.1 #  approximately 1/1000 on the random hostile shuttle table. Golden Legendary!
   - type: LoadMapRule
     gridPath: /Maps/Shuttles/ShuttleEvent/instigator.yml
+<<<<<<< HEAD
 
 - type: entity
   id: UnknownShuttleJoe
@@ -202,17 +223,18 @@
     startAnnouncement: station-event-unknown-shuttle-incoming #!!
   - type: LoadMapRule
     gridPath: /Maps/Shuttles/ShuttleEvent/lambordeere.yml
+=======
+>>>>>>> upstreamwiz/master
 
 - type: entity
   id: UnknownShuttleManOWar
   parent: BaseUnknownShuttleRule
   components:
   - type: StationEvent
-    startAnnouncement: station-event-unknown-shuttle-incoming #Leaving this one because theyre like primitives and its funnier
     weight: 1 # lower because antags
-    earliestStart: 50 # late to hopefully have enough ghosts to fill all roles quickly. (4) & antags
   - type: LoadMapRule
     gridPath: /Maps/Shuttles/ShuttleEvent/manowar.yml
+<<<<<<< HEAD
 
 - type: entity
   id: UnknownShuttleMeatZone
@@ -243,3 +265,5 @@
   - type: LoadMapRule
     gridPath: /Maps/Shuttles/ShuttleEvent/spacebus.yml
 
+=======
+>>>>>>> upstreamwiz/master

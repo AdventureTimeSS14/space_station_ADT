@@ -41,11 +41,17 @@
   - MicrowaveMachineCircuitboard
   - ReagentGrinderMachineCircuitboard
   - ElectricGrillMachineCircuitboard
+<<<<<<< HEAD
   - ADTEnergyBoozeDispenserMachineCircuitboard #ADT-Tweak
   - ADTEnergySodaDispenserMachineCircuitboard #ADT-Tweak
   - SmartFridgeCircuitboard
   - PrinterDocMachineCircuitboard # Corvax-Printer
   - ADTCoffeeMachineCircuitboard # ADT Tweak
+=======
+  - BoozeDispenserMachineCircuitboard
+  - SodaDispenserMachineCircuitboard
+  - SmartFridgeCircuitboard
+>>>>>>> upstreamwiz/master
 
 ## Dynamic
 

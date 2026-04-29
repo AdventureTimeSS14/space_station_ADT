@@ -7,10 +7,7 @@ using Robust.Shared.Random;
 
 namespace Content.Server.NameIdentifier;
 
-/// <summary>
-///     Handles unique name identifiers for entities e.g. `monkey (MK-912)`
-/// </summary>
-public sealed class NameIdentifierSystem : EntitySystem
+public sealed class NameIdentifierSystem : SharedNameIdentifierSystem
 {
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IRobustRandom _robustRandom = default!;
@@ -28,7 +25,6 @@ public sealed class NameIdentifierSystem : EntitySystem
 
         SubscribeLocalEvent<NameIdentifierComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<NameIdentifierComponent, ComponentShutdown>(OnComponentShutdown);
-        SubscribeLocalEvent<NameIdentifierComponent, RefreshNameModifiersEvent>(OnRefreshNameModifiers);
         SubscribeLocalEvent<RoundRestartCleanupEvent>(CleanupIds);
         SubscribeLocalEvent<PrototypesReloadedEventArgs>(OnReloadPrototypes);
 
@@ -122,6 +118,7 @@ public sealed class NameIdentifierSystem : EntitySystem
         _nameModifier.RefreshNameModifiers(ent.Owner);
     }
 
+<<<<<<< HEAD
     private void OnRefreshNameModifiers(Entity<NameIdentifierComponent> ent, ref RefreshNameModifiersEvent args)
     {
         if (ent.Comp.Group is null)
@@ -140,6 +137,8 @@ public sealed class NameIdentifierSystem : EntitySystem
         args.AddModifier(format, -10, ("identifier", ent.Comp.FullIdentifier));
     }
 
+=======
+>>>>>>> upstreamwiz/master
     private void InitialSetupPrototypes()
     {
         EnsureIds();

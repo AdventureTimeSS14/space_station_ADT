@@ -6,6 +6,7 @@
   requirements:
     - !type:RoleTimeRequirement
       role: JobAtmosphericTechnician
+<<<<<<< HEAD
       time: 2.5h # ADT-Tweak 2.5h
 #    - !type:RoleTimeRequirement
 #      role: JobStationEngineer
@@ -24,6 +25,15 @@
       species:
       - Vox
       #ADT tweak end
+=======
+      time: 2.5h
+    - !type:RoleTimeRequirement
+      role: JobStationEngineer
+      time: 5h
+    - !type:DepartmentTimeRequirement
+      department: Engineering
+      time: 10h
+>>>>>>> upstreamwiz/master
   weight: 10
   startingGear: ChiefEngineerGear
   icon: "JobIconChiefEngineer"
@@ -44,7 +54,6 @@
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
-      # - type: PhantomTyranyTarget # ADT Phantom
 
 - type: startingGear
   id: ChiefEngineerGear

@@ -1,3 +1,4 @@
+using System.Globalization;
 using Content.Server.Atmos.Components;
 using Content.Server.Decals;
 using Content.Shared.Atmos;
@@ -87,8 +88,12 @@ public sealed partial class AtmosphereSystem
         if (tile.Hotspot.Temperature < Atmospherics.FireMinimumTemperatureToExist ||
             tile.Hotspot.Volume <= 1f ||
             tile.Air == null ||
+<<<<<<< HEAD
             tile.Air.GetMoles(Gas.Oxygen) < 0.5f ||
             tile.Air.GetMoles(Gas.Plasma) < 0.5f && tile.Air.GetMoles(Gas.Tritium) < 0.5f)
+=======
+            !IsMixtureIgnitable(tile.Air))
+>>>>>>> upstreamwiz/master
         {
             tile.Hotspot = new Hotspot();
             InvalidateVisuals(ent, tile);
@@ -201,6 +206,7 @@ public sealed partial class AtmosphereSystem
         if (tile.Air == null)
             return;
 
+<<<<<<< HEAD
         var oxygen = tile.Air.GetMoles(Gas.Oxygen);
 
         if (oxygen < 0.5f)
@@ -212,12 +218,22 @@ public sealed partial class AtmosphereSystem
         var hydrogen = tile.Air.GetMoles(Gas.Hydrogen);
         var hypernoblium = tile.Air.GetMoles(Gas.HyperNoblium);
         //ADT-Tweak-end
+=======
+        if (!IsMixtureOxidizer(tile.Air))
+            return;
+
+        var isFlammable = IsMixtureFuel(tile.Air);
+>>>>>>> upstreamwiz/master
 
         if (tile.Hotspot.Valid)
         {
             if (soh)
             {
+<<<<<<< HEAD
                 if (plasma > 0.5f && hypernoblium < 5f || tritium > 0.5f && hypernoblium < 5f || hydrogen > 0.5f && hypernoblium < 5f) //ADT-Gas
+=======
+                if (isFlammable)
+>>>>>>> upstreamwiz/master
                 {
                     tile.Hotspot.Temperature = MathF.Max(tile.Hotspot.Temperature, exposedTemperature);
                     tile.Hotspot.Volume = MathF.Max(tile.Hotspot.Volume, exposedVolume);
@@ -227,13 +243,22 @@ public sealed partial class AtmosphereSystem
             return;
         }
 
+<<<<<<< HEAD
         if ((exposedTemperature > Atmospherics.PlasmaMinimumBurnTemperature) && (plasma > 0.5f && hypernoblium < 5f || tritium > 0.5f && hypernoblium < 5f || hydrogen > 0.5f && hypernoblium < 5f)) //ADT-Gas
+=======
+        if (exposedTemperature > Atmospherics.PlasmaMinimumBurnTemperature && isFlammable)
+>>>>>>> upstreamwiz/master
         {
             if (sparkSourceUid.HasValue)
             {
                 _adminLog.Add(LogType.Flammable,
                     LogImpact.High,
+<<<<<<< HEAD
                     $"Heat/spark of {ToPrettyString(sparkSourceUid.Value)} caused atmos ignition of gas: {tile.Air.Temperature.ToString():temperature}K - {oxygen}mol Oxygen, {plasma}mol Plasma, {tritium}mol Tritium");
+=======
+                    $"Heat/spark of {ToPrettyString(sparkSourceUid.Value)} caused atmos ignition of gas: " +
+                    $"{tile.Air.ToPrettyString()}");
+>>>>>>> upstreamwiz/master
             }
 
             tile.Hotspot = new Hotspot
@@ -247,6 +272,50 @@ public sealed partial class AtmosphereSystem
 
             AddActiveTile(gridAtmosphere, tile);
             gridAtmosphere.HotspotTiles.Add(tile);
+<<<<<<< HEAD
+=======
+        }
+    }
+
+    /// <summary>
+    /// Performs hotspot exposure processing on a <see cref="TileAtmosphere"/>.
+    /// </summary>
+    /// <param name="tile">The <see cref="TileAtmosphere"/> to process.</param>
+    private void PerformHotspotExposure(TileAtmosphere tile)
+    {
+        if (tile.Air == null || !tile.Hotspot.Valid)
+            return;
+
+        // Determine if the tile has become a full-blown fire if the volume of the fire has effectively reached
+        // the volume of the tile's air.
+        tile.Hotspot.Bypassing = tile.Hotspot.SkippedFirstProcess && tile.Hotspot.Volume > tile.Air.Volume * 0.95f;
+
+        // If the tile is effectively a full fire, use the tile's air for reactions, don't bother partitioning.
+        if (tile.Hotspot.Bypassing)
+        {
+            tile.Hotspot.Volume = tile.Air.ReactionResults[(byte)GasReaction.Fire] * Atmospherics.FireGrowthRate;
+            tile.Hotspot.Temperature = tile.Air.Temperature;
+        }
+        // Otherwise, pull out a fraction of the tile's air (the current hotspot volume) to perform reactions on.
+        else
+        {
+            var affected = tile.Air.RemoveVolume(tile.Hotspot.Volume);
+            affected.Temperature = tile.Hotspot.Temperature;
+            React(affected, tile);
+            tile.Hotspot.Temperature = affected.Temperature;
+            // Scale the fire based on the type of reaction that occured.
+            tile.Hotspot.Volume = affected.ReactionResults[(byte)GasReaction.Fire] * Atmospherics.FireGrowthRate;
+            Merge(tile.Air, affected);
+        }
+
+        var fireEvent = new TileFireEvent(tile.Hotspot.Temperature, tile.Hotspot.Volume);
+        _entSet.Clear();
+        _lookup.GetLocalEntitiesIntersecting(tile.GridIndex, tile.GridIndices, _entSet, 0f);
+
+        foreach (var entity in _entSet)
+        {
+            RaiseLocalEvent(entity, ref fireEvent);
+>>>>>>> upstreamwiz/master
         }
     }
 

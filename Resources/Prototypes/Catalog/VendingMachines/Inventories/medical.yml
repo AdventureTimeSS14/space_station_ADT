@@ -5,19 +5,29 @@
     Gauze: 3
     Brutepack: 3
     Ointment: 3
+<<<<<<< HEAD
 #    Bloodpack: 3 # ADT Tweak
     ADTBloodPackTransfusionFull: 3 # ADT Tweak: Blood IV
+=======
+    Bloodpack: 3
+>>>>>>> upstreamwiz/master
     ChemistryBottleEpinephrine: 3
     Syringe: 3
     PillCanisterTricordrazine: 2
   contrabandInventory:
     PillCanisterRandom: 1
+<<<<<<< HEAD
     PowerCellSmall: 2
 
+=======
+
+# All access version. Should reflect the stock of NanoMedInventory, but less powerful
+>>>>>>> upstreamwiz/master
 - type: vendingMachineInventory
   id: NanoMedCivilianWallInventory
   startingInventory:
     HandheldHealthAnalyzer: 1
+<<<<<<< HEAD
     AloeCream: 2
     Gauze: 3
     Brutepack: 3
@@ -31,10 +41,27 @@
     PillCanisterRandom: 1
     PowerCellSmall: 2
 
+=======
+    Tourniquet: 3
+    Brutepack: 3
+    AloeCream: 3 # Currently just a reskin of Ointment but it's something
+    Bloodpack: 3
+    ChemistryBottleInaprovaline: 3
+    Syringe: 3
+    PillTricordrazine: 10
+  contrabandInventory:
+    PillCanisterRandom: 1
+
+# Core medical supply vendor
+>>>>>>> upstreamwiz/master
 - type: vendingMachineInventory
   id: NanoMedPlusInventory
   startingInventory:
+    # Medical Essential Gear
+    ClothingBeltMedicalFilled: 2
+    # Shared Essential
     HandheldHealthAnalyzer: 3
+<<<<<<< HEAD
     # ADT tweak start
     Gauze: 5
     ADTPatchPackFilled: 3
@@ -56,10 +83,29 @@
     SyringeIpecac: 1
     ClothingEyesHudMedical: 2
     ClothingEyesEyepatchHudMedical: 2
+=======
+    JetInjector: 3
+    # Paramed Essential Gear
+    ClothingBeltMedicalEMTFilled: 1
+    EmergencyRollerBedSpawnFolded: 1
+    BoxBodyBag: 1
+    # Extra Expendable Gear
+    Gauze: 4
+    Brutepack: 4
+    Ointment: 4
+    Bloodpack: 4
+    # Optional / Situational Gear
+    BoxBottle: 3
+    Defibrillator: 2 # Easily shared between several people
+    Syringe: 4
+    PillCanisterTricordrazine: 4
+    ClothingOuterHospitalGown: 2 # Not a popular item, so less stock
+>>>>>>> upstreamwiz/master
   contrabandInventory:
     PillCanisterRandom: 3
     PillSpaceDrugs: 3
     FoodApple: 1
+<<<<<<< HEAD
   # ADT tweak Start
   emaggedInventory:
     ADTMorphineBottle: 1
@@ -67,10 +113,15 @@
     ADTPatchHonk: 3
   # ADT tweak End
 
+=======
+
+# All access version. Should reflect NanoMedCivilianWallInventory, but with more stock
+>>>>>>> upstreamwiz/master
 - type: vendingMachineInventory
   id: NanoMedCivilianInventory
   startingInventory:
     HandheldHealthAnalyzer: 3
+<<<<<<< HEAD
     AloeCream: 3
     Gauze: 5
     Brutepack: 5
@@ -85,6 +136,17 @@
     PillCanisterIron: 1
     PillCanisterCopper: 1
     PillCanisterPotassiumIodide: 1
+=======
+    Tourniquet: 5
+    Brutepack: 5
+    AloeCream: 5
+    Bloodpack: 5
+    ChemistryBottleInaprovaline: 5
+    Syringe: 5
+    PillTricordrazine: 10
+    PillIron: 5
+    PillCopper: 5
+>>>>>>> upstreamwiz/master
   contrabandInventory:
     PillCanisterRandom: 1
     PillSpaceDrugs: 3

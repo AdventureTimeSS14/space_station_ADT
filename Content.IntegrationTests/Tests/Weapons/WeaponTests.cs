@@ -1,5 +1,10 @@
 ﻿using Content.IntegrationTests.Tests.Interaction;
 using Content.Shared.Damage.Components;
+<<<<<<< HEAD
+=======
+using Content.Shared.Damage.Systems;
+using Content.Shared.FixedPoint;
+>>>>>>> upstreamwiz/master
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Systems;
 using Content.Shared.Wieldable.Components;
@@ -17,6 +22,10 @@ public sealed class WeaponTests : InteractionTest
     public async Task GunRequiresWieldTest()
     {
         var gunSystem = SEntMan.System<SharedGunSystem>();
+<<<<<<< HEAD
+=======
+        var damageSystem = SEntMan.System<DamageableSystem>();
+>>>>>>> upstreamwiz/master
 
         await AddAtmosphere(); // prevent the Urist from suffocating
 
@@ -44,8 +53,13 @@ public sealed class WeaponTests : InteractionTest
         Assert.That(updatedAmmo,
             Is.EqualTo(startAmmo),
             "Mosin discharged ammo when the weapon should not have fired!");
+<<<<<<< HEAD
         Assert.That(damageComp.TotalDamage.Value,
             Is.EqualTo(0),
+=======
+        Assert.That(damageSystem.GetTotalDamage(ToServer(urist)),
+            Is.EqualTo(FixedPoint2.Zero),
+>>>>>>> upstreamwiz/master
             "Urist took damage when the weapon should not have fired!");
 
         await UseInHand();
@@ -56,8 +70,13 @@ public sealed class WeaponTests : InteractionTest
         updatedAmmo = gunSystem.GetAmmoCount(mosinEnt);
 
         Assert.That(updatedAmmo, Is.EqualTo(startAmmo - 1), "Mosin failed to discharge appropriate amount of ammo!");
+<<<<<<< HEAD
         Assert.That(damageComp.TotalDamage.Value,
             Is.GreaterThan(0),
+=======
+        Assert.That(damageSystem.GetTotalDamage(ToServer(urist)),
+            Is.GreaterThan(FixedPoint2.Zero),
+>>>>>>> upstreamwiz/master
             "Mosin was fired but urist sustained no damage!");
     }
 }

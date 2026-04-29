@@ -3,14 +3,13 @@
   name: species-name-reptilian
   roundStart: true
   prototype: MobReptilian
-  sprites: MobReptilianSprites
   defaultSkinTone: "#34a223"
-  markingLimits: MobReptilianMarkingLimits
-  dollPrototype: MobReptilianDummy
+  dollPrototype: AppearanceReptilian
   skinColoration: Hues
   maleFirstNames: NamesReptilianMale
   femaleFirstNames: NamesReptilianFemale
   naming: FirstDashFirst
+<<<<<<< HEAD
   # ADT start
   shortDesc: species-short-desc-reptilian
   description: "/ServerInfo/ADT/SpeciesDescriptions/Unath.xml"
@@ -183,3 +182,5 @@
   baseSprite:
     sprite: Mobs/Species/Reptilian/parts.rsi
     state: r_foot
+=======
+>>>>>>> upstreamwiz/master

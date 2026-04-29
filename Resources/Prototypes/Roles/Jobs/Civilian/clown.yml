@@ -40,6 +40,8 @@
     #id: ClownPDA # ADT: different PDAs in loadouts
     #ADT-tweak-end
     ears: ClothingHeadsetService
+  inhand:
+  - FoolboxFilled
   storage:
     back:
     - RubberStampClown

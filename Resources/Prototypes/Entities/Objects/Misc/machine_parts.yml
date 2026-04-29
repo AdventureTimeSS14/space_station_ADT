@@ -14,7 +14,10 @@
     - type: Tag
       tags:
       - ConstructionMaterial
+<<<<<<< HEAD
     - type: StockPart # ADT tweak
+=======
+>>>>>>> upstreamwiz/master
 
 - type: entity
   id: MicroManipulatorStockPart

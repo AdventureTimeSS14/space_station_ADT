@@ -1,11 +1,19 @@
 meta:
   format: 7
   category: Grid
+<<<<<<< HEAD
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
   time: 09/17/2025 04:14:52
   entityCount: 957
+=======
+  engineVersion: 275.2.0
+  forkId: ""
+  forkVersion: ""
+  time: 04/05/2026 13:24:37
+  entityCount: 959
+>>>>>>> upstreamwiz/master
 maps: []
 grids:
 - 1
@@ -516,6 +524,9 @@ entities:
     - type: GasTileOverlay
     - type: RadiationGridResistance
     - type: ImplicitRoof
+    - type: TileHistory
+      chunkHistory: {}
+    - type: ExplosionAirtightGrid
 - proto: AirCanister
   entities:
   - uid: 326
@@ -523,10 +534,10 @@ entities:
     - type: Transform
       pos: -13.5,-3.5
       parent: 1
-  - uid: 445
+  - uid: 643
     components:
     - type: Transform
-      pos: -1.5,-18.5
+      pos: 0.5,-20.5
       parent: 1
 - proto: AirlockBrigGlassLocked
   entities:
@@ -735,6 +746,17 @@ entities:
       parent: 1
     - type: Fixtures
       fixtures: {}
+<<<<<<< HEAD
+=======
+  - uid: 795
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -9.5,0.5
+      parent: 1
+    - type: Fixtures
+      fixtures: {}
+>>>>>>> upstreamwiz/master
 - proto: AtmosDeviceFanDirectional
   entities:
   - uid: 71
@@ -1714,6 +1736,11 @@ entities:
     - type: Transform
       pos: -2.5,-22.5
       parent: 1
+  - uid: 802
+    components:
+    - type: Transform
+      pos: -9.5,0.5
+      parent: 1
 - proto: CableHV
   entities:
   - uid: 33
@@ -2222,6 +2249,16 @@ entities:
     components:
     - type: Transform
       pos: -4.5,-17.5
+      parent: 1
+  - uid: 958
+    components:
+    - type: Transform
+      pos: -9.5,0.5
+      parent: 1
+  - uid: 959
+    components:
+    - type: Transform
+      pos: -8.5,0.5
       parent: 1
 - proto: CableTerminal
   entities:
@@ -3134,11 +3171,11 @@ entities:
       parent: 1
 - proto: GasOutletInjector
   entities:
-  - uid: 801
+  - uid: 687
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
-      pos: 1.5,-18.5
+      pos: 1.5,-20.5
       parent: 1
 - proto: GasPassiveVent
   entities:
@@ -3146,10 +3183,16 @@ entities:
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
-      pos: 1.5,-20.5
+      pos: 1.5,-19.5
       parent: 1
 - proto: GasPipeBend
   entities:
+  - uid: 680
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -2.5,-20.5
+      parent: 1
   - uid: 856
     components:
     - type: Transform
@@ -3181,7 +3224,7 @@ entities:
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
-      pos: 0.5,-20.5
+      pos: -0.5,-19.5
       parent: 1
   - uid: 514
     components:
@@ -3189,44 +3232,27 @@ entities:
       rot: 3.141592653589793 rad
       pos: -2.5,-16.5
       parent: 1
-  - uid: 643
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -1.5,-20.5
-      parent: 1
   - uid: 644
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
-      pos: -0.5,-20.5
+      pos: -1.5,-19.5
       parent: 1
   - uid: 675
     components:
     - type: Transform
       pos: -2.5,-17.5
       parent: 1
-  - uid: 680
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -0.5,-18.5
-      parent: 1
   - uid: 699
     components:
     - type: Transform
-      pos: -2.5,-19.5
+      rot: -1.5707963267948966 rad
+      pos: 0.5,-19.5
       parent: 1
   - uid: 707
     components:
     - type: Transform
       pos: -2.5,-18.5
-      parent: 1
-  - uid: 802
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 0.5,-18.5
       parent: 1
   - uid: 840
     components:
@@ -3627,11 +3653,11 @@ entities:
       parent: 1
 - proto: GasPipeTJunction
   entities:
-  - uid: 795
+  - uid: 445
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -2.5,-20.5
+      rot: 1.5707963267948966 rad
+      pos: -2.5,-19.5
       parent: 1
   - uid: 841
     components:
@@ -3741,11 +3767,11 @@ entities:
       parent: 1
 - proto: GasPort
   entities:
-  - uid: 687
+  - uid: 460
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
-      pos: -1.5,-18.5
+      pos: 0.5,-20.5
       parent: 1
 - proto: GasVentPump
   entities:
@@ -4270,32 +4296,44 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 1.5,-18.5
       parent: 1
+<<<<<<< HEAD
     - type: DeltaPressure
       gridUid: 1
+=======
+>>>>>>> upstreamwiz/master
   - uid: 119
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 1.5,-20.5
       parent: 1
+<<<<<<< HEAD
     - type: DeltaPressure
       gridUid: 1
+=======
+>>>>>>> upstreamwiz/master
   - uid: 130
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 1.5,-19.5
       parent: 1
+<<<<<<< HEAD
     - type: DeltaPressure
       gridUid: 1
+=======
+>>>>>>> upstreamwiz/master
   - uid: 293
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 1.5,-21.5
       parent: 1
+<<<<<<< HEAD
     - type: DeltaPressure
       gridUid: 1
+=======
+>>>>>>> upstreamwiz/master
 - proto: PosterLegitEnlist
   entities:
   - uid: 788
@@ -5064,10 +5102,10 @@ entities:
       fixtures: {}
 - proto: SignEVA
   entities:
-  - uid: 460
+  - uid: 801
     components:
     - type: Transform
-      pos: -9.5,0.5
+      pos: -9.5,2.5
       parent: 1
     - type: Fixtures
       fixtures: {}

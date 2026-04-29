@@ -74,7 +74,7 @@
 
 - type: latheRecipe
   id: HandheldHealthAnalyzer
-  result: HandheldHealthAnalyzerEmpty
+  result: HandheldHealthAnalyzer
   categories:
   - Tools
   completetime: 4
@@ -254,6 +254,32 @@
   result: CloningConsoleComputerCircuitboard
 
 - type: latheRecipe
+<<<<<<< HEAD
   parent: BaseGoldCircuitboardRecipe
   id: CloningPodMachineCircuitboard
   result: CloningPodMachineCircuitboard
+=======
+  id: JetInjector
+  result: JetInjector
+  categories:
+  - Tools
+  completetime: 5
+  materials:
+    Steel: 500
+    Glass: 500
+    Plastic: 250
+    Silver: 250
+
+- type: latheRecipe
+  id: AdvancedJetInjector
+  result: AdvancedJetInjector
+  categories:
+  - Tools
+  completetime: 5
+  materials:
+    Steel: 500
+    Glass: 500
+    Plastic: 250
+    Silver: 400
+    Gold: 50 # A bit of gold for the gold ornaments on it!
+>>>>>>> upstreamwiz/master

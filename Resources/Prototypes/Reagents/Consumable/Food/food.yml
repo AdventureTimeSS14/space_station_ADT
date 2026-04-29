@@ -8,7 +8,7 @@
   flavor: nutriment
   color: "#24591F"
   metabolisms:
-    Food:
+    Metabolites:
       effects:
       - !type:SatiateHunger
       - !type:HealthChange # ADT-Tweak start
@@ -36,14 +36,18 @@
   flavor: vitamin
   color: "#D3D3D3"
   metabolisms:
-    Food: #This makes it not compete with medicines, a large bonus for something that can heal
+    Metabolites: #This makes it not compete with medicines, a large bonus for something that can heal
       effects:
+<<<<<<< HEAD
       - !type:HealthChange
         # probability: 0.5 ADT-Tweak
+=======
+      - !type:EvenHealthChange
+        probability: 0.5
+>>>>>>> upstreamwiz/master
         damage:
-          groups:
-            Brute: -0.5
-            Burn: -0.5
+          Brute: -0.5
+          Burn: -0.5
       # Helps you stop bleeding to an extent.
       - !type:ModifyBleed
         amount: -0.25
@@ -65,13 +69,20 @@
   flavor: protein
   color: "#FFFFE5"
   metabolisms:
-    Food:
+    Metabolites:
       effects:
+<<<<<<< HEAD
       - !type:HealthChange
         # probability: 0.5 ADT-Tweak
         damage:
           groups:
             Brute: -0.6 #ADT-Tweak -0.4 -> -0.6
+=======
+      - !type:EvenHealthChange
+        probability: 0.5
+        damage:
+          Brute: -0.4
+>>>>>>> upstreamwiz/master
       - !type:ModifyBloodLevel
         amount: 2 # ADT-Tweak 1 -> 2
       - !type:SatiateHunger
@@ -87,7 +98,7 @@
   color: white
   meltingPoint: 146.0
   metabolisms:
-    Food:
+    Metabolites:
       effects:
       - !type:SatiateHunger
         conditions:

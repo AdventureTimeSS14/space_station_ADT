@@ -6,6 +6,7 @@
   requirements:
     - !type:OverallPlaytimeRequirement
       time: 1h
+<<<<<<< HEAD
     #  ADT-Tweak
     # - !type:DepartmentTimeRequirement
     #   department: Engineering
@@ -19,6 +20,12 @@
     #   inverted: true # stop playing intern if you're good at engineering!
     #   time: 14400 # ADT-PlaytimeRequirement = 4 hrs
 # ADT-Tweak
+=======
+    - !type:DepartmentTimeRequirement
+      department: Engineering
+      time: 10h
+      inverted: true # stop playing intern if you're good at engineering!
+>>>>>>> upstreamwiz/master
   startingGear: TechnicalAssistantGear
   icon: "JobIconTechnicalAssistant"
   supervisors: job-supervisors-engineering

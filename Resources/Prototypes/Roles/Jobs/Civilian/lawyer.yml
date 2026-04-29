@@ -6,12 +6,15 @@
   requirements:
     - !type:OverallPlaytimeRequirement
       time: 2.5h
+<<<<<<< HEAD
     #ADT tweak start
     - !type:SpeciesRequirement
       inverted: true
       species:
       - Vox
       #ADT tweak end
+=======
+>>>>>>> upstreamwiz/master
   startingGear: LawyerGear
   icon: "JobIconLawyer"
   supervisors: job-supervisors-hop

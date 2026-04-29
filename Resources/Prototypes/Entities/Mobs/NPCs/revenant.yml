@@ -90,7 +90,6 @@
     damageContainers:
     - Biological
   - type: ShowHealthIcons
-  - type: OuijaBoardUser
   - type: Reactive
     groups:
       Acidic: [Touch]

@@ -1,8 +1,12 @@
 - type: marking
   id: VulpClawsHandLeft
   bodyPart: LHand
+<<<<<<< HEAD
   markingCategory: Arms
   speciesRestriction: [ Vulpkanin ]
+=======
+  groupWhitelist: [ Vulpkanin ]
+>>>>>>> upstreamwiz/master
   sprites:
     - sprite: Mobs/Customization/Vulpkanin/body_markings.rsi
       state: claws_l_hand
@@ -15,8 +19,12 @@
 - type: marking
   id: VulpClawsHandRight
   bodyPart: RHand
+<<<<<<< HEAD
   markingCategory: Arms
   speciesRestriction: [ Vulpkanin ]
+=======
+  groupWhitelist: [ Vulpkanin ]
+>>>>>>> upstreamwiz/master
   sprites:
     - sprite: Mobs/Customization/Vulpkanin/body_markings.rsi
       state: claws_r_hand
@@ -29,8 +37,12 @@
 - type: marking
   id: VulpClawsFootLeft
   bodyPart: LFoot
+<<<<<<< HEAD
   markingCategory: Legs
   speciesRestriction: [ Vulpkanin ]
+=======
+  groupWhitelist: [ Vulpkanin ]
+>>>>>>> upstreamwiz/master
   sprites:
     - sprite: Mobs/Customization/Vulpkanin/body_markings.rsi
       state: claws_l_foot
@@ -43,8 +55,12 @@
 - type: marking
   id: VulpClawsFootRight
   bodyPart: RFoot
+<<<<<<< HEAD
   markingCategory: Legs
   speciesRestriction: [ Vulpkanin ]
+=======
+  groupWhitelist: [ Vulpkanin ]
+>>>>>>> upstreamwiz/master
   sprites:
     - sprite: Mobs/Customization/Vulpkanin/body_markings.rsi
       state: claws_r_foot
@@ -59,9 +75,14 @@
 ## Left Side
 - type: marking
   id: VulpPointsCrestLegLeft
+<<<<<<< HEAD
   markingCategory: Legs
   bodyPart: LLeg
   speciesRestriction: [ Vulpkanin ]
+=======
+  bodyPart: LLeg
+  groupWhitelist: [ Vulpkanin ]
+>>>>>>> upstreamwiz/master
   sprites:
     - sprite: Mobs/Customization/Vulpkanin/body_markings.rsi
       state: crest-leg-l
@@ -73,9 +94,14 @@
 
 - type: marking
   id: VulpPointsCrestArmLeft
+<<<<<<< HEAD
   markingCategory: Arms
   bodyPart: LArm
   speciesRestriction: [ Vulpkanin ]
+=======
+  bodyPart: LArm
+  groupWhitelist: [ Vulpkanin ]
+>>>>>>> upstreamwiz/master
   sprites:
     - sprite: Mobs/Customization/Vulpkanin/body_markings.rsi
       state: crest-arm-l
@@ -87,9 +113,14 @@
 
 - type: marking
   id: VulpPointsCrestFootLeft
+<<<<<<< HEAD
   markingCategory: Legs
   bodyPart: LFoot
   speciesRestriction: [ Vulpkanin ]
+=======
+  bodyPart: LFoot
+  groupWhitelist: [ Vulpkanin ]
+>>>>>>> upstreamwiz/master
   sprites:
     - sprite: Mobs/Customization/Vulpkanin/body_markings.rsi
       state: crest-foot-l
@@ -101,9 +132,14 @@
 
 - type: marking
   id: VulpPointsCrestHandLeft
+<<<<<<< HEAD
   markingCategory: Arms
   bodyPart: LHand
   speciesRestriction: [ Vulpkanin ]
+=======
+  bodyPart: LHand
+  groupWhitelist: [ Vulpkanin ]
+>>>>>>> upstreamwiz/master
   sprites:
     - sprite: Mobs/Customization/Vulpkanin/body_markings.rsi
       state: crest-hand-l
@@ -117,9 +153,14 @@
 
 - type: marking
   id: VulpPointsCrestLegRight
+<<<<<<< HEAD
   markingCategory: Legs
   bodyPart: RLeg
   speciesRestriction: [ Vulpkanin ]
+=======
+  bodyPart: RLeg
+  groupWhitelist: [ Vulpkanin ]
+>>>>>>> upstreamwiz/master
   sprites:
     - sprite: Mobs/Customization/Vulpkanin/body_markings.rsi
       state: crest-leg-r
@@ -131,9 +172,14 @@
 
 - type: marking
   id: VulpPointsCrestArmRight
+<<<<<<< HEAD
   markingCategory: Arms
   bodyPart: RArm
   speciesRestriction: [ Vulpkanin ]
+=======
+  bodyPart: RArm
+  groupWhitelist: [ Vulpkanin ]
+>>>>>>> upstreamwiz/master
   sprites:
     - sprite: Mobs/Customization/Vulpkanin/body_markings.rsi
       state: crest-arm-r
@@ -145,9 +191,14 @@
 
 - type: marking
   id: VulpPointsCrestFootRight
+<<<<<<< HEAD
   markingCategory: Legs
   bodyPart: RFoot
   speciesRestriction: [ Vulpkanin ]
+=======
+  bodyPart: RFoot
+  groupWhitelist: [ Vulpkanin ]
+>>>>>>> upstreamwiz/master
   sprites:
     - sprite: Mobs/Customization/Vulpkanin/body_markings.rsi
       state: crest-foot-r
@@ -159,9 +210,14 @@
 
 - type: marking
   id: VulpPointsCrestHandRight
+<<<<<<< HEAD
   markingCategory: Arms
   bodyPart: RHand
   speciesRestriction: [ Vulpkanin ]
+=======
+  bodyPart: RHand
+  groupWhitelist: [ Vulpkanin ]
+>>>>>>> upstreamwiz/master
   sprites:
     - sprite: Mobs/Customization/Vulpkanin/body_markings.rsi
       state: crest-hand-r
@@ -177,9 +233,14 @@
 
 - type: marking
   id: VulpPointsFadeLegLeft
+<<<<<<< HEAD
   markingCategory: Legs
   bodyPart: LLeg
   speciesRestriction: [ Vulpkanin ]
+=======
+  bodyPart: LLeg
+  groupWhitelist: [ Vulpkanin ]
+>>>>>>> upstreamwiz/master
   sprites:
     - sprite: Mobs/Customization/Vulpkanin/body_markings.rsi
       state: points_fade-leg-l
@@ -191,9 +252,14 @@
 
 - type: marking
   id: VulpPointsFadeArmLeft
+<<<<<<< HEAD
   markingCategory: Arms
   bodyPart: LArm
   speciesRestriction: [ Vulpkanin ]
+=======
+  bodyPart: LArm
+  groupWhitelist: [ Vulpkanin ]
+>>>>>>> upstreamwiz/master
   sprites:
     - sprite: Mobs/Customization/Vulpkanin/body_markings.rsi
       state: points_fade-arm-l
@@ -205,9 +271,14 @@
 
 - type: marking
   id: VulpPointsFadeFootLeft
+<<<<<<< HEAD
   markingCategory: Legs
   bodyPart: LFoot
   speciesRestriction: [ Vulpkanin ]
+=======
+  bodyPart: LFoot
+  groupWhitelist: [ Vulpkanin ]
+>>>>>>> upstreamwiz/master
   sprites:
     - sprite: Mobs/Customization/Vulpkanin/body_markings.rsi
       state: points_fade-foot-l
@@ -219,9 +290,14 @@
 
 - type: marking
   id: VulpPointsFadeHandLeft
+<<<<<<< HEAD
   markingCategory: Arms
   bodyPart: LHand
   speciesRestriction: [ Vulpkanin ]
+=======
+  bodyPart: LHand
+  groupWhitelist: [ Vulpkanin ]
+>>>>>>> upstreamwiz/master
   sprites:
     - sprite: Mobs/Customization/Vulpkanin/body_markings.rsi
       state: points_fade-hand-l
@@ -235,9 +311,14 @@
 
 - type: marking
   id: VulpPointsFadeLegRight
+<<<<<<< HEAD
   markingCategory: Legs
   bodyPart: RLeg
   speciesRestriction: [ Vulpkanin ]
+=======
+  bodyPart: RLeg
+  groupWhitelist: [ Vulpkanin ]
+>>>>>>> upstreamwiz/master
   sprites:
     - sprite: Mobs/Customization/Vulpkanin/body_markings.rsi
       state: points_fade-leg-r
@@ -249,9 +330,14 @@
 
 - type: marking
   id: VulpPointsFadeArmRight
+<<<<<<< HEAD
   markingCategory: Arms
   bodyPart: RArm
   speciesRestriction: [ Vulpkanin ]
+=======
+  bodyPart: RArm
+  groupWhitelist: [ Vulpkanin ]
+>>>>>>> upstreamwiz/master
   sprites:
     - sprite: Mobs/Customization/Vulpkanin/body_markings.rsi
       state: points_fade-arm-r
@@ -263,9 +349,14 @@
 
 - type: marking
   id: VulpPointsFadeFootRight
+<<<<<<< HEAD
   markingCategory: Legs
   bodyPart: RFoot
   speciesRestriction: [ Vulpkanin ]
+=======
+  bodyPart: RFoot
+  groupWhitelist: [ Vulpkanin ]
+>>>>>>> upstreamwiz/master
   sprites:
     - sprite: Mobs/Customization/Vulpkanin/body_markings.rsi
       state: points_fade-foot-r
@@ -277,9 +368,14 @@
 
 - type: marking
   id: VulpPointsFadeHandRight
+<<<<<<< HEAD
   markingCategory: Arms
   bodyPart: RHand
   speciesRestriction: [ Vulpkanin ]
+=======
+  bodyPart: RHand
+  groupWhitelist: [ Vulpkanin ]
+>>>>>>> upstreamwiz/master
   sprites:
     - sprite: Mobs/Customization/Vulpkanin/body_markings.rsi
       state: points_fade-hand-r
@@ -295,9 +391,14 @@
 
 - type: marking
   id: VulpPointsSharpLegLeft
+<<<<<<< HEAD
   markingCategory: Legs
   bodyPart: LLeg
   speciesRestriction: [ Vulpkanin ]
+=======
+  bodyPart: LLeg
+  groupWhitelist: [ Vulpkanin ]
+>>>>>>> upstreamwiz/master
   sprites:
     - sprite: Mobs/Customization/Vulpkanin/body_markings.rsi
       state: points_sharp-leg-l
@@ -309,9 +410,14 @@
 
 - type: marking
   id: VulpPointsSharpArmLeft
+<<<<<<< HEAD
   markingCategory: Arms
   bodyPart: LArm
   speciesRestriction: [ Vulpkanin ]
+=======
+  bodyPart: LArm
+  groupWhitelist: [ Vulpkanin ]
+>>>>>>> upstreamwiz/master
   sprites:
     - sprite: Mobs/Customization/Vulpkanin/body_markings.rsi
       state: points_sharp-arm-l
@@ -323,9 +429,14 @@
 
 - type: marking
   id: VulpPointsSharpLongArmLeft
+<<<<<<< HEAD
   markingCategory: Arms
   bodyPart: LArm
   speciesRestriction: [ Vulpkanin ]
+=======
+  bodyPart: LArm
+  groupWhitelist: [ Vulpkanin ]
+>>>>>>> upstreamwiz/master
   sprites:
     - sprite: Mobs/Customization/Vulpkanin/body_markings.rsi
       state: points_sharp-arm-long-l
@@ -337,9 +448,14 @@
 
 - type: marking
   id: VulpPointsSharpFootLeft
+<<<<<<< HEAD
   markingCategory: Legs
   bodyPart: LFoot
   speciesRestriction: [ Vulpkanin ]
+=======
+  bodyPart: LFoot
+  groupWhitelist: [ Vulpkanin ]
+>>>>>>> upstreamwiz/master
   sprites:
     - sprite: Mobs/Customization/Vulpkanin/body_markings.rsi
       state: points_sharp-foot-l
@@ -351,9 +467,14 @@
 
 - type: marking
   id: VulpPointsSharpHandLeft
+<<<<<<< HEAD
   markingCategory: Arms
   bodyPart: LHand
   speciesRestriction: [ Vulpkanin ]
+=======
+  bodyPart: LHand
+  groupWhitelist: [ Vulpkanin ]
+>>>>>>> upstreamwiz/master
   sprites:
     - sprite: Mobs/Customization/Vulpkanin/body_markings.rsi
       state: points_sharp-hand-l
@@ -367,9 +488,14 @@
 
 - type: marking
   id: VulpPointsSharpLegRight
+<<<<<<< HEAD
   markingCategory: Legs
   bodyPart: RLeg
   speciesRestriction: [ Vulpkanin ]
+=======
+  bodyPart: RLeg
+  groupWhitelist: [ Vulpkanin ]
+>>>>>>> upstreamwiz/master
   sprites:
     - sprite: Mobs/Customization/Vulpkanin/body_markings.rsi
       state: points_sharp-leg-r
@@ -381,9 +507,14 @@
 
 - type: marking
   id: VulpPointsSharpArmRight
+<<<<<<< HEAD
   markingCategory: Arms
   bodyPart: RArm
   speciesRestriction: [ Vulpkanin ]
+=======
+  bodyPart: RArm
+  groupWhitelist: [ Vulpkanin ]
+>>>>>>> upstreamwiz/master
   sprites:
     - sprite: Mobs/Customization/Vulpkanin/body_markings.rsi
       state: points_sharp-arm-r
@@ -395,9 +526,14 @@
 
 - type: marking
   id: VulpPointsSharpLongArmRight
+<<<<<<< HEAD
   markingCategory: Arms
   bodyPart: RArm
   speciesRestriction: [ Vulpkanin ]
+=======
+  bodyPart: RArm
+  groupWhitelist: [ Vulpkanin ]
+>>>>>>> upstreamwiz/master
   sprites:
     - sprite: Mobs/Customization/Vulpkanin/body_markings.rsi
       state: points_sharp-arm-long-r
@@ -409,9 +545,14 @@
 
 - type: marking
   id: VulpPointsSharpFootRight
+<<<<<<< HEAD
   markingCategory: Legs
   bodyPart: RFoot
   speciesRestriction: [ Vulpkanin ]
+=======
+  bodyPart: RFoot
+  groupWhitelist: [ Vulpkanin ]
+>>>>>>> upstreamwiz/master
   sprites:
     - sprite: Mobs/Customization/Vulpkanin/body_markings.rsi
       state: points_sharp-foot-r
@@ -423,9 +564,14 @@
 
 - type: marking
   id: VulpPointsSharpHandRight
+<<<<<<< HEAD
   markingCategory: Arms
   bodyPart: RHand
   speciesRestriction: [ Vulpkanin ]
+=======
+  bodyPart: RHand
+  groupWhitelist: [ Vulpkanin ]
+>>>>>>> upstreamwiz/master
   sprites:
     - sprite: Mobs/Customization/Vulpkanin/body_markings.rsi
       state: points_sharp-hand-r

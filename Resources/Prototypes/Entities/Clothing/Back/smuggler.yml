@@ -8,10 +8,6 @@
   - type: CollideOnAnchor
   - type: Transform
     anchored: false
-  - type: AnchoredStorageFilter
-    blacklist:
-      components:
-      - HumanoidAppearance # for forks with felines
   - type: BlockAnchorOn
     blacklist:
       components:
@@ -92,6 +88,7 @@
   components:
   - type: EntityTableContainerFill
     containers:
+<<<<<<< HEAD
       storagebase: !type:AllSelector
         children:
         - id: SpeedLoaderCap
@@ -107,6 +104,11 @@
             amount: !type:RangeNumberSelector
               range: 1, 6
             weight: 5
+=======
+      storagebase: !type:NestedSelector
+        tableId: RandomCapGunTable
+        rolls: 4, 7
+>>>>>>> upstreamwiz/master
 
 - type: entity
   parent: ClothingBackpackSatchelSmuggler

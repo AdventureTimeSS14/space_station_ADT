@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Honored Doctor Time
 - type: loadoutEffectGroup
   id: SeniorPhysician
@@ -29,13 +30,14 @@
       role: JobMedicalDoctor
       time: 30h
 
+=======
+>>>>>>> upstreamwiz/master
 # Head
-
 - type: loadout
   id: MedicalHeadMirror
   effects:
   - !type:GroupLoadoutEffect
-    proto: MedicalHeadMirrorTimer
+    proto: MedicalJourneymanTimer
   equipment:
     head: ClothingHeadMirror
 
@@ -170,6 +172,7 @@
 #     id: SeniorPhysicianPDA
 # ADT-Tweak-senior-end
 
+<<<<<<< HEAD
 # Gloves
 
 - type: loadout
@@ -179,18 +182,10 @@
 
 # Masks
 
+=======
+#Masks
+>>>>>>> upstreamwiz/master
 - type: loadout
   id: SterileMask
   equipment:
     mask: ClothingMaskSterile
-
-#Eyewear
-- type: loadout
-  id: MedicalHud
-  equipment:
-    eyes: ClothingEyesHudMedical
-
-- type: loadout
-  id: MedicalEyePatchHud
-  equipment:
-    eyes: ClothingEyesEyepatchHudMedical

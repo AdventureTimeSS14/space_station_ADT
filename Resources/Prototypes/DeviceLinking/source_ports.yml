@@ -162,7 +162,11 @@
   id: Trigger
   name: signal-port-name-trigger-sender
   description: signal-port-description-trigger-sender
+<<<<<<< HEAD
   defaultLinks: [ Toggle, Trigger] #, Timer ] (Откат)
+=======
+  defaultLinks: [ Toggle, Trigger, Timer ]
+>>>>>>> upstreamwiz/master
 
 - type: sourcePort
   id: ItemDetected

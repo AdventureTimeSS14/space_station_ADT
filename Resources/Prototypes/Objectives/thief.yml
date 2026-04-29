@@ -166,6 +166,21 @@
     verifyMapExistence: true
   - type: Objective
     difficulty: 0.1 # just for fun, collecting LAMP on Moth
+<<<<<<< HEAD
+=======
+
+- type: entity
+  parent: BaseThiefStealCollectionObjective
+  id: ClothingEyesHudsStealCollectionObjective
+  components:
+  - type: StealCondition
+    stealGroup: ClothingEyesHuds
+    minCollectionSize: 7
+    maxCollectionSize: 12
+    verifyMapExistence: false
+  - type: Objective
+    difficulty: 0.3
+>>>>>>> upstreamwiz/master
 
 # steal item
 
@@ -209,6 +224,7 @@
   - type: Objective
     difficulty: 1
 
+<<<<<<< HEAD
 #ADT tweak start
 # - type: entity                                      #Medical subgroup
 #   parent: BaseThiefStealObjective
@@ -221,6 +237,18 @@
 #   - type: Objective
 #     difficulty: 1
 #ADT tweak end
+=======
+- type: entity                                      #Medical subgroup
+  parent: BaseThiefStealObjective
+  id: ClothingOuterHardsuitVoidParamedStealObjective
+  components:
+  - type: NotJobRequirement
+    jobs: [ MedicalDoctor, Paramedic, Chemist, Psychologist ]
+  - type: StealCondition
+    stealGroup: ClothingOuterHardsuitVoidParamed
+  - type: Objective
+    difficulty: 1
+>>>>>>> upstreamwiz/master
 
 - type: entity
   parent: BaseThiefStealObjective
@@ -267,11 +295,30 @@
     difficulty: 1
 
 - type: entity
+<<<<<<< HEAD
+=======
   parent: BaseThiefStealObjective
   id: ChiefEngineerToolbeltStealObjective
   components:
   #- type: NotJobRequirement                      Is this really necessary? it's a pickpocket objective. Only thing is that it would be easier to get to CE
   #  jobs: [ StationEngineer, AtmosphericTechnician ]
+  - type: StealCondition
+    stealGroup: ChiefEngineerToolBelt
+  - type: Objective
+    difficulty: .7
+
+- type: entity                                      #Cargo subgroup
+>>>>>>> upstreamwiz/master
+  parent: BaseThiefStealObjective
+  id: ChiefEngineerToolbeltStealObjective
+  components:
+<<<<<<< HEAD
+  #- type: NotJobRequirement                      Is this really necessary? it's a pickpocket objective. Only thing is that it would be easier to get to CE
+  #  jobs: [ StationEngineer, AtmosphericTechnician ]
+=======
+  - type: NotJobRequirement
+    jobs: [ SalvageSpecialist ]
+>>>>>>> upstreamwiz/master
   - type: StealCondition
     stealGroup: ChiefEngineerToolBelt
   - type: Objective
@@ -303,6 +350,7 @@
 
 - type: entity                                      #Service subgroup
   parent: BaseThiefStealObjective
+<<<<<<< HEAD
   id: ClothingEyesHudBeerStealObjective
   components:
   - type: NotJobRequirement
@@ -314,6 +362,8 @@
 
 - type: entity
   parent: BaseThiefStealObjective
+=======
+>>>>>>> upstreamwiz/master
   id: BibleStealObjective
   components:
   - type: NotJobRequirement
@@ -559,7 +609,7 @@
 - type: entity
   parent: [BaseThiefObjective, BaseLivingObjective]
   id: EscapeThiefShuttleObjective
-  name: Escape to centcomm alive and unrestrained.
+  name: Escape to CentComm alive and unrestrained via the escape shuttle.
   description: You don't want your illegal activities to be discovered by anyone, do you?
   components:
   - type: Objective

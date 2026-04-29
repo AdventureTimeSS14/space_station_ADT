@@ -43,6 +43,7 @@
   name: trait-narcolepsy-name
   description: trait-narcolepsy-desc
   category: Disabilities
+<<<<<<< HEAD
   cost: -1
   effects:
     - !type:AddCompsEffect
@@ -52,6 +53,14 @@
           minTimeBetweenIncidents: 300
           maxDurationOfIncident: 30
           minDurationOfIncident: 10
+=======
+  components:
+    - type: Narcolepsy
+      maxTimeBetweenIncidents: 600
+      minTimeBetweenIncidents: 300
+      maxDurationOfIncident: 30
+      minDurationOfIncident: 10
+>>>>>>> upstreamwiz/master
 
 - type: trait
   id: Unrevivable
@@ -151,6 +160,7 @@
   name: trait-painnumbness-name
   description: trait-painnumbness-desc
   category: Disabilities
+<<<<<<< HEAD
   cost: -1
   effects:
     - !type:AddCompsEffect
@@ -158,12 +168,19 @@
         - type: PainNumbnessStatusEffect
           hideHealthAlert: true
           hidePainOverlay: true
+=======
+  specials:
+  - !type:ApplyStatusEffectSpecial
+    statusEffects:
+    - PainNumbnessTraitStatusEffect
+>>>>>>> upstreamwiz/master
 
 - type: trait
   id: Hemophilia
   name: trait-hemophilia-name
   description: trait-hemophilia-desc
   category: Disabilities
+<<<<<<< HEAD
   cost: -1
   effects:
     - !type:AddCompsEffect
@@ -174,11 +191,18 @@
   speciesBlacklist:
     - IPC
     - NovakidSpecies
+=======
+  specials:
+  - !type:ApplyStatusEffectSpecial
+    statusEffects:
+    - StatusEffectHemophiliaTrait
+>>>>>>> upstreamwiz/master
 
 - type: trait
   id: ImpairedMobility
   name: trait-impaired-mobility-name
   description: trait-impaired-mobility-desc
+<<<<<<< HEAD
   category: Disabilities
   cost: -1
   effects:
@@ -191,3 +215,9 @@
     - Security
   jobBlacklist:
     - ADTBlueShieldOfficer
+=======
+  traitGear: OffsetCane
+  category: Disabilities
+  components:
+    - type: ImpairedMobility
+>>>>>>> upstreamwiz/master

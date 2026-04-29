@@ -3,10 +3,9 @@
   name: species-name-human
   roundStart: true
   prototype: MobHuman
-  sprites: MobHumanSprites
-  markingLimits: MobHumanMarkingLimits
-  dollPrototype: MobHumanDummy
+  dollPrototype: AppearanceHuman
   skinColoration: HumanToned
+<<<<<<< HEAD
   # ADT start
   description: "/ServerInfo/ADT/SpeciesDescriptions/Human.xml"
   defaultLanguages:
@@ -177,3 +176,5 @@
   baseSprite:
     sprite: Mobs/Species/Human/parts.rsi
     state: r_foot
+=======
+>>>>>>> upstreamwiz/master

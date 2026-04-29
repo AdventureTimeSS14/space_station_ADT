@@ -6,12 +6,20 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobAtmosphericTechnician
+<<<<<<< HEAD
       time: 20h # Corvax-RoleTime
+=======
+      time: 6h
+>>>>>>> upstreamwiz/master
   - !type:JobRequirementLoadoutEffect
     requirement:
       !type:RoleTimeRequirement
       role: JobStationEngineer
+<<<<<<< HEAD
       time: 20h # Corvax-RoleTime
+=======
+      time: 6h
+>>>>>>> upstreamwiz/master
   - !type:JobRequirementLoadoutEffect
     requirement:
       !type:DepartmentTimeRequirement

@@ -77,7 +77,11 @@
   parent: BaseMagazineBoxRifle
   id: MagazineBoxRiflePractice
   name: ammunition box (.20 rifle practice)
+<<<<<<< HEAD
   description: A cardboard box of .20 rifle rounds. Intended to hold non-harmful chalk ammunition.
+=======
+  description: A cardboard box of .20 rifle rounds. Intended to hold harmless practice ammunition.
+>>>>>>> upstreamwiz/master
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeRiflePractice

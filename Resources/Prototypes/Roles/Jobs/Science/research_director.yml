@@ -4,6 +4,7 @@
   description: job-description-rd
   playTimeTracker: JobResearchDirector
   requirements:
+<<<<<<< HEAD
     #- !type:RoleTimeRequirement
     #  role: JobScientist
     #  time: 5h
@@ -14,6 +15,14 @@
       inverted: true
       traits:
       - Muted
+=======
+  - !type:RoleTimeRequirement
+    role: JobScientist
+    time: 5h
+  - !type:DepartmentTimeRequirement
+    department: Science
+    time: 10h
+>>>>>>> upstreamwiz/master
   weight: 10
   startingGear: ResearchDirectorGear
   icon: "JobIconResearchDirector"
@@ -32,7 +41,6 @@
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
-      # - type: PhantomTyranyTarget # ADT Phantom
 
 - type: startingGear
   id: ResearchDirectorGear

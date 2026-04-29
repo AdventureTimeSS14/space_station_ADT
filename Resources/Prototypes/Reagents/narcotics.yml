@@ -4,13 +4,18 @@
   group: Narcotics
   desc: reagent-desc-desoxyephedrine
   physicalDesc: reagent-physical-desc-translucent
+<<<<<<< HEAD
   contrabandSeverity: Major
+=======
+  contrabandSeverity: Minor
+>>>>>>> upstreamwiz/master
   flavor: bitter
   color: "#FAFAFA"
   boilingPoint: 212.0  # Dexosyephedrine vape when?
   meltingPoint: 170.0
   metabolisms:
-    Poison:
+    Bloodstream:
+      # Main effects
       effects:
       - !type:HealthChange
         # Start ADT tweak
@@ -20,9 +25,12 @@
         # End ADT tweak
         damage:
           types:
-            Poison: 0.75
+            Poison: 0.55
+            Blunt: 1.1 # meant to be slightly more than tricordrazine heals
+      # OD
       - !type:HealthChange
         conditions:
+<<<<<<< HEAD
         - !type:MetabolizerTypeCondition
           type: [ Shadekin ]
           inverted: true
@@ -30,10 +38,16 @@
         - !type:ReagentCondition
           reagent: Desoxyephedrine
           min: 30
+=======
+        - !type:ReagentCondition
+          reagent: Desoxyephedrine
+          min: 16
+>>>>>>> upstreamwiz/master
         damage:
           types:
-            Poison: 2 # this is added to the base damage of the meth.
+            Poison: 3 # this is added to the base damage of the meth.
             Asphyxiation: 2
+<<<<<<< HEAD
       # Start ADT tweak
       - !type:HealthChange
         conditions:
@@ -81,6 +95,29 @@
       - !type:ModifyKnockdown
         time: 3
         type: Remove
+=======
+
+      # Main effects
+      - !type:MovementSpeedModifier
+        walkSpeedModifier: 1.20
+        sprintSpeedModifier: 1.20
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectDesoxyStamina # You are on meth. You keep going.
+        time: 3
+      - !type:GenericStatusEffect
+        key: Adrenaline
+        component: IgnoreSlowOnDamage
+        time: 3
+      # Side effects
+      - !type:Jitter
+      - !type:GenericStatusEffect
+        key: Stutter
+        component: StutteringAccent
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectPainNumbness
+        time: 2
+      # Interactions
+>>>>>>> upstreamwiz/master
       - !type:ModifyStatusEffect
         conditions:
         - !type:ReagentCondition
@@ -89,13 +126,17 @@
         effectProto: StatusEffectDrowsiness
         time: 10
         type: Remove
-    Medicine:
-      effects:
+
+      # Side effects
       - !type:ResetNarcolepsy
         conditions:
         - !type:ReagentCondition
           reagent: Desoxyephedrine
+<<<<<<< HEAD
           min: 20
+=======
+          min: 5
+>>>>>>> upstreamwiz/master
 
 - type: reagent
   id: Ephedrine
@@ -109,8 +150,9 @@
   boilingPoint: 255.0
   meltingPoint: 36.0
   metabolisms:
-    Narcotic:
+    Bloodstream:
       effects:
+<<<<<<< HEAD
       - !type:MovementSpeedModifier
       # ADT-Tweak-Start
       - !type:HealthChange
@@ -180,19 +222,55 @@
           max: 0.01
         effectProto: StatusEffectDrowsiness
         time: 10
+=======
+      # Main effects
+      - !type:MovementSpeedModifier
+        walkSpeedModifier: 1.15
+        sprintSpeedModifier: 1.15
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectStunned
+        time: 1
+>>>>>>> upstreamwiz/master
         type: Remove
+      - !type:ModifyKnockdown
+        time: 1
+        type: Remove
+      # Side effects
+      - !type:Jitter
       - !type:PopupMessage
         visualType: Medium
         messages: ["ephedrine-effect-tight-pain", "ephedrine-effect-heart-pounds"]
         type: Local
         probability: 0.05
-    Medicine:
-      effects:
+      # OD
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentCondition
+          reagent: Ephedrine
+          min: 20
+        damage:
+          types:
+            Poison: 2
+            Asphyxiation: 2
+      # Interactions
+      - !type:ModifyStatusEffect
+        conditions:
+        - !type:ReagentCondition
+          reagent: Haloperidol
+          max: 0.01
+        effectProto: StatusEffectDrowsiness
+        time: 10
+        type: Remove
+      # Side effects
       - !type:ResetNarcolepsy
         conditions:
         - !type:ReagentCondition
           reagent: Ephedrine
+<<<<<<< HEAD
           min: 30
+=======
+          min: 15
+>>>>>>> upstreamwiz/master
 
 - type: reagent
   id: Stimulants
@@ -206,9 +284,9 @@
   boilingPoint: 212.0
   meltingPoint: 170.0
   metabolisms:
-    Narcotic:
-      metabolismRate: 1.0
+    Bloodstream:
       effects:
+<<<<<<< HEAD
       - !type:MovementSpeedModifier
       # ADT-Tweak-Start
       - !type:HealthChange
@@ -242,19 +320,51 @@
         amount: -10
       - !type:ModifyStatusEffect
         effectProto: StatusEffectStunned
+=======
+      # Main effects
+      - !type:MovementSpeedModifier
+        walkSpeedModifier: 1.25
+        sprintSpeedModifier: 1.25
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectStimulantsStamina # You are on meth. You keep going.
+>>>>>>> upstreamwiz/master
         time: 3
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectStunned
+        time: 3.5
         type: Remove
       - !type:ModifyKnockdown
+<<<<<<< HEAD
         time: 3
         type: Remove
       - !type:GenericStatusEffect
         key: StaminaModifier
         component: StaminaModifier
         time: 3
+=======
+        time: 3.5
+        type: Remove
+>>>>>>> upstreamwiz/master
       - !type:ModifyStatusEffect
         effectProto: StatusEffectForcedSleeping
         time: 3
         type: Remove
+      - !type:GenericStatusEffect
+        key: Adrenaline
+        component: IgnoreSlowOnDamage
+        time: 3
+      # Side effects
+      - !type:Jitter
+      # OD
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentCondition
+          reagent: Stimulants
+          min: 45
+        damage:
+          types:
+            Poison: 3
+      # Interactions
       - !type:ModifyStatusEffect
         conditions:
         - !type:ReagentCondition
@@ -263,6 +373,7 @@
         effectProto: StatusEffectDrowsiness
         time: 10
         type: Remove
+<<<<<<< HEAD
     Medicine:
       metabolismRate: 1.0
       effects:
@@ -281,6 +392,38 @@
             groups:
               Burn: -1
               Brute: -1
+=======
+      - !type:AdjustReagent
+        conditions:
+        - !type:ReagentCondition
+          reagent: ChloralHydrate
+          min: 1
+        reagent: ChloralHydrate
+        amount: -10
+      # Main effects
+      - !type:ModifyBleed
+        amount: -1.5
+      - !type:EvenHealthChange
+        conditions:
+        - !type:MobStateCondition
+          mobstate: Critical
+        damage: # Doesn't heal poison because if you OD'd I'm not giving you a safety net
+          Burn: -0.5
+          Brute: -0.5
+      - !type:HealthChange
+        conditions:
+        - !type:MobStateCondition
+          mobstate: Critical
+        damage:
+          types:
+            Asphyxiation: -2
+      # Side effects
+      - !type:ResetNarcolepsy
+      - !type:SatiateHunger
+        factor: 1
+      - !type:SatiateThirst
+        factor: 1
+>>>>>>> upstreamwiz/master
 
 - type: reagent
   id: THC
@@ -297,7 +440,7 @@
   - !type:PlantAdjustHealth
     amount: -1
   metabolisms:
-    Narcotic:
+    Bloodstream:
       effects:
       - !type:ModifyStatusEffect
         effectProto: StatusEffectSeeingRainbow
@@ -327,7 +470,7 @@
   flavor: bitter
   color: "#215263"
   metabolisms:
-    Narcotic:
+    Bloodstream:
       effects:
       - !type:MovementSpeedModifier
         walkSpeedModifier: 0.65
@@ -354,7 +497,7 @@
   flavor: bitter
   color: "#63806e"
   metabolisms:
-    Narcotic:
+    Bloodstream:
       effects:
       - !type:ModifyStatusEffect
         effectProto: StatusEffectSeeingRainbow
@@ -370,7 +513,7 @@
   flavor: bitter
   color: "#ffff00"
   metabolisms:
-    Narcotic:
+    Bloodstream:
       effects:
       - !type:ModifyStatusEffect
         effectProto: StatusEffectSeeingRainbow
@@ -389,7 +532,11 @@
   boilingPoint: 444.0
   meltingPoint: 128.0
   metabolisms:
+<<<<<<< HEAD
     Narcotic:
+=======
+    Bloodstream:
+>>>>>>> upstreamwiz/master
       effects: # It would be nice to have speech slurred or mumbly, but accents are a bit iffy atm. Same for distortion effects.
       - !type:MovementSpeedModifier
         walkSpeedModifier: 0.65
@@ -400,7 +547,11 @@
           reagent: Nocturine
           min: 8
         effectProto: StatusEffectForcedSleeping
+<<<<<<< HEAD
         time: 6
+=======
+        time: 9
+>>>>>>> upstreamwiz/master
         delay: 5
 
 - type: reagent
@@ -414,7 +565,7 @@
   boilingPoint: 255.0
   meltingPoint: 36.0
   metabolisms:
-    Narcotic:
+    Bloodstream:
       effects:
       - !type:GenericStatusEffect
         key: Muted
@@ -434,7 +585,7 @@
   boilingPoint: 255.0
   meltingPoint: 36.0
   metabolisms:
-    Narcotic:
+    Bloodstream:
       effects:
       - !type:PopupMessage
         type: Local
@@ -482,7 +633,7 @@
   boilingPoint: 255.0
   meltingPoint: 36.0
   metabolisms:
-    Narcotic:
+    Bloodstream:
       effects:
       - !type:PopupMessage
         type: Local
@@ -539,7 +690,7 @@
   flavor: paintthinner
   color: "#EE35FF"
   metabolisms:
-    Narcotic:
+    Bloodstream:
       effects:
       - !type:Emote
         emote: Laugh

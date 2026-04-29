@@ -1,6 +1,3 @@
-using System.Linq;
-using System.Numerics;
-using Content.Shared.Atmos;
 using Content.Client.UserInterface.Controls;
 using Content.Shared.Damage.Components;
 using Content.Shared.Chemistry.Reagent; // ADT-Tweak
@@ -50,6 +47,7 @@ namespace Content.Client.HealthAnalyzer.UI
 
         public void Populate(HealthAnalyzerScannedUserMessage msg)
         {
+            HealthAnalyzer.Populate(msg.State);
             var target = _entityManager.GetEntity(msg.TargetEntity);
 
             if (target == null

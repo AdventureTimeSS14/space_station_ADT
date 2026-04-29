@@ -109,14 +109,14 @@ namespace Content.Client.Chemistry.UI
             {
                 // For every button decide which StyleNano to have
                 // Every row has 10 buttons
-                String StyleNano = StyleClass.ButtonOpenBoth;
+                String styleBase = StyleClass.ButtonOpenBoth;
                 uint modulo = i % 10;
                 if (i > 0 && modulo == 0)
-                    StyleNano = StyleClass.ButtonOpenRight;
+                    styleBase = StyleClass.ButtonOpenRight;
                 else if (i > 0 && modulo == 9)
-                    StyleNano = StyleClass.ButtonOpenLeft;
+                    styleBase = StyleClass.ButtonOpenLeft;
                 else if (i == 0)
-                    StyleNano = StyleClass.ButtonOpenRight;
+                    styleBase = StyleClass.ButtonOpenRight;
 
                 // Generate buttons
                 PillTypeButtons[i] = new Button
@@ -818,9 +818,9 @@ namespace Content.Client.Chemistry.UI
         //     var holdsReagents = output?.Reagents != null;
         //     var pillNumberMax = holdsReagents ? 0 : remainingCapacity;
         //     var bottleAmountMax = holdsReagents ? remainingCapacity : 0;
-        //     var bufferVolume = castState.BufferCurrentVolume?.Int() ?? 0;
+        //     var outputVolume = castState.DrawSource switch
 
-        //     PillDosage.Value = (int)Math.Min(bufferVolume, castState.PillDosageLimit);
+        //     PillDosage.Value = (int)Math.Min(outputVolume, castState.PillDosageLimit);
 
         //     PillTypeButtons[castState.SelectedPillType].Pressed = true;
 
@@ -1250,7 +1250,7 @@ namespace Content.Client.Chemistry.UI
 
 
         /// <summary>
-        /// Generate a product label based on reagents in the buffer.
+        /// Generate a product label based on reagents in the buffer or beaker.
         /// </summary>
         /// <param name="state">State data sent by the server.</param>
         private string GenerateLabel(ChemMasterBoundUserInterfaceState state)
@@ -1697,6 +1697,11 @@ namespace Content.Client.Chemistry.UI
                 Children =
                 {
                     // new Label { Text = $"{name}: " }, // ADT-Tweak: Cutted
+                    new Label
+                    {
+                        Text = $"{name}: ",
+                        HorizontalAlignment = HAlignment.Left
+                    },
                     new Label
                     {
                         Text = $"{name}: ",

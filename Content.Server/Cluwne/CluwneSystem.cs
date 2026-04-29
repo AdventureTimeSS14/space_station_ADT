@@ -16,7 +16,6 @@ using Content.Shared.Stunnable;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Random;
 using Robust.Shared.Prototypes;
-using Content.Shared.Chat;
 
 namespace Content.Server.Cluwne;
 
