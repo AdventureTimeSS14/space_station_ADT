@@ -3232,6 +3232,8 @@
     - SemiAuto
     soundGunshot:
       path: /Audio/ADT/Weapons/Guns/Gunshots/laser_gun_type.ogg
+    soundEmpty:
+      path: /Audio/ADT/Weapons/Guns/Gunshots/laser_gun_type_empty.ogg
   - type: HitscanBatteryAmmoProvider
     proto: PulseType
     fireCost: 100 # ADT tweak 200 -> 100
@@ -3249,7 +3251,7 @@
   - type: HitscanBasicDamage
     damage:
       types:
-        Heat: 22
+        Heat: 23
   - type: HitscanBasicVisuals
     muzzleFlash:
       sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
