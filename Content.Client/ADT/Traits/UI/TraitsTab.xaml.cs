@@ -371,6 +371,8 @@ public sealed partial class TraitsTab : BoxContainer
             {
                 UpdateCategoryStats(categoryId);
             }
+
+            RecalculateStats();
         }
         finally
         {
