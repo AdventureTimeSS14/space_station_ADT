@@ -337,6 +337,8 @@ public sealed partial class TraitsTab : BoxContainer
 
         try
         {
+            UpdateRequirements(profile, null);
+
             // Clear current selection
             foreach (var (_, categoryUi) in _categoryUis)
             {
