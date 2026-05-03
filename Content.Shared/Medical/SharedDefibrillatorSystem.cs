@@ -15,7 +15,7 @@ using Content.Shared.PowerCell;
 using Content.Shared.Timing;
 using Content.Shared.Traits.Assorted;
 using Content.Shared.ADT.Atmos.Miasma; // ADT-Tweak
-using Content.Server.Resist; //ADT-Medicine
+using Content.Shared.Resist; //ADT-Medicine
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
 
