@@ -28,8 +28,8 @@ public sealed class JobRequirementsManager : ISharedPlaytimeManager
     [Dependency] private readonly SponsorsManager _sponsorsManager = default!; //ADT-Sponsors-Job
 
     private readonly Dictionary<string, TimeSpan> _roles = new();
-    private readonly List<string> _jobBans = new();
-    private readonly List<string> _antagBans = new();
+    private readonly List<ProtoId<JobPrototype>> _jobBans = new();
+    private readonly List<ProtoId<AntagPrototype>> _antagBans = new();
     private readonly List<string> _jobWhitelists = new();
 
     private ISawmill _sawmill = default!;
@@ -103,7 +103,7 @@ public sealed class JobRequirementsManager : ISharedPlaytimeManager
         Updated?.Invoke();
     }
 
-    /// <summary>
+     /// <summary>
     /// Check a list of job- and antag prototypes against the current player, for requirements and bans.
     /// </summary>
     /// <returns>
@@ -146,7 +146,6 @@ public sealed class JobRequirementsManager : ISharedPlaytimeManager
         HumanoidCharacterProfile? profile,
         [NotNullWhen(false)] out FormattedMessage? reason)
     {
-        reason=null;
         // Check the player's bans
         if (_jobBans.Contains(job.ID))
         {
@@ -158,7 +157,10 @@ public sealed class JobRequirementsManager : ISharedPlaytimeManager
         if (_sponsorsManager.TryGetInfo(out var sponsorInfo))
         {
             if (sponsorInfo.AllowJob)
+            {
+                reason = null;
                 return true;
+            }
         }
         // ADT-Sponsors-Job-End
 
@@ -179,39 +181,8 @@ public sealed class JobRequirementsManager : ISharedPlaytimeManager
     public bool IsAllowed(
         AntagPrototype antag,
         HumanoidCharacterProfile? profile,
-        [NotNullWhen(false)] out FormattedMessage? reason){
-        // Check other role requirements
-        var reqs = _entManager.System<SharedRoleSystem>().GetRoleRequirements(job);
-        if (!CheckRoleRequirements(reqs, profile, out reason))
-            return false;
-
-        return true;
-    }
-
-    /// <summary>
-    /// Check the antag prototype against the current player, for requirements and bans
-    /// </summary>
-    public bool IsAllowed(
-        AntagPrototype antag,
-        HumanoidCharacterProfile? profile,
         [NotNullWhen(false)] out FormattedMessage? reason)
     {
-        // Check the player's bans
-        if (_antagBans.Contains(antag.ID))
-        {
-            reason = FormattedMessage.FromUnformatted(Loc.GetString("role-ban"));
-            return false;
-        }
-
-        // Check whitelist requirements
-        if (!CheckWhitelist(antag, out reason))
-            return false;
-
-        // Check other role requirements
-        var reqs = _entManager.System<SharedRoleSystem>().GetRoleRequirements(antag);
-        if (!CheckRoleRequirements(reqs, profile, out reason))
-            return false;
-
         // Check the player's bans
         if (_antagBans.Contains(antag.ID))
         {
