@@ -4,6 +4,7 @@
   id: ClothingHeadTwistedCrown
   name: Twisted Crown
   description: Strange crown, that looking like artifact. It projects barrier around wearer.
+  suffix: Duty
   components:
   - type: Sprite
     sprite: _Duty/Clothing/TwistedCrown.rsi

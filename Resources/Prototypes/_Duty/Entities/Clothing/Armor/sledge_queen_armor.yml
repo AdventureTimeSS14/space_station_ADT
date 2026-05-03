@@ -3,6 +3,7 @@
   id: ClothingHeadHelmetSQcrown
   name: Sledge queen`s crown
   description: Queen`s crown. It`s blocking damage for all head. Don`t ask why.
+  suffix: Duty
   components:
   - type: Sprite
     sprite: _Duty/Clothing/SQA/Helmet.rsi

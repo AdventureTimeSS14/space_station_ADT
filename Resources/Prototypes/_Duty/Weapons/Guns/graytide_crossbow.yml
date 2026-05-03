@@ -3,6 +3,7 @@
   parent: BaseItem
   id: GraytideCrossbow
   description: Its like bow, but with much more arrows.
+  suffix: Duty
   components:
   - type: Sprite
     sprite: _Duty/Weapons/MakeshiftCrossbow.rsi

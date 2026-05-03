@@ -3,6 +3,7 @@
   parent: BaseItem
   id: Decimator
   description: and Thy punisment, is dead.
+  suffix: Duty
   components:
   - type: Sprite
     sprite: _Duty/Weapons/Decimator.rsi

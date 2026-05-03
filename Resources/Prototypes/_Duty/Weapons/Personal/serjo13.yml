@@ -3,6 +3,7 @@
   parent: [BaseItem, BaseMinorContraband]
   id: BebraBat
   description: Металическая бита, на которой выграрированно надпись "Bebra"
+  suffix: [Duty, serjo13]
   components:
   - type: Sprite
     sprite: _Duty/Weapons/bebrabat.rsi

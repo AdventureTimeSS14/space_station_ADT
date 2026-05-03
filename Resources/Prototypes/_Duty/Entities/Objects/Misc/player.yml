@@ -10,6 +10,7 @@
   name: плеер "Duty"
   parent: BaseItem
   description: Карманный плеер с подборкой музыки от Duty. Слушай и радуйся жизни.
+  suffix: Duty
   components:
   - type: Sprite
     sprite: _Duty/PocketPlayer.rsi
@@ -462,7 +463,7 @@
     path: "/Audio/_Duty/PlayerDK/Persona/Persona 5 The Royal.ogg"
 
 - type: dutyTrack
-  id: dpk_6bc8fed5dc56asdfasdf5c
+  id: dpk_6bc8fed5dZZZZc56asdfasdf5c
   name: "Master Of Shadow - reload"
   category: "Karp/Persona"
   path:
@@ -470,11 +471,74 @@
 
 
 - type: dutyTrack
-  id: dpk_6bc8fed5dc56sadf5c
+  id: dpk_6bc8fed5dc5zxcga6sadf5c
   name: "Mass Destruction -Reload-"
   category: "Karp/Persona"
   path:
-    path: "/Audio/_Duty/PlayerDK/Persona/Mass Destruction.ogg"
+    path: "/Audio/_Duty/PlayerDK/Persona/Mass Destruction.ogg"  
+
+- type: dutyTrack
+  id: dpk_6bc8fed5dc56gadsgcxsadf5c
+  name: "Shadow World"
+  category: "Karp/Persona"
+  path:
+    path: "/Audio/_Duty/PlayerDK/Persona/9.Shadow World(P4G).ogg"
+
+- type: dutyTrack
+  id: dpk_6bc8fed5dc5ergeg6sadf5c
+  name: "Time To Make History"
+  category: "Karp/Persona"
+  path:
+    path: "/Audio/_Duty/PlayerDK/Persona/8.Time To Make History(P4G).ogg"
+
+- type: dutyTrack
+  id: dpk_6bc8federge5dc56sadf5c
+  name: "Never More"
+  category: "Karp/Persona"
+  path:
+    path: "/Audio/_Duty/PlayerDK/Persona/7.Never More(P4).ogg"
+
+- type: dutyTrack
+  id: dpk_6bc8fed5dc56shadhadf5c
+  name: "Junes Theme"
+  category: "Karp/Persona"
+  path:
+    path: "/Audio/_Duty/PlayerDK/Persona/6.Junes Theme(P4).ogg"
+
+- type: dutyTrack
+  id: dpk_6bc8fed5dc56fsdfafasadf5c
+  name: "Reach Out To The Truth"
+  category: "Karp/Persona"
+  path:
+    path: "/Audio/_Duty/PlayerDK/Persona/5.Reach Out To The Truth -inst vesion-(P4).ogg"
+
+- type: dutyTrack
+  id: dpk_6bc8fed5dc56asdfasfsadf5c
+  name: "О ГОСПОДИ НЕТ ДОКТОР ОНО НАЧАЛОСЬ"
+  category: "Karp/Persona"
+  path:
+    path: "/Audio/_Duty/PlayerDK/Persona/4.Who's There(P4).ogg"
+
+- type: dutyTrack
+  id: dpk_6bc8fed5dfasdfasc56sadf5c
+  name: "Your Affection"
+  category: "Karp/Persona"
+  path:
+    path: "/Audio/_Duty/PlayerDK/Persona/3.Your Affection(P4).ogg"
+
+- type: dutyTrack
+  id: dpk_6bc8fedsfasdf5dc56sadf5c
+  name: "Area Of The Soul"
+  category: "Karp/Persona"
+  path:
+    path: "/Audio/_Duty/PlayerDK/Persona/2.Aria of the Soul(P4).ogg"
+
+- type: dutyTrack
+  id: dpk_6bc8fsadfasfed5dc56sadf5c
+  name: "Pursuing My True Self"
+  category: "Karp/Persona"
+  path:
+    path: "/Audio/_Duty/PlayerDK/Persona/1.Pursuing My True Self(P4).ogg"
 
 # ── Категория: SS13 SS14 ─────────────────────────────────────────────
 

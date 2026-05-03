@@ -5,6 +5,7 @@
   parent: BaseItem
   id: SturmSledgehammerDuty
   description: Колотушка - Трофейное оружие командира Каска.
+  suffix: Duty
   components:
   - type: Sprite
     sprite: _Duty/Weapons/breaching_hammer.rsi

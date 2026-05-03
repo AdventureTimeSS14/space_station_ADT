@@ -1,6 +1,6 @@
 - type: decal
   id: bar1
-  tags: ["stalker", "bar1"]
+  tags: ["stalker", "bar1", duty]
   defaultCleanable: true
   sprite:
     sprite: _Stalker/Decals/Garbage/bar.rsi
@@ -8,7 +8,7 @@
 
 - type: decal
   id: bar2
-  tags: ["stalker", "bar2"]
+  tags: ["stalker", "bar2", duty]
   defaultCleanable: true
   sprite:
     sprite: _Stalker/Decals/Garbage/bar.rsi
@@ -16,7 +16,7 @@
 
 - type: decal
   id: bar3
-  tags: ["stalker", "bar3"]
+  tags: ["stalker", "bar3", duty]
   defaultCleanable: true
   sprite:
     sprite: _Stalker/Decals/Garbage/bar.rsi
@@ -24,7 +24,7 @@
 
 - type: decal
   id: bar4
-  tags: ["stalker", "bar4"]
+  tags: ["stalker", "bar4", duty]
   defaultCleanable: true
   sprite:
     sprite: _Stalker/Decals/Garbage/bar.rsi

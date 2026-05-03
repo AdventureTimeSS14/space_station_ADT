@@ -2,6 +2,7 @@
   parent: [ClothingOuterBaseMedium, AllowSuitStorageClothing]
   id: ClothingGA
   name: Graytide armor
+  suffix: Duty
   description: Its robust armour.
   components:
   - type: Sprite
@@ -37,6 +38,7 @@
   id: ClothingHeadGA
   name: Graytide helmet
   description: An super cool helmet. it can help you with those security guys. maybe.
+  suffix: Duty
   components:
   - type: Sprite
     sprite: _Duty/Clothing/GreytideArmor/helmet.rsi

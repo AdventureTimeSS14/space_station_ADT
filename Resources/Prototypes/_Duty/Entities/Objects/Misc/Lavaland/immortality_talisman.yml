@@ -3,6 +3,7 @@
   id: ImmortalityPocket
   name: бессмертное нечто
   description: Выглядит как человек... Наверное...
+  suffix: Duty
   components:
   - type: Spectral
   - type: MovementSpeedModifier
@@ -31,6 +32,7 @@
   parent: BaseItem
   name: талисман бессмертия
   description: Обычный камень скрывает в себе столько загадок... Рискнёте ли вы после кровавой битвы использовать его на себе?
+  suffix: Duty
   components:
   - type: Sprite
     sprite: /Textures/_Duty/Objects/Lavaland/immortality_talisman.rsi

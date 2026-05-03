@@ -40,7 +40,6 @@
       announcement: alert-level-gamma-announcement
       selectable: false
       sound:
-        path: /Audio/ADT/Announcements/Alert/gamma_alert.ogg # ADT Tweaked
         path: /Audio/_Duty/Announcement/code_gamma.ogg
         params:
           volume: -2

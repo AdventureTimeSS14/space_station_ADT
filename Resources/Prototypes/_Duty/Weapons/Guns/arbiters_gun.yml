@@ -3,6 +3,7 @@
   parent: BaseItem
   id: WeaponPistolStormMaker
   description: Старое оружие с земли, убившее куча людей. Имеет бесконечный боезапас.
+  suffix: Duty
   components:
   - type: Sprite
     sprite: _Duty/Weapons/StormMaker.rsi

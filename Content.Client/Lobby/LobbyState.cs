@@ -13,6 +13,7 @@ using Robust.Client.ResourceManagement;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Configuration;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
 namespace Content.Client.Lobby
@@ -26,11 +27,13 @@ namespace Content.Client.Lobby
         [Dependency] private readonly IResourceCache _resourceCache = default!;
         [Dependency] private readonly IUserInterfaceManager _userInterfaceManager = default!;
         [Dependency] private readonly IGameTiming _gameTiming = default!;
+        [Dependency] private readonly IPrototypeManager _protoMan = default!; // Goobstation - credits
         [Dependency] private readonly IVoteManager _voteManager = default!;
         [Dependency] private readonly ClientsidePlaytimeTrackingManager _playtimeTracking = default!;
 
         private ClientGameTicker _gameTicker = default!;
         private ContentAudioSystem _contentAudioSystem = default!;
+        private ISawmill _sawmill = default!; // Goobstation
 
         protected override Type? LinkedScreenType { get; } = typeof(LobbyGui);
         public LobbyGui? Lobby;
@@ -46,6 +49,7 @@ namespace Content.Client.Lobby
 
             var chatController = _userInterfaceManager.GetUIController<ChatUIController>();
             _gameTicker = _entityManager.System<ClientGameTicker>();
+            _sawmill = Logger.GetSawmill("lobby");
             _contentAudioSystem = _entityManager.System<ContentAudioSystem>();
             _contentAudioSystem.LobbySoundtrackChanged += UpdateLobbySoundtrackInfo;
 
@@ -250,17 +254,23 @@ namespace Content.Client.Lobby
             }
         }
 
+        // Goobstation - heavily modified to add credits for lobby backgrounds
+        // LocalDuty - background texture removed, parallax is used instead
         private void UpdateLobbyBackground()
         {
             if (_gameTicker.LobbyBackground != null)
             {
-                Lobby!.Background.Texture = _resourceCache.GetResource<TextureResource>(_gameTicker.LobbyBackground );
-            }
-            else
-            {
-                Lobby!.Background.Texture = null;
-            }
+                var lobbyBackground = _protoMan.Index(_gameTicker.LobbyBackground);
 
+                var name = string.IsNullOrEmpty(lobbyBackground.Name)
+                    ? Loc.GetString("lobby-state-background-unknown-title")
+                    : lobbyBackground.Name;
+
+                return;
+            }   
+
+            _sawmill.Warning("_gameTicker.LobbyBackground was null! No lobby background selected.");
+            Lobby!.LobbyBackground.SetMarkup(Loc.GetString("lobby-state-background-no-background-text"));
         }
 
         private void SetReady(bool newReady)

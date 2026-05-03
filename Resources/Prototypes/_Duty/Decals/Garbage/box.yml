@@ -1,6 +1,6 @@
 - type: decal
   id: box1
-  tags: ["stalker", "box1"]
+  tags: ["stalker", "box1", duty]
   defaultCleanable: true
   sprite:
     sprite: _Stalker/Decals/Garbage/box.rsi
@@ -8,7 +8,7 @@
 
 - type: decal
   id: box2
-  tags: ["stalker", "box2"]
+  tags: ["stalker", "box2", duty]
   defaultCleanable: true
   sprite:
     sprite: _Stalker/Decals/Garbage/box.rsi
@@ -16,7 +16,7 @@
 
 - type: decal
   id: box3
-  tags: ["stalker", "box3"]
+  tags: ["stalker", "box3", duty]
   defaultCleanable: true
   sprite:
     sprite: _Stalker/Decals/Garbage/box.rsi
@@ -24,7 +24,7 @@
 
 - type: decal
   id: box4
-  tags: ["stalker", "box4"]
+  tags: ["stalker", "box4", duty]
   defaultCleanable: true
   sprite:
     sprite: _Stalker/Decals/Garbage/box.rsi
@@ -32,7 +32,7 @@
 
 - type: decal
   id: box5
-  tags: ["stalker", "box5"]
+  tags: ["stalker", "box5", duty]
   defaultCleanable: true
   sprite:
     sprite: _Stalker/Decals/Garbage/box.rsi
@@ -40,7 +40,7 @@
 
 - type: decal
   id: box6
-  tags: ["stalker", "box6"]
+  tags: ["stalker", "box6", duty]
   defaultCleanable: true
   sprite:
     sprite: _Stalker/Decals/Garbage/box.rsi
@@ -48,7 +48,7 @@
 
 - type: decal
   id: box7
-  tags: ["stalker", "box7"]
+  tags: ["stalker", "box7", duty]
   defaultCleanable: true
   sprite:
     sprite: _Stalker/Decals/Garbage/box.rsi

@@ -555,7 +555,7 @@ namespace Content.Client.Stylesheets
             var directionIconQuestionTex = resCache.GetTexture("/Textures/Interface/VerbIcons/information.svg.192dpi.png");
             var directionIconHereTex = resCache.GetTexture("/Textures/Interface/VerbIcons/dot.svg.192dpi.png");
 
-            Stylesheet = new Stylesheet(BaseRules.Concat(new[]
+            var rules = BaseRules.Concat(new[]
             {
                 Element().Class("monospace")
                     .Prop("font", notoSansMono),
@@ -1636,7 +1636,12 @@ namespace Content.Client.Stylesheets
                 Element<PanelContainer>()
                     .Class(StyleClassInset)
                     .Prop(PanelContainer.StylePropertyPanel, insetBack),
-            }).ToList());
+            }).ToList();
+
+            // LocalDuty - стиль кнопок лобби (Oswald, без фона)
+            rules.AddRange(StyleLobbyDuty.GetRules(resCache));
+
+            Stylesheet = new Stylesheet(rules);
         }
     }
 }

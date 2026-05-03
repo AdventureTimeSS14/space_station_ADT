@@ -1,6 +1,6 @@
 - type: decal
   id: barrel1
-  tags: ["stalker", "barrel1"]
+  tags: ["stalker", "barrel1", duty]
   defaultCleanable: true
   sprite:
     sprite: _Stalker/Decals/Garbage/barrel.rsi
@@ -8,7 +8,7 @@
 
 - type: decal
   id: barrel2
-  tags: ["stalker", "barrel2"]
+  tags: ["stalker", "barrel2", duty]
   defaultCleanable: true
   sprite:
     sprite: _Stalker/Decals/Garbage/barrel.rsi
@@ -16,7 +16,7 @@
 
 - type: decal
   id: barrel3
-  tags: ["stalker", "barrel3"]
+  tags: ["stalker", "barrel3", duty]
   defaultCleanable: true
   sprite:
     sprite: _Stalker/Decals/Garbage/barrel.rsi
@@ -24,7 +24,7 @@
 
 - type: decal
   id: barrel4
-  tags: ["stalker", "barrel4"]
+  tags: ["stalker", "barrel4", duty]
   defaultCleanable: true
   sprite:
     sprite: _Stalker/Decals/Garbage/barrel.rsi
@@ -32,7 +32,7 @@
 
 - type: decal
   id: barrel5
-  tags: ["stalker", "barrel5"]
+  tags: ["stalker", "barrel5", duty]
   defaultCleanable: true
   sprite:
     sprite: _Stalker/Decals/Garbage/barrel.rsi
