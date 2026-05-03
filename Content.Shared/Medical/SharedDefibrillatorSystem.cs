@@ -15,6 +15,8 @@ using Content.Shared.PowerCell;
 using Content.Shared.Timing;
 using Content.Shared.Traits.Assorted;
 using Content.Shared.ADT.Atmos.Miasma; // ADT-Tweak
+using Content.Shared.Changeling.Components;
+using Content.Client.Chat; // ADT-Tweak
 using Content.Shared.Resist; //ADT-Medicine
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
@@ -41,6 +43,7 @@ public abstract class SharedDefibrillatorSystem : EntitySystem
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly UseDelaySystem _useDelay = default!;
     [Dependency] private readonly SharedInteractionSystem _interactionSystem = default!;
+    [Dependency] private readonly ChatSystem _chatManager = default!; // ADT-Tweak
 
     private readonly HashSet<EntityUid> _interacters = new();
 
