@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 using Content.Server.ADT.SeedDna.Systems; //ADT-Tweak
 using Content.Server.Botany.Components;
 using Content.Server.Botany.Systems;
@@ -7,11 +6,6 @@ using Content.Server.EntityEffects; //ADT-Tweak
 using Content.Shared.Atmos;
 using Content.Shared.Database;
 using Content.Shared.EntityEffects;
-=======
-using Content.Shared.Atmos;
-using Content.Shared.Database;
-using Content.Shared.FixedPoint;
->>>>>>> upstreamwiz/master
 using Content.Shared.Random;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
@@ -95,11 +89,6 @@ public partial struct SeedChemQuantity
 /// </remarks>
 // TODO: Hit Botany with hammers
 [Virtual, DataDefinition]
-<<<<<<< HEAD
-
-// [Access(typeof(BotanySystem), typeof(PlantHolderSystem), typeof(SeedExtractorSystem), typeof(PlantHolderComponent), typeof(EntityEffectSystem), typeof(MutationSystem), typeof(SeedDnaConsoleSystem))] //ADT-Tweak: ничего же плохого не будет,да?
-=======
->>>>>>> upstreamwiz/master
 public partial class SeedData
 {
     #region Tracking

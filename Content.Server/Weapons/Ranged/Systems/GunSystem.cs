@@ -123,7 +123,6 @@ public sealed partial class GunSystem : SharedGunSystem
                     else
                     {
                         userImpulse = false;
-<<<<<<< HEAD
                         // ADT Mech start
                         if (TryComp<MechComponent>(user, out var cmech))
                         {
@@ -132,9 +131,6 @@ public sealed partial class GunSystem : SharedGunSystem
                         else
                             Audio.PlayPredicted(gun.SoundEmpty, gunUid, user);
                         // ADT Mech end
-=======
-                        Audio.PlayPredicted(gun.Comp.SoundEmpty, gun, user);
->>>>>>> upstreamwiz/master
                     }
 
                     // Something like ballistic might want to leave it in the container still
@@ -158,25 +154,15 @@ public sealed partial class GunSystem : SharedGunSystem
                     {
                         FromCoordinates = fromCoordinates,
                         ShotDirection = mapDirection.Normalized(),
-<<<<<<< HEAD
-                        Gun = gunUid,
-                        Shooter = user,
-                        Target = gun.Target,
-=======
                         Gun = gun,
                         Shooter = user,
                         Target = gun.Comp.Target,
->>>>>>> upstreamwiz/master
                     };
                     RaiseLocalEvent(ent.Value, ref hitscanEv);
 
                     Del(ent);
 
-<<<<<<< HEAD
-                    Audio.PlayPredicted(gun.SoundGunshotModified, gunUid, user);
-=======
                     Audio.PlayPredicted(gun.Comp.SoundGunshotModified, gun, user);
->>>>>>> upstreamwiz/master
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
@@ -214,16 +200,11 @@ public sealed partial class GunSystem : SharedGunSystem
                 shotProjectiles.Add(ammoEnt);
             }
 
-<<<<<<< HEAD
             MuzzleFlash(gunUid, ammoComp, mapDirection.ToAngle(), user);
             if (TryComp<MechComponent>(user, out var mech)) // ADT Mech gun fix
                 Audio.PlayPredicted(gun.SoundGunshotModified, gunUid, mech.PilotSlot.ContainedEntity);
             else
                 Audio.PlayPredicted(gun.SoundGunshotModified, gunUid, user);
-=======
-            MuzzleFlash(gun, ammoComp, mapDirection.ToAngle(), user);
-            Audio.PlayPredicted(gun.Comp.SoundGunshotModified, gun, user);
->>>>>>> upstreamwiz/master
         }
     }
 

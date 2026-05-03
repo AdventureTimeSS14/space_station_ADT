@@ -89,9 +89,6 @@ public sealed class BibleSystem : EntitySystem
             _damageableSystem.TryChangeDamage(target, component.DamageOnFail, true, origin: uid);
             _delay.TryResetDelay((uid, useDelay));
 
-<<<<<<< HEAD
-            return;
-=======
             if (!HasComp<BibleUserComponent>(args.User))
             {
                 _popupSystem.PopupEntity(Loc.GetString("bible-sizzle"), args.User, args.User);

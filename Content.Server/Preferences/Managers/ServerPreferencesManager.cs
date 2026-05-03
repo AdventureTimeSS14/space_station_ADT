@@ -392,10 +392,10 @@ namespace Content.Server.Preferences.Managers
                 async Task LoadPrefs()
                 {
                     var prefs = await GetOrCreatePreferencesAsync(session.UserId, cancel);
-<<<<<<< HEAD
-                    prefsData.Prefs = prefs;
-                    prefsData.PrefsLoaded = true;
+                    prefsData.Prefs = ConvertPreferences(prefs);
 
+                    // ADT-Tweak start
+                    prefsData.PrefsLoaded = true;
                     var msg = new MsgPreferencesAndSettings();
                     msg.Preferences = prefs;
                     msg.Settings = new GameSettings
@@ -403,9 +403,7 @@ namespace Content.Server.Preferences.Managers
                         MaxCharacterSlots = MaxCharacterSlots
                     };
                     _netManager.ServerSendMessage(msg, session.Channel);
-=======
-                    prefsData.Prefs = ConvertPreferences(prefs);
->>>>>>> upstreamwiz/master
+                    // ADT-Tweak end
                 }
             }
         }
@@ -533,11 +531,7 @@ namespace Content.Server.Preferences.Managers
 
             return new PlayerPreferences(prefs.Characters.Select(p =>
             {
-<<<<<<< HEAD
-                return new KeyValuePair<int, ICharacterProfile>(p.Key, p.Value.Validated(session, collection, []));
-=======
                 return new KeyValuePair<int, HumanoidCharacterProfile>(p.Key, p.Value.Validated(session, collection));
->>>>>>> upstreamwiz/master
             }), prefs.SelectedCharacterIndex, prefs.AdminOOCColor, prefs.ConstructionFavorites);
         }
 

@@ -3,6 +3,7 @@ using Content.Server.Atmos.Components;
 using Content.Server.Decals;
 using Content.Shared.Atmos;
 using Content.Shared.Atmos.Components;
+using Content.Shared.Atmos.EntitySystems;
 using Content.Shared.Atmos.Reactions;
 using Content.Shared.Database;
 using Robust.Shared.Audio;
@@ -88,12 +89,7 @@ public sealed partial class AtmosphereSystem
         if (tile.Hotspot.Temperature < Atmospherics.FireMinimumTemperatureToExist ||
             tile.Hotspot.Volume <= 1f ||
             tile.Air == null ||
-<<<<<<< HEAD
-            tile.Air.GetMoles(Gas.Oxygen) < 0.5f ||
-            tile.Air.GetMoles(Gas.Plasma) < 0.5f && tile.Air.GetMoles(Gas.Tritium) < 0.5f)
-=======
             !IsMixtureIgnitable(tile.Air))
->>>>>>> upstreamwiz/master
         {
             tile.Hotspot = new Hotspot();
             InvalidateVisuals(ent, tile);
@@ -206,34 +202,21 @@ public sealed partial class AtmosphereSystem
         if (tile.Air == null)
             return;
 
-<<<<<<< HEAD
-        var oxygen = tile.Air.GetMoles(Gas.Oxygen);
-
-        if (oxygen < 0.5f)
-            return;
-
-        var plasma = tile.Air.GetMoles(Gas.Plasma);
-        var tritium = tile.Air.GetMoles(Gas.Tritium);
         //ADT-Tweak-start
         var hydrogen = tile.Air.GetMoles(Gas.Hydrogen);
         var hypernoblium = tile.Air.GetMoles(Gas.HyperNoblium);
         //ADT-Tweak-end
-=======
+
         if (!IsMixtureOxidizer(tile.Air))
             return;
 
         var isFlammable = IsMixtureFuel(tile.Air);
->>>>>>> upstreamwiz/master
 
         if (tile.Hotspot.Valid)
         {
             if (soh)
             {
-<<<<<<< HEAD
-                if (plasma > 0.5f && hypernoblium < 5f || tritium > 0.5f && hypernoblium < 5f || hydrogen > 0.5f && hypernoblium < 5f) //ADT-Gas
-=======
-                if (isFlammable)
->>>>>>> upstreamwiz/master
+                if (isFlammable || plasma > 0.5f && hypernoblium < 5f || tritium > 0.5f && hypernoblium < 5f || hydrogen > 0.5f && hypernoblium < 5f) //ADT-Gas
                 {
                     tile.Hotspot.Temperature = MathF.Max(tile.Hotspot.Temperature, exposedTemperature);
                     tile.Hotspot.Volume = MathF.Max(tile.Hotspot.Volume, exposedVolume);
@@ -243,22 +226,13 @@ public sealed partial class AtmosphereSystem
             return;
         }
 
-<<<<<<< HEAD
-        if ((exposedTemperature > Atmospherics.PlasmaMinimumBurnTemperature) && (plasma > 0.5f && hypernoblium < 5f || tritium > 0.5f && hypernoblium < 5f || hydrogen > 0.5f && hypernoblium < 5f)) //ADT-Gas
-=======
-        if (exposedTemperature > Atmospherics.PlasmaMinimumBurnTemperature && isFlammable)
->>>>>>> upstreamwiz/master
+        if (exposedTemperature > Atmospherics.PlasmaMinimumBurnTemperature && isFlammable && (plasma > 0.5f && hypernoblium < 5f || tritium > 0.5f && hypernoblium < 5f || hydrogen > 0.5f && hypernoblium < 5f)) //ADT-Gas
         {
             if (sparkSourceUid.HasValue)
             {
                 _adminLog.Add(LogType.Flammable,
                     LogImpact.High,
-<<<<<<< HEAD
-                    $"Heat/spark of {ToPrettyString(sparkSourceUid.Value)} caused atmos ignition of gas: {tile.Air.Temperature.ToString():temperature}K - {oxygen}mol Oxygen, {plasma}mol Plasma, {tritium}mol Tritium");
-=======
-                    $"Heat/spark of {ToPrettyString(sparkSourceUid.Value)} caused atmos ignition of gas: " +
-                    $"{tile.Air.ToPrettyString()}");
->>>>>>> upstreamwiz/master
+                    $"Heat/spark of {ToPrettyString(sparkSourceUid.Value)} caused atmos ignition of gas: {tile.Air.ToPrettyString():temperature}K - {oxygen}mol Oxygen, {plasma}mol Plasma, {tritium}mol Tritium");
             }
 
             tile.Hotspot = new Hotspot
@@ -272,8 +246,6 @@ public sealed partial class AtmosphereSystem
 
             AddActiveTile(gridAtmosphere, tile);
             gridAtmosphere.HotspotTiles.Add(tile);
-<<<<<<< HEAD
-=======
         }
     }
 
@@ -315,7 +287,6 @@ public sealed partial class AtmosphereSystem
         foreach (var entity in _entSet)
         {
             RaiseLocalEvent(entity, ref fireEvent);
->>>>>>> upstreamwiz/master
         }
     }
 

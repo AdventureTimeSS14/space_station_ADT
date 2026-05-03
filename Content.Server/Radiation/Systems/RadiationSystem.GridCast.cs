@@ -23,13 +23,9 @@ public partial class RadiationSystem
         Entity<RadiationSourceComponent, TransformComponent> Entity,
         Vector2 WorldPosition)
     {
-<<<<<<< HEAD
-        public EntityUid? GridUid => Entity.Comp2.GridUid;
         public float TerminalDecaySlope => Entity.Comp1.TerminalDecaySlope; // ADT-Tweak
         public float TerminalDecayDistance => Entity.Comp1.TerminalDecayDistance; // ADT-Tweak
-=======
         public EntityUid Uid => Entity.Owner;
->>>>>>> upstreamwiz/master
         public TransformComponent Transform => Entity.Comp2;
     }
 
@@ -89,13 +85,9 @@ public partial class RadiationSystem
         List<Entity<MapGridComponent>> gridList)
     {
         var mapId = destTrs.MapID;
-<<<<<<< HEAD
-
-        // get direction from rad source to destination and its distance
-        var dir = destWorld - source.WorldPosition;
 
         // ADT-Tweak start
-        var dist = Math.Max(dir.Length(), 0.5f);
+        var dist = (destWorld - source.WorldPosition).Length();
         if (TryComp(source.Entity.Owner, out EventHorizonComponent? horizon)) // if we have a horizon emit radiation from the horizon,
             dist = Math.Max(dist - horizon.Radius, 0.5f);
         // Ray enters terminal decay if the distance between source->receiver >TerminalDecayDistance.
@@ -106,11 +98,6 @@ public partial class RadiationSystem
         - (dist - source.TerminalDecayDistance > 0 ? (source.TerminalDecaySlope * (dist - source.TerminalDecayDistance)) : 0);
 
         if (rads < 0.01)
-=======
-        var dist = (destWorld - source.WorldPosition).Length();
-        var rads = source.Intensity - source.Slope * dist;
-        if (rads < MinIntensity)
->>>>>>> upstreamwiz/master
             return null;
         // ADT-Tweak end
 
@@ -208,18 +195,7 @@ public partial class RadiationSystem
 
         var resistanceMap = resistance.ResistancePerTile;
 
-<<<<<<< HEAD
-        // ADT-Tweak start
-
-        // get coordinate of source and destination in grid coordinates
-
-        // TODO Grid overlap. This currently assumes the grid is always parented directly to the map (local matrix == world matrix).
-        // If ever grids are allowed to overlap, this might no longer be true. In that case, this should precompute and cache
-        // inverse world matrices.
-        var srcLocal = sourceTrs.ParentUid == grid.Owner
-=======
         Vector2 srcLocal = sourceTrs.ParentUid == grid.Owner
->>>>>>> upstreamwiz/master
             ? sourceTrs.LocalPosition
             : Vector2.Transform(ray.Source, grid.Comp2.InvLocalMatrix);
 
@@ -230,7 +206,6 @@ public partial class RadiationSystem
         Vector2i sourceGrid = new((int)Math.Floor(srcLocal.X / grid.Comp1.TileSize), (int)Math.Floor(srcLocal.Y / grid.Comp1.TileSize));
         Vector2i destGrid = new((int)Math.Floor(dstLocal.X / grid.Comp1.TileSize), (int)Math.Floor(dstLocal.Y / grid.Comp1.TileSize));
 
-<<<<<<< HEAD
         Vector2i destGrid = new(
             (int)Math.Floor(dstLocal.X / grid.Comp1.TileSize),
             (int)Math.Floor(dstLocal.Y / grid.Comp1.TileSize));
@@ -238,20 +213,6 @@ public partial class RadiationSystem
         foreach (var (point,dist) in AdvancedGridRaycast(sourceGrid,destGrid))
         {
             if (resistanceMap.TryGetValue(point, out var resData))
-=======
-        var line = new GridLineEnumerator(sourceGrid, destGrid);
-        while (line.MoveNext())
-        {
-            var point = line.Current;
-            if (!resistanceMap.TryGetValue(point, out var resData))
-                continue;
-
-            ray.Rads -= resData;
-            if (saveVisitedTiles && blockers is not null)
-                blockers.Add((point, ray.Rads));
-
-            if (ray.Rads <= MinIntensity)
->>>>>>> upstreamwiz/master
             {
                 var passRatioFromRadResistance = (1 / (resData > 1 ? (resData / 2) : 1));
 
@@ -272,12 +233,7 @@ public partial class RadiationSystem
         // ADT-Tweak end
         }
 
-<<<<<<< HEAD
-
-        if (!saveVisitedTiles || blockers!.Count <= 0)
-=======
         if (blockers is null || blockers.Count == 0)
->>>>>>> upstreamwiz/master
             return ray;
 
         ray.Blockers ??= new();

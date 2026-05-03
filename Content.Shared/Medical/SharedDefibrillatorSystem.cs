@@ -14,6 +14,8 @@ using Content.Shared.Popups;
 using Content.Shared.PowerCell;
 using Content.Shared.Timing;
 using Content.Shared.Traits.Assorted;
+using Content.Shared.ADT.Atmos.Miasma; // ADT-Tweak
+using Content.Server.Resist; //ADT-Medicine
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
 
@@ -192,10 +194,37 @@ public abstract class SharedDefibrillatorSystem : EntitySystem
             _useDelay.TryResetDelay((ent.Owner, useDelay), id: ent.Comp.DelayId);
         }
 
+        // ADT Changeling start
+        if (TryComp<ChangelingHeadslugContainerComponent>(target, out var slug))
+        {
+            _chatManager.TrySendInGameICMessage(uid, Loc.GetString("defibrillator-changeling-slug"),
+                InGameICChatType.Speak, true);
+
+            var headslug = slug.Container.ContainedEntities.First();
+            _container.EmptyContainer(slug.Container, true);
+            _electrocution.TryDoElectrocution(headslug, null, component.ZapDamage, component.WritheDuration, true, ignoreInsulation: true);
+            if (TryComp<ChangelingHeadslugComponent>(headslug, out var slugComp))
+            {
+                slugComp.Accumulator = 0;
+                slugComp.Alerted = false;
+                slugComp.Container = null;
+            }
+            EnsureComp<CanEscapeInventoryComponent>(headslug);
+
+            RemComp(target, slug);
+            return;
+        }
+        // ADT Changeling end
+
         var failedRevive = true;
         if (_rotting.IsRotten(target))
         {
             _chat.TrySendInGameICMessage(ent.Owner, Loc.GetString("defibrillator-rotten"),
+                InGameICChatType.Speak, true);
+        }
+        else if (HasComp<EmbalmedComponent>(target)) //ADT-Medicine
+        {
+            _chatManager.TrySendInGameICMessage(uid, Loc.GetString("defibrillator-embalmed"),
                 InGameICChatType.Speak, true);
         }
         else if (TryComp<UnrevivableComponent>(target, out var unrevivable))

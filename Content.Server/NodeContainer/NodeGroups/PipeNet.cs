@@ -17,6 +17,7 @@ public sealed class PipeNet : BaseNodeGroup, IPipeNet
     [ViewVariables] public GasMixture Air { get; set; } = new() {Temperature = Atmospherics.T20C};
 
     [ViewVariables] private AtmosphereSystem? _atmosphereSystem;
+    [ViewVariables] private IEntityManager? _entMan; // ADT-Tweak
 
     public EntityUid? Grid { get; private set; }
 
@@ -41,14 +42,9 @@ public sealed class PipeNet : BaseNodeGroup, IPipeNet
         _atmosphereSystem?.React(Air, this);
     }
 
-<<<<<<< HEAD
-        [ViewVariables] private AtmosphereSystem? _atmosphereSystem;
-        [ViewVariables] private IEntityManager? _entMan; // ADT-Tweak
-=======
     public override void LoadNodes(List<Node> groupNodes)
     {
         base.LoadNodes(groupNodes);
->>>>>>> upstreamwiz/master
 
         foreach (var node in groupNodes)
         {

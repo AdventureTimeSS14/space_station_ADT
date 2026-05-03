@@ -486,18 +486,6 @@ namespace Content.Server.Atmos.EntitySystems
             {
                 atmosphere.DeltaPressureCursor = 0;
                 atmosphere.DeltaPressureDamageResults.Clear();
-<<<<<<< HEAD
-            }
-
-            var remaining = count - atmosphere.DeltaPressureCursor;
-            var batchSize = Math.Max(50, DeltaPressureParallelProcessPerIteration);
-            var toProcess = Math.Min(batchSize, remaining);
-
-            var timeCheck1 = 0;
-            while (atmosphere.DeltaPressureCursor < count)
-            {
-                var job = new DeltaPressureParallelJob(this,
-=======
                 _deltaPressureInvalidEntityQueue.Clear();
             }
 
@@ -508,7 +496,6 @@ namespace Content.Server.Atmos.EntitySystems
                 var toProcess = Math.Min(DeltaPressureParallelProcessPerIteration, remaining);
 
                 var job = new DeltaPressureParallelBulkJob(this,
->>>>>>> upstreamwiz/master
                     atmosphere,
                     atmosphere.DeltaPressureCursor,
                     DeltaPressureParallelBatchSize);
@@ -542,8 +529,6 @@ namespace Content.Server.Atmos.EntitySystems
                 }
             }
 
-<<<<<<< HEAD
-=======
             // Ents may have been invalidated (missing AirtightComp) during parallel processing.
             // Since we can't touch the ent list during parallel processing, we queue them up here to be removed.
             while (_deltaPressureInvalidEntityQueue.TryDequeue(out var invalidEnt))
@@ -551,7 +536,6 @@ namespace Content.Server.Atmos.EntitySystems
                 TryRemoveDeltaPressureEntity(ent.AsNullable(), invalidEnt);
             }
 
->>>>>>> upstreamwiz/master
             return true;
         }
 
@@ -844,7 +828,6 @@ namespace Content.Server.Atmos.EntitySystems
 
             return AtmosphereProcessingCompletionState.Finished;
         }
-<<<<<<< HEAD
     }
 
     /// <summary>
@@ -868,44 +851,5 @@ namespace Content.Server.Atmos.EntitySystems
         /// Method is finished with the GridAtmosphere.
         /// </summary>
         Finished,
-=======
->>>>>>> upstreamwiz/master
-    }
-
-    /// <summary>
-    /// An enum representing the completion state of a <see cref="GridAtmosphereComponent"/>'s processing steps.
-    /// The processing of a <see cref="GridAtmosphereComponent"/> spans over multiple stages and sticks,
-    /// with the method handling the processing having multiple return types.
-    /// </summary>
-    public enum AtmosphereProcessingCompletionState : byte
-    {
-<<<<<<< HEAD
-        Revalidate,
-        TileEqualize,
-        ActiveTiles,
-        ExcitedGroups,
-        HighPressureDelta,
-        DeltaPressure,
-        Hotspots,
-        Superconductivity,
-        PipeNet,
-        AtmosDevices,
-        NumStates
-=======
-        /// <summary>
-        /// Method is returning, ex. due to delegating processing to the next tick.
-        /// </summary>
-        Return,
-
-        /// <summary>
-        /// Method is continuing, ex. due to finishing a single processing stage.
-        /// </summary>
-        Continue,
-
-        /// <summary>
-        /// Method is finished with the GridAtmosphere.
-        /// </summary>
-        Finished,
->>>>>>> upstreamwiz/master
     }
 }

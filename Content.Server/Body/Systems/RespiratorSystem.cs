@@ -37,11 +37,7 @@ public sealed class RespiratorSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _protoMan = default!;
     [Dependency] private readonly AlertsSystem _alertsSystem = default!;
     [Dependency] private readonly AtmosphereSystem _atmosSys = default!;
-<<<<<<< HEAD
-    [Dependency] private readonly BodySystem _bodySystem = default!;
-=======
     [Dependency] private readonly BodySystem _body = default!;
->>>>>>> upstreamwiz/master
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly DamageableSystem _damageableSys = default!;
     [Dependency] private readonly LungSystem _lungSystem = default!;
@@ -95,7 +91,7 @@ public sealed class RespiratorSystem : EntitySystem
                 continue;
 
             // ADT tweak start
-            var organs = _bodySystem.GetBodyOrganEntityComps<LungComponent>((uid, body));
+            var organs = _body.GetBodyOrganEntityComps<LungComponent>((uid, body));
             var multiplier = -1f;
             foreach (var (_, lung, _) in organs)
             {
@@ -338,11 +334,7 @@ public sealed class RespiratorSystem : EntitySystem
         if (ent.Comp.SuffocationCycles == 2)
             _adminLogger.Add(LogType.Asphyxiation, $"{ToPrettyString(ent):entity} started suffocating");
 
-<<<<<<< HEAD
-        _damageableSys.ChangeDamage(ent.Owner, ent.Comp.Damage, interruptsDoAfters: false);
-=======
         _damageableSys.ChangeDamage(ent.Owner, ent.Comp.Damage, interruptsDoAfters: false, ignoreResistances: true);
->>>>>>> upstreamwiz/master
 
         if (ent.Comp.SuffocationCycles < ent.Comp.SuffocationCycleThreshold)
             return;
@@ -364,30 +356,12 @@ public sealed class RespiratorSystem : EntitySystem
 
     private void OnSuffocation(Entity<LungComponent> ent, ref BodyRelayedEvent<SuffocationEvent> args)
     {
-<<<<<<< HEAD
-        // TODO: This is not going work with multiple different lungs, if that ever becomes a possibility
-        var organs = _bodySystem.GetBodyOrganEntityComps<LungComponent>((ent, null));
-        foreach (var entity in organs)
-        {
-            _alertsSystem.ShowAlert(ent.Owner, entity.Comp1.Alert);
-        }
-=======
         _alertsSystem.ShowAlert(args.Body.Owner, ent.Comp.Alert);
->>>>>>> upstreamwiz/master
     }
 
     private void OnStopSuffocating(Entity<LungComponent> ent, ref BodyRelayedEvent<StopSuffocatingEvent> args)
     {
-<<<<<<< HEAD
-        // TODO: This is not going work with multiple different lungs, if that ever becomes a possibility
-        var organs = _bodySystem.GetBodyOrganEntityComps<LungComponent>((ent, null));
-        foreach (var entity in organs)
-        {
-            _alertsSystem.ClearAlert(ent.Owner, entity.Comp1.Alert);
-        }
-=======
         _alertsSystem.ClearAlert(args.Body.Owner, ent.Comp.Alert);
->>>>>>> upstreamwiz/master
     }
 
     public void UpdateSaturation(EntityUid uid, float amount, RespiratorComponent? respirator = null)

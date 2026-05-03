@@ -3,10 +3,7 @@ using Content.Shared.Atmos;
 using Content.Shared.Atmos.Rotting;
 using Content.Shared.Body.Events;
 using Content.Shared.Damage.Systems;
-<<<<<<< HEAD
-=======
 using Content.Shared.Gibbing;
->>>>>>> upstreamwiz/master
 using Content.Shared.Temperature.Components;
 using Robust.Server.Containers;
 using Robust.Shared.Physics.Components;

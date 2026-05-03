@@ -1,8 +1,5 @@
 using Content.Server.Chat.Systems;
-<<<<<<< HEAD
-=======
 using Robust.Shared.Timing;
->>>>>>> upstreamwiz/master
 using Content.Shared.Chat;
 using Content.Shared.Dataset;
 using Content.Shared.Random.Helpers;
@@ -50,8 +47,6 @@ public sealed partial class SpeakOperator : HTNOperator
 
     public override HTNOperatorStatus Update(NPCBlackboard blackboard, float frameTime)
     {
-<<<<<<< HEAD
-=======
         if (Cooldown != TimeSpan.Zero && CooldownID != string.Empty)
         {
             if (blackboard.TryGetValue<TimeSpan>(CooldownID, out var nextSpeechTime, _entMan) && _gameTiming.CurTime < nextSpeechTime)
@@ -60,7 +55,6 @@ public sealed partial class SpeakOperator : HTNOperator
             blackboard.SetValue(CooldownID, _gameTiming.CurTime + Cooldown);
         }
 
->>>>>>> upstreamwiz/master
         LocId speechLocId;
         switch (Speech)
         {

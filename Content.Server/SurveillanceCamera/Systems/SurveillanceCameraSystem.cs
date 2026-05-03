@@ -13,11 +13,7 @@ using Content.Shared.DeviceNetwork.Components;
 
 namespace Content.Server.SurveillanceCamera;
 
-<<<<<<< HEAD
-public sealed class SurveillanceCameraSystem : SharedSurveillanceCameraSystem
-=======
 public sealed partial class SurveillanceCameraSystem : SharedSurveillanceCameraSystem
->>>>>>> upstreamwiz/master
 {
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly ViewSubscriberSystem _viewSubscriberSystem = default!;
@@ -65,11 +61,8 @@ public sealed partial class SurveillanceCameraSystem : SharedSurveillanceCameraS
         SubscribeLocalEvent<SurveillanceCameraComponent, DeviceNetworkPacketEvent>(OnPacketReceived);
         SubscribeLocalEvent<SurveillanceCameraComponent, SurveillanceCameraSetupSetName>(OnSetName);
         SubscribeLocalEvent<SurveillanceCameraComponent, SurveillanceCameraSetupSetNetwork>(OnSetNetwork);
-<<<<<<< HEAD
-=======
 
         InitializeCollide();
->>>>>>> upstreamwiz/master
     }
 
     private void OnPacketReceived(EntityUid uid, SurveillanceCameraComponent component, DeviceNetworkPacketEvent args)
@@ -258,8 +251,6 @@ public sealed partial class SurveillanceCameraSystem : SharedSurveillanceCameraS
         UpdateVisuals(camera, component);
     }
 
-<<<<<<< HEAD
-=======
     /// <summary>
     /// Checks whether the camera is being viewed through by anyone at all.
     /// </summary>
@@ -279,7 +270,6 @@ public sealed partial class SurveillanceCameraSystem : SharedSurveillanceCameraS
         return ev.Viewed;
     }
 
->>>>>>> upstreamwiz/master
     public override void SetActive(EntityUid camera, bool setting, SurveillanceCameraComponent? component = null)
     {
         if (!Resolve(camera, ref component))

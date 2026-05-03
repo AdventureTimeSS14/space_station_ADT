@@ -14,10 +14,7 @@ namespace Content.Server.EntityEffects.Effects.Botany.PlantAttributes;
 public sealed partial class RobustHarvestEntityEffectSystem : EntityEffectSystem<PlantHolderComponent, RobustHarvest>
 {
     [Dependency] private readonly IRobustRandom _random = default!;
-<<<<<<< HEAD
     [Dependency] private readonly PlantHolderSystem _plantHolder = default!;
-=======
->>>>>>> upstreamwiz/master
 
     protected override void Effect(Entity<PlantHolderComponent> entity, ref EntityEffectEvent<RobustHarvest> args)
     {
@@ -26,10 +23,7 @@ public sealed partial class RobustHarvestEntityEffectSystem : EntityEffectSystem
 
         if (entity.Comp.Seed.Potency < args.Effect.PotencyLimit)
         {
-<<<<<<< HEAD
             _plantHolder.EnsureUniqueSeed(entity, entity.Comp);
-=======
->>>>>>> upstreamwiz/master
             entity.Comp.Seed.Potency = Math.Min(entity.Comp.Seed.Potency + args.Effect.PotencyIncrease, args.Effect.PotencyLimit);
 
             if (entity.Comp.Seed.Potency > args.Effect.PotencySeedlessThreshold)
@@ -40,10 +34,7 @@ public sealed partial class RobustHarvestEntityEffectSystem : EntityEffectSystem
         else if (entity.Comp.Seed.Yield > 1 && _random.Prob(0.1f))
         {
             // Too much of a good thing reduces yield
-<<<<<<< HEAD
             _plantHolder.EnsureUniqueSeed(entity, entity.Comp);
-=======
->>>>>>> upstreamwiz/master
             entity.Comp.Seed.Yield--;
         }
     }

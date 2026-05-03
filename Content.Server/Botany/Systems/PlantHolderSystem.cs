@@ -887,29 +887,18 @@ public sealed class PlantHolderSystem : EntitySystem
 
         if (solution.Volume > 0 && component.MutationLevel < 25)
         {
-<<<<<<< HEAD
-            foreach (var entry in component.SoilSolution.Value.Comp.Solution.Contents)
-=======
             // Don't apply any effects to a non-unique seed ever! Remove this when botany code is sane...
             EnsureUniqueSeed(uid, component);
             foreach (var entry in solution.Contents)
->>>>>>> upstreamwiz/master
             {
                 if (entry.Quantity < PlantMetabolismRate)
                     continue;
 
                 var reagentProto = _prototype.Index<ReagentPrototype>(entry.Reagent.Prototype);
-<<<<<<< HEAD
-                _entityEffects.ApplyEffects(uid, reagentProto.PlantMetabolisms.ToArray(), entry.Quantity.Float());
-            }
-
-            _solutionContainerSystem.RemoveEachReagent(component.SoilSolution.Value, FixedPoint2.New(1));
-=======
                 _entityEffects.ApplyEffects(uid, reagentProto.PlantMetabolisms.ToArray(), entry.Quantity);
             }
 
             _solutionContainerSystem.RemoveEachReagent(component.SoilSolution.Value, PlantMetabolismRate);
->>>>>>> upstreamwiz/master
         }
 
         CheckLevelSanity(uid, component);
