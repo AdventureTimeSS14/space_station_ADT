@@ -16,10 +16,11 @@ using Content.Shared.Timing;
 using Content.Shared.Traits.Assorted;
 using Content.Shared.ADT.Atmos.Miasma; // ADT-Tweak
 using Content.Shared.Changeling.Components;
-using Content.Client.Chat; // ADT-Tweak
 using Content.Shared.Resist; //ADT-Medicine
+using Robust.Shared.Containers; // ADT-Tweak
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
+using System.Linq;
 
 namespace Content.Shared.Medical;
 
@@ -43,7 +44,7 @@ public abstract class SharedDefibrillatorSystem : EntitySystem
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly UseDelaySystem _useDelay = default!;
     [Dependency] private readonly SharedInteractionSystem _interactionSystem = default!;
-    [Dependency] private readonly ChatSystem _chatManager = default!; // ADT-Tweak
+    [Dependency] private readonly SharedContainerSystem _container = default!; // ADT-Tweak
 
     private readonly HashSet<EntityUid> _interacters = new();
 
@@ -200,19 +201,18 @@ public abstract class SharedDefibrillatorSystem : EntitySystem
         // ADT Changeling start
         if (TryComp<ChangelingHeadslugContainerComponent>(target, out var slug))
         {
-            _chatManager.TrySendInGameICMessage(uid, Loc.GetString("defibrillator-changeling-slug"),
+            _chat.TrySendInGameICMessage(ent.Owner, Loc.GetString("defibrillator-changeling-slug"),
                 InGameICChatType.Speak, true);
 
-            var headslug = slug.Container.ContainedEntities.First();
+            var headslug = slug.Container.ContainedEntities.FirstOrDefault();
             _container.EmptyContainer(slug.Container, true);
-            _electrocution.TryDoElectrocution(headslug, null, component.ZapDamage, component.WritheDuration, true, ignoreInsulation: true);
+            _electrocution.TryDoElectrocution(headslug, null, ent.Comp.ZapDamage, ent.Comp.WritheDuration, true, ignoreInsulation: true);
             if (TryComp<ChangelingHeadslugComponent>(headslug, out var slugComp))
             {
                 slugComp.Accumulator = 0;
                 slugComp.Alerted = false;
                 slugComp.Container = null;
             }
-            EnsureComp<CanEscapeInventoryComponent>(headslug);
 
             RemComp(target, slug);
             return;
@@ -227,7 +227,7 @@ public abstract class SharedDefibrillatorSystem : EntitySystem
         }
         else if (HasComp<EmbalmedComponent>(target)) //ADT-Medicine
         {
-            _chatManager.TrySendInGameICMessage(uid, Loc.GetString("defibrillator-embalmed"),
+            _chat.TrySendInGameICMessage(ent.Owner, Loc.GetString("defibrillator-embalmed"),
                 InGameICChatType.Speak, true);
         }
         else if (TryComp<UnrevivableComponent>(target, out var unrevivable))
