@@ -27,7 +27,7 @@ public sealed partial class ChangelingTransformMenu : RadialMenu
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
 
-    private readonly HumanoidAppearanceSystem _appearanceSystem;
+    private readonly HumanoidProfileSystem _appearanceSystem;
     private readonly SpriteSystem _spriteSystem;
     public List<NetEntity> Forms = new();
     public ChangelingMenuType Type = ChangelingMenuType.Transform;
@@ -41,7 +41,7 @@ public sealed partial class ChangelingTransformMenu : RadialMenu
         RobustXamlLoader.Load(this);
 
         _spriteSystem = _entManager.System<SpriteSystem>();
-        _appearanceSystem = _entManager.System<HumanoidAppearanceSystem>();
+        _appearanceSystem = _entManager.System<HumanoidProfileSystem>();
     }
 
     public void Populate(RequestChangelingFormsMenuEvent args)

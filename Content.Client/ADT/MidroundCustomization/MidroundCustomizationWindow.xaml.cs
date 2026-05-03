@@ -25,10 +25,10 @@ namespace Content.Client.ADT.MidroundCustomization;
 [GenerateTypedNameReferences]
 public sealed partial class MidroundCustomizationWindow : DefaultWindow
 {
-    public Action<(MarkingCategories Category, int Slot, string Id)>? OnSlotMarkingSelected;
-    public Action<(MarkingCategories Category, int Slot, List<Color> Colors)>? OnSlotColorChanged;
-    public Action<(MarkingCategories Category, int Slot)>? OnSlotRemoved;
-    public Action<MarkingCategories>? OnSlotAdded;
+    public Action<(Marking Category, int Slot, string Id)>? OnSlotMarkingSelected;
+    public Action<(Marking Category, int Slot, List<Color> Colors)>? OnSlotColorChanged;
+    public Action<(Marking Category, int Slot)>? OnSlotRemoved;
+    public Action<Marking>? OnSlotAdded;
     public Action<bool>? OnPointLightColorToggled;
 
     public Action<string>? OnVoiceChanged;
