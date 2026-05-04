@@ -78,15 +78,8 @@ public sealed class PlayTimeTrackingSystem : EntitySystem
         if (_adminManager.IsAdmin(player))
         {
             trackers.Add(PlayTimeTrackingShared.TrackerAdmin);
-<<<<<<< HEAD
             // trackers.Add(PlayTimeTrackingShared.TrackerOverall);
             // return;
-=======
-            trackers.Add(PlayTimeTrackingShared.TrackerOverall);
-
-            if (!_cfg.GetCVar(CCVars.GameAdminJobTracking))
-                return;
->>>>>>> upstreamwiz/master
         }
         // ADT-Tweak-End
 
@@ -250,7 +243,6 @@ public sealed class PlayTimeTrackingSystem : EntitySystem
     public bool IsAllowed(ICommonSession player, ProtoId<JobPrototype> job)
     {
         if (!_cfg.GetCVar(CCVars.GameRoleTimers))
-<<<<<<< HEAD
             return true;
 
         //ADT-Sponsors-Job-Start
@@ -289,8 +281,6 @@ public sealed class PlayTimeTrackingSystem : EntitySystem
     public bool IsAllowed(ICommonSession player, ProtoId<AntagPrototype> antag)
     {
         if (!_cfg.GetCVar(CCVars.GameRoleTimers))
-=======
->>>>>>> upstreamwiz/master
             return true;
 
         if (!_tracking.TryGetTrackerTimes(player, out var playTimes))
@@ -299,8 +289,6 @@ public sealed class PlayTimeTrackingSystem : EntitySystem
             playTimes = new Dictionary<string, TimeSpan>();
         }
 
-<<<<<<< HEAD
-=======
         var requirements = _roles.GetRoleRequirements(job);
         return JobRequirements.TryRequirementsMet(
             requirements,
@@ -329,7 +317,6 @@ public sealed class PlayTimeTrackingSystem : EntitySystem
             playTimes = new Dictionary<string, TimeSpan>();
         }
 
->>>>>>> upstreamwiz/master
         var requirements = _roles.GetRoleRequirements(antag);
         return JobRequirements.TryRequirementsMet(
             requirements,
