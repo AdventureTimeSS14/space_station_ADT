@@ -1396,8 +1396,7 @@ namespace Content.Server.Chemistry.EntitySystems
 
         private bool WithdrawSelectedReagentsFromBuffer(
             Entity<ChemMasterComponent> chemMaster,
-            FixedPoint2 neededVolume,
-            EntityUid? user,
+            FixedPoint2 neededVolume, EntityUid? user,
             [NotNullWhen(returnValue: true)] out Solution? outputSolution)
         {
             outputSolution = null;
@@ -1405,11 +1404,12 @@ namespace Content.Server.Chemistry.EntitySystems
             if (!_solutionContainerSystem.TryGetSolution((EntityUid)chemMaster, SharedChemMaster.BufferSolutionName, out _, out var solution))
                 return false;
 
-            switch (chemMaster.Comp.DrawSource)
+            if (solution.Volume == 0)
             {
-                case ChemMasterDrawSource.Internal:
-                    if (!_solutionContainerSystem.TryGetSolution(chemMaster.Owner, SharedChemMaster.BufferSolutionName, out _, out solution))
-                        return false;
+                if (user.HasValue)
+                    _popupSystem.PopupCursor(Loc.GetString("chem-master-window-buffer-empty-text"), user.Value);
+                return false;
+            }
 
             // Get selected reagents for creation
             var selectedReagents = chemMaster.Comp.SelectedReagents;
