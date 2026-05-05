@@ -1763,3 +1763,20 @@
     sprite: ADT/Personalization/mathemat1ka_capcap.rsi
   - type: Clothing
     sprite: ADT/Personalization/mathemat1ka_capcap.rsi
+
+#raven559
+- type: entity
+  parent: ClothingNeckMantleHOSShoulder
+  id: ADTClothingNeckMantleRaven
+  name: Mantle cyborg
+  description: desc
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/cyber_mantie_raven559.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/cyber_mantie_raven559.rsi
+    clothingVisuals:
+      neck:
+      - state: equipped-NECK
+      - state: equipped-NECK-unshaded
+        shader: unshaded
