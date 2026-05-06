@@ -143,3 +143,7 @@
 - type: stationGoal
   id: ADTStationGoalSolars
   text: adt-station-goal-solars
+
+- type: stationGoal
+  id: BluespaceArtillery
+  text: station-goal-bluespace-artillery

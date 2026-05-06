@@ -801,3 +801,6 @@
 
 - type: Tag
   id: ADTArchimedesPeripheralsControlModule
+
+- type: Tag
+  id: BoardBSA

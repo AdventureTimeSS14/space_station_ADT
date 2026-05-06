@@ -135,9 +135,11 @@ public sealed partial class GunSystem : SharedGunSystem
             _sprite.SetScale((ent, sprite), new Vector2(a.Distance, 1f));
             sprite[EffectLayers.Unshaded].Visible = true;
 
+            var lifetime = ev.Lifetime > 0f ? ev.Lifetime : 0.48f; // Adventure BSA
+
             var anim = new Animation()
             {
-                Length = TimeSpan.FromSeconds(0.48f),
+                Length = TimeSpan.FromSeconds(lifetime), // Adventure BSA
                 AnimationTracks =
                 {
                     new AnimationTrackSpriteFlick()
