@@ -1,5 +1,5 @@
 - type: entity
-  id: LPPMachineBluespaceMiner
+  id: ADTMachineBluespaceMiner
   parent: [ BaseMachinePowered, ConstructibleMachine ]
   name: bluespace mining machine
   description: An advanced machine, capable of using bluespace technology to mine materials.
@@ -19,16 +19,14 @@
           False: { state: miner }
   - type: MaterialStorage
     announce: false
-    ignoreMaterialWhiteList: true
-    connectToSilo: true
-    disconnectSiloOffMap: true
     whitelist:
       tags:
       - Sheet
       - RawMaterial
       - Ingot
+      - ADTBSCrystal
   - type: Machine
-    board: LPPBluespaceMinerMachineCircuitboard
+    board: ADTBluespaceMinerMachineCircuitboard
   - type: Fixtures
     fixtures:
       fix1:
@@ -72,10 +70,11 @@
       - ADTSheetCopper10
       - ADTSheetZinc10
       - ADTSheetLead10
-    intervalSeconds: 20
-    minimumEntitiesSpawned: 8
-    maximumEntitiesSpawned: 16
-  #- type: MaterialStorageMagnetPickup
-  #  range: 0.01
-  #  magnetEnabled: true
-  #  magnetToggle: false
+    intervalSeconds: 40
+    minimumEntitiesSpawned: 7
+    maximumEntitiesSpawned: 14
+  - type: MaterialStorageMagnetPickup
+    range: 0.01
+    magnetEnabled: true
+    magnetToggle: false
+  - type: OreSiloClient

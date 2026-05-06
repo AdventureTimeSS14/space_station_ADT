@@ -12,6 +12,7 @@ using JetBrains.Annotations;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
+using Content.Shared.ADT.Storage.Components; //ADT-Tweak
 
 namespace Content.Server.Materials;
 
@@ -81,6 +82,14 @@ public sealed class MaterialStorageSystem : SharedMaterialStorageSystem
         if (volume <= 0 || !TryChangeMaterialAmount(uid, msg.Material, -volume))
             return;
 
+        //ADT-Tweak-Start
+        // If we made it this far, turn off the magnet before spawning materials
+        if (TryComp<MaterialStorageMagnetPickupComponent>(uid, out var magnet))
+        {
+            magnet.MagnetEnabled = false;
+        }
+        //ADT-Tweak-End
+
         var mats = SpawnMultipleFromMaterial(volume, material, Transform(uid).Coordinates, out _);
         foreach (var mat in mats.Where(mat => !TerminatingOrDeleted(mat)))
         {
@@ -104,13 +113,18 @@ public sealed class MaterialStorageSystem : SharedMaterialStorageSystem
             return false;
         _audio.PlayPvs(storage.InsertingSound, receiver);
         if (showPopup)  // ADT tweak
-            _popup.PopupEntity(Loc.GetString("machine-insert-item", ("user", user), ("machine", receiver),
-                ("item", toInsert)), receiver);
-        _popup.PopupEntity(Loc.GetString("machine-insert-item",
-                ("user", user),
-                ("machine", receiver),
-                ("item", toInsert)),
-            receiver);
+
+        //ADT-Tweak-Start
+
+        if (storage.NeedAnnounce == true)
+            _popup.PopupEntity(Loc.GetString("machine-insert-item",
+                    ("user", user),
+                    ("machine", receiver),
+                    ("item", toInsert)),
+                receiver);
+
+        //ADT-Tweak-End
+
         QueueDel(toInsert);
 
         // Logging

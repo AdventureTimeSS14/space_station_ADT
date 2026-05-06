@@ -393,7 +393,7 @@
             defaultPrototype: Beaker
 
 - type: entity
-  id: LPPBluespaceMinerMachineCircuitboard
+  id: ADTBluespaceMinerMachineCircuitboard
   parent: BaseMachineCircuitboard
   name: bluespace miner machine board
   description: A machine printed circuit board for a bluespace miner.
@@ -401,7 +401,7 @@
   - type: Sprite
     state: command
   - type: MachineBoard
-    prototype: LPPMachineBluespaceMiner
+    prototype: ADTMachineBluespaceMiner
     stackRequirements:
       Manipulator: 10
     tagRequirements:

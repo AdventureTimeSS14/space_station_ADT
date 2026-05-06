@@ -6,8 +6,3 @@
     Plasma: 200
     Diamond: 200
     ADTBScrystal: 100
-
-- type: latheRecipe
-  parent: [ BaseCircuitboardRecipe, BaseResearchMachineRecipeCategory ]
-  id: LPPBluespaceMinerMachineCircuitboard
-  result: LPPBluespaceMinerMachineCircuitboard

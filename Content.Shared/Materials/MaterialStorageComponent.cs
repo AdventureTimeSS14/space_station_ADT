@@ -67,6 +67,15 @@ public sealed partial class MaterialStorageComponent : Component
     /// </summary>
     [DataField]
     public bool CanEjectStoredMaterials = true;
+
+    //ADT-Tweak-Start
+    /// <summary>
+    /// Is need to announce what item is inserted to something
+    /// </summary>
+
+    [DataField("announce")]
+    public bool NeedAnnounce = true;
+    //ADT-Tweak-End
 }
 
 [Serializable, NetSerializable]

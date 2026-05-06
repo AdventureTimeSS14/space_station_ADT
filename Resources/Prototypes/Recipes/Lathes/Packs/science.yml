@@ -84,7 +84,7 @@
   - AnomalyVesselExperimentalCircuitboard
   - AnomalySynchronizerCircuitboard
   - ADTBotanicalSeedDNAManipulatorCircuitboard #ADT-Tweak
-  - LPPBluespaceMinerMachineCircuitboard #ADT-Tweak
+  - ADTBluespaceMinerMachineCircuitboard #ADT-Tweak
   - APECircuitboard
   - ArtifactAnalyzerMachineCircuitboard
   - ArtifactCrusherMachineCircuitboard
