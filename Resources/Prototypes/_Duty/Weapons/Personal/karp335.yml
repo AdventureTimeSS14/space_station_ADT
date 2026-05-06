@@ -3,7 +3,7 @@
   parent: BaseItem
   id: SturmAxeKarp335
   description: жеси паслушай ти риба  йош
-  suffix: [Duty, karp335]
+  suffix: "[Duty] karp335"
   components:
   - type: Sprite
     sprite: _Duty/Weapons/axe.rsi

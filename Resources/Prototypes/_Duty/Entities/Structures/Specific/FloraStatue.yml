@@ -2,9 +2,8 @@
   id: StatueFloraShilova
   parent: BaseStructure
   name: Statue Of great botanist
-  suffix: Carp
   description: Statue of the great botanist, who win a competition in iceberg salat planting.
-  suffix: Duty
+  suffix: "[Duty]"
   components:
   - type: Sprite
     noRot: true

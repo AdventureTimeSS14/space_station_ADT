@@ -1,4 +1,14 @@
 - type: thiefBackpackSet
+  id: DutyWeaponHalberdBlueshield
+  name: duty-blueshield-voucher-halberd-name
+  description: duty-blueshield-voucher-halberd-description
+  sprite:
+    sprite: _Duty/Objects/Weapons/Melee/halberd.rsi
+    state: icon
+  content:
+  - DutyBSOHalberd
+
+- type: thiefBackpackSet
   id: WeaponSaberRevBlueshield
   name: blueshield-voucher-saber-rev-name
   description: blueshield-voucher-saber-rev-description

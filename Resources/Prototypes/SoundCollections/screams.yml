@@ -11,6 +11,17 @@
     - /Audio/ADT/Voice/Human/scream_m1.ogg
     - /Audio/ADT/Voice/Human/scream_m2.ogg
     # ADT End
+    #lokalo4ka start
+    - /Audio/_Duty/Effects/Scream/scream (1).ogg
+    - /Audio/_Duty/Effects/Scream/scream (2).ogg
+    - /Audio/_Duty/Effects/Scream/scream (3).ogg
+    - /Audio/_Duty/Effects/Scream/scream (4).ogg
+    - /Audio/_Duty/Effects/Scream/scream (5).ogg
+    - /Audio/_Duty/Effects/Scream/scream (6).ogg
+    - /Audio/_Duty/Effects/Scream/scream (7).ogg
+    - /Audio/_Duty/Effects/Scream/scream (8).ogg
+    - /Audio/_Duty/Effects/Scream/scream (9).ogg
+    #endddd
 
 - type: soundCollection
   id: FemaleScreams

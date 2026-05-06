@@ -1,0 +1,79 @@
+# Контент взят из SpaceDream (_SD), адаптирован для LocalDuty
+
+# ── Плазменная алебарда ОСЩ ──────────────────────────────────
+- type: entity
+  name: plasma halberd
+  parent: BaseItem
+  id: DutyBSOHalberd
+  description: A special plasma halberd made for the station's Blueshield officer.
+  suffix: Duty
+  components:
+  - type: Sharp
+  - type: Execution
+    doAfterDuration: 4.0
+  - type: Sprite
+    sprite: _Duty/Objects/Weapons/Melee/halberd.rsi
+    state: icon
+  - type: MeleeWeapon
+    wideAnimationRotation: 135
+    swingLeft: true
+    attackRate: 0.75
+    range: 2
+    damage:
+      types:
+        Slash: 10
+        Heat: 5
+      armorPenetration: 0.25
+    soundHit:
+      collection: MetalThud
+  - type: Wieldable
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Slash: 10
+        Heat: 15
+        Structural: 50
+  - type: Item
+    size: Ginormous
+  - type: Reflect
+    reflectProb: .35
+    spread: 135
+  - type: Clothing
+    sprite: _Duty/Objects/Weapons/Melee/halberd.rsi
+    quickEquip: false
+    slots:
+    - back
+    - suitStorage
+  - type: Tool
+    qualities:
+      - Prying
+  - type: Prying
+    pryPowered: true
+  - type: UseDelay
+    delay: 1
+
+# ── Кейс с алебардой (для ваучера ОСЩ) ──────────────────────
+- type: entity
+  id: DutyWeaponCaseHalberdBS
+  name: weapon case
+  description: A weapon case containing a plasma halberd for the Blueshield officer.
+  suffix: Duty Halberd BS
+  parent: [ BaseStorageItem, BaseBagOpenClose ]
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Storage/weaponcase.rsi
+    layers:
+    - state: closed
+    - state: open
+      map: ["openLayer"]
+  - type: Appearance
+  - type: Item
+    sprite: ADT/Objects/Storage/weaponcase.rsi
+    size: Ginormous
+  - type: Storage
+    maxItemSize: Ginormous
+    grid:
+    - 0,0,5,5
+  - type: StorageFill
+    contents:
+    - id: DutyBSOHalberd

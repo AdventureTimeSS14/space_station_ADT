@@ -43,6 +43,7 @@
         type: MiningVoucherBoundUserInterface
   - type: MiningVoucher
     kits:
+    - DutyWeaponHalberdBlueshield
     - WeaponSaberRevBlueshield
     typeDropPlace: ThisPlace
     typeDrop: Rocket
