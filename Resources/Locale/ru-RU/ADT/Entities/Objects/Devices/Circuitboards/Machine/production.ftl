@@ -8,3 +8,6 @@ ent-ADTMegaCellRechargerCircuitboard = зарядник мегабатарей (
     .desc = Печатная плата зарядника мегабатарей.
 
 ent-ADTAdvancedMedicalBedCircuitboard = регенеративная койка (машинная плата)
+
+ent-LPPBluespaceMinerMachineCircuitboard = блюспейс майнер (машинная плата)
+    .desc = Печатная плата блюспейс майнера.

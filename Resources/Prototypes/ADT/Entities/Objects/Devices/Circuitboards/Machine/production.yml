@@ -391,3 +391,23 @@
           GlassBeaker:
             amount: 1
             defaultPrototype: Beaker
+
+- type: entity
+  id: LPPBluespaceMinerMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: bluespace miner machine board
+  description: A machine printed circuit board for a bluespace miner.
+  components:
+  - type: Sprite
+    state: command
+  - type: MachineBoard
+    prototype: LPPMachineBluespaceMiner
+    stackRequirements:
+      Manipulator: 10
+    tagRequirements:
+      GlassBeaker:
+        amount: 5
+        defaultPrototype: Beaker
+      BluespaceAnomaly:
+        amount: 1
+        defaultPrototype: AnomalyCoreBluespace

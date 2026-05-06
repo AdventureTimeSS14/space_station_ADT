@@ -1,0 +1,81 @@
+- type: entity
+  id: LPPMachineBluespaceMiner
+  parent: [ BaseMachinePowered, ConstructibleMachine ]
+  name: bluespace mining machine
+  description: An advanced machine, capable of using bluespace technology to mine materials.
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Machines/bluespace_miner.rsi
+    snapCardinals: true
+    layers:
+    - state: miner
+      map: [ "base" ]
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.PowerDeviceVisuals.Powered:
+        base:
+          True: { state: miner_active }
+          False: { state: miner }
+  - type: MaterialStorage
+    announce: false
+    ignoreMaterialWhiteList: true
+    connectToSilo: true
+    disconnectSiloOffMap: true
+    whitelist:
+      tags:
+      - Sheet
+      - RawMaterial
+      - Ingot
+  - type: Machine
+    board: LPPBluespaceMinerMachineCircuitboard
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,-0.4,0.4,0.4"
+        density: 190
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:ChangeConstructionNodeBehavior
+        node: machineFrame
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: StaticPrice
+    price: 1500
+  - type: TimedSpawner
+    power: true
+    prototypes:
+      - ADTMaterialBScrystal1
+      - MaterialDiamond1
+      - IngotSilver1
+      - IngotGold1
+      - SheetUranium1
+      - MaterialBananium1
+      - SheetSteel10
+      - SheetPlasteel10
+      - SheetGlass10
+      - SheetPlasma10
+      - SheetPlastic10
+      - ADTSheetCopper10
+      - ADTSheetZinc10
+      - ADTSheetLead10
+    intervalSeconds: 20
+    minimumEntitiesSpawned: 8
+    maximumEntitiesSpawned: 16
+  #- type: MaterialStorageMagnetPickup
+  #  range: 0.01
+  #  magnetEnabled: true
+  #  magnetToggle: false
