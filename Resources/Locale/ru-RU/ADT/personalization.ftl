@@ -848,51 +848,51 @@ ent-ADTClothingOuterCoatJacketShipTestAltiusRedLis = куртка
 
 ent-ADTClothingHandsMathemat1kaGloves = белые капитанские перчатки
     .desc = Элегантные белые капитанские перчатки с золотой отделкой.
-    .suffix = { "Именное, Mathemat1ka" }
+    .suffix = { "Именное, Mathemat1ka, Для всех спонсоров" }
 
 ent-ADTClothingBeltMathemat1kaSheath = белые ножны для сабли
     .desc = Резные белые ножны, предназначенные для вашего личного клинка.
-    .suffix = { "Именное, Mathemat1ka" }
+    .suffix = { "Именное, Mathemat1ka, Для всех спонсоров" }
 
 ent-ADTClothingBeltMathemat1kaSheathFilled = { ent-ADTClothingBeltMathemat1kaSheath  }
     .desc = Резные белые ножны, предназначенные для вашего личного клинка.
-    .suffix = { "Заполнены, Именное, Mathemat1ka" }
+    .suffix = { "Заполнены, Именное, Mathemat1ka, Для всех спонсоров" }
 
 ent-ADTClothingOuterMathemat1kaCoat = белая капитанская куртка
     .desc = Безупречная белая капитанская куртка с золотыми вставками.
-    .suffix = { "Именное, Mathemat1ka" }
+    .suffix = { "Именное, Mathemat1ka, Для всех спонсоров" }
 
 ent-ADTClothingUniformMathemat1kaJumpsuit = белый капитанский комбинезон
     .desc = Белый капитанский комбинезон с утончёнными золотыми отметками.
-    .suffix = { "Именное, Mathemat1ka" }
+    .suffix = { "Именное, Mathemat1ka, Для всех спонсоров" }
 
 ent-ADTClothingShoesMathemat1kaBoots = белые шнурованные ботинки
     .desc = Элегантные белые шнурованные ботинки с улучшенным сцеплением.
-    .suffix = { "Именное, Mathemat1ka" }
+    .suffix = { "Именное, Mathemat1ka, Для всех спонсоров" }
 
 ent-ADTClothingBackMathemat1kaSatchel = белая капитанская сумка
     .desc = Особая белая сумка с золотыми акцентами.
-    .suffix = { "Именное, Mathemat1ka" }
+    .suffix = { "Именное, Mathemat1ka, Для всех спонсоров" }
 
 ent-ADTClothingHeadMathemat1kaHat = белая капитанская фуражка
     .desc = Особенная белая капитанская фуражка с золотой отделкой.
-    .suffix = { "Именное, Mathemat1ka" }
+    .suffix = { "Именное, Mathemat1ka, Для всех спонсоров" }
 
 ent-ADTClothingNeckMathemat1kaMantle = белая капитанская мантия
     .desc = Формальная белая мантия для ношения на плечах.
-    .suffix = { "Именное, Mathemat1ka" }
+    .suffix = { "Именное, Mathemat1ka, Для всех спонсоров" }
 
 ent-ADTClothingNeckMathemat1kaCloak = белый капитанский плащ
     .desc = Помпезный и уютный белый плащ с золотой отделкой.
-    .suffix = { "Именное, Mathemat1ka" }
+    .suffix = { "Именное, Mathemat1ka, Для всех спонсоров" }
 
 ent-ADTClothingUniformMathemat1kaDress = белое капитанское платье
     .desc = Белое платье для особых случаев с золотыми акцентами.
-    .suffix = { "Именное, Mathemat1ka" }
+    .suffix = { "Именное, Mathemat1ka, Для всех спонсоров" }
 
 ent-ADTClothingHeadMathemat1kaCapCap = белая капитанская кепка
     .desc = Величественная белая кепка капитана. Показывает станции, кто здесь главный.
-    .suffix = { "Именное, Mathemat1ka" }
+    .suffix = { "Именное, Mathemat1ka, Для всех спонсоров" }
 
 ent-ADTPlushieRose = плюшевая Роза
     .desc = Символ атмосии. Девушка, от которой пахнет фрезоном, домом и уютом. Самая милая фелинидка. Заслуженный атмос 2024 года и в целом лучшая девушка, жена и мать.
@@ -909,3 +909,11 @@ ent-ADTPlushieNinaKonogar = плюшевая Нина Коногар
 ent-ADTPlushieDell = игрушка Делла
     .desc = Прошёл множество юридических процедур, был осуждён за многочисленные нарушения в структурах СБ, но всегда стремился защищать экипаж любой ценой, пьянствует, но когда это можно! Вы чувствуете себя безопаснее.
     .suffix = { "Именное, GG_Marshmelow" }
+
+ent-ADTDiceDurachilqa = дурацкий куб
+    .desc = Личный талисман Дурачилки. Выглядит обманчиво невинно. Удерживая его в руках, вы чувствуете приближение пугающей близости, либо катастрофу, о которой стыдно будет доложить ЦентКому.
+    .suffix = { "Именное, durachilqa" }
+
+ent-ADTPlushietajaran = плюшевый таяр 
+    .desc = Мягкая, пушистая игрушка таяра, тискать крайне не рекомендуется!
+    .suffix = { "Именное, _Dove_Dove_" }

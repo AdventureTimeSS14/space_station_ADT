@@ -3185,8 +3185,6 @@
     sprite: ADT/Personalization/toys.rsi
     state: plushie_dell
 
-#SPONSOR-ITEMS-END
-
 # Svet217
 - type: entity
   name: pulse pistol
@@ -3262,3 +3260,53 @@
     impactFlash:
       sprite: ADT/Personalization/svet217_pistol_projectiles.rsi
       state: type_laser
+
+# durachilqa
+- type: entity
+  parent: d20Dice
+  id: ADTDiceDurachilqa
+  name: stupid cube
+  description: The Fool's personal talisman. It looks deceptively innocent. Holding it in your hands, you feel the approach of a frightening proximity, or a catastrophe that you will be ashamed to report to the Central Committee.
+  suffix: Personal, durachilqa
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/durachilqa_dice.rsi
+    state: d20_20
+
+#GG_Dove_Dove_ 
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushietajaran
+  name: plushie tajaran
+  description: Tajaran is a soft, fluffy toy, and it is strongly discouraged to squeeze it!
+  suffix: Personal, _Dove_Dove_
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_tajaran
+  - type: Item
+    sprite: ADT/Personalization/toys.rsi
+    inhandVisuals:
+      left:
+      - state: tajaran-inhand-left
+      right:
+      - state: tajaran-inhand-right
+  - type: EmitSoundOnUse
+    sound: &PlushieFelinidSound
+      collection: ADTTajaranToySounds
+      params:
+        volume: 5
+  - type: EmitSoundOnLand
+    sound: *PlushieFelinidSound
+  - type: EmitSoundOnActivate
+    sound: *PlushieFelinidSound
+  - type: EmitSoundOnTrigger
+    sound: *PlushieFelinidSound
+  - type: EmitSoundOnCollide
+    sound: *PlushieFelinidSound
+  - type: Edible
+    useSound: *PlushieFelinidSound
+  - type: MeleeWeapon
+    soundHit: &PlushieTajaranMeleeWeaponSound
+      path: /Audio/ADT/Felinid/cat_hiss1.ogg
+#SPONSOR-ITEMS-END

@@ -223,6 +223,17 @@
         },
         {
             "name": "plushie_dell"
+        },
+        {
+            "name": "plushie_tajaran"
+        },
+        {
+            "name": "tajaran-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "tajaran-inhand-right",
+            "directions": 4
         }
     ]
 }
