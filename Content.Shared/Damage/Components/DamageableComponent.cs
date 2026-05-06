@@ -47,7 +47,7 @@ public sealed partial class DamageableComponent : Component
     ///     If this data-field is specified, this allows damageable components to be initialized with non-zero damage.
     /// </remarks>
     [DataField]
-    [Access(typeof(DamageableSystem), Other = AccessPermissions.None)]
+    // [Access(typeof(DamageableSystem), Other = AccessPermissions.None)] // ADT-Fix-Upstream
     public DamageSpecifier Damage = new();
 
     /// <summary>
