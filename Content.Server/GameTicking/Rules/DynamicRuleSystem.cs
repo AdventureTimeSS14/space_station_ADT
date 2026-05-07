@@ -1,8 +1,6 @@
 using System.Diagnostics;
 using Content.Server.Administration.Logs;
-using Content.Server.GameTicking.Rules;
 using Content.Server.RoundEnd;
-using Content.Shared.ADT.GameTicking.Rules;
 using Content.Shared.Database;
 using Content.Shared.EntityTable;
 using Content.Shared.EntityTable.Conditions;
@@ -11,25 +9,16 @@ using Content.Shared.GameTicking.Rules;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
-namespace Content.Server.ADT.GameTicking.Rules;
-
-public sealed class DynamicRuleSystem : GameRuleSystem<ChaoticDynamicRuleComponent>
-=======
 namespace Content.Server.GameTicking.Rules;
 
 public sealed class DynamicRuleSystem : GameRuleSystem<DynamicRuleComponent>
->>>>>>> upstreamwiz/master
 {
     [Dependency] private readonly IAdminLogManager _adminLog = default!;
     [Dependency] private readonly EntityTableSystem _entityTable = default!;
     [Dependency] private readonly RoundEndSystem _roundEnd = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
 
-<<<<<<< HEAD
-    protected override void Added(EntityUid uid, ChaoticDynamicRuleComponent component, GameRuleComponent gameRule, GameRuleAddedEvent args)
-=======
     protected override void Added(EntityUid uid, DynamicRuleComponent component, GameRuleComponent gameRule, GameRuleAddedEvent args)
->>>>>>> upstreamwiz/master
     {
         base.Added(uid, component, gameRule, args);
 
@@ -37,11 +26,7 @@ public sealed class DynamicRuleSystem : GameRuleSystem<DynamicRuleComponent>
         component.NextRuleTime = Timing.CurTime + _random.Next(component.MinRuleInterval, component.MaxRuleInterval);
     }
 
-<<<<<<< HEAD
-    protected override void Started(EntityUid uid, ChaoticDynamicRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
-=======
     protected override void Started(EntityUid uid, DynamicRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
->>>>>>> upstreamwiz/master
     {
         base.Started(uid, component, gameRule, args);
 
@@ -51,11 +36,7 @@ public sealed class DynamicRuleSystem : GameRuleSystem<DynamicRuleComponent>
         Execute((uid, component));
     }
 
-<<<<<<< HEAD
-    protected override void Ended(EntityUid uid, ChaoticDynamicRuleComponent component, GameRuleComponent gameRule, GameRuleEndedEvent args)
-=======
     protected override void Ended(EntityUid uid, DynamicRuleComponent component, GameRuleComponent gameRule, GameRuleEndedEvent args)
->>>>>>> upstreamwiz/master
     {
         base.Ended(uid, component, gameRule, args);
 
@@ -65,11 +46,7 @@ public sealed class DynamicRuleSystem : GameRuleSystem<DynamicRuleComponent>
         }
     }
 
-<<<<<<< HEAD
-    protected override void ActiveTick(EntityUid uid, ChaoticDynamicRuleComponent component, GameRuleComponent gameRule, float frameTime)
-=======
     protected override void ActiveTick(EntityUid uid, DynamicRuleComponent component, GameRuleComponent gameRule, float frameTime)
->>>>>>> upstreamwiz/master
     {
         base.ActiveTick(uid, component, gameRule, frameTime);
 
@@ -87,11 +64,7 @@ public sealed class DynamicRuleSystem : GameRuleSystem<DynamicRuleComponent>
     /// Generates and returns a list of randomly selected,
     /// valid rules to spawn based on <see cref="DynamicRuleComponent.Table"/>.
     /// </summary>
-<<<<<<< HEAD
-    private IEnumerable<EntProtoId> GetRuleSpawns(Entity<ChaoticDynamicRuleComponent> entity)
-=======
     private IEnumerable<EntProtoId> GetRuleSpawns(Entity<DynamicRuleComponent> entity)
->>>>>>> upstreamwiz/master
     {
         UpdateBudget((entity.Owner, entity.Comp));
         var ctx = new EntityTableContext(new Dictionary<string, object>
@@ -106,11 +79,7 @@ public sealed class DynamicRuleSystem : GameRuleSystem<DynamicRuleComponent>
     /// Updates the budget of the provided dynamic rule component based on the amount of time since the last update
     /// multiplied by the <see cref="DynamicRuleComponent.BudgetPerSecond"/> value.
     /// </summary>
-<<<<<<< HEAD
-    private void UpdateBudget(Entity<ChaoticDynamicRuleComponent> entity)
-=======
     private void UpdateBudget(Entity<DynamicRuleComponent> entity)
->>>>>>> upstreamwiz/master
     {
         var duration = (float) (Timing.CurTime - entity.Comp.LastBudgetUpdate).TotalSeconds;
 
@@ -124,11 +93,7 @@ public sealed class DynamicRuleSystem : GameRuleSystem<DynamicRuleComponent>
     /// <returns>
     /// Returns a list of the rules that were executed.
     /// </returns>
-<<<<<<< HEAD
-    private List<EntityUid> Execute(Entity<ChaoticDynamicRuleComponent> entity)
-=======
     private List<EntityUid> Execute(Entity<DynamicRuleComponent> entity)
->>>>>>> upstreamwiz/master
     {
         entity.Comp.NextRuleTime =
             Timing.CurTime + _random.Next(entity.Comp.MinRuleInterval, entity.Comp.MaxRuleInterval);
@@ -162,11 +127,7 @@ public sealed class DynamicRuleSystem : GameRuleSystem<DynamicRuleComponent>
     public List<EntityUid> GetDynamicRules()
     {
         var rules = new List<EntityUid>();
-<<<<<<< HEAD
-        var query = EntityQueryEnumerator<ChaoticDynamicRuleComponent, GameRuleComponent>();
-=======
         var query = EntityQueryEnumerator<DynamicRuleComponent, GameRuleComponent>();
->>>>>>> upstreamwiz/master
         while (query.MoveNext(out var uid, out _, out var comp))
         {
             if (!GameTicker.IsGameRuleActive(uid, comp))
@@ -177,11 +138,7 @@ public sealed class DynamicRuleSystem : GameRuleSystem<DynamicRuleComponent>
         return rules;
     }
 
-<<<<<<< HEAD
-    public float? GetRuleBudget(Entity<ChaoticDynamicRuleComponent?> entity)
-=======
     public float? GetRuleBudget(Entity<DynamicRuleComponent?> entity)
->>>>>>> upstreamwiz/master
     {
         if (!Resolve(entity, ref entity.Comp))
             return null;
@@ -190,11 +147,7 @@ public sealed class DynamicRuleSystem : GameRuleSystem<DynamicRuleComponent>
         return entity.Comp.Budget;
     }
 
-<<<<<<< HEAD
-    public float? AdjustBudget(Entity<ChaoticDynamicRuleComponent?> entity, float amount)
-=======
     public float? AdjustBudget(Entity<DynamicRuleComponent?> entity, float amount)
->>>>>>> upstreamwiz/master
     {
         if (!Resolve(entity, ref entity.Comp))
             return null;
@@ -204,11 +157,7 @@ public sealed class DynamicRuleSystem : GameRuleSystem<DynamicRuleComponent>
         return entity.Comp.Budget;
     }
 
-<<<<<<< HEAD
-    public float? SetBudget(Entity<ChaoticDynamicRuleComponent?> entity, float amount)
-=======
     public float? SetBudget(Entity<DynamicRuleComponent?> entity, float amount)
->>>>>>> upstreamwiz/master
     {
         if (!Resolve(entity, ref entity.Comp))
             return null;
@@ -218,25 +167,6 @@ public sealed class DynamicRuleSystem : GameRuleSystem<DynamicRuleComponent>
         return entity.Comp.Budget;
     }
 
-<<<<<<< HEAD
-public IEnumerable<EntProtoId> DryRun(Entity<ChaoticDynamicRuleComponent?> entity)
-{
-    if (!Resolve(entity, ref entity.Comp))
-        return new List<EntProtoId>();
-
-    return GetRuleSpawns((entity.Owner, entity.Comp));
-}
-
-public IEnumerable<EntityUid> ExecuteNow(Entity<ChaoticDynamicRuleComponent?> entity)
-{
-    if (!Resolve(entity, ref entity.Comp))
-        return new List<EntityUid>();
-
-    return Execute((entity.Owner, entity.Comp));
-}
-
-    public IEnumerable<EntityUid> Rules(Entity<ChaoticDynamicRuleComponent?> entity)
-=======
     public IEnumerable<EntProtoId> DryRun(Entity<DynamicRuleComponent?> entity)
     {
         if (!Resolve(entity, ref entity.Comp))
@@ -254,7 +184,6 @@ public IEnumerable<EntityUid> ExecuteNow(Entity<ChaoticDynamicRuleComponent?> en
     }
 
     public IEnumerable<EntityUid> Rules(Entity<DynamicRuleComponent?> entity)
->>>>>>> upstreamwiz/master
     {
         if (!Resolve(entity, ref entity.Comp))
             return new List<EntityUid>();
@@ -263,8 +192,4 @@ public IEnumerable<EntityUid> ExecuteNow(Entity<ChaoticDynamicRuleComponent?> en
     }
 
     #endregion
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> upstreamwiz/master
