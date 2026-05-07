@@ -61,26 +61,27 @@ public sealed class PipeNet : BaseNodeGroup, IPipeNet
         // handled by AfterRemake(). But if it is being deleted, we actually want to remove the gas stored in this node.
         if (!node.Deleting || node is not PipeNode pipe)
             return;
-
-<<<<<<< HEAD
-            _entMan = entMan; // ADT-Tweak
-            _atmosphereSystem = entMan.EntitySysManager.GetEntitySystem<AtmosphereSystem>();
-            _atmosphereSystem.AddPipeNet(Grid.Value, this);
-        }
-
-        public void Update()
-        {
-            _atmosphereSystem?.React(Air, this);
-
-            // // ADT-Tweak start
-            var overpressureSystem = _entMan?.EntitySysManager.GetEntitySystem<OverpressurePipeDamageSystem>();
-            overpressureSystem?.Update(this);
-            // // ADT-Tweak end
-        }
-=======
+        
         Air.Multiply(1f - pipe.Volume / Air.Volume);
         Air.Volume -= pipe.Volume;
+
+
+        // _entMan = entMan; // ADT-Tweak
+        // _atmosphereSystem = entMan.EntitySysManager.GetEntitySystem<AtmosphereSystem>();
+        // _atmosphereSystem.AddPipeNet(Grid.Value, this);
+        
+
+        // public void Update()
+        // {
+        //     _atmosphereSystem?.React(Air, this);
+
+        //     // // ADT-Tweak start
+        //     var overpressureSystem = _entMan?.EntitySysManager.GetEntitySystem<OverpressurePipeDamageSystem>();
+        //     overpressureSystem?.Update(this);
+        //     // // ADT-Tweak end
+        // }
     }
+    
 
     public override void AfterRemake(IEnumerable<IGrouping<INodeGroup?, Node>> newGroups)
     {
@@ -95,7 +96,6 @@ public sealed class PipeNet : BaseNodeGroup, IPipeNet
 
         _atmosphereSystem?.DivideInto(Air, newAir);
     }
->>>>>>> upstreamwiz/master
 
     private void RemoveFromGridAtmos()
     {
