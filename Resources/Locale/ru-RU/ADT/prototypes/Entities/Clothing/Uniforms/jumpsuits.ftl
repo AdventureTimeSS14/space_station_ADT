@@ -408,3 +408,7 @@ ent-ADTClothingUniformJumpsuitRedVictorianSuit = красный викториа
 
 ent-ADTClothingUniformJumpsuitBlackVictorianSuit = черный викторианский костюм
     .desc = Элегантный костюм, создающий образ аристократичной роскоши.
+
+ent-ADTClothingUniformJumpsuitSovietSoldier = форма солдата СССР 
+    .desc = Точно воссозданая в честь праздника форма солдата когда-то существовавшего СССР времен Великой Отечественной войны
+    .suffix = { "Праздник, День победы" }

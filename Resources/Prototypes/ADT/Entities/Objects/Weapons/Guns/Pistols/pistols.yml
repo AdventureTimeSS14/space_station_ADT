@@ -101,3 +101,63 @@
     slots:
     - suitStorage
     - Belt
+
+- type: entity
+  name: Korowin pistol
+  parent: BaseWeaponPistol
+  id: ADTWeaponPistolSovietKorowin
+  description: Korovin's pistol, recreated and converted to a 9x19 caliber
+  suffix: Holiday, Victory Day
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Pistols/korowin_pistol.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: ADT/Objects/Weapons/Guns/Pistols/korowin_pistol.rsi
+  - type: Gun
+    minAngle: 4
+    maxAngle: 6
+    angleIncrease: 1
+    angleDecay: 1
+    fireRate: 3.2
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/pistol.ogg
+  - type: RunAndGunSpreadModifier
+    modifier: 0.1
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazinePistol
+        insertSound: /Audio/Weapons/Guns/MagIn/pistol_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazinePistol
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgePistol
+        priority: 1
+        whitelist:
+          tags:
+            - CartridgePistol
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+  - type: AmmoCounter
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+  - type: StaticPrice
+    price: 500

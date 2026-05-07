@@ -529,3 +529,17 @@
     sprite: ADT/Clothing/Head/Hats/chefhat_red.rsi
   - type: Clothing
     sprite: ADT/Clothing/Head/Hats/chefhat_red.rsi
+
+# Пилотка солдата СССР
+
+- type: entity
+  parent: ClothingHeadHatChef
+  id: ADTClothingHeadHatSovietGarrisonCap
+  name: soviet garrison cap
+  description: A soldier's cap from the once-existing USSR, recreated for the holiday
+  suffix: Holiday, Victory Day
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hats/chefhat_red.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hats/chefhat_red.rsi
