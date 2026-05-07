@@ -27,7 +27,7 @@ public sealed class BibleSystem : EntitySystem
 {
     [Dependency] private readonly ActionBlockerSystem _blocker = default!;
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
-    [Dependency] private readonly SharedControlledSystem _controlled = default!;
+    // [Dependency] private readonly SharedControlledSystem _controlled = default!; // ADT-Tweak
     [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
     [Dependency] private readonly PopupSystem _popupSystem = default!;
     [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
