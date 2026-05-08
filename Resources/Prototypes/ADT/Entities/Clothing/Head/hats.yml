@@ -540,6 +540,6 @@
   suffix: Holiday, Victory Day
   components:
   - type: Sprite
-    sprite: ADT/Clothing/Head/Hats/chefhat_red.rsi
+    sprite: ADT/Clothing/Head/Hats/soviet_garrison_cap.rsi
   - type: Clothing
-    sprite: ADT/Clothing/Head/Hats/chefhat_red.rsi
+    sprite: ADT/Clothing/Head/Hats/soviet_garrison_cap.rsi
