@@ -481,3 +481,34 @@
         Slash: 0.95
         Piercing: 0.95
         Heat: 0.95
+
+#EVENT_ABYSS
+- type: entity
+  parent: [ ClothingHeadHardsuitBase , ADTClothingHeadHelmetHardsuitRiotERT ]
+  id: ADTClothingHeadHelmetHardsuitEVENTServant
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hardsuits/event_servant_helmet.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hardsuits/event_servant_helmet.rsi
+
+- type: entity
+  parent: [ ClothingHeadHardsuitBase , ADTClothingHeadHelmetHardsuitRiotERT ]
+  id: ADTClothingHeadHelmetHardsuitEVENTMed
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hardsuits/event_med_helmet.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hardsuits/event_med_helmet.rsi
+
+- type: entity
+  parent: [ ClothingHeadHardsuitBase , ClothingHeadHelmetHardsuitSyndieCommander ]
+  id: ADTClothingHeadHelmetHardsuitEVENTsunshine
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Head/Hardsuits/event_sunshine_helmet.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Head/Hardsuits/event_sunshine_helmet.rsi

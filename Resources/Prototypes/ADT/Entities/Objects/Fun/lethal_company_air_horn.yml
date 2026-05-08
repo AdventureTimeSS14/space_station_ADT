@@ -1,0 +1,38 @@
+- type: entity
+  parent: BaseItem
+  id: ADTLethalCompanyAirHorn
+  name: bike horn
+  description: A horn off of a bicycle.
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/lethal_company_air_horn.rsi
+    state: icon
+  - type: Item
+    sprite: ADT/Objects/Fun/lethal_company_air_horn.rsi
+    size: Tiny
+  - type: EmitSoundOnUse
+    sound:
+      collection: LethalCompanyAirHorn
+      params:
+        variation: 0.125
+        volume: -13
+        maxDistance: 10
+  - type: UseDelay
+    delay: 300
+  - type: EmitSoundOnTrigger
+    sound:
+      collection: LethalCompanyAirHorn
+      params:
+        variation: 0.125
+        volume: -13
+        maxDistance: 10
+  - type: Tag
+    tags:
+    - Payload # yes, you can make re-usable prank grenades
+    - BikeHorn
+  - type: Tool
+    qualities:
+    - Honking
+    useSound:
+      collection: LethalCompanyAirHorn

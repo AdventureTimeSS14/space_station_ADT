@@ -1,0 +1,41 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Created by discord:prazat911",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "candy_love"
+        },
+        {
+            "name": "minichoco1-open"
+        },
+        {
+            "name": "minichoco1"
+        },
+        {
+            "name": "minichoco2-open"
+        },
+        {
+            "name": "minichoco2"
+        },
+        {
+            "name": "minichoco3-open"
+        },
+        {
+            "name": "minichoco3"
+        },
+        {
+            "name": "minichoco4-open"
+        },
+        {
+            "name": "chocobox"
+        },
+        {
+            "name": "minichoco5-open"
+        }
+    ]
+}
