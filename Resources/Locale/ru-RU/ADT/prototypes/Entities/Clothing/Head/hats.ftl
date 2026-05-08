@@ -150,3 +150,7 @@ ent-ADTClothingHeadHatPurpleBenie = фиолетовая шапка
 
 ent-ADTClothingHeadHatRedBenie = красная шапка
     .desc = Обычная красная шапка. Смотреть здесь не на что.
+
+ent-ADTClothingHeadHatSovietGarrisonCap = пилотка солдата СССР 
+    .desc = Пилотка солдата когда-то существовавшего СССР воссозданная в честь праздника
+    .suffix = { "Праздник, День победы" }

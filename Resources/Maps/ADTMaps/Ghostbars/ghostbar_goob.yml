@@ -1768,15 +1768,6 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-- proto: ADTMaterialBScrystal
-  entities:
-  - uid: 27
-    components:
-    - type: Transform
-      parent: 25
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
 - proto: ADTSofaRedLeftSide
   entities:
   - uid: 52

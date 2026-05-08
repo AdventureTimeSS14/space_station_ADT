@@ -63,3 +63,7 @@ ent-ADTClothingOuterArmorMinerReinforcedFull = пластинчатый кост
 
 ent-ADTClothingOuterArmorCrusader = защитный доспех крестоносца
     .desc = Время захватывать Иерусалим, брат!
+
+ent-ADTClothingOuterArmorSovietCH42 = стальной нагрудник советского солдата
+    .desc = Когда-то это был первый бронежилет, сейчас он сильно отстаёт новым бронежилетам.
+    .suffix = { "Праздник, День победы" }

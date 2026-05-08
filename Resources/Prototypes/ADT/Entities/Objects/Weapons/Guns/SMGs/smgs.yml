@@ -82,3 +82,51 @@
     - Burst
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/gun_sentry.ogg
+
+- type: entity
+  name: ppsh-41
+  parent: [BaseWeaponPistol, ADTBaseAttachableHolder]
+  id: ADTWeaponSubMachineGunPPSH41
+  description: The Shpagin submachine gun.
+  suffix: Holiday, Victory Day
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/SMGs/ppsh-41.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-0
+        map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: ADT/Objects/Weapons/Guns/SMGs/ppsh-41.rsi
+  - type: Gun
+    fireRate: 6
+    selectedMode: FullAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/atreides.ogg
+    availableModes:
+    - FullAuto
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazinePistolSubMachineGun
+        insertSound: /Audio/Weapons/Guns/MagIn/smg_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/smg_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazinePistolSubMachineGun
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgeMagnum
+        priority: 1
+        whitelist:
+          tags:
+            - CartridgeMagnum
+        whitelistFailPopup: gun-magazine-whitelist-fail
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance

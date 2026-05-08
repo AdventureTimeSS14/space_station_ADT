@@ -603,3 +603,27 @@
   - type: ClothingSpeedModifier
     walkModifier: 0.75
     sprintModifier: 0.75
+
+- type: entity
+  parent: ClothingOuterArmorBasic
+  id: ADTClothingOuterArmorSovietCH42
+  name: the steel breastplate of a Soviet soldier
+  description: This was the first bulletproof vest, and it's very new.
+  suffix: Holiday, Victory Day
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/OuterClothing/Armor/ch-42.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/OuterClothing/Armor/ch-42.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.75
+        Piercing: 0.8
+        Heat: 0.9
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
+  - type: ClothingSpeedModifier
+    walkModifier: 0.85
+    sprintModifier: 0.85
