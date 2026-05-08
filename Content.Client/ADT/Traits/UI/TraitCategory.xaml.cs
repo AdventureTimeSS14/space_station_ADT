@@ -108,10 +108,10 @@ public sealed partial class TraitCategory : BoxContainer
         }
     }
 
-    public void SetTraitSelected(ProtoId<TraitPrototype> traitId, bool selected)
+    public void SetTraitSelected(ProtoId<TraitPrototype> traitId, bool selected, bool suppressToggle = false)
     {
         if (_traitEntries.TryGetValue(traitId, out var entry))
-            entry.SetSelected(selected);
+            entry.SetSelected(selected, suppressToggle);
     }
 
     public void ClearSelection()
