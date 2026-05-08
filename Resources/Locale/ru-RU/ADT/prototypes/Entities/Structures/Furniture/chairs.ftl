@@ -11,6 +11,10 @@ ent-ADTChairOktoberfestOrange = оранжевый деревянный стул
     .suffix = Октоберфест
     .desc = { ent-ChairWood.desc }
 
+ent-ADTChairOktoberfest = роскошный праздничный стул
+    .desc = Комфортнейший стул для праздника пива.
+    .suffix = { "Октоберфест" }
+
 ent-ADTChairRusty = ржавый стул
     .desc = Вам лучше не сидеть на нём.
 
@@ -43,6 +47,10 @@ ent-ADTArmchairBlue = синее кресло
 
 ent-ADTArmchairBlue2 = { ent-ADTArmchairBlue }
     .desc = { ent-ADTArmchairWhite.desc }
+
+ent-ADTSpiderStool = паучий стул
+    .suffix = Хеллоуин
+    .desc = Выглядит страшноватенько.
 
 ent-ADTBarberChair = парикмахерское кресло
     .desc = Очень удобное кресло, предназначенное для работы парикмахера.

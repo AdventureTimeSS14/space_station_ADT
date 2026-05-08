@@ -152,3 +152,28 @@
     proto: ProjectilePolyboltBread
     capacity: 10
     count: 10
+
+#ADT-Tweak-Start
+- type: entity
+  name: ADTWeaponWandSanta
+  parent: WeaponWandPolymorphBase
+  id: ADTWeaponWandSanta
+  description: ADTWeaponWandSanta
+  components:
+  - type: BasicEntityAmmoProvider
+    proto: ImmovableVoidRod
+    capacity: 3
+    count: 3
+  - type: Sprite
+    sprite: ADT/Objects/Specific/santa_wand.rsi
+    layers:
+    - state: santa-wand
+      map: ["base"]
+  - type: Item
+    size: Normal
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      right:
+      - state: inhand-right
+#ADT-Tweak-End

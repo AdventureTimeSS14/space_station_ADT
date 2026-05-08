@@ -10,3 +10,29 @@
     tags:
     - Meat
     - MonkeyCube
+
+- type: entity  
+  parent: RehydratableAnimalCube
+  id: ADTReindeerCube
+  name: ADTReindeerCube
+  components:
+  - type: Rehydratable
+    possibleSpawns:
+    - ADTReindeer
+  - type: Tag
+    tags:
+    - Meat
+    - MonkeyCube
+
+- type: entity  
+  parent: RehydratableAnimalCube
+  id: ADTGingerbreadCube
+  name: ADTGingerbreadCube
+  components:
+  - type: Rehydratable
+    possibleSpawns:
+    - MobGingerbreadAI
+  - type: Tag
+    tags:
+    - Meat
+    - MonkeyCube

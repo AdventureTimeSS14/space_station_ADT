@@ -6,7 +6,7 @@
   - type: WallMount
     arc: 360
   - type: Sprite
-    drawdepth: WallTops
+    drawdepth: Mobs
     sprite: ADT/Structures/Wallmounts/posters.rsi
     snapCardinals: true
   - type: Destructible
@@ -58,6 +58,26 @@
   - type: Sprite
     sprite: ADT/Structures/Wallmounts/posters.rsi
     state: poster_adtturnonsensors_legit #Спрайт от Празата
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterLegitOktoberfest
+  name: Oktoberfest!
+  description: "A poster with a tayaran advertising the traditional October beer festival."
+  suffix: Oktoberfest
+  components:
+  - type: Sprite
+    state: poster_adtoktoberfest_legit #Спрайт от Празата
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterLegitOktoberfest2
+  name: Oktoberfest!
+  description: "A poster with a beer mug advertising the traditional October beer festival."
+  suffix: Oktoberfest
+  components:
+  - type: Sprite
+    state: poster_adtoktoberfest2_legit #Спрайт от Празата
 
 #контрабандные постеры
 
@@ -535,6 +555,256 @@
     sprite: ADT/Structures/Wallmounts/posters.rsi
     state: poster_efficiencydiagram_legit #Спрайт от Иллюми
 
+
+#Хеллоуинский декор
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterHalloweenSpooky
+  name: spooky poster
+  description: spooky poster
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/poster_helloween.rsi
+    state: spooky
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterHalloweenYummy
+  name: yummy poster
+  description: yummy poster
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/poster_helloween.rsi
+    state: yummy
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterHalloweenSpider
+  name: spider poster
+  description: spider poster
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/poster_helloween.rsi
+    state: spider
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterHalloweenSpiderWeb1
+  name: spider web
+  description: spider web
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/poster_helloween.rsi
+    state: spiderweb1
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterHalloweenSpiderWeb2
+  name: spider web
+  description: spider web
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/poster_helloween.rsi
+    state: spiderweb2
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterHappyHalloween
+  name: happy halloween
+  description: happy halloween
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/poster_helloween.rsi
+    state: happyhalloween
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterHappyHalloween2
+  name: happy halloween
+  description: happy halloween
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/poster_helloween.rsi
+    state: happyhalloween-2
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterHappyHalloween3
+  name: happy halloween
+  description: happy halloween2
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/poster_helloween.rsi
+    state: happyhalloween-3
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterTayarHalloween
+  name: happy halloween
+  description: happy halloween3
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/poster_helloween.rsi
+    state: tayarhalloween
+
+#Флажки к хеллоуину
+#черно-оранжевые
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterHalloweenTrianglesBlackOrange1
+  name: black-orange triangles
+  description: black-orange triangles
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/triangles_halloween.rsi
+    state: blackorange1
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterHalloweenTrianglesBlackOrange2
+  name: black-orange triangles
+  description: black-orange triangles
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/triangles_halloween.rsi
+    state: blackorange2
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterHalloweenTrianglesBlackOrange3
+  name: black-orange triangles
+  description: black-orange triangles
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/triangles_halloween.rsi
+    state: blackorange3
+
+#черно-белые
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterHalloweenTrianglesBlackWhite1
+  name: black-white triangles
+  description: black-white triangles
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/triangles_halloween.rsi
+    state: blackwhite1
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterHalloweenTrianglesBlackWhite2
+  name: black-white triangles
+  description: black-white triangles
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/triangles_halloween.rsi
+    state: blackwhite2
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterHalloweenTrianglesBlackWhite3
+  name: black-white triangles
+  description: black-white triangles
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/triangles_halloween.rsi
+    state: blackwhite3
+
+#оранжево-желтые
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterHalloweenTrianglesOrangeYellow1
+  name: orange-yellow triangles
+  description: orange-yellow triangles
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/triangles_halloween.rsi
+    state: orangeyellow1
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterHalloweenTrianglesOrangeYellow2
+  name: orange-yellow triangles
+  description: orange-yellow triangles
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/triangles_halloween.rsi
+    state: orangeyellow2
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterHalloweenTrianglesOrangeYellow3
+  name: orange-yellow triangles
+  description: orange-yellow triangles
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/triangles_halloween.rsi
+    state: orangeyellow3
+
+#Счастливого хеллоуина
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterHalloweenTrianglesHappy1
+  name: happy halloween triangles
+  description: happy halloween triangles
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/triangles_halloween.rsi
+    state: HPHW1
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterHalloweenTrianglesHappy2
+  name: happy halloween triangles
+  description: happy halloween triangles
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/triangles_halloween.rsi
+    state: HPHW2
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterHalloweenTrianglesHappy3
+  name: happy halloween triangles
+  description: happy halloween triangles
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/triangles_halloween.rsi
+    state: HPHW3
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTPosterHalloweenTrianglesHappy4
+  name: happy halloween triangles
+  description: happy halloween triangles
+  suffix: Halloween
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/triangles_halloween.rsi
+    state: HPHW4
+
 #Флаги и плакаты СССП
 
 - type: entity
@@ -786,6 +1056,142 @@
   - type: Sprite
     sprite: ADT/Structures/Wallmounts/posters.rsi
     state: poster_unclepraz_legit #Спрайт от Празата
+
+#постеры на день святого Валентина
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTDVLoveContraband
+  suffix: Valentine's day
+  name: Sharp love
+  description: Buy a sawblade for yourself and your beloved, and you'll get a third one as a gift!
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/posters_valentines_day.rsi
+    state: dv_love_contraband
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTSpaceLoveContraband
+  name: Share it together!
+  description: An advertising poster celebrating Valentine's Day.
+  suffix: Valentine's day
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/posters_valentines_day.rsi
+    state: space_love_contraband
+    
+- type: entity
+  parent: ADTPosterBase
+  id: ADTValentinaLegit
+  name: Love it...
+  description: To fly together in a hot air balloon.
+  suffix: Valentine's day
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/posters_valentines_day.rsi
+    state: valentina_legit
+    
+- type: entity
+  parent: ADTPosterBase
+  id: ADTValentina2Legit
+  name: Love it...
+  description: A piercing feeling in my heart.
+  suffix: Valentine's day
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/posters_valentines_day.rsi
+    state: valentina2_legit
+    
+- type: entity
+  parent: ADTPosterBase
+  id: ADTValentina3Legit
+  name: Love it...
+  description: Giving treats to your loved one.
+  suffix: Valentine's day
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/posters_valentines_day.rsi
+    state: valentina3_legit
+    
+- type: entity
+  parent: ADTPosterBase
+  id: ADTValentina4Legit
+  name: Love it...
+  description: Happiness is not just for two people.
+  suffix: Valentine's day
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/posters_valentines_day.rsi
+    state: valentina4_legit
+    
+- type: entity
+  parent: ADTPosterBase
+  id: ADTValentina5Legit
+  name: Love it...
+  description: Just to be together.
+  suffix: Valentine's day
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/posters_valentines_day.rsi
+    state: valentina5_legit
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTValentina6Legit
+  name: Love it...
+  description: Loyalty to your lover.
+  suffix: Valentine's day
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/posters_valentines_day.rsi
+    state: valentina6_legit
+
+#Сердечки ко дню святого Валентина
+
+- type: entity
+  parent: ADTPosterBase
+  id: ADTHangingHearts
+  name: Hanging hearts
+  description: Decorative hearts hanging from a rope. At least they're not real.
+  suffix: Valentine's day
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/hanging_hearts_valentines_day.rsi
+    state: love
+    
+- type: entity
+  parent: ADTPosterBase
+  id: ADTHangingHearts2
+  name: Hanging hearts
+  description: Decorative hearts hanging from a rope. At least they're not real.
+  suffix: Valentine's day
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/hanging_hearts_valentines_day.rsi
+    state: love2
+    
+- type: entity
+  parent: ADTPosterBase
+  id: ADTHangingHearts3
+  name: Hanging hearts
+  description: Decorative hearts hanging from a rope. At least they're not real.
+  suffix: Valentine's day
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/hanging_hearts_valentines_day.rsi
+    state: love3
+    
+- type: entity
+  parent: ADTPosterBase
+  id: ADTHangingHearts4
+  name: Hanging hearts
+  description: Decorative hearts hanging from a rope. At least they're not real.
+  suffix: Valentine's day
+  components:
+  - type: Sprite
+    sprite: ADT/Structures/Wallmounts/hanging_hearts_valentines_day.rsi
+    state: love4
 
 - type: entity
   parent: ADTPosterBase
