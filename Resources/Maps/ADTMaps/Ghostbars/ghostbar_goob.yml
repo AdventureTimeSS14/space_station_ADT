@@ -1795,20 +1795,6 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-- proto: ADTSofaRedLeftSide
-  entities:
-  - uid: 52
-    components:
-    - type: Transform
-      pos: -0.5,-7.5
-      parent: 2
-- proto: ADTSofaRedMiddle
-  entities:
-  - uid: 53
-    components:
-    - type: Transform
-      pos: -6.5,2.5
-      parent: 1
 - proto: ADTPosterNewYear
   entities:
   - uid: 24
@@ -1819,13 +1805,6 @@ entities:
       parent: 1
 - proto: ADTPosterNoGood
       pos: 0.5,-7.5
-      parent: 2
-- proto: ADTSofaRedRightSide
-  entities:
-  - uid: 54
-    components:
-    - type: Transform
-      pos: 1.5,-7.5
       parent: 2
 - proto: ADTVendingMachineGamesFree
   entities:
