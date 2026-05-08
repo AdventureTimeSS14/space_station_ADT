@@ -3309,4 +3309,32 @@
   - type: MeleeWeapon
     soundHit: &PlushieTajaranMeleeWeaponSound
       path: /Audio/ADT/Felinid/cat_hiss1.ogg
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieRykoslave
+  name: plushie toy Rykoslave
+  description: The toy is a plump teddy bear, and it was produced in small quantities due to low demand. It looks lonely and hungry. On the tag, you can see a rough inscription that reads, "Feed me!"
+  suffix: Personal, VLIND
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_rykoslave
+  - type: Item
+    sprite: ADT/Personalization/toys.rsi
+    inhandVisuals:
+      left:
+      - state: rykoslave-inhand-left
+      right:
+      - state: rykoslave-inhand-right
+  - type: Clothing
+    quickEquip: false
+    sprite: ADT/Personalization/toys.rsi
+    slots:
+    - HEAD
+    clothingVisuals:
+      head:
+      - state: rykoslave-equipped-HELMET
+        offset: "0, 0.06"
+
 #SPONSOR-ITEMS-END
