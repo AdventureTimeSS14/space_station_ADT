@@ -1,5 +1,5 @@
 using Content.Server.Botany.Components;
-using Content.Server.PowerCell;
+using Content.Shared.PowerCell;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
 using Content.Shared.PowerCell;

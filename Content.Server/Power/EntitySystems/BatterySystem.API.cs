@@ -94,7 +94,7 @@ public sealed partial class BatterySystem
     /// <summary>
     /// Returns whether the battery is full.
     /// </summary>
-    public bool IsFull(Entity<BatteryComponent?> ent)
+    public override bool IsFull(Entity<BatteryComponent?> ent)
     {
         if (!Resolve(ent, ref ent.Comp))
             return false;

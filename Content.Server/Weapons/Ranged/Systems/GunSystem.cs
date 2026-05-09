@@ -20,7 +20,7 @@ using Robust.Shared.Utility;
 using Robust.Shared.Containers;
 using Content.Server.Body.Systems;
 using Content.Shared.Mech.Components;
-using Content.Server.PowerCell;
+using Content.Shared.PowerCell;
 
 namespace Content.Server.Weapons.Ranged.Systems;
 

@@ -17,7 +17,7 @@ public abstract partial class SharedBatterySystem
     /// </summary>
     /// <returns>The actually changed amount.</returns>
     [PublicAPI]
-    public float ChangeCharge(Entity<BatteryComponent?> ent, float amount)
+    public virtual float ChangeCharge(Entity<BatteryComponent?> ent, float amount)
     {
         if (!Resolve(ent, ref ent.Comp))
             return 0;
@@ -50,7 +50,7 @@ public abstract partial class SharedBatterySystem
     /// </summary>
     /// <returns>The actually changed amount.</returns>
     [PublicAPI]
-    public float UseCharge(Entity<BatteryComponent?> ent, float amount)
+    public virtual float UseCharge(Entity<BatteryComponent?> ent, float amount)
     {
         if (amount <= 0f)
             return 0f;
@@ -65,7 +65,7 @@ public abstract partial class SharedBatterySystem
     /// </summary>
     /// <returns>If the full amount was able to be removed.</returns>
     [PublicAPI]
-    public bool TryUseCharge(Entity<BatteryComponent?> ent, float amount)
+    public virtual bool TryUseCharge(Entity<BatteryComponent?> ent, float amount)
     {
         if (!Resolve(ent, ref ent.Comp, false) || amount > GetCharge(ent))
             return false;
@@ -78,7 +78,7 @@ public abstract partial class SharedBatterySystem
     /// Sets the battery's charge.
     /// </summary>
     [PublicAPI]
-    public void SetCharge(Entity<BatteryComponent?> ent, float value)
+    public virtual void SetCharge(Entity<BatteryComponent?> ent, float value)
     {
         if (!Resolve(ent, ref ent.Comp))
             return;
@@ -106,7 +106,7 @@ public abstract partial class SharedBatterySystem
     /// Sets the battery's maximum charge.
     /// </summary>
     [PublicAPI]
-    public void SetMaxCharge(Entity<BatteryComponent?> ent, float value)
+    public virtual void SetMaxCharge(Entity<BatteryComponent?> ent, float value)
     {
         if (!Resolve(ent, ref ent.Comp))
             return;
@@ -252,7 +252,7 @@ public abstract partial class SharedBatterySystem
     /// Uses the cooldown time given in the component.
     /// </summary>
     [PublicAPI]
-    public void TrySetChargeCooldown(Entity<BatterySelfRechargerComponent?> ent)
+    public virtual void TrySetChargeCooldown(Entity<BatterySelfRechargerComponent?> ent)
     {
         if (!Resolve(ent, ref ent.Comp, false))
             return;
@@ -270,7 +270,7 @@ public abstract partial class SharedBatterySystem
     /// Puts the entity's self recharge on cooldown for the specified time.
     /// </summary>
     [PublicAPI]
-    public void SetChargeCooldown(Entity<BatterySelfRechargerComponent?> ent, TimeSpan cooldown)
+    public virtual void SetChargeCooldown(Entity<BatterySelfRechargerComponent?> ent, TimeSpan cooldown)
     {
         if (!Resolve(ent, ref ent.Comp))
             return;
@@ -284,7 +284,7 @@ public abstract partial class SharedBatterySystem
     /// Returns whether the battery is full.
     /// </summary>
     [PublicAPI]
-    public bool IsFull(Entity<BatteryComponent?> ent)
+    public virtual bool IsFull(Entity<BatteryComponent?> ent)
     {
         if (!Resolve(ent, ref ent.Comp))
             return false;

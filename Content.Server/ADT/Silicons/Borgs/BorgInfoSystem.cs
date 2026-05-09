@@ -7,7 +7,6 @@ using Content.Server.Silicons.Borgs;
 using Content.Server.Station.Systems;
 using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.PowerCell.Components;
-using Content.Server.PowerCell;
 using Content.Shared.PowerCell;
 
 namespace Content.Server.ADT.Silicons.Borgs;
