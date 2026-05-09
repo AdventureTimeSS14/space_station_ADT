@@ -67,7 +67,7 @@
   suffix: Oktoberfest
   components:
   - type: Sprite
-    state: poster_adtoktoberfest_legit #Спрайт от Празата
+    state: poster_adtturnonsensors_legit #Спрайт от Празата
 
 - type: entity
   parent: ADTPosterBase
