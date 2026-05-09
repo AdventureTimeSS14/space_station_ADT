@@ -31,7 +31,6 @@ using Content.Shared.Movement.Systems;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Damage;
 using Content.Shared.Gibbing;
-using Content.Shared.Gibbing.Systems;
 using Content.Shared.Mind;
 using Robust.Shared.Audio;
 
