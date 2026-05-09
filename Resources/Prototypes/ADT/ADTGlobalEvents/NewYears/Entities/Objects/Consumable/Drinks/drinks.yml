@@ -70,6 +70,9 @@
         reagents:
         - ReagentId: ADTChristmasMilkshake
           Quantity: 30
+  - type: SolutionContainerVisuals
+    maxFillLevels: 0
+    inHandsMaxFillLevels: 0
   - type: Sprite
     sprite: ADT/ADTGlobalEvents/NewYears/Objects/Consumable/Drinks/new_year.rsi
     state: christmas_milkshake
