@@ -4,6 +4,7 @@ using Content.Shared.Damage.Components;
 using Content.Shared.Damage;
 using Content.Server.NodeContainer.Nodes;
 using Content.Server.NodeContainer.NodeGroups;
+using Content.Shared.NodeContainer.NodeGroups;
 using Content.Shared.ADT.Atmos.EntityDamage.Components;
 using Content.Shared.ADT.CCVar;
 using Robust.Shared.Random;
