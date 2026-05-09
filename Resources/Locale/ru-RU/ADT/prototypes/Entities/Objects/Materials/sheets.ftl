@@ -32,3 +32,10 @@ ent-ADTSheetLead10 = свинец
 ent-ADTSheetLead1 = свинец
     .suffix = Один
     .desc = { ent-ADTSheetLead.desc }
+
+ent-ADTSheetUranium5 = уран
+    .suffix = 5
+    .desc = { ent-SheetUranium.desc }
+ent-ADTSheetPlasteel5 = пласталь
+    .suffix = 5
+    .desc = { ent-SheetPlasteel.desc }

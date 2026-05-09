@@ -60,12 +60,12 @@
       - MaterialDiamond1
       - IngotSilver1
       - IngotGold1
-      - SheetUranium1
-      - MaterialBananium1
+      - ADTSheetUranium5
+      - ADTMaterialBananium5
+      - ADTSheetPlasteel5
+      - ADTSheetPlasma5
       - SheetSteel10
-      - SheetPlasteel10
       - SheetGlass10
-      - SheetPlasma10
       - SheetPlastic10
       - ADTSheetCopper10
       - ADTSheetZinc10

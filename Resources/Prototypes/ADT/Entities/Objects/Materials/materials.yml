@@ -1,0 +1,20 @@
+- type: entity
+  parent: MaterialBananium
+  id: ADTMaterialBananium5
+  suffix: Five
+  components:
+  - type: Sprite
+    state: bananium
+  - type: Stack
+    count: 5
+
+- type: entity
+  parent: SheetPlasma
+  id: ADTSheetPlasma5
+  name: plasma
+  suffix: Five
+  components:
+  - type: Sprite
+    state: plasma
+  - type: Stack
+    count: 5

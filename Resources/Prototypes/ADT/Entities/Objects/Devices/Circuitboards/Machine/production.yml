@@ -408,6 +408,6 @@
       GlassBeaker:
         amount: 5
         defaultPrototype: Beaker
-      BluespaceAnomaly:
+      ADTBluespaceAnomalyCore:
         amount: 1
         defaultPrototype: AnomalyCoreBluespace

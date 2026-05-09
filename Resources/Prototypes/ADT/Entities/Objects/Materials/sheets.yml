@@ -204,3 +204,24 @@
         - ReagentId: Carbon
           Quantity: 1
         canReact: false
+
+- type: entity
+  parent: SheetUranium
+  id: ADTSheetUranium5
+  name: uranium
+  suffix: Five
+  components:
+  - type: Stack
+    count: 5
+
+- type: entity
+  parent: SheetPlasteel
+  id: ADTSheetPlasteel5
+  name: plasteel
+  suffix: Five
+  components:
+  - type: Sprite
+    state: plasteel
+  - type: Stack
+    stackType: Plasteel
+    count: 5
