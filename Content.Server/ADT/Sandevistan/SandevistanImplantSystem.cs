@@ -3,6 +3,7 @@ using Content.Shared.ADT.Sandevistan;
 using Content.Shared.Humanoid;
 using Content.Server.Humanoid;
 using Content.Shared.GrabProtection;
+using Content.Shared.Body;
 
 namespace Content.Server.ADT.Sandevistan;
 
@@ -25,7 +26,7 @@ public sealed class SandevistanImplantSystem : EntitySystem
         EnsureComp<SandevistanUserComponent>(owner);
         EnsureComp<GrabProtectionComponent>(owner);
 
-        if (!string.IsNullOrEmpty(comp.MarkingId) && TryComp<HumanoidAppearanceComponent>(owner, out _))
+        if (!string.IsNullOrEmpty(comp.MarkingId) && TryComp<VisualOrganMarkingsComponent>(owner, out var visualOrganMarkingsComponent))
         {
             _humanoidSystem.AddMarking(owner, comp.MarkingId, comp.MarkingColor, sync: true, forced: comp.ForcedMarking);
         }
@@ -39,7 +40,7 @@ public sealed class SandevistanImplantSystem : EntitySystem
         {
             RemComp<SandevistanUserComponent>(owner);
             RemComp<GrabProtectionComponent>(owner);
-            if (!string.IsNullOrEmpty(comp.MarkingId) && TryComp<HumanoidAppearanceComponent>(owner, out _))
+            if (!string.IsNullOrEmpty(comp.MarkingId) && TryComp<VisualOrganMarkingsComponent>(owner, out var visualOrganMarkingsComponent))
             {
                 _humanoidSystem.RemoveMarking(owner, comp.MarkingId, sync: true);
             }
