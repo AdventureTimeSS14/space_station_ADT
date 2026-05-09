@@ -48,7 +48,7 @@ public partial struct WeatherStage
     /// The weather prototype to add, or null for clear weather.
     /// </summary>
     [DataField]
-    public ProtoId<WeatherPrototype>? Weather;
+    public EntProtoId? Weather;
 
     /// <summary>
     /// Alert message to send in chat for players on the map when it starts.
