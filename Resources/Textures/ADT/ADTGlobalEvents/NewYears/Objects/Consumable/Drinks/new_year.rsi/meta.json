@@ -37,6 +37,9 @@
         },
         {
             "name": "icon_empty"
+        },
+        {
+            "name": "fill-5"
         }
     ]
 }
