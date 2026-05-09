@@ -102,7 +102,7 @@ public sealed partial class TemperatureSystem : SharedTemperatureSystem
         ChangeHeat(uid, heat * temperature.AtmosTemperatureTransferEfficiency, temperature: temperature);
     }
 
-    private void OnInit(Entity entity, ref MapInitEvent args)
+    private void OnInit(Entity<InternalTemperatureComponent> entity, ref MapInitEvent args)
     {
         if (!TemperatureQuery.TryComp(entity, out var temp))
             return;
@@ -123,7 +123,7 @@ public sealed partial class TemperatureSystem : SharedTemperatureSystem
         args.TemperatureDelta *= ev.Coefficient;
     }
 
-    private void ChangeTemperatureOnCollide(Entity ent, ref ProjectileHitEvent args)
+    private void ChangeTemperatureOnCollide(Entity<ChangeTemperatureOnCollideComponent> ent, ref ProjectileHitEvent args)
     {
         ChangeHeat(args.Target, ent.Comp.Heat, ent.Comp.IgnoreHeatResistance); // adjust the temperature
     }
