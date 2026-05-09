@@ -290,44 +290,4 @@ public sealed partial class AtmosphereSystem
         }
     }
 
-    /// <summary>
-    /// Performs hotspot exposure processing on a <see cref="TileAtmosphere"/>.
-    /// </summary>
-    /// <param name="tile">The <see cref="TileAtmosphere"/> to process.</param>
-    private void PerformHotspotExposure(TileAtmosphere tile)
-    {
-        if (tile.Air == null || !tile.Hotspot.Valid)
-            return;
-
-        // Determine if the tile has become a full-blown fire if the volume of the fire has effectively reached
-        // the volume of the tile's air.
-        tile.Hotspot.Bypassing = tile.Hotspot.SkippedFirstProcess && tile.Hotspot.Volume > tile.Air.Volume * 0.95f; //ADT-Gas
-
-        // If the tile is effectively a full fire, use the tile's air for reactions, don't bother partitioning.
-        if (tile.Hotspot.Bypassing)
-        {
-            tile.Hotspot.Volume = tile.Air.ReactionResults[(byte)GasReaction.Fire] * Atmospherics.FireGrowthRate;
-            tile.Hotspot.Temperature = tile.Air.Temperature;
-        }
-        // Otherwise, pull out a fraction of the tile's air (the current hotspot volume) to perform reactions on.
-        else
-        {
-            var affected = tile.Air.RemoveVolume(tile.Hotspot.Volume);
-            affected.Temperature = tile.Hotspot.Temperature;
-            React(affected, tile);
-            tile.Hotspot.Temperature = affected.Temperature;
-            // Scale the fire based on the type of reaction that occured.
-            tile.Hotspot.Volume = affected.ReactionResults[(byte)GasReaction.Fire] * Atmospherics.FireGrowthRate;
-            Merge(tile.Air, affected);
-        }
-
-        var fireEvent = new TileFireEvent(tile.Hotspot.Temperature, tile.Hotspot.Volume);
-        _entSet.Clear();
-        _lookup.GetLocalEntitiesIntersecting(tile.GridIndex, tile.GridIndices, _entSet, 0f);
-
-        foreach (var entity in _entSet)
-        {
-            RaiseLocalEvent(entity, ref fireEvent);
-        }
-    }
 }
