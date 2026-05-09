@@ -3,7 +3,7 @@ using Content.Server.Administration.Logs;
 using Content.Server.Cargo.Systems;
 using Content.Server.Popups;
 using Content.Shared.Body.Systems;
-using Content.Shared.Body.Part;
+using Content.Shared.Body;
 using Content.Shared.ADT.Chaplain.Components;
 using Content.Shared.DoAfter;
 using Content.Shared.Cargo;
