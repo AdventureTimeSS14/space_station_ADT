@@ -29,10 +29,3 @@
   parent: ADTBaseThrusterCircuitboard
   id: ADTMachineMediumLongThrusterCircuitboard
   result: ADTMachineMediumLongThrusterCircuitboard
-
-## Science
-
-- type: latheRecipe
-  parent: [ BaseCircuitboardRecipe, BaseResearchMachineRecipeCategory ]
-  id: ADTBluespaceMinerMachineCircuitboard
-  result: ADTBluespaceMinerMachineCircuitboard

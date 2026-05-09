@@ -80,3 +80,5 @@
   id: ADTBluespaceHarvesterPack
   recipes:
   - ADTMachineBluespaceHarvesterCircuitboard
+  - ADTBluespaceMinerMachineCircuitboard
+

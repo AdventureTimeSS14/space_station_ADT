@@ -45,6 +45,7 @@
   cost: 40000
   recipeUnlocks:
   - ADTMachineBluespaceHarvesterCircuitboard
+  - ADTBluespaceMinerMachineCircuitboard
   position: 4,-3
   requiredTech:
   - BasicAnomalousResearch

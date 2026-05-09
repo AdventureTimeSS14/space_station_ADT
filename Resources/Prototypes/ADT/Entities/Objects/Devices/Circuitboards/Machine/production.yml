@@ -399,11 +399,14 @@
   description: A machine printed circuit board for a bluespace miner.
   components:
   - type: Sprite
-    state: command
+    state: science
   - type: MachineBoard
     prototype: ADTMachineBluespaceMiner
     stackRequirements:
-      Manipulator: 10
+      Glass: 15
+      Steel: 15
+      CableHV: 5
+      Manipulator: 20
     tagRequirements:
       GlassBeaker:
         amount: 5

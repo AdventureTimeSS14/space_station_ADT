@@ -28,7 +28,6 @@ public sealed class MaterialStorageMagnetPickupSystem : EntitySystem
         _physicsQuery = GetEntityQuery<PhysicsComponent>();
         SubscribeLocalEvent<MaterialStorageMagnetPickupComponent, MapInitEvent>(OnMagnetMapInit);
         SubscribeLocalEvent<MaterialStorageMagnetPickupComponent, EntityUnpausedEvent>(OnMagnetUnpaused);
-        SubscribeLocalEvent<MaterialStorageMagnetPickupComponent, ExaminedEvent>(OnExamined);
         SubscribeLocalEvent<MaterialStorageMagnetPickupComponent, GetVerbsEvent<AlternativeVerb>>(AddToggleMagnetVerb);
     }
 
@@ -67,15 +66,6 @@ public sealed class MaterialStorageMagnetPickupSystem : EntitySystem
         };
 
         args.Verbs.Add(verb);
-    }
-
-    // Used to show the magnet state on examination. Goobstation edit.
-    private void OnExamined(EntityUid uid, MaterialStorageMagnetPickupComponent component, ExaminedEvent args)
-    {
-        if (component.MagnetEnabled)
-            args.PushMarkup(Loc.GetString("comp-magnet-pickup-examined-on"));
-        else
-            args.PushMarkup(Loc.GetString("comp-magnet-pickup-examined-off"));
     }
 
     // Used to toggle the magnet on the ore bag/box
