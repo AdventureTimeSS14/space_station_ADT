@@ -1908,3 +1908,17 @@
         Slash: 0.7
         Piercing: 0.6
         Heat: 0.6
+
+# Форма советского солдата
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitSovietSoldier
+  name: uniform of a soldier from the former USSR
+  description: The uniform of a soldier from the former USSR during the Great Patriotic Wars has been accurately recreated
+  suffix: Holiday, Victory Day
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/soviet_tunic.rsi
+  - type: Clothing
+    sprite: ADT/Clothing/Uniforms/Jumpsuit/soviet_tunic.rsi
