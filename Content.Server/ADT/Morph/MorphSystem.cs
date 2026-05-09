@@ -22,6 +22,7 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Events;
+using Content.Shared.Gibbing;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.Polymorph.Components;
@@ -39,6 +40,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Content.Shared.Body;
 
 namespace Content.Server.ADT.Morph;
 
@@ -53,7 +55,6 @@ public sealed class MorphSystem : SharedMorphSystem
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly HungerSystem _hunger = default!;
-    [Dependency] private readonly HumanoidAppearanceSystem _humanoid = default!;
     [Dependency] protected readonly SharedAudioSystem _audioSystem = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
@@ -260,7 +261,7 @@ public sealed class MorphSystem : SharedMorphSystem
         //отвечает за запоминание энтити для мимикрии.
         //гуманоидов запоминает отдельно т.к. их невозможно показать путём хамелеона
         //короче мне лень эту хреноетнь выписывать. Кто будет её чинить - мои соболезнования вам
-        if (TryComp<HumanoidAppearanceComponent>(args.Target, out var humanoid))
+        if (TryComp<VisualBodyComponent>(args.Target, out var humanoid))
         {
             //короче мне лень эту хреноетнь выписывать. Кто будет её чинить - мои соболезнования вам
             //TODO: сделать морфабильность гуманоидов. Этот метод работает, но на 50%. Он спавнит зуманоида и устанавливает ему вид, но не может прицепить его
@@ -378,7 +379,7 @@ public sealed class MorphSystem : SharedMorphSystem
             return;
         if (health == null)
             return;
-        if (!HasComp<HumanoidAppearanceComponent>(args.Args.Target))
+        if (!HasComp<VisualBodyComponent>(args.Args.Target))
             health /= 2;
         var damage_brute = new DamageSpecifier(_proto.Index(BruteDamageGroup), -health.Value / 2);
         var damage_burn = new DamageSpecifier(_proto.Index(BurnDamageGroup), -health.Value / 2);
