@@ -264,12 +264,6 @@
       briefing:
         sound: "/Audio/Misc/thief_greeting.ogg"
 
-- type: entity
-  id: DynamicRandomGamerule
-  parent: BaseGameRule
-  components:
-  - type: GameRule
-  - type: DynamicRandomRule
 
 #этот геймрул сделан только для выдачи трейтора
 - type: entity
