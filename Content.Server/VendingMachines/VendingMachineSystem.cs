@@ -27,6 +27,7 @@ using Content.Shared.Power;
 using Content.Shared.Stacks;
 using Content.Shared.Tag;
 using Content.Shared.Throwing;
+using Content.Shared.UserInterface;
 using Content.Shared.VendingMachines;
 using Content.Shared.Wall;
 using Robust.Server.GameObjects;
@@ -44,7 +45,6 @@ namespace Content.Server.VendingMachines
         [Dependency] private readonly AppearanceSystem _appearanceSystem = default!;
         [Dependency] private readonly PricingSystem _pricing = default!;
         [Dependency] private readonly ThrowingSystem _throwingSystem = default!;
-        [Dependency] private readonly IGameTiming _timing = default!;
         [Dependency] private readonly SpeakOnUIClosedSystem _speakOnUIClosed = default!;
         //ADT-Economy-Start
         [Dependency] private readonly BankCardSystem _bankCard = default!;
@@ -308,7 +308,7 @@ namespace Content.Server.VendingMachines
         /// <param name="uid"></param>
         /// <param name="sender">Entity trying to use the vending machine</param>
         /// <param name="vendComponent"></param>
-        public bool IsAuthorized(EntityUid uid, EntityUid sender, VendingMachineComponent? vendComponent = null)
+        public override bool IsAuthorized(EntityUid uid, EntityUid sender, VendingMachineComponent? vendComponent = null)
         {
             if (!Resolve(uid, ref vendComponent))
                 return false;
@@ -337,8 +337,8 @@ namespace Content.Server.VendingMachines
         /// <param name="itemId">The prototype ID of the item</param>
         /// <param name="throwItem">Whether the item should be thrown in a random direction after ejection</param>
         /// <param name="vendComponent"></param>
-        // ADT: This hides the Shared method because we need 'count' and 'sender' parameters for economy
-        public new void TryEjectVendorItem(EntityUid uid, InventoryType type, string itemId, bool throwItem, int count, VendingMachineComponent? vendComponent = null, EntityUid? sender = null)
+        // ADT: This overloads the Shared method because we need 'count' and 'sender' parameters for economy
+        public void TryEjectVendorItem(EntityUid uid, InventoryType type, string itemId, bool throwItem, int count, VendingMachineComponent? vendComponent = null, EntityUid? sender = null)
         {
             if (!Resolve(uid, ref vendComponent))
                 return;
@@ -562,7 +562,7 @@ namespace Content.Server.VendingMachines
             vendComponent.NextItemCount = 1;    // ADT vending eject count
         }
 
-        private VendingMachineInventoryEntry? GetEntry(EntityUid uid, string entryId, InventoryType type, VendingMachineComponent? component = null)
+        protected override VendingMachineInventoryEntry? GetEntry(EntityUid uid, string entryId, InventoryType type, VendingMachineComponent? component = null)
         {
             if (!Resolve(uid, ref component))
                 return null;
@@ -591,17 +591,6 @@ namespace Content.Server.VendingMachines
                     comp.NextEmpEject += TimeSpan.FromSeconds(5 * comp.EjectDelay.TotalSeconds);
                 }
             }
-        }
-
-        public void TryRestockInventory(EntityUid uid, VendingMachineComponent? vendComponent = null)
-        {
-            if (!Resolve(uid, ref vendComponent))
-                return;
-
-            RestockInventoryFromPrototype(uid, vendComponent);
-
-            Dirty(uid, vendComponent);
-            TryUpdateVisualState(uid, vendComponent);
         }
 
         private void OnPriceCalculation(EntityUid uid, VendingMachineRestockComponent component, ref PriceCalculationEvent args)

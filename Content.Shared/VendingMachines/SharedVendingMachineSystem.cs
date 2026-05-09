@@ -40,12 +40,13 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
+        SubscribeLocalEvent<VendingMachineComponent, ComponentGetState>(OnVendingGetState);
+        SubscribeLocalEvent<VendingMachineComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<VendingMachineComponent, GotEmaggedEvent>(OnEmagged);
         SubscribeLocalEvent<VendingMachineComponent, EmpPulseEvent>(OnEmpPulse);
         SubscribeLocalEvent<VendingMachineComponent, RestockDoAfterEvent>(OnRestockDoAfter);
         SubscribeLocalEvent<VendingMachineComponent, ActivatableUIOpenAttemptEvent>(OnActivatableUIOpenAttempt);
         SubscribeLocalEvent<VendingMachineComponent, BreakageEventArgs>(OnBreak);
-        SubscribeLocalEvent<VendingMachineComponent, ComponentGetState>(OnVendingGetState);
 
         SubscribeLocalEvent<VendingMachineRestockComponent, AfterInteractEvent>(OnAfterInteract);
 
@@ -155,6 +156,11 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
         }
     }
 
+    protected virtual void OnMapInit(EntityUid uid, VendingMachineComponent component, MapInitEvent args)
+    {
+        RestockInventoryFromPrototype(uid, component, component.InitialStockQuality);
+    }
+
     protected virtual void EjectItem(EntityUid uid, VendingMachineComponent? vendComponent = null, bool forceEject = false) { }
 
     /// <summary>
@@ -163,7 +169,7 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
     /// <param name="uid"></param>
     /// <param name="sender">Entity trying to use the vending machine</param>
     /// <param name="vendComponent"></param>
-    public bool IsAuthorized(EntityUid uid, EntityUid sender, VendingMachineComponent? vendComponent = null)
+    public virtual bool IsAuthorized(EntityUid uid, EntityUid sender, VendingMachineComponent? vendComponent = null)
     {
         if (!Resolve(uid, ref vendComponent))
             return false;
@@ -179,7 +185,7 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
         return false;
     }
 
-    protected VendingMachineInventoryEntry? GetEntry(EntityUid uid, string entryId, InventoryType type, VendingMachineComponent? component = null)
+    protected virtual VendingMachineInventoryEntry? GetEntry(EntityUid uid, string entryId, InventoryType type, VendingMachineComponent? component = null)
     {
         if (!Resolve(uid, ref component))
             return null;
