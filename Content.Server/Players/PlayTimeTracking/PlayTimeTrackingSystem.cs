@@ -289,34 +289,6 @@ public sealed class PlayTimeTrackingSystem : EntitySystem
             playTimes = new Dictionary<string, TimeSpan>();
         }
 
-        var requirements = _roles.GetRoleRequirements(job);
-        return JobRequirements.TryRequirementsMet(
-            requirements,
-            playTimes,
-            out _,
-            EntityManager,
-            _prototypes,
-            (HumanoidCharacterProfile?)
-            _preferencesManager.GetPreferences(player.UserId).SelectedCharacter);
-    }
-
-    /// <summary>
-    /// Checks if the player meets role requirements.
-    /// </summary>
-    /// <param name="player">The player.</param>
-    /// <param name="antag">A list of role prototype IDs</param>
-    /// <returns>Returns true if all requirements were met or there were no requirements.</returns>
-    public bool IsAllowed(ICommonSession player, ProtoId<AntagPrototype> antag)
-    {
-        if (!_cfg.GetCVar(CCVars.GameRoleTimers))
-            return true;
-
-        if (!_tracking.TryGetTrackerTimes(player, out var playTimes))
-        {
-            Log.Error($"Unable to check playtimes {Environment.StackTrace}");
-            playTimes = new Dictionary<string, TimeSpan>();
-        }
-
         var requirements = _roles.GetRoleRequirements(antag);
         return JobRequirements.TryRequirementsMet(
             requirements,
