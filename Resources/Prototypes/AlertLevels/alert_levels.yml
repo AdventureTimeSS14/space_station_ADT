@@ -51,7 +51,7 @@
       announcement: alert-level-delta-announcement
       selectable: false
       sound:
-        path: /Audio/_Duty/Announcement/delta_red.ogg
+        path: /Audio/_Duty/Announcement/code_delta.ogg
         params:
           volume: -1 # ADT-Tweak
       disableSelection: true
@@ -63,7 +63,7 @@
       announcement: alert-level-epsilon-announcement
       selectable: false
       sound:
-        path: /Audio/_Duty/Announcement/epsilon.ogg
+        path: /Audio/_Duty/Announcement/code_epsilon.ogg
         params:
           volume: -2
       disableSelection: true

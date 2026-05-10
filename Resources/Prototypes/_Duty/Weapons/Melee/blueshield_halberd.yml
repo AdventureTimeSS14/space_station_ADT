@@ -1,4 +1,4 @@
-# Контент взят из SpaceDream (_SD), адаптирован для LocalDuty
+# Контент взят из SpaceDream (_SD), адаптирован для LocalDuty <--- ПИЗДЕЖ НАГЛЫЙ
 
 # ── Плазменная алебарда ОСЩ ──────────────────────────────────
 - type: entity
@@ -15,6 +15,7 @@
     sprite: _Duty/Objects/Weapons/Melee/halberd.rsi
     state: icon
   - type: MeleeWeapon
+    animation: WeaponArcThrust
     wideAnimationRotation: 135
     swingLeft: true
     attackRate: 0.75
@@ -51,6 +52,7 @@
     pryPowered: true
   - type: UseDelay
     delay: 1
+  - type: HalberdCharge
 
 # ── Кейс с алебардой (для ваучера ОСЩ) ──────────────────────
 - type: entity

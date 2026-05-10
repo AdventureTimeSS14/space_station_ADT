@@ -1,0 +1,21 @@
+# Способность "Рывок алебардой" для ОСЩ
+
+- type: entity
+  parent: BaseAction
+  id: ActionDutyHalberdCharge
+  name: Рывок алебардой
+  description: Совершите стремительный рывок в указанном направлении. Сбивает с ног всё на пути. Требует wielded алебарду.
+  suffix: Duty
+  components:
+  - type: Action
+    useDelay: 25
+    icon:
+      sprite: _Duty/Objects/Weapons/Melee/halberd.rsi
+      state: icon
+    itemIconStyle: NoItem
+    priority: -1
+  - type: TargetAction
+    checkCanAccess: false
+    range: 0
+  - type: WorldTargetAction
+    event: !type:HalberdChargeActionEvent {}

@@ -217,7 +217,7 @@
     slots:
     - Back
   - type: Gun
-    fireRate: 1.5
+    fireRate: 1
     minAngle: 0
     maxAngle: 3
     angleIncrease: 1
@@ -225,7 +225,7 @@
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
-    projectileSpeed: 40
+    projectileSpeed: 60
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/sniper.ogg
   - type: ChamberMagazineAmmoProvider
@@ -235,21 +235,21 @@
     slots:
       gun_magazine:
         name: Magazine
-        startingItem: MagazineRifle
+        startingItem: ADTMagazineHristovAdvanced
         insertSound: /Audio/_Duty/Weapons/Guns/RifleGen/MagIn/osv96_magin.ogg
         ejectSound: /Audio/_Duty/Weapons/Guns/RifleGen/MagOut/osv96_magout.ogg
         priority: 2
         whitelist:
           tags:
-          - MagazineRifle
+          - ADTMagazineHristovAdvanced
         whitelistFailPopup: gun-magazine-whitelist-fail
       gun_chamber:
         name: Chamber
-        startingItem: CartridgeRifle
+        startingItem: CartridgeAntiMateriel
         priority: 1
         whitelist:
           tags:
-          - CartridgeRifle
+          - CartridgeAntiMateriel
   - type: ContainerContainer
     containers:
       gun_magazine: !type:ContainerSlot

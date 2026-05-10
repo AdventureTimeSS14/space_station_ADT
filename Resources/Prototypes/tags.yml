@@ -900,6 +900,9 @@
 - type: Tag
   id: MagazineShotgun # WeaponShotgunBulldog
 
+- type: Tag
+  id: ADTMagazineHristovAdvanced # Duty: улучшенный магазин для снайперки Hristov
+
 #endregion
 
 - type: Tag
