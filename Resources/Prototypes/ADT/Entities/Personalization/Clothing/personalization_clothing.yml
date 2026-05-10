@@ -1621,6 +1621,7 @@
     - 0,0,4,2
     maxItemSize: Normal
 
+# Mathemat1ka
 - type: entity
   parent: [ClothingHeadCaptainHat, ADTSponsorClothing]
   id: ADTClothingHeadMathemat1kaHat
@@ -1763,3 +1764,25 @@
     sprite: ADT/Personalization/mathemat1ka_capcap.rsi
   - type: Clothing
     sprite: ADT/Personalization/mathemat1ka_capcap.rsi
+
+# Raven559
+
+- type: entity
+  parent: ADTSponsorClothingNeckBase
+  id: ADTClothingNeckRaven559SecOfficerMantle
+  name: A tattered ceremonial mantle of an sec officer
+  description: A firefight with heretics, revolutionaries, nuclear operatives, and a crew member who kicked him out of the department is a typical Tuesday for this owner. This mantle is the power of kleptomania and the lethal consequences of the GAMMA code. It smells like blood.
+  suffix: Personal, Raven559
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/Raven559/mantle_sec_officer.rsi
+
+- type: entity
+  parent: ADTSponsorClothingNeckBase
+  id: ADTClothingNeckRaven559OfficerBlueShieldMantle
+  name: the tattered ceremonial mantle of the blue shield officer
+  description: A firefight with heretics, revolutionaries, nuclear operatives, and a crew member who kicked him out of the department is a typical Tuesday for this OSS. This mantle is the power of kleptomania and the lethal consequences of attacking a member of the command staff.
+  suffix: Personal, Raven559
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/Raven559/mantle_officer_blue_shield.rsi
