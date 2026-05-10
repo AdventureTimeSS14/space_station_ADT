@@ -2,8 +2,8 @@ ent-ADTBaseWeaponCaseNTBS = оружейный кейс
     .suffix = ОСЩ, Револьвер
     .desc = Строгий оружейный кейс, скрывающий в себе что-то смертоносное.
 
-ent-ADTBaseWeaponCaseNTDrozdBlueshield = оружейный кейс
-    .suffix = ОСЩ, Дрозд
+ent-ADTBaseWeaponCaseNTSMGBlueshield = оружейный кейс
+    .suffix = ОСЩ, UTAP МК.1
     .desc = Строгий оружейный кейс, скрывающий в себе что-то смертоносное.
 
 ent-ADTBaseWeaponCaseNTTonfaBlueshield = оружейный кейс

@@ -10,13 +10,13 @@
 
 - type: thiefBackpackSet
   id: WeaponDrozdBlueshield
-  name: blueshield-voucher-drozd-name
-  description: blueshield-voucher-drozd-description
+  name: blueshield-voucher-smg-name
+  description: blueshield-voucher-smg-description
   sprite:
     sprite: ADT/Objects/Weapons/Guns/SMGs/blueshield_drozd.rsi
-    state: base
+    state: icon
   content:
-  - ADTBaseWeaponCaseNTDrozdBlueshield
+  - ADTBaseWeaponCaseNTSMGBlueshield
 
 - type: thiefBackpackSet
   id: WeaponTonfaBlueshield

@@ -29,7 +29,7 @@
      - id: ADTBlueShieldEnergyShield
 
 - type: entity
-  id: ADTBaseWeaponCaseNTDrozdBlueshield
+  id: ADTBaseWeaponCaseNTSMGBlueshield
   name: weapon case
   description: Weapon case, special designed for sophisticated and expensive weapons.
   parent: [ BaseStorageItem, BaseBagOpenClose ]
@@ -50,7 +50,7 @@
     - 0,0,7,1
   - type: StorageFill
     contents:
-     - id: ADTWeaponSubMachineGunDrozdBlueshield
+     - id: ADTWeaponWeaponRifleUTAPMKBlueshield
      - id: WeaponPulsePistol
      - id: ADTBlueShieldMagazinePistolSubMachineGun
      - id: ADTBlueShieldMagazinePistolSubMachineGun

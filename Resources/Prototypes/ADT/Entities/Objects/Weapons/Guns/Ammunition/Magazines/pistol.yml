@@ -10,20 +10,19 @@
     soundInsert:
       path: /Audio/Weapons/Guns/MagIn/bullet_insert.ogg
   - type: Sprite
+    sprite: ADT/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/smg_mag_blueshield.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
-    - state: stripe
-      color: "#1e40d8"
+  - type: MagazineVisuals
+    magState: mag
+    steps: 2
+    zeroVisible: false
   - type: Item
     inhandVisuals:
       left:
       - state: inhand-left-mag
-      - state: inhand-left-stripe
-        color: "#1e40d8"
       right:
       - state: inhand-right-mag
-      - state: inhand-right-stripe
-        color: "#1e40d8"
