@@ -548,7 +548,7 @@
   - type: MagazineVisuals
     magState: mag
     steps: 5
-    zeroVisible: false
+    zeroVisible: true
   - type: Clothing
     sprite: ADT/Objects/Weapons/Guns/Battery/x02.rsi
   - type: MeleeWeapon
