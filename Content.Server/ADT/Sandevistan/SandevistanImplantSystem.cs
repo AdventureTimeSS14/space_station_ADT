@@ -4,12 +4,14 @@ using Content.Shared.Humanoid;
 using Content.Server.Humanoid;
 using Content.Shared.GrabProtection;
 using Content.Shared.Body;
+using Robust.Shared;
 
 namespace Content.Server.ADT.Sandevistan;
 
 public sealed class SandevistanImplantSystem : EntitySystem
 {
-    [UISystemDependency] private readonly VisualBodySystem _visualBody = default!;
+    // коммент до почина
+    // [UISystemDependency] private readonly VisualBodySystem _visualBody = default!;
 
     public override void Initialize()
     {
