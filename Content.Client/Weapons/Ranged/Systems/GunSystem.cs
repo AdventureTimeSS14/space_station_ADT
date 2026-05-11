@@ -7,6 +7,7 @@ using Content.Shared.Camera;
 using Content.Shared.CCVar;
 using Content.Shared.CombatMode;
 using Content.Shared.Damage;
+using Content.Shared.Mech.Components;
 using Content.Shared.Weapons.Hitscan.Components;
 using Content.Shared.Weapons.Ranged;
 using Content.Shared.Weapons.Ranged.Components;
