@@ -45,10 +45,10 @@ voucher-mod-satchel-name = Сумочный модуль МОДа
 voucher-mod-satchel-description =
     Модуль хранилища для МОДа, что полностью идентичен по размерам сумке.
 
-blueshield-voucher-smg-name = набор с пистолетом пулеметом и импульсным пистолетом
+blueshield-voucher-smg-name = набор с пистолетом пулеметом и лазерным пистолетом
 blueshield-voucher-smg-description =
     Стандартное вооружение офицеров "Синий Щит".
-    Включает в себя UTAP МК.1, импульсный пистолет, два расширенных магазина и коробку патрон.
+    Включает в себя UTAP МК.1, уникальный лазерный пистолет, два расширенных магазина и коробку патрон.
 
 blueshield-voucher-tonfa-name = набор с тонфой
 blueshield-voucher-tonfa-description =

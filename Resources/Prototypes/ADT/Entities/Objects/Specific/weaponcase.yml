@@ -51,7 +51,7 @@
   - type: StorageFill
     contents:
      - id: ADTWeaponWeaponRifleUTAPMKBlueshield
-     - id: WeaponPulsePistol
+     - id: ADTWeaponPistolNTX02
      - id: ADTBlueShieldMagazinePistolSubMachineGun
      - id: ADTBlueShieldMagazinePistolSubMachineGun
      - id: MagazineBoxPistol
