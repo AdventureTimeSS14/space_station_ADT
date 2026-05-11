@@ -1,6 +1,9 @@
 using System.Linq;
 using System.Numerics;
+using Content.Client.UserInterface.Controls;
+using Content.Shared.ADT.Body.Allergies;
 using Content.Shared.Atmos;
+using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Damage.Systems;
@@ -19,6 +22,7 @@ using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
+
 namespace Content.Client.HealthAnalyzer.UI;
 
 // Health analyzer UI is split from its window because it's used by both the
@@ -27,6 +31,9 @@ namespace Content.Client.HealthAnalyzer.UI;
 [GenerateTypedNameReferences]
 public sealed partial class HealthAnalyzerControl : BoxContainer
 {
+    private static readonly Color Green = Color.FromHex("#00FF00"); // ADT-Tweak
+    private static readonly Color Red = Color.FromHex("#FF0000"); // ADT-Tweak
+
     private readonly IEntityManager _entityManager;
     private readonly SpriteSystem _spriteSystem;
     private readonly IPrototypeManager _prototypes;
@@ -93,9 +100,36 @@ public sealed partial class HealthAnalyzerControl : BoxContainer
             ? $"{state.Temperature - Atmospherics.T0C:F1} °C ({state.Temperature:F1} K)"
             : Loc.GetString("health-analyzer-window-entity-unknown-value-text");
 
-        BloodLabel.Text = !float.IsNaN(state.BloodLevel)
-            ? $"{state.BloodLevel * 100:F1} %"
-            : Loc.GetString("health-analyzer-window-entity-unknown-value-text");
+        // ADT-Tweak start
+        if (!float.IsNaN(state.BloodLevel))
+        {
+            var bloodPercent = state.BloodLevel;
+            var exclamations = bloodPercent switch {
+              <= 0f => "!!!!",
+              <= 0.25f => "!!!",
+              <= 0.5f => "!!",
+              <= 0.75f => "!",
+              _ => ""
+            };
+
+            BloodLabel.Text = $"{bloodPercent * 100:F1}%{exclamations}";
+
+            var clampedPercent = Math.Max(bloodPercent, 0.5f);
+            var scaled = (clampedPercent - 0.5f) / 0.5f;
+
+            BloodLabel.FontColorOverride = Color.InterpolateBetween(Red, Green, scaled);
+        }
+        // ADT-Tweak end
+        else
+        {
+            BloodLabel.Text = Loc.GetString("health-analyzer-window-entity-unknown-value-text");
+            BloodLabel.FontColorOverride = null;
+        }
+
+        // ADT-Tweak-Start
+        bool allergic = _entityManager.HasComponent<AllergicComponent>(target.Value);
+        AllergyText.Visible = allergic;
+        // ADT-Tweak-End
 
         StatusLabel.Text =
             _entityManager.TryGetComponent<MobStateComponent>(target.Value, out var mobStateComponent)
@@ -134,14 +168,17 @@ public sealed partial class HealthAnalyzerControl : BoxContainer
 
         // Damage Groups
 
-        var damageSortedGroups =
-            _damageable.GetDamagePerGroup(target.Value)
-                .OrderByDescending(damage => damage.Value)
-                .ToDictionary(x => x.Key, x => x.Value);
-
         var damagePerType = _damageable.GetAllDamage(target.Value).DamageDict;
+        // ADT-Tweak start
+        var groupOrder = new List<ProtoId<DamageGroupPrototype>> { "Burn", "Brute", "Airloss", "Toxin", "Genetic" };
+        var sortedGroups = _damageable.GetDamagePerGroup(target.Value)
+            .OrderBy(g => groupOrder.IndexOf(g.Key))
+            .ToDictionary(g => g.Key, g => g.Value);
 
-        DrawDiagnosticGroups(damageSortedGroups, damagePerType);
+        DrawDiagnosticGroups(sortedGroups, damagePerType);
+
+        DrawMetabolizingChemicals(state.MetabolizingReagents);
+        // ADT-Tweak end
     }
 
     private static string GetStatus(MobState mobState)
@@ -155,34 +192,67 @@ public sealed partial class HealthAnalyzerControl : BoxContainer
         };
     }
 
+    // ADT-Tweak start
     private void DrawDiagnosticGroups(
         Dictionary<ProtoId<DamageGroupPrototype>, FixedPoint2> groups,
         IReadOnlyDictionary<ProtoId<DamageTypePrototype>, FixedPoint2> damageDict)
     {
         GroupsContainer.RemoveAllChildren();
 
+        var gridContainer = new GridContainer
+        {
+            Columns = 2,
+        };
+
+        GroupsContainer.AddChild(gridContainer);
+
+        var columnIndex = 0;
         foreach (var (damageGroupId, damageAmount) in groups)
         {
-            if (damageAmount == 0)
-                continue;
-
             var groupTitleText = $"{Loc.GetString(
                 "health-analyzer-window-damage-group-text",
                 ("damageGroup", _prototypes.Index<DamageGroupPrototype>(damageGroupId).LocalizedName),
                 ("amount", damageAmount)
             )}";
 
-            var groupContainer = new BoxContainer
+            var groupBox = new PanelContainer
             {
-                Align = AlignMode.Begin,
-                Orientation = LayoutOrientation.Vertical,
+                Margin = new Thickness(2),
+                MinWidth = 200,
             };
 
-            groupContainer.AddChild(CreateDiagnosticGroupTitle(groupTitleText, damageGroupId));
+            if (columnIndex % 2 == 1)
+            {
+                groupBox.HorizontalAlignment = HAlignment.Right;
+            }
 
-            GroupsContainer.AddChild(groupContainer);
+            groupBox.PanelOverride = new StyleBoxFlat
+            {
+                BorderColor = Color.Gray,
+                BorderThickness = new Thickness(1),
+                ContentMarginLeftOverride = 4,
+                ContentMarginRightOverride = 4,
+                ContentMarginTopOverride = 4,
+                ContentMarginBottomOverride = 4,
+            };
 
-            // Show the damage for each type in that group.
+            var groupContainer = new BoxContainer
+            {
+                Align = BoxContainer.AlignMode.Begin,
+                Orientation = BoxContainer.LayoutOrientation.Vertical,
+            };
+
+            var titleRow = CreateDiagnosticGroupTitleRow(groupTitleText, (float)damageAmount, damageGroupId);
+            groupContainer.AddChild(titleRow);
+
+            var divider = new PanelContainer
+            {
+                MinHeight = 1,
+                Margin = new Thickness(0, 0, 0, 4),
+            };
+            divider.PanelOverride = new StyleBoxFlat(Color.Gray);
+            groupContainer.AddChild(divider);
+
             var group = _prototypes.Index<DamageGroupPrototype>(damageGroupId);
 
             foreach (var type in group.DamageTypes)
@@ -190,20 +260,110 @@ public sealed partial class HealthAnalyzerControl : BoxContainer
                 if (!damageDict.TryGetValue(type, out var typeAmount) || typeAmount <= 0)
                     continue;
 
-                var damageString = Loc.GetString(
-                    "health-analyzer-window-damage-type-text",
-                    ("damageType", _prototypes.Index<DamageTypePrototype>(type).LocalizedName),
-                    ("amount", typeAmount)
-                );
+                var damageTypeName = _prototypes.Index<DamageTypePrototype>(type).LocalizedName;
+                var typeId = type.ToString().ToLowerInvariant();
 
-                groupContainer.AddChild(CreateDiagnosticItemLabel(damageString.Insert(0, " · ")));
+                var damageRow = new BoxContainer
+                {
+                    Orientation = BoxContainer.LayoutOrientation.Horizontal,
+                    Margin = new Thickness(0, 2),
+                };
+
+                damageRow.AddChild(new TextureRect
+                {
+                    SetSize = new Vector2(15, 15),
+                    Texture = GetTexture(typeId),
+                    Margin = new Thickness(0, 0, 4, 0),
+                });
+
+                var typeLabel = new Label
+                {
+                    Text = damageTypeName,
+                    HorizontalExpand = true,
+                    HorizontalAlignment = HAlignment.Left,
+                };
+
+                var amountLabel = new Label
+                {
+                    Text = typeAmount.ToString(),
+                    HorizontalAlignment = HAlignment.Right,
+                };
+
+                damageRow.AddChild(typeLabel);
+                damageRow.AddChild(amountLabel);
+                groupContainer.AddChild(damageRow);
             }
+
+            groupBox.AddChild(groupContainer);
+            gridContainer.AddChild(groupBox);
+            columnIndex++;
         }
     }
 
+    private void DrawMetabolizingChemicals(List<(string ReagentId, FixedPoint2 Quantity)>? reagents)
+    {
+        ChemicalsContainer.RemoveAllChildren();
+
+        var hasChemicals = reagents != null && reagents.Count > 0;
+
+        ChemicalsDivider.Visible = hasChemicals;
+        ChemicalsContainer.Visible = hasChemicals;
+
+        if (!hasChemicals || reagents == null)
+            return;
+
+        var sortedReagents = reagents.OrderByDescending(r => r.Quantity).ToList();
+
+        foreach (var reagent in sortedReagents)
+        {
+            var reagentName = reagent.ReagentId;
+            var reagentColor = Color.White;
+
+            if (_prototypes.TryIndex<ReagentPrototype>(reagent.ReagentId, out var reagentProto))
+            {
+                reagentName = reagentProto.LocalizedName;
+                reagentColor = reagentProto.SubstanceColor;
+
+            }
+
+            var rowContainer = new BoxContainer
+            {
+                Orientation = BoxContainer.LayoutOrientation.Horizontal,
+                Margin = new Thickness(0, 2),
+            };
+
+            var colorBar = new PanelContainer
+            {
+                MinWidth = 10,
+                MinHeight = 16,
+                Margin = new Thickness(0, 0, 6, 0),
+            };
+            colorBar.PanelOverride = new StyleBoxFlat(reagentColor);
+
+            var nameLabel = new Label
+            {
+                Text = reagentName,
+                HorizontalExpand = true,
+                HorizontalAlignment = HAlignment.Left,
+            };
+
+            var quantityLabel = new Label
+            {
+                Text = $"{reagent.Quantity}u",
+                HorizontalAlignment = HAlignment.Right,
+            };
+
+            rowContainer.AddChild(colorBar);
+            rowContainer.AddChild(nameLabel);
+            rowContainer.AddChild(quantityLabel);
+            ChemicalsContainer.AddChild(rowContainer);
+        }
+    }
+    // ADT-Tweak end
+
     private Texture GetTexture(string texture)
     {
-        var rsiPath = new ResPath("/Textures/Objects/Devices/health_analyzer.rsi");
+        var rsiPath = new ResPath("/Textures/ADT/Objects/Devices/health_analyzer.rsi"); // ADT-Tweak
         var rsiSprite = new SpriteSpecifier.Rsi(rsiPath, texture);
 
         var rsi = _cache.GetResource<RSIResource>(rsiSprite.RsiPath).RSI;
@@ -223,23 +383,48 @@ public sealed partial class HealthAnalyzerControl : BoxContainer
         };
     }
 
-    private BoxContainer CreateDiagnosticGroupTitle(string text, string id)
+    // ADT-Tweak start
+    private BoxContainer CreateDiagnosticGroupTitleRow(string text, float damageAmount, string damageGroupId)
     {
-        var rootContainer = new BoxContainer
+        var clampedDamage = Math.Min(damageAmount, 100f);
+        var damagePercent = clampedDamage / 100f;
+
+        var titleColor = Color.InterpolateBetween(Green, Red, damagePercent);
+
+        var exclamations = damageAmount switch {
+            > 200f => " !!!!",
+            > 100f => " !!!",
+            > 75f => " !!",
+            > 50f => " !",
+            _ => ""
+        };
+        var titleRow = new BoxContainer
         {
-            Margin = new Thickness(0, 6, 0, 0),
-            VerticalAlignment = VAlignment.Bottom,
-            Orientation = LayoutOrientation.Horizontal,
+            Orientation = BoxContainer.LayoutOrientation.Horizontal,
+            Margin = new Thickness(0, 0, 0, 4),
         };
 
-        rootContainer.AddChild(new TextureRect
+        var groupId = damageGroupId.ToLowerInvariant();
+
+        titleRow.AddChild(new TextureRect
         {
-            SetSize = new Vector2(30, 30),
-            Texture = GetTexture(id.ToLower())
+            SetSize = new Vector2(15, 15),
+            Texture = GetTexture(groupId),
+            Margin = new Thickness(0, 0, 4, 0),
+            VerticalAlignment = VAlignment.Center,
         });
 
-        rootContainer.AddChild(CreateDiagnosticItemLabel(text));
+        var titleLabel = new Label
+        {
+            Text = text + exclamations,
+            HorizontalExpand = true,
+            HorizontalAlignment = HAlignment.Center,
+            FontColorOverride = titleColor,
+        };
 
-        return rootContainer;
+        titleRow.AddChild(titleLabel);
+
+        return titleRow;
     }
+    // ADT-Tweak end
 }
