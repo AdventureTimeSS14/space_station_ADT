@@ -1621,12 +1621,13 @@
     - 0,0,4,2
     maxItemSize: Normal
 
+# Mathemat1ka
 - type: entity
   parent: [ClothingHeadCaptainHat, ADTSponsorClothing]
   id: ADTClothingHeadMathemat1kaHat
   name: white captain's hat
   description: A special white captain's hat with gold trim.
-  suffix: Personal, Mathemat1ka
+  suffix: Personal, Mathemat1ka, For all sponsor
   components:
   - type: Sprite
     sprite: ADT/Personalization/mathemat1ka_hat.rsi
@@ -1638,7 +1639,7 @@
   id: ADTClothingNeckMathemat1kaMantle
   name: white captain's mantle
   description: A formal white mantle to drape around the shoulders.
-  suffix: Personal, Mathemat1ka
+  suffix: Personal, Mathemat1ka, For all sponsor
   components:
   - type: Sprite
     sprite: ADT/Personalization/mathemat1ka_mantle.rsi
@@ -1650,7 +1651,7 @@
   id: ADTClothingNeckMathemat1kaCloak
   name: white captain's cloak
   description: A pompous and comfy white cloak with gold trim.
-  suffix: Personal, Mathemat1ka
+  suffix: Personal, Mathemat1ka, For all sponsor
   components:
   - type: Sprite
     sprite: ADT/Personalization/mathemat1ka_cloak.rsi
@@ -1662,7 +1663,7 @@
   id: ADTClothingUniformMathemat1kaDress
   name: white captain's formal dress
   description: A white dress for special occasions with gold accents.
-  suffix: Personal, Mathemat1ka
+  suffix: Personal, Mathemat1ka, For all sponsor
   components:
   - type: Sprite
     sprite: ADT/Personalization/mathemat1ka_dress.rsi
@@ -1674,7 +1675,7 @@
   id: ADTClothingHandsMathemat1kaGloves
   name: white captain gloves
   description: Elegant white captain's gloves with gold trim.
-  suffix: Personal, Mathemat1ka
+  suffix: Personal, Mathemat1ka, For all sponsor
   components:
   - type: Sprite
     sprite: ADT/Personalization/mathemat1ka_gloves.rsi
@@ -1686,7 +1687,7 @@
   id: ADTClothingBeltMathemat1kaSheath
   name: white sabre sheath
   description: An ornate white sheath designed to hold your personal blade.
-  suffix: Personal, Mathemat1ka
+  suffix: Personal, Mathemat1ka, For all sponsor
   components:
   - type: Sprite
     sprite: ADT/Personalization/mathemat1ka_sheath.rsi
@@ -1697,7 +1698,7 @@
 - type: entity
   id: ADTClothingBeltMathemat1kaSheathFilled
   parent: ADTClothingBeltMathemat1kaSheath
-  suffix: Filled, Personal, Mathemat1ka
+  suffix: Filled, Personal, Mathemat1ka, For all sponsor
   components:
   - type: ContainerFill
     containers:
@@ -1709,7 +1710,7 @@
   id: ADTClothingOuterMathemat1kaCoat
   name: white captain's jacket
   description: A pristine white captain's jacket with gold inlays.
-  suffix: Personal, Mathemat1ka
+  suffix: Personal, Mathemat1ka, For all sponsor
   components:
   - type: Sprite
     sprite: ADT/Personalization/mathemat1ka_coat.rsi
@@ -1721,7 +1722,7 @@
   id: ADTClothingUniformMathemat1kaJumpsuit
   name: white captain's jumpsuit
   description: A white captain's jumpsuit with refined gold markings.
-  suffix: Personal, Mathemat1ka
+  suffix: Personal, Mathemat1ka, For all sponsor
   components:
   - type: Sprite
     sprite: ADT/Personalization/mathemat1ka_jumpsuit.rsi
@@ -1733,7 +1734,7 @@
   id: ADTClothingShoesMathemat1kaBoots
   name: white laceup shoes
   description: Elegant white laceup shoes with enhanced grip and comfort.
-  suffix: Personal, Mathemat1ka
+  suffix: Personal, Mathemat1ka, For all sponsor
   components:
   - type: Sprite
     sprite: ADT/Personalization/mathemat1ka_boots.rsi
@@ -1745,7 +1746,7 @@
   id: ADTClothingBackMathemat1kaSatchel
   name: white captain's satchel
   description: An exclusive white satchel with gold accents.
-  suffix: Personal, Mathemat1ka
+  suffix: Personal, Mathemat1ka, For all sponsor
   components:
   - type: Sprite
     sprite: ADT/Personalization/mathemat1ka_satchel.rsi
@@ -1757,9 +1758,31 @@
   id: ADTClothingHeadMathemat1kaCapCap
   name: white captain's cap cap
   description: A grand, stylish white cap worn by the Captain. Shows the station who's in charge.
-  suffix: Personal, Mathemat1ka
+  suffix: Personal, Mathemat1ka, For all sponsor
   components:
   - type: Sprite
     sprite: ADT/Personalization/mathemat1ka_capcap.rsi
   - type: Clothing
     sprite: ADT/Personalization/mathemat1ka_capcap.rsi
+
+# Raven559
+
+- type: entity
+  parent: ADTSponsorClothingNeckBase
+  id: ADTClothingNeckRaven559SecOfficerMantle
+  name: A tattered ceremonial mantle of an sec officer
+  description: A firefight with heretics, revolutionaries, nuclear operatives, and a crew member who kicked him out of the department is a typical Tuesday for this owner. This mantle is the power of kleptomania and the lethal consequences of the GAMMA code. It smells like blood.
+  suffix: Personal, Raven559
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/Raven559/mantle_sec_officer.rsi
+
+- type: entity
+  parent: ADTSponsorClothingNeckBase
+  id: ADTClothingNeckRaven559OfficerBlueShieldMantle
+  name: the tattered ceremonial mantle of the blue shield officer
+  description: A firefight with heretics, revolutionaries, nuclear operatives, and a crew member who kicked him out of the department is a typical Tuesday for this OSS. This mantle is the power of kleptomania and the lethal consequences of attacking a member of the command staff.
+  suffix: Personal, Raven559
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/Raven559/mantle_officer_blue_shield.rsi
