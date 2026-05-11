@@ -35,7 +35,7 @@ namespace Content.Server.ADT.HWAnomCoreLootbox
         [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
         [Dependency] private readonly PopupSystem _popupSystem = default!;
         [Dependency] private readonly StatusEffectsSystem _status = default!;
-        [Dependency] private readonly SharedBodySystem _bodySystem = default!;
+        [Dependency] private readonly BodySystem _bodySystem = default!;
         [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
         public override void Initialize()
         {
@@ -146,10 +146,10 @@ namespace Content.Server.ADT.HWAnomCoreLootbox
 
             Timer.Spawn(0, () =>
             {
-                foreach (var part in _bodySystem.GetBodyChildrenOfType(uid, BodyPartType.Hand))
-                {
-                    _transformSystem.AttachToGridOrMap(part.Id);
-                }
+                // foreach (var part in _bodySystem.GetBodyChildrenOfType(uid, BodyPartType.Hand))
+                // {
+                //     _transformSystem.AttachToGridOrMap(part.Id);
+                // }
 
                 _popupSystem.PopupEntity(
                     Loc.GetString("admin-smite-remove-hands-self"),
