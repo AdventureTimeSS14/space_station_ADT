@@ -76,7 +76,7 @@ public sealed partial class MidroundCustomizationSystem : EntitySystem
 
     private void OnOpenUIAttempt(EntityUid uid, MidroundCustomizationComponent mirror, ActivatableUIOpenAttemptEvent args)
     {
-        if (!HasComp<HumanoidAppearanceComponent>(uid))
+        if (!HasComp<HumanoidProfileComponent>(uid))
             args.Cancel();
     }
 
@@ -87,7 +87,7 @@ public sealed partial class MidroundCustomizationSystem : EntitySystem
 
         var doAfter = new SlimeHairSelectDoAfterEvent()
         {
-            Category = message.Category,
+            Layer = message.Layer,
             Slot = message.Slot,
             Marking = message.Marking,
         };
@@ -106,7 +106,7 @@ public sealed partial class MidroundCustomizationSystem : EntitySystem
         if (args.Handled || args.Target == null || args.Cancelled)
             return;
 
-        if (!TryComp<HumanoidAppearanceComponent>(uid, out var humanoid))
+        if (!TryComp<HumanoidProfileComponent>(uid, out var humanoid))
             return;
 
         Color defaultColor;
@@ -117,7 +117,7 @@ public sealed partial class MidroundCustomizationSystem : EntitySystem
         else
         {
             defaultColor = Color.White;
-            if (humanoid.MarkingSet.TryGetCategory(args.Category, out var markingsList) && args.Slot < markingsList.Count)
+            if (humanoid.MarkingSet.TryGetCategory(args.Layer, out var markingsList) && args.Slot < markingsList.Count)
             {
                 var current = markingsList[args.Slot];
                 if (current.MarkingColors.Count > 0)
@@ -128,7 +128,7 @@ public sealed partial class MidroundCustomizationSystem : EntitySystem
         }
 
         _audio.PlayPvs(component.ChangeMarkingSound, uid);
-        _humanoid.SetMarkingId(uid, args.Category, args.Slot, args.Marking, force: false, defaultColor: defaultColor);
+        _humanoid.SetMarkingId(uid, args.Layer, args.Slot, args.Marking, force: false, defaultColor: defaultColor);
         UpdateInterface(uid, component);
     }
 
@@ -139,7 +139,7 @@ public sealed partial class MidroundCustomizationSystem : EntitySystem
 
         var doAfter = new SlimeHairChangeColorDoAfterEvent()
         {
-            Category = message.Category,
+            Layer = message.Layer,
             Slot = message.Slot,
             Colors = message.Colors,
         };
@@ -157,15 +157,15 @@ public sealed partial class MidroundCustomizationSystem : EntitySystem
         if (args.Handled || args.Target == null || args.Cancelled)
             return;
 
-        if (!TryComp<HumanoidAppearanceComponent>(uid, out var humanoid) ||
-            !humanoid.MarkingSet.TryGetCategory(args.Category, out var markings) ||
+        if (!TryComp<HumanoidProfileComponent>(uid, out var humanoid) ||
+            !humanoid.MarkingSet.TryGetCategory(args.Layer, out var markings) ||
             args.Slot < 0 ||
             args.Slot >= markings.Count)
             return;
 
-        _humanoid.SetMarkingColor(uid, args.Category, args.Slot, args.Colors, force: false);
+        _humanoid.SetMarkingColor(uid, args.Layer, args.Slot, args.Colors, force: false);
 
-        if (args.Category == MarkingCategories.FacialHair && component.PointLightColorEnabled)
+        if (args.Layer == HumanoidVisualLayers.FacialHair && component.PointLightColorEnabled)
             UpdatePointLightColorIfEnabled(uid, component);
 
         // using this makes the UI feel like total ass
@@ -180,7 +180,7 @@ public sealed partial class MidroundCustomizationSystem : EntitySystem
 
         var doAfter = new SlimeHairRemoveSlotDoAfterEvent()
         {
-            Category = message.Category,
+            Layer = message.Layer,
             Slot = message.Slot,
         };
 
@@ -198,17 +198,17 @@ public sealed partial class MidroundCustomizationSystem : EntitySystem
         if (args.Handled || args.Target == null || args.Cancelled)
             return;
 
-        if (!TryComp<HumanoidAppearanceComponent>(uid, out var humanoid) ||
-            !humanoid.MarkingSet.TryGetCategory(args.Category, out var markings) ||
+        if (!TryComp<HumanoidProfileComponent>(uid, out var humanoid) ||
+            !humanoid.MarkingSet.TryGetCategory(args.Layer, out var markings) ||
             args.Slot < 0 ||
             args.Slot >= markings.Count)
             return;
 
         var current = markings[args.Slot];
-        component.RemovedMarkingsBuffer[args.Category] = (current.MarkingId, current.MarkingColors.ToList());
+        component.RemovedMarkingsBuffer[args.Layer] = (current.MarkingId, current.MarkingColors.ToList());
 
-        _humanoid.RemoveMarking(uid, args.Category, args.Slot);
-        if (args.Category == MarkingCategories.FacialHair)
+        _humanoid.RemoveMarking(uid, args.Layer, args.Slot);
+        if (args.Layer == HumanoidVisualLayers.FacialHair)
             UpdatePointLightColorIfEnabled(uid, component);
 
         _audio.PlayPvs(component.ChangeMarkingSound, uid);
@@ -222,7 +222,7 @@ public sealed partial class MidroundCustomizationSystem : EntitySystem
 
         var doAfter = new SlimeHairAddSlotDoAfterEvent()
         {
-            Category = message.Category,
+            Layer = message.Layer,
         };
 
         _doAfterSystem.TryStartDoAfter(new DoAfterArgs(EntityManager, message.Actor, component.AddSlotTime, doAfter, uid, target: uid, used: uid)
@@ -235,22 +235,22 @@ public sealed partial class MidroundCustomizationSystem : EntitySystem
 
     private void OnAddSlotDoAfter(EntityUid uid, MidroundCustomizationComponent component, SlimeHairAddSlotDoAfterEvent args)
     {
-        if (args.Handled || args.Target == null || args.Cancelled || !TryComp(uid, out HumanoidAppearanceComponent? humanoid))
+        if (args.Handled || args.Target == null || args.Cancelled || !TryComp(uid, out HumanoidProfileComponent? humanoid))
             return;
 
         string markingId;
         List<Color> colors;
 
-        if (component.RemovedMarkingsBuffer.TryGetValue(args.Category, out var removed) &&
+        if (component.RemovedMarkingsBuffer.TryGetValue(args.Layer, out var removed) &&
             !string.IsNullOrEmpty(removed.Marking))
         {
             markingId = removed.Marking;
             colors = removed.Colors;
-            component.RemovedMarkingsBuffer.Remove(args.Category);
+            component.RemovedMarkingsBuffer.Remove(args.Layer);
         }
         else
         {
-            markingId = _markings.MarkingsByCategoryAndSpecies(args.Category, humanoid.Species).Keys.FirstOrDefault() ?? string.Empty;
+            markingId = _markings.MarkingsByCategoryAndSpecies(args.Layer, humanoid.Species).Keys.FirstOrDefault() ?? string.Empty;
             if (string.IsNullOrEmpty(markingId))
                 return;
 
@@ -264,12 +264,12 @@ public sealed partial class MidroundCustomizationSystem : EntitySystem
         _audio.PlayPvs(component.ChangeMarkingSound, uid);
 
         int newSlotIndex = 0;
-        if (humanoid.MarkingSet.TryGetCategory(args.Category, out var currentList))
+        if (humanoid.MarkingSet.TryGetCategory(args.Layer, out var currentList))
             newSlotIndex = currentList.Count;
 
         _humanoid.AddMarking(uid, markingId, colors.Count > 0 ? colors[0] : Color.White);
-        _humanoid.SetMarkingColor(uid, args.Category, newSlotIndex, colors, force: false);
-        if (args.Category == MarkingCategories.FacialHair)
+        _humanoid.SetMarkingColor(uid, args.Layer, newSlotIndex, colors, force: false);
+        if (args.Layer == HumanoidVisualLayers.FacialHair)
             UpdatePointLightColorIfEnabled(uid, component);
 
         UpdateInterface(uid, component);
@@ -299,7 +299,7 @@ public sealed partial class MidroundCustomizationSystem : EntitySystem
         if (args.Handled || args.Target == null || args.Cancelled)
             return;
 
-        if (!TryComp<HumanoidAppearanceComponent>(args.Target.Value, out var humanoid))
+        if (!TryComp<HumanoidProfileComponent>(args.Target.Value, out var humanoid))
             return;
 
         if (!_proto.TryIndex<TTSVoicePrototype>(args.Voice, out var proto) || !HumanoidCharacterProfile.CanHaveVoice(proto, humanoid.Sex, humanoid.Species))
@@ -336,7 +336,7 @@ public sealed partial class MidroundCustomizationSystem : EntitySystem
         if (args.Handled || args.Target == null || args.Cancelled)
             return;
 
-        if (!TryComp<HumanoidAppearanceComponent>(args.Target.Value, out var humanoid))
+        if (!TryComp<HumanoidProfileComponent>(args.Target.Value, out var humanoid))
             return;
 
         if (!_proto.TryIndex<BarkPrototype>(args.Proto, out _))
@@ -374,7 +374,7 @@ public sealed partial class MidroundCustomizationSystem : EntitySystem
         if (args.Handled || args.Target == null || args.Cancelled)
             return;
 
-        if (!TryComp<HumanoidAppearanceComponent>(args.Target.Value, out var humanoid))
+        if (!TryComp<HumanoidProfileComponent>(args.Target.Value, out var humanoid))
             return;
 
         if (component.PlaySoundForVoiceChange)
@@ -409,7 +409,7 @@ public sealed partial class MidroundCustomizationSystem : EntitySystem
         if (args.Handled || args.Target == null || args.Cancelled)
             return;
 
-        if (!TryComp<HumanoidAppearanceComponent>(args.Target.Value, out var humanoid))
+        if (!TryComp<HumanoidProfileComponent>(args.Target.Value, out var humanoid))
             return;
 
         if (component.PlaySoundForVoiceChange)
@@ -444,7 +444,7 @@ public sealed partial class MidroundCustomizationSystem : EntitySystem
         if (args.Handled || args.Target == null || args.Cancelled)
             return;
 
-        if (!TryComp<HumanoidAppearanceComponent>(args.Target.Value, out var humanoid))
+        if (!TryComp<HumanoidProfileComponent>(args.Target.Value, out var humanoid))
             return;
 
         if (component.PlaySoundForVoiceChange)
@@ -457,11 +457,11 @@ public sealed partial class MidroundCustomizationSystem : EntitySystem
 
     private void UpdateInterface(EntityUid uid, MidroundCustomizationComponent component)
     {
-        if (!TryComp<HumanoidAppearanceComponent>(uid, out var humanoid))
+        if (!TryComp<HumanoidProfileComponent>(uid, out var humanoid))
             return;
 
-        var markingDict = new Dictionary<MarkingCategories, List<Marking>>();
-        var slotsDict = new Dictionary<MarkingCategories, int>();
+        var markingDict = new Dictionary<HumanoidVisualLayers, List<Marking>>();
+        var slotsDict = new Dictionary<HumanoidVisualLayers, int>();
         foreach (var category in component.CustomizableCategories)
         {
             markingDict[category] = new();
@@ -496,7 +496,7 @@ public sealed partial class MidroundCustomizationSystem : EntitySystem
             return;
 
         if (!TryComp<MobStateComponent>(uid, out var mobState) ||
-            !TryComp<HumanoidAppearanceComponent>(uid, out var humanoid))
+            !TryComp<HumanoidProfileComponent>(uid, out var humanoid))
             return;
 
         var current = mobState.CurrentState;
@@ -537,8 +537,8 @@ public sealed partial class MidroundCustomizationSystem : EntitySystem
         if (!component.PointLightColorEnabled)
             return;
 
-        if (!TryComp<HumanoidAppearanceComponent>(uid, out var humanoid) ||
-            !humanoid.MarkingSet.TryGetCategory(MarkingCategories.FacialHair, out var markings) ||
+        if (!TryComp<HumanoidProfileComponent>(uid, out var humanoid) ||
+            !humanoid.MarkingSet.TryGetCategory(HumanoidVisualLayers.FacialHair, out var markings) ||
             markings.Count == 0 || markings[0].MarkingColors.Count == 0)
         {
             _pointLight.SetColor(uid, component.OriginalPointLightColor);
@@ -554,7 +554,7 @@ public sealed partial class MidroundCustomizationSystem : EntitySystem
         if (component.ChangeSlotOnState.Count == 0)
             return;
 
-        if (!TryComp<HumanoidAppearanceComponent>(uid, out var humanoid))
+        if (!TryComp<HumanoidProfileComponent>(uid, out var humanoid))
             return;
 
         var oldManaged = component.ChangeSlotOnState.Any(e => e.State == args.OldMobState);
@@ -578,12 +578,12 @@ public sealed partial class MidroundCustomizationSystem : EntitySystem
             ApplyStateChanges(uid, component, args.NewMobState, humanoid);
     }
 
-    private void RecordOriginals(EntityUid uid, MidroundCustomizationComponent component, HumanoidAppearanceComponent humanoid)
+    private void RecordOriginals(EntityUid uid, MidroundCustomizationComponent component, HumanoidProfileComponent humanoid)
     {
         component.OriginalMarkings.Clear();
 
         var managedSlots = component.ChangeSlotOnState
-            .Select(e => (e.Category, e.Slot))
+            .Select(e => (e.Layer, e.Slot))
             .Distinct()
             .ToList();
 
@@ -597,7 +597,7 @@ public sealed partial class MidroundCustomizationSystem : EntitySystem
         }
     }
 
-    private void ApplyStateChanges(EntityUid uid, MidroundCustomizationComponent component, MobState state, HumanoidAppearanceComponent humanoid)
+    private void ApplyStateChanges(EntityUid uid, MidroundCustomizationComponent component, MobState state, HumanoidProfileComponent humanoid)
     {
         var defaultColor = component.DefaultSkinColoring ? humanoid.SkinColor : Color.White;
 
@@ -606,23 +606,23 @@ public sealed partial class MidroundCustomizationSystem : EntitySystem
             if (entry.State != state)
                 continue;
 
-            if (!humanoid.MarkingSet.TryGetCategory(entry.Category, out var list) ||
+            if (!humanoid.MarkingSet.TryGetCategory(entry.Layer, out var list) ||
                 entry.Slot < 0 ||
                 entry.Slot >= list.Count)
                 continue;
 
-            _humanoid.SetMarkingId(uid, entry.Category, entry.Slot, entry.Marking, force: false, defaultColor: defaultColor);
+            _humanoid.SetMarkingId(uid, entry.Layer, entry.Slot, entry.Marking, force: false, defaultColor: defaultColor);
 
             if (entry.Colors.Count > 0)
             {
-                _humanoid.SetMarkingColor(uid, entry.Category, entry.Slot, entry.Colors, force: false);
+                _humanoid.SetMarkingColor(uid, entry.Layer, entry.Slot, entry.Colors, force: false);
             }
         }
 
         UpdatePointLightColorIfEnabled(uid, component);
     }
 
-    private void RevertToOriginals(EntityUid uid, MidroundCustomizationComponent component, HumanoidAppearanceComponent humanoid)
+    private void RevertToOriginals(EntityUid uid, MidroundCustomizationComponent component, HumanoidProfileComponent humanoid)
     {
         var defaultColor = component.DefaultSkinColoring ? humanoid.SkinColor : Color.White;
 

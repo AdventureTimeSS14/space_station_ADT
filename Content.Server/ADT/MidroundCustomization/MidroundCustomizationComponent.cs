@@ -16,7 +16,7 @@ public sealed partial class ChangeSlotOnStateEntry
     public MobState State { get; set; }
 
     [DataField(required: true)]
-    public MarkingCategories Category { get; set; }
+    public HumanoidVisualLayers Category { get; set; }
 
     [DataField(required: true)]
     public int Slot { get; set; }
@@ -67,10 +67,10 @@ public sealed partial class MidroundCustomizationComponent : Component
     #endregion
 
     [DataField]
-    public List<MarkingCategories> CustomizableCategories = new()
+    public List<HumanoidVisualLayers> CustomizableCategories = new()
     {
-        MarkingCategories.Hair,
-        MarkingCategories.FacialHair,
+        HumanoidVisualLayers.Hair,
+        HumanoidVisualLayers.FacialHair,
     };
 
     [DataField]
@@ -108,6 +108,6 @@ public sealed partial class MidroundCustomizationComponent : Component
 
     public Color OriginalPointLightColor = Color.White;
 
-    public Dictionary<MarkingCategories, (string Marking, List<Color> Colors)> RemovedMarkingsBuffer { get; set; } = new();
-    public Dictionary<(MarkingCategories Category, int Slot), (string Marking, List<Color> Colors)> OriginalMarkings = new();
+    public Dictionary<HumanoidVisualLayers, (string Marking, List<Color> Colors)> RemovedMarkingsBuffer { get; set; } = new();
+    public Dictionary<(HumanoidVisualLayers Category, int Slot), (string Marking, List<Color> Colors)> OriginalMarkings = new();
 }
