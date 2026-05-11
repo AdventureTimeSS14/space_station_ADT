@@ -49,6 +49,8 @@
     price: 800
   - type: ResearchClient
   - type: TechnologyDatabase
+  - type: RadioJobIconOverride # ADT-Tweak
+    iconId: JobIconMachine
 
 # a lathe that can be sped up with space lube / slowed down with glue
 - type: entity

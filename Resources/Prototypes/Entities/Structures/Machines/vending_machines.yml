@@ -106,6 +106,8 @@
     price: 100
   - type: Appearance
   - type: WiresVisuals
+  - type: RadioJobIconOverride # ADT-Tweak
+    iconId: JobIconMachine
 
 - type: entity
   id: VendingMachineWallmount

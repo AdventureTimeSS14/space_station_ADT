@@ -458,6 +458,8 @@
           - Write
   - type: CargoOrderConsole
     removeLimitAccess: [ "Quartermaster" ]
+  - type: RadioJobIconOverride # ADT-Tweak
+    iconId: JobIconCargoniator
   - type: ActivatableUI
     verbText: qm-clipboard-computer-verb-text
     key: enum.CargoConsoleUiKey.Orders

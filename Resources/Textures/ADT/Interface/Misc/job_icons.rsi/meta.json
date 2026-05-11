@@ -9,6 +9,21 @@
     },
     "states": [
         {
+            "name": "Superpupermattery"
+        },
+        {
+            "name": "Scavengeator"
+        },
+        {
+            "name": "Anomalist"
+        },
+        {
+            "name": "Cargoniator"
+        },
+        {
+            "name": "Protector"
+        },
+        {
             "name": "Magistrat"
         },
         {

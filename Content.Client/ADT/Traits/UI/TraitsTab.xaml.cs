@@ -111,6 +111,9 @@ public sealed partial class TraitsTab : BoxContainer
 
     private void OnTraitToggled(ProtoId<TraitPrototype> traitId, bool selected)
     {
+        if (_suppressTraitsChangedEvent)
+            return;
+
         var trait = _prototype.Index(traitId);
 
         if (selected)
@@ -193,10 +196,12 @@ public sealed partial class TraitsTab : BoxContainer
 
     private void RevertTraitToggle(ProtoId<TraitPrototype> traitId)
     {
-        var trait = _prototype.Index(traitId);
+        if (!_prototype.TryIndex(traitId, out var trait))
+            return;
+
         if (_categoryUis.TryGetValue(trait.Category, out var categoryUi))
         {
-            categoryUi.SetTraitSelected(traitId, _selectedTraits.Contains(traitId));
+            categoryUi.SetTraitSelected(traitId, _selectedTraits.Contains(traitId), suppressToggle: true);
         }
     }
 
@@ -342,8 +347,6 @@ public sealed partial class TraitsTab : BoxContainer
             _currentTraitCount = 0;
             _currentPointsSpent = 0;
 
-            UpdateRequirements(profile, jobId: null);
-
             // Apply new selection
             foreach (var traitId in traits)
             {
@@ -359,7 +362,7 @@ public sealed partial class TraitsTab : BoxContainer
 
                 if (_categoryUis.TryGetValue(trait.Category, out var categoryUi))
                 {
-                    categoryUi.SetTraitSelected(traitId, true);
+                    categoryUi.SetTraitSelected(traitId, true, suppressToggle: true);
                 }
             }
 
