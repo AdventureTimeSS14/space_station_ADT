@@ -302,12 +302,6 @@ public sealed class HandsUIController : UIController, IOnStateEntered<GameplaySt
         }
         UpdateHandStatus(button, null, hand);
 
-        if (hand.EmptyRepresentative is { } representative)
-        {
-            SetRepresentative(button, representative);
-        }
-        UpdateHandStatus(button, null, hand);
-
         // If we don't have a status for this hand type yet, set it.
         // This means we have status filled by default in most scenarios,
         // otherwise the user'd need to switch hands to "activate" the hands the first time.
