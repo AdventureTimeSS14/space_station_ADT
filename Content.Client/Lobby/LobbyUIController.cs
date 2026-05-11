@@ -1,4 +1,7 @@
+using System.Linq;
+using Content.Client.Body;
 using Content.Client.Guidebook;
+using Content.Client.Inventory;
 using Content.Client.Lobby.UI;
 using Content.Client.Players.PlayTimeTracking;
 using Content.Client.Station;
@@ -36,7 +39,7 @@ public sealed partial class LobbyUIController : UIController, IOnStateEntered<Lo
     [Dependency] private readonly MarkingManager _markings = default!;
     [Dependency] private readonly IDynamicTypeFactory _factory = default!;
     [Dependency] private readonly IEntityManager _entMan = default!;
-    [UISystemDependency] private readonly HumanoidAppearanceSystem _humanoid = default!;
+    [UISystemDependency] private readonly VisualBodySystem _visualBody = default!;
     [UISystemDependency] private readonly ClientInventorySystem _inventory = default!;
     [UISystemDependency] private readonly StationSpawningSystem _spawn = default!;
     [UISystemDependency] private readonly GuidebookSystem _guide = default!;
@@ -488,15 +491,14 @@ public sealed partial class LobbyUIController : UIController, IOnStateEntered<Lo
         }
         else if (humanoid is not null)
         {
-            var dummy = _prototypeManager.Index<SpeciesPrototype>(humanoid.Species).DollPrototype;
+            var dummy = _prototypeManager.Index(humanoid.Species).DollPrototype;
             dummyEnt = EntityManager.SpawnEntity(dummy, MapCoordinates.Nullspace);
+            _visualBody.ApplyProfileTo(dummyEnt, humanoid);
         }
         else
         {
-            dummyEnt = EntityManager.SpawnEntity(_prototypeManager.Index<SpeciesPrototype>(SharedHumanoidAppearanceSystem.DefaultSpecies).DollPrototype, MapCoordinates.Nullspace);
+            dummyEnt = EntityManager.SpawnEntity(_prototypeManager.Index(HumanoidCharacterProfile.DefaultSpecies).DollPrototype, MapCoordinates.Nullspace);
         }
-
-        _humanoid.LoadProfile(dummyEnt, humanoid);
 
         if (humanoid != null && jobClothes)
         {

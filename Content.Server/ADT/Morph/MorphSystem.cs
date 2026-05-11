@@ -261,7 +261,7 @@ public sealed class MorphSystem : SharedMorphSystem
         //отвечает за запоминание энтити для мимикрии.
         //гуманоидов запоминает отдельно т.к. их невозможно показать путём хамелеона
         //короче мне лень эту хреноетнь выписывать. Кто будет её чинить - мои соболезнования вам
-        if (TryComp<VisualBodyComponent>(args.Target, out var humanoid))
+        if (TryComp<HumanoidProfileComponent>(args.Target, out var humanoid))
         {
             //короче мне лень эту хреноетнь выписывать. Кто будет её чинить - мои соболезнования вам
             //TODO: сделать морфабильность гуманоидов. Этот метод работает, но на 50%. Он спавнит зуманоида и устанавливает ему вид, но не может прицепить его
@@ -379,7 +379,7 @@ public sealed class MorphSystem : SharedMorphSystem
             return;
         if (health == null)
             return;
-        if (!HasComp<VisualBodyComponent>(args.Args.Target))
+        if (!HasComp<HumanoidProfileComponent>(args.Args.Target))
             health /= 2;
         var damage_brute = new DamageSpecifier(_proto.Index(BruteDamageGroup), -health.Value / 2);
         var damage_burn = new DamageSpecifier(_proto.Index(BurnDamageGroup), -health.Value / 2);

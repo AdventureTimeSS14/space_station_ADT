@@ -26,7 +26,7 @@ public sealed class SandevistanImplantSystem : EntitySystem
         EnsureComp<SandevistanUserComponent>(owner);
         EnsureComp<GrabProtectionComponent>(owner);
 
-        if (!string.IsNullOrEmpty(comp.MarkingId) && TryComp<VisualOrganMarkingsComponent>(owner, out var visualOrganMarkingsComponent))
+        if (!string.IsNullOrEmpty(comp.MarkingId) && TryComp<HumanoidProfileComponent>(owner, out var visualOrganMarkingsComponent))
         {
             _humanoidSystem.AddMarking(owner, comp.MarkingId, comp.MarkingColor, sync: true, forced: comp.ForcedMarking);
         }
@@ -40,7 +40,7 @@ public sealed class SandevistanImplantSystem : EntitySystem
         {
             RemComp<SandevistanUserComponent>(owner);
             RemComp<GrabProtectionComponent>(owner);
-            if (!string.IsNullOrEmpty(comp.MarkingId) && TryComp<VisualOrganMarkingsComponent>(owner, out var visualOrganMarkingsComponent))
+            if (!string.IsNullOrEmpty(comp.MarkingId) && TryComp<HumanoidProfileComponent>(owner, out var visualOrganMarkingsComponent))
             {
                 _humanoidSystem.RemoveMarking(owner, comp.MarkingId, sync: true);
             }
