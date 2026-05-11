@@ -113,8 +113,8 @@
                             <!-- Hair -->
                             <BoxContainer Margin="10" Orientation="Horizontal">
                                 <!-- ADT Midround Customization Start -->
-                                <humanoid:SingleMarkingPicker MinHeight="500" Name="HairStylePicker" Category="Hair" />
-                                <humanoid:SingleMarkingPicker MinHeight="500" Name="FacialHairPicker" Category="FacialHair" />
+                                <!-- <humanoid:SingleMarkingPicker MinHeight="500" Name="HairStylePicker" Category="Hair" />
+                                <humanoid:SingleMarkingPicker MinHeight="500" Name="FacialHairPicker" Category="FacialHair" /> -->
                                 <!-- ADT Midround Customization End -->
                             </BoxContainer>
                             <!-- Eyes -->
