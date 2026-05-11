@@ -251,6 +251,9 @@
     giveUplink: false
     giveCodewords: false # It would actually give them a different set of codewords than the regular traitors, anyway
     giveBriefing: false
+  - type: AntagRandomObjectives
+    sets: []
+    maxDifficulty: 0
   - type: AntagSelection
     definitions:
     - prefRoles: [ Traitor ]

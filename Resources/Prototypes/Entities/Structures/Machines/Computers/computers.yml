@@ -39,6 +39,14 @@
         enum.WiresVisualLayers.MaintenancePanel:
           True: { visible: false }
           False: { visible: true }
+      # ADT-Tweak start
+      enum.EdgeConnectionVisuals.ConnectionMask:
+        computerLayerBody:
+          None: { state: computer, sprite: Structures/Machines/computers.rsi }
+          West: { state: computer_r, sprite: ADT/Structures/Machines/computers.rsi }
+          East: { state: computer_l, sprite: ADT/Structures/Machines/computers.rsi }
+          East, West: { state: computer_l_r, sprite: ADT/Structures/Machines/computers.rsi }
+      # ADT-Tweak end
   - type: AtmosAlertsComputer
   - type: ActivatableUI
     singleUser: true
@@ -402,6 +410,8 @@
   - type: GuideHelp
     guides:
     - CriminalRecords
+  - type: RadioJobIconOverride # ADT-Tweak
+    iconId: JobIconProtector
   - type: StationAiWhitelist #ADT-Tweak
 
 - type: entity
@@ -490,6 +500,8 @@
       state: generic_panel_open
   - type: ResearchClient
   - type: ResearchConsole
+  - type: RadioJobIconOverride # ADT-Tweak
+    iconId: JobIconMachine
   - type: ActiveRadio
     channels:
     - Science
@@ -917,6 +929,8 @@
   - type: GuideHelp
     guides:
     - Cargo
+  - type: RadioJobIconOverride # ADT-Tweak
+    iconId: JobIconCargoniator
 
 # Request console variants.
 - type: entity
@@ -1282,6 +1296,14 @@
           enum.WiresVisualLayers.MaintenancePanel:
             True: { visible: false }
             False: { visible: true }
+        # ADT-Tweak start
+        enum.EdgeConnectionVisuals.ConnectionMask:
+          computerLayerBody:
+            None: { state: computer, sprite: Structures/Machines/computers.rsi }
+            West: { state: computer_r, sprite: ADT/Structures/Machines/computers.rsi }
+            East: { state: computer_l, sprite: ADT/Structures/Machines/computers.rsi }
+            East, West: { state: computer_l_r, sprite: ADT/Structures/Machines/computers.rsi }
+        # ADT-Tweak end
     - type: SalvageExpeditionConsole
     - type: ActivatableUI
       key: enum.SalvageConsoleUiKey.Expedition
