@@ -1,2 +1,2 @@
-ent-ADTMachineBluespaceMiner = блюспейс-майнер
+ent-ADTMachineBluespaceMiner = блюспейс-шахтёр
     .desc = Специализированная машина для добычи ресурсов благодаря блюспейс технологии.
