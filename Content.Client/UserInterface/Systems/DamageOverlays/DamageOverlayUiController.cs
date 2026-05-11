@@ -137,12 +137,15 @@ public sealed class DamageOverlayUiController : UIController
 
                 // ADT-Tweak start
                 FixedPoint2 painLevel = 0;
-                foreach (var painDamageType in damageable.PainDamageGroups)
+                if (!_statusEffects.TryEffectsWithComp<PainNumbnessStatusEffectComponent>(entity, out _))
                 {
-                    damageable.DamagePerGroup.TryGetValue(painDamageType, out var painDamage);
-                    painLevel += painDamage;
+                    foreach (var painDamageType in damageable.PainDamageGroups)
+                    {
+                        damagePerGroup.TryGetValue(painDamageType, out var painDamage);
+                        painLevel += painDamage;
+                    }
+                    _overlay.PainLevel = FixedPoint2.Min(1f, painLevel / critThreshold).Float();
                 }
-                _overlay.PainLevel = FixedPoint2.Min(1f, painLevel / critThreshold).Float();
                 // ADT-Tweak end
 
                 _overlay.DeadLevel = 0;
