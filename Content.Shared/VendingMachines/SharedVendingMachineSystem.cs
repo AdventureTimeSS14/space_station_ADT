@@ -34,7 +34,7 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
     [Dependency] private readonly SharedPowerReceiverSystem _receiver = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearanceSystem = default!;
     [Dependency] private readonly SharedPointLightSystem _lightSystem = default!;
-    [Dependency] private readonly SharedUserInterfaceSystem _uiSystem = default!;
+    [Dependency] protected SharedUserInterfaceSystem UISystem = default!;
     [Dependency] private readonly SharedSpeakOnUIClosedSystem _speakOnUIClosed = default!;
 
     public override void Initialize()
@@ -464,6 +464,6 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
         Dirty(uid, vendComponent);
         TryUpdateVisualState((uid, vendComponent));
 
-        _uiSystem.CloseUi(uid, VendingMachineUiKey.Key);
+        UISystem.CloseUi(uid, VendingMachineUiKey.Key);
     }
 }

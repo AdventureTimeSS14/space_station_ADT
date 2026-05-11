@@ -6,7 +6,7 @@ using Robust.Shared.GameStates;
 
 namespace Content.Client.VendingMachines;
 
-public sealed class VendingMachineSystem : SharedVendingMachineSystem
+public sealed partial class VendingMachineSystem : SharedVendingMachineSystem
 {
     [Dependency] private readonly AnimationPlayerSystem _animationPlayer = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearanceSystem = default!;
@@ -57,7 +57,7 @@ public sealed class VendingMachineSystem : SharedVendingMachineSystem
             component.ContrabandInventory.Add(entry.Key, new(entry.Value));
         }
 
-        if (UISystem.TryGetOpenUi(uid, VendingMachineUiKey.Key, out var bui))
+        if (UISystem.TryGetOpenUi<VendingMachineBoundUserInterface>(uid, VendingMachineUiKey.Key, out var bui))
         {
             if (fullUiUpdate)
                 bui.Refresh();
@@ -71,7 +71,7 @@ public sealed class VendingMachineSystem : SharedVendingMachineSystem
         if (!Resolve(entity, ref entity.Comp))
             return;
 
-        if (UISystem.TryGetOpenUi(entity.Owner, VendingMachineUiKey.Key, out var bui))
+        if (UISystem.TryGetOpenUi<VendingMachineBoundUserInterface>(entity.Owner, VendingMachineUiKey.Key, out var bui))
         {
             bui.UpdateAmounts();
         }

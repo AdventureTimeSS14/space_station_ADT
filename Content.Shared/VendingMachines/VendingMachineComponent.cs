@@ -250,6 +250,14 @@ namespace Content.Shared.VendingMachines
             Amount = amount;
             Price = price; //ADT-Economy
         }
+
+        public VendingMachineInventoryEntry(VendingMachineInventoryEntry entry)
+        {
+            Type = entry.Type;
+            ID = entry.ID;
+            Amount = entry.Amount;
+            Price = entry.Price; //ADT-Economy
+        }
     }
 
     [Serializable, NetSerializable]
