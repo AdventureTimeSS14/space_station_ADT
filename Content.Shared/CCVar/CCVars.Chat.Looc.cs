@@ -15,12 +15,12 @@ public sealed partial class CCVars
     ///     False: Dead player LOOC gets redirected to dead chat
     /// </summary>
     public static readonly CVarDef<bool> DeadLoocEnabled =
-        CVarDef.Create("looc.enabled_dead", false, CVar.NOTIFY | CVar.REPLICATED);
+        CVarDef.Create("looc.enabled_dead", true, CVar.NOTIFY | CVar.REPLICATED);
 
     /// <summary>
     ///     True: Crit players can use LOOC
     ///     False: Crit player LOOC gets redirected to dead chat
     /// </summary>
     public static readonly CVarDef<bool> CritLoocEnabled =
-        CVarDef.Create("looc.enabled_crit", false, CVar.NOTIFY | CVar.REPLICATED);
+        CVarDef.Create("looc.enabled_crit", true, CVar.NOTIFY | CVar.REPLICATED);
 }

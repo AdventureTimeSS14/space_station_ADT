@@ -28,6 +28,8 @@
     soundHit:
       collection: MetalThud
   - type: Wieldable
+  - type: Reflect
+    reflectProb: 0.55
   - type: IncreaseDamageOnWield
     damage:
       types:
@@ -53,6 +55,8 @@
   - type: UseDelay
     delay: 1
   - type: HalberdCharge
+  - type: Reflect
+    reflectProb: 0.55
 
 # ── Кейс с алебардой (для ваучера ОСЩ) ──────────────────────
 - type: entity

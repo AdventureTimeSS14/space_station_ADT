@@ -6,6 +6,7 @@
   - type: Tag
     tags:
     - ADTMagazineHristov
+    - ADTMagazineHristovAdvanced
   - type: BallisticAmmoProvider
     proto: CartridgeAntiMateriel
     mayTransfer: true

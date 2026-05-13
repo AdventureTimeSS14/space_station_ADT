@@ -71,6 +71,15 @@
   - type: GunWieldBonus
     minAngle: -4
     maxAngle: -15
+  - type: MeleeWeapon
+    resetOnHandSelected: false
+    attackRate: 0.65
+    damage:
+      types:
+        Blunt: 20
+    soundHit:
+      collection: GenericHit
+  - type: AltFireMelee
 
 # ── Пистолет Макарова (ПМ) ────────────────────────────────────
 - type: entity
@@ -130,6 +139,15 @@
     steps: 1
     zeroVisible: true
   - type: Appearance
+  - type: MeleeWeapon
+    resetOnHandSelected: false
+    attackRate: 0.65
+    damage:
+      types:
+        Blunt: 20
+    soundHit:
+      collection: GenericHit
+  - type: AltFireMelee
 
 # ── Пистолет Токарева (ТТ) ────────────────────────────────────
 - type: entity
@@ -189,11 +207,20 @@
     steps: 1
     zeroVisible: true
   - type: Appearance
+  - type: MeleeWeapon
+    resetOnHandSelected: false
+    attackRate: 0.65
+    damage:
+      types:
+        Blunt: 20
+    soundHit:
+      collection: GenericHit
+  - type: AltFireMelee
 
 # ── СВД ──────────────────────────────────────────────────────
 - type: entity
   name: СВД
-  parent: [BaseItem, BaseGunWieldable, BaseSecurityContraband]
+  parent: [BaseItem, BaseGunWieldable, BaseSecurityContraband, ADTBaseMagneticGun]
   id: DutyGunSVD
   description: Снайперская винтовка Драгунова. Самозарядная, точная, для работы на дистанции.
   suffix: Duty, Огнестрел
@@ -271,13 +298,23 @@
     maxOffset: 5.0
     pvsIncrease: 0.3
   - type: MeleeWeapon
+    resetOnHandSelected: false
+    attackRate: 0.65
     damage:
       types:
-        Blunt: 12
-    angle: 0
-    wideAnimationRotation: 90
+        Blunt: 20
     soundHit:
-      collection: MetalThud
+      collection: GenericHit
+  - type: AltFireMelee
+  - type: AttachableHolder # ADT-Tweak
+    slots:
+      rmc-aslot-rail:
+        locked: false # ADT-Tweak true -> false
+        startingAttachable: ADTAttachmentHristovScope
+        whitelist:
+            tags:
+            - ADTAttachmentMagneticHarness
+            - ADTAttachmentHristovScope
   - type: StaticPrice
     price: 800
 
@@ -354,13 +391,14 @@
     minAngle: -10
     maxAngle: -20
   - type: MeleeWeapon
+    resetOnHandSelected: false
+    attackRate: 0.65
     damage:
       types:
-        Blunt: 12
-    angle: 0
-    wideAnimationRotation: 90
+        Blunt: 20
     soundHit:
-      collection: MetalThud
+      collection: GenericHit
+  - type: AltFireMelee
   - type: StaticPrice
     price: 600
 
@@ -431,3 +469,12 @@
   - type: GunWieldBonus
     minAngle: -2
     maxAngle: -10
+  - type: MeleeWeapon
+    resetOnHandSelected: false
+    attackRate: 0.65
+    damage:
+      types:
+        Blunt: 20
+    soundHit:
+      collection: GenericHit
+  - type: AltFireMelee

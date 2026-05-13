@@ -38,7 +38,7 @@
   - type: UseDelay
     delay: 0.5
   - type: ExplosionResistance
-    damageCoefficient: 0.9
+    damageCoefficient: 0.1
   - type: Tag
     tags:
     - WhitelistChameleon
