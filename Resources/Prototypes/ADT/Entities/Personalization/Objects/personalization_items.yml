@@ -3161,4 +3161,180 @@
     sprite: ADT/Personalization/toys.rsi
     state: plushie_rozik
 
+#Blenik
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieNinaKonogar
+  name: plushie Nina Konogar
+  description: A beautiful fluffy plush toy of the captain, looking like a mix of a fox and a felinid, with a very large super fluffy tail. There is a small red ring on the hand. It is clear that the plush toy was made to order. It smells like some kind of pleasant perfume.
+  suffix: Personal, Blenik
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_nina_konogar
+
+#GG_Marshmelow
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieDell
+  name: Della's toy
+  description: He went through many legal procedures, was convicted of numerous violations in the security structures, but always sought to protect the crew at all costs. He drinks, but only when he can. You feel safer.
+  suffix: Personal, GG_Marshmelow
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_dell
+
+# Svet217
+- type: entity
+  name: pulse pistol
+  parent: [BaseWeaponBatterySmall, BaseCentcommContraband]
+  id: WeaponPulsePistolTypeSvet217
+  description: A state of the art energy pistol favoured as a sidearm by the NT operatives.
+  suffix: Svet217
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/svet217_pistol.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-4
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Item
+    storedOffset: -2,-5
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: false
+  - type: Appearance
+  - type: Clothing
+    sprite: ADT/Personalization/svet217_pistol.rsi
+  # ADT-Tweak start
+  # - type: RunAndGunSpreadModifier
+  #   modifier: 0.1
+  - type: MeleeWeapon
+    resetOnHandSelected: false
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 7
+    soundHit:
+      collection: GenericHit
+  - type: AltFireMelee
+  # ADT-Tweak end
+  - type: Gun
+    fireRate: 1 # ADT-Tweak 2 -> 1
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/ADT/Weapons/Guns/Gunshots/laser_gun_type.ogg
+    soundEmpty:
+      path: /Audio/ADT/Weapons/Guns/Gunshots/laser_gun_type_empty.ogg
+  - type: HitscanBatteryAmmoProvider
+    proto: PulseType
+    fireCost: 100 # ADT tweak 200 -> 100
+  - type: Battery
+    maxCharge: 1000 # ADT tweak 2000->1000
+    startingCharge: 1000 # ADT tweak 2000 -> 1000
+  - type: BatterySelfRecharger
+    autoRechargeRate: 40
+
+- type: entity
+  parent: BasicHitscan
+  id: PulseType
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: HitscanBasicDamage
+    damage:
+      types:
+        Heat: 23
+  - type: HitscanBasicVisuals
+    muzzleFlash:
+      sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+      state: muzzle_blue
+    travelFlash:
+      sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+      state: beam_blue
+    impactFlash:
+      sprite: ADT/Personalization/svet217_pistol_projectiles.rsi
+      state: type_laser
+
+# durachilqa
+- type: entity
+  parent: d20Dice
+  id: ADTDiceDurachilqa
+  name: stupid cube
+  description: The Fool's personal talisman. It looks deceptively innocent. Holding it in your hands, you feel the approach of a frightening proximity, or a catastrophe that you will be ashamed to report to the Central Committee.
+  suffix: Personal, durachilqa
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/durachilqa_dice.rsi
+    state: d20_20
+
+#GG_Dove_Dove_ 
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushietajaran
+  name: plushie tajaran
+  description: Tajaran is a soft, fluffy toy, and it is strongly discouraged to squeeze it!
+  suffix: Personal, _Dove_Dove_
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_tajaran
+  - type: Item
+    sprite: ADT/Personalization/toys.rsi
+    inhandVisuals:
+      left:
+      - state: tajaran-inhand-left
+      right:
+      - state: tajaran-inhand-right
+  - type: EmitSoundOnUse
+    sound: &PlushieFelinidSound
+      collection: ADTTajaranToySounds
+      params:
+        volume: 5
+  - type: EmitSoundOnLand
+    sound: *PlushieFelinidSound
+  - type: EmitSoundOnActivate
+    sound: *PlushieFelinidSound
+  - type: EmitSoundOnTrigger
+    sound: *PlushieFelinidSound
+  - type: EmitSoundOnCollide
+    sound: *PlushieFelinidSound
+  - type: Edible
+    useSound: *PlushieFelinidSound
+  - type: MeleeWeapon
+    soundHit: &PlushieTajaranMeleeWeaponSound
+      path: /Audio/ADT/Felinid/cat_hiss1.ogg
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieRykoslave
+  name: plushie toy Rykoslave
+  description: The toy is a plump teddy bear, and it was produced in small quantities due to low demand. It looks lonely and hungry. On the tag, you can see a rough inscription that reads, "Feed me!"
+  suffix: Personal, VLIND
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_rykoslave
+  - type: Item
+    sprite: ADT/Personalization/toys.rsi
+    inhandVisuals:
+      left:
+      - state: rykoslave-inhand-left
+      right:
+      - state: rykoslave-inhand-right
+  - type: Clothing
+    quickEquip: false
+    sprite: ADT/Personalization/toys.rsi
+    slots:
+    - HEAD
+    clothingVisuals:
+      head:
+      - state: rykoslave-equipped-HELMET
+        offset: "0, 0.06"
+
 #SPONSOR-ITEMS-END
