@@ -63,7 +63,7 @@ namespace Content.Server.Administration.Systems
         [Dependency] private readonly SharedPopupSystem _popup = default!;
         [Dependency] private readonly StationSystem _stations = default!;
         [Dependency] private readonly StationSpawningSystem _spawning = default!;
-        [Dependency] private readonly TraitSystem _traits = default!;
+        [Dependency] private readonly TraitSystem _traits = default!; // ADT-Tweak
         [Dependency] private readonly ExamineSystemShared _examine = default!;
         [Dependency] private readonly AdminFrozenSystem _freeze = default!;
         [Dependency] private readonly IPlayerManager _playerManager = default!;
