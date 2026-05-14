@@ -45,7 +45,7 @@ public sealed partial class RitualAscensionSacrificeBehavior : RitualCustomBehav
     [DataField]
     public float Max = 4;
 
-    protected List<EntityUid> uids = new();
+    private List<EntityUid> uids = new();
 
     public override bool Execute(RitualData args, out string? outstr)
     {

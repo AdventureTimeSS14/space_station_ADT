@@ -55,22 +55,8 @@ public sealed partial class HereticRitualPrototype : IPrototype, ICloneable
     [DataField] public SpriteSpecifier Icon = new SpriteSpecifier.Rsi(new("ADT/Heretic/amber_focus.rsi"), "icon");
 
     /// <remarks> Please use this instead of editing the prototype. Shit WILL break if you don't. </remarks>
-#pragma warning disable RA0039 // Do not instantiate prototypes directly
     public object Clone()
     {
-        return new HereticRitualPrototype()
-        {
-            ID = ID,
-            RequiredEntityNames = RequiredEntityNames,
-            RequiredTags = RequiredTags,
-            CustomBehaviors = CustomBehaviors,
-            Output = Output,
-            OutputEvent = OutputEvent,
-            OutputKnowledge = OutputKnowledge,
-            LocName = LocName,
-            LocDesc = LocDesc,
-            Icon = Icon
-        };
+        return MemberwiseClone();
     }
-#pragma warning restore RA0039
 }

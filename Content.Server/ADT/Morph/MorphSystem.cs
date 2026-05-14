@@ -47,7 +47,7 @@ namespace Content.Server.ADT.Morph;
 public sealed class MorphSystem : SharedMorphSystem
 {
     [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
-    [Dependency] protected readonly ChatSystem ChatSystem = default!;
+    [Dependency] private readonly ChatSystem _chatSystem = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly SharedChameleonProjectorSystem _chameleon = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
@@ -55,7 +55,7 @@ public sealed class MorphSystem : SharedMorphSystem
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly HungerSystem _hunger = default!;
-    [Dependency] protected readonly SharedAudioSystem _audioSystem = default!;
+    [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
@@ -66,8 +66,8 @@ public sealed class MorphSystem : SharedMorphSystem
     [Dependency] private readonly WeldableSystem _weldable = default!;
     [Dependency] private readonly StandingStateSystem _standing = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
-    public ProtoId<DamageGroupPrototype> BruteDamageGroup = "Brute";
-    public ProtoId<DamageGroupPrototype> BurnDamageGroup = "Burn";
+    private static readonly ProtoId<DamageGroupPrototype> BruteDamageGroup = "Brute";
+    private static readonly ProtoId<DamageGroupPrototype> BurnDamageGroup = "Burn";
     public override void Initialize()
     {
         SubscribeLocalEvent<MorphComponent, AttackedEvent>(OnAttacked);

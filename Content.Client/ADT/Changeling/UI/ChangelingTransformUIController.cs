@@ -1,6 +1,4 @@
 using JetBrains.Annotations;
-using Robust.Client.Graphics;
-using Robust.Client.Input;
 using Robust.Client.UserInterface.Controllers;
 using Robust.Shared.Player;
 using Content.Shared.Changeling;
@@ -11,8 +9,6 @@ namespace Content.Client.ADT.Changeling.UI;
 public sealed class ChangelingTransformUIController : UIController//, IOnStateChanged<GameplayState>
 {
     [Dependency] private readonly IEntityManager _entityManager = default!;
-    [Dependency] private readonly IClyde _displayManager = default!;
-    [Dependency] private readonly IInputManager _inputManager = default!;
     [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
 
     private ChangelingTransformMenu? _menu;
@@ -69,7 +65,8 @@ public sealed class ChangelingTransformUIController : UIController//, IOnStateCh
         if (_menu == null)
             return;
 
-        _menu.Dispose();
+        _menu.OnClose -= OnWindowClosed;
+        _menu.Close();
         _menu = null;
     }
 

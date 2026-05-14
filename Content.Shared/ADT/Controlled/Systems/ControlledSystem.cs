@@ -27,10 +27,7 @@ public sealed partial class ControlledSystem : EntitySystem
     [Dependency] private readonly SharedPhysicsSystem _physicsSystem = default!;
     [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
-
-#pragma warning disable CS0618 // DamageGroupPrototype is obsolete
     private static readonly ProtoId<DamageGroupPrototype> BruteDamageGroup = "Brute";
-#pragma warning restore CS0618
 
     public override void Initialize()
     {

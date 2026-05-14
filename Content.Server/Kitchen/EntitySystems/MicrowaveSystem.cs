@@ -42,7 +42,6 @@ using Content.Shared.Damage;
 using Robust.Shared.Utility;
 using Content.Shared.ADT.Kitchem.Components; // ADT-Tweak
 using Content.Shared.Power.EntitySystems;
-using Content.Shared.Temperature.Components;
 
 namespace Content.Server.Kitchen.EntitySystems
 {

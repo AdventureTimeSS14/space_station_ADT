@@ -18,7 +18,6 @@ public sealed partial class ChangelingTransformMenu : RadialMenu
 {
     [Dependency] private readonly EntityManager _entManager = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
 
     private readonly HumanoidProfileSystem _profileSystem;
     private readonly SpriteSystem _spriteSystem;
@@ -108,5 +107,5 @@ public sealed class ChangelingTransformMenuButton : RadialMenuButtonWithSector
 {
     public NetEntity Entity;
     public HumanoidCharacterProfile? Profile;
-    public string? Name;
+    public new string? Name;
 }

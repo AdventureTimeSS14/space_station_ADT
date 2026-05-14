@@ -74,7 +74,7 @@ public sealed partial class ChatSystem : SharedChatSystem
     // public const int WhisperClearRange = 2; // how far whisper goes while still being understandable, in world units
     // public const int WhisperMuffledRange = 5; // how far whisper goes at all, in world units
     // Corvax-TTS-End
-    public readonly SoundSpecifier DefaultAnnouncementSound = new SoundPathSpecifier("/Audio/ADT/Announcements/announce_dig.ogg"); // ADT-Tweak: замена звука оповещения на ADT версию
+    public new readonly SoundSpecifier DefaultAnnouncementSound = new SoundPathSpecifier("/Audio/ADT/Announcements/announce_dig.ogg"); // ADT-Tweak: замена звука оповещения на ADT версию
     public const string CentComAnnouncementSound = "/Audio/ADT/Announcements/announce_dig.ogg"; // ADT-Tweak: замена звука CentComm на ADT версию
 
     private bool _loocEnabled = true;
@@ -931,8 +931,7 @@ public sealed partial class ChatSystem : SharedChatSystem
         return message;
     }
 
-    [ValidatePrototypeId<ReplacementAccentPrototype>]
-    public static readonly string[] ChatSanitize_Accent = { "adt_chatsanitize", "chatsanitize" }; // ADT-Tweak
+    public static readonly ProtoId<ReplacementAccentPrototype>[] ChatSanitize_Accent = ["adt_chatsanitize", "chatsanitize"]; // ADT-Tweak
 
     public string SanitizeMessageReplaceWords(string message)
     {

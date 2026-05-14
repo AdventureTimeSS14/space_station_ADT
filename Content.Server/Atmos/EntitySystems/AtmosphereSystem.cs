@@ -17,8 +17,6 @@ using Robust.Shared.Containers;
 using Robust.Shared.Map;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Prototypes;
-using System.Linq;
-using Content.Shared.Damage.Systems;
 using Robust.Shared.Threading;
 
 namespace Content.Server.Atmos.EntitySystems;

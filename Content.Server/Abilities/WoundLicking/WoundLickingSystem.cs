@@ -47,7 +47,7 @@ namespace Content.Server.Felinid
             _actionsSystem.RemoveAction(uid, comp.WoundLickingActionEntity);
         }
 
-        protected void OnActionPerform(WoundLickingActionEvent args)
+        private void OnActionPerform(WoundLickingActionEvent args)
         {
             if (args.Handled)
                 return;

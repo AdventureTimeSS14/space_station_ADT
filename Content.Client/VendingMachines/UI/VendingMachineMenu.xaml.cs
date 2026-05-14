@@ -20,10 +20,6 @@ namespace Content.Client.VendingMachines.UI
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly IEntityManager _entityManager = default!;
 
-        /// <summary>
-        /// Whether the vending machine is able to be interacted with or not.
-        /// </summary>
-        private bool _enabled;
         private readonly Dictionary<EntProtoId, uint> _amounts = new();
 
         private readonly Dictionary<EntProtoId, EntityUid> _dummies = [];
@@ -115,7 +111,7 @@ namespace Content.Client.VendingMachines.UI
 
             button.AddChild(item);
             button.AddStyleClass(StyleClass.ButtonSquare);
-            button.Disabled = !_enabled || _amounts[protoID] == 0;
+            button.Disabled = _amounts[protoID] == 0;
 
             button.ToolTip = text;
         }

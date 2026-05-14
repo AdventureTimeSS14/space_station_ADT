@@ -2,7 +2,6 @@ using Content.Server.Botany.Components;
 using Content.Shared.PowerCell;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
-using Content.Shared.PowerCell;
 using Content.Shared.ADT.PlantAnalyzer;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;

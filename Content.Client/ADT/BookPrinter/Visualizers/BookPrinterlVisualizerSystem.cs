@@ -9,57 +9,58 @@ namespace Content.Client.ADT.BookPrinter.Visualizers;
 public sealed partial class BookPrinterVisualizerSystem : VisualizerSystem<BookPrinterVisualsComponent>
 {
     [Dependency] private readonly ItemSlotsSystem _itemSlotsSystem = default!;
+    [Dependency] private readonly SpriteSystem _spriteSystem = default!;
 
     protected override void OnAppearanceChange(EntityUid uid, BookPrinterVisualsComponent component, ref AppearanceChangeEvent args)
     {
-        if (args.Sprite == null || !EntityManager.TryGetComponent<ItemSlotsComponent>(uid, out var slotComp))
+        if (args.Sprite == null || !TryComp<ItemSlotsComponent>(uid, out var slotComp))
             return;
 
-        if (args.Sprite.LayerMapTryGet(BookPrinterVisualLayers.Working, out var workLayer))
+        if (_spriteSystem.LayerMapTryGet((uid, args.Sprite), BookPrinterVisualLayers.Working, out var workLayer, false))
         {
-            args.Sprite.LayerSetVisible(workLayer, component.DoWorkAnimation);
+            _spriteSystem.LayerSetVisible((uid, args.Sprite), workLayer, component.DoWorkAnimation);
         }
 
-        if (args.Sprite.LayerMapTryGet(BookPrinterVisualLayers.Slotted, out var slotLayer))
+        if (_spriteSystem.LayerMapTryGet((uid, args.Sprite), BookPrinterVisualLayers.Slotted, out var slotLayer, false))
         {
-            args.Sprite.LayerSetVisible(slotLayer, (_itemSlotsSystem.GetItemOrNull(uid, "cartridgeSlot") is not null));
+            _spriteSystem.LayerSetVisible((uid, args.Sprite), slotLayer, (_itemSlotsSystem.GetItemOrNull(uid, "cartridgeSlot") is not null));
         }
 
         var cartridge = _itemSlotsSystem.GetItemOrNull(uid, "cartridgeSlot");
 
-        if (args.Sprite.LayerMapTryGet(BookPrinterVisualLayers.Full, out var fullLayer))
+        if (_spriteSystem.LayerMapTryGet((uid, args.Sprite), BookPrinterVisualLayers.Full, out var fullLayer, false))
         {
-            args.Sprite.LayerSetVisible(fullLayer, false);
-            if (cartridge is not null && EntityManager.TryGetComponent<BookPrinterCartridgeComponent>(cartridge, out BookPrinterCartridgeComponent? cartridgeComp))
-                args.Sprite.LayerSetVisible(fullLayer!, cartridgeComp.CurrentCharge == cartridgeComp.FullCharge);
+            _spriteSystem.LayerSetVisible((uid, args.Sprite), fullLayer, false);
+            if (cartridge is not null && TryComp<BookPrinterCartridgeComponent>(cartridge, out BookPrinterCartridgeComponent? cartridgeComp))
+                _spriteSystem.LayerSetVisible((uid, args.Sprite), fullLayer, cartridgeComp.CurrentCharge == cartridgeComp.FullCharge);
         }
 
-        if (args.Sprite.LayerMapTryGet(BookPrinterVisualLayers.High, out var highLayer))
+        if (_spriteSystem.LayerMapTryGet((uid, args.Sprite), BookPrinterVisualLayers.High, out var highLayer, false))
         {
-            args.Sprite.LayerSetVisible(highLayer, false);
-            if (cartridge is not null && EntityManager.TryGetComponent<BookPrinterCartridgeComponent>(cartridge, out BookPrinterCartridgeComponent? cartridgeComp))
-                args.Sprite.LayerSetVisible(highLayer, cartridgeComp.CurrentCharge >= cartridgeComp.FullCharge / 1.43f && cartridgeComp.CurrentCharge < cartridgeComp.FullCharge);
+            _spriteSystem.LayerSetVisible((uid, args.Sprite), highLayer, false);
+            if (cartridge is not null && TryComp<BookPrinterCartridgeComponent>(cartridge, out BookPrinterCartridgeComponent? cartridgeComp))
+                _spriteSystem.LayerSetVisible((uid, args.Sprite), highLayer, cartridgeComp.CurrentCharge >= cartridgeComp.FullCharge / 1.43f && cartridgeComp.CurrentCharge < cartridgeComp.FullCharge);
         }
 
-        if (args.Sprite.LayerMapTryGet(BookPrinterVisualLayers.Medium, out var mediumLayer))
+        if (_spriteSystem.LayerMapTryGet((uid, args.Sprite), BookPrinterVisualLayers.Medium, out var mediumLayer, false))
         {
-            args.Sprite.LayerSetVisible(mediumLayer, false);
-            if (cartridge is not null && EntityManager.TryGetComponent<BookPrinterCartridgeComponent>(cartridge, out BookPrinterCartridgeComponent? cartridgeComp))
-                args.Sprite.LayerSetVisible(mediumLayer, cartridgeComp.CurrentCharge >= cartridgeComp.FullCharge / 2.5f && cartridgeComp.CurrentCharge < cartridgeComp.FullCharge / 1.43f);
+            _spriteSystem.LayerSetVisible((uid, args.Sprite), mediumLayer, false);
+            if (cartridge is not null && TryComp<BookPrinterCartridgeComponent>(cartridge, out BookPrinterCartridgeComponent? cartridgeComp))
+                _spriteSystem.LayerSetVisible((uid, args.Sprite), mediumLayer, cartridgeComp.CurrentCharge >= cartridgeComp.FullCharge / 2.5f && cartridgeComp.CurrentCharge < cartridgeComp.FullCharge / 1.43f);
         }
 
-        if (args.Sprite.LayerMapTryGet(BookPrinterVisualLayers.Low, out var lowLayer))
+        if (_spriteSystem.LayerMapTryGet((uid, args.Sprite), BookPrinterVisualLayers.Low, out var lowLayer, false))
         {
-            args.Sprite.LayerSetVisible(lowLayer, false);
-            if (cartridge is not null && EntityManager.TryGetComponent<BookPrinterCartridgeComponent>(cartridge, out BookPrinterCartridgeComponent? cartridgeComp))
-                args.Sprite.LayerSetVisible(lowLayer, cartridgeComp.CurrentCharge > 0 && cartridgeComp.CurrentCharge < cartridgeComp.FullCharge / 2.5f);
+            _spriteSystem.LayerSetVisible((uid, args.Sprite), lowLayer, false);
+            if (cartridge is not null && TryComp<BookPrinterCartridgeComponent>(cartridge, out BookPrinterCartridgeComponent? cartridgeComp))
+                _spriteSystem.LayerSetVisible((uid, args.Sprite), lowLayer, cartridgeComp.CurrentCharge > 0 && cartridgeComp.CurrentCharge < cartridgeComp.FullCharge / 2.5f);
         }
 
-        if (args.Sprite.LayerMapTryGet(BookPrinterVisualLayers.None, out var noneLayer))
+        if (_spriteSystem.LayerMapTryGet((uid, args.Sprite), BookPrinterVisualLayers.None, out var noneLayer, false))
         {
-            args.Sprite.LayerSetVisible(noneLayer, false);
-            if (cartridge is not null && EntityManager.TryGetComponent<BookPrinterCartridgeComponent>(cartridge, out BookPrinterCartridgeComponent? cartridgeComp))
-                args.Sprite.LayerSetVisible(noneLayer, cartridgeComp.CurrentCharge < 1);
+            _spriteSystem.LayerSetVisible((uid, args.Sprite), noneLayer, false);
+            if (cartridge is not null && TryComp<BookPrinterCartridgeComponent>(cartridge, out BookPrinterCartridgeComponent? cartridgeComp))
+                _spriteSystem.LayerSetVisible((uid, args.Sprite), noneLayer, cartridgeComp.CurrentCharge < 1);
         }
     }
 }
