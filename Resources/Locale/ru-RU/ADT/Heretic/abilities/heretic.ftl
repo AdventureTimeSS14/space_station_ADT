@@ -1,4 +1,5 @@
 ## misc
+mansus-infused-item-examine = [color=purple]Одно лишь присутствие этого предмета вызывает у вас дрожь. Стоит ли его поднимать?[/color]
 
 heretic-ability-fail = Не удалось использовать заклинание
 heretic-ability-fail-magicitem = Вы не можете произнести заклинание без концентрации!

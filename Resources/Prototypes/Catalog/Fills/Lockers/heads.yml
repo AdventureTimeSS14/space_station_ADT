@@ -222,6 +222,7 @@
     # ADT-Tweak-Start
     - id: OxygenTankFilled
     - id: NitrogenTankFilled
+    - id: ADTHyperNobCore
     - id: ClothingNeckCloakCe
     - id: ADTClothingMaskGasCE
     - id: ADTUniversalPipeDispenserCircuitboard
