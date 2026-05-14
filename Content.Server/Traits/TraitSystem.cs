@@ -78,6 +78,7 @@ public sealed class TraitSystem : EntitySystem
     }
 
     /// <summary>
+    /// ADT-Tweak start
     /// Applies traits to an entity without requiring a player session (for admin spawning).
     /// </summary>
     public void ApplyTraits(EntityUid mob, HumanoidCharacterProfile profile, ProtoId<JobPrototype>? jobId = null)
@@ -92,6 +93,7 @@ public sealed class TraitSystem : EntitySystem
             ApplyTrait(mob, trait);
         }
     }
+     /// ADT-Tweak end
 
     /// <summary>
     /// Validates a set of trait selections against all rules and returns the valid subset.
