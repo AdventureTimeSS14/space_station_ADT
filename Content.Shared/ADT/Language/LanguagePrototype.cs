@@ -4,7 +4,7 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototy
 
 namespace Content.Shared.ADT.Language;
 
-[Prototype("language"), DataDefinition]
+[Prototype, DataDefinition]
 public sealed partial class LanguagePrototype : IPrototype, IInheritingPrototype
 {
     [IdDataField]

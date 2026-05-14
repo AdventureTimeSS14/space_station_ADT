@@ -24,7 +24,6 @@ public abstract class SharedQuirksSystem : EntitySystem
     [Dependency] protected readonly IRobustRandom _random = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeed = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
 
     public override void Initialize()

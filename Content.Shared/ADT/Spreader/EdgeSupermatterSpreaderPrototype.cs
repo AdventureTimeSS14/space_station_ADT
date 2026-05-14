@@ -5,7 +5,7 @@ namespace Content.Shared.ADT.Spreader;
 /// <summary>
 /// Adds this node group to <see cref="Content.Server.Spreader.SupermatterSpreaderSystem"/> for tick updates.
 /// </summary>
-[Prototype("edgeSupermatterSpreader"), DataDefinition]
+[Prototype, DataDefinition]
 public sealed partial class EdgeSupermatterSpreaderPrototype : IPrototype
 {
     [IdDataField] public string ID { get; private set; } = string.Empty;

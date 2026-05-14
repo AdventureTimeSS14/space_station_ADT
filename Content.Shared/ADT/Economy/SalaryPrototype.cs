@@ -2,7 +2,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared.ADT.Economy;
 
-[Prototype("salary"), DataDefinition]
+[Prototype, DataDefinition]
 public sealed partial class SalaryPrototype : IPrototype
 {
     [IdDataField]

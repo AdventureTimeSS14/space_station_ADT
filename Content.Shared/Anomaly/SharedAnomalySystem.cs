@@ -37,7 +37,6 @@ public abstract class SharedAnomalySystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
-    [Dependency] private readonly IComponentFactory _comp = default!;
     [Dependency] private readonly IMapManager _mapManager = default!;
 
     public override void Initialize()

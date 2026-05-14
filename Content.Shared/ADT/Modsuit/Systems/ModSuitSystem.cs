@@ -37,7 +37,7 @@ public sealed partial class ModSuitSystem : EntitySystem
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedStrippableSystem _strippable = default!;
     [Dependency] private readonly PowerCellSystem _cell = default!;
-    [Dependency] private readonly ItemSlotsSystem _itemSlotsSystem = default!;
+
     [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
     [Dependency] private readonly SharedIdCardSystem _id = default!;
     [Dependency] private readonly IGameTiming _timing = default!;

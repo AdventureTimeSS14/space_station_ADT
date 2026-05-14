@@ -34,8 +34,6 @@ using Content.Shared.VoiceMask;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Wieldable;
 using Content.Shared.Zombies;
-using Content.Shared.Damage.Systems;
-using Content.Shared.Corvax.TTS;
 using Content.Shared.ADT.SpeechBarks;
 using Content.Shared.ADT.Grab;
 

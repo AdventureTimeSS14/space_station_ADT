@@ -27,7 +27,10 @@ public sealed partial class ControlledSystem : EntitySystem
     [Dependency] private readonly SharedPhysicsSystem _physicsSystem = default!;
     [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
+
+#pragma warning disable CS0618 // DamageGroupPrototype is obsolete
+    private static readonly ProtoId<DamageGroupPrototype> BruteDamageGroup = "Brute";
+#pragma warning restore CS0618
 
     public override void Initialize()
     {
@@ -125,7 +128,7 @@ public sealed partial class ControlledSystem : EntitySystem
         UpdateVisuals(observer, observerComp);
 
         if (TryComp<DamageableComponent>(target, out var damageable))
-            _damageable.TryChangeDamage(observer, _damageable.GetAllDamage((target, damageable)));
+            _damageable.TryChangeDamage(observer, new DamageSpecifier(damageable.Damage));
 
         _mind.TransferTo(uidMindId, target);
     }
@@ -153,7 +156,7 @@ public sealed partial class ControlledSystem : EntitySystem
                 _mind.TransferTo(mindId, uid);
             QueueDel(component.Observer);
             RemComp<ControlledComponent>(uid);
-            var damage_brute = new DamageSpecifier(_proto.Index<DamageGroupPrototype>("Brute"), 1f);
+            var damage_brute = new DamageSpecifier(_proto.Index(BruteDamageGroup), 1f);
             _damageable.TryChangeDamage(uid, damage_brute);
             return true;
         }
@@ -166,7 +169,7 @@ public sealed partial class ControlledSystem : EntitySystem
                 _mind.TransferTo(mindId, uid);
             QueueDel(component.Observer);
             RemComp<ControlledComponent>(uid);
-            var damage_brute = new DamageSpecifier(_proto.Index<DamageGroupPrototype>("Brute"), 1f);
+            var damage_brute = new DamageSpecifier(_proto.Index(BruteDamageGroup), 1f);
             _damageable.TryChangeDamage(uid, damage_brute);
             return true;
         }
