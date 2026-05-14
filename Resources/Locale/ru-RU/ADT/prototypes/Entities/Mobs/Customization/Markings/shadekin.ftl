@@ -7,8 +7,6 @@ marking-EarsShadekinElegant-shadekin_stripes = Полосы
 marking-EarsShadekinElegant = Уши, Элегантные
 marking-EarsShadekinElegant-shadekin = Уши
 marking-EarsShadekinElegant-elegant_secondary = Элегатность
-marking-EarsShadekinExperiment = Уши, Экспериментальные
-marking-EarsShadekinExperiment-experiment_default = Уши
 marking-EarsShadekinMotley = Уши, Пёстрые
 marking-EarsShadekinMotley-shadekin = Уши
 marking-EarsShadekinMotley-motley_secondary = Пестрота
@@ -129,6 +127,8 @@ marking-EarsShadekinAlphaTorch-alpha_torch = окраска
 marking-EarsShadekinAlphaTraced = Стройные Уши, Обведённые
 marking-EarsShadekinAlphaTraced-aqua_default = Уши
 marking-EarsShadekinAlphaTraced-alpha_traced = Обводка
+marking-ADTEarsShadekinExperiment = Уши, Экспериментальные
+marking-ADTEarsShadekinExperiment-experiment_default = Уши
 
 
 # Хвосты
@@ -140,9 +140,6 @@ marking-TailShadekinDragon-default_dragon = Узор
 marking-TailShadekinStriped = Хвост, Полосатый
 marking-TailShadekinStriped-shadekin = Хвост
 marking-TailShadekinStriped-default_striped = Полосы
-marking-TailShadekinExperiment = Хвост, Экспериментальный
-marking-TailShadekinExperiment-default_experiment = Хвост
-marking-TailShadekinExperiment-experiment_brush = Узор
 marking-TailShadekinBig = Большой Хвост
 marking-TailShadekinBig-shadekin_big = Хвост
 marking-TailShadekinBigStriped = Большой Хвост, Парный
@@ -205,6 +202,9 @@ marking-TailShadekinHookSpirals-hook_spirals = Узор
 marking-TailShadekinHookTraced = Хвост-хук, Обведённый
 marking-TailShadekinHookTraced-tail_hook = Хвост
 marking-TailShadekinHookTraced-hook_traced = Обводка
+marking-ADTTailShadekinExperiment = Хвост, Экспериментальный
+marking-ADTTailShadekinExperiment-default_experiment = Хвост
+marking-ADTTailShadekinExperiment-experiment_brush = Узор
 
 # Наложение
 marking-BodyShadekinArrow = Окрас, Стрела

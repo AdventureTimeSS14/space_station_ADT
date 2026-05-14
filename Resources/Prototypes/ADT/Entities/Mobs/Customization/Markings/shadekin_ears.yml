@@ -480,10 +480,9 @@
       state: alpha_traced
 
 - type: marking
-  id: EarsShadekinExperiment
+  id: ADTEarsShadekinExperiment
   bodyPart: HeadTop
   markingCategory: HeadTop
-  sponsorOnly: true
   speciesRestriction: [Shadekin]
   sprites:
     - sprite: ADT/Mobs/Customization/Shadekin/shadekin_ears_32x32.rsi
