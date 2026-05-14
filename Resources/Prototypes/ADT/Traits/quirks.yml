@@ -7,11 +7,10 @@
   whitelist:
     components:
       - SizeAttributeWhitelist
-  blacklist:
-    components:
-      - SizeAttribute
+  conflicts:
+    - Short
   effects:
-    - !type:AddCompsEffect
+    - !type:OverrideCompsEffect
       components:
         - type: SizeAttribute
           tall: true
@@ -25,11 +24,10 @@
   whitelist:
     components:
       - SizeAttributeWhitelist
-  blacklist:
-    components:
-      - SizeAttribute
+  conflicts:
+    - Tall
   effects:
-    - !type:AddCompsEffect
+    - !type:OverrideCompsEffect
       components:
         - type: SizeAttribute
           short: true
@@ -70,17 +68,6 @@
       components:
         - type: Sprinter
           modifier: 1.05
-
-- type: trait
-  id: FastLockers
-  name: trait-fast-lockers-name
-  description: trait-fast-lockers-desc
-  category: Quirks
-  cost: 2
-  effects:
-    - !type:AddCompsEffect
-      components:
-        - type: FastLockers
 
 - type: trait
   id: HardThrower
