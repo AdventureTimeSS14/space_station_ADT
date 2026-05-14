@@ -269,10 +269,9 @@
       state: hook_traced
 
 - type: marking
-  id: TailShadekinExperiment
+  id: ADTTailShadekinExperiment
   bodyPart: Tail
   markingCategory: Tail
-  sponsorOnly: true
   speciesRestriction: [Shadekin]
   sprites:
     - sprite: ADT/Mobs/Customization/Shadekin/shadekin_tails_64x32.rsi
