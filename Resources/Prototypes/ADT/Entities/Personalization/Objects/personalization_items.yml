@@ -3345,7 +3345,7 @@
   suffix: Personal, Minokaa, Cethet
   components:
   - type: Sprite
-    sprite: ADT/Personalization/minokaa_elegant_whip.rsi
+    sprite: ADT/Personalization/minokaa_cethet_elegant_whip.rsi
     state: icon
   - type: Item
     size: Normal
