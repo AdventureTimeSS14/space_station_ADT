@@ -66,3 +66,10 @@
     guides:
     - MedicalDoctor
   - type: PowerSwitch
+    # ADT-Tweak-start
+  - type: DeviceLinkSink
+    ports:
+      - On
+      - Off
+      - Toggle
+  # ADT-Tweak-end

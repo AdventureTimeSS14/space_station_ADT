@@ -4,6 +4,12 @@
   name: signal-port-name-tur-sender
   description: signal-port-description-tur-sender
 
+- type: sourcePort
+  id: EntityDetected
+  name: signal-port-name-stasisbed-signal
+  description: signal-port-description-stasisbed-signal
+  defaultLinks: [On, Off, Toggle ]
+
 #Supermatter
 - type: sourcePort
   id: SupermatterInactive
