@@ -110,13 +110,6 @@
                                 <Slider HorizontalExpand="True" Name="Skin" MinValue="0" MaxValue="100" Value="20" />
                                 <BoxContainer Name="RgbSkinColorContainer" Visible="False" Orientation="Vertical" HorizontalExpand="True"></BoxContainer>
                             </BoxContainer>
-                            <!-- Hair -->
-                            <BoxContainer Margin="10" Orientation="Horizontal">
-                                <!-- ADT Midround Customization Start -->
-                                <humanoid:SingleMarkingPicker MinHeight="500" Name="HairStylePicker" Category="Hair" />
-                                <humanoid:SingleMarkingPicker MinHeight="500" Name="FacialHairPicker" Category="FacialHair" />
-                                <!-- ADT Midround Customization End -->
-                            </BoxContainer>
                             <!-- Eyes -->
                             <BoxContainer Margin="10" Orientation="Vertical">
                                 <Label Text="{Loc 'humanoid-profile-editor-eyes-label'}" />

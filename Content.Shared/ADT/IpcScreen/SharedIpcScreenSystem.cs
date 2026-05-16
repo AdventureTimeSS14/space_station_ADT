@@ -1,5 +1,8 @@
 using Content.Shared.DoAfter;
+using Content.Shared.Body;
+using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Markings;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Content.Shared.Actions;
 
@@ -12,128 +15,41 @@ public enum IpcScreenUiKey : byte
 }
 
 [Serializable, NetSerializable]
-public enum IpcScreenCategory : byte
-{
-    FacialHair
-}
-
-[Serializable, NetSerializable]
 public sealed class IpcScreenSelectMessage : BoundUserInterfaceMessage
 {
-    public IpcScreenSelectMessage(IpcScreenCategory category, string marking, int slot)
+    public IpcScreenSelectMessage(Dictionary<ProtoId<OrganCategoryPrototype>, Dictionary<HumanoidVisualLayers, List<Marking>>> markings)
     {
-        Category = category;
-        Marking = marking;
-        Slot = slot;
+        Markings = markings;
     }
 
-    public IpcScreenCategory Category { get; }
-    public string Marking { get; }
-    public int Slot { get; }
-}
-
-[Serializable, NetSerializable]
-public sealed class IpcScreenChangeColorMessage : BoundUserInterfaceMessage
-{
-    public IpcScreenChangeColorMessage(IpcScreenCategory category, List<Color> colors, int slot)
-    {
-        Category = category;
-        Colors = colors;
-        Slot = slot;
-    }
-
-    public IpcScreenCategory Category { get; }
-    public List<Color> Colors { get; }
-    public int Slot { get; }
-}
-
-[Serializable, NetSerializable]
-public sealed class IpcScreenRemoveSlotMessage : BoundUserInterfaceMessage
-{
-    public IpcScreenRemoveSlotMessage(IpcScreenCategory category, int slot)
-    {
-        Category = category;
-        Slot = slot;
-    }
-
-    public IpcScreenCategory Category { get; }
-    public int Slot { get; }
-}
-
-[Serializable, NetSerializable]
-public sealed class IpcScreenSelectSlotMessage : BoundUserInterfaceMessage
-{
-    public IpcScreenSelectSlotMessage(IpcScreenCategory category, int slot)
-    {
-        Category = category;
-        Slot = slot;
-    }
-
-    public IpcScreenCategory Category { get; }
-    public int Slot { get; }
-}
-
-[Serializable, NetSerializable]
-public sealed class IpcScreenAddSlotMessage : BoundUserInterfaceMessage
-{
-    public IpcScreenAddSlotMessage(IpcScreenCategory category)
-    {
-        Category = category;
-    }
-
-    public IpcScreenCategory Category { get; }
+    public Dictionary<ProtoId<OrganCategoryPrototype>, Dictionary<HumanoidVisualLayers, List<Marking>>> Markings { get; }
 }
 
 [Serializable, NetSerializable]
 public sealed class IpcScreenUiState : BoundUserInterfaceState
 {
-    public IpcScreenUiState(string species, List<Marking> facialHair, int facialHairSlotTotal)
+    public IpcScreenUiState(Dictionary<ProtoId<OrganCategoryPrototype>, OrganProfileData> profiles,
+        Dictionary<ProtoId<OrganCategoryPrototype>, OrganMarkingData> markings,
+        Dictionary<ProtoId<OrganCategoryPrototype>, Dictionary<HumanoidVisualLayers, List<Marking>>> applied)
     {
-        Species = species;
-        FacialHair = facialHair;
-        FacialHairSlotTotal = facialHairSlotTotal;
+        OrganProfileData = profiles;
+        OrganMarkingData = markings;
+        AppliedMarkings = applied;
     }
 
     public NetEntity Target;
 
-    public string Species;
-
-    public List<Marking> FacialHair;
-    public int FacialHairSlotTotal;
-}
-
-[Serializable, NetSerializable]
-public sealed partial class IpcScreenRemoveSlotDoAfterEvent : DoAfterEvent
-{
-    public override DoAfterEvent Clone() => this;
-    public IpcScreenCategory Category;
-    public int Slot;
-}
-
-[Serializable, NetSerializable]
-public sealed partial class IpcScreenAddSlotDoAfterEvent : DoAfterEvent
-{
-    public override DoAfterEvent Clone() => this;
-    public IpcScreenCategory Category;
+    public Dictionary<ProtoId<OrganCategoryPrototype>, OrganProfileData> OrganProfileData;
+    public Dictionary<ProtoId<OrganCategoryPrototype>, OrganMarkingData> OrganMarkingData;
+    public Dictionary<ProtoId<OrganCategoryPrototype>, Dictionary<HumanoidVisualLayers, List<Marking>>> AppliedMarkings;
 }
 
 [Serializable, NetSerializable]
 public sealed partial class IpcScreenSelectDoAfterEvent : DoAfterEvent
 {
-    public IpcScreenCategory Category;
-    public int Slot;
-    public string Marking = string.Empty;
+    public Dictionary<ProtoId<OrganCategoryPrototype>, Dictionary<HumanoidVisualLayers, List<Marking>>> Markings = new();
 
     public override DoAfterEvent Clone() => this;
-}
-
-[Serializable, NetSerializable]
-public sealed partial class IpcScreenChangeColorDoAfterEvent : DoAfterEvent
-{
-    public override DoAfterEvent Clone() => this;
-    public IpcScreenCategory Category;
-    public int Slot;
-    public List<Color> Colors = new List<Color>();
 }
 
 public sealed partial class IpcScreenActionEvent : InstantActionEvent

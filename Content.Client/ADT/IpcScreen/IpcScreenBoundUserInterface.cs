@@ -1,4 +1,4 @@
-using Content.Shared.Humanoid.Markings;
+using Content.Client.Humanoid;
 using Content.Shared.ADT.IpcScreen;
 using Robust.Client.GameObjects;
 using Robust.Client.UserInterface;
@@ -9,6 +9,7 @@ public sealed class IpcScreenBoundUserInterface : BoundUserInterface
 {
     [ViewVariables]
     private IpcScreenWindow? _window;
+    private readonly MarkingsViewModel _markingsModel = new();
 
     public IpcScreenBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
     {
@@ -19,32 +20,8 @@ public sealed class IpcScreenBoundUserInterface : BoundUserInterface
         base.Open();
 
         _window = this.CreateWindow<IpcScreenWindow>();
-
-        _window.OnFacialHairSelected += tuple => SelectHair(IpcScreenCategory.FacialHair, tuple.id, tuple.slot);
-        _window.OnFacialHairColorChanged +=
-            args => ChangeColor(IpcScreenCategory.FacialHair, args.marking, args.slot);
-        _window.OnFacialHairSlotAdded += delegate () { AddSlot(IpcScreenCategory.FacialHair); };
-        _window.OnFacialHairSlotRemoved += args => RemoveSlot(IpcScreenCategory.FacialHair, args);
-    }
-
-    private void SelectHair(IpcScreenCategory category, string marking, int slot)
-    {
-        SendMessage(new IpcScreenSelectMessage(category, marking, slot));
-    }
-
-    private void ChangeColor(IpcScreenCategory category, Marking marking, int slot)
-    {
-        SendMessage(new IpcScreenChangeColorMessage(category, new(marking.MarkingColors), slot));
-    }
-
-    private void RemoveSlot(IpcScreenCategory category, int slot)
-    {
-        SendMessage(new IpcScreenRemoveSlotMessage(category, slot));
-    }
-
-    private void AddSlot(IpcScreenCategory category)
-    {
-        SendMessage(new IpcScreenAddSlotMessage(category));
+        _window.MarkingsPicker.SetModel(_markingsModel);
+        _markingsModel.MarkingsChanged += (_, _) => SendMarkingSet();
     }
 
     protected override void UpdateState(BoundUserInterfaceState state)
@@ -56,6 +33,13 @@ public sealed class IpcScreenBoundUserInterface : BoundUserInterface
             return;
         }
 
-        _window.UpdateState(data);
+        _markingsModel.OrganData = data.OrganMarkingData;
+        _markingsModel.OrganProfileData = data.OrganProfileData;
+        _markingsModel.Markings = data.AppliedMarkings;
+    }
+
+    private void SendMarkingSet()
+    {
+        SendMessage(new IpcScreenSelectMessage(_markingsModel.Markings));
     }
 }
