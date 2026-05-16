@@ -585,4 +585,4 @@
   - type: StaticPrice
     price: 5500
   - type: Item
-    size: Normal
+    size: Small
