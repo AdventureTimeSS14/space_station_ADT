@@ -159,7 +159,7 @@ public sealed partial class IpcSystem : EntitySystem
         {
             if (applied.TryGetValue("Head", out var headMarkings)
                 && headMarkings.TryGetValue(HumanoidVisualLayers.Snout, out var snoutMarkings)
-                && snoutMarkings.Count > 0)
+                && snoutMarkings.Count >= 0)
             {
                 _visualBody.ApplyMarkings(ent.Owner, new()
                 {

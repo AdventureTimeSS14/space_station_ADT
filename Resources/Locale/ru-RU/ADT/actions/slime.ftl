@@ -1,4 +1,5 @@
-slime-hair-window-title = Изменить внешность
+slime-hair-window-title = Сменить причёску
+
 ent-ADTActionMorphGeras = Превратиться в слайма
     .desc = Превратитесь в слайма, чтобы быстро передвигаться и наносить частые, но слабые удары.
 ent-ActionSlimeHair = Сменить причёску
