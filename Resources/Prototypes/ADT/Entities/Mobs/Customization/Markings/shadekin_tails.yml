@@ -267,3 +267,14 @@
       state: tail_hook
     - sprite: ADT/Mobs/Customization/Shadekin/shadekin_tails_64x32.rsi
       state: hook_traced
+
+- type: marking
+  id: ADTTailShadekinExperiment
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Shadekin]
+  sprites:
+    - sprite: ADT/Mobs/Customization/Shadekin/shadekin_tails_64x32.rsi
+      state: default_experiment
+    - sprite: ADT/Mobs/Customization/Shadekin/shadekin_tails_64x32.rsi
+      state: experiment_brush
