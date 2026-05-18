@@ -1,5 +1,7 @@
 using System.Numerics;
+using Content.Shared.Damage;
 using Content.Shared.StatusEffectNew.Components;
+using Content.Shared.Whitelist;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Utility;
@@ -10,7 +12,7 @@ namespace Content.Shared.Weather;
 /// Used only in conjure with <see cref="StatusEffectComponent"/> for status effects applied to map entities.
 /// Contains basic information about all types of weather effects.
 /// </summary>
-[RegisterComponent, NetworkedComponent, Access(typeof(SharedWeatherSystem))]
+[RegisterComponent, NetworkedComponent] // ADT-Tweak
 public sealed partial class WeatherStatusEffectComponent : Component
 {
     /// <summary>
@@ -55,4 +57,12 @@ public sealed partial class WeatherStatusEffectComponent : Component
     /// </summary>
     [DataField]
     public TimeSpan UpdateDelay = TimeSpan.FromSeconds(1);
+
+    // ADT Weather Tweak Start
+    [DataField]
+    public DamageSpecifier? Damage;
+
+    [DataField]
+    public EntityWhitelist? DamageBlacklist;
+    // ADT Weather Tweak End
 }

@@ -36,7 +36,7 @@ public sealed class WeatherSchedulerSystem : EntitySystem
             comp.NextUpdate = now + TimeSpan.FromSeconds(duration);
 
             var mapId = Comp<MapComponent>(map).MapId;
-            if (stage.Weather is {} weather)
+            if (stage.Weather is { } weather)
             {
                 var ending = comp.NextUpdate;
                 // crossfade weather so as one ends the next starts
@@ -47,7 +47,7 @@ public sealed class WeatherSchedulerSystem : EntitySystem
                 _weather.TrySetWeather(mapId, weather, out _, ending);
             }
 
-            if (stage.Message is {} message)
+            if (stage.Message is { } message)
             {
                 var msg = Loc.GetString(message);
                 _chat.ChatMessageToManyFiltered(
