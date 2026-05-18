@@ -23,6 +23,8 @@
                 <Button Visible="False" Name="Ban" Text="{Loc 'admin-player-actions-ban'}" StyleClasses="OpenBoth" />
                 <controls:ConfirmButton Visible="False" Name="Respawn" Text="{Loc 'admin-player-actions-respawn'}" ConfirmationText="{Loc 'admin-player-actions-confirm'}" StyleClasses="OpenBoth" />
                 <Button Visible="False" Name="Follow" Text="{Loc 'admin-player-actions-follow'}" StyleClasses="OpenLeft" />
+                <Button Visible="True" Name="Logs" Access="Public" Text="{Loc 'admin-player-actions-open-logs'}" StyleClasses="OpenBoth" HorizontalAlignment="Left" /> <!-- ADT-Tweak -->
+                <Button Visible="True" Name="Playerpanel" Access="Public" Text="{Loc 'admin-player-actions-open-playerpanel'}" StyleClasses="OpenBoth" HorizontalAlignment="Left" /> <!-- ADT-Tweak -->
             </BoxContainer>
         </SplitContainer>
     </PanelContainer>

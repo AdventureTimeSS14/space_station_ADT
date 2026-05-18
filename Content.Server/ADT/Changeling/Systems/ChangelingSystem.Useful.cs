@@ -65,7 +65,7 @@ public sealed partial class ChangelingSystem
         }
 
         var target = args.Target;
-        if (!HasComp<HumanoidAppearanceComponent>(target))
+        if (!HasComp<HumanoidProfileComponent>(target))
         {
             var selfMessage = Loc.GetString("changeling-dna-fail-nohuman", ("target", Identity.Entity(target, EntityManager)));
             _popup.PopupEntity(selfMessage, uid, uid);
@@ -526,7 +526,7 @@ public sealed partial class ChangelingSystem
                     ev.HumanoidData.Add(new(
                         netEntity,
                         Name(item.EntityUid),
-                        item.HumanoidAppearanceComponent.Species.Id,
+                        item.HumanoidProfileComponent.Species.Id,
                         BuildProfile(item)));
                 }
 
@@ -656,7 +656,7 @@ public sealed partial class ChangelingSystem
                 ev.HumanoidData.Add(new(
                     netEntity,
                     Name(item.EntityUid),
-                    item.HumanoidAppearanceComponent.Species.Id,
+                    item.HumanoidProfileComponent.Species.Id,
                     BuildProfile(item)));
             }
 
