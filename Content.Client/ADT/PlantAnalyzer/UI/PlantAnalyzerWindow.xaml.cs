@@ -44,6 +44,8 @@ public sealed partial class PlantAnalyzerWindow : FancyWindow
             NoData.Visible = true;
             Tabs.Visible = false;
             WarningsContainer.Visible = false;
+            PlantName.Text = string.Empty;
+            Repeat.Text = string.Empty;
             return;
         }
 
