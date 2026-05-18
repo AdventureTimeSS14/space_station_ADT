@@ -36,6 +36,8 @@ using Content.Server.Voting.Managers;
 using Content.Shared.Voting;
 using Content.Shared.FixedPoint;
 using Content.Shared.ADT.LastWords;
+using Content.Shared.Damage.Prototypes;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.GameTicking
 {
@@ -609,7 +611,7 @@ namespace Content.Server.GameTicking
 
                 var lastWords = "";
                 var mobState = MobState.Invalid;
-                var damagePerGroup = new Dictionary<string, FixedPoint2>();
+                var damagePerGroup = new Dictionary<ProtoId<DamageGroupPrototype>, FixedPoint2>();
                 var lastMob = mind.LastMob;
                 if (TryComp<LastWordsComponent>(mindId, out var lastWordsComponent)
                     && !TerminatingOrDeleted(lastMob))

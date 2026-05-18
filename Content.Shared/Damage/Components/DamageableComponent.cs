@@ -58,8 +58,9 @@ public sealed partial class DamageableComponent : Component
     ///     dictionary.
     /// </remarks>
     [ViewVariables]
-    [Access(typeof(DamageableSystem), Other = AccessPermissions.None)]
-    public Dictionary<ProtoId<DamageGroupPrototype>, FixedPoint2> DamagePerGroup = new();
+    [Access(typeof(DamageableSystem), Other = AccessPermissions.Read)] // ADT-Tweak. AccessPermissions.None -> AccessPermissions.Read
+
+     public Dictionary<ProtoId<DamageGroupPrototype>, FixedPoint2> DamagePerGroup = new();
 
     /// <summary>
     ///     The sum of all damages in the DamageableComponent.

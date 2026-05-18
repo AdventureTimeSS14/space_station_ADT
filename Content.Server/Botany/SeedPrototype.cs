@@ -18,7 +18,7 @@ namespace Content.Server.Botany;
 [Prototype("seed")] //ADT-Tweak
 public sealed partial class SeedPrototype : SeedData, IPrototype
 {
-    [IdDataField] public string ID { get; private init; } = default!; //ADT-Tweak
+    [IdDataField] public string ID { get; private set; } = default!; //ADT-Tweak
 }
 
 public enum HarvestType : byte
