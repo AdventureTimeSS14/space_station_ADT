@@ -10,6 +10,7 @@ using Content.Shared.Popups;
 using Content.Shared.Timing;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Random;
+using Content.Shared.Body;
 using Content.Shared.FixedPoint;
 using Content.Shared.Alert;
 using Content.Shared.DoAfter;
@@ -161,10 +162,8 @@ public sealed class ChaplainSystem : EntitySystem
             return;
         }
 
-        if (!HasComp<HumanoidAppearanceComponent>(target))
-        {
+        if (!HasComp<HumanoidProfileComponent>(target))
             return;
-        }
 
         if (component.Believers >= component.MaxBelievers)
         {
