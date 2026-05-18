@@ -1,4 +1,5 @@
 using Content.Shared.Chemistry.Components.SolutionManager;
+using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Fluids.Components;
 using Content.Shared.Heretic.Prototypes;
@@ -8,6 +9,9 @@ namespace Content.Server.Heretic.Ritual;
 
 public sealed partial class RitualReagentPuddleBehavior : RitualCustomBehavior
 {
+
+    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
+
     private EntityLookupSystem _lookup = default!;
 
     [DataField] public ProtoId<ReagentPrototype>? Reagent;
@@ -30,12 +34,10 @@ public sealed partial class RitualReagentPuddleBehavior : RitualCustomBehavior
             if (!args.EntityManager.TryGetComponent<PuddleComponent>(ent, out var puddle))
                 continue;
 
-            if (puddle.Solution == null)
+            if (!_solutionContainer.ResolveSolution(ent, puddle.SolutionName, ref puddle.Solution, out var solution))
                 continue;
 
-            var soln = puddle.Solution.Value;
-
-            if (!soln.Comp.Solution.ContainsPrototype(Reagent))
+            if (!solution.ContainsPrototype(Reagent.Value))
                 continue;
 
             uids.Add(ent);
