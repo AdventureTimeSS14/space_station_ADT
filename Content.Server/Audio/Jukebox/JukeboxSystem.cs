@@ -58,29 +58,29 @@ public sealed class JukeboxSystem : SharedJukeboxSystem
         }
         else
         {
-            component.AudioStream = Audio.Stop(component.AudioStream);
-            PlayTrack(uid, component); // ADT-Tweak
+            ent.Comp.AudioStream = Audio.Stop(ent.Comp.AudioStream);
+            PlayTrack(ent); // ADT-Tweak
         }
     }
 
     // ADT-Tweak start
-    private void PlayTrack(EntityUid uid, JukeboxComponent component)
+    private void PlayTrack(Entity<JukeboxComponent> ent)
     {
-        if (string.IsNullOrEmpty(component.SelectedSongId) ||
-            !_protoManager.Resolve(component.SelectedSongId, out var jukeboxProto))
+        if (string.IsNullOrEmpty(ent.Comp.SelectedSongId) ||
+            !_protoManager.Resolve(ent.Comp.SelectedSongId, out var jukeboxProto))
         {
             return;
         }
 
         var audioParams = AudioParams.Default
             .WithMaxDistance(10f)
-            .WithVolume(MapToRange(component.Volume, component.MinSlider, component.MaxSlider, component.MinVolume, component.MaxVolume))
-            .WithPlayOffset(component.CurrentPlaybackOffset);
+            .WithVolume(MapToRange(ent.Comp.Volume, ent.Comp.MinSlider, ent.Comp.MaxSlider, ent.Comp.MinVolume, ent.Comp.MaxVolume))
+            .WithPlayOffset(ent.Comp.CurrentPlaybackOffset);
 
-        component.AudioStream = Audio.PlayPvs(jukeboxProto.Path, uid, audioParams)?.Entity;
-        component.PlaybackStartTime = _gameTiming.CurTime;
-        component.CurrentPlaybackOffset = 0f;
-        Dirty(uid, component);
+        ent.Comp.AudioStream = Audio.PlayPvs(jukeboxProto.Path, ent.Owner, audioParams)?.Entity;
+        ent.Comp.PlaybackStartTime = _gameTiming.CurTime;
+        ent.Comp.CurrentPlaybackOffset = 0f;
+        Dirty(ent);
     }
     // ADT-Tweak end
 
