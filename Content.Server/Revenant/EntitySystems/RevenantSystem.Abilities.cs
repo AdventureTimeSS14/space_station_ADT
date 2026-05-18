@@ -106,7 +106,7 @@ public sealed partial class RevenantSystem
         }
 
         if (!HasComp<MobStateComponent>(target)
-            || !HasComp<HumanoidAppearanceComponent>(target)
+            || !HasComp<HumanoidProfileComponent>(target)
             || HasComp<RevenantComponent>(target)
             || HasComp<MagicImmunityComponent>(target)) // ADT-Tweak
             return;
