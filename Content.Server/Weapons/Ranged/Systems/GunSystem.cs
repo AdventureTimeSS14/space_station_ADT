@@ -126,10 +126,10 @@ public sealed partial class GunSystem : SharedGunSystem
                         // ADT Mech start
                         if (TryComp<MechComponent>(user, out var cmech))
                         {
-                            Audio.PlayPredicted(gun.SoundEmpty, gunUid, cmech.PilotSlot.ContainedEntity);
+                            Audio.PlayPredicted(gun.Comp.SoundEmpty, gun.Owner, cmech.PilotSlot.ContainedEntity);
                         }
                         else
-                            Audio.PlayPredicted(gun.SoundEmpty, gunUid, user);
+                            Audio.PlayPredicted(gun.Comp.SoundEmpty, gun.Owner, user);
                         // ADT Mech end
                     }
 
@@ -200,11 +200,11 @@ public sealed partial class GunSystem : SharedGunSystem
                 shotProjectiles.Add(ammoEnt);
             }
 
-            MuzzleFlash(gunUid, ammoComp, mapDirection.ToAngle(), user);
+            MuzzleFlash(gun.Owner, ammoComp, mapDirection.ToAngle(), user);
             if (TryComp<MechComponent>(user, out var mech)) // ADT Mech gun fix
-                Audio.PlayPredicted(gun.SoundGunshotModified, gunUid, mech.PilotSlot.ContainedEntity);
+                Audio.PlayPredicted(gun.Comp.SoundGunshotModified, gun.Owner, mech.PilotSlot.ContainedEntity);
             else
-                Audio.PlayPredicted(gun.SoundGunshotModified, gunUid, user);
+                Audio.PlayPredicted(gun.Comp.SoundGunshotModified, gun.Owner, user);
         }
     }
 
@@ -214,7 +214,7 @@ public sealed partial class GunSystem : SharedGunSystem
         {
             var targeted = EnsureComp<TargetedProjectileComponent>(uid);
             targeted.Target = target;
-            targeted.TargetCoords = gun.ShootCoordinates; // ADT-Crawling-Abuse-Tweak
+            targeted.TargetCoords = gun.Comp.ShootCoordinates; // ADT-Crawling-Abuse-Tweak
             Dirty(uid, targeted);
         }
 
