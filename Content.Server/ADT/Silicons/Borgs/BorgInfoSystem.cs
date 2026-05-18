@@ -8,6 +8,7 @@ using Content.Server.Station.Systems;
 using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.PowerCell.Components;
 using Content.Shared.PowerCell;
+using Content.Shared.Power.EntitySystems;
 
 namespace Content.Server.ADT.Silicons.Borgs;
 
@@ -19,6 +20,7 @@ public sealed partial class BorgInfoSystem : EntitySystem
     [Dependency] private readonly PowerCellSystem _powerCell = default!;
     [Dependency] private readonly BorgSystem _borg = default!;
     [Dependency] private readonly IEntityManager _entity = default!;
+    [Dependency] private readonly SharedBatterySystem _battery = default!;
 
     public override void Initialize()
     {
@@ -58,7 +60,7 @@ public sealed partial class BorgInfoSystem : EntitySystem
         if (!TryComp<ActorComponent>(uid, out var actor))
             return;
 
-        _uiSystem.TryOpenUi(uid, BorgInfoUiKey.BorgInfo, actor.Owner);
+        _uiSystem.TryOpenUi(uid, BorgInfoUiKey.BorgInfo, uid);
 
         args.Handled = true;
     }
@@ -94,9 +96,10 @@ public sealed partial class BorgInfoSystem : EntitySystem
         var chargePercent = 0f;
         var hasBattery = false;
 
-        if (_powerCell.TryGetBatteryFromSlot(uid, out var battery))
+        if (_powerCell.TryGetBatteryFromSlot(uid, out var battery) && battery is { } batteryEntity)
         {
-            chargePercent = battery.CurrentCharge / battery.MaxCharge;
+            var currentCharge = _battery.GetCharge(batteryEntity.Owner);
+            chargePercent = currentCharge / batteryEntity.Comp.MaxCharge;
             hasBattery = true;
         }
         var borgName = _entity.GetComponent<MetaDataComponent>(uid).EntityName;
