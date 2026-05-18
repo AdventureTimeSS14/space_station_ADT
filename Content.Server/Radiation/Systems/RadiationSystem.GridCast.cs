@@ -209,9 +209,11 @@ public partial class RadiationSystem
         Vector2i sourceGrid = new((int)Math.Floor(srcLocal.X / grid.Comp1.TileSize), (int)Math.Floor(srcLocal.Y / grid.Comp1.TileSize));
         Vector2i destGrid = new((int)Math.Floor(dstLocal.X / grid.Comp1.TileSize), (int)Math.Floor(dstLocal.Y / grid.Comp1.TileSize));
 
-        Vector2i destGrid = new(
-            (int)Math.Floor(dstLocal.X / grid.Comp1.TileSize),
-            (int)Math.Floor(dstLocal.Y / grid.Comp1.TileSize));
+        // ADT-Tweak start
+        // Vector2i destGrid = new(
+        //     (int)Math.Floor(dstLocal.X / grid.Comp1.TileSize),
+        //     (int)Math.Floor(dstLocal.Y / grid.Comp1.TileSize));
+        // ADT-Tweak end
 
         foreach (var (point,dist) in AdvancedGridRaycast(sourceGrid,destGrid))
         {
