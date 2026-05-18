@@ -701,7 +701,7 @@
   - type: ZombificationResistance
     zombificationResistanceCoefficient: 0.3
   - type: DNALocker
-    # ADT-Tweak-End
+  # ADT-Tweak-End
 
 #Syndicate Elite Hardsuit
 - type: entity
@@ -838,12 +838,12 @@
         Heat: 0.2
         Radiation: 0.2
         Caustic: 0.2
-# ADT-Tweak-Start
+  # ADT-Tweak-Start
   - type: StaminaResistance
     damageCoefficient: 0.15
   - type: ZombificationResistance
     zombificationResistanceCoefficient: 0.2
-# ADT-Tweak-End
+  # ADT-Tweak-End
   - type: ClothingSpeedModifier
     walkModifier: 0.65
     sprintModifier: 0.65
