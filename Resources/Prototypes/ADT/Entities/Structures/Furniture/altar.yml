@@ -87,7 +87,7 @@
         effectProto: ADTCultistBubble
         soundPath: /Audio/Magic/Cults/ClockCult/steam_whoosh.ogg
         powerCost: 1
-      - requiredProto: MagazineBoxMagnum
+      - requiredProto: ADTMagazineBoxMagnumLesser
         resultProto: ADTMagazineBoxMagnumHoly
         effectProto: ADTWeaponArcMantisSlash
         soundPath: /Audio/Magic/blink.ogg

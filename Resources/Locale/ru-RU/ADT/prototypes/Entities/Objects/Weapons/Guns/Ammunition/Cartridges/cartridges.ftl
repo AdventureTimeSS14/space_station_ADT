@@ -21,5 +21,5 @@ ent-Syringecartridge = шприцевый картридж
 ent-ADTCartridgeMagnumHoly = патрон (.357 магнум освященный)
     .desc = { ent-BaseCartridge.desc }
 
-ent-ADTCartridgeMagnumSilver = патрон (.357 магнум серебрянный)
+ent-ADTCartridgeMagnumSilver = патрон (.357 магнум серебряный)
     .desc = { ent-BaseCartridge.desc }
