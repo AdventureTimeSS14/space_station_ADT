@@ -10,6 +10,8 @@ using Content.Shared.HijackBeacon;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
+using Content.Shared.Stacks;
+
 namespace Content.Server.Cargo.Systems;
 
 public sealed partial class CargoSystem
