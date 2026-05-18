@@ -14,6 +14,8 @@ using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Preferences;
 using Content.Shared.Preferences.Loadouts;
 using Content.Shared.Roles;
+using Content.Shared.ADT.Language;
+using Content.Shared.ADT.SpeechBarks;
 using Content.Shared.Traits;
 using Robust.Server.Player;
 using Robust.Shared.Configuration;
@@ -169,16 +171,22 @@ namespace Content.Server.Preferences.Managers
                 loadouts[role.RoleName] = loadout;
             }
 
+            var languages = profile.Languages
+                .Select(l => new ProtoId<LanguagePrototype>(l.LanguageName))
+                .ToHashSet();
+
             return new HumanoidCharacterProfile(
                 profile.CharacterName,
                 profile.FlavorText,
                 species,
+                profile.Voice,
                 profile.Age,
                 sex,
                 gender,
                 new HumanoidCharacterAppearance
                 (
                     Color.FromHex(profile.EyeColor),
+                    new List<Color> { Color.FromHex(profile.HairColor) },
                     Color.FromHex(profile.SkinColor),
                     markings
                 ),
@@ -187,7 +195,11 @@ namespace Content.Server.Preferences.Managers
                 (PreferenceUnavailableMode) profile.PreferenceUnavailable,
                 antags.ToHashSet(),
                 traits.ToHashSet(),
-                loadouts
+                loadouts,
+                new BarkData(profile.BarkProto, profile.BarkPitch, profile.LowBarkVar, profile.HighBarkVar),
+                languages,
+                profile.OOCNotes,
+                profile.HeadshotUrl
             );
         }
 
@@ -397,7 +409,7 @@ namespace Content.Server.Preferences.Managers
                     // ADT-Tweak start
                     prefsData.PrefsLoaded = true;
                     var msg = new MsgPreferencesAndSettings();
-                    msg.Preferences = prefs;
+                    msg.Preferences = prefsData.Prefs;
                     msg.Settings = new GameSettings
                     {
                         MaxCharacterSlots = MaxCharacterSlots
@@ -516,10 +528,7 @@ namespace Content.Server.Preferences.Managers
                 return await _db.InitPrefsAsync(userId, HumanoidCharacterProfile.Random(speciesToBlacklist), cancel);
             }
 
-            var session = _playerManager.GetSessionById(userId);
-            var collection = IoCManager.Instance!;
-
-            return SanitizePreferences(session, prefs, collection);
+            return prefs;
         }
 
         private PlayerPreferences SanitizePreferences(ICommonSession session, PlayerPreferences prefs, IDependencyCollection collection)
@@ -531,7 +540,8 @@ namespace Content.Server.Preferences.Managers
 
             return new PlayerPreferences(prefs.Characters.Select(p =>
             {
-                return new KeyValuePair<int, HumanoidCharacterProfile>(p.Key, p.Value.Validated(session, collection));
+                var allowedMarkings = _sponsors.TryGetInfo(session.UserId, out var sponsor) ? sponsor.AllowedMarkings : [];
+                return new KeyValuePair<int, HumanoidCharacterProfile>(p.Key, p.Value.Validated(session, collection, allowedMarkings));
             }), prefs.SelectedCharacterIndex, prefs.AdminOOCColor, prefs.ConstructionFavorites);
         }
 
