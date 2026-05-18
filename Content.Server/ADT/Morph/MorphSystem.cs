@@ -352,7 +352,7 @@ public sealed class MorphSystem : SharedMorphSystem
 
             if (morphList.Count() == component.DetectableCount) //чтобы не спамило на всякий
             {
-                ChatSystem.DispatchFilteredAnnouncement(Filter.Broadcast(), Loc.GetString("morphs-announcement"), playSound: false, colorOverride: Color.Gold);
+                _chatSystem.DispatchFilteredAnnouncement(Filter.Broadcast(), Loc.GetString("morphs-announcement"), playSound: false, colorOverride: Color.Gold);
                 _audioSystem.PlayGlobal(component.SoundReplication, Filter.Broadcast(), true);
             }
             _actions.StartUseDelay(component.ReplicationActionEntity);
