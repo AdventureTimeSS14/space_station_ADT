@@ -52,6 +52,7 @@ public sealed partial class GhoulSystem : EntitySystem
     [Dependency] private readonly MobThresholdSystem _threshold = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly SharedVisualBodySystem _visualBody = default!;
 
     private readonly Dictionary<EntityUid, GhoulStoredComponents> _storedComponents = new();
 

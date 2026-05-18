@@ -2,7 +2,6 @@ using Content.Server.Atmos.Components;
 using Content.Server.Body.Components;
 using Content.Shared.Alert;
 using Content.Shared.Damage;
-using Content.Shared.Heretic;
 using Content.Shared.Humanoid;
 using Content.Shared.Item;
 using Content.Shared.Nutrition.AnimalHusbandry;
@@ -175,10 +174,11 @@ public sealed partial class GhoulSystem
         }
 
         // Сохраняем оригинальный цвет кожи и глаз
-        if (TryComp<HumanoidAppearanceComponent>(ent, out var humanoid))
+        if (_visualBody.TryGatherMarkingsData(ent, null, out var profiles, out _, out _) && profiles.Count > 0)
         {
-            stored.StoredSkinColor = humanoid.SkinColor;
-            stored.StoredEyeColor = humanoid.EyeColor;
+            var firstProfile = profiles.Values.First();
+            stored.StoredSkinColor = firstProfile.SkinColor;
+            stored.StoredEyeColor = firstProfile.EyeColor;
         }
 
         return stored;
@@ -322,23 +322,31 @@ public sealed partial class GhoulSystem
         }
 
         // Восстанавливаем цвет кожи и глаз
-        if (stored.StoredSkinColor != null && TryComp<HumanoidAppearanceComponent>(ent, out var humanoid))
+        if (_visualBody.TryGatherMarkingsData(ent, null, out var restoreProfiles, out _, out _))
         {
-            _humanoid.SetSkinColor(ent, stored.StoredSkinColor.Value, true, false, humanoid);
+            if (stored.StoredSkinColor == null)
+                Log.Warning($"[GhoulSystem] НЕ удалось восстановить цвет кожи: StoredSkinColor={stored.StoredSkinColor}");
+
+            if (stored.StoredEyeColor != null)
+                Log.Info($"[GhoulSystem] Восстанавливаем цвет глаз: {stored.StoredEyeColor.Value}");
+            else
+                Log.Warning($"[GhoulSystem] НЕ удалось восстановить цвет глаз: StoredEyeColor={stored.StoredEyeColor}");
+
+            var newProfiles = restoreProfiles.ToDictionary(pair => pair.Key, pair =>
+            {
+                var p = pair.Value;
+                if (stored.StoredSkinColor != null)
+                    p = p with { SkinColor = stored.StoredSkinColor.Value };
+                if (stored.StoredEyeColor != null)
+                    p = p with { EyeColor = stored.StoredEyeColor.Value };
+                return p;
+            });
+            _visualBody.ApplyProfiles(ent, newProfiles);
         }
         else
         {
-            Log.Warning($"[GhoulSystem] НЕ удалось восстановить цвет кожи: StoredSkinColor={stored.StoredSkinColor}, HasHumanoid={HasComp<HumanoidAppearanceComponent>(ent)}");
-        }
-        if (stored.StoredEyeColor != null && TryComp<HumanoidAppearanceComponent>(ent, out humanoid))
-        {
-            Log.Info($"[GhoulSystem] Восстанавливаем цвет глаз: {stored.StoredEyeColor.Value}");
-            humanoid.EyeColor = stored.StoredEyeColor.Value;
-            Dirty(ent, humanoid);
-        }
-        else
-        {
-            Log.Warning($"[GhoulSystem] НЕ удалось восстановить цвет глаз: StoredEyeColor={stored.StoredEyeColor}, HasHumanoid={HasComp<HumanoidAppearanceComponent>(ent)}");
+            Log.Warning($"[GhoulSystem] НЕ удалось восстановить цвет кожи: StoredSkinColor={stored.StoredSkinColor}, HasHumanoid={HasComp<HumanoidProfileComponent>(ent)}");
+            Log.Warning($"[GhoulSystem] НЕ удалось восстановить цвет глаз: StoredEyeColor={stored.StoredEyeColor}, HasHumanoid={HasComp<HumanoidProfileComponent>(ent)}");
         }
     }
 }

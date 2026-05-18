@@ -16,7 +16,7 @@ public sealed partial class RitualReagentPuddleBehavior : RitualCustomBehavior
 
     [DataField] public ProtoId<ReagentPrototype>? Reagent;
 
-    private List<EntityUid> uids = new();
+    private List<EntityUid> _uids = new();
 
     public override bool Execute(RitualData args, out string? outstr)
     {
@@ -40,10 +40,10 @@ public sealed partial class RitualReagentPuddleBehavior : RitualCustomBehavior
             if (!solution.ContainsPrototype(Reagent.Value))
                 continue;
 
-            uids.Add(ent);
+            _uids.Add(ent);
         }
 
-        if (uids.Count == 0)
+        if (_uids.Count == 0)
         {
             outstr = Loc.GetString("heretic-ritual-fail-reagentpuddle", ("reagentname", Reagent!));
             return false;
@@ -54,8 +54,9 @@ public sealed partial class RitualReagentPuddleBehavior : RitualCustomBehavior
 
     public override void Finalize(RitualData args)
     {
-        foreach (var uid in uids)
+        foreach (var uid in _uids)
             args.EntityManager.QueueDeleteEntity(uid);
-        uids = new();
+
+        _uids.Clear();
     }
 }
