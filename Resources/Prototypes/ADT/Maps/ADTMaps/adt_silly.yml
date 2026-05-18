@@ -31,7 +31,7 @@
             Quartermaster: [ 1, 1 ]
             SalvageSpecialist: [ 4, 4 ]
             CargoTechnician: [ 3, 3 ]
-            # ADTMiner: [ 2, 2 ]
+            ADTMiner: [ 2, 3 ]
 
             # engineering
             ChiefEngineer: [ 1, 1 ]
