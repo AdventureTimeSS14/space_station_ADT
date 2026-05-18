@@ -16,10 +16,7 @@ public sealed class PlantAnalyzerBoundUserInterface : BoundUserInterface
     protected override void Open()
     {
         base.Open();
-        _window = new PlantAnalyzerWindow(this)
-        {
-            Title = Loc.GetString("plant-analyzer-interface-title"),
-        };
+        _window = new PlantAnalyzerWindow(this);
         _window.OnClose += Close;
         _window.OpenCenteredLeft();
     }
@@ -31,23 +28,15 @@ public sealed class PlantAnalyzerBoundUserInterface : BoundUserInterface
 
         if (message is not PlantAnalyzerScannedSeedPlantInformation cast)
             return;
-        _window.Populate(cast);
-    }
 
-    public void AdvPressed(bool scanMode)
-    {
-        SendMessage(new PlantAnalyzerSetMode(scanMode));
+        _window.Populate(cast);
     }
 
     protected override void Dispose(bool disposing)
     {
         base.Dispose(disposing);
-        if (!disposing)
-            return;
 
-        if (_window != null)
-            _window.OnClose -= Close;
-
-        _window?.Dispose();
+        if (disposing)
+            _window?.Close();
     }
 }
