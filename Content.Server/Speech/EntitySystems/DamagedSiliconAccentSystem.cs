@@ -21,6 +21,7 @@ public sealed class DamagedSiliconAccentSystem : EntitySystem
     [Dependency] private readonly DestructibleSystem _destructibleSystem = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
 
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
     public override void Initialize()
     {
         base.Initialize();
