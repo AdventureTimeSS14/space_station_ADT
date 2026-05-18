@@ -124,3 +124,29 @@
     sprite:  ADT/Clothing/Back/winrar.rsi
   - type: ExplosionResistance
     damageCoefficient: 0.9
+
+- type: entity
+  parent: ClothingBackpack
+  id: ADTClothingBackpackSanta
+  name: ADTClothingBackpackSanta
+  description: ADTClothingBackpackSanta
+  components:
+  - type: Sprite
+    sprite: ADT/Clothing/Back/santa_backpack.rsi
+  - type: Storage
+    maxItemSize: Huge
+    grid:
+    - 0,0,19,9
+  - type: LimitedItemGiver
+    spawnEntries:
+      - id: PresentRandom
+        orGroup: present
+      - id: PresentRandomCash # buy your own.
+        prob: 0.1
+        orGroup: present
+      - id: PresentRandomCoal # naughty
+        prob: 0.05
+        orGroup: present
+    receivedPopup: christmas-tree-got-gift
+    deniedPopup: christmas-tree-no-gift
+    requiredHoliday: FestiveSeason

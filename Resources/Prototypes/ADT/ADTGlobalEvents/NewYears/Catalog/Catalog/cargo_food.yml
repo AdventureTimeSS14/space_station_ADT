@@ -1,0 +1,19 @@
+- type: cargoProduct
+  id: ADTCargoChocolateGorilla
+  icon:
+    sprite: ADT/ADTGlobalEvents/NewYears/Objects/Consumable/Food/new-years/chocogorilla.rsi
+    state: chocogorilla
+  product: ADTCrateChocolateGorilla
+  cost: 1000
+  category: cargoproduct-category-name-food
+  group: market
+
+- type: cargoProduct
+  id: ADTFunChristmasTree
+  icon:
+    sprite: ADT/ADTGlobalEvents/NewYears/Structures/Furniture/Tree/christmas_tree.rsi
+    state: christmas_tree
+  product: ADTCrateChristmasTree
+  cost: 250
+  category: cargoproduct-category-name-fun
+  group: market

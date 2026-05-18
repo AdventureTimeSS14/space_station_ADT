@@ -1,0 +1,91 @@
+- type: entity
+  parent: BaseSign
+  id: NewYearDecorationBase
+  abstract: true
+  suffix: New Year
+  components:
+  - type: WallMount
+    arc: 360
+  - type: Sprite
+    drawdepth: WallTops
+    sprite: ADT/ADTGlobalEvents/NewYears/Objects/Decoration/cristmas_wreaths.rsi
+    snapCardinals: true
+
+#Венки и омелы от lunalita
+- type: entity
+  parent: NewYearDecorationBase
+  id: ADTCristmasWreath
+  name: christmas wreath
+  description: A typical decoration in houses on Earth in the run-up to Christmas.
+  components:
+  - type: Sprite
+    state: christmaswreath_01
+
+- type: entity
+  parent: NewYearDecorationBase
+  id: ADTCristmasWreath2
+  name: christmas wreath
+  description: A typical decoration in houses on Earth in the run-up to Christmas.
+  components:
+  - type: Sprite
+    state: christmaswreath_02
+
+- type: entity
+  parent: NewYearDecorationBase
+  id: ADTCristmasWreath3
+  name: christmas wreath
+  description: A typical decoration in houses on Earth in the run-up to Christmas.
+  components:
+  - type: Sprite
+    state: christmaswreath_03
+
+- type: entity
+  parent: NewYearDecorationBase
+  id: ADTCristmasMistletoe
+  name: christmas wmistletoe
+  description: A main decoration in houses in England on Earth in the run-up to Christmas.
+  components:
+  - type: Sprite
+    state: christmasmistletoe_01
+
+- type: entity
+  parent: NewYearDecorationBase
+  id: ADTCristmasMistletoe2
+  name: christmas wmistletoe
+  description: A main decoration in houses in England on Earth in the run-up to Christmas.
+  components:
+  - type: Sprite
+    state: christmasmistletoe_02
+
+#Мишура от auriss093
+- type: entity
+  parent: NewYearDecorationBase
+  id: ADTTinselRed
+  name: red tinsel
+  description: Simple, yet effective decoration for holidays.
+  components:
+  - type: Sprite
+    drawdepth: WallTops
+    sprite: ADT/ADTGlobalEvents/NewYears/Objects/Decoration/tinsel.rsi
+    state: redtinsel
+    snapCardinals: true
+
+- type: entity
+  parent: ADTTinselRed
+  id: ADTTinselGold
+  name: gold tinsel
+  description: Simple, yet effective decoration for holidays. Painted in gold.
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/NewYears/Objects/Decoration/tinsel.rsi
+    state: goldtinsel
+
+- type: entity
+  parent: ADTTinselRed
+  id: ADTTinselSilver
+  name: silver tinsel
+  description: Simple, yet effective decoration for holidays. Painted in silver.
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/NewYears/Objects/Decoration/tinsel.rsi
+    state: silvertinsel

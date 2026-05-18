@@ -1,0 +1,37 @@
+#New Year
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ADTClothingFootElfBoots
+  name: elf boots
+  description: Warm boots to work in a house on north.
+  suffix: New Year
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/NewYears/Clothing/Shoes/Boots/elf_boots.rsi
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/NewYears/Clothing/Shoes/Boots/elf_boots.rsi
+
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ADTClothingFootBootsSnowMaiden
+  name: snow maiden's boots
+  description: Warm boots of Snow Maiden.
+  suffix: New Year
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/NewYears/Clothing/Shoes/Boots/snow_maiden.rsi
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/NewYears/Clothing/Shoes/Boots/snow_maiden.rsi
+
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ClothingShoesBootsMoroz
+  name: Валенки
+  description: Современная теплая обувь, натуральные материалы, нескользящая подошва, утепленные на застежке Валенки.
+  components:
+  - type: Sprite
+    sprite: ADT/ADTGlobalEvents/NewYears/Clothing/Shoes/Boots/moroz_winterboots.rsi
+  - type: Clothing
+    sprite: ADT/ADTGlobalEvents/NewYears/Clothing/Shoes/Boots/moroz_winterboots.rsi
+  # - type: TemperatureProtection
+  #   coefficient: 0.1
