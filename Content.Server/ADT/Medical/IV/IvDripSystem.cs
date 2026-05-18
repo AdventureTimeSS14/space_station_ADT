@@ -102,7 +102,7 @@ public sealed class IvDripSystem : SharedIvDripSystem
 
                         if (nonBloodSolution.Volume > FixedPoint2.Zero)
                         {
-                            if (!_bloodstream.TryAddToChemicals((attachedTo, bloodstream), nonBloodSolution))
+                            if (!_bloodstream.TryAddToBloodstream(attachedTo, nonBloodSolution))
                             {
                                 _sharedSolutionContainer.AddSolution(packSolEnt.Value, nonBloodSolution);
                             }
