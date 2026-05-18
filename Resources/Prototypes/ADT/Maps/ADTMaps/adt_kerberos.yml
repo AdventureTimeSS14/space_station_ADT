@@ -1,7 +1,7 @@
 - type: gameMap
   id: ADT_Kerberos
   mapName: 'Kerberos Station'
-  mapPath: /Maps/6aps/ADTStations/adt_kerberos.yml
+  mapPath: /Maps/ADTMaps/ADTStations/adt_kerberos.yml
   maxRandomOffset: 0
   minPlayers: 60
   stations:
