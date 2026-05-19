@@ -7,13 +7,10 @@
     state: icon
   - type: Clothing
     slots: [gloves]
-<<<<<<< HEAD
     # ADT Start
     equipSound:
       path: /Audio/ADT/Entities/glove_equip.ogg
     # ADT End
-=======
->>>>>>> upstreamwiz/master
   - type: Edible
     requiresSpecialDigestion: true
   - type: Item
