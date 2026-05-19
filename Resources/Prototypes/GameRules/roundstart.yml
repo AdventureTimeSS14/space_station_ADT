@@ -24,17 +24,14 @@
       prob: 0.5
     - id: Xenoborgs
       prob: 0.05
-<<<<<<< HEAD
 #    - id: SubWizard
 #      prob: 0.05
     # - id: Heretic # goob edit #ADT-Tweak - убрал еретиков и генокрадов из геймрула
     #   prob: 0.2
     # - id: ChangelingGameRule # ADT-Changeling-Tweak
     #   prob: 0.1
-=======
     - id: SubXenoborgs
       prob: 0.05
->>>>>>> upstreamwiz/master
 
 - type: entity
   parent: BaseGameRule
@@ -44,11 +41,7 @@
     rules:
     - id: Thief
       prob: 0.5
-<<<<<<< HEAD
-    - id: Xenoborgs
-=======
     - id: SubXenoborgs
->>>>>>> upstreamwiz/master
       prob: 0.05
 
 - type: entity
@@ -59,14 +52,10 @@
     rules:
     - id: Thief
       prob: 0.5
-<<<<<<< HEAD
     #ADT-Tweak-Start
     #- id: SubWizard
     #  prob: 0.05
     #ADT-Tweak-End
-=======
-    - id: SubWizard
-      prob: 0.05
 
 - type: entity
   parent: BaseGameRule
@@ -76,7 +65,6 @@
     rules:
     - id: Thief
       prob: 0.5
->>>>>>> upstreamwiz/master
 
 - type: entity
   parent: BaseGameRule
@@ -306,9 +294,6 @@
       - type: ChangelingTransform
       - type: ActionGrant
         actions:
-<<<<<<< HEAD
-        - ActionRetractableItemArmBlade # Temporary addition, will inevitably be a purchasable in the bio-store
-=======
         - ActionChangelingStore
       # TODO: Make it so the changeling gamerule changeling can inherit from the changeling store preset somehow
       - type: Store
@@ -319,7 +304,6 @@
         - ChangelingDNA
         balance:
           ChangelingDNA: 50
->>>>>>> upstreamwiz/master
       mindRoles:
       - MindRoleChangeling
   - type: AntagObjectives
@@ -455,8 +439,6 @@
       - MindRoleInitialInfected
   - type: DynamicRuleCost
     cost: 200
-<<<<<<< HEAD
-=======
 
 - type: entity
   abstract: true
@@ -497,7 +479,6 @@
   - type: DynamicRuleCost
     cost: 200
 
->>>>>>> upstreamwiz/master
 
 # This rule makes the chosen players unable to get other antag rules, as a way to prevent metagaming job rolls.
 # Put this before antags assigned to station jobs, but after non-job antags (NukeOps/Wiz).
@@ -536,31 +517,6 @@
 
 - type: entityTable
   id: DynamicGameRulesTable
-<<<<<<< HEAD
-  table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
-    children:
-    - !type:NestedSelector
-      tableId: BasicCalmEventsTable
-    - !type:NestedSelector
-      tableId: BasicAntagEventsTable
-    - !type:NestedSelector
-      tableId: CargoGiftsTable
-    - !type:NestedSelector
-      tableId: CalmPestEventsTable
-    - !type:NestedSelector
-      tableId: SpicyPestEventsTable
-
-- type: entityTable
-  id: SpaceTrafficControlTable
-  table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
-    children:
-      - !type:NestedSelector
-        tableId: UnknownShuttlesFriendlyTable
-      - !type:NestedSelector
-        tableId: UnknownShuttlesFreelanceTable
-      # - !type:NestedSelector # ADT tweak
-      #   tableId: UnknownShuttlesHostileTable
-=======
   table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
     children:
     - !type:NestedSelector
@@ -578,7 +534,6 @@
   id: SpaceTrafficControlTable
   table: !type:NestedSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
     tableId: UnknownShuttlesHostileTable
->>>>>>> upstreamwiz/master
 
 - type: entity
   id: BasicStationEventScheduler
@@ -631,7 +586,6 @@
       prob: 0.05 # Only 1 in 20 rounds...
       tableId: SpaceTrafficControlTable
 
-<<<<<<< HEAD
 - type: entity
   id: SpaceTrafficControlFriendlyEventScheduler
   parent: BaseGameRule
@@ -644,8 +598,6 @@
     scheduledGameRules: !type:NestedSelector
       tableId: UnknownShuttlesFriendlyTable
 
-=======
->>>>>>> upstreamwiz/master
 # variation passes
 - type: entity
   id: BasicRoundstartVariation

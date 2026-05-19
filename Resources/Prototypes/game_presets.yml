@@ -249,20 +249,12 @@
   rules:
   - Xenoborgs
   - DummyNonAntagChance
-<<<<<<< HEAD
-  - SubGamemodesRuleNoXenoborg # no two motherships
-=======
   - SubGamemodesRuleNoWizardNoXenoborg # no two motherships
->>>>>>> upstreamwiz/master
   - BasicStationEventScheduler
   - MeteorSwarmScheduler
   - SpaceTrafficControlEventScheduler
   - BasicRoundstartVariation
 
-<<<<<<< HEAD
-
-=======
->>>>>>> upstreamwiz/master
 - type: gamePreset
   id: Zombie
   alias:
