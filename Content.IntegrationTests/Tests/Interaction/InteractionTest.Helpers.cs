@@ -91,12 +91,8 @@ public abstract partial class InteractionTest
     }
 
     /// <summary>
-<<<<<<< HEAD
-    /// Spawn an entity at the target coordinates and set it as the target.
-=======
     /// Spawn an entity at the given coordinates and set it as the target.
     /// If no coordinates are given it will default to <see cref="TargetCoords"/>
->>>>>>> upstreamwiz/master
     /// </summary>
     [MemberNotNull(nameof(Target), nameof(STarget), nameof(CTarget))]
 #pragma warning disable CS8774 // Member must have a non-null value when exiting.
@@ -116,16 +112,6 @@ public abstract partial class InteractionTest
 #pragma warning restore CS8774 // Member must have a non-null value when exiting.
 
     /// <summary>
-<<<<<<< HEAD
-    /// Spawn an entity entity at the target coordinates without setting it as the target.
-    /// </summary>
-    protected async Task<NetEntity> Spawn(string prototype)
-    {
-        var entity = NetEntity.Invalid;
-        await Server.WaitPost(() =>
-        {
-            entity = SEntMan.GetNetEntity(SEntMan.SpawnAtPosition(prototype, SEntMan.GetCoordinates(TargetCoords)));
-=======
     /// Spawn an entity entity at the given coordinates without setting it as the target.
     /// If no coordinates are given it will default to <see cref="TargetCoords"/>
     /// </summary>
@@ -136,7 +122,6 @@ public abstract partial class InteractionTest
         await Server.WaitPost(() =>
         {
             entity = SEntMan.GetNetEntity(SEntMan.SpawnAtPosition(prototype, SEntMan.GetCoordinates(coords.Value)));
->>>>>>> upstreamwiz/master
         });
 
         await RunTicks(5);
@@ -524,19 +509,11 @@ public abstract partial class InteractionTest
         var wasInCombatMode = IsInCombatMode();
         await SetCombatMode(true);
 
-<<<<<<< HEAD
-        Assert.That(SGun.TryGetGun(SPlayer, out var gunUid, out var gunComp), "Player was not holding a gun!");
-
-        await Server.WaitAssertion(() =>
-        {
-            var success = SGun.AttemptShoot(SPlayer, gunUid, gunComp!, actualTarget);
-=======
         Assert.That(SGun.TryGetGun(SPlayer, out var gun), "Player was not holding a gun!");
 
         await Server.WaitAssertion(() =>
         {
             var success = SGun.AttemptShoot(SPlayer, gun, actualTarget);
->>>>>>> upstreamwiz/master
             if (assert)
                 Assert.That(success, "Gun failed to shoot.");
         });
@@ -571,19 +548,11 @@ public abstract partial class InteractionTest
         var wasInCombatMode = IsInCombatMode();
         await SetCombatMode(true);
 
-<<<<<<< HEAD
-        Assert.That(SGun.TryGetGun(SPlayer, out var gunUid, out var gunComp), "Player was not holding a gun!");
-
-        await Server.WaitAssertion(() =>
-        {
-            var success = SGun.AttemptShoot(SPlayer, gunUid, gunComp!, Position(actualTarget!.Value), ToServer(actualTarget));
-=======
         Assert.That(SGun.TryGetGun(SPlayer, out var gun), "Player was not holding a gun!");
 
         await Server.WaitAssertion(() =>
         {
             var success = SGun.AttemptShoot(SPlayer, gun, Position(actualTarget!.Value), ToServer(actualTarget));
->>>>>>> upstreamwiz/master
             if (assert)
                 Assert.That(success, "Gun failed to shoot.");
         });
@@ -901,11 +870,7 @@ public abstract partial class InteractionTest
     /// <param name="uid">The entity at which the events were directed</param>
     /// <param name="count">How many new events are expected</param>
     /// <param name="predicate">A predicate that can be used to filter the recorded events</param>
-<<<<<<< HEAD
-    protected void AssertEvent<TEvent>(EntityUid? uid = null, int count = 1, Func<TEvent,bool>? predicate = null)
-=======
     protected void AssertEvent<TEvent>(EntityUid? uid = null, int count = 1, Func<TEvent, bool>? predicate = null)
->>>>>>> upstreamwiz/master
         where TEvent : notnull
     {
         Assert.That(GetEvents(uid, predicate).Count, Is.EqualTo(count));
@@ -938,11 +903,7 @@ public abstract partial class InteractionTest
         where TEvent : notnull
     {
         if (_listenerCache.TryGetValue(typeof(TEvent), out var listener))
-<<<<<<< HEAD
-            return (TestListenerSystem<TEvent>) listener;
-=======
             return (TestListenerSystem<TEvent>)listener;
->>>>>>> upstreamwiz/master
 
         var type = Server.Resolve<IReflectionManager>().GetAllChildren<TestListenerSystem<TEvent>>().Single();
         if (!SEntMan.EntitySysManager.TryGetEntitySystem(type, out var systemObj))

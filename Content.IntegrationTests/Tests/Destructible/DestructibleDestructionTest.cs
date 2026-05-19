@@ -1,8 +1,5 @@
 using System.Linq;
-<<<<<<< HEAD
-=======
 using Content.IntegrationTests.Fixtures;
->>>>>>> upstreamwiz/master
 using Content.Server.Destructible.Thresholds.Behaviors;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;

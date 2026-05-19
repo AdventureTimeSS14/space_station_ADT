@@ -1,8 +1,5 @@
 ﻿using System.Linq;
-<<<<<<< HEAD
-=======
 using Content.IntegrationTests.Fixtures;
->>>>>>> upstreamwiz/master
 using Content.Shared.Roles.Components;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Reflection;

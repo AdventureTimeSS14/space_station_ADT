@@ -140,7 +140,6 @@ public sealed class TraitorRuleTest : GameTest
             $"MaxDifficulty exceeded! Objectives: {string.Join(", ", mindComp.Objectives.Select(o => FormatObjective(o, entMan)))}");
         Assert.That(mindComp.Objectives, Is.Not.Empty,
             $"No objectives assigned!");
-<<<<<<< HEAD
 
         // ADT-tweak start: Clean up game rules to prevent leftover components affecting other tests
         await server.WaitAssertion(() =>
@@ -154,8 +153,6 @@ public sealed class TraitorRuleTest : GameTest
         // ADT-tweak end
 
         await pair.CleanReturnAsync();
-=======
->>>>>>> upstreamwiz/master
     }
 
     private static string FormatObjective(Entity<ObjectiveComponent> entity, IEntityManager entMan)

@@ -10,16 +10,9 @@ using Content.Server.Mind;
 using Content.Server.Roles;
 using Content.Server.RoundEnd;
 using Content.Server.Shuttles.Components;
-<<<<<<< HEAD
-using Content.Server.Station.Components;
-using Content.Shared.ADT.Silicon.Components;
-using Content.Shared.CCVar;
-using Content.Shared.Damage.Components;
-=======
 using Content.Shared.CCVar;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
->>>>>>> upstreamwiz/master
 using Content.Shared.FixedPoint;
 using Content.Shared.GameTicking;
 using Content.Shared.GameTicking.Components;
@@ -240,31 +233,6 @@ public sealed class NukeOpsTest : GameTest
         Assert.That(total, Is.GreaterThan(3));
 
         // Check the nukie commander passed basic training and figured out how to breathe.
-<<<<<<< HEAD
-        var totalSeconds = 30;
-        var totalTicks = (int) Math.Ceiling(totalSeconds / server.Timing.TickPeriod.TotalSeconds);
-        var increment = 5;
-        //ADT-tweak-start
-        var damage = entMan.GetComponent<DamageableComponent>(player);
-        for (var tick = 0; tick < totalTicks; tick += increment)
-        {
-            await pair.RunTicksSync(increment);
-            if (!entMan.HasComponent<SiliconComponent>(player))
-            {
-                var resp = entMan.GetComponent<RespiratorComponent>(player);
-                // Warning: SuffocationCycles may temporarily exceed threshold due to timing
-                if (resp.SuffocationCycles > resp.SuffocationCycleThreshold)
-                {
-                    Assert.Warn($"SuffocationCycles ({resp.SuffocationCycles}) exceeded threshold ({resp.SuffocationCycleThreshold}) at tick {tick}. This may be a timing issue.");
-                }
-            }
-            // Allow minor damage due to timing issues, only fail on significant damage
-            if (damage.TotalDamage > FixedPoint2.New(5))
-            {
-                Assert.Warn($"Nukie commander has non-zero damage ({damage.TotalDamage}) at tick {tick}. This may be acceptable for integration tests.");
-            }
-            //ADT-tweak-end
-=======
         if (entMan.TryGetComponent<RespiratorComponent>(player, out var resp))
         {
             var totalSeconds = 30;
@@ -276,7 +244,6 @@ public sealed class NukeOpsTest : GameTest
                 Assert.That(resp.SuffocationCycles, Is.LessThanOrEqualTo(resp.SuffocationCycleThreshold));
                 Assert.That(damageSys.GetTotalDamage(player), Is.EqualTo(FixedPoint2.Zero));
             }
->>>>>>> upstreamwiz/master
         }
 
         // Check that the round does not end prematurely when agents are deleted in the outpost

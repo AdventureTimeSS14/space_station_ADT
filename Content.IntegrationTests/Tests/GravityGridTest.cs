@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-=======
 using Content.IntegrationTests.Fixtures;
->>>>>>> upstreamwiz/master
 using Content.Server.Power.Components;
 using Content.Shared.Gravity;
 using Robust.Shared.GameObjects;

@@ -175,11 +175,7 @@ public abstract partial class InteractionTest
     [SetUp]
     public virtual async Task Setup()
     {
-<<<<<<< HEAD
-        Pair = await PoolManager.GetServerClient(Settings);
-=======
         Pair = await PoolManager.GetServerClient(Settings, new NUnitTestContextWrap(TestContext.CurrentContext, TestContext.Out));
->>>>>>> upstreamwiz/master
 
         // server dependencies
         SEntMan = Server.ResolveDependency<IEntityManager>();
@@ -214,10 +210,7 @@ public abstract partial class InteractionTest
         CConSys = CEntMan.System<ConstructionSystem>();
         ExamineSys = CEntMan.System<ExamineSystem>();
         CUiSys = CEntMan.System<SharedUserInterfaceSystem>();
-<<<<<<< HEAD
-=======
         CDragDropSys = CEntMan.System<DragDropSystem>();
->>>>>>> upstreamwiz/master
 
         // Setup map.
         if (TestMapPath == null)

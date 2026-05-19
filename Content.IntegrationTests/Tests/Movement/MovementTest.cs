@@ -50,13 +50,8 @@ public abstract class MovementTest : InteractionTest
 
         if (AddWalls)
         {
-<<<<<<< HEAD
-            var sWallLeft = await SpawnEntity("WallSolid", pCoords.Offset(new Vector2(-Tiles, 0)));
-            var sWallRight = await SpawnEntity("WallSolid", pCoords.Offset(new Vector2(Tiles, 0)));
-=======
             var sWallLeft = await SpawnEntity(WallPrototype, pCoords.Offset(new Vector2(-Tiles, 0)));
             var sWallRight = await SpawnEntity(WallPrototype, pCoords.Offset(new Vector2(Tiles, 0)));
->>>>>>> upstreamwiz/master
 
             WallLeft = SEntMan.GetNetEntity(sWallLeft);
             WallRight = SEntMan.GetNetEntity(sWallRight);

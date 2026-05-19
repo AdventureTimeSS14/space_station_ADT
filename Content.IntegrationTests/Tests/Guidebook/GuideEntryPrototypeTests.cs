@@ -18,14 +18,9 @@ public sealed class GuideEntryPrototypeTests : GameTest
     private static string[] _guideEntries = GameDataScrounger.PrototypesOfKind<GuideEntryPrototype>();
 
     [Test]
-<<<<<<< HEAD
-    [Ignore("Style update limit in engine is too low")] //ADT-tweak
-    public async Task ValidatePrototypeContents()
-=======
     [TestCaseSource(nameof(_guideEntries))]
     [Description("Ensures a given guidebook entry is valid, checking the document/etc.")]
     public async Task Validate(string protoKey)
->>>>>>> upstreamwiz/master
     {
         var pair = Pair;
         var client = pair.Client;

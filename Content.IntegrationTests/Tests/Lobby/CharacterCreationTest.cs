@@ -10,14 +10,6 @@ namespace Content.IntegrationTests.Tests.Lobby;
 [TestFixture]
 [TestOf(typeof(ClientPreferencesManager))]
 [TestOf(typeof(ServerPreferencesManager))]
-<<<<<<< HEAD
-public sealed class CharacterCreationTest
-{
-    [Test]
-    public async Task CreateDeleteCreateTest()
-    {
-        await using var pair = await PoolManager.GetServerClient(new PoolSettings { InLobby = true });
-=======
 public sealed class CharacterCreationTest : GameTest
 {
     public override PoolSettings PoolSettings => new() { InLobby = true };
@@ -26,7 +18,6 @@ public sealed class CharacterCreationTest : GameTest
     public async Task CreateDeleteCreateTest()
     {
         var pair = Pair;
->>>>>>> upstreamwiz/master
         var server = pair.Server;
         var client = pair.Client;
         var user = pair.Client.User!.Value;
@@ -84,22 +75,6 @@ public sealed class CharacterCreationTest : GameTest
         serverCharacters = serverPrefManager.GetPreferences(user).Characters;
         Assert.That(serverCharacters, Has.Count.EqualTo(2));
         AssertEqual(serverCharacters[1], profile);
-<<<<<<< HEAD
-        await pair.CleanReturnAsync();
-    }
-
-    private void AssertEqual(ICharacterProfile clientCharacter, HumanoidCharacterProfile b)
-    {
-        if (clientCharacter.MemberwiseEquals(b))
-            return;
-
-        if (clientCharacter is not HumanoidCharacterProfile a)
-        {
-            Assert.Fail($"Not a {nameof(HumanoidCharacterProfile)}");
-            return;
-        }
-
-=======
     }
 
     private void AssertEqual(HumanoidCharacterProfile a, HumanoidCharacterProfile b)
@@ -107,7 +82,6 @@ public sealed class CharacterCreationTest : GameTest
         if (a.MemberwiseEquals(b))
             return;
 
->>>>>>> upstreamwiz/master
         Assert.Multiple(() =>
         {
             Assert.That(a.Name, Is.EqualTo(b.Name));
@@ -129,19 +103,9 @@ public sealed class CharacterCreationTest : GameTest
 
     private void AssertEqual(HumanoidCharacterAppearance a, HumanoidCharacterAppearance b)
     {
-<<<<<<< HEAD
-        if (a.MemberwiseEquals(b))
-            return;
-
-        Assert.That(a.HairStyleId, Is.EqualTo(b.HairStyleId));
-        Assert.That(a.HairColor, Is.EqualTo(b.HairColor));
-        Assert.That(a.FacialHairStyleId, Is.EqualTo(b.FacialHairStyleId));
-        Assert.That(a.FacialHairColor, Is.EqualTo(b.FacialHairColor));
-=======
         if (a.Equals(b))
             return;
 
->>>>>>> upstreamwiz/master
         Assert.That(a.EyeColor, Is.EqualTo(b.EyeColor));
         Assert.That(a.SkinColor, Is.EqualTo(b.SkinColor));
         Assert.That(a.Markings, Is.EquivalentTo(b.Markings));

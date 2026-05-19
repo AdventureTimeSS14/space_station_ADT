@@ -9,11 +9,7 @@ namespace Content.IntegrationTests.Tests.Chemistry;
 
 [TestFixture]
 [TestOf(typeof(ReagentData))]
-<<<<<<< HEAD
-public sealed class ReagentDataTest // : InteractionTest ADT-tweak
-=======
 public sealed class ReagentDataTest : GameTest
->>>>>>> upstreamwiz/master
 {
     [Test]
     public async Task ReagentDataIsSerializable()

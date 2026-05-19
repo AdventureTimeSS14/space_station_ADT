@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-=======
 using Content.IntegrationTests.Fixtures;
->>>>>>> upstreamwiz/master
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Prototypes;
