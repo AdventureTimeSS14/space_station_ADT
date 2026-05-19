@@ -50,24 +50,17 @@
   - type: Storage
     grid:
     - 0,0,4,1
-<<<<<<< HEAD
     # ADT Tweak Start
     whitelist:
       tags:
       - Cigarette
       - ADTLighter
     # ADT Tweak END
-  - type: StorageFill
-    contents:
-    - id: Cigarette
-      amount: 10
-=======
   - type: EntityTableContainerFill
     containers:
       storagebase:
         id: Cigarette
         amount: 10
->>>>>>> upstreamwiz/master
   - type: ItemCounter
     count:
       tags: [Cigarette]
