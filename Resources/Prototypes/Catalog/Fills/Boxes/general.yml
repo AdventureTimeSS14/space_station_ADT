@@ -4,7 +4,6 @@
   name: cardboard box
   description: A cardboard box for storing things.
   components:
-<<<<<<< HEAD
   - type: Item
     size: Large
     shape:
@@ -13,7 +12,6 @@
     maxItemSize: Small
     grid:
     - 0,0,3,3 # ADT-Tweak 0,0,3,2 -> 0,0,3,3 (16 слотов)
-=======
   - type: Construction
     graph: BoxCardboard
     node: boxcardboard
@@ -42,7 +40,6 @@
   - type: PhysicalComposition # Half of the "regular" cardboard box
     materialComposition:
       Cardboard: 50
->>>>>>> upstreamwiz/master
   - type: Sprite
     state: box
   - type: Tag
