@@ -171,8 +171,6 @@
     sprite: Objects/Specific/Chapel/ratvartablet.rsi
   - type: Item
     sprite: Objects/Specific/Chapel/ratvartablet.rsi
-<<<<<<< HEAD
-=======
 
 - type: entity
   id: HolyLightEffect
@@ -196,4 +194,3 @@
   components:
     - type: PointLight
       color: red
->>>>>>> upstreamwiz/master
