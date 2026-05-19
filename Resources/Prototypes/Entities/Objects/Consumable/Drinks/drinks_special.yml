@@ -87,18 +87,11 @@
       tags:
       - Cola
     hideStackVisualsWhenClosed: false
-<<<<<<< HEAD
-  - type: StorageFill
-    contents:
-    - id: DrinkColaCan
-      amount: 6
-=======
   - type: EntityTableContainerFill
     containers:
       storagebase:
         id: DrinkColaCan
         amount: 6
->>>>>>> upstreamwiz/master
   - type: ItemCounter
     count:
       tags: [Cola]
@@ -138,11 +131,7 @@
       Steel: 50
   - type: Shakeable
   - type: ReactionMixer
-<<<<<<< HEAD
-    mixOnInteract: false
-=======
     mixerType: None
->>>>>>> upstreamwiz/master
     reactionTypes:
     - Shake
 
