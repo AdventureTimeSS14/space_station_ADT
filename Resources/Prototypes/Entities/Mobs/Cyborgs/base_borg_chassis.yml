@@ -192,13 +192,10 @@
   - type: UIRequiresLock
     userInterfaceKeys:
     - enum.BorgUiKey.Key
-<<<<<<< HEAD
     # ADT-Tweak-Start
     accessDeniedSound: null
     popup: null
     # ADT-Tweak-End
-=======
->>>>>>> upstreamwiz/master
   - type: LockedWiresPanel
   - type: Damageable
     damageContainer: Silicon
@@ -282,17 +279,14 @@
     damageProtection:
       flatReductions:
         Heat: 10 # capable of touching light bulbs and stoves without feeling pain!
-<<<<<<< HEAD
   - type: TTS # Corvax-TTS
     voice: fact_core
-=======
   - type: BypassLock
     openWiresPanel: true
   - type: BypassLockRequiresMobState
     requiredMobState:
     - Critical
     - Dead
->>>>>>> upstreamwiz/master
 
 - type: entity
   abstract: true
@@ -481,43 +475,6 @@
   - type: BypassLock
     bypassDelay: 15 # We don't want people to easily be able to remove syndieborg brains.
 
-- type: entity
-  id: BaseBorgChassisSyndicateDerelict #For assault borg and maybe others in time
-  parent: BaseBorgChassis # We don't want them to see Nukies or have syndi comms, their database is out of date
-  abstract: true
-  components:
-  - type: SiliconLawProvider
-    laws: SyndicateStatic #Non-subverted version so they can still be changed
-  - type: StartIonStormed
-    ionStormAmount: 3
-  - type: IonStormTarget
-    chance: 1
-  - type: ShowJobIcons
-  - type: NpcFactionMember # They're still syndicate even if they can't listen to the radio or see icons
-    factions:
-    - Syndicate
-  - type: Access
-    tags:
-    - NuclearOperative
-    - SyndicateAgent
-  - type: AccessReader
-    access: [ [ "SyndicateAgent" ], [ "NuclearOperative" ] ]
-  - type: IntrinsicRadioTransmitter # Copy components from base SyndiBorg but without the stuff we don't want
-    channels:
-    - Binary #1984
-  - type: ActiveRadio
-    channels:
-    - Binary
-  - type: MovementAlwaysTouching
-  - type: Speech
-    speechSounds: SyndieBorg
-    allowedEmotes:
-    - Laugh
-  - type: Vocal
-    sounds:
-      Unsexed: UnisexSiliconSyndicate
-  - type: PointLight
-    color: "#dd200b"
 
 - type: entity
   parent: BaseBorgChassisNotIonStormable
@@ -607,11 +564,7 @@
           collection: MetalBreak
       - !type:SpawnEntitiesBehavior
         spawn:
-<<<<<<< HEAD
-          PinpointerMothership: # drop a pinpointer to the mothership upon being destructed
-=======
           PinpointerMothershipPiece: # drop a piece of core pinpointer upon being destructed (4 pieces to make a core pinpointer)
->>>>>>> upstreamwiz/master
             min: 1
             max: 1
       - !type:EmptyContainersBehaviour
@@ -640,8 +593,5 @@
     interactSuccessSound:
       path: /Audio/Ambience/Objects/periodic_beep.ogg
   - type: Xenoborg
-<<<<<<< HEAD
-=======
   - type: BypassLock
     bypassDelay: 15 # We don't want people to easily be able to remove xenoborg brains.
->>>>>>> upstreamwiz/master
