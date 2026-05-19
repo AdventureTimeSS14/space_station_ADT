@@ -36,7 +36,6 @@
   - type: ContentEye
   - type: CameraRecoil
   - type: MindContainer
-<<<<<<< HEAD
   - type: TTS # Corvax-TTS
   - type: RequireProjectileTarget
     active: False
@@ -60,11 +59,9 @@
         - Candle
   - type: AnimatedEmotes
   # ADT-tweak-end
- 
-=======
+
   - type: RequireProjectileTarget
     active: False
->>>>>>> upstreamwiz/master
 
 # The progenitor. This should only container the most basic components possible.
 # Only put things on here if every mob *must* have it. This includes ghosts.
