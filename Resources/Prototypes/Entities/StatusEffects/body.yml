@@ -3,21 +3,6 @@
   id: BloodstreamStatusEffectBase
   abstract: true
   components:
-<<<<<<< HEAD
-    - type: StatusEffect
-      whitelist:
-        components:
-          - Bloodstream
-
-- type: entity
-  parent: [ BloodstreamStatusEffectBase ]
-  id: StatusEffectBloodloss
-  name: bloodloss
-  components:
-    - type: StutteringAccent
-    - type: DrunkStatusEffect
-    - type: RejuvenateRemovedStatusEffect
-=======
   - type: StatusEffect
     whitelist:
       components:
@@ -100,4 +85,3 @@
   components:
   - type: StaminaModifierStatusEffect
     modifier: 1.5
->>>>>>> upstreamwiz/master

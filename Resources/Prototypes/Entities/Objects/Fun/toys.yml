@@ -2,7 +2,6 @@
 # Catchall file for toys which don't have a strong grouping (only 1 or 2 prototypes)
 
 - type: entity
-<<<<<<< HEAD
   id: BaseStash
   abstract: true
   components:
@@ -57,12 +56,57 @@
   id: ToyRubberDuck
   name: rubber ducky
   description: Not carried here by ocean currents.
-=======
+  components:
+  - type: Sprite
+    sprite: Objects/Fun/rubber_duck.rsi
+    state: icon
+
+- type: entity
+  parent: BaseRubberToy
+  id: ToyRubberChicken
+  name: rubber chicken
+  description: A rubber chicken.
+  components:
+  - type: Sprite
+    sprite: Objects/Fun/rubber_chicken.rsi
+    state: icon
+  - type: EmitSoundOnUse
+    sound:
+      collection: RubberChicken
+      params:
+        variation: 0.125
+  - type: EmitSoundOnLand
+    sound:
+      collection: RubberChicken
+      params:
+        variation: 0.125
+  - type: EmitSoundOnActivate
+    sound:
+      collection: RubberChicken
+      params:
+        variation: 0.125
+  - type: EmitSoundOnCollide
+    sound:
+      collection: RubberChicken
+      params:
+        variation: 0.125
+  - type: EmitSoundOnTrigger
+    sound:
+      collection: RubberChicken
+      params:
+        variation: 0.125
+  - type: MeleeWeapon
+    wideAnimationRotation: 110
+    soundHit:
+      collection: RubberChicken
+      params:
+        variation: 0.125
+
+- type: entity
   parent: BaseItem
   id: SnapPop
   name: snap pop
   description: Throw it at the floor and listen to it POP!
->>>>>>> upstreamwiz/master
   components:
   - type: Sprite
     sprite: Objects/Fun/snap_pops.rsi
@@ -103,41 +147,22 @@
   name: snap pop box
   description: Contains snap pops for a few minutes of popping fun!
   components:
-<<<<<<< HEAD
+  - type: Item
+    size: Normal
   - type: Sprite
-    sprite: Objects/Fun/rubber_chicken.rsi
-    state: icon
-  - type: EmitSoundOnUse
-    sound:
-      collection: RubberChicken
-      params:
-        variation: 0.125
-  - type: EmitSoundOnLand
-    sound:
-      collection: RubberChicken
-      params:
-        variation: 0.125
-  - type: EmitSoundOnActivate
-    sound:
-      collection: RubberChicken
-      params:
-        variation: 0.125
-  - type: EmitSoundOnCollide
-    sound:
-      collection: RubberChicken
-      params:
-        variation: 0.125
-  - type: EmitSoundOnTrigger
-    sound:
-      collection: RubberChicken
-      params:
-        variation: 0.125
-  - type: MeleeWeapon
-    wideAnimationRotation: 110
-    soundHit:
-      collection: RubberChicken
-      params:
-        variation: 0.125
+    sprite: Objects/Fun/snap_pops.rsi
+    state: box
+  - type: Storage
+    grid:
+    - 0,0,4,3
+    areaInsert: true
+    maxItemSize: Tiny
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: SnapPop
+        amount: 5
+  - type: Dumpable
 
 ## Cheapo Figurines
 
@@ -832,7 +857,6 @@
 #    entries:
 #      CottonBurger: AmongPequeno
 
-
 - type: entity
   parent: BaseItem
   id: FoamCutlass
@@ -1043,27 +1067,6 @@
         - ItemMask
 
 - type: entity
-  name: banana
-=======
-  - type: Item
-    size: Normal
-  - type: Sprite
-    sprite: Objects/Fun/snap_pops.rsi
-    state: box
-  - type: Storage
-    grid:
-    - 0,0,4,3
-    areaInsert: true
-    maxItemSize: Tiny
-  - type: EntityTableContainerFill
-    containers:
-      storagebase:
-        id: SnapPop
-        amount: 5
-  - type: Dumpable
-
-- type: entity
->>>>>>> upstreamwiz/master
   parent: FoodProduceBase
   id: PlasticBanana
   name: banana
@@ -1153,8 +1156,6 @@
   - type: Lube
   - type: TrashOnSolutionEmpty
     solution: drink
-<<<<<<< HEAD
-=======
 
 - type: entity
   parent: [ BaseItem, MobCombat ]
@@ -1196,7 +1197,6 @@
   components:
   - type: Sprite
     sprite: Objects/Fun/mrdips.rsi
->>>>>>> upstreamwiz/master
 
 - type: entity
   parent: BaseItem

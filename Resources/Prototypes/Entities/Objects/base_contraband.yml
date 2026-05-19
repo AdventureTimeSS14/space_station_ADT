@@ -30,16 +30,13 @@
   components:
   - type: Contraband
     severity: Syndicate
-<<<<<<< HEAD
 # Start ADT Tweak
   - type: Tag
     tags:
       - ADTSyndieThingies
 # End ADT Tweak
-=======
     allowedDepartments: [  ]
     allowedJobs: [  ]
->>>>>>> upstreamwiz/master
 
 # minor contraband not departmentally restricted -- improvised weapons etc
 - type: entity

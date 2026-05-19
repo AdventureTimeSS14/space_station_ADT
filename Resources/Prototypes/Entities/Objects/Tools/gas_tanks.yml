@@ -94,13 +94,9 @@
   - type: Item
     size: Small
     sprite: Objects/Tanks/emergency.rsi
-<<<<<<< HEAD
-    storedRotation: -45
-=======
     storedSprite:
       state: storage
       sprite: Objects/Tanks/emergency.rsi
->>>>>>> upstreamwiz/master
   - type: GasTank
     air:
       volume: 0.66

@@ -56,10 +56,7 @@
   - PKAUpgradeFireRate
   - WeaponTetherGun
   - WeaponGauntletGorilla
-<<<<<<< HEAD
   - WeaponLaserSvalinn # ADT tweak
-=======
->>>>>>> upstreamwiz/master
 
 # Only contains parts for making basic modular grenades, no actual explosives
 - type: latheRecipePack

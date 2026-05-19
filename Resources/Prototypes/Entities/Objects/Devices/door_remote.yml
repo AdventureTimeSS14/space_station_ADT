@@ -13,20 +13,6 @@
   - type: DoorRemote
     options:
     - mode: OpenClose
-<<<<<<< HEAD
-      tooltip: door-remote-open-close-text
-      icon:
-        sprite: /Textures/Structures/Doors/Airlocks/Standard/basic.rsi
-        state: assembly
-    - mode: ToggleBolts
-      tooltip: door-remote-toggle-bolt-text
-      icon:
-        sprite: /Textures/Interface/Actions/actions_ai.rsi
-        state: bolt_door
-    - mode: ToggleEmergencyAccess
-      tooltip: door-remote-emergency-access-text
-      icon:
-=======
       tooltip: &TextOpenClose door-remote-open-close-text
       icon: &IconOpenClose
         sprite: /Textures/Structures/Doors/Airlocks/Standard/basic.rsi
@@ -39,7 +25,6 @@
     - mode: ToggleEmergencyAccess
       tooltip: &TextEmergencyAccess door-remote-emergency-access-text
       icon: &IconEmergencyAccess
->>>>>>> upstreamwiz/master
         sprite: /Textures/Interface/Actions/actions_ai.rsi
         state: emergency_on
   - type: StealTarget
@@ -51,8 +36,6 @@
     interfaces:
       enum.DoorRemoteUiKey.Key:
         type: DoorRemoteBoundUserInterface
-<<<<<<< HEAD
-=======
 
 - type: entity
   parent: DoorRemoteDefault
@@ -75,7 +58,6 @@
     - mode: ToggleEmergencyAccess
       tooltip: *TextEmergencyAccess
       icon: *IconEmergencyAccess
->>>>>>> upstreamwiz/master
 
 - type: entity
   parent: [DoorRemoteDefault, BaseCommandContraband]

@@ -12,18 +12,6 @@
     layers:
     - state: folder-base
     - state: folder-colormap
-<<<<<<< HEAD
-  - type: RandomSpawner
-    offset: 0
-    prototypes:
-    - BoxFolderBase
-    - BoxFolderRed
-    - BoxFolderBlue
-    - BoxFolderYellow
-    - BoxFolderGrey
-    - BoxFolderBlack
-    - BoxFolderGreen
-=======
   - type: EntityTableSpawner
     offset: 0
     table: !type:GroupSelector
@@ -35,4 +23,3 @@
       - id: BoxFolderGrey
       - id: BoxFolderBlack
       - id: BoxFolderGreen
->>>>>>> upstreamwiz/master

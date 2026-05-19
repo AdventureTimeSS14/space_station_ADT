@@ -34,22 +34,8 @@
   abstract: true
   parent: CrayonInedible
   id: Crayon
-<<<<<<< HEAD
-  name: crayon
   description: A colourful crayon. Looks tasty. Mmmm...
   components:
-  - type: Sprite
-    sprite: Objects/Fun/crayons.rsi
-  - type: Item
-    sprite: Objects/Fun/crayons.rsi
-    size: Tiny
-  - type: Tag
-    tags:
-    - Recyclable
-=======
-  description: A colourful crayon. Looks tasty. Mmmm...
-  components:
->>>>>>> upstreamwiz/master
   - type: Edible
   - type: FlavorProfile
     flavors:
@@ -99,8 +85,6 @@
     selectableColor: true
   - type: LimitedCharges
     maxCharges: 30
-<<<<<<< HEAD
-=======
 
 - type: entity
   parent: CrayonRainbow
@@ -143,7 +127,6 @@
     heldPrefix: white
   - type: Crayon
     color: white
->>>>>>> upstreamwiz/master
   - type: Tag
     tags:
     - Write

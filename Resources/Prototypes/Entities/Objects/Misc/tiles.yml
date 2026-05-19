@@ -1784,8 +1784,6 @@
 
 - type: entity
   parent: FloorTileItemBase
-<<<<<<< HEAD
-=======
   id: FloorTileItemAstroIronsand
   name: astro-ironsand
   description: Fake red sand. Imported from fake Mars.
@@ -1820,7 +1818,6 @@
 
 - type: entity
   parent: FloorTileItemBase
->>>>>>> upstreamwiz/master
   id: FloorTileItemDesertAstroSand
   name: desert astro-sand
   description: Fake sand, designed to be fine.

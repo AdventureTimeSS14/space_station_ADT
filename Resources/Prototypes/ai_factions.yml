@@ -11,10 +11,7 @@
   - Ursus # ADT tweak
   - AllHostile
   - Wizard
-<<<<<<< HEAD
   - SimpleHostile # ADT-tweak
-=======
->>>>>>> upstreamwiz/master
   - Xenoborg
 
 - type: npcFaction

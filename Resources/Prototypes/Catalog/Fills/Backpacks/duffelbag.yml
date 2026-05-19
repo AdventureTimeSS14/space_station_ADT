@@ -104,21 +104,13 @@
   name: Python bundle
   description: "Go loud and proud with a fully loaded Magnum Python, bundled with two speed loaders."
   components:
-<<<<<<< HEAD
-  - type: StorageFill
-    contents:
-      - id: WeaponRevolverPythonAP
-      - id: ADTSpeedLoaderMagnumLesserAP # ADT tweak
-        amount: 2
-=======
   - type: EntityTableContainerFill
     containers:
       storagebase: !type:AllSelector
         children:
         - id: WeaponRevolverPythonAP
-        - id: SpeedLoaderMagnumAP
+        - id: ADTSpeedLoaderMagnumLesserAP # ADT tweak
           amount: 2
->>>>>>> upstreamwiz/master
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
@@ -374,36 +366,25 @@
   name: syndicate zombie bundle
   description: "An all-in-one kit for unleashing the undead upon a station."
   components:
-<<<<<<< HEAD
-  - type: StorageFill
-    contents:
-      # ADT-Tweak start
-      - id: LauncherSyringe 
-      - id: MiniSyringe
-        amount: 6
-      - id: ChemistryBottleRomerol
-      - id: PillCanisterAmbuzolPlus
-      # ADT-Tweak end
-      - id: WeaponRevolverPython
-      - id: ADTMagazineBoxMagnumLesserIncendiary # ADT tweak
-      # ADT-Tweak start
-      # - id: SyringeRomerol 
-      # - id: PillAmbuzolPlus # ADT-Tweak
-      # - id: PillAmbuzol
-      #   amount: 3
-      # ADT-Tweak end
-=======
   - type: EntityTableContainerFill
     containers:
       storagebase: !type:AllSelector
         children:
-        - id: SyringeRomerol
+        # ADT-Tweak start
+        - id: LauncherSyringe 
+        - id: MiniSyringe
+          amount: 6
+        - id: ChemistryBottleRomerol
+        - id: PillCanisterAmbuzolPlus
+        # ADT-Tweak end
         - id: WeaponRevolverPython
-        - id: MagazineBoxMagnumIncendiary
-        - id: PillAmbuzolPlus
-        - id: PillAmbuzol
-          amount: 3
->>>>>>> upstreamwiz/master
+        - id: ADTMagazineBoxMagnumLesserIncendiary # ADT tweak
+        # ADT-Tweak start
+        # - id: SyringeRomerol 
+        # - id: PillAmbuzolPlus # ADT-Tweak
+        # - id: PillAmbuzol
+        #   amount: 3
+        # ADT-Tweak end
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateMedicalBundle

@@ -31,14 +31,11 @@
       collection: SadTrombone
       params:
         variation: 0.125
-<<<<<<< HEAD
   # ADT tweak start
   - type: TranslatorImplant
     languages:
       Clownish: Speak
   # ADT tweak end
-=======
->>>>>>> upstreamwiz/master
 
 - type: entity
   parent: BaseSubdermalImplant
@@ -227,11 +224,7 @@
     implantAction: ActionActivateDnaScramblerImplant
     whitelist:
       components:
-<<<<<<< HEAD
-      - HumanoidAppearance # syndies cant turn hamlet into a human
-=======
       - HumanoidProfile # syndies cant turn hamlet into a human
->>>>>>> upstreamwiz/master
   - type: TriggerOnActivateImplant
   - type: DnaScrambleOnTrigger
     targetUser: true

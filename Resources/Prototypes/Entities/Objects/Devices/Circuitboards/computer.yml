@@ -18,7 +18,6 @@
       chemicalComposition:
         Silicon: 20
     - type: Circuitboard
-<<<<<<< HEAD
     # ADT Start
     - type: Edible
       requiresSpecialDigestion: true
@@ -36,8 +35,6 @@
       tags:
       - VoxFood
     # ADT End
-=======
->>>>>>> upstreamwiz/master
 
 - type: entity
   parent: BaseComputerCircuitboard

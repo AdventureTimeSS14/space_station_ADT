@@ -28,7 +28,6 @@
   sprite: /Textures/Tiles/Planet/Desert/desert.png
   variants: 6
   placementVariants:
-<<<<<<< HEAD
 # Corvax-Mapping-Start: Better visual look
   - 0.75
   - 0.06
@@ -43,14 +42,6 @@
   heatCapacity: 10000
   weather: true
   indestructible: true
-=======
-  - 1.0
-  - 1.0
-  - 1.0
-  - 1.0
-  - 1.0
-  - 1.0
->>>>>>> upstreamwiz/master
 
 - type: tile
   id: FloorLowDesert

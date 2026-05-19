@@ -174,19 +174,6 @@
   id: ShardCrystalRandom
   name: random crystal shard
   components:
-<<<<<<< HEAD
-  - type: RandomSpawner
-    prototypes:
-      - ShardCrystalGreen
-      - ShardCrystalPink
-      - ShardCrystalYellow
-      - ShardCrystalBlack
-      - ShardCrystalOrange
-      - ShardCrystalBlue
-      - ShardCrystalCyan
-      - ShardCrystalRed
-    chance: 1
-=======
   - type: EntityTableSpawner
     table: !type:GroupSelector
       children:
@@ -198,4 +185,3 @@
       - id: ShardCrystalBlue
       - id: ShardCrystalCyan
       - id: ShardCrystalRed
->>>>>>> upstreamwiz/master
