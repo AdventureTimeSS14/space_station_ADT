@@ -44,13 +44,7 @@
   # ADT Tweak end
   - type: Item
     sprite: Objects/Tools/crowbar.rsi
-<<<<<<< HEAD
-    size: Small #ADT_Tweaks - ломы снова лезут в карман
-    shape:
-    - 0,0,0,1
-=======
     size: Small
->>>>>>> upstreamwiz/master
 
 # Standard (grey) Crowbar
 - type: entity
