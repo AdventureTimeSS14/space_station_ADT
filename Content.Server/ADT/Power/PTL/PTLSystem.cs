@@ -113,7 +113,7 @@ public sealed partial class PTLSystem : EntitySystem
             return;
 
         // scale damage from energy
-        if (TryComp<HitscanBatteryAmmoProviderComponent>(ent, out var hitscan))
+        if (TryComp<BatteryAmmoProviderComponent>(ent, out var hitscan))
         {
             hitscan.FireCost = (float) (charge * megajoule);
         }
