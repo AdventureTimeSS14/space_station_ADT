@@ -385,3 +385,20 @@
     contents:
     - id: Implanter
       amount: 10
+
+- type: entity
+  name: cow underwear set
+  parent: BoxCardboard
+  id: ADTBoxCowUnderwearSet
+  description: A complete set of cute cow-themed underwear. Moo!
+  components:
+  - type: StorageFill
+    contents:
+      - id: ADTClothingUnderwearBottomPantiesCow
+      - id: ADTClothingUnderwearTopBraCow
+      - id: ADTClothingUnderwearSocksCow
+  - type: Sprite
+    layers:
+      - state: box
+  - type: StaticPrice
+    price: 35
