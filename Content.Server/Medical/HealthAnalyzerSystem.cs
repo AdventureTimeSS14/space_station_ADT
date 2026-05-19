@@ -3,7 +3,7 @@ using Content.Shared.Body.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Damage.Components;
 using Content.Shared.DoAfter;
-using Content.Shared.FixedPoint; // ADT-Tweak
+using Content.Shared.FixedPoint;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
@@ -252,7 +252,7 @@ public sealed class HealthAnalyzerSystem : EntitySystem
         // ADT-Tweak start: - Get a list of metabolizing chemicals
         List<(string ReagentId, FixedPoint2 Quantity)>? metabolizingReagents = null;
         if (TryComp<BloodstreamComponent>(target, out var bloodstreamComp) &&
-            _solutionContainerSystem.TryGetSolution(target, BloodstreamComponent.DefaultChemicalsSolutionName, out _, out var chemicalsSolution))
+            _solutionContainerSystem.TryGetSolution(target.Value, BloodstreamComponent.DefaultMetabolitesSolutionName, out _, out var chemicalsSolution))
         {
             metabolizingReagents = new List<(string, FixedPoint2)>();
             foreach (var (reagent, quantity) in chemicalsSolution.Contents)
@@ -262,14 +262,14 @@ public sealed class HealthAnalyzerSystem : EntitySystem
         }
         // ADT-Tweak end
 
-        _uiSystem.ServerSendUiMessage(healthAnalyzer, HealthAnalyzerUiKey.Key, new HealthAnalyzerScannedUserMessage(
-            GetNetEntity(target),
+        return new HealthAnalyzerUiState(
+            GetNetEntity(entity),
             bodyTemperature,
             bloodAmount,
             null,
             bleeding,
             unrevivable,
-            metabolizingReagents // ADT-Tweak - add metabolizing chemicals to ui message
-        ));
+            metabolizingReagents // ADT-Tweak
+        );
     }
 }
