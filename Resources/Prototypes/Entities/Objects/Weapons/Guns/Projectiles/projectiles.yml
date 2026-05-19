@@ -295,17 +295,9 @@
           bounds: "-0.15,-0.3,0.15,0.3"
         hard: false
         mask:
-<<<<<<< HEAD
-# Start ADT Tweak
-        # - Impassable
-        # - BulletImpassable
-        - Opaque # ADT add
-# End ADT Tweak
-=======
         - Opaque
         - Impassable
         - BulletImpassable
->>>>>>> upstreamwiz/master
       fly-by: *flybyfixture
   - type: Ammo
   - type: StaminaDamageOnCollide
@@ -344,17 +336,9 @@
           bounds: "-0.15,-0.3,0.15,0.3"
         hard: false
         mask:
-<<<<<<< HEAD
-# Start ADT Tweak
-        # - Impassable
-        # - BulletImpassable
-        - Opaque # ADT add
-# End ADT Tweak
-=======
         - Opaque
         - Impassable
         - BulletImpassable
->>>>>>> upstreamwiz/master
       fly-by: *flybyfixture
   - type: Ammo
   - type: StaminaDamageOnCollide
@@ -1197,17 +1181,9 @@
           bounds: "-0.15,-0.3,0.15,0.3"
         hard: false
         mask:
-<<<<<<< HEAD
-# Start ADT Tweak
-        # - Impassable
-        # - BulletImpassable
-        - Opaque # ADT add
-# End ADT Tweak
-=======
         - Opaque
         - Impassable
         - BulletImpassable
->>>>>>> upstreamwiz/master
       fly-by: *flybyfixture
   - type: Ammo
   - type: StaminaDamageOnCollide
@@ -1357,17 +1333,9 @@
           bounds: "-0.15,-0.3,0.15,0.3"
         hard: false
         mask:
-<<<<<<< HEAD
-# Start ADT Tweak
-        # - Impassable
-        # - BulletImpassable
-        - Opaque # ADT add
-# End ADT Tweak
-=======
         - Opaque
         - Impassable
         - BulletImpassable
->>>>>>> upstreamwiz/master
       fly-by: *flybyfixture
   - type: Ammo
   - type: Projectile
@@ -1498,7 +1466,6 @@
   - type: SolutionInjectOnProjectileHit
     transferAmount: 1.5
     solution: bolt
-<<<<<<< HEAD
 
 # ADT-Tweak-start
 - type: entity
@@ -1523,5 +1490,3 @@
     count: 4 #60 heat damage if you hit all your shots, but narrower spread
     spread: 10
 # ADT-Tweak-end
-=======
->>>>>>> upstreamwiz/master
