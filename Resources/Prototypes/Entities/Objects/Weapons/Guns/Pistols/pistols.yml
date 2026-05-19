@@ -282,7 +282,6 @@
       path: /Audio/Weapons/Guns/Gunshots/mk58.ogg
   - type: StealTarget
     stealGroup: OfficerHandgun
-<<<<<<< HEAD
 # ADT TWEAK START
   - type: AttachableHolder
     slots:
@@ -304,8 +303,6 @@
     - Sidearm
     - ADTBsoWeapon
 # ADT TWEAK END
-=======
->>>>>>> upstreamwiz/master
 
 - type: entity
   name: N1984
