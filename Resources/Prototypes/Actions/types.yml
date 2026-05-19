@@ -451,8 +451,6 @@
     event: !type:GravityJumpEvent {}
 
 - type: entity
-<<<<<<< HEAD
-=======
   parent: ActionGravityJump
   id: ActionJumpBoost
   name: Jump boost
@@ -464,7 +462,6 @@
       state: xenoborg-jump-module
 
 - type: entity
->>>>>>> upstreamwiz/master
   parent: BaseAction
   id: ActionVulpkaninGravityJump
   name: Leap
@@ -512,8 +509,6 @@
     icon: Interface/Actions/shop.png
   - type: InstantAction
     event: !type:IntrinsicStoreActionEvent
-<<<<<<< HEAD
-=======
 
 - type: entity
   parent: ActionChangeVoiceMask
@@ -522,4 +517,3 @@
   - type: Action
     icon: { sprite: Interface/Actions/voice-mask.rsi, state: icon }
     itemIconStyle: BigAction
->>>>>>> upstreamwiz/master
