@@ -56,8 +56,10 @@ namespace Content.IntegrationTests.Tests.Preferences
                 Age = 21,
                 Appearance = new(
                     Color.Azure,
+                    new List<Color> { Color.Aqua },
                     Color.Beige,
-                    new())
+                    new()
+                )
             };
         }
 
