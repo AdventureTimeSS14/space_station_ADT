@@ -1,3 +1,4 @@
+/* ADT: Copypasted to ADT folder
 using Content.Shared.Damage.Events;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Events;
@@ -46,3 +47,4 @@ public sealed class PainNumbnessSystem : EntitySystem
             args.Args.CancelUpdate = true;
     }
 }
+*/

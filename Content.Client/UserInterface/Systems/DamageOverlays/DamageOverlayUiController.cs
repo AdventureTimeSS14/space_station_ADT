@@ -1,3 +1,4 @@
+using Content.Shared.ADT.Traits.Assorted;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.FixedPoint;

@@ -1,3 +1,4 @@
+/* ADT: Copypasted to ADT folder
 using Content.Shared.Dataset;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -18,3 +19,4 @@ public sealed partial class PainNumbnessStatusEffectComponent : Component
     [DataField]
     public ProtoId<LocalizedDatasetPrototype>? ForceSayNumbDataset = "ForceSayNumbDataset";
 }
+*/
