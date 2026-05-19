@@ -296,15 +296,11 @@
     size: Small
     shape:
     - 0,0,2,0
-<<<<<<< HEAD
     sprite: ADT/Objects/Weapons/Guns/Shotguns/sawn.rsi # ADT tweak
   # ADT-Tweak start
   - type: RunAndGunSpreadModifier
     modifier: 0.3
   # ADT-Tweak end
-=======
-    sprite: Objects/Weapons/Guns/Shotguns/sawn_inhands_64x.rsi
->>>>>>> upstreamwiz/master
   - type: Gun
     fireRate: 3
     soundGunshot: # Corvax-Guns
