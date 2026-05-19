@@ -98,7 +98,6 @@
             ]
         },
         {
-<<<<<<< HEAD
             "name": "open_unlit",
             "delays": [
                 [
@@ -114,8 +113,6 @@
             ]
         },
         {
-=======
->>>>>>> upstreamwiz/master
             "name": "panel_closing",
             "delays": [
                 [
