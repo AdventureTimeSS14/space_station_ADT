@@ -5,13 +5,7 @@
   components:
   - type: Edible
     edible: Drink
-<<<<<<< HEAD
-    solution: spray
-    destroyOnEmpty: false
-    utensil: None
-=======
     solution: drink
->>>>>>> upstreamwiz/master
     transferAmount: 10
     useSound:
       path: /Audio/Effects/spray3.ogg
@@ -38,12 +32,6 @@
     spraySound:
       path: /Audio/Effects/spray2.ogg
   - type: TrashOnSolutionEmpty
-<<<<<<< HEAD
-    solution: spray
-  - type: ExaminableSolution
-    solution: spray
-    exactVolume: true
-=======
     solution: drink
 
 - type: entity
@@ -63,7 +51,6 @@
   - type: SolutionContainerVisuals
     fillBaseName: cleaner-fill-
     inHandsMaxFillLevels: 4
->>>>>>> upstreamwiz/master
 
 - type: entity
   parent: SprayBottle
