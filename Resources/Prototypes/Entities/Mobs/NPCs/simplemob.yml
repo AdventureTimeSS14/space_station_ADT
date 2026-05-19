@@ -94,11 +94,7 @@
     baseDecayRate: 0.04
   - type: StatusEffects
     allowed:
-<<<<<<< HEAD
-    - Stutter
     - Weakness #ADT-Weakness-Tweak
-=======
->>>>>>> upstreamwiz/master
     - Electrocution
     - TemporaryBlindness
     - Pacified
