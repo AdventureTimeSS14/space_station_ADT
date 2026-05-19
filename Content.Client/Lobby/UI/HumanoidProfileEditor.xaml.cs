@@ -4,7 +4,6 @@ using System.Numerics;
 using System.Threading;
 using Content.Client.ADT.Lobby.UI;
 using Content.Client.ADT.Traits.UI;
-using Content.Client.Corvax.Sponsors;
 using Content.Client.Guidebook;
 using System.Reflection;
 using Content.Client.Humanoid;
@@ -53,7 +52,6 @@ namespace Content.Client.Lobby.UI
     [GenerateTypedNameReferences]
     public sealed partial class HumanoidProfileEditor : BoxContainer
     {
-        private readonly SponsorsManager _sponsorsManager = default!; // Corvax-Sponsors
         private readonly IClientPreferencesManager _preferencesManager;
         private readonly IConfigurationManager _cfgManager;
         private readonly IEntityManager _entManager;
@@ -581,10 +579,10 @@ namespace Content.Client.Lobby.UI
         /// </summary>
         private void ReloadProfilePreview()
         {
-            if (Profile == null || !_entManager.EntityExists(PreviewDummy))
+            if (Profile == null || !_entManager.EntityExists(SpriteView.PreviewDummy))
                 return;
 
-            _entManager.System<SharedVisualBodySystem>().ApplyProfileTo(PreviewDummy, Profile);
+            _entManager.System<SharedVisualBodySystem>().ApplyProfileTo(SpriteView.PreviewDummy, Profile);
 
             // Check and set the dirty flag to enable the save/reset buttons as appropriate.
             SetDirty();
