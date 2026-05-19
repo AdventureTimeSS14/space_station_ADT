@@ -96,7 +96,6 @@
         type: PaperBoundUserInterface
   - type: FaxableObject
   - type: PaperVisuals
-<<<<<<< HEAD
     backgroundModulate: "#cccccc" # ADT CHANGES START --->
     contentImageModulate: "#cccccc"
     backgroundPatchMargin: 16.0, 16.0, 16.0, 16.0 #Уголки бумаги
@@ -159,9 +158,7 @@
     sound:
       path: /Audio/ADT/Entities/paper_drop.ogg
   # ADT End
-=======
   - type: StationAiWhitelist
->>>>>>> upstreamwiz/master
 
 - type: entity
   name: paper scrap
@@ -567,12 +564,9 @@
       - !type:EmptyAllContainersBehaviour
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-<<<<<<< HEAD
 # ADT-tweak start
   - type: Construction
     graph: PaperEnvelope
     node: done
 # ADT-tweak end
-=======
   - type: StationAiWhitelist
->>>>>>> upstreamwiz/master
