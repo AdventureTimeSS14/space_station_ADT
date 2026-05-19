@@ -52,21 +52,14 @@
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
-<<<<<<< HEAD
-  - type: HitscanBatteryAmmoProvider
-=======
   - type: BatteryAmmoProvider
->>>>>>> upstreamwiz/master
     proto: RedLaser
     fireCost: 62.5
   - type: StaticPrice
     price: 420
-<<<<<<< HEAD
-=======
   - type: Tag
     tags:
     - LaserWeapon
->>>>>>> upstreamwiz/master
 
 - type: entity
   id: BaseWeaponPowerCell
@@ -188,7 +181,6 @@
       shader: unshaded
   - type: Item
     storedOffset: 0,-5
-<<<<<<< HEAD
   # ADT-Tweak start
   # - type: RunAndGunSpreadModifier
   #   modifier: 0.3
@@ -202,12 +194,8 @@
       collection: GenericHit
   - type: AltFireMelee
   # ADT-Tweak end
-  - type: HitscanBatteryAmmoProvider
-    proto: RedLaser #ADT_Tweak - понерфил
-=======
   - type: BatteryAmmoProvider
     proto: RedMediumLaser
->>>>>>> upstreamwiz/master
     fireCost: 62.5
   - type: MagazineVisuals
     magState: mag
@@ -235,13 +223,11 @@
       shader: unshaded
   - type: Item
     storedOffset: 0,-4
-<<<<<<< HEAD
   - type: Gun #ADT Tweak Start
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser.ogg
       params:
-        pitch: 2 #ADT Tweak Ends
-  # ADT-Tweak start
+        pitch: 2
   # - type: RunAndGunSpreadModifier
   #   modifier: 0.4
   - type: MeleeWeapon
@@ -254,8 +240,6 @@
       collection: GenericHit
   - type: AltFireMelee
   # ADT-Tweak end
-=======
->>>>>>> upstreamwiz/master
   - type: MagazineVisuals
     magState: mag
     steps: 5
@@ -269,18 +253,15 @@
   - type: Battery
     maxCharge: 500
     startingCharge: 500
-<<<<<<< HEAD
 # ADT-tweak start
   - type: Construction
     graph: WeaponMakeshiftLaserGraph
     node: weaponlaser
 # ADT-tweak end
-=======
   - type: Tag
     tags:
     - Sidearm
     - LaserWeapon
->>>>>>> upstreamwiz/master
 
 - type: entity
   name: tesla gun
@@ -316,7 +297,6 @@
   - type: Appearance
 
 - type: entity
-<<<<<<< HEAD
   name: practice laser rifle
   parent: [BaseWeaponBattery] #ADT Tweak - removed BaseGunWieldable
   id: WeaponLaserCarbinePractice
@@ -378,19 +358,14 @@
   # ADT TWEAK END
 
 - type: entity
-  name: laser rifle
+  name: laser carbine
   parent: [WeaponLaserCarbinePractice, BaseSecurityContraband, ADTBaseAttachableHolder] # ADT TWEAK #ADT Tweak - removed BaseGunWieldable
   id: WeaponLaserCarbine
-  description: Favoured by Nanotrasen Security for being cheap and easy to use.  
+  description: Favoured by Nanotrasen Security for being cheap and easy to use.
   # ADT-Tweak start
   components:
   - type: HitscanBatteryAmmoProvider
-    proto: RedMediumLaser  
-=======
-  name: laser carbine
-  parent: [BaseLaserRifle, BaseGunWieldable, BaseSecurityContraband]
-  id: WeaponLaserCarbine
-  description: Favoured by Nanotrasen Security for being cheap and easy to use.
+    proto: RedMediumLaser
 
 - type: entity
   name: practice laser carbine
@@ -404,7 +379,6 @@
     proto: RedLaserPractice
     fireCost: 62.5
   - type: PacifismAllowedGun
->>>>>>> upstreamwiz/master
 
 - type: entity
   name: pulse pistol
@@ -453,17 +427,12 @@
     proto: Pulse
     fireCost: 100 # ADT tweak 200 -> 100
   - type: Battery
-<<<<<<< HEAD
     maxCharge: 1000 # ADT tweak 2000->1000
     startingCharge: 1000 # ADT tweak 2000 -> 1000
-=======
-    maxCharge: 2000
-    startingCharge: 2000
   - type: Tag
     tags:
     - Sidearm
     - LaserWeapon
->>>>>>> upstreamwiz/master
 
 - type: entity
   name: pulse carbine
@@ -509,7 +478,6 @@
       - FullAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
-<<<<<<< HEAD
   # ADT-Tweak start
   - type: AttachableHolder
     slots:
@@ -529,10 +497,7 @@
       rmc-aslot-underbarrel: 0.25, -0.07
       rmc-aslot-rail: -0.03125, -0.06
   # ADT-Tweak end
-  - type: HitscanBatteryAmmoProvider
-=======
   - type: BatteryAmmoProvider
->>>>>>> upstreamwiz/master
     proto: Pulse
     fireCost: 100 # ADT tweak 200 -> 100
   - type: Battery
@@ -581,7 +546,6 @@
     fireRate: 3 # ADT tweak 1.5 -> 3
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
-<<<<<<< HEAD
   # ADT-Tweak start
   - type: AttachableHolder
     slots:
@@ -601,10 +565,7 @@
       rmc-aslot-underbarrel: 0.25, -0.14
       rmc-aslot-rail: -0.03125, -0.09375
   # ADT-Tweak end
-  - type: HitscanBatteryAmmoProvider
-=======
   - type: BatteryAmmoProvider
->>>>>>> upstreamwiz/master
     proto: Pulse
     fireCost: 100
   - type: Battery
@@ -795,7 +756,6 @@
       shader: unshaded
   - type: Item
     storedOffset: -1,-5
-<<<<<<< HEAD
   # ADT-Tweak start
   # - type: RunAndGunSpreadModifier
   #   modifier: 0.2
@@ -810,8 +770,7 @@
   - type: AltFireMelee
   - type: GunExecutionBlacklist #ADT-Tweak
   # ADT-Tweak end
-=======
->>>>>>> upstreamwiz/master
+
   - type: Clothing
     sprite: Objects/Weapons/Guns/Battery/practice_disabler.rsi
     quickEquip: false
@@ -836,12 +795,8 @@
     tags:
     - Taser
     - Sidearm
-<<<<<<< HEAD
     - ADTBsoWeapon #ADT-tweak
-  - type: PacifismAllowedGun #ADT-tweak
-=======
   - type: PacifismAllowedGun
->>>>>>> upstreamwiz/master
 
 - type: entity
   name: disabler
@@ -916,7 +871,6 @@
       - FullAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
-<<<<<<< HEAD
   # ADT-Tweak start
   - type: RunAndGunSpreadModifier
     modifier: 0.04
@@ -931,10 +885,7 @@
   - type: AltFireMelee
   - type: GunExecutionBlacklist #ADT-Tweak
   # ADT-Tweak end
-  - type: ProjectileBatteryAmmoProvider
-=======
   - type: BatteryAmmoProvider
->>>>>>> upstreamwiz/master
     proto: BulletDisablerSmg
     fireCost: 25
   - type: MagazineVisuals
@@ -1007,7 +958,7 @@
 - type: entity
   name: antique laser pistol
   parent: [BaseWeaponBatterySmall, BaseGrandTheftContraband]
-  id: WeaponAntiqueLaser  
+  id: WeaponAntiqueLaser
   description: This is an antique laser pistol. All craftsmanship is of the highest quality. It is decorated with a mahogany grip and chrome filigree. The object menaces with spikes of energy. On the item is an image of a captain and a clown. The clown is dead. The captain is striking a heroic pose.
   components:
   - type: Sprite
@@ -1036,14 +987,9 @@
   - type: Gun
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
-<<<<<<< HEAD
 # Start ADT Tweak
-  - type: HitscanBatteryAmmoProvider
-    proto: ADTCapitanRedLaser # Tweak RedMediumLaser -> ADTCapitanRedLaser
-=======
   - type: BatteryAmmoProvider
-    proto: RedMediumLaser
->>>>>>> upstreamwiz/master
+    proto: ADTCapitanRedLaser # Tweak RedMediumLaser -> ADTCapitanRedLaser
     fireCost: 100
   - type: Battery # New - ADT TWEAK
     maxCharge: 1500
@@ -1173,12 +1119,8 @@
     price: 100
   - type: GunExecutionBlacklist #ADT-tweak
 - type: entity
-<<<<<<< HEAD
   name: experimental C.H.I.M.P. handcannon
   parent: [WeaponPistolCHIMP] #, BaseSyndicateContraband] # ADT Remove cringe
-=======
-  parent: [WeaponPistolCHIMP, BaseSyndicateContraband]
->>>>>>> upstreamwiz/master
   id: WeaponPistolCHIMPUpgraded
   suffix: Syndicate
   components:
@@ -1262,11 +1204,7 @@
     fireRate: 2
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
-<<<<<<< HEAD
-  - type: ProjectileBatteryAmmoProvider
-=======
   - type: BatteryAmmoProvider
->>>>>>> upstreamwiz/master
     proto: BulletLaserSpreadNarrow
     fireCost: 80
   - type: BatteryWeaponFireModes
@@ -1316,11 +1254,7 @@
   - type: Gun
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
-<<<<<<< HEAD
-  - type: ProjectileBatteryAmmoProvider
-=======
   - type: BatteryAmmoProvider
->>>>>>> upstreamwiz/master
     proto: BulletLaserMagnum
     fireCost: 150
   - type: BatteryWeaponFireModes
