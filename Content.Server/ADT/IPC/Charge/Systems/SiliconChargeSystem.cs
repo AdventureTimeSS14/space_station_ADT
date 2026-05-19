@@ -172,6 +172,9 @@ public sealed class SiliconChargeSystem : EntitySystem
             || !TryComp<ThermalRegulatorComponent>(silicon, out var thermalComp))
             return 0;
 
+        if (!TryComp<TemperatureDamageComponent>(silicon, out var tempDamageComp))
+            return 0;
+
         // If the Silicon is hot, drain the battery faster, if it's cold, drain it slower, capped.
         var upperThresh = thermalComp.NormalBodyTemperature + thermalComp.ThermalRegulationTemperatureThreshold;
         var upperThreshHalf = thermalComp.NormalBodyTemperature + thermalComp.ThermalRegulationTemperatureThreshold * 0.5f;
@@ -190,9 +193,9 @@ public sealed class SiliconChargeSystem : EntitySystem
 
             siliconComp.OverheatAccumulator -= 5;
 
-            if (!EntityManager.TryGetComponent<FlammableComponent>(silicon, out var flamComp)
+            if (!TryComp<FlammableComponent>(silicon, out var flamComp)
                 || flamComp is { OnFire: true }
-                || !(temperComp.CurrentTemperature > temperComp.HeatDamageThreshold))
+                || !(temperComp.CurrentTemperature > tempDamageComp.HeatDamageThreshold))
                 return hotTempMulti;
 
             _popup.PopupEntity(Loc.GetString("silicon-overheating"), silicon, silicon, PopupType.MediumCaution);

@@ -158,18 +158,25 @@ public sealed partial class GhoulSystem
             stored.Temperature = new TemperatureData
             {
                 CurrentTemperature = temp.CurrentTemperature,
-                HeatDamageThreshold = temp.HeatDamageThreshold,
-                ColdDamageThreshold = temp.ColdDamageThreshold,
-                ParentHeatDamageThreshold = temp.ParentHeatDamageThreshold,
-                ParentColdDamageThreshold = temp.ParentColdDamageThreshold,
                 SpecificHeat = temp.SpecificHeat,
                 AtmosTemperatureTransferEfficiency = temp.AtmosTemperatureTransferEfficiency,
-                ColdDamage = new DamageSpecifier(temp.ColdDamage),
-                HeatDamage = new DamageSpecifier(temp.HeatDamage),
-                DamageCap = temp.DamageCap,
-                TakingDamage = temp.TakingDamage,
-                HotAlert = temp.HotAlert,
-                ColdAlert = temp.ColdAlert,
+            };
+        }
+
+        if (TryComp<TemperatureDamageComponent>(ent, out var tempDamage))
+        {
+            stored.TemperatureDamage = new TemperatureDamageData
+            {
+                HeatDamageThreshold = tempDamage.HeatDamageThreshold,
+                ColdDamageThreshold = tempDamage.ColdDamageThreshold,
+                ParentHeatDamageThreshold = tempDamage.ParentHeatDamageThreshold,
+                ParentColdDamageThreshold = tempDamage.ParentColdDamageThreshold,
+                ColdDamage = new DamageSpecifier(tempDamage.ColdDamage),
+                HeatDamage = new DamageSpecifier(tempDamage.HeatDamage),
+                DamageCap = tempDamage.DamageCap,
+                TakingDamage = tempDamage.TakingDamage,
+                HotAlert = tempDamage.HotAlert,
+                ColdAlert = tempDamage.ColdAlert,
             };
         }
 
@@ -307,18 +314,23 @@ public sealed partial class GhoulSystem
         {
             var temp = AddComp<TemperatureComponent>(ent);
             temp.CurrentTemperature = stored.Temperature.CurrentTemperature;
-            temp.HeatDamageThreshold = stored.Temperature.HeatDamageThreshold;
-            temp.ColdDamageThreshold = stored.Temperature.ColdDamageThreshold;
-            temp.ParentHeatDamageThreshold = stored.Temperature.ParentHeatDamageThreshold;
-            temp.ParentColdDamageThreshold = stored.Temperature.ParentColdDamageThreshold;
             temp.SpecificHeat = stored.Temperature.SpecificHeat;
             temp.AtmosTemperatureTransferEfficiency = stored.Temperature.AtmosTemperatureTransferEfficiency;
-            temp.ColdDamage = new DamageSpecifier(stored.Temperature.ColdDamage);
-            temp.HeatDamage = new DamageSpecifier(stored.Temperature.HeatDamage);
-            temp.DamageCap = stored.Temperature.DamageCap;
-            temp.TakingDamage = stored.Temperature.TakingDamage;
-            temp.HotAlert = stored.Temperature.HotAlert;
-            temp.ColdAlert = stored.Temperature.ColdAlert;
+        }
+
+        if (stored.TemperatureDamage != null)
+        {
+            var tempDamage = AddComp<TemperatureDamageComponent>(ent);
+            tempDamage.HeatDamageThreshold = stored.TemperatureDamage.HeatDamageThreshold;
+            tempDamage.ColdDamageThreshold = stored.TemperatureDamage.ColdDamageThreshold;
+            tempDamage.ParentHeatDamageThreshold = stored.TemperatureDamage.ParentHeatDamageThreshold;
+            tempDamage.ParentColdDamageThreshold = stored.TemperatureDamage.ParentColdDamageThreshold;
+            tempDamage.ColdDamage = new DamageSpecifier(stored.TemperatureDamage.ColdDamage);
+            tempDamage.HeatDamage = new DamageSpecifier(stored.TemperatureDamage.HeatDamage);
+            tempDamage.DamageCap = stored.TemperatureDamage.DamageCap;
+            tempDamage.TakingDamage = stored.TemperatureDamage.TakingDamage;
+            tempDamage.HotAlert = stored.TemperatureDamage.HotAlert;
+            tempDamage.ColdAlert = stored.TemperatureDamage.ColdAlert;
         }
 
         // Восстанавливаем цвет кожи и глаз
