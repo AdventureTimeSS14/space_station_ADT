@@ -16,7 +16,6 @@
     chemicalComposition:
       Silicon: 20
   - type: Circuitboard
-<<<<<<< HEAD
   - type: Electronics # ADT tweak
   # ADT Start
   - type: Edible
@@ -35,5 +34,3 @@
     tags:
     - VoxFood
   # ADT End
-=======
->>>>>>> upstreamwiz/master
