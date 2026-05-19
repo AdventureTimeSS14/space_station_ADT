@@ -63,7 +63,6 @@
           behaviors:
             - !type:DoActsBehavior
               acts: ["Destruction"]
-<<<<<<< HEAD
     - type: PaperLabel
       labelSlot:
         insertVerbText: paper-label-attach # ADT translate
@@ -74,8 +73,6 @@
         blacklist:
           tags:
           - Book
-=======
->>>>>>> upstreamwiz/master
     - type: Appearance
     - type: EntityStorageVisuals
       stateDoorOpen: open
