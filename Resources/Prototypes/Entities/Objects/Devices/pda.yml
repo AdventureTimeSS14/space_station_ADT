@@ -1083,11 +1083,7 @@
   - type: Instrument
     allowPercussion: true #ADT-tweak false>true
     handheld: true
-<<<<<<< HEAD
     program: 128 #ADT-tweak 2>128
-=======
-    program: 2
->>>>>>> upstreamwiz/master
     bank: 100 # Defined in space-station-14.sf2
 
 - type: entity
@@ -1651,8 +1647,6 @@
     state: pda-seniorcourier
 
 - type: entity
-<<<<<<< HEAD
-=======
   parent: [ BaseHighlyIllegalContraband, BasePDA ]
   id: NinjaPDA
   name: ninja PDA
@@ -1669,7 +1663,6 @@
     state: pda-ninja
 
 - type: entity
->>>>>>> upstreamwiz/master
   parent: [ BaseMajorContraband, SyndiPDA ]
   id: PiratePDA
   name: pirate PDA
