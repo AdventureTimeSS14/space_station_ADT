@@ -1818,7 +1818,6 @@
   id: FloorMowedAstroGrass
   parent: [ BaseStationTile, FloorGrass ]
   name: tiles-mowed-astro-grass
-  parent: FloorGrass
   sprite: /Textures/Corvax/Tiles/mowed_grass.png #Corvax
   variants: 4
   placementVariants:
@@ -1840,24 +1839,6 @@
   deconstructTools: [ Cutting ]
   itemDrop: FloorTileItemJungleAstroGrass
   weather: false # Corvax
-
-- type: tile
-  parent: FloorGrassDark
-  id: FloorDarkAstroGrass
-  name: tiles-dark-astro-grass
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Cutting ]
-  itemDrop: FloorTileItemDarkAstroGrass
-
-- type: tile
-  parent: FloorGrassLight
-  id: FloorLightAstroGrass
-  name: tiles-light-astro-grass
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Cutting ]
-  itemDrop: FloorTileItemLightAstroGrass
 
 - type: tile
   parent: FloorGrassDark
@@ -1947,7 +1928,6 @@
   weather: false
 
 - type: tile
->>>>>>> upstreamwiz/master
   id: FloorWoodLarge
   parent: BaseStationTile
   name: tiles-wood-large
@@ -1963,18 +1943,6 @@
   barestepSounds:
     collection: BarestepWood
   itemDrop: FloorTileItemWoodLarge
-
-- type: tile
-  id: FloorXenoborg
-  name: tiles-xenoborg-floor
-  sprite: /Textures/Tiles/exoborg.png
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepHull
-  itemDrop: FloorTileItemXenoborg
-  heatCapacity: 10000
 
 - type: tile
   id: FloorXenoborg
