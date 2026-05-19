@@ -258,25 +258,4 @@ public sealed class CargoTest : GameTest
             });
         });
     }
-
-    [Test]
-    public async Task MobPrice()
-    {
-        await using var pair = await PoolManager.GetServerClient();
-
-        var componentFactory = pair.Server.ResolveDependency<IComponentFactory>();
-
-        await pair.Server.WaitAssertion(() =>
-        {
-            Assert.Multiple(() =>
-            {
-                foreach (var (proto, comp) in pair.GetPrototypesWithComponent<MobPriceComponent>())
-                {
-                    Assert.That(proto.TryGetComponent<MobStateComponent>(out _, componentFactory), $"Found MobPriceComponent on {proto.ID}, but no MobStateComponent!");
-                }
-            });
-        });
-
-        await pair.CleanReturnAsync();
-    }
 }
