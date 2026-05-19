@@ -18,11 +18,7 @@
     baseSprintSpeed : 4
   - type: StatusEffects
     allowed:
-<<<<<<< HEAD
-    - Stutter
     - Weakness #ADT-Weakness-Tweak
-=======
->>>>>>> upstreamwiz/master
     - Electrocution
     - TemporaryBlindness
     - Pacified
@@ -35,11 +31,8 @@
     tags:
     - DoorBumpOpener
     - StunImmune
-<<<<<<< HEAD
   - type: ProjectileIgnoreCrawling
-=======
   - type: Blindable
->>>>>>> upstreamwiz/master
 
 - type: entity
   abstract: true

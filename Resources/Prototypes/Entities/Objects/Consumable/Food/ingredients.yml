@@ -994,10 +994,7 @@
     shape:
     - 0,0,1,0
     - 0,1,0,1
-<<<<<<< HEAD
     size: Tiny # ADT-Tweak
-=======
->>>>>>> upstreamwiz/master
     storedOffset: -2,-4
   - type: FlavorProfile
     flavors:
@@ -1019,10 +1016,6 @@
   description: Buttery, flaky, fibery goodness waiting to happen.
   components:
   - type: Item
-<<<<<<< HEAD
-    size: Tiny
-=======
->>>>>>> upstreamwiz/master
     shape:
     - 0,0,1,0
     - 0,1,0,1
