@@ -58,7 +58,6 @@
   - type: EntityStorageVisuals
     stateDoorOpen: open
     stateDoorClosed: closed
-<<<<<<< HEAD
   - type: GenericVisualizer
     visuals:
       enum.PaperLabelVisuals.HasLabel:
@@ -81,8 +80,6 @@
       blacklist:
         tags:
         - Book
-=======
->>>>>>> upstreamwiz/master
   - type: ContainerContainer
     containers:
       entity_storage: !type:Container
