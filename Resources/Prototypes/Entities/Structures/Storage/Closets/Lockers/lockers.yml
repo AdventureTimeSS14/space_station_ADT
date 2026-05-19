@@ -623,11 +623,7 @@
 # Syndicate
 - type: entity
   id: LockerSyndicatePersonal
-<<<<<<< HEAD
-  name: syndicate locker
-=======
   name: blood-red locker
->>>>>>> upstreamwiz/master
   parent: LockerBaseSecure
   description: It's a personal storage unit with a blood-red design.
   suffix: "Locked"
