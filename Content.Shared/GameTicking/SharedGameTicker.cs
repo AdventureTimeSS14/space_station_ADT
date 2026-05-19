@@ -200,6 +200,7 @@ namespace Content.Shared.GameTicking
 
             public MobState EntMobState;
 
+            [Obsolete("This is only used for the end of round summary, and is not intended to be used for anything else. It will be removed once we have a better way to track this information.")]
             public Dictionary<ProtoId<DamageGroupPrototype>, FixedPoint2> DamagePerGroup;
             //ADT-tweak-end
         }
