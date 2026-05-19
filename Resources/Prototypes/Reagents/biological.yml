@@ -25,19 +25,6 @@
           - !type:MetabolizerTypeCondition
             type: [ Human ]
             inverted: true
-<<<<<<< HEAD
-    Food:
-      effects:
-        - !type:AdjustReagent
-          reagent: UncookedAnimalProteins
-          amount: 0.1
-    Medicine:
-      effects:
-      - !type:HealthChange
-        conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Bloodsucker ]
-=======
       - !type:EvenHealthChange
         conditions:
         - !type:MetabolizerTypeCondition
@@ -48,7 +35,6 @@
     Bloodstream: # Don't inject someone else's blood into yourself! Your own blood won't actually metabolise.
       effects:
       - !type:HealthChange
->>>>>>> upstreamwiz/master
         damage:
           types:
             Poison: 0.2
@@ -202,7 +188,6 @@
     # Dragon doesn't require airloss healing, so omnizine is still best for humans.
       - !type:ModifyBloodLevel
         amount: 3
-<<<<<<< HEAD
       # ADT tweak start Поощрение агрессивной игры то есть больше крови от трупа в 3 раза
       - !type:ModifyBloodLevel
         amount: 6
@@ -210,21 +195,15 @@
         - !type:MetabolizerTypeCondition
           type: [ Dragon ]
       # ADT tweak end
-=======
       - !type:EvenHealthChange
         damage:
           Burn: -3
           Brute: -3
           Toxin: -2
->>>>>>> upstreamwiz/master
       - !type:HealthChange
         damage:
           types:
-<<<<<<< HEAD
             Bloodloss: -5
-=======
-            Bloodloss: -3
->>>>>>> upstreamwiz/master
       - !type:ModifyBleed
         amount: -1.5
   # Just in case you REALLY want to water your plants

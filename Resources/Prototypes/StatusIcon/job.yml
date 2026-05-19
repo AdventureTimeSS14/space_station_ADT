@@ -376,10 +376,7 @@
     sprite: *icon-rsi
     state: Borg
   jobName: job-name-borg
-<<<<<<< HEAD
-=======
   isCrewJob: false
->>>>>>> upstreamwiz/master
 
 - type: jobIcon
   parent: JobIcon
@@ -388,10 +385,7 @@
     sprite: *icon-rsi
     state: StationAi
   jobName: job-name-station-ai
-<<<<<<< HEAD
-=======
   isCrewJob: false
->>>>>>> upstreamwiz/master
 
 # Bad guys
 
@@ -402,16 +396,6 @@
     sprite: *icon-rsi
     state: Cluwne
   jobName: job-name-cluwne
-<<<<<<< HEAD
-
-- type: jobIcon
-  parent: JobIcon
-  id: JobIconPrisoner
-  icon:
-    sprite: *icon-rsi
-    state: Prisoner
-  jobName: job-name-prisoner
-=======
   isCrewJob: false
 
 - type: jobIcon
@@ -440,7 +424,6 @@
     state: Prisoner
   jobName: job-name-prisoner
   isCrewJob: false
->>>>>>> upstreamwiz/master
 
 - type: jobIcon
   parent: JobIcon
@@ -453,13 +436,6 @@
 
 - type: jobIcon
   parent: JobIcon
-<<<<<<< HEAD
-  id: JobIconZombie # This is a perfectly legitimate profession to pursue
-  icon:
-    sprite: *icon-rsi
-    state: Zombie
-  jobName: job-name-zombie
-=======
   id: JobIconSyndicateCommander
   icon:
     sprite: *icon-rsi
@@ -502,14 +478,11 @@
     state: Zombie
   jobName: job-name-zombie
   isCrewJob: false
->>>>>>> upstreamwiz/master
 
 # Admin
 
 - type: jobIcon
   parent: JobIcon
-<<<<<<< HEAD
-=======
   id: JobIconCBURN
   icon:
     sprite: *icon-rsi
@@ -574,16 +547,11 @@
 
 - type: jobIcon
   parent: JobIcon
->>>>>>> upstreamwiz/master
   id: JobIconNanotrasen
   icon:
     sprite: *icon-rsi
     state: Nanotrasen
-<<<<<<< HEAD
-  jobName: job-name-centcomoff
-=======
   jobName: job-name-centcommoff
->>>>>>> upstreamwiz/master
 
 - type: jobIcon
   parent: JobIcon
@@ -634,10 +602,7 @@
     sprite: *icon-rsi
     state: NoId
   jobName: job-name-no-id
-<<<<<<< HEAD
-=======
   isCrewJob: false
->>>>>>> upstreamwiz/master
 
 - type: jobIcon
   parent: JobIcon
@@ -646,7 +611,4 @@
     sprite: *icon-rsi
     state: Unknown
   jobName: job-name-unknown
-<<<<<<< HEAD
-=======
   isCrewJob: false
->>>>>>> upstreamwiz/master

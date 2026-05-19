@@ -1080,20 +1080,17 @@
   parent: BaseStationTile
   name: tiles-white-shuttle-floor
   sprite: /Textures/Tiles/shuttlewhite.png
-<<<<<<< HEAD
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepFloor
-=======
   variants: 4
   placementVariants:
   - 1.0
   - 1.0
   - 1.0
   - 1.0
->>>>>>> upstreamwiz/master
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepFloor
   itemDrop: FloorTileItemShuttleWhite
 
 - type: tile
@@ -1101,20 +1098,17 @@
   parent: BaseStationTile
   name: tiles-grey-shuttle-floor
   sprite: /Textures/Tiles/shuttlegrey.png
-<<<<<<< HEAD
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepFloor
-=======
   variants: 4
   placementVariants:
   - 1.0
   - 1.0
   - 1.0
   - 1.0
->>>>>>> upstreamwiz/master
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepFloor
   itemDrop: FloorTileItemShuttleGrey
 
 - type: tile
@@ -1122,20 +1116,17 @@
   parent: BaseStationTile
   name: tiles-black-shuttle-floor
   sprite: /Textures/Tiles/shuttleblack.png
-<<<<<<< HEAD
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepFloor
-=======
   variants: 4
   placementVariants:
   - 1.0
   - 1.0
   - 1.0
   - 1.0
->>>>>>> upstreamwiz/master
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepFloor
   itemDrop: FloorTileItemShuttleBlack
 
 - type: tile
@@ -1143,20 +1134,17 @@
   parent: BaseStationTile
   name: tiles-blue-shuttle-floor
   sprite: /Textures/Tiles/shuttleblue.png
-<<<<<<< HEAD
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepFloor
-=======
   variants: 4
   placementVariants:
   - 1.0
   - 1.0
   - 1.0
   - 1.0
->>>>>>> upstreamwiz/master
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepFloor
   itemDrop: FloorTileItemShuttleBlue
 
 - type: tile
@@ -1164,20 +1152,17 @@
   parent: BaseStationTile
   name: tiles-orange-shuttle-floor
   sprite: /Textures/Tiles/shuttleorange.png
-<<<<<<< HEAD
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepFloor
-=======
   variants: 4
   placementVariants:
   - 1.0
   - 1.0
   - 1.0
   - 1.0
->>>>>>> upstreamwiz/master
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepFloor
   itemDrop: FloorTileItemShuttleOrange
 
 - type: tile
@@ -1185,20 +1170,17 @@
   parent: BaseStationTile
   name: tiles-purple-shuttle-floor
   sprite: /Textures/Tiles/shuttlepurple.png
-<<<<<<< HEAD
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepFloor
-=======
   variants: 4
   placementVariants:
   - 1.0
   - 1.0
   - 1.0
   - 1.0
->>>>>>> upstreamwiz/master
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepFloor
   itemDrop: FloorTileItemShuttlePurple
 
 - type: tile
@@ -1206,20 +1188,17 @@
   parent: BaseStationTile
   name: tiles-red-shuttle-floor
   sprite: /Textures/Tiles/shuttlered.png
-<<<<<<< HEAD
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepFloor
-=======
   variants: 4
   placementVariants:
   - 1.0
   - 1.0
   - 1.0
   - 1.0
->>>>>>> upstreamwiz/master
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepFloor
   itemDrop: FloorTileItemShuttleRed
 
 
@@ -1839,7 +1818,6 @@
   id: FloorMowedAstroGrass
   parent: [ BaseStationTile, FloorGrass ]
   name: tiles-mowed-astro-grass
-<<<<<<< HEAD
   parent: FloorGrass
   sprite: /Textures/Corvax/Tiles/mowed_grass.png #Corvax
   variants: 4
@@ -1849,8 +1827,6 @@
   - 1.0
   - 1.0
   baseTurf: Plating
-=======
->>>>>>> upstreamwiz/master
   isSubfloor: false
   deconstructTools: [ Cutting ]
   itemDrop: FloorTileItemMowedAstroGrass
@@ -1951,8 +1927,6 @@
   weather: false
 
 - type: tile
-<<<<<<< HEAD
-=======
   id: FloorAstroIronsand
   name: tiles-astro-ironsand
   parent: FloorAsteroidIronsand
