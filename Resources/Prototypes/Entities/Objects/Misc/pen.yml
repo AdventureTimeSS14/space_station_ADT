@@ -40,14 +40,11 @@
         - ItemMask
         restitution: 0.3
         friction: 0.2
-<<<<<<< HEAD
   #ADT-Tweak-Start
   - type: Tool
     qualities:
     - Drawing
   #ADT-Tweak-End
-=======
->>>>>>> upstreamwiz/master
 
 - type: entity
   parent: Pen
