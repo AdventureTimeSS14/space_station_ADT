@@ -202,6 +202,13 @@ public sealed partial class AtmosphereSystem
         if (tile.Air == null)
             return;
 
+        var oxygen = tile.Air.GetMoles(Gas.Oxygen);
+
+        if (oxygen < 0.5f)
+            return;
+
+        var plasma = tile.Air.GetMoles(Gas.Plasma);
+        var tritium = tile.Air.GetMoles(Gas.Tritium);
         //ADT-Tweak-start
         var hydrogen = tile.Air.GetMoles(Gas.Hydrogen);
         var hypernoblium = tile.Air.GetMoles(Gas.HyperNoblium);
