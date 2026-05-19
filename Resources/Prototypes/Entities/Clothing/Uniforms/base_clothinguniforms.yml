@@ -82,13 +82,10 @@
   - type: Clothing
     slots: [innerclothing]
     femaleMask: UniformTop
-<<<<<<< HEAD
   #ADT-Tweak-Start
   - type: CoveredSlot
     slots: [underweart]
   #ADT-Tweak-End
-=======
->>>>>>> upstreamwiz/master
 
 - type: entity
   abstract: true
