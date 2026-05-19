@@ -91,11 +91,13 @@ public sealed class RespiratorSystem : EntitySystem
                 continue;
 
             // ADT tweak start
-            var organs = _body.GetBodyOrganEntityComps<LungComponent>((uid, body));
+            if (!_body.TryGetOrgansWithComponent<LungComponent>((uid, body), out var organs))
+                continue;
+
             var multiplier = -1f;
-            foreach (var (_, lung, _) in organs)
+            foreach (var organ in organs)
             {
-                multiplier *= lung.SaturationLoss;
+                multiplier *= organ.Comp.SaturationLoss;
             }
             // ADT tweak end
             UpdateSaturation(uid, -(float)respirator.UpdateInterval.TotalSeconds, respirator);
