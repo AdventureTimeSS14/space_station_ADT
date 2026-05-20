@@ -199,8 +199,6 @@
     sprite: Clothing/Belt/militarywebbingmed.rsi
   - type: Clothing
     sprite: Clothing/Belt/militarywebbingmed.rsi
-<<<<<<< HEAD
-=======
 
 - type: entity
   parent: ClothingBeltMilitaryWebbing
@@ -212,4 +210,3 @@
     sprite: Clothing/Belt/militarywebbingert.rsi
   - type: Clothing
     sprite: Clothing/Belt/militarywebbingert.rsi
->>>>>>> upstreamwiz/master
