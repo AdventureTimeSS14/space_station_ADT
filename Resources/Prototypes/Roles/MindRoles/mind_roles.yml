@@ -354,8 +354,4 @@
     subtype: role-subtype-changeling
   - type: ChangelingRole
   - type: RoleBriefing
-<<<<<<< HEAD
     briefing: changeling-briefing
-=======
-    briefing: changeling-briefing
->>>>>>> upstreamwiz/master
