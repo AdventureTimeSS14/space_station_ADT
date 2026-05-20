@@ -19,13 +19,7 @@
     containers:
       ballistic-ammo: !type:Container
         ents: []
-<<<<<<< HEAD
   - type: GunExecutionBlacklist #ADT-tweak
-
-- type: entity
-  name: china lake
-  parent: [BaseWeaponLauncher, BaseGunWieldable, BaseSyndicateContraband, ADTBaseMagneticGun] # ADT TWEAK
-=======
   - type: Gun
     fireRate: 1
     projectileSpeed: 25 # Slower than a bullet, same speed as our old projectile limit.
@@ -37,8 +31,7 @@
 
 - type: entity
   name: china lake
-  parent: [BaseWeaponLauncher, BaseSyndicateContraband]
->>>>>>> upstreamwiz/master
+  parent: [BaseWeaponLauncher, BaseGunWieldable, BaseSyndicateContraband, ADTBaseMagneticGun] # ADT TWEAK
   id: WeaponLauncherChinaLake
   description: PLOOP.
   components:
@@ -57,7 +50,6 @@
     shape:
     - 0,0,4,2
   - type: AmmoCounter
-<<<<<<< HEAD
   - type: RunAndGunSpreadModifier #ADT-tweak
   # ADT-Tweak start
   - type: MeleeWeapon
@@ -77,8 +69,6 @@
       - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/grenade_launcher.ogg
-=======
->>>>>>> upstreamwiz/master
   - type: BallisticAmmoProvider
     whitelist:
       tags:
