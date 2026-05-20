@@ -43,17 +43,9 @@
       operator: !type:MoveToOperator
         pathfindInPlanning: false
 
-<<<<<<< HEAD
-        - !type:HTNPrimitiveTask
-          operator: !type:SpeakOperator
-            speech: !type:SingleSpeakOperatorSpeech
-              line: medibot-start-inject
-            hidden: true
-=======
   - tasks:
     - !type:HTNPrimitiveTask
       operator: !type:NoOperator
->>>>>>> upstreamwiz/master
 
 # Should be called only when in range
 - type: htnCompound
