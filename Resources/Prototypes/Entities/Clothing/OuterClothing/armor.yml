@@ -178,14 +178,11 @@
         Slash: 0.5
         Piercing: 0.3
         Heat: 0.9
-<<<<<<< HEAD
   - type: StaminaResistance
     damageCoefficient: 0.7
   # ADT-Tweak-End
   - type: ExplosionResistance
     damageCoefficient: 0.9
-=======
->>>>>>> upstreamwiz/master
   - type: StaticPrice
     price: 1500
 
