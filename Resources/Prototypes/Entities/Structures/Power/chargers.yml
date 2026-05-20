@@ -111,13 +111,10 @@
         blacklist:
           tags:
           - PotatoBattery
-<<<<<<< HEAD
           - ADTMegaCell #ADT-tweak
-=======
   - type: Item
     size: Ginormous
   - type: MultiHandedItem
->>>>>>> upstreamwiz/master
 
 - type: entity
   parent: [ BaseItemRecharger, ConstructibleMachine ]
@@ -178,20 +175,13 @@
           components:
           - BatteryAmmoProvider
           - Stunbaton
-<<<<<<< HEAD
         #  - PowerCell #ADT-Tweak
-        blacklist:
-          tags:
-          - PotatoBattery
-=======
-          - PowerCell
         blacklist:
           tags:
           - PotatoBattery
   - type: Item
     size: Ginormous
   - type: MultiHandedItem
->>>>>>> upstreamwiz/master
 
 - type: entity
   parent: BaseItemRecharger
@@ -217,16 +207,13 @@
         blacklist:
           tags:
           - PotatoBattery
-<<<<<<< HEAD
           - ADTMegaCell # ADT-Tweak
           components: # ADT plasmacutters
           - BatteryRecharge # ADT plasmacutters
           - BatterySelfRecharger # ADT-tweak
-=======
   - type: Item
     size: Ginormous
   - type: MultiHandedItem
->>>>>>> upstreamwiz/master
 
 - type: entity
   parent: [ BaseItemRecharger, BaseWallmount ]
@@ -257,11 +244,8 @@
         blacklist:
           tags:
           - PotatoBattery
-<<<<<<< HEAD
           components: # ADT plasmacutters
           - BatteryRecharge # ADT plasmacutters
-=======
->>>>>>> upstreamwiz/master
 
 - type: entity
   parent: BaseRecharger
