@@ -168,10 +168,6 @@
   parent: [ PinpointerBase, BaseXenoborgContraband ]
   id: PinpointerMothership
   name: core pinpointer
-<<<<<<< HEAD
-  suffix: Mothership
-=======
->>>>>>> upstreamwiz/master
   description: A handheld tracking device that leads to the direction of the Mothership core.
   components:
   - type: Sprite
@@ -201,8 +197,6 @@
   - type: Pinpointer
     component: MothershipCore
     targetName: the Mothership
-<<<<<<< HEAD
-=======
 
 - type: entity
   parent: BaseItem
@@ -242,4 +236,3 @@
   - type: Construction
     graph: RepairMothershipPinpointer
     node: repairedPinpointer
->>>>>>> upstreamwiz/master
