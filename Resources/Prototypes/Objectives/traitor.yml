@@ -242,24 +242,7 @@
   - type: StealCondition
     stealGroup: HandTeleporter
 
-<<<<<<< HEAD
 ## hos #ADT tweak start
-=======
-## hos
-
-- type: entity
-  parent: BaseTraitorStealObjective
-  id: EnergyMagnumStealObjective
-  components:
-  - type: Objective
-    # HoS will have this on them a lot of the time so..
-    difficulty: 3
-  - type: NotJobRequirement
-    jobs: [ HeadOfSecurity ]
-  - type: StealCondition
-    stealGroup: WeaponEnergyMagnum
-    owner: job-name-hos
->>>>>>> upstreamwiz/master
 
 # - type: entity
 #   categories: [ HideSpawnMenu ]

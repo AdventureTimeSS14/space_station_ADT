@@ -138,13 +138,9 @@
   - type: Sprite
     sprite: ADT/Objects/Weapons/Guns/Revolvers/mateba.rsi # ADT tweak
   - type: Clothing
-<<<<<<< HEAD
     sprite: ADT/Objects/Weapons/Guns/Revolvers/mateba.rsi # ADT tweak
-=======
-    sprite: Objects/Weapons/Guns/Revolvers/mateba.rsi
   - type: Item
     storedOffset: 0,-3
->>>>>>> upstreamwiz/master
   - type: Gun
     fireRate: 3
     soundGunshot:
@@ -196,7 +192,6 @@
   suffix: armor-piercing
   components:
   - type: RevolverAmmoProvider
-<<<<<<< HEAD
     whitelist:
       tags:
     # ADT tweak start
@@ -204,9 +199,6 @@
         - ADTSpeedLoaderMagnumLesser
     proto: ADTCartridgeMagnumLesserAP
     # ADT tweak end
-=======
-    proto: CartridgeMagnumAP
->>>>>>> upstreamwiz/master
 
 
 - type: entity
