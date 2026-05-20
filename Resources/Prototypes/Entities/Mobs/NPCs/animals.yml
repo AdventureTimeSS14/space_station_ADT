@@ -50,22 +50,16 @@
   - type: SentienceTarget
     flavorKind: station-event-random-sentience-flavor-organic
   - type: Bloodstream
-<<<<<<< HEAD
-    bloodMaxVolume: 50
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 50
 # ADT-Tweak-start
   # - type: ReplacementAccent
   #   accent: mouse
   - type: MobCollision
     enabled: false
 # ADT-Tweak-end
-=======
-    bloodReferenceSolution:
-      reagents:
-      - ReagentId: Blood
-        Quantity: 50
-  - type: ReplacementAccent
-    accent: mouse
->>>>>>> upstreamwiz/master
   - type: MeleeWeapon
     soundHit:
         path: /Audio/Effects/bite.ogg
