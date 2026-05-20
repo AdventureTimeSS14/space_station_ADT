@@ -146,10 +146,6 @@
         - RawMaterial
         - Ingot
       components:
-<<<<<<< HEAD
-        - ConstructionMaterial
-=======
->>>>>>> upstreamwiz/master
         - Circuitboard
         - Flatpack
         - FloorTile
