@@ -582,10 +582,7 @@
   - type: GuideHelp
     guides:
     - AnalysisConsole
-<<<<<<< HEAD
   - type: StationAiWhitelist #ADT-Tweak
-=======
->>>>>>> upstreamwiz/master
 
 - type: entity
   parent: BaseComputerAiAccess
@@ -1630,14 +1627,10 @@
     channels:
     - Xenoborg
   - type: ApcPowerReceiver
-<<<<<<< HEAD
-    powerLoad: 1000
-=======
     powerLoad: 50
   - type: PowerState
     idlePowerDraw: 50
     workingPowerDraw: 1000
->>>>>>> upstreamwiz/master
   - type: DeviceNetwork
     deviceNetId: Wireless
     receiveFrequencyId: Mothership
@@ -1743,14 +1736,10 @@
           True: { visible: false }
           False: { visible: true }
   - type: ApcPowerReceiver
-<<<<<<< HEAD
-    powerLoad: 1000
-=======
     powerLoad: 50
   - type: PowerState
     idlePowerDraw: 50
     workingPowerDraw: 1000
->>>>>>> upstreamwiz/master
   - type: Computer
     board: StationAiFixerCircuitboard
   - type: AccessReader
@@ -1785,8 +1774,6 @@
         type: StationAiFixerConsoleBoundUserInterface
       enum.WiresUiKey.Key:
         type: WiresBoundUserInterface
-<<<<<<< HEAD
-=======
 
 - type: entity
   parent: BaseComputer
@@ -1825,4 +1812,3 @@
     name: store-preset-name-nukie-delivery
     categories:
     - NukieDelivery
->>>>>>> upstreamwiz/master
