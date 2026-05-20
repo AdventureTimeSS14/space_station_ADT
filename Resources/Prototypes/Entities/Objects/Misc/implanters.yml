@@ -47,10 +47,7 @@
     - FakeMindShieldImplant
     - RadioImplant
     - ChameleonControllerImplant
-<<<<<<< HEAD
-=======
     - VoiceMaskImplant
->>>>>>> upstreamwiz/master
     deimplantFailureDamage:
       types:
         Cellular: 50
