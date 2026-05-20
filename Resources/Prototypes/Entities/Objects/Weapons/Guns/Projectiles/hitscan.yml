@@ -18,10 +18,7 @@
 
 - type: entity
   id: BasicHitscan
-<<<<<<< HEAD
-=======
   name: basic laser ray
->>>>>>> upstreamwiz/master
   categories: [ HideSpawnMenu ]
   components:
   - type: HitscanAmmo
@@ -42,10 +39,7 @@
 - type: entity
   parent: BasicHitscan
   id: RedLightLaser
-<<<<<<< HEAD
-=======
   name: red light laser ray
->>>>>>> upstreamwiz/master
   categories: [ HideSpawnMenu ]
   components:
   - type: HitscanBasicDamage
@@ -56,10 +50,7 @@
 - type: entity
   parent: BasicHitscan
   id: RedLaser
-<<<<<<< HEAD
-=======
   name: red laser ray
->>>>>>> upstreamwiz/master
   categories: [ HideSpawnMenu ]
   components:
   - type: HitscanBasicDamage
@@ -70,10 +61,7 @@
 - type: entity
   parent: BasicHitscan
   id: RedMediumLaser
-<<<<<<< HEAD
-=======
   name: red amplified laser ray
->>>>>>> upstreamwiz/master
   categories: [ HideSpawnMenu ]
   components:
   - type: HitscanBasicDamage
@@ -84,10 +72,7 @@
 - type: entity
   parent: BasicHitscan
   id: RedHeavyLaser
-<<<<<<< HEAD
-=======
   name: red high-energy laser ray
->>>>>>> upstreamwiz/master
   categories: [ HideSpawnMenu ]
   components:
   - type: HitscanBasicDamage
@@ -108,10 +93,7 @@
 - type: entity
   parent: BasicHitscan
   id: RedLaserPractice
-<<<<<<< HEAD
-=======
   name: red practice laser ray
->>>>>>> upstreamwiz/master
   categories: [ HideSpawnMenu ]
   components:
   - type: HitscanBasicDamage
@@ -122,10 +104,7 @@
 - type: entity
   parent: BasicHitscan
   id: XrayLaser
-<<<<<<< HEAD
-=======
   name: X-ray pulse beam
->>>>>>> upstreamwiz/master
   categories: [ HideSpawnMenu ]
   components:
   - type: HitscanBasicDamage
@@ -147,10 +126,7 @@
 - type: entity
   parent: BasicHitscan
   id: Pulse
-<<<<<<< HEAD
-=======
   name: blue high-energy laser ray
->>>>>>> upstreamwiz/master
   categories: [ HideSpawnMenu ]
   components:
   - type: HitscanBasicDamage
@@ -171,10 +147,7 @@
 - type: entity
   parent: BasicHitscan
   id: RedShuttleLaser
-<<<<<<< HEAD
-=======
   name: shuttle class red laser ray
->>>>>>> upstreamwiz/master
   categories: [ HideSpawnMenu ]
   components:
   - type: HitscanBasicRaycast
@@ -194,8 +167,6 @@
     impactFlash:
       sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
       state: impact_beam_heavy2
-<<<<<<< HEAD
-=======
 
 - type: entity
   parent: BasicHitscan
@@ -230,4 +201,3 @@
     damage:
       types:
         Blunt: 20000
->>>>>>> upstreamwiz/master
