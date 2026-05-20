@@ -14,11 +14,7 @@
   - type: MovedByPressure
   - type: StatusEffects
     allowed:
-<<<<<<< HEAD
-    - Stutter
     - Weakness #ADT-Weakness-Tweak
-=======
->>>>>>> upstreamwiz/master
     - Electrocution
   - type: Pullable
   - type: Tag
