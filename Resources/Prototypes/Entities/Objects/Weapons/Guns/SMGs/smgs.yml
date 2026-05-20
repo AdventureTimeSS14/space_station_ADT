@@ -205,16 +205,6 @@
   - type: ContainerContainer
     containers:
       ballistic-ammo: !type:Container
-<<<<<<< HEAD
-  - type: ProjectileBatteryAmmoProvider
-    proto: CartridgePistol
-    fireCost: 100
-  - type: Battery
-    maxCharge: 3000
-    startingCharge: 3000
-  - type: BatterySelfRecharger
-    autoRechargeRate: 25
-=======
   - type: BallisticAmmoProvider
     whitelist:
       tags:
@@ -225,7 +215,6 @@
   - type: BallisticAmmoSelfRefiller
     autoRefillRate: 4s
     affectedByEmp: true
->>>>>>> upstreamwiz/master
   - type: AmmoCounter
 
 - type: entity
@@ -433,10 +422,7 @@
   - type: Appearance
   - type: StaticPrice
     price: 5000
-<<<<<<< HEAD
-=======
   - type: MeleeWeapon
     damage:
       types:
         Blunt: 8
->>>>>>> upstreamwiz/master
