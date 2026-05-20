@@ -78,7 +78,6 @@
      collection: AlienClaw
     animation: WeaponArcBite
     damage:
-<<<<<<< HEAD
     # ADT-Tweak start
       types:
         Slash: 20
@@ -87,10 +86,6 @@
     damageModifierSet: ADTXenoDamageSet
   - type: Fauna
     # ADT-Tweak end
-=======
-      types:
-        Piercing: 6
->>>>>>> upstreamwiz/master
   - type: DamageStateVisuals
     states:
       Alive:
@@ -206,16 +201,11 @@
       40: 0.7
   - type: MeleeWeapon
     damage:
-<<<<<<< HEAD
   # ADT-Tweak start
       types:
         Blunt: 15
         Structural: 100
   # ADT-Tweak end
-=======
-      types:
-        Slash: 6
->>>>>>> upstreamwiz/master
   - type: MovementSpeedModifier
     baseSprintSpeed: 4
   - type: Fixtures
@@ -257,13 +247,10 @@
   - type: MovementSpeedModifier
   - type: MeleeWeapon
     damage:
-<<<<<<< HEAD
      groups:
        Brute: 42 # ADT Tweak
-=======
-      types:
-        Slash: 12
->>>>>>> upstreamwiz/master
+    types:
+      Slash: 12
   - type: Fixtures
     fixtures:
       fix1:
@@ -316,16 +303,11 @@
     # ADT-tweak end
   - type: MeleeWeapon
     damage:
-<<<<<<< HEAD
     # ADT-tweak start
      types:
        Slash: 27
        Blunt: 10
     # ADT-tweak end
-=======
-      types:
-        Slash: 10
->>>>>>> upstreamwiz/master
   - type: SlowOnDamage
     speedModifierThresholds:
       50: 0.7
@@ -367,15 +349,12 @@
     baseSprintSpeed: 6.0 # ADT-Tweak
   - type: MeleeWeapon
     damage:
-<<<<<<< HEAD
     # ADT-Tweak start
      types:
        Piercing: 13
     # ADT-Tweak end
-=======
-      types:
-        Slash: 5
->>>>>>> upstreamwiz/master
+    types:
+      Slash: 5
   - type: Fixtures
     fixtures:
       fix1:
