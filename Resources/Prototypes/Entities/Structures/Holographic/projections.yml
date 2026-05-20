@@ -20,7 +20,6 @@
     damageContainer: Inorganic
   - type: Destructible
     thresholds:
-<<<<<<< HEAD
       - trigger:
           !type:DamageTrigger
           damage: 30
@@ -31,14 +30,6 @@
   - type: Tag #ADT tweak
     tags:
       - NoPaint
-=======
-    - trigger:
-        !type:DamageTrigger
-        damage: 30
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
->>>>>>> upstreamwiz/master
 
 - type: entity
   id: HoloFan
@@ -88,17 +79,6 @@
         - SlipLayer
   - type: TimedDespawn
     lifetime: 30
-<<<<<<< HEAD
-  - type: Clickable
-  - type: Destructible
-    thresholds:
-      - trigger:
-          !type:DamageTrigger
-          damage: 10
-        behaviors:
-          - !type:DoActsBehavior
-            acts: [ "Destruction" ]
-=======
   - type: Destructible
     thresholds:
     - trigger:
@@ -107,7 +87,6 @@
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
->>>>>>> upstreamwiz/master
 
 - type: entity
   id: HolosignSecurity
