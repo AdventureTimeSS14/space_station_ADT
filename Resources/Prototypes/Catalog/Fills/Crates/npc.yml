@@ -243,16 +243,6 @@
   id: CrateNPCHamlet
   suffix: Hamlet
   components:
-<<<<<<< HEAD
-    - type: StorageFill
-      contents:
-        - id: MobHamsterHamlet
-          prob: 1
-          orGroup: MobHamsterHamlet
-        - id: MobHamsterHamletSlippery
-          prob: 0.001
-          orGroup: MobHamsterHamlet
-=======
   - type: EntityTableContainerFill
     containers:
       entity_storage: !type:GroupSelector
@@ -260,7 +250,6 @@
           - id: MobHamsterHamlet
           - id: MobHamsterHamletSlippery
             weight: 0.001
->>>>>>> upstreamwiz/master
 
 - type: entity
   parent: CrateLivestock
