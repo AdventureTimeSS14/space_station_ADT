@@ -4,91 +4,6 @@
   name: jug
   description: Used to contain a very large amount of chemicals or solutions. Chugging is extremely ill-advised.
   components:
-<<<<<<< HEAD:Resources/Prototypes/Entities/Objects/Specific/chemical-containers.yml
-    - type: SolutionContainerManager
-      solutions:
-        beaker:
-          maxVol: 200
-    - type: Sprite
-      sprite: Objects/Specific/Chemistry/jug.rsi
-      layers:
-        - state: jug
-        - state: jug1
-          map: [ "enum.SolutionContainerLayers.Fill" ]
-          visible: false
-    - type: Item
-      size: Normal
-      sprite: Objects/Specific/Chemistry/jug.rsi
-    - type: MixableSolution
-      solution: beaker
-    - type: RefillableSolution
-      solution: beaker
-    - type: DrainableSolution
-      solution: beaker
-    - type: ExaminableSolution
-      solution: beaker
-      exactVolume: true
-    - type: DrawableSolution
-      solution: beaker
-    - type: InjectableSolution
-      solution: beaker
-    - type: SolutionTransfer
-      canChangeTransferAmount: true
-    - type: SolutionItemStatus
-      solution: beaker
-    - type: UserInterface
-      interfaces:
-        enum.TransferAmountUiKey.Key:
-          type: TransferAmountBoundUserInterface
-    - type: Edible
-      edible: Drink
-      solution: beaker
-      destroyOnEmpty: false
-      utensil: Spoon
-    - type: Spillable
-      solution: beaker
-    - type: Appearance
-    - type: SolutionContainerVisuals
-      maxFillLevels: 8 # ADT-Changes
-      fillBaseName: jug
-      inHandsMaxFillLevels: 5
-      inHandsFillBaseName: -fill-
-    - type: StaticPrice
-      price: 60
-    - type: Damageable
-      damageContainer: Inorganic
-    - type: Destructible
-      thresholds:
-      - trigger:
-          !type:DamageTrigger
-          damage: 200
-        behaviors:
-          - !type:DoActsBehavior
-            acts: [ "Destruction" ]
-      - trigger:
-          !type:DamageTrigger
-          damage: 20
-        behaviors:
-        - !type:PlaySoundBehavior
-          sound:
-            collection: MetalBreak
-            params:
-              volume: -4
-        - !type:SpillBehavior { }
-        - !type:SpawnEntitiesBehavior
-          spawn:
-            SheetPlastic1:
-              min: 0
-              max: 1
-          transferForensics: true
-        - !type:DoActsBehavior
-          acts: [ "Destruction" ]
-    - type: Label
-    - type: Tag
-      tags:
-      - ChemDispensable
-    - type: DnaSubstanceTrace
-=======
   - type: Sprite
     sprite: Objects/Specific/Chemistry/jug.rsi
   - type: Item
@@ -99,7 +14,7 @@
       drink:
         maxVol: 200
   - type: SolutionContainerVisuals
-    maxFillLevels: 6
+    maxFillLevels: 8 # ADT-Changes. 6 -> 8
     inHandsMaxFillLevels: 5
   - type: ExaminableSolution
     exactVolume: true # Chemistry item
@@ -198,7 +113,6 @@
         reagents:
         - ReagentId: Water
           Quantity: 200
->>>>>>> upstreamwiz/master:Resources/Prototypes/Entities/Objects/Specific/Chemistry/chemical-containers.yml
 
 - type: entity
   parent: Jug
