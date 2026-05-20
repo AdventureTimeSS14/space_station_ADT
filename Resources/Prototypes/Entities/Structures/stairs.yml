@@ -4,15 +4,8 @@
   placement:
     mode: SnapgridCenter
   components:
-<<<<<<< HEAD
-  - type: Anchorable
-    flags:
-    - Anchorable
-  - type: Rotatable
-=======
   - type: Transform
     anchored: true
->>>>>>> upstreamwiz/master
   - type: Clickable
   - type: Sprite
     drawdepth: FloorTiles
