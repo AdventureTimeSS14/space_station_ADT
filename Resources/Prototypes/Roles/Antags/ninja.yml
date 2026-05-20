@@ -18,11 +18,7 @@
     gloves: ClothingHandsGlovesSpaceNinja
     outerClothing: ClothingOuterSuitSpaceNinja
     shoes: ClothingShoesSpaceNinja
-<<<<<<< HEAD
-    id: AgentIDCard
-=======
     id: NinjaPDA
->>>>>>> upstreamwiz/master
     ears: ClothingHeadsetNinja
     pocket1: SpiderCharge
     pocket2: PinpointerStation
