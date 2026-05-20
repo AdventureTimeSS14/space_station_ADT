@@ -607,8 +607,6 @@
     state: hamlet
   - type: SpeakOnTrigger
     pack: FigurinesHamlet
-<<<<<<< HEAD:Resources/Prototypes/Entities/Objects/Fun/figurines.yml
-=======
 
 - type: entity
   parent: BaseFigurine
@@ -630,4 +628,3 @@
         offset: "0, 0.06"
   - type: SpeakOnTrigger
     pack: FigurinesAI
->>>>>>> upstreamwiz/master:Resources/Prototypes/Entities/Objects/Fun/Figurines/figurines.yml
