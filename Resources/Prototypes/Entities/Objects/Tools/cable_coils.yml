@@ -33,7 +33,6 @@
     guides:
     - VoltageNetworks
     - Power
-<<<<<<< HEAD
   # ADT Tweak Start: IPC
   - type: Healing # cables can be used to heal IPC
     damageContainers:
@@ -47,7 +46,6 @@
     # healingEndSound:
     #   path: "/Audio/Items/Medical/ointment_end.ogg"
     # ADT Tweak End
-=======
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: Metallic
@@ -59,7 +57,6 @@
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
->>>>>>> upstreamwiz/master
 
 - type: entity
   id: CableHVStack
