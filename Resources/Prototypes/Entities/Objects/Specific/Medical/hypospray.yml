@@ -26,19 +26,11 @@
   - type: Sprite
     sprite: Objects/Specific/Medical/hypospray.rsi
     layers:
-<<<<<<< HEAD
       - state: hypo
       #   map: ["enum.SolutionContainerLayers.Base"] # ADT-Tweak
       # - state: hypo_fill1
       #   map: ["enum.SolutionContainerLayers.Fill"]
       #   visible: false
-=======
-    - state: hypo
-      map: ["enum.SolutionContainerLayers.Base"]
-    - state: hypo_fill1
-      map: ["enum.SolutionContainerLayers.Fill"]
-      visible: false
->>>>>>> upstreamwiz/master
   - type: Item
     sprite: Objects/Specific/Medical/hypospray.rsi
   - type: SolutionContainerManager
@@ -47,14 +39,6 @@
         maxVol: 30
   - type: RefillableSolution
     solution: hypospray
-<<<<<<< HEAD
-  - type: ExaminableSolution
-    solution: hypospray
-    exactVolume: true
-  - type: Hypospray
-    onlyAffectsMobs: false
-=======
->>>>>>> upstreamwiz/master
   - type: UseDelay
     delay: 0.5
   - type: StaticPrice
@@ -64,18 +48,11 @@
     - HighRiskItem
   - type: StealTarget
     stealGroup: Hypospray
-<<<<<<< HEAD
   - type: Appearance
   # - type: SolutionContainerVisuals # ADT-Tweak
   #   maxFillLevels: 6
   #   fillBaseName: hypo_fill
   #   solutionName: hypospray
-=======
-  - type: SolutionContainerVisuals
-    maxFillLevels: 6
-    fillBaseName: hypo_fill
-    solutionName: hypospray
->>>>>>> upstreamwiz/master
 
 - type: entity
   parent: [BaseHypospray, BaseSyndicateContraband]
@@ -97,27 +74,10 @@
     solutions:
       hypospray:
         maxVol: 20
-<<<<<<< HEAD
-  - type: RefillableSolution
-    solution: hypospray
-  - type: ExaminableSolution
-    solution: hypospray
-    exactVolume: true
-  - type: Hypospray
-    onlyAffectsMobs: false
-  - type: UseDelay
-    delay: 0.5
-  - type: Appearance
-  # - type: SolutionContainerVisuals # ADT-Tweak
-  #   maxFillLevels: 4
-  #   fillBaseName: hypo_fill
-  #   solutionName: hypospray
-=======
   - type: SolutionContainerVisuals
     maxFillLevels: 4
     fillBaseName: hypo_fill
     solutionName: hypospray
->>>>>>> upstreamwiz/master
 
 - type: entity
   parent: BaseHypospray
@@ -255,12 +215,7 @@
         maxVol: 15
   - type: ExaminableSolution
     solution: pen
-<<<<<<< HEAD
-    exactVolume: true
-  - type: Hypospray
-=======
   - type: Injector
->>>>>>> upstreamwiz/master
     solutionName: pen
     currentTransferAmount: null
     activeModeProtoId: HyposprayInjectMode
@@ -782,10 +737,6 @@
     # ADT Tweak END
 
 - type: entity
-<<<<<<< HEAD
-  suffix: Hypopen
-=======
->>>>>>> upstreamwiz/master
   parent: Pen # It is just like normal pen, isn't it?
   id: Hypopen
   suffix: Hypopen
@@ -796,28 +747,18 @@
         maxVol: 15 #ADT Tweak 10>15
   - type: RefillableSolution
     solution: hypospray
-<<<<<<< HEAD
-    refillTime: 1.25
-=======
     refillTime: 0.75
->>>>>>> upstreamwiz/master
     maxRefill: 5
   - type: ExaminableSolution
     solution: hypospray
     heldOnly: true # Allow examination only when held in hand.
     exactVolume: true
-<<<<<<< HEAD
-  - type: Hypospray
-    onlyAffectsMobs: false
-  #  drawTime: 1.25 // ADT-tweak
-=======
   - type: Injector
     solutionName: hypospray
     activeModeProtoId: HypopenDynamicMode
     allowedModes:
     - HyposprayInjectMode
     - HypopenDynamicMode
->>>>>>> upstreamwiz/master
   - type: UseDelay
     delay: 0.25 #ADT Tweak 0.5>0.25
   - type: StaticPrice # A new shitcurity meta
@@ -864,16 +805,8 @@
         reagents:
         - ReagentId: JuiceThatMakesYouWeh
           Quantity: 60
-<<<<<<< HEAD
-  - type: Hypospray
-    solutionName: pen
-    transferAmount: 1
-    onlyAffectsMobs: false
-    injectOnly: true
-    #ADT Tweak Start
+  #ADT Tweak Start
   - type: Tag
     tags:
     - ADTMedipen
-    # ADT Tweak END
-=======
->>>>>>> upstreamwiz/master
+  # ADT Tweak END
