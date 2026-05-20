@@ -417,15 +417,10 @@
       Dead:
         Base: cockroach_dead
   - type: Bloodstream
-<<<<<<< HEAD
-    bloodReagent: InsectBlood
-    bloodMaxVolume: 20
-=======
     bloodReferenceSolution:
       reagents:
       - ReagentId: InsectBlood
         Quantity: 20
->>>>>>> upstreamwiz/master
   - type: Edible
   - type: FlavorProfile
     flavors:
@@ -544,15 +539,11 @@
   - type: Speech
     speechVerb: Moth
     speechSounds: Squeak
-<<<<<<< HEAD
-    allowedEmotes: ['Chitter', 'Squeak']
+    allowedEmotes: ['Chitter', 'Squeak', 'Flap']
     # ADT-Tweak Moth Roll start
   - type: DashAction
     actionProto: ADTActionDashMoth
     # ADT-Tweak Moth Roll end
-=======
-    allowedEmotes: ['Chitter', 'Squeak', 'Flap']
->>>>>>> upstreamwiz/master
   - type: FaxableObject
     insertingState: inserting_mothroach
   - type: MothAccent
@@ -1524,18 +1515,13 @@
       methods: [ Touch ]
       effects:
       - !type:WashCreamPie
-<<<<<<< HEAD
   # ADT-Tweak start
   - type: VentCrawler
     allowInventory: false
   # ADT-Tweak end
-
-=======
-  - type: Crawler
   - type: StatusIcon
     bounds: -0.5,-0.5,0.5,0.5
   - type: JobStatus # marks them as crew
->>>>>>> upstreamwiz/master
 
 - type: entity
   name: monkey
@@ -1792,18 +1778,11 @@
 
 - type: entity
   name: mouse
-  parent:
-  - SimpleMobBase
-  - BaseMobAnimal
+  parent: [SimpleMobBase, BaseMobAnimal, SolutionVermin]
   id: MobMouse
   description: Squeak!
   components:
-<<<<<<< HEAD
   - type: VentCrawler # ADT tweak
-  - type: Body
-    prototype: Mouse
-=======
->>>>>>> upstreamwiz/master
   - type: GhostRole
     makeSentient: true
     allowSpeech: true
@@ -1908,12 +1887,6 @@
     baseDecayRate: 0.5 # I'm very hungry! Give me. The cheese.
   - type: Extractable
     grindableSolutionName: food
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        reagents:
-        - ReagentId: UncookedAnimalProteins
-          Quantity: 3
   - type: Butcherable
     spawned:
     - id: FoodMeatRat
@@ -2233,15 +2206,11 @@
     interactFailureString: petting-failure-generic
     interactSuccessSpawn: EffectHearts
   - type: Bloodstream
-<<<<<<< HEAD
-    bloodMaxVolume: 50
-  - type: SupermatterIgnore # ADT-Tweak
-=======
     bloodReferenceSolution:
       reagents:
       - ReagentId: Blood
         Quantity: 50
->>>>>>> upstreamwiz/master
+  - type: SupermatterIgnore # ADT-Tweak
 
 - type: entity
   name: frog
@@ -3070,14 +3039,11 @@
   - type: MobPrice
     price: 200
   - type: MessyDrinker
-<<<<<<< HEAD
-=======
   # TODO: Fix the sprite offset
   #- type: CreamPied
   #  sprite:
   #    sprite: Effects/creampie.rsi
   #    state: creampie_corgi
->>>>>>> upstreamwiz/master
 
 - type: entity
   parent: MobCorgiBase
@@ -3095,25 +3061,9 @@
     spawned:
     - id: FoodMeat
       amount: 2
-<<<<<<< HEAD
   # ADT Commented
   # - type: ReplacementAccent
   #   accent: dog
-  - type: InteractionPopup
-    interactSuccessString: petting-success-dog
-    interactFailureString: petting-failure-generic
-    interactSuccessSpawn: EffectHearts
-    interactSuccessSound:
-      path: /Audio/Animals/small_dog_bark_happy.ogg
-  - type: Grammar
-    attributes:
-      gender: epicene
-  - type: SentienceTarget
-    flavorKind: station-event-random-sentience-flavor-corgi
-=======
-  - type: ReplacementAccent
-    accent: dog
->>>>>>> upstreamwiz/master
   - type: Tag
     tags:
     - VimPilot
