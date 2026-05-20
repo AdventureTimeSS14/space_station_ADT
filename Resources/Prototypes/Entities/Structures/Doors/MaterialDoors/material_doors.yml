@@ -367,8 +367,6 @@
           MaterialCardboard:
             min: 3
             max: 5
-<<<<<<< HEAD
-=======
 
 - type: entity
   parent: BaseMaterialDoorNavMap
@@ -428,4 +426,3 @@
         !type:DamageTrigger
         damage: 375
       behaviors: *IronstoneDestructionBehavior
->>>>>>> upstreamwiz/master
