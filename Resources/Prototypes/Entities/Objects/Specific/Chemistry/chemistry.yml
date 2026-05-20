@@ -382,20 +382,10 @@
   - type: Injector
     ignoreMobs: true
     ignoreClosed: false
-<<<<<<< HEAD:Resources/Prototypes/Entities/Objects/Specific/chemistry.yml
-    transferAmounts:
-    - 1
-    - 2
-    - 3
-    - 4
-    - 5
-    currentTransferAmount: 1
-=======
     activeModeProtoId: DropperDrawMode
     allowedModes:
     - DropperDrawMode
     - DropperInjectMode
->>>>>>> upstreamwiz/master:Resources/Prototypes/Entities/Objects/Specific/Chemistry/chemistry.yml
   - type: ExaminableSolution
     solution: dropper
     exactVolume: true
@@ -468,20 +458,11 @@
       injector:
         maxVol: 15
   - type: Injector
-<<<<<<< HEAD:Resources/Prototypes/Entities/Objects/Specific/chemistry.yml
-    delay: 6
-    injectOnly: false
     restrainedMultiplier: 2 # ADT-Tweak(P4A) Ускорение Шприцов на койках и каталках
-    transferAmounts:
-    - 5
-    - 10
-    - 15
-=======
     activeModeProtoId: SyringeDrawMode
     allowedModes:
     - SyringeDrawMode
     - SyringeInjectMode
->>>>>>> upstreamwiz/master:Resources/Prototypes/Entities/Objects/Specific/Chemistry/chemistry.yml
   - type: ExaminableSolution
     solution: injector
     exactVolume: true
@@ -503,11 +484,6 @@
   parent: BaseSyringe
   id: Syringe
   components:
-<<<<<<< HEAD:Resources/Prototypes/Entities/Objects/Specific/chemistry.yml
-  - type: Injector
-    currentTransferAmount: 15
-=======
->>>>>>> upstreamwiz/master:Resources/Prototypes/Entities/Objects/Specific/Chemistry/chemistry.yml
   - type: Tag
     tags:
     - Syringe
@@ -530,17 +506,6 @@
     solutions:
       injector:
         maxVol: 5
-<<<<<<< HEAD:Resources/Prototypes/Entities/Objects/Specific/chemistry.yml
-  - type: Injector
-    transferAmounts:
-    - 1
-    - 2
-    - 3
-    - 4
-    - 5
-    currentTransferAmount: 5
-=======
->>>>>>> upstreamwiz/master:Resources/Prototypes/Entities/Objects/Specific/Chemistry/chemistry.yml
   - type: SolutionContainerVisuals
     maxFillLevels: 3
     fillBaseName: minisyringe
@@ -651,18 +616,10 @@
         maxVol: 10
         canReact: false
   - type: Injector
-<<<<<<< HEAD:Resources/Prototypes/Entities/Objects/Specific/chemistry.yml
-    injectOnly: false
-    transferAmounts:
-    - 5
-    - 10
-    currentTransferAmount: 10
-=======
     activeModeProtoId: CryostasisSyringeDrawMode
     allowedModes:
     - CryostasisSyringeInjectMode
     - CryostasisSyringeDrawMode
->>>>>>> upstreamwiz/master:Resources/Prototypes/Entities/Objects/Specific/Chemistry/chemistry.yml
   - type: Tag
     tags:
     - Syringe
