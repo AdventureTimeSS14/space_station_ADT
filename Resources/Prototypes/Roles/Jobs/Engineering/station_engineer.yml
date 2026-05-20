@@ -6,11 +6,7 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Engineering
-<<<<<<< HEAD
-      time: 2.5h # ADT=Tweak
-=======
       time: 2.5h
->>>>>>> upstreamwiz/master
   startingGear: StationEngineerGear
   icon: "JobIconStationEngineer"
   supervisors: job-supervisors-ce
