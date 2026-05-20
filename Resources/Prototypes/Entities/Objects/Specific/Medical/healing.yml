@@ -28,13 +28,9 @@
     state: ointment
   - type: Item
     heldPrefix: ointment
-<<<<<<< HEAD
-    storedRotation: 45
-=======
     storedSprite:
       state: ointment-storage
       sprite: Objects/Specific/Medical/medical.rsi
->>>>>>> upstreamwiz/master
   - type: Healing
     damageContainers:
       - Biological
@@ -278,7 +274,6 @@
       damageContainers:
         - Biological
       damage:
-<<<<<<< HEAD
 # ADT-tweak start
 #        groups:
 #          Brute: 5 # Tourniquets HURT!
@@ -287,11 +282,6 @@
           Asphyxiation: 10 # Essentially Stopping all blood reaching a part of your body
       modifyBloodLevel: 15
 # ADT-tweak end
-=======
-        types:
-          Blunt: 5 # Tourniquets HURT
-          Asphyxiation: 5 # Essentially Stopping all blood reaching a part of your body
->>>>>>> upstreamwiz/master
       bloodlossModifier: -10 # Tourniquets stop bleeding
       delay: 0.5
       healingBeginSound:
@@ -439,20 +429,12 @@
   suffix: Dexalin 10u, 7
   components:
   - type: Label
-<<<<<<< HEAD
     currentLabel: Дексалин 10u # ADT-Tweak
-  - type: StorageFill
-    contents:
-    - id: PillDexalin
-      amount: 7
-=======
-    currentLabel: dexalin 10u
   - type: EntityTableContainerFill
     containers:
       storagebase:
         id: PillDexalin
         amount: 7
->>>>>>> upstreamwiz/master
 
 - type: entity
   name: pill
@@ -481,20 +463,12 @@
   suffix: Dylovene 10u, 5
   components:
   - type: Label
-<<<<<<< HEAD
     currentLabel: Диловен 10u # ADT-Tweak
-  - type: StorageFill
-    contents:
-    - id: PillDylovene
-      amount: 5
-=======
-    currentLabel: dylovene 10u
   - type: EntityTableContainerFill
     containers:
       storagebase:
         id: PillDylovene
         amount: 5
->>>>>>> upstreamwiz/master
 
 - type: entity
   name: pill
@@ -523,20 +497,12 @@
   suffix: Hyronalin 10u, 5
   components:
   - type: Label
-<<<<<<< HEAD
     currentLabel: Хироналин 10u # ADT-Tweak
-  - type: StorageFill
-    contents:
-    - id: PillHyronalin
-      amount: 5
-=======
-    currentLabel: hyronalin 10u
   - type: EntityTableContainerFill
     containers:
       storagebase:
         id: PillHyronalin
         amount: 5
->>>>>>> upstreamwiz/master
 
 - type: entity
   name: pill
@@ -565,20 +531,12 @@
   suffix: Potassium iodide 10u, 5
   components:
   - type: Label
-<<<<<<< HEAD
     currentLabel: Иодид калия 10u # ADT-Tweak
-  - type: StorageFill
-    contents:
-    - id: PillPotassiumIodide
-      amount: 5
-=======
-    currentLabel: potassium iodide 10u
   - type: EntityTableContainerFill
     containers:
       storagebase:
         id: PillPotassiumIodide
         amount: 5
->>>>>>> upstreamwiz/master
 
 - type: entity
   name: pill
@@ -627,20 +585,12 @@
   suffix: Iron 10u, 5
   components:
   - type: Label
-<<<<<<< HEAD
     currentLabel: Железо 10u # ADT-Tweak
-  - type: StorageFill
-    contents:
-    - id: PillIron
-      amount: 5
-=======
-    currentLabel: iron 10u
   - type: EntityTableContainerFill
     containers:
       storagebase:
         id: PillIron
         amount: 5
->>>>>>> upstreamwiz/master
 
 - type: entity
   name: pill canister
@@ -649,20 +599,12 @@
   suffix: Copper 10u, 5
   components:
   - type: Label
-<<<<<<< HEAD
     currentLabel: Медь 10u # ADT-Tweak
-  - type: StorageFill
-    contents:
-    - id: PillCopper
-      amount: 5
-=======
-    currentLabel: copper 10u
   - type: EntityTableContainerFill
     containers:
       storagebase:
         id: PillCopper
         amount: 5
->>>>>>> upstreamwiz/master
 
 - type: entity
   name: pill
@@ -691,20 +633,12 @@
   suffix: Kelotane 10u, 5
   components:
   - type: Label
-<<<<<<< HEAD
     currentLabel: Келотан 10u # ADT-Tweak
-  - type: StorageFill
-    contents:
-    - id: PillKelotane
-      amount: 5
-=======
-    currentLabel: kelotane 10u
   - type: EntityTableContainerFill
     containers:
       storagebase:
         id: PillKelotane
         amount: 5
->>>>>>> upstreamwiz/master
 
 - type: entity
   name: pill
@@ -733,20 +667,12 @@
   suffix: Dermaline 10u, 5
   components:
   - type: Label
-<<<<<<< HEAD
     currentLabel: Дермалин 10u # ADT-Tweak
-  - type: StorageFill
-    contents:
-    - id: PillDermaline
-      amount: 5
-=======
-    currentLabel: dermaline 10u
   - type: EntityTableContainerFill
     containers:
       storagebase:
         id: PillDermaline
         amount: 5
->>>>>>> upstreamwiz/master
 
 - type: entity
   name: space mirage
@@ -788,20 +714,12 @@
   suffix: Tricordrazine 10u, 5
   components:
   - type: Label
-<<<<<<< HEAD
     currentLabel: Трикордразин 10u # ADT-Tweak
-  - type: StorageFill
-    contents:
-    - id: PillTricordrazine
-      amount: 5
-=======
-    currentLabel: tricordrazine 10u
   - type: EntityTableContainerFill
     containers:
       storagebase:
         id: PillTricordrazine
         amount: 5
->>>>>>> upstreamwiz/master
 
 - type: entity
   name: pill
@@ -830,20 +748,12 @@
   suffix: Bicaridine 10u, 5
   components:
   - type: Label
-<<<<<<< HEAD
     currentLabel: Бикаридин 10u # ADT-Tweak
-  - type: StorageFill
-    contents:
-    - id: PillBicaridine
-      amount: 5
-=======
-    currentLabel: bicaridine 10u
   - type: EntityTableContainerFill
     containers:
       storagebase:
         id: PillBicaridine
         amount: 5
->>>>>>> upstreamwiz/master
 
 - type: entity
   name: pill
@@ -872,21 +782,12 @@
   suffix: Charcoal 10u, 3
   components:
   - type: Label
-<<<<<<< HEAD
     currentLabel: Уголь 10u # ADT-Tweak
-  - type: StorageFill
-    contents:
-    - id: PillCharcoal
-      amount: 3
-=======
-    currentLabel: charcoal 10u
   - type: EntityTableContainerFill
     containers:
       storagebase:
         id: PillCharcoal
         amount: 3
->>>>>>> upstreamwiz/master
-
 - type: entity
   name: romerol pill
   parent: Pill
