@@ -125,7 +125,7 @@
   - type: AttachableHolder # ADT-Tweak
     slots:
       rmc-aslot-rail:
-        locked: false # ADT-Tweak true -> false 
+        locked: false # ADT-Tweak true -> false
         startingAttachable: ADTAttachmentHristovScope
         whitelist:
             tags:
@@ -210,7 +210,6 @@
     - 0,0,1,0
     - 0,1,0,1
     storedOffset: 0,-5
-<<<<<<< HEAD
   # ADT-Tweak start
   - type: RunAndGunSpreadModifier
     modifier: 3
@@ -224,8 +223,6 @@
       collection: GenericHit
   - type: AltFireMelee
   # ADT-Tweak end
-=======
->>>>>>> upstreamwiz/master
   - type: Sprite
     sprite: Objects/Weapons/Guns/Snipers/flintlock.rsi
   - type: Clothing
