@@ -10,11 +10,7 @@
     sprite: Clothing/OuterClothing/Coats/bomber.rsi
 
 - type: entity
-<<<<<<< HEAD
-  parent: [ClothingOuterStorageBase, AllowSuitStorageClothing, ClothingOuterArmorBasic, BadgeOnClothingWithContainer] #ADT-Tweak
-=======
-  parent: [ ClothingOuterArmorBase, ClothingOuterStorageBase, AllowSuitStorageClothing, BaseSecurityContraband ]
->>>>>>> upstreamwiz/master
+  parent: [ ClothingOuterArmorBase, ClothingOuterStorageBase, AllowSuitStorageClothing, BaseSecurityContraband, BadgeOnClothingWithContainer ] # ADT-Tweak - BadgeOnClothingWithContainer
   id: ClothingOuterCoatDetective
   name: detective armored trenchcoat
   description: An 18th-century multi-purpose trenchcoat. Someone who wears this means serious business.
@@ -23,15 +19,13 @@
     sprite: Clothing/OuterClothing/Coats/detective.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/detective.rsi
-<<<<<<< HEAD
-  - type: StorageFill
-    contents:
-    - id: SmokingPipeFilledTobacco
-    - id: FlippoEngravedLighter
-# ADT tweak start
-#  - type: ExplosionResistance
-#    damageCoefficient: 1 #its a coat. it doesnt do shit / im say its do shit
-# ADT tweak end
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: SmokingPipeFilledTobacco
+        - id: FlippoEngravedLighter
+  # ADT-Tweak start
   - type: ContainerContainer
     containers:
       storagebase: !type:Container
@@ -42,15 +36,7 @@
         showEnts: False
         occludes: True
         ent: null
-   #ADT-Tweak-End
-=======
-  - type: EntityTableContainerFill
-    containers:
-      storagebase: !type:AllSelector
-        children:
-        - id: SmokingPipeFilledTobacco
-        - id: FlippoEngravedLighter
->>>>>>> upstreamwiz/master
+  # ADT-Tweak end
 
 - type: entity
   parent: ClothingOuterCoatDetectiveLoadout
@@ -99,11 +85,8 @@
         Piercing: 0.6
         Heat: 0.7
         Caustic: 0.75 # not the full 90% from ss13 because of the head
-<<<<<<< HEAD
   - type: ExplosionResistance
     damageCoefficient: 0.8 # ADT tweak 0.9 > 0.8
-=======
->>>>>>> upstreamwiz/master
 
 - type: entity
   abstract: true
@@ -120,11 +103,7 @@
         Caustic: 0.9
 
 - type: entity
-<<<<<<< HEAD
-  parent: [ClothingOuterArmorHoS, ClothingOuterStorageBase, BaseSecurityCommandContraband, BadgeOnClothingWithContainer] # ADT add BadgeOnClothingWithContainer
-=======
-  parent: [BaseSecurityCommandContraband, ClothingOuterArmorHoS]
->>>>>>> upstreamwiz/master
+  parent: [BaseSecurityCommandContraband, ClothingOuterArmorHoS, BadgeOnClothingWithContainer] # ADT-Tweak - BadgeOnClothingWithContainer
   id: ClothingOuterCoatHoSTrench
   name: head of security's armored trenchcoat
   description: A greatcoat enhanced with a special alloy for some extra protection and style for those with a commanding presence.
@@ -371,11 +350,7 @@
     sprite: Clothing/OuterClothing/Coats/pirate.rsi
 
 - type: entity
-<<<<<<< HEAD
-  parent: [ClothingOuterArmorWarden, ClothingOuterStorageBase, BaseSecurityContraband, BadgeOnClothingWithContainer] # ADT add BadgeOnClothingWithContainer
-=======
-  parent: [ClothingOuterArmorWarden, BaseSecurityContraband]
->>>>>>> upstreamwiz/master
+  parent: [ClothingOuterArmorWarden, BaseSecurityContraband BadgeOnClothingWithContainer] # ADT add BadgeOnClothingWithContainer
   id: ClothingOuterCoatWarden
   name: warden's armored jacket
   description: A sturdy, utilitarian jacket designed to protect a warden from any brig-bound threats.
