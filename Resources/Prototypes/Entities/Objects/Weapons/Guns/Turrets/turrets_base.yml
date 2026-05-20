@@ -143,8 +143,4 @@
     rootTask:
       task: EnergyTurretCompound
   - type: StaticPrice
-<<<<<<< HEAD
     price: 200
-=======
-    price: 200
->>>>>>> upstreamwiz/master
