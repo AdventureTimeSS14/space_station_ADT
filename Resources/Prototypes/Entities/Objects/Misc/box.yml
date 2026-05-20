@@ -17,26 +17,10 @@
   - type: ContainerContainer
     containers:
       storagebase: !type:Container
-<<<<<<< HEAD
-  - type: Construction
-    graph: BoxCardboard
-    node: boxcardboard
-    containers:
-      - storagebase
-  - type: PhysicalComposition
-    materialComposition:
-      Cardboard: 100
-=======
->>>>>>> upstreamwiz/master
   - type: StaticPrice
     price: 10
 
 - type: entity
-<<<<<<< HEAD
-  name: circuit tote
-  id: ToteBase
-  parent: BoxBase
-=======
   abstract: true
   parent: BoxBase
   id: BoxBaseSmall
@@ -55,7 +39,6 @@
   parent: BoxBase
   id: ToteBase
   name: circuit tote
->>>>>>> upstreamwiz/master
   description: A large tote for carrying circuit boards.
   components:
   - type: Sprite

@@ -159,11 +159,7 @@
   id: Card
   coefficients:
     Slash: 2.0
-<<<<<<< HEAD
-    Piercing: 0.1 # Holes easily poked through, but do little to structural integrity 
-=======
     Piercing: 0.1 # Holes easily poked through, but do little to structural integrity
->>>>>>> upstreamwiz/master
     Heat: 3.0
 
 - type: damageModifierSet
@@ -208,20 +204,12 @@
     Heat: 1.5
     Shock: 1.2
 
-<<<<<<< HEAD
 ## ADT Tweak - ЗАКОММЕНТИЛИ ДЛЯ ADT НИАН
 # - type: damageModifierSet
 #   id: Moth # Slightly worse at everything but cold
 #   coefficients:
 #     Cold: 0.7
 #     Heat: 1.3
-=======
-- type: damageModifierSet
-  id: Moth # Slightly worse at everything but cold
-  coefficients:
-    Cold: 0.7
-    Heat: 1.2
->>>>>>> upstreamwiz/master
 
 - type: damageModifierSet
   id: Vox

@@ -6,7 +6,6 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Security
-<<<<<<< HEAD
       time: 15h # ADT-Tweak
     # ADT-Tweak start
     - !type:TraitsRequirement
@@ -22,9 +21,6 @@
       - Vox
       - Shadekin
   # ADT RESTRICT End
-=======
-      time: 4h
->>>>>>> upstreamwiz/master
   startingGear: SecurityOfficerGear
   icon: "JobIconSecurityOfficer"
   supervisors: job-supervisors-hos

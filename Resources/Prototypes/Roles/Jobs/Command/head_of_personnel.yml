@@ -6,23 +6,15 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Engineering
-<<<<<<< HEAD
       time: 2.5h # ADT-Tweak 2.5h
     - !type:DepartmentTimeRequirement
       department: Medical
       time: 2.5h # ADT-Tweak 2.5h
-=======
-      time: 2.5h
-    - !type:DepartmentTimeRequirement
-      department: Medical
-      time: 2.5h
->>>>>>> upstreamwiz/master
     - !type:DepartmentTimeRequirement
       department: Science
       time: 2.5h
     - !type:DepartmentTimeRequirement
       department: Security
-<<<<<<< HEAD
       time: 2.5h # ADT-Tweak 2.5h
 #    - !type:DepartmentTimeRequirement
 #      department: Command
@@ -38,12 +30,6 @@
       species:
       - Vox
       #ADT tweak end
-=======
-      time: 2.5h
-    - !type:DepartmentTimeRequirement
-      department: Command
-      time: 2.5h
->>>>>>> upstreamwiz/master
   weight: 20
   startingGear: HoPGear
   icon: "JobIconHeadOfPersonnel"
@@ -91,11 +77,7 @@
     #shoes: ClothingShoesColorBrown ADT-Tweak
     id: HoPPDA
     gloves: ClothingHandsGlovesHop
-<<<<<<< HEAD
     # ears: ClothingHeadsetAltCommand # ADT tweak - выдаются через loadout ADTHoP
-=======
-    ears: ClothingHeadsetAltCommand
->>>>>>> upstreamwiz/master
     belt: BoxFolderClipboardThreePapers
     eyes: ClothingEyesHudCommand
   storage:

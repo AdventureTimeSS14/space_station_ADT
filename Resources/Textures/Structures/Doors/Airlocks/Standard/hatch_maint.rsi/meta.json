@@ -1,11 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-<<<<<<< HEAD
-  "copyright": "Taken from TauCetiClassic at commit https://github.com/TauCetiStation/TauCetiClassic/commit/fd5cfd76acdf5bda9e46413c11006a6e825d51a9",
-=======
   "copyright": "Taken from paradise station at commit https://github.com/ParadiseSS13/Paradise/commit/9312f1fb7dcdf1c195e255a528f31092613fb60d. Modified by Hyenh",
->>>>>>> upstreamwiz/master
   "size": {
     "x": 32,
     "y": 32
@@ -18,40 +14,27 @@
       "name": "bolted_unlit"
     },
     {
-<<<<<<< HEAD
       "name": "bolted_open_unlit"
     },
     {
-=======
->>>>>>> upstreamwiz/master
       "name": "closed"
     },
     {
       "name": "closed_unlit"
     },
     {
-<<<<<<< HEAD
       "name": "open_unlit"
     },
     {
-=======
->>>>>>> upstreamwiz/master
       "name": "closing",
       "delays": [
         [
           0.1,
           0.1,
-<<<<<<< HEAD
-          0.07,
-          0.07,
-          0.07,
-          0.2
-=======
           0.1,
           0.1,
           0.1,
           0.1
->>>>>>> upstreamwiz/master
         ]
       ]
     },
@@ -61,17 +44,10 @@
         [
           0.1,
           0.1,
-<<<<<<< HEAD
-          0.07,
-          0.07,
-          0.07,
-          0.2
-=======
           0.1,
           0.1,
           0.1,
           0.1
->>>>>>> upstreamwiz/master
         ]
       ]
     },
@@ -83,25 +59,18 @@
           0.1,
           0.1,
           0.1,
-<<<<<<< HEAD
-=======
           0.1,
->>>>>>> upstreamwiz/master
           0.1
         ]
       ]
     },
     {
-<<<<<<< HEAD
-      "name": "open"
-=======
       "name": "open",
       "delays": [
         [
           1
         ]
       ]
->>>>>>> upstreamwiz/master
     },
     {
       "name": "opening",
@@ -109,17 +78,10 @@
         [
           0.1,
           0.1,
-<<<<<<< HEAD
-          0.07,
-          0.07,
-          0.07,
-          0.2
-=======
           0.1,
           0.1,
           0.1,
           0.1
->>>>>>> upstreamwiz/master
         ]
       ]
     },
@@ -129,17 +91,10 @@
         [
           0.1,
           0.1,
-<<<<<<< HEAD
-          0.07,
-          0.07,
-          0.07,
-          0.2
-=======
           0.1,
           0.1,
           0.1,
           0.1
->>>>>>> upstreamwiz/master
         ]
       ]
     },
@@ -149,31 +104,20 @@
         [
           0.1,
           0.1,
-<<<<<<< HEAD
-          0.07,
-          0.07,
-          0.07,
-          0.2
-=======
           0.1,
           0.1,
           0.1,
           0.1
->>>>>>> upstreamwiz/master
         ]
       ]
     },
     {
-<<<<<<< HEAD
-      "name": "panel_closed"
-=======
       "name": "panel_open",
       "delays": [
         [
           1
         ]
       ]
->>>>>>> upstreamwiz/master
     },
     {
       "name": "panel_opening",
@@ -181,19 +125,6 @@
         [
           0.1,
           0.1,
-<<<<<<< HEAD
-          0.07,
-          0.07,
-          0.07,
-          0.2
-        ]
-      ]
-    },
-
-    {
-      "name": "panel_open"
-    },
-=======
           0.1,
           0.1,
           0.1,
@@ -201,7 +132,6 @@
         ]
       ]
     },
->>>>>>> upstreamwiz/master
     {
       "name": "sparks",
       "delays": [
@@ -225,13 +155,9 @@
           0.1,
           0.1,
           0.1,
-<<<<<<< HEAD
-          1.7
-=======
           0.1,
           0.1,
           0.1
->>>>>>> upstreamwiz/master
         ]
       ]
     },
@@ -244,12 +170,8 @@
           0.1,
           0.1,
           0.1,
-<<<<<<< HEAD
-          0.1
-=======
           0.1,
           1.7
->>>>>>> upstreamwiz/master
         ]
       ]
     },
@@ -273,20 +195,19 @@
       "name": "emergency_unlit",
       "delays": [
         [
-<<<<<<< HEAD
           1.2,
           1.2
         ]
       ]
     },
     {
-      "name": "emergency_open_unlit"
-=======
-          0.4,
-          0.4
+      "name": "emergency_open_unlit",
+      "delays": [
+        [
+          1.2,
+          1.2
         ]
       ]
->>>>>>> upstreamwiz/master
     }
   ]
 }
