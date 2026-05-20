@@ -168,7 +168,7 @@
   - type: HitscanBasicDamage
     damage:
       types:
-        Heat: 20
+        Heat: 17
   - type: HitscanBasicVisuals
     muzzleFlash:
       sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
