@@ -39,7 +39,7 @@
     - tatorlight
   name: traitorlight-title
   description: traitorlight-description
-  showInVote: true
+  showInVote: false
   rules:
     - TraitorLightGameRule
     - SubGamemodesRuleNoXenoborg
@@ -58,10 +58,13 @@
   description: antagtrio-description
   showInVote: false
   rules:
-    - TraitorDuoGameRule
-    - ChangelingDuo # ADT tweak
-    - HereticDuoGameRule
-    - SubGamemodesRule
+    - TraitorTripleGameRule
+    - HereticTripleGameRule
+    - ThiefSecretGameRule
+    # - ChangelingDuo # ADT tweak
+    # - TraitorDuoGameRule
+    # - HereticDuoGameRule
+    # - SubGamemodesRule
     - BasicStationEventScheduler
     - MeteorSwarmScheduler
     - SpaceTrafficControlEventScheduler
@@ -116,7 +119,7 @@
   name: dynamic-random-title
   minPlayers: 30
   description: dynamic-random-description
-  showInVote: true
+  showInVote: false
   rules:
     - DynamicRandomGamerule
   bannedRound: 1

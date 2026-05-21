@@ -9,6 +9,7 @@ using Content.Shared.Verbs;
 using Content.Shared.Whitelist;
 using Content.Shared.Inventory;
 using Content.Shared.Nutrition.EntitySystems;
+using Content.Server.ADT.Paint;
 
 namespace Content.Server.ADT.Paint;
 
@@ -25,6 +26,7 @@ public sealed class PaintSystem : SharedPaintSystem
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly OpenableSystem _openable = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private readonly PaintPoweredLightSystem _paintPoweredLight = default!;
 
     public override void Initialize()
     {
@@ -113,6 +115,8 @@ public sealed class PaintSystem : SharedPaintSystem
             paint.Color = entity.Comp.Color; // set the target color to the color specified in the spray paint yml.
             _audio.PlayPvs(entity.Comp.Spray, entity);
             paint.Enabled = true;
+
+            _paintPoweredLight.TryUpdateLightColor(target, paint);
 
             if (HasComp<InventoryComponent>(target)) // Paint any clothing the target is wearing.
             {
