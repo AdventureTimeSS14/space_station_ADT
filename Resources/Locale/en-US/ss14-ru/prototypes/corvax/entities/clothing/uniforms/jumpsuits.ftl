@@ -16,5 +16,5 @@ ent-ClothingUniformJumpsuitRDClassical = research director's classical suit
     .desc = It's Research Director's сlassical suit.
 ent-ClothingUniformJumpsuitPilot = pilot suit
     .desc = Security pilot suit.
-ent-ClothingUniformJumpsuitDSS = DSB tactical jumpsuit
+ent-ADTClothingUniformJumpsuitDSS = DSB tactical jumpsuit
     .desc = Stylish and extremely comfortable tactical jumpsuit, made in the colors of the Department of Security.

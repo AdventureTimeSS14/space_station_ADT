@@ -1476,6 +1476,17 @@
     sprite: ADT/Clothing/Uniforms/Jumpsuit/kimono_zero.rsi
 
 - type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitDSS
+  name: DSB tactical jumpsuit
+  description: Stylish and extremely comfortable tactical jumpsuit, made in the colors of the Department of Security.
+  components:
+  - type: Sprite
+    sprite: Corvax/Clothing/Uniforms/Jumpsuit/dss.rsi
+  - type: Clothing
+    sprite: Corvax/Clothing/Uniforms/Jumpsuit/dss.rsi
+
+- type: entity
   parent: ADTClothingUniformKimanoZero
   id: ADTClothingUniformKimanoArmoredZero
   name: Kimano
