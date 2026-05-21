@@ -1,0 +1,23 @@
+- type: entity
+  parent: MarkerBase
+  id: ADTRandomSpawnerBriefcase
+  name: random briefcase spawner
+  suffix: Briefcase
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: ADT/Markers/random_loot.rsi
+        state: briefcase
+  - type: RandomSpawner
+    offset: 0
+    chance: 0.45
+    prototypes:
+      - BriefcaseBrown
+      - BriefcaseSyndie
+      - ADTBriefcaseMedical
+      - ADTBriefcaseCentcomm
+      - ADTBriefcaseBrownPyotr
+    rarePrototypes:
+      - WeaponSubMachineGunBriefcase
+    rareChance: 0.1

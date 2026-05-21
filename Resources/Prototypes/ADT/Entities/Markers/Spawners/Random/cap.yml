@@ -1,0 +1,53 @@
+- type: entity
+  parent: MarkerBase
+  id: ADTRandomSpawnerCap
+  name: random cap spawner
+  suffix: Cap
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: ADT/Markers/random_loot.rsi
+        state: cap
+  - type: RandomSpawner
+    offset: 0
+    chance: 0.45
+    prototypes:
+      # Caps
+      - ClothingHeadHatCaptain
+      - ClothingHeadHatHopcap
+      - ClothingHeadHatCapHoS
+      - ClothingHeadHatCapWardenAlt
+      - ClothingHeadCapCentcomBlack
+      - ClothingHeadCapCentcomNaval
+      - ClothingHeadCaptainHat
+      # Hard Hats
+      - ClothingHeadHatHardhatWhite
+      - ClothingHeadHatHardhatYellow
+      - ClothingHeadHatHardhatRed
+      - ClothingHeadHatHardhatOrange
+      - ClothingHeadHatHardhatBlue
+      - ClothingHeadHatHardhatYellowDark
+      - ClothingHeadHatHardhatArmored
+      # Beanies/Flatcaps
+      - ClothingHeadHatCanadaBeanie
+      - ClothingHeadHatGreyFlatcap
+      - ClothingHeadHatBrownFlatcap
+      # Cowboy Hats
+      - ClothingHeadHatCowboyBrown
+      - ClothingHeadHatCowboyBlack
+      - ClothingHeadHatCowboyGrey
+      - ClothingHeadHatCowboyRed
+      - ClothingHeadHatCowboyWhite
+      - ClothingHeadHatCowboyBountyHunter
+      # Surgical Caps
+      - ClothingHeadHatSurgcapBlue
+      - ClothingHeadHatSurgcapGreen
+      - ClothingHeadHatSurgcapPurple
+      # Fun Caps
+      - ClothingHeadFishCap
+      - ClothingHeadWehcellentCap
+    rarePrototypes:
+      - ClothingHeadHatCapcap
+      - ClothingHeadHatCentcomcap
+    rareChance: 0.1

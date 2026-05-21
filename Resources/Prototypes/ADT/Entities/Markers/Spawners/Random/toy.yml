@@ -1,0 +1,128 @@
+- type: entity
+  parent: MarkerBase
+  id: ADTRandomSpawnerToy
+  name: random toy spawner
+  suffix: Toy
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: ADT/Markers/random_loot.rsi
+        state: toy
+  - type: RandomSpawner
+    offset: 0
+    chance: 0.45
+    prototypes:
+      # Plushies
+      - PlushieLizard
+      - PlushieSpaceLizard
+      - PlushieSharkBlue
+      - PlushieSharkPink
+      - PlushieSharkGrey
+      - PlushieCarp
+      - PlushieMagicarp
+      - PlushieHolocarp
+      - PlushieGhost
+      - PlushieBee
+      - PlushieRGBee
+      - PlushieDiona
+      - PlushieArachind
+      - PlushieSlime
+      - PlushieSnake
+      - PlushieVox
+      - PlushieAtmosian
+      - PlushieXeno
+      - PlushiePenguin
+      - PlushieMoth
+      - PlushieVulp
+      - PlushieNuke
+      - PlushieRouny
+      - PlushieLamp
+      - PlushieExperiment
+      - PlushieHampter
+      - PlushieThrongler
+      - ToyIan
+      - ToyMouse
+      - ToyAmongPequeno
+      # Figurines
+      - ToyFigurinePassenger
+      - ToyFigurineClown
+      - ToyFigurineMime
+      - ToyFigurineMusician
+      - ToyFigurineBoxer
+      - ToyFigurineCaptain
+      - ToyFigurineHeadOfSecurity
+      - ToyFigurineWarden
+      - ToyFigurineDetective
+      - ToyFigurineSecurity
+      - ToyFigurineLawyer
+      - ToyFigurineCargoTech
+      - ToyFigurineSalvage
+      - ToyFigurineQuartermaster
+      - ToyFigurineChiefEngineer
+      - ToyFigurineAtmosTech
+      - ToyFigurineEngineer
+      - ToyFigurineResearchDirector
+      - ToyFigurineScientist
+      - ToyFigurineChiefMedicalOfficer
+      - ToyFigurineChemist
+      - ToyFigurineParamedic
+      - ToyFigurineMedicalDoctor
+      - ToyFigurineHeadOfPersonnel
+      - ToyFigurineLibrarian
+      - ToyFigurineChaplain
+      - ToyFigurineChef
+      - ToyFigurineBartender
+      - ToyFigurineBotanist
+      - ToyFigurineJanitor
+      - ToyFigurineGreytider
+      - ToyFigurineNukie
+      - ToyFigurineNukieElite
+      - ToyFigurineFootsoldier
+      - ToyFigurineWizard
+      - ToyFigurineSkeleton
+      - ToyFigurineThief
+      - ToyFigurineRatKing
+      - ToyFigurineRatServant
+      - ToyFigurineMouse
+      - ToyFigurineQueen
+      - ToyFigurineSpaceDragon
+      - ToyFigurineHamlet
+      - ToyFigurineGriffin
+      - ToyFigurineOwlman
+      - ToyFigurineSlime
+      # Mecha Figurines
+      - ToyRipley
+      - ToyFireRipley
+      - ToyDeathRipley
+      - ToyGygax
+      - ToyDurand
+      - ToyHonk
+      - ToyMarauder
+      - ToySeraph
+      - ToyMauler
+      - ToyOdysseus
+      - ToyPhazon
+      - ToyReticence
+      # Other Toys
+      - ToyRubberDuck
+      - ToySword
+      - ToyHammer
+      - ToyAi
+      - ToyNuke
+    rarePrototypes:
+      # Rare Plushies
+      - PlushieRatvar
+      - PlushieNar
+      - PlushieRainbowCarp
+      - PlushieRainbowLizard
+      - PlushieLizardMirrored
+      - PlushieLizardInversed
+      - PlushieGhostRevenant
+      # Rare Figurines
+      - ToyFigurineWizardFake
+      - ToyFigurineHoloClown
+      # ADT Plushies
+      - ADTBlackSharkPlushie
+      - ADTPlushieOctocat
+    rareChance: 0.1

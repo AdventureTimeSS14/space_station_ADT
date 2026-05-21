@@ -401,7 +401,7 @@
     - type: RandomSpawner
       rarePrototypes:
         - Autolathe
-      rareChance: 0.3
+      rareChance: 0.1
       prototypes:
         - BrokenAutolathe
       chance: 1
@@ -420,7 +420,7 @@
     - type: RandomSpawner
       rarePrototypes:
         - CircuitImprinter
-      rareChance: 0.3
+      rareChance: 0.1
       prototypes:
         - BrokenImprinter
       chance: 1
@@ -439,7 +439,7 @@
     - type: RandomSpawner
       rarePrototypes:
         - Protolathe
-      rareChance: 0.3
+      rareChance: 0.1
       prototypes:
         - BrokenProtolathe
       chance: 1
@@ -458,7 +458,7 @@
     - type: RandomSpawner
       rarePrototypes:
         - Gyroscope
-      rareChance: 0.3
+      rareChance: 0.1
       prototypes:
         - BrokenGyroscope
       chance: 1
@@ -477,7 +477,7 @@
     - type: RandomSpawner
       rarePrototypes:
         - SubstationBasic
-      rareChance: 0.3
+      rareChance: 0.1
       prototypes:
         - BrokenSubstation
       chance: 1
@@ -496,7 +496,7 @@
     - type: RandomSpawner
       rarePrototypes:
         - GeneratorRTG
-      rareChance: 0.3
+      rareChance: 0.1
       prototypes:
         - BrokenRTG
       chance: 0.8
@@ -515,7 +515,7 @@
     - type: RandomSpawner
       rarePrototypes:
         - BaseAPC
-      rareChance: 0.3
+      rareChance: 0.1
       prototypes:
         - BrokenAPC
       chance: 1
@@ -535,7 +535,7 @@
     - type: RandomSpawner
       rarePrototypes:
         - SMESBasic
-      rareChance: 0.3
+      rareChance: 0.1
       prototypes:
         - BrokenSMES
       chance: 1
@@ -555,7 +555,7 @@
       rarePrototypes:
         - GeneratorRTG
         - GeneratorRTGDamaged
-      rareChance: 0.3
+      rareChance: 0.1
       prototypes:
         - BrokenRTG
       chance: 0.8
@@ -579,7 +579,7 @@
         - PerservedAnalyzer
         - PerservedServer
         - PerservedComputer
-      rareChance: 0.3
+      rareChance: 0.1
       prototypes:
         - AncientLathe
         - AncientProto

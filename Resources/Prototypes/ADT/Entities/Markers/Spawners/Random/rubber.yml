@@ -1,0 +1,33 @@
+- type: entity
+  parent: MarkerBase
+  id: ADTRandomSpawnerRubber
+  name: random rubber ammo spawner
+  suffix: Rubber
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: ADT/Markers/random_loot.rsi
+        state: rubber
+  - type: RandomSpawner
+    offset: 0
+    chance: 0.45
+    prototypes:
+      # Non-lethal shotgun shells
+      - ShellShotgunBeanbag
+      - ShellShotgunPractice
+      # Non-lethal magazines
+      - MagazinePistolPractice
+      - MagazineRiflePractice
+      - MagazineMagnumPractice
+      - MagazineLightRiflePractice
+      - MagazinePistolSubMachineGunPractice
+      - MagazineLightRifleBox # Foam
+      # Beanbag drums
+      - MagazineShotgunBeanbag
+    rarePrototypes:
+      - GrenadeBaton
+      - MagazineGrenadeBaton
+      - ADT40mmGrenadeBaton
+      - ADTBullet40mmGrenadeBaton
+    rareChance: 0.1

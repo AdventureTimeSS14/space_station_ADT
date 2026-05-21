@@ -1,0 +1,64 @@
+- type: entity
+  parent: MarkerBase
+  id: ADTRandomSpawnerBeer
+  name: random beer spawner
+  suffix: Beer
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: ADT/Markers/random_loot.rsi
+        state: beer
+  - type: RandomSpawner
+    offset: 0
+    chance: 0.45
+    prototypes:
+      # Beer
+      - DrinkBeerBottleFull
+      - DrinkBeerCan
+      - DrinkBeerGrowler
+      - DrinkAleBottleFull
+      - DrinkAleBottleFullGrowler
+      - DrinkBeerglass
+      - DrinkIcedBeerGlass
+      # Root Beer
+      - DrinkRootBeerCan
+      - DrinkRootBeerGlass
+      - DrinkRootBeerFloatGlass
+      - DrinkRootBeerJug
+      # Spirits
+      - DrinkVodkaBottleFull
+      - DrinkWhiskeyBottleFull
+      - DrinkWineBottleFull
+      - DrinkPoisonWinebottleFull
+      - DrinkChampagneBottleFull
+      - DrinkCognacBottleFull
+      - DrinkRumBottleFull
+      - DrinkTequilaBottleFull
+      - DrinkGinBottleFull
+      - DrinkAbsintheBottleFull
+      - DrinkVermouthBottleFull
+      - DrinkBlueCuracaoBottleFull
+      - DrinkMelonLiquorBottleFull
+      - DrinkPatronBottleFull
+      - DrinkCoffeeLiqueurBottleFull
+      - DrinkGildlagerBottleFull
+      - DrinkSakeBottleFull
+      - DrinkWhiskeySour
+      # Glasses
+      - DrinkVodkaGlass
+      - DrinkWhiskeyGlass
+      - DrinkWineGlass
+      - DrinkVodkaMartiniGlass
+      - DrinkWhiskeyColaGlass
+      - DrinkWhiskeySodaGlass
+      - DrinkVodkaTonicGlass
+      - DrinkVodkaRedBool
+      - DrinkPoisonWineGlass
+      # Cans
+      - DrinkColaBottleFull
+      - DrinkSodaWaterBottleFull
+      - DrinkTonicWaterBottleFull
+    rarePrototypes:
+      - DrinkWineCan
+    rareChance: 0.1

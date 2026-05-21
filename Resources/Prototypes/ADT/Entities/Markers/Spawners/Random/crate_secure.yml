@@ -1,0 +1,35 @@
+- type: entity
+  parent: MarkerBase
+  id: ADTRandomSpawnerCrateSecure
+  name: random secure cargo crate spawner
+  suffix: SecureCrate
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: ADT/Markers/random_loot.rsi
+        state: crate_secure
+  - type: RandomSpawner
+    offset: 0
+    chance: 0.45
+    prototypes:
+      - CrateSecgear
+      - CrateSecurityArmor
+      - CrateSecurityHelmet
+      - CrateSecurityNonlethal
+      - CrateSecuritySupplies
+      - CrateSecurityBiosuit
+      - CrateSecurityTrackingMindshieldImplants
+      - CrateSecNonlethalThrowables
+      - CrateArmorySMG
+      - CrateArmoryShotgun
+      - CrateArmoryPistols
+      - CrateArmoryRifle
+      - CrateArmoryLaser
+      - CrateSecurityRiot
+    rarePrototypes:
+      - CrateContrabandStorageSecure
+      - CrateWeaponSecure
+      - ADTCrateSecurityBrigmedic
+      - CrateLockBoxSecurity
+    rareChance: 0.1

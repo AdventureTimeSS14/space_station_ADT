@@ -1,0 +1,86 @@
+- type: entity
+  parent: MarkerBase
+  id: ADTRandomSpawnerBackpack
+  name: random backpack spawner
+  suffix: Backpack
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: ADT/Markers/random_loot.rsi
+        state: backpack
+  - type: RandomSpawner
+    offset: 0
+    chance: 0.45
+    prototypes:
+      # Standard Backpacks
+      - ClothingBackpack
+      - ClothingBackpackChameleon
+      - ClothingBackpackEngineering
+      - ClothingBackpackAtmospherics
+      - ClothingBackpackMedical
+      - ClothingBackpackCaptain
+      - ClothingBackpackClown
+      - ClothingBackpackMime
+      - ClothingBackpackChemistry
+      - ClothingBackpackHydroponics
+      - ClothingBackpackScience
+      - ClothingBackpackVirology
+      - ClothingBackpackGenetics
+      - ClothingBackpackCargo
+      - ClothingBackpackSalvage
+      - ClothingBackpackMerc
+      - ClothingBackpackSecurity
+      - ClothingBackpackBrigmedic
+      # ERT Backpacks
+      - ClothingBackpackERTLeader
+      - ClothingBackpackERTSecurity
+      - ClothingBackpackERTMedical
+      - ClothingBackpackERTEngineer
+      - ClothingBackpackERTJanitor
+      - ClothingBackpackERTClown
+      - ClothingBackpackERTChaplain
+      - ClothingBackpackDeathSquad
+      # Duffel Bags
+      - ClothingBackpackDuffel
+      - ClothingBackpackDuffelEngineering
+      - ClothingBackpackDuffelAtmospherics
+      - ClothingBackpackDuffelMedical
+      - ClothingBackpackDuffelCaptain
+      - ClothingBackpackDuffelClown
+      - ClothingBackpackDuffelSecurity
+      - ClothingBackpackDuffelBrigmedic
+      - ClothingBackpackDuffelChemistry
+      - ClothingBackpackDuffelVirology
+      - ClothingBackpackDuffelGenetics
+      - ClothingBackpackDuffelMime
+      - ClothingBackpackDuffelScience
+      - ClothingBackpackDuffelHydroponics
+      - ClothingBackpackDuffelCargo
+      - ClothingBackpackDuffelSalvage
+      # Satchels
+      - ClothingBackpackSatchel
+      - ClothingBackpackSatchelLeather
+      - ClothingBackpackSatchelEngineering
+      - ClothingBackpackSatchelAtmospherics
+      - ClothingBackpackSatchelClown
+      - ClothingBackpackSatchelMime
+      - ClothingBackpackSatchelMedical
+      - ClothingBackpackSatchelChemistry
+      - ClothingBackpackSatchelVirology
+      - ClothingBackpackSatchelGenetics
+      - ClothingBackpackSatchelScience
+      - ClothingBackpackSatchelSecurity
+      - ClothingBackpackSatchelBrigmedic
+      - ClothingBackpackSatchelCaptain
+      - ClothingBackpackSatchelHydroponics
+      - ClothingBackpackSatchelCargo
+      - ClothingBackpackSatchelSalvage
+    rarePrototypes:
+      - ClothingBackpackSyndicate
+      - ClothingBackpackDuffelSyndicate
+      - ClothingBackpackDuffelCBURN
+      - ClothingBackpackHolding
+      - ClothingBackpackSatchelHolding
+      - ClothingBackpackDuffelHolding
+    rareChance: 0.1

@@ -1,0 +1,62 @@
+- type: entity
+  parent: MarkerBase
+  id: ADTRandomSpawnerArmor
+  name: random armor spawner
+  suffix: Armor
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: ADT/Markers/random_loot.rsi
+        state: armor
+  - type: RandomSpawner
+    offset: 0
+    chance: 0.45
+    prototypes:
+      # Basic Armor Vests
+      - ClothingOuterArmorBasic
+      - ClothingOuterArmorBasicSlim
+      - ClothingOuterArmorBulletproof
+      - ClothingOuterArmorReflective
+      # Heavy Armor Suits
+      - ClothingOuterArmorRiot
+      # Special Armor
+      - ClothingOuterArmorScrap
+      - ClothingOuterArmorBone
+      - ClothingOuterArmorPodWars
+      - ClothingOuterArmorAirsoftBlue
+      - ClothingOuterArmorAirsoftRed
+      # ADT Armor
+      - ADTClothingOuterArmorVestHidden
+      - ADTClothingOuterArmorTSF
+      - ADTClothingOuterArmorMiner
+      - ADTClothingOuterArmorMinerHeavy
+      - ADTClothingOuterArmorMinerLight
+      - ADTClothingOuterArmorMinerReinforcedOne
+      - ADTClothingOuterArmorMinerReinforcedTwo
+      - ADTClothingOuterArmorMinerReinforcedFull
+      - ADTCenturionArmor
+      - ADTLegionerArmor
+    rarePrototypes:
+      # Rare/Contraband Armor
+      - ClothingOuterArmorHeavy
+      - ClothingOuterArmorHeavyGreen
+      - ClothingOuterArmorHeavyRed
+      - ADTClothingBlueshieldArmor
+      - ADTClothingOuterArmorCrusader
+      - ADTClothingOuterArmorUma
+      - ADTClothingOuterArmorMinerSirtalter
+      - ADTClothingOuterArmorMinerReinforcedFull
+      - ClothingOuterArmorChangeling
+      - ClothingOuterArmorCaptainCarapace
+      - ClothingOuterArmorCentcommCarapace
+      - ClothingOuterArmorRaid
+      - ClothingOuterArmorCult
+      - ClothingOuterArmorMagusblue
+      - ClothingOuterArmorMagusred
+      - ClothingOuterArmorHeretic
+      - ADTClothingOuterArmorHereticBlade
+      - ADTClothingOuterArmorHereticFlesh
+      - ADTClothingOuterArmorHereticVoid
+      - ADTClothingOuterArmorHereticAsh
+    rareChance: 0.1

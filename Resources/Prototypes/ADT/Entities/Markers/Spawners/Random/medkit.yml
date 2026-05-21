@@ -1,0 +1,26 @@
+- type: entity
+  parent: MarkerBase
+  id: ADTRandomSpawnerMedkit
+  name: random medkit spawner
+  suffix: Medkit
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: ADT/Markers/random_loot.rsi
+        state: medkit
+  - type: RandomSpawner
+    offset: 0
+    chance: 0.45
+    prototypes:
+      - MedkitFilled
+      - MedkitBruteFilled
+      - MedkitBurnFilled
+      - MedkitToxinFilled
+      - MedkitOxygenFilled
+      - MedkitRadiationFilled
+      - MedkitAdvancedFilled
+    rarePrototypes:
+      - MedkitCombatFilled
+    #  - ADTMedkitAdvancedERT 
+    rareChance: 0.1

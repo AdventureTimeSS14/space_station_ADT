@@ -1,0 +1,29 @@
+- type: entity
+  parent: MarkerBase
+  id: ADTRandomSpawnerCrate
+  name: random cargo crate spawner
+  suffix: CargoCrate
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: ADT/Markers/random_loot.rsi
+        state: crate
+  - type: RandomSpawner
+    offset: 0
+    chance: 0.45
+    prototypes:
+      - CrateCargoParcelWrap
+      - CrateCargoLuxuryHardsuit
+      - ADTCrateMaterialMarble
+      - ADTCrateMaterialWood
+      - ADTCrateFishingGoodies
+      - ADTCrateServicePrinterInkCartridge
+    rarePrototypes:
+      - CrateCargoGambling
+      - ADTCrateWedding
+      - ADTCrateFunATV
+      - ADTCrateFunSyndicateSegway
+      - ADTCrateFunSprayPaints
+      - ADTCrateRPD
+    rareChance: 0.1

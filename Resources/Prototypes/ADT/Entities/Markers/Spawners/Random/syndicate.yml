@@ -1,0 +1,43 @@
+- type: entity
+  parent: MarkerBase
+  id: ADTRandomSpawnerSyndicate
+  name: random syndicate spawner
+  suffix: Syndicate
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: ADT/Markers/random_loot.rsi
+        state: syndicate
+  - type: RandomSpawner
+    offset: 0
+    chance: 0.50
+    prototypes:
+      - ToolboxSyndicate
+      - ToolboxSyndicateFilled
+      - SyndicateJawsOfLife
+      - SyndicateFlippo
+      - PinpointerSyndicateNuclear
+      - SyndicateWhistle
+      - RubberStampSyndicate
+      - SyndicateBusinessCard
+      - ClothingBackpackSyndicate
+      - ClothingBackpackDuffelSyndicate
+      - ClothingHeadHelmetSyndicate
+      - ClothingMaskGasSyndicate
+      - ClothingOuterEVASuitSyndicate
+      - ClothingEyesHudSyndicate
+      - SyndicateIDCard
+      - CigaretteSyndicate
+      - CigPackSyndicate
+      - SyndicateBomb
+      - SyndicateBombFake
+      - SyndicateSponge
+      - SyndicateSpongeWrapped
+      - SyndicateSpongeBox
+      - SyndicatePersonalAI
+      - SyndicateCommsComputerCircuitboard
+      - SyndicateShuttleConsoleCircuitboard
+      - ComputerIFFSyndicateCircuitboard
+      - BorgModuleSyndicateWeapon
+      - DrinkSyndicatebomb

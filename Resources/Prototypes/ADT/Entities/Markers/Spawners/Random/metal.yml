@@ -1,0 +1,39 @@
+- type: entity
+  parent: MarkerBase
+  id: ADTRandomSpawnerMetal
+  name: random metal spawner
+  suffix: Metal
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: ADT/Markers/random_loot.rsi
+        state: metal
+  - type: RandomSpawner
+    offset: 0
+    chance: 0.45
+    prototypes:
+      # Steel Sheets
+      - Steel
+      - SheetSteel
+      - SheetSteel1
+      - SheetSteel10
+      # Plasteel Sheets
+      - Plasteel
+      - SheetPlasteel
+      - SheetPlasteel1
+      - SheetPlasteel10
+      # Glass Sheets
+      - Glass
+      - SheetGlass
+      - SheetGlass1
+      - SheetGlass10
+      # Brass Sheets
+      - SheetBrass
+      - SheetBrass1
+      - SheetBrass10
+      # Metal Rods
+      - MetalRod
+      - PartRodMetal
+      - PartRodMetal1
+      - PartRodMetal10

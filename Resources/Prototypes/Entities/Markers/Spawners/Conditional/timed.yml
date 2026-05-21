@@ -14,7 +14,7 @@
       prototypes:
         - MobSpirate
         - MobCivilian
-      chance: 0.75
+      chance: 0.45
       intervalSeconds: 60
       minimumEntitiesSpawned: 1
       maximumEntitiesSpawned: 5

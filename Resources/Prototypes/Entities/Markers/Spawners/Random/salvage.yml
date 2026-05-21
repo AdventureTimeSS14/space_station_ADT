@@ -135,7 +135,7 @@
     - MobTickSalvage
     - PlushieCarp
     - DehydratedSpaceCarp
-    chance: 0.75
+    chance: 0.45
     offset: 0.2
 
 - type: entity

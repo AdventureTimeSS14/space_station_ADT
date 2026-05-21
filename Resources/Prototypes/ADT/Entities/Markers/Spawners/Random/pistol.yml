@@ -1,0 +1,41 @@
+- type: entity
+  parent: MarkerBase
+  id: ADTRandomSpawnerPistol
+  name: random pistol spawner
+  suffix: Pistol
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: ADT/Markers/random_loot.rsi
+        state: pistol
+  - type: RandomSpawner
+    offset: 0
+    chance: 0.45
+    prototypes:
+      # Standard Pistols
+      - WeaponPistolMk58
+      - WeaponPistolN1984
+      - WeaponPistolViper
+      - WeaponPistolCobra
+      - WeaponPistolEchis
+      # Revolvers
+      - WeaponRevolverDeckard
+      - WeaponRevolverInspector
+      - WeaponRevolverPython
+      - WeaponRevolverMateba
+      - WeaponRevolverPirate
+      # Energy Pistols
+      - WeaponPulsePistol
+      - WeaponPistolCHIMP
+      - WeaponPistolCHIMPUpgraded
+      - ADTWeaponPistolTP17
+      - ADTWeaponPistolDesertEagle
+      - ADTWeaponPistolUma
+      - ADTWeaponPistolMaria
+      - ADTWeaponPistolPrazatHawk
+      - ADTWeaponPistolYV2
+      - ADTWeaponPistolX01
+      - ADTEctoplasmicPistol
+      - ADTWeaponProtoKineticPistol
+      - ADTWeaponProtoKineticPistolSirtalter

@@ -1,0 +1,37 @@
+- type: entity
+  parent: MarkerBase
+  id: ADTRandomSpawnerRareMaterials
+  name: random rare materials spawner
+  suffix: RareMaterials
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: ADT/Markers/random_loot.rsi
+        state: diamond
+  - type: RandomSpawner
+    offset: 0
+    chance: 0.45
+    prototypes:
+      # Copper
+      - Copper
+      - ADTSheetCopper
+      - ADTSheetCopper1
+      - ADTSheetCopper10
+      # Gold
+      - Gold
+      - IngotGold
+      - IngotGold1
+      # Uranium
+      - Uranium
+      - SheetUranium
+      - SheetUranium1
+      # Plasma
+      - Plasma
+      - SheetPlasma
+      - SheetPlasma1
+      - SheetPlasma10
+      # Diamond
+      - Diamond
+      - MaterialDiamond
+      - MaterialDiamond1

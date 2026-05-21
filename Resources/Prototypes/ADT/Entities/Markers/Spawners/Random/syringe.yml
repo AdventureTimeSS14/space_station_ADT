@@ -1,0 +1,39 @@
+- type: entity
+  parent: MarkerBase
+  id: ADTRandomSpawnerSyringe
+  name: random syringe spawner
+  suffix: Syringe
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: ADT/Markers/random_loot.rsi
+        state: syringe
+  - type: RandomSpawner
+    offset: 0
+    chance: 0.45
+    prototypes:
+      - Syringe
+      - SyringeBluespace
+      - SyringeCryostasis
+      - SyringeEphedrine
+      - SyringeInaprovaline
+      - SyringeTranexamicAcid
+      - SyringeBicaridine
+      - SyringeDermaline
+      - SyringeHyronalin
+      - SyringeIpecac
+      - SyringeAmbuzol
+      - SyringeSigynate
+      - SyringeEthylredoxrazine
+      - SyringePhalanximine
+      - SyringeSaline
+      - SyringeStimulants
+    rarePrototypes:
+      - SyringeRomerol
+      - EmergencyMedipen
+      - SpaceMedipen
+      - AntiPoisonMedipen
+      - CombatMedipen
+      - WehMedipen
+    rareChance: 0.1

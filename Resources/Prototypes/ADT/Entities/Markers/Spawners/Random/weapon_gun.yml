@@ -1,0 +1,47 @@
+- type: entity
+  parent: MarkerBase
+  id: ADTRandomSpawnerWeaponGun
+  name: random weapon gun spawner
+  suffix: WeaponGun
+  components:
+  - type: Sprite
+    layers:
+      - sprite: ADT/Markers/random_loot.rsi
+        state: weapon_gun
+  - type: RandomSpawner
+    offset: 0
+    chance: 0.45
+    prototypes:
+      # Rifles
+      - WeaponRifleAk
+      - WeaponRifleLecter
+      - WeaponRifleEstoc
+      - WeaponRifleM90GrenadeLauncher
+      # Shotguns
+      - WeaponShotgunDoubleBarreled
+      - WeaponShotgunEnforcer
+      - WeaponShotgunKammerer
+      - WeaponShotgunSawn
+      # Pistols
+      - WeaponPistolMk58
+      - WeaponPistolViper
+      - WeaponPistolCobra
+      # Revolvers
+      - WeaponRevolverDeckard
+      - WeaponRevolverInspector
+      - WeaponRevolverPython
+      - WeaponRevolverMateba
+    rarePrototypes:
+      - WeaponRifleFoam
+      - WeaponShotgunBlunderbuss
+      - WeaponShotgunHandmade
+      - WeaponShotgunImprovised
+      - WeaponPistolEchis
+      - WeaponPistolFlintlock
+      - WeaponRevolverPirate
+      - WeaponSniperMosin
+      - WeaponSniperHristov
+      - WeaponShotgunBulldog
+      - WeaponPistolN1984
+      - WeaponPistolCHIMP
+    rareChance: 0.1

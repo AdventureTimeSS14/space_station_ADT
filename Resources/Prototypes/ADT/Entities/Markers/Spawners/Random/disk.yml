@@ -1,0 +1,18 @@
+- type: entity
+  parent: MarkerBase
+  id: ADTRandomSpawnerDisk
+  name: random disk spawner
+  suffix: Disk
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: ADT/Markers/random_loot.rsi
+        state: disk
+  - type: RandomSpawner
+    offset: 0
+    chance: 0.45
+    prototypes:
+      - ResearchDisk
+      - ResearchDisk5000
+      - ResearchDisk10000

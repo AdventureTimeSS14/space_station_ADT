@@ -1,0 +1,28 @@
+- type: entity
+  parent: MarkerBase
+  id: ADTRandomSpawnerLaserGun
+  name: random laser gun spawner
+  suffix: LaserGun
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: ADT/Markers/random_loot.rsi
+        state: laser_gun
+  - type: RandomSpawner
+    offset: 0
+    chance: 0.45
+    prototypes:
+      - WeaponLaserSvalinn
+      - WeaponLaserCarbine
+      - WeaponMakeshiftLaser
+    rarePrototypes:
+      - WeaponLaserGun
+      - WeaponLaserCannon
+      - WeaponAdvancedLaser
+      - WeaponAntiqueLaser
+      - WeaponEnergyMagnum
+      - WeaponEnergyShotgun
+      - XenoborgLaserGun
+      - XenoborgHeavyLaserGun
+    rareChance: 0.1

@@ -1,0 +1,35 @@
+- type: entity
+  parent: MarkerBase
+  id: ADTRandomSpawnerMecha
+  name: random mecha spawner
+  suffix: Mecha
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: ADT/Markers/random_loot.rsi
+        state: mecha
+  - type: RandomSpawner
+    offset: 0
+    chance: 0.45
+    prototypes:
+      # Mechs
+      - MechRipley
+      - MechRipleyBattery
+      - MechHonker
+      - MechHonkerBattery
+      - MechHamtr
+      - MechHamtrBattery
+      - MechVim
+      - MechVimBattery
+      # Mecha Equipment
+      - MechEquipmentGrabber
+      - MechEquipmentGrabberSmall
+      - MechEquipmentHorn
+      - MechEquipmentHumanGrabber
+      - MechEquipmentHumanSleeper
+      - MechEquipmentPuddyGrabber
+      - MechEquipmentDrill
+      - MechEquipmentDiamondDrill
+      - MechEquipmentArmorMelee
+      - MechEquipmentArmorRange

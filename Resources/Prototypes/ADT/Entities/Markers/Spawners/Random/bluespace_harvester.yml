@@ -223,7 +223,7 @@
     rarePrototypes:
     - ClosetBluespace
     - ClosetBluespaceUnstable
-    rareChance: 0.3
+    rareChance: 0.1
 
 - type: entity
   id: ADTRandomHarvesterCircuitboard
@@ -275,7 +275,7 @@
     offset: 0.0
     rarePrototypes:
     - TechnologyDiskRare
-    rareChance: 0.3
+    rareChance: 0.1
 
 - type: entity
   id: ADTRandomHarvesterResearchDisk
@@ -295,7 +295,7 @@
     offset: 0.0
     rarePrototypes:
     - ResearchDisk10000
-    rareChance: 0.3
+    rareChance: 0.1
 
 - type: entity
   id: ADTRandomHarvesterAnomalyKit
@@ -318,7 +318,7 @@
     offset: 0.0
     rarePrototypes:
     - WeaponPistolCHIMPUpgraded
-    rareChance: 0.3
+    rareChance: 0.1
 
 - type: entity
   id: ADTRandomHarvesterEncryptionKey

@@ -1,0 +1,59 @@
+- type: entity
+  parent: MarkerBase
+  id: ADTRandomSpawnerMeleeWeapon
+  name: random melee weapon spawner
+  suffix: MeleeWeapon
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: ADT/Markers/random_loot.rsi
+        state: melle_weapon
+  - type: RandomSpawner
+    offset: 0
+    chance: 0.45
+    prototypes:
+      # Knives
+      - CombatKnife
+      - SurvivalKnife
+      - KukriKnife
+      - Shiv
+      - ThrowingKnife
+      - UtilityKnife
+      - KitchenKnife
+      # Spears
+      - Spear
+      - SpearReinforced
+      - SpearPlasma
+      - SpearUranium
+      - SpearBone
+      - SpearSharkMinnow
+      # Swords
+      - CardSword
+      - ToySword
+      # Axes
+      - FireAxe
+      - Pickaxe
+      # Tools as weapons
+      - Wrench
+      - Crowbar
+      - CrowbarRed
+      - CrowbarGreen
+      # ADT Melee Weapons
+      - ADTBoneKnife
+      - ADTUSSPCombatKnifeBarzai
+      - ADTBoneSword
+      - ADTBoneLongsword
+      - ADTBoneBattleaxe
+      - ADTEctoSword
+      - ADTDevilsKnife
+      - ADTBloodSword
+      - ADTWoodenSword
+    rarePrototypes:
+      - ADTSyrelBattleAxe
+      - EnergySword
+      - EnergySwordDouble
+      - WeaponMeleeNeedle
+      - ADTFireAxeKori
+      - ADTWeaponMeleePrasatChainsword
+    rareChance: 0.1

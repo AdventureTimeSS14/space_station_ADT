@@ -10,7 +10,7 @@
       - sprite: ADT/Markers/randoms.rsi
         state: barrels_boxes
   - type: RandomSpawner
-    rareChance: 0.30
+    rareChance: 0.10
     offset: 0
     prototypes:
       - ADTBoxMaintenanceRandom

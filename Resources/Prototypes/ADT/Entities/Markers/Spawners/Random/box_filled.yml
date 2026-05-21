@@ -1,0 +1,35 @@
+- type: entity
+  parent: MarkerBase
+  id: ADTRandomSpawnerBoxFilled
+  name: random filled box spawner
+  suffix: Box
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: ADT/Markers/random_loot.rsi
+        state: box_small
+  - type: RandomSpawner
+    offset: 0
+    chance: 0.45
+    prototypes:
+      # ADT Special Boxes
+      - ADTBoxAICircuitBoard
+      - ADTBoxImplanters
+      - ADTBoxFakeMindShield
+      - ADTBoxTeto
+      - ADTBoxFolderDV
+      - ADTBoxFolderClipboardDV
+      # Special Boxes
+      - CowToolboxFilled
+      - GlassBoxLaserFilled
+    rarePrototypes:
+      # Rare/Contraband Boxes
+      - ADTBoxSyndicateFilledEscapist
+      - ADTBoxSyndicateCyberpsycho
+      - ToolboxSyndicateFilled
+      - ToolboxGoldFilled
+      - ToolboxMechanicalFilledAllTools
+      - ToolboxElectricalTurretFilled
+      - ADTToolboxSyndicateFilledThief
+    rareChance: 0.1

@@ -1,0 +1,45 @@
+- type: entity
+  parent: MarkerBase
+  id: ADTRandomSpawnerCanister
+  name: random canister spawner
+  suffix: Canister
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: ADT/Markers/random_loot.rsi
+        state: canister
+  - type: RandomSpawner
+    offset: 0
+    chance: 0.45
+    prototypes:
+      # Gas Canisters
+      - AirCanister
+      - OxygenCanister
+      - LiquidOxygenCanister
+      - NitrogenCanister
+      - LiquidNitrogenCanister
+      - CarbonDioxideCanister
+      - LiquidCarbonDioxideCanister
+      - PlasmaCanister
+      - WaterVaporCanister
+      - AmmoniaCanister
+      - NitrousOxideCanister
+      - FrezonCanister
+      # ADT Gas Canisters
+      - ADTBZCanister
+      - ADTPluoxiumCanister
+      - ADTHydrogenCanister
+      - ADTNitriumCanister
+      - ADTHealiumCanister
+      - ADTHalonCanister
+      - ADTHeliumCanister
+    rarePrototypes:
+      # Rare/Dangerous Canisters
+      - TritiumCanister
+      - ADTHyperNobliumCanister
+      - ADTProtoNitrateCanister
+      - ADTZaukerCanister
+      - ADTAntiNobliumCanister
+      - PlasmaTankFilled
+    rareChance: 0.1

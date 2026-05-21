@@ -1,0 +1,50 @@
+- type: entity
+  parent: MarkerBase
+  id: ADTRandomSpawnerLethalshot
+  name: random lethal shot spawner
+  suffix: Lethalshot
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: ADT/Markers/random_loot.rsi
+        state: lethalshot
+  - type: RandomSpawner
+    offset: 0
+    chance: 0.45
+    prototypes:
+      # Shotgun shells
+      - ShellShotgun
+      - ShellShotgunSlug
+      - ShellShotgunImprovised
+      # Pistol magazines
+      - MagazinePistol
+      - MagazinePistolIncendiary
+      - MagazinePistolUranium
+      # Rifle magazines
+      - MagazineRifle
+      - MagazineRifleIncendiary
+      - MagazineRifleUranium
+      # Magnum magazines
+      - MagazineMagnum
+      - MagazineMagnumAP
+      - MagazineMagnumUranium
+      # SMG magazines
+      - MagazinePistolSubMachineGun
+      - MagazinePistolSubMachineGunIncendiary
+      - MagazinePistolSubMachineGunUranium
+      # Light rifle magazines
+      - MagazineLightRifle
+      - MagazineLightRifleIncendiary
+      - MagazineLightRifleUranium
+      # Caseless rifle magazines
+      - MagazinePistolCaselessRifle
+    rarePrototypes:
+      - ShellShotgunUranium
+      - ShellShotgunIncendiary
+      - MagazineShotgunUranium
+      - MagazineShotgunIncendiary
+      - MagazineLightRiflePkBox
+      - MagazineLightRifleMaxim
+      - ADTMagazineMagnumSilver
+    rareChance: 0.1

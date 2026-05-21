@@ -1,0 +1,28 @@
+- type: entity
+  parent: MarkerBase
+  id: ADTRandomSpawnerCash
+  name: random cash spawner
+  suffix: Cash
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: ADT/Markers/random_loot.rsi
+        state: cash
+  - type: RandomSpawner
+    offset: 0
+    chance: 0.45
+    prototypes:
+      - SpaceCash
+      - SpaceCash10
+      - SpaceCash100
+      - SpaceCash500
+      - SpaceCash1000
+      - SpaceCash2500
+      - SpaceCash5000
+    rarePrototypes:
+      - SpaceCash10000
+      - SpaceCash20000
+      - SpaceCash30000
+      - SpaceCash1000000
+    rareChance: 0.1

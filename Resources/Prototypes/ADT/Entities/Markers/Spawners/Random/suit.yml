@@ -1,0 +1,50 @@
+- type: entity
+  parent: MarkerBase
+  id: ADTRandomSpawnerSuit
+  name: random suit spawner
+  suffix: Suit
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: ADT/Markers/random_loot.rsi
+        state: suit
+  - type: RandomSpawner
+    offset: 0
+    chance: 0.45
+    prototypes:
+      # Standard Hardsuits
+      - ClothingOuterHardsuitEngineering
+      - ClothingOuterHardsuitAtmos
+      - ClothingOuterHardsuitSecurity
+      - ClothingOuterHardsuitWarden
+      - ClothingOuterHardsuitBrigmedic
+      - ClothingOuterHardsuitMedical
+      - ClothingOuterHardsuitEngineeringWhite
+      - ClothingOuterHardsuitRd
+      - ClothingOuterHardsuitMaxim
+      # Salvage/Mining
+      - ClothingOuterHardsuitSalvage
+      - ClothingOuterHardsuitSpatio
+      - ClothingOuterHardsuitGoliath
+      - ClothingOuterHardsuitLuxury
+      # EVA Suits
+      - ClothingOuterHardsuitEVA
+      - ClothingOuterHardsuitEVAPrisoner
+      - ClothingOuterHardsuitAncientEVA
+      - ClothingOuterHardsuitVoidParamed
+      - ClothingOuterEVASuitSyndicate
+      # Fun Suits
+      - ClothingOuterHardsuitClown
+      - ClothingOuterHardsuitMime
+      - ClothingOuterHardsuitSanta
+      - ClothingOuterHardsuitCarp
+    rarePrototypes:
+      - ClothingOuterHardsuitCap
+      - ClothingOuterHardsuitLing
+      - ClothingOuterHardsuitWizard
+      - ClothingOuterHardsuitPirateEVA
+      - ClothingOuterHardsuitPirateCap
+      - ClothingOuterHardsuitDeathsquad
+      - ClothingOuterHardsuitCBURN
+    rareChance: 0.1

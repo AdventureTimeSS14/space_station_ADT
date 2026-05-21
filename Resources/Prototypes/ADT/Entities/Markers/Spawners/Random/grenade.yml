@@ -1,0 +1,40 @@
+- type: entity
+  parent: MarkerBase
+  id: ADTRandomSpawnerGrenade
+  name: random grenade spawner
+  suffix: Grenade
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: ADT/Markers/random_loot.rsi
+        state: grenade
+  - type: RandomSpawner
+    offset: 0
+    chance: 0.45
+    prototypes:
+      - SmokeGrenade
+      - TearGasGrenade
+      - CleanerGrenade
+      - MetalFoamGrenade
+      - AirGrenade
+      - GrenadeFlashBang
+      - GrenadeStinger
+      - GrenadeFoamDart
+      - GrenadeDummy
+    rarePrototypes:
+      - ExGrenade
+      - GrenadeBlast
+      - GrenadeFlash
+      - SingularityGrenade
+      - WhiteholeGrenade
+      - NuclearGrenade
+      - EmpGrenade
+      - HolyHandGrenade
+      - ClusterGrenade
+      - GrenadeIncendiary
+      - GrenadeShrapnel
+      - ExplosivePayload
+      - ADTTritiumGrenades
+      - ADTGrenadeKega
+    rareChance: 0.1

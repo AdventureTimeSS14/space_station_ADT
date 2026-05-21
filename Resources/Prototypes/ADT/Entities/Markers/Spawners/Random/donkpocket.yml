@@ -1,0 +1,52 @@
+- type: entity
+  parent: MarkerBase
+  id: ADTRandomSpawnerDonkpocket
+  name: random donkpocket spawner
+  suffix: Donkpocket
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: ADT/Markers/random_loot.rsi
+        state: donkpocket
+  - type: RandomSpawner
+    offset: 0
+    chance: 0.45
+    prototypes:
+      # Donkpockets
+      - FoodDonkpocket
+      - FoodDonkpocketWarm
+      - FoodDonkpocketSpicy
+      - FoodDonkpocketSpicyWarm
+      - FoodDonkpocketTeriyaki
+      - FoodDonkpocketTeriyakiWarm
+      - FoodDonkpocketPizza
+      - FoodDonkpocketPizzaWarm
+      - FoodDonkpocketHonk
+      - FoodDonkpocketHonkWarm
+      - FoodDonkpocketBerry
+      - FoodDonkpocketBerryWarm
+      - FoodDonkpocketStonk
+      - FoodDonkpocketStonkWarm
+      - FoodDonkpocketCarp
+      - FoodDonkpocketCarpWarm
+      - FoodDonkpocketDank
+      - FoodDonkpocketDankWarm
+      - FoodDonkpocketDink
+      - FoodDonkpocketMoth
+      - FoodDonkpocketMothWarm
+      # Donkpocket Boxes
+      - FoodBoxDonkpocket
+      - FoodBoxDonkpocketSpicy
+      - FoodBoxDonkpocketTeriyaki
+      - FoodBoxDonkpocketPizza
+      - FoodBoxDonkpocketStonk
+      - FoodBoxDonkpocketCarp
+      - FoodBoxDonkpocketBerry
+      - FoodBoxDonkpocketHonk
+      - FoodBoxDonkpocketDink
+      - FoodBoxDonkpocketMoth
+    rarePrototypes:
+      - FoodPizzaDonkpocket
+      - FoodPizzaDonkpocketSlice
+    rareChance: 0.1

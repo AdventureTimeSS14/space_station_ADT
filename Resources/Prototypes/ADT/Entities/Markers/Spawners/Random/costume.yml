@@ -1,0 +1,38 @@
+- type: entity
+  parent: MarkerBase
+  id: ADTRandomSpawnerCostume
+  name: random costume spawner
+  suffix: Costume
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: ADT/Markers/random_loot.rsi
+        state: costume
+  - type: RandomSpawner
+    offset: 0
+    chance: 0.45
+    prototypes:
+      # Seasonal Costumes
+      - ClothingOuterSanta
+      - ClothingHeadHatSantahat
+      - ClothingOuterGhostSheet
+      - ClothingHeadHatBunny
+      - ClothingHeadHatWitch
+      - ClothingHeadHatWitch1
+      - ClothingOuterSuitWitchRobes
+      - ClothingOuterHardsuitSanta
+      - ClothingHeadHelmetHardsuitSanta
+      - MobReindeerBuck
+      - MobReindeerDoe
+      # Syndicate Pyjamas
+      - ClothingUniformJumpsuitPyjamaSyndicateBlack
+      - ClothingUniformJumpsuitPyjamaSyndicatePink
+      - ClothingUniformJumpsuitPyjamaSyndicateRed
+      - ClothingHeadPyjamaSyndicateBlack
+      - ClothingHeadPyjamaSyndicatePink
+      - ClothingHeadPyjamaSyndicateRed
+    rarePrototypes:
+      - PlushieGhost
+      - PlushieGhostRevenant
+    rareChance: 0.1

@@ -1,0 +1,122 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from fulpstation at https://github.com/fulpstation/fulpstation/blob/4e3954f0323cf33b3a23078f2519534576a17b01/icons/effects/random_spawners.dmi, modified by Mathemat1ka",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "gloves"
+        },
+        {
+            "name": "syringe"
+        },
+        {
+            "name": "implanter"
+        },
+        {
+            "name": "toy"
+        },
+        {
+            "name": "circuit"
+        },
+        {
+            "name": "disk"
+        },
+        {
+            "name": "cash"
+        },
+        {
+            "name": "beer"
+        },
+        {
+            "name": "syndicate"
+        },
+        {
+            "name": "pistol"
+        },
+        {
+            "name": "donkpocket"
+        },
+        {
+            "name": "suit"
+        },
+        {
+            "name": "costume"
+        },
+        {
+            "name": "cap"
+        },
+        {
+            "name": "backpack"
+        },
+        {
+            "name": "canister"
+        },
+        {
+            "name": "briefcase"
+        },
+        {
+            "name": "box_small"
+        },
+        {
+            "name": "metal"
+        },
+        {
+            "name": "diamond"
+        },
+        {
+            "name": "mecha"
+        },
+        {
+            "name": "melle_weapon"
+        },
+        {
+            "name": "medkit"
+        },
+        {
+            "name": "toolbox"
+        },
+        {
+            "name": "crate"
+        },
+        {
+            "name": "crate_secure"
+        },
+        {
+            "name": "stamp"
+        },
+        {
+            "name": "box"
+        },
+        {
+            "name": "shield"
+        },
+        {
+            "name": "armor"
+        },
+        {
+            "name": "helmet"
+        },
+        {
+            "name": "laser_gun"
+        },
+        {
+            "name": "grenade"
+        },
+        {
+            "name": "disabler"
+        },
+        {
+            "name": "weapon_gun"
+        },
+        {
+            "name": "rubber"
+        },
+        {
+            "name": "lethalshot"
+        }
+    ]
+}

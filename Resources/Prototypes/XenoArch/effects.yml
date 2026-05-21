@@ -1000,7 +1000,7 @@
       min: 0
       max: 2
   - type: XAEDamageInArea
-    damageChance: 0.75
+    damagechance: 0.45
     whitelist:
       tags:
       - Window

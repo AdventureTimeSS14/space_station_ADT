@@ -1,0 +1,45 @@
+- type: entity
+  parent: MarkerBase
+  id: ADTRandomSpawnerStamp
+  name: random stamp spawner
+  suffix: Stamp
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: ADT/Markers/random_loot.rsi
+        state: stamp
+  - type: RandomSpawner
+    offset: 0
+    chance: 0.45
+    prototypes:
+      - RubberStampApproved
+      - RubberStampDenied
+      - ADTRubberStampRemake
+      - ADTRubberStampUSSP
+      - RubberStampTrader
+      - RubberStampChaplain
+      - RubberStampLawyer
+      - RubberStampClown
+      - RubberStampMime
+      - RubberStampGreytide
+      - RubberStampPsychologist
+    rarePrototypes:
+      - RubberStampCaptain
+      - RubberStampCentcom
+      - RubberStampCE
+      - RubberStampCMO
+      - RubberStampHop
+      - RubberStampHos
+      - RubberStampQm
+      - RubberStampRd
+      - RubberStampWarden
+      - RubberStampDetective
+      - RubberStampSyndicate
+      - RubberStampWizard
+      - ADTRubberStampDV
+      - ADTRubberStampPathologist
+      - RubberStampMagisrat
+      - RubberStampCCC
+      - RubberStampIAA
+    rareChance: 0.1

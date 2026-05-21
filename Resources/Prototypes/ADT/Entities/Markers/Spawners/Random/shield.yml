@@ -1,0 +1,30 @@
+- type: entity
+  parent: MarkerBase
+  id: ADTRandomSpawnerShield
+  name: random shield spawner
+  suffix: Shield
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: ADT/Markers/random_loot.rsi
+        state: shield
+  - type: RandomSpawner
+    offset: 0
+    chance: 0.45
+    prototypes:
+      - RiotShield
+      - RiotLaserShield
+      - RiotBulletShield
+      - WoodenBuckler
+      - TelescopicShield
+    rarePrototypes:
+      - CardShield
+      - MakeshiftShield
+      - ClockworkShield
+      - MirrorShield
+      - EnergyShield
+      - ADTFullRiotShield
+      - ADTFullRiotShieldSyndicate
+      - ADTEctoShield
+    rareChance: 0.1

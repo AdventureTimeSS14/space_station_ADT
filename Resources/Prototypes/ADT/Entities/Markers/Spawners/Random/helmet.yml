@@ -1,0 +1,29 @@
+- type: entity
+  parent: MarkerBase
+  id: ADTRandomSpawnerHelmet
+  name: random helmet spawner
+  suffix: Helmet
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: ADT/Markers/random_loot.rsi
+        state: helmet
+  - type: RandomSpawner
+    offset: 0
+    chance: 0.45
+    prototypes:
+      # Standard Combat Helmets
+      - ClothingHeadHelmetBasic
+      - ClothingHeadHelmetSwat
+      - ClothingHeadHelmetRiot
+      - ClothingHeadHelmetMerc
+      - ClothingHeadHelmetBone
+      - ClothingHeadHelmetScrap
+      # Special Helmets
+      - ClothingHeadHelmetJustice
+      - ClothingHeadHelmetThunderdome
+      - ClothingHeadHelmetTemplar
+      - ClothingHeadHelmetCult
+      - ClothingHeadHelmetWizardHelm
+      - ClothingHeadHelmetPodWars

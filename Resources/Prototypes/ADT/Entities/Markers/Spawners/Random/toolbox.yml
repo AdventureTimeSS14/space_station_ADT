@@ -1,0 +1,26 @@
+- type: entity
+  parent: MarkerBase
+  id: ADTRandomSpawnerToolbox
+  name: random toolbox spawner
+  suffix: Toolbox
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: ADT/Markers/random_loot.rsi
+        state: toolbox
+  - type: RandomSpawner
+    offset: 0
+    chance: 0.45
+    prototypes:
+      - ToolboxEmergencyFilled
+      - ToolboxMechanicalFilled
+      - ToolboxElectricalFilled
+      - ToolboxArtisticFilled
+    rarePrototypes:
+      - ToolboxMechanicalFilledAllTools
+      - ToolboxElectricalTurretFilled
+      - ToolboxSyndicateFilled
+      - ToolboxGoldenFilled
+      - ADTToolboxSyndicateFilledThief
+    rareChance: 0.1

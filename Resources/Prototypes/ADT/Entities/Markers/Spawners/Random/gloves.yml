@@ -1,0 +1,29 @@
+- type: entity
+  parent: MarkerBase
+  id: ADTRandomSpawnerGloves
+  name: random gloves spawner
+  suffix: Gloves
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: ADT/Markers/random_loot.rsi
+        state: gloves
+  - type: RandomSpawner
+    offset: 0
+    chance: 0.45
+    prototypes:
+      - ClothingHandsGlovesLatex
+      - ClothingHandsGlovesNitrile
+      - ClothingHandsGlovesLeather
+      - ClothingHandsGlovesCombat
+      - ClothingHandsGlovesFingerless
+      - ClothingHandsGlovesJanitor
+      - ClothingHandsGlovesCaptain
+      - ClothingHandsGlovesBoxingRed
+      - ClothingHandsGlovesBoxingBlue
+      - ClothingHandsGlovesBoxingGreen
+      - ClothingHandsGlovesBoxingYellow
+    rarePrototypes:
+      - ClothingHandsGlovesKravMaga
+    rareChance: 0.1

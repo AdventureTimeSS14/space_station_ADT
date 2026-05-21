@@ -1,0 +1,39 @@
+- type: entity
+  parent: MarkerBase
+  id: ADTRandomSpawnerImplanter
+  name: random implanter spawner
+  suffix: Implanter
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: ADT/Markers/random_loot.rsi
+        state: implanter
+  - type: RandomSpawner
+    offset: 0
+    chance: 0.45
+    prototypes:
+      - Implanter
+      - ImplanterAdmeme
+      - SadTromboneImplanter
+      - LightImplanter
+      - BikeHornImplanter
+      - TrackingImplanter
+      - MindShieldImplanter
+    rarePrototypes:
+      - StorageImplanter
+      - FreedomImplanter
+      - RadioImplanter
+      - UplinkImplanter
+      - EmpImplanter
+      - ScramImplanter
+      - DnaScramblerImplanter
+      - ChameleonControllerImplanter
+      - MicroBombImplanter
+      - MacroBombImplanter
+      - DeathRattleImplanter
+      - DeathAcidifierImplanter
+      - FakeMindShieldImplanter
+      - RadioImplanterCentcomm
+      - DeathRattleImplanterCentcomm
+    rareChance: 0.1

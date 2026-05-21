@@ -1,0 +1,19 @@
+- type: entity
+  parent: MarkerBase
+  id: ADTRandomSpawnerDisabler
+  name: random disabler spawner
+  suffix: Disabler
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: ADT/Markers/random_loot.rsi
+        state: disabler
+  - type: RandomSpawner
+    offset: 0
+    chance: 0.45
+    prototypes:
+      - WeaponDisabler
+    rarePrototypes:
+      - WeaponDisablerSMG
+    rareChance: 0.1
