@@ -3273,7 +3273,7 @@
     sprite: ADT/Personalization/durachilqa_dice.rsi
     state: d20_20
 
-#GG_Dove_Dove_ 
+#GG_Dove_Dove_
 - type: entity
   parent: BasePlushie
   id: ADTPlushietajaran
@@ -3336,5 +3336,33 @@
       head:
       - state: rykoslave-equipped-HELMET
         offset: "0, 0.06"
+
+- type: entity
+  name: elegant whip
+  parent: BaseItem
+  id: ADTElegantWhip
+  description: This is not a weapon, but an exquisite tool for controlling and dominating your opponent.
+  suffix: Personal, Minokaa, Cethet
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/minokaa_cethet_elegant_whip.rsi
+    state: icon
+  - type: Item
+    size: Small
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/ADT/Weapons/Melee/whiplash.ogg
+    wideAnimationRotation: -135
+    range: 2.5
+    clickDamageModifier: 1.1
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 2.4
+  - type: StaminaDamageOnHit
+    damage: 25
+  - type: Tag
+    tags:
+      - ADTTelescopicBaton
 
 #SPONSOR-ITEMS-END

@@ -386,7 +386,6 @@ public sealed partial class PolymorphSystem : EntitySystem
                 typeof(SoftWalkComponent),
                 typeof(FreerunningComponent),
                 typeof(SprinterComponent),
-                typeof(FastLockersComponent),
                 typeof(HardThrowerComponent),
                 typeof(FoodConsumptionSpeedModifierComponent),
                 typeof(DrunkenResilienceComponent)
