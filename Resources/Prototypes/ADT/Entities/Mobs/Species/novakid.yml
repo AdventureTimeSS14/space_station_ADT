@@ -1,12 +1,13 @@
+# Novakid mob (upstream PR#42476). Appearance/body/sprite come from AppearanceNovakid.
 - type: entity
   save: false
   name: Urisst' Mzhand Novakid
-  parent: BaseMobSpeciesOrganic
+  parent:
+  - AppearanceNovakid
+  - BaseSpeciesMobOrganic
   id: BaseMobNovakid
   abstract: true
   components:
-  - type: HumanoidAppearance
-    species: NovakidSpecies
   - type: Hunger
     baseDecayRate: 0.025
     lastAuthoritativeHungerValue: 400
@@ -64,16 +65,6 @@
   - type: PointLight
     color: "#ffffff"
     energy: 0.6
-  - type: Icon
-    sprite: ADT/Mobs/Species/Novakid/parts.rsi
-    state: full_m
-  - type: Sprite
-    netsync: false
-    noRot: true
-    drawdepth: Mobs
-  - type: Body
-    prototype: Novakid
-    requiredLegs: 2
   - type: Speech
     speechSounds: Lizard
   - type: Vocal
@@ -154,13 +145,6 @@
     interactSuccessString: hugging-success-generic
     interactSuccessSound: /Audio/Effects/thudswoosh.ogg
     messagePerceivedByOthers: hugging-success-generic-others
-  - type: Inventory
-    femaleDisplacements:
-      jumpsuit:
-        sizeMaps:
-          32:
-            sprite: Mobs/Species/Human/displacement.rsi
-            state: jumpsuit-female
   - type: LanguageSpeaker
     languages:
       GalacticCommon: Speak
@@ -179,21 +163,3 @@
     - DoorBumpOpener
     - AnomalyHost
     - ChangelingBlacklist
-
-- type: entity
-  save: false
-  name: Urist McHands
-  parent: MobHumanDummy
-  id: MobNovakidDummy
-  categories: [ HideSpawnMenu ]
-  description: A dummy reptilian meant to be used in character setup.
-  components:
-  - type: HumanoidAppearance
-    species: NovakidSpecies
-  - type: Inventory
-    femaleDisplacements:
-      jumpsuit:
-        sizeMaps:
-          32:
-            sprite: Mobs/Species/Human/displacement.rsi
-            state: jumpsuit-female

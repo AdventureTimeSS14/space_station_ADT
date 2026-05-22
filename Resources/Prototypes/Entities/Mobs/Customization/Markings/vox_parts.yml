@@ -16,14 +16,8 @@
   # The cere is the base of the top part of the beak, the cere on this beak, is a square.
   id: VoxBeakSquareCere
   bodyPart: Snout
-<<<<<<< HEAD
-  markingCategory: Snout
-  forcedColoring: true
-  speciesRestriction: [Vox]
-=======
   forcedColoring: true
   groupWhitelist: [Vox]
->>>>>>> upstreamwiz/master
   sprites:
   - sprite: Mobs/Customization/vox_parts.rsi
     state: beak_squarecere
@@ -36,14 +30,8 @@
 - type: marking
   id: VoxBeakShaved
   bodyPart: Snout
-<<<<<<< HEAD
-  markingCategory: Snout
-  forcedColoring: true
-  speciesRestriction: [Vox]
-=======
   forcedColoring: true
   groupWhitelist: [Vox]
->>>>>>> upstreamwiz/master
   sprites:
   - sprite: Mobs/Customization/vox_parts.rsi
     state: beak_shaved
@@ -56,14 +44,8 @@
 - type: marking
   id: VoxBeakHooked
   bodyPart: Snout
-<<<<<<< HEAD
-  markingCategory: Snout
-  forcedColoring: true
-  speciesRestriction: [Vox]
-=======
   forcedColoring: true
   groupWhitelist: [Vox]
->>>>>>> upstreamwiz/master
   sprites:
   - sprite: Mobs/Customization/vox_parts.rsi
     state: beak_hooked
@@ -219,15 +201,6 @@
   forcedColoring: true
   sprites:
   - sprite: Mobs/Customization/vox_parts.rsi
-<<<<<<< HEAD
-    state: tail_big
-
-- type: marking
-  id: VoxTailSpikes
-  bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [Vox]
-=======
     state: tail_short_animated
 
 - type: marking
@@ -252,19 +225,12 @@
   id: VoxTailSpikes
   bodyPart: Tail
   groupWhitelist: [Vox]
->>>>>>> upstreamwiz/master
   forcedColoring: true
   sprites:
   - sprite: Mobs/Customization/vox_parts.rsi
     state: tail_spikes
 
 - type: marking
-<<<<<<< HEAD
-  id: VoxTailDocked
-  bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [Vox]
-=======
   id: VoxTailSpikesAnimated
   bodyPart: Tail
   groupWhitelist: []
@@ -277,23 +243,12 @@
   id: VoxTailDocked
   bodyPart: Tail
   groupWhitelist: [Vox]
->>>>>>> upstreamwiz/master
   forcedColoring: true
   sprites:
   - sprite: Mobs/Customization/vox_parts.rsi
     state: tail_docked
 
 - type: marking
-<<<<<<< HEAD
-  id: VoxTailSplit
-  bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [Vox]
-  forcedColoring: true
-  sprites:
-  - sprite: Mobs/Customization/vox_parts.rsi
-    state: tail_split
-=======
   id: VoxTailDockedAnimated
   bodyPart: Tail
   groupWhitelist: []
@@ -320,4 +275,3 @@
   sprites:
   - sprite: Mobs/Customization/vox_parts.rsi
     state: tail_split_animated
->>>>>>> upstreamwiz/master

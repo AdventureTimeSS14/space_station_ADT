@@ -1,8 +1,7 @@
 - type: marking
   id: ADTMothDoubleTongue
   bodyPart: SnoutOverlay
-  markingCategory: SnoutOverlay
-  speciesRestriction: [Moth]
+  groupWhitelist: [Moth]
   sprites:
     - sprite: /Textures/ADT/Mobs/Customization/Moth/moth_snout_overlay.rsi
       state: moth_tongue_double
@@ -10,8 +9,7 @@
 - type: marking
   id: ADTMothDoubleTongueFast
   bodyPart: SnoutOverlay
-  markingCategory: SnoutOverlay
-  speciesRestriction: [Moth]
+  groupWhitelist: [Moth]
   sprites:
     - sprite: /Textures/ADT/Mobs/Customization/Moth/moth_snout_overlay.rsi
       state: moth_tongue_double_fast
@@ -19,8 +17,7 @@
 - type: marking
   id: ADTMothDoubleTongueSlow
   bodyPart: SnoutOverlay
-  markingCategory: SnoutOverlay
-  speciesRestriction: [Moth]
+  groupWhitelist: [Moth]
   sprites:
     - sprite: /Textures/ADT/Mobs/Customization/Moth/moth_snout_overlay.rsi
       state: moth_tongue_double_slow
@@ -28,8 +25,7 @@
 - type: marking
   id: ADTMothButterflyTongue
   bodyPart: SnoutOverlay
-  markingCategory: SnoutOverlay
-  speciesRestriction: [Moth]
+  groupWhitelist: [Moth]
   sprites:
     - sprite: /Textures/ADT/Mobs/Customization/Moth/moth_snout_overlay.rsi
       state: moth_tongue_butterfly
@@ -37,8 +33,7 @@
 - type: marking
   id: ADTMothButterflyTongueFast
   bodyPart: SnoutOverlay
-  markingCategory: SnoutOverlay
-  speciesRestriction: [Moth]
+  groupWhitelist: [Moth]
   sprites:
     - sprite: /Textures/ADT/Mobs/Customization/Moth/moth_snout_overlay.rsi
       state: moth_tongue_butterfly_fast
@@ -46,8 +41,7 @@
 - type: marking
   id: ADTMothButterflyTongueSlow
   bodyPart: SnoutOverlay
-  markingCategory: SnoutOverlay
-  speciesRestriction: [Moth]
+  groupWhitelist: [Moth]
   sprites:
     - sprite: /Textures/ADT/Mobs/Customization/Moth/moth_snout_overlay.rsi
       state: moth_tongue_butterfly_slow
@@ -55,8 +49,7 @@
 - type: marking
   id: ADTMothMandibles
   bodyPart: SnoutOverlay
-  markingCategory: SnoutOverlay
-  speciesRestriction: [Moth]
+  groupWhitelist: [Moth]
   sprites:
     - sprite: /Textures/ADT/Mobs/Customization/Moth/moth_snout_overlay.rsi
       state: moth_mandibles_tongue
@@ -64,8 +57,7 @@
 - type: marking
   id: ADTMothMandiblesFast
   bodyPart: SnoutOverlay
-  markingCategory: SnoutOverlay
-  speciesRestriction: [Moth]
+  groupWhitelist: [Moth]
   sprites:
     - sprite: /Textures/ADT/Mobs/Customization/Moth/moth_snout_overlay.rsi
       state: moth_mandibles_tongue_fast
@@ -73,8 +65,7 @@
 - type: marking
   id: ADTMothMandiblesSlow
   bodyPart: SnoutOverlay
-  markingCategory: SnoutOverlay
-  speciesRestriction: [Moth]
+  groupWhitelist: [Moth]
   sprites:
     - sprite: /Textures/ADT/Mobs/Customization/Moth/moth_snout_overlay.rsi
       state: moth_mandibles_tongue_slow

@@ -1,0 +1,106 @@
+# IPC appearance + visual organs (upstream PR#42476). IPC is silicon (non-organic), but the new
+# render pipeline needs visual organs to populate body layers. Only external visual organs are
+# defined (no biological internals). markingsGroup "Ipc" in ADT/Body/markingsGroups.yml.
+
+# Appearance used as dollPrototype (character editor). The in-game silicon mob (BaseMobIPC in
+# ADT/Entities/Mobs/Player/silicon_base.yml) gets the same InitialBody added directly.
+- type: entity
+  parent: BaseSpeciesAppearance
+  id: AppearanceIPC
+  categories: [ HideSpawnMenu ]
+  name: ipc appearance
+  components:
+  - type: InitialBody
+    organs:
+      Torso: OrganIPCTorso
+      Head: OrganIPCHead
+      ArmLeft: OrganIPCArmLeft
+      ArmRight: OrganIPCArmRight
+      HandRight: OrganIPCHandRight
+      HandLeft: OrganIPCHandLeft
+      LegLeft: OrganIPCLegLeft
+      LegRight: OrganIPCLegRight
+      FootLeft: OrganIPCFootLeft
+      FootRight: OrganIPCFootRight
+  - type: HumanoidProfile
+    species: IPC
+  - type: Inventory
+    templateId: ipc
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Human/displacement.rsi
+            state: jumpsuit-female
+
+- type: entity
+  parent: OrganBase
+  id: OrganIPC
+  abstract: true
+  suffix: ipc
+
+- type: entity
+  id: OrganIPCVisual
+  abstract: true
+  components:
+  - type: VisualOrgan
+    data:
+      sprite: ADT/Mobs/Species/IPC/parts.rsi
+  - type: VisualOrganMarkings
+    markingData:
+      group: Ipc
+
+- type: entity
+  parent: [ OrganIPC, OrganIPCVisual ]
+  id: OrganIPCExternal
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: ADT/Mobs/Species/IPC/parts.rsi
+
+- type: entity
+  parent: [ OrganBaseTorsoSexed, OrganBaseTorso, OrganIPCExternal ]
+  id: OrganIPCTorso
+
+- type: entity
+  parent: [ OrganBaseHeadSexed, OrganBaseHead, OrganIPCExternal ]
+  id: OrganIPCHead
+  components:
+  - type: VisualOrganMarkings
+    hideableLayers:
+    - enum.HumanoidVisualLayers.Hair
+    - enum.HumanoidVisualLayers.Snout
+    - enum.HumanoidVisualLayers.HeadTop
+    - enum.HumanoidVisualLayers.HeadSide
+
+- type: entity
+  parent: [ OrganBaseArmLeft, OrganIPCExternal ]
+  id: OrganIPCArmLeft
+
+- type: entity
+  parent: [ OrganBaseArmRight, OrganIPCExternal ]
+  id: OrganIPCArmRight
+
+- type: entity
+  parent: [ OrganBaseHandLeft, OrganIPCExternal ]
+  id: OrganIPCHandLeft
+
+- type: entity
+  parent: [ OrganBaseHandRight, OrganIPCExternal ]
+  id: OrganIPCHandRight
+
+- type: entity
+  parent: [ OrganBaseLegLeft, OrganIPCExternal ]
+  id: OrganIPCLegLeft
+
+- type: entity
+  parent: [ OrganBaseLegRight, OrganIPCExternal ]
+  id: OrganIPCLegRight
+
+- type: entity
+  parent: [ OrganBaseFootLeft, OrganIPCExternal ]
+  id: OrganIPCFootLeft
+
+- type: entity
+  parent: [ OrganBaseFootRight, OrganIPCExternal ]
+  id: OrganIPCFootRight

@@ -33,7 +33,6 @@
         layer:
         - MobLayer
   - type: Body
-    prototype: AnimalHemocyanin
   - type: DamageStateVisuals
     states:
       Alive:

@@ -202,7 +202,6 @@
   description: Вам, вероятно, не стоит стоять рядом с ним, чтобы проверить, включен ли он.
   components:
   - type: Body
-    prototype: ADTDroneAntagBodyMiner
   - type: Hands
     showInHands: false
   - type: Loadout
@@ -356,7 +355,6 @@
   suffix: Engineer
   components:
   - type: Body
-    prototype: ADTDroneAntagBodyEngineer
   - type: Hands
     showInHands: false
   - type: Loadout
@@ -511,7 +509,6 @@
   suffix: Charger
   components:
   - type: Body
-    prototype: ADTDroneAntagBodyCharger
   - type: Hands
     showInHands: false
   - type: Loadout

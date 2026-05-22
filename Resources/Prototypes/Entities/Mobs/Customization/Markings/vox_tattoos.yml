@@ -53,12 +53,7 @@
 - type: marking
   id: TattooVoxNightbelt
   bodyPart: Chest
-<<<<<<< HEAD
-  markingCategory: Chest
-  speciesRestriction: [Vox]
-=======
   groupWhitelist: [Vox]
->>>>>>> upstreamwiz/master
   coloring:
     default:
       type:
@@ -71,12 +66,7 @@
 - type: marking
   id: TattooVoxChestV
   bodyPart: Chest
-<<<<<<< HEAD
-  markingCategory: Chest
-  speciesRestriction: [Vox]
-=======
   groupWhitelist: [Vox]
->>>>>>> upstreamwiz/master
   coloring:
     default:
       type:
@@ -91,12 +81,7 @@
 - type: marking
   id: TattooVoxUnderbelly
   bodyPart: Chest
-<<<<<<< HEAD
-  markingCategory: Chest
-  speciesRestriction: [Vox]
-=======
   groupWhitelist: [Vox]
->>>>>>> upstreamwiz/master
   coloring:
     default:
       type:
@@ -109,14 +94,8 @@
 - type: marking
   id: TattooVoxTailRing
   # TODO // Looks off on some tails (i.e docked/amputated), if conditionals for markings ever get implemented this needs to be updated to account for those.
-<<<<<<< HEAD
-  bodyPart: Tail
-  markingCategory: Overlay
-  speciesRestriction: [Vox]
-=======
   bodyPart: TailOverlay
   groupWhitelist: [Vox]
->>>>>>> upstreamwiz/master
   coloring:
     default:
       type:
@@ -160,12 +139,7 @@
   # this is not a very big issue on humans, but is much more pronounced on vox & other nonhuman species, where the skin being more colorful can make for some truly dreadful meshing with the sprite thats definitely not desired.
   # some of these limitations could possibly be removed with better control over how the marking can be customized - possibly removing stacking, allowing recoloring & clamping higher-end colors for the eyeshadow, etc.
   bodyPart: Eyes
-<<<<<<< HEAD
-  markingCategory: Snout # ADT-Tweak
-  speciesRestriction: [Vox]
-=======
   groupWhitelist: [Vox]
->>>>>>> upstreamwiz/master
   forcedColoring: true
   sprites:
   - sprite: Mobs/Customization/vox_tattoos.rsi
@@ -174,12 +148,7 @@
 - type: marking
   id: TattooEyeshadowVoxMedium
   bodyPart: Eyes
-<<<<<<< HEAD
-  markingCategory: Snout # ADT-Tweak
-  speciesRestriction: [Vox]
-=======
   groupWhitelist: [Vox]
->>>>>>> upstreamwiz/master
   forcedColoring: true
   sprites:
   - sprite: Mobs/Customization/vox_tattoos.rsi
@@ -188,12 +157,7 @@
 - type: marking
   id: TattooEyeshadowVoxLarge
   bodyPart: Eyes
-<<<<<<< HEAD
-  markingCategory: Snout # ADT-Tweak
-  speciesRestriction: [Vox]
-=======
   groupWhitelist: [Vox]
->>>>>>> upstreamwiz/master
   forcedColoring: true
   sprites:
   - sprite: Mobs/Customization/vox_tattoos.rsi
@@ -202,56 +166,33 @@
 - type: marking
   id: VoxTattooEyeliner
   bodyPart: Eyes
-<<<<<<< HEAD
-  markingCategory: Overlay
-  speciesRestriction: [Vox]
-=======
   groupWhitelist: [Vox]
->>>>>>> upstreamwiz/master
   sprites:
   - sprite: Mobs/Customization/vox_tattoos.rsi
     state: eyeliner
 
 - type: marking
   id: VoxBeakCoverStripe
-<<<<<<< HEAD
-  bodyPart: Snout
-  markingCategory: SnoutCover
-=======
   bodyPart: SnoutCover
->>>>>>> upstreamwiz/master
   coloring:
     default:
       type:
         !type:TattooColoring
       fallbackColor: "#666666"
-<<<<<<< HEAD
-  speciesRestriction: [Vox]
-=======
   groupWhitelist: [Vox]
->>>>>>> upstreamwiz/master
   sprites:
   - sprite: Mobs/Customization/vox_tattoos.rsi
     state: beakcover_stripe
 
 - type: marking
   id: VoxBeakCoverTip
-<<<<<<< HEAD
-  bodyPart: Snout
-  markingCategory: SnoutCover
-=======
   bodyPart: SnoutCover
->>>>>>> upstreamwiz/master
   coloring:
     default:
       type:
         !type:TattooColoring
       fallbackColor: "#666666"
-<<<<<<< HEAD
-  speciesRestriction: [Vox]
-=======
   groupWhitelist: [Vox]
->>>>>>> upstreamwiz/master
   sprites:
   - sprite: Mobs/Customization/vox_tattoos.rsi
     state: beakcover_tip
@@ -259,12 +200,7 @@
 - type: marking
   id: TattooVoxArrowHead
   bodyPart: Head
-<<<<<<< HEAD
-  markingCategory: Head
-  speciesRestriction: [Vox]
-=======
   groupWhitelist: [Vox]
->>>>>>> upstreamwiz/master
   coloring:
     default:
       type:
@@ -277,12 +213,7 @@
 - type: marking
   id: TattooVoxNightlingHead
   bodyPart: Head
-<<<<<<< HEAD
-  markingCategory: Head
-  speciesRestriction: [Vox]
-=======
   groupWhitelist: [Vox]
->>>>>>> upstreamwiz/master
   coloring:
     default:
       type:
@@ -295,12 +226,7 @@
 - type: marking
   id: VoxVisage
   bodyPart: Head
-<<<<<<< HEAD
-  markingCategory: Head
-  speciesRestriction: [Vox]
-=======
   groupWhitelist: [Vox]
->>>>>>> upstreamwiz/master
   coloring:
     default:
       type:
@@ -313,12 +239,7 @@
 - type: marking
   id: VoxVisageL
   bodyPart: Head
-<<<<<<< HEAD
-  markingCategory: Head
-  speciesRestriction: [Vox]
-=======
   groupWhitelist: [Vox]
->>>>>>> upstreamwiz/master
   coloring:
     default:
       type:
@@ -331,12 +252,7 @@
 - type: marking
   id: VoxVisageR
   bodyPart: Head
-<<<<<<< HEAD
-  markingCategory: Head
-  speciesRestriction: [Vox]
-=======
   groupWhitelist: [Vox]
->>>>>>> upstreamwiz/master
   coloring:
     default:
       type:
@@ -349,12 +265,7 @@
 - type: marking
   id: VoxCheek
   bodyPart: Head
-<<<<<<< HEAD
-  markingCategory: Head
-  speciesRestriction: [Vox]
-=======
   groupWhitelist: [Vox]
->>>>>>> upstreamwiz/master
   coloring:
     default:
       type:
@@ -363,7 +274,4 @@
   sprites:
   - sprite: Mobs/Customization/vox_tattoos.rsi
     state: cheekblush
-<<<<<<< HEAD
-=======
 
->>>>>>> upstreamwiz/master

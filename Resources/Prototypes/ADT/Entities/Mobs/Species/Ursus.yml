@@ -1,11 +1,12 @@
+# Ursus mob (upstream PR#42476). Appearance/body/sprite come from AppearanceUrsus.
 - type: entity
-  parent: BaseMobSpeciesOrganic
+  parent:
+  - AppearanceUrsus
+  - BaseSpeciesMobOrganic
   id: BaseMobUrsus
   name: Urist McUrsus
   abstract: true
   components:
-  - type: HumanoidAppearance
-    species: UrsusSpecies
   - type: NpcFactionMember
     factions:
     - Ursus
@@ -33,9 +34,6 @@
       Dead: 0
   - type: Thirst
     #baseDecayRate: 0.0083
-  - type: Icon
-    sprite: ADT/Mobs/Species/Ursus/parts.rsi
-    state: full
   - type: Butcherable
     butcheringType: Spike
     spawned:
@@ -49,11 +47,6 @@
       types:
         Blunt: 4.5
         Slash: 3.5
-  - type: Sprite
-    netsync: false
-    noRot: true
-    drawdepth: Mobs
-    scale: 1.03, 1.03
   - type: MovementSpeedModifier
     baseWalkSpeed : 2.4
     baseSprintSpeed : 4.3
@@ -63,14 +56,6 @@
         Blunt: 0.9
     soundHit:
       path: /Audio/Effects/hit_kick.ogg
-  - type: Inventory
-    speciesId: urs #для одежды на урсов
-    femaleDisplacements:
-      jumpsuit:
-        sizeMaps:
-          32:
-            sprite: Mobs/Species/Human/displacement.rsi
-            state: jumpsuit-female
   - type: Fixtures
     fixtures:
       fix1:
@@ -128,14 +113,3 @@
     shortscale: 0.98
     shortDensity: 0.7
   - type: UrsusSleep
-
-- type: entity
-  save: false
-  name: Urist McUrsus
-  parent: MobHumanDummy
-  id: MobUrsusDummy
-  categories: [ HideSpawnMenu ]
-  description:
-  components:
-    - type: HumanoidAppearance
-      species: UrsusSpecies

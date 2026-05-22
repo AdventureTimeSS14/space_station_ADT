@@ -1,32 +1,18 @@
 - type: marking
   id: HumanHairAfro
   bodyPart: Hair
-<<<<<<< HEAD
-  markingCategory: Hair
-  speciesRestriction: [Human, Dwarf, Felinid, NovakidSpecies] # ADT Tweak
-=======
->>>>>>> upstreamwiz/master
   sprites:
     - sprite: Mobs/Customization/human_hair.rsi
       state: afro
 - type: marking
   id: HumanHairAfro2
   bodyPart: Hair
-<<<<<<< HEAD
-  markingCategory: Hair
-  speciesRestriction: [Human, Dwarf, Felinid, NovakidSpecies] # ADT Tweak
-=======
->>>>>>> upstreamwiz/master
   sprites:
     - sprite: Mobs/Customization/human_hair.rsi
       state: afro2
 - type: marking
   id: HumanHairBaby
   bodyPart: Hair
-<<<<<<< HEAD
-  markingCategory: Hair
-=======
->>>>>>> upstreamwiz/master
   sprites:
     - sprite: Mobs/Customization/human_hair.rsi
       state: baby
@@ -69,10 +55,6 @@
 - type: marking
   id: HumanHairCube
   bodyPart: Hair
-<<<<<<< HEAD
-  markingCategory: Hair
-=======
->>>>>>> upstreamwiz/master
   sprites:
     - sprite: Mobs/Customization/human_hair.rsi
       state: cube
@@ -85,10 +67,6 @@
 - type: marking
   id: HumanHairLongBedhead
   bodyPart: Hair
-<<<<<<< HEAD
-  markingCategory: Hair
-=======
->>>>>>> upstreamwiz/master
   sprites:
     - sprite: Mobs/Customization/human_hair.rsi
       state: long_bedhead
@@ -437,11 +415,6 @@
 - type: marking
   id: HumanHairDrillruru
   bodyPart: Hair
-<<<<<<< HEAD
-  markingCategory: Hair
-  speciesRestriction: [Human, Dwarf, Felinid, NovakidSpecies] # ADT Tweak
-=======
->>>>>>> upstreamwiz/master
   sprites:
     - sprite: Mobs/Customization/human_hair.rsi
       state: drillruru
@@ -628,33 +601,18 @@
 - type: marking
   id: HumanHairLong
   bodyPart: Hair
-<<<<<<< HEAD
-  markingCategory: Hair
-  speciesRestriction: [Human, Felinid, NovakidSpecies] # ADT Tweak
-=======
->>>>>>> upstreamwiz/master
   sprites:
     - sprite: Mobs/Customization/human_hair.rsi
       state: long
 - type: marking
   id: HumanHairLong2
   bodyPart: Hair
-<<<<<<< HEAD
-  markingCategory: Hair
-  speciesRestriction: [Human, Dwarf, Felinid, NovakidSpecies] # ADT Tweak
-=======
->>>>>>> upstreamwiz/master
   sprites:
     - sprite: Mobs/Customization/human_hair.rsi
       state: long2
 - type: marking
   id: HumanHairLong3
   bodyPart: Hair
-<<<<<<< HEAD
-  markingCategory: Hair
-  speciesRestriction: [Human, Dwarf, Felinid, NovakidSpecies] # ADT Tweak
-=======
->>>>>>> upstreamwiz/master
   sprites:
     - sprite: Mobs/Customization/human_hair.rsi
       state: long3
@@ -703,11 +661,6 @@
 - type: marking
   id: HumanHairMessy
   bodyPart: Hair
-<<<<<<< HEAD
-  markingCategory: Hair
-  speciesRestriction: [Human, Dwarf, Felinid, NovakidSpecies] # ADT Tweak
-=======
->>>>>>> upstreamwiz/master
   sprites:
     - sprite: Mobs/Customization/human_hair.rsi
       state: messy
@@ -720,22 +673,12 @@
 - type: marking
   id: HumanHairMohawk
   bodyPart: Hair
-<<<<<<< HEAD
-  markingCategory: Hair
-  speciesRestriction: [Human, Dwarf, Felinid, NovakidSpecies] # ADT Tweak
-=======
->>>>>>> upstreamwiz/master
   sprites:
     - sprite: Mobs/Customization/human_hair.rsi
       state: d
 - type: marking
   id: HumanHairNitori
   bodyPart: Hair
-<<<<<<< HEAD
-  markingCategory: Hair
-  speciesRestriction: [Human, Dwarf, Felinid, NovakidSpecies] # ADT Tweak
-=======
->>>>>>> upstreamwiz/master
   sprites:
     - sprite: Mobs/Customization/human_hair.rsi
       state: nitori
@@ -748,11 +691,6 @@
 - type: marking
   id: HumanHairUnshavenMohawk
   bodyPart: Hair
-<<<<<<< HEAD
-  markingCategory: Hair
-  speciesRestriction: [Human, Dwarf, Felinid, NovakidSpecies] # ADT Tweak
-=======
->>>>>>> upstreamwiz/master
   sprites:
     - sprite: Mobs/Customization/human_hair.rsi
       state: unshaven_mohawk
@@ -765,11 +703,6 @@
 - type: marking
   id: HumanHairOdango
   bodyPart: Hair
-<<<<<<< HEAD
-  markingCategory: Hair
-  speciesRestriction: [Human, Dwarf, Felinid, NovakidSpecies] # ADT Tweak
-=======
->>>>>>> upstreamwiz/master
   sprites:
     - sprite: Mobs/Customization/human_hair.rsi
       state: odango
@@ -836,22 +769,12 @@
 - type: marking
   id: HumanHairPompadour
   bodyPart: Hair
-<<<<<<< HEAD
-  markingCategory: Hair
-  speciesRestriction: [Human, Dwarf, Felinid, NovakidSpecies] # ADT Tweak
-=======
->>>>>>> upstreamwiz/master
   sprites:
     - sprite: Mobs/Customization/human_hair.rsi
       state: pompadour
 - type: marking
   id: HumanHairBigpompadour
   bodyPart: Hair
-<<<<<<< HEAD
-  markingCategory: Hair
-  speciesRestriction: [Human, Dwarf, Felinid, NovakidSpecies] # ADT Tweak
-=======
->>>>>>> upstreamwiz/master
   sprites:
     - sprite: Mobs/Customization/human_hair.rsi
       state: bigpompadour
@@ -1284,10 +1207,6 @@
 - type: marking
   id: HumanHairOverEyePigtail
   bodyPart: Hair
-<<<<<<< HEAD
-  markingCategory: Hair
-=======
->>>>>>> upstreamwiz/master
   sprites:
   - sprite: Mobs/Customization/human_hair.rsi
     state: overeyepigtail

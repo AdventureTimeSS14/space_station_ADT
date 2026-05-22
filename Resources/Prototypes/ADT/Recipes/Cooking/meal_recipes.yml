@@ -84,7 +84,7 @@
     FoodPlateSmall: 1
     FoodCheeseSlice: 1
     FoodOnion: 1
-    ADTOrganVulpkaninLiver: 1
+    OrganVulpkaninLiver: 1 # was ADTOrganVulpkaninLiver, removed in PR#42476 body refactor
   recipeType:
   - Assembler
 

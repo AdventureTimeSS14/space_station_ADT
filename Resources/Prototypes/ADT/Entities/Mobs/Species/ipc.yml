@@ -4,6 +4,19 @@
   name: Урист МакПозитроник
   abstract: true
   components:
+  # Visual body organs (new system PR#42476) — populate humanoid layers for the silicon body
+  - type: InitialBody
+    organs:
+      Torso: OrganIPCTorso
+      Head: OrganIPCHead
+      ArmLeft: OrganIPCArmLeft
+      ArmRight: OrganIPCArmRight
+      HandRight: OrganIPCHandRight
+      HandLeft: OrganIPCHandLeft
+      LegLeft: OrganIPCLegLeft
+      LegRight: OrganIPCLegRight
+      FootLeft: OrganIPCFootLeft
+      FootRight: OrganIPCFootRight
   - type: PowerCellSlot
     cellSlotId: cell_slot
     fitsInCharger: true
@@ -176,22 +189,3 @@
   - type: AnimatedEmotes
   - type: Posing
   - type: SoftWalk
-
-- type: entity
-  save: false
-  name: Urist McPositronic
-  parent: MobHumanDummy
-  id: MobIPCDummy
-  categories: [ HideSpawnMenu ]
-  description: A dummy IPC meant to be used in character setup.
-  components:
-  - type: HumanoidAppearance
-    species: IPC
-  - type: Inventory
-    templateId: ipc
-    displacements:
-      jumpsuit:
-        sizeMaps:
-          32:
-            sprite: Mobs/Species/Human/displacement.rsi
-            state: jumpsuit-female

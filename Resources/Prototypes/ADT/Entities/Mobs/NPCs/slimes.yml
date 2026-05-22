@@ -65,8 +65,6 @@
         Bloodloss:
           -0.25
   - type: Body
-    prototype: ADTGeras
-    requiredLegs: 1
   - type: MeleeWeapon
     attackRate: 2
     altDisarm: false

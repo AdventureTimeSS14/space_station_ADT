@@ -122,7 +122,6 @@
   description: Even a flying leviathan starts off small and from an egg.
   components:
   - type: Body
-    prototype: Animal
   - type: Climbing
   - type: NameIdentifier
     group: GenericNumber
@@ -394,7 +393,6 @@
     factions:
     - Passive
   - type: Body
-    prototype: AnimalRuminant
   - type: FactionException
   - type: HTN
     rootTask:

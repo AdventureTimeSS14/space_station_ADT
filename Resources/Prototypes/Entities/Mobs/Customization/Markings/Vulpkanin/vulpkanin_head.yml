@@ -2,12 +2,7 @@
 - type: marking
   id: VulpHeadBlaze
   bodyPart: Head
-<<<<<<< HEAD
-  markingCategory: Head
-  speciesRestriction: [ Vulpkanin ]
-=======
   groupWhitelist: [ Vulpkanin ]
->>>>>>> upstreamwiz/master
   sprites:
     - sprite: Mobs/Customization/Vulpkanin/head_markings.rsi
       state: blaze
@@ -15,12 +10,7 @@
 - type: marking
   id: VulpHeadMask
   bodyPart: Head
-<<<<<<< HEAD
-  markingCategory: Head
-  speciesRestriction: [ Vulpkanin ]
-=======
   groupWhitelist: [ Vulpkanin ]
->>>>>>> upstreamwiz/master
   sprites:
     - sprite: Mobs/Customization/Vulpkanin/head_markings.rsi
       state: mask
@@ -28,12 +18,7 @@
 - type: marking
   id: VulpPatch
   bodyPart: Head
-<<<<<<< HEAD
-  markingCategory: Head
-  speciesRestriction: [ Vulpkanin ]
-=======
   groupWhitelist: [ Vulpkanin ]
->>>>>>> upstreamwiz/master
   sprites:
     - sprite: Mobs/Customization/Vulpkanin/head_markings.rsi
       state: patch
@@ -41,12 +26,7 @@
 - type: marking
   id: VulpSlash
   bodyPart: Head
-<<<<<<< HEAD
-  markingCategory: Head
-  speciesRestriction: [ Vulpkanin ]
-=======
   groupWhitelist: [ Vulpkanin ]
->>>>>>> upstreamwiz/master
   sprites:
     - sprite: Mobs/Customization/Vulpkanin/head_markings.rsi
       state: slash
@@ -54,12 +34,7 @@
 - type: marking
   id: VulpStripes1
   bodyPart: Head
-<<<<<<< HEAD
-  markingCategory: Head
-  speciesRestriction: [ Vulpkanin ]
-=======
   groupWhitelist: [ Vulpkanin ]
->>>>>>> upstreamwiz/master
   sprites:
     - sprite: Mobs/Customization/Vulpkanin/head_markings.rsi
       state: stripes_1
@@ -67,12 +42,7 @@
 - type: marking
   id: VulpStripes2
   bodyPart: Head
-<<<<<<< HEAD
-  markingCategory: Head
-  speciesRestriction: [ Vulpkanin ]
-=======
   groupWhitelist: [ Vulpkanin ]
->>>>>>> upstreamwiz/master
   sprites:
     - sprite: Mobs/Customization/Vulpkanin/head_markings.rsi
       state: stripes_2
@@ -80,12 +50,7 @@
 - type: marking
   id: VulpVulpine
   bodyPart: Head
-<<<<<<< HEAD
-  markingCategory: Head
-  speciesRestriction: [ Vulpkanin ]
-=======
   groupWhitelist: [ Vulpkanin ]
->>>>>>> upstreamwiz/master
   sprites:
     - sprite: Mobs/Customization/Vulpkanin/head_markings.rsi
       state: vulpine

@@ -69,7 +69,6 @@
   - type: Inventory
     templateId: ADTSlugCat
   - type: Body
-    prototype: Primate
   - type: Hands
     showInHands: true
   - type: Insulated

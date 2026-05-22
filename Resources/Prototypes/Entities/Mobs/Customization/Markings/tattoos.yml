@@ -105,12 +105,7 @@
 - type: marking
   id: TattooEyeRight
   bodyPart: Eyes
-<<<<<<< HEAD
-  markingCategory: [Head]
-  speciesRestriction: [Human, SlimePerson, Reptilian, Dwarf]
-=======
   groupWhitelist: [Human, Slime, Reptilian]
->>>>>>> upstreamwiz/master
   coloring:
     default:
       type:
@@ -162,12 +157,7 @@
 - type: marking
   id: TattooEyeVulpkaninRight
   bodyPart: Eyes
-<<<<<<< HEAD
-  markingCategory: [Head]
-  speciesRestriction: [Vulpkanin]
-=======
   groupWhitelist: [Vulpkanin]
->>>>>>> upstreamwiz/master
   coloring:
     default:
       type:
@@ -180,12 +170,7 @@
 - type: marking
   id: TattooEyeVulpkaninLeft
   bodyPart: Eyes
-<<<<<<< HEAD
-  markingCategory: Head
-  speciesRestriction: [Vulpkanin]
-=======
   groupWhitelist: [Vulpkanin]
->>>>>>> upstreamwiz/master
   coloring:
     default:
       type:
@@ -203,12 +188,7 @@
   # this is not a very big issue on humans, but is much more pronounced on vox & other nonhuman species, where the skin being more colorful can make for some truly dreadful meshing with the sprite thats definitely not desired.
   # some of these limitations could possibly be removed with better control over how the marking can be customized - possibly removing stacking, allowing recoloring & clamping higher-end colors for the eyeshadow, etc.
   bodyPart: Eyes
-<<<<<<< HEAD
-  markingCategory: Snout # ADT-Tweak
-  speciesRestriction: [Human, SlimePerson, Reptilian, Dwarf]
-=======
   groupWhitelist: [Human, Slime, Reptilian]
->>>>>>> upstreamwiz/master
   forcedColoring: true
   sprites:
   - sprite: Mobs/Customization/tattoos.rsi
@@ -217,12 +197,7 @@
 - type: marking
   id: TattooEyeshadowLower
   bodyPart: Eyes
-<<<<<<< HEAD
-  markingCategory: Snout # ADT-Tweak
-  speciesRestriction: [Human, SlimePerson, Reptilian, Dwarf]
-=======
   groupWhitelist: [Human, Slime, Reptilian]
->>>>>>> upstreamwiz/master
   forcedColoring: true
   sprites:
   - sprite: Mobs/Customization/tattoos.rsi

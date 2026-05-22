@@ -1,0 +1,11 @@
+# Felinid appearance (upstream PR#42476). Felinid is a human variant — reuses Human body/organs.
+# Cat ears/tail are markings whitelisted to the Human group. markingsGroup not separate.
+
+- type: entity
+  parent: AppearanceHuman
+  id: AppearanceFelinid
+  categories: [ HideSpawnMenu ]
+  name: felinid appearance
+  components:
+  - type: HumanoidProfile
+    species: Felinid

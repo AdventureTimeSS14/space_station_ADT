@@ -1,8 +1,7 @@
 - type: marking
-  speciesRestriction: [IPC]
+  groupWhitelist: [Ipc]
   id: ADTIPCTailHydra
   bodyPart: Tail
-  markingCategory: Tail
   sprites:
     - sprite: ADT/Mobs/Customization/Ipc/ipc_tails.rsi
       state: ipc_tail_hydra_prime
@@ -14,19 +13,17 @@
       state: ipc_tail_hydra_fourth
 
 - type: marking
-  speciesRestriction: [IPC]
+  groupWhitelist: [Ipc]
   id: ADTIPCTailOctopus
   bodyPart: Tail
-  markingCategory: Tail
   sprites:
     - sprite: ADT/Mobs/Customization/Ipc/ipc_tails.rsi
       state: ipc_tail_octopus
 
 - type: marking
-  speciesRestriction: [IPC]
+  groupWhitelist: [Ipc]
   id: ADTIPCTailFox
   bodyPart: Tail
-  markingCategory: Tail
   sprites:
     - sprite: ADT/Mobs/Customization/Ipc/ipc_tails.rsi
       state: ipc_tail_fox_prime
@@ -36,10 +33,9 @@
       state: ipc_tail_fox_third
 
 - type: marking
-  speciesRestriction: [IPC]
+  groupWhitelist: [Ipc]
   id: ADTIPCTailFork
   bodyPart: Tail
-  markingCategory: Tail
   sprites:
     - sprite: ADT/Mobs/Customization/Ipc/ipc_tails.rsi
       state: ipc_tail_fork_prime

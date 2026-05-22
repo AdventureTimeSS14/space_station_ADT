@@ -2,12 +2,7 @@
 - type: marking
   id: VulpTailFennec
   bodyPart: Tail
-<<<<<<< HEAD
-  markingCategory: Tail
-  speciesRestriction: [ Vulpkanin ]
-=======
   groupWhitelist: [ Vulpkanin ]
->>>>>>> upstreamwiz/master
   sprites:
     - sprite: Mobs/Customization/Vulpkanin/tail_markings.rsi
       state: fennec
@@ -17,12 +12,7 @@
 - type: marking
   id: VulpTailFluffy
   bodyPart: Tail
-<<<<<<< HEAD
-  markingCategory: Tail
-  speciesRestriction: [ Vulpkanin ]
-=======
   groupWhitelist: [ Vulpkanin ]
->>>>>>> upstreamwiz/master
   sprites:
     - sprite: Mobs/Customization/Vulpkanin/tail_markings.rsi
       state: fluffy
@@ -32,12 +22,7 @@
 - type: marking
   id: VulpTailHusky
   bodyPart: Tail
-<<<<<<< HEAD
-  markingCategory: Tail
-  speciesRestriction: [ Vulpkanin ]
-=======
   groupWhitelist: [ Vulpkanin ]
->>>>>>> upstreamwiz/master
   sprites:
     - sprite: Mobs/Customization/Vulpkanin/tail_markings.rsi
       state: husky
@@ -49,12 +34,7 @@
 - type: marking
   id: VulpTailLong
   bodyPart: Tail
-<<<<<<< HEAD
-  markingCategory: Tail
-  speciesRestriction: [ Vulpkanin ]
-=======
   groupWhitelist: [ Vulpkanin ]
->>>>>>> upstreamwiz/master
   sprites:
     - sprite: Mobs/Customization/Vulpkanin/tail_markings.rsi
       state: long
@@ -64,12 +44,7 @@
 - type: marking
   id: VulpTailVulp
   bodyPart: Tail
-<<<<<<< HEAD
-  markingCategory: Tail
-  speciesRestriction: [ Vulpkanin ]
-=======
   groupWhitelist: [ Vulpkanin ]
->>>>>>> upstreamwiz/master
   sprites:
     - sprite: Mobs/Customization/Vulpkanin/tail_markings.rsi
       state: vulp
@@ -79,19 +54,11 @@
 - type: marking
   id: VulpTailVulpFade
   bodyPart: Tail
-<<<<<<< HEAD
-  markingCategory: Tail
-  speciesRestriction: [ Vulpkanin ]
-=======
   groupWhitelist: [ Vulpkanin ]
->>>>>>> upstreamwiz/master
   sprites:
     - sprite: Mobs/Customization/Vulpkanin/tail_markings.rsi
       state: vulp
     - sprite: Mobs/Customization/Vulpkanin/tail_markings.rsi
-<<<<<<< HEAD
-      state: vulp-fade
-=======
       state: vulp-fade
 
 - type: marking
@@ -172,4 +139,3 @@
   sprites:
   - sprite: Mobs/Customization/Vulpkanin/tail_markings.rsi
     state: coyote-wagging
->>>>>>> upstreamwiz/master

@@ -1,8 +1,7 @@
 - type: marking
   id: ADTReptilianTongue
   bodyPart: SnoutOverlay
-  markingCategory: SnoutOverlay
-  speciesRestriction: [Reptilian, KoboltSpecies]
+  groupWhitelist: [Reptilian, Kobalt]
   sprites:
     - sprite: /Textures/ADT/Mobs/Customization/Reptilian/reptilian_snout_overlay.rsi
       state: reptilian_tongue
@@ -10,8 +9,7 @@
 - type: marking
   id: ADTReptilianTongueFast
   bodyPart: SnoutOverlay
-  markingCategory: SnoutOverlay
-  speciesRestriction: [Reptilian, KoboltSpecies]
+  groupWhitelist: [Reptilian, Kobalt]
   sprites:
     - sprite: /Textures/ADT/Mobs/Customization/Reptilian/reptilian_snout_overlay.rsi
       state: reptilian_tongue_fast
@@ -19,8 +17,7 @@
 - type: marking
   id: ADTReptilianTongueSlow
   bodyPart: SnoutOverlay
-  markingCategory: SnoutOverlay
-  speciesRestriction: [Reptilian, KoboltSpecies]
+  groupWhitelist: [Reptilian, Kobalt]
   sprites:
     - sprite: /Textures/ADT/Mobs/Customization/Reptilian/reptilian_snout_overlay.rsi
       state: reptilian_tongue_slow

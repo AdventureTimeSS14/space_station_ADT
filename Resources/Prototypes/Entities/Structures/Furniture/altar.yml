@@ -425,7 +425,7 @@
         powerCost: 2
         soundPath: /Audio/Magic/Eldritch/voidblink.ogg
       - requiredTag: Brain
-        resultProto: ADTHeadVulpkanin
+        resultProto: OrganVulpkaninHead # ADT Tweak (was ADTHeadVulpkanin, removed in PR#42476 body refactor)
         effectProto: ADTCultistBubble
         powerCost: 2
         soundPath: /Audio/Magic/Eldritch/voidblink.ogg

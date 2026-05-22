@@ -1,8 +1,6 @@
 - type: marking
   id: ADTSandevistan
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: []
   sprites:
   - sprite: ADT/Implants/sandevistan.rsi
     state: sandy_marking
