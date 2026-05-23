@@ -3365,4 +3365,38 @@
     tags:
       - ADTTelescopicBaton
 
+#honelin111
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushiekramol
+  name: plush Kramol
+  description: A plush toy that resembles the girl from the service department. When you hold it close, you can smell a strong, bitter tobacco scent with hints of cherry and vanilla.
+  suffix: Personal, honelin111
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_kramol
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushiekrosh
+  name: plush bunny
+  description: A plain, worn-out, and soft teddy bear with a small metal bell on its neck that makes a clear but short sound when it moves.
+  suffix: Personal, honelin111
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_krosh
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushietil
+  name: plush Til
+  description:  A plush toy of the suspicious passenger. Even when you look at the toy, you can feel his scowling gaze, filled with skepticism and hostility towards you.
+  suffix: Personal, honelin111
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_til
+
 #SPONSOR-ITEMS-END
