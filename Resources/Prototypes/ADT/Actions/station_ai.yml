@@ -87,7 +87,7 @@
     keywords: [ "AI", "console", "interface" ]
     priority: -9
   - type: InstantAction
-    event: !type:ReturnMindIntoAiEvent { key: enum.RemoteDevicesUiKey.Key }
+    event: !type:ReturnMindIntoAiEvent
 
 - type: entity
   id: ADTActionOpenRemoteDevicesMenu
@@ -100,4 +100,4 @@
     keywords: [ "AI", "console", "interface" ]
     priority: -9
   - type: InstantAction
-    event: !type:ToggleRemoteDevicesScreenEvent { key: enum.RemoteDevicesUiKey.Key }
+    event: !type:ToggleRemoteDevicesScreenEvent
