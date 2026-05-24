@@ -128,7 +128,7 @@ public partial record struct CyborgControlData
     public bool IsAiControllable;
     // ADT-Tweak end
 
-    public CyborgControlData(SpriteSpecifier? chassisSprite, string chassisName, string name, float charge, float hpPercent, int moduleCount, bool hasBrain, bool canDisable, bool isAiControllable)
+    public CyborgControlData(SpriteSpecifier? chassisSprite, string chassisName, string name, float charge, float hpPercent, int moduleCount, bool hasBrain, bool canDisable, bool isAiControllable) // ADT-Tweak
     {
         ChassisSprite = chassisSprite;
         ChassisName = chassisName;

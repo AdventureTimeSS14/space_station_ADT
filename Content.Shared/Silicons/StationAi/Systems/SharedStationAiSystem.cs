@@ -66,7 +66,7 @@ public abstract partial class SharedStationAiSystem : EntitySystem
     [Dependency] private readonly StationAiVisionSystem _vision = default!;
     [Dependency] private readonly IPrototypeManager _protoManager = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
-     [Dependency] private readonly SharedAiRemoteControlSystem _remoteSystem = default!;
+    [Dependency] private readonly SharedAiRemoteControlSystem _remoteSystem = default!; // ADT-Tweak
 
     // StationAiHeld is added to anything inside of an AI core.
     // StationAiHolder indicates it can hold an AI positronic brain (e.g. holocard / core).
