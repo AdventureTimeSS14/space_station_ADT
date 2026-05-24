@@ -207,7 +207,6 @@ public sealed class SandevistanSystem : EntitySystem
 
         if (ent.Comp.Active != null)
         {
-
             ent.Comp.CurrentLoad += ent.Comp.EmpOverload;
             _damageable.TryChangeDamage(uid, ent.Comp.EmpDamage, ignoreResistances: true);
             _jittering.DoJitter(uid, TimeSpan.FromSeconds(30f), true);
