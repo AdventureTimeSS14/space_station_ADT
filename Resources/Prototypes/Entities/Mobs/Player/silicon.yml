@@ -50,9 +50,9 @@
         type: SiliconLawBoundUserInterface
       enum.CommunicationsConsoleUiKey.Key:
         type: CommunicationsConsoleBoundUserInterface
+    # ADT Start
       enum.RemoteDevicesUiKey.Key:
         type: RemoteDevicesBoundUserInterface
-    # ADT Start
       enum.AtmosAlertsComputerUiKey.Key:
         type: AtmosAlertsComputerBoundUserInterface
       enum.StationAiInfoUiKey.Key:
