@@ -33,7 +33,10 @@ public abstract class SharedAiRemoteControlSystem : EntitySystem
         _xformSystem.SetCoordinates(stationAiCore.Comp.RemoteEntity.Value, Transform(entity).Coordinates);
     }
 }
-public sealed partial class ReturnMindIntoAiEvent : InstantActionEvent { public RemoteDevicesUiKey Key; }
+public sealed partial class ReturnMindIntoAiEvent : InstantActionEvent 
+{
+    public RemoteDevicesUiKey Key { get; set; }
+}
 
 [Serializable, NetSerializable]
 public enum RemoteDevicesUiKey : byte
@@ -41,4 +44,7 @@ public enum RemoteDevicesUiKey : byte
     Key
 }
 
-public sealed partial class ToggleRemoteDevicesScreenEvent : InstantActionEvent { public RemoteDevicesUiKey Key; }
+public sealed partial class ToggleRemoteDevicesScreenEvent : InstantActionEvent 
+{ 
+    public RemoteDevicesUiKey Key { get; set; }
+}

@@ -1,7 +1,6 @@
 - type: latheRecipe
   id: ADTAiRemoteBrain
   result: ADTAiRemoteBrain
-  category: AI
   completetime: 4
   materials:
     Steel: 300

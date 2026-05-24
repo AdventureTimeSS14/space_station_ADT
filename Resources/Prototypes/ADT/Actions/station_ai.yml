@@ -87,8 +87,6 @@
     keywords: [ "AI", "console", "interface" ]
     priority: -9
   - type: InstantAction
-    checkConsciousness: false
-    checkCanInteract: false
     event: !type:ReturnMindIntoAiEvent { key: enum.RemoteDevicesUiKey.Key }
 
 - type: entity
@@ -102,6 +100,4 @@
     keywords: [ "AI", "console", "interface" ]
     priority: -9
   - type: InstantAction
-    checkConsciousness: false
-    checkCanInteract: false
     event: !type:ToggleRemoteDevicesScreenEvent { key: enum.RemoteDevicesUiKey.Key }
