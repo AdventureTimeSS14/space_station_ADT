@@ -1,4 +1,14 @@
 - type: latheRecipe
+  id: ADTAiRemoteBrain
+  result: ADTAiRemoteBrain
+  category: AI
+  completetime: 4
+  materials:
+    Steel: 300
+    Glass: 400
+    Gold: 400
+
+- type: latheRecipe
   id: ADTBorgModuleHarm
   result: ADTBorgModuleHarm
   completetime: 3

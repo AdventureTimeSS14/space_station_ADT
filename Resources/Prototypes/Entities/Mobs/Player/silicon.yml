@@ -50,6 +50,8 @@
         type: SiliconLawBoundUserInterface
       enum.CommunicationsConsoleUiKey.Key:
         type: CommunicationsConsoleBoundUserInterface
+      enum.RemoteDevicesUiKey.Key:
+        type: RemoteDevicesBoundUserInterface
     # ADT Start
       enum.AtmosAlertsComputerUiKey.Key:
         type: AtmosAlertsComputerBoundUserInterface
@@ -69,6 +71,8 @@
         toggleAction: ActionStationAiCommunications
       enum.AtmosAlertsComputerUiKey.Key:
         toggleAction: ActionStationAiAtmosphericAlerts
+      enum.RemoteDevicesUiKey.Key:
+        toggleAction: ADTActionOpenRemoteDevicesMenu
   - type: AtmosAlertsComputer
     # ADT End
   - type: CrewMonitoringConsole

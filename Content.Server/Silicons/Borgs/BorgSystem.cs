@@ -6,6 +6,7 @@ using Content.Server.Administration.Managers;
 using Content.Server.DeviceNetwork.Systems;
 using Content.Server.Hands.Systems;
 using Content.Server.PowerCell;
+using Content.Shared.ADT.Silicons.Borgs.Components;
 using Content.Shared.Alert;
 using Content.Shared.Body.Events;
 using Content.Shared.Database;
@@ -23,6 +24,8 @@ using Content.Shared.PowerCell.Components;
 using Content.Shared.Roles;
 using Content.Shared.Silicons.Borgs;
 using Content.Shared.Silicons.Borgs.Components;
+using Content.Shared.Silicons.StationAi;
+using Content.Shared.StationAi;
 using Content.Shared.Throwing;
 using Content.Shared.Trigger.Systems;
 using Content.Shared.Whitelist;
@@ -104,6 +107,7 @@ public sealed partial class BorgSystem : SharedBorgSystem
         var used = args.Used;
         TryComp<BorgBrainComponent>(used, out var brain);
         TryComp<BorgModuleComponent>(used, out var module);
+        TryComp<AiRemoteBrainComponent>(used, out var aiBrain); // ADT-Tweak-AiRemoteControl
 
         if (TryComp<WiresPanelComponent>(uid, out var panel) && !panel.Open)
         {
@@ -142,6 +146,24 @@ public sealed partial class BorgSystem : SharedBorgSystem
             args.Handled = true;
             UpdateUI(uid, component);
         }
+
+        // ADT-Tweak-AiRemoteControl-Start
+        if (component.BrainEntity != null
+            || aiBrain == null
+            || !_whitelistSystem.IsWhitelistPassOrNull(component.BrainWhitelist, used))
+            return;
+
+        AddComp<AiRemoteControllerComponent>(uid);
+        _container.Insert(used, component.BrainContainer);
+        _adminLog.Add(
+            LogType.Action,
+            LogImpact.Medium,
+            $"{ToPrettyString(args.User):player} installed ai remote brain {ToPrettyString(used)} into borg {ToPrettyString(uid)}");
+        args.Handled = true;
+        BorgActivate(uid, component);
+
+        UpdateUI(uid, component);
+        // ADT-Tweak-AiRemoteControl-End
     }
 
     /// <summary>
@@ -176,6 +198,15 @@ public sealed partial class BorgSystem : SharedBorgSystem
         {
             _mind.TransferTo(mindId, args.Entity, mind: mind);
         }
+
+        // ADT-Tweak-AiRemoteControl-Start
+        if (!HasComp<AiRemoteBrainComponent>(args.Entity))
+            return;
+
+        BorgDeactivate(uid, component);
+        RemComp<AiRemoteControllerComponent>(uid);
+        RemComp<StationAiVisionComponent>(uid);
+        // ADT-Tweak-AiRemoteControl-End
     }
 
     private void OnMindAdded(EntityUid uid, BorgChassisComponent component, MindAddedMessage args)

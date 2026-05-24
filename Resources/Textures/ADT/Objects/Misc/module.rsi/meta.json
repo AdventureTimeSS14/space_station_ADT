@@ -12,6 +12,18 @@
     },
     {
       "name": "datadisk_label"
+    },
+    {
+      "name": "boris"
+    },
+    {
+      "name": "boris_recharging",
+      "delays": [
+        [
+            1.0,
+            1.0
+        ]
+      ]
     }
   ]
 }
