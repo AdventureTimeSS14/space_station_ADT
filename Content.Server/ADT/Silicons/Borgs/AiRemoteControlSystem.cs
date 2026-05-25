@@ -6,6 +6,7 @@ using Content.Shared.Actions;
 using Content.Shared.Mind;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
+using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Silicons.Laws.Components;
 using Content.Shared.Silicons.StationAi;
 using Content.Shared.StationAi;
@@ -14,6 +15,8 @@ using Content.Shared.Destructible;
 using Robust.Server.GameObjects;
 using Robust.Shared.Player;
 using Robust.Shared.GameObjects;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Utility;
 using Content.Shared.Mobs.Systems;
 
 namespace Content.Server.ADT.Silicons.Borgs;
@@ -28,6 +31,7 @@ public sealed class AiRemoteControlSystem : SharedAiRemoteControlSystem
     [Dependency] private readonly SharedTransformSystem _xformSystem = default!;
     [Dependency] private readonly MetaDataSystem _metaData = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private readonly IPrototypeManager _prototype = default!;
 
     public override void Initialize()
     {
@@ -40,7 +44,7 @@ public sealed class AiRemoteControlSystem : SharedAiRemoteControlSystem
         SubscribeLocalEvent<AiRemoteControllerComponent, DestructionEventArgs>(OnBorgDestroyed);
         SubscribeLocalEvent<AiRemoteControllerComponent, MobStateChangedEvent>(OnBorgMobStateChanged);
 
-        SubscribeLocalEvent<StationAiHeldComponent, RemoteDeviceActionMessage>(OnUiRemoteAction);
+SubscribeLocalEvent<StationAiHeldComponent, RemoteDeviceActionMessage>(OnUiRemoteAction);
         SubscribeLocalEvent<StationAiHeldComponent, ToggleRemoteDevicesScreenEvent>(OnToggleRemoteDevicesScreen);
     }
 
@@ -184,10 +188,27 @@ public sealed class AiRemoteControlSystem : SharedAiRemoteControlSystem
 
         while (query.MoveNext(out var queryUid, out _))
         {
+            var meta = Comp<MetaDataComponent>(queryUid);
+            SpriteSpecifier? spriteSpecifier = null;
+
+            if (TryComp<BorgTransponderComponent>(queryUid, out var transponder))
+            {
+                spriteSpecifier = transponder.Sprite;
+            }
+
+            if (spriteSpecifier == null)
+            {
+                spriteSpecifier = new SpriteSpecifier.EntityPrototype(meta.EntityPrototype?.ID ?? "MobBorg");
+            }
+
+            var isIncapacitated = _mobState.IsIncapacitated(queryUid);
+
             var data = new RemoteDevicesData
             {
                 NetEntityUid = GetNetEntity(queryUid),
-                DisplayName = Comp<MetaDataComponent>(queryUid).EntityName
+                DisplayName = meta.EntityName,
+                Sprite = spriteSpecifier,
+                IsIncapacitated = isIncapacitated
             };
 
             remoteDevices.Add(data);

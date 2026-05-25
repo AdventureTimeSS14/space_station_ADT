@@ -1,5 +1,6 @@
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
+using Robust.Shared.Utility;
 
 namespace Content.Shared.ADT.Silicons.Borgs.Components;
 
@@ -55,6 +56,10 @@ public record struct RemoteDevicesData()
     public string DisplayName = string.Empty;
 
     public NetEntity NetEntityUid = NetEntity.Invalid;
+
+    public SpriteSpecifier? Sprite;
+
+    public bool IsIncapacitated;
 }
 
 [Serializable, NetSerializable]
