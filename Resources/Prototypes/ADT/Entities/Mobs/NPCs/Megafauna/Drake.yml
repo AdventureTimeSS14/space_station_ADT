@@ -68,7 +68,6 @@
       types:
         Heat: 15
     deleteOnCollide: false
-  - type: Timer
   - type: TimedSpawner
     prototypes:
       - NazFire
@@ -101,7 +100,6 @@
     deleteOnCollide: false
   - type: TimedDespawn
     lifetime: 1
-  - type: Timer
   - type: TimedSpawner
     prototypes:
       - FireballSignal
@@ -339,7 +337,6 @@
     delay: 3.9
   - type: SpawnOnTrigger
     proto: IgniteRuneDrake
-  - type: Timer
   - type: TimedSpawner
     prototypes:
       - FireballSignalFlight
