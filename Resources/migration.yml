@@ -868,7 +868,7 @@ HandheldHealthAnalyzerUnpowered: HandheldHealthAnalyzer
 HandheldHealthAnalyzerEmpty: HandheldHealthAnalyzer
 
 #2026-01-09
-BorgModuleAdvancedChemical: BorgModuleAdvancedTopical
+#BorgModuleAdvancedChemical: BorgModuleAdvancedTopical
 
 # 2026-01-14
 HeadHuman: OrganHumanHead
