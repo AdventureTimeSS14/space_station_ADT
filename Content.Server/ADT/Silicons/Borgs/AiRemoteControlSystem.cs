@@ -4,13 +4,17 @@ using Content.Shared.ADT.Silicons.Borgs;
 using Content.Shared.ADT.Silicons.Borgs.Components;
 using Content.Shared.Actions;
 using Content.Shared.Mind;
+using Content.Shared.Mobs;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Silicons.Laws.Components;
 using Content.Shared.Silicons.StationAi;
 using Content.Shared.StationAi;
 using Content.Shared.Verbs;
+using Content.Shared.Destructible;
 using Robust.Server.GameObjects;
 using Robust.Shared.Player;
 using Robust.Shared.GameObjects;
+using Content.Shared.Mobs.Systems;
 
 namespace Content.Server.ADT.Silicons.Borgs;
 
@@ -23,6 +27,7 @@ public sealed class AiRemoteControlSystem : SharedAiRemoteControlSystem
     [Dependency] private readonly UserInterfaceSystem _userInterface = default!;
     [Dependency] private readonly SharedTransformSystem _xformSystem = default!;
     [Dependency] private readonly MetaDataSystem _metaData = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
 
     public override void Initialize()
     {
@@ -32,6 +37,8 @@ public sealed class AiRemoteControlSystem : SharedAiRemoteControlSystem
         SubscribeLocalEvent<AiRemoteControllerComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<AiRemoteControllerComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<AiRemoteControllerComponent, GetVerbsEvent<AlternativeVerb>>(OnGetVerbs);
+        SubscribeLocalEvent<AiRemoteControllerComponent, DestructionEventArgs>(OnBorgDestroyed);
+        SubscribeLocalEvent<AiRemoteControllerComponent, MobStateChangedEvent>(OnBorgMobStateChanged);
 
         SubscribeLocalEvent<StationAiHeldComponent, RemoteDeviceActionMessage>(OnUiRemoteAction);
         SubscribeLocalEvent<StationAiHeldComponent, ToggleRemoteDevicesScreenEvent>(OnToggleRemoteDevicesScreen);
@@ -52,16 +59,14 @@ public sealed class AiRemoteControlSystem : SharedAiRemoteControlSystem
     {
         _actions.RemoveAction(entity.Owner, entity.Comp.BackToAiActionEntity);
 
-        var backArgs = new ReturnMindIntoAiEvent { Key = RemoteDevicesUiKey.Key };
-        backArgs.Performer = entity;
-
         if (TryComp(entity, out IntrinsicRadioTransmitterComponent? transmitter) && entity.Comp.PreviouslyTransmitterChannels != null)
             transmitter.Channels = [.. entity.Comp.PreviouslyTransmitterChannels, ];
 
         if (TryComp(entity, out ActiveRadioComponent? activeRadio) && entity.Comp.PreviouslyActiveRadioChannels != null)
             activeRadio.Channels = [.. entity.Comp.PreviouslyActiveRadioChannels, ];
 
-        ReturnMindIntoAi(entity);
+        var returnEvent = new ReturnMindIntoAiEvent { Key = RemoteDevicesUiKey.Key };
+        RaiseLocalEvent(entity.Owner, returnEvent, true);
     }
 
     private void OnGetVerbs(Entity<AiRemoteControllerComponent> entity, ref GetVerbsEvent<AlternativeVerb> args)
@@ -84,52 +89,85 @@ public sealed class AiRemoteControlSystem : SharedAiRemoteControlSystem
 
     private void OnReturnMindIntoAi(Entity<AiRemoteControllerComponent> entity, ref ReturnMindIntoAiEvent args)
     {
-        ReturnMindIntoAi(entity);
+        if (entity.Comp.AiHolder.HasValue)
+            RewriteLaws(entity.Owner, entity.Comp.AiHolder.Value);
+
+        ReturnMindIntoAi(entity.Owner);
     }
 
     public void AiTakeControl(EntityUid ai, EntityUid entity)
     {
-        if (!_mind.TryGetMind(ai, out var mindId, out _))
-            return;
-
         if (!TryComp<StationAiHeldComponent>(ai, out var stationAiHeldComp))
             return;
 
         if (!TryComp<AiRemoteControllerComponent>(entity, out var aiRemoteComp))
             return;
 
+        if (_mobState.IsIncapacitated(entity))
+            return;
+
+        if (!_stationAiSystem.TryGetCore(ai, out var stationAiCore) ||
+            !_stationAiSystem.TryGetHeld(stationAiCore, out var aiBrain) ||
+            aiBrain == null)
+        {
+            return;
+        }
+
+        if (!TryComp<MetaDataComponent>(aiBrain.Value, out var aiMeta))
+        {
+            return;
+        }
+
+        if (!_mind.TryGetMind(aiBrain.Value, out var mindId, out _))
+        {
+            return;
+        }
+
         if (TryComp(entity, out IntrinsicRadioTransmitterComponent? transmitter))
         {
             aiRemoteComp.PreviouslyTransmitterChannels = [.. transmitter.Channels, ];
-
-            if (TryComp(ai, out IntrinsicRadioTransmitterComponent? stationAiTransmitter))
-                transmitter.Channels = [.. stationAiTransmitter.Channels, ];
         }
 
         if (TryComp(entity, out ActiveRadioComponent? activeRadio))
         {
             aiRemoteComp.PreviouslyActiveRadioChannels = [.. activeRadio.Channels, ];
-
-            if (TryComp(ai, out ActiveRadioComponent? stationAiActiveRadio))
-                activeRadio.Channels = [.. stationAiActiveRadio.Channels, ];
         }
 
-        _mind.ControlMob(ai, entity);
-        aiRemoteComp.AiHolder = ai;
+        if (TryComp(aiBrain.Value, out IntrinsicRadioTransmitterComponent? stationAiTransmitter) && transmitter != null)
+            transmitter.Channels = [.. stationAiTransmitter.Channels, ];
+
+        if (TryComp(aiBrain.Value, out ActiveRadioComponent? stationAiActiveRadio) && activeRadio != null)
+            activeRadio.Channels = [.. stationAiActiveRadio.Channels, ];
+
+        _mind.ControlMob(aiBrain.Value, entity);
+        aiRemoteComp.AiHolder = aiBrain.Value;
         aiRemoteComp.LinkedMind = mindId;
 
-        // Set borg's name to AI's name
-        if (TryComp<MetaDataComponent>(ai, out var aiMeta))
-            _metaData.SetEntityName(entity, aiMeta.EntityName);
+        _metaData.SetEntityName(entity, aiMeta.EntityName);
 
         stationAiHeldComp.CurrentConnectedEntity = entity;
 
-        if (!_stationAiSystem.TryGetCore(ai, out var stationAiCore))
-            return;
-
         _stationAiSystem.SwitchRemoteEntityMode(stationAiCore!, false);
 
-        RewriteLaws(ai, entity);
+        RewriteLaws(aiBrain.Value, entity);
+    }
+
+    private void OnBorgDestroyed(Entity<AiRemoteControllerComponent> entity, ref DestructionEventArgs args)
+    {
+        if (entity.Comp.AiHolder.HasValue)
+        {
+            var returnEvent = new ReturnMindIntoAiEvent { Key = RemoteDevicesUiKey.Key };
+            RaiseLocalEvent(entity.Owner, returnEvent, true);
+        }
+    }
+
+    private void OnBorgMobStateChanged(Entity<AiRemoteControllerComponent> entity, ref MobStateChangedEvent args)
+    {
+        if (entity.Comp.AiHolder.HasValue && _mobState.IsIncapacitated(entity.Owner, args.Component))
+        {
+            var returnEvent = new ReturnMindIntoAiEvent { Key = RemoteDevicesUiKey.Key };
+            RaiseLocalEvent(entity.Owner, returnEvent, true);
+        }
     }
 
     private void OnToggleRemoteDevicesScreen(EntityUid uid, StationAiHeldComponent component, ToggleRemoteDevicesScreenEvent args)
@@ -181,7 +219,7 @@ public sealed class AiRemoteControlSystem : SharedAiRemoteControlSystem
             AiTakeControl(uid, target.Value);
     }
 
-    private void RewriteLaws(EntityUid from, EntityUid to)
+    public void RewriteLaws(EntityUid from, EntityUid to)
     {
         if (!TryComp<SiliconLawProviderComponent>(from, out var fromLawsComp))
             return;
