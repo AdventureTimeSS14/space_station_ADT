@@ -1,6 +1,6 @@
 - type: marking
   id: ADTDionaTreePaintOverlay
-  bodyPart: [ RFoot, LFoot] 
+  bodyPart: RFoot # ADT-Tweak: was [ RFoot, LFoot ], wizden schema is single-enum
   groupWhitelist: [Diona]
   # coloring:
   #   default:

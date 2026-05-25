@@ -321,7 +321,7 @@
 
 - type: marking
   id: HeadNovakidDefolt
-  bodyPart: [ Head ]
+  bodyPart: Head # ADT-Tweak: was [ Head ], wizden schema is single-enum
   groupWhitelist: [Novakid]
   forcedColoring: true
   coloring:

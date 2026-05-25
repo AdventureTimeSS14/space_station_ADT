@@ -139,7 +139,7 @@
   - type: Inventory
     templateId: ghost
   - type: InventorySlots
-  - type: HumanoidAppearance
+  - type: HumanoidProfile
     species: GhostSpecies
     shader: unshaded
   - type: TypingIndicator

@@ -73,8 +73,5 @@
 - type: lobbyBackground
   id: ReclaimerNuke
   background: /Textures/LobbyScreens/reclaimer-nuke.webp
-<<<<<<< HEAD
-=======
   title: lobby-state-background-reclaimernuke-title
   artist: lobby-state-background-reclaimernuke-artist
->>>>>>> upstreamwiz/master

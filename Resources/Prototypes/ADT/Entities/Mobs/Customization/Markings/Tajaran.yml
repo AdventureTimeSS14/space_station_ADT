@@ -186,7 +186,7 @@
 #Наложение.
 - type: marking
   id: BodyStripes
-  bodyPart: [ Chest, RArm, LArm, RLeg, LLeg ]
+  bodyPart: Chest # ADT-Tweak: was [ Chest, RArm, LArm, RLeg, LLeg ], wizden schema is single-enum
   groupWhitelist: [Tajaran]
   sprites:
     - sprite: ADT/Mobs/Customization/Tajaran/tajaran_overlay.rsi #Спрайты от moroz_3
@@ -194,7 +194,7 @@
 
 - type: marking
   id: BodyBlots
-  bodyPart: [ Chest, RArm, LArm, RLeg, LLeg ]
+  bodyPart: Chest # ADT-Tweak: was [ Chest, RArm, LArm, RLeg, LLeg ], wizden schema is single-enum
   groupWhitelist: [Tajaran]
   sprites:
     - sprite: ADT/Mobs/Customization/Tajaran/tajaran_overlay.rsi #Спрайты от moroz_3
@@ -202,7 +202,7 @@
 
 - type: marking
   id: patch2
-  bodyPart: [ Chest, RLeg, LLeg ]
+  bodyPart: Chest # ADT-Tweak: was [ Chest, RLeg, LLeg ], wizden schema is single-enum
   groupWhitelist: [Tajaran]
   sprites:
     - sprite: ADT/Mobs/Customization/Tajaran/tajaran_overlay.rsi
@@ -210,7 +210,7 @@
 
 - type: marking
   id: BodySkeleton
-  bodyPart: [ Chest, RArm, LArm, RLeg, LLeg ]
+  bodyPart: Chest # ADT-Tweak: was [ Chest, RArm, LArm, RLeg, LLeg ], wizden schema is single-enum
   groupWhitelist: [Tajaran]
   sprites:
     - sprite: ADT/Mobs/Customization/Tajaran/tajaran_overlay.rsi #Спрайты от prazat911
@@ -218,7 +218,7 @@
 
 - type: marking
   id: arm1
-  bodyPart: [ RArm, LArm, RLeg, LLeg ] #честно, я без малейшего понятия, почему это не работает. Черта либо клипается сквозь одежду, либо обрезает руки.
+  bodyPart: RArm # ADT-Tweak: was [ RArm, LArm, RLeg, LLeg ], wizden schema is single-enum
   groupWhitelist: [Tajaran]
   sprites:
     - sprite: ADT/Mobs/Customization/Tajaran/tajaran_overlay.rsi
