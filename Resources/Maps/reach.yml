@@ -1,19 +1,11 @@
 meta:
   format: 7
   category: Map
-<<<<<<< HEAD
-  engineVersion: 267.3.0
-  forkId: ""
-  forkVersion: ""
-  time: 11/02/2025 23:05:17
-  entityCount: 2641
-=======
   engineVersion: 272.0.0
   forkId: ""
   forkVersion: ""
   time: 02/26/2026 19:16:55
   entityCount: 2781
->>>>>>> upstreamwiz/master
 maps:
 - 1
 grids:
@@ -1415,14 +1407,11 @@ entities:
           moles:
             Oxygen: 21.824879
             Nitrogen: 82.10312
-<<<<<<< HEAD
-=======
         - volume: 2500
           temperature: 293.14975
           moles:
             Oxygen: 20.078888
             Nitrogen: 75.53487
->>>>>>> upstreamwiz/master
         - volume: 2500
           temperature: 293.15
           moles:
@@ -1452,10 +1441,7 @@ entities:
       - 1503
       - 1473
       - 1505
-<<<<<<< HEAD
-=======
       - 2779
->>>>>>> upstreamwiz/master
     - type: Fixtures
       fixtures: {}
   - uid: 4
@@ -1513,10 +1499,7 @@ entities:
       - 1495
       - 1501
       - 1464
-<<<<<<< HEAD
-=======
       - 209
->>>>>>> upstreamwiz/master
     - type: Fixtures
       fixtures: {}
   - uid: 8
@@ -2028,17 +2011,6 @@ entities:
       parent: 2
     - type: Fixtures
       fixtures: {}
-<<<<<<< HEAD
-  - uid: 61
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -2.5,-5.5
-      parent: 2
-    - type: Fixtures
-      fixtures: {}
-=======
->>>>>>> upstreamwiz/master
   - uid: 62
     components:
     - type: Transform
@@ -2090,8 +2062,6 @@ entities:
       parent: 2
     - type: Fixtures
       fixtures: {}
-<<<<<<< HEAD
-=======
   - uid: 388
     components:
     - type: Transform
@@ -2100,7 +2070,6 @@ entities:
       parent: 2
     - type: Fixtures
       fixtures: {}
->>>>>>> upstreamwiz/master
 - proto: APECircuitboard
   entities:
   - uid: 69
@@ -8002,19 +7971,6 @@ entities:
     - type: Transform
       pos: 15.726279,10.605636
       parent: 2
-<<<<<<< HEAD
-- proto: FuelDispenser
-  entities:
-  - uid: 2453
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 11.5,-8.5
-      parent: 2
-    - type: Fixtures
-      fixtures: {}
-=======
->>>>>>> upstreamwiz/master
 - proto: GasMinerNitrogen
   entities:
   - uid: 1109
@@ -15314,23 +15270,6 @@ entities:
           - Toggle
     - type: Fixtures
       fixtures: {}
-<<<<<<< HEAD
-- proto: SignalSwitchDirectional
-  entities:
-  - uid: 1802
-    components:
-    - type: Transform
-      pos: -3.5,12.5
-      parent: 2
-    - type: DeviceLinkSource
-      linkedPorts:
-        910:
-        - - Status
-          - Toggle
-    - type: Fixtures
-      fixtures: {}
-=======
->>>>>>> upstreamwiz/master
 - proto: SignAtmos
   entities:
   - uid: 2296

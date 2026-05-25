@@ -1,19 +1,11 @@
 meta:
   format: 7
   category: Map
-<<<<<<< HEAD
-  engineVersion: 267.3.0
-  forkId: ""
-  forkVersion: ""
-  time: 11/07/2025 10:31:27
-  entityCount: 28792
-=======
   engineVersion: 268.0.0
   forkId: ""
   forkVersion: ""
   time: 12/07/2025 22:21:20
   entityCount: 28813
->>>>>>> upstreamwiz/master
 maps:
 - 780
 grids:
@@ -18105,12 +18097,9 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 23.5,-22.5
       parent: 8364
-<<<<<<< HEAD
-=======
     - type: AccessReader
       accessListsOriginal:
       - - Engineering
->>>>>>> upstreamwiz/master
     - type: Fixtures
       fixtures: {}
   - uid: 14432
@@ -18192,8 +18181,6 @@ entities:
       supplyRampPosition: 1.347667
     - type: Fixtures
       fixtures: {}
-<<<<<<< HEAD
-=======
   - uid: 16487
     components:
     - type: MetaData
@@ -18204,7 +18191,6 @@ entities:
       parent: 8364
     - type: Fixtures
       fixtures: {}
->>>>>>> upstreamwiz/master
   - uid: 17070
     components:
     - type: MetaData
@@ -18223,12 +18209,9 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 23.5,-33.5
       parent: 8364
-<<<<<<< HEAD
-=======
     - type: AccessReader
       accessListsOriginal:
       - - Engineering
->>>>>>> upstreamwiz/master
     - type: Fixtures
       fixtures: {}
   - uid: 17390
@@ -18303,8 +18286,6 @@ entities:
       supplyRampPosition: 0.019451141
     - type: Fixtures
       fixtures: {}
-<<<<<<< HEAD
-=======
   - uid: 19109
     components:
     - type: MetaData
@@ -18314,7 +18295,6 @@ entities:
       parent: 8364
     - type: Fixtures
       fixtures: {}
->>>>>>> upstreamwiz/master
   - uid: 19164
     components:
     - type: MetaData
@@ -45454,8 +45434,6 @@ entities:
     - type: Transform
       pos: -15.5,46.5
       parent: 8364
-<<<<<<< HEAD
-=======
   - uid: 28794
     components:
     - type: Transform
@@ -45471,7 +45449,6 @@ entities:
     - type: Transform
       pos: -13.5,-58.5
       parent: 8364
->>>>>>> upstreamwiz/master
 - proto: CableApcStack
   entities:
   - uid: 1195
@@ -62103,8 +62080,6 @@ entities:
     - type: Transform
       pos: -10.5,40.5
       parent: 8364
-<<<<<<< HEAD
-=======
   - uid: 28795
     components:
     - type: Transform
@@ -62190,7 +62165,6 @@ entities:
     - type: Transform
       pos: -13.5,-58.5
       parent: 8364
->>>>>>> upstreamwiz/master
 - proto: CableMVStack
   entities:
   - uid: 1697

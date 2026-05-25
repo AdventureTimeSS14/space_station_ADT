@@ -1,11 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-<<<<<<< HEAD
-  "copyright": "Made by kuro(388673708753027083), equipped-OUTERCLOTHING-resomi made by svarshiksatanist (Discord)",
-=======
-  "copyright": "Made by PuroSlavKing (github) for SS14. Tail sprites by Tiniest Shark (github).",
->>>>>>> upstreamwiz/master
+  "copyright": "Made by kuro(388673708753027083), equipped-OUTERCLOTHING-resomi made by svarshiksatanist (Discord). Reptilian sprites by PuroSlavKing (github), tail sprites by Tiniest Shark (github).",
   "size": {
     "x": 32,
     "y": 32
@@ -19,11 +15,11 @@
       "directions": 4
     },
     {
-<<<<<<< HEAD
       "name": "equipped-OUTERCLOTHING-resomi",
-=======
+      "directions": 4
+    },
+    {
       "name": "equipped-OUTERCLOTHING-reptilian",
->>>>>>> upstreamwiz/master
       "directions": 4
     },
     {
