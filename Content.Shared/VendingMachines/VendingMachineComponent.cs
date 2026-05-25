@@ -9,7 +9,8 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototy
 
 namespace Content.Shared.VendingMachines
 {
-    [RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true)]
+    [RegisterComponent, NetworkedComponent]
+    // ADT-Tweak: AutoGenerateComponentState removed 
     public sealed partial class VendingMachineComponent : Component
     {
         /// <summary>
@@ -33,16 +34,16 @@ namespace Content.Shared.VendingMachines
         [DataField]
         public TimeSpan EjectDelay = TimeSpan.FromSeconds(1.2f);
 
-        [DataField, AutoNetworkedField]
+        [DataField]
         public Dictionary<string, VendingMachineInventoryEntry> Inventory = new();
 
-        [DataField, AutoNetworkedField]
+        [DataField]
         public Dictionary<string, VendingMachineInventoryEntry> EmaggedInventory = new();
 
-        [DataField, AutoNetworkedField]
+        [DataField]
         public Dictionary<string, VendingMachineInventoryEntry> ContrabandInventory = new();
 
-        [DataField, AutoNetworkedField]
+        [DataField]
         public bool Contraband;
 
         public bool Ejecting;
@@ -212,16 +213,16 @@ namespace Content.Shared.VendingMachines
 
         public int NextItemCount = 1;
 
-        [DataField, AutoNetworkedField]
+        [DataField]
         public Color UiButtonBorderColor = Color.FromHex("#4972A1");
 
-        [DataField, AutoNetworkedField]
+        [DataField]
         public Color UiButtonBaseColor = Color.FromHex("#141F2F");
 
-        [DataField, AutoNetworkedField]
+        [DataField]
         public Color UiButtonHoveredColor = Color.FromHex("#4972A1");
 
-        [DataField, AutoNetworkedField]
+        [DataField]
         public Color UiButtonDisabledColor = Color.FromHex("#3f3f3fff");
 
         //ADT-Economy-End

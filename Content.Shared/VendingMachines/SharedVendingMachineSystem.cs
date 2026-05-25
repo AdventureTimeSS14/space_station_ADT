@@ -49,11 +49,6 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
         SubscribeLocalEvent<VendingMachineComponent, BreakageEventArgs>(OnBreak);
 
         SubscribeLocalEvent<VendingMachineRestockComponent, AfterInteractEvent>(OnAfterInteract);
-
-        Subs.BuiEvents<VendingMachineComponent>(VendingMachineUiKey.Key, subs =>
-        {
-            subs.Event<VendingMachineEjectMessage>(OnInventoryEjectMessage);
-        });
     }
 
     private void OnVendingGetState(Entity<VendingMachineComponent> entity, ref ComponentGetState args)
@@ -133,17 +128,6 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
                 }
             }
         }
-    }
-
-    private void OnInventoryEjectMessage(Entity<VendingMachineComponent> entity, ref VendingMachineEjectMessage args)
-    {
-        if (!_receiver.IsPowered(entity.Owner) || Deleted(entity))
-            return;
-
-        if (args.Actor is not { Valid: true } actor)
-            return;
-
-        AuthorizedVend(entity.Owner, actor, args.Type, args.ID, entity.Comp);
     }
 
     private void OnEmpPulse(Entity<VendingMachineComponent> ent, ref EmpPulseEvent args)
