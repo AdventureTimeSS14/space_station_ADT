@@ -3,9 +3,12 @@
   result: ADTAiRemoteBrain
   completetime: 4
   materials:
-    Steel: 300
-    Glass: 400
-    Gold: 400
+    Steel: 500
+    Plastic: 500
+    Gold: 100
+    Silver: 100
+    Plasma: 1000
+    Zinc: 200
 
 - type: latheRecipe
   id: ADTBorgModuleHarm
