@@ -1,12 +1,11 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/4f6190e2895e09116663ef282d3ce1d8b35c032e, equipped-OUTERCLOTHING-resomi made by svarshiksatanist (Discord)",
+    "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/4f6190e2895e09116663ef282d3ce1d8b35c032e. equipped-OUTERCLOTHING-resomi made by svarshiksatanist (Discord).",
     "size": {
         "x": 32,
         "y": 32
     },
-<<<<<<< HEAD
     "states": [
         {
             "name": "icon"
@@ -32,19 +31,4 @@
             "directions": 4
         }
     ]
-=======
-    {
-      "name": "equipped-OUTERCLOTHING",
-      "directions": 4
-    },
-    {
-      "name": "inhand-left",
-      "directions": 4
-    },
-    {
-      "name": "inhand-right",
-      "directions": 4
-    }
-  ]
->>>>>>> upstreamwiz/master
 }

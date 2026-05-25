@@ -157,9 +157,9 @@
             "name": "pinpointer-station"
         },
         {
-<<<<<<< HEAD
             "name": "pinpointer-syndicate-way"
-=======
+        },
+        {
             "name": "pinpointer-xenoborg"
         },
         {
@@ -176,7 +176,6 @@
         },
         {
             "name": "pinpointer-xenoborg-repaired"
->>>>>>> upstreamwiz/master
         },
         {
             "name": "inhand-left-base",

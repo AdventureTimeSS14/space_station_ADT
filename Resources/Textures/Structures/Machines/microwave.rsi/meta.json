@@ -62,7 +62,6 @@
             ]
         },
         {
-<<<<<<< HEAD
             "name": "mwo",
             "delays": [
                 [
@@ -73,9 +72,6 @@
         },
         {
             "name": "mw-o"
-=======
-            "name": "mwo"
->>>>>>> upstreamwiz/master
         },
         {
             "name": "inhand-right",
@@ -85,10 +81,5 @@
             "name": "inhand-left",
             "directions": 4
         }
-<<<<<<< HEAD
     ]
 }
-=======
-      ]
-    }
->>>>>>> upstreamwiz/master

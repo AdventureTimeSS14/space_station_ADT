@@ -1,24 +1,11 @@
 {
-<<<<<<< HEAD
-  "version": 1,
-  "size": {
-    "x": 32,
-    "y": 32
-  },
-  "license": "CC-BY-SA-3.0",
-  "copyright": "Sprite made by discord:kuro_0001 (388673708753027083)",
-  "states": [
-    {
-      "name": "icon"
-=======
     "version": 1,
     "size": {
         "x": 32,
         "y": 32
->>>>>>> upstreamwiz/master
     },
     "license": "CC-BY-SA-3.0",
-    "copyright": "Made by Potato1234x (github) for SS14. Inhands by Tiniest Shark (Github)",
+    "copyright": "Sprite made by discord:kuro_0001 (388673708753027083). Inhands by Tiniest Shark (Github).",
     "states": [
         {
             "name": "icon"

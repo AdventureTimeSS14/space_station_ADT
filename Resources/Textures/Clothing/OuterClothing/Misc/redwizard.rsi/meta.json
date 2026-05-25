@@ -19,7 +19,6 @@
             "directions": 4
         },
         {
-<<<<<<< HEAD
             "name": "equipped-OUTERCLOTHING-dog",
             "directions": 4
         },
@@ -28,8 +27,6 @@
             "directions": 4
         },
         {
-=======
->>>>>>> upstreamwiz/master
             "name": "inhand-left",
             "directions": 4
         },

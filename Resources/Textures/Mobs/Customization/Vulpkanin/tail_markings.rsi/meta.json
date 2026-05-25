@@ -1,11 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-<<<<<<< HEAD
-    "copyright": "Taken from https://github.com/DeltaV-Station/Delta-v/commit/65d35d0b3c20aa4e8a0e749a4de8392e53051e86. Fluffy created by Skarletto (Github). Modified by FairlySadPanda (Github/Discord)",
-=======
-    "copyright": "Taken from https://github.com/DeltaV-Station/Delta-v/commit/65d35d0b3c20aa4e8a0e749a4de8392e53051e86. Fluffy created by Skarletto (Github). Modified by FairlySadPanda and TiniestShark (Github/Discord). Wagging animations by TiniestShark (Github)",
->>>>>>> upstreamwiz/master
+    "copyright": "Taken from https://github.com/DeltaV-Station/Delta-v/commit/65d35d0b3c20aa4e8a0e749a4de8392e53051e86. Fluffy created by Skarletto (Github). Modified by FairlySadPanda and TiniestShark (Github/Discord). Wagging animations by TiniestShark (Github).",
     "size": {"x": 32, "y": 32},
     "states": [
         {
@@ -62,8 +58,6 @@
         {
             "name": "coyote",
             "directions": 4
-<<<<<<< HEAD
-=======
         },
         {
             "name": "fennec-wagging",
@@ -662,7 +656,6 @@
                     0.1
                 ]
             ]
->>>>>>> upstreamwiz/master
         }
     ]
 }

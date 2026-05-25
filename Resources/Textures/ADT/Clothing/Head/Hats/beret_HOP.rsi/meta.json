@@ -1,11 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-<<<<<<<< HEAD:Resources/Textures/ADT/Clothing/Head/Hats/beret_HOP.rsi/meta.json
     "copyright": "Created by discord:prazat911.",
-========
-    "copyright": "Sprites by TaoNewt (github)",
->>>>>>>> upstreamwiz/master:Resources/Textures/Objects/Fun/card_sword.rsi/meta.json
     "size": {
         "x": 32,
         "y": 32
@@ -15,7 +11,6 @@
             "name": "icon"
         },
         {
-<<<<<<<< HEAD:Resources/Textures/ADT/Clothing/Head/Hats/beret_HOP.rsi/meta.json
             "name": "equipped-HELMET",
             "directions": 4
         },
@@ -24,8 +19,6 @@
             "directions": 4
         },
         {
-========
->>>>>>>> upstreamwiz/master:Resources/Textures/Objects/Fun/card_sword.rsi/meta.json
             "name": "inhand-left",
             "directions": 4
         },

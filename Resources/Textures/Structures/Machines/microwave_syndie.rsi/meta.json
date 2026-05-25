@@ -39,7 +39,6 @@
             "name": "mwbloody1"
         },
         {
-<<<<<<< HEAD
             "name": "mwo",
             "delays": [
                 [
@@ -47,9 +46,6 @@
                     0.1
                 ]
             ]
-=======
-            "name": "mwo"
->>>>>>> upstreamwiz/master
         },
         {
             "name": "inhand-right",
