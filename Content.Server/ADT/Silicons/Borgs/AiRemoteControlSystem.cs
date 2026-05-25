@@ -43,8 +43,7 @@ public sealed class AiRemoteControlSystem : SharedAiRemoteControlSystem
         SubscribeLocalEvent<AiRemoteControllerComponent, GetVerbsEvent<AlternativeVerb>>(OnGetVerbs);
         SubscribeLocalEvent<AiRemoteControllerComponent, DestructionEventArgs>(OnBorgDestroyed);
         SubscribeLocalEvent<AiRemoteControllerComponent, MobStateChangedEvent>(OnBorgMobStateChanged);
-
-SubscribeLocalEvent<StationAiHeldComponent, RemoteDeviceActionMessage>(OnUiRemoteAction);
+        SubscribeLocalEvent<StationAiHeldComponent, RemoteDeviceActionMessage>(OnUiRemoteAction);
         SubscribeLocalEvent<StationAiHeldComponent, ToggleRemoteDevicesScreenEvent>(OnToggleRemoteDevicesScreen);
     }
 
