@@ -63,30 +63,6 @@
   id: CratePermaEscapeEVA
   suffix: EVA
   components:
-<<<<<<< HEAD
-  - type: StorageFill
-    contents:
-      - id: ClothingHeadHelmetEVALarge
-      - id: ClothingOuterHardsuitEVAPrisoner
-      - id: ClothingHeadHelmetEVALarge
-        prob: 0.80
-      - id: ClothingOuterHardsuitEVAPrisoner
-        prob: 0.80
-      - id: ADTClothingModsuitBackMedical #ADT tweak
-        prob: 0.10
-      - id: ClothingOuterRedRacoon
-        prob: 0.10
-      - id: ClothingOuterSanta
-        prob: 0.10
-      - id: ClothingOuterEVASuitSyndicate
-        prob: 0.20
-      - id: EmergencyOxygenTankFilled
-        prob: 0.25
-      - id: EmergencyOxygenTank
-        prob: 0.25
-      - id: OxygenTankFilled
-        prob: 0.05
-=======
   - type: EntityTableContainerFill
     containers:
       entity_storage: !type:AllSelector
@@ -111,7 +87,8 @@
           prob: 0.25
         - id: OxygenTankFilled
           prob: 0.05
->>>>>>> upstreamwiz/master
+        - id: ADTClothingModsuitBackMedical #ADT tweak
+          prob: 0.10
 
 - type: entity
   parent: CrateGenericSteel
@@ -142,51 +119,6 @@
   id: CratePermaEscapeBureaucracy
   suffix: Bureaucracy
   components:
-<<<<<<< HEAD
-  - type: StorageFill
-    contents:
-      - id: RubberStampApproved
-      - id: RubberStampDenied
-      - id: Paper
-        amount: 5
-      - id: Pen
-        amount: 3
-      - id: BoxFolderBaseEmpty
-        orGroup: folderA
-      - id: BoxFolderBlackEmpty
-        orGroup: folderA
-      - id: BoxFolderBlueEmpty
-        orGroup: folderA
-      - id: BoxFolderGreenEmpty
-        orGroup: folderA
-      - id: BoxFolderGreyEmpty
-        orGroup: folderA
-      - id: BoxFolderRedEmpty
-        orGroup: folderA
-      - id: BoxFolderYellowEmpty
-        orGroup: folderA
-      - id: BoxFolderBaseEmpty
-        orGroup: folderB
-      - id: BoxFolderBlackEmpty
-        orGroup: folderB
-      - id: BoxFolderBlueEmpty
-        orGroup: folderB
-      - id: BoxFolderGreenEmpty
-        orGroup: folderB
-      - id: BoxFolderGreyEmpty
-        orGroup: folderB
-      - id: BoxFolderRedEmpty
-        orGroup: folderB
-      - id: BoxFolderYellowEmpty
-        orGroup: folderB
-      - id: CrayonBox
-        prob: 0.50
-      - id: CrayonBox
-        prob: 0.10
-      - id: ClearPDA # change to visitor one day.
-        prob: 0.10
-      - id: PersonalAI
-=======
   - type: EntityTableContainerFill
     containers:
       entity_storage: !type:AllSelector
@@ -214,7 +146,6 @@
         - id: ClearPDA # change to visitor one day.
           prob: 0.10
         - id: PersonalAI
->>>>>>> upstreamwiz/master
 
 - type: entity
   parent: CrateGenericSteel

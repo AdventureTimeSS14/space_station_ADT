@@ -2419,7 +2419,7 @@
       fireRate: 0.8
       soundGunshot:
         path: /Audio/Weapons/plasma_cutter.ogg
-    - type: ProjectileBatteryAmmoProvider
+    - type: BatteryAmmoProvider
       proto: ADTBulletCutter
       fireCost: 100
     - type: BatteryWeaponFireModes
@@ -2516,7 +2516,7 @@
     - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: ADTBulletDisabler
     fireCost: 150
   - type: BatteryWeaponFireModes
@@ -3232,7 +3232,7 @@
       path: /Audio/ADT/Weapons/Guns/Gunshots/laser_gun_type.ogg
     soundEmpty:
       path: /Audio/ADT/Weapons/Guns/Gunshots/laser_gun_type_empty.ogg
-  - type: HitscanBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: PulseType
     fireCost: 100 # ADT tweak 200 -> 100
   - type: Battery

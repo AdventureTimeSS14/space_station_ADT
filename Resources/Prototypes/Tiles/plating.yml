@@ -57,7 +57,6 @@
   - 1.0
   - 1.0
   - 1.0
-<<<<<<< HEAD
   baseTurf: Lattice
   isSubfloor: true
   deconstructTools: [ AdvancedPrying ] # ADT-Axe-Great-Return
@@ -65,8 +64,6 @@
     collection: FootstepPlating
   friction: 1.5
   heatCapacity: 10000
-=======
->>>>>>> upstreamwiz/master
 
 - type: tile
   id: PlatingAsteroid

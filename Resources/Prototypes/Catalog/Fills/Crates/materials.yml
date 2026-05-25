@@ -189,19 +189,6 @@
   name: material silo crate
   description: A package including all the materials to create a material silo.
   components:
-<<<<<<< HEAD
-  - type: StorageFill
-    contents:
-    - id: MaterialSiloMachineCircuitboard
-    - id: SheetSteel1
-      amount: 5
-    - id: MicroManipulatorStockPart
-      amount: 4
-    - id: CableApcStack1
-      amount: 2
-    - id: ADTMaterialBScrystal1 #ADTTweak
-      amount: 5
-=======
   - type: EntityTableContainerFill
     containers:
       entity_storage: !type:AllSelector
@@ -213,7 +200,8 @@
           amount: 4
         - id: CableApcStack1
           amount: 2
->>>>>>> upstreamwiz/master
+        - id: ADTMaterialBScrystal1 #ADTTweak
+          amount: 5
 
 - type: entity
   parent: CrateGenericSteel
@@ -221,15 +209,6 @@
   name: basic sheet crate
   description: 30 sheets of steel, glass, and plastic.
   components:
-<<<<<<< HEAD
-  - type: StorageFill
-    contents:
-    - id: SheetSteel
-    - id: SheetGlass
-    - id: SheetPlastic
-    - id: ADTSheetCopper #ADT-BFUU-Tweak-start
-    - id: ADTSheetZinc #ADT-BFUU-Tweak-end
-=======
   - type: EntityTableContainerFill
     containers:
       entity_storage: !type:AllSelector
@@ -237,7 +216,8 @@
         - id: SheetSteel
         - id: SheetGlass
         - id: SheetPlastic
->>>>>>> upstreamwiz/master
+        - id: ADTSheetCopper #ADT-BFUU-Tweak-start
+        - id: ADTSheetZinc #ADT-BFUU-Tweak-end
 
 #- type: entity
 #  parent: CrateGenericSteel

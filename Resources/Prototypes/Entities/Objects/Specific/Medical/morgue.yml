@@ -54,7 +54,6 @@
     openSound:
       path: /Audio/Misc/zip.ogg
   - type: EntityStorageLayingDownOverride
-<<<<<<< HEAD
   - type: PaperLabel
     labelSlot:
       insertVerbText: paper-label-attach # ADT translate
@@ -65,8 +64,6 @@
       blacklist:
         tags:
         - Book
-=======
->>>>>>> upstreamwiz/master
   - type: Appearance
   - type: EntityStorageVisuals
     stateDoorOpen: open_overlay

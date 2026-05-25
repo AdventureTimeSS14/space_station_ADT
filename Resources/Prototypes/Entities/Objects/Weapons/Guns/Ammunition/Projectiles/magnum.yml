@@ -29,14 +29,10 @@
   - type: Projectile
     damage:
       types:
-<<<<<<< HEAD
         Piercing: 39 #ADT tweak
         # Blunt: 3 ADT tweak
         # Heat: 32 ADT tweak
-=======
-        Piercing: 26
         Heat: 9
->>>>>>> upstreamwiz/master
 
 - type: entity
   parent: BaseBulletAP

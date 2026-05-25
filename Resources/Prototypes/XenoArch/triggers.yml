@@ -243,10 +243,7 @@
     - AmmoniaBlood
     - ZombieBlood
     - Sap
-<<<<<<< HEAD
-=======
     - SulfurBlood
->>>>>>> upstreamwiz/master
 
 - type: xenoArchTrigger
   id: TriggerThrow

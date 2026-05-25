@@ -1,9 +1,4 @@
 - type: entity
-<<<<<<< HEAD
-  id: BulletLightRifle
-  name: bullet (.30 rifle)
-=======
->>>>>>> upstreamwiz/master
   parent: BaseBullet
   id: BulletLightRifle
   categories: [ HideSpawnMenu ]
@@ -15,11 +10,6 @@
         Piercing: 19
 
 - type: entity
-<<<<<<< HEAD
-  id: BulletLightRiflePractice
-  name: bullet (.30 rifle practice)
-=======
->>>>>>> upstreamwiz/master
   parent: BaseBulletPractice
   id: BulletLightRiflePractice
   categories: [ HideSpawnMenu ]
@@ -32,33 +22,21 @@
 
 - type: entity
   parent: BaseBulletIncendiary
-<<<<<<< HEAD
-  name: bullet (.30 rifle incendiary)
-=======
   id: BulletLightRifleIncendiary
->>>>>>> upstreamwiz/master
   categories: [ HideSpawnMenu ]
   name: bullet (.30 rifle incendiary)
   components:
   - type: Projectile
     damage:
       types:
-<<<<<<< HEAD
         Piercing: 14 #ADT tweak
         # Blunt: 3 ADT tweak
         # Heat: 16 ADT tweak
-=======
-        Piercing: 14
         Heat: 5
->>>>>>> upstreamwiz/master
 
 - type: entity
   parent: BaseBulletUranium
-<<<<<<< HEAD
-  name: bullet (.30 rifle uranium)
-=======
   id: BulletLightRifleUranium
->>>>>>> upstreamwiz/master
   categories: [ HideSpawnMenu ]
   name: bullet (.30 rifle uranium)
   components:

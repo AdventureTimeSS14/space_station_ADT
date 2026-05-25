@@ -255,8 +255,6 @@
 - type: stealTargetGroup
   id: ChiefEngineerToolBelt
   name: steal-target-groups-belt-ce
-<<<<<<< HEAD
-=======
   sprite:
     sprite: Clothing/Belt/ce.rsi
     state: icon
@@ -264,7 +262,6 @@
 - type: stealTargetGroup
   id: SalvageExpeditionsComputerCircuitboard
   name: steal-target-groups-salvage-expeditions-computer-circuitboard
->>>>>>> upstreamwiz/master
   sprite:
     sprite: Clothing/Belt/ce.rsi
     state: icon

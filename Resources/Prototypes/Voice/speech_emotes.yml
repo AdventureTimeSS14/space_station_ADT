@@ -372,96 +372,22 @@
 #   - рычит!
 #   # Corvax-Localization-End
 
-# Vulpkanin
-- type: emote
-  id: Bark
-  name: chat-emote-name-bark
-  category: Vocal
-  available: false
-  whitelist:
-    components:
-    - Vocal
-  blacklist:
-    tags:
-    - SiliconEmotes
-  chatMessages: ["chat-emote-msg-bark"]
-  chatTriggers:
-  - bark
-  - barks
-  - barked
-  - barking
-
-- type: emote
-  id: Snarl
-  name: chat-emote-name-snarl
-  category: Vocal
-  available: false
-  whitelist:
-    components:
-    - Vocal
-  blacklist:
-    tags:
-    - SiliconEmotes
-  chatMessages: ["chat-emote-msg-snarl"]
-  chatTriggers:
-  - snarl
-  - snarls
-  - snarled
-  - snarling
-
-- type: emote
-  id: Whine
-  name: chat-emote-name-whine
-  category: Vocal
-  available: false
-  whitelist:
-    components:
-    - Vocal
-  blacklist:
-    tags:
-    - SiliconEmotes
-  chatMessages: ["chat-emote-msg-whine"]
-  chatTriggers:
-  - whine
-  - whines
-  - whined
-  - whining
-
-- type: emote
-  id: Howl
-  name: chat-emote-name-howl
-  category: Vocal
-  available: false
-  whitelist:
-    components:
-    - Vocal
-  blacklist:
-    tags:
-    - SiliconEmotes
-  chatMessages: ["chat-emote-msg-howl"]
-  chatTriggers:
-  - howl
-  - howls
-  - howling
-  - howled
-
-- type: emote
-  id: Growl
-  name: chat-emote-name-growl
-  category: Vocal
-  available: false
-  whitelist:
-    components:
-    - Vocal
-  blacklist:
-    tags:
-    - SiliconEmotes
-  chatMessages: ["chat-emote-msg-growl"]
-  chatTriggers:
-  - growl
-  - growls
-  - growled
-  - growling
+# ADT-Tweak: Vulpkanin emotes defined in /Prototypes/ADT/Voice/speech_emotes.yml (Snarl already above)
+# - type: emote
+#   id: Bark
+#   ...
+# - type: emote
+#   id: Snarl
+#   ...
+# - type: emote
+#   id: Whine
+#   ...
+# - type: emote
+#   id: Howl
+#   ...
+# - type: emote
+#   id: Growl
+#   ...
 
 # hand emotes
 - type: emote

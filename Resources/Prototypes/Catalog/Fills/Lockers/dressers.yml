@@ -20,15 +20,6 @@
   parent: Dresser
   suffix: Filled, Chief Engineer
   components:
-<<<<<<< HEAD
-  - type: StorageFill
-    contents:
-      - id: ClothingUniformJumpsuitChiefEngineerTurtle
-      - id: ClothingUniformJumpskirtChiefEngineerTurtle
-      - id: ADTClothingHeadHatBeretCEngineer # ADT tweak
-      - id: ClothingOuterWinterCE
-      - id: ClothingNeckCloakCe
-=======
   - type: EntityTableContainerFill
     containers:
       storagebase: !type:AllSelector
@@ -38,7 +29,7 @@
         - id: ClothingHeadHatBeretEngineering
         - id: ClothingOuterWinterCE
         - id: ClothingNeckCloakCe
->>>>>>> upstreamwiz/master
+        - id: ADTClothingHeadHatBeretCEngineer # ADT tweak
 
 - type: entity
   id: DresserChiefMedicalOfficerFilled
@@ -77,19 +68,6 @@
   parent: Dresser
   suffix: Filled, Head Of Security
   components:
-<<<<<<< HEAD
-  - type: StorageFill
-    contents:
-      - id: ClothingHeadHatBeretHoS
-      - id: ClothingHeadHatHoshat
-      - id: ClothingMaskNeckGaiter
-      - id: ClothingUniformJumpskirtHoSAlt
-      - id: ClothingUniformJumpsuitHoSAlt
-      - id: ClothingUniformJumpskirtHosFormal
-      - id: ClothingUniformJumpsuitHosFormal
-      - id: ClothingOuterWinterHoS
-      - id: ClothingNeckCloakHos
-=======
   - type: EntityTableContainerFill
     containers:
       storagebase: !type:AllSelector
@@ -103,7 +81,6 @@
         - id: ClothingUniformJumpsuitHosFormal
         - id: ClothingOuterWinterHoS
         - id: ClothingNeckCloakHos
->>>>>>> upstreamwiz/master
 
 - type: entity
   id: DresserQuarterMasterFilled

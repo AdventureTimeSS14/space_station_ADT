@@ -4,29 +4,6 @@
   parent: ToolboxEmergency
   suffix: Filled
   components:
-<<<<<<< HEAD
-  - type: StorageFill
-    contents:
-      - id: CrowbarRed
-      - id: RadioHandheld
-      - id: WelderMini
-      - id: FireExtinguisherMini
-      # Random lighting item orGroup
-      - id: FlashlightLantern
-        orGroup: LightingItem
-      - id: Flare
-        orGroup: LightingItem
-      - id: GlowstickBase
-        orGroup: LightingItem
-      # Low-chance items
-      - id: FoodSnackChocolate
-        prob: 0.15
-      - id: HarmonicaInstrument
-        prob: 0.15
-  - type: Tag # ADT-Tweak
-    tags:
-    - Toolbox
-=======
   - type: EntityTableContainerFill
     containers:
       storagebase: !type:AllSelector
@@ -46,7 +23,9 @@
           prob: 0.15
         - id: HarmonicaInstrument
           prob: 0.15
->>>>>>> upstreamwiz/master
+  - type: Tag # ADT-Tweak
+    tags:
+    - Toolbox
 
 - type: entity
   id: ToolboxElectricalFilled
@@ -54,30 +33,13 @@
   suffix: Filled
   parent: ToolboxElectrical
   components:
-<<<<<<< HEAD
-  - type: StorageFill
-    contents:
-      - id: Screwdriver
-      - id: CrowbarOrange
-      - id: Wirecutter
-      - id: CableApcStack10
-      - id: CableMVStack10
-      - id: trayScanner
-        prob: 0.9
-      - id: ClothingHandsGlovesColorYellow
-        prob: 0.05
-        orGroup: GlovesOrWires
-      - id: CableHVStack10
-        orGroup: GlovesOrWires
-  - type: Tag # ADT-Tweak
-    tags:
-    - Toolbox
-=======
   - type: EntityTableContainerFill
     containers:
       storagebase: !type:NestedSelector
         tableId: ToolboxElectricalEntityTable
->>>>>>> upstreamwiz/master
+  - type: Tag # ADT-Tweak
+    tags:
+    - Toolbox
 
 - type: entity
   id: ToolboxElectricalTurretFilled
@@ -89,6 +51,9 @@
     containers:
       storagebase: !type:NestedSelector
         tableId: ToolboxElectricalEntityTable
+  - type: Tag # ADT-Tweak
+    tags:
+    - Toolbox
 
 - type: entityTable
   id: ToolboxElectricalEntityTable
@@ -106,13 +71,6 @@
       - id: ClothingHandsGlovesColorYellow
         weight: 0.05
       - id: CableHVStack10
-<<<<<<< HEAD
-        orGroup: GlovesOrWires
-  - type: Tag # ADT-Tweak
-    tags:
-    - Toolbox
-=======
->>>>>>> upstreamwiz/master
 
 - type: entity
   id: ToolboxArtisticFilled
@@ -120,25 +78,6 @@
   suffix: Filled
   parent: ToolboxArtistic
   components:
-<<<<<<< HEAD
-  - type: StorageFill
-    contents:
-    - id: CrayonBox
-    - id: Paper
-      amount: 3
-    - id: Pen
-    - id: MysteryFigureBox
-      prob: 0.5
-    - id: MysteryFigureBox
-      prob: 0.5
-    - id: BookRandom
-      amount: 2
-    - id: CrayonMime
-    - id: CrayonRainbow
-  - type: Tag # ADT-Tweak
-    tags:
-    - Toolbox
-=======
   - type: EntityTableContainerFill
     containers:
       storagebase: !type:AllSelector
@@ -155,7 +94,9 @@
           amount: 2
         - id: CrayonMime
         - id: CrayonRainbow
->>>>>>> upstreamwiz/master
+  - type: Tag # ADT-Tweak
+    tags:
+    - Toolbox
 
 - type: entity
   id: ToolboxMechanicalFilled
@@ -163,23 +104,6 @@
   suffix: Filled
   parent: ToolboxMechanical
   components:
-<<<<<<< HEAD
-  - type: StorageFill
-    contents:
-      - id: CrowbarOrange
-      - id: Wrench
-      - id: Welder
-      - id: Wirecutter
-      - id: Screwdriver
-        prob: 0.5
-      - id: FlashlightLantern
-        prob: 0.7
-      - id: ClothingHeadHatHardhatBlue
-        prob: 0.5
-  - type: Tag # ADT-Tweak
-    tags:
-    - Toolbox
-=======
   - type: EntityTableContainerFill
     containers:
       storagebase: !type:AllSelector
@@ -194,7 +118,9 @@
           prob: 0.7
         - id: ClothingHeadHatHardhatBlue
           prob: 0.5
->>>>>>> upstreamwiz/master
+  - type: Tag # ADT-Tweak
+    tags:
+    - Toolbox
 
 - type: entity
   id: ToolboxMechanicalFilledAllTools
@@ -202,19 +128,6 @@
   suffix: Filled, all tools
   parent: ToolboxMechanical
   components:
-<<<<<<< HEAD
-  - type: StorageFill
-    contents:
-    - id: Crowbar
-    - id: Wrench
-    - id: Screwdriver
-    - id: Wirecutter
-    - id: Welder
-    - id: Multitool
-  - type: Tag # ADT-Tweak
-    tags:
-    - Toolbox
-=======
   - type: EntityTableContainerFill
     containers:
       storagebase: !type:AllSelector
@@ -225,7 +138,9 @@
         - id: Wirecutter
         - id: Welder
         - id: Multitool
->>>>>>> upstreamwiz/master
+  - type: Tag # ADT-Tweak
+    tags:
+    - Toolbox
 
 - type: entity
   parent: ToolboxSyndicate
@@ -256,16 +171,6 @@
   parent: ToolboxGolden
   suffix: Filled
   components:
-<<<<<<< HEAD
-  - type: StorageFill
-    contents:
-      - id: IngotGold
-      - id: DrinkGoldenCup
-        prob: 0.05
-  - type: Tag # ADT-Tweak
-    tags:
-    - Toolbox
-=======
   - type: EntityTableContainerFill
     containers:
       storagebase: !type:AllSelector
@@ -273,6 +178,9 @@
         - id: IngotGold
         - id: DrinkGoldenCup
           prob: 0.05
+  - type: Tag # ADT-Tweak
+    tags:
+    - Toolbox
 
 - type: entity
   parent: Foolbox
@@ -377,4 +285,3 @@
     - id: ClothingHandsGlovesJanitor # Janitor
     - id: ClothingUniformJumpsuitReporter # Reporter
     - id: ClothingOuterWinterMime # Mime
->>>>>>> upstreamwiz/master

@@ -84,12 +84,8 @@
     attackRate: 3.65 #ADT tweak 4>3.65
     damage:
       types:
-<<<<<<< HEAD
         Structural: 20 #ADT tweak 30>20
-=======
         Piercing: 6
-        Structural: 30
->>>>>>> upstreamwiz/master
 
 
 - type: entity
@@ -145,19 +141,10 @@
   - type: UseDelayOnShoot
   - type: UseDelay
     delay: 0.9
-<<<<<<< HEAD
   # - type: LeechOnMarker ADT tweak
   #   leech:
   #     groups:
   #       Brute: -10
-=======
-  - type: LeechOnMarker
-    leech:
-      types:
-        Blunt: -2
-        Slash: -2
-        Piercing: -2
->>>>>>> upstreamwiz/master
   - type: Gun
     soundGunshot: /Audio/Weapons/plasma_cutter.ogg
     fireRate: 1
@@ -261,19 +248,10 @@
     proto: BulletChargeGlaive
     capacity: 1
     count: 1
-<<<<<<< HEAD
   # - type: LeechOnMarker ADT crusher reskin
   #   leech:
   #     groups:
   #       Brute: -21
-=======
-  - type: LeechOnMarker
-    leech:
-      types:
-        Blunt: -5
-        Piercing: -5
-        Slash: -5
->>>>>>> upstreamwiz/master
   - type: Tag
     tags:
       - Pickaxe

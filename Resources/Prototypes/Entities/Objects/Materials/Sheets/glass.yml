@@ -16,11 +16,8 @@
     tags:
     - Sheet
     - ConstructionMaterial
-<<<<<<< HEAD
     - NoPaint #ADT tweak
     - ADTGlassSheet #ADT tweak
-=======
->>>>>>> upstreamwiz/master
   - type: Material
   - type: Damageable
     damageContainer: Inorganic

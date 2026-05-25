@@ -75,13 +75,10 @@
         - !type:MetabolizerTypeCondition
           type: [ Arachnid ]
           inverted: true
-<<<<<<< HEAD
           #ADT-Tweak-Start
         - !type:MetabolizerTypeCondition
           type: [ Vox ]
           #ADT-Tweak-End
-=======
->>>>>>> upstreamwiz/master
         damage:
           types:
             Poison: 0.1
@@ -196,13 +193,10 @@
         - !type:MetabolizerTypeCondition
           type: [ Arachnid ]
           inverted: true
-<<<<<<< HEAD
         # ADT tweak start
         - !type:MetabolizerTypeCondition
           type: [ Drask, Human ]
         # ADT tweak end
-=======
->>>>>>> upstreamwiz/master
         amount: 0.4
     # ADT Start
     Food:

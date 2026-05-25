@@ -521,7 +521,7 @@
       params:
         variation: 0.2
         pitch: 0.75
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: ADTBoltHoly
     fireCost: 300
   - type: MagazineVisuals

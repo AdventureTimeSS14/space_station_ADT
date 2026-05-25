@@ -1,9 +1,4 @@
 - type: entity
-<<<<<<< HEAD
-  id: BulletHeavyRifle
-  name: bullet (.10 rifle)
-=======
->>>>>>> upstreamwiz/master
   parent: BaseBullet
   id: BulletHeavyRifle
   categories: [ HideSpawnMenu ]

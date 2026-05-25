@@ -200,18 +200,11 @@
   name: compressed matter crate
   description: Contains three compressed matter cartridges.
   components:
-<<<<<<< HEAD
-  - type: StorageFill
-    contents:
-    - id: RCDAmmo
-      amount: 6
-=======
   - type: EntityTableContainerFill
     containers:
       entity_storage:
         id: RCDAmmo
         amount: 3
->>>>>>> upstreamwiz/master
 
 - type: entity
   parent: CrateEngineeringSecure
@@ -268,10 +261,6 @@
 - type: entity
   parent: ToteBase
   id: CrateTechBoardRandom
-<<<<<<< HEAD
-  parent: ToteBase
-=======
->>>>>>> upstreamwiz/master
   name: surplus boards
   description: Surplus boards from somewhere.
   components:

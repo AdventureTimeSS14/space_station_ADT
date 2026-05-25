@@ -42,10 +42,13 @@
         maxVol: 20
   - type: DeleteOnSolutionEmpty
     solution: pen
-  - type: Hypospray
-    onlyAffectsMobs: true
+  - type: Injector # ADT-Tweak: wizden renamed Hypospray -> Injector
+    activeModeProtoId: HyposprayInjectMode
+    allowedModes:
+    - HyposprayInjectMode
+    ignoreClosed: true
     solutionName: pen
-    transferAmount: 20
+    currentTransferAmount: 20
     injectSound: /Audio/Items/Medical/brutepack_end.ogg
   - type: Extractable
     grindableSolutionName: pen

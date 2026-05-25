@@ -67,7 +67,7 @@
       - Shock
     locPrefix: silicon
   - type: UserInterface
-    interfaces:
+    #interfaces:
     # - key: enum.SiliconLawsUiKey.Key
     #   type: SiliconLawBoundUserInterface
     # - key: enum.BorgUiKey.Key

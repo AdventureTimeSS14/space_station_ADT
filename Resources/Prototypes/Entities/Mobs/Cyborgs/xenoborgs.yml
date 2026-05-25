@@ -121,11 +121,7 @@
           collection: MetalBreak
       - !type:SpawnEntitiesBehavior
         spawn:
-<<<<<<< HEAD
-          PinpointerMothership: # drop a pinpointer to the mothership upon being destructed
-=======
           PinpointerMothershipPiece: # drop a piece of core pinpointer upon being destructed (4 pieces to make a core pinpointer)
->>>>>>> upstreamwiz/master
             min: 1
             max: 1
       - !type:EmptyContainersBehaviour

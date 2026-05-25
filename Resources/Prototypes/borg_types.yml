@@ -160,14 +160,10 @@
     - BorgModuleMedical
 
   defaultModules:
-<<<<<<< HEAD
   - BorgModuleTool
+  - BorgModulePrying
   # ADT-Tweak-Start: "MedborgModuleUpdate"
   - ADTBorgModuleChemical
-=======
-  - BorgModulePrying
-  - BorgModuleChemical
->>>>>>> upstreamwiz/master
   - BorgModuleTopicals
   - ADTBorgModuleRescue
   # ADT-Tweak-end

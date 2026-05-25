@@ -29,14 +29,10 @@
   - type: Projectile
     damage:
       types:
-<<<<<<< HEAD
         Piercing: 10 #ADT tweak
         # Blunt: 3 ADT twea
         # Heat: 14
-=======
-        Piercing: 12
         Heat: 4
->>>>>>> upstreamwiz/master
 
 - type: entity
   parent: BaseBulletUranium

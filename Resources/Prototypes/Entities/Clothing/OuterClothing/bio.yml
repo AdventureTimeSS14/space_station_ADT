@@ -89,11 +89,7 @@
   - type: ClothingSpeedModifier
     walkModifier: 0.95
     sprintModifier: 0.95
-<<<<<<< HEAD
 
-=======
-
->>>>>>> upstreamwiz/master
 - type: entity
   parent: ClothingOuterBioGeneral
   id: ClothingOuterBioVirology

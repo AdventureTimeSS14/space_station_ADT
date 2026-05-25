@@ -6,18 +6,11 @@
   name: packaged antimatter reactor crate
   description: 9 parts for the main body of an antimatter reactor, or for expanding an existing one.
   components:
-<<<<<<< HEAD
-  - type: StorageFill
-    contents:
-      - id: AmePartFlatpack
-        amount: 12 #ADT_Tweaks
-=======
   - type: EntityTableContainerFill
     containers:
       entity_storage:
         id: AmePartFlatpack
-        amount: 9
->>>>>>> upstreamwiz/master
+        amount: 12 #ADT_Tweaks
 
 - type: entity
   parent: CrateEngineeringSecure

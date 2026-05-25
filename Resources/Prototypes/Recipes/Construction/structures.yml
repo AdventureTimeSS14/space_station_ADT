@@ -1314,9 +1314,6 @@
   canRotate: false
   canBuildInImpassable: false
   conditions:
-<<<<<<< HEAD
-    - !type:TileNotBlocked
-=======
     - !type:TileNotBlocked
 
 - type: construction
@@ -1344,4 +1341,3 @@
   canBuildInImpassable: false
   conditions:
   - !type:TileNotBlocked
->>>>>>> upstreamwiz/master

@@ -10,7 +10,6 @@
   - FoodRecipes
   - Writing
   - Lawsets
-<<<<<<< HEAD
 
   # ADT-Tweak Start
 - type: guideEntry
@@ -21,8 +20,6 @@
     - MedicinalRecipes
     - Chemicals
   #ADT-Tweak End
-=======
->>>>>>> upstreamwiz/master
 
 - type: guideEntry
   id: Drinks

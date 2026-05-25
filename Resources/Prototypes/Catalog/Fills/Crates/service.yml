@@ -121,29 +121,6 @@
   name: theatrical performances crate
   description: Contains a moth cloak, barber scissors, maid uniform, clown and mime attributes, and other performance charms.
   components:
-<<<<<<< HEAD
-  - type: StorageFill
-    contents:
-    - id: ClothingUniformJumpskirtPerformer
-    - id: ClothingShoesBootsPerformer
-    - id: ClothingHeadPerformerWig
-    - id: ClothingOuterSuitMonkey
-    - id: ClothingHeadHatAnimalMonkey
-    - id: ClothingNeckCloakMoth
-    - id: ClothingMaskClown
-    - id: ClothingMaskMime
-    - id: ClothingShoesClown
-    # - id: ClothingUniformJumpskirtJanimaid ADT Tweak
-    - id: ClothingNeckCloakVoid
-    - id: RevolverCapGun
-    - id: BarberScissors
-    - id: ClothingUniformJumpskirtOldDress
-    - id: BikeHorn
-    - id: ClownRecorder
-    - id: ClothingBeltSuspendersRed
-    - id: ClothingBeltSuspendersBlack
-    - id: ADTClothingUniformJumpskirtJanimaid #ADT TweakRed
-=======
   - type: EntityTableContainerFill
     containers:
       entity_storage: !type:AllSelector
@@ -151,9 +128,10 @@
         - id: BarberScissors
         - id: ClothingOuterSuitMonkey
         - id: ClothingHeadHatAnimalMonkey
-        - id: ClothingUniformJumpskirtJanimaid
+        - id: ADTClothingUniformJumpskirtJanimaid # ADT-Tweak: ADT variant
         - id: ClothingUniformJumpskirtOldDress
         - id: ClothingHeadHatMagician
+        - id: RevolverCapGun # ADT-Tweak
         - !type:AllSelector # Cloaks
           children:
           - id: ClothingNeckCloakMoth
@@ -179,7 +157,6 @@
           - id: ClothingUniformJumpskirtPerformer
           - id: ClothingShoesBootsPerformer
           - id: ClothingHeadPerformerWig
->>>>>>> upstreamwiz/master
 
 - type: entity
   parent: CrateGenericSteel
@@ -205,34 +182,16 @@
   name: bureaucracy crate
   description: Several stacks of paper, a few pens and an office toy. What more could you ask for?
   components:
-<<<<<<< HEAD
-  - type: StorageFill
-    contents:
-    # ADT tweak start
-    #- id: Paper
-    #  amount: 15
-    - id: ADTPaperPack
-      amount: 2
-    # ADT tweak end
-    - id: Pen
-      amount: 2
-    - id: BoxFolderClipboardEmpty
-      amount: 2
-    - id: HandLabeler
-    - id: BoxFolderBlueEmpty
-    - id: BoxFolderRedEmpty
-    - id: BoxFolderYellowEmpty
-    - id: NewtonCradle
-    - id: BoxEnvelope
-    - id: BrbSign
-    - id: ADTBureaucraticBelt #ADT-Tweak
-=======
   - type: EntityTableContainerFill
     containers:
       entity_storage: !type:AllSelector
         children:
-        - id: Paper
-          amount: 12
+        # ADT tweak start: Paper -> ADTPaperPack
+        # - id: Paper
+        #   amount: 12
+        - id: ADTPaperPack
+          amount: 2
+        # ADT tweak end
         - id: PaperOffice
           amount: 6
         - id: Pen
@@ -246,7 +205,7 @@
         - id: NewtonCradle
         - id: BoxEnvelope
         - id: BrbSign
->>>>>>> upstreamwiz/master
+        - id: ADTBureaucraticBelt # ADT-Tweak
 
 - type: entity
   parent: CrateGenericSteel
@@ -292,24 +251,6 @@
   name: guidebooks crate
   description: Contains guidebooks.
   components:
-<<<<<<< HEAD
-    - type: StorageFill
-      contents:
-      - id: BookSpaceEncyclopedia
-      - id: BookTheBookOfControl
-      - id: BookBartendersManual
-      - id: BookHowToCookForFortySpaceman
-      - id: BookLeafLoversSecret
-      - id: BookEngineersHandbook
-      - id: BookScientistsGuidebook
-      - id: BookSecurity
-      - id: BookHowToKeepStationClean
-      - id: BookHowToRockAndStone
-      - id: BookMedicalReferenceBook
-      - id: BookHowToSurvive
-      - id: BookChemicalCompendium
-      - id: ADTBookSpaceLaw #ADT-WikiBooks
-=======
   - type: EntityTableContainerFill
     containers:
       entity_storage: !type:AllSelector
@@ -328,15 +269,11 @@
         - id: BookHowToSurvive
         - id: BookChemicalCompendium
         - id: BookSpaceLaw
->>>>>>> upstreamwiz/master
+        - id: ADTBookSpaceLaw # ADT-WikiBooks
 
 - type: entity
   parent: CrateFreezer
   id: CrateServiceSodaDispenser
-<<<<<<< HEAD
-  parent: CrateFreezer
-=======
->>>>>>> upstreamwiz/master
   name: soda dispenser refill crate
   description: Contains refills for soda dispensers.
   components:
@@ -366,27 +303,6 @@
 - type: entity
   parent: CrateFreezer
   id: CrateServiceBoozeDispenser
-<<<<<<< HEAD
-  parent: CrateFreezer
-  name: booze dispenser refill crate
-  description: Contains refills for booze dispensers.
-  components:
-    - type: StorageFill
-      contents:
-      - id: DrinkAleBottleFullGrowler
-      - id: DrinkBeerGrowler
-      - id: DrinkCoffeeLiqueurBottleFull
-      - id: DrinkCognacBottleFull
-      - id: DrinkGinBottleFull
-      - id: DrinkMeadJug
-      - id: DrinkRumBottleFull
-      - id: DrinkTequilaBottleFull
-      - id: DrinkVermouthBottleFull
-      - id: DrinkVodkaBottleFull
-      - id: DrinkWhiskeyBottleFull
-      - id: DrinkWineBottleFull
-      - id: ADTDrinkAppleLiqueurBottleFull #ADT_Tweak
-=======
   name: booze dispenser refill crate
   description: Contains refills for booze dispensers.
   components:
@@ -406,7 +322,7 @@
         - id: DrinkVodkaBottleFull
         - id: DrinkWhiskeyBottleFull
         - id: DrinkWineBottleFull
->>>>>>> upstreamwiz/master
+        - id: ADTDrinkAppleLiqueurBottleFull # ADT-Tweak
 
 - type: entity
   parent: CratePlastic

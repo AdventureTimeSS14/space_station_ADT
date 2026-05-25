@@ -17,7 +17,7 @@
     solution: hypospray
   - type: ExaminableSolution
     solution: hypospray
-  - type: Hypospray
+  - type: Injector # ADT-Tweak: wizden renamed Hypospray -> Injector
     onlyAffectsMobs: false
   - type: UseDelay
     delay: 2.5

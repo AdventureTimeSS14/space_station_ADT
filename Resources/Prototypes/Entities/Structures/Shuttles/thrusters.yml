@@ -105,8 +105,6 @@
   parent: Thruster
   id: ThrusterXenoborg
   components:
-<<<<<<< HEAD
-=======
   # temporary solution until thruster rework
   - type: Thruster
     canToggle: false # no turning it off by just clicking it
@@ -115,7 +113,6 @@
     - Anchorable # no unwrenching it
   - type: Rotatable
     rotateWhileAnchored: false # no rotating it backwards so it doesn't face space
->>>>>>> upstreamwiz/master
   - type: Sprite
     sprite: Structures/Shuttles/xenoborg_thruster.rsi
 

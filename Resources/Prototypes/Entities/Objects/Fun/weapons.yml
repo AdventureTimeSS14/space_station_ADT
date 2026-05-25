@@ -41,6 +41,7 @@
     containers:
       ballistic-ammo: !type:Container
         ents: []
+  - type: GunExecutionBlacklist # ADT-Tweak
 
 - type: entity
   name: Foam Force Astro Ace
@@ -71,6 +72,7 @@
       path: /Audio/Effects/thunk.ogg
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/empty.ogg
+  - type: GunExecutionBlacklist # ADT-Tweak
   - type: StaticPrice
     price: 100
 
@@ -132,6 +134,8 @@
       - SpeedLoaderCap
       - CartridgeMagnum
       - SpeedLoaderMagnum
+      - ADTCartridgeMagnumLesser # ADT-Tweak
+      - ADTSpeedLoaderMagnumLesser # ADT-Tweak
     proto: CartridgeMagnumAP
 
 - type: entity

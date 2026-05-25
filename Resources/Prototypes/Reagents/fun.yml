@@ -12,8 +12,7 @@
     maxOnTileWhitelist:
       tags: [ Carpet ]
   metabolisms:
-<<<<<<< HEAD
-    # Start ADT tweak
+    # Start ADT tweak: Moth Narcotic
     Narcotic:
       effects:
       - !type:GenericStatusEffect
@@ -31,10 +30,7 @@
         type: Add
         time: 8
     # End ADT tweak
-    Poison:
-=======
     Bloodstream:
->>>>>>> upstreamwiz/master
       effects:
       - !type:PopupMessage
         type: Local
@@ -263,13 +259,8 @@
       - !type:AdjustTemperature
         conditions:
         - !type:TemperatureCondition
-<<<<<<< HEAD
-          min: 1 #ADT-Tweak 160.15 -> 1
-        amount: -10000 #ADT-Tweak -30000 -> -10000
-=======
-          min: 160.15
-        amount: -30000
->>>>>>> upstreamwiz/master
+          min: 1 # ADT-Tweak 160.15 -> 1
+        amount: -10000 # ADT-Tweak -30000 -> -10000
     Extinguish:
       methods: [ Touch ]
       effects:
@@ -304,13 +295,8 @@
       - !type:AdjustTemperature
         conditions:
         - !type:TemperatureCondition
-<<<<<<< HEAD
           min: 1 # ADT-Tweak 160.15 -> 1
-        amount: -50000 #ADT-Tweak -10000 -> -50000
-=======
-          min: 160.15 # not quite enough for cryo, but can speed it up if you wanna take the risk
-        amount: -10000
->>>>>>> upstreamwiz/master
+        amount: -50000 # ADT-Tweak -10000 -> -50000
       - !type:MovementSpeedModifier
         conditions:
         - !type:ReagentCondition
@@ -471,76 +457,47 @@
   flavor: cannedtuna
   color: "#d8bed8"
   metabolisms:
-<<<<<<< HEAD
-    Poison:
-=======
     Bloodstream:
->>>>>>> upstreamwiz/master
       metabolismRate: 0.2
       effects:
       - !type:HealthChange
         conditions:
         - !type:ReagentCondition
           reagent: Felinase
-<<<<<<< HEAD
-          min: 25
-=======
-          min: 15
->>>>>>> upstreamwiz/master
+          min: 25 # ADT-Tweak 15 -> 25
         damage:
           types:
             Radiation: 0.5
       - !type:AdjustReagent
         reagent: Felinase
-<<<<<<< HEAD
-        amount: -15
+        amount: -15 # ADT-Tweak -5 -> -15
         conditions:
         - !type:ReagentCondition
           reagent: Felinase
-          min: 40
-=======
-        amount: -5
-        conditions:
-        - !type:ReagentCondition
-          reagent: Felinase
-          min: 30
->>>>>>> upstreamwiz/master
+          min: 40 # ADT-Tweak 30 -> 40
       - !type:ModifyStatusEffect
         conditions:
         - !type:ReagentCondition
           reagent: Felinase
-<<<<<<< HEAD
-          min: 25
+          min: 25 # ADT-Tweak 10 -> 25
         effectProto: StatusEffectOwO
-        time: 25.0
-=======
-          min: 10
-        effectProto: StatusEffectOwO
-        time: 12.5
->>>>>>> upstreamwiz/master
+        time: 25.0 # ADT-Tweak 12.5 -> 25.0
         type: Add
       - !type:Emote
         conditions:
         - !type:ReagentCondition
           reagent: Felinase
-<<<<<<< HEAD
-          min: 25
-=======
-          min: 10
->>>>>>> upstreamwiz/master
+          min: 25 # ADT-Tweak 10 -> 25
         emote: Cough
         showInChat: true
         showInGuidebook: true
         force: true
         probability: 0.05
       - !type:PopupMessage
-<<<<<<< HEAD
-        conditions:
+        conditions: # ADT-Tweak: only trigger above min: 25
         - !type:ReagentCondition
           reagent: Felinase
           min: 25
-=======
->>>>>>> upstreamwiz/master
         type: Local
         visualType: Small
         messages: [ "capsaicin-effect-light-burn" ]
@@ -555,76 +512,47 @@
   flavor: dogfood
   color: "#b87333"
   metabolisms:
-<<<<<<< HEAD
-    Poison:
-=======
     Bloodstream:
->>>>>>> upstreamwiz/master
       metabolismRate: 0.2
       effects:
       - !type:HealthChange
         conditions:
         - !type:ReagentCondition
           reagent: Caninase
-<<<<<<< HEAD
-          min: 25
-=======
-          min: 15
->>>>>>> upstreamwiz/master
+          min: 25 # ADT-Tweak 15 -> 25
         damage:
           types:
             Radiation: 0.5
       - !type:AdjustReagent
         reagent: Caninase
-<<<<<<< HEAD
-        amount: -15
+        amount: -15 # ADT-Tweak -5 -> -15
         conditions:
         - !type:ReagentCondition
           reagent: Caninase
-          min: 40
-=======
-        amount: -5
-        conditions:
-        - !type:ReagentCondition
-          reagent: Caninase
-          min: 30
->>>>>>> upstreamwiz/master
+          min: 40 # ADT-Tweak 30 -> 40
       - !type:ModifyStatusEffect
         conditions:
         - !type:ReagentCondition
           reagent: Caninase
-<<<<<<< HEAD
-          min: 25
+          min: 25 # ADT-Tweak 10 -> 25
         effectProto: StatusEffectBark
-        time: 25.0
-=======
-          min: 10
-        effectProto: StatusEffectBark
-        time: 12.5
->>>>>>> upstreamwiz/master
+        time: 25.0 # ADT-Tweak 12.5 -> 25.0
         type: Add
       - !type:Emote
         conditions:
         - !type:ReagentCondition
           reagent: Caninase
-<<<<<<< HEAD
-          min: 25
-=======
-          min: 10
->>>>>>> upstreamwiz/master
+          min: 25 # ADT-Tweak 10 -> 25
         emote: Cough
         showInChat: true
         showInGuidebook: true
         force: true
         probability: 0.05
       - !type:PopupMessage
-<<<<<<< HEAD
-        conditions:
+        conditions: # ADT-Tweak: only trigger above min: 25
         - !type:ReagentCondition
           reagent: Caninase
           min: 25
-=======
->>>>>>> upstreamwiz/master
         type: Local
         visualType: Small
         messages: [ "capsaicin-effect-light-burn" ]

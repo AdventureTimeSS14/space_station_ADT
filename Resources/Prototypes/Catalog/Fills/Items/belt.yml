@@ -100,18 +100,6 @@
   id: ClothingBeltMedicalFilled
   suffix: Filled
   components:
-<<<<<<< HEAD
-  - type: StorageFill
-    contents:
-      - id: Brutepack
-        amount: 2
-      - id: Ointment
-        amount: 1
-      - id: ADTBloodPackTransfusionFull # ADT tweak: Blood IV
-        amount: 1
-      - id: Gauze
-      - id: EmergencyMedipen #You never know what people are going to latejoin into
-=======
   - type: EntityTableContainerFill
     containers:
       storagebase: !type:AllSelector
@@ -128,23 +116,14 @@
         - id: ChemistryBottleKelotane
         - id: ChemistryBottleEpinephrine # A power item for medical players that feels thematic and worth stealing
         - id: PillCanisterTricordrazine
->>>>>>> upstreamwiz/master
+        - id: ADTBloodPackTransfusionFull # ADT tweak: Blood IV
+          amount: 1
 
 - type: entity
   parent: ClothingBeltMedicalEMT
   id: ClothingBeltMedicalEMTFilled
   suffix: Paramedic, Filled
   components:
-<<<<<<< HEAD
-  - type: StorageFill
-    contents:
-      - id: Brutepack
-      - id: Ointment
-      - id: ADTBloodPackTransfusionFull # ADT tweak: Blood IV
-      - id: Gauze
-      - id: EmergencyMedipen #You never know what people are going to latejoin into
-        amount: 3
-=======
   - type: EntityTableContainerFill
     containers:
       storagebase: !type:AllSelector
@@ -159,7 +138,7 @@
         - id: ChemistryBottleEthylredoxrazine
         - id: ChemistryBottleIpecac
         - id: ChemistryBottleCharcoal
->>>>>>> upstreamwiz/master
+        - id: ADTBloodPackTransfusionFull # ADT tweak: Blood IV
 
 - type: entity
   id: ClothingBeltPlantFilled

@@ -67,15 +67,12 @@
       methods: [ Touch ]
       effects:
       - !type:Flammable
-<<<<<<< HEAD
         # ADT-Tweak Start
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Novakid ]
           inverted: true
         # ADT-Tweak End
-=======
->>>>>>> upstreamwiz/master
         multiplier: 0.4
   metabolisms:
     Bloodstream:
@@ -93,7 +90,6 @@
             Poison: 1
             Caustic: 0.5 # based off napalm being an irritant
       - !type:Flammable
-<<<<<<< HEAD
       # ADT-Tweak Start
       - !type:AdjustReagent
         reagent: Ethanol
@@ -102,9 +98,7 @@
         - !type:MetabolizerTypeCondition
           type: [ Novakid ]
         # ADT-Tweak End
-=======
         multiplier: 0.4
->>>>>>> upstreamwiz/master
 
 - type: reagent
   id: Phlogiston
@@ -128,7 +122,6 @@
             Heat: 3
             Poison: 1
       - !type:Flammable
-<<<<<<< HEAD
         # ADT-Tweak Start
       - !type:AdjustReagent
         reagent: Ethanol
@@ -137,9 +130,7 @@
         - !type:MetabolizerTypeCondition
           type: [ Novakid ]
         # ADT-Tweak End
-=======
         multiplier: 0.1
->>>>>>> upstreamwiz/master
       - !type:AdjustTemperature
         amount: 6000
       - !type:Ignite
@@ -176,7 +167,6 @@
             Poison: 1
             Caustic: 0.5 # CLF3 is corrosive
       - !type:Flammable
-<<<<<<< HEAD
         # ADT-Tweak Start
       - !type:AdjustReagent
         reagent: Ethanol
@@ -185,9 +175,7 @@
           - !type:MetabolizerTypeCondition
             type: [ Novakid ]
         # ADT-Tweak End
-=======
         multiplier: 0.2
->>>>>>> upstreamwiz/master
       - !type:AdjustTemperature
         amount: 6000
   reactiveEffects:
@@ -241,7 +229,6 @@
         factor: 1
         conditions:
         - !type:MetabolizerTypeCondition
-<<<<<<< HEAD
           type: [Vox, Novakid] # ADT-Tweak
     Poison:
       effects:
@@ -249,18 +236,10 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: [Vox, Novakid] # ADT-Tweak
-=======
-          type: [Vox]
-      - !type:HealthChange
-        conditions:
-        - !type:MetabolizerTypeCondition
-          type: [Vox]
->>>>>>> upstreamwiz/master
           inverted: true
         damage:
           types:
             Poison: 1
-<<<<<<< HEAD
       # - !type:Flammable
       #   - !type:MetabolizerTypeCondition
       #     type: [ Vox ]
@@ -276,10 +255,8 @@
         - !type:MetabolizerTypeCondition
           type: [ Novakid ]
         # ADT-Tweak End
-=======
       - !type:Flammable
         multiplier: 0.4
->>>>>>> upstreamwiz/master
 
 - type: reagent
   id: Fluorosurfactant

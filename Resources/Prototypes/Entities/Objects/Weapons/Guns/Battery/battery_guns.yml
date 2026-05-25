@@ -332,7 +332,7 @@
     fireRate: 2
     availableModes:
     - SemiAuto
-  - type: HitscanBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: RedLaserPractice
     fireCost: 20 #ADT_Tweak 62.5 -> 20
   - type: StaticPrice
@@ -364,21 +364,8 @@
   description: Favoured by Nanotrasen Security for being cheap and easy to use.
   # ADT-Tweak start
   components:
-  - type: HitscanBatteryAmmoProvider
-    proto: RedMediumLaser
-
-- type: entity
-  name: practice laser carbine
-  parent: [BaseLaserRifle, BaseGunWieldable]
-  id: WeaponLaserCarbinePractice
-  description: This modified laser carbine fires nearly harmless beams in the 40-watt range, for target practice.
-  components:
-  - type: StaticPrice
-    price: 300
   - type: BatteryAmmoProvider
-    proto: RedLaserPractice
-    fireCost: 62.5
-  - type: PacifismAllowedGun
+    proto: RedMediumLaser
 
 - type: entity
   name: pulse pistol

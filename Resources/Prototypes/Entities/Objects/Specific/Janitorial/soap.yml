@@ -61,11 +61,7 @@
     solution: soap
   - type: FlavorProfile
     flavors:
-<<<<<<< HEAD
-      - clean
-=======
     - clean
->>>>>>> upstreamwiz/master
   - type: Edible
     solution: soap
   - type: BadFood
@@ -126,12 +122,8 @@
     residueColor: residue-brown
 
 - type: entity
-  parent: [BaseSoap, BaseSyndicateContraband]
-  id: SoapSyndie
-<<<<<<< HEAD
   parent: [Soap] #, BaseSyndicateContraband] # ADT Remove cringe
-=======
->>>>>>> upstreamwiz/master
+  id: SoapSyndie
   description: An untrustworthy bar of soap. Smells of fear.
   components:
   - type: Sprite
@@ -207,12 +199,9 @@
       path: "/Audio/Effects/Fluids/splat.ogg"
       params:
         volume: -8
-<<<<<<< HEAD
-=======
   - type: Residue
     residueAdjective: residue-slippery
     residueColor: residue-red
->>>>>>> upstreamwiz/master
 
 - type: entity
   parent: BaseSoap

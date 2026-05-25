@@ -53,8 +53,6 @@
   id: FloorTileDarkOffset
   name: stack-offset-dark-steel-tile
   spawn: FloorTileItemDarkOffset
-<<<<<<< HEAD
-=======
 
 - type: stack
   parent: BaseTileStack
@@ -73,4 +71,3 @@
   id: FloorTileDarkHorizontalSlatsBordered
   name: stack-dark-steel-horizontal-slats-tile-bordered
   spawn: FloorTileItemDarkHorizontalSlatsBordered
->>>>>>> upstreamwiz/master

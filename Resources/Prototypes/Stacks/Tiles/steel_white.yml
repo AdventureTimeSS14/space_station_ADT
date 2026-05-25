@@ -53,8 +53,6 @@
   id: FloorTileWhitePavementVertical
   name: stack-white-steel-vertical-pavement
   spawn: FloorTileItemWhitePavementVertical
-<<<<<<< HEAD
-=======
 
 - type: stack
   parent: BaseTileStack
@@ -73,4 +71,3 @@
   id: FloorTileWhiteHorizontalSlatsBordered
   name: stack-white-steel-horizontal-slats-tile-bordered
   spawn: FloorTileItemWhiteHorizontalSlatsBordered
->>>>>>> upstreamwiz/master

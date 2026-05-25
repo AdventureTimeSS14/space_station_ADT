@@ -1,10 +1,4 @@
 - type: entity
-<<<<<<< HEAD
-  id: BaseCartridgeHeavyRifle
-  name: cartridge (.10 rifle)
-  parent: [ BaseCartridge, BaseSecurityContraband ]
-=======
->>>>>>> upstreamwiz/master
   abstract: true
   parent: [ BaseCartridge, BaseSecurityContraband ]
   id: BaseCartridgeHeavyRifle

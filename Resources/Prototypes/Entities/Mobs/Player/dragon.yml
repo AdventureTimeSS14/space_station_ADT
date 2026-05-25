@@ -7,17 +7,13 @@
   abstract: true
   components:
   - type: Bloodstream
-<<<<<<< HEAD
     bloodlossThreshold: 0.8 # ADT-Tweak
     bloodRefreshAmount: 2 # ADT-Tweak
-    bloodMaxVolume: 650
     damageBleedModifiers: ADTBloodlossDragon # ADT-Tweak
-=======
     bloodReferenceSolution:
       reagents:
       - ReagentId: Blood
         Quantity: 650
->>>>>>> upstreamwiz/master
   - type: GhostRole
     allowMovement: true
     allowSpeech: true
@@ -129,7 +125,6 @@
 # ADT-Tweak-end
   - type: StatusEffects # Overwriting basesimplemob to remove flash, getting flashed as dragon just feelsbad
     allowed:
-<<<<<<< HEAD
     - Stutter
     - Weakness #ADT-Weakness-Tweak
     # - Electrocution # ADT-Tweak - ъуъ
@@ -139,16 +134,11 @@
     - RadiationProtection
     # - Drowsiness # ADT-Tweak - НЕ СПАТЬ
     - Adrenaline #ADT-Medicine
-=======
     - Electrocution
     - TemporaryBlindness
     - Pacified
-    - RadiationProtection
     - Adrenaline
-  - type: Temperature
   - type: TemperatureDamage
-    heatDamageThreshold: 2400
->>>>>>> upstreamwiz/master
   - type: Metabolizer
     solutionOnBody: false
     updateInterval: 0.25

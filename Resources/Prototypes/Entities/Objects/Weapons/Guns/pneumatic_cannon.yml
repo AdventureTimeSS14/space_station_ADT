@@ -126,11 +126,7 @@
     soundEmpty:
       path: /Audio/Items/hiss.ogg
     clumsyProof: true
-<<<<<<< HEAD
-  - type: ProjectileBatteryAmmoProvider
-=======
   - type: BatteryAmmoProvider
->>>>>>> upstreamwiz/master
     proto: FoodPieBananaCream
     fireCost: 30
   - type: Battery

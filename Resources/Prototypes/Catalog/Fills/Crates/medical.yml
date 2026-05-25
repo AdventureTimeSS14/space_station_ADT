@@ -4,19 +4,6 @@
   name: medical supplies crate
   description: Basic medical supplies.
   components:
-<<<<<<< HEAD
-  - type: StorageFill
-    contents:
-      - id: MedkitFilled
-        amount: 2
-      - id: Gauze
-        amount: 2
-      - id: ADTBloodPackTransfusionFull # ADT tweak: Blood IV
-        amount: 2
-      - id: BoxLatexGloves
-      - id: BoxSterileMask
-      - id: BoxMouthSwab
-=======
   - type: EntityTableContainerFill
     containers:
       entity_storage: !type:AllSelector
@@ -30,7 +17,8 @@
         - id: BoxLatexGloves
         - id: BoxSterileMask
         - id: BoxMouthSwab
->>>>>>> upstreamwiz/master
+        - id: ADTBloodPackTransfusionFull # ADT tweak: Blood IV
+          amount: 2
 
 - type: entity
   parent: CrateMedical

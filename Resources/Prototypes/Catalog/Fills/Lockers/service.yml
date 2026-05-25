@@ -68,7 +68,6 @@
       children:
       - id: FoodCondimentPacketSalt
       - id: FoodCondimentPacketPepper
-<<<<<<< HEAD
       # ADT-tweak-start
         amount: 3
       - id: FoodCondimentBottleEnzyme
@@ -80,12 +79,8 @@
       - id: FoodContainerEgg
       - id: ADTBookSRPsrv
       # ADT-tweak-end
-=======
     - id: PlushieLizardJobChef
-      prob: 0.02
     - id: PlushieLizardJobServiceworker
-      prob: 0.02
->>>>>>> upstreamwiz/master
 
 - type: entity
   id: ClosetJanitorFilled
