@@ -1,19 +1,11 @@
 meta:
   format: 7
   category: Map
-<<<<<<< HEAD
-  engineVersion: 263.0.0
-  forkId: ""
-  forkVersion: ""
-  time: 07/20/2025 06:14:13
-  entityCount: 2547
-=======
   engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
   time: 01/12/2026 09:57:30
   entityCount: 2553
->>>>>>> upstreamwiz/master
 maps:
 - 1295
 grids:
@@ -1614,10 +1606,7 @@ entities:
     - type: SpreaderGrid
     - type: GridPathfinding
     - type: ImplicitRoof
-<<<<<<< HEAD
-=======
     - type: ExplosionAirtightGrid
->>>>>>> upstreamwiz/master
   - uid: 1295
     components:
     - type: MetaData
@@ -1640,23 +1629,8 @@ entities:
         immutable: True
         temperature: 248.15
         moles:
-<<<<<<< HEAD
-        - 21.824879
-        - 82.10312
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-=======
           Oxygen: 21.824879
           Nitrogen: 82.10312
->>>>>>> upstreamwiz/master
 - proto: AirlockExternalGlassNukeopLocked
   entities:
   - uid: 49
@@ -11257,27 +11231,16 @@ entities:
       parent: 104
 - proto: NukeOpsLootSpawner
   entities:
-<<<<<<< HEAD
-  - uid: 1703
-    components:
-    - type: Transform
-      pos: 2.5,-3.5
-      parent: 104
-=======
->>>>>>> upstreamwiz/master
   - uid: 1704
     components:
     - type: Transform
       pos: 0.5,-6.5
       parent: 104
-<<<<<<< HEAD
-=======
   - uid: 1894
     components:
     - type: Transform
       pos: 0.5,0.5
       parent: 104
->>>>>>> upstreamwiz/master
 - proto: NukeOpsMedkitBruteSpawner
   entities:
   - uid: 447
@@ -11509,11 +11472,8 @@ entities:
     - type: Transform
       pos: 8.5,-12.5
       parent: 104
-<<<<<<< HEAD
-=======
     - type: Fixtures
       fixtures: {}
->>>>>>> upstreamwiz/master
 - proto: PosterContrabandMoth
   entities:
   - uid: 2462
@@ -11548,11 +11508,8 @@ entities:
     - type: Transform
       pos: 25.5,-12.5
       parent: 104
-<<<<<<< HEAD
-=======
     - type: Fixtures
       fixtures: {}
->>>>>>> upstreamwiz/master
 - proto: PosterContrabandRealExomorph
   entities:
   - uid: 754
@@ -11560,21 +11517,15 @@ entities:
     - type: Transform
       pos: -3.5,-13.5
       parent: 104
-<<<<<<< HEAD
-=======
     - type: Fixtures
       fixtures: {}
->>>>>>> upstreamwiz/master
   - uid: 2447
     components:
     - type: Transform
       pos: 15.5,-15.5
       parent: 104
-<<<<<<< HEAD
-=======
     - type: Fixtures
       fixtures: {}
->>>>>>> upstreamwiz/master
 - proto: PosterContrabandRebelsUnite
   entities:
   - uid: 2446

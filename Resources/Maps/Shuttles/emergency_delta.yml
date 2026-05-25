@@ -1,19 +1,11 @@
 meta:
   format: 7
   category: Grid
-<<<<<<< HEAD
-  engineVersion: 266.0.0
-  forkId: ""
-  forkVersion: ""
-  time: 09/17/2025 04:14:52
-  entityCount: 957
-=======
   engineVersion: 275.2.0
   forkId: ""
   forkVersion: ""
   time: 04/05/2026 13:24:37
   entityCount: 959
->>>>>>> upstreamwiz/master
 maps: []
 grids:
 - 1
@@ -746,8 +738,6 @@ entities:
       parent: 1
     - type: Fixtures
       fixtures: {}
-<<<<<<< HEAD
-=======
   - uid: 795
     components:
     - type: Transform
@@ -756,7 +746,6 @@ entities:
       parent: 1
     - type: Fixtures
       fixtures: {}
->>>>>>> upstreamwiz/master
 - proto: AtmosDeviceFanDirectional
   entities:
   - uid: 71
@@ -4296,44 +4285,24 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 1.5,-18.5
       parent: 1
-<<<<<<< HEAD
-    - type: DeltaPressure
-      gridUid: 1
-=======
->>>>>>> upstreamwiz/master
   - uid: 119
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 1.5,-20.5
       parent: 1
-<<<<<<< HEAD
-    - type: DeltaPressure
-      gridUid: 1
-=======
->>>>>>> upstreamwiz/master
   - uid: 130
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 1.5,-19.5
       parent: 1
-<<<<<<< HEAD
-    - type: DeltaPressure
-      gridUid: 1
-=======
->>>>>>> upstreamwiz/master
   - uid: 293
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 1.5,-21.5
       parent: 1
-<<<<<<< HEAD
-    - type: DeltaPressure
-      gridUid: 1
-=======
->>>>>>> upstreamwiz/master
 - proto: PosterLegitEnlist
   entities:
   - uid: 788

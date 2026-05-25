@@ -1,19 +1,11 @@
 meta:
   format: 7
   category: Map
-<<<<<<< HEAD
-  engineVersion: 267.3.0
-  forkId: ""
-  forkVersion: ""
-  time: 11/04/2025 19:56:01
-  entityCount: 26497
-=======
   engineVersion: 272.0.0
   forkId: ""
   forkVersion: ""
   time: 02/07/2026 03:19:06
   entityCount: 26504
->>>>>>> upstreamwiz/master
 maps:
 - 1
 grids:
@@ -14632,11 +14624,7 @@ entities:
       pos: -131.5,-45.5
       parent: 2
     - type: Door
-<<<<<<< HEAD
-      secondsUntilStateChange: -62428.875
-=======
       secondsUntilStateChange: -62983.973
->>>>>>> upstreamwiz/master
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -16759,8 +16747,6 @@ entities:
       parent: 2
     - type: Fixtures
       fixtures: {}
-<<<<<<< HEAD
-=======
   - uid: 24471
     components:
     - type: Transform
@@ -16769,7 +16755,6 @@ entities:
       parent: 2
     - type: Fixtures
       fixtures: {}
->>>>>>> upstreamwiz/master
   - uid: 25110
     components:
     - type: MetaData
@@ -40128,14 +40113,11 @@ entities:
     - type: Transform
       pos: -104.5,-25.5
       parent: 2
-<<<<<<< HEAD
-=======
   - uid: 26405
     components:
     - type: Transform
       pos: -88.5,-9.5
       parent: 2
->>>>>>> upstreamwiz/master
   - uid: 26430
     components:
     - type: Transform
@@ -170833,11 +170815,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-<<<<<<< HEAD
-      secondsUntilStateChange: -262535.62
-=======
       secondsUntilStateChange: -263090.72
->>>>>>> upstreamwiz/master
       state: Opening
     - type: Airlock
       autoClose: False

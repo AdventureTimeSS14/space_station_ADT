@@ -289,13 +289,8 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 2.5,5.5
       parent: 292
-<<<<<<< HEAD
-    - type: BatterySelfRecharger
-      autoRechargeRate: 50000
-=======
     - type: ApcPowerReceiver
       powerLoad: 0
->>>>>>> upstreamwiz/master
     - type: Godmode
     missingComponents:
     - Construction

@@ -1,19 +1,11 @@
 meta:
   format: 7
   category: Map
-<<<<<<< HEAD
-  engineVersion: 266.0.0
-  forkId: ""
-  forkVersion: ""
-  time: 08/31/2025 05:06:28
-  entityCount: 3156
-=======
   engineVersion: 273.0.0
   forkId: ""
   forkVersion: ""
   time: 03/15/2026 20:01:24
   entityCount: 3155
->>>>>>> upstreamwiz/master
 maps:
 - 23
 grids:
@@ -1628,12 +1620,9 @@ entities:
     - type: BecomesStation
       id: Dev
     - type: ImplicitRoof
-<<<<<<< HEAD
-=======
     - type: ExplosionAirtightGrid
     - type: TileHistory
       chunkHistory: {}
->>>>>>> upstreamwiz/master
   - uid: 23
     components:
     - type: MetaData
@@ -1735,12 +1724,9 @@ entities:
     - type: GasTileOverlay
     - type: RadiationGridResistance
     - type: ImplicitRoof
-<<<<<<< HEAD
-=======
     - type: ExplosionAirtightGrid
     - type: TileHistory
       chunkHistory: {}
->>>>>>> upstreamwiz/master
   - uid: 2869
     components:
     - type: MetaData
@@ -1783,11 +1769,8 @@ entities:
     - type: IFF
       flags: HideLabel
     - type: ImplicitRoof
-<<<<<<< HEAD
-=======
     - type: TileHistory
       chunkHistory: {}
->>>>>>> upstreamwiz/master
 - proto: AirAlarm
   entities:
   - uid: 1270
@@ -2012,17 +1995,6 @@ entities:
       parent: 1
     - type: Fixtures
       fixtures: {}
-<<<<<<< HEAD
-  - uid: 1220
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 51.5,37.5
-      parent: 1
-    - type: Fixtures
-      fixtures: {}
-=======
->>>>>>> upstreamwiz/master
   - uid: 1394
     components:
     - type: Transform
@@ -2973,8 +2945,6 @@ entities:
       parent: 1
     - type: Fixtures
       fixtures: {}
-<<<<<<< HEAD
-=======
 - proto: BaseAPC
   entities:
   - uid: 2753
@@ -2984,7 +2954,6 @@ entities:
       parent: 2709
     - type: Fixtures
       fixtures: {}
->>>>>>> upstreamwiz/master
 - proto: BaseBallBat
   entities:
   - uid: 2686
@@ -9844,10 +9813,6 @@ entities:
   - uid: 1220
     components:
     - type: Transform
-<<<<<<< HEAD
-      pos: -0.5,1.5
-      parent: 2709
-=======
       rot: 3.141592653589793 rad
       pos: 51.5,37.5
       parent: 1
@@ -9862,7 +9827,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: 52.5,37.5
       parent: 1
->>>>>>> upstreamwiz/master
     - type: Fixtures
       fixtures: {}
 - proto: DebugGenerator
