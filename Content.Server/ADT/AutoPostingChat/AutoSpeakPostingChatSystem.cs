@@ -15,7 +15,6 @@ public sealed class AutoSpeakPostingChatSystem : EntitySystem
     {
         base.Initialize();
         SubscribeLocalEvent<AutoSpeakPostingChatComponent, MobStateChangedEvent>(OnMobState);
-        SubscribeLocalEvent<AutoSpeakPostingChatComponent, MobStateChangedEvent>(OnMobState);
         SubscribeLocalEvent<AutoSpeakPostingChatComponent, MapInitEvent>(OnMapInit);
     }
 
