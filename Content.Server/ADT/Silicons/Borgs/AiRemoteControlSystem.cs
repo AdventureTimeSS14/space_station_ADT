@@ -197,7 +197,7 @@ public sealed class AiRemoteControlSystem : SharedAiRemoteControlSystem
 
             if (spriteSpecifier == null)
             {
-                spriteSpecifier = new SpriteSpecifier.EntityPrototype(meta.EntityPrototype?.ID ?? "MobBorg");
+                spriteSpecifier = new SpriteSpecifier.EntityPrototype(meta.EntityPrototype?.ID ?? "BorgChassisGeneric");
             }
 
             var isIncapacitated = _mobState.IsIncapacitated(queryUid);
