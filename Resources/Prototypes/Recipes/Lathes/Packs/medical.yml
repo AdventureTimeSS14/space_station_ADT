@@ -15,12 +15,8 @@
   - Syringe
   - PillCanister
   - HandLabeler
-<<<<<<< HEAD
-  - BaseChemistryEmptyVial
-=======
   - ChemistryEmptyVial
   - ChemistryEmptyVialSmall
->>>>>>> upstreamwiz/master
   - Dropper
 
 - type: latheRecipePack
@@ -53,10 +49,7 @@
   - WhiteCane
   - OffsetCane
   - OffsetCaneWood
-<<<<<<< HEAD
-=======
   - JetInjector
->>>>>>> upstreamwiz/master
 
 - type: latheRecipePack
   id: RollerBedsStatic
@@ -106,13 +99,10 @@
 ##- CryostasisBeaker
 ##- SyringeCryostasis
   - SyringeBluespace
-<<<<<<< HEAD
   - ADTBlankMediPen # ADT-Tweak
-=======
   - LauncherSyringe
   - MiniSyringe
   - AdvancedJetInjector
->>>>>>> upstreamwiz/master
 
 - type: latheRecipePack
   id: MedicalBoards
