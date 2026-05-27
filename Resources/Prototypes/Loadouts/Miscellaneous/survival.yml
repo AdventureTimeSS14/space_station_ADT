@@ -18,7 +18,6 @@
     - Human
     # - Moth #ADT_Tweak - Нианы получают свой вариант аварийного запаса
     - Reptilian
-<<<<<<< HEAD
     # - Vulpkanin # Corvax-MRP  #ADT_Tweak:Comment
     #ADT_Species Start
     - Resomi
@@ -31,9 +30,7 @@
     - UrsusSpecies
     - VulpkaninSpecies
     #ADT_Species End
-=======
     - Vulpkanin
->>>>>>> upstreamwiz/master
 
 - type: loadoutEffectGroup
   id: EffectSpeciesVox
@@ -91,7 +88,6 @@
     - Dwarf
     - Human
     - Reptilian
-<<<<<<< HEAD
     # #Corvax-Species-Start # ADT-Tweak: У нас есть свои айди
     # - Vulpkanin
     # - CorvaxVulpkanin
@@ -109,9 +105,7 @@
     - UrsusSpecies
     # ADT-Tweak end
 
-=======
     - Vulpkanin
->>>>>>> upstreamwiz/master
 
 - type: loadoutEffectGroup
   id: OxygenBreatherMimeMoth
