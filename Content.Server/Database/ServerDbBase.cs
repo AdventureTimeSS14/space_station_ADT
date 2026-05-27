@@ -220,7 +220,6 @@ namespace Content.Server.Database
             var appearance = humanoid.Appearance;
             var dataNode = _serialization.WriteValue(appearance.Markings, alwaysWrite: true, notNullableOverride: true);
 
-            // profile.Languages = humanoid.Languages.ToList(); TODO: UPSTREAM260426: доделать БД языков и сохранение БАРКОВ
             profile.CharacterName = humanoid.Name;
             profile.FlavorText = humanoid.FlavorText;
             profile.Species = humanoid.Species;
@@ -231,6 +230,24 @@ namespace Content.Server.Database
             profile.SkinColor = appearance.SkinColor.ToHex();
             profile.SpawnPriority = (int) humanoid.SpawnPriority;
             profile.OrganMarkings = JsonSerializer.SerializeToDocument(dataNode.ToJsonNode());
+            // ADT-Tweak-Start
+            profile.Voice = humanoid.Voice;
+            profile.BarkProto = humanoid.Bark.Proto;
+            profile.BarkPitch = humanoid.Bark.Pitch;
+            profile.LowBarkVar = humanoid.Bark.MinVar;
+            profile.HighBarkVar = humanoid.Bark.MaxVar;
+            profile.HeadshotUrl = humanoid.HeadshotUrl;
+            profile.OOCNotes = humanoid.OOCNotes;
+            profile.Languages.Clear();
+            foreach (var langId in humanoid.Languages)
+            {
+                profile.Languages.Add(new Language
+                {
+                    LanguageName = langId,
+                    Profile = profile
+                });
+            }
+            // ADT-Tweak-End
 
             // support for downgrades - at some point this should be removed
             var legacyMarkings = appearance.Markings
