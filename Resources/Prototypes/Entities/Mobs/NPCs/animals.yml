@@ -1967,6 +1967,17 @@
         recursive: false
 
 - type: entity
+  abstract: true
+  parent: [SolutionFood, SolutionTiny]
+  id: SolutionVermin
+  components:
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: UncookedAnimalProteins
+        Quantity: 15
+
+- type: entity
   parent: MobMouse
   suffix: Dead
   save: false
