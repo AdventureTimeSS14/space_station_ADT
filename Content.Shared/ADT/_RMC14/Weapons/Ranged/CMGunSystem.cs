@@ -17,6 +17,7 @@ using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
 namespace Content.Shared._RMC14.Weapons.Ranged;
+
 public sealed class CMGunSystem : EntitySystem
 {
     [Dependency] private readonly SharedAudioSystem _audio = default!;

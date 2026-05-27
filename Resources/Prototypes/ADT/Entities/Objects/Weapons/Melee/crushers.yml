@@ -26,6 +26,7 @@
     capacity: 1
     count: 1
   - type: DisarmMalus
+  - type: TrophyHolder
 
 - type: entity
   parent: [WeaponKineticBase, BaseSecurityCargoContraband]

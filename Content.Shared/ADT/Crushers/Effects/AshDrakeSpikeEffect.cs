@@ -1,0 +1,91 @@
+using Content.Shared.ADT.Crushers.Components;
+using Content.Shared.ADT.Crawling;
+using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
+using Content.Shared.Mobs.Components;
+using Content.Shared.Weapons.Melee.Events;
+using Content.Shared.Weapons.Marker;
+using Robust.Shared.GameObjects;
+using Robust.Shared.Physics.Components;
+using Robust.Shared.Physics.Systems;
+using Robust.Shared.Physics;
+
+namespace Content.Shared.ADT.Crushers.Effects;
+
+public sealed partial class AshDrakeSpikeEffect : TrophyEffect
+{
+    [DataField]
+    public float Range = 2f;
+
+    [DataField]
+    public DamageSpecifier Damage = new DamageSpecifier()
+    {
+        DamageDict = { { "Heat", 5 } }
+    };
+
+    [DataField]
+    public float PushbackForce = 200f;
+
+    public override void OnMeleeHit(
+        Entity<TrophyComponent> trophy,
+        Entity<TrophyHolderComponent> holder,
+        EntityManager entManager,
+        ref MeleeHitEvent args)
+    {
+        foreach (var target in args.HitEntities)
+        {
+            if (target == holder.Owner)
+                continue;
+
+            if (!entManager.HasComponent<DamageMarkerComponent>(target))
+                continue;
+
+            DoAreaEffect(holder, entManager, args.User);
+            break;
+        }
+    }
+
+    private void DoAreaEffect(
+        Entity<TrophyHolderComponent> holder,
+        EntityManager entManager,
+        EntityUid user)
+    {
+        var damageableSystem = entManager.System<DamageableSystem>();
+        var transformSystem = entManager.System<SharedTransformSystem>();
+        var physicsSystem = entManager.System<SharedPhysicsSystem>();
+        var lookupSystem = entManager.System<EntityLookupSystem>();
+
+        var userCoords = transformSystem.GetMapCoordinates(user);
+        if (userCoords.MapId == Robust.Shared.Map.MapId.Nullspace)
+            return;
+
+        var entitiesInRange = lookupSystem.GetEntitiesInRange(userCoords, Range, LookupFlags.Uncontained);
+
+        foreach (var ent in entitiesInRange)
+        {
+            if (ent == user || ent == holder.Owner)
+                continue;
+
+            if (!entManager.HasComponent<FaunaComponent>(ent))
+                continue;
+
+            damageableSystem.TryChangeDamage(ent, Damage, origin: user);
+
+            if (!entManager.TryGetComponent<PhysicsComponent>(ent, out var physics))
+                continue;
+
+            if (physics.BodyType != BodyType.KinematicController)
+                continue;
+
+            var targetPos = transformSystem.GetWorldPosition(ent);
+            var userPos = transformSystem.GetWorldPosition(user);
+            var direction = targetPos - userPos;
+
+            if (direction.LengthSquared() < 0.0001f)
+                continue;
+            // TODO: red overlay
+            var impulse = direction.Normalized() * PushbackForce;
+            physicsSystem.ApplyLinearImpulse(ent, impulse, body: physics);
+        }
+    }
+}
