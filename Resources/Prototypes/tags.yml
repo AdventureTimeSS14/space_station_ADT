@@ -920,8 +920,6 @@
 - type: Tag
   id: Matchstick # Storage whitelist: Ashtray. ConstructionGraph: ImprovisedShotgunShellGraph
 
-- type: Tag # Used on DungeonRoom prototypes.
-  id: Maints # RoomFill spawner whitelist for MaintsRoomMarker.
 - type: Tag
   id: Mayo # Storage whitelist: ClothingBeltChef
 
