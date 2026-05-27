@@ -165,7 +165,6 @@
     - id: MedkitOxygenFilled
     - id: HolofanProjector
     - id: AirGrenade
-<<<<<<< HEAD
     # ADT-Tweak-Start
     - id: ADTDoorRemoteFirefight
     - id: ADTRPD
@@ -173,10 +172,7 @@
     - id: ADTBookSRPeng
     - id: ADTBookAtmosSupermatter
     # ADT-Tweak-End
-=======
     - id: PlushieLizardJobAtmospherictechnician
-      prob: 0.02
->>>>>>> upstreamwiz/master
 
 - type: entityTable
   id: FillAtmosphericsHardsuit
@@ -230,18 +226,13 @@
     - id: RCD
     - id: RCDAmmo
     - id: MetalFoamGrenade
-<<<<<<< HEAD
     # ADT-Tweak-Start
     - id: ADTBookSRPeng
     - id: ADTEngiInducerBattery
       prob: 0.3
     # ADT-Tweak-End
-=======
     - id: PlushieLizardJobTechnicalassistant
-      prob: 0.02
     - id: PlushieLizardJobStationengineer
-      prob: 0.02
->>>>>>> upstreamwiz/master
 
 - type: entityTable
   id: FillEngineerHardsuit
