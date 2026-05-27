@@ -1239,7 +1239,6 @@ namespace Content.Server.Database.Migrations.Postgres
                         .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("oocnotes");
-
                     b.Property<JsonDocument>("OrganMarkings")
                         .HasColumnType("jsonb")
                         .HasColumnName("organ_markings");
@@ -1486,6 +1485,152 @@ namespace Content.Server.Database.Migrations.Postgres
                         .HasDatabaseName("IX_server_ban_hit_connection_id");
 
                     b.ToTable("server_ban_hit", (string)null);
+                });
+
+            modelBuilder.Entity("Content.Server.Database.ServerRoleBan", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("server_role_ban_id");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<NpgsqlInet?>("Address")
+                        .HasColumnType("inet")
+                        .HasColumnName("address");
+
+                    b.Property<DateTime>("BanTime")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("ban_time");
+
+                    b.Property<Guid?>("BanningAdmin")
+                        .HasColumnType("uuid")
+                        .HasColumnName("banning_admin");
+
+                    b.Property<DateTime?>("ExpirationTime")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("expiration_time");
+
+                    b.Property<bool>("Hidden")
+                        .HasColumnType("boolean")
+                        .HasColumnName("hidden");
+
+                    b.Property<DateTime?>("LastEditedAt")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("last_edited_at");
+
+                    b.Property<Guid?>("LastEditedById")
+                        .HasColumnType("uuid")
+                        .HasColumnName("last_edited_by_id");
+
+                    b.Property<Guid?>("PlayerUserId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("player_user_id");
+
+                    b.Property<TimeSpan>("PlaytimeAtNote")
+                        .HasColumnType("interval")
+                        .HasColumnName("playtime_at_note");
+
+                    b.Property<string>("Reason")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("reason");
+
+                    b.Property<string>("RoleId")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("role_id");
+
+                    b.Property<int?>("RoundId")
+                        .HasColumnType("integer")
+                        .HasColumnName("round_id");
+
+                    b.Property<int>("Severity")
+                        .HasColumnType("integer")
+                        .HasColumnName("severity");
+
+                    b.HasKey("Id")
+                        .HasName("PK_server_role_ban");
+
+                    b.HasIndex("Address");
+
+                    b.HasIndex("BanningAdmin");
+
+                    b.HasIndex("LastEditedById");
+
+                    b.HasIndex("PlayerUserId")
+                        .HasDatabaseName("IX_server_role_ban_player_user_id");
+
+                    b.HasIndex("RoundId")
+                        .HasDatabaseName("IX_server_role_ban_round_id");
+
+                    b.ToTable("server_role_ban", null, t =>
+                        {
+                            t.HasCheckConstraint("AddressNotIPv6MappedIPv4", "NOT inet '::ffff:0.0.0.0/96' >>= address");
+
+                            t.HasCheckConstraint("HaveEitherAddressOrUserIdOrHWId", "address IS NOT NULL OR player_user_id IS NOT NULL OR hwid IS NOT NULL");
+                        });
+                });
+
+            modelBuilder.Entity("Content.Server.Database.ServerRoleUnban", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("role_unban_id");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("BanId")
+                        .HasColumnType("integer")
+                        .HasColumnName("ban_id");
+
+                    b.Property<DateTime>("UnbanTime")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("unban_time");
+
+                    b.Property<Guid?>("UnbanningAdmin")
+                        .HasColumnType("uuid")
+                        .HasColumnName("unbanning_admin");
+
+                    b.HasKey("Id")
+                        .HasName("PK_server_role_unban");
+
+                    b.HasIndex("BanId")
+                        .IsUnique();
+
+                    b.ToTable("server_role_unban", (string)null);
+                });
+
+            modelBuilder.Entity("Content.Server.Database.ServerUnban", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("unban_id");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("BanId")
+                        .HasColumnType("integer")
+                        .HasColumnName("ban_id");
+
+                    b.Property<DateTime>("UnbanTime")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("unban_time");
+
+                    b.Property<Guid?>("UnbanningAdmin")
+                        .HasColumnType("uuid")
+                        .HasColumnName("unbanning_admin");
+
+                    b.HasKey("Id")
+                        .HasName("PK_server_unban");
+
+                    b.HasIndex("BanId")
+                        .IsUnique();
+
+                    b.ToTable("server_unban", (string)null);
                 });
 
             modelBuilder.Entity("Content.Server.Database.Sponsor", b =>
@@ -2225,6 +2370,86 @@ namespace Content.Server.Database.Migrations.Postgres
                     b.Navigation("Connection");
                 });
 
+            modelBuilder.Entity("Content.Server.Database.ServerRoleBan", b =>
+                {
+                    b.HasOne("Content.Server.Database.Player", "CreatedBy")
+                        .WithMany("AdminServerRoleBansCreated")
+                        .HasForeignKey("BanningAdmin")
+                        .HasPrincipalKey("UserId")
+                        .OnDelete(DeleteBehavior.SetNull)
+                        .HasConstraintName("FK_server_role_ban_player_banning_admin");
+
+                    b.HasOne("Content.Server.Database.Player", "LastEditedBy")
+                        .WithMany("AdminServerRoleBansLastEdited")
+                        .HasForeignKey("LastEditedById")
+                        .HasPrincipalKey("UserId")
+                        .OnDelete(DeleteBehavior.SetNull)
+                        .HasConstraintName("FK_server_role_ban_player_last_edited_by_id");
+
+                    b.HasOne("Content.Server.Database.Round", "Round")
+                        .WithMany()
+                        .HasForeignKey("RoundId")
+                        .HasConstraintName("FK_server_role_ban_round_round_id");
+
+                    b.OwnsOne("Content.Server.Database.TypedHwid", "HWId", b1 =>
+                        {
+                            b1.Property<int>("ServerRoleBanId")
+                                .HasColumnType("integer")
+                                .HasColumnName("server_role_ban_id");
+
+                            b1.Property<byte[]>("Hwid")
+                                .IsRequired()
+                                .HasColumnType("bytea")
+                                .HasColumnName("hwid");
+
+                            b1.Property<int>("Type")
+                                .ValueGeneratedOnAdd()
+                                .HasColumnType("integer")
+                                .HasDefaultValue(0)
+                                .HasColumnName("hwid_type");
+
+                            b1.HasKey("ServerRoleBanId");
+
+                            b1.ToTable("server_role_ban");
+
+                            b1.WithOwner()
+                                .HasForeignKey("ServerRoleBanId")
+                                .HasConstraintName("FK_server_role_ban_server_role_ban_server_role_ban_id");
+                        });
+
+                    b.Navigation("CreatedBy");
+
+                    b.Navigation("HWId");
+
+                    b.Navigation("LastEditedBy");
+
+                    b.Navigation("Round");
+                });
+
+            modelBuilder.Entity("Content.Server.Database.ServerRoleUnban", b =>
+                {
+                    b.HasOne("Content.Server.Database.ServerRoleBan", "Ban")
+                        .WithOne("Unban")
+                        .HasForeignKey("Content.Server.Database.ServerRoleUnban", "BanId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("FK_server_role_unban_server_role_ban_ban_id");
+
+                    b.Navigation("Ban");
+                });
+
+            modelBuilder.Entity("Content.Server.Database.ServerUnban", b =>
+                {
+                    b.HasOne("Content.Server.Database.ServerBan", "Ban")
+                        .WithOne("Unban")
+                        .HasForeignKey("Content.Server.Database.ServerUnban", "BanId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("FK_server_unban_server_ban_ban_id");
+
+                    b.Navigation("Ban");
+                });
+
             modelBuilder.Entity("Content.Server.Database.StampedData", b =>
                 {
                     b.HasOne("Content.Server.Database.BookPrinterEntry", null)
@@ -2291,6 +2516,10 @@ namespace Content.Server.Database.Migrations.Postgres
                     b.Navigation("Flags");
                 });
 
+            modelBuilder.Entity("Content.Server.Database.BookPrinterEntry", b =>
+                {
+                    b.Navigation("StampedBy");
+                });
             modelBuilder.Entity("Content.Server.Database.Ban", b =>
                 {
                     b.Navigation("Addresses");
@@ -2306,11 +2535,6 @@ namespace Content.Server.Database.Migrations.Postgres
                     b.Navigation("Rounds");
 
                     b.Navigation("Unban");
-                });
-
-            modelBuilder.Entity("Content.Server.Database.BookPrinterEntry", b =>
-                {
-                    b.Navigation("StampedBy");
                 });
 
             modelBuilder.Entity("Content.Server.Database.ConnectionLog", b =>

@@ -476,17 +476,17 @@ namespace Content.Server.Database.Migrations.Sqlite
                 name: "FK_server_ban_hit_server_ban_ban_id",
                 table: "server_ban_hit");
 
-            //migrationBuilder.DropTable(
-            //    name: "server_role_unban");
+            migrationBuilder.DropTable(
+                name: "server_role_unban");
 
-            //migrationBuilder.DropTable(
-            //    name: "server_unban");
+            migrationBuilder.DropTable(
+                name: "server_unban");
 
-            //migrationBuilder.DropTable(
-            //    name: "server_role_ban");
+            migrationBuilder.DropTable(
+                name: "server_role_ban");
 
-            //migrationBuilder.DropTable(
-            //    name: "server_ban");
+            migrationBuilder.DropTable(
+                name: "server_ban");
         }
 
         /// <inheritdoc />
