@@ -23,22 +23,8 @@
   - type: StutteringAccent
   - type: DrunkStatusEffect
 
-- type: entity
-  parent: MobStatusEffectBase
-  id: PainNumbnessTraitStatusEffect
-  components:
-  - type: StatusEffect
-    whitelist:
-      components:
-      - MobState
-      - MobThresholds
-  - type: PainNumbnessStatusEffect
-
-- type: entity
-  parent: BloodstreamStatusEffectBase
-  id: StatusEffectHemophiliaTrait
-  components:
-  - type: HemophiliaStatusEffect
+# ADT-Tweak: PainNumbnessTraitStatusEffect and StatusEffectHemophiliaTrait moved to
+# Resources/Prototypes/ADT/Traits/status_effects.yml (customized values).
 
 - type: entity
   parent: BloodstreamStatusEffectDebuff
