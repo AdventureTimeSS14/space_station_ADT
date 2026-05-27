@@ -534,8 +534,12 @@
       amount: 1
     Artifexium:
       amount: 1
+    # ADT-Tweak: start
+    PolypyryliumOligomers:
+      amount: 1
+    # ADT-Tweak: end
   products:
-    ArtifactGlue: 2
+    ArtifactGlue: 1 # ADT-Tweak: 2 -> 1
 
 - type: reaction
   id: Lye

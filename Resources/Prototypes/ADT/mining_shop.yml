@@ -153,17 +153,51 @@
     price: 100
   - id: DrinkAbsintheBottleFull
     price: 150
+  - id: ADTFoodPackGummiesFilled
+    price: 175
   - id: BoxMRE
     price: 350
+  - id: ADTCardBoxBlack
+    price: 350
+  - id: ADTCardBoxUno
+    price: 350
   - id: ADTFunPokerBox
-    price: 500
+    price: 350
   - id: ChessBoard
-    price: 400
+    price: 300
   - id: CheckerBoard
-    price: 400
+    price: 300
   - id: SoapNT
     price: 400
-  - id: Cigar
-    price: 300
+  - id: CigarGold
+    price: 125
   - id: CigarGoldCase
     price: 1000
+
+- type: miningShopSection
+  id: Mech
+  name: Мехи
+  entries:
+  - id: MechVimBattery
+    price: 2500
+  - id: MechHamtrBattery
+    price: 5000
+  - id: MechRipleyBattery
+    price: 10000
+  - id: ADTMechClarkeBattery
+    price: 15000
+
+- type: miningShopSection
+  id: EquipmentMech
+  name: Снаряжение мехов
+  entries:
+  - id: ADTBoxPlasmaBox
+    price: 750
+  - id: MechEquipmentGrabberSmall
+    price: 1000
+  - id: MechEquipmentGrabber
+    price: 1750
+  - id: MechEquipmentDrill
+    price: 2500
+  - id: ADTMechWeaponCutter
+    price: 5000
