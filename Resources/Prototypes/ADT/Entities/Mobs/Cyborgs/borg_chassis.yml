@@ -10,11 +10,6 @@
     voice: sentrybot
   - type: BorgSwitchableSubtype
     borgSubtype: default_security
-  - type: UserInterface
-    interfaces:
-      enum.GeneralStationRecordConsoleKey.Key:
-        type: GeneralStationRecordConsoleBoundUserInterface
-  - type: GeneralStationRecordConsole
   - type: ShowMindShieldIcons
   - type: ShowJobIcons
   - type: ShowCriminalRecordIcons
