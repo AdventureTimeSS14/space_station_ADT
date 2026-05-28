@@ -3399,4 +3399,29 @@
     sprite: ADT/Personalization/toys.rsi
     state: plushie_til
 
+- type: entity
+  name: KS-43 "Cherry"
+  parent: CombatKnife
+  id: ADTSvet217KnifeKS43Cherry
+  description: Not just a knife, but a silent companion of a scout. Light, reliable, and comfortable in the hand, it served where weapons could fail. Without unnecessary glitz or ostentatious brutality, only cold steel, precision, and confidence in every movement. With it, the light shines brighter.
+  suffix: Svet217
+  components:
+  - type: Tag
+    tags:
+    - ADTSvet217KnifeKS43Cherry  # ← добавьте этот компонент!
+  - type: Sprite
+    sprite: ADT/Personalization/svet217_KS-43_Cherry.rsi
+    state: icon
+  - type: MeleeWeapon
+    wideAnimationRotation: -250
+    attackRate: 1.7
+    damage:
+      types:
+        Slash: 12
+        Piercing: 4
+  - type: ThrowingAngle
+    angle: 90
+  - type: Item
+    sprite: ADT/Personalization/svet217_KS-43_Cherry.rsi
+
 #SPONSOR-ITEMS-END
