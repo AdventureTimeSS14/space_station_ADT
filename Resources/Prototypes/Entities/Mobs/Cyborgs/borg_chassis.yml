@@ -32,6 +32,9 @@
     - Common
     - Binary
   - type: BorgSwitchableSubtype #ADT Tweak
+  - type: IgnoreUIRange #ADT Tweak
+  - type: ShowElectrocutionHUD #ADT Tweak
+  - type: StationAiVision #ADT Tweak
 
 - type: entity
   id: BorgChassisGeneric
