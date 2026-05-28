@@ -42,13 +42,14 @@ public sealed class BorgRemoteInteractionSystem : EntitySystem
 
         if (distance <= SharedInteractionSystem.InteractionRange)
             return;
-
+    
+        var targetEntity = args.Target;
         args.Handled = true;
         args.InRange = _interaction.InRangeUnobstructed(
             userPos,
             targetPos,
             range: 0f,
-            predicate: e => IsTransparentObstacle(e));
+            predicate: e => e == targetEntity || IsTransparentObstacle(e));
     }
 
     private bool IsTransparentObstacle(EntityUid entity)
