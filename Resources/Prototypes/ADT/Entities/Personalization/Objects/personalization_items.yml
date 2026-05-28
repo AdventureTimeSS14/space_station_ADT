@@ -3408,7 +3408,7 @@
   components:
   - type: Tag
     tags:
-    - ADTSvet217KnifeKS43Cherry  # ← добавьте этот компонент!
+    - ADTSvet217KnifeKS43Cherry
   - type: Sprite
     sprite: ADT/Personalization/svet217_KS-43_Cherry.rsi
     state: icon
