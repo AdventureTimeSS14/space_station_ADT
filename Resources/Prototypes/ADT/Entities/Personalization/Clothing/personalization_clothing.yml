@@ -1792,7 +1792,7 @@
   parent: [ClothingBeltBase, ClothingSlotBase]
   id: ADTClothingBeltKnifeCase
   name: knife case
-  description: An ornate sheath designed to hold an officer's blade.
+  description: Case designed for storing and carrying the KS-43 "Cherry"
   components:
   - type: Sprite
     sprite: ADT/Personalization/svet217_KS-43_Cherry_case.rsi
