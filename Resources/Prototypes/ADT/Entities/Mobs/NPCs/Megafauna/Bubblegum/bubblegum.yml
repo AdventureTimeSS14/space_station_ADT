@@ -87,9 +87,7 @@
     - Weakness
     - RadiationProtection
     # todo make loot spawn
-# ═══════════════════════════════════════════════════════════════════════════════
-#  6) ГАЛЛЮЦИНАЦИЯ-КЛОН
-# ═══════════════════════════════════════════════════════════════════════════════
+
 - type: entity
   id: ADTMegaFaunaBubblegumHallucination
   parent: ADTMegaFaunaBubblegum
@@ -129,8 +127,6 @@
       types:
         Blunt: 0
   - type: BubblegumHallucination
-  # Клон не должен сам выбирать действия и не должен преследовать цель —
-  # его двигает ThrowingSystem через BubblegumChargeSystem.
   - type: HTN
     rootTask:
       task: IdleCompound
@@ -157,24 +153,5 @@
     count: 0
   - type: BubblegumBloodAttack
     attemptInterval: 999999
-  # Самоудаление через 8 секунд, если так и не врезался ни в кого.
   - type: TimedDespawn
     lifetime: 8
-
-# ═══════════════════════════════════════════════════════════════════════════════
-#  7) СПАВНЕР
-# ═══════════════════════════════════════════════════════════════════════════════
-- type: entity
-  name: bubblegum spawner
-  id: ADTSpawnMobBubblegum
-  parent: MarkerBase
-  components:
-  - type: Sprite
-    layers:
-    - state: red
-    - state: ai
-  - type: RandomSpawner
-    prototypes:
-    - ADTMegaFaunaBubblegum
-  - type: TimedDespawn
-    lifetime: 1
