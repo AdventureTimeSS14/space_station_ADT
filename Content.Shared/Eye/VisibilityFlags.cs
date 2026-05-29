@@ -15,5 +15,6 @@ namespace Content.Shared.Eye
         Schizo = 1 << 3, // ADT-Changeling-Tweak
         LingToxin = 1 << 4, // ADT-Changeling-Tweak
         Eldritch = 1 << 5, // ADT-Tweak Heretic
+        Bubblegum = 1 << 6, // ADT-Tweak Bubblegum
     }
 }

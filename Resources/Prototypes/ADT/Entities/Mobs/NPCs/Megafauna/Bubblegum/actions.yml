@@ -1,0 +1,93 @@
+- type: entity
+  id: ActionADTBubblegumTripleCharge
+  name: Triple Charge
+  description: Совершить три быстрых рывка подряд.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    raiseOnUser: true
+    icon:
+      sprite: ADT/Effects/bubblegum_action_triple_charge.rsi
+      state: icon
+    useDelay: 6
+  - type: TargetAction
+    range: 20
+  - type: WorldTargetAction
+    event: !type:BubblegumTripleChargeActionEvent
+
+- type: entity
+  id: ActionADTBubblegumHallucinationCharge
+  name: Hallucination Charge
+  description: Призвать клонов и совершить совместный рывок.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    raiseOnUser: true
+    icon:
+      sprite: ADT/Effects/bubblegum_action_hallucination_charge.rsi
+      state: icon
+    useDelay: 9
+  - type: TargetAction
+    range: 20
+  - type: WorldTargetAction
+    event: !type:BubblegumHallucinationChargeActionEvent
+
+- type: entity
+  id: ActionADTBubblegumSurround
+  name: Surround Target
+  description: Окружить цель волнами клонов.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    raiseOnUser: true
+    icon:
+      sprite: ADT/Effects/bubblegum_action_surround.rsi
+      state: icon
+    useDelay: 12
+  - type: TargetAction
+    range: 20
+  - type: WorldTargetAction
+    event: !type:BubblegumSurroundActionEvent
+
+- type: entity
+  id: ActionADTBubblegumBloodWarp
+  name: Blood Warp
+  description: Телепортироваться через лужу крови у цели и впасть в ярость.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    raiseOnUser: true
+    icon:
+      sprite: ADT/Effects/bubblegum_action_blood_warp.rsi
+      state: icon
+    useDelay: 5
+  - type: TargetAction
+    range: 20
+  - type: WorldTargetAction
+    event: !type:BubblegumBloodWarpActionEvent
+
+- type: entity
+  id: ActionADTBubblegumSummonNarsi
+  name: Summon Nar'Si
+  description: Призвать прислужников Нар'Си.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    raiseOnUser: true
+    icon:
+      sprite: ADT/Effects/bubblegum_action_blood_warp.rsi
+      state: icon
+    useDelay: 20
+  - type: TargetAction
+    range: 20
+  - type: WorldTargetAction
+    event: !type:BubblegumSummonNarsiActionEvent
+
+- type: weightedRandomEntity
+  id: ADTBubblegumActions
+  weights:
+    ActionADTBubblegumTripleCharge: 0.35
+    ActionADTBubblegumHallucinationCharge: 0.25
+    ActionADTBubblegumSurround: 0.15
+    ActionADTBubblegumBloodWarp: 0.15
+    ActionADTBubblegumSummonNarsi: 0.10
