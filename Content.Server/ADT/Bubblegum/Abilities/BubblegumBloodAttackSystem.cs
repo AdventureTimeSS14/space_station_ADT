@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-using Content.Server.NPC.Systems;
 using Content.Shared.ADT.Bubblegum;
 using Content.Shared.ADT.Bubblegum.Abilities;
 using Content.Shared.Damage;
@@ -8,11 +6,9 @@ using Content.Shared.Fluids.Components;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.NPC.Systems;
-using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Random;
-using Robust.Shared.Spawners;
 using Robust.Shared.Timing;
 
 namespace Content.Server.ADT.Bubblegum.Abilities;
@@ -76,14 +72,17 @@ public sealed class BubblegumBloodAttackSystem : EntitySystem
 
         var candidates = new List<EntityUid>();
         _mobBuffer.Clear();
+
         var bossCoords = _transform.GetMapCoordinates(ent);
         _lookup.GetEntitiesInRange(bossCoords, ent.Comp.SearchRange, _mobBuffer);
         foreach (var mob in _mobBuffer)
         {
             if (mob.Owner == ent.Owner)
                 continue;
+
             if (_mobState.IsDead(mob))
                 continue;
+
             if (_npcFaction.IsEntityFriendly(ent.Owner, mob.Owner))
                 continue;
 
@@ -149,8 +148,10 @@ public sealed class BubblegumBloodAttackSystem : EntitySystem
     {
         if (TerminatingOrDeleted(hit.Target))
             return;
+
         if (_mobState.IsDead(hit.Target))
             return;
+
         if (_npcFaction.IsEntityFriendly(boss, hit.Target))
             return;
 
@@ -164,8 +165,10 @@ public sealed class BubblegumBloodAttackSystem : EntitySystem
     {
         if (TerminatingOrDeleted(hit.Target))
             return;
+
         if (!_mobState.IsIncapacitated(hit.Target))
             return;
+
         if (_npcFaction.IsEntityFriendly(boss, hit.Target))
             return;
 

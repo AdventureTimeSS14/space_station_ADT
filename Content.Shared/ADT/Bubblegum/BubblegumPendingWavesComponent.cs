@@ -21,6 +21,9 @@ public sealed partial class PendingWave
     public MapCoordinates Target;
 
     [DataField]
+    public EntityUid? TargetEntity;
+
+    [DataField]
     public int Count;
 
     [DataField]
@@ -40,4 +43,7 @@ public sealed partial class PendingWave
 
     [DataField]
     public bool BossCharges;
+
+    [DataField]
+    public bool TripleChargeAfter;
 }

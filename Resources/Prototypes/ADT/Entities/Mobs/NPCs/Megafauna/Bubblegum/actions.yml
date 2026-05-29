@@ -61,33 +61,24 @@
       sprite: ADT/Effects/bubblegum_action_blood_warp.rsi
       state: icon
     useDelay: 5
-  - type: TargetAction
-    range: 20
-  - type: WorldTargetAction
+  - type: InstantAction
     event: !type:BubblegumBloodWarpActionEvent
 
 - type: entity
   id: ActionADTBubblegumSummonNarsi
   name: Summon Nar'Si
   description: Призвать прислужников Нар'Си.
-  categories: [ HideSpawnMenu ]
+  categories:
+  - HideSpawnMenu
   components:
   - type: Action
-    raiseOnUser: true
     icon:
       sprite: ADT/Effects/bubblegum_action_blood_warp.rsi
       state: icon
     useDelay: 20
+    raiseOnUser: true
   - type: TargetAction
     range: 20
   - type: WorldTargetAction
-    event: !type:BubblegumSummonNarsiActionEvent
-
-- type: weightedRandomEntity
-  id: ADTBubblegumActions
-  weights:
-    ActionADTBubblegumTripleCharge: 0.35
-    ActionADTBubblegumHallucinationCharge: 0.25
-    ActionADTBubblegumSurround: 0.15
-    ActionADTBubblegumBloodWarp: 0.15
-    ActionADTBubblegumSummonNarsi: 0.10
+    event:
+      !type:BubblegumSummonNarsiActionEvent

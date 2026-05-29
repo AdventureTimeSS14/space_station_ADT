@@ -38,10 +38,10 @@ public sealed partial class BubblegumBloodAttackComponent : Component
     public TimeSpan DevourDelay = TimeSpan.FromSeconds(0.2);
 
     [DataField]
-    public SoundSpecifier HitSound = new SoundPathSpecifier("/Audio/Weapons/genhit1.ogg");
+    public SoundSpecifier HitSound = new SoundPathSpecifier("/Audio/ADT/Bubblegum/demon_attack1.ogg");
 
     [DataField]
-    public SoundSpecifier GrabSound = new SoundPathSpecifier("/Audio/Effects/Fluids/splat.ogg");
+    public SoundSpecifier GrabSound = new SoundPathSpecifier("/Audio/ADT/Bubblegum/enter_blood.ogg");
 
     [DataField]
     public EntProtoId LeftSmackProto = "ADTBubblegumHandLeftSmack";

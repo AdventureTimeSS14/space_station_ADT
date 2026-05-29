@@ -3,7 +3,6 @@ using Content.Shared.ADT.Bubblegum.Abilities;
 using Content.Shared.Maps;
 using Content.Shared.Physics;
 using Robust.Shared.Map;
-using Robust.Shared.Map.Components;
 using Robust.Shared.Random;
 
 namespace Content.Server.ADT.Bubblegum.Abilities;
@@ -31,10 +30,14 @@ public sealed class BubblegumSummonNarsiSystem : EntitySystem
         if (target.MapId == MapId.Nullspace)
             return;
 
+        args.Handled = true;
+        TrySummon(ent, target);
+    }
+
+    public void TrySummon(Entity<BubblegumSummonNarsiComponent> ent, MapCoordinates target)
+    {
         if (!_mapManager.TryFindGridAt(target, out var gridUid, out var grid))
             return;
-
-        args.Handled = true;
 
         var spawned = 0;
         var attempts = 0;

@@ -1,9 +1,9 @@
+using Content.Server.NPC.HTN;
 using Content.Shared.ADT.Bubblegum;
-using Content.Shared.Coordinates;
+using Content.Shared.Actions;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Eye;
-using Content.Shared.Fluids.Components;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Systems;
@@ -11,6 +11,7 @@ using Content.Shared.Projectiles;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
+using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
@@ -19,8 +20,8 @@ namespace Content.Server.ADT.Bubblegum;
 public sealed class BubblegumSystem : EntitySystem
 {
     [Dependency] private readonly AppearanceSystem _appearance = default!;
+    [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
@@ -34,6 +35,7 @@ public sealed class BubblegumSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<BubblegumComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<BubblegumComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<BubblegumComponent, MoveEvent>(OnMove);
         SubscribeLocalEvent<BubblegumComponent, DamageChangedEvent>(OnDamageChanged);
         SubscribeLocalEvent<BubblegumComponent, ProjectileHitAttemptEvent>(OnProjectileHitAttempt);
@@ -46,6 +48,14 @@ public sealed class BubblegumSystem : EntitySystem
         _eye.RefreshVisibilityMask(ent.Owner);
     }
 
+    private void OnMapInit(Entity<BubblegumComponent> ent, ref MapInitEvent args)
+    {
+        foreach (var action in ent.Comp.Actions)
+        {
+            _actions.AddAction(ent.Owner, action);
+        }
+    }
+
     private void OnGetVisMask(Entity<BubblegumComponent> ent, ref GetVisMaskEvent args)
     {
         args.VisibilityMask |= (int)VisibilityFlags.Bubblegum;
@@ -56,32 +66,40 @@ public sealed class BubblegumSystem : EntitySystem
         if (args.ParentChanged)
             return;
 
-        if (args.OldPosition.Position == args.NewPosition.Position)
+        var delta = args.NewPosition.Position - args.OldPosition.Position;
+        if (delta.LengthSquared() < 0.01f)
             return;
 
         if (_mobState.IsDead(ent))
             return;
 
-        if (!HasPuddleHere(args.NewPosition))
-            SpawnAtCoords(ent.Comp.BloodPrototype, args.NewPosition);
+        if (_timing.CurTime - ent.Comp.LastStepSound >= ent.Comp.StepSoundCooldown)
+        {
+            ent.Comp.LastStepSound = _timing.CurTime;
+            _audio.PlayPvs(ent.Comp.StepSound, ent);
+        }
 
-        if (_timing.CurTime - ent.Comp.LastStepSound < ent.Comp.StepSoundCooldown)
+        if (!HasComp<ActorComponent>(ent) && !HasAiTarget(ent))
             return;
 
-        ent.Comp.LastStepSound = _timing.CurTime;
-        _audio.PlayPvs(ent.Comp.StepSound, ent);
+        var map = _transform.ToMapCoordinates(args.NewPosition);
+        if (map.MapId == MapId.Nullspace)
+            return;
+
+        if (ent.Comp.LastBloodPosition is { } last
+            && last.MapId == map.MapId
+            && (last.Position - map.Position).LengthSquared() < ent.Comp.BloodStepDistance * ent.Comp.BloodStepDistance)
+            return;
+
+        ent.Comp.LastBloodPosition = map;
+        SpawnAtCoords(ent.Comp.BloodPrototype, args.NewPosition);
     }
 
-    private bool HasPuddleHere(EntityCoordinates coords)
+    private bool HasAiTarget(EntityUid uid)
     {
-        if (!coords.IsValid(EntityManager))
-            return false;
-
-        var map = _transform.ToMapCoordinates(coords);
-        if (map.MapId == MapId.Nullspace)
-            return false;
-
-        return _lookup.GetEntitiesInRange<PuddleComponent>(map, 0.1f).Count > 0;
+        return TryComp<HTNComponent>(uid, out var htn)
+               && htn.Blackboard.TryGetValue<EntityUid>("Target", out var target, EntityManager)
+               && !TerminatingOrDeleted(target);
     }
 
     private void OnDamageChanged(Entity<BubblegumComponent> ent, ref DamageChangedEvent args)

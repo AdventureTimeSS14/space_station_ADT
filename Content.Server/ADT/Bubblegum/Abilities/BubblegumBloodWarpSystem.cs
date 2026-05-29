@@ -2,7 +2,9 @@ using System.Linq;
 using Content.Shared.ADT.Bubblegum;
 using Content.Shared.ADT.Bubblegum.Abilities;
 using Content.Shared.Fluids.Components;
-using Robust.Server.GameObjects;
+using Content.Shared.Mobs.Components;
+using Content.Shared.Mobs.Systems;
+using Content.Shared.NPC.Systems;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Random;
@@ -17,8 +19,12 @@ public sealed class BubblegumBloodWarpSystem : EntitySystem
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private readonly NpcFactionSystem _npcFaction = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+
+    private readonly HashSet<Entity<MobStateComponent>> _mobBuffer = new HashSet<Entity<MobStateComponent>>();
 
     public override void Initialize()
     {
@@ -31,30 +37,43 @@ public sealed class BubblegumBloodWarpSystem : EntitySystem
     {
         if (args.Handled)
             return;
-        if (HasComp<BubblegumPendingWarpComponent>(ent))
+
+        if (!TryFindNearestHostile(ent.Owner, ent.Comp.TargetSearchRange, out var target))
             return;
+
+        if (TryBloodWarp(ent, _transform.GetMapCoordinates(target)))
+            args.Handled = true;
+    }
+
+    public bool TryBloodWarp(Entity<BubblegumBloodWarpComponent> ent, MapCoordinates targetCoords)
+    {
+        if (HasComp<BubblegumPendingWarpComponent>(ent))
+            return false;
 
         var bossCoords = _transform.GetMapCoordinates(ent);
-        var targetCoords = _transform.ToMapCoordinates(args.Target);
-
         if (targetCoords.MapId == MapId.Nullspace || bossCoords.MapId != targetCoords.MapId)
-            return;
+            return false;
 
+        // if(Adjacent(target))
         if ((bossCoords.Position - targetCoords.Position).Length() <= ent.Comp.AdjacentRange)
-            return;
+            return false;
 
+        // can_jaunt = get_pools(get_turf(src), 1)
         var selfPools = _lookup.GetEntitiesInRange<PuddleComponent>(bossCoords, ent.Comp.SelfRange);
         if (selfPools.Count == 0)
-            return;
+            return false;
 
+        // pools = get_pools(target, 5) - get_pools(target, 4)
         var outerPools = _lookup.GetEntitiesInRange<PuddleComponent>(targetCoords, ent.Comp.OuterRange);
+        if (outerPools.Count == 0)
+            return false;
+
         var innerPools = _lookup.GetEntitiesInRange<PuddleComponent>(targetCoords, ent.Comp.InnerRange);
         var innerSet = innerPools.Select(p => p.Owner).ToHashSet();
-        var candidates = outerPools.Where(p => !innerSet.Contains(p.Owner)).ToList();
-        if (candidates.Count == 0)
-            return;
-
-        args.Handled = true;
+        var ringCandidates = outerPools.Where(p => !innerSet.Contains(p.Owner)).ToList();
+        var candidates = ringCandidates.Count > 0
+            ? ringCandidates
+            : outerPools.ToList();
 
         var destinationPool = _random.Pick(candidates);
         var destination = _transform.GetMapCoordinates(destinationPool.Owner);
@@ -71,6 +90,37 @@ public sealed class BubblegumBloodWarpSystem : EntitySystem
         pending.ExecuteAt = _timing.CurTime + TimeSpan.FromSeconds(ent.Comp.SinkTime);
         pending.Destination = destination;
         Dirty(ent.Owner, pending);
+        return true;
+    }
+
+    private bool TryFindNearestHostile(EntityUid boss, float range, out EntityUid target)
+    {
+        target = default;
+        _mobBuffer.Clear();
+        _lookup.GetEntitiesInRange(_transform.GetMapCoordinates(boss), range, _mobBuffer);
+
+        var bestDistance = float.MaxValue;
+        var bossPos = _transform.GetMapCoordinates(boss).Position;
+        foreach (var mob in _mobBuffer)
+        {
+            if (mob.Owner == boss)
+                continue;
+
+            if (_mobState.IsDead(mob))
+                continue;
+
+            if (_npcFaction.IsEntityFriendly(boss, mob.Owner))
+                continue;
+
+            var dist = (_transform.GetMapCoordinates(mob.Owner).Position - bossPos).LengthSquared();
+            if (dist >= bestDistance)
+                continue;
+
+            bestDistance = dist;
+            target = mob.Owner;
+        }
+
+        return target != default;
     }
 
     public override void Update(float frameTime)

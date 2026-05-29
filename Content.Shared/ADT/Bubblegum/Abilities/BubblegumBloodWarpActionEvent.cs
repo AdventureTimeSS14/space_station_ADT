@@ -2,4 +2,4 @@ using Content.Shared.Actions;
 
 namespace Content.Shared.ADT.Bubblegum.Abilities;
 
-public sealed partial class BubblegumBloodWarpActionEvent : WorldTargetActionEvent;
+public sealed partial class BubblegumBloodWarpActionEvent : InstantActionEvent;

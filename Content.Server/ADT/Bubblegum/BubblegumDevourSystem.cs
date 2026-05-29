@@ -3,12 +3,10 @@ using Content.Shared.Body.Components;
 using Content.Shared.Body.Systems;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
-using Content.Shared.FixedPoint;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Weapons.Melee.Events;
-using Robust.Shared.Player;
 using Robust.Shared.Timing;
 
 namespace Content.Server.ADT.Bubblegum;
@@ -47,7 +45,7 @@ public sealed class BubblegumDevourSystem : EntitySystem
             if (!HasComp<MobStateComponent>(target))
                 continue;
 
-            if (!_mobState.IsIncapacitated(target))
+            if (!_mobState.IsDead(target))
                 continue;
 
             ScheduleDevour(ent, target, PostHitDevourDelay);
@@ -79,6 +77,7 @@ public sealed class BubblegumDevourSystem : EntitySystem
 
             if (TerminatingOrDeleted(target))
                 continue;
+
             if (!HasComp<MobStateComponent>(target))
                 continue;
 

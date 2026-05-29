@@ -39,6 +39,7 @@ public sealed class BubblegumTripleChargeSystem : EntitySystem
         var target = _transform.ToMapCoordinates(args.Target);
         if (target.MapId == MapId.Nullspace)
             return;
+
         if (ent.Comp.Delays.Count == 0)
             return;
 
@@ -46,7 +47,7 @@ public sealed class BubblegumTripleChargeSystem : EntitySystem
 
         if (!HasComp<ActorComponent>(ent))
         {
-            ExecuteNpcSeries(ent, target);
+            StartNpcTripleCharge(ent, target);
             return;
         }
 
@@ -72,7 +73,7 @@ public sealed class BubblegumTripleChargeSystem : EntitySystem
         return marker;
     }
 
-    private void ExecuteNpcSeries(Entity<BubblegumTripleChargeComponent> ent, MapCoordinates fallback)
+    public void StartNpcTripleCharge(Entity<BubblegumTripleChargeComponent> ent, MapCoordinates fallback)
     {
         EntityUid? targetEntity = null;
         if (TryComp<HTNComponent>(ent, out var htn)

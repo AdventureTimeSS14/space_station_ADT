@@ -1,25 +1,18 @@
 - type: entity
-  id: ADTMegaFaunaBubblegum
+  id: BaseMobBubblegum
   parent: BaseMobAsteroid
-  name: bubblegum
-  description: bublbegum desc
+  abstract: true
   components:
-  - type: Destructible
   - type: Sprite
     sprite: ADT/Mobs/Aliens/Lavaland/bubblegum.rsi
     layers:
-    - map: [ "enum.DamageStateVisualLayers.Base" ]
+    - map:
+      - enum.DamageStateVisualLayers.Base
       state: bubblegum
   - type: DamageStateVisuals
     states:
       Alive:
         Base: bubblegum
-  - type: GenericVisualizer
-    visuals:
-      enum.BubblegumVisuals.Enraged:
-        enum.DamageStateVisualLayers.Base:
-          True: { color: "#950A0A" }
-          False: { color: "#FFFFFF" }
   - type: Fixtures
     fixtures:
       fix1:
@@ -30,26 +23,6 @@
         - MobMask
         layer:
         - MobLayer
-  - type: MovementSpeedModifier
-    baseWalkSpeed: 2
-    baseSprintSpeed: 2
-  - type: MobThresholds
-    thresholds:
-      0: Alive
-      2500: Dead
-  - type: Damageable
-    damageContainer: Drake # todo make bubblegum damage container
-  - type: MeleeWeapon
-    attackRate: 4
-    angle: 0
-    animation: WeaponArcPunch
-    soundHit:
-      path: /Audio/Weapons/smash.ogg
-    damage:
-      types:
-        Blunt: 40
-        Structural: 150
-    range: 2
   - type: NpcFactionMember
     factions:
     - SimpleHostile
@@ -60,19 +33,62 @@
   - type: NoSlip
   - type: ExplosionResistance
     damageCoefficient: 0
+  - type: Fauna
+  - type: Appearance
+  - type: AshStormImmune
+
+- type: entity
+  id: ADTMegaFaunaBubblegum
+  name: bubblegum
+  description: bublbegum desc
+  parent: BaseMobBubblegum
+  components:
+  - type: Destructible
+    thresholds: []
+  - type: GenericVisualizer
+    visuals:
+      enum.BubblegumVisuals.Enraged:
+        enum.DamageStateVisualLayers.Base:
+          True:
+            color: "#950A0A"
+          False:
+            color: "#FFFFFF"
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2
+    baseSprintSpeed: 2
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      2500: Dead
+  - type: Damageable
+    damageContainer: Bubblegum
+    damageModifierSet: Bubblegum
+  - type: MeleeWeapon
+    attackRate: 0.5
+    damage:
+      types:
+        Blunt: 40
+        Structural: 150
+    range: 2
+    angle: 0
+    animation: WeaponArcPunch
+    soundHit:
+      path: /Audio/ADT/Bubblegum/demon_attack1.ogg
   - type: HTN
+    blackboard:
+      VisionRadius: !type:Single "20"
+      AggroVisionRadius: !type:Single "20"
+      NavSmash: !type:Bool
+        true
+      NavInteract: !type:Bool
+        true
+      ADTBubblegumKeepDistance: !type:Single "5"
+      ADTBubblegumRetreatTrigger: !type:Single "4"
     rootTask:
       task: ADTBubblegumCompound
-    blackboard:
-      VisionRadius: !type:Single
-        20
-      AggroVisionRadius: !type:Single
-        20
-  - type: NPCUseActionOnTarget
-    actions: ADTBubblegumActions
-    delay: 5
-  - type: Fauna
   - type: Megafauna
+  - type: ArmorPenetration
+    penetration: 0.5
   - type: Bubblegum
   - type: BubblegumTripleCharge
   - type: BubblegumHallucinationCharge
@@ -80,7 +96,6 @@
   - type: BubblegumBloodWarp
   - type: BubblegumSummonNarsi
   - type: BubblegumBloodAttack
-  - type: Appearance
   - type: StatusEffects
     allowed:
     - Stutter
@@ -90,7 +105,7 @@
 
 - type: entity
   id: ADTMegaFaunaBubblegumHallucination
-  parent: ADTMegaFaunaBubblegum
+  parent: BaseMobBubblegum
   name: bubblegum
   suffix: Hallucination
   categories: [ HideSpawnMenu ]
@@ -127,31 +142,5 @@
       types:
         Blunt: 0
   - type: BubblegumHallucination
-  - type: HTN
-    rootTask:
-      task: IdleCompound
-    blackboard:
-      VisionRadius: !type:Single
-        0
-      AggroVisionRadius: !type:Single
-        0
-  - type: NPCUseActionOnTarget
-    actions: ADTBubblegumActions
-    delay: 99999
-  - type: BubblegumTripleCharge
-    delays: [ ]
-  - type: BubblegumHallucinationCharge
-    hallucinationsNormal: 0
-    hallucinationsSmash: 0
-    smashWaveDelays: [ ]
-  - type: BubblegumSurround
-    waves: 0
-  - type: BubblegumBloodWarp
-    outerRange: 0
-    innerRange: 0
-  - type: BubblegumSummonNarsi
-    count: 0
-  - type: BubblegumBloodAttack
-    attemptInterval: 999999
   - type: TimedDespawn
     lifetime: 8

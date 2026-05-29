@@ -1,5 +1,6 @@
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
+using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
@@ -51,7 +52,7 @@ public sealed partial class BubblegumComponent : Component
     public SoundSpecifier RangedDeflectSound = new SoundPathSpecifier("/Audio/Weapons/Guns/Hits/ric1.ogg");
 
     [DataField]
-    public SoundSpecifier StepSound = new SoundPathSpecifier("/Audio/Effects/explosionsmallfar.ogg");
+    public SoundSpecifier StepSound = new SoundPathSpecifier("/Audio/ADT/Bubblegum/meteorimpact.ogg");
 
     [DataField]
     public TimeSpan StepSoundCooldown = TimeSpan.FromSeconds(0.5);
@@ -60,7 +61,29 @@ public sealed partial class BubblegumComponent : Component
     public TimeSpan LastStepSound;
 
     [DataField]
+    public MapCoordinates? LastBloodPosition;
+
+    [DataField]
+    public float BloodStepDistance = 0.7f;
+
+    [DataField]
     public bool InSmashPhase;
+
+    [DataField]
+    public List<EntProtoId> Actions = new List<EntProtoId>
+    {
+        "ActionADTBubblegumTripleCharge",
+        "ActionADTBubblegumHallucinationCharge",
+        "ActionADTBubblegumSurround",
+        "ActionADTBubblegumBloodWarp",
+        "ActionADTBubblegumSummonNarsi",
+    };
+
+    [DataField]
+    public TimeSpan AbilityInterval = TimeSpan.FromSeconds(3);
+
+    [DataField]
+    public TimeSpan NextAbilityAt;
 }
 
 [Serializable, NetSerializable]

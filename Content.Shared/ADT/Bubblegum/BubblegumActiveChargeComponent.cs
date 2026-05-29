@@ -21,4 +21,13 @@ public sealed partial class BubblegumActiveChargeComponent : Component
 
     [DataField]
     public bool ExpireOnHit;
+
+    [DataField]
+    public float SmashBlunt = 200f;
+
+    [DataField]
+    public float SmashStructural = 300f;
+
+    [DataField]
+    public float CameraKickStrength = 0.6f;
 }

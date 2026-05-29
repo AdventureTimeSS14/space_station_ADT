@@ -1,14 +1,16 @@
 using System.Numerics;
+using Content.Server.Destructible;
 using Content.Shared.ADT.Bubblegum;
 using Content.Shared.ADT.Bubblegum.Abilities;
 using Content.Shared.ADT.Trail;
+using Content.Shared.Camera;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
+using Content.Shared.Item;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Throwing;
-using Robust.Server.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Spawners;
 using Robust.Shared.Timing;
@@ -20,6 +22,7 @@ public sealed class BubblegumChargeSystem : EntitySystem
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private readonly SharedCameraRecoilSystem _recoil = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly ThrowingSystem _throwing = default!;
 
@@ -78,6 +81,7 @@ public sealed class BubblegumChargeSystem : EntitySystem
     {
         if (TerminatingOrDeleted(user))
             return;
+
         if (_mobState.IsDead(user))
             return;
 
@@ -105,6 +109,7 @@ public sealed class BubblegumChargeSystem : EntitySystem
     {
         if (TerminatingOrDeleted(user))
             return;
+
         if (_mobState.IsDead(user))
             return;
 
@@ -138,6 +143,7 @@ public sealed class BubblegumChargeSystem : EntitySystem
     {
         if (item.TargetEntity is not { } entity)
             return;
+
         if (TerminatingOrDeleted(entity))
             return;
 
@@ -154,6 +160,9 @@ public sealed class BubblegumChargeSystem : EntitySystem
         if (target == ent.Owner)
             return;
 
+        if (HasComp<BubblegumComponent>(target) || HasComp<BubblegumHallucinationComponent>(target))
+            return;
+
         if (HasComp<MobStateComponent>(target))
         {
             if (_mobState.IsDead(target))
@@ -163,19 +172,34 @@ public sealed class BubblegumChargeSystem : EntitySystem
             damage.DamageDict.Add("Blunt", ent.Comp.TrampleDamage);
             _damageable.TryChangeDamage(target, damage, false, origin: ent.Owner);
 
+            _recoil.KickCamera(target, ent.Comp.Direction * ent.Comp.CameraKickStrength);
+
             if (ent.Comp.ExpireOnHit)
                 RemCompDeferred<BubblegumActiveChargeComponent>(ent);
             return;
         }
 
-        // SS13: DestroySurroundings + ex_act(EXPLODE_HEAVY) — снос стен/плотных объектов на пути.
-        //if 
-        //{
-        //    var smash = new DamageSpecifier();
-        //    smash.DamageDict.Add("Blunt", 200f);
-        //    smash.DamageDict.Add("Structural", 300f);
-        //    _damageable.TryChangeDamage(target, smash, true, origin: ent.Owner);
-        //}
+        if (IsSmashableStructure(target))
+        {
+            var smash = new DamageSpecifier();
+            smash.DamageDict.Add("Blunt", ent.Comp.SmashBlunt);
+            smash.DamageDict.Add("Structural", ent.Comp.SmashStructural);
+            _damageable.TryChangeDamage(target, smash, true, origin: ent.Owner);
+        }
+    }
+
+    private bool IsSmashableStructure(EntityUid uid)
+    {
+        if (HasComp<ItemComponent>(uid))
+            return false;
+
+        if (!HasComp<DamageableComponent>(uid))
+            return false;
+
+        if (!HasComp<DestructibleComponent>(uid))
+            return false;
+
+        return Transform(uid).Anchored;
     }
 
     private void OnChargeLand(Entity<BubblegumActiveChargeComponent> ent, ref LandEvent args)

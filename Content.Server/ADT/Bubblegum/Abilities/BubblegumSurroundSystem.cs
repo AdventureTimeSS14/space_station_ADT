@@ -25,10 +25,15 @@ public sealed class BubblegumSurroundSystem : EntitySystem
         var target = _transform.ToMapCoordinates(args.Target);
         if (target.MapId == MapId.Nullspace)
             return;
-        if (ent.Comp.Waves <= 0 || ent.Comp.HallucinationsPerWave <= 0)
-            return;
 
         args.Handled = true;
+        StartSurround(ent, target);
+    }
+
+    public void StartSurround(Entity<BubblegumSurroundComponent> ent, MapCoordinates target, EntityUid? targetEntity = null)
+    {
+        if (ent.Comp.Waves <= 0 || ent.Comp.HallucinationsPerWave <= 0)
+            return;
 
         var pending = EnsureComp<BubblegumPendingWavesComponent>(ent);
         var now = _timing.CurTime;
@@ -38,6 +43,7 @@ public sealed class BubblegumSurroundSystem : EntitySystem
             {
                 ExecuteAt = now + TimeSpan.FromSeconds(wave * ent.Comp.WaveDelay),
                 Target = target,
+                TargetEntity = targetEntity,
                 Count = ent.Comp.HallucinationsPerWave,
                 Radius = ent.Comp.Radius,
                 Delay = ent.Comp.SelfChargeDelay,

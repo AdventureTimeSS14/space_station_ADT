@@ -1,3 +1,17 @@
+- type: damageContainer
+  id: Bubblegum
+  supportedGroups:
+  - Brute
+  - Burn
+  - Toxin
+  - Airloss
+  - Genetic
+
+- type: damageModifierSet
+  id: Bubblegum
+  coefficients:
+    Heat: 0.5
+
 - type: entity
   name: bubblegum spawner
   id: ADTSpawnMobBubblegum
