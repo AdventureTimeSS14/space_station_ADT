@@ -81,8 +81,6 @@
   parent: BaseTraitorRule
   id: TraitorLightGameRule
   components:
-  - type: TraitorRule
-    bloodBrotherChance: 0
   - type: GameRule
     minPlayers: 5
     delay:
@@ -114,7 +112,7 @@
       - !type:NestedSelector
         tableId: BasicAntagEventsTable
       - id: ParadoxCloneSpawn
-      - id: SleeperAgents
+      - id: SleeperAgentsLight
       - id: LoneOpsSpawn
       - id: VoxRaidersEvent
       - !type:NestedSelector
@@ -173,6 +171,28 @@
       - MindRoleTraitor
 
 - type: entity
+  parent: BaseTraitorRule
+  id: TraitorTripleGameRule
+  components:
+  - type: GameRule
+    minPlayers: 25
+    delay:
+      min: 240
+      max: 420
+  - type: AntagSelection
+    selectionTime: IntraPlayerSpawn
+    definitions:
+    - prefRoles: [ Traitor ]
+      max: 3
+      playerRatio: 10
+      blacklist:
+        components:
+        - AntagImmune
+      lateJoinAdditional: true
+      mindRoles:
+      - MindRoleTraitor
+
+- type: entity
   parent: BaseHereticRule
   id: HereticDuoGameRule
   components:
@@ -188,6 +208,61 @@
       lateJoinAdditional: true
       mindComponents:
       - type: HereticRole
+
+- type: entity
+  parent: BaseHereticRule
+  id: HereticTripleGameRule
+  components:
+  - type: HereticRule
+  - type: GameRule
+    minPlayers: 25
+  - type: AntagSelection
+    agentName: heretic-roundend-name
+    definitions:
+    - prefRoles: [ Heretic ]
+      max: 3
+      playerRatio: 15
+      lateJoinAdditional: true
+      mindComponents:
+      - type: HereticRole
+
+- type: entity
+  parent: BaseGameRule
+  id: ThiefSecretGameRule
+  components:
+  - type: ThiefRule
+  - type: AntagObjectives
+    objectives:
+    - EscapeThiefShuttleObjective
+  - type: AntagRandomObjectives
+    sets:
+    - groups: ThiefBigObjectiveGroups
+      prob: 0.7
+      maxPicks: 1
+    - groups: ThiefObjectiveGroups
+      maxPicks: 10
+    maxDifficulty: 2.5
+  - type: GameRule
+    minPlayers: 25
+  - type: AntagSelection
+    agentName: thief-round-end-agent-name
+    selectionTime: IntraPlayerSpawn
+    definitions:
+    - prefRoles: [ Thief ]
+      max: 2
+      playerRatio: 20
+      lateJoinAdditional: true
+      allowNonHumans: true
+      multiAntagSetting: NotExclusive
+      startingGear: ThiefGear
+      components:
+      - type: Thieving
+        stripTimeReduction: 2
+        stealthy: true
+      mindRoles:
+      - MindRoleThief
+      briefing:
+        sound: "/Audio/Misc/thief_greeting.ogg"
 
 - type: entity
   id: DynamicHardGamerule
@@ -217,8 +292,6 @@
       - id: Heretic
         cost: 30
         rerollChance: 0.5
-      - id: BloodBrother
-        cost: 20
       - id: Revolutionary
         cost: 45
       # - id: Zombie вернуть после баффов
@@ -262,8 +335,6 @@
         cost: 15
       - id: Changeling
         cost: 25
-      - id: BloodBrother
-        cost: 25
       - id: Heretic
         cost: 30
         rerollChance: 0.5
@@ -300,8 +371,6 @@
         cost: 10
       - id: TraitorDuoGameRule
         cost: 10
-      - id: BloodBrother
-        cost: 25
       - id: TraitorLightGameRule
         cost: 15
       - id: Changeling
@@ -327,34 +396,6 @@
   - type: GameRule
   - type: DynamicRandomRule
 
-- type: entity
-  parent: BaseTraitorRule
-  id: BloodBrother
-  components:
-  - type: GameRule
-    minPlayers: 20
-    delay:
-      min: 240
-      max: 420
-  - type: AntagSelection
-    selectionTime: IntraPlayerSpawn
-    definitions:
-    - prefRoles: [ BloodBrotherLeader ]
-      max: 4
-      playerRatio: 20
-      blacklist:
-        components:
-        - AntagImmune
-      lateJoinAdditional: true
-      mindRoles:
-      - MindRoleTraitor
-  - type: TraitorRule
-    bloodBrotherChance: 1
-  - type: AntagRandomObjectives
-    sets:
-    - groups: BloodBrothersObjectiveGroups
-    maxDifficulty: 12
-
 #этот геймрул сделан только для выдачи трейтора
 - type: entity
   parent: BaseTraitorRule
@@ -375,4 +416,12 @@
       mindRoles:
       - MindRoleTraitor
   - type: TraitorRule
-    bloodBrotherChance: 0
+
+- type: entity
+  parent: SleeperAgents
+  id: SleeperAgentsLight
+  components:
+  - type: AntagRandomObjectives
+    sets:
+    - groups: TraitorLightObjectiveGroups
+    maxDifficulty: 8

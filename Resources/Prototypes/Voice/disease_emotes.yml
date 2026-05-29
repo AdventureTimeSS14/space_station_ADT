@@ -13,7 +13,7 @@
     - BorgChassis
     # ADT tweak start
     tags:
-    - ADTSiliconEmotes
+    - SiliconEmotes
     # ADT tweak end
   chatTriggers:
     - sneeze

@@ -7,7 +7,7 @@ using Content.Shared.Actions;
 using Content.Shared.ADT.GhostInteractions;
 using Content.Shared.ADT.Poltergeist;
 using Content.Shared.ADT.Silicon.Components;
-using Content.Shared.Bible.Components;
+using Content.Shared.ADT.Chaplain.Components;
 using Content.Shared.Chat;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Item;

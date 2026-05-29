@@ -21,7 +21,7 @@ using Content.Shared.ADT.Phantom;
 using Content.Shared.ADT.Phantom.Components;
 using Content.Shared.ADT.Silicon.Components;
 using Content.Shared.Alert;
-using Content.Shared.Bible.Components;
+using Content.Shared.ADT.Chaplain.Components;
 using Content.Shared.Chat;
 using Content.Shared.CombatMode;
 using Content.Shared.Cuffs.Components;
@@ -434,7 +434,7 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
                     if (hair.TryGetValue(0, out var marking))
                     {
                         hca = hca.WithHairStyleName(marking.MarkingId);
-                        hca = hca.WithHairColor(marking.MarkingColors.First());
+                        hca = hca.WithHairColor(new List<Color>(marking.MarkingColors));
                     }
                 if (humanoid.MarkingSet.Markings.TryGetValue(MarkingCategories.Head, out var head))
                     hca = hca.WithMarkings(head);
@@ -2247,7 +2247,7 @@ public sealed partial class PhantomSystem : SharedPhantomSystem
                 if (hair.TryGetValue(0, out var marking))
                 {
                     hca = hca.WithHairStyleName(marking.MarkingId);
-                    hca = hca.WithHairColor(marking.MarkingColors.First());
+                    hca = hca.WithHairColor(new List<Color>(marking.MarkingColors));
                 }
             if (humanoid.MarkingSet.Markings.TryGetValue(MarkingCategories.Head, out var head))
                 hca = hca.WithMarkings(head);

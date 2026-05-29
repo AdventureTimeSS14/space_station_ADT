@@ -1,0 +1,19 @@
+- type: entity
+  parent: MobStatusEffectBase
+  id: PainNumbnessTraitStatusEffect
+  components:
+    - type: StatusEffect
+      whitelist:
+        components:
+          - MobState
+          - MobThresholds
+    - type: PainNumbnessStatusEffect
+
+- type: entity
+  parent: MobStatusEffectDebuff
+  id: StatusEffectHemophiliaTrait
+  name: status-effect-hemophilia
+  components:
+    - type: HemophiliaStatusEffect
+      bleedReductionMultiplier: 0.33
+      bleedAmountMultiplier: 1.0

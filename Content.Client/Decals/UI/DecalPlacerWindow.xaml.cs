@@ -36,6 +36,7 @@ public sealed partial class DecalPlacerWindow : DefaultWindow
     private int _zIndex;
 
     private bool _auto;
+    private bool _singleErase; // ADT-Tweak
 
     public DecalPlacerWindow()
     {
@@ -109,6 +110,13 @@ public sealed partial class DecalPlacerWindow : DefaultWindow
             _cleanable = args.Pressed;
             UpdateDecalPlacementInfo();
         };
+        // ADT-Tweak start
+        EnableSingleErase.OnToggled += args =>
+        {
+            _singleErase = args.Pressed;
+            UpdateDecalPlacementInfo();
+        };
+        // ADT-Tweak end
         ZIndexSpinBox.ValueChanged += args =>
         {
             _zIndex = args.Value;
@@ -129,7 +137,7 @@ public sealed partial class DecalPlacerWindow : DefaultWindow
             return;
 
         var color = _useColor ? _color : Color.White;
-        _decalPlacementSystem.UpdateDecalInfo(_selected, color, _rotation, _snap, _zIndex, _cleanable);
+        _decalPlacementSystem.UpdateDecalInfo(_selected, color, _rotation, _snap, _zIndex, _cleanable, _singleErase); // ADT-Tweak
     }
 
     private void RefreshList()

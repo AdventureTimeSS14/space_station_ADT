@@ -44,8 +44,10 @@
   # - ClothingNeckWhiteListPin
   # # Corvax-Loadouts-End
   - AcousticGuitarInstrument
-  - RockGuitarInstrument #ADT-tweak
-  - HarmonicaInstrument #ADT-tweak
+  - RockGuitarInstrument
+  - BassGuitarInstrument
+  - HarmonicaInstrument
+  - SynthesizerInstrument
   - ADTModStorageVoucher
   - ADTClothingGeorgeRibbonPin
   - ADTClothingMaskPaperBlank
@@ -74,6 +76,10 @@
   - ADTHandheldStationMapUnpowered
   - ADTModStorageVoucher
   - ADTClothingGeorgeRibbonPin
+  - ADTFlowerWreath1
+  - ADTFlowerWreath2
+  - ADTFlowerWreath3
+  - ADTFlowerWreath4
   # ADT-Tweak-End
 
 - type: loadoutGroup

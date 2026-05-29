@@ -83,12 +83,12 @@
                           Margin="0 10 0 0">
 
                 <!-- CUSTOM SPECIES -->
-                <PanelContainer HorizontalExpand="True" VerticalExpand="True" SetWidth="275" >
+                <PanelContainer HorizontalExpand="True" VerticalExpand="True" >
                     <PanelContainer.PanelOverride>
                         <gfx:StyleBoxFlat BackgroundColor="#1a1a1a"/>
                     </PanelContainer.PanelOverride>
 
-                    <BoxContainer Orientation="Vertical" Margin="8" SetWidth="250">
+                    <BoxContainer Orientation="Vertical" Margin="8">
                         <ui:Label Name="CustomSpeciesTitle"
                                   Text="{Loc 'flavor-interface-custom-species'}"
                                   StyleClasses="LabelHeading"
@@ -100,30 +100,6 @@
                                          HScrollEnabled="False">
                             <ui:RichTextLabel Name="CustomSpeciesLabel"
                                               Text="{Loc 'flavor-interface-no-custom-species-desc'}"
-                                              HorizontalExpand="True"
-                                              VerticalAlignment="Top"
-                                              HorizontalAlignment="Left"
-                                              Margin="8"/>
-                        </ScrollContainer>
-                    </BoxContainer>
-                </PanelContainer>
-
-                <!-- OOC NOTES -->
-                <PanelContainer HorizontalExpand="True" VerticalExpand="True" SizeFlagsStretchRatio="3" >
-                    <PanelContainer.PanelOverride>
-                        <gfx:StyleBoxFlat BackgroundColor="#1a1a1a"/>
-                    </PanelContainer.PanelOverride>
-
-                    <BoxContainer Orientation="Vertical" Margin="8">
-                        <ui:Label Text="{Loc 'flavor-interface-OOC-notes'}"
-                                  StyleClasses="LabelHeading"
-                                  Margin="8 0"/>
-
-                        <ScrollContainer VerticalExpand="True"
-                                         HorizontalExpand="True"
-                                         VScrollEnabled="True"
-                                         HScrollEnabled="False">
-                            <ui:RichTextLabel Name="OOCNotesLabel"
                                               HorizontalExpand="True"
                                               VerticalAlignment="Top"
                                               HorizontalAlignment="Left"

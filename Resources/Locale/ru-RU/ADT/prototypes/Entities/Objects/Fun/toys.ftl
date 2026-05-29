@@ -34,3 +34,12 @@ ent-ADTToyBlasterGunBlue = игрушечный синий лазерный бл
 
 ent-ADTToyBlasterGunGreen = игрушечный зелёный лазерный бластер
     .desc = {ent-ADTToyBlasterGunRed.desc}
+
+ent-ADTBalloonFlower = шарик в форме цветочка
+    .desc = Жаль, что цветок не пахнет
+
+ent-ADTBalloonDog = шарик в форме собачки
+    .desc = Жаль, что это не настоящая собака.
+
+ent-ADTBalloonSword = шарик в форме меча 
+    .desc = Слишком безопасен для нападения на корабли.

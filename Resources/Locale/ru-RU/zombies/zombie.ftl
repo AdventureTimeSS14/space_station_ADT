@@ -8,3 +8,7 @@ zombie-role-rules = Вы — [color={ role-type-team-antagonist-color }][bold]{ 
 zombie-permadeath = В этот раз вы мертвы по-настоящему.
 zombification-resistance-coefficient-value = - Шанс [color=violet]заражения[/color] снижен на [color=lightblue]{ $value }%[/color].
 zombie-roleban-ghosted = Вы были выброшены в призрака, потому что у вас бан роли зомби.
+
+# Zombie Jump (ADT)
+ent-ActionZombieJump = Прыжок зомби
+ent-ActionZombieJump-desc = Мощный прыжок вперёд. При столкновении с живой сущностью она будет сбита с ног!

@@ -1,5 +1,5 @@
 - type: gameMap
-  id: Silly
+  id: SD_Barracuda
   mapName: 'Barracuda'
   mapPath: /Maps/_SDMaps/SDStations/SD_Barracuda.yml
   minPlayers: 5

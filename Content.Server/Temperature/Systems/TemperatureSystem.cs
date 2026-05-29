@@ -210,6 +210,15 @@ public sealed class TemperatureSystem : SharedTemperatureSystem
             threshold = temperature.HeatDamageThreshold;
         }
 
+        // ADT-Tweak start
+        if ((type == temperature.ColdAlert && !temperature.ShowColdAlert) ||
+            (type == temperature.HotAlert && !temperature.ShowHotAlert))
+        {
+            _alerts.ClearAlertCategory(uid, TemperatureAlertCategory);
+            return;
+        }
+        // ADT-Tweak end
+
         // Calculates a scale where 1.0 is the ideal temperature and 0.0 is where temperature damage begins
         // The cold and hot scales will differ in their range if the ideal temperature is not exactly halfway between the thresholds
         var tempScale = (args.CurrentTemperature - threshold) / (idealTemp - threshold);

@@ -6,7 +6,6 @@ using Content.Server.Heretic.EntitySystems;
 using Content.Server.Medical.SuitSensors;
 using Content.Server.Objectives.Components;
 using Content.Server.Revolutionary.Components;
-using Content.Shared.ADT.BloodBrothers;
 using Content.Shared.Changeling.Components;
 using Content.Shared.Chat;
 using Content.Shared.Damage.Systems;
@@ -115,8 +114,6 @@ public sealed partial class RitualAscensionSacrificeBehavior : RitualCustomBehav
                 knowledgeGain += Math.Min(2, heretic.PathStage / 2 - 1);
             if (args.EntityManager.HasComponent<ChangelingComponent>(uids[i]))
                 knowledgeGain += 2;
-            if (args.EntityManager.TryGetComponent<BloodBrotherLeaderComponent>(uids[i], out var bro))
-                knowledgeGain += bro.ConvertedCount / 2;
             if (args.EntityManager.TryGetComponent<HeadRevolutionaryComponent>(uids[i], out var rev))
                 knowledgeGain += rev.ConvertedCount / 3;
 

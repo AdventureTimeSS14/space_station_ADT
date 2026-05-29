@@ -4,7 +4,7 @@ ent-ADTClothingBeltSheathOCK = сабельные ножны ЦентКом
 ent-ADTClothingBeltBlackSuspenders = чёрные подтяжки
     .desc = Обычные чёрные подтяжки, сделанные из эластичной ленты, с добавлением резины. Производство компании "Modeling Agency Dar-Vaxed".
 
-ent-ADTClothingBeltBrownSuspenders = кожанные подтяжки
+ent-ADTClothingBeltBrownSuspenders = кожаные подтяжки
     .desc = Обычные подтяжки из грубой кожи. Производство компании "Modeling Agency Dar-Vaxed".
 
 ent-ADTClothingBeltMedicalSecurity = охранно-медицинский пояс
@@ -61,4 +61,4 @@ ent-ADTBureaucraticBelt = бюрократический пояс
 ent-ADTClothingBeltSheathZero = { ent-ADTClothingBeltSheathZeroFilled }
     .desc = { ent-ADTClothingBeltSheathZeroFilled.desc }
 ent-ADTClothingChemdisBelt = химразпояс 4000
-    .desc = Крайне компактная версия утаревшего ныне химического раздатчика, сделанная для переноски химикатов в кувшинах.
+    .desc = Крайне компактная версия устаревшего ныне химического раздатчика, сделанная для переноски химикатов в кувшинах.

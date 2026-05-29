@@ -9,6 +9,8 @@ JobRoboticist = робототехник
 job-name-magistrat = магистрат
 JobMagistrat = магистрат
 
+job-name-machine = Машина
+
 job-name-senior-physician = ведущий врач
 JobADTSeniorPhysician = ведущий врач
 

@@ -1329,3 +1329,44 @@
     Sugar: 5
   recipeType:
   - Assembler
+
+- type: microwaveMealRecipe
+  id: ADTRecipeStringCheese
+  name: string cheese recipe
+  result: ADTStringCheese
+  time: 5
+  group: Savory
+  solids:
+    FoodCheeseSlice: 1
+  reagents:
+    TableSalt: 5
+  recipeType:
+  - Microwave
+
+- type: microwaveMealRecipe
+  id: ADTRecipeBananaBoom
+  name: banana boom recipe
+  result: ADTFoodCakeBananaBoom
+  time: 5
+  group: Cake
+  solids:
+    FoodBanana: 7
+    FoodSnackChocolateBar: 1
+    FoodCakePlain: 1
+  recipeType:
+  - Assembler
+
+- type: microwaveMealRecipe
+  id: ADTRecipeChakChak
+  name: chak-chak recipe
+  result: ADTChakChak
+  time: 10
+  group: Savory
+  solids:
+    FoodPlateSmall: 1
+    FoodDough: 1
+  reagents:
+    OilOlive: 5
+    Mead: 15
+  recipeType:
+  - Microwave

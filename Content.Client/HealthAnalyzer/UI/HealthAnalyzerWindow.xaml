@@ -50,6 +50,9 @@
                     <Label Name="BloodLabel" />
                     <Label Text="{Loc 'health-analyzer-window-entity-damage-total-text'}" />
                     <Label Name="DamageLabel" />
+                    <!-- ADT-Tweak-Start -->
+                    <Label Name="AllergyText" Text="{Loc 'health-analyzer-window-entity-allergy-text'}" />
+                    <!-- ADT-Tweak-End -->
                 </GridContainer>
             </BoxContainer>
 

@@ -6,7 +6,7 @@ using Robust.Shared.Prototypes;
 using Content.Client.Overlays;
 using Content.Shared.Antag;
 using Robust.Client.Player;
-using Content.Shared.Bible.Components;
+using Content.Shared.ADT.Chaplain.Components;
 
 namespace Content.Client.ADT.Phantom;
 public sealed class ShowHauntedIconsSystem : EquipmentHudSystem<ShowHauntedIconsComponent>

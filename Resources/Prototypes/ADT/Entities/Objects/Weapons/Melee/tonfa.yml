@@ -103,3 +103,101 @@
           True: {state: icon-of}
           False: {state: icon-prot}
   - type: Appearance
+
+- type: entity
+  name: steel tonfa
+  parent: ADTWeaponTonfa
+  id: ADTWeaponTonfaSteel
+  description: A reinforced steel tonfa that hits much harder than the standard model.
+  components:
+  - type: Clothing
+    sprite: ADT/Objects/Weapons/Melee/steel_tonfa.rsi
+    quickEquip: false
+    slots:
+    - Belt
+  - type: Sprite
+    sprite: ADT/Objects/Weapons/Melee/steel_tonfa.rsi
+    layers:
+    - state: icon-of
+      map: [ "enum.ComboWeaponState.State" ]
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    angle: 10
+    attackRate: 2
+    damage:
+      types:
+        Blunt: 13
+  - type: Item
+    sprite: ADT/Objects/Weapons/Melee/steel_tonfa.rsi
+    size: Normal
+  - type: ComboWeapon
+    swapSound: /Audio/Effects/thudswoosh.ogg
+    availableMoves:
+      - actionsNeeds:
+          - OffensiveWideHit
+          - OffensiveWideHit
+          - OffensiveHit
+        comboEvent:
+          - !type:ComboDamageEffect
+            damage:
+              types:
+                Blunt: 13
+          - !type:ComboDropFromHandsEffect
+          - !type:ComboAudioEffect
+            sound:
+              collection: GenericHit
+      - actionsNeeds:
+          - ProtectiveWideHit
+          - ProtectiveWideHit
+          - OffensiveHit
+        comboEvent:
+          - !type:ComboEffectToDowned
+            comboEvents:
+            - !type:ComboSlowdownEffect
+              time: 10
+            - !type:ComboAudioEffect
+              sound:
+                collection: GenericHit
+          - !type:ComboFallEffect
+            dropItems: false
+      - actionsNeeds:
+          - OffensiveWideHit
+          - OffensiveWideHit
+          - ProtectiveHit
+        comboEvent:
+          - !type:ComboEffectToUserPuller
+            comboEvents:
+            - !type:ComboStopTargetGrabEffect
+            - !type:ComboAudioEffect
+              sound:
+                collection: GenericHit
+            - !type:ComboFallEffect
+              dropItems: false
+            - !type:ComboTrowTargetEffect
+              thrownSpeed: 7
+      - actionsNeeds:
+          - ProtectiveWideHit
+          - OffensiveWideHit
+        comboEvent:
+          - !type:ComboStaminaDamageEffect
+            staminaDamage: 50
+          - !type:ComboAudioEffect
+            sound:
+              collection: GenericHit
+      - actionsNeeds:
+          - ProtectiveHit
+          - OffensiveHit
+        comboEvent:
+          - !type:ComboDamageEffect
+            damage:
+              types:
+                Blunt: 20
+          - !type:ComboAudioEffect
+            sound:
+              collection: GenericHit
+  - type: GenericVisualizer
+    visuals:
+      enum.ComboWeaponState.State:
+        enum.ComboWeaponState.State:
+          True: {state: icon-of}
+          False: {state: icon-prot}

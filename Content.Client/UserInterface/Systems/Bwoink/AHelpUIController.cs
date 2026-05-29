@@ -92,7 +92,7 @@ public sealed class AHelpUIController: UIController, IOnSystemChanged<BwoinkSyst
     private void AHelpButtonPressed(BaseButton.ButtonEventArgs obj)
     {
         EnsureUIHelper();
-        UIHelper!.ToggleWindow();
+        UIHelper?.ToggleWindow();
     }
 
     public void OnSystemLoaded(BwoinkSystem system)
@@ -137,21 +137,31 @@ public sealed class AHelpUIController: UIController, IOnSystemChanged<BwoinkSyst
         {
             return;
         }
-        if (message.PlaySound && localPlayer.UserId != message.TrueSender)
+
+        // ADT-Tweak start
+        EnsureUIHelper();
+
+        if (UIHelper == null)
+            return;
+        // ADT-Tweak end
+
+        if (message.PlaySound && localPlayer.UserId != message.TrueSender && !UIHelper.IsViewer)
         {
             if (_aHelpSound != null && (_bwoinkSoundEnabled || !_adminManager.IsActive()))
                 _audio.PlayGlobal(_aHelpSound, Filter.Local(), false);
+        }
+
+        if (localPlayer.UserId != message.TrueSender) // ADT-Tweak
+        {
             _clyde.RequestWindowAttention();
         }
 
-        EnsureUIHelper();
-
-        if (!UIHelper!.IsOpen)
+        if (!UIHelper.IsOpen)
         {
             UnreadAHelpReceived();
         }
 
-        UIHelper!.Receive(message);
+        UIHelper.Receive(message);
     }
 
     private void DiscordRelayUpdated(BwoinkDiscordRelayUpdated args, EntitySessionEventArgs session)
@@ -168,13 +178,28 @@ public sealed class AHelpUIController: UIController, IOnSystemChanged<BwoinkSyst
     public void EnsureUIHelper()
     {
         var isAdmin = _adminManager.HasFlag(AdminFlags.Adminhelp);
+        // ADT-Tweak start
+        var isViewer = _adminManager.HasFlag(AdminFlags.AhelpView);
 
-        if (UIHelper != null && UIHelper.IsAdmin == isAdmin)
+        var shouldBeAdmin = isAdmin;
+        var shouldBeViewer = isViewer && !isAdmin;
+        // ADT-Tweak end
+
+        if (UIHelper != null && UIHelper.IsAdmin == shouldBeAdmin && UIHelper.IsViewer == shouldBeViewer) // ADT-Tweak
             return;
 
         UIHelper?.Dispose();
-        var ownerUserId = _playerManager.LocalUser!.Value;
-        UIHelper = isAdmin ? new AdminAHelpUIHandler(ownerUserId) : new UserAHelpUIHandler(ownerUserId);
+
+        // ADT-Tweak start
+        var localUser = _playerManager.LocalUser;
+        if (localUser == null)
+            return;
+
+        var ownerUserId = localUser.Value;
+        UIHelper = shouldBeAdmin ? new AdminAHelpUIHandler(ownerUserId) :
+                   shouldBeViewer ? new ViewerAHelpUIHandler(ownerUserId) :
+                   new UserAHelpUIHandler(ownerUserId);
+        // ADT-Tweak end
         UIHelper.DiscordRelayChanged(_discordRelayActive);
 
         UIHelper.SendMessageAction = (userId, textMessage, playSound, adminOnly) => _bwoinkSystem?.Send(userId, textMessage, playSound, adminOnly);
@@ -317,6 +342,7 @@ public sealed class AHelpUIController: UIController, IOnSystemChanged<BwoinkSyst
 public interface IAHelpUIHandler : IDisposable
 {
     public bool IsAdmin { get; }
+    public bool IsViewer { get; } // ADT-Tweak
     public bool IsOpen { get; }
     public void Receive(SharedBwoinkSystem.BwoinkTextMessage message);
     public void Close();
@@ -338,6 +364,7 @@ public sealed class AdminAHelpUIHandler : IAHelpUIHandler
     }
     private readonly Dictionary<NetUserId, BwoinkPanel> _activePanelMap = new();
     public bool IsAdmin => true;
+    public bool IsViewer => false; // ADT-Tweak
     public bool IsOpen => Window is { Disposed: false, IsOpen: true } || ClydeWindow is { IsDisposed: false };
     public bool EverOpened;
 
@@ -499,6 +526,7 @@ public sealed class UserAHelpUIHandler : IAHelpUIHandler
         _ownerId = owner;
     }
     public bool IsAdmin => false;
+    public bool IsViewer => false; // ADT-Tweak
     public bool IsOpen => _window is { Disposed: false, IsOpen: true };
     private DefaultWindow? _window;
     private BwoinkPanel? _chatPanel;
@@ -591,3 +619,151 @@ public sealed class UserAHelpUIHandler : IAHelpUIHandler
         _chatPanel = null;
     }
 }
+
+// ADT-Tweak start
+public sealed class ViewerAHelpUIHandler : IAHelpUIHandler
+{
+    private readonly NetUserId _ownerId;
+    public ViewerAHelpUIHandler(NetUserId owner)
+    {
+        _ownerId = owner;
+    }
+    private readonly Dictionary<NetUserId, BwoinkPanel> _activePanelMap = new();
+    public bool IsAdmin => false;
+    public bool IsViewer => true;
+    public bool IsOpen => Window is { Disposed: false, IsOpen: true };
+    public bool EverOpened;
+
+    public BwoinkWindow? Window;
+    public BwoinkControl? Control;
+
+    public void Receive(SharedBwoinkSystem.BwoinkTextMessage message)
+    {
+        var panel = EnsurePanel(message.UserId);
+        panel.ReceiveLine(message);
+        Control?.OnBwoink(message.UserId);
+    }
+
+    private void OpenWindow()
+    {
+        if (Window == null)
+            return;
+
+        if (EverOpened)
+            Window.Open();
+        else
+            Window.OpenCentered();
+    }
+
+    public void Close()
+    {
+        Window?.Close();
+    }
+
+    public void ToggleWindow()
+    {
+        EnsurePanel(_ownerId);
+
+        if (IsOpen)
+            Close();
+        else
+            OpenWindow();
+    }
+
+    public void DiscordRelayChanged(bool active)
+    {
+    }
+
+    public void PeopleTypingUpdated(BwoinkPlayerTypingUpdated args)
+    {
+        if (_activePanelMap.TryGetValue(args.Channel, out var panel))
+            panel.UpdatePlayerTyping(args.PlayerName, args.Typing);
+    }
+
+    public event Action? OnClose;
+    public event Action? OnOpen;
+    public Action<NetUserId, string, bool, bool>? SendMessageAction { get; set; }
+    public event Action<NetUserId, string>? InputTextChanged;
+
+    public void Open(NetUserId channelId, bool relayActive)
+    {
+        SelectChannel(channelId);
+        OpenWindow();
+    }
+
+    private void EnsureControl()
+    {
+        if (Control is { Disposed: false })
+            return;
+
+        Window = new BwoinkWindow();
+        Window.Title = Loc.GetString("bwoink-viewer-title");
+        Control = Window.Bwoink;
+        Control.SetViewerMode();
+        Window.OnClose += () => { OnClose?.Invoke(); };
+        Window.OnOpen += () =>
+        {
+            OnOpen?.Invoke();
+            EverOpened = true;
+        };
+
+        foreach (var (_, panel) in _activePanelMap)
+        {
+            if (!Control!.BwoinkArea.Children.Contains(panel))
+            {
+                Control!.BwoinkArea.AddChild(panel);
+            }
+            panel.Visible = false;
+        }
+
+        HideAllPanels();
+    }
+
+    public void HideAllPanels()
+    {
+        foreach (var panel in _activePanelMap.Values)
+        {
+            panel.Visible = false;
+        }
+    }
+
+    public BwoinkPanel EnsurePanel(NetUserId channelId)
+    {
+        EnsureControl();
+
+        if (_activePanelMap.TryGetValue(channelId, out var existingPanel))
+            return existingPanel;
+
+        var canSend = channelId == _ownerId;
+        _activePanelMap[channelId] = existingPanel = new BwoinkPanel(
+            canSend ? (text => SendMessageAction?.Invoke(channelId, text, true, false)) : (text => { }),
+            isUserAHelp: false,
+            canSendMessages: canSend);
+        if (canSend)
+            existingPanel.InputTextChanged += text => InputTextChanged?.Invoke(channelId, text);
+        existingPanel.Visible = false;
+        if (!Control!.BwoinkArea.Children.Contains(existingPanel))
+            Control.BwoinkArea.AddChild(existingPanel);
+
+        return existingPanel;
+    }
+
+    public bool TryGetChannel(NetUserId ch, [System.Diagnostics.CodeAnalysis.NotNullWhen(true)] out BwoinkPanel? bp) =>
+        _activePanelMap.TryGetValue(ch, out bp);
+
+    private void SelectChannel(NetUserId uid)
+    {
+        EnsurePanel(uid);
+        Control!.SelectChannel(uid);
+    }
+
+    public void Dispose()
+    {
+        Window?.Dispose();
+        Window = null;
+        Control = null;
+        _activePanelMap.Clear();
+        EverOpened = false;
+    }
+}
+// ADT-Tweak end

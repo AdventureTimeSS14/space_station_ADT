@@ -48,6 +48,7 @@
     RLeg: MobVulpkaninRLeg
     LFoot: MobVulpkaninLFoot
     RFoot: MobVulpkaninRFoot
+    HeadTop: MobHumanoidAnyMarking
     Tail: MobHumanoidAnyMarking
 
 - type: markingPoints
@@ -70,6 +71,10 @@
       points: 1
       required: true
       defaultMarkings: [ ADTVulpkanintailAll ]
+    HeadTop:
+      points: 1
+      required: true
+      defaultMarkings: [ ADTVulpkaninear ]
     Head:
       points: 4
       required: false

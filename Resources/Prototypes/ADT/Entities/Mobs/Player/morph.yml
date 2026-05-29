@@ -89,7 +89,14 @@
     blacklist:
       components:
       - ChameleonDisguise # no becoming kleiner
+      - Door
+      - MindContainer
       - Pda # PDAs currently make you invisible /!\
+      - SubFloorHide
+      tags:
+      - Catwalk
+      - Wall
+      - Window
     disguiseProto: ChameleonDisguise
   - type: UserInterface
     interfaces:

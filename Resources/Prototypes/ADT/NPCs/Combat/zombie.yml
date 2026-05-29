@@ -1,0 +1,36 @@
+- type: htnCompound
+  id: ZombieHostileCompound
+  branches:
+    - tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:UtilityOperator
+            proto: NearbyMeleeTargets
+        - !type:HTNCompoundTask
+          task: ZombieAttackCompound
+    - tasks:
+        - !type:HTNCompoundTask
+          task: IdleCompound
+
+- type: htnCompound
+  id: ZombieAttackCompound
+  branches:
+    - preconditions:
+        - !type:KeyExistsPrecondition
+          key: Target
+        - !type:ZombieJumpRangePrecondition
+          targetKey: Target
+          rangeKey: JumpRange
+        - !type:ZombieJumpCooldownPrecondition
+          cooldown: 10
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:ZombieJumpAttackOperator
+            targetKey: Target
+            cooldown: 10
+
+    - preconditions:
+        - !type:KeyExistsPrecondition
+          key: Target
+      tasks:
+        - !type:HTNCompoundTask
+          task: BeforeMeleeAttackTargetCompound

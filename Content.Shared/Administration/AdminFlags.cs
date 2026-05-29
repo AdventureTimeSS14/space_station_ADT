@@ -125,6 +125,12 @@
         NameColor = 1 << 21,
 
         /// <summary>
+        ///     ADT-Tweak
+        ///     Lets you view admin help messages without being able to respond.
+        /// </summary>
+        AhelpView = 1 << 22,
+
+        /// <summary>
         ///     Dangerous host permissions like scsi.
         /// </summary>
         Host = 1u << 31,

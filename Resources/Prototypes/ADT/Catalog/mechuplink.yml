@@ -466,6 +466,20 @@
     Productunit: 6
   categories:
   - ADTUplinkERTMechAmmo
+ 
+- type: listing
+  id: UplinkERTMechSandevistanAutoSurgeon
+  name: boobr-sandevistan-autosurgeon-name
+  description: boobr-sandevistan-autosurgeon-desc
+  icon: { sprite: ADT/Implants/sandevistan.rsi, state: icon}
+  productEntity: ADTERTSandevistanAutoSurgeon
+  conditions:
+    - !type:ListingLimitedStockCondition
+      stock: 1
+  cost:
+    Productunit: 12
+  categories:
+  - ADTUplinkERTMechImplants
 
 #Оружие аплинка ОБР против революции
 

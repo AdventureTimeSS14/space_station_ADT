@@ -198,6 +198,20 @@ public sealed class SharedVentCrawableSystem : EntitySystem
         var query = EntityQueryEnumerator<VentCrawlerHolderComponent>();
         while (query.MoveNext(out var uid, out var holder))
         {
+            if (holder.CurrentTube == null || !EntityManager.EntityExists(holder.CurrentTube.Value))
+            {
+                var exitEv = new VentCrawlingExitEvent();
+                RaiseLocalEvent(uid, ref exitEv);
+                continue;
+            }
+
+            if (!_containerSystem.IsEntityInContainer(holder.Container.Owner))
+            {
+                var exitEv = new VentCrawlingExitEvent();
+                RaiseLocalEvent(uid, ref exitEv);
+                continue;
+            }
+
             if (holder.CurrentDirection == Direction.Invalid || holder.CurrentTube == null)
                 continue;
 
@@ -209,13 +223,6 @@ public sealed class SharedVentCrawableSystem : EntitySystem
 
                 if (nextTube != null)
                 {
-                    if (!EntityManager.EntityExists(holder.CurrentTube))
-                    {
-                        var ev = new VentCrawlingExitEvent();
-                        RaiseLocalEvent(uid, ref ev);
-                        continue;
-                    }
-
                     holder.NextTube = nextTube;
                     holder.StartingTime = holder.Speed;
                     holder.TimeLeft = holder.Speed;

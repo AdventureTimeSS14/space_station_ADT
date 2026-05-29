@@ -272,21 +272,3 @@
       board: [ DoorElectronicsSalvage ]
   - type: Wires
     layoutId: AirlockCargo
-
-- type: entity
-  parent: ADTJournalistAirlock
-  id: ADTAirlockJournalismLocked
-  suffix: Journalism, Locked
-  components:
-  - type: ContainerFill
-    containers:
-      board: [ ADTDoorElectronicsJournalism ]
-
-- type: entity
-  parent: ADTJournalistAirlockGlass
-  id: ADTAirlockJournalismGlassLocked
-  suffix: Journalism, Locked
-  components:
-  - type: ContainerFill
-    containers:
-      board: [ ADTDoorElectronicsJournalism ]

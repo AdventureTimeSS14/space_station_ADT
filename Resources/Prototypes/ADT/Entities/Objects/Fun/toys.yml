@@ -155,3 +155,54 @@
     - type: Item
       size: Small
       sprite: ADT/Objects/Fun/rubber_hammer_abyss.rsi
+
+- type: entity
+  parent: ADTBalloon
+  id: ADTBalloonFlower
+  name: flower balloon
+  description: It's a pity that the flower doesn't smell
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/Balloon.rsi
+    state: flower-balloon
+  - type: Item
+    size: Small
+    sprite: ADT/Objects/Fun/Balloon.rsi
+    heldPrefix: flower
+  - type: Tag
+    tags:
+    - Balloon
+
+- type: entity
+  parent: ADTBalloon
+  id: ADTBalloonDog
+  name: dog balloon
+  description: It's a pity that it's not a real dog.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/Balloon.rsi
+    state: dog-balloon
+  - type: Item
+    size: Small
+    sprite: ADT/Objects/Fun/Balloon.rsi
+    heldPrefix: dog
+  - type: Tag
+    tags:
+    - Balloon
+
+- type: entity
+  parent: [ADTBalloon, ToyHammer]
+  id: ADTBalloonSword
+  name: sword balloon
+  description: It's too safe to attack ships.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Fun/Balloon.rsi
+    state: sword-balloon
+  - type: Item
+    size: Small
+    sprite: ADT/Objects/Fun/Balloon.rsi
+    heldPrefix: sword
+  - type: Tag
+    tags:
+    - Balloon

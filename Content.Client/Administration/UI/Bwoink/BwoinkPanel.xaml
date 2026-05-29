@@ -1,16 +1,17 @@
-﻿<BoxContainer
+<BoxContainer
     xmlns="https://spacestation14.io"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     Orientation="Vertical"
     HorizontalExpand="True">
     <OutputPanel Name="TextOutput" VerticalExpand="true" />
     <RichTextLabel Name="TypingIndicator" Access="Public" />
-    <HistoryLineEdit Name="SenderLineEdit" />
+    <RichTextLabel Name="ViewerNoticeLabel" Access="Public" Visible="False" /> <!-- ADT-Tweak -->
+    <HistoryLineEdit Name="SenderLineEdit" Access="Public" /> <!-- ADT-Tweak -->
     <RichTextLabel Name="RelayedToDiscordLabel" Access="Public" Visible="False" />
     <!-- ADT-Tweak start. Система тегов в АХелп -->
     <BoxContainer Orientation="Horizontal" HorizontalExpand="True" SizeFlagsStretchRatio="2">
-        <Label Name="AHelpUserTagName" Text="{Loc ahelp-user-tag-title}" />
-        <OptionButton Name="TypeTag" HorizontalExpand="True" />
+        <Label Name="AHelpUserTagName" Access="Public" Text="{Loc ahelp-user-tag-title}" /> <!-- ADT-Tweak -->
+        <OptionButton Name="TypeTag" Access="Public" HorizontalExpand="True" /> <!-- ADT-Tweak -->
     </BoxContainer>
     <!-- ADT-Tweak end -->
 </BoxContainer>

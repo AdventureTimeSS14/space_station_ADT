@@ -100,6 +100,7 @@
   - ADTBureaucraticBelt
   - SheetPaper
   - Paper
+  - ADTOldRadio
   - ADTEftpos
 
 - type: latheRecipePack
@@ -119,15 +120,6 @@
   - ADTBlockGameArcadeComputerCircuitboard
   - ADTSpaceVillainArcadeComputerCircuitboard
   - ADTMinesweeperCircuitboard
-
-- type: latheRecipePack
-  id: ADTServiceBoards
-  recipes:
-  - ADTVinylPlayerCircuitboard
-  - ADTTapeDeckCircuitboard
-  - ADTStationRadioServerCircuitboard
-  - ADTStationRadioRigCircuitboard
-  - ADTStationRadioCircuitboard
 
 - type: latheRecipePack
   id: ADTBeltManipulatorPack
