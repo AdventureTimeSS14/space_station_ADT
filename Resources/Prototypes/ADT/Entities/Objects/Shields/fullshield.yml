@@ -112,7 +112,7 @@
     - type: UseDelay
       delay: 0.5
     - type: ToggleableVisuals
-      spriteLayer: shieldЫ
+      spriteLayer: shield
       inhandVisuals:
         left:
           - state: inhand-left-shield
