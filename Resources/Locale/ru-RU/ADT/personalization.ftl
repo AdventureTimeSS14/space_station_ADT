@@ -934,6 +934,67 @@ ent-ADTElegantWhip = элегантная плеть
     .desc = Это не оружие, а изысканный инструмент для контроля и доминирования над вашим оппонентом.
     .suffix = { "Именное, Minokaa, Cethet" }
 
+ent-ADTFamilyBusinessProjectileBase = лазерный снаряд
+    .desc =
+    .suffix = { "Именное, Minokaa, Cethet, NikSAN" }
+
+ent-ADTFamilyBusinessPinkProjectile = розовый лазерный снаряд
+    .desc =
+    .suffix = { "Именное, Minokaa, Cethet, NikSAN" }
+
+ent-ADTFamilyBusinessPurpleProjectile = фиолетовый лазерный снаряд
+    .desc =
+    .suffix = { "Именное, Minokaa, Cethet, NikSAN" }
+
+ent-ADTFamilyBusinessRedProjectile = красный лазерный снаряд
+    .desc =
+    .suffix = { "Именное, Minokaa, Cethet, NikSAN" }
+
+ent-ADTFamilyBusinessLaserPistolBase = EW-1 "семейное дело"
+    .desc =
+    .suffix = { "Именное, Minokaa, Cethet, NikSAN" }
+
+ent-ADTFamilyBusinessLaserPistolPink = EW-1 "семейное дело"
+    .desc = Компактный автоматический лазерный пистолет с розовой рукоятью. На рукоятье выгравированы инициалы Э. Эвенвуд.
+    .suffix = { "Именное, Minokaa, Cethet, NikSAN, Pink" }
+
+ent-ADTFamilyBusinessLaserPistolPurple = EW-2 "семейное дело"
+    .desc = Компактный автоматический лазерный пистолет с фиолетовой рукоятью. На рукоятье выгравированы инициалы Й. Эвенвуд.
+    .suffix = { "Именное, Minokaa, Cethet, NikSAN, Purple" }
+
+ent-ADTFamilyBusinessLaserPistolRed = EW-3 "семейное дело"
+    .desc = Компактный автоматический лазерный пистолет с красной рукоятью. На рукоятье выгравированы инициалы М. Эвенвуд.
+    .suffix = { "Именное, Minokaa, Cethet, NikSAN, Red" }
+
+ent-ADTFamilyBusinessWeaponCase = оружейный кейс
+    .desc = Оружейный кейс, эксклюзивно разработанный для семьи Эвенвуд. На его крышке нарисованны рога.
+    .suffix = { "Именное, Minokaa, Cethet, NikSAN" }
+
+ent-ADTFamilyBusinessWeaponCaseStorageBase = оружейный кейс
+    .desc = Оружейный кейс, эксклюзивно разработанный для семьи Эвенвуд. На его крышке нарисованны рога.
+    .suffix = { "Именное, Minokaa, Cethet, NikSAN" }
+
+ent-ADTFamilyBusinessWeaponCasePink = оружейный кейс
+    .desc = Оружейный кейс, эксклюзивно разработанный для семьи Эвенвуд. На его крышке нарисованны рога.
+    .suffix = { "Именное, Minokaa, Cethet, NikSAN, Pink" }
+
+ent-ADTFamilyBusinessWeaponCasePurple = оружейный кейс
+    .desc = Оружейный кейс, эксклюзивно разработанный для семьи Эвенвуд. На его крышке нарисованны рога.
+    .suffix = { "Именное, Minokaa, Cethet, NikSAN, Purple" }
+
+ent-ADTFamilyBusinessWeaponCaseRed = оружейный кейс
+    .desc = Оружейный кейс, эксклюзивно разработанный для семьи Эвенвуд. На его крышке нарисованны рога.
+    .suffix = { "Именное, Minokaa, Cethet, NikSAN, Red" }
+
+family-business-pistol-pink-name = EW-1 "семейное дело"
+family-business-pistol-pink-description = Компактный автоматический лазерный пистолет с розовой рукоятью. На рукоятье выгравированы инициалы Э. Эвенвуд.
+
+family-business-pistol-purple-name = EW-2 "семейное дело"
+family-business-pistol-purple-description = Компактный автоматический лазерный пистолет с фиолетовой рукоятью. На рукоятье выгравированы инициалы Й. Эвенвуд.
+
+family-business-pistol-red-name = EW-3 "семейное дело"
+family-business-pistol-red-description = Компактный автоматический лазерный пистолет с красной рукоятью. На рукоятье выгравированы инициалы М. Эвенвуд.
+
 ent-ADTPlushiekramol = плюшевая Крамоль
     .desc = Плюшевая игрушка с повторением облика той самой девушки из сервисного отдела. Когда вы подносите её к себе, то чувствуете резкий, горьковатый запах табака с примесью вишни и ванили.
     .suffix = { "Именное, honelin111" }
