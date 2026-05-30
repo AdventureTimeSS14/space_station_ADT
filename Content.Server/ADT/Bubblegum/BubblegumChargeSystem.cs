@@ -105,21 +105,21 @@ public sealed class BubblegumChargeSystem : EntitySystem
         Dirty(user, pending);
     }
 
-    private void DoCharge(EntityUid user, PendingCharge charge)
+    private bool DoCharge(EntityUid user, PendingCharge charge)
     {
         if (TerminatingOrDeleted(user))
-            return;
+            return false;
 
         if (_mobState.IsDead(user))
-            return;
+            return false;
 
         var userMap = _transform.GetMapCoordinates(user);
         if (userMap.MapId != charge.Target.MapId)
-            return;
+            return false;
 
         var diff = charge.Target.Position - userMap.Position;
         if (diff.LengthSquared() < 0.01f)
-            return;
+            return false;
 
         var direction = Vector2.Normalize(diff);
         var distance = diff.Length();
@@ -137,6 +137,7 @@ public sealed class BubblegumChargeSystem : EntitySystem
         _transform.SetLocalRotation(user, direction.ToWorldAngle() - gridRot);
 
         _throwing.TryThrow(user, diff, charge.Speed, animated: false, playSound: false, doSpin: false);
+        return true;
     }
 
     private void RefreshTargetFromEntity(PendingCharge item, MapId userMap)
@@ -175,7 +176,15 @@ public sealed class BubblegumChargeSystem : EntitySystem
             _recoil.KickCamera(target, ent.Comp.Direction * ent.Comp.CameraKickStrength);
 
             if (ent.Comp.ExpireOnHit)
+            {
+                if (HasComp<BubblegumHallucinationComponent>(ent))
+                {
+                    QueueDel(ent.Owner);
+                    return;
+                }
+
                 RemCompDeferred<BubblegumActiveChargeComponent>(ent);
+            }
             return;
         }
 
@@ -242,8 +251,11 @@ public sealed class BubblegumChargeSystem : EntitySystem
                 if (now < item.ExecuteAt)
                     continue;
 
-                DoCharge(uid, item);
+                var charged = DoCharge(uid, item);
                 pending.Queue.RemoveAt(i);
+
+                if (!charged && HasComp<BubblegumHallucinationComponent>(uid))
+                    QueueDel(uid);
             }
 
             if (pending.Queue.Count == 0)

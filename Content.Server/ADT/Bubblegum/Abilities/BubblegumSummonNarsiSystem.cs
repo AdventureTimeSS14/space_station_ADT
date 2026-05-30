@@ -1,4 +1,5 @@
 using System.Numerics;
+using Content.Shared.ADT.Bubblegum;
 using Content.Shared.ADT.Bubblegum.Abilities;
 using Content.Shared.Maps;
 using Content.Shared.Physics;
@@ -59,7 +60,8 @@ public sealed class BubblegumSummonNarsiSystem : EntitySystem
             if (_turf.IsTileBlocked(tile.Value, CollisionGroup.MobMask))
                 continue;
 
-            Spawn(ent.Comp.MinionPrototype, entityCoords);
+            var minion = Spawn(ent.Comp.MinionPrototype, entityCoords);
+            EnsureComp<BubblegumMinionComponent>(minion).Summoner = ent.Owner;
             spawned++;
         }
     }

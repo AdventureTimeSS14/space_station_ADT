@@ -1,4 +1,3 @@
-# Босс
 ent-ADTMegaFaunaBubblegum = бубльгум
     .desc = Если бы у бойни был король это был бы он.
 
@@ -42,3 +41,24 @@ ent-ActionADTBubblegumBloodWarp = Кровавый прыжок
 
 ent-ActionADTBubblegumSummonNarsi = Призвать Нар'Си
     .desc = Призвать прислужников Нар'Си рядом с целью.
+
+ent-ADTCrateBubblegumLoot = гротескный сундук
+    .desc = Сундук из плоти и пропитанных кровью внутренностей, оставленный королём демонов бойни.
+
+ent-ADTClothingOuterHardsuitHECK = костюм H.E.C.K.
+    .desc = Hostile Environment Cross-Kinetic — костюм, способный выдержать любую опасность Лавалэнда. Его прошлому владельцу этого не хватило.
+
+ent-ADTClothingHeadHelmetHardsuitHECK = шлем H.E.C.K.
+    .desc = Hostile Environment Cross-Kinetic — шлем, созданный, чтобы выдержать все опасности Лавалэнда.
+
+ent-ADTKineticTrophyDemonClaws = когти демона
+    .desc = Набор окровавленных когтей с руки огромного демона. Подходит как трофей для кинетического крушителя.
+
+ent-ADTMayhemBottle = хаос в бутылочке
+    .desc = Магически насыщенная бутылочка крови, запах которой вгоняет всех вокруг в кровавое безумие.
+
+ent-ADTBloodContract = кровавый контракт
+    .desc = Пометь свою цель для смерти. Используйте в руке, чтобы выбрать жертву из экипажа станции.
+
+ent-ADTChainsawDoomslayer = О, ДЕТКА
+    .desc = ВЖЖЖЖЖЖ!!!

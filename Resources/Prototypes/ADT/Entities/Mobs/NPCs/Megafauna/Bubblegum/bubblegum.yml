@@ -30,6 +30,7 @@
     tags:
     - CannotSuicide
     - DoorBumpOpener
+    - Catwalk
   - type: NoSlip
   - type: ExplosionResistance
     damageCoefficient: 0
@@ -101,7 +102,23 @@
     - Stutter
     - Weakness
     - RadiationProtection
-    # todo make loot spawn
+  - type: BubblegumLoot
+    deathThemeSound:
+      path: /Audio/ADT/Phantom/Sounds/psycho.ogg
+    randomAmountLoot:
+      GoldOre: 10
+      SilverOre: 10
+      DiamondOre: 5
+      PlasmaOre: 15
+      UraniumOre: 10
+      SpaceQuartz: 15
+    randomLoot:
+    - ADTMayhemBottle
+    - ADTBloodContract
+    # todo make 3 
+    guaranteedLoot:
+    - ADTClothingOuterHardsuitHECK
+    - ADTKineticTrophyDemonClaws
 
 - type: entity
   id: ADTMegaFaunaBubblegumHallucination
@@ -143,4 +160,4 @@
         Blunt: 0
   - type: BubblegumHallucination
   - type: TimedDespawn
-    lifetime: 8
+    lifetime: 4

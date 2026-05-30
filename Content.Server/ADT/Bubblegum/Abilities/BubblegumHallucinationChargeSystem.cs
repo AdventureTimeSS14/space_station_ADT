@@ -43,7 +43,7 @@ public sealed class BubblegumHallucinationChargeSystem : EntitySystem
 
         if (!inSmash || ent.Comp.SmashWaveDelays.Count == 0)
         {
-            SpawnWave(target, ent.Comp.HallucinationsNormal, ent.Comp.Radius, ent.Comp.NormalDelay,
+            SpawnWave(ent.Owner, target, ent.Comp.HallucinationsNormal, ent.Comp.Radius, ent.Comp.NormalDelay,
                 ent.Comp.ChargeSpeed, ent.Comp.HallucinationPrototype, ent.Comp.TelegraphPrototype);
 
             _charge.BeginCharge(ent.Owner, target, ent.Comp.NormalDelay, ent.Comp.ChargeSpeed,
@@ -98,7 +98,7 @@ public sealed class BubblegumHallucinationChargeSystem : EntitySystem
                         wave.Target = current;
                 }
 
-                SpawnWave(wave.Target, wave.Count, wave.Radius, wave.Delay, wave.Speed,
+                SpawnWave(uid, wave.Target, wave.Count, wave.Radius, wave.Delay, wave.Speed,
                     wave.HallucinationProto, wave.TelegraphProto);
 
                 if (wave.BossCharges)
@@ -118,7 +118,7 @@ public sealed class BubblegumHallucinationChargeSystem : EntitySystem
         }
     }
 
-    private void SpawnWave(MapCoordinates target, int count, float radius, float delay, float speed,
+    private void SpawnWave(EntityUid summoner, MapCoordinates target, int count, float radius, float delay, float speed,
         string halluProto, string telegraphProto)
     {
         if (count <= 0)
@@ -134,6 +134,7 @@ public sealed class BubblegumHallucinationChargeSystem : EntitySystem
             var spawnCoords = new MapCoordinates(spawnPos, target.MapId);
 
             var clone = Spawn(halluProto, spawnCoords);
+            EnsureComp<BubblegumMinionComponent>(clone).Summoner = summoner;
             _charge.BeginCharge(clone, target, delay, speed, telegraphProto,
                 trampleDamage: 15f, expireOnHit: true);
         }

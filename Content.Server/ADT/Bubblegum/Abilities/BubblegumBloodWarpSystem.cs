@@ -82,6 +82,7 @@ public sealed class BubblegumBloodWarpSystem : EntitySystem
         {
             var decoy = Spawn(bossComp.DecoyPrototype, bossCoords);
             EnsureComp<TimedDespawnComponent>(decoy).Lifetime = ent.Comp.SinkTime;
+            EnsureComp<BubblegumMinionComponent>(decoy).Summoner = ent.Owner;
         }
 
         _audio.PlayPvs(ent.Comp.EnterSound, ent);

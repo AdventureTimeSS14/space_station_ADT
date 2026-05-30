@@ -1,13 +1,17 @@
 using Content.Server.NPC.HTN;
+using Content.Server.Tiles;
 using Content.Shared.ADT.Bubblegum;
 using Content.Shared.Actions;
+using Content.Shared.Chasm;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Eye;
+using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Projectiles;
+using Content.Shared.StepTrigger.Systems;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
@@ -41,6 +45,20 @@ public sealed class BubblegumSystem : EntitySystem
         SubscribeLocalEvent<BubblegumComponent, ProjectileHitAttemptEvent>(OnProjectileHitAttempt);
         SubscribeLocalEvent<BubblegumComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshSpeed);
         SubscribeLocalEvent<BubblegumComponent, GetVisMaskEvent>(OnGetVisMask);
+        SubscribeLocalEvent<BubblegumComponent, MobStateChangedEvent>(OnMobStateChanged);
+    }
+
+    private void OnMobStateChanged(Entity<BubblegumComponent> ent, ref MobStateChangedEvent args)
+    {
+        if (args.NewMobState != MobState.Dead)
+            return;
+
+        var query = EntityQueryEnumerator<BubblegumMinionComponent>();
+        while (query.MoveNext(out var minion, out var comp))
+        {
+            if (comp.Summoner == null || comp.Summoner == ent.Owner)
+                QueueDel(minion);
+        }
     }
 
     private void OnStartup(Entity<BubblegumComponent> ent, ref ComponentStartup args)

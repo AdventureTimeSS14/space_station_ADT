@@ -2,18 +2,25 @@
   id: ActionADTBubblegumTripleCharge
   name: Triple Charge
   description: Совершить три быстрых рывка подряд.
-  categories: [ HideSpawnMenu ]
+  categories:
+  - HideSpawnMenu
   components:
   - type: Action
-    raiseOnUser: true
     icon:
       sprite: ADT/Effects/bubblegum_action_triple_charge.rsi
       state: icon
     useDelay: 6
+    checkCanInteract: false
+    raiseOnUser: true
   - type: TargetAction
+    checkCanAccess: false
     range: 20
   - type: WorldTargetAction
-    event: !type:BubblegumTripleChargeActionEvent
+    event:
+
+      !type:BubblegumTripleChargeActionEvent
+
+
 
 - type: entity
   id: ActionADTBubblegumHallucinationCharge
