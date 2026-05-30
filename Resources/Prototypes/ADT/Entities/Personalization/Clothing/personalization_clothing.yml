@@ -618,21 +618,6 @@
 
 #Rip_Zoro
 - type: entity
-  parent: ADTSponsorClothingNeckBase
-  id: ADTClothingNeckRipZoroMantle
-  suffix: Rip_Zoro
-  name: Mysterious shoulder mantle
-  description: A mantle that holds a secret...
-  components:
-  - type: Sprite
-    sprite: ADT/Personalization/rip_zoro_mantle.rsi
-    state: icon
-  - type: Clothing
-    sprite: ADT/Personalization/rip_zoro_mantle.rsi
-  - type: Item
-    size: Normal
-
-- type: entity
   parent: [ClothingBeltBase, ClothingSlotBase]
   id: ADTClothingBeltZoroSheath
   suffix: Rip_Zoro
@@ -669,16 +654,38 @@
   - type: Appearance
 
 - type: entity
-  parent: ADTSponsorClothingUniformBase
-  id: ADTClothingUniformZoroJumpsuit
-  suffix: Rip_Zoro
-  name: The legendary business suit
-  description: A legendary, worn-out suit. All white and gilded. He smells like vanilla...
+  parent: ADTSponsorClothingHeadBase
+  id: ADTClothingHeadHatsRipCap
+  name: the colonel's cap
+  description: An officer's cap custom-made by Colonel Anderson. A symbol of the highest officer rank and the pride of the Trans-Solar Federation.
+  suffix: Personal, Ripchik
   components:
   - type: Sprite
-    sprite: ADT/Personalization/rip_zoro_jumpsuit.rsi
+    sprite: ADT/Personalization/ripchik_cap.rsi
   - type: Clothing
-    sprite: ADT/Personalization/rip_zoro_jumpsuit.rsi
+    sprite: ADT/Personalization/ripchik_cap.rsi
+
+- type: entity
+  parent: ADTSponsorClothingOuterStorageBase
+  id: ADTClothingOuterRipCoat
+  name: TSF officer's tunic
+  description: The Trans-Solar Federation officer's tunic, tailor-made for Colonel Anderson. Worn and stiff, almost like a general's! It smells of expensive perfume.
+  suffix: Personal, Ripchik
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/ripchik_greatcoat.rsi
+  - type: Clothing
+    sprite: ADT/Personalization/ripchik_greatcoat.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.7
+        Piercing: 0.75
+        Heat: 0.65
+  - type: ExplosionResistance
+    damageCoefficient: 0.9 
+
 
 #PushnoY
 - type: entity
