@@ -1,11 +1,7 @@
 - type: entity
   name: explosive grenade
   description: Grenade that creates a small but devastating explosion.
-<<<<<<< HEAD
-  parent: [VolatileGrenadeBase, GrenadeBase, BaseSyndicateContraband]
-=======
   parent: [VolatileGrenadeBase, TimerGrenadeBase, BaseSyndicateContraband]
->>>>>>> upstreamwiz/master
   id: ExGrenade
   components:
   - type: ExplodeOnTrigger
@@ -29,11 +25,7 @@
 - type: entity
   name: flashbang
   description: Eeeeeeeeeeeeeeeeeeeeee.
-<<<<<<< HEAD
-  parent: [ FragileGrenadeBase, GrenadeBase, BaseSecurityContraband ]
-=======
   parent: [ FragileGrenadeBase, TimerGrenadeBase, BaseSecurityContraband ]
->>>>>>> upstreamwiz/master
   id: GrenadeFlashBang
   components:
   - type: Sprite
@@ -88,11 +80,7 @@
 - type: entity
   name: syndicate minibomb
   description: A syndicate-manufactured explosive used to stow destruction and cause chaos.
-<<<<<<< HEAD
-  parent: [VolatileGrenadeBase, GrenadeBase, BaseSyndicateContraband]
-=======
   parent: [VolatileGrenadeBase, TimerGrenadeBase, BaseSyndicateContraband]
->>>>>>> upstreamwiz/master
   id: SyndieMiniBomb
   components:
   - type: Sprite
@@ -100,7 +88,6 @@
 # ADT-Tweak START - Вместо уничтожения минибомба при повреждении взрывается
   - type: ExplosionResistance
     damageCoefficient: 0.1
-<<<<<<< HEAD
   - type: Destructible
     thresholds:
     - trigger:
@@ -111,8 +98,6 @@
         acts: ["Destruction"]
       - !type:ExplodeBehavior
 # ADT-Tweak END
-=======
->>>>>>> upstreamwiz/master
   - type: TimerTrigger
     delay: 5
   - type: ExplodeOnTrigger
@@ -180,11 +165,7 @@
 
 
 - type: entity
-<<<<<<< HEAD
-  parent: [ FragileGrenadeBase, GrenadeBase, BaseSyndicateContraband ]
-=======
   parent: [ FragileGrenadeBase, TimerGrenadeBase, BaseSyndicateContraband ]
->>>>>>> upstreamwiz/master
   id: SingularityGrenade
   name: singularity grenade
   description: Grenade that simulates the power of a singularity, pulling things in a heap.
@@ -399,35 +380,19 @@
 - type: entity
   name: EMP grenade
   description: A grenade designed to wreak havoc on electronic systems.
-<<<<<<< HEAD
-  parent: [FragileGrenadeBase, GrenadeBase, BaseSyndicateContraband]
-=======
   parent: [ImpactGrenadeBase, BaseSyndicateContraband]
->>>>>>> upstreamwiz/master
   id: EmpGrenade
   components:
   - type: Sprite
     sprite: Objects/Weapons/Grenades/empgrenade.rsi
   - type: EmpOnTrigger
     keysIn:
-<<<<<<< HEAD
-    - timer
-=======
     - trigger
->>>>>>> upstreamwiz/master
     range: 5.5
     energyConsumption: 50000
   - type: DeleteOnTrigger
     keysIn:
-<<<<<<< HEAD
-    - timer
-  - type: Appearance
-  - type: TimerTriggerVisuals
-    primingSound:
-      path: /Audio/Effects/countdown.ogg
-=======
     - trigger
->>>>>>> upstreamwiz/master
   - type: StaticPrice
     price: 666 # 2000 for 3, I love fractions
 
