@@ -254,11 +254,11 @@
   result: CloningConsoleComputerCircuitboard
 
 - type: latheRecipe
-<<<<<<< HEAD
   parent: BaseGoldCircuitboardRecipe
   id: CloningPodMachineCircuitboard
   result: CloningPodMachineCircuitboard
-=======
+
+- type: latheRecipe
   id: JetInjector
   result: JetInjector
   categories:
@@ -282,4 +282,3 @@
     Plastic: 250
     Silver: 400
     Gold: 50 # A bit of gold for the gold ornaments on it!
->>>>>>> upstreamwiz/master
