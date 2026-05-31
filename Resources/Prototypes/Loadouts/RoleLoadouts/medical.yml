@@ -3,76 +3,123 @@
 - type: roleLoadout
   id: JobChiefMedicalOfficer
   groups:
+  - Inventory # Corvax-Loadouts
   - GroupTankHarness
   - ChiefMedicalOfficerHead
   - MedicalMask
   - ChiefMedicalOfficerJumpsuit
+  - MedicalGloves
   - MedicalBackpack
+  - ADTMedicalBelt # ADT tweak
   - ChiefMedicalOfficerOuterClothing
   - ChiefMedicalOfficerNeck
+  - ADTChiefMedicalOfficerEars # ADT tweak
   - ChiefMedicalOfficerShoes
-  - Glasses
+  - MedicalEyewear
+  - ADTCMOPDA # ADT tweak
+  # ADT underwear tweak start
+  - ADTTopCMO
+  - ADTBottomCMO
+  - ADTSocks
+  # ADT underwear tweak end
   - SurvivalMedical
   - Trinkets
-#  - ChiefMedicalOfficerJobTrinkets
+  - ChiefMedicalOfficerJobTrinkets
   - GroupSpeciesBreathToolMedical
 
 - type: roleLoadout
   id: JobMedicalDoctor
   groups:
+  - Inventory # Corvax-Loadouts
   - GroupTankHarness
   - MedicalDoctorHead
   - MedicalMask
   - MedicalDoctorJumpsuit
+  - MedicalGloves
   - MedicalBackpack
+  - ADTMedicalBelt # ADT tweak
   - MedicalDoctorOuterClothing
   - MedicalShoes
   - MedicalDoctorPDA
-  - Glasses
+  - MedicalEyewear
+  # ADT underwear tweak start
+  - ADTTop
+  - ADTBottom
+  - ADTSocks
+  # ADT underwear tweak end
   - SurvivalMedical
   - Trinkets
-#  - MedicalDoctorJobTrinkets
+  - ADTSprayPaints # ADT-Tweak
+  - MedicalDoctorJobTrinkets
   - GroupSpeciesBreathToolMedical
 
 - type: roleLoadout
   id: JobMedicalIntern
   groups:
+  - Inventory # Corvax-Loadouts
   - GroupTankHarness
   - MedicalInternJumpsuit
   - MedicalBackpack
-  - Glasses
+  - MedicalEyewear
+  - ADTMedicalBelt # ADT tweak
+  - ADTMedicalInternPDA # ADT tweak
+  # ADT underwear tweak start
+  - ADTTop
+  - ADTBottom
+  - ADTSocks
+  # ADT underwear tweak end
   - SurvivalMedical
   - Trinkets
-#  - MedicalInternJobTrinkets
+  - ADTSprayPaints # ADT-Tweak
+  - MedicalInternJobTrinkets
   - GroupSpeciesBreathToolMedical
 
 - type: roleLoadout
   id: JobChemist
   groups:
+  - Inventory # Corvax-Loadouts
   - GroupTankHarness
   - MedicalMask
   - ChemistJumpsuit
+  - MedicalGloves
   - ChemistBackpack
   - ChemistOuterClothing
   - MedicalShoes
-  - Glasses
+  # ADT underwear tweak start
+  - ADTTop
+  - ADTBottom
+  - ADTSocks
+  # ADT underwear tweak end
   - SurvivalMedical
   - Trinkets
-#  - ChemistJobTrinkets
+  - ADTSprayPaints # ADT-Tweak
+  - ChemistJobTrinkets
   - GroupSpeciesBreathToolMedical
 
 - type: roleLoadout
   id: JobParamedic
   groups:
+  - Inventory # Corvax-Loadouts
   - GroupTankHarness
   - ParamedicHead
   - MedicalMask
   - ParamedicJumpsuit
-  - MedicalBackpack
+  - MedicalGloves
+  # ADT tweak Start
+  - ADTParamedicBelt
+  - ADTParamedicBackpack
+#  - MedicalBackpack   Закоментил для нашего
+  # ADT tweak End
   - ParamedicOuterClothing
   - ParamedicShoes
-  - Glasses
+  - MedicalEyewear
+  # ADT underwear tweak start
+  - ADTTop
+  - ADTBottom
+  - ADTSocks
+  # ADT underwear tweak end
   - SurvivalMedical
   - Trinkets
-#  - ParamedicJobTrinkets
+  - ADTSprayPaints # ADT-Tweak
+  - ParamedicJobTrinkets
   - GroupSpeciesBreathToolMedical

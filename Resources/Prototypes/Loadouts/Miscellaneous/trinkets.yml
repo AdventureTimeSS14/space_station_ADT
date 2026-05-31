@@ -494,40 +494,6 @@
   groupBy: "canes"
 
 - type: loadout
-  id: OffsetCaneNT
-  effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:DepartmentTimeRequirement
-      department: Command
-      time: 18000 # 5hr
-  storage:
-    back:
-    - OffsetCaneNT
-  groupBy: "canes"
-
-- type: loadout
-  id: Cane
-  effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobLibrarian
-      time: 3600 # 1hr same as Jamjar.
-  storage:
-    back:
-    - Cane
-  groupBy: "canes"
-
-# Towels
-- type: loadout
-  id: TowelColorWhite
-  storage:
-    back:
-    - TowelColorWhite
-  groupBy: "towels"
-
-- type: loadout
   id: TowelColorSilver
   effects:
   - !type:JobRequirementLoadoutEffect

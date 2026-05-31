@@ -14,8 +14,7 @@
     size: Tiny
   - type: Damageable
   - type: Injurable
-  - type: Injurable
-  damageContainer: Inorganic
+    damageContainer: Inorganic
   - type: Destructible
     thresholds:
     - trigger:

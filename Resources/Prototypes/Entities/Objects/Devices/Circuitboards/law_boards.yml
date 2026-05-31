@@ -27,15 +27,6 @@
     - Lawsets
 
 - type: entity
-  id: NTDefaultCircuitBoard
-  parent: BaseSiliconLawboard
-  name: law board (NT Default)
-  description: An electronics board containing the NT Default lawset.
-  components:
-  - type: SiliconLawProvider
-    laws: NTDefault
-
-- type: entity
   id: AsimovCircuitBoard
   parent: BaseSiliconLawboard
   name: law board (Crewsimov)

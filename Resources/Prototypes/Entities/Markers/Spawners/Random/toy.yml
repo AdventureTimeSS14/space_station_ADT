@@ -409,37 +409,6 @@
   name: Plushie Spawner
   suffix: 50
   components:
-<<<<<<< HEAD
-    - type: Sprite
-      layers:
-        - state: red
-        - sprite: Objects/Fun/mech_figurines.rsi
-          state: ripley
-    - type: RandomSpawner
-      prototypes:
-        - ToyAi
-        - ToyNuke
-        - ToyFigurinePassenger
-        - ToyFigurineGriffin
-        - ToyHonk
-        - ToyIan
-        - ToyMarauder
-        - ToyMauler
-        - ToyGygax
-        - ToyOdysseus
-        - ToyFigurineOwlman
-        - ToyDeathRipley
-        - ToyPhazon
-        - ToyFireRipley
-        - ToyReticence
-        - ToyRipley
-        - ToySeraph
-        - ToyDurand
-        - ToyFigurineSkeleton
-        - MysteryFigureBox
-      chance: 0.5
-      offset: 0.2
-=======
   - type: Sprite
     layers:
     - state: red
@@ -449,7 +418,6 @@
     table: !type:NestedSelector
       tableId: AllPlushiesTable
       prob: 0.5
->>>>>>> upstreamwiz/master
 
 - type: entity
   parent: MarkerBase
@@ -457,66 +425,6 @@
   name: Spacemen Minifigure Spawner
   suffix: 90
   components:
-<<<<<<< HEAD
-    - type: Sprite
-      layers:
-        - sprite: Objects/Fun/figurines.rsi
-          state: figurine_spawner
-    - type: RandomSpawner
-      rarePrototypes:
-      - ToyFigurineNukieElite
-      - ToyFigurineNukieCommander
-      rareChance: 0.05
-      prototypes:
-      - ToyFigurinePassenger
-      - ToyFigurineClown
-      - ToyFigurineMime
-      - ToyFigurineMusician
-      - ToyFigurineBoxer
-      - ToyFigurineCaptain
-      - ToyFigurineHeadOfSecurity
-      - ToyFigurineWarden
-      - ToyFigurineDetective
-      - ToyFigurineSecurity
-      - ToyFigurineLawyer
-      - ToyFigurineCargoTech
-      - ToyFigurineSalvage
-      - ToyFigurineQuartermaster
-      - ToyFigurineChiefEngineer
-      - ToyFigurineAtmosTech
-      - ToyFigurineEngineer
-      - ToyFigurineResearchDirector
-      - ToyFigurineScientist
-      - ToyFigurineChiefMedicalOfficer
-      - ToyFigurineChemist
-      - ToyFigurineParamedic
-      - ToyFigurineMedicalDoctor
-      - ToyFigurineHeadOfPersonnel
-      - ToyFigurineLibrarian
-      - ToyFigurineChaplain
-      - ToyFigurineChef
-      - ToyFigurineBartender
-      - ToyFigurineBotanist
-      - ToyFigurineJanitor
-      - ToyFigurineNukie
-      - ToyFigurineFootsoldier
-      - ToyFigurineWizardFake
-      - ToyFigurineSlime
-      - ToyFigurineGreytider
-      - ToyFigurineWizard
-      - ToyFigurineGriffin
-      - ToyFigurineOwlman
-      - ToyFigurineSkeleton
-      - ToyFigurineQueen
-      - ToyFigurineSpaceDragon
-      - ToyFigurineRatKing
-      - ToyFigurineRatServant
-      - ToyFigurineMouse
-      - ToyFigurineHamlet
-      - ToyFigurineThief
-      chance: 0.90
-      offset: 0.2
-=======
   - type: Sprite
     layers:
     - state: red
@@ -626,4 +534,3 @@
         tableId: AllCrayonsTable
       - id: CrayonBox
         weight: 0.05 # 1 in 20
->>>>>>> upstreamwiz/master
