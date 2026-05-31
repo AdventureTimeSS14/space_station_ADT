@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   name: base shield
   parent: BaseItem
   id: BaseShield

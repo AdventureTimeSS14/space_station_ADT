@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   parent: BaseWallmount
   categories: [ HideSpawnMenu ]
   id: BaseAPC
@@ -112,8 +112,9 @@
     layoutId: APC
   - type: WiresVisuals
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: StructuralMetallicStrong
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
     - trigger:

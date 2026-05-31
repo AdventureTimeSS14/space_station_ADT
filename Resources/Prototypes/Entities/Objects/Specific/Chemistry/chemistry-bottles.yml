@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   name: bottle
   parent: BaseItem
   id: BaseChemistryEmptyBottle
@@ -77,6 +77,7 @@
       types:
         Blunt: 4
   - type: Damageable
+  - type: Injurable
     damageContainer: Inorganic
   - type: Destructible
     thresholds:

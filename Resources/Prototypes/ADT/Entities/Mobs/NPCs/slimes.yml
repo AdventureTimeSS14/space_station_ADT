@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   name: slime
   description: A slime.
   id: ADTMobSlimesGeras
@@ -51,8 +51,9 @@
     - FootstepSound
     - DoorBumpOpener
   - type: Damageable
-    damageContainer: Biological
     damageModifierSet: Slime
+  - type: Injurable
+    damageContainer: Biological
   - type: Bloodstream
     bloodReagent: Slime
     bloodMaxVolume: 150

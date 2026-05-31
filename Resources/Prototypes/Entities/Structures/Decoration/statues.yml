@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   id: StatueVenusRed
   parent: BaseStructure
   name: statue of a pure maiden
@@ -54,8 +54,9 @@
     noRot: true
     drawdepth: Mobs
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: Rock
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
     - trigger:

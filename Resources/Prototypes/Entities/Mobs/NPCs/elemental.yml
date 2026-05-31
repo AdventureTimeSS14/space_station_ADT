@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   abstract: true
   parent: [BaseMob, MobCombat]
   id: MobElementalBase
@@ -7,6 +7,7 @@
     groups:
       Acidic: [Touch]
   - type: Damageable
+  - type: Injurable
     damageContainer: Inorganic
   - type: MovementSpeedModifier
     baseWalkSpeed : 2
@@ -68,8 +69,8 @@
     factions:
       - SimpleHostile
   - type: Damageable
+  - type: Injurable
     damageContainer: StructuralInorganic
-
 - type: entity
   parent: MobOreCrab
   id: MobQuartzCrab

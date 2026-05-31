@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   id: ADTMachinePowerTransmissionLaser
   parent: [ BaseMachine ]
   name: power transmission laser
@@ -43,8 +43,9 @@
         nodeGroupID: HVPower
   - type: StationInfiniteBatteryTarget
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: StructuralMetallicStrong
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: BatterySensor
   - type: Gun
     showExamineText: false

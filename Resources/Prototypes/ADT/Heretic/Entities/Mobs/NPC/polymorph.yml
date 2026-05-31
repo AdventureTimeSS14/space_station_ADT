@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   id: PolymorphAshJauntAnimation
   name: Unknown
   description: You can't figure out what that is.
@@ -106,6 +106,7 @@
       0: Alive
       1500: Dead
   - type: Damageable
+  - type: Injurable
     damageContainer: Biological
   - type: StatusEffects
     allowed:

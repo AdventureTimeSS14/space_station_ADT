@@ -45,8 +45,9 @@
   - type: Appearance
   - type: Airtight
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: RCDDeconstructable
     cost: 6
     delay: 6
@@ -235,6 +236,7 @@
     node: woodDoor
   - type: Damageable
     damageModifierSet: Wood
+  - type: Injurable
   - type: Destructible
     thresholds:
     - trigger: *DamageTrigger150
@@ -271,6 +273,7 @@
     node: paperDoor
   - type: Damageable
     damageModifierSet: Wood
+  - type: Injurable
   - type: Destructible
     thresholds:
     - trigger: *DamageTrigger150
@@ -308,6 +311,7 @@
     node: door
   - type: Damageable
     damageModifierSet: Web
+  - type: Injurable
   - type: Destructible
     thresholds:
     - trigger: *DamageTrigger150
@@ -349,6 +353,7 @@
           "/Audio/Weapons/pierce.ogg"
   - type: Damageable
     damageModifierSet: Card
+  - type: Injurable
   - type: Destructible
     thresholds:
     - trigger: *DamageTrigger150
@@ -385,6 +390,7 @@
     deconstructable: false
   - type: Damageable
     damageModifierSet: Rock
+  - type: Injurable
   - type: Destructible
     thresholds:
     - trigger:

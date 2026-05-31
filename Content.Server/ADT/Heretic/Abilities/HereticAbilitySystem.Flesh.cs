@@ -63,7 +63,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
             _damageable.TryChangeDamage(ent.Owner, damage_brute);
             _damageable.TryChangeDamage(ent.Owner, damage_burn);
 
-            damage = (float)(dmgComp.TotalDamage + damage) / _prot.EnumeratePrototypes<DamageTypePrototype>().Count();
+            damage = (float)(_damageable.GetTotalDamage((args.Target, dmgComp)) + damage) / _prot.EnumeratePrototypes<DamageTypePrototype>().Count();
 
             _damageable.SetAllDamage(args.Target, damage);
             args.Handled = true;

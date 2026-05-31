@@ -1,4 +1,4 @@
-- type: utilityQuery
+﻿- type: utilityQuery
   id: InventoryGuns
   query:
     - !type:InventoryQuery
@@ -209,6 +209,7 @@
       components:
         - type: InjectableSolution
         - type: Damageable
+        - type: Injurable
         - type: MobState
     - !type:ComponentFilter
       components:

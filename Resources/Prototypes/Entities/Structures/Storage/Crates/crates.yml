@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   parent: CrateBaseWeldable
   id: CrateGenericSteel
   name: crate
@@ -159,6 +159,7 @@
     node: crate
   - type: Damageable
     damageModifierSet: Web
+  - type: Injurable
   - type: Destructible
     thresholds:
     - trigger: # Excess damage, don't spawn entities

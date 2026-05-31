@@ -1,4 +1,4 @@
-- type: markingsGroup
+﻿- type: markingsGroup
   parent: Undergarments
   id: Reptilian
   onlyGroupWhitelisted: true
@@ -145,6 +145,7 @@
     soundsId: ReptilianBodyEmotes
   - type: Damageable
     damageModifierSet: Scale
+  - type: Injurable
   - type: MeleeWeapon
     soundHit:
       collection: AlienClaw

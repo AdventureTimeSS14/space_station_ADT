@@ -194,8 +194,9 @@
       - TurretControllerSender #собственно наш порт
   - type: TurretController
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: StructuralMetallicStrong
+  - type: Injurable
+    damageContainer: StructuralInorganic
 #SS40k end
 
 ## Supermatter

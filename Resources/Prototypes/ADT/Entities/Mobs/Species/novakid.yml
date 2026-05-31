@@ -1,4 +1,4 @@
-# Novakid mob (upstream PR#42476). Appearance/body/sprite come from AppearanceNovakid.
+﻿# Novakid mob (upstream PR#42476). Appearance/body/sprite come from AppearanceNovakid.
 - type: entity
   save: false
   name: Urisst' Mzhand Novakid
@@ -23,8 +23,9 @@
         Caustic: 0.08
         Cellular: 0.05
   - type: Damageable
-    damageContainer: Biological
     damageModifierSet: ADTNovakid
+  - type: Injurable
+    damageContainer: Biological
   - type: MobThresholds
     thresholds:
       0: Alive

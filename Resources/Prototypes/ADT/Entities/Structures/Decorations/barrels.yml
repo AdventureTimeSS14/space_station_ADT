@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   id: ADTBaseBarrel
   parent: BaseStructureDynamic
   name: black barrel
@@ -10,8 +10,9 @@
     sprite: /Textures/ADT/Structures/Decoration/blackbarrel.rsi
     state: barrel
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: StructuralMetallicStrong
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Pullable
   - type: Destructible
     thresholds:

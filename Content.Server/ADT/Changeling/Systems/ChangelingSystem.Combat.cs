@@ -385,7 +385,7 @@ public sealed partial class ChangelingSystem
 
         var additionalShieldHealth = 50 * ling.AbsorbedDnaModifier;
         var shieldHealth = 150 + additionalShieldHealth;
-        if (damage.TotalDamage >= shieldHealth)
+        if (_damageableSystem.GetTotalDamage((uid, damage)) >= shieldHealth)
         {
             QueueDel(ling.ShieldEntity);
 

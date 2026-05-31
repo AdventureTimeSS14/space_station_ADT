@@ -41,6 +41,7 @@ public abstract class SharedSuitSensorSystem : EntitySystem
     [Dependency] private readonly SharedIdCardSystem _idCardSystem = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly DamageableSystem _damageableSystem = default!;
 
     private EntityQuery<SuitSensorComponent> _sensorQuery;
     public override void Initialize()
@@ -445,7 +446,7 @@ public abstract class SharedSuitSensorSystem : EntitySystem
         // get mob total damage
         var totalDamage = 0;
         if (TryComp<DamageableComponent>(sensor.User.Value, out var damageable))
-            totalDamage = (int) damageable.Damage.GetTotal();
+            totalDamage = _damageableSystem.GetTotalDamage((sensor.User.Value, damageable)).Int();
 
         // Get mob total damage crit threshold
         int? totalDamageThreshold = null;

@@ -91,7 +91,7 @@ namespace Content.IntegrationTests.Tests.Damageable
   components:
   - type: Damageable
   - type: Injurable
-    damageContainer: testDamageContainer
+  damageContainer: testDamageContainer
 ";
 
         [Test]

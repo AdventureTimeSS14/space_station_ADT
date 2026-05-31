@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   id: ADTBaseAbomination
   parent: SimpleSpaceMobBase
   abstract: true
@@ -100,6 +100,7 @@
     price: 1000
   - type: Damageable
     damageModifierSet: ADTAbominationHypertrophiedDamageSet
+  - type: Injurable
   - type: MovementSpeedModifier
     baseSprintSpeed: 2.5
   - type: MeleeThrowOnHit
@@ -149,6 +150,7 @@
     price: 1500
   - type: Damageable
     damageModifierSet: ADTAbominationDeathDamageSet
+  - type: Injurable
   - type: MovementSpeedModifier
     baseSprintSpeed: 4.5
   - type: MeleeWeapon
@@ -268,7 +270,7 @@
 #       types:
 #         Slash: 7
 #   - type: Damageable
-#     damageContainer: Biological
+#   damageContainer: Biological
 #     damageModifierSet: distorted
 #   - type: MovementSpeedModifier
 #     baseWalkSpeed: 2.4
@@ -308,7 +310,7 @@
 #       types:
 #         Slash: 6
 #   - type: Damageable
-#     damageContainer: Biological
+#   damageContainer: Biological
 #     damageModifierSet: echo
 #   - type: MovementSpeedModifier
 #     baseWalkSpeed: 3.0
@@ -351,7 +353,7 @@
 #         Slash: 8
 #         Poison: 5
 #   - type: Damageable
-#     damageContainer: Biological
+#   damageContainer: Biological
 #     damageModifierSet: grant
 #   - type: MovementSpeedModifier
 #     baseWalkSpeed: 2.2
@@ -391,7 +393,7 @@
 #       types:
 #         Piercing: 10
 #   - type: Damageable
-#     damageContainer: Biological
+#   damageContainer: Biological
 #     damageModifierSet: hunter
 #   - type: MovementSpeedModifier
 #     baseWalkSpeed: 3.2
@@ -433,7 +435,7 @@
 #       types:
 #         Slash: 10
 #   - type: Damageable
-#     damageContainer: Biological
+#   damageContainer: Biological
 #     damageModifierSet: soldier
 #   - type: MovementSpeedModifier
 #     baseWalkSpeed: 2.7
@@ -478,7 +480,7 @@
 #       types:
 #         Blunt: 20
 #   - type: Damageable
-#     damageContainer: Biological
+#   damageContainer: Biological
 #     damageModifierSet: wrecker
 #   - type: MovementSpeedModifier
 #     baseWalkSpeed: 2.2

@@ -1,4 +1,4 @@
-# Hacky for the stress test so don't even consider adding to this
+﻿# Hacky for the stress test so don't even consider adding to this
 - type: entity
   name: burrower
   id: MobXeno
@@ -84,6 +84,7 @@
         Structural: 20
   - type: Damageable
     damageModifierSet: ADTXenoDamageSet
+  - type: Injurable
   - type: Fauna
     # ADT-Tweak end
   - type: DamageStateVisuals

@@ -19,6 +19,7 @@
         path: /Audio/Effects/hit_kick.ogg
     - type: Clickable
     - type: Damageable
+    - type: Injurable
       damageContainer: Inorganic # Note that for dumb reasons, this essentially makes them a wall.
     # - type: Bloodstream # This is left commented out because it's not necessary for a robot, but you may want it.
     #   bloodReagent: MotorOil
@@ -112,6 +113,7 @@
         100: Critical
         200: Dead
     - type: Damageable
+    - type: Injurable
       damageContainer: ADTSiliconDamageContainer # Not a wall.
     - type: Stamina
       critThreshold: 300

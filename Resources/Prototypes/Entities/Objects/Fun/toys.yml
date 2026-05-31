@@ -1,4 +1,4 @@
-# When adding new toys, also add it somewhere nested in id: AllToysTable
+﻿# When adding new toys, also add it somewhere nested in id: AllToysTable
 # Catchall file for toys which don't have a strong grouping (only 1 or 2 prototypes)
 
 - type: entity
@@ -14,7 +14,8 @@
     size: Tiny
   - type: Damageable
   - type: Injurable
-    damageContainer: Inorganic
+  - type: Injurable
+  damageContainer: Inorganic
   - type: Destructible
     thresholds:
     - trigger:

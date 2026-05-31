@@ -1,4 +1,4 @@
-# When adding new balloons, also add it to id: AllMiscToysTable
+﻿# When adding new balloons, also add it to id: AllMiscToysTable
 
 - type: entity
   abstract: true
@@ -15,6 +15,7 @@
   - type: EmitSoundOnLand
     sound: *SoundBalloonHit
   - type: Damageable
+  - type: Injurable
     damageContainer: Inorganic
   - type: TileFrictionModifier
     modifier: 0.3

@@ -621,8 +621,12 @@ namespace Content.Server.GameTicking
                     if (TryComp<MobStateComponent>(lastMob, out var mobStateComp))
                         mobState = mobStateComp.CurrentState;
 
-                    if (TryComp<DamageableComponent>(lastMob, out var damageableComp))
-                        damagePerGroup = damageableComp.DamagePerGroup;
+                    if (lastMob.HasValue && TryComp<DamageableComponent>(lastMob.Value, out var damageableComp))
+                    {
+                        var readOnlyDict = _damageable.GetDamagePerGroup(new(lastMob.Value, damageableComp));
+                        foreach (var kvp in readOnlyDict)
+                            damagePerGroup[kvp.Key] = kvp.Value;
+                    }
                 }
 
                 // ADT-tweak-end

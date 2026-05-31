@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   parent: BaseItem
   id: BaseHandheldStationMap
   name: station map
@@ -17,6 +17,7 @@
       singleUser: true
       key: enum.StationMapUiKey.Key
     - type: Damageable
+    - type: Injurable
       damageContainer: Inorganic
     - type: Destructible
       thresholds:
@@ -85,4 +86,3 @@
     showLocation: false
     initializeWithStation: true
   - type: NukeopsStationMap
-

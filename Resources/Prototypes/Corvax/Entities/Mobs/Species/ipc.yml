@@ -31,7 +31,7 @@
 #       types:
 #         Slash: 5
 #   - type: Damageable
-#     damageContainer: SiliconIpc
+#   damageContainer: SiliconIpc
 #     damageModifierSet: Ipc
 #   - type: ToggleableLightVisuals
 #   - type: PointLight

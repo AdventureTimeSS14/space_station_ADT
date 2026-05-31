@@ -1,4 +1,4 @@
-# Resomi mob (upstream PR#42476). Appearance/body/sprite/hands/inventory come from AppearanceResomi.
+﻿# Resomi mob (upstream PR#42476). Appearance/body/sprite/hands/inventory come from AppearanceResomi.
 - type: entity
   save: false
   name: Urist McRaptor
@@ -45,8 +45,9 @@
     - id: FoodMeatChicken
       amount: 5
   - type: Damageable
-    damageContainer: Biological
     damageModifierSet: Resomi
+  - type: Injurable
+    damageContainer: Biological
   - type: Bloodstream
     bloodReagent: ResomiBlood
   - type: Temperature

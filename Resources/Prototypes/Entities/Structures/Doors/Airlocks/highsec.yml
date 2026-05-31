@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   id: HighSecDoor
   parent: BaseStructure
   name: high security door
@@ -115,8 +115,9 @@
   - type: Airtight
   - type: Occluder
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: StrongMetallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
     - trigger:

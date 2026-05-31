@@ -1,4 +1,4 @@
-# Felinid mob (upstream PR#42476). Human-based — body/sprite/inventory come from AppearanceFelinid.
+﻿# Felinid mob (upstream PR#42476). Human-based — body/sprite/inventory come from AppearanceFelinid.
 - type: entity
   save: false
   name: Base felinid
@@ -80,8 +80,9 @@
     bloodMaxVolume: 170
     bloodReagent: Blood
   - type: Damageable
-    damageContainer: Biological
     damageModifierSet: Felinid
+  - type: Injurable
+    damageContainer: Biological
   - type: MeleeWeapon
     soundHit:
       collection: Punch

@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   parent: [ BaseControllable, BaseStructure ]
   id: MothershipCore
   name: mothership core
@@ -11,6 +11,7 @@
   - type: Appearance
   - type: WiresVisuals
   - type: Damageable
+  - type: Injurable
     damageContainer: Inorganic
   - type: Fixtures
     fixtures:

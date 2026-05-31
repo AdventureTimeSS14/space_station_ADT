@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   id: BaseMech
   save: false
   abstract: true
@@ -94,8 +94,9 @@
       storagebase: !type:Container #ADT edit
         ents: []
   - type: Damageable
-    damageContainer: StructuralInorganic #ADT tweak - чтобы мехи получали и структурный урон
     damageModifierSet: ADTMechDamageModifierSet  # ADT tweak mech rebalance
+  - type: Injurable
+    damageContainer: StructuralInorganic #ADT tweak - чтобы мехи получали и структурный урон
   - type: FootstepModifier
     footstepSoundCollection:
       path: /Audio/Mecha/mechmove03.ogg

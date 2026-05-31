@@ -1,4 +1,4 @@
-# Core logic shared between regular and wall-mount substation
+﻿# Core logic shared between regular and wall-mount substation
 - type: entity
   abstract: true
   id: CoreSubstation
@@ -52,8 +52,9 @@
 
   # Damage
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: StructuralMetallicStrong
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: PacifismDangerousAttack
 
   # Guidebook

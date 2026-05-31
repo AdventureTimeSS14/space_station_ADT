@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   name: bat
   parent: [ SimpleMobBase, FlyingMobBase, MobCombat ]
   id: MobBat
@@ -441,8 +441,9 @@
     spawned:
     - id: FoodMeatSlime
   - type: Damageable
-    damageContainer: Biological
     damageModifierSet: Cockroach
+  - type: Injurable
+    damageContainer: Biological
   - type: Tag
     tags:
     - Trash
@@ -588,8 +589,9 @@
     weightlessFriction: 1
     baseWeightlessModifier: 1
   - type: Damageable
-    damageContainer: Biological
     damageModifierSet: Moth
+  - type: Injurable
+    damageContainer: Biological
   - type: Bloodstream
     bloodReferenceSolution:
       reagents:
@@ -1986,6 +1988,7 @@
   description: Squeak!
   components:
   - type: Damageable
+  - type: Injurable
     damage:
       types:
         Bloodloss: 6
@@ -2109,9 +2112,9 @@
     - id: SheetUranium1
       amount: 1
   - type: Damageable
-    damageContainer: Biological
     damageModifierSet: Zombie
-
+  - type: Injurable
+    damageContainer: Biological
 - type: entity
   name: lizard #Weh
   parent: SimpleMobBase
@@ -2164,8 +2167,9 @@
       - ReagentId: Blood
         Quantity: 150
   - type: Damageable
-    damageContainer: Biological
     damageModifierSet: Scale
+  - type: Injurable
+    damageContainer: Biological
   - type: Tag
     tags:
     - VimPilot
@@ -2570,11 +2574,9 @@
       - ReagentId: Blood
         Quantity: 50
   - type: Damageable
-    damageContainer: Biological
     damageModifierSet: Scale
-
-# Code unique spider prototypes or combine them all into one spider and get a
-# random sprite state when you spawn it.
+  - type: Injurable
+    damageContainer: Biological
 - type: entity
   parent: [ SimpleMobBase, BaseMobHemocyanin, MobCombat ]
   id: MobSpiderBase
@@ -3134,8 +3136,9 @@
       - ReagentId: DemonsBlood
         Quantity: 150
   - type: Damageable
-    damageContainer: BiologicalMetaphysical
     damageModifierSet: Infernal
+  - type: Injurable
+    damageContainer: BiologicalMetaphysical
   - type: Temperature
     currentTemperature: 310.15
     specificHeat: 42

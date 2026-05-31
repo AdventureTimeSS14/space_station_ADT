@@ -80,7 +80,7 @@ namespace Content.Server.ADT.Atmos.EntityDamage.Systems
 
             if (EntityManager.TryGetComponent(pipe.Owner, out DamageableComponent? dmg) && dmg != null)
             {
-                float totalDamage = (float)dmg.TotalDamage;
+                float totalDamage = (float)_damage.GetTotalDamage((pipe.Owner, dmg));
                 chance = Math.Clamp(comp.BaseChance + totalDamage * 0.5f, 0f, 1f);
             }
 

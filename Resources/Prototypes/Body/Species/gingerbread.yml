@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   parent: BaseSpeciesAppearance
   id: AppearanceGingerbread
   categories: [ HideSpawnMenu ]
@@ -49,6 +49,7 @@
       amount: 5
   - type: Damageable
     damageModifierSet: Gingerbread
+  - type: Injurable
   - type: DamageVisuals
     damageOverlayGroups:
       Brute:

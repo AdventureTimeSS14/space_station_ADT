@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   parent: [ SimpleSpaceMobBase, FlyingMobBase ]
   id: ADTMobSpaceEmperor
   name: ADTMobSpaceEmperor-name
@@ -117,6 +117,7 @@
   - type: EyeProtection
   - type: Damageable
     damageModifierSet: ADTDragonDamageSet
+  - type: Injurable
   - type: Stamina
     critThreshold: 350
   - type: StatusEffects

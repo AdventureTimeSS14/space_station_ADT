@@ -1,4 +1,4 @@
-# If you're looking at the rsi for this file, you'll probably be confused why
+﻿# If you're looking at the rsi for this file, you'll probably be confused why
 # I didn't just use an alpha for most of this stuff. Well icons don't have the
 # ability to have applied colors yet in GUIs. And also inhands... -Swept
 
@@ -47,8 +47,9 @@
     #   path: "/Audio/Items/Medical/ointment_end.ogg"
     # ADT Tweak End
   - type: Damageable
-    damageContainer: Inorganic
     damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: Inorganic
   - type: Destructible
     thresholds:
     - trigger:

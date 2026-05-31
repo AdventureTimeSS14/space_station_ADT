@@ -1,4 +1,4 @@
-- type: markingsGroup
+﻿- type: markingsGroup
   parent: Undergarments
   id: Vulpkanin
   limits:
@@ -166,6 +166,7 @@
       Unsexed: MaleVulpkanin
   - type: Damageable
     damageModifierSet: Vulpkanin
+  - type: Injurable
   - type: MeleeWeapon
     soundHit:
       path: /Audio/Weapons/pierce.ogg

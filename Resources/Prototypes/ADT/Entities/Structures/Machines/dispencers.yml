@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   id: EnergyChemDispenser
   parent: SmallConstructibleMachine
   name: energy chemical dispenser
@@ -31,8 +31,9 @@
   - type: Anchorable
   - type: Pullable
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Fixtures
     fixtures:
       fix1:

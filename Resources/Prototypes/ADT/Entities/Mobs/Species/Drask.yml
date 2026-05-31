@@ -1,4 +1,4 @@
-# Drask mob (upstream PR#42476). Appearance/body/sprite come from AppearanceDrask.
+﻿# Drask mob (upstream PR#42476). Appearance/body/sprite come from AppearanceDrask.
 - type: entity
   parent:
   - AppearanceDrask
@@ -109,8 +109,9 @@
       Female: FemaleDrask
       Unsexed: MaleDrask
   - type: Damageable
-    damageContainer: Biological
     damageModifierSet: Drask
+  - type: Injurable
+    damageContainer: Biological
   - type: LanguageSpeaker
     languages:
       GalacticCommon: Speak

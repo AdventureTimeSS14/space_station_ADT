@@ -1,4 +1,4 @@
-# Tajaran mob (upstream PR#42476). Appearance/body/sprite come from AppearanceTajaran.
+﻿# Tajaran mob (upstream PR#42476). Appearance/body/sprite come from AppearanceTajaran.
 - type: entity
   save: false
   name: Tajaran McHands
@@ -15,8 +15,9 @@
         200: Dead
     - type: RoarAccent
     - type: Damageable
-      damageContainer: Biological
       damageModifierSet: Tajaran
+    - type: Injurable
+      damageContainer: Biological
     - type: MeleeWeapon
       soundHit:
         path: /Audio/Weapons/slash.ogg

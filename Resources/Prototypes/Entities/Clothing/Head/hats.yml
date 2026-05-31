@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatBeaverHat
   name: beaver hat
@@ -1458,6 +1458,7 @@
         Heat: 1
   - type: Damageable
     damageModifierSet: Wood
+  - type: Injurable
   - type: Appearance
   - type: FireVisuals
     sprite: Effects/fire.rsi

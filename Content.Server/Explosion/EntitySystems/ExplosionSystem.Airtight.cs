@@ -41,8 +41,6 @@ public sealed partial class ExplosionSystem
         int index = 0;
         foreach (var prototype in _prototypeManager.EnumeratePrototypes<ExplosionPrototype>())
         {
-            // TODO EXPLOSION
-            // just make this a field on the prototype
             _explosionTypes.Add(prototype.ID, index);
             index++;
         }
@@ -94,8 +92,6 @@ public sealed partial class ExplosionSystem
         {
             if (!_airtightQuery.TryGetComponent(uid, out var airtight) || !airtight.AirBlocked)
                 continue;
-            if (!airtight.BlockExplosions)  // ADT fan abuse fix
-                continue;                   // ADT fan abuse fix
 
             blockedDirections |= airtight.AirBlockedDirection;
             GetExplosionTolerance(uid.Value, tolerance);
@@ -223,7 +219,7 @@ public sealed partial class ExplosionSystem
             totalDamageTarget = _destructibleSystem.DestroyedAt(uid, destructible);
         }
 
-        if (totalDamageTarget == FixedPoint2.MaxValue || !_damageableQuery.TryGetComponent(uid, out var damageable))
+        if (totalDamageTarget == FixedPoint2.MaxValue || !_injurableQuery.TryGetComponent(uid, out var injurable))
         {
             for (var i = 0; i < explosionTolerance.Length; i++)
             {
@@ -249,7 +245,7 @@ public sealed partial class ExplosionSystem
             var damagePerIntensity = FixedPoint2.Zero;
             foreach (var (type, value) in explosionType.DamagePerIntensity.DamageDict)
             {
-                if (!_damageableSystem.CanBeDamagedBy((uid, damageable), type))
+                if (!_damageableSystem.CanBeDamagedBy((uid, injurable), type))
                     continue;
 
                 // TODO EXPLOSION SYSTEM
@@ -264,7 +260,7 @@ public sealed partial class ExplosionSystem
             }
 
             var toleranceValue = damagePerIntensity > 0
-                ? (float) ((totalDamageTarget - _damageableSystem.GetTotalDamage((uid, damageable))) / damagePerIntensity)
+                ? (float) ((totalDamageTarget - _damageableSystem.GetTotalDamage(uid)) / damagePerIntensity)
                 : ToleranceValues.Invulnerable;
 
             explosionTolerance[index] = toleranceValue;

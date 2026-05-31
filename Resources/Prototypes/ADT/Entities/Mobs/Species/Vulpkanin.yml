@@ -1,4 +1,4 @@
-# ADT Vulpkanin mob (upstream PR#42476). Body/sprite/inventory come from AppearanceVulpkaninADT.
+﻿# ADT Vulpkanin mob (upstream PR#42476). Body/sprite/inventory come from AppearanceVulpkaninADT.
 # This MobVulpkanin (via Player/Vulpkanin.yml) intentionally overrides the official MobVulpkanin.
 - type: entity
   save: false
@@ -33,8 +33,9 @@
         Female: NesFemaleVulpa
         Unsexed: NesFemaleVulpa
     - type: Damageable
-      damageContainer: Biological
       damageModifierSet: ADTVulpkanin
+    - type: Injurable
+      damageContainer: Biological
     - type: RoarAccent
     - type: MeleeWeapon
       hidden: true

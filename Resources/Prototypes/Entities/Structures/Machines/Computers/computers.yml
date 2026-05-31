@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   parent: BaseComputerAiAccess
   id: ComputerAlert
   name: atmospheric alerts computer
@@ -700,9 +700,9 @@
     energy: 4.0
     color: "#3c5eb5"
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: StructuralMetallicStrong
-
+  - type: Injurable
+    damageContainer: StructuralInorganic
 - type: entity
   parent: ComputerComms
   id: SyndicateComputerComms
@@ -1221,8 +1221,9 @@
     speechVerb: Robotic
     speechSounds: Pai
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: StructuralMetallicStrong
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: GuideHelp
     guides:
     - Cloning

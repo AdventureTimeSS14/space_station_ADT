@@ -1,4 +1,4 @@
-- type: markingsGroup
+﻿- type: markingsGroup
   parent: Undergarments
   id: Diona
   onlyGroupWhitelisted: true
@@ -85,6 +85,7 @@
     baseDecayRate: 0.0083
   - type: Damageable
     damageModifierSet: Diona
+  - type: Injurable
   - type: DamageVisuals
     damageOverlayGroups:
       Brute:

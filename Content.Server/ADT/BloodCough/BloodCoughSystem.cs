@@ -21,6 +21,7 @@ public sealed class BloodCoughSystem : EntitySystem
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly DamageableSystem _damageable = default!;
 
     public override void Initialize()
     {
@@ -49,7 +50,7 @@ public sealed class BloodCoughSystem : EntitySystem
             if (!TryComp<DamageableComponent>(uid, out var damageable))
                 continue;
 
-            var damagePerGroup = damageable.Damage.GetDamagePerGroup(_prototypeManager);
+            var damagePerGroup = _damageable.GetDamagePerGroup((uid, damageable));
             if (!damagePerGroup.TryGetValue("Brute", out var bruteDamage))
                 continue;
 
@@ -86,7 +87,7 @@ public sealed class BloodCoughSystem : EntitySystem
             return;
         }
 
-        var damagePerGroup = damageable.Damage.GetDamagePerGroup(_prototypeManager);
+        var damagePerGroup = _damageable.GetDamagePerGroup((uid, damageable));
         if (!damagePerGroup.TryGetValue("Brute", out var bruteDamage))
             return;
 

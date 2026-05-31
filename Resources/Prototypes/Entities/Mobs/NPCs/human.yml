@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   name: civilian
   parent: MobHuman
   id: MobCivilian
@@ -85,6 +85,7 @@
   - type: RandomHumanoidAppearance
     randomizeName: false
   - type: Damageable
+  - type: Injurable
     damage:
       types:
         Bloodloss: 49

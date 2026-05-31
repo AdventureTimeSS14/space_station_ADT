@@ -1,4 +1,4 @@
-- type: markingsGroup
+﻿- type: markingsGroup
   parent: Undergarments
   id: Vox
   limits:
@@ -165,6 +165,7 @@
   components:
   - type: Damageable
     damageModifierSet: Vox
+  - type: Injurable
   - type: Speech
     speechVerb: Vox
     speechSounds: Vox

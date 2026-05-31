@@ -1,4 +1,4 @@
-- type: markingsGroup
+﻿- type: markingsGroup
   parent: Undergarments
   id: Slime
   limits:
@@ -114,6 +114,7 @@
       Unsexed: MaleSlime
   - type: Damageable
     damageModifierSet: Slime
+  - type: Injurable
   - type: PassiveDamage # Around 8 damage a minute healed
     allowedStates:
     - Alive

@@ -1,4 +1,4 @@
-# Does not inherit from simplemob
+﻿# Does not inherit from simplemob
 - type: entity
   abstract: true
   name: GuardianBase
@@ -73,6 +73,7 @@
           layer:
             - Opaque
     - type: Damageable
+    - type: Injurable
       damageContainer: Biological
     - type: MobState
       allowedStates:

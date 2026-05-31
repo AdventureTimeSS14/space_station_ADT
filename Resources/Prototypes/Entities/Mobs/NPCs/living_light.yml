@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   id: MobLivingLight
   parent: [ BaseMob, MobCombat ]
   abstract: true
@@ -62,8 +62,9 @@
         layer:
           - Opaque
   - type: Damageable
-    damageContainer: Inorganic
     damageModifierSet: LivingLight
+  - type: Injurable
+    damageContainer: Inorganic
   - type: PassiveDamage
     allowedStates:
     - Alive

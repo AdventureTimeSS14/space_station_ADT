@@ -1,4 +1,4 @@
-# When adding new food also add to random spawner located in Resources\Prototypes\Entities\Markers\Spawners\Random\Food_Drinks\food_produce.yml
+﻿# When adding new food also add to random spawner located in Resources\Prototypes\Entities\Markers\Spawners\Random\Food_Drinks\food_produce.yml
 # For produce that can't be immediately eaten
 
 - type: entity
@@ -306,6 +306,7 @@
     stunChance: 0.10
     stunSeconds: 1.5
   - type: Damageable
+  - type: Injurable
     damageContainer: Inorganic
   - type: Destructible
     thresholds:
@@ -927,6 +928,7 @@
       - ReagentId: JuiceTomato
         Quantity: 10
   - type: Damageable
+  - type: Injurable
     damageContainer: Biological
   - type: DamageOnHighSpeedImpact
     minimumSpeed: 0.1
@@ -1819,6 +1821,7 @@
   - type: Extractable
     grindableSolutionName: food
   - type: Damageable
+  - type: Injurable
     damageContainer: Inorganic
   - type: ToolRefinable
     refineResult:
@@ -2135,6 +2138,7 @@
       - ReagentId: JuiceWatermelon
         Quantity: 20
   - type: Damageable
+  - type: Injurable
     damageContainer: Biological
   - type: DamageOnHighSpeedImpact
     minimumSpeed: 0.1
@@ -2238,6 +2242,7 @@
       - ReagentId: Wine
         Quantity: 20
   - type: Damageable
+  - type: Injurable
     damageContainer: Biological
   - type: DamageOnHighSpeedImpact
     minimumSpeed: 0.1
@@ -2543,6 +2548,7 @@
   - type: Produce
     seedId: pumpkin
   - type: Damageable
+  - type: Injurable
     damageContainer: Biological
   - type: Destructible
     thresholds:
@@ -2600,6 +2606,7 @@
   - type: Produce
     seedId: bluePumpkin
   - type: Damageable
+  - type: Injurable
     damageContainer: Biological
   - type: Destructible
     thresholds:
@@ -2845,6 +2852,7 @@
     intensitySlope: 1
     totalIntensity: 0.1
   - type: Damageable
+  - type: Injurable
     damageContainer: Biological
   - type: Destructible
     thresholds:

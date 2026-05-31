@@ -1,4 +1,4 @@
-# The literal bare minimum needed to be a controllable mob. Cannot move but can interact.
+﻿# The literal bare minimum needed to be a controllable mob. Cannot move but can interact.
 - type: entity
   abstract: true
   save: false
@@ -90,6 +90,7 @@
   abstract: true
   components:
   - type: Damageable
+  - type: Injurable
     damageContainer: Biological
   - type: Destructible
     thresholds:

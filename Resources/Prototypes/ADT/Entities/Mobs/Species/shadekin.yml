@@ -1,4 +1,4 @@
-# Shadekin mob (upstream PR#42476). Appearance/body/sprite/inventory come from AppearanceShadekin.
+﻿# Shadekin mob (upstream PR#42476). Appearance/body/sprite/inventory come from AppearanceShadekin.
 - type: entity
   save: false
   parent:
@@ -30,8 +30,9 @@
       42: 0.7
       58: 0.5
   - type: Damageable
-    damageContainer: Biological # Shadekin
     damageModifierSet: Shadekin
+  - type: Injurable
+    damageContainer: Biological # Shadekin
   - type: Barotrauma
     damage:
       types:

@@ -1,4 +1,4 @@
-#### Containers ####
+﻿#### Containers ####
 - type: damageContainer
   id: Drake
   supportedGroups:
@@ -264,6 +264,7 @@
     - DoorBumpOpener
   - type: NoSlip
   - type: Damageable
+  - type: Injurable
     damageContainer: Drake
   - type: ExplosionResistance
     damageCoefficient: 0

@@ -1,4 +1,4 @@
-#==Suffix Guide==
+﻿#==Suffix Guide==
 #Always Powered - light doesn't need power to give off life
 #Empty - on map init, light spawns without bulb
 #Blue/Sodium/etc. - the color of the light
@@ -40,8 +40,9 @@
     # ADT-Sound-Update-End
     offset: "0, -0.5"
   - type: Damageable
-    damageContainer: Inorganic
     damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: Inorganic
   - type: RCDDeconstructable
     cost: 4
     delay: 2
@@ -286,6 +287,7 @@
           layer:
           - TabletopMachineLayer
     - type: Damageable
+    - type: Injurable
       damageContainer: Inorganic
     - type: Destructible
       thresholds:

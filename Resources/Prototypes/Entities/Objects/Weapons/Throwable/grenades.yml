@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   name: explosive grenade
   description: Grenade that creates a small but devastating explosion.
   parent: [VolatileGrenadeBase, TimerGrenadeBase, BaseSyndicateContraband]
@@ -350,6 +350,7 @@
     graph: ModularGrenadeGraph
     node: emptyCase
   - type: Damageable
+  - type: Injurable
     damageContainer: Inorganic
   - type: Destructible
     thresholds:

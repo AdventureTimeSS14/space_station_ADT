@@ -1,4 +1,4 @@
-#Пу-пу, чтобы сделать нормальную коллизию приходится не использовать паренты, увы
+﻿#Пу-пу, чтобы сделать нормальную коллизию приходится не использовать паренты, увы
 - type: entity
   id: ADTMediumThruster
   parent: BaseStructureDynamic
@@ -37,8 +37,9 @@
     powerLoad: 2000
   - type: ExtensionCableReceiver
   - type: Damageable
-    damageContainer: Inorganic
     damageModifierSet: Electronic
+  - type: Injurable
+    damageContainer: Inorganic
   - type: Repairable
     fuelCost: 10
     doAfterDelay: 5

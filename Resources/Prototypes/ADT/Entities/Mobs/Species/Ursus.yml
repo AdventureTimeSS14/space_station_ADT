@@ -1,4 +1,4 @@
-# Ursus mob (upstream PR#42476). Appearance/body/sprite come from AppearanceUrsus.
+﻿# Ursus mob (upstream PR#42476). Appearance/body/sprite come from AppearanceUrsus.
 - type: entity
   parent:
   - AppearanceUrsus
@@ -69,8 +69,9 @@
         layer:
           - MobLayer
   - type: Damageable
-    damageContainer: Biological
     damageModifierSet: Ursus
+  - type: Injurable
+    damageContainer: Biological
   - type: Vocal
     sounds:
       Male: MaleUrsus

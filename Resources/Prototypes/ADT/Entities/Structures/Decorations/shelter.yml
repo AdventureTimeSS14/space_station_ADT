@@ -1,4 +1,4 @@
-# Барьеры
+﻿# Барьеры
 - type: entity
   parent: BaseStructure
   id: ADTShelterBarbedwire
@@ -23,8 +23,9 @@
         - MidImpassable
         - BulletImpassable
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: StructuralMetallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
       - trigger:
@@ -58,8 +59,9 @@
         - MidImpassable
         - BulletImpassable
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: StructuralMetallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
       - trigger:
@@ -114,8 +116,9 @@
         - MidImpassable
         - BulletImpassable
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: StructuralMetallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
       - trigger:
@@ -150,8 +153,9 @@
         - MidImpassable
         - BulletImpassable
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: StructuralMetallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
       - trigger:
@@ -167,4 +171,3 @@
     trackAllDamage: true
     damageOverlay:
       sprite: ADT/Structures/Decoration/sandbag.rsi
-

@@ -125,7 +125,7 @@ public sealed partial class ControlledSystem : EntitySystem
         UpdateVisuals(observer, observerComp);
 
         if (TryComp<DamageableComponent>(target, out var damageable))
-            _damageable.TryChangeDamage(observer, new DamageSpecifier(damageable.Damage));
+            _damageable.TryChangeDamage(observer, _damageable.GetAllDamage((target, damageable)));
 
         _mind.TransferTo(uidMindId, target);
     }

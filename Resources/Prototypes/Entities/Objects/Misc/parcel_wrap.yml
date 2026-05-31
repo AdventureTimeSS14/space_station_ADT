@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   parent: BaseItem
   id: ParcelWrap
   name: parcel wrap
@@ -75,6 +75,7 @@
         tags:
         - Book
   - type: Damageable
+  - type: Injurable
     damageContainer: Inorganic
   - type: Destructible
     thresholds:

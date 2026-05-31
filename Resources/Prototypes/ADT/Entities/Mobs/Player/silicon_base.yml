@@ -1,4 +1,4 @@
-# Simple Station
+﻿# Simple Station
 
 - type: entity
   save: false
@@ -26,6 +26,7 @@
         path: /Audio/Effects/hit_kick.ogg
     - type: Clickable
     - type: Damageable
+    - type: Injurable
       damageContainer: Inorganic # Note that for dumb reasons, this essentially makes them a wall.
     - type: InteractionOutline
     - type: Fixtures
@@ -114,6 +115,7 @@
         0: Alive
         165: Dead
     - type: Damageable
+    - type: Injurable
       damageContainer: ADTSiliconDamageContainer # Not a wall.
     - type: Stamina
       critThreshold: 200

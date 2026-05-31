@@ -167,6 +167,7 @@
 #
   - type: Damageable
     damageModifierSet: ADTMobCreatureDamageSet
+  - type: Injurable
 #
   - type: LanguageSpeaker
     languages:
@@ -415,6 +416,7 @@
 #
   - type: Damageable
     damageModifierSet: ADTMobCreatureDamageSet
+  - type: Injurable
 #
   - type: LanguageSpeaker
     languages:

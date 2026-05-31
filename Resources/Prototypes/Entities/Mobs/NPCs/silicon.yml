@@ -1,4 +1,4 @@
-# Used for generic robotic entities (like Hivelords)
+﻿# Used for generic robotic entities (like Hivelords)
 - type: entity
   save: false
   abstract: true
@@ -9,6 +9,7 @@
     groups:
       Acidic: [Touch]
   - type: Damageable
+  - type: Injurable
     damageContainer: Inorganic
   - type: MovedByPressure
   - type: Physics

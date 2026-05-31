@@ -1,4 +1,4 @@
-# When adding new orbs, also add it to id: AllMiscToysTable
+﻿# When adding new orbs, also add it to id: AllMiscToysTable
 # Spherical objects of incredible* powers
 
 # Do not make this easily obtainable because if more than 6 of them are on the screen
@@ -142,6 +142,7 @@
         - ReagentId: Ethanol
           Quantity: 20
   - type: Damageable
+  - type: Injurable
     damageContainer: Inorganic
   - type: DamageOnLand
     damage:

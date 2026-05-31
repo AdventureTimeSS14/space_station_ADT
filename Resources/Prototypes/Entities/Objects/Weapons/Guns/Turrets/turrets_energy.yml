@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   abstract: true
   parent: [BaseWeaponEnergyTurret, ConstructibleMachine]
   id: WeaponEnergyTurretStationBase
@@ -91,6 +91,7 @@
     deployedDamageModifierSetId: FlimsyMetallic
   - type: Damageable
     damageModifierSet: Metallic
+  - type: Injurable
   - type: Repairable
     doAfterDelay: 10
     allowSelfRepair: false

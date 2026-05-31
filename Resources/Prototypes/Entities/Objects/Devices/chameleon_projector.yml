@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   parent: [BaseItem, BaseSyndicateContraband]
   id: ChameleonProjectorNoBattery
   name: chameleon projector
@@ -87,6 +87,7 @@
   - type: InteractionOutline
   - type: Clickable
   - type: Damageable
+  - type: Injurable
   - type: ChameleonDisguise
 
 # actions

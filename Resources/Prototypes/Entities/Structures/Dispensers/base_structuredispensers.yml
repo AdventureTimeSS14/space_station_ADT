@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   abstract: true
   id: ReagentDispenserBase
   parent: SmallConstructibleMachine
@@ -37,8 +37,9 @@
   - type: Anchorable
   - type: Pullable
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
     - trigger:

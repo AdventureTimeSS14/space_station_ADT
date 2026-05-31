@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   id: BaseXenoArtifact
   parent: BaseMob # we use this since it can technically get inhabited
   name: artifact
@@ -27,6 +27,7 @@
     effectsTable: !type:NestedSelector
       tableId: XenoArtifactEffectsDefaultTable
   - type: Damageable
+  - type: Injurable
   - type: Actions
   - type: Physics
     bodyType: KinematicController

@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   parent: [ SimpleSpaceMobBase, FlyingMobBase ]
   id: BaseMobDragon
   suffix: ""
@@ -120,6 +120,7 @@
   - type: EyeProtection
   - type: Damageable
     damageModifierSet: ADTDragonDamageSet
+  - type: Injurable
   - type: Stamina
     critThreshold: 350
 # ADT-Tweak-end

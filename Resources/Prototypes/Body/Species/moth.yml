@@ -1,4 +1,4 @@
-- type: markingsGroup
+﻿- type: markingsGroup
   parent: Undergarments
   id: Moth
   onlyGroupWhitelisted: true
@@ -142,6 +142,7 @@
   components:
   - type: Damageable
     damageModifierSet: Moth
+  - type: Injurable
   - type: ZombieAccentOverride
     accent: zombieMoth
   - type: Speech
