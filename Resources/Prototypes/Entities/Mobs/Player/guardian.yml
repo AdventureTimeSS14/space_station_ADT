@@ -241,18 +241,6 @@
         Hand:
           location: Left
     - type: ComplexInteraction
-<<<<<<< HEAD
-    - type: Clumsy
-      gunShootFailDamage:
-        types:
-          Blunt: 5
-          Piercing: 4
-          Heat: 3
-      catchingFailDamage:
-        types:
-          Blunt: 1
-=======
->>>>>>> upstreamwiz/master
     - type: MeleeWeapon
       angle: 30
       animation: WeaponArcFist
