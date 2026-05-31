@@ -88,27 +88,9 @@
   components:
   - type: EntityTableContainerFill
     containers:
-<<<<<<< HEAD
-      storagebase: !type:AllSelector
-        children:
-        - id: SpeedLoaderCap
-          amount: !type:RangeNumberSelector
-            range: 4, 8
-        - !type:GroupSelector
-          children:
-          - id: RevolverCapGun
-            amount: !type:RangeNumberSelector
-              range: 4, 6
-            weight: 95
-          - id: RevolverCapGunFake
-            amount: !type:RangeNumberSelector
-              range: 1, 6
-            weight: 5
-=======
       storagebase: !type:NestedSelector
         tableId: RandomCapGunTable
         rolls: 4, 7
->>>>>>> upstreamwiz/master
 
 - type: entity
   parent: ClothingBackpackSatchelSmuggler
