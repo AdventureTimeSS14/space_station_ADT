@@ -6,11 +6,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobWarden
-<<<<<<< HEAD
       time: 20h # Corvax-RoleTime
-=======
-      time: 6h
->>>>>>> upstreamwiz/master
   - !type:JobRequirementLoadoutEffect
     requirement:
       !type:DepartmentTimeRequirement
