@@ -16,11 +16,7 @@
       - !type:Oxygenate
         conditions:
         - !type:MetabolizerTypeCondition
-<<<<<<< HEAD
           type: [ Human, Animal, Rat, Plant, Arachnid ] # ADT-Tweak
-=======
-          type: [ Human, Animal, Rat, Plant ]
->>>>>>> upstreamwiz/master
       # Convert Oxygen into CO2.
       - !type:ModifyLungGas
         conditions:
@@ -51,8 +47,7 @@
       - !type:Oxygenate
         conditions:
         - !type:MetabolizerTypeCondition
-<<<<<<< HEAD
-          type: [ Human, Animal, Rat, Plant, Arachnid ] # ADT-Tweak
+          type: [ Human, Animal, Rat, Plant, Arachnid, Moth ] # ADT-Tweak
       # Start ADT tweak
       - !type:Oxygenate
         conditions:
@@ -67,9 +62,6 @@
         - !type:MetabolizerTypeCondition
           type: [ Resomi ]
       # End ADT tweak
-=======
-          type: [ Human, Animal, Rat, Plant, Arachnid, Moth ]
->>>>>>> upstreamwiz/master
       # Convert Oxygen into CO2.
       - !type:ModifyLungGas
         conditions:
@@ -125,19 +117,13 @@
       - !type:AdjustReagent
         reagent: Inaprovaline
         amount: -2.0
-<<<<<<< HEAD
-    Gas:
-      # Start ADT tweak: Novakid
-=======
     Respiration:
->>>>>>> upstreamwiz/master
       effects:
       - !type:Oxygenate
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Novakid ]
       - !type:HealthChange
-<<<<<<< HEAD
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Novakid ]
@@ -211,16 +197,6 @@
       # We need a metabolism effect on reagent removal
       - !type:AdjustAlert
         alertType: Toxins
-=======
-        ignoreResistances: true
-        damage:
-          types:
-            Poison:
-              0.1
-      # We need a metabolism effect on reagent removal
-      - !type:AdjustAlert
-        alertType: Toxins
->>>>>>> upstreamwiz/master
         minScale: 1.5
         clear: True
         time: 5
@@ -255,11 +231,7 @@
         damage:
           types:
             Radiation: 1.5
-<<<<<<< HEAD
-    Gas:
-=======
     Respiration:
->>>>>>> upstreamwiz/master
       effects:
       - !type:HealthChange
         ignoreResistances: true
@@ -349,11 +321,7 @@
         damage:
           types:
             Cold: 0.5 # liquid nitrogen is cold
-<<<<<<< HEAD
-    Gas:
-=======
     Respiration:
->>>>>>> upstreamwiz/master
       effects:
       - !type:Oxygenate
         conditions:
@@ -391,11 +359,7 @@
         damage:
           types:
             Poison: 1
-<<<<<<< HEAD
-    Gas:
-=======
     Respiration:
->>>>>>> upstreamwiz/master
       effects:
       - !type:Emote
         minScale: 0.2
@@ -493,11 +457,7 @@
         probability: 0.1
         conditions:
         minScale: 2
-<<<<<<< HEAD
-    Gas:
-=======
     Respiration:
->>>>>>> upstreamwiz/master
       effects:
       - !type:HealthChange
         minScale: 0.5
