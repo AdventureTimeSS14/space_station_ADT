@@ -935,19 +935,23 @@ ent-ADTElegantWhip = элегантная плеть
     .suffix = { "Именное, Minokaa, Cethet" }
 
 ent-ADTFamilyBusinessProjectileBase = лазерный снаряд
+    .desc = Вы не должны это видеть
     .suffix = { "Именное, Minokaa, Cethet, NikSAN" }
 
 ent-ADTFamilyBusinessPinkProjectile = розовый лазерный снаряд
+    .desc = Вы не должны это видеть
     .suffix = { "Именное, Minokaa, Cethet, NikSAN" }
 
 ent-ADTFamilyBusinessPurpleProjectile = фиолетовый лазерный снаряд
+    .desc = Вы не должны это видеть
     .suffix = { "Именное, Minokaa, Cethet, NikSAN" }
 
 ent-ADTFamilyBusinessRedProjectile = красный лазерный снаряд
+    .desc = Вы не должны это видеть
     .suffix = { "Именное, Minokaa, Cethet, NikSAN" }
 
 ent-ADTFamilyBusinessLaserPistolBase = EW-1 "семейное дело"
-    .desc =
+    .desc = Компактный автоматический лазерный пистолет с розовой рукоятью. На рукояти выгравированы инициалы Э. Эвенвуд.
     .suffix = { "Именное, Minokaa, Cethet, NikSAN" }
 
 ent-ADTFamilyBusinessLaserPistolPink = EW-1 "семейное дело"
