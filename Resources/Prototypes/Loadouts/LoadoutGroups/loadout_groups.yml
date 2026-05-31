@@ -778,13 +778,6 @@
   - LizardPlushieClown
 
 - type: loadoutGroup
-  id: ClownJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - FlowerWaterClown
-
-- type: loadoutGroup
   id: MimeHead
   name: loadout-group-mime-head
   minLimit: 0
