@@ -230,13 +230,8 @@
       - !type:HealthChange
         damage:
           types:
-<<<<<<< HEAD
             Caustic: 0.5 #ADT-tweak. 1 -> 0.5
-    Gas:
-=======
-            Caustic: 1
     Respiration:
->>>>>>> upstreamwiz/master
       effects:
       - !type:HealthChange
         conditions:
@@ -250,11 +245,7 @@
         scaling: true
         damage:
           types:
-<<<<<<< HEAD
-            Poison: 0.25
-=======
             Poison: 1
->>>>>>> upstreamwiz/master
       - !type:Vomit
         probability: 0.12
         conditions:
@@ -282,13 +273,6 @@
           min: 1
         ignoreResistances: true
         damage:
-<<<<<<< HEAD
-          groups:
-            Brute: -2.5
-            Burn: -2.5
-          types:
-            Bloodloss: -5
-=======
           Brute: -2.5
           Burn: -2.5
           Airloss: -5
@@ -300,7 +284,6 @@
         - !type:ReagentCondition
           reagent: Ammonia
           min: 1
->>>>>>> upstreamwiz/master
       - !type:Oxygenate # ammonia displaces nitrogen in vox blood
         conditions:
         - !type:MetabolizerTypeCondition
