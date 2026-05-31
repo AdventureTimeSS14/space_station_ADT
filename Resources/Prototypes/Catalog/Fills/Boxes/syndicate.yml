@@ -91,21 +91,12 @@
     layers:
       - state: box_of_doom
       - state: france
-<<<<<<< HEAD
-  - type: StorageFill
-    contents:
-      - id: WeaponCroissant
-        amount: 2
-      - id: WeaponBaguette
-      - id: SyndicateMicrowaveMachineCircuitboard
-      - id: ADTSyndicateElectricRangeMachineCircuitboard # ADT-Tweak
-      - id: PaperWrittenCombatBakeryKit
-=======
   - type: EntityTableContainerFill
     containers:
       storagebase: !type:AllSelector
         children:
         - id: SyndicateMicrowaveFlatpack
+        - id: ADTSyndicateElectricRangeMachineCircuitboard # ADT-Tweak
         - id: WeaponCroissant
           amount: 2
         - id: WeaponBaguette
@@ -127,5 +118,3 @@
         children:
         - id: SyndimovCircuitBoard
         - id: SyndicateIDCard
-
->>>>>>> upstreamwiz/master
