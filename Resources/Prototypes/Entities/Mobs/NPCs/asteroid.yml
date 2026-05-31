@@ -20,8 +20,6 @@
     allowed:
     - Weakness #ADT-Weakness-Tweak
     - Electrocution
-    - TemporaryBlindness
-    - RadiationProtection
     - Adrenaline
   # - type: StandingState #ADT-tweak: а оно надо?
   - type: Tag

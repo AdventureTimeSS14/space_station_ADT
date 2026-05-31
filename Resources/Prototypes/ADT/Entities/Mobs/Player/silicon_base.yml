@@ -381,7 +381,6 @@
         # - PressureImmunity
         - Muted
         # - ForcedSleep
-        - TemporaryBlindness
         - Pacified
         # - PsionicsDisabled
         # - PsionicallyInsulated

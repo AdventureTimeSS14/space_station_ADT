@@ -165,7 +165,7 @@ public sealed partial class ChangelingSystem
 
         args.Handled = true;
 
-        _status.TryAddStatusEffect<TemporaryBlindnessComponent>(target, TemporaryBlindnessSystem.BlindingStatusEffect, TimeSpan.FromSeconds(args.Duration), true);
+        _status.TryAddStatusEffect<BlindnessStatusEffectComponent>(target, BlindnessSystem.BlindingStatusEffect, TimeSpan.FromSeconds(args.Duration), true);
 
         var selfMessageSuccess = Loc.GetString("changeling-success-sting", ("target", Identity.Entity(target, EntityManager)));
         _popup.PopupEntity(selfMessageSuccess, uid, uid);

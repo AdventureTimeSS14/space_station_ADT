@@ -442,11 +442,9 @@
     - Stutter
     - Weakness
     - Electrocution
-    - ForcedSleep
-    - TemporaryBlindness
+    - ForcedSleep 
     - Pacified
     - StaminaModifier
-    - RadiationProtection
     - Drowsiness
     - Adrenaline #ADT-Medicine
   - type: MobPrice

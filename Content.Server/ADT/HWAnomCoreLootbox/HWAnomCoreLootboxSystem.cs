@@ -107,7 +107,7 @@ namespace Content.Server.ADT.HWAnomCoreLootbox
                 return;
             var msg = Loc.GetString("anombook-blind-popup",("player", user));
             _popupSystem.PopupEntity(msg, user, user);
-            _status.TryAddStatusEffect<TemporaryBlindnessComponent>(user, TemporaryBlindnessSystem.BlindingStatusEffect, TimeSpan.FromSeconds(comp.Settings.Duration), true);
+            _status.TryAddStatusEffect<BlindnessStatusEffectComponent>(user, BlindnessSystem.BlindingStatusEffect, TimeSpan.FromSeconds(comp.Settings.Duration), true);
         }
 
         private void Hemophilia(EntityUid uid)

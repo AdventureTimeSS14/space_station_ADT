@@ -35,6 +35,7 @@ using Robust.Shared.Audio.Systems;
 using Content.Server.Emp;
 using Content.Server.Actions;
 using Content.Shared.Standing;
+using Content.Shared.Eye.Blinding.Components;
 
 namespace Content.Server.Heretic.EntitySystems;
 
@@ -188,7 +189,7 @@ public sealed partial class MansusGraspSystem : EntitySystem
             case "Ash":
                 {
                     var timeSpan = TimeSpan.FromSeconds(5f);
-                    _statusEffect.TryAddStatusEffect(target, TemporaryBlindnessSystem.BlindingStatusEffect, timeSpan, false, TemporaryBlindnessSystem.BlindingStatusEffect);
+                    _statusEffect.TryAddStatusEffect<BlindnessStatusEffectComponent>(target, BlindnessSystem.BlindingStatusEffect, timeSpan, false);
                     break;
                 }
 

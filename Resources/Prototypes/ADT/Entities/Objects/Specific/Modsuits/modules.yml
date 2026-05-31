@@ -474,7 +474,6 @@
       outerClothing:
       - type: RadiationBlocker
         resistance: 100
-      - type: RadiationProtection
 
 - type: entity
   parent: ADTModsuitModBase

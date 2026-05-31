@@ -20,10 +20,8 @@
     allowed:
     - Weakness #ADT-Weakness-Tweak
     - Electrocution
-    - TemporaryBlindness
     - Pacified
-    - Flashed
-    - RadiationProtection
+    - Flashed  - 
     - Adrenaline
   - type: Buckle
   # - type: StandingState ADT-tweak: а оно нам нудно?
@@ -96,10 +94,8 @@
     allowed:
     - Weakness #ADT-Weakness-Tweak
     - Electrocution
-    - TemporaryBlindness
     - Pacified
     - Flashed
-    - RadiationProtection
     - Adrenaline
   - type: Bloodstream
     bloodReferenceSolution:

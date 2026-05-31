@@ -111,7 +111,6 @@
   - type: StatusEffects
     allowed:
     - SlowedDown
-    - RadiationProtection
   - type: MeleeWeapon
     hidden: false
     altDisarm: false

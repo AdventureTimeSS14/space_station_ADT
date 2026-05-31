@@ -130,13 +130,10 @@
     - Weakness #ADT-Weakness-Tweak
     # - Electrocution # ADT-Tweak - ъуъ
     # - ForcedSleep # ADT-Tweak - WHY THE FUCK CAN A DRAGON BE PUT TO SLEEP???
-    # - TemporaryBlindness # ADT-Tweak - WHY THE FUCK CAN A DRAGON BE BLINDED???
     # - Pacified # ADT-Tweak - это чудище не обосрется от пакса
-    - RadiationProtection
     # - Drowsiness # ADT-Tweak - НЕ СПАТЬ
     - Adrenaline #ADT-Medicine
     - Electrocution
-    - TemporaryBlindness
     - Pacified
     - Adrenaline
   - type: TemperatureDamage

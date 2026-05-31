@@ -374,7 +374,7 @@ public sealed partial class PolymorphSystem : EntitySystem
                 typeof(BlindableComponent),
                 typeof(PermanentBlindnessComponent),
                 typeof(BlurryVisionComponent),
-                typeof(TemporaryBlindnessComponent),
+                typeof(BlindnessStatusEffectComponent),
                 typeof(UncloneableComponent),
                 typeof(NarcolepsyComponent),
                 typeof(UnrevivableComponent),

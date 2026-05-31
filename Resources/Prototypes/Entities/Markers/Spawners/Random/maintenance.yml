@@ -146,7 +146,7 @@
       - id: ClothingHeadHatCowboyBountyHunter
       # Pins
         # start adt tweak
-      #- !type:GroupSelector
+      - !type:GroupSelector
         #children:
         # - id: ClothingNeckLGBTPin
         # - id: ClothingNeckAromanticPin
