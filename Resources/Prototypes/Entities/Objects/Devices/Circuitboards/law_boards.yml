@@ -41,10 +41,7 @@
   name: law board (Crewsimov)
   description: An electronics board containing the Crewsimov lawset.
   components:
-<<<<<<< HEAD
   - type: SiliconLawBound # ADT tweak
-=======
->>>>>>> upstreamwiz/master
   - type: SiliconLawProvider
     laws: Crewsimov
 
