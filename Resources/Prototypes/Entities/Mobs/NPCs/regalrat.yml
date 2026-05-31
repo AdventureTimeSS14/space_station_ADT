@@ -62,12 +62,6 @@
       types:
         Slash: 12
         Piercing: 8
-<<<<<<< HEAD
-  - type: Body
-    prototype: Rat
-    requiredLegs: 0 # TODO: Make more than 1 leg, set to 0 to avoid sprint speed being reset by the body system
-=======
->>>>>>> upstreamwiz/master
   - type: Hunger # probably should be prototyped
     thresholds:
       Overfed: 200
@@ -117,11 +111,8 @@
       - CannotSuicide
       - FootstepSound
   - type: NoSlip
-<<<<<<< HEAD
-=======
   - type: Insulated
     coefficient: 0.5 # rat king touches more wires, see?
->>>>>>> upstreamwiz/master
   - type: Rummager
   - type: RatKing
     hungerPerArmyUse: 25
@@ -277,12 +268,6 @@
       types:
         Slash: 5
         Piercing: 3
-<<<<<<< HEAD
-  - type: Body
-    prototype: Rat
-    requiredLegs: 0 # TODO: Make more than 1 leg, set to 0 to avoid sprint speed being reset by the body system
-=======
->>>>>>> upstreamwiz/master
   - type: Hunger # probably should be prototyped
     thresholds:
       Overfed: 200
