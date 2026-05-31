@@ -6,11 +6,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobHeadOfPersonnel
-<<<<<<< HEAD
       time: 40h #ADT-tweak
-=======
-      time: 20h
->>>>>>> upstreamwiz/master
 
 # Professional HoP Time
 - type: loadoutEffectGroup
@@ -20,11 +16,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobHeadOfPersonnel
-<<<<<<< HEAD
       time: 20h # special reward for HoP mains # Corvax-RoleTime
-=======
-      time: 15h # special reward for HoP mains
->>>>>>> upstreamwiz/master
 
 # Jumpsuit
 - type: loadout
