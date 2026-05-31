@@ -1,11 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-<<<<<<<< HEAD:Resources/Textures/ADT/Changeling/Objects/armmace.rsi/meta.json
   "copyright": "Made by Username228 (#serj3428 discord)",
-========
-  "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/c838ba21dae97db345e0113f99596decd1d66039",
->>>>>>>> upstreamwiz/master:Resources/Textures/Clothing/Belt/militarywebbingert.rsi/meta.json
   "size": {
     "x": 32,
     "y": 32
@@ -13,10 +9,6 @@
   "states": [
     {
       "name": "icon"
-    },
-    {
-      "name": "equipped-BELT",
-      "directions": 4
     },
     {
       "name": "inhand-left",
