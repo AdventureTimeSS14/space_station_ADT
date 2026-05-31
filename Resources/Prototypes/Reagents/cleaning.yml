@@ -60,51 +60,14 @@
     requiredSlipSpeed: 3.5
   friction: 0.3 # Slightly less friction than water, but not as bad as space lube
   metabolisms:
-<<<<<<< HEAD
-    # Start ADT tweak
-    Narcotic:
-      effects:
-      - !type:GenericStatusEffect
-        conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Drask ]
-        key: Stutter
-        component: StutteringAccent
-      - !type:GenericStatusEffect
-        conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Drask ]
-        key: SeeingRainbows
-        component: SeeingRainbows
-        type: Add
-        time: 9
-  # End ADT tweak
-    Food:
-=======
     Digestion:
->>>>>>> upstreamwiz/master
       effects:
       - !type:Vomit
         conditions:
         - !type:ReagentCondition
           reagent: SoapReagent
-<<<<<<< HEAD
-        # Start ADT tweak
-        - !type:MetabolizerTypeCondition
-          type: [ Drask ]
-        # End ADT tweak
-        probability: 0.20
-      - !type:SatiateHunger
-        conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Drask ]
-        factor: 2
-    Drink:
-      effects:
-=======
           min: 6
         probability: 0.20
->>>>>>> upstreamwiz/master
       - !type:Vomit
         conditions:
         - !type:ReagentCondition
@@ -160,11 +123,7 @@
         effectProto: StatusEffectSeeingRainbow
         time: 5
         type: Add
-<<<<<<< HEAD
-    Drink:
-=======
     Digestion:
->>>>>>> upstreamwiz/master
       effects:
       - !type:GenericStatusEffect
         key: Muted
