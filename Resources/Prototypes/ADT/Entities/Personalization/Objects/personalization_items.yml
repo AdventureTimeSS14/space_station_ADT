@@ -3384,7 +3384,7 @@
   - type: Projectile
     damage:
       types:
-        Heat: 9
+        Heat: 11
   - type: PointLight
     color: "#ff7edb"
     radius: 1.5
