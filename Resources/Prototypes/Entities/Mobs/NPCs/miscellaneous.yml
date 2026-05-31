@@ -102,28 +102,6 @@
     - reagents: [ Water ]
       methods: [ Touch ]
       effects:
-<<<<<<< HEAD
-      - !type:HealthChange
-        damage:
-          groups:
-            Brute: -0.15
-    - reagents: [ Blood ]
-      methods: [ Touch ]
-      effects:
-      - !type:HealthChange
-        damage:
-          groups:
-            Brute: -0.25
-            Burn: -0.25
-    - reagents: [ RobustHarvest ]
-      methods: [ Touch ]
-      effects:
-      - !type:HealthChange
-        damage:
-          groups:
-            Brute: -1
-            Burn: -1
-=======
       - !type:EvenHealthChange
         damage:
           Brute: -0.15
@@ -141,7 +119,6 @@
         damage:
           Brute: -1
           Burn: -1
->>>>>>> upstreamwiz/master
     - reagents: [ WeedKiller, PlantBGone ]
       methods: [ Touch ]
       effects:
