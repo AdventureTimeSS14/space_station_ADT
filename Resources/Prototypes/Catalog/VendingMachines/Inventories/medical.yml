@@ -40,10 +40,7 @@
     # ADT tweak start
     Gauze: 5
     ADTPatchPackFilled: 3
-    Brutepack: 4
-    Ointment: 4
     ADTAntibioticOintment: 4
-    
     ADTBloodPackTransfusionFull: 5
     # ADT tweak end
     JetInjector: 3

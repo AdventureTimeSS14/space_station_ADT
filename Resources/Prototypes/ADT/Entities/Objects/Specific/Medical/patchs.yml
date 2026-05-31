@@ -42,7 +42,7 @@
         maxVol: 20
   - type: DeleteOnSolutionEmpty
     solution: pen
-  - type: Injector # ADT-Tweak: wizden renamed Hypospray -> Injector
+  - type: Injector 
     activeModeProtoId: HyposprayInjectMode
     allowedModes:
     - HyposprayInjectMode

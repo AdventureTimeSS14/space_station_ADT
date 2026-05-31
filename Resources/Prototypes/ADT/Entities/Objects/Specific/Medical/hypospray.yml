@@ -51,7 +51,7 @@
       map: ["enum.SolutionContainerLayers.Fill"]
   - type: SolutionContainerVisuals
     emptySpriteName: hemostasispen_empty
-  - type: Injector # ADT-Tweak: wizden renamed Hypospray -> Injector
+  - type: Injector 
     currentTransferAmount: 20
     activeModeProtoId: HyposprayInjectMode
   - type: SolutionContainerManager
@@ -80,7 +80,7 @@
       map: ["enum.SolutionContainerLayers.Fill"]
   - type: SolutionContainerVisuals
     emptySpriteName: stimulantpen_empty
-  - type: Injector # ADT-Tweak: wizden renamed Hypospray -> Injector
+  - type: Injector 
     currentTransferAmount: 20
     activeModeProtoId: HyposprayInjectMode
   - type: SolutionContainerManager
@@ -109,7 +109,7 @@
       map: ["enum.SolutionContainerLayers.Fill"]
   - type: SolutionContainerVisuals
     emptySpriteName: crisispen_empty
-  - type: Injector # ADT-Tweak: wizden renamed Hypospray -> Injector
+  - type: Injector 
     currentTransferAmount: 20
     activeModeProtoId: HyposprayInjectMode
   - type: SolutionContainerManager
@@ -190,7 +190,7 @@
       map: ["enum.SolutionContainerLayers.Fill"]
   - type: SolutionContainerVisuals
     emptySpriteName: barkeepersfriend_empty
-  - type: Injector # ADT-Tweak: wizden renamed Hypospray -> Injector
+  - type: Injector 
     currentTransferAmount: 20
     activeModeProtoId: HyposprayInjectMode
   - type: SolutionContainerManager
