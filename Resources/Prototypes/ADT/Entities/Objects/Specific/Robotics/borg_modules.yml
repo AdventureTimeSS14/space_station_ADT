@@ -18,9 +18,17 @@
     - state: icons-detentions
   - type: ItemBorgModule
     hands:
-    - item: ADTInfCablecuffs
+    - item: Handcuffs
+      hand:
+        emptyLabel: borg-slot-handcuff-empty
+        emptyRepresentative: Handcuffs
+        whitelist:
+          components:
+          - Handcuff
     - item: ADTtelescopicBaton
     - item: ADTBorgflash
+  - type: BorgModuleIcon
+    icon: { sprite: "/Textures/Objects/Misc/zipties.rsi", state: cuff }
 
 - type: entity
   id: ADTBorgModuleHarm
@@ -47,8 +55,16 @@
     - state: icons-disabler
   - type: ItemBorgModule
     hands:
-    - item: ADTInfCablecuffs
     - item: ADTWeaponDisablerBorg
+    - item: Handcuffs
+      hand:
+        emptyLabel: borg-slot-handcuff-empty
+        emptyRepresentative: Handcuffs
+        whitelist:
+          components:
+          - Handcuff
+  - type: BorgModuleIcon
+    icon: { sprite: "/Textures/Objects/Misc/zipties.rsi", state: cuff }
 
 - type: entity
   id: ADTBorgModuleRPD
@@ -80,20 +96,29 @@
     - state: cargo
     - state: icon-pka
   - type: ItemBorgModule
-    droppableItems:
-    - id: WeaponProtoKineticAccelerator
-      whitelist:
-        tags:
-        - PKA
     hands:
+    - item: WeaponProtoKineticAccelerator
+      hand:
+        emptyLabel: borg-slot-pka-empty
+        emptyRepresentative: WeaponProtoKineticAccelerator
+        whitelist:
+          tags:
+          - PKA
+          - PKAUpgrade
+    - item: null
+      hand:
+        emptyLabel: borg-slot-pka-empty
+        emptyRepresentative: WeaponProtoKineticAccelerator
+        whitelist:
+          tags:
+          - PKA
+          - PKAUpgrade
     - item: WeaponGrapplingGun
     - item: BorgHandheldGPSBasic
     - item: HandHeldMassScannerBorg
     - item: MaterialBag
   - type: BorgModuleIcon
     icon: { sprite: ADT/Interface/Actions/actions_borg.rsi, state: salvage-module }
-
-# Borg Modules Update start
 
 - type: entity
   id: ADTBorgModuleChemical
@@ -149,5 +174,3 @@
     - item: HandheldStationMapUnpowered
     - item: WeaponGrapplingGun
     - item: DefibrillatorOneHandedUnpowered
-
-# Borg Modules Update End
