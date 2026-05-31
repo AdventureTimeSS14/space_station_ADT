@@ -41,7 +41,6 @@
     sound:
       path: /Audio/Ambience/Objects/fireplace.ogg
   - type: AlwaysHot
-<<<<<<< HEAD
   # Start ADT tweak
   #- type: Construction
   #  graph: ADTBonfire
@@ -50,12 +49,10 @@
   #  tags:
   #    - NoPaint
   # End ADT tweak
-=======
   - type: IgnitionSource
     temperature: 700
     ignited: true
   - type: RequireProjectileTarget
->>>>>>> upstreamwiz/master
 
 - type: entity
   parent: BaseBonfire
