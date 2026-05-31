@@ -4,28 +4,6 @@
   name: exotic seeds crate
   description: Any entrepreneuring botanist's dream. Contains many different exotic seeds. Requires Hydroponics access to open.
   components:
-<<<<<<< HEAD
-  - type: StorageFill
-    contents:
-      - id: EggySeeds
-        amount: 2
-      - id: TowercapSeeds
-        amount: 2
-      - id: TobaccoSeeds
-        amount: 2
-      - id: CannabisSeeds
-        amount: 2
-      - id: NettleSeeds
-        amount: 2
-      - id: FlyAmanitaSeeds
-        amount: 2
-      - id: BungoSeeds
-        amount: 2
-### Start ADT Tweak
-      - id: ADTCoffeeTreeSeeds
-        amount: 2
-### End ADT Tweak
-=======
   - type: EntityTableContainerFill
     containers:
       entity_storage: !type:AllSelector
@@ -44,7 +22,10 @@
           amount: 2
         - id: BungoSeeds
           amount: 2
->>>>>>> upstreamwiz/master
+        # Start ADT Tweak
+        - id: ADTCoffeeTreeSeeds
+          amount: 2
+        # End ADT Tweak
 
 - type: entity
   parent: CrateHydroSecure
@@ -96,34 +77,6 @@
   name: seeds crate
   description: Big things have small beginnings. Contains twenty-four different seeds.
   components:
-<<<<<<< HEAD
-  - type: StorageFill
-    contents:
-      - id: ChiliSeeds
-      - id: CornSeeds
-      - id: EggplantSeeds
-      - id: TomatoSeeds
-      - id: WheatSeeds
-      - id: CarrotSeeds
-      - id: CabbageSeeds
-      - id: GarlicSeeds
-      - id: ChanterelleSeeds
-      - id: PotatoSeeds
-      - id: SugarcaneSeeds
-      - id: LemonSeeds
-      - id: LimeSeeds
-      - id: OrangeSeeds
-      - id: OatSeeds
-      - id: OnionSeeds
-      - id: OnionRedSeeds
-      - id: RiceSeeds
-      - id: SoybeanSeeds
-      - id: GrapeSeeds
-      - id: WatermelonSeeds
-      - id: PeaSeeds
-      - id: CherrySeeds
-      - id: CottonSeeds
-=======
   - type: EntityTableContainerFill
     containers:
       entity_storage: !type:AllSelector
@@ -152,7 +105,6 @@
         - id: PeaSeeds
         - id: CherrySeeds
         - id: CottonSeeds
->>>>>>> upstreamwiz/master
 
 - type: entity
   parent: CrateHydroponics
@@ -160,14 +112,9 @@
   name: hydroponics tray crate
   description: Contains a hydroponics tray flatpack.
   components:
-<<<<<<< HEAD
-  - type: StorageFill
-    contents:
-    - id: HydroponicsTrayFlatpack
-    - id: ADTStrawberrySeeds # ADT Tweak
-=======
   - type: EntityTableContainerFill
     containers:
-      entity_storage:
-        id: HydroponicsTrayFlatpack
->>>>>>> upstreamwiz/master
+      entity_storage: !type:AllSelector
+        children:
+        - id: HydroponicsTrayFlatpack
+        - id: ADTStrawberrySeeds # ADT Tweak
