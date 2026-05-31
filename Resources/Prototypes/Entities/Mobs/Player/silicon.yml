@@ -84,17 +84,11 @@
     color: "#5ed7aa"
     sound: /Audio/Corvax/Announcements/aiannounce.ogg # Corvax-Announcements
   - type: ShowJobIcons
-<<<<<<< HEAD
-  - type: DamagedSiliconAccent
-    startPowerCorruptionAtCharIdx: 4
-    maxPowerCorruptionAtCharIdx: 20
-  - type: ShowMindShieldIcons # ADT start
-=======
   - type: ShowCrewIcons
   - type: DamagedSiliconAccent
     startPowerCorruptionAtCharIdx: 4
     maxPowerCorruptionAtCharIdx: 20
->>>>>>> upstreamwiz/master
+  - type: ShowMindShieldIcons # ADT start
 
 - type: entity
   id: AiHeldIntellicard
@@ -268,14 +262,11 @@
     powerLoad: 500
   - type: ExtensionCableReceiver
   - type: Battery
-<<<<<<< HEAD
-=======
     # Very important:
     # Disable networking to prevent the battery getting continuously dirtied every tick as it interacts with the power network.
     # This can not be done by changing the charge rate as the power supply ramps up over time.
     # This disables prediction for this battery.
     netsync: false
->>>>>>> upstreamwiz/master
     maxCharge: 300000
     startingCharge: 300000
   - type: ApcPowerReceiverBattery
@@ -311,8 +302,6 @@
         enum.StationAiVisualLayers.Base:
           False: { state: ai_empty }
           True: { state: ai_error }
-<<<<<<< HEAD
-=======
   - type: CreamPied
     sprite:
       sprite: Effects/creampie.rsi
@@ -323,7 +312,6 @@
       methods: [Touch]
       effects:
       - !type:WashCreamPie
->>>>>>> upstreamwiz/master
   - type: InteractionPopup
     interactSuccessString: petting-success-station-ai
     interactFailureString: petting-failure-station-ai
@@ -777,47 +765,6 @@
   - type: GhostTakeoverAvailable
 
 - type: entity
-<<<<<<< HEAD
-  parent: EngineeringBorgChassisDerelict
-  id: PlayerEngineeringBorgDerelict
-  suffix: Battery, Module
-  components:
-  - type: ContainerFill
-    containers:
-      borg_brain:
-      - PositronicBrain
-      borg_module:
-      - BorgModuleTool
-      - BorgModuleFireExtinguisher
-      - BorgModuleConstruction
-      - BorgModuleRCD
-      - BorgModuleCable
-  - type: ItemSlots
-    slots:
-      cell_slot:
-        name: power-cell-slot-component-slot-name-default
-        startingItem: PowerCellHigh
-  - type: RandomMetadata
-    nameSegments: [NamesBorg]
-
-- type: entity
-  parent: PlayerEngineeringBorgDerelict
-  id: PlayerEngineeringBorgDerelictGhostRole
-  suffix: Ghost role
-  components:
-  - type: GhostRole
-    name: ghost-role-information-derelict-engineering-cyborg-name
-    description: ghost-role-information-derelict-engineering-cyborg-description
-    rules: ghost-role-information-silicon-rules
-    raffle:
-      settings: default
-    reregister: false
-    job: Borg
-  - type: GhostTakeoverAvailable
-
-- type: entity
-=======
->>>>>>> upstreamwiz/master
   parent: BorgChassisDerelict
   id: PlayerBorgDerelict
   suffix: Battery, Module
@@ -863,10 +810,7 @@
       borg_brain:
       - PositronicBrain
       borg_module:
-<<<<<<< HEAD
-=======
       - BorgModulePrying
->>>>>>> upstreamwiz/master
       - BorgModuleTool
       - BorgModuleFireExtinguisher
       - BorgModuleCleaning
@@ -904,10 +848,7 @@
       borg_brain:
       - PositronicBrain
       borg_module:
-<<<<<<< HEAD
-=======
       - BorgModulePrying
->>>>>>> upstreamwiz/master
       - BorgModuleTool
       - BorgModuleFireExtinguisher
       - BorgModuleChemical
@@ -946,15 +887,10 @@
       borg_brain:
       - PositronicBrain
       borg_module:
-<<<<<<< HEAD
-      - BorgModuleTool #No fire extinguisher, traversal is better
-      - BorgModuleMining
-=======
       - BorgModulePrying
       - BorgModuleTool #No fire extinguisher, traversal is better
       - BorgModuleMining
       - BorgModuleTraversal
->>>>>>> upstreamwiz/master
       - BorgModuleAppraisal
   - type: ItemSlots
     slots:
