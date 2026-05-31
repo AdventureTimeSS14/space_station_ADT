@@ -60,11 +60,7 @@
   physicalDesc: reagent-physical-desc-alkaline
   color: "#e5420b"
   metabolisms:
-<<<<<<< HEAD
-    Poison:
-=======
     Bloodstream:
->>>>>>> upstreamwiz/master
       effects:
       - !type:HealthChange
         damage:
@@ -213,16 +209,10 @@
       - !type:HealthChange
         damage:
           types:
-<<<<<<< HEAD
             #ADT-tweak-start
             #Heat: 1.5
             Caustic: 1.2
             #ADT-tweak-end
-    Medicine:
-      effects:
-=======
-            Heat: 1.5
->>>>>>> upstreamwiz/master
       - !type:Vomit
         conditions:
         - !type:ReagentCondition
@@ -278,17 +268,9 @@
   metabolisms:
     Bloodstream:
       effects:
-<<<<<<< HEAD
-      # ADT-Tweak start
-      - !type:EvenHealthChange 
-        damage:
-          Brute: -4
-      # ADT-Tweak end
-=======
       - !type:EvenHealthChange
         damage:
           Brute: -4
->>>>>>> upstreamwiz/master
       - !type:GenericStatusEffect
         key: Adrenaline
         component: IgnoreSlowOnDamage
