@@ -4,7 +4,7 @@ ent-ADTClothingBeltSheathOCK = сабельные ножны ЦентКом
 ent-ADTClothingBeltBlackSuspenders = чёрные подтяжки
     .desc = Обычные чёрные подтяжки, сделанные из эластичной ленты, с добавлением резины. Производство компании "Modeling Agency Dar-Vaxed".
 
-ent-ADTClothingBeltBrownSuspenders = кожанные подтяжки
+ent-ADTClothingBeltBrownSuspenders = кожаные подтяжки
     .desc = Обычные подтяжки из грубой кожи. Производство компании "Modeling Agency Dar-Vaxed".
 
 ent-ADTClothingBeltMedicalSecurity = охранно-медицинский пояс

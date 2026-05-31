@@ -128,8 +128,8 @@
     sprintModifier: 0.9
   - type: HeldSpeedModifier
   - type: TemperatureProtection
-    heatingCoefficient: 0.1
-    coolingCoefficient: 0.1
+    heatingCoefficient: 0.01 # ADT-Tweak 0.1 -> 0.01
+    coolingCoefficient: 0.01 # ADT-Tweak 0.1 -> 0.01
   - type: Armor
     modifiers:
       coefficients:

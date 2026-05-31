@@ -3185,8 +3185,6 @@
     sprite: ADT/Personalization/toys.rsi
     state: plushie_dell
 
-#SPONSOR-ITEMS-END
-
 # Svet217
 - type: entity
   name: pulse pistol
@@ -3232,6 +3230,8 @@
     - SemiAuto
     soundGunshot:
       path: /Audio/ADT/Weapons/Guns/Gunshots/laser_gun_type.ogg
+    soundEmpty:
+      path: /Audio/ADT/Weapons/Guns/Gunshots/laser_gun_type_empty.ogg
   - type: HitscanBatteryAmmoProvider
     proto: PulseType
     fireCost: 100 # ADT tweak 200 -> 100
@@ -3249,7 +3249,7 @@
   - type: HitscanBasicDamage
     damage:
       types:
-        Heat: 22
+        Heat: 23
   - type: HitscanBasicVisuals
     muzzleFlash:
       sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
@@ -3260,3 +3260,168 @@
     impactFlash:
       sprite: ADT/Personalization/svet217_pistol_projectiles.rsi
       state: type_laser
+
+# durachilqa
+- type: entity
+  parent: d20Dice
+  id: ADTDiceDurachilqa
+  name: stupid cube
+  description: The Fool's personal talisman. It looks deceptively innocent. Holding it in your hands, you feel the approach of a frightening proximity, or a catastrophe that you will be ashamed to report to the Central Committee.
+  suffix: Personal, durachilqa
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/durachilqa_dice.rsi
+    state: d20_20
+
+#GG_Dove_Dove_
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushietajaran
+  name: plushie tajaran
+  description: Tajaran is a soft, fluffy toy, and it is strongly discouraged to squeeze it!
+  suffix: Personal, _Dove_Dove_
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_tajaran
+  - type: Item
+    sprite: ADT/Personalization/toys.rsi
+    inhandVisuals:
+      left:
+      - state: tajaran-inhand-left
+      right:
+      - state: tajaran-inhand-right
+  - type: EmitSoundOnUse
+    sound: &PlushieFelinidSound
+      collection: ADTTajaranToySounds
+      params:
+        volume: 5
+  - type: EmitSoundOnLand
+    sound: *PlushieFelinidSound
+  - type: EmitSoundOnActivate
+    sound: *PlushieFelinidSound
+  - type: EmitSoundOnTrigger
+    sound: *PlushieFelinidSound
+  - type: EmitSoundOnCollide
+    sound: *PlushieFelinidSound
+  - type: Edible
+    useSound: *PlushieFelinidSound
+  - type: MeleeWeapon
+    soundHit: &PlushieTajaranMeleeWeaponSound
+      path: /Audio/ADT/Felinid/cat_hiss1.ogg
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushieRykoslave
+  name: plushie toy Rykoslave
+  description: The toy is a plump teddy bear, and it was produced in small quantities due to low demand. It looks lonely and hungry. On the tag, you can see a rough inscription that reads, "Feed me!"
+  suffix: Personal, VLIND
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_rykoslave
+  - type: Item
+    sprite: ADT/Personalization/toys.rsi
+    inhandVisuals:
+      left:
+      - state: rykoslave-inhand-left
+      right:
+      - state: rykoslave-inhand-right
+  - type: Clothing
+    quickEquip: false
+    sprite: ADT/Personalization/toys.rsi
+    slots:
+    - HEAD
+    clothingVisuals:
+      head:
+      - state: rykoslave-equipped-HELMET
+        offset: "0, 0.06"
+
+- type: entity
+  name: elegant whip
+  parent: BaseItem
+  id: ADTElegantWhip
+  description: This is not a weapon, but an exquisite tool for controlling and dominating your opponent.
+  suffix: Personal, Minokaa, Cethet
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/minokaa_cethet_elegant_whip.rsi
+    state: icon
+  - type: Item
+    size: Small
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/ADT/Weapons/Melee/whiplash.ogg
+    wideAnimationRotation: -135
+    range: 2.5
+    clickDamageModifier: 1.1
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 2.4
+  - type: StaminaDamageOnHit
+    damage: 25
+  - type: Tag
+    tags:
+      - ADTTelescopicBaton
+
+#honelin111
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushiekramol
+  name: plush Kramol
+  description: A plush toy that resembles the girl from the service department. When you hold it close, you can smell a strong, bitter tobacco scent with hints of cherry and vanilla.
+  suffix: Personal, honelin111
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_kramol
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushiekrosh
+  name: plush bunny
+  description: A plain, worn-out, and soft teddy bear with a small metal bell on its neck that makes a clear but short sound when it moves.
+  suffix: Personal, honelin111
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_krosh
+
+- type: entity
+  parent: BasePlushie
+  id: ADTPlushietil
+  name: plush Til
+  description:  A plush toy of the suspicious passenger. Even when you look at the toy, you can feel his scowling gaze, filled with skepticism and hostility towards you.
+  suffix: Personal, honelin111
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/toys.rsi
+    state: plushie_til
+
+- type: entity
+  name: KS-43 "Cherry"
+  parent: CombatKnife
+  id: ADTSvet217KnifeKS43Cherry
+  description: Not just a knife, but a silent companion of a scout. Light, reliable, and comfortable in the hand, it served where weapons could fail. Without unnecessary glitz or ostentatious brutality, only cold steel, precision, and confidence in every movement. With it, the light shines brighter.
+  suffix: Svet217
+  components:
+  - type: Tag
+    tags:
+    - ADTSvet217KnifeKS43Cherry
+  - type: Sprite
+    sprite: ADT/Personalization/svet217_KS-43_Cherry.rsi
+    state: icon
+  - type: MeleeWeapon
+    wideAnimationRotation: -250
+    attackRate: 1.7
+    damage:
+      types:
+        Slash: 12
+        Piercing: 4
+  - type: ThrowingAngle
+    angle: 90
+  - type: Item
+    sprite: ADT/Personalization/svet217_KS-43_Cherry.rsi
+
+#SPONSOR-ITEMS-END
