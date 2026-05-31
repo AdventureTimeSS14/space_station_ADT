@@ -108,23 +108,9 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: true
   metabolisms:
-<<<<<<< HEAD
-    Drink:
-      effects:
-      - !type:SatiateThirst
-        factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-      # Start ADT tweak
-        amount: 0.12
-      - !type:SatiateThirst
-        factor: 1
-      # End ADT tweak
-=======
     Digestion:
       metabolites:
         Ethanol: 0.1
->>>>>>> upstreamwiz/master
 
 - type: reagent
   id: Cognac
@@ -176,11 +162,7 @@
   boilingPoint: 78.2
   meltingPoint: -114.1
   metabolisms:
-<<<<<<< HEAD
-    Alcohol:
-=======
     Metabolites:
->>>>>>> upstreamwiz/master
       metabolismRate: 0.05
       effects:
       - !type:HealthChange
@@ -205,11 +187,7 @@
         damage:
           types:
             Poison: 0.02
-<<<<<<< HEAD
-      - !type:HealthChange
-=======
       - !type:EvenHealthChange
->>>>>>> upstreamwiz/master
         conditions:
         - !type:ReagentCondition
           reagent: Ethanol
@@ -217,12 +195,7 @@
         - !type:MetabolizerTypeCondition
           type: [ Dwarf ]
         damage:
-<<<<<<< HEAD
-          groups:
-            Brute: -3 # ADT-Tweak ## Лечит механические повреждения на 1 (3/3)
-=======
-          Brute: -0.1
->>>>>>> upstreamwiz/master
+          Brute: -3 # ADT-Tweak ## Лечит механические повреждения на 1 (3/3)
       - !type:Vomit
         probability: 0.04
         conditions:
@@ -270,16 +243,6 @@
   metamorphicMaxFillLevels: 3
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: true
-      # Start ADT tweak
-  metabolisms:
-    Drink:
-      effects:
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.1
-      - !type:SatiateThirst
-        factor: 2
-      # End ADT tweak
 
 - type: reagent
   id: MelonLiquor
@@ -295,16 +258,6 @@
   metamorphicMaxFillLevels: 4
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: true
-      # Start ADT tweak
-  metabolisms:
-    Drink:
-      effects:
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.1
-      - !type:SatiateThirst
-        factor: 2
-      # End ADT tweak
 
 - type: reagent
   id: NTCahors
@@ -320,16 +273,6 @@
   metamorphicMaxFillLevels: 5
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: true
-      # Start ADT tweak
-  metabolisms:
-    Drink:
-      effects:
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.05
-      - !type:SatiateThirst
-        factor: 2
-      # End ADT tweak
 
 - type: reagent
   id: PoisonWine
@@ -373,30 +316,9 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-<<<<<<< HEAD
-    Drink:
-      effects:
-      - !type:SatiateThirst
-        factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.2
-      # Start ADT tweak
-      - !type:PopupMessage
-        conditions:
-        - !type:ReagentCondition
-          reagent: Rum
-          min: 5
-        type: Local
-        visualType: Medium
-        messages: [ "generic-reagent-effect-sake-rum" ]
-        probability: 0.1
-      # End ADT tweak
-=======
     Digestion:
       metabolites:
         Ethanol: 0.4
->>>>>>> upstreamwiz/master
 
 - type: reagent
   id: Sake
@@ -413,38 +335,9 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-<<<<<<< HEAD
-    Drink:
-      effects:
-      - !type:SatiateThirst
-        factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.2
-      - !type:PopupMessage
-        conditions:
-        - !type:ReagentCondition
-          reagent: Sake
-          min: 5
-        type: Local
-        visualType: Medium
-        messages: [ "generic-reagent-effect-sake-samurai" ]
-        probability: 0.1
-      - !type:PopupMessage
-        conditions:
-        - !type:ReagentCondition
-          reagent: Sake
-          min: 17
-        type: Local
-        visualType: Medium
-        messages: [ "generic-reagent-effect-sake-overload" ]
-        probability: 0.05
-      # End ADT tweak
-=======
     Digestion:
       metabolites:
         Ethanol: 0.4
->>>>>>> upstreamwiz/master
 
 - type: reagent
   id: Tequila
@@ -479,17 +372,6 @@
   metamorphicMaxFillLevels: 4
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
-      # Start ADT tweak
-  metabolisms:
-    Drink:
-      effects:
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.1
-      - !type:SatiateThirst
-        factor: 2
-      # End ADT tweak
-
 - type: reagent
   id: Vodka
   name: reagent-name-vodka
@@ -506,27 +388,9 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-<<<<<<< HEAD
-    Drink:
-      effects:
-      - !type:SatiateThirst
-        factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.2
-      # Start ADT tweak
-      - !type:HealthChange
-        conditions:
-        damage:
-          types:
-            Radiation: -1
-        probability: 0.5
-      # End ADT tweak
-=======
     Digestion:
       metabolites:
         Ethanol: 0.4
->>>>>>> upstreamwiz/master
 
 - type: reagent
   id: Whiskey
@@ -563,14 +427,6 @@
   metamorphicMaxFillLevels: 5
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: true
-      # Start ADT tweak
-  metabolisms:
-    Drink:
-      effects:
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.05
-      # End ADT tweak
 
 - type: reagent
   id: Champagne
@@ -594,14 +450,6 @@
       effects:
       - !type:SatiateThirst
         factor: 3
-<<<<<<< HEAD
-      - !type:AdjustReagent
-        reagent: Ethanol
-      # Start ADT tweak
-        amount: 0.1
-      # End ADT tweak
-=======
->>>>>>> upstreamwiz/master
   fizziness: 0.8
 
 # Mixed Alcohol
@@ -620,19 +468,6 @@
   metamorphicMaxFillLevels: 5
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
-      # Start ADT tweak
-  metabolisms:
-    Drink:
-      effects:
-      - !type:HealthChange
-        damage:
-          types:
-            Heat: 1
-        probability: 0.2
-      - !type:Emote
-        emote: Scream
-        probability: 0.3
-      # End ADT tweak
 
 - type: reagent
   id: AlienBrainHemorrhage
@@ -727,35 +562,9 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-<<<<<<< HEAD
-    Drink:
-      effects:
-      - !type:SatiateThirst
-        factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.15
-      # Start ADT tweak
-      - !type:AdjustTemperature
-        conditions:
-        - !type:TemperatureCondition
-          min: 280
-        amount: 2500
-      - !type:PopupMessage
-        conditions:
-        - !type:ReagentCondition
-          reagent: Antifreeze
-          min: 5
-        type: Local
-        visualType: Medium
-        messages: [ "generic-reagent-effect-antifreeze" ]
-        probability: 0.1
-      # End ADT tweak
-=======
     Digestion:
       metabolites:
         Ethanol: 0.3
->>>>>>> upstreamwiz/master
 
 - type: reagent
   id: AtomicBomb
@@ -810,16 +619,6 @@
   metamorphicMaxFillLevels: 5
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: true
-      # Start ADT tweak
-  metabolisms:
-    Drink:
-      effects:
-      - !type:AdjustTemperature
-        conditions:
-        - !type:TemperatureCondition
-          min: 280
-        amount: -2500
-      # End ADT tweak
 
 - type: reagent
   id: BananaHonk
@@ -850,20 +649,6 @@
   metamorphicMaxFillLevels: 3
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: true
-      # Start ADT tweak
-  metabolisms:
-    Drink:
-      effects:
-      - !type:PopupMessage
-        conditions:
-        - !type:ReagentCondition
-          reagent: Barefoot
-          min: 5
-        type: Local
-        visualType: Medium
-        messages: [ "generic-reagent-effect-barefoot" ]
-        probability: 0.05
-      # End ADT tweak
 
 - type: reagent
   id: BeepskySmash
@@ -918,15 +703,6 @@
   metamorphicMaxFillLevels: 5
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: true
-      # Start ADT tweak
-  metabolisms:
-    Drink:
-      effects:
-      - !type:HealthChange
-        damage:
-          types:
-            Heat: -0.3
-      # End ADT tweak
 
 - type: reagent
   id:  Booger
@@ -942,26 +718,6 @@
   metamorphicMaxFillLevels: 5
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: true
-      # Start ADT tweak
-  metabolisms:
-    Drink:
-      effects:
-      - !type:Vomit
-        probability: 0.04
-        conditions:
-        - !type:ReagentCondition
-          reagent: Booger
-          min: 10
-      - !type:PopupMessage
-        conditions:
-        - !type:ReagentCondition
-          reagent: Booger
-          min: 5
-        type: Local
-        visualType: Medium
-        messages: [ "generic-reagent-effect-disgusting" ]
-        probability: 0.3
-      # End ADT tweak
 
 - type: reagent
   id: BraveBull
@@ -1100,16 +856,6 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: true
   fizziness: 0.3
-      # Start ADT tweak
-  metabolisms:
-    Drink:
-      effects:
-      - !type:Jitter
-        conditions:
-        - !type:ReagentCondition
-          reagent: DemonsBlood
-          min: 5
-      # End ADT tweak
 
 - type: reagent
   id: DevilsKiss
@@ -1149,14 +895,7 @@
         factor: 2
       - !type:SatiateHunger
         factor: -2
-<<<<<<< HEAD
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.05
-      - !type:EvenHealthChange # ADT-Tweak: HealthChange -> EvenHealthChange
-=======
       - !type:EvenHealthChange
->>>>>>> upstreamwiz/master
         damage:
           Burn: -1
           Brute: -1
@@ -1178,26 +917,9 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-<<<<<<< HEAD
-    Drink:
-      effects:
-      - !type:SatiateThirst
-        factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.15
-      # Start ADT tweak
-      - !type:Jitter
-        conditions:
-        - !type:ReagentCondition
-          reagent: DriestMartini
-          min: 3
-      # End ADT tweak
-=======
     Digestion:
       metabolites:
         Ethanol: 0.3
->>>>>>> upstreamwiz/master
 
 - type: reagent
   id: Eggnog
@@ -1244,25 +966,6 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: true
   fizziness: 0.15
-      # Start ADT tweak
-  metabolisms:
-    Drink:
-      effects:
-      - !type:AdjustTemperature
-        conditions:
-        - !type:TemperatureCondition
-          min: 280
-        amount: -2500
-      - !type:PopupMessage
-        conditions:
-        - !type:ReagentCondition
-          reagent: ErikaSurprise
-          min: 5
-        type: Local
-        visualType: Medium
-        messages: [ "generic-reagent-effect-erikasurprice" ]
-        probability: 0.3
-      # End ADT tweak
 
 - type: reagent
   id: GargleBlaster
@@ -1279,39 +982,9 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-<<<<<<< HEAD
-    Drink:
-      effects:
-      - !type:SatiateThirst
-        factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.2
-      # Start ADT tweak
-      - !type:HealthChange
-        conditions:
-        - !type:ReagentCondition
-          reagent: GargleBlaster
-          min: 15
-        damage:
-          groups:
-            Brute: -1
-        probability: 0.1
-      - !type:PopupMessage
-        conditions:
-        - !type:ReagentCondition
-          reagent: GargleBlaster
-          min: 5
-        type: Local
-        visualType: Medium
-        messages: [ "generic-reagent-effect-gargleblaster" ]
-        probability: 0.3
-      # End ADT tweak
-=======
     Digestion:
       metabolites:
         Ethanol: 0.4
->>>>>>> upstreamwiz/master
 
 - type: reagent
   id: GinFizz
@@ -1410,26 +1083,6 @@
   physicalDesc: reagent-physical-desc-strong-smelling
   flavor: hooch
   color: "#664e00"
-      # Start ADT tweak
-  metabolisms:
-    Drink:
-      effects:
-      - !type:SatiateThirst
-        factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.2
-      - !type:PopupMessage
-        conditions:
-        - !type:ReagentCondition
-          reagent: Hooch
-          min: 5
-        type: Local
-        visualType: Medium
-        messages: [ "generic-reagent-effect-hooch" ]
-        probability: 0.3
-      # End ADT tweak
-
 
 - type: reagent
   id: IcedBeer
@@ -1446,16 +1099,6 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   fizziness: 0.6
-      # Start ADT tweak
-  metabolisms:
-    Drink:
-      effects:
-      - !type:AdjustTemperature
-        conditions:
-        - !type:TemperatureCondition
-          min: 280
-        amount: -2500
-      # End ADT tweak
 
 - type: reagent
   id: IrishSlammer
@@ -1574,26 +1217,9 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-<<<<<<< HEAD
-    Drink:
-      effects:
-      - !type:SatiateThirst
-        factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.15
-      # Start ADT tweak
-      - !type:AdjustTemperature
-        conditions:
-        - !type:TemperatureCondition
-          min: 283
-        amount: -2500
-      # End ADT tweak
-=======
     Digestion:
       metabolites:
         Ethanol: 0.3
->>>>>>> upstreamwiz/master
 
 - type: reagent
   id: Manhattan
@@ -1737,21 +1363,9 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-<<<<<<< HEAD
-    Drink:
-      effects:
-      - !type:SatiateThirst
-        factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-      # Start ADT tweak
-        amount: 0.4
-      # End ADT tweak
-=======
     Digestion:
       metabolites:
         Ethanol: 0.5
->>>>>>> upstreamwiz/master
 
 - type: reagent
   id: Neurotoxin
@@ -1794,33 +1408,9 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-<<<<<<< HEAD
-    Drink:
-      effects:
-      - !type:SatiateThirst
-        factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.2
-      # Start ADT tweak
-      - !type:HealthChange
-        conditions:
-        - !type:ReagentCondition
-          reagent: Painkiller
-          min: 10
-        damage:
-          groups:
-            Burn: -2
-            Toxin: -2
-            Airloss: -2
-            Brute: -2
-        probability: 0.2
-      # End ADT tweak
-=======
     Digestion:
       metabolites:
         Ethanol: 0.4
->>>>>>> upstreamwiz/master
 
 - type: reagent
   id: Patron
@@ -1908,20 +1498,6 @@
   metamorphicMaxFillLevels: 5
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: true
-      # Start ADT tweak
-  metabolisms:
-    Drink:
-      effects:
-      - !type:PopupMessage
-        conditions:
-        - !type:ReagentCondition
-          reagent: Sbiten
-          min: 5
-        type: Local
-        visualType: Medium
-        messages: [ "generic-reagent-effect-sbiten" ]
-        probability: 0.1
-      # End ADT tweak
 
 - type: reagent
   id: ScrewdriverCocktail
@@ -1938,30 +1514,9 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-<<<<<<< HEAD
-    Drink:
-      effects:
-      - !type:SatiateThirst
-        factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.07
-      # Start ADT tweak
-      - !type:PopupMessage
-        conditions:
-        - !type:ReagentCondition
-          reagent: ScrewdriverCocktail
-          min: 5
-        type: Local
-        visualType: Medium
-        messages: [ "generic-reagent-effect-screwdriver" ]
-        probability: 0.1
-      # End ADT tweak
-=======
     Digestion:
       metabolites:
         Ethanol: 0.14
->>>>>>> upstreamwiz/master
 
 - type: reagent
   id: CogChamp
@@ -2025,25 +1580,6 @@
   metamorphicMaxFillLevels: 5
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
-      # Start ADT tweak
-  metabolisms:
-    Drink:
-      effects:
-      - !type:PopupMessage
-        conditions:
-        - !type:ReagentCondition
-          reagent: Singulo
-          min: 3
-        type: Local
-        visualType: Medium
-        messages: [ "generic-reagent-effect-singulo" ]
-        probability: 0.2
-      - !type:Jitter
-        conditions:
-        - !type:ReagentCondition
-          reagent: Singulo
-          min: 5
-      # End ADT tweak
 
 - type: reagent
   id: SnowWhite
@@ -2092,25 +1628,6 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: true
   fizziness: 0.6
-      # Start ADT tweak
-  metabolisms:
-    Drink:
-      effects:
-      - !type:SatiateThirst
-        factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.15
-      - !type:PopupMessage
-        conditions:
-        - !type:ReagentCondition
-          reagent: SyndicateBomb
-          min: 3
-        type: Local
-        visualType: Medium
-        messages: [ "generic-reagent-effect-syndicate-bomb" ]
-        probability: 0.01
-      # End ADT tweak
 
 - type: reagent
   id: TequilaSunrise
@@ -2127,40 +1644,9 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-<<<<<<< HEAD
-    Drink:
-      effects:
-      - !type:SatiateThirst
-        factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.15
-      # Start ADT tweak
-      - !type:PopupMessage
-        conditions:
-        - !type:ReagentCondition
-          reagent: TequilaSunrise
-          min: 5
-          max: 17
-        type: Local
-        visualType: Medium
-        messages: [ "generic-reagent-effect-tequila-sunrise-detective" ]
-        probability: 0.1
-      - !type:PopupMessage
-        conditions:
-        - !type:ReagentCondition
-          reagent: TequilaSunrise
-          min: 17
-        type: Local
-        visualType: Medium
-        messages: [ "generic-reagent-effect-tequila-sunrise-name" ]
-        probability: 0.05
-      # End ADT tweak
-=======
     Digestion:
       metabolites:
         Ethanol: 0.3
->>>>>>> upstreamwiz/master
 
 - type: reagent
   id: TheMartinez
@@ -2177,34 +1663,6 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   fizziness: 0.2
-      # Start ADT tweak
-  metabolisms:
-    Drink:
-      effects:
-      - !type:AdjustTemperature
-        conditions:
-        - !type:TemperatureCondition
-          min: 280
-        amount: -2500
-      - !type:PopupMessage
-        conditions:
-        - !type:ReagentCondition
-          reagent: TheMartinez
-          min: 5
-        type: Local
-        visualType: Medium
-        messages: [ "generic-reagent-effect-themartinez-cool" ]
-        probability: 0.1
-      - !type:PopupMessage
-        conditions:
-        - !type:ReagentCondition
-          reagent: TheMartinez
-          min: 17
-        type: Local
-        visualType: Medium
-        messages: [ "generic-reagent-effect-themartinez-implants" ]
-        probability: 0.1
-      # End ADT tweak
 
 - type: reagent
   id: ThreeMileIsland
@@ -2344,36 +1802,9 @@
   flavor: white-gilgamesh
   color: "#e5d27e"
   metabolisms:
-<<<<<<< HEAD
-    Drink:
-      effects:
-        - !type:SatiateThirst
-          factor: 1
-        - !type:AdjustReagent
-          reagent: Ethanol
-          amount: 0.15
-      # Start ADT tweak
-        - !type:Vomit
-          probability: 0.04
-          conditions:
-          - !type:ReagentCondition
-            reagent: WhiteGilgamesh
-            min: 10
-        - !type:PopupMessage
-          conditions:
-          - !type:ReagentCondition
-            reagent: WhiteGilgamesh
-            min: 5
-          type: Local
-          visualType: Medium
-          messages: [ "generic-reagent-effect-disgusting" ]
-          probability: 0.3
-      # End ADT tweak
-=======
     Digestion:
       metabolites:
         Ethanol: 0.3
->>>>>>> upstreamwiz/master
   fizziness: 0.5
 
 - type: reagent
@@ -2391,30 +1822,9 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-<<<<<<< HEAD
-    Drink:
-      effects:
-      - !type:SatiateThirst
-        factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.15
-      # Start ADT tweak
-      - !type:PopupMessage
-        conditions:
-        - !type:ReagentCondition
-          reagent: WhiteRussian
-          min: 5
-        type: Local
-        visualType: Medium
-        messages: [ "generic-reagent-effect-whiterussian" ]
-        probability: 0.005
-      # End ADT tweak
-=======
     Digestion:
       metabolites:
         Ethanol: 0.3
->>>>>>> upstreamwiz/master
 
 - type: reagent
   id: VodkaRedBool
@@ -2442,33 +1852,6 @@
           effectProto: StatusEffectDrowsiness
           time: 1
           type: Remove
-      # Start ADT tweak
-        - !type:Emote
-          conditions:
-          - !type:ReagentCondition
-            reagent: VodkaRedBool
-            min: 10
-          emote: Scream
-          probability: 0.05
-        - !type:PopupMessage
-          conditions:
-          - !type:ReagentCondition
-            reagent: VodkaRedBool
-            min: 5
-          type: Local
-          visualType: Medium
-          messages: [ "generic-reagent-effect-vodkaredbool" ]
-          probability: 0.1
-        - !type:HealthChange
-          conditions:
-          - !type:ReagentCondition
-            reagent: VodkaRedBool
-            min: 15
-          damage:
-            types:
-              Asphyxiation: 100
-          probability: 0.005
-      # End ADT tweak
   fizziness: 0.25
 
 - type: reagent
@@ -2553,34 +1936,6 @@
           effectProto: StatusEffectDrowsiness
           time: 1
           type: Remove
-      # Start ADT tweak
-        - !type:Emote
-          conditions:
-          - !type:ReagentCondition
-            reagent: BudgetInsulsDrink
-            min: 5
-          emote: Scream
-          probability: 0.1
-        - !type:PopupMessage
-          type: Local
-          visualType: Medium
-          messages: [ "generic-reagent-effect-vodkaredbool" ]
-          probability: 0.1
-        - !type:HealthChange
-          conditions:
-          - !type:ReagentCondition
-            reagent: BudgetInsulsDrink
-            min: 19
-          damage:
-            types:
-              Asphyxiation: 100
-          probability: 0.01
-        - !type:Jitter
-          conditions:
-          - !type:ReagentCondition
-            reagent: BudgetInsulsDrink
-            min: 10
-      # End ADT tweak
   fizziness: 0.25
 
 - type: reagent
@@ -2654,30 +2009,9 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-<<<<<<< HEAD
-    Drink:
-      effects:
-      - !type:SatiateThirst
-        factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-      # Start ADT tweak
-        amount: 0.1
-      - !type:PopupMessage
-        conditions:
-        - !type:ReagentCondition
-          reagent: BlueHawaiian
-          min: 3
-        type: Local
-        visualType: Medium
-        messages: [ "generic-reagent-effect-bluehawaiian" ]
-        probability: 0.2
-      # End ADT tweak
-=======
     Digestion:
       metabolites:
         Ethanol: 0.4
->>>>>>> upstreamwiz/master
 
 - type: reagent
   id: Caipirinha
@@ -2948,15 +2282,6 @@
       effects:
       - !type:SatiateThirst
         factor: 3
-<<<<<<< HEAD
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.45 # TODO: Figure out why setting this to 0 means this does more damage... WHAT BUG IS THIS?!!
-    Alcohol:
-      metabolismRate : 0.05
-      effects:
-=======
->>>>>>> upstreamwiz/master
       - !type:Drunk
         boozePower: 10
       - !type:HealthChange
