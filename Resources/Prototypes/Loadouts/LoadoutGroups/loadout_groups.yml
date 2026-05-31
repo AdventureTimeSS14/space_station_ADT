@@ -20,7 +20,6 @@
   - CigPackBlack
   - CigarCase
   - CigarGold
-<<<<<<< HEAD:Resources/Prototypes/Loadouts/loadout_groups.yml
   #ADT-tweak-start
   # - ClothingNeckLGBTPin
   # - ClothingNeckAromanticPin
@@ -82,36 +81,6 @@
   - ADTFlowerWreath3
   - ADTFlowerWreath4
   # ADT-Tweak-End
-=======
-  - BoxFolderBaseThreePapers
-  - BoxFolderPlasticClipboardThreePapers
-  - BoxFolderClipboardThreePapers
-  - ClothingNeckLGBTPin
-  - ClothingNeckAllyPin
-  - ClothingNeckAromanticPin
-  - ClothingNeckAsexualPin
-  - ClothingNeckAroacePin
-  - ClothingNeckBisexualPin
-  - ClothingNeckGayPin
-  - ClothingNeckIntersexPin
-  - ClothingNeckLesbianPin
-  - ClothingNeckNonBinaryPin
-  - ClothingNeckPansexualPin
-  - ClothingNeckPluralPin
-  - ClothingNeckOmnisexualPin
-  - ClothingNeckGenderqueerPin
-  - ClothingNeckGenderfluidPin
-  - ClothingNeckTransPin
-  - ClothingNeckAutismPin
-  - ClothingNeckGoldAutismPin
-  - OffsetCane
-  - OffsetCaneWood
-  - OffsetCaneClown
-  - OffsetCaneMime
-  - OffsetCaneNT
-  - Cane
-  - TowelColorWhite
->>>>>>> upstreamwiz/master:Resources/Prototypes/Loadouts/LoadoutGroups/loadout_groups.yml
 
 - type: loadoutGroup
   id: Glasses
@@ -431,17 +400,6 @@
   name: loadout-group-jobtrinkets
   minLimit: 0
   loadouts:
-<<<<<<< HEAD:Resources/Prototypes/Loadouts/loadout_groups.yml
-  - LizardPlushieBartender
-  - BartenderGoldenShaker
-
-- type: loadoutGroup
-  id: ServiceWorkerJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - LizardPlushieServiceWorker
-=======
   - BartenderGoldenShaker
 
 #- type: loadoutGroup
@@ -449,7 +407,6 @@
 #  name: loadout-group-jobtrinkets
 #  minLimit: 0
 #  loadouts:
->>>>>>> upstreamwiz/master:Resources/Prototypes/Loadouts/LoadoutGroups/loadout_groups.yml
 
 - type: loadoutGroup
   id: ChefHead
@@ -958,20 +915,11 @@
   - Ocarina
   - Bagpipe
 
-<<<<<<< HEAD:Resources/Prototypes/Loadouts/loadout_groups.yml
-- type: loadoutGroup
-  id: MusicianJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - LizardPlushieMusician
-=======
 #- type: loadoutGroup
 #  id: MusicianJobTrinkets
 #  name: loadout-group-jobtrinkets
 #  minLimit: 0
 #  loadouts:
->>>>>>> upstreamwiz/master:Resources/Prototypes/Loadouts/LoadoutGroups/loadout_groups.yml
 
 # Cargo
 
@@ -1578,20 +1526,11 @@
   - WhiteJumpsuit
   - WhiteJumpskirt
 
-<<<<<<< HEAD:Resources/Prototypes/Loadouts/loadout_groups.yml
-- type: loadoutGroup
-  id: ResearchAssistantJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - LizardPlushieResearchAssistant
-=======
 #- type: loadoutGroup
 #  id: ResearchAssistantJobTrinkets
 #  name: loadout-group-jobtrinkets
 #  minLimit: 0
 #  loadouts:
->>>>>>> upstreamwiz/master:Resources/Prototypes/Loadouts/LoadoutGroups/loadout_groups.yml
 
 # Security
 
@@ -1646,10 +1585,6 @@
   name: loadout-group-jobtrinkets
   minLimit: 0
   loadouts:
-<<<<<<< HEAD:Resources/Prototypes/Loadouts/loadout_groups.yml
-  - LizardPlushieHeadofSecurity
-=======
->>>>>>> upstreamwiz/master:Resources/Prototypes/Loadouts/LoadoutGroups/loadout_groups.yml
   - SecStar
 
 - type: loadoutGroup
@@ -1679,10 +1614,6 @@
   name: loadout-group-jobtrinkets
   minLimit: 0
   loadouts:
-<<<<<<< HEAD:Resources/Prototypes/Loadouts/loadout_groups.yml
-  - LizardPlushieWarden
-=======
->>>>>>> upstreamwiz/master:Resources/Prototypes/Loadouts/LoadoutGroups/loadout_groups.yml
   - SecStar
 
 - type: loadoutGroup
@@ -1876,7 +1807,6 @@
   - EmergencyNitrogenSecurity
   - EmergencyOxygenSecurity
   - LoadoutSpeciesVoxNitrogen
-<<<<<<< HEAD:Resources/Prototypes/Loadouts/loadout_groups.yml
   # ADT-Loadout-Species-Start
   - ADTEmergencyMothSecurity
   - ADTEmergencyIPCSecurity
@@ -2159,8 +2089,6 @@
   - ADTEmergencyIPCMedical
   - ADTEmergencyNovakidMedical
   # ADT-Loadout-Species-End
-=======
->>>>>>> upstreamwiz/master:Resources/Prototypes/Loadouts/LoadoutGroups/loadout_groups.yml
 
 # Wildcards
 
@@ -2172,13 +2100,6 @@
   - JournalistJumpsuit
 
 - type: loadoutGroup
-<<<<<<< HEAD:Resources/Prototypes/Loadouts/loadout_groups.yml
-  id: ReporterJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - LizardPlushieReporter
-=======
   id: ReporterHead
   name: loadout-group-reporter-head
   minLimit: 0
@@ -2197,7 +2118,6 @@
 #  name: loadout-group-jobtrinkets
 #  minLimit: 0
 #  loadouts:
->>>>>>> upstreamwiz/master:Resources/Prototypes/Loadouts/LoadoutGroups/loadout_groups.yml
 
 - type: loadoutGroup
   id: PsychologistJumpsuit
@@ -2217,7 +2137,6 @@
   loadouts:
   - LizardPlushiePsychologist
 
-<<<<<<< HEAD:Resources/Prototypes/Loadouts/loadout_groups.yml
 - type: loadoutGroup
   id: BoxerJumpsuit
   name: loadout-group-boxer-jumpsuit
@@ -2234,13 +2153,12 @@
   - BlueBoxingGloves
   - GreenBoxingGloves
   - YellowBoxingGloves
-=======
+
 #- type: loadoutGroup
 #  id: PsychologistJobTrinkets
 #  name: loadout-group-jobtrinkets
 #  minLimit: 0
 #  loadouts:
->>>>>>> upstreamwiz/master:Resources/Prototypes/Loadouts/LoadoutGroups/loadout_groups.yml
 
 - type: loadoutGroup
   id: BoxerJobTrinkets
