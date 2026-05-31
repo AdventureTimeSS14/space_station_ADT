@@ -3429,7 +3429,7 @@
 - type: entity
   id: ADTFamilyBusinessLaserPistolBase
   name: 'EW-1 "family business"'
-  parent: [ BaseWeaponBatterySmall, BaseSecurityContraband ]
+  parent: BaseWeaponBatterySmall
   abstract: true
   categories: [ HideSpawnMenu ]
   components:
@@ -3445,6 +3445,11 @@
   - type: Item
     storedOffset: 0,-5
     sprite: ADT/Personalization/minokaa_cethet_niksan_family_business.rsi
+    inhandVisuals:
+      left:
+      - state: pink_inhand-left
+      right:
+      - state: pink_inhand-right
   - type: Clothing
     sprite: ADT/Personalization/minokaa_cethet_niksan_family_business.rsi
     quickEquip: false
@@ -3493,6 +3498,14 @@
     - state: purple_charge
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
+  - type: Item
+    sprite: ADT/Personalization/minokaa_cethet_niksan_family_business.rsi
+    storedOffset: 0,-5
+    inhandVisuals:
+      left:
+      - state: purple_inhand-left
+      right:
+      - state: purple_inhand-right
   - type: ProjectileBatteryAmmoProvider
     proto: ADTFamilyBusinessPurpleProjectile
     fireCost: 100
@@ -3513,6 +3526,14 @@
     - state: red_charge
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
+  - type: Item
+    sprite: ADT/Personalization/minokaa_cethet_niksan_family_business.rsi
+    storedOffset: 0,-5
+    inhandVisuals:
+      left:
+      - state: red_inhand-left
+      right:
+      - state: red_inhand-right
   - type: ProjectileBatteryAmmoProvider
     proto: ADTFamilyBusinessRedProjectile
     fireCost: 100

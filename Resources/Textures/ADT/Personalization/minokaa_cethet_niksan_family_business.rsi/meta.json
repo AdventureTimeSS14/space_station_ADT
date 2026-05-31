@@ -36,6 +36,30 @@
         },
         {
             "name": "pink_charge"
+        },
+        {
+            "name": "pink_inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "pink_inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "purple_inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "purple_inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "red_inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "red_inhand-right",
+            "directions": 4
         }
     ]
 }
