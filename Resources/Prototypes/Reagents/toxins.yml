@@ -58,11 +58,6 @@
   physicalDesc: reagent-physical-desc-nondescript
   allowedDepartments:
   - Medical
-<<<<<<< HEAD
-  allowedJobs:
-  - Zookeeper
-=======
->>>>>>> upstreamwiz/master
   metabolisms:
     Bloodstream:
       effects:
@@ -98,19 +93,11 @@
     Bloodstream:
       effects:
         - !type:HealthChange
-          conditions:
-          - !type:MetabolizerTypeCondition
-            type: [ Plant ]
           damage:
             types:
               Poison: 2
         - !type:Vomit
           conditions:
-<<<<<<< HEAD
-          - !type:MetabolizerTypeCondition
-            type: [ Plant ]
-=======
->>>>>>> upstreamwiz/master
           - !type:ReagentCondition
             reagent: GastroToxin
             min: 2
@@ -365,7 +352,6 @@
           inverted: true
         # End ADT tweak
         damage:
-<<<<<<< HEAD
           groups:
             Airloss: 10
       # Start ADT tweak
@@ -379,11 +365,6 @@
             Poison: 3.5
             Cold: 2
       # End ADT tweak
-=======
-          types:
-            Asphyxiation: 5
-            Bloodloss: 5
->>>>>>> upstreamwiz/master
 
 - type: reagent
   id: MindbreakerToxin
@@ -425,16 +406,11 @@
         conditions:
         - !type:ReagentCondition
           reagent: Histamine
-<<<<<<< HEAD
         # Start ADT tweak
         - !type:MetabolizerTypeCondition
           type: [ Shadekin ]
           inverted: true
         # End ADT tweak
-        - !type:ReagentCondition
-          reagent: Histamine
-=======
->>>>>>> upstreamwiz/master
           min: 45
         damage:
           types:
@@ -560,15 +536,8 @@
       - !type:PopupMessage
         conditions:
         - !type:MetabolizerTypeCondition
-<<<<<<< HEAD
           type: [ Animal, Vox, Vulpkanin, Ursus, Reptilian ] # ADT-Tweak
           inverted: true
-        - !type:MetabolizerTypeCondition
-          type: [ Plant ]
-=======
-          type: [ Animal, Vox ]
-          inverted: true
->>>>>>> upstreamwiz/master
         type: Local
         visualType: MediumCaution
         messages: [ "generic-reagent-effect-sick" ]
@@ -576,7 +545,6 @@
       - !type:Vomit
         probability: 0.1
         conditions:
-<<<<<<< HEAD
           - !type:MetabolizerTypeCondition
             type: [ Plant ]
           - !type:MetabolizerTypeCondition
@@ -586,15 +554,6 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Animal, Vox, Ursus, Felinid, Reptilian ] # ADT-Tweak
-=======
-        - !type:MetabolizerTypeCondition
-          type: [ Animal, Vox, Plant ]
-          inverted: true
-      - !type:HealthChange
-        conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Animal, Vox, Plant ]
->>>>>>> upstreamwiz/master
           inverted: true
         damage:
           types:
@@ -609,15 +568,11 @@
       - !type:AdjustReagent
         conditions:
         - !type:MetabolizerTypeCondition
-<<<<<<< HEAD
           type: [ Animal, Ursus, Reptilian ] # ADT-Tweak
 # ADT-Tweak-Start
         - !type:MetabolizerTypeCondition
-          type: [ Felinid ]
+          type: [ Felinid, Animal ]
 # ADT-Tweak-End
-=======
-          type: [ Animal ]
->>>>>>> upstreamwiz/master
         reagent: Protein
         amount: 0.5
       - !type:AdjustReagent
@@ -626,14 +581,6 @@
           type: [ Vox ]
         reagent: Protein
         amount: 0.25
-# ADT-Tweak-Start
-      - !type:AdjustReagent
-        conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Plant ]
-        reagent: Protein
-        amount: 0.20
-# ADT-Tweak-End
 
 - type: reagent
   id: Allicin
@@ -667,11 +614,6 @@
   allowedDepartments:
   - Security
   - Medical
-<<<<<<< HEAD
-  allowedJobs:
-  - Zookeeper
-=======
->>>>>>> upstreamwiz/master
   color: "#AAAAAA"
   metabolisms:
     Bloodstream:
@@ -726,7 +668,7 @@
       - !type:HealthChange
         damage:
           types:
-            Poison: 0.2 # Makes it 20 damage per unit. ADT nerf to 7 damage for unit.
+            oison: 0.2 # Makes it 20 damage per unit. ADT nerf to 7 damage for unit.
 
 - type: reagent
   id: Bungotoxin
@@ -775,26 +717,10 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Shadekin ]
-        # End ADT tweak
         damage:
-<<<<<<< HEAD
-          groups:
-            Airloss: 2
-      # Start ADT tweak
-      - !type:HealthChange
-        conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Shadekin ]
-        damage:
-          types:
-            Poison: 1.25
-            Cold: 0.5
-      # End ADT tweak
-=======
           types:
             Asphyxiation: 1
             Bloodloss: 1
->>>>>>> upstreamwiz/master
 
 - type: reagent
   id: Tazinide
@@ -894,8 +820,6 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: [Vox]
-<<<<<<< HEAD
-=======
 
 - type: reagent
   id: Hemorrhinol
@@ -915,4 +839,3 @@
         type: Update
       - !type:ModifyBleed
         amount: 0.5
->>>>>>> upstreamwiz/master
