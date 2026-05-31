@@ -45,8 +45,6 @@
 - type: latheRecipe
   abstract: true
   parent: BaseSteelTileRecipe
-<<<<<<< HEAD
-=======
   id: BaseIndustrialTileRecipe
   categories:
   - Tiles
@@ -57,7 +55,6 @@
 - type: latheRecipe
   abstract: true
   parent: BaseSteelTileRecipe
->>>>>>> upstreamwiz/master
   id: BaseCircuitTileRecipe
   categories:
   - Tiles
@@ -330,8 +327,6 @@
   id: FloorTileItemWhitePavementVertical
   result: FloorTileItemWhitePavementVertical
 
-<<<<<<< HEAD
-=======
 - type: latheRecipe
   parent: BaseWhiteTileRecipe
   id: FloorTileItemWhiteSlatsContinuous
@@ -347,7 +342,6 @@
   id: FloorTileItemWhiteHorizontalSlatsBordered
   result: FloorTileItemWhiteHorizontalSlatsBordered
 
->>>>>>> upstreamwiz/master
 # Maints
 - type: latheRecipe
   parent: BaseMaintTileRecipe
@@ -369,8 +363,6 @@
   id: FloorTileItemTechmaintDark
   result: FloorTileItemTechmaintDark
 
-<<<<<<< HEAD
-=======
 # Industrial
 - type: latheRecipe
   parent: BaseIndustrialTileRecipe
@@ -412,7 +404,6 @@
   id: FloorTileItemFreezer
   result: FloorTileItemFreezer
 
->>>>>>> upstreamwiz/master
 # Circuit
 - type: latheRecipe
   parent: BaseCircuitTileRecipe
@@ -444,6 +435,7 @@
   parent: BaseWoodTileRecipe
   id: FloorTileItemWoodPattern
   result: FloorTileItemWoodPattern
+
 # ADT tweak start
 - type: latheRecipe
   parent: BaseWoodTileRecipe
@@ -577,8 +569,6 @@
   id: FloorTileItemOldConcreteSmooth
   result: FloorTileItemOldConcreteSmooth
 
-<<<<<<< HEAD
-=======
 - type: latheRecipe
   parent: BaseConcreteTileRecipe
   id: FloorTileItemIronsandConcrete
@@ -594,7 +584,6 @@
   id: FloorTileItemIronsandConcreteSmooth
   result: FloorTileItemIronsandConcreteSmooth
 
->>>>>>> upstreamwiz/master
 # Faux
 - type: latheRecipe
   parent: BaseFauxTileRecipe
@@ -646,8 +635,6 @@
   id: FauxTileDesertAstroSand
   result: FloorTileItemDesertAstroSand
 
-<<<<<<< HEAD
-=======
 - type: latheRecipe
   parent: BaseFauxTileRecipe
   id: FauxTileAstroIronsand
@@ -658,7 +645,6 @@
   id: FauxTileAstroIronsandBorderless
   result: FloorTileItemAstroIronsandBorderless
 
->>>>>>> upstreamwiz/master
 # Marble
 - type: latheRecipe
   parent: BaseMarbleTileRecipe
@@ -670,7 +656,6 @@
   id: FloorTileItemDarkMarble
   result: FloorTileItemDarkMarble
 
-<<<<<<< HEAD
 # ADT tweak start other steal
 
 - type: latheRecipe
@@ -770,7 +755,30 @@
 
 - type: latheRecipe
   parent: BaseSteelTileRecipe
-=======
+  id: FloorTileItemShuttleBlue
+  result: FloorTileItemShuttleBlue
+
+- type: latheRecipe
+  parent: BaseSteelTileRecipe
+  id: FloorTileItemShuttleGrey
+  result: FloorTileItemShuttleGrey
+
+- type: latheRecipe
+  parent: BaseSteelTileRecipe
+  id: FloorTileItemShuttlePurple
+  result: FloorTileItemShuttlePurple
+
+- type: latheRecipe
+  parent: BaseSteelTileRecipe
+  id: FloorTileItemShuttleBlack
+  result: FloorTileItemShuttleBlack
+
+- type: latheRecipe
+  parent: BaseSteelTileRecipe
+  id: FloorTileItemShuttleRed
+  result: FloorTileItemShuttleRed
+
+# ADT tweak end other steal
 - type: latheRecipe
   parent: BaseMarbleTileRecipe
   id: FloorTileItemUraniumMarble
@@ -797,42 +805,20 @@
 
 - type: latheRecipe
   parent: BaseShuttleTileRecipe
->>>>>>> upstreamwiz/master
   id: FloorTileItemShuttleBlue
   result: FloorTileItemShuttleBlue
 
 - type: latheRecipe
-<<<<<<< HEAD
-  parent: BaseSteelTileRecipe
-  id: FloorTileItemShuttleGrey
-  result: FloorTileItemShuttleGrey
-
-- type: latheRecipe
-  parent: BaseSteelTileRecipe
-=======
   parent: BaseShuttleTileRecipe
   id: FloorTileItemShuttleOrange
   result: FloorTileItemShuttleOrange
 
 - type: latheRecipe
   parent: BaseShuttleTileRecipe
->>>>>>> upstreamwiz/master
   id: FloorTileItemShuttlePurple
   result: FloorTileItemShuttlePurple
 
 - type: latheRecipe
-<<<<<<< HEAD
-  parent: BaseSteelTileRecipe
-  id: FloorTileItemShuttleBlack
-  result: FloorTileItemShuttleBlack
-
-- type: latheRecipe
-  parent: BaseSteelTileRecipe
-  id: FloorTileItemShuttleRed
-  result: FloorTileItemShuttleRed
-
-# ADT tweak end other steal
-=======
   parent: BaseShuttleTileRecipe
   id: FloorTileItemShuttleRed
   result: FloorTileItemShuttleRed
@@ -908,4 +894,3 @@
   parent: BasePlasticTileRecipe
   id: FloorTileItemGym
   result: FloorTileItemGym
->>>>>>> upstreamwiz/master
