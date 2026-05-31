@@ -98,9 +98,9 @@
       - id: ClothingNeckCloakHerald
       - id: ClothingHeadHelmetTemplar
       # Cloaks
-      - !type:GroupSelector
-        children:
-        # start-adt-tweak
+      # start-adt-tweak
+      #- !type:GroupSelector
+      #  children:
         # - id: ClothingNeckCloakTrans
         # - id: ClothingNeckCloakAdmin
         # - id: ClothingNeckCloakMoth
@@ -145,9 +145,9 @@
       - id: ClothingShoesBootsCowboyFancy
       - id: ClothingHeadHatCowboyBountyHunter
       # Pins
-      - !type:GroupSelector
-        children:
         # start adt tweak
+      #- !type:GroupSelector
+        #children:
         # - id: ClothingNeckLGBTPin
         # - id: ClothingNeckAromanticPin
         # - id: ClothingNeckAsexualPin
