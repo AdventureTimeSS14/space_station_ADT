@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-# Honored Doctor Time
 - type: loadoutEffectGroup
   id: SeniorPhysician
   effects:
@@ -30,8 +28,6 @@
       role: JobMedicalDoctor
       time: 30h
 
-=======
->>>>>>> upstreamwiz/master
 # Head
 - type: loadout
   id: MedicalHeadMirror
@@ -172,7 +168,6 @@
 #     id: SeniorPhysicianPDA
 # ADT-Tweak-senior-end
 
-<<<<<<< HEAD
 # Gloves
 
 - type: loadout
@@ -181,10 +176,6 @@
     gloves: ClothingHandsGlovesNitrile
 
 # Masks
-
-=======
-#Masks
->>>>>>> upstreamwiz/master
 - type: loadout
   id: SterileMask
   equipment:
