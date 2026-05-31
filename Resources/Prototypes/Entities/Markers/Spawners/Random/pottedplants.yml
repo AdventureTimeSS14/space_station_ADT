@@ -10,44 +10,15 @@
       state: random
   - type: EntityTableSpawner
     offset: 0
-<<<<<<< HEAD
-    prototypes:
-      # Corvax-Resprite-Start
-      - PottedPlantAlt0
-      - PottedPlantAlt1
-      - PottedPlantAlt2
-      - PottedPlantAlt3
-      - PottedPlantAlt4
-      # Corvax-Resprite-End
-      - PottedPlant0
-      - PottedPlant1
-      - PottedPlant2
-      - PottedPlant3
-      - PottedPlant4
-      - PottedPlant5
-      - PottedPlant6
-      - PottedPlant7
-      - PottedPlant8
-      - PottedPlant10
-      - PottedPlant11
-      - PottedPlant12
-      - PottedPlant13
-      - PottedPlant14
-      - PottedPlant15
-      - PottedPlant16
-      - PottedPlant17
-      - PottedPlant18
-      - PottedPlant19
-      - PottedPlant20
-      - PottedPlant21
-      - PottedPlant22
-      - PottedPlant23
-      - PottedPlant24
-      - PottedPlant26
-    chance: 1
-=======
     table: !type:GroupSelector
       children:
+      # Corvax-Resprite-Start
+      - id: PottedPlantAlt0
+      - id: PottedPlantAlt1
+      - id: PottedPlantAlt2
+      - id: PottedPlantAlt3
+      - id: PottedPlantAlt4
+      # Corvax-Resprite-End
       - id: PottedPlant0
       - id: PottedPlant1
       - id: PottedPlant2
@@ -73,7 +44,6 @@
       - id: PottedPlant23
       - id: PottedPlant24
       - id: PottedPlant26
->>>>>>> upstreamwiz/master
 
 - type: entity
   parent: MarkerBase
