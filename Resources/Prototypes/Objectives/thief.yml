@@ -289,17 +289,6 @@
   - type: Objective
     difficulty: .7
 
-- type: entity                                      #Cargo subgroup
-  parent: BaseThiefStealObjective
-  id: ChiefEngineerToolbeltStealObjective
-  components:
-  - type: NotJobRequirement
-    jobs: [ SalvageSpecialist ]
-  - type: StealCondition
-    stealGroup: ChiefEngineerToolBelt
-  - type: Objective
-    difficulty: .7
-
 # Corvax-StealTarget-start
 #- type: entity                                      #Cargo subgroup
 #  parent: BaseThiefStealObjective

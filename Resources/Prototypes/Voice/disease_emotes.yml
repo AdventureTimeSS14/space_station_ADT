@@ -2,13 +2,6 @@
   id: Sneeze
   name: chat-emote-name-sneeze
   category: Vocal
-  whitelist:
-    components:
-    - Vocal
-  blacklist:
-    tags:
-    - SiliconEmotes
-  chatMessages: ["chat-emote-msg-sneeze"]
   # ADT tweak start
   icon: ADT/Interface/Emotes/sneeze.png
   whitelist:
