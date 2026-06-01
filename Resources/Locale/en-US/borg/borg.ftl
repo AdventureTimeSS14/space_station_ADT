@@ -14,9 +14,6 @@ borg-module-incompatible = This module isn't compatible with {THE($existing)}.
 borg-module-action-name = Activate {$moduleName}
 borg-module-action-description = Select the {$moduleName}, enabling you to use the tools it provides.
 
-borg-module-action-name = Activate {$moduleName}
-borg-module-action-description = Select the {$moduleName}, enabling you to use the tools it provides.
-
 borg-construction-guide-string = The cyborg limbs and torso must be attached to the endoskeleton.
 
 borg-ui-menu-title = Cyborg Interface
