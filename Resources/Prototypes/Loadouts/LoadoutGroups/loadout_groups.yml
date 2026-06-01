@@ -43,6 +43,7 @@
   # - ClothingNeckSolarisPin
   # - ClothingNeckWhiteListPin
   # # Corvax-Loadouts-End
+  # ADT-tweak-start
   - AcousticGuitarInstrument
   - RockGuitarInstrument
   - BassGuitarInstrument
@@ -51,24 +52,6 @@
   - ADTModStorageVoucher
   - ADTClothingGeorgeRibbonPin
   - ADTClothingMaskPaperBlank
-  #ADT-tweak-end
-  - TowelColorBlack
-  - TowelColorDarkBlue
-  - TowelColorDarkGreen
-  - TowelColorGold
-  - TowelColorGray
-  - TowelColorGreen
-  - TowelColorLightBlue
-  - TowelColorLightBrown
-  - TowelColorMaroon
-  - TowelColorMime
-  - TowelColorOrange
-  - TowelColorPurple
-  - TowelColorRed
-  - TowelColorSilver
-  - TowelColorWhite
-  - TowelColorYellow
-  # ADT-Tweak-Start
   - ADTClothingHandsRingEmerald
   - ADTClothingHandsRingBlood
   - ADTClothingHandsRingPlazma
