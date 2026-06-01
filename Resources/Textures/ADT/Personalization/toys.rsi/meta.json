@@ -249,6 +249,15 @@
         {
             "name": "rykoslave-equipped-HELMET",
             "directions": 4
+        },
+        {
+            "name": "plushie_kramol"
+        },
+        {
+            "name": "plushie_krosh"
+        },
+        {
+            "name": "plushie_til"
         }
     ]
 }

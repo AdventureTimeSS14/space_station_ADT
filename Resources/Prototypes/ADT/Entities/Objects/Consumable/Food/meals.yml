@@ -100,6 +100,20 @@
   - type: Sprite
     sprite: ADT/Objects/Consumable/Food/noodles.rsi
     state: cloth
+  - type: Edible
+    requiresSpecialDigestion: true
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 7.5
+        - ReagentId: Fiber
+          Quantity: 7.5
+  - type: Tag
+    tags:
+    - ClothMade
 
 - type: entity
   parent: ADTFoodMealBase

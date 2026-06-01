@@ -1,4 +1,4 @@
-﻿# PizzaSindyk
+# PizzaSindyk
 
 - type: entity
   parent: BoxCardboard
@@ -40,4 +40,4 @@
       storagebase: !type:AllSelector
         children:
         - id: KnifePlastic
-        - id: ADRFoodPizzaSindi
+        - id: ADRFoodPizzaSindi
