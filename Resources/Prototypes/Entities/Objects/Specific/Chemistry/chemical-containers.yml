@@ -6,6 +6,11 @@
   components:
   - type: Sprite
     sprite: Objects/Specific/Chemistry/jug.rsi
+    layers: # ADT-Changes
+    - state: jug
+    - state: jug1
+      map: [ "enum.SolutionContainerLayers.Fill" ]
+      visible: false
   - type: Item
     size: Normal
     sprite: Objects/Specific/Chemistry/jug.rsi
@@ -15,6 +20,7 @@
         maxVol: 200
   - type: SolutionContainerVisuals
     maxFillLevels: 8 # ADT-Changes. 6 -> 8
+    fillBaseName: jug # ADT-Changes
     inHandsMaxFillLevels: 5
   - type: ExaminableSolution
     exactVolume: true # Chemistry item
