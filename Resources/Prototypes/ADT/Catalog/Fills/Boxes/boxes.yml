@@ -255,6 +255,7 @@
         - id: ADTFoodGummySlimeGolden
           prob: 0.02
           orGroup: ADTGummies6
+
 - type: entity
   parent: BoxCardboard
   id: ADTDrinksPackYupi
@@ -332,6 +333,7 @@
           orGroup: ADTYupi6
         - id: ADTYupiPacketWatermelon
           orGroup: ADTYupi6
+
 - type: entity
   parent: BoxCardboard
   name: box Stimulant
@@ -363,6 +365,7 @@
         - id: ADTClothingHeadTetoWig
         - id: FoodBreadBaguette
           amount: 2
+
 - type: entity
   parent: BoxCardboard
   id: ADTBoxFakeMindShield
@@ -378,6 +381,7 @@
         children:
         - id: FakeMindShieldImplanter
           amount: 10
+
 - type: entity
   parent: BoxCardboard
   id: ADTBoxImplanters
@@ -393,6 +397,7 @@
         children:
         - id: Implanter
           amount: 10
+
 - type: entity
   name: cow underwear set
   parent: BoxCardboard
