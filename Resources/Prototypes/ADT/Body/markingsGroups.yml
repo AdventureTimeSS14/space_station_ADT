@@ -1,6 +1,3 @@
-# ADT markingsGroups for custom races (upstream PR#42476 marking-group system)
-# Permissive limits, no required defaults. Visual organs reference these via VisualOrganMarkings.group.
-
 - type: markingsGroup
   parent: Undergarments
   id: Demon
@@ -10,7 +7,8 @@
       required: false
     enum.HumanoidVisualLayers.Tail:
       limit: 1
-      required: false
+      required: true
+      default: [ MobDemonTailColor ]
     enum.HumanoidVisualLayers.TailOverlay:
       limit: 1
       required: false
@@ -21,13 +19,13 @@
       limit: 1
       required: false
     enum.HumanoidVisualLayers.Chest:
-      limit: 3
+      limit: 4
       required: false
     enum.HumanoidVisualLayers.Head:
       limit: 3
       required: false
     enum.HumanoidVisualLayers.Snout:
-      limit: 1
+      limit: 2
       required: false
     enum.HumanoidVisualLayers.SnoutCover:
       limit: 3
@@ -99,7 +97,8 @@
       required: false
     enum.HumanoidVisualLayers.Snout:
       limit: 1
-      required: false
+      required: true
+      default: [ FaceDraskBase ]
     enum.HumanoidVisualLayers.SnoutCover:
       limit: 3
       required: false
@@ -108,7 +107,8 @@
       required: false
     enum.HumanoidVisualLayers.HeadSide:
       limit: 3
-      required: false
+      required: true
+      default: [ DraskHeadBase ]
     enum.HumanoidVisualLayers.HeadTop:
       limit: 3
       required: false
@@ -124,9 +124,11 @@
     enum.HumanoidVisualLayers.RHand:
       limit: 2
       required: false
+      default: [ DraskArmRight ]
     enum.HumanoidVisualLayers.LHand:
       limit: 2
       required: false
+      default: [ DraskArmLeft ]
     enum.HumanoidVisualLayers.RLeg:
       limit: 2
       required: false
@@ -164,13 +166,16 @@
       required: false
     enum.HumanoidVisualLayers.Chest:
       limit: 3
-      required: false
+      required: true
+      default: [ TorsoNovakidDefoltMale ]
     enum.HumanoidVisualLayers.Head:
       limit: 3
-      required: false
+      required: true
+      default: [ HeadNovakidDefolt ]
     enum.HumanoidVisualLayers.Snout:
-      limit: 1
-      required: false
+      limit: 2
+      required: true
+      default: [ NovakidFace1 ]
     enum.HumanoidVisualLayers.SnoutCover:
       limit: 3
       required: false
@@ -306,7 +311,8 @@
       required: false
     enum.HumanoidVisualLayers.Chest:
       limit: 3
-      required: false
+      required: true
+      default: [ ResomiTail, ResomiTailFeathers ]
     enum.HumanoidVisualLayers.Head:
       limit: 3
       required: false
@@ -337,9 +343,11 @@
     enum.HumanoidVisualLayers.RHand:
       limit: 2
       required: false
+      default: [ ResomiRArmFeathers ]
     enum.HumanoidVisualLayers.LHand:
       limit: 2
       required: false
+      default: [ ResomiLArmFeathers ]
     enum.HumanoidVisualLayers.RLeg:
       limit: 2
       required: false
@@ -349,9 +357,11 @@
     enum.HumanoidVisualLayers.RFoot:
       limit: 2
       required: false
+      default: [ ResomiRLegFeathers ]
     enum.HumanoidVisualLayers.LFoot:
       limit: 2
       required: false
+      default: [ ResomiLLegFeathers ]
     enum.HumanoidVisualLayers.Overlay:
       limit: 1
       required: false
@@ -365,7 +375,8 @@
       required: false
     enum.HumanoidVisualLayers.Tail:
       limit: 1
-      required: false
+      required: true
+      default: [ TailShadekin ]
     enum.HumanoidVisualLayers.TailOverlay:
       limit: 1
       required: false
@@ -395,7 +406,8 @@
       required: false
     enum.HumanoidVisualLayers.HeadTop:
       limit: 3
-      required: false
+      required: true
+      default: [ EarsShadekin ]
     enum.HumanoidVisualLayers.Eyes:
       limit: 1
       required: false
@@ -436,7 +448,8 @@
       required: false
     enum.HumanoidVisualLayers.Tail:
       limit: 1
-      required: false
+      required: true
+      default: [ TailColor ]
     enum.HumanoidVisualLayers.TailOverlay:
       limit: 1
       required: false
@@ -447,7 +460,7 @@
       limit: 1
       required: false
     enum.HumanoidVisualLayers.Chest:
-      limit: 3
+      limit: 2
       required: false
     enum.HumanoidVisualLayers.Head:
       limit: 3
@@ -459,7 +472,7 @@
       limit: 3
       required: false
     enum.HumanoidVisualLayers.SnoutOverlay:
-      limit: 3
+      limit: 1
       required: false
     enum.HumanoidVisualLayers.HeadSide:
       limit: 3
@@ -506,7 +519,7 @@
       limit: 1
       required: false
     enum.HumanoidVisualLayers.Tail:
-      limit: 1
+      limit: 2
       required: false
     enum.HumanoidVisualLayers.TailOverlay:
       limit: 1
@@ -518,13 +531,13 @@
       limit: 1
       required: false
     enum.HumanoidVisualLayers.Chest:
-      limit: 3
+      limit: 2
       required: false
     enum.HumanoidVisualLayers.Head:
-      limit: 3
+      limit: 5
       required: false
     enum.HumanoidVisualLayers.Snout:
-      limit: 1
+      limit: 2
       required: false
     enum.HumanoidVisualLayers.SnoutCover:
       limit: 3
@@ -533,10 +546,10 @@
       limit: 3
       required: false
     enum.HumanoidVisualLayers.HeadSide:
-      limit: 3
+      limit: 5
       required: false
     enum.HumanoidVisualLayers.HeadTop:
-      limit: 3
+      limit: 5
       required: false
     enum.HumanoidVisualLayers.Eyes:
       limit: 1
@@ -590,6 +603,79 @@
       required: false
     enum.HumanoidVisualLayers.Chest:
       limit: 3
+      required: false
+    enum.HumanoidVisualLayers.Head:
+      limit: 3
+      required: false
+    enum.HumanoidVisualLayers.Snout:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.SnoutCover:
+      limit: 3
+      required: false
+    enum.HumanoidVisualLayers.SnoutOverlay:
+      limit: 3
+      required: false
+    enum.HumanoidVisualLayers.HeadSide:
+      limit: 3
+      required: false
+    enum.HumanoidVisualLayers.HeadTop:
+      limit: 3
+      required: false
+    enum.HumanoidVisualLayers.Eyes:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RArm:
+      limit: 2
+      required: false
+    enum.HumanoidVisualLayers.LArm:
+      limit: 2
+      required: false
+    enum.HumanoidVisualLayers.RHand:
+      limit: 2
+      required: false
+    enum.HumanoidVisualLayers.LHand:
+      limit: 2
+      required: false
+    enum.HumanoidVisualLayers.RLeg:
+      limit: 2
+      required: false
+    enum.HumanoidVisualLayers.LLeg:
+      limit: 2
+      required: false
+    enum.HumanoidVisualLayers.RFoot:
+      limit: 2
+      required: false
+    enum.HumanoidVisualLayers.LFoot:
+      limit: 2
+      required: false
+    enum.HumanoidVisualLayers.Overlay:
+      limit: 1
+      required: false
+
+- type: markingsGroup
+  parent: Undergarments
+  id: Felinid
+  limits:
+    enum.HumanoidVisualLayers.Special:
+      limit: 1
+      required: true
+      default: [ CatEars ]
+    enum.HumanoidVisualLayers.Tail:
+      limit: 1
+      required: true
+      default: [ CatTail ]
+    enum.HumanoidVisualLayers.TailOverlay:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Hair:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.FacialHair:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Chest:
+      limit: 4
       required: false
     enum.HumanoidVisualLayers.Head:
       limit: 3

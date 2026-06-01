@@ -1,6 +1,3 @@
-# Shadekin appearance + visual organs (upstream PR#42476). parts.rsi sexed; internals reused from Human.
-# markingsGroup "Shadekin" defined in ADT/Body/markingsGroups.yml
-
 - type: entity
   parent: BaseSpeciesAppearance
   id: AppearanceShadekin
@@ -20,7 +17,7 @@
       FootLeft: OrganShadekinFootLeft
       FootRight: OrganShadekinFootRight
       Brain: OrganHumanBrain
-      Eyes: OrganHumanEyes
+      Eyes: OrganShadekinEyes
       Tongue: OrganHumanTongue
       Appendix: OrganHumanAppendix
       Ears: OrganHumanEars
@@ -31,6 +28,8 @@
       Kidneys: OrganHumanKidneys
   - type: HumanoidProfile
     species: Shadekin
+  - type: ScaleVisuals
+    scale: 0.95, 0.95
   - type: Inventory
     displacements:
       jumpsuit:
@@ -186,3 +185,14 @@
 - type: entity
   parent: [ OrganBaseFootRight, OrganShadekinExternal ]
   id: OrganShadekinFootRight
+
+- type: entity
+  parent: OrganHumanEyes
+  id: OrganShadekinEyes
+  suffix: shadekin
+  components:
+  - type: VisualOrgan
+    data:
+      sprite: ADT/Mobs/Species/Shadekin/parts.rsi
+      state: eyes
+      shader: unshaded

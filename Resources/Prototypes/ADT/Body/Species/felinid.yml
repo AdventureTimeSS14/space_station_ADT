@@ -1,6 +1,3 @@
-# Felinid appearance (upstream PR#42476). Felinid is a human variant — reuses Human body/organs.
-# Cat ears/tail are markings whitelisted to the Human group. markingsGroup not separate.
-
 - type: entity
   parent: AppearanceHuman
   id: AppearanceFelinid
@@ -9,3 +6,34 @@
   components:
   - type: HumanoidProfile
     species: Felinid
+  - type: InitialBody
+    organs:
+      Torso: OrganFelinidTorso
+      Head: OrganHumanHead
+      ArmLeft: OrganHumanArmLeft
+      ArmRight: OrganHumanArmRight
+      HandRight: OrganHumanHandRight
+      HandLeft: OrganHumanHandLeft
+      LegLeft: OrganHumanLegLeft
+      LegRight: OrganHumanLegRight
+      FootLeft: OrganHumanFootLeft
+      FootRight: OrganHumanFootRight
+      Brain: OrganHumanBrain
+      Eyes: OrganHumanEyes
+      Tongue: OrganHumanTongue
+      Appendix: OrganHumanAppendix
+      Ears: OrganHumanEars
+      Lungs: OrganHumanLungs
+      Heart: OrganHumanHeart
+      Stomach: OrganHumanStomach
+      Liver: OrganHumanLiver
+      Kidneys: OrganHumanKidneys
+
+- type: entity
+  parent: OrganHumanTorso
+  id: OrganFelinidTorso
+  suffix: felinid
+  components:
+  - type: VisualOrganMarkings
+    markingData:
+      group: Felinid

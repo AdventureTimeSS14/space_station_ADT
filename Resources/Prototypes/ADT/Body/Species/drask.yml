@@ -1,6 +1,3 @@
-# Drask appearance + visual organs (upstream PR#42476). parts.rsi sexed; internals reused from Human.
-# markingsGroup "Drask" defined in ADT/Body/markingsGroups.yml
-
 - type: entity
   parent: BaseSpeciesAppearance
   id: AppearanceDrask
@@ -20,7 +17,7 @@
       FootLeft: OrganDraskFootLeft
       FootRight: OrganDraskFootRight
       Brain: OrganHumanBrain
-      Eyes: OrganHumanEyes
+      Eyes: OrganDraskEyes
       Tongue: OrganHumanTongue
       Appendix: OrganHumanAppendix
       Ears: OrganHumanEars
@@ -31,6 +28,8 @@
       Kidneys: OrganHumanKidneys
   - type: HumanoidProfile
     species: DraskSpecies
+  - type: ScaleVisuals
+    scale: 1.07, 1.07
   - type: Inventory
     speciesId: drask
 
@@ -105,3 +104,15 @@
 - type: entity
   parent: [ OrganBaseFootRight, OrganDraskExternal ]
   id: OrganDraskFootRight
+
+# Drask have glowing (unshaded) eyes drawn from the dedicated "eyes" state in parts.rsi.
+- type: entity
+  parent: OrganHumanEyes
+  id: OrganDraskEyes
+  suffix: drask
+  components:
+  - type: VisualOrgan
+    data:
+      sprite: ADT/Mobs/Species/Drask/parts.rsi
+      state: eyes
+      shader: unshaded
