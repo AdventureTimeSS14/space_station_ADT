@@ -141,3 +141,15 @@
   id: SterileMask
   equipment:
     mask: ClothingMaskSterile
+
+# Gloves
+- type: loadout
+  id: NitrileGloves
+  equipment:
+    gloves: ClothingHandsGlovesNitrile
+
+# Eyes
+- type: loadout
+  id: MedicalHud
+  equipment:
+    eyes: ClothingEyesHudMedical
