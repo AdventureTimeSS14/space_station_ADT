@@ -1,4 +1,4 @@
-﻿#### Containers ####
+#### Containers ####
 - type: damageContainer
   id: Drake
   supportedGroups:
@@ -399,11 +399,6 @@
   id: DrakeRuneInstaExplosion
   components:
   - type: TriggerOnSpawn
-  - type: Sprite
-    drawdepth: Effects
-    layers:
-    - state: hazard
-      map: ["base"]
   - type: Explosive
     explosionType: FireBomb
     totalIntensity: 50
@@ -569,7 +564,3 @@
       ballistic-ammo: !type:Container
         ents: []
   - type: Unremoveable
-  - type: Sprite
-    drawdepth: Effects
-    layers:
-    - state: hazard
