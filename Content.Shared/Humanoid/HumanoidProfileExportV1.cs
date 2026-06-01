@@ -1,4 +1,6 @@
 using System.Numerics;
+using Content.Shared.ADT.Language;
+using Content.Shared.ADT.SpeechBarks;
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Preferences;
@@ -79,9 +81,27 @@ public sealed partial class HumanoidCharacterProfileV1
     [DataField]
     public PreferenceUnavailableMode PreferenceUnavailable;
 
+    // ADT-tweak-Start
+    [DataField]
+    public string Voice = HumanoidCharacterProfile.DefaultVoice;
+
+    [DataField]
+    public BarkData Bark = new();
+
+    [DataField("_languages")]
+    public HashSet<ProtoId<LanguagePrototype>> Languages = new();
+
+    [DataField]
+    public string OOCNotes = string.Empty;
+
+    [DataField]
+    public string HeadshotUrl = string.Empty;
+    // ADT-tweak-End
+
     public HumanoidCharacterProfile ToV2()
     {
-        return new(Name, FlavorText, Species, HumanoidCharacterProfile.DefaultVoice, Age, Sex, Gender, Appearance.ToV2(Species), SpawnPriority, JobPriorities, PreferenceUnavailable, AntagPreferences, TraitPreferences, new(), new(), new(), string.Empty, string.Empty);
+        // ADT-tweak:
+        return new(Name, FlavorText, Species, Voice, Age, Sex, Gender, Appearance.ToV2(Species), SpawnPriority, JobPriorities, PreferenceUnavailable, AntagPreferences, TraitPreferences, Loadouts, Bark, Languages, OOCNotes, HeadshotUrl);
     }
 }
 
@@ -93,7 +113,7 @@ public sealed partial class HumanoidCharacterAppearanceV1
     public string HairStyleId;
 
     [DataField]
-    public Color HairColor;
+    public List<Color> HairColor = new(); // ADT-tweak
 
     [DataField("facialHair")]
     public string FacialHairStyleId;
@@ -116,10 +136,10 @@ public sealed partial class HumanoidCharacterAppearanceV1
 
         var incomingMarkings = Markings.ShallowClone();
         if (HairStyleId != string.Empty)
-            incomingMarkings.Add(new(HairStyleId, new List<Color>() { HairColor }));
+            incomingMarkings.Add(new(HairStyleId, new List<Color>(HairColor))); // ADT-tweak
         if (FacialHairStyleId != string.Empty)
             incomingMarkings.Add(new(FacialHairStyleId, new List<Color>() { FacialHairColor }));
 
-        return new HumanoidCharacterAppearance(EyeColor, new List<Color> { HairColor }, SkinColor, markingManager.ConvertMarkings(incomingMarkings, species));
+        return new HumanoidCharacterAppearance(EyeColor, new List<Color>(HairColor), SkinColor, markingManager.ConvertMarkings(incomingMarkings, species)); // ADT-Tweak
     }
 }
