@@ -4,7 +4,7 @@
   name: Урист МакПозитроник
   abstract: true
   components:
-  # Visual body organs (new system PR#42476) — populate humanoid layers for the silicon body
+  - type: VisualBody
   - type: InitialBody
     organs:
       Torso: OrganIPCTorso
