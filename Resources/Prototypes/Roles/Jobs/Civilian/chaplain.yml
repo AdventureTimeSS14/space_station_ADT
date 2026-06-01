@@ -15,6 +15,7 @@
     - type: Chaplain  # ADT Chaplain
       statusIcon: ChaplainFaction
     - type: BibleUser #Lets them heal with bibles
+    - type: MagicImmunity  # ADT-Tweak
 
 
 - type: startingGear

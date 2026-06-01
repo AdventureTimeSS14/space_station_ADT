@@ -1,0 +1,24 @@
+<Control xmlns="https://spacestation14.io"
+         xmlns:parallax="clr-namespace:Content.Client.Parallax"
+         xmlns:rules="clr-namespace:Content.Client.ADT.FlavorText.Rules"
+         VerticalExpand="True" HorizontalExpand="True"
+         MouseFilter="Stop">
+    <parallax:ParallaxControl SpeedX="20"/>
+    <Control VerticalExpand="True"
+             MaxWidth="800"
+             MaxHeight="900">
+        <PanelContainer StyleClasses="windowPanel" />
+            <BoxContainer Orientation="Vertical" SeparationOverride="10" Margin="10 10 5 10">
+                <rules:FlavorTextRulesControl/>
+                <Label Name="WaitLabel" />
+                <BoxContainer Orientation="Horizontal">
+                    <Button Name="AcceptButton"
+                            Text="{Loc 'flavor-rules-accept'}"
+                            Disabled="True" />
+                    <Button Name="CancelButton"
+                            StyleClasses="negative"
+                            Text="{Loc 'flavor-rules-cancel'}" />
+                </BoxContainer>
+            </BoxContainer>
+    </Control>
+</Control>

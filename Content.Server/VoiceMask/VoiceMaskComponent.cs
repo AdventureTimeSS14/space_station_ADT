@@ -1,4 +1,5 @@
 using Content.Shared.Speech;
+using Content.Shared.StatusIcon;
 using Robust.Shared.Prototypes;
 using Content.Shared.Humanoid;
 
@@ -26,6 +27,12 @@ public sealed partial class VoiceMaskComponent : Component
     /// </summary>
     [DataField]
     public ProtoId<SpeechVerbPrototype>? VoiceMaskSpeechVerb;
+
+    /// <summary>
+    ///  ADT-Tweak Job Icon
+    /// </summary>
+    [DataField]
+    public ProtoId<JobIconPrototype>? VoiceMaskJobIcon;
 
     /// <summary>
     ///     The action that gets displayed when the voice mask is equipped.

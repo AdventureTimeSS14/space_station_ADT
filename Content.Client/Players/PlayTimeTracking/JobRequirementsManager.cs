@@ -238,6 +238,40 @@ public sealed class JobRequirementsManager : ISharedPlaytimeManager
         return true;
     }
 
+    // ADT-Tweak start new Traits
+    public bool CheckRequirementsForNonRole(
+        HashSet<JobRequirement>? requirements,
+        ICommonSession? session,
+        HumanoidCharacterProfile? profile,
+        [NotNullWhen(false)] out FormattedMessage? reason)
+    {
+        reason = null;
+
+        if (requirements == null || requirements.Count == 0)
+            return true;
+
+        if (!_cfg.GetCVar(CCVars.GameRoleTimers))
+            return true;
+
+        var reasons = new List<string>();
+        foreach (var requirement in requirements)
+        {
+            if (requirement.Check(_entManager, _prototypes, profile, _roles, out var jobReason))
+                continue;
+
+            reasons.Add(jobReason.ToMarkup());
+        }
+
+        if (reasons.Count > 0)
+        {
+            reason = FormattedMessage.FromMarkupOrThrow(string.Join('\n', reasons));
+            return false;
+        }
+
+        return true;
+    }
+    // ADT-Tweak end new Traits
+
     public TimeSpan FetchOverallPlaytime()
     {
         return _roles.TryGetValue("Overall", out var overallPlaytime) ? overallPlaytime : TimeSpan.Zero;

@@ -99,6 +99,12 @@ namespace Content.IntegrationTests.Tests
             "SD_Sievert",
             "SD_Lumen",
             "SD_Pascal",
+            "SD_Amber",
+            "SD_Barracuda",
+            "SD_Centcomm",
+            "SD_Newton",
+            "SD_Whiteout",
+            "EventHub",
             // SD-End
 
             // Corvax-Start

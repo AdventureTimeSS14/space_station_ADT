@@ -1,0 +1,67 @@
+- type: entity
+  name: banana boom cake
+  parent: FoodCakeBase
+  id: ADTFoodCakeBananaBoom
+  description: The banana scale is off the charts!
+  components:
+  - type: FlavorProfile
+    flavors:
+      - ADTCakeBananaBoomFlavor
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/cake.rsi
+    state: bananaboom
+  - type: SliceableFood
+    slice: ADTFoodCakeBananaBoomSlice
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: bananaboom-inhand-left
+      right:
+      - state: bananaboom-inhand-right
+      
+- type: entity
+  name: slice of banana boom cake
+  parent: FoodCakeSliceBase
+  id: ADTFoodCakeBananaBoomSlice
+  description: A piece of a safe serving of bananas.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - ADTCakeBananaBoomFlavor
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/cake.rsi
+    state: bananaboom-slice
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: bananaboom-slice-inhand-left
+      right:
+      - state: bananaboom-slice-inhand-right
+
+- type: entity
+  name: waffle cake
+  parent: FoodCakeBase
+  id: ADTFoodCakeWaffle
+  description: A cake consisting of thin wafer layers soaked in condensed milk and butter cream.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - ADTCakeCakeWaffleFlavor
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/cake.rsi
+    state: waffle
+  - type: SliceableFood
+    slice: ADTFoodCakeWaffleSlice
+      
+- type: entity
+  name: slice of waffle cake
+  parent: FoodCakeSliceBase
+  id: ADTFoodCakeWaffleSlice
+  description: A cake consisting of thin wafer layers soaked in condensed milk and butter cream.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - ADTCakeCakeWaffleFlavor
+  - type: Sprite
+    sprite: ADT/Objects/Consumable/Food/cake.rsi
+    state: waffle-slice

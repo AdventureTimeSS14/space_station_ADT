@@ -12,6 +12,16 @@
       state: television
     - map: ["computerLayerScreen"]
       state: detective_television
+  # ADT-Tweak start
+  - type: GenericVisualizer
+    visuals:
+      enum.EdgeConnectionVisuals.ConnectionMask:
+        computerLayerBody:
+          None: { state: television, sprite: Structures/Machines/computers.rsi }
+          East: { state: television, sprite: Structures/Machines/computers.rsi }
+          West: { state: television, sprite: Structures/Machines/computers.rsi }
+          East, West: { state: television, sprite: Structures/Machines/computers.rsi }
+  # ADT-Tweak end
   - type: Computer
     board: ComputerTelevisionCircuitboard
   - type: PointLight

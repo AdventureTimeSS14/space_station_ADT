@@ -999,7 +999,7 @@ namespace Content.Server.Database.Migrations.Postgres
 
                     b.Property<string>("HairColor")
                         .IsRequired()
-                        .HasColumnType("text")
+                        .HasColumnType("jsonb")
                         .HasColumnName("hair_color");
 
                     b.Property<string>("HairName")

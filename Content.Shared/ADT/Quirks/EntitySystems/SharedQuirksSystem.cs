@@ -31,28 +31,12 @@ public abstract class SharedQuirksSystem : EntitySystem
     {
         SubscribeLocalEvent<FreerunningComponent, CheckClimbSpeedModifiersEvent>(OnFreerunningClimbTimeModify);
 
-        SubscribeLocalEvent<SprinterComponent, MapInitEvent>(OnSprinterMapInit);
+        SubscribeLocalEvent<SprinterComponent, ComponentInit>(OnSprinterComponentInit);
         SubscribeLocalEvent<SprinterComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMovespeed);
 
         SubscribeLocalEvent<HardThrowerComponent, CheckThrowRangeModifiersEvent>(OnThrowerRangeModify);
 
         SubscribeLocalEvent<FrailComponent, DamageModifyEvent>(OnFrailDamaged);
-    }
-
-    public void TryHide(EntityUid uid, EntityUid closet)
-    {
-        if (_storage.Insert(uid, closet))
-        {
-            _popup.PopupClient(Loc.GetString("quirk-fast-locker-hide-success"), uid);
-
-            if (TryComp<FastLockersComponent>(uid, out var fastLockers))
-            {
-                fastLockers.CooldownEnd = _timing.CurTime + TimeSpan.FromSeconds(FastLockersComponent.CooldownTime);
-                Dirty(uid, fastLockers);
-            }
-        }
-        else
-            _popup.PopupCursor(Loc.GetString("quirk-fast-locker-hide-fail"), uid);
     }
 
     private void OnFreerunningClimbTimeModify(EntityUid uid, FreerunningComponent comp, ref CheckClimbSpeedModifiersEvent args)
@@ -61,7 +45,7 @@ public abstract class SharedQuirksSystem : EntitySystem
             args.Time *= comp.Modifier;
     }
 
-    private void OnSprinterMapInit(EntityUid uid, SprinterComponent comp, MapInitEvent args)
+    private void OnSprinterComponentInit(EntityUid uid, SprinterComponent comp, ComponentInit args)
     {
         if (!TryComp<MovementSpeedModifierComponent>(uid, out var move))
             return;
@@ -74,8 +58,8 @@ public abstract class SharedQuirksSystem : EntitySystem
 
     private void OnThrowerRangeModify(EntityUid uid, HardThrowerComponent component, ref CheckThrowRangeModifiersEvent args)
     {
-        args.SpeedMod = component.Modifier;
-        args.VectorMod = component.Modifier;
+        args.SpeedMod *= component.Modifier;
+        args.VectorMod *= component.Modifier;
     }
 
     private void OnFrailDamaged(EntityUid uid, FrailComponent comp, DamageModifyEvent args)

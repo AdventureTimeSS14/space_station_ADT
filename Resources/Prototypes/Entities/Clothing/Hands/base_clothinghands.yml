@@ -25,7 +25,6 @@
           Quantity: 10
   - type: Tag
     tags:
-    - ClothMade
     - WhitelistChameleon
   - type: DamageOnInteractProtection
     damageProtection:
@@ -47,7 +46,6 @@
       Cloth: 50
   - type: Tag
     tags:
-    - ClothMade
     - Recyclable
     - WhitelistChameleon
 

@@ -76,3 +76,17 @@
     range: 0
   - type: WorldTargetAction
     event: !type:DashActionEvent
+
+- type: entity
+  parent: BaseAction
+  id: ActionZombieJump
+  name: zombie jump
+  description:  A powerful leap forward. On collision with a living entity, it will be knocked down!
+  components:
+  - type: Action
+    useDelay: 10
+    icon:
+      sprite: Interface/Actions/jump.rsi
+      state: icon
+  - type: InstantAction
+    event: !type:ZombieJumpEvent {}

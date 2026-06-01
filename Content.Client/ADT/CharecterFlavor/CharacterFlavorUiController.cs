@@ -1,3 +1,4 @@
+using Content.Shared.ADT.CharecterFlavor;
 using Robust.Client.UserInterface;
 using JetBrains.Annotations;
 using Robust.Client.UserInterface.Controllers;

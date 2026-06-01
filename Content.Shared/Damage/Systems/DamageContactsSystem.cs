@@ -19,7 +19,44 @@ public sealed class DamageContactsSystem : EntitySystem
         base.Initialize();
         SubscribeLocalEvent<DamageContactsComponent, StartCollideEvent>(OnEntityEnter);
         SubscribeLocalEvent<DamageContactsComponent, EndCollideEvent>(OnEntityExit);
+        SubscribeLocalEvent<DamageContactsComponent, ComponentShutdown>(OnDamageContactShutdown); // ADT-Tweak
+        SubscribeLocalEvent<DamagedByContactComponent, MapInitEvent>(OnDamagedByContactMapInit); // ADT-Tweak
     }
+
+    // ADT-Tweak start
+    private void OnDamageContactShutdown(Entity<DamageContactsComponent> ent, ref ComponentShutdown args)
+    {
+        var query = EntityQueryEnumerator<DamagedByContactComponent>();
+        while (query.MoveNext(out var damagedEnt, out var damaged))
+        {
+            damaged.Sources.Remove(ent.Owner);
+
+            if (damaged.Sources.Count == 0)
+            {
+                RemComp<DamagedByContactComponent>(damagedEnt);
+            }
+        }
+    }
+
+    private void OnDamagedByContactMapInit(Entity<DamagedByContactComponent> ent, ref MapInitEvent args)
+    {
+        ent.Comp.Sources.RemoveWhere(s => !Exists(s));
+
+        if (ent.Comp.Sources.Count == 0)
+        {
+            RemComp<DamagedByContactComponent>(ent);
+        }
+    }
+
+    private bool HasActiveDamageContact(EntityUid damagedUid, EntityUid sourceUid)
+    {
+        if (!TryComp<PhysicsComponent>(damagedUid, out var body))
+            return false;
+
+        var contactingEntities = _physics.GetContactingEntities(damagedUid, body);
+        return contactingEntities.Contains(sourceUid);
+    }
+    // ADT-Tweak end
 
     public override void Update(float frameTime)
     {
@@ -31,6 +68,25 @@ public sealed class DamageContactsSystem : EntitySystem
         {
             if (_timing.CurTime < damaged.NextSecond)
                 continue;
+
+            // ADT-Tweak start
+            var hasActiveSource = false;
+            foreach (var source in damaged.Sources)
+            {
+                if (Exists(source) && HasActiveDamageContact(ent, source))
+                {
+                    hasActiveSource = true;
+                    break;
+                }
+            }
+
+            if (!hasActiveSource)
+            {
+                RemComp<DamagedByContactComponent>(ent);
+                continue;
+            }
+            // ADT-Tweak end
+
             damaged.NextSecond = _timing.CurTime + TimeSpan.FromSeconds(1);
 
             if (damaged.Damage != null)
@@ -42,33 +98,28 @@ public sealed class DamageContactsSystem : EntitySystem
     {
         var otherUid = args.OtherEntity;
 
-        if (!TryComp<PhysicsComponent>(otherUid, out var body))
+        if (!TryComp<DamagedByContactComponent>(otherUid, out var damagedByContact)) // ADT-Tweak
             return;
 
-        var damageQuery = GetEntityQuery<DamageContactsComponent>();
-        foreach (var ent in _physics.GetContactingEntities(otherUid, body))
+        // ADT-Tweak start
+        damagedByContact.Sources.Remove(uid);
+
+        if (damagedByContact.Sources.Count == 0)
         {
-            if (ent == uid)
-                continue;
-
-            if (damageQuery.HasComponent(ent))
-                return;
+            RemComp<DamagedByContactComponent>(otherUid);
         }
-
-        RemComp<DamagedByContactComponent>(otherUid);
+        // ADT-Tweak end
     }
 
     private void OnEntityEnter(EntityUid uid, DamageContactsComponent component, ref StartCollideEvent args)
     {
         var otherUid = args.OtherEntity;
 
-        if (HasComp<DamagedByContactComponent>(otherUid))
-            return;
-
         if (_whitelistSystem.IsWhitelistPass(component.IgnoreWhitelist, otherUid))
             return;
 
         var damagedByContact = EnsureComp<DamagedByContactComponent>(otherUid);
         damagedByContact.Damage = component.Damage;
+        damagedByContact.Sources.Add(uid); // ADT-Tweak
     }
 }

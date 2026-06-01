@@ -4,3 +4,6 @@ ent-ADTOrganTajaranStomach = желудок таяра
 ent-ADTOrganTajaranHeart = сердце таяра
     .desc = { ent-OrganAnimalHeart.desc }
     .suffix = { "Таяр" }
+ent-ADTOrganTajaranLiver = печень таяра
+    .desc = { ent-OrganAnimalLiver.desc }
+    .suffix = { "Таяр" }

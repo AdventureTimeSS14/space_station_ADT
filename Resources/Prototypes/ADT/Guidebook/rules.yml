@@ -94,6 +94,13 @@
   ruleEntry: true
   text: "/ServerInfo/ADT/Guidebook/ServerRules/Rule10.xml"
 
+- type: guideEntry
+  id: FlavorTextRules
+  name: Правила описания персонажа
+  priority: 12
+  ruleEntry: true
+  text: "/ServerInfo/ADT/Guidebook/ServerRules/FlavorTextRules.xml"
+
 - type: entity
   parent: BasePlushie
   id: ADTIconAdventureTime

@@ -124,6 +124,7 @@
     shoes: ClothingShoesBootsJack
     ears: ClothingHeadsetGrey
     gloves: ClothingHandsGlovesFingerless
+    id: CentcomIDCardDeathsquad #ADT-Tweak
   inhand:
     - WeaponMeleeToolboxRobust
 

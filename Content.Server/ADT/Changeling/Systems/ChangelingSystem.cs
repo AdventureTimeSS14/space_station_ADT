@@ -368,7 +368,7 @@ public sealed partial class ChangelingSystem : EntitySystem
             if (hair.TryGetValue(0, out var marking))
             {
                 hca = hca.WithHairStyleName(marking.MarkingId);
-                hca = hca.WithHairColor(marking.MarkingColors.First());
+                hca = hca.WithHairColor(new List<Color>(marking.MarkingColors));
             }
         if (humanoid.MarkingSet.Markings.TryGetValue(MarkingCategories.Head, out var head))
             hca = hca.WithMarkings(head);

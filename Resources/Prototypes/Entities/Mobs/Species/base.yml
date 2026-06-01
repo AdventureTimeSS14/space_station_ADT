@@ -83,8 +83,8 @@
   - type: StatusIcon
     bounds: -0.5,-0.5,0.5,0.5
   - type: RotationVisuals
-    defaultRotation: 90
-    horizontalRotation: 90
+    defaultRotation: -90 # ADT-Tweak
+    horizontalRotation: -90 # ADT-Tweak
   - type: HumanoidAppearance
     species: Human
   - type: TypingIndicator

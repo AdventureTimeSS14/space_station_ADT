@@ -1,0 +1,9 @@
+comp-morph-examined-hunger = you currently have { $hunger } hunger units.
+morphs-announcement = Attention crew! Multiple level 6 biohazards have been detected on the station. Their elimination is required for safe operations to continue.
+morphs-out-of-ambush = You are leaving ambush mode.
+morphs-into-ambush = You are entering ambush mode.
+morph-round-end-agent-name = morph
+morph-unable-to-remember = you cannot remember this.
+morph-mimicry-invalid = you cannot mimic that.
+morph-mimicry-container = you cannot mimic while in a container.
+morph-mimicry-success = you are mimicking the target.

@@ -61,7 +61,7 @@ public sealed class HumanoidMarkingModifierState : BoundUserInterfaceState
     public Sex Sex { get; }
     public Color SkinColor { get; }
     public Color EyeColor { get; }
-    public Color? HairColor { get; }
+    public List<Color>? HairColor { get; } // ADT-tweak
     public Color? FacialHairColor { get; }
     public Dictionary<HumanoidVisualLayers, CustomBaseLayerInfo> CustomBaseLayers { get; }
 }

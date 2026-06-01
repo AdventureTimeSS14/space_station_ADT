@@ -1,10 +1,13 @@
-ent-ADTAutoSurgeon = САПО.Г
+ent-ADTAutoSurgeon = САПО.Г.
     .desc = Медицинский прибор, для проведения операций по вживлению и удалению кибер-имплантов.
 
-ent-ADTBaseSyndicateAutoSurgeonOnlyImplanter = САПО.Г синдиката
+ent-ADTBaseSyndicateAutoSurgeonOnlyImplanter = САПО.Г. синдиката
     .desc = Медицинский прибор синдиката, для проведения операций по вживлению военных кибер-имплантов.
 
-ent-ADTSandevistanAutoSurgeon = САПО.Г "Сандевистан"
+ent-ADTSandevistanAutoSurgeon = САПО.Г. "Сандевистан"
     .desc = Медицинский прибор синдиката, для проведения операций по вживлению военного кибер-импланта "Сандевистан".
-ent-ADTMantisDaggersAutoSurgeon = САПО.Г "Клинки богомола"
+ent-ADTMantisDaggersAutoSurgeon = САПО.Г. "Клинки богомола"
     .desc = Медицинский прибор синдиката, для проведения операций по вживлению военного кибер-импланта "Клинки богомола".
+
+ent-ADTERTSandevistanAutoSurgeon = САПО.Г. "Сандевистан"
+    .desc = Медицинский прибор ОБР, для проведения операций по вживлению военного кибер-импланта "Сандевистан".

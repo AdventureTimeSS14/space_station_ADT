@@ -144,6 +144,17 @@
   categories:
   - ADTUplinkERTWeapon
 
+- type: listing
+  id: ADTBoberSteelTonfa
+  name: boobr-steel-tonfa-name
+  description: boobr-steel-tonfa-desc
+  icon: { sprite: ADT/Objects/Weapons/Melee/steel_tonfa.rsi, state: icon-of }
+  productEntity: ADTWeaponTonfaSteel
+  cost:
+    Productunit: 7
+  categories:
+  - ADTUplinkERTWeapon
+
 #region ammo
 
 - type: listing
@@ -462,6 +473,17 @@
   productEntity: C4
   cost:
     Productunit: 1
+  categories:
+  - ADTUplinkERTMisc
+
+- type: listing
+  id: ADTBoberCombatMedkit
+  name: boobr-combat-medkit-name
+  description: boobr-combat-medkit-desc
+  icon: { sprite: Objects/Specific/Medical/firstaidkits.rsi, state: blackkit }
+  productEntity: MedkitCombatFilled
+  cost:
+    Productunit: 2
   categories:
   - ADTUplinkERTMisc
 

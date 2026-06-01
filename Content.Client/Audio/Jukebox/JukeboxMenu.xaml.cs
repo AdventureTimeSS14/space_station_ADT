@@ -29,6 +29,7 @@ public sealed partial class JukeboxMenu : FancyWindow
     public event Action<bool>? OnPlayPressed;
     public event Action? OnLoopPressed;
     public event Action? OnStopPressed;
+    public event Action? OnLoopToggled; // ADT-Tweak
     public event Action<ProtoId<JukeboxPrototype>>? OnSongSelected;
     public event Action<float>? SetTime;
     public event Action<float>? SetVolume; /// ADT-Tweak
@@ -36,6 +37,8 @@ public sealed partial class JukeboxMenu : FancyWindow
     private EntityUid? _audio;
 
     private float _lockTimer;
+
+    private bool _loopState; // ADT-Tweak
 
     public JukeboxMenu()
     {
@@ -60,6 +63,14 @@ public sealed partial class JukeboxMenu : FancyWindow
         {
             OnStopPressed?.Invoke();
         };
+
+        // ADT-Tweak start
+        LoopButton.OnPressed += args =>
+        {
+            OnLoopToggled?.Invoke();
+        };
+        // ADT-Tweak end
+
         PlaybackSlider.OnReleased += PlaybackSliderKeyUp;
         VolumeSlider.OnReleased += VolumeSliderKeyUp; /// ADT-Tweak
 
@@ -151,6 +162,26 @@ public sealed partial class JukeboxMenu : FancyWindow
 
         PlayButton.Text = Loc.GetString("jukebox-menu-buttonplay");
     }
+
+    // ADT-Tweak start
+    public void SetLoopButton(bool loopEnabled)
+    {
+        if (_loopState == loopEnabled)
+            return;
+
+        _loopState = loopEnabled;
+
+        if (loopEnabled)
+        {
+            LoopButton.Text = Loc.GetString("jukebox-menu-buttonloop-enabled");
+            LoopButton.Pressed = true;
+            return;
+        }
+
+        LoopButton.Text = Loc.GetString("jukebox-menu-buttonloop");
+        LoopButton.Pressed = false;
+    }
+    // ADT-Tweak end
 
     public void SetSelectedSong(string name, float length)
     {

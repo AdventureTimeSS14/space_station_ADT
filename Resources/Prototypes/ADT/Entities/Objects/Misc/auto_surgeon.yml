@@ -83,3 +83,17 @@
   components:
     - type: Implanter
       implant: ADTMantisDaggersImplant
+
+# ERT autosurgeon
+
+- type: entity
+  id: ADTERTSandevistanAutoSurgeon
+  parent: ADTBaseSyndicateAutoSurgeonOnlyImplanter
+  name: sandevistan auto surgeon
+  description: A ERT auto surgeon pre-loaded with a Sandevistan implant.
+  components:
+    - type: Implanter
+      implant: ADTSandevistanImplant
+    - type: Sprite
+      sprite: ADT/Objects/Specific/Medical/auto_surgeon.rsi
+      state: icon

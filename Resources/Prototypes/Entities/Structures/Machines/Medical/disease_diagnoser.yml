@@ -17,6 +17,35 @@
   - type: Appearance
   - type: Machine
     board: DiagnoserMachineCircuitboard
+  # ADT-Tweak-Start
+  - type: GenericVisualizer
+    visuals:
+      enum.DiseaseDiagnoserVisuals.Printing:
+        enum.DiseaseMachineVisualLayers.IsRunning:
+          True: {state: "running"}
+          False: {state: "icon"}
+      enum.PowerDeviceVisuals.Powered:
+        enum.DiseaseMachineVisualLayers.IsOn:
+          True: { visible: True }
+          False: { visible: False }
+  - type: ItemSlots
+    slots:
+      swab:
+        whitelist:
+          components:
+          - BotanySwab
+  - type: ContainerContainer
+    containers:
+      swab: !type:ContainerSlot
+      machine_board: !type:Container
+      machine_parts: !type:Container
+  - type: DiseaseDiagnoser
+    workDuration: 5
+    workingSound:
+      path: /Audio/Machines/spinning.ogg
+      params:
+        volume: -4
+  # ADT-Tweak-End
 
 - type: entity
   name: disease diagnoser report

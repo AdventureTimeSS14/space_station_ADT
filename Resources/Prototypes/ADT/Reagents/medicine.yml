@@ -644,6 +644,24 @@
               Bloodloss: 1
 
 - type: reagent
+  id: ADTSanallergium # Latin "Allegy healer" (source: ChatGPT)
+  name: reagent-name-sanallergium
+  group: Medicine
+  desc: reagent-desc-sanallergium
+  flavor: medicine
+  physicalDesc: reagent-physical-desc-skunky
+  color: "#7ba854"
+  worksOnTheDead: true
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:PurgeAllergies
+         conditions:
+          - !type:ReagentCondition
+            reagent: ADTSanallergium
+            min: 10
+ 
+- type: reagent
   id: ADTDiphalazidone
   name: reagent-name-diphalazidone
   group: Medicine

@@ -70,6 +70,11 @@
   priority: 4
 
 - type: storeCategory
+  id: ADTUplinkERTMechImplants
+  name: store-category-implants
+  priority: 5
+
+- type: storeCategory
   id: ADTUplinkERTRevolutionalMechWeapon
   name: uplink-syndimech-weapon
   priority: 2
