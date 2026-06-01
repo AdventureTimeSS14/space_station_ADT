@@ -1066,7 +1066,7 @@ public abstract class SharedStorageSystem : EntitySystem
         }
 
         if (_whitelistSystem.IsWhitelistFail(storageComp.Whitelist, insertEnt) ||
-            !_whitelistSystem.IsWhitelistPass(storageComp.Blacklist, insertEnt) ||
+            _whitelistSystem.IsWhitelistPass(storageComp.Blacklist, insertEnt) ||
             _tag.HasTag(insertEnt, ADTStorageBlacklistTag))  // ADT tweak
         {
             reason = "comp-storage-invalid-container";
