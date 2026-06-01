@@ -24,7 +24,7 @@
     containers:
       storagebase:
         id: Zipties
-        amount: 11 # ADT-tweak 9 -> 11 #армор, зачем 30 то
+        amount: 9
   - type: Sprite
     layers:
     - state: box_security
