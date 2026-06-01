@@ -1,4 +1,4 @@
-# Medical supply lockers
+﻿# Medical supply lockers
 
 - type: entityTable
   id: LockerFillMedicine
@@ -12,36 +12,19 @@
       children:
       - id: Brutepack
       - id: Ointment
-      - id: Bloodpack
       - id: Gauze
         weight: 0.5
-    - id: ADTBloodPackTransfusionFull # ADT tweak: Blood IV
-      amount: !type:ConstantNumberSelector
-        value: 2
+      - id: ADTBloodPackTransfusionFull # ADT tweak: Blood IV
 
 - type: entity
   parent: LockerMedicine
   id: LockerMedicineFilled
   suffix: Filled
   components:
-  - type: StorageFill
-    contents:
-      - id: BoxSyringe
-      - id: ChemistryBottleEpinephrine
-        amount: 1
-      - id: Brutepack
-        amount: 2
-      - id: Ointment
-        amount: 2
-      # ADT tweak Start
-      - id: ADTAntibioticOintment
-        amount: 1
-      - id: ADTPatchPackFilled
-        amount: 1
-      # ADT tweak End
-      - id: ADTBloodPackTransfusionFull # ADT-Tweak: Blood IV
-        amount: 2
-      - id: Gauze
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: LockerFillMedicine
 
 - type: entity
   parent: LockerWallMedical
@@ -49,24 +32,10 @@
   name: medicine wall locker
   suffix: Filled
   components:
-  - type: StorageFill
-    contents:
-      - id: BoxSyringe
-      - id: ChemistryBottleEpinephrine
-        amount: 1
-      - id: Brutepack
-        amount: 2
-      - id: Ointment
-        amount: 2
-      # ADT tweak Start
-      - id: ADTAntibioticOintment
-        amount: 1
-      - id: ADTPatchPackFilled
-        amount: 1
-      # ADT tweak End
-      - id: ADTBloodPackTransfusionFull # ADT tweak: Blood IV
-        amount: 2
-      - id: Gauze
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: LockerFillMedicine
 
 # Medical role lockers
 
@@ -86,43 +55,18 @@
       prob: 0.02
     - id: PlushieLizardJobPsychologist
       prob: 0.02
+    - id: ADTBloodPackTransfusionFull # ADT tweak: Blood IV
+      amount: 2
 
 - type: entity
+  parent: LockerMedical
   id: LockerMedicalFilled
   suffix: Filled
-  parent: LockerMedical
   components:
-  - type: StorageFill
-    contents:
-      - id: HandheldHealthAnalyzer
-        prob: 0.6
-      - id: ClothingHeadMirror
-        prob: 0.1
-      - id: ClothingHandsGlovesLatex
-      - id: ClothingHeadsetMedical
-      - id: ClothingEyesHudMedical
-      - id: ClothingHeadHatSurgcapGreen
-        prob: 0.1
-        orGroup: Surgshrubs
-      - id: ClothingHeadHatSurgcapPurple
-        prob: 0.05
-        orGroup: Surgshrubs
-      - id: ClothingHeadHatSurgcapBlue
-        prob: 0.90
-      - id: UniformScrubsColorBlue
-        prob: 0.5
-        orGroup: Surgshrubs
-      - id: UniformScrubsColorGreen
-        prob: 0.1
-        orGroup: Surgshrubs
-      - id: UniformScrubsColorPurple
-        prob: 0.05
-        orGroup: Surgshrubs
-      - id: ClothingMaskSterile
-    # ADT-WikiBooks-Start
-      - id: ADTBookSRPmed
-    # ADT-WikiBooks-End
-
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: LockerFillMedicalDoctor
 
 - type: entity
   parent: LockerWallMedical
@@ -148,7 +92,6 @@
     - !type:AllSelector # The wonderful world of chemical storage
       children:
       - id: BoxSyringe
-      - id: ADTSmallSyringeBox # ADT-Tweak
       - id: BoxBottle
       - id: BoxVial
       - id: BoxBeaker
@@ -161,13 +104,11 @@
         - id: DrinkCartonMilk
     - id: PlushieLizardJobChemist
       prob: 0.02
-    - id: ADTBookSRPmed # ADT-WikiBooks
-    - id: ADTChemistryColdplateFlatpack # ADT-Druglordupdate
 
 - type: entity
+  parent: LockerChemistry
   id: LockerChemistryFilled
   suffix: Filled
-  parent: LockerChemistry
   components:
   - type: EntityTableContainerFill
     containers:
@@ -178,9 +119,17 @@
   id: LockerFillParamedic
   table: !type:AllSelector
     children:
+    #ADT-Tweak-Start
+    - id: ADTClothingHeadHatsParamedicBeret
+    - id: ADTHighVoltageDefibrillator
+    - id: OxygenTankFilled
+    - id: ClothingMaskBreathMedical
+    - id: ADTBookSRPmed
+    #ADT-Tweak-End
     - id: ClothingEyesHudMedical
     - id: ClothingOuterHardsuitVoidParamed
     - id: ClothingBeltMedicalEMTFilled
+    - id: ADTBloodPackTransfusionFull # ADT tweak: Blood IV
     - id: JetInjector
     - id: HandheldHealthAnalyzer
     - id: BoxBodyBag
@@ -193,33 +142,14 @@
       prob: 0.02
 
 - type: entity
+  parent: LockerParamedic
   id: LockerParamedicFilled
   suffix: Filled
-  parent: LockerParamedic
   components:
-  - type: StorageFill
-    contents:
-      - id: ClothingOuterCoatParamedicWB
-      - id: ClothingHeadHatParamedicsoft
-      #ADT-Tweak-Start
-      - id: ADTClothingHeadHatsParamedicBeret
-      - id: ADTHighVoltageDefibrillator
-      - id: OxygenTankFilled
-      - id: ClothingMaskBreathMedical
-      #ADT-Tweak-End
-      - id: ClothingOuterWinterPara
-      - id: ClothingUniformJumpsuitParamedic
-      - id: ClothingUniformJumpskirtParamedic
-      - id: ClothingEyesHudMedical
-      - id: ClothingHandsGlovesLatex
-      - id: ClothingHeadsetMedical
-      - id: ClothingMaskSterile
-      - id: HandheldGPSBasic
-      - id: MedkitFilled
-        prob: 0.3
-    # ADT-WikiBooks-Start
-      - id: ADTBookSRPmed
-    # ADT-WikiBooks-End
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: LockerFillParamedic
   #ADT-Tweak-Start
   - type: UserInterface
     interfaces:

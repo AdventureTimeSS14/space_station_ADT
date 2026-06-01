@@ -1,22 +1,24 @@
-- type: entity
+﻿- type: entity
   id: ADTCrateSecurityBrigmedic
   abstract: true
   parent: CrateSecgear
   components:
-  - type: StorageFill
-    contents:
-      - id: BrigmedicPDA
-      - id: ADTClothingHeadHatBeretBrigmedic
-      - id: ClothingBackpackDuffelBrigmedic
-      - id: ClothingBackpackBrigmedic
-      - id: ClothingBackpackSatchelBrigmedic
-      - id: ClothingUniformJumpsuitBrigmedic
-      - id: ClothingUniformJumpskirtBrigmedic
-      - id: ClothingHeadsetBrigmedic
-      - id: ClothingOuterCoatAMG
-      - id: ADTClothingModsuitBackBrigmedic
-      - id: ClothingUniformJumpskirtOfLife
-      - id: ClothingHeadHelmetSecurityMedic
-      - id: WeaponDisabler
-      - id: MedkitCombatFilled
-      - id: MedkitAdvancedFilled
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: BrigmedicPDA
+        - id: ADTClothingHeadHatBeretBrigmedic
+        - id: ClothingBackpackDuffelBrigmedic
+        - id: ClothingBackpackBrigmedic
+        - id: ClothingBackpackSatchelBrigmedic
+        - id: ClothingUniformJumpsuitBrigmedic
+        - id: ClothingUniformJumpskirtBrigmedic
+        - id: ClothingHeadsetBrigmedic
+        - id: ClothingOuterCoatAMG
+        - id: ADTClothingModsuitBackBrigmedic
+        - id: ClothingUniformJumpskirtOfLife
+        - id: ClothingHeadHelmetSecurityMedic
+        - id: WeaponDisabler
+        - id: MedkitCombatFilled
+        - id: MedkitAdvancedFilled

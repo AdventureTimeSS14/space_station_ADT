@@ -81,10 +81,12 @@
     whitelist:
       tags:
       - Paper
-  - type: StorageFill
-    contents:
-    - id: Paper
-      amount: 10
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: Paper
+          amount: 10
   - type: ItemCounter
     count:
       tags: [Paper]

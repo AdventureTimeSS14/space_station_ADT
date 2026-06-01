@@ -1,4 +1,4 @@
-#ADT-TEAM-ITEMS-START
+﻿#ADT-TEAM-ITEMS-START
 
 # Ale_xan_der
 - type: entity
@@ -523,10 +523,12 @@
   name: case Melnicov
   description: Case
   components:
-  - type: StorageFill
-    contents:
-    - id: ADTSchrodingerCigar
-      amount: 8
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ADTSchrodingerCigar
+          amount: 8
   - type: Sprite
     sprite: ADT/Personalization/melnikov_case.rsi
 
@@ -559,20 +561,21 @@
   #  maxItemSize: Ginormous
   #  maxTotalWeight: 0
   #  maxSlots: 50 #By this ignore maxTotalWeight
-  - type: StorageFill
-    contents:
-      - id: ClothingShoesBootsLaceup
-      - id: ClothingHandsGlovesCombat
-      - id: ClothingEyesGlassesSunglasses
-      - id: ClothingMaskGasCentcom
-      - id: ClothingUniformJumpsuitCentcomAgent
-      - id: ADTWeaponRevolverDeckardGold
-      - id: CentcomPDA
-      # - id: ADTClothingNeckMantleCentComm # TODO: Добавить мантию ЦентКом
-      - id: ClothingHeadsetAltCentCom
-      - id: ADTClothingOuterCoatSchroCoat
-      # - id: ADTClothingNeckNanoTrasenPinSchrodinger # TODO: Добавить пин
-
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingShoesBootsLaceup
+        - id: ClothingHandsGlovesCombat
+        - id: ClothingEyesGlassesSunglasses
+        - id: ClothingMaskGasCentcom
+        - id: ClothingUniformJumpsuitCentcomAgent
+        - id: ADTWeaponRevolverDeckardGold
+        - id: CentcomPDA
+          # - id: ADTClothingNeckMantleCentComm # TODO: Добавить мантию ЦентКом
+        - id: ClothingHeadsetAltCentCom
+        - id: ADTClothingOuterCoatSchroCoat
+          # - id: ADTClothingNeckNanoTrasenPinSchrodinger # TODO: Добавить пин
 - type: entity
   name: Deckard
   parent: BaseWeaponRevolver
@@ -1607,12 +1610,14 @@
     grid:
     - 0,0,4,2
     maxItemSize: Small
-  - type: StorageFill
-    contents:
-     - id: ADTWeaponPistolPrazatHawk
-     - id: ADTWeaponPistolMaria
-     - id: MagazineMagnum
-     - id: MagazineMagnum
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ADTWeaponPistolPrazatHawk
+        - id: ADTWeaponPistolMaria
+        - id: MagazineMagnum
+        - id: MagazineMagnum
   - type: MeleeWeapon
     damage:
       types:
@@ -2272,14 +2277,15 @@
   description: bag of kringe personal clothes
   suffix: Personal, kringe
   components:
-    - type: StorageFill
-      contents:
-        - id: ADTClothingOuterHardsuitKringe
-        - id: ADTClothingHandsKringeGloves
-        - id: ADTClothingShoesBootsMagKringe
-        - id: ADTClothingUniformJumpsuitKringeClothing
-        - id: ADTWhistleKringe
-
+    - type: EntityTableContainerFill
+      containers:
+        storagebase: !type:AllSelector
+          children:
+          - id: ADTClothingOuterHardsuitKringe
+          - id: ADTClothingHandsKringeGloves
+          - id: ADTClothingShoesBootsMagKringe
+          - id: ADTClothingUniformJumpsuitKringeClothing
+          - id: ADTWhistleKringe
 #Couatl
 - type: entity
   parent: BasePlushie
@@ -2959,12 +2965,14 @@
     grid:
     - 0,0,4,2
     maxItemSize: Small
-  - type: StorageFill
-    contents:
-     - id: ADTGoldPlatedDrinkJigger
-     - id: ADTGoldPlatedDrinkJigger
-     - id: ADTGoldPlatedBarSpoon
-     - id: ADTGoldPlatedDrinkShaker
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ADTGoldPlatedDrinkJigger
+        - id: ADTGoldPlatedDrinkJigger
+        - id: ADTGoldPlatedBarSpoon
+        - id: ADTGoldPlatedDrinkShaker
   - type: MeleeWeapon
     damage:
       types:

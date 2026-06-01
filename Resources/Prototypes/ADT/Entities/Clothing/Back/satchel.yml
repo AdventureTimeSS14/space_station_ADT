@@ -1,4 +1,4 @@
-#ОСЩ
+﻿#ОСЩ
 - type: entity
   parent: ClothingBackpackSatchelSecurity
   id: ADTClothingBackpackSatchelBlueshield
@@ -53,6 +53,8 @@
   suffix: Paramedic,Filled
   description: A satchel to store some paramedical equipment.
   components:
-  - type: StorageFill
-    contents:
-      - id: JawsOfLife
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: JawsOfLife
