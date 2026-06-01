@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   parent: ToolboxSyndicate
   id: ADTToolboxSyndicateFilledThief # 10 TC
   name: Thieving bundle

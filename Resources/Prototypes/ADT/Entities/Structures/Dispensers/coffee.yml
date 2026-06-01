@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   parent: [ReagentDispenserBase, BaseMachinePowered]
   id: ADTCoffeeMachineEmpty
   name: coffee machine

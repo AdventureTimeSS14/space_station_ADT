@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   parent: CrateBaseSecure
   id: ADTCrateMechWeaponSecure
   name: secure mech weapon crate

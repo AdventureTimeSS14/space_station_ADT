@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   parent: BoxCardboard
   id: ADTBoxSyndicateFilledEscapist # 15 TC
   name: Escapist bundle

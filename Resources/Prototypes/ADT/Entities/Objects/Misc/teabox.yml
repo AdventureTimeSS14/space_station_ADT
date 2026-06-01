@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   name: Tea Box
   parent: BaseStorageItem
   id: ADTTeabox
