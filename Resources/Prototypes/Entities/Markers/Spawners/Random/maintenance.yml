@@ -147,7 +147,7 @@
       # Pins
         # start adt tweak
       - !type:GroupSelector
-        #children:
+        children:
         # - id: ClothingNeckLGBTPin
         # - id: ClothingNeckAromanticPin
         # - id: ClothingNeckAsexualPin
