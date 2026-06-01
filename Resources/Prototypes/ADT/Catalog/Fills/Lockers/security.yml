@@ -5,7 +5,7 @@
   components:
   - type: EntityTableContainerFill
     containers:
-      storagebase: !type:AllSelector
+      entity_storage: !type:AllSelector
         children:
         - id: ClothingEyesHudMedSec
         - id: WeaponDisabler
@@ -48,7 +48,7 @@
   components:
   - type: EntityTableContainerFill
     containers:
-      storagebase: !type:AllSelector
+      entity_storage: !type:AllSelector
         children:
         - id: ClothingEyesHudMedSec
         - id: WeaponDisabler
@@ -82,4 +82,4 @@
         - id: ADTHandheldCrewMonitorBrigmedic
         - id: ADTBookSRPsec
         - id: ADTBookSRPmed
-        - id: ADTBookPCDsec
+        - id: ADTBookPCDsec

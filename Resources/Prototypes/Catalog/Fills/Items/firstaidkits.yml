@@ -126,8 +126,6 @@
         # ADT Tweak End
         - id: BruteAutoInjector
         - id: BurnAutoInjector
-        - id: SyringeEphedrine
-        - id: SyringeSaline
 
 - type: entity
   id: StimkitFilled

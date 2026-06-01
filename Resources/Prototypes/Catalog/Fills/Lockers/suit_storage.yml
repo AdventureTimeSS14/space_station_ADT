@@ -146,7 +146,7 @@
   components:
   - type: EntityTableContainerFill
     containers:
-      storagebase: !type:AllSelector
+      entity_storage: !type:AllSelector
         children:
         - id: OxygenTankFilled
         - id: ClothingShoesBootsMag
@@ -173,7 +173,7 @@
   components:
   - type: EntityTableContainerFill
     containers:
-      storagebase: !type:AllSelector
+      entity_storage: !type:AllSelector
         children:
         - id: OxygenTankFilled
   #     - id: ADTClothingModsuitBackAtmos #ADT-tweak
@@ -199,7 +199,7 @@
   components:
   - type: EntityTableContainerFill
     containers:
-      storagebase: !type:AllSelector
+      entity_storage: !type:AllSelector
         children:
         - id: OxygenTankFilled
   #     - id: ADTClothingModsuitBackSecurity #ADT-tweak
@@ -238,7 +238,7 @@
   #      tableId: FillChiefEngineerHardsuit
   - type: EntityTableContainerFill
     containers:
-      storagebase: !type:AllSelector
+      entity_storage: !type:AllSelector
         children:
         - id: ClothingMaskGasAtmos
         - id: ClothingShoesBootsMagAdv
@@ -271,7 +271,7 @@
   #      tableId: FillChiefMedicalOfficerHardsuit
   - type: EntityTableContainerFill
     containers:
-      storagebase: !type:AllSelector
+      entity_storage: !type:AllSelector
         children:
         - id: OxygenTankFilled
         - id: ClothingMaskBreathMedical
@@ -313,7 +313,7 @@
   #      tableId: FillHeadOfSecurityHardsuit
   - type: EntityTableContainerFill
     containers:
-      storagebase: !type:AllSelector
+      entity_storage: !type:AllSelector
         children:
         - id: ClothingMaskGasSwat
         - id: JetpackSecurityFilled
@@ -368,7 +368,7 @@
   #      tableId: FillCaptainHardsuit
   - type: EntityTableContainerFill
     containers:
-      storagebase: !type:AllSelector
+      entity_storage: !type:AllSelector
         children:
         - id: OxygenTankFilled
         - id: ClothingMaskGasCaptain

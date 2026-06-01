@@ -6,7 +6,7 @@
   components:
   - type: EntityTableContainerFill
     containers:
-      storagebase: !type:AllSelector
+      entity_storage: !type:AllSelector
         children:
           #- id: ADTClothingModsuitBackBlueShield
         - id: MedkitCombatFilled
@@ -38,7 +38,7 @@
   components:
   - type: EntityTableContainerFill
     containers:
-      storagebase: !type:AllSelector
+      entity_storage: !type:AllSelector
         children:
         - id: MedkitCombatFilled
         - id: MedkitBruteFilled
@@ -61,7 +61,7 @@
   components:
   - type: EntityTableContainerFill
     containers:
-      storagebase: !type:AllSelector
+      entity_storage: !type:AllSelector
         children:
         - id: ADTClothingUniformJumpskirtCCCFormal 
         - id: ADTClothingUniformJumpsuitCCCFormal
@@ -88,7 +88,7 @@
   components:
   - type: EntityTableContainerFill
     containers:
-      storagebase: !type:AllSelector
+      entity_storage: !type:AllSelector
         children:
         - id: ADTClothingUniformJumpskirtCCCFormal 
         - id: ADTClothingUniformJumpsuitCCCFormal
@@ -105,4 +105,4 @@
         - id: ADTCigarCase
         - id: CentCommFlippo
         - id: ADTCCCVoucher
-        - id: RubberStampCCC
+        - id: RubberStampCCC

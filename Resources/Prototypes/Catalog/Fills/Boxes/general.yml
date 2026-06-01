@@ -4,14 +4,6 @@
   name: cardboard box
   description: A cardboard box for storing things.
   components:
-  - type: Item
-    size: Large
-    shape:
-    - 0,0,2,2
-  - type: Storage
-    maxItemSize: Small
-    grid:
-    - 0,0,3,3 # ADT-Tweak 0,0,3,2 -> 0,0,3,3 (16 слотов)
   - type: Construction
     graph: BoxCardboard
     node: boxcardboard
@@ -179,7 +171,7 @@
   - type: Sprite
     layers:
       - state: box
-      - state: id # Corvax-Resprite
+      - state: pda
 
 - type: entity
   name: headset box
@@ -323,6 +315,7 @@
     whitelist:
       tags:
         - TrashBag
+        - TrashBagBlue
   - type: Sprite
     layers:
       - state: box

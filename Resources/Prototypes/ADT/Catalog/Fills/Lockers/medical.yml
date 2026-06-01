@@ -5,7 +5,7 @@
   components:
   - type: EntityTableContainerFill
     containers:
-      storagebase: !type:AllSelector
+      entity_storage: !type:AllSelector
         children:
         - id: ClothingBackpackDuffelSurgeryFilled
         - id: BoxFolderBlack
@@ -21,7 +21,7 @@
   components:
   - type: EntityTableContainerFill
     containers:
-      storagebase: !type:AllSelector
+      entity_storage: !type:AllSelector
         children:
         - id: ClothingOuterCoatParamedicWB
         - id: ClothingHeadHatParamedicsoft
@@ -37,4 +37,4 @@
         - id: HandheldGPSBasic
         - id: MedkitFilled
           prob: 0.3
-        - id: ADTBookSRPmed
+        - id: ADTBookSRPmed
