@@ -34,6 +34,7 @@ public sealed partial class IpcScreenSystem : EntitySystem
 
         Subs.BuiEvents<IpcScreenComponent>(IpcScreenUiKey.Key, subs =>
         {
+            subs.Event<BoundUIOpenedEvent>(OnUIOpened);
             subs.Event<BoundUIClosedEvent>(OnUIClosed);
             subs.Event<IpcScreenSelectMessage>(OnIpcScreenSelect);
         });
@@ -104,6 +105,11 @@ public sealed partial class IpcScreenSystem : EntitySystem
 
         component.Target = uid;
         _uiSystem.SetUiState(uid, IpcScreenUiKey.Key, state);
+    }
+
+    private void OnUIOpened(Entity<IpcScreenComponent> ent, ref BoundUIOpenedEvent args)
+    {
+        UpdateInterface(ent.Owner, ent.Comp);
     }
 
     private void OnUIClosed(Entity<IpcScreenComponent> ent, ref BoundUIClosedEvent args)
