@@ -50512,14 +50512,12 @@ entities:
     - type: Transform
       pos: 66.5,47.5
       parent: 1
-    - type: Timer
   - uid: 6036
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 71.5,45.5
       parent: 1
-    - type: Timer
   - uid: 6037
     components:
     - type: Transform

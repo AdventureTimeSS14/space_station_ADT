@@ -247,12 +247,6 @@
       templateId: human
     - type: InventorySlots
     - type: Appearance
-    - type: GenericVisualizer
-      visuals:
-        enum.CreamPiedVisuals.Creamed:
-          clownedon:
-            True: { visible: true }
-            False: { visible: false }
     - type: RotationVisuals
     - type: FloatingVisuals
     - type: FireVisuals
@@ -267,6 +261,9 @@
     - type: AnimationPlayer
     - type: Buckle
     - type: CreamPied
+      sprite:
+        sprite: Effects/creampie.rsi
+        state: creampie_human
     - type: Stripping
     - type: Strippable
     - type: UserInterface

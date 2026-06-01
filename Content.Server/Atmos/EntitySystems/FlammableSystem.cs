@@ -22,7 +22,6 @@ using Content.Shared.Timing;
 using Content.Shared.Toggleable;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.FixedPoint;
-using Content.Shared.Hands;
 using Content.Shared.Temperature.Components;
 using Robust.Server.Audio;
 using Robust.Shared.Physics.Components;
@@ -59,6 +58,7 @@ namespace Content.Server.Atmos.EntitySystems
         private static readonly TimeSpan UpdateTime = TimeSpan.FromSeconds(1);
 
         private readonly Dictionary<Entity<FlammableComponent>, float> _fireEvents = new();
+
         public override void Initialize()
         {
             UpdatesAfter.Add(typeof(AtmosphereSystem));
@@ -348,7 +348,6 @@ namespace Content.Server.Atmos.EntitySystems
                 else
                     _adminLogger.Add(LogType.Flammable, $"{ToPrettyString(uid):target} set on fire by {ToPrettyString(ignitionSource):actor}");
                 flammable.OnFire = true;
-
 
                 var extinguished = new IgnitedEvent();
                 RaiseLocalEvent(uid, ref extinguished);
