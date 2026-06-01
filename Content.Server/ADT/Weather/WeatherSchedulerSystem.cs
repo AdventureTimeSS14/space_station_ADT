@@ -38,7 +38,7 @@ public sealed class WeatherSchedulerSystem : EntitySystem
             var mapId = Comp<MapComponent>(map).MapId;
             if (stage.Weather is { } weather)
             {
-                var ending = comp.NextUpdate;
+                var ending = comp.NextUpdate - now;
                 // crossfade weather so as one ends the next starts
                 if (HasWeather(comp, comp.Stage - 1))
                     ending += SharedWeatherSystem.ShutdownTime;

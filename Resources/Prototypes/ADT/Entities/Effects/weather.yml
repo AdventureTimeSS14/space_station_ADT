@@ -207,7 +207,7 @@
 
 - type: entity
   parent: WeatherBase
-  id: ADTLavalendWeatherAshfall
+  id: ADTLavalandWeatherAshfall
   components:
   - type: WeatherStatusEffect
     damage:
@@ -227,7 +227,7 @@
 
 - type: entity
   parent: WeatherBase
-  id: ADTLavalendWeatherAshfallLight
+  id: ADTLavalandWeatherAshfallLight
   components:
   - type: WeatherStatusEffect
     sprite:
