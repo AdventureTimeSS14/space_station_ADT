@@ -187,7 +187,6 @@
       - Dropper
       - ADTMobileDefibrillator # ADT-Tweak
       components:
-      - Hypospray
       - Injector
       - Pill
       - HandLabeler
