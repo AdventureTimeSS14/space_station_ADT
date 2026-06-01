@@ -106,7 +106,7 @@
   - Survival
   - Trinkets
   - ADTSprayPaints # ADT-Tweak
-  - BartenderJobTrinkets
+  # - BartenderJobTrinkets
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -254,7 +254,7 @@
   - Survival
   - Trinkets
   - ADTSprayPaints # ADT-Tweak
-  - JanitorJobTrinkets
+  # - JanitorJobTrinkets
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -305,7 +305,7 @@
   - SurvivalClown
   - Trinkets
   - ADTSprayPaints # ADT-Tweak
-  - ClownJobTrinkets
+  # - ClownJobTrinkets
 
 - type: roleLoadout
   id: JobMime
@@ -614,7 +614,7 @@
   # ADT underwear tweak end
   - SurvivalSecurity
   - Trinkets
-  - HeadofSecurityJobTrinkets
+  #- HeadofSecurityJobTrinkets
   - GroupSpeciesBreathToolSecurity
 
 - type: roleLoadout
@@ -635,7 +635,7 @@
   # ADT underwear tweak end
   - SurvivalSecurity
   - Trinkets
-  - WardenJobTrinkets
+  #- WardenJobTrinkets
   - GroupSpeciesBreathToolSecurity
 
 - type: roleLoadout
@@ -657,7 +657,7 @@
   # ADT underwear tweak end
   - SurvivalSecurity
   - Trinkets
-  - SecurityJobTrinkets
+  #- SecurityJobTrinkets
   - GroupSpeciesBreathToolSecurity
 
 - type: roleLoadout
@@ -678,7 +678,7 @@
   # ADT underwear tweak end
   - SurvivalSecurity
   - Trinkets
-  - DetectiveJobTrinkets
+  #- DetectiveJobTrinkets
   - GroupSpeciesBreathToolSecurity
 
 - type: roleLoadout
@@ -712,7 +712,7 @@
   - Survival
   - Trinkets
   - ADTSprayPaints # ADT-Tweak
-  - ZookeeperJobTrinkets
+  #- ZookeeperJobTrinkets
   - GroupSpeciesBreathTool
   #- SecurityCadetJobTrinkets
   - GroupSpeciesBreathToolSecurity
@@ -759,7 +759,7 @@
   - Survival
   - Trinkets
   - ADTSprayPaints # ADT-Tweak
-  - PsychologistJobTrinkets
+  # - PsychologistJobTrinkets
 
 - type: roleLoadout
   id: JobBoxer
@@ -780,7 +780,7 @@
   - Survival
   - Trinkets
   - ADTSprayPaints # ADT-Tweak
-  - BoxerJobTrinkets
+  # - BoxerJobTrinkets
   #- PsychologistJobTrinkets
   - GroupSpeciesBreathTool
 

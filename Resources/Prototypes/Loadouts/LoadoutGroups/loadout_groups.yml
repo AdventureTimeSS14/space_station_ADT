@@ -10,8 +10,6 @@
   - FlowerWreath
   - Hairflower
   - Headphones
-  - PlushieLizard
-  - PlushieSpaceLizard
   - ThreeCandles
   - Lighter
   - CigPackGreen
@@ -173,13 +171,6 @@
   - CaptainWintercoat
   - ADTArmorVestHidden # ADT Loadout
 
-- type: loadoutGroup
-  id: CaptainJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - LizardPlushieCaptain
-
 #- type: loadoutGroup
 #  id: CaptainJobTrinkets
 #  name: loadout-group-jobtrinkets
@@ -242,13 +233,6 @@
   # ADT-Loadouts-Start
   - ADTCoatHOP
   # ADT-Loadouts-End
-
-- type: loadoutGroup
-  id: HoPJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - LizardPlushieHeadOfPersonnel
 
 #- type: loadoutGroup
 #  id: HoPJobTrinkets
@@ -335,13 +319,6 @@
 #  name: loadout-group-jobtrinkets
 #  minLimit: 0
 #  loadouts: []
-
-- type: loadoutGroup
-  id: PassengerJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - LizardPlushiePassenger
 
 - type: loadoutGroup
   id: BartenderHead
@@ -437,13 +414,6 @@
 #  loadouts:
 
 - type: loadoutGroup
-  id: ChefJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - LizardPlushieChef
-
-- type: loadoutGroup
   id: LibrarianJumpsuit
   name: loadout-group-librarian-jumpsuit
   loadouts:
@@ -462,12 +432,6 @@
 #  minLimit: 0
 #  loadouts:
 
-- type: loadoutGroup
-  id: LibrarianJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - LizardPlushieLibrarian
 # ADT-Loadouts-Start
 - type: loadoutGroup
   id: LibrarianBackpack
@@ -506,13 +470,6 @@
 #  name: loadout-group-jobtrinkets
 #  minLimit: 0
 #  loadouts:
-
-- type: loadoutGroup
-  id: LawyerJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - LizardPlushieLawyer
 
 - type: loadoutGroup
   id: ChaplainHead
@@ -565,13 +522,6 @@
   - ADTChaplainSCross
   - ADTChaplainGCross
   # ADT-Loadouts-End
-
-- type: loadoutGroup
-  id: ChaplainJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - LizardPlushieChaplain
 
 #- type: loadoutGroup
 #  id: ChaplainJobTrinkets
@@ -642,7 +592,6 @@
   name: loadout-group-jobtrinkets
   minLimit: 0
   loadouts:
-  - LizardPlushieJanitor
   - JanitorGoldenPlunger
 
 - type: loadoutGroup
@@ -687,13 +636,6 @@
 #  name: loadout-group-jobtrinkets
 #  minLimit: 0
 #  loadouts:
-
-- type: loadoutGroup
-  id: BotanistJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - LizardPlushieBotanist
 
 - type: loadoutGroup
   id: ClownHead
@@ -752,13 +694,6 @@
   - ADTEmergencyIPCClown
   - ADTEmergencyNovakidClown
   # ADT-Loadout-Species-End
-
-- type: loadoutGroup
-  id: ClownJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - LizardPlushieClown
 
 - type: loadoutGroup
   id: MimeHead
@@ -827,13 +762,6 @@
 #  name: loadout-group-jobtrinkets
 #  minLimit: 0
 #  loadouts:
-
-- type: loadoutGroup
-  id: MimeJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - LizardPlushieMime
 
 - type: loadoutGroup
   id: MusicianJumpsuit
@@ -955,13 +883,6 @@
   - ADTFootWrapsHighBl
   # ADT tweak end
 
-- type: loadoutGroup
-  id: QuartermasterJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - LizardPlushieQuartermaster
-
 #- type: loadoutGroup
 #  id: QuartermasterJobTrinkets
 #  name: loadout-group-jobtrinkets
@@ -1068,13 +989,6 @@
   - ADTFootWrapsHighBl
   # ADT tweak end
 
-- type: loadoutGroup
-  id: SalvageSpecialistJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - LizardPlushieSalvageSpecialist
-
 #- type: loadoutGroup
 #  id: SalvageSpecialistJobTrinkets
 #  name: loadout-group-jobtrinkets
@@ -1131,13 +1045,6 @@
   - ADTFootWrapsHighBl
   # ADT tweak end
 
-- type: loadoutGroup
-  id: ChiefEngineerJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - LizardPlushieChiefEngineer
-
 #- type: loadoutGroup
 #  id: ChiefEngineerJobTrinkets
 #  name: loadout-group-jobtrinkets
@@ -1156,13 +1063,6 @@
 #  name: loadout-group-jobtrinkets
 #  minLimit: 0
 #  loadouts:
-
-- type: loadoutGroup
-  id: TechnicalAssistantJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - LizardPlushieTechnicalAssistant
 
 - type: loadoutGroup
   id: StationEngineerHead
@@ -1229,13 +1129,6 @@
   - ADTMechanicPDA # ADT
   - ADTWelderPDA # ADT
 
-- type: loadoutGroup
-  id: StationEngineerJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - LizardPlushieStationEngineer
-
 #- type: loadoutGroup
 #  id: StationEngineerJobTrinkets
 #  name: loadout-group-jobtrinkets
@@ -1284,13 +1177,6 @@
   - ADTFootWrapsBl
   - ADTFootWrapsHighBl
   # ADT tweak end
-
-- type: loadoutGroup
-  id: AtmosphericTechnicianJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - LizardPlushieAtmosphericTechnician
 
 #- type: loadoutGroup
 #  id: AtmosphericTechnicianJobTrinkets
@@ -1366,13 +1252,6 @@
   - ADTFootWrapsBl
   - ADTFootWrapsHighBl
   # ADT tweak end
-
-- type: loadoutGroup
-  id: ResearchDirectorJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - LizardPlushieResearchDirector
 
 #- type: loadoutGroup
 #  id: ResearchDirectorJobTrinkets
@@ -1467,14 +1346,6 @@
   - ADTLabTechPDA # ADT
   - ADTXenoarchPDA # ADT
   - ADTAnomalistPDA # ADT
-
-- type: loadoutGroup
-  id: ScientistJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - LizardPlushieScientist
-
 #- type: loadoutGroup
 #  id: ScientistJobTrinkets
 #  name: loadout-group-jobtrinkets
@@ -1657,7 +1528,6 @@
   name: loadout-group-jobtrinkets
   minLimit: 0
   loadouts:
-  - LizardPlushieSecurity
   - SecStar
 
 - type: loadoutGroup
@@ -1721,7 +1591,6 @@
   name: loadout-group-jobtrinkets
   minLimit: 0
   loadouts:
-  - LizardPlushieDetective
   - SecStar
 
 - type: loadoutGroup
@@ -1732,13 +1601,6 @@
   - ADTJumpskirtSecurityCadetLight #ADT-Tweak
   - SecurityJumpsuitGrey # Corvax-Resprite
   - SecurityJumpskirtGrey # Corvax-Resprite
-
-- type: loadoutGroup
-  id: SecurityCadetJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - LizardPlushieSecurityCadet
 
 #- type: loadoutGroup
 #  id: SecurityCadetJobTrinkets
@@ -1800,14 +1662,6 @@
   - ADTClothingUniformJumpsuitTurtleneckWhite
   - ADTClothingUniformJumpskirtTurtleneckWhite
   # ADT tweak end
-
-- type: loadoutGroup
-  id: PsychologistJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - LizardPlushiePsychologist
-
 - type: loadoutGroup
   id: BoxerJumpsuit
   name: loadout-group-boxer-jumpsuit
@@ -1830,20 +1684,6 @@
 #  name: loadout-group-jobtrinkets
 #  minLimit: 0
 #  loadouts:
-
-- type: loadoutGroup
-  id: BoxerJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - LizardPlushieBoxer
-
-- type: loadoutGroup
-  id: ZookeeperJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - LizardPlushieZookeeper
 
 # Other
 

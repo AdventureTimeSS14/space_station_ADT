@@ -153,3 +153,8 @@
   id: MedicalHud
   equipment:
     eyes: ClothingEyesHudMedical
+
+- type: loadout
+  id: MedicalEyePatchHud
+  equipment:
+    eyes: ClothingEyesEyepatchHudMedical
