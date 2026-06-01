@@ -411,6 +411,7 @@ namespace Content.Server.VendingMachines
 
             entry.Amount -= (uint)count;    // ADT vending eject count
             Dirty(uid, vendComponent);
+            UpdateVendingMachineInterfaceState(uid, vendComponent); // // ADT-Tweak
             TryUpdateVisualState(uid, vendComponent);
             Audio.PlayPvs(vendComponent.SoundVend, uid);
         }
@@ -544,6 +545,8 @@ namespace Content.Server.VendingMachines
             vendComponent.NextItemToEject = null;
             vendComponent.ThrowNextItem = false;
             vendComponent.NextItemCount = 1;    // ADT vending eject count
+            vendComponent.Ejecting = false;     // // ADT-Tweak
+            UpdateVendingMachineInterfaceState(uid, vendComponent); // ADT-Tweak
         }
 
         protected override VendingMachineInventoryEntry? GetEntry(EntityUid uid, string entryId, InventoryType type, VendingMachineComponent? component = null)
@@ -603,7 +606,13 @@ namespace Content.Server.VendingMachines
 
         private void OnTryVocalize(Entity<VendingMachineComponent> ent, ref TryVocalizeEvent args)
         {
-            args.Cancelled |= ent.Comp.Broken;
+            // ADT-Tweak start - я не могу опнять где она не инцелизируется по этому будет тут
+            if (!TryComp<MetaDataComponent>(ent.Owner, out var meta) || !meta.EntityInitialized)
+                return;
+            // ADT-Tweak end
+
+            if (ent.Comp.Broken)
+                args.Cancelled = true;
         }
     }
 }
