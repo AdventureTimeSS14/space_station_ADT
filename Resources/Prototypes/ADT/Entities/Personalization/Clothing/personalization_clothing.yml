@@ -1786,3 +1786,82 @@
   components:
   - type: Sprite
     sprite: ADT/Personalization/Raven559/mantle_officer_blue_shield.rsi
+
+#Svet217
+- type: entity
+  parent: [ClothingBeltBase, ClothingSlotBase]
+  id: ADTClothingBeltKnifeCase
+  name: knife case
+  description: Case designed for storing and carrying the KS-43 "Cherry"
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/svet217_KS-43_Cherry_case.rsi
+    state: sheath
+  - type: Clothing
+    sprite: ADT/Personalization/svet217_KS-43_Cherry_case.rsi
+  - type: Item
+    storedRotation: -90
+    size: Small
+  - type: ItemSlots
+    slots:
+      item:
+        name: KnifeKS43Cherry
+        insertVerbText: sheath-insert-verb
+        ejectVerbText: sheath-eject-verb
+        insertSound: /Audio/ADT/Items/knife-taken-into.ogg
+        ejectSound: /Audio/ADT/Items/knife-taken-out.ogg
+        whitelist:
+          tags:
+          - ADTSvet217KnifeKS43Cherry
+  - type: ItemMapper
+    mapLayers:
+      sheath-knife:
+        whitelist:
+          tags:
+          - ADTSvet217KnifeKS43Cherry
+  - type: Appearance
+
+#ADMIRAL_DEATH
+- type: entity
+  parent: ADTSponsorClothingNeckBase
+  id: ADTAdmiralDeathQMMantle
+  suffix: Personal, ADMIRAL_DEATH
+  name: Elite Quartermaster’s Cloak with Epaulettes
+  description: Elegant and imposing, the cloak immediately proclaims the high status of its wearer, a quartermaster of an elite military unit. The silhouette is strict yet noble, the elongated cut emphasises the wearer’s dignified bearing, while the thoughtful details reveal functionality without sacrificing aesthetics.
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/admiral_deathqmmantle.rsi
+    state: icon
+  - type: Clothing
+    sprite: ADT/Personalization/admiral_deathqmmantle.rsi
+  - type: Item
+    size: Normal
+
+- type: entity
+  parent: [ClothingHeadBase, BaseFoldable]
+  id: ADTAdmiraldeathushanka
+  name: the Quartermaster's Elite Ushanka
+  description: A ushaka, with a golden pickaxe on the front and an emblem on the left side. It looks rather worn and old...
+  suffix: Personal, ADMIRAL_DEATH
+  components:
+  - type: Clothing
+    sprite: ADT/Personalization/admiral_deathqmusnka.rsi
+  - type: Appearance
+  - type: AddAccentClothing
+    accent: RussianAccent
+  - type: Foldable
+    canFoldInsideContainer: true
+  - type: FoldableClothing
+    foldedEquippedPrefix: up
+    foldedHeldPrefix: up
+  - type: Sprite
+    sprite: ADT/Personalization/admiral_deathqmusnka.rsi
+    layers:
+    - state: icon
+      map: [ "unfoldedLayer" ]
+    - state: icon-up
+      map: ["foldedLayer"]
+      visible: false
+  - type: TemperatureProtection ##ADT-Tweak start
+    heatingCoefficient: 1.025
+    coolingCoefficient: 0.5 ##ADT-Tweak end
