@@ -24,7 +24,7 @@
   # ADT underwear tweak end
   - SurvivalMedical
   - Trinkets
-  - ChiefMedicalOfficerJobTrinkets
+ # - ChiefMedicalOfficerJobTrinkets
   - GroupSpeciesBreathToolMedical
 
 - type: roleLoadout
@@ -50,7 +50,7 @@
   - SurvivalMedical
   - Trinkets
   - ADTSprayPaints # ADT-Tweak
-  - MedicalDoctorJobTrinkets
+ # - MedicalDoctorJobTrinkets
   - GroupSpeciesBreathToolMedical
 
 - type: roleLoadout
@@ -71,7 +71,7 @@
   - SurvivalMedical
   - Trinkets
   - ADTSprayPaints # ADT-Tweak
-  - MedicalInternJobTrinkets
+  # - MedicalInternJobTrinkets
   - GroupSpeciesBreathToolMedical
 
 - type: roleLoadout
@@ -93,7 +93,7 @@
   - SurvivalMedical
   - Trinkets
   - ADTSprayPaints # ADT-Tweak
-  - ChemistJobTrinkets
+ # - ChemistJobTrinkets
   - GroupSpeciesBreathToolMedical
 
 - type: roleLoadout
@@ -121,5 +121,5 @@
   - SurvivalMedical
   - Trinkets
   - ADTSprayPaints # ADT-Tweak
-  - ParamedicJobTrinkets
+ # - ParamedicJobTrinkets
   - GroupSpeciesBreathToolMedical
