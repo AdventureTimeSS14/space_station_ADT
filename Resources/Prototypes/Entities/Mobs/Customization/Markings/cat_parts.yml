@@ -1,7 +1,7 @@
 - type: marking
   id: CatEars
   bodyPart: Special
-  groupWhitelist: [Human]
+  groupWhitelist: [Human, Felinid] # ADT: Felinid reuses the human body but renders cat ears/tail via its own group
   coloring:
     default:
       type:
@@ -23,7 +23,7 @@
 - type: marking
   id: CatTail
   bodyPart: Tail
-  groupWhitelist: [Human]
+  groupWhitelist: [Human, Felinid] # ADT: Felinid reuses the human body but renders cat ears/tail via its own group
   coloring:
     default:
       type:
