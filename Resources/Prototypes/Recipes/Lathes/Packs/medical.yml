@@ -101,7 +101,7 @@
   - SyringeBluespace
   - ADTBlankMediPen # ADT-Tweak
   - LauncherSyringe
-  - MiniSyringe
+  - ADTMiniSyringe # ADT-Tweak
   - AdvancedJetInjector
 
 - type: latheRecipePack
