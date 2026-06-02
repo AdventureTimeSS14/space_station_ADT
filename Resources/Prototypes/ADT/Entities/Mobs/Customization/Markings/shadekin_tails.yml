@@ -245,8 +245,7 @@
 - type: marking
   id: ADTTailShadekinExperiment
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [Shadekin]
+  groupWhitelist: [Shadekin]
   sprites:
     - sprite: ADT/Mobs/Customization/Shadekin/shadekin_tails_64x32.rsi
       state: default_experiment

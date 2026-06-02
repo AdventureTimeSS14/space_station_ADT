@@ -437,8 +437,7 @@
 - type: marking
   id: ADTEarsShadekinExperiment
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [Shadekin]
+  groupWhitelist: [Shadekin]
   sprites:
     - sprite: ADT/Mobs/Customization/Shadekin/shadekin_ears_32x32.rsi
       state: experiment_default
