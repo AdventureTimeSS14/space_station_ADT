@@ -10,7 +10,7 @@
   color: "#FF2B2B"
   recognizable: false
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 5
@@ -36,7 +36,7 @@
   color: "#edccab"
   recognizable: false
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 2
@@ -62,7 +62,7 @@
   color: "#FBEC5D"
   recognizable: false
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 3
@@ -101,7 +101,7 @@
   color: "#F8D568"
   recognizable: false
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 3
@@ -122,7 +122,7 @@
   color: "#955F20"
   recognizable: false
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 2
@@ -143,7 +143,7 @@
   color: "#D8DEBA"
   recognizable: false
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 4
@@ -169,7 +169,7 @@
   color: "#c5e3e2"
   recognizable: false
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 3
@@ -194,7 +194,7 @@
   flavor: ADTOrangeTeaReg
   color: "#FF8C00"
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 0.6
@@ -213,7 +213,7 @@
   flavor: ADTCherryTeaReg
   color: "#FFB6C1"
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 0.6
@@ -232,7 +232,7 @@
   flavor: ADTWatermelonTeaReg
   color: "#F08080"
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 0.6
@@ -251,7 +251,7 @@
   flavor: sweet
   color: "#FF8C00"
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 0.1
@@ -265,7 +265,7 @@
   flavor: sweet
   color: "#FFB6C1"
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 0.1
@@ -279,7 +279,7 @@
   flavor: sweet
   color: "#F08080"
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 0.1
@@ -299,7 +299,7 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 3
@@ -326,7 +326,7 @@
   flavor: coffee
   color: "#3d2200"
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 2
@@ -362,7 +362,7 @@
   flavor: ADTStrawberryFlavor
   color: "#cf554c"
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 0.1
@@ -378,7 +378,7 @@
   flavor: ADTYupiDryApple
   color: "#e7191e"
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: -3

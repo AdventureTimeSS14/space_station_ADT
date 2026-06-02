@@ -13,7 +13,7 @@
   flavor: eldritch
   color: "#1f8016"
   metabolisms:
-    Medicine:
+    Bloodstream:
       effects:
       - !type:HealthChange
         damage:
@@ -55,8 +55,6 @@
             - Heretic
             - Ghoul
           guidebookComponentName: reagent-comp-condition-heretic-or-ghoul
-    Poison:
-      effects:
       - !type:Electrocute
         conditions:
         - !type:HasComponentCondition
