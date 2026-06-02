@@ -73,8 +73,9 @@
         amount: -2500
       - !type:HealthChange
         damage:
-          groups:
-            Toxin: -1
+          types:
+            Poison: -0.5
+            Radiation: -0.5
       - !type:PopupMessage
         type: Local
         visualType: Small
