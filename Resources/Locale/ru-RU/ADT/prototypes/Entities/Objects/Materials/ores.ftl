@@ -44,8 +44,8 @@ ent-ADTLeadOre1 = { ent-ADTLeadOre }
 
 ent-ADTBSore = блюспейс руда
     .desc = { ent-OreBase.desc }
-    .suffix = Один
+    .suffix = Полный
 
 ent-ADTBSore1 = { ent-ADTBSore }
     .desc = { ent-OreBase.desc }
-    .suffix = Полный
+    .suffix = Один

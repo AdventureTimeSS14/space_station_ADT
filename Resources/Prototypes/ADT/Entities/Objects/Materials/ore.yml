@@ -37,7 +37,7 @@
 
 - type: stack
   id: ADTBSoreStack
-  name: stack-BSore
+  name: Bluespace ore
   icon: { sprite: ADT/Objects/Materials/BS_ore.rsi, state: BS_ore }
   spawn: ADTBSore1
   maxCount: 30
