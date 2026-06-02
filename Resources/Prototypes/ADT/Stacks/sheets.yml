@@ -21,7 +21,7 @@
 
 - type: stack
   id: ADTBScrystal
-  name: bluespace
+  name: materials-bluespace
   icon: { sprite: ADT/Objects/Materials/crystal.rsi, state: crystal }
   spawn: ADTMaterialBScrystal1
   maxCount: 10
