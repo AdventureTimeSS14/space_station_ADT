@@ -134,10 +134,16 @@
             "name":"xenoborg-basic-module"
         },
         {
+            "name":"xenoborg-jump-module"
+        },
+        {
             "name":"xenoborg-camera-computer"
         },
         {
             "name":"xenoborg-control-computer"
+        },
+        {
+            "name":"xenoborg-door-remote-module"
         },
         {
             "name":"xenoborg-extinguisher-module"

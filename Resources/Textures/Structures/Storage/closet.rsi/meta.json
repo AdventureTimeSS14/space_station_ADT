@@ -8,6 +8,9 @@
   "license": "CC-BY-SA-3.0",
   "states": [
     {
+      "name": "syndicate_open"
+    },
+    {
       "name": "abductor"
     },
     {
