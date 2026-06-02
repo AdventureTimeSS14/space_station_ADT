@@ -213,10 +213,10 @@
       maxBleedAmount: 0
       bloodlossDamage:
         types:
-          Burn: 1.5
+          Heat: 1.5
       bloodlossHealDamage:
         types:
-          Burn: 0
+          Heat: 0
     - type: Flammable
       fireSpread: true
       canResistFire: true

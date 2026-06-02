@@ -805,7 +805,7 @@
           type: [ Shadekin ]
         damage:
           types:
-            Brute: -12 # ADT-Tweak ## Лечит механические повреждения на 4 (12/3)
+            Blunt: -12 # ADT-Tweak ## Лечит механические повреждения на 4 (12/3)
             Bloodloss: -1
       - !type:HealthChange
         conditions:

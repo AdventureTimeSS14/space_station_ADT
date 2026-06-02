@@ -60,9 +60,9 @@
     coldDamageThreshold: 243.15 # -30C - порог когда активируется coldDamage с лечением.
     coldDamage: #per second, scales with temperature & other constants
       types:
-        Brute: -0.25
-        Burn: -0.25
-        Toxin: -0.1
+        Blunt: -0.25
+        Heat: -0.25
+        Poison: -0.1
         Cellular: -0.05
     heatDamage: #per second, scales with temperature & other constants
       types:
