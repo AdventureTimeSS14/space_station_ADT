@@ -1053,7 +1053,7 @@
         damage:
           Burn: -2
           Toxin: -2
-          Asphyxiation: -2
+          Airloss: -2
           Brute: -2
 
 - type: reagent
