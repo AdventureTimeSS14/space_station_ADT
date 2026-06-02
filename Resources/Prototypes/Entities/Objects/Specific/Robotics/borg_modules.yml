@@ -1520,7 +1520,7 @@
   - type: ItemBorgModule
     hands:
     - item: Emag # ADT-Tweak
-    - item: AccessBreaker
+   # - item: AccessBreaker
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: xenoborg-access-breaker-module }
 
@@ -1553,7 +1553,8 @@
   - type: ItemBorgModule
     hands:
     - item: DoorRemoteXenoborg
-    - item: AccessBreaker
+  #  - item: AccessBreaker
+    - item: Emag
     - item: AccessConfiguratorXenoborg
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: xenoborg-door-remote-module }
