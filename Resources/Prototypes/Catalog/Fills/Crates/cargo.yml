@@ -249,16 +249,11 @@
       weight: 0.8
     - id: GrenadeFoamDart
       prob: 0.001
-      orGroup: NotUseful
 # ADT-tweak start
     - id: ADTToyBlasterGunGreen
       weight: 0.1
-      orGroup: NotUseful
     - id: ADTToyBlasterGunRed
       weight: 0.1
-      orGroup: NotUseful
     - id: ADTToyBlasterGunBlue
-      weight: 0.1
-      orGroup: NotUseful
       weight: 0.1
 # ADT-tweak end
