@@ -49,12 +49,16 @@
   - type: Injurable
     damageContainer: Biological
   - type: Bloodstream
-    bloodReagent: ResomiBlood
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: ResomiBlood
+        Quantity: 250
   - type: Temperature
-    heatDamageThreshold: 308 # 35°C
-    coldDamageThreshold: 210 # -63°C
     currentTemperature: 296.15 # 23°C
     specificHeat: 42
+  - type: TemperatureDamage
+    heatDamageThreshold: 308 # 35°C
+    coldDamageThreshold: 210 # -63°C
     coldDamage:
       types:
         Cold : 0.1 #per second, scales with temperature & other constants
