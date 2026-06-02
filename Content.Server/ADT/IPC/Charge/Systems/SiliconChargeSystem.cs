@@ -152,7 +152,11 @@ public sealed class SiliconChargeSystem : EntitySystem
     /// </summary>
     public void UpdateChargeState(EntityUid uid, short chargePercent, SiliconComponent component)
     {
-        component.ChargeState = chargePercent;
+        if (component.ChargeState != chargePercent)
+        {
+            component.ChargeState = chargePercent;
+            Dirty(uid, component);
+        }
 
         RaiseLocalEvent(uid, new SiliconChargeStateUpdateEvent(chargePercent));
 
