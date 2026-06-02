@@ -267,6 +267,10 @@
         Base: dead-0
       Dead:
         Base: dead-0
+  - type: Butcherable
+    spawned:
+    - id: FoodMeatChicken
+      amount: 1
   - type: InteractionPopup
     successChance: 0.8
     interactSuccessString: petting-success-bird
@@ -541,7 +545,7 @@
     speechVerb: Moth
     speechSounds: Squeak
     allowedEmotes: ['Chitter', 'Squeak', 'Flap']
-    # ADT-Tweak Moth Roll start
+  # ADT-Tweak Moth Roll start
   - type: DashAction
     actionProto: ADTActionDashMoth
     # ADT-Tweak Moth Roll end
@@ -1119,7 +1123,7 @@
           Quantity: 30
       wool:
         maxVol: 250
-    # ADT Start
+  # ADT Start
   - type: SolutionRegeneration
     solution: udder
     generated:
@@ -1501,7 +1505,10 @@
       - Passive
   - type: HTN
     rootTask:
-      task: SimpleHostileCompound
+      task: MonkeyCompound
+    blackboard:
+      NavInteract: !type:Bool
+        true
   - type: IdExaminable
   - type: Tag
     tags:
@@ -1521,6 +1528,7 @@
   - type: VentCrawler
     allowInventory: false
   # ADT-Tweak end
+  - type: Crawler
   - type: StatusIcon
     bounds: -0.5,-0.5,0.5,0.5
   - type: JobStatus # marks them as crew
@@ -1780,7 +1788,9 @@
 
 - type: entity
   name: mouse
-  parent: [SimpleMobBase, BaseMobAnimal, SolutionVermin]
+  parent:
+  - SimpleMobBase
+  - BaseMobAnimal
   id: MobMouse
   description: Squeak!
   components:
@@ -1889,6 +1899,12 @@
     baseDecayRate: 0.5 # I'm very hungry! Give me. The cheese.
   - type: Extractable
     grindableSolutionName: food
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 3
   - type: Butcherable
     spawned:
     - id: FoodMeatRat
@@ -1967,17 +1983,6 @@
       behaviors:
       - !type:GibBehavior
         recursive: false
-
-- type: entity
-  abstract: true
-  parent: [SolutionFood, SolutionTiny]
-  id: SolutionVermin
-  components:
-  - type: Solution
-    solution:
-      reagents:
-      - ReagentId: UncookedAnimalProteins
-        Quantity: 15
 
 - type: entity
   parent: MobMouse
@@ -2115,6 +2120,7 @@
     damageModifierSet: Zombie
   - type: Injurable
     damageContainer: Biological
+
 - type: entity
   name: lizard #Weh
   parent: SimpleMobBase
@@ -2577,6 +2583,7 @@
     damageModifierSet: Scale
   - type: Injurable
     damageContainer: Biological
+
 - type: entity
   parent: [ SimpleMobBase, BaseMobHemocyanin, MobCombat ]
   id: MobSpiderBase
