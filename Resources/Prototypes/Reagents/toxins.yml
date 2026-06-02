@@ -353,7 +353,7 @@
         # End ADT tweak
         damage:
           types:
-            Airloss: 10
+            Asphyxiation: 10
       # Start ADT tweak
       - !type:HealthChange
         conditions:

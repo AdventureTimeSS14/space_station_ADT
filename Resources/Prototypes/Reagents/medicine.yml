@@ -216,7 +216,7 @@
             max: 213.0
           damage:
           # todo scale with temp like SS13
-            Airloss: -3
+            Asphyxiation: -3
             Brute: -2
             Burn: -2
             Toxin: -2
@@ -1053,7 +1053,7 @@
         damage:
           Burn: -2
           Toxin: -2
-          Airloss: -2
+          Asphyxiation: -2
           Brute: -2
 
 - type: reagent
@@ -1527,7 +1527,7 @@
           # ADT-Tweak start (made HealthChange even)
             Brute: -7
             Burn: -6
-            Airloss: -3
+            Asphyxiation: -3
             Toxin: -4
           # ADT-Tweak end
 
