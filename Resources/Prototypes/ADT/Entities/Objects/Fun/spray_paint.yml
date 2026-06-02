@@ -18,7 +18,7 @@
       tags:
         - NoPaint
       components:
-        - HumanoidAppearance
+        - HumanoidProfile
         - SubFloorHide
         - RandomSprite
         - Painted

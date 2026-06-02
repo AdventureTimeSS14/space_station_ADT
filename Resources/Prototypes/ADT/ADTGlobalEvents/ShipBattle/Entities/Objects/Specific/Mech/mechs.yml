@@ -28,7 +28,7 @@
     mechToPilotDamageMultiplier: 0.0
     pilotWhitelist:
       components:
-        - HumanoidAppearance
+        - HumanoidProfile
     equipmentWhitelist:
       tags:
       - ADTMechEquipmentGeneral
