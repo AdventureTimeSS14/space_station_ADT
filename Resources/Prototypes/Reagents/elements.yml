@@ -88,7 +88,7 @@
           type: [ Arachnid ]
         amount: 0.4
     # ADT Start
-    Food:
+    Digestion:
       effects:
       - !type:SatiateHunger
         conditions:

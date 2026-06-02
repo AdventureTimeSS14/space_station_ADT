@@ -470,8 +470,11 @@
           min: 0
           max: 20
         damage:
-          Brute: -0.5
-          Burn: -0.5
+          Blunt: -0.5
+          Caustic: -0.5
+          Heat: -0.5
+          Shock: -0.5
+          Cold: -0.5
       - !type:HealthChange
         conditions:
         - !type:MetabolizerTypeCondition

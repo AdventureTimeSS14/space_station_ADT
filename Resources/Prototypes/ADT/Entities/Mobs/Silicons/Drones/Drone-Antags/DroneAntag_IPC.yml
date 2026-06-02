@@ -127,7 +127,6 @@
       sprite: ADT/Mobs/Silicon/Drones/AntagDrones/drone-ipc-soldier.rsi
       state: ipc_full
     - type: MindContainer
-      showExamineInfo: true
     - type: Sprite
       noRot: true
       drawdepth: Mobs
