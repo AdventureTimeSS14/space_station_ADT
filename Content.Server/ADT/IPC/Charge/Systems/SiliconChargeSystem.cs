@@ -223,9 +223,10 @@ public sealed class SiliconChargeSystem : EntitySystem
             return 0;
 
         if (input.HeldMoveButtons == MoveButtons.None || _jetpack.IsUserFlying(silicon)) // If nothing is being held or jet packing
-        {
             return siliconComp.DrainPerSecond * siliconComp.IdleDrainReduction * (-1); // Reduces draw by idle drain reduction
-        }
+
+        if (movement.CurrentSprintSpeed <= 0f)
+            return siliconComp.DrainPerSecond * siliconComp.IdleDrainReduction * -1;
 
         // LinearVelocity is relative to the parent
         return Math.Clamp(
