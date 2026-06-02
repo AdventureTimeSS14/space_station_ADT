@@ -13,7 +13,7 @@
       tags: [ Carpet ]
   metabolisms:
     # Start ADT tweak: Moth Narcotic
-    Narcotic:
+    Digestion:
       effects:
       - !type:GenericStatusEffect
         conditions:

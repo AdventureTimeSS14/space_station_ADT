@@ -87,7 +87,7 @@
         emote: Scream
         probability: 0.3
   metabolisms:
-    Poison:
+    Digestion:
       effects:
       - !type:HealthChange
         damage:
@@ -173,7 +173,7 @@
         emote: Scream
         probability: 0.3
   metabolisms:
-    Poison:
+    Digestion:
       effects:
       - !type:HealthChange
         damage:
