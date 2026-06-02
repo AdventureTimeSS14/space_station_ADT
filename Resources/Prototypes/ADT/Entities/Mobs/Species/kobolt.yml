@@ -22,11 +22,14 @@
       types:
         Heat: -0.06
         Cold: -0.04
-      groups:
-        Brute: -0.08
+        Blunt: -0.08
+        Slash: -0.08
+        Piercing: -0.08
   - type: Bloodstream
-    bloodMaxVolume: 175
-    bloodReagent: ADTCorelanderBlood
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: ADTCorelanderBlood
+        Quantity: 175
   - type: MeleeWeapon
     hidden: true
     soundHit:
@@ -37,10 +40,11 @@
       types:
         Piercing: 5
   - type: Temperature
-    heatDamageThreshold: 380
-    coldDamageThreshold: 260  #starting temperature damage treshold
     currentTemperature: 310.15
     specificHeat: 46
+  - type: TemperatureDamage
+    heatDamageThreshold: 380
+    coldDamageThreshold: 260  #starting temperature damage treshold
     coldDamage:
       types:
         Cold : 0.2 #per second, scales with temperature & other constants
