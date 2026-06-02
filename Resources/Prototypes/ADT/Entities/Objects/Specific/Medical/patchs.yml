@@ -43,9 +43,9 @@
   - type: DeleteOnSolutionEmpty
     solution: pen
   - type: Injector 
-    activeModeProtoId: HyposprayInjectMode
+    activeModeProtoId: ADTPatchInject
     allowedModes:
-    - HyposprayInjectMode
+    - ADTPatchInject
     ignoreClosed: true
     solutionName: pen
     currentTransferAmount: 20
@@ -218,3 +218,14 @@
         reagents:
         - ReagentId: Leporazine
           Quantity: 8
+
+- type: injectorMode
+  id: ADTPatchInject
+  name: injector-component-inject-mode-name
+  injectOnUse: true
+  transferAmounts: [20]
+  mobTime: 0
+  downedModifier: 0.5
+  selfModifier: 0.5
+  behavior: Inject
+  injectSound: /Audio/Items/Medical/brutepack_end.ogg
