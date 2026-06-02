@@ -244,9 +244,10 @@
     - ADTDroneAntagChannel
     - Common
   - type: Temperature
-    heatDamageThreshold: 5000
     currentTemperature: 310.15
     specificHeat: 42
+  - type: TemperatureDamage
+    heatDamageThreshold: 5000
     heatDamage:
       types:
         Heat : 1 #per second, scales with temperature & other constants
@@ -330,8 +331,8 @@
   - type: MeleeWeapon
     hidden: true
     damage:
-      groups:
-        Brute: 5
+      types:
+        Blunt: 5
   - type: EyeProtection
     protectionTime: 12
   - type: TypingIndicator
@@ -397,9 +398,10 @@
     - ADTDroneAntagChannel
     - Common
   - type: Temperature
-    heatDamageThreshold: 5000
     currentTemperature: 310.15
     specificHeat: 42
+  - type: TemperatureDamage
+    heatDamageThreshold: 5000
     heatDamage:
       types:
         Heat : 1 #per second, scales with temperature & other constants
@@ -483,8 +485,8 @@
   - type: MeleeWeapon
     hidden: true
     damage:
-      groups:
-        Brute: 5
+      types:
+        Blunt: 5
   - type: EyeProtection
     protectionTime: 12
   - type: TypingIndicator
@@ -551,9 +553,10 @@
     - ADTDroneAntagChannel
     - Common
   - type: Temperature
-    heatDamageThreshold: 5000
     currentTemperature: 310.15
     specificHeat: 42
+  - type: TemperatureDamage
+    heatDamageThreshold: 5000
     heatDamage:
       types:
         Heat : 1 #per second, scales with temperature & other constants
@@ -637,8 +640,8 @@
   - type: MeleeWeapon
     hidden: true
     damage:
-      groups:
-        Brute: 5
+      types:
+        Blunt: 5
   - type: EyeProtection
     protectionTime: 12
   - type: TypingIndicator
