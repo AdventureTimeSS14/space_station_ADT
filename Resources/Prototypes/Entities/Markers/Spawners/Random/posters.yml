@@ -99,6 +99,7 @@
     - id: ADTPosterContrabandPinning
     - id: ADTPosterContrabandGorlaxSanta
     - id: ADTPosterContrabandLostParadise
+    - id: ADTPosterContrabandAria
     #ADT tweak ^^^
 
 - type: entityTable
