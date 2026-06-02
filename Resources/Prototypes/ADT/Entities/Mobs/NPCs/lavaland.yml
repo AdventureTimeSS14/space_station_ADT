@@ -427,9 +427,6 @@
   - type: Temperature
     currentTemperature: 310.15
     specificHeat: 42
-  - type: TemperatureDamage
-    heatDamageThreshold: 325
-    coldDamageThreshold: 0
   - type: StatusEffects
     allowed:
     - KnockedDown
