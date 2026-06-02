@@ -59,8 +59,10 @@
       types:
         Asphyxiation: -0.5
   - type: Bloodstream
-    bloodMaxVolume: 300
-    bloodReagent: Plasma
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Plasma
+        Quantity: 300
   - type: ZombieImmune
   - type: NovakidGlowing # see NovakidFeaturesSystem.cs
   - type: PointLight
@@ -83,10 +85,11 @@
       types:
         Heat: 5
   - type: Temperature
-    heatDamageThreshold: 650
-    coldDamageThreshold: 193  #starting temperature damage treshold
     currentTemperature: 410.15
     specificHeat: 46
+  - type: TemperatureDamage
+    heatDamageThreshold: 650
+    coldDamageThreshold: 193  #starting temperature damage treshold
     coldDamage:
       types:
         Cold : 0.5 #per second, scales with temperature & other constants
