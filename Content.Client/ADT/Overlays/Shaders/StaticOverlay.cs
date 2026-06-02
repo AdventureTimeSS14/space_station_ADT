@@ -1,6 +1,6 @@
 using Content.Shared.ADT.Silicon.Components;
 using Content.Shared.ADT.Silicon.Systems;
-using Content.Shared.StatusEffectNew;
+using Content.Shared.StatusEffect;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.Player;
@@ -15,7 +15,6 @@ namespace Content.Client.ADT.Overlays.Shaders;
 public sealed class StaticOverlay : Overlay
 {
     private static readonly ProtoId<ShaderPrototype> SeeingStaticShader = "SeeingStatic";
-    private static readonly EntProtoId SeeingStaticEffect = "SeeingStatic";
 
     [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
@@ -25,7 +24,7 @@ public sealed class StaticOverlay : Overlay
     public override bool RequestScreenTexture => true;
     private readonly ShaderInstance _staticShader;
 
-    private (TimeSpan?, TimeSpan?)? _time;
+    private (TimeSpan, TimeSpan)? _time;
     private float? _fullTimeLeft;
     private float? _curTimeLeft;
 
@@ -49,31 +48,27 @@ public sealed class StaticOverlay : Overlay
 
         var status = _entityManager.EntitySysManager.GetEntitySystem<StatusEffectsSystem>();
 
-        if (!status.TryGetTime(playerEntity.Value, SeeingStaticEffect, out var timeData))
-            return;
-
-        var timeTemp = (timeData.StartEffectTime, timeData.EndEffectTime);
-
-        if (_time != timeTemp) // Resets the shader if the times change. This should factor in wheather it's a reset, or a increase, but I have a lot of cough syrup in me, so TODO.
+        if (!status.TryGetTime(playerEntity.Value, SharedSeeingStaticSystem.StaticKey, out var timeData))
         {
-            _time = timeTemp;
+            MixAmount = 0;
+            return;
+        }
+
+        if (_time != timeData) // Resets the shader if the times change. This should factor in wheather it's a reset, or a increase, but I have a lot of cough syrup in me, so TODO.
+        {
+            _time = timeData;
             _fullTimeLeft = null;
             _curTimeLeft = null;
         }
 
-        if (timeTemp.Item1.HasValue && timeTemp.Item2.HasValue)
-        {
-            _fullTimeLeft ??= (float)(timeTemp.Item2.Value - timeTemp.Item1.Value).TotalSeconds;
-            _curTimeLeft ??= _fullTimeLeft;
+        var (startTime, endTime) = timeData.Value;
 
-            _curTimeLeft -= args.DeltaSeconds;
+        _fullTimeLeft ??= (float)(endTime - startTime).TotalSeconds;
+        _curTimeLeft ??= _fullTimeLeft;
 
-            MixAmount = Math.Clamp(_curTimeLeft.Value / _fullTimeLeft.Value * staticComp.Multiplier, 0, 1);
-        }
-        else
-        {
-            MixAmount = 0;
-        }
+        _curTimeLeft -= args.DeltaSeconds;
+
+        MixAmount = Math.Clamp(_curTimeLeft.Value / _fullTimeLeft.Value * staticComp.Multiplier, 0, 1);
     }
 
     protected override bool BeforeDraw(in OverlayDrawArgs args)
