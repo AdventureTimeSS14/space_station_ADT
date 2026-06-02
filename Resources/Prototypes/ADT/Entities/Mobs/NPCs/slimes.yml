@@ -55,8 +55,10 @@
   - type: Injurable
     damageContainer: Biological
   - type: Bloodstream
-    bloodReagent: Slime
-    bloodMaxVolume: 150
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Slime
+        Quantity: 150
     bloodlossDamage:
       types:
         Bloodloss:
@@ -127,8 +129,9 @@
     damage:
       types:
         Heat: -0.14
-      groups:
-        Brute: -0.14
+        Blunt: -0.14
+        Slash: -0.14
+        Piercing: -0.14
   - type: Barotrauma
     damage:
       types:
