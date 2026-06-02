@@ -416,7 +416,6 @@
   parent:
   - SimpleSpaceMobBase
   - BaseMobAnimal
-  - SolutionVermin
   id: MobSnail
   name: snail
   description: Revolting unless you're french.
