@@ -267,10 +267,6 @@
         Base: dead-0
       Dead:
         Base: dead-0
-  - type: Butcherable
-    spawned:
-    - id: FoodMeatChicken
-      amount: 1
   - type: InteractionPopup
     successChance: 0.8
     interactSuccessString: petting-success-bird
