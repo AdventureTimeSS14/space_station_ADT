@@ -43,7 +43,7 @@
   components:
   - type: PowerCellDraw
     drawRate: 0
-    useRate: 40
+    useCharge: 40
   - type: ActivatableUIRequiresPowerCell
 
 - type: entity
@@ -73,7 +73,7 @@
   components:
   - type: PowerCellDraw
     drawRate: 0
-    useRate: 10
+    useCharge: 10
   - type: ActivatableUIRequiresPowerCell
   - type: PlantAnalyzer
     settings:
