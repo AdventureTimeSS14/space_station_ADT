@@ -30,11 +30,6 @@
   components:
   - type: Contraband
     severity: Syndicate
-# Start ADT Tweak
-  - type: Tag
-    tags:
-      - ADTSyndieThingies
-# End ADT Tweak
     allowedDepartments: [  ]
     allowedJobs: [  ]
 
