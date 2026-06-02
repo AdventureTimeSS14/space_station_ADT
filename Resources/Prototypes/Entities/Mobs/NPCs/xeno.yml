@@ -70,7 +70,7 @@
     bloodReferenceSolution:
       reagents:
       - ReagentId: FluorosulfuricAcid
-        Quantity: 1300
+        Quantity: 650
   - type: MeleeWeapon
     altDisarm: false
     angle: 0
@@ -78,13 +78,15 @@
      collection: AlienClaw
     animation: WeaponArcBite
     damage:
+    # ADT-Tweak start
       types:
-        Piercing: 20
+        Slash: 20
         Structural: 20
   - type: Damageable
     damageModifierSet: ADTXenoDamageSet
   - type: Injurable
   - type: Fauna
+    # ADT-Tweak end
   - type: DamageStateVisuals
     states:
       Alive:
@@ -105,7 +107,7 @@
     makeSentient: true
     name: ghost-role-information-xeno-name
     description: ghost-role-information-xeno-description
-    rules: ghost-role-information-xeno-rules
+    rules: ghost-role-information-rules-team-antagonist # ADT-Fix
     raffle:
       settings: default
   - type: GhostTakeoverAvailable
@@ -157,6 +159,12 @@
   - type: SlowOnDamage
     speedModifierThresholds:
       50: 0.7
+  #ADT Start: Xeno baff
+  - type: MeleeWeapon
+    damage:
+      groups:
+        Brute: 27
+  # ADT End
   - type: Fixtures
     fixtures:
       fix1:
@@ -194,9 +202,11 @@
       40: 0.7
   - type: MeleeWeapon
     damage:
+  # ADT-Tweak start
       types:
-        Slash: 15
-        Structural: 100 # ADT-Tweak
+        Blunt: 15
+        Structural: 100
+  # ADT-Tweak end
   - type: MovementSpeedModifier
     baseSprintSpeed: 4
   - type: Fixtures
@@ -239,7 +249,7 @@
   - type: MeleeWeapon
     damage:
       types:
-        Slash: 42 # ADT-Tweak
+        Slash: 42 # ADT Tweak
   - type: Fixtures
     fixtures:
       fix1:
@@ -286,11 +296,17 @@
       - !type:GibBehavior { }
 # ADT-tweak end
   - type: MovementSpeedModifier
-    baseSprintSpeed: 4
+    # ADT-tweak start
+    baseSprintSpeed: 2
+    baseWalkSpeed: 1
+    # ADT-tweak end
   - type: MeleeWeapon
     damage:
-      types:
-        Slash: 37 # # ADT-Tweak
+    # ADT-tweak start
+     types:
+       Slash: 27
+       Blunt: 10
+    # ADT-tweak end
   - type: SlowOnDamage
     speedModifierThresholds:
       50: 0.7
@@ -322,12 +338,22 @@
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: running
+    # ADT Start: Xeno buff
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: Dead
+    # ADT End
   - type: MovementSpeedModifier
-    baseSprintSpeed: 6.0
+    baseSprintSpeed: 6.0 # ADT-Tweak
   - type: MeleeWeapon
     damage:
-      types:
-        Slash: 13 # ADT-Tweak
+    # ADT-Tweak start
+     types:
+       Piercing: 13
+    # ADT-Tweak end
+    types:
+      Slash: 5
   - type: Fixtures
     fixtures:
       fix1:
@@ -354,7 +380,7 @@
     sprite: Mobs/Aliens/Xenos/rouny.rsi
     offset: 0,0.6
   - type: Butcherable
-    butcheringType: Spike 
+    butcheringType: Spike
     spawned:
     - id: FoodMeatRouny
       amount: 3
@@ -434,8 +460,8 @@
         Base: dead_purple_snake
       Dead:
         Base: dead_purple_snake
-  - type: ToolRefinable
-    refineResult:
+  - type: Butcherable
+    spawned:
     - id: FoodMeatSnake
       amount: 4
   - type: Grammar
@@ -552,7 +578,7 @@
     bloodReferenceSolution:
       reagents:
       - ReagentId: FluorosulfuricAcid
-        Quantity: 600
+        Quantity: 300
   - type: MeleeWeapon
     altDisarm: false
     angle: 0
@@ -572,6 +598,7 @@
         Base: dead
   - type: Puller
   - type: Butcherable
+    butcheringType: Spike
     spawned:
     - id: FoodMeatXeno
       amount: 5
@@ -628,5 +655,5 @@
           Quantity: 50
   - type: MeleeChemicalInjector
     transferAmount: 1
-    solution: melee
+    solution: bite
     pierceArmor: true

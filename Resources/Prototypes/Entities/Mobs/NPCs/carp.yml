@@ -1,7 +1,7 @@
 - type: entity
   name: space carp
   id: BaseMobCarp
-  parent: [ SimpleSpaceMobBase, FlyingMobBase, MobCombat, BaseSlicingRefinable ]
+  parent: [ SimpleSpaceMobBase, FlyingMobBase, MobCombat ]
   description: It's a space carp.
   abstract: true
   components:
@@ -95,6 +95,7 @@
         GalacticCommon: Speak
         CarpCollectiveMind: Speak
     - type: GrabProtection
+    - type: StandingState # Фикс костылём
     # ADT-tweak-start
 
 - type: entity
@@ -121,10 +122,10 @@
   id: MobCarpMagic
   description: Looks like some kind of fish. Might be magical.
   components:
-  - type: Sprite
-    sprite: Mobs/Aliens/Carps/magic.rsi
-  - type: TypingIndicator
-    proto: guardian
+    - type: Sprite
+      sprite: Mobs/Aliens/Carps/magic.rsi
+    - type: TypingIndicator
+      proto: guardian
 
 - type: entity
   name: holocarp
@@ -132,22 +133,22 @@
   id: MobCarpHolo
   description: Carp made out of holographic energies. Sadly for you, it is very much real.
   components:
-  - type: Sprite
-    sprite: Mobs/Aliens/Carps/holo.rsi
-  - type: Physics
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeCircle
-          radius: 0.40
-        density: 10
-        mask:
-        - MobMask
-        layer:
-        - Opaque
-  - type: TypingIndicator
-    proto: robot
+    - type: Sprite
+      sprite: Mobs/Aliens/Carps/holo.rsi
+    - type: Physics
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeCircle
+            radius: 0.40
+          density: 10
+          mask:
+            - MobMask
+          layer:
+            - Opaque
+    - type: TypingIndicator
+      proto: robot
 
 - type: entity
   parent: MobCarp
@@ -195,13 +196,22 @@
     - type: HTN
       rootTask:
         task: DragonCarpCompound
+# ADT-tweak-start
+# the carps must not be combustible because they are the children of the dragon mwahahahaha. only those who come out of the portal.
     - type: Flammable
+      fireSpread: false
+      canResistFire: true
+      alwaysCombustible: false
+      canExtinguish: true
+      resisting: false
       damage:
-       types: {}
+        types: {}
     - type: Temperature
     - type: TemperatureDamage
       heatDamageThreshold: 1200
-    - coldDamageThreshold: -800 # ADT-tweak
+      coldDamageThreshold: -800
+# ADT-tweak-end
+
 - type: entity
   id: MobCarpDungeon
   parent: MobCarp
@@ -283,4 +293,4 @@
   parent: MobShark
   suffix: "Salvage Ruleset"
   components:
-  - type: SalvageMobRestrictions
+    - type: SalvageMobRestrictions
