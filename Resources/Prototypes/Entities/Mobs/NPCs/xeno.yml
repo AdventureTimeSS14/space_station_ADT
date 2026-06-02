@@ -416,7 +416,7 @@
 
 - type: entity
   name: space adder
-  parent: [SimpleSpaceMobBase, BaseSlicingRefinable]
+  parent: SimpleSpaceMobBase
   id: MobPurpleSnake
   description: A menacing purple snake from Kepler-283c.
   components:
@@ -457,9 +457,12 @@
     damage:
       types:
         Piercing: 5
-  - type: SolutionManager
+  - type: SolutionContainerManager
     solutions:
-    - SolutionVenomPurpleSnake
+      melee:
+        reagents:
+        - ReagentId: Toxin
+          Quantity: 50
   - type: MeleeChemicalInjector
     solution: melee
   - type: Fixtures
@@ -482,19 +485,8 @@
     - FootstepSound
 
 - type: entity
-  parent: [SolutionWeapon, SolutionTiny]
-  id: SolutionVenomPurpleSnake
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Solution
-    solution:
-      reagents:
-      - ReagentId: Toxin
-        Quantity: 30
-
-- type: entity
   name: space adder
-  parent: [MobPurpleSnake, BaseSlicingRefinable]
+  parent: MobPurpleSnake
   id: MobSmallPurpleSnake
   suffix: small
   description: A smaller version of the menacing purple snake from Kepler-283c.
@@ -626,23 +618,15 @@
   - type: Tag
     tags:
     - CannotSuicide
-  - type: SolutionManager # Being hit speeds you up so you can escape
+  - type: SolutionContainerManager # Being hit speeds you up so you can escape
     solutions:
-    - SolutionVenomDale
+      bite:
+        reagents:
+        - ReagentId: Stimulants
+          Quantity: 50
+        - ReagentId: TranexamicAcid
+          Quantity: 50
   - type: MeleeChemicalInjector
     transferAmount: 1
     solution: melee
     pierceArmor: true
-
-- type: entity
-  parent: [SolutionWeapon, SolutionNormal]
-  id: SolutionVenomDale
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Solution
-    solution:
-      reagents:
-      - ReagentId: Stimulants
-        Quantity: 50
-      - ReagentId: TranexamicAcid
-        Quantity: 50
