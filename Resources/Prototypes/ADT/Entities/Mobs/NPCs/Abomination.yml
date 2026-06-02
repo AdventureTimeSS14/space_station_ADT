@@ -39,8 +39,10 @@
   - type: Stamina
     critThreshold: 150
   - type: Bloodstream
-    bloodReagent: FluorosulfuricAcid
-    bloodMaxVolume: 200
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: FluorosulfuricAcid
+        Quantity: 200
   - type: StaminaDamageOnHit
     damage: 10
   - type: DamageStateVisuals
@@ -51,9 +53,10 @@
         Base: dead
   - type: Puller
   - type: Temperature
+    currentTemperature: 310.15
+  - type: TemperatureDamage
     heatDamageThreshold: 360
     coldDamageThreshold: -150
-    currentTemperature: 310.15
   - type: TypingIndicator
     proto: alien
   - type: Tag
@@ -111,8 +114,8 @@
       collection: AlienClaw
     animation: WeaponArcClaw
     damage:
-      groups:
-        Brute: 30
+      types:
+        Blunt: 30
   - type: ReplacementAccent
     accent: ADTReplaceAbomination
   - type: TTS
@@ -160,9 +163,8 @@
       collection: AlienClaw
     animation: WeaponArcClaw
     damage:
-      groups:
-        Brute: 20
       types:
+        Blunt: 20
         Structural: 30
   - type: Jumpboots
     jumpAction: CompActionJumpAbomination
@@ -221,8 +223,8 @@
       collection: AlienClaw
     animation: WeaponArcClaw
     damage:
-      groups:
-        Brute: 15
+      types:
+        Blunt: 15
   - type: ReplacementAccent
     accent: ADTReplaceAbomination
   - type: ExplodeOnTrigger
