@@ -66,20 +66,14 @@ public sealed class SiliconChargeAlertSystem : EntitySystem
         if (!ent.Comp.BatteryPowered)
             return;
 
-        if (!_powerCell.TryGetBatteryFromSlot(ent.Owner, out var battery)
-            || battery.Value.Comp.MaxCharge <= 0f)
+        if (!_powerCell.TryGetBatteryFromSlot(ent.Owner, out var battery))
         {
-            _alerts.ClearAlert(ent.Owner, ent.Comp.BatteryAlert);
             _alerts.ShowAlert(ent.Owner, ent.Comp.NoBatteryAlert);
             return;
         }
 
         var chargeLevel = (short)MathF.Round(_battery.GetChargeLevel(battery.Value.AsNullable()) * 10f);
 
-        if (chargeLevel == 0 && _powerCell.HasDrawCharge(ent.Owner))
-            chargeLevel = 1;
-
-        _alerts.ClearAlert(ent.Owner, ent.Comp.NoBatteryAlert);
         _alerts.ShowAlert(ent.Owner, ent.Comp.BatteryAlert, chargeLevel);
     }
 
