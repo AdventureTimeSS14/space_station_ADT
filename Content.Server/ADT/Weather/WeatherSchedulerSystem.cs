@@ -32,22 +32,20 @@ public sealed class WeatherSchedulerSystem : EntitySystem
                 comp.Stage = 0;
 
             var stage = comp.Stages[comp.Stage++];
-            var duration = stage.Duration.Next(_random);
-            comp.NextUpdate = now + TimeSpan.FromSeconds(duration);
+            var duration = TimeSpan.FromSeconds(stage.Duration.Next(_random));
+            comp.NextUpdate = now + duration;
 
             var mapId = Comp<MapComponent>(map).MapId;
-            if (stage.Weather is { } weather)
+            if (stage.Weather is {} weather)
             {
-                var ending = comp.NextUpdate - now;
-                // crossfade weather so as one ends the next starts
                 if (HasWeather(comp, comp.Stage - 1))
-                    ending += SharedWeatherSystem.ShutdownTime;
+                    duration += SharedWeatherSystem.StartupTime;
                 if (HasWeather(comp, comp.Stage + 1))
-                    ending += SharedWeatherSystem.StartupTime;
-                _weather.TrySetWeather(mapId, weather, out _, ending);
+                    duration += SharedWeatherSystem.ShutdownTime;
+                _weather.TryAddWeather(map, weather, out _, duration);
             }
 
-            if (stage.Message is { } message)
+            if (stage.Message is {} message)
             {
                 var msg = Loc.GetString(message);
                 _chat.ChatMessageToManyFiltered(

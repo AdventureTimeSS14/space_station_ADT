@@ -45,7 +45,7 @@ public partial struct WeatherStage
     public MinMax Duration = new(0, 0);
 
     /// <summary>
-    /// The weather prototype to add, or null for clear weather.
+    /// The weather status effect prototype to add, or null for clear weather.
     /// </summary>
     [DataField]
     public EntProtoId? Weather;

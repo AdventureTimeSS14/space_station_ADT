@@ -5,7 +5,7 @@
   components:
   - type: EntityTableContainerFill
     containers:
-      storagebase: !type:AllSelector
+      entity_storage: !type:AllSelector
         children:
         - id: ADTCursedHeart
 - type: entity
@@ -15,7 +15,7 @@
   components:
   - type: EntityTableContainerFill
     containers:
-      storagebase: !type:AllSelector
+      entity_storage: !type:AllSelector
         children:
         - id: ADTVavilonBook
 - type: entity
@@ -25,7 +25,7 @@
   components:
   - type: EntityTableContainerFill
     containers:
-      storagebase: !type:AllSelector
+      entity_storage: !type:AllSelector
         children:
         - id: ADTVampirismCrystal
 - type: entity
@@ -35,7 +35,7 @@
   components:
   - type: EntityTableContainerFill
     containers:
-      storagebase: !type:AllSelector
+      entity_storage: !type:AllSelector
         children:
         - id: ADTKatanacursedShard
 - type: entity
@@ -45,7 +45,7 @@
   components:
   - type: EntityTableContainerFill
     containers:
-      storagebase: !type:AllSelector
+      entity_storage: !type:AllSelector
         children:
         - id: ADTVehicleLavabike
 - type: entity
@@ -55,7 +55,7 @@
   components:
   - type: EntityTableContainerFill
     containers:
-      storagebase: !type:AllSelector
+      entity_storage: !type:AllSelector
         children:
         - id: Mjollnir
 - type: entity
@@ -65,7 +65,7 @@
   components:
   - type: EntityTableContainerFill
     containers:
-      storagebase: !type:AllSelector
+      entity_storage: !type:AllSelector
         children:
         - id: ADTWeaponStaffHealingWeak
 - type: entity
@@ -75,7 +75,7 @@
   components:
   - type: EntityTableContainerFill
     containers:
-      storagebase: !type:AllSelector
+      entity_storage: !type:AllSelector
         children:
         - id: ADTMegaCellMedium
 - type: entity
@@ -85,7 +85,7 @@
   components:
   - type: EntityTableContainerFill
     containers:
-      storagebase: !type:AllSelector
+      entity_storage: !type:AllSelector
         children:
         - id: ADTWeaponCutterAdv
         - id: SheetPlasma
@@ -98,7 +98,7 @@
   components:
   - type: EntityTableContainerFill
     containers:
-      storagebase: !type:AllSelector
+      entity_storage: !type:AllSelector
         children:
         - id: ADTClothingOuterArmorMinerLight
 - type: entity
@@ -108,7 +108,7 @@
   components:
   - type: EntityTableContainerFill
     containers:
-      storagebase: !type:AllSelector
+      entity_storage: !type:AllSelector
         children:
         - id: ADTModsuitModAntigrav
         - id: ADTModsuitModNightVision
@@ -121,6 +121,6 @@
   components:
   - type: EntityTableContainerFill
     containers:
-      storagebase: !type:AllSelector
+      entity_storage: !type:AllSelector
         children:
-        - id: SuperSynthesizerInstrument
+        - id: SuperSynthesizerInstrument

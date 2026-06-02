@@ -4,7 +4,7 @@
   components:
   - type: EntityTableContainerFill
     containers:
-      storagebase: !type:AllSelector
+      sentity_storage: !type:AllSelector
         children:
         - id: ADTModsuitCoreEnergy
           amount: 2
@@ -16,7 +16,7 @@
   components:
   - type: EntityTableContainerFill
     containers:
-      storagebase: !type:AllSelector
+      entity_storage: !type:AllSelector
         children:
         - id: ADTSheetCopper
           amount: 3
@@ -28,7 +28,7 @@
   components:
   - type: EntityTableContainerFill
     containers:
-      storagebase: !type:AllSelector
+      entity_storage: !type:AllSelector
         children:
         - id: ADTSheetZinc
           amount: 3
@@ -40,7 +40,7 @@
   components:
   - type: EntityTableContainerFill
     containers:
-      storagebase: !type:AllSelector
+      entity_storage: !type:AllSelector
         children:
         - id: ADTSheetLead
           amount: 3
@@ -52,7 +52,7 @@
   components:
   - type: EntityTableContainerFill
     containers:
-      storagebase: !type:AllSelector
+      entity_storage: !type:AllSelector
         children:
         - id: ADTmarble
           amount: 3
@@ -64,7 +64,7 @@
   components:
   - type: EntityTableContainerFill
     containers:
-      storagebase: !type:AllSelector
+      entity_storage: !type:AllSelector
         children:
         - id: MaterialWoodPlank
-          amount: 3
+          amount: 3

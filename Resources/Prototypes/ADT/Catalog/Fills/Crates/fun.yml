@@ -6,7 +6,7 @@
   components:
   - type: EntityTableContainerFill
     containers:
-      storagebase: !type:AllSelector
+      entity_storage: !type:AllSelector
         children:
         - id: ADTClothingUniformWhiteShortWeddingDress
         - id: ADTClothingUniformShortDressBlackGold
@@ -36,7 +36,7 @@
   components:
   - type: EntityTableContainerFill
     containers:
-      storagebase: !type:AllSelector
+      entity_storage: !type:AllSelector
         children:
         - id: ADTVehicleATV
           amount: 1
@@ -51,7 +51,7 @@
   components:
   - type: EntityTableContainerFill
     containers:
-      storagebase: !type:AllSelector
+      entity_storage: !type:AllSelector
         children:
         - id: ADTVehicleSyndicateSegway
           amount: 1
@@ -66,7 +66,7 @@
   components:
   - type: EntityTableContainerFill
     containers:
-      storagebase: !type:AllSelector
+      entity_storage: !type:AllSelector
         children:
         - id: SprayPaintBlue
           amount: 2
@@ -102,7 +102,7 @@
   components:
   - type: EntityTableContainerFill
     containers:
-      storagebase: !type:AllSelector
+      entity_storage: !type:AllSelector
         children:
         - id: ClothingOuterArmorAirsoftRed
           amount: 6
@@ -115,7 +115,7 @@
   components:
   - type: EntityTableContainerFill
     containers:
-      storagebase: !type:AllSelector
+      entity_storage: !type:AllSelector
         children:
         - id: WeaponSniperHristovBibis
           amount: 2
@@ -142,7 +142,7 @@
   components:
   - type: EntityTableContainerFill
     containers:
-      storagebase: !type:AllSelector
+      entity_storage: !type:AllSelector
         children:
         - id: BoxShotgunPracticeBibis
           amount: 2
@@ -164,9 +164,9 @@
   components:
   - type: EntityTableContainerFill
     containers:
-      storagebase: !type:AllSelector
+      entity_storage: !type:AllSelector
         children:
         - id: ADTRingBoxPlazma
         - id: ADTRingBoxEmerald
         - id: ADTRingBoxBlood
-        - id: ADTRingBoxTurk
+        - id: ADTRingBoxTurk
