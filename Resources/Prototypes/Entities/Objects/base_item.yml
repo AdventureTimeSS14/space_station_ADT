@@ -194,13 +194,6 @@
     sound: !type:SoundPathSpecifier
       path: /Audio/Items/Culinary/chop.ogg
 
-- type: entity
-  abstract: true
-  parent: BaseSlicingRefinable
-  id: BaseSlicingRefinableFood
-  components:
-  - type: ToolRefinableSolution
-
 # For entities with a hidden container slot that can be opened with a tool
 - type: entity
   abstract: true
