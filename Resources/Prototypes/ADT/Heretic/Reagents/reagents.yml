@@ -17,12 +17,17 @@
       effects:
       - !type:HealthChange
         damage:
-          groups:
-            Burn: -1
-            Toxin: -1
-            Airloss: -1
-            Brute: -1
-            Genetic: -1
+          types:
+            Heat: -1
+            Radiation: -1
+            Caustic: -1
+            Poison: -1
+            Asphyxiation: -1
+            Bloodloss: -1
+            Blunt: -1
+            Slash: -1
+            Piercing: -1
+            Cellular: -1
         conditions:
         - !type:HasComponentCondition
           components:
@@ -66,8 +71,9 @@
         probability: 0.5
       - !type:HealthChange
         damage:
-          groups:
-            Toxin: 5
+          types:
+            Poison: 5
+            Radiation: 5
         conditions:
         - !type:HasComponentCondition
           components:
