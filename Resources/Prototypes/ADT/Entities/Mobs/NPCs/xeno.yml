@@ -68,8 +68,10 @@
   - type: Stamina
     critThreshold: 200
   - type: Bloodstream
-    bloodReagent: FluorosulfuricAcid
-    bloodMaxVolume: 650
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: FluorosulfuricAcid
+        Quantity: 650
   - type: MeleeWeapon
     altDisarm: false
     angle: 0
@@ -107,9 +109,10 @@
   - type: TypingIndicator
     proto: alien
   - type: Temperature
+    currentTemperature: 310.15
+  - type: TemperatureDamage
     heatDamageThreshold: 360
     coldDamageThreshold: -150
-    currentTemperature: 310.15
   - type: Tag
     tags:
       - CannotSuicide
@@ -154,8 +157,8 @@
   #ADT Start: Xeno baff
   - type: MeleeWeapon
     damage:
-      groups:
-        Brute: 27
+      types:
+        Blunt: 27
   #- type: StaminaDamageOnHit
   #  damage: 12
   # ADT End
@@ -247,8 +250,8 @@
   - type: MovementSpeedModifier
   - type: MeleeWeapon
     damage:
-     groups:
-       Brute: 42 # ADT Tweak
+     types:
+       Blunt: 42 # ADT Tweak
   # Start ADT: Xeno Buff
   # - type: StaminaDamageOnHit
   #  damage: 35
