@@ -1527,7 +1527,7 @@
           # ADT-Tweak start (made HealthChange even)
             Brute: -7
             Burn: -6
-            Asphyxiation: -3
+            Airloss: -3
             Toxin: -4
           # ADT-Tweak end
 
