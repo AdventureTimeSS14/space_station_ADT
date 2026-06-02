@@ -26,15 +26,17 @@
     damage:
       types:
         Heat: -0.07
-      groups:
-        Brute: -0.07
+        Blunt: -0.07
+        Slash: -0.07
+        Piercing: -0.07
   - type: Fingerprint
   - type: Blindable
   - type: Temperature
-    heatDamageThreshold: 325
-    coldDamageThreshold: 260
     currentTemperature: 310.15
     specificHeat: 42
+  - type: TemperatureDamage
+    heatDamageThreshold: 325
+    coldDamageThreshold: 260
     coldDamage:
       types:
         Cold: 0.1 #per second, scales with temperature & other constants
