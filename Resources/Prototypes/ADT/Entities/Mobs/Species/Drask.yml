@@ -102,7 +102,7 @@
     damage: 5
   - type: Bloodstream
     bloodRefreshAmount: 2
-    bloodMaxVolume: 250
+    bloodMaxVolume: 375
     bloodReagent: Cryoxadone
   - type: MovementSpeedModifier
     baseWalkSpeed : 2.3
