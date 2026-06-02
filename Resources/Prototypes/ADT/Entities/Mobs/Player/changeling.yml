@@ -102,7 +102,10 @@
     wilhelmProbability: 0.001
   - type: CombatMode
   - type: Bloodstream
-    bloodMaxVolume: 50
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 50
   - type: CanEscapeInventory
   - type: MobPrice
     price: 5000
