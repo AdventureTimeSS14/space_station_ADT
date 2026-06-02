@@ -108,6 +108,10 @@
             ]
         },
         {
+            "name": "sign",
+            "directions": 1
+        },
+        {
             "name": "icon",
             "directions": 1
         },
