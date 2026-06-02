@@ -29,18 +29,11 @@
 - type: entity
   parent: ADTBSore
   id: ADTBSore1
-  name: Bluespace ore
+  name: bluespace-ore
   suffix: 1
   components:
   - type: Stack
     count: 1
-
-- type: stack
-  id: ADTBSoreStack
-  name: Bluespace ore
-  icon: { sprite: ADT/Objects/Materials/BS_ore.rsi, state: BS_ore }
-  spawn: ADTBSore1
-  maxCount: 30
 
 ## NewBFUU by M&B (еблан какой-то)
 - type: entity

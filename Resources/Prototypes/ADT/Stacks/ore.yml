@@ -20,8 +20,8 @@
   maxCount: 30
 
 - type: stack
-  id: ADTBScrystal
+  id: ADTBSoreStack
   name: bluespace-ore
-  icon: { sprite: ADT/Objects/Materials/crystal.rsi, state: crystal }
-  spawn: ADTMaterialBScrystal1
-  maxCount: 10
+  icon: { sprite: ADT/Objects/Materials/BS_ore.rsi, state: BS_ore }
+  spawn: ADTBSore1
+  maxCount: 30

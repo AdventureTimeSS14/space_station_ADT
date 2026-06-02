@@ -16,7 +16,7 @@ zinc-ore = цинковая руда
 
 lead-ore = свинцовая руда
 
-bluespace-ore = блюспейс кристалл
+bluespace-ore = блюспейс руда
 
 ent-ADTCopperOre = медная руда
     .desc = { ent-OreBase.desc }

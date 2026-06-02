@@ -9,7 +9,7 @@
 - type: material
   id: ADTBScrystal
   stackEntity: ADTMaterialBScrystal1
-  name: materials-bluespacecrystal
+  name: materials-bluespace
   unit: materials-unit-piece
   icon: { sprite: ADT/Objects/Materials/crystal.rsi, state: crystal }
   color: "#1d55c4"
