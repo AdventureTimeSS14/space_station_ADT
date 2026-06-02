@@ -547,9 +547,10 @@
           - !type:TemperatureCondition
             max: 173.0
           damage:
-            groups:
-              Brute: -28.8 # Лечит механические повреждения на 9.6 (28.8/3)
             types:
+              Blunt: -9.6
+              Slash: -9.6
+              Piercing: -9.6
               Caustic: 1.0
         - !type:GenericStatusEffect
           key: Stutter
