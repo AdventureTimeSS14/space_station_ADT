@@ -137,8 +137,8 @@
     angle: 0
     animation: WeaponArcBite
     damage:
-      groups:
-        Burn: 50
+      types:
+        Heat: 50
   - type: Puller
   - type: Tag
     tags:
