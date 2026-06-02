@@ -176,16 +176,15 @@
   - FloorTileItemShuttlePurple
   - FloorTileItemShuttleBlack
   - FloorTileItemShuttleRed
+  - FauxTileAstroAsteroidSandBorderless
+  - FauxTileAstroIronsand
+  - FauxTileAstroIronsandBorderless
   # ADT-tweak end
   # ADT Research Console Rework start
   position: 4,0
   requiredTech:
   - AdvancedEntertainment
   # ADT Research Console Rework end
-  - FauxTileAstroAsteroidSandBorderless
-  - FauxTileDesertAstroSand
-  - FauxTileAstroIronsand
-  - FauxTileAstroIronsandBorderless
 
 # Перенесено в ADT/Research/biochemical.yml
 # - type: technology
