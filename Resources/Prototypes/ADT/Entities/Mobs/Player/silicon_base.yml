@@ -119,7 +119,7 @@
     - type: Injurable
       damageContainer: ADTSiliconDamageContainer # Not a wall.
     - type: Stamina
-      critThreshold: 200
+      baseCritThreshold: 200
     - type: Destructible
       thresholds:
         - trigger: !type:DamageTrigger
@@ -206,7 +206,7 @@
         reagents:
         - ReagentId: Water
           Quantity: 0
-      chemicalMaxVolume: 0
+      bloodMaxVolume: 0
       bleedPuddleThreshold: 3
       bloodRefreshAmount: 0
       bloodlossThreshold: 0

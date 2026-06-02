@@ -116,7 +116,7 @@
     - type: Injurable
       damageContainer: ADTSiliconDamageContainer # Not a wall.
     - type: Stamina
-      critThreshold: 300
+      baseCritThreshold: 300
     - type: Destructible
       thresholds:
         - trigger: !type:DamageTrigger

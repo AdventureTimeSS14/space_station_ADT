@@ -317,7 +317,7 @@
       Dead:
         Base: tarantula_dead
   - type: Stamina
-    critThreshold: 200
+    baseCritThreshold: 200
   - type: MovementSpeedModifier
     baseWalkSpeed : 2.7
     baseSprintSpeed : 2.7
