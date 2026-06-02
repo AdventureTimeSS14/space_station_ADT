@@ -252,13 +252,13 @@
       orGroup: NotUseful
 # ADT-tweak start
     - id: ADTToyBlasterGunGreen
-      prob: 0.01
+      weight: 0.1
       orGroup: NotUseful
     - id: ADTToyBlasterGunRed
-      prob: 0.01
+      weight: 0.1
       orGroup: NotUseful
     - id: ADTToyBlasterGunBlue
-      prob: 0.01
-      orGroup: NotUseful
-# ADT-tweak end
       weight: 0.1
+      orGroup: NotUseful
+      weight: 0.1
+# ADT-tweak end
