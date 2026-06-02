@@ -1,5 +1,5 @@
 ﻿- type: entity
-  parent: [ SimpleSpaceMobBase, FlyingMobBase ]
+  parent: [ SimpleSpaceMobBase, FlyingMobBase, BaseSlicingRefinable ]
   id: BaseMobDragon
   suffix: ""
   name: space dragon
@@ -7,9 +7,6 @@
   abstract: true
   components:
   - type: Bloodstream
-    bloodlossThreshold: 0.8 # ADT-Tweak
-    bloodRefreshAmount: 2 # ADT-Tweak
-    damageBleedModifiers: ADTBloodlossDragon # ADT-Tweak
     bloodReferenceSolution:
       reagents:
       - ReagentId: Blood
@@ -47,7 +44,7 @@
   - type: MovementSpeedModifier
     baseWalkSpeed: 3.5 # ADT-Tweak 3 -> 3.5
     baseSprintSpeed: 5.5 # ADT-Tweak 5 -> 5.5
-    weightlessModifier: 1.5
+    baseWeightlessModifier: 1.5
   - type: RandomSprite
     available:
     - enum.DamageStateVisualLayers.Base:
@@ -101,49 +98,25 @@
       250: 0.85 # ADT-Tweak (less slow 250: 0.7 ---> 250: 0.85)
       350: 0.7 # ADT-Tweak (add new threshold)
       430: 0.5 # ADT-Tweak (higher threshold 400: 0.5 ---> 430: 0.5)
-# ADT-Tweak-start
-# disable taking damage from fire, since its a fire breathing dragon. # also it can't be lit on fire
-  - type: ExplosionResistance
-    damageCoefficient: 0.2
+  # disable taking damage from fire, since its a fire breathing dragon
   - type: Flammable
-    fireSpread: false
-    canResistFire: true
-    alwaysCombustible: false
-    canExtinguish: true
-    resisting: false
     damage:
       types: {}
-  - type: Temperature
-    heatDamageThreshold: 800
-    coldDamageThreshold: -800
-  - type: FlashImmunity
-  - type: EyeProtection
-  - type: Damageable
-    damageModifierSet: ADTDragonDamageSet
-  - type: Injurable
-  - type: Stamina
-    critThreshold: 350
-# ADT-Tweak-end
   - type: StatusEffects # Overwriting basesimplemob to remove flash, getting flashed as dragon just feelsbad
     allowed:
-    - Stutter
-    - Weakness #ADT-Weakness-Tweak
-    # - Electrocution # ADT-Tweak - ъуъ
-    # - ForcedSleep # ADT-Tweak - WHY THE FUCK CAN A DRAGON BE PUT TO SLEEP???
-    # - Pacified # ADT-Tweak - это чудище не обосрется от пакса
-    # - Drowsiness # ADT-Tweak - НЕ СПАТЬ
-    - Adrenaline #ADT-Medicine
     - Electrocution
     - Pacified
     - Adrenaline
+  - type: Temperature
   - type: TemperatureDamage
+    heatDamageThreshold: 2400
   - type: Metabolizer
     solutionOnBody: false
     updateInterval: 0.25
     metabolizerTypes: [ Dragon ]
     stages: [ Digestion, Bloodstream ]
-  - type: Butcherable
-    spawned:
+  - type: ToolRefinable
+    refineResult:
     - id: FoodMeatDragon
       amount: 2
   - type: InteractionPopup
@@ -207,16 +180,6 @@
     speedModifier: 2.5 # fast because dragon strong
     useSound:
       path: /Audio/Items/crowbar.ogg
-# ADT-Tweak start
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTypeTrigger
-        damageType: Blunt
-        damage: 1000
-      behaviors:
-      - !type:GibBehavior { }
-# ADT-Tweak end
 
 - type: entity
   parent: BaseMobDragon
@@ -272,10 +235,9 @@
       0: Alive
       200: Dead
   # less meat spawned since it's a lot easier to kill
-  - type: Butcherable
-    spawned:
+  - type: ToolRefinable
+    refineResult:
     - id: FoodMeatDragon
-      amount: 1
   - type: MeleeWeapon
     damage:
       types:
