@@ -38,8 +38,10 @@
       types:
         Blunt: 1 # В секунду.
   - type: Bloodstream
-    bloodMaxVolume: 180
-    bloodReagent: ShadekinBlood
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: ShadekinBlood
+        Quantity: 180
     bloodlossDamage:
       types:
         Bloodloss:
@@ -49,10 +51,11 @@
         Bloodloss:
           -0.25
   - type: Temperature
-    heatDamageThreshold: 330
-    coldDamageThreshold: 230
     currentTemperature: 310.15
     specificHeat: 46
+  - type: TemperatureDamage
+    heatDamageThreshold: 330
+    coldDamageThreshold: 230
     coldDamage:
       types:
         Cold : 0.05 #per second, scales with temperature & other constants
