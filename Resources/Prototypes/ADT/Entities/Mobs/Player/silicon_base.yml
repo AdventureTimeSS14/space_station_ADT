@@ -75,17 +75,18 @@
     - type: RadiationReceiver
     - type: AtmosExposed
     - type: Temperature
-      heatDamageThreshold: 700
-      coldDamageThreshold: 0
       currentTemperature: 400
       specificHeat: 24
+      atmosTemperatureTransferEfficiency: 0.05
+    - type: TemperatureDamage
+      heatDamageThreshold: 700
+      coldDamageThreshold: 0
       coldDamage:
         types:
           Cold: 0.1 # Per second, scales with temperature & other constants.
       heatDamage:
         types:
           Heat: 0.25 # Per second, scales with temperature & other constants.
-      atmosTemperatureTransferEfficiency: 0.05
     - type: ThermalRegulator
       metabolismHeat: 600
       radiatedHeat: 350
@@ -200,9 +201,11 @@
 # чтобы хилиться с помощью CableStack. Дело в том, что HealingSystem использует проверку на наличие BloodstreamComponent.
 # В любом случае Bloodstream здесь является костылём, чтобы не лезть в код. В будущем можно зделать для IPC нормальную bloodstream систему.
       damageBleedModifiers: BloodlossIPC
-      bloodReagent: Water
       bleedReductionAmount: 0
-      bloodMaxVolume: 0
+      bloodReferenceSolution:
+        reagents:
+        - ReagentId: Water
+          Quantity: 0
       chemicalMaxVolume: 0
       bleedPuddleThreshold: 3
       bloodRefreshAmount: 0
@@ -221,17 +224,18 @@
         types:
           Heat: 0.75
     - type: Temperature
-      heatDamageThreshold: 320
-      coldDamageThreshold: 255
       currentTemperature: 280
       specificHeat: 50
+      atmosTemperatureTransferEfficiency: 0.4
+    - type: TemperatureDamage
+      heatDamageThreshold: 320
+      coldDamageThreshold: 255
       coldDamage:
         types:
           Cold: 0.1 #per second, scales with temperature & other constants
       heatDamage:
         types:
           Heat: 0.15 #per second, scales with temperature & other constants
-      atmosTemperatureTransferEfficiency: 0.4
     - type: ThermalRegulator
       metabolismHeat: 1000 # Increase once we have more ways to regulate temperature
       radiatedHeat: 800
