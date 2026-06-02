@@ -228,4 +228,3 @@
   downedModifier: 0.5
   selfModifier: 0.5
   behavior: Inject
-  injectSound: /Audio/Items/Medical/brutepack_end.ogg

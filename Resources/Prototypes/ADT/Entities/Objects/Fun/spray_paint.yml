@@ -74,7 +74,7 @@
     consumptionUnit: 10
     blacklist:
       components:
-        - BecomeStation #костыль
+        - BecomesStation #костыль
   - type: Item
     sprite: ADT/Objects/Fun/spraycans.rsi
     heldPrefix: clown

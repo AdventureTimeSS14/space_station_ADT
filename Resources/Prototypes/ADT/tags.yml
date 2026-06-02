@@ -750,6 +750,9 @@
   id: SyndicateSegwayKeys
 
 - type: Tag
+  id: SkeletonMotorcycleKeys
+
+- type: Tag
   id: GunUpgradeVampirism
 
 - type: Tag
