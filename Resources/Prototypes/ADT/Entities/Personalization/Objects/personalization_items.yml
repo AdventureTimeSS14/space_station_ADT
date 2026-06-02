@@ -3472,7 +3472,7 @@
     - FullAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser.ogg
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: ADTFamilyBusinessPinkProjectile
     fireCost: 100
   - type: Appearance
@@ -3514,7 +3514,7 @@
       - state: purple_inhand-left
       right:
       - state: purple_inhand-right
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: ADTFamilyBusinessPurpleProjectile
     fireCost: 100
 
@@ -3542,7 +3542,7 @@
       - state: red_inhand-left
       right:
       - state: red_inhand-right
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: ADTFamilyBusinessRedProjectile
     fireCost: 100
 
