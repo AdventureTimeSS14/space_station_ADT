@@ -3337,6 +3337,8 @@
       - state: rykoslave-equipped-HELMET
         offset: "0, 0.06"
 
+# Minokaa
+
 - type: entity
   name: elegant whip
   parent: BaseItem
@@ -3364,6 +3366,304 @@
   - type: Tag
     tags:
       - ADTTelescopicBaton
+
+- type: entity
+  id: ADTFamilyBusinessProjectileBase
+  name: laser bolt
+  suffix: Personal, Minokaa, Cethet, NikSAN
+  parent: BulletLaser
+  categories: [ HideSpawnMenu ]
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/minokaa_cethet_niksan_family_business_projectile.rsi
+    rotation: 180
+    layers:
+    - state: pink
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types:
+        Heat: 11
+  - type: PointLight
+    color: "#ff7edb"
+    radius: 1.5
+    energy: 1.5
+
+- type: entity
+  id: ADTFamilyBusinessPinkProjectile
+  name: pink laser bolt
+  parent: ADTFamilyBusinessProjectileBase
+  categories: [ HideSpawnMenu ]
+
+- type: entity
+  id: ADTFamilyBusinessPurpleProjectile
+  name: purple laser bolt
+  parent: ADTFamilyBusinessPinkProjectile
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    layers:
+    - state: purple
+      shader: unshaded
+  - type: PointLight
+    color: "#b76dff"
+    radius: 1.5
+    energy: 1.5
+
+- type: entity
+  id: ADTFamilyBusinessRedProjectile
+  name: red laser bolt
+  parent: ADTFamilyBusinessPinkProjectile
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+      shader: unshaded
+  - type: PointLight
+    color: "#ff4040"
+    radius: 1.5
+    energy: 1.5
+
+- type: entity
+  id: ADTFamilyBusinessLaserPistolBase
+  name: 'EW-1 "family business"'
+  parent: BaseWeaponBatterySmall
+  abstract: true
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/minokaa_cethet_niksan_family_business.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: pink
+    - state: pink_charge
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Item
+    storedOffset: 0,-5
+    sprite: ADT/Personalization/minokaa_cethet_niksan_family_business.rsi
+    inhandVisuals:
+      left:
+      - state: pink_inhand-left
+      right:
+      - state: pink_inhand-right
+  - type: Clothing
+    sprite: ADT/Personalization/minokaa_cethet_niksan_family_business.rsi
+    quickEquip: false
+    slots:
+    - Belt
+    - suitStorage
+  - type: Gun
+    fireRate: 5
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    - FullAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser.ogg
+  - type: ProjectileBatteryAmmoProvider
+    proto: ADTFamilyBusinessPinkProjectile
+    fireCost: 100
+  - type: Appearance
+  - type: Battery
+    maxCharge: 1500
+    startingCharge: 1500
+  - type: StaticPrice
+    price: 420
+
+- type: entity
+  id: ADTFamilyBusinessLaserPistolPink
+  name: 'EW-1 "family business"'
+  description: A compact semi-automatic laser pistol with a pink grip, tuned for close personal protection.
+  parent: ADTFamilyBusinessLaserPistolBase
+  suffix: Personal, Minokaa, Cethet, NikSAN, Pink
+  categories: [ HideSpawnMenu ]
+
+- type: entity
+  id: ADTFamilyBusinessLaserPistolPurple
+  name: 'EW-2 "family business"'
+  description: A compact semi-automatic laser pistol with a purple grip, polished for a quieter kind of authority.
+  parent: ADTFamilyBusinessLaserPistolBase
+  suffix: Personal, Minokaa, Cethet, NikSAN, Purple
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: purple
+    - state: purple_charge
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Item
+    sprite: ADT/Personalization/minokaa_cethet_niksan_family_business.rsi
+    storedOffset: 0,-5
+    inhandVisuals:
+      left:
+      - state: purple_inhand-left
+      right:
+      - state: purple_inhand-right
+  - type: ProjectileBatteryAmmoProvider
+    proto: ADTFamilyBusinessPurpleProjectile
+    fireCost: 100
+
+- type: entity
+  id: ADTFamilyBusinessLaserPistolRed
+  name: 'EW-3 "family business"'
+  description: A compact semi-automatic laser pistol with a red grip, made for negotiations that have gone very wrong.
+  parent: ADTFamilyBusinessLaserPistolBase
+  suffix: Personal, Minokaa, Cethet, NikSAN, Red
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: red
+    - state: red_charge
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Item
+    sprite: ADT/Personalization/minokaa_cethet_niksan_family_business.rsi
+    storedOffset: 0,-5
+    inhandVisuals:
+      left:
+      - state: red_inhand-left
+      right:
+      - state: red_inhand-right
+  - type: ProjectileBatteryAmmoProvider
+    proto: ADTFamilyBusinessRedProjectile
+    fireCost: 100
+
+- type: thiefBackpackSet
+  id: ADTFamilyBusinessWeaponCasePinkKit
+  name: family-business-pistol-pink-name
+  description: family-business-pistol-pink-description
+  sprite:
+    sprite: ADT/Personalization/minokaa_cethet_niksan_family_business.rsi
+    state: icon_pink
+  content:
+  - ADTFamilyBusinessWeaponCasePink
+
+- type: thiefBackpackSet
+  id: ADTFamilyBusinessWeaponCasePurpleKit
+  name: family-business-pistol-purple-name
+  description: family-business-pistol-purple-description
+  sprite:
+    sprite: ADT/Personalization/minokaa_cethet_niksan_family_business.rsi
+    state: icon_purple
+  content:
+  - ADTFamilyBusinessWeaponCasePurple
+
+- type: thiefBackpackSet
+  id: ADTFamilyBusinessWeaponCaseRedKit
+  name: family-business-pistol-red-name
+  description: family-business-pistol-red-description
+  sprite:
+    sprite: ADT/Personalization/minokaa_cethet_niksan_family_business.rsi
+    state: icon_red
+  content:
+  - ADTFamilyBusinessWeaponCaseRed
+
+- type: entity
+  id: ADTFamilyBusinessWeaponCase
+  name: weapon case
+  description: A weapon case specially designed for the Evenwood family.
+  suffix: Personal, Minokaa, Cethet, NikSAN
+  parent: BaseItem
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/minokaa_cethet_niksan_weapon_case.rsi
+    layers:
+    - state: closed
+    - state: lock
+      shader: unshaded
+  - type: Item
+    sprite: ADT/Personalization/minokaa_cethet_niksan_weapon_case.rsi
+    size: Normal
+  - type: ActivatableUI
+    key: enum.MiningVoucherUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.MiningVoucherUiKey.Key:
+        type: MiningVoucherBoundUserInterface
+  - type: MiningVoucher
+    kits:
+    - ADTFamilyBusinessWeaponCasePinkKit
+    - ADTFamilyBusinessWeaponCasePurpleKit
+    - ADTFamilyBusinessWeaponCaseRedKit
+    typeDropPlace: InHands
+
+- type: entity
+  id: ADTFamilyBusinessWeaponCaseStorageBase
+  name: weapon case
+  description: A weapon case specially designed for the Evenwood family.
+  suffix: Personal, Minokaa, Cethet, NikSAN
+  parent: BaseStorageItem
+  abstract: true
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/minokaa_cethet_niksan_weapon_case.rsi
+    state: closed
+    layers:
+    - state: closed
+      map: [base]
+    - state: lock
+      shader: unshaded
+      map: ["enum.LockVisualLayers.Lock"]
+  - type: Appearance
+  - type: Item
+    sprite: ADT/Personalization/minokaa_cethet_niksan_weapon_case.rsi
+    size: Normal
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,1,1
+  - type: Lock
+  - type: LockedStorage
+  - type: LockVisuals
+    stateLocked: lock
+    stateUnlocked: unlock
+  - type: GenericVisualizer
+    visuals:
+      enum.StorageVisuals.Open:
+        base:
+          True: { state: open }
+          False: { state: closed }
+
+- type: entity
+  id: ADTFamilyBusinessWeaponCasePink
+  parent: ADTFamilyBusinessWeaponCaseStorageBase
+  suffix: Personal, Minokaa, Cethet, NikSAN, Pink
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: StorageFill
+    contents:
+    - id: ADTFamilyBusinessLaserPistolPink
+
+- type: entity
+  id: ADTFamilyBusinessWeaponCasePurple
+  parent: ADTFamilyBusinessWeaponCaseStorageBase
+  suffix: Personal, Minokaa, Cethet, NikSAN, Purple
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: StorageFill
+    contents:
+    - id: ADTFamilyBusinessLaserPistolPurple
+
+- type: entity
+  id: ADTFamilyBusinessWeaponCaseRed
+  parent: ADTFamilyBusinessWeaponCaseStorageBase
+  suffix: Personal, Minokaa, Cethet, NikSAN, Red
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: StorageFill
+    contents:
+    - id: ADTFamilyBusinessLaserPistolRed
 
 #honelin111
 - type: entity
