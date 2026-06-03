@@ -18107,7 +18107,7 @@ entities:
       parent: 2
     - type: SpamEmitSound
       enabled: False
-- proto: Bloodpack
+- proto: ADTBloodPackTransfusionFull
   entities:
   - uid: 17343
     components:

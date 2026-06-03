@@ -35,6 +35,8 @@
         amount: 1
       - id: ADTBloodPackTransfusionFull # ADT tweak: Blood IV
         amount: 1
+      - id: ADTSalineChemistryBottle
+        amount: 2
       - id: Gauze
       - id: EmergencyMedipen
 
@@ -49,6 +51,8 @@
       - id: Ointment
       - id: ADTBloodPackTransfusionFull # ADT tweak: Blood IV
       - id: Gauze
+      - id: ADTSalineChemistryBottle
+        amount: 2
       - id: EmergencyMedipen
         amount: 3
 

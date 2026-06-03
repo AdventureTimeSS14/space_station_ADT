@@ -7346,7 +7346,7 @@ entities:
     missingComponents:
     - Construction
     - Destructible
-- proto: Bloodpack
+- proto: ADTBloodPackTransfusionFull
   entities:
   - uid: 1108
     components:

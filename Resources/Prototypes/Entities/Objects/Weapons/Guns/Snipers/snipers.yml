@@ -102,7 +102,7 @@
     proto: CartridgeAntiMateriel
   # ADT-Tweak start
   - type: RunAndGunSpreadModifier
-    modifier: 3
+    modifier: 0.3
   - type: MeleeWeapon
     resetOnHandSelected: false
     attackRate: 0.65
@@ -125,7 +125,7 @@
   - type: AttachableHolder # ADT-Tweak
     slots:
       rmc-aslot-rail:
-        locked: false # ADT-Tweak true -> false 
+        locked: false # ADT-Tweak true -> false
         startingAttachable: ADTAttachmentHristovScope
         whitelist:
             tags:

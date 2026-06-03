@@ -87,6 +87,10 @@
       - id: RadAutoInjector
       - id: AntiPoisonMedipen
       - id: ADTBloodPackTransfusionFull # ADT Tweak: Blood IV
+      - id: ADTSalineChemistryBottle
+      - id: ADTSalineChemistryBottle
+      - id: ADTHemostasisAutoInjector
+      - id: Syringe
       # ADT Tweak End
       - id: MedicatedSuture
       - id: RegenerativeMesh

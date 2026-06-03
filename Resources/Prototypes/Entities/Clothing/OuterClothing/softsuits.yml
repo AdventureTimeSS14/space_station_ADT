@@ -136,6 +136,10 @@
         Heat: 0.90
         Radiation: 0.75
         Caustic: 0.5
+  # ADT-Tweak-Start
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.2
+  # ADT-Tweak-End
   - type: GroupExamine
   # - type: StealTarget ADT tweak
   #   stealGroup: ClothingOuterHardsuitVoidParamed ADT tweak

@@ -41,3 +41,5 @@
     - TimerTrigger
     - SignalTrigger
     - VoiceTrigger
+    - FlashPayload
+    - ExplosivePayload

@@ -7,6 +7,14 @@
   - ADTMagazineMagnumEmpty
 
 - type: latheRecipePack
+  id: ADTModulargrenades
+  recipes:
+  - SignalTrigger
+  - VoiceTrigger
+  - TimerTrigger
+  - ChemicalPayload
+
+- type: latheRecipePack
   id: ADTMagazineUraniumPack
   recipes:
   - ADTMagazineMagnumIncendiary
