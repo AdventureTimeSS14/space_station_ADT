@@ -19,6 +19,7 @@ figurines-qm-5 = Time to gamble!
 figurines-qm-6 = Viva la Cargonia!
 figurines-qm-7 = Where'd all our money go?
 figurines-qm-8 = 99% of gamblers quit right before they hit it big!
+figurines-qm-9 = Fill out the form.
 
 figurines-cargotech-1 = DRAGON ON ATS!
 figurines-cargotech-2 = I sold the station!
