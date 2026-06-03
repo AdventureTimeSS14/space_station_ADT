@@ -38,8 +38,7 @@ public sealed partial class SupermatterGasBarContainer : BoxContainer
         _proto = IoCManager.Resolve<IPrototypeManager>();
         _cache = IoCManager.Resolve<IResourceCache>();
 
-        var gasId = (int)gas;
-        var gasProto = _proto.Index<GasPrototype>(gasId.ToString());
+        var gasProto = _proto.Index<GasPrototype>(gas.ToString());
 
         // List definitions
         var detailLabels = new List<Label>()
@@ -84,7 +83,7 @@ public sealed partial class SupermatterGasBarContainer : BoxContainer
         GasBar.ForegroundStyleBoxOverride = new StyleBoxFlat();
         GasBarBorder.PanelOverride = new StyleBoxFlat();
 
-        var color = Color.FromHex("#" + gasProto.Color);
+        var color = gasProto.Color;
 
         var barOverride = (StyleBoxFlat)GasBar.ForegroundStyleBoxOverride;
         barOverride.BackgroundColor = color;
