@@ -889,6 +889,9 @@
   id: MagazineMagnum # WeaponPistolN1984
 
 - type: Tag
+  id: MagazineMagnumSubMachineGun # BaseMagazineMagnumSubMachineGun
+
+- type: Tag
   id: MagazinePistol # WeaponPistolMk58, WeaponPistolViper, ClothingBeltSecurity
 
 - type: Tag
