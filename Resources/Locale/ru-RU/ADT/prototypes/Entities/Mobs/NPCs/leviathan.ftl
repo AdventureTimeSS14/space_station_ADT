@@ -1,4 +1,4 @@
-ent-ADTSpaceLeviathan = космический кит
+ent-ADTSpaceLeviathan = космический левиафан
     .desc = Где-то в своей жизни вы явно свернули не туда...
 
 ent-ADTSpaceWhaleSegment = { ent-ADTSpaceLeviathan }

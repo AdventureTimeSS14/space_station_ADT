@@ -781,6 +781,9 @@
   description: uplink-miniature-energy-crossbow-desc
   icon: { sprite:  /Textures/ADT/Objects/Weapons/Guns/Battery/miniature_ebow.rsi, state: icon }
   productEntity: ADTWeaponMiniatureEnergyCrossbow
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 6
   cost:
     Telecrystal: 9
   categories:
