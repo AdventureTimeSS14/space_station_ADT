@@ -54,10 +54,12 @@ public sealed class FillLevelSpriteTest : GameTest
                         var entity = entMan.Spawn(proto.ID);
                         if (!spriteSystem.LayerMapTryGet(entity, SolutionContainerLayers.Fill, out var fillLayerId, false))
                         {
+                            entMan.DeleteEntity(entity);
                             Assert.Fail(@$"{proto.ID} has SolutionContainerVisualsComponent but no fill layer map.");
                         }
                         if (!spriteSystem.TryGetLayer(entity, fillLayerId, out var fillLayer, false))
                         {
+                            entMan.DeleteEntity(entity);
                             Assert.Fail(@$"{proto.ID} somehow lost a layer.");
                         }
                         var rsi = fillLayer.ActualRsi;
@@ -68,6 +70,7 @@ public sealed class FillLevelSpriteTest : GameTest
                             Assert.That(rsi.TryGetState(state, out _), @$"{proto.ID} has SolutionContainerVisualsComponent with
                                 MaxFillLevels = {visuals.MaxFillLevels}, but {rsi.Path} doesn't have state {state}!");
                         }
+                        entMan.DeleteEntity(entity);
                     }
 
                     // Test inhand sprite fills
