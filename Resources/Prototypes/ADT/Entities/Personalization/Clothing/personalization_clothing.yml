@@ -1865,3 +1865,25 @@
   - type: TemperatureProtection ##ADT-Tweak start
     heatingCoefficient: 1.025
     coolingCoefficient: 0.5 ##ADT-Tweak end
+
+# honelin111
+- type: entity
+  parent: ADTSponsorClothingNeckBase
+  id: ADTClothingNeckHonelin111Choker
+  suffix: honelin111
+  name: choker with a bell
+  description: A choker with a golden bell that jingles as you walk
+  components:
+  - type: Sprite
+    sprite: ADT/Personalization/honelin111_choker.rsi
+    state: icon
+  - type: Clothing
+    sprite: ADT/Personalization/honelin111_choker.rsi
+  - type: Item
+    size: Small
+  - type: FootstepModifier
+    slots: NECK
+    footstepSoundCollection:
+      collection: FootstepJester
+      params:
+        variation: 0.07

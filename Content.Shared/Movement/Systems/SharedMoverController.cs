@@ -549,17 +549,18 @@ public abstract partial class SharedMoverController : VirtualController
             return sound != null;
         }
 
-        if (_inventory.TryGetSlotEntity(uid, "shoes", out var shoes) &&
-            FootstepModifierQuery.TryComp(shoes, out var modifier))
+        // ADT-Tweak-Start
+        if (_inventory.TryGetInventoryEntity<FootstepModifierComponent>((uid, null), out var footstepEnt)
+            && footstepEnt.Comp != null)
         {
-            sound = modifier.FootstepSoundCollection;
+            sound = footstepEnt.Comp.FootstepSoundCollection;
             return sound != null;
         }
 
-        //ADT-Tweak-Start
-        bool haveShoes = shoes != null || _tags.HasTag(uid, SiliconFootstepSoundTag);
+        bool haveShoes = _inventory.TryGetSlotEntity(uid, "shoes", out _)
+            || _tags.HasTag(uid, SiliconFootstepSoundTag);
         return TryGetFootstepSound(uid, xform, haveShoes, out sound, tileDef: tileDef);
-        //ADT-Tweak-End
+        // ADT-Tweak-End
     }
 
     private bool TryGetFootstepSound(
