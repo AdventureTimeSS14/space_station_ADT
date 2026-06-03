@@ -135,7 +135,7 @@
   meltingPoint: 1064.76
     # ADT Start
   metabolisms:
-    Food:
+    Digestion:
       effects:
       - !type:SatiateHunger
         conditions:
