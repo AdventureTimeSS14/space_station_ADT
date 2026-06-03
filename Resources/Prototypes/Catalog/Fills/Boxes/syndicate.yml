@@ -98,7 +98,7 @@
         - id: SyndicateMicrowaveFlatpack
         - id: ADTSyndicateElectricRangeMachineCircuitboard # ADT-Tweak
         - id: WeaponCroissant
-          amount: 2
+          amount: 1
         - id: WeaponBaguette
         - id: PaperWrittenCombatBakeryKit
 
