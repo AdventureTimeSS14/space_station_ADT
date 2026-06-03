@@ -202,9 +202,7 @@
       damageBleedModifiers: BloodlossIPC
       bleedReductionAmount: 0
       bloodReferenceSolution:
-        reagents:
-        - ReagentId: Water
-          Quantity: 0
+        reagents: []
       bleedPuddleThreshold: 3
       bloodRefreshAmount: 0
       bloodlossThreshold: 0
