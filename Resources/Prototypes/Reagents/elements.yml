@@ -340,7 +340,7 @@
   meltingPoint: 960.5
     # ADT Start
   metabolisms:
-    Food:
+    Digestion:
       effects:
       - !type:SatiateHunger
         conditions:
@@ -417,7 +417,7 @@
   boilingPoint: 907.0
     # ADT Start
   metabolisms:
-    Food:
+    Digestion:
       effects:
       - !type:SatiateHunger
         conditions:
