@@ -142,9 +142,6 @@
     solutionOnBody: false
     updateInterval: 0.25
     metabolizerTypes: [ Dragon ]
-    groups:
-    - id: Medicine
-    - id: Poison
   - type: Butcherable
     spawned:
     - id: RandomAnomalySpawner
