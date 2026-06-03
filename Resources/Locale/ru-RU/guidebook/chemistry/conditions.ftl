@@ -25,8 +25,3 @@ reagent-effect-condition-guidebook-reagent-threshold =
                *[other] имеет между { NATURALFIXED($min, 2) } ед. и { NATURALFIXED($max, 2) } ед. { $reagent }
             }
     }
-reagent-effect-condition-guidebook-has-component =
-    цель { $invert ->
-        [true] не имеет
-       *[false] имеет
-    } компонент { $comp }
