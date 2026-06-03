@@ -147,7 +147,7 @@
     fuelConsumption: 0.01
     fuelLitCost: 0.1
     tankSafe: true
-  - type: ToggleableLightVisuals
+  - type: ToggleableVisuals
     spriteLayer: lighter_flame
     inhandVisuals:
       left:
@@ -497,7 +497,7 @@
     fuelConsumption: 0.01
     fuelLitCost: 0.1
     tankSafe: true
-  - type: ToggleableLightVisuals
+  - type: ToggleableVisuals
     spriteLayer: lighter_flame
     inhandVisuals:
       left:
@@ -1737,7 +1737,7 @@
         Slash: 15
         Piercing: 2.5
         Structural: 30
-  - type: ToggleableLightVisuals
+  - type: ToggleableVisuals
     spriteLayer: chainsword
     inhandVisuals:
       left:
@@ -2072,7 +2072,7 @@
     blacklist:
       tags:
       - ADTBatonBlocker
-  - type: ToggleableLightVisuals
+  - type: ToggleableVisuals
     spriteLayer: light
     inhandVisuals:
       left:

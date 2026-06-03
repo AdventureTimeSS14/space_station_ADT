@@ -67,7 +67,7 @@
             Slash: 10
             Heat: 10
             Structural: 25
-  - type: ToggleableLightVisuals
+  - type: ToggleableVisuals
     spriteLayer: blade
     inhandVisuals:
       left:

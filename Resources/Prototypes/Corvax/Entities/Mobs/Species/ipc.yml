@@ -33,7 +33,7 @@
 #   - type: Damageable
 #   damageContainer: SiliconIpc
 #     damageModifierSet: Ipc
-#   - type: ToggleableLightVisuals
+#   - type: ToggleableVisuals
 #   - type: PointLight
 #     enabled: false
 #     mask: /Textures/Effects/LightMasks/cone.png
