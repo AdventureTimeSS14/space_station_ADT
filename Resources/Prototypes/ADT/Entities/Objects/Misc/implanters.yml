@@ -201,3 +201,11 @@
 #   components:
 #     - type: Implanter
 #       implant: ADTGorlaxFriendlyFireImplant
+
+- type: entity
+  id: ADTCriticalAcidifierImplanter
+  name: Critical acidifier implanter
+  parent: BaseImplantOnlyImplanterSyndi
+  components:
+  - type: Implanter
+    implant: ADTCriticalAcidifierImplant

@@ -87,3 +87,7 @@ ent-ScratchesTranslatorImplanter = полноценный языковой им�
 ent-ADTGorlaxFriendlyFireImplanter = имплантер GFF
     .desc = { ent-BaseImplantOnlyImplanter.desc }
     .suffix = FriendlyFire
+
+ent-ADTCriticalAcidifierImplanter = имплантер "присмертный растворитель"
+    .desc = { ent-BaseImplantOnlyImplanter.desc }
+    .suffix = Крит

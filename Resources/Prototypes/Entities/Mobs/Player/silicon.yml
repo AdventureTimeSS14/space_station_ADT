@@ -461,11 +461,13 @@
     - NoConsoleSound
     - ADTSiliconStealthWhitelist  # ADT tweak
   # Start-ADT-Tweak
-  - type: HighlightWordsInChat
+  - type: HighlightWordsInChat # убрал отображение ии ибо незнаю как сделать учёт регистра.
     highlightWords:
       '#e00':
       - hl-words-ai-1
       - hl-words-ai-2
+      - hl-words-ai-3
+      - hl-words-ai-4
   - type: LanguageSpeaker
     languages:
       GalacticCommon: Speak

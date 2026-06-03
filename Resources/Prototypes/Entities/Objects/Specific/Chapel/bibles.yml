@@ -43,6 +43,7 @@
     slots:
     - Belt
   - type: Storage
+    maxItemSize: Small # ADT-Tweak
     grid:
     - 0,0,1,2 # ADT-Tweak
   - type: UserInterface

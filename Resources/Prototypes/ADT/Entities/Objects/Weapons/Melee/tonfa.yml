@@ -123,10 +123,10 @@
   - type: MeleeWeapon
     wideAnimationRotation: -135
     angle: 10
-    attackRate: 2
+    attackRate: 1
     damage:
       types:
-        Blunt: 13
+        Blunt: 18
   - type: Item
     sprite: ADT/Objects/Weapons/Melee/steel_tonfa.rsi
     size: Normal
@@ -180,7 +180,7 @@
           - OffensiveWideHit
         comboEvent:
           - !type:ComboStaminaDamageEffect
-            staminaDamage: 50
+            staminaDamage: 30
           - !type:ComboAudioEffect
             sound:
               collection: GenericHit
