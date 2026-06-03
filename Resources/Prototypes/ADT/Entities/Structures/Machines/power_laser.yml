@@ -31,6 +31,7 @@
   - type: Battery
     startingCharge: 0
     maxCharge: 100000000 # 100MJ
+    netsync: false
   - type: ExaminableBattery
   - type: BatteryCharger
     voltage: High
