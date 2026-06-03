@@ -36,6 +36,7 @@
         - ADTLasgunRevolverCell
         - ADTTelescopicBaton
         - ADTBola
+        - Hypospray
       components:
         - Stunbaton
         - FlashOnTrigger
@@ -44,7 +45,6 @@
         - Handcuff
         - BallisticAmmoProvider
         - Ammo
-        - Hypospray
         - Injector
         - Pill
         - HandLabeler

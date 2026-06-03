@@ -119,7 +119,7 @@
     - type: Injurable
       damageContainer: ADTSiliconDamageContainer # Not a wall.
     - type: Stamina
-      critThreshold: 200
+      baseCritThreshold: 200
     - type: Destructible
       thresholds:
         - trigger: !type:DamageTrigger
@@ -130,7 +130,6 @@
       sprite: ADT/Mobs/Species/IPC/parts.rsi
       state: full
     - type: MindContainer
-      showExamineInfo: true
     - type: Sprite
       noRot: true
       drawdepth: Mobs
@@ -206,17 +205,17 @@
         reagents:
         - ReagentId: Water
           Quantity: 0
-      chemicalMaxVolume: 0
+      bloodMaxVolume: 0
       bleedPuddleThreshold: 3
       bloodRefreshAmount: 0
       bloodlossThreshold: 0
       maxBleedAmount: 0
       bloodlossDamage:
         types:
-          Burn: 1.5
+          Heat: 1.5
       bloodlossHealDamage:
         types:
-          Burn: 0
+          Heat: 0
     - type: Flammable
       fireSpread: true
       canResistFire: true

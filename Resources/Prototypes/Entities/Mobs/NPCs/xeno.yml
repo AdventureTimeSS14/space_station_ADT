@@ -248,10 +248,8 @@
   - type: MovementSpeedModifier
   - type: MeleeWeapon
     damage:
-     groups:
-       Brute: 42 # ADT Tweak
-    types:
-      Slash: 12
+      types:
+        Slash: 42 # ADT Tweak
   - type: Fixtures
     fixtures:
       fix1:

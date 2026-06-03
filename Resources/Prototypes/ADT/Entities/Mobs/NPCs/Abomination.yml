@@ -37,7 +37,7 @@
     speedModifierThresholds:
       25: 0.5
   - type: Stamina
-    critThreshold: 150
+    baseCritThreshold: 150
   - type: Bloodstream
     bloodReferenceSolution:
       reagents:

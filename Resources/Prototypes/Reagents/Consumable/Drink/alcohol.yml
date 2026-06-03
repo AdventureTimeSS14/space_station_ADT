@@ -57,7 +57,7 @@
   fizziness: 0.6
       # Start ADT tweak
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:AdjustReagent
         reagent: Ethanol
@@ -84,7 +84,7 @@
   fizziness: 0.6
       # Start ADT tweak
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:AdjustReagent
         reagent: Ethanol

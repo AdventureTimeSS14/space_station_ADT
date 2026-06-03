@@ -13,9 +13,11 @@
       - !type:SatiateHunger
       - !type:HealthChange # ADT-Tweak start
         damage:
-          groups:
-            Brute: -0.2
-            Burn: -0.2
+          types:
+            Heat: -0.2
+            Shock: -0.2
+            Cold: -0.2
+            Piercing: -0.2
       - !type:ModifyBleed
         amount: -0.1
       - !type:ModifyBloodLevel

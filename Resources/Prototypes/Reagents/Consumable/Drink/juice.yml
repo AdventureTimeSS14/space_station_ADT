@@ -133,7 +133,7 @@
   color: "#731008"
       # Start ADT tweak
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:HealthChange
         damage:

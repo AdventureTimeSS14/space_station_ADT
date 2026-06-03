@@ -203,7 +203,6 @@
       canResistFire: true
       alwaysCombustible: false
       canExtinguish: true
-      resisting: false
       damage:
         types: {}
     - type: Temperature

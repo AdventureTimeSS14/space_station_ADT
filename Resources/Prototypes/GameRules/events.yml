@@ -47,7 +47,7 @@
     - id: NinjaSpawn
     - id: ParadoxCloneSpawn
     - id: SleeperAgents
-    - id: ZombieOutbreak
+  #  - id: ZombieOutbreak
     - id: LoneOpsSpawn
     - id: WizardSpawn
     - id: Pirates # ADT tweak pirates

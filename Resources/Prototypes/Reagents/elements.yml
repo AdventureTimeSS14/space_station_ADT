@@ -10,7 +10,7 @@
   meltingPoint: 660.0
     # ADT Start
   metabolisms:
-    Food:
+    Digestion:
       effects:
       - !type:SatiateHunger
         conditions:
@@ -88,7 +88,7 @@
           type: [ Arachnid ]
         amount: 0.4
     # ADT Start
-    Food:
+    Digestion:
       effects:
       - !type:SatiateHunger
         conditions:

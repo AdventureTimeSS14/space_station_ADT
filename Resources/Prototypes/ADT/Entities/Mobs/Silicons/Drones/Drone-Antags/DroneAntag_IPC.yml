@@ -116,7 +116,7 @@
     - type: Injurable
       damageContainer: ADTSiliconDamageContainer # Not a wall.
     - type: Stamina
-      critThreshold: 300
+      baseCritThreshold: 300
     - type: Destructible
       thresholds:
         - trigger: !type:DamageTrigger
@@ -127,7 +127,6 @@
       sprite: ADT/Mobs/Silicon/Drones/AntagDrones/drone-ipc-soldier.rsi
       state: ipc_full
     - type: MindContainer
-      showExamineInfo: true
     - type: Sprite
       noRot: true
       drawdepth: Mobs

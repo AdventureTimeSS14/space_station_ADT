@@ -1,6 +1,6 @@
 - type: guideEntry
   id: ADTRuleset
-  name: Правила сервера
+  name: guide-entry-adt-ruleset
   priority: 0
   ruleEntry: true
   text: "/ServerInfo/ADT/Guidebook/ServerRules/MrpRuleset.xml"
@@ -19,84 +19,84 @@
 
 - type: guideEntry
   id: ADTRule0
-  name: Правило 0
+  name: guide-entry-adt-rule0
   priority: 1
   ruleEntry: true
   text: "/ServerInfo/ADT/Guidebook/ServerRules/Rule0.xml"
 
 - type: guideEntry
   id: ADTRule1
-  name: Правило 1
+  name: guide-entry-adt-rule1
   priority: 2
   ruleEntry: true
   text: "/ServerInfo/ADT/Guidebook/ServerRules/Rule1.xml"
 
 - type: guideEntry
   id: ADTRule2
-  name: Правило 2
+  name: guide-entry-adt-rule2
   priority: 3
   ruleEntry: true
   text: "/ServerInfo/ADT/Guidebook/ServerRules/Rule2.xml"
 
 - type: guideEntry
   id: ADTRule3
-  name: Правило 3
+  name: guide-entry-adt-rule3
   priority: 4
   ruleEntry: true
   text: "/ServerInfo/ADT/Guidebook/ServerRules/Rule3.xml"
 
 - type: guideEntry
   id: ADTRule4
-  name: Правило 4
+  name: guide-entry-adt-rule4
   priority: 5
   ruleEntry: true
   text: "/ServerInfo/ADT/Guidebook/ServerRules/Rule4.xml"
 
 - type: guideEntry
   id: ADTRule5
-  name: Правило 5
+  name: guide-entry-adt-rule5
   priority: 6
   ruleEntry: true
   text: "/ServerInfo/ADT/Guidebook/ServerRules/Rule5.xml"
 
 - type: guideEntry
   id: ADTRule6
-  name: Правило 6
+  name: guide-entry-adt-rule6
   priority: 7
   ruleEntry: true
   text: "/ServerInfo/ADT/Guidebook/ServerRules/Rule6.xml"
 
 - type: guideEntry
   id: ADTRule7
-  name: Правило 7
+  name: guide-entry-adt-rule7
   priority: 8
   ruleEntry: true
   text: "/ServerInfo/ADT/Guidebook/ServerRules/Rule7.xml"
 
 - type: guideEntry
   id: ADTRule8
-  name: Правило 8
+  name: guide-entry-adt-rule8
   priority: 9
   ruleEntry: true
   text: "/ServerInfo/ADT/Guidebook/ServerRules/Rule8.xml"
 
 - type: guideEntry
   id: ADTRule9
-  name: Правило 9
+  name: guide-entry-adt-rule9
   priority: 10
   ruleEntry: true
   text: "/ServerInfo/ADT/Guidebook/ServerRules/Rule9.xml"
 
 - type: guideEntry
   id: ADTRule10
-  name: Правило 10
+  name: guide-entry-adt-rule10
   priority: 11
   ruleEntry: true
   text: "/ServerInfo/ADT/Guidebook/ServerRules/Rule10.xml"
 
 - type: guideEntry
   id: FlavorTextRules
-  name: Правила описания персонажа
+  name: guide-entry-adt-rules-char-desc
   priority: 12
   ruleEntry: true
   text: "/ServerInfo/ADT/Guidebook/ServerRules/FlavorTextRules.xml"
