@@ -32,7 +32,6 @@
     rotateWhileAnchored: false
   - type: InteractionOutline
   - type: Appearance
-  - type: ThrusterVisuals
   - type: ApcPowerReceiver
     powerLoad: 2000
   - type: ExtensionCableReceiver
