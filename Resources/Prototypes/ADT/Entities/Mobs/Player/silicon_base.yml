@@ -205,7 +205,6 @@
         reagents:
         - ReagentId: Water
           Quantity: 0
-      bloodMaxVolume: 0
       bleedPuddleThreshold: 3
       bloodRefreshAmount: 0
       bloodlossThreshold: 0
