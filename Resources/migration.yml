@@ -927,3 +927,30 @@ CrateVendingMachineRestockGetmoreChocolateCorpFilled: VendingMachineRestockGetmo
 CrateVendingMachineRestockChangFilled: VendingMachineRestockChang
 CrateVendingMachineRestockDiscountDansFilled: VendingMachineRestockDiscountDans
 CrateVendingMachineRestockDonutFilled: VendingMachineRestockDonut
+
+# 2026-06-03 ADT-Claner
+HeadSlime: Null 
+TorsoHuman: Null
+SpawnPointADTGuardOfficer: Null
+RightFootSkeleton: Null 
+RightLegArachnid: Null
+HeadMoth: Null 
+HeadVox: Null 
+LeftFootReptilian: Null
+LeftFootSkeleton: Null
+LeftHandHuman: Null
+LeftLegReptilian: Null
+RightHandHuman: Null
+RightLegSkeleton: Null
+ADTHeadShadekin: Null
+ADTLeftArmShadekin: Null
+ADTRightLegShadekin: Null
+HeadGingerbread: Null
+LeftHandGingerbread: Null
+RightFootGingerbread: Null
+TorsoGingerbread: Null
+ADTHeadVulpkanin: Null
+XenoborgLaserGun: Null
+HeadVox: Null
+ADTEctoplasmicPistol: Null
+ADTEctoplasmicRifle: Null
