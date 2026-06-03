@@ -42,14 +42,13 @@
         maxVol: 20
   - type: DeleteOnSolutionEmpty
     solution: pen
-  - type: Injector 
+  - type: Injector
     activeModeProtoId: ADTPatchInject
     allowedModes:
     - ADTPatchInject
     ignoreClosed: true
     solutionName: pen
     currentTransferAmount: 20
-    injectSound: /Audio/Items/Medical/brutepack_end.ogg
   - type: Extractable
     grindableSolutionName: pen
   - type: Appearance
@@ -228,3 +227,4 @@
   downedModifier: 0.5
   selfModifier: 0.5
   behavior: Inject
+  injectSound: /Audio/Items/Medical/brutepack_end.ogg
