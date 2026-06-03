@@ -6,7 +6,7 @@
   components:
   - type: EntityTableContainerFill
     containers:
-      storagebase: !type:AllSelector
+      entity_storageя: !type:AllSelector
         children:
         - id: MiniSyringe
           amount: 9
