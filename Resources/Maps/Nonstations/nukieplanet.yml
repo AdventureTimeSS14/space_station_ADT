@@ -10163,7 +10163,7 @@ entities:
     - type: Transform
       pos: -0.5,-1.5
       parent: 104
-- proto: EnergyChemDispenserBuffed
+- proto: ChemDispenser
   entities:
   - uid: 2539
     components:

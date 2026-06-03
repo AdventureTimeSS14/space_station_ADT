@@ -11055,8 +11055,6 @@ entities:
   entities:
   - uid: 21779
     components:
-    - type: MetaData
-      name: Freezer Air Alarm
     - type: Transform
       pos: -4.5,42.5
       parent: 2
@@ -74920,11 +74918,6 @@ entities:
     - type: Transform
       pos: 53.5,41.5
       parent: 2
-  - uid: 24554
-    components:
-    - type: Transform
-      pos: 78.5,-40.5
-      parent: 2
 - proto: CrateFreezer
   entities:
   - uid: 452
@@ -128038,8 +128031,6 @@ entities:
     - type: Transform
       pos: 32.5,11.5
       parent: 2
-    - type: Fixtures
-      fixtures: {}
   - uid: 24129
     components:
     - type: Transform
@@ -129356,8 +129347,6 @@ entities:
     - type: Transform
       pos: 9.5,-30.5
       parent: 2
-    - type: Fixtures
-      fixtures: {}
 - proto: JanitorialTrolley
   entities:
   - uid: 1342
@@ -133119,8 +133108,6 @@ entities:
       parent: 2
   - uid: 24560
     components:
-    - type: MetaData
-      name: Shutters
     - type: Transform
       pos: -26.5,-38.5
       parent: 2
@@ -137810,15 +137797,11 @@ entities:
     - type: Transform
       pos: -66.5,33.5
       parent: 2
-    - type: Fixtures
-      fixtures: {}
   - uid: 22165
     components:
     - type: Transform
       pos: -44.5,35.5
       parent: 2
-    - type: Fixtures
-      fixtures: {}
   - uid: 22166
     components:
     - type: Transform
@@ -137934,15 +137917,11 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -65.5,-20.5
       parent: 2
-    - type: Fixtures
-      fixtures: {}
   - uid: 22211
     components:
     - type: Transform
       pos: -76.5,-21.5
       parent: 2
-    - type: Fixtures
-      fixtures: {}
   - uid: 22212
     components:
     - type: Transform
@@ -139236,8 +139215,6 @@ entities:
     - type: Transform
       pos: -84.5,-7.5
       parent: 2
-    - type: Fixtures
-      fixtures: {}
   - uid: 22216
     components:
     - type: Transform
@@ -148960,8 +148937,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: 21.478838,-10.294827
       parent: 2
-    - type: Fixtures
-      fixtures: {}
 - proto: SecurityTechFab
   entities:
   - uid: 2654
@@ -163517,13 +163492,6 @@ entities:
     components:
     - type: Transform
       pos: 5.3786106,-12.892362
-      parent: 2
-- proto: ToyFigurineChef
-  entities:
-  - uid: 3178
-    components:
-    - type: Transform
-      pos: -5.4451985,-32.696793
       parent: 2
 - proto: ToyFigurineChemist
   entities:

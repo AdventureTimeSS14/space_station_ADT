@@ -59180,17 +59180,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 13.5,-10.5
       parent: 60
-  - uid: 16150
-    components:
-    - type: Transform
-      pos: -26.49991,46.43509
-      parent: 60
-  - uid: 16456
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -26.60413,44.66303
-      parent: 60
 - proto: ChairOfficeDark
   entities:
   - uid: 492

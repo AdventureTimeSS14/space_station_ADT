@@ -4138,12 +4138,6 @@ entities:
             792: 46.091167,-10.859828
             793: 46.263042,-10.062953
         - node:
-            color: '#FFFFFFFF'
-            id: GrayConcreteTrimLineN
-          decals:
-            6404: 50,37
-            6405: 51,37
-        - node:
             color: '#334E6DC8'
             id: HalfTileOverlayGreyscale
           decals:
@@ -6575,13 +6569,6 @@ entities:
             5431: 52,42
             5434: 52,42
         - node:
-            color: '#FFFFFFFF'
-            id: burnt3
-          decals:
-            5430: 52,42
-            5431: 52,42
-            5434: 52,42
-        - node:
             cleanable: True
             color: '#FFFFFFFF'
             id: burnt3
@@ -6598,11 +6585,6 @@ entities:
             7019: 51,-45
             7020: 48,-49
             7021: 48,-48
-        - node:
-            color: '#FFFFFFFF'
-            id: burnt4
-          decals:
-            5432: 54,41
         - node:
             color: '#FFFFFFFF'
             id: burnt4
@@ -8528,16 +8510,6 @@ entities:
     - type: Transform
       pos: 46.5,30.5
       parent: 2
-    - type: DeviceLinkSource
-      linkedPorts:
-        318:
-        - - DoorStatus
-          - Close
-        257:
-        - - DoorStatus
-          - Close
-    - type: DeviceLinkSink
-      invokeCounter: 1
 - proto: AirlockBrigLocked
   entities:
   - uid: 32
@@ -13797,12 +13769,6 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 53.5,-0.5
-      parent: 2
-  - uid: 15805
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 49.5,16.5
       parent: 2
 - proto: ButtonFrameGrey
   entities:
@@ -41279,11 +41245,6 @@ entities:
     - type: Transform
       pos: 19.5,-34.5
       parent: 2
-  - uid: 9144
-    components:
-    - type: Transform
-      pos: 47.5,34.5
-      parent: 2
   - uid: 10906
     components:
     - type: Transform
@@ -44474,12 +44435,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 54.5,30.5
       parent: 2
-  - uid: 15612
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 54.5,30.5
-      parent: 2
 - proto: DisposalJunction
   entities:
   - uid: 2422
@@ -46788,12 +46743,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: 35.5,29.5
       parent: 2
-  - uid: 15883
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 37.5,28.5
-      parent: 2
 - proto: DisposalUnit
   entities:
   - uid: 374
@@ -46890,11 +46839,6 @@ entities:
     components:
     - type: Transform
       pos: 41.5,-1.5
-      parent: 2
-  - uid: 7595
-    components:
-    - type: Transform
-      pos: 37.5,28.5
       parent: 2
   - uid: 8361
     components:
@@ -51209,16 +51153,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 45.5,-39.5
       parent: 2
-  - uid: 10047
-    components:
-    - type: MetaData
-      name: gas filter (Waste Filter)
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 63.5,23.5
-      parent: 2
-    - type: AtmosPipeColor
-      color: '#990000FF'
   - uid: 11767
     components:
     - type: Transform
@@ -55704,7 +55638,7 @@ entities:
       pos: 50.5,34.5
       parent: 2
     - type: AtmosPipeColor
-      color: '#990000FF'
+      color: '#0055CCFF'
   - uid: 3289
     components:
     - type: Transform
@@ -65223,38 +65157,6 @@ entities:
       color: '#0055CCFF'
     - type: DeviceNetwork
       deviceLists:
-      - 14171
-    - type: AtmosPipeColor
-      color: '#0055CCFF'
-  - uid: 8540
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 44.5,41.5
-      parent: 2
-    - type: AtmosPipeColor
-      color: '#0055CCFF'
-  - uid: 8601
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 59.5,18.5
-      parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 10576
-    - type: AtmosPipeColor
-      color: '#0055CCFF'
-  - uid: 8706
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 37.5,33.5
-      parent: 2
-    - type: AtmosPipeColor
-      color: '#0055CCFF'
-    - type: DeviceNetwork
-      deviceLists:
       - 8571
   - uid: 9266
     components:
@@ -72011,11 +71913,6 @@ entities:
     - type: Transform
       pos: 38.482082,-17.438766
       parent: 2
-  - uid: 12549
-    components:
-    - type: Transform
-      pos: 44.355003,29.376284
-      parent: 2
 - proto: HandheldStationMap
   entities:
   - uid: 9400
@@ -74335,12 +74232,6 @@ entities:
       parent: 2
 - proto: MedkitBruteFilled
   entities:
-  - uid: 10433
-    components:
-    - type: Transform
-      rot: -12.566370614359172 rad
-      pos: 42.480003,28.626284
-      parent: 2
   - uid: 11915
     components:
     - type: Transform
@@ -74377,11 +74268,6 @@ entities:
     - type: Transform
       pos: 18.523928,24.634445
       parent: 2
-  - uid: 7846
-    components:
-    - type: Transform
-      pos: 42.37063,29.016909
-      parent: 2
   - uid: 9625
     components:
     - type: Transform
@@ -74403,12 +74289,6 @@ entities:
     components:
     - type: Transform
       pos: 72.61498,6.0402474
-      parent: 2
-  - uid: 12493
-    components:
-    - type: Transform
-      rot: -12.566370614359172 rad
-      pos: 42.62063,29.001284
       parent: 2
 - proto: MedkitRadiationFilled
   entities:
@@ -74621,12 +74501,6 @@ entities:
     - type: Transform
       pos: 69.28111,-15.352209
       parent: 2
-  - uid: 13502
-    components:
-    - type: Transform
-      parent: 13141
-    - type: Physics
-      canCollide: False
 - proto: NetworkConfigurator
   entities:
   - uid: 909
@@ -74700,11 +74574,6 @@ entities:
     components:
     - type: Transform
       pos: 12.5,16.5
-      parent: 2
-  - uid: 9312
-    components:
-    - type: Transform
-      pos: 50.5,46.5
       parent: 2
   - uid: 9901
     components:
@@ -75684,11 +75553,6 @@ entities:
     - type: Transform
       pos: 81.5,12.5
       parent: 2
-  - uid: 6400
-    components:
-    - type: Transform
-      pos: 81.5,12.5
-      parent: 2
   - uid: 7854
     components:
     - type: Transform
@@ -75746,7 +75610,7 @@ entities:
     - type: Transform
       pos: 10.5,-31.5
       parent: 2
-- proto: PortableGeneratorSuperPacman
+- proto: PortableScrubber
   entities:
   - uid: 6765
     components:
@@ -79958,12 +79822,6 @@ entities:
     - type: Transform
       pos: 47.5,-48.5
       parent: 2
-  - uid: 13517
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 41.5,32.5
-      parent: 2
 - proto: ReinforcedWindow
   entities:
   - uid: 6
@@ -81183,12 +81041,6 @@ entities:
     - type: Transform
       pos: 2.5,3.5
       parent: 2
-  - uid: 5335
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 50.5,16.5
-      parent: 2
   - uid: 5357
     components:
     - type: Transform
@@ -81732,12 +81584,6 @@ entities:
     components:
     - type: Transform
       pos: 73.5,24.5
-      parent: 2
-  - uid: 11280
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 30.5,29.5
       parent: 2
   - uid: 11609
     components:
@@ -82858,12 +82704,14 @@ entities:
   - uid: 13630
     components:
     - type: Transform
-      pos: 36.5,23.5
+      rot: -1.5707963267948966 rad
+      pos: 28.5,20.5
       parent: 2
   - uid: 14167
     components:
     - type: Transform
-      pos: 47.5,37.5
+      rot: -1.5707963267948966 rad
+      pos: 28.5,21.5
       parent: 2
   - uid: 14628
     components:
@@ -89598,12 +89446,6 @@ entities:
     - type: Transform
       pos: 51.5,1.5
       parent: 2
-  - uid: 3063
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 28.5,30.5
-      parent: 2
   - uid: 3512
     components:
     - type: Transform
@@ -89727,12 +89569,6 @@ entities:
     - type: Transform
       pos: 55.5,-10.5
       parent: 2
-  - uid: 7566
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 28.5,31.5
-      parent: 2
   - uid: 7611
     components:
     - type: Transform
@@ -89811,11 +89647,6 @@ entities:
     - type: Transform
       pos: 86.5,28.5
       parent: 2
-  - uid: 14525
-    components:
-    - type: Transform
-      pos: 50.5,34.5
-      parent: 2
   - uid: 14554
     components:
     - type: Transform
@@ -89835,11 +89666,6 @@ entities:
     components:
     - type: Transform
       pos: 89.5,32.5
-      parent: 2
-  - uid: 14656
-    components:
-    - type: Transform
-      pos: 51.5,34.5
       parent: 2
   - uid: 14661
     components:
@@ -89970,11 +89796,6 @@ entities:
     - type: Transform
       pos: 30.5,6.5
       parent: 2
-  - uid: 7753
-    components:
-    - type: Transform
-      pos: 44.5,25.5
-      parent: 2
   - uid: 8646
     components:
     - type: Transform
@@ -90061,14 +89882,6 @@ entities:
     - type: Transform
       pos: 27.5,8.5
       parent: 2
-- proto: TargetSyndicate
-  entities:
-  - uid: 2203
-    components:
-    - type: Transform
-      pos: 50.5,38.5
-      parent: 2
-    - type: Conveyed
 - proto: TegCenter
   entities:
   - uid: 13127
@@ -90320,40 +90133,6 @@ entities:
     - type: Transform
       pos: 36.482082,-14.3137665
       parent: 2
-- proto: ToolboxEmergency
-  entities:
-  - uid: 13141
-    components:
-    - type: MetaData
-      desc: A bright red toolbox, stocked with everything a warden needs to maintain their brig.
-      name: warden's toolbox
-    - type: Transform
-      pos: 44.461845,24.599695
-      parent: 2
-    - type: Storage
-      storedItems:
-        13169:
-          position: 3,0
-          _rotation: North
-        13431:
-          position: 0,0
-          _rotation: South
-        13499:
-          position: 1,0
-          _rotation: South
-        13502:
-          position: 2,0
-          _rotation: South
-    - type: ContainerContainer
-      containers:
-        storagebase: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 13431
-          - 13499
-          - 13502
-          - 13169
 - proto: ToolboxEmergencyFilled
   entities:
   - uid: 4997
@@ -90608,8 +90387,6 @@ entities:
           - Close
   - uid: 12257
     components:
-    - type: MetaData
-      name: two way lever (Recycler)
     - type: Transform
       pos: 9.5,33.5
       parent: 2
@@ -90641,14 +90418,8 @@ entities:
           - Forward
         - - Right
           - Reverse
-        - - Right
-          - Forward
         - - Middle
           - Off
-    - type: Label
-      currentLabel: Recycler
-    - type: NameModifier
-      baseName: two way lever
 - proto: UniformPrinter
   entities:
   - uid: 10283
@@ -91284,11 +91055,6 @@ entities:
     components:
     - type: Transform
       pos: -27.5,1.5
-      parent: 2
-  - uid: 466
-    components:
-    - type: Transform
-      pos: 52.5,7.5
       parent: 2
   - uid: 470
     components:
@@ -93103,7 +92869,7 @@ entities:
     - type: Transform
       pos: 48.5,20.5
       parent: 2
-  - uid: 3069
+  - uid: 3063
     components:
     - type: Transform
       pos: 28.5,-25.5
@@ -93485,11 +93251,6 @@ entities:
     - type: Transform
       pos: 72.5,40.5
       parent: 2
-  - uid: 3381
-    components:
-    - type: Transform
-      pos: 49.5,36.5
-      parent: 2
   - uid: 3383
     components:
     - type: Transform
@@ -93563,11 +93324,6 @@ entities:
     components:
     - type: Transform
       pos: 73.5,19.5
-      parent: 2
-  - uid: 3429
-    components:
-    - type: Transform
-      pos: 54.5,26.5
       parent: 2
   - uid: 3435
     components:
@@ -93689,7 +93445,7 @@ entities:
     - type: Transform
       pos: 52.5,26.5
       parent: 2
-  - uid: 3493
+  - uid: 3483
     components:
     - type: Transform
       pos: 29.5,-25.5
@@ -96986,11 +96742,6 @@ entities:
     components:
     - type: Transform
       pos: 27.5,-41.5
-      parent: 2
-  - uid: 12562
-    components:
-    - type: Transform
-      pos: 53.5,7.5
       parent: 2
   - uid: 12664
     components:
@@ -100313,7 +100064,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 7.5,-4.5
       parent: 2
-  - uid: 2310
+  - uid: 2247
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
@@ -101586,11 +101337,6 @@ entities:
     - type: Transform
       pos: 70.5,27.5
       parent: 2
-  - uid: 5152
-    components:
-    - type: Transform
-      pos: 70.5,27.5
-      parent: 2
   - uid: 5174
     components:
     - type: Transform
@@ -102727,11 +102473,6 @@ entities:
     - type: Transform
       pos: 40.5,22.5
       parent: 2
-  - uid: 8559
-    components:
-    - type: Transform
-      pos: 40.5,22.5
-      parent: 2
 - proto: WaterVaporCanister
   entities:
   - uid: 1923
@@ -102918,13 +102659,6 @@ entities:
     components:
     - type: Transform
       pos: 30.619171,-30.538046
-      parent: 2
-- proto: WelderIndustrialAdvanced
-  entities:
-  - uid: 8683
-    components:
-    - type: Transform
-      pos: 43.46133,-35.475647
       parent: 2
 - proto: WelderIndustrialAdvanced
   entities:
@@ -103485,16 +103219,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 48.5,18.5
       parent: 2
-    - type: DeviceLinkSink
-      invokeCounter: 1
-    - type: DeviceLinkSource
-      linkedPorts:
-        3484:
-        - - DoorStatus
-          - Close
-        3483:
-        - - DoorStatus
-          - Close
 - proto: WindoorSecureSecurityLawyerLocked
   entities:
   - uid: 1077

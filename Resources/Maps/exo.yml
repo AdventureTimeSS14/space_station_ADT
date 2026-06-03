@@ -3386,44 +3386,6 @@ entities:
             4985: -10,-50
             5008: -11,-44
         - node:
-            color: '#D381C996'
-            id: WarnCornerGreyscaleNE
-          decals:
-            5074: -4,-20
-        - node:
-            color: '#FFFFFFFF'
-            id: WarnCornerGreyscaleNE
-          decals:
-            4997: 30,-25
-            5006: -7,-43
-            5062: -4,-25
-        - node:
-            color: '#FFFFFFFF'
-            id: WarnCornerGreyscaleNW
-          decals:
-            4996: 27,-25
-            5007: -11,-43
-            5063: -6,-25
-        - node:
-            color: '#D381C996'
-            id: WarnCornerGreyscaleSE
-          decals:
-            5077: -4,-23
-            5080: -7,-26
-        - node:
-            color: '#FFFFFFFF'
-            id: WarnCornerGreyscaleSE
-          decals:
-            4995: 23,-25
-            5009: -7,-44
-            5066: -4,-27
-        - node:
-            color: '#FFFFFFFF'
-            id: WarnCornerGreyscaleSW
-          decals:
-            4985: -10,-50
-            5008: -11,-44
-        - node:
             color: '#FFFFFFFF'
             id: WarnCornerNE
           decals:
@@ -53457,11 +53419,6 @@ entities:
     - type: Transform
       pos: 31.5,-37.5
       parent: 2
-  - uid: 5302
-    components:
-    - type: Transform
-      pos: 0.5,-52.5
-      parent: 2
   - uid: 5801
     components:
     - type: Transform
@@ -89628,11 +89585,6 @@ entities:
     - type: Transform
       pos: 55.5,-101.5
       parent: 2
-  - uid: 6907
-    components:
-    - type: Transform
-      pos: 55.5,-101.5
-      parent: 2
   - uid: 7821
     components:
     - type: Transform
@@ -106059,7 +106011,7 @@ entities:
       parent: 2
     - type: SurveillanceCamera
       setupAvailableNetworks:
-      - SurveillanceCameraSecurity
+      - SurveillanceCameraService
       nameSet: True
       id: Botany
   - uid: 15171
@@ -106642,11 +106594,6 @@ entities:
     components:
     - type: Transform
       pos: 2.5,-54.5
-      parent: 2
-  - uid: 5216
-    components:
-    - type: Transform
-      pos: 20.5,-24.5
       parent: 2
   - uid: 5216
     components:

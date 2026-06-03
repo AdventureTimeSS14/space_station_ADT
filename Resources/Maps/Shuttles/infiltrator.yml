@@ -167,7 +167,7 @@ entities:
           immutable: True
           moles: {}
         - volume: 2500
-          immutable: True
+          temperature: 293.15
           moles:
             Oxygen: 6666.982
         - volume: 2500
@@ -175,7 +175,6 @@ entities:
           moles:
             Nitrogen: 6666.982
         chunkSize: 4
-    - type: NukeOpsShuttle # ADT-drone-console-tweak
     - type: DecalGrid
       chunkCollection:
         version: 2
@@ -3593,44 +3592,6 @@ entities:
           - 491
           - 492
           - 493
-        paper_label: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-  - uid: 45
-    components:
-    - type: Transform
-      pos: -1.5,-17.5
-      parent: 1
-    - type: EntityStorage
-      air:
-        volume: 200
-        immutable: False
-        temperature: 293.14673
-        moles:
-        - 1.7459903
-        - 6.568249
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-    - type: ContainerContainer
-      containers:
-        entity_storage: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 313
-          - 501
-          - 502
-          - 511
-          - 512
         paper_label: !type:ContainerSlot
           showEnts: False
           occludes: True

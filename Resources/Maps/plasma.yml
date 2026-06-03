@@ -152684,13 +152684,6 @@ entities:
     - type: Transform
       pos: -35.631615,-5.6210203
       parent: 2
-- proto: TowelColorOrange
-  entities:
-  - uid: 26405
-    components:
-    - type: Transform
-      pos: -86.3342,-46.265816
-      parent: 2
 - proto: TowelColorWhite
   entities:
   - uid: 9843

@@ -99719,6 +99719,7 @@ entities:
       pos: 5.254054,-33.25772
       parent: 2
     - type: Blocking
+      blockingToggleActionEntity: 2166
     - type: ActionsContainer
     - type: ContainerContainer
       containers:
@@ -99731,6 +99732,7 @@ entities:
       pos: 5.222804,-33.429596
       parent: 2
     - type: Blocking
+      blockingToggleActionEntity: 15092
     - type: ActionsContainer
     - type: ContainerContainer
       containers:
@@ -99745,6 +99747,7 @@ entities:
       pos: 5.769679,-33.429596
       parent: 2
     - type: Blocking
+      blockingToggleActionEntity: 15233
     - type: ActionsContainer
     - type: ContainerContainer
       containers:
@@ -99757,6 +99760,7 @@ entities:
       pos: 5.7540674,-33.214645
       parent: 2
     - type: Blocking
+      blockingToggleActionEntity: 18034
     - type: ActionsContainer
     - type: ContainerContainer
       containers:
@@ -99771,6 +99775,7 @@ entities:
       pos: 5.488429,-33.41397
       parent: 2
     - type: Blocking
+      blockingToggleActionEntity: 15056
     - type: ActionsContainer
     - type: ContainerContainer
       containers:
@@ -99783,6 +99788,7 @@ entities:
       pos: 5.532593,-33.175583
       parent: 2
     - type: Blocking
+      blockingToggleActionEntity: 15172
     - type: ActionsContainer
     - type: ContainerContainer
       containers:
