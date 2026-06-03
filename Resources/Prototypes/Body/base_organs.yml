@@ -64,6 +64,7 @@
   - type: VisualOrganMarkings
     hideableLayers:
     - enum.HumanoidVisualLayers.Hair
+    - enum.HumanoidVisualLayers.SnoutOverlay # ADT-Tweak
     markingData:
       layers:
       - Head

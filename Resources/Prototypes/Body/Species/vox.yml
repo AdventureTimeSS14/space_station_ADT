@@ -310,6 +310,7 @@
   - type: VisualOrganMarkings
     hideableLayers:
     - enum.HumanoidVisualLayers.Snout
+    - enum.HumanoidVisualLayers.SnoutOverlay # ADT-Tweak
     - enum.HumanoidVisualLayers.Hair
     - enum.HumanoidVisualLayers.FacialHair
     dependentHidingLayers:
