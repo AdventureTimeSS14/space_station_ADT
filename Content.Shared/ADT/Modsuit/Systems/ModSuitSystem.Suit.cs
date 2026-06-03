@@ -293,6 +293,20 @@ public sealed partial class ModSuitSystem
 
     private bool CanToggleClothing(EntityUid user, Entity<ModSuitComponent> ent)
     {
+        if (!ent.Comp.RequiresBattery)
+        {
+            if (ent.Comp.ClothingUids.Count <= 0)
+                return false;
+
+            var ev = new ToggleClothingAttemptEvent(user, ent);
+            RaiseLocalEvent(ent, ev);
+
+            if (ev.Cancelled)
+                return false;
+
+            return true;
+        }
+
         if (!TryComp<PowerCellDrawComponent>(ent, out var drawComp)
             || !TryComp<PowerCellSlotComponent>(ent, out var slotComp)
             || !_cell.HasDrawCharge((ent.Owner, drawComp, slotComp), user: user))
@@ -301,10 +315,10 @@ public sealed partial class ModSuitSystem
         if (ent.Comp.ClothingUids.Count <= 0)
             return false;
 
-        var ev = new ToggleClothingAttemptEvent(user, ent);
-        RaiseLocalEvent(ent, ev);
+        var ev2 = new ToggleClothingAttemptEvent(user, ent);
+        RaiseLocalEvent(ent, ev2);
 
-        if (ev.Cancelled)
+        if (ev2.Cancelled)
             return false;
 
         return true;
@@ -374,6 +388,9 @@ public sealed partial class ModSuitSystem
 
     private void UpdateCellDraw(Entity<ModSuitComponent> ent)
     {
+        if (!ent.Comp.RequiresBattery)
+            return;
+
         if (!TryComp<PowerCellDrawComponent>(ent, out var draw))
             return;
 
