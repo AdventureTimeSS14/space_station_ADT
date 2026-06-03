@@ -45,7 +45,6 @@
     - SubGamemodesRuleNoXenoborg
     - TraitorLightStationEventScheduler
     - MeteorSwarmScheduler
-    - SpaceTrafficControlEventScheduler
     - BasicRoundstartVariation
     - CrewTransferScheduler #ADT tweak
 
@@ -67,7 +66,6 @@
     # - SubGamemodesRule
     - BasicStationEventScheduler
     - MeteorSwarmScheduler
-    - SpaceTrafficControlEventScheduler
     - BasicRoundstartVariation
     - CrewTransferScheduler #ADT tweak
 
