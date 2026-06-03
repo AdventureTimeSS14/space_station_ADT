@@ -259,6 +259,9 @@
     entries:
       Burger: Brain
       Taco: Brain
+  - type: Tag # ADT-Tweak
+    tags:
+    - Brain
 
 - type: entity
   parent: OrganBase
@@ -282,6 +285,9 @@
     markingData:
       layers:
       - Eyes
+  - type: Tag # ADT-Tweak
+    tags:
+    - Eyes
 
 - type: entity
   parent: OrganBase
@@ -345,6 +351,9 @@
     - state: lung-r
   - type: Item
     heldPrefix: lungs
+  - type: Tag # ADT-Tweak
+    tags:
+    - Lungs
 
 - type: entity
   parent: OrganBase
@@ -361,6 +370,9 @@
   - type: Metabolizer
     maxReagents: 2
     stages: [ Bloodstream ]
+  - type: Tag # ADT-Tweak
+    tags:
+    - Heart
 
 - type: entity
   parent: OrganBase
@@ -384,6 +396,9 @@
     - state: stomach
   - type: Item
     heldPrefix: stomach
+  - type: Tag # ADT-Tweak
+    tags:
+    - Stomach
 
 - type: entity
   parent: OrganBase
@@ -402,6 +417,9 @@
   - type: Metabolizer
     maxReagents: 1
     stages: [ Metabolites ]
+  - type: Tag # ADT-Tweak
+    tags:
+    - Liver
 
 - type: entity
   parent: OrganBase
