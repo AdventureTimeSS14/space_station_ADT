@@ -162,8 +162,10 @@
   #ADT Start: Xeno baff
   - type: MeleeWeapon
     damage:
-      groups:
-        Brute: 27
+      types:
+        Blunt: 9
+        Slash: 9
+        Piercing: 9
   # ADT End
   - type: Fixtures
     fixtures:
@@ -348,12 +350,11 @@
     baseSprintSpeed: 6.0 # ADT-Tweak
   - type: MeleeWeapon
     damage:
+      types:
     # ADT-Tweak start
-     types:
-       Piercing: 13
+        Piercing: 13
     # ADT-Tweak end
-    types:
-      Slash: 5
+        Slash: 5
   - type: Fixtures
     fixtures:
       fix1:
