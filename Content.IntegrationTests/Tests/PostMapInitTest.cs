@@ -340,16 +340,15 @@ namespace Content.IntegrationTests.Tests
         [EnsureCVar(Side.Server, typeof(CCVars), nameof(CCVars.GridFill), false)]
         public async Task GameMapsLoadableTest(string mapProto)
         {
-            var pair = Pair;
-
             // ADT-Tweak start
             if (BrokenGameMaps.Contains(mapProto))
             {
-                await pair.CleanReturnAsync();
+                Assert.Ignore($"Skipping broken map: {mapProto}");
                 return;
             }
             // ADT-Tweak end
 
+            var pair = Pair; // ADT-Tweak
             var server = pair.Server;
 
             var mapManager = server.ResolveDependency<IMapManager>();
