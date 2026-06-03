@@ -150,6 +150,18 @@ public sealed class TraitorRuleTest : GameTest
                 entMan.DeleteEntity(rule.Uid);
             }
         });
+
+        await pair.Server.WaitPost(() =>
+        {
+            ticker.ToggleReadyAll(false);
+            ticker.EndRound();
+
+            foreach (var dummy in dummies)
+            {
+                pair.Server.RemoveDummySession(dummy);
+            }
+        });
+        await pair.RunTicksSync(5);
         // ADT-tweak end
 
         await pair.CleanReturnAsync();
