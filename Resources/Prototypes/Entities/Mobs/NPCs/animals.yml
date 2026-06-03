@@ -1987,13 +1987,13 @@
   description: Squeak!
   components:
   - type: Damageable
-  - type: Injurable
     damage:
       types:
         Bloodloss: 6
         Asphyxiation: 4
         Slash: 7
         Blunt: 3
+  - type: Injurable
 
 - type: entity
   parent: MobMouse
