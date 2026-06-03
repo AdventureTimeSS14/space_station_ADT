@@ -54,5 +54,7 @@ public sealed class PowerStatePrototypeTest : GameTest
                 }
             });
         });
+
+        await pair.CleanReturnAsync();
     }
 }
