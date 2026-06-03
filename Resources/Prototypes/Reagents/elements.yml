@@ -199,7 +199,7 @@
         # ADT tweak end
         amount: 0.4
     # ADT Start
-    Food:
+    Digestion:
       effects:
       - !type:SatiateHunger
         conditions:
@@ -320,7 +320,7 @@
           types:
             Poison: 1.5
     # ADT Start
-    Food:
+    Digestion:
       effects:
       - !type:SatiateHunger
         conditions:
