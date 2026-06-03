@@ -243,7 +243,7 @@ public sealed class ReagentGasSourceData : ReagentSourceData
 
     public override int OutputCount => 1;
 
-    public override string IdentifierString => Loc.GetString(GasPrototype.Name);
+    public override string IdentifierString => GasPrototype.ID; // ADT-Tweak
 
     public ReagentGasSourceData(List<ProtoId<MixingCategoryPrototype>> mixingType, GasPrototype gasPrototype)
         : base(mixingType)
