@@ -37,6 +37,7 @@
     highPressureMultiplier: 0.1
     lowPressureMultiplier: 1000
   - type: ToggleableVisuals
+    spriteLayer: light
   - type: PointLight
     color: "#adffe6"
     enabled: false
