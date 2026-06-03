@@ -34,3 +34,8 @@ reagent-effect-guidebook-wash-stamp-reaction =
         [1] Смывает
        *[other] смывают
     } печати с лица
+reagent-effect-guidebook-hallucinations =
+    { $chance ->
+        [1] Вызывает
+       *[other] вызывают
+    } галлюцинации на { $time } секунд

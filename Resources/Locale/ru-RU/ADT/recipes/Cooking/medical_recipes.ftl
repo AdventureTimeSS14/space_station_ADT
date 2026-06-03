@@ -1,0 +1,14 @@
+emergency medipen = экстренный медипен
+poison auto-injector = автоинъектор противоядия
+brute auto-injector = автоинъектор мех-повреждений
+burn auto-injector = автоинъектор физ-повреждений
+rad auto-injector = автоинъектор рад-повреждений
+puncturase auto-injector = автоинъектор пунктураза
+pyrazine auto-injector = автоинъектор пиразина
+airloss auto-injector = автоинъектор удушения
+hemostasis auto-injector = автоинъектор гемостаза
+stimulant auto-injector = автоинъектор стимулятора
+crisis auto-injector = антикризисный автоинъектор
+lacerinol auto-injector = автоинъектор ласеринола
+bruizine auto-injector = автоинъектор бруизина
+barkeeper's friend auto-injector = автоинъектор друга бармена
