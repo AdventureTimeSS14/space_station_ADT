@@ -470,11 +470,12 @@
           min: 0
           max: 20
         damage:
-          Blunt: -0.5
-          Caustic: -0.5
-          Heat: -0.5
-          Shock: -0.5
-          Cold: -0.5
+          types:
+            Blunt: -0.5
+            Caustic: -0.5
+            Heat: -0.5
+            Shock: -0.5
+            Cold: -0.5
       - !type:HealthChange
         conditions:
         - !type:MetabolizerTypeCondition
