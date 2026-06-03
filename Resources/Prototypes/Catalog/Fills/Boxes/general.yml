@@ -13,7 +13,7 @@
   - type: Storage
     maxItemSize: Small
     grid:
-    - 0,0,3,3 # ADT-Tweak 0,0,3,2 -> 0,0,3,3 (16 слотов)
+    - 0,0,3,2
   # ADT-Tweak end
   - type: PhysicalComposition
     materialComposition:
