@@ -929,6 +929,7 @@ CrateVendingMachineRestockDiscountDansFilled: VendingMachineRestockDiscountDans
 CrateVendingMachineRestockDonutFilled: VendingMachineRestockDonut
 
 # 2026-06-03 ADT-Claner
+ADTSpawnPointEvilBot: null
 HeadSlime: null
 TorsoHuman: null
 SpawnPointADTGuardOfficer: null
