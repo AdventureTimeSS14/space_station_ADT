@@ -11,8 +11,8 @@
     sprite: ADT/Heretic/reality_fracture.rsi
     state: icon
   - type: Clickable
-  - type: Visibility
-    layer: 32
+- type: Visibility
+  layer: 64
 
 - type: entity
   id: EldritchInfluenceIntermediate

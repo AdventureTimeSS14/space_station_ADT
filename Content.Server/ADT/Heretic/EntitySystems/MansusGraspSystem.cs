@@ -2,7 +2,6 @@ using Content.Server.Atmos.Commands;
 using Content.Server.Chat.Systems;
 using Content.Server.Hands.Systems;
 using Content.Server.Heretic.Components;
-using Content.Server.Heretic.EntitySystems;
 using Content.Server.Speech.EntitySystems;
 using Content.Server.Temperature.Components;
 using Content.Server.Temperature.Systems;
@@ -230,8 +229,6 @@ public sealed partial class MansusGraspSystem : EntitySystem
                     {
                         var ghoul = EnsureComp<GhoulComponent>(target);
                         ghoul.BoundHeretic = GetNetEntity(performer);
-                        if (TryComp<GhoulComponent>(target, out var ghoulComp))
-                            EntityManager.System<GhoulSystem>().GhoulifyEntity(new Entity<GhoulComponent>(target, ghoulComp));
                     }
                     break;
                 }
