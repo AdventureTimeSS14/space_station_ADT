@@ -53,12 +53,10 @@ public sealed class ChemistryGuideDataSystem : SharedChemistryGuideDataSystem
     {
         // this doesn't check what prototypes are being reloaded because, to be frank, we use a lot of them.
         _reagentSources.Clear();
-        // ADT-Fix-Start: инициализация всех известных реагентов
         foreach (var reagent in PrototypeManager.EnumeratePrototypes<ReagentPrototype>())
         {
-            _reagentSources[reagent.ID] = new();
+            _reagentSources.Add(reagent.ID, new());
         }
-        // ADT-Fix-End
 
         foreach (var reaction in PrototypeManager.EnumeratePrototypes<ReactionPrototype>())
         {
@@ -70,14 +68,7 @@ public sealed class ChemistryGuideDataSystem : SharedChemistryGuideDataSystem
                 reaction);
             foreach (var product in reaction.Products.Keys)
             {
-                // ADT-Fix-Start: добавление неизвестных реагентов чтобы не падало
-                if (!_reagentSources.TryGetValue(product, out var list))
-                {
-                    list = new List<ReagentSourceData>();
-                    _reagentSources[product] = list;
-                }
-                // ADT-Fix-End
-                list.Add(data);
+                _reagentSources[product].Add(data);
             }
         }
 
@@ -89,14 +80,7 @@ public sealed class ChemistryGuideDataSystem : SharedChemistryGuideDataSystem
             var data = new ReagentGasSourceData(
                 new () { DefaultCondenseCategory },
                 gas);
-            // ADT-Fix-Start: аналогично — создаем список если реагента нет
-            if (!_reagentSources.TryGetValue(gas.Reagent, out var list))
-            {
-                list = new List<ReagentSourceData>();
-                _reagentSources[gas.Reagent] = list;
-            }
-            // ADT-Fix-End
-            list.Add(data);
+            _reagentSources[gas.Reagent].Add(data);
         }
 
         // store the names of the entities used so we don't get repeats in the guide.
@@ -109,7 +93,12 @@ public sealed class ChemistryGuideDataSystem : SharedChemistryGuideDataSystem
             if (!entProto.TryGetComponent<ExtractableComponent>(out var extractableComponent, EntityManager.ComponentFactory))
                 continue;
 
-            if (entProto.HasComponent<BodyComponent>() || entProto.HasComponent<PillComponent>()) // ADT-Tweak
+            //these bloat the hell out of blood/fat
+            if (entProto.HasComponent<OrganComponent>())
+                continue;
+
+            //these feel obvious...
+            if (entProto.HasComponent<PillComponent>())
                 continue;
 
             if (extractableComponent.JuiceSolution is { } juiceSolution)
@@ -120,14 +109,7 @@ public sealed class ChemistryGuideDataSystem : SharedChemistryGuideDataSystem
                     juiceSolution);
                 foreach (var (id, _) in juiceSolution.Contents)
                 {
-                    // ADT-Fix-Start
-                    if (!_reagentSources.TryGetValue(id.Prototype, out var list))
-                    {
-                        list = new List<ReagentSourceData>();
-                        _reagentSources[id.Prototype] = list;
-                    }
-                    // ADT-Fix-End
-                    list.Add(data);
+                    _reagentSources[id.Prototype].Add(data);
                 }
 
                 usedNames.Add(entProto.Name);
@@ -144,14 +126,7 @@ public sealed class ChemistryGuideDataSystem : SharedChemistryGuideDataSystem
                     grindableSolution);
                 foreach (var (id, _) in grindableSolution.Contents)
                 {
-                    // ADT-Fix-Start
-                    if (!_reagentSources.TryGetValue(id.Prototype, out var list))
-                    {
-                        list = new List<ReagentSourceData>();
-                        _reagentSources[id.Prototype] = list;
-                    }
-                    // ADT-Fix-End
-                    list.Add(data);
+                    _reagentSources[id.Prototype].Add(data);
                 }
                 usedNames.Add(entProto.Name);
             }
@@ -243,7 +218,7 @@ public sealed class ReagentGasSourceData : ReagentSourceData
 
     public override int OutputCount => 1;
 
-    public override string IdentifierString => GasPrototype.ID; // ADT-Tweak
+    public override string IdentifierString => Loc.GetString(GasPrototype.Name);
 
     public ReagentGasSourceData(List<ProtoId<MixingCategoryPrototype>> mixingType, GasPrototype gasPrototype)
         : base(mixingType)
@@ -251,4 +226,3 @@ public sealed class ReagentGasSourceData : ReagentSourceData
         GasPrototype = gasPrototype;
     }
 }
-
