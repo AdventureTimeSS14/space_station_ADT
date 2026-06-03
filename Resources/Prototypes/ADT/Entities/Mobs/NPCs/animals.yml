@@ -237,9 +237,6 @@
   - type: Metabolizer
     solutionOnBody: false
     metabolizerTypes: [ Dragon ]
-    groups:
-    - id: Medicine
-    - id: Poison
   - type: Butcherable
     spawned:
     - id: FoodMeatDragon
