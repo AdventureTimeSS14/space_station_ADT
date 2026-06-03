@@ -530,11 +530,6 @@
     - !type:NestedSelector
       tableId: SpicyPestEventsTable
 
-- type: entityTable
-  id: SpaceTrafficControlTable
-  table: !type:NestedSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
-    tableId: UnknownShuttlesHostileTable
-
 - type: entity
   id: BasicStationEventScheduler
   parent: BaseGameRule
@@ -563,32 +558,6 @@
   - type: RampingStationEventScheduler
     scheduledGameRules: !type:NestedSelector
       tableId: RampingGameRulesTable  # ADT extended nerf
-
-- type: entity
-  id: SpaceTrafficControlEventScheduler # iff we make a selector for EntityTables that can respect StationEventComp restrictions, or somehow impliment them otherwise in said tables,
-  parent: BaseGameRule                  # we can remerge this with the other schedulers, but it will silently fail due to that limitation without a separate scheduler to balance atm.
-  components:
-  - type: BasicStationEventScheduler
-    minimumTimeUntilFirstEvent: 2700 # 45 mins #shows up like half way through shift.
-    maximumSpanUntilFirstEvent: 900 # At longest takes an hour to show up.
-    minMaxEventTiming:
-      min: 3600 # ADT_Tweak 20 >> 60 min
-      max: 7200 # 120 mins # you probably arent getting a second visitor shuttle in one round, but it is possible.
-    scheduledGameRules: !type:NestedSelector
-      prob: 0.05 # Only 1 in 20 rounds...
-      tableId: SpaceTrafficControlTable
-
-- type: entity
-  id: SpaceTrafficControlFriendlyEventScheduler
-  parent: BaseGameRule
-  components:
-  - type: BasicStationEventScheduler
-    minimumTimeUntilFirstEvent: 1200 # 20 mins
-    minMaxEventTiming:
-      min: 3600 # ADT_Tweak 10 >> 60 min
-      max: 7200 # ADT_Tweak 10 >> 120 min
-    scheduledGameRules: !type:NestedSelector
-      tableId: UnknownShuttlesFriendlyTable
 
 # variation passes
 - type: entity
