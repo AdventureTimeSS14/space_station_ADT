@@ -175,6 +175,7 @@ entities:
           moles:
             Nitrogen: 6666.982
         chunkSize: 4
+    - type: NukeOpsShuttle # ADT-drone-console-tweak
     - type: DecalGrid
       chunkCollection:
         version: 2
