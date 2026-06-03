@@ -17,8 +17,7 @@
     solution: hypospray
   - type: ExaminableSolution
     solution: hypospray
-  - type: Injector 
-    onlyAffectsMobs: false
+  - type: Injector
     activeModeProtoId: HyposprayDynamicMode
     allowedModes:
     - HyposprayDynamicMode
