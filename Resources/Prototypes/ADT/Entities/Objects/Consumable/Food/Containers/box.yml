@@ -40,4 +40,4 @@
       storagebase: !type:AllSelector
         children:
         - id: KnifePlastic
-        - id: ADRFoodPizzaSindi
+        - id: ADTFoodPizzaSindi
