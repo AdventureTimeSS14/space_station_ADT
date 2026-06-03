@@ -394,6 +394,7 @@
     components:
       head:
       - type: ToggleableVisuals
+        spriteLayer: light
         clothingVisuals:
           head:
           - state: equipped-head-light
