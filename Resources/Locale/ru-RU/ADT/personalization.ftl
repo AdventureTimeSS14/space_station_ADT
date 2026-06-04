@@ -1026,3 +1026,7 @@ ent-ADTClothingOuterRipCoat = китель офицера ТСФ
 ent-ADTPosterContrabandAria = Ария советует - Охладись!
     .desc = Плакат, на котором изображена аркана, рекламирующая мороженое "собственного" производства на станциях NanoTrasen.
     .suffix = { "Именное, Syrel" }
+
+ent-ADTClothingNeckHonelin111Choker = чокер с колокольчиком
+    .desc = Чокер с золотистым колокольчиком, который звенит при ходьбе.
+    .suffix = { "Именное, honelin111" }
