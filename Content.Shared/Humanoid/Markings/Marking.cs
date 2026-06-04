@@ -95,7 +95,14 @@ public partial record struct Marking
         List<Color> colorList = new();
         foreach (string color in split[1].Split(','))
         {
-            colorList.Add(Color.FromHex(color));
+            try
+            {
+                colorList.Add(Color.FromHex(color));
+            }
+            catch (ArgumentException)
+            {
+                return null;
+            }
         }
 
         return new Marking(split[0], colorList);
