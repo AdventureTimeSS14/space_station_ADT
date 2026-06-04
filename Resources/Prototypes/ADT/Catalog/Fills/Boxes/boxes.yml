@@ -9,6 +9,8 @@
     contents:
     - id: ADTFoodGummyArachnid
       orGroup: ADTGummies1
+    - id: ADTFoodGummyArkana
+      orGroup: ADTGummies1
     - id: ADTFoodGummyCischi
       orGroup: ADTGummies1
     - id: ADTFoodGummyDrask
@@ -50,6 +52,8 @@
       orGroup: ADTGummies1
     - id: ADTFoodGummyArachnid
       orGroup: ADTGummies2
+    - id: ADTFoodGummyArkana
+      orGroup: ADTGummies2
     - id: ADTFoodGummyCischi
       orGroup: ADTGummies2
     - id: ADTFoodGummyDrask
@@ -91,6 +95,8 @@
       orGroup: ADTGummies2
     - id: ADTFoodGummyArachnid
       orGroup: ADTGummies3
+    - id: ADTFoodGummyArkana
+      orGroup: ADTGummies3
     - id: ADTFoodGummyCischi
       orGroup: ADTGummies3
     - id: ADTFoodGummyDrask
@@ -132,6 +138,8 @@
       orGroup: ADTGummies3
     - id: ADTFoodGummyArachnid
       orGroup: ADTGummies4
+    - id: ADTFoodGummyArkana
+      orGroup: ADTGummies4
     - id: ADTFoodGummyCischi
       orGroup: ADTGummies4
     - id: ADTFoodGummyDrask
@@ -173,6 +181,8 @@
       orGroup: ADTGummies4
     - id: ADTFoodGummyArachnid
       orGroup: ADTGummies5
+    - id: ADTFoodGummyArkana
+      orGroup: ADTGummies5
     - id: ADTFoodGummyCischi
       orGroup: ADTGummies5
     - id: ADTFoodGummyDrask
@@ -213,6 +223,8 @@
       prob: 0.02
       orGroup: ADTGummies5
     - id: ADTFoodGummyArachnid
+      orGroup: ADTGummies6
+    - id: ADTFoodGummyArkana
       orGroup: ADTGummies6
     - id: ADTFoodGummyCischi
       orGroup: ADTGummies6

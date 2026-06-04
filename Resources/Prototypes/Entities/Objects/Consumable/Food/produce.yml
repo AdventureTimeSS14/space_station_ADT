@@ -2248,7 +2248,7 @@
   - type: Tag
     tags:
     - Fruit
-  - type: HolyMelonImmunity # ADT-Tweak
+  #- type: HolyMelonImmunity # ADT-Tweak закоментил до изменения.
 
 - type: entity
   name: holymelon slice
