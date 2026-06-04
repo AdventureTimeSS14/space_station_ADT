@@ -7,6 +7,7 @@ using System.Runtime.CompilerServices;
 using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
+using Content.Server.ADT;
 using Content.Server.Administration.Logs;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Construction.Prototypes;
@@ -263,7 +264,7 @@ namespace Content.Server.Database
                 JsonSerializer.SerializeToDocument(legacyMarkings.Select(marking => marking.ToString()).ToList());
             profile.HairName = hairMarking?.MarkingId ?? HairStyles.DefaultHairStyle;
             profile.FacialHairName = facialHairMarking?.MarkingId ?? HairStyles.DefaultFacialHairStyle;
-            profile.HairColor = (hairMarking?.MarkingColors[0] ?? Color.Black).ToHex();
+            profile.HairColor = HairColorSerializer.Serialize(appearance.HairColor.Count > 0 ? appearance.HairColor : new List<Color> { Color.Black }); // ADT-tweak: gradient support
             profile.FacialHairColor = (facialHairMarking?.MarkingColors[0] ?? Color.Black).ToHex();
 
             profile.Slot = slot;
