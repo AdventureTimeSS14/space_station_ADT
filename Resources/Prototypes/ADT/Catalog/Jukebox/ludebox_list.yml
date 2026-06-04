@@ -1,0 +1,127 @@
+#Base
+
+- type: jukeboxList
+  id: Standard
+  jukeboxes:
+  - FlipFlap
+  - Tintin
+  - Thunderdome
+  - Constellations
+  - Drifting
+  - starlight
+  - sunset
+  - FSMTeamEagle
+  - GiftOfAdventureFromConjurer
+  - horn
+  - MJSC
+  - ESCPMidnightRoom
+  - Oh_Its_You
+  - ESCPNeonscapes
+  - TheFallOfTheCorporation
+  - WaitingForTheMeeting
+
+- type: jukeboxList
+  id: Rock
+  jukeboxes:
+  - ACDCBIB
+  - ACDCHTH
+  - GTBTTB
+  - MJB
+  - EOFTTS
+  - EWTRTWTFF
+
+- type: jukeboxList
+  id: Sonic
+  jukeboxes:
+  - TidalTempestPresent
+  - MetallicMadnessBadFuture
+  - MetallicMadnessBadFutureRemix
+  - MetallicMadnessAct2
+  - CollisionChaosGood
+  - MetallicMadnessPresent
+  - PalmtreePanicPast
+  - QuartzQuadrantPast
+  - SuperSonicRacing
+  - TidalTempestJPRemix
+
+- type: jukeboxList
+  id: Chill
+  jukeboxes:
+  - ABeautifulLull
+  - ATenseAdventure
+  - HotlineDaisuke
+  - DOS
+  - HappyEnding
+  - InTheLandOfMagnolias
+  - IHYVA
+  - WereFinallyLanding
+  - CCTRFKAP
+  - CCCLP
+  - Nebula
+  - phoenixright
+  - lateraligator
+  - SpaceAsshole
+
+- type: jukeboxList
+  id: StandardPlus
+  jukeboxes:
+  - FlipFlap
+  - Tintin
+  - Thunderdome
+  - Constellations
+  - Drifting
+  - starlight
+  - sunset
+  - FSMTeamEagle
+  - GiftOfAdventureFromConjurer
+  - horn
+  - MJSC
+  - ESCPMidnightRoom
+  - Oh_Its_You
+  - ESCPNeonscapes
+  - TheFallOfTheCorporation
+  - WaitingForTheMeeting
+  - ACDCBIB
+  - ACDCHTH
+  - GTBTTB
+  - MJB
+  - EOFTTS
+  - EWTRTWTFF
+  - TidalTempestPresent
+  - MetallicMadnessBadFuture
+  - MetallicMadnessBadFutureRemix
+  - MetallicMadnessAct2
+  - CollisionChaosGood
+  - MetallicMadnessPresent
+  - PalmtreePanicPast
+  - QuartzQuadrantPast
+  - SuperSonicRacing
+  - TidalTempestJPRemix
+  - ABeautifulLull
+  - ATenseAdventure
+  - HotlineDaisuke
+  - DOS
+  - HappyEnding
+  - InTheLandOfMagnolias
+  - IHYVA
+  - WereFinallyLanding
+  - CCTRFKAP
+  - CCCLP
+  - Nebula
+  - phoenixright
+  - lateraligator
+  - SpaceAsshole
+
+- type: jukeboxList
+  id: Hotline
+  jukeboxes:
+  - HotlineDaisuke
+  - HotlineItsSafeNow
+  - Hotline2MsMinnie
+  - HotlineMusik
+  - HotlineParis
+  - Hotline2Sexualizer
+
+
+
+

@@ -77,3 +77,36 @@
   - type: Tag
     tags:
     - ADTClosedRadio
+
+- type: entity
+  name: radio
+  description: A radio, connected to some radio channel.
+  parent: BaseItem
+  id: ADTJukeBoxRadio
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Devices/communication.rsi
+    layers:
+    - state: old-radio
+    state: old-radio
+  - type: Item
+    sprite: ADT/Objects/Devices/communication.rsi
+    heldPrefix: old-radio
+  - type: Construction
+    graph: BroadcastRadio
+    node: oldRadio
+  - type: ActivatableUI
+    key: enum.JukeboxUiKey.Key
+  - type: ItemSlots
+    slots:
+      music_disk:
+        whitelist:
+          components:
+          - JukeboxDisk
+  - type: Jukebox
+  - type: UserInterface
+    interfaces:
+        enum.JukeboxUiKey.Key:
+          type: JukeboxBoundUserInterface
+        enum.WiresUiKey.Key:
+          type: WiresBoundUserInterface

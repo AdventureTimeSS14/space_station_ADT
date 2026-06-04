@@ -88,6 +88,10 @@ public sealed class JukeboxSetVolumeMessage(float volume) : BoundUserInterfaceMe
 
 [Serializable, NetSerializable]
 public sealed class JukeboxToggleLoopMessage : BoundUserInterfaceMessage;
+
+[Serializable, NetSerializable]
+public sealed class JukeboxEjectMessage : BoundUserInterfaceMessage;
+
 /// ADT-Tweak end
 
 [Serializable, NetSerializable]

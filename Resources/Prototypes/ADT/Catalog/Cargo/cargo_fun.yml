@@ -34,3 +34,12 @@
   cost: 2000
   category: Fun
   group: market
+
+- type: cargoProduct
+  id: ADTFunBoxMusicDisks
+  icon:
+    sprite: Objects/Vehicles/atv.rsi
+    state: keys
+  product: ADTBoxMusicDisks
+  category: cargoproduct-category-name-fun
+  cost: 500

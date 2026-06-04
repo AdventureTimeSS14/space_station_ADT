@@ -38,6 +38,15 @@
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: Metallic
+  #ADT-Tweak-Start
+  - type: ItemSlots
+    slots:
+      music_disk:
+        startingItem: ADTMusicDiskStandard
+        whitelist:
+          components:
+          - JukeboxDisk
+  #ADT-Tweak-End
   - type: Destructible
     thresholds:
     - trigger:

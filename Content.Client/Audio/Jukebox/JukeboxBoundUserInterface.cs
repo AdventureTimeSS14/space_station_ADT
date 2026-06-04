@@ -3,6 +3,9 @@ using Robust.Client.Audio;
 using Robust.Client.UserInterface;
 using Robust.Shared.Audio.Components;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Containers;
+using Robust.Shared.GameObjects;
+using Content.Shared.ADT.Audio.Jukebox;
 
 namespace Content.Client.Audio.Jukebox;
 
@@ -15,13 +18,12 @@ public sealed class JukeboxBoundUserInterface : BoundUserInterface
 
     public JukeboxBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
     {
-        IoCManager.InjectDependencies(this);
+        //IoCManager.InjectDependencies(this); ADT-Tweak
     }
 
     protected override void Open()
     {
         base.Open();
-
         _menu = this.CreateWindow<JukeboxMenu>();
 
         _menu.OnPlayPressed += args =>
@@ -46,11 +48,16 @@ public sealed class JukeboxBoundUserInterface : BoundUserInterface
         {
             SendMessage(new JukeboxToggleLoopMessage());
         };
+        _menu.OnEjectPressed += () =>
+        {
+            SendMessage(new JukeboxEjectMessage());
+        };
         // ADT-Tweak end
 
         _menu.OnSongSelected += SelectSong;
         _menu.SetTime += SetTime;
         _menu.SetVolume += SetVolume; // ADT-Tweak
+        _menu.OnEjectPressed += OnEjectPressed; // ADT-Tweak
         PopulateMusic();
         Reload();
     }
@@ -75,11 +82,32 @@ public sealed class JukeboxBoundUserInterface : BoundUserInterface
         {
             _menu.SetSelectedSong(string.Empty, 0f);
         }
+
+        // ADT-Tweak start: Update disk name and eject button state
+        UpdateDiskInfo();
+        // ADT-Tweak end
     }
 
     public void PopulateMusic()
     {
-        _menu?.Populate(_protoManager.EnumeratePrototypes<JukeboxPrototype>());
+        //ADT-Tweak-Start
+        if (_menu == null)
+            return;
+
+        var jukeboxEntity = (Owner, EntMan.GetComponent<JukeboxComponent>(Owner));
+        var availableSongs = new List<JukeboxPrototype>();
+
+        foreach (var songId in EntMan.System<SharedJukeboxSystem>().GetAvailableSongs(jukeboxEntity))
+        {
+            if (_protoManager.Resolve(songId, out JukeboxPrototype? songProto))
+            {
+                availableSongs.Add(songProto);
+            }
+        }
+
+        _menu.Populate(availableSongs);
+        //_menu?.Populate(_protoManager.EnumeratePrototypes<JukeboxPrototype>());
+        //ADT-Tweak-End
     }
 
     public void SelectSong(ProtoId<JukeboxPrototype> songid)
@@ -125,6 +153,33 @@ public sealed class JukeboxBoundUserInterface : BoundUserInterface
         }
 
         SendMessage(new JukeboxSetVolumeMessage(sentVolume));
+    }
+
+    private void OnEjectPressed()
+    {
+        SendMessage(new JukeboxEjectMessage());
+    }
+
+    public void UpdateDiskInfo()
+    {
+        if (_menu == null || !EntMan.TryGetComponent(Owner, out JukeboxComponent? jukebox))
+            return;
+
+        var diskEntity = EntMan.System<SharedJukeboxSystem>().GetInsertedDisk((Owner, jukebox));
+
+        if (diskEntity.HasValue && EntMan.TryGetComponent(diskEntity.Value, out MetaDataComponent? metaData))
+        {
+            _menu.SetDiskName(metaData.EntityName);
+            _menu.SetEjectButtonEnabled(true);
+        }
+        else
+        {
+            _menu.SetDiskName(null);
+            _menu.SetEjectButtonEnabled(false);
+        }
+
+        // Update available songs based on the inserted disk
+        PopulateMusic();
     }
     /// ADT-Tweak end
 }

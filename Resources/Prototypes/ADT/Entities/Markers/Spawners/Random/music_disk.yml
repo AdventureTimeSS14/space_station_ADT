@@ -1,0 +1,16 @@
+- type: entityTable
+  id: ADTMusicDisk
+  table: !type:GroupSelector
+    children:
+    - !type:GroupSelector
+      weight: 95
+      children:
+      - id: ADTMusicDiskStandard
+      - id: ADTMusicDiskRock
+      - id: ADTMusicDiskSonic
+      - id: ADTMusicDiskChill
+      - id: ADTMusicDiskHotline
+    - !type:GroupSelector
+      weight: 5
+      children:
+      - id: ADTMusicDiskStandardPlus
