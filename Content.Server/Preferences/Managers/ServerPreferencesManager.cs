@@ -3,6 +3,7 @@ using System.Linq;
 using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
+using Content.Server.ADT;
 using Content.Server.Corvax.Sponsors;
 using Content.Server.Database;
 using Content.Shared.Body;
@@ -186,7 +187,7 @@ namespace Content.Server.Preferences.Managers
                 new HumanoidCharacterAppearance
                 (
                     Color.FromHex(profile.EyeColor),
-                    new List<Color> { Color.FromHex(profile.HairColor) },
+                    HairColorSerializer.Deserialize(profile.HairColor),
                     Color.FromHex(profile.SkinColor),
                     markings
                 ),

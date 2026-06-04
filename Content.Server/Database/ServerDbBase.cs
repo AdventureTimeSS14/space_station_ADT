@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using Content.Server.Administration.Logs;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Construction.Prototypes;
+using Content.Server.ADT;
 using Content.Shared.Database;
 using Content.Shared.Humanoid;
 using Content.Shared.Preferences;
@@ -263,7 +264,7 @@ namespace Content.Server.Database
                 JsonSerializer.SerializeToDocument(legacyMarkings.Select(marking => marking.ToString()).ToList());
             profile.HairName = hairMarking?.MarkingId ?? HairStyles.DefaultHairStyle;
             profile.FacialHairName = facialHairMarking?.MarkingId ?? HairStyles.DefaultFacialHairStyle;
-            profile.HairColor = (hairMarking?.MarkingColors[0] ?? Color.Black).ToHex();
+            profile.HairColor = HairColorSerializer.Serialize(appearance.HairColor);
             profile.FacialHairColor = (facialHairMarking?.MarkingColors[0] ?? Color.Black).ToHex();
 
             profile.Slot = slot;
