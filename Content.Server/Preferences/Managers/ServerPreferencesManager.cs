@@ -3,6 +3,7 @@ using System.Linq;
 using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
+using Content.Server.ADT;
 using Content.Server.Corvax.Sponsors;
 using Content.Server.Database;
 using Content.Shared.Body;
@@ -138,10 +139,12 @@ namespace Content.Server.Preferences.Managers
                     markingsList.Add(parsed.Value);
                 }
 
-                if (Marking.ParseFromDbString($"{profile.HairName}@{profile.HairColor}") is { } facialMarking)
+                // ADT-tweak: HairColor may be stored as JSON array (gradient) or legacy single hex
+                var hairColorsHex = string.Join(",", HairColorSerializer.Deserialize(profile.HairColor).Select(c => c.ToHex()));
+                if (Marking.ParseFromDbString($"{profile.FacialHairName}@{Color.FromHex(profile.FacialHairColor).ToHex()}") is { } facialMarking)
                     markingsList.Add(facialMarking);
 
-                if (Marking.ParseFromDbString($"{profile.HairName}@{profile.HairColor}") is { } hairMarking)
+                if (Marking.ParseFromDbString($"{profile.HairName}@{hairColorsHex}") is { } hairMarking)
                     markingsList.Add(hairMarking);
 
                 markings = _marking.ConvertMarkings(markingsList, species);
@@ -186,7 +189,7 @@ namespace Content.Server.Preferences.Managers
                 new HumanoidCharacterAppearance
                 (
                     Color.FromHex(profile.EyeColor),
-                    new List<Color> { Color.FromHex(profile.HairColor) },
+                    HairColorSerializer.Deserialize(profile.HairColor), // ADT-tweak: supports gradient (JSON array) and legacy single hex
                     Color.FromHex(profile.SkinColor),
                     markings
                 ),
