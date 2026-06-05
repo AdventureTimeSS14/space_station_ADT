@@ -17,7 +17,7 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/taser.ogg
     projectileSpeed: 15
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: ADTProjectileIonRifle
     fireCost: 150
   - type: RunAndGunSpreadModifier
