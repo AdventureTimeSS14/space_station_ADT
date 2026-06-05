@@ -317,6 +317,19 @@
   components:
     - type: SubdermalImplant
     - type: SandevistanImplant
+    - type: CyberneticLoad
+      implantLoad: 60
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: ADTStatvekaSandevistanImplant
+  name: statveka sandevistan
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: SubdermalImplant
+    - type: StatvekaSandevistanImplant
+    - type: CyberneticLoad
+      implantLoad: 70
 
 - type: entity
   parent: BaseSubdermalImplant
@@ -326,3 +339,5 @@
   components:
     - type: SubdermalImplant
     - type: MantisDaggersImplant
+    - type: CyberneticLoad
+      implantLoad: 50

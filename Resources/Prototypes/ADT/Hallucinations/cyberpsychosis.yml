@@ -1,0 +1,11 @@
+- type: hallucinationsPack
+  id: CyberpsychosisHallucinationsMild
+  minChance: 0.6
+  maxChance: 0.8
+  spawnRate: 8
+  maxSpawns: 2
+  entities:
+  - ADTHallucinationMobSpider
+  - ADTHallucinationMobSlime
+  - ADTHallucinationMobBehonker
+  - ADTHallucinationRod

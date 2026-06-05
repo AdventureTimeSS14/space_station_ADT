@@ -2,8 +2,10 @@ using Content.Shared.FixedPoint;
 using Content.Shared.ADT.Sandevistan;
 using Content.Shared.ADT.Trail;
 using Content.Shared.ADT.Abilities;
+using Content.Shared.Alert;
 using Content.Shared.Damage;
 using Robust.Shared.Audio;
+using Robust.Shared.Prototypes;
 
 // Ideally speaking this should be on the heart itself... but this also works.
 namespace Content.Server.ADT.Sandevistan;
@@ -71,6 +73,23 @@ public sealed partial class SandevistanUserComponent : Component
 
     [DataField]
     public float AttackSpeedModifier = 2.4f;
+
+    [DataField]
+    public float DoAfterSpeedModifier = 2.0f;
+
+    [DataField]
+    public ProtoId<AlertPrototype> LoadAlert = "SandevistanLoad";
+
+    [DataField]
+    public bool SlowfieldEnabled = false;
+
+    [DataField]
+    public float SlowfieldRadius = 7f;
+
+    [DataField]
+    public float SlowfieldMobMultiplier = 0.15f;
+
+    public TimeSpan NextSlowfieldTick = TimeSpan.Zero;
 
     [DataField]
     public SoundSpecifier? StartSound = new SoundPathSpecifier("/Audio/ADT/Misc/sande_start.ogg");

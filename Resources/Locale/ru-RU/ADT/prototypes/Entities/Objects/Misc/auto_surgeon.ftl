@@ -11,3 +11,6 @@ ent-ADTMantisDaggersAutoSurgeon = САПО.Г. Shellguard "Клинки бого
 
 ent-ADTERTSandevistanAutoSurgeon = САПО.Г. BioTech "Сандевистан"
     .desc = Медицинский прибор ОБР, для проведения операций по вживлению военного кибер-импланта BioTech "Сандевистан".
+
+ent-ADTStatvekaSandevistanAutoSurgeon = САПО.Г. Shellguard "Статвека Сандевистан"
+    .desc = Медицинский прибор синдиката, для проведения операций по вживлению военного кибер-импланта Shellguard "Статвека Сандевистан".

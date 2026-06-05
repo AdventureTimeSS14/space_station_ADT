@@ -575,6 +575,19 @@
     - UplinkImplants
 
 - type: listing
+  id: ADTUplinkStatvekaSandevistanImplant
+  name: uplink-statveka-sandevistan-name
+  description: uplink-statveka-sandevistan-desc
+  icon: { sprite: ADT/Implants/sandevistan.rsi, state: icon }
+  productEntity: ADTStatvekaSandevistanAutoSurgeon
+  discountDownTo:
+    Telecrystal: 14
+  cost:
+    Telecrystal: 16
+  categories:
+    - UplinkImplants
+
+- type: listing
   id: ADTUplinkMantisDaggersImplant
   name: uplink-mantis-daggers-name
   description: uplink-mantis-daggers-desc

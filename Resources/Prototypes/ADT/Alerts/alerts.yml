@@ -1,4 +1,33 @@
 - type: alert
+  id: SandevistanLoad
+  icons:
+  - sprite: /Textures/ADT/Interface/Alerts/sandevistan.rsi
+    state: sandevistan
+  alertViewEntity: AlertSandevistanSpriteView
+  name: alerts-sandevistan-load-name
+  description: alerts-sandevistan-load-desc
+
+- type: entity
+  id: AlertSandevistanSpriteView
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: GenericCounterAlert
+    hideLeadingZeroes: true
+  - type: Sprite
+    layers:
+    - map: [ "enum.AlertVisualLayers.Base" ]
+      sprite: /Textures/ADT/Interface/Alerts/sandevistan.rsi
+      state: sandevistan
+    - map: [ "1" ]
+      sprite: /Textures/Interface/Alerts/essence_counter.rsi
+      state: "0"
+      offset: 0.5, 0
+    - map: [ "10" ]
+      sprite: /Textures/Interface/Alerts/essence_counter.rsi
+      state: "0"
+      offset: 0.375, 0
+
+- type: alert
   id: ADTChaplain
   icons:
   - sprite: /Textures/ADT/Interface/chaplain-alert.rsi

@@ -199,6 +199,10 @@ uplink-mime-enhanced-book-desc = Эта книга написана велики
 
 uplink-sandevistan-implant-name = Shellguard "Сандевистан"
 uplink-sandevistan-implant-desc = Данный имплант позволяет вам ускорить ваши реакцию и скорость.
+
+uplink-statveka-sandevistan-name = Shellguard "Статвека Сандевистан"
+uplink-statveka-sandevistan-desc = Данный имплант позволяет вам ускорить ваши реакцию и скорость, замедляя все вокруг. Говорят, именно такой был у одного известного наёмника.
+
 uplink-davids-jacket-valid-name = Куртка эджраннера
 uplink-davids-jacket-valid-desc = Ты на самой грани. Покажи им, что ты готов на всё. Имеет защиту от различных типов урона.
 
