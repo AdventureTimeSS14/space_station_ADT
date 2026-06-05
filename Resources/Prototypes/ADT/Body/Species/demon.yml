@@ -25,9 +25,9 @@
       Appendix: OrganHumanAppendix
       Ears: OrganHumanEars
       Lungs: OrganHumanLungs
-      Heart: OrganHumanHeart
-      Stomach: OrganHumanStomach
-      Liver: OrganHumanLiver
+      Heart: ADTOrganDemonHeart
+      Stomach: ADTOrganDemonStomach
+      Liver: OrganAnimalLiver
       Kidneys: OrganHumanKidneys
   - type: HumanoidProfile
     species: DemonSpecies
@@ -111,3 +111,33 @@
 - type: entity
   parent: [ OrganBaseFootRight, OrganDemonExternal ]
   id: OrganDemonFootRight
+
+- type: entity
+  id: OrganDemonMetabolizer
+  abstract: true
+  components:
+  - type: Metabolizer
+    metabolizerTypes: [ Demon ]
+
+- type: entity
+  parent: [ OrganAnimalStomach ]
+  id: ADTOrganDemonStomach
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      stomach:
+        maxVol: 50
+
+- type: entity
+  parent: [ OrganBaseHeart, OrganDemonMetabolizer ]
+  id: ADTOrganDemonHeart
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Metabolizer
+    maxReagents: 2
+    metabolizerTypes: [ Demon ]
+    groups:
+    - id: Medicine
+    - id: Poison
+    - id: Narcotic
