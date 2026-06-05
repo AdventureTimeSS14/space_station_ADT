@@ -23,15 +23,18 @@ public sealed class IvDripSystem : SharedIvDripSystem
     private bool TryGetBloodstream(
         EntityUid attachedTo,
         [NotNullWhen(true)] out Entity<SolutionComponent>? solEnt,
-        [NotNullWhen(true)] out Solution? solution)
+        [NotNullWhen(true)] out Solution? solution,
+        out Entity<SolutionComponent>? bloodstreamSolution)
     {
         solEnt = default;
         solution = default;
-
-        if (!TryComp(attachedTo, out BloodstreamComponent? attachedStream))
+        bloodstreamSolution = default;
+        if (!TryComp(attachedTo, out BloodstreamComponent? attachedStream) ||
+            !_sharedSolutionContainer.TryGetSolution(attachedTo, attachedStream.BloodSolutionName, out solEnt, out solution))
             return false;
 
-        return _sharedSolutionContainer.TryGetSolution(attachedTo, attachedStream.BloodSolutionName, out solEnt, out solution);
+        bloodstreamSolution = attachedStream.BloodSolution;
+        return true;
     }
 
     public override void Update(float frameTime)
@@ -58,61 +61,77 @@ public sealed class IvDripSystem : SharedIvDripSystem
             if (!TryComp(pack, out BloodPackComponent? packComponent))
                 continue;
 
+            ivComp.TransferAt = time + ivComp.TransferDelay;
+
             if (!_sharedSolutionContainer.TryGetSolution(pack, packComponent.Solution, out var packSolEnt, out var packSol))
                 continue;
 
-            if (!TryGetBloodstream(attachedTo, out var streamSolEnt, out var streamSol))
+            if (!TryGetBloodstream(attachedTo, out var streamSolEnt, out var streamSol, out var attachedStream))
                 continue;
-
-            ivComp.TransferAt = time + ivComp.TransferDelay;
 
             if (ivComp.Injecting)
             {
-                var transferAmount = FixedPoint2.Min(ivComp.CurrentTransferAmount, packSol.Volume);
-                if (transferAmount > FixedPoint2.Zero)
+                if (attachedStream is { } bloodSolutionEnt &&
+                    TryComp(attachedTo, out BloodstreamComponent? bloodstream))
                 {
-                    var stepSolution = _sharedSolutionContainer.SplitSolution(packSolEnt.Value, transferAmount);
-                    var nonBloodSolution = stepSolution.SplitSolutionWithout(
-                        stepSolution.Volume,
-                        packComponent.TransferableReagents.Select(r => new ProtoId<ReagentPrototype>(r)).ToArray()
-                    );
+                    var beforePack = packSol.Volume;
+                    var beforeBlood = bloodSolutionEnt.Comp.Solution.Volume;
 
-                    var bloodOnlySolution = stepSolution;
-
-                    if (bloodOnlySolution.Volume > FixedPoint2.Zero)
+                    var transferAmount = FixedPoint2.Min(ivComp.CurrentTransferAmount, packSol.Volume);
+                    if (transferAmount > FixedPoint2.Zero)
                     {
-                        var addedBlood = _sharedSolutionContainer.AddSolution(streamSolEnt.Value, bloodOnlySolution);
-                        var remainingBlood = bloodOnlySolution.Volume - addedBlood;
-                        if (remainingBlood > FixedPoint2.Zero)
+                        var stepSolution = _sharedSolutionContainer.SplitSolution(packSolEnt.Value, transferAmount);
+                        var nonBloodSolution = stepSolution.SplitSolutionWithout(
+                            stepSolution.Volume,
+                            packComponent.TransferableReagents.Select(r => new ProtoId<ReagentPrototype>(r)).ToArray()
+                        );
+
+                        var bloodOnlySolution = stepSolution;
+
+                        if (bloodOnlySolution.Volume > FixedPoint2.Zero)
                         {
-                            var overflow = bloodOnlySolution.Clone();
-                            overflow.SplitSolution(addedBlood);
-                            _sharedSolutionContainer.AddSolution(packSolEnt.Value, overflow);
+                            var addedBlood = _sharedSolutionContainer.AddSolution(bloodSolutionEnt, bloodOnlySolution);
+                            var remainingBlood = bloodOnlySolution.Volume - addedBlood;
+                            if (remainingBlood > FixedPoint2.Zero)
+                            {
+                                var overflow = bloodOnlySolution.Clone();
+                                overflow.SplitSolution(addedBlood);
+                                _sharedSolutionContainer.AddSolution(packSolEnt.Value, overflow);
+                            }
+                        }
+
+                        if (nonBloodSolution.Volume > FixedPoint2.Zero)
+                        {
+                            if (!_bloodstream.TryAddToBloodstream(attachedTo, nonBloodSolution))
+                            {
+                                _sharedSolutionContainer.AddSolution(packSolEnt.Value, nonBloodSolution);
+                            }
                         }
                     }
 
-                    if (nonBloodSolution.Volume > FixedPoint2.Zero)
-                    {
-                        if (!_bloodstream.TryAddToBloodstream(attachedTo, nonBloodSolution))
-                        {
-                            _sharedSolutionContainer.AddSolution(packSolEnt.Value, nonBloodSolution);
-                        }
-                    }
+                    var afterPack = packSol.Volume;
+                    var afterBlood = bloodSolutionEnt.Comp.Solution.Volume;
+
+                    Dirty(packSolEnt.Value);
                 }
-
-                Dirty(packSolEnt.Value);
-                Dirty(streamSolEnt.Value);
             }
             else
             {
                 if (packSol.Volume < packSol.MaxVolume)
                 {
+                    var beforePack = packSol.Volume;
+                    var beforeBlood = streamSol.Volume;
+
                     _sharedSolutionContainer.TryTransferSolution(packSolEnt.Value, streamSol, ivComp.CurrentTransferAmount);
+
+                    var afterPack = packSol.Volume;
+                    var afterBlood = streamSol.Volume;
+
                     Dirty(streamSolEnt.Value);
-                    Dirty(packSolEnt.Value);
                 }
             }
 
+            ivComp.TransferAt = time + ivComp.TransferDelay;
             Dirty(ivId, ivComp);
         }
     }
