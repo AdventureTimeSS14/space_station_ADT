@@ -72,7 +72,7 @@
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
-  - type: HitscanBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: RedLaser
     fireCost: 62.5
   - type: StaticPrice
@@ -119,7 +119,7 @@
       fireRate: 1.5
       soundGunshot:
         path: /Audio/ADT/Weapons/Guns/Gunshots/gunshot_tsd.ogg
-    - type: ProjectileBatteryAmmoProvider
+    - type: BatteryAmmoProvider
       proto: ADTADTBulletMagnumHighVelocityTranquilizer
       fireCost: 150
     - type: MagazineVisuals
@@ -158,7 +158,7 @@
       fireRate: 0.6
       soundGunshot:
         path: /Audio/Weapons/plasma_cutter.ogg
-    - type: ProjectileBatteryAmmoProvider
+    - type: BatteryAmmoProvider
       proto: ADTBulletCutter
       fireCost: 100
     - type: Battery
@@ -179,7 +179,7 @@
       fireRate: 1
       soundGunshot:
         path: /Audio/Weapons/plasma_cutter.ogg
-    - type: ProjectileBatteryAmmoProvider
+    - type: BatteryAmmoProvider
       proto: ADTBulletCutterAdv
       fireCost: 75
     - type: Appearance
@@ -226,7 +226,7 @@
     - FullAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: ADTBulletDisabler
     fireCost: 30
   - type: BatteryWeaponFireModes
@@ -269,7 +269,7 @@
       path: /Audio/ADT/Weapons/Guns/Gunshots/heavy_shot_suppressed.ogg
       params:
         volume: -5
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: ADTBulletMic
     fireCost: 900
   - type: BatterySelfRecharger
@@ -294,7 +294,7 @@
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: ADTBulletEnergyCrossbow
     fireCost: 900
   - type: Item
@@ -357,10 +357,10 @@
         shader: unshaded
   - type: Gun
     fireRate: 0.3
+    projectileSpeed: 20
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/taser.ogg
-    ProjectileSpeed: 20
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: ADTProjectileIonRifle
     fireCost: 150
   - type: RunAndGunSpreadModifier
@@ -421,7 +421,7 @@
       path: /Audio/Weapons/Guns/Gunshots/laser.ogg
       params:
         pitch: 2
-  - type: HitscanBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: RedLaserBlaster
     fireCost: 125
   - type: StaticPrice
@@ -503,7 +503,7 @@
     fireRate: 2
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: ADTBulletYellowLaser
     fireCost: 125
   - type: BatteryWeaponFireModes

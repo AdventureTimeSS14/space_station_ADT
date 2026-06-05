@@ -27,7 +27,7 @@
   - ADT_Marathon
   - ADT_Meta
   - ADT_Box
-  - ADT_Train
+  # - ADT_Train
 # Lowpop 20 - 35
   - ADT_Bagel
   - ADT_Packed
@@ -64,3 +64,15 @@
   # - ADT_GeminiNewYear
   # - ADT_PieNewYear
   # - ADT_SalternNewYear
+  - Bagel
+  - Box
+  - Elkridge
+  - Fland
+  - Marathon
+  - Oasis
+  - Packed
+  - Plasma
+  - Reach
+  - Exo
+  - Snowball
+  - Serpentcrest

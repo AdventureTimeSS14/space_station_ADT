@@ -1,15 +1,15 @@
+﻿# Felinid mob (upstream PR#42476). Human-based — body/sprite/inventory come from AppearanceFelinid.
 - type: entity
   save: false
   name: Base felinid
-  parent: BaseMobSpeciesOrganic
+  parent:
+  - AppearanceFelinid
+  - BaseSpeciesMobOrganic
   id: BaseMobFelinid
   abstract: true
   components:
-  - type: HumanoidAppearance
-    species: Felinid
   - type: Hunger
     baseDecayRate: 0.024
-  - type: Thirst
   - type: Respirator
     damage:
       types:
@@ -34,62 +34,6 @@
     short: true
     shortscale: 0.9
   - type: WoundLicking
-  - type: Sprite
-    netsync: false
-    noRot: true
-    drawdepth: Mobs
-    layers:
-      - map: [ "enum.HumanoidVisualLayers.Chest" ]
-      - map: [ "enum.HumanoidVisualLayers.Head" ]
-      - map: [ "enum.HumanoidVisualLayers.Snout" ]
-      - map: [ "enum.HumanoidVisualLayers.Eyes" ]
-      - map: [ "enum.HumanoidVisualLayers.RArm" ]
-      - map: [ "enum.HumanoidVisualLayers.LArm" ]
-      - map: [ "enum.HumanoidVisualLayers.RLeg" ]
-      - map: [ "enum.HumanoidVisualLayers.LLeg" ]
-      - shader: StencilClear
-        sprite: Mobs/Species/Human/parts.rsi
-        state: l_leg
-      - shader: StencilMask
-        map: ["enum.HumanoidVisualLayers.StencilMask"]
-        sprite: Mobs/Customization/masking_helpers.rsi
-        state: unisex_full
-        visible: false
-      - map: [ "underwearb" ]
-      - map: [ "underweart" ]
-      - map: ["enum.HumanoidVisualLayers.LFoot"]
-      - map: ["enum.HumanoidVisualLayers.RFoot"]
-      - map: [ "socks" ]
-      - map: [ "jumpsuit" ]
-      - map: [ "enum.HumanoidVisualLayers.LHand" ]
-      - map: [ "enum.HumanoidVisualLayers.RHand" ]
-      - map: [ "id" ]
-      - map: [ "gloves" ]
-      - map: [ "shoes" ]
-      - map: [ "ears" ]
-      - map: [ "outerClothing" ]
-      - map: [ "eyes" ]
-      - map: [ "belt" ]
-      - map: [ "neck" ]
-      - map: [ "back" ]
-      - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
-      - map: [ "enum.HumanoidVisualLayers.Hair" ]
-      - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
-      - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
-      - map: [ "enum.HumanoidVisualLayers.Tail" ]
-      - map: [ "mask" ]
-      - map: [ "head" ]
-      - map: [ "pocket1" ]
-      - map: [ "pocket2" ]
-      - map: ["enum.HumanoidVisualLayers.Handcuffs"]
-        color: "#ffffff"
-        sprite: Objects/Misc/handcuffs.rsi
-        state: body-overlay-2
-        visible: false
-      - map: [ "clownedon" ]
-        sprite: "Effects/creampie.rsi"
-        state: "creampie_human"
-        visible: false
   - type: Destructible #процесс разрушения на органы
     thresholds:
     - trigger:
@@ -132,14 +76,15 @@
     speedModifierThresholds:
       48: 0.85
       64: 0.65
-  - type: Body
-    prototype: Felinid
   - type: Bloodstream
-    bloodMaxVolume: 170
-    bloodReagent: Blood
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 170
   - type: Damageable
-    damageContainer: Biological
     damageModifierSet: Felinid
+  - type: Injurable
+    damageContainer: Biological
   - type: MeleeWeapon
     soundHit:
       collection: Punch
@@ -180,65 +125,3 @@
     - DoorBumpOpener
     - AnomalyHost
     - ADTCatEmotes
-
-- type: entity
-  save: false
-  name: Felinid Dummy
-  parent: MobHumanDummy
-  id: MobFelinidDummy
-  categories: [ HideSpawnMenu ]
-  description: A dummy felinid meant to be used in character setup.
-  components:
-  - type: Sprite
-    netsync: false
-    noRot: true
-    drawdepth: Mobs
-    layers:
-      # TODO BODY Turn these into individual body parts?
-        - map: [ "enum.HumanoidVisualLayers.Chest" ]
-        - map: [ "enum.HumanoidVisualLayers.Head" ]
-        - map: [ "enum.HumanoidVisualLayers.Snout" ]
-        - map: [ "enum.HumanoidVisualLayers.Eyes" ]
-        - map: [ "enum.HumanoidVisualLayers.RArm" ]
-        - map: [ "enum.HumanoidVisualLayers.LArm" ]
-        - map: [ "enum.HumanoidVisualLayers.RLeg" ]
-        - map: [ "enum.HumanoidVisualLayers.LLeg" ]
-        - shader: StencilClear
-          sprite: Mobs/Species/Human/parts.rsi
-          state: l_leg
-        - shader: StencilMask
-          map: ["enum.HumanoidVisualLayers.StencilMask"]
-          sprite: Mobs/Customization/masking_helpers.rsi
-          state: unisex_full
-          visible: false
-        - map: [ "underwearb" ]
-        - map: [ "underweart" ]
-        - map: ["enum.HumanoidVisualLayers.LFoot"]
-        - map: ["enum.HumanoidVisualLayers.RFoot"]
-        - map: [ "socks" ]
-        - map: [ "jumpsuit" ]
-        - map: [ "enum.HumanoidVisualLayers.LHand" ]
-        - map: [ "enum.HumanoidVisualLayers.RHand" ]
-        - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
-          color: "#ffffff"
-          sprite: Objects/Misc/handcuffs.rsi
-          state: body-overlay-2
-          visible: false
-        - map: [ "id" ]
-        - map: [ "gloves" ]
-        - map: [ "shoes" ]
-        - map: [ "ears" ]
-        - map: [ "outerClothing" ]
-        - map: [ "eyes" ]
-        - map: [ "belt" ]
-        - map: [ "neck" ]
-        - map: [ "back" ]
-        - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
-        - map: [ "enum.HumanoidVisualLayers.Hair" ]
-        - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
-        - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
-        - map: [ "enum.HumanoidVisualLayers.Tail" ]
-        - map: [ "mask" ]
-        - map: [ "head" ]
-        - map: [ "pocket1" ]
-        - map: [ "pocket2" ]

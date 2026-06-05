@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   id: MobRevenant
   parent:
   - Incorporeal
@@ -22,8 +22,9 @@
     allowed:
     - Corporeal
   - type: Damageable
-    damageContainer: ManifestedSpirit
     damageModifierSet: ManifestedSpirit
+  - type: Injurable
+    damageContainer: ManifestedSpirit
   - type: NoSlip
   - type: TTS # Corvax-TTS
     voice: illidan
@@ -90,7 +91,6 @@
     damageContainers:
     - Biological
   - type: ShowHealthIcons
-  - type: OuijaBoardUser
   - type: Reactive
     groups:
       Acidic: [Touch]

@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   parent: BaseItem
   id: ParcelWrap
   name: parcel wrap
@@ -43,9 +43,8 @@
 
 - type: entity
   abstract: true
+  parent: BasePaperLabelable # We use this instead of BasePaperLabelableVisualized because WrappedParcel needs its own GenericVisualizer component for the parcel itself, and WrappedParcelHumanoid currently doesn't have label sprites at all
   id: BaseWrappedParcel
-  name: wrapped parcel
-  description: Something wrapped up in paper. I wonder what's inside...
   components:
   - type: Physics
     bodyType: Dynamic
@@ -76,6 +75,7 @@
         tags:
         - Book
   - type: Damageable
+  - type: Injurable
     damageContainer: Inorganic
   - type: Destructible
     thresholds:
@@ -107,8 +107,10 @@
     - Recyclable # Parcel entity is recyclable, and when it's destroyed, it'll drop its contents.
 
 - type: entity
-  parent: [BaseItem, BaseWrappedParcel]
+  parent: [ BaseItem, BaseWrappedParcel ]
   id: WrappedParcel
+  name: wrapped parcel
+  description: Something wrapped up in paper. I wonder what's inside...
   components:
   - type: Appearance
   - type: GenericVisualizer
@@ -144,6 +146,7 @@
 - type: entity
   parent: BaseWrappedParcel
   id: WrappedParcelHumanoid
+  name: wrapped parcel
   description: Something wrapped up in paper. It's suspiciously human-shaped.
   components:
   - type: Physics

@@ -45,3 +45,24 @@ trait-archaic-accent-desc = Вы говорите так, как многие с
 
 trait-scottish-accent-name = Шотландский акцент
 trait-scottish-accent-desc = Вы говорите, словно собираетесь отправиться к Лох-Несс!
+
+trait-echolalia-name = Эхолалия
+trait-echolalia-desc = Вы непроизвольно повторяете слова и фразы, произнесённые другими.
+
+trait-soft-walk-name = Мягкая походка
+trait-soft-walk-desc = Вы ходите очень тихо, ваши шаги почти не слышны.
+
+trait-freerunning-name = Фрираннинг
+trait-freerunning-desc = Вы умеете эффективно перемещаться по городской среде, перепрыгивая препятствия.
+
+trait-sprinter-name = Спринтер
+trait-sprinter-desc = Вы можете бегать немного быстрее остальных.
+
+trait-hard-thrower-name = Сильный бросок
+trait-hard-thrower-desc = Вы можете бросать предметы дальше и с большей силой.
+
+trait-voracious-name = Ненасытный
+trait-voracious-desc = Вы едите быстрее других, ваш метаболизм ускорен.
+
+trait-drunk-tolerance-name = Толерантность к алкоголю
+trait-drunk-tolerance-desc = Вы менее подвержены воздействию алкоголя, вам нужно больше, чтобы опьянеть.

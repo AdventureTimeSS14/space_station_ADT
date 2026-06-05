@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   id: ADTConstructionBarricade
   parent: BaseStructure
   name: construction barricade
@@ -10,8 +10,9 @@
     sprite: /Textures/ADT/Structures/Decoration/construction.rsi
     state: construction
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: StructuralMetallicStrong
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Pullable
   - type: Climbable
     delay: 5.0

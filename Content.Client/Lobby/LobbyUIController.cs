@@ -1,6 +1,6 @@
 using System.Linq;
+using Content.Client.Body;
 using Content.Client.Guidebook;
-using Content.Client.Humanoid;
 using Content.Client.Inventory;
 using Content.Client.Lobby.UI;
 using Content.Client.Players.PlayTimeTracking;
@@ -9,7 +9,6 @@ using Content.Shared.ADT.Language;
 using Content.Shared.CCVar;
 using Content.Shared.Clothing;
 using Content.Shared.GameTicking;
-using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Preferences;
@@ -43,7 +42,7 @@ public sealed partial class LobbyUIController : UIController, IOnStateEntered<Lo
     [Dependency] private readonly MarkingManager _markings = default!;
     [Dependency] private readonly IDynamicTypeFactory _factory = default!;
     [Dependency] private readonly IEntityManager _entMan = default!;
-    [UISystemDependency] private readonly HumanoidAppearanceSystem _humanoid = default!;
+    [UISystemDependency] private readonly VisualBodySystem _visualBody = default!;
     [UISystemDependency] private readonly ClientInventorySystem _inventory = default!;
     [UISystemDependency] private readonly StationSpawningSystem _spawn = default!;
     [UISystemDependency] private readonly GuidebookSystem _guide = default!;
@@ -77,6 +76,7 @@ public sealed partial class LobbyUIController : UIController, IOnStateEntered<Lo
         });
 
         _configurationManager.OnValueChanged(CCVars.GameRoleTimers, _ => RefreshProfileEditor());
+        _configurationManager.OnValueChanged(CCVars.GameRoleLoadoutTimers, _ => RefreshProfileEditor());
         _configurationManager.OnValueChanged(CCVars.GameRoleLoadoutTimers, _ => RefreshProfileEditor());
 
         _configurationManager.OnValueChanged(CCVars.GameRoleWhitelist, _ => RefreshProfileEditor());
@@ -176,7 +176,7 @@ public sealed partial class LobbyUIController : UIController, IOnStateEntered<Lo
         var (characterGui, profileEditor) = EnsureGui();
         characterGui.ReloadCharacterPickers();
         profileEditor.SetProfile(
-            (HumanoidCharacterProfile?) _preferencesManager.Preferences?.SelectedCharacter,
+            _preferencesManager.Preferences?.SelectedCharacter,
             _preferencesManager.Preferences?.SelectedCharacterIndex);
     }
 
@@ -193,13 +193,12 @@ public sealed partial class LobbyUIController : UIController, IOnStateEntered<Lo
 
         if (character is not HumanoidCharacterProfile humanoid)
         {
-            PreviewPanel.SetSprite(EntityUid.Invalid);
+            PreviewPanel.ProfilePreviewSpriteView.ClearPreview();
             PreviewPanel.SetSummaryText(string.Empty);
             return;
         }
 
-        var dummy = LoadProfileEntity(humanoid, null, true);
-        PreviewPanel.SetSprite(dummy);
+        PreviewPanel.ProfilePreviewSpriteView.LoadPreview(humanoid);
         PreviewPanel.SetSummaryText(humanoid.Summary);
     }
 
@@ -495,15 +494,14 @@ public sealed partial class LobbyUIController : UIController, IOnStateEntered<Lo
         }
         else if (humanoid is not null)
         {
-            var dummy = _prototypeManager.Index<SpeciesPrototype>(humanoid.Species).DollPrototype;
+            var dummy = _prototypeManager.Index(humanoid.Species).DollPrototype;
             dummyEnt = EntityManager.SpawnEntity(dummy, MapCoordinates.Nullspace);
+            _visualBody.ApplyProfileTo(dummyEnt, humanoid);
         }
         else
         {
-            dummyEnt = EntityManager.SpawnEntity(_prototypeManager.Index<SpeciesPrototype>(SharedHumanoidAppearanceSystem.DefaultSpecies).DollPrototype, MapCoordinates.Nullspace);
+            dummyEnt = EntityManager.SpawnEntity(_prototypeManager.Index(HumanoidCharacterProfile.DefaultSpecies).DollPrototype, MapCoordinates.Nullspace);
         }
-
-        _humanoid.LoadProfile(dummyEnt, humanoid);
 
         if (humanoid != null && jobClothes)
         {

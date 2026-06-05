@@ -33,7 +33,7 @@ public sealed partial class RitualMuteGhoulifyBehavior : RitualSacrificeBehavior
         foreach (var look in res)
         {
             if (!args.EntityManager.TryGetComponent<MobStateComponent>(look, out var mobstate)
-                || !args.EntityManager.HasComponent<HumanoidAppearanceComponent>(look)
+                || !args.EntityManager.HasComponent<HumanoidProfileComponent>(look)
                 || mobstate.CurrentState != Shared.Mobs.MobState.Dead)
                 continue;
 

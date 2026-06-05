@@ -1,4 +1,4 @@
-# Plate
+﻿# Plate
 # In the future, I (Swept) want a system for putting stuff on plates and it'll provide more nutrition
 # If it's on that plate. I've modified all load/slices to fit on the plate, so all we need
 # is that system. Ideally, food on plates would have a system where when thrown, it would
@@ -33,6 +33,7 @@
       types:
         Blunt: 5
   - type: Damageable
+  - type: Injurable
     damageContainer: Inorganic
   - type: Destructible
     thresholds:

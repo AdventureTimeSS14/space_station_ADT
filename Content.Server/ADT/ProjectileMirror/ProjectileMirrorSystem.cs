@@ -7,6 +7,7 @@ using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
 using Robust.Shared.Map;
 using Robust.Shared.Maths;
+using Content.Shared.Weapons.Ranged.Systems;
 
 namespace Content.Server.ADT.ProjectileMirror;
 
@@ -14,7 +15,7 @@ public sealed class ProjectileMirrorSystem : EntitySystem
 {
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
     [Dependency] private readonly SharedTransformSystem _xform = default!;
-    [Dependency] private readonly GunSystem _gun = default!;
+    [Dependency] private readonly SharedGunSystem _gun = default!;
 
     public override void Initialize()
     {
@@ -47,7 +48,7 @@ public sealed class ProjectileMirrorSystem : EntitySystem
         _xform.SetLocalPosition(proj, newPos);
 
         var gun = Comp<GunComponent>(uid);
-        _gun.Shoot(uid, gun, proj, xform.Coordinates, new EntityCoordinates(uid, offset), out _);
+        _gun.Shoot((uid, gun), proj, xform.Coordinates, new EntityCoordinates(uid, offset), out _, uid);
     }
 
     /// <summary>
