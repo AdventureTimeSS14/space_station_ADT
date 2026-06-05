@@ -20,7 +20,7 @@
       FootLeft: OrganResomiFootLeft
       FootRight: OrganResomiFootRight
       Brain: OrganHumanBrain
-      Eyes: OrganHumanEyes
+      Eyes: OrganResomiEyes
       Tongue: OrganHumanTongue
       Appendix: OrganHumanAppendix
       Ears: OrganHumanEars
@@ -123,6 +123,15 @@
   - type: VisualOrganMarkings
     markingData:
       group: Resomi
+
+- type: entity
+  parent: [ OrganResomiVisual, OrganBaseEyes, OrganHumanInternal ]
+  id: OrganResomiEyes
+  components:
+  - type: VisualOrgan
+    data:
+      sprite: ADT/Mobs/Customization/Resomi/eyes.rsi
+      state: resomi
 
 - type: entity
   parent: [ OrganResomi, OrganResomiVisual ]
