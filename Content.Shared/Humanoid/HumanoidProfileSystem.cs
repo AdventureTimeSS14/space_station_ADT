@@ -1,3 +1,6 @@
+using Content.Shared.Corvax.TTS;
+using Content.Shared.ADT.SpeechBarks;
+using Content.Shared.ADT.Language;
 using Content.Shared.Examine;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.IdentityManagement;
@@ -11,6 +14,7 @@ public sealed class HumanoidProfileSystem : EntitySystem
 {
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly GrammarSystem _grammar = default!;
+    [Dependency] private readonly SharedLanguageSystem _language = default!;
 
     public override void Initialize()
     {
@@ -37,6 +41,32 @@ public sealed class HumanoidProfileSystem : EntitySystem
         {
             _grammar.SetGender((ent, grammar), profile.Gender);
         }
+
+        // ADT-Tweak-Start
+        if (TryComp<TTSComponent>(ent, out var tts))
+            tts.VoicePrototypeId = profile.Voice;
+
+        if (TryComp<SpeechBarksComponent>(ent, out var barks))
+        {
+            barks.Data = profile.Bark;
+            if (_prototype.TryIndex(barks.Data.Proto, out BarkPrototype? barkProto))
+                barks.Data.Sound = barkProto.Sound;
+        }
+
+        var languageSpeaker = EnsureComp<LanguageSpeakerComponent>(ent);
+        languageSpeaker.Languages.Clear();
+        foreach (var lang in profile.Languages)
+            languageSpeaker.Languages[lang.ToString()] = LanguageKnowledge.Speak;
+
+        if (_prototype.TryIndex(ent.Comp!.Species, out var speciesProto))
+        {
+            foreach (var forced in speciesProto.ForceLanguages)
+                languageSpeaker.Languages.TryAdd(forced.ToString(), LanguageKnowledge.Speak);
+        }
+
+        _language.SelectDefaultLanguage(ent);
+        _language.UpdateUi(ent);
+        // ADT-Tweak-End
     }
 
     private void OnExamined(Entity<HumanoidProfileComponent> ent, ref ExaminedEvent args)
