@@ -663,6 +663,7 @@
 
 - type: marking
   id: ADTIPCScreenBroken
+  groupWhitelist: [Ipc]
   bodyPart: FacialHair
   sprites:
     - sprite: ADT/Mobs/Customization/Ipc/ipc_screens.rsi

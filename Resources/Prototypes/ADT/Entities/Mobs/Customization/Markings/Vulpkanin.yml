@@ -94,6 +94,7 @@
 - type: marking
   id: ADTVulpkanintail1Animated
   bodyPart: Tail
+  groupWhitelist: [Vulpkanin]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_tail.rsi
       state: tail_m_wagging
@@ -103,6 +104,7 @@
 - type: marking
   id: ADTVulpkanintail2Animated
   bodyPart: Tail
+  groupWhitelist: [Vulpkanin]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_tail.rsi
       state: tail_m_wagging
@@ -112,6 +114,7 @@
 - type: marking
   id: ADTVulpkanintailAllAnimated
   bodyPart: Tail
+  groupWhitelist: [Vulpkanin]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_tail.rsi
       state: tail_m_wagging
@@ -119,6 +122,7 @@
 - type: marking
   id: ADTVulpTailFluffyAnimated
   bodyPart: Tail
+  groupWhitelist: [Vulpkanin]
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_tail.rsi
       state: fluffy_wagging

@@ -355,6 +355,7 @@
 - type: marking
   id: TailWingler3Animated
   bodyPart: Tail
+  groupWhitelist: [Tajaran]
   sprites:
     - sprite: ADT/Mobs/Species/Tajaran/parts.rsi
       state: tail_m_wagging
@@ -364,6 +365,7 @@
 - type: marking
   id: TailWingler2Animated
   bodyPart: Tail
+  groupWhitelist: [Tajaran]
   sprites:
     - sprite: ADT/Mobs/Species/Tajaran/parts.rsi
       state: tail_m_wagging
@@ -373,6 +375,7 @@
 - type: marking
   id: TailWingler1Animated
   bodyPart: Tail
+  groupWhitelist: [Tajaran]
   sprites:
     - sprite: ADT/Mobs/Species/Tajaran/parts.rsi
       state: tail_m_wagging
@@ -382,6 +385,7 @@
 - type: marking
   id: TailTipAnimated
   bodyPart: Tail
+  groupWhitelist: [Tajaran]
   sprites:
     - sprite: ADT/Mobs/Species/Tajaran/parts.rsi
       state: tail_m_wagging
@@ -391,6 +395,7 @@
 - type: marking
   id: TailRingAnimated
   bodyPart: Tail
+  groupWhitelist: [Tajaran]
   sprites:
     - sprite: ADT/Mobs/Species/Tajaran/parts.rsi
       state: tail_m_wagging
@@ -400,6 +405,7 @@
 - type: marking
   id: TailSkeletonAnimated
   bodyPart: Tail
+  groupWhitelist: [Tajaran]
   sprites:
     - sprite: ADT/Mobs/Species/Tajaran/parts.rsi
       state: tail_m_wagging
@@ -409,6 +415,7 @@
 - type: marking
   id: TailFluffyAnimated
   bodyPart: Tail
+  groupWhitelist: [Tajaran]
   sprites:
     - sprite: ADT/Mobs/Customization/Tajaran/tajaran_tail.rsi #Спрайты от moroz_3
       state: tail_fluffy_wagging
@@ -416,6 +423,7 @@
 - type: marking
   id: TailColorAnimated
   bodyPart: Tail
+  groupWhitelist: [Tajaran]
   sprites:
     - sprite: ADT/Mobs/Species/Tajaran/parts.rsi
       state: tail_m_wagging

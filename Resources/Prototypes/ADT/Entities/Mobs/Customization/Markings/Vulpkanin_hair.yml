@@ -58,7 +58,7 @@
   id: ADTVulpkaninHair_sponsor
   bodyPart: Hair
   groupWhitelist: [Vulpkanin]
-  #sponsorOnly: true
+  sponsorOnly: true
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_hair.rsi
       state: hair_sponsor
@@ -75,7 +75,7 @@
   id: ADTVulpkaninJagged_sponsor_hair
   bodyPart: Hair
   groupWhitelist: [Vulpkanin]
-  #sponsorOnly: true
+  sponsorOnly: true
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_hair.rsi
       state: jagged_sponsor_hair
@@ -164,7 +164,7 @@
   id: ADTVulpkaninYkiteru_sponsor_hair
   bodyPart: Hair
   groupWhitelist: [Vulpkanin]
-  #sponsorOnly: true
+  sponsorOnly: true
   sprites:
     - sprite: ADT/Mobs/Customization/Vulpkanin/vulpkanin_hair.rsi
       state: ykiteru_sponsor_hair
