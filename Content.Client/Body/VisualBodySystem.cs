@@ -147,7 +147,8 @@ public sealed class VisualBodySystem : SharedVisualBodySystem
         if (!censorNudity)
             yield break;
 
-        var group = _prototype.Index(ent.Comp.MarkingData.Group);
+        if (!_prototype.TryIndex(ent.Comp.MarkingData.Group, out var group))
+            yield break;
         foreach (var layer in ent.Comp.MarkingData.Layers)
         {
             if (!group.Limits.TryGetValue(layer, out var layerLimits))
