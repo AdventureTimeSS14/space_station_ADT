@@ -39,7 +39,7 @@ public sealed partial class ApcComponent : BaseApcNetComponent
     /// timer, which after enough overloading causes the APC to "trip" off.
     /// </summary>
     [DataField]
-    public float MaxLoad = 20e3f;
+    public float MaxLoad = float.PositiveInfinity; // ADT-Tweak: No load limit
 
     /// <summary>
     /// Time that the APC can be continuously overloaded before tripping off.
