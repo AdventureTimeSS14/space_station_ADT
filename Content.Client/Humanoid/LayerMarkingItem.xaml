@@ -9,7 +9,7 @@
             <PanelContainer.PanelOverride>
                 <graphics:StyleBoxFlat BackgroundColor="#1B1B1E" />
             </PanelContainer.PanelOverride>
-            <LayeredTextureRect TextureScale="2 2" Name="MarkingTexture" />
+            <LayeredTextureRect TextureScale="2 2" Name="MarkingTexture" Stretch="KeepAspectCentered" />
         </PanelContainer>
 
         <Button Name="SelectButton" ToggleMode="True" HorizontalExpand="True" />
