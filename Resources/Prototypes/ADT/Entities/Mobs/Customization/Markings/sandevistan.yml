@@ -2,5 +2,6 @@
   id: ADTSandevistan
   bodyPart: Chest
   groupWhitelist: [ ADTSandevistanCodeOnly ]
+  sprites:
   - sprite: ADT/Implants/sandevistan.rsi
     state: sandy_marking
