@@ -1,6 +1,7 @@
 - type: marking
   id: ADTSandevistan
   bodyPart: Chest
+  groupWhitelist: [ ADTSandevistanCodeOnly ] # ADT-Tweak: not selectable in chargen, added only via implant code
   sprites:
   - sprite: ADT/Implants/sandevistan.rsi
     state: sandy_marking
