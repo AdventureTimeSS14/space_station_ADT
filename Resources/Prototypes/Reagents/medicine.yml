@@ -903,7 +903,7 @@
         - !type:SatiateThirst
           factor: 6
         - !type:ModifyBloodLevel
-          amount: 1.2 # ADT-Tweak 6 -> 1.2
+          amount: 6
 
 - type: reagent
   id: Siderlac
