@@ -164,6 +164,11 @@ public sealed partial class HumanoidProfileEditor
             if (Profile?.Species.Equals(_species[i].ID) == true)
             {
                 SpeciesButton.SelectId(i);
+                // ADT Species Window start
+                NewSpeciesButton.Text = name;
+                NewSpeciesButton.Pressed = false;
+                _speciesWindow?.Dispose();
+                // ADT Species Window end
             }
         }
 
