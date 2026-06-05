@@ -12,14 +12,14 @@
     enum.HumanoidVisualLayers.Tail:
       limit: 1
       required: true
-      default: [ MothWingsDefault ]
+      default: [MothWingsDefault]
     enum.HumanoidVisualLayers.Chest:
       limit: 2
       required: false
     enum.HumanoidVisualLayers.HeadTop:
       limit: 1
       required: true
-      default: [ MothAntennasDefault ]
+      default: [MothAntennasDefault]
     enum.HumanoidVisualLayers.Snout:
       limit: 1
       required: false
@@ -51,154 +51,163 @@
 - type: entity
   parent: BaseSpeciesAppearance
   id: AppearanceMoth
-  categories: [ HideSpawnMenu ]
+  categories: [HideSpawnMenu]
   name: moth appearance
   components:
-  - type: Inventory
-    speciesId: moth
-    femaleDisplacements:
-      jumpsuit:
-        sizeMaps:
-          32:
-            sprite: Mobs/Species/Moth/displacement.rsi
-            state: jumpsuit-female
-      back:
-        sizeMaps:
-          32:
-            sprite: Mobs/Species/Moth/displacement.rsi
-            state: back
-      outerClothing:
-        sizeMaps:
-          32:
-            sprite: Mobs/Species/Moth/displacement.rsi
-            state: outerclothing
-      gloves:
-        sizeMaps:
-          32:
-            sprite: Mobs/Species/Moth/displacement.rsi
-            state: hand
-      shoes:
-        sizeMaps:
-          32:
-            sprite: Mobs/Species/Moth/displacement.rsi
-            state: shoes
-    displacements:
-      jumpsuit:
-        sizeMaps:
-          32:
-            sprite: Mobs/Species/Moth/displacement.rsi
-            state: jumpsuit-male
-      back:
-        sizeMaps:
-          32:
-            sprite: Mobs/Species/Moth/displacement.rsi
-            state: back
-      outerClothing:
-        sizeMaps:
-          32:
-            sprite: Mobs/Species/Moth/displacement.rsi
-            state: outerclothing
-      gloves:
-        sizeMaps:
-          32:
-            sprite: Mobs/Species/Moth/displacement.rsi
-            state: hand
-      shoes:
-        sizeMaps:
-          32:
-            sprite: Mobs/Species/Moth/displacement.rsi
-            state: shoes
-  - type: InitialBody
-    organs:
-      Torso: OrganMothTorso
-      Head: OrganMothHead
-      ArmLeft: OrganMothArmLeft
-      ArmRight: OrganMothArmRight
-      HandRight: OrganMothHandRight
-      HandLeft: OrganMothHandLeft
-      LegLeft: OrganMothLegLeft
-      LegRight: OrganMothLegRight
-      FootLeft: OrganMothFootLeft
-      FootRight: OrganMothFootRight
-      Brain: OrganMothBrain
-      Eyes: OrganMothEyes
-      Tongue: OrganMothTongue
-      Appendix: OrganMothAppendix
-      Ears: OrganMothEars
-      Lungs: OrganMothLungs
-      Heart: OrganMothHeart
-      Stomach: OrganMothStomach
-      Liver: OrganMothLiver
-      Kidneys: OrganMothKidneys
-  - type: HumanoidProfile
-    species: Moth
+    - type: Inventory
+      speciesId: moth
+      femaleDisplacements:
+        jumpsuit:
+          sizeMaps:
+            32:
+              sprite: Mobs/Species/Moth/displacement.rsi
+              state: jumpsuit-female
+        back:
+          sizeMaps:
+            32:
+              sprite: Mobs/Species/Moth/displacement.rsi
+              state: back
+        outerClothing:
+          sizeMaps:
+            32:
+              sprite: Mobs/Species/Moth/displacement.rsi
+              state: outerclothing
+        gloves:
+          sizeMaps:
+            32:
+              sprite: Mobs/Species/Moth/displacement.rsi
+              state: hand
+        shoes:
+          sizeMaps:
+            32:
+              sprite: Mobs/Species/Moth/displacement.rsi
+              state: shoes
+      displacements:
+        jumpsuit:
+          sizeMaps:
+            32:
+              sprite: Mobs/Species/Moth/displacement.rsi
+              state: jumpsuit-male
+        back:
+          sizeMaps:
+            32:
+              sprite: Mobs/Species/Moth/displacement.rsi
+              state: back
+        outerClothing:
+          sizeMaps:
+            32:
+              sprite: Mobs/Species/Moth/displacement.rsi
+              state: outerclothing
+        gloves:
+          sizeMaps:
+            32:
+              sprite: Mobs/Species/Moth/displacement.rsi
+              state: hand
+        shoes:
+          sizeMaps:
+            32:
+              sprite: Mobs/Species/Moth/displacement.rsi
+              state: shoes
+    - type: InitialBody
+      organs:
+        Torso: OrganMothTorso
+        Head: OrganMothHead
+        ArmLeft: OrganMothArmLeft
+        ArmRight: OrganMothArmRight
+        HandRight: OrganMothHandRight
+        HandLeft: OrganMothHandLeft
+        LegLeft: OrganMothLegLeft
+        LegRight: OrganMothLegRight
+        FootLeft: OrganMothFootLeft
+        FootRight: OrganMothFootRight
+        Brain: OrganMothBrain
+        Eyes: OrganMothEyes
+        Tongue: OrganMothTongue
+        Appendix: OrganMothAppendix
+        Ears: OrganMothEars
+        Lungs: OrganMothLungs
+        Heart: OrganMothHeart
+        Stomach: OrganMothStomach
+        Liver: OrganMothLiver
+        Kidneys: OrganMothKidneys
+    - type: HumanoidProfile
+      species: Moth
 
 - type: entity
   parent:
-  - AppearanceMoth
-  - BaseSpeciesMobOrganic
+    - AppearanceMoth
+    - BaseSpeciesMobOrganic
   id: MobMoth
   name: Urist McFluff
   components:
-  - type: Damageable
-    damageModifierSet: Moth
-  - type: Injurable
-  - type: ZombieAccentOverride
-    accent: zombieMoth
-  - type: Speech
-    speechVerb: Moth
-    allowedEmotes: ['Chitter', 'Squeak', 'Flap']
-  - type: TypingIndicator
-    proto: moth
-  - type: CreamPied
-    sprite:
-      sprite: Effects/creampie.rsi
-      state: creampie_moth
-  - type: Bloodstream
-    bloodReferenceSolution:
-      reagents:
-      - ReagentId: InsectBlood
-        Quantity: 300
-  - type: DamageVisuals
-    damageOverlayGroups:
-      Brute:
-        sprite: Mobs/Effects/brute_damage.rsi
-        color: "#808A51"
-      Burn:
-        sprite: Mobs/Effects/burn_damage.rsi
-  - type: MothAccent
-  - type: Vocal
-    sounds:
-      Male: UnisexMoth
-      Female: UnisexMoth
-      Unsexed: UnisexMoth
-  - type: BodyEmotes
-    soundsId: MothBodyEmotes
-  - type: MovementSpeedModifier
-    baseWeightlessAcceleration: 1.5 # Move around more easily in space.
-    baseWeightlessFriction: 1
-    baseWeightlessModifier: 1
-  - type: Flammable
-    damage:
-      types:
-        Heat: 2.5 # moths burn more easily
-  - type: Temperature
-    currentTemperature: 310.15
-    specificHeat: 46
-  - type: TemperatureDamage # Moths hate the heat and thrive in the cold.
-    heatDamageThreshold: 320
-    coldDamageThreshold: 230
-    coldDamage:
-      types:
-        Cold: 0.05 # per second, scales with temperature & other constants
-    heatDamage:
-      types:
-        Heat: 3 # per second, scales with temperature & other constants
-  - type: TemperatureSpeed
-    thresholds:
-      289: 0.9
-      275: 0.8
-      250: 0.7
+    - type: Damageable
+      damageModifierSet: Moth
+    - type: Injurable
+    - type: ZombieAccentOverride
+      accent: zombieMoth
+    - type: Speech
+      speechVerb: Moth
+      allowedEmotes: ["Chitter", "Squeak", "Flap", "FlapWings", "Buzz"] # ADT-tweak: restored FlapWings and Buzz
+    - type: TypingIndicator
+      proto: moth
+    - type: CreamPied
+      sprite:
+        sprite: Effects/creampie.rsi
+        state: creampie_moth
+    - type: Bloodstream
+      bloodReferenceSolution:
+        reagents:
+          - ReagentId: InsectBlood
+            Quantity: 300
+    - type: DamageVisuals
+      damageOverlayGroups:
+        Brute:
+          sprite: Mobs/Effects/brute_damage.rsi
+          color: "#808A51"
+        Burn:
+          sprite: Mobs/Effects/burn_damage.rsi
+    - type: MothAccent
+    - type: Vocal
+      sounds:
+        Male: UnisexMoth
+        Female: UnisexMoth
+        Unsexed: UnisexMoth
+    - type: BodyEmotes
+      soundsId: MothBodyEmotes
+    - type: MovementSpeedModifier
+      baseWeightlessAcceleration: 1.5 # Move around more easily in space.
+      baseWeightlessFriction: 1
+      baseWeightlessModifier: 1
+    - type: Flammable
+      damage:
+        types:
+          Heat: 2.5 # moths burn more easily
+    - type: Temperature
+      currentTemperature: 310.15
+      specificHeat: 46
+    - type: TemperatureDamage # Moths hate the heat and thrive in the cold.
+      heatDamageThreshold: 320
+      coldDamageThreshold: 230
+      coldDamage:
+        types:
+          Cold: 0.05 # per second, scales with temperature & other constants
+      heatDamage:
+        types:
+          Heat: 3 # per second, scales with temperature & other constants
+    - type: TemperatureSpeed
+      thresholds:
+        289: 0.9
+        275: 0.8
+        250: 0.7
+    # ADT-tweak-start: restored moth-specific features
+    - type: DashAction
+      actionProto: ADTActionDashMoth
+    - type: SizeAttributeWhitelist # Frontier
+      tall: true
+      tallscale: 1
+      short: true
+      shortscale: 0.85
+  # ADT-tweak-end
 
 - type: entity
   parent: OrganBase
@@ -210,123 +219,125 @@
   id: OrganMothMetabolizer
   abstract: true
   components:
-  - type: Metabolizer
-    metabolizerTypes: [ Moth ]
+    - type: Metabolizer
+      metabolizerTypes: [Moth]
 
 - type: entity
   parent: OrganMoth
   id: OrganMothInternal
   abstract: true
   components:
-  - type: Sprite
-    sprite: Mobs/Species/Human/organs.rsi
+    - type: Sprite
+      sprite: Mobs/Species/Human/organs.rsi
 
 - type: entity
   id: OrganMothVisual
   abstract: true
   components:
-  - type: VisualOrgan
-    data:
-      sprite: Mobs/Species/Moth/parts.rsi
-  - type: VisualOrganMarkings
-    markingData:
-      group: Moth
+    - type: VisualOrgan
+      data:
+        sprite: Mobs/Species/Moth/parts.rsi
+    - type: VisualOrganMarkings
+      markingData:
+        group: Moth
 
 - type: entity
-  parent: [ OrganMoth, OrganMothVisual ]
+  parent: [OrganMoth, OrganMothVisual]
   id: OrganMothExternal
   abstract: true
   components:
-  - type: Sprite
-    sprite: Mobs/Species/Moth/parts.rsi
+    - type: Sprite
+      sprite: Mobs/Species/Moth/parts.rsi
 
 - type: entity
-  parent: [ OrganBaseTorsoSexed, OrganBaseTorso, OrganMothExternal ]
+  parent: [OrganBaseTorsoSexed, OrganBaseTorso, OrganMothExternal]
   id: OrganMothTorso
 
 - type: entity
-  parent: [ OrganBaseHead, OrganMothExternal ]
+  parent: [OrganBaseHead, OrganMothExternal]
   id: OrganMothHead
   components:
-  - type: VisualOrganMarkings
-    hideableLayers:
-    - enum.HumanoidVisualLayers.HeadTop
+    - type: VisualOrganMarkings
+      hideableLayers:
+        - enum.HumanoidVisualLayers.HeadTop
 
 - type: entity
-  parent: [ OrganBaseArmLeft, OrganMothExternal ]
+  parent: [OrganBaseArmLeft, OrganMothExternal]
   id: OrganMothArmLeft
 
 - type: entity
-  parent: [ OrganBaseArmRight, OrganMothExternal ]
+  parent: [OrganBaseArmRight, OrganMothExternal]
   id: OrganMothArmRight
 
 - type: entity
-  parent: [ OrganBaseHandLeft, OrganMothExternal ]
+  parent: [OrganBaseHandLeft, OrganMothExternal]
   id: OrganMothHandLeft
 
 - type: entity
-  parent: [ OrganBaseHandRight, OrganMothExternal ]
+  parent: [OrganBaseHandRight, OrganMothExternal]
   id: OrganMothHandRight
 
 - type: entity
-  parent: [ OrganBaseLegLeft, OrganMothExternal ]
+  parent: [OrganBaseLegLeft, OrganMothExternal]
   id: OrganMothLegLeft
 
 - type: entity
-  parent: [ OrganBaseLegRight, OrganMothExternal ]
+  parent: [OrganBaseLegRight, OrganMothExternal]
   id: OrganMothLegRight
 
 - type: entity
-  parent: [ OrganBaseFootLeft, OrganMothExternal ]
+  parent: [OrganBaseFootLeft, OrganMothExternal]
   id: OrganMothFootLeft
 
 - type: entity
-  parent: [ OrganBaseFootRight, OrganMothExternal ]
+  parent: [OrganBaseFootRight, OrganMothExternal]
   id: OrganMothFootRight
 
 - type: entity
-  parent: [ OrganBaseBrain, OrganSpriteHumanInternal, OrganMothInternal ]
+  parent: [OrganBaseBrain, OrganSpriteHumanInternal, OrganMothInternal]
   id: OrganMothBrain
 
 - type: entity
-  parent: [ OrganMothVisual, OrganBaseEyes, OrganMothInternal ]
+  parent: [OrganMothVisual, OrganBaseEyes, OrganMothInternal]
   id: OrganMothEyes
 
 - type: entity
-  parent: [ OrganBaseTongue, OrganMothInternal ]
+  parent: [OrganBaseTongue, OrganMothInternal]
   id: OrganMothTongue
 
 - type: entity
-  parent: [ OrganBaseAppendix, OrganSpriteHumanInternal, OrganMothInternal ]
+  parent: [OrganBaseAppendix, OrganSpriteHumanInternal, OrganMothInternal]
   id: OrganMothAppendix
 
 - type: entity
-  parent: [ OrganBaseEars, OrganSpriteHumanInternal, OrganMothInternal ]
+  parent: [OrganBaseEars, OrganSpriteHumanInternal, OrganMothInternal]
   id: OrganMothEars
 
 - type: entity
-  parent: [ OrganBaseLungs, OrganMothInternal, OrganMothMetabolizer ]
+  parent: [OrganBaseLungs, OrganMothInternal, OrganMothMetabolizer]
   id: OrganMothLungs
 
 - type: entity
-  parent: [ OrganBaseHeart, OrganMothInternal, OrganAnimalMetabolizer ]
+  parent: [OrganBaseHeart, OrganMothInternal, OrganAnimalMetabolizer]
   id: OrganMothHeart
 
 - type: entity
-  parent: [ OrganBaseStomach, OrganMothInternal, OrganMothMetabolizer ]
+  parent: [OrganBaseStomach, OrganMothInternal, OrganMothMetabolizer]
   id: OrganMothStomach
   components:
-  - type: Stomach
-    specialDigestible:
-      tags:
-      - ClothMade
-      - Paper
-      - Pill
+    - type: Stomach
+      specialDigestible:
+        tags:
+          - ClothMade
+          - Paper
+          - Pill
+          - Fruit # ADT-tweak: moths can eat fruit
+          - ADTMothFriendlyFood # ADT-tweak: moths can eat bread, pancakes etc.
 
 - type: entity
-  parent: [ OrganBaseLiver, OrganSpriteHumanInternal, OrganMothInternal, OrganAnimalMetabolizer ]
+  parent: [OrganBaseLiver, OrganSpriteHumanInternal, OrganMothInternal, OrganAnimalMetabolizer]
   id: OrganMothLiver
 
 - type: entity
-  parent: [ OrganBaseKidneys, OrganSpriteHumanInternal, OrganMothInternal, OrganMothMetabolizer ]
+  parent: [OrganBaseKidneys, OrganSpriteHumanInternal, OrganMothInternal, OrganMothMetabolizer]
   id: OrganMothKidneys
