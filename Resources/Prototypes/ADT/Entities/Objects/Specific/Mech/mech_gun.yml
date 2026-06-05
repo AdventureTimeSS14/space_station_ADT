@@ -307,7 +307,7 @@
     ammoType: sniper
   - type: UIFragment
     ui: !type:MechGunUi
-  - type: RunAndGunBlocker
+  # - type: RunAndGunBlocker
 
 - type: entity
   name: SGL-6 Grenade Launcher
@@ -335,7 +335,7 @@
     reloadTime: 5
   - type: UIFragment
     ui: !type:MechGunUi
-  - type: RunAndGunBlocker
+  # - type: RunAndGunBlocker
 
 - type: entity
   name: SRM-8 Missile Rack
@@ -363,7 +363,7 @@
     reloadTime: 8
   - type: UIFragment
     ui: !type:MechGunUi
-  - type: RunAndGunBlocker
+  # - type: RunAndGunBlocker
 
 - type: entity
   name: BRM-6 Missile Rack
@@ -391,7 +391,7 @@
     reloadTime: 5
   - type: UIFragment
     ui: !type:MechGunUi
-  - type: RunAndGunBlocker
+  # - type: RunAndGunBlocker
 
 # #Медиган
 

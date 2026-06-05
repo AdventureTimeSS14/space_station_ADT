@@ -61,8 +61,8 @@
   - type: Item
     size: Large
   # ADT-Tweak start
-  - type: RunAndGunSpreadModifier
-    modifier: 0.3
+  # - type: RunAndGunSpreadModifier
+    # modifier: 0.3
   # ADT-Tweak end
   - type: Clothing
     sprite: Objects/Weapons/Guns/Shotguns/bulldog.rsi
@@ -151,8 +151,8 @@
   - type: Gun
     fireRate: 3
   # ADT-Tweak start
-  - type: RunAndGunSpreadModifier
-    modifier: 0.3
+  # - type: RunAndGunSpreadModifier
+    # modifier: 0.3
   - type: MeleeWeapon
     resetOnHandSelected: false
     attackRate: 0.85
@@ -193,8 +193,8 @@
   - type: Clothing
     sprite: Objects/Weapons/Guns/Shotguns/enforcer.rsi
   # ADT-Tweak start
-  - type: RunAndGunSpreadModifier
-    modifier: 0.3
+  # - type: RunAndGunSpreadModifier
+    # modifier: 0.3
   # ADT-Tweak end
   - type: Item
     sprite: Objects/Weapons/Guns/Shotguns/enforcer_inhands_64x.rsi
@@ -262,8 +262,8 @@
   - type: Gun
     fireRate: 1.25
   # ADT-Tweak start
-  - type: RunAndGunSpreadModifier
-    modifier: 0.3
+  # - type: RunAndGunSpreadModifier
+    # modifier: 0.3
   - type: MeleeWeapon
     resetOnHandSelected: false
     attackRate: 0.85
@@ -298,8 +298,8 @@
     - 0,0,2,0
     sprite: ADT/Objects/Weapons/Guns/Shotguns/sawn.rsi # ADT tweak
   # ADT-Tweak start
-  - type: RunAndGunSpreadModifier
-    modifier: 0.3
+  # - type: RunAndGunSpreadModifier
+    # modifier: 0.3
   # ADT-Tweak end
   - type: Gun
     fireRate: 3
@@ -345,8 +345,8 @@
   - type: Clothing
     sprite: Objects/Weapons/Guns/Shotguns/hm_pistol.rsi
   # ADT-Tweak start
-  - type: RunAndGunSpreadModifier
-    modifier: 0.2
+  # - type: RunAndGunSpreadModifier
+    # modifier: 0.2
   # ADT-Tweak end
   - type: Gun
     fireRate: 4
@@ -372,8 +372,8 @@
     sprite: Objects/Weapons/Guns/Shotguns/blunderbuss.rsi
   - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
   # ADT-Tweak start
-  - type: RunAndGunSpreadModifier
-    modifier: 0.3
+  # - type: RunAndGunSpreadModifier
+    # modifier: 0.3
   - type: MeleeWeapon
     resetOnHandSelected: false
     attackRate: 0.85
@@ -405,8 +405,8 @@
     sprite: Objects/Weapons/Guns/Shotguns/improvised_shotgun_inhands_64x.rsi
   - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
   # ADT-Tweak start
-  - type: RunAndGunSpreadModifier
-    modifier: 0.4
+  # - type: RunAndGunSpreadModifier
+    # modifier: 0.4
   - type: MeleeWeapon
     resetOnHandSelected: false
     attackRate: 0.85

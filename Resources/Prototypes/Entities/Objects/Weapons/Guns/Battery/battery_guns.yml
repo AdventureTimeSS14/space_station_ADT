@@ -565,9 +565,9 @@
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
   # ADT-Tweak start
-  - type: RunAndGunSpreadModifier
-    modifier: 0.04
-    minVelocity: 20 # чуть меньше скорости бега
+  # - type: RunAndGunSpreadModifier
+    # modifier: 0.04
+    # minVelocity: 20 # чуть меньше скорости бега
   - type: MeleeWeapon
     resetOnHandSelected: false
     attackRate: 1
@@ -665,9 +665,9 @@
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
   #ADT-Tweak start
-  - type: RunAndGunSpreadModifier
-    modifier: 0.03
-    minVelocity: 15 # значительно меньше скорости бега
+  # - type: RunAndGunSpreadModifier
+    # modifier: 0.03
+    # minVelocity: 15 # значительно меньше скорости бега
   - type: MeleeWeapon
     resetOnHandSelected: false
     attackRate: 1
@@ -781,8 +781,8 @@
         map: ["enum.GunVisualLayers.MagUnshaded"]
         shader: unshaded
   # ADT-Tweak start
-  - type: RunAndGunSpreadModifier
-    modifier: 0.05
+  # - type: RunAndGunSpreadModifier
+    # modifier: 0.05
   - type: MeleeWeapon
     resetOnHandSelected: false
     attackRate: 1
@@ -840,8 +840,8 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
   # ADT-Tweak start
-  - type: RunAndGunSpreadModifier
-    modifier: 0.04
+  # - type: RunAndGunSpreadModifier
+    # modifier: 0.04
   - type: MeleeWeapon
     resetOnHandSelected: false
     attackRate: 1
@@ -939,8 +939,8 @@
   - type: Clothing
     sprite: Objects/Weapons/Guns/Battery/antiquelasergun.rsi
   # ADT-Tweak start
-  - type: RunAndGunSpreadModifier
-    modifier: 0.05
+  # - type: RunAndGunSpreadModifier
+    # modifier: 0.05
   - type: MeleeWeapon
     resetOnHandSelected: false
     attackRate: 1
@@ -1004,8 +1004,8 @@
   - type: Clothing
     sprite: Objects/Weapons/Guns/Battery/advancedlasergun.rsi
   # ADT-Tweak start
-  - type: RunAndGunSpreadModifier
-    modifier: 0.04
+  # - type: RunAndGunSpreadModifier
+    # modifier: 0.04
   - type: MeleeWeapon
     resetOnHandSelected: false
     attackRate: 1
@@ -1252,9 +1252,9 @@
     steps: 5
     zeroVisible: false
   # ADT-Tweak start
-  - type: RunAndGunSpreadModifier
-    modifier: 0.03
-    minVelocity: 20 # чуть меньше скорости бега
+  # - type: RunAndGunSpreadModifier
+    # modifier: 0.03
+    # minVelocity: 20 # чуть меньше скорости бега
   - type: MeleeWeapon
     resetOnHandSelected: false
     attackRate: 1
