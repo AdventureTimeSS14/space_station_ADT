@@ -88,7 +88,7 @@ public sealed partial class RadiationSystem : EntitySystem
         _activeReceivers.Remove(uid);
     }
 
-    private void UpdateSource(Entity<RadiationSourceComponent> entity)
+    public void UpdateSource(Entity<RadiationSourceComponent> entity)
     {
         var (uid, component) = entity;
         var xform = Transform(uid);

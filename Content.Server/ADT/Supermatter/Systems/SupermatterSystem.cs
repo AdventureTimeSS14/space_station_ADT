@@ -1,4 +1,5 @@
 using Content.Server.Administration.Logs;
+using Content.Server.Radiation.Systems;
 using Content.Server.ADT.Hallucinations;
 using Content.Server.AlertLevel;
 using Content.Server.Atmos.EntitySystems;
@@ -53,6 +54,7 @@ public sealed partial class SupermatterSystem : EntitySystem
 {
     [Dependency] private readonly AppearanceSystem _appearance = default!;
     [Dependency] private readonly AlertLevelSystem _alert = default!;
+    [Dependency] private readonly RadiationSystem _radiation = default!;
     [Dependency] private readonly AtmosphereSystem _atmosphere = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly DoAfterSystem _doAfter = default!;
