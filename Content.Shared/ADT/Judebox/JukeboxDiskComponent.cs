@@ -12,7 +12,7 @@ public sealed partial class JukeboxDiskComponent : Component
     public List<ProtoId<JukeboxPrototype>>? Tracks;
 
     [DataField]
-    public ProtoId<JukeboxListPrototype>? TracksCollection = string.Empty;
+    public ProtoId<JukeboxListPrototype>? TracksCollection = null;
 
     [DataField]
     public bool UseRandom = false;
