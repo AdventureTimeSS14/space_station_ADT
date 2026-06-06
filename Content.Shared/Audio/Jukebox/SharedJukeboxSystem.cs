@@ -1,9 +1,11 @@
+using System.Linq;
 using Robust.Shared.Audio.Systems;
 using Content.Shared.ADT.Audio.Jukebox;
 using Content.Shared.Interaction;
 using Content.Shared.Containers.ItemSlots;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Containers;
+using Robust.Shared.Random;
 
 namespace Content.Shared.Audio.Jukebox;
 
@@ -13,6 +15,7 @@ public abstract class SharedJukeboxSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _protoManager = default!;
     [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
     [Dependency] protected readonly SharedAudioSystem Audio = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
 
     public const string CassetteSlotId = "music_disk";
     public override void Initialize()
@@ -20,11 +23,16 @@ public abstract class SharedJukeboxSystem : EntitySystem
         base.Initialize();
         SubscribeLocalEvent<JukeboxComponent, EntInsertedIntoContainerMessage>(OnContainerInserted);
         SubscribeLocalEvent<JukeboxComponent, EntRemovedFromContainerMessage>(OnContainerRemoved);
+        SubscribeLocalEvent<JukeboxDiskComponent, ComponentInit>(OnComponentInit);
     }
 
     public static float MapToRange(float value, float leftMin, float leftMax, float rightMin, float rightMax) /// ADT-Tweak
     {
         return rightMin + (value - leftMin) * (rightMax - rightMin) / (leftMax - leftMin);
+    }
+    private void OnComponentInit(EntityUid uid, JukeboxDiskComponent component, ComponentInit args)
+    {
+        InitializeRandomTracks(uid, component);
     }
 
     private void OnContainerInserted(Entity<JukeboxComponent> ent, ref EntInsertedIntoContainerMessage args)
@@ -69,26 +77,72 @@ public abstract class SharedJukeboxSystem : EntitySystem
         if (!TryComp<JukeboxDiskComponent>(diskEntity, out var diskComp))
             return null;
 
-        if (string.IsNullOrEmpty(diskComp.Collection))
+        if (string.IsNullOrEmpty(diskComp.TracksCollection))
             return null;
 
-        _protoManager.Resolve(diskComp.Collection, out JukeboxListPrototype? collection);
+        _protoManager.Resolve(diskComp.TracksCollection, out JukeboxListPrototype? collection);
         return collection;
     }
 
     public List<ProtoId<JukeboxPrototype>> GetAvailableSongs(Entity<JukeboxComponent> ent)
     {
-        var collection = GetDiskCollection(ent);
-        if (collection == null)
-            return new List<ProtoId<JukeboxPrototype>>();
+        var availableSongs = new List<ProtoId<JukeboxPrototype>>();
 
-        return collection.Jukeboxes;
+        var diskEntity = GetInsertedDisk(ent);
+        if (diskEntity == null)
+            return availableSongs;
+
+        if (!TryComp<JukeboxDiskComponent>(diskEntity, out var diskComp))
+            return availableSongs;
+
+        if (!string.IsNullOrEmpty(diskComp.TracksCollection))
+        {
+            _protoManager.Resolve(diskComp.TracksCollection, out JukeboxListPrototype? collection);
+            if (collection != null)
+                availableSongs.AddRange(collection.Jukeboxes);
+        }
+
+        if (diskComp.Tracks != null)
+            availableSongs.AddRange(diskComp.Tracks);
+
+        return availableSongs;
     }
 
     public bool IsSongAvailable(Entity<JukeboxComponent> ent, ProtoId<JukeboxPrototype> songId)
     {
         var availableSongs = GetAvailableSongs(ent);
         return availableSongs.Contains(songId);
+    }
+
+    public void InitializeRandomTracks(EntityUid uid, JukeboxDiskComponent component)
+    {
+        if (!component.UseRandom)
+            return;
+
+        // Если Tracks уже заполнен и не пустой, не перезаписываем
+        if (component.Tracks != null && component.Tracks.Count > 0)
+            return;
+
+        // Получаем все доступные JukeboxPrototype
+        var allJukeboxes = _protoManager.EnumeratePrototypes<JukeboxPrototype>().ToList();
+
+        if (allJukeboxes.Count == 0)
+            return;
+
+        // Определяем количество случайных треков используя RobustRandom
+        int tracksCount = _random.Next(component.RandomTracksMin, component.RandomTracksMax + 1);
+        tracksCount = Math.Min(tracksCount, allJukeboxes.Count);
+
+        // Перемешиваем список используя RobustRandom
+        _random.Shuffle(allJukeboxes);
+
+        // Выбираем случайные треки из перемешанного списка и преобразуем в ProtoId
+        var selectedTracks = allJukeboxes.Take(tracksCount)
+                                        .Select(x => new ProtoId<JukeboxPrototype>(x.ID))
+                                        .ToList();
+
+        component.Tracks = selectedTracks;
+        Dirty(uid, component);
     }
 
     protected virtual void StopJukebox(Entity<JukeboxComponent> ent) { }

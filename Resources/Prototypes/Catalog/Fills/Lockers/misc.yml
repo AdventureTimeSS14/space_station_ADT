@@ -188,7 +188,7 @@
       prob: 0.01
     #ADT tweak start
     - !type:NestedSelector
-      tableId: ADTMusicDisk
+      tableId: ADTMusicDiskMaintenance
       prob: 0.05
     - id: DeathPaint
       prob: 0.05

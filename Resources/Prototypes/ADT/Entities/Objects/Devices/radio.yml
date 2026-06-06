@@ -82,13 +82,13 @@
   name: radio
   description: A radio, connected to some radio channel.
   parent: BaseItem
-  id: ADTJukeBoxRadio
+  id: ADTJukeBoxPlayer
   components:
   - type: Sprite
-    sprite: ADT/Objects/Devices/communication.rsi
+    sprite: ADT/Objects/Devices/ghost_radio.rsi #временный спрайт
     layers:
-    - state: old-radio
-    state: old-radio
+    - state: icon
+    - state: radio
   - type: Item
     sprite: ADT/Objects/Devices/communication.rsi
     heldPrefix: old-radio

@@ -38,8 +38,8 @@
 - type: cargoProduct
   id: ADTFunBoxMusicDisks
   icon:
-    sprite: Objects/Vehicles/atv.rsi
-    state: keys
+    sprite: Objects/Storage/boxes.rsi
+    state: box
   product: ADTBoxMusicDisks
   category: cargoproduct-category-name-fun
   cost: 500

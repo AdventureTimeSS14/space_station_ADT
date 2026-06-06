@@ -8,7 +8,7 @@
     sprite: ADT/Objects/Misc/module.rsi
     layers:
     - state: datadisk_base
-      color: "#FF4444"
+      color: "#1cf01c"
     - state: datadisk_label_music
   - type: Item
     size: Tiny
@@ -30,25 +30,62 @@
       params:
         volume: -6
   - type: JukeboxDisk
-    collection: Standard
+    tracksCollection: Standard
   - type: GenericVisualizer
     visuals:
       enum.ToggleableVisuals.Enabled:
         enum.ToggleableVisuals.Layer:
           True: { visible: true }
           False: { visible: false }
-  - type: RandomSprite
-    available:
-    - enum.DamageStateVisualLayers.Base:
-        tape_greyscale: ADTTechDisk
   - type: StaticPrice
     price: 50
 
 - type: entity
-  name: deathrattle implant box
+  parent: BaseItem
+  id: ADTMusicDiskRandom
+  name: music disk (Chill)
+  description: A magnetic tape that can hold up to two minutes of content on either side.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    layers:
+    - state: harddisk
+      map: [ "base" ]
+  - type: Item
+    size: Tiny
+  - type: Damageable
+  - type: Appearance
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/ADT/Items/Handling/disk_pickup.ogg
+      params:
+        volume: -6
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/ADT/Items/Handling/disk_drop.ogg
+      params:
+        volume: -6
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/ADT/Items/Handling/disk_drop.ogg
+      params:
+        volume: -6
+  - type: JukeboxDisk
+    useRandom: true
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleableVisuals.Enabled:
+        enum.ToggleableVisuals.Layer:
+          True: { visible: true }
+          False: { visible: false }
+  - type: StaticPrice
+    price: 210
+
+- type: entity
+  name: box of music discs
   parent: BoxCardboard
   id: ADTBoxMusicDisks
-  description: Six deathrattle implants for the whole squad.
+  description: A box containing a set of standard music discs.
   components:
   - type: Sprite
     layers:
@@ -57,13 +94,41 @@
   - type: Storage
     grid:
     - 0,0,2,1
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,2,1
   - type: StorageFill
     contents:
       - id: ADTMusicDiskStandard
       - id: ADTMusicDiskRock
       - id: ADTMusicDiskSonic
       - id: ADTMusicDiskChill
+      - id: ADTMusicDiskVa11Hall
+
+- type: entity
+  name: music set Syndicate
+  parent: BoxCardboard
+  id: ADTBoxMusicDisksSyndicate
+  description: A box containing a set of a music player and discs to it.
+  components:
+  - type: Sprite
+    layers:
+      - state: box_of_doom
+      - state: disk
+  - type: Storage
+    grid:
+    - 0,0,2,1
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,2,1
+  - type: StorageFill
+    contents:
+      - id: ADTJukeBoxPlayer
       - id: ADTMusicDiskHotline
+      - id: ADTMusicDiskMix
+      - id: ADTMusicDiskRock
 
 - type: entity
   parent: ADTMusicDiskStandard
@@ -78,7 +143,7 @@
       color: "#343434"
     - state: datadisk_label_music
   - type: JukeboxDisk
-    collection: Rock
+    tracksCollection: Rock
   - type: StaticPrice
     price: 50
 
@@ -95,7 +160,7 @@
       color: "#2953BE"
     - state: datadisk_label_music
   - type: JukeboxDisk
-    collection: Sonic
+    tracksCollection: Sonic
   - type: StaticPrice
     price: 50
 
@@ -112,7 +177,7 @@
       color: "#f1641f"
     - state: datadisk_label_music
   - type: JukeboxDisk
-    collection: Chill
+    tracksCollection: Chill
   - type: StaticPrice
     price: 50
 
@@ -129,22 +194,57 @@
       color: "#8f1212"
     - state: datadisk_label_music
   - type: JukeboxDisk
-    collection: Hotline
+    tracksCollection: Hotline
   - type: StaticPrice
     price: 50
 
 - type: entity
   parent: ADTMusicDiskStandard
-  id: ADTMusicDiskStandardPlus
-  name: music disk (Chill)
+  id: ADTMusicDiskVa11Hall
+  name: music disk (Va11Hall)
   description: A magnetic tape that can hold up to two minutes of content on either side.
   components:
   - type: Sprite
-    sprite: Objects/Misc/module.rsi
+    sprite: ADT/Objects/Misc/module.rsi
     layers:
-    - state: harddisk
-      map: [ "base" ]
+    - state: datadisk_base
+      color: "#8c0c97"
+    - state: datadisk_label_music
   - type: JukeboxDisk
-    collection: StandardPlus
+    tracksCollection: Va11Hall
   - type: StaticPrice
-    price: 250
+    price: 110
+
+- type: entity
+  parent: ADTMusicDiskStandard
+  id: ADTMusicDiskCeleste
+  name: music disk (Celeste)
+  description: A magnetic tape that can hold up to two minutes of content on either side.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/module.rsi
+    layers:
+    - state: datadisk_base
+      color: "#da1a1a"
+    - state: datadisk_label_music
+  - type: JukeboxDisk
+    tracksCollection: Celeste
+  - type: StaticPrice
+    price: 110
+
+- type: entity
+  parent: ADTMusicDiskStandard
+  id: ADTMusicDiskMix
+  name: music disk (Celeste)
+  description: A magnetic tape that can hold up to two minutes of content on either side.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/module.rsi
+    layers:
+    - state: datadisk_base
+      color: "#582e1d"
+    - state: datadisk_label_music
+  - type: JukeboxDisk
+    tracksCollection: Mix
+  - type: StaticPrice
+    price: 110

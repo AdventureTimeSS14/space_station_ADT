@@ -825,6 +825,7 @@
   minLimit: 0
   maxLimit: 2
   loadouts:
+  - ADTBoxMusicDisks
   - MusicianSuperSynthesizer # ADT-Tweak
   - Glockenspiel
   - MusicBox
