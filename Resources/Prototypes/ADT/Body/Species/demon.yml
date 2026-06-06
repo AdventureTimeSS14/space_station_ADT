@@ -137,7 +137,3 @@
   - type: Metabolizer
     maxReagents: 2
     metabolizerTypes: [ Demon ]
-    groups:
-    - id: Medicine
-    - id: Poison
-    - id: Narcotic
