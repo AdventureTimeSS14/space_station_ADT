@@ -68,9 +68,11 @@ public sealed partial class DamageableComponent : Component
 [Serializable, NetSerializable]
 public sealed class DamageableComponentState(
     DamageSpecifier damage,
+    Dictionary<ProtoId<DamageGroupPrototype>, FixedPoint2> damagePerGroup, // ADT-Tweak
     ProtoId<DamageModifierSetPrototype>? modifierSetId)
     : ComponentState
 {
     public readonly DamageSpecifier Damage = damage;
+    public readonly Dictionary<ProtoId<DamageGroupPrototype>, FixedPoint2> DamagePerGroup = damagePerGroup; // ADT-Tweak
     public readonly ProtoId<DamageModifierSetPrototype>? ModifierSetId = modifierSetId;
 }
