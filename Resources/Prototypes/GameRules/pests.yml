@@ -23,9 +23,6 @@
   parent: BaseStationEventShortDelay
   components:
   - type: StationEvent
-    startAnnouncement: station-event-vent-creatures-start-announcement
-    startAudio:
-      path: /Audio/ADT/Announcements/announce_dig.ogg #ADT-tweak
     earliestStart: 15
     weight: 6
     duration: 50
@@ -46,10 +43,7 @@
   parent: BaseStationEventShortDelay
   components:
   - type: StationEvent
-    startAnnouncement: station-event-vent-creatures-start-announcement
-    startAudio:
-      path: /Audio/ADT/Announcements/announce_dig.ogg #ADT-tweak
-    earliestStart: 20 # Corax-MRP # 15
+    earliestStart: 20
     weight: 6
     duration: 50
     minimumPlayers: 30 # Hopefully this is enough for the Rat King's potential Army (it was not, raised from 15 -> 30)
@@ -76,9 +70,6 @@
   parent: BaseStationEventShortDelay
   components:
   - type: StationEvent
-    startAnnouncement: station-event-vent-creatures-start-announcement
-    startAudio:
-      path: /Audio/ADT/Announcements/announce_dig.ogg #ADT-tweak
     weight: 6
     duration: 50
   - type: VentCrittersRule
@@ -95,9 +86,6 @@
   parent: BaseStationEventShortDelay
   components:
   - type: StationEvent
-    startAnnouncement: station-event-vent-creatures-start-announcement
-    startAudio:
-      path: /Audio/ADT/Announcements/announce_dig.ogg #ADT-tweak
     weight: 6
     duration: 50
   - type: VentCrittersRule
@@ -114,9 +102,6 @@
   parent: BaseStationEventShortDelay
   components:
   - type: StationEvent
-    startAnnouncement: station-event-vent-creatures-start-announcement
-    startAudio:
-      path: /Audio/ADT/Announcements/announce_dig.ogg #ADT-tweak
     earliestStart: 15
     weight: 6
     duration: 50
