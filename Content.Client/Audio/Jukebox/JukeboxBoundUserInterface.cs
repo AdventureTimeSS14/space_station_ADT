@@ -57,7 +57,6 @@ public sealed class JukeboxBoundUserInterface : BoundUserInterface
         _menu.OnSongSelected += SelectSong;
         _menu.SetTime += SetTime;
         _menu.SetVolume += SetVolume; // ADT-Tweak
-        _menu.OnEjectPressed += OnEjectPressed; // ADT-Tweak
         PopulateMusic();
         Reload();
     }
@@ -153,11 +152,6 @@ public sealed class JukeboxBoundUserInterface : BoundUserInterface
         }
 
         SendMessage(new JukeboxSetVolumeMessage(sentVolume));
-    }
-
-    private void OnEjectPressed()
-    {
-        SendMessage(new JukeboxEjectMessage());
     }
 
     public void UpdateDiskInfo()

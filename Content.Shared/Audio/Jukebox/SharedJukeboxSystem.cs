@@ -119,24 +119,22 @@ public abstract class SharedJukeboxSystem : EntitySystem
         if (!component.UseRandom)
             return;
 
-        // Если Tracks уже заполнен и не пустой, не перезаписываем
         if (component.Tracks != null && component.Tracks.Count > 0)
             return;
 
-        // Получаем все доступные JukeboxPrototype
         var allJukeboxes = _protoManager.EnumeratePrototypes<JukeboxPrototype>().ToList();
 
         if (allJukeboxes.Count == 0)
             return;
 
-        // Определяем количество случайных треков используя RobustRandom
-        int tracksCount = _random.Next(component.RandomTracksMin, component.RandomTracksMax + 1);
+        var min = Math.Max(0, component.RandomTracksMin);
+        var max = Math.Max(min, component.RandomTracksMax);
+        int tracksCount = _random.Next(min, max + 1);
+
         tracksCount = Math.Min(tracksCount, allJukeboxes.Count);
 
-        // Перемешиваем список используя RobustRandom
         _random.Shuffle(allJukeboxes);
 
-        // Выбираем случайные треки из перемешанного списка и преобразуем в ProtoId
         var selectedTracks = allJukeboxes.Take(tracksCount)
                                         .Select(x => new ProtoId<JukeboxPrototype>(x.ID))
                                         .ToList();

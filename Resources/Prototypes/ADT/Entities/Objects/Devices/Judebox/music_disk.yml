@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseItem
   id: ADTMusicDiskStandard
-  name: music disk (standart)
-  description: A magnetic tape that can hold up to two minutes of content on either side.
+  name: music disk (standard)
+  description: A time-tested collection of symphonies and orchestral works. For those who appreciate elegance.
   components:
   - type: Sprite
     sprite: ADT/Objects/Misc/module.rsi
@@ -43,8 +43,8 @@
 - type: entity
   parent: BaseItem
   id: ADTMusicDiskRandom
-  name: music disk (Chill)
-  description: A magnetic tape that can hold up to two minutes of content on either side.
+  name: old music disc
+  description: A worn disc of unknown origin. Perhaps there will be some collector who wants to get his hands on it.
   components:
   - type: Sprite
     sprite: Objects/Misc/module.rsi
@@ -134,7 +134,7 @@
   parent: ADTMusicDiskStandard
   id: ADTMusicDiskRock
   name: music disk (rock)
-  description: A magnetic tape that can hold up to two minutes of content on either side.
+  description: Powerful guitar riffs and energetic drums. The neighbors will definitely appreciate the volume.
   components:
   - type: Sprite
     sprite: ADT/Objects/Misc/module.rsi
@@ -151,7 +151,7 @@
   parent: ADTMusicDiskStandard
   id: ADTMusicDiskSonic
   name: music disk (Sonic)
-  description: A magnetic tape that can hold up to two minutes of content on either side.
+  description: Nostalgic melodies from the last century.
   components:
   - type: Sprite
     sprite: ADT/Objects/Misc/module.rsi
@@ -168,7 +168,7 @@
   parent: ADTMusicDiskStandard
   id: ADTMusicDiskChill
   name: music disk (Chill)
-  description: A magnetic tape that can hold up to two minutes of content on either side.
+  description: Soft rhythms and relaxing arrangements. Perfect for meditation or a hard day's work in the mine.
   components:
   - type: Sprite
     sprite: ADT/Objects/Misc/module.rsi
@@ -185,7 +185,7 @@
   parent: ADTMusicDiskStandard
   id: ADTMusicDiskHotline
   name: music disk (Hotline)
-  description: A magnetic tape that can hold up to two minutes of content on either side.
+  description: Syntave and electronic bits that make you want to break the rules. It's great for chases and shootouts.
   components:
   - type: Sprite
     sprite: ADT/Objects/Misc/module.rsi
@@ -202,7 +202,7 @@
   parent: ADTMusicDiskStandard
   id: ADTMusicDiskVa11Hall
   name: music disk (Va11Hall)
-  description: A magnetic tape that can hold up to two minutes of content on either side.
+  description: Atmospheric jazz and lounge compositions. Creates a cozy atmosphere even in the most remote bar.
   components:
   - type: Sprite
     sprite: ADT/Objects/Misc/module.rsi
@@ -219,7 +219,7 @@
   parent: ADTMusicDiskStandard
   id: ADTMusicDiskCeleste
   name: music disk (Celeste)
-  description: A magnetic tape that can hold up to two minutes of content on either side.
+  description: Light and uplifting melodies that lift the mood. Holding it in your hands, you have a strong desire to make a breakthrough.
   components:
   - type: Sprite
     sprite: ADT/Objects/Misc/module.rsi
@@ -235,8 +235,8 @@
 - type: entity
   parent: ADTMusicDiskStandard
   id: ADTMusicDiskMix
-  name: music disk (Celeste)
-  description: A magnetic tape that can hold up to two minutes of content on either side.
+  name: music disk (Mix)
+  description: A collection of random tracks from all genres.
   components:
   - type: Sprite
     sprite: ADT/Objects/Misc/module.rsi
