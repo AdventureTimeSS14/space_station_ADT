@@ -23,14 +23,14 @@ public abstract class SharedJukeboxSystem : EntitySystem
         base.Initialize();
         SubscribeLocalEvent<JukeboxComponent, EntInsertedIntoContainerMessage>(OnContainerInserted);
         SubscribeLocalEvent<JukeboxComponent, EntRemovedFromContainerMessage>(OnContainerRemoved);
-        SubscribeLocalEvent<JukeboxDiskComponent, ComponentInit>(OnComponentInit);
+        SubscribeLocalEvent<JukeboxDiskComponent, MapInitEvent>(OnComponentInit);
     }
 
     public static float MapToRange(float value, float leftMin, float leftMax, float rightMin, float rightMax) /// ADT-Tweak
     {
         return rightMin + (value - leftMin) * (rightMax - rightMin) / (leftMax - leftMin);
     }
-    private void OnComponentInit(EntityUid uid, JukeboxDiskComponent component, ComponentInit args)
+    private void OnComponentInit(EntityUid uid, JukeboxDiskComponent component, MapInitEvent args)
     {
         InitializeRandomTracks(uid, component);
     }
