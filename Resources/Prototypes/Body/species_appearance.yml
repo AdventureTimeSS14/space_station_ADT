@@ -22,6 +22,7 @@
     - map: [ "enum.HumanoidVisualLayers.UndergarmentBottom" ]
     - map: [ "enum.HumanoidVisualLayers.UndergarmentTop" ]
     - map: ["underwearb"]
+    - map: [ "socks" ]
     - map: ["underweart"]
     - map: ["jumpsuit"]
 
@@ -36,7 +37,6 @@
 
     # More equipment
     - map: [ "gloves" ]
-    - map: [ "socks" ]
     - map: [ "shoes" ]
     - map: [ "ears" ]
     - map: [ "eyes" ]
