@@ -1,4 +1,4 @@
-using Robust.Client.UserInterface.Controls;
+﻿using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Utility;
 
 namespace Content.Client.Lobby.UI;
@@ -26,6 +26,8 @@ public sealed partial class HumanoidProfileEditor
             _flavorTextEdit = _flavorText.CFlavorTextInput;
 
             _flavorText.OnFlavorTextChanged += OnFlavorTextChange;
+            _flavorText.OnHeadshotUrlChanged += OnHeadshotUrlChange;
+            _flavorText.OnPreviewRequested += OnFlavorPreviewRequested;
         }
         else
         {
@@ -34,6 +36,8 @@ public sealed partial class HumanoidProfileEditor
 
             TabContainer.RemoveChild(_flavorText);
             _flavorText.OnFlavorTextChanged -= OnFlavorTextChange;
+            _flavorText.OnHeadshotUrlChanged -= OnHeadshotUrlChange;
+            _flavorText.OnPreviewRequested -= OnFlavorPreviewRequested;
             _flavorText.Dispose();
             _flavorTextEdit?.Dispose();
             _flavorTextEdit = null;
@@ -55,6 +59,11 @@ public sealed partial class HumanoidProfileEditor
         if (_flavorTextEdit != null)
         {
             _flavorTextEdit.TextRope = new Rope.Leaf(Profile?.FlavorText ?? "");
+        }
+
+        if (_flavorText != null)
+        {
+            _flavorText.CHeadshotUrlInput.Text = Profile?.HeadshotUrl ?? "";
         }
     }
 }
