@@ -97,6 +97,9 @@
     node: oldRadio
   - type: ActivatableUI
     key: enum.JukeboxUiKey.Key
+  - type: ContainerContainer
+    containers:
+    music_disk: !type:ContainerSlot {}
   - type: ItemSlots
     slots:
       music_disk:

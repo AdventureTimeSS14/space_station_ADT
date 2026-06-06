@@ -39,6 +39,9 @@
     damageContainer: StructuralInorganic
     damageModifierSet: Metallic
   #ADT-Tweak-Start
+  - type: ContainerContainer
+    containers:
+      music_disk: !type:ContainerSlot {}
   - type: ItemSlots
     slots:
       music_disk:
