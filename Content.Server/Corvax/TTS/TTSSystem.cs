@@ -11,6 +11,8 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Content.Server.ADT.Language;
 using Content.Shared.ADT.Language;
+using Content.Server.ADT.TTS;
+using Content.Server.Radio;
 
 namespace Content.Server.Corvax.TTS;
 
@@ -57,6 +59,8 @@ public sealed partial class TTSSystem : EntitySystem
         SubscribeLocalEvent<TransformSpeechEvent>(OnTransformSpeech);
         SubscribeLocalEvent<TTSComponent, EntitySpokeEvent>(OnEntitySpoke);
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundRestartCleanup);
+
+        SubscribeLocalEvent<HeadsetTTSComponent, RadioReceiveEvent>(OnHeadsetReceive);  // ADT-Tweak: Radio TTS
 
         SubscribeNetworkEvent<RequestPreviewTTSEvent>(OnRequestPreviewTTS);
 

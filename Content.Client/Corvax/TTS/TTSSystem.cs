@@ -11,6 +11,7 @@ using Robust.Shared.Utility;
 using Content.Shared.ADT.Language;  // ADT Languages
 using Robust.Shared.Player;
 using Content.Shared.ADT.CCVar;
+using Content.Shared.ADT.TTS;
 
 namespace Content.Client.Corvax.TTS;
 
@@ -18,7 +19,7 @@ namespace Content.Client.Corvax.TTS;
 /// Plays TTS audio in world
 /// </summary>
 // ReSharper disable once InconsistentNaming
-public sealed class TTSSystem : EntitySystem
+public sealed partial class TTSSystem : EntitySystem    // ADT-Tweak: Partial class
 {
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly IResourceManager _res = default!;
@@ -56,6 +57,7 @@ public sealed class TTSSystem : EntitySystem
         _sawmill = Logger.GetSawmill("tts");
         _cfg.OnValueChanged(CCCVars.TTSVolume, OnTtsVolumeChanged, true);
         SubscribeNetworkEvent<PlayTTSEvent>(OnPlayTTS);
+        SubscribeLocalEvent<PlayRadioTTSEvent>(OnPlayRadioTTS); // ADT-Tweak: Radio TTS
     }
 
     public override void Shutdown()
