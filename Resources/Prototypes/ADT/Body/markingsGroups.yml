@@ -615,7 +615,7 @@
       limit: 3
       required: false
     enum.HumanoidVisualLayers.Head:
-      limit: 3
+      limit: 1
       required: false
     enum.HumanoidVisualLayers.Snout:
       limit: 1
