@@ -61,6 +61,7 @@
 # Animated
 - type: marking
   id: FoxTailAnimated
+  groupWhitelist: [Vulpkanin] # ADT-Tweak
   bodyPart: Tail
   sprites:
     - sprite: Corvax/Mobs/Customization/vulpkanin.rsi
@@ -70,6 +71,7 @@
 
 - type: marking
   id: WolfTailAnimated
+  groupWhitelist: [Vulpkanin] # ADT-Tweak
   bodyPart: Tail
   sprites:
     - sprite: Corvax/Mobs/Customization/vulpkanin.rsi
