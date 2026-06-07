@@ -197,3 +197,8 @@
       sprite: ADT/Mobs/Species/Shadekin/parts.rsi
       state: eyes
       shader: unshaded
+  - type: VisualOrganMarkings
+    markingData:
+      group: Shadekin
+      layers:
+      - Eyes

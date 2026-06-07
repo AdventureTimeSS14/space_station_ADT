@@ -412,7 +412,7 @@
       limit: 3
       required: false
     enum.HumanoidVisualLayers.HeadTop:
-      limit: 3
+      limit: 1
       required: true
       default: [ EarsShadekin ]
     enum.HumanoidVisualLayers.Eyes:
@@ -443,7 +443,7 @@
       limit: 2
       required: false
     enum.HumanoidVisualLayers.Overlay:
-      limit: 1
+      limit: 3
       required: false
 
 - type: markingsGroup
