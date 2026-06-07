@@ -227,6 +227,31 @@ public sealed class SacrificeSystem : EntitySystem
         {
             Spawn(transform.ResultProto, Transform(altar).Coordinates);
         }
+
+        ResetAltarToBase(altar);
+    }
+
+    private void ResetAltarToBase(EntityUid altar)
+    {
+        if (!TryComp<SacrificeComponent>(altar, out var sacrificeComp))
+            return;
+
+        if (string.IsNullOrEmpty(sacrificeComp.BaseAltarProto))
+            return;
+
+        var meta = MetaData(altar);
+        if (meta.EntityPrototype?.ID == sacrificeComp.BaseAltarProto)
+            return;
+
+        var xform = Transform(altar);
+        var coordinates = xform.Coordinates;
+        var rotation = xform.LocalRotation;
+
+        var newAltar = Spawn(sacrificeComp.BaseAltarProto, coordinates);
+        var newXform = Transform(newAltar);
+        newXform.LocalRotation = rotation;
+
+        QueueDel(altar);
     }
 
     private readonly struct SacrificeOption
