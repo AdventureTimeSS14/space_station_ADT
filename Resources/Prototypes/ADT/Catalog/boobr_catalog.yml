@@ -656,3 +656,25 @@
     Productunit: 4
   categories:
   - ADTUplinkERTMisc
+
+- type: listing
+  id: ADTUplinkBloodPumpImplantERT
+  name: uplink-blood-pump-implant-name
+  description: uplink-blood-pump-implant-desc
+  icon: { sprite: ADT/Objects/Specific/Medical/auto_surgeon.rsi, state: icon }
+  productEntity: ADTBloodPumpAutoSurgeonNT
+  cost:
+    Productunit: 9
+  categories:
+  - ADTUplinkERTImplants
+
+- type: listing
+  id: ADTUplinkStimulantImplantERT
+  name: uplink-stimulant-implant-name
+  description: uplink-stimulant-implant-desc
+  icon: { sprite: ADT/Objects/Specific/Medical/auto_surgeon.rsi, state: icon }
+  productEntity: ADTStimulantAutoSurgeonNT
+  cost:
+    Productunit: 9
+  categories:
+  - ADTUplinkERTImplants

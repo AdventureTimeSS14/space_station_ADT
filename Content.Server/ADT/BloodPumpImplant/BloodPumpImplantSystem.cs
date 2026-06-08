@@ -1,7 +1,6 @@
+using Content.Server.Body.Systems;
 using Content.Shared.ADT.BloodPumpImplant;
-using Content.Shared.Body.Components;
 using Content.Shared.Chemistry.Components;
-using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Popups;
 using Robust.Shared.Audio.Systems;
 
@@ -9,7 +8,7 @@ namespace Content.Server.ADT.BloodPumpImplant;
 
 public sealed class BloodPumpImplantSystem : EntitySystem
 {
-    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
+    [Dependency] private readonly BloodstreamSystem _bloodstream = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
 
@@ -32,17 +31,11 @@ public sealed class BloodPumpImplantSystem : EntitySystem
             return;
         }
 
-        if (!TryComp<BloodstreamComponent>(user, out var bloodstream))
-            return;
-
-        if (!_solutionContainer.ResolveSolution(user, bloodstream.MetabolitesSolutionName, ref bloodstream.MetabolitesSolution, out _))
-            return;
-
         var solution = new Solution();
         foreach (var (reagent, amount) in ent.Comp.Reagents)
             solution.AddReagent(reagent, amount);
 
-        if (!_solutionContainer.TryAddSolution(bloodstream.MetabolitesSolution!.Value, solution))
+        if (!_bloodstream.TryAddToBloodstream(user, solution))
         {
             _popup.PopupEntity(Loc.GetString("blood-pump-implant-full"), user, user, PopupType.SmallCaution);
             return;

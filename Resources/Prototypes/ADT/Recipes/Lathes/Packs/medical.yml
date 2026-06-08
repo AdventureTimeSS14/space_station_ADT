@@ -53,3 +53,13 @@
   id: ADTThermoTech
   recipes:
   - ADTPatchThermo
+
+- type: latheRecipePack
+  id: ADTBloodPumpImplantTech
+  recipes:
+  - ADTBloodPumpAutoSurgeonNT
+
+- type: latheRecipePack
+  id: ADTStimulantImplantTech
+  recipes:
+  - ADTStimulantAutoSurgeonNT

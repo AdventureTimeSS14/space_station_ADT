@@ -574,6 +574,8 @@
     - ADTAdvancedMedicalCarePack
     - ADTCryoTech
     - ADTThermoTech
+    - ADTBloodPumpImplantTech
+    - ADTStimulantImplantTech
     #ADT-Tweak End
   - type: Machine
     board: MedicalTechFabCircuitboard

@@ -203,3 +203,32 @@
   position: 5,-1
   requiredTech:
   - ADTAdvancedMedicalCare
+- type: technology
+  id: ADTBloodPumpImplantTech
+  name: research-technology-blood-pump-implant
+  icon:
+    sprite: ADT/Objects/Specific/Medical/auto_surgeon.rsi
+    state: icon
+  discipline: Biochemical
+  tier: 3
+  cost: 15000
+  recipeUnlocks:
+  - ADTBloodPumpAutoSurgeonNT
+  requiredTech:
+  - ADTHighVoltageDefibrillator
+  position: 5,-2
+
+- type: technology
+  id: ADTStimulantImplantTech
+  name: research-technology-stimulant-implant
+  icon:
+    sprite: ADT/Objects/Specific/Medical/auto_surgeon.rsi
+    state: icon
+  discipline: Biochemical
+  tier: 3
+  cost: 20000
+  recipeUnlocks:
+  - ADTStimulantAutoSurgeonNT
+  requiredTech:
+  - ADTBloodPumpImplantTech
+  position: 6,-2

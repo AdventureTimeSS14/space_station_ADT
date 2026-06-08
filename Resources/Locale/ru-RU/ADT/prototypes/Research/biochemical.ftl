@@ -15,3 +15,7 @@ research-technology-chemistry-misc = Химические принадлежно
 research-technology-thermo = Термогеника
 
 research-technology-syringe-gun = Шприцемёт
+
+research-technology-blood-pump-implant = Имплант «Кровяной насос»
+
+research-technology-stimulant-implant = Имплант «Стимулятор дезоксиэфедрина»

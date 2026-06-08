@@ -106,6 +106,7 @@
   components:
   - type: Action
     checkCanInteract: false
+    checkConsciousness: false
     icon:
       sprite: ADT/Objects/Misc/berserk_heart.rsi
       state: icon
@@ -120,6 +121,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
+    checkCanInteract: false
     icon:
       sprite: ADT/Objects/Misc/berserk_heart.rsi
       state: icon

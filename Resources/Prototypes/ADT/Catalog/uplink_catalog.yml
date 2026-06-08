@@ -623,6 +623,28 @@
   categories:
     - UplinkImplants
 
+- type: listing
+  id: ADTUplinkBloodPumpImplantSyndie
+  name: uplink-blood-pump-implant-name
+  description: uplink-blood-pump-implant-desc
+  icon: { sprite: ADT/Objects/Specific/Medical/auto_surgeon.rsi, state: icon-syndie }
+  productEntity: ADTBloodPumpAutoSurgeonSyndie
+  cost:
+    Telecrystal: 5
+  categories:
+    - UplinkImplants
+
+- type: listing
+  id: ADTUplinkStimulantImplantSyndie
+  name: uplink-stimulant-implant-name
+  description: uplink-stimulant-implant-desc
+  icon: { sprite: ADT/Objects/Specific/Medical/auto_surgeon.rsi, state: icon-syndie }
+  productEntity: ADTStimulantAutoSurgeonSyndie
+  cost:
+    Telecrystal: 5
+  categories:
+    - UplinkImplants
+
 #UplinkAllies
 
 #UplinkPointless

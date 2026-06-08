@@ -9,6 +9,7 @@
     - ADTUplinkERTMisc
     - ADTUplinkERTAttachments
     - ADTUplinkERTAmmo
+    - ADTUplinkERTImplants
     currencyWhitelist:
     - Productunit
 
