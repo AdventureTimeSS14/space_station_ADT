@@ -4,11 +4,3 @@
   icon: { sprite: "/Textures/ADT/Objects/Specific/Medical/medical.rsi", state: antib_ointment }
   spawn: ADTAntibioticOintment
   maxCount: 10
-
-- type: stack
-  parent: BaseSmallStack
-  id: ADTBloodPackTransfusionFull
-  name: stack-bloodpack
-  icon: { sprite: "ADT/Objects/Medical/blood_pack.rsi", state: bloodpack }
-  spawn: ADTBloodPackTransfusionFull
-  maxCount: 1
