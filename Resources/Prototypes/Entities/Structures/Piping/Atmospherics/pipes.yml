@@ -377,7 +377,7 @@
     thresholds: # override parent to avoid recursive destruction
     - trigger:
         !type:DamageTrigger
-        damage: 100
+        damage: 110
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
