@@ -152,7 +152,7 @@ namespace Content.Server.GameTicking
                     }
 
                     // ADT-Tweak start
-                    if (session.Channel.Connected)
+                    if (session.Channel.IsConnected)
                         RaiseNetworkEvent(GetConnectionStatusMsg(), session.Channel);
                     // ADT-Tweak end
                     break;
