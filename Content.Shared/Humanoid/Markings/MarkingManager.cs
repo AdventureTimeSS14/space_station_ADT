@@ -110,7 +110,9 @@ public sealed class MarkingManager
     /// <returns>True if a marking with the prototype could be applied</returns>
     public bool CanBeApplied(ProtoId<MarkingsGroupPrototype> group, Sex sex, MarkingPrototype prototype)
     {
-        var groupProto = _prototype.Index(group);
+        if (!_prototype.TryIndex(group, out var groupProto))
+            return false;
+
         var whitelisted = groupProto.Limits.GetValueOrDefault(prototype.BodyPart)?.OnlyGroupWhitelisted ?? groupProto.OnlyGroupWhitelisted;
 
         return CanBeApplied(groupProto, sex, prototype, whitelisted);
@@ -193,7 +195,8 @@ public sealed class MarkingManager
     /// </summary>
     public void EnsureValidLimits(Dictionary<HumanoidVisualLayers, List<Marking>> markingSets, ProtoId<MarkingsGroupPrototype> group, HashSet<HumanoidVisualLayers> layers, Color? skinColor, Color? eyeColor)
     {
-        var groupProto = _prototype.Index(group);
+        if (!_prototype.TryIndex(group, out var groupProto))
+            return;
         var counts = new Dictionary<HumanoidVisualLayers, int>();
 
         foreach (var (_, markings) in markingSets)

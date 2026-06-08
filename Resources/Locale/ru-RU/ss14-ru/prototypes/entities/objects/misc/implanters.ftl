@@ -1,12 +1,12 @@
-﻿ent-BaseImplanter = биоинжектор
+ent-BaseImplanter = биоинжектор
     .desc = { ent-BaseItem.desc }
 ent-Implanter = экстрактор биочипов
     .desc =
         Шприц двойного назначения, предназначенный для удаления определённых подкожных биочипов. После извлечения биочип хранится внутри и может быть повторно введён.
         ПРЕДУПРЕЖДЕНИЕ: Ошибка оператора, такая как выбор отсутствующего типа биочипа, приведёт к серьёзной генетической травме оператора.
 ent-ImplanterAdmeme = { ent-Implanter }
-    .suffix = Адмемы
     .desc = { ent-Implanter.desc }
+    .suffix = Адмемы
 ent-BaseImplantOnlyImplanter = { ent-Implanter }
     .desc = Одноразовый шприц, специально предназначенный для введения подкожных биочипов.
 ent-BaseImplantOnlyImplanterSyndi = биоинжектор Синдиката

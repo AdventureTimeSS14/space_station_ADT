@@ -296,8 +296,8 @@
         hard: false
         mask:
         - Opaque
-        - Impassable
-        - BulletImpassable
+      #  - Impassable # ADT-tweak
+      #  - BulletImpassabl # ADT-tweak
       fly-by: *flybyfixture
   - type: Ammo
   - type: StaminaDamageOnCollide
@@ -337,8 +337,8 @@
         hard: false
         mask:
         - Opaque
-        - Impassable
-        - BulletImpassable
+      #  - Impassable # ADT-tweak
+      #  - BulletImpassabl # ADT-tweak
       fly-by: *flybyfixture
   - type: Ammo
   - type: StaminaDamageOnCollide
@@ -1182,8 +1182,8 @@
         hard: false
         mask:
         - Opaque
-        - Impassable
-        - BulletImpassable
+      #  - Impassable # ADT-tweak
+      #  - BulletImpassabl # ADT-tweak
       fly-by: *flybyfixture
   - type: Ammo
   - type: StaminaDamageOnCollide

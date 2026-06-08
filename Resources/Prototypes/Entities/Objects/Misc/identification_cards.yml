@@ -1099,6 +1099,11 @@
     heldPrefix: orange #this is close enough to the weird puce color pirate IDs have going on
   - type: IdCard
     jobIcon: JobIconPirate
+  # ADT-Tweak start
+  - type: Access
+    tags:
+    - SyndicateAgent
+  # ADT-Tweak end
 
 - type: entity
   parent: IDCardStandard

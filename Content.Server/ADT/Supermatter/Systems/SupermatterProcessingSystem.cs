@@ -162,6 +162,7 @@ public sealed partial class SupermatterSystem
                 * _config.GetCVar(ADTCCVars.SupermatterRadsModifier);
 
             rad.Slope = Math.Clamp(rad.Intensity / 15, 0.2f, 1f);
+            _radiation.UpdateSource((uid, rad));
         }
 
         var energy = sm.Power * _config.GetCVar(ADTCCVars.SupermatterReactionPowerModifier) * 1.6f * frameTime;

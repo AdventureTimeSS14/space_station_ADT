@@ -54,7 +54,7 @@ public sealed class HealthAnalyzerSystem : EntitySystem
             if (component.NextUpdate > _timing.CurTime)
                 continue;
 
-            if (component.ScannedEntity is not {} patient)
+            if (component.ScannedEntity is not { } patient)
                 continue;
 
             if (Deleted(patient))
@@ -252,7 +252,7 @@ public sealed class HealthAnalyzerSystem : EntitySystem
         // ADT-Tweak start: - Get a list of metabolizing chemicals
         List<(string ReagentId, FixedPoint2 Quantity)>? metabolizingReagents = null;
         if (TryComp<BloodstreamComponent>(target, out var bloodstreamComp) &&
-            _solutionContainerSystem.TryGetSolution(target.Value, BloodstreamComponent.DefaultMetabolitesSolutionName, out _, out var chemicalsSolution))
+            _solutionContainerSystem.TryGetSolution(target.Value, BloodstreamComponent.DefaultBloodSolutionName, out _, out var chemicalsSolution))
         {
             metabolizingReagents = new List<(string, FixedPoint2)>();
             foreach (var (reagent, quantity) in chemicalsSolution.Contents)

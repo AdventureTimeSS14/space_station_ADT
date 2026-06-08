@@ -3,6 +3,7 @@
   id: NovakidHair1
   bodyPart: Hair
   groupWhitelist: [Novakid]
+  forcedColoring: true
   sprites:
   - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
     state: braid
@@ -11,6 +12,7 @@
   id: NovakidHair2
   bodyPart: Hair
   groupWhitelist: [Novakid]
+  forcedColoring: true
   sprites:
   - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
     state: comet
@@ -19,6 +21,7 @@
   id: NovakidHair3
   bodyPart: Hair
   groupWhitelist: [Novakid]
+  forcedColoring: true
   sprites:
   - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
     state: constellation
@@ -27,6 +30,7 @@
   id: NovakidHair4
   bodyPart: Hair
   groupWhitelist: [Novakid]
+  forcedColoring: true
   sprites:
   - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
     state: duality
@@ -35,6 +39,7 @@
   id: NovakidHair5
   bodyPart: Hair
   groupWhitelist: [Novakid]
+  forcedColoring: true
   sprites:
   - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
     state: fame
@@ -43,6 +48,7 @@
   id: NovakidHair6
   bodyPart: Hair
   groupWhitelist: [Novakid]
+  forcedColoring: true
   sprites:
   - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
     state: gas_cloud
@@ -51,6 +57,7 @@
   id: NovakidHair7
   bodyPart: Hair
   groupWhitelist: [Novakid]
+  forcedColoring: true
   sprites:
   - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
     state: gaseous_avalanche
@@ -59,6 +66,7 @@
   id: NovakidHair8
   bodyPart: Hair
   groupWhitelist: [Novakid]
+  forcedColoring: true
   sprites:
   - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
     state: light_shine
@@ -67,6 +75,7 @@
   id: NovakidHair9
   bodyPart: Hair
   groupWhitelist: [Novakid]
+  forcedColoring: true
   sprites:
   - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
     state: little_light_starshine
@@ -75,6 +84,7 @@
   id: NovakidHair10
   bodyPart: Hair
   groupWhitelist: [Novakid]
+  forcedColoring: true
   sprites:
   - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
     state: little_star
@@ -83,6 +93,7 @@
   id: NovakidHair11
   bodyPart: Hair
   groupWhitelist: [Novakid]
+  forcedColoring: true
   sprites:
   - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
     state: lunar_day
@@ -91,6 +102,7 @@
   id: NovakidHair12
   bodyPart: Hair
   groupWhitelist: [Novakid]
+  forcedColoring: true
   sprites:
   - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
     state: meteoric_shower
@@ -99,6 +111,7 @@
   id: NovakidHair13
   bodyPart: Hair
   groupWhitelist: [Novakid]
+  forcedColoring: true
   sprites:
   - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
     state: milky_way
@@ -107,6 +120,7 @@
   id: NovakidHair14
   bodyPart: Hair
   groupWhitelist: [Novakid]
+  forcedColoring: true
   sprites:
   - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
     state: Nebula
@@ -115,6 +129,7 @@
   id: NovakidHair15
   bodyPart: Hair
   groupWhitelist: [Novakid]
+  forcedColoring: true
   sprites:
   - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
     state: solar_corona
@@ -123,6 +138,7 @@
   id: NovakidHair16
   bodyPart: Hair
   groupWhitelist: [Novakid]
+  forcedColoring: true
   sprites:
   - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
     state: star_rain
@@ -131,6 +147,7 @@
   id: NovakidHair17
   bodyPart: Hair
   groupWhitelist: [Novakid]
+  forcedColoring: true
   sprites:
   - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
     state: starfall
@@ -139,6 +156,7 @@
   id: NovakidHair18
   bodyPart: Hair
   groupWhitelist: [Novakid]
+  forcedColoring: true
   sprites:
   - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
     state: starfire
@@ -147,6 +165,7 @@
   id: NovakidHair19
   bodyPart: Hair
   groupWhitelist: [Novakid]
+  forcedColoring: true
   sprites:
   - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
     state: sunshine
@@ -155,6 +174,7 @@
   id: NovakidHair20
   bodyPart: Hair
   groupWhitelist: [Novakid]
+  forcedColoring: true
   sprites:
   - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
     state: supernova
@@ -163,6 +183,7 @@
   id: NovakidHair21
   bodyPart: Hair
   groupWhitelist: [Novakid]
+  forcedColoring: true
   sprites:
   - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
     state: universal_style
@@ -171,6 +192,7 @@
   id: NovakidHair22
   bodyPart: Hair
   groupWhitelist: [Novakid]
+  forcedColoring: true
   sprites:
   - sprite: ADT/Mobs/Customization/Novakid/custom.rsi
     state: virgo
