@@ -1,5 +1,3 @@
-using Robust.Shared.GameObjects;
-using Robust.Shared.Serialization.Manager.Attributes;
 using Robust.Shared.ViewVariables;
 
 namespace Content.Shared.ADT.Cyberpsychosis;
@@ -31,12 +29,12 @@ public sealed partial class CyberpsychosisComponent : Component
     public float StressThreshold = 100f;
 
     // Диапазоны инкремента по стадиям
-    [DataField] public float MildIncrMin = 0.8f;
-    [DataField] public float MildIncrMax = 1.2f;
-    [DataField] public float ModerateIncrMin = 3.5f;
-    [DataField] public float ModerateIncrMax = 5.5f;
-    [DataField] public float SevereIncrMin = 7.0f;
-    [DataField] public float SevereIncrMax = 10.0f;
+    public float MildIncrMin = 0.8f;
+    public float MildIncrMax = 1.2f;
+    public float ModerateIncrMin = 3.5f;
+    public float ModerateIncrMax = 5.5f;
+    public float SevereIncrMin = 7.0f;
+    public float SevereIncrMax = 10.0f;
 
     // Длительность эпизода
     [DataField]
@@ -47,4 +45,11 @@ public sealed partial class CyberpsychosisComponent : Component
 
     [DataField]
     public string MildHallucinationPack = "CyberpsychosisHallucinationsMild";
+
+    // Шансы стана
+    public float MildParalyzeChance = 0.01f;
+    public float ModerateParalyzeChance = 0.20f;
+    public float SevereParalyzeChance = 1f;
+
+    public TimeSpan ParalyzeDuration = TimeSpan.FromSeconds(10);
 }

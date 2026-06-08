@@ -1,9 +1,12 @@
 using Content.Server.ADT.Hallucinations;
+using Content.Server.ForceAttack;
 using Content.Shared.ADT.Cyberpsychosis;
+using Content.Shared.ADT.Traits.Assorted;
 using Content.Shared.Implants;
 using Content.Shared.Implants.Components;
-using Robust.Shared.GameObjects;
-using Robust.Shared.IoC;
+using Content.Shared.NPC.Systems;
+using Content.Shared.StatusEffect;
+using Content.Shared.Stunnable;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
@@ -14,8 +17,12 @@ public sealed class CyberpsychosisSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly HallucinationsSystem _hallucinations = default!;
+    [Dependency] private readonly StatusEffectsSystem _status = default!;
+    [Dependency] private readonly SharedStunSystem _stun = default!;
+    [Dependency] private readonly NpcFactionSystem _faction = default!;
 
     private const string HallucinationsKey = "ADTHallucinations";
+    private const string RageFaction = "SimpleHostile";
     private static readonly TimeSpan StressTickInterval = TimeSpan.FromSeconds(1);
 
     public override void Initialize()
@@ -23,6 +30,7 @@ public sealed class CyberpsychosisSystem : EntitySystem
         base.Initialize();
         SubscribeLocalEvent<SubdermalImplantComponent, ImplantImplantedEvent>(OnImplantAdded);
         SubscribeLocalEvent<SubdermalImplantComponent, ImplantRemovedEvent>(OnImplantRemoved);
+        SubscribeLocalEvent<CyberpsychosisComponent, MapInitEvent>(OnCyberpsychosisMapInit);
     }
 
     public override void Update(float frameTime)
@@ -33,12 +41,19 @@ public sealed class CyberpsychosisSystem : EntitySystem
             UpdatePsychosis(uid, comp);
     }
 
+    private void OnCyberpsychosisMapInit(EntityUid uid, CyberpsychosisComponent comp, MapInitEvent args)
+    {
+        UpdateState(uid, comp);
+    }
+
     private void OnImplantAdded(EntityUid uid, SubdermalImplantComponent implantComp, ref ImplantImplantedEvent args)
     {
         if (!TryComp<CyberneticLoadComponent>(uid, out var cyberImplant))
             return;
 
-        var psychosis = EnsureComp<CyberpsychosisComponent>(args.Implanted);
+        if (!TryComp<CyberpsychosisComponent>(args.Implanted, out var psychosis))
+            return;
+
         psychosis.CurrentLoad += cyberImplant.ImplantLoad;
         UpdateState(args.Implanted, psychosis);
     }
@@ -116,7 +131,8 @@ public sealed class CyberpsychosisSystem : EntitySystem
         comp.InEpisode = true;
         comp.EpisodeEnd = _timing.CurTime + duration;
 
-        EnsureComp<ActiveCyberpsychosisComponent>(uid);
+        var active = EnsureComp<ActiveCyberpsychosisComponent>(uid);
+        active.State = comp.CurrentState;
         RaiseLocalEvent(uid, new CyberpsychosisEpisodeStartedEvent(comp.CurrentState, duration));
 
         switch (comp.CurrentState)
@@ -138,10 +154,25 @@ public sealed class CyberpsychosisSystem : EntitySystem
         comp.InEpisode = false;
         RemComp<ActiveCyberpsychosisComponent>(uid);
         RemoveAllEffects(uid);
+        TryRollParalyze(uid, comp);
         RaiseLocalEvent(uid, new CyberpsychosisEpisodeEndedEvent());
 
         if (comp.CurrentState != CyberpsychosisState.None)
             RollIncrement(comp);
+    }
+
+    private void TryRollParalyze(EntityUid uid, CyberpsychosisComponent comp)
+    {
+        var chance = comp.CurrentState switch
+        {
+            CyberpsychosisState.Mild => comp.MildParalyzeChance,
+            CyberpsychosisState.Moderate => comp.ModerateParalyzeChance,
+            CyberpsychosisState.Severe => comp.SevereParalyzeChance,
+            _ => 0f
+        };
+
+        if (chance > 0f && _random.Prob(chance))
+            _stun.TryAddParalyzeDuration(uid, comp.ParalyzeDuration);
     }
 
     private void RollIncrement(CyberpsychosisComponent comp)
@@ -159,14 +190,30 @@ public sealed class CyberpsychosisSystem : EntitySystem
         comp.StressIncrement = _random.NextFloat(minBase * scale, maxBase * scale);
     }
 
-
     //TODO: Доделать надо эффекты киберпсихоза
     private void ApplyMildEffects(EntityUid uid, TimeSpan duration, CyberpsychosisComponent comp)
     {
         _hallucinations.StartHallucinations(uid, HallucinationsKey, duration, true, comp.MildHallucinationPack);
+        EnsureComp<PainNumbnessStatusEffectComponent>(uid);
     }
 
-    private void ApplyModerateEffects(EntityUid uid, TimeSpan duration, CyberpsychosisComponent comp) { }
-    private void ApplySevereEffects(EntityUid uid, TimeSpan duration, CyberpsychosisComponent comp) { }
-    private void RemoveAllEffects(EntityUid uid) { }
+    private void ApplyModerateEffects(EntityUid uid, TimeSpan duration, CyberpsychosisComponent comp)
+    {
+        ApplyMildEffects(uid, duration, comp);
+    }
+
+    private void ApplySevereEffects(EntityUid uid, TimeSpan duration, CyberpsychosisComponent comp)
+    {
+        ApplyModerateEffects(uid, duration, comp);
+        EnsureComp<ForceAttackComponent>(uid);
+        _faction.AddFaction(uid, RageFaction);
+    }
+
+    private void RemoveAllEffects(EntityUid uid)
+    {
+        _status.TryRemoveStatusEffect(uid, HallucinationsKey);
+        RemComp<PainNumbnessStatusEffectComponent>(uid);
+        RemCompDeferred<ForceAttackComponent>(uid);
+        _faction.RemoveFaction(uid, RageFaction);
+    }
 }

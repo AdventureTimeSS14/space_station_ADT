@@ -410,6 +410,8 @@
   components:
    - type: SubdermalImplant
    - type: MindShieldImplant
+   - type: CyberneticLoad
+     implantLoad: 60
 
 # Centcomm implants
 

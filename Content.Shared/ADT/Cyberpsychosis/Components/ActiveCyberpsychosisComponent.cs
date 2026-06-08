@@ -3,5 +3,9 @@ using Robust.Shared.GameStates;
 
 namespace Content.Shared.ADT.Cyberpsychosis;
 
-[RegisterComponent, NetworkedComponent]
-public sealed partial class ActiveCyberpsychosisComponent : Component { }
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+public sealed partial class ActiveCyberpsychosisComponent : Component
+{
+    [DataField, AutoNetworkedField]
+    public CyberpsychosisState State = CyberpsychosisState.None;
+}
