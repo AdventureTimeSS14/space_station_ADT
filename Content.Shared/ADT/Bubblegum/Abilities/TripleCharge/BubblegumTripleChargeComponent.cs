@@ -8,7 +8,7 @@ namespace Content.Shared.ADT.Bubblegum.Abilities;
 public sealed partial class BubblegumTripleChargeComponent : Component
 {
     [DataField]
-    public List<float> Delays = [0.9f, 0.6f, 0.3f];
+    public List<float> Delays = new() { 0.9f, 0.6f, 0.3f };
 
     [DataField]
     public EntProtoId TelegraphPrototype = "ADTBubblegumChargeTelegraph";
