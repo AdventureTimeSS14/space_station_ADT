@@ -8,7 +8,7 @@ namespace Content.Shared.ADT.Bubblegum;
 public sealed partial class BubblegumPendingWavesComponent : Component
 {
     [DataField]
-    public List<PendingWave> Queue = new List<PendingWave>();
+    public List<PendingWave> Queue = [];
 }
 
 [DataDefinition]

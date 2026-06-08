@@ -11,7 +11,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Server.ADT.Bubblegum;
 
-public sealed class BubblegumAiSystem : EntitySystem
+public sealed class BubblegumCombatSystem : EntitySystem
 {
     [Dependency] private readonly BubblegumSystem _bubblegum = default!;
     [Dependency] private readonly BubblegumBloodWarpSystem _warp = default!;

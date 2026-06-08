@@ -96,11 +96,9 @@ public sealed class BubblegumDevourSystem : EntitySystem
 
         _popup.PopupEntity(Loc.GetString("bubblegum-devour-popup", ("target", target)), boss, PopupType.LargeCaution);
 
-        if (HasComp<BodyComponent>(target))
-        {
-            _body.GibBody(target, gibOrgans: true);
+        var gibs = _body.GibBody(target, gibOrgans: true);
+        if (gibs.Count > 0)
             return;
-        }
 
         QueueDel(target);
     }

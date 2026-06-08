@@ -16,23 +16,13 @@ public struct BloodContractTargetInfo
 }
 
 [Serializable, NetSerializable]
-public sealed class BloodContractBuiState : BoundUserInterfaceState
+public sealed class BloodContractBuiState(List<BloodContractTargetInfo> targets) : BoundUserInterfaceState
 {
-    public List<BloodContractTargetInfo> Targets;
-
-    public BloodContractBuiState(List<BloodContractTargetInfo> targets)
-    {
-        Targets = targets;
-    }
+    public List<BloodContractTargetInfo> Targets = targets;
 }
 
 [Serializable, NetSerializable]
-public sealed class BloodContractSelectMessage : BoundUserInterfaceMessage
+public sealed class BloodContractSelectMessage(NetEntity target) : BoundUserInterfaceMessage
 {
-    public NetEntity Target;
-
-    public BloodContractSelectMessage(NetEntity target)
-    {
-        Target = target;
-    }
+    public NetEntity Target = target;
 }

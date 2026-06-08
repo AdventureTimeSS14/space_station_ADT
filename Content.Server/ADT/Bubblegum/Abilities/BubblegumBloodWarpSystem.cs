@@ -24,7 +24,7 @@ public sealed class BubblegumBloodWarpSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
 
-    private readonly HashSet<Entity<MobStateComponent>> _mobBuffer = new HashSet<Entity<MobStateComponent>>();
+    private readonly HashSet<Entity<MobStateComponent>> _mobBuffer = [];
 
     public override void Initialize()
     {
@@ -73,7 +73,7 @@ public sealed class BubblegumBloodWarpSystem : EntitySystem
         var ringCandidates = outerPools.Where(p => !innerSet.Contains(p.Owner)).ToList();
         var candidates = ringCandidates.Count > 0
             ? ringCandidates
-            : outerPools.ToList();
+            : [.. outerPools];
 
         var destinationPool = _random.Pick(candidates);
         var destination = _transform.GetMapCoordinates(destinationPool.Owner);

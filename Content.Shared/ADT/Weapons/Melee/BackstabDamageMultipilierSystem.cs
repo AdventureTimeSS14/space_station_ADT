@@ -25,6 +25,7 @@ public sealed class BackstabDamageMultipilierSystem : EntitySystem
             _damageable.TryChangeDamage(damaged, ent.Comp.BonusDamage, origin: args.User);
         }
     }
+
     private bool IsBehindTarget(EntityUid user, EntityUid target)
     {
         var targetFacingDirection = Transform(target).LocalRotation.GetCardinalDir();

@@ -8,7 +8,7 @@ namespace Content.Shared.ADT.Bubblegum.Abilities;
 public sealed partial class BubblegumTripleChargeComponent : Component
 {
     [DataField]
-    public List<float> Delays = new List<float> { 0.9f, 0.6f, 0.3f };
+    public List<float> Delays = [0.9f, 0.6f, 0.3f];
 
     [DataField]
     public EntProtoId TelegraphPrototype = "ADTBubblegumChargeTelegraph";
@@ -26,8 +26,8 @@ public sealed partial class BubblegumTripleChargeComponent : Component
     public TimeSpan FullCooldown = TimeSpan.FromSeconds(8);
 
     [DataField]
-    public List<MapCoordinates> PendingPlayerTargets = new List<MapCoordinates>();
+    public List<MapCoordinates> PendingPlayerTargets = [];
 
     [DataField]
-    public List<EntityUid> PendingMarkers = new List<EntityUid>();
+    public List<EntityUid> PendingMarkers = [];
 }

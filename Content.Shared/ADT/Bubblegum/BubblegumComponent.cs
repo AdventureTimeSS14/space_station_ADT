@@ -70,14 +70,14 @@ public sealed partial class BubblegumComponent : Component
     public bool InSmashPhase;
 
     [DataField]
-    public List<EntProtoId> Actions = new List<EntProtoId>
-    {
+    public List<EntProtoId> Actions =
+    [
         "ActionADTBubblegumTripleCharge",
         "ActionADTBubblegumHallucinationCharge",
         "ActionADTBubblegumSurround",
         "ActionADTBubblegumBloodWarp",
         "ActionADTBubblegumSummonNarsi",
-    };
+    ];
 
     [DataField]
     public TimeSpan AbilityInterval = TimeSpan.FromSeconds(3);

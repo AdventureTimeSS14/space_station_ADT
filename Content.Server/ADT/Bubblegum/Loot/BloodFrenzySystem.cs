@@ -3,6 +3,7 @@ using Content.Shared.ADT.Bubblegum.Loot;
 using Content.Shared.Body.Systems;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.FixedPoint;
+using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction.Components;
 using Content.Shared.Mind;
@@ -58,10 +59,10 @@ public sealed class BloodFrenzySystem : EntitySystem
 
     private void ArmVictim(Entity<BloodFrenzyComponent> ent)
     {
-        if (!HasComp<Content.Shared.Hands.Components.HandsComponent>(ent))
+        if (!HasComp<HandsComponent>(ent))
             return;
 
-        foreach (var held in _hands.EnumerateHeld(ent.Owner).ToList())
+        foreach (var held in _hands.EnumerateHeld(ent.Owner).ToArray())
         {
             _hands.TryDrop(ent.Owner, held, checkActionBlocker: false);
         }

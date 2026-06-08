@@ -4,7 +4,6 @@ using Content.Server.Objectives.Systems;
 using Content.Shared.ADT.Bubblegum.Loot;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Mind;
-using Content.Shared.Mind.Components;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;

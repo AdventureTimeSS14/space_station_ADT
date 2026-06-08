@@ -25,7 +25,7 @@ public sealed class BubblegumBloodAttackSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
 
-    private readonly HashSet<Entity<MobStateComponent>> _mobBuffer = new HashSet<Entity<MobStateComponent>>();
+    private readonly HashSet<Entity<MobStateComponent>> _mobBuffer = [];
 
     public override void Update(float frameTime)
     {
@@ -70,7 +70,7 @@ public sealed class BubblegumBloodAttackSystem : EntitySystem
         if (_mobState.IsDead(ent))
             return;
 
-        var candidates = new List<EntityUid>();
+        List<EntityUid> candidates = [];
         _mobBuffer.Clear();
 
         var bossCoords = _transform.GetMapCoordinates(ent);

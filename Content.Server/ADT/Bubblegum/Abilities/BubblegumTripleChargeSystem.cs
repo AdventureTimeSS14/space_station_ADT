@@ -1,7 +1,6 @@
 using Content.Server.NPC.HTN;
-using Content.Shared.ADT.Bubblegum;
-using Content.Shared.ADT.Bubblegum.Abilities;
 using Content.Shared.Actions;
+using Content.Shared.ADT.Bubblegum.Abilities;
 using Content.Shared.Eye;
 using Robust.Server.GameObjects;
 using Robust.Shared.Map;

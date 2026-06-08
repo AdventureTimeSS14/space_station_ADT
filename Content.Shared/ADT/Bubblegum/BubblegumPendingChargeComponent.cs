@@ -8,7 +8,7 @@ namespace Content.Shared.ADT.Bubblegum;
 public sealed partial class BubblegumPendingChargeComponent : Component
 {
     [DataField]
-    public List<PendingCharge> Queue = new List<PendingCharge>();
+    public List<PendingCharge> Queue = [];
 }
 
 [DataDefinition]

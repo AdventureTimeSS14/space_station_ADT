@@ -14,13 +14,13 @@ public sealed partial class BubblegumLootComponent : Component
     public EntProtoId ChestProto = "ADTCrateBubblegumLoot";
 
     [DataField]
-    public Dictionary<EntProtoId, int> RandomAmountLoot = new();
+    public Dictionary<EntProtoId, int> RandomAmountLoot = [];
 
     [DataField]
-    public List<EntProtoId> RandomLoot = new();
+    public List<EntProtoId> RandomLoot = [];
 
     [DataField]
-    public List<EntProtoId> GuaranteedLoot = new();
+    public List<EntProtoId> GuaranteedLoot = [];
 
     [DataField]
     public bool LootDropped;

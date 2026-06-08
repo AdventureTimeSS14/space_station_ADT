@@ -150,7 +150,7 @@ public sealed class BubblegumLootSystem : EntitySystem
     {
         var center = Transform(ent).Coordinates;
 
-        var normalBlood = "ADTPuddleBloodBubblegum"; // todo remove shitass hardcode
+        var normalBlood = "ADTPuddleBloodBubblegum";
         var thickBlood = "ADTPuddleBloodBubblegumThick";
         if (TryComp<BubblegumComponent>(ent, out var bubblegum))
         {
