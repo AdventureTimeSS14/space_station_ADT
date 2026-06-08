@@ -101,6 +101,17 @@
         type: StrippableBoundUserInterface
   - type: UseDelay
     delay: 0.5
+  # ADT-Tweak end
+  - type: LanguageSpeaker
+    languages:
+      GalacticCommon: Speak
+      Bubblish: Speak
+  - type: SizeAttributeWhitelist # Frontier
+    tall: true
+    tallscale: 1.05
+    short: true
+    shortscale: 0.95
+  # ADT-Tweak end
   - type: Speech
     speechVerb: Slime
     speechSounds: Slime
