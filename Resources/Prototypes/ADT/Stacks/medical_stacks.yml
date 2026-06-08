@@ -11,3 +11,4 @@
   name: stack-bloodpack
   icon: { sprite: "ADT/Objects/Medical/blood_pack.rsi", state: bloodpack }
   spawn: ADTBloodPackTransfusionFull
+  maxCount: 1

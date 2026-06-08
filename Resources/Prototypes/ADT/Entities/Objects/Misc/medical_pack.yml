@@ -81,6 +81,12 @@
         reagents:
         - ReagentId: Blood
           Quantity: 100
+  - type: Stack
+    stackType: ADTBloodPackTransfusionFull
+    count: 1
+  - type: Tag
+    tags:
+    - Bloodpack
 
 #- type: entity
 #  parent: ADTBloodPackTransfusion
