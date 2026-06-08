@@ -39,9 +39,10 @@
     - id: Brutepack1
       amount: !type:RangeNumberSelector
         range: 1, 4
-    - id: ADTBloodPackTransfusionFull1 # ADT-Tweak
-      amount: !type:RangeNumberSelector
-        range: 1, 4
+    - !type:GroupSelector
+      children:
+      - id: ADTBloodPackTransfusionFull
+      - id: ADTBloodPackTransfusionFull
     - id: Ointment1
       amount: !type:RangeNumberSelector
         range: 1, 4

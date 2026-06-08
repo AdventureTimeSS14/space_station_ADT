@@ -139,12 +139,3 @@
         children:
         - id: PillAmbuzolPlus
           amount: 5
-
-- type: entity
-  parent: ADTBloodPackTransfusionFull
-  id: ADTBloodPackTransfusionFull1
-  suffix: Single
-  components:
-  - type: Stack
-    stackType: ADTBloodPackTransfusionFull
-    count: 1
