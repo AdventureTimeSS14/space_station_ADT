@@ -25,5 +25,6 @@
         - Ointment
         - Gauze
         - Brutepack
-        - Bloodpack
+      #  - Bloodpack
+        - ADTBloodPackTransfusionFull # ADT-tweak
         - ADTMedipen

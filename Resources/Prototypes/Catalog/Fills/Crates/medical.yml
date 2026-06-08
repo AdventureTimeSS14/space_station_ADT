@@ -12,8 +12,8 @@
           amount: 2
         - id: Gauze
           amount: 2
-        - id: Bloodpack
-          amount: 2
+      #  - id: Bloodpack
+      #    amount: 2
         - id: BoxLatexGloves
         - id: BoxSterileMask
         - id: BoxMouthSwab

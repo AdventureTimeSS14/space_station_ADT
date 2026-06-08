@@ -105,7 +105,7 @@
       - id: Ointment
       - id: Gauze
       - id: ADTBloodPackTransfusionFull # ADT tweak: Blood IV
-      - id: Bloodpack
+    #  - id: Bloodpack
     - id: SyndicateBusinessCard
       weight: 0.5
 
