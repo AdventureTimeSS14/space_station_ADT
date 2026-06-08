@@ -151,14 +151,15 @@
         color: "#800000"
       Burn:
         sprite: Mobs/Effects/burn_damage.rsi
-  - type: PassiveDamage # Slight passive regen. Assuming one damage type, comes out to about 4 damage a minute.
+  - type: PassiveDamage
     allowedStates:
     - Alive
     damage:
       types:
-        Cold: -0.06
-      groups:
-        Brute: -0.08
+        Cold: -0.05
+        Blunt: -0.05
+        Piercing: -0.05
+        Slash: -0.05
   - type: SlowOnDamage
     speedModifierThresholds:
       55: 0.8
