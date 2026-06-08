@@ -81,6 +81,8 @@
         reagents:
         - ReagentId: Blood
           Quantity: 100
+  - type: StackPrice
+    price: 10
   - type: Stack
     stackType: ADTBloodPackTransfusionFull
     count: 1
