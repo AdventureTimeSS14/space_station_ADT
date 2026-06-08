@@ -114,6 +114,44 @@
       sprite: ADT/Objects/Specific/Medical/auto_surgeon.rsi
       state: icon
 - type: entity
+  id: ADTBloodPumpAutoSurgeonNT
+  parent: ADTBaseSyndicateAutoSurgeonOnlyImplanter
+  name: blood pump auto surgeon
+  components:
+    - type: Implanter
+      implant: ADTBloodPumpImplant
+    - type: Sprite
+      sprite: ADT/Objects/Specific/Medical/auto_surgeon.rsi
+      state: icon
+
+- type: entity
+  id: ADTBloodPumpAutoSurgeonSyndie
+  parent: ADTBaseSyndicateAutoSurgeonOnlyImplanter
+  name: blood pump auto surgeon
+  components:
+    - type: Implanter
+      implant: ADTBloodPumpImplant
+
+- type: entity
+  id: ADTStimulantAutoSurgeonNT
+  parent: ADTBaseSyndicateAutoSurgeonOnlyImplanter
+  name: stimulant auto surgeon
+  components:
+    - type: Implanter
+      implant: ADTStimulantImplant
+    - type: Sprite
+      sprite: ADT/Objects/Specific/Medical/auto_surgeon.rsi
+      state: icon
+
+- type: entity
+  id: ADTStimulantAutoSurgeonSyndie
+  parent: ADTBaseSyndicateAutoSurgeonOnlyImplanter
+  name: stimulant auto surgeon
+  components:
+    - type: Implanter
+      implant: ADTStimulantImplant
+
+- type: entity
   id: ADTKvasAutoSurgeon
   parent: ADTBaseSyndicateAutoSurgeonOnlyImplanter
   name: K.V.A.S. auto surgeon

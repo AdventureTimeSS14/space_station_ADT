@@ -4,6 +4,7 @@ using Content.Shared.Body.Components;
 using Content.Shared.Body.Systems;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Popups;
+using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 
 namespace Content.Server.ADT.KvasImplant;
@@ -13,17 +14,15 @@ public sealed class KvasImplantSystem : EntitySystem
     [Dependency] private readonly StomachSystem _stomach = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
-
-    private const string KvasReagent = "Kvass";
-    private const float KvasAmount = 15f;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
 
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<ActivateKvasImplantActionEvent>(OnActivate);
+        SubscribeLocalEvent<KvasImplantComponent, ActivateKvasImplantActionEvent>(OnActivate);
     }
 
-    private void OnActivate(ActivateKvasImplantActionEvent args)
+    private void OnActivate(Entity<KvasImplantComponent> ent, ref ActivateKvasImplantActionEvent args)
     {
         if (args.Handled)
             return;
@@ -39,7 +38,7 @@ public sealed class KvasImplantSystem : EntitySystem
                 continue;
 
             var solution = new Solution();
-            solution.AddReagent(KvasReagent, KvasAmount);
+            solution.AddReagent(ent.Comp.Reagent, ent.Comp.Amount);
 
             if (!_stomach.TryTransferSolution(organ, solution))
             {
@@ -48,6 +47,7 @@ public sealed class KvasImplantSystem : EntitySystem
             }
 
             args.Handled = true;
+            _audio.PlayPvs(ent.Comp.Sound, user);
             _popup.PopupEntity(Loc.GetString("kvas-implant-activate"), user, user, PopupType.Small);
             return;
         }

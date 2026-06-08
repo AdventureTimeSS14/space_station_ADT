@@ -333,12 +333,37 @@
 
 - type: entity
   parent: BaseSubdermalImplant
+  id: ADTBloodPumpImplant
+  name: blood pump implant
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: SubdermalImplant
+      implantAction: ActionActivateBloodPumpImplant
+    - type: BloodPumpImplant
+    - type: CyberneticLoad
+      implantLoad: 20
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: ADTStimulantImplant
+  name: stimulant implant
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: SubdermalImplant
+      implantAction: ActionActivateStimulantImplant
+    - type: StimulantImplant
+    - type: CyberneticLoad
+      implantLoad: 15
+
+- type: entity
+  parent: BaseSubdermalImplant
   id: ADTKvasImplant
   name: K.V.A.S. implant
   categories: [ HideSpawnMenu ]
   components:
     - type: SubdermalImplant
       implantAction: ActionActivateKvasImplant
+    - type: KvasImplant
     - type: CyberneticLoad
       implantLoad: 10
 

@@ -101,6 +101,35 @@
 
 - type: entity
   parent: BaseAction
+  id: ActionActivateBloodPumpImplant
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    checkCanInteract: false
+    icon:
+      sprite: ADT/Objects/Misc/berserk_heart.rsi
+      state: icon
+    itemIconStyle: BigAction
+    useDelay: 30
+  - type: InstantAction
+    event: !type:ActivateBloodPumpImplantActionEvent
+
+- type: entity
+  parent: BaseAction
+  id: ActionActivateStimulantImplant
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    icon:
+      sprite: ADT/Objects/Misc/berserk_heart.rsi
+      state: icon
+    itemIconStyle: BigAction
+    useDelay: 60
+  - type: InstantAction
+    event: !type:ActivateStimulantImplantActionEvent
+
+- type: entity
+  parent: BaseAction
   id: ActionActivateBerserkImplant
   categories: [ HideSpawnMenu ]
   components:
