@@ -93,3 +93,4 @@
     shortscale: 0.8
   - type: Thieving
     stealthy: false
+    hideStealthyAlert: true
