@@ -322,8 +322,7 @@
     sprite: ADT/Clothing/Head/Hardsuits/security.rsi # ADT Tweak
     clothingVisuals:
       head:
-      - state: equipped-head-light
-        shader: unshaded
+      - state: equipped-head
 # ADT Tweak END
   - type: PointLight
     color: "#ffeead"
