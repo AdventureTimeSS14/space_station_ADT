@@ -86,6 +86,21 @@
 
 - type: entity
   parent: BaseAction
+  id: ActionActivateKvasImplant
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    checkCanInteract: false
+    icon:
+      sprite: ADT/Objects/Misc/berserk_heart.rsi
+      state: icon
+    itemIconStyle: BigAction
+    useDelay: 60
+  - type: InstantAction
+    event: !type:ActivateKvasImplantActionEvent
+
+- type: entity
+  parent: BaseAction
   id: ActionActivateBerserkImplant
   categories: [ HideSpawnMenu ]
   components:

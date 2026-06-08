@@ -100,7 +100,7 @@
     - type: Implanter
       implant: ADTMantisDaggersImplant
 
-# ERT autosurgeon
+# NT autosurgeon
 
 - type: entity
   id: ADTERTSandevistanAutoSurgeon
@@ -110,6 +110,17 @@
   components:
     - type: Implanter
       implant: ADTSandevistanImplant
+    - type: Sprite
+      sprite: ADT/Objects/Specific/Medical/auto_surgeon.rsi
+      state: icon
+- type: entity
+  id: ADTKvasAutoSurgeon
+  parent: ADTBaseSyndicateAutoSurgeonOnlyImplanter
+  name: K.V.A.S. auto surgeon
+  suffix: KVAS
+  components:
+    - type: Implanter
+      implant: ADTKvasImplant
     - type: Sprite
       sprite: ADT/Objects/Specific/Medical/auto_surgeon.rsi
       state: icon
