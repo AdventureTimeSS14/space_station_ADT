@@ -333,6 +333,17 @@
 
 - type: entity
   parent: BaseSubdermalImplant
+  id: ADTBerserkImplant
+  name: Berserk implant
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: SubdermalImplant
+    - type: BerserkImplant
+    - type: CyberneticLoad
+      implantLoad: 65
+
+- type: entity
+  parent: BaseSubdermalImplant
   id: ADTMantisDaggersImplant
   name: mantis daggers
   categories: [ HideSpawnMenu ]

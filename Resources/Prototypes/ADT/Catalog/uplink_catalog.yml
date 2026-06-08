@@ -588,6 +588,19 @@
     - UplinkImplants
 
 - type: listing
+  id: ADTUplinkBerserkImplant
+  name: uplink-berserk-implant-name
+  description: uplink-berserk-implant-desc
+  icon: { sprite: ADT/Objects/Misc/berserk_heart.rsi, state: icon }
+  productEntity: ADTBerserkAutoSurgeon
+  discountDownTo:
+    Telecrystal: 14
+  cost:
+    Telecrystal: 18
+  categories:
+    - UplinkImplants
+
+- type: listing
   id: ADTUplinkMantisDaggersImplant
   name: uplink-mantis-daggers-name
   description: uplink-mantis-daggers-desc

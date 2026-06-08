@@ -1,7 +1,9 @@
 using Content.Server.ADT.Hallucinations;
+using Content.Server.Administration.Logs;
 using Content.Server.ForceAttack;
 using Content.Shared.ADT.Cyberpsychosis;
 using Content.Shared.ADT.Traits.Assorted;
+using Content.Shared.Database;
 using Content.Shared.Implants;
 using Content.Shared.Implants.Components;
 using Content.Shared.NPC.Systems;
@@ -14,6 +16,7 @@ namespace Content.Server.ADT.Cyberpsychosis;
 
 public sealed class CyberpsychosisSystem : EntitySystem
 {
+    [Dependency] private readonly IAdminLogManager _adminLog = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly HallucinationsSystem _hallucinations = default!;
@@ -82,6 +85,9 @@ public sealed class CyberpsychosisSystem : EntitySystem
         if (oldState == CyberpsychosisState.None && newState != CyberpsychosisState.None)
             RollIncrement(comp);
 
+        _adminLog.Add(LogType.Action, LogImpact.High,
+            $"{ToPrettyString(uid):entity} cyberpsychosis state changed: {oldState} -> {newState} (load: {comp.CurrentLoad}/{comp.MaxLoad})");
+
         RaiseLocalEvent(uid, new CyberpsychosisStateChangedEvent(uid, oldState, newState));
     }
 
@@ -133,6 +139,10 @@ public sealed class CyberpsychosisSystem : EntitySystem
 
         var active = EnsureComp<ActiveCyberpsychosisComponent>(uid);
         active.State = comp.CurrentState;
+
+        _adminLog.Add(LogType.Action, LogImpact.High,
+            $"{ToPrettyString(uid):entity} cyberpsychosis episode started: state={comp.CurrentState}, duration={duration.TotalSeconds:F1}s");
+
         RaiseLocalEvent(uid, new CyberpsychosisEpisodeStartedEvent(comp.CurrentState, duration));
 
         switch (comp.CurrentState)
@@ -155,6 +165,10 @@ public sealed class CyberpsychosisSystem : EntitySystem
         RemComp<ActiveCyberpsychosisComponent>(uid);
         RemoveAllEffects(uid);
         TryRollParalyze(uid, comp);
+
+        _adminLog.Add(LogType.Action, LogImpact.High,
+            $"{ToPrettyString(uid):entity} cyberpsychosis episode ended (state={comp.CurrentState})");
+
         RaiseLocalEvent(uid, new CyberpsychosisEpisodeEndedEvent());
 
         if (comp.CurrentState != CyberpsychosisState.None)

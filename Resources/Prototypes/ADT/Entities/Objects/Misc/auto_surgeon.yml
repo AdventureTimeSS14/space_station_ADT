@@ -84,6 +84,14 @@
       implant: ADTStatvekaSandevistanImplant
 
 - type: entity
+  id: ADTBerserkAutoSurgeon
+  parent: ADTBaseSyndicateAutoSurgeonOnlyImplanter
+  name: Berserk implant auto surgeon
+  components:
+    - type: Implanter
+      implant: ADTBerserkImplant
+
+- type: entity
   id: ADTMantisDaggersAutoSurgeon
   parent: ADTBaseSyndicateAutoSurgeonOnlyImplanter
   name: mantis daggers auto surgeon

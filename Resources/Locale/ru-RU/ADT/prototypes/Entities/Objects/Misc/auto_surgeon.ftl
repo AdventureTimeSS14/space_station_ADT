@@ -14,3 +14,6 @@ ent-ADTERTSandevistanAutoSurgeon = САПО.Г. BioTech "Сандевистан"
 
 ent-ADTStatvekaSandevistanAutoSurgeon = САПО.Г. Shellguard "Статвека Сандевистан"
     .desc = Медицинский прибор синдиката, для проведения операций по вживлению военного кибер-импланта Shellguard "Статвека Сандевистан".
+
+ent-ADTBerserkAutoSurgeon = САПО.Г. Shellguard "Берсерк"
+    .desc = Медицинский прибор синдиката, для проведения операций по вживлению военного кибер-импланта Shellguard "Берсерк".

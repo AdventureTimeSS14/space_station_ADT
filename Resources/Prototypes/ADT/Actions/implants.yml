@@ -83,3 +83,20 @@
     useDelay: 2
   - type: InstantAction
     event: !type:ToggleSandevistanEvent
+
+- type: entity
+  parent: BaseAction
+  id: ActionActivateBerserkImplant
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    checkCanInteract: false
+    icon:
+      sprite: ADT/Objects/Misc/berserk_heart.rsi
+      state: icon
+    itemIconStyle: BigAction
+    useDelay: 30
+    sound:
+      path: /Audio/ADT/Effects/berserk-implant-activate.ogg
+  - type: InstantAction
+    event: !type:ActivateBerserkImplantActionEvent
