@@ -122,16 +122,18 @@
 
 - type: entity
   id: ADTMegaFaunaBubblegumHallucination
-  parent: BaseMobBubblegum
   name: bubblegum
   suffix: Hallucination
-  categories: [ HideSpawnMenu ]
+  categories:
+  - HideSpawnMenu
+  parent: BaseMobBubblegum
   components:
   - type: Sprite
-    sprite: ADT/Mobs/Aliens/Lavaland/bubblegum.rsi
     color: "#FFFFFF80"
+    sprite: ADT/Mobs/Aliens/Lavaland/bubblegum.rsi
     layers:
-    - map: [ "enum.DamageStateVisualLayers.Base" ]
+    - map:
+      - enum.DamageStateVisualLayers.Base
       state: bubblegum
   - type: MobThresholds
     thresholds:
@@ -139,8 +141,7 @@
       1: Dead
   - type: Destructible
     thresholds:
-    - trigger:
-        !type:DamageTrigger
+    - trigger: !type:DamageTrigger
         damage: 1
       behaviors:
       - !type:SpawnEntitiesBehavior
@@ -149,7 +150,8 @@
             min: 1
             max: 1
       - !type:DoActsBehavior
-        acts: [ "Destruction" ]
+        acts:
+        - Destruction
   - type: MovementSpeedModifier
     baseWalkSpeed: 3
     baseSprintSpeed: 3
@@ -161,3 +163,12 @@
   - type: BubblegumHallucination
   - type: TimedDespawn
     lifetime: 4
+  - type: HTN
+    netsync: true
+    rootTask:
+      task: DoAbsolutelyNothingCompound
+
+- type: htnCompound
+  id: DoAbsolutelyNothingCompound
+  branches:
+    - tasks: []
