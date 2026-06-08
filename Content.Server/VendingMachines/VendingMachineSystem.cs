@@ -508,10 +508,6 @@ namespace Content.Server.VendingMachines
 
             var count = vendComponent.NextItemCount;
 
-            // No need to update the visual state because we never changed it during a forced eject
-            if (!forceEject)
-                TryUpdateVisualState(uid, vendComponent);
-
             if (string.IsNullOrEmpty(vendComponent.NextItemToEject))
             {
                 vendComponent.ThrowNextItem = false;
@@ -545,7 +541,12 @@ namespace Content.Server.VendingMachines
             vendComponent.NextItemToEject = null;
             vendComponent.ThrowNextItem = false;
             vendComponent.NextItemCount = 1;    // ADT vending eject count
-            vendComponent.Ejecting = false;     // // ADT-Tweak
+            vendComponent.Ejecting = false;     // ADT-Tweak
+
+            // No need to update the visual state because we never changed it during a forced eject
+            if (!forceEject)
+                TryUpdateVisualState(uid, vendComponent);
+
             UpdateVendingMachineInterfaceState(uid, vendComponent); // ADT-Tweak
         }
 

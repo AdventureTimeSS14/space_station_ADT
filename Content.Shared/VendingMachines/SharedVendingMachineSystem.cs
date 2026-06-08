@@ -112,6 +112,7 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
             {
                 if (curTime > comp.DenyEnd)
                 {
+                    comp.Denying = false;
                     comp.DenyEnd = null;
                     Dirty(uid, comp);
 
