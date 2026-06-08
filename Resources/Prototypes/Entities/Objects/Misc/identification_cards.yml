@@ -534,6 +534,8 @@
     - sprite: *icon-rsi
       offset: *icon-offset
       state: Brigmedic
+  - type: PresetIdCard
+    job: Brigmedic
 
 - type: entity
   parent: SecurityIDCard
