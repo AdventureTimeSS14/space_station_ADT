@@ -64,7 +64,7 @@
   recipes:
   - SynthesizerInstrument
   - PushHorn
-  - ADTJukeBoxPlayer #ADT-Tweak
+  - ADTJukeBoxPlayerVintage #ADT-Tweak
 
 - type: latheRecipePack
   id: ServiceBoards
