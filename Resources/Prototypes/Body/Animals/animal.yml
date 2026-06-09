@@ -40,7 +40,7 @@
   id: OrganAnimalKidneys
 
 - type: entity
-  parent: [ OrganBaseEyes, OrganAnimalInternal ]
+  parent: [ OrganBaseEyes, OrganAnimalInternal, OrganAnimalMetabolizer  ]
   id: OrganAnimalEyes
 
 - type: entity
