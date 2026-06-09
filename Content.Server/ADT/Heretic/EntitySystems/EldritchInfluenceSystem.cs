@@ -38,7 +38,7 @@ public sealed class EldritchInfluenceSystem : EntitySystem
             BreakOnHandChange = true,
             BreakOnMove = true,
             BreakOnWeightlessMove = false,
-            Hidden = hidden
+            Hidden = true
         };
         _popup.PopupEntity(Loc.GetString("heretic-influence-start"), influence, user);
         return _doafter.TryStartDoAfter(dargs);
