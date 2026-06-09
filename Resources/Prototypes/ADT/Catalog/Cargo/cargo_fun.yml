@@ -42,7 +42,7 @@
     state: box
   product: ADTBoxMusicDisks
   category: cargoproduct-category-name-fun
-  cost: 300
+  cost: 400
 
 - type: cargoProduct
   id: ADTFunJukeBoxPlayer
