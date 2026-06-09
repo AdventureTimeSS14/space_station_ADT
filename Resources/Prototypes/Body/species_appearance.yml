@@ -34,9 +34,6 @@
 
     # Stuff that goes over the body but below equipment
     - map: ["enum.HumanoidVisualLayers.Overlay"]
-    - map: ["enum.HumanoidVisualLayers.Tail"]
-    - map: ["enum.HumanoidVisualLayers.TailOverlay"]
-    - map: ["enum.HumanoidVisualLayers.Wings"] # ADT-Tweak
 
     # More equipment
     - map: [ "gloves" ]
@@ -51,13 +48,18 @@
     - map: [ "suitstorage" ]
 
     # Stuff that goes in front of equipment
+    - map: [ "enum.HumanoidVisualLayers.SnoutCover" ]
     - map: [ "enum.HumanoidVisualLayers.SnoutOverlay" ]
     - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
     - map: [ "enum.HumanoidVisualLayers.Hair" ]
     - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
     - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
     - map: [ "enum.HumanoidVisualLayers.Special" ] # ADT: needed so Special-layer markings (e.g. felinid cat ears) can render
-    - map: [ "enum.HumanoidVisualLayers.SnoutCover" ]
+    - map: [ "enum.HumanoidVisualLayers.Tail" ]
+    - map: [ "enum.HumanoidVisualLayers.TailOverlay" ]
+    - map: [ "enum.HumanoidVisualLayers.Wings" ] # ADT-Tweak
+
+    # Stuff that goes in front of stuff that goes in front of equipment
     - map: [ "mask" ]
     - map: [ "head" ]
     - map: [ "pocket1" ]
