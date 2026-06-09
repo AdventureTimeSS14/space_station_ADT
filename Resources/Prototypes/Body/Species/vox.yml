@@ -159,7 +159,7 @@
 - type: entity
   parent:
   - AppearanceVox
-  - BaseSpeciesMobOrganic
+  - BaseMobSpeciesOrganicUnRotting # ADT-Tweak
   id: MobVox
   name: Urist McVox
   components:
@@ -177,6 +177,13 @@
     short: true
     shortscale: 0.95
   - type: PriceExaminer
+  - type: Uncloneable
+  - type: VoxAccent
+  - type: Tag
+    tags:
+      - ADTVoxEmotes
+      - CanPilot
+      - DoorBumpOpener
   # ADT-Tweak end
   - type: Speech
     speechVerb: Vox
