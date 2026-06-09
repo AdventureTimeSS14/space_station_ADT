@@ -92,6 +92,12 @@
 - type: entity
   parent: [ OrganBaseTorsoSexed, OrganBaseTorso, OrganTajaranExternal ]
   id: OrganTajaranTorso
+  components:
+  - type: VisualOrganMarkings
+    hideableLayers:
+    - enum.HumanoidVisualLayers.Wings
+    markingData:
+      group: Tajaran
 
 - type: entity
   parent: [ OrganBaseHeadSexed, OrganBaseHead, OrganTajaranExternal ]

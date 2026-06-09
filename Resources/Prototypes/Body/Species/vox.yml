@@ -20,6 +20,11 @@
     enum.HumanoidVisualLayers.SnoutCover:
       limit: 1
       required: false
+    # ADT-Tweak start
+    enum.HumanoidVisualLayers.Wings:
+      limit: 1
+      required: false
+    # ADT-Tweak end
     enum.HumanoidVisualLayers.LArm:
       limit: 2
       required: false
@@ -321,6 +326,14 @@
 - type: entity
   parent: [ OrganBaseTorso, OrganVoxExternal ]
   id: OrganVoxTorso
+  # ADT-Tweak start
+  components:
+  - type: VisualOrganMarkings
+    hideableLayers:
+    - enum.HumanoidVisualLayers.Wings
+    markingData:
+      group: Vox
+  # ADT-Tweak end
 
 - type: entity
   parent: [ OrganBaseHead, OrganVoxExternal ]

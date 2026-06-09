@@ -144,6 +144,12 @@
 - type: entity
   parent: [ OrganBaseTorsoSexed, OrganBaseTorso, OrganResomiExternal ]
   id: OrganResomiTorso
+  components:
+  - type: VisualOrganMarkings
+    hideableLayers:
+    - enum.HumanoidVisualLayers.Wings
+    markingData:
+      group: Resomi
 
 - type: entity
   parent: [ OrganBaseHeadSexed, OrganBaseHead, OrganResomiExternal ]

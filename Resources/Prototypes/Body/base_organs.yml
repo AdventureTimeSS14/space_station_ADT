@@ -41,6 +41,7 @@
       layers:
       - Chest
       - Tail
+      - Wings # ADT-Tweak
       - Overlay
       - TailOverlay
       - UndergarmentTop

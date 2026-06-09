@@ -84,6 +84,9 @@
     enum.HumanoidVisualLayers.TailOverlay:
       limit: 1
       required: false
+    enum.HumanoidVisualLayers.Wings:
+      limit: 1
+      required: false
     enum.HumanoidVisualLayers.Hair:
       limit: 1
       required: false
@@ -158,6 +161,9 @@
       limit: 1
       required: false
     enum.HumanoidVisualLayers.TailOverlay:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Wings:
       limit: 1
       required: false
     enum.HumanoidVisualLayers.Hair:
@@ -236,6 +242,9 @@
     enum.HumanoidVisualLayers.TailOverlay:
       limit: 1
       required: false
+    enum.HumanoidVisualLayers.Wings:
+      limit: 1
+      required: false
     enum.HumanoidVisualLayers.Hair:
       limit: 1
       required: false
@@ -307,6 +316,9 @@
       limit: 1
       required: false
     enum.HumanoidVisualLayers.TailOverlay:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Wings:
       limit: 1
       required: false
     enum.HumanoidVisualLayers.Hair:
@@ -387,6 +399,9 @@
     enum.HumanoidVisualLayers.TailOverlay:
       limit: 1
       required: false
+    enum.HumanoidVisualLayers.Wings:
+      limit: 1
+      required: false
     enum.HumanoidVisualLayers.Hair:
       limit: 1
       required: false
@@ -461,6 +476,9 @@
     enum.HumanoidVisualLayers.TailOverlay:
       limit: 1
       required: false
+    enum.HumanoidVisualLayers.Wings:
+      limit: 1
+      required: false
     enum.HumanoidVisualLayers.Hair:
       limit: 1
       required: false
@@ -533,6 +551,9 @@
     enum.HumanoidVisualLayers.TailOverlay:
       limit: 1
       required: false
+    enum.HumanoidVisualLayers.Wings:
+      limit: 1
+      required: false
     enum.HumanoidVisualLayers.Hair:
       limit: 1
       required: false
@@ -603,6 +624,9 @@
       limit: 1
       required: false
     enum.HumanoidVisualLayers.TailOverlay:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Wings:
       limit: 1
       required: false
     enum.HumanoidVisualLayers.Hair:
@@ -678,6 +702,9 @@
     enum.HumanoidVisualLayers.TailOverlay:
       limit: 1
       required: false
+    enum.HumanoidVisualLayers.Wings:
+      limit: 1
+      required: false
     enum.HumanoidVisualLayers.Hair:
       limit: 1
       required: false
@@ -747,6 +774,9 @@
       limit: 1
       required: false
     enum.HumanoidVisualLayers.TailOverlay:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Wings:
       limit: 1
       required: false
     enum.HumanoidVisualLayers.Hair:

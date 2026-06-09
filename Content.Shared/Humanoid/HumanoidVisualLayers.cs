@@ -9,6 +9,7 @@ namespace Content.Shared.Humanoid
         Special, // for the cat ears
         Tail,
         TailOverlay, // markings that go ontop of tails
+        Wings, // ADT-Tweak
         Hair,
         FacialHair,
         UndergarmentTop,

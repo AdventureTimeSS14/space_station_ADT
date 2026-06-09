@@ -2,13 +2,15 @@
 - type: marking
   id: ADTFeatheredEarsPangaari
   bodyPart: HeadTop
+  groupWhitelist: [PersonalOnly]
   sprites:
   - sprite: ADT/Personalization/pangaari_feathered.rsi
     state: feathered_ears
 
 - type: marking
   id: ADTFeatheredWingsPangaari
-  bodyPart: Tail
+  bodyPart: Wings
+  groupWhitelist: [PersonalOnly]
   sprites:
   - sprite: ADT/Personalization/pangaari_feathered.rsi
     state: feathered_wings

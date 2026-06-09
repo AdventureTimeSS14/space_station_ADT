@@ -1,6 +1,6 @@
 - type: marking
   id: MothWingsSlightlylongwings
-  bodyPart: Tail
+  bodyPart: Wings
   groupWhitelist: [Moth]
   sprites:
   - sprite: ADT/Mobs/Customization/Moth/custom.rsi
@@ -8,7 +8,7 @@
 
 - type: marking
   id: MothWingsSkull
-  bodyPart: Tail
+  bodyPart: Wings
   groupWhitelist: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_wings.rsi
@@ -18,7 +18,7 @@
 
 - type: marking
   id: MothWingsPredatoreyes
-  bodyPart: Tail
+  bodyPart: Wings
   groupWhitelist: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_wings.rsi
@@ -28,7 +28,7 @@
 
 - type: marking
   id: MothWingsLine
-  bodyPart: Tail
+  bodyPart: Wings
   groupWhitelist: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_wings.rsi
@@ -38,7 +38,7 @@
 
 - type: marking
   id: MothWingsGradient
-  bodyPart: Tail
+  bodyPart: Wings
   groupWhitelist: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_wings.rsi
@@ -48,7 +48,7 @@
 
 - type: marking
   id: MothWingsDeathwing
-  bodyPart: Tail
+  bodyPart: Wings
   groupWhitelist: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_wings.rsi
@@ -58,7 +58,7 @@
 
 - type: marking
   id: MothWingsCowcoloring
-  bodyPart: Tail
+  bodyPart: Wings
   groupWhitelist: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_wings.rsi
@@ -68,7 +68,7 @@
 
 - type: marking
   id: MothWingsAsterisks
-  bodyPart: Tail
+  bodyPart: Wings
   groupWhitelist: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_wings.rsi

@@ -122,7 +122,7 @@
 
 - type: marking
   id: ADTWingsBackstabbed
-  bodyPart: Tail
+  bodyPart: Wings
   groupWhitelist: [Moth]
   followSkinColor: false
   sprites:
@@ -436,7 +436,7 @@
 
 - type: marking
   id: ADTMothTrueButterfly
-  bodyPart: Tail
+  bodyPart: Wings
   groupWhitelist: [Moth]
   forcedColoring: false
   followSkinColor: false
@@ -450,7 +450,7 @@
 
 - type: marking
   id: ADTMothRhinoBeetle
-  bodyPart: Tail
+  bodyPart: Wings
   groupWhitelist: [Moth]
   forcedColoring: false
   followSkinColor: false
@@ -464,7 +464,7 @@
 
 - type: marking
   id: ADTMothGlasswing
-  bodyPart: Tail
+  bodyPart: Wings
   groupWhitelist: [Moth]
   forcedColoring: false
   followSkinColor: false
@@ -478,7 +478,7 @@
 
 - type: marking
   id: ADTMothBee
-  bodyPart: Tail
+  bodyPart: Wings
   groupWhitelist: [Moth]
   forcedColoring: false
   followSkinColor: false
@@ -502,19 +502,8 @@
   shader: unshaded
 
 - type: marking
-  id: ADTMothFireflyOverlay
-  bodyPart: Tail
-  groupWhitelist: [Moth]
-  forcedColoring: false
-  followSkinColor: false
-  sprites:
-  - sprite: ADT/Mobs/Customization/Frontier/animatedmarkings.rsi
-    state: mothfirefly1
-  shader: unshaded
-
-- type: marking
   id: ADTMothFirefly
-  bodyPart: Tail
+  bodyPart: Wings
   groupWhitelist: [Moth]
   forcedColoring: false
   followSkinColor: false
@@ -524,7 +513,7 @@
 
 - type: marking
   id: ADTMothBeetleTail
-  bodyPart: Tail
+  bodyPart: Wings
   groupWhitelist: [Moth]
   forcedColoring: false
   followSkinColor: false
@@ -570,7 +559,7 @@
 
 - type: marking
   id: ADTMothSnoth
-  bodyPart: Tail
+  bodyPart: Wings
   groupWhitelist: [Moth]
   forcedColoring: false
   followSkinColor: false
