@@ -298,6 +298,24 @@
   path:
     path: /Audio/ADT/Jukebox/God-ish.ogg
 
+- type: jukebox
+  id: YARARARA
+  name: AnythingBecomeMoe - YARARARA
+  path:
+    path: /Audio/ADT/Jukebox/YARARARA.ogg
+
+- type: jukebox
+  id: TheOnlyThing
+  name: Jamie Christopherson - The Only Thing I Know For Real
+  path:
+    path: /Audio/ADT/Jukebox/The_Only_Thing_I_Know_For_Real.ogg
+
+- type: jukebox
+  id: ThroughPatches
+  name: Cassie Wei - Through Patches of Violet
+  path:
+    path: /Audio/ADT/Jukebox/Mili-Through-Patches-of-Violet.ogg
+
 # START 9 МАЯ
 # - type: jukebox
 #   id: may_day-pobedy

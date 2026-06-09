@@ -167,6 +167,13 @@ public sealed class JukeboxSystem : SharedJukeboxSystem
             Dirty(uid, component);
         }
 
+        var volumeLevel = GetVolumeLevel(args.Volume, component.MinSlider, component.MaxSlider);
+        if (component.CurrentVolumeLevel != volumeLevel)
+        {
+            component.CurrentVolumeLevel = volumeLevel;
+            _appearanceSystem.SetData(uid, JukeboxVisuals.VolumeLevel, volumeLevel);
+        }
+
         SetJukeboxVolume(uid, component, args.Volume);
 
         if (!component.AudioStream.HasValue || TerminatingOrDeleted(component.AudioStream.Value))
@@ -191,7 +198,7 @@ public sealed class JukeboxSystem : SharedJukeboxSystem
         {
             if (!TryComp<ItemSlotsComponent>(uid, out var itemSlots))
                 return;
-            if (!_itemSlots.TryGetSlot(uid, CassetteSlotId, out var slot, itemSlots))
+            if (!_itemSlots.TryGetSlot(uid, DiskSlotId, out var slot, itemSlots))
                 return;
 
             _itemSlots.TryEjectToHands(uid, slot, args.Actor);

@@ -16,8 +16,9 @@ public abstract class SharedJukeboxSystem : EntitySystem
     [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
     [Dependency] protected readonly SharedAudioSystem Audio = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
 
-    public const string CassetteSlotId = "music_disk";
+    public const string DiskSlotId = "music_disk";
     public override void Initialize()
     {
         base.Initialize();
@@ -37,7 +38,7 @@ public abstract class SharedJukeboxSystem : EntitySystem
 
     private void OnContainerInserted(Entity<JukeboxComponent> ent, ref EntInsertedIntoContainerMessage args)
     {
-        if (args.Container.ID != CassetteSlotId)
+        if (args.Container.ID != DiskSlotId)
             return;
 
         OnItemSlot(ent);
@@ -45,7 +46,7 @@ public abstract class SharedJukeboxSystem : EntitySystem
 
     private void OnContainerRemoved(Entity<JukeboxComponent> ent, ref EntRemovedFromContainerMessage args)
     {
-        if (args.Container.ID != CassetteSlotId)
+        if (args.Container.ID != DiskSlotId)
             return;
 
         OnItemSlot(ent);
@@ -54,6 +55,7 @@ public abstract class SharedJukeboxSystem : EntitySystem
     private void OnItemSlot(Entity<JukeboxComponent> ent)
     {
         ent.Comp.SelectedSongId = null;
+        UpdateAppearance(ent);
         UpdateMusicList(ent);
         StopJukebox(ent);
         Dirty(ent);
@@ -65,7 +67,7 @@ public abstract class SharedJukeboxSystem : EntitySystem
         if (!TryComp<ItemSlotsComponent>(ent, out var itemSlots))
             return null;
 
-        return _itemSlots.GetItemOrNull(ent.Owner, CassetteSlotId, itemSlots);
+        return _itemSlots.GetItemOrNull(ent.Owner, DiskSlotId, itemSlots);
     }
 
     public JukeboxListPrototype? GetDiskCollection(Entity<JukeboxComponent> ent)
@@ -114,6 +116,13 @@ public abstract class SharedJukeboxSystem : EntitySystem
         return availableSongs.Contains(songId);
     }
 
+    protected void UpdateAppearance(Entity<JukeboxComponent> ent)
+    {
+        var hasDisk = TryGetTapeDisk(ent, out _);
+        _appearance.SetData(ent.Owner, JukeboxVisuals.HasDisk, hasDisk);
+        _appearance.SetData(ent.Owner, JukeboxVisuals.HasDisk, hasDisk);
+    }
+
     public void InitializeRandomTracks(EntityUid uid, JukeboxDiskComponent component)
     {
         if (!component.UseRandom)
@@ -141,6 +150,39 @@ public abstract class SharedJukeboxSystem : EntitySystem
 
         component.Tracks = selectedTracks;
         Dirty(uid, component);
+    }
+
+    public static JukeboxVolumeLevel GetVolumeLevel(float volume, float minSlider, float maxSlider)
+    {
+        var normalized = (volume - minSlider) / (maxSlider - minSlider);
+        normalized = Math.Clamp(normalized, 0f, 1f);
+
+        if (normalized < 0.2f)
+            return JukeboxVolumeLevel.Level0;
+        if (normalized < 0.4f)
+            return JukeboxVolumeLevel.Level1;
+        if (normalized < 0.6f)
+            return JukeboxVolumeLevel.Level2;
+        if (normalized < 0.8f)
+            return JukeboxVolumeLevel.Level3;
+        return JukeboxVolumeLevel.Level4;
+    }
+    protected bool TryGetTapeDisk(EntityUid ent, out Entity<JukeboxDiskComponent> tape)
+    {
+        if (_itemSlots.GetItemOrNull(ent, DiskSlotId) is not {} disk)
+        {
+            tape = default!;
+            return false;
+        }
+
+        if (!TryComp<JukeboxDiskComponent>(disk, out var comp))
+        {
+            tape = default!;
+            return false;
+        }
+
+        tape = new(disk, comp);
+        return true;
     }
 
     protected virtual void StopJukebox(Entity<JukeboxComponent> ent) { }

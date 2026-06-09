@@ -53,7 +53,7 @@
     jumpsuit: ADTClothingUniformJumpsuitTuxedoHell
 
 - type: loadout
-  id: ADTBoxMusicDisks
+  id: ADTBoxJukeBoxPlayer
   storage:
     back:
-    - ADTBoxMusicDisks
+    - ADTBoxJukeBoxPlayer

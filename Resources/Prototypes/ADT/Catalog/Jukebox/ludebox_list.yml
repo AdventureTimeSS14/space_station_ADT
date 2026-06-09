@@ -19,6 +19,7 @@
   - ESCPNeonscapes
   - TheFallOfTheCorporation
   - WaitingForTheMeeting
+  - ThroughPatches
 
 - type: jukeboxList
   id: Rock
@@ -29,6 +30,8 @@
   - MJB
   - EOFTTS
   - EWTRTWTFF
+  - YARARARA
+  - Godish
 
 - type: jukeboxList
   id: Sonic
@@ -100,3 +103,5 @@
   - ElevatorMusic
   - FNB
   - Godish
+  - TheOnlyThing
+  - YARARARA

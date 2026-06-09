@@ -5,11 +5,11 @@
   description: A time-tested collection of symphonies and orchestral works. For those who appreciate elegance.
   components:
   - type: Sprite
-    sprite: ADT/Objects/Misc/module.rsi
+    sprite: ADT/Objects/Misc/music_disk.rsi
     layers:
-    - state: datadisk_base
+    - state: disk_base
       color: "#1cf01c"
-    - state: datadisk_label_music
+    - state: disk_label_music
   - type: Item
     size: Tiny
   - type: Damageable
@@ -107,6 +107,29 @@
       - id: ADTMusicDiskVa11Hall
 
 - type: entity
+  name: box of music discs
+  parent: BoxCardboard
+  id: ADTBoxJukeBoxPlayer
+  description: A box containing a set of standard music discs.
+  components:
+  - type: Sprite
+    layers:
+      - state: box
+      - state: disk
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,3,2
+  - type: StorageFill
+    contents:
+      - id: ADTJukeBoxPlayer
+      - id: ADTMusicDiskStandard
+      - id: ADTMusicDiskRock
+      - id: ADTMusicDiskSonic
+      - id: ADTMusicDiskChill
+      - id: ADTMusicDiskVa11Hall
+
+- type: entity
   name: music set Syndicate
   parent: BoxCardboard
   id: ADTBoxMusicDisksSyndicate
@@ -117,18 +140,15 @@
       - state: box_of_doom
       - state: disk
   - type: Storage
+    maxItemSize: Normal
     grid:
-    - 0,0,2,1
-  - type: Item
-    size: Normal
-    shape:
-    - 0,0,2,1
+    - 0,0,2,2
   - type: StorageFill
     contents:
-      - id: ADTJukeBoxPlayer
-      - id: ADTMusicDiskHotline
-      - id: ADTMusicDiskMix
-      - id: ADTMusicDiskRock
+      - id: ADTJukeBoxPlayerSyndicate
+      - id: ADTMusicDiskHotlineSyndicate
+      - id: ADTMusicDiskMixSyndicate
+      - id: ADTMusicDiskRockSyndicate
 
 - type: entity
   parent: ADTMusicDiskStandard
@@ -137,11 +157,11 @@
   description: Powerful guitar riffs and energetic drums. The neighbors will definitely appreciate the volume.
   components:
   - type: Sprite
-    sprite: ADT/Objects/Misc/module.rsi
+    sprite: ADT/Objects/Misc/music_disk.rsi
     layers:
-    - state: datadisk_base
+    - state: disk_base
       color: "#343434"
-    - state: datadisk_label_music
+    - state: disk_label_music
   - type: JukeboxDisk
     tracksCollection: Rock
   - type: StaticPrice
@@ -154,11 +174,11 @@
   description: Nostalgic melodies from the last century.
   components:
   - type: Sprite
-    sprite: ADT/Objects/Misc/module.rsi
+    sprite: ADT/Objects/Misc/music_disk.rsi
     layers:
-    - state: datadisk_base
+    - state: disk_base
       color: "#2953BE"
-    - state: datadisk_label_music
+    - state: disk_label_music
   - type: JukeboxDisk
     tracksCollection: Sonic
   - type: StaticPrice
@@ -171,11 +191,11 @@
   description: Soft rhythms and relaxing arrangements. Perfect for meditation or a hard day's work in the mine.
   components:
   - type: Sprite
-    sprite: ADT/Objects/Misc/module.rsi
+    sprite: ADT/Objects/Misc/music_disk.rsi
     layers:
-    - state: datadisk_base
+    - state: disk_base
       color: "#f1641f"
-    - state: datadisk_label_music
+    - state: disk_label_music
   - type: JukeboxDisk
     tracksCollection: Chill
   - type: StaticPrice
@@ -188,11 +208,11 @@
   description: Syntave and electronic bits that make you want to break the rules. It's great for chases and shootouts.
   components:
   - type: Sprite
-    sprite: ADT/Objects/Misc/module.rsi
+    sprite: ADT/Objects/Misc/music_disk.rsi
     layers:
-    - state: datadisk_base
+    - state: disk_base
       color: "#8f1212"
-    - state: datadisk_label_music
+    - state: disk_label_music
   - type: JukeboxDisk
     tracksCollection: Hotline
   - type: StaticPrice
@@ -205,11 +225,11 @@
   description: Atmospheric jazz and lounge compositions. Creates a cozy atmosphere even in the most remote bar.
   components:
   - type: Sprite
-    sprite: ADT/Objects/Misc/module.rsi
+    sprite: ADT/Objects/Misc/music_disk.rsi
     layers:
-    - state: datadisk_base
+    - state: disk_base
       color: "#8c0c97"
-    - state: datadisk_label_music
+    - state: disk_label_music
   - type: JukeboxDisk
     tracksCollection: Va11Hall
   - type: StaticPrice
@@ -222,11 +242,11 @@
   description: Light and uplifting melodies that lift the mood. Holding it in your hands, you have a strong desire to make a breakthrough.
   components:
   - type: Sprite
-    sprite: ADT/Objects/Misc/module.rsi
+    sprite: ADT/Objects/Misc/music_disk.rsi
     layers:
-    - state: datadisk_base
+    - state: disk_base
       color: "#da1a1a"
-    - state: datadisk_label_music
+    - state: disk_label_music
   - type: JukeboxDisk
     tracksCollection: Celeste
   - type: StaticPrice
@@ -239,12 +259,45 @@
   description: A collection of random tracks from all genres.
   components:
   - type: Sprite
-    sprite: ADT/Objects/Misc/module.rsi
+    sprite: ADT/Objects/Misc/music_disk.rsi
     layers:
-    - state: datadisk_base
+    - state: disk_base
       color: "#582e1d"
-    - state: datadisk_label_music
+    - state: disk_label_music
   - type: JukeboxDisk
     tracksCollection: Mix
   - type: StaticPrice
     price: 110
+
+- type: entity
+  parent: ADTMusicDiskHotline
+  id: ADTMusicDiskHotlineSyndicate
+  name: music disk (Hotline)
+  description: Syntave and electronic bits that make you want to break the rules. It's great for chases and shootouts.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/music_disk.rsi
+    layers:
+    - state: disk_base_syndicate
+
+- type: entity
+  parent: ADTMusicDiskMix
+  id: ADTMusicDiskMixSyndicate
+  name: music disk (Mix)
+  description: A collection of random tracks from all genres.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/music_disk.rsi
+    layers:
+    - state: disk_base_syndicate
+
+- type: entity
+  parent: ADTMusicDiskRock
+  id: ADTMusicDiskRockSyndicate
+  name: music disk (rock)
+  description: Powerful guitar riffs and energetic drums. The neighbors will definitely appreciate the volume.
+  components:
+  - type: Sprite
+    sprite: ADT/Objects/Misc/music_disk.rsi
+    layers:
+    - state: disk_base_syndicate
