@@ -40,6 +40,10 @@
   id: OrganAnimalKidneys
 
 - type: entity
+  parent: [ OrganBaseEyes, OrganAnimalInternal ]
+  id: OrganAnimalEyes
+
+- type: entity
   id: BaseMobAnimal
   abstract: true
   components:
@@ -53,3 +57,4 @@
         - id: OrganAnimalStomach
         - id: OrganAnimalLiver
         - id: OrganAnimalKidneys
+        - id: OrganAnimalEyes
