@@ -132,6 +132,21 @@
 
 - type: entity
   parent: BaseAction
+  id: ActionActivateSecondHeartImplant
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    checkCanInteract: false
+    checkConsciousness: false
+    icon:
+      sprite: ADT/Objects/Misc/berserk_heart.rsi
+      state: icon
+    itemIconStyle: BigAction
+  - type: InstantAction
+    event: !type:ActivateSecondHeartImplantActionEvent
+
+- type: entity
+  parent: BaseAction
   id: ActionActivateBerserkImplant
   categories: [ HideSpawnMenu ]
   components:
@@ -143,6 +158,6 @@
     itemIconStyle: BigAction
     useDelay: 30
     sound:
-      path: /Audio/ADT/Effects/berserk-implant-activate.ogg
+      path: /Audio/ADT/Effects/ImplantsEffects/berserk-implant-activate.ogg
   - type: InstantAction
     event: !type:ActivateBerserkImplantActionEvent

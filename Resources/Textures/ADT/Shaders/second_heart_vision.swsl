@@ -1,0 +1,56 @@
+uniform sampler2D SCREEN_TEXTURE;
+uniform highp float elapsed;
+
+void fragment() {
+    highp vec2 uv = FRAGCOORD.xy * SCREEN_PIXEL_SIZE;
+
+    highp float glitchFactor = smoothstep(0.8, 0.0, elapsed);
+    highp float yellowFactor = smoothstep(1.0, 0.0, elapsed);
+    highp float greenFactor = smoothstep(0.8, 1.2, elapsed) * smoothstep(2.1, 1.8, elapsed);
+
+    highp float t = floor(TIME * 18.0) * 0.055;
+    highp float strip = floor(FRAGCOORD.y / 27.0);
+    highp float rand = fract(sin(strip * 12.9898 + t * 78.233) * 43758.5453);
+
+    highp float offset = 0.0;
+    highp float chromaOff = 0.0;
+
+    if (rand > 1.0 - glitchFactor * 0.8) {
+        highp float xStart = fract(sin(strip * 73.1 + t * 12.3) * 8765.4321);
+        highp float xLen = 0.3 + fract(sin(strip * 45.6 + t * 67.8) * 23456.789) * 0.5;
+        highp float xEnd = min(xStart + xLen, 1.0);
+
+        if (uv.x >= xStart && uv.x <= xEnd) {
+            offset = (fract(sin(strip * 311.7 + t * 43.1) * 12345.6789) * 2.0 - 1.0) * glitchFactor * 0.08;
+            chromaOff = glitchFactor * 0.014;
+        }
+    }
+
+    highp float rChan = zTextureSpec(SCREEN_TEXTURE, uv + vec2(offset + chromaOff, 0.0)).r;
+    highp float gChan = zTextureSpec(SCREEN_TEXTURE, uv + vec2(offset,             0.0)).g;
+    highp float bChan = zTextureSpec(SCREEN_TEXTURE, uv + vec2(offset - chromaOff, 0.0)).b;
+    highp float alpha = zTextureSpec(SCREEN_TEXTURE, uv).a;
+
+    highp vec3 color = vec3(rChan, gChan, bChan);
+
+    highp vec3 yellowColor = vec3(
+        min(color.r * 1.4, 1.0),
+        min(color.g * 1.3, 1.0),
+        color.b * 0.1
+    );
+
+    highp vec3 greenColor = vec3(
+        min(color.r * 0.85, 1.0),
+        min(color.g * 1.15, 1.0),
+        color.b * 0.55
+    );
+
+    highp vec3 result = mix(color, greenColor, greenFactor * 0.55);
+    result = mix(result, yellowColor, yellowFactor);
+
+    highp float dist = length(uv - vec2(0.5, 0.5));
+    highp float vig = smoothstep(0.35, 0.8, dist);
+    result = mix(result, result * vec3(1.5, 0.2, 0.2), vig * yellowFactor * 0.7);
+
+    COLOR = vec4(result, alpha);
+}

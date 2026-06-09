@@ -369,6 +369,18 @@
 
 - type: entity
   parent: BaseSubdermalImplant
+  id: ADTSecondHeartImplant
+  name: second heart implant
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: SubdermalImplant
+      implantAction: ActionActivateSecondHeartImplant
+    - type: SecondHeartImplant
+    - type: CyberneticLoad
+      implantLoad: 35
+
+- type: entity
+  parent: BaseSubdermalImplant
   id: ADTBerserkImplant
   name: Berserk implant
   categories: [ HideSpawnMenu ]

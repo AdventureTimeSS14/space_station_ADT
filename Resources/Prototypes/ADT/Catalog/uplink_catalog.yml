@@ -629,6 +629,8 @@
   description: uplink-blood-pump-implant-desc
   icon: { sprite: ADT/Objects/Specific/Medical/auto_surgeon.rsi, state: icon-syndie }
   productEntity: ADTBloodPumpAutoSurgeonSyndie
+  discountDownTo:
+    Telecrystal: 3
   cost:
     Telecrystal: 5
   categories:
@@ -640,8 +642,23 @@
   description: uplink-stimulant-implant-desc
   icon: { sprite: ADT/Objects/Specific/Medical/auto_surgeon.rsi, state: icon-syndie }
   productEntity: ADTStimulantAutoSurgeonSyndie
+  discountDownTo:
+    Telecrystal: 3  
   cost:
     Telecrystal: 5
+  categories:
+    - UplinkImplants
+
+- type: listing
+  id: ADTUplinkSecondHeartImplantSyndie
+  name: uplink-second-heart-implant-name
+  description: uplink-second-heart-implant-desc
+  icon: { sprite: ADT/Objects/Specific/Medical/auto_surgeon.rsi, state: icon-syndie }
+  productEntity: ADTSecondHeartAutoSurgeonSyndie
+  discountDownTo:
+    Telecrystal: 10
+  cost:
+    Telecrystal: 13
   categories:
     - UplinkImplants
 

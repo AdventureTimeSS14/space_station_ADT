@@ -28,7 +28,13 @@
       allowDeimplantAll: false
       deimplantWhitelist:
         - ADTSandevistanImplant
+        - ADTStatvekaSandevistanImplant
         - ADTMantisDaggersImplant
+        - ADTBerserkImplant
+        - ADTBloodPumpImplant
+        - ADTStimulantImplant
+        - ADTSecondHeartImplant
+        - ADTKvasImplant
       deimplantFailureDamage:
         types:
           Cellular: 50
@@ -131,6 +137,14 @@
   components:
     - type: Implanter
       implant: ADTBloodPumpImplant
+
+- type: entity
+  id: ADTSecondHeartAutoSurgeonSyndie
+  parent: ADTBaseSyndicateAutoSurgeonOnlyImplanter
+  name: second heart auto surgeon
+  components:
+    - type: Implanter
+      implant: ADTSecondHeartImplant
 
 - type: entity
   id: ADTStimulantAutoSurgeonNT
