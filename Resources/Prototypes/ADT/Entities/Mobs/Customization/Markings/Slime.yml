@@ -16,7 +16,7 @@
 
 - type: marking
   id: SlimeButterflyWings
-  bodyPart: Wings
+  bodyPart: Tail
   groupWhitelist: [Slime]
   sprites:
   - sprite: ADT/Mobs/Customization/Slime/custom.rsi

@@ -13,11 +13,6 @@
       limit: 1
       required: true
       default: [ LizardTailSmooth ]
-    # ADT-Tweak start
-    enum.HumanoidVisualLayers.Wings:
-      limit: 1
-      required: false
-    # ADT-Tweak end
     enum.HumanoidVisualLayers.Chest:
       limit: 3
       required: false
@@ -267,7 +262,6 @@
   - type: VisualOrganMarkings
     hideableLayers:
     - enum.HumanoidVisualLayers.Tail
-    - enum.HumanoidVisualLayers.Wings # ADT-Tweak
 
 - type: entity
   parent: [ OrganBaseHeadSexed, OrganBaseHead, OrganReptilianExternal ]

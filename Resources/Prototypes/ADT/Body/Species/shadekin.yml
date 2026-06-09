@@ -142,12 +142,6 @@
 - type: entity
   parent: [ OrganBaseTorsoSexed, OrganBaseTorso, OrganShadekinExternal ]
   id: OrganShadekinTorso
-  components:
-  - type: VisualOrganMarkings
-    hideableLayers:
-    - enum.HumanoidVisualLayers.Wings
-    markingData:
-      group: Shadekin
 
 - type: entity
   parent: [ OrganBaseHeadSexed, OrganBaseHead, OrganShadekinExternal ]

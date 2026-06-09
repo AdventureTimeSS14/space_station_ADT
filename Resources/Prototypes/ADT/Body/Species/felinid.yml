@@ -35,7 +35,5 @@
   suffix: felinid
   components:
   - type: VisualOrganMarkings
-    hideableLayers:
-    - enum.HumanoidVisualLayers.Wings
     markingData:
       group: Felinid

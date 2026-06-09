@@ -70,12 +70,6 @@
 - type: entity
   parent: [ OrganBaseTorsoSexed, OrganBaseTorso, OrganUrsusExternal ]
   id: OrganUrsusTorso
-  components:
-  - type: VisualOrganMarkings
-    hideableLayers:
-    - enum.HumanoidVisualLayers.Wings
-    markingData:
-      group: Ursus
 
 - type: entity
   parent: [ OrganBaseHeadSexed, OrganBaseHead, OrganUrsusExternal ]

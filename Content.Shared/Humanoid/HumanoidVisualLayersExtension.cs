@@ -64,7 +64,6 @@ namespace Content.Shared.Humanoid
                 case HumanoidVisualLayers.Chest:
                     yield return HumanoidVisualLayers.Chest;
                     yield return HumanoidVisualLayers.Tail;
-                    yield return HumanoidVisualLayers.Wings; // ADT: Крылья (для Moth и других рас в будущем)
                     break;
                 default:
                     yield break;

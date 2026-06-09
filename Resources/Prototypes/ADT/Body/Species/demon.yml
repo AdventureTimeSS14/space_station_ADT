@@ -67,12 +67,6 @@
 - type: entity
   parent: [ OrganBaseTorsoSexed, OrganBaseTorso, OrganDemonExternal ]
   id: OrganDemonTorso
-  components:
-  - type: VisualOrganMarkings
-    hideableLayers:
-    - enum.HumanoidVisualLayers.Wings
-    markingData:
-      group: Demon
 
 - type: entity
   parent: [ OrganBaseHeadSexed, OrganBaseHead, OrganDemonExternal ]

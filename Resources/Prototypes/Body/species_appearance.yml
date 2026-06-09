@@ -57,7 +57,6 @@
     - map: [ "enum.HumanoidVisualLayers.Special" ] # ADT: needed so Special-layer markings (e.g. felinid cat ears) can render
     - map: [ "enum.HumanoidVisualLayers.Tail" ]
     - map: [ "enum.HumanoidVisualLayers.TailOverlay" ]
-    - map: [ "enum.HumanoidVisualLayers.Wings" ] # ADT-Tweak
 
     # Stuff that goes in front of stuff that goes in front of equipment
     - map: [ "mask" ]

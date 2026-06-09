@@ -27,11 +27,6 @@
       limit: 1
       required: true
       default: [ VulpTailVulp ]
-    # ADT-Tweak start
-    enum.HumanoidVisualLayers.Wings:
-      limit: 1
-      required: false
-    # ADT-Tweak end
     enum.HumanoidVisualLayers.LArm:
       limit: 2
       required: false
@@ -259,14 +254,6 @@
 - type: entity
   parent: [ OrganBaseTorsoSexed, OrganBaseTorso, OrganVulpkaninExternal ]
   id: OrganVulpkaninTorso
-  # ADT-Tweak start
-  components:
-  - type: VisualOrganMarkings
-    hideableLayers:
-    - enum.HumanoidVisualLayers.Wings
-    markingData:
-      group: Vulpkanin
-  # ADT-Tweak end
 
 - type: entity
   parent: [ OrganBaseHead, OrganVulpkaninExternal ]

@@ -9,15 +9,10 @@
     enum.HumanoidVisualLayers.FacialHair:
       limit: 0
       required: false
-    enum.HumanoidVisualLayers.Wings: # ADT-Tweak
+    enum.HumanoidVisualLayers.Tail:
       limit: 1
       required: true
       default: [MothWingsDefault]
-    # ADT-Tweak start
-    enum.HumanoidVisualLayers.Tail:
-      limit: 1
-      required: false
-    # ADT-Tweak end
     enum.HumanoidVisualLayers.Chest:
       limit: 2
       required: false
@@ -257,14 +252,6 @@
 - type: entity
   parent: [OrganBaseTorsoSexed, OrganBaseTorso, OrganMothExternal]
   id: OrganMothTorso
-  # ADT-Tweak start
-  components:
-  - type: VisualOrganMarkings
-    hideableLayers:
-    - enum.HumanoidVisualLayers.Wings
-    markingData:
-      group: Moth
-  # ADT-Tweak end
 
 - type: entity
   parent: [OrganBaseHead, OrganMothExternal]
