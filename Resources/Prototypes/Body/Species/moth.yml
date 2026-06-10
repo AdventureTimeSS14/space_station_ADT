@@ -147,7 +147,7 @@
       accent: zombieMoth
     - type: Speech
       speechVerb: Moth
-      allowedEmotes: ["Chitter", "Squeak", "Flap", "FlapWings", "Buzz"] # ADT-tweak: restored FlapWings and Buzz
+      allowedEmotes: ["Chitter", "Squeak", "FlapWings", "Buzz"] # ADT-tweak: restored FlapWings and Buzz. Deleted "Flap"
     - type: TypingIndicator
       proto: moth
     - type: CreamPied
