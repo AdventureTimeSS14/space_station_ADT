@@ -1,0 +1,107 @@
+#Base
+
+- type: jukeboxList
+  id: Standard
+  jukeboxes:
+  - FlipFlap
+  - Tintin
+  - Thunderdome
+  - Constellations
+  - Drifting
+  - starlight
+  - sunset
+  - FSMTeamEagle
+  - GiftOfAdventureFromConjurer
+  - horn
+  - MJSC
+  - ESCPMidnightRoom
+  - Oh_Its_You
+  - ESCPNeonscapes
+  - TheFallOfTheCorporation
+  - WaitingForTheMeeting
+  - ThroughPatches
+
+- type: jukeboxList
+  id: Rock
+  jukeboxes:
+  - ACDCBIB
+  - ACDCHTH
+  - GTBTTB
+  - MJB
+  - EOFTTS
+  - EWTRTWTFF
+  - YARARARA
+  - Godish
+
+- type: jukeboxList
+  id: Sonic
+  jukeboxes:
+  - TidalTempestPresent
+  - MetallicMadnessBadFuture
+  - MetallicMadnessBadFutureRemix
+  - MetallicMadnessAct2
+  - CollisionChaosGood
+  - MetallicMadnessPresent
+  - PalmtreePanicPast
+  - QuartzQuadrantPast
+  - SuperSonicRacing
+  - TidalTempestJPRemix
+
+- type: jukeboxList
+  id: Chill
+  jukeboxes:
+  - ABeautifulLull
+  - ATenseAdventure
+  - HotlineDaisuke
+  - DOS
+  - HappyEnding
+  - InTheLandOfMagnolias
+  - IHYVA
+  - WereFinallyLanding
+  - CCTRFKAP
+  - CCCLP
+  - Nebula
+  - phoenixright
+  - lateraligator
+  - SpaceAsshole
+
+- type: jukeboxList
+  id: Hotline
+  jukeboxes:
+  - HotlineDaisuke
+  - HotlineItsSafeNow
+  - Hotline2MsMinnie
+  - HotlineMusik
+  - HotlineParis
+  - Hotline2Sexualizer
+
+- type: jukeboxList
+  id: Va11Hall
+  jukeboxes:
+  - GaroadNeonGlow
+  - GaroadEveryDay
+  - GaroadGoodHealth
+  - GaroadYourLove
+  - GaroadUmemoto
+  - GaroadDigitalDrive
+  - GaroadWhereDoGo
+
+- type: jukeboxList
+  id: Celeste
+  jukeboxes:
+  - LenaRaineFirstSteps
+  - LenaRaineSpiritOfHospitality
+  - LenaRaineConfrontingMyself
+  - LenaRaineExhale
+
+- type: jukeboxList
+  id: Mix
+  jukeboxes:
+  - ExecutionClap
+  - NeverFadeAway
+  - LuchNadezhdy
+  - ElevatorMusic
+  - FNB
+  - Godish
+  - TheOnlyThing
+  - YARARARA
