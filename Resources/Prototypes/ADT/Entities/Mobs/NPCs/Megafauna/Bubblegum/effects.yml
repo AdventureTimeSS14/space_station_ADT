@@ -1,26 +1,98 @@
 - type: entity
-  parent: Puddle
-  id: ADTPuddleBloodBubblegum
-  name: blood
-  suffix: Bubblegum
+  name: puddle
+  id: BubblegumPuddleBase
+  abstract: true
+  description: A puddle of liquid.
+  placement:
+    mode: SnapgridCenter
   components:
+  - type: Clickable
+  - type: Transform
+    noRot: true
+    anchored: true
+  - type: Sprite
+    layers:
+    - sprite: Fluids/puddle.rsi
+      state: splat0
+    drawdepth: Puddles
+    color: "#FFFFFF80"
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.25
   - type: SolutionContainerManager
     solutions:
       puddle:
         maxVol: 1000
+  - type: Puddle
+  - type: MixableSolution
+    solution: puddle
+  - type: Appearance
+  - type: NeverPreventAnchor # ADT anchor fix
+  - type: TimedDespawn
+    lifetime: 120
+  - type: Tag
+    tags:
+    - HideContextMenu
+
+- type: entity
+  parent: BubblegumPuddleBase
+  id: ADTPuddleBloodBubblegum
+  name: blood
+  suffix: Bubblegum
+  components:
+  - type: RandomSprite
+    available:
+    - "0":
+        smear-0:
+        smear-1:
+        smear-2:
+        smear-3:
+        smear-4:
+        smear-5:
+        smear-6:
+  - type: Sprite
+    layers:
+    - sprite: Fluids/smear.rsi
+      state: smear-0
+    drawdepth: Puddles
+    color: "#FFFFFF80"
+  - type: SolutionContainerManager
+    solutions:
+      puddle:
+        maxVol: 30
         reagents:
         - ReagentId: Blood
           Quantity: 30
 
 - type: entity
-  parent: ADTPuddleBloodBubblegum
+  parent: BubblegumPuddleBase
   id: ADTPuddleBloodBubblegumThick
   suffix: Bubblegum thick
   components:
+  - type: RandomSprite
+    available:
+    - "0":
+        splatter-0:
+        splatter-1:
+        splatter-2:
+        splatter-3:
+        splatter-4:
+        splatter-5:
+  - type: Sprite
+    layers:
+    - sprite: Fluids/splatter.rsi
+      state: splatter-0
+    drawdepth: Puddles
+    color: "#C0C0C080"
   - type: SolutionContainerManager
     solutions:
       puddle:
-        maxVol: 1000
+        maxVol: 60
         reagents:
         - ReagentId: Blood
           Quantity: 60

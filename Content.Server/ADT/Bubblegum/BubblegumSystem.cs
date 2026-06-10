@@ -1,4 +1,6 @@
 using Content.Server.NPC.HTN;
+using Content.Shared.Coordinates;
+using Content.Shared.Coordinates.Helpers;
 using Content.Server.Chat.Systems;
 using Content.Shared.Chat;
 using Content.Shared.Actions;
@@ -34,6 +36,7 @@ public sealed class BubblegumSystem : EntitySystem
     [Dependency] private readonly SharedEyeSystem _eye = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
+    [Dependency] private readonly EntityLookupSystem _lookup = default!;
 
     public override void Initialize()
     {
@@ -86,11 +89,10 @@ public sealed class BubblegumSystem : EntitySystem
         if (args.ParentChanged)
             return;
 
-        if (HasComp<BubblegumActiveChargeComponent>(ent))
+        if (args.OldPosition == args.NewPosition)
             return;
 
-        var delta = args.NewPosition.Position - args.OldPosition.Position;
-        if (delta.LengthSquared() < 0.01f)
+        if (HasComp<BubblegumActiveChargeComponent>(ent))
             return;
 
         if (_mobState.IsDead(ent))
@@ -239,6 +241,9 @@ public sealed class BubblegumSystem : EntitySystem
         if (!coords.IsValid(EntityManager))
             return null;
 
+        if (HasSameProtoOnTile(proto, coords))
+            return null;
+
         return SpawnAtPosition(proto, coords);
     }
 
@@ -247,19 +252,32 @@ public sealed class BubblegumSystem : EntitySystem
         if (coords.MapId == MapId.Nullspace)
             return null;
 
+        if (HasSameProtoOnTile(proto, _transform.ToCoordinates(coords)))
+            return null;
+
         return Spawn(proto, coords);
     }
 
-    public void Say(EntityUid uid, string locId, int count, bool ignoreRandom = false)
+    private bool HasSameProtoOnTile(string proto, EntityCoordinates coords)
+    {
+        foreach (var uid in _lookup.GetEntitiesIntersecting(coords.SnapToGrid(EntityManager)))
+        {
+            if (MetaData(uid).EntityPrototype?.ID == proto)
+                return true;
+        }
+        return false;
+    }
+
+    public void Say(EntityUid uid, string locId, int count, bool ignore = false)
     {
         if (!TryComp<BubblegumComponent>(uid, out var bubblegum))
             return;
 
         var now = _timing.CurTime;
-        if (now < bubblegum.NextSpeechTime)
+        if (!ignore && now < bubblegum.NextSpeechTime)
             return;
 
-        if (!ignoreRandom && _random.NextFloat() > 0.3f)
+        if (!ignore && _random.NextFloat() > 0.3f)
             return;
 
         if (!TryComp<MetaDataComponent>(uid, out var meta))
