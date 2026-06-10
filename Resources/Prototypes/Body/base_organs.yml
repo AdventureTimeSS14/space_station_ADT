@@ -21,6 +21,22 @@
   parent: BaseItem
   components:
   - type: Organ
+  # ADT-Tweak start
+  - type: Edible
+  - type: Extractable
+    grindableSolutionName: food
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 5
+        - ReagentId: Fat
+          Quantity: 4
+        - ReagentId: Nutriment
+          Quantity: 2
+  # ADT-Twek end
 
 - type: entity
   parent: OrganBase
@@ -255,7 +271,6 @@
   - type: InputMover
   - type: Examiner
   - type: BlockMovement
-  - type: BadFood
   - type: FoodSequenceElement
     entries:
       Burger: Brain
