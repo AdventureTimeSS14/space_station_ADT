@@ -2,6 +2,7 @@ using Content.Shared.ADT.Crushers.Components;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Weapons.Marker;
+using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.GameObjects;
 
@@ -10,16 +11,10 @@ namespace Content.Shared.ADT.Crushers.Effects;
 public sealed partial class DemonClawsEffect : TrophyEffect
 {
     [DataField]
-    public DamageSpecifier HealOnHit = new()
-    {
-        DamageDict = { { "Blunt", -1 } },
-    };
+    public float BonusDamage = 2f;
 
     [DataField]
-    public DamageSpecifier BonusDamage = new()
-    {
-        DamageDict = { { "Slash", 2 } },
-    };
+    public float HealOnHit = 1f;
 
     [DataField]
     public float MarkDetonationMultiplier = 5f;
@@ -33,8 +28,27 @@ public sealed partial class DemonClawsEffect : TrophyEffect
         if (args.HitEntities.Count == 0)
             return;
 
-        var damageable = entManager.System<DamageableSystem>();
+        if (!entManager.TryGetComponent<MeleeWeaponComponent>(args.Weapon, out var melee))
+            return;
 
+        var weaponDamage = melee.Damage;
+
+        var totalWeaponDamage = 0f;
+        foreach (var (_, val) in weaponDamage.DamageDict)
+            totalWeaponDamage += (float) val;
+
+        if (totalWeaponDamage <= 0f)
+            return;
+
+        var bonusSpecifier = new DamageSpecifier();
+        foreach (var (type, val) in weaponDamage.DamageDict)
+            bonusSpecifier.DamageDict[type] = (float) val / totalWeaponDamage * BonusDamage;
+
+        var healSpecifier = new DamageSpecifier();
+        foreach (var (type, val) in weaponDamage.DamageDict)
+            healSpecifier.DamageDict[type] = -(float) val / totalWeaponDamage * HealOnHit;
+
+        var damageable = entManager.System<DamageableSystem>();
         var detonated = false;
 
         foreach (var target in args.HitEntities)
@@ -42,16 +56,15 @@ public sealed partial class DemonClawsEffect : TrophyEffect
             if (target == holder.Owner || target == args.User)
                 continue;
 
-            damageable.TryChangeDamage(target, BonusDamage, origin: holder);
+            damageable.TryChangeDamage(target, bonusSpecifier, origin: holder);
 
             if (entManager.HasComponent<DamageMarkerComponent>(target))
                 detonated = true;
         }
 
-        var heal = HealOnHit;
         if (detonated)
-            heal = HealOnHit * MarkDetonationMultiplier;
+            healSpecifier *= MarkDetonationMultiplier;
 
-        damageable.TryChangeDamage(args.User, heal, true);
+        damageable.TryChangeDamage(args.User, healSpecifier, true);
     }
 }
