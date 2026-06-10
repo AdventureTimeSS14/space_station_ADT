@@ -20,28 +20,28 @@
     sprite: Mobs/Species/Human/organs.rsi
 
 - type: entity
-  parent: [ OrganBaseLungs, OrganAnimalInternal, OrganAnimalMetabolizer ]
+  parent: [ OrganBaseLungs, OrganAnimalInternal, OrganAnimalMetabolizer, ADTOrganBasePitation ] # ADT-Tweak
   id: OrganAnimalLungs
 
 - type: entity
-  parent: [ OrganBaseHeart, OrganAnimalInternal, OrganAnimalMetabolizer ]
+  parent: [ OrganBaseHeart, OrganAnimalInternal, OrganAnimalMetabolizer, ADTOrganBasePitation ] # ADT-Tweak
   id: OrganAnimalHeart
 
 - type: entity
-  parent: [ OrganBaseStomach, OrganAnimalInternal, OrganAnimalMetabolizer ]
+  parent: [ OrganBaseStomach, OrganAnimalInternal, OrganAnimalMetabolizer, ADTOrganBasePitation ] # ADT-Tweak
   id: OrganAnimalStomach
 
 - type: entity
-  parent: [ OrganBaseLiver, OrganAnimalInternal, OrganAnimalMetabolizer ]
+  parent: [ OrganBaseLiver, OrganAnimalInternal, OrganAnimalMetabolizer, ADTOrganBasePitation ] # ADT-Tweak
   id: OrganAnimalLiver
 
 - type: entity
-  parent: [ OrganBaseKidneys, OrganAnimalInternal, OrganAnimalMetabolizer ]
+  parent: [ OrganBaseKidneys, OrganAnimalInternal, OrganAnimalMetabolizer, ADTOrganBasePitation ] # ADT-Tweak
   id: OrganAnimalKidneys
 
  # ADT-Tweak start
 - type: entity
-  parent: [ OrganBaseAnimalEyes, OrganAnimalInternal, OrganAnimalMetabolizer  ]
+  parent: [ OrganBaseAnimalEyes, OrganAnimalInternal, OrganAnimalMetabolizer, ADTOrganBasePitation ] # ADT-Tweak
   id: OrganAnimalEyes
 
 - type: entity
