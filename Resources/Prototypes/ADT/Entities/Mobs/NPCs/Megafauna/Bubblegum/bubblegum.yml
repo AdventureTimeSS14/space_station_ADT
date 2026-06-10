@@ -30,13 +30,18 @@
     tags:
     - CannotSuicide
     - DoorBumpOpener
-    - Catwalk
+    - StunImmune
   - type: NoSlip
   - type: ExplosionResistance
     damageCoefficient: 0
   - type: Fauna
   - type: Appearance
   - type: AshStormImmune
+  - type: StatusEffects
+    allowed: []
+  - type: StaminaResistance
+    damageCoefficient: 0
+    worn: false
 
 - type: entity
   id: ADTMegaFaunaBubblegum
@@ -95,11 +100,6 @@
   - type: BubblegumBloodWarp
   - type: BubblegumSummonNarsi
   - type: BubblegumBloodAttack
-  - type: StatusEffects
-    allowed:
-    - Stutter
-    - Weakness
-    - RadiationProtection
   - type: BubblegumLoot
     randomAmountLoot:
       GoldOre: 10

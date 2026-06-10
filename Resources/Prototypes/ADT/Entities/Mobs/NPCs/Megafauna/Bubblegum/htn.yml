@@ -91,13 +91,13 @@
         - !type:HTNPrimitiveTask
           operator: !type:BubblegumRetreatOperator
             retreatDistance: 5
-        - !type:HTNPrimitiveTask
-          operator: !type:MoveToOperator
-            targetKey: BubblegumRetreatCoordinates
-            pathfindInPlanning: true
-            pathfindKey: TargetPathfind
-            removeKeyOnFinish: true
-            shutdownState: TaskFinished
+        #- !type:HTNPrimitiveTask
+        #  operator: !type:MoveToOperator
+        #    targetKey: BubblegumRetreatCoordinates
+        #    pathfindInPlanning: true
+        #    pathfindKey: TargetPathfind
+        #    removeKeyOnFinish: true
+        #    shutdownState: TaskFinished
     - preconditions:
         - !type:KeyExistsPrecondition
           key: Target
