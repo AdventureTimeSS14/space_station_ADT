@@ -47,6 +47,13 @@
         shape:
           !type:PhysShapeAabb
             bounds: "-0.5,-0.5,0.5,0.5"
+       # ADT-Tweak start
+        hard: false
+        collisionLayer:
+        - GasLayer
+        collisionMask:
+        - GasLayer
+      # ADT-Tweak and
   - type: TimedDespawn
     lifetime: 180
   - type: Airtight
