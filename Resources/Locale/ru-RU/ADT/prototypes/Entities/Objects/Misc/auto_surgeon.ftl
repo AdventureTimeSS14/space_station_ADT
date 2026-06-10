@@ -33,6 +33,12 @@ ent-ADTStimulantAutoSurgeonSyndie = САПО.Г. Cybersun "Стимулятор 
 ent-ADTSecondHeartAutoSurgeonSyndie = САПО.Г. Cybersun "Второе сердце"
     .desc = Медицинский прибор синдиката для вживления аварийного импланта «Второе сердце». Одноразовый.
 
+ent-ADTKereznikovAutoSurgeon = САПО.Г. BioTech "Керезников"
+    .desc = Медицинский прибор BioTech для вживления импланта «Керезников».
+
+ent-ADTSpasezhnikovAutoSurgeon = САПО.Г. BioTech "Спасезников"
+    .desc = Медицинский прибор BioTech для вживления импланта «Спасезников».
+
 ent-ADTKvasAutoSurgeon = САПО.Г. BioTech "К.В.А.С."
     .desc = Медицинский прибор BioTech, для проведения операций по вживлению киберимпланта К.В.А.С.
     .suffix = КВАС

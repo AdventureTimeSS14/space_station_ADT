@@ -161,3 +161,15 @@
       path: /Audio/ADT/Effects/ImplantsEffects/berserk-implant-activate.ogg
   - type: InstantAction
     event: !type:ActivateBerserkImplantActionEvent
+
+- type: entity
+  parent: BaseAction
+  id: ActionActivateKereznikov
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    checkCanInteract: false
+    itemIconStyle: BigAction
+    useDelay: 20
+  - type: InstantAction
+    event: !type:ActivateKereznikovActionEvent

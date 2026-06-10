@@ -35,6 +35,8 @@
         - ADTStimulantImplant
         - ADTSecondHeartImplant
         - ADTKvasImplant
+        - ADTKereznikovImplant
+        - ADTSpasezhnikovImplant
       deimplantFailureDamage:
         types:
           Cellular: 50
@@ -164,6 +166,28 @@
   components:
     - type: Implanter
       implant: ADTStimulantImplant
+
+- type: entity
+  id: ADTKereznikovAutoSurgeon
+  parent: ADTBaseSyndicateAutoSurgeonOnlyImplanter
+  name: kereznikov auto surgeon
+  components:
+    - type: Implanter
+      implant: ADTKereznikovImplant
+    - type: Sprite
+      sprite: ADT/Objects/Specific/Medical/auto_surgeon.rsi
+      state: icon
+
+- type: entity
+  id: ADTSpasezhnikovAutoSurgeon
+  parent: ADTBaseSyndicateAutoSurgeonOnlyImplanter
+  name: spasezhnikov auto surgeon
+  components:
+    - type: Implanter
+      implant: ADTSpasezhnikovImplant
+    - type: Sprite
+      sprite: ADT/Objects/Specific/Medical/auto_surgeon.rsi
+      state: icon
 
 - type: entity
   id: ADTKvasAutoSurgeon
