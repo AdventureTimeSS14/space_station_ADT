@@ -117,6 +117,18 @@
         effectProto: StatusEffectDrunk
         time: 6.0
         type: Remove
+      # ADT-Tweak start
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectDrowsiness
+        time: 10
+        type: Remove
+      - !type:ResetNarcolepsy
+        TimerReset: 600
+        conditions:
+        - !type:ReagentCondition
+          reagent: Ethylredoxrazine
+          min: 5
+      # ADT-Tweak end
       - !type:HealthChange
         damage:
           types:
