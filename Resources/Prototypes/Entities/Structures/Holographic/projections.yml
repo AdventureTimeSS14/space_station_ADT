@@ -21,12 +21,12 @@
     damageContainer: Inorganic
   - type: Destructible
     thresholds:
-      - trigger:
-          !type:DamageTrigger
-          damage: 30
-        behaviors:
-          - !type:DoActsBehavior
-            acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 30
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
   - type: Holosign #ADT-Tweak
   - type: Tag #ADT tweak
     tags:
@@ -47,10 +47,9 @@
         shape:
           !type:PhysShapeAabb
           bounds: "-0.5,-0.5,0.5,0.5"
-        hard: false
-        layer:
-        - GasLayer
         mask:
+        - GasLayer
+        layer:
         - GasLayer
   - type: TimedDespawn
     lifetime: 180
