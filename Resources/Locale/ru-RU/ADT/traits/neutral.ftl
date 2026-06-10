@@ -41,7 +41,7 @@ trait-chav-accent-name = Кокни
 trait-chav-accent-desc = Эй, приятель, что ты там сказал про мою бабушку? (Вы будете только мычать, как в наморднике)
 
 trait-archaic-accent-name = Архаичный
-trait-archaic-accent-desc = Вы говорите так, как многие считают устаревшим.
+trait-archaic-accent-desc = Вы говорите задом наперёд! 
 
 trait-scottish-accent-name = Шотландский акцент
 trait-scottish-accent-desc = Вы говорите, словно собираетесь отправиться к Лох-Несс!
