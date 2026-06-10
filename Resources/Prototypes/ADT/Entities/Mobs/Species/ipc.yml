@@ -70,6 +70,12 @@
     - NanoTrasen
   - type: TypingIndicator
     proto: robot
+  - type: StatusIcon
+    bounds: -0.5,-0.5,0.5,0.5
+  - type: JobStatus
+  - type: RotationVisuals
+    defaultRotation: -90
+    horizontalRotation: -90
   - type: Destructible
     thresholds:
     - trigger:

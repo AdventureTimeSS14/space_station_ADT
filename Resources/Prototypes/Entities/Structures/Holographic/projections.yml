@@ -47,6 +47,11 @@
         shape:
           !type:PhysShapeAabb
             bounds: "-0.5,-0.5,0.5,0.5"
+        hard: false
+        layer:
+        - GasLayer
+        mask:
+        - GasLayer
   - type: TimedDespawn
     lifetime: 180
   - type: Airtight

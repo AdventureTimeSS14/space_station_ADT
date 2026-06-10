@@ -307,11 +307,11 @@
   id: OrganReptilianFootRight
 
 - type: entity
-  parent: [ OrganBaseBrain, OrganSpriteHumanInternal, OrganReptilianInternal, ADTOrganBasePitation ] # ADT-Tweak
+  parent: [ OrganBaseBrain, OrganSpriteHumanInternal, OrganReptilianInternal ]
   id: OrganReptilianBrain
 
 - type: entity
-  parent: [ OrganBaseEyes, OrganReptilianInternal, OrganReptilianExternal, ADTOrganBasePitation ] # ADT-Tweak
+  parent: [ OrganBaseEyes, OrganReptilianInternal, OrganReptilianExternal ]
   id: OrganReptilianEyes
   components:
   - type: VisualOrgan
@@ -319,27 +319,27 @@
       sprite: Mobs/Customization/eyes.rsi
 
 - type: entity
-  parent: [ OrganBaseTongue, OrganReptilianInternal, ADTOrganBasePitation ] # ADT-Tweak
+  parent: [ OrganBaseTongue, OrganReptilianInternal ]
   id: OrganReptilianTongue
 
 - type: entity
-  parent: [ OrganBaseAppendix, OrganSpriteHumanInternal, OrganReptilianInternal, ADTOrganBasePitation ] # ADT-Tweak
+  parent: [ OrganBaseAppendix, OrganSpriteHumanInternal, OrganReptilianInternal ]
   id: OrganReptilianAppendix
 
 - type: entity
-  parent: [ OrganBaseEars, OrganSpriteHumanInternal, OrganReptilianInternal, ADTOrganBasePitation ] # ADT-Tweak
+  parent: [ OrganBaseEars, OrganSpriteHumanInternal, OrganReptilianInternal ]
   id: OrganReptilianEars
 
 - type: entity
-  parent: [ OrganBaseLungs, OrganReptilianInternal, OrganReptilianMetabolizer, ADTOrganBasePitation ] # ADT-Tweak
+  parent: [ OrganBaseLungs, OrganReptilianInternal, OrganReptilianMetabolizer ]
   id: OrganReptilianLungs
 
 - type: entity
-  parent: [ OrganBaseHeart, OrganReptilianInternal, OrganReptilianMetabolizer, ADTOrganBasePitation ] # ADT-Tweak
+  parent: [ OrganBaseHeart, OrganReptilianInternal, OrganReptilianMetabolizer ]
   id: OrganReptilianHeart
 
 - type: entity
-  parent: [ OrganBaseStomach, OrganReptilianInternal, OrganReptilianMetabolizer, ADTOrganBasePitation ] # ADT-Tweak
+  parent: [ OrganBaseStomach, OrganReptilianInternal, OrganReptilianMetabolizer ]
   id: OrganReptilianStomach
   components:
   - type: Stomach
@@ -353,9 +353,9 @@
       - Paper
 
 - type: entity
-  parent: [ OrganBaseLiver, OrganSpriteHumanInternal, OrganReptilianInternal, OrganReptilianMetabolizer, ADTOrganBasePitation ] # ADT-Tweak
+  parent: [ OrganBaseLiver, OrganSpriteHumanInternal, OrganReptilianInternal, OrganReptilianMetabolizer ]
   id: OrganReptilianLiver
 
 - type: entity
-  parent: [ OrganBaseKidneys, OrganSpriteHumanInternal, OrganReptilianInternal, OrganReptilianMetabolizer, ADTOrganBasePitation ] # ADT-Tweak
+  parent: [ OrganBaseKidneys, OrganSpriteHumanInternal, OrganReptilianInternal, OrganReptilianMetabolizer ]
   id: OrganReptilianKidneys
