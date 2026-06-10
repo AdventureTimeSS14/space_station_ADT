@@ -189,6 +189,7 @@ public sealed partial class DamageableSystem
     {
         args.State = new DamageableComponentState(
             _netMan.IsServer ? ent.Comp.Damage : ent.Comp.Damage.Clone(),
+            _netMan.IsServer ? ent.Comp.DamagePerGroup : new Dictionary<ProtoId<DamageGroupPrototype>, FixedPoint2>(), // ADT-Tweak
             ent.Comp.DamageModifierSetId
         );
     }
@@ -204,13 +205,17 @@ public sealed partial class DamageableSystem
         var newDamage = state.Damage.Clone();
         var delta = newDamage - ent.Comp.Damage;
         delta.TrimZeros();
-
+/* ADT-tweak
         if (delta.Empty)
             return;
-
+*/
         ent.Comp.Damage = newDamage;
+        // ADT-Tweak start
+        ent.Comp.DamagePerGroup = state.DamagePerGroup;
 
-        OnEntityDamageChanged(ent, delta);
+        if (!delta.Empty)
+        // ADT-Tweak end
+            OnEntityDamageChanged(ent, delta);
     }
 
     private void OnDamageDealt(Entity<InjurableComponent> ent, ref DamageDealtEvent args)

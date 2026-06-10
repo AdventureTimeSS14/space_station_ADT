@@ -97,14 +97,15 @@
         children:
         - id: MedicatedSuture
         - id: RegenerativeMesh
-        - id: Bloodpack
-          amount: 2
+      #  - id: Bloodpack
+      #    amount: 2
         # ADT Tweak start
         - id: BurnAutoInjector
         - id: BruteAutoInjector
         - id: RadAutoInjector
         - id: AntiPoisonMedipen
         - id: ADTBloodPackTransfusionFull # ADT Tweak: Blood IV
+          amount: 2
         # ADT Tweak End
 
 - type: entity

@@ -92,6 +92,8 @@ namespace Content.Server.ADT.Atmos.EntityDamage.Systems
             if (dmgAmt <= 0)
                 return;
 
+            dmgAmt = Math.Min(dmgAmt, 100);
+
             var spec = new DamageSpecifier();
             spec.DamageDict["Structural"] = dmgAmt;
 

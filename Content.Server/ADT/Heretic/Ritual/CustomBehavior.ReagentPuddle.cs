@@ -1,4 +1,4 @@
-using Content.Shared.Chemistry.Components.SolutionManager;
+using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Fluids.Components;
@@ -31,13 +31,26 @@ public sealed partial class RitualReagentPuddleBehavior : RitualCustomBehavior
 
         foreach (var ent in lookup)
         {
-            if (!args.EntityManager.TryGetComponent<PuddleComponent>(ent, out var puddle))
+            if (!args.EntityManager.TryGetComponent(ent, out PuddleComponent? puddle))
                 continue;
 
-            if (!_solutionContainer.ResolveSolution(ent, puddle.SolutionName, ref puddle.Solution, out var solution))
+            if (puddle.Solution == null)
                 continue;
 
-            if (!solution.ContainsPrototype(Reagent.Value))
+            if (!args.EntityManager.TryGetComponent(puddle.Solution.Value, out SolutionComponent? solutionComp))
+                continue;
+
+            var hasReagent = false;
+            foreach (var reagent in solutionComp.Solution.Contents)
+            {
+                if (reagent.Reagent.Prototype == Reagent.Value)
+                {
+                    hasReagent = true;
+                    break;
+                }
+            }
+
+            if (!hasReagent)
                 continue;
 
             _uids.Add(ent);

@@ -172,6 +172,7 @@ public sealed partial class HealthAnalyzerControl : BoxContainer
         // ADT-Tweak start
         var groupOrder = new List<ProtoId<DamageGroupPrototype>> { "Burn", "Brute", "Airloss", "Toxin", "Genetic" };
         var sortedGroups = _damageable.GetDamagePerGroup(target.Value)
+            .Where(g => g.Value > 0)
             .OrderBy(g => groupOrder.IndexOf(g.Key))
             .ToDictionary(g => g.Key, g => g.Value);
 

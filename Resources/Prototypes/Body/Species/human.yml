@@ -97,6 +97,17 @@
     spawned:
     - id: FoodMeatHuman
       amount: 5
+  # ADT-Tweak start
+  - type: LanguageSpeaker
+    languages:
+      GalacticCommon: Speak
+      SolCommon: Speak
+  - type: SizeAttributeWhitelist # Frontier
+    tall: true
+    tallscale: 1.08
+    short: true
+    shortscale: 0.92
+  # ADT-Tweak end
 
 - type: entity
   parent: OrganBase

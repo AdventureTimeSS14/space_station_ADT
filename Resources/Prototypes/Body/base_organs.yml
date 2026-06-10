@@ -366,6 +366,7 @@
   - type: Organ
     category: Heart
   - type: Sprite
+    sprite: Mobs/Species/Human/organs.rsi
     layers:
     - state: heart-on
   - type: Metabolizer

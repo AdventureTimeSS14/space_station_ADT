@@ -1528,12 +1528,8 @@
         - !type:TemperatureCondition
           max: 213.0
         damage:
-          # ADT-Tweak start (made HealthChange even)
-            Brute: -7
-            Burn: -6
-            Airloss: -3
-            Toxin: -4
-          # ADT-Tweak end
+          Brute: -3
+          Burn: -3
 
 - type: reagent
   id : Aloxadone

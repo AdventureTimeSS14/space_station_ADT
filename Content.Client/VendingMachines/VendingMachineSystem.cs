@@ -60,9 +60,13 @@ public sealed partial class VendingMachineSystem : SharedVendingMachineSystem
         if (UISystem.TryGetOpenUi<VendingMachineBoundUserInterface>(uid, VendingMachineUiKey.Key, out var bui))
         {
             if (fullUiUpdate)
+            {
                 bui.Refresh();
+            }
             else
+            {
                 bui.UpdateAmounts();
+            }
         }
     }
 
@@ -71,7 +75,9 @@ public sealed partial class VendingMachineSystem : SharedVendingMachineSystem
         if (!Resolve(entity, ref entity.Comp))
             return;
 
-        if (UISystem.TryGetOpenUi<VendingMachineBoundUserInterface>(entity.Owner, VendingMachineUiKey.Key, out var bui))
+        if (UISystem.TryGetOpenUi<VendingMachineBoundUserInterface>(entity.Owner,
+                VendingMachineUiKey.Key,
+                out var bui))
         {
             bui.UpdateAmounts();
         }
@@ -79,10 +85,12 @@ public sealed partial class VendingMachineSystem : SharedVendingMachineSystem
 
     private void OnAnimationCompleted(EntityUid uid, VendingMachineComponent component, AnimationCompletedEvent args)
     {
-        if (!TryComp(uid, out SpriteComponent? sprite))
+        if (!TryComp<SpriteComponent>(uid, out var sprite))
             return;
 
-        if (!TryComp(uid, out AppearanceComponent? appearance) ||
+        _sprite.LayerSetAutoAnimated((uid, sprite), VendingMachineVisualLayers.BaseUnshaded, true); // ADT-Tweak
+
+        if (!TryComp<AppearanceComponent>(uid, out var appearance) ||
             !_appearanceSystem.TryGetData<VendingMachineVisualState>(uid, VendingMachineVisuals.VisualState, out var visualState, appearance))
         {
             visualState = VendingMachineVisualState.Normal;

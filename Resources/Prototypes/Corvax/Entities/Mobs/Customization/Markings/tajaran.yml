@@ -567,6 +567,7 @@
 # Animated
 - type: marking
   id: TailFluffyAnimated1
+  groupWhitelist: [Tajaran] # ADT-Tweak
   bodyPart: Tail
   sprites:
     - sprite: Corvax/Mobs/Customization/Tajaran/tajaran_tail.rsi
@@ -574,6 +575,7 @@
 
 - type: marking
   id: TailWingler1Animated1
+  groupWhitelist: [Tajaran] # ADT-Tweak
   bodyPart: Tail
   sprites:
     - sprite: Corvax/Mobs/Customization/Tajaran/tajaran_tail.rsi
@@ -583,6 +585,7 @@
 
 - type: marking
   id: TailWingler2Animated1
+  groupWhitelist: [Tajaran] # ADT-Tweak
   bodyPart: Tail
   sprites:
     - sprite: Corvax/Mobs/Customization/Tajaran/tajaran_tail.rsi
@@ -592,6 +595,7 @@
 
 - type: marking
   id: TailWingler3Animated1
+  groupWhitelist: [Tajaran] # ADT-Tweak
   bodyPart: Tail
   sprites:
     - sprite: Corvax/Mobs/Customization/Tajaran/tajaran_tail.rsi
@@ -601,6 +605,7 @@
 
 - type: marking
   id: TailFluffySkeletonAnimated1
+  groupWhitelist: [Tajaran] # ADT-Tweak
   bodyPart: Tail
   sprites:
     - sprite: Corvax/Mobs/Customization/Tajaran/tajaran_tail.rsi
@@ -610,6 +615,7 @@
 
 - type: marking
   id: TailTipAnimated1
+  groupWhitelist: [Tajaran] # ADT-Tweak
   bodyPart: Tail
   sprites:
     - sprite: Corvax/Mobs/Customization/Tajaran/tajaran_tail.rsi
@@ -620,6 +626,7 @@
 
 - type: marking
   id: TajaranTailMAnimated
+  groupWhitelist: [Tajaran] # ADT-Tweak
   bodyPart: Tail
   sprites:
     - sprite: Corvax/Mobs/Customization/Tajaran/tajaran_tail.rsi
@@ -627,6 +634,7 @@
 
 - type: marking
   id: TailRingAnimated1
+  groupWhitelist: [Tajaran] # ADT-Tweak
   bodyPart: Tail
   sprites:
     - sprite: Corvax/Mobs/Customization/Tajaran/tajaran_tail.rsi
@@ -636,6 +644,7 @@
 
 - type: marking
   id: TailSkeletonAnimated1
+  groupWhitelist: [Tajaran] # ADT-Tweak
   bodyPart: Tail
   sprites:
     - sprite: Corvax/Mobs/Customization/Tajaran/tajaran_tail.rsi

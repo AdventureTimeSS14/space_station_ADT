@@ -1696,12 +1696,6 @@ namespace Content.Client.Chemistry.UI
                 Orientation = LayoutOrientation.Horizontal,
                 Children =
                 {
-                    // new Label { Text = $"{name}: " }, // ADT-Tweak: Cutted
-                    new Label
-                    {
-                        Text = $"{name}: ",
-                        HorizontalAlignment = HAlignment.Left
-                    },
                     new Label
                     {
                         Text = $"{name}: ",

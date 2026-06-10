@@ -121,23 +121,23 @@ namespace Content.Server.Spawners.EntitySystems
             Spawn(_robustRandom.Pick(component.Prototypes), coordinates);
         }
 
-        private void Spawn(Entity<EntityTableSpawnerComponent> ent)
+    private void Spawn(Entity<EntityTableSpawnerComponent> ent)
+    {
+        if (TerminatingOrDeleted(ent) || !Exists(ent))
+            return;
+
+        var coords = Transform(ent).Coordinates;
+        var offset = ent.Comp.Offset;
+
+        var spawns = _entityTable.GetSpawns(ent.Comp.Table);
+        foreach (var proto in spawns)
         {
-            if (TerminatingOrDeleted(ent) || !Exists(ent))
-                return;
+            var xOffset = _robustRandom.NextFloat(-offset, offset);
+            var yOffset = _robustRandom.NextFloat(-offset, offset);
+            var trueCoords = coords.Offset(new Vector2(xOffset, yOffset));
 
-            var coords = Transform(ent).Coordinates;
-            var offset = ent.Comp.Offset;
-
-            var spawns = _entityTable.GetSpawns(ent.Comp.Table);
-            foreach (var proto in spawns)
-            {
-                var xOffset = _robustRandom.NextFloat(-offset, offset);
-                var yOffset = _robustRandom.NextFloat(-offset, offset);
-                var trueCoords = coords.Offset(new Vector2(xOffset, yOffset));
-
-                SpawnAttachedTo(proto, trueCoords);
-            }
+            SpawnAtPosition(proto, trueCoords); // ADT-Tweak
         }
     }
+}
 }
