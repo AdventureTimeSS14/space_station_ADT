@@ -7,7 +7,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Player;
 
 namespace Content.Server.ADT.Bubblegum.Abilities;
-
+// todo block canmove
 public sealed class BubblegumTripleChargeSystem : EntitySystem
 {
     [Dependency] private readonly BubblegumChargeSystem _charge = default!;

@@ -19,6 +19,7 @@ namespace Content.Server.ADT.Bubblegum;
 
 public sealed class BubblegumChargeSystem : EntitySystem
 {
+    [Dependency] private readonly BubblegumCombatSystem _combat = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
@@ -66,6 +67,7 @@ public sealed class BubblegumChargeSystem : EntitySystem
             return;
 
         RemCompDeferred<TrailComponent>(ent);
+        _combat.RemoveBubblegumBusy(ent.Owner);
     }
 
     public void BeginCharge(

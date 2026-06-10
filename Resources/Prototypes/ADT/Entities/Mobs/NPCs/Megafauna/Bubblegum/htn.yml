@@ -29,6 +29,7 @@
         - !type:HTNPrimitiveTask
           operator: !type:MeleeOperator
             targetKey: Target
+            targetState: Dead
           preconditions:
             - !type:KeyExistsPrecondition
               key: Target
@@ -101,18 +102,18 @@
         - !type:KeyExistsPrecondition
           key: Target
       tasks:
-        - !type:HTNPrimitiveTask
-          operator: !type:MoveToOperator
-            shutdownState: PlanFinished
-            pathfindInPlanning: true
-            removeKeyOnFinish: false
-            targetKey: TargetCoordinates
-            pathfindKey: TargetPathfind
-            rangeKey: ADTBubblegumKeepDistance
+        - !type:HTNCompoundTask
+          task: ADTBubblegumAttackTargetCompound
 
 - type: htnCompound
   id: ADTBubblegumCompound
   branches:
+    - preconditions:
+        - !type:KeyExistsPrecondition
+          key: BubblegumWavesBusy
+      tasks:
+        - !type:HTNCompoundTask
+          task: DoAbsolutelyNothingCompound
     - tasks:
         - !type:HTNCompoundTask
           task: ADTBubblegumCombatPrecondition

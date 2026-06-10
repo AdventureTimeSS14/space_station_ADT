@@ -55,8 +55,8 @@
           False:
             color: "#FFFFFF"
   - type: MovementSpeedModifier
-    baseWalkSpeed: 2
-    baseSprintSpeed: 2
+    baseWalkSpeed: 3
+    baseSprintSpeed: 3
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -79,10 +79,8 @@
     blackboard:
       VisionRadius: !type:Single "20"
       AggroVisionRadius: !type:Single "20"
-      NavSmash: !type:Bool
-        true
-      NavInteract: !type:Bool
-        true
+      NavSmash: !type:Bool "true"
+      NavInteract: !type:Bool "true"
       ADTBubblegumKeepDistance: !type:Single "5"
       ADTBubblegumRetreatTrigger: !type:Single "4"
     rootTask:
@@ -103,8 +101,6 @@
     - Weakness
     - RadiationProtection
   - type: BubblegumLoot
-    deathThemeSound:
-      path: /Audio/ADT/Phantom/Sounds/psycho.ogg
     randomAmountLoot:
       GoldOre: 10
       SilverOre: 10
@@ -119,6 +115,8 @@
     guaranteedLoot:
     - ADTClothingOuterHardsuitHECK
     - ADTKineticTrophyDemonClaws
+    deathThemeSound:
+      path: /Audio/ADT/Phantom/Sounds/psycho.ogg
 
 - type: entity
   id: ADTMegaFaunaBubblegumHallucination

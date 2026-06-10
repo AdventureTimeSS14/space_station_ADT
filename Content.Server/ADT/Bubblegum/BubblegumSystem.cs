@@ -1,4 +1,6 @@
 using Content.Server.NPC.HTN;
+using Content.Server.Chat.Systems;
+using Content.Shared.Chat;
 using Content.Shared.Actions;
 using Content.Shared.ADT.Bubblegum;
 using Content.Shared.Damage;
@@ -15,6 +17,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+using Robust.Shared.Utility;
 
 namespace Content.Server.ADT.Bubblegum;
 
@@ -30,6 +33,7 @@ public sealed class BubblegumSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedEyeSystem _eye = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly ChatSystem _chat = default!;
 
     public override void Initialize()
     {
@@ -50,6 +54,7 @@ public sealed class BubblegumSystem : EntitySystem
         if (args.NewMobState != MobState.Dead)
             return;
 
+        Say(ent, "bubblegum-death", 3, true);
         var query = EntityQueryEnumerator<BubblegumMinionComponent>();
         while (query.MoveNext(out var minion, out var comp))
         {
@@ -79,6 +84,9 @@ public sealed class BubblegumSystem : EntitySystem
     private void OnMove(Entity<BubblegumComponent> ent, ref MoveEvent args)
     {
         if (args.ParentChanged)
+            return;
+
+        if (HasComp<BubblegumActiveChargeComponent>(ent))
             return;
 
         var delta = args.NewPosition.Position - args.OldPosition.Position;
@@ -135,7 +143,10 @@ public sealed class BubblegumSystem : EntitySystem
             ent.Comp.AngerModifier = Math.Clamp(damageTaken / 60f, 0f, 20f);
 
             if (!ent.Comp.InSmashPhase && damageTaken >= maxHealth * 0.5f)
+            {
                 ent.Comp.InSmashPhase = true;
+                Say(ent, "bubblegum-smash-phase", 3, true);
+            }
         }
 
         if (_random.Prob(ent.Comp.ThickBloodOnDamageChance))
@@ -207,6 +218,7 @@ public sealed class BubblegumSystem : EntitySystem
             _damageable.TryChangeDamage(ent.Owner, healing, true);
         }
 
+        Say(ent, "bubblegum-enrage", 3);
         _appearance.SetData(ent, BubblegumVisuals.Enraged, true);
         _speed.RefreshMovementSpeedModifiers(ent);
 
@@ -236,5 +248,68 @@ public sealed class BubblegumSystem : EntitySystem
             return null;
 
         return Spawn(proto, coords);
+    }
+
+    public void Say(EntityUid uid, string locId, int count, bool ignoreRandom = false)
+    {
+        if (!TryComp<BubblegumComponent>(uid, out var bubblegum))
+            return;
+
+        var now = _timing.CurTime;
+        if (now < bubblegum.NextSpeechTime)
+            return;
+
+        if (!ignoreRandom && _random.NextFloat() > 0.3f)
+            return;
+
+        if (!TryComp<MetaDataComponent>(uid, out var meta))
+            return;
+
+        bubblegum.NextSpeechTime = now + TimeSpan.FromSeconds(15);
+
+        var name = FormattedMessage.EscapeText(meta.EntityName);
+        var message = Loc.GetString($"{locId}-{_random.Next(1, count + 1)}");
+        
+        var wrappedMessage = Loc.GetString("chat-manager-entity-say-wrap-message",
+            ("entityName", name),
+            ("verb", Loc.GetString("chat-speech-verb-default")),
+            ("fontType", "Blackcraft"),
+            ("fontSize", 16),
+            ("defaultFont", "NotoSans"), 
+            ("defaultSize", 12),         
+            ("message", message));
+
+        _chat.SendInVoiceRange(
+            ChatChannel.Local, 
+            message, 
+            wrappedMessage, 
+            wrappedMessage, 
+            uid, 
+            ChatTransmitRange.HideChat);
+
+        var minionQuery = EntityQueryEnumerator<BubblegumMinionComponent, MetaDataComponent>();
+        while (minionQuery.MoveNext(out var minionUid, out var minionComp, out var minionMeta))
+        {
+            if (minionComp.Summoner != uid)
+                continue;
+
+            var minionName = FormattedMessage.EscapeText(minionMeta.EntityName);
+            var minionWrapped = Loc.GetString("chat-manager-entity-say-wrap-message",
+                ("entityName", minionName),
+                ("verb", Loc.GetString("chat-speech-verb-default")),
+                ("fontType", "Blackcraft"),
+                ("fontSize", 16),
+                ("defaultFont", "NotoSans"),
+                ("defaultSize", 12),
+                ("message", message));
+
+            _chat.SendInVoiceRange(
+                ChatChannel.Local, 
+                message, 
+                minionWrapped, 
+                minionWrapped, 
+                minionUid, 
+                ChatTransmitRange.HideChat);
+        }
     }
 }
