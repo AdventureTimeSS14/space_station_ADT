@@ -25,6 +25,7 @@ using Content.Shared.Mobs.Systems;
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
+using Content.Shared.ADT.Grab;
 using Content.Shared.Movement.Pulling.Components;
 
 namespace Content.Server.Body.Systems;
@@ -102,7 +103,7 @@ public sealed class RespiratorSystem : EntitySystem
             // ADT tweak end
             UpdateSaturation(uid, -(float)respirator.UpdateInterval.TotalSeconds, respirator);
 
-            if (!_mobState.IsIncapacitated(uid) && !(TryComp<PullableComponent>(uid, out var pullable) && TryComp<PullerComponent>(pullable.Puller, out var puller) && puller.Stage == GrabStage.Choke)) // cannot breathe in crit. // ADT grab tweak
+            if (!_mobState.IsIncapacitated(uid) && !(TryComp<PullableComponent>(uid, out var pullable) && TryComp<GrabIntentComponent>(pullable.Puller, out var grabIntent) && grabIntent.GrabStage == GrabStage.Suffocate)) // cannot breathe in crit. // ADT grab tweak
             {
                 switch (respirator.Status)
                 {

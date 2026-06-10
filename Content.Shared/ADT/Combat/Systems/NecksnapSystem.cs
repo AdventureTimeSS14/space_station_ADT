@@ -8,6 +8,8 @@ using Content.Shared.Standing;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Popups;
 using Content.Shared.IdentityManagement;
+using Content.Shared.ADT.Grab;
+using Content.Shared.ADT.MartialArts;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Damage.Systems;
@@ -48,16 +50,15 @@ public abstract class SharedNecksnapSystem : EntitySystem
              !_mobState.IsDead(target) &&
              !HasComp<GodmodeComponent>(target) &&
              TryComp<PullerComponent>(user, out var puller) &&
-             puller.Stage == GrabStage.Choke &&
+             TryComp<GrabIntentComponent>(user, out var grabIntent) &&
+             grabIntent.GrabStage == GrabStage.Suffocate &&
              puller.Pulling == target &&
              _mobThreshold.TryGetDeadThreshold(target, out var damageToKill) &&
              damageToKill != null
              && TryComp(target, out StaminaComponent? stamina) && stamina.Critical) // проверка условий для перелома шеи
         {
-            if (TryComp<ComboComponent>(user, out var combo) && combo.CurrestActions != null)
-            {
-                combo.CurrestActions.Clear(); // мы очищаем комбо список чтобы не было конфликтов, прежде чем сделать попап.
-            }
+            if (TryComp<CanPerformComboComponent>(user, out var combo))
+                combo.LastAttacks.Clear();
             var blunt = new DamageSpecifier(_proto.Index(BluntDamageType), damageToKill.Value);
             _damageable.TryChangeDamage(target, blunt, true);
             _audio.PlayPvs(comp.Sound, target);

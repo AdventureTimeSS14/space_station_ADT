@@ -1,0 +1,32 @@
+using Robust.Shared.Serialization;
+
+namespace Content.Shared.ADT.Grab;
+
+[Serializable, NetSerializable]
+public enum GrabStage
+{
+    No = 0,
+    Soft = 1,
+    Hard = 2,
+    Suffocate = 3,
+}
+
+public enum GrabStageDirection
+{
+    Increase,
+    Decrease,
+}
+
+public enum GrabResistResult
+{
+    TooSoon,
+    Failed,
+    Succeeded,
+}
+
+public enum GrabAttemptResult
+{
+    Succeeded,
+    OnCooldown,
+    Failed,
+}

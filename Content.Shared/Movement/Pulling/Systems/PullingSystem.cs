@@ -1,6 +1,6 @@
 using Content.Shared.ActionBlocker;
 using Content.Shared.Administration.Logs;
-using Content.Shared.ADT.Hands;
+using Content.Shared.ADT.Grab;
 using Content.Shared.Alert;
 using Content.Shared.Buckle.Components;
 using Content.Shared.Cuffs;
@@ -40,7 +40,7 @@ namespace Content.Shared.Movement.Pulling.Systems;
 /// <summary>
 /// Allows one entity to pull another behind them via a physics distance joint.
 /// </summary>
-public abstract partial class PullingSystem : EntitySystem    // ADT Grab tweak: Сделал класс абстрактным и partial, а так же переименовал в SharedPullingSystem
+public abstract partial class PullingSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
@@ -87,10 +87,6 @@ public abstract partial class PullingSystem : EntitySystem    // ADT Grab tweak:
         SubscribeLocalEvent<PullableComponent, StrappedEvent>(OnBuckled);
         SubscribeLocalEvent<PullableComponent, BuckledEvent>(OnGotBuckled);
         SubscribeLocalEvent<ActivePullerComponent, TargetHandcuffedEvent>(OnTargetHandcuffed);
-
-        // ADT-Tweak-Start
-        InitializeGrab();
-        // ADT-Tweak-End
 
         CommandBinds.Builder
             .Bind(ContentKeyFunctions.ReleasePulledObject, InputCmdHandler.FromDelegate(OnReleasePulledObject, handle: false))
@@ -199,7 +195,7 @@ public abstract partial class PullingSystem : EntitySystem    // ADT Grab tweak:
             return;
         if (!TryComp<PullableComponent>(ent.Comp.Pulling, out var pullable))
             return;
-        args.Handled = TryLowerGrabStageOrStopPulling(ent, (ent.Comp.Pulling.Value, pullable)); // ADT Grab tweaked
+        args.Handled = TryStopPull(ent.Comp.Pulling.Value, pullable, ent.Owner);
     }
 
     private void OnPullerContainerInsert(Entity<PullerComponent> ent, ref EntGotInsertedIntoContainerMessage args)
@@ -234,15 +230,20 @@ public abstract partial class PullingSystem : EntitySystem    // ADT Grab tweak:
     {
         if (args.Handled)
             return;
-        // ADT Grab start
+
         if (!ent.Comp.Puller.HasValue)
         {
-            TryStopPull(ent, ent);
+            TryStopPull(ent, ent.Comp, ignoreGrab: true);
+            args.Handled = true;
             return;
         }
 
-        args.Handled = TryEscapeFromGrab(ent, ent.Comp.Puller.Value);
-        // ADT Grab end
+        // ADT Grab: raise escape event so GrabIntentSystem can handle resistance
+        var grabEv = new GrabAttemptReleaseEvent(ent.Owner, ent.Comp.Puller.Value);
+        RaiseLocalEvent(ent.Owner, ref grabEv);
+        if (grabEv.Released)
+            TryStopPull(ent, ent.Comp, ent.Owner, ignoreGrab: true);
+        args.Handled = true;
     }
 
     public override void Shutdown()
@@ -267,11 +268,7 @@ public abstract partial class PullingSystem : EntitySystem    // ADT Grab tweak:
 
         if (TryComp(args.BlockingEntity, out PullableComponent? comp))
         {
-            // ADT Grab start
-            if (_combat.IsInCombatMode(uid))
-                args.Cancel();
-            TryLowerGrabStageOrStopPulling((uid, component), (args.BlockingEntity, comp));
-            // ADT Grab end
+            TryStopPull(args.BlockingEntity, comp, uid, ignoreGrab: true);
         }
     }
 
@@ -290,7 +287,7 @@ public abstract partial class PullingSystem : EntitySystem    // ADT Grab tweak:
             Verb verb = new()
             {
                 Text = Loc.GetString("pulling-verb-get-data-text-stop-pulling"),
-                Act = () => TryLowerGrabStageOrStopPulling((args.User, Comp<PullerComponent>(args.User)), (uid, component)),    // ADT Grab tweaked
+                Act = () => TryStopPull(uid, component, args.User, ignoreGrab: true),
                 DoContactInteraction = false // pulling handle its own contact interaction.
             };
             args.Verbs.Add(verb);
@@ -322,12 +319,7 @@ public abstract partial class PullingSystem : EntitySystem    // ADT Grab tweak:
             return;
         }
 
-        // ADT Grab start
-        int index = (int)component.Stage + component.GrabbingDirection;
-
-        args.ModifySpeed(component.WalkSpeedModifier, component.GrabStats[(GrabStage)index].MovementSpeedModifier);
-        component.GrabbingDirection = 0;
-        // ADT Grab end
+        args.ModifySpeed(component.WalkSpeedModifier, component.SprintSpeedModifier);
     }
 
     private void OnPullableMoveInput(EntityUid uid, PullableComponent component, ref MoveInputEvent args)
@@ -340,13 +332,8 @@ public abstract partial class PullingSystem : EntitySystem    // ADT Grab tweak:
 
         if (!_blocker.CanMove(entity))
             return;
-        // ADT Grab start
-        if (!TryComp<PullerComponent>(component.Puller, out var puller))
-            return;
 
-        TryEscapeFromGrab((uid, component), (component.Puller.Value, puller));
-        //TryStopPull(uid, component, user: uid);
-        // ADT Grab end
+        TryStopPull(uid, component, user: uid);
     }
 
     private void OnPullableCollisionChange(EntityUid uid, PullableComponent component, ref CollisionChangeEvent args)
@@ -413,19 +400,6 @@ public abstract partial class PullingSystem : EntitySystem    // ADT Grab tweak:
             var pullerUid = oldPuller.Value;
             _alertsSystem.ClearAlert(pullerUid, pullerComp.PullingAlert);
             pullerComp.Pulling = null;
-            // ADT grab start
-            // Not the best way to do this, but idc
-            _doAfter.Cancel(pullerComp.StageIncreaseDoAfter);
-            _doAfter.Cancel(pullableComp.EscapeAttemptDoAfter);
-            pullerComp.VirtualItems.ForEach(x =>
-            {
-                var item = GetEntity(x);
-                if (Exists(item) && !Terminating(item))
-                    _virtual.DeleteVirtualItem((item, Comp<VirtualItemComponent>(item)), pullerUid);
-            });
-            pullerComp.VirtualItems.Clear();
-            // ADT Grab end
-            pullerComp.Stage = GrabStage.None;
             Dirty(oldPuller.Value, pullerComp);
 
             // Messaging
@@ -468,15 +442,15 @@ public abstract partial class PullingSystem : EntitySystem    // ADT Grab tweak:
             return;
         }
 
-        // ADT Grab start
-        if (TryComp<PullableComponent>(player, out var playerPullable) &&
-            TryComp<PullerComponent>(playerPullable.Puller, out var playerPuller) &&
-            playerPuller.Stage > GrabStage.None)
+        // ADT Grab: if player is being grabbed, try to escape
+        if (TryComp<PullableComponent>(player, out var playerPullable) && playerPullable.BeingPulled)
         {
-            TryEscapeFromGrab((player, playerPullable), (playerPullable.Puller.Value, playerPuller));
+            var grabEv = new GrabAttemptReleaseEvent(player, playerPullable.Puller ?? EntityUid.Invalid);
+            RaiseLocalEvent(player, ref grabEv);
+            if (grabEv.Released)
+                TryStopPull(player, playerPullable, player, ignoreGrab: true);
             return;
         }
-        // ADT Grab end
 
         if (!TryComp(player, out PullerComponent? pullerComp) ||
             !TryComp(pullerComp.Pulling, out PullableComponent? pullableComp))
@@ -484,8 +458,7 @@ public abstract partial class PullingSystem : EntitySystem    // ADT Grab tweak:
             return;
         }
 
-        TryLowerGrabStageOrStopPulling((player, pullerComp), (pullerComp.Pulling.Value, pullableComp)); // ADT Grab
-        // TryStopPull(pullerComp.Pulling.Value, pullableComp, user: player);
+        TryStopPull(pullerComp.Pulling.Value, pullableComp, player);
     }
 
     public bool CanPull(EntityUid puller, EntityUid pullableUid, PullerComponent? pullerComp = null)
@@ -539,18 +512,16 @@ public abstract partial class PullingSystem : EntitySystem    // ADT Grab tweak:
         if (!Resolve(pullable, ref pullable.Comp, false))
             return false;
 
-        // ADT Grab start
-        if (!TryComp<PullerComponent>(pullerUid, out var puller))
-            return false;
+        if (pullable.Comp.Puller != pullerUid)
+            return TryStartPull(pullerUid, pullable, pullableComp: pullable.Comp);
 
-        return TryStartPullingOrGrab((pullerUid, puller), (pullable, pullable.Comp));
-        // if (pullable.Comp.Puller == pullerUid)
-        // {
-        //     return TryStopPull(pullable, pullable.Comp);
-        // }
+        // ADT Grab: if already pulling, try to increase grab stage first
+        var grabAttemptEv = new GrabAttemptEvent(pullerUid);
+        RaiseLocalEvent(pullable, ref grabAttemptEv);
+        if (grabAttemptEv.Grabbed)
+            return true;
 
-        // return TryStartPull(pullerUid, pullable, pullableComp: pullable);
-        // ADT Grab end
+        return TryStopPull(pullable, pullable.Comp, pullerUid, ignoreGrab: true);
     }
 
     public bool TogglePull(EntityUid pullerUid, PullerComponent puller)
@@ -562,7 +533,8 @@ public abstract partial class PullingSystem : EntitySystem    // ADT Grab tweak:
     }
 
     public bool TryStartPull(EntityUid pullerUid, EntityUid pullableUid,
-        PullerComponent? pullerComp = null, PullableComponent? pullableComp = null)
+        PullerComponent? pullerComp = null, PullableComponent? pullableComp = null,
+        GrabStage? grabStageOverride = null, float escapeAttemptModifier = 1f)
     {
         if (!Resolve(pullerUid, ref pullerComp, false) ||
             !Resolve(pullableUid, ref pullableComp, false))
@@ -640,12 +612,10 @@ public abstract partial class PullingSystem : EntitySystem    // ADT Grab tweak:
             _physics.SetFixedRotation(pullableUid, pullableComp.FixedRotationOnPull, body: pullablePhysics);
         }
 
-        bool grab = _combat.IsInCombatMode(pullerUid) && HasComp<MobStateComponent>(pullableUid);   // ADT Grab
         // Messaging
         var message = new PullStartedMessage(pullerUid, pullableUid);
         _modifierSystem.RefreshMovementSpeedModifiers(pullerUid);
-        _alertsSystem.ShowAlert(pullerUid, pullerComp.PullingAlert, grab ? (short)1 : (short)0); // ADT Grab tweaked
-        _alertsSystem.ShowAlert(pullableUid, pullableComp.PulledAlert, grab ? (short)1 : (short)0);  // ADT Grab tweaked
+        _alertsSystem.ShowAlert(pullerUid, pullerComp.PullingAlert, 0);
 
         RaiseLocalEvent(pullerUid, message);
         RaiseLocalEvent(pullableUid, message);
@@ -653,30 +623,34 @@ public abstract partial class PullingSystem : EntitySystem    // ADT Grab tweak:
         Dirty(pullerUid, pullerComp);
         Dirty(pullableUid, pullableComp);
 
-        // ADT Grab start
-        if (grab)
-        {
-            TryStartPullingOrGrab((pullerUid, pullerComp), (pullableUid, pullableComp));
-        }
-        else
-        {
-            var pullingMessage =
-                Loc.GetString("getting-pulled-popup", ("puller", Identity.Entity(pullerUid, EntityManager)));
-            _popup.PopupEntity(pullingMessage, pullableUid, pullableUid);
+        var pullingMessage =
+            Loc.GetString("getting-pulled-popup", ("puller", Identity.Entity(pullerUid, EntityManager)));
+        _popup.PopupEntity(pullingMessage, pullableUid, pullableUid);
 
-            _adminLogger.Add(LogType.Action, LogImpact.Low,
-                $"{ToPrettyString(pullerUid):user} started pulling {ToPrettyString(pullableUid):target}");
-        }
-        // ADT Grab end
+        _adminLogger.Add(LogType.Action, LogImpact.Low,
+            $"{ToPrettyString(pullerUid):user} started pulling {ToPrettyString(pullableUid):target}");
+
+        // ADT Grab: raise GrabAttemptEvent so GrabIntentSystem can initialize grab stage in combat mode
+        var grabEv = new GrabAttemptEvent(pullerUid, GrabStageOverride: grabStageOverride, EscapeAttemptModifier: escapeAttemptModifier);
+        RaiseLocalEvent(pullableUid, ref grabEv);
+
         return true;
     }
 
-    public bool TryStopPull(EntityUid pullableUid, PullableComponent pullable, EntityUid? user = null)
+    public bool TryStopPull(EntityUid pullableUid, PullableComponent pullable, EntityUid? user = null, bool ignoreGrab = false)
     {
         var pullerUidNull = pullable.Puller;
 
         if (pullerUidNull == null)
             return true;
+
+        if (!ignoreGrab)
+        {
+            var grabReleaseEv = new GrabAttemptReleaseEvent(user, pullerUidNull.Value);
+            RaiseLocalEvent(pullableUid, ref grabReleaseEv);
+            if (!grabReleaseEv.Released)
+                return false;
+        }
 
         var msg = new AttemptStopPullingEvent(user);
         RaiseLocalEvent(pullableUid, ref msg, true);
@@ -687,4 +661,9 @@ public abstract partial class PullingSystem : EntitySystem    // ADT Grab tweak:
         StopPulling(pullableUid, pullable);
         return true;
     }
+
+    /// <summary>
+    /// Throws the pulled entity in the given direction.
+    /// </summary>
+    public abstract void Throw(EntityUid thrownUid, EntityUid throwerUid, System.Numerics.Vector2 direction, float speed);
 }

@@ -1,3 +1,4 @@
+using Content.Shared.Damage;
 using Robust.Shared.GameStates;
 
 namespace Content.Shared.ADT.Grab;
@@ -5,8 +6,7 @@ namespace Content.Shared.ADT.Grab;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class GrabThrownComponent : Component
 {
-    public int MaxCollides = 2;
-    public int CollideCounter = 0;
+    public DamageSpecifier? DamageOnCollide;
 
-    public List<EntityUid> HitEntities = new();
+    public List<EntityUid> IgnoreEntity = new();
 }

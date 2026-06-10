@@ -1,6 +1,5 @@
 using System.Diagnostics.CodeAnalysis;
 using Content.Shared.Alert;
-using Content.Shared.DoAfter;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
@@ -43,15 +42,6 @@ public sealed partial class PullableComponent : Component
 
     [DataField]
     public ProtoId<AlertPrototype> PulledAlert = "ADTPulled";   // ADT Grab
-
-    // ADT Grab start
-    [ViewVariables]
-    public TimeSpan LastEscapeAttempt = TimeSpan.Zero;
-
-    public int EscapeAttemptCounter = 1;
-
-    public DoAfterId? EscapeAttemptDoAfter;
-    // ADT Grab end
 }
 
 public sealed partial class StopBeingPulledAlertEvent : BaseAlertEvent;

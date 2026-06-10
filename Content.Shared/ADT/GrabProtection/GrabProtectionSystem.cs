@@ -8,10 +8,12 @@ public sealed class GrabProtectionSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<GrabProtectionComponent, ModifyGrabStageTimeEvent>(OnGrab);
+        SubscribeLocalEvent<GrabProtectionComponent, BeforeHarmfulActionEvent>(OnGrab);
     }
-    private void OnGrab(EntityUid uid, GrabProtectionComponent component, ref ModifyGrabStageTimeEvent args)
+
+    private void OnGrab(EntityUid uid, GrabProtectionComponent component, BeforeHarmfulActionEvent args)
     {
-        args.Cancelled = true;
+        if (args.Type == HarmfulActionType.Grab)
+            args.Cancel();
     }
 }
