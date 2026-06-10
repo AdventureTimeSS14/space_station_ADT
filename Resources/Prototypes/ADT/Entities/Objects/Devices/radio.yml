@@ -96,6 +96,8 @@
       visible: true
   - type: Item
     size: Normal
+    shape:
+    - 0,0,2,1
   - type: Construction
     graph: BroadcastRadio
     node: oldRadio
@@ -152,6 +154,7 @@
     - state: volume_3
       map: ["volume"]
       visible: true
+      shader: unshaded
   - type: MeleeWeapon
     damage:
       types:
@@ -159,6 +162,10 @@
     animation: WeaponArcThrust
     soundHit:
       path: /Audio/Weapons/smash.ogg
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,1,1
 
 - type: entity
   name: vintage music player
@@ -182,3 +189,7 @@
           Level2: { state: "volume_2" }
           Level3: { state: "volume_3" }
           Level4: { state: "volume_4" }
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,1,1

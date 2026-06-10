@@ -41,6 +41,8 @@
   #ADT-Tweak-Start
   - type: ContainerContainer
     containers:
+      machine_board: !type:Container
+      machine_parts: !type:Container
       music_disk: !type:ContainerSlot
   - type: ItemSlots
     slots:

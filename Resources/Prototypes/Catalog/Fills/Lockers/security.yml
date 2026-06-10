@@ -223,6 +223,8 @@
     - id: HoloprojectorSecurity
     - id: BoxEvidenceMarkers
     - id: HandLabeler
+    - id: ADTJukeBoxPlayerVintage #ADT-Tweak
+    - id: ADTMusicDiskMix #ADT-Tweak
 
 - type: entity
   id: ClosetBombFilled
