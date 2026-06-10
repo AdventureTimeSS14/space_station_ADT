@@ -21,6 +21,11 @@
   parent: BaseItem
   components:
   - type: Organ
+  # ADT-Tweak start
+  - type: Tag
+    tags:
+    - Organ
+  # ADT-Tweak end
 
 - type: entity
   parent: OrganBase
