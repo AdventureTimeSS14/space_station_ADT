@@ -93,6 +93,12 @@ public sealed class MeleeThrowOnHitSystem : EntitySystem
         if (attemptEvent.Cancelled)
             return;
 
+        // ADT-Tweak-Start
+        RaiseLocalEvent(target, ref attemptEvent);
+        if (attemptEvent.Cancelled)
+            return;
+        // ADT-Tweak-End
+
         var startEvent = new MeleeThrowOnHitStartEvent(ent.Owner, user);
         RaiseLocalEvent(target, ref startEvent);
 
