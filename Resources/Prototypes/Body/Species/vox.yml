@@ -369,35 +369,35 @@
   id: OrganVoxFootRight
 
 - type: entity
-  parent: [ OrganBaseBrain, OrganSpriteHumanInternal, OrganVoxInternal, ADTOrganBasePitation ] # ADT-Tweak
+  parent: [ OrganBaseBrain, OrganSpriteHumanInternal, OrganVoxInternal ]
   id: OrganVoxBrain
 
 - type: entity
-  parent: [ OrganVoxVisual, OrganBaseEyes, OrganVoxInternal, ADTOrganBasePitation ] # ADT-Tweak
+  parent: [ OrganVoxVisual, OrganBaseEyes, OrganVoxInternal ]
   id: OrganVoxEyes
 
 - type: entity
-  parent: [ OrganBaseTongue, OrganVoxInternal, ADTOrganBasePitation ] # ADT-Tweak
+  parent: [ OrganBaseTongue, OrganVoxInternal ]
   id: OrganVoxTongue
 
 - type: entity
-  parent: [ OrganBaseAppendix, OrganSpriteHumanInternal, OrganVoxInternal, ADTOrganBasePitation ] # ADT-Tweak
+  parent: [ OrganBaseAppendix, OrganSpriteHumanInternal, OrganVoxInternal ]
   id: OrganVoxAppendix
 
 - type: entity
-  parent: [ OrganBaseEars, OrganSpriteHumanInternal, OrganVoxInternal, ADTOrganBasePitation ] # ADT-Tweak
+  parent: [ OrganBaseEars, OrganSpriteHumanInternal, OrganVoxInternal ]
   id: OrganVoxEars
 
 - type: entity
-  parent: [ OrganBaseLungs, OrganVoxInternal, OrganVoxMetabolizer, ADTOrganBasePitation ] # ADT-Tweak
+  parent: [ OrganBaseLungs, OrganVoxInternal, OrganVoxMetabolizer ]
   id: OrganVoxLungs
 
 - type: entity
-  parent: [ OrganBaseHeart, OrganVoxInternal, OrganVoxMetabolizer, ADTOrganBasePitation ] # ADT-Tweak
+  parent: [ OrganBaseHeart, OrganVoxInternal, OrganVoxMetabolizer ]
   id: OrganVoxHeart
 
 - type: entity
-  parent: [ OrganBaseStomach, OrganVoxInternal, OrganVoxMetabolizer, ADTOrganBasePitation ] # ADT-Tweak
+  parent: [ OrganBaseStomach, OrganVoxInternal, OrganVoxMetabolizer ]
   id: OrganVoxStomach
   components:
   - type: Stomach
@@ -407,9 +407,9 @@
     isSpecialDigestibleExclusive: false
 
 - type: entity
-  parent: [ OrganBaseLiver, OrganSpriteHumanInternal, OrganVoxInternal, OrganVoxMetabolizer, ADTOrganBasePitation ] # ADT-Tweak
+  parent: [ OrganBaseLiver, OrganSpriteHumanInternal, OrganVoxInternal, OrganVoxMetabolizer ]
   id: OrganVoxLiver
 
 - type: entity
-  parent: [ OrganBaseKidneys, OrganSpriteHumanInternal, OrganVoxInternal, OrganVoxMetabolizer, ADTOrganBasePitation ] # ADT-Tweak
+  parent: [ OrganBaseKidneys, OrganSpriteHumanInternal, OrganVoxInternal, OrganVoxMetabolizer ]
   id: OrganVoxKidneys
