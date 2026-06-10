@@ -147,7 +147,7 @@
       accent: zombieMoth
     - type: Speech
       speechVerb: Moth
-      allowedEmotes: ["Chitter", "Squeak", "Flap", "FlapWings", "Buzz"] # ADT-tweak: restored FlapWings and Buzz
+      allowedEmotes: ["Chitter", "Squeak", "FlapWings", "Buzz"] # ADT-tweak: restored FlapWings and Buzz. Deleted "Flap"
     - type: TypingIndicator
       proto: moth
     - type: CreamPied
@@ -294,35 +294,35 @@
   id: OrganMothFootRight
 
 - type: entity
-  parent: [OrganBaseBrain, OrganSpriteHumanInternal, OrganMothInternal]
+  parent: [OrganBaseBrain, OrganSpriteHumanInternal, OrganMothInternal, ADTOrganBasePitation ] # ADT-Tweak
   id: OrganMothBrain
 
 - type: entity
-  parent: [OrganMothVisual, OrganBaseEyes, OrganMothInternal]
+  parent: [OrganMothVisual, OrganBaseEyes, OrganMothInternal, ADTOrganBasePitation ] # ADT-Tweak
   id: OrganMothEyes
 
 - type: entity
-  parent: [OrganBaseTongue, OrganMothInternal]
+  parent: [OrganBaseTongue, OrganMothInternal, ADTOrganBasePitation ] # ADT-Tweak
   id: OrganMothTongue
 
 - type: entity
-  parent: [OrganBaseAppendix, OrganSpriteHumanInternal, OrganMothInternal]
+  parent: [OrganBaseAppendix, OrganSpriteHumanInternal, OrganMothInternal, ADTOrganBasePitation ] # ADT-Tweak
   id: OrganMothAppendix
 
 - type: entity
-  parent: [OrganBaseEars, OrganSpriteHumanInternal, OrganMothInternal]
+  parent: [OrganBaseEars, OrganSpriteHumanInternal, OrganMothInternal, ADTOrganBasePitation ] # ADT-Tweak
   id: OrganMothEars
 
 - type: entity
-  parent: [OrganBaseLungs, OrganMothInternal, OrganMothMetabolizer]
+  parent: [OrganBaseLungs, OrganMothInternal, OrganMothMetabolizer, ADTOrganBasePitation ] # ADT-Tweak
   id: OrganMothLungs
 
 - type: entity
-  parent: [OrganBaseHeart, OrganMothInternal, OrganAnimalMetabolizer]
+  parent: [OrganBaseHeart, OrganMothInternal, OrganAnimalMetabolizer, ADTOrganBasePitation ] # ADT-Tweak
   id: OrganMothHeart
 
 - type: entity
-  parent: [OrganBaseStomach, OrganMothInternal, OrganMothMetabolizer]
+  parent: [OrganBaseStomach, OrganMothInternal, OrganMothMetabolizer, ADTOrganBasePitation ] # ADT-Tweak
   id: OrganMothStomach
   components:
     - type: Stomach
@@ -335,9 +335,9 @@
           - ADTMothFriendlyFood # ADT-tweak: moths can eat bread, pancakes etc.
 
 - type: entity
-  parent: [OrganBaseLiver, OrganSpriteHumanInternal, OrganMothInternal, OrganAnimalMetabolizer]
+  parent: [OrganBaseLiver, OrganSpriteHumanInternal, OrganMothInternal, OrganAnimalMetabolizer, ADTOrganBasePitation ] # ADT-Tweak
   id: OrganMothLiver
 
 - type: entity
-  parent: [OrganBaseKidneys, OrganSpriteHumanInternal, OrganMothInternal, OrganMothMetabolizer]
+  parent: [OrganBaseKidneys, OrganSpriteHumanInternal, OrganMothInternal, OrganMothMetabolizer, ADTOrganBasePitation ] # ADT-Tweak
   id: OrganMothKidneys

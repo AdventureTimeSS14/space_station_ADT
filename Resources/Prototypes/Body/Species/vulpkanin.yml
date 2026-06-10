@@ -304,41 +304,41 @@
   id: OrganVulpkaninFootRight
 
 - type: entity
-  parent: [ OrganBaseBrain, OrganSpriteHumanInternal, OrganVulpkaninInternal ]
+  parent: [ OrganBaseBrain, OrganSpriteHumanInternal, OrganVulpkaninInternal, ADTOrganBasePitation ] # ADT-Tweak
   id: OrganVulpkaninBrain
 
 - type: entity
-  parent: [ OrganVulpkaninVisual, OrganBaseEyes, OrganVulpkaninInternal ]
+  parent: [ OrganVulpkaninVisual, OrganBaseEyes, OrganVulpkaninInternal, ADTOrganBasePitation ] # ADT-Tweak
   id: OrganVulpkaninEyes
 
 - type: entity
-  parent: [ OrganBaseTongue, OrganVulpkaninInternal ]
+  parent: [ OrganBaseTongue, OrganVulpkaninInternal, ADTOrganBasePitation ] # ADT-Tweak
   id: OrganVulpkaninTongue
 
 - type: entity
-  parent: [ OrganBaseAppendix, OrganVulpkaninInternal ]
+  parent: [ OrganBaseAppendix, OrganVulpkaninInternal, ADTOrganBasePitation ] # ADT-Tweak
   id: OrganVulpkaninAppendix
 
 - type: entity
-  parent: [ OrganBaseEars, OrganVulpkaninInternal ]
+  parent: [ OrganBaseEars, OrganVulpkaninInternal, ADTOrganBasePitation ] # ADT-Tweak
   id: OrganVulpkaninEars
 
 - type: entity
-  parent: [ OrganBaseLungs, OrganVulpkaninInternal, OrganVulpkaninMetabolizer ]
+  parent: [ OrganBaseLungs, OrganVulpkaninInternal, OrganVulpkaninMetabolizer, ADTOrganBasePitation ] # ADT-Tweak
   id: OrganVulpkaninLungs
 
 - type: entity
-  parent: [ OrganBaseHeart, OrganVulpkaninInternal, OrganVulpkaninMetabolizer ]
+  parent: [ OrganBaseHeart, OrganVulpkaninInternal, OrganVulpkaninMetabolizer, ADTOrganBasePitation ] # ADT-Tweak
   id: OrganVulpkaninHeart
 
 - type: entity
-  parent: [ OrganBaseStomach, OrganVulpkaninInternal, OrganVulpkaninMetabolizer ]
+  parent: [ OrganBaseStomach, OrganVulpkaninInternal, OrganVulpkaninMetabolizer, ADTOrganBasePitation ] # ADT-Tweak
   id: OrganVulpkaninStomach
 
 - type: entity
-  parent: [ OrganBaseLiver, OrganVulpkaninInternal, OrganVulpkaninMetabolizer ]
+  parent: [ OrganBaseLiver, OrganVulpkaninInternal, OrganVulpkaninMetabolizer, ADTOrganBasePitation ] # ADT-Tweak
   id: OrganVulpkaninLiver
 
 - type: entity
-  parent: [ OrganBaseKidneys, OrganVulpkaninInternal, OrganVulpkaninMetabolizer ]
+  parent: [ OrganBaseKidneys, OrganVulpkaninInternal, OrganVulpkaninMetabolizer, ADTOrganBasePitation ] # ADT-Tweak
   id: OrganVulpkaninKidneys

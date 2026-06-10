@@ -1,0 +1,19 @@
+- type: entity
+  id: ADTOrganBasePitation
+  name: organ
+  parent: BaseItem
+  components:
+  - type: Edible
+  - type: Extractable
+    grindableSolutionName: food
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 5
+        - ReagentId: Fat
+          Quantity: 4
+        - ReagentId: Nutriment
+          Quantity: 2

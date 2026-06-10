@@ -239,37 +239,37 @@
   id: OrganArachnidBrain
 
 - type: entity
-  parent: [ OrganArachnidVisual, OrganBaseEyes, OrganArachnidInternal ]
+  parent: [ OrganArachnidVisual, OrganBaseEyes, OrganArachnidInternal, ADTOrganBasePitation ] # ADT-Tweak
   id: OrganArachnidEyes
 
 - type: entity
-  parent: [ OrganBaseTongue, OrganArachnidInternal ]
+  parent: [ OrganBaseTongue, OrganArachnidInternal, ADTOrganBasePitation ] # ADT-Tweak
   id: OrganArachnidTongue
 
 - type: entity
-  parent: [ OrganBaseAppendix, OrganSpriteHumanInternal, OrganArachnidInternal ]
+  parent: [ OrganBaseAppendix, OrganSpriteHumanInternal, OrganArachnidInternal, ADTOrganBasePitation ] # ADT-Tweak
   id: OrganArachnidAppendix
 
 - type: entity
-  parent: [ OrganBaseEars, OrganSpriteHumanInternal, OrganArachnidInternal ]
+  parent: [ OrganBaseEars, OrganSpriteHumanInternal, OrganArachnidInternal, ADTOrganBasePitation ] # ADT-Tweak
   id: OrganArachnidEars
 
 - type: entity
-  parent: [ OrganBaseLungs, OrganArachnidInternal, OrganArachnidMetabolizer ]
+  parent: [ OrganBaseLungs, OrganArachnidInternal, OrganArachnidMetabolizer, ADTOrganBasePitation ] # ADT-Tweak
   id: OrganArachnidLungs
 
 - type: entity
-  parent: [ OrganBaseHeart, OrganArachnidInternal, OrganArachnidMetabolizer ]
+  parent: [ OrganBaseHeart, OrganArachnidInternal, OrganArachnidMetabolizer, ADTOrganBasePitation ] # ADT-Tweak
   id: OrganArachnidHeart
 
 - type: entity
-  parent: [ OrganBaseStomach, OrganArachnidInternal, OrganAnimalMetabolizer ]
+  parent: [ OrganBaseStomach, OrganArachnidInternal, OrganAnimalMetabolizer, ADTOrganBasePitation ] # ADT-Tweak
   id: OrganArachnidStomach
 
 - type: entity
-  parent: [ OrganBaseLiver, OrganSpriteHumanInternal, OrganArachnidInternal, OrganAnimalMetabolizer ]
+  parent: [ OrganBaseLiver, OrganSpriteHumanInternal, OrganArachnidInternal, OrganAnimalMetabolizer, ADTOrganBasePitation ] # ADT-Tweak
   id: OrganArachnidLiver
 
 - type: entity
-  parent: [ OrganBaseKidneys, OrganSpriteHumanInternal, OrganArachnidInternal, OrganAnimalMetabolizer ]
+  parent: [ OrganBaseKidneys, OrganSpriteHumanInternal, OrganArachnidInternal, OrganAnimalMetabolizer, ADTOrganBasePitation ] # ADT-Tweak
   id: OrganArachnidKidneys

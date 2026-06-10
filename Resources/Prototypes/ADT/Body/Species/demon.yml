@@ -130,7 +130,7 @@
         maxVol: 50
 
 - type: entity
-  parent: [ OrganBaseHeart, OrganDemonMetabolizer ]
+  parent: [ OrganBaseHeart, OrganDemonMetabolizer, ADTOrganBasePitation ]
   id: ADTOrganDemonHeart
   categories: [ HideSpawnMenu ]
   components:
