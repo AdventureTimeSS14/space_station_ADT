@@ -1,12 +1,3 @@
-- type: damageContainer
-  id: Bubblegum
-  supportedGroups:
-  - Brute
-  - Burn
-  - Toxin
-  - Airloss
-  - Genetic
-
 - type: damageModifierSet
   id: Bubblegum
   coefficients:

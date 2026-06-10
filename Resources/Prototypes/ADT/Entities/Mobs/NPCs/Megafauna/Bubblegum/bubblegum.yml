@@ -67,7 +67,7 @@
       0: Alive
       2500: Dead
   - type: Damageable
-    damageContainer: Bubblegum
+    damageContainer: Biological
     damageModifierSet: Bubblegum
   - type: MeleeWeapon
     attackRate: 0.5
@@ -117,6 +117,8 @@
     - ADTKineticTrophyDemonClaws
     deathThemeSound:
       path: /Audio/ADT/Phantom/Sounds/psycho.ogg
+  - type: StatusIcon
+    bounds: -1,-2,1,1
 
 - type: entity
   id: ADTMegaFaunaBubblegumHallucination
