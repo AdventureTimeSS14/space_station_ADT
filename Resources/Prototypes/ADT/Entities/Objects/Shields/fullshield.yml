@@ -72,3 +72,89 @@
     - type: Tag
       tags:
       - ADTFullRiotShitmadeShield
+
+- type: entity
+  name: blueshield officer's energy shield
+  parent: BaseItem
+  id: ADTBlueShieldEnergyShield
+  description: An energy shield designed specifically for the BlueShield corps. It has a portable renewable battery with self-healing capability. This shield is the face of your corps, don't lose it!
+  components:
+    - type: ItemToggle
+      predictable: false
+      soundActivate:
+        path: /Audio/Weapons/ebladeon.ogg
+      soundDeactivate:
+        path: /Audio/Weapons/ebladeoff.ogg
+      soundFailToActivate:
+        path: /Audio/Machines/button.ogg
+    - type: ItemToggleActiveSound
+      activeSound:
+        path: /Audio/Weapons/ebladehum.ogg
+    - type: ItemToggleSize
+      activatedSize: Huge
+    - type: ComponentToggler
+      components:
+      - type: DisarmMalus
+        malus: 0.6
+    - type: Sprite
+      sprite: ADT/Objects/Weapons/Melee/blueshield_shield.rsi
+      layers:
+        - state: eshield-icon
+        - state: eshield_on
+          color: "#FFFFFF"
+          visible: false
+          shader: unshaded
+          map: [ "shield" ]
+    - type: Item
+      size: Small
+      sprite: ADT/Objects/Weapons/Melee/blueshield_shield.rsi
+      heldPrefix: eshield
+    - type: UseDelay
+      delay: 0.5
+    - type: ToggleableVisuals
+      spriteLayer: shield
+      inhandVisuals:
+        left:
+          - state: inhand-left-shield
+            shader: unshaded
+        right:
+          - state: inhand-right-shield
+            shader: unshaded
+    - type: PointLight
+      netsync: false
+      enabled: false
+      radius: 1.5
+      energy: 2
+      color: blue
+    - type: Blocking
+      isHasBlockingToggle: false
+      isCharging: true
+      isToggle: true
+      passiveBlockModifier:
+        coefficients:
+          Blunt: 1
+          Slash: 1
+          Piercing: 1
+          Heat: 1
+      activeBlockModifier:
+        coefficients:
+          Blunt: 1
+          Slash: 1
+          Piercing: 1
+          Heat: 1
+    - type: ItemTogglePointLight
+    - type: Appearance
+    - type: Damageable
+      damageContainer: Shield
+    - type: Battery
+      maxCharge: 1200
+      startingCharge: 1200
+    - type: PowerCell
+    - type: BatterySelfRecharger
+      autoRechargeRate: 10
+      autoRechargePauseTime: 5
+    - type: StaticPrice
+      price: 500
+    - type: Tag
+      tags:
+      - ADTEnergyShield

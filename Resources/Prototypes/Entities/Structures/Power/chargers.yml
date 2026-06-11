@@ -175,7 +175,11 @@
           components:
           - BatteryAmmoProvider
           - Stunbaton
-        #  - PowerCell #ADT-Tweak
+        #ADT-Tweak-Start
+        #  - PowerCell
+          tags:
+            - ADTEnergyShield
+        #ADT-Tweak-End
         blacklist:
           tags:
           - PotatoBattery
@@ -241,6 +245,7 @@
           components:
           - BatteryAmmoProvider
           - Stunbaton
+          - ADTEnergyShield # ADT-Tweak
         blacklist:
           tags:
           - PotatoBattery

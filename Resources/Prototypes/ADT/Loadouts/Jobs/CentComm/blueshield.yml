@@ -78,3 +78,9 @@
   id: ADTClothingBlueshieldArmor
   equipment:
     outerClothing: ADTClothingBlueshieldArmor
+
+- type: loadout
+  id: ADTBlueshieldVehicleWheelchair
+  storage:
+    back:
+    - ADTVehicleWheelchairFolded
