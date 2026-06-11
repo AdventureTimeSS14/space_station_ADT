@@ -147,7 +147,7 @@ public sealed partial class BlockingSystem
         if (!TryComp<BatteryComponent>(entity, out var battery))
             return;
 
-        if (battery.CurrentCharge <= 0)
+        if (battery.LastCharge <= 0)
         {
             args.Cancelled = true;
             args.Popup = Loc.GetString("handheld-light-component-cell-dead-message");
@@ -159,7 +159,7 @@ public sealed partial class BlockingSystem
         if (!entity.Comp.IsCharging)
             return;
 
-        if (TryComp<BatteryComponent>(entity, out var battery) && battery.CurrentCharge <= 0)
+        if (TryComp<BatteryComponent>(entity, out var battery) && battery.LastCharge <= 0)
         {
             if (TryComp<ItemToggleComponent>(entity, out var itemToggle))
                 _itemToggleSystem.TryDeactivate((entity, itemToggle), null);
@@ -181,7 +181,7 @@ public sealed partial class BlockingSystem
 
         var originalTotalDamage = (float)originalDamage.GetTotal();
         var desiredShieldDamage = blockFraction * originalTotalDamage;
-        var maxBlockableDamage = (float)(battery.CurrentCharge / component.EnergyCostPerHit);
+        var maxBlockableDamage = (float)(battery.LastCharge / component.EnergyCostPerHit);
 
         if (desiredShieldDamage <= maxBlockableDamage)
             return blockFraction;
@@ -200,7 +200,7 @@ public sealed partial class BlockingSystem
         if (!TryComp<BatteryComponent>(uid, out var battery))
             return true;
 
-        return battery.CurrentCharge <= 0;
+        return battery.LastCharge <= 0;
     }
 
     private void ConsumeBatteryCharge(EntityUid uid, BlockingComponent component, float damage)
@@ -208,7 +208,7 @@ public sealed partial class BlockingSystem
         if (component.IsCharging && TryComp<BatteryComponent>(uid, out var battery))
         {
             var chargeToConsume = component.EnergyCostPerHit * damage;
-            var newCharge = Math.Max(0, battery.CurrentCharge - chargeToConsume);
+            var newCharge = Math.Max(0, battery.LastCharge - chargeToConsume);
 
             _batterySystem.SetCharge(uid, newCharge);
         }
