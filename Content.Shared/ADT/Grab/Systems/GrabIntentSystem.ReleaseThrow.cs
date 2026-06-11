@@ -1,24 +1,32 @@
-using Content.Shared.ADT.Hands;
+using Content.Shared.ADT.Grab;
+using Content.Shared.Hands;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Movement.Events;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Popups;
 using Content.Shared.Random.Helpers;
 using Content.Shared.Speech;
+using Content.Shared.Throwing;
 using Robust.Shared.Random;
 
 namespace Content.Shared.ADT.Grab;
 
 public sealed partial class GrabIntentSystem
 {
+    #region Release/Throw Initialization
+
     private void InitializeReleaseAndThrowEvents()
     {
         SubscribeLocalEvent<GrabbableComponent, UpdateCanMoveEvent>(OnGrabbedMoveAttempt);
         SubscribeLocalEvent<GrabbableComponent, SpeakAttemptEvent>(OnGrabbedSpeakAttempt);
         SubscribeLocalEvent<GrabbableComponent, GrabAttemptReleaseEvent>(OnGrabReleaseAttempt);
 
-        SubscribeLocalEvent<GrabIntentComponent, BeforeVirtualItemThrownEvent>(OnVirtualItemThrown);
+        SubscribeLocalEvent<GrabIntentComponent, VirtualItemThrownEvent>(OnVirtualItemThrown);
     }
+
+    #endregion
+
+    #region Release/Throw
 
     private GrabResistResult GrabRelease(Entity<GrabbableComponent?> pullable)
     {
@@ -99,14 +107,15 @@ public sealed partial class GrabIntentSystem
         args.Cancel();
     }
 
-    private void OnVirtualItemThrown(EntityUid uid, GrabIntentComponent component, BeforeVirtualItemThrownEvent args)
+    private void OnVirtualItemThrown(EntityUid uid, GrabIntentComponent component, ref VirtualItemThrownEvent args)
     {
         if (!TryComp<PullerComponent>(uid, out var puller)
             || puller.Pulling == null
-            || puller.Pulling != args.BlockingEntity)
+            || puller.Pulling != _pulling.GetRelayedEntity(args.BlockingEntity))
             return;
 
-        args.Cancel();
-        ThrowGrabbedEntity(uid, args.Coords.Position - Transform(uid).Coordinates.Position);
+        ThrowGrabbedEntity(uid, args.Direction);
     }
+
+    #endregion
 }
