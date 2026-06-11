@@ -1,15 +1,44 @@
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 August Eymann <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+// SPDX-FileCopyrightText: 2025 Bokser815 <70928915+Bokser815@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Lincoln McQueen <lincoln.mcqueen@gmail.com>
+// SPDX-FileCopyrightText: 2025 Lumminal <81829924+Lumminal@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using System.Linq;
+using Content.Shared.ADT.MartialArts;
+using Content.Shared.ADT.MartialArts;
+using Content.Shared.ADT.MartialArts;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Events;
-using Content.Shared.FixedPoint;
-using Content.Shared.Interaction.Events;
-using Content.Shared.Mobs.Components;
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Weapons.Melee;
+using Robust.Shared.Audio;
+
+// Shitmed Change
+using Content.Shared.Body.Part;
+using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
+using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
+using Content.Shared._Shitmed.Targeting;
+using Content.Shared.Interaction.Events;
+using Content.Shared.Mobs.Components;
 
 namespace Content.Shared.ADT.MartialArts;
 
 public partial class SharedMartialArtsSystem
 {
+    [Dependency] private readonly WoundSystem _wound = default!; // Shitmed Change
+
     private void InitializeHellRip()
     {
         SubscribeLocalEvent<CanPerformComboComponent, HellRipSlamPerformedEvent>(OnHellRipSlam);
@@ -32,9 +61,11 @@ public partial class SharedMartialArtsSystem
         TryGrantMartialArt(ent.Owner, ent.Comp);
     }
 
+
     private void OnRemoveHellRip(Entity<GrantHellRipComponent> ent, ref ComponentShutdown args)
     {
         var user = ent.Owner;
+
         RemComp<MartialArtsKnowledgeComponent>(user);
         RemComp<CanPerformComboComponent>(user);
     }
@@ -46,7 +77,7 @@ public partial class SharedMartialArtsSystem
     private void OnHellRipHeadRip(Entity<CanPerformComboComponent> ent, ref HellRipHeadRipPerformedEvent args)
     {
         if (!_proto.TryIndex(ent.Comp.BeingPerformed, out var proto)
-            || !TryUseMartialArt(ent, proto, out var target, out _)
+            || !TryUseMartialArt(ent, proto, out var target, out var downed)
             || !_mobState.IsDead(target)
             || !TryComp<PullableComponent>(target, out var pullable))
             return;
@@ -55,10 +86,14 @@ public partial class SharedMartialArtsSystem
 
         _pulling.TryStopPull(target, pullable, ent, true);
 
-        // Massive damage to the head (Shitmed amputation not available in ADT)
-        var headDamage = new DamageSpecifier();
-        headDamage.DamageDict.Add("Blunt", 300);
-        _damageable.TryChangeDamage(target, headDamage, true, origin: ent);
+        var damage = new DamageSpecifier();
+        damage.DamageDict.Add("Blunt", 300);
+        _damageable.TryChangeDamage(target, damage, true, origin: ent, targetPart: TargetBodyPart.Head);
+        var head = _body.GetBodyChildrenOfType(target , BodyPartType.Head).FirstOrDefault();
+        if (head != default
+            && TryComp<WoundableComponent>(head.Id, out var woundable)
+            && woundable.ParentWoundable.HasValue)
+            _wound.AmputateWoundable(woundable.ParentWoundable.Value, head.Id, woundable);
 
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Effects/gib1.ogg"), target);
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Effects/demon_attack1.ogg"), ent);
@@ -85,6 +120,8 @@ public partial class SharedMartialArtsSystem
 
         _stamina.TakeStaminaDamage(target, proto.StaminaDamage, applyResistances: true);
 
+        //_pulling.TryStopPull(target, pullable, ent, true);
+
         _status.TryRemoveStatusEffect(ent, "KnockedDown");
         _standingState.Stand(ent);
 
@@ -105,9 +142,10 @@ public partial class SharedMartialArtsSystem
         _stamina.TakeStaminaDamage(target, proto.StaminaDamage, applyResistances: true);
 
         _pulling.TryStopPull(target, pullable, ent, true);
+        //_grabThrown.Throw(target, ent, _transform.GetMapCoordinates(ent).Position + _transform.GetMapCoordinates(target).Position, 50);
         var entPos = _transform.GetMapCoordinates(ent).Position;
         var targetPos = _transform.GetMapCoordinates(target).Position;
-        var direction = targetPos - entPos;
+        var direction = targetPos - entPos; // vector from ent to target
 
         _grabThrown.Throw(target, ent, direction, 25, behavior: proto.DropItems);
 
@@ -116,10 +154,12 @@ public partial class SharedMartialArtsSystem
         ent.Comp.LastAttacks.Clear();
     }
 
-    private void OnHellRipTearDown(Entity<CanPerformComboComponent> ent, ref HellRipTearDownPerformedEvent args)
+    private void OnHellRipTearDown(Entity<CanPerformComboComponent> ent,
+       ref HellRipTearDownPerformedEvent args)
     {
         if (!_proto.TryIndex(ent.Comp.BeingPerformed, out var proto)
-            || !TryUseMartialArt(ent, proto, out var target, out _)
+            || !_proto.TryIndex<MartialArtPrototype>(proto.MartialArtsForm.ToString(), out var martialArtProto)
+            || !TryUseMartialArt(ent, proto, out var target, out var downed)
             || !TryComp<PullableComponent>(target, out var pullable))
             return;
 
@@ -128,7 +168,7 @@ public partial class SharedMartialArtsSystem
         DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out _);
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Effects/Fluids/blood1.ogg"), target);
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Effects/demon_attack1.ogg"), ent);
-    }
 
+    }
     #endregion
 }
