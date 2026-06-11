@@ -242,10 +242,11 @@
       charger_slot:
         ejectOnInteract: true
         whitelist:
+          tags:
+          - ADTEnergyShield # ADT-Tweak
           components:
           - BatteryAmmoProvider
           - Stunbaton
-          - ADTEnergyShield # ADT-Tweak
         blacklist:
           tags:
           - PotatoBattery
