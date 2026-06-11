@@ -1,8 +1,20 @@
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 Lincoln McQueen <lincoln.mcqueen@gmail.com>
+// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using Content.Shared.ADT.MartialArts;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared.ADT.MartialArts;
 
+/// <summary>
+/// This is used for...
+/// </summary>
 [RegisterComponent]
 public sealed partial class KravMagaActionComponent : Component
 {
@@ -10,7 +22,7 @@ public sealed partial class KravMagaActionComponent : Component
     public KravMagaMoves Configuration;
 
     [DataField]
-    public string Name = string.Empty;
+    public string Name;
 
     [DataField]
     public float StaminaDamage;
@@ -35,7 +47,9 @@ public sealed partial class KravMagaComponent : GrabStagesOverrideComponent
         "ActionLungPunch",
     };
 
-    public readonly List<EntityUid> KravMagaMoveEntities = new();
+    public readonly List<EntityUid> KravMagaMoveEntities = new()
+    {
+    };
 
     [DataField]
     public int BaseDamage = 5;
@@ -43,7 +57,10 @@ public sealed partial class KravMagaComponent : GrabStagesOverrideComponent
     [DataField]
     public int DownedDamageModifier = 2;
 }
-
+/// <summary>
+/// Tracks when an entity is silenced through Krav Maga techniques.
+/// Prevents the affected entity from using voice-activated abilities or speaking.
+/// </summary>
 [RegisterComponent, NetworkedComponent]
 public sealed partial class KravMagaSilencedComponent : Component
 {
@@ -51,12 +68,6 @@ public sealed partial class KravMagaSilencedComponent : Component
     public TimeSpan SilencedTime = TimeSpan.Zero;
 }
 
-[RegisterComponent, NetworkedComponent]
-public sealed partial class KravMagaBlockedBreathingComponent : Component
-{
-    [DataField]
-    public TimeSpan BlockedTime = TimeSpan.Zero;
-}
 
 public enum KravMagaMoves
 {
