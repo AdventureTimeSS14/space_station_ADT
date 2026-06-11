@@ -18237,14 +18237,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: -11.5,-70.5
       parent: 2
-- proto: ADTHumanCubeWrapped
-  entities:
-  - uid: 259
-    components:
-    - type: Transform
-      parent: 258
-    - type: Physics
-      canCollide: False
 - proto: ADTIceCreamVendInventory
   entities:
   - uid: 261
@@ -128280,11 +128272,11 @@ entities:
       parent: 25648
     - type: Paper
       content: >+
-        Мунси лох 
+        Мунси лох
 
         обьелся блох
 
-        сел на лавочку и сдох 
+        сел на лавочку и сдох
 
         а под лавочкой змея откусила полх х.. КХМ КХМ пляжа
 

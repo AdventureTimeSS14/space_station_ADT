@@ -42,8 +42,7 @@
   storage:
     back:
     - Flash
-    - ADTtelescopicBaton #ADT-CustomADTLoadoutStart
-    - ADTHumanCubeWrapped #ADT-CustomADTLoadoutEnd
+    - ADTtelescopicBaton #ADT-CustomADTLoadout
 
 - type: chameleonOutfit
   id: ResearchDirectorChameleonOutfit

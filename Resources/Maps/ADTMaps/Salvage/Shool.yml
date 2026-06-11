@@ -1354,13 +1354,6 @@ entities:
     - type: Transform
       pos: 19.5,12.5
       parent: 1
-- proto: ADTHumanCubeBox
-  entities:
-  - uid: 491
-    components:
-    - type: Transform
-      pos: 14.517541,9.59124
-      parent: 1
 - proto: ADTPizzaCratesDangerousRandom
   entities:
   - uid: 253
