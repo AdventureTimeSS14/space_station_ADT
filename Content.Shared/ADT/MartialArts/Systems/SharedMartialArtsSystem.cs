@@ -1,10 +1,46 @@
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 August Eymann <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+// SPDX-FileCopyrightText: 2025 Baptr0b0t <152836416+Baptr0b0t@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Baptr0b0t <152836416+baptr0b0t@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Bokser815 <70928915+Bokser815@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Lincoln McQueen <lincoln.mcqueen@gmail.com>
+// SPDX-FileCopyrightText: 2025 Lumminal <81829924+Lumminal@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Marcus F <marcus2008stoke@gmail.com>
+// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
+// SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+// SPDX-FileCopyrightText: 2025 thebiggestbruh <199992874+thebiggestbruh@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 thebiggestbruh <marcus2008stoke@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System.Linq;
-using Content.Shared.ADT.MartialArts;
 using Content.Shared.ADT.Grab;
-using Content.Shared.Changeling.Components;
+using Content.Shared.ADT.MartialArts;
+using Content.Goobstation.Shared.Changeling.Components;
+using Content.Shared.ADT.Grab;
+using Content.Shared.ADT.MartialArts;
+using Content.Goobstation.Shared.Sprinting;
+using Content.Goobstation.Shared.Stealth;
+using Content.Shared._Goobstation.Heretic.Components;
+using Content.Shared._Shitmed.Medical.Surgery.Traumas.Systems;
+using Content.Shared._Shitmed.Targeting;
+using Content.Shared._White.BackStab;
+using Content.Shared.ADT.Grab;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Actions;
 using Content.Shared.Alert;
+using Content.Shared.Body.Systems;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Events;
 using Content.Shared.Damage.Systems;
@@ -23,6 +59,8 @@ using Content.Shared.Popups;
 using Content.Shared.Speech;
 using Content.Shared.Standing;
 using Content.Shared.StatusEffect;
+using Content.Shared.StatusEffectNew;
+using Content.Shared.StatusEffectNew.Components;
 using Content.Shared.Stunnable;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Melee.Events;
@@ -37,15 +75,21 @@ using Robust.Shared.Timing;
 
 namespace Content.Shared.ADT.MartialArts;
 
+/// <summary>
+/// Handles most of Martial Arts Systems.
+/// </summary>
 public abstract partial class SharedMartialArtsSystem : EntitySystem
 {
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly PullingSystem _pulling = default!;
-    [Dependency] private readonly StatusEffectsSystem _status = default!;
+    [Dependency] private readonly Content.Shared.StatusEffect.StatusEffectsSystem _status = default!;
+    [Dependency] private readonly Content.Shared.StatusEffectNew.StatusEffectsSystem _newStatus = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
+    [Dependency] private readonly GrabIntentSystem _grab = default!;
     [Dependency] private readonly SharedStaminaSystem _stamina = default!;
+    [Dependency] private readonly GrabThrownSystem _grabThrown = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly MovementModStatusSystem _movementMod = default!;
@@ -60,11 +104,14 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
     [Dependency] private readonly MovementSpeedModifierSystem _modifier = default!;
     [Dependency] private readonly AlertsSystem _alerts = default!;
     [Dependency] private readonly SharedMeleeWeaponSystem _melee = default!;
+    [Dependency] private readonly BackStabSystem _backstab = default!;
+    [Dependency] private readonly SharedGoobStealthSystem _stealth = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly NpcFactionSystem _faction = default!;
+    [Dependency] private readonly SharedBodySystem _body = default!;
+    [Dependency] private readonly TraumaSystem _trauma = default!;
     [Dependency] private readonly MobThresholdSystem _mobThreshold = default!;
-    [Dependency] private readonly GrabIntentSystem _grabIntent = default!;
-    [Dependency] private readonly GrabThrownSystem _grabThrown = default!;
+    [Dependency] private readonly SharedSprintingSystem _sprinting = default!;
 
     public static readonly EntProtoId MartsGenericSlow = "MartialArtsGenericSlowdownEffect";
 
@@ -82,6 +129,7 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
         InitializeCanPerformCombo();
 
         SubscribeLocalEvent<MartialArtsKnowledgeComponent, ComponentShutdown>(OnShutdown);
+        SubscribeLocalEvent<MartialArtsKnowledgeComponent, CheckGrabOverridesEvent>(CheckGrabStageOverride);
         SubscribeLocalEvent<MartialArtsKnowledgeComponent, ShotAttemptedEvent>(OnShotAttempt);
         SubscribeLocalEvent<MartialArtsKnowledgeComponent, ComboAttackPerformedEvent>(OnComboAttackPerformed);
 
@@ -90,10 +138,10 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
         SubscribeLocalEvent<MartialArtModifiersComponent, GetMeleeAttackRateEvent>(OnGetMeleeAttackRate);
         SubscribeLocalEvent<MartialArtModifiersComponent, RefreshMovementSpeedModifiersEvent>(OnGetMovespeed);
 
+        SubscribeLocalEvent<StatusEffectContainerComponent, BeforeStaminaDamageEvent>(OnBeforeStatusStamina);
+
         SubscribeLocalEvent<MeleeHitEvent>(OnMeleeHit);
         SubscribeLocalEvent<InteractHandEvent>(OnInteract);
-        SubscribeLocalEvent<MartialArtsKnowledgeComponent, CheckGrabOverridesEvent>(CheckGrabStageOverride);
-        SubscribeLocalEvent<KravMagaComponent, CheckGrabOverridesEvent>(CheckGrabStageOverride);
     }
 
     public override void Update(float frameTime)
@@ -200,11 +248,23 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
                 true,
                 status);
 
+            // So that it doesn't update constantly
             timer.LastMoveTime = _timing.CurTime;
         }
     }
 
     #region Event Methods
+
+    private void OnBeforeStatusStamina(Entity<StatusEffectContainerComponent> ent, ref BeforeStaminaDamageEvent args)
+    {
+        if (!_newStatus.TryEffectsWithComp<StaminaResistanceModifierStatusEffectComponent>(ent, out var effects))
+            return;
+
+        foreach (var effect in effects)
+        {
+            args.Value *= effect.Comp1.Modifier;
+        }
+    }
 
     private void OnInteract(InteractHandEvent args)
     {
@@ -216,6 +276,9 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
 
         if (knowledge.MartialArtsForm == MartialArtsForms.Ninjutsu)
             OnNinjutsuHug(args.User, args.Target);
+
+        // Including this in combos clutters combo counter
+        // RaiseLocalEvent(args.User, new ComboAttackPerformedEvent(args.User, args.Target, args.User, ComboAttackType.Hug));
     }
 
     private void OnComboAttackPerformed(Entity<MartialArtsKnowledgeComponent> ent, ref ComboAttackPerformedEvent args)
@@ -253,7 +316,7 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
                 .Select(x => KeyValuePair.Create(x.Key, multiplier))
                 .ToDictionary(),
             FlatReduction = specifier.DamageDict
-                .Select(x => KeyValuePair.Create(x.Key, -modifier))
+                .Select(x => KeyValuePair.Create(x.Key, -modifier)) // Minus mod because it subtracts values from damage
                 .ToDictionary(),
         };
     }
@@ -289,7 +352,7 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
             mod += data.Modifier;
         }
 
-        foreach (var (key, limit) in ent.Comp.MinMaxModifiersMultipliers.Where(x => (x.Key & type) != 0))
+        foreach (var (_, limit) in ent.Comp.MinMaxModifiersMultipliers.Where(x => (x.Key & type) != 0))
         {
             mult = Math.Clamp(mult, limit.X, limit.Y);
             mod = Math.Clamp(mod, limit.Z, limit.W);
@@ -325,6 +388,7 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
                 break;
         }
 
+
         if (args.Weapon != ent
             || !_proto.TryIndex<MartialArtPrototype>(comp.MartialArtsForm.ToString(), out var martialArtsPrototype))
             return;
@@ -343,15 +407,24 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
         if (TerminatingOrDeleted(ent))
             return;
 
-        if (TryComp<CanPerformComboComponent>(ent, out var comboComponent))
+        if(TryComp<CanPerformComboComponent>(ent, out var comboComponent))
             comboComponent.AllowedCombos.Clear();
 
         RemCompDeferred<DragonKungFuTimerComponent>(ent);
     }
 
+    private void CheckGrabStageOverride<T>(EntityUid uid, T component, CheckGrabOverridesEvent args)
+        where T : GrabStagesOverrideComponent
+    {
+        if (args.Stage == GrabStage.Soft)
+            args.Stage = component.StartingStage;
+    }
+
     private void OnSilencedSpeakAttempt(Entity<KravMagaSilencedComponent> ent, ref SpeakAttemptEvent args)
     {
-        _popupSystem.PopupEntity(Loc.GetString("popup-grabbed-cant-speak"), ent, ent);
+        _popupSystem.PopupEntity(Loc.GetString("popup-grabbed-cant-speak"),
+            ent,
+            ent); // You cant speak while someone is choking you
         args.Cancel();
     }
 
@@ -361,13 +434,6 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
             return;
         _popupSystem.PopupClient(Loc.GetString("gun-disabled"), ent, ent);
         args.Cancel();
-    }
-
-    private void CheckGrabStageOverride<T>(EntityUid uid, T component, CheckGrabOverridesEvent args)
-        where T : GrabStagesOverrideComponent
-    {
-        if (args.Stage == GrabStage.Soft)
-            args.Stage = component.StartingStage;
     }
 
     private void ComboPopup(EntityUid user, EntityUid target, string comboName)
@@ -392,6 +458,12 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
 
     #region Helper Methods
 
+    /// <summary>
+    /// Tries to grant a martial art to a user. Use this method.
+    /// </summary>
+    /// <param name="user"></param>
+    /// <param name="comp"></param>
+    /// <returns></returns>
     private bool TryGrantMartialArt(EntityUid user, GrantMartialArtKnowledgeComponent comp)
     {
         if (!_netManager.IsServer || MetaData(user).EntityLifeStage >= EntityLifeStage.Terminating)
@@ -435,7 +507,7 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
     {
         var canPerformComboComponent = EnsureComp<CanPerformComboComponent>(user);
         var martialArtsKnowledgeComponent = EnsureComp<MartialArtsKnowledgeComponent>(user);
-        EnsureComp<PullerComponent>(user);
+        var pullerComponent = EnsureComp<PullerComponent>(user);
 
         if (!_proto.TryIndex<MartialArtPrototype>(comp.MartialArtsForm.ToString(), out var martialArtsPrototype)
             || !TryComp<MeleeWeaponComponent>(user, out var meleeWeaponComponent))
@@ -452,9 +524,30 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
             case MartialArtsForms.Ninjutsu:
                 EnsureComp<NinjutsuSneakAttackComponent>(user);
                 break;
+            case MartialArtsForms.CloseQuartersCombat:
+                var itcryeverytime =
+                    new CanDoCQCEvent();
+                  /*
+                var riposte = EnsureComp<RiposteeComponent>(user);
+                riposte.Data.TryAdd("CQC",
+                    new(0.1f,
+                    false,
+                    null,
+                    true,
+                    new SoundPathSpecifier("/Audio/Weapons/genhit1.ogg"),
+                    TimeSpan.Zero,
+                    TimeSpan.FromSeconds(4),
+                    false,
+                    0.75f,
+                    null,
+                    null,
+                    new CanDoCQCEvent()));
+                    */
+                break;
         }
 
         martialArtsKnowledgeComponent.MartialArtsForm = martialArtsPrototype.MartialArtsForm;
+        //martialArtsKnowledgeComponent.StartingStage = martialArtsPrototype.StartingStage;
         LoadCombos(martialArtsPrototype.RoundstartCombos, canPerformComboComponent);
         martialArtsKnowledgeComponent.Blocked = false;
 
@@ -471,6 +564,7 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
         meleeWeaponComponent.Damage += newDamage;
 
         Dirty(user, canPerformComboComponent);
+        Dirty(user, pullerComponent);
         return true;
     }
 
@@ -514,6 +608,7 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
         if (!knowledgeComponent.Blocked)
             return true;
 
+        // TODO: fix blocked martial art supercode
         var ev = new CanDoCQCEvent();
         RaiseLocalEvent(ent, ev);
         return ev.Handled;
@@ -531,9 +626,12 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
         EntityUid target,
         string damageType,
         float damageAmount,
-        out DamageSpecifier damage)
+        out DamageSpecifier damage,
+        TargetBodyPart? targetBodyPart = null)
     {
         damage = new DamageSpecifier();
+        if(!TryComp<TargetingComponent>(ent, out var targetingComponent))
+            return;
         damage.DamageDict.Add(damageType, damageAmount);
         if (TryComp(ent, out MartialArtModifiersComponent? modifiers))
         {
@@ -541,7 +639,10 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
             var modifierSet = GetDamageModifierSet(damage, mult, mod);
             damage = DamageSpecifier.ApplyModifierSet(damage, modifierSet);
         }
-        _damageable.TryChangeDamage(target, damage, origin: ent);
+        _damageable.TryChangeDamage(target,
+            damage,
+            origin: ent,
+            targetPart: targetBodyPart ?? targetingComponent.Target);
     }
 
     #endregion
