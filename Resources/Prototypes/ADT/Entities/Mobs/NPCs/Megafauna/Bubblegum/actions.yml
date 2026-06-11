@@ -7,8 +7,8 @@
   components:
   - type: Action
     icon:
-      sprite: ADT/Effects/bubblegum_action_triple_charge.rsi
-      state: icon
+      sprite: ADT/Effects/bubblegum.rsi
+      state: paw
     useDelay: 6
     checkCanInteract: false
     raiseOnUser: true
@@ -17,10 +17,7 @@
     range: 20
   - type: WorldTargetAction
     event:
-
       !type:BubblegumTripleChargeActionEvent
-
-
 
 - type: entity
   id: ActionADTBubblegumHallucinationCharge
@@ -31,8 +28,8 @@
   - type: Action
     raiseOnUser: true
     icon:
-      sprite: ADT/Effects/bubblegum_action_hallucination_charge.rsi
-      state: icon
+      sprite: ADT/Effects/bubblegum.rsi
+      state: paw
     useDelay: 9
   - type: TargetAction
     range: 20
@@ -48,8 +45,8 @@
   - type: Action
     raiseOnUser: true
     icon:
-      sprite: ADT/Effects/bubblegum_action_surround.rsi
-      state: icon
+      sprite: ADT/Effects/bubblegum.rsi
+      state: paw
     useDelay: 12
   - type: TargetAction
     range: 20
@@ -65,8 +62,8 @@
   - type: Action
     raiseOnUser: true
     icon:
-      sprite: ADT/Effects/bubblegum_action_blood_warp.rsi
-      state: icon
+      sprite: ADT/Effects/bubblegum.rsi
+      state: paw
     useDelay: 5
   - type: InstantAction
     event: !type:BubblegumBloodWarpActionEvent
@@ -80,8 +77,8 @@
   components:
   - type: Action
     icon:
-      sprite: ADT/Effects/bubblegum_action_blood_warp.rsi
-      state: icon
+      sprite: ADT/Effects/bubblegum.rsi
+      state: paw
     useDelay: 20
     raiseOnUser: true
   - type: TargetAction
