@@ -109,7 +109,7 @@ public partial class SharedMartialArtsSystem
         var targetPos = _transform.GetMapCoordinates(target).Position;
         var direction = targetPos - entPos;
 
-        _pulling.Throw(target, ent, direction, 25f);
+        _grabThrown.Throw(target, ent, direction, 25, behavior: proto.DropItems);
 
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Effects/demon_attack1.ogg"), ent);
         ComboPopup(ent, target, proto.Name);
