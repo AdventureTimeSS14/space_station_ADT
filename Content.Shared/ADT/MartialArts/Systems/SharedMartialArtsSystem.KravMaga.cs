@@ -1,19 +1,43 @@
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Lincoln McQueen <lincoln.mcqueen@gmail.com>
+// SPDX-FileCopyrightText: 2025 Marcus F <marcus2008stoke@gmail.com>
+// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+// SPDX-FileCopyrightText: 2025 thebiggestbruh <199992874+thebiggestbruh@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 thebiggestbruh <marcus2008stoke@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using Content.Shared.ADT.MartialArts;
+using Content.Goobstation.Shared.Changeling.Components;
+using Content.Shared.ADT.MartialArts;
+using Content.Shared.ADT.MartialArts;
+using Content.Shared.Damage.Components;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Weapons.Melee.Events;
 
 namespace Content.Shared.ADT.MartialArts;
 
+/// <summary>
+/// This handles...
+/// </summary>
 public abstract partial class SharedMartialArtsSystem
 {
     private void InitializeKravMaga()
     {
-        SubscribeLocalEvent<KravMagaComponent, MapInitEvent>(OnKravMagaMapInit);
+        SubscribeLocalEvent<KravMagaComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<KravMagaComponent, KravMagaActionEvent>(OnKravMagaAction);
-        SubscribeLocalEvent<KravMagaComponent, MeleeHitEvent>(OnKravMagaMeleeHitEvent);
+        SubscribeLocalEvent<KravMagaComponent, MeleeHitEvent>(OnMeleeHitEvent);
         SubscribeLocalEvent<KravMagaComponent, ComponentShutdown>(OnKravMagaShutdown);
     }
 
-    private void OnKravMagaMeleeHitEvent(Entity<KravMagaComponent> ent, ref MeleeHitEvent args)
+    private void OnMeleeHitEvent(Entity<KravMagaComponent> ent, ref MeleeHitEvent args)
     {
         if (args.HitEntities.Count <= 0)
             return;
@@ -22,14 +46,14 @@ public abstract partial class SharedMartialArtsSystem
         {
             if (!HasComp<MobStateComponent>(hitEntity))
                 continue;
-            if (!TryComp<Content.Shared.Projectiles.RequireProjectileTargetComponent>(hitEntity, out var isDowned))
+            if (!TryComp<RequireProjectileTargetComponent>(hitEntity, out var isDowned))
                 continue;
 
             DoKravMaga(ent, hitEntity, isDowned);
         }
     }
 
-    private void DoKravMaga(Entity<KravMagaComponent> ent, EntityUid hitEntity, Content.Shared.Projectiles.RequireProjectileTargetComponent requireProjectileTargetComponent)
+    private void DoKravMaga(Entity<KravMagaComponent> ent, EntityUid hitEntity, RequireProjectileTargetComponent reguireProjectileTargetComponent)
     {
         if (ent.Comp.SelectedMoveComp == null)
             return;
@@ -38,25 +62,26 @@ public abstract partial class SharedMartialArtsSystem
         switch (ent.Comp.SelectedMove)
         {
             case KravMagaMoves.LegSweep:
-                if (_netManager.IsClient)
+                if(_netManager.IsClient)
                     return;
 
                 if (_standingState.IsDown(hitEntity))
                     break;
-                _stun.TryKnockdown(hitEntity, TimeSpan.FromSeconds(4), true);
+                _stun.TryKnockdown(hitEntity, TimeSpan.FromSeconds(4), true); // okay buddy
+                // _stamina.TakeStaminaDamage(hitEntity, moveComp.StaminaDamage, applyResistances: true);
                 break;
             case KravMagaMoves.NeckChop:
-                var silenceComp = EnsureComp<KravMagaSilencedComponent>(hitEntity);
-                silenceComp.SilencedTime = _timing.CurTime + TimeSpan.FromSeconds(moveComp.EffectTime);
+                var comp = EnsureComp<KravMagaSilencedComponent>(hitEntity);
+                comp.SilencedTime = _timing.CurTime + TimeSpan.FromSeconds(moveComp.EffectTime);
                 break;
             case KravMagaMoves.LungPunch:
                 _stamina.TakeStaminaDamage(hitEntity, moveComp.StaminaDamage, applyResistances: true);
-                var blockedComp = EnsureComp<KravMagaBlockedBreathingComponent>(hitEntity);
-                blockedComp.BlockedTime = _timing.CurTime + TimeSpan.FromSeconds(moveComp.EffectTime);
+                var blockedBreathingComponent = EnsureComp<KravMagaBlockedBreathingComponent>(hitEntity);
+                blockedBreathingComponent.BlockedTime = _timing.CurTime + TimeSpan.FromSeconds(moveComp.EffectTime);
                 break;
             case null:
                 var damage = ent.Comp.BaseDamage;
-                if (requireProjectileTargetComponent.Active)
+                if (reguireProjectileTargetComponent.Active)
                     damage *= ent.Comp.DownedDamageModifier;
 
                 DoDamage(ent.Owner, hitEntity, "Blunt", damage, out _);
@@ -82,9 +107,9 @@ public abstract partial class SharedMartialArtsSystem
         ent.Comp.SelectedMoveComp = kravActionComp;
     }
 
-    private void OnKravMagaMapInit(Entity<KravMagaComponent> ent, ref MapInitEvent args)
+    private void OnMapInit(Entity<KravMagaComponent> ent, ref MapInitEvent args)
     {
-        if (HasComp<MartialArtsKnowledgeComponent>(ent) || HasComp<Content.Shared.Changeling.Components.ChangelingComponent>(ent))
+        if (HasComp<MartialArtsKnowledgeComponent>(ent) || HasComp<ChangelingComponent>(ent))
             return;
 
         foreach (var actionId in ent.Comp.BaseKravMagaMoves)
