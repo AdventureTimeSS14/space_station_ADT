@@ -1,3 +1,18 @@
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+// SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using Content.Shared.ADT.MartialArts;
+using Content.Goobstation.Shared.Emoting;
+using Content.Shared.ADT.MartialArts;
+using Content.Shared.ADT.MartialArts;
+using Content.Goobstation.Shared.Weapons.MeleeVulnerability;
+using Content.Goobstation.Shared.Sprinting;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Stunnable;
@@ -50,6 +65,12 @@ public abstract partial class SharedMartialArtsSystem
         {
             ApplyMultiplier(ent, 1.2f, 0f, TimeSpan.FromSeconds(4), MartialArtModifierType.MoveSpeed);
             _modifier.RefreshMovementSpeedModifiers(ent);
+            if (!TryComp(args.Target, out SprinterComponent? sprinter))
+                return;
+
+            _sprinting.ToggleSprint(args.Target, sprinter, false, false);
+            sprinter.LastSprint = _timing.CurTime + TimeSpan.FromSeconds(2); // 5s sprinting delay
+            Dirty(args.Target, sprinter);
             return;
         }
 
@@ -70,6 +91,7 @@ public abstract partial class SharedMartialArtsSystem
             return;
 
         RemCompDeferred<KnockedDownComponent>(ent);
+        //_stamina.TryTakeStamina(ent, args.StaminaToHeal);
         ent.Comp.LastAttacks.Clear();
     }
 
@@ -100,6 +122,12 @@ public abstract partial class SharedMartialArtsSystem
         _audio.PlayPvs(args.Sound, target);
         DoDamage(ent, target, proto.DamageType, proto.ExtraDamage * power, out _);
         ApplyMultiplier(ent, args.AttackSpeedMultiplier, 0f, args.AttackSpeedMultiplierTime);
+
+        if (args.Emote != null && TryComp(ent, out AnimatedEmotesComponent? emotes))
+        {
+            emotes.Emote = args.Emote.Value;
+            Dirty(ent, emotes);
+        }
 
         ComboPopup(ent, target, proto.Name);
         ent.Comp.LastAttacks.Clear();
@@ -168,10 +196,25 @@ public abstract partial class SharedMartialArtsSystem
         if (TryComp<PullableComponent>(target, out var pullable))
             _pulling.TryStopPull(target, pullable, ent, true);
 
-        _stun.TryKnockdown(target, time, true, true, proto.DropItems);
+        if (_newStatus.TryUpdateStatusEffectDuration(target, args.StatusEffectProto, out var effect, time)
+            && TryComp(effect, out MeleeVulnerabilityStatusEffectComponent? effectComp))
+        {
+            effectComp.ModifierSets.Add(args.ModifierSet);
+            Dirty(effect.Value, effectComp);
+        }
+
+        _stun.TryKnockdown(target,
+            time,
+            true,
+            true,
+            proto.DropItems);
 
         _audio.PlayPvs(args.Sound, target);
-        _grabThrown.Throw(target, ent, dir.Normalized() * args.ThrowRange * power, proto.ThrownSpeed, behavior: proto.DropItems);
+        _grabThrown.Throw(target,
+            ent,
+            dir.Normalized() * args.ThrowRange * power,
+            proto.ThrownSpeed,
+            behavior: proto.DropItems);
         ComboPopup(ent, target, proto.Name);
         ent.Comp.LastAttacks.Clear();
     }
