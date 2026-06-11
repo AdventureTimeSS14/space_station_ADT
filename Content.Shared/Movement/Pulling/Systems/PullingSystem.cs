@@ -480,7 +480,10 @@ public sealed partial class PullingSystem : EntitySystem
             && !_handsSystem.TryGetEmptyHand(puller, out _)
             && pullerComp.Pulling == null)
         {
-            return false;
+            var grabItemEv = new Content.Shared.ADT.Grab.FindGrabbingItemEvent(pullableUid);
+            RaiseLocalEvent(puller, ref grabItemEv);
+            if (grabItemEv.GrabbingItem == null)
+                return false;
         }
 
         if (!_blocker.CanInteract(puller, pullableUid))
