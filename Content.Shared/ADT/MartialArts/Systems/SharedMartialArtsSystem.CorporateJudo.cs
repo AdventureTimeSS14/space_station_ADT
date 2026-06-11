@@ -92,7 +92,7 @@ public partial class SharedMartialArtsSystem
 
         _movementMod.TryUpdateMovementSpeedModDuration(target, MartsGenericSlow, TimeSpan.FromSeconds(5), 0.5f, 0.5f);
 
-        _stamina.TakeStaminaDamage(target, proto.StaminaDamage, applyResistances: true);
+        _stamina.TakeStaminaDamage(target, proto.StaminaDamage);
 
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit3.ogg"), target);
         ComboPopup(ent, target, proto.Name);
@@ -105,12 +105,6 @@ public partial class SharedMartialArtsSystem
             || !TryUseMartialArt(ent, proto, out var target, out _)
             || !TryComp(target, out StatusEffectsComponent? status))
             return;
-
-        _status.TryAddStatusEffect<TemporaryBlindnessComponent>(target,
-            "TemporaryBlindness",
-            TimeSpan.FromSeconds(2),
-            true,
-            status);
 
         _status.TryAddStatusEffect<BlurryVisionComponent>(target,
             "BlurryVision",
@@ -142,7 +136,7 @@ public partial class SharedMartialArtsSystem
 
         _stun.TryKnockdown(target, knockdownTime, true, true, proto.DropItems);
 
-        _stamina.TakeStaminaDamage(target, proto.StaminaDamage, applyResistances: true);
+        _stamina.TakeStaminaDamage(target, proto.StaminaDamage);
 
         _pulling.TryStopPull(target, pullable, ent, true);
 
@@ -171,7 +165,7 @@ public partial class SharedMartialArtsSystem
 
         if (!HasComp<ArmbarredComponent>(target))
         {
-            _stamina.TakeStaminaDamage(target, proto.StaminaDamage, applyResistances: true);
+            _stamina.TakeStaminaDamage(target, proto.StaminaDamage);
             AddComp<ArmbarredComponent>(target).Puller = ent;
         }
 
@@ -197,7 +191,7 @@ public partial class SharedMartialArtsSystem
             || armbarred.Puller != ent.Owner)
             return;
 
-        _stamina.TakeStaminaDamage(target, proto.StaminaDamage, applyResistances: true);
+        _stamina.TakeStaminaDamage(target, proto.StaminaDamage);
 
         _pulling.TryStopPull(target, pullable, ent, true);
         _grabThrown.Throw(target,

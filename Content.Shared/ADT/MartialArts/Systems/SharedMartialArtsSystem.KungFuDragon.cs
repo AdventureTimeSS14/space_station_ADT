@@ -7,7 +7,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.ADT.MartialArts;
-using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Stunnable;
@@ -34,8 +33,6 @@ public abstract partial class SharedMartialArtsSystem
         if (_hands.TryGetActiveItem(ent.Owner, out _) // Only unarmed
             || !_blocker.CanInteract(ent, null)) // Should be able to interact
             return;
-
-        args.ModifiersList.Add(ent.Comp.ModifierSet);
 
         // Works for both armed and unarmed attacks
         ApplyMultiplier(ent,
@@ -78,7 +75,7 @@ public abstract partial class SharedMartialArtsSystem
             _stun.TryUpdateStunDuration(target, args.DownedParalyzeTime); // No stunlocks
         else
         {
-            _stamina.TakeStaminaDamage(target, proto.StaminaDamage, applyResistances: true);
+            _stamina.TakeStaminaDamage(target, proto.StaminaDamage);
             _stun.TryKnockdown(target, TimeSpan.FromSeconds(proto.ParalyzeTime), true, true, proto.DropItems);
             DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out _);
         }
@@ -95,7 +92,7 @@ public abstract partial class SharedMartialArtsSystem
             || !TryUseMartialArt(ent, proto, out var target, out _))
             return;
         _movementMod.TryUpdateMovementSpeedModDuration(target, MartsGenericSlow, args.SlowdownTime, args.WalkSpeedModifier, args.SprintSpeedModifier);
-        _stamina.TakeStaminaDamage(target, proto.StaminaDamage, applyResistances: true);
+        _stamina.TakeStaminaDamage(target, proto.StaminaDamage);
         DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out _);
         _audio.PlayPvs(args.Sound, target);
         ComboPopup(ent, target, proto.Name);

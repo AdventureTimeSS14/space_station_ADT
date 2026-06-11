@@ -1,4 +1,5 @@
 using Content.Shared.ADT.Grab;
+using Content.Shared.Weapons.Melee.Events;
 
 namespace Content.Shared.GrabProtection;
 

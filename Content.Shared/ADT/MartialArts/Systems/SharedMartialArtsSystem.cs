@@ -28,16 +28,12 @@ using System.Linq;
 using Content.Shared.ADT.Grab;
 using Content.Shared.ADT.MartialArts;
 using Content.Shared.Changeling.Components;
-using Content.Shared.ADT.Traits;
 using Content.Shared.Stealth.Components;
-using Content.Shared._Goobstation.Heretic.Components;
-using Content.Shared._Shitmed.Medical.Surgery.Traumas.Systems;
-using Content.Shared._Shitmed.Targeting;
+using Content.Shared.Heretic;
 using Content.Shared.ADT.BackStab;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Actions;
 using Content.Shared.Alert;
-using Content.Shared.Body.Systems;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Events;
 using Content.Shared.Damage.Systems;
@@ -102,13 +98,9 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
     [Dependency] private readonly AlertsSystem _alerts = default!;
     [Dependency] private readonly SharedMeleeWeaponSystem _melee = default!;
     [Dependency] private readonly BackStabSystem _backstab = default!;
-    [Dependency] private readonly SharedGoobStealthSystem _stealth = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly NpcFactionSystem _faction = default!;
-    [Dependency] private readonly SharedBodySystem _body = default!;
-    [Dependency] private readonly TraumaSystem _trauma = default!;
     [Dependency] private readonly MobThresholdSystem _mobThreshold = default!;
-    [Dependency] private readonly SharedSprintingSystem _sprinting = default!;
 
     public static readonly EntProtoId MartsGenericSlow = "MartialArtsGenericSlowdownEffect";
 
@@ -310,11 +302,9 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
         return new()
         {
             Coefficients = specifier.DamageDict
-                .Select(x => KeyValuePair.Create(x.Key, multiplier))
-                .ToDictionary(),
+                .ToDictionary(x => x.Key.Id, _ => multiplier),
             FlatReduction = specifier.DamageDict
-                .Select(x => KeyValuePair.Create(x.Key, -modifier)) // Minus mod because it subtracts values from damage
-                .ToDictionary(),
+                .ToDictionary(x => x.Key.Id, _ => -modifier), // Minus mod because it subtracts values from damage
         };
     }
 
@@ -623,12 +613,9 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
         EntityUid target,
         string damageType,
         float damageAmount,
-        out DamageSpecifier damage,
-        TargetBodyPart? targetBodyPart = null)
+        out DamageSpecifier damage)
     {
         damage = new DamageSpecifier();
-        if(!TryComp<TargetingComponent>(ent, out var targetingComponent))
-            return;
         damage.DamageDict.Add(damageType, damageAmount);
         if (TryComp(ent, out MartialArtModifiersComponent? modifiers))
         {
@@ -636,10 +623,7 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
             var modifierSet = GetDamageModifierSet(damage, mult, mod);
             damage = DamageSpecifier.ApplyModifierSet(damage, modifierSet);
         }
-        _damageable.TryChangeDamage(target,
-            damage,
-            origin: ent,
-            targetPart: targetBodyPart ?? targetingComponent.Target);
+        _damageable.TryChangeDamage(target, damage, origin: ent);
     }
 
     #endregion

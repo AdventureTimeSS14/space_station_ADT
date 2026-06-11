@@ -12,8 +12,6 @@
 
 using System.Linq;
 using Content.Shared.ADT.Grab;
-using Content.Shared._EinsteinEngines.Contests;
-using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Actions.Events;
 using Content.Shared.Climbing.Components;
 using Content.Shared.Coordinates;
@@ -27,6 +25,7 @@ using Content.Shared.Standing;
 using Content.Shared.Stunnable;
 using Content.Shared.Throwing;
 using Content.Shared.Weapons.Melee.Events;
+using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
@@ -46,7 +45,6 @@ public sealed class TableSlamSystem : EntitySystem
     [Dependency] private readonly SharedStaminaSystem _staminaSystem = default!;
     [Dependency] private readonly SharedStunSystem _stunSystem = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
-    [Dependency] private readonly ContestsSystem _contestsSystem = default!;
 
     public override void Initialize()
     {
@@ -68,7 +66,7 @@ public sealed class TableSlamSystem : EntitySystem
 
     private void OnDisarmAttempt(Entity<PostTabledComponent> ent, ref DisarmAttemptEvent args)
     {
-        var rand = new Random(SharedRandomExtensions.HashCodeCombine(new List<int> { (int) _gameTiming.CurTick.Value, GetNetEntity(ent).Id }));
+        var rand = new System.Random(SharedRandomExtensions.HashCodeCombine(new List<int> { (int) _gameTiming.CurTick.Value, GetNetEntity(ent).Id }));
         if (!rand.Prob(ent.Comp.ParalyzeChance) || !TryComp<GrabbableComponent>(ent, out var grabbable))
             return;
 
@@ -88,9 +86,13 @@ public sealed class TableSlamSystem : EntitySystem
             || !HasComp<BonkableComponent>(target))
             return;
 
-        var massRatio = _contestsSystem.MassContest(ent.Owner, puller.Pulling.Value, bypassClamp: true);
+        var massRatio = TryComp<PhysicsComponent>(ent.Owner, out var entPhysics)
+            && TryComp<PhysicsComponent>(puller.Pulling.Value, out var targetPhysics)
+            && targetPhysics.InvMass != 0
+            ? entPhysics.Mass * targetPhysics.InvMass
+            : 1f;
         var chance = Math.Clamp(massRatio, 0f, 1f);
-        var rand = new Random(SharedRandomExtensions.HashCodeCombine(new List<int> { (int) _gameTiming.CurTick.Value, GetNetEntity(ent).Id }));
+        var rand = new System.Random(SharedRandomExtensions.HashCodeCombine(new List<int> { (int) _gameTiming.CurTick.Value, GetNetEntity(ent).Id }));
         if (rand.Prob(chance))
             TryTableSlam(puller.Pulling.Value, ent.Owner, target);
     }
@@ -124,18 +126,17 @@ public sealed class TableSlamSystem : EntitySystem
 
         if (TryComp<GlassTableComponent>(args.OtherEntity, out var glass))
         {
-            _damageableSystem.TryChangeDamage(args.OtherEntity, glass.TableDamage, origin: ent, targetPart: TargetBodyPart.Chest);
+            _damageableSystem.TryChangeDamage(args.OtherEntity, glass.TableDamage, origin: ent);
             _damageableSystem.TryChangeDamage(args.OtherEntity, glass.ClimberDamage, origin: ent);
             stunDuration *= 2;
         }
         else
         {
             var bluntDamage = new DamageSpecifier { DamageDict = new() { { "Blunt", ent.Comp.TabledDamage } } };
-            _damageableSystem.TryChangeDamage(ent.Owner, bluntDamage, targetPart: TargetBodyPart.Chest);
             _damageableSystem.TryChangeDamage(ent.Owner, bluntDamage);
         }
 
-        _staminaSystem.TakeStaminaDamage(ent, ent.Comp.TabledStaminaDamage, applyResistances: true);
+        _staminaSystem.TakeStaminaDamage(ent, ent.Comp.TabledStaminaDamage);
         _stunSystem.TryKnockdown(ent.Owner, stunDuration, false);
 
         var postTabled = EnsureComp<PostTabledComponent>(ent);

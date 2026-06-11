@@ -8,6 +8,7 @@
 
 using Content.Shared.Damage.Systems;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
 using Content.Shared.Effects;
 using Content.Shared.Throwing;
 using Robust.Shared.Network;

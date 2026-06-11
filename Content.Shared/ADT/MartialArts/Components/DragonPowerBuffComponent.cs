@@ -21,7 +21,6 @@ public sealed partial class DragonPowerBuffComponent : Component
             {"Piercing", 0.6f},
             {"Heat", 0.6f},
         },
-        IgnoreArmorPierceFlags = (int) PartialArmorPierceFlags.All,
     };
 
     [DataField]

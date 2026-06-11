@@ -1,7 +1,6 @@
 using System.Linq;
 using System.Numerics;
 using Content.Shared.ADT.Grab;
-using Content.Shared._EinsteinEngines.Contests;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Alert;
 using Content.Shared.CombatMode;
@@ -32,7 +31,6 @@ namespace Content.Shared.ADT.Grab;
 
 public sealed partial class GrabIntentSystem : EntitySystem
 {
-    [Dependency] private readonly ContestsSystem _contests = default!;
     [Dependency] private readonly StandingStateSystem _standing = default!;
     [Dependency] private readonly SharedVirtualItemSystem _virtualSystem = default!;
     [Dependency] private readonly AlertsSystem _alertsSystem = default!;

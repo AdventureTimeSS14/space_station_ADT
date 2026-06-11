@@ -1,4 +1,5 @@
 using Content.Shared.ADT.Grab;
+using Content.Shared.ADT.Hands;
 using Content.Shared.Hands;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Movement.Events;
@@ -38,7 +39,7 @@ public sealed partial class GrabIntentSystem
 
         var seedArray = new List<int> { (int) _timing.CurTick.Value, GetNetEntity(pullable.Owner).Id };
         var seed = SharedRandomExtensions.HashCodeCombine(seedArray);
-        var rand = new Random(seed);
+        var rand = new System.Random(seed);
         if (rand.Prob(pullable.Comp.GrabEscapeChance))
             return GrabResistResult.Succeeded;
 

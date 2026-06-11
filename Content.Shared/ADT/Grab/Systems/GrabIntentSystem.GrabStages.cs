@@ -69,7 +69,7 @@ public sealed partial class GrabIntentSystem
 
         var seedArray = new List<int> { (int) _timing.CurTick.Value, GetNetEntity(uid).Id };
         var seed = SharedRandomExtensions.HashCodeCombine(seedArray);
-        var rand = new Random(seed);
+        var rand = new System.Random(seed);
         if (rand.Prob(grabbable.GrabEscapeChance))
             TryLowerGrabStage(args.User, uid, true);
     }
@@ -240,8 +240,7 @@ public sealed partial class GrabIntentSystem
         if (grabIntentComp.GrabStage == GrabStage.Suffocate)
         {
             _stamina.TakeStaminaDamage(pullable.Owner,
-                grabIntentComp.SuffocateGrabStaminaDamage,
-                applyResistances: true);
+                grabIntentComp.SuffocateGrabStaminaDamage);
 
             var comboEv =
                 new ComboAttackPerformedEvent(pullerUid, pullable.Owner, pullerUid, ComboAttackType.Grab);
@@ -301,7 +300,13 @@ public sealed partial class GrabIntentSystem
             return;
         }
 
-        var massMultiplier = Math.Clamp(_contests.MassContest(pullable.Owner, puller.Owner, true) * 2f, 0.5f, 2f);
+        var massMultiplier = Math.Clamp(
+            (TryComp<Robust.Shared.Physics.Components.PhysicsComponent>(pullable.Owner, out var pullablePhysics)
+                && TryComp<Robust.Shared.Physics.Components.PhysicsComponent>(puller.Owner, out var pullerPhysics)
+                && pullerPhysics.InvMass != 0
+                ? pullablePhysics.Mass * pullerPhysics.InvMass
+                : 1f) * 2f,
+            0.5f, 2f);
         var extraMultiplier = 1f;
         if (_standing.IsDown(pullable.Owner))
             extraMultiplier *= puller.Comp2.DownedEscapeChanceMultiplier;

@@ -17,7 +17,6 @@
 
 using System.Linq;
 using Content.Shared.Changeling.Components;
-using Content.Goobstation.Shared.CustomFactionIcons;
 using Content.Shared.ADT.MartialArts;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction.Events;
@@ -87,10 +86,7 @@ public partial class SharedMartialArtsSystem
                 if (!TryGrantMartialArt(args.User, ent.Comp))
                     return;
                 _faction.AddFaction(args.User, ent.Comp.FactionToAdd);
-                var userFactionIcons = EnsureComp<CustomFactionIconsComponent>(args.User);
-                userFactionIcons.FactionIcons.Add(ent.Comp.IconToAdd);
                 var userReflect = EnsureComp<ReflectComponent>(args.User);
-                userReflect.Examinable = false; // no doxxing scarp users by examining lmao
                 userReflect.ReflectProb = 1;
                 userReflect.Spread = 60;
                 Dirty(args.User, userReflect);
@@ -106,7 +102,7 @@ public partial class SharedMartialArtsSystem
 
     private void CarpScrollDelay(Entity<SleepingCarpStudentComponent> ent)
     {
-        var time = new Random().Next(ent.Comp.MinUseDelay, ent.Comp.MaxUseDelay);
+        var time = new System.Random().Next(ent.Comp.MinUseDelay, ent.Comp.MaxUseDelay);
         ent.Comp.UseAgainTime = _timing.CurTime + TimeSpan.FromSeconds(time);
         ent.Comp.Stage++;
         _popupSystem.PopupEntity(
@@ -158,13 +154,13 @@ public partial class SharedMartialArtsSystem
         if (!downed)
         {
             DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out _);
-            _stamina.TakeStaminaDamage(target, proto.StaminaDamage, applyResistances: true);
+            _stamina.TakeStaminaDamage(target, proto.StaminaDamage);
             _stun.TryKnockdown(target, TimeSpan.FromSeconds(proto.ParalyzeTime), true, true, proto.DropItems);
         }
         else
         {
             DoDamage(ent, target, proto.DamageType, proto.ExtraDamage / 2, out _);
-            _stamina.TakeStaminaDamage(target, proto.StaminaDamage - 20, applyResistances: true);
+            _stamina.TakeStaminaDamage(target, proto.StaminaDamage - 20);
             _hands.TryDrop(target);
         }
         if (TryComp<PullableComponent>(target, out var pullable))

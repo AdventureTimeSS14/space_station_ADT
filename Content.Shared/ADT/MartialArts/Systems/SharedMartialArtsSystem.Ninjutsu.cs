@@ -9,7 +9,6 @@
 
 using System.Diagnostics.CodeAnalysis;
 using Content.Shared.ADT.MartialArts;
-using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Alert;
 using Content.Shared.Damage;
 using Content.Shared.Interaction.Events;
@@ -57,7 +56,7 @@ public abstract partial class SharedMartialArtsSystem
     private void OnAlertEffectEnded(Entity<NinjutsuSneakAttackComponent> ent, ref StatusEffectEndedEvent args)
     {
         if (args.Key == "LossOfSurprise")
-            _alerts.ShowAlert(ent, ent.Comp.Alert);
+            _alerts.ShowAlert(ent.Owner, ent.Comp.Alert);
     }
 
     private void OnSneakAttackRemove(Entity<NinjutsuSneakAttackComponent> ent, ref ComponentRemove args)
@@ -65,12 +64,12 @@ public abstract partial class SharedMartialArtsSystem
         if (TerminatingOrDeleted(ent))
             return;
 
-        _alerts.ClearAlertCategory(ent, NinjutsuAlertCategory);
+        _alerts.ClearAlertCategory(ent.Owner, NinjutsuAlertCategory);
     }
 
     private void OnSneakAttackInit(Entity<NinjutsuSneakAttackComponent> ent, ref ComponentInit args)
     {
-        _alerts.ShowAlert(ent, ent.Comp.Alert);
+        _alerts.ShowAlert(ent.Owner, ent.Comp.Alert);
     }
 
     private void OnMobStateChanged(MobStateChangedEvent ev)
@@ -172,9 +171,8 @@ public abstract partial class SharedMartialArtsSystem
             {
                 { damageType, modifier },
             },
-            ArmorPenetration = sneakAttack.AssassinateArmorPierce,
         };
-        _damageable.TryChangeDamage(target, bonusDamage, origin: uid, canMiss: false, targetPart: TargetBodyPart.Chest);
+        _damageable.TryChangeDamage(target, bonusDamage, origin: uid);
 
         if (_netManager.IsClient)
             return;
@@ -201,7 +199,7 @@ public abstract partial class SharedMartialArtsSystem
 
         // Swift Strike
         if (args.Performer == args.Weapon)
-            _stamina.TakeStaminaDamage(args.Target, 30f, applyResistances: true);
+            _stamina.TakeStaminaDamage(args.Target, 30f);
         var fireRate = TimeSpan.FromSeconds(1f / _melee.GetAttackRate(args.Weapon, args.Performer, melee));
         var minFireRate = TimeSpan.FromSeconds(1f / 8f); // This is basically the attack speed of a HF Blade.
 
@@ -290,7 +288,5 @@ public abstract partial class SharedMartialArtsSystem
             "LossOfSurprise",
             TimeSpan.FromSeconds(5),
             true);
-
-        _stealth.TryRevealNinja(uid);
     }
 }

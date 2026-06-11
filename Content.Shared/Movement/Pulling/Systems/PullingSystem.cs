@@ -100,7 +100,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.ADT.Grab;
-using Content.Shared._Shitcode.Heretic.Components;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Alert;
@@ -778,10 +777,6 @@ public sealed class PullingSystem : EntitySystem
     // Goobstation
     public EntityUid GetRelayedEntity(EntityUid uid)
     {
-        if (TryComp(uid, out TargetInteractionRelayComponent? relay) && relay.RelayPulls &&
-            Exists(relay.RelayEntity))
-            return relay.RelayEntity.Value;
-
         return uid;
     }
 }

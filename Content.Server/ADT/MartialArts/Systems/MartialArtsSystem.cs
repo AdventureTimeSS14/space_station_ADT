@@ -28,15 +28,7 @@ public sealed class MartialArtsSystem : SharedMartialArtsSystem
     {
         base.Initialize();
         SubscribeLocalEvent<CanPerformComboComponent, SleepingCarpSaying>(OnSleepingCarpSaying);
-        SubscribeLocalEvent<CanPerformComboComponent, PolymorphedEvent>(OnPolymorphedCPC);
-        SubscribeLocalEvent<MartialArtsKnowledgeComponent, PolymorphedEvent>(OnPolymorphedMAK);
     }
-
-    private void OnPolymorphedCPC(Entity<CanPerformComboComponent> ent, ref PolymorphedEvent args)
-        => _polymorph.CopyPolymorphComponent<CanPerformComboComponent>(ent, args.NewEntity);
-
-    private void OnPolymorphedMAK(Entity<MartialArtsKnowledgeComponent> ent, ref PolymorphedEvent args)
-        => _polymorph.CopyPolymorphComponent<MartialArtsKnowledgeComponent>(ent, args.NewEntity);
 
     private void OnSleepingCarpSaying(Entity<CanPerformComboComponent> ent, ref SleepingCarpSaying args)
     {

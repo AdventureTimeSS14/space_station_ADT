@@ -9,8 +9,6 @@
 
 using Content.Shared.ADT.MartialArts;
 using Content.Shared.Emoting;
-using Content.Goobstation.Shared.Weapons.MeleeVulnerability;
-using Content.Shared.ADT.Traits;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Stunnable;
@@ -63,12 +61,6 @@ public abstract partial class SharedMartialArtsSystem
         {
             ApplyMultiplier(ent, 1.2f, 0f, TimeSpan.FromSeconds(4), MartialArtModifierType.MoveSpeed);
             _modifier.RefreshMovementSpeedModifiers(ent);
-            if (!TryComp(args.Target, out SprinterComponent? sprinter))
-                return;
-
-            _sprinting.ToggleSprint(args.Target, sprinter, false, false);
-            sprinter.LastSprint = _timing.CurTime + TimeSpan.FromSeconds(2); // 5s sprinting delay
-            Dirty(args.Target, sprinter);
             return;
         }
 
@@ -194,12 +186,7 @@ public abstract partial class SharedMartialArtsSystem
         if (TryComp<PullableComponent>(target, out var pullable))
             _pulling.TryStopPull(target, pullable, ent, true);
 
-        if (_newStatus.TryUpdateStatusEffectDuration(target, args.StatusEffectProto, out var effect, time)
-            && TryComp(effect, out MeleeVulnerabilityStatusEffectComponent? effectComp))
-        {
-            effectComp.ModifierSets.Add(args.ModifierSet);
-            Dirty(effect.Value, effectComp);
-        }
+        _newStatus.TryUpdateStatusEffectDuration(target, args.StatusEffectProto, out _, time);
 
         _stun.TryKnockdown(target,
             time,

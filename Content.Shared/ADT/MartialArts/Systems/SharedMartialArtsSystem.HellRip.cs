@@ -23,11 +23,6 @@ using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Weapons.Melee;
 using Robust.Shared.Audio;
 
-// Shitmed Change
-using Content.Shared.Body.Part;
-using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
-using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
-using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Mobs.Components;
 
@@ -35,8 +30,6 @@ namespace Content.Shared.ADT.MartialArts;
 
 public partial class SharedMartialArtsSystem
 {
-    [Dependency] private readonly WoundSystem _wound = default!; // Shitmed Change
-
     private void InitializeHellRip()
     {
         SubscribeLocalEvent<CanPerformComboComponent, HellRipSlamPerformedEvent>(OnHellRipSlam);
@@ -86,12 +79,7 @@ public partial class SharedMartialArtsSystem
 
         var damage = new DamageSpecifier();
         damage.DamageDict.Add("Blunt", 300);
-        _damageable.TryChangeDamage(target, damage, true, origin: ent, targetPart: TargetBodyPart.Head);
-        var head = _body.GetBodyChildrenOfType(target , BodyPartType.Head).FirstOrDefault();
-        if (head != default
-            && TryComp<WoundableComponent>(head.Id, out var woundable)
-            && woundable.ParentWoundable.HasValue)
-            _wound.AmputateWoundable(woundable.ParentWoundable.Value, head.Id, woundable);
+        _damageable.TryChangeDamage(target, damage, true, origin: ent);
 
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Effects/gib1.ogg"), target);
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Effects/demon_attack1.ogg"), ent);
@@ -116,7 +104,7 @@ public partial class SharedMartialArtsSystem
 
         _stun.TryKnockdown(target, knockdownTime, true, true, proto.DropItems);
 
-        _stamina.TakeStaminaDamage(target, proto.StaminaDamage, applyResistances: true);
+        _stamina.TakeStaminaDamage(target, proto.StaminaDamage);
 
         //_pulling.TryStopPull(target, pullable, ent, true);
 
@@ -137,7 +125,7 @@ public partial class SharedMartialArtsSystem
             || !TryComp<PullableComponent>(target, out var pullable))
             return;
 
-        _stamina.TakeStaminaDamage(target, proto.StaminaDamage, applyResistances: true);
+        _stamina.TakeStaminaDamage(target, proto.StaminaDamage);
 
         _pulling.TryStopPull(target, pullable, ent, true);
         //_grabThrown.Throw(target, ent, _transform.GetMapCoordinates(ent).Position + _transform.GetMapCoordinates(target).Position, 50);
