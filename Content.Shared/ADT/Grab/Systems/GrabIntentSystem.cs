@@ -1,5 +1,8 @@
 using System.Linq;
 using System.Numerics;
+using Content.Shared.ADT.Grab;
+using Content.Shared._EinsteinEngines.Contests;
+using Content.Shared.ADT.Grab;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Alert;
 using Content.Shared.CombatMode;
@@ -21,8 +24,6 @@ using Content.Shared.Popups;
 using Content.Shared.Speech;
 using Content.Shared.Standing;
 using Content.Shared.Throwing;
-using Content.Shared.Weapons.Melee;
-using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Physics.Components;
@@ -32,6 +33,7 @@ namespace Content.Shared.ADT.Grab;
 
 public sealed partial class GrabIntentSystem : EntitySystem
 {
+    [Dependency] private readonly ContestsSystem _contests = default!;
     [Dependency] private readonly StandingStateSystem _standing = default!;
     [Dependency] private readonly SharedVirtualItemSystem _virtualSystem = default!;
     [Dependency] private readonly AlertsSystem _alertsSystem = default!;
@@ -51,6 +53,8 @@ public sealed partial class GrabIntentSystem : EntitySystem
 
     private readonly SoundPathSpecifier _thudswoosh = new("/Audio/Effects/thudswoosh.ogg");
 
+    #region Initialization
+
     public override void Initialize()
     {
         InitializeCoreEvents();
@@ -66,6 +70,10 @@ public sealed partial class GrabIntentSystem : EntitySystem
         SubscribeLocalEvent<GrabbableComponent, PullStoppedMessage>(OnPullStoppedGrabbable);
         SubscribeLocalEvent<GrabIntentComponent, PullStoppedMessage>(OnPullStoppedGrabIntent);
     }
+
+    #endregion
+
+    #region Core Events
 
     private void OnPullStoppedGrabbable(EntityUid uid, GrabbableComponent component, ref PullStoppedMessage args)
     {
@@ -129,6 +137,10 @@ public sealed partial class GrabIntentSystem : EntitySystem
         _pulling.TryStopPull(uid, pullable, user: uid);
     }
 
+    #endregion
+
+    #region Public API
+
     public bool CanGrab(EntityUid puller, EntityUid pullable)
     {
         return !HasComp<PacifiedComponent>(puller) && HasComp<MobStateComponent>(pullable);
@@ -163,4 +175,6 @@ public sealed partial class GrabIntentSystem : EntitySystem
         ent.Comp2.NextStageChange = _timing.CurTime.Add(TimeSpan.FromSeconds(3f));
         Dirty(ent.Owner, ent.Comp2);
     }
+
+    #endregion
 }
