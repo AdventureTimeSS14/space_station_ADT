@@ -1,9 +1,13 @@
-using Content.Shared.FixedPoint;
+using Content.Shared.ADT.Grab;
+using Content.Goobstation.Maths.FixedPoint;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 
 namespace Content.Shared.ADT.Grab;
 
+/// <summary>
+/// Stores grab-specific state for entities that can pull and escalate grabs.
+/// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true)]
 public sealed partial class GrabIntentComponent : Component
 {
