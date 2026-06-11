@@ -1,9 +1,13 @@
+using Content.Shared.ADT.Grab;
 using Content.Shared.Alert;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared.ADT.Grab;
 
+/// <summary>
+/// Stores grab-specific state for entities that can be grabbed while pulled.
+/// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class GrabbableComponent : Component
 {
@@ -26,7 +30,7 @@ public sealed partial class GrabbableComponent : Component
     public float GrabEscapeChance = 1f;
 
     [DataField]
-    public ProtoId<AlertPrototype> PulledAlert = "ADTPulled";
+    public ProtoId<AlertPrototype> PulledAlert = "Pulled";
 
     [AutoNetworkedField]
     public TimeSpan NextEscapeAttempt = TimeSpan.Zero;
