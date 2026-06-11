@@ -75,12 +75,10 @@ public sealed class JukeboxSystem : SharedJukeboxSystem
             return;
         }
 
-        var ent = (uid, component);
-
-        if (!IsSongAvailable(ent, component.SelectedSongId.Value))
+        if (!IsSongAvailable(ent, ent.Comp.SelectedSongId.Value))
         {
-            component.SelectedSongId = null;
-            Dirty(uid, component);
+            ent.Comp.SelectedSongId = null;
+            Dirty(ent, ent.Comp);
             return;
         }
 
@@ -97,7 +95,7 @@ public sealed class JukeboxSystem : SharedJukeboxSystem
 
     protected override void StopJukebox(Entity<JukeboxComponent> ent)
     {
-        Stop(ent);
+        Stop(ent.AsNullable());
     }
     // ADT-Tweak end
 
