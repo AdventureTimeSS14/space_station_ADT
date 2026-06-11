@@ -72,8 +72,7 @@ public partial class SharedMartialArtsSystem
             || !TryUseMartialArt(ent, proto, out var target, out _))
             return;
 
-        _movementMod.TryUpdateMovementSpeedModDuration(target, MartsGenericSlow,
-            TimeSpan.FromSeconds(args.Time), args.SpeedMultiplier, args.SpeedMultiplier);
+        _movementMod.TryUpdateMovementSpeedModDuration(target, MartsGenericSlow, TimeSpan.FromSeconds(5), 0.5f, 0.5f);
 
         _stamina.TakeStaminaDamage(target, proto.StaminaDamage, applyResistances: true);
 
@@ -152,14 +151,9 @@ public partial class SharedMartialArtsSystem
             AddComp<ArmbarredComponent>(target).Puller = ent;
         }
 
-        // Force grab to Suffocate stage
-        if (grabIntent.GrabStage < GrabStage.Suffocate)
-        {
-            _grabIntent.TrySetGrabStages(
-                (ent.Owner, puller, grabIntent),
-                (target, pullable, grabbable),
-                GrabStage.Suffocate);
-        }
+        if (grabIntent.GrabStage != GrabStage.Suffocate
+            || grabbable.GrabStage != GrabStage.Suffocate)
+            _grabIntent.TrySetGrabStages((ent.Owner, puller, grabIntent), (target, pullable, grabbable), GrabStage.Suffocate);
 
         _stun.TryKnockdown(target, knockdownTime, true, true, proto.DropItems);
 
@@ -184,7 +178,8 @@ public partial class SharedMartialArtsSystem
         _grabThrown.Throw(target,
             ent,
             _transform.GetMapCoordinates(ent).Position - _transform.GetMapCoordinates(target).Position,
-            5f);
+            5f,
+            behavior: proto.DropItems);
 
         _status.TryRemoveStatusEffect(ent, "KnockedDown");
         _standingState.Stand(ent);

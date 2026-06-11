@@ -40,7 +40,7 @@ namespace Content.Shared.Movement.Pulling.Systems;
 /// <summary>
 /// Allows one entity to pull another behind them via a physics distance joint.
 /// </summary>
-public abstract partial class PullingSystem : EntitySystem
+public sealed partial class PullingSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
@@ -115,6 +115,11 @@ public abstract partial class PullingSystem : EntitySystem
         if (args.PullerUid != uid)
             return;
 
+        var grabItemEv = new Content.Shared.ADT.Grab.FindGrabbingItemEvent(args.PulledUid);
+        RaiseLocalEvent(uid, ref grabItemEv);
+        if (grabItemEv.GrabbingItem != null)
+            return;
+
         if (TryComp(args.PullerUid, out PullerComponent? pullerComp) && !pullerComp.NeedsHands)
             return;
 
@@ -139,6 +144,9 @@ public abstract partial class PullingSystem : EntitySystem
             _handsSystem.TryDrop((args.PullerUid, component), held);
             break;
         }
+
+        var ev = new Content.Shared.ADT.Grab.StopGrabbingItemPullEvent(args.PulledUid);
+        RaiseLocalEvent(uid, ref ev);
     }
 
     private void OnStateChanged(EntityUid uid, PullerComponent component, ref MobStateChangedEvent args)
@@ -662,8 +670,4 @@ public abstract partial class PullingSystem : EntitySystem
         return true;
     }
 
-    /// <summary>
-    /// Throws the pulled entity in the given direction.
-    /// </summary>
-    public abstract void Throw(EntityUid thrownUid, EntityUid throwerUid, System.Numerics.Vector2 direction, float speed);
 }

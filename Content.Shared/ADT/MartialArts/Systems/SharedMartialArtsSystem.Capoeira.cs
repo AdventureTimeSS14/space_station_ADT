@@ -171,7 +171,7 @@ public abstract partial class SharedMartialArtsSystem
         _stun.TryKnockdown(target, time, true, true, proto.DropItems);
 
         _audio.PlayPvs(args.Sound, target);
-        _pulling.Throw(target, ent, dir.Normalized() * args.ThrowRange * power, proto.ThrownSpeed);
+        _grabThrown.Throw(target, ent, dir.Normalized() * args.ThrowRange * power, proto.ThrownSpeed);
         ComboPopup(ent, target, proto.Name);
         ent.Comp.LastAttacks.Clear();
     }
