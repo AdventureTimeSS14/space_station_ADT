@@ -136,14 +136,20 @@ namespace Content.Server.Hands.Systems
             // ADT Grab start
             if (TryComp<VirtualItemComponent>(throwEnt, out var virtualItem))
             {
-                var userEv = new BeforeVirtualItemThrownEvent(virtualItem.BlockingEntity, player, coordinates);
-                RaiseLocalEvent(player, userEv);
+                var beforeUserEv = new BeforeVirtualItemThrownEvent(virtualItem.BlockingEntity, player, coordinates);
+                RaiseLocalEvent(player, beforeUserEv);
 
-                var targEv = new BeforeVirtualItemThrownEvent(virtualItem.BlockingEntity, player, coordinates);
-                RaiseLocalEvent(virtualItem.BlockingEntity, targEv);
+                var beforeTargEv = new BeforeVirtualItemThrownEvent(virtualItem.BlockingEntity, player, coordinates);
+                RaiseLocalEvent(virtualItem.BlockingEntity, beforeTargEv);
 
-                if (userEv.Cancelled || targEv.Cancelled)
+                if (beforeUserEv.Cancelled || beforeTargEv.Cancelled)
                     return false;
+
+                var dir = _transformSystem.ToMapCoordinates(coordinates).Position - _transformSystem.GetWorldPosition(player);
+                var userEv = new VirtualItemThrownEvent(virtualItem.BlockingEntity, player, throwEnt.Value, dir);
+                RaiseLocalEvent(player, ref userEv);
+                var targEv = new VirtualItemThrownEvent(virtualItem.BlockingEntity, player, throwEnt.Value, dir);
+                RaiseLocalEvent(virtualItem.BlockingEntity, ref targEv);
             }
             // ADT Grab end
 

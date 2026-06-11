@@ -33,7 +33,7 @@ using Content.Shared.Stealth.Components;
 using Content.Shared._Goobstation.Heretic.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Traumas.Systems;
 using Content.Shared._Shitmed.Targeting;
-using Content.Shared._White.BackStab;
+using Content.Shared.ADT.BackStab;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Actions;
 using Content.Shared.Alert;
