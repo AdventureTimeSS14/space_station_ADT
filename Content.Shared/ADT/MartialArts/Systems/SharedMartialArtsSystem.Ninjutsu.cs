@@ -1,5 +1,17 @@
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+// SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System.Diagnostics.CodeAnalysis;
-using System.Numerics;
+using Content.Shared.ADT.MartialArts;
+using Content.Shared.ADT.MartialArts;
+using Content.Shared.ADT.MartialArts;
+using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Alert;
 using Content.Shared.Damage;
 using Content.Shared.Interaction.Events;
@@ -103,20 +115,15 @@ public abstract partial class SharedMartialArtsSystem
         }
 
         var (slowdownTime, muteTime) = (sneakAttack.TakedownSlowdownTime, sneakAttack.TakedownMuteTime);
-
-        // Inline backstab check (within 45-degree cone behind target)
-        if (TryBackstabCheck(target, ent, 45f))
+        if (_backstab.TryBackstab(target, ent, Angle.FromDegrees(45d), true, false, false))
         {
             slowdownTime *= sneakAttack.TakedownBackstabMultiplier;
             muteTime *= sneakAttack.TakedownBackstabMultiplier;
         }
 
         var modifier = sneakAttack.TakedownSpeedModifier;
-        _movementMod.TryUpdateMovementSpeedModDuration(target, MartsGenericSlow,
-            TimeSpan.FromSeconds(slowdownTime), modifier, modifier);
-
-        if (TryComp(target, out StatusEffectsComponent? targetStatus))
-            _status.TryAddStatusEffect<MutedComponent>(target, "Muted", TimeSpan.FromSeconds(muteTime), true, targetStatus);
+        _movementMod.TryUpdateMovementSpeedModDuration(target, MartsGenericSlow, TimeSpan.FromSeconds(slowdownTime), modifier, modifier);
+        _status.TryAddStatusEffect<MutedComponent>(target, "Muted", TimeSpan.FromSeconds(muteTime), true);
 
         _audio.PlayPvs(sneakAttack.AssassinateSoundUnarmed, target);
         ComboPopup(ent, target, sneakAttack.TakedownComboName);
@@ -148,7 +155,7 @@ public abstract partial class SharedMartialArtsSystem
         if (sneakAttack.Multiplier > 1f)
             ev.BonusDamage = ev.BaseDamage * (sneakAttack.Multiplier - 1f);
 
-        // Light attacks only (heavy attacks have Direction set)
+        // Heavy attack
         if (ev.Direction != null)
             return;
 
@@ -157,6 +164,7 @@ public abstract partial class SharedMartialArtsSystem
             return;
 
         // Assassinate
+
         var isUnarmed = uid == ev.Weapon;
         var damageType = isUnarmed ? "Blunt" : "Slash";
         var modifier = isUnarmed ? sneakAttack.AssassinateUnarmedModifier : sneakAttack.AssassinateModifier;
@@ -168,12 +176,13 @@ public abstract partial class SharedMartialArtsSystem
             },
             ArmorPenetration = sneakAttack.AssassinateArmorPierce,
         };
-        _damageable.TryChangeDamage(target, bonusDamage, origin: uid, canMiss: false);
+        _damageable.TryChangeDamage(target, bonusDamage, origin: uid, canMiss: false, targetPart: TargetBodyPart.Chest);
 
         if (_netManager.IsClient)
             return;
 
-        _audio.PlayPvs(isUnarmed ? sneakAttack.AssassinateSoundUnarmed : sneakAttack.AssassinateSoundArmed, target);
+        _audio.PlayPvs(isUnarmed ? sneakAttack.AssassinateSoundUnarmed : sneakAttack.AssassinateSoundArmed,
+            target);
         ComboPopup(uid, target, sneakAttack.AssassinateComboName);
     }
 
@@ -196,7 +205,7 @@ public abstract partial class SharedMartialArtsSystem
         if (args.Performer == args.Weapon)
             _stamina.TakeStaminaDamage(args.Target, 30f, applyResistances: true);
         var fireRate = TimeSpan.FromSeconds(1f / _melee.GetAttackRate(args.Weapon, args.Performer, melee));
-        var minFireRate = TimeSpan.FromSeconds(1f / 8f);
+        var minFireRate = TimeSpan.FromSeconds(1f / 8f); // This is basically the attack speed of a HF Blade.
 
         if (fireRate.TotalSeconds - fireRate.TotalSeconds / 2f <= minFireRate.TotalSeconds)
             return;
@@ -217,6 +226,7 @@ public abstract partial class SharedMartialArtsSystem
             return;
         }
 
+        // Paralyze, not knockdown
         var time = TimeSpan.FromSeconds(proto.ParalyzeTime);
         if (_status.TryGetTime(target, "KnockedDown", out var knockdownStartEnd))
         {
@@ -226,6 +236,7 @@ public abstract partial class SharedMartialArtsSystem
                 if (time > knockdownTime)
                     time = knockdownTime;
 
+                // We do not want to knockdown because it will stunlock the target
                 _stun.TryUpdateStunDuration(target, time);
             }
         }
@@ -281,26 +292,7 @@ public abstract partial class SharedMartialArtsSystem
             "LossOfSurprise",
             TimeSpan.FromSeconds(5),
             true);
-    }
 
-    /// <summary>
-    /// Checks if <paramref name="attacker"/> is within <paramref name="coneHalfAngleDeg"/> degrees of <paramref name="target"/>'s back.
-    /// </summary>
-    private bool TryBackstabCheck(EntityUid target, EntityUid attacker, float coneHalfAngleDeg)
-    {
-        var attackerPos = _transform.GetMapCoordinates(attacker).Position;
-        var targetPos = _transform.GetMapCoordinates(target).Position;
-        var targetFacing = _transform.GetWorldRotation(target).ToWorldVec();
-
-        if (targetFacing.LengthSquared() < 0.001f)
-            return false;
-
-        var dirToAttacker = attackerPos - targetPos;
-        if (dirToAttacker.LengthSquared() < 0.001f)
-            return false;
-
-        var dot = Vector2.Dot(Vector2.Normalize(dirToAttacker), Vector2.Normalize(new Vector2(targetFacing.X, targetFacing.Y)));
-        var threshold = MathF.Cos(coneHalfAngleDeg * MathF.PI / 180f);
-        return dot > threshold;
+        _stealth.TryRevealNinja(uid);
     }
 }
