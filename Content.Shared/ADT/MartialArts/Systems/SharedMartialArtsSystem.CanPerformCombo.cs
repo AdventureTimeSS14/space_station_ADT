@@ -1,8 +1,26 @@
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Lincoln McQueen <lincoln.mcqueen@gmail.com>
+// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System.Linq;
+using Content.Shared.ADT.MartialArts;
+using Content.Shared.ADT.MartialArts;
 using Content.Shared.Mobs.Components;
 
 namespace Content.Shared.ADT.MartialArts;
 
+/// <summary>
+/// This handles determining if a combo was performed.
+/// </summary>
 public partial class SharedMartialArtsSystem
 {
     private void InitializeCanPerformCombo()
@@ -89,6 +107,7 @@ public partial class SharedMartialArtsSystem
             if (success)
                 break;
 
+            // If we are targeting ourselves and combo doesn't allow it (or otherwise), then continue
             if (uid == target != proto.PerformOnSelf)
                 continue;
 
@@ -108,7 +127,6 @@ public partial class SharedMartialArtsSystem
             RaiseLocalEvent(uid, ev);
         }
     }
-
     private void OnComboBeingPerformed(Entity<CanPerformComboComponent> ent, ref ComboBeingPerformedEvent args)
     {
         ent.Comp.BeingPerformed = args.ProtoId;
