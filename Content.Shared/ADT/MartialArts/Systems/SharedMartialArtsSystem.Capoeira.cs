@@ -8,11 +8,9 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.ADT.MartialArts;
-using Content.Goobstation.Shared.Emoting;
-using Content.Shared.ADT.MartialArts;
-using Content.Shared.ADT.MartialArts;
+using Content.Shared.Emoting;
 using Content.Goobstation.Shared.Weapons.MeleeVulnerability;
-using Content.Goobstation.Shared.Sprinting;
+using Content.Shared.ADT.Traits;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Stunnable;

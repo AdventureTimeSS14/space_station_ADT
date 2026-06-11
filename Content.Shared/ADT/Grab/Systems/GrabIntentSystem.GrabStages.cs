@@ -1,7 +1,6 @@
 using System.Linq;
 using Content.Shared.ADT.Grab;
 using Content.Shared.ADT.MartialArts;
-using Content.Shared.ADT.Grab;
 using Content.Shared.Alert;
 using Content.Shared.CombatMode;
 using Content.Shared.Damage.Components;

@@ -2,7 +2,6 @@ using System.Linq;
 using System.Numerics;
 using Content.Shared.ADT.Grab;
 using Content.Shared._EinsteinEngines.Contests;
-using Content.Shared.ADT.Grab;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Alert;
 using Content.Shared.CombatMode;

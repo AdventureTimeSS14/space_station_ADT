@@ -9,7 +9,7 @@
 
 using Robust.Shared.Serialization;
 
-namespace  Content.Goobstation.Common.Grab;
+namespace  Content.Shared.ADT.Grab;
 
 [Serializable, NetSerializable]
 public enum GrabStage

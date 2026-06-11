@@ -7,8 +7,6 @@
 using System.Numerics;
 using Content.Shared.ADT.Grab;
 using Content.Shared.ADT.MartialArts;
-using Content.Shared.ADT.Grab;
-using Content.Shared.ADT.Grab;
 using Content.Shared.Damage;
 using Content.Shared.Hands;
 using Content.Shared.IdentityManagement;

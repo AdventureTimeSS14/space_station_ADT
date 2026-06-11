@@ -12,7 +12,6 @@
 
 using System.Linq;
 using Content.Shared.ADT.Grab;
-using Content.Shared.ADT.Grab;
 using Content.Shared._EinsteinEngines.Contests;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Actions.Events;
@@ -20,7 +19,7 @@ using Content.Shared.Climbing.Components;
 using Content.Shared.Coordinates;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Random.Helpers;

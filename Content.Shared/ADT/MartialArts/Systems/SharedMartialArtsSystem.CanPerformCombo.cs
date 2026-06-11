@@ -13,7 +13,6 @@
 
 using System.Linq;
 using Content.Shared.ADT.MartialArts;
-using Content.Shared.ADT.MartialArts;
 using Content.Shared.Mobs.Components;
 
 namespace Content.Shared.ADT.MartialArts;

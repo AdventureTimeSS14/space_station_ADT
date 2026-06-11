@@ -16,9 +16,8 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
-using Content.Goobstation.Shared.Changeling.Components;
+using Content.Shared.Changeling.Components;
 using Content.Goobstation.Shared.CustomFactionIcons;
-using Content.Shared.ADT.MartialArts;
 using Content.Shared.ADT.MartialArts;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction.Events;

@@ -15,7 +15,6 @@ using Robust.Shared.Physics.Events;
 using Robust.Shared.Player;
 using System.Numerics;
 using Content.Shared.Standing;
-using Content.Shared.Standing;
 using Content.Shared.Stunnable;
 using Robust.Shared.Physics.Components;
 

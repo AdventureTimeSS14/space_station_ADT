@@ -14,7 +14,7 @@
 
 using Content.Shared.ADT.Grab;
 using Content.Shared.ADT.MartialArts;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 using Content.Shared.Damage.Prototypes;
 using Robust.Shared.Prototypes;
 

@@ -1,5 +1,5 @@
 using Content.Shared.ADT.Grab;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 

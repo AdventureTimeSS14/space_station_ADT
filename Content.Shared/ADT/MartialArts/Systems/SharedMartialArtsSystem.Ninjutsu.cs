@@ -9,8 +9,6 @@
 
 using System.Diagnostics.CodeAnalysis;
 using Content.Shared.ADT.MartialArts;
-using Content.Shared.ADT.MartialArts;
-using Content.Shared.ADT.MartialArts;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Alert;
 using Content.Shared.Damage;
